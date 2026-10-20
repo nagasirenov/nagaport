@@ -44,9 +44,9 @@ public class MuzzleFlashPacket implements IMessage {
 		@SideOnly(Side.CLIENT)
 		@Override
 		public IMessage onMessage(MuzzleFlashPacket m, MessageContext ctx) {
-			EntityLivingBase entity = (EntityLivingBase) Minecraft.getMinecraft().theWorld.getEntityByID(m.entityID);
-			if(entity == null || entity == Minecraft.getMinecraft().thePlayer) return null; //packets are sent to the player who fired
-			ItemStack stack = entity.getHeldItem();
+			EntityLivingBase entity = (EntityLivingBase) Minecraft.getMinecraft().world.getEntityByID(m.entityID);
+			if(entity == null || entity == Minecraft.getMinecraft().player) return null; //packets are sent to the player who fired
+			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(entity);
 			if(stack == null) return null;
 			
 			if(stack.getItem() instanceof ItemGunBaseNT) {

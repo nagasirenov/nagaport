@@ -1,0 +1,12 @@
+{
+  "parent": "hbm:block/machine_electric_furnace_cube",
+  "textures": {
+    "down": "hbm:blocks/machine_electric_furnace_bottom",
+    "up": "hbm:blocks/machine_electric_furnace_top",
+    "north": "hbm:blocks/machine_electric_furnace_side",
+    "south": "hbm:blocks/machine_electric_furnace_side",
+    "west": "hbm:blocks/machine_electric_furnace_side",
+    "east": "hbm:blocks/machine_electric_furnace_front_off",
+    "particle": "hbm:blocks/machine_electric_furnace_top"
+  }
+}

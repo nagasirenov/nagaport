@@ -1,0 +1,1067 @@
+{
+  "baseline": "7baaa1782f8e037a4a39c685622e0370c8def86d",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "a168c461de2bdf4b6d056b2477fd7ac795defeffc760905eedba103e7b8d4a74",
+      "after_sha256": "546ab338c10986179c92fd22dab0e2a51399412ece3771424f32b9e95593c9dd",
+      "edits": [
+        {
+          "before_offset": 227621,
+          "after_offset": 227621,
+          "old": "\t\trbmk_rod = new RBMKRod(false).setBlockName(\"rbmk_rod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element\");\r\n\t\trbmk_rod_mod = new RBMKRod(true).setBlockName(\"rbmk_rod_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_mod\");\r\n\t\trbmk_rod_reasim = new RBMKRodReaSim(false).setBlockName(\"rbmk_rod_reasim\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_reasim\");\r\n\t\trbmk_rod_reasim_mod = new RBMKRodReaSim(true).setBlockName(\"rbmk_rod_reasim_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_reasim_mod\");\r\n\t\trbmk_control = new RBMKControl(false).setBlockName(\"rbmk_control\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control\");\r\n\t\trbmk_control_mod = new RBMKControl(true).setBlockName(\"rbmk_control_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_mod\");\r\n\t\trbmk_control_auto = new RBMKControlAuto().setBlockName(\"rbmk_control_auto\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_auto\");\r\n\t\trbmk_control_reasim = new RBMKControl(false).setBlockName(\"rbmk_control_reasim\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_reasim\");\r\n\t\trbmk_control_reasim_auto = new RBMKControlAuto().setBlockName(\"rbmk_control_reasim_auto\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_reasim_auto\");\r\n\t\trbmk_blank = new RBMKBlank().setBlockName(\"rbmk_blank\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_blank\");\r\n\t\trbmk_boiler = new RBMKBoiler().setBlockName(\"rbmk_boiler\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_boiler\");\r\n\t\trbmk_reflector = new RBMKReflector().setBlockName(\"rbmk_reflector\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_reflector\");\r\n\t\trbmk_absorber = new RBMKAbsorber().setBlockName(\"rbmk_absorber\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_absorber\");\r\n\t\trbmk_moderator = new RBMKModerator().setBlockName(\"rbmk_moderator\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_moderator\");\r\n\t\trbmk_outgasser = new RBMKOutgasser().setBlockName(\"rbmk_outgasser\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_outgasser\");\r\n\t\trbmk_storage = new RBMKStorage().setBlockName(\"rbmk_storage\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_storage\");\r\n\t\trbmk_cooler = new RBMKCooler().setBlockName(\"rbmk_cooler\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_cooler\");\r\n\t\trbmk_heater = new RBMKHeater().setBlockName(\"rbmk_heater\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_heater\");\r\n",
+          "new": "\t\trbmk_rod = new RBMKRod(false).setTranslationKey(\"rbmk_rod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_rod_mod = new RBMKRod(true).setTranslationKey(\"rbmk_rod_mod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_rod_reasim = new RBMKRodReaSim(false).setTranslationKey(\"rbmk_rod_reasim\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_rod_reasim_mod = new RBMKRodReaSim(true).setTranslationKey(\"rbmk_rod_reasim_mod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control = new RBMKControl(false).setTranslationKey(\"rbmk_control\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_mod = new RBMKControl(true).setTranslationKey(\"rbmk_control_mod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_auto = new RBMKControlAuto().setTranslationKey(\"rbmk_control_auto\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_reasim = new RBMKControl(false).setTranslationKey(\"rbmk_control_reasim\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_reasim_auto = new RBMKControlAuto().setTranslationKey(\"rbmk_control_reasim_auto\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_blank = new RBMKBlank().setTranslationKey(\"rbmk_blank\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_boiler = new RBMKBoiler().setTranslationKey(\"rbmk_boiler\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_reflector = new RBMKReflector().setTranslationKey(\"rbmk_reflector\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_absorber = new RBMKAbsorber().setTranslationKey(\"rbmk_absorber\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_moderator = new RBMKModerator().setTranslationKey(\"rbmk_moderator\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_outgasser = new RBMKOutgasser().setTranslationKey(\"rbmk_outgasser\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_storage = new RBMKStorage().setTranslationKey(\"rbmk_storage\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_cooler = new RBMKCooler().setTranslationKey(\"rbmk_cooler\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_heater = new RBMKHeater().setTranslationKey(\"rbmk_heater\").setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 341551,
+          "after_offset": 340491,
+          "old": "\t\tGameRegistry.registerBlock(rbmk_rod, rbmk_rod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_rod_mod, rbmk_rod_mod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_rod_reasim, rbmk_rod_reasim.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_rod_reasim_mod, rbmk_rod_reasim_mod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control, rbmk_control.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_mod, rbmk_control_mod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_auto, rbmk_control_auto.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_reasim, rbmk_control_reasim.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_reasim_auto, rbmk_control_reasim_auto.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_blank, rbmk_blank.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_boiler, rbmk_boiler.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_reflector, rbmk_reflector.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_absorber, rbmk_absorber.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_moderator, rbmk_moderator.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_outgasser, rbmk_outgasser.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_storage, rbmk_storage.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_cooler, rbmk_cooler.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_heater, rbmk_heater.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(rbmk_rod);\r\n\t\tregister(rbmk_rod_mod);\r\n\t\tregister(rbmk_rod_reasim);\r\n\t\tregister(rbmk_rod_reasim_mod);\r\n\t\tregister(rbmk_control);\r\n\t\tregister(rbmk_control_mod);\r\n\t\tregister(rbmk_control_auto);\r\n\t\tregister(rbmk_control_reasim);\r\n\t\tregister(rbmk_control_reasim_auto);\r\n\t\tregister(rbmk_blank);\r\n\t\tregister(rbmk_boiler);\r\n\t\tregister(rbmk_reflector);\r\n\t\tregister(rbmk_absorber);\r\n\t\tregister(rbmk_moderator);\r\n\t\tregister(rbmk_outgasser);\r\n\t\tregister(rbmk_storage);\r\n\t\tregister(rbmk_cooler);\r\n\t\tregister(rbmk_heater);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java": {
+      "before_sha256": "30e20bae0f795ef8dfa6d52564fbe8717cf160c6c4d9b1d62e5616ca2147aba7",
+      "after_sha256": "5a57416c4afa80018d65bdd2de4cd77aa8db949020b04727e58e10bfeff0ee2e",
+      "edits": [
+        {
+          "before_offset": 600,
+          "after_offset": 600,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 870,
+          "after_offset": 805,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\n"
+        },
+        {
+          "before_offset": 2040,
+          "after_offset": 2401,
+          "old": "",
+          "new": "\t/** Native rendering boundary only; core, inventory, lid installation and neutron mechanics remain unchanged. */\n\t@Override protected BlockStateContainer createBlockState() {\n\t\treturn new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {RBMKRenderState.RENDER});\n\t}\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override @SideOnly(Side.CLIENT) public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\tint meta = getMetaFromState(state), lid = LID_NONE;\n\t\tif(meta >= 6 && meta < 12 && !hasOwnLid()) {\n\t\t\tint[] core = findCore(world, pos.getX(), pos.getY(), pos.getZ());\n\t\t\tif(core != null) {\n\t\t\t\tIBlockState coreState = world.getBlockState(new net.minecraft.util.math.BlockPos(core[0], core[1], core[2]));\n\t\t\t\tlid = metaToLid(coreState.getBlock().getMetaFromState(coreState));\n\t\t\t}\n\t\t}\n\t\treturn ((IExtendedBlockState)state).withProperty(RBMKRenderState.RENDER, new RBMKRenderState.Snapshot(state, world, pos, meta, lid));\n\t}\n\tprotected IIcon blockIcon;\n\tprotected String getRBMKTexture() {\n\t\tRBMKRenderState.Profile profile = RBMKRenderState.profile(this);\n\t\tif(profile == null) throw new IllegalStateException(\"Unspecified RBMK texture owner \" + getRegistryName());\n\t\treturn profile.texture.replace(\":blocks/\", \":\");\n\t}\n\n"
+        },
+        {
+          "before_offset": 2163,
+          "after_offset": 4001,
+          "old": "\t\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\tif(overrideOnlyRenderSides && side < 2) return false;\n\t\tif(renderLid != LID_NONE && side > 1) return true;\n\t\treturn super.shouldSideBeRendered(world, x, y, z, side);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2695,
+          "after_offset": 4246,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2783,
+          "after_offset": 4323,
+          "old": "\t\tthis.blockIcon = reg.registerIcon(this.getTextureName() + \"_side\");\n\t\tthis.textureTop = reg.registerIcon(this.getTextureName() + \"_top\");\n",
+          "new": "\t\tthis.blockIcon = reg.registerIcon(this.getRBMKTexture() + \"_side\");\n\t\tthis.textureTop = reg.registerIcon(this.getRBMKTexture() + \"_top\");\n"
+        },
+        {
+          "before_offset": 2949,
+          "after_offset": 4489,
+          "old": "\t\tthis.coverTextureTop = reg.registerIcon(this.getTextureName() + \"_cover_top\");\n\t\tthis.coverTextureSide = reg.registerIcon(this.getTextureName() + \"_cover_side\");\n\t\tthis.glassTextureTop = reg.registerIcon(this.getTextureName() + \"_glass_top\");\n\t\tthis.glassTextureSide = reg.registerIcon(this.getTextureName() + \"_glass_side\");\n",
+          "new": "\t\tthis.coverTextureTop = reg.registerIcon(this.getRBMKTexture() + \"_cover_top\");\n\t\tthis.coverTextureSide = reg.registerIcon(this.getRBMKTexture() + \"_cover_side\");\n\t\tthis.glassTextureTop = reg.registerIcon(this.getRBMKTexture() + \"_glass_top\");\n\t\tthis.glassTextureSide = reg.registerIcon(this.getRBMKTexture() + \"_glass_side\");\n"
+        },
+        {
+          "before_offset": 3281,
+          "after_offset": 4821,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 8163,
+          "after_offset": 9692,
+          "old": "\tpublic static int renderIDRods = RenderingRegistry.getNextAvailableRenderId();\n\tpublic static int renderIDPassive = RenderingRegistry.getNextAvailableRenderId();\n\tpublic static int renderIDControl = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\t// Retained NTM family tags for existing descendant hooks, not native engine render IDs.\n\tpublic static final int renderIDRods = 1;\n\tpublic static final int renderIDPassive = 2;\n\tpublic static final int renderIDControl = 3;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControl.java": {
+      "before_sha256": "28a174be3cfa15deb3cda92f6e46dca961ae9a5c646b0d3eb82dcdcfda6ec2b7",
+      "after_sha256": "febd8b20f2f7b8bc6ead3c8f0d03f876942360931fe229a4c90ad970546000a1",
+      "edits": [
+        {
+          "before_offset": 904,
+          "after_offset": 904,
+          "old": "\t\t\tthis.textureBottom = reg.registerIcon(this.getTextureName() + \"_bottom\");\n",
+          "new": "\t\t\tthis.textureBottom = reg.registerIcon(this.getRBMKTexture() + \"_bottom\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControlAuto.java": {
+      "before_sha256": "e5ce84669766403c9f0da5f24706b4b374672196c986df6ef18efeaca95ba039",
+      "after_sha256": "90d580ab43ece28ae758d78123be33a4650c8752222d725856445620c899c8fc",
+      "edits": [
+        {
+          "before_offset": 740,
+          "after_offset": 740,
+          "old": "\t\t\tthis.textureBottom = reg.registerIcon(this.getTextureName() + \"_bottom\");\n",
+          "new": "\t\t\tthis.textureBottom = reg.registerIcon(this.getRBMKTexture() + \"_bottom\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKPipedBase.java": {
+      "before_sha256": "1782588fdb0d13a400efadb84acc2005c551b340fea8fbdd7d81eda29d039a29",
+      "after_sha256": "fe87a244e798bbabb33c69704ce4b95a62644dedd964115b9458a7e47568df3c",
+      "edits": [
+        {
+          "before_offset": 498,
+          "after_offset": 498,
+          "old": "\t\tthis.pipeTextureTop = reg.registerIcon(this.getTextureName() + \"_pipe_top\");\n\t\tthis.pipeTextureSide = reg.registerIcon(this.getTextureName() + \"_pipe_side\");\n",
+          "new": "\t\tthis.pipeTextureTop = reg.registerIcon(this.getRBMKTexture() + \"_pipe_top\");\n\t\tthis.pipeTextureSide = reg.registerIcon(this.getRBMKTexture() + \"_pipe_side\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java": {
+      "before_sha256": "5b5a864aaeff379a83d6bb2ead3ecebc59556db658b5717ada481cceca3537f4",
+      "after_sha256": "7ef98f190a98343d82ed97c333accafaa0a4ba5fd7da82de1b09145bd9ae3b96",
+      "edits": [
+        {
+          "before_offset": 1978,
+          "after_offset": 1978,
+          "old": "\t\tthis.inner = reg.registerIcon(this.getTextureName() + \"_inner\");\n\t\tthis.fuel = reg.registerIcon(this.getTextureName() + \"_fuel\");\n",
+          "new": "\t\tthis.inner = reg.registerIcon(this.getRBMKTexture() + \"_inner\");\n\t\tthis.fuel = reg.registerIcon(this.getRBMKTexture() + \"_fuel\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCyberCrab.java": {
+      "before_sha256": "b7d3fa9bd3ac5d7fea1b49dc6ae1c87bf55367484f45ae47520a52a4ec8d3ad3",
+      "after_sha256": "27fe28dcb647abc4bce555e2a8bb71c3212c3789ce2e293cf1a7601f5ec324a6",
+      "edits": [
+        {
+          "before_offset": 459,
+          "after_offset": 459,
+          "old": "import net.minecraft.entity.ai.EntityAIArrowAttack;\n",
+          "new": "import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;\n"
+        },
+        {
+          "before_offset": 1827,
+          "after_offset": 1828,
+          "old": "\tprotected EntityAIArrowAttack arrowAI() {\n\t\treturn new EntityAIArrowAttack(this, 0.5D, 60, 80, 15.0F);\n",
+          "new": "\tprotected EntityAIRangedAttackNT arrowAI() {\n\t\treturn new EntityAIRangedAttackNT(this, 0.5D, 60, 80, 15.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "ba62aee4a3af3e31c187ed8980cabf31b07714f6ccabc535bfd7806f2661b2f5",
+      "after_sha256": "28e1c01aeb3f61933e7b1c5f06ea8432ddaebc6f430b77d640a770e3d1e96181",
+      "edits": [
+        {
+          "before_offset": 622,
+          "after_offset": 622,
+          "old": "import net.minecraft.entity.ai.EntityAIArrowAttack;\nimport net.minecraft.entity.ai.EntityAIAttackOnCollide;\n",
+          "new": "import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;\nimport com.hbm.entity.mob.ai.EntityAIFBIMelee;\n"
+        },
+        {
+          "before_offset": 1944,
+          "after_offset": 1936,
+          "old": "\t\tthis.tasks.addTask(2, new EntityAIArrowAttack(this, 1D, 20, 25, 15.0F));\n\t\tthis.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));\n",
+          "new": "\t\tthis.tasks.addTask(2, new EntityAIRangedAttackNT(this, 1D, 20, 25, 15.0F));\n\t\tthis.tasks.addTask(3, new EntityAIFBIMelee(this));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTaintCrab.java": {
+      "before_sha256": "0b847036d72937a9fc3b11aa52f7da5ad60d16871c540be3c7304cb8e315a64e",
+      "after_sha256": "fa25fa296e8a0665594526e60fd1ee7b9eb1bb7c33e007ac72416a57d9528c8e",
+      "edits": [
+        {
+          "before_offset": 583,
+          "after_offset": 583,
+          "old": "import net.minecraft.entity.ai.EntityAIArrowAttack;\n",
+          "new": "import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;\n"
+        },
+        {
+          "before_offset": 1109,
+          "after_offset": 1110,
+          "old": "\tprotected EntityAIArrowAttack arrowAI() {\n\t\treturn new EntityAIArrowAttack(this, 0.5D, 5, 5, 50.0F);\n",
+          "new": "\tprotected EntityAIRangedAttackNT arrowAI() {\n\t\treturn new EntityAIRangedAttackNT(this, 0.5D, 5, 5, 50.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "9e75d7a670353f5931ffda91d5362d408780aa303e8202346394e4f902051088",
+      "after_sha256": "6ca022ab883eb8d4dd549c192e40a647d9c50b6ce16741a0990891066af36629",
+      "edits": [
+        {
+          "before_offset": 1710,
+          "after_offset": 1710,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 2475,
+          "after_offset": 2640,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> RENDER_STYLE = EntityDataManager.createKey(EntityBulletBaseNT.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Byte> RENDER_TRAIL = EntityDataManager.createKey(EntityBulletBaseNT.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBaseNT.class, DataSerializers.VARINT);\n\n\tpublic int getRenderStyle() { return this.dataManager.get(RENDER_STYLE); }\n\tpublic int getRenderTrail() { return this.dataManager.get(RENDER_TRAIL); }\n"
+        },
+        {
+          "before_offset": 3472,
+          "after_offset": 4199,
+          "old": "\t\tthis.dataWatcher.updateObject(18, config);\n\t\tthis.dataWatcher.updateObject(16, (byte)this.config.style);\n\t\tthis.dataWatcher.updateObject(17, (byte)this.config.trail);\n",
+          "new": "\t\tthis.dataManager.set(BULLET_CONFIG, config);\n\t\tthis.dataManager.set(RENDER_STYLE, (byte)this.config.style);\n\t\tthis.dataManager.set(RENDER_TRAIL, (byte)this.config.trail);\n"
+        },
+        {
+          "before_offset": 3929,
+          "after_offset": 4660,
+          "old": "\t\tthis.dataWatcher.updateObject(18, config);\n\t\tthis.dataWatcher.updateObject(16, (byte)this.config.style);\n\t\tthis.dataWatcher.updateObject(17, (byte)this.config.trail);\n",
+          "new": "\t\tthis.dataManager.set(BULLET_CONFIG, config);\n\t\tthis.dataManager.set(RENDER_STYLE, (byte)this.config.style);\n\t\tthis.dataManager.set(RENDER_TRAIL, (byte)this.config.trail);\n"
+        },
+        {
+          "before_offset": 5438,
+          "after_offset": 6173,
+          "old": "\t\tthis.dataWatcher.updateObject(18, config);\n\t\tthis.dataWatcher.updateObject(16, (byte)this.config.style);\n\t\tthis.dataWatcher.updateObject(17, (byte)this.config.trail);\n",
+          "new": "\t\tthis.dataManager.set(BULLET_CONFIG, config);\n\t\tthis.dataManager.set(RENDER_STYLE, (byte)this.config.style);\n\t\tthis.dataManager.set(RENDER_TRAIL, (byte)this.config.trail);\n"
+        },
+        {
+          "before_offset": 6446,
+          "after_offset": 7185,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(RENDER_STYLE, Byte.valueOf((byte) 0));\n"
+        },
+        {
+          "before_offset": 6514,
+          "after_offset": 7262,
+          "old": "\t\tthis.dataWatcher.addObject(17, Byte.valueOf((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(RENDER_TRAIL, Byte.valueOf((byte) 0));\n"
+        },
+        {
+          "before_offset": 6595,
+          "after_offset": 7352,
+          "old": "\t\tthis.dataWatcher.addObject(18, Integer.valueOf((int) 0));\n",
+          "new": "\t\tthis.dataManager.register(BULLET_CONFIG, Integer.valueOf((int) 0));\n"
+        },
+        {
+          "before_offset": 6697,
+          "after_offset": 7464,
+          "old": "\t\tif(config == null) config = BulletConfigSyncingUtil.pullConfig(dataWatcher.getWatchableObjectInt(18));\n",
+          "new": "\t\tif(config == null) config = BulletConfigSyncingUtil.pullConfig(dataManager.get(BULLET_CONFIG));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "7ad5d343b4925d99741ccbb18aa983ae3ea7fb1811d118401defe45f7fdca5c5",
+      "after_sha256": "aa22ae486fe9e8131da418f44c5afd3e6a36f061933b658145898f8f5a9c56a3",
+      "edits": [
+        {
+          "before_offset": 473,
+          "after_offset": 473,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 859,
+          "after_offset": 1024,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> STUCK_FACE = EntityDataManager.createKey(EntityThrowableNT.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 1290,
+          "after_offset": 1587,
+          "old": "\t\tthis.dataWatcher.addObject(2, Byte.valueOf((byte)0));\n",
+          "new": "\t\tthis.dataManager.register(STUCK_FACE, Byte.valueOf((byte)0));\n"
+        },
+        {
+          "before_offset": 1387,
+          "after_offset": 1692,
+          "old": "\t\tthis.dataWatcher.updateObject(2, (byte) side);\n",
+          "new": "\t\tthis.dataManager.set(STUCK_FACE, (byte) side);\n"
+        },
+        {
+          "before_offset": 1468,
+          "after_offset": 1773,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(2);\n",
+          "new": "\t\treturn this.dataManager.get(STUCK_FACE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemChopper.java": {
+      "before_sha256": "17f739d437202c7f8ae912fd013a562bbd996e45827e88f42165518333fa4611",
+      "after_sha256": "ad21910d6461c77f285f0719938b560b1904f9c3ff5715ad37f6c815cc3a8dca",
+      "edits": [
+        {
+          "before_offset": 340,
+          "after_offset": 340,
+          "old": "",
+          "new": "import net.minecraft.block.BlockFence;\nimport net.minecraft.client.util.ITooltipFlag;\nimport net.minecraft.util.ActionResult;\nimport net.minecraft.util.EnumActionResult;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 669,
+          "after_offset": 954,
+          "old": "import net.minecraft.util.Facing;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 880,
+          "after_offset": 1131,
+          "old": "\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing face, float hitX, float hitY, float hitZ) {\n\t\tItemStack stack = player.getHeldItem(hand);\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1052,
+          "after_offset": 1410,
+          "old": "\t\t\treturn true;\n",
+          "new": "\t\t\treturn EnumActionResult.SUCCESS;\n"
+        },
+        {
+          "before_offset": 1083,
+          "after_offset": 1461,
+          "old": "\t\t\tBlock block = world.getBlock(x, y, z);\n",
+          "new": "\t\t\tBlock block = world.getBlockState(pos).getBlock();\n"
+        },
+        {
+          "before_offset": 1129,
+          "after_offset": 1519,
+          "old": "\t\t\tx += Facing.offsetsXForSide[side];\n\t\t\ty += Facing.offsetsYForSide[side];\n\t\t\tz += Facing.offsetsZForSide[side];\n",
+          "new": "\t\t\tx += face.getXOffset();\n\t\t\ty += face.getYOffset();\n\t\t\tz += face.getZOffset();\n"
+        },
+        {
+          "before_offset": 1269,
+          "after_offset": 1626,
+          "old": "\t\t\tif(side == 1 && block.getRenderType() == 11)\n",
+          "new": "\t\t\tif(face == EnumFacing.UP && block instanceof BlockFence)\n"
+        },
+        {
+          "before_offset": 1653,
+          "after_offset": 2022,
+          "old": "\t\t\t\t\t--stack.stackSize;\n",
+          "new": "\t\t\t\t\tstack.shrink(1);\n"
+        },
+        {
+          "before_offset": 1689,
+          "after_offset": 2056,
+          "old": "\t\t\treturn true;\n",
+          "new": "\t\t\treturn EnumActionResult.SUCCESS;\n"
+        },
+        {
+          "before_offset": 1725,
+          "after_offset": 2112,
+          "old": "\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n",
+          "new": "\tpublic ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {\n\t\tItemStack stack = player.getHeldItem(hand);\n"
+        },
+        {
+          "before_offset": 1839,
+          "after_offset": 2284,
+          "old": "\t\t\treturn stack;\n",
+          "new": "\t\t\treturn new ActionResult<>(EnumActionResult.PASS, stack);\n"
+        },
+        {
+          "before_offset": 1871,
+          "after_offset": 2359,
+          "old": "\t\t\tRayTraceResult movingobjectposition = player.rayTrace(5.0D, 1.0F, true);\n",
+          "new": "\t\t\tRayTraceResult movingobjectposition = this.rayTrace(world, player, true);\n"
+        },
+        {
+          "before_offset": 1986,
+          "after_offset": 2475,
+          "old": "\t\t\t\treturn stack;\n",
+          "new": "\t\t\t\treturn new ActionResult<>(EnumActionResult.PASS, stack);\n"
+        },
+        {
+          "before_offset": 2291,
+          "after_offset": 2823,
+          "old": "\t\t\t\t\t\treturn stack;\n",
+          "new": "\t\t\t\t\t\treturn new ActionResult<>(EnumActionResult.PASS, stack);\n"
+        },
+        {
+          "before_offset": 2394,
+          "after_offset": 2969,
+          "old": "\t\t\t\t\t\treturn stack;\n",
+          "new": "\t\t\t\t\t\treturn new ActionResult<>(EnumActionResult.PASS, stack);\n"
+        },
+        {
+          "before_offset": 2803,
+          "after_offset": 3421,
+          "old": "\t\t\t\t\t\t\t\t--stack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\t\tstack.shrink(1);\n"
+        },
+        {
+          "before_offset": 2839,
+          "after_offset": 3455,
+          "old": "",
+          "new": "\t\t\t\t\t\t\treturn new ActionResult<>(EnumActionResult.SUCCESS, stack);\n"
+        },
+        {
+          "before_offset": 2861,
+          "after_offset": 3544,
+          "old": "\t\t\t\treturn stack;\n",
+          "new": "\t\t\t\treturn new ActionResult<>(EnumActionResult.PASS, stack);\n"
+        },
+        {
+          "before_offset": 3535,
+          "after_offset": 4261,
+          "old": "\t\t\tentity.setLocationAndAngles(x, y, z, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);\n",
+          "new": "\t\t\tentity.setLocationAndAngles(x, y, z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);\n"
+        },
+        {
+          "before_offset": 3768,
+          "after_offset": 4485,
+          "old": "\t\t\tentityliving.onSpawnWithEgg((IEntityLivingData) null);\n\t\t\tworld.spawnEntityInWorld(entity);\n",
+          "new": "\t\t\tentityliving.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(entity)), (IEntityLivingData) null);\n\t\t\tworld.spawnEntity(entity);\n"
+        },
+        {
+          "before_offset": 3900,
+          "after_offset": 4664,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "c15df237c0755601fee8d5755eed74aeedf25357a8103fa3ef5225364cbe2c15",
+      "after_sha256": "61c3b24b8a2dca63d7765c46b852d1cf03aa37ae5a35c3eaa5a4af36f2891ea9",
+      "edits": [
+        {
+          "before_offset": 53812,
+          "after_offset": 53812,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseNT.class, new RenderBullet());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseNT.class, RenderBullet::new);\n"
+        },
+        {
+          "before_offset": 80652,
+          "after_offset": 80651,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKRod());\n\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKReflector());\n\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKControl());\n",
+          "new": "\t\t// RBMKModelHandler owns the eighteen native column block/item models.\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderRBMKControl.java": {
+      "before_sha256": "f0f9921f340ba99ca21f39fd100daf464b404bff29bb69e1e99f9b0b7735f04f",
+      "after_sha256": "9f3569968e8fae2d8b935a22934c28140050dcd77af40a87bd60b3fe28a5513c",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.mesh.ObjMesh;\nimport com.hbm.render.block.nativeblock.*;\nimport com.hbm.render.block.nativeblock.RBMKGeometry.Part;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 190,
+          "old": "import com.hbm.blocks.BlockDummyable;\nimport com.hbm.blocks.ModBlocks;\nimport com.hbm.blocks.machine.rbmk.RBMKBase;\nimport com.hbm.blocks.machine.rbmk.RBMKPipedBase;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport com.hbm.lib.ForgeDirection;\n\npublic class RenderRBMKControl implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tRBMKBase.renderLid = RBMKBase.LID_NONE;\n\t\tIIcon iicon = block.getIcon(1, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.75, 0);\n\t\tGL11.glScalef(0.35F, 0.35F, 0.35F);\n\t\t\n\t\tfor(int i = 0; i < 4; i++) {\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.UP.ordinal(), 0));\n\t\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.DOWN.ordinal(), 0));\n\t\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.NORTH.ordinal(), 0));\n\t\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.SOUTH.ordinal(), 0));\n\t\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.EAST.ordinal(), 0));\n\t\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.WEST.ordinal(), 0));\n\t\t\ttessellator.draw();\n\t\t\tif(i < 3) GL11.glTranslated(0, 1, 0);\n\t\t}\n\n\t\tRBMKPipedBase.renderPipes = true;\n\t\ttessellator.startDrawingQuads();\n\t\trenderer.setRenderBounds(0.0625, 0, 0.0625, 0.4375, 0.125, 0.4375);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.UP.ordinal(), 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.NORTH.ordinal(), 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.SOUTH.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.EAST.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.WEST.ordinal(), 0));\n\t\trenderer.setRenderBounds(0.0625, 0, 0.5625, 0.4375, 0.125, 0.9375);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.UP.ordinal(), 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.NORTH.ordinal(), 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.SOUTH.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.EAST.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.WEST.ordinal(), 0));\n\t\trenderer.setRenderBounds(0.5625, 0, 0.5625, 0.9375, 0.125, 0.9375);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.UP.ordinal(), 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.NORTH.ordinal(), 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.SOUTH.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.EAST.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.WEST.ordinal(), 0));\n\t\trenderer.setRenderBounds(0.5625, 0, 0.0625, 0.9375, 0.125, 0.4375);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.UP.ordinal(), 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.NORTH.ordinal(), 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.SOUTH.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.EAST.ordinal(), 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 1, -0.5, block.getIcon(ForgeDirection.WEST.ordinal(), 0));\n\t\ttessellator.draw();\n\t\tRBMKPipedBase.renderPipes = false;\n\n\t\tif(block != ModBlocks.rbmk_boiler && block != ModBlocks.rbmk_heater) {\n\t\t\ttessellator.startDrawingQuads();\n\t\t\tObjUtil.renderPartWithIcon(ResourceManager.rbmk_rods, \"Lid\", iicon, tessellator, 0, true);\n\t\t\ttessellator.draw();\n\t\t}\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\n\t\tif(meta >= 6 && meta < 12) {\n\t\t\t\n\t\t\tboolean hasLid = false;\n\t\t\tif(block == ModBlocks.rbmk_boiler || block == ModBlocks.rbmk_heater) {\n\t\t\t\t\n\t\t\t\tint[] pos = ((BlockDummyable) block).findCore(world, x, y, z);\n\t\t\t\tif(pos != null) {\n\t\t\t\t\tint coreMeta = world.getBlockMetadata(pos[0], pos[1], pos[2]);\n\t\t\t\t\tint lid = RBMKBase.metaToLid(coreMeta);\n\n\t\t\t\t\tif(lid != RBMKBase.LID_NONE) {\n\t\t\t\t\t\trenderer.setRenderBounds(0, 0, 0, 1, 0.25, 1);\n\t\t\t\t\t\tRBMKBase.renderLid = lid;\n\t\t\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\t\t\tRBMKBase.renderLid = RBMKBase.LID_NONE;\n\t\t\t\t\t\thasLid = true;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif(!hasLid) {\n\t\t\t\tRBMKPipedBase.renderPipes = true;\n\t\t\t\trenderer.setRenderBounds(0.0625, 0, 0.0625, 0.4375, 0.125, 0.4375);\n\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\trenderer.setRenderBounds(0.0625, 0, 0.5625, 0.4375, 0.125, 0.9375);\n\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\trenderer.setRenderBounds(0.5625, 0, 0.5625, 0.9375, 0.125, 0.9375);\n\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\trenderer.setRenderBounds(0.5625, 0, 0.0625, 0.9375, 0.125, 0.4375);\n\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\tRBMKPipedBase.renderPipes = false;\n\t\t\t}\n\t\t} else {\n\t\t}\n\n\t\treturn true;\n\t}\n\n\t@Override public boolean shouldRender3DInInventory(int modelId) { return true; }\n\t@Override public int getRenderId() { return RBMKBase.renderIDControl; }\n",
+          "new": "/** Original four pipe caps and inventory-only control lid, without global render flags. */\npublic final class RenderRBMKControl {\n    private RenderRBMKControl() { }\n    public static List<Part> bake(RBMKMaterials materials, ObjMesh control, boolean item, int lid, boolean extra) {\n        List<Part> out = new ArrayList<>();\n        for(int segment = 0; segment < (item ? 4 : 1); segment++)\n            RBMKGeometry.cube(out, materials, 0, false, item, 63, 0, 0, 0, 1, 1, 1, segment, -.75);\n        if(!item && !materials.profile.ownLid && lid != 0 && extra)\n            RBMKGeometry.cube(out, materials, lid, false, false, 63, 0, 0, 0, 1, .25, 1, 1, 0);\n        else if(item || extra) {\n            double[][] corners = {{.0625, .0625}, {.0625, .5625}, {.5625, .5625}, {.5625, .0625}};\n            for(double[] corner : corners) RBMKGeometry.cube(out, materials, 0, true, item, item ? 62 : 63,\n                    corner[0], 0, corner[1], corner[0] + .375, .125, corner[1] + .375, item ? 4 : 1, -.75);\n        }\n        if(item && materials.profile.ownLid)\n            RBMKGeometry.obj(out, control, \"Lid\", materials.face(1, 0, false), true, true, 0xffffff, true, 3, -.75);\n        return RBMKGeometry.immutable(out);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderRBMKReflector.java": {
+      "before_sha256": "9efd25eeb79895f938b14bd37363aa17720a2ec8f79c9070a4cb61461331b271",
+      "after_sha256": "92d091bdca4a78810e43c3761553e268b88663358523cb3252a8e4a7db3e8334",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.nativeblock.*;\nimport com.hbm.render.block.nativeblock.RBMKGeometry.Part;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 154,
+          "old": "import com.hbm.blocks.BlockDummyable;\nimport com.hbm.blocks.machine.rbmk.RBMKBase;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\nimport com.hbm.lib.ForgeDirection;\n\npublic class RenderRBMKReflector implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tRBMKBase.renderLid = RBMKBase.LID_NONE;\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tGL11.glTranslated(0, -0.675, 0);\n\t\tGL11.glScalef(0.35F, 0.35F, 0.35F);\n\t\t\n\t\tfor(int i = 0; i < 4; i++) {\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.UP.ordinal(), 0));\n\t\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.DOWN.ordinal(), 0));\n\t\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.NORTH.ordinal(), 0));\n\t\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.SOUTH.ordinal(), 0));\n\t\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.EAST.ordinal(), 0));\n\t\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 0, -0.5, block.getIcon(ForgeDirection.WEST.ordinal(), 0));\n\t\t\ttessellator.draw();\n\t\t\tGL11.glTranslated(0, 1, 0);\n\t\t}\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\trenderer.setRenderBounds(0, 0, 0, 1, 1, 1);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\n\t\tif(meta >= 6 && meta < 12) {\n\t\t\tint[] pos = ((BlockDummyable) block).findCore(world, x, y, z);\n\t\t\tif(pos != null) {\n\t\t\t\tint coreMeta = world.getBlockMetadata(pos[0], pos[1], pos[2]);\n\t\t\t\tint lid = RBMKBase.metaToLid(coreMeta);\n\n\t\t\t\tif(lid != RBMKBase.LID_NONE) {\n\t\t\t\t\trenderer.setRenderBounds(0, 0, 0, 1, 0.25, 1);\n\t\t\t\t\tRBMKBase.renderLid = lid;\n\t\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\t\tRBMKBase.renderLid = RBMKBase.LID_NONE;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn true;\n\t}\n\n\t@Override public boolean shouldRender3DInInventory(int modelId) { return true; }\n\t@Override public int getRenderId() { return RBMKBase.renderIDPassive; }\n",
+          "new": "/** Original passive-column geometry, shared by precisely seven registered owners. */\npublic final class RenderRBMKReflector {\n    private RenderRBMKReflector() { }\n    public static List<Part> bake(RBMKMaterials materials, boolean item, int lid) {\n        List<Part> out = new ArrayList<>();\n        if(item) for(int segment = 0; segment < 4; segment++)\n            RBMKGeometry.cube(out, materials, 0, false, true, 63, 0, 0, 0, 1, 1, 1, segment, -.675);\n        else {\n            RBMKGeometry.cube(out, materials, 0, false, false, 63, 0, 0, 0, 1, 1, 1, 0, 0);\n            if(lid != 0) RBMKGeometry.cube(out, materials, lid, false, false, 63, 0, 0, 0, 1, .25, 1, 1, 0);\n        }\n        return RBMKGeometry.immutable(out);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderRBMKRod.java": {
+      "before_sha256": "e25adcc043a502fe00507bffb8a61e6cdcf976fe6e02de63d98b177ff0855980",
+      "after_sha256": "1d5f1864b025553b7b7b6627d6b3b27d5d7b028958ff59ad98ad95116383db46",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.mesh.ObjMesh;\nimport com.hbm.render.block.nativeblock.*;\nimport com.hbm.render.block.nativeblock.RBMKGeometry.Part;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 190,
+          "old": "import com.hbm.blocks.BlockDummyable;\nimport com.hbm.blocks.machine.rbmk.RBMKBase;\nimport com.hbm.blocks.machine.rbmk.RBMKRod;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderRBMKRod implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tRBMKRod rod = (RBMKRod) block;\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tRBMKBase.renderLid = RBMKBase.LID_NONE;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\tIIcon sideIcon = block.getIcon(2, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.675, 0);\n\t\tGL11.glScalef(0.35F, 0.35F, 0.35F);\n\t\t\n\t\tfor(int i = 0; i < 4; i++) {\n\t\t\ttessellator.startDrawingQuads();\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rbmk_element, \"Inner\", rod.inner, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rbmk_element, \"Cap\", iicon, tessellator, 0, false);\n\t\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, -0.5, 0, -0.5, sideIcon);\n\t\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, -0.5, 0, -0.5, sideIcon);\n\t\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, -0.5, 0, -0.5, sideIcon);\n\t\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, -0.5, 0, -0.5, sideIcon);\n\t\t\ttessellator.draw();\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setColorOpaque_I(0x304825);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rbmk_element_rods, \"Rods\", rod.fuel, tessellator, 0, false);\n\t\t\ttessellator.draw();\n\t\t\tGL11.glTranslated(0, 1, 0);\n\t\t}\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tRBMKRod rod = (RBMKRod) block;\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tIIcon iicon = block.getIcon(0, meta);\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\trenderer.setRenderBounds(0, 0, 0, 1, 1, 1);\n\t\trod.overrideOnlyRenderSides = true;\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\trod.overrideOnlyRenderSides = false;\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rbmk_element, \"Cap\", iicon, tessellator, 0, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rbmk_element, \"Inner\", rod.inner, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\t\t\n\t\tif(meta >= 6 && meta < 12) {\n\t\t\tint[] pos = ((BlockDummyable) block).findCore(world, x, y, z);\n\t\t\tif(pos != null) {\n\t\t\t\tint coreMeta = world.getBlockMetadata(pos[0], pos[1], pos[2]);\n\t\t\t\tint lid = RBMKBase.metaToLid(coreMeta);\n\n\t\t\t\tif(lid != RBMKBase.LID_NONE) {\n\t\t\t\t\trenderer.setRenderBounds(0, 0, 0, 1, 0.25, 1);\n\t\t\t\t\tRBMKBase.renderLid = lid;\n\t\t\t\t\trenderer.renderStandardBlock(block, x, y + 1, z);\n\t\t\t\t\tRBMKBase.renderLid = RBMKBase.LID_NONE;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn true;\n\t}\n\n\t@Override public boolean shouldRender3DInInventory(int modelId) { return true; }\n\t@Override public int getRenderId() { return RBMKBase.renderIDRods; }\n",
+          "new": "/** Original fuel-channel shell, cap and inner mesh; fuel rods belong only to its inventory model. */\npublic final class RenderRBMKRod {\n    private RenderRBMKRod() { }\n    public static List<Part> bake(RBMKMaterials materials, ObjMesh element, ObjMesh rods, boolean item, int lid) {\n        List<Part> out = new ArrayList<>();\n        if(item) for(int segment = 0; segment < 4; segment++) {\n            RBMKGeometry.obj(out, element, \"Inner\", materials.texture(\"_inner\"), true, false, 0xffffff, false, segment, -.675);\n            RBMKGeometry.obj(out, element, \"Cap\", materials.face(0, 0, false), true, false, 0xffffff, true, segment, -.675);\n            RBMKGeometry.cube(out, materials, 0, false, true, 60, 0, 0, 0, 1, 1, 1, segment, -.675);\n            RBMKGeometry.obj(out, rods, \"Rods\", materials.texture(\"_fuel\"), true, false, 0x304825, false, segment, -.675);\n        } else {\n            RBMKGeometry.cube(out, materials, 0, false, false, 60, 0, 0, 0, 1, 1, 1, 0, 0);\n            RBMKGeometry.obj(out, element, \"Cap\", materials.face(0, 0, false), false, true, 0xffffff, true, 0, 0);\n            RBMKGeometry.obj(out, element, \"Inner\", materials.texture(\"_inner\"), false, true, 0xffffff, false, 0, 0);\n            if(lid != 0) RBMKGeometry.cube(out, materials, lid, false, false, 63, 0, 0, 0, 1, .25, 1, 1, 0);\n        }\n        return RBMKGeometry.immutable(out);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderBullet.java": {
+      "before_sha256": "415407dbdbe328f4569bb68994fa463adbd887c6201baf71809fcc238330051b",
+      "after_sha256": "72a82e65cafbc375664d4f7b28d9233ed15538ee2d2b620635870810f87f59ce",
+      "edits": [
+        {
+          "before_offset": 99,
+          "after_offset": 99,
+          "old": "import org.lwjgl.opengl.GL12;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 600,
+          "after_offset": 570,
+          "old": "",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 722,
+          "after_offset": 746,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft.client.renderer.vertex.VertexFormat;\n"
+        },
+        {
+          "before_offset": 774,
+          "after_offset": 1027,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1139,
+          "after_offset": 1336,
+          "old": "",
+          "new": "/** State writes also update the native cache, but remain unconditional for\n * existing raw-GL callers. Do not remove the raw write before its cache update. */\n"
+        },
+        {
+          "before_offset": 1151,
+          "after_offset": 1508,
+          "old": "public class RenderBullet extends Render {\n",
+          "new": "public class RenderBullet extends Render<EntityBulletBaseNT> {\n"
+        },
+        {
+          "before_offset": 1195,
+          "after_offset": 1572,
+          "old": "\tprivate ModelBullet bullet;\n",
+          "new": "\tprivate static final VertexFormat TRAIL_FORMAT = new VertexFormat()\n\t\t\t.addElement(DefaultVertexFormats.POSITION_3F).addElement(DefaultVertexFormats.COLOR_4UB)\n\t\t\t.addElement(DefaultVertexFormats.NORMAL_3B).addElement(DefaultVertexFormats.PADDING_1B);\n\tprivate final NativeMachineItemRenderer items = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 1225,
+          "after_offset": 1908,
+          "old": "\tpublic RenderBullet() {\n",
+          "new": "\tprivate final ModelBullet bullet;\n\n\tpublic RenderBullet(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        },
+        {
+          "before_offset": 1295,
+          "after_offset": 2065,
+          "old": "\tpublic void doRender(Entity bullet, double x, double y, double z, float f0, float f1) {\n",
+          "new": "\tpublic void doRender(EntityBulletBaseNT bullet, double x, double y, double z, float f0, float f1) {\n"
+        },
+        {
+          "before_offset": 1746,
+          "after_offset": 2528,
+          "old": "\t\tint style = bullet.getDataWatcher().getWatchableObjectByte(16);\n\t\tint trail = bullet.getDataWatcher().getWatchableObjectByte(17);\n",
+          "new": "\t\tint style = bullet.getRenderStyle();\n\t\tint trail = bullet.getRenderTrail();\n"
+        },
+        {
+          "before_offset": 2019,
+          "after_offset": 2747,
+          "old": "\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n",
+          "new": "\t\tGL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();\n"
+        },
+        {
+          "before_offset": 3709,
+          "after_offset": 4466,
+          "old": "\t\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 3855,
+          "after_offset": 4655,
+          "old": "\t\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 4040,
+          "after_offset": 4881,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 4185,
+          "after_offset": 5069,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 4361,
+          "after_offset": 5286,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 4497,
+          "after_offset": 5465,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 4674,
+          "after_offset": 5683,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 4806,
+          "after_offset": 5858,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 4988,
+          "after_offset": 6081,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 5122,
+          "after_offset": 6258,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 5199,
+          "after_offset": 6376,
+          "old": "        GL11.glEnable(GL11.GL_CULL_FACE);\n        GL11.glDisable(GL11.GL_LIGHTING);\n        GL11.glShadeModel(GL11.GL_SMOOTH);\n        GL11.glEnable(GL11.GL_BLEND);\n        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n        GL11.glDepthMask(false);\n",
+          "new": "        GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();\n        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();\n        GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n        GL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();\n        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n        GL11.glDepthMask(false); GlStateManager.depthMask(false);\n"
+        },
+        {
+          "before_offset": 5910,
+          "after_offset": 7314,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\t\tGL11.glColor4f(0.5F, 0.0F, 0.0F, 0.5F);\n",
+          "new": "\t\t\tGL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();\n\t\t\tGL11.glColor4f(0.5F, 0.0F, 0.0F, 0.5F); GlStateManager.color(0.5F, 0.0F, 0.0F, 0.5F);\n"
+        },
+        {
+          "before_offset": 6163,
+          "after_offset": 7648,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\t\tGL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();\n"
+        },
+        {
+          "before_offset": 6369,
+          "after_offset": 7888,
+          "old": "\t\tGL11.glDisable(GL11.GL_BLEND);\n        GL11.glEnable(GL11.GL_LIGHTING);\n        GL11.glDepthMask(true);\n",
+          "new": "\t\tGL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();\n        GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();\n        GL11.glDepthMask(true); GlStateManager.depthMask(true);\n"
+        },
+        {
+          "before_offset": 6521,
+          "after_offset": 8136,
+          "old": "        GL11.glEnable(GL11.GL_CULL_FACE);\n        GL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "        GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();\n        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 6876,
+          "after_offset": 8554,
+          "old": "        GL11.glEnable(GL11.GL_LIGHTING);\n",
+          "new": "        GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();\n"
+        },
+        {
+          "before_offset": 7056,
+          "after_offset": 8767,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 7194,
+          "after_offset": 8948,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 7365,
+          "after_offset": 9160,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 7545,
+          "after_offset": 9383,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 7708,
+          "after_offset": 9587,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 7846,
+          "after_offset": 9768,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 8732,
+          "after_offset": 10695,
+          "old": "        GL11.glDisable(GL11.GL_TEXTURE_2D);\n        GL11.glDisable(GL11.GL_CULL_FACE);\n        GL11.glDisable(GL11.GL_LIGHTING);\n        GL11.glShadeModel(GL11.GL_SMOOTH);\n        GL11.glEnable(GL11.GL_BLEND);\n        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n        GL11.glDepthMask(false);\n",
+          "new": "        GL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();\n        GL11.glDisable(GL11.GL_CULL_FACE); GlStateManager.disableCull();\n        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();\n        GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n        GL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();\n        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n        GL11.glDepthMask(false); GlStateManager.depthMask(false);\n"
+        },
+        {
+          "before_offset": 9153,
+          "after_offset": 11379,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 9209,
+          "after_offset": 11483,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, -1, -1);\n\t\ttess.addVertex(3, 1, -1);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(3, -1, -1).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(3, 1, -1).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 9421,
+          "after_offset": 11763,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, -1, 1);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, 1, 1);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(3, -1, 1).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(3, 1, 1).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 9675,
+          "after_offset": 12041,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, -1, -1);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, -1, 1);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(3, -1, -1).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(3, -1, 1).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 9931,
+          "after_offset": 12321,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, 1, -1);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(3, 1, 1);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(3, 1, -1).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(3, 1, 1).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 10195,
+          "after_offset": 12609,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, -0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 10371,
+          "after_offset": 12897,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(4, -0.5, 0.5);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, 0.5, 0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 10545,
+          "after_offset": 13183,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, -0.5, 0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 10721,
+          "after_offset": 13471,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, 0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, 0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 10906,
+          "after_offset": 13768,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(4, 0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, 0.5);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(0, 0.5, 0.5);\n\t\ttess.addVertex(0, 0.5, -0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(0, 0.5, 0.5).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(0, 0.5, -0.5).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 11164,
+          "after_offset": 14122,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(4, -0.5, 0.5);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(0, -0.5, 0.5);\n\t\ttess.addVertex(0, -0.5, -0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(0, -0.5, 0.5).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(0, -0.5, -0.5).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 11426,
+          "after_offset": 14480,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(4, -0.5, 0.5);\n\t\ttess.addVertex(4, 0.5, 0.5);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(0, 0.5, 0.5);\n\t\ttess.addVertex(0, -0.5, 0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(0, 0.5, 0.5).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(0, -0.5, 0.5).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 11684,
+          "after_offset": 14834,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setColorRGBA_F(red, green, blue, 1);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, -0.5);\n\t\ttess.setColorRGBA_F(red, green, blue, 0);\n\t\ttess.addVertex(0, 0.5, -0.5);\n\t\ttess.addVertex(0, -0.5, -0.5);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();\n\t\tbuffer.pos(0, 0.5, -0.5).color(red, green, blue, 0F).endVertex();\n\t\tbuffer.pos(0, -0.5, -0.5).color(red, green, blue, 0F).endVertex();\n"
+        },
+        {
+          "before_offset": 11948,
+          "after_offset": 15194,
+          "old": "\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\tGL11.glDepthMask(true);\n",
+          "new": "\t\tGL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();\n\t\tGL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();\n\t\tGL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();\n\t\tGL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();\n\t\tGL11.glDepthMask(true); GlStateManager.depthMask(true);\n"
+        },
+        {
+          "before_offset": 12201,
+          "after_offset": 15606,
+          "old": "\t\tEntityItem dummy = new EntityItem(Minecraft.getMinecraft().theWorld, 0, 0, 0, new ItemStack(ModItems.blade_titanium));\n\t\tdummy.getEntityItem().stackSize = 1;\n",
+          "new": "\t\tEntityItem dummy = new EntityItem(Minecraft.getMinecraft().world, 0, 0, 0, new ItemStack(ModItems.blade_titanium));\n\t\tdummy.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 12603,
+          "after_offset": 15997,
+          "old": "\t\tRenderItem.renderInFrame = true;\n\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\titems.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F,\n\t\t\t\tNativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 12858,
+          "after_offset": 16205,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 13419,
+          "after_offset": 16821,
+          "old": "\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\tEntityPlayer player = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 14024,
+          "after_offset": 17423,
+          "old": "\t\t\tpair.key = pair.getKey().addVector(deltaX * mult, deltaY * mult, deltaZ * mult);\n",
+          "new": "\t\t\tpair.key = pair.getKey().add(deltaX * mult, deltaY * mult, deltaZ * mult);\n"
+        },
+        {
+          "before_offset": 14115,
+          "after_offset": 17508,
+          "old": "\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 1F, 0F);\n",
+          "new": "\t\tbuffer.begin(GL11.GL_QUADS, TRAIL_FORMAT);\n"
+        },
+        {
+          "before_offset": 14718,
+          "after_offset": 18084,
+          "old": "\t\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, nodeAlpha);\n\t\t\ttessellator.addVertex(nodeLoc.x, nodeLoc.y, nodeLoc.z);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, nodeAlpha * outerAlpha);\n\t\t\ttessellator.addVertex(nodeLoc.x, nodeLoc.y + scale, nodeLoc.z);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, pastAlpha * outerAlpha);\n\t\t\t\ttessellator.addVertex(pastLoc.x, pastLoc.y + scale, pastLoc.z);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, pastAlpha);\n\t\t\t\ttessellator.addVertex(pastLoc.x, pastLoc.y, pastLoc.z);\n",
+          "new": "\t\t\ttrailVertex(buffer, nodeLoc.x, nodeLoc.y, nodeLoc.z, r, g, b, nodeAlpha);\n\t\t\ttrailVertex(buffer, nodeLoc.x, nodeLoc.y + scale, nodeLoc.z, r, g, b, nodeAlpha * outerAlpha);\n\t\t\t\ttrailVertex(buffer, pastLoc.x, pastLoc.y + scale, pastLoc.z, r, g, b, pastAlpha * outerAlpha);\n\t\t\t\ttrailVertex(buffer, pastLoc.x, pastLoc.y, pastLoc.z, r, g, b, pastAlpha);\n"
+        },
+        {
+          "before_offset": 15241,
+          "after_offset": 18437,
+          "old": "\t\t\ttessellator.setColorRGBA_F(r, g, b, nodeAlpha);\n\t\t\ttessellator.addVertex(nodeLoc.x, nodeLoc.y, nodeLoc.z);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, nodeAlpha * outerAlpha);\n\t\t\ttessellator.addVertex(nodeLoc.x, nodeLoc.y - scale, nodeLoc.z);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, pastAlpha * outerAlpha);\n\t\t\ttessellator.addVertex(pastLoc.x, pastLoc.y - scale, pastLoc.z);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, pastAlpha);\n\t\t\ttessellator.addVertex(pastLoc.x, pastLoc.y, pastLoc.z);\n",
+          "new": "\t\t\ttrailVertex(buffer, nodeLoc.x, nodeLoc.y, nodeLoc.z, r, g, b, nodeAlpha);\n\t\t\ttrailVertex(buffer, nodeLoc.x, nodeLoc.y - scale, nodeLoc.z, r, g, b, nodeAlpha * outerAlpha);\n\t\t\ttrailVertex(buffer, pastLoc.x, pastLoc.y - scale, pastLoc.z, r, g, b, pastAlpha * outerAlpha);\n\t\t\ttrailVertex(buffer, pastLoc.x, pastLoc.y, pastLoc.z, r, g, b, pastAlpha);\n"
+        },
+        {
+          "before_offset": 15727,
+          "after_offset": 18791,
+          "old": "\n\t\tGL11.glColor3f(1F, 1F, 1F);\n\t\tGL11.glDepthMask(true);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0F);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n",
+          "new": "\t\tGL11.glColor3f(1F, 1F, 1F); GlStateManager.color(1F, 1F, 1F);\n\t\tGL11.glDepthMask(true); GlStateManager.depthMask(true);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0F); GlStateManager.alphaFunc(GL11.GL_GREATER, 0F);\n\t\tGL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();\n\t\tGL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();\n\t\tGL11.glDisable(GL11.GL_CULL_FACE); GlStateManager.disableCull();\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);\n"
+        },
+        {
+          "before_offset": 15991,
+          "after_offset": 19305,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glAlphaFunc(GL11.GL_GEQUAL, 0.1F);\n",
+          "new": "\t\tGL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();\n\t\tGL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();\n\t\tGL11.glAlphaFunc(GL11.GL_GEQUAL, 0.1F); GlStateManager.alphaFunc(GL11.GL_GEQUAL, 0.1F);\n"
+        },
+        {
+          "before_offset": 16238,
+          "after_offset": 19735,
+          "old": "",
+          "new": "\tprivate static void trailVertex(BufferBuilder buffer, double x, double y, double z, float r, float g, float b, float alpha) {\n\t\tbuffer.pos(x, y, z).color((int) (r * 255F), (int) (g * 255F), (int) (b * 255F),\n\t\t\t\tMath.max(0, Math.min(255, (int) (alpha * 255F)))).normal(0F, 1F, 0F).endVertex();\n\t}\n\n"
+        },
+        {
+          "before_offset": 16385,
+          "after_offset": 20181,
+          "old": "\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL12.GL_RESCALE_NORMAL);\n",
+          "new": "\t\tGL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();\n\t\tGL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL); GlStateManager.enableRescaleNormal();\n"
+        },
+        {
+          "before_offset": 16906,
+          "after_offset": 20790,
+          "old": "\tprotected ResourceLocation getEntityTexture(Entity p_110775_1_) {\n",
+          "new": "\tprotected ResourceLocation getEntityTexture(EntityBulletBaseNT p_110775_1_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/BeamPronter.java": {
+      "before_sha256": "439129809bd591a671def0de37d58cd9102be57b82c622f10fec9f4d0f52c227",
+      "after_sha256": "07accbe0062fde793b3582886c017809740816559e43f3bdc3737c38b5f36536",
+      "edits": [
+        {
+          "before_offset": 137,
+          "after_offset": 137,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 219,
+          "after_offset": 390,
+          "old": "",
+          "new": "/** State writes also update the native cache, but remain unconditional for\n * existing raw-GL callers. Do not remove the raw write before its cache update. */\n"
+        },
+        {
+          "before_offset": 1630,
+          "after_offset": 1961,
+          "old": "\t\tGL11.glDepthMask(depthMask);\n",
+          "new": "\t\tGL11.glDepthMask(depthMask); GlStateManager.depthMask(depthMask);\n"
+        },
+        {
+          "before_offset": 1740,
+          "after_offset": 2108,
+          "old": "\t\tfloat sqrt = MathHelper.sqrt_double(skeleton.x * skeleton.x + skeleton.z * skeleton.z);\n",
+          "new": "\t\tfloat sqrt = MathHelper.sqrt(skeleton.x * skeleton.x + skeleton.z * skeleton.z);\n"
+        },
+        {
+          "before_offset": 2046,
+          "after_offset": 2407,
+          "old": "\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "\t\tGL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();\n\t\tGL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 2156,
+          "after_offset": 2586,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n",
+          "new": "\t\t\tGL11.glDisable(GL11.GL_CULL_FACE); GlStateManager.disableCull();\n"
+        },
+        {
+          "before_offset": 2195,
+          "after_offset": 2655,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_BLEND);\n",
+          "new": "\t\t\tGL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();\n"
+        },
+        {
+          "before_offset": 2229,
+          "after_offset": 2719,
+          "old": "\t\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n",
+          "new": "\t\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n"
+        },
+        {
+          "before_offset": 2287,
+          "after_offset": 2835,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 3189,
+          "after_offset": 3792,
+          "old": "\t\t\t\ttessellator.startDrawing(3);\n\t\t\t\ttessellator.setColorOpaque_I(outerColor);\n\t\t\t\ttessellator.addVertex(pX, pY, pZ);\n\t\t\t\ttessellator.addVertex(lastX, lastY, lastZ);\n",
+          "new": "\t\t\t\tbuffer.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tbuffer.pos(pX, pY, pZ).color(outerColor >> 16 & 255, outerColor >> 8 & 255, outerColor & 255, 255).endVertex();\n\t\t\t\tbuffer.pos(lastX, lastY, lastZ).color(outerColor >> 16 & 255, outerColor >> 8 & 255, outerColor & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 4045,
+          "after_offset": 4798,
+          "old": "\t\t\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 4134,
+          "after_offset": 4914,
+          "old": "\t\t\t\t\ttessellator.addVertex(lastX + (radius * j), lastY, lastZ + (radius * j));\n\t\t\t\t\ttessellator.addVertex(lastX + (radius * j), lastY, lastZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX + (radius * j), pY, pZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX + (radius * j), pY, pZ + (radius * j));\n",
+          "new": "\t\t\t\t\tbuffer.pos(lastX + (radius * j), lastY, lastZ + (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(lastX + (radius * j), lastY, lastZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX + (radius * j), pY, pZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX + (radius * j), pY, pZ + (radius * j)).endVertex();\n"
+        },
+        {
+          "before_offset": 4457,
+          "after_offset": 5241,
+          "old": "\t\t\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 4546,
+          "after_offset": 5357,
+          "old": "\t\t\t\t\ttessellator.addVertex(lastX - (radius * j), lastY, lastZ + (radius * j));\n\t\t\t\t\ttessellator.addVertex(lastX - (radius * j), lastY, lastZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX - (radius * j), pY, pZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX - (radius * j), pY, pZ + (radius * j));\n",
+          "new": "\t\t\t\t\tbuffer.pos(lastX - (radius * j), lastY, lastZ + (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(lastX - (radius * j), lastY, lastZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX - (radius * j), pY, pZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX - (radius * j), pY, pZ + (radius * j)).endVertex();\n"
+        },
+        {
+          "before_offset": 4869,
+          "after_offset": 5684,
+          "old": "\t\t\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 4958,
+          "after_offset": 5800,
+          "old": "\t\t\t\t\ttessellator.addVertex(lastX + (radius * j), lastY, lastZ + (radius * j));\n\t\t\t\t\ttessellator.addVertex(lastX - (radius * j), lastY, lastZ + (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX - (radius * j), pY, pZ + (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX + (radius * j), pY, pZ + (radius * j));\n",
+          "new": "\t\t\t\t\tbuffer.pos(lastX + (radius * j), lastY, lastZ + (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(lastX - (radius * j), lastY, lastZ + (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX - (radius * j), pY, pZ + (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX + (radius * j), pY, pZ + (radius * j)).endVertex();\n"
+        },
+        {
+          "before_offset": 5281,
+          "after_offset": 6127,
+          "old": "\t\t\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 5370,
+          "after_offset": 6243,
+          "old": "\t\t\t\t\ttessellator.addVertex(lastX + (radius * j), lastY, lastZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(lastX - (radius * j), lastY, lastZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX - (radius * j), pY, pZ - (radius * j));\n\t\t\t\t\ttessellator.addVertex(pX + (radius * j), pY, pZ - (radius * j));\n",
+          "new": "\t\t\t\t\tbuffer.pos(lastX + (radius * j), lastY, lastZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(lastX - (radius * j), lastY, lastZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX - (radius * j), pY, pZ - (radius * j)).endVertex();\n\t\t\t\t\tbuffer.pos(pX + (radius * j), pY, pZ - (radius * j)).endVertex();\n"
+        },
+        {
+          "before_offset": 5802,
+          "after_offset": 6679,
+          "old": "\t\t\ttessellator.startDrawing(3);\n\t\t\ttessellator.setColorOpaque_I(innerColor);\n\t\t\ttessellator.addVertex(0, 0, 0);\n\t\t\ttessellator.addVertex(0, skeleton.length(), 0);\n",
+          "new": "\t\t\tbuffer.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);\n\t\t\tbuffer.pos(0, 0, 0).color(innerColor >> 16 & 255, innerColor >> 8 & 255, innerColor & 255, 255).endVertex();\n\t\t\tbuffer.pos(0, skeleton.length(), 0).color(innerColor >> 16 & 255, innerColor >> 8 & 255, innerColor & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 6028,
+          "after_offset": 7056,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\t\tGL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();\n\t\t\tGL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();\n"
+        },
+        {
+          "before_offset": 6106,
+          "after_offset": 7199,
+          "old": "\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\tGL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();\n"
+        },
+        {
+          "before_offset": 6203,
+          "after_offset": 7363,
+          "old": "\t\tGL11.glDepthMask(true);\n",
+          "new": "\t\tGL11.glDepthMask(true); GlStateManager.depthMask(true);\n"
+        },
+        {
+          "before_offset": 6510,
+          "after_offset": 7702,
+          "old": "        GL11.glColor4f(red, green, blue, alpha);\n",
+          "new": "        GL11.glColor4f(red, green, blue, alpha); GlStateManager.color(red, green, blue, alpha);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderSparks.java": {
+      "before_sha256": "2cb76f82be02ba48e6b678a65db7a5e71af3fee2e3aea5085d7adef62c7102c5",
+      "after_sha256": "d4dc77dec44243791e4d9109f6b8e12c9488e2c99a6678f860380f962029a420",
+      "edits": [
+        {
+          "before_offset": 137,
+          "after_offset": 137,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 176,
+          "after_offset": 347,
+          "old": "",
+          "new": "/** State writes also update the native cache, but remain unconditional for\n * existing raw-GL callers. Do not remove the raw write before its cache update. */\n"
+        },
+        {
+          "before_offset": 366,
+          "after_offset": 697,
+          "old": "        GL11.glDisable(GL11.GL_TEXTURE_2D);\n        GL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "        GL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();\n        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 482,
+          "after_offset": 882,
+          "old": "        Tessellator tessellator = Tessellator.instance;\n",
+          "new": "        Tessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 890,
+          "after_offset": 1345,
+          "old": "\t\t\tdir = new Vec3d(dir.x * length * rand.nextFloat(), dir.y * length * rand.nextFloat(), dir.z * length * rand.nextFloat());\n",
+          "new": "\t\t\tdir = new Vec3d(dir.x * (length * rand.nextFloat()), dir.y * (length * rand.nextFloat()), dir.z * (length * rand.nextFloat()));\n"
+        },
+        {
+          "before_offset": 1114,
+          "after_offset": 1575,
+          "old": "            tessellator.startDrawing(3);\n            tessellator.setColorOpaque_I(color1);\n            tessellator.addVertex(prevX, prevY, prevZ);\n            tessellator.addVertex(x, y, z);\n",
+          "new": "            buffer.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);\n            buffer.pos(prevX, prevY, prevZ).color(color1 >> 16 & 255, color1 >> 8 & 255, color1 & 255, 255).endVertex();\n            buffer.pos(x, y, z).color(color1 >> 16 & 255, color1 >> 8 & 255, color1 & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 1368,
+          "after_offset": 1951,
+          "old": "            tessellator.startDrawing(3);\n            tessellator.setColorOpaque_I(color2);\n            tessellator.addVertex(prevX, prevY, prevZ);\n            tessellator.addVertex(x, y, z);\n",
+          "new": "            buffer.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);\n            buffer.pos(prevX, prevY, prevZ).color(color2 >> 16 & 255, color2 >> 8 & 255, color2 & 255, 255).endVertex();\n            buffer.pos(x, y, z).color(color2 >> 16 & 255, color2 >> 8 & 255, color2 & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 1596,
+          "after_offset": 2301,
+          "old": "        GL11.glEnable(GL11.GL_LIGHTING);\n        GL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "        GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();\n        GL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRenderState.java": "767a538141e14b8333532ad3b90b7d5af9641f6992cee4fe9f10a634d35369e8",
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIFBIMelee.java": "e6630abcfc41ca359b527c6561be53dce5cbcdd99a60f9115a059dd3435c88f1",
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIRangedAttackNT.java": "5c1ab5c2b3d78234d7c524daf59e5ea440ef507d15e7570f84309e9194068170",
+    "src/main/java/com/hbm/main/RBMKModelHandler.java": "15903823b776d79c5e1d4f43fc7b007c65419bceeaab959582df9d8cf6ddd796",
+    "src/main/java/com/hbm/render/block/nativeblock/RBMKBakedModel.java": "05a459175686518dba2094bdb1b328f8fda3e94d22e66a701d5bea2d4f077ce5",
+    "src/main/java/com/hbm/render/block/nativeblock/RBMKContextQuad.java": "220976aa8a973a9c21a1b9cead99a6d8a3fa73cbeab3cd2ec389e60db8245f24",
+    "src/main/java/com/hbm/render/block/nativeblock/RBMKGeometry.java": "4602bb1404a5f5034de1b53d00b0d65d8629eabce47d6f423f4a0a094f5c04b2",
+    "src/main/java/com/hbm/render/block/nativeblock/RBMKMaterials.java": "2271624ebbb8189360981694633502b600e820c2fa5a74f65b92bc35111626a8"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

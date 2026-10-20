@@ -14,7 +14,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineCompressor extends BlockDummyable {
 
 	public MachineCompressor() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

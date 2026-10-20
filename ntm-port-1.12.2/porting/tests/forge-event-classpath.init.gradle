@@ -1,0 +1,11 @@
+// Read-only test classpath export. Does not compile NTM or alter production source sets.
+gradle.projectsEvaluated {
+    rootProject.tasks.create(name: 'writeForgeEventNativeClasspath') {
+        doLast {
+            def target = rootProject.file(rootProject.findProperty('forgeEventClasspathOutput') ?: 'build/porting-tests/forge-event-classpath.txt')
+            target.parentFile.mkdirs()
+            target.setText(rootProject.sourceSets.main.compileClasspath.asPath, 'UTF-8')
+            println 'Wrote existing native Forge classpath: ' + target
+        }
+    }
+}

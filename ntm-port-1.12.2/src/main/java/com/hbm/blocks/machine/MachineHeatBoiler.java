@@ -23,9 +23,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -35,7 +35,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, ITooltipProvider, IBlockMulti {
 
 	public MachineHeatBoiler() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -51,25 +51,25 @@ public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, I
 		
 		if(!world.isRemote && !player.isSneaking()) {
 				
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
 				int[] pos = this.findCore(world, x, y, z);
 					
 				if(pos == null)
 					return false;
 				
-				TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+				TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				
 				if(!(te instanceof TileEntityHeatBoiler))
 					return false;
 				
 				TileEntityHeatBoiler boiler = (TileEntityHeatBoiler) te;
 				
-				FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, pos[0], pos[1], pos[2], player.getHeldItem());
+				FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, pos[0], pos[1], pos[2], com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 				
 				if(type.hasTrait(FT_Heatable.class) && type.getTrait(FT_Heatable.class).getEfficiency(HeatingType.BOILER) > 0) {
 					boiler.tanks[0].setTankType(type);
 					boiler.markDirty();
-					player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+					player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 				}
 				return true;
 			}
@@ -86,7 +86,7 @@ public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, I
 		
 		if(itemStack.getItemDamage() == 1) {
 
-			int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+			int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 			int o = -getOffset();
 			
 			ForgeDirection dir = ForgeDirection.NORTH;
@@ -97,7 +97,7 @@ public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, I
 			
 			dir = getDirModified(dir);
 
-			TileEntity te = world.getTileEntity(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o));
 			
 			if(te instanceof TileEntityHeatBoiler) {
 				((TileEntityHeatBoiler) te).hasExploded = true;
@@ -115,7 +115,7 @@ public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, I
 		int[] pos = this.findCore(world, x, y, z);
 		
 		if(pos != null) {
-			TileEntityHeatBoiler boiler = (TileEntityHeatBoiler)world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityHeatBoiler boiler = (TileEntityHeatBoiler)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(boiler.hasExploded) {
 				//dmg = 1;
 				ret.add(new ItemStack(ModItems.ingot_steel, 4));
@@ -165,7 +165,7 @@ public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, I
 		if(pos == null)
 			return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityHeatBoiler))
 			return;
@@ -179,7 +179,7 @@ public class MachineHeatBoiler extends BlockDummyable implements ILookOverlay, I
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + boiler.tanks[0].getTankType().getLocalizedName() + ": " + String.format(Locale.US, "%,d", boiler.tanks[0].getFill()) + " / " + String.format(Locale.US, "%,d", boiler.tanks[0].getMaxFill()) + "mB");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + boiler.tanks[1].getTankType().getLocalizedName() + ": " + String.format(Locale.US, "%,d", boiler.tanks[1].getFill()) + " / " + String.format(Locale.US, "%,d", boiler.tanks[1].getMaxFill()) + "mB");
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

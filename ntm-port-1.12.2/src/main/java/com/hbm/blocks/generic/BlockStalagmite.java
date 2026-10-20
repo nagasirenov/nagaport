@@ -19,7 +19,7 @@ import com.hbm.lib.ForgeDirection;
 public class BlockStalagmite extends BlockEnumMulti {
 
 	public BlockStalagmite() {
-		super(Material.rock, BlockEnums.EnumStalagmiteType.class, true, true);
+		super(Material.ROCK, BlockEnums.EnumStalagmiteType.class, true, true);
 	}
 
 	@Override

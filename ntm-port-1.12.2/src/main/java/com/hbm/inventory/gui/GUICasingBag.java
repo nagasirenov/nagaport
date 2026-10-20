@@ -38,8 +38,8 @@ public class GUICasingBag extends GuiContainer {
 			name = inventory.box.getDisplayName();
 		}
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 98, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 98, 4210752);
 	}
 
 	@Override

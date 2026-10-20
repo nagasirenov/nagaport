@@ -4,7 +4,7 @@ import com.hbm.tileentity.machine.TileEntityForceField;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -38,8 +38,8 @@ public class ContainerForceField extends Container {
 	}
 	
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
 	}
 	
 	@Override

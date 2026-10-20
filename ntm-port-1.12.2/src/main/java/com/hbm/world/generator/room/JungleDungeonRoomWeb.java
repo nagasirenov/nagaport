@@ -28,7 +28,7 @@ public class JungleDungeonRoomWeb extends JungleDungeonRoom {
 					for(int b = 1; b < 4; b++) {
 						
 						if(world.rand.nextInt(3) == 0) {
-							Block bl = world.getBlock(x + a, y, z + b);
+							Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y, z + b).getBlock();
 							if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 								world.setBlock(x + a, y, z + b, ModBlocks.brick_jungle_trap, Trap.WEB.ordinal(), 3);
 							}

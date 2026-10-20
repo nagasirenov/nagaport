@@ -85,7 +85,7 @@ public class ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataFor
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket m, MessageContext ctx) {
 			
-			ExplosionEffectStandard.performClient(Minecraft.getMinecraft().theWorld, m.posX, m.posY, m.posZ, m.size, m.affectedBlocks);
+			ExplosionEffectStandard.performClient(Minecraft.getMinecraft().world, m.posX, m.posY, m.posZ, m.size, m.affectedBlocks);
 			return null;
 		}
 	}

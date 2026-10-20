@@ -16,29 +16,29 @@ public class Dud extends WorldGenerator {
 	
 	protected Block[] GetValidSpawnBlocks() {
 		return new Block[] {
-			Blocks.grass,
-			Blocks.dirt,
-			Blocks.stone,
-			Blocks.sand,
-			Blocks.sandstone,
+			Blocks.GRASS,
+			Blocks.DIRT,
+			Blocks.STONE,
+			Blocks.SAND,
+			Blocks.SANDSTONE,
 		};
 	}
 
 	public boolean LocationIsValidSpawn(World world, int x, int y, int z) {
 
-		Block checkBlock = world.getBlock(x, y - 1, z);
-		Block blockAbove = world.getBlock(x, y, z);
-		Block blockBelow = world.getBlock(x, y - 2, z);
+		Block checkBlock = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
+		Block blockAbove = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		Block blockBelow = com.hbm.world.WorldBlockState.read(world, x, y - 2, z).getBlock();
 
 		for(Block i : GetValidSpawnBlocks()) {
-			if(blockAbove != Blocks.air) {
+			if(blockAbove != Blocks.AIR) {
 				return false;
 			}
 			if(checkBlock == i) {
 				return true;
-			} else if(checkBlock == Blocks.snow_layer && blockBelow == i) {
+			} else if(checkBlock == Blocks.SNOW_LAYER && blockBelow == i) {
 				return true;
-			} else if(checkBlock.getMaterial() == Material.plants && blockBelow == i) {
+			} else if(checkBlock.getDefaultState().getMaterial() == Material.PLANTS && blockBelow == i) {
 				return true;
 			}
 		}

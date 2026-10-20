@@ -8,7 +8,7 @@ public class TileEntityProxyDyn extends TileEntityProxyCombo {
 		Object o = super.getCoreObject();
 		
 		if(o instanceof IProxyDelegateProvider) {
-			Object delegate = ((IProxyDelegateProvider) o).getDelegateForPosition(xCoord, yCoord, zCoord);
+			Object delegate = ((IProxyDelegateProvider) o).getDelegateForPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			if(delegate != null) return delegate;
 		}
 		

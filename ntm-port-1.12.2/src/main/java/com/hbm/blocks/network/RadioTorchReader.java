@@ -24,7 +24,7 @@ import com.hbm.lib.ForgeDirection;
 public class RadioTorchReader extends RadioTorchBase {
 
 	public RadioTorchReader() {
-		super();
+		super("rtty_reader");
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class RadioTorchReader extends RadioTorchBase {
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityRadioTorchReader) {
 			TileEntityRadioTorchReader radio = (TileEntityRadioTorchReader) te;
@@ -50,7 +50,7 @@ public class RadioTorchReader extends RadioTorchBase {
 				if(radio.names[i] == null || radio.names[i].isEmpty()) continue;
 				text.add(TextFormatting.AQUA + radio.channels[i] + ": " + radio.names[i]);
 			}
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 
@@ -59,7 +59,7 @@ public class RadioTorchReader extends RadioTorchBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof TileEntityRadioTorchReader) return new GUIScreenRadioTorchReader((TileEntityRadioTorchReader) te);
 		return null;
 	}

@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderAnnihilator extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -57,7 +57,7 @@ public class RenderAnnihilator extends TileEntitySpecialRenderer implements IIte
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		
 		return new ItemRenderBase() {
 			

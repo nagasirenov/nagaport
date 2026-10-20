@@ -37,7 +37,7 @@ public class EntityBalefire extends EntityExplosionChunkloading {
 		did = nbt.getBoolean("did");
 		antimatter = nbt.getBoolean("antimatter");
 
-		exp = new ExplosionBalefire((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, this.destructionRange, this.antimatter);
+		exp = new ExplosionBalefire((int) this.posX, (int) this.posY, (int) this.posZ, this.world, this.destructionRange, this.antimatter);
 		exp.readFromNbt(nbt, "exp_");
 
 		this.did = true;
@@ -65,10 +65,10 @@ public class EntityBalefire extends EntityExplosionChunkloading {
 		super.onUpdate();
 
 		if(!this.did) {
-			if(GeneralConfig.enableExtendedLogging && !worldObj.isRemote)
+			if(GeneralConfig.enableExtendedLogging && !this.world.isRemote)
 				MainRegistry.logger.log(Level.INFO, "[NUKE] Initialized BF explosion at " + posX + " / " + posY + " / " + posZ + " with strength " + destructionRange + "!");
 
-			exp = new ExplosionBalefire((int)this.posX, (int)this.posY, (int)this.posZ, this.worldObj, this.destructionRange, this.antimatter);
+			exp = new ExplosionBalefire((int)this.posX, (int)this.posY, (int)this.posZ, this.world, this.destructionRange, this.antimatter);
 
 			this.did = true;
 		}
@@ -84,15 +84,15 @@ public class EntityBalefire extends EntityExplosionChunkloading {
 				this.setDead();
 			}
 		}
-		if(!worldObj.isRemote && antimatter && this.ticksExisted < 10) {
+		if(!this.world.isRemote && antimatter && this.ticksExisted < 10) {
 			radiate(40000 * this.destructionRange, this.destructionRange * 2);
 		}
 		if(rand.nextInt(5) == 0)
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "random.explode", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "random.explode", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
 
 		if(!flag) {
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
-			ExplosionNukeGeneric.dealDamage(this.worldObj, this.posX, this.posY, this.posZ, this.destructionRange * 2);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
+			ExplosionNukeGeneric.dealDamage(this.world, this.posX, this.posY, this.posZ, this.destructionRange * 2);
 		}
 
 		age++;
@@ -100,7 +100,7 @@ public class EntityBalefire extends EntityExplosionChunkloading {
 
 	private void radiate(float rads, double range) {
 
-		List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 
@@ -116,7 +116,7 @@ public class EntityBalefire extends EntityExplosionChunkloading {
 				int iy = (int)Math.floor(posY + vec.y * i);
 				int iz = (int)Math.floor(posZ + vec.z * i);
 
-				res += worldObj.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().getExplosionResistance(null);
 			}
 
 			if(res < 1)
@@ -132,7 +132,7 @@ public class EntityBalefire extends EntityExplosionChunkloading {
 					e.setHealth(0);
 					//this.worldObj.createExplosion(this, e.posX, e.posY, e.posZ, 2.0F, true);
 					//ExplosionChaos.plasma(this.worldObj, (int) e.posX, (int) e.posY, (int) e.posZ, 4);
-					ExplosionLarge.spawnShock(worldObj, e.posX, e.posY, e.posZ, 10, 10);
+					ExplosionLarge.spawnShock(this.world, e.posX, e.posY, e.posZ, 10, 10);
 					e.setDead();
 				}
 			}

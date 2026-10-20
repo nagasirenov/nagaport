@@ -1,0 +1,6 @@
+# Exact javap method excerpts; source native-RenderGlobal.javap
+
+  public void playSoundToAllNearExcept(net.minecraft.entity.player.EntityPlayer, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, double, double, double, float, float);
+    Code:
+       0: return
+

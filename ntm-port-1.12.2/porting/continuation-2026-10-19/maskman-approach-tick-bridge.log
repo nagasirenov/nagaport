@@ -1,0 +1,8 @@
+PASS: eight exact coordinate consumer reversals to checkpoint9; no remaining ChunkCoordinates imports. Not full-class compilation/gameplay.
+PASS: exact whole-class reverse-source SHA-256 parity, including ordering and disabled attack comment.
+PASS: 336 exact native update signatures; 133 first-declaring ITickable roots
+PASS: full 434-tile ownership; 379 native tick descendants; all 55 static descendants remain non-ITickable
+PASS: exact literal-preserving tick bodies, abstract/empty methods, early returns and 58 meaningful super calls; sole OC inherited no-op removed
+PASS: 14 obsolete constant-false suppressors absent; 12 hazard overloads and hazard dispatch unchanged
+Reusable tick-body regression: unrelated edits outside the frozen Maskman AI/eight coordinate consumers and validated receiver lines are allowed; --strict-snapshot remains historical
+SOURCE PARITY ONLY: not production class compilation or gameplay acceptance

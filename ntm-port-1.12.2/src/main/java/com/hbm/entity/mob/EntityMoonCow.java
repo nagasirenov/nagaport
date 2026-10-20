@@ -21,7 +21,7 @@ public class EntityMoonCow extends EntityCow implements IRadiationImmune, ISuffo
 
 	@Override
 	public EntityMoonCow createChild(EntityAgeable entity) {
-		return new EntityMoonCow(this.worldObj);
+		return new EntityMoonCow(this.world);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class EntityMoonCow extends EntityCow implements IRadiationImmune, ISuffo
 		int k;
 
 		for(k = 0; k < j; ++k) {
-			this.dropItem(Items.leather, 1);
+			this.dropItem(Items.LEATHER, 1);
 		}
 
 		j = this.rand.nextInt(3) + 1 + this.rand.nextInt(1 + looting);

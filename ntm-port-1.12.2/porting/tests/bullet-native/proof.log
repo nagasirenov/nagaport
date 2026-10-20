@@ -1,0 +1,25 @@
+PASS frozen 63 complete compiled sources, 10 supporting sources, 5 pristine source oracles, 17 unchanged original model/texture assets.
+/tmp/bullet-native-cnfyjvo2/fixtures/BulletNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Field u=field(sun.misc.Unsafe.class,"theUnsafe");sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);NativeMachineDrawTest.mc.player=(net.minecraft.client.entity.EntityPlayerSP)unsafe.allocateInstance(net.minecraft.client.entity.EntityPlayerSP.class);NativeMachineDrawTest.mc.player.lastTickPosX=.25;NativeMachineDrawTest.mc.player.posX=.75;NativeMachineDrawTest.mc.player.lastTickPosY=.4;NativeMachineDrawTest.mc.player.posY=.9;NativeMachineDrawTest.mc.player.lastTickPosZ=-.25;NativeMachineDrawTest.mc.player.posZ=.1;
+                         ^
+/tmp/bullet-native-cnfyjvo2/fixtures/BulletNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Field u=field(sun.misc.Unsafe.class,"theUnsafe");sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);NativeMachineDrawTest.mc.player=(net.minecraft.client.entity.EntityPlayerSP)unsafe.allocateInstance(net.minecraft.client.entity.EntityPlayerSP.class);NativeMachineDrawTest.mc.player.lastTickPosX=.25;NativeMachineDrawTest.mc.player.posX=.75;NativeMachineDrawTest.mc.player.lastTickPosY=.4;NativeMachineDrawTest.mc.player.posY=.9;NativeMachineDrawTest.mc.player.lastTickPosZ=-.25;NativeMachineDrawTest.mc.player.posZ=.1;
+                                                            ^
+/tmp/bullet-native-cnfyjvo2/fixtures/BulletNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Field u=field(sun.misc.Unsafe.class,"theUnsafe");sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);NativeMachineDrawTest.mc.player=(net.minecraft.client.entity.EntityPlayerSP)unsafe.allocateInstance(net.minecraft.client.entity.EntityPlayerSP.class);NativeMachineDrawTest.mc.player.lastTickPosX=.25;NativeMachineDrawTest.mc.player.posX=.75;NativeMachineDrawTest.mc.player.lastTickPosY=.4;NativeMachineDrawTest.mc.player.posY=.9;NativeMachineDrawTest.mc.player.lastTickPosZ=-.25;NativeMachineDrawTest.mc.player.posZ=.1;
+                                                                                    ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-renderbullet/ntm-port-1.12.2/src/main/java/com/hbm/util/Tuple.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS complete RenderBullet, BeamPronter, RenderSparks, real native item/mesh pipeline compile; NTM registry/entity boundaries explicit.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[23:23:42] [main/INFO]: Setting user: AtlasProbe
+PASS 26 actual native bake/reload/base-geometry ownership checks. Direct event methods, not another event-bus proof.
+PASS 111 full native press/mass-storage consumer draw, animation/source-stack/font/gauge/direction/label checks; NTM data/mesh fixtures, not complete game.
+PASS 192 genuine native machine/GUI full-draw, framebuffer effect, custom ownership, renderer replacement and stack checks; no fullmod gameplay claim.
+PASS 41 native generated-model ownership and actual GL frame-matrix checks; not full machine draw or game acceptance.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[23:23:45] [main/INFO]: Setting user: AtlasProbe
+PASS 307841 native bullet checks, 52380 compared vertices (5616 actual original Tessellator, 46764 unchanged shared native mesh), 1232896 offscreen pixel comparisons. Whole renderer/helpers, actual native mesh/item code; entity/registry/camera fixture boundaries explicit, not launched gameplay.

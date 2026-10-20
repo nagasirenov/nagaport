@@ -21,8 +21,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Achievement;
-import net.minecraft.stats.AchievementList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.ResourceLocation;
 
 public class GUIScreenBobmazon extends GuiScreen {
@@ -54,8 +53,8 @@ public class GUIScreenBobmazon extends GuiScreen {
 		if(currentPage > getPageCount())
 			currentPage = getPageCount();
 
-		if(this.player.getHeldItem() != null && this.player.getHeldItem().getItem() == ModItems.bobmazon_hidden && player.getDisplayName().equals("SolsticeUnlimitd"))
-			this.mc.thePlayer.closeScreen();
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(this.player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(this.player).getItem() == ModItems.bobmazon_hidden && player.getDisplayName().equals("SolsticeUnlimitd"))
+			this.mc.player.closeScreen();
 	}
 
 	public void drawScreen(int mouseX, int mouseY, float f) {
@@ -101,8 +100,8 @@ public class GUIScreenBobmazon extends GuiScreen {
 
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 
-		this.fontRendererObj.drawString(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1)),
-				guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1))) / 2, guiTop + 205, 4210752);
+		this.fontRenderer.drawString(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1)),
+				guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1))) / 2, guiTop + 205, 4210752);
 
 		for(FolderButton b : buttons)
 			if(b.isMouseOnButton(i, j))
@@ -126,7 +125,7 @@ public class GUIScreenBobmazon extends GuiScreen {
 
 	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
 		if(p_73869_2_ == 1 || p_73869_2_ == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 
 	}
@@ -172,7 +171,7 @@ public class GUIScreenBobmazon extends GuiScreen {
 				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 				if(offer != null) {
 					RenderHelper.enableGUIStandardItemLighting();
-					itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), offer.offer, xPos + 1, yPos + 1);
+					itemRender.renderItemAndEffectIntoGUI(fontRenderer, mc.getTextureManager(), offer.offer, xPos + 1, yPos + 1);
 				}
 			} catch(Exception x) {
 			}
@@ -182,11 +181,11 @@ public class GUIScreenBobmazon extends GuiScreen {
 			if(info == null || info.isEmpty())
 				return;
 
-			func_146283_a(Arrays.asList(new String[] { info }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { info }), x, y);
 		}
 
 		public void executeAction() {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			if(type == 0) {
 				PacketDispatcher.wrapper.sendToServer(new ItemBobmazonPacket(player, offer));
 			} else if(type == 1) {
@@ -250,27 +249,27 @@ public class GUIScreenBobmazon extends GuiScreen {
 				GL11.glPushMatrix();
 				float scale = 0.5F;
 				GL11.glScalef(scale, scale, scale);
-				gui.fontRendererObj.drawString(I18n.format(offer.getDisplayName()) + count, (int) ((x + 20) / scale), (int) ((y - 12) / scale), 4210752);
+				gui.fontRenderer.drawString(I18n.format(offer.getDisplayName()) + count, (int) ((x + 20) / scale), (int) ((y - 12) / scale), 4210752);
 				GL11.glPopMatrix();
 
 				String price = cost + " Cap";
 				if(cost != 1)
 					price += "s";
 
-				gui.fontRendererObj.drawString(price, x + 62, y - 3, 4210752);
+				gui.fontRenderer.drawString(price, x + 62, y - 3, 4210752);
 
 				GL11.glPushMatrix();
 
 				GL11.glScalef(0.5F, 0.5F, 0.5F);
 
 				if(!author.isEmpty())
-					gui.fontRendererObj.drawString("- " + author, (x + 20) * 2, (y + 18) * 2, 0x222222);
-				gui.fontRendererObj.drawString(comment, (x + 20) * 2, (y + 8) * 2, 0x222222);
+					gui.fontRenderer.drawString("- " + author, (x + 20) * 2, (y + 18) * 2, 0x222222);
+				gui.fontRenderer.drawString(comment, (x + 20) * 2, (y + 8) * 2, 0x222222);
 
 				GL11.glPopMatrix();
 				if(offer != null) {
 					GL11.glEnable(GL11.GL_LIGHTING);
-					gui.itemRender.renderItemAndEffectIntoGUI(gui.fontRendererObj, gui.mc.getTextureManager(), requirement.achievement.theItemStack, x + 1, y + 1);
+					gui.itemRender.renderItemAndEffectIntoGUI(gui.fontRenderer, gui.mc.getTextureManager(), com.hbm.advancement.NtmAdvancements.icon(requirement.achievement), x + 1, y + 1);
 				}
 
 			} catch(Exception ex) {
@@ -281,7 +280,7 @@ public class GUIScreenBobmazon extends GuiScreen {
 
 	public enum Requirement {
 
-		NONE(AchievementList.openInventory),
+		NONE(com.hbm.advancement.NtmAdvancements.OPEN_INVENTORY),
 		STEEL(MainRegistry.achBlastFurnace),
 		ASSEMBLY(MainRegistry.achAssembly),
 		CHEMICS(MainRegistry.achChemplant),
@@ -289,16 +288,16 @@ public class GUIScreenBobmazon extends GuiScreen {
 		NUCLEAR(MainRegistry.achTechnetium),
 		HIDDEN(MainRegistry.bobHidden);
 
-		private Requirement(Achievement achievement) {
+		private Requirement(ResourceLocation achievement) {
 			this.achievement = achievement;
 		}
 
 		public boolean fullfills(EntityPlayerMP player) {
 
-			return player.func_147099_x().hasAchievementUnlocked(achievement);
+			return com.hbm.advancement.NtmAdvancements.has(player, achievement);
 		}
 
-		public Achievement achievement;
+		public ResourceLocation achievement;
 	}
 
 }

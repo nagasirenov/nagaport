@@ -32,7 +32,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
@@ -63,13 +63,13 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
-			if(worldObj.getTotalWorldTime() >= pointAtTime) {
-				pointAtTime = worldObj.getTotalWorldTime() + worldObj.rand.nextInt(300) + 300;
+	public void update() {
+		if(!this.world.isRemote) {
+			if(this.world.getTotalWorldTime() >= pointAtTime) {
+				pointAtTime = this.world.getTotalWorldTime() + this.world.rand.nextInt(300) + 300;
 
-				targetYaw = MathHelper.wrapAngleTo180_float(worldObj.rand.nextFloat() * 360);
-				targetPitch = worldObj.rand.nextFloat() * 80;
+				targetYaw = MathHelper.wrapDegrees(this.world.rand.nextFloat() * 360);
+				targetPitch = this.world.rand.nextFloat() * 80;
 			}
 
 			if(slots[0] != null && slots[0].getItem() == ModItems.full_drive) {
@@ -78,7 +78,7 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 
 					Destination destination = ItemVOTVdrive.getApproximateDestination(slots[0]);
 					CelestialBody body = destination.body.getBody();
-					ChunkCoordIntPair chunk = destination.getChunk();
+					ChunkPos chunk = destination.getChunk();
 
 					if(body != null) {
 						heightmap = new int[256*256];
@@ -86,7 +86,7 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 
 						for(int cx = 0; cx < 16; cx++) {
 							for(int cz = 0; cz < 16; cz++) {
-								int[] map = body.getHeightmap(chunk.chunkXPos + cx - 8, chunk.chunkZPos + cz - 8);
+								int[] map = body.getHeightmap(chunk.x + cx - 8, chunk.z + cz - 8);
 								int ox = cx * 16;
 								int oz = cz * 16;
 
@@ -109,12 +109,12 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 			networkPackNT(250);
 			updateHeightmap = false;
 		} else {
-			float yawOffset = MathHelper.wrapAngleTo180_float(targetYaw - dishYaw);
-			float moveYaw = MathHelper.clamp_float(yawOffset, -maxSpeedYaw, maxSpeedYaw);
+			float yawOffset = MathHelper.wrapDegrees(targetYaw - dishYaw);
+			float moveYaw = MathHelper.clamp(yawOffset, -maxSpeedYaw, maxSpeedYaw);
 
 			float pitchOffset = targetPitch - dishPitch;
 			float pitchSpeed = (moveYaw / yawOffset) * Math.abs(pitchOffset);
-			float movePitch = MathHelper.clamp_float(pitchOffset, -pitchSpeed, pitchSpeed);
+			float movePitch = MathHelper.clamp(pitchOffset, -pitchSpeed, pitchSpeed);
 
 			prevDishYaw = dishYaw;
 			prevDishPitch = dishPitch;
@@ -147,18 +147,19 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineStardar";
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		//nbt.setInteger("time", timeUntilPoint);
 
 		nbt.setBoolean("radarmode", radarMode);
 		nbt.setFloat("yaw", targetYaw);
 		nbt.setFloat("pitch", targetPitch);
+		return nbt;
 	}
 
 	@Override
@@ -222,31 +223,31 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 
 		slots[0] = new ItemStack(ModItems.full_drive, 1, meta);
 
-		if((ix != 0 || iz != 0) && worldObj.provider.dimensionId != SpaceConfig.orbitDimension) {
-			slots[0].stackTagCompound = new NBTTagCompound();
-			slots[0].stackTagCompound.setInteger("ax", ix);
-			slots[0].stackTagCompound.setInteger("az", iz);
-			slots[0].stackTagCompound.setBoolean("Processed", true);
+		if((ix != 0 || iz != 0) && this.world.provider.getDimension() != SpaceConfig.orbitDimension) {
+			slots[0].setTagCompound(new NBTTagCompound());
+			slots[0].getTagCompound().setInteger("ax", ix);
+			slots[0].getTagCompound().setInteger("az", iz);
+			slots[0].getTagCompound().setBoolean("Processed", true);
 		} else if(targetDimensionId == SpaceConfig.orbitDimension) {
-			ChunkCoordIntPair pos;
+			ChunkPos pos;
 
 			// if we're on a station, return our current station as a drive
-			if(worldObj.provider.dimensionId == SpaceConfig.orbitDimension) {
-				pos = new ChunkCoordIntPair(MathHelper.floor_float((float)xCoord / OrbitalStation.STATION_SIZE), MathHelper.floor_float((float)zCoord / OrbitalStation.STATION_SIZE));
+			if(this.world.provider.getDimension() == SpaceConfig.orbitDimension) {
+				pos = new ChunkPos(MathHelper.floor((float)this.pos.getX() / OrbitalStation.STATION_SIZE), MathHelper.floor((float)this.pos.getZ() / OrbitalStation.STATION_SIZE));
 			} else {
-				pos = SolarSystemWorldSavedData.get(worldObj).findFreeSpace();
+				pos = SolarSystemWorldSavedData.get(this.world).findFreeSpace();
 			}
 
-			slots[0].stackTagCompound = new NBTTagCompound();
-			slots[0].stackTagCompound.setInteger("x", pos.chunkXPos);
-			slots[0].stackTagCompound.setInteger("z", pos.chunkZPos);
-			slots[0].stackTagCompound.setBoolean("Processed", true);
+			slots[0].setTagCompound(new NBTTagCompound());
+			slots[0].getTagCompound().setInteger("x", pos.x);
+			slots[0].getTagCompound().setInteger("z", pos.z);
+			slots[0].getTagCompound().setBoolean("Processed", true);
 		}
 
 		// Now point the dish at the target planet
-		pointAtTime = worldObj.rand.nextInt(300) + 300;
-		targetYaw = MathHelper.wrapAngleTo180_float(worldObj.rand.nextFloat() * 360);
-		targetPitch = worldObj.rand.nextFloat() * 80;
+		pointAtTime = this.world.rand.nextInt(300) + 300;
+		targetYaw = MathHelper.wrapDegrees(this.world.rand.nextFloat() * 360);
+		targetPitch = this.world.rand.nextFloat() * 80;
 
 		this.markDirty();
 	}
@@ -281,7 +282,7 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 					body.axialTilt,
 					body.canLand,
 					body.massKg,
-					body.getProcessingLevel(CelestialBody.getBody(worldObj)),
+					body.getProcessingLevel(CelestialBody.getBody(this.world)),
 					body.radiusKm,
 					body.semiMajorAxisKm,
 					body.getSunPower(),
@@ -296,7 +297,7 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getCurrentPlanet(Context context, Arguments args) {
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 		// realistically if this is null
 		// we have bigger problems lmao
 		return new Object[] {body.name};
@@ -335,7 +336,7 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return isUseableByPlayer(player);
+		return isUsableByPlayer(player);
 	}
 
 	@Override
@@ -344,7 +345,7 @@ public class TileEntityMachineStardar extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		return true;
 	}
 }

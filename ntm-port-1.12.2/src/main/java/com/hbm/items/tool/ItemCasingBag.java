@@ -35,13 +35,13 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerCasingBag(player.inventory, new InventoryCasingBag(player.getHeldItem()));
+		return new ContainerCasingBag(player.inventory, new InventoryCasingBag(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUICasingBag(player.inventory, new InventoryCasingBag(player.getHeldItem()));
+		return new GUICasingBag(player.inventory, new InventoryCasingBag(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 	
 	/**
@@ -52,19 +52,19 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 	 * @return
 	 */
 	public static boolean pushCasing(ItemStack bag, ItemStack casing, float amount) {
-		if(!bag.hasTagCompound()) bag.stackTagCompound = new NBTTagCompound();
+		if(!bag.hasTagCompound()) bag.setTagCompound(new NBTTagCompound());
 		String name = casing.getUnlocalizedName() + "@" + casing.getItemDamage();
 		boolean ret = false;
 		//only add if the previous number did not exceed 1 (i.e. the bag ran full, and may have been emptied, we don't know)
 		//this may also cause minor loss, which evens out the dupe mentioned below. not that it matters, casings only have a 50% recovery rate!
-		if(bag.stackTagCompound.getFloat(name) < 1) {
+		if(bag.getTagCompound().getFloat(name) < 1) {
 			ret = true;
-			bag.stackTagCompound.setFloat(name, bag.stackTagCompound.getFloat(name) + amount);
+			bag.getTagCompound().setFloat(name, bag.getTagCompound().getFloat(name) + amount);
 		}
-		if(bag.stackTagCompound.getFloat(name) >= 1) {
+		if(bag.getTagCompound().getFloat(name) >= 1) {
 			InventoryCasingBag inv = new InventoryCasingBag(bag);
 			ItemStack toAdd = casing.copy();
-			while(bag.stackTagCompound.getFloat(name) >= 1) {
+			while(bag.getTagCompound().getFloat(name) >= 1) {
 				
 				boolean didSomething = false;
 				
@@ -90,7 +90,7 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 				}
 				
 				if(didSomething) {
-					bag.stackTagCompound.setFloat(name, bag.stackTagCompound.getFloat(name) - 1F);
+					bag.getTagCompound().setFloat(name, bag.getTagCompound().getFloat(name) - 1F);
 					ret = true;
 				} else {
 					break;
@@ -133,24 +133,25 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 					stack = stack.splitStack(amount);
 					markDirty();
 				} else {
-					setInventorySlotContents(slot, null);
+					setInventorySlotContents(slot, ItemStack.EMPTY);
 				}
 			}
 			return stack;
 		}
 
 		@Override
-		public ItemStack getStackInSlotOnClosing(int slot) {
+		public ItemStack removeStackFromSlot(int slot) {
 			ItemStack stack = getStackInSlot(slot);
-			setInventorySlotContents(slot, null);
-			return stack;
+			setInventorySlotContents(slot, ItemStack.EMPTY);
+			return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 		}
 
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {
+			stack = stack == null || stack.isEmpty() ? null : stack;
 			
 			if(stack != null) {
-				stack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());
+				stack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));
 			}
 			
 			slots[slot] = stack;

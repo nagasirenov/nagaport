@@ -1,0 +1,56 @@
+# Exact javap method excerpts; source legacy-WorldClient.javap
+
+  public void a(double, double, double, java.lang.String, float, float, boolean);
+    Code:
+       0: aload_0
+       1: getfield      #80                 // Field L:Lbao;
+       4: getfield      #70                 // Field bao.i:Lsv;
+       7: dload_1
+       8: dload_3
+       9: dload         5
+      11: invokevirtual #174                // Method sv.e:(DDD)D
+      14: dstore        11
+      16: new           #41                 // class bso
+      19: dup
+      20: new           #39                 // class bqx
+      23: dup
+      24: aload         7
+      26: invokespecial #152                // Method bqx."<init>":(Ljava/lang/String;)V
+      29: fload         8
+      31: fload         9
+      33: dload_1
+      34: d2f
+      35: dload_3
+      36: d2f
+      37: dload         5
+      39: d2f
+      40: invokespecial #154                // Method bso."<init>":(Lbqx;FFFFF)V
+      43: astore        13
+      45: iload         10
+      47: ifeq          92
+      50: dload         11
+      52: ldc2_w        #62                 // double 100.0d
+      55: dcmpl
+      56: ifle          92
+      59: dload         11
+      61: invokestatic  #159                // Method java/lang/Math.sqrt:(D)D
+      64: ldc2_w        #60                 // double 40.0d
+      67: ddiv
+      68: dstore        14
+      70: aload_0
+      71: getfield      #80                 // Field L:Lbao;
+      74: invokevirtual #117                // Method bao.X:()Lbtp;
+      77: aload         13
+      79: dload         14
+      81: ldc2_w        #58                 // double 20.0d
+      84: dmul
+      85: d2i
+      86: invokevirtual #156                // Method btp.a:(Lbst;I)V
+      89: goto          104
+      92: aload_0
+      93: getfield      #80                 // Field L:Lbao;
+      96: invokevirtual #117                // Method bao.X:()Lbtp;
+      99: aload         13
+     101: invokevirtual #155                // Method btp.a:(Lbst;)V
+     104: return
+

@@ -1,0 +1,164 @@
+{
+  "baseline": "9b83e93f2948b58875c6b841d6bf32c2f0908173",
+  "files": {
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTeleporter.java": {
+      "before_sha256": "d9bf79261d0c56ea583fe8add604b34e74933685d8a8a5d867dca3a315fffbe6",
+      "after_sha256": "320706295967dce7511ef8d382eed400d122dfacc4be657dd1391a7b49a6ae15",
+      "edits": [
+        {
+          "before_offset": 655,
+          "after_offset": 655,
+          "old": "import net.minecraft.entity.EntityTracker;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1016,
+          "after_offset": 973,
+          "old": "import net.minecraft.network.play.server.S07PacketRespawn;\nimport net.minecraft.network.play.server.S18PacketEntityTeleport;\nimport net.minecraft.network.play.server.S1DPacketEntityEffect;\n",
+          "new": "import net.minecraft.network.play.server.SPacketRespawn;\nimport net.minecraft.network.play.server.SPacketEntityTeleport;\nimport net.minecraft.network.play.server.SPacketEntityEffect;\n"
+        },
+        {
+          "before_offset": 1292,
+          "after_offset": 1243,
+          "old": "import net.minecraft.server.management.ServerConfigurationManager;\n",
+          "new": "import net.minecraft.server.management.PlayerList;\n"
+        },
+        {
+          "before_offset": 1405,
+          "after_offset": 1340,
+          "old": "import net.minecraft.util.IntHashMap;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1526,
+          "after_offset": 1423,
+          "old": "import net.minecraft.world.chunk.IChunkProvider;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2508,
+          "after_offset": 2356,
+          "old": "\t\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.25, this.pos.getY(), this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 2, this.pos.getZ() + 0.75));\n",
+          "new": "\t\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() + 0.25, this.pos.getY(), this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 2, this.pos.getZ() + 0.75));\n"
+        },
+        {
+          "before_offset": 3198,
+          "after_offset": 3035,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"reddust\", x, y, z, 0.4F, 0.8F, 1F);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, x, y, z, 0.4F, 0.8F, 1F);\n"
+        },
+        {
+          "before_offset": 4555,
+          "after_offset": 4428,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\tthis.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, net.minecraft.init.SoundEvents.ENTITY_ENDERMEN_TELEPORT, net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 5441,
+          "after_offset": 5389,
+          "old": "\t\t\t\t\tEntityTracker entitytracker = ((WorldServer)this.world).getEntityTracker();\n\t\t\t\t\tIntHashMap map = ReflectionHelper.getPrivateValue(EntityTracker.class, entitytracker, \"trackedEntityIDs\", \"field_72794_c\");\n\t\t\t\t\tEntityTrackerEntry entry = (EntityTrackerEntry) map.lookup(entity.getEntityId());\n\t\t\t\t\tint yawByte = MathHelper.floor_float(entity.rotationYaw * 256.0F / 360.0F);\n\t\t\t\t\tint pitchByte = MathHelper.floor_float(entity.rotationPitch * 256.0F / 360.0F);\n\t\t\t\t\tint x32 = entity.myEntitySize.multiplyBy32AndRound(entity.posX);\n\t\t\t\t\tint y32 = MathHelper.floor_double(entity.posY * 32.0D);\n\t\t\t\t\tint z32 = entity.myEntitySize.multiplyBy32AndRound(entity.posZ);\n\t\t\t\t\tentry.func_151259_a(new S18PacketEntityTeleport(entity.getEntityId(), x32, y32, z32, (byte)yawByte, (byte)pitchByte));\n",
+          "new": "\t\t\t\t\tEntityTrackerEntry entry = com.hbm.util.TrackerUtil.getTrackerEntry((WorldServer)this.world, entity.getEntityId());\n\t\t\t\t\tSPacketEntityTeleport packet = new SPacketEntityTeleport(entity);\n\t\t\t\t\t// Preserve original floor rotation and leave the tracker counter untouched.\n\t\t\t\t\tReflectionHelper.setPrivateValue(SPacketEntityTeleport.class, packet, (byte)MathHelper.floor(entity.rotationYaw * 256.0F / 360.0F), \"yaw\", \"field_149455_e\");\n\t\t\t\t\tReflectionHelper.setPrivateValue(SPacketEntityTeleport.class, packet, (byte)MathHelper.floor(entity.rotationPitch * 256.0F / 360.0F), \"pitch\", \"field_149453_f\");\n\t\t\t\t\tentry.sendPacketToTrackedPlayers(packet);\n"
+        },
+        {
+          "before_offset": 6571,
+          "after_offset": 6382,
+          "old": "\t\t\t\tif(entityItem.getEntityItem().getItem() == Items.bread) {\n\t\t\t\t\tWorldServer newWorld = MinecraftServer.getServer().worldServerForDimension(this.targetDim);\n",
+          "new": "\t\t\t\tif(entityItem.getItem().getItem() == Items.BREAD) {\n\t\t\t\t\tWorldServer newWorld = this.world.getMinecraftServer().getWorld(this.targetDim);\n"
+        },
+        {
+          "before_offset": 6942,
+          "after_offset": 6736,
+          "old": "\t\t\t\t\tslime.onSpawnWithEgg(null);\n\t\t\t\t\tnewWorld.spawnEntityInWorld(slime);\n",
+          "new": "\t\t\t\t\tslime.onInitialSpawn(newWorld.getDifficultyForLocation(slime.getPosition()), null);\n\t\t\t\t\tnewWorld.spawnEntity(slime);\n"
+        },
+        {
+          "before_offset": 7032,
+          "after_offset": 6875,
+          "old": "\t\tthis.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\tthis.world.playSound(null, entity.posX, entity.posY, entity.posZ, net.minecraft.init.SoundEvents.ENTITY_ENDERMEN_TELEPORT, net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 7190,
+          "after_offset": 7108,
+          "old": "\t/** Teleports a player to a different dimension, gracefully copied from ServerConfigurationManager */\n",
+          "new": "\t/** Teleports a player to a different dimension, gracefully copied from PlayerList */\n"
+        },
+        {
+          "before_offset": 7448,
+          "after_offset": 7350,
+          "old": "\t\tWorldServer prevWorld = player.mcServer.worldServerForDimension(prevDim);\n\t\tWorldServer newWorld = player.mcServer.worldServerForDimension(dim);\n",
+          "new": "\t\tWorldServer prevWorld = player.server.getWorld(prevDim);\n\t\tWorldServer newWorld = player.server.getWorld(dim);\n"
+        },
+        {
+          "before_offset": 7660,
+          "after_offset": 7528,
+          "old": "\t\tServerConfigurationManager man = player.mcServer.getConfigurationManager();\n\t\tNetHandlerPlayServer net = player.playerNetServerHandler;\n\t\tnet.sendPacket(new S07PacketRespawn(player.dimension, player.worldObj.difficultySetting, newWorld.getWorldInfo().getTerrainType(), player.theItemInWorldManager.getGameType()));\n\t\tprevWorld.removePlayerEntityDangerously(player);\n",
+          "new": "\t\tPlayerList man = player.server.getPlayerList();\n\t\tNetHandlerPlayServer net = player.connection;\n\t\tnet.sendPacket(new SPacketRespawn(player.dimension, player.world.getDifficulty(), newWorld.getWorldInfo().getTerrainType(), player.interactionManager.getGameType()));\n\t\tprevWorld.removeEntityDangerously(player);\n"
+        },
+        {
+          "before_offset": 8168,
+          "after_offset": 7980,
+          "old": "\t\t\tnewWorld.spawnEntityInWorld(player);\n",
+          "new": "\t\t\tnewWorld.spawnEntity(player);\n"
+        },
+        {
+          "before_offset": 8301,
+          "after_offset": 8106,
+          "old": "\t\tman.func_72375_a(player, prevWorld);\n",
+          "new": "\t\tman.preparePlayer(player, prevWorld);\n"
+        },
+        {
+          "before_offset": 8446,
+          "after_offset": 8252,
+          "old": "\t\tplayer.theItemInWorldManager.setWorld(newWorld);\n",
+          "new": "\t\tplayer.interactionManager.setWorld(newWorld);\n"
+        },
+        {
+          "before_offset": 8747,
+          "after_offset": 8550,
+          "old": "\t\t\tplayer.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(player.getEntityId(), potioneffect));\n",
+          "new": "\t\t\tplayer.connection.sendPacket(new SPacketEntityEffect(player.getEntityId(), potioneffect));\n"
+        },
+        {
+          "before_offset": 9172,
+          "after_offset": 8961,
+          "old": "\t\tMinecraftServer minecraftserver = MinecraftServer.getServer();\n\t\tWorldServer newWorld = minecraftserver.worldServerForDimension(dim);\n",
+          "new": "\t\tMinecraftServer minecraftserver = oldEntity.getServer();\n\t\tWorldServer newWorld = minecraftserver.getWorld(dim);\n"
+        },
+        {
+          "before_offset": 9347,
+          "after_offset": 9115,
+          "old": "\t\toldEntity.worldObj.removeEntity(oldEntity);\n",
+          "new": "\t\toldEntity.world.removeEntity(oldEntity);\n"
+        },
+        {
+          "before_offset": 9422,
+          "after_offset": 9187,
+          "old": "\t\tEntity entity = EntityList.createEntityByName(EntityList.getEntityString(oldEntity), newWorld);\n",
+          "new": "\t\tEntity entity = EntityList.createEntityByIDFromName(EntityList.getKey(oldEntity), newWorld);\n"
+        },
+        {
+          "before_offset": 9544,
+          "after_offset": 9306,
+          "old": "\t\t\tentity.copyDataFrom(oldEntity, true);\n",
+          "new": "\t\t\t// Original copyDataFrom included Dimension in NBT; the native private helper\n\t\t\t// removes it. Retain the original serialized data and portal cooldown/direction.\n\t\t\tentity.readFromNBT(oldEntity.writeToNBT(new NBTTagCompound()));\n\t\t\tentity.timeUntilPortal = oldEntity.timeUntilPortal;\n\t\t\tReflectionHelper.setPrivateValue(Entity.class, entity, oldEntity.getTeleportDirection(), \"teleportDirection\", \"field_181018_ap\");\n"
+        },
+        {
+          "before_offset": 9757,
+          "after_offset": 9899,
+          "old": "\t\t\tIChunkProvider provider = newWorld.getChunkProvider();\n",
+          "new": "\t\t\tnet.minecraft.world.gen.ChunkProviderServer provider = newWorld.getChunkProvider();\n"
+        },
+        {
+          "before_offset": 9894,
+          "after_offset": 10065,
+          "old": "\t\t\tnewWorld.spawnEntityInWorld(entity);\n",
+          "new": "\t\t\tnewWorld.spawnEntity(entity);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

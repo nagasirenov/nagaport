@@ -1,20 +1,23 @@
 package com.hbm.particle;
 
 import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import com.hbm.lib.RefStrings;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleDebug extends EntityFX {
+public class ParticleDebug extends Particle {
 
 	private static final ResourceLocation power = new ResourceLocation(RefStrings.MODID + ":textures/particle/debug_power.png");
 	private static final ResourceLocation fluid = new ResourceLocation(RefStrings.MODID + ":textures/particle/debug_fluid.png");
@@ -29,7 +32,7 @@ public class ParticleDebug extends EntityFX {
 		this.motionX = motionX;
 		this.motionY = motionY;
 		this.motionZ = motionZ;
-		this.noClip = true;
+		this.canCollide = false;
 	}
 
 	public ParticleDebug(TextureManager texman, World world, double x, double y, double z, double motionX, double motionY, double motionZ, int color) {
@@ -44,30 +47,30 @@ public class ParticleDebug extends EntityFX {
 		return 3;
 	}
 
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {
+	public void renderParticle(BufferBuilder buffer, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
 
 		this.theRenderEngine.bindTexture(type == 0 ? power : fluid);
 
+		GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		RenderHelper.disableStandardItemLighting();
+		GL11.glDisable(GL11.GL_LIGHTING);
 
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setBrightness(240);
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 		
 		float scale = 0.05F;
-		tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+
 
 		float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
 		float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
 		float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
 
-		tess.addVertexWithUV((double) (pX - x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ - z * scale - tz * scale), 1, 1);
-		tess.addVertexWithUV((double) (pX - x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ - z * scale + tz * scale), 1, 0);
-		tess.addVertexWithUV((double) (pX + x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ + z * scale + tz * scale), 0, 0);
-		tess.addVertexWithUV((double) (pX + x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ + z * scale - tz * scale), 0, 1);
-		tess.draw();
+		buffer.pos((double) (pX - x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ - z * scale - tz * scale)).tex(1, 1).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(0, 240).endVertex();
+		buffer.pos((double) (pX - x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ - z * scale + tz * scale)).tex(1, 0).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(0, 240).endVertex();
+		buffer.pos((double) (pX + x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ + z * scale + tz * scale)).tex(0, 0).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(0, 240).endVertex();
+		buffer.pos((double) (pX + x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ + z * scale - tz * scale)).tex(0, 1).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(0, 240).endVertex();
+		Tessellator.getInstance().draw();
 
-		GL11.glPolygonOffset(0.0F, 0.0F);
+		GlStateManager.doPolygonOffset(0.0F, 0.0F);
+		GL11.glPopAttrib();
 	}
 }

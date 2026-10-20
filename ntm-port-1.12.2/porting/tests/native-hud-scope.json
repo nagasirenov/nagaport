@@ -1,0 +1,25 @@
+{
+  "baseline": "39837aa8a5fad4d7fde8657e18d1956881fc2bcc",
+  "production": {
+    "src/main/java/com/hbm/render/util/RenderScreenOverlay.java": {
+      "before_sha256": "6dcd6bd4f6ac1d7931b86958b5aa6ed5d0312f1ecbfcda24d72aaf90b13cb218",
+      "sha256": "39a620eb2ac1070ea967f6f7bfbc6ed30d834e9c379b6fa69c595267d4d0a122"
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/hud/HUDComponentAmmoCounter.java": {
+      "before_sha256": "a9f37edcb210faac7278cd825034c84208f36c06c7dd0d7feae3ab85e1f9b220",
+      "sha256": "fa8fd0c9e6ca9c7af1e85aa903752ed5a4f439ca12566d31263068b532b1b3ef"
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/hud/HUDComponentDurabilityBar.java": {
+      "before_sha256": "a6b5fb9a91986f3e989a3eaf98291a158eb009cd88243c627466d3fb0cbb70cb",
+      "sha256": "d8479e19642975d8292b0f8b7f0525bdf69cd9913983cb41a0ff4bb2d28a23f3"
+    }
+  },
+  "test_scope": "Complete three production classes plus native IHUDComponent/Crosshair. Config/player props/magazine providers are explicit fixtures. Not player inventory radiation or full game.",
+  "evidence": {
+    "porting/tests/NativeHudTest.java": "e907bc019940c86cb20bd41d2783856c3b9ff6d63df78860791dac830df53ef0",
+    "porting/tests/probe-native-hud.py": "e4536c9d002af72b2152f012ae54f7621d68495e8e151212d607d558789445ba",
+    "porting/tests/check-native-hud-source.py": "4235fd43dea0ff35094168d3eded0f28a4c8a7922c880c096855fc4efc0d765b",
+    "porting/continuation-2026-10-19/native-hud-FINAL.log": "e00a23f3970b0d4d24d2dcd680c101611819cc87281768ac200367e2af6d957e",
+    "porting/continuation-2026-10-19/native-hud-cache-mutation.log": "d91ff1feb7d8d4e792e1b82de8734235ab566df9795b29baf5617852b9297e11"
+  }
+}

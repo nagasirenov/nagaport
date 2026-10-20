@@ -66,7 +66,7 @@ public class TileEntityTurretSentryDamaged extends TileEntityTurretSentry {
 				this.cachedCasingConfig = conf.casing;
 
 				if(shotSide) {
-					this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.sentry_fire", 2.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.sentry_fire", 2.0F, 1.0F);
 					this.spawnBullet(conf, 5F);
 
 					com.hbm.util.Vec3NT barrel = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
@@ -78,7 +78,7 @@ public class TileEntityTurretSentryDamaged extends TileEntityTurretSentry {
 					side = side.rotateYaw((float) -(this.rotationYaw));
 
 				} else {
-					this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.sentry_fire", 2.0F, 0.75F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.sentry_fire", 2.0F, 0.75F);
 					if(usesCasings()) {
 						if(this.casingDelay() == 0) {
 							spawnCasing();
@@ -93,7 +93,7 @@ public class TileEntityTurretSentryDamaged extends TileEntityTurretSentry {
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 1F);
 				data.setByte("count", (byte) 1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + side.x, pos.y + vec.y, pos.z + vec.z + side.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + side.x, pos.y + vec.y, pos.z + vec.z + side.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 
 				if(shotSide) {
 					this.didJustShootLeft = true;

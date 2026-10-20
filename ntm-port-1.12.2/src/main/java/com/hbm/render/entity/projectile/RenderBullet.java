@@ -3,7 +3,6 @@ package com.hbm.render.entity.projectile;
 import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
 import com.hbm.entity.projectile.EntityBulletBaseNT;
 import com.hbm.entity.projectile.IBulletBase;
@@ -16,12 +15,16 @@ import com.hbm.render.util.BeamPronter;
 import com.hbm.render.util.BeamPronter.EnumBeamType;
 import com.hbm.render.util.BeamPronter.EnumWaveType;
 import com.hbm.render.util.RenderSparks;
+import com.hbm.render.util.NativeMachineItemRenderer;
 import com.hbm.util.Tuple.Pair;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -30,17 +33,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
+/** State writes also update the native cache, but remain unconditional for
+ * existing raw-GL callers. Do not remove the raw write before its cache update. */
 @Deprecated
-public class RenderBullet extends Render {
+public class RenderBullet extends Render<EntityBulletBaseNT> {
 
-	private ModelBullet bullet;
+	private static final VertexFormat TRAIL_FORMAT = new VertexFormat()
+			.addElement(DefaultVertexFormats.POSITION_3F).addElement(DefaultVertexFormats.COLOR_4UB)
+			.addElement(DefaultVertexFormats.NORMAL_3B).addElement(DefaultVertexFormats.PADDING_1B);
+	private final NativeMachineItemRenderer items = new NativeMachineItemRenderer();
 
-	public RenderBullet() {
+	private final ModelBullet bullet;
+
+	public RenderBullet(RenderManager renderManager) {
+		super(renderManager);
 		bullet = new ModelBullet();
 	}
 
 	@Override
-	public void doRender(Entity bullet, double x, double y, double z, float f0, float f1) {
+	public void doRender(EntityBulletBaseNT bullet, double x, double y, double z, float f0, float f1) {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x, (float) y, (float) z);
@@ -48,13 +59,13 @@ public class RenderBullet extends Render {
 		GL11.glRotatef(bullet.prevRotationPitch + (bullet.rotationPitch - bullet.prevRotationPitch) * f1 + 180, 0.0F, 0.0F, 1.0F);
 		GL11.glScalef(1.5F, 1.5F, 1.5F);
 
-		int style = bullet.getDataWatcher().getWatchableObjectByte(16);
-		int trail = bullet.getDataWatcher().getWatchableObjectByte(17);
+		int style = bullet.getRenderStyle();
+		int trail = bullet.getRenderTrail();
 		
 		if(style != BulletConfiguration.STYLE_BLADE)
 			GL11.glRotatef(new Random(bullet.getEntityId()).nextInt(90) - 45, 1.0F, 0.0F, 0.0F);
 		
-		GL11.glEnable(GL11.GL_CULL_FACE);
+		GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();
 		
 		switch(style) {
 			case BulletConfiguration.STYLE_NONE: break;
@@ -95,10 +106,10 @@ public class RenderBullet extends Render {
 			GL11.glRotated(90, 0, 0, 1);
 			GL11.glRotated(90, 0, 1, 0);
 
-			GL11.glShadeModel(GL11.GL_SMOOTH);
+			GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 			bindTexture(ResourceManager.bullet_rifle_tex);
 			ResourceManager.projectiles.renderPart("BulletRifle");
-			GL11.glShadeModel(GL11.GL_FLAT);
+			GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 		}
 		
 	}
@@ -109,10 +120,10 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.bullet_pistol_tex);
 		ResourceManager.projectiles.renderPart("BulletPistol");
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 		
 	}
 	
@@ -122,10 +133,10 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 		
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.buckshot_tex);
 		ResourceManager.projectiles.renderPart("Buckshot");
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 	}
 	
 	private void renderRocket(int type) {
@@ -134,10 +145,10 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.rocket_tex);
 		ResourceManager.projectiles.renderPart("Rocket");
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 	}
 	
 	private void renderGrenade(int type) {
@@ -146,20 +157,20 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.grenade_tex);
 		ResourceManager.projectiles.renderPart("Grenade");
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 	}
 	
 	private void renderOrb(int type) {
 
-        GL11.glEnable(GL11.GL_CULL_FACE);
-        GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glShadeModel(GL11.GL_SMOOTH);
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
-        GL11.glDepthMask(false);
+        GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();
+        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();
+        GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
+        GL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+        GL11.glDepthMask(false); GlStateManager.depthMask(false);
 		
 		switch(type) {
 		case 0:
@@ -174,28 +185,28 @@ public class RenderBullet extends Render {
 			
 		case 1:
 			GL11.glScalef(0.5F, 0.5F, 0.5F);
-			GL11.glDisable(GL11.GL_TEXTURE_2D);
-			GL11.glColor4f(0.5F, 0.0F, 0.0F, 0.5F);
+			GL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();
+			GL11.glColor4f(0.5F, 0.0F, 0.0F, 0.5F); GlStateManager.color(0.5F, 0.0F, 0.0F, 0.5F);
 			ResourceManager.sphere_uv.renderAll();
 			GL11.glScalef(0.75F, 0.75F, 0.75F);
 			ResourceManager.sphere_uv.renderAll();
 			GL11.glScalef(1F/0.75F, 1F/0.75F, 1F/0.75F);
-			GL11.glEnable(GL11.GL_TEXTURE_2D);
+			GL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();
 			for(int i = 0; i < 3; i++)
 				RenderSparks.renderSpark((int) (System.currentTimeMillis() / 100 + 100 * i), 0, 0, 0, 1F, 2, 3, 0xFF0000, 0xFF8080);
 			break;
 		}
 		
-		GL11.glDisable(GL11.GL_BLEND);
-        GL11.glEnable(GL11.GL_LIGHTING);
-        GL11.glDepthMask(true);
+		GL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();
+        GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();
+        GL11.glDepthMask(true); GlStateManager.depthMask(true);
 
 	}
 	
 	private void renderMeteor(int type) {
 
-        GL11.glEnable(GL11.GL_CULL_FACE);
-        GL11.glDisable(GL11.GL_LIGHTING);
+        GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();
+        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();
 
 		switch(type) {
 		case 0:
@@ -206,7 +217,7 @@ public class RenderBullet extends Render {
 		
 		ResourceManager.meteor.renderAll();
 		
-        GL11.glEnable(GL11.GL_LIGHTING);
+        GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();
 	}
 	
 	private void renderFlechette() {
@@ -215,10 +226,10 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 		
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.flechette_tex);
 		ResourceManager.projectiles.renderPart("Flechette");
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 	}
 	private void renderTracerV2() {
 		
@@ -226,9 +237,9 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 		
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		BeamPronter.prontBeam(new Vec3d(0, 5, 0), EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xFF9000, 0xFF9000, 0, 1, 0F, 6, (float)0.2 * 0.2F, 256);
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 	}
 	
 	private void renderAPDS() {
@@ -237,10 +248,10 @@ public class RenderBullet extends Render {
 		GL11.glRotated(90, 0, 0, 1);
 		GL11.glRotated(90, 0, 1, 0);
 		
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.flechette_tex);
 		ResourceManager.projectiles.renderPart("Flechette");
-		GL11.glShadeModel(GL11.GL_FLAT);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
 	}
 	
 	private void renderDart(int style, int eID) {
@@ -266,128 +277,106 @@ public class RenderBullet extends Render {
 		}
 		
 		GL11.glPushMatrix();
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glDisable(GL11.GL_CULL_FACE);
-        GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glShadeModel(GL11.GL_SMOOTH);
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
-        GL11.glDepthMask(false);
+        GL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();
+        GL11.glDisable(GL11.GL_CULL_FACE); GlStateManager.disableCull();
+        GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();
+        GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
+        GL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+        GL11.glDepthMask(false); GlStateManager.depthMask(false);
 
         GL11.glScalef(1F/4F, 1F/8F, 1F/8F);
         GL11.glScalef(-1, 1, 1);
 
         GL11.glScalef(2, 2, 2);
         
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
 		
 		//front
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(6, 0, 0);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, -1, -1);
-		tess.addVertex(3, 1, -1);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(3, -1, -1).color(red, green, blue, 0F).endVertex();
+		buffer.pos(3, 1, -1).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, -1, 1);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(6, 0, 0);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, 1, 1);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(3, -1, 1).color(red, green, blue, 0F).endVertex();
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(3, 1, 1).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, -1, -1);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(6, 0, 0);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, -1, 1);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(3, -1, -1).color(red, green, blue, 0F).endVertex();
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(3, -1, 1).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(6, 0, 0);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, 1, -1);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(3, 1, 1);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(3, 1, -1).color(red, green, blue, 0F).endVertex();
+		buffer.pos(3, 1, 1).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 		
 		//mid
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(6, 0, 0);
-		tess.addVertex(4, -0.5, -0.5);
-		tess.addVertex(4, 0.5, -0.5);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();
 		tess.draw();
 
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(4, -0.5, 0.5);
-		tess.addVertex(6, 0, 0);
-		tess.addVertex(4, 0.5, 0.5);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();
 		tess.draw();
 
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(4, -0.5, -0.5);
-		tess.addVertex(6, 0, 0);
-		tess.addVertex(4, -0.5, 0.5);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();
 		tess.draw();
 
-		tess.startDrawing(4);
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(6, 0, 0);
-		tess.addVertex(4, 0.5, -0.5);
-		tess.addVertex(4, 0.5, 0.5);
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(6, 0, 0).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();
 		tess.draw();
 		
 		//tail
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(4, 0.5, -0.5);
-		tess.addVertex(4, 0.5, 0.5);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(0, 0.5, 0.5);
-		tess.addVertex(0, 0.5, -0.5);
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(0, 0.5, 0.5).color(red, green, blue, 0F).endVertex();
+		buffer.pos(0, 0.5, -0.5).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(4, -0.5, -0.5);
-		tess.addVertex(4, -0.5, 0.5);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(0, -0.5, 0.5);
-		tess.addVertex(0, -0.5, -0.5);
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(0, -0.5, 0.5).color(red, green, blue, 0F).endVertex();
+		buffer.pos(0, -0.5, -0.5).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(4, -0.5, 0.5);
-		tess.addVertex(4, 0.5, 0.5);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(0, 0.5, 0.5);
-		tess.addVertex(0, -0.5, 0.5);
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(4, -0.5, 0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, 0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(0, 0.5, 0.5).color(red, green, blue, 0F).endVertex();
+		buffer.pos(0, -0.5, 0.5).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(red, green, blue, 1);
-		tess.addVertex(4, -0.5, -0.5);
-		tess.addVertex(4, 0.5, -0.5);
-		tess.setColorRGBA_F(red, green, blue, 0);
-		tess.addVertex(0, 0.5, -0.5);
-		tess.addVertex(0, -0.5, -0.5);
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(4, -0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(4, 0.5, -0.5).color(red, green, blue, 1F).endVertex();
+		buffer.pos(0, 0.5, -0.5).color(red, green, blue, 0F).endVertex();
+		buffer.pos(0, -0.5, -0.5).color(red, green, blue, 0F).endVertex();
 		tess.draw();
 		
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		GL11.glDepthMask(true);
+		GL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();
+		GL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();
+		GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();
+		GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();
+		GL11.glDepthMask(true); GlStateManager.depthMask(true);
 		
 		GL11.glPopMatrix();
 	}
@@ -395,8 +384,8 @@ public class RenderBullet extends Render {
 	private void renderBlade() {
 		GL11.glPushMatrix();
 		
-		EntityItem dummy = new EntityItem(Minecraft.getMinecraft().theWorld, 0, 0, 0, new ItemStack(ModItems.blade_titanium));
-		dummy.getEntityItem().stackSize = 1;
+		EntityItem dummy = new EntityItem(Minecraft.getMinecraft().world, 0, 0, 0, new ItemStack(ModItems.blade_titanium));
+		dummy.getItem().setCount(1);
 		dummy.hoverStart = 0.0F;
 
 		GL11.glRotated(90, 0, 0, 1);
@@ -405,16 +394,16 @@ public class RenderBullet extends Render {
 		GL11.glTranslated(0, -0.5, 0);
 		GL11.glRotated(90, 0, 1, 0);
 		GL11.glScaled(1, 2, 1);
-		RenderItem.renderInFrame = true;
-		RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-		RenderItem.renderInFrame = false;
+		items.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F,
+				NativeMachineItemRenderer.Display.ENTITY_FRAME);
 		
 		GL11.glPopMatrix();
 	}
 
 	private void renderTau(Entity bullet, int trail, float interp) {
 		
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder buffer = tessellator.getBuffer();
 		
 		float scale = 0.125F;
 
@@ -434,7 +423,7 @@ public class RenderBullet extends Render {
 		double deltaY = iface.prevY() - pY;
 		double deltaZ = iface.prevZ() - pZ;
 		
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;
 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;
 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
@@ -455,11 +444,10 @@ public class RenderBullet extends Render {
 		
 		for(Pair<Vec3d, Double> pair : iface.nodes()) {
 			double mult = 1D;
-			pair.key = pair.getKey().addVector(deltaX * mult, deltaY * mult, deltaZ * mult);
+			pair.key = pair.getKey().add(deltaX * mult, deltaY * mult, deltaZ * mult);
 		}
 		
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0F, 1F, 0F);
+		buffer.begin(GL11.GL_QUADS, TRAIL_FORMAT);
 
 		for(int i = 0; i < iface.nodes().size() - 1; i++) {
 			final Pair<Vec3d, Double> node = iface.nodes().get(i), past = iface.nodes().get(i + 1);
@@ -476,50 +464,45 @@ public class RenderBullet extends Render {
 				break;
 			}
 
-			tessellator.setNormal(0F, 1F, 0F);
-			tessellator.setColorRGBA_F(r, g, b, nodeAlpha);
-			tessellator.addVertex(nodeLoc.x, nodeLoc.y, nodeLoc.z);
-			tessellator.setColorRGBA_F(r, g, b, nodeAlpha * outerAlpha);
-			tessellator.addVertex(nodeLoc.x, nodeLoc.y + scale, nodeLoc.z);
-			tessellator.setColorRGBA_F(r, g, b, pastAlpha * outerAlpha);
-				tessellator.addVertex(pastLoc.x, pastLoc.y + scale, pastLoc.z);
-			tessellator.setColorRGBA_F(r, g, b, pastAlpha);
-				tessellator.addVertex(pastLoc.x, pastLoc.y, pastLoc.z);
+			trailVertex(buffer, nodeLoc.x, nodeLoc.y, nodeLoc.z, r, g, b, nodeAlpha);
+			trailVertex(buffer, nodeLoc.x, nodeLoc.y + scale, nodeLoc.z, r, g, b, nodeAlpha * outerAlpha);
+				trailVertex(buffer, pastLoc.x, pastLoc.y + scale, pastLoc.z, r, g, b, pastAlpha * outerAlpha);
+				trailVertex(buffer, pastLoc.x, pastLoc.y, pastLoc.z, r, g, b, pastAlpha);
 
-			tessellator.setColorRGBA_F(r, g, b, nodeAlpha);
-			tessellator.addVertex(nodeLoc.x, nodeLoc.y, nodeLoc.z);
-			tessellator.setColorRGBA_F(r, g, b, nodeAlpha * outerAlpha);
-			tessellator.addVertex(nodeLoc.x, nodeLoc.y - scale, nodeLoc.z);
-			tessellator.setColorRGBA_F(r, g, b, pastAlpha * outerAlpha);
-			tessellator.addVertex(pastLoc.x, pastLoc.y - scale, pastLoc.z);
-			tessellator.setColorRGBA_F(r, g, b, pastAlpha);
-			tessellator.addVertex(pastLoc.x, pastLoc.y, pastLoc.z);
+			trailVertex(buffer, nodeLoc.x, nodeLoc.y, nodeLoc.z, r, g, b, nodeAlpha);
+			trailVertex(buffer, nodeLoc.x, nodeLoc.y - scale, nodeLoc.z, r, g, b, nodeAlpha * outerAlpha);
+			trailVertex(buffer, pastLoc.x, pastLoc.y - scale, pastLoc.z, r, g, b, pastAlpha * outerAlpha);
+			trailVertex(buffer, pastLoc.x, pastLoc.y, pastLoc.z, r, g, b, pastAlpha);
 		}
-
-		GL11.glColor3f(1F, 1F, 1F);
-		GL11.glDepthMask(true);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_CULL_FACE);
-		GL11.glShadeModel(GL11.GL_SMOOTH);
+		GL11.glColor3f(1F, 1F, 1F); GlStateManager.color(1F, 1F, 1F);
+		GL11.glDepthMask(true); GlStateManager.depthMask(true);
+		GL11.glAlphaFunc(GL11.GL_GREATER, 0F); GlStateManager.alphaFunc(GL11.GL_GREATER, 0F);
+		GL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();
+		GL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();
+		GL11.glDisable(GL11.GL_CULL_FACE); GlStateManager.disableCull();
+		GL11.glShadeModel(GL11.GL_SMOOTH); GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		tessellator.draw();
-		GL11.glShadeModel(GL11.GL_FLAT);
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glAlphaFunc(GL11.GL_GEQUAL, 0.1F);
+		GL11.glShadeModel(GL11.GL_FLAT); GlStateManager.shadeModel(GL11.GL_FLAT);
+		GL11.glEnable(GL11.GL_CULL_FACE); GlStateManager.enableCull();
+		GL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();
+		GL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();
+		GL11.glAlphaFunc(GL11.GL_GEQUAL, 0.1F); GlStateManager.alphaFunc(GL11.GL_GEQUAL, 0.1F);
 		
 		iface.prevX(pX);
 		iface.prevY(pY);
 		iface.prevZ(pZ);
 	}
 
+	private static void trailVertex(BufferBuilder buffer, double x, double y, double z, float r, float g, float b, float alpha) {
+		buffer.pos(x, y, z).color((int) (r * 255F), (int) (g * 255F), (int) (b * 255F),
+				Math.max(0, Math.min(255, (int) (alpha * 255F)))).normal(0F, 1F, 0F).endVertex();
+	}
+
 	private void renderLeadburster(Entity bullet, float interp) {
 		EntityBulletBaseNT bulletnt = (EntityBulletBaseNT) bullet;
 		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+		GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();
+		GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL); GlStateManager.enableRescaleNormal();
 		GL11.glRotated(90, 0, 0, -1);
 		double scale = 0.05;
 		GL11.glScaled(scale, scale, scale);
@@ -534,7 +517,7 @@ public class RenderBullet extends Render {
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(EntityBulletBaseNT p_110775_1_) {
 		return new ResourceLocation(RefStrings.MODID + ":textures/models/bullet.png");
 	}
 

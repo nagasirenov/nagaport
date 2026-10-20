@@ -1,0 +1,16 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS actual unsplit selected-expression Code sizes: [5547, 6512, 1384]
+[02:15:23] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:15:23] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:15:23] [main/INFO]: Replaced 1036 ore ingredients
+[02:15:23] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:15:23] [main/INFO]: Processing ObjectHolder annotations
+[02:15:23] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 183 native fence owner/WorldChunk/drop/save checks
+PASS 338 checks and 2726 exact ordered fence native/original-expression placement events.
+PASS native owner mutant rejected: 0 Exception in thread "main" java.lang.AssertionError: actual native Block drops rectify modulo2
+PASS native owner mutant rejected: 1 Exception in thread "main" java.lang.AssertionError: corrected custom native connection predicate, not vanilla fallback
+PASS native owner mutant rejected: 2 Exception in thread "main" java.lang.AssertionError: default zero

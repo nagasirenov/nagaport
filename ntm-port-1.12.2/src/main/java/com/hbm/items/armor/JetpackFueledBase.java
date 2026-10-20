@@ -47,21 +47,21 @@ public abstract class JetpackFueledBase extends JetpackBase implements IFillable
 	}
 	
     public static int getFuel(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 		
-		return stack.stackTagCompound.getInteger("fuel");
+		return stack.getTagCompound().getInteger("fuel");
 		
 	}
 	
 	public static void setFuel(ItemStack stack, int i) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
-		stack.stackTagCompound.setInteger("fuel", i);
+		stack.getTagCompound().setInteger("fuel", i);
 		
 	}
 

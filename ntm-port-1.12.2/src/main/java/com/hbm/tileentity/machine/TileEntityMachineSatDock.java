@@ -21,12 +21,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class TileEntityMachineSatDock extends TileEntity implements ISidedInventory, IGUIProvider {
+public class TileEntityMachineSatDock extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
 	private ItemStack[] slots;
 	private static final int[] access = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
@@ -40,21 +40,18 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	@Override public ItemStack getStackInSlot(int i) { return slots[i]; }
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-		if(slots[i] != null) {
-			ItemStack itemStack = slots[i];
-			slots[i] = null;
-			return itemStack;
-		} else {
-			return null;
-		}
+	public ItemStack removeStackFromSlot(int i) {
+		ItemStack itemStack = slots[i];
+		slots[i] = null;
+		return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
-			itemStack.stackSize = getInventoryStackLimit();
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -65,10 +62,10 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
 
@@ -116,7 +113,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
 
@@ -133,16 +130,20 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
-	@Override public int[] getAccessibleSlotsFromSide(int p_94128_1_) { return access; }
-	@Override public boolean canInsertItem(int i, ItemStack itemStack, int j) { return this.isItemValidForSlot(i, itemStack); }
-	@Override public boolean canExtractItem(int i, ItemStack itemStack, int j) { return true; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return access; }
+	@Override public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return this.isItemValidForSlot(i, itemStack); }
+	@Override public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return true; }
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
-			SatelliteSavedData data = SatelliteSavedData.getData(worldObj, xCoord, zCoord);
+	public void update() {
+		if(!this.world.isRemote) {
+			SatelliteSavedData data = SatelliteSavedData.getData(this.world, this.pos.getX(), this.pos.getZ());
 
 			if(slots[15] != null) {
 				int freq = ISatChip.getFreqS(slots[15]);
@@ -155,13 +156,13 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 					SatelliteMiner miner = (SatelliteMiner) sat;
 
 					if(miner.lastOp + delay < System.currentTimeMillis()) {
-						EntityMinerRocket rocket = new EntityMinerRocket(worldObj);
-						rocket.posX = xCoord + 0.5;
+						EntityMinerRocket rocket = new EntityMinerRocket(this.world);
+						rocket.posX = this.pos.getX() + 0.5;
 						rocket.posY = 300;
-						rocket.posZ = zCoord + 0.5;
+						rocket.posZ = this.pos.getZ() + 0.5;
 
-						rocket.getDataWatcher().updateObject(17, freq);
-						worldObj.spawnEntityInWorld(rocket);
+						rocket.setSatelliteFrequency(freq);
+						this.world.spawnEntityInWorld(rocket);
 						miner.lastOp = System.currentTimeMillis();
 						data.markDirty();
 					}
@@ -169,37 +170,37 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 			}
 
 			@SuppressWarnings("unchecked")
-			List<EntityMinerRocket> list = worldObj.getEntitiesWithinAABBExcludingEntity(null,
-					AxisAlignedBB.getBoundingBox(xCoord - 0.25 + 0.5, yCoord + 0.75, zCoord - 0.25 + 0.5, xCoord + 0.25 + 0.5, yCoord + 2, zCoord + 0.25 + 0.5),
+			List<EntityMinerRocket> list = this.world.getEntitiesWithinAABBExcludingEntity(null,
+					AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.25 + 0.5, this.pos.getY() + 0.75, this.pos.getZ() - 0.25 + 0.5, this.pos.getX() + 0.25 + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.25 + 0.5),
 					entity -> entity instanceof EntityMinerRocket);
 
 			for(EntityMinerRocket rocket : list) {
-				if(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getDataWatcher().getWatchableObjectInt(17)) {
+				if(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getSatelliteFrequency()) {
 					rocket.setDead();
-					ExplosionNukeSmall.explode(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, ExplosionNukeSmall.PARAMS_TOTS);
+					ExplosionNukeSmall.explode(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, ExplosionNukeSmall.PARAMS_TOTS);
 					break;
 				}
 
-				if(rocket.getDataWatcher().getWatchableObjectInt(16) == 1 && rocket.timer == 50) {
+				if(rocket.getFlightMode() == 1 && rocket.timer == 50) {
 					Satellite sat = data.getSatFromFreq(ISatChip.getFreqS(slots[15]));
 					if(sat != null) unloadCargo((SatelliteMiner) sat);
 				}
 			}
 
-			ejectInto(xCoord + 2, yCoord, zCoord);
-			ejectInto(xCoord - 2, yCoord, zCoord);
-			ejectInto(xCoord, yCoord, zCoord + 2);
-			ejectInto(xCoord, yCoord, zCoord - 2);
+			ejectInto(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ());
+			ejectInto(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ());
+			ejectInto(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2);
+			ejectInto(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2);
 		}
 	}
 
 	private void unloadCargo(SatelliteMiner satellite) {
-		int itemAmount = worldObj.rand.nextInt(6) + 10;
+		int itemAmount = this.world.rand.nextInt(6) + 10;
 
 		WeightedRandomChestContent[] cargo = ItemPool.getPool(satellite.getCargo());
 
 		for(int i = 0; i < itemAmount; i++) {
-			addToInv(ItemPool.getStack(cargo, worldObj.rand));
+			addToInv(ItemPool.getStack(cargo, this.world.rand));
 		}
 	}
 
@@ -225,7 +226,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	}
 
 	private void ejectInto(int x, int y, int z) {
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof IInventory) {
 			IInventory chest = (IInventory) te;
@@ -234,17 +235,17 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 				if(slots[i] != null) {
 					for(int j = 0; j < chest.getSizeInventory(); j++) {
 						ItemStack sta = slots[i].copy();
-						sta.stackSize = 1;
+						sta.setCount(1);
 
-						if(chest.getStackInSlot(j) != null && chest.getStackInSlot(j).isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(chest.getStackInSlot(j), slots[i])
-								&& chest.getStackInSlot(j).stackSize < chest.getStackInSlot(j).getMaxStackSize()) {
+						if(chest.getStackInSlot(j) != null && !chest.getStackInSlot(j).isEmpty() && chest.getStackInSlot(j).isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(chest.getStackInSlot(j), slots[i])
+								&& chest.getStackInSlot(j).getCount() < chest.getStackInSlot(j).getMaxStackSize()) {
 
-							slots[i].stackSize--;
+							slots[i].shrink(1);
 
-							if(slots[i].stackSize <= 0)
+							if(slots[i].getCount() <= 0)
 								slots[i] = null;
 
-							chest.getStackInSlot(j).stackSize++;
+							chest.getStackInSlot(j).grow(1);
 							return;
 						}
 					}
@@ -255,12 +256,12 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 				if(slots[i] != null) {
 					for(int j = 0; j < chest.getSizeInventory(); j++) {
 						ItemStack sta = slots[i].copy();
-						sta.stackSize = 1;
+						sta.setCount(1);
 
-						if(chest.getStackInSlot(j) == null && chest.isItemValidForSlot(j, sta)) {
-							slots[i].stackSize--;
+						if((chest.getStackInSlot(j) == null || chest.getStackInSlot(j).isEmpty()) && chest.isItemValidForSlot(j, sta)) {
+							slots[i].shrink(1);
 
-							if(slots[i].stackSize <= 0)
+							if(slots[i].getCount() <= 0)
 								slots[i] = null;
 
 							chest.setInventorySlotContents(j, sta);
@@ -275,7 +276,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(renderBoundingBox == null) {
-			renderBoundingBox = AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord, zCoord - 1, xCoord + 2, yCoord + 1, zCoord + 2);
+			renderBoundingBox = AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 1, this.pos.getZ() + 2);
 		}
 
 		return renderBoundingBox;

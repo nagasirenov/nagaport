@@ -44,8 +44,8 @@ public class ItemModTesla extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote && entity instanceof EntityPlayer && armor.getItem() instanceof ArmorFSBPowered && ArmorFSBPowered.hasFSBArmor((EntityPlayer)entity)) {
-			targets = TileEntityTesla.zap(entity.worldObj, entity.posX, entity.posY + 1.25, entity.posZ, 5, entity);
+		if(!entity.world.isRemote && entity instanceof EntityPlayer && armor.getItem() instanceof ArmorFSBPowered && ArmorFSBPowered.hasFSBArmor((EntityPlayer)entity)) {
+			targets = TileEntityTesla.zap(entity.world, entity.posX, entity.posY + 1.25, entity.posZ, 5, entity);
 			
 			if(targets != null && !targets.isEmpty() && entity.getRNG().nextInt(5) == 0) {
 				armor.damageItem(1, entity);
@@ -72,7 +72,7 @@ public class ItemModTesla extends ItemArmorMod {
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
-		float yawWrapped = MathHelper.wrapAngleTo180_float(yawHead - yawOffset);
+		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 		
 		modelTesla.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);

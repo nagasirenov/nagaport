@@ -96,9 +96,9 @@ public class RenderCraneConsole extends TileEntitySpecialRenderer {
 			bindTexture(ResourceManager.rbmk_crane_tex);
 
 			int height = console.height - 6;
-			double cranePosX = (-te.xCoord + console.centerX);
-			double cranePosY = (-te.yCoord + console.centerY) + 1;
-			double cranePosZ = (-te.zCoord + console.centerZ);
+			double cranePosX = (-te.getPos().getX() + console.centerX);
+			double cranePosY = (-te.getPos().getY() + console.centerY) + 1;
+			double cranePosZ = (-te.getPos().getZ() + console.centerZ);
 			
 			GL11.glTranslated(cranePosX, cranePosY, cranePosZ);
 			GL11.glRotatef(teFacing, 0F, 1F, 0F);

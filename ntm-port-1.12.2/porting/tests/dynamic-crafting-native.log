@@ -1,0 +1,137 @@
+PASS exact source conservation crafting/handlers/RBMKFuelCraftingHandler
+PASS exact source conservation crafting/handlers/ScrapsCraftingHandler
+PASS exact source conservation crafting/handlers/CargoShellCraftingHandler
+PASS exact source conservation main/CraftingManager
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getEnrichment(ItemStack stack) 0e77912876b634af6ab1ca3a50c3c1b65829ab32924308e473bf09233181c832
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getPoisonLevel(ItemStack stack) 6f084299ee3b6aa08d14f47edd7e2caf1963ebe47993cf95e3355863526bc4a4
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getYield(ItemStack stack) 3270488b6123155aa8f85f9a7465af4f073cf830b63abe982c8bdc9bfd863d25
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getPoison(ItemStack stack) 7e7835c72552b561126fb6f2c2482eb00d50846955fbe20e755439a442e3a98f
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getCoreHeat(ItemStack stack) b69aea3e84c33d53970bc264bf50e80ba010b43dec27c4b3bb6723d5fc72f959
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getHullHeat(ItemStack stack) 2f1668fa480bd0882ac0434a3520396b0e79220d87e5937190d55de9561c805e
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static void setYield(ItemStack stack, double yield) 0dcec166d5d82cb6a7487c76463886f3a7d73c7ecbaa4546dad814d1a3353377
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static void setCoreHeat(ItemStack stack, double heat) 1ec200fd3c025288f206861d911353dea4a38d82170c7058c0afd1054ec16551
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static void setHullHeat(ItemStack stack, double heat) 3e83dc0593dd4f356880fc65d686acfe1fdebd140504ec9ea16e4da50a654ab3
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static double getDouble(ItemStack stack, String key) f6139d5cc8127829fcaa7fecf7e32e3be198a2922844bde54ce49c048d74dde1
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java public static void setDouble(ItemStack stack, String key, double yield) 31503c08a4e66e10b8b3b473b58e7809d78867fbda62f5b420e48fda734a6257
+EXACT ACCESSOR com/hbm/items/machine/ItemRBMKRod.java private static void setNBTDefaults(ItemStack stack) 265437dcbdfb41562165010a15953c2820eb4598b6ba3b1f7db06b3b38818405
+EXACT ACCESSOR com/hbm/items/machine/ItemScraps.java public static MaterialStack getMats(ItemStack stack) 61a2c78834ff236978afae9b275eea45c9a61aa8e85882ae457b8c3eaf67d508
+EXACT ACCESSOR com/hbm/items/machine/ItemScraps.java public static ItemStack create(MaterialStack stack) 7a3dffdf50cceb26a23efeac2977273fd1b3ef71da1c9a4ca37ded2ff1c4f77d
+EXACT ACCESSOR com/hbm/items/machine/ItemScraps.java public static ItemStack create(MaterialStack stack, boolean liquid) 54843f5c80a798eb6120189d5fb0137b98cca8ee0b32856b7d661f8af5eff877
+EXACT ACCESSOR com/hbm/inventory/material/MaterialShapes.java public int q(int amount) 4a07cb6d760885405f8173108748d6e1caa6417703640c5987bdc63df1383080
+EXACT ACCESSOR com/hbm/items/tool/ItemCraftingDegradation.java public boolean hasContainerItem(ItemStack stack) e46c5b951873d41371e7bc4111a6645c619f14dc01d1a4585cf80f04b1728cc1
+EXACT ACCESSOR com/hbm/items/machine/ItemFluidIDMulti.java public boolean hasContainerItem() d360f36717f0f31c5cd73c9c9633455d168875bb40928d53dbc9d8a023585530
+EXACT ACCESSOR com/hbm/inventory/material/Mats.java public static class MaterialStack bae5d87cbd5ac76649e69976ca09b10d4342fe6852868cee0eb530d000f3bfd8
+EXACT PRODUCER NtmCraftingRegistry.special("special/rbmk_fuel", new RBMKFuelCraftingHandler())
+EXACT PRODUCER NtmCraftingRegistry.special("special/cargo_shell", new CargoShellCraftingHandler())
+EXACT PRODUCER NtmCraftingRegistry.special("special/scraps", new ScrapsCraftingHandler())
+PRODUCTION com/hbm/crafting/handlers/RBMKFuelCraftingHandler.java 45911508d4d115b495e2321f8071d8dfad2a4cbd892ec6628e4e3fb8ab7fe5ea
+PRODUCTION com/hbm/crafting/handlers/ScrapsCraftingHandler.java c93b6f2fc1b943740e20f7e27534db91f3d581468727ddebef1121195c19ac61
+PRODUCTION com/hbm/crafting/handlers/CargoShellCraftingHandler.java 967f8a7d529dec2178d9fbf1eb8658d5334b04548be2cc2a0c1ba94688d5ae19
+PRODUCTION com/hbm/crafting/nativeapi/NtmCraftingRegistry.java dd1a163a72494fee73608f19bfeef29d49f8b9bf99d4b165b877850745c813cd
+PRODUCTION com/hbm/crafting/nativeapi/NtmCraftingRecipe.java e3ff6277b52c25b5ae557ad37a68361f990fd0d1256b28060371e2ce042703ec
+Note: /tmp/ntm-dynamic-crafting-ni0bj1yc/ExtractedContainerPredicates.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[01:51:26] [main/INFO]: Processing ObjectHolder annotations
+[01:51:26] [main/INFO]: Found 1167 ObjectHolder annotations
+[01:51:26] [main/INFO]: Applying holder lookups
+[01:51:26] [main/INFO]: Holder lookups applied
+PASS RBMK empty native grid rejected
+PASS RBMK wrong item rejected
+PASS RBMK null pellet rejected
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.0/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.0/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.2/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.2/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.200001/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.200001/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.4/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.4/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.6/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.6/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.8/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.8/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.99/0.4999
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK ignores input count/metadata with cold rod
+PASS RBMK exact enrichment/poison metadata 0.99/0.5
+PASS RBMK fresh untagged eight-pellet result
+PASS RBMK exact heat cutoff
+PASS RBMK exact heat cutoff
+PASS RBMK exact heat cutoff
+PASS original RBMK matches/result asymmetry above 0.99 retained
+PASS actual extracted RBMK default-NBT mutation preserved
+PASS new default full-enrichment rod has no pellet result
+PASS RBMK second stack rejected
+PASS native remaining payload is configured empty fuel hull (not placement parity)
+PASS scraps valid single stack amount 2
+PASS scraps exact integer-halving output 2
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps valid single stack amount 3
+PASS scraps exact integer-halving output 3
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps valid single stack amount 4
+PASS scraps exact integer-halving output 4
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps valid single stack amount 71
+PASS scraps exact integer-halving output 71
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps valid single stack amount 72
+PASS scraps exact integer-halving output 72
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps valid single stack amount 73
+PASS scraps exact integer-halving output 73
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps valid single stack amount 2147483647
+PASS scraps exact integer-halving output 2147483647
+PASS scraps original tag rebuilding/loss and input preservation
+PASS scraps sub-two amount rejected
+PASS scraps sub-two amount rejected
+PASS scraps sub-two amount rejected
+PASS scraps original default ingot quantity 72
+PASS scraps empty grid rejected
+PASS scraps wrong item rejected
+PASS scraps second stack rejected
+PASS original malformed-material null dereference remains explicit, not silently repaired
+PASS native dynamic classification and unknown static RBMK output
+PASS cargo original clean meta-eight arty shell plus one payload
+PASS cargo original actual output arty item/count/meta
+PASS cargo payload exact item/meta/NBT and normalized unit count
+PASS cargo original input stacks unmodified
+PASS cargo result serialized payload deep-independent from input
+PASS cargo original display/actual item discrepancy conserved
+PASS cargo missing payload rejected
+PASS cargo two clean shells rejected
+PASS cargo third occupied slot rejected
+PASS cargo wrong shell metadata rejected
+PASS cargo even empty shell NBT prevents selecting shell
+PASS cargo tagged shell may be payload beside one clean shell, as original
+PASS cargo rejects genuine native or exact extracted NTM container predicate minecraft:water_bucket
+PASS cargo rejects genuine native or exact extracted NTM container predicate hbm:stack_container
+PASS cargo rejects genuine native or exact extracted NTM container predicate hbm:noarg_container
+PASS cargo native dynamic classification and two-slot fit
+PASS dynamic crafting checks=99

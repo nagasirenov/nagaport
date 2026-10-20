@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class BlockMeteorOre extends BlockEnumMulti {
 
 	public BlockMeteorOre() {
-		super(Material.rock, BlockEnums.EnumMeteorType.class, true, true);
+		super(Material.ROCK, BlockEnums.EnumMeteorType.class, true, true);
 	}
 }

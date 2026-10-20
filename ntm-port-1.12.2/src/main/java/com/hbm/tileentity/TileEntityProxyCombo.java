@@ -227,40 +227,44 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 		return 0;
 	}
 
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
 	@Override
 	public ItemStack getStackInSlot(int slot) {
 
 		if(!inventory)
-			return null;
+			return ItemStack.EMPTY;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			return ((ISidedInventory)getCoreObject()).getStackInSlot(slot);
+			return nativeStack(((ISidedInventory)getCoreObject()).getStackInSlot(slot));
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			return ((ISidedInventory)getCoreObject()).decrStackSize(i, j);
+			return nativeStack(((ISidedInventory)getCoreObject()).decrStackSize(i, j));
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int slot) {
+	public ItemStack removeStackFromSlot(int slot) {
 
 		if(!inventory)
-			return null;
+			return ItemStack.EMPTY;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			return ((ISidedInventory)getCoreObject()).getStackInSlotOnClosing(slot);
+			return nativeStack(((ISidedInventory)getCoreObject()).removeStackFromSlot(slot));
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -270,7 +274,7 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 			return;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			((ISidedInventory)getCoreObject()).setInventorySlotContents(slot, stack);
+			((ISidedInventory)getCoreObject()).setInventorySlotContents(slot, nativeStack(stack));
 		}
 	}
 
@@ -314,37 +318,37 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 
 		if(!inventory)
 			return false;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			return ((ISidedInventory)getCoreObject()).isUseableByPlayer(player);
+			return ((ISidedInventory)getCoreObject()).isUsableByPlayer(player);
 		}
 
 		return false;
 	}
 
 	@Override
-	public void openInventory() {
+	public void openInventory(EntityPlayer player) {
 
 		if(!inventory)
 			return;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			((ISidedInventory)getCoreObject()).openInventory();
+			((ISidedInventory)getCoreObject()).openInventory(player);
 		}
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeInventory(EntityPlayer player) {
 
 		if(!inventory)
 			return;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			((ISidedInventory)getCoreObject()).closeInventory();
+			((ISidedInventory)getCoreObject()).closeInventory(player);
 		}
 	}
 
@@ -356,7 +360,7 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 
 		if(getCoreObject() instanceof ISidedInventory) {
 
-			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).isItemValidForSlot(xCoord, yCoord, zCoord, slot, stack);
+			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).isItemValidForSlot(this.pos.getX(), this.pos.getY(), this.pos.getZ(), slot, stack);
 
 			return ((ISidedInventory)getCoreObject()).isItemValidForSlot(slot, stack);
 		}
@@ -365,48 +369,51 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 
 		if(!inventory)
 			return new int[0];
 
 		if(getCoreObject() instanceof ISidedInventory) {
 
-			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).getAccessibleSlotsFromSide(xCoord, yCoord, zCoord, side);
+			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).getAccessibleSlotsFromSide(this.pos.getX(), this.pos.getY(), this.pos.getZ(), side);
 
-			return ((ISidedInventory)getCoreObject()).getAccessibleSlotsFromSide(side);
+			return ((ISidedInventory)getCoreObject()).getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 		}
 
 		return new int[0];
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack stack, int j) {
+	public boolean canInsertItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 
 		if(!inventory)
 			return false;
 
 		if(getCoreObject() instanceof ISidedInventory) {
 
-			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).canInsertItem(xCoord, yCoord, zCoord, i, stack, j);
+			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).canInsertItem(this.pos.getX(), this.pos.getY(), this.pos.getZ(), i, stack, j);
 
-			return ((ISidedInventory)getCoreObject()).canInsertItem(i, stack, j);
+			return ((ISidedInventory)getCoreObject()).canInsertItem(i, stack, com.hbm.lib.ForgeDirection.getOrientation(j).toEnumFacing());
 		}
 
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 
 		if(!inventory)
 			return false;
 
 		if(getCoreObject() instanceof ISidedInventory) {
 
-			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).canExtractItem(xCoord, yCoord, zCoord, i, stack, j);
+			if(getCoreObject() instanceof IConditionalInvAccess) return ((IConditionalInvAccess) getCoreObject()).canExtractItem(this.pos.getX(), this.pos.getY(), this.pos.getZ(), i, stack, j);
 
-			return ((ISidedInventory)getCoreObject()).canExtractItem(i, stack, j);
+			return ((ISidedInventory)getCoreObject()).canExtractItem(i, stack, com.hbm.lib.ForgeDirection.getOrientation(j).toEnumFacing());
 		}
 
 		return false;
@@ -428,7 +435,7 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("inv", inventory);
@@ -439,6 +446,7 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 		nbt.setBoolean("heat", heat);
 		if(Loader.isModLoaded("OpenComputers"))
 			nbt.setString("ocname", componentName);
+		return nbt;
 	}
 
 	@Override
@@ -500,7 +508,7 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 	@Override // please work
 	@Optional.Method(modid = "OpenComputers")
 	public String getComponentName() {
-		if(this.worldObj == null) // OC is going too fast, grab from NBT!
+		if(this.world == null) // OC is going too fast, grab from NBT!
 			return componentName;
 		if(this.getCoreObject() instanceof OCComponent) {
 			if (componentName == null || componentName.equals(OCComponent.super.getComponentName())) {
@@ -516,8 +524,8 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 	public boolean canConnectNode(ForgeDirection side) {
 		if(this.getCoreObject() instanceof OCComponent) {
 			boolean isComponent = false;
-			if (this.worldObj != null) {
-				Object nodeTE = Compat.getTileStandard(this.worldObj, this.xCoord + side.offsetX, this.yCoord + side.offsetY, this.zCoord + side.offsetZ);
+			if (this.world != null) {
+				Object nodeTE = Compat.getTileStandard(this.world, this.pos.getX() + side.offsetX, this.pos.getY() + side.offsetY, this.pos.getZ() + side.offsetZ);
 				if (nodeTE instanceof TileEntityProxyCombo) {
 					TileEntityProxyCombo proxy = (TileEntityProxyCombo)nodeTE;
 					if (proxy.getCoreObject() == this.getCoreObject()) isComponent = true;

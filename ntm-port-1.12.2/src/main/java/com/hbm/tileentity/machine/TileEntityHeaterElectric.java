@@ -21,7 +21,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityHeaterElectric extends TileEntityLoadedBase implements IHeatSource, IEnergyReceiverMK2, IBufPacketReceiver, ICopiable, IInfoProviderEC {
+public class TileEntityHeaterElectric extends TileEntityLoadedBase implements IHeatSource, IEnergyReceiverMK2, IBufPacketReceiver, ICopiable, IInfoProviderEC, net.minecraft.util.ITickable {
 
 	public long power;
 	public int heatEnergy;
@@ -31,13 +31,13 @@ public class TileEntityHeaterElectric extends TileEntityLoadedBase implements IH
 	private AudioWrapper audio;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) { //doesn't have to happen constantly
+			if(this.world.getTotalWorldTime() % 20 == 0) { //doesn't have to happen constantly
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-				this.trySubscribe(worldObj, xCoord + dir.offsetX * 3, yCoord, zCoord + dir.offsetZ * 3, dir);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3, dir);
 			}
 
 			this.heatEnergy *= 0.999;
@@ -78,7 +78,7 @@ public class TileEntityHeaterElectric extends TileEntityLoadedBase implements IH
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.electricHum", xCoord, yCoord, zCoord, 0.25F, 7.5F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.electricHum", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 7.5F, 1.0F, 20);
 	}
 
 	@Override
@@ -127,16 +127,17 @@ public class TileEntityHeaterElectric extends TileEntityLoadedBase implements IH
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
 		nbt.setInteger("setting", setting);
 		nbt.setInteger("heatEnergy", heatEnergy);
+		return nbt;
 	}
 
 	protected void tryPullHeat() {
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -192,12 +193,12 @@ public class TileEntityHeaterElectric extends TileEntityLoadedBase implements IH
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 1,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 3
 					);
 		}
 

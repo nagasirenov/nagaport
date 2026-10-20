@@ -71,14 +71,14 @@ public class XFactoryEnergy {
 			hitVec = hitVec.addVector(side.getFrontOffsetX() * 0.5, side.getFrontOffsetY() * 0.5, side.getFrontOffsetZ() * 0.5);
 		}
 
-		ExplosionVNT vnt = new ExplosionVNT(beam.worldObj, hitVec.x, hitVec.y, hitVec.z, 2F, beam.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(beam.world, hitVec.x, hitVec.y, hitVec.z, 2F, beam.getThrower());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, beam.damage).setDamageClass(beam.config.dmgClass));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.explode();
-		beam.worldObj.playSoundEffect(hitVec.x, hitVec.y, hitVec.z, "hbm:entity.ufoBlast", 5.0F, 0.9F + beam.worldObj.rand.nextFloat() * 0.2F);
-		beam.worldObj.playSoundEffect(hitVec.x, hitVec.y, hitVec.z, "fireworks.blast", 5.0F, 0.5F);
+		com.hbm.sound.WorldSoundEffects.play(beam.world, hitVec.x, hitVec.y, hitVec.z, "hbm:entity.ufoBlast", 5.0F, 0.9F + beam.world.rand.nextFloat() * 0.2F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(beam.world, hitVec.x, hitVec.y, hitVec.z, "fireworks.blast", 5.0F, 0.5F);
 
-		float yaw = beam.worldObj.rand.nextFloat() * 180F;
+		float yaw = beam.world.rand.nextFloat() * 180F;
 		for(int i = 0; i < 3; i++) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "plasmablast");
@@ -89,7 +89,7 @@ public class XFactoryEnergy {
 			data.setFloat("yaw", yaw);
 			data.setFloat("scale", 2F);
 			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, hitVec.x, hitVec.y, hitVec.z),
-					new TargetPoint(beam.worldObj.provider.dimensionId, hitVec.x, hitVec.y, hitVec.z, 100));
+					new TargetPoint(beam.world.provider.getDimension(), hitVec.x, hitVec.y, hitVec.z, 100));
 		}
 
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
@@ -105,7 +105,7 @@ public class XFactoryEnergy {
 		if(mop.typeOfHit != RayTraceResult.Type.ENTITY) return;
 
 		double range = 20;
-		List<EntityLivingBase> potentialTargets = beam.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(range, range, range));
+		List<EntityLivingBase> potentialTargets = beam.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(range, range, range));
 		Collections.shuffle(potentialTargets);
 
 		for(EntityLivingBase target : potentialTargets) {
@@ -118,7 +118,7 @@ public class XFactoryEnergy {
 			sub.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 			sub.setRotationsFromVector(delta);
 			sub.performHitscanExternal(delta.length());
-			beam.worldObj.spawnEntityInWorld(sub);
+			beam.world.spawnEntityInWorld(sub);
 		}
 	};
 
@@ -134,22 +134,22 @@ public class XFactoryEnergy {
 		}
 
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			World world = beam.worldObj;
+			World world = beam.world;
 			Block b = world.getBlockState(mop.getBlockPos()).getBlock();
 			ForgeDirection dir = ForgeDirection.fromEnumFacing(mop.sideHit);
 			if(com.hbm.lib.FacingCompat.isFlammable(b, world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), dir.getOpposite())) {
 				int x = mop.getBlockPos().getX() + dir.offsetX;
 				int y = mop.getBlockPos().getY() + dir.offsetY;
 				int z = mop.getBlockPos().getZ() + dir.offsetZ;
-				if(world.getBlock(x, y, z).isAir(world, x, y, z)) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(world, x, y, z)) {
 					world.setBlock(x, y, z, Blocks.fire);
 					return;
 				}
 			}
 
-			EntityFireLingering fire = new EntityFireLingering(beam.worldObj).setArea(2, 1).setDuration(100).setType(EntityFireLingering.TYPE_DIESEL);
+			EntityFireLingering fire = new EntityFireLingering(beam.world).setArea(2, 1).setDuration(100).setType(EntityFireLingering.TYPE_DIESEL);
 			fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-			beam.worldObj.spawnEntityInWorld(fire);
+			beam.world.spawnEntityInWorld(fire);
 		}
 	};
 
@@ -181,7 +181,7 @@ public class XFactoryEnergy {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_TESLA_ANIMS).orchestra(Orchestras.ORCHESTRA_TESLA)
-				).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setUnlocalizedName("gun_tesla_cannon");
+				).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setTranslationKey("gun_tesla_cannon");
 
 		ModItems.gun_laser_pistol = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(500).draw(10).inspect(26).crosshair(Crosshair.CIRCLE)
@@ -192,7 +192,7 @@ public class XFactoryEnergy {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LASER_PISTOL).orchestra(Orchestras.ORCHESTRA_LASER_PISTOL)
-				).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setUnlocalizedName("gun_laser_pistol");
+				).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setTranslationKey("gun_laser_pistol");
 		ModItems.gun_laser_pistol_pew_pew = new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()
 				.dura(500).draw(10).inspect(26).crosshair(Crosshair.CIRCLE)
 				.rec(new Receiver(0)
@@ -202,7 +202,7 @@ public class XFactoryEnergy {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LASER_PISTOL).orchestra(Orchestras.ORCHESTRA_LASER_PISTOL)
-				).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 10).setUnlocalizedName("gun_laser_pistol_pew_pew");
+				).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 10).setTranslationKey("gun_laser_pistol_pew_pew");
 		ModItems.gun_laser_pistol_morning_glory = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(1_500).draw(10).inspect(26).crosshair(Crosshair.CIRCLE)
 				.rec(new Receiver(0)
@@ -212,7 +212,7 @@ public class XFactoryEnergy {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LASER_PISTOL).orchestra(Orchestras.ORCHESTRA_LASER_PISTOL)
-				).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 20).setUnlocalizedName("gun_laser_pistol_morning_glory");
+				).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 20).setTranslationKey("gun_laser_pistol_morning_glory");
 
 		ModItems.gun_lasrifle = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(2_000).draw(10).inspect(26).crosshair(Crosshair.CIRCLE).scopeTexture(scope_luna)
@@ -223,7 +223,7 @@ public class XFactoryEnergy {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LASRIFLE).orchestra(Orchestras.ORCHESTRA_LASRIFLE)
-				).setDefaultAmmo(EnumAmmo.CAPACITOR, 24).setUnlocalizedName("gun_lasrifle");
+				).setDefaultAmmo(EnumAmmo.CAPACITOR, 24).setTranslationKey("gun_lasrifle");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_RECOIL_ENERGY = (stack, ctx) -> { };

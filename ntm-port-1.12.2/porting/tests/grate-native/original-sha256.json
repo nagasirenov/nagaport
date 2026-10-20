@@ -1,0 +1,7 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockGrate.java": "143e929d306c4dc9d78a0a52e7218621c302a6f95f287b76801c7eb118e0e2a9",
+  "src/main/java/com/hbm/render/block/RenderGrate.java": "4ba983ccd5b09be11657fce591e2ef5bd7b08c2d7b007b282cd3d36516dea7af",
+  "src/main/resources/assets/hbm/textures/blocks/grate_top.png": "08876b3eb5eed71feda00a8518c73ff290146a102cee57d0be51ce5c4ce910bf",
+  "src/main/resources/assets/hbm/textures/blocks/grate_wide_top.png": "207a5300c64f2b8e6ae18a944cdfc863df39eb96429816ef3fd93ee03cbb2816",
+  "src/main/resources/assets/hbm/textures/blocks/grate_side.png": "2f34ca4604e33c22d555865bc6b4187db9db4d0359abb20bc3480e578b2a986a"
+}

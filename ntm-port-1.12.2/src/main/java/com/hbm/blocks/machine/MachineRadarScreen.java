@@ -39,9 +39,9 @@ public class MachineRadarScreen extends BlockDummyable {
 
 			if(pos == null) return false;
 
-			TileEntityMachineRadarScreen screen = (TileEntityMachineRadarScreen) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineRadarScreen screen = (TileEntityMachineRadarScreen) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
-			if(screen.linked && world.getTileEntity(screen.refX, screen.refY, screen.refZ) instanceof TileEntityMachineRadarNT) {
+			if(screen.linked && world.getTileEntity(new net.minecraft.util.math.BlockPos(screen.refX, screen.refY, screen.refZ)) instanceof TileEntityMachineRadarNT) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, screen.refX, screen.refY, screen.refZ);
 			}
 

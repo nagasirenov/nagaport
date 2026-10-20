@@ -11,7 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChunkCoordinates;
+import com.hbm.tileentity.machine.SolarMirrorPosition;
 
 public class RenderSolarBoiler extends TileEntitySpecialRenderer {
 
@@ -54,14 +54,14 @@ public class RenderSolarBoiler extends TileEntitySpecialRenderer {
 			
 			int beamCount = 0;
 			
-			for(ChunkCoordinates co : boiler.secondary) {
+			for(SolarMirrorPosition co : boiler.secondary) {
 				beamCount ++;
 				
 				if(beamCount > ClientConfig.RENDER_HELIOSTAT_BEAM_LIMIT.get()) break;
 				
-				int dx = boiler.xCoord - co.posX;
-				int dy = boiler.yCoord - co.posY;
-				int dz = boiler.zCoord - co.posZ;
+				int dx = boiler.getPos().getX() - co.getX();
+				int dy = boiler.getPos().getY() - co.getY();
+				int dz = boiler.getPos().getZ() - co.getZ();
 				
 				double dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 

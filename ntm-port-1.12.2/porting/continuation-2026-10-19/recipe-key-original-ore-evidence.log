@@ -1,0 +1,39 @@
+Pinned original Forge: 1.7.10-10.13.4.1614-1.7.10
+Official source: https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-userdev.jar
+userdev SHA256: 6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91
+Embedded src/main/java/net/minecraftforge/oredict/OreDictionary.java SHA256: 61973f68d43a40b5b244f19dd779c46a3585bac0808fce3bc58da1d2a6edce2f
+
+public static int[] getOreIDs(ItemStack stack)
+    {
+        if (stack == null || stack.func_77973_b() == null) return new int[0];
+
+        Set<Integer> set = new HashSet<Integer>();
+
+        // HACK: use the registry name's ID. It is unique and it knows about substitutions. Fallback to a -1 value (what Item.getIDForItem would have returned) in the case where the registry is not aware of the item yet
+        // IT should be noted that -1 will fail the gate further down, if an entry already exists with value -1 for this name. This is what is broken and being warned about.
+        // APPARENTLY it's quite common to do this. OreDictionary should be considered alongside Recipes - you can't make them properly until you've registered with the game.
+        String registryName = stack.func_77973_b().delegate.name();
+        int id;
+        if (registryName == null)
+        {
+            FMLLog.log(Level.DEBUG, "Attempted to find the oreIDs for an unregistered object (%s). This won't work very well.", stack);
+            return new int[0];
+        }
+        else
+        {
+            id = GameData.getItemRegistry().getId(registryName);
+        }
+        List<Integer> ids = stackToId.get(id);
+        if (ids != null) set.addAll(ids);
+        ids = stackToId.get(id | ((stack.func_77960_j() + 1) << 16));
+        if (ids != null) set.addAll(ids);
+
+        Integer[] tmp = set.toArray(new Integer[set.size()]);
+        int[] ret = new int[tmp.length];
+        for (int x = 0; x < tmp.length; x++)
+            ret[x] = tmp[x];
+        return ret;
+    }
+
+
+Observation: getOreIDs uses null/item guards, registry item identity, and getItemDamage; it never reads count or NBT directly. SRG func_77973_b=getItem and func_77960_j=getItemDamage.

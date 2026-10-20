@@ -4,6 +4,7 @@ import com.hbm.blocks.BlockEnums.LightType;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.math.BlockPos;
 
 public class SpotlightModular extends Spotlight {
     
@@ -19,7 +20,7 @@ public class SpotlightModular extends Spotlight {
     }
 
     public boolean canConnectTo(IBlockAccess world, int x, int y, int z) {
-        return world.getBlock(x, y, z) == this;
+        return world.getBlockState(new BlockPos(x, y, z)).getBlock() == this;
     }
 
 }

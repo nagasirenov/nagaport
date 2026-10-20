@@ -1,0 +1,6 @@
+PASS: exact reviewed two-file inventory source; sole descendant/name hook; actual legacy wrapper callers; distance 128; audit-only reversal
+PASS: 273 native sided declaration mappings; 36 explicit call mappings; 125 whole-file reversals and 125 drift rejections; 19 coordinate-domain declarations retained. Not full machines/gameplay.
+PASS: 434 named TileEntity descendants; 297 exact native return signatures in 297 files
+PASS: portable pre-change method payload fingerprints and sole early return
+Reusable method regression: 125 sided and two inventory files are exact-snapshot validated then reversed for historical payload audit; unrelated file edits are not checked; use --strict-snapshot for migration audit
+SOURCE PARITY ONLY: not production class compilation or machine gameplay acceptance

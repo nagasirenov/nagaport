@@ -40,14 +40,14 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 
 			if (--timer <= 0) {
 				leap();
-				timer = 80 + worldObj.rand.nextInt(30);
+				timer = 80 + this.world.rand.nextInt(30);
 			}
 		}
 	}
 
 	/** Mainly composed of repurposed bombardier code**/
 	public void leap() {
-		if (!worldObj.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 20) {
+		if (!this.world.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 20) {
 			Entity e = this.getEntityToAttack();
 
 			double velX = e.posX - lastX;
@@ -84,7 +84,7 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 	}
 	//yeag this is now a motherfucking projectile
 	public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
-		float throwLen = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+		float throwLen = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
 		motionX /= (double) throwLen;
 		motionY /= (double) throwLen;
 		motionZ /= (double) throwLen;
@@ -97,7 +97,7 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 		this.motionX = motionX;
 		this.motionY = motionY;
 		this.motionZ = motionZ;
-		float hyp = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
+		float hyp = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
 		this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
 		this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, (double) hyp) * 180.0D / Math.PI);
 	}

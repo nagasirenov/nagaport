@@ -4,15 +4,13 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityAtmosphericEmitter;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderAtmosphericEmitter extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderAtmosphericEmitter extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
@@ -49,21 +47,5 @@ public class RenderAtmosphericEmitter extends TileEntitySpecialRenderer implemen
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_atmo_emitter);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glScaled(4, 4, 4);
-				GL11.glTranslated(0, -1, 0);
-			}
-			public void renderCommon() {
-				bindTexture(ResourceManager.atmo_emitter_tex); ResourceManager.atmo_emitter.renderAll();
-			}
-		};
-	}
 }

@@ -1,0 +1,11 @@
+// Resolve the actual target classpath for standalone native probes, without compiling production.
+allprojects {
+    afterEvaluate {
+        tasks.create('printPortCompileClasspath') {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doLast {
+                println 'COMPILE_CLASSPATH=' + project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

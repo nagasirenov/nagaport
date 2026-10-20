@@ -20,9 +20,9 @@ import api.hbm.block.IToolable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -56,7 +56,7 @@ public class MachineDysonConverterAnatmogenesis extends BlockDummyable implement
 
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityDysonConverterAnatmogenesis)) return;
 
@@ -73,7 +73,7 @@ public class MachineDysonConverterAnatmogenesis extends BlockDummyable implement
 		text.add("Current gas: " + converter.fluid.getLocalizedName() + " - " + pressure);
 		text.add("Current mode: " + (converter.isEmitting ? "EMITTING" : "CAPTURING"));
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class MachineDysonConverterAnatmogenesis extends BlockDummyable implement
 
 		if(pos == null) return false;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityDysonConverterAnatmogenesis)) return false;
 
@@ -102,22 +102,22 @@ public class MachineDysonConverterAnatmogenesis extends BlockDummyable implement
 		if(world.isRemote)
 			return true;
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
 			int[] pos = this.findCore(world, x, y, z);
 
 			if(pos == null) return false;
 
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(!(te instanceof TileEntityDysonConverterAnatmogenesis))
 				return false;
 
 			TileEntityDysonConverterAnatmogenesis converter = (TileEntityDysonConverterAnatmogenesis) te;
-			FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, x, y, z, player.getHeldItem());
+			FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, x, y, z, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 			if(type.hasTrait(FT_Gaseous.class) || type.hasTrait(FT_Gaseous_ART.class)) {
 				converter.fluid = type;
 				converter.markDirty();
-				player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+				player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 			}
 
 			return true;

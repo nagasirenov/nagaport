@@ -1,0 +1,24 @@
+[02:54:18] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:54:18] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:54:18] [main/INFO]: Replaced 1036 ore ingredients
+[02:54:18] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:54:18] [main/INFO]: Processing ObjectHolder annotations
+[02:54:18] [main/INFO]: Found 1167 ObjectHolder annotations
+[02:54:18] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-6449676013523283180
+[02:54:19] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-6449676013523283180, world-sound-pack-8594611863664022141
+[02:54:19] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-6449676013523283180, world-sound-pack-8594611863664022141, world-sound-pack-1013551940276253981
+[02:54:19] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-6449676013523283180, world-sound-pack-8594611863664022141, world-sound-pack-1013551940276253981, world-sound-pack-6620625992585894759
+[02:54:19] [main/WARN]: Invalid sound category metadata in hbm:sounds.json from world-sound-pack-6620625992585894759
+java.lang.IllegalArgumentException: Invalid sound category: invalid
+	at com.hbm.sound.SoundCategoryResolver.onResourceManagerReload(SoundCategoryResolver.java:55) [SoundCategoryResolver.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.notifyReloadListeners(SimpleReloadableResourceManager.java:132) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.reloadResources(SimpleReloadableResourceManager.java:112) [SimpleReloadableResourceManager.class:?]
+	at WorldSoundRegistryCategoryTest.main(WorldSoundRegistryCategoryTest.java:66) [WorldSoundRegistryCategoryTest.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_504]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_504]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_504]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_504]
+	at ForgeEventNativeLauncher.main(ForgeEventNativeLauncher.java:44) [classes/:?]
+[02:54:19] [main/INFO]: Reloading ResourceManager: 
+[02:54:19] [main/INFO]: Reloading ResourceManager: resources
+PASS WorldSoundRegistryCategoryTest: 1163 assertions; registry identities, native event/category bridge,87 resource-backed sample selections, reload/replace/cancellation/ownership gates; no audio device or game launch

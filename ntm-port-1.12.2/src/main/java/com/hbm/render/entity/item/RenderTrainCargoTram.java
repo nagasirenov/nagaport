@@ -6,10 +6,15 @@ import com.hbm.entity.train.EntityRailCarBase;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderTrainCargoTram extends Render {
+
+	public RenderTrainCargoTram(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float swing, float interp) {

@@ -1,0 +1,1203 @@
+Compiled from "SourceFile"
+public class ade {
+  public static final adb a;
+
+  public static final adb b;
+
+  public static final adb c;
+
+  public static final adb d;
+
+  public static final adb e;
+
+  public static final abm f;
+
+  public static final adb g;
+
+  public static final adb h;
+
+  public static final adb i;
+
+  public static final adb j;
+
+  public static final adb k;
+
+  public static final adb l;
+
+  public static final adb m;
+
+  public static final adb n;
+
+  public static final adb o;
+
+  public static final adb p;
+
+  public static final adb q;
+
+  public static final adb r;
+
+  public static final adb s;
+
+  public static final adb t;
+
+  public static final adb u;
+
+  public static final adb v;
+
+  public static final adb w;
+
+  public static final adb x;
+
+  public static final adb y;
+
+  public static final adb z;
+
+  public static final adb A;
+
+  public static final adb B;
+
+  public static final adb C;
+
+  public static final adb D;
+
+  public static final adb E;
+
+  public static final adb F;
+
+  public static final adb G;
+
+  public static final adb H;
+
+  public static final adb I;
+
+  public static final adb J;
+
+  public static final adb K;
+
+  public static final adb L;
+
+  public static final adb M;
+
+  public static final adb N;
+
+  public static final adb O;
+
+  public static final adb P;
+
+  public static final abb Q;
+
+  public static final abb R;
+
+  public static final abb S;
+
+  public static final abb T;
+
+  public static final abb U;
+
+  public static final abb V;
+
+  public static final abb W;
+
+  public static final abb X;
+
+  public static final abb Y;
+
+  public static final abb Z;
+
+  public static final abb aa;
+
+  public static final abb ab;
+
+  public static final abb ac;
+
+  public static final abb ad;
+
+  public static final abb ae;
+
+  public static final abb af;
+
+  public static final abb ag;
+
+  public static final abb ah;
+
+  public static final abb ai;
+
+  public static final abb aj;
+
+  public static final adb ak;
+
+  public static final adb al;
+
+  public static final adb am;
+
+  public static final adb an;
+
+  public static final adb ao;
+
+  public static final adb ap;
+
+  public static final adb aq;
+
+  public static final adb ar;
+
+  public static final adb as;
+
+  public static final adb at;
+
+  public static final adb au;
+
+  public static final adb av;
+
+  public static final adb aw;
+
+  public static final adb ax;
+
+  public static final adb ay;
+
+  public static final adb az;
+
+  public static final adb aA;
+
+  public static final adb aB;
+
+  public static final adb aC;
+
+  public static final adb aD;
+
+  public static final adb aE;
+
+  public static final adb aF;
+
+  public static final adb aG;
+
+  public static final adb aH;
+
+  public static final adb aI;
+
+  public static final adb aJ;
+
+  public static final adb aK;
+
+  public static final adb aL;
+
+  public static final acv aM;
+
+  public static final adb aN;
+
+  public static final adb aO;
+
+  public static final adb aP;
+
+  public static final adb aQ;
+
+  public static final adb aR;
+
+  public static final adb aS;
+
+  public static final adb aT;
+
+  public static final adb aU;
+
+  public static final adb aV;
+
+  public static final adb aW;
+
+  public static final adb aX;
+
+  public static final adh aY;
+
+  public static final adx aZ;
+
+  public static final adb ba;
+
+  public static final adb bb;
+
+  public static final adb bc;
+
+  public static final adb bd;
+
+  public static final adb be;
+
+  public static final adb bf;
+
+  public static final adb bg;
+
+  public static final adb bh;
+
+  public static final adb bi;
+
+  public static final adb bj;
+
+  public static final adb bk;
+
+  public static final adb bl;
+
+  public static final adb bm;
+
+  public static final adp bn;
+
+  public static final adb bo;
+
+  public static final adb bp;
+
+  public static final adb bq;
+
+  public static final adb br;
+
+  public static final adb bs;
+
+  public static final adb bt;
+
+  public static final adb bu;
+
+  public static final adb bv;
+
+  public static final adb bw;
+
+  public static final adb bx;
+
+  public static final adb by;
+
+  public static final adb bz;
+
+  public static final adb bA;
+
+  public static final adb bB;
+
+  public static final adb bC;
+
+  public static final adb bD;
+
+  public static final adb bE;
+
+  public static final adb bF;
+
+  public static final adb bG;
+
+  public static final adb bH;
+
+  public static final adb bI;
+
+  public static final acl bJ;
+
+  public static final adb bK;
+
+  public static final adb bL;
+
+  public static final adb bM;
+
+  public static final adb bN;
+
+  public static final adb bO;
+
+  public static final adb bP;
+
+  public static final adb bQ;
+
+  public static final acm bR;
+
+  public static final adb bS;
+
+  public static final adb bT;
+
+  public static final adb bU;
+
+  public static final adb bV;
+
+  public static final adb bW;
+
+  public static final adb bX;
+
+  public static final adb bY;
+
+  public static final adb bZ;
+
+  public static final adb ca;
+
+  public static final adb cb;
+
+  public static final adb cc;
+
+  public static final adb cd;
+
+  public static final adb ce;
+
+  public static final adb cf;
+
+  public static final adb cg;
+
+  public static final adb ch;
+
+  public static final adb ci;
+
+  public static final adb cj;
+
+  public static final adb ck;
+
+  public static final adb cl;
+
+  public static final adb cm;
+
+  public static final adb cn;
+
+  public static final adb co;
+
+  static {};
+    Code:
+       0: getstatic     #184                // Field adb.e:Lcw;
+       3: ldc           #97                 // String iron_shovel
+       5: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+       8: checkcast     #177                // class adb
+      11: putstatic     #211                // Field a:Ladb;
+      14: getstatic     #184                // Field adb.e:Lcw;
+      17: ldc           #96                 // String iron_pickaxe
+      19: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      22: checkcast     #177                // class adb
+      25: putstatic     #264                // Field b:Ladb;
+      28: getstatic     #184                // Field adb.e:Lcw;
+      31: ldc           #87                 // String iron_axe
+      33: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      36: checkcast     #177                // class adb
+      39: putstatic     #317                // Field c:Ladb;
+      42: getstatic     #184                // Field adb.e:Lcw;
+      45: ldc           #65                 // String flint_and_steel
+      47: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      50: checkcast     #177                // class adb
+      53: putstatic     #333                // Field d:Ladb;
+      56: getstatic     #184                // Field adb.e:Lcw;
+      59: ldc           #1                  // String apple
+      61: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      64: checkcast     #177                // class adb
+      67: putstatic     #334                // Field e:Ladb;
+      70: getstatic     #184                // Field adb.e:Lcw;
+      73: ldc           #11                 // String bow
+      75: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      78: checkcast     #173                // class abm
+      81: putstatic     #335                // Field f:Labm;
+      84: getstatic     #184                // Field adb.e:Lcw;
+      87: ldc           #2                  // String arrow
+      89: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      92: checkcast     #177                // class adb
+      95: putstatic     #336                // Field g:Ladb;
+      98: getstatic     #184                // Field adb.e:Lcw;
+     101: ldc           #29                 // String coal
+     103: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     106: checkcast     #177                // class adb
+     109: putstatic     #337                // Field h:Ladb;
+     112: getstatic     #184                // Field adb.e:Lcw;
+     115: ldc           #38                 // String diamond
+     117: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     120: checkcast     #177                // class adb
+     123: putstatic     #338                // Field i:Ladb;
+     126: getstatic     #184                // Field adb.e:Lcw;
+     129: ldc           #94                 // String iron_ingot
+     131: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     134: checkcast     #177                // class adb
+     137: putstatic     #339                // Field j:Ladb;
+     140: getstatic     #184                // Field adb.e:Lcw;
+     143: ldc           #71                 // String gold_ingot
+     145: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     148: checkcast     #177                // class adb
+     151: putstatic     #340                // Field k:Ladb;
+     154: getstatic     #184                // Field adb.e:Lcw;
+     157: ldc           #98                 // String iron_sword
+     159: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     162: checkcast     #177                // class adb
+     165: putstatic     #341                // Field l:Ladb;
+     168: getstatic     #184                // Field adb.e:Lcw;
+     171: ldc           #169                // String wooden_sword
+     173: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     176: checkcast     #177                // class adb
+     179: putstatic     #342                // Field m:Ladb;
+     182: getstatic     #184                // Field adb.e:Lcw;
+     185: ldc           #168                // String wooden_shovel
+     187: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     190: checkcast     #177                // class adb
+     193: putstatic     #343                // Field n:Ladb;
+     196: getstatic     #184                // Field adb.e:Lcw;
+     199: ldc           #167                // String wooden_pickaxe
+     201: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     204: checkcast     #177                // class adb
+     207: putstatic     #344                // Field o:Ladb;
+     210: getstatic     #184                // Field adb.e:Lcw;
+     213: ldc           #164                // String wooden_axe
+     215: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     218: checkcast     #177                // class adb
+     221: putstatic     #345                // Field p:Ladb;
+     224: getstatic     #184                // Field adb.e:Lcw;
+     227: ldc           #157                // String stone_sword
+     229: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     232: checkcast     #177                // class adb
+     235: putstatic     #346                // Field q:Ladb;
+     238: getstatic     #184                // Field adb.e:Lcw;
+     241: ldc           #156                // String stone_shovel
+     243: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     246: checkcast     #177                // class adb
+     249: putstatic     #347                // Field r:Ladb;
+     252: getstatic     #184                // Field adb.e:Lcw;
+     255: ldc           #155                // String stone_pickaxe
+     257: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     260: checkcast     #177                // class adb
+     263: putstatic     #348                // Field s:Ladb;
+     266: getstatic     #184                // Field adb.e:Lcw;
+     269: ldc           #153                // String stone_axe
+     271: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     274: checkcast     #177                // class adb
+     277: putstatic     #349                // Field t:Ladb;
+     280: getstatic     #184                // Field adb.e:Lcw;
+     283: ldc           #48                 // String diamond_sword
+     285: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     288: checkcast     #177                // class adb
+     291: putstatic     #350                // Field u:Ladb;
+     294: getstatic     #184                // Field adb.e:Lcw;
+     297: ldc           #47                 // String diamond_shovel
+     299: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     302: checkcast     #177                // class adb
+     305: putstatic     #351                // Field v:Ladb;
+     308: getstatic     #184                // Field adb.e:Lcw;
+     311: ldc           #46                 // String diamond_pickaxe
+     313: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     316: checkcast     #177                // class adb
+     319: putstatic     #352                // Field w:Ladb;
+     322: getstatic     #184                // Field adb.e:Lcw;
+     325: ldc           #39                 // String diamond_axe
+     327: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     330: checkcast     #177                // class adb
+     333: putstatic     #353                // Field x:Ladb;
+     336: getstatic     #184                // Field adb.e:Lcw;
+     339: ldc           #152                // String stick
+     341: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     344: checkcast     #177                // class adb
+     347: putstatic     #354                // Field y:Ladb;
+     350: getstatic     #184                // Field adb.e:Lcw;
+     353: ldc           #12                 // String bowl
+     355: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     358: checkcast     #177                // class adb
+     361: putstatic     #355                // Field z:Ladb;
+     364: getstatic     #184                // Field adb.e:Lcw;
+     367: ldc           #113                // String mushroom_stew
+     369: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     372: checkcast     #177                // class adb
+     375: putstatic     #185                // Field A:Ladb;
+     378: getstatic     #184                // Field adb.e:Lcw;
+     381: ldc           #84                 // String golden_sword
+     383: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     386: checkcast     #177                // class adb
+     389: putstatic     #186                // Field B:Ladb;
+     392: getstatic     #184                // Field adb.e:Lcw;
+     395: ldc           #83                 // String golden_shovel
+     397: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     400: checkcast     #177                // class adb
+     403: putstatic     #187                // Field C:Ladb;
+     406: getstatic     #184                // Field adb.e:Lcw;
+     409: ldc           #82                 // String golden_pickaxe
+     411: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     414: checkcast     #177                // class adb
+     417: putstatic     #188                // Field D:Ladb;
+     420: getstatic     #184                // Field adb.e:Lcw;
+     423: ldc           #74                 // String golden_axe
+     425: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     428: checkcast     #177                // class adb
+     431: putstatic     #189                // Field E:Ladb;
+     434: getstatic     #184                // Field adb.e:Lcw;
+     437: ldc           #158                // String string
+     439: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     442: checkcast     #177                // class adb
+     445: putstatic     #190                // Field F:Ladb;
+     448: getstatic     #184                // Field adb.e:Lcw;
+     451: ldc           #56                 // String feather
+     453: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     456: checkcast     #177                // class adb
+     459: putstatic     #191                // Field G:Ladb;
+     462: getstatic     #184                // Field adb.e:Lcw;
+     465: ldc           #85                 // String gunpowder
+     467: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     470: checkcast     #177                // class adb
+     473: putstatic     #192                // Field H:Ladb;
+     476: getstatic     #184                // Field adb.e:Lcw;
+     479: ldc           #166                // String wooden_hoe
+     481: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     484: checkcast     #177                // class adb
+     487: putstatic     #193                // Field I:Ladb;
+     490: getstatic     #184                // Field adb.e:Lcw;
+     493: ldc           #154                // String stone_hoe
+     495: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     498: checkcast     #177                // class adb
+     501: putstatic     #194                // Field J:Ladb;
+     504: getstatic     #184                // Field adb.e:Lcw;
+     507: ldc           #92                 // String iron_hoe
+     509: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     512: checkcast     #177                // class adb
+     515: putstatic     #195                // Field K:Ladb;
+     518: getstatic     #184                // Field adb.e:Lcw;
+     521: ldc           #43                 // String diamond_hoe
+     523: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     526: checkcast     #177                // class adb
+     529: putstatic     #196                // Field L:Ladb;
+     532: getstatic     #184                // Field adb.e:Lcw;
+     535: ldc           #79                 // String golden_hoe
+     537: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     540: checkcast     #177                // class adb
+     543: putstatic     #197                // Field M:Ladb;
+     546: getstatic     #184                // Field adb.e:Lcw;
+     549: ldc           #163                // String wheat_seeds
+     551: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     554: checkcast     #177                // class adb
+     557: putstatic     #198                // Field N:Ladb;
+     560: getstatic     #184                // Field adb.e:Lcw;
+     563: ldc           #162                // String wheat
+     565: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     568: checkcast     #177                // class adb
+     571: putstatic     #199                // Field O:Ladb;
+     574: getstatic     #184                // Field adb.e:Lcw;
+     577: ldc           #13                 // String bread
+     579: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     582: checkcast     #177                // class adb
+     585: putstatic     #200                // Field P:Ladb;
+     588: getstatic     #184                // Field adb.e:Lcw;
+     591: ldc           #105                // String leather_helmet
+     593: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     596: checkcast     #172                // class abb
+     599: putstatic     #201                // Field Q:Labb;
+     602: getstatic     #184                // Field adb.e:Lcw;
+     605: ldc           #104                // String leather_chestplate
+     607: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     610: checkcast     #172                // class abb
+     613: putstatic     #202                // Field R:Labb;
+     616: getstatic     #184                // Field adb.e:Lcw;
+     619: ldc           #106                // String leather_leggings
+     621: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     624: checkcast     #172                // class abb
+     627: putstatic     #203                // Field S:Labb;
+     630: getstatic     #184                // Field adb.e:Lcw;
+     633: ldc           #103                // String leather_boots
+     635: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     638: checkcast     #172                // class abb
+     641: putstatic     #204                // Field T:Labb;
+     644: getstatic     #184                // Field adb.e:Lcw;
+     647: ldc           #23                 // String chainmail_helmet
+     649: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     652: checkcast     #172                // class abb
+     655: putstatic     #205                // Field U:Labb;
+     658: getstatic     #184                // Field adb.e:Lcw;
+     661: ldc           #22                 // String chainmail_chestplate
+     663: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     666: checkcast     #172                // class abb
+     669: putstatic     #206                // Field V:Labb;
+     672: getstatic     #184                // Field adb.e:Lcw;
+     675: ldc           #24                 // String chainmail_leggings
+     677: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     680: checkcast     #172                // class abb
+     683: putstatic     #207                // Field W:Labb;
+     686: getstatic     #184                // Field adb.e:Lcw;
+     689: ldc           #21                 // String chainmail_boots
+     691: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     694: checkcast     #172                // class abb
+     697: putstatic     #208                // Field X:Labb;
+     700: getstatic     #184                // Field adb.e:Lcw;
+     703: ldc           #91                 // String iron_helmet
+     705: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     708: checkcast     #172                // class abb
+     711: putstatic     #209                // Field Y:Labb;
+     714: getstatic     #184                // Field adb.e:Lcw;
+     717: ldc           #89                 // String iron_chestplate
+     719: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     722: checkcast     #172                // class abb
+     725: putstatic     #210                // Field Z:Labb;
+     728: getstatic     #184                // Field adb.e:Lcw;
+     731: ldc           #95                 // String iron_leggings
+     733: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     736: checkcast     #172                // class abb
+     739: putstatic     #238                // Field aa:Labb;
+     742: getstatic     #184                // Field adb.e:Lcw;
+     745: ldc           #88                 // String iron_boots
+     747: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     750: checkcast     #172                // class abb
+     753: putstatic     #239                // Field ab:Labb;
+     756: getstatic     #184                // Field adb.e:Lcw;
+     759: ldc           #42                 // String diamond_helmet
+     761: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     764: checkcast     #172                // class abb
+     767: putstatic     #240                // Field ac:Labb;
+     770: getstatic     #184                // Field adb.e:Lcw;
+     773: ldc           #41                 // String diamond_chestplate
+     775: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     778: checkcast     #172                // class abb
+     781: putstatic     #241                // Field ad:Labb;
+     784: getstatic     #184                // Field adb.e:Lcw;
+     787: ldc           #45                 // String diamond_leggings
+     789: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     792: checkcast     #172                // class abb
+     795: putstatic     #242                // Field ae:Labb;
+     798: getstatic     #184                // Field adb.e:Lcw;
+     801: ldc           #40                 // String diamond_boots
+     803: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     806: checkcast     #172                // class abb
+     809: putstatic     #243                // Field af:Labb;
+     812: getstatic     #184                // Field adb.e:Lcw;
+     815: ldc           #78                 // String golden_helmet
+     817: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     820: checkcast     #172                // class abb
+     823: putstatic     #244                // Field ag:Labb;
+     826: getstatic     #184                // Field adb.e:Lcw;
+     829: ldc           #77                 // String golden_chestplate
+     831: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     834: checkcast     #172                // class abb
+     837: putstatic     #245                // Field ah:Labb;
+     840: getstatic     #184                // Field adb.e:Lcw;
+     843: ldc           #81                 // String golden_leggings
+     845: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     848: checkcast     #172                // class abb
+     851: putstatic     #246                // Field ai:Labb;
+     854: getstatic     #184                // Field adb.e:Lcw;
+     857: ldc           #75                 // String golden_boots
+     859: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     862: checkcast     #172                // class abb
+     865: putstatic     #247                // Field aj:Labb;
+     868: getstatic     #184                // Field adb.e:Lcw;
+     871: ldc           #64                 // String flint
+     873: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     876: checkcast     #177                // class adb
+     879: putstatic     #248                // Field ak:Ladb;
+     882: getstatic     #184                // Field adb.e:Lcw;
+     885: ldc           #121                // String porkchop
+     887: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     890: checkcast     #177                // class adb
+     893: putstatic     #249                // Field al:Ladb;
+     896: getstatic     #184                // Field adb.e:Lcw;
+     899: ldc           #36                 // String cooked_porkchop
+     901: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     904: checkcast     #177                // class adb
+     907: putstatic     #250                // Field am:Ladb;
+     910: getstatic     #184                // Field adb.e:Lcw;
+     913: ldc           #118                // String painting
+     915: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     918: checkcast     #177                // class adb
+     921: putstatic     #251                // Field an:Ladb;
+     924: getstatic     #184                // Field adb.e:Lcw;
+     927: ldc           #73                 // String golden_apple
+     929: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     932: checkcast     #177                // class adb
+     935: putstatic     #252                // Field ao:Ladb;
+     938: getstatic     #184                // Field adb.e:Lcw;
+     941: ldc           #145                // String sign
+     943: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     946: checkcast     #177                // class adb
+     949: putstatic     #253                // Field ap:Ladb;
+     952: getstatic     #184                // Field adb.e:Lcw;
+     955: ldc           #165                // String wooden_door
+     957: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     960: checkcast     #177                // class adb
+     963: putstatic     #254                // Field aq:Ladb;
+     966: getstatic     #184                // Field adb.e:Lcw;
+     969: ldc           #16                 // String bucket
+     971: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     974: checkcast     #177                // class adb
+     977: putstatic     #255                // Field ar:Ladb;
+     980: getstatic     #184                // Field adb.e:Lcw;
+     983: ldc           #161                // String water_bucket
+     985: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     988: checkcast     #177                // class adb
+     991: putstatic     #256                // Field as:Ladb;
+     994: getstatic     #184                // Field adb.e:Lcw;
+     997: ldc           #100                // String lava_bucket
+     999: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1002: checkcast     #177                // class adb
+    1005: putstatic     #257                // Field at:Ladb;
+    1008: getstatic     #184                // Field adb.e:Lcw;
+    1011: ldc           #112                // String minecart
+    1013: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1016: checkcast     #177                // class adb
+    1019: putstatic     #258                // Field au:Ladb;
+    1022: getstatic     #184                // Field adb.e:Lcw;
+    1025: ldc           #143                // String saddle
+    1027: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1030: checkcast     #177                // class adb
+    1033: putstatic     #259                // Field av:Ladb;
+    1036: getstatic     #184                // Field adb.e:Lcw;
+    1039: ldc           #90                 // String iron_door
+    1041: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1044: checkcast     #177                // class adb
+    1047: putstatic     #260                // Field aw:Ladb;
+    1050: getstatic     #184                // Field adb.e:Lcw;
+    1053: ldc           #139                // String redstone
+    1055: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1058: checkcast     #177                // class adb
+    1061: putstatic     #261                // Field ax:Ladb;
+    1064: getstatic     #184                // Field adb.e:Lcw;
+    1067: ldc           #148                // String snowball
+    1069: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1072: checkcast     #177                // class adb
+    1075: putstatic     #262                // Field ay:Ladb;
+    1078: getstatic     #184                // Field adb.e:Lcw;
+    1081: ldc           #8                  // String boat
+    1083: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1086: checkcast     #177                // class adb
+    1089: putstatic     #263                // Field az:Ladb;
+    1092: getstatic     #184                // Field adb.e:Lcw;
+    1095: ldc           #102                // String leather
+    1097: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1100: checkcast     #177                // class adb
+    1103: putstatic     #212                // Field aA:Ladb;
+    1106: getstatic     #184                // Field adb.e:Lcw;
+    1109: ldc           #111                // String milk_bucket
+    1111: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1114: checkcast     #177                // class adb
+    1117: putstatic     #213                // Field aB:Ladb;
+    1120: getstatic     #184                // Field adb.e:Lcw;
+    1123: ldc           #15                 // String brick
+    1125: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1128: checkcast     #177                // class adb
+    1131: putstatic     #214                // Field aC:Ladb;
+    1134: getstatic     #184                // Field adb.e:Lcw;
+    1137: ldc           #27                 // String clay_ball
+    1139: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1142: checkcast     #177                // class adb
+    1145: putstatic     #215                // Field aD:Ladb;
+    1148: getstatic     #184                // Field adb.e:Lcw;
+    1151: ldc           #140                // String reeds
+    1153: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1156: checkcast     #177                // class adb
+    1159: putstatic     #216                // Field aE:Ladb;
+    1162: getstatic     #184                // Field adb.e:Lcw;
+    1165: ldc           #119                // String paper
+    1167: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1170: checkcast     #177                // class adb
+    1173: putstatic     #217                // Field aF:Ladb;
+    1176: getstatic     #184                // Field adb.e:Lcw;
+    1179: ldc           #10                 // String book
+    1181: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1184: checkcast     #177                // class adb
+    1187: putstatic     #218                // Field aG:Ladb;
+    1190: getstatic     #184                // Field adb.e:Lcw;
+    1193: ldc           #147                // String slime_ball
+    1195: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1198: checkcast     #177                // class adb
+    1201: putstatic     #219                // Field aH:Ladb;
+    1204: getstatic     #184                // Field adb.e:Lcw;
+    1207: ldc           #25                 // String chest_minecart
+    1209: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1212: checkcast     #177                // class adb
+    1215: putstatic     #220                // Field aI:Ladb;
+    1218: getstatic     #184                // Field adb.e:Lcw;
+    1221: ldc           #67                 // String furnace_minecart
+    1223: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1226: checkcast     #177                // class adb
+    1229: putstatic     #221                // Field aJ:Ladb;
+    1232: getstatic     #184                // Field adb.e:Lcw;
+    1235: ldc           #50                 // String egg
+    1237: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1240: checkcast     #177                // class adb
+    1243: putstatic     #222                // Field aK:Ladb;
+    1246: getstatic     #184                // Field adb.e:Lcw;
+    1249: ldc           #32                 // String compass
+    1251: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1254: checkcast     #177                // class adb
+    1257: putstatic     #223                // Field aL:Ladb;
+    1260: getstatic     #184                // Field adb.e:Lcw;
+    1263: ldc           #63                 // String fishing_rod
+    1265: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1268: checkcast     #176                // class acv
+    1271: putstatic     #224                // Field aM:Lacv;
+    1274: getstatic     #184                // Field adb.e:Lcw;
+    1277: ldc           #28                 // String clock
+    1279: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1282: checkcast     #177                // class adb
+    1285: putstatic     #225                // Field aN:Ladb;
+    1288: getstatic     #184                // Field adb.e:Lcw;
+    1291: ldc           #70                 // String glowstone_dust
+    1293: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1296: checkcast     #177                // class adb
+    1299: putstatic     #226                // Field aO:Ladb;
+    1302: getstatic     #184                // Field adb.e:Lcw;
+    1305: ldc           #62                 // String fish
+    1307: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1310: checkcast     #177                // class adb
+    1313: putstatic     #227                // Field aP:Ladb;
+    1316: getstatic     #184                // Field adb.e:Lcw;
+    1319: ldc           #35                 // String cooked_fished
+    1321: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1324: checkcast     #177                // class adb
+    1327: putstatic     #228                // Field aQ:Ladb;
+    1330: getstatic     #184                // Field adb.e:Lcw;
+    1333: ldc           #49                 // String dye
+    1335: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1338: checkcast     #177                // class adb
+    1341: putstatic     #229                // Field aR:Ladb;
+    1344: getstatic     #184                // Field adb.e:Lcw;
+    1347: ldc           #9                  // String bone
+    1349: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1352: checkcast     #177                // class adb
+    1355: putstatic     #230                // Field aS:Ladb;
+    1358: getstatic     #184                // Field adb.e:Lcw;
+    1361: ldc           #159                // String sugar
+    1363: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1366: checkcast     #177                // class adb
+    1369: putstatic     #231                // Field aT:Ladb;
+    1372: getstatic     #184                // Field adb.e:Lcw;
+    1375: ldc           #17                 // String cake
+    1377: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1380: checkcast     #177                // class adb
+    1383: putstatic     #232                // Field aU:Ladb;
+    1386: getstatic     #184                // Field adb.e:Lcw;
+    1389: ldc           #4                  // String bed
+    1391: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1394: checkcast     #177                // class adb
+    1397: putstatic     #233                // Field aV:Ladb;
+    1400: getstatic     #184                // Field adb.e:Lcw;
+    1403: ldc           #141                // String repeater
+    1405: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1408: checkcast     #177                // class adb
+    1411: putstatic     #234                // Field aW:Ladb;
+    1414: getstatic     #184                // Field adb.e:Lcw;
+    1417: ldc           #37                 // String cookie
+    1419: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1422: checkcast     #177                // class adb
+    1425: putstatic     #235                // Field aX:Ladb;
+    1428: getstatic     #184                // Field adb.e:Lcw;
+    1431: ldc           #58                 // String filled_map
+    1433: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1436: checkcast     #179                // class adh
+    1439: putstatic     #236                // Field aY:Ladh;
+    1442: getstatic     #184                // Field adb.e:Lcw;
+    1445: ldc           #144                // String shears
+    1447: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1450: checkcast     #181                // class adx
+    1453: putstatic     #237                // Field aZ:Ladx;
+    1456: getstatic     #184                // Field adb.e:Lcw;
+    1459: ldc           #109                // String melon
+    1461: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1464: checkcast     #177                // class adb
+    1467: putstatic     #291                // Field ba:Ladb;
+    1470: getstatic     #184                // Field adb.e:Lcw;
+    1473: ldc           #125                // String pumpkin_seeds
+    1475: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1478: checkcast     #177                // class adb
+    1481: putstatic     #292                // Field bb:Ladb;
+    1484: getstatic     #184                // Field adb.e:Lcw;
+    1487: ldc           #110                // String melon_seeds
+    1489: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1492: checkcast     #177                // class adb
+    1495: putstatic     #293                // Field bc:Ladb;
+    1498: getstatic     #184                // Field adb.e:Lcw;
+    1501: ldc           #5                  // String beef
+    1503: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1506: checkcast     #177                // class adb
+    1509: putstatic     #294                // Field bd:Ladb;
+    1512: getstatic     #184                // Field adb.e:Lcw;
+    1515: ldc           #33                 // String cooked_beef
+    1517: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1520: checkcast     #177                // class adb
+    1523: putstatic     #295                // Field be:Ladb;
+    1526: getstatic     #184                // Field adb.e:Lcw;
+    1529: ldc           #26                 // String chicken
+    1531: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1534: checkcast     #177                // class adb
+    1537: putstatic     #296                // Field bf:Ladb;
+    1540: getstatic     #184                // Field adb.e:Lcw;
+    1543: ldc           #34                 // String cooked_chicken
+    1545: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1548: checkcast     #177                // class adb
+    1551: putstatic     #297                // Field bg:Ladb;
+    1554: getstatic     #184                // Field adb.e:Lcw;
+    1557: ldc           #142                // String rotten_flesh
+    1559: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1562: checkcast     #177                // class adb
+    1565: putstatic     #298                // Field bh:Ladb;
+    1568: getstatic     #184                // Field adb.e:Lcw;
+    1571: ldc           #54                 // String ender_pearl
+    1573: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1576: checkcast     #177                // class adb
+    1579: putstatic     #299                // Field bi:Ladb;
+    1582: getstatic     #184                // Field adb.e:Lcw;
+    1585: ldc           #7                  // String blaze_rod
+    1587: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1590: checkcast     #177                // class adb
+    1593: putstatic     #300                // Field bj:Ladb;
+    1596: getstatic     #184                // Field adb.e:Lcw;
+    1599: ldc           #68                 // String ghast_tear
+    1601: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1604: checkcast     #177                // class adb
+    1607: putstatic     #301                // Field bk:Ladb;
+    1610: getstatic     #184                // Field adb.e:Lcw;
+    1613: ldc           #72                 // String gold_nugget
+    1615: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1618: checkcast     #177                // class adb
+    1621: putstatic     #302                // Field bl:Ladb;
+    1624: getstatic     #184                // Field adb.e:Lcw;
+    1627: ldc           #116                // String nether_wart
+    1629: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1632: checkcast     #177                // class adb
+    1635: putstatic     #303                // Field bm:Ladb;
+    1638: getstatic     #184                // Field adb.e:Lcw;
+    1641: ldc           #123                // String potion
+    1643: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1646: checkcast     #180                // class adp
+    1649: putstatic     #304                // Field bn:Ladp;
+    1652: getstatic     #184                // Field adb.e:Lcw;
+    1655: ldc           #69                 // String glass_bottle
+    1657: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1660: checkcast     #177                // class adb
+    1663: putstatic     #305                // Field bo:Ladb;
+    1666: getstatic     #184                // Field adb.e:Lcw;
+    1669: ldc           #151                // String spider_eye
+    1671: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1674: checkcast     #177                // class adb
+    1677: putstatic     #306                // Field bp:Ladb;
+    1680: getstatic     #184                // Field adb.e:Lcw;
+    1683: ldc           #57                 // String fermented_spider_eye
+    1685: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1688: checkcast     #177                // class adb
+    1691: putstatic     #307                // Field bq:Ladb;
+    1694: getstatic     #184                // Field adb.e:Lcw;
+    1697: ldc           #6                  // String blaze_powder
+    1699: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1702: checkcast     #177                // class adb
+    1705: putstatic     #308                // Field br:Ladb;
+    1708: getstatic     #184                // Field adb.e:Lcw;
+    1711: ldc           #107                // String magma_cream
+    1713: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1716: checkcast     #177                // class adb
+    1719: putstatic     #309                // Field bs:Ladb;
+    1722: getstatic     #184                // Field adb.e:Lcw;
+    1725: ldc           #14                 // String brewing_stand
+    1727: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1730: checkcast     #177                // class adb
+    1733: putstatic     #310                // Field bt:Ladb;
+    1736: getstatic     #184                // Field adb.e:Lcw;
+    1739: ldc           #20                 // String cauldron
+    1741: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1744: checkcast     #177                // class adb
+    1747: putstatic     #311                // Field bu:Ladb;
+    1750: getstatic     #184                // Field adb.e:Lcw;
+    1753: ldc           #53                 // String ender_eye
+    1755: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1758: checkcast     #177                // class adb
+    1761: putstatic     #312                // Field bv:Ladb;
+    1764: getstatic     #184                // Field adb.e:Lcw;
+    1767: ldc           #150                // String speckled_melon
+    1769: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1772: checkcast     #177                // class adb
+    1775: putstatic     #313                // Field bw:Ladb;
+    1778: getstatic     #184                // Field adb.e:Lcw;
+    1781: ldc           #149                // String spawn_egg
+    1783: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1786: checkcast     #177                // class adb
+    1789: putstatic     #314                // Field bx:Ladb;
+    1792: getstatic     #184                // Field adb.e:Lcw;
+    1795: ldc           #55                 // String experience_bottle
+    1797: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1800: checkcast     #177                // class adb
+    1803: putstatic     #315                // Field by:Ladb;
+    1806: getstatic     #184                // Field adb.e:Lcw;
+    1809: ldc           #59                 // String fire_charge
+    1811: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1814: checkcast     #177                // class adb
+    1817: putstatic     #316                // Field bz:Ladb;
+    1820: getstatic     #184                // Field adb.e:Lcw;
+    1823: ldc           #170                // String writable_book
+    1825: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1828: checkcast     #177                // class adb
+    1831: putstatic     #265                // Field bA:Ladb;
+    1834: getstatic     #184                // Field adb.e:Lcw;
+    1837: ldc           #171                // String written_book
+    1839: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1842: checkcast     #177                // class adb
+    1845: putstatic     #266                // Field bB:Ladb;
+    1848: getstatic     #184                // Field adb.e:Lcw;
+    1851: ldc           #51                 // String emerald
+    1853: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1856: checkcast     #177                // class adb
+    1859: putstatic     #267                // Field bC:Ladb;
+    1862: getstatic     #184                // Field adb.e:Lcw;
+    1865: ldc           #99                 // String item_frame
+    1867: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1870: checkcast     #177                // class adb
+    1873: putstatic     #268                // Field bD:Ladb;
+    1876: getstatic     #184                // Field adb.e:Lcw;
+    1879: ldc           #66                 // String flower_pot
+    1881: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1884: checkcast     #177                // class adb
+    1887: putstatic     #269                // Field bE:Ladb;
+    1890: getstatic     #184                // Field adb.e:Lcw;
+    1893: ldc           #18                 // String carrot
+    1895: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1898: checkcast     #177                // class adb
+    1901: putstatic     #270                // Field bF:Ladb;
+    1904: getstatic     #184                // Field adb.e:Lcw;
+    1907: ldc           #122                // String potato
+    1909: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1912: checkcast     #177                // class adb
+    1915: putstatic     #271                // Field bG:Ladb;
+    1918: getstatic     #184                // Field adb.e:Lcw;
+    1921: ldc           #3                  // String baked_potato
+    1923: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1926: checkcast     #177                // class adb
+    1929: putstatic     #272                // Field bH:Ladb;
+    1932: getstatic     #184                // Field adb.e:Lcw;
+    1935: ldc           #120                // String poisonous_potato
+    1937: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1940: checkcast     #177                // class adb
+    1943: putstatic     #273                // Field bI:Ladb;
+    1946: getstatic     #184                // Field adb.e:Lcw;
+    1949: ldc           #108                // String map
+    1951: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1954: checkcast     #174                // class acl
+    1957: putstatic     #274                // Field bJ:Lacl;
+    1960: getstatic     #184                // Field adb.e:Lcw;
+    1963: ldc           #76                 // String golden_carrot
+    1965: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1968: checkcast     #177                // class adb
+    1971: putstatic     #275                // Field bK:Ladb;
+    1974: getstatic     #184                // Field adb.e:Lcw;
+    1977: ldc           #146                // String skull
+    1979: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1982: checkcast     #177                // class adb
+    1985: putstatic     #276                // Field bL:Ladb;
+    1988: getstatic     #184                // Field adb.e:Lcw;
+    1991: ldc           #19                 // String carrot_on_a_stick
+    1993: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1996: checkcast     #177                // class adb
+    1999: putstatic     #277                // Field bM:Ladb;
+    2002: getstatic     #184                // Field adb.e:Lcw;
+    2005: ldc           #115                // String nether_star
+    2007: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2010: checkcast     #177                // class adb
+    2013: putstatic     #278                // Field bN:Ladb;
+    2016: getstatic     #184                // Field adb.e:Lcw;
+    2019: ldc           #124                // String pumpkin_pie
+    2021: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2024: checkcast     #177                // class adb
+    2027: putstatic     #279                // Field bO:Ladb;
+    2030: getstatic     #184                // Field adb.e:Lcw;
+    2033: ldc           #61                 // String fireworks
+    2035: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2038: checkcast     #177                // class adb
+    2041: putstatic     #280                // Field bP:Ladb;
+    2044: getstatic     #184                // Field adb.e:Lcw;
+    2047: ldc           #60                 // String firework_charge
+    2049: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2052: checkcast     #177                // class adb
+    2055: putstatic     #281                // Field bQ:Ladb;
+    2058: getstatic     #184                // Field adb.e:Lcw;
+    2061: ldc           #52                 // String enchanted_book
+    2063: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2066: checkcast     #175                // class acm
+    2069: putstatic     #282                // Field bR:Lacm;
+    2072: getstatic     #184                // Field adb.e:Lcw;
+    2075: ldc           #31                 // String comparator
+    2077: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2080: checkcast     #177                // class adb
+    2083: putstatic     #283                // Field bS:Ladb;
+    2086: getstatic     #184                // Field adb.e:Lcw;
+    2089: ldc           #117                // String netherbrick
+    2091: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2094: checkcast     #177                // class adb
+    2097: putstatic     #284                // Field bT:Ladb;
+    2100: getstatic     #184                // Field adb.e:Lcw;
+    2103: ldc           #126                // String quartz
+    2105: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2108: checkcast     #177                // class adb
+    2111: putstatic     #285                // Field bU:Ladb;
+    2114: getstatic     #184                // Field adb.e:Lcw;
+    2117: ldc           #160                // String tnt_minecart
+    2119: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2122: checkcast     #177                // class adb
+    2125: putstatic     #286                // Field bV:Ladb;
+    2128: getstatic     #184                // Field adb.e:Lcw;
+    2131: ldc           #86                 // String hopper_minecart
+    2133: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2136: checkcast     #177                // class adb
+    2139: putstatic     #287                // Field bW:Ladb;
+    2142: getstatic     #184                // Field adb.e:Lcw;
+    2145: ldc           #93                 // String iron_horse_armor
+    2147: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2150: checkcast     #177                // class adb
+    2153: putstatic     #288                // Field bX:Ladb;
+    2156: getstatic     #184                // Field adb.e:Lcw;
+    2159: ldc           #80                 // String golden_horse_armor
+    2161: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2164: checkcast     #177                // class adb
+    2167: putstatic     #289                // Field bY:Ladb;
+    2170: getstatic     #184                // Field adb.e:Lcw;
+    2173: ldc           #44                 // String diamond_horse_armor
+    2175: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2178: checkcast     #177                // class adb
+    2181: putstatic     #290                // Field bZ:Ladb;
+    2184: getstatic     #184                // Field adb.e:Lcw;
+    2187: ldc           #101                // String lead
+    2189: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2192: checkcast     #177                // class adb
+    2195: putstatic     #318                // Field ca:Ladb;
+    2198: getstatic     #184                // Field adb.e:Lcw;
+    2201: ldc           #114                // String name_tag
+    2203: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2206: checkcast     #177                // class adb
+    2209: putstatic     #319                // Field cb:Ladb;
+    2212: getstatic     #184                // Field adb.e:Lcw;
+    2215: ldc           #30                 // String command_block_minecart
+    2217: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2220: checkcast     #177                // class adb
+    2223: putstatic     #320                // Field cc:Ladb;
+    2226: getstatic     #184                // Field adb.e:Lcw;
+    2229: ldc           #128                // String record_13
+    2231: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2234: checkcast     #177                // class adb
+    2237: putstatic     #321                // Field cd:Ladb;
+    2240: getstatic     #184                // Field adb.e:Lcw;
+    2243: ldc           #130                // String record_cat
+    2245: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2248: checkcast     #177                // class adb
+    2251: putstatic     #322                // Field ce:Ladb;
+    2254: getstatic     #184                // Field adb.e:Lcw;
+    2257: ldc           #129                // String record_blocks
+    2259: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2262: checkcast     #177                // class adb
+    2265: putstatic     #323                // Field cf:Ladb;
+    2268: getstatic     #184                // Field adb.e:Lcw;
+    2271: ldc           #131                // String record_chirp
+    2273: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2276: checkcast     #177                // class adb
+    2279: putstatic     #324                // Field cg:Ladb;
+    2282: getstatic     #184                // Field adb.e:Lcw;
+    2285: ldc           #132                // String record_far
+    2287: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2290: checkcast     #177                // class adb
+    2293: putstatic     #325                // Field ch:Ladb;
+    2296: getstatic     #184                // Field adb.e:Lcw;
+    2299: ldc           #133                // String record_mall
+    2301: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2304: checkcast     #177                // class adb
+    2307: putstatic     #326                // Field ci:Ladb;
+    2310: getstatic     #184                // Field adb.e:Lcw;
+    2313: ldc           #134                // String record_mellohi
+    2315: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2318: checkcast     #177                // class adb
+    2321: putstatic     #327                // Field cj:Ladb;
+    2324: getstatic     #184                // Field adb.e:Lcw;
+    2327: ldc           #135                // String record_stal
+    2329: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2332: checkcast     #177                // class adb
+    2335: putstatic     #328                // Field ck:Ladb;
+    2338: getstatic     #184                // Field adb.e:Lcw;
+    2341: ldc           #136                // String record_strad
+    2343: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2346: checkcast     #177                // class adb
+    2349: putstatic     #329                // Field cl:Ladb;
+    2352: getstatic     #184                // Field adb.e:Lcw;
+    2355: ldc           #138                // String record_ward
+    2357: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2360: checkcast     #177                // class adb
+    2363: putstatic     #330                // Field cm:Ladb;
+    2366: getstatic     #184                // Field adb.e:Lcw;
+    2369: ldc           #127                // String record_11
+    2371: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2374: checkcast     #177                // class adb
+    2377: putstatic     #331                // Field cn:Ladb;
+    2380: getstatic     #184                // Field adb.e:Lcw;
+    2383: ldc           #137                // String record_wait
+    2385: invokevirtual #356                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2388: checkcast     #177                // class adb
+    2391: putstatic     #332                // Field co:Ladb;
+    2394: return
+}

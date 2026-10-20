@@ -15,11 +15,16 @@ import com.hbm.render.util.BeamPronter.EnumWaveType;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderSiegeCraft extends Render {
+
+	public RenderSiegeCraft(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
@@ -62,7 +67,7 @@ public class RenderSiegeCraft extends Render {
 		
 		if(ufo.getBeam()) {
 			bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/misc/glintBF.png"));
-			RenderMiscEffects.renderClassicGlint(ufo.worldObj, f1, ResourceManager.siege_ufo, "UFO", 0.5F, 1.0F, 1.0F, 5, 1F);
+			RenderMiscEffects.renderClassicGlint(ufo.world, f1, ResourceManager.siege_ufo, "UFO", 0.5F, 1.0F, 1.0F, 5, 1F);
 		}
 		
 		GL11.glColor3f(1F, 1F, 1F);

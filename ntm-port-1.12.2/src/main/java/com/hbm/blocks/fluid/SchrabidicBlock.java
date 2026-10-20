@@ -70,7 +70,7 @@ public class SchrabidicBlock extends BlockFluidClassic {
 	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
-		if (world.getBlock(x, y, z).getMaterial().isLiquid()) {
+		if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
 			return false;
 		}
 		return super.displaceIfPossible(world, x, y, z);
@@ -98,54 +98,54 @@ public class SchrabidicBlock extends BlockFluidClassic {
 	}*/
 	
 	public void getReaction(World world, int x, int y, int z) {
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		double dx= (double) ((float) x + rand.nextFloat());
 		double dy= (double) ((float) y + rand.nextFloat());
 		double dz= (double) ((float) z + rand.nextFloat());
-		if(b.getMaterial() == Material.water && b!=this) {
+		if(b.getDefaultState().getMaterial() == Material.WATER && b!=this) {
 			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
 		}
-		else if((b == Blocks.log || b == Blocks.log2) && rand.nextInt(4) == 0) {
+		else if((b == Blocks.LOG || b == Blocks.LOG2) && rand.nextInt(4) == 0) {
 		    world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
 		    world.setBlock(x, y, z, ModBlocks.waste_log);
 		}
-		else if(b == Blocks.planks && rand.nextInt(4) == 0) {
+		else if(b == Blocks.PLANKS && rand.nextInt(4) == 0) {
 		    world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
 		    world.setBlock(x, y, z, ModBlocks.waste_planks);
 		}
-		else if((b == Blocks.leaves || b == Blocks.leaves2 || b.getMaterial() == Material.iron || (b.getMaterial() == Material.glass && b != ModBlocks.reinforced_glass)) && rand.nextInt(4) == 0) {
+		else if((b == Blocks.LEAVES || b == Blocks.LEAVES2 || b.getDefaultState().getMaterial() == Material.IRON || (b.getDefaultState().getMaterial() == Material.GLASS && b != ModBlocks.reinforced_glass)) && rand.nextInt(4) == 0) {
 			world.spawnParticle("cloud", dx, dy, dz, 0.0, 0.0, 0.0);
 		    world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-		    world.setBlock(x, y, z, Blocks.air);
+		    { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
-		else if ((b == Blocks.stone || 
-				b == Blocks.stone_brick_stairs || 
-				b == Blocks.stonebrick || 
-				b == Blocks.stone_slab || 
-				b == Blocks.stone) && rand.nextInt(4) == 0) {
+		else if ((b == Blocks.STONE || 
+				b == Blocks.STONE_BRICK_STAIRS || 
+				b == Blocks.STONEBRICK || 
+				b == Blocks.STONE_SLAB || 
+				b == Blocks.STONE) && rand.nextInt(4) == 0) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-			world.setBlock(x, y, z, Blocks.cobblestone);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.COBBLESTONE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
-		else if(b == Blocks.cobblestone && rand.nextInt(4) == 0) {
+		else if(b == Blocks.COBBLESTONE && rand.nextInt(4) == 0) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-			world.setBlock(x, y, z, Blocks.gravel);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.GRAVEL; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
-		else if(b == Blocks.gravel && rand.nextInt(4) == 0) {
+		else if(b == Blocks.GRAVEL && rand.nextInt(4) == 0) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-			world.setBlock(x, y, z, Blocks.clay);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.CLAY; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
-		else if((b == Blocks.obsidian || b == ModBlocks.brick_obsidian || b == ModBlocks.brick_obsidian_stairs) && rand.nextInt(4) == 0) {
+		else if((b == Blocks.OBSIDIAN || b == ModBlocks.brick_obsidian || b == ModBlocks.brick_obsidian_stairs) && rand.nextInt(4) == 0) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
 			world.setBlock(x, y, z, ModBlocks.gravel_obsidian);
 		}
-		else if((b == Blocks.sandstone || b == Blocks.end_stone) && rand.nextInt(4) == 0) {
+		else if((b == Blocks.SANDSTONE || b == Blocks.END_STONE) && rand.nextInt(4) == 0) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-			world.setBlock(x, y, z, Blocks.sand);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.SAND; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		} 
-		else if (b.getExplosionResistance(null) < 1.2F && b != ModBlocks.block_polymer && b != ModBlocks.gravel_obsidian && b != Blocks.sand && b != Blocks.clay) {
+		else if (b.getExplosionResistance(null) < 1.2F && b != ModBlocks.block_polymer && b != ModBlocks.gravel_obsidian && b != Blocks.SAND && b != Blocks.CLAY) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
 			world.spawnParticle("cloud", dx, dy, dz, 0.0, 0.0, 0.0);
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 

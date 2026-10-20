@@ -46,11 +46,11 @@ public class ItemModKnife extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 
-		if(!entity.worldObj.isRemote) {
+		if(!entity.world.isRemote) {
 
 			if(entity.ticksExisted % 50 == 0 && entity.getMaxHealth() > 2F) {
 
-				entity.worldObj.playSoundAtEntity(entity, "hbm:entity.slicer", 1.0F, 1.0F);
+				entity.world.playSoundAtEntity(entity, "hbm:entity.slicer", 1.0F, 1.0F);
 
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setString("type", "bloodvomit");
@@ -78,7 +78,7 @@ public class ItemModKnife extends ItemArmorMod {
 						data.setInteger("time", 0);
 						data.setInteger("maxTime", 0);
 
-						((EntityPlayer)entity).triggerAchievement(MainRegistry.achSomeWounds);
+						com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)entity), MainRegistry.achSomeWounds);
 					}
 					PacketThreading.createSendToThreadedPacket(new AuxParticlePacketNT(data, 0, 0, 0), (EntityPlayerMP)entity);
 				}

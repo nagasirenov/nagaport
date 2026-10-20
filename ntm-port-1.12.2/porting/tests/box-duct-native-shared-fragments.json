@@ -1,0 +1,63 @@
+{
+  "baseline": "4117777482629b159d6cfa5dcc20c1f4ec5aa311",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "baseline_after_sha256": "19b122a356560bec84716cab30a29855c6577d8fc7b6173ef185cdc6be466cb2",
+      "baseline_before_sha256": "546ab338c10986179c92fd22dab0e2a51399412ece3771424f32b9e95593c9dd",
+      "fragments": [
+        {
+          "after": "\t\tred_cable_box = new PowerCableBox(Material.IRON).setTranslationKey(\"red_cable_box\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "before": "\t\tred_cable_box = new PowerCableBox(Material.iron).setBlockName(\"red_cable_box\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":fluid_duct_box\");\r\n"
+        },
+        {
+          "after": "\t\tfluid_duct_box = new FluidDuctBox(Material.IRON).setTranslationKey(\"fluid_duct_box\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "before": "\t\tfluid_duct_box = new FluidDuctBox(Material.iron).setBlockName(\"fluid_duct_box\").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":fluid_duct_box\");\r\n"
+        },
+        {
+          "after": "\t\tfluid_duct_exhaust = new FluidDuctBoxExhaust(Material.IRON).setTranslationKey(\"fluid_duct_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "before": "\t\tfluid_duct_exhaust = new FluidDuctBoxExhaust(Material.iron).setBlockName(\"fluid_duct_exhaust\").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":fluid_duct_box\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "baseline_after_sha256": "d4ba68ea6cc901b5d11190edb87edfebea6819aa1e9dca7ee4d7388efa6aa2cd",
+      "baseline_before_sha256": "61c3b24b8a2dca63d7765c46b852d1cf03aa37ae5a35c3eaa5a4af36f2891ea9",
+      "fragments": [
+        {
+          "after": "\t\t// BoxDuctModelHandler owns native box-duct world, inventory and original damage models.\n",
+          "before": "\t\tRenderingRegistry.registerBlockHandler(new RenderBoxDuct());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java": {
+      "baseline_after_sha256": "55ff9186deb2c58af1d1a859852b76b2b0b91255772c37b2bda8be37a0b30b50",
+      "baseline_before_sha256": "be0dc3f5bee4fabfa28cf8d7809069ffa9dd92ab79ddaa8fe8467293d962ecc3",
+      "fragments": [
+        {
+          "after": "public class TileEntityCableBaseNT extends TileEntityLoadedBase implements IEnergyConductorMK2, net.minecraft.util.ITickable {\n\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n\n\tprotected PowerNode node;",
+          "before": "public class TileEntityCableBaseNT extends TileEntityLoadedBase implements IEnergyConductorMK2, net.minecraft.util.ITickable {\n\n\tprotected PowerNode node;"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java": {
+      "baseline_after_sha256": "7c7d13a4cef0d8e7a191e094bfb280d816ed18301f85d35728b7f72a68e673d0",
+      "baseline_before_sha256": "f71109d24442eea701d3610de2e128a7a7ccd20a6ef16942b6a12fad119607c5",
+      "fragments": [
+        {
+          "after": "public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluidPipeMK2, IFluidCopiable, net.minecraft.util.ITickable {\r\n\r\n    @Override public boolean canRenderBreaking() {\r\n        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\r\n    }\r\n\r\n\r\n\tprotected FluidNode node;",
+          "before": "public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluidPipeMK2, IFluidCopiable, net.minecraft.util.ITickable {\r\n\r\n\tprotected FluidNode node;"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java": {
+      "baseline_after_sha256": "a7d13cc06ecdd573fd110db86be8e54a5dd4787ab6ae284368ad0c11ecad2145",
+      "baseline_before_sha256": "a2f2bec0458074f638498fbd6a2e0c0ec0956e2e3a63f5dbcafba3d95e1c0fb0",
+      "fragments": [
+        {
+          "after": "public class TileEntityPipeExhaust extends TileEntity implements IFluidPipeMK2, net.minecraft.util.ITickable {\n\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n\t\n\tprotected FluidNode[] nodes = new FluidNode[3];",
+          "before": "public class TileEntityPipeExhaust extends TileEntity implements IFluidPipeMK2, net.minecraft.util.ITickable {\n\t\n\tprotected FluidNode[] nodes = new FluidNode[3];"
+        }
+      ]
+    }
+  }
+}

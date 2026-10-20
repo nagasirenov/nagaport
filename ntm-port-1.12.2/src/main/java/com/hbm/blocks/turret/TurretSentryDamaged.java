@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class TurretSentryDamaged extends BlockContainer {
 
 	public TurretSentryDamaged() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class TurretSentryDamaged extends BlockContainer {
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 }

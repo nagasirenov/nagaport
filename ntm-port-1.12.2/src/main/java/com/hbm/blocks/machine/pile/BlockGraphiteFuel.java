@@ -14,8 +14,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -46,8 +46,8 @@ public class BlockGraphiteFuel extends BlockGraphiteDrilledTE implements IToolab
 	
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		TileEntityPileFuel pile = (TileEntityPileFuel)world.getTileEntity(x, y, z);
-		return MathHelper.clamp_int((pile.progress * 15) / (pile.maxProgress - 1000), 0, 15);
+		TileEntityPileFuel pile = (TileEntityPileFuel)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+		return MathHelper.clamp((pile.progress * 15) / (pile.maxProgress - 1000), 0, 15);
 	}
 	
 	@Override
@@ -55,7 +55,7 @@ public class BlockGraphiteFuel extends BlockGraphiteDrilledTE implements IToolab
 		
 		if(!world.isRemote) {
 			
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			
 			if(tool == ToolType.SCREWDRIVER) {
 				
@@ -68,13 +68,13 @@ public class BlockGraphiteFuel extends BlockGraphiteDrilledTE implements IToolab
 			}
 			
 			if(tool == ToolType.HAND_DRILL) {
-				TileEntityPileFuel pile = (TileEntityPileFuel) world.getTileEntity(x, y, z);
-				player.addChatComponentMessage(new ChatComponentText("CP1 FUEL ASSEMBLY " + x + " " + y + " " + z).setChatStyle(new ChatStyle().setColor(TextFormatting.GOLD)));
-				player.addChatComponentMessage(new ChatComponentText("HEAT: " + pile.heat + "/" + pile.maxHeat).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-				player.addChatComponentMessage(new ChatComponentText("DEPLETION: " + pile.progress + "/" + pile.maxProgress).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-				player.addChatComponentMessage(new ChatComponentText("FLUX: " + pile.lastNeutrons).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+				TileEntityPileFuel pile = (TileEntityPileFuel) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+				player.sendMessage(new TextComponentString("CP1 FUEL ASSEMBLY " + x + " " + y + " " + z).setStyle(new Style().setColor(TextFormatting.GOLD)));
+				player.sendMessage(new TextComponentString("HEAT: " + pile.heat + "/" + pile.maxHeat).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentString("DEPLETION: " + pile.progress + "/" + pile.maxProgress).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentString("FLUX: " + pile.lastNeutrons).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 				if((meta & 8) == 8)
-					player.addChatComponentMessage(new ChatComponentText("PU-239 RICH").setChatStyle(new ChatStyle().setColor(TextFormatting.DARK_GREEN)));
+					player.sendMessage(new TextComponentString("PU-239 RICH").setStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
 			}
 		}
 		
@@ -88,7 +88,7 @@ public class BlockGraphiteFuel extends BlockGraphiteDrilledTE implements IToolab
 	
 	@Override
 	public void applyFan(World world, int x, int y, int z, ForgeDirection dir, int dist) {
-		TileEntityPileFuel pile = (TileEntityPileFuel) world.getTileEntity(x, y, z);
+		TileEntityPileFuel pile = (TileEntityPileFuel) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		pile.heat -= pile.heat * 0.025;
 	}
 }

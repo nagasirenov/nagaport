@@ -36,7 +36,7 @@ public class TileEntityTurretJeremy extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretJeremy";
 	}
 
@@ -69,15 +69,15 @@ public class TileEntityTurretJeremy extends TileEntityTurretBaseNT {
 	int reload;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		if(reload > 0)
 			reload--;
 
 		if(reload == 1)
-			this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.jeremy_reload", 2.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_reload", 2.0F, 1.0F);
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class TileEntityTurretJeremy extends TileEntityTurretBaseNT {
 				this.cachedCasingConfig = conf.casing;
 				this.spawnBullet(conf, 50F);
 				this.conusmeAmmo(conf.ammo);
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.jeremy_fire", 4.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_fire", 4.0F, 1.0F);
 				Vec3d pos = this.getTurretPos();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
 				vec.rotateAroundZRad((float) -this.rotationPitch);
@@ -106,7 +106,7 @@ public class TileEntityTurretJeremy extends TileEntityTurretBaseNT {
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 0F);
 				data.setByte("count", (byte)5);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 			}
 		}
 	}
@@ -120,7 +120,7 @@ public class TileEntityTurretJeremy extends TileEntityTurretBaseNT {
 		float yaw = (float) Math.toDegrees(rotationYaw);
 		float pitch = (float) -Math.toDegrees(this.rotationPitch);
 		
-		CasingCreator.composeEffect(worldObj,
+		CasingCreator.composeEffect(this.world,
 				spawn.x, spawn.y, spawn.z,
 				yaw, pitch,
 				-0.2, -0.2, 0,

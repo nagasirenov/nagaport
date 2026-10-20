@@ -52,7 +52,7 @@ public class MachineTeleporter extends BlockContainer implements ILookOverlay {
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 		
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(!(tile instanceof TileEntityMachineTeleporter)) return;
 		
@@ -64,12 +64,12 @@ public class MachineTeleporter extends BlockContainer implements ILookOverlay {
 			text.add(TextFormatting.RED + "No destination set!");
 		} else {
 			text.add((tele.power >= tele.consumption ? TextFormatting.GREEN : TextFormatting.RED) + String.format("%,d", tele.power) + " / " + String.format("%,d", tele.maxPower));
-			if(world.provider.dimensionId != tele.targetDim) {
+			if(world.provider.getDimension() != tele.targetDim) {
 				text.add(I18nUtil.resolveKey("hbmfluid." + tele.tank.getTankType().getName().toLowerCase()) + ": " + tele.tank.getFill() + "/" + tele.tank.getMaxFill() + "mB");
 			}
 			text.add("Destination: " + tele.targetX + " / " + tele.targetY + " / " + tele.targetZ + " (D: " + tele.targetDim + ")");
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

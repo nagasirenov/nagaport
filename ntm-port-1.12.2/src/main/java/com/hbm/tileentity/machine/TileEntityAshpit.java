@@ -72,24 +72,24 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 	}
 	
 	@Override
-	public void openInventory() {
-		if(!worldObj.isRemote) this.playersUsing++;
+	public void openInventory(EntityPlayer player) {
+		if(!world.isRemote) this.playersUsing++;
 	}
 	
 	@Override
-	public void closeInventory() {
-		if(!worldObj.isRemote) this.playersUsing--;
+	public void closeInventory(EntityPlayer player) {
+		if(!world.isRemote) this.playersUsing--;
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.ashpit";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 
 			if(processAsh(ashLevelWood, EnumAshType.WOOD, thresholdWood)) ashLevelWood -= thresholdWood;
@@ -116,7 +116,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 				this.doorAngle -= swingSpeed;
 			}
 			
-			this.doorAngle = MathHelper.clamp_float(this.doorAngle, 0F, 135F);
+			this.doorAngle = MathHelper.clamp(this.doorAngle, 0F, 135F);
 		}
 	}
 	
@@ -155,12 +155,14 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4 };
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 	
@@ -176,7 +178,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("ashLevelWood", ashLevelWood);
@@ -184,6 +186,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 		nbt.setInteger("ashLevelMisc", ashLevelMisc);
 		nbt.setInteger("ashLevelFly", ashLevelFly);
 		nbt.setInteger("ashLevelSoot", ashLevelSoot);
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -193,12 +196,12 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 1,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 2
 					);
 		}
 		

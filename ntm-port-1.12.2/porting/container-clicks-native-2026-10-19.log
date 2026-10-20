@@ -1,0 +1,2 @@
+PASS container native clicks/merge 126 assertions
+PASS exact container source reversals, drift rejections, native boundaries and seven explicit ClickTypes

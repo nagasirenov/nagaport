@@ -23,13 +23,13 @@ public class BlockNTMDirt extends BlockDirt {
     
     public String getLocalizedName()
     {
-		return ("" + I18nUtil.resolveKey(Blocks.dirt.getUnlocalizedName()) + ".name").trim();
+		return ("" + I18nUtil.resolveKey(Blocks.DIRT.getTranslationKey()) + ".name").trim();
     }
 
     @Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return Item.getItemFromBlock(Blocks.dirt);
+        return Item.getItemFromBlock(Blocks.DIRT);
     }
 
 }

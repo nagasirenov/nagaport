@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 public class BlockLoot extends BlockContainer {
 
 	public BlockLoot() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class BlockLoot extends BlockContainer {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;
 	}
 
@@ -51,12 +51,12 @@ public class BlockLoot extends BlockContainer {
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		
 		if(!world.isRemote) {
-			TileEntityLoot entity = (TileEntityLoot) world.getTileEntity(x, y, z);
+			TileEntityLoot entity = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null) {
 				
 				for(Quartet<ItemStack, Double, Double, Double> quartet : entity.items) {
 					EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, quartet.getW());
-					world.spawnEntityInWorld(item);
+					world.spawnEntity(item);
 				}
 			}
 		}
@@ -82,7 +82,7 @@ public class BlockLoot extends BlockContainer {
 			return true;
 			
 		} else if(!player.isSneaking()) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return true;
 			
 		} else {
@@ -99,10 +99,6 @@ public class BlockLoot extends BlockContainer {
 		
 		public List<Quartet<ItemStack, Double, Double, Double>> items = new ArrayList();
 
-		@Override
-		public boolean canUpdate() {
-			return false;
-		}
 		
 		public TileEntityLoot addItem(ItemStack stack, double x, double y, double z) {
 			items.add(new Quartet(stack, x, y, z));
@@ -138,7 +134,7 @@ public class BlockLoot extends BlockContainer {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			
 			nbt.setInteger("count", items.size());
@@ -153,6 +149,7 @@ public class BlockLoot extends BlockContainer {
 				nbt.setDouble("y" + i, item.getY());
 				nbt.setDouble("z" + i, item.getZ());
 			}
+			return nbt;
 		}
 		
 		AxisAlignedBB bb = null;
@@ -162,12 +159,12 @@ public class BlockLoot extends BlockContainer {
 			
 			if(bb == null) {
 				bb = AxisAlignedBB.getBoundingBox(
-						xCoord - 1,
-						yCoord,
-						zCoord - 1,
-						xCoord + 2,
-						yCoord + 3,
-						zCoord + 2
+						this.pos.getX() - 1,
+						this.pos.getY(),
+						this.pos.getZ() - 1,
+						this.pos.getX() + 2,
+						this.pos.getY() + 3,
+						this.pos.getZ() + 2
 						);
 			}
 			

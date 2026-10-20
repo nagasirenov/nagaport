@@ -39,8 +39,8 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 	public boolean interactFirst(EntityPlayer player) {
 		if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player)))
 			return true;
-		if(!this.worldObj.isRemote) {
-			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, worldObj, this.getEntityId(), 0, 0);
+		if(!this.world.isRemote) {
+			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, this.world, this.getEntityId(), 0, 0);
 		}
 
 		return true;
@@ -68,21 +68,21 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 
 	@Override
 	public AxisAlignedBB getCollisionBox(Entity entity) {
-		return entity.boundingBox;
+		return entity.getEntityBoundingBox();
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox() {
-		return this.boundingBox;
+		return this.getEntityBoundingBox();
 	}
 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(!worldObj.isRemote && this.ticksExisted % 5 == 0) {
+		if(!this.world.isRemote && this.ticksExisted % 5 == 0) {
 			
-			List<EntityItem> items = worldObj.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(
+			List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(
 					posX - 2.5,
 					posY - 1.5,
 					posZ - 2.5,
@@ -119,11 +119,11 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 			}
 			
 			if(sound)
-				worldObj.playSoundEffect(posX, posY, posZ, "mob.zombie.woodbreak", 0.5F, 0.5F + worldObj.rand.nextFloat() * 0.2F);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, "mob.zombie.woodbreak", 0.5F, 0.5F + this.world.rand.nextFloat() * 0.2F);
 		}
 		
-		if(worldObj.isRemote && this.ticksExisted % 5 == 0) {
-			worldObj.spawnParticle("smoke", posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);
+		if(this.world.isRemote && this.ticksExisted % 5 == 0) {
+			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);
 		}
 	}
 
@@ -141,12 +141,12 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerCartDestroyer(player.inventory, (EntityMinecartDestroyer)player.worldObj.getEntityByID(x));
+		return new ContainerCartDestroyer(player.inventory, (EntityMinecartDestroyer)player.world.getEntityByID(x));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUICartDestroyer(player.inventory, (EntityMinecartDestroyer) player.worldObj.getEntityByID(x));
+		return new GUICartDestroyer(player.inventory, (EntityMinecartDestroyer) player.world.getEntityByID(x));
 	}
 }

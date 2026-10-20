@@ -53,7 +53,7 @@ public class GUIScreenFluid extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		if(player.getHeldItem() == null || player.getHeldItem().getItem() != ModItems.fluid_identifier_multi)
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.fluid_identifier_multi)
 			player.closeScreen();
 	}
 
@@ -64,15 +64,15 @@ public class GUIScreenFluid extends GuiScreen {
 		this.guiTop = (this.height - this.ySize) / 2;
 		
 		Keyboard.enableRepeatEvents(true);
-		this.search = new GuiTextField(this.fontRendererObj, guiLeft + 46, guiTop + 11, 86, 12);
+		this.search = new GuiTextField(0, this.fontRenderer, guiLeft + 46, guiTop + 11, 86, 12);
 		this.search.setTextColor(-1);
 		this.search.setDisabledTextColour(-1);
 		this.search.setEnableBackgroundDrawing(false);
 		this.search.setFocused(true);
 		
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.fluid_identifier_multi) {
-			this.primary = ItemFluidIDMulti.getType(player.getHeldItem(), true);
-			this.secondary = ItemFluidIDMulti.getType(player.getHeldItem(), false);
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.fluid_identifier_multi) {
+			this.primary = ItemFluidIDMulti.getType(com.hbm.util.NativeHeldItem.getMainHandNullable(player), true);
+			this.secondary = ItemFluidIDMulti.getType(com.hbm.util.NativeHeldItem.getMainHandNullable(player), false);
 		}
 	}
 
@@ -87,13 +87,13 @@ public class GUIScreenFluid extends GuiScreen {
 			
 			if(guiLeft + 7 + k * 18 <= i && guiLeft + 7 + k * 18 + 18 > i && guiTop + 29 < j && guiTop + 29 + 18 >= j) {
 				if(button == 0) {
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 					this.primary = this.searchArray[k];
 					NBTTagCompound data = new NBTTagCompound();
 					data.setInteger("primary", this.primary.getID());
 					PacketDispatcher.wrapper.sendToServer(new NBTItemControlPacket(data));
 				} else if(button == 1) {
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 					this.secondary = this.searchArray[k];
 					NBTTagCompound data = new NBTTagCompound();
 					data.setInteger("secondary", this.secondary.getID());
@@ -115,7 +115,7 @@ public class GUIScreenFluid extends GuiScreen {
 				List<String> tooltip = new ArrayList();
 				tooltip.add(this.searchArray[k].getLocalizedName());
 				this.searchArray[k].addInfo(tooltip);
-				func_146283_a(tooltip, i, j);
+				drawHoveringText(tooltip, i, j);
 			}
 		}
 	}
@@ -159,7 +159,7 @@ public class GUIScreenFluid extends GuiScreen {
 		}
 
 		if(key == 1) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 	

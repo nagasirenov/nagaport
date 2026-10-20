@@ -1,0 +1,117 @@
+  private void updateEmptyState();
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #109                // Method isEmpty:()Z
+       5: putfield      #111                // Field isEmpty:Z
+       8: return
+
+
+  public boolean isEmpty();
+    Code:
+       0: aload_0
+       1: getstatic     #169                // Field EMPTY:Lnet/minecraft/item/ItemStack;
+       4: if_acmpne     9
+       7: iconst_1
+       8: ireturn
+       9: aload_0
+      10: invokespecial #173                // Method getItemRaw:()Lnet/minecraft/item/Item;
+      13: ifnull        60
+      16: aload_0
+      17: invokespecial #173                // Method getItemRaw:()Lnet/minecraft/item/Item;
+      20: getstatic     #140                // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      23: if_acmpeq     60
+      26: aload_0
+      27: getfield      #94                 // Field stackSize:I
+      30: ifgt          35
+      33: iconst_1
+      34: ireturn
+      35: aload_0
+      36: getfield      #92                 // Field itemDamage:I
+      39: sipush        -32768
+      42: if_icmplt     54
+      45: aload_0
+      46: getfield      #92                 // Field itemDamage:I
+      49: ldc           #174                // int 65535
+      51: if_icmple     58
+      54: iconst_1
+      55: goto          59
+      58: iconst_0
+      59: ireturn
+      60: iconst_1
+      61: ireturn
+
+
+  public net.minecraft.item.ItemStack copy();
+    Code:
+       0: new           #2                  // class net/minecraft/item/ItemStack
+       3: dup
+       4: aload_0
+       5: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       8: aload_0
+       9: getfield      #94                 // Field stackSize:I
+      12: aload_0
+      13: getfield      #92                 // Field itemDamage:I
+      16: aload_0
+      17: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      20: ifnull        33
+      23: aload_0
+      24: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      27: invokevirtual #355                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+      30: goto          34
+      33: aconst_null
+      34: invokespecial #79                 // Method "<init>":(Lnet/minecraft/item/Item;IILnet/minecraft/nbt/NBTTagCompound;)V
+      37: astore_1
+      38: aload_1
+      39: aload_0
+      40: invokevirtual #521                // Method getAnimationsToGo:()I
+      43: invokevirtual #524                // Method setAnimationsToGo:(I)V
+      46: aload_0
+      47: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      50: ifnull        64
+      53: aload_1
+      54: aload_0
+      55: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      58: invokevirtual #526                // Method net/minecraft/nbt/NBTTagCompound.copy:()Lnet/minecraft/nbt/NBTTagCompound;
+      61: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      64: aload_1
+      65: areturn
+
+
+  public net.minecraft.item.Item getItem();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifne          14
+       7: aload_0
+       8: getfield      #218                // Field delegate:Lnet/minecraftforge/registries/IRegistryDelegate;
+      11: ifnonnull     20
+      14: getstatic     #140                // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      17: goto          32
+      20: aload_0
+      21: getfield      #218                // Field delegate:Lnet/minecraftforge/registries/IRegistryDelegate;
+      24: invokeinterface #224,  1          // InterfaceMethod net/minecraftforge/registries/IRegistryDelegate.get:()Ljava/lang/Object;
+      29: checkcast     #59                 // class net/minecraft/item/Item
+      32: areturn
+
+
+  public int getCount();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifeq          11
+       7: iconst_0
+       8: goto          15
+      11: aload_0
+      12: getfield      #94                 // Field stackSize:I
+      15: ireturn
+
+
+  public void setCount(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #94                 // Field stackSize:I
+       5: aload_0
+       6: invokespecial #99                 // Method updateEmptyState:()V
+       9: return

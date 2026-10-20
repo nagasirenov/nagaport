@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -27,7 +30,7 @@ public class ItemRenderTau extends ItemRenderWeaponBase {
 	@Override
 	public void renderFirstPerson(ItemStack stack) {
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.tau_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.tau_tex);
 		double scale = 0.75D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -88,12 +91,12 @@ public class ItemRenderTau extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		GL11.glDisable(GL11.GL_CULL_FACE);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.tau_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.tau_tex);
 		ResourceManager.tau.renderAll();
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glShadeModel(GL11.GL_FLAT);

@@ -5,15 +5,13 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityMachineDriveProcessor;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderDriveProcessor extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderDriveProcessor extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -48,29 +46,6 @@ public class RenderDriveProcessor extends TileEntitySpecialRenderer implements I
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				// GL11.glTranslated(0, -0.5, 0);
-				GL11.glScaled(7D, 7D, 7D);
-			}
-			public void renderCommon() {
-				GL11.glTranslated(0.5, 0, 0);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-	
-				bindTexture(ResourceManager.drive_processor_tex);
-				ResourceManager.drive_processor.renderPart("Base");
-				ResourceManager.drive_processor.renderPart("Drive");
 
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
-
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_drive_processor);
-	}
 	
 }

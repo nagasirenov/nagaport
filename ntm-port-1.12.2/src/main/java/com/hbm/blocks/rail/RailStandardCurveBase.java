@@ -1,19 +1,14 @@
 package com.hbm.blocks.rail;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.lib.Library;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -22,12 +17,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, IRenderBlock {
+public class RailStandardCurveBase extends BlockRailNTM implements IRailNTM, IRenderBlock {
 	
 	protected int width = 4;
 
 	public RailStandardCurveBase() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -35,10 +30,6 @@ public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, I
 		return null;
 	}
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
 
 	@Override
 	public Vec3d getSnappingPos(World world, int x, int y, int z, double trainX, double trainY, double trainZ) {
@@ -57,7 +48,7 @@ public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, I
 		int cX = pos[0];
 		int cY = pos[1];
 		int cZ = pos[2];
-		int meta = world.getBlockMetadata(cX, cY, cZ) - this.offset;
+		int meta = metadata(world, cX, cY, cZ) - this.offset;
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
@@ -83,7 +74,7 @@ public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, I
 		if(dir == Library.NEG_X) angleDeg -= 90;
 		if(dir == Library.POS_X) angleDeg += 90;
 		if(dir == Library.POS_Z) angleDeg += 180;
-		angleDeg = MathHelper.wrapAngleTo180_double(angleDeg);
+		angleDeg = MathHelper.wrapDegrees(angleDeg);
 		double length90Deg = turnRadius * Math.PI / 2D;
 		double angularChange = speed / length90Deg * 90D;
 		
@@ -147,7 +138,7 @@ public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, I
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		this.setBlockBounds(0F, 0F, 0F, 1F, 0.125F, 1F);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+		return new AxisAlignedBB(x, y, z, x + 1, y + 0.125, z + 1);
 	}
 
 	@Override
@@ -161,19 +152,19 @@ public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, I
 		int rX = rot.offsetX;
 		int rZ = rot.offsetZ;
 		
-		return world.getBlock(x + dX, y, z + dZ).isReplaceable(world, x + dX, y, z + dZ) &&
-				world.getBlock(x + rX, y, z + rZ).isReplaceable(world, x + rX, y, z + rZ) &&
-				world.getBlock(x + dX + rX, y, z + dZ + rZ).isReplaceable(world, x + dX + rX, y, z + dZ + rZ) &&
-				world.getBlock(x + dX + rX * 2, y, z + dZ + rZ * 2).isReplaceable(world, x + dX + rX * 2, y, z + dZ + rZ * 2) &&
-				world.getBlock(x + dX * 2 + rX, y, z + dZ * 2 + rZ).isReplaceable(world, x + dX * 2 + rX, y, z + dZ * 2 + rZ) &&
-				world.getBlock(x + dX * 2 + rX * 2, y, z + dZ * 2 + rZ * 2).isReplaceable(world, x + dX * 2 + rX * 2, y, z + dZ * 2 + rZ * 2) &&
-				world.getBlock(x + dX * 3 + rX, y, z + dZ * 3 + rZ).isReplaceable(world, x + dX * 3 + rX, y, z + dZ * 3 + rZ) &&
-				world.getBlock(x + dX * 3 + rX * 2, y, z + dZ * 3 + rZ * 2).isReplaceable(world, x + dX * 3 + rX * 2, y, z + dZ * 3 + rZ * 2) &&
-				world.getBlock(x + dX * 2 + rX * 3, y, z + dZ * 2 + rZ * 3).isReplaceable(world, x + dX * 2 + rX * 3, y, z + dZ * 2 + rZ * 3) &&
-				world.getBlock(x + dX * 3 + rX * 3, y, z + dZ * 3 + rZ * 3).isReplaceable(world, x + dX * 3 + rX * 3, y, z + dZ * 3 + rZ * 3) &&
-				world.getBlock(x + dX * 4 + rX * 3, y, z + dZ * 4 + rZ * 3).isReplaceable(world, x + dX * 4 + rX * 3, y, z + dZ * 4 + rZ * 3) &&
-				world.getBlock(x + dX * 3 + rX * 4, y, z + dZ * 3 + rZ * 4).isReplaceable(world, x + dX * 3 + rX * 4, y, z + dZ * 3 + rZ * 4) &&
-				world.getBlock(x + dX * 4 + rX * 4, y, z + dZ * 4 + rZ * 4).isReplaceable(world, x + dX * 4 + rX * 4, y, z + dZ * 4 + rZ * 4);
+		return world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX, y, z + dZ)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX, y, z + dZ)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + rX, y, z + rZ)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + rX, y, z + rZ)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX + rX, y, z + dZ + rZ)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX + rX, y, z + dZ + rZ)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX + rX * 2, y, z + dZ + rZ * 2)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX + rX * 2, y, z + dZ + rZ * 2)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 2 + rX, y, z + dZ * 2 + rZ)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 2 + rX, y, z + dZ * 2 + rZ)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 2 + rX * 2, y, z + dZ * 2 + rZ * 2)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 2 + rX * 2, y, z + dZ * 2 + rZ * 2)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX, y, z + dZ * 3 + rZ)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 3 + rX, y, z + dZ * 3 + rZ)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 2, y, z + dZ * 3 + rZ * 2)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 2, y, z + dZ * 3 + rZ * 2)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 2 + rX * 3, y, z + dZ * 2 + rZ * 3)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 2 + rX * 3, y, z + dZ * 2 + rZ * 3)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 3, y, z + dZ * 3 + rZ * 3)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 3, y, z + dZ * 3 + rZ * 3)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 4 + rX * 3, y, z + dZ * 4 + rZ * 3)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 4 + rX * 3, y, z + dZ * 4 + rZ * 3)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 4, y, z + dZ * 3 + rZ * 4)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 4, y, z + dZ * 3 + rZ * 4)) &&
+				world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 4 + rX * 4, y, z + dZ * 4 + rZ * 4)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 4 + rX * 4, y, z + dZ * 4 + rZ * 4));
 	}
 
 	@Override
@@ -189,45 +180,22 @@ public class RailStandardCurveBase extends BlockDummyable implements IRailNTM, I
 		int rX = rot.offsetX;
 		int rZ = rot.offsetZ;
 		
-		world.setBlock(x + dX, y, z + dZ, this, dir.ordinal(), 3);
-		world.setBlock(x + rX, y, z + rZ, this, rot.ordinal(), 3);
-		world.setBlock(x + dX + rX, y, z + dZ + rZ, this, rot.ordinal(), 3);
-		world.setBlock(x + dX + rX * 2, y, z + dZ + rZ * 2, this, rot.ordinal(), 3);
-		world.setBlock(x + dX * 2 + rX, y, z + dZ * 2 + rZ, this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 2 + rX * 2, y, z + dZ * 2 + rZ * 2, this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 3 + rX, y, z + dZ * 3 + rZ, this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 3 + rX * 2, y, z + dZ * 3 + rZ * 2, this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 2 + rX * 3, y, z + dZ * 2 + rZ * 3, this, rot.ordinal(), 3);
-		world.setBlock(x + dX * 3 + rX * 3, y, z + dZ * 3 + rZ * 3, this, rot.ordinal(), 3);
-		world.setBlock(x + dX * 4 + rX * 3, y, z + dZ * 4 + rZ * 3, this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 3 + rX * 4, y, z + dZ * 3 + rZ * 4, this, rot.ordinal(), 3);
-		world.setBlock(x + dX * 4 + rX * 4, y, z + dZ * 4 + rZ * 4, this, rot.ordinal(), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX, y, z + dZ), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + rX, y, z + rZ), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX + rX, y, z + dZ + rZ), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX + rX * 2, y, z + dZ + rZ * 2), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 2 + rX, y, z + dZ * 2 + rZ), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 2 + rX * 2, y, z + dZ * 2 + rZ * 2), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX, y, z + dZ * 3 + rZ), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 2, y, z + dZ * 3 + rZ * 2), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 2 + rX * 3, y, z + dZ * 2 + rZ * 3), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 3, y, z + dZ * 3 + rZ * 3), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 4 + rX * 3, y, z + dZ * 4 + rZ * 3), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 3 + rX * 4, y, z + dZ * 3 + rZ * 4), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 4 + rX * 4, y, z + dZ * 4 + rZ * 4), this.getStateFromMeta(rot.ordinal()), 3);
 		
 		BlockDummyable.safeRem = false;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glScaled(0.3, 0.3, 0.3);
-		GL11.glRotated(45, 0, 1, 0);
-		GL11.glRotated(60, 1, 0, 0);
-		GL11.glTranslated(2, 0, 2);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_curve, block.getIcon(1, 0), tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		if(meta < 12) return;
-		float rotation = 0;
-		if(meta == 15) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 12) rotation = 180F / 180F * (float) Math.PI;
-		if(meta == 14) rotation = 270F / 180F * (float) Math.PI;
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_curve, block.getIcon(1, 0), tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-	}
 }

@@ -1,5 +1,7 @@
 package com.hbm.items.machine;
 
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 
 import com.hbm.items.ItemEnumMulti;
@@ -7,9 +9,9 @@ import com.hbm.items.ItemEnumMulti;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 
 public class ItemCircuit extends ItemEnumMulti {
 
@@ -19,37 +21,38 @@ public class ItemCircuit extends ItemEnumMulti {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		list.add(new ItemStack(item, 1, EnumCircuitType.VACUUM_TUBE.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.NUMITRON.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR_TANTALIUM.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.ATOMIC_CLOCK.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.PCB.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.SILICON.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CHIP.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CHIP_BISMOID.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CHIP_QUANTUM.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.ANALOG.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.BASIC.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.ADVANCED.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR_BOARD.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.BISMOID.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.AVIONICS.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.AERO.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.GAAS.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.QUANTUM.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER_CHASSIS.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER_ADVANCED.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER_QUANTUM.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR_LANTHANIUM.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.PROCESST1.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.PROCESST2.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.PROCESST3.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.GASCHIP.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.HFCHIP.ordinal()));
-		list.add(new ItemStack(item, 1, EnumCircuitType.MOLYCHIP.ordinal()));
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
+		if(!this.isInCreativeTab(tab)) return;
+		list.add(new ItemStack(this, 1, EnumCircuitType.VACUUM_TUBE.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.NUMITRON.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CAPACITOR.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CAPACITOR_TANTALIUM.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.ATOMIC_CLOCK.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.PCB.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.SILICON.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CHIP.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CHIP_BISMOID.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CHIP_QUANTUM.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.ANALOG.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.BASIC.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.ADVANCED.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CAPACITOR_BOARD.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.BISMOID.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.AVIONICS.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.AERO.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.GAAS.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.QUANTUM.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CONTROLLER_CHASSIS.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CONTROLLER.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CONTROLLER_ADVANCED.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CONTROLLER_QUANTUM.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.CAPACITOR_LANTHANIUM.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.PROCESST1.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.PROCESST2.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.PROCESST3.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.GASCHIP.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.HFCHIP.ordinal()));
+		list.add(new ItemStack(this, 1, EnumCircuitType.MOLYCHIP.ordinal()));
 	}
 
 	public static enum EnumCircuitType {
@@ -86,7 +89,8 @@ public class ItemCircuit extends ItemEnumMulti {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		/*List<String> lines = new ArrayList();
 
 		switch(stack.getItemDamage()) {

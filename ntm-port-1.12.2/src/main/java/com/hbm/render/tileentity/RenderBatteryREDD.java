@@ -7,7 +7,6 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.MainRegistry;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.render.util.BeamPronter;
 import com.hbm.render.util.BeamPronter.EnumBeamType;
 import com.hbm.render.util.BeamPronter.EnumWaveType;
@@ -22,9 +21,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderBatteryREDD extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderBatteryREDD extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
@@ -174,7 +172,7 @@ public class RenderBatteryREDD extends TileEntitySpecialRenderer implements IIte
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);
 		
 		// cost-cutting measure, don't render extra layers from more than 100m away
-		if(MainRegistry.proxy.me().getDistanceSq(tile.xCoord + 0.5, tile.yCoord + 2.5, tile.zCoord + 0.5) < 100 * 100) {
+		if(MainRegistry.proxy.me().getDistanceSq(tile.getPos().getX() + 0.5, tile.getPos().getY() + 2.5, tile.getPos().getZ() + 0.5) < 100 * 100) {
 
 			GL11.glColor4f(r * 2, g * 2, b * 2, 0.75F * alphaMult);
 			
@@ -199,7 +197,7 @@ public class RenderBatteryREDD extends TileEntitySpecialRenderer implements IIte
 	
 	protected void renderZaps(TileEntity tile) {
 		
-		Random rand = new Random(tile.getWorldObj().getTotalWorldTime() / 5);
+		Random rand = new Random(tile.getWorld().getTotalWorldTime() / 5);
 		rand.nextBoolean();
 		
 		if(rand.nextBoolean()) {
@@ -235,30 +233,6 @@ public class RenderBatteryREDD extends TileEntitySpecialRenderer implements IIte
 		}
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_battery_redd);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -3, 0);
-				GL11.glScaled(2.5, 2.5, 2.5);
-			}
-			public void renderCommon() {
-				GL11.glRotated(-90, 0, 1, 0);
-				GL11.glScaled(0.5, 0.5, 0.5);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.battery_redd_tex);
-				ResourceManager.battery_redd.renderPart("Base");
-				ResourceManager.battery_redd.renderPart("Wheel");
-				GL11.glDisable(GL11.GL_LIGHTING);
-				ResourceManager.battery_redd.renderPart("Lights");
-				GL11.glEnable(GL11.GL_LIGHTING);
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 
 }

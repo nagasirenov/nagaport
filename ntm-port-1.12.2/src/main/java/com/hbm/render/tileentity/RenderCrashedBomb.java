@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderCrashedBomb extends TileEntitySpecialRenderer implements IItemRendererProvider {
 	
@@ -28,7 +28,7 @@ public class RenderCrashedBomb extends TileEntitySpecialRenderer implements IIte
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		
-		rand.setSeed(BlockPos.getIdentity(tile.xCoord, tile.yCoord, tile.zCoord));
+		rand.setSeed(BlockPos.getIdentity(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ()));
 		double yaw = rand.nextDouble() * 360;
 		double pitch = rand.nextDouble() * 45 + 45;
 		double roll = rand.nextDouble() * 360;
@@ -56,7 +56,7 @@ public class RenderCrashedBomb extends TileEntitySpecialRenderer implements IIte
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			
 			public void renderInventory() {

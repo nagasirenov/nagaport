@@ -1,96 +1,55 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Function;
+import com.hbm.blocks.SideRotationModelState.Snapshot;
+import com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.VertexFormat;
+import net.minecraft.client.renderer.vertex.VertexFormatElement;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.pipeline.LightUtil;
+import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 
-import com.hbm.blocks.IBlockSideRotation;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderBlockSideRotation implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		block.setBlockBoundsForItemRender();
-		renderer.setRenderBoundsFromBlock(block);
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, -1.0F, 0.0F);
-		renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 0.0F, -1.0F);
-		renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 0.0F, 1.0F);
-		renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(-1.0F, 0.0F, 0.0F);
-		renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(1.0F, 0.0F, 0.0F);
-		renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));
-		tessellator.draw();
-
-		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-
-		if(!(block instanceof IBlockSideRotation)) {
-			renderer.renderStandardBlock(block, x, y, z);
-			return true;
-		}
-
-		IBlockSideRotation rot = (IBlockSideRotation) block;
-
-		// I'm almost entirely convinced that MCP mistranslated these properties because north/south and west/east are fucking SWAPPED
-		// YEP, they fucking did, god fucking damn it. I manually figured out the correct side for each uv face property to resolve YAYY
-		renderer.uvRotateBottom = rot.getRotationFromSide(world, x, y, z, 0);
-		renderer.uvRotateTop = rot.getRotationFromSide(world, x, y, z, 1);
-		renderer.uvRotateNorth = rot.getRotationFromSide(world, x, y, z, 5);
-		renderer.uvRotateSouth = rot.getRotationFromSide(world, x, y, z, 4);
-		renderer.uvRotateWest = rot.getRotationFromSide(world, x, y, z, 2);
-		renderer.uvRotateEast = rot.getRotationFromSide(world, x, y, z, 3);
-
-		renderer.setRenderBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
-		renderer.renderStandardBlock(block, x, y, z);
-
-		renderer.uvRotateBottom = 0;
-		renderer.uvRotateTop = 0;
-		renderer.uvRotateNorth = 0;
-		renderer.uvRotateSouth = 0;
-		renderer.uvRotateWest = 0;
-		renderer.uvRotateEast = 0;
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return IBlockSideRotation.getRenderType();
-	}
+/** Native full-cube faces; each original misleading UV field maps to its actual geometric face. */
+public final class RenderBlockSideRotation {
+    private static final int[] ROTATION_SOURCE_SIDE = {0,1,3,2,5,4};
+    private RenderBlockSideRotation() { }
+    public static List<BakedQuad> bake(Snapshot snapshot,boolean inventory,Function<ResourceLocation,TextureAtlasSprite> sprites) {
+        List<BakedQuad> result=new ArrayList<>();
+        for(EnumFacing side:EnumFacing.values()) {
+            // Original assignments were North<-5, South<-4, West<-2, East<-3.
+            // Actual old face methods read East for -Z, West for +Z, North for -X,
+            // South for +X. Preserve that composition, including editor side faces.
+            int sourceSide=ROTATION_SOURCE_SIDE[side.getIndex()];
+            int rotation=snapshot.rotation(sourceSide);
+            // Original face methods used default UVs unless the field was exactly 1, 2 or 3.
+            if(rotation < 1 || rotation > 3) rotation=0;
+            BakedQuad quad=ConveyorCuboidGeometry.face(sprites.apply(snapshot.texture(side.getIndex())),inventory,side,rotation,0,0,0,1,1,1,0);
+            result.add(inventory ? inventoryRotation(quad) : quad);
+        }
+        return Collections.unmodifiableList(result);
+    }
+    private static BakedQuad inventoryRotation(BakedQuad source) {
+        // Original glRotatef(90,0,1,0) then glTranslatef(-.5,-.5,-.5),
+        // recentered by +.5 for native block-item coordinates. UVs stay on their source vertices.
+        VertexFormat format=source.getFormat();
+        UnpackedBakedQuad.Builder builder=new UnpackedBakedQuad.Builder(format);
+        EnumFacing side=source.getFace();
+        builder.setTexture(source.getSprite());builder.setQuadTint(-1);
+        builder.setQuadOrientation(side.getAxis()==EnumFacing.Axis.Y ? side : side.rotateYCCW());
+        builder.setApplyDiffuseLighting(true);builder.setContractUVs(false);
+        for(int vertex=0;vertex<4;vertex++) for(int element=0;element<format.getElementCount();element++) {
+            float[] values=new float[4];LightUtil.unpack(source.getVertexData(),values,format,vertex,element);
+            VertexFormatElement.EnumUsage usage=format.getElement(element).getUsage();
+            if(usage==VertexFormatElement.EnumUsage.POSITION) {float x=values[0];values[0]=values[2];values[2]=1-x;}
+            else if(usage==VertexFormatElement.EnumUsage.NORMAL) {float x=values[0];values[0]=values[2];values[2]=-x;}
+            builder.put(element,values);
+        }
+        return builder.build();
+    }
 }

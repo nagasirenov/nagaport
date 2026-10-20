@@ -48,7 +48,7 @@ import java.util.*;
  * @author hbm
  *
  */
-public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
+public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 	public double heat;
 
@@ -87,9 +87,9 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 	 * @return
 	 */
 	public double passiveCooling(int neighbors) {
-		double min = RBMKDials.getPassiveCoolingInner(worldObj); //default: 0.1D
-		double max = RBMKDials.getPassiveCooling(worldObj); //default: 1.0D
-		return min + (max - min) * ((4 - MathHelper.clamp_int(neighbors, 0, 4)) / 4D);
+		double min = RBMKDials.getPassiveCoolingInner(this.world); //default: 0.1D
+		double max = RBMKDials.getPassiveCooling(this.world); //default: 1.0D
+		return min + (max - min) * ((4 - MathHelper.clamp(neighbors, 0, 4)) / 4D);
 	}
 
 	//necessary checks to figure out whether players are close enough to ensure that the reactor can be safely used
@@ -103,16 +103,16 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.craneIndicator > 0) this.craneIndicator--;
 
-			this.worldObj.theProfiler.startSection("rbmkBase_heat_movement");
+			this.world.theProfiler.startSection("rbmkBase_heat_movement");
 			moveHeat();
-			if(RBMKDials.getReasimBoilers(worldObj)) {
-				this.worldObj.theProfiler.endStartSection("rbmkBase_reasim_boilers");
+			if(RBMKDials.getReasimBoilers(this.world)) {
+				this.world.theProfiler.endStartSection("rbmkBase_reasim_boilers");
 				boilWater();
 			}
 
@@ -128,12 +128,12 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		if(heat < 100D)
 			return;
 
-		double heatConsumption = RBMKDials.getBoilerHeatConsumption(worldObj);
+		double heatConsumption = RBMKDials.getBoilerHeatConsumption(this.world);
 		double availableHeat = (this.heat - 100) / heatConsumption;
 		double availableWater = this.reasimWater;
 		double availableSpace = maxSteam - this.reasimSteam;
 
-		int processedWater = (int) Math.floor(BobMathUtil.min(availableHeat, availableWater, availableSpace) * MathHelper.clamp_double(RBMKDials.getReaSimBoilerSpeed(worldObj), 0D, 1D));
+		int processedWater = (int) Math.floor(BobMathUtil.min(availableHeat, availableWater, availableSpace) * MathHelper.clamp(RBMKDials.getReaSimBoilerSpeed(this.world), 0D, 1D));
 
 		if(processedWater <= 0) return;
 
@@ -156,7 +156,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 	 */
 	private void moveHeat() {
 
-		boolean reasim = RBMKDials.getReasimBoilers(worldObj);
+		boolean reasim = RBMKDials.getReasimBoilers(this.world);
 
 		List<TileEntityRBMKBase> rec = new ArrayList<>();
 		rec.add(this);
@@ -171,7 +171,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 				neighborCache[index] = null;
 
 			if(neighborCache[index] == null) {
-				TileEntity te = Compat.getTileStandard(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+				TileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);
 
 				if(te instanceof TileEntityRBMKBase) {
 					TileEntityRBMKBase base = (TileEntityRBMKBase) te;
@@ -195,7 +195,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		}
 
 		int members = rec.size();
-		double stepSize = RBMKDials.getColumnHeatFlow(worldObj);
+		double stepSize = RBMKDials.getColumnHeatFlow(this.world);
 
 		if(members > 1) {
 
@@ -226,28 +226,28 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 			this.markDirty();
 		}
 
-		this.worldObj.theProfiler.endStartSection("rbmkBase_rpassive_cooling");
+		this.world.theProfiler.endStartSection("rbmkBase_rpassive_cooling");
 		coolPassively(members - 1);
-		this.worldObj.theProfiler.endSection();
+		this.world.theProfiler.endSection();
 	}
 
 	@Override
 	public void invalidate() {
 		super.invalidate();
-		NeutronNodeWorld.removeNode(worldObj, new BlockPos(this)); // woo-fucking-hoo!!!
+		NeutronNodeWorld.removeNode(this.world, new BlockPos(this)); // woo-fucking-hoo!!!
 	}
 
 	@Override
 	public void onChunkUnload() {
 		super.onChunkUnload();
-		NeutronNodeWorld.removeNode(worldObj, new BlockPos(this)); // woo-fucking-hoo!!!
+		NeutronNodeWorld.removeNode(this.world, new BlockPos(this)); // woo-fucking-hoo!!!
 	}
 
 	@Override
 	public void markDirty() {
 
-		if(this.worldObj != null) {
-			this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+		if(this.world != null) {
+			this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 		}
 	}
 
@@ -275,7 +275,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 
 		if(!diag) {
 			super.writeToNBT(nbt);
@@ -284,6 +284,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		nbt.setDouble("heat", this.heat);
 		nbt.setInteger("reasimWater", this.reasimWater);
 		nbt.setInteger("reasimSteam", this.reasimSteam);
+		return nbt;
 	}
 
 	@Override
@@ -315,13 +316,13 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		Minecraft mc = Minecraft.getMinecraft();
 		ScaledResolution resolution = event.resolution;
 
-		RBMKBase rbmk = (RBMKBase) world.getBlock(x, y, z);
+		RBMKBase rbmk = (RBMKBase) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		int[] pos = rbmk.findCore(world, x, y, z);
 
 		if(pos == null)
 			return;
 
-		TileEntityRBMKBase te = (TileEntityRBMKBase) world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntityRBMKBase te = (TileEntityRBMKBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		NBTTagCompound flush = new NBTTagCompound();
 		te.getDiagData(flush);
 		Set<String> keys = flush.func_150296_c();
@@ -344,8 +345,8 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		mc.fontRenderer.drawString(title, pX + 1, pZ - 19, 0x006000);
 		mc.fontRenderer.drawString(title, pX, pZ - 20, 0x00FF00);
 
-		mc.fontRenderer.drawString(I18nUtil.resolveKey(rbmk.getUnlocalizedName() + ".name"), pX + 1, pZ - 9, 0x606000);
-		mc.fontRenderer.drawString(I18nUtil.resolveKey(rbmk.getUnlocalizedName() + ".name"), pX, pZ - 10, 0xffff00);
+		mc.fontRenderer.drawString(I18nUtil.resolveKey(rbmk.getTranslationKey() + ".name"), pX + 1, pZ - 9, 0x606000);
+		mc.fontRenderer.drawString(I18nUtil.resolveKey(rbmk.getTranslationKey() + ".name"), pX, pZ - 10, 0xffff00);
 
 		String[] ents = new String[keys.size()];
 		keys.toArray(ents);
@@ -376,7 +377,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 	public void onOverheat() {
 
 		for(int i = 0; i < 4; i++) {
-			worldObj.setBlock(xCoord, yCoord + i, zCoord, Blocks.lava);
+			this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.LAVA);
 		}
 	}
 
@@ -390,10 +391,10 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 
 	protected void standardMelt(int reduce) {
 
-		int h = RBMKDials.getColumnHeight(worldObj);
-		reduce = MathHelper.clamp_int(reduce, 1, h);
+		int h = RBMKDials.getColumnHeight(this.world);
+		reduce = MathHelper.clamp(reduce, 1, h);
 
-		if(worldObj.rand.nextInt(3) == 0)
+		if(this.world.rand.nextInt(3) == 0)
 			reduce++;
 
 		for(int i = h; i >= 0; i--) {
@@ -401,24 +402,24 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 			if(i <= h + 1 - reduce) {
 
 				if(reduce > 1 && i == h + 1 - reduce) {
-					worldObj.setBlock(xCoord, yCoord + i, zCoord, ModBlocks.pribris_burning);
+					this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.pribris_burning);
 				} else {
-					worldObj.setBlock(xCoord, yCoord + i, zCoord, ModBlocks.pribris);
+					this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.pribris);
 				}
 
 			} else {
-				worldObj.setBlock(xCoord, yCoord + i, zCoord, Blocks.air);
+				this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.AIR);
 			}
-			worldObj.markBlockForUpdate(xCoord, yCoord + i, zCoord);
+			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY() + i, this.pos.getZ());
 		}
 	}
 
 	protected void spawnDebris(DebrisType type) {
 
-		EntityRBMKDebris debris = new EntityRBMKDebris(worldObj, xCoord + 0.5D, yCoord + 4D, zCoord + 0.5D, type);
-		debris.motionX = worldObj.rand.nextGaussian() * 0.25D;
-		debris.motionZ = worldObj.rand.nextGaussian() * 0.25D;
-		debris.motionY = 0.25D + worldObj.rand.nextDouble() * 1.25D;
+		EntityRBMKDebris debris = new EntityRBMKDebris(this.world, this.pos.getX() + 0.5D, this.pos.getY() + 4D, this.pos.getZ() + 0.5D, type);
+		debris.motionX = this.world.rand.nextGaussian() * 0.25D;
+		debris.motionZ = this.world.rand.nextGaussian() * 0.25D;
+		debris.motionY = 0.25D + this.world.rand.nextDouble() * 1.25D;
 
 		if(type == DebrisType.LID) {
 			debris.motionX *= 0.5D;
@@ -426,7 +427,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 			debris.motionZ *= 0.5D;
 		}
 
-		worldObj.spawnEntityInWorld(debris);
+		this.world.spawnEntityInWorld(debris);
 	}
 
 	public static HashSet<TileEntityRBMKBase> columns = new HashSet<>();
@@ -440,32 +441,32 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 
 		columns.clear();
 		pipes.clear();
-		getFF(xCoord, yCoord, zCoord);
+		getFF(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
-		int minX = xCoord;
-		int maxX = xCoord;
-		int minZ = zCoord;
-		int maxZ = zCoord;
+		int minX = this.pos.getX();
+		int maxX = this.pos.getX();
+		int minZ = this.pos.getZ();
+		int maxZ = this.pos.getZ();
 
 		//set meltdown bounds
 		for(TileEntityRBMKBase rbmk : columns) {
 
-			if(rbmk.xCoord < minX)
-				minX = rbmk.xCoord;
-			if(rbmk.xCoord > maxX)
-				maxX = rbmk.xCoord;
-			if(rbmk.zCoord < minZ)
-				minZ = rbmk.zCoord;
-			if(rbmk.zCoord > maxZ)
-				maxZ = rbmk.zCoord;
+			if(rbmk.getPos().getX() < minX)
+				minX = rbmk.getPos().getX();
+			if(rbmk.getPos().getX() > maxX)
+				maxX = rbmk.getPos().getX();
+			if(rbmk.getPos().getZ() < minZ)
+				minZ = rbmk.getPos().getZ();
+			if(rbmk.getPos().getZ() > maxZ)
+				maxZ = rbmk.getPos().getZ();
 		}
 
 		for(TileEntityRBMKBase rbmk : columns) {
 
-			int distFromMinX = rbmk.xCoord - minX;
-			int distFromMaxX = maxX - rbmk.xCoord;
-			int distFromMinZ = rbmk.zCoord - minZ;
-			int distFromMaxZ = maxZ - rbmk.zCoord;
+			int distFromMinX = rbmk.getPos().getX() - minX;
+			int distFromMaxX = maxX - rbmk.getPos().getX();
+			int distFromMinZ = rbmk.getPos().getZ() - minZ;
+			int distFromMaxZ = maxZ - rbmk.getPos().getZ();
 
 			int minDist = Math.min(distFromMinX, Math.min(distFromMaxX, Math.min(distFromMinZ, distFromMaxZ)));
 
@@ -474,20 +475,20 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 
 		for(TileEntityRBMKBase rbmk : columns) {
 
-			if(rbmk instanceof TileEntityRBMKRod && worldObj.getBlock(rbmk.xCoord, rbmk.yCoord, rbmk.zCoord) == ModBlocks.corium_block) {
+			if(rbmk instanceof TileEntityRBMKRod && com.hbm.world.WorldBlockState.read(this.world, rbmk.getPos().getX(), rbmk.getPos().getY(), rbmk.getPos().getZ()).getBlock() == ModBlocks.corium_block) {
 
-				for(int x = rbmk.xCoord - 1; x <= rbmk.xCoord + 1; x ++) {
-					for(int y = rbmk.yCoord - 1; y <= rbmk.yCoord + 1; y ++) {
-						for(int z = rbmk.zCoord - 1; z <= rbmk.zCoord + 1; z ++) {
+				for(int x = rbmk.getPos().getX() - 1; x <= rbmk.getPos().getX() + 1; x ++) {
+					for(int y = rbmk.getPos().getY() - 1; y <= rbmk.getPos().getY() + 1; y ++) {
+						for(int z = rbmk.getPos().getZ() - 1; z <= rbmk.getPos().getZ() + 1; z ++) {
 
-							Block b = worldObj.getBlock(x, y, z);
+							Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-							if(worldObj.rand.nextInt(3) == 0 && (b == ModBlocks.pribris || b == ModBlocks.pribris_burning)) {
+							if(this.world.rand.nextInt(3) == 0 && (b == ModBlocks.pribris || b == ModBlocks.pribris_burning)) {
 
 								if(RBMKBase.digamma)
-									worldObj.setBlock(x, y, z, ModBlocks.pribris_digamma);
+									this.world.setBlock(x, y, z, ModBlocks.pribris_digamma);
 								else
-									worldObj.setBlock(x, y, z, ModBlocks.pribris_radiating);
+									this.world.setBlock(x, y, z, ModBlocks.pribris_radiating);
 							}
 						}
 					}
@@ -496,7 +497,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		}
 
 		/* Hanlde overpressure event */
-		if(RBMKDials.getOverpressure(worldObj) && !pipes.isEmpty()) {
+		if(RBMKDials.getOverpressure(this.world) && !pipes.isEmpty()) {
 			HashSet<FluidNode> pipeBlocks = new HashSet<>();
 			HashSet<Map.Entry<IFluidReceiverMK2, Long>> pipeReceivers = new HashSet<>();
 
@@ -515,8 +516,8 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 				FluidNode node = itPipes.next();
 				for (BlockPos pos : node.positions) {
 					int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-					if (worldObj.getTileEntity(x, y ,z) != null) {
-						worldObj.setBlock(x, y, z, Blocks.air);
+					if (this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y ,z)) != null) {
+						this.world.setBlock(x, y, z, Blocks.AIR);
 					}
 				}
 				count++;
@@ -528,10 +529,10 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 				if(con instanceof TileEntity) {
 					TileEntity tile = (TileEntity) con;
 					if(con instanceof IOverpressurable) {
-						((IOverpressurable) con).explode(worldObj, tile.xCoord, tile.yCoord, tile.zCoord);
+						((IOverpressurable) con).explode(this.world, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
 					} else {
-						worldObj.setBlock(tile.xCoord, tile.yCoord, tile.zCoord, Blocks.air);
-						worldObj.newExplosion(null, tile.xCoord + 0.5, tile.yCoord + 0.5, tile.zCoord + 0.5, 5F, false, false);
+						this.world.setBlock(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), Blocks.AIR);
+						this.world.newExplosion(null, tile.getPos().getX() + 0.5, tile.getPos().getY() + 0.5, tile.getPos().getZ() + 0.5, 5F, false, false);
 					}
 				}
 			}
@@ -544,24 +545,24 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "rbmkmush");
 		data.setFloat("scale", smallDim);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, avgX + 0.5, yCoord + 1, avgZ + 0.5), new TargetPoint(worldObj.provider.dimensionId,avgX + 0.5, yCoord + 1, avgZ + 0.5, 250));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5), new TargetPoint(this.world.provider.getDimension(),avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5, 250));
 		MainRegistry.proxy.effectNT(data);
 
-		worldObj.playSoundEffect(avgX + 0.5, yCoord + 1, avgZ + 0.5, "hbm:block.rbmk_explosion", 50.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5, "hbm:block.rbmk_explosion", 50.0F, 1.0F);
 
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class,
-				AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(50, 50, 50));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class,
+				AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));
 
 		for(EntityPlayer player : players) {
-			player.triggerAchievement(MainRegistry.achRBMKBoom);
+			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRBMKBoom);
 		}
 
 		if(RBMKBase.digamma) {
-			EntitySpear spear = new EntitySpear(worldObj);
+			EntitySpear spear = new EntitySpear(this.world);
 			spear.posX = avgX + 0.5;
 			spear.posZ = avgZ + 0.5;
-			spear.posY = yCoord + 100;
-			worldObj.spawnEntityInWorld(spear);
+			spear.posY = this.pos.getY() + 100;
+			this.world.spawnEntityInWorld(spear);
 		}
 
 		RBMKBase.dropLids = true;
@@ -573,7 +574,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 
 	private void getFF(int x, int y, int z) {
 
-		TileEntity te = Compat.getTileStandard(worldObj, x, y, z);
+		TileEntity te = Compat.getTileStandard(this.world, x, y, z);
 
 		if(te instanceof TileEntityRBMKBase) {
 
@@ -605,6 +606,6 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase {
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 17, zCoord + 1);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 17, this.pos.getZ() + 1);
 	}
 }

@@ -37,20 +37,20 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.air";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.updateConnections();
 
 			// Extractors will not work indoors (or in space oops)
-			CBT_Atmosphere atmosphere = !(worldObj.provider instanceof WorldProviderOrbit) && !ChunkAtmosphereManager.proxy.hasAtmosphere(worldObj, xCoord, yCoord, zCoord)
-				? CelestialBody.getTrait(worldObj, CBT_Atmosphere.class)
+			CBT_Atmosphere atmosphere = !(this.world.provider instanceof WorldProviderOrbit) && !ChunkAtmosphereManager.proxy.hasAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())
+				? CelestialBody.getTrait(this.world, CBT_Atmosphere.class)
 				: null;
 
 			if(atmosphere != null && atmosphere.getPressure() > 0.0D) {
@@ -66,7 +66,7 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 				tank.setFill(tank.getFill() + 200);
 				power -= this.getMaxPower() / 50;
 
-				FT_Gaseous.capture(worldObj, tank.getTankType(), 200);
+				FT_Gaseous.capture(this.world, tank.getTankType(), 200);
 			}
 
 			markDirty();
@@ -95,8 +95,8 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 	}
 
 	public void cycleGas() {
-		CBT_Atmosphere atmosphere = !ChunkAtmosphereManager.proxy.hasAtmosphere(worldObj, xCoord, yCoord, zCoord)
-			? CelestialBody.getTrait(worldObj, CBT_Atmosphere.class)
+		CBT_Atmosphere atmosphere = !ChunkAtmosphereManager.proxy.hasAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())
+			? CelestialBody.getTrait(this.world, CBT_Atmosphere.class)
 			: null;
 
 		if(atmosphere == null) return;
@@ -120,8 +120,8 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 	public boolean switchGas(FluidType targetFluid) {
 		if(targetFluid == tank.getTankType()) return false;
 
-		CBT_Atmosphere atmosphere = !ChunkAtmosphereManager.proxy.hasAtmosphere(worldObj, xCoord, yCoord, zCoord)
-			? CelestialBody.getTrait(worldObj, CBT_Atmosphere.class)
+		CBT_Atmosphere atmosphere = !ChunkAtmosphereManager.proxy.hasAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())
+			? CelestialBody.getTrait(this.world, CBT_Atmosphere.class)
 			: null;
 
 		if(atmosphere == null) return false;
@@ -138,8 +138,8 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 
 	protected void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			trySubscribe(worldObj, pos);
-			tryProvide(tank, worldObj, pos);
+			trySubscribe(this.world, pos);
+			tryProvide(tank, this.world, pos);
 		}
 	}
 
@@ -169,10 +169,11 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		tank.writeToNBT(nbt, "water");
+		return nbt;
 	}
 
 
@@ -207,17 +208,17 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
-				new DirPos(this.xCoord - dir.offsetX * 2, this.yCoord, this.zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(this.xCoord - dir.offsetX * 2 + rot.offsetX, this.yCoord, this.zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
 
-				new DirPos(this.xCoord + dir.offsetX, this.yCoord, this.zCoord + dir.offsetZ, dir),
-				new DirPos(this.xCoord + dir.offsetX + rot.offsetX, this.yCoord, this.zCoord + dir.offsetZ  + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ  + rot.offsetZ, dir),
 
-				new DirPos(this.xCoord - rot.offsetX, this.yCoord, this.zCoord - rot.offsetZ, rot.getOpposite()),
-				new DirPos(this.xCoord - dir.offsetX - rot.offsetX, this.yCoord, this.zCoord - dir.offsetZ - rot.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ, rot.getOpposite()),
 
-				new DirPos(this.xCoord + rot.offsetX * 2, this.yCoord, this.zCoord + rot.offsetZ * 2, rot),
-				new DirPos(this.xCoord - dir.offsetX + rot.offsetX * 2, this.yCoord, this.zCoord - dir.offsetZ + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 2, rot),
 		};
 	}
 
@@ -227,12 +228,12 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 1,
-				yCoord,
-				zCoord - 1,
-				xCoord + 2,
-				yCoord + 10,
-				zCoord + 2
+				this.pos.getX() - 1,
+				this.pos.getY(),
+				this.pos.getZ() - 1,
+				this.pos.getX() + 2,
+				this.pos.getY() + 10,
+				this.pos.getZ() + 2
 			);
 		}
 

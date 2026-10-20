@@ -18,7 +18,7 @@ public abstract class PylonBase extends BlockContainer implements ITooltipProvid
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block b, int m) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityPylonBase) {
 			((TileEntityPylonBase)te).disconnectAll();
@@ -47,8 +47,8 @@ public abstract class PylonBase extends BlockContainer implements ITooltipProvid
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntityPylonBase te = (TileEntityPylonBase) world.getTileEntity(x, y, z);
-			return te.setColor(player.getHeldItem());
+			TileEntityPylonBase te = (TileEntityPylonBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+			return te.setColor(com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 		} else {
 			return false;
 		}

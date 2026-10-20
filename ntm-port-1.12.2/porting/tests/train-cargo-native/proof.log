@@ -1,0 +1,28 @@
+WHOLE INPUT com/hbm/entity/train/EntityRailCarCargo.java e51c7a230d756fea73a7b66a62d34b08b6ab60d2c4fd212c4896998a2599654b
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/train-cargo-native/TrainCargoNativeTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/train-cargo-native/TrainCargoNativeTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/train-cargo-native/TrainCargoNativeTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                                                                                                   ^
+3 warnings
+PASS 173 actual native cargo inventory/NBT/data-serializer/tick/name/distance checks; train physics superclass is an explicit fixture, not full train/game acceptance.
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/train-cargo-native/TrainCargoNativeTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/train-cargo-native/TrainCargoNativeTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/train-cargo-native/TrainCargoNativeTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                                                                                                   ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[23:08:36] [main/INFO]: Setting user: AtlasProbe
+PASS 7758 complete native train cargo renderer checks: original layouts/interpolation/yaw, actual cube framebuffers and exception state. Train mesh is recording boundary; no full train/game claim.
+PASS 95 complete verbatim native train-container slot/shift-click/NBT/count/routing checks; outer train classes are declared domain fixtures.

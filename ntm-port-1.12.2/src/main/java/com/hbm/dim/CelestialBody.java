@@ -518,7 +518,7 @@ public class CelestialBody {
 	}
 
 	public static CelestialBody getBody(World world) {
-		return getBody(world.provider.dimensionId);
+		return getBody(world.provider.getDimension());
 	}
 
 	public static Target getTarget(World world, int x, int z) {
@@ -542,9 +542,9 @@ public class CelestialBody {
 	public static float getGravity(EntityLivingBase entity) {
 		if(entity instanceof EntityWaterMob) return AstronomyUtil.STANDARD_GRAVITY;
 
-		if(inOrbit(entity.worldObj)) {
+		if(inOrbit(entity.world)) {
 			if(HbmLivingProps.hasGravity(entity)) {
-				OrbitalStation station = entity.worldObj.isRemote
+				OrbitalStation station = entity.world.isRemote
 					? OrbitalStation.clientStation
 					: OrbitalStation.getStationFromPosition((int)entity.posX, (int)entity.posZ);
 
@@ -556,12 +556,12 @@ public class CelestialBody {
 			return 0;
 		}
 
-		CelestialBody body = CelestialBody.getBody(entity.worldObj);
+		CelestialBody body = CelestialBody.getBody(entity.world);
 		return body.getSurfaceGravity() * AstronomyUtil.PLAYER_GRAVITY_MODIFIER;
 	}
 
 	public static boolean inOrbit(World world) {
-		return world.provider.dimensionId == SpaceConfig.orbitDimension;
+		return world.provider.getDimension() == SpaceConfig.orbitDimension;
 	}
 
 	public static SolarSystem.Body getEnum(World world) {

@@ -5,6 +5,7 @@ import api.hbm.conveyor.IConveyorItem;
 import api.hbm.conveyor.IConveyorPackage;
 import api.hbm.conveyor.IEnterableBlock;
 import com.hbm.blocks.IBlockMultiPass;
+import com.hbm.blocks.MultipassContext;
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.entity.item.EntityMovingItem;
 import com.hbm.entity.item.EntityMovingPackage;
@@ -12,7 +13,6 @@ import com.hbm.items.tool.ItemConveyorWand;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.module.ModulePatternMatcher;
-import com.hbm.render.block.RenderBlockMultipass;
 import com.hbm.tileentity.network.TileEntityCraneRouter;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
@@ -20,12 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -36,11 +34,20 @@ import java.util.List;
 
 public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnterableBlock, ITooltipProvider {
 
-	@SideOnly(Side.CLIENT) protected IIcon iconOverlay;
+    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }
+    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }
+    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }
+    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));
+    }
+    @Override public boolean shouldSideBeRendered(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) { return true; }
+
+
 
 	public CraneRouter() {
-		super(Material.iron);
-		this.setBlockTextureName(RefStrings.MODID + ":crane_in");
+		super(Material.IRON);
 	}
 
 	@Override
@@ -48,22 +55,13 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 		return new TileEntityCraneRouter();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconOverlay = iconRegister.registerIcon(RefStrings.MODID + ":crane_router_overlay");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int metadata) {
-		return RenderBlockMultipass.currentPass == 0 ? this.blockIcon : this.iconOverlay;
-	}
+
+
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemConveyorWand) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemConveyorWand) {
 			return false;
 		} else if(world.isRemote) {
 			return true;
@@ -75,41 +73,14 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 		}
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
 
-		if(RenderBlockMultipass.currentPass == 0)
-			return 0xffffff;
 
-		switch(RenderBlockMultipass.currentPass - 1) {
-		case 0: return 0xff0000;
-		case 1: return 0xff8000;
-		case 2: return 0xffff00;
-		case 3: return 0x00ff00;
-		case 4: return 0x0080ff;
-		case 5: return 0x8000ff;
-		default: return 0xffffff;
-		}
-	}
 
-	@Override
-	public int getRenderType(){
-		return IBlockMultiPass.getRenderType();
-	}
 
 	/*
 	 * arg arg arg spongeboy me bob i have fooled the system that only allows one tint per pass by disabling all rendered sides except one and rendering multiple passes arg arg arg
 	 */
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
 
-		if(RenderBlockMultipass.currentPass == 0)
-			return true;
-
-		return side == RenderBlockMultipass.currentPass - 1;
-	}
 
 	@Override
 	public int getPasses() {
@@ -128,7 +99,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 			List<ItemStack> list = sort[i];
 			
 			if(d == ForgeDirection.UNKNOWN) {
-				for(ItemStack stack : list) world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
+				for(ItemStack stack : list) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
 			} else {
 				for(ItemStack stack : list) sendOnRoute(world, x, y, z, stack, d);
 			}
@@ -138,7 +109,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 
 	protected void sendOnRoute(World world, int x, int y, int z, ItemStack item, ForgeDirection dir) {
 		IConveyorBelt belt = null;
-		Block block = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+		Block block = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 
 		if(block instanceof IConveyorBelt) {
 			belt = (IConveyorBelt) block;
@@ -152,7 +123,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 			moving.setItemStack(item);
 			world.spawnEntityInWorld(moving);
 		} else {
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5 + dir.offsetX * 0.55, y + 0.5 + dir.offsetY * 0.55, z + 0.5 + dir.offsetZ * 0.55, item));
+			world.spawnEntity(new EntityItem(world, x + 0.5 + dir.offsetX * 0.55, y + 0.5 + dir.offsetY * 0.55, z + 0.5 + dir.offsetZ * 0.55, item));
 		}
 	}
 
@@ -166,11 +137,11 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 			if(list.isEmpty()) continue;
 
 			if(d == ForgeDirection.UNKNOWN) {
-				for(ItemStack stack : list) world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
+				for(ItemStack stack : list) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
 			} else {
 				
 				IConveyorBelt belt = null;
-				Block block = world.getBlock(x + d.offsetX, y + d.offsetY, z + d.offsetZ);
+				Block block = com.hbm.world.WorldBlockState.read(world, x + d.offsetX, y + d.offsetY, z + d.offsetZ).getBlock();
 				if(block instanceof IConveyorBelt) belt = (IConveyorBelt) block;
 
 				if(belt != null) {
@@ -181,7 +152,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 					moving.setItemStacks(list.toArray(new ItemStack[0]));
 					world.spawnEntityInWorld(moving);
 				} else {
-					for(ItemStack stack : list) world.spawnEntityInWorld(new EntityItem(world, x + 0.5 + d.offsetX * 0.55, y + 0.5 + d.offsetY * 0.55, z + 0.5 + d.offsetZ * 0.55, stack));
+					for(ItemStack stack : list) world.spawnEntity(new EntityItem(world, x + 0.5 + d.offsetX * 0.55, y + 0.5 + d.offsetY * 0.55, z + 0.5 + d.offsetZ * 0.55, stack));
 				}
 			}
 		}
@@ -196,7 +167,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 	 * with each direction having a list of items being output in that direction. Index 6 is used for UNKNOWN, i.e. unsortable items.
 	 * Returned lists are populated with COPIES of the original stacks. */
 	public static List<ItemStack>[] sort(World world, int x, int y, int z, ItemStack... stacks) {
-		TileEntityCraneRouter router = (TileEntityCraneRouter) world.getTileEntity(x, y, z);
+		TileEntityCraneRouter router = (TileEntityCraneRouter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		List<ItemStack>[] output = new List[7];
 		for(int i = 0; i < 7; i++) output[i] = new ArrayList();
 		
@@ -256,7 +227,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 			return ForgeDirection.UNKNOWN;
 		}
 
-		int i = router.getWorldObj().rand.nextInt(validDirs.size());
+		int i = router.getWorld().rand.nextInt(validDirs.size());
 		return validDirs.get(i);
 	}
 }

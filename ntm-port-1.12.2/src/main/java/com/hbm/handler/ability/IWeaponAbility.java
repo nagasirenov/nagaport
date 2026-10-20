@@ -257,11 +257,11 @@ public interface IWeaponAbility extends IBaseAbility {
 
 					for(int i = 0; i < count; i++) {
 						living.entityDropItem(new ItemStack(ModItems.nitra_small), 1);
-						world.spawnEntityInWorld(new EntityXPOrb(world, living.posX, living.posY, living.posZ, 1));
+						world.spawnEntity(new EntityXPOrb(world, living.posX, living.posY, living.posZ, 1));
 					}
 					
 					ConfettiUtil.gib(living);
-					world.playSoundEffect(living.posX, living.posY + living.height * 0.5, living.posZ, "hbm:weapon.chainsaw", 0.5F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(world, living.posX, living.posY + living.height * 0.5, living.posZ, "hbm:weapon.chainsaw", 0.5F, 1.0F);
 				}
 			}
 		}
@@ -285,29 +285,29 @@ public interface IWeaponAbility extends IBaseAbility {
 
 				if(living instanceof EntitySkeleton) {
 					if(((EntitySkeleton) living).getSkeletonType() == 0) {
-						living.entityDropItem(new ItemStack(Items.skull, 1, 0), 0.0F);
+						living.entityDropItem(new ItemStack(Items.SKULL, 1, 0), 0.0F);
 					} else {
 						if(world.rand.nextInt(20) == 0)
-							living.entityDropItem(new ItemStack(Items.skull, 1, 1), 0.0F);
+							living.entityDropItem(new ItemStack(Items.SKULL, 1, 1), 0.0F);
 						else
-							living.entityDropItem(new ItemStack(Items.coal, 3), 0.0F);
+							living.entityDropItem(new ItemStack(Items.COAL, 3), 0.0F);
 					}
 				} else if(living instanceof EntityZombie) {
-					living.entityDropItem(new ItemStack(Items.skull, 1, 2), 0.0F);
+					living.entityDropItem(new ItemStack(Items.SKULL, 1, 2), 0.0F);
 				} else if(living instanceof EntityCreeper) {
-					living.entityDropItem(new ItemStack(Items.skull, 1, 4), 0.0F);
+					living.entityDropItem(new ItemStack(Items.SKULL, 1, 4), 0.0F);
 				} else if(living instanceof EntityMagmaCube) {
-					living.entityDropItem(new ItemStack(Items.magma_cream, 3), 0.0F);
+					living.entityDropItem(new ItemStack(Items.MAGMA_CREAM, 3), 0.0F);
 				} else if(living instanceof EntitySlime) {
-					living.entityDropItem(new ItemStack(Items.slime_ball, 3), 0.0F);
+					living.entityDropItem(new ItemStack(Items.SLIME_BALL, 3), 0.0F);
 				} else if(living instanceof EntityPlayer) {
-					ItemStack head = new ItemStack(Items.skull, 1, 3);
-					head.stackTagCompound = new NBTTagCompound();
-					head.stackTagCompound.setString("SkullOwner", ((EntityPlayer) living).getDisplayName());
+					ItemStack head = new ItemStack(Items.SKULL, 1, 3);
+					head.setTagCompound(new NBTTagCompound());
+					head.getTagCompound().setString("SkullOwner", ((EntityPlayer) living).getDisplayName());
 					living.entityDropItem(head, 0.0F);
 				} else {
-					living.entityDropItem(new ItemStack(Items.rotten_flesh, 3, 0), 0.0F);
-					living.entityDropItem(new ItemStack(Items.bone, 2, 0), 0.0F);
+					living.entityDropItem(new ItemStack(Items.ROTTEN_FLESH, 3, 0), 0.0F);
+					living.entityDropItem(new ItemStack(Items.BONE, 2, 0), 0.0F);
 				}
 			}
 		}

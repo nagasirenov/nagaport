@@ -1,0 +1,283 @@
+{
+  "description": "Independent pristine 1.7 source provenance and unchanged thermal texture/OBJ assets. Native test expectations are transcribed from these exact originals, not production selectors.",
+  "original_sources": [
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineBrickFurnace.java",
+      "sha256": "aaa3218c86629522e3f28fff84d7a0c816dcd606cbd03e7fef5022b0d908c0aa"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java",
+      "sha256": "340c97da5567862516c448e64474ffa0376fddbe7e3fc07bafe27cb6b4216e05"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java",
+      "sha256": "926c10629688970d2765aa23f1240f69e0cc28205c64e651b11a8f9ec72a3f47"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java",
+      "sha256": "2c95efeb02fb4e4b0b3fa3082f4a674f1368acf5dfc15bf3da4c4879e78d147b"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceExtension.java",
+      "sha256": "9de8c7f93d4c5d924a1e12b7dd14fd0ac1188491d81cddf803d983f87c39562d"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderDiFurnaceExtension.java",
+      "sha256": "76f1fddb95d6f56a179c2ffbe564868abc389052ac11aa5fa9aff9ca9c26e31d"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/util/ObjUtil.java",
+      "sha256": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java",
+      "sha256": "4786f0d79b35f68b2cc91e71e98044d19902e1331e5a150d013b02a710b74fda"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/loader/S_Face.java",
+      "sha256": "8c486959d24a0306f974860ec212c246a44dbbc680d33d69a3eedbf2d761f7a9"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+      "sha256": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3"
+    }
+  ],
+  "unchanged_assets": [
+    {
+      "path": "src/main/resources/assets/hbm/models/blocks/difurnace_extension.obj",
+      "sha256": "ce9b7ad83ddee6b0d499afcc0ff405d3110a9f1c84c65e8e2a7d9fd54de233f1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_furnace_brick_top.png",
+      "sha256": "ae1609f568439ab6733b807b867b6b5e2dd860e61eeef67013b54b4bf09f9334"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_furnace_brick_bottom.png",
+      "sha256": "5fbc4fb7e79e58e751066b350e5bc9d10e9025d7ac6259ffd4b689634001ed7f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_furnace_brick_side.png",
+      "sha256": "6f5039cdc693db9189cd73a0dd14feafb519ff872bfbf32ad4a78ad7637d596c"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_furnace_brick_front_on.png",
+      "sha256": "ee98f5eaba899578ba7b052c3aaebcd8121de04d8fb388ded7274f01445bf8b1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_furnace_brick_front_off.png",
+      "sha256": "03990013803735b80dfab4013ddebd318aa7fcc741a97bfe3cc58a76c54a9982"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_rtg_furnace_base_alt.png",
+      "sha256": "2fa6dfaf077ff8335e7164e0d227ec8b0549debc4040709afd02c3860a6d78f0"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_rtg_furnace_side_alt.png",
+      "sha256": "996e1da21ba17005c0979825444794d63457a5e5c6a0a22470788b7dbfe1e325"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_rtg_furnace_on_alt.png",
+      "sha256": "e58a4d313da410ed21c21504f569944f930c16a06e04c5f3d905abd9fe99fcca"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_rtg_furnace_off_alt.png",
+      "sha256": "1edbdf86d0985b3bb50f9b779f3db69fdc4b05f51ea6b14b34b71f4e9cb0363d"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/rtg_difurnace_top_on.png",
+      "sha256": "d6589f82b46aec9046fc7bed5b0df0c809be4259e8877243a34a33466f3390be"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/rtg_difurnace_top_off.png",
+      "sha256": "d634d1c29683e3ef515a84ea8f4cb33e77989795e45bdf370a32ad3f1090d895"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/rtg_difurnace_front_on.png",
+      "sha256": "0b95df9ede27489a01609b485b1aa8ccf630ec66cef5715a74441095b7ef4548"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/rtg_difurnace_front_off.png",
+      "sha256": "d809c25ab69fb61378069647596d66fa44ea8f3e5cfb5348094d740d79f06dda"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_top_on_alt.png",
+      "sha256": "66b5b667cbf227aed4115331d4d36409e66ed83b42d9c85fe59e903e72bfe1be"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_top_off_alt.png",
+      "sha256": "07fca2f2cfe53002c4fade3710a4242ff6c480d30421f498744e899fcfca4efe"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_front_on_alt.png",
+      "sha256": "9073d874ce079d87230b5942aab8ad844650112b5888b255eec2ef26ed7e3cda"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_front_on_tall.png",
+      "sha256": "eec46d682a76c2d4efb44d2910f0cb0c4f70319fd74a326240d36a818845a8de"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_front_off_alt.png",
+      "sha256": "310a1e3b16dc18fa8345fa00c9ab57aac9243ef182e0679fe3bc7c6dc8c418de"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_front_off_tall.png",
+      "sha256": "0d2447c036c4817d5baee793704c6f196120045f84f8eedb5b8035f2e588664f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_side_alt.png",
+      "sha256": "ad23bbfdee83fdf43988b45f692c1846534b005cfbd3a45f89036e0e1c57fab0"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_side_tall.png",
+      "sha256": "4f3ef5f25e6816f58d746f008c2e20e92fdea5b8264f8526b24adc8c5d5931e9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/difurnace_extension.png",
+      "sha256": "650bf3775bf9ecdd457dba3418e2e0078acd02b351559adaade6370bed44388b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/brick_fire.png",
+      "sha256": "ef7f23b737ada34dba7ae88734291f0d4c94140848e90cd33ca7bef00e0c74bb"
+    }
+  ],
+  "contracts": {
+    "metadata": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "extension_triangles": 20,
+    "extension_groups": [
+      "Top",
+      "Bottom",
+      "Side"
+    ],
+    "cube_item_general_quads": 0,
+    "cube_item_total_quads": 6,
+    "di_world_bottom": "brick_fire",
+    "di_item_bottom": "ordinary context-free selector; meta0 uses front",
+    "light_on": 15,
+    "light_off": 0,
+    "drop_off_only": [
+      "RTG",
+      "RTG_DIFURNACE",
+      "DIFURNACE"
+    ],
+    "pick_off_only": [
+      "BRICK",
+      "RTG",
+      "RTG_DIFURNACE"
+    ]
+  },
+  "reviewed_production": [
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockThermalFurnace.java",
+      "sha256": "89502296596e1c861fa4d395f8153f7f72d02abfd57c9cd146b9c2b8ab833e69"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineBrickFurnace.java",
+      "sha256": "3b3751a6ae895584a4078b7b545cd57ea7aed0145341e563655ebfd023917fb3"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java",
+      "sha256": "77a2df27858f8e82d757205295062111dc56b2c16cfe620e52f3a840e8b5b5e8"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java",
+      "sha256": "c4d8826af1c6b5553e6e3f3ea5895d138889114d1d03fdc71d55b3095b07f5d4"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java",
+      "sha256": "8dac191b93cc4f109051ac29d72eba9f46a08d44ad66f2a574e70027ea2e3d33"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceExtension.java",
+      "sha256": "69727ce02de19514436706080264491604cda366b9c46b9bb0bbb4a786c92c09"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ThermalFurnaceModelHandler.java",
+      "sha256": "1ccefb5ec8ee6a98d5dfd4e2dc1bbdf414084a3f111f0beffd055e49f31c6ebd"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java",
+      "sha256": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/DiFurnaceExtensionBakedModel.java",
+      "sha256": "6765c4ab88002a218bf7d3c5f9e76af8755bb928df4e140113b4a603b2c95578"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/ThermalFurnaceBakedModel.java",
+      "sha256": "8cf8698109117d147307f72a091f13ed3a62e04375be97fdc063808e1ed2203a"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java",
+      "sha256": "9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMesh.java",
+      "sha256": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMeshParser.java",
+      "sha256": "e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_furnace_brick_on.json",
+      "sha256": "7648eeac1e35aed5383afe1d54a5ac350889f8e086e53318b9e655584c2f14fb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_furnace_brick_off.json",
+      "sha256": "f46c89a06ea7765d3c444f56f68abaf34312be4a64cf197c454b44dc6027c29b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_rtg_furnace_on.json",
+      "sha256": "66f84c247fc4c356d9c4f9292d80a84dd397b373c56dfd78e0fdf82c560543ba"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_rtg_furnace_off.json",
+      "sha256": "79e40b854c32244ba9782b29f029c425498f18e69a1ead94af29961214a8273e"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_difurnace_rtg_on.json",
+      "sha256": "fb3227104789df69c6767d532382f3219bbb26efa4daae2e8d2f91c76c030f67"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_difurnace_rtg_off.json",
+      "sha256": "9b85b1723ab20e993798a2361a7bea14a5e0582a56b9c18d8a4948a5a8b082be"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_difurnace_on.json",
+      "sha256": "fac0369abcfafc3aebc534555af550cf1dfeb088d44931a0d32993d6e13b478b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_difurnace_off.json",
+      "sha256": "5f1e11b30769f4ce60dac544ff84c35c32e81fb181ca0de8cfa1f2a1da4007ae"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_difurnace_extension.json",
+      "sha256": "5b0a807e515a4561e0d559360358634d5dc0508b78324d4f8f6efe780acb7bf1"
+    }
+  ],
+  "native_pass": {
+    "block_assertions": 9006,
+    "model_assertions": 411490,
+    "minecraft": "1.12.2",
+    "forge": "14.23.5.2768",
+    "java": "8",
+    "date": "2026-10-19"
+  }
+}

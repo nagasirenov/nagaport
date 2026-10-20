@@ -16,7 +16,7 @@ public class ItemCounterfitKeys extends Item {
 	@Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int b, float f0, float f1, float f2)
     {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(te instanceof TileEntityLockableBase) {
 			

@@ -92,8 +92,8 @@ public class MultiblockHandler {
 			for(int b = y - i[3]; b <= y + i[2]; b++) {
 				for(int c = z - i[5]; c <= z + i[4]; c++) {
 					if(!(a == x && b == y && c == z)) {
-						Block block = world.getBlock(a, b, c);
-						if(block != Blocks.air && !block.isReplaceable(world, a, b, c)) {
+						Block block = com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock();
+						if(block != Blocks.AIR && !block.isReplaceable(world, a, b, c)) {
 							placable = false;
 						}
 					}
@@ -113,7 +113,7 @@ public class MultiblockHandler {
 					if(!(a == x && b == y && c == z)) {
 						if(!world.isRemote)
 							world.setBlock(a, b, c, block);
-						TileEntity te = world.getTileEntity(a, b, c);
+						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(a, b, c));
 						if(te instanceof TileEntityDummy) {
 							TileEntityDummy dummy = (TileEntityDummy)te;
 							dummy.targetX = x;
@@ -135,7 +135,7 @@ public class MultiblockHandler {
 			for(int b = y - i[3]; b <= y + i[2]; b++) {
 				for(int c = z - i[5]; c <= z + i[4]; c++) {
 					if(!(a == x && b == y && c == z)) {
-						if(world.getBlock(a, b, c) instanceof IDummy)
+						if(com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock() instanceof IDummy)
 							if(!world.isRemote) {
 								world.func_147480_a(a, b, c, false);
 							}

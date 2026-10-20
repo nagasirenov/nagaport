@@ -1,0 +1,1044 @@
+{
+  "baseline": "f45ef1d63a0d8cd793b90d207d6ea7362793d442",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "f81566b4bcf84013d61d5806bde8bd31549a95d3237963aadf57ea59ead8c21f",
+      "after_sha256": "5d7e89adbaf4357525985282ade2f600a457d968ccac1e34480b8f31be8bdd68",
+      "edits": [
+        {
+          "before_offset": 188502,
+          "after_offset": 188502,
+          "old": "\t\tred_cable = new BlockCable(Material.iron).setBlockName(\"red_cable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":cable_neo\");\r\n\t\tred_cable_classic = new BlockCable(Material.iron).setBlockName(\"red_cable_classic\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":red_cable_classic\");\r\n",
+          "new": "\t\tred_cable = new BlockCable(Material.IRON).setTranslationKey(\"red_cable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tred_cable_classic = new BlockCable(Material.IRON).setTranslationKey(\"red_cable_classic\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockCable.java": {
+      "before_sha256": "c1f827b2597a814554e66f52dc8c5812578a41f3f37a6b5629e498cb09a5cd8b",
+      "after_sha256": "4372bc26170bbd1ae46ef3a69f2784c6e5c34f9d172667be244bd0b2425c281b",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import com.hbm.blocks.ModBlocks;\nimport com.hbm.lib.Library;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 151,
+          "after_offset": 90,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 305,
+          "after_offset": 179,
+          "old": "",
+          "new": "import net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 349,
+          "after_offset": 476,
+          "old": "",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 395,
+          "after_offset": 651,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 470,
+          "after_offset": 767,
+          "old": "",
+          "new": "import net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\n"
+        },
+        {
+          "before_offset": 520,
+          "after_offset": 1003,
+          "old": "\n\tpublic BlockCable(Material p_i45386_1_) {\n\t\tsuper(p_i45386_1_);\n\t}\n\n\t@Override\n\tpublic TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {\n\t\treturn new TileEntityCableBaseNT();\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\tpublic static int renderIDClassic = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\n\t\tif(this == ModBlocks.red_cable_classic)\n\t\t\treturn renderIDClassic;\n\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\n\t\tboolean posX = Library.canConnect(world, x + 1, y, z, Library.POS_X);\n\t\tboolean negX = Library.canConnect(world, x - 1, y, z, Library.NEG_X);\n\t\tboolean posY = Library.canConnect(world, x, y + 1, z, Library.POS_Y);\n\t\tboolean negY = Library.canConnect(world, x, y - 1, z, Library.NEG_Y);\n\t\tboolean posZ = Library.canConnect(world, x, y, z + 1, Library.POS_Z);\n\t\tboolean negZ = Library.canConnect(world, x, y, z - 1, Library.NEG_Z);\n\n\t\tsetBlockBounds(posX, negX, posY, negY, posZ, negZ);\n\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\n\t\tboolean posX = Library.canConnect(world, x + 1, y, z, Library.POS_X);\n\t\tboolean negX = Library.canConnect(world, x - 1, y, z, Library.NEG_X);\n\t\tboolean posY = Library.canConnect(world, x, y + 1, z, Library.POS_Y);\n\t\tboolean negY = Library.canConnect(world, x, y - 1, z, Library.NEG_Y);\n\t\tboolean posZ = Library.canConnect(world, x, y, z + 1, Library.POS_Z);\n\t\tboolean negZ = Library.canConnect(world, x, y, z - 1, Library.NEG_Z);\n\n\t\tsetBlockBounds(posX, negX, posY, negY, posZ, negZ);\n\t}\n\n\tprivate void setBlockBounds(boolean posX, boolean negX, boolean posY, boolean negY, boolean posZ, boolean negZ) {\n\n\t\tfloat pixel = 0.0625F;\n\t\tfloat min = pixel * 5.5F;\n\t\tfloat max = pixel * 10.5F;\n\n\t\tfloat minX = negX ? 0F : min;\n\t\tfloat maxX = posX ? 1F : max;\n\t\tfloat minY = negY ? 0F : min;\n\t\tfloat maxY = posY ? 1F : max;\n\t\tfloat minZ = negZ ? 0F : min;\n\t\tfloat maxZ = posZ ? 1F : max;\n\n\t\tthis.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);\n\t}\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    public BlockCable(Material material) {\n        super(material);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n    @Override protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS});\n    }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return ((IExtendedBlockState)state).withProperty(ConnectionState.CONNECTIONS, ConnectionState.energy(world, pos));\n    }\n    @Override public TileEntity createNewTileEntity(World world, int metadata) { return new TileEntityCableBaseNT(); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return bounds(ConnectionState.energy(world, pos)); }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        // The original collision was one merged box, not a union of narrow arms.\n        return bounds(ConnectionState.energy(world, pos));\n    }\n    public static AxisAlignedBB bounds(int mask) {\n        double min = 5.5D / 16D, max = 10.5D / 16D;\n        return new AxisAlignedBB((mask & ConnectionState.NEG_X) != 0 ? 0 : min,\n                (mask & ConnectionState.NEG_Y) != 0 ? 0 : min, (mask & ConnectionState.NEG_Z) != 0 ? 0 : min,\n                (mask & ConnectionState.POS_X) != 0 ? 1 : max, (mask & ConnectionState.POS_Y) != 0 ? 1 : max,\n                (mask & ConnectionState.POS_Z) != 0 ? 1 : max);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAJR.java": {
+      "before_sha256": "985722f188610e2330a6ff9f76b18dc420d853c38dc4b0a93374e18efb71ac78",
+      "after_sha256": "61c5a62fdaeb558e6b4c33021999578f00436bf88ba4defc4be55e98e0571008",
+      "edits": [
+        {
+          "before_offset": 1195,
+          "after_offset": 1195,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAJRO.java": {
+      "before_sha256": "7b2a36362c40e31edf4305b871dc06f88c87c35f17d04c4247777cca65223cb0",
+      "after_sha256": "af764195e0f6527825bd0f5494c352df3a0919f00837b73e235a8c4a902d8b9a",
+      "edits": [
+        {
+          "before_offset": 1201,
+          "after_offset": 1201,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": {
+      "before_sha256": "6045eb39b8446945309924d3a184086d0fd9c8add78da709a91d52b65e00a8e2",
+      "after_sha256": "3cc4c1b66dab338b2c3aed7400b382e84dad3d63880feda2730439d71be065f0",
+      "edits": [
+        {
+          "before_offset": 1933,
+          "after_offset": 1933,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBismuth.java": {
+      "before_sha256": "113d33a2f8fa338ac7d66ba55642c8e582346f892839ff384f98753a1d010507",
+      "after_sha256": "03e5646e2b337a3b2636d02de7f02aaffd94fe1964599c72e99e75edec989d41",
+      "edits": [
+        {
+          "before_offset": 1140,
+          "after_offset": 1140,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "aa767fac5cd4a3996e9a6ed4da95babc2e1ddc1670c75fa70bd2cfc789e58290",
+      "after_sha256": "0588b1f300ed6c4f6e7877dca7b520cfa3c00c8f5d68fe94e3bd6092fc4eeedf",
+      "edits": [
+        {
+          "before_offset": 6831,
+          "after_offset": 6831,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+      "before_sha256": "babc9d3c897e6bc582fc336d261286d9a8cd2ff369398e8cad6c78a4e033d723",
+      "after_sha256": "647674da47c975c51bfc8f023c9b72961d4178490fdff3f764cf9942220ecac3",
+      "edits": [
+        {
+          "before_offset": 1816,
+          "after_offset": 1816,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "before_sha256": "76f5a354305de3af218005a7e6956997546193f8df7633e1ce7e5c09afd6145d",
+      "after_sha256": "414f62086f3d0faacf22d748d4bf91568346c8833b274892a94c006deefda0d4",
+      "edits": [
+        {
+          "before_offset": 2978,
+          "after_offset": 2978,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDigamma.java": {
+      "before_sha256": "5af5e69d94529bde0f47afaa9024dcb4a2c9f252231693e6484aafb612731398",
+      "after_sha256": "49b3c6e10582fb0785b1cc8a377c63504fb8043fa47f2b8e6cec38551d2584af",
+      "edits": [
+        {
+          "before_offset": 1250,
+          "after_offset": 1250,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "392f904447c90a03d48e53dd1de9e7853d3ad3796836c0cdfef88fa3fa5bf1fa",
+      "after_sha256": "36ba070cdce042edcb22a65bb000b96174fe3597ab2a436262e609b1154e0254",
+      "edits": [
+        {
+          "before_offset": 3229,
+          "after_offset": 3229,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHEV.java": {
+      "before_sha256": "0b1071412a81c70b9f8badcc5015ce7f3bea4513d8c9e48dc3db30117ac64456",
+      "after_sha256": "a90c59e24951c95a88fe1e995f96ba148bdd244106630cf991a18d005fe19ef9",
+      "edits": [
+        {
+          "before_offset": 4838,
+          "after_offset": 4838,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+      "before_sha256": "0b547db1ef9098d361ab2c196685cbfea687208f0a7342c6fc9fcf8f2265e4af",
+      "after_sha256": "f5db8c0eab86e3b548b3ca6912be513b8e2cc2fbd965e2b3a1d7fe16e8c24982",
+      "edits": [
+        {
+          "before_offset": 2526,
+          "after_offset": 2526,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorRPA.java": {
+      "before_sha256": "0b6d79faf6baa8d18bc2bc864f57ae11bcd232109c25dce34688e2554ac309a3",
+      "after_sha256": "309e3bec76aade46a530707ade1a185ac3deaa936d31e81152ccb6c12cbdaeaa",
+      "edits": [
+        {
+          "before_offset": 1295,
+          "after_offset": 1295,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorT51.java": {
+      "before_sha256": "58390925ceec035dc9a0e5ecb58d0c349c3fe7a280acaddbd5a4267db065a16d",
+      "after_sha256": "31d70d6260c56f3962e425e746a1e192ac18f3da8550d661890d46cd0fecb05b",
+      "edits": [
+        {
+          "before_offset": 1195,
+          "after_offset": 1195,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTaurun.java": {
+      "before_sha256": "b815e6726a089a869202f7aad31734a97dfdfa01fce58254bae9eb0389da2441",
+      "after_sha256": "e83654de8f1572901005972534d97ffd348db9507f415bf04c85134a351cac5e",
+      "edits": [
+        {
+          "before_offset": 1150,
+          "after_offset": 1150,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": {
+      "before_sha256": "c4ca2a478d46b424b5d32b1f84c0c5ffcc420850ae2c2ebc5d40af721571bcc6",
+      "after_sha256": "e94e7702d60c1908a29e78ee3df53de075821b48fe097159b049c17ae299cf8b",
+      "edits": [
+        {
+          "before_offset": 3382,
+          "after_offset": 3382,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/lib/Library.java": {
+      "before_sha256": "f157fa551a0f675ce48c20fb9efe3609f7ed35ff57781ad9353fd36380b2f4af",
+      "after_sha256": "5cbab4ad946b3f465a56d3f984fe0f81731801984c27ed0d70b6de00e484327b",
+      "edits": [
+        {
+          "before_offset": 2015,
+          "after_offset": 2015,
+          "old": "\t\tBlock b = world.getBlock(x, y, z);\n",
+          "new": "\t\tBlock b = world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();\n"
+        },
+        {
+          "before_offset": 2266,
+          "after_offset": 2320,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "f578f81b064cf939c30f045920028b10df3706d7dba5fe39d9e3eb7b761a4b25",
+      "after_sha256": "767f2ad46deaccfd4a65d17da98b4d8dbe48cdfaee77024afaf014c542ac712e",
+      "edits": [
+        {
+          "before_offset": 7520,
+          "after_offset": 7520,
+          "old": "\t\tnativeStaticItems = com.hbm.render.item.nativeitem.staticfamily.StaticItemFamilyBootstrap.register();\n",
+          "new": "\t\t// Item identities are resolved later, after native block/item registry events.\n"
+        },
+        {
+          "before_offset": 36589,
+          "after_offset": 36567,
+          "old": "",
+          "new": "        MinecraftForge.EVENT_BUS.register(new com.hbm.render.item.nativeitem.callback.DeferredItemModelRegistration(this::initializeItemRendererModels));\n    }\n"
+        },
+        {
+          "before_offset": 36590,
+          "after_offset": 36728,
+          "old": "",
+          "new": "    private void initializeItemRendererModels(net.minecraftforge.client.event.ModelRegistryEvent event) {\n        nativeStaticItems = com.hbm.render.item.nativeitem.staticfamily.StaticItemFamilyBootstrap.register(event);\n\n        java.util.Map<Item, com.hbm.render.item.nativeitem.direct.DirectMeshItemRenderer> directRenderers = new java.util.IdentityHashMap<>();\n"
+        },
+        {
+          "before_offset": 40905,
+          "after_offset": 41408,
+          "old": "\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_test, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_taint, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_micro, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_bhole, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_schrabidium, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_emp, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_stealth, new ItemRenderMissileGeneric(RenderMissileType.TYPE_STEALTH));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_generic, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_incendiary, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_cluster, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_buster, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_decoy, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_anti_ballistic, new ItemRenderMissileGeneric(RenderMissileType.TYPE_ABM));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_incendiary_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_cluster_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_buster_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_emp_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_burst, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_inferno, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_rain, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_drill, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_nuclear, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_nuclear_cluster, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_volcano, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_doomsday, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_doomsday_rusted, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tMinecraftForgeClient.registerItemRenderer(ModItems.missile_shuttle, new ItemRenderMissileGeneric(RenderMissileType.TYPE_ROBIN));\n",
+          "new": "\t\tdirectRenderers.put(ModItems.missile_test, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tdirectRenderers.put(ModItems.missile_taint, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tdirectRenderers.put(ModItems.missile_micro, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tdirectRenderers.put(ModItems.missile_bhole, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tdirectRenderers.put(ModItems.missile_schrabidium, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tdirectRenderers.put(ModItems.missile_emp, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER0));\n\t\tdirectRenderers.put(ModItems.missile_stealth, new ItemRenderMissileGeneric(RenderMissileType.TYPE_STEALTH));\n\t\tdirectRenderers.put(ModItems.missile_generic, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tdirectRenderers.put(ModItems.missile_incendiary, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tdirectRenderers.put(ModItems.missile_cluster, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tdirectRenderers.put(ModItems.missile_buster, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tdirectRenderers.put(ModItems.missile_decoy, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER1));\n\t\tdirectRenderers.put(ModItems.missile_anti_ballistic, new ItemRenderMissileGeneric(RenderMissileType.TYPE_ABM));\n\t\tdirectRenderers.put(ModItems.missile_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tdirectRenderers.put(ModItems.missile_incendiary_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tdirectRenderers.put(ModItems.missile_cluster_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tdirectRenderers.put(ModItems.missile_buster_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tdirectRenderers.put(ModItems.missile_emp_strong, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER2));\n\t\tdirectRenderers.put(ModItems.missile_burst, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tdirectRenderers.put(ModItems.missile_inferno, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tdirectRenderers.put(ModItems.missile_rain, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tdirectRenderers.put(ModItems.missile_drill, new ItemRenderMissileGeneric(RenderMissileType.TYPE_TIER3));\n\t\tdirectRenderers.put(ModItems.missile_nuclear, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tdirectRenderers.put(ModItems.missile_nuclear_cluster, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tdirectRenderers.put(ModItems.missile_volcano, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tdirectRenderers.put(ModItems.missile_doomsday, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tdirectRenderers.put(ModItems.missile_doomsday_rusted, new ItemRenderMissileGeneric(RenderMissileType.TYPE_NUCLEAR));\n\t\tdirectRenderers.put(ModItems.missile_shuttle, new ItemRenderMissileGeneric(RenderMissileType.TYPE_ROBIN));\n"
+        },
+        {
+          "before_offset": 48172,
+          "after_offset": 48059,
+          "old": "\t\tMinecraftForgeClient.registerItemRenderer(ModItems.gun_fireext, new ItemRenderFireExt());\n",
+          "new": "\t\tdirectRenderers.put(ModItems.gun_fireext, new ItemRenderFireExt());\n"
+        },
+        {
+          "before_offset": 48875,
+          "after_offset": 48740,
+          "old": "",
+          "new": "        callbacks.register(event);\n"
+        },
+        {
+          "before_offset": 49153,
+          "after_offset": 49053,
+          "old": "",
+          "new": "        com.hbm.render.item.nativeitem.direct.DirectMeshItemRegistration direct = new com.hbm.render.item.nativeitem.direct.DirectMeshItemRegistration(directRenderers);\n        direct.register(event);\n        MinecraftForge.EVENT_BUS.register(direct);\n        oneMeshItems.addAll(direct.items());\n"
+        },
+        {
+          "before_offset": 77359,
+          "after_offset": 77556,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderCable());\n\t\tRenderingRegistry.registerBlockHandler(new RenderCableClassic());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleAmatFlash.java": {
+      "before_sha256": "91a21db5646462ef14b47bd1a18aadd435f310693a4cee243e272ff2d43b822e",
+      "after_sha256": "a6e7f413ae3b62b2a80fc11416975d2cefb4de5148be21578ab301033ff921f8",
+      "edits": [
+        {
+          "before_offset": 221,
+          "after_offset": 221,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 369,
+          "after_offset": 510,
+          "old": "import net.minecraft.entity.player.EntityPlayer;\n",
+          "new": "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 452,
+          "after_offset": 610,
+          "old": "",
+          "new": "import net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 476,
+          "after_offset": 677,
+          "old": "public class ParticleAmatFlash extends EntityFX {\n",
+          "new": "public class ParticleAmatFlash extends Particle {\n"
+        },
+        {
+          "before_offset": 636,
+          "after_offset": 837,
+          "old": "",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 698,
+          "after_offset": 926,
+          "old": "",
+          "new": "\t/** This owned flash/jet stays at its spawn point; no Entity contact side effects. */\n\t@Override\n\tpublic void onUpdate() {\n\t\tthis.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\tif(this.particleAge++ >= this.particleMaxAge) this.setExpired();\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 741,
+          "after_offset": 1262,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {\n",
+          "new": "\t@Override\n\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {\n"
+        },
+        {
+          "before_offset": 851,
+          "after_offset": 1400,
+          "old": "\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\tEntity player = camera != null ? camera : Minecraft.getMinecraft().player;\n\t\tif(player == null) return;\n"
+        },
+        {
+          "before_offset": 1181,
+          "after_offset": 1776,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1464,
+          "after_offset": 2057,
+          "old": "",
+          "new": "\t\tGlStateManager.pushMatrix();\n\t\tGlStateManager.translate(pX, pY, pZ);\n"
+        },
+        {
+          "before_offset": 1465,
+          "after_offset": 2129,
+          "old": "\t\tGL11.glPushMatrix();\n\t\tGL11.glTranslatef(pX, pY, pZ);\n\n\t\tGL11.glScalef(0.2F * particleScale, 0.2F * particleScale, 0.2F * particleScale);\n",
+          "new": "\t\tGlStateManager.scale(0.2F * particleScale, 0.2F * particleScale, 0.2F * particleScale);\n"
+        },
+        {
+          "before_offset": 1734,
+          "after_offset": 2348,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1867,
+          "after_offset": 2431,
+          "old": "\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGL11.glDisable(GL11.GL_ALPHA_TEST);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\tGL11.glDepthMask(false);\n",
+          "new": "\t\tGlStateManager.disableTexture2D();\n\t\tGlStateManager.shadeModel(GL11.GL_SMOOTH);\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGlStateManager.disableAlpha();\n\t\tGlStateManager.enableCull();\n\t\tGlStateManager.depthMask(false);\n"
+        },
+        {
+          "before_offset": 2185,
+          "after_offset": 2762,
+          "old": "\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);\n",
+          "new": "\t\t\tGlStateManager.rotate(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);\n\t\t\tGlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);\n\t\t\tGlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);\n\t\t\tGlStateManager.rotate(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);\n\t\t\tGlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);\n"
+        },
+        {
+          "before_offset": 2707,
+          "after_offset": 3319,
+          "old": "\t\t\ttessellator.startDrawing(6);\n\n\t\t\ttessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, (float) inverse);\n\t\t\ttessellator.addVertex(0.0D, 0.0D, 0.0D);\n\t\t\ttessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.0F);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.0D, vert1, 1.0F * vert2);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.draw();\n",
+          "new": "\t\t\ttess.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);\n\t\t\tappendFan(tess, vert1, vert2, (float) inverse);\n\t\t\tTessellator.getInstance().draw();\n"
+        },
+        {
+          "before_offset": 3180,
+          "after_offset": 3486,
+          "old": "\t\tGL11.glPopMatrix();\n",
+          "new": "\t\tGlStateManager.popMatrix();\n"
+        },
+        {
+          "before_offset": 3203,
+          "after_offset": 3517,
+          "old": "\t\tGL11.glDepthMask(true);\n\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glShadeModel(GL11.GL_FLAT);\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n",
+          "new": "\t\tGlStateManager.depthMask(true);\n\t\tGlStateManager.enableCull();\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.shadeModel(GL11.GL_FLAT);\n\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGlStateManager.enableTexture2D();\n\t\tGlStateManager.enableAlpha();\n"
+        },
+        {
+          "before_offset": 3495,
+          "after_offset": 3874,
+          "old": "\t\t\n\t\t/*GL11.glScalef(0.2F * particleScale, 0.2F * particleScale, 0.2F * particleScale);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3584,
+          "after_offset": 3875,
+          "old": "\t\tdouble intensity = (double) this.particleAge / (double) this.particleMaxAge;\n\t\tdouble inverse = 1.0D - intensity;\n",
+          "new": "\t}\n"
+        },
+        {
+          "before_offset": 3701,
+          "after_offset": 3879,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n\t\tRenderHelper.disableStandardItemLighting();\n\n\t\tRandom random = new Random(432L);\n\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGL11.glDisable(GL11.GL_ALPHA_TEST);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\tGL11.glDepthMask(false);\n\n\t\tGL11.glPushMatrix();\n\n\t\tfloat scale = 0.002F;\n\n\t\tfor(int i = 0; i < 300; i++) {\n\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);\n\n\t\t\tfloat vert1 = (random.nextFloat() * 20.0F + 5.0F + 1 * 10.0F) * (float) (intensity * scale);\n\t\t\tfloat vert2 = (random.nextFloat() * 2.0F + 1.0F + 1 * 2.0F) * (float) (intensity * scale);\n\n\t\t\ttessellator.startDrawing(6);\n\n\t\t\ttessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, (float) inverse);\n\t\t\ttessellator.addVertex(x + 0.0D, y + 0.0D, z + 0.0D);\n\t\t\ttessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.0F);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.0D, vert1, 1.0F * vert2);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.draw();\n\t\t}\n\n\t\tGL11.glPopMatrix();\n\n\t\tGL11.glDepthMask(true);\n\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glShadeModel(GL11.GL_FLAT);\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\t\tRenderHelper.enableStandardItemLighting();*/\n",
+          "new": "\tprivate static void appendFan(BufferBuilder tess, float length, float width, float alpha) {\n\t\ttess.pos(0, 0, 0).color(1F, 1F, 1F, MathHelper.clamp(alpha, 0F, 1F)).endVertex();\n\t\ttess.pos(-0.866D * width, length, -0.5F * width).color(1F, 1F, 1F, 0F).endVertex();\n\t\ttess.pos(0.866D * width, length, -0.5F * width).color(1F, 1F, 1F, 0F).endVertex();\n\t\ttess.pos(0, length, width).color(1F, 1F, 1F, 0F).endVertex();\n\t\ttess.pos(-0.866D * width, length, -0.5F * width).color(1F, 1F, 1F, 0F).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleHadron.java": {
+      "before_sha256": "bcf994149ea196003655f394d9de36e83878a336f76c4a6f6405d8523c197f0b",
+      "after_sha256": "861989e9021e3f6abe2849c5c756d4a521dffb96789fc977940c4144bea85c56",
+      "edits": [
+        {
+          "before_offset": 227,
+          "after_offset": 227,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 436,
+          "after_offset": 577,
+          "old": "import net.minecraft.entity.player.EntityPlayer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 563,
+          "after_offset": 655,
+          "old": "",
+          "new": "import net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 587,
+          "after_offset": 722,
+          "old": "public class ParticleHadron extends EntityFX {\n",
+          "new": "public class ParticleHadron extends Particle {\n"
+        },
+        {
+          "before_offset": 799,
+          "after_offset": 934,
+          "old": "\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 917,
+          "after_offset": 1051,
+          "old": "",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 982,
+          "after_offset": 1143,
+          "old": "",
+          "new": "\t/** This owned flash/jet stays at its spawn point; no Entity contact side effects. */\n\t@Override\n\tpublic void onUpdate() {\n\t\tthis.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\tif(this.particleAge++ >= this.particleMaxAge) this.setExpired();\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 1025,
+          "after_offset": 1479,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {\n\t\t\n",
+          "new": "\t@Override\n\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {\n\n\t\tEntity player = camera != null ? camera : Minecraft.getMinecraft().player;\n\t\tif(player == null) return;\n\n"
+        },
+        {
+          "before_offset": 1182,
+          "after_offset": 1769,
+          "old": "\t\t\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0);\n\t\tGL11.glDepthMask(false);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n",
+          "new": "\n\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGlStateManager.disableLighting();\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0);\n\t\tGlStateManager.depthMask(false);\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n"
+        },
+        {
+          "before_offset": 1460,
+          "after_offset": 2075,
+          "old": "\t\t\t\n\t\ttess.startDrawingQuads();\n\t\t\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setBrightness(240);\n\t\t\n\t\tthis.particleAlpha = 1 - (((float)this.particleAge + interp) / (float)this.particleMaxAge);\n\t\tfloat scale = (this.particleAge + interp) * 0.15F;\n\t\t\n\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, this.particleAlpha);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1773,
+          "after_offset": 2076,
+          "old": "\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\ttess.begin(GL11.GL_QUADS, ParticleVertexFormats.LIT_TEXTURED);\n\n"
+        },
+        {
+          "before_offset": 2103,
+          "after_offset": 2412,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 2353,
+          "after_offset": 2660,
+          "old": "\t\ttess.addVertexWithUV((double)(pX - x * scale - tx * scale), (double)(pY - y * scale), (double)(pZ - z * scale - tz * scale), 1, 1);\n\t\ttess.addVertexWithUV((double)(pX - x * scale + tx * scale), (double)(pY + y * scale), (double)(pZ - z * scale + tz * scale), 1, 0);\n\t\ttess.addVertexWithUV((double)(pX + x * scale + tx * scale), (double)(pY + y * scale), (double)(pZ + z * scale + tz * scale), 0, 0);\n\t\ttess.addVertexWithUV((double)(pX + x * scale - tx * scale), (double)(pY - y * scale), (double)(pZ + z * scale - tz * scale), 0, 1);\n\t\ttess.draw();\n\t\t\n\t\tGL11.glPolygonOffset(0.0F, 0.0F);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n",
+          "new": "\t\tappendVertices(tess, interp, pX, pY, pZ, x, y, z, tx, tz);\n\t\tTessellator.getInstance().draw();\n\n\t\tGlStateManager.doPolygonOffset(0.0F, 0.0F);\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGlStateManager.enableLighting();\n\t\tGlStateManager.depthMask(true);\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableCull();\n\t}\n\n\t// BufferBuilder does not clamp RGBA like the old tessellator did.\n\tprivate void appendVertices(BufferBuilder tess, float interp, double pX, double pY, double pZ, float x, float y, float z, float tx, float tz) {\n\t\tthis.particleAlpha = 1 - (((float)this.particleAge + interp) / (float)this.particleMaxAge);\n\t\tfloat scale = (this.particleAge + interp) * 0.15F;\n\n\t\ttess.pos((double)(pX - x * scale - tx * scale), (double)(pY - y * scale), (double)(pZ - z * scale - tz * scale)).tex(1, 1).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(pX - x * scale + tx * scale), (double)(pY + y * scale), (double)(pZ - z * scale + tz * scale)).tex(1, 0).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(pX + x * scale + tx * scale), (double)(pY + y * scale), (double)(pZ + z * scale + tz * scale)).tex(0, 0).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(pX + x * scale - tx * scale), (double)(pY - y * scale), (double)(pZ + z * scale - tz * scale)).tex(0, 1).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleMukeWave.java": {
+      "before_sha256": "27ef6aa0f721eb43bae0688f8218509cb43fb460f8b2c2bc17c2c3073d9c0c6c",
+      "after_sha256": "bcee60a00f052283ee0d9338833ffa0b1029665a9e54fd90cfc22894fbebb14f",
+      "edits": [
+        {
+          "before_offset": 188,
+          "after_offset": 188,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 475,
+          "after_offset": 616,
+          "old": "",
+          "new": "import net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 499,
+          "after_offset": 683,
+          "old": "public class ParticleMukeWave extends EntityFX {\n",
+          "new": "public class ParticleMukeWave extends Particle {\n"
+        },
+        {
+          "before_offset": 716,
+          "after_offset": 900,
+          "old": "\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 868,
+          "after_offset": 1051,
+          "old": "",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 933,
+          "after_offset": 1143,
+          "old": "",
+          "new": "\t/** This owned flash/jet stays at its spawn point; no Entity contact side effects. */\n\t@Override\n\tpublic void onUpdate() {\n\t\tthis.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\tif(this.particleAge++ >= this.particleMaxAge) this.setExpired();\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 975,
+          "after_offset": 1478,
+          "old": "\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1085,
+          "after_offset": 1587,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {\n\t\t\n",
+          "new": "\t@Override\n\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {\n\n"
+        },
+        {
+          "before_offset": 1242,
+          "after_offset": 1770,
+          "old": "\t\t\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0);\n\t\tGL11.glDepthMask(false);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n",
+          "new": "\n\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGlStateManager.disableLighting();\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0);\n\t\tGlStateManager.depthMask(false);\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGlStateManager.disableCull();\n"
+        },
+        {
+          "before_offset": 1557,
+          "after_offset": 2108,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1607,
+          "after_offset": 2156,
+          "old": "\t\tif(fog) GL11.glDisable(GL11.GL_FOG);\n\t\t\t\n\t\ttess.startDrawingQuads();\n\t\t\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setBrightness(240);\n\t\t\n\t\tthis.particleAlpha = 1 - (((float)this.particleAge + interp) / (float)this.particleMaxAge);\n\t\tfloat scale = (1 - (float)Math.pow(Math.E, (this.particleAge + interp) * -0.125)) * waveScale;\n\t\t\n\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, this.particleAlpha);\n\t\t\n",
+          "new": "\t\tif(fog) GlStateManager.disableFog();\n\n\t\ttess.begin(GL11.GL_QUADS, ParticleVertexFormats.LIT_TEXTURED);\n\n"
+        },
+        {
+          "before_offset": 2303,
+          "after_offset": 2560,
+          "old": "\t\ttess.addVertexWithUV((double)(pX - 1 * scale), (double)(pY - 0.25), (double)(pZ - 1 * scale), 1, 1);\n\t\ttess.addVertexWithUV((double)(pX - 1 * scale), (double)(pY - 0.25), (double)(pZ + 1 * scale), 1, 0);\n\t\ttess.addVertexWithUV((double)(pX + 1 * scale), (double)(pY - 0.25), (double)(pZ + 1 * scale), 0, 0);\n\t\ttess.addVertexWithUV((double)(pX + 1 * scale), (double)(pY - 0.25), (double)(pZ - 1 * scale), 0, 1);\n\t\ttess.draw();\n\t\t\n\t\tGL11.glPolygonOffset(0.0F, 0.0F);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tif(fog) GL11.glEnable(GL11.GL_FOG);\n",
+          "new": "\t\tappendVertices(tess, interp, pX, pY, pZ);\n\t\tTessellator.getInstance().draw();\n\n\t\tGlStateManager.doPolygonOffset(0.0F, 0.0F);\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGlStateManager.enableLighting();\n\t\tif(fog) GlStateManager.enableFog();\n\t\tGlStateManager.depthMask(true);\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableCull();\n\t}\n\n\t// BufferBuilder does not clamp RGBA like the old tessellator did.\n\tprivate void appendVertices(BufferBuilder tess, float interp, float pX, float pY, float pZ) {\n\t\tthis.particleAlpha = 1 - (((float)this.particleAge + interp) / (float)this.particleMaxAge);\n\t\tfloat scale = (1 - (float)Math.pow(Math.E, (this.particleAge + interp) * -0.125)) * waveScale;\n\n\t\ttess.pos((double)(pX - 1 * scale), (double)(pY - 0.25), (double)(pZ - 1 * scale)).tex(1, 1).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(pX - 1 * scale), (double)(pY - 0.25), (double)(pZ + 1 * scale)).tex(1, 0).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(pX + 1 * scale), (double)(pY - 0.25), (double)(pZ + 1 * scale)).tex(0, 0).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(pX + 1 * scale), (double)(pY - 0.25), (double)(pZ - 1 * scale)).tex(0, 1).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticlePlasmaBlast.java": {
+      "before_sha256": "d457dce43ac402b26baf2445e80ec5be28f0081dad45fdedbf3d4d4983abdb19",
+      "after_sha256": "c0b93282ef5dc81e5d90a065f773b0cbe0d7519fe849f4e8171653a1e21c849d",
+      "edits": [
+        {
+          "before_offset": 188,
+          "after_offset": 188,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.OpenGlHelper;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 526,
+          "after_offset": 616,
+          "old": "",
+          "new": "import net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 550,
+          "after_offset": 683,
+          "old": "public class ParticlePlasmaBlast extends EntityFX {\n",
+          "new": "public class ParticlePlasmaBlast extends Particle {\n"
+        },
+        {
+          "before_offset": 770,
+          "after_offset": 903,
+          "old": "",
+          "new": "\tprivate final float pitch;\n\tprivate final float yaw;\n"
+        },
+        {
+          "before_offset": 943,
+          "after_offset": 1130,
+          "old": "",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1079,
+          "after_offset": 1293,
+          "old": "\t\tthis.rotationPitch = pitch;\n\t\tthis.rotationYaw = yaw;\n",
+          "new": "\t\tthis.pitch = pitch;\n\t\tthis.yaw = yaw;\n"
+        },
+        {
+          "before_offset": 1138,
+          "after_offset": 1336,
+          "old": "\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1212,
+          "after_offset": 1409,
+          "old": "\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1285,
+          "after_offset": 1481,
+          "old": "",
+          "new": "\t/** This owned flash/jet stays at its spawn point; no Entity contact side effects. */\n\t@Override\n\tpublic void onUpdate() {\n\t\tthis.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\tif(this.particleAge++ >= this.particleMaxAge) this.setExpired();\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 1328,
+          "after_offset": 1817,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {\n\t\t\n",
+          "new": "\t@Override\n\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {\n\n"
+        },
+        {
+          "before_offset": 1486,
+          "after_offset": 2001,
+          "old": "\t\tGL11.glPushMatrix();\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0);\n\t\tGL11.glDepthMask(false);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n",
+          "new": "\t\tGlStateManager.pushMatrix();\n\t\tGlStateManager.disableLighting();\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0);\n\t\tGlStateManager.depthMask(false);\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\tGlStateManager.disableCull();\n"
+        },
+        {
+          "before_offset": 1779,
+          "after_offset": 2321,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1829,
+          "after_offset": 2369,
+          "old": "\t\tif(fog) GL11.glDisable(GL11.GL_FOG);\n\t\t\n",
+          "new": "\t\tif(fog) GlStateManager.disableFog();\n\n"
+        },
+        {
+          "before_offset": 2166,
+          "after_offset": 2704,
+          "old": "\t\tGL11.glTranslatef(pX, pY, pZ);\n\t\tGL11.glRotated(this.rotationYaw, 0, 1, 0);\n\t\tGL11.glRotated(this.rotationPitch, 1, 0, 0);\n\t\t\t\n\t\ttess.startDrawingQuads();\n\t\t\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setBrightness(240);\n\t\t\n",
+          "new": "\t\tGlStateManager.translate(pX, pY, pZ);\n\t\tGlStateManager.rotate(this.yaw, 0, 1, 0);\n\t\tGlStateManager.rotate(this.pitch, 1, 0, 0);\n\n\t\ttess.begin(GL11.GL_QUADS, ParticleVertexFormats.LIT_TEXTURED);\n\n\t\tappendVertices(tess, interp);\n\t\tTessellator.getInstance().draw();\n\n\t\tif(fog) GlStateManager.enableFog();\n\t\tGlStateManager.doPolygonOffset(0.0F, 0.0F);\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGlStateManager.enableLighting();\n\t\tGlStateManager.popMatrix();\n\t\tGlStateManager.depthMask(true);\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableCull();\n\t}\n\n\t// BufferBuilder does not clamp RGBA like the old tessellator did.\n\tprivate void appendVertices(BufferBuilder tess, float interp) {\n"
+        },
+        {
+          "before_offset": 2592,
+          "after_offset": 3660,
+          "old": "\t\t\n\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n\t\t\n\t\ttess.addVertexWithUV((double)(- 1 * scale), 0, (double)(- 1 * scale), 1, 1);\n\t\ttess.addVertexWithUV((double)(- 1 * scale), 0, (double)(+ 1 * scale), 1, 0);\n\t\ttess.addVertexWithUV((double)(+ 1 * scale), 0, (double)(+ 1 * scale), 0, 0);\n\t\ttess.addVertexWithUV((double)(+ 1 * scale), 0, (double)(- 1 * scale), 0, 1);\n\t\ttess.draw();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3030,
+          "after_offset": 3661,
+          "old": "\t\tif(fog) GL11.glEnable(GL11.GL_FOG);\n\t\tGL11.glPolygonOffset(0.0F, 0.0F);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glDepthMask(true);\n\t\tOpenGlHelper.glBlendFunc(770, 771, 1, 0);\n\t\tGL11.glPopMatrix();\n",
+          "new": "\t\ttess.pos((double)(- 1 * scale), 0, (double)(- 1 * scale)).tex(1, 1).color(MathHelper.clamp(this.particleRed, 0F, 1F), MathHelper.clamp(this.particleGreen, 0F, 1F), MathHelper.clamp(this.particleBlue, 0F, 1F), MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(- 1 * scale), 0, (double)(+ 1 * scale)).tex(1, 0).color(MathHelper.clamp(this.particleRed, 0F, 1F), MathHelper.clamp(this.particleGreen, 0F, 1F), MathHelper.clamp(this.particleBlue, 0F, 1F), MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(+ 1 * scale), 0, (double)(+ 1 * scale)).tex(0, 0).color(MathHelper.clamp(this.particleRed, 0F, 1F), MathHelper.clamp(this.particleGreen, 0F, 1F), MathHelper.clamp(this.particleBlue, 0F, 1F), MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double)(+ 1 * scale), 0, (double)(- 1 * scale)).tex(0, 1).color(MathHelper.clamp(this.particleRed, 0F, 1F), MathHelper.clamp(this.particleGreen, 0F, 1F), MathHelper.clamp(this.particleBlue, 0F, 1F), MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleRBMKFlame.java": {
+      "before_sha256": "fa638a722a2cf402d4a349604ca0d477f4d62a395ae3c7703b81a66f84630a03",
+      "after_sha256": "50895f35791b0f66d37ee91e9f32be994b0636191d0777a2c0cadff0d8598878",
+      "edits": [
+        {
+          "before_offset": 188,
+          "after_offset": 188,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.Minecraft;\nimport net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 336,
+          "after_offset": 516,
+          "old": "import net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 534,
+          "after_offset": 655,
+          "old": "",
+          "new": "import net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 558,
+          "after_offset": 722,
+          "old": "public class ParticleRBMKFlame extends EntityFX {\n",
+          "new": "public class ParticleRBMKFlame extends Particle {\n"
+        },
+        {
+          "before_offset": 907,
+          "after_offset": 1071,
+          "old": "",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1018,
+          "after_offset": 1209,
+          "old": "",
+          "new": "\t}\n\n\t/** This owned flash/jet stays at its spawn point; no Entity contact side effects. */\n\t@Override\n\tpublic void onUpdate() {\n\t\tthis.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\tif(this.particleAge++ >= this.particleMaxAge) this.setExpired();\n"
+        },
+        {
+          "before_offset": 1076,
+          "after_offset": 1549,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {\n",
+          "new": "\t@Override\n\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {\n"
+        },
+        {
+          "before_offset": 1283,
+          "after_offset": 1784,
+          "old": "\t\tif(fog) GL11.glDisable(GL11.GL_FOG);\n\t\t\n\t\tGL11.glPushMatrix();\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0);\n\t\tGL11.glDepthMask(false);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n",
+          "new": "\t\tif(fog) GlStateManager.disableFog();\n\n\t\tGlStateManager.pushMatrix();\n\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGlStateManager.disableLighting();\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0);\n\t\tGlStateManager.depthMask(false);\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n"
+        },
+        {
+          "before_offset": 1623,
+          "after_offset": 2160,
+          "old": "\t\t\n",
+          "new": "\n\t\ttess.begin(GL11.GL_QUADS, ParticleVertexFormats.LIT_TEXTURED);\n\n\t\tfloat pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\n\t\tGlStateManager.translate(pX + x, pY + y, pZ + z);\n\t\tGlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);\n\n\t\tappendVertices(tess);\n\t\tTessellator.getInstance().draw();\n\n\t\tGlStateManager.doPolygonOffset(0.0F, 0.0F);\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGlStateManager.enableLighting();\n\t\tGlStateManager.popMatrix();\n\t\tif(fog) GlStateManager.enableFog();\n\t\tGlStateManager.depthMask(true);\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableCull();\n\t}\n\n\tprotected ResourceLocation getTexture() {\n\t\treturn texture;\n\t}\n\n\t// BufferBuilder does not clamp RGBA like the old tessellator did.\n\tprivate void appendVertices(BufferBuilder tess) {\n"
+        },
+        {
+          "before_offset": 1714,
+          "after_offset": 3369,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1881,
+          "after_offset": 3534,
+          "old": "\t\t\t\n\t\ttess.startDrawingQuads();\n\t\t\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setBrightness(240);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2007,
+          "after_offset": 3562,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 2092,
+          "after_offset": 3645,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 2254,
+          "after_offset": 3805,
+          "old": "\t\t\n\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, this.particleAlpha);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2319,
+          "after_offset": 3806,
+          "old": "\t\tfloat pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\t\t\n\t\tGL11.glTranslatef(pX + x, pY + y, pZ + z);\n\t\tGL11.glRotatef(-RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);\n\n\t\ttess.addVertexWithUV((double) (-this.particleScale - 1), (double) (-this.particleScale * 2), (double) (0), uMax, vMax);\n\t\ttess.addVertexWithUV((double) (-this.particleScale - 1), (double) (this.particleScale * 2), (double) 0, uMax, vMin);\n\t\ttess.addVertexWithUV((double) (this.particleScale - 1), (double) (this.particleScale * 2), (double) (0), uMin, vMin);\n\t\ttess.addVertexWithUV((double) (this.particleScale - 1), (double) (-this.particleScale * 2), (double) (0), uMin, vMax);\n\t\t\n\t\ttess.draw();\n\t\t\n\t\tGL11.glPolygonOffset(0.0F, 0.0F);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glPopMatrix();\n\t\tif(fog) GL11.glEnable(GL11.GL_FOG);\n\t}\n\t\n\tprotected ResourceLocation getTexture() {\n\t\treturn texture;\n",
+          "new": "\t\ttess.pos((double) (-this.particleScale - 1), (double) (-this.particleScale * 2), (double) (0)).tex(uMax, vMax).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double) (-this.particleScale - 1), (double) (this.particleScale * 2), (double) 0).tex(uMax, vMin).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double) (this.particleScale - 1), (double) (this.particleScale * 2), (double) (0)).tex(uMin, vMin).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos((double) (this.particleScale - 1), (double) (-this.particleScale * 2), (double) (0)).tex(uMin, vMax).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleRBMKSteam.java": {
+      "before_sha256": "75ce227d7a476ddca0c764d8ef24af0fbe7339c5f9fd55fb5fd10d85858a31df",
+      "after_sha256": "a8ec8fd6647139b1c4fedfdc47442db7b6ce617e3e0d22e44894b52eb6bc6873",
+      "edits": [
+        {
+          "before_offset": 227,
+          "after_offset": 227,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 375,
+          "after_offset": 516,
+          "old": "import net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 495,
+          "after_offset": 577,
+          "old": "import net.minecraft.entity.player.EntityPlayer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 622,
+          "after_offset": 655,
+          "old": "",
+          "new": "import net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 646,
+          "after_offset": 722,
+          "old": "public class ParticleRBMKSteam extends EntityFX {\n",
+          "new": "public class ParticleRBMKSteam extends Particle {\n"
+        },
+        {
+          "before_offset": 988,
+          "after_offset": 1064,
+          "old": "",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1106,
+          "after_offset": 1209,
+          "old": "",
+          "new": "\t}\n\n\t/** This owned flash/jet stays at its spawn point; no Entity contact side effects. */\n\t@Override\n\tpublic void onUpdate() {\n\t\tthis.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\tif(this.particleAge++ >= this.particleMaxAge) this.setExpired();\n"
+        },
+        {
+          "before_offset": 1164,
+          "after_offset": 1549,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {\n",
+          "new": "\t@Override\n\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {\n\n\t\tEntity player = camera != null ? camera : Minecraft.getMinecraft().player;\n\t\tif(player == null) return;\n"
+        },
+        {
+          "before_offset": 1371,
+          "after_offset": 1891,
+          "old": "\t\tif(fog) GL11.glDisable(GL11.GL_FOG);\n\t\t\n\t\tGL11.glPushMatrix();\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0);\n\t\tGL11.glDepthMask(false);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n",
+          "new": "\t\tif(fog) GlStateManager.disableFog();\n\n\t\tGlStateManager.pushMatrix();\n\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tGlStateManager.disableLighting();\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0);\n\t\tGlStateManager.depthMask(false);\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n"
+        },
+        {
+          "before_offset": 1711,
+          "after_offset": 2267,
+          "old": "\t\t\n",
+          "new": "\n\t\ttess.begin(GL11.GL_QUADS, ParticleVertexFormats.LIT_TEXTURED);\n\n\t\tdouble dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;\n\t\tdouble dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;\n\t\tdouble dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;\n\n\t\tfloat pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - dX);\n\t\tfloat pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - dY);\n\t\tfloat pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - dZ);\n\n\t\tGlStateManager.translate(pX + x, pY + y, pZ + z);\n\t\tGlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);\n\n\t\tappendVertices(tess);\n\t\tTessellator.getInstance().draw();\n\n\t\tGlStateManager.doPolygonOffset(0.0F, 0.0F);\n\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGlStateManager.enableLighting();\n\t\tGlStateManager.popMatrix();\n\t\tif(fog) GlStateManager.enableFog();\n\t\tGlStateManager.depthMask(true);\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableCull();\n\t}\n\n\tprotected ResourceLocation getTexture() {\n\t\treturn texture;\n\t}\n\n\t// BufferBuilder does not clamp RGBA like the old tessellator did.\n\tprivate void appendVertices(BufferBuilder tess) {\n"
+        },
+        {
+          "before_offset": 1802,
+          "after_offset": 3723,
+          "old": "\t\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 2020,
+          "after_offset": 3939,
+          "old": "\t\t\t\n\t\ttess.startDrawingQuads();\n\t\t\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setBrightness(240);\n\t\t\n\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, this.particleAlpha);\n\t\t\n\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n\t\tdouble dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;\n\t\tdouble dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;\n\t\tdouble dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2516,
+          "after_offset": 3940,
+          "old": "\t\tfloat pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - dX);\n\t\tfloat pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - dY);\n\t\tfloat pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - dZ);\n\t\t\n\t\tGL11.glTranslatef(pX + x, pY + y, pZ + z);\n\t\tGL11.glRotatef(-RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);\n\n\t\ttess.addVertexWithUV(this.particleScale * -0.25 - 0.9375, -0.25, 0, uMax, vMax);\n\t\ttess.addVertexWithUV(this.particleScale * -0.25 - 0.9375, this.particleScale - 0.25, 0, uMax, vMin);\n\t\ttess.addVertexWithUV(this.particleScale * 0.25 - 0.9375, this.particleScale - 0.25, 0, uMin, vMin);\n\t\ttess.addVertexWithUV(this.particleScale * 0.25 - 0.9375, -0.25, 0, uMin, vMax);\n\t\t\n\t\ttess.draw();\n\t\t\n\t\tGL11.glPolygonOffset(0.0F, 0.0F);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glPopMatrix();\n\t\tif(fog) GL11.glEnable(GL11.GL_FOG);\n\t}\n\t\n\tprotected ResourceLocation getTexture() {\n\t\treturn texture;\n",
+          "new": "\t\ttess.pos(this.particleScale * -0.25 - 0.9375, -0.25, 0).tex(uMax, vMax).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos(this.particleScale * -0.25 - 0.9375, this.particleScale - 0.25, 0).tex(uMax, vMin).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos(this.particleScale * 0.25 - 0.9375, this.particleScale - 0.25, 0).tex(uMin, vMin).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n\t\ttess.pos(this.particleScale * 0.25 - 0.9375, -0.25, 0).tex(uMin, vMax).color(1F, 1F, 1F, MathHelper.clamp(this.particleAlpha, 0F, 1F)).lightmap(0, 240).normal(0, 1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderCable.java": {
+      "before_sha256": "85640f7371d031449980c3f279d7558e80302bfb6cd45306f95715eb2cc9daa5",
+      "after_sha256": "0d22ddf12102657680c837682d57ba506fe83f946d2702cba43cc26cef6cae96",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.blocks.network.ConnectionState;\nimport com.hbm.render.block.nativeblock.ConnectionQuadFactory;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 384,
+          "old": "import com.hbm.blocks.network.BlockCable;\nimport com.hbm.lib.Library;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderCable implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\tGL11.glRotated(180, 0, 1, 0);\n\t\tGL11.glScaled(1.25D, 1.25D, 1.25D);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"Core\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posX\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negX\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posZ\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negZ\", iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tboolean pX = Library.canConnect(world, x + 1, y, z, Library.POS_X);\n\t\tboolean nX = Library.canConnect(world, x - 1, y, z, Library.NEG_X);\n\t\tboolean pY = Library.canConnect(world, x, y + 1, z, Library.POS_Y);\n\t\tboolean nY = Library.canConnect(world, x, y - 1, z, Library.NEG_Y);\n\t\tboolean pZ = Library.canConnect(world, x, y, z + 1, Library.POS_Z);\n\t\tboolean nZ = Library.canConnect(world, x, y, z - 1, Library.NEG_Z);\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\n\t\tif(pX && nX && !pY && !nY && !pZ && !nZ)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CX\", iicon, tessellator, 0, true);\n\t\telse if(!pX && !nX && pY && nY && !pZ && !nZ)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CY\", iicon, tessellator, 0, true);\n\t\telse if(!pX && !nX && !pY && !nY && pZ && nZ)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CZ\", iicon, tessellator, 0, true);\n\t\t\n\t\telse {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"Core\", iicon, tessellator, 0, true);\n\t\t\tif(pX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posX\", iicon, tessellator, 0, true);\n\t\t\tif(nX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negX\", iicon, tessellator, 0, true);\n\t\t\tif(pY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posY\", iicon, tessellator, 0, true);\n\t\t\tif(nY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negY\", iicon, tessellator, 0, true);\n\t\t\tif(nZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posZ\", iicon, tessellator, 0, true);\n\t\t\tif(pZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negZ\", iicon, tessellator, 0, true);\n\t\t}\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockCable.renderID;\n\t}\n",
+          "new": "/** Native successor of the original cable renderer, using its original OBJ groups. */\npublic final class RenderCable {\n    private RenderCable() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int connections, boolean inventory, TextureAtlasSprite sprite) {\n        if(connections < 0 || connections > 63) throw new IllegalArgumentException(\"Invalid connection mask \" + connections);\n        List<String> groups = new ArrayList<>();\n        if(inventory) Collections.addAll(groups, \"Core\", \"posX\", \"negX\", \"posZ\", \"negZ\");\n        else if(connections == (ConnectionState.POS_X | ConnectionState.NEG_X)) groups.add(\"CX\");\n        else if(connections == (ConnectionState.POS_Y | ConnectionState.NEG_Y)) groups.add(\"CY\");\n        else if(connections == (ConnectionState.POS_Z | ConnectionState.NEG_Z)) groups.add(\"CZ\");\n        else {\n            groups.add(\"Core\");\n            int[] bits = {32, 16, 8, 4, 1, 2};\n            String[] arms = {\"posX\", \"negX\", \"posY\", \"negY\", \"posZ\", \"negZ\"};\n            // The original mesh reverses the world Z-arm names.\n            for(int i = 0; i < bits.length; i++) if((connections & bits[i]) != 0) groups.add(arms[i]);\n        }\n        List<BakedQuad> result = new ArrayList<>();\n        for(String name : groups) {\n            ObjMesh.Part selected = null;\n            for(ObjMesh.Part part : mesh.parts) if(name.equals(part.name)) selected = part;\n            if(selected == null) throw new IllegalArgumentException(\"Missing cable OBJ part \" + name);\n            for(ObjMesh.Face face : selected.faces) {\n                float nx = face.normal.x, ny = face.normal.y, nz = face.normal.z;\n                float shade = inventory ? 1 : Math.max(.45F, ny * .3F + .7F - Math.abs(nx) * .1F + Math.abs(nz) * .1F);\n                double[] vertices = new double[20];\n                for(int v = 0; v < 4; v++) {\n                    ObjMesh.Corner corner = face.corners.get(Math.min(v, face.corners.size() - 1));\n                    if(corner.uv == null) throw new IllegalArgumentException(\"Cable OBJ requires UVs\");\n                    vertices[v * 5] = .5D + corner.position.x * (inventory ? -1.25D : 1D);\n                    vertices[v * 5 + 1] = .5D + corner.position.y * (inventory ? 1.25D : 1D);\n                    vertices[v * 5 + 2] = .5D + corner.position.z * (inventory ? -1.25D : 1D);\n                    vertices[v * 5 + 3] = corner.uv.x * 16D;\n                    vertices[v * 5 + 4] = corner.uv.y * 16D;\n                }\n                result.add(ConnectionQuadFactory.quad(sprite, inventory, shade, inventory ? -nx : nx, ny, inventory ? -nz : nz, vertices));\n            }\n        }\n        return Collections.unmodifiableList(result);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderCableClassic.java": {
+      "before_sha256": "58fa0b9e221b71bfffc7572bf7271c35fbf71a8dadd6850d4f56c790bc0c700b",
+      "after_sha256": "f0f9496664e9e05ce3de1fab425ac63ecbcf1ffc2bee0795c2fd7038dfe05151",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.ConnectionQuadFactory;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 301,
+          "old": "import com.hbm.blocks.network.BlockCable;\nimport com.hbm.lib.Library;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderCableClassic implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tGL11.glScaled(1.25D, 1.25D, 1.25D);\n\t\tGL11.glTranslated(-0.5, -0.5, -0.5);\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\t\n\t\tdouble uv_cL = iicon.getMinU();\n\t\tdouble uv_cR = iicon.getInterpolatedU(5);\n\t\tdouble uv_cT = iicon.getMinV();\n\t\tdouble uv_cB = iicon.getInterpolatedV(5);\n\t\t\n\t\tdouble uv_sL = iicon.getInterpolatedU(5);\n\t\tdouble uv_sR = iicon.getInterpolatedU(10);\n\t\tdouble uv_sT = iicon.getMinV();\n\t\tdouble uv_sB = iicon.getInterpolatedV(5);\n\t\t\n\t\tdouble pos_nil = 0D;\n\t\tdouble pos_one = 1D;\n\t\tdouble pos_min = 0.34375D;\n\t\tdouble pos_max = 0.65625D;\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setColorOpaque_F(1F, 1F, 1F);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_min, uv_cR, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_min, uv_cL, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_max, uv_cL, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_max, uv_cR, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_max, pos_max, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_max, pos_min, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_max, pos_min, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_max, pos_max, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_one, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_one, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_nil, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_nil, uv_sR, uv_sT);\n\t\ttessellator.draw();\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_min, uv_cL, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_min, uv_cR, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_max, uv_cR, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_max, uv_cL, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_min, pos_min, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_min, pos_max, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_min, pos_max, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_min, pos_min, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_one, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_one, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_nil, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_nil, uv_sR, uv_sT);\n\t\ttessellator.draw();\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_one, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_one, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_nil, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_nil, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_one, pos_max, pos_min, uv_cR, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_one, pos_max, pos_max, uv_cL, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_one, pos_min, pos_max, uv_cL, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_min, pos_min, uv_cR, uv_cB);\n\t\ttessellator.draw();\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_one, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_one, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_nil, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_nil, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_max, pos_max, uv_cR, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_max, pos_min, uv_cL, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_min, pos_min, uv_cL, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_min, pos_max, uv_cR, uv_cB);\n\t\ttessellator.draw();\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_min, pos_max, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_max, pos_max, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_max, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_max, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_max, pos_max, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_min, pos_max, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_one, uv_cR, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_one, uv_cL, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_one, uv_cL, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_one, uv_cR, uv_cB);\n\t\ttessellator.draw();\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_max, pos_min, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_one, pos_min, pos_min, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_min, uv_sL, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_min, uv_sL, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_min, pos_min, uv_sR, uv_sB);\n\t\ttessellator.addVertexWithUV(pos_nil, pos_max, pos_min, uv_sR, uv_sT);\n\t\ttessellator.addVertexWithUV(pos_min, pos_max, pos_nil, uv_cR, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_max, pos_nil, uv_cL, uv_cT);\n\t\ttessellator.addVertexWithUV(pos_max, pos_min, pos_nil, uv_cL, uv_cB);\n\t\ttessellator.addVertexWithUV(pos_min, pos_min, pos_nil, uv_cR, uv_cB);\n\t\ttessellator.draw();\n\t\t\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tboolean pX = Library.canConnect(world, x + 1, y, z, Library.POS_X);\n\t\tboolean nX = Library.canConnect(world, x - 1, y, z, Library.NEG_X);\n\t\tboolean pY = Library.canConnect(world, x, y + 1, z, Library.POS_Y);\n\t\tboolean nY = Library.canConnect(world, x, y - 1, z, Library.NEG_Y);\n\t\tboolean pZ = Library.canConnect(world, x, y, z + 1, Library.POS_Z);\n\t\tboolean nZ = Library.canConnect(world, x, y, z - 1, Library.NEG_Z);\n\n\t\tdouble uv_cL = iicon.getMinU();\n\t\tdouble uv_cR = iicon.getInterpolatedU(5);\n\t\tdouble uv_cT = iicon.getMinV();\n\t\tdouble uv_cB = iicon.getInterpolatedV(5);\n\t\t\n\t\tdouble uv_sL = iicon.getInterpolatedU(5);\n\t\tdouble uv_sR = iicon.getInterpolatedU(10);\n\t\tdouble uv_sT = iicon.getMinV();\n\t\tdouble uv_sB = iicon.getInterpolatedV(5);\n\t\t\n\t\tdouble pos_nil = 0D;\n\t\tdouble pos_one = 1D;\n\t\tdouble pos_min = 0.34375D;\n\t\tdouble pos_max = 0.65625D;\n\n\t\tfloat topColor = 1.0F;\n\t\tfloat brightColor = 0.8F;\n\t\tfloat darkColor = 0.6F;\n\t\tfloat bottomColor = 0.5F;\n\t\t\n\t\t//this is a lot less tedious than it looks when you draw a 3D cube to take the vertex positions from\n\t\tif(!pY) {\n\t\t\ttessellator.setColorOpaque_F(topColor, topColor, topColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_cR, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_cL, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_cL, uv_cB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_cR, uv_cB);\n\t\t} else {\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_one, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_one, z + pos_min, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_one, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_one, z + pos_max, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_one, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_one, z + pos_max, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_one, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_one, z + pos_min, uv_sR, uv_sT);\n\t\t}\n\t\t\n\t\tif(!nY) {\n\t\t\ttessellator.setColorOpaque_F(bottomColor, bottomColor, bottomColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_cL, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_cR, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_cR, uv_cB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_cL, uv_cB);\n\t\t} else {\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_nil, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_nil, z + pos_min, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_nil, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_nil, z + pos_min, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_nil, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_nil, z + pos_max, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_nil, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_nil, z + pos_max, uv_sR, uv_sT);\n\t\t}\n\t\t\n\t\tif(!pX) {\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_cR, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_cL, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_cL, uv_cB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_cR, uv_cB);\n\t\t} else {\n\t\t\ttessellator.setColorOpaque_F(topColor, topColor, topColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_max, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_max, z + pos_min, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_max, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_min, z + pos_min, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(bottomColor, bottomColor, bottomColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_min, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_min, z + pos_max, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_min, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_one, y + pos_max, z + pos_max, uv_sR, uv_sT);\n\t\t}\n\t\t\n\t\tif(!nX) {\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_cR, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_cL, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_cL, uv_cB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_cR, uv_cB);\n\t\t} else {\n\t\t\ttessellator.setColorOpaque_F(topColor, topColor, topColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_max, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_max, z + pos_max, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_min, z + pos_min, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_max, z + pos_min, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(bottomColor, bottomColor, bottomColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_min, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_min, z + pos_min, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_max, z + pos_max, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_nil, y + pos_min, z + pos_max, uv_sR, uv_sT);\n\t\t}\n\t\t\n\t\tif(!pZ) {\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_cR, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_cL, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_cL, uv_cB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_cR, uv_cB);\n\t\t} else {\n\t\t\ttessellator.setColorOpaque_F(topColor, topColor, topColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_one, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_one, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_one, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_one, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(bottomColor, bottomColor, bottomColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_one, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_one, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_max, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_max, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_one, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_one, uv_sR, uv_sT);\n\t\t}\n\t\t\n\t\tif(!nZ) {\n\t\t\ttessellator.setColorOpaque_F(brightColor, brightColor, brightColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_cR, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_cL, uv_cT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_cL, uv_cB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_cR, uv_cB);\n\t\t} else {\n\t\t\ttessellator.setColorOpaque_F(topColor, topColor, topColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_nil, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_nil, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_max, z + pos_nil, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_nil, uv_sR, uv_sT);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(bottomColor, bottomColor, bottomColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_min, y + pos_min, z + pos_nil, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_nil, uv_sR, uv_sT);\n\n\t\t\ttessellator.setColorOpaque_F(darkColor, darkColor, darkColor);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_min, uv_sL, uv_sT);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_min, uv_sL, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_min, z + pos_nil, uv_sR, uv_sB);\n\t\t\ttessellator.addVertexWithUV(x + pos_max, y + pos_max, z + pos_nil, uv_sR, uv_sT);\n\t\t}\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockCable.renderIDClassic;\n\t}\n\n",
+          "new": "/** Native classic cable's authored arm/cap geometry. No cuboid approximation or topology changes. */\npublic final class RenderCableClassic {\n    private RenderCableClassic() { }\n    public static List<BakedQuad> bake(int connections, boolean inventory, TextureAtlasSprite sprite) {\n        if(connections < 0 || connections > 63) throw new IllegalArgumentException(\"Invalid connection mask \" + connections);\n        List<BakedQuad> result = new ArrayList<>();\n        for(double[] face : inventory ? INVENTORY : WORLD) {\n            int condition = (int)face[0];\n            if(!inventory && ((connections & Math.abs(condition)) != 0) != (condition > 0)) continue;\n            double[] vertices = new double[20];\n            System.arraycopy(face, 5, vertices, 0, 20);\n            if(inventory) for(int vertex = 0; vertex < 4; vertex++) for(int axis = 0; axis < 3; axis++)\n                vertices[vertex * 5 + axis] = (vertices[vertex * 5 + axis] - .5D) * 1.25D + .5D;\n            result.add(ConnectionQuadFactory.quad(sprite, inventory, (float)face[1], (float)face[2], (float)face[3], (float)face[4], vertices));\n        }\n        return Collections.unmodifiableList(result);\n    }\n    // Each row is signed connection bit (positive: connected, negative: closed),\n    // original shade, geometric normal, then four original XYZ + pixel-UV corners.\n    // Inventory is separately authored: four horizontal arms and their outer caps.\n    private static final double[][] INVENTORY = {\n        {0, 1, 0, 1, 0, 0.65625, 0.65625, 0.34375, 5, 0, 0.34375, 0.65625, 0.34375, 0, 0, 0.34375, 0.65625, 0.65625, 0, 5, 0.65625, 0.65625, 0.65625, 5, 5},\n        {0, 1, 0, 1, 0, 0.65625, 0.65625, 0.34375, 5, 0, 0.65625, 0.65625, 0.65625, 5, 5, 1, 0.65625, 0.65625, 10, 5, 1, 0.65625, 0.34375, 10, 0},\n        {0, 1, 0, 1, 0, 0.34375, 0.65625, 0.65625, 5, 0, 0.34375, 0.65625, 0.34375, 5, 5, 0, 0.65625, 0.34375, 10, 5, 0, 0.65625, 0.65625, 10, 0},\n        {0, 1, 0, 1, 0, 0.65625, 0.65625, 0.65625, 5, 0, 0.34375, 0.65625, 0.65625, 5, 5, 0.34375, 0.65625, 1, 10, 5, 0.65625, 0.65625, 1, 10, 0},\n        {0, 1, 0, 1, 0, 0.34375, 0.65625, 0.34375, 5, 0, 0.65625, 0.65625, 0.34375, 5, 5, 0.65625, 0.65625, 0, 10, 5, 0.34375, 0.65625, 0, 10, 0},\n        {0, 1, 0, -1, 0, 0.34375, 0.34375, 0.34375, 0, 0, 0.65625, 0.34375, 0.34375, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 0.34375, 0.34375, 0.65625, 0, 5},\n        {0, 1, 0, -1, 0, 0.65625, 0.34375, 0.65625, 5, 0, 0.65625, 0.34375, 0.34375, 5, 5, 1, 0.34375, 0.34375, 10, 5, 1, 0.34375, 0.65625, 10, 0},\n        {0, 1, 0, -1, 0, 0.34375, 0.34375, 0.34375, 5, 0, 0.34375, 0.34375, 0.65625, 5, 5, 0, 0.34375, 0.65625, 10, 5, 0, 0.34375, 0.34375, 10, 0},\n        {0, 1, 0, -1, 0, 0.34375, 0.34375, 0.65625, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 0.65625, 0.34375, 1, 10, 5, 0.34375, 0.34375, 1, 10, 0},\n        {0, 1, 0, -1, 0, 0.65625, 0.34375, 0.34375, 5, 0, 0.34375, 0.34375, 0.34375, 5, 5, 0.34375, 0.34375, 0, 10, 5, 0.65625, 0.34375, 0, 10, 0},\n        {0, 1, 1, 0, 0, 0.65625, 0.34375, 0.65625, 5, 0, 0.65625, 0.65625, 0.65625, 5, 5, 0.65625, 0.65625, 1, 10, 5, 0.65625, 0.34375, 1, 10, 0},\n        {0, 1, 1, 0, 0, 0.65625, 0.65625, 0.34375, 5, 0, 0.65625, 0.34375, 0.34375, 5, 5, 0.65625, 0.34375, 0, 10, 5, 0.65625, 0.65625, 0, 10, 0},\n        {0, 1, 1, 0, 0, 1, 0.65625, 0.34375, 5, 0, 1, 0.65625, 0.65625, 0, 0, 1, 0.34375, 0.65625, 0, 5, 1, 0.34375, 0.34375, 5, 5},\n        {0, 1, -1, 0, 0, 0.34375, 0.65625, 0.65625, 5, 0, 0.34375, 0.34375, 0.65625, 5, 5, 0.34375, 0.34375, 1, 10, 5, 0.34375, 0.65625, 1, 10, 0},\n        {0, 1, -1, 0, 0, 0.34375, 0.34375, 0.34375, 5, 0, 0.34375, 0.65625, 0.34375, 5, 5, 0.34375, 0.65625, 0, 10, 5, 0.34375, 0.34375, 0, 10, 0},\n        {0, 1, -1, 0, 0, 0, 0.65625, 0.65625, 5, 0, 0, 0.65625, 0.34375, 0, 0, 0, 0.34375, 0.34375, 0, 5, 0, 0.34375, 0.65625, 5, 5},\n        {0, 1, 0, 0, 1, 0.65625, 0.65625, 0.65625, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 1, 0.34375, 0.65625, 10, 5, 1, 0.65625, 0.65625, 10, 0},\n        {0, 1, 0, 0, 1, 0.34375, 0.34375, 0.65625, 5, 0, 0.34375, 0.65625, 0.65625, 5, 5, 0, 0.65625, 0.65625, 10, 5, 0, 0.34375, 0.65625, 10, 0},\n        {0, 1, 0, 0, 1, 0.65625, 0.65625, 1, 5, 0, 0.34375, 0.65625, 1, 0, 0, 0.34375, 0.34375, 1, 0, 5, 0.65625, 0.34375, 1, 5, 5},\n        {0, 1, 0, 0, -1, 0.65625, 0.34375, 0.34375, 5, 0, 0.65625, 0.65625, 0.34375, 5, 5, 1, 0.65625, 0.34375, 10, 5, 1, 0.34375, 0.34375, 10, 0},\n        {0, 1, 0, 0, -1, 0.34375, 0.65625, 0.34375, 5, 0, 0.34375, 0.34375, 0.34375, 5, 5, 0, 0.34375, 0.34375, 10, 5, 0, 0.65625, 0.34375, 10, 0},\n        {0, 1, 0, 0, -1, 0.34375, 0.65625, 0, 5, 0, 0.65625, 0.65625, 0, 0, 0, 0.65625, 0.34375, 0, 0, 5, 0.34375, 0.34375, 0, 5, 5},\n    };\n    private static final double[][] WORLD = {\n        {-8, 1, 0.0, 1.0, 0.0, 0.65625, 0.65625, 0.34375, 5, 0, 0.34375, 0.65625, 0.34375, 0, 0, 0.34375, 0.65625, 0.65625, 0, 5, 0.65625, 0.65625, 0.65625, 5, 5},\n        {8, 0.8, 0.0, 0.0, -1.0, 0.65625, 0.65625, 0.34375, 5, 0, 0.34375, 0.65625, 0.34375, 5, 5, 0.34375, 1, 0.34375, 10, 5, 0.65625, 1, 0.34375, 10, 0},\n        {8, 0.6, 1.0, 0.0, 0.0, 0.65625, 0.65625, 0.65625, 5, 0, 0.65625, 0.65625, 0.34375, 5, 5, 0.65625, 1, 0.34375, 10, 5, 0.65625, 1, 0.65625, 10, 0},\n        {8, 0.8, 0.0, 0.0, 1.0, 0.34375, 0.65625, 0.65625, 5, 0, 0.65625, 0.65625, 0.65625, 5, 5, 0.65625, 1, 0.65625, 10, 5, 0.34375, 1, 0.65625, 10, 0},\n        {8, 0.6, -1.0, 0.0, 0.0, 0.34375, 0.65625, 0.34375, 5, 0, 0.34375, 0.65625, 0.65625, 5, 5, 0.34375, 1, 0.65625, 10, 5, 0.34375, 1, 0.34375, 10, 0},\n        {-4, 0.5, 0.0, -1.0, 0.0, 0.34375, 0.34375, 0.34375, 0, 0, 0.65625, 0.34375, 0.34375, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 0.34375, 0.34375, 0.65625, 0, 5},\n        {4, 0.8, 0.0, 0.0, -1.0, 0.34375, 0.34375, 0.34375, 5, 0, 0.65625, 0.34375, 0.34375, 5, 5, 0.65625, 0, 0.34375, 10, 5, 0.34375, 0, 0.34375, 10, 0},\n        {4, 0.6, 1.0, 0.0, 0.0, 0.65625, 0.34375, 0.34375, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 0.65625, 0, 0.65625, 10, 5, 0.65625, 0, 0.34375, 10, 0},\n        {4, 0.8, 0.0, 0.0, 1.0, 0.65625, 0.34375, 0.65625, 5, 0, 0.34375, 0.34375, 0.65625, 5, 5, 0.34375, 0, 0.65625, 10, 5, 0.65625, 0, 0.65625, 10, 0},\n        {4, 0.6, -1.0, 0.0, 0.0, 0.34375, 0.34375, 0.65625, 5, 0, 0.34375, 0.34375, 0.34375, 5, 5, 0.34375, 0, 0.34375, 10, 5, 0.34375, 0, 0.65625, 10, 0},\n        {-32, 0.6, 1.0, 0.0, 0.0, 0.65625, 0.65625, 0.34375, 5, 0, 0.65625, 0.65625, 0.65625, 0, 0, 0.65625, 0.34375, 0.65625, 0, 5, 0.65625, 0.34375, 0.34375, 5, 5},\n        {32, 1, 0.0, 1.0, 0.0, 0.65625, 0.65625, 0.34375, 5, 0, 0.65625, 0.65625, 0.65625, 5, 5, 1, 0.65625, 0.65625, 10, 5, 1, 0.65625, 0.34375, 10, 0},\n        {32, 0.8, 0.0, 0.0, -1.0, 0.65625, 0.34375, 0.34375, 5, 0, 0.65625, 0.65625, 0.34375, 5, 5, 1, 0.65625, 0.34375, 10, 5, 1, 0.34375, 0.34375, 10, 0},\n        {32, 0.5, 0.0, -1.0, 0.0, 0.65625, 0.34375, 0.65625, 5, 0, 0.65625, 0.34375, 0.34375, 5, 5, 1, 0.34375, 0.34375, 10, 5, 1, 0.34375, 0.65625, 10, 0},\n        {32, 0.8, 0.0, 0.0, 1.0, 0.65625, 0.65625, 0.65625, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 1, 0.34375, 0.65625, 10, 5, 1, 0.65625, 0.65625, 10, 0},\n        {-16, 0.6, -1.0, 0.0, 0.0, 0.34375, 0.65625, 0.65625, 5, 0, 0.34375, 0.65625, 0.34375, 0, 0, 0.34375, 0.34375, 0.34375, 0, 5, 0.34375, 0.34375, 0.65625, 5, 5},\n        {16, 1, 0.0, 1.0, 0.0, 0.34375, 0.65625, 0.65625, 5, 0, 0.34375, 0.65625, 0.34375, 5, 5, 0, 0.65625, 0.34375, 10, 5, 0, 0.65625, 0.65625, 10, 0},\n        {16, 0.8, 0.0, 0.0, -1.0, 0.34375, 0.65625, 0.34375, 5, 0, 0.34375, 0.34375, 0.34375, 5, 5, 0, 0.34375, 0.34375, 10, 5, 0, 0.65625, 0.34375, 10, 0},\n        {16, 0.5, 0.0, -1.0, 0.0, 0.34375, 0.34375, 0.34375, 5, 0, 0.34375, 0.34375, 0.65625, 5, 5, 0, 0.34375, 0.65625, 10, 5, 0, 0.34375, 0.34375, 10, 0},\n        {16, 0.8, 0.0, 0.0, 1.0, 0.34375, 0.34375, 0.65625, 5, 0, 0.34375, 0.65625, 0.65625, 5, 5, 0, 0.65625, 0.65625, 10, 5, 0, 0.34375, 0.65625, 10, 0},\n        {-2, 0.8, 0.0, 0.0, 1.0, 0.65625, 0.65625, 0.65625, 5, 0, 0.34375, 0.65625, 0.65625, 0, 0, 0.34375, 0.34375, 0.65625, 0, 5, 0.65625, 0.34375, 0.65625, 5, 5},\n        {2, 1, 0.0, 1.0, 0.0, 0.65625, 0.65625, 0.65625, 5, 0, 0.34375, 0.65625, 0.65625, 5, 5, 0.34375, 0.65625, 1, 10, 5, 0.65625, 0.65625, 1, 10, 0},\n        {2, 0.6, -1.0, 0.0, 0.0, 0.34375, 0.65625, 0.65625, 5, 0, 0.34375, 0.34375, 0.65625, 5, 5, 0.34375, 0.34375, 1, 10, 5, 0.34375, 0.65625, 1, 10, 0},\n        {2, 0.5, 0.0, -1.0, 0.0, 0.34375, 0.34375, 0.65625, 5, 0, 0.65625, 0.34375, 0.65625, 5, 5, 0.65625, 0.34375, 1, 10, 5, 0.34375, 0.34375, 1, 10, 0},\n        {2, 0.6, 1.0, 0.0, 0.0, 0.65625, 0.34375, 0.65625, 5, 0, 0.65625, 0.65625, 0.65625, 5, 5, 0.65625, 0.65625, 1, 10, 5, 0.65625, 0.34375, 1, 10, 0},\n        {-1, 0.8, 0.0, 0.0, -1.0, 0.34375, 0.65625, 0.34375, 5, 0, 0.65625, 0.65625, 0.34375, 0, 0, 0.65625, 0.34375, 0.34375, 0, 5, 0.34375, 0.34375, 0.34375, 5, 5},\n        {1, 1, 0.0, 1.0, 0.0, 0.34375, 0.65625, 0.34375, 5, 0, 0.65625, 0.65625, 0.34375, 5, 5, 0.65625, 0.65625, 0, 10, 5, 0.34375, 0.65625, 0, 10, 0},\n        {1, 0.6, -1.0, 0.0, 0.0, 0.34375, 0.34375, 0.34375, 5, 0, 0.34375, 0.65625, 0.34375, 5, 5, 0.34375, 0.65625, 0, 10, 5, 0.34375, 0.34375, 0, 10, 0},\n        {1, 0.5, 0.0, -1.0, 0.0, 0.65625, 0.34375, 0.34375, 5, 0, 0.34375, 0.34375, 0.34375, 5, 5, 0.34375, 0.34375, 0, 10, 5, 0.65625, 0.34375, 0, 10, 0},\n        {1, 0.6, 1.0, 0.0, 0.0, 0.65625, 0.65625, 0.34375, 5, 0, 0.65625, 0.34375, 0.34375, 5, 5, 0.65625, 0.34375, 0, 10, 5, 0.65625, 0.65625, 0, 10, 0},\n    };\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/ItemRenderMissileGeneric.java": {
+      "before_sha256": "a4f49ca8e807f4a266a47770a2bba7408f9284729d09ba5c1921f5e9ad0d341d",
+      "after_sha256": "1992419e4bf1926e90b6d87fb351b51a6f5a9db956d0326745aefcaa50de5a2f",
+      "edits": [
+        {
+          "before_offset": 288,
+          "after_offset": 288,
+          "old": "import net.minecraft.client.renderer.RenderHelper;\n",
+          "new": "import javax.vecmath.Matrix4f;\nimport com.hbm.render.item.nativeitem.ItemTransformMatrix;\nimport com.hbm.render.item.nativeitem.direct.DirectMeshItemRenderer;\nimport net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;\n"
+        },
+        {
+          "before_offset": 481,
+          "after_offset": 674,
+          "old": "import net.minecraftforge.client.IItemRenderer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 568,
+          "after_offset": 713,
+          "old": "public class ItemRenderMissileGeneric implements IItemRenderer {\n",
+          "new": "public class ItemRenderMissileGeneric extends DirectMeshItemRenderer {\n"
+        },
+        {
+          "before_offset": 1009,
+          "after_offset": 1160,
+          "old": "\t@Override\n\tpublic boolean handleRenderType(ItemStack item, ItemRenderType type) {\n\t\tswitch(type) {\n\t\tcase EQUIPPED:\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\tcase ENTITY:\n\t\tcase INVENTORY:\n\t\t\treturn true;\n\t\tdefault: return false;\n\t\t}\n\t}\n",
+          "new": "    @Override public Matrix4f localTransform(TransformType perspective, long timeMillis) {\n        ItemTransformMatrix matrix = new ItemTransformMatrix();\n        switch(perspective) {\n        case THIRD_PERSON_LEFT_HAND:\n        case THIRD_PERSON_RIGHT_HAND: return matrix.translate(.5, -.25, 0).scale(.15).build();\n        case FIRST_PERSON_LEFT_HAND:\n        case FIRST_PERSON_RIGHT_HAND: return matrix.translate(.5, .25, 0).scale(.1).build();\n        case GUI:\n            double guiScale = 1, guiOffset = 0;\n            switch(type) {\n            case TYPE_TIER0: guiScale = 3.75D; guiOffset = 10.75D; break;\n            case TYPE_TIER1: guiScale = 2.5D; guiOffset = 8.5D; break;\n            case TYPE_TIER2: guiScale = 2D; guiOffset = 6.5D; break;\n            case TYPE_TIER3: guiScale = 1.25D; guiOffset = 1D; break;\n            case TYPE_STEALTH: guiScale = 1.75D; guiOffset = 4.75D; break;\n            case TYPE_ABM: guiScale = 2.25D; guiOffset = 7D; break;\n            case TYPE_NUCLEAR: guiScale = 1.375D; guiOffset = 1.5D; break;\n            case TYPE_ROBIN: guiScale = 1.25D; guiOffset = 2D; break;\n            }\n            return matrix.scale(guiScale).rotateZ(135).rotateY(timeMillis / 15 % 360)\n                    .translate(0, -16 + guiOffset, 0).build();\n        default: return matrix.scale(.15).build();\n        }\n    }\n"
+        },
+        {
+          "before_offset": 1238,
+          "after_offset": 2503,
+          "old": "\t@Override\n\tpublic boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {\n\t\treturn helper == ItemRendererHelper.ENTITY_BOBBING || helper == ItemRendererHelper.ENTITY_ROTATION;\n\t}\n",
+          "new": "    @Override public boolean usesGuiStandardLighting() { return true; }\n"
+        },
+        {
+          "before_offset": 1459,
+          "after_offset": 2576,
+          "old": "\t@Override\n\tpublic void renderItem(ItemRenderType type, ItemStack item, Object... data) {\n",
+          "new": "    @Override protected void draw(ItemStack item) {\n        Consumer<TextureManager> renderer = renderers.get(new ComparableStack(item).makeSingular());\n        if(renderer == null) return;\n        GL11.glEnable(GL11.GL_LIGHTING);\n        GL11.glAlphaFunc(GL11.GL_GREATER, 0F);\n        GL11.glEnable(GL11.GL_ALPHA_TEST);\n        GL11.glDisable(GL11.GL_CULL_FACE);\n        renderer.accept(Minecraft.getMinecraft().getTextureManager());\n        GL11.glEnable(GL11.GL_CULL_FACE);\n    }\n"
+        },
+        {
+          "before_offset": 1550,
+          "after_offset": 3060,
+          "old": "\t\tConsumer<TextureManager> renderer = renderers.get(new ComparableStack(item).makeSingular());\n\t\tif(renderer == null) return;\n\t\t\n\t\tGL11.glPushMatrix();\n\n\t\tdouble guiScale = 1;\n\t\tdouble guiOffset = 0;\n\n\t\tswitch(this.type) {\n\t\tcase TYPE_TIER0: guiScale = 3.75D; guiOffset = 10.75D; break;\n\t\tcase TYPE_TIER1: guiScale = 2.5D; guiOffset = 8.5D; break;\n\t\tcase TYPE_TIER2: guiScale = 2D; guiOffset = 6.5D; break;\n\t\tcase TYPE_TIER3: guiScale = 1.25D; guiOffset = 1D; break;\n\t\tcase TYPE_STEALTH: guiScale = 1.75D; guiOffset = 4.75D; break;\n\t\tcase TYPE_ABM: guiScale = 2.25D; guiOffset = 7D; break;\n\t\tcase TYPE_NUCLEAR: guiScale = 1.375D; guiOffset = 1.5D; break;\n\t\tcase TYPE_ROBIN: guiScale = 1.25D; guiOffset = 2D; break;\n\t\t}\n\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0F);\n\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\t\t\n\t\tswitch(type) {\n\t\tcase EQUIPPED:\n\t\t\tdouble s = 0.15;\n\t\t\tGL11.glTranslated(0.5, -0.25, 0);\n\t\t\tGL11.glScaled(s, s, s);\n\t\t\tbreak;\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\t\tdouble heldScale = 0.1;\n\t\t\tGL11.glTranslated(0.5, 0.25, 0);\n\t\t\tGL11.glScaled(heldScale, heldScale, heldScale);\n\t\t\tbreak;\n\t\tcase ENTITY:\n\t\t\tdouble s2 = 0.15;\n\t\t\tGL11.glScaled(s2, s2, s2);\n\t\t\tbreak;\n\t\tcase INVENTORY:\n\t\t\tRenderHelper.enableGUIStandardItemLighting();\n\t\t\tGL11.glScaled(guiScale, guiScale, guiScale);\n\t\t\tGL11.glRotated(135, 0, 0, 1);\n\t\t\tGL11.glRotatef(System.currentTimeMillis() / 15 % 360, 0, 1, 0);\n\t\t\tGL11.glTranslated(0, -16 + guiOffset, 0);\n\t\t\tbreak;\n\t\tdefault: break;\n\t\t}\n\t\t\n\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n\t\trenderer.accept(Minecraft.getMinecraft().renderEngine);\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\t\n\t\tGL11.glPopMatrix();\n\t}\n\t\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/staticfamily/StaticItemFamilyBootstrap.java": {
+      "before_sha256": "899b848d17604213a2c72c516b7aa5a5b8cc4255acd73d6e956b60648f4addd2",
+      "after_sha256": "04718ce1f14b8961070a92a6584afb07fa0179ab6c7dff46d98289fdb48025be",
+      "edits": [
+        {
+          "before_offset": 452,
+          "after_offset": 452,
+          "old": "    public static Set<Item> register() {\n",
+          "new": "    public static Set<Item> register(net.minecraftforge.client.event.ModelRegistryEvent event) {\n"
+        },
+        {
+          "before_offset": 588,
+          "after_offset": 644,
+          "old": "",
+          "new": "        family.register(event);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/weapon/ItemRenderFireExt.java": {
+      "before_sha256": "3a2029a98f04bc693155af1711f27418f14c8942d5bc06bad167004afebb0b94",
+      "after_sha256": "6f5e5835052abeee6d3740f7a4ebcea2975c751ba764f81bfe094f1aa591c1fa",
+      "edits": [
+        {
+          "before_offset": 381,
+          "after_offset": 381,
+          "old": "import net.minecraftforge.client.IItemRenderer;\n",
+          "new": "import javax.vecmath.AxisAngle4f;\nimport javax.vecmath.Matrix4f;\nimport com.hbm.render.item.nativeitem.ItemTransformMatrix;\nimport com.hbm.render.item.nativeitem.direct.DirectMeshItemRenderer;\nimport net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;\n"
+        },
+        {
+          "before_offset": 430,
+          "after_offset": 660,
+          "old": "public class ItemRenderFireExt implements IItemRenderer {\n",
+          "new": "public class ItemRenderFireExt extends DirectMeshItemRenderer {\n"
+        },
+        {
+          "before_offset": 523,
+          "after_offset": 759,
+          "old": "\t@Override\n\tpublic boolean handleRenderType(ItemStack item, ItemRenderType type) {\n\t\tswitch(type) {\n\t\tcase EQUIPPED:\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\tcase ENTITY:\n\t\tcase INVENTORY:\n\t\t\treturn true;\n\t\tdefault: return false;\n\t\t}\n\t}\n",
+          "new": "    @Override public Matrix4f localTransform(TransformType type, long timeMillis) {\n        ItemTransformMatrix matrix = new ItemTransformMatrix();\n        switch(type) {\n        case FIRST_PERSON_LEFT_HAND:\n        case FIRST_PERSON_RIGHT_HAND:\n            return matrix.rotateZ(25).translate(.5, -.5, -.5).rotateY(80).scale(.35).build();\n        case THIRD_PERSON_LEFT_HAND:\n        case THIRD_PERSON_RIGHT_HAND:\n            Matrix4f diagonalRotation = new Matrix4f();\n            diagonalRotation.set(new AxisAngle4f(0, 1, 1, (float)Math.toRadians(-5)));\n            return matrix.scale(.5).rotateZ(20).multiply(diagonalRotation).rotateY(10)\n                    .rotateX(15).translate(.75, -2.75, .5).build();\n        case GUI:\n            return matrix.translate(2, 14, 0).rotateY(-90).rotateX(-135)\n                    .rotateY(timeMillis / 10 % 360).scale(4.5, 4.5, -4.5).build();\n        default: return matrix.scale(.3).build();\n        }\n    }\n"
+        },
+        {
+          "before_offset": 752,
+          "after_offset": 1713,
+          "old": "\t@Override\n\tpublic boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {\n\t\t\n\t\treturn type == ItemRenderType.ENTITY && (helper == ItemRendererHelper.ENTITY_ROTATION || helper == ItemRendererHelper.ENTITY_BOBBING);\n\t}\n\n\t@Override\n\tpublic void renderItem(ItemRenderType type, ItemStack item, Object... data) {\n\t\t\n\t\tGL11.glPushMatrix();\n\t\t\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\t\n\t\tItemGunBaseNT gun = (ItemGunBaseNT) item.getItem();\n\t\tIMagazine mag = gun.getConfig(item, 0).getReceivers(item)[0].getMagazine(item);\n\t\tResourceLocation tex = ResourceManager.fireext_tex;\n\t\tif(mag.getType(item, null) == XFactoryTool.fext_foam) tex = ResourceManager.fireext_foam_tex;\n\t\tif(mag.getType(item, null) == XFactoryTool.fext_sand) tex = ResourceManager.fireext_sand_tex;\n\t\tMinecraft.getMinecraft().renderEngine.bindTexture(tex);\n\t\t\n\t\tswitch(type) {\n\t\t\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\t\t\n\t\t\tdouble s0 = 0.35D;\n\t\t\tGL11.glRotated(25, 0, 0, 1);\n\t\t\tGL11.glTranslated(0.5, -0.5, -0.5F);\n\t\t\tGL11.glRotated(80, 0, 1, 0);\n\t\t\tGL11.glScaled(s0, s0, s0);\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tcase EQUIPPED:\n\n\t\t\tdouble scale = 0.5D;\n\t\t\tGL11.glScaled(scale, scale, scale);\n\t\t\tGL11.glRotatef(20F, 0.0F, 0.0F, 1.0F);\n\t\t\tGL11.glRotatef(-5, 0.0F, 1.0F, 1.0F);\n\t\t\tGL11.glRotatef(10, 0.0F, 1.0F, 0.0F);\n\t\t\tGL11.glRotatef(15F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glTranslatef(0.75F, -2.75F, 0.5F);\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tcase ENTITY:\n\n\t\t\tdouble s1 = 0.3D;\n\t\t\tGL11.glScaled(s1, s1, s1);\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tcase INVENTORY:\n\n\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\t\t\n\t\t\tdouble s = 4.5D;\n\t\t\tGL11.glTranslated(2, 14, 0);\n\t\t\tGL11.glRotated(-90, 0, 1, 0);\n\t\t\tGL11.glRotated(-135, 1, 0, 0);\n\t\t\tGL11.glRotated(System.currentTimeMillis() / 10 % 360, 0, 1, 0);\n\t\t\tGL11.glScaled(s, s, -s);\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tdefault: break;\n\t\t}\n\t\t\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\tResourceManager.fireext.renderAll();\n\t\tGL11.glShadeModel(GL11.GL_FLAT);\n\t\t\n\t\tGL11.glPopMatrix();\n\t}\n",
+          "new": "    @Override protected void draw(ItemStack item) {\n        GL11.glEnable(GL11.GL_CULL_FACE);\n        ItemGunBaseNT gun = (ItemGunBaseNT) item.getItem();\n        IMagazine mag = gun.getConfig(item, 0).getReceivers(item)[0].getMagazine(item);\n        ResourceLocation tex = ResourceManager.fireext_tex;\n        if(mag.getType(item, null) == XFactoryTool.fext_foam) tex = ResourceManager.fireext_foam_tex;\n        if(mag.getType(item, null) == XFactoryTool.fext_sand) tex = ResourceManager.fireext_sand_tex;\n        Minecraft.getMinecraft().getTextureManager().bindTexture(tex);\n        GL11.glShadeModel(GL11.GL_SMOOTH);\n        ResourceManager.fireext.renderAll();\n        GL11.glShadeModel(GL11.GL_FLAT);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/IItemRendererProvider.java": {
+      "before_sha256": "535921d917851bd6c7021465065419ae113231d5dde6496475ea9c4181cb1f50",
+      "after_sha256": "91f503c014b03f3fc8b161131bdad145c78a9bad29943fea5f7aff2d12beaabe",
+      "edits": [
+        {
+          "before_offset": 294,
+          "after_offset": 294,
+          "old": "",
+          "new": "\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/network/ConnectionState.java": "9c0c0ddabdbac2063ac71ec9c2fe95ae4acc7c2e3e3d7af83e34a2fdfd8c1f7d",
+    "src/main/java/com/hbm/main/ConnectionBlockModelHandler.java": "29cc153c28ccb23a4e39d97717bd225b5ad2a4eb395de2c5134b9a0d6d365c05",
+    "src/main/java/com/hbm/render/block/nativeblock/ConnectionBakedModel.java": "bedc4a74e37f304165eda13378442b6152ea7c5184fbbf242ee37a3c413bb9a4",
+    "src/main/java/com/hbm/render/block/nativeblock/ConnectionQuadFactory.java": "c96dc08d82f8551b3f86f404e3da879936b35835d8079ffda379980a33c94c8e",
+    "src/main/java/com/hbm/render/item/nativeitem/callback/DeferredItemModelRegistration.java": "ab0121b3b76bd2858df2f76a43cd2fdc0484549a25bd6f2042885b5554624e3c",
+    "src/main/resources/assets/hbm/blockstates/tile.red_cable.json": "9caa0b2cfdd3d0e490931c6a4671eda8b0a5bc016957bb48841beed8963b1437",
+    "src/main/resources/assets/hbm/blockstates/tile.red_cable_classic.json": "258db23a5ed3a47aec106d58d06eb5023e06f40a5664e150f9ad32c11fa7bb6a",
+    "src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemRenderer.java": "934bafdb2a3709b2dbfb50fde75b75db37b0bca8633585ab7d065a82b0e6e832",
+    "src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemRegistration.java": "b9225c5d3db1aca10e70e9efa4623f9a67fa8fd689e88d3e7a549868817681b4",
+    "src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemModel.java": "05acbfacf1d3a3aafebe7c1eedf5da4625517643285bcc4df15df1846644882d",
+    "src/main/java/com/hbm/render/item/nativeitem/direct/PlainItemPerspectives.java": "075d95ec624793f5694d278814a7edadd3800b04c2eff6e2a9e3d10bb1ec8229"
+  }
+}

@@ -1,0 +1,644 @@
+{
+  "base": "27dceb0ef9e5815de3dc5f0494ca43aef9997370",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityCog.java",
+      "class_name": "EntityCog",
+      "superclass": "EntityThrowableInterp",
+      "keys": [
+        {
+          "slot": 10,
+          "key": "ORIENTATION",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "new Integer(0)"
+        },
+        {
+          "slot": 11,
+          "key": "META",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "new Integer(0)"
+        }
+      ],
+      "insertions": [
+        "\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\n\n\tprivate static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> META = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(10, new Integer(0))",
+          "after": "this.dataManager.register(ORIENTATION, new Integer(0))",
+          "before_offset": 1074,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 1491
+        },
+        {
+          "before": "this.dataWatcher.addObject(11, new Integer(0))",
+          "after": "this.dataManager.register(META, new Integer(0))",
+          "before_offset": 1124,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 11,
+          "key": "META",
+          "after_offset": 1549
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, rot)",
+          "after": "this.dataManager.set(ORIENTATION, rot)",
+          "before_offset": 1222,
+          "source_method": "public EntityCog setOrientation(int rot) {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 1648
+        },
+        {
+          "before": "this.dataWatcher.updateObject(11, meta)",
+          "after": "this.dataManager.set(META, meta)",
+          "before_offset": 1321,
+          "source_method": "public EntityCog setMeta(int meta) {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 11,
+          "key": "META",
+          "after_offset": 1747
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(ORIENTATION)",
+          "before_offset": 1421,
+          "source_method": "public int getOrientation() {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 1840
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(11)",
+          "after": "this.dataManager.get(META)",
+          "before_offset": 1502,
+          "source_method": "public int getMeta() {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 11,
+          "key": "META",
+          "after_offset": 1912
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(ORIENTATION)",
+          "before_offset": 2848,
+          "source_method": "protected void onImpact(RayTraceResult mop) {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 3242
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, orientation + 6)",
+          "after": "this.dataManager.set(ORIENTATION, orientation + 6)",
+          "before_offset": 2987,
+          "source_method": "protected void onImpact(RayTraceResult mop) {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 3372
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(ORIENTATION)",
+          "before_offset": 3849,
+          "source_method": "public void onUpdate() {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 4234
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, orientation - 6)",
+          "after": "this.dataManager.set(ORIENTATION, orientation - 6)",
+          "before_offset": 3941,
+          "source_method": "public void onUpdate() {",
+          "receiver_static_type": "EntityCog",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 4317
+        }
+      ],
+      "before_sha256": "830fc21d51ace005502013d58b0d0b05aadda181f38019eeac10f45dc11fb669",
+      "after_sha256": "bd71906378959d21b98754ed41a363c3b320ff6604d6d66987f9eb495f5ca2c4",
+      "original_sha256": "f606d52839461d5151e11c1a69b23ced45542fac748e0bc9faa3a10c8cf1582e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySawblade.java",
+      "class_name": "EntitySawblade",
+      "superclass": "EntityThrowableInterp",
+      "keys": [
+        {
+          "slot": 10,
+          "key": "ORIENTATION",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "new Integer(0)"
+        },
+        {
+          "slot": 11,
+          "key": "META",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "new Integer(0)"
+        }
+      ],
+      "insertions": [
+        "\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\n\n\tprivate static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntitySawblade.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> META = EntityDataManager.createKey(EntitySawblade.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(10, new Integer(0))",
+          "after": "this.dataManager.register(ORIENTATION, new Integer(0))",
+          "before_offset": 1088,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 1515
+        },
+        {
+          "before": "this.dataWatcher.addObject(11, new Integer(0))",
+          "after": "this.dataManager.register(META, new Integer(0))",
+          "before_offset": 1138,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 11,
+          "key": "META",
+          "after_offset": 1573
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, rot)",
+          "after": "this.dataManager.set(ORIENTATION, rot)",
+          "before_offset": 1241,
+          "source_method": "public EntitySawblade setOrientation(int rot) {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 1677
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(ORIENTATION)",
+          "before_offset": 1340,
+          "source_method": "public int getOrientation() {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 1776
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(11)",
+          "after": "this.dataManager.get(META)",
+          "before_offset": 1421,
+          "source_method": "public int getMeta() {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 11,
+          "key": "META",
+          "after_offset": 1848
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(ORIENTATION)",
+          "before_offset": 2746,
+          "source_method": "protected void onImpact(RayTraceResult mop) {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 3157
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, orientation + 6)",
+          "after": "this.dataManager.set(ORIENTATION, orientation + 6)",
+          "before_offset": 2885,
+          "source_method": "protected void onImpact(RayTraceResult mop) {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 3287
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(ORIENTATION)",
+          "before_offset": 3747,
+          "source_method": "public void onUpdate() {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 4149
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, orientation - 6)",
+          "after": "this.dataManager.set(ORIENTATION, orientation - 6)",
+          "before_offset": 3839,
+          "source_method": "public void onUpdate() {",
+          "receiver_static_type": "EntitySawblade",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "key": "ORIENTATION",
+          "after_offset": 4232
+        }
+      ],
+      "before_sha256": "ff7e4940747cad75c553460bdccfaf3b60741e080b84238d825b677752273693",
+      "after_sha256": "4b6550fccaac532206a0d71adc56981a6b396a949fe8c57c3bad49044a51107e",
+      "original_sha256": "c6b2d47df2fd3ddd6fa4bb36120d142727f1c8bf4c4bf3884bd8db294e24d336"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityMist.java",
+      "class_name": "EntityMist",
+      "superclass": "Entity",
+      "keys": [
+        {
+          "slot": 10,
+          "key": "FLUID_TYPE",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "new Integer(0)"
+        },
+        {
+          "slot": 11,
+          "key": "AREA_WIDTH",
+          "java_type": "Float",
+          "serializer": "FLOAT",
+          "original_default_expression": "new Float(0)"
+        },
+        {
+          "slot": 12,
+          "key": "AREA_HEIGHT",
+          "java_type": "Float",
+          "serializer": "FLOAT",
+          "original_default_expression": "new Float(0)"
+        }
+      ],
+      "insertions": [
+        "\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\n\n\tprivate static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityMist.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Float> AREA_WIDTH = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> AREA_HEIGHT = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(11, width)",
+          "after": "this.dataManager.set(AREA_WIDTH, width)",
+          "before_offset": 1604,
+          "source_method": "public EntityMist setArea(float width, float height) {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 11,
+          "key": "AREA_WIDTH",
+          "after_offset": 2152
+        },
+        {
+          "before": "this.dataWatcher.updateObject(12, height)",
+          "after": "this.dataManager.set(AREA_HEIGHT, height)",
+          "before_offset": 1648,
+          "source_method": "public EntityMist setArea(float width, float height) {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 12,
+          "key": "AREA_HEIGHT",
+          "after_offset": 2195
+        },
+        {
+          "before": "this.dataWatcher.addObject(10, new Integer(0))",
+          "after": "this.dataManager.register(FLUID_TYPE, new Integer(0))",
+          "before_offset": 1844,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 10,
+          "key": "FLUID_TYPE",
+          "after_offset": 2391
+        },
+        {
+          "before": "this.dataWatcher.addObject(11, new Float(0))",
+          "after": "this.dataManager.register(AREA_WIDTH, new Float(0))",
+          "before_offset": 1894,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 11,
+          "key": "AREA_WIDTH",
+          "after_offset": 2448
+        },
+        {
+          "before": "this.dataWatcher.addObject(12, new Float(0))",
+          "after": "this.dataManager.register(AREA_HEIGHT, new Float(0))",
+          "before_offset": 1942,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 12,
+          "key": "AREA_HEIGHT",
+          "after_offset": 2503
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, fluid.getID())",
+          "after": "this.dataManager.set(FLUID_TYPE, fluid.getID())",
+          "before_offset": 2041,
+          "source_method": "public EntityMist setType(FluidType fluid) {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 10,
+          "key": "FLUID_TYPE",
+          "after_offset": 2610
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(FLUID_TYPE)",
+          "before_offset": 2164,
+          "source_method": "public FluidType getType() {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 10,
+          "key": "FLUID_TYPE",
+          "after_offset": 2732
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(12)",
+          "after": "this.dataManager.get(AREA_HEIGHT)",
+          "before_offset": 2276,
+          "source_method": "public void onEntityUpdate() {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 12,
+          "key": "AREA_HEIGHT",
+          "after_offset": 2834
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(11)",
+          "after": "this.dataManager.get(AREA_WIDTH)",
+          "before_offset": 2357,
+          "source_method": "public void onEntityUpdate() {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 11,
+          "key": "AREA_WIDTH",
+          "after_offset": 2904
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(11)",
+          "after": "this.dataManager.get(AREA_WIDTH)",
+          "before_offset": 8279,
+          "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 11,
+          "key": "AREA_WIDTH",
+          "after_offset": 8814
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(12)",
+          "after": "this.dataManager.get(AREA_HEIGHT)",
+          "before_offset": 8351,
+          "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMist",
+          "declaring_owner": "EntityMist",
+          "legacy_slot": 12,
+          "key": "AREA_HEIGHT",
+          "after_offset": 8874
+        }
+      ],
+      "before_sha256": "94d28af9dd5e85142acff5fdd359c86de9e0a732db817efa58a38524e2a6c9d7",
+      "after_sha256": "a35ef00c111172882e3c7389574e7d49b0d933cd386c84b07600c3be247abbe5",
+      "original_sha256": "0758daf23eb87d195048b64a65a2d1450ceea03bfd9bd1215d4351c15f3ffa05"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityDisperserCanister.java",
+      "class_name": "EntityDisperserCanister",
+      "superclass": "EntityGrenadeBase",
+      "keys": [
+        {
+          "slot": 12,
+          "key": "FLUID_TYPE",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "0"
+        },
+        {
+          "slot": 13,
+          "key": "ITEM_TYPE",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "original_default_expression": "0"
+        }
+      ],
+      "insertions": [
+        "\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\n\n\tprivate static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> ITEM_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(12, id)",
+          "after": "this.dataManager.set(FLUID_TYPE, id)",
+          "before_offset": 702,
+          "source_method": "public EntityDisperserCanister setFluid(int id) {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 12,
+          "key": "FLUID_TYPE",
+          "after_offset": 1151
+        },
+        {
+          "before": "this.dataWatcher.addObject(12, 0)",
+          "after": "this.dataManager.register(FLUID_TYPE, 0)",
+          "before_offset": 804,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 12,
+          "key": "FLUID_TYPE",
+          "after_offset": 1252
+        },
+        {
+          "before": "this.dataWatcher.addObject(13, 0)",
+          "after": "this.dataManager.register(ITEM_TYPE, 0)",
+          "before_offset": 841,
+          "source_method": "protected void entityInit() {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 13,
+          "key": "ITEM_TYPE",
+          "after_offset": 1296
+        },
+        {
+          "before": "this.dataWatcher.updateObject(13, id)",
+          "after": "this.dataManager.set(ITEM_TYPE, id)",
+          "before_offset": 932,
+          "source_method": "public EntityDisperserCanister setType(int id) {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 13,
+          "key": "ITEM_TYPE",
+          "after_offset": 1393
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(12)",
+          "after": "this.dataManager.get(FLUID_TYPE)",
+          "before_offset": 1044,
+          "source_method": "public FluidType getFluid() {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 12,
+          "key": "FLUID_TYPE",
+          "after_offset": 1503
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(13)",
+          "after": "this.dataManager.get(ITEM_TYPE)",
+          "before_offset": 1144,
+          "source_method": "public Item getType() {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 13,
+          "key": "ITEM_TYPE",
+          "after_offset": 1593
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(12)",
+          "after": "this.dataManager.get(FLUID_TYPE)",
+          "before_offset": 1611,
+          "source_method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 12,
+          "key": "FLUID_TYPE",
+          "after_offset": 2049
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(13)",
+          "after": "this.dataManager.get(ITEM_TYPE)",
+          "before_offset": 1681,
+          "source_method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 13,
+          "key": "ITEM_TYPE",
+          "after_offset": 2109
+        },
+        {
+          "before": "this.dataWatcher.updateObject(12, nbt.getInteger(\"fluid\"))",
+          "after": "this.dataManager.set(FLUID_TYPE, nbt.getInteger(\"fluid\"))",
+          "before_offset": 1828,
+          "source_method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 12,
+          "key": "FLUID_TYPE",
+          "after_offset": 2245
+        },
+        {
+          "before": "this.dataWatcher.updateObject(13, nbt.getInteger(\"item\"))",
+          "after": "this.dataManager.set(ITEM_TYPE, nbt.getInteger(\"item\"))",
+          "before_offset": 1890,
+          "source_method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityDisperserCanister",
+          "declaring_owner": "EntityDisperserCanister",
+          "legacy_slot": 13,
+          "key": "ITEM_TYPE",
+          "after_offset": 2306
+        }
+      ],
+      "before_sha256": "58550c2bc373889c5b3787f9aaaa32d5aeb677a871d4643357651d3af894a852",
+      "after_sha256": "488e6d311f028ee2bcbd2407882ed68fabe327f53d2c27c32b9334f03d3bac59",
+      "original_sha256": "8e2467cf128e8b65092b80e799fc150130533af7ebbcd07f49b04b93128be891"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderCog.java",
+      "class_name": "RenderCog",
+      "superclass": "Render",
+      "keys": [],
+      "insertions": [
+        "\nimport com.hbm.entity.projectile.EntityCog;"
+      ],
+      "transformations": [
+        {
+          "before": "cog.getDataWatcher().getWatchableObjectInt(10)",
+          "after": "((EntityCog) cog).getOrientation()",
+          "before_offset": 596,
+          "source_method": "public void doRender(Entity cog, double x, double y, double z, float f0, float f1) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 10,
+          "after_offset": 640
+        },
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectInt(11)",
+          "after": "((EntityCog) entity).getMeta()",
+          "before_offset": 1256,
+          "source_method": "protected ResourceLocation getEntityTexture(Entity entity) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityCog",
+          "legacy_slot": 11,
+          "after_offset": 1288
+        }
+      ],
+      "before_sha256": "05abab4c6304e98e3db99e2bfffe347c6305b66b01d8c8d5ed247eb313ce2773",
+      "after_sha256": "c38873ebbaaeafafa0aa372165ffa5d9821b79f5e4c66782d44fbd775ac8bea9",
+      "original_sha256": "0e412b6b3c45899585ae8e3315fd2c60428f2972aecf6a6ca007c225039d8231"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderSawblade.java",
+      "class_name": "RenderSawblade",
+      "superclass": "Render",
+      "keys": [],
+      "insertions": [
+        "\nimport com.hbm.entity.projectile.EntitySawblade;"
+      ],
+      "transformations": [
+        {
+          "before": "cog.getDataWatcher().getWatchableObjectInt(10)",
+          "after": "((EntitySawblade) cog).getOrientation()",
+          "before_offset": 606,
+          "source_method": "public void doRender(Entity cog, double x, double y, double z, float f0, float f1) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntitySawblade",
+          "legacy_slot": 10,
+          "after_offset": 655
+        }
+      ],
+      "before_sha256": "a384c419f4cc03853a4a627f821f5264c351acefc47fb1143df8727a8d26d0e5",
+      "after_sha256": "8a657272ae6c1891209c23103ad9a2d27f1f65f91c90c1a4e684b3745ef3f987",
+      "original_sha256": "89c1942135dfecef200283c8e6e3422e7441ba339dbc136466a14e7f3a5cf6be"
+    }
+  ],
+  "unchanged_hierarchy_sources": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "sha256": "51c5f47a37927ebf4784724a2773908b450100e2823b5ca0394b38f626c57c5c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java",
+      "sha256": "1727ed3a0643fbcbeaf22366ac1daad67ec69857672e99f5182a2632d6b61cf9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBase.java",
+      "sha256": "79c5a0c6629e1deabbc030b1669bd0412529e6fffeae8c5cab744636359b83e1"
+    }
+  ]
+}

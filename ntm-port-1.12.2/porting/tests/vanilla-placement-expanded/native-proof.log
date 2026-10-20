@@ -1,0 +1,3 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS 1042 native checks and 3343 exact ordered original-expression/native state events; actual original bounds bytecode, null timing, argument exceptions, RNG state, receiver mutation, original flags and ignored return values.

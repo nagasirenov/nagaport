@@ -16,7 +16,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -26,7 +26,7 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData {
+public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 
 	private int attackCooldown;
 	private int beamCountdown;
@@ -62,7 +62,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 		damage -= tier.dt;
 
 		if(damage < 0) {
-			worldObj.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
+			this.world.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
 			return false;
 		}
 
@@ -79,12 +79,12 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 
 		this.motionY -= 0.05D;
 
-		if(this.deathTime == 19 && !worldObj.isRemote) {
+		if(this.deathTime == 19 && !this.world.isRemote) {
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "tinytot");
 			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(this.dimension, posX, posY, posZ, 250));
-			worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 		}
 
 		super.onDeathUpdate();
@@ -161,7 +161,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 			this.scanCooldown--;
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			lifetime++;
 			if(lifetime > MAX_LIFETIME) {
@@ -191,7 +191,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 				NBTTagCompound dPart = new NBTTagCompound();
 				dPart.setString("type", "tau");
 				dPart.setByte("count", (byte)(2 + rand.nextInt(3)));
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, posX + rand.nextGaussian() * 2, posY + rand.nextGaussian(), posZ + rand.nextGaussian() * 2), new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, posX + rand.nextGaussian() * 2, posY + rand.nextGaussian(), posZ + rand.nextGaussian() * 2), new TargetPoint(this.world.provider.getDimension(), posX, posY, posZ, 50));
 			}
 			
 			boolean beam = false;
@@ -207,7 +207,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 					this.setLockon(x, y, z);
 
 					if(this.beamCountdown == 110) {
-						worldObj.playSoundAtEntity(this.target, "hbm:weapon.stingerLockOn", 2F, 0.75F);
+						this.world.playSoundAtEntity(this.target, "hbm:weapon.stingerLockOn", 2F, 0.75F);
 					}
 				}
 
@@ -227,10 +227,10 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 					Vec3d lockon = this.getLockon();
 
 					if(this.beamCountdown == 39) {
-						worldObj.playSoundEffect(lockon.x, lockon.y, lockon.z, "hbm:entity.ufoBlast", 5.0F, 0.9F + worldObj.rand.nextFloat() * 0.2F);
+						com.hbm.sound.WorldSoundEffects.play(this.world, lockon.x, lockon.y, lockon.z, "hbm:entity.ufoBlast", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F);
 					}
 
-					List<Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).expand(2, 2, 2));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).expand(2, 2, 2));
 
 					for(Entity e : entities) {
 						if(this.canAttackClass(e.getClass())) {
@@ -281,14 +281,14 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 
 					copy = copy.rotateYaw((float)Math.PI / 180F * (i - 3) * 5F);
 
-					EntitySiegeLaser laser = new EntitySiegeLaser(worldObj, this);
+					EntitySiegeLaser laser = new EntitySiegeLaser(this.world, this);
 					laser.setPosition(x, y, z);
 					laser.setThrowableHeading(copy.x, copy.y, copy.z, 1F, 0.0F);
 					laser.setColor(color);
 					laser.setDamage(tier.damageMod);
 					laser.setBreakChance(tier.laserBreak * 2);
 					if(tier.laserIncendiary) laser.setIncendiary();
-					worldObj.spawnEntityInWorld(laser);
+					this.world.spawnEntityInWorld(laser);
 				}
 
 				this.playSound("hbm:weapon.ballsLaser", 2.0F, 1.0F);
@@ -308,7 +308,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData 
 	protected void setCourseWithoutTaget() {
 		int x = (int) Math.floor(posX + rand.nextGaussian() * 15);
 		int z = (int) Math.floor(posZ + rand.nextGaussian() * 15);
-		this.setWaypoint(x, this.worldObj.getHeightValue(x, z) + 5 + rand.nextInt(6),  z);
+		this.setWaypoint(x, this.world.getHeightValue(x, z) + 5 + rand.nextInt(6),  z);
 	}
 
 	@Override

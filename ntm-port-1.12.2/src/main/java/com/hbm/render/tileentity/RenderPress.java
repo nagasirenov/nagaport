@@ -3,26 +3,23 @@ package com.hbm.render.tileentity;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.main.ResourceManager;
-import com.hbm.render.util.RenderDecoItem;
+import com.hbm.render.util.NativeMachineItemRenderer;
 import com.hbm.tileentity.machine.TileEntityMachinePress;
 
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
 
-public class RenderPress extends TileEntitySpecialRenderer {
+public class RenderPress extends TileEntitySpecialRenderer<TileEntity> {
 	
-	private RenderItem itemRenderer;
-	private RenderManager renderManager = RenderManager.instance;
+	private final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();
 	
 	public RenderPress() { }
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {
+	public void render(TileEntity tileentity, double x, double y, double z, float f, int destroyStage, float alpha) {
 		GL11.glPushMatrix();
 			GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 			GL11.glEnable(GL11.GL_LIGHTING);
@@ -45,7 +42,7 @@ public class RenderPress extends TileEntitySpecialRenderer {
 
 			TileEntityMachinePress press = (TileEntityMachinePress)tileEntity;
 			double p = (press.lastPress + (press.renderPress - press.lastPress) * f) /(double) press.maxPress;
-			GL11.glTranslated(0, MathHelper.clamp_double((1D - p), 0D, 1D) * 0.875D, 0);
+			GL11.glTranslated(0, MathHelper.clamp((1D - p), 0D, 1D) * 0.875D, 0);
 		
 			this.bindTexture(ResourceManager.press_head_tex);
 		
@@ -57,8 +54,6 @@ public class RenderPress extends TileEntitySpecialRenderer {
 	}
 
 	public void renderTileEntityAt3(TileEntity tileEntity, double x, double y, double z, float f) {
-		itemRenderer = new RenderDecoItem(this);
-		itemRenderer.setRenderManager(renderManager);
 		GL11.glPushMatrix();
 			GL11.glTranslated(x + 0.5D, y + 1, z - 0.5);
 			GL11.glEnable(GL11.GL_LIGHTING);
@@ -70,13 +65,11 @@ public class RenderPress extends TileEntitySpecialRenderer {
 				ItemStack stack = press.syncStack.copy();
 				
 				EntityItem item = new EntityItem(null, 0.0D, 0.0D, 0.0D, stack);
-				item.getEntityItem().stackSize = 1;
+				item.getItem().setCount(1);
 				item.hoverStart = 0.0F;
 				
-				RenderItem.renderInFrame = true;
 				GL11.glTranslatef(0.0F, 1.0F - 0.0625F * 165/100, 0.0F);
-				this.itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-				RenderItem.renderInFrame = false;
+				this.itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);
 			}
 			
 		GL11.glPopMatrix();

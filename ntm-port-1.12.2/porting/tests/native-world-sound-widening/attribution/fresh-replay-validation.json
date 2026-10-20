@@ -1,0 +1,61 @@
+{
+  "work_directory": "/tmp/world-sound-widening-fresh-replay",
+  "all_artifacts_identical": true,
+  "checks": [
+    {
+      "artifact": "before-all-diagnostics.tsv",
+      "sha256": "9f2927edd06794bfba0e18441e187c9265c3db4fbbf8541c9cc379bb96d6d83c",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "after-all-diagnostics.tsv",
+      "sha256": "2e0ead197fb5dd542433489de9e7029dead65c263f1d57138c91146202708d76",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "before-all.tsv",
+      "sha256": "baa1d1caeb00c3b9aa9b2342aafce338d7b8f001c0bbd1e931cf3810f179a3e0",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "after.tsv",
+      "sha256": "60c756ce220c76b42426418d97af0b68d2af649a408028a8cac20d50f1fe2419",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "before-selected-manifest.json",
+      "sha256": "187efa60a08b6f5753fa56782c594981186fb171483d26fa481f49d1f616e906",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "after-verification.json",
+      "sha256": "5dd9b3f9a47795ca83d17d16dee082a0361c68d09bfbbf261aeb63d8d25860d0",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "existing-registry-ast.tsv",
+      "sha256": "79a8e062391cabb54bb12e3b3e3dff5db9584e3ef3fcac110afb1a3d15f52325",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "before.log",
+      "sha256": "bfc66072d81d4dc2ade935ace57907f00286af7672c2821e315c9594617683a0",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "after.log",
+      "sha256": "a2a4d4ea16e3f377f04e76b126d097e873b7a8cc87fc5d16b618062ff00e7eba",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "before-verification.log",
+      "sha256": "4e2d42cf354146081349f07e00ebea997dde8b81d153c3c5eac7fca781f68999",
+      "fresh_replay_matches_sealed": true
+    },
+    {
+      "artifact": "after-verification.log",
+      "sha256": "e19e42a30cac808559604fa84be1b548687b0a7dfb19621341a55a8016b7b9e2",
+      "fresh_replay_matches_sealed": true
+    }
+  ]
+}

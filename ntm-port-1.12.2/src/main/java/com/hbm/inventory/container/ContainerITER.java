@@ -74,6 +74,6 @@ private TileEntityITER iter;
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return iter.isUseableByPlayer(player);
+		return iter.isUsableByPlayer(player);
 	}
 }

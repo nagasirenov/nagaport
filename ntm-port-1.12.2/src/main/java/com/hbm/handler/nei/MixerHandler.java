@@ -13,15 +13,12 @@ public class MixerHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmMixer";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(57, 25, 52, 44), "ntmMixer"));
-		guiGui.add(GUIMixer.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMixer.class, (57) + 5, (25) + 11, 52, 44, "ntmMixer");
 	}
 }

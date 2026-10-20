@@ -7,7 +7,8 @@ import com.hbm.main.ResourceManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.RenderBlocks;
+import com.hbm.entity.mob.EntityBlockSpider;
+import com.hbm.render.entity.NativeBlockEntityDraw;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
@@ -17,7 +18,7 @@ public class ModelBlockSpider extends ModelBase {
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor) {
 
-		int blockId = entity.getDataWatcher().getWatchableObjectInt(12);
+		int blockId = ((EntityBlockSpider) entity).getBlockId();
 		Block block = Block.getBlockById(blockId);
 
 		if(block == null) {
@@ -25,7 +26,7 @@ public class ModelBlockSpider extends ModelBase {
 		}
 
 		float rot = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F) * limbSwingAmount * 57.3F;
-		int meta = entity.getDataWatcher().getWatchableObjectInt(13);
+		int meta = ((EntityBlockSpider) entity).getBlockMetadata();
 
 		GL11.glPushMatrix();
 
@@ -52,12 +53,10 @@ public class ModelBlockSpider extends ModelBase {
 		GL11.glPopMatrix();
 
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.locationBlocksTexture);
+		Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		GL11.glTranslated(0, 0.75, 0);
-		RenderBlocks.getInstance().renderBlockAsItem(block, meta, entity.getBrightness(scaleFactor));
+		NativeBlockEntityDraw.render(block, meta, entity.getBrightness(), true);
 		GL11.glPopMatrix();
-		//this.field_147920_a.setRenderBoundsFromBlock(block);
-		//this.field_147920_a.renderBlockSandFalling(block, entity.worldObj, (int)Math.floor(entity.posX), (int)Math.floor(entity.posY), (int)Math.floor(entity.posZ), blockid);
 
 		GL11.glPopMatrix();
 	}

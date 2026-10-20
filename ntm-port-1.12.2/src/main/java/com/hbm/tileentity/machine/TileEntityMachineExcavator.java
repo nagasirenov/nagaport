@@ -97,12 +97,12 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineExcavator";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		//needs to happen on client too for GUI rendering
 		upgradeManager.checkSlots(this, slots, 2, 3);
@@ -112,16 +112,16 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		consumption = baseConsumption * (1 + speedLevel);
 		consumption /= (1 + powerLevel);
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.tank.setType(1, slots);
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				tryEjectBuffer();
 
 				for(DirPos pos : getConPos()) {
-					this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 
@@ -140,7 +140,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 				this.speed = type.speed;
 				this.speed *= (1 + speedLevel / 2D);
 
-				int maxDepth = this.yCoord - 4;
+				int maxDepth = this.pos.getY() - 4;
 
 				if((bedrockDrilling || targetDepth <= maxDepth) && tryDrill(1 + radiusLevel * 2)) {
 					targetDepth++;
@@ -199,10 +199,10 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX, yCoord + 1, zCoord + dir.offsetZ * 4 + rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 4 - rot.offsetX, yCoord + 1, zCoord + dir.offsetZ * 4 - rot.offsetZ, dir),
-				new DirPos(xCoord + rot.offsetX * 4, yCoord + 1, zCoord + rot.offsetZ * 4, rot),
-				new DirPos(xCoord - rot.offsetX * 4, yCoord + 1, zCoord - rot.offsetZ * 4, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 4 - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 4 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 4, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() - rot.offsetZ * 4, rot.getOpposite())
 		};
 	}
 
@@ -237,7 +237,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	}
 
 	protected int getY() {
-		return yCoord - targetDepth - 4;
+		return this.pos.getY() - targetDepth - 4;
 	}
 
 	/** Works outwards and tries to break a ring, returns true if all rings are broken (or ignorable) and the drill should extend. */
@@ -255,13 +255,13 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			BlockPos bedrockOre = null;
 			bedrockDrilling = false;
 
-			for(int x = xCoord - ring; x <= xCoord + ring; x++) {
-				for(int z = zCoord - ring; z <= zCoord + ring; z++) {
+			for(int x = this.pos.getX() - ring; x <= this.pos.getX() + ring; x++) {
+				for(int z = this.pos.getZ() - ring; z <= this.pos.getZ() + ring; z++) {
 
 					/* Process blocks either if we are in the inner ring (1 = 3x3) or if the target block is on the outer edge */
-					if(ring == 1 || (x == xCoord - ring || x == xCoord + ring || z == zCoord - ring || z == zCoord + ring)) {
+					if(ring == 1 || (x == this.pos.getX() - ring || x == this.pos.getX() + ring || z == this.pos.getZ() - ring || z == this.pos.getZ() + ring)) {
 
-						Block b = worldObj.getBlock(x, y, z);
+						Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 						if(b == ModBlocks.ore_bedrock) {
 							combinedHardness = 60 * 20;
@@ -282,7 +282,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 						ignoreAll = false;
 
-						combinedHardness += b.getBlockHardness(worldObj, x, y, z);
+						combinedHardness += b.getBlockHardness(this.world, x, y, z);
 					}
 				}
 			}
@@ -317,7 +317,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	}
 
 	protected void collectBedrock(BlockPos pos) {
-		TileEntity oreTile = Compat.getTileStandard(worldObj, pos.getX(), pos.getY(), pos.getZ());
+		TileEntity oreTile = Compat.getTileStandard(this.world, pos.getX(), pos.getY(), pos.getZ());
 
 		if(oreTile instanceof TileEntityBedrockOre) {
 			TileEntityBedrockOre ore = (TileEntityBedrockOre) oreTile;
@@ -336,17 +336,17 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			stacks.add(stack);
 
 			if(stack.getItem() == ModItems.bedrock_ore_base) {
-				ItemBedrockOreBase.setOreAmount(worldObj, stack, pos.getX(), pos.getZ(), 1D + this.getInstalledDrill().fortune * 0.1D);
+				ItemBedrockOreBase.setOreAmount(this.world, stack, pos.getX(), pos.getZ(), 1D + this.getInstalledDrill().fortune * 0.1D);
 			}
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 
-			int x = xCoord + dir.offsetX * 4;
-			int y = yCoord - 3;
-			int z = zCoord + dir.offsetZ * 4;
+			int x = this.pos.getX() + dir.offsetX * 4;
+			int y = this.pos.getY() - 3;
+			int z = this.pos.getZ() + dir.offsetZ * 4;
 
 			/* try to insert into a valid container */
-			TileEntity tile = worldObj.getTileEntity(x, y, z);
+			TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(tile instanceof IInventory) {
 				supplyContainer((IInventory) tile, stacks, dir.getOpposite());
 			}
@@ -354,7 +354,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			if(stack.stackSize <= 0) return;
 
 			/* try to place on conveyor belt */
-			Block b = worldObj.getBlock(x, y, z);
+			Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 			if(b instanceof IConveyorBelt) {
 				supplyConveyor((IConveyorBelt) b, stacks, x, y, z);
 			}
@@ -394,12 +394,12 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	protected void breakBlocks(int ring) {
 		int y = getY();
 
-		for(int x = xCoord - ring; x <= xCoord + ring; x++) {
-			for(int z = zCoord - ring; z <= zCoord + ring; z++) {
+		for(int x = this.pos.getX() - ring; x <= this.pos.getX() + ring; x++) {
+			for(int z = this.pos.getZ() - ring; z <= this.pos.getZ() + ring; z++) {
 
-				if(ring == 1 || (x == xCoord - ring || x == xCoord + ring || z == zCoord - ring || z == zCoord + ring)) {
+				if(ring == 1 || (x == this.pos.getX() - ring || x == this.pos.getX() + ring || z == this.pos.getZ() - ring || z == this.pos.getZ() + ring)) {
 
-					Block b = worldObj.getBlock(x, y, z);
+					Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 					if(!this.shouldIgnoreBlock(b, x, y, z)) {
 						tryMineAtLocation(x, y, z);
@@ -411,7 +411,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 	public void tryMineAtLocation(int x ,int y, int z) {
 
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 		if(this.enableVeinMiner && this.getInstalledDrill().vein) {
 
@@ -426,7 +426,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 				recursionBrake.clear();
 
 				/* move all excavated items to the last drillable position which is also within collection range */
-				List<EntityItem> items = worldObj.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX + 1, maxY + 1, maxZ + 1));
+				List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX + 1, maxY + 1, maxZ + 1));
 				for(EntityItem item : items) item.setPosition(x + 0.5, y + 0.5, z + 0.5);
 
 				return;
@@ -462,14 +462,14 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		if(recursionBrake.contains(pos)) return;
 		recursionBrake.add(pos);
 
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			int ix = x + dir.offsetX;
 			int iy = y + dir.offsetY;
 			int iz = z + dir.offsetZ;
 
-			if(worldObj.getBlock(ix, iy, iz) == b) {
+			if(com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock() == b) {
 				breakRecursively(ix, iy, iz, depth - 1);
 			}
 		}
@@ -484,19 +484,19 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		if(z > maxZ) maxZ = z;
 
 		if(this.enableWalling) {
-			worldObj.setBlock(x, y, z, ModBlocks.barricade);
+			this.world.setBlock(x, y, z, ModBlocks.barricade);
 		}
 	}
 
 	protected void breakSingleBlock(Block b, int x ,int y, int z) {
 
-		List<ItemStack> items = b.getDrops(worldObj, x, y, z, worldObj.getBlockMetadata(x, y, z), this.getFortuneLevel());
+		List<ItemStack> items = b.getDrops(this.world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) ), this.getFortuneLevel());
 
 		if(this.canSilkTouch()) {
 
 			try {
 				Method createStackedBlock = ReflectionHelper.findMethod(Block.class, b, new String[] {"createStackedBlock", "func_149644_j"}, int.class);
-				ItemStack result = (ItemStack) createStackedBlock.invoke(b, worldObj.getBlockMetadata(x, y, z));
+				ItemStack result = (ItemStack) createStackedBlock.invoke(b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) ));
 
 				if(result != null) {
 					items.clear();
@@ -527,30 +527,30 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			items.clear();
 
 		for(ItemStack item : items) {
-			worldObj.spawnEntityInWorld(new EntityItem(worldObj, x + 0.5, y + 0.5, z + 0.5, item));
+			this.world.spawnEntity(new EntityItem(this.world, x + 0.5, y + 0.5, z + 0.5, item));
 		}
 
-		worldObj.func_147480_a(x, y, z, false);
+		this.world.func_147480_a(x, y, z, false);
 	}
 
 	/** builds a wall along the specified ring, replacing fluid blocks. if wallEverything is set, it will also wall off replacable blocks like air or grass */
 	protected void buildWall(int ring, boolean wallEverything) {
 		int y = getY();
 
-		for(int x = xCoord - ring; x <= xCoord + ring; x++) {
-			for(int z = zCoord - ring; z <= zCoord + ring; z++) {
+		for(int x = this.pos.getX() - ring; x <= this.pos.getX() + ring; x++) {
+			for(int z = this.pos.getZ() - ring; z <= this.pos.getZ() + ring; z++) {
 
-				Block b = worldObj.getBlock(x, y, z);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-				if(x == xCoord - ring || x == xCoord + ring || z == zCoord - ring || z == zCoord + ring) {
+				if(x == this.pos.getX() - ring || x == this.pos.getX() + ring || z == this.pos.getZ() - ring || z == this.pos.getZ() + ring) {
 
-					if(b.isReplaceable(worldObj, x, y, z) && (wallEverything || b.getMaterial().isLiquid())) {
-						worldObj.setBlock(x, y, z, ModBlocks.barricade);
+					if(b.isReplaceable(this.world, x, y, z) && (wallEverything || b.getDefaultState().getMaterial().isLiquid())) {
+						this.world.setBlock(x, y, z, ModBlocks.barricade);
 					}
 				} else {
 
-					if(b.getMaterial().isLiquid()) {
-						worldObj.setBlockToAir(x, y, z);
+					if(b.getDefaultState().getMaterial().isLiquid()) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 						continue;
 					}
 				}
@@ -560,12 +560,12 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	protected void mineOuterOres(int ring) {
 		int y = getY();
 
-		for(int x = xCoord - ring; x <= xCoord + ring; x++) {
-			for(int z = zCoord - ring; z <= zCoord + ring; z++) {
+		for(int x = this.pos.getX() - ring; x <= this.pos.getX() + ring; x++) {
+			for(int z = this.pos.getZ() - ring; z <= this.pos.getZ() + ring; z++) {
 
-				if(ring == 1 || (x == xCoord - ring || x == xCoord + ring || z == zCoord - ring || z == zCoord + ring)) {
+				if(ring == 1 || (x == this.pos.getX() - ring || x == this.pos.getX() + ring || z == this.pos.getZ() - ring || z == this.pos.getZ() + ring)) {
 
-					Block b = worldObj.getBlock(x, y, z);
+					Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 					if(!this.shouldIgnoreBlock(b, x, y, z) && this.isOre(x, y, z, b)) {
 						tryMineAtLocation(x, y, z);
@@ -579,9 +579,9 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 
-		int x = xCoord + dir.offsetX * 4;
-		int y = yCoord - 3;
-		int z = zCoord + dir.offsetZ * 4;
+		int x = this.pos.getX() + dir.offsetX * 4;
+		int y = this.pos.getY() - 3;
+		int z = this.pos.getZ() + dir.offsetZ * 4;
 
 		List<ItemStack> items = new ArrayList();
 
@@ -593,12 +593,12 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			}
 		}
 
-		TileEntity tile = worldObj.getTileEntity(x, y, z);
+		TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(tile instanceof IInventory) {
 			supplyContainer((IInventory) tile, items, dir.getOpposite());
 		}
 
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 		if(b instanceof IConveyorBelt) {
 			supplyConveyor((IConveyorBelt) b, items, x, y, z);
 		}
@@ -620,25 +620,25 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	protected void tryCollect(int radius) {
 		int yLevel = getY();
 
-		List<EntityItem> items = worldObj.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(xCoord - radius, yLevel - 1, zCoord - radius, xCoord + radius + 1, yLevel + 2, zCoord + radius + 1));
+		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - radius, yLevel - 1, this.pos.getZ() - radius, this.pos.getX() + radius + 1, yLevel + 2, this.pos.getZ() + radius + 1));
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 
-		int x = xCoord + dir.offsetX * 4;
-		int y = yCoord - 3;
-		int z = zCoord + dir.offsetZ * 4;
+		int x = this.pos.getX() + dir.offsetX * 4;
+		int y = this.pos.getY() - 3;
+		int z = this.pos.getZ() + dir.offsetZ * 4;
 
 		List<ItemStack> stacks = new ArrayList();
 		items.forEach(i -> { if(!i.isDead) stacks.add(i.getEntityItem());});
 
 		/* try to insert into a valid container */
-		TileEntity tile = worldObj.getTileEntity(x, y, z);
+		TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(tile instanceof IInventory) {
 			supplyContainer((IInventory) tile, stacks, dir.getOpposite());
 		}
 
 		/* try to place on conveyor belt */
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 		if(b instanceof IConveyorBelt) {
 			supplyConveyor((IConveyorBelt) b, stacks, x, y, z);
 		}
@@ -709,19 +709,19 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	/** moves all items onto a connected conveyor belt */
 	protected void supplyConveyor(IConveyorBelt belt, List<ItemStack> items, int x, int y, int z) {
 
-		Random rand = worldObj.rand;
+		Random rand = this.world.rand;
 
 		for(ItemStack item : items) {
 
 			if(item.stackSize <= 0) continue;
 
 			Vec3d base = new Vec3d(x + rand.nextDouble(), y + 0.5, z + rand.nextDouble());
-			Vec3d vec = belt.getClosestSnappingPosition(worldObj, x, y, z, base);
+			Vec3d vec = belt.getClosestSnappingPosition(this.world, x, y, z, base);
 
-			EntityMovingItem moving = new EntityMovingItem(worldObj);
+			EntityMovingItem moving = new EntityMovingItem(this.world);
 			moving.setPosition(base.x, vec.y, base.z);
 			moving.setItemStack(item.copy());
-			worldObj.spawnEntityInWorld(moving);
+			this.world.spawnEntityInWorld(moving);
 			item.stackSize = 0;
 
 			chuteTimer = 40;
@@ -740,7 +740,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	}
 
 	public boolean shouldIgnoreBlock(Block block, int x, int y, int z) {
-		return block.isAir(worldObj, x, y, z) || block.getMaterial() == ModBlocks.materialGas || block.getBlockHardness(worldObj, x, y, z) < 0 || block.getMaterial().isLiquid() || block == Blocks.bedrock;
+		return block.isAir(this.world, x, y, z) || block.getDefaultState().getMaterial() == ModBlocks.materialGas || block.getBlockHardness(this.world, x, y, z) < 0 || block.getDefaultState().getMaterial().isLiquid() || block == Blocks.BEDROCK;
 	}
 
 	@Override
@@ -787,7 +787,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("d", enableDrill);
@@ -798,11 +798,12 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		nbt.setInteger("t", targetDepth);
 		nbt.setLong("p", power);
 		tank.writeToNBT(nbt, "tank");
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -823,12 +824,12 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
+					this.pos.getX() - 3,
 					0,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 5,
-					zCoord + 4
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 4
 					);
 		}
 

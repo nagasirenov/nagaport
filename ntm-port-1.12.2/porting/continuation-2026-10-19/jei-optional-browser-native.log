@@ -1,0 +1,12 @@
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: complete production plugin/core/matcher/visibility/catalyst sources compile with NEI jar removed.
+PASS: 117379 native matcher checks; 242 stack variants, both ordered predicates against pinned NEI 2.4.3.245.
+[15:25:26] [main/INFO]: Processing ObjectHolder annotations
+[15:25:26] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS: 311 optional-browser checks (oracle); actual MC/Forge/JEI with isolated NTM registry/category/GUI collaborators.
+[15:25:28] [main/INFO]: Processing ObjectHolder annotations
+[15:25:28] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS: 99 optional-browser checks (no-nei); actual MC/Forge/JEI with isolated NTM registry/category/GUI collaborators.
+PASS: isolated no-NEI classloader; negative adapter control fails as expected; complete scoped plugin/helper execution requests zero NEI classes.
+Scope: complete scoped sources against isolated NTM collaborators, not full-mod/client or Forge optional GUI lifecycle.

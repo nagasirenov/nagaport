@@ -1,0 +1,38 @@
+PASS pinned pristine renderers/owners, byte-identical original textures and pinned original 1.7 client oracle
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativePlantsTest.java:94: warning: Unsafe is internal proprietary API and may be removed in a future release
+  java.lang.reflect.Field unsafeField=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)unsafeField.get(null);
+                                              ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativePlantsTest.java:94: warning: Unsafe is internal proprietary API and may be removed in a future release
+  java.lang.reflect.Field unsafeField=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)unsafeField.get(null);
+                                                                                                                                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativePlantsTest.java:94: warning: Unsafe is internal proprietary API and may be removed in a future release
+  java.lang.reflect.Field unsafeField=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)unsafeField.get(null);
+                                                                                                                                                          ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS 13 complete production classes against native Forge 1.12.2; config boolean and calcium item identity external fixtures
+VERIFIED compatibility gate: Forge light pipeline exact; disabled Forge pipeline loses reed-depth and vine-glow light. Coral fallback remains exact.
+[20:39:49] [main/INFO]: Reloading ResourceManager: resources
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.plant_reeds`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.plant_reeds`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.laythe_coral`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.laythe_coral`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.vine_phosphor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.vine_phosphor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.other_reeds`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.other_coral`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.other_vine`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:49] [main/INFO]: Reloading ResourceManager: plant-pack-6969324792317182313.zip
+PASS native plant owners/model geometry/lighting 151930 assertions
+[20:39:51] [main/INFO]: Reloading ResourceManager: resources
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.plant_reeds`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.plant_reeds`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.laythe_coral`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.laythe_coral`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.vine_phosphor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.vine_phosphor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.other_reeds`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.other_coral`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:39:51] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.other_vine`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS plant replacement owner isolation 7 assertions

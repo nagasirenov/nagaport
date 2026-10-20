@@ -1,0 +1,122 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks,serial;static Unsafe unsafe;
+                                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:145: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:145: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+                                                                                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/SednaItemNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(sun.misc.Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/SednaItemNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(sun.misc.Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+                                                                                                    ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+8 warnings
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[18:21:39] [main/INFO]: Setting user: AtlasProbe
+[18:21:40] [main/INFO]: Processing ObjectHolder annotations
+[18:21:40] [main/INFO]: Found 1167 ObjectHolder annotations
+[18:21:40] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `context0`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[18:21:40] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `context1`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 171 native Sedna hand/context/animation/projection/overlay/vertex checks. Controlled draw assets and world, no whole-game acceptance.
+bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 src/main/java/com/hbm/render/util/NativeItemBaseModel.java
+148044f3b058601c3cdbd3a241e7f23e09567fa511b0d7d61f8922af2f76f0d2 src/main/java/com/hbm/render/item/ItemRenderBoltgun.java
+769218404762129a237cf108829e1f51c9543816ad023c8d11da0399c4aedd6c src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderWeaponBase.java
+7a83d6546fea8674007ccd293b9b94b2e775b15d4103cc7c2f32c0df5705672d src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderCoilgun.java
+6020a4ab73696f210f737d30708a6f23f42f70c81ecb9a1eb1a2de6426f3c537 src/main/java/com/hbm/render/item/weapon/sedna/nativehand/SednaHandHandler.java
+075d95ec624793f5694d278814a7edadd3800b04c2eff6e2a9e3d10bb1ec8229 src/main/java/com/hbm/render/item/nativeitem/direct/PlainItemPerspectives.java
+02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e src/main/java/com/hbm/render/item/nativeitem/ItemTransformMatrix.java
+20b32bc9dac6481f09a97bcdb7702b69da38de17fd676897905585373413fe32 src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java
+cbcd29d86a0131c3538d1dadc20bc33e825629bc0358ce40392ae470119f78ad src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemRegistration.java
+c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3 src/main/java/com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java
+0d715a62af62c8305f7c89d0963e4b8155775d4ce60dbff765d6186d71ed5c4e src/main/java/com/hbm/render/item/nativeitem/staticfamily/OrdinaryMeshItemModel.java
+54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2 src/main/java/com/hbm/render/mesh/MeshModel.java
+d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736 src/main/java/com/hbm/render/mesh/ObjMesh.java
+716b6051d3f150e12f52aee325efe7d440f5b98dcb86b3263eb13411b0bfc3aa src/main/java/com/hbm/render/item/nativeitem/context/ContextItemModel.java
+755a95c4afe10f2ebf2295af213be69e80db0ff8020b92cc03e3038fbcc8f25a src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRegistration.java
+7dad7762aa0fd9c380bb3e2c32da9f3f6df1fd7b1b15b29072a1171a704cb6fa src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRenderer.java
+64f854575c2c7b5e2a0351b2949dd509952c28bca1c8f7f740d0263633488346 src/main/java/com/hbm/render/item/nativeitem/context/ContextRenderItem.java
+4dfd13588ae934e38266aeda7968b9b9633a7e1ac1f9ffc0705ee40661b5f3aa src/main/java/com/hbm/render/item/nativeitem/context/NativeItemContext.java
+d11ccf970c8a9afc1b8352ecda9bc49d7ba92d75ff509b47f489f209af89facc src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFailureScope.java
+37283fbe744fce6729dbde308c3683ac86d6c1db9758dd5293a38760a43ddec4 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFields.java
+2978ab2eb9a55cd3a903adba9444f279d5b9f7dfce3c63ca4548dd949708deb2 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemRendererOwnership.java
+1e64d8f0f97240b7bbc5c468788b87b3c832e821a6734b80d49b201d86805691 src/main/java/com/hbm/render/item/nativeitem/context/NativeProjectionScope.java
+f1f0bfceb531ad5a0742403150ffb6d1a92cc22e27fbbf8d24cdbde88073ebb3 src/main/java/com/hbm/main/ModEventHandlerClient.java
+
+PASS source: 51 exact type-only consumer migrations, 67 exact renderer entries, projectile bytes unchanged, all 44 shared effect vertices/UVs/order and alpha preserved
+
+ALL SEDNA ROOT PRODUCTION HASHES
+7a89ff65552e40cc2d3fac33eca438b59898ff42d9f666e6f511f751a527d036 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java
+07512ff687ec40695708b74cf01788a73a72426d003a07a7c937183b8b558f29 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAm180.java
+afd994eeaa9e7acf7e6d177b4cdd4435429cb834a4d91356b7f89a971166aa85 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAmat.java
+34bfa57ae08442ba6b700e45d3b212b355069da47cdd3691c6ef00ef105e6332 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAtlas.java
+d53feaa6fb18b505aa8e5a30b40085125196dc65fb8d86c0a6d89dd14ca76816 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderBolter.java
+c86c278548c416166643b98d9a4f5af33aaa66405cff82a3e4e41bd8986bc389 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderCarbine.java
+05a0a44b97e3b3688a3706c1917e521f617a7c59d1a8a227067aa01e617a639b src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderChargeThrower.java
+7612c292b64d2b176c9f55f135ade695ec50a15213b821eee2ec549c903dd259 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderChemthrower.java
+7a83d6546fea8674007ccd293b9b94b2e775b15d4103cc7c2f32c0df5705672d src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderCoilgun.java
+0bb4458a961e63353386e252271bce19db0b25de2db1f0d1c6498898e71a6351 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderCongoLake.java
+9fbecba1365de8f7d8b1f71c8094f79b39d3f4afffb9634009e491676c83a679 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderDANI.java
+7305bbc6086f9ad3beb44d144bd53ec00cab6b5f7eb81f17093adfceea12acaa src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderDebug.java
+50b43027cea986310b44600f61f1b44422976a7685f070aa9ccbb90094e41f89 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderDoubleBarrel.java
+3d955fa85c9c0454126860e5da83bfae6403a6b552f94236824cd6af4ce3b324 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderDrill.java
+e8db24cc1ef99eca5955325f1e8508e8b7d37d98bbdf6bf9d77ee6c84282b30f src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderEOTT.java
+248bff255d4813b6f53fd4206579eecee771f0c665edf08540cbd0811d7b8036 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderFatMan.java
+7274cc508532612ab3a7741a1c32593e59c4c78985d804cffeb1727fd5fbc186 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderFlamer.java
+be6a70e6109cb68e966f46dc0e76d748d52d29945fb405e3c0b857ecc61f27f4 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderFlaregun.java
+b62cf94e94b66e5403aa030b68d0cc301791c413a46596af246d80c30b84dcd4 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderFolly.java
+136bd0a0a3b1596bbe25b831835693bfcd885087e4bd9f8c6b5a0cc5fa0b3e62 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderG3.java
+c97b4af476a3cca5541be041fd55ddfb2534732fdf3f8909fe05241a964b0a67 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderGreasegun.java
+6ccce32fb3f2c2d0b27eaddf03ce8002a54c7de2bbf448e253a3a04d718ae38d src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderHangman.java
+81f2f30d4f54ae5dfad4662e79133056baf78d1c31db78eecc99a8d99490d85e src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderHeavyRevolver.java
+17cc7bb6ddec98dbfe25adf1ec6cec7e1e0f22e6178cec72c8f997dde9eaa760 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderHenry.java
+5916039937f76c2f07097f0ce0782cb1e7596f6e7431b8f59f8460dada8116ac src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderLAG.java
+f42c14575a76b8954596dd4b46fee5c7e71cbb40a6c0d7af478ca60c1160e144 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderLaserPistol.java
+c58b1a1556feb49b246dad6891ac98766a931db2b13fe825be6709630c083b26 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderLasrifle.java
+42c06096b573ef5bed5579c16c77dc026521a00a89856424e5ecd59b6448fd82 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderLiberator.java
+e1299cd6f5bd6c22f27131d081249f4614ba7d7cc053ef4748fd6d0b893728af src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderM2.java
+69ae972f70238457af3dcd3eebdc93fa140314ae731236050b9a8703c17ae8e6 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderMAS36.java
+c8f29c43008f3b4544a41d463ff0680e0c95367c408b2f530ea3b390444aa645 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderMaresleg.java
+93e0a3b2289d996bc4200231aa7533ce88fc25578baf5109e59e7dcb44309079 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderMareslegAkimbo.java
+d9c9083f198d8733026e0e7e53822d4daf66e6611745448fd023b75723809edc src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderMinigun.java
+885da2b93a953dd4b7de41dcb94d11d1b056b73264da8e4d75e54cd391d23a43 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderMinigunDual.java
+923c7f74383e661a01ecc82bfb435f571a7df9af8be4f323f974fa82f8bf7555 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderMissileLauncher.java
+3774c5d61874ac001de0073207de262bfb6e7ea4270b81fb3ca962d20ff9e267 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderNI4NI.java
+60ace02f7cbbfbeac38867b75939ea885c7e6bb8f11e44f1596749bbcc64e595 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderPAMelee.java
+4c4c541fe4330801e298ad96336348fe0b9a795680121c5a94da551cb7de2c9c src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderPanzerschreck.java
+6ffa7e63f01ff2fa247d79765d475adeb153d7068d37e9591c4c0985a6013fb8 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderPepperbox.java
+671e204d02ea53b754ba3b61197ceaeab476e30f8f9a4607d55c64d36fdc7e80 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderQuadro.java
+452783e01a1b2fd4c61d5a20326e19bf1bc040d6931aaed6c79637e0a07cc847 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderSPAS12.java
+914aa98e56c847a28a894c17c90f78470d823a836634f76a7280e6cb8b9311b0 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderSTG77.java
+8afd16cfa8e1bc553b3139d9373f2dbb8ef2557f4ba0a261b5aabe1dee9fae65 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderSexy.java
+89ba71dbb0d1941b7b9647335b0f1cb22270895d99067743db5afe5415051348 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderShredder.java
+123c6930926400d96321a7c38776800b3313ffd6b801359cc1604715b593ed62 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderStarF.java
+fd2d98cda730f2aeba4b29072ffe999499f598a9a64233c1fe9deb01576f6e77 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderStarFAkimbo.java
+e1fe25022a09e434c07cbff07f2a9b251e12bd8e0cb5c5ea7a63d4e39da613e1 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderStinger.java
+823bc44a59727d0a8bea33715caf0b4f65c14cbbe0356837143ae6d99734d70b src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderTau.java
+84676b7d5954398606e631740b2d2286f64fac925f7154591e2aae958ce25ef8 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderTeslaCannon.java
+d2df1cf3d1699f503bb3215c070e0eca59030bcba3c3390822be908ce3863f85 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderUzi.java
+3ff512f5f7886a27995e02313fc72c424bb651df1fdda0df0d62c330fa0c7c00 src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderUziAkimbo.java
+769218404762129a237cf108829e1f51c9543816ad023c8d11da0399c4aedd6c src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderWeaponBase.java
+43e0f8eab4e96391d42178fcea1b5cfc9c7a3d36aa7def10cf20c72305493e44 src/main/java/com/hbm/items/weapon/sedna/factory/GunFactoryClient.java
+cce424509f7de66f4a9a8afd47178a515ead46d3592f5a9e737df64e3a54a618 src/main/java/com/hbm/main/ModEventHandlerRenderer.java
+f1f0bfceb531ad5a0742403150ffb6d1a92cc22e27fbbf8d24cdbde88073ebb3 src/main/java/com/hbm/main/ModEventHandlerClient.java
+c13ed1f49e60340000ff7fa33cb70ca50eaee1d12286b87435d0c7134e4d6d27 src/main/java/com/hbm/inventory/gui/GUIWeaponTable.java
+1e64d8f0f97240b7bbc5c468788b87b3c832e821a6734b80d49b201d86805691 src/main/java/com/hbm/render/item/nativeitem/context/NativeProjectionScope.java
+6020a4ab73696f210f737d30708a6f23f42f70c81ecb9a1eb1a2de6426f3c537 src/main/java/com/hbm/render/item/weapon/sedna/nativehand/SednaHandHandler.java

@@ -34,7 +34,7 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 	protected IIcon blockIconAluminum; //shrouded in aluminum
 
 	public BlockGraphiteDrilledBase() {
-		super(ModBlocks.block_graphite.getMaterial(), ((BlockFlammable) ModBlocks.block_graphite).encouragement, ((BlockFlammable) ModBlocks.block_graphite).flammability);
+		super(ModBlocks.block_graphite.getDefaultState().getMaterial(), ((BlockFlammable) ModBlocks.block_graphite).encouragement, ((BlockFlammable) ModBlocks.block_graphite).flammability);
 		
 		this.setCreativeTab(null);
 		this.setStepSound(Block.soundTypeMetal);
@@ -73,11 +73,11 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 		dust.motionX = dir.offsetX * 0.25;
 		dust.motionY = dir.offsetY * 0.25;
 		dust.motionZ = dir.offsetZ * 0.25;
-		world.spawnEntityInWorld(dust);
+		world.spawnEntity(dust);
 	}
 	
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return null;
 	}
 	
@@ -89,7 +89,7 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 		
 		if(!world.isRemote) {
 
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			int cfg = meta & 3;
 			
 			if(side == cfg * 2 || side == cfg * 2 + 1) {
@@ -146,7 +146,7 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 		if(baseBlock == null) return false;
 		
 		final int side = dir.ordinal();
-		final int pureMeta = world.getBlockMetadata(x, y, z) & 3; //in case it's shrouded in aluminum
+		final int pureMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) & 3; //in case it's shrouded in aluminum
 
 		if(side == pureMeta * 2 || side == pureMeta * 2 + 1) {
 			//first, make sure we can even push rods out
@@ -155,10 +155,10 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 				int iy = y + dir.offsetY * i;
 				int iz = z + dir.offsetZ * i;
 				
-				Block b = world.getBlock(ix, iy, iz);
+				Block b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();
 				
 				if(b instanceof BlockGraphiteDrilledBase) {
-					int baseMeta = world.getBlockMetadata(ix, iy, iz);
+					int baseMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) );
 					if((baseMeta & 3) != pureMeta) //wrong orientation
 						return false;
 					
@@ -188,24 +188,24 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 				int iy = y + dir.offsetY * i;
 				int iz = z + dir.offsetZ * i;
 				
-				Block newBlock = world.getBlock(ix, iy, iz);
+				Block newBlock = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();
 				
 				if(newBlock instanceof BlockGraphiteDrilledBase) {
-					int newMeta = world.getBlockMetadata(ix, iy, iz);
+					int newMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) );
 					NBTTagCompound newTag = new NBTTagCompound();
 					
 					if(newBlock instanceof BlockGraphiteDrilledTE) {
-						TileEntity te = world.getTileEntity(ix, iy, iz);
+						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, iy, iz));
 						te.writeToNBT(newTag);
-						newTag.setInteger("x", te.xCoord + dir.offsetX); //malformed positions is very very bad and prevents the pile TEs from ticking
-						newTag.setInteger("y", te.yCoord + dir.offsetY);
-						newTag.setInteger("z", te.zCoord + dir.offsetZ);
+						newTag.setInteger("x", te.getPos().getX() + dir.offsetX); //malformed positions is very very bad and prevents the pile TEs from ticking
+						newTag.setInteger("y", te.getPos().getY() + dir.offsetY);
+						newTag.setInteger("z", te.getPos().getZ() + dir.offsetZ);
 					}
 					
 					world.setBlock(ix, iy, iz, oldBlock, (oldMeta & ~0b100) | (newMeta & 0b100), 0);
 					
 					if(oldBlock instanceof BlockGraphiteDrilledTE && !oldTag.hasNoTags()) { //safety first
-						TileEntity te = world.getTileEntity(ix, iy, iz);
+						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, iy, iz));
 						te.readFromNBT(oldTag);
 					}
 					

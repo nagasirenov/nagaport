@@ -82,6 +82,12 @@ public class PacketDispatcher {
 
 		//Syncs muzzle flashes of SEDNA guns for clients from other entities/players
 		wrapper.registerMessage(MuzzleFlashPacket.Handler.class, MuzzleFlashPacket.class, i++, Side.CLIENT);
+
+		// Appended discriminator preserves every existing packet ID.
+		wrapper.registerMessage(LegacyInventoryActionPacket.Handler.class, LegacyInventoryActionPacket.class, i++, Side.SERVER);
+
+		// Scoped legacy one-shot transport; append to preserve all existing IDs.
+		wrapper.registerMessage(LegacyEntitySoundPacket.Handler.class, LegacyEntitySoundPacket.class, i++, Side.CLIENT);
 	}
 
 }

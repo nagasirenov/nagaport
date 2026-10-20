@@ -1,6 +1,6 @@
 package com.hbm.main;
 
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import com.hbm.handler.jei.MachineRecipeCategory;
 import com.hbm.config.VersatileConfig;
 import com.hbm.handler.nei.*;
 
@@ -9,9 +9,9 @@ import java.util.List;
 
 public class NEIRegistry {
 
-	public static List<TemplateRecipeHandler> handlers = new ArrayList<>();
+	public static List<MachineRecipeCategory> handlers = new ArrayList<>();
 
-	public static List<TemplateRecipeHandler> listAllHandlers() {
+	public static List<MachineRecipeCategory> listAllHandlers() {
 
 		if(!handlers.isEmpty()) return handlers;
 

@@ -1,6 +1,5 @@
 package com.hbm.entity.item;
 
-import com.hbm.lib.Library;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import api.hbm.conveyor.IConveyorBelt;
@@ -8,7 +7,9 @@ import api.hbm.conveyor.IEnterableBlock;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -35,7 +36,7 @@ public abstract class EntityMovingConveyorObject extends Entity {
 	}
 
 	@Override
-	public boolean canAttackWithItem() {
+	public boolean canBeAttackedWithItem() {
 		return true;
 	}
 
@@ -57,7 +58,7 @@ public abstract class EntityMovingConveyorObject extends Entity {
 	@Override
 	public void onUpdate() {
 		
-		if(worldObj.isRemote) {
+		if(world.isRemote) {
 			if(this.turnProgress > 0) {
 				double interpX = this.posX + (this.syncPosX - this.posX) / (double) this.turnProgress;
 				double interpY = this.posY + (this.syncPosY - this.posY) / (double) this.turnProgress;
@@ -69,7 +70,7 @@ public abstract class EntityMovingConveyorObject extends Entity {
 			}
 		}
 
-		if(!worldObj.isRemote) {
+		if(!world.isRemote) {
 			
 			ticksExisted++;
 			
@@ -81,8 +82,8 @@ public abstract class EntityMovingConveyorObject extends Entity {
 			int blockY = (int) Math.floor(posY);
 			int blockZ = (int) Math.floor(posZ);
 			
-			Block b = worldObj.getBlock(blockX, blockY, blockZ);
-			boolean isOnConveyor = b instanceof IConveyorBelt && ((IConveyorBelt) b).canItemStay(worldObj, blockX, blockY, blockZ, new Vec3d(posX, posY, posZ));
+			Block b = world.getBlockState(new net.minecraft.util.math.BlockPos(blockX, blockY, blockZ)).getBlock();
+			boolean isOnConveyor = b instanceof IConveyorBelt && ((IConveyorBelt) b).canItemStay(world, blockX, blockY, blockZ, new Vec3d(posX, posY, posZ));
 			
 			if(!isOnConveyor) {
 				
@@ -91,39 +92,40 @@ public abstract class EntityMovingConveyorObject extends Entity {
 				}
 			} else {
 				
-				Vec3d target = ((IConveyorBelt) b).getTravelLocation(worldObj, blockX, blockY, blockZ, new Vec3d(posX, posY, posZ), getMoveSpeed());
+				Vec3d target = ((IConveyorBelt) b).getTravelLocation(world, blockX, blockY, blockZ, new Vec3d(posX, posY, posZ), getMoveSpeed());
 				this.motionX = target.x - posX;
 				this.motionY = target.y - posY;
 				this.motionZ = target.z - posZ;
 			}
 			
 			BlockPos lastPos = new BlockPos(posX, posY, posZ);
-			this.moveEntity(motionX, motionY, motionZ);
+			this.move(MoverType.SELF, motionX, motionY, motionZ);
 			BlockPos newPos = new BlockPos(posX, posY, posZ);
 			
 			if(!lastPos.equals(newPos)) {
 				
-				Block newBlock = worldObj.getBlock(newPos.getX(), newPos.getY(), newPos.getZ());
+				IBlockState newState = world.getBlockState(new net.minecraft.util.math.BlockPos(newPos.getX(), newPos.getY(), newPos.getZ()));
+				Block newBlock = newState.getBlock();
 				
 				if(newBlock instanceof IEnterableBlock) {
 					
 					ForgeDirection dir = ForgeDirection.UNKNOWN;
 
-					if(lastPos.getX() > newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = Library.POS_X;
-					else if(lastPos.getX() < newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = Library.NEG_X;
-					else if(lastPos.getX() == newPos.getX() && lastPos.getY() > newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = Library.POS_Y;
-					else if(lastPos.getX() == newPos.getX() && lastPos.getY() < newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = Library.NEG_Y;
-					else if(lastPos.getX() == newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() > newPos.getZ()) dir = Library.POS_Z;
-					else if(lastPos.getX() == newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() < newPos.getZ()) dir = Library.NEG_Z;
+					if(lastPos.getX() > newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = ForgeDirection.EAST;
+					else if(lastPos.getX() < newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = ForgeDirection.WEST;
+					else if(lastPos.getX() == newPos.getX() && lastPos.getY() > newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = ForgeDirection.UP;
+					else if(lastPos.getX() == newPos.getX() && lastPos.getY() < newPos.getY() && lastPos.getZ() == newPos.getZ()) dir = ForgeDirection.DOWN;
+					else if(lastPos.getX() == newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() > newPos.getZ()) dir = ForgeDirection.SOUTH;
+					else if(lastPos.getX() == newPos.getX() && lastPos.getY() == newPos.getY() && lastPos.getZ() < newPos.getZ()) dir = ForgeDirection.NORTH;
 					
 					IEnterableBlock enterable = (IEnterableBlock) newBlock;
 					enterBlock(enterable, newPos, dir);
 					
 				} else {
 					
-					if(!newBlock.getMaterial().isSolid()) {
+					if(!newState.getMaterial().isSolid()) {
 						
-						newBlock = worldObj.getBlock(newPos.getX(), newPos.getY() - 1, newPos.getZ());
+						newBlock = world.getBlockState(new net.minecraft.util.math.BlockPos(newPos.getX(), newPos.getY() - 1, newPos.getZ())).getBlock();
 						
 						if(newBlock instanceof IEnterableBlock) {
 							
@@ -151,6 +153,7 @@ public abstract class EntityMovingConveyorObject extends Entity {
 		return 0.0625D;
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void setVelocity(double motionX, double motionY, double motionZ) {
 		this.velocityX = this.motionX = motionX;
@@ -158,8 +161,9 @@ public abstract class EntityMovingConveyorObject extends Entity {
 		this.velocityZ = this.motionZ = motionZ;
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int theNumberThree) {
+	public void setPositionAndRotationDirect(double x, double y, double z, float yaw, float pitch, int theNumberThree, boolean teleport) {
 		this.syncPosX = x;
 		this.syncPosY = y;
 		this.syncPosZ = z;

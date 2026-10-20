@@ -3,7 +3,7 @@ package com.hbm.handler.ability;
 import com.hbm.util.ChatBuilder;
 
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public class ToolPreset {
@@ -27,7 +27,7 @@ public class ToolPreset {
 		this.harvestAbilityLevel = harvestAbilityLevel;
 	}
 
-	public ChatComponentText getMessage() {
+	public TextComponentString getMessage() {
 		if(isNone()) {
 			return ChatBuilder.start("[Tool ability deactivated]").color(TextFormatting.GOLD).flush();
 		}

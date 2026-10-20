@@ -1,6 +1,7 @@
 package com.hbm.items.weapon.sedna.hud;
 
 import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
 import com.hbm.lib.RefStrings;
@@ -35,7 +36,7 @@ public class HUDComponentDurabilityBar implements IHUDComponent {
 	public void renderHUDComponent(Pre event, ElementType type, EntityPlayer player, ItemStack stack, int bottomOffset, int gunIndex) {
 
 		if(type != type.HOTBAR) return;
-		ScaledResolution resolution = event.resolution;
+		ScaledResolution resolution = event.getResolution();
 		Minecraft mc = Minecraft.getMinecraft();
 
 		int pX = resolution.getScaledWidth() / 2 + (mirrored ? -(62 + 36 + 52) : (62 + 36));
@@ -44,7 +45,7 @@ public class HUDComponentDurabilityBar implements IHUDComponent {
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 		int dura = (int) (50 * gun.getWear(stack, gunIndex) / gun.getConfig(stack, gunIndex).getDurability(stack));
 		
-		GL11.glColor4f(1F, 1F, 1F, 1F);
+		GlStateManager.color(1F, 1F, 1F, 1F);
 
 		mc.renderEngine.bindTexture(misc);
 		mc.ingameGUI.drawTexturedModalRect(pX, pZ + 16, 94, 0, 52, 3);

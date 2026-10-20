@@ -172,18 +172,18 @@ public class BulletConfig implements Cloneable {
 		
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 			
-			Block b = bullet.worldObj.getBlockState(mop.getBlockPos()).getBlock();
-			if(b.getMaterial() == Material.glass) {
-				bullet.worldObj.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+			Block b = bullet.world.getBlockState(mop.getBlockPos()).getBlock();
+			if(b.getDefaultState().getMaterial() == Material.GLASS) {
+				bullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				return;
 			}
 			if(b instanceof BlockDetonatable) {
-				((BlockDetonatable) b).onShot(bullet.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				((BlockDetonatable) b).onShot(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 			}
 			if(b == ModBlocks.deco_crt) {
-				int meta = bullet.worldObj.getBlockMetadata(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
-				bullet.worldObj.setBlockMetadataWithNotify(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
+				int meta = bullet.world.getBlockMetadata(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				bullet.world.setBlockMetadataWithNotify(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
 			}
 
 			net.minecraft.util.EnumFacing side = mop.sideHit;
@@ -205,10 +205,10 @@ public class BulletConfig implements Cloneable {
 				case 2: case 3: bullet.motionZ *= -1; break;
 				case 4: case 5: bullet.motionX *= -1; break;
 				}
-				bullet.worldObj.playSoundAtEntity(bullet, "hbm:weapon.ricochet", 0.25F, 1.0F);
+				bullet.world.playSoundAtEntity(bullet, "hbm:weapon.ricochet", 0.25F, 1.0F);
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				//send a teleport so the ricochet is more accurate instead of the interp smoothing fucking everything up
-				if(bullet.worldObj instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) bullet.worldObj, bullet);
+				if(bullet.world instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) bullet.world, bullet);
 				return;
 
 			} else {

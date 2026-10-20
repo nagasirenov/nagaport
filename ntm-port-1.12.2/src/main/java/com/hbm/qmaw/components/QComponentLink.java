@@ -13,7 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.entity.RenderItem;
+import com.hbm.render.util.NativeGuiItemDraw;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -26,7 +26,7 @@ public class QComponentLink extends ManualElement {
 	protected int color = 0x0094FF;
 	protected int hoverColor = 0xFFD800;
 	
-	protected static RenderItem itemRender = new RenderItem();
+
 	
 	public QComponentLink(String link, String text) {
 		this.text = text;
@@ -70,8 +70,7 @@ public class QComponentLink extends ManualElement {
 			GL11.glRotated(180, 1, 0, 0);
 			RenderHelper.enableStandardItemLighting();
 			GL11.glRotated(-180, 1, 0, 0);
-			itemRender.renderItemAndEffectIntoGUI(this.font, mc.renderEngine, this.icon, x, y - 1);
-			itemRender.renderItemOverlayIntoGUI(this.font, mc.renderEngine, this.icon, x, y - 1, null);
+			NativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.font, this.icon, x, y - 1, 0.0F, null);
 			RenderHelper.disableStandardItemLighting();
 			GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 			GL11.glDisable(GL11.GL_DEPTH_TEST);
@@ -87,11 +86,11 @@ public class QComponentLink extends ManualElement {
 	@Override public void onClick(GuiQMAW gui) {
 		QuickManualAndWiki qmaw = QMAWLoader.qmaw.get(link);
 		if(qmaw != null) {
-			Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(net.minecraft.init.SoundEvents.UI_BUTTON_CLICK, 1.0F));
 			GuiQMAW screen = new GuiQMAW(qmaw);
 			screen.back.addAll(gui.back);
 			screen.back.add(gui.qmawID);
-			FMLCommonHandler.instance().showGuiScreen(screen);
+			Minecraft.getMinecraft().displayGuiScreen(screen);
 		}
 	}
 }

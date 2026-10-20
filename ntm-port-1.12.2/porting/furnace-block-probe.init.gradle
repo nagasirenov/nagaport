@@ -1,0 +1,13 @@
+// Complete native furnace block with real World/Chunk and explicit NTM-only collaborators.
+allprojects { afterEvaluate {
+    tasks.create('checkPortFurnaceBlockSource', Exec) {
+        commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-furnace-block-source.py')
+    }
+    tasks.create('testPortFurnaceBlock', Exec) {
+        dependsOn 'checkPortFurnaceBlockSource'
+        commandLine project.findProperty('portPython') ?: 'python3',
+            project.file('porting/tests/probe-furnace-block.py'),
+            '--java-home', System.getProperty('java.home'),
+            '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+    }
+} }

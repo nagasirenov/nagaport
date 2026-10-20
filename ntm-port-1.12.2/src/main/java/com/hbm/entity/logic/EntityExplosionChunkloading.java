@@ -20,12 +20,12 @@ public abstract class EntityExplosionChunkloading extends Entity implements IChu
 
 	@Override
 	protected void entityInit() {
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 	}
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote && ticket != null) {
+		if(!this.world.isRemote && ticket != null) {
 			if(loaderTicket == null) {
 				loaderTicket = ticket;
 				loaderTicket.bindEntity(this);
@@ -44,7 +44,7 @@ public abstract class EntityExplosionChunkloading extends Entity implements IChu
 	}
 	
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}

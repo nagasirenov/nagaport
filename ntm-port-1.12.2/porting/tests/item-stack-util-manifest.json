@@ -1,0 +1,13 @@
+{
+  "source": "src/main/java/com/hbm/util/ItemStackUtil.java",
+  "reviewed_native_sha256": "91d4772513c195e82949f693b14bbde7103002c1bf929a8f33023a04d947fa04",
+  "pre_migration_sha256": "7656fde8811ddb26fb34b942cd30c6812a1623c81390d87e45626f450348565d",
+  "pristine_original_sha256": "1e7abca34d3da1d6aeafbeb4ab83993622e0ea0f7f9b74cfe5791a028e324a4f",
+  "scope": "Whole production utility compiled; native runtime assertions. No extraction, substitute Minecraft API, Git lookup or gameplay proof.",
+  "reviewed_changes": [
+    "Native count/NBT/registry/JSON/World/EntityItem APIs",
+    "Native EMPTY guards retain nullable legacy arrays and null-input semantics",
+    "Native NBT empty records skipped without changing signed slot/count/record loop policy",
+    "Spill captures item/meta/NBT before shrink; supplied Random call and mutation order retained for positive stacks"
+  ]
+}

@@ -29,14 +29,14 @@ public class EntityGrenadeIFToxic extends EntityGrenadeBouncyBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
     		
-    		ExplosionLarge.jolt(worldObj, posX, posY, posZ, 3, 200, 0.25);
-    		ExplosionLarge.explode(worldObj, posX, posY, posZ, 2, true, true, true);
-    		ExplosionChaos.poison(worldObj, (int)posX, (int)posY, (int)posZ, 12);
-    		ExplosionNukeGeneric.waste(worldObj, (int)posX, (int)posY, (int)posZ, 12);
+    		ExplosionLarge.jolt(this.world, posX, posY, posZ, 3, 200, 0.25);
+    		ExplosionLarge.explode(this.world, posX, posY, posZ, 2, true, true, true);
+    		ExplosionChaos.poison(this.world, (int)posX, (int)posY, (int)posZ, 12);
+    		ExplosionNukeGeneric.waste(this.world, (int)posX, (int)posY, (int)posZ, 12);
         }
     }
 

@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.Collections;
@@ -46,16 +46,16 @@ public class CommandSatellites extends CommandBase {
 
 		switch (args[0]) {
 			case "orbit":
-				if(player.getHeldItem().getItem() instanceof ISatChip && player.getHeldItem().getItem() != ModItems.sat_chip) {
-					int freq = ISatChip.getFreqS(player.getHeldItem());
+				if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ISatChip && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.sat_chip) {
+					int freq = ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 					if(args.length >= 2) freq = parseInt(sender, args[1]);
 					Satellite.orbit(
-						player.worldObj,
-						Satellite.getIDFromItem(player.getHeldItem().getItem()),
+						player.world,
+						Satellite.getIDFromItem(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()),
 						freq,
 						player.posX, player.posY, player.posZ
 					);
-					player.getHeldItem().stackSize -= 1;
+					com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize -= 1;
 					sender.sendMessage(new TextComponentTranslation("commands.satellite.satellite_orbited").setStyle(new Style().setColor(TextFormatting.GREEN)));
 				} else {
 					sender.sendMessage(new TextComponentTranslation("commands.satellite.not_a_satellite").setStyle(new Style().setColor(TextFormatting.RED)));
@@ -104,8 +104,8 @@ public class CommandSatellites extends CommandBase {
 			return getListOfStringsMatchingLastWord(args, "orbit", "descend", "list");
 		}
 		if (args[0].equals("descend")) {
-			ChunkCoordinates coords = sender.getPlayerCoordinates();
-			return getListOfStringsFromIterableMatchingLastWord(args, SatelliteSavedData.getData(sender.getEntityWorld(), coords.posX, coords.posZ).sats.keySet().stream().map(String::valueOf).collect(Collectors.toList()));
+			BlockPos coords = sender.getPosition();
+			return getListOfStringsFromIterableMatchingLastWord(args, SatelliteSavedData.getData(sender.getEntityWorld(), coords.getX(), coords.getZ()).sats.keySet().stream().map(String::valueOf).collect(Collectors.toList()));
 		}
 		return Collections.emptyList();
 	}

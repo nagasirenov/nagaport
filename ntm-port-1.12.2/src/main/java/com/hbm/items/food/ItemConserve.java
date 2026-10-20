@@ -1,5 +1,6 @@
 package com.hbm.items.food;
 
+import net.minecraft.client.util.ITooltipFlag;
 import java.util.List;
 import java.util.Locale;
 
@@ -76,8 +77,9 @@ public class ItemConserve extends ItemEnumMulti {
 	}
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		String unloc = this.getUnlocalizedName(itemstack) + ".desc";
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
+		String unloc = this.getTranslationKey(itemstack) + ".desc";
 		String loc = I18nUtil.resolveKey(unloc);
 		
 		if(!unloc.equals(loc)) {
@@ -102,7 +104,7 @@ public class ItemConserve extends ItemEnumMulti {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		Enum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
 		return "item.canned_" + num.name().toLowerCase(Locale.US);
 	}

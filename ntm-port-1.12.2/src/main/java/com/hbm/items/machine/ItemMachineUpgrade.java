@@ -8,7 +8,8 @@ import com.hbm.tileentity.IUpgradeInfoProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -37,7 +38,7 @@ public class ItemMachineUpgrade extends Item {
 	}
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		
 		GuiScreen open = Minecraft.getMinecraft().currentScreen;
 		
@@ -49,8 +50,8 @@ public class ItemMachineUpgrade extends Item {
 				IInventory inv = (IInventory) first.inventory;
 				if(inv instanceof IUpgradeInfoProvider) {
 					IUpgradeInfoProvider provider = (IUpgradeInfoProvider) inv;
-					if(provider.canProvideInfo(this.type, this.tier, bool)) {
-						provider.provideInfo(this.type, this.tier, list, bool);
+					if(provider.canProvideInfo(this.type, this.tier, flag.isAdvanced())) {
+						provider.provideInfo(this.type, this.tier, list, flag.isAdvanced());
 						return;
 					}
 				}

@@ -10,7 +10,7 @@ public class SawmillHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmSawmill";
 	}
 }

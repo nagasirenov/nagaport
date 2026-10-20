@@ -63,13 +63,13 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 
 	public void setAngle(World world, int x, int y, int z, EntityLivingBase player, boolean updateMeta) {
 
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		float rotation = player.rotationPitch;
 
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile instanceof TileEntityFloodlight) {
-			int meta = world.getBlockMetadata(x, y, z) % 6;
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 6;
 			TileEntityFloodlight floodlight = (TileEntityFloodlight) tile;
 
 			if(meta == 0 || meta == 1) {
@@ -128,7 +128,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 		return block; // No block transformation needed
 	}
 
-	public static class TileEntityFloodlight extends TileEntity implements IEnergyReceiverMK2 {
+	public static class TileEntityFloodlight extends TileEntity implements IEnergyReceiverMK2, net.minecraft.util.ITickable {
 
 		public float rotation;
 		protected BlockPos[] lightPos = new BlockPos[15];
@@ -139,12 +139,12 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 		public boolean isOn;
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() % 6).getOpposite();
-				this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 
 				if(delay > 0) {
 					delay --;
@@ -157,12 +157,12 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 					if(!isOn) {
 						this.isOn = true;
 						this.castLights();
-						this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
-						this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+						this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+						this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 					} else {
 
-						long timer = worldObj.getTotalWorldTime();
+						long timer = this.world.getTotalWorldTime();
 						if(timer % 5 == 0) {
 							timer = timer / 5;
 							this.castLight((int) Math.abs(timer % this.lightPos.length));
@@ -174,8 +174,8 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 						this.isOn = false;
 						this.delay = 60;
 						this.destroyLights();
-						this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
-						this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+						this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+						this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 					}
 				}
 			}
@@ -188,11 +188,11 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 
 			if(newPos == null || !newPos.equals(oldPos)) { //if the new end point is null or not equal to the previous, delete the previous spot
 				if(oldPos != null) {
-					TileEntity tile = Compat.getTileStandard(worldObj, oldPos.getX(), oldPos.getY(), oldPos.getZ());
+					TileEntity tile = Compat.getTileStandard(this.world, oldPos.getX(), oldPos.getY(), oldPos.getZ());
 					if(tile instanceof TileEntityFloodlightBeam) {
 						TileEntityFloodlightBeam beam = (TileEntityFloodlightBeam) tile;
 						if(beam.cache == this) {
-							worldObj.setBlock(oldPos.getX(), oldPos.getY(), oldPos.getZ(), Blocks.air, 0, 2);
+							this.world.setBlock(oldPos.getX(), oldPos.getY(), oldPos.getZ(), Blocks.AIR, 0, 2);
 						}
 					}
 				}
@@ -200,14 +200,14 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 
 			if(newPos == null) return;
 
-			if(worldObj.getBlock(newPos.getX(), newPos.getY(), newPos.getZ()) == Blocks.air) {
-				worldObj.setBlock(newPos.getX(), newPos.getY(), newPos.getZ(), ModBlocks.floodlight_beam, 0, 2);
-				TileEntity tile = Compat.getTileStandard(worldObj, newPos.getX(), newPos.getY(), newPos.getZ());
+			if(com.hbm.world.WorldBlockState.read(this.world, newPos.getX(), newPos.getY(), newPos.getZ()).getBlock() == Blocks.AIR) {
+				this.world.setBlock(newPos.getX(), newPos.getY(), newPos.getZ(), ModBlocks.floodlight_beam, 0, 2);
+				TileEntity tile = Compat.getTileStandard(this.world, newPos.getX(), newPos.getY(), newPos.getZ());
 				if(tile instanceof TileEntityFloodlightBeam) ((TileEntityFloodlightBeam) tile).setSource(this, newPos.getX(), newPos.getY(), newPos.getZ(), index);
 				this.lightPos[index] = newPos;
 			}
 
-			if(worldObj.getBlock(newPos.getX(), newPos.getY(), newPos.getZ()) == ModBlocks.floodlight_beam) {
+			if(com.hbm.world.WorldBlockState.read(this.world, newPos.getX(), newPos.getY(), newPos.getZ()).getBlock() == ModBlocks.floodlight_beam) {
 				this.lightPos[index] = newPos;
 			}
 		}
@@ -234,18 +234,18 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 			dir.rotateAroundYRad(angles[1]);
 
 			for(int i = 1; i < 64; i++) {
-				int iX = (int) Math.floor(xCoord + 0.5 + dir.x * i);
-				int iY = (int) Math.floor(yCoord + 0.5 + dir.y * i);
-				int iZ = (int) Math.floor(zCoord + 0.5 + dir.z * i);
+				int iX = (int) Math.floor(this.pos.getX() + 0.5 + dir.x * i);
+				int iY = (int) Math.floor(this.pos.getY() + 0.5 + dir.y * i);
+				int iZ = (int) Math.floor(this.pos.getZ() + 0.5 + dir.z * i);
 
-				if(iX == xCoord && iY == yCoord && iZ == zCoord) continue;
+				if(iX == this.pos.getX() && iY == this.pos.getY() && iZ == this.pos.getZ()) continue;
 
-				Block block = worldObj.getBlock(iX, iY, iZ);
-				if(block.getLightOpacity(worldObj, iX, iY, iZ) < 127) continue;
+				Block block = com.hbm.world.WorldBlockState.read(this.world, iX, iY, iZ).getBlock();
+				if(block.getLightOpacity(this.world, iX, iY, iZ) < 127) continue;
 
-				int fX = (int) Math.floor(xCoord + 0.5 + dir.x * (i - 1));
-				int fY = (int) Math.floor(yCoord + 0.5 + dir.y * (i - 1));
-				int fZ = (int) Math.floor(zCoord + 0.5 + dir.z * (i - 1));
+				int fX = (int) Math.floor(this.pos.getX() + 0.5 + dir.x * (i - 1));
+				int fY = (int) Math.floor(this.pos.getY() + 0.5 + dir.y * (i - 1));
+				int fZ = (int) Math.floor(this.pos.getZ() + 0.5 + dir.z * (i - 1));
 
 				if(i > 1) return new BlockPos(fX, fY, fZ);
 			}
@@ -260,8 +260,8 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 		private void destroyLight(int index) {
 			BlockPos pos = lightPos[index];
 			if(pos != null) {
-				if(pos != null && worldObj.getBlock(pos.getX(), pos.getY(), pos.getZ()) == ModBlocks.floodlight_beam) {
-					worldObj.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.air, 0, 2);
+				if(pos != null && com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()).getBlock() == ModBlocks.floodlight_beam) {
+					this.world.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR, 0, 2);
 				}
 			}
 		}
@@ -298,11 +298,12 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setFloat("rotation", rotation);
 			nbt.setLong("power", power);
 			nbt.setBoolean("isOn", isOn);
+			return nbt;
 		}
 
 		@Override public long getPower() { return power; }
@@ -320,12 +321,12 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 
 			if(bb == null) {
 				bb = AxisAlignedBB.getBoundingBox(
-						xCoord - 1,
-						yCoord - 1,
-						zCoord - 1,
-						xCoord + 2,
-						yCoord + 2,
-						zCoord + 2
+						this.pos.getX() - 1,
+						this.pos.getY() - 1,
+						this.pos.getZ() - 1,
+						this.pos.getX() + 2,
+						this.pos.getY() + 2,
+						this.pos.getZ() + 2
 						);
 			}
 

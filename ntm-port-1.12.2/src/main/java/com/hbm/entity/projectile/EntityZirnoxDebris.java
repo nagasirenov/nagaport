@@ -28,7 +28,7 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			switch(this.getType()) {
 			case BLANK: if(player.inventory.addItemStackToInventory(new ItemStack(ModItems.debris_metal))) this.setDead(); break;
@@ -86,12 +86,12 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 			}
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if((this.getType() == DebrisType.CONCRETE || this.getType() == DebrisType.EXCHANGER) && motionY > 0) {
 
 				Vec3d pos = new Vec3d(posX, posY, posZ);
 				Vec3d next = new Vec3d(posX + motionX * 2, posY + motionY * 2, posZ + motionZ * 2);
-				RayTraceResult mop = worldObj.rayTraceBlocks(pos, next, false, false, false);
+				RayTraceResult mop = this.world.rayTraceBlocks(pos, next, false, false, false);
 
 				if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
@@ -106,7 +106,7 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 								int rn = Math.abs(i) + Math.abs(j) + Math.abs(k);
 
 								if(rn <= 1 || rand.nextInt(rn) == 0)
-									worldObj.setBlockToAir(x + i, y + j, z + k);
+									com.hbm.world.WorldAirRemoval.remove(this.world, x + i, y + j, z + k);
 							}
 						}
 					}
@@ -116,7 +116,7 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 			}
 
 			if(this.getType() == DebrisType.ELEMENT || this.getType() == DebrisType.GRAPHITE) {
-				List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(2.5, 2.5, 2.5));
+				List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.5, 2.5, 2.5));
 				
 				int level = this.getType() == DebrisType.ELEMENT ? 7 : 4;
 				for(EntityLivingBase e : entities) {
@@ -124,7 +124,7 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 				}
 			}
 
-			if(!RBMKDials.getPermaScrap(worldObj) && this.ticksExisted > getLifetime() + this.getEntityId() % 50)
+			if(!RBMKDials.getPermaScrap(this.world) && this.ticksExisted > getLifetime() + this.getEntityId() % 50)
 				this.setDead();
 		}
 	}
@@ -143,11 +143,11 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 	}
 
 	public void setType(DebrisType type) {
-		this.dataWatcher.updateObject(20, type.ordinal());
+		this.dataManager.set(DEBRIS_TYPE, type.ordinal());
 	}
 
 	public DebrisType getType() {
-		return DebrisType.values()[Math.abs(this.dataWatcher.getWatchableObjectInt(20)) % DebrisType.values().length];
+		return DebrisType.values()[Math.abs(this.dataManager.get(DEBRIS_TYPE)) % DebrisType.values().length];
 	}
 
 	public static enum DebrisType {

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "variant=0": {
+      "model": "hbm:native_plants/reeds/world/0"
+    }
+  }
+}

@@ -1,0 +1,133 @@
+import com.hbm.tileentity.network.*;
+import com.hbm.tileentity.*;
+import com.hbm.util.Tuple.Pair;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.storage.*;
+import net.minecraft.profiler.Profiler;
+import java.util.*;
+import java.lang.reflect.*;
+import io.netty.buffer.*;
+
+public class RadioTileNativeTest {
+ static int checks; static final BlockPos P=new BlockPos(2,64,3);
+ static void ck(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static class W extends World {
+  Map<BlockPos,IBlockState> states=new HashMap<>();Map<BlockPos,TileEntity> tiles=new HashMap<>();
+  BlockPos dirtyPos;TileEntity dirtyTile;long time;int notifications,neighbors,renders,dirty,destroyed;int lastPacket;EnumFacing inputFace;BlockPos inputPos;int power=7;boolean naturalPower;
+  W(boolean remote){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),remote);provider.setWorld(this);}
+  protected IChunkProvider createChunkProvider(){return null;}protected boolean isChunkLoaded(int x,int z,boolean e){return true;}
+  public IBlockState getBlockState(BlockPos p){return states.containsKey(p)?states.get(p):Blocks.AIR.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){return tiles.get(p);}public long getTotalWorldTime(){return time;}
+  public void markChunkDirty(BlockPos p,TileEntity t){dirty++;dirtyPos=p;dirtyTile=t;}
+  public void updateComparatorOutputLevel(BlockPos p,Block b){}
+  public void notifyBlockUpdate(BlockPos p,IBlockState a,IBlockState b,int flags){notifications++;ck(flags==2,"native tile update flag");TileEntity t=tiles.get(p);lastPacket=t.getUpdatePacket().getNbtCompound().getByte("l");}
+  public void notifyNeighborsOfStateChange(BlockPos p,Block b,boolean observers){neighbors++;ck(!observers,"legacy six-neighbor notification excludes new observer propagation");}
+  public void markBlockRangeForRenderUpdate(BlockPos a,BlockPos b){renders++;ck(a.equals(P)&&b.equals(P),"native render invalidation target");}
+  public int getRedstonePower(BlockPos p,EnumFacing f){inputFace=f;inputPos=p;return naturalPower?super.getRedstonePower(p,f):power;}
+  public boolean destroyBlock(BlockPos p,boolean drops){destroyed++;ck(p.equals(P)&&!drops,"controller native no-drop destruction");return true;}
+  void put(TileEntity t,BlockPos p){t.setWorld(this);t.setPos(p);tiles.put(p,t);}
+ }
+ static class Sender extends TileEntityRadioTorchSender {int meta=1,packs;public int getBlockMetadata(){return meta;}public void networkPackNT(int range){ck(range==50,"sender range");packs++;}}
+ static class Receiver extends TileEntityRadioTorchReceiver {int packs;public void networkPackNT(int range){ck(range==50,"receiver range");packs++;}}
+ static class Logic extends TileEntityRadioTorchLogic {int packs;public void networkPackNT(int range){ck(range==50,"logic range");packs++;}}
+ static class Reader extends TileEntityRadioTorchReader {public int getBlockMetadata(){return 1;}public void networkPackNT(int range){ck(range==50,"reader range");}}
+ static class Controller extends TileEntityRadioTorchController {public int getBlockMetadata(){return 1;}public void networkPackNT(int range){ck(range==50,"controller range");}}
+ static class Counter extends TileEntityRadioTorchCounter {public int getBlockMetadata(){return 1;}public void networkPackNT(int range){ck(range==15,"counter range");}}
+ static class Endpoint extends TileEntityMachineBase implements api.hbm.redstoneoverradio.IRORInteractive,api.hbm.redstoneoverradio.IRORValueProvider {
+  int calls;String value="value",command;String[] params;Endpoint(){super(4);}public void update(){}public String getDefaultName(){return "e";}
+  public String runRORFunction(String n,String[] p){command=n;params=p;calls++;return "";}public String provideRORValue(String n){ck(n.equals("VAL:read"),"reader value prefix");return value;}public String[] getFunctionInfo(){return new String[0];}
+ }
+ static class WeakSource extends Block {EnumFacing seen;WeakSource(){super(Material.CIRCUITS);}public boolean shouldCheckWeakPower(IBlockState s,net.minecraft.world.IBlockAccess w,BlockPos p,EnumFacing f){return false;}public int getWeakPower(IBlockState s,net.minecraft.world.IBlockAccess w,BlockPos p,EnumFacing f){seen=f;return 6;}}
+ static class Analog extends Block {int value;Analog(int value){super(Material.ROCK);this.value=value;}public boolean hasComparatorInputOverride(IBlockState s){return true;}public int getComparatorInputOverride(IBlockState s,World w,BlockPos p){return value;}}
+ static void clear(){RTTYSystem.broadcast.clear();RTTYSystem.newMessages.clear();}
+ static void publish(W w,String c,Object v,long tick){RTTYSystem.RTTYChannel ch=new RTTYSystem.RTTYChannel();ch.signal=v;ch.timeStamp=tick;RTTYSystem.broadcast.put(new Pair<World,String>(w,c),ch);}
+ static void initialSync()throws Exception{
+  ck(Modifier.isVolatile(TileEntityRadioTorchBase.class.getField("lastState").getModifiers()),"base render state safely published");ck(Modifier.isVolatile(TileEntityRadioTorchLogic.class.getField("lastState").getModifiers()),"logic render state safely published");
+  for(boolean logic:new boolean[]{false,true})for(int state=0;state<16;state++){
+   TileEntity src=logic?new Logic():new Receiver();TileEntity dst=logic?new Logic():new Receiver();W w=new W(true);w.put(src,P);w.put(dst,P);
+   if(logic){((Logic)src).lastState=state;((Logic)dst).channel="preserve";((Logic)dst).mapping[4]="keep";}else{((Receiver)src).lastState=state;((Receiver)dst).channel="preserve";((Receiver)dst).mapping[4]="keep";}
+   NBTTagCompound tag=src.getUpdateTag();ck(tag.getInteger("x")==P.getX()&&tag.getString("id").length()>0&&tag.getByte("l")==state,"native initial tag identity and state");dst.handleUpdateTag(tag);
+   ck((logic?((Logic)dst).lastState:((Receiver)dst).lastState)==state,"initial state all16");ck(w.renders==(state==0?0:1),"initial tag render invalidation only on change");
+   ck((logic?((Logic)dst).channel:((Receiver)dst).channel).equals("preserve"),"minimal update tag cannot wipe channel");ck((logic?((Logic)dst).mapping[4]:((Receiver)dst).mapping[4]).equals("keep"),"minimal update tag cannot wipe mapping");
+   dst.onDataPacket(null,src.getUpdatePacket());ck(w.renders==(state==0?0:1),"identical packet skips render invalidation");
+   if(logic)((Logic)src).lastState=(state+1)%16;else((Receiver)src).lastState=(state+1)%16;dst.onDataPacket(null,src.getUpdatePacket());ck(w.renders==(state==0?1:2),"changed packet invalidates render");
+  }
+ }
+ static void sender(){
+  for(int meta=0;meta<6;meta++){
+   clear();W w=new W(false);Sender s=new Sender();s.meta=meta;s.channel="s";w.put(s,P);s.update();
+   ck(w.inputFace==EnumFacing.byIndex(meta)&&w.inputPos.equals(P.offset(EnumFacing.byIndex(meta).getOpposite())),"all6 original sender direction and input position");ck(s.lastState==7&&w.lastPacket==7,"new state published before native notification");ck(RTTYSystem.newMessages.get(new Pair<>(w,"s")).equals("7"),"sender initial broadcast");
+   RTTYSystem.newMessages.clear();s.update();ck(RTTYSystem.newMessages.isEmpty(),"unchanged sender not rebroadcast");s.polling=true;s.update();ck(!RTTYSystem.newMessages.isEmpty(),"polling sender repeats");
+   s.customMap=true;s.mapping[11]="mapped";w.states.put(w.inputPos,new Analog(11).getDefaultState());RTTYSystem.newMessages.clear();s.update();ck(s.lastState==11&&RTTYSystem.newMessages.get(new Pair<>(w,"s")).equals("mapped"),"comparator overrides power before custom map");
+  }
+  clear();W w=new W(true);Sender s=new Sender();w.put(s,P);s.update();ck(w.notifications==0&&RTTYSystem.newMessages.isEmpty(),"sender client guard");
+ }
+ static void nativePower(){
+  for(int meta=0;meta<6;meta++){
+   clear();W w=new W(false);w.naturalPower=true;Sender s=new Sender();s.meta=meta;s.channel="native";w.put(s,P);WeakSource power=new WeakSource();w.states.put(P.offset(EnumFacing.byIndex(meta).getOpposite()),power.getDefaultState());s.update();
+   ck(s.lastState==6&&power.seen==EnumFacing.byIndex(meta),"real native World -> IBlockState -> Block weak-power side dispatch all6");
+   w.states.put(w.inputPos,Blocks.REDSTONE_BLOCK.getDefaultState());s.update();ck(s.lastState==15,"real vanilla redstone block power dispatch all6");
+  }
+ }
+ static void receiver(){
+  clear();W w=new W(false);w.time=100;Receiver r=new Receiver();r.channel="r";w.put(r,P);
+  for(Object[] c:new Object[][]{{"-1",0},{"99",15},{"bad",0},{"7",7}}){publish(w,"r",c[0],100);r.update();ck(r.lastState==(Integer)c[1],"receiver parse/clamp "+c[0]);}
+  r.customMap=true;r.mapping[4]="dup";r.mapping[12]="dup";publish(w,"r","dup",100);r.update();ck(r.lastState==12,"highest duplicate mapping wins");
+  r.polling=true;publish(w,"r","dup",97);r.update();ck(r.lastState==0,"polling stale threshold after two ticks");
+  r.lastState=3;r.polling=false;r.lastUpdate=100;publish(w,"r","dup",99);r.update();ck(r.lastState==3,"strict timestamp stale check");publish(w,"r","dup",100);r.update();ck(r.lastState==12,"equal previous tick timestamp accepted");
+  ck(w.notifications==w.neighbors,"receiver update and neighbor count equal");
+ }
+ static void logic(){
+  clear();W w=new W(false);w.time=30;Logic l=new Logic();l.channel="l";w.put(l,P);l.mapping[3]="4";l.mapping[10]="4";l.conditions[3]=l.conditions[10]=4;
+  publish(w,"l","4",30);l.update();ck(l.lastState==3,"logic ascending first match");l.descending=true;l.update();ck(l.lastState==10,"logic descending first match");
+  for(int op=0;op<10;op++){l.conditions[5]=op;l.mapping[5]=op<6?"4":"ab";String msg=op<6?"5":"abc";boolean want=new boolean[]{false,false,true,true,false,true,false,true,true,false}[op];ck(l.parseSignal(msg,5)==want,"logic operator "+op);}
+  l.mapping[5]="bad";l.conditions[5]=0;ck(!l.parseSignal("1",5),"invalid numeric constant skips mapping");
+  l.polling=true;l.mapping[15]="0";l.conditions[15]=4;publish(w,"l","10",27);l.update();ck(l.lastState==15,"stale polling substitutes zero before logic parsing");
+ }
+ static void endpoints(){
+  clear();W w=new W(false);Endpoint e=new Endpoint();w.put(e,P.down());Reader r=new Reader();w.put(r,P);r.channels[0]="r";r.names[0]="read";r.update();ck(RTTYSystem.newMessages.get(new Pair<>(w,"r")).equals("value"),"reader broadcast");RTTYSystem.newMessages.clear();r.update();ck(RTTYSystem.newMessages.isEmpty(),"reader unchanged gate");r.polling=true;r.update();ck(!RTTYSystem.newMessages.isEmpty(),"reader polling repeats");
+  Controller c=new Controller();w.put(c,P);c.channel="c";publish(w,"c","do!one:two",0);c.update();ck(e.calls==1&&e.command.equals("FUN:do")&&e.params.length==2,"controller parse and command prefix");c.update();ck(e.calls==1,"controller previous gate");c.polling=true;c.update();ck(e.calls==2,"controller polling repeats");publish(w,"c","selfdestruct",0);c.update();ck(w.destroyed==1&&com.hbm.explosion.vanillant.ExplosionVNT.exploded==1,"controller self-destruct branch");
+  clear();Counter k=new Counter();w.put(k,P);k.channel[0]="k";k.slots[0]=new ItemStack(Items.APPLE);e.slots[0]=new ItemStack(Items.APPLE,23);e.slots[1]=ItemStack.EMPTY;e.slots[2]=new ItemStack(Items.APPLE,9);e.slots[3]=new ItemStack(Items.STICK,8);k.update();ck(k.lastCount[0]==32&&RTTYSystem.newMessages.get(new Pair<>(w,"k")).equals(32),"counter native EMPTY boundary and getCount aggregation");RTTYSystem.newMessages.clear();k.update();ck(RTTYSystem.newMessages.isEmpty(),"counter unchanged gate");k.polling=true;k.update();ck(!RTTYSystem.newMessages.isEmpty(),"counter polling repeats");
+ }
+ static void persistence(){
+  Receiver r=new Receiver();r.setPos(P);r.channel="nbt";r.polling=true;r.customMap=true;r.lastState=13;r.lastUpdate=991;r.mapping[4]="mapped";NBTTagCompound n=r.writeToNBT(new NBTTagCompound());Receiver s=new Receiver();s.readFromNBT(n);ck(s.channel.equals("nbt")&&s.lastState==13&&s.lastUpdate==991&&s.polling&&s.customMap&&s.mapping[4].equals("mapped"),"base persisted original keys roundtrip");
+  ByteBuf b=Unpooled.buffer();r.serialize(b);s.channel="other";s.deserialize(b);ck(s.channel.equals("nbt")&&s.mapping[4].equals("mapped"),"original buffer roundtrip");b.release();
+  Logic l=new Logic();l.setPos(P);l.channel="logic";l.descending=true;l.polling=true;l.lastState=9;l.lastUpdate=912;l.conditions[7]=8;l.mapping[7]="needle";n=l.writeToNBT(new NBTTagCompound());Logic m=new Logic();m.readFromNBT(n);ck(m.channel.equals("logic")&&m.descending&&m.polling&&m.lastState==9&&m.lastUpdate==912&&m.conditions[7]==8&&m.mapping[7].equals("needle"),"logic persisted original keys roundtrip");
+  b=Unpooled.buffer();l.serialize(b);m.deserialize(b);ck(m.descending&&m.conditions[7]==8&&m.mapping[7].equals("needle"),"logic original buffer roundtrip");b.release();
+ }
+
+ static void filterDirty(){
+  W w=new W(false);Counter k=new Counter();w.put(k,P);NBTTagCompound n=new NBTTagCompound();n.setInteger("slot",1);n.setTag("stack",new ItemStack(Items.APPLE,40).writeToNBT(new NBTTagCompound()));
+  k.setFilterContents(n);ck(k.getStackInSlot(1).getCount()==1&&k.matcher.modes[1].equals("exact"),"native filter stack normalize then mode");ck(w.dirty==1&&w.dirtyPos.equals(P)&&w.dirtyTile==k,"filter native dirty exact tile and position once");ck(w.notifications==0&&w.neighbors==0,"filter dirty only, not block notifications");
+  n.setTag("stack",new NBTTagCompound());k.setFilterContents(n);ck(k.getStackInSlot(1).isEmpty()&&k.matcher.modes[1]==null&&w.dirty==2,"filter EMPTY boundary still marks dirty");
+  Counter source=new Counter();source.slots[0]=new ItemStack(Items.STICK,3);NBTTagCompound copied=source.getSettings(w,0,0,0);k.pasteSettings(copied,0,w,null,90,91,92);ck(k.getStackInSlot(0).getCount()==3&&w.dirty==3&&w.dirtyPos.equals(P)&&w.dirtyTile==k,"paste dirty uses tile position not supplied display position");ck(w.notifications==0&&w.neighbors==0,"paste dirty only");
+ }
+ static void queue()throws Exception{
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+  net.minecraft.server.dedicated.DedicatedServer server=(net.minecraft.server.dedicated.DedicatedServer)u.allocateInstance(net.minecraft.server.dedicated.DedicatedServer.class);
+  WorldServer a=(WorldServer)u.allocateInstance(WorldServer.class),b=(WorldServer)u.allocateInstance(WorldServer.class);
+  Field info=World.class.getDeclaredField("worldInfo");info.setAccessible(true);WorldInfo ai=new WorldInfo(new NBTTagCompound()),bi=new WorldInfo(new NBTTagCompound());ai.setWorldTotalTime(44);bi.setWorldTotalTime(93);info.set(a,ai);info.set(b,bi);server.worlds=new WorldServer[]{a,b};
+  net.minecraftforge.fml.common.FMLCommonHandler h=net.minecraftforge.fml.common.FMLCommonHandler.instance();Field f=h.getClass().getDeclaredField("sidedDelegate");f.setAccessible(true);Object prior=f.get(h);
+  Object delegate=java.lang.reflect.Proxy.newProxyInstance(h.getClass().getClassLoader(),new Class[]{net.minecraftforge.fml.common.IFMLSidedHandler.class},(proxy,m,args)->{if(m.getName().equals("getServer"))return server;throw new AssertionError("Unexpected FML call "+m);});f.set(h,delegate);
+  try{
+   clear();RTTYSystem.broadcast(a,"sum",2);RTTYSystem.broadcast(a,"sum",3);ck(RTTYSystem.listen(a,"sum")==null,"queued message not visible until queue update");RTTYSystem.broadcast(b,"sum",9);RTTYSystem.broadcast(a,"overwrite","one");RTTYSystem.broadcast(a,"overwrite","two");RTTYSystem.broadcast(a,"float","1.5");RTTYSystem.broadcast(a,"float","2.5");RTTYSystem.updateBroadcastQueue();
+   ck(RTTYSystem.listen(a,"sum").signal.equals("5")&&RTTYSystem.listen(a,"sum").timeStamp==44,"queued numeric addition and owning world timestamp");ck(RTTYSystem.listen(b,"sum").signal.equals(9)&&RTTYSystem.listen(b,"sum").timeStamp==93,"same channel isolated by native world identity");ck(RTTYSystem.listen(a,"overwrite").signal.equals("two"),"last nonnumeric signal wins");ck(RTTYSystem.listen(a,"float").signal.equals("2.5"),"non-integer NumberUtils values retain original parse fallback");ck(RTTYSystem.newMessages.isEmpty(),"queue cleared after publish");ck(RTTYSystem.listen(a,"2012-08-06").timeStamp==44&&RTTYSystem.listen(b,"2012-08-06").timeStamp==93,"native server world iteration supplies reserved channels");
+   RTTYSystem.RTTYChannel old=RTTYSystem.listen(a,"sum");ai.setWorldTotalTime(45);RTTYSystem.updateBroadcastQueue();ck(RTTYSystem.listen(a,"sum")==old&&old.timeStamp==44,"unchanged radio messages retain original timestamps");ck(RTTYSystem.listen(a,"2012-08-06").timeStamp==45,"reserved channel refreshes every queue call");
+  }finally{f.set(h,prior);clear();}
+ }
+ public static void main(String[] args)throws Exception{
+  Bootstrap.register();TileEntity.register("rtty_receiver_test",Receiver.class);TileEntity.register("rtty_logic_test",Logic.class);TileEntity.register("rtty_counter_test",Counter.class);
+  initialSync();sender();nativePower();receiver();logic();endpoints();persistence();filterDirty();queue();
+  System.out.println("PASS native radio tile probe: "+checks+" assertions; all16 initial tags/packet state, render invalidation, volatile publication, all6 input sides and real native weak-power/vanilla redstone dispatch, comparator, receiver timing/remap, ten logic operators, reader/controller/counter updates, NBT and byte buffers, native filter dirty calls, real FML server accessor and world-scoped radio queue.");
+ }
+}

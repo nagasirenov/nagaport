@@ -1,0 +1,33 @@
+Original actual bdw String wrapper:
+protected void a(java.lang.String, int, int);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: anewarray     #32                 // class java/lang/String
+       5: dup
+       6: iconst_0
+       7: aload_1
+       8: aastore
+       9: invokestatic  #114                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      12: iload_2
+      13: iload_3
+      14: invokevirtual #91                 // Method a:(Ljava/util/List;II)V
+      17: return
+
+Native actual GuiScreen String wrapper:
+public void drawHoveringText(java.lang.String, int, int);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: anewarray     #207                // class java/lang/String
+       5: dup
+       6: iconst_0
+       7: aload_1
+       8: aastore
+       9: invokestatic  #341                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      12: iload_2
+      13: iload_3
+      14: invokevirtual #344                // Method drawHoveringText:(Ljava/util/List;II)V
+      17: return
+
+Normalized instruction comparison: identical after removing display whitespace, constant-pool indexes and virtual method name difference.

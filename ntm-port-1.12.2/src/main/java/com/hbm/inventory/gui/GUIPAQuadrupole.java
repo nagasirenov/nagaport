@@ -39,13 +39,13 @@ public class GUIPAQuadrupole extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		
 		String name = this.quadrupole.hasCustomInventoryName() ? this.quadrupole.getInventoryName() : I18n.format(this.quadrupole.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2 - 9, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2 - 9, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
-		this.fontRendererObj.drawString(TextFormatting.AQUA + "/123K", 118, 22, 4210752);
+		this.fontRenderer.drawString(TextFormatting.AQUA + "/123K", 118, 22, 4210752);
 		int heat = (int) Math.ceil(quadrupole.temperature);
 		String label = (heat > 123 ? TextFormatting.RED : TextFormatting.AQUA) + "" + heat + "K";
-		this.fontRendererObj.drawString(label, 148 - this.fontRendererObj.getStringWidth(label), 12, 4210752);
+		this.fontRenderer.drawString(label, 148 - this.fontRenderer.getStringWidth(label), 12, 4210752);
 	}
 
 	@Override

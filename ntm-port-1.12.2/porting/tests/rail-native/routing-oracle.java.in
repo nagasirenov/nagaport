@@ -1,0 +1,33 @@
+import java.util.*;
+import com.hbm.blocks.BlockDummyable;
+import com.hbm.blocks.rail.BlockRailNTM;
+import com.hbm.blocks.rail.IRailNTM.*;
+import com.hbm.handler.MultiblockHandlerXR;
+import com.hbm.lib.*;
+import com.hbm.util.BobMathUtil;
+import com.hbm.util.ParticleUtil;
+import com.hbm.util.Tuple.Pair;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+public final class OriginalRailRouting {
+ static int meta(IBlockAccess w,int x,int y,int z){net.minecraft.block.state.IBlockState s=w.getBlockState(new BlockPos(x,y,z));return s.getBlock().getMetaFromState(s);}
+ /* YAW */
+ public static class V {
+  public double xCoord,yCoord,zCoord;
+  V(double x,double y,double z){xCoord=x==0?0:x;yCoord=y==0?0:y;zCoord=z==0?0:z;}
+  static V createVectorHelper(double x,double y,double z){return new V(x,y,z);}
+  V normalize(){double len=(float)Math.sqrt(xCoord*xCoord+yCoord*yCoord+zCoord*zCoord);return len<1E-4D?new V(0,0,0):new V(xCoord/len,yCoord/len,zCoord/len);}
+  V subtract(V v){return new V(v.xCoord-xCoord,v.yCoord-yCoord,v.zCoord-zCoord);}
+  double lengthVector(){return (float)Math.sqrt(xCoord*xCoord+yCoord*yCoord+zCoord*zCoord);}
+  V addVector(double x,double y,double z){return new V(xCoord+x,yCoord+y,zCoord+z);}
+  void rotateAroundY(float a){double c=MathHelper.cos(a),s=MathHelper.sin(a),x=xCoord*c+zCoord*s,z=zCoord*c-xCoord*s;xCoord=x;zCoord=z;}
+ }
+ public static class Base {
+  public BlockRailNTM owner;public static final int offset=10;
+  int[] findCore(IBlockAccess w,int x,int y,int z){return owner.findCore(w,x,y,z);}
+  public int[] getDimensions(){return owner.getDimensions();}public int getOffset(){return owner.getOffset();}
+  protected boolean checkRequirement(World w,int x,int y,int z,ForgeDirection dir,int o){return MultiblockHandlerXR.checkSpace(w,x+dir.offsetX*o,y+dir.offsetY*o,z+dir.offsetZ*o,getDimensions(),x,y,z,dir);}
+  protected void fillSpace(World w,int x,int y,int z,ForgeDirection dir,int o){MultiblockHandlerXR.fillSpace(w,x+dir.offsetX*o,y+dir.offsetY*o,z+dir.offsetZ*o,getDimensions(),owner,dir);}
+ }
+ /* OWNERS */
+}

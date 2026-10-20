@@ -1,0 +1,2 @@
+PASS exact CP51 byte reversal; {"Blocks_farmland": 4, "CreativeTabs_tabCombat": 9, "CreativeTabs_tabMisc": 6, "CreativeTabs_tabTools": 2, "EnumRarity_epic": 28, "EnumRarity_rare": 21, "EnumRarity_uncommon": 29, "Items_glass_bottle": 1, "ToolMaterial_EMERALD": 2, "ammo_override_setter": 3, "texture_argument": 1731, "texture_import": 1, "texture_receiver": 1731, "translation_getter": 2075, "translation_setter": 1855}
+PASS 1731 explicit texture expressions retained;  12 custom override calls deliberately deferred

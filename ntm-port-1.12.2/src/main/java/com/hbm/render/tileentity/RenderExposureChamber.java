@@ -7,7 +7,6 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.render.util.BeamPronter;
 import com.hbm.render.util.BeamPronter.EnumBeamType;
 import com.hbm.render.util.BeamPronter.EnumWaveType;
@@ -18,9 +17,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderExposureChamber extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderExposureChamber extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {
@@ -57,7 +55,7 @@ public class RenderExposureChamber extends TileEntitySpecialRenderer implements 
 		if(chamber.isOn) {
 			GL11.glPushMatrix();
 			GL11.glRotated(rotation / 2D, 0, 1, 0);
-			GL11.glTranslated(0, Math.sin((tileEntity.getWorldObj().getTotalWorldTime() % (Math.PI * 16D) + interp) * 0.125) * 0.0625, 0);
+			GL11.glTranslated(0, Math.sin((tileEntity.getWorld().getTotalWorldTime() % (Math.PI * 16D) + interp) * 0.125) * 0.0625, 0);
 			ResourceManager.exposure_chamber.renderPart("Core");
 			GL11.glPopMatrix();
 		}
@@ -68,9 +66,9 @@ public class RenderExposureChamber extends TileEntitySpecialRenderer implements 
 		if(chamber.isOn) {
 			
 			int duration = 8;
-			Random rand = new Random(chamber.getWorldObj().getTotalWorldTime() / duration);
+			Random rand = new Random(chamber.getWorld().getTotalWorldTime() / duration);
 			int chance = 2;
-			int color = chamber.getWorldObj().getTotalWorldTime() % duration >= duration / 2 ? 0x80d0ff : 0xffffff;
+			int color = chamber.getWorld().getTotalWorldTime() % duration >= duration / 2 ? 0x80d0ff : 0xffffff;
 			rand.nextInt(chance); //RNG behaves weirldy in the first iteration
 			if(rand.nextInt(chance) == 0) {
 				GL11.glPushMatrix();
@@ -110,28 +108,5 @@ public class RenderExposureChamber extends TileEntitySpecialRenderer implements 
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_exposure_chamber);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -1.5, 0);
-				GL11.glScaled(3, 3, 3);
-			}
-			public void renderCommon() {
-				GL11.glTranslated(1.5, 0, 0);
-				GL11.glRotated(90, 0, 1, 0);
-				GL11.glScaled(0.5, 0.5, 0.5);
-				GL11.glDisable(GL11.GL_CULL_FACE);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.exposure_chamber_tex);
-				ResourceManager.exposure_chamber.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-				GL11.glEnable(GL11.GL_CULL_FACE);
-			}};
-	}
 }

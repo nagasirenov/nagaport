@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -38,7 +41,7 @@ public class ItemRenderTeslaCannon extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.tesla_cannon_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.tesla_cannon_tex);
 		double scale = 0.75D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -103,7 +106,7 @@ public class ItemRenderTeslaCannon extends ItemRenderWeaponBase {
 		GL11.glTranslated(yomi[0], yomi[1], yomi[2]);
 		GL11.glRotated(135, 0, 1, 0);
 		GL11.glScaled(squeeze[0], squeeze[1], squeeze[2]);
-		Minecraft.getMinecraft().renderEngine.bindTexture(RenderPlushie.yomiTex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(RenderPlushie.yomiTex);
 		RenderPlushie.yomiModel.renderAll();
 		GL11.glPopMatrix();
 	}
@@ -136,10 +139,10 @@ public class ItemRenderTeslaCannon extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.tesla_cannon_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.tesla_cannon_tex);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		ResourceManager.tesla_cannon.renderPart("Gun");

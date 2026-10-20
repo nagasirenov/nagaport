@@ -1,0 +1,6 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[16:58:16] [main/INFO]: Setting user: AtlasProbe
+[16:58:17] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `callback_owner`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 42 native callback/perspective/stack/GL-state checks. Controlled draws; not all provider bodies, game or visual acceptance.

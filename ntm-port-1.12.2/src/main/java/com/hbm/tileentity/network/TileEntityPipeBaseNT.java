@@ -22,30 +22,35 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluidPipeMK2, IFluidCopiable {
+public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluidPipeMK2, IFluidCopiable, net.minecraft.util.ITickable {
+
+    @Override public boolean canRenderBreaking() {
+        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
+    }
+
 
 	protected FluidNode node;
 	protected FluidType type = Fluids.NONE;
 	protected FluidType lastType = Fluids.NONE;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote && lastType != type) {
-			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		if(this.world.isRemote && lastType != type) {
+			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			lastType = type;
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.node == null || this.node.expired) {
 
 				if(this.shouldCreateNode()) {
-					this.node = (FluidNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, type.getNetworkProvider());
+					this.node = (FluidNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), type.getNetworkProvider());
 
 					if(this.node == null || this.node.expired) {
 						this.node = this.createNode(type);
-						UniNodespace.createNode(worldObj, this.node);
+						UniNodespace.createNode(this.world, this.node);
 					}
 				}
 			}
@@ -65,12 +70,12 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 		this.type = type;
 		this.markDirty();
 
-		if(worldObj instanceof WorldServer) {
-			WorldServer world = (WorldServer) worldObj;
-			world.getPlayerManager().markBlockForUpdate(xCoord, yCoord, zCoord);
+		if(this.world instanceof WorldServer) {
+			WorldServer world = (WorldServer) this.world;
+			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 		
-		UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, prev.getNetworkProvider());
+		UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), prev.getNetworkProvider());
 
 		if(this.node != null) {
 			this.node = null;
@@ -86,9 +91,9 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, type.getNetworkProvider());
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), type.getNetworkProvider());
 			}
 		}
 	}
@@ -112,9 +117,10 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("type", this.type.getID());
+		return nbt;
 	}
 
 	public boolean isLoaded = true;
@@ -153,7 +159,7 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 			FluidType fluid = Fluids.fromID(id);
 
 			if(HbmPlayerProps.getData(player).getKeyPressed(HbmKeybinds.EnumKeybind.TOOL_CTRL)){
-				IBlockFluidDuct pipe = (IBlockFluidDuct)world.getBlock(x, y, z);
+				IBlockFluidDuct pipe = (IBlockFluidDuct)com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 				pipe.changeTypeRecursively(world, x, y, z, getType(), fluid, 64);
 			} else {
 				this.setType(fluid);

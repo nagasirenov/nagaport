@@ -1,0 +1,123 @@
+Compiled from "FMLEmbeddedChannel.java"
+public class net.minecraftforge.fml.common.network.FMLEmbeddedChannel extends io.netty.channel.embedded.EmbeddedChannel {
+  public net.minecraftforge.fml.common.network.FMLEmbeddedChannel(java.lang.String, net.minecraftforge.fml.relauncher.Side, io.netty.channel.ChannelHandler...);
+    Code:
+       0: aload_0
+       1: invokestatic  #23                 // Method net/minecraftforge/fml/common/Loader.instance:()Lnet/minecraftforge/fml/common/Loader;
+       4: invokevirtual #27                 // Method net/minecraftforge/fml/common/Loader.activeModContainer:()Lnet/minecraftforge/fml/common/ModContainer;
+       7: aload_1
+       8: aload_2
+       9: aload_3
+      10: invokespecial #30                 // Method "<init>":(Lnet/minecraftforge/fml/common/ModContainer;Ljava/lang/String;Lnet/minecraftforge/fml/relauncher/Side;[Lio/netty/channel/ChannelHandler;)V
+      13: return
+
+  public net.minecraftforge.fml.common.network.FMLEmbeddedChannel(net.minecraftforge.fml.common.ModContainer, java.lang.String, net.minecraftforge.fml.relauncher.Side, io.netty.channel.ChannelHandler...);
+    Code:
+       0: aload_0
+       1: aload         4
+       3: invokespecial #41                 // Method io/netty/channel/embedded/EmbeddedChannel."<init>":([Lio/netty/channel/ChannelHandler;)V
+       6: aload_0
+       7: getstatic     #47                 // Field net/minecraftforge/fml/common/network/NetworkRegistry.FML_CHANNEL:Lio/netty/util/AttributeKey;
+      10: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      13: aload_2
+      14: invokeinterface #57,  2           // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      19: aload_0
+      20: getstatic     #60                 // Field net/minecraftforge/fml/common/network/NetworkRegistry.CHANNEL_SOURCE:Lio/netty/util/AttributeKey;
+      23: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      26: aload_3
+      27: invokeinterface #57,  2           // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      32: aload_0
+      33: getstatic     #63                 // Field net/minecraftforge/fml/common/network/NetworkRegistry.MOD_CONTAINER:Lio/netty/util/AttributeKey;
+      36: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      39: aload_1
+      40: invokeinterface #67,  2           // InterfaceMethod io/netty/util/Attribute.setIfAbsent:(Ljava/lang/Object;)Ljava/lang/Object;
+      45: pop
+      46: aload_0
+      47: invokevirtual #71                 // Method pipeline:()Lio/netty/channel/ChannelPipeline;
+      50: ldc           #73                 // String fml:outbound
+      52: new           #9                  // class net/minecraftforge/fml/common/network/FMLOutboundHandler
+      55: dup
+      56: invokespecial #76                 // Method net/minecraftforge/fml/common/network/FMLOutboundHandler."<init>":()V
+      59: invokeinterface #82,  3           // InterfaceMethod io/netty/channel/ChannelPipeline.addFirst:(Ljava/lang/String;Lio/netty/channel/ChannelHandler;)Lio/netty/channel/ChannelPipeline;
+      64: pop
+      65: return
+
+  public net.minecraft.network.Packet<?> generatePacketFrom(java.lang.Object);
+    Code:
+       0: aload_0
+       1: getstatic     #89                 // Field net/minecraftforge/fml/common/network/FMLOutboundHandler.FML_MESSAGETARGET:Lio/netty/util/AttributeKey;
+       4: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+       7: getstatic     #93                 // Field net/minecraftforge/fml/common/network/FMLOutboundHandler$OutboundTarget.NOWHERE:Lnet/minecraftforge/fml/common/network/FMLOutboundHandler$OutboundTarget;
+      10: invokeinterface #96,  2           // InterfaceMethod io/netty/util/Attribute.getAndSet:(Ljava/lang/Object;)Ljava/lang/Object;
+      15: checkcast     #7                  // class net/minecraftforge/fml/common/network/FMLOutboundHandler$OutboundTarget
+      18: astore_2
+      19: aload_0
+      20: iconst_1
+      21: anewarray     #98                 // class java/lang/Object
+      24: dup
+      25: iconst_0
+      26: aload_1
+      27: aastore
+      28: invokevirtual #102                // Method writeOutbound:([Ljava/lang/Object;)Z
+      31: pop
+      32: aload_0
+      33: invokevirtual #106                // Method outboundMessages:()Ljava/util/Queue;
+      36: invokeinterface #112,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      41: checkcast     #114                // class net/minecraft/network/Packet
+      44: astore_3
+      45: aload_0
+      46: getstatic     #89                 // Field net/minecraftforge/fml/common/network/FMLOutboundHandler.FML_MESSAGETARGET:Lio/netty/util/AttributeKey;
+      49: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      52: aload_2
+      53: invokeinterface #57,  2           // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      58: aload_3
+      59: areturn
+
+  public java.lang.String findChannelHandlerNameForType(java.lang.Class<? extends io.netty.channel.ChannelHandler>);
+    Code:
+       0: aconst_null
+       1: astore_2
+       2: aload_0
+       3: invokevirtual #71                 // Method pipeline:()Lio/netty/channel/ChannelPipeline;
+       6: invokeinterface #127,  1          // InterfaceMethod io/netty/channel/ChannelPipeline.iterator:()Ljava/util/Iterator;
+      11: astore_3
+      12: aload_3
+      13: invokeinterface #135,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      18: ifeq          63
+      21: aload_3
+      22: invokeinterface #138,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      27: checkcast     #12                 // class java/util/Map$Entry
+      30: astore        4
+      32: aload_1
+      33: aload         4
+      35: invokeinterface #141,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      40: invokevirtual #147                // Method java/lang/Class.isInstance:(Ljava/lang/Object;)Z
+      43: ifeq          60
+      46: aload         4
+      48: invokeinterface #150,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      53: checkcast     #129                // class java/lang/String
+      56: astore_2
+      57: goto          63
+      60: goto          12
+      63: aload_2
+      64: areturn
+
+  public void cleanAttributes();
+    Code:
+       0: aload_0
+       1: getstatic     #161                // Field net/minecraftforge/fml/common/network/FMLOutboundHandler.FML_MESSAGETARGETARGS:Lio/netty/util/AttributeKey;
+       4: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+       7: aconst_null
+       8: invokeinterface #57,  2           // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      13: aload_0
+      14: getstatic     #164                // Field net/minecraftforge/fml/common/network/NetworkRegistry.NET_HANDLER:Lio/netty/util/AttributeKey;
+      17: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      20: aconst_null
+      21: invokeinterface #57,  2           // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      26: aload_0
+      27: getstatic     #169                // Field net/minecraftforge/fml/common/network/handshake/NetworkDispatcher.FML_DISPATCHER:Lio/netty/util/AttributeKey;
+      30: invokevirtual #51                 // Method attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      33: aconst_null
+      34: invokeinterface #57,  2           // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      39: return
+}

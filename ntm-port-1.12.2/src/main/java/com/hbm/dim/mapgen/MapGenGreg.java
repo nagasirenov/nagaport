@@ -41,7 +41,7 @@ public class MapGenGreg extends MapGenCaves {
 			this.noiseCaves = new NoiseCaveGenerator(this.rand);
 			for (int j = -2; j <= 2; ++j) {
 				for (int k = -2; k <= 2; ++k) {
-					float f = 10.0F / MathHelper.sqrt_float((float) (j * j + k * k) + 0.2F);
+					float f = 10.0F / MathHelper.sqrt((float) (j * j + k * k) + 0.2F);
 					this.biomeWeightTable[j + 2 + (k + 2) * 5] = f;
 				}
 			}

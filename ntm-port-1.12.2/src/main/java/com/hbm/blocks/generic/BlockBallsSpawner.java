@@ -17,8 +17,8 @@ public class BlockBallsSpawner extends Block {
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
 		
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.mech_key) {
-			player.getHeldItem().stackSize--;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.mech_key) {
+			com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 			
 			if(!world.isRemote) {
 				

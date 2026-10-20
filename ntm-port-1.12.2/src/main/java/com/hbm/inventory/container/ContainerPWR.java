@@ -70,7 +70,7 @@ public class ContainerPWR extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return controller.isUseableByPlayer(player);
+		return controller.isUsableByPlayer(player);
 	}
 
 }

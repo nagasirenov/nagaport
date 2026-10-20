@@ -56,7 +56,7 @@ public class XFactory22lr {
 				.setupStandardConfiguration()
 				.anim(LAMBDA_AM180_ANIMS).orchestra(Orchestras.ORCHESTRA_AM180)
 				).setDefaultAmmo(EnumAmmo.P22_SP, 35).setNameMutator(LAMBDA_NAME_SILENCED)
-				.setUnlocalizedName("gun_am180");
+				.setTranslationKey("gun_am180");
 
 		ModItems.gun_star_f = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(15 * 25).draw(15).inspect(38).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)
@@ -68,7 +68,7 @@ public class XFactory22lr {
 				.setupStandardConfiguration()
 				.anim(LAMBDA_STAR_F_ANIMS).orchestra(Orchestras.ORCHESTRA_STAR_F)
 				).setDefaultAmmo(EnumAmmo.P22_SP, 15).setNameMutator(LAMBDA_NAME_SILENCED)
-				.setUnlocalizedName("gun_star_f");
+				.setTranslationKey("gun_star_f");
 		
 		ModItems.gun_star_f_akimbo = new ItemGunBaseNT(WeaponQuality.B_SIDE,
 				new GunConfig().dura(15 * 25).draw(15).inspect(38).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)
@@ -89,7 +89,7 @@ public class XFactory22lr {
 				.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)
 				.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				.anim(LAMBDA_STAR_F_ANIMS).orchestra(Orchestras.ORCHESTRA_STAR_F_AKIMBO)
-				).setDefaultAmmo(EnumAmmo.P22_SP, 30).setUnlocalizedName("gun_star_f_akimbo");
+				).setDefaultAmmo(EnumAmmo.P22_SP, 30).setTranslationKey("gun_star_f_akimbo");
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_SILENCED = (stack) -> {

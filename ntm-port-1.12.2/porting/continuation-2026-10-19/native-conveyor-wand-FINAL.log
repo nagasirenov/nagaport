@@ -1,0 +1,51 @@
+PASS every preexisting machine branch byte-exact after removing the two explicit frame-contract additions
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/StaticItemEntityOwnershipTest.java:28: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/StaticItemEntityOwnershipTest.java:28: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/StaticItemEntityOwnershipTest.java:28: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/StaticItemEntityOwnershipTest.java:33: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static Unsafe unsafe;
+                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/StaticItemEntityOwnershipTest.java:267: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field field = Unsafe.class.getDeclaredField("theUnsafe");
+                      ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/StaticItemEntityOwnershipTest.java:269: warning: Unsafe is internal proprietary API and may be removed in a future release
+        unsafe = (Unsafe) field.get(null);
+                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+PASS whole wand/seven-file native root, complete nine conveyor owners/loader/models, 14 machine renderers and real helper classes compile
+[18:57:19] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[18:57:19] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[18:57:19] [main/INFO]: Replaced 1036 ore ingredients
+[18:57:19] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[18:57:19] [main/INFO]: Processing ObjectHolder annotations
+[18:57:19] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[18:57:20] [main/INFO]: Setting user: AtlasProbe
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_express`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_express`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_double`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_double`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_triple`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_triple`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+[18:57:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.conveyor_wand`, expected `wandprobe`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 1872 genuine native conveyor-wand model events, inventory mesh, GUI/held/head/none, dropped/frame copies and matrices, unaffected renderer, reload and stack checks; rendering only, no wand gameplay claim.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[18:57:21] [main/INFO]: Setting user: AtlasProbe
+PASS 26 actual native bake/reload/base-geometry ownership checks. Direct event methods, not another event-bus proof.
+PASS 111 full native press/mass-storage consumer draw, animation/source-stack/font/gauge/direction/label checks; NTM data/mesh fixtures, not complete game.
+PASS 72 genuine native machine/GUI full-draw, framebuffer effect, custom ownership, renderer replacement and stack checks; no fullmod gameplay claim.
+PASS 41 native generated-model ownership and actual GL frame-matrix checks; not full machine draw or game acceptance.
+PASS 2893 actual-native dropped count/ownership/lifecycle assertions.
+LIMIT: actual native types with GL-independent construction fixtures; no client startup, rendered pixels or external-mod parity claim.

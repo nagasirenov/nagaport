@@ -19,9 +19,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -30,7 +30,7 @@ import com.hbm.lib.ForgeDirection;
 public class HeaterHeatex extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public HeaterHeatex() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -63,15 +63,15 @@ public class HeaterHeatex extends BlockDummyable implements ILookOverlay, IToolt
 				return false;
 			
 			if(player.isSneaking()) {
-				TileEntityHeaterHeatex trialEntity = (TileEntityHeaterHeatex) world.getTileEntity(pos[0], pos[1], pos[2]);
+				TileEntityHeaterHeatex trialEntity = (TileEntityHeaterHeatex) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				
 				if(trialEntity != null) {
-					if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
-						FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, pos[0], pos[1], pos[2], player.getHeldItem());
+					if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
+						FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, pos[0], pos[1], pos[2], com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 	
 						trialEntity.tanks[0].setTankType(type);
 						trialEntity.markDirty();
-						player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+						player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 						return true;
 					}
 				}
@@ -91,7 +91,7 @@ public class HeaterHeatex extends BlockDummyable implements ILookOverlay, IToolt
 		if(pos == null)
 			return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityHeaterHeatex))
 			return;
@@ -100,7 +100,7 @@ public class HeaterHeatex extends BlockDummyable implements ILookOverlay, IToolt
 
 		List<String> text = new ArrayList();
 		text.add(String.format(Locale.US, "%,d", heater.heatEnergy) + " TU");
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

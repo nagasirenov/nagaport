@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.render.util.BeamPronter;
 import com.hbm.render.util.BeamPronter.EnumBeamType;
 import com.hbm.render.util.BeamPronter.EnumWaveType;
@@ -16,9 +15,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderDysonReceiver extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderDysonReceiver extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
@@ -42,7 +40,7 @@ public class RenderDysonReceiver extends TileEntitySpecialRenderer implements II
 			bindTexture(ResourceManager.dyson_receiver_tex);
 			ResourceManager.dyson_receiver.renderPart("DysonReceiver");
 
-			float t = receiver.isReceiving ? tileEntity.getWorldObj().getTotalWorldTime() + f : 0;
+			float t = receiver.isReceiving ? tileEntity.getWorld().getTotalWorldTime() + f : 0;
 
 			GL11.glTranslatef(0.0F, 1.5F, 0.0F);
 
@@ -73,7 +71,7 @@ public class RenderDysonReceiver extends TileEntitySpecialRenderer implements II
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240F, 240F);
 
 				BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, length), EnumWaveType.SPIRAL, EnumBeamType.SOLID, color, color, 0, 1, 0F, 2, 0.4F, 0.5F);
-				BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, length), EnumWaveType.RANDOM, EnumBeamType.SOLID, color, color, (int)(tileEntity.getWorldObj().getTotalWorldTime() % 1000), (length / 2), 0.0625F, 2, 0.4F, 0.5F);
+				BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, length), EnumWaveType.RANDOM, EnumBeamType.SOLID, color, color, (int)(tileEntity.getWorld().getTotalWorldTime() % 1000), (length / 2), 0.0625F, 2, 0.4F, 0.5F);
 
 				GL11.glEnable(GL11.GL_LIGHTING);
 				GL11.glPopAttrib();
@@ -85,26 +83,6 @@ public class RenderDysonReceiver extends TileEntitySpecialRenderer implements II
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -4, 0);
-				GL11.glScaled(1.5D, 1.5D, 1.5D);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.55, 0.55, 0.55);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.dyson_receiver_tex);
-				ResourceManager.dyson_receiver.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.dyson_receiver);
-	}
 
 }

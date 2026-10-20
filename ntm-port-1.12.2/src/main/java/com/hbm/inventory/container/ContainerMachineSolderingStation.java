@@ -88,6 +88,6 @@ public class ContainerMachineSolderingStation extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return solderer.isUseableByPlayer(player);
+		return solderer.isUsableByPlayer(player);
 	}
 }

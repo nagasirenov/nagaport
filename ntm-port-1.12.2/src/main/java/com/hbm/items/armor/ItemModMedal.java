@@ -30,7 +30,7 @@ public class ItemModMedal extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote) {
+		if(!entity.world.isRemote) {
 			float rad = HbmLivingProps.getRadiation(entity);
 			rad -= 0.5F;
 			HbmLivingProps.setRadiation(entity, Math.max(rad, 0));

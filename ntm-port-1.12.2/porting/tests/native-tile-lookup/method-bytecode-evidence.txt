@@ -1,0 +1,276 @@
+Pinned method excerpts from actual javap -p -c output. Original mappings: ahb=World, ahr=ChunkCache, apx=Chunk, aor=TileEntity. No JARs redistributed.
+
+nagaport-lookup-world-legacy.txt
+  public aor o(int, int, int);
+    Code:
+       0: iload_2
+       1: iflt          11
+       4: iload_2
+       5: sipush        256
+       8: if_icmplt     13
+      11: aconst_null
+      12: areturn
+      13: aconst_null
+      14: astore        4
+      16: aload_0
+      17: getfield      #203                // Field M:Z
+      20: ifeq          104
+      23: iconst_0
+      24: istore        5
+      26: iload         5
+      28: aload_0
+      29: getfield      #204                // Field a:Ljava/util/List;
+      32: invokeinterface #590,  1          // InterfaceMethod java/util/List.size:()I
+      37: if_icmpge     104
+      40: aload_0
+      41: getfield      #204                // Field a:Ljava/util/List;
+      44: iload         5
+      46: invokeinterface #584,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      51: checkcast     #101                // class aor
+      54: astore        6
+      56: aload         6
+      58: invokevirtual #415                // Method aor.r:()Z
+      61: ifne          98
+      64: aload         6
+      66: getfield      #243                // Field aor.c:I
+      69: iload_1
+      70: if_icmpne     98
+      73: aload         6
+      75: getfield      #244                // Field aor.d:I
+      78: iload_2
+      79: if_icmpne     98
+      82: aload         6
+      84: getfield      #245                // Field aor.e:I
+      87: iload_3
+      88: if_icmpne     98
+      91: aload         6
+      93: astore        4
+      95: goto          104
+      98: iinc          5, 1
+     101: goto          26
+     104: aload         4
+     106: ifnonnull     142
+     109: aload_0
+     110: iload_1
+     111: iconst_4
+     112: ishr
+     113: iload_3
+     114: iconst_4
+     115: ishr
+     116: invokevirtual #355                // Method e:(II)Lapx;
+     119: astore        5
+     121: aload         5
+     123: ifnull        142
+     126: aload         5
+     128: iload_1
+     129: bipush        15
+     131: iand
+     132: iload_2
+     133: iload_3
+     134: bipush        15
+     136: iand
+     137: invokevirtual #435                // Method apx.e:(III)Laor;
+     140: astore        4
+     142: aload         4
+     144: ifnonnull     228
+     147: iconst_0
+     148: istore        5
+     150: iload         5
+     152: aload_0
+     153: getfield      #204                // Field a:Ljava/util/List;
+     156: invokeinterface #590,  1          // InterfaceMethod java/util/List.size:()I
+     161: if_icmpge     228
+     164: aload_0
+     165: getfield      #204                // Field a:Ljava/util/List;
+     168: iload         5
+     170: invokeinterface #584,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     175: checkcast     #101                // class aor
+     178: astore        6
+     180: aload         6
+     182: invokevirtual #415                // Method aor.r:()Z
+     185: ifne          222
+     188: aload         6
+     190: getfield      #243                // Field aor.c:I
+     193: iload_1
+     194: if_icmpne     222
+     197: aload         6
+     199: getfield      #244                // Field aor.d:I
+     202: iload_2
+     203: if_icmpne     222
+     206: aload         6
+     208: getfield      #245                // Field aor.e:I
+     211: iload_3
+     212: if_icmpne     222
+     215: aload         6
+     217: astore        4
+     219: goto          228
+     222: iinc          5, 1
+     225: goto          150
+     228: aload         4
+     230: areturn
+
+tile-lookup-chunkcache-legacy.txt
+  public aor o(int, int, int);
+    Code:
+       0: iload_1
+       1: iconst_4
+       2: ishr
+       3: aload_0
+       4: getfield      #18                 // Field a:I
+       7: isub
+       8: istore        4
+      10: iload_3
+      11: iconst_4
+      12: ishr
+      13: aload_0
+      14: getfield      #19                 // Field b:I
+      17: isub
+      18: istore        5
+      20: aload_0
+      21: getfield      #20                 // Field c:[[Lapx;
+      24: iload         4
+      26: aaload
+      27: iload         5
+      29: aaload
+      30: iload_1
+      31: bipush        15
+      33: iand
+      34: iload_2
+      35: iload_3
+      36: bipush        15
+      38: iand
+      39: invokevirtual #38                 // Method apx.e:(III)Laor;
+      42: areturn
+
+tile-lookup-chunk-legacy.txt
+  public aor e(int, int, int);
+    Code:
+       0: new           #18                 // class agt
+       3: dup
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: invokespecial #116                // Method agt."<init>":(III)V
+      10: astore        4
+      12: aload_0
+      13: getfield      #90                 // Field i:Ljava/util/Map;
+      16: aload         4
+      18: invokeinterface #233,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      23: checkcast     #27                 // class aor
+      26: astore        5
+      28: aload         5
+      30: ifnonnull     103
+      33: aload_0
+      34: iload_1
+      35: iload_2
+      36: iload_3
+      37: invokevirtual #153                // Method a:(III)Laji;
+      40: astore        6
+      42: aload         6
+      44: invokevirtual #144                // Method aji.u:()Z
+      47: ifne          52
+      50: aconst_null
+      51: areturn
+      52: aload         6
+      54: checkcast     #26                 // class akw
+      57: aload_0
+      58: getfield      #86                 // Field e:Lahb;
+      61: aload_0
+      62: iload_1
+      63: iload_2
+      64: iload_3
+      65: invokevirtual #160                // Method c:(III)I
+      68: invokeinterface #220,  3          // InterfaceMethod akw.a:(Lahb;I)Laor;
+      73: astore        5
+      75: aload_0
+      76: getfield      #86                 // Field e:Lahb;
+      79: aload_0
+      80: getfield      #88                 // Field g:I
+      83: bipush        16
+      85: imul
+      86: iload_1
+      87: iadd
+      88: iload_2
+      89: aload_0
+      90: getfield      #89                 // Field h:I
+      93: bipush        16
+      95: imul
+      96: iload_3
+      97: iadd
+      98: aload         5
+     100: invokevirtual #122                // Method ahb.a:(IIILaor;)V
+     103: aload         5
+     105: ifnull        130
+     108: aload         5
+     110: invokevirtual #146                // Method aor.r:()Z
+     113: ifeq          130
+     116: aload_0
+     117: getfield      #90                 // Field i:Ljava/util/Map;
+     120: aload         4
+     122: invokeinterface #235,  2          // InterfaceMethod java/util/Map.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+     127: pop
+     128: aconst_null
+     129: areturn
+     130: aload         5
+     132: areturn
+
+nagaport-lookup-world-native.txt
+  public net.minecraft.tileentity.TileEntity getTileEntity(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #388                // Method isOutsideBuildHeight:(Lnet/minecraft/util/math/BlockPos;)Z
+       5: ifeq          10
+       8: aconst_null
+       9: areturn
+      10: aconst_null
+      11: astore_2
+      12: aload_0
+      13: getfield      #1555               // Field processingLoadedTiles:Z
+      16: ifeq          25
+      19: aload_0
+      20: aload_1
+      21: invokespecial #1978               // Method getPendingTileEntityAt:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      24: astore_2
+      25: aload_2
+      26: ifnonnull     42
+      29: aload_0
+      30: aload_1
+      31: invokevirtual #277                // Method getChunk:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/world/chunk/Chunk;
+      34: aload_1
+      35: getstatic     #1981               // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.IMMEDIATE:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+      38: invokevirtual #1651               // Method net/minecraft/world/chunk/Chunk.getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+      41: astore_2
+      42: aload_2
+      43: ifnonnull     52
+      46: aload_0
+      47: aload_1
+      48: invokespecial #1978               // Method getPendingTileEntityAt:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      51: astore_2
+      52: aload_2
+      53: areturn
+
+nagaport-lookup-world-native.txt
+  public boolean isOutsideBuildHeight(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: invokevirtual #394                // Method net/minecraft/util/math/BlockPos.getY:()I
+       4: iflt          17
+       7: aload_1
+       8: invokevirtual #394                // Method net/minecraft/util/math/BlockPos.getY:()I
+      11: sipush        256
+      14: if_icmplt     21
+      17: iconst_1
+      18: goto          22
+      21: iconst_0
+      22: ireturn
+
+tile-lookup-chunkcache-native.txt
+  public net.minecraft.tileentity.TileEntity getTileEntity(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getstatic     #87                 // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.CHECK:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+       5: invokevirtual #90                 // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+       8: areturn
+

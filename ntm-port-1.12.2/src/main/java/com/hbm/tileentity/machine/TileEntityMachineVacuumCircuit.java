@@ -60,7 +60,7 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineVacuumCircuit";
 	}
 
@@ -69,15 +69,15 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i >= 6 && i <=7) {
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 		}
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
-			CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, xCoord, yCoord, zCoord);
+		if(!this.world.isRemote) {
+			CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			canOperate = atmosphere == null || atmosphere.getPressure() <= 0.001;
 
 			this.power = Library.chargeTEFromItems(slots, 5, this.getPower(), this.getMaxPower());
@@ -113,13 +113,13 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 						this.markDirty();
 					}
 
-					if(worldObj.getTotalWorldTime() % 20 == 0) {
+					if(this.world.getTotalWorldTime() % 20 == 0) {
 						ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 						ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 						NBTTagCompound dPart = new NBTTagCompound();
 						dPart.setString("type", "tau");
 						dPart.setByte("count", (byte) 3);
-						PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(dPart, xCoord + 0.5 + dir.offsetX * 0.625 + rot.offsetX * 0.5, yCoord + 1.25, zCoord + 0.5 + dir.offsetZ * 0.625 + rot.offsetZ * 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 25));
+						PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(dPart, this.pos.getX() + 0.5 + dir.offsetX * 0.625 + rot.offsetX * 0.5, this.pos.getY() + 1.25, this.pos.getZ() + 0.5 + dir.offsetZ * 0.625 + rot.offsetZ * 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 25));
 					}
 				} else {
 					this.progress = 0;
@@ -152,7 +152,7 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 	}
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 	public void consumeItems(VacuumCircuitRecipe recipe) {
@@ -186,25 +186,27 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 4;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4 };
 	}
 
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -259,13 +261,14 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
 		nbt.setLong("maxPower", maxPower);
 		nbt.setInteger("progress", progress);
 		nbt.setInteger("processTime", processTime);
+		return nbt;
 	}
 
 	@Override
@@ -302,12 +305,12 @@ public class TileEntityMachineVacuumCircuit extends TileEntityMachineBase implem
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 3,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 2
 					);
 		}
 

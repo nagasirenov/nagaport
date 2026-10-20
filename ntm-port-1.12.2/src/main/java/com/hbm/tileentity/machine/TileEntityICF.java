@@ -60,19 +60,19 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineICF";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			tanks[0].setType(11, slots);
 
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			boolean markDirty = false;
@@ -117,7 +117,7 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 
 					NBTTagCompound dPart = new NBTTagCompound();
 					dPart.setString("type", "hadron");
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, xCoord + 0.5, yCoord + 3.5, zCoord + 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 25));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, this.pos.getX() + 0.5, this.pos.getY() + 3.5, this.pos.getZ() + 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 25));
 				}
 			}
 
@@ -147,8 +147,8 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 			}
 
 			for(DirPos pos : getConPos()) {
-				this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.sendFluid(tanks[2], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.sendFluid(tanks[2], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			this.heat *= 0.999D;
@@ -165,12 +165,12 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord, yCoord + 6, zCoord, Library.POS_Y),
-				new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord + dir.offsetX * 3 + rot.offsetX * 6, yCoord + 3, zCoord + dir.offsetZ * 3 + rot.offsetZ * 6, dir),
-				new DirPos(xCoord + dir.offsetX * 3 - rot.offsetX * 6, yCoord + 3, zCoord + dir.offsetZ * 3 - rot.offsetZ * 6, dir),
-				new DirPos(xCoord - dir.offsetX * 3 + rot.offsetX * 6, yCoord + 3, zCoord - dir.offsetZ * 3 + rot.offsetZ * 6, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 3 - rot.offsetX * 6, yCoord + 3, zCoord - dir.offsetZ * 3 - rot.offsetZ * 6, dir.getOpposite())
+				new DirPos(this.pos.getX(), this.pos.getY() + 6, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 + rot.offsetX * 6, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 3 + rot.offsetZ * 6, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 - rot.offsetX * 6, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 3 - rot.offsetZ * 6, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 3 + rot.offsetX * 6, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 3 + rot.offsetZ * 6, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 3 - rot.offsetX * 6, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 3 - rot.offsetZ * 6, dir.getOpposite())
 		};
 	}
 
@@ -196,14 +196,16 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot > 5;
 	}
 
 	public static final int[] io = new int[] {0, 1, 2, 3, 4, 6, 7, 8, 9, 10};
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return io;
 	}
 
@@ -216,19 +218,20 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		for(int i = 0; i < 3; i++) tanks[i].writeToNBT(nbt, "t" + i);
 
 		nbt.setLong("heat", heat);
+		return nbt;
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		if(world.getTileEntity(pos) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 256;
+			return player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 256;
 		}
 	}
 
@@ -239,12 +242,12 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord + 0.5 - 8,
-					yCoord,
-					zCoord + 0.5 - 8,
-					xCoord + 0.5 + 9,
-					yCoord + 0.5 + 5,
-					zCoord + 0.5 + 9
+					this.pos.getX() + 0.5 - 8,
+					this.pos.getY(),
+					this.pos.getZ() + 0.5 - 8,
+					this.pos.getX() + 0.5 + 9,
+					this.pos.getY() + 0.5 + 5,
+					this.pos.getZ() + 0.5 + 9
 					);
 		}
 

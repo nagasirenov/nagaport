@@ -1,0 +1,70 @@
+import java.io.*;
+import java.net.*;
+import java.lang.reflect.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.*;
+
+public class StackLoadingTest {
+ static int checks;
+ static void check(boolean ok,String msg) {checks++;if(!ok)throw new AssertionError(msg);}
+ static abstract class Fixture {
+  ItemStack[] slots=new ItemStack[8]; int dirty;
+  public int getSizeInventory(){return slots.length;}
+  public int getInventoryStackLimit(){return 64;}
+  public void markDirty(){dirty++;}
+  public abstract void setInventorySlotContents(int slot,ItemStack stack);
+  abstract void restore(ItemStack stack);
+ }
+ // @FIXTURES@
+ static NBTTagCompound tag(int count) {
+  NBTTagCompound n=new ItemStack(Items.IRON_INGOT,1,7).writeToNBT(new NBTTagCompound());
+  n.setByte("Count",(byte)count);NBTTagCompound extra=new NBTTagCompound();extra.setString("marker","original");n.setTag("tag",extra);return n;
+ }
+ static ItemStack box(NBTTagCompound contents){ItemStack s=new ItemStack(Items.CHEST_MINECART);s.setTagCompound(contents);return s;}
+ static NBTTagCompound binary(NBTTagCompound n)throws Exception {
+  ByteArrayOutputStream b=new ByteArrayOutputStream();CompressedStreamTools.writeCompressed(n,b);
+  return CompressedStreamTools.readCompressed(new ByteArrayInputStream(b.toByteArray()));
+ }
+ static void ingress(Fixture f)throws Exception {
+  NBTTagCompound n=new NBTTagCompound();n.setTag("slot0",tag(3));
+  NBTTagCompound unknown=tag(2);unknown.setString("id","missing:unknown");n.setTag("slot1",unknown);
+  n.setTag("slot2",new NBTTagCompound());n.setTag("slot3",tag(0));n.setTag("slot4",tag(-1));n.setTag("slot5",tag(127));
+  NBTTagCompound noId=tag(2);noId.removeTag("id");n.setTag("slot6",noId);
+  f.restore(box(n));
+  check(f.slots[0].getItem()==Items.IRON_INGOT && f.slots[0].getCount()==3 && f.slots[0].getMetadata()==7,"valid identity/count/damage");
+  for(int i:new int[]{1,2,3,4,6,7})check(f.slots[i]==null,"existing nullable inventory normalization "+i);
+  check(f.slots[5].getCount()==64,"existing inventory limit retained");
+  check(f.slots[0].getTagCompound()==n.getCompoundTag("slot0").getCompoundTag("tag"),"constructor retains nested tag alias");
+  ItemStack copy=f.slots[0].copy();copy.getTagCompound().setString("marker","copy");check(f.slots[0].getTagCompound().getString("marker").equals("original"),"copy deep tag independence");
+  n.getCompoundTag("slot0").getCompoundTag("tag").setString("marker","aliased");check(f.slots[0].getTagCompound().getString("marker").equals("aliased"),"load alias mutation retained");
+  NBTTagCompound saved=new NBTTagCompound();for(int i=0;i<f.slots.length;i++)if(f.slots[i]!=null)saved.setTag("slot"+i,f.slots[i].writeToNBT(new NBTTagCompound()));
+  NBTTagCompound reload=binary(saved);f.restore(box(reload));check(f.slots[0].getCount()==3 && f.slots[0].getTagCompound().getString("marker").equals("aliased"),"compressed save reload valid");
+  check(f.slots[5].getCount()==64 && reload.getKeySet().size()==2,"empty slots absent from binary save");
+  check(f.dirty==(f instanceof Cart?0:16),"original setter dirty side effects");
+ }
+ static void legacy(File jar)throws Exception {
+  try(URLClassLoader l=new URLClassLoader(new URL[]{jar.toURI().toURL()},StackLoadingTest.class.getClassLoader())) {
+   Class.forName("kl",true,l).getMethod("b").invoke(null);
+   Class<?> nbt=Class.forName("dh",true,l),stack=Class.forName("add",true,l),item=Class.forName("adb",true,l);
+   Method setShort=nbt.getMethod("a",String.class,short.class),setByte=nbt.getMethod("a",String.class,byte.class),load=stack.getMethod("a",nbt);
+   Object iron=item.getMethod("d",int.class).invoke(null,265);
+   for(int count:new int[]{3,0,-1}) {
+    Object n=nbt.newInstance();setShort.invoke(n,"id",(short)265);setByte.invoke(n,"Count",(byte)count);setShort.invoke(n,"Damage",(short)7);
+    Object nested=nbt.newInstance();nbt.getMethod("a",String.class,String.class).invoke(nested,"marker","original");nbt.getMethod("a",String.class,Class.forName("dy",true,l)).invoke(n,"tag",nested);
+    Object loaded=load.invoke(null,n);check(loaded!=null,"original loader accepts count "+count);check(stack.getMethod("b").invoke(loaded)==iron,"original nonpositive count retains visible identity");check(stack.getField("b").getInt(loaded)==count,"original signed count retained");
+    check(stack.getMethod("q").invoke(loaded)==nested,"original nested tag alias");
+    Object copy=stack.getMethod("m").invoke(loaded);check(stack.getMethod("q").invoke(copy)!=nested,"original copy deep tag");check(stack.getMethod("b").invoke(copy)==iron,"original nonpositive copy retains identity");
+   }
+   check(load.invoke(null,nbt.newInstance())==null,"original missing ID null");
+   Object unknown=nbt.newInstance();setShort.invoke(unknown,"id",(short)32767);check(load.invoke(null,unknown)==null,"original unknown ID null");
+  }
+ }
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();legacy(new File(args[0]));ingress(new Crate());ingress(new Mass());ingress(new Cart());
+  ItemStack zero=new ItemStack(tag(0));check(zero.isEmpty() && zero.getItem()==Items.AIR,"native zero hides identity");ItemStack zeroCopy=zero.copy();check(zeroCopy!=ItemStack.EMPTY && zeroCopy.isEmpty(),"Forge zero copy remains distinct");check(zero.writeToNBT(new NBTTagCompound()).getString("id").equals("minecraft:iron_ingot"),"Forge zero serialization preserves raw identity");zeroCopy.setCount(1);check(zeroCopy.getItem()==Items.IRON_INGOT,"Forge zero copy retains recoverable raw identity");
+  NBTTagCompound numeric=tag(1);numeric.setShort("id",(short)265);check(new ItemStack(numeric).isEmpty(),"raw legacy numeric IDs unsupported by native constructor");
+  System.out.println("PASS "+checks+" original/native assertions: exact three production ingress loops and two setters; not whole owners.");
+ }
+}

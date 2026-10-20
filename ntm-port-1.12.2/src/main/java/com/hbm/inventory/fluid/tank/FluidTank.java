@@ -20,6 +20,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -96,7 +98,7 @@ public class FluidTank implements Cloneable {
 	
 	//Fills tank from canisters
 	public boolean loadTank(int in, int out, ItemStack[] slots) {
-		if(slots[in] == null) return false;
+		if(slots[in] == null || slots[in].isEmpty()) return false;
 
 		boolean isInfiniteBarrel = slots[in].getItem() == ModItems.fluid_barrel_infinite;
 		if(!isInfiniteBarrel && pressure != 0) return false;
@@ -114,7 +116,7 @@ public class FluidTank implements Cloneable {
 	
 	//Fills canisters from tank
 	public boolean unloadTank(int in, int out, ItemStack[] slots) {
-		if(slots[in] == null) return false;
+		if(slots[in] == null || slots[in].isEmpty()) return false;
 		
 		int prev = this.getFill();
 		
@@ -140,7 +142,7 @@ public class FluidTank implements Cloneable {
 	 */
 	public boolean setType(int in, int out, ItemStack[] slots) {
 		
-		if(slots[in] != null && slots[in].getItem() instanceof IItemFluidIdentifier) {
+		if(slots[in] != null && !slots[in].isEmpty() && slots[in].getItem() instanceof IItemFluidIdentifier) {
 			IItemFluidIdentifier id = (IItemFluidIdentifier) slots[in].getItem();
 			
 			if(in == out) {
@@ -152,12 +154,12 @@ public class FluidTank implements Cloneable {
 					return true;
 				}
 				
-			} else if(slots[out] == null) {
+			} else if(slots[out] == null || slots[out].isEmpty()) {
 				FluidType newType = id.getType(null, 0, 0, 0, slots[in]);
 				if(type != newType) {
 					type = newType;
 					slots[out] = slots[in].copy();
-					slots[in] = null;
+					slots[in] = ItemStack.EMPTY;
 					fluid = 0;
 					return true;
 				}
@@ -222,12 +224,13 @@ public class FluidTank implements Cloneable {
 			maxU = 1D - i / 16D;
 		}
 		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(minX, maxY, z, minU, maxV);
-		tessellator.addVertexWithUV(maxX, maxY, z, maxU, maxV);
-		tessellator.addVertexWithUV(maxX, minY, z, maxU, minV);
-		tessellator.addVertexWithUV(minX, minY, z, minU, minV);
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder buffer = tessellator.getBuffer();
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+		buffer.pos(minX, maxY, z).tex(minU, maxV).endVertex();
+		buffer.pos(maxX, maxY, z).tex(maxU, maxV).endVertex();
+		buffer.pos(maxX, minY, z).tex(maxU, minV).endVertex();
+		buffer.pos(minX, minY, z).tex(minU, minV).endVertex();
 		tessellator.draw();
 
 		GL11.glColor3d(1D, 1D, 1D);
@@ -266,7 +269,7 @@ public class FluidTank implements Cloneable {
 		if(max > 0)
 			maxFluid = max;
 		
-		fluid = MathHelper.clamp_int(fluid, 0, max);
+		fluid = MathHelper.clamp(fluid, 0, max);
 		
 		type = Fluids.fromNameCompat(nbt.getString(s + "_type")); //compat
 		if(type == Fluids.NONE)

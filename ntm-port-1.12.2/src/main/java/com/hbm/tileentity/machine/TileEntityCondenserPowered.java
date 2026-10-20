@@ -72,15 +72,15 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote && damaged) {
+	public void update() {
+		if(!this.world.isRemote && damaged) {
 			networkPackNT(150);
 			return;
 		}
 
-		super.updateEntity();
+		super.update();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			this.lastSpin = this.spin;
 
@@ -92,10 +92,10 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 					this.lastSpin -= 360F;
 				}
 
-				if(worldObj.getTotalWorldTime() % 4 == 0) {
+				if(this.world.getTotalWorldTime() % 4 == 0) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-					worldObj.spawnParticle("cloud", xCoord + 0.5 + dir.offsetX * 1.5, yCoord + 1.5, zCoord + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);
-					worldObj.spawnParticle("cloud", xCoord + 0.5 - dir.offsetX * 1.5, yCoord + 1.5, zCoord + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);
+					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);
+					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);
 				}
 			}
 		}
@@ -147,26 +147,27 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "water");
 		tanks[1].writeToNBT(nbt, "steam");
 		nbt.setBoolean("damaged", damaged);
+		return nbt;
 	}
 
 	@Override
 	public void subscribeToAllAround(FluidType type, TileEntity te) {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(this.tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
 	@Override
 	public void sendFluidToAll(FluidTank tank, TileEntity te) {
 		for(DirPos pos : getConPos()) {
-			this.sendFluid(this.tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.sendFluid(this.tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -176,12 +177,12 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + rot.offsetX * 4, yCoord + 1, zCoord + rot.offsetZ * 4, rot),
-				new DirPos(xCoord - rot.offsetX * 4, yCoord + 1, zCoord - rot.offsetZ * 4, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX, yCoord + 1, zCoord + dir.offsetZ * 2 - rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX, yCoord + 1, zCoord + dir.offsetZ * 2 + rot.offsetZ, dir),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord + 1, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord + 1, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
+				new DirPos(this.pos.getX() + rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 4, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() - rot.offsetZ * 4, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
 		};
 	}
 
@@ -192,12 +193,12 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 3,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 4
 					);
 		}
 

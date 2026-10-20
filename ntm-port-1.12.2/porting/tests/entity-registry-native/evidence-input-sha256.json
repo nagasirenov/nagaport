@@ -1,0 +1,9 @@
+{
+  "/workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/entity/ModEntityList.java": "82360bd02e48d81a34124323540a9da69d70c42dec63a73f10c625a03e1866bf",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockFallingNT.java": "72a977c654eb962e2c0f6be9a34af87bc3609ab6de5f6995dd4c52c26158224a",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityFallingBlockNT.java": "24035d85afa83994618e23e55a40a6ac16312e8bfde06820ff659d6d377cc59f",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ISpotlight.java": "03bb5bdc21d1ff286201a53784ace92498ef2cefb3f9ce6f0c8516110b7b487f",
+  "/workspace/shared/nagaport-entityregistry-next/porting/tests/entity-registry-native/NativeEntityRegistryTest.java": "60e07ae6148b32875b346ef9ab3c529a0c573af3aa7ad730cd7bb01c8ad8008e",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3"
+}

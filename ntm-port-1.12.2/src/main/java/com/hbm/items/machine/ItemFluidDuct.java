@@ -39,7 +39,7 @@ public class ItemFluidDuct extends Item {
 	}
 
 	public String getItemStackDisplayName(ItemStack stack) {
-		String s = ("" + I18nUtil.resolveKey(this.getUnlocalizedName() + ".name")).trim();
+		String s = ("" + I18nUtil.resolveKey(this.getTranslationKey() + ".name")).trim();
 		String s1 = ("" + I18nUtil.resolveKey(Fluids.fromID(stack.getItemDamage()).getConditionalName())).trim();
 
 		if(s1 != null) {
@@ -85,7 +85,7 @@ public class ItemFluidDuct extends Item {
 	}
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
-		if(world.getBlock(x, y, z) != Blocks.snow_layer) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.snow_layer) {
 			if(i == 0) {
 				--y;
 			}
@@ -110,7 +110,7 @@ public class ItemFluidDuct extends Item {
 				++x;
 			}
 
-			if(!world.getBlock(x, y, z).isReplaceable(world, x, y, z)) {
+			if(!com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, x, y, z)) {
 				return false;
 			}
 		}
@@ -121,8 +121,8 @@ public class ItemFluidDuct extends Item {
 			--stack.stackSize;
 			world.setBlock(x, y, z, ModBlocks.fluid_duct_neo);
 
-			if(world.getTileEntity(x, y, z) instanceof TileEntityPipeBaseNT) {
-				((TileEntityPipeBaseNT) world.getTileEntity(x, y, z)).setType(Fluids.fromID(stack.getItemDamage()));
+			if(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)) instanceof TileEntityPipeBaseNT) {
+				((TileEntityPipeBaseNT) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))).setType(Fluids.fromID(stack.getItemDamage()));
 			}
 			
 			world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, ModBlocks.fluid_duct_neo.stepSound.func_150496_b(), (ModBlocks.fluid_duct_neo.stepSound.getVolume() + 1.0F) / 2.0F, ModBlocks.fluid_duct_neo.stepSound.getPitch() * 0.8F);

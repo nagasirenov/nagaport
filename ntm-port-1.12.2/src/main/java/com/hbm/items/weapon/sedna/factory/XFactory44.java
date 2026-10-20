@@ -48,21 +48,21 @@ public class XFactory44 {
 	public static BulletConfig m44_equestrian_mn7;
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_BOXCAR = (bullet, mop) -> {
-		EntityBoxcar pippo = new EntityBoxcar(bullet.worldObj);
+		EntityBoxcar pippo = new EntityBoxcar(bullet.world);
 		pippo.posX = mop.hitVec.x;
 		pippo.posY = mop.hitVec.y + 50;
 		pippo.posZ = mop.hitVec.z;;
-		bullet.worldObj.spawnEntityInWorld(pippo);
-		bullet.worldObj.playSoundEffect(pippo.posX, pippo.posY + 50, pippo.posZ, "hbm:alarm.trainHorn", 100F, 1F);
+		bullet.world.spawnEntityInWorld(pippo);
+		com.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, "hbm:alarm.trainHorn", 100F, 1F);
 		bullet.setDead();
 	};
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_TORPEDO = (bullet, mop) -> {
-		EntityTorpedo murky = new EntityTorpedo(bullet.worldObj);
+		EntityTorpedo murky = new EntityTorpedo(bullet.world);
 		murky.posX = mop.hitVec.x;
 		murky.posY = mop.hitVec.y + 50;
 		murky.posZ = mop.hitVec.z;;
-		bullet.worldObj.spawnEntityInWorld(murky);
+		bullet.world.spawnEntityInWorld(murky);
 		bullet.setDead();
 	};
 
@@ -94,7 +94,7 @@ public class XFactory44 {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_HENRY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_HENRY_ANIMS).orchestra(Orchestras.ORCHESTRA_HENRY)
-				).setDefaultAmmo(EnumAmmo.M44_SP, 14).setUnlocalizedName("gun_henry");
+				).setDefaultAmmo(EnumAmmo.M44_SP, 14).setTranslationKey("gun_henry");
 		ModItems.gun_henry_lincoln = new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()
 				.dura(300).draw(15).inspect(23).reloadSequential(true).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
 				.rec(new Receiver(0)
@@ -104,7 +104,7 @@ public class XFactory44 {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_HENRY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_HENRY_ANIMS).orchestra(Orchestras.ORCHESTRA_HENRY)
-				).setDefaultAmmo(EnumAmmo.M44_JHP, 14).setUnlocalizedName("gun_henry_lincoln");
+				).setDefaultAmmo(EnumAmmo.M44_JHP, 14).setTranslationKey("gun_henry_lincoln");
 
 		ModItems.gun_heavy_revolver = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(600).draw(10).inspect(23).crosshair(Crosshair.L_CLASSIC).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -116,7 +116,7 @@ public class XFactory44 {
 				.setupStandardConfiguration()
 				.anim(LAMBDA_NOPIP_ANIMS).orchestra(Orchestras.ORCHESTRA_NOPIP)
 				).setDefaultAmmo(EnumAmmo.M44_SP, 12).setNameMutator(LAMBDA_NAME_NOPIP)
-				.setUnlocalizedName("gun_heavy_revolver");
+				.setTranslationKey("gun_heavy_revolver");
 		ModItems.gun_heavy_revolver_lilmac = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(31_000).draw(10).inspect(23).crosshair(Crosshair.L_CLASSIC).scopeTexture(scope_lilmac).smoke(Lego.LAMBDA_STANDARD_SMOKE)
 				.rec(new Receiver(0)
@@ -126,7 +126,7 @@ public class XFactory44 {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_NOPIP))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LILMAC_ANIMS).orchestra(Orchestras.ORCHESTRA_NOPIP)
-				).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setUnlocalizedName("gun_heavy_revolver_lilmac");
+				).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setTranslationKey("gun_heavy_revolver_lilmac");
 		ModItems.gun_heavy_revolver_protege = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(31_000).draw(10).inspect(23).crosshair(Crosshair.L_CLASSIC).smoke(Lego.LAMBDA_STANDARD_SMOKE)
 				.rec(new Receiver(0)
@@ -136,7 +136,7 @@ public class XFactory44 {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_NOPIP))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LILMAC_ANIMS).orchestra(Orchestras.ORCHESTRA_NOPIP)
-				).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setUnlocalizedName("gun_heavy_revolver_protege");
+				).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setTranslationKey("gun_heavy_revolver_protege");
 
 		ModItems.gun_hangman = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(600).draw(10).inspect(31).inspectCancel(false).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -147,7 +147,7 @@ public class XFactory44 {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_HANGMAN))
 				.setupStandardConfiguration().ps(SMACK_A_FUCKER)
 				.anim(LAMBDA_HANGMAN_ANIMS).orchestra(Orchestras.ORCHESTRA_HANGMAN)
-				).setDefaultAmmo(EnumAmmo.M44_FMJ, 16).setUnlocalizedName("gun_hangman");
+				).setDefaultAmmo(EnumAmmo.M44_FMJ, 16).setTranslationKey("gun_hangman");
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_NOPIP = (stack) -> {

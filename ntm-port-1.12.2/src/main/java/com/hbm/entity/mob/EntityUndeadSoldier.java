@@ -44,7 +44,7 @@ public class EntityUndeadSoldier extends EntityMob {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
 	}
@@ -114,7 +114,7 @@ public class EntityUndeadSoldier extends EntityMob {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+		return this.world.difficultySetting != EnumDifficulty.PEACEFUL && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.isAnyLiquid(this.getEntityBoundingBox());
 	}
 
 	@Override protected void dropFewItems(boolean player, int loot) { }

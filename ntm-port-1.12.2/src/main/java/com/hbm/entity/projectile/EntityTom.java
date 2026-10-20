@@ -25,23 +25,23 @@ public class EntityTom extends EntityThrowable {
 		this.setPosition(posX + this.motionX, posY + this.motionY, posZ + this.motionZ);
 
 		if(this.ticksExisted % 100 == 0) {
-			worldObj.playSoundEffect(posX, posY, posZ, "hbm:alarm.chime", 10000, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:alarm.chime", 10000, 1.0F);
 		}
 
 		motionY = -0.5;
 
-		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air || this.posY < 10) {
-			if(!this.worldObj.isRemote) {
-				EntityTomBlast tom = new EntityTomBlast(worldObj);
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) this.posX, (int) this.posY, (int) this.posZ).getBlock() != Blocks.AIR || this.posY < 10) {
+			if(!this.world.isRemote) {
+				EntityTomBlast tom = new EntityTomBlast(this.world);
 				tom.posX = posX;
 				tom.posY = posY;
 				tom.posZ = posZ;
 				tom.destructionRange = 600;
-				worldObj.spawnEntityInWorld(tom);
+				this.world.spawnEntityInWorld(tom);
 
-				EntityCloudTom cloud = new EntityCloudTom(worldObj, 500);
+				EntityCloudTom cloud = new EntityCloudTom(this.world, 500);
 				cloud.setLocationAndAngles(posX, posY, posZ, 0, 0);
-				worldObj.spawnEntityInWorld(cloud);
+				this.world.spawnEntityInWorld(cloud);
 			}
 			this.setDead();
 		}

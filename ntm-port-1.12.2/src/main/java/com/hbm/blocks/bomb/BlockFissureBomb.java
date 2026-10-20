@@ -34,12 +34,12 @@ public class BlockFissureBomb extends BlockTNTBase {
 					int b = (int) Math.floor(y + j);
 					int c = (int) Math.floor(z + k);
 					
-					Block block = world.getBlock(a, b, c);
+					Block block = com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock();
 					
 					if(block == ModBlocks.ore_bedrock) {
 						world.setBlock(a, b, c, ModBlocks.ore_volcano, crater ? 1 : 0, 3);
 					} else if(block == ModBlocks.ore_bedrock_oil) {
-						world.setBlock(a, b, c, Blocks.bedrock);
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = a; int nativePlacementY = b; int nativePlacementZ = c; net.minecraft.block.Block nativePlacementBlock = Blocks.BEDROCK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					}
 				}
 			}

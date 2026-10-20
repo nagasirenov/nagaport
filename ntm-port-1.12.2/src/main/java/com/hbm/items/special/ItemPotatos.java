@@ -26,7 +26,7 @@ public class ItemPotatos extends ItemBattery {
     		if(entity instanceof EntityPlayer) {
     			EntityPlayer p = (EntityPlayer) entity;
     			
-    			if(p.getHeldItem() == stack) {
+    			if(com.hbm.util.NativeHeldItem.getMainHandNullable(p) == stack) {
     				
     		    	float pitch = (float)getCharge(stack) / (float)this.getMaxCharge(stack) * 0.5F + 0.5F;
     		    	
@@ -38,21 +38,21 @@ public class ItemPotatos extends ItemBattery {
     }
 	
 	private static int getTimer(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 		
-		return stack.stackTagCompound.getInteger("timer");
+		return stack.getTagCompound().getInteger("timer");
 		
 	}
 	
 	private static void setTimer(ItemStack stack, int i) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
-		stack.stackTagCompound.setInteger("timer", i);
+		stack.getTagCompound().setInteger("timer", i);
 		
 	}
 

@@ -41,7 +41,7 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.milkreformer";
 	}
 
@@ -87,9 +87,9 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.updateConnections();
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
@@ -104,7 +104,7 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 			for(DirPos pos : getConPos()) {
 				for(int i = 1; i < 4; i++) {
 					if(tanks[i].getFill() > 0) {
-						this.sendFluid(tanks[i], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						this.sendFluid(tanks[i], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 					}
 				}
 			}
@@ -144,21 +144,21 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 	
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 	
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-			new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-			new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-			new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-			new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-			new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-			new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-			new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z),
-			new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z)
+			new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+			new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+			new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+			new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+			new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+			new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+			new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+			new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 	@Override
@@ -173,7 +173,7 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
@@ -181,6 +181,7 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 		tanks[1].writeToNBT(nbt, "m1");
 		tanks[2].writeToNBT(nbt, "m2");
 		tanks[3].writeToNBT(nbt, "m3");
+		return nbt;
 	}
 	AxisAlignedBB bb = null;
 	
@@ -189,12 +190,12 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 2,
-				yCoord,
-				zCoord - 2,
-				xCoord + 3,
-				yCoord + 7,
-				zCoord + 3
+				this.pos.getX() - 2,
+				this.pos.getY(),
+				this.pos.getZ() - 2,
+				this.pos.getX() + 3,
+				this.pos.getY() + 7,
+				this.pos.getZ() + 3
 			);
 		}
 		

@@ -1,0 +1,6 @@
+Baseline checkpoint19:07fe9fadc127801648b1897663e2d453ebf3ae88.
+Command: /workspace/shared/nagaport-toolchain/run-gradle.sh --offline clean -I porting/compile-diagnostics.init.gradle compileJava --console=plain
+Result: FAIL exit1,1458 diagnostics,23s. All384 selected production Java files match build/sources/main/java byte-for-byte and final manifest after SHA256. Total3862 compiler Java inputs. No source exclusions. Normalized diagnostic-line added0/removed0 versus checkpoint19.
+Log compile-after-bulk-tile-fields.log SHA256fe76b9083722554f7fe69f8fcff0791536e5331dee0554799084928f6687a934.
+Identical full log hash to checkpoint18 is expected: same diagnostic output and elapsed-time text23s; this is a newly executed clean invocation, with384 current copied source byte checks.
+Full native compilation attempted, not successful. Top-level declaration failures continue masking consumer bodies. Native sample probe separately executes real platform field contracts/seven extracted expressions, not complete384 production classes.

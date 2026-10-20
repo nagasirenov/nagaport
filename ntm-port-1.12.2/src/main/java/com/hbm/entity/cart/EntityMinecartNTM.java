@@ -52,12 +52,12 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
 
 	@Override
 	public AxisAlignedBB getCollisionBox(Entity entity) {
-		return entity.boundingBox;
+		return entity.getEntityBoundingBox();
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox() {
-		return this.boundingBox;
+		return this.getEntityBoundingBox();
 	}
 
 	@Override

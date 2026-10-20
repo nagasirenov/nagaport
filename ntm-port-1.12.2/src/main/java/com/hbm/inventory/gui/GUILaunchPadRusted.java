@@ -50,18 +50,18 @@ public class GUILaunchPadRusted extends GuiInfoContainer {
 		
 		if(guiLeft + 26 <= x && guiLeft + 26 + 16 > x && guiTop + 36 < y && guiTop + 36 + 16 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("release", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, launchpad.xCoord, launchpad.yCoord, launchpad.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, launchpad.getPos().getX(), launchpad.getPos().getY(), launchpad.getPos().getZ()));
 		}
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.launchpad.hasCustomInventoryName() ? this.launchpad.getInventoryName() : I18n.format(this.launchpad.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 4, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 4, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class GUILaunchPadRusted extends GuiInfoContainer {
 		
 		if(hasCodes && hasKey && launchpad.missileLoaded) {
 			
-			Random rand = new Random(launchpad.xCoord * 131_071 + launchpad.zCoord);
+			Random rand = new Random(launchpad.getPos().getX() * 131_071 + launchpad.getPos().getZ());
 			int launchCodes = rand.nextInt(100_000_000);
 			
 			for(int i = 0; i < 8; i++) {

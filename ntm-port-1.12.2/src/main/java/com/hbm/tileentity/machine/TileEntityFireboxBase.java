@@ -18,6 +18,7 @@ import api.hbm.tile.IHeatSource;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -44,19 +45,19 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	}
 	
 	@Override
-	public void openInventory() {
-		if(!worldObj.isRemote) this.playersUsing++;
+	public void openInventory(EntityPlayer player) {
+		if(!world.isRemote) this.playersUsing++;
 	}
 	
 	@Override
-	public void closeInventory() {
-		if(!worldObj.isRemote) this.playersUsing--;
+	public void closeInventory(EntityPlayer player) {
+		if(!world.isRemote) this.playersUsing--;
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			boolean canOperate = false;
 
 			for(int i = 2; i < 6; i++) {
@@ -64,7 +65,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 				
 				for(int j = -1; j <= 1; j++) {
-					this.sendSmoke(xCoord + dir.offsetX * 2 + rot.offsetX * j, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * j, dir);
+					this.sendSmoke(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * j, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * j, dir);
 				}
 			}
 			
@@ -81,7 +82,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 						if(baseTime > 0) {
 							int fuel = (int) (baseTime * getTimeMult());
 							
-							TileEntity below = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+							TileEntity below = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 							
 							if(below instanceof TileEntityAshpit) {
 								TileEntityAshpit ashpit = (TileEntityAshpit) below;
@@ -107,11 +108,11 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 			} else {
 				if(this.heatEnergy < getMaxHeat()) {
 					// firebox consumes 1mB every 5 ticks, heating oven every tick
-					canOperate = breatheAir(worldObj.getTotalWorldTime() % (500 / getBaseHeat()) == 0 ? 1 : 0);
+					canOperate = breatheAir(this.world.getTotalWorldTime() % (500 / getBaseHeat()) == 0 ? 1 : 0);
 
 					if(canOperate) {
 						burnTime--;
-						if(worldObj.getTotalWorldTime() % 20 == 0) this.pollute(PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 3);
+						if(this.world.getTotalWorldTime() % 20 == 0) this.pollute(PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 3);
 					}
 				} else {
 					canOperate = breatheAir(0);
@@ -120,8 +121,8 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 				if(canOperate) {
 					this.wasOn = true;
 					
-					if(worldObj.rand.nextInt(15) == 0 && !this.muffled) {
-						worldObj.playSoundEffect(xCoord, yCoord, zCoord, "fire.fire", 1.0F, 0.5F + worldObj.rand.nextFloat() * 0.5F);
+					if(this.world.rand.nextInt(15) == 0 && !this.muffled) {
+						com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "fire.fire", 1.0F, 0.5F + this.world.rand.nextFloat() * 0.5F);
 					}
 				}
 			}
@@ -144,14 +145,14 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 				this.doorAngle -= swingSpeed;
 			}
 			
-			this.doorAngle = MathHelper.clamp_float(this.doorAngle, 0F, 135F);
+			this.doorAngle = MathHelper.clamp(this.doorAngle, 0F, 135F);
 			
-			if(wasOn && worldObj.getTotalWorldTime() % 5 == 0) {
+			if(wasOn && this.world.getTotalWorldTime() % 5 == 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-				double x = xCoord + 0.5 + dir.offsetX;
-				double y = yCoord + 0.25;
-				double z = zCoord + 0.5 + dir.offsetZ;
-				worldObj.spawnParticle("flame", x + worldObj.rand.nextDouble() * 0.5 - 0.25, y + worldObj.rand.nextDouble() * 0.25, z + worldObj.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);
+				double x = this.pos.getX() + 0.5 + dir.offsetX;
+				double y = this.pos.getY() + 0.25;
+				double z = this.pos.getZ() + 0.5 + dir.offsetZ;
+				this.world.spawnParticle("flame", x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);
 			}
 		}
 	}
@@ -200,7 +201,8 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	public abstract int getMaxHeat();
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1 };
 	}
 	
@@ -220,13 +222,14 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("maxBurnTime", maxBurnTime);
 		nbt.setInteger("burnTime", burnTime);
 		nbt.setInteger("burnHeat", burnHeat);
 		nbt.setInteger("heatEnergy", heatEnergy);
+		return nbt;
 	}
 
 	@Override
@@ -246,12 +249,12 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 1,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 2
 					);
 		}
 		

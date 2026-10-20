@@ -38,8 +38,8 @@ public class BlockDirt extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
-		return Item.getItemFromBlock(Blocks.dirt);
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
+		return Item.getItemFromBlock(Blocks.DIRT);
 	}
 
 	/*@Override
@@ -65,8 +65,8 @@ public class BlockDirt extends Block {
 			
 			int light = Math.max(world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z), (int) (world.getBlockLightValue(x, y + 1, z) * (1 - data.dust)));
 			if(light >= 9 && data.fire == 0) {
-				world.setBlock(x, y, z, Blocks.grass);
-				if(world.getBlock(x, y-1, z)==Blocks.dirt)
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.GRASS; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+				if(com.hbm.world.WorldBlockState.read(world, x, y-1, z).getBlock()==Blocks.DIRT)
 				{
 					world.setBlock(x, y-1, z, ModBlocks.impact_dirt);
 				}

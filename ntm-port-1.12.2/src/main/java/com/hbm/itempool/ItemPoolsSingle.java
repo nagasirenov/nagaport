@@ -8,7 +8,7 @@ import com.hbm.items.machine.ItemCircuit.EnumCircuitType;
 import com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo;
 
 import net.minecraft.init.Items;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPoolsSingle {
 
@@ -23,7 +23,7 @@ public class ItemPoolsSingle {
 
 		new ItemPool(POOL_VAULT_RUSTY) {{
 			this.pool = new WeightedRandomChestContent[] {
-					weighted(Items.gold_ingot, 0, 3, 14, 1),
+					weighted(Items.GOLD_INGOT, 0, 3, 14, 1),
 					weighted(ModItems.gun_heavy_revolver, 0, 1, 1, 2),
 					weighted(ModItems.pin, 0, 8, 8, 1),
 					weighted(ModItems.gun_am180, 0, 1, 1, 1),
@@ -35,7 +35,7 @@ public class ItemPoolsSingle {
 					weighted(ModItems.gas_mask_m65, 0, 1, 1, 1),
 					weighted(ModItems.grenade_if_he, 0, 1, 1, 1),
 					weighted(ModItems.grenade_if_incendiary, 0, 1, 1, 1),
-					weighted(Items.diamond, 0, 1, 2, 1)
+					weighted(Items.DIAMOND, 0, 1, 2, 1)
 			};
 		}};
 		
@@ -43,7 +43,7 @@ public class ItemPoolsSingle {
 			this.pool = new WeightedRandomChestContent[] {
 					weighted(ModItems.ingot_desh, 0, 2, 6, 1),
 					weighted(ModItems.powder_desh_mix, 0, 1, 5, 1),
-					weighted(Items.diamond, 0, 3, 6, 1),
+					weighted(Items.DIAMOND, 0, 3, 6, 1),
 					weighted(ModItems.ammo_standard, EnumAmmo.NUKE_STANDARD.ordinal(), 1, 1, 1),
 					weighted(ModItems.ammo_container, 0, 1, 1, 1),
 					weighted(ModItems.grenade_nuclear, 0, 1, 1, 1),
@@ -60,7 +60,7 @@ public class ItemPoolsSingle {
 					weighted(ModItems.ingot_desh, 0, 6, 16, 1),
 					weighted(ModItems.powder_power, 0, 1, 5, 1),
 					weighted(ModItems.sat_chip, 0, 1, 1, 1),
-					weighted(Items.diamond, 0, 5, 9, 1),
+					weighted(Items.DIAMOND, 0, 5, 9, 1),
 					weighted(ModItems.ammo_standard, EnumAmmo.NUKE_STANDARD.ordinal(), 1, 3, 1),
 					weighted(ModItems.ammo_container, 0, 1, 4, 1),
 					weighted(ModItems.grenade_nuclear, 0, 1, 2, 1),

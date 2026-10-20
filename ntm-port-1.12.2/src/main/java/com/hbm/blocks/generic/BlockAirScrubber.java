@@ -37,7 +37,7 @@ public class BlockAirScrubber extends BlockDummyable implements ILookOverlay, IT
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 
-		TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(tile instanceof TileEntityAirScrubber)) return;
 
 		TileEntityAirScrubber scrubber = (TileEntityAirScrubber) tile;
@@ -47,7 +47,7 @@ public class BlockAirScrubber extends BlockDummyable implements ILookOverlay, IT
 		text.add((scrubber.getPower() <= 200 ? TextFormatting.RED : TextFormatting.GREEN) + "Power: " + BobMathUtil.getShortNumber(scrubber.getPower()) + "HE");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + scrubber.tank.getTankType().getLocalizedName() + ": " + scrubber.tank.getFill() + "/" + scrubber.tank.getMaxFill() + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@SuppressWarnings("rawtypes")

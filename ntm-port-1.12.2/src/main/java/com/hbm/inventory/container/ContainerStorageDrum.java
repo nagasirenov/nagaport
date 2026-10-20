@@ -69,6 +69,6 @@ public class ContainerStorageDrum extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return drum.isUseableByPlayer(player);
+		return drum.isUsableByPlayer(player);
 	}
 }

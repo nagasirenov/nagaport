@@ -1,0 +1,13 @@
+/workspace/shared/nagaport-tracker-next/porting/tests/tracker-native/TrackerNativeTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static <T>T allocate(Class<T> c)throws Exception{return(T)unsafe.allocateInstance(c);}
+                ^
+/workspace/shared/nagaport-tracker-next/porting/tests/tracker-native/TrackerNativeTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();java.lang.reflect.Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                             ^
+/workspace/shared/nagaport-tracker-next/porting/tests/tracker-native/TrackerNativeTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();java.lang.reflect.Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                                                                ^
+Note: /workspace/shared/nagaport-tracker-next/porting/tests/tracker-native/TrackerNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS 44 native tracker assertions; actual broadcast/packet/visibility, no running server/network game claim.

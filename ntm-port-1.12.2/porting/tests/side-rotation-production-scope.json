@@ -1,0 +1,127 @@
+{
+  "base": "e8970b85e0c8fe46f17348330b3853bb32ffaa0b",
+  "status": "production frozen; terminal native owner/model proofs passed",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/IBlockSideRotation.java",
+      "sha256": "59785176dea684180f3e8f48600a9e9aba13c1c0f108b47b9328becff1ac7879"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/SideRotationModelState.java",
+      "sha256": "dc4731f61ac3223a9170c0c2b22bae5d4c547ee23c9b4d8eee1566afe707d5bf"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/BlockCraneBase.java",
+      "sha256": "836177005773e3e657578a155e1f8cbf9e3d6844f2fe341cd10b282c03df2943"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneBoxer.java",
+      "sha256": "fc58f26f7a91e6c61ae15c51bcf33270c1c9e3c7789db2f472ceeaf9e79a1e4a"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneExtractor.java",
+      "sha256": "f9d47e961046504d75437d6af906cb3aec313790e36e7da37a64e7e55202e7f7"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneGrabber.java",
+      "sha256": "00945b5f4fddfa72e1b48fcda8626e9c3f5c4c08539e1fea5e57f5d4c37ad751"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneInserter.java",
+      "sha256": "b471c05ef087813855b58b7a254eb9b346a2ea7288889f0226c4477767a1a800"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneUnboxer.java",
+      "sha256": "ea2a626b8b3e3def33d6db75874c059a5eb018be67aca93a63be667adce7a5ff"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java",
+      "sha256": "5a586d2ba2fbd903edff8ed8fa293544a641efe705a37bee9b3b9a67c56bed6f"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java",
+      "sha256": "93a1803afd66427ff7a9cc3b4535a04365a5a33e322a4e9af16764ba92a7e4c4"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWandLogic.java",
+      "sha256": "83a1ddcbd11a8a329648e3611381b70092b22f480cf0ebd442984193f349ca73"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWandLoot.java",
+      "sha256": "30b2b8d35325aec818634325d904aa9644496af3a9959a002ec5cdf7933e72ed"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java",
+      "sha256": "95aeabd7638417c5a90e2ea7441dd82ca1415d5f85f0b5b38c6085604ac5cc34"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderBlockSideRotation.java",
+      "sha256": "4674cdc0e604efe3ca16210fe0424689700d65ba63b8fab984853b7e42ad10c2"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/SideRotationBakedModel.java",
+      "sha256": "c24be9f446bd46c52af8d9c470b944f0b10dfc89791a89cfa8b82df568c715fc"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/SideRotationBlockModelHandler.java",
+      "sha256": "22d8d1aa2d95d4ccb80e61bfc98051cc2c4a46e99858f35060a4bddd8451f06a"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.crane_extractor.json",
+      "sha256": "9a2310979168b9f2e6e3c27f6c126fb3a565ee5546b0997de2c468eb20395048"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.crane_inserter.json",
+      "sha256": "c31fcb10005db1c6938803151c6b41da90ef88020af855b06c173cd36852bfb1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.crane_grabber.json",
+      "sha256": "e768efd7d42ee75cfeaabdfdd333e2caf217aa58ecea16adfb3572410af84e09"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.crane_boxer.json",
+      "sha256": "673754777ad4d7ee2874bba9152a8ed0509194c7b223fcd0ab31664bc2d23c7b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.crane_unboxer.json",
+      "sha256": "8fdc67b77a0e593ac63e090cd95e7d28c719016de7d088fec9402062e9747741"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.wand_jigsaw.json",
+      "sha256": "cf29ae4cdb6eb08ebe0db545e99c749930dcda1255919fa8d610bf7ae3cc040f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.wand_tandem.json",
+      "sha256": "f4237448708e1690cba8ad1217d531544f856ec87b21faedaf2e9609b164a9b3"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.wand_logic.json",
+      "sha256": "849d624a9ad167f423dd45a25ea635358d1467011b9ffc2ded554c1a8a290553"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.wand_loot.json",
+      "sha256": "484e15c9fef648fc5012afb67787ee6b9f133d600e8cecb103e3f18da8914eae"
+    }
+  ],
+  "parent_owned_integration": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/main/ClientProxy.java"
+  ],
+  "unchanged_reused_native_sources": [
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java",
+    "src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java"
+  ],
+  "external_boundaries": [
+    "TileEntityMachineBase and TileEntityLoadedBase remain outside this family",
+    "Five concrete crane tile engines remain outside this family",
+    "Real structure generation, live GUI/GL and full-mod launch are not accepted by focused proofs"
+  ],
+  "proofs": {
+    "crane_native_assertions": 15477,
+    "editor_native_assertions": 2439,
+    "editor_complete_pristine_methods": 54,
+    "model_native_assertions": 584751,
+    "model_exhaustive_layouts": 2584,
+    "ordered_native_vertices": 62016
+  }
+}

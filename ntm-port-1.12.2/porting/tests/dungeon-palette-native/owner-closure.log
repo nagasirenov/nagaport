@@ -1,0 +1,10 @@
+REJECTED: field reassignment
+REJECTED: qualified reassignment
+REJECTED: local shadow
+REJECTED: parameter shadow
+REJECTED: subclass
+REJECTED: anonymous subclass
+REJECTED: static owner write
+REJECTED: unqualified owner write
+REJECTED: declaration modifier change
+PASS: four mutable palette fields, three exact concrete constructions, closed source references, nine rejected mutations.

@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class BlockLantern extends BlockDummyable {
 
 	public BlockLantern() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

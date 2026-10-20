@@ -1,9 +1,7 @@
 package com.hbm.render.tileentity;
 
 import com.hbm.blocks.ModBlocks;
-import com.hbm.render.item.ItemRenderBase;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.main.ResourceManager;
@@ -11,7 +9,7 @@ import com.hbm.main.ResourceManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
-public class RenderNukeSolinium extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderNukeSolinium extends TileEntitySpecialRenderer {
 
 	public RenderNukeSolinium() { }
 
@@ -46,29 +44,5 @@ public class RenderNukeSolinium extends TileEntitySpecialRenderer implements IIt
         GL11.glPopMatrix();
     }
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.nuke_solinium);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -0.125, 0);
-				GL11.glScaled(5, 5, 5);
-			}
-
-			public void renderCommon() {
-				GL11.glRotated(90, 0, 1, 0);
-				GL11.glTranslated(0, -0.125, 0);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				GL11.glDisable(GL11.GL_CULL_FACE);
-				bindTexture(ResourceManager.bomb_solinium_tex);
-				ResourceManager.bomb_solinium.renderAll();
-				GL11.glEnable(GL11.GL_CULL_FACE);
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 }

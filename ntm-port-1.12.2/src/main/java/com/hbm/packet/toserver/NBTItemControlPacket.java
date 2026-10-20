@@ -62,7 +62,7 @@ public class NBTItemControlPacket implements IMessage {
 				NBTTagCompound nbt = m.buffer.readNBTTagCompoundFromBuffer();
 
 				if(nbt != null) {
-					ItemStack held = p.getHeldItem();
+					ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(p);
 
 					if(held != null && held.getItem() instanceof IItemControlReceiver) {
 						((IItemControlReceiver) held.getItem()).receiveControl(held, nbt);

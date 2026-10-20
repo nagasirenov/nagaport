@@ -1,0 +1,3656 @@
+{
+  "baseline": "0732d318302d807ce8579878a0cdde6b18bbba86",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockNTSapling.java",
+      "before": "60ea3d6b7170304f3397cec48b191e67f9e762a7e4ea211aa124662182e2c869",
+      "after": "df11abd0e257eb2eaad71adfb114e2b7579dc17f0a4fdb4ee2ec51738715bdd1",
+      "edits": [
+        {
+          "start": 4637,
+          "end": 4655,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.BlockSapling",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFireworks.java",
+      "before": "677072cd4a9243bc410f9d8c068c0863468abe04b5d9af152635de9de7098ff7",
+      "after": "97e687f9754ff0c110090b412c7ab1e598544b7d1ed17971cbda46034bff401a",
+      "edits": [
+        {
+          "start": 2990,
+          "end": 3008,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.bomb.BlockFireworks",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3131,
+          "end": 3149,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.bomb.BlockFireworks",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3289,
+          "end": 3307,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.bomb.BlockFireworks",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3464,
+          "end": 3482,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.bomb.BlockFireworks",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/LaunchPadRocket.java",
+      "before": "8884b0457b81a1ff35ce128fd15bff6d83f7debec79a44a6618a97b8053ebf95",
+      "after": "51c1750f3e776a5951d9a047172bab65b5444596b01bad1374d7688a4d80f4d3",
+      "edits": [
+        {
+          "start": 3097,
+          "end": 3115,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.bomb.LaunchPadRocket",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4097,
+          "end": 4115,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4285,
+          "end": 4303,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.bomb.LaunchPadRocket",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockAirPump.java",
+      "before": "14b5f5d7de08b67c0453cbcb6032a1fbf02d0fd26ac88709c1ea32cc79cd0ae7",
+      "after": "78c3d0ff9017d7211afb9c1a02dfcb30d2d1b546a060de04d22fc1e6bf076b6a",
+      "edits": [
+        {
+          "start": 3582,
+          "end": 3600,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockAirPump",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockAirScrubber.java",
+      "before": "f3792af02d30478b519b8261a83f2e9a20e468f219250a3ba98194b85d764249",
+      "after": "4134f92e2e09d1101e42fc76d5995704cb5a42fe80fd2bdbbf30064d65e1760f",
+      "edits": [
+        {
+          "start": 1888,
+          "end": 1906,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockAirScrubber",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java",
+      "before": "24685e05db021981e7a155008e2f85e00a268d32ed56947d3e35f0450f859905",
+      "after": "d22b901f10975d161c968175606942933d6430fb40c9c1507c840f2a74acb896",
+      "edits": [
+        {
+          "start": 6129,
+          "end": 6147,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockBedrockOreTE",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockCap.java",
+      "before": "4ea01d3aa554a64f655abee9c02063f7f2995712dbbcc5a2904615c66cd7cfda",
+      "after": "64225d4f8bb90b6c5aeea1f50cb089ef32258b4694f981f89b551d967260b8d8",
+      "edits": [
+        {
+          "start": 1247,
+          "end": 1265,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.BlockEnumMulti",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockMultiSlab.java",
+      "before": "838be2f559c775a1d374cc1b4cd431da714e805de56d8dc0aa660cc4c4f3a89c",
+      "after": "87b8e073914560a07038cce94d9410b07e3a7cc25046149e5213fa6d571bf03c",
+      "edits": [
+        {
+          "start": 2196,
+          "end": 2214,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.BlockSlab",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2231,
+          "end": 2249,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMDirt.java",
+      "before": "5e82790db7a4de8af5353b9e029b294d926568403637e6f8f200d7d727a69044",
+      "after": "ff2385f98220e1cfbae066b8f9360cd6a7b735ebf9a048b66b51c026d2f0fad7",
+      "edits": [
+        {
+          "start": 740,
+          "end": 758,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java",
+      "before": "a06adaea28da856e4b7a428792f75b32ec9d179a3fdd60c14383887b68508717",
+      "after": "ddf4c792bec4dfcca2942bc65eb75e000c1869c4fcdd21a00ad721da63e7bd77",
+      "edits": [
+        {
+          "start": 1446,
+          "end": 1464,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.BlockEnumMulti",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+      "before": "ab3cb5db6edb8dd7e1ec8c9b80c93c8bad9989dd06b4ec09dbe63b2dbd17fd0b",
+      "after": "f6ea7483fe0e97351eb627c76611315787d06bbcb21b446ce7ce1a35b312788b",
+      "edits": [
+        {
+          "start": 6838,
+          "end": 6856,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockPlushie",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockToolConversion.java",
+      "before": "4edd4bb13a1138f7fb7339b4bdb80d2107556a4197f786a4c88fe44bd57b658d",
+      "after": "0869f67033958a4d2029a264274b264623ed83f28d6b6672fa31f13145476a88",
+      "edits": [
+        {
+          "start": 1932,
+          "end": 1950,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockToolConversion",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1975,
+          "end": 1993,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockToolConversion",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockWandStructure.java",
+      "before": "6a7476889f8c26bdb1ed55b4eb345b7df5c77ada547d53477c885cd3868e2ad7",
+      "after": "c57bea9ecdee421d2977b04738e88741f316724502706b7817dc8b5ce2cc2de2",
+      "edits": [
+        {
+          "start": 4134,
+          "end": 4152,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockWandStructure",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4175,
+          "end": 4193,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockWandStructure",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 5543,
+          "end": 5561,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 5650,
+          "end": 5668,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.generic.BlockWandStructure",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/AtmoTower.java",
+      "before": "ec34943c545509b97e3fdf40d2331a4f706eed4567637f77c71bb3baaf9f346d",
+      "after": "5c44231cefdd39fd7f4f1629e7be17ae933720efcbe3b633105509b7c8c79f8c",
+      "edits": [
+        {
+          "start": 2521,
+          "end": 2539,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.AtmoTower",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockAtmosphereEditor.java",
+      "before": "2762b6f2c94f70809d44f0b1a5f2f5065da9fd1cd930ba9a6bd41199fe7953b0",
+      "after": "4680acb6ddd1d5dcea48f3db95d9ba6fb3da186e73f38d126d1459a4bfc5f142",
+      "edits": [
+        {
+          "start": 3184,
+          "end": 3202,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockAtmosphereEditor",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockAtmosphericCompressor.java",
+      "before": "21eb2acd7639a96635514f4facae8ad15f06c4b26e2efe87c537357693ded365",
+      "after": "1c8530c1a643ea136172eb6fd5cda3c718e49db5dda8fb3cf348fd5c1953366d",
+      "edits": [
+        {
+          "start": 3121,
+          "end": 3139,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockAtmosphericCompressor",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java",
+      "before": "82f01bd97b016712fe09196f0eddb88d4981b16e5252d8afd48a684e546d2bf9",
+      "after": "70cda10b53b4500e15d230c387317924507e254c9fa469f002ed8f63ea18fffc",
+      "edits": [
+        {
+          "start": 4370,
+          "end": 4388,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStation",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 6505,
+          "end": 6523,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStation",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockOrbitalStationComputer.java",
+      "before": "746d7c3df7a55f94d9fa810e4960aa49ccf093983a467db00466ecb341e1c313",
+      "after": "991eb411e0e782f5853786e7f0837fc81d80a0f1cb5a1c72b6c39d736e988bbc",
+      "edits": [
+        {
+          "start": 3593,
+          "end": 3611,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStationComputer",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 5602,
+          "end": 5620,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStationComputer",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockOrbitalStationLauncher.java",
+      "before": "b57fc5958198cfdd44e2464e68735caa26d8a8480fe1f8197248a2f5e5b367bd",
+      "after": "fd576163fbf9f3de7d0a0c9687ada0553247948de7424565bbdc54030fdd9a80",
+      "edits": [
+        {
+          "start": 3029,
+          "end": 3047,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStationLauncher",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3741,
+          "end": 3759,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStationLauncher",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4345,
+          "end": 4363,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4533,
+          "end": 4551,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.BlockOrbitalStationLauncher",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/DeuteriumTower.java",
+      "before": "fedc9569960c99d6e91411d08385691d19c73e3189b318d4cfaabaec4a3da5aa",
+      "after": "6b626bb729530c0de0f68795f83e1fee4ccff17d009ffcd2438fbf4c3261b47c",
+      "edits": [
+        {
+          "start": 2516,
+          "end": 2534,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.DeuteriumTower",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/HeaterElectric.java",
+      "before": "f9a2d59234744789b5e1dfea1432b8b0f4406db6afb898840952edb2118ad34c",
+      "after": "c54f32ecf96a804e79d77b7f698600dc2a01bf09f23bdb39a0c88b5e47776728",
+      "edits": [
+        {
+          "start": 2388,
+          "end": 2406,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.HeaterElectric",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/HeaterHeatex.java",
+      "before": "096f6b75930aaf4ca4a53b17ccd5e29950786f91f12204c60935a137a0d7886d",
+      "after": "835c01b4fa84ddd1ffd9ab893a8636b5602e0c4f0449ccf52addca89299a7678",
+      "edits": [
+        {
+          "start": 3373,
+          "end": 3391,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.HeaterHeatex",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/HeaterOilburner.java",
+      "before": "82783e06de88b41b6837ea2246be91b4ddda4330fae261c6ebbac0c54341ac92",
+      "after": "dba19c0a6c5105d0b678343c162b9ac1d40af94c2164ca47f6978f9a6550d64a",
+      "edits": [
+        {
+          "start": 3136,
+          "end": 3154,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.HeaterOilburner",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineAlkylation.java",
+      "before": "5cb4347b24bbbc2df887ed58d3cfaa9e4c9e1b75176c6acb7e95fe1f5a685c0f",
+      "after": "8a3a2c7e56a7faa586fda1219811f9b7132c1d591227a62dde3952774aaa2e57",
+      "edits": [
+        {
+          "start": 3247,
+          "end": 3265,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineAlkylation",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineAssemblyFactory.java",
+      "before": "88cf6af81821206f845491387a82e96f98d476de4bb69e7b54d93763b7ea5013",
+      "after": "3c688a9d3d16072f46f0f3dea2b8f61aba7df3323d19edb672db486d1332020c",
+      "edits": [
+        {
+          "start": 3256,
+          "end": 3274,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineAssemblyFactory",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3676,
+          "end": 3694,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineAssemblyFactory",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineAtmosphericEmitter.java",
+      "before": "ef7ddaf0defa6304ffa8147e9fb8c59b4327f2ee80d972a32b23fc8673adfb99",
+      "after": "6e8634e7d59588e1a46bb80082d93448096acb504a6bf509e6d393fe3a602ae7",
+      "edits": [
+        {
+          "start": 4105,
+          "end": 4123,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineAtmosphericEmitter",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+      "before": "9303fa839f67d80f058113474a91a47b67606910614a6275361113597b57c320",
+      "after": "2ba577341e22e99f60a2312e2ab8a6ab26180e3544c9d2f4853c2f8c254666e1",
+      "edits": [
+        {
+          "start": 3401,
+          "end": 3419,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineAutosaw",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3509,
+          "end": 3527,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineAutosaw",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineBattery.java",
+      "before": "d80101f4d6d4d27fd5318bbdbf24469a991240f381e3f1fc6c3bd56245113520",
+      "after": "5fe5c751c30c7b4650a3873e7b4f6ff54a0904b171b1368ff9392e7a79b5d58e",
+      "edits": [
+        {
+          "start": 9127,
+          "end": 9145,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineBattery",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineCatalyticCracker.java",
+      "before": "b4f07a8a46779fb149c7100cd8a081f0ba5a1fae97163e27589c01f565eb9cbc",
+      "after": "8c3ddc26f3987147c53f9b84d556a71dc16849fed87857d672fb16fb44deb9cb",
+      "edits": [
+        {
+          "start": 6270,
+          "end": 6288,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineCatalyticCracker",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineChemicalFactory.java",
+      "before": "06be239ab07fdfa9411a1106fcf08692e5f57b6a56159aa446840dc19676c564",
+      "after": "730e1e1087bc789aeef305e28cb49f45a8d7867de8648898e905e9925354a8a1",
+      "edits": [
+        {
+          "start": 3253,
+          "end": 3271,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineChemicalFactory",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3673,
+          "end": 3691,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineChemicalFactory",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      "before": "41508ec0a2f33e6b629e46d108c40d76385db4971baae31e00b80fe0f973a3c9",
+      "after": "046d2cbebfcf254a5c25a8c7810a67232bfd841f8567d1ee5c0463eff556735d",
+      "edits": [
+        {
+          "start": 7742,
+          "end": 7760,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineChungus",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineCondenser.java",
+      "before": "ee4c6b4065586e0695eb27471ea134f0e204e3dd8c86052adcc116f50265a97f",
+      "after": "524038ccae3aba3a4b2e6ee9cb5359d53f803167cb419251589b69e491f19b7e",
+      "edits": [
+        {
+          "start": 1898,
+          "end": 1916,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineCondenser",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineCondenserPowered.java",
+      "before": "ab3ddfcc3f88e2bd0f46574f051d9b3ffb845a373c7a042b6e40e1fe78de70de",
+      "after": "358340572b1cbcd4cdaad706e5469fca73e1c811e379a31c9379bff7a0c1335c",
+      "edits": [
+        {
+          "start": 3293,
+          "end": 3311,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineCondenserPowered",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java",
+      "before": "eb84cfd07f79b9b99f52184e9325ada271e1bb552dd9798f32ce10c1c1a0382e",
+      "after": "18cda25deb1cae064c110f6d400ed3104e690d5105ae3793cc2be21bd3bb2209",
+      "edits": [
+        {
+          "start": 5905,
+          "end": 5923,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineConveyorPress",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java",
+      "before": "e816ec9d39fa1238c950c47dfbdd739f379db1d741c216375324b22d928a75c6",
+      "after": "8c8b2d8e0aa2768e975b8a937dfe466732bb109e47996b1a80c83e5b0f350525",
+      "edits": [
+        {
+          "start": 5040,
+          "end": 5058,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineCryoDistill",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineDeuteriumExtractor.java",
+      "before": "b531b7950cc7d9a07fce6420b9642b54ad5b93295c5c138b5bdbb9272d740111",
+      "after": "e8a9b9b51bf957dff0eddd4ed7f047e55dd0b6b08161b8790fdb9a1e4cd4f263",
+      "edits": [
+        {
+          "start": 2434,
+          "end": 2452,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDeuteriumExtractor",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineDishControl.java",
+      "before": "138fda7b6cfe89fcb0d7a5228621001209db1bd3380ae14cd48c2c9407ad4a5a",
+      "after": "04d0ebdafd90ca2a675303a650e07a6d485706d3e0fcdfdc913abdfc344f6549",
+      "edits": [
+        {
+          "start": 1841,
+          "end": 1859,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDishControl",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2462,
+          "end": 2480,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDishControl",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineDrain.java",
+      "before": "3d4731a67450863a49841cf7e4724aabcad9b8b778167c68ea4edacc5ce19af6",
+      "after": "efebc1b2b64d456bb4f1149bcff0e5aa3090ae92c40139058c1d1754ebbcbb1a",
+      "edits": [
+        {
+          "start": 2998,
+          "end": 3016,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDrain",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineDysonConverterAnatmogenesis.java",
+      "before": "d5f95afde67dfa63053c37c833f60c5c39828df4789f2e1796f83b66a4f7f2c7",
+      "after": "f0d3d32dc61cb864c8836b62d46c850620a460ec9fdc759ff3e12705ffa34c3e",
+      "edits": [
+        {
+          "start": 2743,
+          "end": 2761,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDysonConverterAnatmogenesis",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineDysonLauncher.java",
+      "before": "a69a951dc25a71c41fb1a3641cc1d3d5bc685fa9d842aa64cfde0107fdf111b4",
+      "after": "888356ee2bba0dc7f32000eac61f9b5b8472082e2cb55ab33584aca1aea93b2e",
+      "edits": [
+        {
+          "start": 11521,
+          "end": 11539,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDysonLauncher",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineDysonReceiver.java",
+      "before": "02c5bee37e77573ee2087659cc86078df49d5d691b1fd7b6dae227ed6487b5c8",
+      "after": "4330eccd65b7c16e7794415e45bdb16de8866670c030a8106b30d5aecdc620fc",
+      "edits": [
+        {
+          "start": 4078,
+          "end": 4096,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineDysonReceiver",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFENSU.java",
+      "before": "7166393fca3fb4826cfc458d461fb97fa1c4721f5c3ae135ee16cc1287a6c1cc",
+      "after": "91f38f5c4979b90a40c8914463333556794e020fc3fa1468c8cc772f9dde6256",
+      "edits": [
+        {
+          "start": 2541,
+          "end": 2559,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineFENSU",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      "before": "7e6f15200cc6f8b908c33b6601c96a4242bf77c29d20e384e39e85d7653d1e87",
+      "after": "6bc265d56f398329f42206dfdee32f74b3160ca537c8806a1988d2d3ccee5288",
+      "edits": [
+        {
+          "start": 7305,
+          "end": 7323,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineFan",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFractionTower.java",
+      "before": "f68113329c7c8619ac30522c58e438731724d4ce4c145e717a0293d33c83572c",
+      "after": "690debc9ff9486695b0115bb5d93a7f8d5c2902d8fbd28c39e915d6df6e2e616",
+      "edits": [
+        {
+          "start": 3992,
+          "end": 4010,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineFractionTower",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+      "before": "2a57410560e0cc4a86885b97f90eff529b4e7a14ebe43b99b585a070916ed210",
+      "after": "5dfc223db1d8dc9b5e4bc583417340d83aaab7a589e902d608e9c2d01f6e84bd",
+      "edits": [
+        {
+          "start": 2625,
+          "end": 2643,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineGasDock",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHTR3.java",
+      "before": "1971136e396bcfa44f65785976d1765565b12e9415ac11fd0c3daf7765a10d04",
+      "after": "4416163b473ab10dea5009ae63b1fca0f58567b9cc2484526c0dd472a41cdb52",
+      "edits": [
+        {
+          "start": 4238,
+          "end": 4256,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHTR3",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHTRF4.java",
+      "before": "10e06094a5bef0cc4c56709209932763a9f829de82081af4257ab98cd20bfaa0",
+      "after": "c1aae505aecd31dfadc93ff5dc519502f67bcdf8f93124dfbd17e41a1ae1d47b",
+      "edits": [
+        {
+          "start": 3259,
+          "end": 3277,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHTRF4",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHTRFNeo.java",
+      "before": "625059fe96b8a107ed68dea86b8ad69824442b96f854389c88cb301686037047",
+      "after": "31605b14b221f67f0ea83d354ff0108ab66fcad435716152b4e129b8c16d6b04",
+      "edits": [
+        {
+          "start": 4251,
+          "end": 4269,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHTRFNeo",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java",
+      "before": "5b3111f004619b0a388d8b95fa78e3546fb24fda1fbbe9524551bd70b75abb51",
+      "after": "d49abce73b2e737a0c164711638b7b50363d120e9a5c7c2f6ad0e7d6905e5fb9",
+      "edits": [
+        {
+          "start": 6318,
+          "end": 6336,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHeatBoiler",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHeatBoilerIndustrial.java",
+      "before": "7af7837493feef3d7c965863c9c42e05ccbc04bb324ce0d90c5c40d90bdef732",
+      "after": "013ce0ca56b1d956eec246f4f8a8442b5d3613d88cc1ed446290e25da96d167a",
+      "edits": [
+        {
+          "start": 4480,
+          "end": 4498,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHeatBoilerIndustrial",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHephaestus.java",
+      "before": "172b07b6dd66453a5eab4f7cc2d81fafa7cdfdb795e66192d0a87586d0682d8f",
+      "after": "c889999dba227ae121d851a53aab9a82f93446323d48929e9429883cf9385e9e",
+      "edits": [
+        {
+          "start": 4029,
+          "end": 4047,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHephaestus",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+      "before": "15f6ec8cdf29b89433a9f0e52d5fe9934ec57b9c48e7e4340dc9124dd9ece38f",
+      "after": "0d10486cecadd15ecacad520e36500b7cc65fa524e07e567356f836f43282529",
+      "edits": [
+        {
+          "start": 5799,
+          "end": 5817,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineHydroponic",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineICFController.java",
+      "before": "98c3dc696e5e5d81552973394d8ae10373b0bcf2cb388d10d72f78ef736a318e",
+      "after": "eedb877ceb6670039f5a65fcd3754ac5b8fcb840aa136778c43f153443b7ad39",
+      "edits": [
+        {
+          "start": 7768,
+          "end": 7786,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineICFController",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineICFPress.java",
+      "before": "292bac75017f6b1a4a38f9c242dc1eedfe2e55df73524609d32c25c4775e61ec",
+      "after": "8b0ea2d55bded3f76506ad1af22e07e03b68a837839f313eaa5c2cfab9b3cfc6",
+      "edits": [
+        {
+          "start": 3900,
+          "end": 3918,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+      "before": "d346b4476e1ae1065fd9f0c5f717bc5ef98e17e3b2d4f8e99ba60600779e2578",
+      "after": "554dfb25a32d0dc768e21bb990dfa79088d3ea7c32219b88fc7f4f39019d24c8",
+      "edits": [
+        {
+          "start": 5523,
+          "end": 5541,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineIndustrialTurbine",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineIntake.java",
+      "before": "14aa9cc65d4a78185d8283ba806c140b35306ac2d50fd040c39aa228b17d573c",
+      "after": "9ff77ea72e7b24dae51ca878143a69b6d0a7051579900f0187adaaeef3849a2c",
+      "edits": [
+        {
+          "start": 1845,
+          "end": 1863,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineIntake",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineLPW2.java",
+      "before": "a17248779f9ca6985cc997012c003c39026a77218e96bfe69188313d46438101",
+      "after": "4c01629695fa67fa976d36f721f1cedf2669c830e0e796296526d4a35fd9a2ee",
+      "edits": [
+        {
+          "start": 2731,
+          "end": 2749,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineLPW2",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineMagma.java",
+      "before": "e8b125d662e2afddecf5ae10b4d6fdb47afbd738e393e8761d64bd56e5f62f80",
+      "after": "8b65d2dba61fc51b2e728b927ca67924ea9d463d0ccaa695a541e77b014fa6d5",
+      "edits": [
+        {
+          "start": 3716,
+          "end": 3734,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineMagma",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachinePump.java",
+      "before": "2462ef0d3200cbbc04710cf2745dff1840b73d022c953f2e63c9e8f00e00431c",
+      "after": "494ce128f74557c33d8a8c63a076dcb3df53acc663a45c4c7572424e3cabd676",
+      "edits": [
+        {
+          "start": 4367,
+          "end": 4385,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachinePump",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineRadiator.java",
+      "before": "8cc0bf586866db55e017a543fa43124b5902c0eb383c7a7d8301ff71c18e6e2d",
+      "after": "c3f9817298c5fd7491e687aba1548ba12777fd8a64c465325b95a34b5b8ed677",
+      "edits": [
+        {
+          "start": 2837,
+          "end": 2855,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineRadiator",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+      "before": "f670aef759a6cf14a9cea7610339fdf85aba72473adf28f207d445644cf02548",
+      "after": "2e4d46c7336d92c0a067b679a7c5b745a7c6fc0873c157a29e45166da5a0d784",
+      "edits": [
+        {
+          "start": 3792,
+          "end": 3810,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineRocketAssembly",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java",
+      "before": "059ef61f6818acdf5ddb3b404cffc32c2f994396a1ff7c3f3cd1930d87be6c44",
+      "after": "f42c64771f0f690f750ae175e3e19cb2e48d20f76a7b4f36458467262a2e838c",
+      "edits": [
+        {
+          "start": 3472,
+          "end": 3490,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineRotaryFurnace",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+      "before": "0c7d045c6503c64d1bfafc6d4345bab15024c3427397b2ed83997549c9964320",
+      "after": "cbae95d95507603992462fb928f186b8e8f69c357f25f616e032719b90baac13",
+      "edits": [
+        {
+          "start": 7031,
+          "end": 7049,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineSawmill",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineSolarBoiler.java",
+      "before": "d66cb49c1fc0d7ea445ee28019c58d58903e526aa66a46e5333cc9446f3216a9",
+      "after": "374e487f219cc02633bf1f3811066375a65909bb538225b61d03387ba0aeeb7b",
+      "edits": [
+        {
+          "start": 2286,
+          "end": 2304,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineSolarBoiler",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineSteamEngine.java",
+      "before": "f7bdf0a45e87f87f9beb8fff2c2ab1995773c93d4cc40072b5d600083275e56b",
+      "after": "d74d2055a3aaa0925d036baa90156751ac2f733ed39c56bf54fad690a707589c",
+      "edits": [
+        {
+          "start": 2753,
+          "end": 2771,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineSteamEngine",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineStirling.java",
+      "before": "3b755360f9f01c99a992ab993c2c05e8d2aaa923796770b1c7d1d20f630ca016",
+      "after": "92c74e3c39b832408715c4adbacd4d18c409cb1e863848c8176b5d0fa93398ef",
+      "edits": [
+        {
+          "start": 5423,
+          "end": 5441,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineStirling",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java",
+      "before": "3896e3be8a7a15ce1f8e6423af1d76c84615022d8759a9919cc6a376af8dd8c3",
+      "after": "6295cff721250e5d48611e785dd80f2aee9cb7087914b5fe85601bbd122e05f8",
+      "edits": [
+        {
+          "start": 7526,
+          "end": 7544,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineStrandCaster",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineTeleporter.java",
+      "before": "264c56aac77545b853006a163152719e97c9a39f061b9e2b030ae593e99cabe3",
+      "after": "a67ffe3d7f0b0ad5a0a575ab3bfa5fecbea7eee5a5a2a7a61031130330dba322",
+      "edits": [
+        {
+          "start": 2705,
+          "end": 2723,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineTeleporter",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineTowerLarge.java",
+      "before": "3c27e8577ce0c1c11318908bfa2fe650a5aaf7fc5a8ba0d2d7e82fa791688b30",
+      "after": "6463e381cceff67931c8b3373803dfac093d9771df7d82753b2c416721019d30",
+      "edits": [
+        {
+          "start": 2945,
+          "end": 2963,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineTowerLarge",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineTowerSmall.java",
+      "before": "97b7e99765ff9ca137c7400322bd4ad0886ec386f3cbc5899375b5a6e73381b6",
+      "after": "c50e4f2711b8280912ccf0e7ac7085f73e6bc0777426d7a75e1880a16ff0d204",
+      "edits": [
+        {
+          "start": 2669,
+          "end": 2687,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineTowerSmall",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineTurbineGas.java",
+      "before": "d2f845d57a1d34e74d041a5ab170f471a01837ec27511012c92edc28cdd0ee3c",
+      "after": "4cd24fd0e96e92e9a82061fbfa91daaa10acd79ff0c03b00d5646f0e7db8051e",
+      "edits": [
+        {
+          "start": 3718,
+          "end": 3736,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineTurbineGas",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineVacuumCircuit.java",
+      "before": "02c0ca29f191bd787c966054a209f35b58b7478731d22ea508a53b8382778a09",
+      "after": "afb30c9695f5b36ccf0ec9807c4f395d4eb35cc2452b645b7fe6d7935aed0083",
+      "edits": [
+        {
+          "start": 1989,
+          "end": 2007,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineVacuumCircuit",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineXenonThruster.java",
+      "before": "c3ff9f8dd315f3dd4c52683fcbd191cce9cf030869b132adf94c20620f104be6",
+      "after": "7ac8eb44f91fddc97065a79ac82b6910754767dc37f5503d5cac52e7806997c6",
+      "edits": [
+        {
+          "start": 2748,
+          "end": 2766,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.MachineXenonThruster",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBoiler.java",
+      "before": "2eb6304fb3b45ec499270ba224fd61b1f052f405373149aa763b2425db10ff26",
+      "after": "dde5756cd190e8d611def6d3d04259b9dffacde48c4ca5aaefa36d879f02ef21",
+      "edits": [
+        {
+          "start": 3101,
+          "end": 3119,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.fusion.MachineFusionBoiler",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/fusion/MachineFusionMHDT.java",
+      "before": "955a0a0c3ba826bb51467a2b5db2fc310bea4f60674c650e693ee908cecd3f89",
+      "after": "c766f3afd44f27340ab477e94882584295914573083622c65153505dac3f3534",
+      "edits": [
+        {
+          "start": 5053,
+          "end": 5071,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.fusion.MachineFusionMHDT",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockCableGauge.java",
+      "before": "a2010a7a2a61b8026e5a77bd301f26c0339703e2c22c6d50f91836835d5910b4",
+      "after": "ec25cf5cf904e194608e4e4326e9dbede8e018868c7d317450da6340c332fc04",
+      "edits": [
+        {
+          "start": 3935,
+          "end": 3953,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.BlockCableGauge",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/DroneCrate.java",
+      "before": "24516e94be4dfdcced59ae3d85e77880cae1d0e5a90453d57c619d8c4c4416ae",
+      "after": "e1bf59b9c6ad447aff2721afcfccf23a2aba885a2e42f4aeb5934bb183ffeed6",
+      "edits": [
+        {
+          "start": 4653,
+          "end": 4671,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.DroneCrate",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+      "before": "60555e9eb5961cdf982e3f9dec5bcb7fb02f90675ae910de4bbfc11e93b2e20b",
+      "after": "cc6629bb4d8ff4b65dd14d7543fd8a00bbf98e29394c0aae7000b53921762f00",
+      "edits": [
+        {
+          "start": 4835,
+          "end": 4853,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.DroneWaypoint",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidCounterValve.java",
+      "before": "49618bf32cddb1691d849384d952e3ee86ec4dd3f6468b3dc62dae10db1c0e97",
+      "after": "2ebc9a20252e536e56c565f66ff189ab3772bf4563e33df3010ee1acf539db8b",
+      "edits": [
+        {
+          "start": 2032,
+          "end": 2050,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidCounterValve",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctGauge.java",
+      "before": "a3038ff845c03020d2f6c5a511573110f6d15f85523df35a9700c440631bf30c",
+      "after": "57bce90e7e946112598c76a2c79aed6f85f2bf39ac014c0c82ed2a55511a7f2d",
+      "edits": [
+        {
+          "start": 3872,
+          "end": 3890,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidDuctGauge",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java",
+      "before": "036dd97dfb1e33e559738162e7ee0358d6bec04fd779b92bca18c6a7cc40a727",
+      "after": "c27718b826873bc8e3433e65712ec1709ee8ec8d5cc5b8c8dd9357ec6df6136a",
+      "edits": [
+        {
+          "start": 4959,
+          "end": 4977,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidDuctPaintable",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java",
+      "before": "83cccaf8a2a1d4fdd6be50480282bd591332d603627db47c3e606c4e66eeb8c3",
+      "after": "fb7032e6ca16baf68e1a8fe5b3f5329c4ce93f67e42a90ffc65db02c3010bcf3",
+      "edits": [
+        {
+          "start": 5163,
+          "end": 5181,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidDuctPaintableBlockExhaust",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+      "before": "129265fe8452d4385532ad088a67980b577e43abaca5764855cb067807b1219f",
+      "after": "9421909930b70065c4ba5a4bc04bfbf6990675a128cb274ea9fdd847ad0ba8d4",
+      "edits": [
+        {
+          "start": 4493,
+          "end": 4511,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidPipeAnchor",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidPump.java",
+      "before": "d04a344f3c03fbd8b5b20ddde9dbde0b8b30e435159ab5d09ee44c9bea8e9df2",
+      "after": "35db472ea314703dd2c8b8a32c44ffa13a65e4268aa1aec874e92606cb255636",
+      "edits": [
+        {
+          "start": 5140,
+          "end": 5158,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidPump",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidSwitch.java",
+      "before": "27f2d2ebd486d869cad03d6f6434bb36760ae0ce0a00e410b3b515dfab61e993",
+      "after": "591128cdfeb8127dd33370163f95346ba65ffa9d871865a622dcbbc55c64f669",
+      "edits": [
+        {
+          "start": 2619,
+          "end": 2637,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidSwitch",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidValve.java",
+      "before": "c2bf9a836ddf36aa312401035af6a3c343b07eb2a67656b6548bd49291ea9d17",
+      "after": "e9771346ead540f9ae0b8cfdc1bb5c198297e1a7974225935dc19703f6edead2",
+      "edits": [
+        {
+          "start": 2723,
+          "end": 2741,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.network.FluidValve",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java",
+      "before": "6850ce0f2fe45fcbbebf38622f996affa74ab4fb3dfefe46f00462287d5dfa6c",
+      "after": "df7cda8b0e2e5706ad20b52c37ad405f9a3ad1396d135653f79a46a122ad34ed",
+      "edits": [
+        {
+          "start": 2049,
+          "end": 2067,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemRTGPellet",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineRTG.java",
+      "before": "e4d9002091b89ea1e1a00eaa87257199e3ba4dd1c4c4fe54b480fe35a01bbcc6",
+      "after": "266d3f6f29b9f0492b84d79f33589b1a0b77433817005d8cf6ddcc0cb82013c1",
+      "edits": [
+        {
+          "start": 1648,
+          "end": 1666,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemRTGPellet",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRadiolysis.java",
+      "before": "dc3f3f2f6f88ec9c4194cb1118dfce42c2da01852e88f01e759e83042053e47f",
+      "after": "05c041bda447e8b9f96a99f8958aa6c39237dec6d4886ff9ceca971b8b1dddec",
+      "edits": [
+        {
+          "start": 2233,
+          "end": 2251,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemRTGPellet",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ModItemsArmor.java",
+      "before": "af96cdfd1a8fbec432ef348195025173b89e6ed5328201a31cd67d5aa417a0e9",
+      "after": "663454e9edcd5add3cd3365bc337457281b71655891815904ed7d776b90a23a2",
+      "edits": [
+        {
+          "start": 807,
+          "end": 825,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorModel",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 961,
+          "end": 979,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorAshGlasses",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1095,
+          "end": 1113,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorGasMask",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1229,
+          "end": 1247,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorGasMask",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1372,
+          "end": 1390,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorGasMask",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1517,
+          "end": 1535,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorGasMask",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1664,
+          "end": 1682,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ModArmor",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1802,
+          "end": 1820,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ModArmor",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1950,
+          "end": 1968,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorHat",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2092,
+          "end": 2110,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorNo9",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2204,
+          "end": 2222,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.special.ItemDrop",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2363,
+          "end": 2381,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorEuphemium",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2542,
+          "end": 2560,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorEuphemium",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2718,
+          "end": 2736,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorEuphemium",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2893,
+          "end": 2911,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorEuphemium",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 5572,
+          "end": 5590,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 6552,
+          "end": 6570,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 7424,
+          "end": 7442,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 10281,
+          "end": 10299,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 10486,
+          "end": 10504,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 10690,
+          "end": 10708,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 10897,
+          "end": 10915,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 11832,
+          "end": 11850,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 12741,
+          "end": 12759,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 13691,
+          "end": 13709,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 14736,
+          "end": 14754,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 15091,
+          "end": 15109,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ArmorFSB",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 30229,
+          "end": 30247,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ModArmor",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 30353,
+          "end": 30371,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ModArmor",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 36456,
+          "end": 36474,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ModArmor",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 36580,
+          "end": 36598,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.armor.ModArmor",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockColoredConcrete.java",
+      "before": "c0e2e8053062f4f5472acf09c57024785948638d3544a69650046f2582f5219e",
+      "after": "b78602d4cdfb5082261bd1f600811a568980dee87852b8ae9ac3e602ace3defd",
+      "edits": [
+        {
+          "start": 503,
+          "end": 521,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.block.ItemBlockBlastInfo",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockNamedMeta.java",
+      "before": "4bcb99be81e25ff2b20803088b065b7dfd4a44faeac32f786c751035ed60121e",
+      "after": "ced9305966ac4f0846eac52d6b0a228ac259d12734fb50eb8a20833f3fdbe29c",
+      "edits": [
+        {
+          "start": 401,
+          "end": 419,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.block.ItemBlockMeta",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemCrayon.java",
+      "before": "e9aa3a4c4e380e3136a06ae2e6b491b85ad8055951e400eca8f36c6d073716ff",
+      "after": "ce67b1568d7d764da1fe938bf91143b96845b8c28fddc3d77dce102fda4a917b",
+      "edits": [
+        {
+          "start": 1300,
+          "end": 1318,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.ItemFood",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java",
+      "before": "6a22a33bd8f52a7ad4aa2b24c30cb97a2246b3f8fa83609d805eb9b4dcb2230c",
+      "after": "c7eab72f1a945cbe54b3f52a4cdab23272321af1e09776efdc61500592e3e509",
+      "edits": [
+        {
+          "start": 5174,
+          "end": 5192,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.food.ItemPill",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemCanister.java",
+      "before": "3304da3da5bfb6ad81a59e9eda9c637d7cf4cfefdc6bf2ac351a44c7e088e70b",
+      "after": "806c4a52107a29da9fa4cb9ee011721c93a59faf98bc32b344a58e79ff606d62",
+      "edits": [
+        {
+          "start": 1110,
+          "end": 1128,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemCanister",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "before": "f90ad694d7ed37213ee6037861a593d2a3e8cb7116ec9c9d5ec1f226dfd9fb2e",
+      "after": "41a7366bb90ddb9a9fa246600e7d9bda6bbcf37ced1450242e8f317263468908",
+      "edits": [
+        {
+          "start": 4883,
+          "end": 4901,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemCrucibleTemplate.java",
+      "before": "1b2e197925797bb279889aea489d2840f174d8836614caac9abb1045fd1d89af",
+      "after": "ec85a7781a59c13d45537adbc8c88e29488c0475d11cdcc37042467c71206bd0",
+      "edits": [
+        {
+          "start": 1303,
+          "end": 1321,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemCrucibleTemplate",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidDuct.java",
+      "before": "7e335a8b9e889f6042ef17616bb5838a1c23ecb5a6b426a32c7c7c00dcf273c5",
+      "after": "e6dbb8d6d7b6c64105cddc40e394d4d8be2210cb5e39220f0b0b223e3aaa358d",
+      "edits": [
+        {
+          "start": 1208,
+          "end": 1226,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemFluidDuct",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java",
+      "before": "7e47ce2685056cf16ee6c8e2cf40cc0bc1fbc8969e37beea36c08ffe5aa251d7",
+      "after": "b50abfd4f8aad2e2b2f5ab50b9c11afce6f29903b524892fa2ce55317c142cf2",
+      "edits": [
+        {
+          "start": 2792,
+          "end": 2810,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemFluidIDMulti",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2918,
+          "end": 2936,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemFluidIDMulti",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidTank.java",
+      "before": "ca26534e36f5b8e96b8615b89fb4ebf8602cad7d7294fa3dcdd9091f5741368f",
+      "after": "2d9c4de2f917dd5fe14120f94589e884a6297ad2a6275d3f2a298a64a58391a9",
+      "edits": [
+        {
+          "start": 1369,
+          "end": 1387,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemFluidTank",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemGasTank.java",
+      "before": "71b0b5a5db67acd5fd4114809841e508cffc1d3a60eee0ed235cf6754e46cfff",
+      "after": "e55af96800e4ded733b9a3702d77cdfb2727da26e0c3d34bef7990156c4144d9",
+      "edits": [
+        {
+          "start": 1155,
+          "end": 1173,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemGasTank",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemGear.java",
+      "before": "017ad87c0ebcd7bb949915475066daaa5e826acf928ae51b924125e7818698a2",
+      "after": "f1b99786ed35d4aafc9a686d3875bee0f658ba0c38fe57c9a3c7aa0cacd821e3",
+      "edits": [
+        {
+          "start": 649,
+          "end": 667,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemGear",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java",
+      "before": "be6c0168bab4528fdf6088666476071bce2fce5224ee73c6747f4cad1143a462",
+      "after": "c0527e15f1b3c6f01f7ea22cbd0fc7dd7965c4b5f08b62ccdb12e43d4f358529",
+      "edits": [
+        {
+          "start": 1435,
+          "end": 1453,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemMachineUpgrade",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java",
+      "before": "31ec485a27cf1353ad04b5e8a51eb93ccc68110d192ac4e54ccc19ba1dc925af",
+      "after": "a7d3f5020b4688321e838ff0a95b7402a3369be9c6c1ebcbb60b167ae59da066",
+      "edits": [
+        {
+          "start": 5710,
+          "end": 5728,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 5839,
+          "end": 5857,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemPileRod.java",
+      "before": "59d67c10af931cbfb8f897e9126164e4d818ed1b38d89087ae84f1790b7ea613",
+      "after": "b517d25855739171e95bc8497af08ba883424dff9c3cccd8ba6f32269159c5db",
+      "edits": [
+        {
+          "start": 549,
+          "end": 567,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemPileRod",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemReactorSensor.java",
+      "before": "874f0c199b7bfeb4c2cd37d231efd03207c88c1c7f571e669e3aec1ca8443381",
+      "after": "401becced7e57c04eba4cba1816b594b71cadd799f3c74b7069ba92c293cc6d9",
+      "edits": [
+        {
+          "start": 2384,
+          "end": 2402,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemReactorSensor",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemStampBook.java",
+      "before": "8764dc07f58598b0b0f9414e64273cc38fe45d32b079b89f6d2468d78239645f",
+      "after": "59ad9e486cbd237f14f894375573b5523a2e5d97516ab77fc4ac12b8fa883944",
+      "edits": [
+        {
+          "start": 1000,
+          "end": 1018,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.machine.ItemStamp",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemTemplateFolder.java",
+      "before": "f56b9814bb13878214b9a44742fecd5a74668dd45b99bd1805e07b9bddc5be79",
+      "after": "753e55d1f99299f45968b9f8ebb3f2352a6fb26befcd518d5c2c93f87691d3b5",
+      "edits": [
+        {
+          "start": 1079,
+          "end": 1097,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemUnstable.java",
+      "before": "2ca6280b4fda55f600083f9e0ada2107fdc662117f9b1f30a92cd5695036b15f",
+      "after": "693dbf4385493b706523170425f9950aebfedae426566e1fa1580b79695fbec2",
+      "edits": [
+        {
+          "start": 3103,
+          "end": 3121,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.special.ItemUnstable",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemAmmoContainer.java",
+      "before": "ab36926e4d256d6b5bdb2a78aa4ac8e84898299534c71ae3366bb1ca69a49170",
+      "after": "2733a2e6aaf0334e1cb42fc50802b437189954cad7ac4276b52cf8cd19057c55",
+      "edits": [
+        {
+          "start": 2770,
+          "end": 2788,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemAmmoContainer",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDetonator.java",
+      "before": "92124bb0f72809eb3ca705a43dab8af43849ccdd8a0eb2ee6f191ebadb5c1c29",
+      "after": "76ebefe738a217c98b65715464040c25bbc266b7574b9ffb17fb766bc9d90938",
+      "edits": [
+        {
+          "start": 1692,
+          "end": 1710,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2278,
+          "end": 2296,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3264,
+          "end": 3282,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3678,
+          "end": 3696,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDroneLinker.java",
+      "before": "439c0bd5ea808d9037193de6b3ab63092d49914ba236fe026a63df1080969ce9",
+      "after": "33dffb0ffcc471fd8ab54bdd9045714ae2c195c258c70fd5dc0d058a81929a2c",
+      "edits": [
+        {
+          "start": 1246,
+          "end": 1264,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDroneLinker",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2050,
+          "end": 2068,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDroneLinker",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2358,
+          "end": 2376,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDroneLinker",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3539,
+          "end": 3557,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemDroneLinker",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+      "before": "2db6c031bef1e71a1a0a037a3cb694d950363e5c60be65a535036d34cbf60471",
+      "after": "6797c46714895fb260a15a3ab49410a3383d3c9ebcb331328c18f3b844f4f0a8",
+      "edits": [
+        {
+          "start": 1571,
+          "end": 1589,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMirrorTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2344,
+          "end": 2362,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMirrorTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2509,
+          "end": 2527,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMirrorTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2852,
+          "end": 2870,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMirrorTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemModMinecart.java",
+      "before": "c0c5d4871aec5dcd5e895cbec4cc40fa1cf679bbcb486c55f3e0b3ccee896b81",
+      "after": "26896a6db0d7d4ecbe5910e3cde96dc665197f1e9cbedb09028fdf15111bb4d4",
+      "edits": [
+        {
+          "start": 2896,
+          "end": 2914,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemMultiDetonator.java",
+      "before": "70cdb686cd6ab09af2367ef9ed4092834014fae6d1abdca1d6d99d7849a3cb5c",
+      "after": "387b926201ccd23fcd70f4e82bfbbc2664248391c996bbba4dab17c5a9c20ae9",
+      "edits": [
+        {
+          "start": 1741,
+          "end": 1759,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMultiDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2365,
+          "end": 2383,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMultiDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3556,
+          "end": 3574,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMultiDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4210,
+          "end": 4228,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemMultiDetonator",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemOilDetector.java",
+      "before": "bedabb0c6c2b3b4ac8956544284ba7fdfd62ee95f3de0f6ed3bba83f453e8630",
+      "after": "6810e9f5b179d5672ba889c8f4fabda97ac02d9a56498d957f922254d5c80e2a",
+      "edits": [
+        {
+          "start": 837,
+          "end": 855,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemOilDetector",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 904,
+          "end": 922,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemOilDetector",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1633,
+          "end": 1651,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemOilDetector",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1912,
+          "end": 1930,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemOilDetector",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2165,
+          "end": 2183,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemOilDetector",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+      "before": "4c02fced626b2e27d30e011170ea90027d9638a1ba29f6f535cccaa868686318",
+      "after": "8ddd00d07e986e879b30d7e42f26c87579916049423acbe5a99cb04de5a2a845",
+      "edits": [
+        {
+          "start": 1693,
+          "end": 1711,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRBMKTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2450,
+          "end": 2468,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRBMKTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3158,
+          "end": 3176,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRBMKTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3775,
+          "end": 3793,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRBMKTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4079,
+          "end": 4097,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRBMKTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "before": "d5ebe8201191024e9844708f281070f0031b335c3a59b7defa6440ba5a8d4599",
+      "after": "44cdd83cbcb84cf74581ff334556715cef07ef1e185b670fa3249575e486b329",
+      "edits": [
+        {
+          "start": 4010,
+          "end": 4028,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRebarPlacer",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4688,
+          "end": 4706,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRebarPlacer",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 6295,
+          "end": 6313,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemRebarPlacer",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSettingsTool.java",
+      "before": "92b29562bbe0941a28cc538c8a4d30e437cf56eb38d0992551ac22d12e9b5696",
+      "after": "1ab5fb8db8fd3e126306040f64be2fbcc2f5e9b423bcecbc6a05498421911711",
+      "edits": [
+        {
+          "start": 4030,
+          "end": 4048,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemSettingsTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4391,
+          "end": 4409,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.tool.ItemSettingsTool",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemStructurePattern.java",
+      "before": "84e23b6f05605130f282a6c254505ccda923b746bc979b2b4471b24fc7aab001",
+      "after": "b1660826c2f02ebc8c2dcb87e30f4ffd7362f3032e3d063d9d8510af11bed474",
+      "edits": [
+        {
+          "start": 1964,
+          "end": 1982,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemStructureRandomly.java",
+      "before": "13fcd839218298052d4d7a3e14d46a4feeb1635ff2cff2ad7108fe287f978009",
+      "after": "4d8a95ec0117f3c764ea39e0e8a44eae78ec8973a63554ef81531d5c9136e388",
+      "edits": [
+        {
+          "start": 1648,
+          "end": 1666,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemStructureSingle.java",
+      "before": "3d93e7258ba367a969c14c1c8a12b954560703600ee5b165075ec2302dd6efe1",
+      "after": "71e673bf19b7a42b2f481150c7bbdd19670061b8491995f9442bbdf965995b63",
+      "edits": [
+        {
+          "start": 1188,
+          "end": 1206,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemStructureSolid.java",
+      "before": "61831322fd842e880c348f6658873bb78e28d5db125091ecb4a9d33841a7f3fb",
+      "after": "65f6af29743dd6b61188e49ba671b2d438bf585fa6d720380bb738723748c0f1",
+      "edits": [
+        {
+          "start": 1787,
+          "end": 1805,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1965,
+          "end": 1983,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemStructureTool.java",
+      "before": "b9c2dfb0d3083c846bcf10337497f946a71504bb78695dec2b7160988f863a77",
+      "after": "7516ab757f7b4f3b7e33b496e7f8eb3d94d1edfd14e5baa3a8752a3c7d12b766",
+      "edits": [
+        {
+          "start": 4316,
+          "end": 4334,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemWand.java",
+      "before": "f67fecb171354991cf83faf141067c174aa17b743402d428ba0cdaa9c2b542fb",
+      "after": "65803a237b43fb9e92e6d336029ffbde0fab788207ec42265b1f68e3ab46c80e",
+      "edits": [
+        {
+          "start": 1323,
+          "end": 1341,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2051,
+          "end": 2069,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4018,
+          "end": 4036,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemWandS.java",
+      "before": "c73ec4fa3e23a6f7427cf3e55843e21ea341cbf3f4c68c4b2e37ed3503eb7d86",
+      "after": "52f0bc6242cd6a6c8b3c7efc9e0882fc65f3faff3153ae4462fb05c11ac54052",
+      "edits": [
+        {
+          "start": 1647,
+          "end": 1665,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2484,
+          "end": 2502,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 2647,
+          "end": 2665,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemCustomRocket.java",
+      "before": "ad839334fc2a67ed292baf0b10dd4282ba52d86e63e1e2f7c2874fa14219652a",
+      "after": "da42af009e49efa7359fec582fd3b6fb751a5a2608a35c8d28530af32b352c40",
+      "edits": [
+        {
+          "start": 1818,
+          "end": 1836,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.ItemCustomMissilePart",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemDisperser.java",
+      "before": "314704e1dca3807813d15d3f0fcbdbd38272d64f4f845e5df8eab634efdb3307",
+      "after": "8c39c34a2c8bf070de03c0434d6e227b52ec117b67305f234c90f00eedad8598",
+      "edits": [
+        {
+          "start": 1866,
+          "end": 1884,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.ItemDisperser",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/GunFactory.java",
+      "before": "88fb9b0179b9e3cc8ad943523f4e6267b47bb5e88f4a75a973866acbe648e858",
+      "after": "98b660000c1ba28f3fc49f4ff2f1b5b14ef2f1eedc510559fd61176ff291b9f5",
+      "edits": [
+        {
+          "start": 1228,
+          "end": 1246,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1381,
+          "end": 1399,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.ItemEnumMulti",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1586,
+          "end": 1604,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.ItemEnumMulti",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3097,
+          "end": 3115,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.ItemGunBaseNT",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3789,
+          "end": 3807,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.ItemEnumMulti",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 3931,
+          "end": 3949,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.ItemEnumMulti",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4115,
+          "end": 4133,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.ItemEnumMulti",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4299,
+          "end": 4317,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.ItemEnumMulti",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory35800.java",
+      "before": "fd2522b9e3c0fa87b8faaad42d05c57ca7a43fe8eb04b5cbc9a316f99555ed1b",
+      "after": "ba1222f2ec1dd6c21472b9f234e8583d70c76f93c7fc7853107cd94614f0cf5e",
+      "edits": [
+        {
+          "start": 3316,
+          "end": 3334,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.ItemGunBaseNT",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4782,
+          "end": 4800,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.ItemGunBaseNT",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "before": "e57b0b241ec30c09e10660e7ae6f080060c16f659518788c7d76eee5523420ff",
+      "after": "423d5f54ef6b2f54c38f2955a9a6cf5ed90e5baded1f5e84e8fa8db27542ec71",
+      "edits": [
+        {
+          "start": 6517,
+          "end": 6535,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.impl.ItemGunNI4NI",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java",
+      "before": "587c32a50709e2786eba12e28556d5214af454d463c05ba7b9efa6df7aa5bb6e",
+      "after": "fe97052accb16aeb0318b3e97e402cec9e5c2eed07ebb28d531e9c331c3a0f0a",
+      "edits": [
+        {
+          "start": 2702,
+          "end": 2720,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.impl.ItemGunDrill",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java",
+      "before": "95a08f43fcce58ece161b32721132e2825a182892d354e38dac704a68dca0d28",
+      "after": "b4a887537b6258e0f1c870c501daef2107cef1aa8b06f16281aca3b2e7e7d75b",
+      "edits": [
+        {
+          "start": 11180,
+          "end": 11198,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.impl.ItemGunChemthrower",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFolly.java",
+      "before": "3fd331e8d1fcbcf4428897513c50948ac78ab9a9ae406a786f85ef92243ed0aa",
+      "after": "587036e20f206f90719cbd21d3b60bfbdbffe353a57d96105797f13a823e7cbb",
+      "edits": [
+        {
+          "start": 5860,
+          "end": 5878,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.ItemGunBaseNT",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryPA.java",
+      "before": "2b510bea16e8ec0e54392a98785371b4a9953fa6967548c7c7e64c2a06f1d1de",
+      "after": "823bc5fdbc408600eab565f255bec8b55cb73bea518c7b1b224e93b71047a688",
+      "edits": [
+        {
+          "start": 1356,
+          "end": 1374,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.factory.XFactoryPA.ItemGunPA",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        },
+        {
+          "start": 1665,
+          "end": 1683,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.factory.XFactoryPA.ItemGunPA",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "before": "1d1d3b4625170450a1b52fe2b734c172512121879776a122db471964cce02eb5",
+      "after": "5a1a9abceb864bce14bca10e90841784a3c603e0b7a0cae84d947495c0d3edac",
+      "edits": [
+        {
+          "start": 14138,
+          "end": 14156,
+          "old": "setUnlocalizedName",
+          "new": "setTranslationKey",
+          "proof": [
+            "com.hbm.items.weapon.sedna.ItemGunBaseNT",
+            "net.minecraft.item.Item",
+            "constructor-exact/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "before": "f131805c4f394152014f5557e71a677e7e8675c989fc86949ac45335a9bc29f8",
+      "after": "dd801b6d60dda1b3b054af2536359e834a3473ba905bcc5691ac18cd879319aa",
+      "edits": [
+        {
+          "start": 10551,
+          "end": 10569,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/toclient/BufPacket.java",
+      "before": "70426c09695faf331b8c827838bd4c77bce9489c2b5e00b26b891924422563a1",
+      "after": "00f95bb791f5671ed36c6d355e0dfff3fa9e59fd2c7526010b4cac64915edb33",
+      "edits": [
+        {
+          "start": 1771,
+          "end": 1789,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/toclient/HbmAnimationPacket.java",
+      "before": "b5526b0589af861bca58141ab1589cffeacfea663b499b486ffad7d5d1d4a1b7",
+      "after": "a48e13802f213e5ca266d3204279810d6e9875ac01aa0dd3a6ae67db9dfed569",
+      "edits": [
+        {
+          "start": 4198,
+          "end": 4216,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 4775,
+          "end": 4793,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/IRepairable.java",
+      "before": "c5c53504fea0555dfc445acca4501bfb6c8e5aa7be4f571850ecba087bd604c1",
+      "after": "f14e515d72d62ae7d9476fb9a9df16df8337ea68c7d701cedf0a66ea23e937a6",
+      "edits": [
+        {
+          "start": 2916,
+          "end": 2934,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.BlockDummyable",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      "before": "5c2bd53fdcda36735722dfbc409f837cbe36ff245f1e29cdc220b89cc2223d32",
+      "after": "1014a514555136b38b91abd61888e49fcde2a2cb42618091953a59e650014e60",
+      "edits": [
+        {
+          "start": 6907,
+          "end": 6925,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      "before": "9e205e19ab55ab79480c31b52f959ee93cad2817965ae75c4f4afa7ba5a756fb",
+      "after": "80867dcc3408900902a4ec10611c5792f177b39f49c6d6cf2ae87b38f415923c",
+      "edits": [
+        {
+          "start": 7109,
+          "end": 7127,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 7390,
+          "end": 7408,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      "before": "b3fddb2e6a43d2a608282e4e62e0fc729ae52e45bca8e3b8912202c826ffc447",
+      "after": "99737911e5e2195524e6ec5e29c1115c4fef17c57cfa819c10d47d2db4b5c2a0",
+      "edits": [
+        {
+          "start": 6734,
+          "end": 6752,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java",
+      "before": "eea0767a8cda31757cafc3f894e50c46a4c81ebd997b634f4d482526344bb3bb",
+      "after": "e612bb4c474c0c3a1b87a423527c6fcbcb9013c4e716606ff0f426260e6e0681",
+      "edits": [
+        {
+          "start": 5251,
+          "end": 5269,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 5532,
+          "end": 5550,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.block.Block",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java",
+      "before": "980937493cccdb17a5d9d0dc1bb79dba200a75646da35071a26bce407b30d7b1",
+      "after": "204c1a1cc10748ba0bb12e7ff63abd7551af4a045649e33f6250afc257dec13a",
+      "edits": [
+        {
+          "start": 9633,
+          "end": 9651,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.rbmk.RBMKBase",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 9747,
+          "end": 9765,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "com.hbm.blocks.machine.rbmk.RBMKBase",
+            "net.minecraft.block.Block",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java",
+      "before": "d877e452cb5db385bbac4efa508961557841222eb53c227bc8e26ac6f662b89a",
+      "after": "740b5e7875285df3801c25c9d4adf2e5fb2f21ef3bf351c47921b6f44395962c",
+      "edits": [
+        {
+          "start": 14041,
+          "end": 14059,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        },
+        {
+          "start": 14614,
+          "end": 14632,
+          "old": "getUnlocalizedName",
+          "new": "getTranslationKey",
+          "proof": [
+            "net.minecraft.item.Item",
+            "net.minecraft.item.Item",
+            "zero-argument/no-legacy-override"
+          ]
+        }
+      ]
+    }
+  ]
+}

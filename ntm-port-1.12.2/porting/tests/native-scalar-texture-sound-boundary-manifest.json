@@ -1,0 +1,406 @@
+{
+  "baseline": "c22f7048a82784fe0e8246d38aef102c43f1df70",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "5e3240f4636af793598d2b5dbce9c17139fb1b0151320c0b2992c7f70b22f498",
+      "after_sha256": "b5d385db491d5c1a1a8b51eabd3096e5e3e9c999465839004d358c871c0828be",
+      "edits": [
+        {
+          "before_offset": 89435,
+          "after_offset": 89435,
+          "old": "\t\tblock_asbestos = new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"block_asbestos\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":block_asbestos\");\r\n",
+          "new": "\t\tblock_asbestos = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"block_asbestos\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + \":block_asbestos\");\r\n"
+        },
+        {
+          "before_offset": 118966,
+          "after_offset": 119002,
+          "old": "\t\ttile_lab = new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":tile_lab\");\r\n\t\ttile_lab_cracked = new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab_cracked\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":tile_lab_cracked\");\r\n\t\ttile_lab_broken = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"tile_lab_broken\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":tile_lab_broken\");\r\n",
+          "new": "\t\ttile_lab = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F), RefStrings.MODID + \":tile_lab\");\r\n\t\ttile_lab_cracked = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab_cracked\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F), RefStrings.MODID + \":tile_lab_cracked\");\r\n\t\ttile_lab_broken = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"tile_lab_broken\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F), RefStrings.MODID + \":tile_lab_broken\");\r\n"
+        },
+        {
+          "before_offset": 146908,
+          "after_offset": 147052,
+          "old": "\t\twaste_trinitite = new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_trinitite\");\r\n\t\twaste_trinitite_red = new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_trinitite_red\");\r\n",
+          "new": "\t\twaste_trinitite = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_trinitite\");\r\n\t\twaste_trinitite_red = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_trinitite_red\");\r\n"
+        },
+        {
+          "before_offset": 147868,
+          "after_offset": 148092,
+          "old": "\t\twaste_planks = new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_planks\");\r\n\t\tfrozen_dirt = new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":frozen_dirt\");\r\n",
+          "new": "\t\twaste_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_planks\");\r\n\t\tfrozen_dirt = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":frozen_dirt\");\r\n"
+        },
+        {
+          "before_offset": 148747,
+          "after_offset": 149051,
+          "old": "\t\tfrozen_planks = new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":frozen_planks\");\r\n",
+          "new": "\t\tfrozen_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":frozen_planks\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": {
+      "before_sha256": "e91c3d6ceac40c90e6ca188c9dbddf84205403c260ccd9b2ac32250dc2bef984",
+      "after_sha256": "c17c645283de8cbacecfa923a4438368a7594a0f1fd202881e69abac540e0865",
+      "edits": [
+        {
+          "before_offset": 386,
+          "after_offset": 386,
+          "old": "",
+          "new": "\n    /** Audited construction builder; native protected setter, unchanged receiver identity. */\n    public BlockOutgas withSoundType(net.minecraft.block.SoundType sound) {\n        setSoundType(sound);\n        return this;\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": {
+      "before_sha256": "f7370b39a374a5b2dc549858efd15c88cdb1d42fb07c76cad5e230680381f08e",
+      "after_sha256": "dd951b5c5924e11b412f424b2d5deae701c92e0874d1f277a217ccbe19f7425a",
+      "edits": [
+        {
+          "before_offset": 720,
+          "after_offset": 720,
+          "old": "",
+          "new": "\n    /** Audited construction builder; native protected setter, unchanged receiver identity. */\n    public BlockStepEffect withSoundType(net.minecraft.block.SoundType sound) {\n        setSoundType(sound);\n        return this;\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFireLingering.java": {
+      "before_sha256": "f942b31a07d417937070dce01960a2f4ad05616bc4093708cc9a0bb66a4b8503",
+      "after_sha256": "edb071316640bb9310a5004fdec1b56b7fceee3c6379091efe79a70bc5f72f63",
+      "edits": [
+        {
+          "before_offset": 362,
+          "after_offset": 362,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 578,
+          "after_offset": 743,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> FIRE_TYPE = EntityDataManager.createKey(EntityFireLingering.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Float> AREA_WIDTH = EntityDataManager.createKey(EntityFireLingering.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> AREA_HEIGHT = EntityDataManager.createKey(EntityFireLingering.class, DataSerializers.FLOAT);\n"
+        },
+        {
+          "before_offset": 918,
+          "after_offset": 1492,
+          "old": "\t\tthis.dataWatcher.updateObject(11, width);\n\t\tthis.dataWatcher.updateObject(12, height);\n",
+          "new": "\t\tthis.dataManager.set(AREA_WIDTH, width);\n\t\tthis.dataManager.set(AREA_HEIGHT, height);\n"
+        },
+        {
+          "before_offset": 1167,
+          "after_offset": 1740,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n\t\tthis.dataWatcher.addObject(11, new Float(0));\n\t\tthis.dataWatcher.addObject(12, new Float(0));\n",
+          "new": "\t\tthis.dataManager.register(FIRE_TYPE, new Integer(0));\n\t\tthis.dataManager.register(AREA_WIDTH, new Float(0));\n\t\tthis.dataManager.register(AREA_HEIGHT, new Float(0));\n"
+        },
+        {
+          "before_offset": 1366,
+          "after_offset": 1960,
+          "old": "\t\tthis.dataWatcher.updateObject(10, type);\n",
+          "new": "\t\tthis.dataManager.set(FIRE_TYPE, type);\n"
+        },
+        {
+          "before_offset": 1453,
+          "after_offset": 2045,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\treturn this.dataManager.get(FIRE_TYPE);\n"
+        },
+        {
+          "before_offset": 1556,
+          "after_offset": 2137,
+          "old": "\t\tfloat height = this.dataWatcher.getWatchableObjectFloat(12);\n",
+          "new": "\t\tfloat height = this.dataManager.get(AREA_HEIGHT);\n"
+        },
+        {
+          "before_offset": 1639,
+          "after_offset": 2209,
+          "old": "\t\tthis.setSize(this.dataWatcher.getWatchableObjectFloat(11), height);\n",
+          "new": "\t\tthis.setSize(this.dataManager.get(AREA_WIDTH), height);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": {
+      "before_sha256": "c30fabdaf56fc5c3e69c76d7eb3a9714db79f04e956842c03bf477b52fbfb445",
+      "after_sha256": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+      "edits": [
+        {
+          "before_offset": 2143,
+          "after_offset": 2143,
+          "old": "\t\t\tint spawnTarget = Math.max(this.world.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ)) - 3, 1);\n",
+          "new": "\t\t\tint spawnTarget = Math.max(com.hbm.world.WorldHeight.read(this.world, (int) Math.floor(posX), (int) Math.floor(posZ)) - 3, 1);\n"
+        },
+        {
+          "before_offset": 4865,
+          "after_offset": 4882,
+          "old": "\t\t\t\t\tthis.cloudlets.add(new Cloudlet(vec.x + posX, this.world.getHeightValue((int) (vec.x + posX) + 1, (int) (vec.z + posZ)), vec.z + posZ, rot, 0, shockLife, TorexType.SHOCK)\n",
+          "new": "\t\t\t\t\tthis.cloudlets.add(new Cloudlet(vec.x + posX, com.hbm.world.WorldHeight.read(this.world, (int) (vec.x + posX) + 1, (int) (vec.z + posZ)), vec.z + posZ, rot, 0, shockLife, TorexType.SHOCK)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityWaypoint.java": {
+      "before_sha256": "7ced3cefe8494eab0001d9a1d1fc34af5ed61aaabf07d9c5500ac748934e89d5",
+      "after_sha256": "70d5120117c4b3f1abd4496ff1e576e02e3a2f47ab11f6f56bd07afc125b9913",
+      "edits": [
+        {
+          "before_offset": 334,
+          "after_offset": 334,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 543,
+          "after_offset": 708,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> WAYPOINT_TYPE = EntityDataManager.createKey(EntityWaypoint.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 695,
+          "after_offset": 997,
+          "old": "\t\tthis.dataWatcher.addObject(10, 0);\n",
+          "new": "\t\tthis.dataManager.register(WAYPOINT_TYPE, 0);\n"
+        },
+        {
+          "before_offset": 997,
+          "after_offset": 1309,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_TYPE);\n"
+        },
+        {
+          "before_offset": 1194,
+          "after_offset": 1499,
+          "old": "\t\tthis.dataWatcher.updateObject(10, waypointType);\n",
+          "new": "\t\tthis.dataManager.set(WAYPOINT_TYPE, waypointType);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": {
+      "before_sha256": "c52e6452b91db5b9a2977a8ed035be2d8cffe5b2d96c52ff39221a1cd4cca4d3",
+      "after_sha256": "3f86f70194ab7cf0bb9cfe0231301e220336a3f1c4b9e9cee5c43be7657f6f2f",
+      "edits": [
+        {
+          "before_offset": 250,
+          "after_offset": 250,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 482,
+          "after_offset": 647,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntitySiegeLaser.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 908,
+          "after_offset": 1204,
+          "old": "\t\tthis.getDataWatcher().addObject(12, (int) 0xffffff);\n",
+          "new": "\t\tthis.dataManager.register(COLOR, (int) 0xffffff);\n"
+        },
+        {
+          "before_offset": 1375,
+          "after_offset": 1668,
+          "old": "\t\tthis.getDataWatcher().updateObject(12, color);\n",
+          "new": "\t\tthis.dataManager.set(COLOR, color);\n"
+        },
+        {
+          "before_offset": 1469,
+          "after_offset": 1751,
+          "old": "\t\treturn this.getDataWatcher().getWatchableObjectInt(12);\n",
+          "new": "\t\treturn this.dataManager.get(COLOR);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "8a90aa37954328b70e0202304279d74381f04dece5a3aa2764b5eaffa0939adb",
+      "after_sha256": "355019e5c69782380f2f4d4e78bfed8c6cb6c7ff9573d518e1f166246453179a",
+      "edits": [
+        {
+          "before_offset": 14824,
+          "after_offset": 14824,
+          "old": "\t\t\t\t\t\tworld.playSoundEffect(ix, iy, iz, \"hbm:player.vomit\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, \"hbm:player.vomit\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 15548,
+          "after_offset": 15570,
+          "old": "\t\t\t\t\tworld.playSoundEffect(ix, iy, iz, \"hbm:player.vomit\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, \"hbm:player.vomit\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before_sha256": "7b7d684cef8809b18c23867634b86825a24ae852eb5e136a61087b6bce94c770",
+      "after_sha256": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+      "edits": [
+        {
+          "before_offset": 4564,
+          "after_offset": 4564,
+          "old": "\t\t\tint y = world.getHeightValue(x, z) - 1;\n",
+          "new": "\t\t\tint y = com.hbm.world.WorldHeight.read(world, x, z) - 1;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "before_sha256": "c7eab72f1a945cbe54b3f52a4cdab23272321af1e09776efdc61500592e3e509",
+      "after_sha256": "61799b9573da44b1879f04cc5e273131413364d614a848ec66b33b418fc6df2e",
+      "edits": [
+        {
+          "before_offset": 4114,
+          "after_offset": 4114,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:player.vomit\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:player.vomit\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": {
+      "before_sha256": "e971f8b9b2bfc88c6d01f1ca303f4305433a265c9958fbe53de1480549de4ca0",
+      "after_sha256": "66fa64533d6d5abdf1f280fcebee59acf06355d09cb7fb042547be2b89356d54",
+      "edits": [
+        {
+          "before_offset": 1238,
+          "after_offset": 1238,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCharge.java": {
+      "before_sha256": "bb5fab06e0531a26f720489309db167d19dafb987f79a03b24b1a811060b80e1",
+      "after_sha256": "5f1f50b6b6b7c57000a6ca5c7ad406a9510e3fe2c410d07dbab10a0d49a39601",
+      "edits": [
+        {
+          "before_offset": 441,
+          "after_offset": 441,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbPing\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbPing\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java": {
+      "before_sha256": "9848baefd814a020db27d9b78d1a7773b93860093a238004789f1717593bf4d3",
+      "after_sha256": "8f2eb498ff22c6de63ef9a2ef0a67f91a5d960cbab480320b9ed604f3d125be0",
+      "edits": [
+        {
+          "before_offset": 10095,
+          "after_offset": 10095,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.missileTakeOff\", 10.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.missileTakeOff\", 10.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": {
+      "before_sha256": "d88735324577fd5fd5a7a90eeea49268540cdb4a10cc64a1f6ff86365bcc9d29",
+      "after_sha256": "d84fd6dc51e2f369f4be1d8b47799774659cd8957a964e83af0b02a2a34cdbca",
+      "edits": [
+        {
+          "before_offset": 13719,
+          "after_offset": 13719,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, \"hbm:weapon.missileTakeOff\", 2.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, \"hbm:weapon.missileTakeOff\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java": {
+      "before_sha256": "419db6e6290ada10f01df0e13d13984db3a3fb4790c2774025ce623f70e711e4",
+      "after_sha256": "f6b4afdaafbd657e93a7155a6869a00908f8d922eb08f1ffb15cf8efa7c609c9",
+      "edits": [
+        {
+          "before_offset": 4200,
+          "after_offset": 4200,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, \"hbm:weapon.missileTakeOff\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, \"hbm:weapon.missileTakeOff\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java": {
+      "before_sha256": "17abb9fc1f8e3f5c106fbf0c4229646967ae6854b98161fb49fec4d4efcc74ef",
+      "after_sha256": "ffa6f5d7a800f4709959efa7f551ebdfd6fb1a355a5f7e8d4c3c0ee14e385597",
+      "edits": [
+        {
+          "before_offset": 10036,
+          "after_offset": 10036,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.missileTakeOff\", 10.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.missileTakeOff\", 10.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": {
+      "before_sha256": "a81b1dc1ba33df87746e95007aec5e168b83659b38d97dadb8865a343e86bb0b",
+      "after_sha256": "1810d8a0ba628ff6a6732fc20692e0bdda4b0d3c9c27e02691b564e492a94d38",
+      "edits": [
+        {
+          "before_offset": 1259,
+          "after_offset": 1259,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java": {
+      "before_sha256": "fe4cd2215ab1376f8f192c3a3724d94ba50e09586f1c554da8c516ee24dc95c7",
+      "after_sha256": "fc6dbdab9f67388c8ae69fef85132a9c317f1d98c83d25ee3385382a1846c47c",
+      "edits": [
+        {
+          "before_offset": 4032,
+          "after_offset": 4032,
+          "old": "\t\t\t\t\tif(this.world.getTotalWorldTime() % 10 == 0) this.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), \"hbm:weapon.flamethrowerShoot\", 0.25F, 0.5F);\n",
+          "new": "\t\t\t\t\tif(this.world.getTotalWorldTime() % 10 == 0) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), \"hbm:weapon.flamethrowerShoot\", 0.25F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java": {
+      "before_sha256": "eddbe1e41ec2b3e57f45914a3daa2a2769b7349c3805206d7acafb3660408257",
+      "after_sha256": "068cacfab346057bc99b066f7496e67b7d70ef20111a067bcb512729bd12ae4b",
+      "edits": [
+        {
+          "before_offset": 6424,
+          "after_offset": 6424,
+          "old": "\t\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), \"hbm:weapon.flamethrowerShoot\", getVolume(1.5F), 0.75F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), \"hbm:weapon.flamethrowerShoot\", getVolume(1.5F), 0.75F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": {
+      "before_sha256": "f700a5d6c12c9d5b8787c02e30e150553c1a458477452ceea3aa64c08f8c4fcd",
+      "after_sha256": "e38925e2cd5c0e215b5d6809ee73d2a625361aa590ee58282d7f099ff4e7c08f",
+      "edits": [
+        {
+          "before_offset": 8611,
+          "after_offset": 8611,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.jeremy_fire\", 25.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.jeremy_fire\", 25.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java": {
+      "before_sha256": "a36c72a64bd34a5683b907e06d4a6ba1c17493614e2ae4579520884fe5f55e10",
+      "after_sha256": "ccf944a31cc97904b41b3633dc133553cac35846a05363a9fb453c8b0e032941",
+      "edits": [
+        {
+          "before_offset": 3425,
+          "after_offset": 3425,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.flamethrowerShoot\", 2F, 1F + this.world.rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.flamethrowerShoot\", 2F, 1F + this.world.rand.nextFloat() * 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java": {
+      "before_sha256": "2762b7e2624339b1a6270862626ba10a081b7ec698eae344ca82ccae7ceeabd8",
+      "after_sha256": "3b39037b7e2f0a60c895ae10b59fd305e6e4162245da81ad0efa176920d7357a",
+      "edits": [
+        {
+          "before_offset": 1675,
+          "after_offset": 1675,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.jeremy_reload\", 2.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.jeremy_reload\", 2.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 2087,
+          "after_offset": 2109,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.jeremy_fire\", 4.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.jeremy_fire\", 4.0F, 1.0F);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/world/WorldHeight.java": "bafa5e61be56e33953eb5c029384d0453fc7bdf0a8313c82b6b467fb45a55f29"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

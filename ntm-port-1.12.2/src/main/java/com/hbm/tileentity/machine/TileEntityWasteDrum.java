@@ -20,7 +20,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, IGUIProvider {
+public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
 	private ItemStack slots[];
 	
@@ -43,23 +43,24 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null)
 		{
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-		return null;
+		return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit())
 		{
-			itemStack.stackSize = getInventoryStackLimit();
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -85,11 +86,11 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
 		}else{
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <=64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
 	
@@ -147,7 +148,7 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
@@ -167,20 +168,24 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_arr;
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {	
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();	
 		if(itemStack.getItem() instanceof ItemRBMKRod) {
 			return ItemRBMKRod.getCoreHeat(itemStack) < 50 && ItemRBMKRod.getHullHeat(itemStack) < 50;
 		} else {
@@ -189,14 +194,14 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			int water = 0;
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				if(worldObj.getBlock(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ) == Blocks.water || worldObj.getBlock(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ) == Blocks.flowing_water) {
+				if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ).getBlock() == Blocks.WATER || com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ).getBlock() == Blocks.FLOWING_WATER) {
 					water++;
 				}
 			}
@@ -212,10 +217,10 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 						if(slots[i].getItem() instanceof ItemRBMKRod) {
 							
 							ItemRBMKRod rod = (ItemRBMKRod) slots[i].getItem();
-							rod.updateHeat(worldObj, slots[i], 0.025D);
-							rod.provideHeat(worldObj, slots[i], 20D, 0.025D);
+							rod.updateHeat(this.world, slots[i], 0.025D);
+							rod.provideHeat(this.world, slots[i], 20D, 0.025D);
 							
-						} else if(worldObj.rand.nextInt(r) == 0) {
+						} else if(this.world.rand.nextInt(r) == 0) {
 
 							ComparableStack comp = new ComparableStack(getStackInSlot(i));
 							if(FuelPoolRecipes.recipes.containsKey(comp)) {

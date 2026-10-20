@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -38,7 +41,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.aberrator_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.aberrator_tex);
 		double scale = 0.25D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -129,8 +132,8 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		this.renderFireball(gun.lastShot[0]);
 		GL11.glPopMatrix();
 
-		Minecraft.getMinecraft().renderEngine.bindTexture(Minecraft.getMinecraft().getTextureManager().getResourceLocation(Items.golden_sword.getSpriteNumber()));
-		IIcon icon = Items.golden_sword.getIconFromDamage(0);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(Minecraft.getMinecraft().getTextureManager().getResourceLocation(Items.GOLDEN_SWORD.getSpriteNumber()));
+		IIcon icon = Items.GOLDEN_SWORD.getIconFromDamage(0);
 
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -195,14 +198,14 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.aberrator_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.aberrator_tex);
 		ResourceManager.aberrator.renderPart("Gun");
 		ResourceManager.aberrator.renderPart("Hammer");
 		ResourceManager.aberrator.renderPart("Magazine");
@@ -210,11 +213,11 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		ResourceManager.aberrator.renderPart("Sight");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;
@@ -255,7 +258,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 			double length = 10 * fire;
 			double offset = 1 * fire;
 			double lengthOffset = -1.125;
-			Minecraft.getMinecraft().renderEngine.bindTexture(flash_plume);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(flash_plume);
 			tess.startDrawingQuads();
 			tess.setBrightness(240);
 			tess.setNormal(0F, 1F, 0F);

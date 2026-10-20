@@ -1,0 +1,7 @@
+[13:35:39] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[13:35:39] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[13:35:39] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS actual production ModSoundEvents and RefStrings compiled; real Forge registry contains all three exact event identities
+PASS six real FolderResourcePack and FileResourcePack canonical lookups with original byte hashes; six historical ZIP failures; unchanged JSON selections normalize to registered events
+PASS full-file registry reversal, unchanged sounds.json, six exact stored lowercase names and original hashes
+PASS real-native sound registry and resource-pack lookup; not audio playback/reload, full-mod or gameplay acceptance

@@ -61,14 +61,14 @@ public class WasteEarth extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		
 		if(this == ModBlocks.waste_earth || this == ModBlocks.waste_mycelium || this == ModBlocks.burning_earth) {
-			return Item.getItemFromBlock(Blocks.dirt);
+			return Item.getItemFromBlock(Blocks.DIRT);
 		}
 
 		if(this == ModBlocks.frozen_grass) {
-			return Items.snowball;
+			return Items.SNOWBALL;
 		}
 
 		return Item.getItemFromBlock(this);
@@ -119,9 +119,9 @@ public class WasteEarth extends Block {
 			for(int i = -1; i < 2; i++) {
 				for(int j = -1; j < 2; j++) {
 					for(int k = -1; k < 2; k++) {
-						Block b0 = world.getBlock(x + i, y + j, z + k);
-						Block b1 = world.getBlock(x + i, y + j + 1, z + k);
-						if(!b1.isOpaqueCube() && (b0 == Blocks.dirt || b0 == Blocks.grass || b0 == Blocks.mycelium || b0 == ModBlocks.waste_earth)) {
+						Block b0 = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();
+						Block b1 = com.hbm.world.WorldBlockState.read(world, x + i, y + j + 1, z + k).getBlock();
+						if(!b1.isOpaqueCube() && (b0 == Blocks.DIRT || b0 == Blocks.GRASS || b0 == Blocks.MYCELIUM || b0 == ModBlocks.waste_earth)) {
 							world.setBlock(x + i, y + j, z + k, ModBlocks.waste_mycelium);
 						}
 					}
@@ -138,23 +138,23 @@ public class WasteEarth extends Block {
 							
 							if(!world.blockExists(x + i, y + j, z + k)) continue;
 							
-							Block b0 = world.getBlock(x + i, y + j, z + k);
-							Block b1 = world.getBlock(x + i, y + j + 1, z + k);
+							Block b0 = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();
+							Block b1 = com.hbm.world.WorldBlockState.read(world, x + i, y + j + 1, z + k).getBlock();
 							
 							if(!b1.isOpaqueCube() &&
-									((b0 == Blocks.grass || b0 == Blocks.mycelium || b0 == ModBlocks.waste_earth ||
+									((b0 == Blocks.GRASS || b0 == Blocks.MYCELIUM || b0 == ModBlocks.waste_earth ||
 									b0 == ModBlocks.frozen_grass || b0 == ModBlocks.waste_mycelium)
 									&& !world.canLightningStrikeAt(x, y, z))) {
 								world.setBlock(x + i, y + j, z + k, ModBlocks.burning_earth);
 							}
 							if((b0 instanceof BlockLeaves || b0 instanceof BlockBush)) {
-								world.setBlockToAir(x + i, y + j, z + k);
+								com.hbm.world.WorldAirRemoval.remove(world, x + i, y + j, z + k);
 							}
 							if(b0 == ModBlocks.frozen_dirt) {
-								world.setBlock(x + i, y + j, z + k, Blocks.dirt);
+								{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + i; int nativePlacementY = y + j; int nativePlacementZ = z + k; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 							}
-							if(com.hbm.lib.FacingCompat.isFlammable(b1, world, x, y, z, ForgeDirection.UP) && !(b1 instanceof BlockLeaves || b1 instanceof BlockBush) && world.getBlock(x, y + 1, z) == Blocks.air) {
-								world.setBlock(x, y + 1, z, Blocks.fire);
+							if(com.hbm.lib.FacingCompat.isFlammable(b1, world, x, y, z, ForgeDirection.UP) && !(b1 instanceof BlockLeaves || b1 instanceof BlockBush) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR) {
+								{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 							}
 						}
 					}
@@ -166,11 +166,11 @@ public class WasteEarth extends Block {
 		if(this == ModBlocks.waste_earth || this == ModBlocks.waste_mycelium) {
 			
 			if(RadiationConfig.cleanupDeadDirt || (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)) {
-				world.setBlock(x, y, z, Blocks.dirt);
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				
 			}
 			
-			if(world.getBlock(x, y + 1, z) instanceof BlockMushroom) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() instanceof BlockMushroom) {
 				world.setBlock(x, y + 1, z, ModBlocks.mush);
 			}
 		}
@@ -180,9 +180,9 @@ public class WasteEarth extends Block {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		
 		if(this == ModBlocks.burning_earth) {
-			Block b = world.getBlock(x, y + 1, z);
+			Block b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
 			if(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {
-				world.setBlock(x, y, z, Blocks.dirt);
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 		}
 	}

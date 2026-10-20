@@ -1,0 +1,1 @@
+PASS 22 actual Java8 field-owner/receiver/type/literal/statement fixtures; local, parameter, inherited and foreign fields excluded.

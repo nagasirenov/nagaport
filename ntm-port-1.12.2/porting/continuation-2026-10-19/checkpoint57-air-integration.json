@@ -1,0 +1,1397 @@
+{
+  "baseline": "2fa015374be0e330d2541e5bfe9d4b96e380aa05",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockDummyableBeam.java": {
+      "before_sha256": "6276fa4b4ecb53448812b638a62973334c8f6207d8ad429b9afb6ae271af4582",
+      "after_sha256": "cbc2865929f6a266e4f3f45780b2641fa40e155d555b8262aef634d56772ce44",
+      "edits": [
+        [
+          2703,
+          2731,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          3293,
+          3321,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockNTSapling.java": {
+      "before_sha256": "df11abd0e257eb2eaad71adfb114e2b7579dc17f0a4fdb4ee2ec51738715bdd1",
+      "after_sha256": "16d85630e413334798ee7db01c8a175d1d20022da26473edffa972105c6db404",
+      "edits": [
+        [
+          3691,
+          3719,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java": {
+      "before_sha256": "82c7070947bb3232a7c88ce2c1cbbf2623c57ce62522bb1caa6305c60573adc4",
+      "after_sha256": "2945645ee566b0ed03196fbb129d17a65eb1ed81e80932ba40c5784e0863f36e",
+      "edits": [
+        [
+          1599,
+          1627,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          1954,
+          1982,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "62f2c726d77d7406ae0b460ea2d1f1a7f9f03b580c0f2731e729455f0a76830b",
+      "after_sha256": "d25abb4e4f490ca9e77e80a1bfe7ed027d6144487eccb4881f56d6db84cf69f3",
+      "edits": [
+        [
+          4142,
+          4170,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeC4.java": {
+      "before_sha256": "dab389025ea62175401e3514703b80f81f9a4981ded521dec925f72a7dab8d47",
+      "after_sha256": "b80fcd626a3326633855bd35df8635374441d0e3b560e80512f458e53430b50c",
+      "edits": [
+        [
+          978,
+          1006,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeDynamite.java": {
+      "before_sha256": "13581c8c5a8f71fa4ecb19c829d5bb1f341e3f333674c8bcf1ccfc18a5cf85fa",
+      "after_sha256": "915b9d9c2bba8b58ada81e37036bfe11e7cecc54cc2bb65b6e07dd2ee2de9bb1",
+      "edits": [
+        [
+          377,
+          405,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeMiner.java": {
+      "before_sha256": "7c5c941bfb4849339a990ffef2798e91803a30953465c7d091b71744b770ab96",
+      "after_sha256": "c898e02e039320c63a8863000373790c3281c9acb017bd2b753d9f341de3cdd5",
+      "edits": [
+        [
+          543,
+          571,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeSemtex.java": {
+      "before_sha256": "4625e1cf7513504c29f8fb5f0aee8e4e790f839664e454260582f55a9a69c728",
+      "after_sha256": "df248bf54aedc651a47efe7a23457cbc95622cb912c7ec4bc9e28cae781dd64d",
+      "edits": [
+        [
+          676,
+          704,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": {
+      "before_sha256": "c10ab179fd25d51dcb641221ef17974be8007a7cbd0e5a8a9d75c7236a3ef962",
+      "after_sha256": "846f6b1fed8c84360b87081b6ccfd01ed7d29e16cbe8fc061a070dc6289fa374",
+      "edits": [
+        [
+          3468,
+          3496,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": {
+      "before_sha256": "9bd4df545938dcf697bc052e02ca33af7cb7f5732142b01d18e832612586b40d",
+      "after_sha256": "c12b68577d61438ff026faa396ac5ee6b217c5cf42be698899eefd2c57e4cbf6",
+      "edits": [
+        [
+          1376,
+          1404,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          1666,
+          1694,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          1909,
+          1937,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          2888,
+          2916,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          3486,
+          3514,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": {
+      "before_sha256": "a261cc28da5d0074b86662d02eeca8ac8052a47fe048ee06e5e738fd8fabe02a",
+      "after_sha256": "64fff672e09af64022122d4a8fe116b29db8494ce3ef8e2c7c0f3d2953ca6f47",
+      "edits": [
+        [
+          5509,
+          5537,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java": {
+      "before_sha256": "28a7cc03cb8ad02dee6e2ee9e8793c005574c54bd2d7efad07e0e009da2d9878",
+      "after_sha256": "5d80029638c81c906cdaf8e8ba2cb92e2920687e90cb13530ad3bdfc01ac20b2",
+      "edits": [
+        [
+          1657,
+          1685,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "acb60e3a950d7816a01dc3ccb4016f712c2957078c000cdaca9e1f058770c9c6",
+      "after_sha256": "2f20e8202363ad73863520ca452aff33ad5b8fd26ea1aaf2d7367ea102bf58f1",
+      "edits": [
+        [
+          3397,
+          3425,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          3959,
+          3987,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "82b658e94d8188799b3af9bcc7c3bd9a1c150dbd54ec3e06dd88fabda80218e0",
+      "after_sha256": "0175dd2ba4de68bd5ff81e5ba188ebd835c9fd05cb23ea2b8e0a925c5419c66f",
+      "edits": [
+        [
+          4345,
+          4379,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6408,
+          6436,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "661219989654c241383976b7941ac5bbe84c6c7bdec72929003eb9e85fd2082b",
+      "after_sha256": "0dd56f983310e21b89f9b1b35de589914769e77af2f4c9c54f96eadcc85c9aa5",
+      "edits": [
+        [
+          9300,
+          9328,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "fbc320eda82332456d9fbcc1a3d794673506c6251b3d566d8ac1b495680de3d0",
+      "after_sha256": "1f25149d54556c69a0fa6ee81cef76dcca59a3d030bb1786c103c157b2d8aa5b",
+      "edits": [
+        [
+          4325,
+          4359,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6251,
+          6279,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "9e626d7f819d4fb151d6fc85833ebf8b34c8bcca9f1ed76109eee3728ec6436e",
+      "after_sha256": "f81131b2c192ba35bfa5588b183618ad75196ebdd5db5239115e8552f7e65529",
+      "edits": [
+        [
+          4376,
+          4410,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6190,
+          6218,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "5487f35d4a692cfc23d63790f6f1bcffec53c6a69761546edae0998905298b6a",
+      "after_sha256": "1d17ce7932b91dcb25113126c84128e72d4cb8cddae55b2c2359c3eb382f8c7b",
+      "edits": [
+        [
+          4285,
+          4319,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6075,
+          6103,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "42ada96c75c58e06c9ef8d98b4449e333133215daa322b55d55216be01db9bcb",
+      "after_sha256": "5491492a5d13c4af9c601584f58961fc8e7b1e58f8f5844fd137d0187bf7c81b",
+      "edits": [
+        [
+          4319,
+          4353,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          4541,
+          4575,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6456,
+          6484,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          6697,
+          6725,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "7ff8cff61d6ce83372658f929c721576463146e0078ad1fbc293d39558365c55",
+      "after_sha256": "b13cce79b8ea0016a74c0be0edc120c08a8ba97ce79f31029867760f05e3739b",
+      "edits": [
+        [
+          4214,
+          4248,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          5975,
+          6003,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "b6ef8a5bb0dac98af25d80ab9c091a3b24a9f68acf6cb9eb0b872e9c145d18e9",
+      "after_sha256": "9e43a5d9947e9282859753769992bbf2ad676608337312aa064d8489d37045ad",
+      "edits": [
+        [
+          4007,
+          4035,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          4893,
+          4927,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6848,
+          6876,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "432b83a248686e05e3c63e11863b230103f070ff06114eae96445ed8db88c477",
+      "after_sha256": "2e09dc186a07e0d41bf8e8b00e373d7232613172d7b61a3f75e12d397be70f14",
+      "edits": [
+        [
+          4284,
+          4318,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6228,
+          6256,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "e17d106af0dcfeeda58cee8a2b42783a1a12d0ef28d6e37d5f13cc6b284011fa",
+      "after_sha256": "66a7e590781c9a484c6f4ee6922d8721237cd89d5bf160a959eac5cac4d97ecb",
+      "edits": [
+        [
+          4319,
+          4353,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          4541,
+          4575,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)",
+          "p_149695_1_.setBlockToAir(x, y, z)"
+        ],
+        [
+          6346,
+          6374,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          6587,
+          6615,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java": {
+      "before_sha256": "e39d0e7e25dae13231a7758079acd93dbaa68785663d0914bbbc11027b044417",
+      "after_sha256": "0b51eba178d08a96a9bf58fd8cec11e615557030ffbc87578970a42d7fb09901",
+      "edits": [
+        [
+          2243,
+          2271,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "eb80a51ba9812ae14d90ce4269969d3200a3d464b58364769d332f992fb62afd",
+      "after_sha256": "67c192d8fa625c0eaaa5c6eb17f0c930c3ecea0d2664c8e51fa305b0586c8ca7",
+      "edits": [
+        [
+          1805,
+          1833,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasAsbestos.java": {
+      "before_sha256": "e94a63b38a0873f59ecb225d6ab7d50d20634445fd2ddef37e3f474be3133d0a",
+      "after_sha256": "3be2b9ad1122152ce0277a08536b705177dc328b915452447b4c7bf47fb5a4c4",
+      "edits": [
+        [
+          1699,
+          1727,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": {
+      "before_sha256": "21291dc0c2269f7cc932c4dce3de162785bdabd9bebbc68151237fdf58c77905",
+      "after_sha256": "9879b9bd3175c9b6ce7352c89ee2273394bc45849d0409f4dea4b82fdb8c202b",
+      "edits": [
+        [
+          3201,
+          3229,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasClorine.java": {
+      "before_sha256": "940aa05e21d7f26664f0ed3b3c2eb6f0316347c7a185a689a15ef3676e4a0587",
+      "after_sha256": "133cfb8ccc3a2198571adaa5ac34c44b0769264fa0d77c9d98091920368897f8",
+      "edits": [
+        [
+          1768,
+          1796,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasCoal.java": {
+      "before_sha256": "351e93b820ca8281e373641bf371684f4a355cb31014e1cd85a5b01727c1875d",
+      "after_sha256": "1d9361a01f525001b639454f5d0658583bfcbe949067966bae210042e1b90a3b",
+      "edits": [
+        [
+          1664,
+          1692,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java": {
+      "before_sha256": "d618844cd8d02582ea7b7ce8fb5322dbbd2cc957ddbc5fd17ecbd9de87177613",
+      "after_sha256": "a4c68fb39176f15b75556a5c001f1528ff01864b621a419b762b84feb0d07600",
+      "edits": [
+        [
+          1867,
+          1895,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasMeltdown.java": {
+      "before_sha256": "4be664be6eab826f25590f2a054f52cfe6cb07c06f82541b0b2131fcb437ee4f",
+      "after_sha256": "fb5c2ca41b005c6104c1676df38d4d18da0b7637a2d94810b014f6c862b37955",
+      "edits": [
+        [
+          2857,
+          2885,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasMonoxide.java": {
+      "before_sha256": "586536360c96a79a3267efe467b8ebb89557b6f4dc767412006c5f8ecd5a752d",
+      "after_sha256": "551523159e65bfd2d87ad1515b357f06401262a6f9fb2ad850c26f2158c9516a",
+      "edits": [
+        [
+          1324,
+          1352,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadon.java": {
+      "before_sha256": "2b42ae04b2dcb894aad27961d5a3baa14445f22ea93e01474b674ce2f2c91293",
+      "after_sha256": "7c8aea682ff38503dee74e4c792dfc0453d5efe942eb282efce57f2d18d8b8e2",
+      "edits": [
+        [
+          1668,
+          1696,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java": {
+      "before_sha256": "6e70adc97d557a3365db8f864eff3707a2038ee688af3b88d2e2f580e3f6a36c",
+      "after_sha256": "6080514a5780431d0bf333d30cfbe417626842c6d289127bf56d9966c4ec8d90",
+      "edits": [
+        [
+          2472,
+          2500,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java": {
+      "before_sha256": "df2dc5fb969d79a959c08c2fef853d43f719c8a7e27ef0a7462dd8fac67b8fd5",
+      "after_sha256": "45709d57d9c377de7bc57cd4fe30b4061bfc6dbd8aa3a87d99c4f90189ad170e",
+      "edits": [
+        [
+          4310,
+          4338,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before_sha256": "c319f7e325605f51be7544f15d594ba8ebdcbd2655bbaff28779da156e720947",
+      "after_sha256": "99cd75e2eb4a5168de2a2fc2005251d41495c33e5a7656c390d0a5700322f38e",
+      "edits": [
+        [
+          2479,
+          2507,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockAmmoCrate.java": {
+      "before_sha256": "28d7525321f702800a15cedac3d3192df0145267e57ac26111111e3e5162ea9b",
+      "after_sha256": "b5f3141fa2fdc1732ea7a9dd3a7f4fcd416bc5eed7b2b0679ad2b2406f5ba8d1",
+      "edits": [
+        [
+          1720,
+          1748,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCrate.java": {
+      "before_sha256": "9b7b66d628328f394d6d7db428a29ac3a21f353652a8fb69032cf4b28c352dc8",
+      "after_sha256": "f623edc621fa1c8fbe17e9eae68454d0fd5dc5fb5c101ae6ce804a6f266f03a6",
+      "edits": [
+        [
+          1434,
+          1462,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": {
+      "before_sha256": "5f383152549c31be1ee088d684443cae9e986b76bf19ff3c7652e197e1ef2b83",
+      "after_sha256": "f9dfe2d1146835f4dfbd643f75d214dc9cccba2e4075d6da22b693a67d98252b",
+      "edits": [
+        [
+          4646,
+          4674,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          5122,
+          5150,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          5524,
+          5552,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "cc894164274921c5604cff8830faffefbdf0b57fa4cc198c690c99c40490e8aa",
+      "after_sha256": "f750cc83ef7ad523440f131e9d9adfea2ced407a096698cb037ae73f4548ba9d",
+      "edits": [
+        [
+          2613,
+          2641,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLayering.java": {
+      "before_sha256": "1f4667aeb29fafc0ccb95f82106bb27a829e86cc27e2fcd5510e8612aa229624",
+      "after_sha256": "9a31f907c6047abe95caded872bc62ecf723fba15648a442049d2726a08d0d64",
+      "edits": [
+        [
+          2869,
+          2933,
+          "com.hbm.world.WorldAirRemoval.remove(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_)",
+          "p_150155_1_.setBlockToAir(p_150155_2_, p_150155_3_, p_150155_4_)"
+        ],
+        [
+          3230,
+          3294,
+          "com.hbm.world.WorldAirRemoval.remove(p_149636_1_, p_149636_3_, p_149636_4_, p_149636_5_)",
+          "p_149636_1_.setBlockToAir(p_149636_3_, p_149636_4_, p_149636_5_)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before_sha256": "c2534e16500b454c046325655d2e5c4990a10063420ed811ff038296b527c206",
+      "after_sha256": "eb8537db3bd48cddd87a2e31e7d4c87ed6557f6d9a917c25fe0e0069ee79b28a",
+      "edits": [
+        [
+          2447,
+          2475,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockModDoor.java": {
+      "before_sha256": "3819d21dbbbb6d7ee7e82b56d0c67dc9a18deeb651facf68698c3d456810fbc9",
+      "after_sha256": "d7f65bd09d50db183cf3aa13b011208a357b72de747308b261c4cbb420384b2e",
+      "edits": [
+        [
+          9683,
+          9747,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)",
+          "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_)"
+        ],
+        [
+          9878,
+          9942,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)",
+          "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_)"
+        ],
+        [
+          10088,
+          10156,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_)",
+          "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_ + 1, p_149695_4_)"
+        ],
+        [
+          10827,
+          10891,
+          "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)",
+          "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_)"
+        ],
+        [
+          14107,
+          14175,
+          "com.hbm.world.WorldAirRemoval.remove(p_149681_1_, p_149681_2_, p_149681_3_ - 1, p_149681_4_)",
+          "p_149681_1_.setBlockToAir(p_149681_2_, p_149681_3_ - 1, p_149681_4_)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": {
+      "before_sha256": "e4562b16a0f586335f1f88f3682ef5b64e63d64397b13f3bacafa4ee3600c132",
+      "after_sha256": "40ee2108052f43364e9ddd9646166520299d4ee9730990b8ca7f40950c2961f9",
+      "edits": [
+        [
+          2304,
+          2332,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          4223,
+          4251,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java": {
+      "before_sha256": "2d82ddf102ce3f6160f05f21c9cc9beed48c64a5196b90ee5defab801e671c18",
+      "after_sha256": "7132bca58e9fc919848f4ae2fe052f93cddc3db52723553a0fae1f4e29c850d3",
+      "edits": [
+        [
+          1502,
+          1530,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before_sha256": "e92f1be4a7f53b56a16902ccde8e4c5027be41f966abeb1a9bf6af783e4d6522",
+      "after_sha256": "ca110980ed4b693332ad966939d47f248057fa72e5565c5e470fef262b6ffd69",
+      "edits": [
+        [
+          4893,
+          4921,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          6798,
+          6826,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ],
+        [
+          6999,
+          7027,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": {
+      "before_sha256": "f57178ca35690eb2c230978843196ab5e5e21c4dcb6f89110a8007910f15fb21",
+      "after_sha256": "38ea2c5c8c162b7b30b99ec778bdb7107dc672534e0c80e3bca18eef236328af",
+      "edits": [
+        [
+          6749,
+          6781,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y - 1, z)",
+          "world.setBlockToAir(x, y - 1, z)"
+        ],
+        [
+          6970,
+          7002,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y + 1, z)",
+          "world.setBlockToAir(x, y + 1, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockUberConcrete.java": {
+      "before_sha256": "c7d10845ea1b8f16a133cc0231fe13a733b58a2a6ea3bfe8caf46d0e9afba751",
+      "after_sha256": "691718ba138262427ba20d6a2afcebd769f6966d60a1581ef748c1889ae179c6",
+      "edits": [
+        [
+          1737,
+          1765,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "cb9a07fbdc9314fcc14d59bfdb19d0b2831188eb19e682d69808c51089e4c758",
+      "after_sha256": "edc84a4f4939212153026ee14438575cef89e8b9f30f5a1af6cb82923a24998e",
+      "edits": [
+        [
+          5654,
+          5694,
+          "com.hbm.world.WorldAirRemoval.remove(world, x + i, y + j, z + k)",
+          "world.setBlockToAir(x + i, y + j, z + k)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java": {
+      "before_sha256": "d81d475f9e3b3ca0c9d06e0c26f5f15a234e84de257b3eed7de15ff2de05d784",
+      "after_sha256": "e38198f72a78fc2d906606ce15e6fa2d8f8755e8f3bdcfe8d57466811da27ee9",
+      "edits": [
+        [
+          1080,
+          1108,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before_sha256": "3d0d1876047088fa2d792a0395e92d7fdc63eb221df4a5450279009608164835",
+      "after_sha256": "ac59ea4d723ac937c87655be0a7d7b9caae12e16a9988b4a558169b51c528388",
+      "edits": [
+        [
+          6340,
+          6368,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineEPress.java": {
+      "before_sha256": "e32eff024822cfe4a36e5617bcbb4e1dc99cc881a71eee2f434945e22de3c3aa",
+      "after_sha256": "cc97604f5f7e0f5622bda73e4fc73a2a99107f2b346faea9a30d921930f697ad",
+      "edits": [
+        [
+          2362,
+          2390,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "e628bf2cbe387efa6bb2f21e24aa108491dbe900b7e62f2d87ba9705d73687bf",
+      "after_sha256": "1c11364981175f6fec20a92c979f62b965a943c1f9d5a6a148074df928da00fa",
+      "edits": [
+        [
+          2546,
+          2574,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineOilWell.java": {
+      "before_sha256": "5fadf1d5e53abe023f488017ba04a3c1aec9f894224eceaabd1b94ed855b4158",
+      "after_sha256": "efa2a3449dc83c2855b72a34fcf2cee920372c24c6a314b744e8848fa997a75c",
+      "edits": [
+        [
+          4661,
+          4689,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePress.java": {
+      "before_sha256": "4458273f95e5908568e065d1a0c704566638be91f4ab2d93f467dbe7a0037fc0",
+      "after_sha256": "ae23420846924183359ba9bf128b3a99b1e2a7016875e380a752225cb23d580d",
+      "edits": [
+        [
+          1745,
+          1773,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before_sha256": "83c4cc1d383142fe8898b669aeccb7fd83411bf1072254e6a2a3c08384674908",
+      "after_sha256": "a04f9543a7f3640cfa5a04fe99a9cf8b4acf92c0f57d74f6115eec1f6fa704e8",
+      "edits": [
+        [
+          2430,
+          2458,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypoint.java": {
+      "before_sha256": "3910d59c47fe795f196853b7a0f6132a222067ffa7c4217c7dc02fb4ebd288e2",
+      "after_sha256": "ed1d758c01d9576578a8197969066b7465264cfc208ee3c90a6a4c317bdcb061",
+      "edits": [
+        [
+          3171,
+          3199,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java": {
+      "before_sha256": "ca56a41b53e370de3c75173eaaaf78d5f72a8892eb52428558777b5cec5e5915",
+      "after_sha256": "c9b42d7b3f014c5fca145865763bd6866ba7cf16572e05144b27c1fab7cdcf77",
+      "edits": [
+        [
+          2722,
+          2750,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeIFNull.java": {
+      "before_sha256": "552e5f33b77d6f163aa87144bf6f88a090ac5c34be3b91018a403b4c4df004e5",
+      "after_sha256": "96f8ab84f9554b31e7cbed1dd9517f4f35e9550c1c10e0480706f11d1e053038",
+      "edits": [
+        [
+          901,
+          1009,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, (int) Math.floor(posX + a), (int) Math.floor(posY + b), (int) Math.floor(posZ + c))",
+          "this.world.setBlockToAir((int) Math.floor(posX + a), (int) Math.floor(posY + b), (int) Math.floor(posZ + c))"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "3f9a6ba2200e890869b837be5df8817e91c39f40fcae757c6251bf7503d4b313",
+      "after_sha256": "3df2cf6cef3daa39159f6db7a1fa10c5ba62c970f03c058055d8f029a82181ae",
+      "edits": [
+        [
+          9234,
+          9267,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityMeteor.java": {
+      "before_sha256": "cd33699a551dd3bd9c74023b3a2c6db818cdc3af87aea7cb37773b853572be14",
+      "after_sha256": "f67be5a80e7fcd98f5df861f1924b590e3c41511bbb2b9a7a2f1f4ec1c26187a",
+      "edits": [
+        [
+          1956,
+          1999,
+          "com.hbm.world.WorldAirRemoval.remove(world, blockX, blockY, blockZ)",
+          "world.setBlockToAir(blockX, blockY, blockZ)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java": {
+      "before_sha256": "802244307896ae34f2c0092d53e13f0714363be599eee8e7976540c2e833002d",
+      "after_sha256": "9c1bbe0a86adf543c4eaf919a4b4c70ae64de68617697b8c9cca1e4dc5a903ed",
+      "edits": [
+        [
+          2965,
+          3010,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x + i, y + j, z + k)",
+          "this.world.setBlockToAir(x + i, y + j, z + k)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java": {
+      "before_sha256": "0af10ca726899395a9466e738536cd9bbdf7337f6f7969ea1dd6ed2792f796e6",
+      "after_sha256": "4d0cebec1c39d8326796cc5ac99b496fdf0f67ff662d4e3c1742dc142620c35f",
+      "edits": [
+        [
+          3320,
+          3365,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x + i, y + j, z + k)",
+          "this.world.setBlockToAir(x + i, y + j, z + k)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionBalefire.java": {
+      "before_sha256": "01e9e3348c55fd60e90474466ef6492c9aa7498324986f74a97f04cac62cb452",
+      "after_sha256": "67b0ffe9094d35ae5dc07fe07bde5c6636c762799a5058d33007d59333199fb9",
+      "edits": [
+        [
+          4219,
+          4252,
+          "com.hbm.world.WorldAirRemoval.remove(worldObj, pX, y, pZ)",
+          "worldObj.setBlockToAir(pX, y, pZ)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": {
+      "before_sha256": "10561fee5b5fdf41648dba75fb0f75bbfc4deaced8b3fb627aa98d2f810c1dd0",
+      "after_sha256": "46c87708871879313edece96494dc2745b057666e330e0411f173db4cf9707f6",
+      "edits": [
+        [
+          30052,
+          30080,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": {
+      "before_sha256": "6ccb58cc2e67dd9f98b292165b2fcb732d4b88432b63241c9de9d5bdb70ea489",
+      "after_sha256": "c6e751f2b852f0cc403f7af3f9f7f6f2e67eb41433a00c2725dc9dd7b49d98b4",
+      "edits": [
+        [
+          4762,
+          4807,
+          "com.hbm.world.WorldAirRemoval.remove(worldObj, pX + i, y + j, pZ + k)",
+          "worldObj.setBlockToAir(pX + i, y + j, pZ + k)"
+        ],
+        [
+          4820,
+          4853,
+          "com.hbm.world.WorldAirRemoval.remove(worldObj, pX, y, pZ)",
+          "worldObj.setBlockToAir(pX, y, pZ)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/handler/ImpactWorldHandler.java": {
+      "before_sha256": "0b4726bb51c7a152820c918363572375db57cc776917eefc2f551966ad406802",
+      "after_sha256": "3e528f8ee43423152f9891d2467ced77eea41d9a156a6706cf5c5d7a3529fca1",
+      "edits": [
+        [
+          5723,
+          5751,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/handler/ability/IToolHarvestAbility.java": {
+      "before_sha256": "f864d116f7a68d9ae3fc4cd8a76e66c81a60342019eed8c8c9d7e7f8cde05485",
+      "after_sha256": "5ab30b9de7af1e73f75289737dc73ae73fe2bbad2ec20baad557bca1b4a34d29",
+      "edits": [
+        [
+          1555,
+          1583,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java": {
+      "before_sha256": "bdd4015bc26a8f9670dc3159b0c5318024a9ed86fe5382ed97ea73bdba703199",
+      "after_sha256": "12684c3abdcbe838c8b81c41723747d89f0850876430279918712b2f18120356",
+      "edits": [
+        [
+          8261,
+          8289,
+          "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)",
+          "world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java": {
+      "before_sha256": "ffc400662b0b488363dbec907f4f4e90a0b753c672be97e5b0d735a7b8616fb5",
+      "after_sha256": "a8b0bad29619b092568ff7cc0842b7a1ea002deead4dbe4a443d657a5b7c07c3",
+      "edits": [
+        [
+          6297,
+          6449,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 4)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 4)"
+        ],
+        [
+          6459,
+          6611,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 5, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 5)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 5, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 5)"
+        ],
+        [
+          6621,
+          6773,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 6)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 6)"
+        ],
+        [
+          6784,
+          6936,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 4)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 4)"
+        ],
+        [
+          6946,
+          7098,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 4)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 4)"
+        ],
+        [
+          7109,
+          7261,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 6)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 6)"
+        ],
+        [
+          7271,
+          7423,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 6)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 6)"
+        ],
+        [
+          7536,
+          7696,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 3)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 3)"
+        ],
+        [
+          7706,
+          7866,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 1)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 1)"
+        ],
+        [
+          7875,
+          8035,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 2)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 2)"
+        ],
+        [
+          8044,
+          8204,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3)"
+        ],
+        [
+          8213,
+          8373,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 4)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 4)"
+        ],
+        [
+          8382,
+          8542,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 5)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 5)"
+        ],
+        [
+          8551,
+          8711,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 6)",
+          "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 6)"
+        ],
+        [
+          8721,
+          8845,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 1)",
+          "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 1)"
+        ],
+        [
+          8854,
+          8978,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 2)",
+          "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 2)"
+        ],
+        [
+          8987,
+          9111,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 3)",
+          "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 3)"
+        ],
+        [
+          9120,
+          9244,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 4)",
+          "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 4)"
+        ],
+        [
+          9253,
+          9377,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 5)",
+          "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 5)"
+        ],
+        [
+          9386,
+          9510,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 6)",
+          "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 6)"
+        ],
+        [
+          9520,
+          9680,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 1)",
+          "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 1)"
+        ],
+        [
+          9689,
+          9849,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 2)",
+          "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 2)"
+        ],
+        [
+          9858,
+          10018,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3)",
+          "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3)"
+        ],
+        [
+          10027,
+          10187,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 4)",
+          "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 4)"
+        ],
+        [
+          10196,
+          10356,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 5)",
+          "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 5)"
+        ],
+        [
+          10365,
+          10525,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 6)",
+          "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 6)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "87a52ce2e1bc059980913bb4ffb2e29392bebe75648e64743d67e606e75681e4",
+      "after_sha256": "d00e645c02e436df2253e27e019228ff844186593662e500ceb1d9c02e852d11",
+      "edits": [
+        [
+          4233,
+          4266,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java": {
+      "before_sha256": "35f678eeb93220b428f5d187d5da5f16a09ea02e149cea6181366d4dec4ad8fe",
+      "after_sha256": "dee8283e4e399b6d867ab9f8da2a2f6bfc7d6d8f9fb67b617b53545d62b75c5b",
+      "edits": [
+        [
+          5027,
+          5060,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+      "before_sha256": "8d87c64e79bfde1bf6cdd1d573dfbc0e854704899804af1dc34821a34cdaa38a",
+      "after_sha256": "8438b552e6594802116b7c738a3e181a1fc8c79c56487e143c6551de180ce5f7",
+      "edits": [
+        [
+          6264,
+          6297,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java": {
+      "before_sha256": "11e6f8656cfabad8d0f5d157a42b7944c596fc877dad67af012037118a0b6aee",
+      "after_sha256": "dcb4bc140b26e7412e1a051205ed55fd45971057eaac142e48ca33c066636ce5",
+      "edits": [
+        [
+          6955,
+          6988,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ],
+        [
+          7019,
+          7098,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())",
+          "this.world.setBlockToAir(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java": {
+      "before_sha256": "1642c81b9438d89ca9a65cce93acf4a24320872e00e3e95e71b29fecc82edf6c",
+      "after_sha256": "76eeb579125499ecf7b91bd7832ea66d8584deaf156988557c56c535e1ad930b",
+      "edits": [
+        [
+          7122,
+          7155,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before_sha256": "881c9c99930843d7f5c11757a8a28d2470e0875a1caae47a821884510ec79887",
+      "after_sha256": "76c1fe6fed4ee2dcb46fbcc5cde0bf4538342a74bb8b28e4f6b17b64338ed73f",
+      "edits": [
+        [
+          17020,
+          17053,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)",
+          "this.world.setBlockToAir(x, y, z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": {
+      "before_sha256": "5263e57e3414b9365e58327a0fc7021e9c260d28dbdb483ffe768c5eac6de15e",
+      "after_sha256": "a145c39e49cf8cafef175f61bb2ffde8f4bf6672890f666f0f7c8cb2dc440ed5",
+      "edits": [
+        [
+          5840,
+          5891,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, targetX, targetY, targetZ)",
+          "this.world.setBlockToAir(targetX, targetY, targetZ)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java": {
+      "before_sha256": "556b3e70107d42e3818c9c7b72cbf10e8e3f2369e2a81e0876c7ed1a476e0c6a",
+      "after_sha256": "4f30aa699d6ebf211737c608e919ec1a02c646a71f2655503797dab4aa3d4dac",
+      "edits": [
+        [
+          5690,
+          5769,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ())",
+          "this.world.setBlockToAir(this.pos.getX(), this.pos.getY() + i, this.pos.getZ())"
+        ],
+        [
+          5997,
+          6084,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4)",
+          "this.world.setBlockToAir(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4)"
+        ],
+        [
+          6311,
+          6398,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4)",
+          "this.world.setBlockToAir(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4)"
+        ],
+        [
+          6625,
+          6712,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4)",
+          "this.world.setBlockToAir(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4)"
+        ],
+        [
+          6939,
+          7026,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4)",
+          "this.world.setBlockToAir(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4)"
+        ],
+        [
+          8152,
+          8244,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z)",
+          "this.world.setBlockToAir(this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before_sha256": "8a1f62e3fd9fdd51c11c8e1aabcb0c843a1e1f570e2f22113d307422b64bb00a",
+      "after_sha256": "50d83f3d46ccd6b103e5a0c6053119d635ae42531ff0f621b580409ded9faf2f",
+      "edits": [
+        [
+          11844,
+          11919,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())",
+          "this.world.setBlockToAir(this.pos.getX(), this.pos.getY(), this.pos.getZ())"
+        ],
+        [
+          12205,
+          12302,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + 1 + dir.offsetY * 2, this.pos.getZ())",
+          "this.world.setBlockToAir(this.pos.getX(), this.pos.getY() + 1 + dir.offsetY * 2, this.pos.getZ())"
+        ],
+        [
+          12538,
+          12645,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + i, this.pos.getZ() + dir.offsetZ)",
+          "this.world.setBlockToAir(this.pos.getX() + dir.offsetX, this.pos.getY() + i, this.pos.getZ() + dir.offsetZ)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java": {
+      "before_sha256": "fcfe71caa62ef6311b5dc3175bf08d7152eb35f85fc02ed4517622f1329ee0bf",
+      "after_sha256": "0f2ad275723b2e960588a5ffc8f3dadc315a7d874f038e99fa81bf2aa804400f",
+      "edits": [
+        [
+          2654,
+          2729,
+          "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())",
+          "this.world.setBlockToAir(this.pos.getX(), this.pos.getY(), this.pos.getZ())"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": {
+      "before_sha256": "674d7fe620fe810d8d5ecbdab17f917e9f94945e7c11bdad5ed4b6c17649ad78",
+      "after_sha256": "a10c822c57c4d2ee6492cf8e8db2b4097a40ee298930b65b3177c08aa062b7c6",
+      "edits": [
+        [
+          1537,
+          1583,
+          "com.hbm.world.WorldAirRemoval.remove(world, x + ix, yOff + iy, z + iz)",
+          "world.setBlockToAir(x + ix, yOff + iy, z + iz)"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before_sha256": "4aefb88fc2d733bc435c4edcdf128cef2010e3d625d1719b02a80bbc9280d0c6",
+      "after_sha256": "cd508a67ab42721fa0353cd518e3ef4796b2487f5519f3e385505a91a6fe44e7",
+      "edits": [
+        [
+          4654,
+          4684,
+          "com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ)",
+          "world.setBlockToAir(rX, y, rZ)"
+        ],
+        [
+          6129,
+          6163,
+          "com.hbm.world.WorldAirRemoval.remove(world, rX, y - 1, rZ)",
+          "world.setBlockToAir(rX, y - 1, rZ)"
+        ],
+        [
+          6656,
+          6686,
+          "com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ)",
+          "world.setBlockToAir(rX, y, rZ)"
+        ]
+      ]
+    }
+  }
+}

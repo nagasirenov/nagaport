@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/acidizer",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.machine_silex",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.SILEX"
+    },
+    "description": {
+      "translate": "achievement.SILEX.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

@@ -1,0 +1,113 @@
+Compiled from "SourceFile"
+public class bsq {
+  private java.lang.String a;
+
+  private float b;
+
+  private float c;
+
+  private int d;
+
+  private bsr e;
+
+  private boolean f;
+
+  public bsq();
+    Code:
+       0: aload_0
+       1: invokespecial #11                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: fconst_1
+       6: putfield      #5                  // Field b:F
+       9: aload_0
+      10: fconst_1
+      11: putfield      #6                  // Field c:F
+      14: aload_0
+      15: iconst_1
+      16: putfield      #7                  // Field d:I
+      19: aload_0
+      20: getstatic     #10                 // Field bsr.a:Lbsr;
+      23: putfield      #8                  // Field e:Lbsr;
+      26: aload_0
+      27: iconst_0
+      28: putfield      #9                  // Field f:Z
+      31: return
+
+  public java.lang.String a();
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field a:Ljava/lang/String;
+       4: areturn
+
+  public void a(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #4                  // Field a:Ljava/lang/String;
+       5: return
+
+  public float b();
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field b:F
+       4: freturn
+
+  public void a(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: putfield      #5                  // Field b:F
+       5: return
+
+  public float c();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field c:F
+       4: freturn
+
+  public void b(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: putfield      #6                  // Field c:F
+       5: return
+
+  public int d();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field d:I
+       4: ireturn
+
+  public void a(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #7                  // Field d:I
+       5: return
+
+  public bsr e();
+    Code:
+       0: aload_0
+       1: getfield      #8                  // Field e:Lbsr;
+       4: areturn
+
+  public void a(bsr);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #8                  // Field e:Lbsr;
+       5: return
+
+  public boolean f();
+    Code:
+       0: aload_0
+       1: getfield      #9                  // Field f:Z
+       4: ireturn
+
+  public void a(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #9                  // Field f:Z
+       5: return
+}

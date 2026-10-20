@@ -1,0 +1,5 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockMetalFence.java": "706ee563fa21bd6bf3a05cce2fae94fa8e55ec83f68e59e97e2801209e97ab8c",
+  "src/main/java/com/hbm/world/generator/DungeonToolbox.java": "c77a86116e4eb1a4c31f17524e45fd05554e08330efed47655751eaa2aaca11c",
+  "src/main/java/com/hbm/items/block/ItemBlockBase.java": "117146a96fc87357c114469f851d935f1911b87aa11d8d84e16b5a7d4e4e9203"
+}

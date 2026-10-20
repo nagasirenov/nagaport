@@ -1,5 +1,8 @@
 package com.hbm.items.tool;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.util.ITooltipFlag;
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
@@ -44,7 +47,7 @@ public class ItemDrone extends ItemEnumMulti {
 				((EntityDeliveryDrone) toSpawn).setChunkLoading();
 			}
 			if(stack.getItemDamage() > 1) {
-				((EntityDeliveryDrone) toSpawn).getDataWatcher().updateObject(11, (byte) 1);
+				((EntityDeliveryDrone) toSpawn).setLoad((byte) 1);
 			}
 		}
 		
@@ -59,10 +62,11 @@ public class ItemDrone extends ItemEnumMulti {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-			for(String s : I18nUtil.resolveKeyArray(stack.getUnlocalizedName() + ".desc"))
+			for(String s : I18nUtil.resolveKeyArray(stack.getTranslationKey() + ".desc"))
 				list.add(TextFormatting.YELLOW + s);
 		} else {
 			list.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "Hold <" + TextFormatting.YELLOW + "" + TextFormatting.ITALIC + "LSHIFT" + TextFormatting.DARK_GRAY

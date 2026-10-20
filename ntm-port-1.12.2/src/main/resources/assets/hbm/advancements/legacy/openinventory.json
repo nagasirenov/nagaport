@@ -1,0 +1,34 @@
+{
+  "parent": "hbm:ntm/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:book",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.openInventory"
+    },
+    "description": {
+      "translate": "achievement.openInventory.desc",
+      "with": [
+        {
+          "keybind": "key.inventory"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

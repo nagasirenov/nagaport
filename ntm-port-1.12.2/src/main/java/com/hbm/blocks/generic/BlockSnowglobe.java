@@ -34,7 +34,7 @@ import net.minecraft.world.World;
 public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 
 	public BlockSnowglobe() {
-		super(Material.glass);
+		super(Material.GLASS);
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 	
@@ -62,7 +62,7 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		TileEntitySnowglobe entity = (TileEntitySnowglobe) world.getTileEntity(x, y, z);
+		TileEntitySnowglobe entity = (TileEntitySnowglobe) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(entity != null) return new ItemStack(this, 1, entity.type.ordinal());
 		return super.getPickBlock(target, world, pos, player);
 	}
@@ -73,13 +73,13 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
 			if(!world.isRemote) {
-				TileEntitySnowglobe entity = (TileEntitySnowglobe) world.getTileEntity(x, y, z);
+				TileEntitySnowglobe entity = (TileEntitySnowglobe) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				if(entity != null) {
 					EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, new ItemStack(this, 1, entity.type.ordinal()));
 					item.motionX = 0;
 					item.motionY = 0;
 					item.motionZ = 0;
-					world.spawnEntityInWorld(item);
+					world.spawnEntity(item);
 				}
 			}
 			harvesters.set(null);
@@ -112,10 +112,10 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int meta = MathHelper.floor_double((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
+		int meta = MathHelper.floor((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
 		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 		
-		TileEntitySnowglobe bobble = (TileEntitySnowglobe) world.getTileEntity(x, y, z);
+		TileEntitySnowglobe bobble = (TileEntitySnowglobe) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		bobble.type = SnowglobeType.values()[Math.abs(stack.getItemDamage()) % SnowglobeType.values().length];
 		bobble.markDirty();
 	}
@@ -141,10 +141,6 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 		
 		public SnowglobeType type = SnowglobeType.NONE;
 
-		@Override
-		public boolean canUpdate() {
-			return false;
-		}
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -165,9 +161,10 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setByte("type", (byte) type.ordinal());
+			return nbt;
 		}
 	}
 	
@@ -196,6 +193,6 @@ public class BlockSnowglobe extends BlockContainer implements IGUIProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUIScreenSnowglobe((TileEntitySnowglobe) world.getTileEntity(x, y, z));
+		return new GUIScreenSnowglobe((TileEntitySnowglobe) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 }

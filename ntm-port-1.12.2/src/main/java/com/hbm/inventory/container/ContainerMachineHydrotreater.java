@@ -103,6 +103,6 @@ public class ContainerMachineHydrotreater extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return hydrotreater.isUseableByPlayer(player);
+		return hydrotreater.isUsableByPlayer(player);
 	}
 }

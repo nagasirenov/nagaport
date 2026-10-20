@@ -1,0 +1,151 @@
+{
+  "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+    "before_sha256": "360dcec56155c04fb5bdc8a3d0376ecfb278737f2d129546295e06c519ecb176",
+    "after_sha256": "0768ba317ad66f778567f1e5131d5899398006d39dfa919e085bbf45a6da3b30",
+    "edits": [
+      {
+        "old": "S2BPacketChangeGameState",
+        "new": "SPacketChangeGameState",
+        "count": 2
+      },
+      {
+        "old": "playerNetServerHandler",
+        "new": "connection",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+    "before_sha256": "ccb0d7f6de54461276d9b2501e39932acdede7737bba6f6b6bde8ff23f832b8f",
+    "after_sha256": "ac7b30574bfcd964b9c52d958ed8ed21e04d841ac2ea043f402428505796ce47",
+    "edits": [
+      {
+        "old": "S2BPacketChangeGameState",
+        "new": "SPacketChangeGameState",
+        "count": 2
+      },
+      {
+        "old": "playerNetServerHandler",
+        "new": "connection",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+    "before_sha256": "99c09b00da4ac4d8181910652cbc20b600598d6fa9cb4179e546ac44d16813c2",
+    "after_sha256": "275126cb78eb6b84ab6cb9f3ec52a78d43842bf4848ad83978c568fa888941e6",
+    "edits": [
+      {
+        "old": "S2BPacketChangeGameState",
+        "new": "SPacketChangeGameState",
+        "count": 2
+      },
+      {
+        "old": "playerNetServerHandler",
+        "new": "connection",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java": {
+    "before_sha256": "70272da6b10f292cc7c4dae1bb56503c6b86d67c95617945daf2977d4bcdd9ad",
+    "after_sha256": "a5f060dab310a5acaf7f7235c8bbce1566674b41d70b91fe24d63059a1df8e86",
+    "edits": [
+      {
+        "old": "S28PacketEffect",
+        "new": "SPacketEffect",
+        "count": 2
+      },
+      {
+        "old": "player.playerNetServerHandler.sendPacket",
+        "new": "player.connection.sendPacket",
+        "count": 1
+      },
+      {
+        "old": "new SPacketEffect(2001, x, y, z,",
+        "new": "new SPacketEffect(2001, new net.minecraft.util.math.BlockPos(x, y, z),",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+    "before_sha256": "893ee389d2f0b37df890150b480d1a969998ba2bcb62150cf1b9f69cfb72ad5b",
+    "after_sha256": "5e02fb759eeb10ec32b7f87282dabcb757c62b6f47e5b91e210e4eb3b4a83196",
+    "edits": [
+      {
+        "old": "import net.minecraft.entity.EntityMinecartCommandBlock;",
+        "new": "import net.minecraft.entity.item.EntityMinecartCommandBlock;",
+        "count": 1
+      },
+      {
+        "old": "import net.minecraft.entity.ai.EntityMinecartMobSpawner;",
+        "new": "import net.minecraft.entity.item.EntityMinecartMobSpawner;",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+    "before_sha256": "c1641778fb0f6d4887d5e31b54c82469281a9e02e25294e040b5292621fc38ec",
+    "after_sha256": "d534353ce27929ab50e023c6930027920fcd40096a045ccb22680dfd18b57555",
+    "edits": [
+      {
+        "old": "import net.minecraft.entity.EntityMinecartCommandBlock;",
+        "new": "import net.minecraft.entity.item.EntityMinecartCommandBlock;",
+        "count": 1
+      },
+      {
+        "old": "import net.minecraft.entity.ai.EntityMinecartMobSpawner;",
+        "new": "import net.minecraft.entity.item.EntityMinecartMobSpawner;",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": {
+    "before_sha256": "83cbb640f5236361423574e71287e96b930dcc38191a809cc221047376a50381",
+    "after_sha256": "0918525a8277837cc156cf8e92a2e50216ef7d48fdbf276bbcf282f3849d6f6f",
+    "edits": [
+      {
+        "old": "import net.minecraft.world.WorldSettings.GameType;",
+        "new": "import net.minecraft.world.GameType;",
+        "count": 1
+      },
+      {
+        "old": ".theItemInWorldManager.getGameType()",
+        "new": ".interactionManager.getGameType()",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java": {
+    "before_sha256": "d11f0d2c754c4e1ab70686408a69d26e3eabe509bae5700f34b7163c85e2555e",
+    "after_sha256": "1c9addecac84d1dee63b50e980f6d5e2a9d656b56e7e527addbc8a897d6c87c3",
+    "edits": [
+      {
+        "old": "import net.minecraft.entity.boss.EntityDragonPart;",
+        "new": "import net.minecraft.entity.MultiPartEntityPart;",
+        "count": 1
+      },
+      {
+        "old": "instanceof EntityDragonPart",
+        "new": "instanceof MultiPartEntityPart",
+        "count": 1
+      }
+    ]
+  },
+  "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": {
+    "before_sha256": "2e9a8b4819d584d07eca292fded4315652ee33093732da57bf7c098a2c97da26",
+    "after_sha256": "2df12a7d2eaec36a1e3afb89e72e92c5734e41c78f303a79018f3c45e4d25d79",
+    "edits": [
+      {
+        "old": "C0DPacketCloseWindow",
+        "new": "CPacketCloseWindow",
+        "count": 2
+      },
+      {
+        "old": "this.mc.thePlayer.sendQueue.addToSendQueue(new CPacketCloseWindow(this.mc.thePlayer.openContainer.windowId))",
+        "new": "this.mc.player.connection.sendPacket(new CPacketCloseWindow(this.mc.player.openContainer.windowId))",
+        "count": 1
+      }
+    ]
+  }
+}

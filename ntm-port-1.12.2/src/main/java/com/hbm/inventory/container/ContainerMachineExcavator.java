@@ -87,6 +87,6 @@ public class ContainerMachineExcavator extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return excavator.isUseableByPlayer(player);
+		return excavator.isUsableByPlayer(player);
 	}
 }

@@ -8,6 +8,7 @@ import com.hbm.items.machine.ItemBattery;
 import com.hbm.util.BobMathUtil;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -19,7 +20,7 @@ public class ItemAnchorRemote extends ItemBattery {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		
 		long charge = maxCharge;
 		
@@ -40,14 +41,14 @@ public class ItemAnchorRemote extends ItemBattery {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 
-		if(world.getBlock(x, y, z) == ModBlocks.teleanchor) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.teleanchor) {
 
 			if(!stack.hasTagCompound())
-				stack.stackTagCompound = new NBTTagCompound();
+				stack.setTagCompound(new NBTTagCompound());
 
-			stack.stackTagCompound.setInteger("x", x);
-			stack.stackTagCompound.setInteger("y", y);
-			stack.stackTagCompound.setInteger("z", z);
+			stack.getTagCompound().setInteger("x", x);
+			stack.getTagCompound().setInteger("y", y);
+			stack.getTagCompound().setInteger("z", z);
 
 			return true;
 		}
@@ -72,20 +73,20 @@ public class ItemAnchorRemote extends ItemBattery {
 			return stack;
 		}
 
-		int x = stack.stackTagCompound.getInteger("x");
-		int y = stack.stackTagCompound.getInteger("y");
-		int z = stack.stackTagCompound.getInteger("z");
+		int x = stack.getTagCompound().getInteger("x");
+		int y = stack.getTagCompound().getInteger("y");
+		int z = stack.getTagCompound().getInteger("z");
 
 		world.getChunkProvider().loadChunk(x >> 4, z >> 4);
 
-		if(world.getBlock(x, y, z) == ModBlocks.teleanchor) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.teleanchor) {
 
 			if(player.isRiding()) {
 				player.mountEntity(null);
 			}
 
 			world.newExplosion(player, x + 0.5, y + 1 + player.height / 2, z + 0.5, 2F, false, false);
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "mob.endermen.portal", 1.0F, 1.0F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "mob.endermen.portal", 1.0F, 1.0F);
 			player.setPositionAndUpdate(x + 0.5, y + 1, z + 0.5);
 			//world.playSoundEffect(player.posX, player.posY, player.posZ, "mob.endermen.portal", 1.0F, 1.0F);
 			player.fallDistance = 0.0F;

@@ -44,10 +44,10 @@ public class ArmorFSBPowered extends ArmorFSB implements IBatteryItem {
 	public void chargeBattery(ItemStack stack, long i) {
 		if(stack.getItem() instanceof ArmorFSBPowered) {
 			if(stack.hasTagCompound()) {
-				stack.stackTagCompound.setLong("charge", stack.stackTagCompound.getLong("charge") + i);
+				stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") + i);
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", i);
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", i);
 			}
 		}
 	}
@@ -56,10 +56,10 @@ public class ArmorFSBPowered extends ArmorFSB implements IBatteryItem {
 	public void setCharge(ItemStack stack, long i) {
 		if(stack.getItem() instanceof ArmorFSBPowered) {
 			if(stack.hasTagCompound()) {
-				stack.stackTagCompound.setLong("charge", i);
+				stack.getTagCompound().setLong("charge", i);
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", i);
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", i);
 			}
 		}
 	}
@@ -68,14 +68,14 @@ public class ArmorFSBPowered extends ArmorFSB implements IBatteryItem {
 	public void dischargeBattery(ItemStack stack, long i) {
 		if(stack.getItem() instanceof ArmorFSBPowered) {
 			if(stack.hasTagCompound()) {
-				stack.stackTagCompound.setLong("charge", stack.stackTagCompound.getLong("charge") - i);
+				stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") - i);
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", getMaxCharge(stack) - i);
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", getMaxCharge(stack) - i);
 			}
 
-			if(stack.stackTagCompound.getLong("charge") < 0)
-				stack.stackTagCompound.setLong("charge", 0);
+			if(stack.getTagCompound().getLong("charge") < 0)
+				stack.getTagCompound().setLong("charge", 0);
 		}
 	}
 
@@ -83,11 +83,11 @@ public class ArmorFSBPowered extends ArmorFSB implements IBatteryItem {
 	public long getCharge(ItemStack stack) {
 		if(stack.getItem() instanceof ArmorFSBPowered) {
 			if(stack.hasTagCompound()) {
-				return Math.min(stack.stackTagCompound.getLong("charge"), getMaxCharge(stack));
+				return Math.min(stack.getTagCompound().getLong("charge"), getMaxCharge(stack));
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", getMaxCharge(stack));
-				return stack.stackTagCompound.getLong("charge");
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", getMaxCharge(stack));
+				return stack.getTagCompound().getLong("charge");
 			}
 		}
 

@@ -36,7 +36,7 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
 	public DroneCrate() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.drone_linker) return false;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.drone_linker) return false;
 
 		if(world.isRemote) {
 			return true;
@@ -75,36 +75,40 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		TileEntityDroneCrate tileentityfurnace = (TileEntityDroneCrate) world.getTileEntity(x, y, z);
+		TileEntityDroneCrate tileentityfurnace = (TileEntityDroneCrate) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(tileentityfurnace != null) {
 				for(int i1 = 0; i1 < tileentityfurnace.getSizeInventory(); ++i1) {
 					ItemStack itemstack = tileentityfurnace.getStackInSlot(i1);
 
-					if(itemstack != null) {
+					if(itemstack != null && !itemstack.isEmpty()) {
 						float f = this.rand.nextFloat() * 0.8F + 0.1F;
 						float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
 						float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
 
-						while(itemstack.stackSize > 0) {
+						while(itemstack.getCount() > 0) {
 							int j1 = this.rand.nextInt(21) + 10;
 
-							if(j1 > itemstack.stackSize) {
-								j1 = itemstack.stackSize;
+							if(j1 > itemstack.getCount()) {
+								j1 = itemstack.getCount();
 							}
 
-							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							// Capture before depletion: native empty stacks hide their item.
+							net.minecraft.item.Item dropItem = itemstack.getItem();
+							int dropMeta = itemstack.getItemDamage();
+							NBTTagCompound dropTag = itemstack.getTagCompound();
+							itemstack.shrink(j1);
+							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-							if(itemstack.hasTagCompound()) {
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+							if(dropTag != null) {
+								entityitem.getItem().setTagCompound(dropTag.copy());
 							}
 
 							float f3 = 0.05F;
 							entityitem.motionX = (float) this.rand.nextGaussian() * f3;
 							entityitem.motionY = (float) this.rand.nextGaussian() * f3 + 0.2F;
 							entityitem.motionZ = (float) this.rand.nextGaussian() * f3;
-							world.spawnEntityInWorld(entityitem);
+							world.spawnEntity(entityitem);
 						}
 					}
 				}
@@ -122,12 +126,12 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntityDroneCrate tile = (TileEntityDroneCrate) world.getTileEntity(x, y, z);
+		TileEntityDroneCrate tile = (TileEntityDroneCrate) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		List<String> text = new ArrayList();
 
 		if(tile.nextY != -1) {
 			text.add("Next waypoint: " + tile.nextX + " / " + tile.nextY + " / " + tile.nextZ);
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 }

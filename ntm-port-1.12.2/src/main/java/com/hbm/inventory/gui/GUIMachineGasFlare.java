@@ -45,16 +45,16 @@ public class GUIMachineGasFlare extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 89 <= x && guiLeft + 89 + 16 > x && guiTop + 16 < y && guiTop + 16 + 10 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("valve", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, flare.xCoord, flare.yCoord, flare.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, flare.getPos().getX(), flare.getPos().getY(), flare.getPos().getZ()));
 			
 		} else if(guiLeft + 89 <= x && guiLeft + 89 + 16 > x && guiTop + 50 < y && guiTop + 50 + 14 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("dial", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, flare.xCoord, flare.yCoord, flare.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, flare.getPos().getX(), flare.getPos().getY(), flare.getPos().getZ()));
 		}
 		
 	}
@@ -64,7 +64,7 @@ public class GUIMachineGasFlare extends GuiInfoContainer {
 		//String name = this.flare.hasCustomInventoryName() ? this.flare.getInventoryName() : I18n.format(this.flare.getInventoryName());
 		
 		//this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override

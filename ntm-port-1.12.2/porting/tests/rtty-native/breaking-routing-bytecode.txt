@@ -1,0 +1,355 @@
+ORIGINAL damage pass color-disable before block renderer, blend/offset/alpha:
+  public void a(bmh, yz, float);
+    Code:
+       0: aload_2
+       1: getfield      #465                // Field yz.S:D
+       4: aload_2
+       5: getfield      #468                // Field yz.s:D
+       8: aload_2
+       9: getfield      #465                // Field yz.S:D
+      12: dsub
+      13: fload_3
+      14: f2d
+      15: dmul
+      16: dadd
+      17: dstore        4
+      19: aload_2
+      20: getfield      #466                // Field yz.T:D
+      23: aload_2
+      24: getfield      #469                // Field yz.t:D
+      27: aload_2
+      28: getfield      #466                // Field yz.T:D
+      31: dsub
+      32: fload_3
+      33: f2d
+      34: dmul
+      35: dadd
+      36: dstore        6
+      38: aload_2
+      39: getfield      #467                // Field yz.U:D
+      42: aload_2
+      43: getfield      #470                // Field yz.u:D
+      46: aload_2
+      47: getfield      #467                // Field yz.U:D
+      50: dsub
+      51: fload_3
+      52: f2d
+      53: dmul
+      54: dadd
+      55: dstore        8
+      57: aload_0
+      58: getfield      #389                // Field O:Ljava/util/Map;
+      61: invokeinterface #724,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+      66: ifne          366
+      69: sipush        774
+      72: sipush        768
+      75: iconst_1
+      76: iconst_0
+      77: invokestatic  #627                // Method buu.c:(IIII)V
+      80: aload_0
+      81: getfield      #426                // Field s:Lbqf;
+      84: getstatic     #443                // Field bpz.b:Lbqx;
+      87: invokevirtual #621                // Method bqf.a:(Lbqx;)V
+      90: fconst_1
+      91: fconst_1
+      92: fconst_1
+      93: ldc           #26                 // float 0.5f
+      95: invokestatic  #679                // Method org/lwjgl/opengl/GL11.glColor4f:(FFFF)V
+      98: invokestatic  #690                // Method org/lwjgl/opengl/GL11.glPushMatrix:()V
+     101: ldc           #10                 // float -3.0f
+     103: ldc           #10                 // float -3.0f
+     105: invokestatic  #688                // Method org/lwjgl/opengl/GL11.glPolygonOffset:(FF)V
+     108: ldc           #2                  // int 32823
+     110: invokestatic  #683                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     113: sipush        516
+     116: ldc           #18                 // float 0.1f
+     118: invokestatic  #676                // Method org/lwjgl/opengl/GL11.glAlphaFunc:(IF)V
+     121: sipush        3008
+     124: invokestatic  #683                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     127: aload_1
+     128: invokevirtual #608                // Method bmh.b:()V
+     131: aload_1
+     132: dload         4
+     134: dneg
+     135: dload         6
+     137: dneg
+     138: dload         8
+     140: dneg
+     141: invokevirtual #609                // Method bmh.b:(DDD)V
+     144: aload_1
+     145: invokevirtual #610                // Method bmh.c:()V
+     148: aload_0
+     149: getfield      #389                // Field O:Ljava/util/Map;
+     152: invokeinterface #727,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+     157: invokeinterface #712,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     162: astore        10
+     164: aload         10
+     166: invokeinterface #713,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     171: ifeq          325
+     174: aload         10
+     176: invokeinterface #714,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     181: checkcast     #245                // class mj
+     184: astore        11
+     186: aload         11
+     188: invokevirtual #665                // Method mj.b:()I
+     191: i2d
+     192: dload         4
+     194: dsub
+     195: dstore        12
+     197: aload         11
+     199: invokevirtual #667                // Method mj.c:()I
+     202: i2d
+     203: dload         6
+     205: dsub
+     206: dstore        14
+     208: aload         11
+     210: invokevirtual #668                // Method mj.d:()I
+     213: i2d
+     214: dload         8
+     216: dsub
+     217: dstore        16
+     219: dload         12
+     221: dload         12
+     223: dmul
+     224: dload         14
+     226: dload         14
+     228: dmul
+     229: dadd
+     230: dload         16
+     232: dload         16
+     234: dmul
+     235: dadd
+     236: ldc2_w        #315                // double 1024.0d
+     239: dcmpl
+     240: ifle          253
+     243: aload         10
+     245: invokeinterface #715,  1          // InterfaceMethod java/util/Iterator.remove:()V
+     250: goto          322
+     253: aload_0
+     254: getfield      #425                // Field r:Lbjf;
+     257: aload         11
+     259: invokevirtual #665                // Method mj.b:()I
+     262: aload         11
+     264: invokevirtual #667                // Method mj.c:()I
+     267: aload         11
+     269: invokevirtual #668                // Method mj.d:()I
+     272: invokevirtual #507                // Method bjf.a:(III)Laji;
+     275: astore        18
+     277: aload         18
+     279: invokevirtual #482                // Method aji.o:()Lawt;
+     282: getstatic     #328                // Field awt.a:Lawt;
+     285: if_acmpeq     322
+     288: aload_0
+     289: getfield      #376                // Field B:Lblm;
+     292: aload         18
+     294: aload         11
+     296: invokevirtual #665                // Method mj.b:()I
+     299: aload         11
+     301: invokevirtual #667                // Method mj.c:()I
+     304: aload         11
+     306: invokevirtual #668                // Method mj.d:()I
+     309: aload_0
+     310: getfield      #391                // Field Q:[Lrf;
+     313: aload         11
+     315: invokevirtual #669                // Method mj.e:()I
+     318: aaload
+     319: invokevirtual #564                // Method blm.a:(Laji;IIILrf;)V
+     322: goto          164
+     325: aload_1
+     326: invokevirtual #602                // Method bmh.a:()I
+     329: pop
+     330: aload_1
+     331: dconst_0
+     332: dconst_0
+     333: dconst_0
+     334: invokevirtual #609                // Method bmh.b:(DDD)V
+     337: sipush        3008
+     340: invokestatic  #682                // Method org/lwjgl/opengl/GL11.glDisable:(I)V
+     343: fconst_0
+     344: fconst_0
+     345: invokestatic  #688                // Method org/lwjgl/opengl/GL11.glPolygonOffset:(FF)V
+     348: ldc           #2                  // int 32823
+     350: invokestatic  #682                // Method org/lwjgl/opengl/GL11.glDisable:(I)V
+     353: sipush        3008
+     356: invokestatic  #683                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     359: iconst_1
+     360: invokestatic  #681                // Method org/lwjgl/opengl/GL11.glDepthMask:(Z)V
+     363: invokestatic  #689                // Method org/lwjgl/opengl/GL11.glPopMatrix:()V
+     366: return
+
+
+ORIGINAL color suppression:
+  public void c();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #45                 // Field r:Z
+       5: return
+
+  public void a(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field r:Z
+       4: ifeq          8
+       7: return
+       8: iload_1
+       9: sipush        255
+      12: if_icmple     19
+      15: sipush        255
+      18: istore_1
+      19: iload_2
+      20: sipush        255
+      23: if_icmple     30
+      26: sipush        255
+      29: istore_2
+      30: iload_3
+      31: sipush        255
+      34: if_icmple     41
+      37: sipush        255
+      40: istore_3
+      41: iload         4
+      43: sipush        255
+      46: if_icmple     54
+      49: sipush        255
+      52: istore
+
+NATIVE custom damage route and stage dispatch:
+orldClient.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+    1501: astore        26
+    1503: aload         25
+    1505: ifnull        1532
+    1508: aload         26
+    1510: invokeinterface #1102,  1         // InterfaceMethod net/minecraft/block/state/IBlockState.hasCustomBreakingProgress:()Z
+    1515: ifeq          1532
+    1518: getstatic     #777                // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.instance:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+    1521: aload         25
+    1523: fload_3
+    1524: aload         23
+    1526: invokevirtual #1105               // Method net/minecraft/client/renderer/DestroyBlockProgress.getPartialBlockDamage:()I
+    1529: invokevirtual #1039               // Method net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.render:(Lnet/minecraft/tileentity/TileEntity;FI)V
+    1532: goto          1356
+    1535: aload_0
+    1536: invokespecial #1108               // Meth
+
+NATIVE standard retexture skipped for canRenderBreaking tiles:
+256: iload         22
+     258: ifne          281
+     261: aload         21
+     263: ifnull        278
+     266: aload         21
+     268: invokevirtual #2136               // Method net/minecraft/tileentity/TileEntity.canRenderBreaking:()Z
+     271: ifeq          278
+     274: iconst_1
+     275: goto          279
+     278: iconst_0
+     279: istore        22
+     281: iload         22
+     283: ifne          384
+     286: dload         14
+     288: dload         14
+     290: dmul
+     291: dload         16
+     293: dload         16
+     295: dmul
+     296: dadd
+     297: dload         18
+     299: dload         18
+     301: dmul
+     302: dadd
+     303: ldc2_w        #2137               // double 1024.0d
+     306: dcmpl
+     307: ifle          320
+     310: aload         11
+     312: invokeinterface #1721,  1         // InterfaceMethod java/util/Iterator.remove:()V
+     317: goto          384
+     320: aload_0
+     321: getfield      #642                // Field world:Lnet/minecraft/client/multiplayer/WorldClient;
+     324: aload         13
+     326: invokevirtual #1062               // Method net/minecraft/client/multiplayer/WorldClient.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     329: astore        23
+     331: aload         23
+     333: invokeinterface #2142,  1         // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+     338: getstatic     #2148               // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+     341: if_acmpeq     384
+     344: aload         12
+     346: invokevirtual #1105               // Method net/minecraft/client/renderer/DestroyBlockProgress.getPartialBlockDamage:()I
+     349: istore        24
+     351: aload_0
+     352: getfield      #189                // Field destroyBlockIcons:[Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+     355: iload         24
+     357: aaload
+     358: astore        25
+     360: aload_0
+     361: getfield      #233                // Field mc:Lnet/minecraft/client/Minecraft;
+     364: invokevirtual #2152               // Method net/minecraft/client/Minecraft.getBlockRendererDispatcher:()Lnet/minecraft/client/renderer/BlockRendererDispatcher;
+     367: astore        26
+     369: aload         26
+     371: aload         23
+     373: aload         13
+     375: aload         25
+     377: aload_0
+     378: getfield      #642                // Field world:Lnet/minecraft/client/multiplayer/WorldClient;
+     381: invokevirtual #2158               // Method net/minecraft/client/renderer/BlockRendererDispatcher.renderBlockDamage:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;Lnet/minecraft/world/IBlockAccess;)V
+     384: goto          128
+     387: aload_1
+     388: invokevirtual #520           
+
+NATIVE exact dispatcher overload executed in CPU tests:
+  public void render(net.minecraft.tileentity.TileEntity, double, double, double, float, int, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #350                // Method getRenderer:(Lnet/minecraft/tileentity/TileEntity;)Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+       5: astore        11
+       7: aload         11
+       9: ifnull        111
+      12: aload_0
+      13: getfield      #60                 // Field drawingBatch:Z
+      16: ifeq          53
+      19: aload_1
+      20: invokevirtual #277                // Method net/minecraft/tileentity/TileEntity.hasFastRenderer:()Z
+      23: ifeq          53
+      26: aload         11
+      28: aload_1
+      29: dload_2
+      30: dload         4
+      32: dload         6
+      34: fload         8
+      36: iload         9
+      38: fload         10
+      40: aload_0
+      41: getfield      #58                 // Field batchBuffer:Lnet/minecraft/client/renderer/Tessellator;
+      44: invokevirtual #354                // Method net/minecraft/client/renderer/Tessellator.getBuffer:()Lnet/minecraft/client/renderer/BufferBuilder;
+      47: invokevirtual #358                // Method net/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer.renderTileEntityFast:(Lnet/minecraft/tileentity/TileEntity;DDDFIFLnet/minecraft/client/renderer/BufferBuilder;)V
+      50: goto          70
+      53: aload         11
+      55: aload_1
+      56: dload_2
+      57: dload         4
+      59: dload         6
+      61: fload         8
+      63: iload         9
+      65: fload         10
+      67: invokevirtual #359                // Method net/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer.render:(Lnet/minecraft/tileentity/TileEntity;DDDFIF)V
+      70: goto          111
+      73: astore        12
+      75: aload         12
+      77: ldc_w         #361                // String Rendering Block Entity
+      80: invokestatic  #367                // Method net/minecraft/crash/CrashReport.makeCrashReport:(Ljava/lang/Throwable;Ljava/lang/String;)Lnet/minecraft/crash/CrashReport;
+      83: astore        13
+      85: aload         13
+      87: ldc_w         #369                // String Block Entity Details
+      90: invokevirtual #373                // Method net/minecraft/crash/CrashReport.makeCategory:(Ljava/lang/String;)Lnet/minecraft/crash/CrashReportCategory;
+      93: astore        14
+      95: aload_1
+      96: aload         14
+      98: invokevirtual #377                // Method net/minecraft/tileentity/TileEntity.addInfoToCrashReport:(Lnet/minecraft/crash/CrashReportCategory;)V
+     101: new           #379                // class net/minecraft/util/ReportedException
+     104: dup
+     105: aload         13
+     107: invokespecial #382                // Method net/minecraft/util/ReportedException."<init>":(Lnet/minecraft/crash/CrashReport;)V
+     110: athrow
+     111: return
+    Exception table:
+       from    to  target type
+          12    70    73   Class java/lang/Throwable

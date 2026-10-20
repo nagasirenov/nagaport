@@ -62,13 +62,13 @@ public class ItemGunNI4NI extends ItemGunBaseNT implements ICustomizable {
 		
 		if(args.length == 0) {
 			resetColors(stack);
-			player.addChatComponentMessage(ChatBuilder.start("Colors reset!").color(TextFormatting.GREEN).flush());
+			player.sendMessage(ChatBuilder.start("Colors reset!").color(TextFormatting.GREEN).flush());
 			return;
 		}
 		
 		if(args.length != 3) {
 			resetColors(stack);
-			player.addChatComponentMessage(ChatBuilder.start("Requires three hexadecimal colors!").color(TextFormatting.RED).flush());
+			player.sendMessage(ChatBuilder.start("Requires three hexadecimal colors!").color(TextFormatting.RED).flush());
 			return;
 		}
 		
@@ -78,31 +78,31 @@ public class ItemGunNI4NI extends ItemGunBaseNT implements ICustomizable {
 			int grip = Integer.parseInt(args[2], 16);
 			
 			if(dark < 0 || dark > 0xffffff || light < 0 || light > 0xffffff || grip < 0 || grip > 0xffffff) {
-				player.addChatComponentMessage(ChatBuilder.start("Colors must range from 0 to FFFFFF!").color(TextFormatting.RED).flush());
+				player.sendMessage(ChatBuilder.start("Colors must range from 0 to FFFFFF!").color(TextFormatting.RED).flush());
 				return;
 			}
 			
 			setColors(stack, dark, light, grip);
-			player.addChatComponentMessage(ChatBuilder.start("Colors set!").color(TextFormatting.GREEN).flush());
+			player.sendMessage(ChatBuilder.start("Colors set!").color(TextFormatting.GREEN).flush());
 			
 		} catch(Throwable ex) {
-			player.addChatComponentMessage(ChatBuilder.start(ex.getLocalizedMessage()).color(TextFormatting.RED).flush());
+			player.sendMessage(ChatBuilder.start(ex.getLocalizedMessage()).color(TextFormatting.RED).flush());
 		}
 	}
 	
 	public static void resetColors(ItemStack stack) {
 		if(!stack.hasTagCompound()) return;
-		stack.stackTagCompound.removeTag("colors");
+		stack.getTagCompound().removeTag("colors");
 	}
 	
 	public static void setColors(ItemStack stack, int dark, int light, int grip) {
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setIntArray("colors", new int[] {dark, light, grip});
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setIntArray("colors", new int[] {dark, light, grip});
 	}
 	
 	public static int[] getColors(ItemStack stack) {
-		if(!stack.hasTagCompound() || !stack.stackTagCompound.hasKey("colors")) return null;
-		int[] colors = stack.stackTagCompound.getIntArray("colors");
+		if(!stack.hasTagCompound() || !stack.getTagCompound().hasKey("colors")) return null;
+		int[] colors = stack.getTagCompound().getIntArray("colors");
 		if(colors.length != 3) return null;
 		return colors;
 	}

@@ -3,7 +3,11 @@ package com.hbm.blocks.generic;
 import com.hbm.blocks.BlockEnumMulti;
 import com.hbm.world.gen.nbt.INBTBlockTransformable;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -18,20 +22,26 @@ public class BlockDecoModel extends BlockEnumMulti implements INBTBlockTransform
 		super(mat, theEnum, multiName, multiTexture);
 	}
 
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, META); }
+    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(META, meta & 15); }
+    @Override public int getMetaFromState(IBlockState state) { return state.getValue(META); }
 
 	@Override
-	public int getRenderType() {
-		return renderID;
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
 	}
+    @Override public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, net.minecraft.util.EnumFacing side) {
+        return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+    }
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
@@ -41,8 +51,8 @@ public class BlockDecoModel extends BlockEnumMulti implements INBTBlockTransform
 
 	//Assumes meta is using the third and fourth bits.
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		int meta;
 
@@ -55,7 +65,7 @@ public class BlockDecoModel extends BlockEnumMulti implements INBTBlockTransform
 				meta = 3; //For East(b01>b11), just set to 3
 		}
 
-		world.setBlockMetadataWithNotify(x, y, z, (meta << 2) | stack.getItemDamage(), 2);
+		world.setBlockState(pos, getStateFromMeta((meta << 2) | stack.getItemDamage()), 2);
 	}
 
 	@Override
@@ -82,29 +92,15 @@ public class BlockDecoModel extends BlockEnumMulti implements INBTBlockTransform
 		return this;
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		switch(world.getBlockMetadata(x, y, z) >> 2) {
-		case 0://North
-			this.setBlockBounds(1 - mxX, mnY, 1 - mxZ, 1 - mnX, mxY, 1 - mnZ);
-			break;
-		case 1://South
-			this.setBlockBounds(mnX, mnY, mnZ, mxX, mxY, mxZ);
-			break;
-		case 2://West
-			this.setBlockBounds(1 - mxZ, mnY, mnX, 1 - mnZ, mxY, mxX);
-			break;
-		case 3://East
-			this.setBlockBounds(mnZ, mnY, 1 - mxX, mxZ, mxY, 1 - mnX);
-			break;
-		}
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		this.setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        switch(getMetaFromState(state) >> 2) {
+            case 0: return new AxisAlignedBB(1 - mxX, mnY, 1 - mxZ, 1 - mnX, mxY, 1 - mnZ);
+            case 1: return new AxisAlignedBB(mnX, mnY, mnZ, mxX, mxY, mxZ);
+            case 2: return new AxisAlignedBB(1 - mxZ, mnY, mnX, 1 - mnZ, mxY, mxX);
+            default: return new AxisAlignedBB(mnZ, mnY, 1 - mxX, mxZ, mxY, 1 - mnX);
+        }
+    }
 
 	@Override
 	public int transformMeta(int meta, int coordBaseMode) {

@@ -18,9 +18,10 @@ public class TileEntityData extends TileEntity {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("meta", metadata);
+		return nbt;
 	}
 
 }

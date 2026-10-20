@@ -54,7 +54,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 		double surge = 0;
 		
 		if(this.targetLevel < this.startingLevel && Math.abs(this.level - this.targetLevel) > 0.01D) {
-			surge = Math.sin(Math.pow((1D - this.level), 15) * Math.PI) * (this.startingLevel - this.targetLevel) * RBMKDials.getSurgeMod(worldObj);
+			surge = Math.sin(Math.pow((1D - this.level), 15) * Math.PI) * (this.startingLevel - this.targetLevel) * RBMKDials.getSurgeMod(this.world);
 			
 		}
 		
@@ -63,7 +63,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setDouble("startingLevel", this.startingLevel);
@@ -110,6 +110,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 		
 		if(color != null)
 			nbt.setInteger("color", color.ordinal());
+		return nbt;
 	}
 
 	@Override
@@ -127,7 +128,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 		super.deserialize(buf);
 		this.startingLevel = buf.readDouble();
 		int color = buf.readInt();
-		this.color = RBMKColor.values()[MathHelper.clamp_int(color, 0, RBMKColor.values().length)];
+		this.color = RBMKColor.values()[MathHelper.clamp(color, 0, RBMKColor.values().length)];
 		if(color == -1) this.color = null;
 	}
 	
@@ -166,7 +167,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setColor(Context context, Arguments args) {
 		int colorI = args.checkInteger(0);
-		colorI = MathHelper.clamp_int(colorI, 0, 4);
+		colorI = MathHelper.clamp(colorI, 0, 4);
 		this.color = RBMKColor.values()[colorI];
 		return new Object[] {true};
 	}
@@ -215,7 +216,7 @@ public class TileEntityRBMKControlManual extends TileEntityRBMKControl implement
 
 		if((PREFIX_FUNCTION + "extendrods").equals(name) && params.length > 0) {
 			int percent = IRORInteractive.parseInt(params[0], -100, 100);
-			this.targetLevel = MathHelper.clamp_double(this.targetLevel + percent / 100D, 0D, 1D);
+			this.targetLevel = MathHelper.clamp(this.targetLevel + percent / 100D, 0D, 1D);
 			this.markDirty();
 			return null;
 		}

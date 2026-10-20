@@ -1,0 +1,1 @@
+package com.hbm.inventory.container; public class ContainerAnvil extends net.minecraft.inventory.Container { public int tier; public ContainerAnvil(net.minecraft.entity.player.InventoryPlayer p,int tier) {this.tier=tier;} public boolean canInteractWith(net.minecraft.entity.player.EntityPlayer p) { return true; } }

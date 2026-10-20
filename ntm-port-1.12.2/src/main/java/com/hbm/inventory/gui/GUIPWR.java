@@ -49,7 +49,7 @@ public class GUIPWR extends GuiInfoContainer {
 		
 		Keyboard.enableRepeatEvents(true);
 		
-		this.field = new GuiTextField(this.fontRendererObj, guiLeft + 57, guiTop + 63, 30, 8);
+		this.field = new GuiTextField(0, this.fontRenderer, guiLeft + 57, guiTop + 63, 30, 8);
 		this.field.setTextColor(0x00ff00);
 		this.field.setDisabledTextColour(0x008000);
 		this.field.setEnableBackgroundDrawing(false);
@@ -85,7 +85,7 @@ public class GUIPWR extends GuiInfoContainer {
 		itemRender.zLevel = 200.0F;
 		FontRenderer font = null;
 		if(stack != null) font = stack.getItem().getFontRenderer(stack);
-		if(font == null) font = fontRendererObj;
+		if(font == null) font = fontRenderer;
 		itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), stack, x, y);
 		GL11.glScaled(0.5, 0.5, 0.5);
 		itemRender.renderItemOverlayIntoGUI(font, this.mc.getTextureManager(), stack, (x + font.getStringWidth(label) / 4) * 2, (y + 15) * 2, label);
@@ -96,12 +96,12 @@ public class GUIPWR extends GuiInfoContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		double scale = 1.25;
 		String flux = String.format(Locale.US, "%,.1f", controller.flux);
 		GL11.glScaled(1 / scale, 1 / scale, 1);
-		this.fontRendererObj.drawString(flux, (int) (165 * scale - this.fontRendererObj.getStringWidth(flux)), (int)(64 * scale), 0x00ff00);
+		this.fontRenderer.drawString(flux, (int) (165 * scale - this.fontRenderer.getStringWidth(flux)), (int)(64 * scale), 0x00ff00);
 		GL11.glScaled(scale, scale, 1);
 	}
 
@@ -177,13 +177,13 @@ public class GUIPWR extends GuiInfoContainer {
 		if(guiLeft + 88 <= mouseX && guiLeft + 88 + 18 > mouseX && guiTop + 58 < mouseY && guiTop + 58 + 18 >= mouseY) {
 			
 			if(NumberUtils.isNumber(field.getText())) {
-				int level = (int)MathHelper.clamp_double(Double.parseDouble(field.getText()), 0, 100);
+				int level = (int)MathHelper.clamp(Double.parseDouble(field.getText()), (double) (0), (double) (100));
 				field.setText(level + "");
 				
 				NBTTagCompound control = new NBTTagCompound();
 				control.setInteger("control", 100 - level);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, controller.xCoord, controller.yCoord, controller.zCoord));
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1F));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, controller.getPos().getX(), controller.getPos().getY(), controller.getPos().getZ()));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1F));
 				
 			}
 		}

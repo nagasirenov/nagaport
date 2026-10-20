@@ -58,14 +58,14 @@ public class PressRecipes extends SerializableRecipe {
 	@Override
 	public void registerDefaults() {
 
-		makeRecipe(StampType.FLAT, new OreDictStack(NETHERQUARTZ.dust()),					Items.quartz);
-		makeRecipe(StampType.FLAT, new OreDictStack(LAPIS.dust()),							new ItemStack(Items.dye, 1, 4));
-		makeRecipe(StampType.FLAT, new OreDictStack(DIAMOND.dust()),						Items.diamond);
-		makeRecipe(StampType.FLAT, new OreDictStack(EMERALD.dust()),						Items.emerald);
+		makeRecipe(StampType.FLAT, new OreDictStack(NETHERQUARTZ.dust()),					Items.QUARTZ);
+		makeRecipe(StampType.FLAT, new OreDictStack(LAPIS.dust()),							new ItemStack(Items.DYE, 1, 4));
+		makeRecipe(StampType.FLAT, new OreDictStack(DIAMOND.dust()),						Items.DIAMOND);
+		makeRecipe(StampType.FLAT, new OreDictStack(EMERALD.dust()),						Items.EMERALD);
 		makeRecipe(StampType.FLAT, new ComparableStack(ModItems.biomass),					ModItems.biomass_compressed);
 		makeRecipe(StampType.FLAT, new OreDictStack(ANY_COKE.gem()),						ModItems.ingot_graphite);
 		makeRecipe(StampType.FLAT, new ComparableStack(ModItems.meteorite_sword_reforged),	ModItems.meteorite_sword_hardened);
-		makeRecipe(StampType.FLAT, new ComparableStack(Blocks.log, 1, 3),					ModItems.ball_resin);
+		makeRecipe(StampType.FLAT, new ComparableStack(Blocks.LOG, 1, 3),					ModItems.ball_resin);
 
 		makeRecipe(StampType.FLAT, new OreDictStack(COAL.dust()),							DictFrame.fromOne(ModItems.briquette, EnumBriquetteType.COAL));
 		makeRecipe(StampType.FLAT, new OreDictStack(LIGNITE.dust()),						DictFrame.fromOne(ModItems.briquette, EnumBriquetteType.LIGNITE));
@@ -102,14 +102,14 @@ public class PressRecipes extends SerializableRecipe {
 		makeRecipe(StampType.CIRCUIT, new OreDictStack(SI.billet()),						DictFrame.fromOne(ModItems.circuit, EnumCircuitType.SILICON));
 		makeRecipe(StampType.CIRCUIT, new OreDictStack(GAAS.billet()),						DictFrame.fromOne(ModItems.circuit, EnumCircuitType.GAAS));
 
-		makeRecipe(StampType.PRINTING1, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE1));
-		makeRecipe(StampType.PRINTING2, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE2));
-		makeRecipe(StampType.PRINTING3, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE3));
-		makeRecipe(StampType.PRINTING4, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE4));
-		makeRecipe(StampType.PRINTING5, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE5));
-		makeRecipe(StampType.PRINTING6, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE6));
-		makeRecipe(StampType.PRINTING7, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE7));
-		makeRecipe(StampType.PRINTING8, new ComparableStack(Items.paper), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE8));
+		makeRecipe(StampType.PRINTING1, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE1));
+		makeRecipe(StampType.PRINTING2, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE2));
+		makeRecipe(StampType.PRINTING3, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE3));
+		makeRecipe(StampType.PRINTING4, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE4));
+		makeRecipe(StampType.PRINTING5, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE5));
+		makeRecipe(StampType.PRINTING6, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE6));
+		makeRecipe(StampType.PRINTING7, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE7));
+		makeRecipe(StampType.PRINTING8, new ComparableStack(Items.PAPER), DictFrame.fromOne(ModItems.page_of_, EnumPages.PAGE8));
 	}
 
 	public static void makeRecipe(StampType type, AStack in, Item out) {

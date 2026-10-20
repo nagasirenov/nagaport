@@ -1,0 +1,2 @@
+PASS 1298 per-site mutation controls, three whole-source inverses; unchanged argument and field read interiors.
+PASS exact helper addition and complete Toolbox inverse, including unchanged placeRandomConcrete.

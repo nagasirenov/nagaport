@@ -1,0 +1,2 @@
+PASS: 13 complete consumer sources match checkpoint except enumerated coordinate API changes; NBT keys, shifts/scales, RNG calls, ordering, station-ID formatting and algorithms unchanged. Static only.
+PASS: 13 newline-normalized source fingerprints match the reviewed API-only migration snapshot. No fresh baseline comparison: checkpoint unavailable.

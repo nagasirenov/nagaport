@@ -29,7 +29,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
@@ -57,7 +57,7 @@ public class BlockRedBrickKeyhole extends Block {
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -75,10 +75,10 @@ public class BlockRedBrickKeyhole extends Block {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
-		if(player.getHeldItem() != null) {
-			boolean cracked = player.getHeldItem().getItem() == ModItems.key_red_cracked;
-			if((player.getHeldItem().getItem() == ModItems.key_red || cracked) && side != 0 && side != 1) {
-				if(cracked) player.getHeldItem().stackSize--;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
+			boolean cracked = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red_cracked;
+			if((com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red || cracked) && side != 0 && side != 1) {
+				if(cracked) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				if(world.isRemote) return true;
 				ForgeDirection dir = ForgeDirection.getOrientation(side);
 				generateRoom(world, x - dir.offsetX * 4, y - 2, z - dir.offsetZ * 4, dir);
@@ -89,7 +89,7 @@ public class BlockRedBrickKeyhole extends Block {
 				if(side == 4) b = 0;
 				ItemModDoor.placeDoorBlock(world, x, y - 1, z, b, ModBlocks.door_red);
 				world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
-				player.triggerAchievement(MainRegistry.achRedRoom);
+				com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRedRoom);
 				return true;
 			}
 		}
@@ -138,7 +138,7 @@ public class BlockRedBrickKeyhole extends Block {
 				world.setBlock(x + i, y + height - 1, z + j, ModBlocks.brick_red, 6, 3);
 				
 				for(int k = 1; k <= height - 2; k++) {
-					world.setBlock(x + i, y + k, z + j, Blocks.air);
+					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + i; int nativePlacementY = y + k; int nativePlacementZ = z + j; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
 		}
@@ -156,7 +156,7 @@ public class BlockRedBrickKeyhole extends Block {
 	
 	public static void spawnPedestalItem(World world, int x, int y, int z, WeightedRandomChestContent[] pool) {
 		world.setBlock(x, y, z, ModBlocks.pedestal);
-		TileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(x, y, z);
+		TileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		pedestal.item = ItemPool.getStack(pool, world.rand).copy();
 	}
 }

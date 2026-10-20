@@ -58,7 +58,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 	
 	/** For standard guns */
 	public EntityBulletBaseMK4(EntityLivingBase entity, BulletConfig config, float baseDamage, float gunSpread, double sideOffset, double heightOffset, double frontOffset) {
-		this(entity.worldObj);
+		this(entity.world);
 		
 		this.thrower = entity;
 		this.setBulletConfig(config);
@@ -149,17 +149,17 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 			this.motionX = newVec.x;
 			this.motionY = newVec.y;
 			this.motionZ = newVec.z;
-			EntityTrackerEntry entry = TrackerUtil.getTrackerEntry((WorldServer) worldObj, this.getEntityId());
-			entry.lastYaw = MathHelper.floor_float(this.rotationYaw * 256.0F / 360.0F) + 10; //force-trigger rotation update
+			EntityTrackerEntry entry = TrackerUtil.getTrackerEntry((WorldServer) this.world, this.getEntityId());
+			entry.lastYaw = MathHelper.floor(this.rotationYaw * 256.0F / 360.0F) + 10; //force-trigger rotation update
 		}
 		
 		this.prevVelocity = this.velocity;
 		this.velocity = Math.sqrt(dX * dX + dY * dY + dZ * dZ);
 		
 		// shitty hack
-		if((this.config != XFactoryTool.ct_hook || !worldObj.isRemote) && !this.inGround && !this.onGround && velocity > 0) {
+		if((this.config != XFactoryTool.ct_hook || !this.world.isRemote) && !this.inGround && !this.onGround && velocity > 0) {
 			
-			float hyp = MathHelper.sqrt_double(dX * dX + dZ * dZ);
+			float hyp = MathHelper.sqrt(dX * dX + dZ * dZ);
 			this.rotationYaw = (float) (Math.atan2(dX, dZ) * 180.0D / Math.PI);
 	
 			for(this.rotationPitch = (float) (Math.atan2(dY, (double) hyp) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
@@ -169,7 +169,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 			while(this.rotationYaw - this.prevRotationYaw >= 180.0F) this.prevRotationYaw += 360.0F;
 		}
 		
-		if(!worldObj.isRemote && this.ticksExisted > config.expires) this.setDead();
+		if(!this.world.isRemote && this.ticksExisted > config.expires) this.setDead();
 		
 		if(this.config.onUpdate != null) this.config.onUpdate.accept(this);
 	}
@@ -179,13 +179,13 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 		super.setDead();
 		
 		//send a teleport on collision so that the bullets are forced to move even if their lifetime is only 1 tick, letting them render
-		if(worldObj instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) worldObj, this);
+		if(this.world instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) this.world, this);
 	}
 
 	
 	@Override
 	protected void onImpact(RayTraceResult mop) {
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.config.onImpact != null) this.config.onImpact.accept(this, mop);
 			if(this.isDead || this.inGround) return;
@@ -211,7 +211,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 		buf.writeInt(this.thrower != null ? thrower.getEntityId() : -1);
 	}
 	@Override public void readSpawnData(ByteBuf buf) {
-		Entity e = worldObj.getEntityByID(buf.readInt());
+		Entity e = this.world.getEntityByID(buf.readInt());
 		if(e instanceof EntityLivingBase) this.thrower = (EntityLivingBase) e;
 	}
 }

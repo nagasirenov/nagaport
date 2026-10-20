@@ -33,9 +33,9 @@ public class OilSpot {
 
 			for(int y = rY; y > rY - 4; y--) {
 
-				Block below = world.getBlock(rX, y - 1, rZ);
-				Block ground = world.getBlock(rX, y, rZ);
-				int meta = world.getBlockMetadata(rX, y, rZ);
+				Block below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();
+				Block ground = com.hbm.world.WorldBlockState.read(world, rX, y, rZ).getBlock();
+				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y, rZ) );
 
 				/* don't affect mustard willows */
 				if(ground == ModBlocks.plant_flower && (meta == EnumFlowerType.CD0.ordinal() || meta == EnumFlowerType.CD1.ordinal())) continue;
@@ -44,13 +44,13 @@ public class OilSpot {
 				if(below.isNormalCube() && ground != ModBlocks.plant_dead) {
 					if(ground instanceof BlockTallGrass) {
 						if(world.rand.nextInt(10) == 0) {
-							if(world.getBlockMetadata(rX, y + 1, rZ) == 2) {
+							if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y + 1, rZ) ) == 2) {
 								world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FERN.ordinal(), 3);
 							} else {
 								world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GRASS.ordinal(), 3);
 							}
 						} else {
-							world.setBlock(rX, y, rZ, Blocks.air);
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = rX; int nativePlacementY = y; int nativePlacementZ = rZ; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					} else if(ground instanceof BlockFlower) {
 						world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FLOWER.ordinal(), 3);
@@ -63,7 +63,7 @@ public class OilSpot {
 					}
 				}
 
-				if(ground == Blocks.grass || ground == Blocks.dirt) {
+				if(ground == Blocks.GRASS || ground == Blocks.DIRT) {
 					world.setBlock(rX, y, rZ, world.rand.nextInt(10) == 0 ? ModBlocks.dirt_oily : ModBlocks.dirt_dead);
 
 					if(addWillows && world.rand.nextInt(50) == 0) {
@@ -74,20 +74,20 @@ public class OilSpot {
 
 					break;
 
-				} else if(ground == Blocks.sand || ground == ModBlocks.ore_oil_sand) {
+				} else if(ground == Blocks.SAND || ground == ModBlocks.ore_oil_sand) {
 
-					if(world.getBlockMetadata(rX, y, rZ) == 1)
+					if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y, rZ) ) == 1)
 						world.setBlock(rX, y, rZ, ModBlocks.sand_dirty_red);
 					else
 						world.setBlock(rX, y, rZ, ModBlocks.sand_dirty);
 					break;
 
-				} else if(ground == Blocks.stone) {
+				} else if(ground == Blocks.STONE) {
 					world.setBlock(rX, y, rZ, ModBlocks.stone_cracked);
 					break;
 
-				} else if(ground.getMaterial() == Material.leaves && (meta & 8) != 0 && (meta & 4) == 0) {
-					world.setBlockToAir(rX, y, rZ);
+				} else if(ground.getDefaultState().getMaterial() == Material.LEAVES && (meta & 8) != 0 && (meta & 4) == 0) {
+					com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ);
 					break;
 				}
 			}
@@ -110,9 +110,9 @@ public class OilSpot {
 			int rY = world.getHeightValue(rX, rZ);
 
 			for(int y = rY; y > rY - 4; y--) {
-				Block below = world.getBlock(rX, y - 1, rZ);
-				Block ground = world.getBlock(rX, y, rZ);
-				int meta = world.getBlockMetadata(rX, y, rZ);
+				Block below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();
+				Block ground = com.hbm.world.WorldBlockState.read(world, rX, y, rZ).getBlock();
+				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y, rZ) );
 
 				if(below.isNormalCube() && ground != ModBlocks.plant_dead) {
 					if(ground == ModBlocks.rubber_plant) {
@@ -128,7 +128,7 @@ public class OilSpot {
 				if(ground == ModBlocks.rubber_silt || ground == ModBlocks.vinyl_sand || ground == ModBlocks.sellafield_slaked || ground == ModBlocks.basalt) {
 					if(below.getBlockHardness(world, rX, y - 1, rZ) == -1.0) break;
 
-					world.setBlockToAir(rX, y - 1, rZ);
+					com.hbm.world.WorldAirRemoval.remove(world, rX, y - 1, rZ);
 
 					// manually drop any non BlockFalling blocks
 					if(ground != ModBlocks.vinyl_sand) {
@@ -138,7 +138,7 @@ public class OilSpot {
 							entityfallingblock.canDrop = false;
 							world.spawnEntityInWorld(entityfallingblock);
 						} else {
-							world.setBlockToAir(rX, y, rZ);
+							com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ);
 
 							while(BlockFallingNT.canFallThrough(world, rX, y - 1, rZ) && y > 0) {
 								--y;

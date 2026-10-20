@@ -65,6 +65,6 @@ public class ContainerFusionBreeder extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return breeder.isUseableByPlayer(player);
+		return breeder.isUsableByPlayer(player);
 	}
 }

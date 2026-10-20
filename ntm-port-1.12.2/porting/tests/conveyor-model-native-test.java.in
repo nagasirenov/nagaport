@@ -1,0 +1,222 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.function.Function;
+import api.hbm.conveyor.*;
+import com.hbm.blocks.network.*;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.main.ConveyorBlockModelHandler;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.render.block.nativeblock.ConveyorBakedModel.Kind;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.block.statemap.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.client.resources.data.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.registry.RegistrySimple;
+import net.minecraft.world.*;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.*;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.Side;
+import org.apache.commons.lang3.tuple.Pair;
+import sun.misc.Unsafe;
+
+/** Independent pristine cuboid/material/rotation descriptors against complete native models and routing. */
+public final class ConveyorModelNativeTest {
+ static long checks,layouts,recordedFaces;static Unsafe unsafe;static SimpleReloadableResourceManager resources;
+ static final String[] NAMES={"conveyor","conveyor_express","conveyor_double","conveyor_triple","conveyor_lift","conveyor_chute","classic_fixture"};
+ static final int[] KINDS={0,0,0,0,2,3,1};
+ static final Block[] blocks=new Block[7];static final Block[] neighborBlocks=new Block[4];
+ static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();
+ static final Map<String,TextureAtlasSprite> decodeSprites=new LinkedHashMap<>();
+ static void check(boolean v,String m){checks++;if(!v)throw new AssertionError(m);}
+ static void close(double a,double b,String m){check(Math.abs(a-b)<0.000003,m+" got="+a+" expected="+b);}
+ static void set(Object o,Class<?> c,String name,Object v)throws Exception{Field f=c.getDeclaredField(name);f.setAccessible(true);f.set(o,v);}
+ static Object get(Object o,Class<?> c,String name)throws Exception{Field f=c.getDeclaredField(name);f.setAccessible(true);return f.get(o);}
+ interface Throwing {void run()throws Exception;}
+ static void rejects(Throwing run,String label)throws Exception{boolean rejected=false;try{run.run();}catch(Exception expected){rejected=true;}check(rejected,label);}
+ static final class Sprite extends TextureAtlasSprite {Sprite(String name,int index){super(name);setIconWidth(16);setIconHeight(16);initSprite(2048,256,index*16,16,false);}}
+ static TextureAtlasSprite sprite(String name){TextureAtlasSprite s=sprites.get(name);if(s==null){s=new Sprite(name,sprites.size());sprites.put(name,s);}return s;}
+ static String material(int owner){return "hbm:blocks/"+(owner<4?NAMES[owner]:"conveyor");}
+ static ConveyorMaterials materials(int owner){String s=material(owner);return new ConveyorMaterials(sprite(s),sprite("hbm:blocks/conveyor_side"),sprite(s+"_curve_left"),sprite(s+"_curve_right"),sprite("hbm:blocks/concrete"),sprite("minecraft:blocks/iron_block"),sprite("hbm:blocks/grate_top"));}
+ static Kind kind(int owner){return Kind.values()[KINDS[owner]];}
+ static final class Enterable extends Block implements IEnterableBlock {
+  Enterable(){super(Material.IRON);}public boolean canItemEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorItem i){return true;}public void onItemEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorItem i){}
+  public boolean canPackageEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorPackage i){return true;}public void onPackageEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorPackage i){}
+ }
+ static final class Both extends BlockConveyor implements IEnterableBlock {
+  public boolean canItemEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorItem i){return true;}public void onItemEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorItem i){}
+  public boolean canPackageEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorPackage i){return true;}public void onPackageEnter(World w,int x,int y,int z,ForgeDirection d,IConveyorPackage i){}
+ }
+ static final class NeighborWorld implements IBlockAccess {
+  final BlockPos center;final int[] kinds;final IBlockState state;
+  NeighborWorld(Block b,int meta,int y,int[] kinds){center=new BlockPos(0,y,0);state=b.getStateFromMeta(meta);this.kinds=kinds;}
+  public IBlockState getBlockState(BlockPos p){if(p.equals(center))return state;EnumFacing d=p.getY()<center.getY()?EnumFacing.DOWN:p.getY()>center.getY()?EnumFacing.UP:p.getZ()<0?EnumFacing.NORTH:p.getZ()>0?EnumFacing.SOUTH:p.getX()<0?EnumFacing.WEST:EnumFacing.EAST;return neighborBlocks[kinds[d.getIndex()]].getDefaultState();}
+  public net.minecraft.tileentity.TileEntity getTileEntity(BlockPos p){return null;}public int getCombinedLight(BlockPos p,int e){return 0x00D00090;}public boolean isAirBlock(BlockPos p){return false;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}public int getStrongPower(BlockPos p,EnumFacing s){return 0;}public WorldType getWorldType(){return WorldType.DEFAULT;}public boolean isSideSolid(BlockPos p,EnumFacing s,boolean f){return true;}
+  IBlockState extended(){return state.getBlock().getExtendedState(state,this,center);}
+ }
+ static void setup()throws Exception{
+  Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);
+  blocks[0]=new BlockConveyor();blocks[1]=new BlockConveyorExpress();blocks[2]=new BlockConveyorDouble();blocks[3]=new BlockConveyorTriple();blocks[4]=new BlockConveyorLift();blocks[5]=new BlockConveyorChute();
+  BlockConveyorClassic classic=new BlockConveyorClassic();rejects(classic::getModelTexture,"unconfigured Classic rejects invented texture");rejects(()->classic.setModelTexture(null),"Classic rejects null material");blocks[6]=classic.setModelTexture(new ResourceLocation("hbm","blocks/conveyor"));
+  Map<Block,Item> itemMap=(Map<Block,Item>)get(null,Item.class,"BLOCK_TO_ITEM");
+  for(int i=0;i<7;i++){Block b=blocks[i];ForgeRegistries.BLOCKS.register(b.setRegistryName(i<6?"hbm":"conveyor_model_probe",i<6?"tile."+NAMES[i]:NAMES[i]));ItemBlock item=new ItemBlock(b);item.setHasSubtypes(true);item.setRegistryName(b.getRegistryName());ForgeRegistries.ITEMS.register(item);itemMap.put(b,item);}
+  neighborBlocks[0]=Blocks.STONE;neighborBlocks[1]=blocks[0];neighborBlocks[2]=new Enterable();neighborBlocks[3]=new Both();
+ }
+ static int[] compactKinds(int packed){return new int[]{packed&3,(packed>>2)&3,(packed>>4)&1,(packed>>5)&1,(packed>>6)&1,(packed>>7)&1};}
+ static void snapshots(){
+  for(int y:new int[]{0,64,255})for(int packed=0;packed<4096;packed++){
+   int[] k=new int[6];int expect=(y>0?256:0)|(y<255?512:0);for(int f=0;f<6;f++){k[f]=(packed>>(f*2))&3;if((k[f]&1)!=0)expect|=1<<f;}
+   if((k[0]&2)!=0)expect|=64;if((k[1]&2)!=0)expect|=128;
+   NeighborWorld w=new NeighborWorld(blocks[4],0,y,k);IBlockState extended=w.extended();check(extended instanceof IExtendedBlockState,"native ExtendedBlockState");check(ConveyorModelState.neighbors(extended)==expect,"all six native neighbor classifications including both interface combinations");check(w.state.getValue(BlockConveyorBase.METADATA)==0,"snapshot leaves listed metadata immutable");
+  }
+  check(!ConveyorModelState.NEIGHBORS.isValid(-1)&&!ConveyorModelState.NEIGHBORS.isValid(1024)&&!ConveyorModelState.NEIGHBORS.isValid(null),"snapshot range rejected");
+  check(ConveyorModelState.NEIGHBORS.isValid(0)&&ConveyorModelState.NEIGHBORS.isValid(1023),"snapshot inclusive range");
+ }
+ static void properties(IBakedModel model,int owner,int meta){
+  check(model.isAmbientOcclusion()&&model.isGui3d()&&!model.isBuiltInRenderer(),"native AO geometry, not TESR/legacy callback");
+  check(model.getOverrides().getOverrides().isEmpty(),"no invented overrides");close(model.getItemCameraTransforms().gui.scale.x,.625,"native block GUI scale");close(model.getItemCameraTransforms().gui.rotation.y,225,"native block GUI rotation");
+  LegacyConveyorModelOracle.OracleBlock oracle=KINDS[owner]==0?new LegacyConveyorModelOracle.IconBendable(material(owner)):new LegacyConveyorModelOracle.IconBase(material(owner));
+  check(model.getParticleTexture().getIconName().equals(oracle.getIcon(0,meta)),"context-free original particle selector");
+ }
+ static List<BakedQuad> collect(IBakedModel model,int owner,boolean item,IBlockState state){
+  List<BakedQuad> out=new ArrayList<>();
+  if(KINDS[owner]<2&&!item){List<BakedQuad> general=model.getQuads(state,null,0);check(general.size()==1&&general.get(0).getFace()==EnumFacing.UP,"quarter slab recessed top stays general");
+   for(EnumFacing side:EnumFacing.values()){List<BakedQuad> q=model.getQuads(state,side,0);if(side==EnumFacing.UP){check(q.isEmpty(),"top not duplicated in culled bucket");out.add(general.get(0));}else{check(q.size()==1&&q.get(0).getFace()==side,"five exact original cull buckets");out.add(q.get(0));}}
+  }else {for(EnumFacing side:EnumFacing.values())check(model.getQuads(state,side,0).isEmpty(),"item/lift/chute never conditionally culled");out.addAll(model.getQuads(state,null,0));}
+  check(model.getQuads(state,null,0).equals(model.getQuads(state,null,123456)),"no random geometry variants");return out;
+ }
+ static void layout(IBakedModel model,int owner,int meta,boolean item,int y,int[] k,Function<String,TextureAtlasSprite> atlas){
+  IBlockState state=item?null:new NeighborWorld(blocks[owner],meta,y,k).extended();
+  List<BakedQuad> actual=collect(model,owner,item,state);List<LegacyConveyorModelOracle.Face> expected=LegacyConveyorModelOracle.faces(KINDS[owner],material(owner),meta,item,y,k);
+  String context=NAMES[owner]+" meta="+meta+" item="+item+" y="+y+" neighbors="+Arrays.toString(k);
+  check(actual.size()==expected.size(),"pristine face/cuboid count "+context+" "+actual.size()+" != "+expected.size());layouts++;recordedFaces+=expected.size();
+  for(int index=0;index<expected.size();index++){
+   LegacyConveyorModelOracle.Face e=expected.get(index);BakedQuad q=actual.get(index);check(q.getFace().getIndex()==e.side,"pristine face/cuboid order "+context);check(q.getSprite()==atlas.apply(e.material),"pristine icon material/override identity "+context);
+   check(q.getFormat().equals(DefaultVertexFormats.ITEM)&&q.shouldApplyDiffuseLighting()&&!q.hasTintIndex(),"native normals/diffuse/no tint "+context);close(e.xOffset,0,"original item/world x compensation");close(e.zOffset,0,"original item/world z compensation");
+   // The independently tested native cuboid encoder is deliberately reused here.
+   // The independent oracle supplies only pristine bounds/materials/rotations/offsets.
+   // This suite claims layout/selection closure, not independent low-level UV arithmetic.
+   double[] b=e.bounds;BakedQuad encoded=ConveyorCuboidGeometry.face(atlas.apply(e.material),item,EnumFacing.byIndex(e.side),e.rotation,b[0],b[1],b[2],b[3],b[4],b[5],e.yOffset);
+   check(Arrays.equals(q.getVertexData(),encoded.getVertexData()),"pristine bounds/rotation/position-only inventory offset "+context+" face="+index+" rotation="+e.rotation);
+  }
+ }
+ static void direct()throws Exception{
+  snapshots();
+  for(int owner=0;owner<7;owner++)for(int meta=0;meta<16;meta++){
+   ConveyorBakedModel world=new ConveyorBakedModel(kind(owner),meta,false,materials(owner));properties(world,owner,meta);
+   if(KINDS[owner]<2)layout(world,owner,meta,false,64,new int[6],ConveyorModelNativeTest::sprite);
+   else {for(int y:new int[]{0,64,255})for(int packed=0;packed<256;packed++)layout(world,owner,meta,false,y,compactKinds(packed),ConveyorModelNativeTest::sprite);
+    rejects(()->world.getQuads(null,null,0),"world neighbor model rejects null state");rejects(()->world.getQuads(Blocks.STONE.getDefaultState(),null,0),"world neighbor model rejects non-extended state");final Block b=blocks[owner];rejects(()->world.getQuads(b.getDefaultState(),null,0),"world neighbor model rejects missing snapshot");}
+   if(owner!=4){ConveyorBakedModel item=new ConveyorBakedModel(kind(owner),meta,true,materials(owner));properties(item,owner,meta);layout(item,owner,meta,true,64,new int[6],ConveyorModelNativeTest::sprite);}
+  }
+  rejects(()->new ConveyorBakedModel(Kind.LIFT,0,true,materials(4)),"lift geometry rejects false 3D inventory route");
+  System.out.println("PASS independent pristine descriptor layout oracle: "+layouts+" layouts, "+recordedFaces+" ordered faces; metadata 0..15, y=0/64/255, every relevant native neighbor snapshot; all 4^6 interface classifications.");
+ }
+ static void damageModels(){
+  TextureAtlasSprite damage=sprite("probe:breaking_overlay");int cases=0;
+  for(int owner:new int[]{4,5})for(int meta=0;meta<16;meta++){
+   IBakedModel model=new ConveyorBakedModel(kind(owner),meta,false,materials(owner));
+   for(int y:new int[]{0,64,255})for(int packed:new int[]{0,1,2,3,15,85,170,255}){
+    NeighborWorld world=new NeighborWorld(blocks[owner],meta,y,compactKinds(packed));
+    IBakedModel overlay=net.minecraftforge.client.ForgeHooksClient.getDamageModel(model,damage,world.state,world,world.center);
+    List<BakedQuad> original=model.getQuads(world.extended(),null,0),got=overlay.getQuads(world.state,null,0);
+    check(got.size()==original.size(),"native damage model extends listed state before neighbor geometry");for(EnumFacing side:EnumFacing.values())check(overlay.getQuads(world.state,side,0).isEmpty(),"damage overlay retains lift/chute unculling");
+    for(int q=0;q<got.size();q++){check(got.get(q).getSprite()==damage,"native damage overlay retextures original faces");int[] a=got.get(q).getVertexData(),b=original.get(q).getVertexData();check(a.length==b.length,"damage native layout preserved");for(int v=0;v<4;v++)for(int axis=0;axis<3;axis++)check(a[v*7+axis]==b[v*7+axis],"native damage overlay preserves original neighbor-aware cuboid positions");}
+    cases++;
+   }
+  }
+  System.out.println("PASS actual ForgeHooksClient.getDamageModel: "+cases+" lift/chute metadata/height/neighbor cases, native owner extended state and position-preserving breaking overlay.");
+ }
+ static TextureAtlasSprite decoded(String name){
+  // Native generated JSON may advertise its virtual missing particle fallback.
+  // It is not a disk PNG; all actual emitted faces and particles are checked below.
+  if(name.equals("minecraft:missingno"))return sprite(name);
+  TextureAtlasSprite s=decodeSprites.get(name);if(s!=null)return s;
+  try {ResourceLocation id=new ResourceLocation(name),png=new ResourceLocation(id.getNamespace(),"textures/"+id.getPath()+".png");Sprite made=new Sprite(name,decodeSprites.size());
+   AnimationMetadataSection metadata;try(IResource r=resources.getResource(png)){metadata=r.getMetadata("animation");made.loadSprite(PngSizeInfo.makeFromResource(r),metadata!=null);}
+   // Native loadSpriteFrames initializes TextureUtil's GL singleton. Decode only
+   // that CPU pixel/frame step here; keep native sprite dimensions, metadata and
+   // actual original pixels. No Minecraft class is replaced or modified.
+   java.awt.image.BufferedImage pixels;try(IResource r=resources.getResource(png)){pixels=javax.imageio.ImageIO.read(r.getInputStream());}
+   check(pixels!=null,"real PNG ImageIO decode");int width=made.getIconWidth(),height=made.getIconHeight();check(pixels.getWidth()==width&&pixels.getHeight()%height==0,"native sprite dimensions partition actual source pixels");
+   List<int[][]> frames=new ArrayList<>();for(int i=0;i<pixels.getHeight()/height;i++)frames.add(new int[][]{pixels.getRGB(0,i*height,width,height,null,0,width)});made.setFramesTextureData(frames);
+   if(metadata!=null){List<AnimationFrame> animationFrames=new ArrayList<>();if(metadata.getFrameCount()==0)for(int i=0;i<frames.size();i++)animationFrames.add(new AnimationFrame(i,-1));else for(int i=0;i<metadata.getFrameCount();i++)animationFrames.add(new AnimationFrame(metadata.getFrameIndex(i),metadata.frameHasTime(i)?metadata.getFrameTimeSingle(i):-1));metadata=new AnimationMetadataSection(animationFrames,width,height,metadata.getFrameTime(),metadata.isInterpolate());set(made,TextureAtlasSprite.class,"animationMetadata",metadata);}
+   made.initSprite(2048,256,decodeSprites.size()*32,32,false);
+   check(made.getFrameCount()>0,"actual PNG pixels decoded "+png);check(made.hasAnimationMetadata()==(metadata!=null),"native actual animation metadata "+png);decodeSprites.put(name,made);return made;
+  }catch(Exception ex){throw new AssertionError("Native PNG/animation loading "+name,ex);}
+ }
+ static Reader reader(IResourcePack p,ResourceLocation id)throws Exception{check(p.resourceExists(id),"exact-case resource exists "+id);return new InputStreamReader(p.getInputStream(id),StandardCharsets.UTF_8);}
+ static void event()throws Exception{
+  int count=0;for(Method m:ConveyorBlockModelHandler.class.getDeclaredMethods())if(m.isAnnotationPresent(SubscribeEvent.class)&&Arrays.equals(m.getParameterTypes(),new Class<?>[]{ModelRegistryEvent.class})){check(Modifier.isStatic(m.getModifiers()),"static native registry event");m.invoke(null,new ModelRegistryEvent());count++;}check(count==1,"one automatic event subscriber");
+ }
+ static IModel load(ResourceLocation route)throws Exception{IModel m=ModelLoaderRegistry.getModel(route);check(m!=ModelLoaderRegistry.getMissingModel(),"real native custom route "+route);return m;}
+ static IBakedModel bake(ResourceLocation route)throws Exception{IModel m=load(route);for(ResourceLocation t:m.getTextures())decoded(t.toString());return m.bake(m.getDefaultState(),DefaultVertexFormats.ITEM,id->decoded(id.toString()));}
+ static void liftIcon(IBakedModel model){
+  check(!model.isGui3d()&&!model.isBuiltInRenderer(),"original lift non-3D generated icon route");check(model.getParticleTexture().getIconName().equals("hbm:blocks/conveyor"),"lift original default icon");
+  List<BakedQuad> quads=new ArrayList<>(model.getQuads(null,null,0));for(EnumFacing side:EnumFacing.values())quads.addAll(model.getQuads(null,side,0));check(quads.size()>=6,"actual native generated item extrudes real texture alpha edges");
+  boolean front=false,back=false;for(BakedQuad q:quads){check(q.getSprite()==decoded("hbm:blocks/conveyor"),"generated lift texture identity");front|=q.getFace()==EnumFacing.NORTH;back|=q.getFace()==EnumFacing.SOUTH;int[] v=q.getVertexData();int stride=q.getFormat().getIntegerSize();for(int i=0;i<4;i++){float z=Float.intBitsToFloat(v[i*stride+2]);check(z>=.4687&&z<=.5313,"generated icon remains 1/16 thick instead of invented lift mesh");}}
+  check(front&&back,"lift generated icon has both broad faces");
+ }
+ static void registry(IResourcePack pack,IResourcePack vanilla)throws Exception{
+  Mod.EventBusSubscriber ann=ConveyorBlockModelHandler.class.getAnnotation(Mod.EventBusSubscriber.class);check(ann!=null&&ann.modid().equals("hbm")&&Arrays.equals(ann.value(),new Side[]{Side.CLIENT}),"client-only registered native loader");
+  if(resources==null){MetadataSerializer metadata=new MetadataSerializer();metadata.registerMetadataSectionType(new AnimationMetadataSectionSerializer(),AnimationMetadataSection.class);resources=new SimpleReloadableResourceManager(metadata);Minecraft mc=(Minecraft)unsafe.allocateInstance(Minecraft.class);set(null,Minecraft.class,"instance",mc);set(mc,Minecraft.class,"resourceManager",resources);}
+  resources.reloadResources(Arrays.asList(vanilla,pack));decodeSprites.clear();
+  net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+  TextureMap atlas=new TextureMap("textures");ModelManager initial=new ModelManager(atlas);new ModelLoader(resources,atlas,new BlockModelShapes(initial));event();resources.reloadResources(Arrays.asList(vanilla,pack));ModelLoaderRegistry.clearModelCache(resources);
+  Map<?,?> custom=(Map<?,?>)get(null,ModelLoader.class,"customModels");check(custom.size()==7*16,"six original owners plus explicit optional Classic: exact sixteen item routes each");
+  RegistrySimple<ModelResourceLocation,IBakedModel> registry=new RegistrySimple<>();Map<net.minecraftforge.registries.IRegistryDelegate<Block>,IStateMapper> customStates=(Map<net.minecraftforge.registries.IRegistryDelegate<Block>,IStateMapper>)get(null,ModelLoader.class,"customStateMappers");
+  check(customStates.containsKey(blocks[6].delegate),"discovered Classic uses explicit direct custom state mapper");
+  Map<IBlockState,ModelResourceLocation> worldRoutes=new LinkedHashMap<>();
+  for(int owner=0;owner<7;owner++){
+   Block b=blocks[owner];Map<IBlockState,ModelResourceLocation> states=(owner==6?customStates.get(b.delegate):new DefaultStateMapper()).putStateModelLocations(b);check(states.size()==16,"all sixteen raw metadata states "+NAMES[owner]);
+   ModelBlockDefinition definition=null;if(owner<6)try(Reader in=reader(pack,new ResourceLocation("hbm","blockstates/"+b.getRegistryName().getPath()+".json"))){definition=ModelBlockDefinition.parseFromReader(in,b.getRegistryName());}
+   for(Map.Entry<IBlockState,ModelResourceLocation> e:states.entrySet()){
+    int meta=b.getMetaFromState(e.getKey());ResourceLocation route;
+    if(owner<6){check(definition.hasVariant(e.getValue().getVariant()),"JSON covers native listed metadata state");List<Variant> vars=definition.getVariant(e.getValue().getVariant()).getVariantList();check(vars.size()==1,"no invented weighted model alternatives");Variant v=vars.get(0);check(v.getRotation()==ModelRotation.X0_Y0&&!v.isUvLock(),"JSON adds no geometry or UV rotation");route=v.getModelLocation();}
+    else route=e.getValue();IBakedModel model=bake(route);registry.putObject(e.getValue(),model);worldRoutes.put(e.getKey(),e.getValue());properties(model,owner,meta);
+    for(int packed:new int[]{0,1,2,3,15,85,170,255})for(int y:new int[]{0,64,255})layout(model,owner,meta,false,y,compactKinds(packed),ConveyorModelNativeTest::decoded);
+    IModel unbaked=load(route);Set<ResourceLocation> advertised=new HashSet<>(unbaked.getTextures());Set<ResourceLocation> needed=new HashSet<>();for(int packed=0;packed<256;packed++){IBlockState state=new NeighborWorld(b,meta,64,compactKinds(packed)).extended();for(BakedQuad q:collect(model,owner,false,state))needed.add(new ResourceLocation(q.getSprite().getIconName()));}needed.add(new ResourceLocation(model.getParticleTexture().getIconName()));check(advertised.containsAll(needed),"every actual neighbor/particle material advertised before atlas stitch");
+   }
+   for(int meta=0;meta<16;meta++){
+    Item item=Item.getItemFromBlock(b);ModelResourceLocation id=(ModelResourceLocation)custom.get(Pair.of(item.delegate,meta));check(id!=null&&id.equals(ConveyorBlockModelHandler.inventoryModelLocation(b,meta)),"public inventory route equals native metadata registration");check(id.getVariant().equals("inventory")&&id.getPath().endsWith("/"+meta+"/item"),"inventory never accidentally routed through world geometry");IBakedModel model=bake(id);registry.putObject(id,model);if(owner==4)liftIcon(model);else{properties(model,owner,meta);layout(model,owner,meta,true,64,new int[6],ConveyorModelNativeTest::decoded);}
+   }
+  }
+  ModelManager manager=(ModelManager)unsafe.allocateInstance(ModelManager.class);set(manager,ModelManager.class,"modelRegistry",registry);set(manager,ModelManager.class,"defaultModel",registry.getObject(ConveyorBlockModelHandler.inventoryModelLocation(blocks[0],0)));
+  ItemModelMesher mesher=new ItemModelMesher(manager);ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();for(Block b:blocks)for(int meta=0;meta<16;meta++){ModelResourceLocation id=ConveyorBlockModelHandler.inventoryModelLocation(b,meta);check(mesher.getItemModel(new ItemStack(Item.getItemFromBlock(b),1,meta))==registry.getObject(id),"actual native ItemModelMesher route");}
+  BlockModelShapes shapes=new BlockModelShapes(manager);ModelLoader.onRegisterAllBlocks(shapes);shapes.reloadModels();for(Map.Entry<IBlockState,ModelResourceLocation> e:worldRoutes.entrySet())check(shapes.getModelForState(e.getKey())==registry.getObject(e.getValue()),"actual native BlockModelShapes world route");
+  int checkedSprites=decodeSprites.size();check(checkedSprites==16,"all thirteen conveyor animation textures plus concrete/grate/vanilla iron decoded");
+  ModelResourceLocation location=ConveyorBlockModelHandler.inventoryModelLocation(blocks[0],2);IModel old=load(location);IBakedModel oldBake=bake(location);TextureAtlasSprite oldSprite=oldBake.getParticleTexture();resources.reloadResources(Arrays.asList(vanilla,pack));ModelLoaderRegistry.clearModelCache(resources);decodeSprites.clear();IModel fresh=load(location);IBakedModel newBake=bake(location);check(fresh!=old,"reload invalidates native unbaked registry cache");check(newBake!=oldBake&&newBake.getParticleTexture()!=oldSprite,"fresh bake uses new atlas sprites, not stale cached atlas");
+  IBakedModel rebaked=old.bake(old.getDefaultState(),DefaultVertexFormats.ITEM,id->decoded(id.toString()));check(rebaked.getParticleTexture()!=oldSprite,"cached descriptor model also accepts replacement atlas sprites");
+  System.out.println("PASS native registry/item/state/generated-icon/custom-loader closure: "+pack.getPackName()+"; original PNG sprites="+checkedSprites);
+ }
+ static void badRoutes()throws Exception{
+  ICustomModelLoader loader=(ICustomModelLoader)get(null,ConveyorBlockModelHandler.class,"LOADER");
+  check(loader.accepts(new ResourceLocation("hbm","native_conveyor/hbm/tile.conveyor/0/world")),"custom loader owns native route");check(loader.accepts(new ResourceLocation("hbm","models/block/native_conveyor/hbm/tile.conveyor/0/world")),"native loader canonical models/block prefix");
+  check(!loader.accepts(new ResourceLocation("other","native_conveyor/hbm/tile.conveyor/0/world"))&&!loader.accepts(new ResourceLocation("hbm","other/conveyor")),"loader does not capture unrelated namespace/path");
+  for(String route:new String[]{"native_conveyor/hbm/no_such_owner/0/world","native_conveyor/hbm/tile.conveyor/16/world","native_conveyor/hbm/tile.conveyor/-1/world","native_conveyor/hbm/tile.conveyor/no/world","native_conveyor/hbm/tile.conveyor/0/other","native_conveyor/hbm/tile.conveyor/0/world/extra","native_conveyor/hbm/tile.conveyor/0"})rejects(()->loader.loadModel(new ResourceLocation("hbm",route)),"reject unknown/invalid route "+route);
+  rejects(()->ConveyorBlockModelHandler.inventoryModelLocation(blocks[0],-1),"inventory raw metadata underflow");rejects(()->ConveyorBlockModelHandler.inventoryModelLocation(blocks[0],16),"inventory raw metadata overflow");
+  Block unknown=new BlockConveyor().setRegistryName("conveyor_model_probe","unknown_owner");ForgeRegistries.BLOCKS.register(unknown);rejects(ConveyorModelNativeTest::event,"native event rejects unspecified conveyor owner instead of substituting default material");
+ }
+ public static void main(String[] args)throws Exception{
+  setup();direct();damageModels();try(FileResourcePack jar=new FileResourcePack(new File(args[1]));FileResourcePack vanilla=new FileResourcePack(new File(args[2]))){registry(new FolderResourcePack(new File(args[0])),vanilla);registry(jar,vanilla);}badRoutes();
+  System.out.println("PASS conveyor native model family: "+checks+" assertions, "+layouts+" pristine descriptor layouts, "+recordedFaces+" ordered original faces; complete production owners/renderers/models/loader, directory and packaged assets, actual native state/item routing.");
+  System.out.println("Boundaries: independent original descriptor oracle reuses separately verified production cuboid encoder to compare output; native PNG dimensions/animation metadata and generated item bake; explicit CPU pixel-frame splitter, controlled atlas rectangles and Unsafe headless Minecraft holder, no GL/live graphical or full-mod acceptance.");
+ }
+}

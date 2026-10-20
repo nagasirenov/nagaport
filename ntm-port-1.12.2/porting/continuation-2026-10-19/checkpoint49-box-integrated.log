@@ -1,0 +1,77 @@
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/BoxDuctRenderState.java a2e911a63355a0a0e3d142e00f9d7ad8bd840bdbd2615f5b222da55d762dae14
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/FluidDuctBase.java d50672257e8be7dc36e834e2a600930fe970c2824f8526893aa0316223f51111
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/FluidDuctBox.java e831f99c7e9453b8648f735612b1750c763cd0ed89d929382ac8172208a33800
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/PowerCableBox.java b0caff26a08ab51f02e90bf3fd0c97a48081ab495da21a4690930b24f5f4ea71
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/FluidDuctBoxExhaust.java 8bd53b49fc505ed70fcf11cbd90a033b2fcee2b08d6937f846438777d03fe8cb
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/ConnectionState.java 9c0c0ddabdbac2063ac71ec9c2fe95ae4acc7c2e3e3d7af83e34a2fdfd8c1f7d
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/FluidConnectionState.java 8fd0d2c712b0128f8b7a41163880f857b80f0111f977d15505d78b0a411d41ad
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/network/IBlockFluidDuct.java b7f204de5e2f750b13da3fb664fcad1b89705ffbc36d5217a9fe413e6bff7091
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/IAnalyzable.java dbee805aa27e052268e7d0fa31b3715b046ab3ad2e0d376144bdc505b2bc6ed8
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/IBlockMulti.java f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9
+COMPLETE PRODUCTION src/main/java/com/hbm/items/machine/IItemFluidIdentifier.java 8c761e7839680fe688ae349aa4446551a879b1273534f5933a21ed4e86762e67
+COMPLETE PRODUCTION src/main/java/com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+COMPLETE PRODUCTION src/main/java/api/hbm/energymk2/IEnergyConnectorBlock.java 042026c508d6be73504318f99e242621fab5af47c525bcba63b58a9a6ac257a3
+COMPLETE PRODUCTION src/main/java/api/hbm/energymk2/IEnergyConnectorMK2.java ef60540477fc62d1b40599d4213ae2fec8f5103b6a860ef7b51fa2b7948790a5
+COMPLETE PRODUCTION src/main/java/api/hbm/fluidmk2/IFluidConnectorMK2.java de93c4094e066aee67e0f3864b5df304c9905104dff2d19e2930c71903fd435c
+COMPLETE PRODUCTION src/main/java/api/hbm/fluidmk2/IFluidConnectorBlockMK2.java 360a4f1240c8e728a3c92e3fb07d4033e4f1be1b60fdec98bdab9bc122440df2
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/ModSoundType.java ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3
+COMPLETE PRODUCTION src/main/java/com/hbm/blocks/ModSoundTypes.java 822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c
+COMPLETE PRODUCTION src/main/java/com/hbm/main/ModSoundEvents.java 7e622eb7dcb2067a356797d3d680b560924dc22b2528d8abc0bf76dd1ef356a5
+COMPLETE PRODUCTION src/main/java/com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+COMPLETE PRODUCTION src/main/java/com/hbm/main/BoxDuctModelHandler.java e5a913dbd1b8ae224702b25aaf542885119058a2bfc28bd44f22516497b3d31d
+COMPLETE PRODUCTION src/main/java/com/hbm/render/block/RenderBoxDuct.java e96831e334fdbcc5f67b328c64d9daa0a158d5ffa6b9f2158caa8fc1eb549869
+COMPLETE PRODUCTION src/main/java/com/hbm/render/block/nativeblock/BoxDuctMaterials.java 6645cfab011ca8df615839a10c8a5c379bbe9c4d03000fc46379f38f6b9fcca2
+COMPLETE PRODUCTION src/main/java/com/hbm/render/block/nativeblock/BoxDuctBakedModel.java 90aa8fbd93f532bd8bbbd4b2b4378d917eb3880ff508fee4fa0631c463c776d6
+COMPLETE PRODUCTION src/main/java/com/hbm/render/block/nativeblock/PneumaticCuboidGeometry.java 6d1f1f5649dc94ceb714f0d97f0c8614e5779f7b986aa8b5308a91ed26a5756d
+COMPLETE PRODUCTION src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+COMPLETE PRODUCTION src/main/java/com/hbm/render/block/nativeblock/AtlasObjBakedModel.java e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa
+COMPLETE PRODUCTION src/main/java/com/hbm/render/item/nativeitem/ItemTransformMatrix.java 02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e
+COMPLETE PRODUCTION src/main/java/com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3
+COMPLETE PRODUCTION src/main/java/com/hbm/render/tileentity/NetworkBreakingRenderer.java 88ebcac850808614ed09ce4caf43924f42519ca5f8a93be50a2cbbe377021173
+COMPLETE PRODUCTION src/main/java/com/hbm/render/tileentity/BoxDuctBreakingRenderer.java aab32c8a06c2c689c310c6c43e198ed70f9bd4139363c41000b3bf629b2237da
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/BoxDuctModelNativeTest.java:46: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final Map<String,TextureAtlasSprite> SPRITES=new LinkedHashMap<>();static sun.misc.Unsafe unsafe;
+                                                                                          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/BoxDuctModelNativeTest.java:73: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");Minecraft mc=(Minecraft)unsafe.allocateInstance(Minecraft.class);set(null,Minecraft.class,"instance",mc);manager=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());set(mc,Minecraft.class,"resourceManager",manager);
+                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/BoxDuctModelNativeTest.java:73: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");Minecraft mc=(Minecraft)unsafe.allocateInstance(Minecraft.class);set(null,Minecraft.class,"instance",mc);manager=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());set(mc,Minecraft.class,"resourceManager",manager);
+                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/BoxDuctModelNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS complete native production bytecode has no removed block rendering APIs
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.metalblock`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.pipeplaced`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.morkite`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.upgradeplug`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.cratebreak`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionlargenear`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionlargefar`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.small`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.medium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.large`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.shell`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionsmallnear`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionsmallfar`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:52] [main/INFO]: Processing ObjectHolder annotations
+[23:39:52] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS native model all valid metadata/masks/RGB, immutable bounded cache, complete six item contexts and fixed transform isolation
+[23:39:53] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.fluid_duct_box`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:53] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.fluid_duct_box`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[23:39:53] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.fluid_duct_box`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS actual native damage dispatcher, three exact owner/tile pairs, valid metadata x10 shape masks x2 AO x2 light pipelines x3 stages; original materials/UVs and native light retained, noColor output and non-owned no-op
+OPEN original flat diffuse-byte quantization: native Forge pipeline=false differs at 0/24 vertices from original RenderBlocks setColorOpaque_F truncation. This is not an approved visual loss; full old/native AO solver equality remains unproven.
+OPEN original flat diffuse-byte quantization: native Forge pipeline=true differs at 4/24 vertices from original RenderBlocks setColorOpaque_F truncation. This is not an approved visual loss; full old/native AO solver equality remains unproven.
+[23:39:53] [main/INFO]: Reloading ResourceManager: resources
+[23:39:53] [main/INFO]: Reloading ResourceManager: box-duct-resources.jar
+[23:39:53] [main/INFO]: Reloading ResourceManager: resources
+PASS exact48 state/item routes, genuine native ModelLoaderRegistry/ItemModelMesher/BlockModelShapes, directory+JAR textures and reload replacement
+PASS box-duct native model/dispatcher 1425258 assertions; CPU buffers, no GPU or whole network-tile mechanics claim

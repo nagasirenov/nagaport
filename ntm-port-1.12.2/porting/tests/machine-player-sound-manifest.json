@@ -1,0 +1,53 @@
+{
+  "registry": {
+    "path": "src/main/java/com/hbm/main/ModSoundEvents.java",
+    "original_sha256": "9dd3fdf538f38fb51521e7556f50e30e3a9e8c50acf6afb716eb39d79505a606",
+    "migrated_sha256": "b47850a400b8dd57b666096cd6cfe108c04e21fc3bca135aecac4215d3e83a91",
+    "reverse_replacements": [
+      {
+        "after": "\tpublic static final SoundEvent BLOCK_OPENC = new SoundEvent(\n\t\t\tnew ResourceLocation(RefStrings.MODID, \"block.openc\"))\n\t\t\t\t.setRegistryName(RefStrings.MODID, \"block.openc\");\n\n\tpublic static final SoundEvent BLOCK_CLOSEC = new SoundEvent(\n\t\t\tnew ResourceLocation(RefStrings.MODID, \"block.closec\"))\n\t\t\t\t.setRegistryName(RefStrings.MODID, \"block.closec\");\n\n",
+        "before": ""
+      },
+      {
+        "after": "\t\tevent.getRegistry().register(BLOCK_OPENC);\n\t\tevent.getRegistry().register(BLOCK_CLOSEC);\n",
+        "before": ""
+      }
+    ]
+  },
+  "sounds_json": {
+    "path": "src/main/resources/assets/hbm/sounds.json",
+    "sha256": "1eb9ab439f7c1ce131ab51df7756e429b97f56a2784572de5be1c4ded69183b4"
+  },
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/openC1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/openc1.ogg",
+      "sha256": "09ff197d83281a7294ae9799c5c0ea3f1030239aa42c3c527bcde9f3571316ab"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/openC2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/openc2.ogg",
+      "sha256": "4f1767db1f06ad45004091431fc7d53596492a6fd55e6d92166854961f024110"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/openCSqueaky.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/opencsqueaky.ogg",
+      "sha256": "d6e1774fb0cb20c7a759f1ff75821765a0dd8b36f41dc10762dd7b866164f638"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/closeC1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/closec1.ogg",
+      "sha256": "4ab7d94930729d4eada5507dc3c2f841af3788b20bb9a0c5002b87699870f791"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/closeC2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/closec2.ogg",
+      "sha256": "617a8b56af8aecf23be6b8081b7fbc1998e79dd6c004c35adc3057d379047211"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/closeC3.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/closec3.ogg",
+      "sha256": "32045ac142501727ec0a5abf7a2a5fd704f65c7b69cec7ca5e804f812027b3ef"
+    }
+  ]
+}

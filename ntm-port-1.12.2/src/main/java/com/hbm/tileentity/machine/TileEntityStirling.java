@@ -23,7 +23,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityStirling extends TileEntityLoadedBase implements IBufPacketReceiver, IEnergyProviderMK2, IConfigurableMachine {
+public class TileEntityStirling extends TileEntityLoadedBase implements IBufPacketReceiver, IEnergyProviderMK2, IConfigurableMachine, net.minecraft.util.ITickable {
 
 	public long powerBuffer;
 	public int heat;
@@ -42,9 +42,9 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 	public static int overspeedLimit = 300;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(hasCog) {
 				this.powerBuffer = 0;
@@ -61,22 +61,22 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 
 					if(overspeed > 60 && warnCooldown == 0) {
 						warnCooldown = 100;
-						worldObj.playSoundEffect(xCoord + 0.5, yCoord + 1, zCoord + 0.5, "hbm:block.warnOverspeed", 2.0F, 1.0F);
+						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, "hbm:block.warnOverspeed", 2.0F, 1.0F);
 					}
 
 					if(overspeed > overspeedLimit) {
 						this.hasCog = false;
-						this.worldObj.newExplosion(null, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 5F, false, false);
+						this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 5F, false, false);
 
 						int orientation = this.getBlockMetadata() - BlockDummyable.offset;
 						ForgeDirection dir = ForgeDirection.getOrientation(orientation);
-						EntityCog cog = new EntityCog(worldObj, xCoord + 0.5 + dir.offsetX, yCoord + 1, zCoord + 0.5 + dir.offsetZ).setOrientation(orientation).setMeta(this.getGeatMeta());
+						EntityCog cog = new EntityCog(this.world, this.pos.getX() + 0.5 + dir.offsetX, this.pos.getY() + 1, this.pos.getZ() + 0.5 + dir.offsetZ).setOrientation(orientation).setMeta(this.getGeatMeta());
 						ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 						cog.motionX = rot.offsetX;
 						cog.motionY = 1 + (heat - maxHeat()) * 0.0001D;
 						cog.motionZ = rot.offsetZ;
-						worldObj.spawnEntityInWorld(cog);
+						this.world.spawnEntityInWorld(cog);
 
 						this.markDirty();
 					}
@@ -93,7 +93,7 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 
 			if(hasCog) {
 				for(DirPos pos : getConPos()) {
-					this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			} else {
 
@@ -132,10 +132,10 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -154,7 +154,7 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 	}
 
 	protected void tryPullHeat() {
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -180,12 +180,13 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("powerBuffer", powerBuffer);
 		nbt.setBoolean("hasCog", hasCog);
 		nbt.setInteger("overspeed", overspeed);
+		return nbt;
 	}
 
 	@Override
@@ -210,12 +211,12 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 

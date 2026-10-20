@@ -1,0 +1,542 @@
+{
+  "result": "PASS",
+  "base": "5e6ba284ef32b46ad5f81cd1e1570c08b53cb24f",
+  "aliases_checked": 15,
+  "sample_slots_checked": 22,
+  "unique_sample_asset_hashes": 22,
+  "effective_defaults_per_sample": {
+    "type": "file",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "weight": 1,
+    "stream": false
+  },
+  "definition_and_index_files": {
+    "legacy-version.json": {
+      "bytes": 14777,
+      "sha1": "ed5d8789ed29872ea2ef1c348302b0c55e3f3468",
+      "sha256": "265c7e47aad4c74f6085a49667d3a828f48d63f484def2ae70b5e426e5b7cba6",
+      "url": "https://piston-meta.mojang.com/v1/packages/ed5d8789ed29872ea2ef1c348302b0c55e3f3468/1.7.10.json",
+      "origin": "Previously fetched official bytes, copied unchanged"
+    },
+    "native-version.json": {
+      "bytes": 18416,
+      "sha1": "832d95b9f40699d4961394dcf6cf549e65f15dc5",
+      "sha256": "56dac2e1caa872d7e37a7b5523056cd812dca94f912ad2bd652817bee60edca4",
+      "url": "https://piston-meta.mojang.com/v1/packages/832d95b9f40699d4961394dcf6cf549e65f15dc5/1.12.2.json",
+      "origin": "Existing cache with exactly one trailing LF removed; resulting bytes match official URL SHA-1"
+    },
+    "legacy-index.json": {
+      "bytes": 72996,
+      "sha1": "1863782e33ce7b584fc45b037325a1964e095d3e",
+      "sha256": "48d191b37f391edfcdc77c51f2dce7ee4a9a97c48c0069af5b4f93a25c698f4f",
+      "url": "https://launchermeta.mojang.com/v1/packages/1863782e33ce7b584fc45b037325a1964e095d3e/1.7.10.json",
+      "origin": "Previously fetched official bytes, copied unchanged"
+    },
+    "native-index.json": {
+      "bytes": 143136,
+      "sha1": "a21e1ded1a24ea1548dd8db0cf30b6acb02655a9",
+      "sha256": "7a87ae9278d129fc60285547332b8c17c1ae7f72b9c8017cb0a6898df743eb2f",
+      "url": "https://piston-meta.mojang.com/v1/packages/a21e1ded1a24ea1548dd8db0cf30b6acb02655a9/1.12.json",
+      "origin": "Previously fetched official bytes, copied unchanged"
+    },
+    "legacy-sounds.json": {
+      "bytes": 34020,
+      "sha1": "fce0bb3e14ade7b292a7c1d5fa785533d8106d82",
+      "sha256": "14ef20dbd81eeb5eec0ec002f5d6fcb047e7f53203b20c79ba33836faa0f6f44",
+      "url": "https://resources.download.minecraft.net/fc/fce0bb3e14ade7b292a7c1d5fa785533d8106d82",
+      "origin": "Previously fetched official bytes, copied unchanged"
+    },
+    "native-sounds.json": {
+      "bytes": 105658,
+      "sha1": "975a99ed9870f51bbae348533d775d730e3fee18",
+      "sha256": "b33ac54ddcbe81c8f627e8e7eb642f269e0b54686849a2acb4048812eb06711e",
+      "url": "https://resources.download.minecraft.net/97/975a99ed9870f51bbae348533d775d730e3fee18",
+      "origin": "Previously fetched official bytes, copied unchanged"
+    },
+    "version-manifest.json": {
+      "bytes": 209815,
+      "sha1": "20c7d2dd973dcc13fa7c98548214b113eb83a88a",
+      "sha256": "39c54c6cf6e65a06a813655189866d583979772fe087225f311ec78a2c235df6"
+    }
+  },
+  "version_manifest_entries": {
+    "1.12.2": {
+      "id": "1.12.2",
+      "type": "release",
+      "url": "https://piston-meta.mojang.com/v1/packages/832d95b9f40699d4961394dcf6cf549e65f15dc5/1.12.2.json",
+      "time": "2023-06-07T11:49:20+00:00",
+      "releaseTime": "2017-09-18T08:39:46+00:00"
+    },
+    "1.7.10": {
+      "id": "1.7.10",
+      "type": "release",
+      "url": "https://piston-meta.mojang.com/v1/packages/ed5d8789ed29872ea2ef1c348302b0c55e3f3468/1.7.10.json",
+      "time": "2021-12-15T15:44:05+00:00",
+      "releaseTime": "2014-05-14T17:29:23+00:00"
+    }
+  },
+  "production_sounds_sha256": "3223d19b68d0f41899bf0c879cb695bd4a1b4dab5e04e3938fe482cad40b6ddf",
+  "aliases": [
+    {
+      "legacy": "ambient.weather.thunder",
+      "native": "entity.lightning.thunder",
+      "field": "ENTITY_LIGHTNING_THUNDER",
+      "legacy_category": "weather",
+      "native_category": "WEATHER",
+      "sample_count": 3,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.lightning.thunder",
+      "samples": [
+        {
+          "name": "ambient/weather/thunder1",
+          "asset_key": "minecraft/sounds/ambient/weather/thunder1.ogg",
+          "sha1": "671ef0ae7b59014a2f637d7af6d781324ab6309f",
+          "bytes": 24468,
+          "url": "https://resources.download.minecraft.net/67/671ef0ae7b59014a2f637d7af6d781324ab6309f",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "ambient/weather/thunder2",
+          "asset_key": "minecraft/sounds/ambient/weather/thunder2.ogg",
+          "sha1": "a20cbf2ddce541eaed520d7ec55665fe97428be6",
+          "bytes": 25571,
+          "url": "https://resources.download.minecraft.net/a2/a20cbf2ddce541eaed520d7ec55665fe97428be6",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "ambient/weather/thunder3",
+          "asset_key": "minecraft/sounds/ambient/weather/thunder3.ogg",
+          "sha1": "9ead5c928f9122e3c2f5fc4f6ce7fb4054a2b578",
+          "bytes": 27653,
+          "url": "https://resources.download.minecraft.net/9e/9ead5c928f9122e3c2f5fc4f6ce7fb4054a2b578",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "random.explode",
+      "native": "entity.generic.explode",
+      "field": "ENTITY_GENERIC_EXPLODE",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 4,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.generic.explode",
+      "samples": [
+        {
+          "name": "random/explode1",
+          "asset_key": "minecraft/sounds/random/explode1.ogg",
+          "sha1": "cd46e41023887558b134547e28327de6e7df189a",
+          "bytes": 19732,
+          "url": "https://resources.download.minecraft.net/cd/cd46e41023887558b134547e28327de6e7df189a",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "random/explode2",
+          "asset_key": "minecraft/sounds/random/explode2.ogg",
+          "sha1": "a116e396d95a0ee245000dd4cdcc333d38ea9e3b",
+          "bytes": 25246,
+          "url": "https://resources.download.minecraft.net/a1/a116e396d95a0ee245000dd4cdcc333d38ea9e3b",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "random/explode3",
+          "asset_key": "minecraft/sounds/random/explode3.ogg",
+          "sha1": "a94a69e56568f5789cab05382cfd81f601189fd1",
+          "bytes": 25298,
+          "url": "https://resources.download.minecraft.net/a9/a94a69e56568f5789cab05382cfd81f601189fd1",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "random/explode4",
+          "asset_key": "minecraft/sounds/random/explode4.ogg",
+          "sha1": "f259be40364341edcaf88e339bc24ab01e49845a",
+          "bytes": 25090,
+          "url": "https://resources.download.minecraft.net/f2/f259be40364341edcaf88e339bc24ab01e49845a",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "random.fizz",
+      "native": "block.fire.extinguish",
+      "field": "BLOCK_FIRE_EXTINGUISH",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.block.fire.extinguish",
+      "samples": [
+        {
+          "name": "random/fizz",
+          "asset_key": "minecraft/sounds/random/fizz.ogg",
+          "sha1": "c649e60ea9a99c97501a50d2dc4e579343e91ea8",
+          "bytes": 17002,
+          "url": "https://resources.download.minecraft.net/c6/c649e60ea9a99c97501a50d2dc4e579343e91ea8",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "random.click",
+      "native": "block.lever.click",
+      "field": "BLOCK_LEVER_CLICK",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.block.lever.click",
+      "samples": [
+        {
+          "name": "random/click",
+          "asset_key": "minecraft/sounds/random/click.ogg",
+          "sha1": "2fe092579d9637e2d160319820ee08e60a237bb7",
+          "bytes": 7046,
+          "url": "https://resources.download.minecraft.net/2f/2fe092579d9637e2d160319820ee08e60a237bb7",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "fire.fire",
+      "native": "block.fire.ambient",
+      "field": "BLOCK_FIRE_AMBIENT",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.block.fire.ambient",
+      "samples": [
+        {
+          "name": "fire/fire",
+          "asset_key": "minecraft/sounds/fire/fire.ogg",
+          "sha1": "8b260108a73470c16cd244325242d4780cfb7d78",
+          "bytes": 28689,
+          "url": "https://resources.download.minecraft.net/8b/8b260108a73470c16cd244325242d4780cfb7d78",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "random.break",
+      "native": "entity.item.break",
+      "field": "ENTITY_ITEM_BREAK",
+      "legacy_category": "player",
+      "native_category": "PLAYERS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.item.break",
+      "samples": [
+        {
+          "name": "random/break",
+          "asset_key": "minecraft/sounds/random/break.ogg",
+          "sha1": "8bf3ecb0fe9a6a615f5995e3dd21b6c39adc21d5",
+          "bytes": 6551,
+          "url": "https://resources.download.minecraft.net/8b/8bf3ecb0fe9a6a615f5995e3dd21b6c39adc21d5",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "mob.zombie.woodbreak",
+      "native": "entity.zombie.break_door_wood",
+      "field": "ENTITY_ZOMBIE_BREAK_DOOR_WOOD",
+      "legacy_category": "hostile",
+      "native_category": "HOSTILE",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.block.generic.break",
+      "samples": [
+        {
+          "name": "mob/zombie/woodbreak",
+          "asset_key": "minecraft/sounds/mob/zombie/woodbreak.ogg",
+          "sha1": "4e94ed53b6059d150c3bb2322b4af9ca9514bae1",
+          "bytes": 10929,
+          "url": "https://resources.download.minecraft.net/4e/4e94ed53b6059d150c3bb2322b4af9ca9514bae1",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "mob.endermen.portal",
+      "native": "entity.endermen.teleport",
+      "field": "ENTITY_ENDERMEN_TELEPORT",
+      "legacy_category": "hostile",
+      "native_category": "HOSTILE",
+      "sample_count": 2,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.enderman.teleport",
+      "samples": [
+        {
+          "name": "mob/endermen/portal",
+          "asset_key": "minecraft/sounds/mob/endermen/portal.ogg",
+          "sha1": "7b4b5323ef066caa1ae43cbe66fffd9dfce4ed32",
+          "bytes": 10010,
+          "url": "https://resources.download.minecraft.net/7b/7b4b5323ef066caa1ae43cbe66fffd9dfce4ed32",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "mob/endermen/portal2",
+          "asset_key": "minecraft/sounds/mob/endermen/portal2.ogg",
+          "sha1": "35461b6a4253db40973549e82d91f267c686be85",
+          "bytes": 7442,
+          "url": "https://resources.download.minecraft.net/35/35461b6a4253db40973549e82d91f267c686be85",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "fireworks.blast",
+      "native": "entity.firework.blast",
+      "field": "ENTITY_FIREWORK_BLAST",
+      "legacy_category": "ambient",
+      "native_category": "AMBIENT",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.firework.blast",
+      "samples": [
+        {
+          "name": "fireworks/blast1",
+          "asset_key": "minecraft/sounds/fireworks/blast1.ogg",
+          "sha1": "d9d7511e8944da0c7ab4ed2d3e3d964f98dd6997",
+          "bytes": 11071,
+          "url": "https://resources.download.minecraft.net/d9/d9d7511e8944da0c7ab4ed2d3e3d964f98dd6997",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "fire.ignite",
+      "native": "item.flintandsteel.use",
+      "field": "ITEM_FLINTANDSTEEL_USE",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.item.flintandsteel.use",
+      "samples": [
+        {
+          "name": "fire/ignite",
+          "asset_key": "minecraft/sounds/fire/ignite.ogg",
+          "sha1": "a0d1fbff7e938e92c10c1576339dda668f40e111",
+          "bytes": 6418,
+          "url": "https://resources.download.minecraft.net/a0/a0d1fbff7e938e92c10c1576339dda668f40e111",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "tile.piston.out",
+      "native": "block.piston.extend",
+      "field": "BLOCK_PISTON_EXTEND",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.block.piston.move",
+      "samples": [
+        {
+          "name": "tile/piston/out",
+          "asset_key": "minecraft/sounds/tile/piston/out.ogg",
+          "sha1": "cb017131516de9359cb81fb991f5b3694044f8db",
+          "bytes": 6059,
+          "url": "https://resources.download.minecraft.net/cb/cb017131516de9359cb81fb991f5b3694044f8db",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "tile.piston.in",
+      "native": "block.piston.contract",
+      "field": "BLOCK_PISTON_CONTRACT",
+      "legacy_category": "block",
+      "native_category": "BLOCKS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.block.piston.move",
+      "samples": [
+        {
+          "name": "tile/piston/in",
+          "asset_key": "minecraft/sounds/tile/piston/in.ogg",
+          "sha1": "594be3eaea9a2b92095eeeb3b1e01e755dcb8ce2",
+          "bytes": 5900,
+          "url": "https://resources.download.minecraft.net/59/594be3eaea9a2b92095eeeb3b1e01e755dcb8ce2",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "minecart.base",
+      "native": "entity.minecart.riding",
+      "field": "ENTITY_MINECART_RIDING",
+      "legacy_category": "neutral",
+      "native_category": "NEUTRAL",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.minecart.riding",
+      "samples": [
+        {
+          "name": "minecart/base",
+          "asset_key": "minecraft/sounds/minecart/base.ogg",
+          "sha1": "28f9973fcd8366ac9837dbe190b129a8fce15857",
+          "bytes": 15354,
+          "url": "https://resources.download.minecraft.net/28/28f9973fcd8366ac9837dbe190b129a8fce15857",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "game.neutral.swim.splash",
+      "native": "entity.generic.splash",
+      "field": "ENTITY_GENERIC_SPLASH",
+      "legacy_category": "neutral",
+      "native_category": "NEUTRAL",
+      "sample_count": 2,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.generic.splash",
+      "samples": [
+        {
+          "name": "liquid/splash",
+          "asset_key": "minecraft/sounds/liquid/splash.ogg",
+          "sha1": "4c14c40542e249c902d0cac710ab4c6d6debba28",
+          "bytes": 16702,
+          "url": "https://resources.download.minecraft.net/4c/4c14c40542e249c902d0cac710ab4c6d6debba28",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        },
+        {
+          "name": "liquid/splash2",
+          "asset_key": "minecraft/sounds/liquid/splash2.ogg",
+          "sha1": "857abbbfb58186c2f1b5510a4072630950e518f6",
+          "bytes": 36747,
+          "url": "https://resources.download.minecraft.net/85/857abbbfb58186c2f1b5510a4072630950e518f6",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    },
+    {
+      "legacy": "random.orb",
+      "native": "entity.experience_orb.pickup",
+      "field": "ENTITY_EXPERIENCE_ORB_PICKUP",
+      "legacy_category": "player",
+      "native_category": "PLAYERS",
+      "sample_count": 1,
+      "legacy_name_absent_natively": true,
+      "production_exact_original_definition": true,
+      "native_subtitle_not_copied": "subtitles.entity.experience_orb.pickup",
+      "samples": [
+        {
+          "name": "random/orb",
+          "asset_key": "minecraft/sounds/random/orb.ogg",
+          "sha1": "e9833a1512b57bcf88ac4fdcc8df4e5a7e9d701d",
+          "bytes": 7139,
+          "url": "https://resources.download.minecraft.net/e9/e9833a1512b57bcf88ac4fdcc8df4e5a7e9d701d",
+          "type": "file",
+          "volume": 1.0,
+          "pitch": 1.0,
+          "weight": 1,
+          "stream": false
+        }
+      ]
+    }
+  ],
+  "scope": "Offline JSON/index/archived-bytecode evidence only. No OGG downloaded, opened, decoded, or played. Asset identities are proven by equality of official index SHA-1 and size records, not by inspecting audio payloads. Native subtitle additions are documented, not copied into legacy aliases. Runtime dispatch, mix/category behavior, and sound-engine execution are outside this check."
+}

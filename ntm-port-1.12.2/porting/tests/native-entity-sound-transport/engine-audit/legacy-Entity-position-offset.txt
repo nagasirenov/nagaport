@@ -1,0 +1,70 @@
+  public void b(double, double, double);
+    Code:
+       0: aload_0
+       1: dload_1
+       2: putfield      #258                // Field s:D
+       5: aload_0
+       6: dload_3
+       7: putfield      #259                // Field t:D
+      10: aload_0
+      11: dload         5
+      13: putfield      #260                // Field u:D
+      16: aload_0
+      17: getfield      #217                // Field M:F
+      20: fconst_2
+      21: fdiv
+      22: fstore        7
+      24: aload_0
+      25: getfield      #218                // Field N:F
+      28: fstore        8
+      30: aload_0
+      31: getfield      #207                // Field C:Lazt;
+      34: dload_1
+      35: fload         7
+      37: f2d
+      38: dsub
+      39: dload_3
+      40: aload_0
+      41: getfield      #216                // Field L:F
+      44: f2d
+      45: dsub
+      46: aload_0
+      47: getfield      #226                // Field V:F
+      50: f2d
+      51: dadd
+      52: dload         5
+      54: fload         7
+      56: f2d
+      57: dsub
+      58: dload_1
+      59: fload         7
+      61: f2d
+      62: dadd
+      63: dload_3
+      64: aload_0
+      65: getfield      #216                // Field L:F
+      68: f2d
+      69: dsub
+      70: aload_0
+      71: getfield      #226                // Field V:F
+      74: f2d
+      75: dadd
+      76: fload         8
+      78: f2d
+      79: dadd
+      80: dload         5
+      82: fload         7
+      84: f2d
+      85: dadd
+      86: invokevirtual #315                // Method azt.b:(DDDDDD)Lazt;
+      89: pop
+      90: return
+
+
+  public double ad();
+    Code:
+       0: aload_0
+       1: getfield      #216                // Field L:F
+       4: f2d
+       5: dreturn
+

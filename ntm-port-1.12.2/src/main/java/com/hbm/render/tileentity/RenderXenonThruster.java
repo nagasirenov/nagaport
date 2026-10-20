@@ -5,16 +5,14 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityXenonThruster;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderXenonThruster extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderXenonThruster extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -37,7 +35,7 @@ public class RenderXenonThruster extends TileEntitySpecialRenderer implements II
 
 			GL11.glTranslated(0, 0, -0.5);
 
-			float trailStretch = te.getWorldObj().rand.nextFloat();
+			float trailStretch = te.getWorld().rand.nextFloat();
 			trailStretch = 1.2F - (trailStretch * trailStretch * 0.2F);
 			trailStretch *= rocket.thrustAmount;
 	
@@ -79,25 +77,6 @@ public class RenderXenonThruster extends TileEntitySpecialRenderer implements II
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_xenon_thruster);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -4, 0);
-				GL11.glScaled(4, 4, 4);
-			}
-			public void renderCommon() {
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.xenon_thruster_tex);
-				ResourceManager.xenon_thruster.renderPart("Thruster");
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 	
 }

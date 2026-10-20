@@ -1,0 +1,51 @@
+Compiled from "PlaySoundEvent.java"
+public class net.minecraftforge.client.event.sound.PlaySoundEvent extends net.minecraftforge.client.event.sound.SoundEvent {
+  private final java.lang.String name;
+
+  private final net.minecraft.client.audio.ISound sound;
+
+  private net.minecraft.client.audio.ISound result;
+
+  public net.minecraftforge.client.event.sound.PlaySoundEvent(net.minecraft.client.audio.SoundManager, net.minecraft.client.audio.ISound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #15                 // Method net/minecraftforge/client/event/sound/SoundEvent."<init>":(Lnet/minecraft/client/audio/SoundManager;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #17                 // Field sound:Lnet/minecraft/client/audio/ISound;
+      10: aload_0
+      11: aload_2
+      12: invokeinterface #23,  1           // InterfaceMethod net/minecraft/client/audio/ISound.getSoundLocation:()Lnet/minecraft/util/ResourceLocation;
+      17: invokevirtual #29                 // Method net/minecraft/util/ResourceLocation.getPath:()Ljava/lang/String;
+      20: putfield      #31                 // Field name:Ljava/lang/String;
+      23: aload_0
+      24: aload_2
+      25: invokevirtual #35                 // Method setResultSound:(Lnet/minecraft/client/audio/ISound;)V
+      28: return
+
+  public java.lang.String getName();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field name:Ljava/lang/String;
+       4: areturn
+
+  public net.minecraft.client.audio.ISound getSound();
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field sound:Lnet/minecraft/client/audio/ISound;
+       4: areturn
+
+  public net.minecraft.client.audio.ISound getResultSound();
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field result:Lnet/minecraft/client/audio/ISound;
+       4: areturn
+
+  public void setResultSound(net.minecraft.client.audio.ISound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #45                 // Field result:Lnet/minecraft/client/audio/ISound;
+       5: return
+}

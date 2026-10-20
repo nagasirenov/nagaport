@@ -42,7 +42,7 @@ public class GeigerCounter extends BlockContainer {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0)
 		{
@@ -89,7 +89,7 @@ public class GeigerCounter extends BlockContainer {
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		// xyz,xyz (negative, positive)
-		int te = world.getBlockMetadata(x, y, z);
+		int te = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
         float f = 0.0625F;
 
         this.setBlockBounds(0.0F, 0.0F, 2*f, 1.0F, 1.0F, 14*f);
@@ -139,7 +139,7 @@ public class GeigerCounter extends BlockContainer {
 
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		TileEntityGeiger te = (TileEntityGeiger)world.getTileEntity(x, y, z);
+		TileEntityGeiger te = (TileEntityGeiger)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if (te == null) return 0;
 
 		float rad = te.check();

@@ -1,0 +1,75 @@
+import java.util.*;
+/** Pure-Java recorder for verbatim pristine renderer bodies, not an old native API shim. */
+final class LegacyConveyorModelOracle {
+ interface OracleBelt {} interface OracleEnterable {}
+ static class OracleBlock {
+  final String icon;
+  OracleBlock(String icon){this.icon=icon;}
+  public String getIcon(int side,int metadata){return icon;}
+  int getMixedBrightnessForBlock(OracleWorld w,int x,int y,int z){return 0;}
+ }
+ static class IconBase extends OracleBlock implements OracleBelt {
+  final String sideIcon="hbm:blocks/conveyor_side";
+  IconBase(String icon){super(icon);}
+  /* IconBase */
+ }
+ static final class IconBendable extends IconBase {
+  final String curveLeft,curveRight;
+  IconBendable(String icon){super(icon);curveLeft=icon+"_curve_left";curveRight=icon+"_curve_right";}
+  /* IconBendable */
+ }
+ static final class IconClassic extends OracleBlock implements OracleBelt {
+  final String sideIcon="hbm:blocks/conveyor_side";
+  IconClassic(String icon){super(icon);}
+  /* IconClassic */
+ }
+ static final class Enterable extends OracleBlock implements OracleEnterable {Enterable(){super("unused");}}
+ static final class Both extends IconBase implements OracleEnterable {Both(){super("unused");}}
+ static final class OracleBlocks {
+  static final OracleBlock concrete_smooth=new OracleBlock("hbm:blocks/concrete"),steel_grate=new OracleBlock("hbm:blocks/grate_top"),iron_block=new OracleBlock("minecraft:blocks/iron_block");
+  static final OracleBlock[] neighbors={new OracleBlock("unused"),new IconBase("unused"),new Enterable(),new Both()};
+ }
+ static final class OracleWorld {
+  final int meta,y;final int[] kinds;
+  OracleWorld(int meta,int y,int[] kinds){this.meta=meta;this.y=y;this.kinds=kinds;}
+  int getBlockMetadata(int x,int yy,int z){return meta;}
+  OracleBlock getBlock(int x,int yy,int z){int f=yy<y?0:yy>y?1:z<0?2:z>0?3:x<0?4:5;return OracleBlocks.neighbors[kinds[f]];}
+ }
+ static final class Face {
+  final double[] bounds;final int side,rotation;final String material;final double xOffset,yOffset,zOffset;
+  Face(Recorder r,int side,String material){bounds=r.bounds.clone();this.side=side;rotation=new int[]{r.uvRotateBottom,r.uvRotateTop,r.uvRotateEast,r.uvRotateWest,r.uvRotateNorth,r.uvRotateSouth}[side];this.material=material;xOffset=RecordingGL.x+.5;yOffset=RecordingGL.y+.5;zOffset=RecordingGL.z+.5;}
+ }
+ static final class RecordingGL {
+  static double x=-.5,y=-.5,z=-.5;
+  static void glPushMatrix(){x=y=z=0;}
+  static void glTranslatef(float xx,float yy,float zz){x+=xx;y+=yy;z+=zz;}
+  static void glPopMatrix(){x=y=z=-.5;}
+ }
+ static final class SilentTessellator {
+  static final SilentTessellator instance=new SilentTessellator();void setColorOpaque_F(float x,float y,float z){}void setNormal(float x,float y,float z){}void setBrightness(int i){}void startDrawingQuads(){}void draw(){}
+ }
+ static final class Recorder {
+  final OracleWorld world;final List<Face> faces=new ArrayList<>();double[] bounds=new double[6];String override;
+  int uvRotateTop,uvRotateBottom,uvRotateNorth,uvRotateSouth,uvRotateEast,uvRotateWest;
+  Recorder(OracleWorld world){this.world=world;}
+  void setRenderBounds(double a,double b,double c,double d,double e,double f){bounds=new double[]{a,b,c,d,e,f};}
+  void setOverrideBlockTexture(String texture){override=texture;}void clearOverrideBlockTexture(){override=null;}
+  String getBlockIconFromSideAndMetadata(OracleBlock block,int side,int metadata){return block.getIcon(side,metadata);}
+  void face(int side,String texture){faces.add(new Face(this,side,override==null?texture:override));}
+  void renderStandardBlock(OracleBlock block,int x,int y,int z){for(int side=0;side<6;side++)face(side,block.getIcon(side,world.meta));}
+  void renderFaceYNeg(OracleBlock b,double x,double y,double z,String t){face(0,t);}void renderFaceYPos(OracleBlock b,double x,double y,double z,String t){face(1,t);}
+  void renderFaceZNeg(OracleBlock b,double x,double y,double z,String t){face(2,t);}void renderFaceZPos(OracleBlock b,double x,double y,double z,String t){face(3,t);}
+  void renderFaceXNeg(OracleBlock b,double x,double y,double z,String t){face(4,t);}void renderFaceXPos(OracleBlock b,double x,double y,double z,String t){face(5,t);}
+ }
+ static final class BeltRenderer { /* RenderConveyor */ }
+ static final class LiftRenderer { /* RenderConveyorLift */ }
+ static final class ChuteRenderer { /* RenderConveyorChute */ }
+ static List<Face> faces(int kind,String material,int meta,boolean inventory,int y,int[] neighbors){
+  OracleWorld world=new OracleWorld(meta,y,neighbors);Recorder r=new Recorder(world);OracleBlock block=kind==0?new IconBendable(material):kind==1?new IconClassic(material):new IconBase(material);
+  if(kind<2){BeltRenderer renderer=new BeltRenderer();if(inventory)renderer.renderInventoryBlock(block,meta,0,r);else renderer.renderWorldBlock(world,0,y,0,block,0,r);}
+  else if(kind==2){if(inventory)throw new AssertionError("Original lift inventory delegates flat icon");new LiftRenderer().renderWorldBlock(world,0,y,0,block,0,r);}
+  else {ChuteRenderer renderer=new ChuteRenderer();if(inventory)renderer.renderInventoryBlock(block,meta,0,r);else renderer.renderWorldBlock(world,0,y,0,block,0,r);}
+  if(r.override!=null||r.uvRotateTop!=0||r.uvRotateBottom!=0||r.uvRotateNorth!=0||r.uvRotateSouth!=0||r.uvRotateEast!=0||r.uvRotateWest!=0)throw new AssertionError("Original state not reset");
+  return r.faces;
+ }
+}

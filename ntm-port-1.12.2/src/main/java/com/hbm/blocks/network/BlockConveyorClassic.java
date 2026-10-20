@@ -2,50 +2,109 @@ package com.hbm.blocks.network;
 
 import api.hbm.conveyor.IConveyorBelt;
 import com.hbm.entity.item.EntityMovingItem;
-import com.hbm.lib.RefStrings;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import java.util.Objects;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockConveyorClassic extends Block implements IConveyorBelt {
+	/** Legacy direction/path nibble, retained losslessly for every saved metadata value. */
+	public static final PropertyInteger METADATA = BlockConveyorBase.METADATA;
+	protected static final AxisAlignedBB BELT_BOUNDS = new AxisAlignedBB(0, 0, 0, 1, 0.25, 1);
+	private ResourceLocation modelTexture;
 
-	@SideOnly(Side.CLIENT)
-	protected IIcon sideIcon;
+	/** Full native atlas sprite location; Classic has no built-in registered material. */
+	public BlockConveyorClassic setModelTexture(ResourceLocation texture) {
+		this.modelTexture = Objects.requireNonNull(texture, "Classic conveyor model texture");
+		return this;
+	}
+
+	public ResourceLocation getModelTexture() {
+		if(modelTexture == null) throw new IllegalStateException("Classic conveyor requires an explicit native model texture");
+		return modelTexture;
+	}
+
 
 	public BlockConveyorClassic() {
-		super(Material.iron);
+		super(Material.IRON);
+		setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return ConveyorModelState.create(this, METADATA);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(METADATA, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(METADATA);
+	}
+
+	@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return ConveyorModelState.extend(state, world, pos);
+	}
+
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.sideIcon = iconRegister.registerIcon(RefStrings.MODID + ":conveyor_side");
+	public BlockRenderLayer getRenderLayer() {
+		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int metadata) {
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 
-		if((metadata == 2 || metadata == 3) && (side == 4 || side == 5))
-			return this.sideIcon;
-		if((metadata == 4 || metadata == 5) && (side == 2 || side == 3))
-			return this.sideIcon;
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 
-		return super.getIcon(side, metadata);
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {
+		// Collision height does not grant the legacy non-normal conveyor solid attachment faces.
+		return BlockFaceShape.UNDEFINED;
+	}
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return BELT_BOUNDS;
+	}
+
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return getBoundingBox(state, world, pos);
 	}
 
 	@Override
@@ -59,7 +118,7 @@ public class BlockConveyorClassic extends Block implements IConveyorBelt {
 		ForgeDirection dir = getTravelDirection(world, x, y, z, itemPos, speed);
 		//snapping point
 		Vec3d snap = this.getClosestSnappingPosition(world, x, y, z, itemPos);
-		itemPos = new Vec3d(MathHelper.clamp_double(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp_double(itemPos.z, z, z + 1));
+		itemPos = new Vec3d(MathHelper.clamp(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp(itemPos.z, z, z + 1));
 		//snapping point + speed
 		Vec3d dest = new Vec3d(snap.x - dir.offsetX * speed, snap.y - dir.offsetY * speed, snap.z - dir.offsetZ * speed);
 		//delta to get to that point
@@ -71,16 +130,16 @@ public class BlockConveyorClassic extends Block implements IConveyorBelt {
 	}
 
 	public ForgeDirection getTravelDirection(World world, int x, int y, int z, Vec3d itemPos, double speed) {
-		return ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
+		return ForgeDirection.getOrientation(getMetaFromState(world.getBlockState(new BlockPos(x, y, z))));
 	}
 
 	@Override
 	public Vec3d getClosestSnappingPosition(World world, int x, int y, int z, Vec3d itemPos) {
 
-		ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
+		ForgeDirection dir = ForgeDirection.getOrientation(getMetaFromState(world.getBlockState(new BlockPos(x, y, z))));
 
-		double itemX = MathHelper.clamp_double(itemPos.x, x, x + 1);
-		double itemZ = MathHelper.clamp_double(itemPos.z, z, z + 1);
+		double itemX = MathHelper.clamp(itemPos.x, x, x + 1);
+		double itemZ = MathHelper.clamp(itemPos.z, z, z + 1);
 
 		double posX = x + 0.5;
 		double posZ = z + 0.5;
@@ -96,18 +155,21 @@ public class BlockConveyorClassic extends Block implements IConveyorBelt {
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+	public void onEntityCollision(World world, BlockPos blockPos, IBlockState state, Entity entity) {
+		int x = blockPos.getX();
+		int y = blockPos.getY();
+		int z = blockPos.getZ();
 
 		if(!world.isRemote) {
 
 			if(entity instanceof EntityItem && entity.ticksExisted > 10 && !entity.isDead) {
 
 				EntityMovingItem item = new EntityMovingItem(world);
-				item.setItemStack(((EntityItem) entity).getEntityItem().copy());
+				item.setItemStack(((EntityItem) entity).getItem().copy());
 				Vec3d pos = new Vec3d(entity.posX, entity.posY, entity.posZ);
 				Vec3d snap = this.getClosestSnappingPosition(world, x, y, z, pos);
 				item.setPositionAndRotation(snap.x, snap.y, snap.z, 0, 0);
-				world.spawnEntityInWorld(item);
+				world.spawnEntity(item);
 
 				entity.setDead();
 			}
@@ -115,45 +177,20 @@ public class BlockConveyorClassic extends Block implements IConveyorBelt {
 	}
 
 	@Override
-	public int getRenderType() {
-		return BlockConveyorBase.renderID;
-	}
-
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 0.25, z + 1);
-	}
-
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			world.setBlockState(pos, getStateFromMeta(2), 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			world.setBlockState(pos, getStateFromMeta(5), 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			world.setBlockState(pos, getStateFromMeta(3), 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			world.setBlockState(pos, getStateFromMeta(4), 2);
 		}
 	}
 }

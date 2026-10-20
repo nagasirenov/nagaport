@@ -70,32 +70,32 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i >= 4 && i <= 5) {
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 		}
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machinePyroOven";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[0].setType(3, slots);
 
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 			ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
-			if(smoke.getFill() > 0) this.sendFluid(smoke, worldObj, xCoord - rot.offsetX, yCoord + 3, zCoord - rot.offsetZ, Library.POS_Y);
+			if(smoke.getFill() > 0) this.sendFluid(smoke, this.world, this.pos.getX() - rot.offsetX, this.pos.getY() + 3, this.pos.getZ() - rot.offsetZ, Library.POS_Y);
 
 			upgradeManager.checkSlots(this, slots, 4, 5);
 			int speed = upgradeManager.getLevel(UpgradeType.SPEED);
@@ -143,11 +143,11 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 				audio.keepAlive();
 				audio.updateVolume(this.getVolume(1F));
 
-				if(MainRegistry.proxy.me().getDistance(xCoord + 0.5, yCoord + 3, zCoord + 0.5) < 50) {
-					if(worldObj.rand.nextInt(20) == 0) worldObj.spawnParticle("cloud", xCoord + 0.5 - rot.offsetX - dir.offsetX * 0.875, yCoord + 3, zCoord + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
-					if(worldObj.rand.nextInt(20) == 0) worldObj.spawnParticle("cloud", xCoord + 0.5 - rot.offsetX - dir.offsetX * 2.375, yCoord + 3, zCoord + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
-					if(worldObj.rand.nextInt(20) == 0) worldObj.spawnParticle("cloud", xCoord + 0.5 - rot.offsetX + dir.offsetX * 0.875, yCoord + 3, zCoord + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
-					if(worldObj.rand.nextInt(20) == 0) worldObj.spawnParticle("cloud", xCoord + 0.5 - rot.offsetX + dir.offsetX * 2.375, yCoord + 3, zCoord + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
+				if(MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 3, this.pos.getZ() + 0.5) < 50) {
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
 				}
 
 			} else {
@@ -160,17 +160,17 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 
 			if(this.isVenting) {
 
-				if(worldObj.getTotalWorldTime() % 2 == 0) {
+				if(this.world.getTotalWorldTime() % 2 == 0) {
 					NBTTagCompound fx = new NBTTagCompound();
 					fx.setString("type", "tower");
 					fx.setFloat("lift", 10F);
 					fx.setFloat("base", 0.25F);
 					fx.setFloat("max", 2.5F);
-					fx.setInteger("life", 100 + worldObj.rand.nextInt(20));
+					fx.setInteger("life", 100 + this.world.rand.nextInt(20));
 					fx.setInteger("color",0x202020);
-					fx.setDouble("posX", xCoord + 0.5 - rot.offsetX);
-					fx.setDouble("posY", yCoord + 3);
-					fx.setDouble("posZ", zCoord + 0.5 - rot.offsetZ);
+					fx.setDouble("posX", this.pos.getX() + 0.5 - rot.offsetX);
+					fx.setDouble("posY", this.pos.getY() + 3);
+					fx.setDouble("posZ", this.pos.getZ() + 0.5 - rot.offsetZ);
 					MainRegistry.proxy.effectNT(fx);
 				}
 			}
@@ -254,11 +254,11 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 3, rot),
-				new DirPos(xCoord + dir.offsetX * 1 + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * 3, rot),
-				new DirPos(xCoord + rot.offsetX * 3, yCoord, zCoord + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - dir.offsetX * 1 + rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 1 + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 1 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 1 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 1 + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ * 3, rot),
 		};
 	}
 
@@ -292,17 +292,20 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tanks[0].writeToNBT(nbt, "t0");
 		this.tanks[1].writeToNBT(nbt, "t1");
 		nbt.setFloat("prog", progress);
 		nbt.setLong("power", power);
+		return nbt;
 	}
 
-	@Override public int[] getAccessibleSlotsFromSide(int meta) { return new int[] { 1, 2 }; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] { 1, 2 }; }
 	@Override public boolean isItemValidForSlot(int i, ItemStack itemStack) { return i == 1; }
-	@Override public boolean canExtractItem(int i, ItemStack itemStack, int j) { return i == 2; }
+	@Override public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return i == 2; }
 
 	@Override
 	public void pollute(PollutionType type, float amount) {
@@ -314,13 +317,13 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 		if(tank.getFill() > tank.getMaxFill()) {
 			int overflow = tank.getFill() - tank.getMaxFill();
 			tank.setFill(tank.getMaxFill());
-			PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, type, overflow / 100F);
+			PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), type, overflow / 100F);
 			this.isVenting = true;
 		}
 	}
 
 	@Override public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.pyroOperate", xCoord, yCoord, zCoord, 1.0F, 15F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.pyroOperate", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 15F, 1.0F, 20);
 	}
 
 	@Override public void onChunkUnload() {
@@ -336,7 +339,7 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(xCoord - 3, yCoord, zCoord - 3, xCoord + 4, yCoord + 3.5, zCoord + 4);
+		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 3, this.pos.getX() + 4, this.pos.getY() + 3.5, this.pos.getZ() + 4);
 		return bb;
 	}
 

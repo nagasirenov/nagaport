@@ -92,12 +92,12 @@ public class XFactory12ga {
 	};
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_BOAT = (bullet, mop) -> {
-		EntityDuchessGambit pippo = new EntityDuchessGambit(bullet.worldObj);
+		EntityDuchessGambit pippo = new EntityDuchessGambit(bullet.world);
 		pippo.posX = mop.hitVec.x;
 		pippo.posY = mop.hitVec.y + 50;
 		pippo.posZ = mop.hitVec.z;;
-		bullet.worldObj.spawnEntityInWorld(pippo);
-		bullet.worldObj.playSoundEffect(pippo.posX, pippo.posY + 50, pippo.posZ, "hbm:weapon.boat", 100F, 1F);
+		bullet.world.spawnEntityInWorld(pippo);
+		com.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, "hbm:weapon.boat", 100F, 1F);
 		bullet.setDead();
 	};
 
@@ -108,16 +108,16 @@ public class XFactory12ga {
 		cfg.setOnBeamImpact((beam, mop) -> {
 
 			int projectiles = submunition.projectilesMin;
-			if(submunition.projectilesMax > submunition.projectilesMin) projectiles += beam.worldObj.rand.nextInt(submunition.projectilesMax - submunition.projectilesMin + 1);
+			if(submunition.projectilesMax > submunition.projectilesMin) projectiles += beam.world.rand.nextInt(submunition.projectilesMax - submunition.projectilesMin + 1);
 
 			if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
 				net.minecraft.util.EnumFacing side = mop.sideHit;
 				Vec3d hitVec = mop.hitVec.addVector(side.getFrontOffsetX() * 0.1, side.getFrontOffsetY() * 0.1, side.getFrontOffsetZ() * 0.1);
 
-				spawnPulse(beam.worldObj, mop, hitVec, beam.rotationYaw, beam.rotationPitch);
+				spawnPulse(beam.world, mop, hitVec, beam.rotationYaw, beam.rotationPitch);
 
-				List<Entity> blast = beam.worldObj.getEntitiesWithinAABBExcludingEntity(beam, AxisAlignedBB.getBoundingBox(hitVec.x, hitVec.y, hitVec.z, hitVec.x, hitVec.y, hitVec.z).expand(0.75, 0.75, 0.75));
+				List<Entity> blast = beam.world.getEntitiesWithinAABBExcludingEntity(beam, AxisAlignedBB.getBoundingBox(hitVec.x, hitVec.y, hitVec.z, hitVec.x, hitVec.y, hitVec.z).expand(0.75, 0.75, 0.75));
 				DamageSource source = BulletConfig.getDamage(beam, beam.getThrower(), DamageClass.LASER);
 
 				for(Entity e : blast) {
@@ -131,19 +131,19 @@ public class XFactory12ga {
 				}
 
 				for(int i = 0; i < projectiles; i++) {
-					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.worldObj, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, hitVec.x, hitVec.y, hitVec.z, dir.offsetX, dir.offsetY, dir.offsetZ);
-					bullet.worldObj.spawnEntityInWorld(bullet);
+					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, hitVec.x, hitVec.y, hitVec.z, dir.offsetX, dir.offsetY, dir.offsetZ);
+					bullet.world.spawnEntityInWorld(bullet);
 				}
 			}
 
 			if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 
-				spawnPulse(beam.worldObj, mop, beam.rotationYaw, beam.rotationPitch);
+				spawnPulse(beam.world, mop, beam.rotationYaw, beam.rotationPitch);
 
 				for(int i = 0; i < projectiles; i++) {
-					Vec3NT vec = new Vec3NT(beam.worldObj.rand.nextGaussian(), beam.worldObj.rand.nextGaussian(), beam.worldObj.rand.nextGaussian()).normalizeSelf();
-					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.worldObj, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, vec.x, vec.y, vec.z);
-					bullet.worldObj.spawnEntityInWorld(bullet);
+					Vec3NT vec = new Vec3NT(beam.world.rand.nextGaussian(), beam.world.rand.nextGaussian(), beam.world.rand.nextGaussian()).normalizeSelf();
+					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, vec.x, vec.y, vec.z);
+					bullet.world.spawnEntityInWorld(bullet);
 				}
 			}
 		});
@@ -161,18 +161,18 @@ public class XFactory12ga {
 
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-			Block b = bullet.worldObj.getBlockState(mop.getBlockPos()).getBlock();
-			if(b.getMaterial() == Material.glass) {
-				bullet.worldObj.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+			Block b = bullet.world.getBlockState(mop.getBlockPos()).getBlock();
+			if(b.getDefaultState().getMaterial() == Material.GLASS) {
+				bullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				return;
 			}
 			if(b instanceof BlockDetonatable) {
-				((BlockDetonatable) b).onShot(bullet.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				((BlockDetonatable) b).onShot(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 			}
 			if(b == ModBlocks.deco_crt) {
-				int meta = bullet.worldObj.getBlockMetadata(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
-				bullet.worldObj.setBlockMetadataWithNotify(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
+				int meta = bullet.world.getBlockMetadata(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				bullet.world.setBlockMetadataWithNotify(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
 			}
 
 			net.minecraft.util.EnumFacing side = mop.sideHit;
@@ -183,9 +183,9 @@ public class XFactory12ga {
 
 			if(angle <= bullet.config.ricochetAngle) {
 
-				spawnPulse(bullet.worldObj, mop, bullet.rotationYaw, bullet.rotationPitch);
+				spawnPulse(bullet.world, mop, bullet.rotationYaw, bullet.rotationPitch);
 
-				List<Entity> blast = bullet.worldObj.getEntitiesWithinAABBExcludingEntity(bullet, AxisAlignedBB.getBoundingBox(bullet.posX, bullet.posY, bullet.posZ, bullet.posX, bullet.posY, bullet.posZ).expand(0.5, 0.5, 0.5));
+				List<Entity> blast = bullet.world.getEntitiesWithinAABBExcludingEntity(bullet, AxisAlignedBB.getBoundingBox(bullet.posX, bullet.posY, bullet.posZ, bullet.posX, bullet.posY, bullet.posZ).expand(0.5, 0.5, 0.5));
 				DamageSource source = BulletConfig.getDamage(bullet, bullet.getThrower(), DamageClass.LASER);
 
 				for(Entity e : blast) {
@@ -211,7 +211,7 @@ public class XFactory12ga {
 				}
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				//send a teleport so the ricochet is more accurate instead of the interp smoothing fucking everything up
-				if(bullet.worldObj instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) bullet.worldObj, bullet);
+				if(bullet.world instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) bullet.world, bullet);
 				return;
 
 			} else {
@@ -254,7 +254,7 @@ public class XFactory12ga {
 		data.setFloat("pitch", pitch);
 		data.setFloat("yaw", yaw);
 		data.setFloat("scale", 0.75F);
-		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 100));
+		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 100));
 	}
 
 	public static void init() {
@@ -300,7 +300,7 @@ public class XFactory12ga {
 				.setupStandardConfiguration()
 				.anim(LAMBDA_MARESLEG_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG)
 				).setDefaultAmmo(EnumAmmo.G12, 12).setNameMutator(LAMBDA_NAME_MARESLEG)
-				.setUnlocalizedName("gun_maresleg");
+				.setTranslationKey("gun_maresleg");
 		ModItems.gun_maresleg_akimbo = new ItemGunBaseNT(WeaponQuality.B_SIDE,
 				new GunConfig().dura(600).draw(5).inspect(39).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
 				.rec(new Receiver(0)
@@ -320,7 +320,7 @@ public class XFactory12ga {
 				.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)
 				.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				.anim(LAMBDA_MARESLEG_SHORT_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG_AKIMBO)
-				).setDefaultAmmo(EnumAmmo.G12, 24).setUnlocalizedName("gun_maresleg_akimbo");
+				).setDefaultAmmo(EnumAmmo.G12, 24).setTranslationKey("gun_maresleg_akimbo");
 		ModItems.gun_maresleg_broken = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(0).draw(5).inspect(39).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
 				.rec(new Receiver(0)
@@ -330,7 +330,7 @@ public class XFactory12ga {
 						.canFire(Lego.LAMBDA_STANDARD_CAN_FIRE).fire(Lego.LAMBDA_NOWEAR_FIRE).recoil(LAMBDA_RECOIL_MARESLEG))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_MARESLEG_SHORT_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG_SHORT)
-				).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 24).setUnlocalizedName("gun_maresleg_broken");
+				).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 24).setTranslationKey("gun_maresleg_broken");
 
 		ModItems.gun_liberator = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(200).draw(20).inspect(21).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -341,7 +341,7 @@ public class XFactory12ga {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_LIBERATOR))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LIBERATOR_ANIMS).orchestra(Orchestras.ORCHESTRA_LIBERATOR)
-				).setDefaultAmmo(EnumAmmo.G12, 12).setUnlocalizedName("gun_liberator");
+				).setDefaultAmmo(EnumAmmo.G12, 12).setTranslationKey("gun_liberator");
 
 		ModItems.gun_spas12 = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(600).draw(20).inspect(39).reloadSequential(true).reloadChangeType(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -352,7 +352,7 @@ public class XFactory12ga {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_MARESLEG))
 				.setupStandardConfiguration().ps(LAMBDA_SPAS_SECONDARY).pt(null)
 				.anim(LAMBDA_SPAS_ANIMS).orchestra(Orchestras.ORCHESTRA_SPAS)
-				).setDefaultAmmo(EnumAmmo.G12, 16).setUnlocalizedName("gun_spas12");
+				).setDefaultAmmo(EnumAmmo.G12, 16).setTranslationKey("gun_spas12");
 
 		ModItems.gun_autoshotgun = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(2_000).draw(10).inspect(33).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -363,7 +363,7 @@ public class XFactory12ga {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_AUTOSHOTGUN))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_SHREDDER_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER)
-				).setDefaultAmmo(EnumAmmo.G12, 20).setUnlocalizedName("gun_autoshotgun");
+				).setDefaultAmmo(EnumAmmo.G12, 20).setTranslationKey("gun_autoshotgun");
 		ModItems.gun_autoshotgun_shredder = new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()
 				.dura(2_000).draw(10).inspect(33).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
 				.rec(new Receiver(0)
@@ -373,7 +373,7 @@ public class XFactory12ga {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_AUTOSHOTGUN))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_SHREDDER_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER)
-				).setDefaultAmmo(EnumAmmo.G12, 20).setUnlocalizedName("gun_autoshotgun_shredder");
+				).setDefaultAmmo(EnumAmmo.G12, 20).setTranslationKey("gun_autoshotgun_shredder");
 
 		ModItems.gun_autoshotgun_sexy = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(5_000).draw(20).inspect(65).reloadSequential(true).inspectCancel(false).crosshair(Crosshair.L_CIRCLE).hideCrosshair(false).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -384,7 +384,7 @@ public class XFactory12ga {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_SEXY))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_SEXY_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER_SEXY)
-				).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 50).setUnlocalizedName("gun_autoshotgun_sexy");
+				).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 50).setTranslationKey("gun_autoshotgun_sexy");
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_MARESLEG = (stack) -> {
@@ -425,7 +425,7 @@ public class XFactory12ga {
 						timeFired++;
 					}
 				}
-				if(rec.getFireSound(stack) != null) entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack) * (timeFired > 1 ? 0.9F : 1F));
+				if(rec.getFireSound(stack) != null) entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack) * (timeFired > 1 ? 0.9F : 1F));
 				ItemGunBaseNT.setState(stack, index, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, index, 20);
 			} else {

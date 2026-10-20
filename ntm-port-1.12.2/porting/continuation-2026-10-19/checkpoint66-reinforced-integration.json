@@ -1,0 +1,891 @@
+[
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2619,
+    "end": 2670,
+    "old": "world.setBlock(x + 1, y + -1, z + 0, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 0, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2673,
+    "end": 2724,
+    "old": "world.setBlock(x + 2, y + -1, z + 0, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 0, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2727,
+    "end": 2778,
+    "old": "world.setBlock(x + 3, y + -1, z + 0, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 0, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2781,
+    "end": 2832,
+    "old": "world.setBlock(x + 0, y + -1, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + -1, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2835,
+    "end": 2886,
+    "old": "world.setBlock(x + 1, y + -1, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2889,
+    "end": 2940,
+    "old": "world.setBlock(x + 2, y + -1, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2943,
+    "end": 2994,
+    "old": "world.setBlock(x + 3, y + -1, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 2997,
+    "end": 3048,
+    "old": "world.setBlock(x + 4, y + -1, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3051,
+    "end": 3102,
+    "old": "world.setBlock(x + 0, y + -1, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + -1, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3105,
+    "end": 3156,
+    "old": "world.setBlock(x + 1, y + -1, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3159,
+    "end": 3210,
+    "old": "world.setBlock(x + 2, y + -1, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3213,
+    "end": 3264,
+    "old": "world.setBlock(x + 3, y + -1, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3267,
+    "end": 3318,
+    "old": "world.setBlock(x + 4, y + -1, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3321,
+    "end": 3372,
+    "old": "world.setBlock(x + 0, y + -1, z + 3, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + -1, z + 3, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3375,
+    "end": 3426,
+    "old": "world.setBlock(x + 1, y + -1, z + 3, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 3, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3429,
+    "end": 3480,
+    "old": "world.setBlock(x + 2, y + -1, z + 3, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 3, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3483,
+    "end": 3534,
+    "old": "world.setBlock(x + 3, y + -1, z + 3, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 3, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3537,
+    "end": 3588,
+    "old": "world.setBlock(x + 4, y + -1, z + 3, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 3, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3591,
+    "end": 3642,
+    "old": "world.setBlock(x + 1, y + -1, z + 4, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 4, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3645,
+    "end": 3696,
+    "old": "world.setBlock(x + 2, y + -1, z + 4, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 4, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3699,
+    "end": 3750,
+    "old": "world.setBlock(x + 3, y + -1, z + 4, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 4, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3753,
+    "end": 3804,
+    "old": "world.setBlock(x + 1, y + -1, z + 5, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 5, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3807,
+    "end": 3858,
+    "old": "world.setBlock(x + 2, y + -1, z + 5, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 5, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3861,
+    "end": 3912,
+    "old": "world.setBlock(x + 3, y + -1, z + 5, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 5, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3915,
+    "end": 3966,
+    "old": "world.setBlock(x + 1, y + -1, z + 6, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 6, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 3969,
+    "end": 4020,
+    "old": "world.setBlock(x + 2, y + -1, z + 6, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 6, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 4023,
+    "end": 4074,
+    "old": "world.setBlock(x + 3, y + -1, z + 6, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 6, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 78570,
+    "end": 78622,
+    "old": "world.setBlock(x + 0, y + 11, z + 1, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 11, z + 1, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 78625,
+    "end": 78677,
+    "old": "world.setBlock(x + 0, y + 11, z + 2, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 11, z + 2, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 78680,
+    "end": 78732,
+    "old": "world.setBlock(x + 4, y + 11, z + 2, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 2, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 78735,
+    "end": 78787,
+    "old": "world.setBlock(x + 0, y + 11, z + 3, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 11, z + 3, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 78790,
+    "end": 78842,
+    "old": "world.setBlock(x + 4, y + 11, z + 3, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 3, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 89480,
+    "end": 89531,
+    "old": "world.setBlock(x + 1, y + 13, z + 0, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 13, z + 0, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 89534,
+    "end": 89585,
+    "old": "world.setBlock(x + 2, y + 13, z + 0, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 13, z + 0, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 89588,
+    "end": 89639,
+    "old": "world.setBlock(x + 3, y + 13, z + 0, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 13, z + 0, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 89642,
+    "end": 89693,
+    "old": "world.setBlock(x + 0, y + 13, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 13, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90026,
+    "end": 90077,
+    "old": "world.setBlock(x + 4, y + 13, z + 1, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 13, z + 1, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90080,
+    "end": 90131,
+    "old": "world.setBlock(x + 0, y + 13, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 13, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90354,
+    "end": 90405,
+    "old": "world.setBlock(x + 4, y + 13, z + 2, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 13, z + 2, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90408,
+    "end": 90459,
+    "old": "world.setBlock(x + 0, y + 13, z + 3, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 13, z + 3, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90682,
+    "end": 90733,
+    "old": "world.setBlock(x + 1, y + 13, z + 4, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 13, z + 4, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90736,
+    "end": 90787,
+    "old": "world.setBlock(x + 2, y + 13, z + 4, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 13, z + 4, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "start": 90790,
+    "end": 90841,
+    "old": "world.setBlock(x + 3, y + 13, z + 4, Block1, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 13, z + 4, Block1);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 400099,
+    "end": 400151,
+    "old": "world.setBlock(x + 18, y + 1, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 1, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 400154,
+    "end": 400206,
+    "old": "world.setBlock(x + 19, y + 1, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 1, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 401707,
+    "end": 401759,
+    "old": "world.setBlock(x + 22, y + 1, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 1, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 403424,
+    "end": 403476,
+    "old": "world.setBlock(x + 26, y + 1, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 1, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 403479,
+    "end": 403531,
+    "old": "world.setBlock(x + 27, y + 1, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 1, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 406693,
+    "end": 406745,
+    "old": "world.setBlock(x + 35, y + 1, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 480239,
+    "end": 480292,
+    "old": "world.setBlock(x + 21, y + 1, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 1, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482545,
+    "end": 482598,
+    "old": "world.setBlock(x + 25, y + 1, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482657,
+    "end": 482710,
+    "old": "world.setBlock(x + 28, y + 1, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 1, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484963,
+    "end": 485016,
+    "old": "world.setBlock(x + 32, y + 1, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 1, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485190,
+    "end": 485243,
+    "old": "world.setBlock(x + 35, y + 1, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 598287,
+    "end": 598340,
+    "old": "world.setBlock(x + 21, y + 2, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 2, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 600593,
+    "end": 600646,
+    "old": "world.setBlock(x + 27, y + 2, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 2, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 600649,
+    "end": 600702,
+    "old": "world.setBlock(x + 28, y + 2, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 2, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 602955,
+    "end": 603008,
+    "old": "world.setBlock(x + 32, y + 2, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 2, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 603011,
+    "end": 603064,
+    "old": "world.setBlock(x + 34, y + 2, z + 18, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 2, z + 18, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 72104,
+    "end": 72156,
+    "old": "world.setBlock(x + 33, y + 4, z + 7, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 4, z + 7, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 76027,
+    "end": 76079,
+    "old": "world.setBlock(x + 33, y + 4, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 4, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 76082,
+    "end": 76134,
+    "old": "world.setBlock(x + 34, y + 4, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 4, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 76137,
+    "end": 76189,
+    "old": "world.setBlock(x + 35, y + 4, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 4, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 76192,
+    "end": 76244,
+    "old": "world.setBlock(x + 36, y + 4, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 4, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 131953,
+    "end": 132005,
+    "old": "world.setBlock(x + 18, y + 5, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 5, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 132008,
+    "end": 132060,
+    "old": "world.setBlock(x + 19, y + 5, z + 6, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 6, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 148076,
+    "end": 148128,
+    "old": "world.setBlock(x + 33, y + 5, z + 7, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 5, z + 7, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 149378,
+    "end": 149430,
+    "old": "world.setBlock(x + 16, y + 5, z + 8, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 8, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 149433,
+    "end": 149485,
+    "old": "world.setBlock(x + 23, y + 5, z + 8, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 8, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 149488,
+    "end": 149540,
+    "old": "world.setBlock(x + 33, y + 5, z + 8, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 5, z + 8, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 149543,
+    "end": 149595,
+    "old": "world.setBlock(x + 34, y + 5, z + 8, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 5, z + 8, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 149598,
+    "end": 149650,
+    "old": "world.setBlock(x + 35, y + 5, z + 8, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 5, z + 8, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 149653,
+    "end": 149705,
+    "old": "world.setBlock(x + 36, y + 5, z + 8, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 5, z + 8, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 150674,
+    "end": 150726,
+    "old": "world.setBlock(x + 16, y + 5, z + 9, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 9, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 150853,
+    "end": 150905,
+    "old": "world.setBlock(x + 23, y + 5, z + 9, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 9, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 155779,
+    "end": 155832,
+    "old": "world.setBlock(x + 23, y + 5, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 161233,
+    "end": 161286,
+    "old": "world.setBlock(x + 23, y + 5, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 165365,
+    "end": 165418,
+    "old": "world.setBlock(x + 16, y + 5, z + 15, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 15, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 166696,
+    "end": 166749,
+    "old": "world.setBlock(x + 16, y + 5, z + 16, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 16, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 206688,
+    "end": 206740,
+    "old": "world.setBlock(x + 33, y + 6, z + 7, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 6, z + 7, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 206743,
+    "end": 206795,
+    "old": "world.setBlock(x + 34, y + 6, z + 7, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 6, z + 7, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 206798,
+    "end": 206850,
+    "old": "world.setBlock(x + 35, y + 6, z + 7, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 6, z + 7, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 206853,
+    "end": 206905,
+    "old": "world.setBlock(x + 36, y + 6, z + 7, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 6, z + 7, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 210185,
+    "end": 210237,
+    "old": "world.setBlock(x + 33, y + 6, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 6, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 210240,
+    "end": 210292,
+    "old": "world.setBlock(x + 34, y + 6, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 6, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 210295,
+    "end": 210347,
+    "old": "world.setBlock(x + 35, y + 6, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 6, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 210350,
+    "end": 210402,
+    "old": "world.setBlock(x + 36, y + 6, z + 8, Block22, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 6, z + 8, Block22);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 347016,
+    "end": 347068,
+    "old": "world.setBlock(x + 7, y + 8, z + 10, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 10, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 347180,
+    "end": 347232,
+    "old": "world.setBlock(x + 9, y + 8, z + 10, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 10, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 349064,
+    "end": 349116,
+    "old": "world.setBlock(x + 6, y + 8, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 8, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 349119,
+    "end": 349172,
+    "old": "world.setBlock(x + 10, y + 8, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 8, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 352179,
+    "end": 352231,
+    "old": "world.setBlock(x + 6, y + 8, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 8, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 352234,
+    "end": 352287,
+    "old": "world.setBlock(x + 10, y + 8, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 8, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 353799,
+    "end": 353851,
+    "old": "world.setBlock(x + 7, y + 8, z + 14, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 14, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 353963,
+    "end": 354015,
+    "old": "world.setBlock(x + 9, y + 8, z + 14, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 14, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 376589,
+    "end": 376641,
+    "old": "world.setBlock(x + 7, y + 9, z + 10, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 10, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 376753,
+    "end": 376805,
+    "old": "world.setBlock(x + 9, y + 9, z + 10, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 10, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 376808,
+    "end": 376860,
+    "old": "world.setBlock(x + 6, y + 9, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 9, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 376863,
+    "end": 376915,
+    "old": "world.setBlock(x + 7, y + 9, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 377027,
+    "end": 377079,
+    "old": "world.setBlock(x + 9, y + 9, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 377082,
+    "end": 377135,
+    "old": "world.setBlock(x + 10, y + 9, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 9, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 377684,
+    "end": 377736,
+    "old": "world.setBlock(x + 6, y + 9, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 9, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 377739,
+    "end": 377791,
+    "old": "world.setBlock(x + 7, y + 9, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 377903,
+    "end": 377955,
+    "old": "world.setBlock(x + 9, y + 9, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 377958,
+    "end": 378011,
+    "old": "world.setBlock(x + 10, y + 9, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 9, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 378014,
+    "end": 378066,
+    "old": "world.setBlock(x + 7, y + 9, z + 14, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 14, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 378316,
+    "end": 378368,
+    "old": "world.setBlock(x + 9, y + 9, z + 14, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 14, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 380809,
+    "end": 380862,
+    "old": "world.setBlock(x + 7, y + 10, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 10, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 380975,
+    "end": 381028,
+    "old": "world.setBlock(x + 9, y + 10, z + 11, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 10, z + 11, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 381361,
+    "end": 381414,
+    "old": "world.setBlock(x + 7, y + 10, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 10, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 381527,
+    "end": 381580,
+    "old": "world.setBlock(x + 9, y + 10, z + 13, Block11, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 10, z + 13, Block11);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Silo.java",
+    "start": 242298,
+    "end": 242349,
+    "old": "world.setBlock(x + 8, y + -8, z + 6, Block5, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -8, z + 6, Block5);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Silo.java",
+    "start": 242352,
+    "end": 242403,
+    "old": "world.setBlock(x + 9, y + -8, z + 6, Block5, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -8, z + 6, Block5);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Silo.java",
+    "start": 242406,
+    "end": 242458,
+    "old": "world.setBlock(x + 10, y + -8, z + 6, Block5, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -8, z + 6, Block5);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Silo.java",
+    "start": 277320,
+    "end": 277371,
+    "old": "world.setBlock(x + 8, y + -7, z + 6, Block5, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -7, z + 6, Block5);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Silo.java",
+    "start": 277374,
+    "end": 277425,
+    "old": "world.setBlock(x + 9, y + -7, z + 6, Block5, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -7, z + 6, Block5);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Silo.java",
+    "start": 277428,
+    "end": 277480,
+    "old": "world.setBlock(x + 10, y + -7, z + 6, Block5, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -7, z + 6, Block5);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 121510,
+    "end": 121563,
+    "old": "world.setBlock(x + 4, y + -1, z + 36, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 36, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 122222,
+    "end": 122275,
+    "old": "world.setBlock(x + 9, y + -1, z + 36, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 36, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 122278,
+    "end": 122331,
+    "old": "world.setBlock(x + 4, y + -1, z + 37, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 37, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 122990,
+    "end": 123043,
+    "old": "world.setBlock(x + 9, y + -1, z + 37, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 37, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 123046,
+    "end": 123099,
+    "old": "world.setBlock(x + 4, y + -1, z + 38, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 38, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 123758,
+    "end": 123811,
+    "old": "world.setBlock(x + 9, y + -1, z + 38, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 38, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 123978,
+    "end": 124031,
+    "old": "world.setBlock(x + 5, y + -1, z + 39, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -1, z + 39, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 124034,
+    "end": 124087,
+    "old": "world.setBlock(x + 6, y + -1, z + 39, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -1, z + 39, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 124090,
+    "end": 124143,
+    "old": "world.setBlock(x + 7, y + -1, z + 39, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -1, z + 39, Block10);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 124146,
+    "end": 124199,
+    "old": "world.setBlock(x + 8, y + -1, z + 39, Block10, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -1, z + 39, Block10);"
+  }
+]

@@ -7,11 +7,12 @@ import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.network.TileEntityCraneBase;
 import com.hbm.tileentity.network.TileEntityCraneInserter;
 import com.hbm.util.InventoryUtil;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -24,7 +25,8 @@ import com.hbm.lib.ForgeDirection;
 public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 
 	public CraneInserter() {
-		super(Material.iron);
+		super(Material.IRON);
+		initModelTextures();
 	}
 
 	@Override
@@ -33,42 +35,41 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconDirectional = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_top");
-		this.iconDirectionalUp = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_up");
-		this.iconDirectionalDown = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_down");
-		this.iconDirectionalTurnLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_top_left");
-		this.iconDirectionalTurnRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_top_right");
-		this.iconDirectionalSideLeftTurnUp = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_left_turn_up");
-		this.iconDirectionalSideRightTurnUp = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_right_turn_up");
-		this.iconDirectionalSideLeftTurnDown = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_left_turn_down");
-		this.iconDirectionalSideRightTurnDown = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_right_turn_down");
-		this.iconDirectionalSideUpTurnLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_up_turn_left");
-		this.iconDirectionalSideUpTurnRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_up_turn_right");
-		this.iconDirectionalSideDownTurnLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_down_turn_left");
-		this.iconDirectionalSideDownTurnRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_in_side_down_turn_right");
+	protected void initModelTextures() {
+		super.initModelTextures();
+		this.iconDirectional = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_top");
+		this.iconDirectionalUp = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_up");
+		this.iconDirectionalDown = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_down");
+		this.iconDirectionalTurnLeft = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_top_left");
+		this.iconDirectionalTurnRight = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_top_right");
+		this.iconDirectionalSideLeftTurnUp = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_left_turn_up");
+		this.iconDirectionalSideRightTurnUp = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_right_turn_up");
+		this.iconDirectionalSideLeftTurnDown = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_left_turn_down");
+		this.iconDirectionalSideRightTurnDown = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_right_turn_down");
+		this.iconDirectionalSideUpTurnLeft = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_up_turn_left");
+		this.iconDirectionalSideUpTurnRight = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_up_turn_right");
+		this.iconDirectionalSideDownTurnLeft = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_down_turn_left");
+		this.iconDirectionalSideDownTurnRight = new ResourceLocation(RefStrings.MODID, "blocks/crane_in_side_down_turn_right");
 	}
 
 	@Override
 	public boolean canItemEnter(World world, int x, int y, int z, ForgeDirection dir, IConveyorItem entity) {
-		ForgeDirection orientation = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
+		ForgeDirection orientation = ForgeDirection.getOrientation(getMetaFromState(world.getBlockState(new BlockPos(x, y, z))));
 		return orientation == dir;
 	}
 
 	@Override
 	public void onItemEnter(World world, int x, int y, int z, ForgeDirection dir, IConveyorItem entity) {
 		ForgeDirection outputDirection = getOutputSide(world, x, y, z);
-		TileEntity te = world.getTileEntity(x + outputDirection.offsetX, y + outputDirection.offsetY, z + outputDirection.offsetZ);
+		TileEntity te = world.getTileEntity(new BlockPos(x + outputDirection.offsetX, y + outputDirection.offsetY, z + outputDirection.offsetZ));
 
-		if(entity == null || entity.getItemStack() == null || entity.getItemStack().stackSize <= 0) {
+		if(entity == null || entity.getItemStack() == null || entity.getItemStack().getCount() <= 0) {
 			return;
 		}
 
 		ItemStack toAdd = entity.getItemStack().copy();
 
-		if (!world.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if (!world.isBlockPowered(new BlockPos(x, y, z))) {
 			int[] access = null;
 
 			if(te instanceof ISidedInventory) {
@@ -85,13 +86,13 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 
 		TileEntityCraneInserter inserter = null;
 
-		if(toAdd.stackSize > 0) {
-			inserter = (TileEntityCraneInserter) world.getTileEntity(x, y, z);
+		if(toAdd.getCount() > 0) {
+			inserter = (TileEntityCraneInserter) world.getTileEntity(new BlockPos(x, y, z));
 			addToInventory(inserter, null, toAdd, outputDirection.getOpposite().ordinal());
 		}
-		if(toAdd.stackSize > 0 && inserter != null && !inserter.destroyer) {
+		if(toAdd.getCount() > 0 && inserter != null && !inserter.destroyer) {
 			EntityItem drop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, toAdd.copy());
-			world.spawnEntityInWorld(drop);
+			world.spawnEntity(drop);
 		}
 	}
 
@@ -106,17 +107,17 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 			int index = access == null ? i : access[i];
 			ItemStack stack = inv.getStackInSlot(index);
 
-			if(stack != null && toAdd.isItemEqual(stack) && ItemStack.areItemStackTagsEqual(toAdd, stack) && stack.stackSize < Math.min(stack.getMaxStackSize(), limit)
-					 && ((sided == null || sided.canInsertItem(index, toAdd, side)) && inv.isItemValidForSlot(index, toAdd))) {
+			if(stack != null && !stack.isEmpty() && toAdd.isItemEqual(stack) && ItemStack.areItemStackTagsEqual(toAdd, stack) && stack.getCount() < Math.min(stack.getMaxStackSize(), limit)
+					 && ((sided == null || sided.canInsertItem(index, toAdd, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing())) && inv.isItemValidForSlot(index, toAdd))) {
 
 				int stackLimit = Math.min(stack.getMaxStackSize(), limit);
-				int amount = Math.min(toAdd.stackSize, stackLimit - stack.stackSize);
+				int amount = Math.min(toAdd.getCount(), stackLimit - stack.getCount());
 
-				stack.stackSize += amount;
-				toAdd.stackSize -= amount;
+				stack.grow(amount);
+				toAdd.shrink(amount);
 				inv.markDirty();
 
-				if(toAdd.stackSize == 0) {
+				if(toAdd.getCount() == 0) {
 					return null;
 				}
 			}
@@ -126,17 +127,17 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 			int index = access == null ? i : access[i];
 			ItemStack stack = inv.getStackInSlot(index);
 
-			if(stack == null && ((sided == null || sided.canInsertItem(index, toAdd, side)) && inv.isItemValidForSlot(index, toAdd))) {
+			if((stack == null || stack.isEmpty()) && ((sided == null || sided.canInsertItem(index, toAdd, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing())) && inv.isItemValidForSlot(index, toAdd))) {
 
-				int amount = Math.min(toAdd.stackSize, limit);
+				int amount = Math.min(toAdd.getCount(), limit);
 
 				ItemStack newStack = toAdd.copy();
-				newStack.stackSize = amount;
+				newStack.setCount(amount);
 				inv.setInventorySlotContents(index, newStack);
-				toAdd.stackSize -= amount;
+				toAdd.shrink(amount);
 				inv.markDirty();
 
-				if(toAdd.stackSize == 0) {
+				if(toAdd.getCount() == 0) {
 					return null;
 				}
 			}
@@ -150,7 +151,7 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 	@Override
 	public void onPackageEnter(World world, int x, int y, int z, ForgeDirection dir, IConveyorPackage entity) {
 		ForgeDirection outputDirection = getOutputSide(world, x, y, z);
-		TileEntity te = world.getTileEntity(x + outputDirection.offsetX, y + outputDirection.offsetY, z + outputDirection.offsetZ);
+		TileEntity te = world.getTileEntity(new BlockPos(x + outputDirection.offsetX, y + outputDirection.offsetY, z + outputDirection.offsetZ));
 
 		if(entity == null || entity.getItemStacks() == null || entity.getItemStacks().length == 0) {
 			return;
@@ -158,7 +159,7 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 		
 		ItemStack[] toAdd = entity.getItemStacks();
 
-		if(!world.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if(!world.isBlockPowered(new BlockPos(x, y, z))) {
 			int[] access = null;
 
 			if(te instanceof ISidedInventory) {
@@ -177,27 +178,31 @@ public class CraneInserter extends BlockCraneBase implements IEnterableBlock {
 		
 		for(ItemStack stack : toAdd) {
 			
-			if(stack.stackSize > 0) {
-				inserter = (TileEntityCraneInserter) world.getTileEntity(x, y, z);
+			if(stack.getCount() > 0) {
+				inserter = (TileEntityCraneInserter) world.getTileEntity(new BlockPos(x, y, z));
 				addToInventory(inserter, null, stack, outputDirection.getOpposite().ordinal());
 			}
-			if(stack.stackSize > 0 && inserter != null && !inserter.destroyer) {
+			if(stack.getCount() > 0 && inserter != null && !inserter.destroyer) {
 				EntityItem drop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack.copy());
-				world.spawnEntityInWorld(drop);
+				world.spawnEntity(drop);
 			}
 		}
 	}
 
-	@Override public boolean hasComparatorInputOverride() { return true; }
+	@Override public boolean hasComparatorInputOverride(IBlockState state) { return true; }
 
 	@Override
-	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		return Container.calcRedstoneFromInventory((TileEntityCraneInserter)world.getTileEntity(x, y, z));
+	public int getComparatorInputOverride(IBlockState state, World world, BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		return Container.calcRedstoneFromInventory((TileEntityCraneInserter)world.getTileEntity(new BlockPos(x, y, z)));
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = getMetaFromState(state);
 		this.dropContents(world, x, y, z, block, meta, 0, 21);
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 }

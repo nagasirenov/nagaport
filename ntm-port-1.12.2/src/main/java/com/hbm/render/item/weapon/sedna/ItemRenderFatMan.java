@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -38,7 +41,7 @@ public class ItemRenderFatMan extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.fatman_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.fatman_tex);
 		double scale = 0.5D;
 		GL11.glScaled(scale, scale, scale);
 		
@@ -119,12 +122,12 @@ public class ItemRenderFatMan extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 		boolean isLoaded = gun.getConfig(stack, 0).getReceivers(stack)[0].getMagazine(stack).getAmount(stack, null) > 0;
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.fatman_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.fatman_tex);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		ResourceManager.fatman.renderPart("Launcher");
@@ -141,7 +144,7 @@ public class ItemRenderFatMan extends ItemRenderWeaponBase {
 		if(type == XFactoryCatapult.nuke_balefire) {
 			renderBalefire(interp);
 		} else {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.fatman_mininuke_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.fatman_mininuke_tex);
 			ResourceManager.fatman.renderPart("MiniNuke");
 		}
 	}
@@ -163,7 +166,7 @@ public class ItemRenderFatMan extends ItemRenderWeaponBase {
 		int layers = 3;
 		
 		GL11.glPushMatrix();
-		float offset = mc.thePlayer.ticksExisted + interp;
+		float offset = mc.player.ticksExisted + interp;
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glColor4f(1F, 1F, 1F, 1F);

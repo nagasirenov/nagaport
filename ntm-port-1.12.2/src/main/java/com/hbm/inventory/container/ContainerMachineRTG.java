@@ -5,7 +5,7 @@ import com.hbm.tileentity.machine.TileEntityMachineRTG;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -50,9 +50,9 @@ public class ContainerMachineRTG extends Container {
 	}
 
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, this.testNuke.heat);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
+		crafting.sendWindowProperty(this, 0, this.testNuke.heat);
 	}
 
 	@Override
@@ -99,13 +99,13 @@ public class ContainerMachineRTG extends Container {
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 
-		for(int i = 0; i < this.crafters.size(); i++)
+		for(int i = 0; i < this.listeners.size(); i++)
 		{
-			ICrafting par1 = (ICrafting)this.crafters.get(i);
+			IContainerListener par1 = (IContainerListener)this.listeners.get(i);
 
 			if(this.heat != this.testNuke.heat)
 			{
-				par1.sendProgressBarUpdate(this, 0, this.testNuke.heat);
+				par1.sendWindowProperty(this, 0, this.testNuke.heat);
 			}
 		}
 

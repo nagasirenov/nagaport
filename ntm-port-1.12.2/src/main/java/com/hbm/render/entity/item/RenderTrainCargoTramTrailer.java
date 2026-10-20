@@ -3,24 +3,31 @@ package com.hbm.render.entity.item;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.ModBlocks;
-import com.hbm.entity.train.EntityRailCarBase;
+import com.hbm.entity.train.EntityRailCarCargo;
+import com.hbm.render.util.NativeMachineItemRenderer;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderTrainCargoTramTrailer extends Render {
+public class RenderTrainCargoTramTrailer extends Render<EntityRailCarCargo> {
+
+	private final NativeMachineItemRenderer items = new NativeMachineItemRenderer();
+
+	public RenderTrainCargoTramTrailer(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
-	public void doRender(Entity entity, double x, double y, double z, float swing, float interp) {
+	public void doRender(EntityRailCarCargo entity, double x, double y, double z, float swing, float interp) {
 		GL11.glPushMatrix();
+		try {
 		
-		EntityRailCarBase train = (EntityRailCarBase) entity;
+		EntityRailCarCargo train = entity;
 		double iX = train.prevPosX + (train.posX - train.prevPosX) * interp;
 		double iY = train.prevPosY + (train.posY - train.prevPosY) * interp;
 		double iZ = train.prevPosZ + (train.posZ - train.prevPosZ) * interp;
@@ -48,86 +55,89 @@ public class RenderTrainCargoTramTrailer extends Render {
 		float pitchInterp = prevPitch + (pitch - prevPitch) * interp;
 		GL11.glRotated(-pitchInterp, 1, 0, 0);
 		
-		GL11.glDisable(GL11.GL_CULL_FACE);
-		bindTexture(ResourceManager.tram_trailer);
-		ResourceManager.train_cargo_tram_trailer.renderAll();
-		GL11.glEnable(GL11.GL_CULL_FACE);
+		GlStateManager.disableCull();
+		try {
+			bindTexture(ResourceManager.tram_trailer);
+			ResourceManager.train_cargo_tram_trailer.renderAll();
+		} finally {
+			GlStateManager.enableCull();
+		}
 		
-		int slots = entity.getDataWatcher().getWatchableObjectInt(10);
+		int slots = entity.getSyncedOccupiedSlots();
 		
 		if(slots > 0) {
 
-			EntityItem dummy = new EntityItem(entity.worldObj, 0, 0, 0, new ItemStack(ModBlocks.crate));
+			EntityItem dummy = new EntityItem(entity.world, 0, 0, 0, new ItemStack(ModBlocks.crate));
 			dummy.hoverStart = 0.0F;
 
-			RenderItem.renderInFrame = true;
 			double scale = 2;
 			GL11.glScaled(scale, scale, scale);
 			
 			if(slots <= 5) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.375D, 0.0D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.0D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 10) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.1D, 0.375D, 0.25D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, -0.25D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.1D, 0.375D, 0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.1D, 0.375D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 15) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.1D, 0.375D, 0.0D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, 0.375D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, -0.375D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.1D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.1D, 0.375D, 0.375D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.1D, 0.375D, -0.375D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 20) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.3D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.2D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, -0.2D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 25) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 30) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.5D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.6D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, 0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.6D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 35) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else if(slots <= 40) {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			} else {
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F);
-				RenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, 0.8D, 0.0F, 0.0F);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
+				items.renderFrame(dummy, -0.1D, 0.375D, 0.8D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 			}
 			
-			RenderItem.renderInFrame = false;
 		}
 		
-		GL11.glPopMatrix();
+		} finally {
+			GL11.glPopMatrix();
+		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+	protected ResourceLocation getEntityTexture(EntityRailCarCargo entity) {
 		return ResourceManager.tram_trailer;
 	}
 }

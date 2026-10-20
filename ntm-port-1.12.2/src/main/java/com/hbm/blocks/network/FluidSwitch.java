@@ -49,24 +49,24 @@ public class FluidSwitch extends FluidDuctBase implements ILookOverlay {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 
 		boolean on = world.isBlockIndirectlyGettingPowered(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		boolean update = false;
 
 		if(on && meta == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-			world.playSoundEffect(x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
 			update = true;
 		}
 
 		if(!on && meta == 1) {
 			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-			world.playSoundEffect(x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
+			com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
 			update = true;
 		}
 
 		if(update) {
-			TileEntityFluidValve te = (TileEntityFluidValve) world.getTileEntity(x, y, z);
+			TileEntityFluidValve te = (TileEntityFluidValve) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			te.updateState();
 		}
 	}
@@ -74,7 +74,7 @@ public class FluidSwitch extends FluidDuctBase implements ILookOverlay {
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityFluidValve))
 			return;
@@ -83,6 +83,6 @@ public class FluidSwitch extends FluidDuctBase implements ILookOverlay {
 
 		List<String> text = new ArrayList();
 		text.add("&[" + duct.getType().getColor() + "&]" + duct.getType().getLocalizedName());
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

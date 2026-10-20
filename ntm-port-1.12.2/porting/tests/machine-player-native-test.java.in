@@ -1,0 +1,122 @@
+import com.hbm.tileentity.TileEntityInventoryBase;
+import com.hbm.main.ModSoundEvents;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+import java.lang.reflect.Field;
+import java.util.UUID;
+
+public class MachinePlayerNativeTest {
+    static int checks;
+    static void check(boolean value,String why){checks++;if(!value)throw new AssertionError(why);}
+    static final sun.misc.Unsafe UNSAFE;
+    static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);UNSAFE=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+    // Real native subclasses; constructor bypass avoids unrelated world services.
+    static class FixturePlayer extends EntityPlayer {
+        private FixturePlayer(){super(null,new com.mojang.authlib.GameProfile(UUID.randomUUID(),"probe"));}
+        public boolean isSpectator(){return false;}
+        public boolean isCreative(){return false;}
+    }
+    static class FixtureWorld extends World {
+        TileEntity tile; BlockPos lookup; int reads, sounds;
+        EntityPlayer excluded; double x,y,z; SoundEvent sound; SoundCategory category; float volume,pitch;
+        private FixtureWorld(){super(null,null,null,null,false);}
+        protected IChunkProvider createChunkProvider(){throw new UnsupportedOperationException();}
+        protected boolean isChunkLoaded(int x,int z,boolean empty){return false;}
+        public TileEntity getTileEntity(BlockPos pos){reads++;lookup=pos;return tile;}
+        public void playSound(EntityPlayer excluded,double x,double y,double z,SoundEvent sound,SoundCategory category,float volume,float pitch){
+            sounds++;this.excluded=excluded;this.x=x;this.y=y;this.z=z;this.sound=sound;this.category=category;this.volume=volume;this.pitch=pitch;
+        }
+        static FixtureWorld make(boolean remote)throws Exception{
+            FixtureWorld w=(FixtureWorld)UNSAFE.allocateInstance(FixtureWorld.class);
+            Field f=World.class.getDeclaredField("isRemote");f.setAccessible(true);f.set(w,remote);return w;
+        }
+    }
+    static class FixtureInventory extends TileEntityInventoryBase {
+        int playersUsing;
+        FixtureInventory(){super(0);}
+        protected String getDefaultName(){return "probe";}
+    }
+    @FIXTURES@
+    static class Target extends FixtureInventory {
+        EntityPlayer seen; int uses,opens,closes; boolean allowed;
+        public boolean isUsableByPlayer(EntityPlayer p){seen=p;uses++;return allowed;}
+        public void openInventory(EntityPlayer p){seen=p;opens++;}
+        public void closeInventory(EntityPlayer p){seen=p;closes++;}
+    }
+    static void place(EntityPlayer p,BlockPos at,double dx,double dy,double dz){p.posX=at.getX()+0.5D+dx;p.posY=at.getY()+0.5D+dy;p.posZ=at.getZ()+0.5D+dz;}
+    static void policy(FixtureInventory tile,FixtureWorld w,EntityPlayer p,int limit)throws Exception {
+        IInventory view=tile;
+        for(BlockPos pos:new BlockPos[]{new BlockPos(17,-3,209),new BlockPos(-51,70,-93)}) {
+            tile.setWorld(w);tile.setPos(pos);w.tile=tile;
+            place(p,pos,0,0,0);check(view.isUsableByPlayer(p),"center accepted "+tile.getClass());
+            check(pos.equals(w.lookup),"native exact BlockPos lookup");
+            // Integer Pythagorean boundary avoids sqrt rounding at 128 (8^2+8^2).
+            double dx=limit==128?8:Math.sqrt(limit),dy=limit==128?8:0;
+            if(limit>0){
+                place(p,pos,dx,dy,0);check(view.isUsableByPlayer(p),"exact threshold "+limit);
+                place(p,pos,dx+0.00001,dy,0);check(!view.isUsableByPlayer(p),"just outside threshold "+limit);
+                place(p,pos,-dx,-dy,0);check(view.isUsableByPlayer(p),"negative exact threshold "+limit);
+                place(p,pos,-dx-0.00001,-dy,0);check(!view.isUsableByPlayer(p),"negative just outside "+limit);
+            }else{place(p,pos,1000000,1000000,1000000);check(view.isUsableByPlayer(p),"identity only distant");}
+            place(p,pos,0,0,0);w.tile=null;check(!view.isUsableByPlayer(p),"missing tile rejects");
+            w.tile=new Machine();check(!view.isUsableByPlayer(p),"replacement tile rejects");
+        }
+    }
+    public static void main(String[] args)throws Exception {
+        Bootstrap.register();
+        final EntityPlayer player=(FixturePlayer)UNSAFE.allocateInstance(FixturePlayer.class);
+        EntityPlayer second=(FixturePlayer)UNSAFE.allocateInstance(FixturePlayer.class);
+        FixtureWorld server=FixtureWorld.make(false),client=FixtureWorld.make(true);
+        policy(new Machine(),server,player,128);policy(new ICF(),server,player,256);
+        policy(new Fusion(),server,player,1024);policy(new Launch(),server,player,1024);
+        policy(new Radar(),server,player,0);policy(new Rocket(),server,player,0);policy(new Crate(),server,player,64);
+        Stardar stardar=new Stardar();check(((IInventory)stardar).isUsableByPlayer(player),"Stardar null world unconditional");
+        stardar.setWorld(server);int reads=server.reads;check(((IInventory)stardar).isUsableByPlayer(null)&&server.reads==reads,"Stardar no player/world lookup");
+        @PERMISSION_TESTS@
+        for(FixtureInventory t:new FixtureInventory[]{new Ashpit(),new Firebox(),new Engine()}) {
+            IInventory view=t;
+            for(FixtureWorld w:new FixtureWorld[]{server,client}) {
+                t.setWorld(w);t.playersUsing=0;
+                view.openInventory(player);check(t.playersUsing==(w.isRemote?0:1),"first open");
+                view.openInventory(second);check(t.playersUsing==(w.isRemote?0:2),"second open");
+                view.closeInventory(player);check(t.playersUsing==(w.isRemote?0:1),"first close");
+                view.closeInventory(second);check(t.playersUsing==0,"second close");
+                view.closeInventory(null);check(t.playersUsing==(w.isRemote?0:-1),"unmatched close remains negative");
+            }
+        }
+        Machine root=new Machine();IInventory rootView=root;rootView.openInventory(null);rootView.closeInventory(null);check(root.playersUsing==0,"root no-op without world");
+        Turret turret=new Turret();BlockPos pos=new BlockPos(-23,57,31);turret.setPos(pos);IInventory turretView=turret;
+        for(FixtureWorld w:new FixtureWorld[]{server,client}) {
+            turret.setWorld(w);int calls=w.sounds;
+            turretView.openInventory(player);check(w.sound==ModSoundEvents.BLOCK_OPENC&&"hbm:block.openc".equals(w.sound.getRegistryName().toString()),"open canonical production event identity");
+            check(w.sounds==calls+1&&w.excluded==null&&w.x==-22.5D&&w.y==57.5D&&w.z==31.5D&&w.category==SoundCategory.BLOCKS&&w.volume==1F&&w.pitch==1F,"open exact native sound arguments both sides");
+            turretView.closeInventory(second);check(w.sound==ModSoundEvents.BLOCK_CLOSEC&&"hbm:block.closec".equals(w.sound.getRegistryName().toString()),"close canonical production event identity");
+            check(w.sounds==calls+2&&w.excluded==null&&w.x==-22.5D&&w.y==57.5D&&w.z==31.5D&&w.category==SoundCategory.BLOCKS&&w.volume==1F&&w.pitch==1F,"close exact native sound arguments both sides");
+        }
+        Combo combo=new Combo();IInventory cv=combo;Target target=new Target();
+        for(boolean enabled:new boolean[]{false,true})for(Object core:new Object[]{null,new Object(),new net.minecraft.inventory.InventoryBasic("plain",false,0),target}) {
+            combo.inventory=enabled;combo.core=core;int uses=target.uses,opens=target.opens,closes=target.closes;
+            boolean forwards=enabled&&core==target;
+            for(boolean allowed:new boolean[]{false,true}) {
+                target.allowed=allowed;check(cv.isUsableByPlayer(player)==(forwards&&allowed),"combo return guards");
+                if(forwards)check(target.seen==player,"combo usability player identity");
+            }
+            cv.openInventory(player);if(forwards)check(target.seen==player,"combo open player identity");
+            cv.closeInventory(second);if(forwards)check(target.seen==second,"combo close player identity");
+            check(target.uses==uses+(forwards?2:0)&&target.opens==opens+(forwards?1:0)&&target.closes==closes+(forwards?1:0),"combo exact forwarded counts");
+        }
+        for(IInventory view:new IInventory[]{new Proxy(),new PWR()}) {
+            check(!view.isUsableByPlayer(player)&&!view.isUsableByPlayer(null),"wrapper deliberately false");view.openInventory(null);view.closeInventory(player);
+        }
+        System.out.println("PASS: "+checks+" native player-policy, centered thresholds/identity, 35 permission dispatch, open/close counts, turret sound arguments, proxy and wrapper assertions");
+        System.out.println("LIMIT: extracted production callbacks; sound call capture is not client audio playback or resource loading");
+    }
+}

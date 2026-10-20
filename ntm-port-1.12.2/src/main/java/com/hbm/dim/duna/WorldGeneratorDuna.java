@@ -43,7 +43,7 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.dunaDimension) {
+		if(world.provider.getDimension() == SpaceConfig.dunaDimension) {
 			generateDuna(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
@@ -78,12 +78,12 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 			int z = j + rand.nextInt(16);
 			int y = world.getHeightValue(x, z);
 
-			if(world.getBlock(x, y - 1, z).canPlaceTorchOnTop(world, x, y - 1, z) && world.getBlock(x, y, z).isReplaceable(world, x, y, z)) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(world, x, y - 1, z) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, x, y, z)) {
 
 				world.setBlock(x, y, z, ModBlocks.lantern_behemoth, 12, 3);
 				MultiblockHandlerXR.fillSpace(world, x, y, z, new int[] {4, 0, 0, 0, 0, 0}, ModBlocks.lantern_behemoth, ForgeDirection.NORTH);
 
-				TileEntityLanternBehemoth lantern = (TileEntityLanternBehemoth) world.getTileEntity(x, y, z);
+				TileEntityLanternBehemoth lantern = (TileEntityLanternBehemoth) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				lantern.isBroken = true;
 
 				if(rand.nextInt(2) == 0) {

@@ -1,45 +1,30 @@
 package com.hbm.blocks.machine;
 
+import net.minecraft.util.EnumHand;
 import java.util.List;
 
-import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.machine.TileEntityFoundryMold;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class FoundryMold extends FoundryCastingBase {
 
-	@SideOnly(Side.CLIENT) public IIcon iconTop;
-	@SideOnly(Side.CLIENT) public IIcon iconSide;
-	@SideOnly(Side.CLIENT) public IIcon iconBottom;
-	@SideOnly(Side.CLIENT) public IIcon iconInner;
 
 	public FoundryMold() {
 		super();
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":foundry_mold_top");
-		this.iconSide = iconRegister.registerIcon(RefStrings.MODID + ":foundry_mold_side");
-		this.iconBottom = iconRegister.registerIcon(RefStrings.MODID + ":foundry_mold_bottom");
-		this.iconInner = iconRegister.registerIcon(RefStrings.MODID + ":foundry_mold_inner");
-	}
+
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
@@ -47,48 +32,38 @@ public class FoundryMold extends FoundryCastingBase {
 	}
 
 	@Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBounding, List<AxisAlignedBB> list, Entity entity, boolean actualState) {
+		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
 		
 		AxisAlignedBB[] bbs = new AxisAlignedBB[] {
-				AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.125D, z + 1D),
-				AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.5D, z + 0.125D),
-				AxisAlignedBB.getBoundingBox(x, y, z, x + 0.125D, y + 0.5D, z + 1D),
-				AxisAlignedBB.getBoundingBox(x + 0.875D, y, z, x + 1D, y + 0.5D, z + 1D),
-				AxisAlignedBB.getBoundingBox(x, y, z + 0.875, x + 1D, y + 0.5D, z + 1D),
+				new AxisAlignedBB(x, y, z, x + 1D, y + 0.125D, z + 1D),
+				new AxisAlignedBB(x, y, z, x + 1D, y + 0.5D, z + 0.125D),
+				new AxisAlignedBB(x, y, z, x + 0.125D, y + 0.5D, z + 1D),
+				new AxisAlignedBB(x + 0.875D, y, z, x + 1D, y + 0.5D, z + 1D),
+				new AxisAlignedBB(x, y, z + 0.875, x + 1D, y + 0.5D, z + 1D),
 		};
 		
 		for(AxisAlignedBB bb : bbs) {
-			if(entityBounding.intersectsWith(bb)) {
+			if(entityBounding.intersects(bb)) {
 				list.add(bb);
 			}
 		}
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-	}
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.5D, z + 1D);
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.5D, z + 1D);
-	}
 
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
+
+
+
+
 	
 	@Override
 	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 		return side == EnumFacing.DOWN;
 	}
+
+	@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return new AxisAlignedBB(0,0,0,1,0.5D,1); }
+	@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state,world,pos); }
 }

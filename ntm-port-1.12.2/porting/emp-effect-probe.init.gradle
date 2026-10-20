@@ -1,0 +1,15 @@
+// Compile the complete production EMP entity, EMP/plastic bag renderers, and native mesh core; no source exclusions.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortEmpEffect', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-emp-effect.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

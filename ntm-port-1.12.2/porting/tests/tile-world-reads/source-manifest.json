@@ -1,0 +1,1745 @@
+{
+  "baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "files": {
+    "src/main/java/com/hbm/world/gen/util/LogicBlockActions.java": {
+      "edits": [
+        {
+          "start": 1582,
+          "end": 1593,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 1582
+        },
+        {
+          "start": 3945,
+          "end": 3956,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 3942
+        },
+        {
+          "start": 5858,
+          "end": 5869,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 5852
+        },
+        {
+          "start": 7642,
+          "end": 7653,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 7633
+        },
+        {
+          "start": 8338,
+          "end": 8349,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 8326
+        },
+        {
+          "start": 9689,
+          "end": 9700,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 9674
+        },
+        {
+          "start": 11043,
+          "end": 11054,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 11025
+        },
+        {
+          "start": 12391,
+          "end": 12402,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 12370
+        },
+        {
+          "start": 13656,
+          "end": 13667,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 13632
+        },
+        {
+          "start": 14919,
+          "end": 14930,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 14892
+        },
+        {
+          "start": 15583,
+          "end": 15594,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 15553
+        },
+        {
+          "start": 16548,
+          "end": 16559,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 16515
+        }
+      ],
+      "before_sha256": "9e363dc24054ec487f62f2de594752e7282e419829fe6850e49a3cf03f99ac7a",
+      "after_sha256": "800bd708e33ff872acbac40bd9211bd45ef3aaff12c4ea87268d0f35f4217f67"
+    },
+    "src/main/java/com/hbm/world/gen/util/LogicBlockConditions.java": {
+      "edits": [
+        {
+          "start": 1094,
+          "end": 1105,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 1094
+        },
+        {
+          "start": 1955,
+          "end": 1966,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 1952
+        },
+        {
+          "start": 2339,
+          "end": 2350,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 2333
+        },
+        {
+          "start": 2724,
+          "end": 2735,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 2715
+        },
+        {
+          "start": 3106,
+          "end": 3117,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 3094
+        },
+        {
+          "start": 3400,
+          "end": 3411,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.LogicBlock.TileEntityLogicBlock",
+          "after_start": 3385
+        }
+      ],
+      "before_sha256": "172b9bad9cc344296c25e000063b1fbd3f41fd98f303c0af2cfb41f8d7f37970",
+      "after_sha256": "f68c843adf339feea6b0ef91e77fb1d3f8e6882d785f0e1f9d2b7b54c31fcf9a"
+    },
+    "src/main/java/com/hbm/handler/neutron/RBMKNeutronHandler.java": {
+      "edits": [
+        {
+          "start": 6244,
+          "end": 6255,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 6244
+        },
+        {
+          "start": 12757,
+          "end": 12768,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 12754
+        },
+        {
+          "start": 12997,
+          "end": 13008,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 12991
+        },
+        {
+          "start": 13245,
+          "end": 13256,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 13236
+        }
+      ],
+      "before_sha256": "da3ac0bbe0db4afbf66de529da3957669e5dadcd5c5290ac8d0f11a4274037e2",
+      "after_sha256": "de88f2766f525341da6aed434d7cc75fb68909f5bdfbcf09e6c9179a9336ea1e"
+    },
+    "src/main/java/com/hbm/handler/neutron/NeutronStream.java": {
+      "edits": [
+        {
+          "start": 1281,
+          "end": 1292,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1281
+        }
+      ],
+      "before_sha256": "a0d7b84dc5374839ff9ae99b546ef41013d139d30572508d276a2630ac78dcf1",
+      "after_sha256": "dbddbead56a046e397c3036d8a17acec36c03c8d10885b3d6e9c6773ba570b3a"
+    },
+    "src/main/java/com/hbm/dim/orbit/OrbitalStation.java": {
+      "edits": [
+        {
+          "start": 5534,
+          "end": 5545,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityOrbitalStation",
+          "after_start": 5534
+        },
+        {
+          "start": 8520,
+          "end": 8531,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityOrbitalStation",
+          "after_start": 8517
+        }
+      ],
+      "before_sha256": "871e47bb82b87d2854dabeca8232d1e61e9c39b027ec98bf1909c054d8daafaf",
+      "after_sha256": "ca112cc6ba8d0b63dfd4952b8fa0f139c6020dc0220cc719b67bcb4db853f09f"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCoreComponent.java": {
+      "edits": [
+        {
+          "start": 2356,
+          "end": 2367,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2356
+        },
+        {
+          "start": 2578,
+          "end": 2589,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2575
+        },
+        {
+          "start": 3455,
+          "end": 3466,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3449
+        },
+        {
+          "start": 3744,
+          "end": 3755,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3735
+        },
+        {
+          "start": 4348,
+          "end": 4359,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 4336
+        },
+        {
+          "start": 4565,
+          "end": 4576,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 4550
+        },
+        {
+          "start": 4788,
+          "end": 4799,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 4770
+        }
+      ],
+      "before_sha256": "e21df341eed3a65220258f9072d6c2e670aacb341627a1c5f887292f3586188f",
+      "after_sha256": "899d6fa0e942c00ec9cd02814a891053111bc8d80c5784efa58496cf152b8895"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java": {
+      "edits": [
+        {
+          "start": 1729,
+          "end": 1740,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineArcFurnaceLarge",
+          "after_start": 1729
+        },
+        {
+          "start": 3262,
+          "end": 3273,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineArcFurnaceLarge",
+          "after_start": 3259
+        },
+        {
+          "start": 3603,
+          "end": 3614,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineArcFurnaceLarge",
+          "after_start": 3597
+        },
+        {
+          "start": 3944,
+          "end": 3955,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineArcFurnaceLarge",
+          "after_start": 3935
+        }
+      ],
+      "before_sha256": "8e4df923352a5d8dd8fba83f917ef3adbec7272fa1ddefdf397aed914cbd243e",
+      "after_sha256": "6685808117a29f948f7b3b004aa29d02e6920dd65338d738ade13df5891083c7"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderTurretBase.java": {
+      "edits": [
+        {
+          "start": 854,
+          "end": 865,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 854
+        },
+        {
+          "start": 946,
+          "end": 957,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 943
+        },
+        {
+          "start": 1046,
+          "end": 1057,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 1040
+        },
+        {
+          "start": 1144,
+          "end": 1155,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 1135
+        },
+        {
+          "start": 1238,
+          "end": 1249,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 1226
+        },
+        {
+          "start": 1333,
+          "end": 1344,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 1318
+        },
+        {
+          "start": 1432,
+          "end": 1443,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 1414
+        },
+        {
+          "start": 1527,
+          "end": 1538,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.turret.TileEntityTurretBaseNT",
+          "after_start": 1506
+        }
+      ],
+      "before_sha256": "7d8b4f36075b36a843b13e9cd0c1bd17be12e026b79ebae3cfda31755d8cc91c",
+      "after_sha256": "4d8ea7f4c1570d819e414d3bd1bc60579c40d8c0c1e455ce7e0a2b69f86e07c3"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java": {
+      "edits": [
+        {
+          "start": 1600,
+          "end": 1611,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1600
+        }
+      ],
+      "before_sha256": "fd276c7614b6c44786954969e7fe6701da760e4bb5f727a801e8983f402ca42d",
+      "after_sha256": "78ebd6c0b5fd8cf1f38b05d7ee58dd7030372fe3dc61c8f2aaf159713df4a908"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAutosaw.java": {
+      "edits": [
+        {
+          "start": 1138,
+          "end": 1149,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineAutosaw",
+          "after_start": 1138
+        }
+      ],
+      "before_sha256": "c00a57db90386d28267e57909116c3fb600742695d27ab30ad36bdf2662bfc60",
+      "after_sha256": "35bc6e333050b43d457308fa43d3b86a9aa9b5545a2737004e57a5ee9a6702bf"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderTesla.java": {
+      "edits": [
+        {
+          "start": 1621,
+          "end": 1632,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1621
+        }
+      ],
+      "before_sha256": "8f65e71bc3d51981886fb9567f2e8205f28cc6508616434ba6cdce42e7355681",
+      "after_sha256": "9658b1985f5a13f731be6b462df94050d3a8a20a12e4e5f6a036ed4e0bc48eac"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java": {
+      "edits": [
+        {
+          "start": 1179,
+          "end": 1190,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1179
+        }
+      ],
+      "before_sha256": "c3fb426fb5f90de168e077f876e6462d26c8f0b802d5d087fb7aca2385dcf167",
+      "after_sha256": "38db63f12a2ba63ca6d4fbe0599fc1ed1598e529db93a7eea9aa31a43595f979"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java": {
+      "edits": [
+        {
+          "start": 1602,
+          "end": 1613,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1602
+        },
+        {
+          "start": 3197,
+          "end": 3208,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3194
+        }
+      ],
+      "before_sha256": "cdb4c18e800f6e58357ac5d602241233d30048c647ee3ca2af3199d2fb1fc25b",
+      "after_sha256": "d3a398138196a7d0275f6a52eb8eb30564c8d8edf7045274039e63904f40ac81"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFEL.java": {
+      "edits": [
+        {
+          "start": 1459,
+          "end": 1470,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityFEL",
+          "after_start": 1459
+        },
+        {
+          "start": 2064,
+          "end": 2075,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2061
+        }
+      ],
+      "before_sha256": "3802c9f722238ade9cf93260551bbab486526278bebdb42c100c556c28cc73ca",
+      "after_sha256": "8653df897b59b507ff8e1cb3b2ed1c6e2fca29163b4333083f6a4b0c883adea0"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRadGen.java": {
+      "edits": [
+        {
+          "start": 1917,
+          "end": 1928,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadGen",
+          "after_start": 1917
+        }
+      ],
+      "before_sha256": "f9c45b8463144f4cace69972adefffa8816585bff2902732aa911fee19f32058",
+      "after_sha256": "e088cd3fe5cedf214f76aaa709002571bb0c7930b19c9122138d2da25b1d8df4"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderTurretTauon.java": {
+      "edits": [
+        {
+          "start": 2020,
+          "end": 2031,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2020
+        }
+      ],
+      "before_sha256": "043076b6e78fb358f87a8cd9c0495959e061f062f4eb09bee4ee246b6dd1a154",
+      "after_sha256": "f56b6fc81b3171705ced376ee7659414c4a2d1bab0c99e2a63888330681687de"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java": {
+      "edits": [
+        {
+          "start": 2430,
+          "end": 2441,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.storage.TileEntityBatterySocket",
+          "after_start": 2430
+        },
+        {
+          "start": 2674,
+          "end": 2685,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2671
+        },
+        {
+          "start": 3462,
+          "end": 3473,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.storage.TileEntityBatterySocket",
+          "after_start": 3456
+        },
+        {
+          "start": 3691,
+          "end": 3702,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3682
+        }
+      ],
+      "before_sha256": "5a0bd15ffea0842a2e73a5a28241af03267fc5cd6c657c792bc4a61aac05b2e4",
+      "after_sha256": "c3b3157fe8ac2e3d16d04e863a963c24a18f5e5422fd83d8b2ed444594a0eaa4"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCore.java": {
+      "edits": [
+        {
+          "start": 3448,
+          "end": 3459,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityCore",
+          "after_start": 3448
+        },
+        {
+          "start": 4431,
+          "end": 4442,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityCore",
+          "after_start": 4428
+        },
+        {
+          "start": 4927,
+          "end": 4938,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityCore",
+          "after_start": 4921
+        },
+        {
+          "start": 6804,
+          "end": 6815,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 6795
+        }
+      ],
+      "before_sha256": "827e93293b63efb13f97d8cfcb5568027705d918ff2702f17936672e802a8453",
+      "after_sha256": "b36b4ef413ed472eb282c48465c40725482d28fadd0d264812afb123f8875070"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLPW2.java": {
+      "edits": [
+        {
+          "start": 1189,
+          "end": 1200,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1189
+        }
+      ],
+      "before_sha256": "b9e2c5f998ecf5d0b0b854fbec8fcc2dc03c1a99ce496c8fc6cfc0fc282eb093",
+      "after_sha256": "8b51b938f7ffaa1c3fccd2e18257a26ac83ef1e3ca26e7a2ded9d6e688a525b8"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLaserMiner.java": {
+      "edits": [
+        {
+          "start": 2653,
+          "end": 2664,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2653
+        },
+        {
+          "start": 2842,
+          "end": 2853,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2839
+        },
+        {
+          "start": 3038,
+          "end": 3049,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3032
+        }
+      ],
+      "before_sha256": "3d91d217d43087e2b4f144fef49902417f34e8632df44ded7b61063476b9ca74",
+      "after_sha256": "0e32869d662110e59e08ad74e4b02f351a7801274bbf6b5d09219276123b5724"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java": {
+      "edits": [
+        {
+          "start": 1340,
+          "end": 1351,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1340
+        },
+        {
+          "start": 1444,
+          "end": 1455,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1441
+        }
+      ],
+      "before_sha256": "68df87acf187dc41ffa73a4bf9fdc0833a06f4af3c695de0a42d07bba952ddd7",
+      "after_sha256": "cfb033d7cfee8cbe98972f77f38093cc08f57890eefec036a84d27eeabd6d4d3"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLandmine.java": {
+      "edits": [
+        {
+          "start": 819,
+          "end": 830,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 819
+        },
+        {
+          "start": 1187,
+          "end": 1198,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1184
+        }
+      ],
+      "before_sha256": "a1b983823b882c98e74a72875618442dfb541ffa11ff5ff367ddfc85ea4a88ed",
+      "after_sha256": "1d940baad1b1d123c562602d2b3e7a5f0a91c62f4778b3cc9aae383b73122e41"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java": {
+      "edits": [
+        {
+          "start": 1089,
+          "end": 1100,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityPylonBase",
+          "after_start": 1089
+        },
+        {
+          "start": 2360,
+          "end": 2371,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityPylonBase",
+          "after_start": 2357
+        }
+      ],
+      "before_sha256": "dabce1ba625325a1e3cd02af015aac013438f6aee13cffa9ab7f97b97200eb20",
+      "after_sha256": "8dd09622f16dbc94e69c617838b7f9e44efb4964b1933389f2488b3438b7090f"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPipeAnchor.java": {
+      "edits": [
+        {
+          "start": 1548,
+          "end": 1559,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1548
+        }
+      ],
+      "before_sha256": "6c5c86ec08b38c1645e39fb84b053cfeb005433ce220689dce14a9ae17b48df3",
+      "after_sha256": "0a71c2d2bd73b254ae99c3359bd5912d440697f3d2f05b88b700967ff5bbddca"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java": {
+      "edits": [
+        {
+          "start": 6718,
+          "end": 6729,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 6718
+        }
+      ],
+      "before_sha256": "7fafcaddaa7dfa4266c5936a19a0d2d81cd060e6ddbb859a0b35f93e416ac84d",
+      "after_sha256": "2d975ffba57c5a7fe65c4fc0f26be80bf851e0bd8254ae4da719ea91135693f8"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKControlRod.java": {
+      "edits": [
+        {
+          "start": 1592,
+          "end": 1603,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1592
+        },
+        {
+          "start": 1909,
+          "end": 1920,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKControl",
+          "after_start": 1906
+        }
+      ],
+      "before_sha256": "dd7b68d935406497d38dba7e251f745e4811b307e0eac45ad01fa57ac5d75abb",
+      "after_sha256": "0a75f150dcaeddd6a8210ae2d39a83447e95ed971360ea7f94a8f074b83a3cea"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java": {
+      "edits": [
+        {
+          "start": 1285,
+          "end": 1296,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1285
+        }
+      ],
+      "before_sha256": "f4f53cccec10c2d6fd55a291d85ee5209a8ef6c0383f509a655f0cd5c33475b7",
+      "after_sha256": "114657ce2c845be5e13b2f4dd1a202dec31b7916981f0700f4802837bdbad6b7"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderNukeFstbmb.java": {
+      "edits": [
+        {
+          "start": 1445,
+          "end": 1456,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1445
+        }
+      ],
+      "before_sha256": "2f5e07318dec1708177a26012619f4af981b45d30c850c4e775ba5cc85d8b59a",
+      "after_sha256": "916324a8d334463c37d19bd8bc7c594806d5a79374b43319c8fb69bfa3f9c884"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAntimatter.java": {
+      "edits": [
+        {
+          "start": 1703,
+          "end": 1714,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1703
+        },
+        {
+          "start": 2452,
+          "end": 2463,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2449
+        },
+        {
+          "start": 2667,
+          "end": 2678,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2661
+        }
+      ],
+      "before_sha256": "9044bcf414693e76dd88b66cee4442a8803073274fed4af6f3c15b9f43bb19b6",
+      "after_sha256": "31eb62e157ce2a139325bbb15414420852afe1041c0718c07994271c4728c1ba"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderTurretMaxwell.java": {
+      "edits": [
+        {
+          "start": 3248,
+          "end": 3259,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3248
+        }
+      ],
+      "before_sha256": "9d9791bce89fea789d2b1929097aec88247e0a4e9c70ea2a29b156485d3448db",
+      "after_sha256": "18c841e0926b7436ffd2dd1a8b127694ec72160cc62fc298f2634dee370f8a32"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderOrbus.java": {
+      "edits": [
+        {
+          "start": 1486,
+          "end": 1497,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1486
+        },
+        {
+          "start": 2322,
+          "end": 2333,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2319
+        },
+        {
+          "start": 2535,
+          "end": 2546,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2529
+        }
+      ],
+      "before_sha256": "3ddbc0ef6c3c26d554fe24ebd4130462c81b29c8f0d05ad355e7f60dd6178f52",
+      "after_sha256": "d711497360e46c8b4247c22bfd01ce44b3fe0913427a2ea37f8a9657af246281"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderVol2.java": {
+      "edits": [
+        {
+          "start": 1880,
+          "end": 1891,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.BlockVolcanoV2.TileEntityLightningVolcano",
+          "after_start": 1880
+        },
+        {
+          "start": 2111,
+          "end": 2122,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.BlockVolcanoV2.TileEntityLightningVolcano",
+          "after_start": 2108
+        }
+      ],
+      "before_sha256": "329dcc7581f1be514d17ae35c8555a4aadf021b759b7dc0de36bcff0837bff32",
+      "after_sha256": "20367ed63b255bb5e14d1f651f49096b436b5368af6cb25df0d6ef2c723f54ee"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKFuelChannel.java": {
+      "edits": [
+        {
+          "start": 1154,
+          "end": 1165,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1154
+        },
+        {
+          "start": 1299,
+          "end": 1310,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1296
+        }
+      ],
+      "before_sha256": "9a964f7f8042e6ea15e4632f197607f3895010da70b3432a030742f37917010a",
+      "after_sha256": "cf25d95b59274f0d24759bc4bee2ead7a0999cdf109e4519d560e85bb9314e7b"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java": {
+      "edits": [
+        {
+          "start": 1425,
+          "end": 1436,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1425
+        },
+        {
+          "start": 1580,
+          "end": 1591,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1577
+        },
+        {
+          "start": 1726,
+          "end": 1737,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1720
+        },
+        {
+          "start": 1971,
+          "end": 1982,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1962
+        },
+        {
+          "start": 2223,
+          "end": 2234,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2211
+        },
+        {
+          "start": 2368,
+          "end": 2379,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2353
+        }
+      ],
+      "before_sha256": "e979a0b96a83c871c2e8374507be0ef64996121cd943ae88cb5cfab5011d5073",
+      "after_sha256": "015de60606a864e00e5a193386015332e7fdf27f9654ff28526fc8429df4fcca"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java": {
+      "edits": [
+        {
+          "start": 1498,
+          "end": 1509,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1498
+        },
+        {
+          "start": 2552,
+          "end": 2563,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2549
+        }
+      ],
+      "before_sha256": "a93fdea0b188bfe3c11ea24530a28e21a95917f1ca66bbb9a354dc4496e1a08e",
+      "after_sha256": "952753fe28ca6fe90799cf4db215bc55dc15ee5f09d13b93db1def7d187c1ecd"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java": {
+      "edits": [
+        {
+          "start": 2041,
+          "end": 2052,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2041
+        },
+        {
+          "start": 2368,
+          "end": 2379,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineExposureChamber",
+          "after_start": 2365
+        },
+        {
+          "start": 2457,
+          "end": 2468,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineExposureChamber",
+          "after_start": 2451
+        }
+      ],
+      "before_sha256": "10faa71849286c4f57dc01f2334ba5b2003122a4af154a858832986577a11236",
+      "after_sha256": "e55ddfae154298357e67141120fc4c76db94d513c6da67fc6e37c9bc4367b31f"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderEmitter.java": {
+      "edits": [
+        {
+          "start": 1431,
+          "end": 1442,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1431
+        },
+        {
+          "start": 2327,
+          "end": 2338,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2324
+        },
+        {
+          "start": 2570,
+          "end": 2581,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2564
+        },
+        {
+          "start": 2854,
+          "end": 2865,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 2845
+        },
+        {
+          "start": 3111,
+          "end": 3122,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3099
+        },
+        {
+          "start": 3408,
+          "end": 3419,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3393
+        },
+        {
+          "start": 3665,
+          "end": 3676,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3647
+        },
+        {
+          "start": 3928,
+          "end": 3939,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 3907
+        }
+      ],
+      "before_sha256": "4ab56879a5cac445c328b3c25771fc79140ec5c05d99498df8948d384a9f91a2",
+      "after_sha256": "b7360b584353d8cf88d5ef9cad333d493822f2b099065c01cbb5e40266ff2ac6"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderOrrery.java": {
+      "edits": [
+        {
+          "start": 900,
+          "end": 911,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 900
+        }
+      ],
+      "before_sha256": "f80d1e5838a6ef83e187f48f537e843d987fb7bb1a3b7c445f597a8c06c7c1d0",
+      "after_sha256": "cc37152da4425dd992b06d89fb31e81e7ec670baf457b9bead91323263249c1d"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java": {
+      "edits": [
+        {
+          "start": 1559,
+          "end": 1570,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1559
+        }
+      ],
+      "before_sha256": "f1fbae74e299b870f331f416405bc903d489c1972098470054d373c8c9fc931d",
+      "after_sha256": "3ad6b586d207a6208c40543fe09c22e39df5e456f8e358e3c0358810e7617ea9"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java": {
+      "edits": [
+        {
+          "start": 1806,
+          "end": 1817,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 1806
+        }
+      ],
+      "before_sha256": "fe6947830c2feb93dc3aaa01583490bc0871292459f8d40dc6d5cea1200b0faa",
+      "after_sha256": "7ef688a9e3234e7ce033b292edaca8abed55b63faea3b85dd63b45fc533f8653"
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFurnaceCombination.java": {
+      "edits": [
+        {
+          "start": 1620,
+          "end": 1631,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityFurnaceCombination",
+          "after_start": 1620
+        }
+      ],
+      "before_sha256": "3d3405878c16e8216a65fddb5ccb3ce6d09a9eb734db5da0b9b3fea11f2ec115",
+      "after_sha256": "ef84f422bd2b5b25d1316d23066b0bd857594572df512f4e2bcc9dbd896f7980"
+    },
+    "src/main/java/com/hbm/tileentity/DoorDecl.java": {
+      "edits": [
+        {
+          "start": 4020,
+          "end": 4031,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.TileEntityDoorGeneric",
+          "after_start": 4020
+        },
+        {
+          "start": 4128,
+          "end": 4139,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.TileEntityDoorGeneric",
+          "after_start": 4125
+        },
+        {
+          "start": 4338,
+          "end": 4349,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.TileEntityDoorGeneric",
+          "after_start": 4332
+        },
+        {
+          "start": 4556,
+          "end": 4567,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.TileEntityDoorGeneric",
+          "after_start": 4547
+        },
+        {
+          "start": 4766,
+          "end": 4777,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.TileEntityDoorGeneric",
+          "after_start": 4754
+        }
+      ],
+      "before_sha256": "bcd0f762e9251d64af46569cf43055dbbdc1612a2021c95df46a1077f8f01efb",
+      "after_sha256": "44f06d8cd38fbaf053b1d6ce7f8ff0d7f2f63a4adda81c6b314cc5b51cacded1"
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": {
+      "edits": [
+        {
+          "start": 4994,
+          "end": 5005,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 4994
+        }
+      ],
+      "before_sha256": "823ad55de277f900c416d40c8808cb6bec14cc4c215e8fc93e6c5e5ea3d27147",
+      "after_sha256": "4979d52d2902d5a935d57d0eef70e4268296f1c42f0f327a5be2c0b6dfd925eb"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java": {
+      "edits": [
+        {
+          "start": 2714,
+          "end": 2725,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityDiFurnaceRTG",
+          "after_start": 2714
+        }
+      ],
+      "before_sha256": "73cd5cf9bb33742247dbd33e3dc134edfdd3b4fd48758927a35c0836e00ce4ed",
+      "after_sha256": "d47f5e894243e40ba2eb9a1dd523925af6a1043b46ca0801da4287a9bc477136"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java": {
+      "edits": [
+        {
+          "start": 10671,
+          "end": 10682,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineAutocrafter",
+          "after_start": 10671
+        },
+        {
+          "start": 10706,
+          "end": 10717,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 10703
+        }
+      ],
+      "before_sha256": "1084dc089b90bc48289ce46fe8182882104b3e86b1c4d54ab297b13a4d2277f2",
+      "after_sha256": "e668eff894e59b6e14820f003db65a1dbba414dcff00397610e3e29e184d669d"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java": {
+      "edits": [
+        {
+          "start": 3021,
+          "end": 3032,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityTransporterBase",
+          "after_start": 3021
+        },
+        {
+          "start": 3835,
+          "end": 3846,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityTransporterBase",
+          "after_start": 3832
+        }
+      ],
+      "before_sha256": "0ef1f4f9d7e9550344be2cb59371385f6066ba45955fb8161788a18fee51ccc0",
+      "after_sha256": "6f8dc9b9617104b9a271a082bcf39805f594b144023240044ccd8404529c82aa"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityVaultDoorMigration.java": {
+      "edits": [
+        {
+          "start": 429,
+          "end": 440,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityVaultDoorMigration",
+          "after_start": 429
+        },
+        {
+          "start": 596,
+          "end": 607,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityVaultDoorMigration",
+          "after_start": 593
+        }
+      ],
+      "before_sha256": "0e7759fef319503ff37d64035d3f2c6063d7cebc9dc6d6a860e716024cdad1ab",
+      "after_sha256": "6f1fec3d9a3e83b9cbdbbd9be633a76a33f7a2a9d7a8421f15b094e837f7816a"
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java": {
+      "edits": [
+        {
+          "start": 5136,
+          "end": 5147,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityCraneRouter",
+          "after_start": 5136
+        }
+      ],
+      "before_sha256": "c6e055784e68f1dcac6d135662a8f03210e32f1b62ce794fbef25d82514816a3",
+      "after_sha256": "f2906a4ddc6fd64446bbad2aa2befc4f2c42a9fd0d1c07535cae4ed6f5c9e6bb"
+    },
+    "src/main/java/com/hbm/inventory/fluid/FluidType.java": {
+      "edits": [
+        {
+          "start": 7950,
+          "end": 7961,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "net.minecraft.tileentity.TileEntity",
+          "after_start": 7950
+        }
+      ],
+      "before_sha256": "a7a4399b950828992f85f40ddb333271da5fff26b281b20bb881be18e0836cd5",
+      "after_sha256": "2fd7c0f2eff840bfcd211800ebff817288db620110eb6513a12bd7c1dd440713"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCounterTorch.java": {
+      "edits": [
+        {
+          "start": 1319,
+          "end": 1330,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityRadioTorchCounter",
+          "after_start": 1319
+        },
+        {
+          "start": 1456,
+          "end": 1467,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityRadioTorchCounter",
+          "after_start": 1453
+        }
+      ],
+      "before_sha256": "0c2e0ab3d01707ccbdaa18dcda7713835942eb8c46a8ccc3a893fae5f316032c",
+      "after_sha256": "f079e5fc9c9a8e8a146d1e8d1c55312306a207033f5da6da5b56698c4c922ab9"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java": {
+      "edits": [
+        {
+          "start": 2569,
+          "end": 2580,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityCraneGrabber",
+          "after_start": 2569
+        }
+      ],
+      "before_sha256": "6b4046b29cd4c9d195bd1757fc48f1b4c2b302ec7ea0d455ade657a513f09b49",
+      "after_sha256": "8da75d69ad40d3b63f348d619f8ced0bb205c868c297c5eecba9bed890f770db"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java": {
+      "edits": [
+        {
+          "start": 2290,
+          "end": 2301,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityDroneRequester",
+          "after_start": 2290
+        }
+      ],
+      "before_sha256": "ded5fed2f43a31c7ecdc4954a15526761b526504ee549e73a2b9e83f8d952cc5",
+      "after_sha256": "457ceba1061cd7295124ba39f8f0212a357ed8ff6c05e4ff4cc2f8e22fa42484"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineTurbineGas.java": {
+      "edits": [
+        {
+          "start": 2050,
+          "end": 2061,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineTurbineGas",
+          "after_start": 2050
+        }
+      ],
+      "before_sha256": "d554646641aa99c402f50e0791ae59a3c65520866e3c6925bdc60062495e40e5",
+      "after_sha256": "0d091817fdc1f6efe1a080dd3c2c58c3f4c8810dd6de3a303a2421a859dd246a"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java": {
+      "edits": [
+        {
+          "start": 2762,
+          "end": 2773,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityCraneExtractor",
+          "after_start": 2762
+        }
+      ],
+      "before_sha256": "05bb2ec90d2a741904813e1383b36d8914d4f5c1d317cb8055151430c14dc7ba",
+      "after_sha256": "d7d40f1c73fb8cf8c1555345d5075d44995bb7a5257a9cf1762d508a609fd9ab"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerAutocrafter.java": {
+      "edits": [
+        {
+          "start": 1947,
+          "end": 1958,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineAutocrafter",
+          "after_start": 1947
+        }
+      ],
+      "before_sha256": "1b6981d03239df5f61b276f09051de04eca25551ad53529850351002aa6570bc",
+      "after_sha256": "a3bf75b23354fbd04013acd768f93ce38c4ab16ecb0aa45b0ca9ad429a19dbfe"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "edits": [
+        {
+          "start": 5592,
+          "end": 5603,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 5592
+        },
+        {
+          "start": 5738,
+          "end": 5749,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 5735
+        },
+        {
+          "start": 5886,
+          "end": 5897,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 5880
+        },
+        {
+          "start": 6033,
+          "end": 6044,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 6024
+        },
+        {
+          "start": 6178,
+          "end": 6189,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 6166
+        },
+        {
+          "start": 6323,
+          "end": 6334,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 6308
+        },
+        {
+          "start": 6650,
+          "end": 6661,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 6632
+        }
+      ],
+      "before_sha256": "85a5a724319d4047c675ea8cfb4c0c2bcfdc3208883ba5e7b87609e5eaeac53b",
+      "after_sha256": "ee5dcc0ee66752b3a5dc271adcb273bd82461254856ff5797680c334cf48eb0b"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIOrbitalStationLauncher.java": {
+      "edits": [
+        {
+          "start": 3356,
+          "end": 3367,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityOrbitalStationLauncher",
+          "after_start": 3356
+        },
+        {
+          "start": 3428,
+          "end": 3439,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityOrbitalStationLauncher",
+          "after_start": 3425
+        }
+      ],
+      "before_sha256": "e68913a99b1ab11fbe9c665d86e83ee025060947f523c38559e69d7becc1edc4",
+      "after_sha256": "61907c49549b15d900432bfaffbe340bc1d919c7e7863b9fcce2e2ae2470ba14"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java": {
+      "edits": [
+        {
+          "start": 3585,
+          "end": 3596,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityDiFurnaceRTG",
+          "after_start": 3585
+        }
+      ],
+      "before_sha256": "4ef23f5bd7834fcb8c1ac17a0b889d2f598a39659ba10286335dcba233af8f7d",
+      "after_sha256": "64548407cd245abf99ba87610418d2fd68bdb720c35dc7726ca618de62050f80"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUISILEX.java": {
+      "edits": [
+        {
+          "start": 3452,
+          "end": 3463,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntitySILEX",
+          "after_start": 3452
+        },
+        {
+          "start": 4634,
+          "end": 4645,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntitySILEX",
+          "after_start": 4631
+        }
+      ],
+      "before_sha256": "379001cdbd3b74dbc2358b46d291b570286b1ff95cbfac38c60ab77a6b55e7db",
+      "after_sha256": "803b5e5f98c0ba0bb749dbd7e598d644cc0a023d095b135047317d59f70c79d4"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java": {
+      "edits": [
+        {
+          "start": 3204,
+          "end": 3215,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityRadioTorchController",
+          "after_start": 3204
+        }
+      ],
+      "before_sha256": "06842bf03317c11e3a302eb1eca3c99d68f09b5979e566cd1e5671ef066f56f5",
+      "after_sha256": "3d20cb73f535f2dc5246e9ee266e38b46fb2154e343bd450e60f276737c49803"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFEL.java": {
+      "edits": [
+        {
+          "start": 3062,
+          "end": 3073,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityFEL",
+          "after_start": 3062
+        }
+      ],
+      "before_sha256": "ba7a412ffc19e3755fcfbec3ab0fc4ef9e6f28db220111c8252025516232279e",
+      "after_sha256": "ad6e63c7a543f9de293fae603ca9a7ea280305b256628454476eb00c2b0e661e"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRocketAssembly.java": {
+      "edits": [
+        {
+          "start": 3216,
+          "end": 3227,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRocketAssembly",
+          "after_start": 3216
+        },
+        {
+          "start": 3288,
+          "end": 3299,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRocketAssembly",
+          "after_start": 3285
+        }
+      ],
+      "before_sha256": "56334d56d9e6432573269a40fbce58066df550f1a9e23cc7d445459f8ac657dc",
+      "after_sha256": "c1d185f58358e869560ace6af0149114e0f7fe89d126cdbbb39919c48e9049f3"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": {
+      "edits": [
+        {
+          "start": 1647,
+          "end": 1658,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineRadarNT",
+          "after_start": 1647
+        }
+      ],
+      "before_sha256": "22667a425f86d8e7a948b52ac6b4d267672bde78fa2ffd1113711d6e81c39289",
+      "after_sha256": "80f42513dd712a6a80dd2be9eb3e6e98e161cbdf81bd9ff784c740cb45b0e167"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java": {
+      "edits": [
+        {
+          "start": 2672,
+          "end": 2683,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineStardar",
+          "after_start": 2672
+        },
+        {
+          "start": 2735,
+          "end": 2746,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineStardar",
+          "after_start": 2732
+        },
+        {
+          "start": 6090,
+          "end": 6101,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineStardar",
+          "after_start": 6084
+        },
+        {
+          "start": 6181,
+          "end": 6192,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineStardar",
+          "after_start": 6172
+        },
+        {
+          "start": 7757,
+          "end": 7768,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineStardar",
+          "after_start": 7745
+        },
+        {
+          "start": 13740,
+          "end": 13751,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityMachineStardar",
+          "after_start": 13725
+        }
+      ],
+      "before_sha256": "4fd31d442f55512796429a449d5cf2f6400cb8525139a015f36c404da08b0c17",
+      "after_sha256": "c1b9f32e6e490161169933b6f34b18edac198b32ff14c28ae69504021d65c603"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java": {
+      "edits": [
+        {
+          "start": 3675,
+          "end": 3686,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityRadioTorchReader",
+          "after_start": 3675
+        }
+      ],
+      "before_sha256": "cd83af38e4c75ff2b9a7ef354b2504657a21fd8711b4832475496155f49dc06e",
+      "after_sha256": "991a96d9e6d6da4286e9eeea60fc61e80d6ae2060e79e41ef868d5dc0cdd9d54"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "edits": [
+        {
+          "start": 2574,
+          "end": 2585,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityDiFurnace",
+          "after_start": 2574
+        },
+        {
+          "start": 2762,
+          "end": 2773,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.TileEntityDiFurnace",
+          "after_start": 2759
+        }
+      ],
+      "before_sha256": "147eefb9583a8c957bcc832b32012c58bcb1aef07f0b58218faa135ced8c33f3",
+      "after_sha256": "1a779f7e9e0aff2b1b2691efafc69ad8eec7725b7f720ad7e05420b27b763586"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICrateTungsten.java": {
+      "edits": [
+        {
+          "start": 1787,
+          "end": 1798,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.machine.storage.TileEntityCrateTungsten",
+          "after_start": 1787
+        }
+      ],
+      "before_sha256": "d1af935f0bd013b71af5c21196f4fc17cceed349855e4a308d714b2da0ec5f9c",
+      "after_sha256": "fcfea237917ebdd11568fc2939667e512013eceae768bf9a0ab8e6720bdebbe6"
+    },
+    "src/main/java/com/hbm/blocks/generic/DungeonSpawner.java": {
+      "edits": [
+        {
+          "start": 2317,
+          "end": 2328,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.DungeonSpawner.TileEntityDungeonSpawner",
+          "after_start": 2317
+        },
+        {
+          "start": 3102,
+          "end": 3113,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.generic.DungeonSpawner.TileEntityDungeonSpawner",
+          "after_start": 3099
+        }
+      ],
+      "before_sha256": "9ad4255181a1e354c7aa4e1593faa48d4a7a2a8d0364f33b3942c3f95d5abf41",
+      "after_sha256": "3fcf3064cf76249381234228921b650554b2715bc46f5055f88b97fa9525baf7"
+    },
+    "src/main/java/com/hbm/blocks/network/CraneRouter.java": {
+      "edits": [
+        {
+          "start": 9250,
+          "end": 9261,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.tileentity.network.TileEntityCraneRouter",
+          "after_start": 9250
+        }
+      ],
+      "before_sha256": "b61521ca99eaa855cb4a39018f53c4972ef9e6ddff1fa32790b92a8994a83d7b",
+      "after_sha256": "0601fcdae23be482e1dba1af990ea27c9a7700ad0676dede276b63e468a74db4"
+    },
+    "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": {
+      "edits": [
+        {
+          "start": 6911,
+          "end": 6922,
+          "new": "getWorld",
+          "old": "getWorldObj",
+          "receiver": "com.hbm.blocks.network.BlockOpenComputersCablePaintable.TileEntityOpenComputersCablePaintable",
+          "after_start": 6911
+        }
+      ],
+      "before_sha256": "5c2ff13e5a36546d61897f950d736991766b5e53af9eb4adb8af8a88eea508ad",
+      "after_sha256": "fdeb02a440b4005494fde2418575172b69367626ef41a6484164a51a8c710fc8"
+    }
+  }
+}

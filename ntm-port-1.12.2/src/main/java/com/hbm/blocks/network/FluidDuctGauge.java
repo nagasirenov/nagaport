@@ -4,12 +4,12 @@ import api.hbm.fluidmk2.FluidNetMK2;
 import api.hbm.redstoneoverradio.IRORValueProvider;
 
 import com.hbm.blocks.IBlockMultiPass;
+import com.hbm.blocks.MultipassContext;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.handler.CompatHandler;
 import com.hbm.inventory.fluid.Fluids;
 import com.hbm.lib.RefStrings;
-import com.hbm.render.block.RenderBlockMultipass;
 import com.hbm.tileentity.network.TileEntityPipeBaseNT;
 import com.hbm.util.i18n.I18nUtil;
 
@@ -24,12 +24,10 @@ import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.SimpleComponent;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -40,11 +38,19 @@ import java.util.Locale;
 
 public class FluidDuctGauge extends FluidDuctBase implements IBlockMultiPass, INBTBlockTransformable, ILookOverlay, ITooltipProvider {
 
-	@SideOnly(Side.CLIENT) protected IIcon overlay;
-	@SideOnly(Side.CLIENT) protected IIcon overlayGauge;
+    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }
+    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }
+    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }
+    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));
+    }
+
+
 
 	public FluidDuctGauge() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -52,24 +58,9 @@ public class FluidDuctGauge extends FluidDuctBase implements IBlockMultiPass, IN
 		return new TileEntityPipeGauge();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon(RefStrings.MODID + ":deco_steel");
-		this.overlay = reg.registerIcon(RefStrings.MODID + ":fluid_duct_paintable_overlay");
-		this.overlayGauge = reg.registerIcon(RefStrings.MODID + ":pipe_gauge");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
 
-		if(RenderBlockMultipass.currentPass == 0) {
-			return blockIcon;
-		}
 
-		return side == world.getBlockMetadata(x, y, z) ? this.overlayGauge : this.overlay;
-	}
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
@@ -90,7 +81,7 @@ public class FluidDuctGauge extends FluidDuctBase implements IBlockMultiPass, IN
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityPipeBaseNT))
 			return;
@@ -101,13 +92,10 @@ public class FluidDuctGauge extends FluidDuctBase implements IBlockMultiPass, IN
 		text.add("&[" + duct.getType().getColor() + "&]" + duct.getType().getLocalizedName());
 		text.add(String.format(Locale.US, "%,d", duct.deltaTick) + " mB/t");
 		text.add(String.format(Locale.US, "%,d", duct.deltaLastSecond) + " mB/s");
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
-	@Override
-	public int getRenderType(){
-		return IBlockMultiPass.getRenderType();
-	}
+
 
 	@Override
 	public int transformMeta(int meta, int coordBaseMode) {
@@ -122,15 +110,15 @@ public class FluidDuctGauge extends FluidDuctBase implements IBlockMultiPass, IN
 		private long deltaLastSecond = 0;
 
 		@Override
-		public void updateEntity() {
-			super.updateEntity();
+		public void update() {
+			super.update();
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				if(this.node != null && this.node.net != null && this.getType() != Fluids.NONE) {
 
 					this.deltaTick = ((FluidNetMK2) this.node.net).fluidTracker;
-					if(worldObj.getTotalWorldTime() % 20 == 0) {
+					if(this.world.getTotalWorldTime() % 20 == 0) {
 						this.deltaLastSecond = this.deltaSecond;
 						this.deltaSecond = 0;
 					}
@@ -173,7 +161,7 @@ public class FluidDuctGauge extends FluidDuctBase implements IBlockMultiPass, IN
 		@Callback(direct = true)
 		@Optional.Method(modid = "OpenComputers")
 		public Object[] getInfo(Context context, Arguments args) {
-			return new Object[] {deltaTick, deltaLastSecond, getType().getName(), xCoord, yCoord, zCoord};
+			return new Object[] {deltaTick, deltaLastSecond, getType().getName(), this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 		}
 
 		@Override

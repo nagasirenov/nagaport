@@ -37,7 +37,7 @@ public class MachineReactorBreeding extends BlockDummyable {
 			if(pos == null)
 				return false;
 
-			TileEntityMachineReactorBreeding entity = (TileEntityMachineReactorBreeding) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineReactorBreeding entity = (TileEntityMachineReactorBreeding) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);

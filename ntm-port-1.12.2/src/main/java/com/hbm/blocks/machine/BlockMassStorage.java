@@ -44,7 +44,7 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	@SideOnly(Side.CLIENT) private IIcon[] iconFront;
 
 	public BlockMassStorage() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -109,11 +109,11 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if(world.isRemote) {
 			return true;
-		} else if(player.getHeldItem() != null && (player.getHeldItem().getItem() instanceof ItemLock || player.getHeldItem().getItem() == ModItems.key_kit)) {
+		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
 			return false;
 
 		} else if(!player.isSneaking()) {
-			TileEntity entity = world.getTileEntity(x, y, z);
+			TileEntity entity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity instanceof TileEntityMassStorage && ((TileEntityMassStorage) entity).canAccess(player)) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
@@ -130,8 +130,8 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 		if(!player.capabilities.isCreativeMode && !world.isRemote && willHarvest) {
 
-			ItemStack drop = new ItemStack(this, 1, rectify(world.getBlockMetadata(x, y, z)));
-			ISidedInventory inv = (ISidedInventory)world.getTileEntity(x, y, z);
+			ItemStack drop = new ItemStack(this, 1, rectify(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) )));
+			ISidedInventory inv = (ISidedInventory)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			NBTTagCompound nbt = new NBTTagCompound();
 
@@ -140,7 +140,7 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 				for(int i = 0; i < inv.getSizeInventory(); i++) {
 
 					ItemStack stack = inv.getStackInSlot(i);
-					if(stack == null)
+					if(stack == null || stack.isEmpty())
 						continue;
 
 					NBTTagCompound slot = new NBTTagCompound();
@@ -164,14 +164,14 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 			}
 
 			if(!nbt.hasNoTags()) {
-				drop.stackTagCompound = nbt;
+				drop.setTagCompound(nbt);
 			}
 
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
+			world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
 		}
 
 		dropInv = false;
-		boolean flag = world.setBlockToAir(x, y, z);
+		boolean flag = com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		dropInv = true;
 
 		return flag;
@@ -180,30 +180,30 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
 
-		ISidedInventory inv = (ISidedInventory)world.getTileEntity(x, y, z);
+		ISidedInventory inv = (ISidedInventory)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(inv != null && stack.hasTagCompound()) {
 
 			for(int i = 0; i < inv.getSizeInventory(); i++) {
-				inv.setInventorySlotContents(i, ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot" + i)));
+				inv.setInventorySlotContents(i, new ItemStack(stack.getTagCompound().getCompoundTag("slot" + i)));
 			}
 
 			if(inv instanceof TileEntityMassStorage) {
 				TileEntityMassStorage storage = (TileEntityMassStorage) inv;
 
-				if(stack.stackTagCompound.hasKey("lock")) {
-					storage.setPins(stack.stackTagCompound.getInteger("lock"));
-					storage.setMod(stack.stackTagCompound.getDouble("lockMod"));
+				if(stack.getTagCompound().hasKey("lock")) {
+					storage.setPins(stack.getTagCompound().getInteger("lock"));
+					storage.setMod(stack.getTagCompound().getDouble("lockMod"));
 					storage.lock();
 				}
 
-				storage.setStockpile(stack.stackTagCompound.getInteger("stack"));
+				storage.setStockpile(stack.getTagCompound().getInteger("stack"));
 			}
 		}
 
 		super.onBlockPlacedBy(world, x, y, z, player, stack);
 
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		int meta = stack.getItemDamage();
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, meta, 2);
@@ -216,7 +216,7 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 
 		if(dropInv) {
-			ISidedInventory sided = (ISidedInventory) world.getTileEntity(x, y, z);
+			ISidedInventory sided = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			Random rand = world.rand;
 
 			if(sided != null) {
@@ -226,30 +226,34 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 					ItemStack itemstack = sided.getStackInSlot(i1);
 
-					if(itemstack != null) {
+					if(itemstack != null && !itemstack.isEmpty()) {
 						float f = rand.nextFloat() * 0.8F + 0.1F;
 						float f1 = rand.nextFloat() * 0.8F + 0.1F;
 						float f2 = rand.nextFloat() * 0.8F + 0.1F;
 
-						while(itemstack.stackSize > 0) {
+						while(itemstack.getCount() > 0) {
 							int j1 = rand.nextInt(21) + 10;
 
-							if(j1 > itemstack.stackSize) {
-								j1 = itemstack.stackSize;
+							if(j1 > itemstack.getCount()) {
+								j1 = itemstack.getCount();
 							}
 
-							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							// Capture before depletion: native empty stacks hide their item.
+							net.minecraft.item.Item dropItem = itemstack.getItem();
+							int dropMeta = itemstack.getItemDamage();
+							NBTTagCompound dropTag = itemstack.getTagCompound();
+							itemstack.shrink(j1);
+							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-							if(itemstack.hasTagCompound()) {
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+							if(dropTag != null) {
+								entityitem.getItem().setTagCompound(dropTag.copy());
 							}
 
 							float f3 = 0.05F;
 							entityitem.motionX = (float) rand.nextGaussian() * f3;
 							entityitem.motionY = (float) rand.nextGaussian() * f3 + 0.2F;
 							entityitem.motionZ = (float) rand.nextGaussian() * f3;
-							world.spawnEntityInWorld(entityitem);
+							world.spawnEntity(entityitem);
 						}
 					}
 				}
@@ -262,7 +266,7 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -274,7 +278,7 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityMassStorage))
 			return;
@@ -305,11 +309,11 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 		if(!stack.hasTagCompound()) return;
 
-		ItemStack type = ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot1"));
+		ItemStack type = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot1"));
 
 		if(type != null) {
 			list.add(TextFormatting.GOLD + type.getDisplayName());
-			list.add(String.format(Locale.US, "%,d", stack.stackTagCompound.getInteger("stack")) + " / " + String.format(Locale.US, "%,d", getCapacity(stack.getItemDamage())));
+			list.add(String.format(Locale.US, "%,d", stack.getTagCompound().getInteger("stack")) + " / " + String.format(Locale.US, "%,d", getCapacity(stack.getItemDamage())));
 		}
 	}
 
@@ -320,6 +324,6 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		return ((TileEntityMassStorage) world.getTileEntity(x, y, z)).redstone;
+		return ((TileEntityMassStorage) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))).redstone;
 	}
 }

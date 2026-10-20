@@ -197,10 +197,11 @@ public class ModelB92 extends ModelBase {
 		this.Pump1.offsetX += tran;
 		this.Pump2.offsetX += tran;
 
-		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
-
-		this.Pump1.offsetX -= tran;
-		this.Pump2.offsetX -= tran;
+		try { this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor); }
+        finally {
+            this.Pump1.offsetX -= tran;
+            this.Pump2.offsetX -= tran;
+        }
 	}
 
 	private static void setRotation(ModelRenderer model, float x, float y, float z) {

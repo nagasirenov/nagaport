@@ -22,9 +22,13 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
@@ -56,14 +60,14 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.furnaceIron";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!world.isRemote) {
 
 			upgradeManager.checkSlots(this, slots, 4, 4);
 			this.processingTime = baseTime - ((baseTime / 2) * upgradeManager.getLevel(UpgradeType.SPEED) / 3);
@@ -73,16 +77,19 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 			if(burnTime <= 0) {
 
 				for(int i = 1; i < 3; i++) {
-					if(slots[i] != null) {
+					if(slots[i] != null && !slots[i].isEmpty()) {
 
 						int fuel = burnModule.getBurnTime(slots[i]);
 
 						if(fuel > 0) {
 							this.maxBurnTime = this.burnTime = fuel;
-							slots[i].stackSize--;
+							// Invoke the captured item with the original, already-decremented stack.
+							Item fuelItem = slots[i].getItem();
+							slots[i].shrink(1);
 
-							if(slots[i].stackSize == 0) {
-								slots[i] = slots[i].getItem().getContainerItem(slots[i]);
+							if(slots[i].getCount() == 0) {
+								slots[i] = fuelItem.getContainerItem(slots[i]);
+								if(slots[i] != null && slots[i].isEmpty()) slots[i] = null;
 							}
 
 							break;
@@ -91,22 +98,22 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 				}
 			}
 
-			if(canSmelt() && breatheAir(worldObj.getTotalWorldTime() % 5 == 0 ? 1 : 0)) {
+			if(canSmelt() && breatheAir(world.getTotalWorldTime() % 5 == 0 ? 1 : 0)) {
 				wasOn = true;
 				this.progress++;
 				this.burnTime--;
 
 				if(this.progress % 15 == 0 && !this.muffled) {
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "fire.fire", 1.0F, 0.5F + worldObj.rand.nextFloat() * 0.5F);
+					world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F, 0.5F + world.rand.nextFloat() * 0.5F);
 				}
 
 				if(this.progress >= this.processingTime) {
-					ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(slots[0]);
+					ItemStack result = FurnaceRecipes.instance().getSmeltingResult(slots[0]);
 
-					if(slots[3] == null) {
+					if((slots[3] == null || slots[3].isEmpty())) {
 						slots[3] = result.copy();
 					} else {
-						slots[3].stackSize += result.stackSize;
+						slots[3].grow(result.getCount());
 					}
 
 					this.decrStackSize(0, 1);
@@ -114,7 +121,7 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 					this.progress = 0;
 					this.markDirty();
 				}
-				if(worldObj.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND);
+				if(world.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(world, pos.getX(), pos.getY(), pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND);
 			} else {
 				this.progress = 0;
 			}
@@ -127,11 +134,11 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 				double offset = this.progress % 2 == 0 ? 1 : 0.5;
-				worldObj.spawnParticle("smoke", xCoord + 0.5 - dir.offsetX * offset - rot.offsetX * 0.1875, yCoord + 2, zCoord + 0.5 - dir.offsetZ * offset - rot.offsetZ * 0.1875, 0.0, 0.01, 0.0);
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + 0.5 - dir.offsetX * offset - rot.offsetX * 0.1875, pos.getY() + 2, pos.getZ() + 0.5 - dir.offsetZ * offset - rot.offsetZ * 0.1875, 0.0, 0.01, 0.0);
 
 				if(this.progress % 5 == 0) {
-					double rand = worldObj.rand.nextDouble();
-					worldObj.spawnParticle("flame", xCoord + 0.5 + dir.offsetX * 0.25 + rot.offsetX * rand, yCoord + 0.25 + worldObj.rand.nextDouble() * 0.25, zCoord + 0.5 + dir.offsetZ * 0.25 + rot.offsetZ * rand, 0.0, 0.0, 0.0);
+					double rand = world.rand.nextDouble();
+					world.spawnParticle(EnumParticleTypes.FLAME, pos.getX() + 0.5 + dir.offsetX * 0.25 + rot.offsetX * rand, pos.getY() + 0.25 + world.rand.nextDouble() * 0.25, pos.getZ() + 0.5 + dir.offsetZ * 0.25 + rot.offsetZ * rand, 0.0, 0.0, 0.0);
 				}
 			}
 		}
@@ -160,21 +167,22 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 	public boolean canSmelt() {
 
 		if(this.burnTime <= 0) return false;
-		if(slots[0] == null) return false;
+		if((slots[0] == null || slots[0].isEmpty())) return false;
 
-		ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(slots[0]);
+		ItemStack result = FurnaceRecipes.instance().getSmeltingResult(slots[0]);
 
-		if(result == null) return false;
-		if(slots[3] == null) return true;
+		if(result.isEmpty()) return false;
+		if((slots[3] == null || slots[3].isEmpty())) return true;
 
 		if(!result.isItemEqual(slots[3])) return false;
-		if(result.stackSize + slots[3].stackSize > slots[3].getMaxStackSize()) return false;
+		if(result.getCount() + slots[3].getCount() > slots[3].getMaxStackSize()) return false;
 
 		return true;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3 };
 	}
 
@@ -182,7 +190,7 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
 
 		if(i == 0)
-			return FurnaceRecipes.smelting().getSmeltingResult(itemStack) != null;
+			return !FurnaceRecipes.instance().getSmeltingResult(itemStack).isEmpty();
 
 		if(i < 3)
 			return burnModule.getBurnTime(itemStack) > 0;
@@ -191,7 +199,8 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 3;
 	}
 
@@ -205,12 +214,13 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("maxBurnTime", maxBurnTime);
 		nbt.setInteger("burnTime", burnTime);
 		nbt.setInteger("progress", progress);
+		return nbt;
 	}
 
 	@Override
@@ -230,13 +240,13 @@ public class TileEntityFurnaceIron extends TileEntityMachineBase implements IGUI
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 3,
-					zCoord + 2
+			bb = new AxisAlignedBB(
+					pos.getX() - 1,
+					pos.getY(),
+					pos.getZ() - 1,
+					pos.getX() + 2,
+					pos.getY() + 3,
+					pos.getZ() + 2
 					);
 		}
 

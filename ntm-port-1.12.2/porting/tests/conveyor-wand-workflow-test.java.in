@@ -1,0 +1,173 @@
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.network.*;
+import com.hbm.items.ModItems;
+import com.hbm.items.tool.ItemConveyorWand;
+import com.hbm.items.tool.ItemConveyorWand.ConveyorType;
+import com.hbm.render.util.RenderOverhead;
+import com.hbm.wiaj.WorldInAJar;
+import com.mojang.authlib.GameProfile;
+import java.lang.reflect.*;
+import java.util.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.*;
+import net.minecraft.init.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.*;
+import net.minecraft.network.play.server.SPacketBlockChange;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.server.management.PlayerInteractionManager;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import sun.misc.Unsafe;
+
+/** Complete production gameplay item on actual native blocks/states/chunks/items/events.
+ * Preview sink records production handoff only, never claims graphical display.
+ */
+public final class ConveyorWandWorkflowTest {
+ static long checks,cases;static Method construct,breakExtra;static ItemConveyorWand wand;static Block crane;
+ static final BlockPos START=new BlockPos(8,64,8);static final Unsafe U=unsafe();
+ static Unsafe unsafe(){try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}catch(Exception e){throw new AssertionError(e);}}
+ static void check(boolean yes,String text){checks++;if(!yes)throw new AssertionError(text);}
+ static Object allocate(Class<?> c){try{return U.allocateInstance(c);}catch(Exception e){throw new AssertionError(e);}}
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final Map<BlockPos,String> cells=new TreeMap<>();final List<String> writes=new ArrayList<>();
+  NativeWorld(boolean remote){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderHell(),new Profiler(),remote);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-3;x<=3;x++)for(int z=-3;z<=3;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "real chunk wand fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+  public boolean setBlockState(BlockPos p,IBlockState state,int f){boolean result=super.setBlockState(p,state,f);IBlockState stored=getBlockState(p);if(stored.getBlock()==Blocks.AIR)cells.remove(p);else cells.put(p.toImmutable(),id(stored));writes.add(p+"="+id(state)+"/"+f);return result;}
+  void reset(){for(BlockPos p:new ArrayList<>(cells.keySet()))super.setBlockState(p,Blocks.AIR.getDefaultState(),2);cells.clear();writes.clear();}
+  void put(BlockPos p,Block b,int m){setBlockState(p,b.getStateFromMeta(m),2);}void quiet(){writes.clear();}
+ }
+ static String id(IBlockState s){return s.getBlock().getRegistryName()+":"+s.getBlock().getMetaFromState(s);}
+ static class Player extends EntityPlayer {
+  final List<String> messages=new ArrayList<>();int permissionChecks;boolean edit=false;
+  Player(World w){super(w,new GameProfile(new UUID(8,9),"wand-probe"));}
+  public boolean isSpectator(){return false;}public boolean isCreative(){return capabilities.isCreativeMode;}
+  public void sendMessage(ITextComponent c){messages.add(c.getUnformattedText());}
+  public boolean canPlayerEdit(BlockPos p,EnumFacing f,ItemStack s){permissionChecks++;return edit;}
+ }
+ static final class SyncContainer extends Container {int calls;public boolean canInteractWith(EntityPlayer p){return true;}public void detectAndSendChanges(){calls++;super.detectAndSendChanges();}}
+ static final class NetworkSink extends NetHandlerPlayServer {
+  List<Packet<?>> packets;
+  private NetworkSink(){super(null,null,null);}
+  public void sendPacket(Packet<?> p){packets.add(p);}
+ }
+ public static final class BreakListener {
+  List<BlockPos> seen=new ArrayList<>();BlockPos cancel;int xp=0;
+  @SubscribeEvent public void onBreak(BlockEvent.BreakEvent e){seen.add(e.getPos());e.setExpToDrop(xp);if(e.getPos().equals(cancel))e.setCanceled(true);}
+ }
+ static EntityPlayerMP multiplayer(NativeWorld w)throws Exception {
+  Player from=new Player(w);EntityPlayerMP p=(EntityPlayerMP)allocate(EntityPlayerMP.class);
+  for(Class<?> c=EntityPlayer.class;c!=Object.class;c=c.getSuperclass())for(Field f:c.getDeclaredFields())if(!Modifier.isStatic(f.getModifiers())){f.setAccessible(true);f.set(p,f.get(from));}
+  PlayerInteractionManager manager=new PlayerInteractionManager(w);Field f=EntityPlayerMP.class.getDeclaredField("interactionManager");f.setAccessible(true);f.set(p,manager);manager.player=p;
+  Field game=PlayerInteractionManager.class.getDeclaredField("gameType");game.setAccessible(true);game.set(manager,GameType.CREATIVE);
+  NetworkSink sink=(NetworkSink)allocate(NetworkSink.class);sink.packets=new ArrayList<>();p.connection=sink;p.capabilities.isCreativeMode=true;p.setSneaking(true);return p;
+ }
+ static Block register(String name,Block block){ForgeRegistries.BLOCKS.register(block.setRegistryName("wand_workflow",name));return block;}
+ static void setup()throws Exception{
+  Bootstrap.register();net.minecraftforge.fml.common.ModMetadata md=new net.minecraftforge.fml.common.ModMetadata();md.modId="wand_workflow";md.name="Native wand workflow proof";md.version="probe";net.minecraftforge.fml.common.DummyModContainer owner=new net.minecraftforge.fml.common.DummyModContainer(md);net.minecraftforge.fml.common.Loader.instance().setupTestHarness(owner);net.minecraftforge.fml.common.Loader.instance().setActiveModContainer(owner);ModBlocks.conveyor=register("regular",new BlockConveyor());ModBlocks.conveyor_express=register("express",new BlockConveyorExpress());ModBlocks.conveyor_double=register("double",new BlockConveyorDouble());ModBlocks.conveyor_triple=register("triple",new BlockConveyorTriple());ModBlocks.conveyor_lift=register("lift",new BlockConveyorLift());ModBlocks.conveyor_chute=register("chute",new BlockConveyorChute());crane=register("crane",new BlockCraneBase());
+  wand=(ItemConveyorWand)new ItemConveyorWand().setTranslationKey("conveyor_wand").setRegistryName("wand_workflow","wand").setCreativeTab(CreativeTabs.TOOLS);ModItems.conveyor_wand=wand;ForgeRegistries.ITEMS.register(wand);
+  Class<?>[] sig={World.class,IBlockAccess.class,ConveyorType.class,EntityPlayer.class,int.class,int.class,int.class,int.class,int.class,int.class,int.class,int.class,int.class,int.class,int.class,int.class};construct=ItemConveyorWand.class.getDeclaredMethod("construct",sig);construct.setAccessible(true);breakExtra=ItemConveyorWand.class.getDeclaredMethod("breakExtra",World.class,EntityPlayerMP.class,int.class,int.class,int.class,int.class);breakExtra.setAccessible(true);
+ }
+ static int construct(NativeWorld w,IBlockAccess build,ConveyorType type,EntityPlayer p,BlockPos a,int sa,BlockPos b,int sb,int bx,int by,int bz,int limit)throws Exception{return (Integer)construct.invoke(null,w,build,type,p,a.getX(),a.getY(),a.getZ(),sa,b.getX(),b.getY(),b.getZ(),sb,bx,by,bz,limit);}
+ static int oracle(NativeWorld w,Object build,ConveyorType type,EntityPlayer p,BlockPos a,int sa,BlockPos b,int sb,int bx,int by,int bz,int limit){return LegacyWandOracle.construct(new LegacyWandOracle.OracleWorld(w),build,type,p,a.getX(),a.getY(),a.getZ(),sa,b.getX(),b.getY(),b.getZ(),sb,bx,by,bz,limit);}
+ static Map<BlockPos,String> bytes(WorldInAJar jar){Map<BlockPos,String> out=new TreeMap<>();for(int x=0;x<jar.sizeX;x++)for(int y=0;y<jar.sizeY;y++)for(int z=0;z<jar.sizeZ;z++)if(jar.getBlock(x,y,z)!=Blocks.AIR)out.put(new BlockPos(x,y,z),jar.getBlock(x,y,z).getRegistryName()+":"+jar.getBlockMetadata(x,y,z));return out;}
+ static void seed(NativeWorld w,BlockPos end,int side,int obstacle,int target){w.reset();w.put(START,Blocks.STONE,0);w.put(end,target==0?Blocks.STONE:target==1?crane:target==2?ModBlocks.conveyor_lift:ModBlocks.conveyor_chute,2);if(obstacle==1)w.put(START.offset(EnumFacing.byIndex(side)),Blocks.STONE,0);if(obstacle==2)w.put(new BlockPos((START.getX()+end.getX())/2,65,(START.getZ()+end.getZ())/2),Blocks.STONE,0);w.quiet();}
+ static void routeMatrix()throws Exception{
+  NativeWorld actual=new NativeWorld(false),expected=new NativeWorld(false);Player p=new Player(actual);
+  int[][] endpoints={{0,0,0},{3,0,0},{0,0,3},{-2,0,-3},{3,2,1},{-1,-2,2},{0,3,0}};float[] yaws={-45.01F,45F};int[] limits={0,1,5,16};
+  for(int[] delta:endpoints)for(int a=0;a<6;a++)for(int b=0;b<6;b++)for(ConveyorType type:ConveyorType.values())for(int ob=0;ob<3;ob++)for(int limit:limits)for(float yaw:yaws)for(int target=0;target<2;target++){
+   p.rotationYaw=yaw;BlockPos end=START.add(delta[0],delta[1],delta[2]);seed(actual,end,a,ob,target);seed(expected,end,a,ob,target);Map<BlockPos,String> before=new TreeMap<>(actual.cells);
+   String key="case="+cases+" "+Arrays.toString(delta)+"/"+a+"/"+b+"/"+type+"/"+ob+"/"+limit+"/"+yaw+"/"+target;
+   int old=oracle(expected,null,type,p,START,a,end,b,0,0,0,limit),now=construct(actual,null,type,p,START,a,end,b,0,0,0,limit);check(now==old,"dry result "+key+" expected="+old+" actual="+now);check(actual.cells.equals(before)&&actual.writes.isEmpty(),"dry run no world writes "+key);
+   int sx=Math.abs(delta[0])+3,sy=Math.abs(delta[1])+3,sz=Math.abs(delta[2])+3,bx=Math.min(START.getX(),end.getX())-1,by=Math.min(64,end.getY())-1,bz=Math.min(8,end.getZ())-1;
+   WorldInAJar jar=new WorldInAJar(sx,sy,sz);LegacyWandOracle.OracleJar oj=new LegacyWandOracle.OracleJar(sx,sy,sz);int preview=construct(actual,jar,type,p,START,a,end,b,bx,by,bz,limit),op=oracle(expected,oj,type,p,START,a,end,b,bx,by,bz,limit);check(preview==op&&bytes(jar).equals(oj.bytes),"preview raw block/meta bytes "+key);check(actual.cells.equals(before)&&actual.writes.isEmpty(),"preview leaves route world unchanged "+key);
+   int built=construct(actual,actual,type,p,START,a,end,b,0,0,0,limit),obuilt=oracle(expected,new LegacyWandOracle.OracleWorld(expected),type,p,START,a,end,b,0,0,0,limit);check(built==obuilt&&actual.cells.equals(expected.cells)&&actual.writes.equals(expected.writes),"real native placement order, metadata, block identities and flags "+key+" native="+actual.cells+" old="+expected.cells);cases++;if(cases%10000==0)System.out.println("PROGRESS routing cases="+cases);
+  }
+  for(int target=2;target<4;target++)for(int sa=0;sa<6;sa++)for(int sb=0;sb<6;sb++)for(ConveyorType type:ConveyorType.values()){
+   BlockPos end=START.add(3,1,-2);seed(actual,end,sa,0,target);seed(expected,end,sa,0,target);int built=construct(actual,actual,type,p,START,sa,end,sb,0,0,0,32),old=oracle(expected,new LegacyWandOracle.OracleWorld(expected),type,p,START,sa,end,sb,0,0,0,32);check(built==old&&actual.cells.equals(expected.cells),"lift/chute target turn behavior");cases++;
+  }
+  for(BlockPos anchor:new BlockPos[]{new BlockPos(-8,64,-8),new BlockPos(8,1,8),new BlockPos(8,254,8)})for(EnumFacing side:new EnumFacing[]{EnumFacing.UP,EnumFacing.DOWN})for(ConveyorType type:ConveyorType.values())for(float yaw:new float[]{-720,-361,-315.01F,-315,-225,-180,-135,-90,-45.01F,-45,0,44.99F,45,90,135,180,225,270,315,360,720}){
+   actual.reset();expected.reset();actual.put(anchor,Blocks.STONE,0);expected.put(anchor,Blocks.STONE,0);p.rotationYaw=yaw;int a=construct(actual,actual,type,p,anchor,side.getIndex(),anchor,side.getIndex(),0,0,0,0),b=oracle(expected,new LegacyWandOracle.OracleWorld(expected),type,p,anchor,side.getIndex(),anchor,side.getIndex(),0,0,0,0);check(a==1&&a==b&&actual.cells.equals(expected.cells),"single-block yaw/negative-coordinate/height edges retain max-zero bypass");cases++;
+  }
+  System.out.println("PASS "+cases+" exhaustive finite endpoint/face/type/obstruction/limit/yaw/target routing cases: pristine dry result, zero mutations, raw preview bytes, actual native placement and flags.");
+ }
+ static ItemStack stack(int type,int count){return new ItemStack(wand,count,type);}
+ static EnumActionResult use(Player p,ItemStack s,BlockPos pos,EnumFacing face){p.setHeldItem(EnumHand.MAIN_HAND,s);return wand.onItemUse(p,p.world,pos,EnumHand.MAIN_HAND,face,.4F,.5F,.6F);}
+ static NBTTagCompound selection(BlockPos p,int side,int count){NBTTagCompound n=new NBTTagCompound();n.setInteger("x",p.getX());n.setInteger("y",p.getY());n.setInteger("z",p.getZ());n.setInteger("side",side);n.setInteger("count",count);return n;}
+ static void itemWorkflow()throws Exception{
+  NativeWorld w=new NativeWorld(false);Player p=new Player(w);SyncContainer container=new SyncContainer();p.inventoryContainer=container;
+  NonNullList<ItemStack> subs=NonNullList.create();wand.getSubItems(CreativeTabs.TOOLS,subs);check(subs.size()==4&&wand.getHasSubtypes(),"native subtype creative population");for(int t=0;t<4;t++){check(subs.get(t).getCount()==1&&subs.get(t).getItemDamage()==t&&subs.get(t).getItem()==wand,"creative subtype count identity");check(wand.getTranslationKey(subs.get(t)).endsWith(ConveyorType.values()[t].name().toLowerCase(Locale.US)),"locale-safe subtype name");}
+  check(ItemConveyorWand.getType(null)==ConveyorType.REGULAR&&ItemConveyorWand.getType(ItemStack.EMPTY)==ConveyorType.REGULAR,"legacy null and native empty subtype default");boolean invalid=false;try{ItemConveyorWand.getType(stack(4,1));}catch(ArrayIndexOutOfBoundsException e){invalid=true;}check(invalid,"legacy malformed subtype remains invalid rather than silently clamped");
+  for(int type=0;type<4;type++)for(boolean creative:new boolean[]{false,true}){
+   w.reset();w.put(START,Blocks.STONE,0);p.capabilities.isCreativeMode=creative;p.inventory.clear();ItemStack held=stack(type,2),extra=stack(type,7),other=stack((type+1)%4,11);p.inventory.mainInventory.set(0,held);p.inventory.mainInventory.set(1,extra);p.inventory.mainInventory.set(2,other);p.inventory.mainInventory.set(3,new ItemStack(Items.STICK,31));w.quiet();
+   check(use(p,held,START,EnumFacing.EAST)==EnumActionResult.SUCCESS,"first click consumed");check(held.getTagCompound().equals(selection(START,5,creative?256:9)),"exact start coordinate/side/count NBT");check(w.writes.isEmpty(),"first click never places");
+   check(use(p,held,START.add(4,0,0),EnumFacing.WEST)==EnumActionResult.SUCCESS,"second click consumed");check(!held.hasTagCompound(),"completion clears selection NBT");check(p.messages.get(p.messages.size()-1).equals("Conveyor built!"),"success message");check(held.getCount()==(creative?2:0)&&extra.getCount()==(creative?7:6)&&other.getCount()==11,"consume exact required count matching subtype inventory order, creative free");check(w.getBlockState(START.east()).getBlock()==ItemConveyorWand.getConveyorBlock(ConveyorType.values()[type]),"correct constructed subtype");
+  }
+  p.capabilities.isCreativeMode=false;p.inventory.clear();ItemStack held=stack(0,2);p.inventory.mainInventory.set(0,held);w.reset();w.put(START,Blocks.STONE,0);use(p,held,START,EnumFacing.EAST);w.quiet();use(p,held,START.add(8,0,0),EnumFacing.WEST);check(w.writes.isEmpty()&&held.getCount()==2&&!held.hasTagCompound()&&p.messages.get(p.messages.size()-1).contains("Not enough"),"failed dry limit makes no partial placement or consumption");
+  held=stack(0,10);p.inventory.mainInventory.set(0,held);w.reset();w.put(START,Blocks.STONE,0);w.put(START.east(),Blocks.STONE,0);use(p,held,START,EnumFacing.EAST);w.quiet();use(p,held,START.add(4,0,0),EnumFacing.WEST);check(w.writes.isEmpty()&&held.getCount()==10&&!held.hasTagCompound()&&p.messages.get(p.messages.size()-1).contains("obstructed"),"obstructed dry run makes no partial placement");
+  ItemStack off=stack(2,5);p.inventory.clear();p.inventory.mainInventory.set(1,stack(2,3));p.setHeldItem(EnumHand.MAIN_HAND,stack(1,9));p.setHeldItem(EnumHand.OFF_HAND,off);w.reset();w.put(START,Blocks.STONE,0);wand.onItemUse(p,w,START,EnumHand.OFF_HAND,EnumFacing.EAST,0,0,0);check(off.hasTagCompound()&&off.getTagCompound().getInteger("count")==3&&!p.getHeldItemMainhand().hasTagCompound(),"native hand selects offhand stack while legacy count scans only main inventory");ItemStack restored=new ItemStack(off.writeToNBT(new NBTTagCompound()));check(restored.getItem()==wand&&restored.getItemDamage()==2&&restored.getCount()==5&&restored.getTagCompound().equals(off.getTagCompound()),"actual stack NBT serialization roundtrip preserves subtype count and selection");
+  check(p.permissionChecks==0,"no invented canPlayerEdit checks even though fixture denies editing");check(container.calls==4,"survival successful inventory synchronization exactly once each");
+  // Routing snapshot count does not silently recount inventory at completion.
+  held=stack(0,1);held.setTagCompound(selection(START,5,4));p.inventory.clear();p.inventory.mainInventory.set(0,held);w.reset();w.put(START,Blocks.STONE,0);use(p,held,START.add(4,0,0),EnumFacing.WEST);check(w.getBlockState(START.east(3)).getBlock()==ModBlocks.conveyor&&held.isEmpty(),"legacy captured-count behavior retained when available inventory later shrinks");
+  System.out.println("PASS actual item callbacks, subtype/name/count/NBT, inventory order, creative behavior, captured-count quirk, failure atomicity and no invented edit gate.");
+ }
+ static void immediateAndSnap()throws Exception{
+  for(boolean remote:new boolean[]{false,true})for(boolean creative:new boolean[]{false,true})for(int type=0;type<4;type++)for(EnumFacing face:EnumFacing.values())for(int meta:new int[]{2,6})for(boolean blocked:new boolean[]{false,true}){
+   NativeWorld w=new NativeWorld(remote);Player p=new Player(w);p.setSneaking(true);p.capabilities.isCreativeMode=creative;p.rotationYaw=90;w.put(START,ModBlocks.conveyor,meta);if(blocked)w.put(START.offset(face),Blocks.STONE,0);ItemStack s=stack(type,5);w.quiet();check(use(p,s,START,face)==EnumActionResult.SUCCESS,"sneak consumed");
+   Block base=type==0&&meta<6&&face==EnumFacing.UP?ModBlocks.conveyor_lift:type==0&&meta<6&&face==EnumFacing.DOWN?ModBlocks.conveyor_chute:ModBlocks.conveyor;Block placed=type==0&&base==ModBlocks.conveyor_lift&&face==EnumFacing.UP?ModBlocks.conveyor_lift:type==0&&base==ModBlocks.conveyor_chute&&face==EnumFacing.DOWN?ModBlocks.conveyor_chute:ItemConveyorWand.getConveyorBlock(ConveyorType.values()[type]);
+   check(w.getBlockState(START).getBlock()==base,"sneak converts source before obstruction check");check(s.getCount()==(blocked?5:4)&&!s.hasTagCompound(),"sneak consumes creative and client too, no selection");if(!blocked)check(w.getBlockState(START.offset(face)).getBlock()==placed&&placed.getMetaFromState(w.getBlockState(START.offset(face)))==5,"sneak native callback facing metadata");check(p.permissionChecks==0,"sneak preserves absent edit gate");
+  }
+  NativeWorld w=new NativeWorld(false);Player p=new Player(w);ItemStack s=stack(0,10);w.put(START,ModBlocks.conveyor,2);use(p,s,START,EnumFacing.UP);check(s.getTagCompound().getInteger("side")==3,"start snap uses output");s.setTagCompound(null);w.put(START.south(),Blocks.STONE,0);use(p,s,START,EnumFacing.UP);check(s.getTagCompound().getInteger("side")==1,"blocked snap keeps clicked face");
+  s=stack(0,20);p.inventory.clear();p.inventory.mainInventory.set(0,s);w.reset();w.put(START,Blocks.STONE,0);BlockPos end=START.east(4);w.put(end,ModBlocks.conveyor,4);use(p,s,START,EnumFacing.EAST);use(p,s,end,EnumFacing.UP);check(w.getBlockState(end.west()).getBlock()==ModBlocks.conveyor&&w.getBlockState(end.up()).getBlock()==Blocks.AIR,"end snap uses native conveyor input instead of clicked top");
+  System.out.println("PASS 384 immediate sneak combinations across client/server/creative/type/face/meta/obstruction, legacy consumption/conversion quirks and start auto-snap.");
+ }
+ static Minecraft minecraft()throws Exception{Minecraft mc=(Minecraft)allocate(Minecraft.class);Field f=Minecraft.class.getDeclaredField("instance");f.setAccessible(true);f.set(null,mc);return mc;}
+ static void updatePreview()throws Exception{
+  NativeWorld w=new NativeWorld(true);Player p=new Player(w);Minecraft mc=minecraft();ItemStack s=stack(0,20);p.setHeldItem(EnumHand.MAIN_HAND,s);s.setTagCompound(selection(START,5,20));BlockPos end=START.add(4,0,0);w.put(START,Blocks.STONE,0);w.put(end,Blocks.STONE,0);mc.objectMouseOver=new RayTraceResult(new Vec3d(end),EnumFacing.WEST,end);RenderOverhead.sets=0;RenderOverhead.clears=0;w.quiet();wand.onUpdate(s,w,p,0,true);check(RenderOverhead.sets==1&&RenderOverhead.success&&RenderOverhead.x==7&&RenderOverhead.y==63&&RenderOverhead.z==7,"native client preview handoff origin/success");check(RenderOverhead.preview.sizeX==7&&RenderOverhead.preview.sizeY==3&&RenderOverhead.preview.sizeZ==3,"preview one-block buffer dimensions");LegacyWandOracle.OracleJar expected=new LegacyWandOracle.OracleJar(7,3,3);oracle(w,expected,ConveyorType.REGULAR,p,START,5,end,4,7,63,7,20);check(bytes(RenderOverhead.preview).equals(expected.bytes)&&w.writes.isEmpty(),"preview exact pristine block/meta bytes, no real-world mutation");
+  wand.onUpdate(s,w,p,0,true);check(RenderOverhead.sets==1,"unchanged hit cached");p.rotationYaw=14.99F;wand.onUpdate(s,w,p,0,true);check(RenderOverhead.sets==1,"yaw below 15 cached");p.rotationYaw=15;wand.onUpdate(s,w,p,0,true);check(RenderOverhead.sets==2,"yaw at 15 refreshes");
+  mc.objectMouseOver=null;wand.onUpdate(s,w,p,0,true);check(RenderOverhead.preview==null,"no target clears preview");mc.objectMouseOver=new RayTraceResult(new Vec3d(end),EnumFacing.WEST,end);wand.onUpdate(s,w,p,0,true);check(RenderOverhead.sets==3,"missing target reset invalidates cache");
+  ItemStack same=stack(0,1);p.setHeldItem(EnumHand.MAIN_HAND,same);wand.onUpdate(s,w,p,1,false);check(s.hasTagCompound(),"nonheld same subtype keeps NBT");p.setHeldItem(EnumHand.MAIN_HAND,stack(1,1));wand.onUpdate(s,w,p,1,false);check(!s.hasTagCompound()&&RenderOverhead.preview==null,"nonheld wrong subtype clears selection and preview");s.setTagCompound(selection(START,5,20));p.setHeldItem(EnumHand.MAIN_HAND,ItemStack.EMPTY);wand.onUpdate(s,w,p,1,false);check(!s.hasTagCompound(),"native empty hand clears selection");
+  s=stack(0,20);s.setTagCompound(selection(START,5,20));p.setHeldItem(EnumHand.MAIN_HAND,s);w.quiet();use(p,s,end,EnumFacing.WEST);check(!s.hasTagCompound()&&s.getCount()==20&&w.writes.isEmpty()&&RenderOverhead.preview==null,"client second click clears only, never constructs/consumes");
+  jarContracts();
+  System.out.println("PASS native onUpdate ray trace, exact WorldInAJar preview bytes/handoff, 15-degree cache boundary, held/subtype/client cleanup; no graphical preview claim.");
+ }
+ static void jarContracts(){
+  WorldInAJar jar=new WorldInAJar(2,3,4);BlockPos at=new BlockPos(1,2,3);net.minecraft.tileentity.TileEntity tile=new net.minecraft.tileentity.TileEntity(){};
+  for(int raw:new int[]{0,2,13,32767,32768,65535,-32769}){jar.setBlock(1,2,3,ModBlocks.conveyor,raw);check(jar.getBlockMetadata(1,2,3)==(short)raw,"jar signed short coordinate metadata preserved");check(jar.getBlockState(at).getBlock()==ModBlocks.conveyor&&ModBlocks.conveyor.getMetaFromState(jar.getBlockState(at))==((short)raw&15),"jar native state maps stored metadata");}
+  jar.setTileEntity(1,2,3,tile);check(jar.getTileEntity(at)==tile&&jar.getTileEntity(1,2,3)==tile,"jar native/coordinate tile identity");
+  for(BlockPos outside:new BlockPos[]{new BlockPos(-1,0,0),new BlockPos(2,0,0),new BlockPos(0,-1,0),new BlockPos(0,3,0),new BlockPos(0,0,-1),new BlockPos(0,0,4)}){jar.setBlock(outside.getX(),outside.getY(),outside.getZ(),Blocks.STONE,9);jar.setTileEntity(outside.getX(),outside.getY(),outside.getZ(),tile);check(jar.getBlockState(outside).getBlock()==Blocks.AIR&&jar.getBlockMetadata(outside.getX(),outside.getY(),outside.getZ())==0&&jar.getTileEntity(outside)==null&&jar.isAirBlock(outside),"jar bounds AIR/0/null and ignored setters");}
+  for(int light:new int[]{15,0,27,0x00f000f0,-7}){jar.lightlevel=light;check(jar.getCombinedLight(at,7)==light,"jar lightlevel returned raw unchanged");}
+  for(EnumFacing face:EnumFacing.values())check(jar.getStrongPower(at,face)==0,"jar no power");check(jar.getBiome(at)==Biomes.PLAINS&&jar.getWorldType()==WorldType.DEFAULT&&jar.getHeight()==3&&!jar.extendedLevelsInChunkCache(),"jar plains/default type/legacy height and levels helpers");
+  jar.setBlock(1,2,3,Blocks.STONE_SLAB,0);boolean bottom=jar.isSideSolid(at,EnumFacing.UP,false);jar.setBlock(1,2,3,Blocks.STONE_SLAB,8);boolean top=jar.isSideSolid(at,EnumFacing.UP,false);check(!bottom&&top,"jar side solidity uses stored slab metadata rather than default state");check(jar.isSideSolid(at,null,true)&&!jar.isSideSolid(at,null,false),"jar null-face fallback");
+  jar.nuke();check(jar.getBlockState(at).getBlock()==Blocks.AIR&&jar.getBlockMetadata(1,2,3)==0&&jar.getTileEntity(at)==null,"jar nuke clears all three storage arrays");
+ }
+ static void breaks()throws Exception{
+  NativeWorld w=new NativeWorld(false);EntityPlayerMP p=multiplayer(w);BreakListener listener=new BreakListener();MinecraftForge.EVENT_BUS.register(listener);
+  for(int depth:new int[]{0,1,2,3,32}){
+   w.reset();for(int z=0;z<40;z++)w.put(new BlockPos(8,64,z),ModBlocks.conveyor,2);listener.seen.clear();w.quiet();breakExtra.invoke(wand,w,p,8,64,0,depth);int removed=Math.max(0,depth-1);check(listener.seen.size()==removed,"real Forge event count recursive depth "+depth);for(int z=0;z<40;z++)check((w.getBlockState(new BlockPos(8,64,z)).getBlock()==Blocks.AIR)==(z<removed),"depth boundary "+depth+"/"+z);
+  }
+  w.reset();for(int z=0;z<8;z++)w.put(new BlockPos(8,64,z),ModBlocks.conveyor,2);listener.cancel=new BlockPos(8,64,3);listener.seen.clear();listener.xp=9;breakExtra.invoke(wand,w,p,8,64,0,32);check(listener.seen.size()==4&&w.getBlockState(new BlockPos(8,64,2)).getBlock()==Blocks.AIR&&w.getBlockState(listener.cancel).getBlock()==ModBlocks.conveyor&&w.getBlockState(new BlockPos(8,64,4)).getBlock()==ModBlocks.conveyor,"actual Forge canceled event stops deletion and recursion; positive exp remains accepted");
+  NetworkSink sink=(NetworkSink)p.connection;SPacketBlockChange rollback=(SPacketBlockChange)sink.packets.get(sink.packets.size()-1);check(rollback.getBlockPosition().equals(listener.cancel)&&rollback.getBlockState().getBlock()==ModBlocks.conveyor,"Forge cancellation sends actual corrective block state packet");check(!sink.packets.isEmpty(),"real packet handoff");for(Packet<?> packet:sink.packets)check(packet instanceof SPacketBlockChange,"native packet type");listener.cancel=null;listener.seen.clear();
+  Field game=PlayerInteractionManager.class.getDeclaredField("gameType");game.setAccessible(true);game.set(p.interactionManager,GameType.SPECTATOR);breakExtra.invoke(wand,w,p,8,64,4,32);check(w.getBlockState(new BlockPos(8,64,4)).getBlock()==ModBlocks.conveyor,"native Forge spectator permission cancellation preserved");game.set(p.interactionManager,GameType.CREATIVE);
+  w.reset();for(int z=-40;z<=40;z++)w.put(new BlockPos(8,64,z),ModBlocks.conveyor,2);listener.seen.clear();check(!wand.onBlockStartBreak(stack(0,1),new BlockPos(8,64,0),p),"start break lets native clicked block processing continue");check(w.getBlockState(new BlockPos(8,64,-32)).getBlock()==ModBlocks.conveyor&&w.getBlockState(new BlockPos(8,64,32)).getBlock()==ModBlocks.conveyor,"bidirectional break bounded at initial depth32");check(listener.seen.size()==61,"both branches exact legacy recursive count including possible clicked revisit");
+  p.setSneaking(false);listener.seen.clear();wand.onBlockStartBreak(stack(0,1),new BlockPos(8,64,32),p);check(listener.seen.isEmpty(),"not sneaking bypass");p.setSneaking(true);p.capabilities.isCreativeMode=false;wand.onBlockStartBreak(stack(0,1),new BlockPos(8,64,32),p);check(listener.seen.isEmpty(),"survival bypass");Player ordinary=new Player(w);ordinary.capabilities.isCreativeMode=true;ordinary.setSneaking(true);wand.onBlockStartBreak(stack(0,1),new BlockPos(8,64,32),ordinary);check(listener.seen.isEmpty(),"non-MP bypass");NativeWorld client=new NativeWorld(true);client.put(START,ModBlocks.conveyor,2);EntityPlayerMP cp=multiplayer(client);wand.onBlockStartBreak(stack(0,1),START,cp);check(listener.seen.isEmpty(),"client break callback never traverses");MinecraftForge.EVENT_BUS.unregister(listener);
+  System.out.println("PASS genuine Forge BreakEvent permission/cancellation/positive-exp path, native block destruction/packet handoff, creative/sneak/MP guards and recursive depth bounds.");
+ }
+ public static void main(String[] args)throws Exception{setup();if(args.length==0||args[0].equals("routes"))routeMatrix();if(args.length==0||args[0].equals("callbacks")){itemWorkflow();immediateAndSnap();updatePreview();breaks();}System.out.println("PASS native wand workflow section="+(args.length==0?"all":args[0])+" "+checks+" assertions, "+cases+" pristine routing cases.");}
+}

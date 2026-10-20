@@ -9,7 +9,7 @@ import com.hbm.tileentity.network.TileEntityConnectorSuper;
 
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderConnectorSuper extends RenderPylonBase implements IItemRendererProvider {
 
@@ -48,7 +48,7 @@ public class RenderConnectorSuper extends RenderPylonBase implements IItemRender
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, -5, 0);

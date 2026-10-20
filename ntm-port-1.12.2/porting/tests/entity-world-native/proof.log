@@ -1,0 +1,44 @@
+PASS 349 exact forward/inverse files and 1047 source mutation negative controls
+Attribution diagnostics (unfinished source, not compile success): 22
+PASS 28 actual javac attribution receiver, shadow, interface, TileEntity, static, Unicode and negative fixtures
+/tmp/entity-world-proof-4ut23fdn/LegacyFieldTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*; import sun.misc.Unsafe;
+                                           ^
+/tmp/entity-world-proof-4ut23fdn/LegacyFieldTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+         ^
+/tmp/entity-world-proof-4ut23fdn/LegacyFieldTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                                          ^
+/tmp/entity-world-proof-4ut23fdn/LegacyFieldTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                                                    ^
+4 warnings
+PASS 6 actual original Entity field evaluation order, alias, null and RHS-failure controls
+Attribution diagnostics (unfinished source, not compile success): 3
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+        ^
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                ^
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                                                                                         ^
+/workspace/shared/nagaport-entity-world/ntm-port-1.12.2/porting/tests/entity-world-native/NativeWorldTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe u=unsafe();
+  ^
+7 warnings
+PASS 15 original/native field identity, evaluation order, direct writes, aliases, null failures and exact production getHead execution checks
+PASS compiled native bytecode uses direct Entity.world getfield/putfield; no accessor/helper substitution
+Attribution diagnostics (unfinished source, not compile success): 32469
+PASS complete reconstructed CP52 source attribution selects exactly 2632 manifest edits

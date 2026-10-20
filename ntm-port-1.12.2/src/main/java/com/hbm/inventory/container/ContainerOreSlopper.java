@@ -96,6 +96,6 @@ public class ContainerOreSlopper extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return slopper.isUseableByPlayer(player);
+		return slopper.isUsableByPlayer(player);
 	}
 }

@@ -1,19 +1,14 @@
 package com.hbm.blocks.rail;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.lib.Library;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -22,10 +17,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class RailNarrowCurve extends BlockDummyable implements IRailNTM, IRenderBlock {
+public class RailNarrowCurve extends BlockRailNTM implements IRailNTM, IRenderBlock {
 
 	public RailNarrowCurve() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -33,10 +28,6 @@ public class RailNarrowCurve extends BlockDummyable implements IRailNTM, IRender
 		return null;
 	}
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
 
 	@Override
 	public Vec3d getSnappingPos(World world, int x, int y, int z, double trainX, double trainY, double trainZ) {
@@ -55,7 +46,7 @@ public class RailNarrowCurve extends BlockDummyable implements IRailNTM, IRender
 		int cX = pos[0];
 		int cY = pos[1];
 		int cZ = pos[2];
-		int meta = world.getBlockMetadata(cX, cY, cZ) - this.offset;
+		int meta = metadata(world, cX, cY, cZ) - this.offset;
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
@@ -80,7 +71,7 @@ public class RailNarrowCurve extends BlockDummyable implements IRailNTM, IRender
 		if(dir == Library.NEG_X) angleDeg -= 90;
 		if(dir == Library.POS_X) angleDeg += 90;
 		if(dir == Library.POS_Z) angleDeg += 180;
-		angleDeg = MathHelper.wrapAngleTo180_double(angleDeg);
+		angleDeg = MathHelper.wrapDegrees(angleDeg);
 		double length90Deg = turnRadius * Math.PI / 2D;
 		double angularChange = speed / length90Deg * 90D;
 		
@@ -144,29 +135,8 @@ public class RailNarrowCurve extends BlockDummyable implements IRailNTM, IRender
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		this.setBlockBounds(0F, 0F, 0F, 1F, 0.125F, 1F);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+		return new AxisAlignedBB(x, y, z, x + 1, y + 0.125, z + 1);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glScaled(0.2, 0.2, 0.2);
-		GL11.glTranslated(2.5, -0.0625, -1.5);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_narrow_curve, block.getIcon(1, 0), tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		if(meta < 12) return;
-		float rotation = 0;
-		if(meta == 12) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 14) rotation = 180F / 180F * (float) Math.PI;
-		if(meta == 13) rotation = 270F / 180F * (float) Math.PI;
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_narrow_curve, block.getIcon(1, 0), tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-	}
 }

@@ -28,7 +28,7 @@ public class RBMKControl extends RBMKPipedBase {
 	public void registerBlockIcons(IIconRegister reg) {
 		super.registerBlockIcons(reg);
 		if(this == ModBlocks.rbmk_control_reasim)
-			this.textureBottom = reg.registerIcon(this.getTextureName() + "_bottom");
+			this.textureBottom = reg.registerIcon(this.getRBMKTexture() + "_bottom");
 	}
 
 	@Override

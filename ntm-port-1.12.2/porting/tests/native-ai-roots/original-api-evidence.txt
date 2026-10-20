@@ -1,0 +1,223 @@
+Original/native AI audit, 2026-10-19
+
+External provenance (not redistributed):
+Original 1.7.10 client SHA256 a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+Original SRG archive SHA256 d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2
+Original Forge1614 userdev SHA256 6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91
+joined.srg maps vd=EntityAIArrowAttack, uq=EntityAIAttackOnCollide,
+ayg=PathFinder, aye=PathPoint, ayf=PathEntity.
+Native target: Forge 1.12.2 14.23.5.2768, MCP stable_39, existing native classpath.
+
+Reproduce bytecode inspection with Java8 javap -c -p -classpath ORIGINAL_CLIENT vd/uq/ayg/aye
+and Java8 javap -c -p -classpath NATIVE_CLASSPATH
+net.minecraft.entity.ai.EntityAIAttackRanged, EntityAIAttackMelee,
+net.minecraft.pathfinding.PathFinder, WalkNodeProcessor.
+Original Forge patches are forgepatches.zip inside the userdev JAR.
+No ranged or PathFinder patch is present there; the melee patch is present and required.
+
+Material verbatim javap excerpts follow. Constant-pool indices are not cross-version identities.
+
+
+ORIGINAL RANGED: zero-tick range + visibility gate
+     138: aload_0
+     139: dup
+     140: getfield      #22                 // Field d:I
+     143: iconst_1
+     144: isub
+     145: dup_x1
+     146: putfield      #22                 // Field d:I
+     149: ifne          248
+     152: dload_1
+     153: aload_0
+     154: getfield      #28                 // Field j:F
+     157: f2d
+     158: dcmpl
+     159: ifgt          166
+     162: iload_3
+     163: ifne          167
+     166: return
+     167: dload_1
+     168: invokestatic  #30                 // Method qh.a:(D)F
+     171: aload_0
+     172: getfield      #27                 // Field i:F
+     175: fdiv
+     176: fstore        4
+     178: fload         4
+
+NATIVE RANGED: zero-tick visibility-only gate
+     138: aload_0
+     139: dup
+     140: getfield      #37                 // Field rangedAttackTime:I
+     143: iconst_1
+     144: isub
+     145: dup_x1
+     146: putfield      #37                 // Field rangedAttackTime:I
+     149: ifne          226
+     152: iload_3
+     153: ifne          157
+     156: return
+     157: dload_1
+     158: invokestatic  #151                // Method net/minecraft/util/math/MathHelper.sqrt:(D)F
+     161: aload_0
+     162: getfield      #62                 // Field attackRadius:F
+     165: fdiv
+     166: fstore        4
+     168: fload         4
+
+ORIGINAL MELEE: attack cadence and held-item swing
+     289: aload_0
+     290: aload_0
+     291: getfield      #30                 // Field c:I
+     294: iconst_1
+     295: isub
+     296: iconst_0
+     297: invokestatic  #40                 // Method java/lang/Math.max:(II)I
+     300: putfield      #30                 // Field c:I
+     303: dload_2
+     304: dload         4
+     306: dcmpg
+     307: ifgt          351
+     310: aload_0
+     311: getfield      #30                 // Field c:I
+     314: bipush        20
+     316: if_icmpgt     351
+     319: aload_0
+     320: bipush        20
+     322: putfield      #30                 // Field c:I
+     325: aload_0
+     326: getfield      #29                 // Field b:Ltd;
+     329: invokevirtual #50                 // Method td.be:()Ladd;
+     332: ifnull        342
+     335: aload_0
+     336: getfield      #29                 // Field b:Ltd;
+     339: invokevirtual #49                 // Method td.ba:()V
+     342: aload_0
+     343: getfield      #29                 // Field b:Ltd;
+     346: aload_1
+     347: invokevirtual #55                 // Method td.n:(Lsa;)Z
+     350: pop
+     351: return
+
+NATIVE MELEE: new pathless-in-range start
+      92: aload_0
+      93: aload_0
+      94: getfield      #38                 // Field attacker:Lnet/minecraft/entity/EntityCreature;
+      97: invokevirtual #73                 // Method net/minecraft/entity/EntityCreature.getNavigator:()Lnet/minecraft/pathfinding/PathNavigate;
+     100: aload_1
+     101: invokevirtual #79                 // Method net/minecraft/pathfinding/PathNavigate.getPathToEntityLiving:(Lnet/minecraft/entity/Entity;)Lnet/minecraft/pathfinding/Path;
+     104: putfield      #81                 // Field path:Lnet/minecraft/pathfinding/Path;
+     107: aload_0
+     108: getfield      #81                 // Field path:Lnet/minecraft/pathfinding/Path;
+     111: ifnull        116
+     114: iconst_1
+     115: ireturn
+     116: aload_0
+     117: aload_1
+     118: invokevirtual #95                 // Method getAttackReachSqr:(Lnet/minecraft/entity/EntityLivingBase;)D
+     121: aload_0
+     122: getfield      #38                 // Field attacker:Lnet/minecraft/entity/EntityCreature;
+     125: aload_1
+     126: getfield      #98                 // Field net/minecraft/entity/EntityLivingBase.posX:D
+     129: aload_1
+     130: invokevirtual #102                // Method net/minecraft/entity/EntityLivingBase.getEntityBoundingBox:()Lnet/minecraft/util/math/AxisAlignedBB;
+     133: getfield      #107                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+     136: aload_1
+     137: getfield      #110                // Field net/minecraft/entity/EntityLivingBase.posZ:D
+     140: invokevirtual #114                // Method net/minecraft/entity/EntityCreature.getDistanceSq:(DDD)D
+     143: dcmpl
+     144: iflt          151
+     147: iconst_1
+     148: goto          152
+     151: iconst_0
+     152: ireturn
+
+NATIVE SEARCH: 200 iteration bound
+      50: iconst_0
+      51: istore        5
+      53: aload_0
+      54: getfield      #24                 // Field path:Lnet/minecraft/pathfinding/PathHeap;
+      57: invokevirtual #145                // Method net/minecraft/pathfinding/PathHeap.isPathEmpty:()Z
+      60: ifne          334
+      63: iinc          5, 1
+      66: iload         5
+      68: sipush        200
+      71: if_icmpge     334
+      74: aload_0
+      75: getfield      #24                 // Field path:Lnet/minecraft/pathfinding/PathHeap;
+      78: invokevirtual #148                // Method net/minecraft/pathfinding/PathHeap.dequeue:()Lnet/minecraft/pathfinding/PathPoint;
+      81: astore        6
+      83: aload         6
+      85: aload_2
+      86: invokevirtual #152                // Method net/minecraft/pathfinding/PathPoint.equals:(Ljava/lang/Object;)Z
+      89: ifeq          98
+      92: aload_2
+      93: astore        4
+      95: goto          334
+      98: aload         6
+
+ORIGINAL FORGE1614 MELEE PATCH (SHA256 3debb81d385ace77c71005d314804a0954ff63007590b4e103afbade154cb517)
+--- ../src-base/minecraft/net/minecraft/entity/ai/EntityAIAttackOnCollide.java
++++ ../src-work/minecraft/net/minecraft/entity/ai/EntityAIAttackOnCollide.java
+@@ -3,6 +3,7 @@
+ import net.minecraft.entity.EntityCreature;
+ import net.minecraft.entity.EntityLivingBase;
+ import net.minecraft.pathfinding.PathEntity;
++import net.minecraft.pathfinding.PathPoint;
+ import net.minecraft.util.MathHelper;
+ import net.minecraft.world.World;
+ 
+@@ -21,6 +22,8 @@
+     private double field_151496_k;
+     private static final String __OBFID = "CL_00001595";
+ 
++    private int failedPathFindingPenalty;
++
+     public EntityAIAttackOnCollide(EntityCreature p_i1635_1_, Class p_i1635_2_, double p_i1635_3_, boolean p_i1635_5_)
+     {
+         this(p_i1635_1_, p_i1635_3_, p_i1635_5_);
+@@ -54,8 +57,16 @@
+         }
+         else
+         {
+-            this.field_75438_g = this.field_75441_b.func_70661_as().func_75494_a(entitylivingbase);
+-            return this.field_75438_g != null;
++            if (-- this.field_75445_i <= 0)
++            {
++                this.field_75438_g = this.field_75441_b.func_70661_as().func_75494_a(entitylivingbase);
++               this.field_75445_i = 4 + this.field_75441_b.func_70681_au().nextInt(7);
++                return this.field_75438_g != null;
++            }
++            else
++            {
++                return true;
++            }
+         }
+     }
+ 
+@@ -89,8 +100,25 @@
+             this.field_151497_i = entitylivingbase.field_70165_t;
+             this.field_151495_j = entitylivingbase.field_70121_D.field_72338_b;
+             this.field_151496_k = entitylivingbase.field_70161_v;
+-            this.field_75445_i = 4 + this.field_75441_b.func_70681_au().nextInt(7);
++            this.field_75445_i = failedPathFindingPenalty + 4 + this.field_75441_b.func_70681_au().nextInt(7);
+ 
++            if (this.field_75441_b.func_70661_as().func_75505_d() != null)
++            {
++                PathPoint finalPathPoint = this.field_75441_b.func_70661_as().func_75505_d().func_75870_c();
++                if (finalPathPoint != null && entitylivingbase.func_70092_e(finalPathPoint.field_75839_a, finalPathPoint.field_75837_b, finalPathPoint.field_75838_c) < 1)
++                {
++                    failedPathFindingPenalty = 0;
++                }
++                else
++                {
++                    failedPathFindingPenalty += 10;
++                }
++            }
++            else
++            {
++                failedPathFindingPenalty += 10;
++            }
++
+             if (d0 > 1024.0D)
+             {
+                 this.field_75445_i += 10;

@@ -1,0 +1,19 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-materials-cp55/ntm-port-1.12.2/porting/tests/native-block-materials/DefaultStateAudit.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Attribution diagnostics (not a successful compile): 23598
+
+
+PASS actual legacy/native material predicates, push, map color, singleton identity: 1148
+
+PASS actual original/native Block material reads and complete extracted NTM nuke-resistance method: 5855
+
+PASS all actual classpath JAR material override inventories match
+PASS 110 actual dependency default-state setter origins and 128 container constructor origins
+PASS source default-state ownership: 84 create methods, 57 setters, 9 forwarding helpers
+
+PASS 17 adversarial javac fixtures including source stateful material override rejection
+PASS exact source inverse 255 files 590 edits
+
+PASS complete original-source re-attribution of all 590 selected accesses

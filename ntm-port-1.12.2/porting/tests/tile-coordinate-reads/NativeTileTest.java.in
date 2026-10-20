@@ -1,0 +1,60 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import java.util.jar.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.tileentity.*;
+import net.minecraft.util.math.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.*;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.util.fauxpointtwelve.DirPos;
+public class NativeTileTest {
+ static int n;static void check(boolean b,String s){n++;if(!b)throw new AssertionError(s);}
+ public static class Fixture extends TileEntity {
+  private BlockPos pos=new BlockPos(111,222,333); // actual domain-shadow hazard
+  int meta;
+  public int getBlockMetadata(){return meta;}
+  @CONNECTIONS@
+  @PERMISSION@
+ }
+ static int evals;static TileEntity receiver(TileEntity t){evals++;return t;}
+ static int read(TileEntity t){return receiver(t).getPos().getX();}
+ static int arg(int a){evals+=10;return a;}
+ static int sum(TileEntity t){return receiver(t).getPos().getX()+arg(2);}
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();TileEntity.register("hbm_coordinate_test",Fixture.class);
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+  URLClassLoader legacy=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NativeTileTest.class.getClassLoader());
+  Class<?> oldType=legacy.loadClass("aor"),nbtType=legacy.loadClass("dh");Object old=oldType.newInstance();
+  Method register=oldType.getDeclaredMethod("a",Class.class,String.class);register.setAccessible(true);register.invoke(null,oldType,"coordinate_test");
+  Field ox=oldType.getField("c"),oy=oldType.getField("d"),oz=oldType.getField("e");
+  Fixture tile=new Fixture();check(tile.getPos()==BlockPos.ORIGIN,"initial native identity");check(ox.getInt(old)==0&&oy.getInt(old)==0&&oz.getInt(old)==0,"old initial origin");
+  check(TileEntity.class.getMethod("getPos").getDeclaringClass()==TileEntity.class,"declaring getter owner");
+  EntityPlayer player=(EntityPlayer)unsafe.allocateInstance(EntityPlayerSP.class);
+  Class<?> oldEntity=legacy.loadClass("sa");Object oldPlayer=unsafe.allocateInstance(legacy.loadClass("xk"));Method oldDistance=oldEntity.getMethod("e",double.class,double.class,double.class);
+  int[] values={0,1,-1,15,16,-16,255,256,Integer.MIN_VALUE,Integer.MAX_VALUE,16777217,-16777217};
+  for(int x:values)for(int y:values){int z=~x;BlockPos pos=new BlockPos(x,y,z);tile.setPos(pos);ox.setInt(old,x);oy.setInt(old,y);oz.setInt(old,z);
+   check(tile.getPos()==pos,"immutable native position identity");check(tile.getPos().getX()==ox.getInt(old)&&tile.getPos().getY()==oy.getInt(old)&&tile.getPos().getZ()==oz.getInt(old),"actual legacy/native coordinate fields");
+   check(tile.pos.getX()==111,"domain pos shadow unchanged");
+   NBTTagCompound data=tile.writeToNBT(new NBTTagCompound());Object oldNbt=nbtType.newInstance();oldType.getMethod("b",nbtType).invoke(old,oldNbt);
+   for(String axis:new String[]{"x","y","z"})check(data.getInteger(axis)==(Integer)nbtType.getMethod("f",String.class).invoke(oldNbt,axis),"actual NBT write parity");
+   tile.setPos(BlockPos.ORIGIN);tile.readFromNBT(data);oldType.getMethod("a",nbtType).invoke(old,oldNbt);
+   check(tile.getPos().getX()==ox.getInt(old)&&tile.getPos().getY()==oy.getInt(old)&&tile.getPos().getZ()==oz.getInt(old),"actual NBT read parity");
+   tile.invalidate();check(tile.isInvalid(),"invalidate");tile.validate();check(!tile.isInvalid()&&tile.getPos().equals(pos),"validate preserves position");tile.onChunkUnload();check(tile.getPos().equals(pos),"unload preserves position");
+   for(int meta=10;meta<=16;meta++){tile.meta=meta;DirPos[] out=tile.getConPos();ForgeDirection dir=ForgeDirection.getOrientation(meta-10),rot=dir.getRotation(ForgeDirection.UP);
+    check(out.length==3,"production connection count");check(out[0].getDir()==dir&&out[1].getDir()==rot&&out[2].getDir()==rot.getOpposite(),"production connector directions");check(out[0].getX()==x+dir.offsetX*4&&out[0].getY()==y+2&&out[0].getZ()==z+dir.offsetZ*4,"production first connector integer overflow");
+    check(out[1].getX()==x+rot.offsetX*3&&out[1].getY()==y&&out[1].getZ()==z+rot.offsetZ*3,"production second connector");check(out[2].getX()==x-rot.offsetX*3&&out[2].getY()==y&&out[2].getZ()==z-rot.offsetZ*3,"production third connector");
+   }
+   for(double distance:new double[]{0,19.999,20,20.001,Double.NaN,Double.POSITIVE_INFINITY}){player.posX=x+0.5+distance;player.posY=y+2.5;player.posZ=z+0.5;double dx=player.posX-(ox.getInt(old)+0.5),dy=player.posY-(oy.getInt(old)+2.5),dz=player.posZ-(oz.getInt(old)+0.5);oldEntity.getField("s").setDouble(oldPlayer,player.posX);oldEntity.getField("t").setDouble(oldPlayer,player.posY);oldEntity.getField("u").setDouble(oldPlayer,player.posZ);double legacyDistance=(Double)oldDistance.invoke(oldPlayer,ox.getInt(old)+0.5,oy.getInt(old)+2.5,oz.getInt(old)+0.5);check(tile.hasPermission(player)==(legacyDistance<400),"exact production permission vs actual legacy entity distance");}
+  }
+  BlockPos.MutableBlockPos mutable=new BlockPos.MutableBlockPos(4,5,6);tile.setPos(mutable);mutable.setPos(7,8,9);check(tile.getPos().getX()==4,"setPos detaches mutable position");
+  evals=0;check(read(tile)==4&&evals==1,"single receiver evaluation");evals=0;check(sum(tile)==6&&evals==11,"left to right receiver then argument");evals=0;try{sum(null);throw new AssertionError();}catch(NullPointerException expected){check(evals==1,"null receiver before later argument");}
+  World w=(World)unsafe.allocateInstance(WorldServer.class);tile.setWorld(w);check(tile.getWorld()==w,"native mutable world identity");tile.setWorld(null);check(tile.getWorld()==null,"native world null retained");
+  int classes=0;Set<String> names=new HashSet<>();for(String path:args[1].split(File.pathSeparator)){if(!path.endsWith(".jar"))continue;try(JarFile jar=new JarFile(path)){Enumeration<JarEntry> entries=jar.entries();while(entries.hasMoreElements()){String name=entries.nextElement().getName();if(!name.startsWith("net/minecraft/tileentity/")||!name.endsWith(".class")||name.contains("$"))continue;name=name.substring(0,name.length()-6).replace('/','.');if(!names.add(name))continue;Class<?> c=Class.forName(name,false,NativeTileTest.class.getClassLoader());if(TileEntity.class.isAssignableFrom(c)){check(c.getMethod("getPos").getDeclaringClass()==TileEntity.class,"native tile getPos closure "+name);classes++;}}}}
+  System.out.println("PASS "+n+" actual legacy/native field, NBT, lifecycle, shadow, single-evaluation and exact-production assertions; "+classes+" native tile getter owners");
+ }
+}

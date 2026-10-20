@@ -1,0 +1,69 @@
+PRODUCTION com/hbm/tileentity/machine/TileEntityMachineRTG.java b9c611cefabd3206814908019719e96d57b50046fcd7be05031fe3f315828c75
+PRODUCTION com/hbm/tileentity/machine/TileEntityMachineMiniRTG.java 9c66dfdbf4e38c5db59464ffc61e9beeda734aa6ae49f6368cfca8802e62935f
+PRODUCTION com/hbm/items/machine/ItemRTGPellet.java 8dd3e350619dd9ee7b95f53672bfcc121fbcc8d07e400d9bf152a45c2dee06fd
+PRODUCTION com/hbm/util/RTGUtil.java a07d2cef420845f6b29795e5f279711124e1283bfed3e81b74f73d6fd89db1f0
+PRODUCTION com/hbm/interfaces/HalfLifeType.java e5fe6c47cab4a4cbe4dadd14017a770ac4665e7014acef0fc6edaad0828e1cc1
+PRODUCTION api/hbm/tile/IInfoProviderEC.java ac69c14651268c99aa325a3197644a84e3b526ef5a8eea379705640f4d0a8966
+PRODUCTION api/hbm/energymk2/IEnergyProviderMK2.java c88a17351a6c8d41ca107e58a6f8a19b692639a8b14a60824ce23756f6df90ed
+PRODUCTION api/hbm/energymk2/IEnergyReceiverMK2.java 009561cdccc240754b22a8ceb2d12e91ddab6b245570e8fc32ec42ffa7bfa7ae
+PRODUCTION api/hbm/energymk2/IEnergyHandlerMK2.java b1f3bb8831430b67ddb6a9bc323a3d29d3f1d2cae342931cfed7dd8904f43868
+PRODUCTION api/hbm/energymk2/IEnergyConnectorMK2.java ef60540477fc62d1b40599d4213ae2fec8f5103b6a860ef7b51fa2b7948790a5
+PRODUCTION api/hbm/energymk2/IEnergyConductorMK2.java fdc75abf05333db21262561aed90d35754fea0227bf4a672d12b3a16624fc9cf
+PRODUCTION api/hbm/tile/ILoadedTile.java c0e7626ef492b694543ff355a6b5e096361eeb8df91f12b238a03474257ab897
+PRODUCTION com/hbm/util/Tuple.java 068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41
+PRODUCTION com/hbm/interfaces/NotableComments.java 33740494056eeca8f903570fb940d0a6e5556b10359091854d22a9c8e0aea943
+PRODUCTION com/hbm/interfaces/Spaghetti.java f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70
+PRODUCTION com/hbm/tileentity/TileEntityLoadedBase.java b3853d47d40045826978c19c70ba803b71b81bb63b066bf16b07b88761491cc3
+PRODUCTION com/hbm/tileentity/IGUIProvider.java 43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47
+PRODUCTION com/hbm/tileentity/IBufPacketReceiver.java 295d694c4c4219a01ea709acb02450d6b0d9981648a91634ae03b90d8c650e4b
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION com/hbm/sound/AudioWrapper.java d645b14f65af7adb8a0c59d4fb4d7ebc7c48c204a4836950400e8eeb0db5d0c7
+PRODUCTION com/hbm/packet/threading/ThreadedPacket.java 235f68c8e133815b95cc144ac91da930f420a98ac65be5147cc6f0739a6b8310
+PRODUCTION com/hbm/packet/threading/PrecompiledPacket.java 77ba407769d242823edffed5554564b6b72df6b80b5aea33224d1465e12eb56a
+PRODUCTION com/hbm/blocks/machine/MachineRTG.java 6cb9a09173a00ad518dd07ae3208eb39449ce19b03220a665e43e27b46f5f7df
+PRODUCTION com/hbm/blocks/machine/MachineMiniRTG.java 087ea3979526cb58ee3cffc93fe820ccea5141b644dda0e70c34215a1fa395cf
+PRODUCTION api/hbm/energymk2/IEnergyConnectorBlock.java 042026c508d6be73504318f99e242621fab5af47c525bcba63b58a9a6ac257a3
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/main/RTGBlockModelHandler.java ae72780a3c88e261d49a8aa10b23ce305a01052bbebb747555a361a9167a6e2b
+PRODUCTION com/hbm/render/block/RenderRTGBlock.java 9611d72a0adf62be2eb2ec2f359989adba5d9452b07b41649561d76da1e9f3c0
+PRODUCTION com/hbm/render/tileentity/RenderRTG.java 7134d7eb59ae3647a79c654c6ce167602f85c3c99f12acf0d5e5f28015c7ccd3
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjBakedModel.java e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/render/mesh/MeshModel.java 50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+PRODUCTION com/hbm/render/mesh/ObjMeshRenderer.java db63437bf921357dc8beaf411f7172340bab1360e81f1bbdc364c73604186118
+PRODUCTION com/hbm/render/mesh/ObjMeshVboPayload.java 51fd5693d954262280a5865dccbf12ff22742e76d1225552f1ff47709af07715
+PRODUCTION com/hbm/render/loader/HFRWavefrontObject.java 9cbcefffc89c46fe37ebc1cf06cfcfb2a4d7fff61a61aa6d04a69a105c21ca89
+PRODUCTION com/hbm/render/loader/HFRWavefrontObjectVBO.java 3ec6a5d694f4204ecead59ecfaa630e4568576ab9b2226bcbe54f4e9a056e885
+PRODUCTION com/hbm/render/item/nativeitem/context/NativeProjectionScope.java 1e64d8f0f97240b7bbc5c468788b87b3c832e821a6734b80d49b201d86805691
+PRODUCTION com/hbm/render/item/nativeitem/context/NativeItemFailureScope.java d11ccf970c8a9afc1b8352ecda9bc49d7ba92d75ff509b47f489f209af89facc
+PRODUCTION com/hbm/render/item/nativeitem/context/NativeItemFields.java 37283fbe744fce6729dbde308c3683ac86d6c1db9758dd5293a38760a43ddec4
+PRODUCTION com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java 54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/RTGEnergyNativeTest.java:83: warning: Unsafe is internal proprietary API and may be removed in a future release
+  java.lang.reflect.Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);GuiPlayer gp=(GuiPlayer)((sun.misc.Unsafe)uf.get(null)).allocateInstance(GuiPlayer.class);check(rtg.onBlockActivated(w,P,rtg.getDefaultState(),gp,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0)&&gui[0]==1,"grey block reaches actual Forge GUI dispatcher; handler stops before screen/network");check(shell.onBlockActivated(w,P,shell.getDefaultState(),gp,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0)&&gui[0]==1,"non-grey consumes without GUI");
+                                     ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/RTGEnergyNativeTest.java:83: warning: Unsafe is internal proprietary API and may be removed in a future release
+  java.lang.reflect.Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);GuiPlayer gp=(GuiPlayer)((sun.misc.Unsafe)uf.get(null)).allocateInstance(GuiPlayer.class);check(rtg.onBlockActivated(w,P,rtg.getDefaultState(),gp,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0)&&gui[0]==1,"grey block reaches actual Forge GUI dispatcher; handler stops before screen/network");check(shell.onBlockActivated(w,P,shell.getDefaultState(),gp,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0)&&gui[0]==1,"non-grey consumes without GUI");
+                                                                                                                                          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/RTGRenderNativeTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);Minecraft mc=(Minecraft)unsafe.allocateInstance(Minecraft.class);set(null,Minecraft.class,"instance",mc);set(mc,Minecraft.class,"resourceManager",new SimpleReloadableResourceManager(new MetadataSerializer()));net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/RTGRenderNativeTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);Minecraft mc=(Minecraft)unsafe.allocateInstance(Minecraft.class);set(null,Minecraft.class,"instance",mc);set(mc,Minecraft.class,"resourceManager",new SimpleReloadableResourceManager(new MetadataSerializer()));net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/RTGRenderNativeTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);Minecraft mc=(Minecraft)unsafe.allocateInstance(Minecraft.class);set(null,Minecraft.class,"instance",mc);set(mc,Minecraft.class,"resourceManager",new SimpleReloadableResourceManager(new MetadataSerializer()));net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+5 warnings
+[19:49:00] [main/INFO]: Processing ObjectHolder annotations
+[19:49:00] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[19:49:01] [main/INFO]: Setting user: AtlasProbe
+PASS 15847 native RTG model/resource/registry/dispatcher/real mesh GL checks; not full-game acceptance.

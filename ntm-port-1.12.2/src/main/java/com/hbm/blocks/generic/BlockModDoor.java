@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.IconFlipped;
+import com.hbm.render.icon.HorizontallyFlippedIcon;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -90,8 +90,8 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 		this.field_150016_b = new IIcon[2];
 		this.field_150017_a[0] = p_149651_1_.registerIcon(this.getTextureName() + "_upper");
 		this.field_150016_b[0] = p_149651_1_.registerIcon(this.getTextureName() + "_lower");
-		this.field_150017_a[1] = new IconFlipped(this.field_150017_a[0], true, false);
-		this.field_150016_b[1] = new IconFlipped(this.field_150016_b[0], true, false);
+		this.field_150017_a[1] = new HorizontallyFlippedIcon(this.field_150017_a[0]);
+		this.field_150016_b[1] = new HorizontallyFlippedIcon(this.field_150016_b[0]);
 	}
 
 	/**
@@ -275,22 +275,22 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 	 */
 	public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_,
 			Block p_149695_5_) {
-		int l = p_149695_1_.getBlockMetadata(p_149695_2_, p_149695_3_, p_149695_4_);
+		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_) );
 
 		if ((l & 8) == 0) {
 			boolean flag = false;
 
-			if (p_149695_1_.getBlock(p_149695_2_, p_149695_3_ + 1, p_149695_4_) != this) {
-				p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);
+			if (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_).getBlock() != this) {
+				com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
 				flag = true;
 			}
 
 			if (!World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_)) {
-				p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);
+				com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
 				flag = true;
 
-				if (p_149695_1_.getBlock(p_149695_2_, p_149695_3_ + 1, p_149695_4_) == this) {
-					p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_ + 1, p_149695_4_);
+				if (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_).getBlock() == this) {
+					com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_);
 				}
 			}
 
@@ -307,8 +307,8 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 				}
 			}
 		} else {
-			if (p_149695_1_.getBlock(p_149695_2_, p_149695_3_ - 1, p_149695_4_) != this) {
-				p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);
+			if (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_).getBlock() != this) {
+				com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
 			}
 
 			if (p_149695_5_ != this) {
@@ -402,8 +402,8 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 	 */
 	public void onBlockHarvested(World p_149681_1_, int p_149681_2_, int p_149681_3_, int p_149681_4_, int p_149681_5_, EntityPlayer p_149681_6_) {
 		if (p_149681_6_.capabilities.isCreativeMode && (p_149681_5_ & 8) != 0
-				&& p_149681_1_.getBlock(p_149681_2_, p_149681_3_ - 1, p_149681_4_) == this) {
-			p_149681_1_.setBlockToAir(p_149681_2_, p_149681_3_ - 1, p_149681_4_);
+				&& com.hbm.world.WorldBlockState.read(p_149681_1_, p_149681_2_, p_149681_3_ - 1, p_149681_4_).getBlock() == this) {
+			com.hbm.world.WorldAirRemoval.remove(p_149681_1_, p_149681_2_, p_149681_3_ - 1, p_149681_4_);
 		}
 	}
 

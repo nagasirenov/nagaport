@@ -1,0 +1,50 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Native resource pack: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/resources
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[20:18:39] [main/INFO]: Setting user: AtlasProbe
+PASS 269 selected native declaration, original transform, actual VBO/material/font/wave draw, typed dispatch, stack and failure-state checks. No full-game visual acceptance.
+Native resource pack: /tmp/native-detonator-item-kuztti6k/original-materials.zip
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[20:18:41] [main/INFO]: Setting user: AtlasProbe
+PASS 269 selected native declaration, original transform, actual VBO/material/font/wave draw, typed dispatch, stack and failure-state checks. No full-game visual acceptance.
+a14c52cc16ad158bc8ea8af9bf9643f35b942299dcbe2496640a2dcf91b64784 src/main/java/com/hbm/render/item/ItemRenderTransformer.java
+b11db70ec02690d189074b29e5752dd69d18a75dc424530d71ee9c8e4580707d src/main/java/com/hbm/render/item/ItemRenderTemplate.java
+f3a8cc805fdf6acc44640528df48e1c34d8c3529f76d6a3691d3059a6e3b428f src/main/java/com/hbm/render/util/NativeMachineItemRenderer.java
+77a08cf17c72d3d7f88016e15944e5a73ee2bc7ec754abb4f611300bf1e9809c src/main/java/com/hbm/render/util/NativeGuiItemDraw.java
+525487a52e2d75eaf246b55faae9f3501dc25702f8c38ce090bfc947a8fdd662 src/main/java/com/hbm/render/util/NativeItemQuadRenderer.java
+a0dee5c4884261672c6e21343e3a1fe255deaa4389b4e4129f69d9e23fffb74a src/main/java/com/hbm/render/util/NativeIconExtrusion.java
+c4e06ea8cdd8fe2ad45d42d9be96ddad5df7e208d8592fc6f900130f85e29caf src/main/java/com/hbm/render/util/RenderItemStack.java
+b8f1476a7be8b6e31eb520fe21e2e15251f0648c54cf920b991756b830886c7a src/main/java/com/hbm/render/item/nativeitem/staticfamily/SingleMeshEntityItemRenderer.java
+b6669106d5ffc95781e8394ca587dd30b596381d02e1c6278300eaedd028a8b5 src/main/java/com/hbm/render/item/block/NativeDecoItemRenderer.java
+ff0fb950a77629bf660744112fadcd93de4cd6c0e729fc2be7800f492b632866 src/main/java/com/hbm/render/item/block/ItemRenderDecoBlock.java
+9c3695433bae912fd6b0047cfce39c97f002ee13fa20190f52a0d686af0e46c0 src/main/java/com/hbm/render/item/block/ItemRenderPoleTop.java
+c76f3bc4264a71c64dd99441cb6b5a1402ffa76647bba1e05477ce9a0630e6a9 src/main/java/com/hbm/render/item/block/ItemRenderSatelliteReceiver.java
+eb9847d2557c0098b9f2b76d6c405b3bdc0a80459d363cc5c52259d1f7873a10 src/main/java/com/hbm/render/model/ModelSteelRoof.java
+d281c3fc94fe81e717f277e3477504fe0a21c4b8e75a516e22d98669a7be9a41 src/main/java/com/hbm/render/model/ModelPoleTop.java
+c0d52330bb2926dfda458bcc955702de7e92fee04cf2e50eb120e0e2ccc3503b src/main/java/com/hbm/render/model/ModelSatelliteReceiver.java
+ae52d9c6d7a4cf99ae827d367bb30abc29de3eb783bfdda96f82be4a609881e3 src/main/java/com/hbm/render/item/nativeitem/context/NativeSelectiveItemRenderer.java
+20b32bc9dac6481f09a97bcdb7702b69da38de17fd676897905585373413fe32 src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java
+55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 src/main/java/com/hbm/lib/RefStrings.java
+760f266ec8925d5cbf728b18a06c9d07c6bdaabbfaed919fc02f65e16439c6eb src/main/java/com/hbm/render/item/ItemRenderDetonatorLaser.java
+02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e src/main/java/com/hbm/render/item/nativeitem/ItemTransformMatrix.java
+54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3 src/main/java/com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java
+075d95ec624793f5694d278814a7edadd3800b04c2eff6e2a9e3d10bb1ec8229 src/main/java/com/hbm/render/item/nativeitem/direct/PlainItemPerspectives.java
+0d715a62af62c8305f7c89d0963e4b8155775d4ce60dbff765d6186d71ed5c4e src/main/java/com/hbm/render/item/nativeitem/staticfamily/OrdinaryMeshItemModel.java
+bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 src/main/java/com/hbm/render/util/NativeItemBaseModel.java
+7dad7762aa0fd9c380bb3e2c32da9f3f6df1fd7b1b15b29072a1171a704cb6fa src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRenderer.java
+612a4eb403cd14366c90ed71b1fbbcea2bcb5a19a41d79edddfc36e3bf5b15ff src/main/java/com/hbm/render/item/nativeitem/context/ContextItemModel.java
+64f854575c2c7b5e2a0351b2949dd509952c28bca1c8f7f740d0263633488346 src/main/java/com/hbm/render/item/nativeitem/context/ContextRenderItem.java
+4dfd13588ae934e38266aeda7968b9b9633a7e1ac1f9ffc0705ee40661b5f3aa src/main/java/com/hbm/render/item/nativeitem/context/NativeItemContext.java
+b97c64bded9c0516662d5a34554ea38a9b4ee2af58f0c4507528baf8700e9a13 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFailureScope.java
+37283fbe744fce6729dbde308c3683ac86d6c1db9758dd5293a38760a43ddec4 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFields.java
+9cbcefffc89c46fe37ebc1cf06cfcfb2a4d7fff61a61aa6d04a69a105c21ca89 src/main/java/com/hbm/render/loader/HFRWavefrontObject.java
+3ec6a5d694f4204ecead59ecfaa630e4568576ab9b2226bcbe54f4e9a056e885 src/main/java/com/hbm/render/loader/HFRWavefrontObjectVBO.java
+50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2 src/main/java/com/hbm/render/mesh/MeshModel.java
+d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736 src/main/java/com/hbm/render/mesh/ObjMesh.java
+e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c src/main/java/com/hbm/render/mesh/ObjMeshParser.java
+db63437bf921357dc8beaf411f7172340bab1360e81f1bbdc364c73604186118 src/main/java/com/hbm/render/mesh/ObjMeshRenderer.java
+51fd5693d954262280a5865dccbf12ff22742e76d1225552f1ff47709af07715 src/main/java/com/hbm/render/mesh/ObjMeshVboPayload.java
+39146aa48a2f1e6893f8b8b39cc783b527330dfa471a05ae12c8cb60852c9be1 src/main/resources/assets/hbm/models/weapons/detonator_laser.obj
+c0476576a1d16cd07c624c5ecceaf615c8bcdca9c2437abac4fbdcc6cd4b7499 src/main/resources/assets/hbm/textures/models/weapons/detonator_laser.png

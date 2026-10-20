@@ -47,7 +47,7 @@ public class GUIReactorResearch extends GuiInfoContainer {
 		
 		Keyboard.enableRepeatEvents(true);
 		
-		this.field = new GuiTextField(this.fontRendererObj, guiLeft + 8, guiTop + 99, 33, 16);
+		this.field = new GuiTextField(0, this.fontRenderer, guiLeft + 8, guiTop + 99, 33, 16);
 		this.field.setEnableBackgroundDrawing(false);
 		this.field.setMaxStringLength(3);
 		
@@ -78,11 +78,11 @@ public class GUIReactorResearch extends GuiInfoContainer {
 		String name = this.reactor.hasCustomInventoryName() ? this.reactor.getInventoryName() : I18n.format(this.reactor.getInventoryName());
 		final String[] labels = { "Flux", "Heat", "Control" };
 		
-		this.fontRendererObj.drawString(name, 121 - this.fontRendererObj.getStringWidth(name) / 2, 6, 15066597);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
-		this.fontRendererObj.drawString(labels[0], 6, 13, 15066597);
-		this.fontRendererObj.drawString(labels[1], 6, 51, 15066597);
-		this.fontRendererObj.drawString(labels[2], 6, 89, 15066597);
+		this.fontRenderer.drawString(name, 121 - this.fontRenderer.getStringWidth(name) / 2, 6, 15066597);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(labels[0], 6, 13, 15066597);
+		this.fontRenderer.drawString(labels[1], 6, 51, 15066597);
+		this.fontRenderer.drawString(labels[2], 6, 89, 15066597);
 	}
 
     protected void mouseClicked(int mouseX, int mouseY, int i) {
@@ -99,7 +99,7 @@ public class GUIReactorResearch extends GuiInfoContainer {
     		double level;
     		
 			if(NumberUtils.isNumber(field.getText())) {
-				int j = (int)MathHelper.clamp_double(Double.parseDouble(field.getText()), 0, 100);
+				int j = (int)MathHelper.clamp(Double.parseDouble(field.getText()), (double) (0), (double) (100));
 				field.setText(j + "");
 				level = j * 0.01D;
 			} else {
@@ -110,8 +110,8 @@ public class GUIReactorResearch extends GuiInfoContainer {
 			control.setDouble("level", level);
 			timer = 15;
 			
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, reactor.xCoord, reactor.yCoord, reactor.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, reactor.getPos().getX(), reactor.getPos().getY(), reactor.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
 		}
     }
 
@@ -140,7 +140,7 @@ public class GUIReactorResearch extends GuiInfoContainer {
 			displays[i].drawNumber(reactor.getDisplayData()[i]);
 		
 		if(NumberUtils.isDigits(field.getText())) {
-			int level = (int)MathHelper.clamp_double(Double.parseDouble(field.getText()), 0, 100);
+			int level = (int)MathHelper.clamp(Double.parseDouble(field.getText()), (double) (0), (double) (100));
 			field.setText(level + "");
 			displays[2].drawNumber(level);
 		} else {
@@ -160,7 +160,7 @@ public class GUIReactorResearch extends GuiInfoContainer {
 			return;
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			return;
 		}
 		

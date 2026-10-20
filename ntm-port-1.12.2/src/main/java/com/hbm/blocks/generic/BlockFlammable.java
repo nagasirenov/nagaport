@@ -35,7 +35,7 @@ public class BlockFlammable extends BlockBase {
 		if(flammability == 0) return false;
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.fire) {
+			if(world.getBlockState(new BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)).getBlock() == Blocks.FIRE) {
 				return true;
 			}
 		}

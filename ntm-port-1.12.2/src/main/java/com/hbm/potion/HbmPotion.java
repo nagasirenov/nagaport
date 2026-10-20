@@ -118,22 +118,22 @@ public class HbmPotion extends Potion {
 
 	public void performEffect(EntityLivingBase entity, int level) {
 
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 
 		if(this == taint) {
 
-			if(!(entity instanceof EntityCreeperTainted) && !(entity instanceof EntityTaintCrab) && entity.worldObj.rand.nextInt(40) == 0)
+			if(!(entity instanceof EntityCreeperTainted) && !(entity instanceof EntityTaintCrab) && entity.world.rand.nextInt(40) == 0)
 				entity.attackEntityFrom(ModDamageSource.taint, (level + 1));
 
-			if(ServerConfig.TAINT_TRAILS.get() && !entity.worldObj.isRemote) {
+			if(ServerConfig.TAINT_TRAILS.get() && !entity.world.isRemote) {
 
 				int x = (int) Math.floor(entity.posX);
 				int y = (int) Math.floor(entity.posY);
 				int z = (int) Math.floor(entity.posZ);
 
-				Block b = entity.worldObj.getBlock(x, y - 1, z);
-				if(y > 1 && b.isNormalCube() && !b.isAir(entity.worldObj, x, y - 1, z)) {
-					entity.worldObj.setBlock(x, y - 1, z, ModBlocks.taint, 14, 2);
+				Block b = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z).getBlock();
+				if(y > 1 && b.isNormalCube() && !b.isAir(entity.world, x, y - 1, z)) {
+					entity.world.setBlock(x, y - 1, z, ModBlocks.taint, 14, 2);
 				}
 			}
 		}
@@ -156,8 +156,8 @@ public class HbmPotion extends Potion {
 			if (!(entity instanceof EntityPlayer))
 				entity.setDead();
 
-			entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:weapon.laserBang", 100.0F, 1.0F);
-			ExplosionLarge.spawnParticles(entity.worldObj, entity.posX, entity.posY, entity.posZ, 10);
+			com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "hbm:weapon.laserBang", 100.0F, 1.0F);
+			ExplosionLarge.spawnParticles(entity.world, entity.posX, entity.posY, entity.posZ, 10);
 
 			if(entity instanceof EntityCow) {
 				EntityCow cow = (EntityCow) entity;
@@ -171,8 +171,8 @@ public class HbmPotion extends Potion {
 			entity.setHealth(0.0F);
 			//World world = Minecraft.getMinecraft().theWorld;
 
-			new ExplosionVNT(entity.worldObj, entity.posX, entity.posY, entity.posZ, 12).makeAmat().explode();
-			entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:weapon.mukeExplosion", 100.0F, 1.0F);
+			new ExplosionVNT(entity.world, entity.posX, entity.posY, entity.posZ, 12).makeAmat().explode();
+			com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "hbm:weapon.mukeExplosion", 100.0F, 1.0F);
 
 			if (!(entity instanceof EntityPlayer))
 				entity.setDead();
@@ -183,7 +183,7 @@ public class HbmPotion extends Potion {
 		if(this == phosphorus) {
 			entity.setFire(1);
 		}
-        if(this == nitan && !entity.worldObj.isRemote) {
+        if(this == nitan && !entity.world.isRemote) {
         	if(entity instanceof EntityPlayer) {
 				HbmPlayerProps props = HbmPlayerProps.getData((EntityPlayer) entity);
 
@@ -193,7 +193,7 @@ public class HbmPotion extends Potion {
 			}
 
 		}
-		if(this == flashbang && !entity.worldObj.isRemote){
+		if(this == flashbang && !entity.world.isRemote){
 			if(entity instanceof EntityZombie || entity instanceof EntitySkeleton){
 				entity.setFire(20);
 				}

@@ -58,14 +58,14 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.fusionBreeder";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			tanks[0].setType(0, slots);
 
@@ -78,20 +78,20 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 			this.neutronEnergySync = this.neutronEnergy;
 
 			for(DirPos pos : getConPos()) {
-				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos);
-				if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], worldObj, pos);
+				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos);
+				if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], this.world, pos);
 			}
 
 			if(plasmaNode == null || plasmaNode.expired) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
-				plasmaNode = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * 2, yCoord + 2, zCoord + dir.offsetZ * 2, PlasmaNetworkProvider.THE_PROVIDER);
+				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 2, PlasmaNetworkProvider.THE_PROVIDER);
 
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
-							new BlockPos(xCoord + dir.offsetX * 2, yCoord + 2, zCoord + dir.offsetZ * 2))
-							.setConnections(new DirPos(xCoord + dir.offsetX * 3, yCoord + 2, zCoord + dir.offsetZ * 3, dir));
+							new BlockPos(this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 2))
+							.setConnections(new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 3, dir));
 
-					UniNodespace.createNode(worldObj, plasmaNode);
+					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
 
@@ -203,19 +203,21 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 		return false;
 	}
 
-	@Override public boolean canExtractItem(int slot, ItemStack itemStack, int side) { return slot == 2; }
-	@Override public int[] getAccessibleSlotsFromSide(int side) { return new int[] {1, 2}; }
+	@Override public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return slot == 2; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] {1, 2}; }
 
 	public DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 3, yCoord + 2, zCoord + dir.offsetZ * 3, dir),
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - rot.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + dir.offsetX - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ - rot.offsetZ * 2, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 3, dir),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + dir.offsetX - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ * 2, rot.getOpposite())
 		};
 	}
 
@@ -223,8 +225,8 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
-			if(this.plasmaNode != null) UniNodespace.destroyNode(worldObj, plasmaNode);
+		if(!this.world.isRemote) {
+			if(this.plasmaNode != null) UniNodespace.destroyNode(this.world, plasmaNode);
 		}
 	}
 
@@ -258,12 +260,13 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setDouble("progress", this.progress);
 		this.tanks[0].writeToNBT(nbt, "t0");
 		this.tanks[1].writeToNBT(nbt, "t1");
+		return nbt;
 	}
 
 	@Override public boolean receivesFusionPower() { return false; }
@@ -290,12 +293,12 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 4,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 3
 					);
 		}
 

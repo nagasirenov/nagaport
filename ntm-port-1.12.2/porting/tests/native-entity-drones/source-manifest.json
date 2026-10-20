@@ -1,0 +1,226 @@
+{
+  "base": "27dceb0ef9e5815de3dc5f0494ca43aef9997370",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDroneBase.java",
+      "class_name": "EntityDroneBase",
+      "insertions": [
+        "\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\n\n\tprotected static final DataParameter<Byte> APPEARANCE = EntityDataManager.createKey(EntityDroneBase.class, DataSerializers.BYTE);"
+      ],
+      "keys": [
+        {
+          "key": "APPEARANCE",
+          "legacy_slot": 10,
+          "owner": "EntityDroneBase",
+          "serializer": "BYTE",
+          "default": "new Byte((byte) 0)"
+        }
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(10, new Byte((byte) 0))",
+          "after": "this.dataManager.register(APPEARANCE, new Byte((byte) 0))",
+          "before_offset": 1345,
+          "receiver_static_type": "EntityDroneBase",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 1642,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, (byte) style)",
+          "after": "this.dataManager.set(APPEARANCE, (byte) style)",
+          "before_offset": 1505,
+          "receiver_static_type": "EntityDroneBase",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 1809,
+          "method": "public void setAppearance(int style) {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(10)",
+          "after": "this.dataManager.get(APPEARANCE)",
+          "before_offset": 1597,
+          "receiver_static_type": "EntityDroneBase",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 1900,
+          "method": "public int getAppearance() {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(10)",
+          "after": "this.dataManager.get(APPEARANCE)",
+          "before_offset": 3886,
+          "receiver_static_type": "EntityDroneBase",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 4178,
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, nbt.getByte(\"app\"))",
+          "after": "this.dataManager.set(APPEARANCE, nbt.getByte(\"app\"))",
+          "before_offset": 4153,
+          "receiver_static_type": "EntityDroneBase",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 4434,
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+        }
+      ],
+      "before_sha256": "05cc2e40877a5d2ca68cc75944a4841188b334ce40bbb1accbf9fd686b4eb034",
+      "after_sha256": "8e89d11fbb2a782a9fc32ab7a8a525a7c314150ca3782ad2d2f3b954f5d65b7b",
+      "original_sha256": "ebfddec79173d2646d46b9c7681fcee7977b5bbff99eff42b817652dadbaf1a1"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "class_name": "EntityRequestDrone",
+      "insertions": [],
+      "keys": [],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(10, nbt.getByte(\"app\"))",
+          "after": "this.dataManager.set(APPEARANCE, nbt.getByte(\"app\"))",
+          "before_offset": 7270,
+          "receiver_static_type": "EntityRequestDrone",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 7270,
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(10)",
+          "after": "this.dataManager.get(APPEARANCE)",
+          "before_offset": 8393,
+          "receiver_static_type": "EntityRequestDrone",
+          "declaring_owner": "EntityDroneBase",
+          "key": "APPEARANCE",
+          "after_offset": 8392,
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+        }
+      ],
+      "before_sha256": "13b529ae9dde8a6b3557745b1dfa68dfc033a438ad47b9c0fcd1c103005bdd4e",
+      "after_sha256": "10a4bb40c5a66f6b565d20252b07600a33e5d0b43e94c189ecc6988a1b2b06d5",
+      "original_sha256": "3da0a99fa7e8b5c88ad8d83ad94c13b6cdadc6a2a3c9927ab7c393eac1081e0e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "class_name": "EntityDeliveryDrone",
+      "insertions": [
+        "\r\nimport net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\r\n\r\n\tprivate static final DataParameter<Byte> LOAD = EntityDataManager.createKey(EntityDeliveryDrone.class, DataSerializers.BYTE);",
+        "\tpublic void setLoad(byte load) {\r\n\t\tthis.dataManager.set(LOAD, load);\r\n\t}\r\n\r\n",
+        "\tpublic byte getLoad() {\r\n\t\treturn this.dataManager.get(LOAD);\r\n\t}\r\n\r\n"
+      ],
+      "keys": [
+        {
+          "key": "LOAD",
+          "legacy_slot": 11,
+          "owner": "EntityDeliveryDrone",
+          "serializer": "BYTE",
+          "default": "new Byte((byte) 0)"
+        }
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(11)",
+          "after": "this.dataManager.get(LOAD)",
+          "before_offset": 1542,
+          "receiver_static_type": "EntityDeliveryDrone",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD",
+          "after_offset": 1840,
+          "method": "public boolean hitByEntity(Entity attacker) {"
+        },
+        {
+          "before": "this.dataWatcher.addObject(11, new Byte((byte) 0))",
+          "after": "this.dataManager.register(LOAD, new Byte((byte) 0))",
+          "before_offset": 1817,
+          "receiver_static_type": "EntityDeliveryDrone",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD",
+          "after_offset": 2098,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(11)",
+          "after": "this.dataManager.get(LOAD)",
+          "before_offset": 2087,
+          "receiver_static_type": "EntityDeliveryDrone",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD",
+          "after_offset": 2517,
+          "method": "public double getSpeed() {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(11)",
+          "after": "this.dataManager.get(LOAD)",
+          "before_offset": 2796,
+          "receiver_static_type": "EntityDeliveryDrone",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD",
+          "after_offset": 3209,
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before": "this.dataWatcher.updateObject(11, nbt.getByte(\"load\"))",
+          "after": "this.dataManager.set(LOAD, nbt.getByte(\"load\"))",
+          "before_offset": 3746,
+          "receiver_static_type": "EntityDeliveryDrone",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD",
+          "after_offset": 4142,
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+        }
+      ],
+      "before_sha256": "3557157418654892fa37728f1ad9266944db6bd1c45569df997eb687b7e6728a",
+      "after_sha256": "fd20ec9b47e015f7bb91fe2351ac4b527ce9e5e6a7848ed2de95f6df173f5fd9",
+      "original_sha256": "57f1f269d3928b1c36f062246fa12b238a4bbe9e7e97a36bfdc1feb2fdc676ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDrone.java",
+      "class_name": "ItemDrone",
+      "insertions": [],
+      "keys": [],
+      "transformations": [
+        {
+          "before": "((EntityDeliveryDrone) toSpawn).getDataWatcher().updateObject(11, (byte) 1)",
+          "after": "((EntityDeliveryDrone) toSpawn).setLoad((byte) 1)",
+          "before_offset": 1351,
+          "receiver_static_type": "EntityDeliveryDrone",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD",
+          "after_offset": 1351,
+          "method": "public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {"
+        }
+      ],
+      "before_sha256": "f3c5ba24ef49d791d3f9a4d9a366139e4148ee3bf8151b47ea681bac81f9f0cb",
+      "after_sha256": "b28cad9fbb834ddfc5f1a553001faf318ac29279dbb549b4b9a38846d7585fab",
+      "original_sha256": "9a2932f8fbf8e4c9581373a108292aee59987d8711907292b59d15659bef6927"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderDeliveryDrone.java",
+      "class_name": "RenderDeliveryDrone",
+      "keys": [],
+      "insertions": [
+        "\nimport com.hbm.entity.item.EntityDeliveryDrone;"
+      ],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(11)",
+          "after": "((EntityDeliveryDrone) entity).getLoad()",
+          "before_offset": 878,
+          "after_offset": 926,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityDeliveryDrone",
+          "key": "LOAD"
+        }
+      ],
+      "before_sha256": "deb0d9bba1f340eb6fdc891993671e75d6d0bf15f538f5fa55c46d537ecde2cb",
+      "original_sha256": "1a967724063e26ffca87ed560b95381ffd8c78e60790991823eecde47eff40e2",
+      "after_sha256": "3c758bfee7b2d69d430229b9a88cbf570e9b9b9355b30f372f2c2391dbe2fff3"
+    }
+  ]
+}

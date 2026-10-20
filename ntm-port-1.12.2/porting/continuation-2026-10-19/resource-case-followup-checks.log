@@ -1,0 +1,80 @@
+Final superseding resource-case probe: Linux host, actual project compile classpath; 32 repository paths plus 43 native FileResourcePack ZIP/JAR regressions. No Windows runtime execution.
+PASS native real repository lookup / original bytes: hbm:textures/models/thegadget3_.png
+PASS native real repository lookup / original bytes: hbm:textures/models/nmine.png
+PASS native real repository lookup / original bytes: hbm:textures/models/tank/tank_none.png
+PASS native real repository lookup / original bytes: hbm:textures/models/uf6tank.png
+PASS native real repository lookup / original bytes: hbm:textures/models/puf6tank.png
+PASS native real repository lookup / original bytes: hbm:textures/models/fatman.png
+PASS native real repository lookup / original bytes: hbm:textures/models/bombs/prototype.png
+PASS native real repository lookup / original bytes: hbm:textures/models/customnuke.png
+PASS native real repository lookup / original bytes: hbm:textures/models/bombgeneric.png
+PASS native real repository lookup / original bytes: hbm:textures/entity/shiftereel_1.png
+PASS native real repository lookup / original bytes: hbm:textures/models/minerrocket.png
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsa.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsb.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsc.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsd.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinse.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsf.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsg.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsh.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsi.nbt
+PASS native real repository lookup / original bytes: hbm:structures/ntmruinsj.nbt
+PASS native real repository lookup / original bytes: hbm:shaders/ichannel1.png
+PASS native real repository lookup / original bytes: hbm:textures/models/trinkets/juicy_lad.png
+PASS native real repository lookup / original bytes: hbm:textures/models/trinkets/jamesh_2.png
+PASS native real repository lookup / original bytes: hbm:textures/models/trinkets/mrkimkimora.png
+PASS native real repository lookup / original bytes: hbm:textures/models/blastsolinium.png
+PASS native real repository lookup / original bytes: hbm:textures/models/blastfleija.png
+PASS native real repository lookup / original bytes: hbm:textures/entity/bholed.png
+PASS native real repository lookup / original bytes: hbm:textures/models/blackhole.png
+PASS native real repository lookup / original bytes: hbm:textures/entity/bholedisc.png
+PASS native real repository lookup / original bytes: hbm:textures/models/modelm65blaze.png
+PASS native real repository lookup / original bytes: hbm:textures/models/bombletzetatexture.png
+PASS 32 native FolderResourcePack lookups; 22 PNG decodes; 10 native classloader/NBT decodes. Real repository resources; no staged copies or permissive case search.
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/armor/ajr.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/armor/bj.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/bombs/prototype.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/bombgeneric.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/lilboy1.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/sphere.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/bomblettheta.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/minerrocket.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/missileshuttle.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:models/ring.obj
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/empblast.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/thegadget3_.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/nmine.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/tank/tank_none.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/uf6tank.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/puf6tank.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/fatman.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/bombs/prototype.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/customnuke.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/bombgeneric.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/entity/shiftereel_1.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/minerrocket.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsa.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsb.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsc.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsd.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinse.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsf.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsg.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsh.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsi.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:structures/ntmruinsj.nbt
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:shaders/ichannel1.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/trinkets/juicy_lad.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/trinkets/jamesh_2.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/trinkets/mrkimkimora.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/blastsolinium.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/blastfleija.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/entity/bholed.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/blackhole.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/entity/bholedisc.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/modelm65blaze.png
+PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: hbm:textures/models/bombletzetatexture.png
+PASS 43 native ZIP/JAR resource lookups and 10 classloader JAR/NBT decodes. Executed on host OS only; not a Windows runtime test.
+PASS: exactly 32 follow-up renames and 43 combined native ZIP lookups, zero collisions; no broader resource acceptance.
+PASS: 11 canonical resource renames, original bytes preserved; broader resource inventory is not certified.

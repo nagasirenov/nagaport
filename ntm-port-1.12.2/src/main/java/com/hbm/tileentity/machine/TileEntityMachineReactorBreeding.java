@@ -43,14 +43,14 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	}
 	
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.reactorBreeding";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.flux = 0;
 			getInteractions();
 			
@@ -89,14 +89,14 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 		
 		for(byte d = 2; d < 6; d++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(d);
-			Block b = worldObj.getBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+			Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock();
 			
 			if(b == ModBlocks.reactor_research) {
 
-				int[] pos = ((ReactorResearch) ModBlocks.reactor_research).findCore(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+				int[] pos = ((ReactorResearch) ModBlocks.reactor_research).findCore(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);
 
 				if(pos != null) {
-					TileEntity tile = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 					if(tile instanceof TileEntityReactorResearch) {
 						TileEntityReactorResearch reactor = (TileEntityReactorResearch) tile;
@@ -160,7 +160,8 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_io;
 	}
 
@@ -170,7 +171,8 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 1;
 	}
 
@@ -187,11 +189,12 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setInteger("flux", flux);
 		nbt.setFloat("progress", progress);
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -201,12 +204,12 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord,
-					yCoord,
-					zCoord,
-					xCoord + 1,
-					yCoord + 3,
-					zCoord + 1
+					this.pos.getX(),
+					this.pos.getY(),
+					this.pos.getZ(),
+					this.pos.getX() + 1,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 1
 					);
 		}
 		

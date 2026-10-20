@@ -1,0 +1,7 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockPedestal.java": "2634c0ec29e8c2c12b3c7fbad9548f57e4b415b86c5ad9a1fc971f65692cb771",
+  "src/main/java/com/hbm/render/block/RenderPedestal.java": "4e34f6fdc366f02410bf54c0d425e8d2c92ea3a27fa5b18640dc750e7e9a11b0",
+  "src/main/java/com/hbm/inventory/recipes/PedestalRecipes.java": "a029a878ba2e1794b90d6157afc17e44d3c2eee934e10261ff1eafa59ae167b4",
+  "src/main/resources/assets/hbm/textures/blocks/pedestal_top.png": "bda64de8c1b65aa2f383a11906359c5f9175550401d9342acffb0c871cea2873",
+  "src/main/resources/assets/hbm/textures/blocks/pedestal_side.png": "52a48ba1b3ff5d53b3dfa0cc6fea98d1fe898ae168bffe007343f8677780c12d"
+}

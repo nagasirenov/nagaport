@@ -33,15 +33,15 @@ public class ItemModInk extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(event.entity.worldObj.rand.nextInt(10) == 0) {
+		if(event.getEntity().world.rand.nextInt(10) == 0) {
 			event.ammount = 0;
 			
-			if(!event.entity.worldObj.isRemote) {
+			if(!event.getEntity().world.isRemote) {
 				
-				if(event.entity.worldObj.rand.nextInt(10) == 0)
-					event.entity.entityDropItem(new ItemStack(Blocks.yellow_flower), 1.0F);
+				if(event.getEntity().world.rand.nextInt(10) == 0)
+					event.getEntity().entityDropItem(new ItemStack(Blocks.yellow_flower), 1.0F);
 				
-				event.entity.entityDropItem(new ItemStack(Blocks.red_flower, 1, event.entity.worldObj.rand.nextInt(9)), 1.0F);
+				event.getEntity().entityDropItem(new ItemStack(Blocks.red_flower, 1, event.getEntity().world.rand.nextInt(9)), 1.0F);
 			}
 		}
 	}

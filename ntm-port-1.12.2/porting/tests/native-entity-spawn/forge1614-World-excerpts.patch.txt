@@ -1,0 +1,18 @@
+@@ -1206,6 +1307,9 @@
+ 
+     public boolean func_72838_d(Entity p_72838_1_)
+     {
++        // do not drop any items while restoring blocksnapshots. Prevents dupes
++        if (!this.field_72995_K && (p_72838_1_ == null || (p_72838_1_ instanceof net.minecraft.entity.item.EntityItem && this.restoringBlockSnapshots))) return false;
++
+         int i = MathHelper.func_76128_c(p_72838_1_.field_70165_t / 16.0D);
+         int j = MathHelper.func_76128_c(p_72838_1_.field_70161_v / 16.0D);
+         boolean flag = p_72838_1_.field_98038_p;
+@@ -1227,6 +1331,7 @@
+                 this.field_73010_i.add(entityplayer);
+                 this.func_72854_c();
+             }
++            if (MinecraftForge.EVENT_BUS.post(new EntityJoinWorldEvent(p_72838_1_, this)) && !flag) return false;
+ 
+             this.func_72964_e(i, j).func_76612_a(p_72838_1_);
+             this.field_72996_f.add(p_72838_1_);

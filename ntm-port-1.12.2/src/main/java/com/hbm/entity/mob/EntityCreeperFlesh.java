@@ -24,7 +24,7 @@ public class EntityCreeperFlesh extends EntityCreeper {
 
 	@Override
 	public void func_146077_cc() {
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			NBTTagCompound vdat = new NBTTagCompound();
 			vdat.setString("type", "giblets");
 			vdat.setInteger("ent", getEntityId());
@@ -33,7 +33,7 @@ public class EntityCreeperFlesh extends EntityCreeper {
 
 			this.setDead();
 			
-			ExplosionVNT vnt = new ExplosionVNT(worldObj, posX, posY, posZ, this.getPowered() ? 7 : 4, this);
+			ExplosionVNT vnt = new ExplosionVNT(this.world, posX, posY, posZ, this.getPowered() ? 7 : 4, this);
 			vnt.setBlockAllocator(new BlockAllocatorBulkie(30, this.getPowered() ? 16 : 8));
 			vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorBulkie(ModBlocks.tumor)));
 			vnt.setEntityProcessor(new EntityProcessorStandard().withRangeMod(0.25F));

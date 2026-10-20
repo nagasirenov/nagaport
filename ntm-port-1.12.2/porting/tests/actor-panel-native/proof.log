@@ -1,0 +1,11 @@
+WHOLE INPUT 1e4a6d22e56e8b950d095610cd19f74591f637a4f05001c4eb8e7c9cd27c725c com/hbm/wiaj/actors/ActorBasicPanel.java
+WHOLE INPUT f5c3c9d8e7bcffc5226036314b91150d9691037d77b5b57d44bac31e105cb2dc com/hbm/wiaj/actors/ISpecialActor.java
+WHOLE INPUT 77a08cf17c72d3d7f88016e15944e5a73ee2bc7ec754abb4f611300bf1e9809c com/hbm/render/util/NativeGuiItemDraw.java
+WHOLE INPUT bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 com/hbm/render/util/NativeItemBaseModel.java
+WHOLE INPUT 525487a52e2d75eaf246b55faae9f3501dc25702f8c38ce090bfc947a8fdd662 com/hbm/render/util/NativeItemQuadRenderer.java
+WHOLE INPUT 54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/wiaj/actors/ActorBasicPanel.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[22:49:55] [main/INFO]: Setting user: AtlasProbe
+PASS 37 actual native panel gradient/caller/zero-preview checks; text glyphs and item meshes are recording boundaries, not whole tutorial/game verification.

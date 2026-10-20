@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -44,7 +47,7 @@ public class ItemRenderLasrifle extends ItemRenderWeaponBase {
 
 		if(hasScope(stack) && ItemGunBaseNT.prevAimingProgress == 1 && ItemGunBaseNT.aimingProgress == 1) return;
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.lasrifle_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.lasrifle_tex);
 		double scale = 0.3125D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -78,7 +81,7 @@ public class ItemRenderLasrifle extends ItemRenderWeaponBase {
 		GL11.glPopMatrix();
 		
 		if(!hasShotgun(stack)) ResourceManager.lasrifle.renderPart("Barrel");
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.lasrifle_mods_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.lasrifle_mods_tex);
 		if(hasShotgun(stack)) ResourceManager.lasrifle_mods.renderPart("BarrelShotgun");
 		if(hasCapacitor(stack)) ResourceManager.lasrifle_mods.renderPart("UnderBarrel");
 
@@ -121,25 +124,25 @@ public class ItemRenderLasrifle extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.lasrifle_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.lasrifle_tex);
 		ResourceManager.lasrifle.renderPart("Gun");
 		ResourceManager.lasrifle.renderPart("Stock");
 		if(hasScope(stack)) ResourceManager.lasrifle.renderPart("Scope");
 		ResourceManager.lasrifle.renderPart("Lever");
 		ResourceManager.lasrifle.renderPart("Battery");
 		if(!hasShotgun(stack)) ResourceManager.lasrifle.renderPart("Barrel");
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.lasrifle_mods_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.lasrifle_mods_tex);
 		if(hasShotgun(stack)) ResourceManager.lasrifle_mods.renderPart("BarrelShotgun");
 		if(hasCapacitor(stack)) ResourceManager.lasrifle_mods.renderPart("UnderBarrel");
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 			} else {

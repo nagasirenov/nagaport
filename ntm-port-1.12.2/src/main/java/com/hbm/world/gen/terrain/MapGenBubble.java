@@ -56,8 +56,8 @@ public class MapGenBubble extends MapGenBase {
 			double radius = rand.nextInt(maxSize - minSize) + minSize;
 			double radiusSqr = (radius * radius) / 2; // original OilBubble implementation divided the square by 2 for some reason
 
-			int yMin = Math.max(1, MathHelper.floor_double(yCoord - radius));
-			int yMax = Math.min(127, MathHelper.ceiling_double_int(yCoord + radius));
+			int yMin = Math.max(1, MathHelper.floor(yCoord - radius));
+			int yMax = Math.min(127, MathHelper.ceil(yCoord + radius));
 
 			for(int bx = 15; bx >= 0; bx--) // bx, bz is the coordinate of the block we're modifying, relative to the generating chunk origin
 			for(int bz = 15; bz >= 0; bz--)

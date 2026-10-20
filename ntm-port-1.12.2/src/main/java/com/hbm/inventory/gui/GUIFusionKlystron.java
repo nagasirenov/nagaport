@@ -39,7 +39,7 @@ public class GUIFusionKlystron extends GuiInfoContainer {
 		super.initGui();
 		
 		Keyboard.enableRepeatEvents(true);
-		this.field = new GuiTextField(this.fontRendererObj, guiLeft + 84, guiTop + 22, 102, 12);
+		this.field = new GuiTextField(0, this.fontRenderer, guiLeft + 84, guiTop + 22, 102, 12);
 		this.field.setTextColor(0x00FF00);
 		this.field.setDisabledTextColour(0x00FF00);
 		this.field.setEnableBackgroundDrawing(false);
@@ -68,12 +68,12 @@ public class GUIFusionKlystron extends GuiInfoContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.klystron.hasCustomInventoryName() ? this.klystron.getInventoryName() : I18n.format(this.klystron.getInventoryName());
-		this.fontRendererObj.drawString(name, 115 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 35, this.ySize - 93, 4210752);
+		this.fontRenderer.drawString(name, 115 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 35, this.ySize - 93, 4210752);
 		
 		String result = "= " + BobMathUtil.getShortNumber(klystron.outputTarget) + "KyU";
 		if(klystron.outputTarget == klystron.MAX_OUTPUT) result += " (max)";
-		this.fontRendererObj.drawString(result, 183 - this.fontRendererObj.getStringWidth(result), 40, 0x00FF00);
+		this.fontRenderer.drawString(result, 183 - this.fontRenderer.getStringWidth(result), 40, 0x00FF00);
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class GUIFusionKlystron extends GuiInfoContainer {
 				long num = NumberUtils.toLong(this.field.getText());
 				NBTTagCompound data = new NBTTagCompound();
 				data.setLong("amount", num);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, klystron.xCoord, klystron.yCoord, klystron.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, klystron.getPos().getX(), klystron.getPos().getY(), klystron.getPos().getZ()));
 			}
 			
 			return;

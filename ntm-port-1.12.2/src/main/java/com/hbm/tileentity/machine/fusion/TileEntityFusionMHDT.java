@@ -33,7 +33,7 @@ import net.minecraft.util.math.MathHelper;
 import com.hbm.lib.ForgeDirection;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiverMK2, IFusionPowerReceiver, IConfigurableMachine, SimpleComponent, CompatHandler.OCComponent {
+public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiverMK2, IFusionPowerReceiver, IConfigurableMachine, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {
 
 	protected GenNode plasmaNode;
 
@@ -68,9 +68,9 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.plasmaEnergySync = this.plasmaEnergy;
 
@@ -82,21 +82,21 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 			}
 
 			for(DirPos pos : getConPos()) {
-				this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos);
-				if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], worldObj, pos);
+				this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos);
+				if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], this.world, pos);
 			}
 
 			if(plasmaNode == null || plasmaNode.expired) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
-				plasmaNode = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * 6, yCoord + 2, zCoord + dir.offsetZ * 6, PlasmaNetworkProvider.THE_PROVIDER);
+				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * 6, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 6, PlasmaNetworkProvider.THE_PROVIDER);
 
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
-							new BlockPos(xCoord + dir.offsetX * 6, yCoord + 2, zCoord + dir.offsetZ * 6))
-							.setConnections(new DirPos(xCoord + dir.offsetX * 7, yCoord + 2, zCoord + dir.offsetZ * 7, dir));
+							new BlockPos(this.pos.getX() + dir.offsetX * 6, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 6))
+							.setConnections(new DirPos(this.pos.getX() + dir.offsetX * 7, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 7, dir));
 
-					UniNodespace.createNode(worldObj, plasmaNode);
+					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
 
@@ -110,7 +110,7 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 			if(this.plasmaEnergy > 0 && isCool()) this.rotorSpeed += ROTOR_ACCELERATION;
 			else this.rotorSpeed -= ROTOR_ACCELERATION;
 
-			this.rotorSpeed = MathHelper.clamp_float(this.rotorSpeed, 0F, hasMinimumPlasma() ? 15F : 10F);
+			this.rotorSpeed = MathHelper.clamp(this.rotorSpeed, 0F, hasMinimumPlasma() ? 15F : 10F);
 
 			this.prevRotor = this.rotor;
 			this.rotor += this.rotorSpeed;
@@ -120,12 +120,12 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 				this.prevRotor -= 360F;
 			}
 
-			if(this.rotorSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(xCoord + 0.5, yCoord + 2.5, zCoord + 0.5) < 30 * 30) {
+			if(this.rotorSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(this.pos.getX() + 0.5, this.pos.getY() + 2.5, this.pos.getZ() + 0.5) < 30 * 30) {
 
 				float speed = this.rotorSpeed / 15F;
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.largeTurbineRunning", xCoord + 0.5F, yCoord + 1.5F, zCoord + 0.5F, getVolume(speed), 20F, speed, 20);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.largeTurbineRunning", this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, getVolume(speed), 20F, speed, 20);
 					audio.startSound();
 				} else {
 					audio.updateVolume(getVolume(speed));
@@ -152,9 +152,9 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX * 4, yCoord, zCoord + dir.offsetZ * 4 + rot.offsetZ * 4, rot),
-				new DirPos(xCoord + dir.offsetX * 4 - rot.offsetX * 4, yCoord, zCoord + dir.offsetZ * 4 - rot.offsetZ * 4, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 8, yCoord + 1, zCoord + dir.offsetZ * 8, dir)
+				new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX * 4, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ * 4, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 4 - rot.offsetX * 4, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 4 - rot.offsetZ * 4, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 8, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 8, dir)
 		};
 	}
 
@@ -188,11 +188,12 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		this.tanks[0].writeToNBT(nbt, "t0");
 		this.tanks[1].writeToNBT(nbt, "t1");
+		return nbt;
 	}
 
 	@Override
@@ -214,8 +215,8 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 			audio = null;
 		}
 
-		if(!worldObj.isRemote) {
-			if(this.plasmaNode != null) UniNodespace.destroyNode(worldObj, plasmaNode);
+		if(!this.world.isRemote) {
+			if(this.plasmaNode != null) UniNodespace.destroyNode(this.world, plasmaNode);
 		}
 	}
 
@@ -234,12 +235,12 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 7,
-					yCoord,
-					zCoord - 7,
-					xCoord + 8,
-					yCoord + 4,
-					zCoord + 8
+					this.pos.getX() - 7,
+					this.pos.getY(),
+					this.pos.getZ() - 7,
+					this.pos.getX() + 8,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 8
 					);
 		}
 

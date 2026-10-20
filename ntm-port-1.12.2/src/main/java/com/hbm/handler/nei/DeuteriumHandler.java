@@ -15,7 +15,7 @@ public class DeuteriumHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmDeuterium";
 	}
 

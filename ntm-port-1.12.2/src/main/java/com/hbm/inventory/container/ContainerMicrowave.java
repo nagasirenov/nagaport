@@ -66,6 +66,6 @@ private TileEntityMicrowave microwave;
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return microwave.isUseableByPlayer(player);
+		return microwave.isUsableByPlayer(player);
 	}
 }

@@ -1,0 +1,1396 @@
+{
+  "baseline": "d09276f6d181f15a0fb8805d638be3b477169253",
+  "files": {
+    "src/main/java/com/hbm/blocks/IBlockMulti.java": {
+      "before_sha256": "9dc3339ef55b0719b0c36077dc5823789d366c52c2f980a11562d0d5e915c0ad",
+      "after_sha256": "f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9",
+      "edits": [
+        {
+          "before_offset": 219,
+          "after_offset": 219,
+          "old": "\t\treturn ((Block)this).getUnlocalizedName();\n",
+          "new": "\t\treturn ((Block)this).getTranslationKey();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "5d7e89adbaf4357525985282ade2f600a457d968ccac1e34480b8f31be8bdd68",
+      "after_sha256": "0342888bd68c99bc80cb9c1f4c9f295619bc03d95a1624da394149b8b73af50a",
+      "edits": [
+        {
+          "before_offset": 192200,
+          "after_offset": 192200,
+          "old": "\t\tfluid_duct_neo = new FluidDuctStandard(Material.iron).setBlockName(\"fluid_duct_neo\").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pipe_neo\");\r\n",
+          "new": "\t\tfluid_duct_neo = new FluidDuctStandard(Material.IRON).setTranslationKey(\"fluid_duct_neo\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModSoundType.java": {
+      "before_sha256": "266d618630eb9f0bb11f69367288771c7008c27f90cc3b608fc491567a0dc492",
+      "after_sha256": "ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3",
+      "edits": [
+        {
+          "before_offset": 25,
+          "after_offset": 25,
+          "old": "import net.minecraft.block.Block;\n",
+          "new": "import com.hbm.main.ModSoundEvents;\n\nimport net.minecraft.block.SoundType;\nimport net.minecraft.util.SoundEvent;\n"
+        },
+        {
+          "before_offset": 86,
+          "after_offset": 165,
+          "old": "public class ModSoundType extends Block.SoundType {\n\tprotected final String placeSound;\n\tprotected final String breakSound;\n\tprotected final String stepSound;\n",
+          "new": "public class ModSoundType extends SoundType {\n\tprotected final SoundEvent placeSound;\n\tprotected final SoundEvent breakSound;\n\tprotected final SoundEvent stepSound;\n"
+        },
+        {
+          "before_offset": 355,
+          "after_offset": 440,
+          "old": "\t\tsuper(\"\", volume, pitch);\n",
+          "new": "\t\tthis(ModSoundEvents.resolve(placeSound), ModSoundEvents.resolve(breakSound), ModSoundEvents.resolve(stepSound), volume, pitch);\n\t}\n\n\tprotected ModSoundType(SoundEvent placeSound, SoundEvent breakSound, SoundEvent stepSound, float volume, float pitch) {\n\t\t// Legacy hits and landing sounds used the step resource, not the break resource.\n\t\tsuper(volume, pitch, breakSound, stepSound, placeSound, stepSound, stepSound);\n"
+        },
+        {
+          "before_offset": 525,
+          "after_offset": 1002,
+          "old": "\t\treturn new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, frequency);\n",
+          "new": "\t\treturn new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, pitch);\n"
+        },
+        {
+          "before_offset": 676,
+          "after_offset": 1149,
+          "old": "\t\treturn new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, frequency, random);\n",
+          "new": "\t\treturn new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, pitch, random);\n"
+        },
+        {
+          "before_offset": 789,
+          "after_offset": 1258,
+          "old": "\tpublic String func_150496_b() {\n",
+          "new": "\tpublic SoundEvent getPlaceSound() {\n"
+        },
+        {
+          "before_offset": 858,
+          "after_offset": 1331,
+          "old": "\tpublic String getBreakSound() {\n",
+          "new": "\tpublic SoundEvent getBreakSound() {\n"
+        },
+        {
+          "before_offset": 927,
+          "after_offset": 1404,
+          "old": "\tpublic String getStepResourcePath() {\n",
+          "new": "\tpublic SoundEvent getStepSound() {\n"
+        },
+        {
+          "before_offset": 986,
+          "after_offset": 1460,
+          "old": "",
+          "new": "\t}\n\n\t@Override\n\tpublic SoundEvent getHitSound() {\n\t\treturn getStepSound();\n\t}\n\n\t@Override\n\tpublic SoundEvent getFallSound() {\n\t\treturn getStepSound();\n"
+        },
+        {
+          "before_offset": 2369,
+          "after_offset": 2994,
+          "old": "\tpublic static ModSoundType customPlace(Block.SoundType from, String placeSound, float volume, float pitch) {\n\t\treturn new ModSoundType(placeSound, from.getBreakSound(), from.getStepResourcePath(), volume, pitch);\n",
+          "new": "\tpublic static ModSoundType customPlace(SoundType from, String placeSound, float volume, float pitch) {\n\t\treturn new ModSoundType(ModSoundEvents.resolve(placeSound), from.getBreakSound(), from.getStepSound(), volume, pitch);\n"
+        },
+        {
+          "before_offset": 2587,
+          "after_offset": 3223,
+          "old": "\tpublic static ModSoundType customBreak(Block.SoundType from, String breakSound, float volume, float pitch) {\n\t\treturn new ModSoundType(from.func_150496_b(), breakSound, from.getStepResourcePath(), volume, pitch);\n",
+          "new": "\tpublic static ModSoundType customBreak(SoundType from, String breakSound, float volume, float pitch) {\n\t\treturn new ModSoundType(from.getPlaceSound(), ModSoundEvents.resolve(breakSound), from.getStepSound(), volume, pitch);\n"
+        },
+        {
+          "before_offset": 2805,
+          "after_offset": 3452,
+          "old": "\tpublic static ModSoundType customStep(Block.SoundType from, String stepSound, float volume, float pitch) {\n\t\treturn new ModSoundType(from.func_150496_b(), from.getBreakSound(), stepSound, volume, pitch);\n",
+          "new": "\tpublic static ModSoundType customStep(SoundType from, String stepSound, float volume, float pitch) {\n\t\treturn new ModSoundType(from.getPlaceSound(), from.getBreakSound(), ModSoundEvents.resolve(stepSound), volume, pitch);\n"
+        },
+        {
+          "before_offset": 3014,
+          "after_offset": 3679,
+          "old": "\tpublic static ModSoundType customDig(Block.SoundType from, String dig, float volume, float pitch) {\n\t\treturn new ModSoundType(dig, dig, from.getStepResourcePath(), volume, pitch);\n",
+          "new": "\tpublic static ModSoundType customDig(SoundType from, String dig, float volume, float pitch) {\n\t\treturn new ModSoundType(ModSoundEvents.resolve(dig), ModSoundEvents.resolve(dig), from.getStepSound(), volume, pitch);\n"
+        },
+        {
+          "before_offset": 3832,
+          "after_offset": 4532,
+          "old": "",
+          "new": "\t\t\tthis(ModSoundEvents.resolve(placeSound), ModSoundEvents.resolve(breakSound), ModSoundEvents.resolve(stepSound), volume, pitch, random);\n\t\t}\n\n\t\tModEnvelopedSoundType(String placeSound, String breakSound, String stepSound, float volume, float pitch) {\n\t\t\tthis(placeSound, breakSound, stepSound, volume, pitch, new Random());\n\t\t}\n\n\t\tModEnvelopedSoundType(SoundEvent placeSound, SoundEvent breakSound, SoundEvent stepSound, float volume, float pitch, Random random) {\n"
+        },
+        {
+          "before_offset": 3922,
+          "after_offset": 5089,
+          "old": "\t\tModEnvelopedSoundType(String placeSound, String breakSound, String stepSound, float volume, float pitch) {\n",
+          "new": "\t\tModEnvelopedSoundType(SoundEvent placeSound, SoundEvent breakSound, SoundEvent stepSound, float volume, float pitch) {\n"
+        },
+        {
+          "before_offset": 4298,
+          "after_offset": 5477,
+          "old": "\t\tpublic String func_150496_b() {\n",
+          "new": "\t\tpublic SoundEvent getPlaceSound() {\n"
+        },
+        {
+          "before_offset": 4368,
+          "after_offset": 5551,
+          "old": "\t\t\treturn super.func_150496_b();\n",
+          "new": "\t\t\treturn super.getPlaceSound();\n"
+        },
+        {
+          "before_offset": 4418,
+          "after_offset": 5601,
+          "old": "\t\tpublic String getBreakSound() {\n",
+          "new": "\t\tpublic SoundEvent getBreakSound() {\n"
+        },
+        {
+          "before_offset": 4538,
+          "after_offset": 5725,
+          "old": "\t\tpublic String getStepResourcePath() {\n",
+          "new": "\t\tpublic SoundEvent getStepSound() {\n"
+        },
+        {
+          "before_offset": 4613,
+          "after_offset": 5797,
+          "old": "\t\t\treturn super.getStepResourcePath();\n",
+          "new": "\t\t\treturn super.getStepSound();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModSoundTypes.java": {
+      "before_sha256": "584a65dc8e1887d9b227d26da0923027ef7102022a4189d29bb55cf5f23667a1",
+      "after_sha256": "e16f97c79917f9047c4daade6803a020a24b9285462b068daaa71d26dcd7f607",
+      "edits": [
+        {
+          "before_offset": 59,
+          "after_offset": 59,
+          "old": "import net.minecraft.block.Block;\n",
+          "new": "import net.minecraft.block.SoundType;\n"
+        },
+        {
+          "before_offset": 125,
+          "after_offset": 129,
+          "old": "\tpublic static final ModSoundType grate = ModSoundType.customStep(Block.soundTypeStone, \"hbm:step.metalBlock\", 0.5F, 1.0F);\n\tpublic static final ModSoundType pipe = ModSoundType.customDig(Block.soundTypeMetal, \"hbm:block.pipePlaced\", 0.85F, 0.85F).enveloped(MainRegistry.instance.rand).pitchFunction((in, rand, type) -> {\n",
+          "new": "\tpublic static final ModSoundType grate = ModSoundType.customStep(SoundType.STONE, \"hbm:step.metalBlock\", 0.5F, 1.0F);\n\t// 1.7 soundTypeMetal used stone samples with a higher default pitch. The\n\t// custom factory overrides that pitch; retaining native METAL would change its event.\n\tpublic static final ModSoundType pipe = ModSoundType.customDig(SoundType.STONE, \"hbm:block.pipePlaced\", 0.85F, 0.85F).enveloped(MainRegistry.instance.rand).pitchFunction((in, rand, type) -> {\n"
+        },
+        {
+          "before_offset": 545,
+          "after_offset": 702,
+          "old": "\tpublic static final ModSoundType mork = ModSoundType.customBreak(Block.soundTypeStone, \"hbm:step.morkite\", 0.85F, 0.85F).enveloped(MainRegistry.instance.rand).pitchFunction((in, rand, type) -> {\n",
+          "new": "\tpublic static final ModSoundType mork = ModSoundType.customBreak(SoundType.STONE, \"hbm:step.morkite\", 0.85F, 0.85F).enveloped(MainRegistry.instance.rand).pitchFunction((in, rand, type) -> {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java": {
+      "before_sha256": "cb7bfb05cc9b2ed9fc64cb8196c3529732c6d8696ca30f43fc01977a28339a3a",
+      "after_sha256": "76b8313125a3a939e51634702b5008ceaa76c5406ccd74e443613fee37a70166",
+      "edits": [
+        {
+          "before_offset": 2615,
+          "after_offset": 2615,
+          "old": "\t\t\t\t\t\t\t\tplayer.triggerAchievement(MainRegistry.achSulfuric);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achSulfuric);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java": {
+      "before_sha256": "8b08485c822935e8fe3b8e2b0b6419c2a2c394d04137c88f1581bbb87ad4797c",
+      "after_sha256": "a3455a87a2298e88cd6ca14975cb7cac45f5f8da9a97183d7d38199bee8dfcd0",
+      "edits": [
+        {
+          "before_offset": 2447,
+          "after_offset": 2447,
+          "old": "\t\t\t\tplayer.triggerAchievement(MainRegistry.achRedRoom);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRedRoom);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java": {
+      "before_sha256": "76a94f2a76e5fb8c67000f397c7bd4a5b4122cdb9b692d6e82bccb4596b18b0c",
+      "after_sha256": "4bc4712379cbdc58bd982e72e861a94786adbb4284e46c1de5b9c18e0df9ee14",
+      "edits": [
+        {
+          "before_offset": 3275,
+          "after_offset": 3275,
+          "old": "\t\t\t\tplayer.triggerAchievement(MainRegistry.achRedRoom);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRedRoom);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFluidTank.java": {
+      "before_sha256": "efa2eba68adfc0b479b76d5869a5975cf53fc68f8bc1965f70f1500ef24d1f21",
+      "after_sha256": "e24ac77163670d6ce246d29a2660d0f3b7cd7f52356aaa877da3db91f16b07e4",
+      "edits": [
+        {
+          "before_offset": 5549,
+          "after_offset": 5549,
+          "old": "\t\t\t\tfor(EntityPlayer p : players) p.triggerAchievement(MainRegistry.achInferno);\n",
+          "new": "\t\t\t\tfor(EntityPlayer p : players) com.hbm.advancement.NtmAdvancements.award(p, MainRegistry.achInferno);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRefinery.java": {
+      "before_sha256": "57d0db7c1d7015431a8734d6e93a4d5ce997304b9daaf00d53e38c78e1d5c60a",
+      "after_sha256": "fe55c11759438b4d08a5a1c36fe313e8c47decb4a80edcff33d6cd0a82fbc354",
+      "edits": [
+        {
+          "before_offset": 4368,
+          "after_offset": 4368,
+          "old": "\t\t\t\tfor(EntityPlayer p : players) p.triggerAchievement(MainRegistry.achInferno);\n",
+          "new": "\t\t\t\tfor(EntityPlayer p : players) com.hbm.advancement.NtmAdvancements.award(p, MainRegistry.achInferno);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctBase.java": {
+      "before_sha256": "201f4db2f5d91b5651eea2fb778d399105bbb7bffccfc6d451525e0e7351fbcb",
+      "after_sha256": "d50672257e8be7dc36e834e2a600930fe970c2824f8526893aa0316223f51111",
+      "edits": [
+        {
+          "before_offset": 571,
+          "after_offset": 571,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 620,
+          "after_offset": 666,
+          "old": "",
+          "new": "import net.minecraft.init.SoundEvents;\n"
+        },
+        {
+          "before_offset": 652,
+          "after_offset": 737,
+          "old": "",
+          "new": "import net.minecraft.item.ItemStack;\n"
+        },
+        {
+          "before_offset": 696,
+          "after_offset": 818,
+          "old": "",
+          "new": "import net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.SoundCategory;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 1094,
+          "after_offset": 1372,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float fX, float fY, float fZ) {\n"
+        },
+        {
+          "before_offset": 1225,
+          "after_offset": 1537,
+          "old": "\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {\n\t\t\tIItemFluidIdentifier id = (IItemFluidIdentifier) player.getHeldItem().getItem();\n\t\t\tFluidType type = id.getType(world, x, y, z, player.getHeldItem());\n",
+          "new": "\t\tint x = pos.getX();\n\t\tint y = pos.getY();\n\t\tint z = pos.getZ();\n\t\tItemStack held = player.getHeldItem(hand);\n\n\t\tif(!held.isEmpty() && held.getItem() instanceof IItemFluidIdentifier) {\n\t\t\tIItemFluidIdentifier id = (IItemFluidIdentifier) held.getItem();\n\t\t\tFluidType type = id.getType(world, x, y, z, held);\n"
+        },
+        {
+          "before_offset": 1598,
+          "after_offset": 1961,
+          "old": "\t\t\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1845,
+          "after_offset": 2222,
+          "old": "\t\t\t\t\t\tItem item = player.getHeldItem().getItem();\n",
+          "new": "\t\t\t\t\t\tItem item = held.getItem();\n"
+        },
+        {
+          "before_offset": 1941,
+          "after_offset": 2302,
+          "old": "\t\t\t\t\t\t\tif (id.getType(world, x, y, z, player.getHeldItem()) != pipe.getType()) {\n\t\t\t\t\t\t\t\tItemFluidIDMulti.setType(player.getHeldItem(), pipe.getType(), true);\n\t\t\t\t\t\t\t\tworld.playSoundAtEntity(player, \"random.orb\", 0.25F, 0.75F);\n",
+          "new": "\t\t\t\t\t\t\tif (id.getType(world, x, y, z, held) != pipe.getType()) {\n\t\t\t\t\t\t\t\tItemFluidIDMulti.setType(held, pipe.getType(), true);\n\t\t\t\t\t\t\t\tworld.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.25F, 0.75F);\n"
+        },
+        {
+          "before_offset": 2320,
+          "after_offset": 2729,
+          "old": "\t\t\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 2567,
+          "after_offset": 2990,
+          "old": "\t\t\t\t\t\tItem item = player.getHeldItem().getItem();\n",
+          "new": "\t\t\t\t\t\tItem item = held.getItem();\n"
+        },
+        {
+          "before_offset": 2663,
+          "after_offset": 3070,
+          "old": "\t\t\t\t\t\t\tif (id.getType(world, x, y, z, player.getHeldItem()) != pipe.getType()) {\n\t\t\t\t\t\t\t\tItemFluidIDMulti.setType(player.getHeldItem(), pipe.getType(), true);\n\t\t\t\t\t\t\t\tworld.playSoundAtEntity(player, \"random.orb\", 0.25F, 0.75F);\n",
+          "new": "\t\t\t\t\t\t\tif (id.getType(world, x, y, z, held) != pipe.getType()) {\n\t\t\t\t\t\t\t\tItemFluidIDMulti.setType(held, pipe.getType(), true);\n\t\t\t\t\t\t\t\tworld.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.25F, 0.75F);\n"
+        },
+        {
+          "before_offset": 3200,
+          "after_offset": 3655,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 3532,
+          "after_offset": 4001,
+          "old": "\t\t\t\t\t\tBlock b = world.getBlock(x, y, z);\n",
+          "new": "\t\t\t\t\t\tBlock b = world.getBlockState(new BlockPos(x, y, z)).getBlock();\n"
+        },
+        {
+          "before_offset": 3877,
+          "after_offset": 4376,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4271,
+          "after_offset": 4784,
+          "old": "\t\t\t\t\tList<String> debug = new ArrayList();\n",
+          "new": "\t\t\t\t\tList<String> debug = new ArrayList<>();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctStandard.java": {
+      "before_sha256": "76170898c938e49641a6c109e8095b4155f1e8600b06e7b61586a7fa378f7997",
+      "after_sha256": "6e6bab9d84b4817d5cc9d28ea134f26024c5cc72f512599534109e9be6a908a1",
+      "edits": [
+        {
+          "before_offset": 68,
+          "after_offset": 68,
+          "old": "",
+          "new": "import com.hbm.blocks.ModSoundTypes;\n"
+        },
+        {
+          "before_offset": 146,
+          "after_offset": 183,
+          "old": "",
+          "new": "import com.hbm.inventory.fluid.Fluids;\n"
+        },
+        {
+          "before_offset": 177,
+          "after_offset": 253,
+          "old": "",
+          "new": "import com.hbm.lib.ForgeDirection;\n"
+        },
+        {
+          "before_offset": 205,
+          "after_offset": 316,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 327,
+          "after_offset": 407,
+          "old": "\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 537,
+          "after_offset": 453,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 711,
+          "after_offset": 838,
+          "old": "import net.minecraft.item.Item;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 824,
+          "after_offset": 919,
+          "old": "",
+          "new": "import net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.NonNullList;\n"
+        },
+        {
+          "before_offset": 870,
+          "after_offset": 1133,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1134,
+          "after_offset": 1363,
+          "old": "import com.hbm.lib.ForgeDirection;\n",
+          "new": "import net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n"
+        },
+        {
+          "before_offset": 1315,
+          "after_offset": 1793,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tprotected IIcon[] icon;\n\t@SideOnly(Side.CLIENT)\n\tprotected IIcon[] overlay;\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    private static final double MIN = 5D / 16D, MAX = 11D / 16D;\n    private static final AxisAlignedBB CORE = new AxisAlignedBB(MIN, MIN, MIN, MAX, MAX, MAX);\n    private static final AxisAlignedBB X_AXIS = new AxisAlignedBB(0, MIN, MIN, 1, MAX, MAX);\n    private static final AxisAlignedBB Y_AXIS = new AxisAlignedBB(MIN, 0, MIN, MAX, 1, MAX);\n    private static final AxisAlignedBB Z_AXIS = new AxisAlignedBB(MIN, MIN, 0, MAX, MAX, 1);\n    private static final AxisAlignedBB[] ARMS = {\n        new AxisAlignedBB(MAX, MIN, MIN, 1, MAX, MAX),\n        new AxisAlignedBB(0, MIN, MIN, MIN, MAX, MAX),\n        new AxisAlignedBB(MIN, MAX, MIN, MAX, 1, MAX),\n        new AxisAlignedBB(MIN, 0, MIN, MAX, MIN, MAX),\n        new AxisAlignedBB(MIN, MIN, MAX, MAX, MAX, 1),\n        new AxisAlignedBB(MIN, MIN, 0, MAX, MAX, MIN)\n    };\n"
+        },
+        {
+          "before_offset": 1417,
+          "after_offset": 2713,
+          "old": "\tpublic FluidDuctStandard(Material mat) {\n\t\tsuper(mat);\n\t}\n",
+          "new": "    public FluidDuctStandard(Material material) {\n        super(material);\n        setSoundType(ModSoundTypes.pipe);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n"
+        },
+        {
+          "before_offset": 1477,
+          "after_offset": 2915,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\ticon = new IIcon[3];\n\t\toverlay = new IIcon[3];\n",
+          "new": "    @Override\n    protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[] {METADATA},\n                new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS, FluidConnectionState.FLUID_COLOR});\n    }\n"
+        },
+        {
+          "before_offset": 1666,
+          "after_offset": 3175,
+          "old": "\t\tthis.icon[0] = iconRegister.registerIcon(this.getTextureName());\n\t\tthis.icon[1] = iconRegister.registerIcon(RefStrings.MODID + \":pipe_silver\");\n\t\tthis.icon[2] = iconRegister.registerIcon(RefStrings.MODID + \":pipe_colored\");\n\t\tthis.overlay[0] = iconRegister.registerIcon(this.getTextureName() + \"_overlay\");\n\t\tthis.overlay[1] = iconRegister.registerIcon(RefStrings.MODID + \":pipe_silver_overlay\");\n\t\tthis.overlay[2] = iconRegister.registerIcon(RefStrings.MODID + \":pipe_colored_overlay\");\n\t}\n",
+          "new": "    @Override\n    public IBlockState getStateFromMeta(int metadata) {\n        return getDefaultState().withProperty(METADATA, metadata & 15);\n    }\n"
+        },
+        {
+          "before_offset": 2160,
+          "after_offset": 3324,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn side == 0 ? this.icon[rectify(metadata)] : this.overlay[rectify(metadata)];\n\t}\n",
+          "new": "    @Override\n    public int getMetaFromState(IBlockState state) {\n        return state.getValue(METADATA);\n    }\n"
+        },
+        {
+          "before_offset": 2332,
+          "after_offset": 3439,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void getSubBlocks(Item item, CreativeTabs tab, List list) {\n\t\tfor(int i = 0; i < 3; ++i) {\n\t\t\tlist.add(new ItemStack(item, 1, i));\n\t\t}\n\t}\n",
+          "new": "    @Override\n    public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        TileEntity tile = world.getTileEntity(pos);\n        FluidType type = Fluids.NONE;\n        int color = 0xff00ff;\n        if(tile instanceof TileEntityPipeBaseNT) {\n            type = ((TileEntityPipeBaseNT) tile).getType();\n            color = type.getColor();\n        }\n        return ((IExtendedBlockState) state)\n                .withProperty(ConnectionState.CONNECTIONS, connections(world, pos, type))\n                .withProperty(FluidConnectionState.FLUID_COLOR, color);\n    }\n"
+        },
+        {
+          "before_offset": 2503,
+          "after_offset": 4040,
+          "old": "\tpublic int damageDropped(int meta) {\n\t\treturn rectify(meta);\n\t}\n\t/*\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic Item getItem(World world, int x, int y, int z) {\n\t    Block block = world.getBlock(x, y, z); // Get the block at the specified coordinates\n\t    int blockMetadata = world.getBlockMetadata(x, y, z); // Get the metadata of the block at the specified coordinates\n\t    TileEntity tileEntity = world.getTileEntity(x, y, z); // Get the tile entity at the specified coordinates\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {\n        for(int metadata = 0; metadata < getSubCount(); metadata++) {\n            items.add(new ItemStack(this, 1, metadata));\n        }\n    }\n"
+        },
+        {
+          "before_offset": 2986,
+          "after_offset": 4304,
+          "old": "\t        TileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) tileEntity;\n",
+          "new": "    @Override\n    public int damageDropped(IBlockState state) {\n        return rectify(getMetaFromState(state));\n    }\n"
+        },
+        {
+          "before_offset": 3059,
+          "after_offset": 4424,
+          "old": "\t        // Get the metadata (FluidType) from the pipe\n\t        FluidType fluidType = pipe.getType();\n\t        int metadata = fluidType.getID();\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityPipeBaseNT) {\n            FluidType type = ((TileEntityPipeBaseNT) tile).getType();\n            return new ItemStack(ModItems.fluid_duct, 1, type.getID());\n        }\n        return super.getPickBlock(state, target, world, pos, player);\n    }\n"
+        },
+        {
+          "before_offset": 3205,
+          "after_offset": 4923,
+          "old": "\t        // Create an ItemStack with the item and metadata\n\t        ItemStack itemStack = new ItemStack(ModItems.fluid_duct, 1, metadata);\n\t        System.out.println(metadata);\n\t        System.out.println(itemStack);\n",
+          "new": "    @Override\n    public EnumBlockRenderType getRenderType(IBlockState state) {\n        return EnumBlockRenderType.MODEL;\n    }\n"
+        },
+        {
+          "before_offset": 3424,
+          "after_offset": 5052,
+          "old": "\t        return new ItemStack(ModItems.fluid_duct, 1, metadata).getItem();\n\t}\n\t*/\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public BlockRenderLayer getRenderLayer() {\n        return BlockRenderLayer.CUTOUT_MIPPED;\n    }\n"
+        },
+        {
+          "before_offset": 3507,
+          "after_offset": 5194,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {\n\t\tint x = pos.getX();\n\t\tint y = pos.getY();\n\t\tint z = pos.getZ();\n\t\tTileEntity tileEntity = world.getTileEntity(x, y, z);\n\t\tif(tileEntity instanceof TileEntityPipeBaseNT) {\n\t\t\tTileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) tileEntity;\n\t\t\tFluidType fluidType = pipe.getType();\n\t\t\tint retadata = fluidType.getID(); // florf\n",
+          "new": "    @Override\n    public boolean isOpaqueCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 3973,
+          "after_offset": 5290,
+          "old": "\t\t\treturn new ItemStack(ModItems.fluid_duct, 1, retadata);\n\t\t}\n\t\treturn super.getPickBlock(target, world, pos, player);\n\t}\n",
+          "new": "    @Override\n    public boolean isFullCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 4097,
+          "after_offset": 5384,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "    @Override\n    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) {\n        return BlockFaceShape.UNDEFINED;\n    }\n"
+        },
+        {
+          "before_offset": 4174,
+          "after_offset": 5562,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "    @Override\n    public int getSubCount() {\n        return 3;\n    }\n"
+        },
+        {
+          "before_offset": 4238,
+          "after_offset": 5632,
+          "old": "\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n",
+          "new": "    @Override\n    public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox,\n            List<AxisAlignedBB> boxes, Entity entity, boolean actualState) {\n        TileEntity tile = world.getTileEntity(pos);\n        if(!(tile instanceof TileEntityPipeBaseNT)) return;\n        int mask = connections(world, pos, ((TileEntityPipeBaseNT) tile).getType());\n        if(mask == 0) {\n            // An isolated original duct has all six arms, but no center collision box.\n            for(AxisAlignedBB arm : ARMS) addCollisionBoxToList(pos, entityBox, boxes, arm);\n        } else if((mask & 0b001111) == 0) {\n            addCollisionBoxToList(pos, entityBox, boxes, X_AXIS);\n        } else if((mask & 0b110011) == 0) {\n            addCollisionBoxToList(pos, entityBox, boxes, Y_AXIS);\n        } else if((mask & 0b111100) == 0) {\n            addCollisionBoxToList(pos, entityBox, boxes, Z_AXIS);\n        } else {\n            addCollisionBoxToList(pos, entityBox, boxes, CORE);\n            for(int i = 0; i < ARMS.length; i++) {\n                if((mask & (32 >> i)) != 0) addCollisionBoxToList(pos, entityBox, boxes, ARMS[i]);\n            }\n        }\n    }\n"
+        },
+        {
+          "before_offset": 4302,
+          "after_offset": 6826,
+          "old": "\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        TileEntity tile = world.getTileEntity(pos);\n        return tile instanceof TileEntityPipeBaseNT\n                ? bounds(connections(world, pos, ((TileEntityPipeBaseNT) tile).getType())) : NULL_AABB;\n    }\n"
+        },
+        {
+          "before_offset": 4373,
+          "after_offset": 7159,
+          "old": "\t@Override\n\tpublic int getSubCount() {\n\t\treturn 3;\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        TileEntity tile = world.getTileEntity(pos);\n        // The original left shared mutable bounds stale when the tile was missing.\n        // Keep the block selectable, without inventing a physical collision shape.\n        return tile instanceof TileEntityPipeBaseNT\n                ? bounds(connections(world, pos, ((TileEntityPipeBaseNT) tile).getType())) : FULL_BLOCK_AABB;\n    }\n"
+        },
+        {
+          "before_offset": 4428,
+          "after_offset": 7657,
+          "old": "\t@Override\n\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos) {\n        return getBoundingBox(state, world, pos).offset(pos);\n    }\n"
+        },
+        {
+          "before_offset": 4569,
+          "after_offset": 7863,
+          "old": "\t\tList<AxisAlignedBB> bbs = new ArrayList();\n",
+          "new": "    public static AxisAlignedBB bounds(int mask) {\n        if(mask == 0) return FULL_BLOCK_AABB;\n        if((mask & 0b001111) == 0) return X_AXIS;\n        if((mask & 0b110011) == 0) return Y_AXIS;\n        if((mask & 0b111100) == 0) return Z_AXIS;\n        return new AxisAlignedBB(\n                (mask & ConnectionState.NEG_X) != 0 ? 0 : MIN,\n                (mask & ConnectionState.NEG_Y) != 0 ? 0 : MIN,\n                (mask & ConnectionState.NEG_Z) != 0 ? 0 : MIN,\n                (mask & ConnectionState.POS_X) != 0 ? 1 : MAX,\n                (mask & ConnectionState.POS_Y) != 0 ? 1 : MAX,\n                (mask & ConnectionState.POS_Z) != 0 ? 1 : MAX);\n    }\n"
+        },
+        {
+          "before_offset": 4615,
+          "after_offset": 8530,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\tif(te instanceof TileEntityPipeBaseNT) {\n\t\t\tTileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;\n\t\t\tFluidType type = pipe.getType();\n",
+          "new": "    private int connections(IBlockAccess world, BlockPos pos, FluidType type) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        return (canConnectTo(world, x, y, z, Library.POS_X, type) ? ConnectionState.POS_X : 0)\n             | (canConnectTo(world, x, y, z, Library.NEG_X, type) ? ConnectionState.NEG_X : 0)\n             | (canConnectTo(world, x, y, z, Library.POS_Y, type) ? ConnectionState.POS_Y : 0)\n             | (canConnectTo(world, x, y, z, Library.NEG_Y, type) ? ConnectionState.NEG_Y : 0)\n             | (canConnectTo(world, x, y, z, Library.POS_Z, type) ? ConnectionState.POS_Z : 0)\n             | (canConnectTo(world, x, y, z, Library.NEG_Z, type) ? ConnectionState.NEG_Z : 0);\n    }\n"
+        },
+        {
+          "before_offset": 4801,
+          "after_offset": 9248,
+          "old": "\t\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, type);\n\t\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, type);\n\t\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, type);\n\t\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, type);\n\t\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, type);\n\t\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, type);\n\t\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n",
+          "new": "    public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection direction, FluidType type) {\n        return Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY,\n                z + direction.offsetZ, direction, type);\n    }\n"
+        },
+        {
+          "before_offset": 5313,
+          "after_offset": 9521,
+          "old": "\t\t\tif(mask == 0) {\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.6875D, y + 0.3125D, z + 0.3125D, x + 1.0D, y + 0.6875D, z + 0.6875D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + 0.3125D, z + 0.3125D, x + 0.3125D, y + 0.6875D, z + 0.6875D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.6875D, z + 0.3125D, x + 0.6875D, y + 1.0D, z + 0.6875D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.0D, z + 0.3125D, x + 0.6875D, y + 0.3125D, z + 0.6875D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.3125D, z + 0.6875D, x + 0.6875D, y + 0.6875D, z + 1.0D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.3125D, z + 0.0D, x + 0.6875D, y + 0.6875D, z + 0.3125D));\n\t\t\t} else if(mask == 0b100000 || mask == 0b010000 || mask == 0b110000) {\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + 0.3125D, z + 0.3125D, x + 1.0D, y + 0.6875D, z + 0.6875D));\n\t\t\t} else if(mask == 0b001000 || mask == 0b000100 || mask == 0b001100) {\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.0D, z + 0.3125D, x + 0.6875D, y + 1.0D, z + 0.6875D));\n\t\t\t} else if(mask == 0b000010 || mask == 0b000001 || mask == 0b000011) {\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.3125D, z + 0.0D, x + 0.6875D, y + 0.6875D, z + 1.0D));\n\t\t\t} else {\n\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.3125D, z + 0.3125D, x + 0.6875D, y + 0.6875D, z + 0.6875D));\n\n\t\t\t\tif(pX) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.6875D, y + 0.3125D, z + 0.3125D, x + 1.0D, y + 0.6875D, z + 0.6875D));\n\t\t\t\tif(nX) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + 0.3125D, z + 0.3125D, x + 0.3125D, y + 0.6875D, z + 0.6875D));\n\t\t\t\tif(pY) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.6875D, z + 0.3125D, x + 0.6875D, y + 1.0D, z + 0.6875D));\n\t\t\t\tif(nY) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.0D, z + 0.3125D, x + 0.6875D, y + 0.3125D, z + 0.6875D));\n\t\t\t\tif(pZ) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.3125D, z + 0.6875D, x + 0.6875D, y + 0.6875D, z + 1.0D));\n\t\t\t\tif(nZ) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y + 0.3125D, z + 0.0D, x + 0.6875D, y + 0.6875D, z + 0.3125D));\n\t\t\t}\n\t\t}\n\n\t\tfor(AxisAlignedBB bb : bbs) {\n\t\t\tif(entityBounding.intersectsWith(bb)) {\n\t\t\t\tlist.add(bb);\n\t\t\t}\n\t\t}\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\tif(te instanceof TileEntityPipeBaseNT) {\n\t\t\tTileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;\n\t\t\tFluidType type = pipe.getType();\n\n\t\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, type);\n\t\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, type);\n\t\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, type);\n\t\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, type);\n\t\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, type);\n\t\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, type);\n\t\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\n\t\t\tif(mask == 0) {\n\t\t\t\tthis.setBlockBounds(0F, 0F, 0F, 1F, 1F, 1F);\n\t\t\t} else if(mask == 0b100000 || mask == 0b010000 || mask == 0b110000) {\n\t\t\t\tthis.setBlockBounds(0F, 0.3125F, 0.3125F, 1F, 0.6875F, 0.6875F);\n\t\t\t} else if(mask == 0b001000 || mask == 0b000100 || mask == 0b001100) {\n\t\t\t\tthis.setBlockBounds(0.3125F, 0F, 0.3125F, 0.6875F, 1F, 0.6875F);\n\t\t\t} else if(mask == 0b000010 || mask == 0b000001 || mask == 0b000011) {\n\t\t\t\tthis.setBlockBounds(0.3125F, 0.3125F, 0F, 0.6875F, 0.6875F, 1F);\n\t\t\t} else {\n\n\t\t\t\tthis.setBlockBounds(\n\t\t\t\t\t\tnX ? 0F : 0.3125F,\n\t\t\t\t\t\tnY ? 0F : 0.3125F,\n\t\t\t\t\t\tnZ ? 0F : 0.3125F,\n\t\t\t\t\t\tpX ? 1F : 0.6875F,\n\t\t\t\t\t\tpY ? 1F : 0.6875F,\n\t\t\t\t\t\tpZ ? 1F : 0.6875F);\n\t\t\t}\n\t\t}\n\t}\n\n\tpublic boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir, FluidType type) {\n\t\treturn Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, type);\n\t}\n\n\t@Override\n\tpublic void printHook(Pre event, World world, int x, int y, int z) {\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\n\t\tif(!(te instanceof TileEntityPipeBaseNT))\n\t\t\treturn;\n\n\t\tTileEntityPipeBaseNT duct = (TileEntityPipeBaseNT) te;\n\n\t\tList<String> text = new ArrayList();\n\t\ttext.add(\"&[\" + duct.getType().getColor() + \"&]\" + duct.getType().getLocalizedName());\n\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void printHook(Pre event, World world, int x, int y, int z) {\n        TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));\n        if(!(tile instanceof TileEntityPipeBaseNT)) return;\n        TileEntityPipeBaseNT duct = (TileEntityPipeBaseNT) tile;\n        List<String> text = new ArrayList<>();\n        text.add(\"&[\" + duct.getType().getColor() + \"&]\" + duct.getType().getLocalizedName());\n        ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntitySpear.java": {
+      "before_sha256": "8dbdcc951416b361592c3f3fe420c4bfd79575b5980dfb734037ad5ffb9b0964",
+      "after_sha256": "133c1033e42851cd709860ce7b2f46b2ef14ca40d2d58d1a4895005ea26250d9",
+      "edits": [
+        {
+          "before_offset": 2247,
+          "after_offset": 2247,
+          "old": "\t\t\t\t\tplayer.triggerAchievement(MainRegistry.digammaKauaiMoho);\n",
+          "new": "\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.digammaKauaiMoho);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK3.java": {
+      "before_sha256": "1ff981f596db8c7e8caf9f5aa4ba995b051dfcbffc7ff2ebedd20e8fd6bc84f3",
+      "after_sha256": "0dca5d2dbc2c574c1afc989b960b9603dbba3589a12f638712794e430dc29c9d",
+      "edits": [
+        {
+          "before_offset": 4201,
+          "after_offset": 4201,
+          "old": "    \t\t\t((EntityPlayer)player).triggerAchievement(MainRegistry.achManhattan);\n",
+          "new": "    \t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)player), MainRegistry.achManhattan);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK5.java": {
+      "before_sha256": "dce767bdf4469cbdcc2035cb9a0f4029bc029b2845058ceb8c2867bfe461179e",
+      "after_sha256": "1aa032a3ff232a08294bf0d8bbc9b183e0b23a8abd7c374e51ba7762c275757f",
+      "edits": [
+        {
+          "before_offset": 1677,
+          "after_offset": 1677,
+          "old": "\t\t\t((EntityPlayer)player).triggerAchievement(MainRegistry.achManhattan);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)player), MainRegistry.achManhattan);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "07c2d11b0d4fad2a280004398a322d4723e1fe5e579dd9ae9f6e0afc51ac4d2d",
+      "after_sha256": "6883a0ae3b4208c7800cf15bc715879b3b7e1ed49efc9c389b844c5d007e839e",
+      "edits": [
+        {
+          "before_offset": 9007,
+          "after_offset": 9007,
+          "old": "\t\t\t\t\t\t\tplayer.triggerAchievement(MainRegistry.achDriveFail);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achDriveFail);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntitySoyuz.java": {
+      "before_sha256": "b51cafa6b9ae683806b8fcbf73d549bcf101478e8977be8f96dce25ac661ca26",
+      "after_sha256": "0f4fbd8585ee67e0adf62823dd7d76ecf1e41cbf242702332f24a736b16fc7a3",
+      "edits": [
+        {
+          "before_offset": 1769,
+          "after_offset": 1769,
+          "old": "\t\t\t\t\t((EntityPlayer)e).triggerAchievement(MainRegistry.achSoyuz);\n",
+          "new": "\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)e), MainRegistry.achSoyuz);\n"
+        },
+        {
+          "before_offset": 2852,
+          "after_offset": 2876,
+          "old": "\t\t\t\t\t\t((EntityPlayer)p).triggerAchievement(MainRegistry.achSpace);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.achSpace);\n"
+        },
+        {
+          "before_offset": 3021,
+          "after_offset": 3069,
+          "old": "\t\t\t\t\t\t((EntityPlayer)p).triggerAchievement(MainRegistry.achFOEQ);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.achFOEQ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java": {
+      "before_sha256": "6ea0aaa7372d9f5a5546883fc39c7cd78b947101473d54480a59ac6046c76c3d",
+      "after_sha256": "52541e62ce51352923ce04b1969060ebe885824725e82f7bc87a8bdcf822528d",
+      "edits": [
+        {
+          "before_offset": 2657,
+          "after_offset": 2657,
+          "old": "\t\t\tplayer.triggerAchievement(MainRegistry.bossCreeper);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossCreeper);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityMaskMan.java": {
+      "before_sha256": "9f2149c05c136e201ea691ee242aac30b259adcf828f140ad47ea77400b67b62",
+      "after_sha256": "a105462f2aad709e14292513ece0aed2c8e047b77bc9d2ac0d967e260e45a91f",
+      "edits": [
+        {
+          "before_offset": 3773,
+          "after_offset": 3773,
+          "old": "\t\t\tplayer.triggerAchievement(MainRegistry.bossMaskman);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossMaskman);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+      "before_sha256": "96af74113e3d0e884f55ec0d4d209cf746f92c451f5c5c72c252d0f8b593f4ea",
+      "after_sha256": "caae53a949bd99c29784b40c98ff63e1491c117991bf661708eb41e16b1b22b6",
+      "edits": [
+        {
+          "before_offset": 5445,
+          "after_offset": 5445,
+          "old": "\t\t\t\tplayer.triggerAchievement(MainRegistry.bossMeltdown);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossMeltdown);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "5381d077bf71893b5c0c8b7f34f948adaabbbf99e9b2100958c1990074a358e8",
+      "after_sha256": "b37c391caed1fe13552b2b6ad443c85990e964da5e1333c9762d84c8910b7f7f",
+      "edits": [
+        {
+          "before_offset": 8824,
+          "after_offset": 8824,
+          "old": "\t\t\t\tplayer.triggerAchievement(MainRegistry.bossUFO);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossUFO);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": {
+      "before_sha256": "e08107c7b7498e12e5567566b7c8db93b4e0f6a7bf62a9616e8340a56841a24a",
+      "after_sha256": "42e11197f0114cdf7a83a89c476d7b3dfd2492f937f1d5ceb132b8ec701346d2",
+      "edits": [
+        {
+          "before_offset": 4343,
+          "after_offset": 4343,
+          "old": "\t\t\tplayer.triggerAchievement(MainRegistry.bossWorm);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossWorm);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/extprop/HbmLivingProps.java": {
+      "before_sha256": "8a0cc905142741ba4765a31f87ec33b814d1bb41f7e2b2de424bb5e3c9d75aef",
+      "after_sha256": "2707d1c2b9716c349b98b2e94455c436627dc0954505ba6bfa3c0c353f16c746",
+      "edits": [
+        {
+          "before_offset": 6055,
+          "after_offset": 6055,
+          "old": "\t\t\t\t((EntityPlayer) entity).triggerAchievement(MainRegistry.digammaSee);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.digammaSee);\n"
+        },
+        {
+          "before_offset": 6144,
+          "after_offset": 6168,
+          "old": "\t\t\t\t((EntityPlayer) entity).triggerAchievement(MainRegistry.digammaFeel);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.digammaFeel);\n"
+        },
+        {
+          "before_offset": 6235,
+          "after_offset": 6283,
+          "old": "\t\t\t\t((EntityPlayer) entity).triggerAchievement(MainRegistry.digammaKnow);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.digammaKnow);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "e06920080861e58b43ddee3233b8a1d665113d6a0150994d83e6fa72061430cb",
+      "after_sha256": "6ed2319ba2f035a0615df18913528e7eb910e2bdf60f51aba6e9b081000800a0",
+      "edits": [
+        {
+          "before_offset": 10334,
+          "after_offset": 10334,
+          "old": "\t\t\tif(entity instanceof EntityPlayer) ((EntityPlayer) entity).triggerAchievement(MainRegistry.achRadDeath);\n",
+          "new": "\t\t\tif(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadDeath);\n"
+        },
+        {
+          "before_offset": 12095,
+          "after_offset": 12119,
+          "old": "\t\t\tif(entity instanceof EntityPlayer) ((EntityPlayer) entity).triggerAchievement(MainRegistry.achRadPoison);\n",
+          "new": "\t\t\tif(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadPoison);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/SlotSmelting.java": {
+      "before_sha256": "62ab3ebbbe81a04f959ced2e02cb29ac01c908f1950648e486a31254ea6afcb5",
+      "after_sha256": "fb670124ad09f9ab0b8361012fbf8dfa3f2e7c636f37c440870eef5aed223adb",
+      "edits": [
+        {
+          "before_offset": 178,
+          "after_offset": 178,
+          "old": "import net.minecraft.init.Items;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 379,
+          "after_offset": 346,
+          "old": "import net.minecraft.stats.AchievementList;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 856,
+          "after_offset": 779,
+          "old": "\t\t\tthis.itemCountBuffer += Math.min(amount, this.getStack().stackSize);\n",
+          "new": "\t\t\tthis.itemCountBuffer += Math.min(amount, this.getStack().getCount());\n"
+        },
+        {
+          "before_offset": 977,
+          "after_offset": 901,
+          "old": "\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n",
+          "new": "\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n"
+        },
+        {
+          "before_offset": 1073,
+          "after_offset": 992,
+          "old": "\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\treturn super.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 1291,
+          "after_offset": 1207,
+          "old": "\t\tstack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.itemCountBuffer);\n",
+          "new": "\t\tstack.onCrafting(this.thePlayer.world, this.thePlayer, this.itemCountBuffer);\n"
+        },
+        {
+          "before_offset": 1375,
+          "after_offset": 1288,
+          "old": "\t\tif(!this.thePlayer.worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.thePlayer.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 1459,
+          "after_offset": 1369,
+          "old": "\t\t\tfloat exp = FurnaceRecipes.smelting().func_151398_b(stack);\n",
+          "new": "\t\t\tfloat exp = FurnaceRecipes.instance().getSmeltingExperience(stack);\n"
+        },
+        {
+          "before_offset": 1613,
+          "after_offset": 1531,
+          "old": "\t\t\t\tremainingExp = MathHelper.floor_float((float) buffer * exp);\n",
+          "new": "\t\t\t\tremainingExp = MathHelper.floor((float) buffer * exp);\n"
+        },
+        {
+          "before_offset": 1679,
+          "after_offset": 1591,
+          "old": "\t\t\t\tif(remainingExp < MathHelper.ceiling_float_int((float) buffer * exp) && (float) Math.random() < (float) buffer * exp - (float) remainingExp) {\n",
+          "new": "\t\t\t\tif(remainingExp < MathHelper.ceil((float) buffer * exp) && (float) Math.random() < (float) buffer * exp - (float) remainingExp) {\n"
+        },
+        {
+          "before_offset": 1989,
+          "after_offset": 1888,
+          "old": "\t\t\t\tthis.thePlayer.worldObj.spawnEntityInWorld(new EntityXPOrb(this.thePlayer.worldObj, this.thePlayer.posX, this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, remainingExp));\n",
+          "new": "\t\t\t\tthis.thePlayer.world.spawnEntity(new EntityXPOrb(this.thePlayer.world, this.thePlayer.posX, this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, remainingExp));\n"
+        },
+        {
+          "before_offset": 2282,
+          "after_offset": 2168,
+          "old": "\t\tif(stack.getItem() == Items.iron_ingot) {\n\t\t\tthis.thePlayer.addStat(AchievementList.acquireIron, 1);\n\t\t}\n\n\t\tif(stack.getItem() == Items.cooked_fished) {\n\t\t\tthis.thePlayer.addStat(AchievementList.cookFish, 1);\n\t\t}\n",
+          "new": "\t\t// The native smelt event above owns both legacy iron/fish gates exactly once.\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java": {
+      "before_sha256": "4f2c62e41723bbb87732fcb11617f4bee61aae68367d65f565c4df67df0a9b1e",
+      "after_sha256": "7113cb601a6412eb50ffb1bd3cc90e0443e9f5d469cdad45d1ceb11c381c92bc",
+      "edits": [
+        {
+          "before_offset": 729,
+          "after_offset": 729,
+          "old": "import net.minecraft.stats.Achievement;\nimport net.minecraft.stats.AchievementList;\n",
+          "new": "import net.minecraft.util.ResourceLocation;\n"
+        },
+        {
+          "before_offset": 8141,
+          "after_offset": 8101,
+          "old": "\t\t\t\t\tgui.itemRender.renderItemAndEffectIntoGUI(gui.fontRendererObj, gui.mc.getTextureManager(), requirement.achievement.theItemStack, x + 1, y + 1);\n",
+          "new": "\t\t\t\t\tgui.itemRender.renderItemAndEffectIntoGUI(gui.fontRendererObj, gui.mc.getTextureManager(), com.hbm.advancement.NtmAdvancements.icon(requirement.achievement), x + 1, y + 1);\n"
+        },
+        {
+          "before_offset": 8366,
+          "after_offset": 8355,
+          "old": "\t\tNONE(AchievementList.openInventory),\n",
+          "new": "\t\tNONE(com.hbm.advancement.NtmAdvancements.OPEN_INVENTORY),\n"
+        },
+        {
+          "before_offset": 8623,
+          "after_offset": 8633,
+          "old": "\t\tprivate Requirement(Achievement achievement) {\n",
+          "new": "\t\tprivate Requirement(ResourceLocation achievement) {\n"
+        },
+        {
+          "before_offset": 8765,
+          "after_offset": 8780,
+          "old": "\t\t\treturn player.func_147099_x().hasAchievementUnlocked(achievement);\n",
+          "new": "\t\t\treturn com.hbm.advancement.NtmAdvancements.has(player, achievement);\n"
+        },
+        {
+          "before_offset": 8840,
+          "after_offset": 8857,
+          "old": "\t\tpublic Achievement achievement;\n",
+          "new": "\t\tpublic ResourceLocation achievement;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModKnife.java": {
+      "before_sha256": "98f45a3e557bf29958ea5e3a1176296be4565622dfdbac8ccc6ba46bae728b3e",
+      "after_sha256": "9fc9a12abb3f6396bc45159826056b07108e68f9683c54b3d2354f27f731d164",
+      "edits": [
+        {
+          "before_offset": 2822,
+          "after_offset": 2822,
+          "old": "\t\t\t\t\t\t((EntityPlayer)entity).triggerAchievement(MainRegistry.achSomeWounds);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)entity), MainRegistry.achSomeWounds);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemEnergy.java": {
+      "before_sha256": "ed5d2d0c2fa2ac9e14c3c8ca5858a8ada81b47fc8728d72ea14734a1acccbc94",
+      "after_sha256": "0fcead9733129649f889d08d83b31c6b859dcdb7da044b7989a55dc72e2885bc",
+      "edits": [
+        {
+          "before_offset": 8483,
+          "after_offset": 8483,
+          "old": "\t\t\t\tplayer.triggerAchievement(MainRegistry.achRadium);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRadium);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemCigarette.java": {
+      "before_sha256": "e9d932c9fa3856170dbf1810900c29f5523e271024ead7ef3f4289f9bd4c8de4",
+      "after_sha256": "35aed49da60fb5b2df64a622af1453eb0a9ee8478d482dba48f13fae39c4ed9b",
+      "edits": [
+        {
+          "before_offset": 1642,
+          "after_offset": 1642,
+          "old": "\t\t\t\t\tplayer.triggerAchievement(MainRegistry.achNo9);\n",
+          "new": "\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achNo9);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBoltgun.java": {
+      "before_sha256": "eabbe9c7fe9d7d391fe07135244e1183ef571182f9484154ec199df235ab659a",
+      "after_sha256": "6fb6ee76bcc917dfecae235c65c65e23be5de5cdf1634c206a4dc9f245959220",
+      "edits": [
+        {
+          "before_offset": 2448,
+          "after_offset": 2448,
+          "old": "\t\t\t\t\t\t\t\t((EntityPlayer) entity).triggerAchievement(MainRegistry.achGoFish);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achGoFish);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "f00ef7e850d9ec136e87566be65c7d48de65c3a57de1c1b0b834287eae45842a",
+      "after_sha256": "bd45d385eec2d39dcc2b70c872bba7994b7c8c1fb5e3d7e9a303a7ddfe064c5e",
+      "edits": [
+        {
+          "before_offset": 7608,
+          "after_offset": 7608,
+          "old": "\t\t\t\t((EntityPlayer) entity).triggerAchievement(MainRegistry.achFiend);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achFiend);\n"
+        },
+        {
+          "before_offset": 7743,
+          "after_offset": 7767,
+          "old": "\t\t\t\t((EntityPlayer) entity).triggerAchievement(MainRegistry.achFiend2);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achFiend2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/lib/Library.java": {
+      "before_sha256": "5cbab4ad946b3f465a56d3f984fe0f81731801984c27ed0d70b6de00e484327b",
+      "after_sha256": "c06802c6368e5cadad3cf6dc064e84d218d4c6cf7c8d9d89a0d83ddc2569fc67",
+      "edits": [
+        {
+          "before_offset": 2878,
+          "after_offset": 2878,
+          "old": "\t\tBlock b = world.getBlock(x, y, z);\n",
+          "new": "\t\tBlock b = world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();\n"
+        },
+        {
+          "before_offset": 3141,
+          "after_offset": 3195,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "767f2ad46deaccfd4a65d17da98b4d8dbe48cdfaee77024afaf014c542ac712e",
+      "after_sha256": "872d544db9cb6413c6d1af20150ca2d2151271b3be68feab2eec48fdb3845f50",
+      "edits": [
+        {
+          "before_offset": 36721,
+          "after_offset": 36721,
+          "old": "",
+          "new": "        MinecraftForge.EVENT_BUS.register(new com.hbm.advancement.client.LegacyInventoryActionHandler(\n                () -> com.hbm.packet.PacketDispatcher.wrapper.sendToServer(new com.hbm.packet.toserver.LegacyInventoryActionPacket())));\n"
+        },
+        {
+          "before_offset": 77556,
+          "after_offset": 77796,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderTestPipe());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/MainRegistry.java": {
+      "before_sha256": "228c525cf05ca6cb7611c54a993f62217bbcb600d6923252a1e5fa686ec5d536",
+      "after_sha256": "8d8c6b26cb81cd8bc9bc8aa89fb81f93490346a2699413516c2a8b776aa5295d",
+      "edits": [
+        {
+          "before_offset": 2887,
+          "after_offset": 2887,
+          "old": "import net.minecraft.stats.Achievement;\r\n",
+          "new": "import net.minecraft.util.ResourceLocation;\r\nimport com.hbm.advancement.NtmAdvancements;\r\n"
+        },
+        {
+          "before_offset": 3198,
+          "after_offset": 3247,
+          "old": "import net.minecraftforge.common.AchievementPage;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 10312,
+          "after_offset": 10310,
+          "old": "\tpublic static Achievement achSacrifice;\r\n\tpublic static Achievement achImpossible;\r\n\tpublic static Achievement achTOB;\r\n\tpublic static Achievement achPotato;\r\n\tpublic static Achievement achC20_5;\r\n\tpublic static Achievement achFiend;\r\n\tpublic static Achievement achFiend2;\r\n\tpublic static Achievement achRadPoison;\r\n\tpublic static Achievement achRadDeath;\r\n\tpublic static Achievement achStratum;\r\n\tpublic static Achievement achOmega12;\r\n\tpublic static Achievement achSomeWounds;\r\n\tpublic static Achievement achSlimeball;\r\n\tpublic static Achievement achSulfuric;\r\n\tpublic static Achievement achGoFish;\r\n\tpublic static Achievement achNo9;\r\n\tpublic static Achievement achInferno;\r\n\tpublic static Achievement achRedRoom;\r\n\tpublic static Achievement bobHidden;\r\n\tpublic static Achievement horizonsStart;\r\n\tpublic static Achievement horizonsEnd;\r\n\tpublic static Achievement horizonsBonus;\r\n\tpublic static Achievement bossCreeper;\r\n\tpublic static Achievement bossMeltdown;\r\n\tpublic static Achievement bossMaskman;\r\n\tpublic static Achievement bossWorm;\r\n\tpublic static Achievement bossUFO;\r\n\tpublic static Achievement digammaSee;\r\n\tpublic static Achievement digammaFeel;\r\n\tpublic static Achievement digammaKnow;\r\n\tpublic static Achievement digammaKauaiMoho;\r\n\tpublic static Achievement digammaUpOnTop;\r\n\tpublic static Achievement rotConsum;\r\n",
+          "new": "\tpublic static ResourceLocation achSacrifice;\r\n\tpublic static ResourceLocation achImpossible;\r\n\tpublic static ResourceLocation achTOB;\r\n\tpublic static ResourceLocation achPotato;\r\n\tpublic static ResourceLocation achC20_5;\r\n\tpublic static ResourceLocation achFiend;\r\n\tpublic static ResourceLocation achFiend2;\r\n\tpublic static ResourceLocation achRadPoison;\r\n\tpublic static ResourceLocation achRadDeath;\r\n\tpublic static ResourceLocation achStratum;\r\n\tpublic static ResourceLocation achOmega12;\r\n\tpublic static ResourceLocation achSomeWounds;\r\n\tpublic static ResourceLocation achSlimeball;\r\n\tpublic static ResourceLocation achSulfuric;\r\n\tpublic static ResourceLocation achGoFish;\r\n\tpublic static ResourceLocation achNo9;\r\n\tpublic static ResourceLocation achInferno;\r\n\tpublic static ResourceLocation achRedRoom;\r\n\tpublic static ResourceLocation bobHidden;\r\n\tpublic static ResourceLocation horizonsStart;\r\n\tpublic static ResourceLocation horizonsEnd;\r\n\tpublic static ResourceLocation horizonsBonus;\r\n\tpublic static ResourceLocation bossCreeper;\r\n\tpublic static ResourceLocation bossMeltdown;\r\n\tpublic static ResourceLocation bossMaskman;\r\n\tpublic static ResourceLocation bossWorm;\r\n\tpublic static ResourceLocation bossUFO;\r\n\tpublic static ResourceLocation digammaSee;\r\n\tpublic static ResourceLocation digammaFeel;\r\n\tpublic static ResourceLocation digammaKnow;\r\n\tpublic static ResourceLocation digammaKauaiMoho;\r\n\tpublic static ResourceLocation digammaUpOnTop;\r\n\tpublic static ResourceLocation rotConsum;\r\n"
+        },
+        {
+          "before_offset": 11649,
+          "after_offset": 11812,
+          "old": "\tpublic static Achievement achBurnerPress;\r\n\tpublic static Achievement achBlastFurnace;\r\n\tpublic static Achievement achAssembly;\r\n\tpublic static Achievement achSelenium;\r\n\tpublic static Achievement achChemplant;\r\n\tpublic static Achievement achConcrete;\r\n\tpublic static Achievement achPolymer;\r\n\tpublic static Achievement achDesh;\r\n\tpublic static Achievement achTantalum;\r\n\tpublic static Achievement achRedBalloons;\r\n\tpublic static Achievement achManhattan;\r\n\tpublic static Achievement achGasCent;\r\n\tpublic static Achievement achCentrifuge;\r\n\tpublic static Achievement achFOEQ;\r\n\tpublic static Achievement achSoyuz;\r\n\tpublic static Achievement achSpace;\r\n\tpublic static Achievement achSchrab;\r\n\tpublic static Achievement achAcidizer;\r\n\tpublic static Achievement achRadium;\r\n\tpublic static Achievement achTechnetium;\r\n\tpublic static Achievement achZIRNOXBoom;\r\n\tpublic static Achievement achChicagoPile;\r\n\tpublic static Achievement achSILEX;\r\n\tpublic static Achievement achWatz;\r\n\tpublic static Achievement achWatzBoom;\r\n\tpublic static Achievement achRBMK;\r\n\tpublic static Achievement achRBMKBoom;\r\n\tpublic static Achievement achBismuth;\r\n\tpublic static Achievement achBreeding;\r\n\tpublic static Achievement achFusion;\r\n\tpublic static Achievement achDriveFail;\r\n",
+          "new": "\tpublic static ResourceLocation achBurnerPress;\r\n\tpublic static ResourceLocation achBlastFurnace;\r\n\tpublic static ResourceLocation achAssembly;\r\n\tpublic static ResourceLocation achSelenium;\r\n\tpublic static ResourceLocation achChemplant;\r\n\tpublic static ResourceLocation achConcrete;\r\n\tpublic static ResourceLocation achPolymer;\r\n\tpublic static ResourceLocation achDesh;\r\n\tpublic static ResourceLocation achTantalum;\r\n\tpublic static ResourceLocation achRedBalloons;\r\n\tpublic static ResourceLocation achManhattan;\r\n\tpublic static ResourceLocation achGasCent;\r\n\tpublic static ResourceLocation achCentrifuge;\r\n\tpublic static ResourceLocation achFOEQ;\r\n\tpublic static ResourceLocation achSoyuz;\r\n\tpublic static ResourceLocation achSpace;\r\n\tpublic static ResourceLocation achSchrab;\r\n\tpublic static ResourceLocation achAcidizer;\r\n\tpublic static ResourceLocation achRadium;\r\n\tpublic static ResourceLocation achTechnetium;\r\n\tpublic static ResourceLocation achZIRNOXBoom;\r\n\tpublic static ResourceLocation achChicagoPile;\r\n\tpublic static ResourceLocation achSILEX;\r\n\tpublic static ResourceLocation achWatz;\r\n\tpublic static ResourceLocation achWatzBoom;\r\n\tpublic static ResourceLocation achRBMK;\r\n\tpublic static ResourceLocation achRBMKBoom;\r\n\tpublic static ResourceLocation achBismuth;\r\n\tpublic static ResourceLocation achBreeding;\r\n\tpublic static ResourceLocation achFusion;\r\n\tpublic static ResourceLocation achDriveFail;\r\n"
+        },
+        {
+          "before_offset": 19505,
+          "after_offset": 19823,
+          "old": "\t\tachSacrifice = new Achievement(\"achievement.sacrifice\", \"sacrifice\", -3, 1, ModItems.burnt_bark, null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachImpossible = new Achievement(\"achievement.impossible\", \"impossible\", 18, 10, ModItems.nothing, null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachTOB = new Achievement(\"achievement.tasteofblood\", \"tasteofblood\", 3, 10, new ItemStack(ModItems.fluid_icon, 1, Fluids.ASCHRAB.getID()), null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachGoFish = new Achievement(\"achievement.goFish\", \"goFish\", 5, 10, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.GOFISH), null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachPotato = new Achievement(\"achievement.potato\", \"potato\", -2, -2, ModItems.battery_potatos, null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachC20_5 = new Achievement(\"achievement.c20_5\", \"c20_5\", 3, 6, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.QUESTIONMARK), null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachFiend = new Achievement(\"achievement.fiend\", \"fiend\", -6, 8, ModItems.shimmer_sledge, null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachFiend2 = new Achievement(\"achievement.fiend2\", \"fiend2\", -4, 9, ModItems.shimmer_axe, null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachStratum = new Achievement(\"achievement.stratum\", \"stratum\", -4, -2, new ItemStack(ModBlocks.stone_gneiss), null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachOmega12 = new Achievement(\"achievement.omega12\", \"omega12\", 17, -1, ModItems.particle_digamma, null).initIndependentStat().setSpecial().registerStat();\r\n",
+          "new": "\t\tachSacrifice = NtmAdvancements.id(\"sacrifice\");\r\n\t\tachImpossible = NtmAdvancements.id(\"impossible\");\r\n\t\tachTOB = NtmAdvancements.id(\"tasteofblood\");\r\n\t\tachGoFish = NtmAdvancements.id(\"goFish\");\r\n\t\tachPotato = NtmAdvancements.id(\"potato\");\r\n\t\tachC20_5 = NtmAdvancements.id(\"c20_5\");\r\n\t\tachFiend = NtmAdvancements.id(\"fiend\");\r\n\t\tachFiend2 = NtmAdvancements.id(\"fiend2\");\r\n\t\tachStratum = NtmAdvancements.id(\"stratum\");\r\n\t\tachOmega12 = NtmAdvancements.id(\"omega12\");\r\n"
+        },
+        {
+          "before_offset": 21205,
+          "after_offset": 20292,
+          "old": "\t\tachNo9 = new Achievement(\"achievement.no9\", \"no9\", -8, 12, ModItems.no9, null).initIndependentStat().registerStat();\r\n\t\tachSlimeball = new Achievement(\"achievement.slimeball\", \"slimeball\", -10, 6, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.ACID), null).initIndependentStat().registerStat();\r\n\t\tachSulfuric = new Achievement(\"achievement.sulfuric\", \"sulfuric\", -10, 8, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.BALLS), achSlimeball).initIndependentStat().setSpecial().registerStat();\r\n\t\tachInferno = new Achievement(\"achievement.inferno\", \"inferno\", -8, 10, ModItems.canister_napalm, null).initIndependentStat().setSpecial().registerStat();\r\n\t\tachRedRoom = new Achievement(\"achievement.redRoom\", \"redRoom\", -10, 10, ModItems.key_red, null).initIndependentStat().setSpecial().registerStat();\r\n",
+          "new": "\t\tachNo9 = NtmAdvancements.id(\"no9\");\r\n\t\tachSlimeball = NtmAdvancements.id(\"slimeball\");\r\n\t\tachSulfuric = NtmAdvancements.id(\"sulfuric\");\r\n\t\tachInferno = NtmAdvancements.id(\"inferno\");\r\n\t\tachRedRoom = NtmAdvancements.id(\"redRoom\");\r\n"
+        },
+        {
+          "before_offset": 22045,
+          "after_offset": 20527,
+          "old": "\t\tbobHidden = new Achievement(\"achievement.hidden\", \"hidden\", 15, -4, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.QUESTIONMARK), null).initIndependentStat().registerStat();\r\n",
+          "new": "\t\tbobHidden = NtmAdvancements.id(\"hidden\");\r\n"
+        },
+        {
+          "before_offset": 22242,
+          "after_offset": 20574,
+          "old": "\t\thorizonsStart = new Achievement(\"achievement.horizonsStart\", \"horizonsStart\", -5, 4, ModItems.sat_gerald, null).initIndependentStat().registerStat();\r\n\t\thorizonsEnd = new Achievement(\"achievement.horizonsEnd\", \"horizonsEnd\", -3, 4, ModItems.sat_gerald, horizonsStart).initIndependentStat().registerStat();\r\n\t\thorizonsBonus = new Achievement(\"achievement.horizonsBonus\", \"horizonsBonus\", -1, 4, ModItems.sat_gerald, horizonsEnd).initIndependentStat().registerStat().setSpecial();\r\n",
+          "new": "\t\thorizonsStart = NtmAdvancements.id(\"horizonsStart\");\r\n\t\thorizonsEnd = NtmAdvancements.id(\"horizonsEnd\");\r\n\t\thorizonsBonus = NtmAdvancements.id(\"horizonsBonus\");\r\n"
+        },
+        {
+          "before_offset": 22726,
+          "after_offset": 20740,
+          "old": "\t\tbossCreeper = new Achievement(\"achievement.bossCreeper\", \"bossCreeper\", -7, 1, ModItems.coin_creeper, null).initIndependentStat().registerStat();\r\n\t\tbossMeltdown = new Achievement(\"achievement.bossMeltdown\", \"bossMeltdown\", -8, 3, ModItems.coin_radiation, bossCreeper).initIndependentStat().registerStat();\r\n\t\tbossMaskman = new Achievement(\"achievement.bossMaskman\", \"bossMaskman\", -8, -1, ModItems.coin_maskman, bossCreeper).initIndependentStat().registerStat();\r\n\t\tbossWorm = new Achievement(\"achievement.bossWorm\", \"bossWorm\", -8, -3, ModItems.coin_worm, bossMaskman).initIndependentStat().registerStat().setSpecial();\r\n\t\tbossUFO = new Achievement(\"achievement.bossUFO\", \"bossUFO\", -6, -3, ModItems.coin_ufo, bossWorm).initIndependentStat().registerStat().setSpecial();\r\n",
+          "new": "\t\tbossCreeper = NtmAdvancements.id(\"bossCreeper\");\r\n\t\tbossMeltdown = NtmAdvancements.id(\"bossMeltdown\");\r\n\t\tbossMaskman = NtmAdvancements.id(\"bossMaskman\");\r\n\t\tbossWorm = NtmAdvancements.id(\"bossWorm\");\r\n\t\tbossUFO = NtmAdvancements.id(\"bossUFO\");\r\n"
+        },
+        {
+          "before_offset": 23504,
+          "after_offset": 20990,
+          "old": "\t\tachRadPoison = new Achievement(\"achievement.radPoison\", \"radPoison\", -2, 6, ModItems.geiger_counter, null).initIndependentStat().registerStat();\r\n\t\tachRadDeath = new Achievement(\"achievement.radDeath\", \"radDeath\", 0, 6, Items.skull, achRadPoison).initIndependentStat().registerStat().setSpecial();\r\n",
+          "new": "\t\tachRadPoison = NtmAdvancements.id(\"radPoison\");\r\n\t\tachRadDeath = NtmAdvancements.id(\"radDeath\");\r\n"
+        },
+        {
+          "before_offset": 23807,
+          "after_offset": 21092,
+          "old": "\t\tachSomeWounds = new Achievement(\"achievement.someWounds\", \"someWounds\", -2, 10, ModItems.injector_knife, null).initIndependentStat().registerStat();\r\n",
+          "new": "\t\tachSomeWounds = NtmAdvancements.id(\"someWounds\");\r\n"
+        },
+        {
+          "before_offset": 23961,
+          "after_offset": 21147,
+          "old": "\t\tdigammaSee = new Achievement(\"achievement.digammaSee\", \"digammaSee\", -1, 8, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.DIGAMMASEE), null).initIndependentStat().registerStat();\r\n\t\tdigammaFeel = new Achievement(\"achievement.digammaFeel\", \"digammaFeel\", 1, 8, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.DIGAMMAFEEL), digammaSee).initIndependentStat().registerStat();\r\n\t\tdigammaKnow = new Achievement(\"achievement.digammaKnow\", \"digammaKnow\", 3, 8, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.DIGAMMAKNOW), digammaFeel).initIndependentStat().registerStat().setSpecial();\r\n\t\tdigammaKauaiMoho = new Achievement(\"achievement.digammaKauaiMoho\", \"digammaKauaiMoho\", 5, 8, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.DIGAMMAKAUAIMOHO), digammaKnow).initIndependentStat().registerStat().setSpecial();\r\n\t\tdigammaUpOnTop = new Achievement(\"achievement.digammaUpOnTop\", \"digammaUpOnTop\", 7, 8, DictFrame.fromOne(ModItems.achievement_icon, EnumAchievementType.DIGAMMAUPONTOP), digammaKauaiMoho).initIndependentStat().registerStat().setSpecial();\r\n",
+          "new": "\t\tdigammaSee = NtmAdvancements.id(\"digammaSee\");\r\n\t\tdigammaFeel = NtmAdvancements.id(\"digammaFeel\");\r\n\t\tdigammaKnow = NtmAdvancements.id(\"digammaKnow\");\r\n\t\tdigammaKauaiMoho = NtmAdvancements.id(\"digammaKauaiMoho\");\r\n\t\tdigammaUpOnTop = NtmAdvancements.id(\"digammaUpOnTop\");\r\n"
+        },
+        {
+          "before_offset": 25266,
+          "after_offset": 21606,
+          "old": "\t\tachBurnerPress = new Achievement(\"achievement.burnerPress\", \"burnerPress\", 0, 0, new ItemStack(ModBlocks.machine_press), null).initIndependentStat().registerStat();\r\n\t\tachBlastFurnace = new Achievement(\"achievement.blastFurnace\", \"blastFurnace\", 1, 3, new ItemStack(ModBlocks.machine_difurnace_off), achBurnerPress).initIndependentStat().registerStat();\r\n\t\tachAssembly = new Achievement(\"achievement.assembly\", \"assembly\", 3, -1, new ItemStack(ModBlocks.machine_assembly_machine), achBurnerPress).initIndependentStat().registerStat();\r\n\t\tachSelenium = new Achievement(\"achievement.selenium\", \"selenium\", 3, 2, ModItems.ingot_starmetal, achBurnerPress).initIndependentStat().setSpecial().registerStat();\r\n\t\tachChemplant = new Achievement(\"achievement.chemplant\", \"chemplant\", 6, -1, new ItemStack(ModBlocks.machine_chemical_plant), achAssembly).initIndependentStat().registerStat();\r\n\t\tachConcrete\t= new Achievement(\"achievement.concrete\", \"concrete\", 6, -4, new ItemStack(ModBlocks.concrete), achChemplant).initIndependentStat().registerStat();\r\n\t\tachPolymer = new Achievement(\"achievement.polymer\", \"polymer\", 9, -1, ModItems.ingot_polymer, achChemplant).initIndependentStat().registerStat();\r\n\t\tachDesh = new Achievement(\"achievement.desh\", \"desh\", 9, 2, ModItems.ingot_desh, achChemplant).initIndependentStat().registerStat();\r\n\t\tachTantalum = new Achievement(\"achievement.tantalum\", \"tantalum\", 7, 3, ModItems.gem_tantalium, achChemplant).initIndependentStat().setSpecial().registerStat();\r\n\t\tachGasCent = new Achievement(\"achievement.gasCent\", \"gasCent\", 13, 2, ModItems.ingot_uranium_fuel, achDesh).initIndependentStat().registerStat();\r\n\t\tachCentrifuge = new Achievement(\"achievement.centrifuge\", \"centrifuge\", 12, -2, new ItemStack(ModBlocks.machine_centrifuge), achPolymer).initIndependentStat().registerStat();\r\n\t\tachDriveFail = new Achievement(\"achievement.driveFail\", \"driveFail\", 8, -3, new ItemStack(ModItems.full_drive), achPolymer).initIndependentStat().setSpecial().registerStat();\r\n\t\tachFOEQ = new Achievement(\"achievement.FOEQ\", \"FOEQ\", 5, 5, ModItems.sat_foeq, achDesh).initIndependentStat().setSpecial().registerStat();\r\n\t\tachSoyuz = new Achievement(\"achievement.soyuz\", \"soyuz\", 7, 6, Items.baked_potato, achDesh).initIndependentStat().setSpecial().registerStat();\r\n\t\tachSpace = new Achievement(\"achievement.space\", \"space\", 9, 7, ModItems.missile_soyuz, achDesh).initIndependentStat().setSpecial().registerStat();\r\n\t\tachSchrab = new Achievement(\"achievement.schrab\", \"schrab\", 11, 3, ModItems.ingot_schrabidium, achDesh).initIndependentStat().registerStat();\r\n\t\tachAcidizer = new Achievement(\"achievement.acidizer\", \"acidizer\", 11, 5, new ItemStack(ModBlocks.machine_crystallizer), achDesh).initIndependentStat().registerStat();\r\n\t\tachRadium = new Achievement(\"achievement.radium\", \"radium\", 13, -4, ModItems.coffee_radium, achCentrifuge).initIndependentStat().setSpecial().registerStat();\r\n\t\tachTechnetium = new Achievement(\"achievement.technetium\", \"technetium\", 15, -2, ModItems.ingot_tcalloy, achCentrifuge).initIndependentStat().registerStat();\r\n\t\tachZIRNOXBoom = new Achievement(\"achievement.ZIRNOXBoom\", \"ZIRNOXBoom\", 14, -1, ModItems.debris_element, achCentrifuge).initIndependentStat().setSpecial().registerStat();\r\n\t\tachChicagoPile = new Achievement(\"achievement.chicagoPile\", \"chicagoPile\", 13, 0, ModItems.pile_rod_plutonium, achCentrifuge).initIndependentStat().registerStat();\r\n\t\tachSILEX = new Achievement(\"achievement.SILEX\", \"SILEX\", 12, 7, new ItemStack(ModBlocks.machine_silex), achAcidizer).initIndependentStat().registerStat();\r\n\t\tachWatz = new Achievement(\"achievement.watz\", \"watz\", 14, 3, ModItems.watz_pellet, achSchrab).initIndependentStat().registerStat();\r\n\t\tachWatzBoom = new Achievement(\"achievement.watzBoom\", \"watzBoom\", 14, 5, ModItems.bucket_mud, achWatz).initIndependentStat().setSpecial().registerStat();\r\n\t\tachRBMK = new Achievement(\"achievement.RBMK\", \"RBMK\", 9, -5, ModItems.rbmk_fuel_ueu, achConcrete).initIndependentStat().registerStat();\r\n\t\tachRBMKBoom = new Achievement(\"achievement.RBMKBoom\", \"RBMKBoom\", 9, -7, ModItems.debris_fuel, achRBMK).initIndependentStat().setSpecial().registerStat();\r\n\t\tachBismuth = new Achievement(\"achievement.bismuth\", \"bismuth\", 11, -6, ModItems.ingot_bismuth, achRBMK).initIndependentStat().registerStat();\r\n\t\tachBreeding = new Achievement(\"achievement.breeding\", \"breeding\", 7, -6, ModItems.ingot_am_mix, achRBMK).initIndependentStat().setSpecial().registerStat();\r\n\t\tachFusion = new Achievement(\"achievement.fusion\", \"fusion\", 13, -7, new ItemStack(ModBlocks.iter), achBismuth).initIndependentStat().setSpecial().registerStat();\r\n\t\tachRedBalloons = new Achievement(\"achievement.redBalloons\", \"redBalloons\", 11, 0, ModItems.missile_nuclear, achPolymer).initIndependentStat().setSpecial().registerStat();\r\n\t\tachManhattan = new Achievement(\"achievement.manhattan\", \"manhattan\", 11, -4, new ItemStack(ModBlocks.nuke_boy), achPolymer).initIndependentStat().setSpecial().registerStat();\r\n",
+          "new": "\t\tachBurnerPress = NtmAdvancements.id(\"burnerPress\");\r\n\t\tachBlastFurnace = NtmAdvancements.id(\"blastFurnace\");\r\n\t\tachAssembly = NtmAdvancements.id(\"assembly\");\r\n\t\tachSelenium = NtmAdvancements.id(\"selenium\");\r\n\t\tachChemplant = NtmAdvancements.id(\"chemplant\");\r\n\t\tachConcrete = NtmAdvancements.id(\"concrete\");\r\n\t\tachPolymer = NtmAdvancements.id(\"polymer\");\r\n\t\tachDesh = NtmAdvancements.id(\"desh\");\r\n\t\tachTantalum = NtmAdvancements.id(\"tantalum\");\r\n\t\tachGasCent = NtmAdvancements.id(\"gasCent\");\r\n\t\tachCentrifuge = NtmAdvancements.id(\"centrifuge\");\r\n\t\tachDriveFail = NtmAdvancements.id(\"driveFail\");\r\n\t\tachFOEQ = NtmAdvancements.id(\"FOEQ\");\r\n\t\tachSoyuz = NtmAdvancements.id(\"soyuz\");\r\n\t\tachSpace = NtmAdvancements.id(\"space\");\r\n\t\tachSchrab = NtmAdvancements.id(\"schrab\");\r\n\t\tachAcidizer = NtmAdvancements.id(\"acidizer\");\r\n\t\tachRadium = NtmAdvancements.id(\"radium\");\r\n\t\tachTechnetium = NtmAdvancements.id(\"technetium\");\r\n\t\tachZIRNOXBoom = NtmAdvancements.id(\"ZIRNOXBoom\");\r\n\t\tachChicagoPile = NtmAdvancements.id(\"chicagoPile\");\r\n\t\tachSILEX = NtmAdvancements.id(\"SILEX\");\r\n\t\tachWatz = NtmAdvancements.id(\"watz\");\r\n\t\tachWatzBoom = NtmAdvancements.id(\"watzBoom\");\r\n\t\tachRBMK = NtmAdvancements.id(\"RBMK\");\r\n\t\tachRBMKBoom = NtmAdvancements.id(\"RBMKBoom\");\r\n\t\tachBismuth = NtmAdvancements.id(\"bismuth\");\r\n\t\tachBreeding = NtmAdvancements.id(\"breeding\");\r\n\t\tachFusion = NtmAdvancements.id(\"fusion\");\r\n\t\tachRedBalloons = NtmAdvancements.id(\"redBalloons\");\r\n\t\tachManhattan = NtmAdvancements.id(\"manhattan\");\r\n"
+        },
+        {
+          "before_offset": 30253,
+          "after_offset": 23103,
+          "old": "\t\tAchievementPage.registerAchievementPage(new AchievementPage(\"Nuclear Tech\", new Achievement[] {\r\n\t\t\tachSacrifice,\r\n\t\t\tachImpossible,\r\n\t\t\tachTOB,\r\n\t\t\tachGoFish,\r\n\t\t\tachPotato,\r\n\t\t\tachC20_5,\r\n\t\t\tachFiend,\r\n\t\t\tachFiend2,\r\n\t\t\tachStratum,\r\n\t\t\tachOmega12,\r\n\t\t\tbobHidden,\r\n\t\t\thorizonsStart,\r\n\t\t\thorizonsEnd,\r\n\t\t\thorizonsBonus,\r\n\t\t\tachRadPoison,\r\n\t\t\tachRadDeath,\r\n\t\t\tachNo9,\r\n\t\t\tachInferno,\r\n\t\t\tachRedRoom,\r\n\t\t\tachSlimeball,\r\n\t\t\tachSulfuric,\r\n\t\t\tbossCreeper,\r\n\t\t\tbossMeltdown,\r\n\t\t\tbossMaskman,\r\n\t\t\tbossWorm,\r\n\t\t\tbossUFO,\r\n\t\t\tachSomeWounds,\r\n\t\t\tdigammaSee,\r\n\t\t\tdigammaFeel,\r\n\t\t\tdigammaKnow,\r\n\t\t\tdigammaKauaiMoho,\r\n\t\t\tdigammaUpOnTop,\r\n\r\n\t\t\tachBurnerPress,\r\n\t\t\tachBlastFurnace,\r\n\t\t\tachAssembly,\r\n\t\t\tachSelenium,\r\n\t\t\tachChemplant,\r\n\t\t\tachConcrete,\r\n\t\t\tachPolymer,\r\n\t\t\tachDesh,\r\n\t\t\tachTantalum,\r\n\t\t\tachGasCent,\r\n\t\t\tachCentrifuge,\r\n\t\t\tachDriveFail,\r\n\t\t\tachFOEQ,\r\n\t\t\tachSoyuz,\r\n\t\t\tachSpace,\r\n\t\t\tachSchrab,\r\n\t\t\tachAcidizer,\r\n\t\t\tachRadium,\r\n\t\t\tachTechnetium,\r\n\t\t\tachZIRNOXBoom,\r\n\t\t\tachChicagoPile,\r\n\t\t\tachSILEX,\r\n\t\t\tachWatz,\r\n\t\t\tachWatzBoom,\r\n\t\t\tachRBMK,\r\n\t\t\tachRBMKBoom,\r\n\t\t\tachBismuth,\r\n\t\t\tachBreeding,\r\n\t\t\tachFusion,\r\n\t\t\tachRedBalloons,\r\n\t\t\tachManhattan,\r\n\t\t}));\r\n",
+          "new": "\t\tNtmAdvancements.registerCounters();\r\n\t\tMinecraftForge.EVENT_BUS.register(new com.hbm.advancement.LegacyAchievementEvents());\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "ed602185a61318f5ecf3b1db3273692e7ca4fbff7bdb317e180ebbd3db68f70a",
+      "after_sha256": "2b9f2b081d7e9d3c705c24d87c463e2f8255a44f8dacfdb01c4e05d9f538ac8e",
+      "edits": [
+        {
+          "before_offset": 15693,
+          "after_offset": 15693,
+          "old": "\t\t\t\tplayer.triggerAchievement(MainRegistry.bobHidden);\n",
+          "new": "\t\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bobHidden);\n"
+        },
+        {
+          "before_offset": 61971,
+          "after_offset": 61995,
+          "old": "\t\t\tevent.player.triggerAchievement(MainRegistry.achSlimeball);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(event.player, MainRegistry.achSlimeball);\n"
+        },
+        {
+          "before_offset": 62106,
+          "after_offset": 62154,
+          "old": "\t\t\tevent.player.triggerAchievement(MainRegistry.rotConsum);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(event.player, MainRegistry.rotConsum);\n"
+        },
+        {
+          "before_offset": 62332,
+          "after_offset": 62404,
+          "old": "\t\tif(event.block == ModBlocks.stone_gneiss && !((EntityPlayerMP) player).func_147099_x().hasAchievementUnlocked(MainRegistry.achStratum)) {\n\t\t\tevent.getPlayer().triggerAchievement(MainRegistry.achStratum);\n",
+          "new": "\t\tif(event.block == ModBlocks.stone_gneiss && !com.hbm.advancement.NtmAdvancements.has(player, MainRegistry.achStratum)) {\n\t\t\tcom.hbm.advancement.NtmAdvancements.award(event.getPlayer(), MainRegistry.achStratum);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModSoundEvents.java": {
+      "before_sha256": "b47850a400b8dd57b666096cd6cfe108c04e21fc3bca135aecac4215d3e83a91",
+      "after_sha256": "350fa2e1be0cf1d77c771eec8cf018ab50d6e300f0c16026a588913751fa4703",
+      "edits": [
+        {
+          "before_offset": 54,
+          "after_offset": 54,
+          "old": "",
+          "new": "\nimport java.util.LinkedHashMap;\nimport java.util.Map;\n"
+        },
+        {
+          "before_offset": 380,
+          "after_offset": 435,
+          "old": "\tpublic static final SoundEvent SLICER = new SoundEvent(\n\t\t\tnew ResourceLocation(RefStrings.MODID, \"entity.slicer\"))\n\t\t\t\t.setRegistryName(RefStrings.MODID, \"entity.slicer\");\n",
+          "new": "\tprivate static final Map<ResourceLocation, SoundEvent> SOUNDS = new LinkedHashMap<>();\n"
+        },
+        {
+          "before_offset": 555,
+          "after_offset": 524,
+          "old": "\tpublic static final SoundEvent BLOCK_OPENC = new SoundEvent(\n\t\t\tnew ResourceLocation(RefStrings.MODID, \"block.openc\"))\n\t\t\t\t.setRegistryName(RefStrings.MODID, \"block.openc\");\n",
+          "new": "\tpublic static final SoundEvent SLICER = create(\"entity.slicer\");\n\tpublic static final SoundEvent BLOCK_OPENC = create(\"block.openc\");\n\tpublic static final SoundEvent BLOCK_CLOSEC = create(\"block.closec\");\n\tpublic static final SoundEvent STEP_METAL_BLOCK = create(\"step.metalBlock\");\n\tpublic static final SoundEvent BLOCK_PIPE_PLACED = create(\"block.pipePlaced\");\n\tpublic static final SoundEvent STEP_MORKITE = create(\"step.morkite\");\n"
+        },
+        {
+          "before_offset": 731,
+          "after_offset": 960,
+          "old": "\tpublic static final SoundEvent BLOCK_CLOSEC = new SoundEvent(\n\t\t\tnew ResourceLocation(RefStrings.MODID, \"block.closec\"))\n\t\t\t\t.setRegistryName(RefStrings.MODID, \"block.closec\");\n",
+          "new": "\tprivate static SoundEvent create(String path) {\n\t\t// Native ResourceLocation normalizes the original sound-event keys to lowercase,\n\t\t// just as SoundHandler does while loading sounds.json.\n\t\tResourceLocation name = new ResourceLocation(RefStrings.MODID, path);\n\t\tSoundEvent sound = new SoundEvent(name).setRegistryName(name);\n\t\tSOUNDS.put(name, sound);\n\t\treturn sound;\n\t}\n\n\t/** Resolve factory strings without creating unregistered events or a fallback sound. */\n\tpublic static SoundEvent resolve(String name) {\n\t\tResourceLocation location = new ResourceLocation(name);\n\t\t// Blocks are constructed in preInit, before the native sound registry event.\n\t\t// Keep the exact object that registerSounds will register later.\n\t\tSoundEvent sound = SOUNDS.get(location);\n\t\tif(sound == null) sound = SoundEvent.REGISTRY.getObject(location);\n\t\tif(sound == null) throw new IllegalArgumentException(\"Unregistered sound event: \" + name);\n\t\treturn sound;\n\t}\n"
+        },
+        {
+          "before_offset": 1037,
+          "after_offset": 2032,
+          "old": "\t\tevent.getRegistry().register(SLICER);\n\t\tevent.getRegistry().register(BLOCK_OPENC);\n\t\tevent.getRegistry().register(BLOCK_CLOSEC);\n",
+          "new": "\t\tfor(SoundEvent sound : SOUNDS.values()) event.getRegistry().register(sound);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/packet/PacketDispatcher.java": {
+      "before_sha256": "00b314f228ce7d2f74fc903ef418733cb1fe6951ce0bd920046a3708b8e4c68e",
+      "after_sha256": "c7aa4b7da5f757f9c0689509731b5738d8d6a9683939c63d857bcc19727b8fe8",
+      "edits": [
+        {
+          "before_offset": 5378,
+          "after_offset": 5378,
+          "old": "",
+          "new": "\n\t\t// Appended discriminator preserves every existing packet ID.\n\t\twrapper.registerMessage(LegacyInventoryActionPacket.Handler.class, LegacyInventoryActionPacket.class, i++, Side.SERVER);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/packet/toserver/ItemBobmazonPacket.java": {
+      "before_sha256": "7c3af068988df7777f2380a955e71ba6353e6e6047d96c480fb0b279d0ce10ea",
+      "after_sha256": "19200965e13ffce0f8c629e9537c351242da83a8c901795572f8982f8416dd05",
+      "edits": [
+        {
+          "before_offset": 685,
+          "after_offset": 685,
+          "old": "import net.minecraft.stats.Achievement;\n",
+          "new": "import net.minecraft.util.ResourceLocation;\n"
+        },
+        {
+          "before_offset": 2546,
+          "after_offset": 2550,
+          "old": "\t\t\tAchievement req = offer.requirement.achievement;\n\t\t\tif(req != null && p.func_147099_x().hasAchievementUnlocked(req) || p.capabilities.isCreativeMode) {\n",
+          "new": "\t\t\tResourceLocation req = offer.requirement.achievement;\n\t\t\tif(req != null && com.hbm.advancement.NtmAdvancements.has(p, req) || p.capabilities.isCreativeMode) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderTestPipe.java": {
+      "before_sha256": "04aa3dc789c6466afcb878994624087cb6218b7958c93900fe008a733c9906ab",
+      "after_sha256": "eaacddda07b3f091d8099868a689af5aecd6701d1980703c9fa8103ad456f370",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.ConnectionQuadFactory;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 337,
+          "old": "import com.hbm.blocks.network.FluidDuctStandard;\nimport com.hbm.inventory.fluid.FluidType;\nimport com.hbm.inventory.fluid.Fluids;\nimport com.hbm.lib.Library;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\nimport com.hbm.tileentity.network.TileEntityPipeBaseNT;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderTestPipe implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, metadata);\n\t\tIIcon overlay = block.getIcon(1, metadata);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\tGL11.glRotated(180, 0, 1, 0);\n\t\tGL11.glScaled(1.25D, 1.25D, 1.25D);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"pX\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"nX\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"pZ\", iicon, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"nZ\", iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.setColor(Fluids.NONE.getColor());\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"pX\", overlay, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"nX\", overlay, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"pZ\", overlay, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, \"nZ\", overlay, tessellator, 0, false);\n\t\tObjUtil.clearColor();\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tIIcon iicon = block.getIcon(0, meta);\n\t\tIIcon overlay = block.getIcon(1, meta);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\t\n\t\tint color = 0xff00ff;\n\t\tFluidType type = Fluids.NONE;\n\t\t\n\t\tif(te instanceof TileEntityPipeBaseNT) {\n\t\t\tTileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;\n\t\t\tcolor = pipe.getType().getColor();\n\t\t\ttype = pipe.getType();\n\t\t}\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tboolean pX = Library.canConnectFluid(world, x + 1, y, z, Library.POS_X, type);\n\t\tboolean nX = Library.canConnectFluid(world, x - 1, y, z, Library.NEG_X, type);\n\t\tboolean pY = Library.canConnectFluid(world, x, y + 1, z, Library.POS_Y, type);\n\t\tboolean nY = Library.canConnectFluid(world, x, y - 1, z, Library.NEG_Y, type);\n\t\tboolean pZ = Library.canConnectFluid(world, x, y, z + 1, Library.POS_Z, type);\n\t\tboolean nZ = Library.canConnectFluid(world, x, y, z - 1, Library.NEG_Z, type);\n\t\t\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\t\t\n\t\tif(mask == 0) {\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"pX\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"nX\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"pY\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"nY\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"pZ\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"nZ\");\n\t\t} else if(mask == 0b100000 || mask == 0b010000) {\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"pX\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"nX\");\n\t\t} else if(mask == 0b001000 || mask == 0b000100) {\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"pY\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"nY\");\n\t\t} else if(mask == 0b000010 || mask == 0b000001) {\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"pZ\");\n\t\t\trenderDuct(iicon, overlay, color, tessellator, \"nZ\");\n\t\t} else {\n\t\n\t\t\tif(pX) renderDuct(iicon, overlay, color, tessellator, \"pX\");\n\t\t\tif(nX) renderDuct(iicon, overlay, color, tessellator, \"nX\");\n\t\t\tif(pY) renderDuct(iicon, overlay, color, tessellator, \"pY\");\n\t\t\tif(nY) renderDuct(iicon, overlay, color, tessellator, \"nY\");\n\t\t\tif(pZ) renderDuct(iicon, overlay, color, tessellator, \"nZ\");\n\t\t\tif(nZ) renderDuct(iicon, overlay, color, tessellator, \"pZ\");\n\t\n\t\t\tif(!pX && !pY && !pZ) renderDuct(iicon, overlay, color, tessellator, \"ppn\");\n\t\t\tif(!pX && !pY && !nZ) renderDuct(iicon, overlay, color, tessellator, \"ppp\");\n\t\t\tif(!nX && !pY && !pZ) renderDuct(iicon, overlay, color, tessellator, \"npn\");\n\t\t\tif(!nX && !pY && !nZ) renderDuct(iicon, overlay, color, tessellator, \"npp\");\n\t\t\tif(!pX && !nY && !pZ) renderDuct(iicon, overlay, color, tessellator, \"pnn\");\n\t\t\tif(!pX && !nY && !nZ) renderDuct(iicon, overlay, color, tessellator, \"pnp\");\n\t\t\tif(!nX && !nY && !pZ) renderDuct(iicon, overlay, color, tessellator, \"nnn\");\n\t\t\tif(!nX && !nY && !nZ) renderDuct(iicon, overlay, color, tessellator, \"nnp\");\n\t\t}\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\t\n\tprivate void renderDuct(IIcon iicon, IIcon overlay, int color, Tessellator tessellator, String part) {\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, part, iicon, tessellator, 0, true);\n\t\tObjUtil.setColor(color);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_neo, part, overlay, tessellator, 0, true);\n\t\tObjUtil.clearColor();\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FluidDuctStandard.renderID;\n\t}\n",
+          "new": "/** Native successor for the original standard duct's base and fluid-colored OBJ passes. */\npublic final class RenderTestPipe {\n    private RenderTestPipe() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int connections, boolean inventory, int color,\n            TextureAtlasSprite base, TextureAtlasSprite overlay) {\n        if(connections < 0 || connections > 63) throw new IllegalArgumentException(\"Invalid fluid connection mask \" + connections);\n        List<String> groups = groups(connections, inventory);\n        List<BakedQuad> result = new ArrayList<>();\n        if(inventory) {\n            for(String group : groups) append(result, mesh, group, true, 0xffffff, base);\n            for(String group : groups) append(result, mesh, group, true, color, overlay);\n        } else {\n            for(String group : groups) {\n                append(result, mesh, group, false, 0xffffff, base);\n                append(result, mesh, group, false, color, overlay);\n            }\n        }\n        return Collections.unmodifiableList(result);\n    }\n    private static List<String> groups(int mask, boolean inventory) {\n        List<String> result = new ArrayList<>();\n        if(inventory) Collections.addAll(result, \"pX\", \"nX\", \"pZ\", \"nZ\");\n        else if(mask == 0) Collections.addAll(result, \"pX\", \"nX\", \"pY\", \"nY\", \"pZ\", \"nZ\");\n        else if(mask == 32 || mask == 16) Collections.addAll(result, \"pX\", \"nX\");\n        else if(mask == 8 || mask == 4) Collections.addAll(result, \"pY\", \"nY\");\n        else if(mask == 2 || mask == 1) Collections.addAll(result, \"pZ\", \"nZ\");\n        else {\n            int[] arms = {32, 16, 8, 4, 2, 1};\n            String[] names = {\"pX\", \"nX\", \"pY\", \"nY\", \"nZ\", \"pZ\"};\n            for(int i = 0; i < arms.length; i++) if((mask & arms[i]) != 0) result.add(names[i]);\n            int[] corners = {32 | 8 | 2, 32 | 8 | 1, 16 | 8 | 2, 16 | 8 | 1,\n                             32 | 4 | 2, 32 | 4 | 1, 16 | 4 | 2, 16 | 4 | 1};\n            String[] fills = {\"ppn\", \"ppp\", \"npn\", \"npp\", \"pnn\", \"pnp\", \"nnn\", \"nnp\"};\n            for(int i = 0; i < corners.length; i++) if((mask & corners[i]) == 0) result.add(fills[i]);\n        }\n        return result;\n    }\n    private static void append(List<BakedQuad> result, ObjMesh mesh, String name, boolean inventory, int color, TextureAtlasSprite sprite) {\n        ObjMesh.Part selected = null;\n        for(ObjMesh.Part part : mesh.parts) if(name.equals(part.name)) selected = part;\n        if(selected == null) throw new IllegalArgumentException(\"Missing standard duct OBJ part \" + name);\n        for(ObjMesh.Face face : selected.faces) {\n            float nx = face.normal.x, ny = face.normal.y, nz = face.normal.z;\n            float shade = inventory ? 1 : Math.max(.45F, ny * .3F + .7F - Math.abs(nx) * .1F + Math.abs(nz) * .1F);\n            double[] vertices = new double[20];\n            for(int v = 0; v < 4; v++) {\n                ObjMesh.Corner corner = face.corners.get(Math.min(v, face.corners.size() - 1));\n                if(corner.uv == null) throw new IllegalArgumentException(\"Standard duct OBJ requires UVs\");\n                vertices[v * 5] = .5D + corner.position.x * (inventory ? -1.25D : 1D);\n                vertices[v * 5 + 1] = .5D + corner.position.y * (inventory ? 1.25D : 1D);\n                vertices[v * 5 + 2] = .5D + corner.position.z * (inventory ? -1.25D : 1D);\n                vertices[v * 5 + 3] = corner.uv.x * 16D;\n                vertices[v * 5 + 4] = corner.uv.y * 16D;\n            }\n            result.add(ConnectionQuadFactory.coloredQuad(sprite, inventory, shade, color, inventory ? -nx : nx, ny,\n                    inventory ? -nz : nz, vertices));\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/nativeblock/ConnectionQuadFactory.java": {
+      "before_sha256": "c96dc08d82f8551b3f86f404e3da879936b35835d8079ffda379980a33c94c8e",
+      "after_sha256": "81d2b3a95cef3980479d4cf15dc697c33fcac2972aab7fb533e214376d5e4d4a",
+      "edits": [
+        {
+          "before_offset": 1764,
+          "after_offset": 1764,
+          "old": "        float red = ((int)(((color >> 16) & 255) * shade) & 255) / 255F;\n        float green = ((int)(((color >> 8) & 255) * shade) & 255) / 255F;\n        float blue = ((int)((color & 255) * shade) & 255) / 255F;\n",
+          "new": "        float red = channel((color >> 16) & 255, shade);\n        float green = channel((color >> 8) & 255, shade);\n        float blue = channel(color & 255, shade);\n"
+        },
+        {
+          "before_offset": 3194,
+          "after_offset": 3146,
+          "old": "",
+          "new": "    private static float channel(int component, float shade) {\n        // Original Tessellator setColorRGBA saturated out-of-range channels.\n        return Math.max(0, Math.min(255, (int)(component * shade))) / 255F;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteHorizons.java": {
+      "before_sha256": "ee727a2fa9444655fa1b21dd9934d889acc949fdf12145e18468156ee7df5b9c",
+      "after_sha256": "beb1241eaeb1eea29120c3803856465340f6cd05114c81a98124eafb4ec437e2",
+      "edits": [
+        {
+          "before_offset": 715,
+          "after_offset": 715,
+          "old": "\t\t\t((EntityPlayer)p).triggerAchievement(MainRegistry.horizonsStart);\r\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.horizonsStart);\r\n"
+        },
+        {
+          "before_offset": 1410,
+          "after_offset": 1434,
+          "old": "\t\t\t((EntityPlayer)p).triggerAchievement(MainRegistry.horizonsEnd);\r\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.horizonsEnd);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteRelay.java": {
+      "before_sha256": "b10303b155894f40b946c3b2db376e64fb9f11da6b4437fe3e0c4fbe7b619d71",
+      "after_sha256": "e5fe95b5fcf57eb79cdc893e7a242442414bbccd33e7f248604892751dbd5ca1",
+      "edits": [
+        {
+          "before_offset": 379,
+          "after_offset": 379,
+          "old": "\t\t\t((EntityPlayer)p).triggerAchievement(MainRegistry.achFOEQ);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.achFOEQ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java": {
+      "before_sha256": "591ebd089b48ebfa4f7d614d70353b061cbe032ec4f0c57418c4bb9a9a5733ed",
+      "after_sha256": "7bb3335126abadcdfdb63998b97b0a7787121def7276b04a4ce34fcd6c058339",
+      "edits": [
+        {
+          "before_offset": 13695,
+          "after_offset": 13695,
+          "old": "\t\t\tplayer.triggerAchievement(MainRegistry.achZIRNOXBoom);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achZIRNOXBoom);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java": {
+      "before_sha256": "6ab49df7f8c002cf55d7849a3bc1dc9dd172258edae796d1d720c7f0122bc451",
+      "after_sha256": "31c591a1cb1bc5bb56e6a725e66ddd2d65d76a4af98df0616aea1b24c46da9fd",
+      "edits": [
+        {
+          "before_offset": 19034,
+          "after_offset": 19034,
+          "old": "\t\t\tplayer.triggerAchievement(MainRegistry.achWatzBoom);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achWatzBoom);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java": {
+      "before_sha256": "a79c0c90c9d50ec7b4e6b9d03dcef70ec52d0d92fe511f2a3c2975d9f38ef847",
+      "after_sha256": "5081c8ab448d8ed1ed03b85e09dce045c64b3aa28d1877c60f5d2a79820f3581",
+      "edits": [
+        {
+          "before_offset": 6230,
+          "after_offset": 6230,
+          "old": "\t\t\t\tfor(EntityPlayer player : players) player.triggerAchievement(MainRegistry.achOmega12);\n",
+          "new": "\t\t\t\tfor(EntityPlayer player : players) com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achOmega12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before_sha256": "20c7e183aba9babb1594856df93fee44105f18313e2353e2e34a23be36a7268c",
+      "after_sha256": "28c3e05f27cd5715cef6bc61d229c3bee07acdf9a4f437ee8484a49d082305c4",
+      "edits": [
+        {
+          "before_offset": 16406,
+          "after_offset": 16406,
+          "old": "\t\t\tplayer.triggerAchievement(MainRegistry.achRBMKBoom);\n",
+          "new": "\t\t\tcom.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRBMKBoom);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/AchievementHandler.java": {
+      "before_sha256": "40a244059ec4cba1ee2febe7780dec718ec05470e17f1a50b002241699ac1d82",
+      "after_sha256": "e4cb4bef1354ebbb0d90b172c64b78ae082cc94e6e89efea38e4d2b6399649df",
+      "edits": [
+        {
+          "before_offset": 23,
+          "after_offset": 23,
+          "old": "",
+          "new": "import com.hbm.advancement.NtmAdvancements;\n"
+        },
+        {
+          "before_offset": 263,
+          "after_offset": 307,
+          "old": "import net.minecraft.stats.Achievement;\n",
+          "new": "import net.minecraft.util.ResourceLocation;\n"
+        },
+        {
+          "before_offset": 366,
+          "after_offset": 414,
+          "old": "\tpublic static HashMap<ComparableStack, Achievement> craftingAchievements = new HashMap();\n",
+          "new": "\tpublic static HashMap<ComparableStack, ResourceLocation> craftingAchievements = new HashMap();\n"
+        },
+        {
+          "before_offset": 4182,
+          "after_offset": 4235,
+          "old": "\t\tif(player.worldObj.isRemote) return;\n\t\tComparableStack comp = new ComparableStack(stack).makeSingular();\n\t\tAchievement achievement = craftingAchievements.get(comp);\n",
+          "new": "\t\tif(player.world.isRemote) return;\n\t\t// Legacy lookup ignored size, even on the zero-count stack left by shift-click.\n\t\t// Native getItem hides that identity as AIR; normalize a copy, never the inventory.\n\t\tItemStack identity = stack;\n\t\tif(stack != null && stack.isEmpty()) {\n\t\t\tidentity = stack.copy();\n\t\t\tidentity.setCount(1);\n\t\t}\n\t\tComparableStack comp = new ComparableStack(identity).makeSingular();\n\t\tResourceLocation achievement = craftingAchievements.get(comp);\n"
+        },
+        {
+          "before_offset": 4377,
+          "after_offset": 4733,
+          "old": "\t\t\tplayer.triggerAchievement(achievement);\n",
+          "new": "\t\t\tNtmAdvancements.award(player, achievement);\n"
+        }
+      ]
+    },
+    "src/main/resources/assets/hbm/lang/en_US.lang": {
+      "before_sha256": "43e1ade42c923c5f06017eb83f99ce431102f8ab8c382ba26a616e597df15a99",
+      "after_sha256": "4e46921ea0a48f2cff7c03de67dfbb57c1b3d97202a8f7da3f76116003a0d39e",
+      "edits": [
+        {
+          "before_offset": 376649,
+          "after_offset": 376649,
+          "old": "",
+          "new": "\n# Legacy vanilla achievement text retained for native NTM progression dependencies.\nachievement.openInventory=Taking Inventory\nachievement.openInventory.desc=Press '%1$s' to open your inventory.\nachievement.mineWood=Getting Wood\nachievement.mineWood.desc=Attack a tree until a block of wood pops out\nachievement.buildWorkBench=Benchmarking\nachievement.buildWorkBench.desc=Craft a workbench with four blocks of planks\nachievement.buildPickaxe=Time to Mine!\nachievement.buildPickaxe.desc=Use planks and sticks to make a pickaxe\nachievement.buildFurnace=Hot Topic\nachievement.buildFurnace.desc=Construct a furnace out of eight stone blocks\nachievement.acquireIron=Acquire Hardware\nachievement.acquireIron.desc=Smelt an iron ingot\nachievement.cookFish=Delicious Fish\nachievement.cookFish.desc=Catch and cook fish!\n"
+        }
+      ]
+    },
+    "src/main/resources/assets/hbm/sounds.json": {
+      "before_sha256": "1eb9ab439f7c1ce131ab51df7756e429b97f56a2784572de5be1c4ded69183b4",
+      "after_sha256": "2cbc6c6b1c7067ad1e74bd55d308d32c99d75fc38546d32439c4d99052c455f4",
+      "edits": [
+        {
+          "before_offset": 4139,
+          "after_offset": 4139,
+          "old": "\t\"block.pipePlaced\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/pipePlaced\", \"stream\": false}]},\n",
+          "new": "\t\"block.pipePlaced\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/pipePlaced\", \"stream\": false}]},\n"
+        },
+        {
+          "before_offset": 39670,
+          "after_offset": 39674,
+          "old": "\t\"step.metalBlock\": {\"category\": \"block\", \"sounds\": [\"footsteps/metalStep1\", \"footsteps/metalStep2\", \"footsteps/metalStep3\", \"footsteps/metalStep4\"]},\n",
+          "new": "\t\"step.metalBlock\": {\"category\": \"block\", \"sounds\": [\"hbm:footsteps/metalStep1\", \"hbm:footsteps/metalStep2\", \"hbm:footsteps/metalStep3\", \"hbm:footsteps/metalStep4\"]},\n"
+        },
+        {
+          "before_offset": 39940,
+          "after_offset": 39960,
+          "old": "\t\"step.morkite\": {\"category\": \"player\", \"sounds\": [\"mining/MorkiteMiningB_3\", \"mining/MorkiteMiningB_2\", \"mining/MorkiteMiningB_1\"]},\n",
+          "new": "\t\"step.morkite\": {\"category\": \"player\", \"sounds\": [\"hbm:mining/MorkiteMiningB_3\", \"hbm:mining/MorkiteMiningB_2\", \"hbm:mining/MorkiteMiningB_1\"]},\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/advancement/AchievementDefinitions.java": "355a0e6b40bd0fc06bee26c5fec73704c0d9d1357a06a2e89c06c3be2d8addff",
+    "src/main/java/com/hbm/advancement/LegacyAchievementEvents.java": "7cc47f9a8d688085915faefcc7fd6ad0f97bdfbb879a5fcba20bd5edbad6fa65",
+    "src/main/java/com/hbm/advancement/LegacyCraftingCallbacks.java": "3af28a4ff9bd911caca605c6108e2e0d9abc5cef6cda49a0f093b9d4c008e79e",
+    "src/main/java/com/hbm/advancement/NtmAdvancements.java": "8d555bb6de80e77062f6c19b0e8951e8f8ec15471e7fe60f4927d47cb6b9db91",
+    "src/main/java/com/hbm/advancement/client/LegacyInventoryActionHandler.java": "70659fbcd0e2ceb06e88302a09f7bad333018de919abe931b53071010b1110d5",
+    "src/main/java/com/hbm/blocks/network/FluidConnectionState.java": "8fd0d2c712b0128f8b7a41163880f857b80f0111f977d15505d78b0a411d41ad",
+    "src/main/java/com/hbm/main/FluidDuctModelHandler.java": "9b16c64cd0b93d077abb68e0f2094b70036a5ddb2c2fce50d5288fe20c8718c1",
+    "src/main/java/com/hbm/packet/toserver/LegacyInventoryActionPacket.java": "697763a26b305224c7c3aca93360c77d52e5f5f54c814a28e99c6826ab4e76d7",
+    "src/main/java/com/hbm/render/block/nativeblock/FluidDuctBakedModel.java": "e4f915f0e642d9d230e1973b731651b590f40b6494a46fcf6338b59324f1e4af",
+    "src/main/resources/assets/hbm/advancements/legacy/acquireiron.json": "5224375deb1b98b5a3920ee85b526e21bd08c5f6e502811eeada98b7cc57f4cf",
+    "src/main/resources/assets/hbm/advancements/legacy/buildfurnace.json": "6b170ffb85446e6a32e22bda4dbb55561b3d1108292ffa6df633be8010bc65c7",
+    "src/main/resources/assets/hbm/advancements/legacy/buildpickaxe.json": "4a28a01d4717ee54852f8db7f6d1f273d8aa72cf370309da427f4ec48d600161",
+    "src/main/resources/assets/hbm/advancements/legacy/buildworkbench.json": "2b37e00ac67bbcc5907e232d8df3ea3d7b23de94feb0773a138e542fcea6e2f1",
+    "src/main/resources/assets/hbm/advancements/legacy/cookfish.json": "435d380c6dd2218e06992447b8eec8f016da4cea401bb5682756ba5b1970ae52",
+    "src/main/resources/assets/hbm/advancements/legacy/minewood.json": "11250ef127c7d8e88431cd6dfb313950bf8b23d005a2e50312f946c17f3a7017",
+    "src/main/resources/assets/hbm/advancements/legacy/openinventory.json": "61bf897b67c4fec4bb8653187a84488e4d06a9bfc5509d8cbcc4888acd50e17c",
+    "src/main/resources/assets/hbm/advancements/ntm/acidizer.json": "8611886a37bfe641437232614fbc9add5c52267f8526e8067c1a74b9c147e15c",
+    "src/main/resources/assets/hbm/advancements/ntm/assembly.json": "470d2313dd794f6a5bb93427d91f34d215d895739953f6a12884715cf7c12a3b",
+    "src/main/resources/assets/hbm/advancements/ntm/bismuth.json": "2f8e3d65637aec7caa1e93a50b09cf1776759e327ef3f135dd7171169408fa6f",
+    "src/main/resources/assets/hbm/advancements/ntm/blastfurnace.json": "4a4d2fac0d6a4ab429adb067827bf50aff859527c6b4d0db5ae1301a01cb5485",
+    "src/main/resources/assets/hbm/advancements/ntm/bosscreeper.json": "efec9ab031a943070114f8402773f58d40aa259e87650b4f5442775949c87382",
+    "src/main/resources/assets/hbm/advancements/ntm/bossmaskman.json": "578bb63e648f33c065b88e6ac8b35619ae962cca25ce69119b18b8851e198ade",
+    "src/main/resources/assets/hbm/advancements/ntm/bossmeltdown.json": "627c1336c8c861f5e8e24a60e50092efb3616430944cdf99b60bd10ee50fff8e",
+    "src/main/resources/assets/hbm/advancements/ntm/bossufo.json": "d73c44fb1f607c1bab0c71d68e4c38ee1611a595510bd52b18df458e6d51c8c4",
+    "src/main/resources/assets/hbm/advancements/ntm/bossworm.json": "2fe908971824e2eb938ac9e9e4ab9b9d77c3658ad964ba2fac797a2353a0e335",
+    "src/main/resources/assets/hbm/advancements/ntm/breeding.json": "a26e083992f585967e14f6b3a77890dd20fe1b8ea3c32ba7c5695515cef21649",
+    "src/main/resources/assets/hbm/advancements/ntm/burnerpress.json": "9ad59d7f046e2f01029480041725fe0c467787da9d65cc8a0b6f7fde29362de2",
+    "src/main/resources/assets/hbm/advancements/ntm/c20_5.json": "2aa4e5b9e81948443b94437aa548872c5d5ddf58845fa7b2cf9267fe60faf540",
+    "src/main/resources/assets/hbm/advancements/ntm/centrifuge.json": "47e02ace8ba64236eff12cc827d3f9003bd2da51e614a8d5cfc380f270300c11",
+    "src/main/resources/assets/hbm/advancements/ntm/chemplant.json": "5d370e52e06abf4c50c5ee0de77d50f1b120ec803cde9d5545d816492ada8bff",
+    "src/main/resources/assets/hbm/advancements/ntm/chicagopile.json": "821cd7ca717dfdc772ca5d62bb45840779313269e092968c47bc560836fd079c",
+    "src/main/resources/assets/hbm/advancements/ntm/concrete.json": "232665e12fd925fc0cd7c1ea920f74a3954c376495795f340d893b544e668b4e",
+    "src/main/resources/assets/hbm/advancements/ntm/desh.json": "5482ddc7d6867ad673be416898176215c600422202db86a00002fc151813255b",
+    "src/main/resources/assets/hbm/advancements/ntm/digammafeel.json": "ad1e7f3c98d1dfda4db3061185fe461f9cd36f37a61447c8bcef32595a412714",
+    "src/main/resources/assets/hbm/advancements/ntm/digammakauaimoho.json": "32ebaf720646dbfff81dc6e506a6ae114e58121eb99d453832adc78f54d68db0",
+    "src/main/resources/assets/hbm/advancements/ntm/digammaknow.json": "18536e254958f2ed0b0c37a97098b5d81b102eeb8609596e4855f65c2409af2d",
+    "src/main/resources/assets/hbm/advancements/ntm/digammasee.json": "7c4c2fc9b0dcb3896efc6bb116dbcae51bb281921a1e17ac6fa7ec6bcfe0a72d",
+    "src/main/resources/assets/hbm/advancements/ntm/digammaupontop.json": "0d483b1eb56fd6050f9e30417790df969a6f04e963ef7cfac62278d87b274d64",
+    "src/main/resources/assets/hbm/advancements/ntm/drivefail.json": "30d6737855a7d4fde2a9d37721ab42ab601ca27fb8fd6ac676cafc413e1a9f47",
+    "src/main/resources/assets/hbm/advancements/ntm/fiend.json": "32bd62b6e98def82df460aace2e87cb3a7b793b64073c7d1b0921d0365dfeab3",
+    "src/main/resources/assets/hbm/advancements/ntm/fiend2.json": "60b302a00608e8a97ad133a5ef42108815fde9c1447f26437d066a78fc8a9477",
+    "src/main/resources/assets/hbm/advancements/ntm/foeq.json": "e074fdceeb4c6fe0f3766019233de6dd4732cdbf3ca1d69c5014aaacb920e87e",
+    "src/main/resources/assets/hbm/advancements/ntm/fusion.json": "a4d7e86514b8338d2b5bcaf72f4e6075e77c599c2db46b6fc339ae2561ef8dca",
+    "src/main/resources/assets/hbm/advancements/ntm/gascent.json": "7cc400939b3c29e70f0f35ffdd631a49f200bc4895288325246cb6e42a53afae",
+    "src/main/resources/assets/hbm/advancements/ntm/gofish.json": "a8c8d673ff3bdc41da363c74a001080e65ac23cea7393b90cd90131632d43c08",
+    "src/main/resources/assets/hbm/advancements/ntm/hidden.json": "fc62f181bc5f2a07bb3c4a1536b548ea43aa6e5781758d8355f1133bd0374a2c",
+    "src/main/resources/assets/hbm/advancements/ntm/horizonsbonus.json": "31ebd6a57cb31df8bf6e12a9be736bc1241c23972a587ac46b5e453b0cdb8e19",
+    "src/main/resources/assets/hbm/advancements/ntm/horizonsend.json": "a76fe2a747fdde9e54e7e88f1b10f4122997763abd7888d86438e57d59c629bd",
+    "src/main/resources/assets/hbm/advancements/ntm/horizonsstart.json": "9ff856f191f51a513d242fa3d6ce17841214f10469b7b7f3c129b1b0017d54f0",
+    "src/main/resources/assets/hbm/advancements/ntm/impossible.json": "2780368800840de198c85bdef1ff00d3edb2514c07a58076f2792f0a5b36980b",
+    "src/main/resources/assets/hbm/advancements/ntm/inferno.json": "d7e4df20d72cc2122af268ca59c8b79bf15a985a3e8e951555e5e35825433521",
+    "src/main/resources/assets/hbm/advancements/ntm/manhattan.json": "98e644c588f05fcee65e9e6eebc0d83f739bcc1e698bf9186263e1e5c0e0a6e3",
+    "src/main/resources/assets/hbm/advancements/ntm/no9.json": "55a542e93c4f314744481a800d905e6c315806771718195074b1c2b858c34217",
+    "src/main/resources/assets/hbm/advancements/ntm/omega12.json": "76f8471c3403ca56deb30839edf2678beee735c80b74883520b57a996f7c0712",
+    "src/main/resources/assets/hbm/advancements/ntm/polymer.json": "86790be8a2fe07d6f9de7aa6f44f4a2081a6cd91d72062d3fc817adf4976796c",
+    "src/main/resources/assets/hbm/advancements/ntm/potato.json": "ab19fe63fe2ccd446fed3d4d259110214d77286ed24e24c239edc1fab6f9bdfb",
+    "src/main/resources/assets/hbm/advancements/ntm/raddeath.json": "018b3e40f3dd538623c1c3c51640cc1b35ae327075f425f715196854e732058f",
+    "src/main/resources/assets/hbm/advancements/ntm/radium.json": "b0b607dece526c984f1c1a7ce38f5d85845fbd9ba63f7db09458cae1e626d71b",
+    "src/main/resources/assets/hbm/advancements/ntm/radpoison.json": "54a97891cdd0005aa142aa075d411fd4d5c8706c36bb6f35bee12f65f8a6192b",
+    "src/main/resources/assets/hbm/advancements/ntm/rbmk.json": "150aecbe6640342dfa43228616a85089ef89bc4716313ab9c10b8c2a73fba7fb",
+    "src/main/resources/assets/hbm/advancements/ntm/rbmkboom.json": "e8b9f3217c4ca85c5e0970b69c04fd6cf0efe1e26880e72310801b810781d432",
+    "src/main/resources/assets/hbm/advancements/ntm/redballoons.json": "a482aa29515c21d08fa8977685b0a430d0e8ea6eff49d90d5aa7398f68c12747",
+    "src/main/resources/assets/hbm/advancements/ntm/redroom.json": "a86064ac659c880e4448d8ab661642ea6949a9ee1043cb71230c03fdda139338",
+    "src/main/resources/assets/hbm/advancements/ntm/root.json": "5aa71fd7a9a9e4a58c29527a9e43cacaa0e453586d9da8bb562c559d41bad0d6",
+    "src/main/resources/assets/hbm/advancements/ntm/sacrifice.json": "8c0b6cac32cab1e4ce0128df02091a76a9eeb811d9c44c9e0799f522715976e4",
+    "src/main/resources/assets/hbm/advancements/ntm/schrab.json": "fb15a5759019485614ea65fac46c8553c499d50c21f91ab0ba657581416b9006",
+    "src/main/resources/assets/hbm/advancements/ntm/selenium.json": "684fc5d9e164dfdb803b59fcd4357e379fa4937efdb6b14527afa64f4070e077",
+    "src/main/resources/assets/hbm/advancements/ntm/silex.json": "940a92673d29b098963a40ed91bc2d327359391984991e7681fefa7870dd7c22",
+    "src/main/resources/assets/hbm/advancements/ntm/slimeball.json": "2944959fd7fd2ce57be9b253a32983ebf4c531897179478554042dfaf249dee3",
+    "src/main/resources/assets/hbm/advancements/ntm/somewounds.json": "4a95ba6213d8ffd9304d87fe2cb2de8d946263c57e3b2d42142ec3f8ceaf6bb7",
+    "src/main/resources/assets/hbm/advancements/ntm/soyuz.json": "fb78380bea0862c2e2fda9ebb630f46262449fa874d0176b14dc2b1dbf9aa7a2",
+    "src/main/resources/assets/hbm/advancements/ntm/space.json": "fa682a74b0f7e3615e304637ff4e16d36d1cf27d4c38075e3d1adcd6104eb748",
+    "src/main/resources/assets/hbm/advancements/ntm/stratum.json": "7a238be971d58afac45fb42716e2152df24342bc1c40b0e4b8a2541c9a7affa5",
+    "src/main/resources/assets/hbm/advancements/ntm/sulfuric.json": "0ca4966afcc23595873176cb4d79d81bd27accc24c43b4ddd4b0d182743e95ca",
+    "src/main/resources/assets/hbm/advancements/ntm/tantalum.json": "05d3df92e4333e820e0c60d7b00b6a5e0caf4e3be0e78e0c1223ed0572706d3e",
+    "src/main/resources/assets/hbm/advancements/ntm/tasteofblood.json": "950a6f355b47ab79655285667b0c48e1e179d8baa86ba7ce8fa7d4d518789eff",
+    "src/main/resources/assets/hbm/advancements/ntm/technetium.json": "940ec9b114233a2b09b2832abb428ea1422beab0cdf56707befb45fd5c2711c7",
+    "src/main/resources/assets/hbm/advancements/ntm/watz.json": "1b07b8493e6f91bc2a89350e6a4535add843c34e59311390a27e66d66272394b",
+    "src/main/resources/assets/hbm/advancements/ntm/watzboom.json": "be61da1527ff8cae81e72a98787e025efa993d3512c899efe15712a6febaa06b",
+    "src/main/resources/assets/hbm/advancements/ntm/zirnoxboom.json": "f0b6c3f652354389edb84578265b4b20fa5d6248c88484f64d5a5ff707834e57",
+    "src/main/resources/assets/hbm/blockstates/tile.fluid_duct_neo.json": "341dd00e269bc20b6231520d28d4d47ed99ed921653fe824b78fc0ef8c730163"
+  }
+}

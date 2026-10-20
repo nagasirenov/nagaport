@@ -66,15 +66,15 @@ public class GUIReactorZirnox extends GuiInfoContainer {
 		if(guiLeft + 144 <= x && guiLeft + 144 + 14 > x && guiTop + 35 < y && guiTop + 35 + 14 >= y) {
 			control.setBoolean("control", true);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, zirnox.xCoord, zirnox.yCoord, zirnox.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, zirnox.getPos().getX(), zirnox.getPos().getY(), zirnox.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
 		}
 
 		if(guiLeft + 151 <= x && guiLeft + 151 + 36 > x && guiTop + 51 < y && guiTop + 51 + 36 >= y) {
 			control.setBoolean("vent", true); // sus impostre like amogus
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, zirnox.xCoord, zirnox.yCoord, zirnox.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, zirnox.getPos().getX(), zirnox.getPos().getY(), zirnox.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
 		}
 	}
 
@@ -82,8 +82,8 @@ public class GUIReactorZirnox extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.zirnox.hasCustomInventoryName() ? this.zirnox.getInventoryName() : I18n.format(this.zirnox.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96, 4210752);
 	}
 
 	@Override

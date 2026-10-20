@@ -1,0 +1,23 @@
+/workspace/shared/nagaport-itemblock-next/test/NativeItemBlockTest.java:36: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/workspace/shared/nagaport-itemblock-next/test/NativeItemBlockTest.java:36: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/workspace/shared/nagaport-itemblock-next/test/NativeItemBlockTest.java:36: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                 ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.steel_scaffold`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.steel_scaffold`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.fence_metal`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.fence_metal`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `normal_test`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `normal_test`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `provider_test`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:31] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `provider_test`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS NativeItemBlockTest: 133 assertions; complete production root and real native registries, player, NBT and color APIs.

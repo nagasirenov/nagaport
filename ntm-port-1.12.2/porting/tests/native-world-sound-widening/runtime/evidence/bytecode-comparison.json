@@ -1,0 +1,130 @@
+[
+  {
+    "method": "call0_0",
+    "identical_preinvoke_instructions": 48,
+    "numeric_conversion_opcodes": [
+      "i2d",
+      "i2d",
+      "i2d"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call0_1",
+    "identical_preinvoke_instructions": 48,
+    "numeric_conversion_opcodes": [
+      "i2d",
+      "i2d",
+      "i2d"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call1_0",
+    "identical_preinvoke_instructions": 46,
+    "numeric_conversion_opcodes": [
+      "i2d"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call1_1",
+    "identical_preinvoke_instructions": 46,
+    "numeric_conversion_opcodes": [
+      "i2d"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call2_0",
+    "identical_preinvoke_instructions": 50,
+    "numeric_conversion_opcodes": [
+      "l2d",
+      "f2d",
+      "i2d",
+      "i2f",
+      "l2f"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call2_1",
+    "identical_preinvoke_instructions": 50,
+    "numeric_conversion_opcodes": [
+      "l2d",
+      "f2d",
+      "i2d",
+      "i2f",
+      "l2f"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call3_0",
+    "identical_preinvoke_instructions": 48,
+    "numeric_conversion_opcodes": [
+      "f2d",
+      "f2d",
+      "f2d"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call3_1",
+    "identical_preinvoke_instructions": 48,
+    "numeric_conversion_opcodes": [
+      "f2d",
+      "f2d",
+      "f2d"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call4_0",
+    "identical_preinvoke_instructions": 50,
+    "numeric_conversion_opcodes": [
+      "l2d",
+      "l2d",
+      "l2d",
+      "l2f",
+      "l2f"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call4_1",
+    "identical_preinvoke_instructions": 50,
+    "numeric_conversion_opcodes": [
+      "l2d",
+      "l2d",
+      "l2d",
+      "l2f",
+      "l2f"
+    ],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call5_0",
+    "identical_preinvoke_instructions": 45,
+    "numeric_conversion_opcodes": [],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  },
+  {
+    "method": "call5_1",
+    "identical_preinvoke_instructions": 45,
+    "numeric_conversion_opcodes": [],
+    "original_call": "invokevirtual // Method ahb.a:(DDDLjava/lang/String;FF)V",
+    "native_call": "invokestatic // Method com/hbm/sound/WorldSoundEffects.play:(LWORLD;DDDLjava/lang/String;FF)V"
+  }
+]

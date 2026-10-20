@@ -24,14 +24,15 @@ public class RBMKKeyPad extends RBMKMiniPanelBase implements IToolable {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityPlayer player, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing face, float hitX, float hitY, float hitZ) {
+        int x=pos.getX(),y=pos.getY(),z=pos.getZ(),side=face.getIndex();
 		if(world.isRemote) return true;
 		if(player.isSneaking()) return false;
 		
 		if(hitX != 0 && hitX != 1 && hitZ != 0 && hitZ != 1 && side != 0 && side != 1) {
 			
-			TileEntityRBMKKeyPad tile = (TileEntityRBMKKeyPad) world.getTileEntity(x, y, z);
-			int meta = world.getBlockMetadata(x, y, z);
+			TileEntityRBMKKeyPad tile = (TileEntityRBMKKeyPad) world.getTileEntity(new net.minecraft.util.math.BlockPos(x,y,z));
+			int meta = getMetaFromState(world.getBlockState(pos));
 			
 			int indexHit = 0;
 

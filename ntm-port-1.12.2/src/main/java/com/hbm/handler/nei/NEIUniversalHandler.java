@@ -1,148 +1,98 @@
 package com.hbm.handler.nei;
 
-import static codechicken.lib.gui.GuiDraw.drawTexturedModalRect;
-
-import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
-import com.hbm.handler.imc.ICompatNHNEI;
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
 import com.hbm.items.ModItems;
-import com.hbm.lib.RefStrings;
 import com.hbm.util.InventoryUtil;
-
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.recipe.IFocus;
 import net.minecraft.block.Block;
-import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
-@Deprecated // an experiment that i had to staple more and more features to until it ended up a bloated decaying corpse
-public abstract class NEIUniversalHandler extends TemplateRecipeHandler implements ICompatNHNEI {
+/** Native JEI presentation of NTM's map-backed machine recipes. */
+public abstract class NEIUniversalHandler extends MachineRecipeCategory {
+    public final String display;
+    public final ItemStack[] machine;
+    public final HashMap<Object, Object> recipes;
+    public HashMap<Object, Object> machineOverrides;
 
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<RecipeTransferRect> transferRectsGui = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-	public LinkedList<Class<? extends GuiContainer>> guiGui = new LinkedList<Class<? extends GuiContainer>>();
-	
-	/// SETUP ///
-	public final String display;
-	public final ItemStack[] machine;
-	public final HashMap<Object, Object> recipes;
-	public HashMap<Object, Object> machineOverrides;
-	/// SETUP ///
-	public NEIUniversalHandler(String display, ItemStack machine[], HashMap recipes) {
-		this.display = display;
-		this.machine = machine;
-		this.recipes = recipes;
-		this.machineOverrides = null;
-	}
-	
-	public NEIUniversalHandler(String display, HashMap recipes, HashMap machines) {
-		this(display, (ItemStack[]) null, recipes);
-		this.machineOverrides = machines;
-	}
+    @SuppressWarnings("unchecked")
+    public NEIUniversalHandler(String display, ItemStack[] machine, HashMap recipes) {
+        this.display = display;
+        this.machine = machine;
+        this.recipes = recipes;
+    }
+    @SuppressWarnings("unchecked")
+    public NEIUniversalHandler(String display, HashMap recipes, HashMap machines) {
+        this(display, (ItemStack[]) null, recipes);
+        this.machineOverrides = machines;
+    }
+    public NEIUniversalHandler(String display, ItemStack machine, HashMap recipes) { this(display, new ItemStack[]{machine}, recipes); }
+    public NEIUniversalHandler(String display, Item machine, HashMap recipes) { this(display, new ItemStack(machine), recipes); }
+    public NEIUniversalHandler(String display, Block machine, HashMap recipes) { this(display, new ItemStack(machine), recipes); }
 
-	public NEIUniversalHandler(String display, ItemStack machine, HashMap recipes) {	this(display, new ItemStack[]{machine}, recipes); }
-	public NEIUniversalHandler(String display, Item machine, HashMap recipes) {			this(display, new ItemStack(machine), recipes); }
-	public NEIUniversalHandler(String display, Block machine, HashMap recipes) {		this(display, new ItemStack(machine), recipes); }
+    @Override public String getTitle() { return display; }
+    @Override public ItemStack[] getMachines() { return machine == null ? new ItemStack[0] : machine; }
 
-	public class RecipeSet extends TemplateRecipeHandler.CachedRecipe {
-		
-		PositionedStack[] input;
-		PositionedStack[] output;
-		PositionedStack machinePositioned;
-		Object originalInputInstance;
+    protected ItemStack[][] recipeInputs(Object key) { return InventoryUtil.extractObject(key); }
+    protected boolean acceptsFocus(IFocus<ItemStack> focus) { return true; }
+    protected boolean matchesOutput(ItemStack stack, ItemStack focus) { return RecipeStackMatcher.matchesCrafting(stack, focus); }
+    protected boolean matchesInput(ItemStack stack, ItemStack focus) { return RecipeStackMatcher.matchesCrafting(stack, focus); }
 
-		public RecipeSet(ItemStack[][] in, ItemStack[][] out, Object originalInputInstance /* for custom machine lookup */) {
-			this.originalInputInstance = originalInputInstance;
-			
-			input = new PositionedStack[in.length];
-			int[][] inPos = NEIUniversalHandler.getInputCoords(in.length);
-			for(int i = 0; i < in.length; i++) {
-				ItemStack[] sub = in[i];
-				this.input[i] = new PositionedStack(sub, inPos[i][0], inPos[i][1]);
-			}
-			output = new PositionedStack[out.length];
-			int[][] outPos = NEIUniversalHandler.getOutputCoords(out.length);
-			for(int i = 0; i < out.length; i++) {
-				ItemStack[] sub = out[i];
-				this.output[i] = new PositionedStack(sub, outPos[i][0], outPos[i][1]);
-			}
-			
-			ItemStack[] m = machine;
-			
-			if(NEIUniversalHandler.this.machineOverrides != null) {
-				Object key = NEIUniversalHandler.this.machineOverrides.get(originalInputInstance);
-				
-				if(key != null) {
-					this.machinePositioned = new PositionedStack(key, 75, 31);
-				}
-			}
-			
-			if(machinePositioned == null) this.machinePositioned = new PositionedStack(m, 75, 31);
-		}
+    /** Query each time: source maps and focus-dependent heat/NBT rules are not frozen at startup. */
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> result = new ArrayList<>();
+        if(!acceptsFocus(focus)) return result;
+        outer: for(Entry<Object, Object> recipe : recipes.entrySet()) {
+            ItemStack[][] inputs = recipeInputs(recipe.getKey());
+            ItemStack[][] outputs = InventoryUtil.extractObject(recipe.getValue());
+            for(ItemStack[] alternatives : inputs) for(ItemStack stack : alternatives)
+                if(stack.getItem() == ModItems.item_secret) continue outer;
+            for(ItemStack[] alternatives : outputs) for(ItemStack stack : alternatives)
+                if(stack.getItem() == ModItems.item_secret) continue outer;
+            boolean matches = focus == null;
+            if(focus != null) {
+                boolean output = focus.getMode() == IFocus.Mode.OUTPUT;
+                for(ItemStack[] alternatives : output ? outputs : inputs) for(ItemStack stack : alternatives)
+                    if(output ? matchesOutput(stack, focus.getValue()) : matchesInput(stack, focus.getValue())) matches = true;
+            }
+            if(matches) result.add(createView(recipe.getKey(), inputs, outputs));
+        }
+        return result;
+    }
 
-		@Override
-		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(cycleticks / 20, Arrays.asList(input));
-		}
+    protected MachineRecipeView createView(Object originalInput, ItemStack[][] inputs, ItemStack[][] outputs) {
+        MachineRecipeView view = new MachineRecipeView(this, originalInput, inputs, outputs);
+        int[][] inputPositions = getInputCoords(inputs.length);
+        int[][] outputPositions = getOutputCoords(outputs.length);
+        for(int i = 0; i < inputs.length; i++) view.addInputSlot(i, inputPositions[i][0], inputPositions[i][1]);
+        for(int i = 0; i < outputs.length; i++) view.addOutputSlot(i, outputPositions[i][0], outputPositions[i][1]);
+        Object override = machineOverrides == null ? null : machineOverrides.get(originalInput);
+        List<ItemStack> decorations = new ArrayList<>();
+        if(override != null) for(ItemStack[] variants : InventoryUtil.extractObject(override)) decorations.addAll(Arrays.asList(variants));
+        else if(machine != null) decorations.addAll(Arrays.asList(machine));
+        if(!decorations.isEmpty()) view.addDecoration(decorations.toArray(new ItemStack[0]), 75, 31);
+        return view;
+    }
 
-		@Override
-		public PositionedStack getResult() {
-			return output[0];
-		}
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        minecraft.getTextureManager().bindTexture(new ResourceLocation("hbm:textures/gui/nei/gui_nei.png"));
+        Gui.drawModalRectWithCustomSizedTexture(0, 0, 5, 11, 166, 65, 256, 256);
+        for(int[] pos : getInputCoords(view.inputs.length)) Gui.drawModalRectWithCustomSizedTexture(pos[0] - 1, pos[1] - 1, 5, 87, 18, 18, 256, 256);
+        for(int[] pos : getOutputCoords(view.outputs.length)) Gui.drawModalRectWithCustomSizedTexture(pos[0] - 1, pos[1] - 1, 5, 87, 18, 18, 256, 256);
+        Gui.drawModalRectWithCustomSizedTexture(74, 14, 59, 87, 18, 36, 256, 256);
+    }
 
-		@Override
-		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> other = new ArrayList();
-			for(int i = 1; i < output.length; i++) {
-				other.add(output[i]);
-			}
-			other.add(machinePositioned);
-			return getCycledIngredients(cycleticks / 20, other);
-		}
-	}
-
-	@Override
-	public String getRecipeName() {
-		return this.display;
-	}
-
-	@Override
-	public ItemStack[] getMachinesForRecipe() {
-		return machine;
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei.png";
-	}
-
-	@Override
-	public void drawBackground(int recipe) {
-		super.drawBackground(recipe);
-		
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
-
-		int[][] inPos = NEIUniversalHandler.getInputCoords(rec.input.length);
-		for(int[] pos : inPos) {
-			drawTexturedModalRect(pos[0] - 1, pos[1] - 1, 5, 87, 18, 18);
-		}
-		int[][] outPos = NEIUniversalHandler.getOutputCoords(rec.output.length);
-		for(int[] pos : outPos) {
-			drawTexturedModalRect(pos[0] - 1, pos[1] - 1, 5, 87, 18, 18);
-		}
-		
-		drawTexturedModalRect(74, 14, 59, 87, 18, 36);
-	}
-	
 	public static int[][] getInputCoords(int count) {
 		
 		switch(count) {
@@ -274,91 +224,4 @@ public abstract class NEIUniversalHandler extends TemplateRecipeHandler implemen
 		return slots;
 	}
 
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-		
-		if(outputId.equals(getKey())) {
-			
-			outer: for(Entry<Object, Object> recipe : recipes.entrySet()) {
-				ItemStack[][] ins = InventoryUtil.extractObject(recipe.getKey());
-				ItemStack[][] outs = InventoryUtil.extractObject(recipe.getValue());
-				
-				for(ItemStack[] array : ins) for(ItemStack stack : array) if(stack.getItem() == ModItems.item_secret) continue outer;
-				for(ItemStack[] array : outs) for(ItemStack stack : array) if(stack.getItem() == ModItems.item_secret) continue outer;
-				
-				this.arecipes.add(new RecipeSet(ins, outs, recipe.getKey()));
-			}
-			
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
-
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
-		
-		outer: for(Entry<Object, Object> recipe : recipes.entrySet()) {
-			ItemStack[][] ins = InventoryUtil.extractObject(recipe.getKey());
-			ItemStack[][] outs = InventoryUtil.extractObject(recipe.getValue());
-			
-			for(ItemStack[] array : ins) for(ItemStack stack : array) if(stack.getItem() == ModItems.item_secret) continue outer;
-			for(ItemStack[] array : outs) for(ItemStack stack : array) if(stack.getItem() == ModItems.item_secret) continue outer;
-			
-			match:
-			for(ItemStack[] array : outs) {
-				for(ItemStack stack : array) {
-					if(NEIServerUtils.areStacksSameTypeCrafting(stack, result)) {
-						this.arecipes.add(new RecipeSet(ins, outs, recipe.getKey()));
-						break match;
-					}
-				}
-			}
-		}
-	}
-
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		if(inputId.equals(getKey())) {
-			loadCraftingRecipes(getKey(), new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
-
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
-		
-		outer: for(Entry<Object, Object> recipe : recipes.entrySet()) {
-			ItemStack[][] ins = InventoryUtil.extractObject(recipe.getKey());
-			ItemStack[][] outs = InventoryUtil.extractObject(recipe.getValue());
-			
-			for(ItemStack[] array : ins) for(ItemStack stack : array) if(stack.getItem() == ModItems.item_secret) continue outer;
-			for(ItemStack[] array : outs) for(ItemStack stack : array) if(stack.getItem() == ModItems.item_secret) continue outer;
-			
-			match:
-			for(ItemStack[] array : ins) {
-				for(ItemStack stack : array) {
-					if(NEIServerUtils.areStacksSameTypeCrafting(stack, ingredient)) {
-						this.arecipes.add(new RecipeSet(ins, outs, recipe.getKey()));
-						break match;
-					}
-				}
-			}
-		}
-	}
-	
-	@Override
-	public void loadTransferRects() {
-		transferRectsGui = new LinkedList<RecipeTransferRect>();
-		guiGui = new LinkedList<Class<? extends GuiContainer>>();
-		transferRects.add(new RecipeTransferRect(new Rectangle(147, 1, 18, 18), getKey()));
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-	}
-	
-	public abstract String getKey();
-
-	@Override
-	public String getRecipeID() {
-		return getKey();
-	}
 }

@@ -1,0 +1,4 @@
+PASS: 15 exact scoped operations, all five owner/type allocations, independent after-lines/method attribution; inverse reconstruction equals CP60 byte-for-byte
+PASS: 301 native scalar metadata/dirty/ownership/NBT assertions
+PASS: 301 native scalar metadata/dirty/ownership/NBT assertions
+PASS: three exact bounded production fixtures, native Entity / EntityThrowable parents; source SHA256 verified

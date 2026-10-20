@@ -39,14 +39,14 @@ public class ItemCustomMissile extends Item {
 
 	private static void writeToNBT(ItemStack stack, String key, int value) {
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setInteger(key, value);
+			stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setInteger(key, value);
 	}
 
 	public static int readFromNBT(ItemStack stack, String key) {
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
-		return stack.stackTagCompound.getInteger(key);
+			stack.setTagCompound(new NBTTagCompound());
+		return stack.getTagCompound().getInteger(key);
 	}
 
 	@Override

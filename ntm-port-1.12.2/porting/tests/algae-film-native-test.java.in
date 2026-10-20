@@ -1,0 +1,175 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import javax.imageio.ImageIO;
+import com.hbm.blocks.generic.*;
+
+import com.hbm.lib.*;
+import com.hbm.render.block.*;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.render.mesh.*;
+import com.google.gson.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+public final class AlgaeFilmNativeTest {
+ static long checks,vertices;static final BlockPos POS=new BlockPos(8,64,8);
+ static void check(boolean b,String m){checks++;if(!b)throw new AssertionError(m);}
+ static final class Sprite extends TextureAtlasSprite {Sprite(){super("hbm:blocks/algae_film");setIconWidth(16);setIconHeight(16);initSprite(1024,1024,32,64,false);}}
+ static final class Face {float[][] xyz,uv;float[] normal;}
+ static final class Part {String name;List<Face> faces=new ArrayList<>();Part(String n){name=n;}}
+ static List<Part> originalObj(Reader source)throws Exception {
+  List<float[]> points=new ArrayList<>(),uvs=new ArrayList<>();List<Part> groups=new ArrayList<>();BufferedReader in=new BufferedReader(source);String line;Part group=null;
+  while((line=in.readLine())!=null){String[] p=line.trim().split("\\s+");if(p[0].equals("o")||p[0].equals("g")){group=new Part(p[1]);groups.add(group);}
+   else if(p[0].equals("v"))points.add(new float[]{Float.parseFloat(p[1]),Float.parseFloat(p[2]),Float.parseFloat(p[3])});
+   else if(p[0].equals("vt"))uvs.add(new float[]{Float.parseFloat(p[1]),1-Float.parseFloat(p[2])});
+   else if(p[0].equals("f")){check(p.length==4||p.length==5,"original triangle/quad primitive");if(group==null){group=new Part("Default");groups.add(group);}Face f=new Face();f.xyz=new float[p.length-1][];f.uv=new float[p.length-1][];
+    for(int i=1;i<p.length;i++){String[] k=p[i].split("/");f.xyz[i-1]=points.get(Integer.parseInt(k[0])-1);f.uv[i-1]=uvs.get(Integer.parseInt(k[1])-1);}
+    double ax=f.xyz[1][0]-f.xyz[0][0],ay=f.xyz[1][1]-f.xyz[0][1],az=f.xyz[1][2]-f.xyz[0][2],bx=f.xyz[2][0]-f.xyz[0][0],by=f.xyz[2][1]-f.xyz[0][1],bz=f.xyz[2][2]-f.xyz[0][2];
+    double nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx,length=(float)Math.sqrt(nx*nx+ny*ny+nz*nz);
+    f.normal=length<1E-4D?new float[3]:new float[]{(float)(nx/length),(float)(ny/length),(float)(nz/length)};group.faces.add(f);
+   }
+  }return groups;
+ }
+ static double[] rotate(float[] v,float yaw,float pitch){
+  double cz=net.minecraft.util.math.MathHelper.cos(pitch),sz=net.minecraft.util.math.MathHelper.sin(pitch),cy=net.minecraft.util.math.MathHelper.cos(yaw),sy=net.minecraft.util.math.MathHelper.sin(yaw);
+  double x=v[0]*cz+v[1]*sz,y=v[1]*cz-v[0]*sz;return new double[]{x*cy+v[2]*sy,y,v[2]*cy-x*sy};
+ }
+ static final class Vertex {float x,y,z,u,v,nx,ny,nz;int color;TextureAtlasSprite sprite;}
+ static List<Vertex> stream(List<Part> parts,String group,TextureAtlasSprite sprite,boolean item,float yaw,float pitch,double scale,double x,double y,double z){
+  List<Vertex> out=new ArrayList<>();List<Part> selected=parts;
+  if(group!=null){Part last=null;for(Part p:parts)if(p.name.equals(group))last=p;selected=last==null?Collections.emptyList():Collections.singletonList(last);}
+  for(Part p:selected)for(Face f:p.faces){double[] n=rotate(f.normal,yaw,pitch);int color=OriginalDecorationOracle.color(n,!item,group==null);
+   for(int i=0;i<f.xyz.length;i++){double[] q=rotate(f.xyz[i],yaw,pitch);Vertex v=new Vertex();v.x=(float)(x+(float)q[0]*scale);v.y=(float)(y+(float)q[1]*scale);v.z=(float)(z+(float)q[2]*scale);v.nx=(float)n[0];v.ny=(float)n[1];v.nz=(float)n[2];v.color=color;v.sprite=sprite;
+    v.u=sprite.getInterpolatedU(group==null?f.uv[i][0]*16F:f.uv[i][0]*16D);v.v=sprite.getInterpolatedV(group==null?f.uv[i][1]*16F:f.uv[i][1]*16D);out.add(v);
+    if(i%3==2&&(group==null||f.xyz.length==3))out.add(v);
+   }
+  }return out;
+ }
+ static void geometry(List<BakedQuad> actual,List<Vertex> want,boolean item,String context){
+  check(actual.size()==want.size()/4,context+" original stream quad count "+actual.size()+" != "+want.size()/4);
+  for(int i=0;i<actual.size();i++){BakedQuad q=actual.get(i);String label=context+" quad="+i;int[] bytes=q.getVertexData();
+   check(q.getSprite()==want.get(i*4).sprite,label+" original material/part order");check(q.shouldApplyDiffuseLighting()==item&&!q.hasTintIndex(),label+" native diffuse and untinted RGB");check(q.getFormat().equals(item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK)&&bytes.length==28,label+" real native vertex format");
+   for(int v=0;v<4;v++){int k=v*7;Vertex e=want.get(i*4+v);vertices++;
+    check(Float.floatToIntBits(e.x)==bytes[k]&&Float.floatToIntBits(e.y)==bytes[k+1]&&Float.floatToIntBits(e.z)==bytes[k+2],label+" exact original XYZ at vertex "+v+" actual="+Float.intBitsToFloat(bytes[k])+","+Float.intBitsToFloat(bytes[k+1])+","+Float.intBitsToFloat(bytes[k+2])+" expected="+e.x+","+e.y+","+e.z);
+    check(Float.floatToIntBits(e.u)==bytes[k+4]&&Float.floatToIntBits(e.v)==bytes[k+5],label+" exact original uncontracted UV");check(e.color==bytes[k+3],label+" original whole/part shader: "+Integer.toHexString(bytes[k+3])+" != "+Integer.toHexString(e.color));
+    if(item){int n=bytes[k+6];check((byte)n==(byte)(e.nx*127F)&&(byte)(n>>8)==(byte)(e.ny*127F)&&(byte)(n>>16)==(byte)(e.nz*127F),label+" original signed-byte normals");}
+   }
+  }
+ }
+ static final class LightingWorld implements IBlockAccess {
+  final IBlockState state;final int own=0x00A00070;
+  LightingWorld(IBlockState state){this.state=state;}
+  public TileEntity getTileEntity(BlockPos p){return null;}
+  public int getCombinedLight(BlockPos p,int emission){return p.equals(POS)?own:0x00100010*((Math.abs(p.getX()+2*p.getY()+3*p.getZ())%8)+1);}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?state:Blocks.STONE.getDefaultState();}
+  public boolean isAirBlock(BlockPos p){return false;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing side){return 0;}
+  public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing side,boolean fallback){return !p.equals(POS);}
+ }
+ static void lighting(IBakedModel model,IBlockState state,String context){
+  LightingWorld world=new LightingWorld(state);net.minecraft.client.renderer.color.BlockColors colors=new net.minecraft.client.renderer.color.BlockColors();List<BakedQuad> quads=model.getQuads(state,null,0);
+  for(boolean forge:new boolean[]{false,true}){
+   net.minecraft.client.renderer.BufferBuilder out=new net.minecraft.client.renderer.BufferBuilder(65536);out.begin(7,DefaultVertexFormats.BLOCK);
+   if(forge){net.minecraftforge.client.model.pipeline.VertexLighterFlat lighter=new net.minecraftforge.client.model.pipeline.VertexLighterFlat(colors);
+    net.minecraftforge.client.model.pipeline.VertexBufferConsumer consumer=new net.minecraftforge.client.model.pipeline.VertexBufferConsumer(out);consumer.setOffset(POS);lighter.setParent(consumer);lighter.setWorld(world);lighter.setState(state);lighter.setBlockPos(POS);lighter.updateBlockInfo();
+    for(BakedQuad q:quads)q.pipe(lighter);lighter.resetBlockInfo();
+   }else check(new net.minecraft.client.renderer.BlockModelRenderer(colors).renderModelFlat(world,model,state,POS,out,true,0),context+" native vanilla emits model");
+   out.finishDrawing();check(out.getVertexCount()==quads.size()*4,context+" native emitted vertices "+forge);java.nio.ByteBuffer data=out.getByteBuffer();
+   for(int v=0;v<out.getVertexCount();v++){
+    check(data.getInt(v*28+24)==world.own,context+" "+(forge?"Forge":"vanilla")+" original block-position light, not neighbor at vertex "+v+": "+Integer.toHexString(data.getInt(v*28+24)));
+    check(data.getInt(v*28+12)==quads.get(v/4).getVertexData()[v%4*7+3],context+" original shading without doubled diffuse "+forge);
+   }
+  }
+ }
+
+ static void set(Object o,Class<?> c,String name,Object value)throws Exception{Field f=c.getDeclaredField(name);f.setAccessible(true);f.set(o,value);}
+ static void registry(BlockAlgaeFilm block,SimpleReloadableResourceManager resources,Sprite sprite)throws Exception {
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+  net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);
+  set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+  net.minecraft.launchwrapper.Launch.blackboard=new HashMap<String,Object>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+  TextureMap atlas=new TextureMap("textures");ModelManager manager=new ModelManager(atlas);
+  net.minecraft.client.renderer.BlockModelShapes shapes=new net.minecraft.client.renderer.BlockModelShapes(manager);
+  new net.minecraftforge.client.model.ModelLoader(resources,atlas,shapes);
+  com.hbm.main.AlgaeFilmModelHandler.register(new net.minecraftforge.client.event.ModelRegistryEvent());
+  net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(resources);
+  Field cf=net.minecraftforge.client.model.ModelLoader.class.getDeclaredField("customModels");cf.setAccessible(true);Map<?,?> custom=(Map<?,?>)cf.get(null);
+  check(custom.size()==16,"only original owner registers models; addon owners skipped");
+  Item item=Item.getItemFromBlock(block);net.minecraft.util.registry.RegistrySimple<ModelResourceLocation,IBakedModel> baked=new net.minecraft.util.registry.RegistrySimple<>();
+  for(int meta=0;meta<16;meta++) {
+   ModelResourceLocation route=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(route!=null,"item route "+meta);
+   net.minecraftforge.client.model.IModel source=net.minecraftforge.client.model.ModelLoaderRegistry.getModel(route);
+   check(source!=net.minecraftforge.client.model.ModelLoaderRegistry.getMissingModel(),"real loader dispatch");
+   baked.putObject(route,source.bake(source.getDefaultState(),DefaultVertexFormats.ITEM,x->sprite));
+  }
+  set(manager,ModelManager.class,"modelRegistry",baked);net.minecraft.client.renderer.ItemModelMesher mesher=new net.minecraft.client.renderer.ItemModelMesher(manager);
+  net.minecraftforge.client.model.ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();
+  for(int meta=0;meta<16;meta++)check(mesher.getItemModel(new ItemStack(item,1,meta))==baked.getObject((ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta))),"actual inventory mesh "+meta);
+  ResourceLocation json=new ResourceLocation("hbm","blockstates/tile.algae_film.json");
+  ModelBlockDefinition definition;try(IResource resource=resources.getResource(json);Reader reader=new InputStreamReader(resource.getInputStream(),StandardCharsets.UTF_8)){definition=ModelBlockDefinition.parseFromReader(reader,block.getRegistryName());}
+  for(EnumFacing face:EnumFacing.HORIZONTALS){String variant="facing="+face.getName();check(definition.hasVariant(variant),"packaged native blockstate "+variant);Variant v=definition.getVariant(variant).getVariantList().get(0);check(v.getModelLocation().getPath().equals("block/native_algae_film/"+face.getIndex()),"exact native route "+variant);check(net.minecraftforge.client.model.ModelLoaderRegistry.getModel(v.getModelLocation())!=net.minecraftforge.client.model.ModelLoaderRegistry.getMissingModel(),"native world dispatch");}
+ }
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();BlockAlgaeFilm block=new BlockAlgaeFilm(Material.IRON);
+  net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.register(block.setRegistryName("hbm","tile.algae_film"));
+  net.minecraftforge.fml.common.registry.ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+  Block addon=new BlockAlgaeFilm(Material.IRON).setRegistryName("addon","tile.algae_film");
+  Block sibling=new BlockAlgaeFilm(Material.IRON).setRegistryName("hbm","other_algae");
+  Block subclass=new BlockAlgaeFilm(Material.IRON){}.setRegistryName("addon","subclass_algae");
+  for(Block other:new Block[]{addon,sibling,subclass}){ForgeRegistries.BLOCKS.register(other);ForgeRegistries.ITEMS.register(new ItemBlock(other).setRegistryName(other.getRegistryName()));}
+  Class<?> handler=com.hbm.main.AlgaeFilmModelHandler.class;
+  Method ownership=handler.getDeclaredMethod("isOriginalOwner",Block.class);ownership.setAccessible(true);
+  check((Boolean)ownership.invoke(null,block),"exact original identity accepted");
+  for(Block other:new Block[]{addon,sibling,subclass,new Block(Material.IRON).setRegistryName("hbm","tile.algae_film"),new BlockAlgaeFilm(Material.IRON){}.setRegistryName("hbm","tile.algae_film")})check(!(Boolean)ownership.invoke(null,other),"addon/subclass/same-name replacement rejected");
+  for(int meta=0;meta<16;meta++){int expected=meta>=2&&meta<=5?meta:2;check(block.getMetaFromState(block.getStateFromMeta(meta))==expected,"legacy invalid metadata has zero rotation: "+meta);}
+
+  check(handler.getAnnotation(net.minecraftforge.fml.common.Mod.EventBusSubscriber.class).value()[0]==net.minecraftforge.fml.relauncher.Side.CLIENT,"client-only auto subscriber");
+  Field lf=handler.getDeclaredField("LOADER");lf.setAccessible(true);
+  net.minecraftforge.client.model.ICustomModelLoader loader=(net.minecraftforge.client.model.ICustomModelLoader)lf.get(null);
+  SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());
+  resources.reloadResources(Collections.singletonList(new FolderResourcePack(new File(args[0]))));loader.onResourceManagerReload(resources);
+  Sprite sprite=new Sprite();registry(block,resources,sprite);List<Part> original;try(Reader reader=new FileReader(args[1])){original=originalObj(reader);}
+  int count=0;for(Part p:original)for(Face f:p.faces){check(f.xyz.length==3,"original triangles");count++;}
+  for(int meta=2;meta<=5;meta++) {
+   IBlockState state=block.getStateFromMeta(meta);check(block.getMetaFromState(state)==meta,"native facing roundtrip");
+   check(block.getRenderType(state)==EnumBlockRenderType.MODEL&&!block.isOpaqueCube(state)&&!block.isFullCube(state),"native model owner flags");
+   float yaw=meta==4?90F/180F*(float)Math.PI:meta==5?270F/180F*(float)Math.PI:meta==3?(float)Math.PI:0;
+   ResourceLocation route=new ResourceLocation("hbm","native_algae_film/"+meta);check(loader.accepts(route),"native loader route");
+   net.minecraftforge.client.model.IModel model=loader.loadModel(route);
+   check(model.getTextures().contains(new ResourceLocation("hbm","blocks/algae_film")),"atlas discovery");
+   IBakedModel baked=model.bake(model.getDefaultState(),DefaultVertexFormats.BLOCK,x->sprite);
+   geometry(baked.getQuads(state,null,0),stream(original,null,sprite,false,yaw,0,1,.5,0,.5),false,"algae meta "+meta);
+   lighting(baked,state,"algae "+meta);
+   check(baked.getQuads(state,EnumFacing.UP,0).isEmpty(),"unculled bucket");
+  }
+  net.minecraftforge.client.model.IModel item=loader.loadModel(new ResourceLocation("hbm","native_algae_film/item"));
+  IBakedModel baked=item.bake(item.getDefaultState(),DefaultVertexFormats.ITEM,x->sprite);
+  geometry(baked.getQuads(null,null,0),stream(original,null,sprite,true,0,0,1,.5,0,.5),true,"algae item");
+  check(baked.getItemCameraTransforms().gui.scale.x==.625F,"native inventory display transform");
+  Field mesh=loader.getClass().getDeclaredField("mesh");mesh.setAccessible(true);Object first=mesh.get(loader);loader.onResourceManagerReload(resources);check(mesh.get(loader)==null,"reload invalidates cached mesh");loader.loadModel(new ResourceLocation("hbm","native_algae_film/item"));check(mesh.get(loader)!=first,"reload reopens geometry");
+  try(FileResourcePack zip=new FileResourcePack(new File(args[2]))){resources.reloadResources(Collections.singletonList(zip));loader.onResourceManagerReload(resources);registry(block,resources,sprite);check(loader.loadModel(new ResourceLocation("hbm","native_algae_film/item"))!=null,"packaged jar model");}
+  check(block.createNewTileEntity(null,0) instanceof com.hbm.tileentity.machine.TileEntityAlgaeFilm,"tile factory retained");
+  System.out.println("PASS algae: "+checks+" assertions, "+vertices+" exact vertices, "+count+" original triangles; real 1.12 block/model/loader/Forge+vanilla light, 4 world rotations, inventory and reload. NTM gameplay collaborators controlled; no live GL acceptance claimed.");
+ }
+}

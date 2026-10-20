@@ -25,7 +25,7 @@ public class ParticleUtil {
 			data.setDouble("posZ", z);
 			MainRegistry.proxy.effectNT(data);
 		} else {
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 150));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 150));
 		}
 	}
 
@@ -42,7 +42,7 @@ public class ParticleUtil {
 			data.setDouble("posZ", z);
 			MainRegistry.proxy.effectNT(data);
 		} else {
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 150));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 150));
 		}
 		}
 	}
@@ -61,7 +61,7 @@ public class ParticleUtil {
 			data.setDouble("posZ", z);
 			MainRegistry.proxy.effectNT(data);
 		} else {
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 150));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 150));
 		}
 	}
 
@@ -76,7 +76,7 @@ public class ParticleUtil {
 				data.setDouble("posZ", z);
 				MainRegistry.proxy.effectNT(data);
 			} else {
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 150));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 150));
 			}
 		}
 	}
@@ -96,7 +96,7 @@ public class ParticleUtil {
 			data.setDouble("posZ", z);
 			MainRegistry.proxy.effectNT(data);
 		} else {
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 150));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 150));
 		}
 	}
 
@@ -115,7 +115,7 @@ public class ParticleUtil {
 			data.setDouble("posZ", z);
 			MainRegistry.proxy.effectNT(data);
 		} else {
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 150));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 150));
 		}
 	}
 

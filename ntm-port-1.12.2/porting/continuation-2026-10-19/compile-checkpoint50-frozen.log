@@ -1,0 +1,127 @@
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :clean UP-TO-DATE
+> Task :extractMcpMappings SKIPPED
+> Task :deobfCompileDeobfDepTask0 SKIPPED
+> Task :deobfCompileDeobfDepTask1 SKIPPED
+> Task :deobfCompileDeobfDepTask2 SKIPPED
+> Task :deobfCompileDeobfDepTask3 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask4
+> Task :deobfCompileRemapDepSourcesTask5
+> Task :deobfCompileRemapDepSourcesTask6
+> Task :deobfCompileDummyTask
+> Task :getVersionJson
+> Task :extractUserdev UP-TO-DATE
+> Task :downloadClient SKIPPED
+> Task :downloadServer SKIPPED
+> Task :splitServerJar SKIPPED
+> Task :mergeJars SKIPPED
+> Task :applyBinaryPatches SKIPPED
+> Task :deobfProvidedDeobfDepTask0 SKIPPED
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData SKIPPED
+> Task :genSrgs SKIPPED
+> Task :deobfMcMCP SKIPPED
+> Task :sourceApiJava
+> Task :compileApiJava
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses
+> Task :sourceMainJava
+
+> Task :compileJava
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:18: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:22: error: cannot find symbol
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
+                                           ^
+  symbol:   class RendererLivingEntity
+  location: package net.minecraft.client.renderer.entity
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:37: error: cannot find symbol
+	public static void renderTag(EntityLivingBase living, double x, double y, double z, RendererLivingEntity renderer, String name, boolean depthTest) {
+	                                                                                    ^
+  symbol:   class RendererLivingEntity
+  location: class RenderOverhead
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/wiaj/GuiWorldInAJar.java:25: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/wiaj/GuiWorldInAJar.java:39: error: cannot find symbol
+	RenderBlocks renderer;
+	^
+  symbol:   class RenderBlocks
+  location: class GuiWorldInAJar
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:7: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:9: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:13: error: cannot find symbol
+public class RenderBlockMultipass implements ISimpleBlockRenderingHandler {
+                                             ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:29: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderBlockMultipass
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:134: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderBlockMultipass
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIScreenSlicePrinter.java:16: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIScreenSlicePrinter.java:34: error: cannot find symbol
+	private RenderBlocks renderer;
+	        ^
+  symbol:   class RenderBlocks
+  location: class GUIScreenSlicePrinter
+12 errors
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/4.10.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 32s
+12 actionable tasks: 10 executed, 2 up-to-date

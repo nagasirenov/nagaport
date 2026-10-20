@@ -4,26 +4,35 @@ import java.awt.Rectangle;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-
 import com.hbm.blocks.ModBlocks;
-import com.hbm.handler.imc.ICompatNHNEI;
 import com.hbm.inventory.gui.GUIAnvil;
 import com.hbm.inventory.recipes.anvil.AnvilRecipes;
 import com.hbm.inventory.recipes.anvil.AnvilSmithingRecipe;
 import com.hbm.lib.RefStrings;
-
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
-
-public class SmithingRecipeHandler extends TemplateRecipeHandler implements ICompatNHNEI {
-
-	@Override
-	public ItemStack[] getMachinesForRecipe() {
+import java.util.ArrayList;
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.recipe.IFocus;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.ResourceLocation;
+/** Native JEI category for the original SmithingRecipeHandler recipe source. */
+public class SmithingRecipeHandler extends MachineRecipeCategory {
+    private final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/nei/gui_nei_smithing.png");
+    private IDrawable background;
+    @Override public String getUid() { return "ntmSmithing"; }
+    @Override public String getTitle() {
+		return "Anvil";
+	 }
+    @Override public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModBlocks.anvil_iron),
 				new ItemStack(ModBlocks.anvil_lead),
@@ -37,137 +46,74 @@ public class SmithingRecipeHandler extends TemplateRecipeHandler implements ICom
 				new ItemStack(ModBlocks.anvil_dnt),
 				new ItemStack(ModBlocks.anvil_osmiridium),
 				new ItemStack(ModBlocks.anvil_murky)};
-	}
-	@Override
-	public String getRecipeID() {
-		return "ntmSmithing";
-	}
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<RecipeTransferRect> transferRectsGui = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-	public LinkedList<Class<? extends GuiContainer>> guiGui = new LinkedList<Class<? extends GuiContainer>>();
+	 }
+    @Override public IDrawable getBackground() { return background; }
+    @Override public void initialize(IGuiHelper helper) {
+        super.initialize(helper);
+        background = helper.createDrawable(texture, 5, 11, 166, 65);
 
-	public class RecipeSet extends TemplateRecipeHandler.CachedRecipe {
-
-		PositionedStack input1;
-		PositionedStack input2;
-		PositionedStack output;
-		int tier;
-
-		public RecipeSet(AnvilSmithingRecipe recipe) {
-			this.input1 = new PositionedStack(recipe.getLeft(), 39, 24);
-			this.input2 = new PositionedStack(recipe.getRight(), 75, 24);
-			this.output = new PositionedStack(recipe.getOutput(input1.item, input2.item), 111, 24);
-			this.tier = recipe.tier;
-		}
-
-		@Override
-		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(cycleticks / 48, Arrays.asList(input1, input2));
-		}
-
-		@Override
-		public PositionedStack getResult() {
-			return output;
-		}
-	}
-
-	@Override
-	public String getRecipeName() {
-		return "Anvil";
-	}
-
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-		
-		if(outputId.equals("ntmSmithing")) {
+    }
+    @Override public void registerGuiAreas(IModRegistry registry) { registry.addRecipeClickArea(GUIAnvil.class, (56 + 9) + 5, (24 - 9) + 11, 18, 18, getUid()); registry.addRecipeClickArea(GUIAnvil.class, (56 + 9 - 18 * 2) + 5, (24 - 9) + 11, 18, 18, getUid()); }
+    @Override public boolean isNavigationArea(int x, int y) {
+        return (new java.awt.Rectangle(56, 24, 18, 18).contains(x, y) || new java.awt.Rectangle(92, 24, 18, 18).contains(x, y));
+    }
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> views = new ArrayList<>();
+        if(focus == null) {
 			List<AnvilSmithingRecipe> recipes = AnvilRecipes.getSmithing();
-			
+
 			for(AnvilSmithingRecipe recipe : recipes) {
-				this.arecipes.add(new RecipeSet(recipe));
+				views.add(createView(recipe));
 			}
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
+		 }
+        else if(focus.getMode() == IFocus.Mode.OUTPUT) {
+            ItemStack result = focus.getValue();
 
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
 
 		List<AnvilSmithingRecipe> recipes = AnvilRecipes.getSmithing();
-		
+
 		for(AnvilSmithingRecipe recipe : recipes) {
-			if(NEIServerUtils.areStacksSameTypeCrafting(recipe.getSimpleOutput(), result)) {
-				this.arecipes.add(new RecipeSet(recipe));
+			if(RecipeStackMatcher.matchesCrafting(recipe.getSimpleOutput(), result)) {
+				views.add(createView(recipe));
 			}
 		}
-	}
 
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		
-		if(inputId.equals("ntmSmithing")) {
-			loadCraftingRecipes("ntmSmithing", new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
+        } else {
+            ItemStack ingredient = focus.getValue();
 
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
 
 		List<AnvilSmithingRecipe> recipes = AnvilRecipes.getSmithing();
-		
+
 		outer:
 		for(AnvilSmithingRecipe recipe : recipes) {
-			
+
 			for(ItemStack left : recipe.getLeft()) {
-				if(NEIServerUtils.areStacksSameTypeCrafting(left, ingredient)) {
-					this.arecipes.add(new RecipeSet(recipe));
+				if(RecipeStackMatcher.matchesCrafting(left, ingredient)) {
+					views.add(createView(recipe));
 					continue outer;
 				}
 			}
-			
+
 			for(ItemStack right : recipe.getRight()) {
-				if(NEIServerUtils.areStacksSameTypeCrafting(right, ingredient)) {
-					this.arecipes.add(new RecipeSet(recipe));
+				if(RecipeStackMatcher.matchesCrafting(right, ingredient)) {
+					views.add(createView(recipe));
 					continue outer;
 				}
 			}
 		}
-	}
 
-	@Override
-	public void loadTransferRects() {
-		transferRectsGui = new LinkedList<RecipeTransferRect>();
-		guiGui = new LinkedList<Class<? extends GuiContainer>>();
+        }
+        return views;
+    }
+    private MachineRecipeView createView(AnvilSmithingRecipe recipe) {
+        ItemStack[] left = com.hbm.handler.jei.RecipeItemAlternatives.from(recipe.getLeft());
+        ItemStack[] right = com.hbm.handler.jei.RecipeItemAlternatives.from(recipe.getRight());
+        ItemStack output = recipe.getOutput(left.length == 0 ? ItemStack.EMPTY : left[0], right.length == 0 ? ItemStack.EMPTY : right[0]);
+        return new MachineRecipeView(this, recipe, new ItemStack[][]{left, right}, new ItemStack[][]{{output}})
+            .addInputSlot(0, 39, 24).addInputSlot(1, 75, 24).addOutputSlot(0, 111, 24);
+    }
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        minecraft.fontRenderer.drawString("Tier " + ((AnvilSmithingRecipe) view.source).tier, 52, 43, 0x404040);
+    }
 
-		transferRects.add(new RecipeTransferRect(new Rectangle(56, 24, 18, 18), "ntmSmithing"));
-		transferRects.add(new RecipeTransferRect(new Rectangle(92, 24, 18, 18), "ntmSmithing"));
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(56 + 9, 24 - 9, 18, 18), "ntmSmithing"));
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(56 + 9 - 18 * 2, 24 - 9, 18, 18), "ntmSmithing"));
-		guiGui.add(GUIAnvil.class);
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
-	}
-
-	@Override
-	public void drawExtras(int recipe) {
-		loadTransferRects();
-
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
-
-		FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
-		fontRenderer.drawString("Tier " + rec.tier, 52, 43, 0x404040);
-	}
-
-	@Override
-	public int recipiesPerPage() {
-		return 2;
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei_smithing.png";
-	}
 }

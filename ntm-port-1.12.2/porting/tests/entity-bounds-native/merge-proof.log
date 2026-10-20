@@ -1,0 +1,4 @@
+Migrated 184 accesses in 57 files
+PASS 57 exact forward/inverse files and 171 source mutation negative controls
+PASS fragment merge preserves unrelated bytes in all 57 files, adjusts 184 UTF16 edits and regenerates exact inverses
+PASS changed merge inventory rejected without source writes

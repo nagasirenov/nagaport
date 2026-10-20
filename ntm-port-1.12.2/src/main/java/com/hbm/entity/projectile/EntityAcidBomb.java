@@ -23,7 +23,7 @@ public class EntityAcidBomb extends EntityThrowableInterp {
 	@Override
 	protected void onImpact(RayTraceResult mop) {
 		
-		if(worldObj.isRemote) return;
+		if(this.world.isRemote) return;
 		
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			

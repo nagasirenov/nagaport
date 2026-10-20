@@ -1,0 +1,4 @@
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: 159 native AnvilRecipeHandler/AnvilOverlayHandler assertions (NTM-only domain/GUI fixtures; no full gameplay proof)
+SOURCE-ONLY GUI lifecycle guards passed; no full GUI/gameplay compilation claimed.

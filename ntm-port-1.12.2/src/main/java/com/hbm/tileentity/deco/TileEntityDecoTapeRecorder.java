@@ -11,9 +11,9 @@ public class TileEntityDecoTapeRecorder extends TileEntity {
 	private int rot = 0;
 	
 	public int getRotation() {
-		if(this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord) instanceof DecoTapeRecorder)
+		if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock() instanceof DecoTapeRecorder)
 		{
-			if(this.worldObj.isBlockIndirectlyGettingPowered(this.xCoord, this.yCoord, this.zCoord))
+			if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()))
 			{
 				rot += 3;
 				if(rot >= 360)

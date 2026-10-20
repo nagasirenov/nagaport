@@ -1,0 +1,720 @@
+{
+  "scope": "35 audited independent DIRECT setters plus 34 owned native removals; excludes MachineBase, SatDock and PistonInserter",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java",
+      "before_sha256": "aee917f7132af99db83c88424bf2de94f9eb856988fb8bceedf70b7afca9474a",
+      "after_sha256": "3a39cca4989e818aeb22c507fb724efd9cde5dee60a5f672afeb9623c2c0ab09",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit()) {\n\t\t\tstack.stackSize = this.getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit()) {\n\t\t\tstack.setCount(this.getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1778,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit()) {\n\t\t\tstack.stackSize = this.getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit()) {\n\t\t\tstack.setCount(this.getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\n\t\tif(this.slots[slot] != null) {\n\t\t\tItemStack itemstack = this.slots[slot];\n\t\t\tthis.slots[slot] = null;\n\t\t\treturn itemstack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\n\t\tif(this.slots[slot] != null) {\n\t\t\tItemStack itemstack = this.slots[slot];\n\t\t\tthis.slots[slot] = null;\n\t\t\treturn itemstack == null || itemstack.isEmpty() ? ItemStack.EMPTY : itemstack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "before_sha256": "500cd966d52bbf1cc3d480f2076b1ccbb8bb262d2a801e645f3737864726d293",
+      "after_sha256": "36e74985519ee37296db5af2e8346778231105ab4f85c5cf233b9210f7899032",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tthis.slots[slot] = stack;\r\n\r\n\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit()) {\r\n\t\t\tstack.stackSize = this.getInventoryStackLimit();\r\n\t\t}\r\n\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\r\n\t\tthis.slots[slot] = stack;\r\n\r\n\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit()) {\r\n\t\t\tstack.setCount(this.getInventoryStackLimit());\r\n\t\t}\r\n\t}",
+      "offset": 4689,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tthis.slots[slot] = stack;\r\n\r\n\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit()) {\r\n\t\t\tstack.stackSize = this.getInventoryStackLimit();\r\n\t\t}\r\n\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\r\n\t\tthis.slots[slot] = stack;\r\n\r\n\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit()) {\r\n\t\t\tstack.setCount(this.getInventoryStackLimit());\r\n\t\t}\r\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\r\n\t\tif(this.slots[slot] != null) {\r\n\t\t\tItemStack itemstack = this.slots[slot];\r\n\t\t\tthis.slots[slot] = null;\r\n\t\t\treturn itemstack;\r\n\t\t} else {\r\n\t\t\treturn null;\r\n\t\t}\r\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\r\n\t\tif(this.slots[slot] != null) {\r\n\t\t\tItemStack itemstack = this.slots[slot];\r\n\t\t\tthis.slots[slot] = null;\r\n\t\t\treturn itemstack == null || itemstack.isEmpty() ? ItemStack.EMPTY : itemstack;\r\n\t\t} else {\r\n\t\t\treturn ItemStack.EMPTY;\r\n\t\t}\r\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/train/EntityRailCarCargo.java",
+      "before_sha256": "66a42ade7c8a1b01075470ce2fbc110fe88c0b9a7065374cf0f8b09c1434d5f5",
+      "after_sha256": "e924c382e2a9fbff59abfd1aed4d6798673e8a91bd11374b778afa7ff9fc8a51",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit()) {\n\t\t\tstack.stackSize = this.getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit()) {\n\t\t\tstack.setCount(this.getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1614,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit()) {\n\t\t\tstack.stackSize = this.getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\tthis.slots[slot] = stack;\n\n\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit()) {\n\t\t\tstack.setCount(this.getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\n\t\tif(this.slots[slot] != null) {\n\t\t\tItemStack itemstack = this.slots[slot];\n\t\t\tthis.slots[slot] = null;\n\t\t\treturn itemstack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\n\t\tif(this.slots[slot] != null) {\n\t\t\tItemStack itemstack = this.slots[slot];\n\t\t\tthis.slots[slot] = null;\n\t\t\treturn itemstack == null || itemstack.isEmpty() ? ItemStack.EMPTY : itemstack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemInventory.java",
+      "before_sha256": "b8f6cbfb7c128ea7f722c630ff03d2b3f366133f3fe48e8f589a78cbcce940b3",
+      "after_sha256": "63812357df988d1a0ea07db7a0bbc09651ec8e0a7195b24b1f53a5520d112ca9",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tif(stack != null) {\r\n\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\r\n\t\t}\r\n\r\n\t\tslots[slot] = stack;\r\n\t\tmarkDirty();\r\n\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\r\n\t\tif(stack != null) {\r\n\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\r\n\t\t}\r\n\r\n\t\tslots[slot] = stack;\r\n\t\tmarkDirty();\r\n\t}",
+      "offset": 3190,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tif(stack != null) {\r\n\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\r\n\t\t}\r\n\r\n\t\tslots[slot] = stack;\r\n\t\tmarkDirty();\r\n\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\r\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\r\n\t\tif(stack != null) {\r\n\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\r\n\t\t}\r\n\r\n\t\tslots[slot] = stack;\r\n\t\tmarkDirty();\r\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\r\n\t\tItemStack stack = getStackInSlot(slot);\r\n\t\tsetInventorySlotContents(slot, null);\r\n\t\treturn stack;\r\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\r\n\t\tItemStack stack = getStackInSlot(slot);\r\n\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\r\n\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\r\n\t}"
+        },
+        {
+          "kind": "decrement-clear",
+          "old": "public ItemStack decrStackSize(int slot, int amount) {\r\n\t\tItemStack stack = getStackInSlot(slot);\r\n\t\tif(stack != null) {\r\n\t\t\tif (stack.stackSize > amount) {\r\n\t\t\t\tstack = stack.splitStack(amount);\r\n\t\t\t\tmarkDirty();\r\n\t\t\t} else {\r\n\t\t\t\tsetInventorySlotContents(slot, null);\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn stack;\r\n\t}",
+          "new": "public ItemStack decrStackSize(int slot, int amount) {\r\n\t\tItemStack stack = getStackInSlot(slot);\r\n\t\tif(stack != null) {\r\n\t\t\tif (stack.stackSize > amount) {\r\n\t\t\t\tstack = stack.splitStack(amount);\r\n\t\t\t\tmarkDirty();\r\n\t\t\t} else {\r\n\t\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn stack;\r\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemAmmoBag.java",
+      "before_sha256": "3f60b6dd01b5b041088155f1dd125442eadab1b0f6aafd488f5ef928001d8ff9",
+      "after_sha256": "fd86c183be698c9407c3263eef2d94db8e2488a897d252793164b367e73d1ace",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+      "offset": 3310,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tsetInventorySlotContents(slot, null);\n\t\t\treturn stack;\n\t\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\n\t\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\n\t\t}"
+        },
+        {
+          "kind": "decrement-clear",
+          "old": "public ItemStack decrStackSize(int slot, int amount) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tif (stack != null) {\n\t\t\t\tif (stack.stackSize > amount) {\n\t\t\t\t\tstack = stack.splitStack(amount);\n\t\t\t\t\tmarkDirty();\n\t\t\t\t} else {\n\t\t\t\t\tsetInventorySlotContents(slot, null);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn stack;\n\t\t}",
+          "new": "public ItemStack decrStackSize(int slot, int amount) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tif (stack != null) {\n\t\t\t\tif (stack.stackSize > amount) {\n\t\t\t\t\tstack = stack.splitStack(amount);\n\t\t\t\t\tmarkDirty();\n\t\t\t\t} else {\n\t\t\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn stack;\n\t\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemCasingBag.java",
+      "before_sha256": "3dddeba76ab3acb2b03392b2304de58f8c8c716c315214a3829c8b18aab9749a",
+      "after_sha256": "5663121fbee52e445343314df19e5deef3ade6e10b006ec2bf134d4760127879",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+      "offset": 4545,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tsetInventorySlotContents(slot, null);\n\t\t\treturn stack;\n\t\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\n\t\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\n\t\t}"
+        },
+        {
+          "kind": "decrement-clear",
+          "old": "public ItemStack decrStackSize(int slot, int amount) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tif (stack != null) {\n\t\t\t\tif (stack.stackSize > amount) {\n\t\t\t\t\tstack = stack.splitStack(amount);\n\t\t\t\t\tmarkDirty();\n\t\t\t\t} else {\n\t\t\t\t\tsetInventorySlotContents(slot, null);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn stack;\n\t\t}",
+          "new": "public ItemStack decrStackSize(int slot, int amount) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tif (stack != null) {\n\t\t\t\tif (stack.stackSize > amount) {\n\t\t\t\t\tstack = stack.splitStack(amount);\n\t\t\t\t\tmarkDirty();\n\t\t\t\t} else {\n\t\t\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn stack;\n\t\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemPlasticBag.java",
+      "before_sha256": "6bc5c935b2089b4c84598a9c1cbc151ea1b5f141cfa21a885832542e17f6153c",
+      "after_sha256": "1c55b996266d195db89ba88a4b9d28eaa670a21e380bd9ae3428fea633a7be4e",
+      "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+      "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+      "offset": 2588,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}",
+          "new": "public void setInventorySlotContents(int slot, ItemStack stack) {\n\t\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\n\t\t\t}\n\t\t\t\n\t\t\tslots[slot] = stack;\n\t\t\tmarkDirty();\n\t\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int slot) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tsetInventorySlotContents(slot, null);\n\t\t\treturn stack;\n\t\t}",
+          "new": "public ItemStack removeStackFromSlot(int slot) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\n\t\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\n\t\t}"
+        },
+        {
+          "kind": "decrement-clear",
+          "old": "public ItemStack decrStackSize(int slot, int amount) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tif (stack != null) {\n\t\t\t\tif (stack.stackSize > amount) {\n\t\t\t\t\tstack = stack.splitStack(amount);\n\t\t\t\t\tmarkDirty();\n\t\t\t\t} else {\n\t\t\t\t\tsetInventorySlotContents(slot, null);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn stack;\n\t\t}",
+          "new": "public ItemStack decrStackSize(int slot, int amount) {\n\t\t\tItemStack stack = getStackInSlot(slot);\n\t\t\tif (stack != null) {\n\t\t\t\tif (stack.stackSize > amount) {\n\t\t\t\t\tstack = stack.splitStack(amount);\n\t\t\t\t\tmarkDirty();\n\t\t\t\t} else {\n\t\t\t\t\tsetInventorySlotContents(slot, ItemStack.EMPTY);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn stack;\n\t\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java",
+      "before_sha256": "63551ac1e94f5753a1e6103a5c9b8a728d5936f5b524be9efc4e6c6cec7aa636",
+      "after_sha256": "452cdc27abe98ed8616532dcdad1217c9aef681b30fd98c5fca5fcedb4693f2b",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1734,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+      "before_sha256": "dd87fdf03468021ecfffb9296921209b1ac3502475f177125f0dc6157714c72b",
+      "after_sha256": "f65ba99a3c1f8f73577bb8a30f2b0beae19910050f4ea4f6a386a820d20f6816",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 2956,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif (slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif (slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+      "before_sha256": "96dbcb0d5569f470800f87c8e422eab90f32d6186336a99f2a25fffc531c9b7e",
+      "after_sha256": "51d76b7ad6006e477ce4175dc08364f02b7a136061f1249dff2045d87509cd3c",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 3341,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif (slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif (slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java",
+      "before_sha256": "3cbede46defa6e1ff04421207d532d1685144201c0979e5ad892a09c83b38dab",
+      "after_sha256": "c5c7fcbea78f33c3195c40606fee3b6ae64e5fbd678e202732bb51fff1db0114",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1663,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java",
+      "before_sha256": "0b800202a91f7de9ee7e4b98766f9ee21111d5628e1e245276292f86edaa8550",
+      "after_sha256": "0be70b483034ccbbd27e3c9f15da45dbb0c31a3a3c73125cd065c26632f6f3c0",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1894,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java",
+      "before_sha256": "71f7ec1a3096b9fcbde5f63a97800f4508060648fb8beea5542bca832b80e63e",
+      "after_sha256": "2d4ca3d2851ef4746593acc74f29a64de9ac0138e97fa2b9db02e4022afc90c8",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1675,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java",
+      "before_sha256": "962f8b1e5297ec24cb52f8c29ceb5a4ac32227cb5b649ed59f8e14564ab90cdd",
+      "after_sha256": "ca9effdc8cf4dd224e8f16d73d4b1f78cdea6c5d12dc73f5fee84bc189e97d31",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1675,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java",
+      "before_sha256": "5e936fc05047b8dd68f0ee7dda34f6ba15296f150e496e912c6d6d346ddadee2",
+      "after_sha256": "25ae5079ccd536a9d0748707cf69db9e0f786eab8cbbcdd2eed79523c44ac77c",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1663,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java",
+      "before_sha256": "f95d2572096eef220cfc2f3cb3b2a10411d1b679770065c48326458b37cb1713",
+      "after_sha256": "4a06d236464c3c33b8fa64782920907b33ad5d399e8ad7fe095f6ca629588304",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1667,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java",
+      "before_sha256": "89970117a804db34dcc1940c5c5e7bc716a0b64a9c05017d34b11422279e18ac",
+      "after_sha256": "5895d1fc6f22bb7f9e46189e18d3044375cedf7fd4dfe4bfe564472137bf334b",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1659,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java",
+      "before_sha256": "0e94619153a8e004c2c05fadeb89dc4d8e8bc1814074a7d990bf9d10923e36d2",
+      "after_sha256": "104a60e5d4e7b43f9389fafcafbea9938592cd8c4c8c0e9170d606a7c6d484eb",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1749,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java",
+      "before_sha256": "213c719f1c0d67dc7e89bc46dab4b084d053b2e9cd81c678ecfd1941c5d87dd0",
+      "after_sha256": "20cb6b10f02079b9845cb05dabd466d28c3ca3c626524378048ac2ce9bb82be7",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1682,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java",
+      "before_sha256": "812d7f1daf5e855fea3165b048996d2e44429054a55c4af5423250a732c02e97",
+      "after_sha256": "673ad7672f5af57de8806c650e97d2202da219644c31147137dcbc1829b2e719",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1667,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java",
+      "before_sha256": "af6b9de8a9a7ebfde675a13773d752bd04afc2bb993c5f1416747d80728d127c",
+      "after_sha256": "f50368343af35abd633bea996b497bdece26406df6cc8a658c34cdd32257e7f6",
+      "old": "public void setInventorySlotContents(int i, ItemStack stack) {\n\t\tslots[i] = stack;\n\t\tif(stack != null && stack.stackSize > getInventoryStackLimit()) {\n\t\t\tstack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack stack) {\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\tslots[i] = stack;\n\t\tif(stack != null && stack.getCount() > getInventoryStackLimit()) {\n\t\t\tstack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 3959,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack stack) {\n\t\tslots[i] = stack;\n\t\tif(stack != null && stack.stackSize > getInventoryStackLimit()) {\n\t\t\tstack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack stack) {\n\t\tstack = stack == null || stack.isEmpty() ? null : stack;\n\t\tslots[i] = stack;\n\t\tif(stack != null && stack.getCount() > getInventoryStackLimit()) {\n\t\t\tstack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java",
+      "before_sha256": "960f1ae6d3ef93291ebff7825c1392ee5e898437d7f4d30dcf45705824a79304",
+      "after_sha256": "9b5f68f6138171a9fb0bd641ee7d9b0002b2f256643e279a6cbf0e3b13c5cb1d",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 4126,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java",
+      "before_sha256": "8deb316c08de7de200f7b8a2171054cda04a4288298aefb04389e3a61088564e",
+      "after_sha256": "80fbbc6c30cd9e35f0f12611406f59f55eba73f764085ea606e02266c92688be",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t\tworldObj.markBlockForUpdate(xCoord, yCoord, zCoord);\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t\tworldObj.markBlockForUpdate(xCoord, yCoord, zCoord);\n\t}",
+      "offset": 3308,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t\tworldObj.markBlockForUpdate(xCoord, yCoord, zCoord);\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t\tworldObj.markBlockForUpdate(xCoord, yCoord, zCoord);\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java",
+      "before_sha256": "4772af0e80af449f77311a2782a3dbb7f40edda459b4b2228cb1b989f8d93695",
+      "after_sha256": "dfd7a25b590f00ca67b04841fc4c5072c1cdc9d1127a80511e9724c3b7601197",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1447,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java",
+      "before_sha256": "ec98c09f4cb92102871186553027e28cd70f1eccec7b1599a81e047dbce2a2e6",
+      "after_sha256": "30fc0f45ee49c4d6c8db69b88c430b9f3f0297020d1f18090fb51dad84320a67",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1822,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif (slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif (slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java",
+      "before_sha256": "6b1c45196d86e4ae901c7f96b7d818d92739ccbb62b18bcf08cd2395c5cd7969",
+      "after_sha256": "4d85615aa0c0865b77406908db32386e98843e73a4235c072868c5dc672c59a4",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1818,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java",
+      "before_sha256": "96c4946930b6c950e48926d8bebbf741c66fd1bfc34c2b31535e0ee0868b02ba",
+      "after_sha256": "cc161cb77192f45d213acf488375f95b4d35ce369b26fc7b8e0d42068d3bc924",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1531,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java",
+      "before_sha256": "be32a1a1349b1a987096caaee1bd33037bcab59d7e3a8f1d29638dc5e1d979fe",
+      "after_sha256": "e64e3b623d7719413db866e63f9adfdb67160081245772e7041073ad49ebd4a9",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 2061,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java",
+      "before_sha256": "4c2373cefa481df1aa26b053c24b70b0cacf0ebe10c556f1f7d364081d7a17f5",
+      "after_sha256": "64616b02a1f6f858b5b458b3a0c23241c00b5f3166b92492d837222749dafd8a",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1771,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java",
+      "before_sha256": "e8e69be544a8b595b930ca812a5c14de448183e609b0fd71f2a02bf1fc446682",
+      "after_sha256": "66b09a524e9ecdaf1c8af975367cc24565a869631e9963628e3be1a11fd43013",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 4119,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java",
+      "before_sha256": "e5cd728bed95cc9a1a4e34c946abbb5c47092574f085859a57021898ea9cad04",
+      "after_sha256": "513e8c92400d8775e5c705f4cab37b6a7a90c5552bd49281f4d7e6fbe997273e",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1635,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java",
+      "before_sha256": "33de3ea7fb5c52d5c7b5114a484f50f26b4b4cafe985ff8baa6e899bb62cf567",
+      "after_sha256": "dda734519ef37a0cf335be06ab3f075a64912e592bce39a9b1cb4f39f7b7bbf2",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1527,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java",
+      "before_sha256": "a6a683698c190cba90208cb9ab47812e45ccc5d3db7d398ed92b1235f4058c08",
+      "after_sha256": "b8f8d747bc544f5d62b8f22b2712e6f28fe79546f27d0d87e12a38b1ab1abac6",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 1136,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null) {\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "before_sha256": "fe5f63ad3035ba0532f5085d1cef7653ca93a89df4a33e011ef31f072586986b",
+      "after_sha256": "61135a3f0a7dbcbcf107c8de4d192fdc0f5bc99485c090e8724ff314d398ce99",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\r\n\t\tslots[i] = itemStack;\r\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\r\n\t\t\titemStack.stackSize = getInventoryStackLimit();\r\n\t\t}\r\n\t\tthis.markDirty();\r\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\r\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\r\n\t\tslots[i] = itemStack;\r\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\r\n\t\t\titemStack.setCount(getInventoryStackLimit());\r\n\t\t}\r\n\t\tthis.markDirty();\r\n\t}",
+      "offset": 1278,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\r\n\t\tslots[i] = itemStack;\r\n\t\tif (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\r\n\t\t\titemStack.stackSize = getInventoryStackLimit();\r\n\t\t}\r\n\t\tthis.markDirty();\r\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\r\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\r\n\t\tslots[i] = itemStack;\r\n\t\tif (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\r\n\t\t\titemStack.setCount(getInventoryStackLimit());\r\n\t\t}\r\n\t\tthis.markDirty();\r\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\r\n\t\tif (slots[i] != null) {\r\n\t\t\tItemStack itemStack = slots[i];\r\n\t\t\tslots[i] = null;\r\n\t\t\treturn itemStack;\r\n\t\t} else {\r\n\t\t\treturn null;\r\n\t\t}\r\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\r\n\t\tif (slots[i] != null) {\r\n\t\t\tItemStack itemStack = slots[i];\r\n\t\t\tslots[i] = null;\r\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\r\n\t\t} else {\r\n\t\t\treturn ItemStack.EMPTY;\r\n\t\t}\r\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java",
+      "before_sha256": "b72ea805488598bd71e70b5679e852a1b97b226e6f768a5171825557ddcbdb1c",
+      "after_sha256": "ffe8a790d0cc30162de9e66045a9d194410cef1b33318dab260aa32688b1ad99",
+      "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+      "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}",
+      "offset": 2670,
+      "edits": [
+        {
+          "kind": "setter",
+          "old": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.stackSize = getInventoryStackLimit();\n\t\t}\n\t}",
+          "new": "public void setInventorySlotContents(int i, ItemStack itemStack) {\n\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n\t\tslots[i] = itemStack;\n\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit())\n\t\t{\n\t\t\titemStack.setCount(getInventoryStackLimit());\n\t\t}\n\t}"
+        },
+        {
+          "kind": "removal",
+          "old": "public ItemStack getStackInSlotOnClosing(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack;\n\t\t} else {\n\t\treturn null;\n\t\t}\n\t}",
+          "new": "public ItemStack removeStackFromSlot(int i) {\n\t\tif(slots[i] != null)\n\t\t{\n\t\t\tItemStack itemStack = slots[i];\n\t\t\tslots[i] = null;\n\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n\t\t} else {\n\t\treturn ItemStack.EMPTY;\n\t\t}\n\t}"
+        }
+      ]
+    }
+  ]
+}

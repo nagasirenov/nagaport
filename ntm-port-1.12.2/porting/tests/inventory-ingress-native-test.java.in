@@ -1,0 +1,32 @@
+import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
+import net.minecraft.init.Bootstrap;
+public class IngressNativeTest {
+static int checks;
+static void check(boolean v,String msg){checks++;if(!v)throw new AssertionError(msg);}
+static class Notifications { int count; void markBlockForUpdate(int x,int y,int z){count++;} }
+static abstract class Fixture { ItemStack[] slots=new ItemStack[2]; int dirty,xCoord,yCoord,zCoord; Notifications worldObj=new Notifications(); int getInventoryStackLimit(){return 16;} void markDirty(){dirty++;} public abstract void setInventorySlotContents(int i,ItemStack s); public ItemStack getStackInSlot(int i){return slots[i];} public ItemStack removeStackFromSlot(int i){throw new AssertionError("Inherited removal not in fixture scope");} }
+@CLASSES@
+static void test(Fixture f,int dirty,int updates,String label){
+ ItemStack live=new ItemStack(Items.APPLE,7); f.setInventorySlotContents(0,live);
+ check(f.slots[0]==live,label+" live identity");check(live.getCount()==7,label+" ordinary count");
+ f.setInventorySlotContents(0,null);check(f.slots[0]==null,label+" null normalization");
+ f.setInventorySlotContents(0,ItemStack.EMPTY);check(f.slots[0]==null,label+" EMPTY normalization");check(ItemStack.EMPTY.isEmpty(),label+" singleton unchanged");
+ ItemStack zero=new ItemStack(Items.APPLE,0);f.setInventorySlotContents(0,zero);check(f.slots[0]==null,label+" zero normalization");
+ ItemStack negative=new ItemStack(Items.APPLE,-1);f.setInventorySlotContents(0,negative);check(f.slots[0]==null,label+" negative normalization");
+ ItemStack large=new ItemStack(Items.APPLE,42);f.setInventorySlotContents(0,large);check(f.slots[0]==large,label+" clamp identity");check(large.getCount()==16,label+" clamp count");
+ check(f.dirty==6*dirty,label+" dirty callback count");check(f.worldObj.count==6*updates,label+" update callback count");
+ check(f.slots[1]==null,label+" other slot untouched");
+}
+static void testRemoval(Fixture f,int dirty,String label){
+ check(f.removeStackFromSlot(0)==ItemStack.EMPTY,label+" empty removal");
+ check(f.slots[0]==null,label+" empty storage");
+ ItemStack live=new ItemStack(Items.APPLE,7); f.slots[0]=live;
+ check(f.removeStackFromSlot(0)==live,label+" full-removal live identity");
+ check(live.getCount()==7,label+" removal retains count");check(f.slots[0]==null,label+" full removal clears storage");
+ f.slots[0]=ItemStack.EMPTY;check(f.removeStackFromSlot(0)==ItemStack.EMPTY,label+" existing EMPTY removal");check(f.slots[0]==null,label+" EMPTY storage normalized");
+ f.slots[0]=new ItemStack(Items.APPLE,0);check(f.removeStackFromSlot(0)==ItemStack.EMPTY,label+" existing zero removal");check(f.slots[0]==null,label+" zero storage cleared");
+ check(f.dirty==4*dirty,label+" removal dirty callbacks");check(f.worldObj.count==0,label+" removal no extra block update");check(f.slots[1]==null,label+" removal other slot untouched");
+}
+public static void main(String[] args){Bootstrap.register();@TESTS@System.out.println("PASS "+checks+" checks across 35 setters and 34 removals extracted verbatim from production; actual native ItemStack, controlled callback fixtures.");}
+}

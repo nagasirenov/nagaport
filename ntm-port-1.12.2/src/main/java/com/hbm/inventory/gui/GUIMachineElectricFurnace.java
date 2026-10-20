@@ -15,7 +15,7 @@ import com.hbm.util.i18n.I18nUtil;
 
 public class GUIMachineElectricFurnace extends GuiInfoContainer {
 	
-	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/GUIElectricFurnace.png");
+	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/guielectricfurnace.png");
 	private TileEntityMachineElectricFurnace diFurnace;
 
 	public GUIMachineElectricFurnace(InventoryPlayer invPlayer, TileEntityMachineElectricFurnace tedf) {
@@ -41,10 +41,10 @@ public class GUIMachineElectricFurnace extends GuiInfoContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		String name = this.diFurnace.hasCustomInventoryName() ? this.diFurnace.getInventoryName() : I18n.format(this.diFurnace.getInventoryName());
+		String name = this.diFurnace.hasCustomName() ? this.diFurnace.getName() : I18n.format(this.diFurnace.getName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -58,15 +58,15 @@ public class GUIMachineElectricFurnace extends GuiInfoContainer {
 		//if initial ZE is still present, it'll be used instead
 		//works so that container packets can still be used
 		//efficiency!
-		if(diFurnace.isInvalid() && diFurnace.getWorldObj().getTileEntity(diFurnace.xCoord, diFurnace.yCoord, diFurnace.zCoord) instanceof TileEntityMachineElectricFurnace)
-			diFurnace = (TileEntityMachineElectricFurnace) diFurnace.getWorldObj().getTileEntity(diFurnace.xCoord, diFurnace.yCoord, diFurnace.zCoord);
+		if(diFurnace.isInvalid() && diFurnace.getWorld().getTileEntity(diFurnace.getPos()) instanceof TileEntityMachineElectricFurnace)
+			diFurnace = (TileEntityMachineElectricFurnace) diFurnace.getWorld().getTileEntity(diFurnace.getPos());
 		
 		if(diFurnace.hasPower()) {
 			int i = (int)diFurnace.getPowerScaled(52);
 			drawTexturedModalRect(guiLeft + 20, guiTop + 69 - i, 200, 52 - i, 16, i);
 		}
 		
-		if(diFurnace.getWorldObj().getBlock(diFurnace.xCoord, diFurnace.yCoord, diFurnace.zCoord) == ModBlocks.machine_electric_furnace_on) {
+		if(diFurnace.getWorld().getBlockState(diFurnace.getPos()).getBlock() == ModBlocks.machine_electric_furnace_on) {
 			drawTexturedModalRect(guiLeft + 56, guiTop + 35, 176, 0, 16, 16);
 		}
 		

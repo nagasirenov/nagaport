@@ -1,0 +1,22 @@
+// Complete actual electric furnace, container, upgrades, batteries and inherited machine core.
+// NTM collaborators and limits are documented in electric-furnace-core-notes.md.
+allprojects { afterEvaluate {
+    tasks.create('checkPortElectricFurnaceCore', Exec) {
+        commandLine project.findProperty('portPython') ?: 'python3',
+            project.file('porting/tests/check-electric-furnace-core-source.py')
+    }
+    tasks.create('testPortElectricFurnaceCore', Exec) {
+        dependsOn 'checkPortElectricFurnaceCore'
+        commandLine project.findProperty('portPython') ?: 'python3',
+            project.file('porting/tests/probe-electric-furnace-core.py'),
+            '--java-home', System.getProperty('java.home'),
+            '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+    }
+    tasks.create('testPortElectricFurnaceCombined', Exec) {
+        dependsOn 'checkPortElectricFurnaceCore'
+        commandLine project.findProperty('portPython') ?: 'python3',
+            project.file('porting/tests/probe-electric-furnace-core.py'), '--combined',
+            '--java-home', System.getProperty('java.home'),
+            '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+    }
+} }

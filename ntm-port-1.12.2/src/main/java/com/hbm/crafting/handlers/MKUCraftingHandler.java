@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
-public class MKUCraftingHandler implements IRecipe {
+public class MKUCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	public static ItemStack[] MKURecipe;
 	private static long lastSeed;
@@ -32,10 +32,10 @@ public class MKUCraftingHandler implements IRecipe {
 			ItemStack stack = inventory.getStackInRowAndColumn(i % 3, i / 3);
 			ItemStack recipe = MKURecipe[i];
 
-			if(stack == null && recipe == null)
+			if(stack.isEmpty() && recipe == null)
 				continue;
 
-			if(stack != null && recipe != null && stack.getItem() == recipe.getItem() && stack.getItemDamage() == recipe.getItemDamage())
+			if(!stack.isEmpty() && recipe != null && stack.getItem() == recipe.getItem() && stack.getItemDamage() == recipe.getItemDamage())
 				continue;
 
 			return false;
@@ -111,9 +111,18 @@ public class MKUCraftingHandler implements IRecipe {
 		return book;
 	}
 
-	@Override
 	public int getRecipeSize() {
 		return 6;
+	}
+
+	@Override
+	public boolean canFit(int width, int height) {
+		return width * height >= 6;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return true;
 	}
 
 	@Override

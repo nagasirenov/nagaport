@@ -1,0 +1,41 @@
+{
+  "baseline": "ac268a5807abdd17dfc801f753d7aad8e5a21e46",
+  "constructors": {
+    "deco_steel": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "deco_tungsten": "deco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "deco_red_copper": "deco_red_copper = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_red_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "deco_lead": "deco_lead = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "deco_rusty_steel": "deco_rusty_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_rusty_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+  },
+  "registrations": {
+    "deco_steel": "register(deco_steel, ItemBlock.class);",
+    "deco_tungsten": "register(deco_tungsten, ItemBlock.class);",
+    "deco_red_copper": "register(deco_red_copper, ItemBlock.class);",
+    "deco_lead": "register(deco_lead, ItemBlock.class);",
+    "deco_rusty_steel": "register(deco_rusty_steel, ItemBlock.class);"
+  },
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/BlockDecoCT.java": "de101a7ca9e5256c0069375a5e7eaa5e0349ea001125a72f143d73e41f598f1c",
+    "src/main/java/com/hbm/render/block/ct/CT.java": "bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76",
+    "src/main/java/com/hbm/render/block/ct/CTContext.java": "8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70",
+    "src/main/java/com/hbm/render/block/ct/IBlockCT.java": "d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34",
+    "src/main/java/com/hbm/main/CTModelHandler.java": "d29acfcd055abb1e05f98118fd19b08ed9d8381b45380c82b42632661129aa27",
+    "src/main/java/com/hbm/render/block/RenderBlockCT.java": "7333353045dee00b9194315e0222cdfe4a0855b97568d9f628bd3f789294ee67",
+    "src/main/java/com/hbm/render/block/ct/CTLightQuad.java": "23d55234bbf3555cd4aab306becde225ab229c83e1ad4935acee91ff26c23531",
+    "porting/tests/ct-native/owners.py": "aa110b765e8c210c676bfd82c259507713ac2af6d9a0a983762d7b28a7f2a950",
+    "porting/tests/ct-native/README.md": "3e2e20949d5e0ac808f561e5c88537e6d79d2523a5022066f73c25e475826d0c",
+    "porting/tests/ct-native/CTOwnersTest.java.in": "fa5b2bc2687f1cfa8f3a94bfbe0fb5e7b22a4ccf85cfdac08c73a9e768876e61",
+    "porting/tests/ct-native/cp48-mechanics-sources.zip": "fa4e0fcd731a1f77bf5fbf5cfc8cb5873c2a4f2b46979d4931a3b946ae21d925",
+    "src/main/resources/assets/hbm/textures/blocks/deco_steel.png": "05bf58ec365b7217209f3a25903c77a6d7b9035af8dca29f781fcc6381ca6b47",
+    "src/main/resources/assets/hbm/textures/blocks/deco_steel_ct.png": "5ae819a34dae1cd253dee429e9cf21310d95952d6b49b715c8c2bd23afb698a2",
+    "src/main/resources/assets/hbm/textures/blocks/deco_tungsten.png": "bcffce36209d182f1ea6c9f3015ee8bf847d77b06f180ab67b3e0736307338d3",
+    "src/main/resources/assets/hbm/textures/blocks/deco_tungsten_ct.png": "48283ccce247ce70c2149a63ecb082a396a94da04998cd4af18b1fe86d7d0a18",
+    "src/main/resources/assets/hbm/textures/blocks/deco_red_copper.png": "3d6a87c99a36f18772acf9ee8e5c5207d3589584948ac03d8167fbd1af47fed5",
+    "src/main/resources/assets/hbm/textures/blocks/deco_red_copper_ct.png": "fbbc8dd69eab8243c1b2468fddef7730357b696d8bf2707fb3645f305523067a",
+    "src/main/resources/assets/hbm/textures/blocks/deco_lead.png": "44ae360f94039e71ba52625bccbe24903659ca1b594be8ca9acc13d884766179",
+    "src/main/resources/assets/hbm/textures/blocks/deco_lead_ct.png": "ab0b8f8033a222e4586109243c4fec2f76e4aa0b0e89ec1544eacf3453ff79d0",
+    "src/main/resources/assets/hbm/textures/blocks/deco_rusty_steel.png": "23b099ba937c287356c77a55148073df1a6fb560705c444ff1f178fc547a7e92",
+    "src/main/resources/assets/hbm/textures/blocks/deco_rusty_steel_ct.png": "472dcb1c533e5107a65f1f8d887c0af0c161bd3f0e2cb5fab6cee24b5112fffd"
+  },
+  "limits": "Existing CT destruction overlay/lighting acceptance gate retained unchanged. Standard ItemBlock runtime is a boundary; original standard ItemBlock registration route is source-audited."
+}

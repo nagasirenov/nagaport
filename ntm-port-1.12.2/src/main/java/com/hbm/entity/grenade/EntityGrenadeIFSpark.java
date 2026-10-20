@@ -27,15 +27,15 @@ public class EntityGrenadeIFSpark extends EntityGrenadeBouncyBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
     		
-    		EntityRagingVortex vortex = new EntityRagingVortex(worldObj, 1.5F);
+    		EntityRagingVortex vortex = new EntityRagingVortex(this.world, 1.5F);
     		vortex.posX = posX;
     		vortex.posY = posY;
     		vortex.posZ = posZ;
-    		worldObj.spawnEntityInWorld(vortex);
+    		this.world.spawnEntityInWorld(vortex);
         }
     }
 

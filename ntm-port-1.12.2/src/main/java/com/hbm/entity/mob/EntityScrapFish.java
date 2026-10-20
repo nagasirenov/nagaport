@@ -3,7 +3,7 @@ package com.hbm.entity.mob;
 import com.hbm.itempool.ItemPool;
 import com.hbm.itempool.ItemPoolsComponent;
 
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 
 public class EntityScrapFish extends EntityFish implements IEntityEnumMulti {

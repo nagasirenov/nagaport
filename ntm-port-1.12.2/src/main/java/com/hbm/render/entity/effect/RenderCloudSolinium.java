@@ -8,19 +8,19 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderCloudSolinium extends Render {
 
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(/*"/assets/" + */RefStrings.MODID, "models/Sphere.obj");
-	private IModelCustom blastModel;
+	private MeshModel blastModel;
     private ResourceLocation blastTexture;
     public float scale = 0;
     public float ring = 0;
     
     public RenderCloudSolinium() {
-    	blastModel = AdvancedModelLoader.loadModel(objTesterModelRL);
+		blastModel = new ObjMeshModel(objTesterModelRL);
     	blastTexture = new ResourceLocation(RefStrings.MODID, "textures/models/BlastSolinium.png");
     	scale = 0;
     }

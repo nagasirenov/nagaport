@@ -1,0 +1,337 @@
+Evidence generated from pinned official 1.7.10 client JAR; SHA256 a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+Mappings: blm=RenderBlocks; q=renderStandardBlock; a(aji,IIIFFF)=renderStandardBlockWithAmbientOcclusion; d:rf=overrideBlockTexture; b()=hasOverrideBlockTexture; face methods a..f map Y-,Y+,Z-,Z+,X-,X+.
+
+  public boolean q(aji, int, int, int);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #307                // Field a:Lahl;
+       5: iload_2
+       6: iload_3
+       7: iload         4
+       9: invokevirtual #386                // Method aji.d:(Lahl;III)I
+      12: istore        5
+      14: iload         5
+      16: bipush        16
+      18: ishr
+      19: sipush        255
+      22: iand
+      23: i2f
+      24: ldc           #64                 // float 255.0f
+      26: fdiv
+      27: fstore        6
+      29: iload         5
+      31: bipush        8
+      33: ishr
+      34: sipush        255
+      37: iand
+      38: i2f
+      39: ldc           #64                 // float 255.0f
+      41: fdiv
+      42: fstore        7
+      44: iload         5
+      46: sipush        255
+      49: iand
+      50: i2f
+      51: ldc           #64                 // float 255.0f
+      53: fdiv
+      54: fstore        8
+      56: getstatic     #362                // Field blt.a:Z
+      59: ifeq          128
+      62: fload         6
+      64: ldc           #59                 // float 30.0f
+      66: fmul
+      67: fload         7
+      69: ldc           #60                 // float 59.0f
+      71: fmul
+      72: fadd
+      73: fload         8
+      75: ldc           #55                 // float 11.0f
+      77: fmul
+      78: fadd
+      79: ldc           #63                 // float 100.0f
+      81: fdiv
+      82: fstore        9
+      84: fload         6
+      86: ldc           #59                 // float 30.0f
+      88: fmul
+      89: fload         7
+      91: ldc           #61                 // float 70.0f
+      93: fmul
+      94: fadd
+      95: ldc           #63                 // float 100.0f
+      97: fdiv
+      98: fstore        10
+     100: fload         6
+     102: ldc           #59                 // float 30.0f
+     104: fmul
+     105: fload         8
+     107: ldc           #61                 // float 70.0f
+     109: fmul
+     110: fadd
+     111: ldc           #63                 // float 100.0f
+     113: fdiv
+     114: fstore        11
+     116: fload         9
+     118: fstore        6
+     120: fload         10
+     122: fstore        7
+     124: fload         11
+     126: fstore        8
+     128: invokestatic  #472                // Method bao.y:()Z
+     131: ifeq          180
+     134: aload_1
+     135: invokevirtual #392                // Method aji.m:()I
+     138: ifne          180
+     141: aload_0
+     142: getfield      #350                // Field p:Z
+     145: ifeq          164
+     148: aload_0
+     149: aload_1
+     150: iload_2
+     151: iload_3
+     152: iload         4
+     154: fload         6
+     156: fload         7
+     158: fload         8
+     160: invokevirtual #521                // Method b:(Laji;IIIFFF)Z
+     163: ireturn
+     164: aload_0
+     165: aload_1
+     166: iload_2
+     167: iload_3
+     168: iload         4
+     170: fload         6
+     172: fload         7
+     174: fload         8
+     176: invokevirtual #492                // Method a:(Laji;IIIFFF)Z
+     179: ireturn
+     180: aload_0
+     181: aload_1
+     182: iload_2
+     183: iload_3
+     184: iload         4
+     186: fload         6
+     188: fload         7
+     190: fload         8
+     192: invokevirtual #529                // Method d:(Laji;IIIFFF)Z
+     195: ireturn
+
+
+AO entry: at bytecode offsets73-81 override presence clears tint flag13; read this alongside original-damage-bytecode.txt: the world damage noColor contract suppresses vertex colors independently, so this flag is not proof of an emitted tint mismatch.
+  public boolean a(aji, int, int, int, float, float, float);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #358                // Field x:Z
+       5: iconst_0
+       6: istore        8
+       8: fconst_0
+       9: fstore        9
+      11: fconst_0
+      12: fstore        10
+      14: fconst_0
+      15: fstore        11
+      17: fconst_0
+      18: fstore        12
+      20: iconst_1
+      21: istore        13
+      23: aload_1
+      24: aload_0
+      25: getfield      #307                // Field a:Lahl;
+      28: iload_2
+      29: iload_3
+      30: iload         4
+      32: invokevirtual #385                // Method aji.c:(Lahl;III)I
+      35: istore        14
+      37: getstatic     #363                // Field bmh.a:Lbmh;
+      40: astore        15
+      42: aload         15
+      44: ldc           #2                  // int 983055
+      46: invokevirtual #556                // Method bmh.b:(I)V
+      49: aload_0
+      50: aload_1
+      51: invokevirtual #518                // Method b:(Laji;)Lrf;
+      54: invokeinterface #583,  1          // InterfaceMethod rf.g:()Ljava/lang/String;
+      59: ldc           #68                 // String grass_top
+      61: invokevirtual #565                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      64: ifeq          73
+      67: iconst_0
+      68: istore        13
+      70: goto          83
+      73: aload_0
+      74: invokevirtual #516                // Method b:()Z
+      77: ifeq          83
+      80: iconst_0
+      81: istore        13
+      83: aload_0
+      84: getfield      #341                // Field g:Z
+      87: ifne          108
+      90: aload_1
+      91: aload_0
+      92: getfield      #307                // Field a:Lahl;
+      95: iload_2
+      96: iload_3
+      97: iconst_1
+      98: isub
+      99: iload         4
+     101: iconst_0
+     102: invokevirtual #382                // Method aji.a:(Lahl;IIII)Z
+     105: ifeq          1222
+     108: aload_0
+     109: getfield      #345                // Field k:D
+     112: dconst_0
+     113: dcmpg
+     114: ifgt          120
+     117: iinc          3, -1
+     120: aload_0
+     121: aload_1
+     122: aload_0
+     123: getfield      #307                // Field a:Lahl;
+     126: iload_2
+     127: iconst_1
+     128: isub
+     129: iload_3
+     130: iload         4
+     132: invokevirtual #385                // Method aji.c:(Lahl;III)I
+
+  public void a(aji, double, double, double, rf);
+    Code:
+       0: getstatic     #363                // Field bmh.a:Lbmh;
+       3: astore        9
+       5: aload_0
+       6: invokevirtual #516                // Method b:()Z
+       9: ifeq          18
+      12: aload_0
+      13: getfield      #338                // Field d:Lrf;
+      16: astore        8
+      18: aload         8
+      20: aload_0
+      21: getfield      #343                // Field i:D
+      24: ldc2_w        #252                // double 16.0d
+      27: dmul
+      28: invokeinterface #577,  3          // InterfaceMethod rf.a:(D)F
+      33: f2d
+      34: dstore        10
+      36: aload         8
+      38: aload_0
+      39: getfield      #344                // Field j:D
+      42: ldc2_w        #252                // double 16.0d
+
+  public void b(aji, double, double, double, rf);
+    Code:
+       0: getstatic     #363                // Field bmh.a:Lbmh;
+       3: astore        9
+       5: aload_0
+       6: invokevirtual #516                // Method b:()Z
+       9: ifeq          18
+      12: aload_0
+      13: getfield      #338                // Field d:Lrf;
+      16: astore        8
+      18: aload         8
+      20: aload_0
+      21: getfield      #343                // Field i:D
+      24: ldc2_w        #252                // double 16.0d
+      27: dmul
+      28: invokeinterface #577,  3          // InterfaceMethod rf.a:(D)F
+      33: f2d
+      34: dstore        10
+      36: aload         8
+      38: aload_0
+      39: getfield      #344                // Field j:D
+      42: ldc2_w        #252                // double 16.0d
+
+  public void c(aji, double, double, double, rf);
+    Code:
+       0: getstatic     #363                // Field bmh.a:Lbmh;
+       3: astore        9
+       5: aload_0
+       6: invokevirtual #516                // Method b:()Z
+       9: ifeq          18
+      12: aload_0
+      13: getfield      #338                // Field d:Lrf;
+      16: astore        8
+      18: aload         8
+      20: aload_0
+      21: getfield      #343                // Field i:D
+      24: ldc2_w        #252                // double 16.0d
+      27: dmul
+      28: invokeinterface #577,  3          // InterfaceMethod rf.a:(D)F
+      33: f2d
+      34: dstore        10
+      36: aload         8
+      38: aload_0
+      39: getfield      #344                // Field j:D
+      42: ldc2_w        #252                // double 16.0d
+
+  public void d(aji, double, double, double, rf);
+    Code:
+       0: getstatic     #363                // Field bmh.a:Lbmh;
+       3: astore        9
+       5: aload_0
+       6: invokevirtual #516                // Method b:()Z
+       9: ifeq          18
+      12: aload_0
+      13: getfield      #338                // Field d:Lrf;
+      16: astore        8
+      18: aload         8
+      20: aload_0
+      21: getfield      #343                // Field i:D
+      24: ldc2_w        #252                // double 16.0d
+      27: dmul
+      28: invokeinterface #577,  3          // InterfaceMethod rf.a:(D)F
+      33: f2d
+      34: dstore        10
+      36: aload         8
+      38: aload_0
+      39: getfield      #344                // Field j:D
+      42: ldc2_w        #252                // double 16.0d
+
+  public void e(aji, double, double, double, rf);
+    Code:
+       0: getstatic     #363                // Field bmh.a:Lbmh;
+       3: astore        9
+       5: aload_0
+       6: invokevirtual #516                // Method b:()Z
+       9: ifeq          18
+      12: aload_0
+      13: getfield      #338                // Field d:Lrf;
+      16: astore        8
+      18: aload         8
+      20: aload_0
+      21: getfield      #347                // Field m:D
+      24: ldc2_w        #252                // double 16.0d
+      27: dmul
+      28: invokeinterface #577,  3          // InterfaceMethod rf.a:(D)F
+      33: f2d
+      34: dstore        10
+      36: aload         8
+      38: aload_0
+      39: getfield      #348                // Field n:D
+      42: ldc2_w        #252                // double 16.0d
+
+  public void f(aji, double, double, double, rf);
+    Code:
+       0: getstatic     #363                // Field bmh.a:Lbmh;
+       3: astore        9
+       5: aload_0
+       6: invokevirtual #516                // Method b:()Z
+       9: ifeq          18
+      12: aload_0
+      13: getfield      #338                // Field d:Lrf;
+      16: astore        8
+      18: aload         8
+      20: aload_0
+      21: getfield      #347                // Field m:D
+      24: ldc2_w        #252                // double 16.0d
+      27: dmul
+      28: invokeinterface #577,  3          // InterfaceMethod rf.a:(D)F
+      33: f2d
+      34: dstore        10
+      36: aload         8
+      38: aload_0
+      39: getfield      #348                // Field n:D
+      42: ldc2_w        #252                // double 16.0d
+
+Forge1614 RenderBlocks.java.patch SHA256 5421b08bdfe57a805f2c078e5cfe9d30fcf52199295c050b1cc34ecc39b8144f
+Forge patch hunks only modify bed/fire/pane rendering and add getInstance(); no modification of these standard-block or six face methods. This is patch audit, not running a full Forge1710 client.

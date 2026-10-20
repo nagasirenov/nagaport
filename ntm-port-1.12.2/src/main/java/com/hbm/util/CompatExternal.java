@@ -46,7 +46,7 @@ public class CompatExternal {
 	 */
 	public static TileEntity getCoreFromPos(World world, int x, int y, int z) {
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		//if the block at that pos is a Dummyable, use the mk2's system to find the core
 		if(b instanceof BlockDummyable) {
@@ -54,16 +54,16 @@ public class CompatExternal {
 			int[] pos = dummy.findCore(world, x, y, z);
 
 			if(pos != null) {
-				return world.getTileEntity(pos[0], pos[1], pos[2]);
+				return world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			}
 		}
 
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		//if the tile at that pos is an old dummy tile, use mk1
 		if(tile instanceof TileEntityDummy) {
 			TileEntityDummy dummy = (TileEntityDummy) tile;
-			return world.getTileEntity(dummy.targetX, dummy.targetY, dummy.targetZ);
+			return world.getTileEntity(new net.minecraft.util.math.BlockPos(dummy.targetX, dummy.targetY, dummy.targetZ));
 		}
 
 		//otherwise, return the tile at that position whihc could be null
@@ -224,7 +224,7 @@ public class CompatExternal {
 		//configures CUSTOM0 to have a custom label and impact effect
 		CompatExternal.setWarheadLabel(WarheadType.CUSTOM0, TextFormatting.YELLOW + "Micro Nuke");
 		CompatExternal.setWarheadImpact(WarheadType.CUSTOM0, (missile) -> {
-			ExplosionNukeSmall.explode(missile.worldObj, missile.posX, missile.posY + 0.5, missile.posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
+			ExplosionNukeSmall.explode(missile.world, missile.posX, missile.posY + 0.5, missile.posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
 		});
 	}
 }

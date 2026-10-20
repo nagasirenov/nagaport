@@ -18,7 +18,7 @@ public interface IEnergyHandlerMK2 extends IEnergyConnectorMK2, ILoadedTile {
 	
 	public default Vec3d getDebugParticlePosMK2() {
 		TileEntity te = (TileEntity) this;
-		Vec3d vec = new Vec3d(te.xCoord + 0.5, te.yCoord + 1, te.zCoord + 0.5);
+		Vec3d vec = new Vec3d(te.getPos().getX() + 0.5, te.getPos().getY() + 1, te.getPos().getZ() + 0.5);
 		return vec;
 	}
 	

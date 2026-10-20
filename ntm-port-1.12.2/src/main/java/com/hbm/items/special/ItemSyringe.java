@@ -267,7 +267,7 @@ public class ItemSyringe extends Item {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase entityPlayer) {
-		World world = entity.worldObj;
+		World world = entity.world;
 
 		if(this == ModItems.syringe_metal_stimpak && !VersatileConfig.hasPotionSickness(entity)) {
 			if(!world.isRemote) {

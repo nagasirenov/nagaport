@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,7 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDisplayData {
+public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements INtmBossDisplay {
 	
 	/*   ___   _   _   _   ___           ___           _____ ___  ___ _  _       ___ ___  _ _   _ ___
 	 *  | _ ) /_\ | | | | / __|   ___   |   |   ___   |_   _| _ )|   | \| |     | _ \ _ )| | \ / | __|
@@ -68,21 +68,21 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDispl
     	//TODO: check if this is even needed
     	setHeadID(this.getEntityId());
     	
-    	int x = MathHelper.floor_double(this.posX);
-        int y = MathHelper.floor_double(this.posY);
-        int z = MathHelper.floor_double(this.posZ);
+    	int x = MathHelper.floor(this.posX);
+        int y = MathHelper.floor(this.posY);
+        int z = MathHelper.floor(this.posZ);
         
         for (int i = 0; i < 74; i++) {
         	
-          EntityBOTPrimeBody bodyPart = new EntityBOTPrimeBody(this.worldObj);
+          EntityBOTPrimeBody bodyPart = new EntityBOTPrimeBody(this.world);
           bodyPart.setPartNumber(i);
           bodyPart.setPosition(x, y, z);
           bodyPart.setHeadID(getEntityId());
-          this.worldObj.spawnEntityInWorld(bodyPart);
+          this.world.spawnEntityInWorld(bodyPart);
         }
         
         setPosition(x, y, z);
-        this.spawnPoint.set(x, y, z);
+        this.spawnPoint.setPos(x, y, z);
         
         return super.onSpawnWithEgg(data);
     }
@@ -128,7 +128,7 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDispl
 		double dx = motionX;
 		double dy = motionY;
 		double dz = motionZ;
-		float f3 = MathHelper.sqrt_double(dx * dx + dz * dz);
+		float f3 = MathHelper.sqrt(dx * dx + dz * dz);
 		this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(dx, dz) * 180.0D / Math.PI);
 		this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(dy, f3) * 180.0D / Math.PI);
 	}
@@ -137,10 +137,10 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDispl
 	public void onDeath(DamageSource p_70645_1_) {
 		super.onDeath(p_70645_1_);
 		
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(200, 200, 200));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));
 
 		for(EntityPlayer player : players) {
-			player.triggerAchievement(MainRegistry.bossWorm);
+			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossWorm);
 			player.inventory.addItemStackToInventory(new ItemStack(ModItems.coin_worm));
 		}
 	}
@@ -152,14 +152,14 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDispl
 	
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("spawnX", this.spawnPoint.posX);
-		nbt.setInteger("spawnY", this.spawnPoint.posY);
-		nbt.setInteger("spawnZ", this.spawnPoint.posZ);
+		nbt.setInteger("spawnX", this.spawnPoint.getX());
+		nbt.setInteger("spawnY", this.spawnPoint.getY());
+		nbt.setInteger("spawnZ", this.spawnPoint.getZ());
 	}
 
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.spawnPoint.set(nbt.getInteger("spawnX"), nbt.getInteger("spawnY"), nbt.getInteger("spawnZ"));
+		this.spawnPoint.setPos(nbt.getInteger("spawnX"), nbt.getInteger("spawnY"), nbt.getInteger("spawnZ"));
 	}
 
 	protected void updateHeadMovement() {
@@ -172,7 +172,7 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDispl
 		if(this.courseChangeCooldown-- <= 0) {
 			
 			this.courseChangeCooldown += this.getRNG().nextInt(5) + 2;
-			deltaSq = MathHelper.sqrt_double(deltaSq);
+			deltaSq = MathHelper.sqrt(deltaSq);
 			
 			if(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ < this.maxSpeed) {
 				
@@ -205,13 +205,13 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDispl
 			}
 			
 		} else if(this.targetedEntity == null) {
-			this.waypointX = this.spawnPoint.posX - 50 + this.getRNG().nextInt(100);
-			this.waypointY = this.spawnPoint.posY - 30 + this.getRNG().nextInt(60);
-			this.waypointZ = this.spawnPoint.posZ - 50 + this.getRNG().nextInt(100);
+			this.waypointX = this.spawnPoint.getX() - 50 + this.getRNG().nextInt(100);
+			this.waypointY = this.spawnPoint.getY() - 30 + this.getRNG().nextInt(60);
+			this.waypointZ = this.spawnPoint.getZ() - 50 + this.getRNG().nextInt(100);
 		}
 		
 		this.rotationYaw = -(float) -(Math.atan2(this.motionX, this.motionZ) * 180.0F / Math.PI);
-		this.rotationPitch = (float) -(Math.atan2(this.motionY, MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ)) * 180.0D / Math.PI);
+		this.rotationPitch = (float) -(Math.atan2(this.motionY, MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ)) * 180.0D / Math.PI);
 		
 		if(this.targetedEntity != null && this.targetedEntity .getDistanceSqToEntity(this) < this.attackRange * this.attackRange) {
 			

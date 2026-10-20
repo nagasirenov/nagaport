@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityFireworks extends TileEntity {
+public class TileEntityFireworks extends TileEntity implements net.minecraft.util.ITickable {
 
 	public int color = 0xff0000;
 	public String message = "NUCLEAR TECH";
@@ -18,11 +18,11 @@ public class TileEntityFireworks extends TileEntity {
 	int delay;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !message.isEmpty() && charges > 0) {
+			if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()) && !message.isEmpty() && charges > 0) {
 
 				delay--;
 
@@ -36,10 +36,10 @@ public class TileEntityFireworks extends TileEntity {
 					double offX = (mod / 3 - 1) * 0.3125;
 					double offZ = (mod % 3 - 1) * 0.3125;
 
-					EntityFireworks fireworks = new EntityFireworks(worldObj, xCoord + 0.5 + offX, yCoord + 1.5, zCoord + 0.5 + offZ, color, c);
-					worldObj.spawnEntityInWorld(fireworks);
+					EntityFireworks fireworks = new EntityFireworks(this.world, this.pos.getX() + 0.5 + offX, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + offZ, color, c);
+					this.world.spawnEntityInWorld(fireworks);
 
-					worldObj.playSoundAtEntity(fireworks, "hbm:weapon.rocketFlame", 3.0F, 1.0F);
+					this.world.playSoundAtEntity(fireworks, "hbm:weapon.rocketFlame", 3.0F, 1.0F);
 
 					charges--;
 					this.markDirty();
@@ -47,7 +47,7 @@ public class TileEntityFireworks extends TileEntity {
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "vanillaExt");
 					data.setString("mode", "flame");
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5 + offX, yCoord + 1.125, zCoord + 0.5 + offZ), new TargetPoint(this.worldObj.provider.dimensionId, xCoord + 0.5 + offX, yCoord + 1.125, zCoord + 0.5 + offZ, 100));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5 + offX, this.pos.getY() + 1.125, this.pos.getZ() + 0.5 + offZ), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5 + offX, this.pos.getY() + 1.125, this.pos.getZ() + 0.5 + offZ, 100));
 
 					index++;
 
@@ -74,11 +74,12 @@ public class TileEntityFireworks extends TileEntity {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("charges", charges);
 		nbt.setInteger("color", color);
 		nbt.setString("message", message);
+		return nbt;
 	}
 }

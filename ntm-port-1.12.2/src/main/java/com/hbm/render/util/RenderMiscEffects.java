@@ -7,17 +7,17 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderMiscEffects {
 
 	public static ResourceLocation glint = new ResourceLocation(RefStrings.MODID + ":textures/misc/glint.png");
 	public static ResourceLocation glintBF = new ResourceLocation(RefStrings.MODID + ":textures/misc/glintBF.png");
 
-	public static void renderClassicGlint(World world, float interpol, IModelCustom model, String part, float colorMod, float r, float g, float b, float speed, float scale) {
+	public static void renderClassicGlint(World world, float interpol, MeshModel model, String part, float colorMod, float r, float g, float b, float speed, float scale) {
 
 		GL11.glPushMatrix();
-		float offset = Minecraft.getMinecraft().thePlayer.ticksExisted + interpol;
+		float offset = Minecraft.getMinecraft().player.ticksExisted + interpol;
 		GL11.glEnable(GL11.GL_BLEND);
 		float color = colorMod;
 		GL11.glColor4f(color, color, color, 1.0F);
@@ -60,11 +60,11 @@ public class RenderMiscEffects {
 		GL11.glPopMatrix();
 	}
 
-	public static void renderClassicGlint(World world, float interpol, IModelCustom model, String part, float r, float g, float b, float speed, float scale) {
+	public static void renderClassicGlint(World world, float interpol, MeshModel model, String part, float r, float g, float b, float speed, float scale) {
 		renderClassicGlint(world, interpol, model, part, 0.5F, r, g, b, speed, scale);
 	}
 
-	public static void renderClassicGlint(World world, float interpol, IModelCustom model, String part) {
+	public static void renderClassicGlint(World world, float interpol, MeshModel model, String part) {
 		renderClassicGlint(world, interpol, model, part, 0.5F, 0.25F, 0.8F, 20.0F, 1F / 3F);
 	}
 }

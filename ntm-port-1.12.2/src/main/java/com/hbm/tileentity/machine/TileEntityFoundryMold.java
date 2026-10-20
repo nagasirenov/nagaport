@@ -9,8 +9,8 @@ public class TileEntityFoundryMold extends TileEntityFoundryCastingBase implemen
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 	}
 
 	@Override

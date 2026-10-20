@@ -1,0 +1,9 @@
+import net.minecraft.util.math.Vec3d;
+class VectorCases {
+ double read(Vec3d v) { return v.xCoord + v.yCoord + v.zCoord; }
+ void writes(Vec3d v) { v.xCoord=1; v.yCoord+=2; ++v.zCoord; v.xCoord--; (v.yCoord)=3; }
+ double getter(Vec3d v) {return get(v).xCoord;}
+ Vec3d get(Vec3d v) {return v;}
+ static class Other {double xCoord;} double other(Other v) {return v.xCoord;}
+ String text="v.xCoord";
+}

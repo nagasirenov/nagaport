@@ -1,0 +1,28 @@
+{
+  "paths": [
+    "porting/tests/check-native-loop-sound-source.py",
+    "porting/tests/probe-native-loop-sounds.py",
+    "porting/tests/LoopSoundNativeTest.java",
+    "porting/tests/LegacyLoopSoundOracle.java",
+    "porting/tests/native-loop-sound-source-manifest.json",
+    "porting/tests/native-loop-sound-resources.json",
+    "porting/tests/native-loop-sound-notes.md",
+    "porting/native-loop-sounds-probe.log",
+    "porting/native-loop-sound-source.log"
+  ],
+  "sha256": {
+    "porting/tests/check-native-loop-sound-source.py": "2afbf8e6e478b0df92bd4f348fd02259de823460ccaffa787d82b4c7795216a6",
+    "porting/tests/probe-native-loop-sounds.py": "d337eba8f9e3a52a7c19bf628b939a171fb8a78733637362ce83717bba7bdb53",
+    "porting/tests/LoopSoundNativeTest.java": "9afc0a721d9f32eecee9e7cbf43a405e819448e9924ddcbdf8cf4f38ac5125b3",
+    "porting/tests/LegacyLoopSoundOracle.java": "abce127a14ac9f849f731121da3acf2d5247ea42cc5ad14be29d83533c057be0",
+    "porting/tests/native-loop-sound-source-manifest.json": "cee1b0d8b68a5c26911384b115d0ab24172405b700a54a4e4e63074b000b95d3",
+    "porting/tests/native-loop-sound-resources.json": "756cecb9faeb7e41d265aa4dd155eb316b86bfdcc74f81a977570c1dffdd2122",
+    "porting/tests/native-loop-sound-notes.md": "61f4265fe31e6675a6b462f688eadb559031922f89e8d0eac59e3dffc54c2bce",
+    "porting/native-loop-sounds-probe.log": "5156558df409522f305c77d5d5924336b1aba70c3d4a32df7b1801554059f2bc",
+    "porting/native-loop-sound-source.log": "4baef1ff9a07cec9b1776417985c4c92c5d81634edea4c31c44884ea6d8accea"
+  },
+  "production_scope": "porting/tests/native-loop-sound-production-scope.json",
+  "reused_evidence_sources": [
+    "porting/tests/ForgeEventNativeLauncher.java"
+  ]
+}

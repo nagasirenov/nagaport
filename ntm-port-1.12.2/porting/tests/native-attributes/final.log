@@ -1,0 +1,36 @@
+INPUT nagaport-legacy-client.jar a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+INPUT nagaport1710-srg.zip d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2
+INPUT nagaport-forge1614-userdev.jar 6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91
+INPUT fields.csv f83618fe93f51872d62734d049b45ccacb7bf9fa45222b1f1d9030d90564d76c
+IDENTITY yj/b field_111265_b FOLLOW_RANGE
+IDENTITY yj/c field_111266_c KNOCKBACK_RESISTANCE
+FORGE forgepatches.zip no attribute-class patches
+FORGE fmlpatches.zip no attribute-class patches
+PASS exact source reconstruction 16 edits 12 files; all formulas and registration calls unchanged
+
+a generic.maxHealth default=20.0 watch=true oldClamp=[0.0,1.7976931348623157E308] nativeClamp=[1.401298464324817E-45,1024.0]
+b generic.followRange default=32.0 watch=false oldClamp=[0.0,2048.0] nativeClamp=[0.0,2048.0]
+c generic.knockbackResistance default=0.0 watch=false oldClamp=[0.0,1.0] nativeClamp=[0.0,1.0]
+d generic.movementSpeed default=0.699999988079071 watch=true oldClamp=[0.0,1.7976931348623157E308] nativeClamp=[0.0,1024.0]
+e generic.attackDamage default=2.0 watch=false oldClamp=[0.0,1.7976931348623157E308] nativeClamp=[0.0,2048.0]
+PASS 996 real attribute checks
+
+
+PASS all production offsets re-attributed to native class
+PASS owner controls: explicit import/FQ positive; shadow, variable, unresolved, text, static-import negatives
+/workspace/shared/nagaport-attribute-cp56/ntm-port-1.12.2/porting/tests/native-attributes/ProductionMethods.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/workspace/shared/nagaport-attribute-cp56/ntm-port-1.12.2/porting/tests/native-attributes/ProductionMethods.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/workspace/shared/nagaport-attribute-cp56/ntm-port-1.12.2/porting/tests/native-attributes/ProductionMethods.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                 ^
+3 warnings
+
+PASS two complete extracted production methods on real native EntityArmorStand with real attribute map (constructor bypass; no world/gameplay)
+
+PASS reversed production methods fail native javac on old constant
+PASS both native constant positive/reverse compiler controls
+PASS bounded attribute migration; no full mod, mob construction or gameplay assertion

@@ -138,8 +138,8 @@ public class ItemAmmoArty extends Item {
 			break;
 		case CARGO:
 
-			if(stack.hasTagCompound() && stack.stackTagCompound.getCompoundTag("cargo") != null) {
-				ItemStack cargo = ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("cargo"));
+			if(stack.hasTagCompound() && stack.getTagCompound().getCompoundTag("cargo") != null) {
+				ItemStack cargo = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("cargo"));
 				list.add(y + cargo.getDisplayName());
 			} else {
 				list.add(r + "Empty");
@@ -166,7 +166,7 @@ public class ItemAmmoArty extends Item {
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconIndex(ItemStack stack) {
 
-		if(stack.getItemDamage() == CARGO && stack.hasTagCompound() && stack.stackTagCompound.getCompoundTag("cargo") != null) {
+		if(stack.getItemDamage() == CARGO && stack.hasTagCompound() && stack.getTagCompound().getCompoundTag("cargo") != null) {
 			return this.iconCargo;
 		}
 
@@ -202,7 +202,7 @@ public class ItemAmmoArty extends Item {
 
 	public static void standardExplosion(EntityArtilleryShell shell, RayTraceResult mop, float size, float rangeMod, boolean breaksBlocks) {
 		Vec3d vec = new Vec3d(shell.motionX, shell.motionY, shell.motionZ).normalize();
-		ExplosionVNT xnt = new ExplosionVNT(shell.worldObj, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, size);
+		ExplosionVNT xnt = new ExplosionVNT(shell.world, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, size);
 		if(breaksBlocks) {
 			xnt.setBlockAllocator(new BlockAllocatorStandard(48));
 			xnt.setBlockProcessor(new BlockProcessorStandard().setNoDrop().withBlockEffect(new BlockMutatorDebris(ModBlocks.block_slag, 1)));
@@ -230,7 +230,7 @@ public class ItemAmmoArty extends Item {
 				new TargetPoint(shell.dimension, shell.posX, shell.posY, shell.posZ, 500));
 
 		for(int i = 0; i < amount; i++) {
-			EntityArtilleryShell cluster = new EntityArtilleryShell(shell.worldObj);
+			EntityArtilleryShell cluster = new EntityArtilleryShell(shell.world);
 			cluster.setType(clusterType);
 			cluster.motionX = i == 0 ? shell.motionX : (shell.motionX + rand.nextGaussian() * deviation);
 			cluster.motionY = shell.motionY;
@@ -239,30 +239,30 @@ public class ItemAmmoArty extends Item {
 			double[] target = shell.getTarget();
 			cluster.setTarget(target[0], target[1], target[2]);
 			cluster.setWhistle(shell.getWhistle() && !shell.didWhistle());
-			shell.worldObj.spawnEntityInWorld(cluster);
+			shell.world.spawnEntityInWorld(cluster);
 		}
 	}
 
 	private void init() {
 		/* STANDARD SHELLS */
-		this.itemTypes[NORMAL] = new ArtilleryShell("ammo_arty", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 10F, 3F, false); ExplosionCreator.composeEffect(shell.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10, 2F, 0.5F, 25F, 5, 0, 20, 0.75F, 1F, -2F, 150); }};
-		this.itemTypes[CLASSIC] = new ArtilleryShell("ammo_arty_classic", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 15F, 5F, false); ExplosionCreator.composeEffect(shell.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, 5F, 1F, 45F, 10, 0, 50, 1F, 3F, -2F, 200); }};
-		this.itemTypes[EXPLOSIVE] = new ArtilleryShell("ammo_arty_he", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 15F, 3F, true); ExplosionCreator.composeEffect(shell.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, 5F, 1F, 45F, 10, 16, 50, 1F, 3F, -2F, 200); }};
+		this.itemTypes[NORMAL] = new ArtilleryShell("ammo_arty", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 10F, 3F, false); ExplosionCreator.composeEffect(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10, 2F, 0.5F, 25F, 5, 0, 20, 0.75F, 1F, -2F, 150); }};
+		this.itemTypes[CLASSIC] = new ArtilleryShell("ammo_arty_classic", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 15F, 5F, false); ExplosionCreator.composeEffect(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, 5F, 1F, 45F, 10, 0, 50, 1F, 3F, -2F, 200); }};
+		this.itemTypes[EXPLOSIVE] = new ArtilleryShell("ammo_arty_he", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 15F, 3F, true); ExplosionCreator.composeEffect(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, 5F, 1F, 45F, 10, 16, 50, 1F, 3F, -2F, 200); }};
 
 		/* MINI NUKE */
 		this.itemTypes[MINI_NUKE] = new ArtilleryShell("ammo_arty_mini_nuke", SpentCasing.COLOR_CASE_16INCH_NUKE) {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
 				shell.killAndClear();
 				Vec3d vec = new Vec3d(shell.motionX, shell.motionY, shell.motionZ).normalize();
-				ExplosionNukeSmall.explode(shell.worldObj, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, ExplosionNukeSmall.PARAMS_MEDIUM);
+				ExplosionNukeSmall.explode(shell.world, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, ExplosionNukeSmall.PARAMS_MEDIUM);
 			}
 		};
 
 		/* FULL NUKE */
 		this.itemTypes[NUKE] = new ArtilleryShell("ammo_arty_nuke", SpentCasing.COLOR_CASE_16INCH_NUKE) {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
-				shell.worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(shell.worldObj, BombConfig.missileRadius, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
-				EntityNukeTorex.statFacStandard(shell.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, BombConfig.missileRadius);
+				shell.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(shell.world, BombConfig.missileRadius, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
+				EntityNukeTorex.statFacStandard(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, BombConfig.missileRadius);
 				shell.setDead();
 			}
 		};
@@ -270,13 +270,13 @@ public class ItemAmmoArty extends Item {
 		/* PHOSPHORUS */
 		this.itemTypes[PHOSPHORUS] = new ArtilleryShell("ammo_arty_phosphorus", SpentCasing.COLOR_CASE_16INCH_PHOS) {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
-				shell.worldObj.playSoundEffect(shell.posX, shell.posY, shell.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rand.nextFloat() * 0.2F);
+				com.hbm.sound.WorldSoundEffects.play(shell.world, shell.posX, shell.posY, shell.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rand.nextFloat() * 0.2F);
 				standardExplosion(shell, mop, 10F, 3F, false);
 				//shell.worldObj.playSoundEffect(shell.posX, shell.posY, shell.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + shell.worldObj.rand.nextFloat() * 0.2F);
-				ExplosionLarge.spawnShrapnels(shell.worldObj, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 15);
-				ExplosionChaos.burn(shell.worldObj, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 12);
+				ExplosionLarge.spawnShrapnels(shell.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 15);
+				ExplosionChaos.burn(shell.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 12);
 				int radius = 15;
-				List<Entity> hit = shell.worldObj.getEntitiesWithinAABBExcludingEntity(shell, AxisAlignedBB.getBoundingBox(shell.posX - radius, shell.posY - radius, shell.posZ - radius, shell.posX + radius, shell.posY + radius, shell.posZ + radius));
+				List<Entity> hit = shell.world.getEntitiesWithinAABBExcludingEntity(shell, AxisAlignedBB.getBoundingBox(shell.posX - radius, shell.posY - radius, shell.posZ - radius, shell.posX + radius, shell.posY + radius, shell.posZ + radius));
 				for(Entity e : hit) {
 					e.setFire(5);
 					if(e instanceof EntityLivingBase) {
@@ -288,7 +288,7 @@ public class ItemAmmoArty extends Item {
 				for(int i = 0; i < 5; i++) {
 					NBTTagCompound haze = new NBTTagCompound();
 					haze.setString("type", "haze");
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(haze, mop.hitVec.x + shell.worldObj.rand.nextGaussian() * 10, mop.hitVec.y, mop.hitVec.z + shell.worldObj.rand.nextGaussian() * 10), new TargetPoint(shell.dimension, shell.posX, shell.posY, shell.posZ, 150));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(haze, mop.hitVec.x + shell.world.rand.nextGaussian() * 10, mop.hitVec.y, mop.hitVec.z + shell.world.rand.nextGaussian() * 10), new TargetPoint(shell.dimension, shell.posX, shell.posY, shell.posZ, 150));
 				}
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "rbmkmush");
@@ -310,22 +310,22 @@ public class ItemAmmoArty extends Item {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
 				shell.killAndClear();
 				Vec3d vec = new Vec3d(shell.motionX, shell.motionY, shell.motionZ).normalize();
-				shell.worldObj.createExplosion(shell, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, 5F, false);
-				EntityMist mist = new EntityMist(shell.worldObj);
+				shell.world.createExplosion(shell, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, 5F, false);
+				EntityMist mist = new EntityMist(shell.world);
 				mist.setType(Fluids.CHLORINE);
 				mist.setPosition(mop.hitVec.x - vec.x, mop.hitVec.y - vec.y - 3, mop.hitVec.z - vec.z);
 				mist.setArea(15, 7.5F);
-				shell.worldObj.spawnEntityInWorld(mist);
-				PollutionHandler.incrementPollution(shell.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 5F);
+				shell.world.spawnEntityInWorld(mist);
+				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 5F);
 			}
 		};
 		this.itemTypes[PHOSGENE] = new ArtilleryShell("ammo_arty_phosgene", SpentCasing.COLOR_CASE_16INCH_NUKE) {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
 				shell.killAndClear();
 				Vec3d vec = new Vec3d(shell.motionX, shell.motionY, shell.motionZ).normalize();
-				shell.worldObj.createExplosion(shell, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, 5F, false);
+				shell.world.createExplosion(shell, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, 5F, false);
 				for(int i = 0; i < 3; i++) {
-					EntityMist mist = new EntityMist(shell.worldObj);
+					EntityMist mist = new EntityMist(shell.world);
 					mist.setType(Fluids.PHOSGENE);
 					double x = mop.hitVec.x - vec.x;
 					double z = mop.hitVec.z - vec.z;
@@ -335,19 +335,19 @@ public class ItemAmmoArty extends Item {
 					}
 					mist.setPosition(x, mop.hitVec.y - vec.y - 5, z);
 					mist.setArea(15, 10);
-					shell.worldObj.spawnEntityInWorld(mist);
+					shell.world.spawnEntityInWorld(mist);
 				}
-				PollutionHandler.incrementPollution(shell.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 10F);
-				PollutionHandler.incrementPollution(shell.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.POISON, 15F);
+				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 10F);
+				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.POISON, 15F);
 			}
 		};
 		this.itemTypes[MUSTARD] = new ArtilleryShell("ammo_arty_mustard_gas", SpentCasing.COLOR_CASE_16INCH_NUKE) {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
 				shell.killAndClear();
 				Vec3d vec = new Vec3d(shell.motionX, shell.motionY, shell.motionZ).normalize();
-				shell.worldObj.createExplosion(shell, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, 5F, false);
+				shell.world.createExplosion(shell, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, 5F, false);
 				for(int i = 0; i < 5; i++) {
-					EntityMist mist = new EntityMist(shell.worldObj);
+					EntityMist mist = new EntityMist(shell.world);
 					mist.setType(Fluids.MUSTARDGAS);
 					double x = mop.hitVec.x - vec.x;
 					double z = mop.hitVec.z - vec.z;
@@ -357,10 +357,10 @@ public class ItemAmmoArty extends Item {
 					}
 					mist.setPosition(x, mop.hitVec.y - vec.y - 5, z);
 					mist.setArea(20, 10);
-					shell.worldObj.spawnEntityInWorld(mist);
+					shell.world.spawnEntityInWorld(mist);
 				}
-				PollutionHandler.incrementPollution(shell.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 15F);
-				PollutionHandler.incrementPollution(shell.worldObj, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.POISON, 30F);
+				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 15F);
+				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.POISON, 30F);
 			}
 		};
 

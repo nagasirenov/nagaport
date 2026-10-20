@@ -8,7 +8,8 @@ import com.hbm.particle.ParticleAshes;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFlameFX;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.ParticleFlame;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,13 +42,12 @@ public class AshesCreator implements IParticleCreator {
 		float scale = data.getFloat("ashesScale");
 		
 		for(int i = 0; i < amount; i++) {
-			ParticleAshes particle = new ParticleAshes(world,
-					entity.posX + (entity.width + scale * 2) * (rand.nextDouble() - 0.5),
-					entity.posY + entity.height * rand.nextDouble(),
-					entity.posZ + (entity.width + scale * 2) * (rand.nextDouble() - 0.5),
-					scale);
+			double ashX = entity.posX + (entity.width + scale * 2) * (rand.nextDouble() - 0.5);
+			double ashY = entity.posY + entity.height * rand.nextDouble();
+			double ashZ = entity.posZ + (entity.width + scale * 2) * (rand.nextDouble() - 0.5);
+			ParticleAshes particle = new ParticleAshes(world, ashX, ashY, ashZ, scale);
 			Minecraft.getMinecraft().effectRenderer.addEffect(particle);
-			EntityFlameFX flame = new EntityFlameFX(world, particle.posX, particle.posY, particle.posZ, 0.0, 0.0, 0.0);
+			Particle flame = new ParticleFlame.Factory().createParticle(0, world, ashX, ashY, ashZ, 0.0, 0.0, 0.0);
 			Minecraft.getMinecraft().effectRenderer.addEffect(flame);
 		}
 	}

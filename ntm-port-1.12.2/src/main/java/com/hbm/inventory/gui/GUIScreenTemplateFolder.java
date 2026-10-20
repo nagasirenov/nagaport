@@ -49,10 +49,10 @@ public class GUIScreenTemplateFolder extends GuiScreen {
 
 	public GUIScreenTemplateFolder(EntityPlayer player) {
 
-		if(player.getHeldItem() == null)
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null)
 			return;
 		
-		Item item = player.getHeldItem().getItem();
+		Item item = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem();
 
 		this.isJournal = item != ModItems.template_folder;
 
@@ -142,7 +142,7 @@ public class GUIScreenTemplateFolder extends GuiScreen {
 		updateButtons();
 
 		Keyboard.enableRepeatEvents(true);
-		this.search = new GuiTextField(this.fontRendererObj, guiLeft + 61, guiTop + 213, 48, 12);
+		this.search = new GuiTextField(0, this.fontRenderer, guiLeft + 61, guiTop + 213, 48, 12);
 		this.search.setTextColor(0xffffff);
 		this.search.setDisabledTextColour(0xffffff);
 		this.search.setEnableBackgroundDrawing(false);
@@ -209,7 +209,7 @@ public class GUIScreenTemplateFolder extends GuiScreen {
 
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 
-		this.fontRendererObj.drawString(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1)), guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1))) / 2, guiTop + 10, isJournal ? 4210752 : 0xffffff);
+		this.fontRenderer.drawString(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1)), guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(I18n.format((currentPage + 1) + "/" + (getPageCount() + 1))) / 2, guiTop + 10, isJournal ? 4210752 : 0xffffff);
 
 		for(FolderButton b : buttons)
 			if(b.isMouseOnButton(i, j))
@@ -246,7 +246,7 @@ public class GUIScreenTemplateFolder extends GuiScreen {
 		}
 		
 		if(p_73869_2_ == 1 || p_73869_2_ == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 
 	}
@@ -300,9 +300,9 @@ public class GUIScreenTemplateFolder extends GuiScreen {
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 				if(stack != null) {
 					if(stack.getItem() == ModItems.crucible_template)
-						itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), CrucibleRecipes.indexMapping.get(stack.getItemDamage()).icon, xPos + 1, yPos + 1);
+						itemRender.renderItemAndEffectIntoGUI(fontRenderer, mc.getTextureManager(), CrucibleRecipes.indexMapping.get(stack.getItemDamage()).icon, xPos + 1, yPos + 1);
 					else
-						itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), stack, xPos + 1, yPos + 1);
+						itemRender.renderItemAndEffectIntoGUI(fontRenderer, mc.getTextureManager(), stack, xPos + 1, yPos + 1);
 				}
 				GL11.glEnable(GL11.GL_LIGHTING);
 			} catch(Exception x) {
@@ -316,12 +316,12 @@ public class GUIScreenTemplateFolder extends GuiScreen {
 			if(stack != null) {
 				GUIScreenTemplateFolder.this.renderToolTip(stack, x, y);
 			} else {
-				func_146283_a(Arrays.asList(new String[] { info }), x, y);
+				drawHoveringText(Arrays.asList(new String[] { info }), x, y);
 			}
 		}
 
 		public void executeAction() {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			if(type == 0) {
 				PacketDispatcher.wrapper.sendToServer(new ItemFolderPacket(stack.copy()));
 			} else if(type == 1) {

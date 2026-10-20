@@ -1,0 +1,16 @@
+@@ -153,6 +173,15 @@
+         this.field_70180_af.func_75682_a(0, Byte.valueOf((byte)0));
+         this.field_70180_af.func_75682_a(1, Short.valueOf((short)300));
+         this.func_70088_a();
++
++        extendedProperties = new HashMap<String, IExtendedEntityProperties>();
++
++        MinecraftForge.EVENT_BUS.post(new EntityEvent.EntityConstructing(this));
++
++        for (IExtendedEntityProperties props : this.extendedProperties.values())
++        {
++            props.init(this, p_i1582_1_);
++        }
+     }
+ 
+     protected abstract void func_70088_a();

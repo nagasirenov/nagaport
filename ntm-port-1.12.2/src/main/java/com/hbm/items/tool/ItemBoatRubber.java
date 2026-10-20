@@ -51,14 +51,14 @@ public class ItemBoatRubber extends Item {
 			Vec3d look = player.getLook(f);
 			boolean flag = false;
 			double width = 1.0D;
-			List list = world.getEntitiesWithinAABBExcludingEntity(player, player.boundingBox.addCoord(look.x * reach, look.y * reach, look.z * reach).expand(width, width, width));
+			List list = world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().addCoord(look.x * reach, look.y * reach, look.z * reach).expand(width, width, width));
 
 			for(int i = 0; i < list.size(); ++i) {
 				Entity entity = (Entity) list.get(i);
 
 				if(entity.canBeCollidedWith()) {
 					float f10 = entity.getCollisionBorderSize();
-					AxisAlignedBB axisalignedbb = entity.boundingBox.expand((double) f10, (double) f10, (double) f10);
+					AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox().expand((double) f10, (double) f10, (double) f10);
 
 					if(axisalignedbb.isVecInside(pos)) {
 						flag = true;
@@ -75,14 +75,14 @@ public class ItemBoatRubber extends Item {
 					int y = mop.getBlockPos().getY();
 					int z = mop.getBlockPos().getZ();
 
-					if(world.getBlock(x, y, z) == Blocks.snow_layer) {
+					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.snow_layer) {
 						--y;
 					}
 
 					EntityBoatRubber entityboat = new EntityBoatRubber(world, (double) ((float) x + 0.5F), (double) ((float) y + 1.0F), (double) ((float) z + 0.5F));
-					entityboat.rotationYaw = (float) (((MathHelper.floor_double((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
+					entityboat.rotationYaw = (float) (((MathHelper.floor((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
 
-					if(!world.getCollidingBoundingBoxes(entityboat, entityboat.boundingBox.expand(-0.1D, -0.1D, -0.1D)).isEmpty()) {
+					if(!world.getCollidingBoundingBoxes(entityboat, entityboat.getEntityBoundingBox().expand(-0.1D, -0.1D, -0.1D)).isEmpty()) {
 						return stack;
 					}
 

@@ -1,0 +1,47 @@
+{
+  "assets": {
+    "assets/hbm/textures/blocks/concrete.png": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f",
+    "assets/hbm/textures/blocks/conveyor.png": "ba55477cd359348bedde8c27ce2ffc46e252ab275ca6f6b415d4134fdfb70e80",
+    "assets/hbm/textures/blocks/conveyor.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_curve_left.png": "025a2774850d9072f352015069dc9938f76acb90f93f58b184e99e8c84bf75ea",
+    "assets/hbm/textures/blocks/conveyor_curve_left.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_curve_right.png": "0aac6ae5a69b478c784adb75c076a6c414bb74bb4aecf01465ffe9182d110b87",
+    "assets/hbm/textures/blocks/conveyor_curve_right.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_double.png": "128a5c809dd1a381c6aee3420eb12ac0a928803488992e61186e7a511be00482",
+    "assets/hbm/textures/blocks/conveyor_double.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_double_curve_left.png": "2e7d445a22ea52cee0d1d81e478f4f369461df560bdd35cb5b9f560b38d3e762",
+    "assets/hbm/textures/blocks/conveyor_double_curve_left.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_double_curve_right.png": "7f41853555a4266aec1d24c62195873818eb08b4825abac34f07a091d037a337",
+    "assets/hbm/textures/blocks/conveyor_double_curve_right.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_express.png": "29f18628dbf60f22393d5cb2c4e4bfbbce2d7e8e415c2afb4604edc778f3fd0e",
+    "assets/hbm/textures/blocks/conveyor_express.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_express_curve_left.png": "97e6e0a3db376c51f6e834e98b9f7ed83f0b14e3e6b1d779ce58db6bfaa014f1",
+    "assets/hbm/textures/blocks/conveyor_express_curve_left.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_express_curve_right.png": "7669d4ac62a1f539fff7e9dbf18b062987ab1695fcfd73d14b749e5c562bd963",
+    "assets/hbm/textures/blocks/conveyor_express_curve_right.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_side.png": "1afed230c59c3a8735ff7a22ce74a5a09535af9c14638cc5cec2f578bd74e346",
+    "assets/hbm/textures/blocks/conveyor_side.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_triple.png": "78ac8c0f99d512200d7bd6f7f65a2660042ac89f2773bec94d06b0cf24568a3d",
+    "assets/hbm/textures/blocks/conveyor_triple.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_triple_curve_left.png": "413ac57013b414d1f32887b1b1631dea9976acd10132c1563640cf52fd255f83",
+    "assets/hbm/textures/blocks/conveyor_triple_curve_left.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/conveyor_triple_curve_right.png": "b0236fe95c9cac75a2ac951a171b73706c5e8d2a0d275197149ff3dc653f37b0",
+    "assets/hbm/textures/blocks/conveyor_triple_curve_right.png.mcmeta": "71360c7ecc803613a674338c96f3af28c146cf65191a60ac3e4a549ab603a7e3",
+    "assets/hbm/textures/blocks/grate_top.png": "08876b3eb5eed71feda00a8518c73ff290146a102cee57d0be51ce5c4ce910bf"
+  },
+  "purpose": "Pinned pristine conveyor model/layout/icon/asset sources; native geometry/loader proof is separate from live graphics acceptance.",
+  "sources": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/blocks/generic/BlockGrate.java": "143e929d306c4dc9d78a0a52e7218621c302a6f95f287b76801c7eb118e0e2a9",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorBase.java": "3b3f21c79662ea88c558fd9ff1caa3f427117bf11c482dccfffb6e9d35260227",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorBendable.java": "2cd4ee816f936e2bb133ebcab2cc16890d45cb9c37259ad9782706815e7d669c",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorClassic.java": "e254c7c1cc475dacf7e50e730b18422543a47b629efb913ccb0828212192eed9",
+    "src/main/java/com/hbm/render/block/RenderConveyor.java": "10735c3e9023b30d720451b0c67513711e33e194cfeb3974933bb4343eaf3195",
+    "src/main/java/com/hbm/render/block/RenderConveyorChute.java": "e996c4d0d5ed4dee350f761676455554500880945578d94e3584012a0b392bfb",
+    "src/main/java/com/hbm/render/block/RenderConveyorLift.java": "733066b95df274c5fed99da073f3c3a0ac86bc43f7c6fbc4723e92af7d96b57c"
+  },
+  "vanilla_assets": {
+    "assets/minecraft/models/item/generated.json": "84ddcde65b0fbd83fe26c94fd2dfbbe32e35458f5392aa1f5950781b395b2b99",
+    "assets/minecraft/textures/blocks/iron_block.png": "11e01710dfb4bcd5084b15d36ca33a3b81cb60db453876b30d33ef8356a36121"
+  }
+}

@@ -1,46 +1,29 @@
 package com.hbm.items.special;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class ItemHot extends Item {
 
-	@SideOnly(Side.CLIENT)
-	public IIcon hotIcon;
 	protected static int heat;
 
 	public ItemHot(int heat) {
 		this.heat = heat;
 	}
 
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg) {
-		super.registerIcons(reg);
-		this.hotIcon = reg.registerIcon(this.getIconString() + "_hot");
-	}
-
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int meta) {
-		return this.itemIcon;
-	}
-
 	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean bool) {
 
 		if(!world.isRemote && stack.hasTagCompound()) {
 
-			int h = stack.stackTagCompound.getInteger("heat");
+			int h = stack.getTagCompound().getInteger("heat");
 
 			if(h > 0) {
-				stack.stackTagCompound.setInteger("heat", h - 1);
+				stack.getTagCompound().setInteger("heat", h - 1);
 			} else {
-				stack.stackTagCompound = null;
+				stack.setTagCompound(null);
 			}
 		}
 	}
@@ -51,9 +34,9 @@ public class ItemHot extends Item {
 			return stack;
 
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 
-		stack.stackTagCompound.setInteger("heat", getMaxHeat(stack));
+		stack.getTagCompound().setInteger("heat", getMaxHeat(stack));
 		return stack;
 	}
 
@@ -63,9 +46,9 @@ public class ItemHot extends Item {
 			return stack;
 
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 
-		stack.stackTagCompound.setInteger("heat", (int) (d * getMaxHeat(stack)));
+		stack.getTagCompound().setInteger("heat", (int) (d * getMaxHeat(stack)));
 		return stack;
 	}
 
@@ -77,7 +60,7 @@ public class ItemHot extends Item {
 		if(!stack.hasTagCompound())
 			return 0;
 
-		int h = stack.stackTagCompound.getInteger("heat");
+		int h = stack.getTagCompound().getInteger("heat");
 
 		return (double) h / (double) heat;
 	}

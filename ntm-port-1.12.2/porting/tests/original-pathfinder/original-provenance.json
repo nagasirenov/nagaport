@@ -1,0 +1,32 @@
+{
+  "original_client_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "srg_archive_sha256": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+  "forge1614_patches_sha256": "5cb7f1cd1c4faf0c435548c610c3322c15ae3524cbb4926f272ec057dce83bd4",
+  "original_classes": {
+    "ayg.class": "0793087c9066dbb72df5f64d2b1d77942d67cb89525b58d7adb9c5de4af31506",
+    "aye.class": "fad5e780e27c0507e632bce9ed7f511a9c513a52f9f103ae24a6f3b164991be1",
+    "ayd.class": "bfe2aaca5ea928280b4acdaffe412a5668881717b859671f3a52b609f99576de",
+    "ayf.class": "2472405d13a983188f0169203e3dd940a478dbdf8349242623c42aaeacfc8972",
+    "aji.class": "d3af9ac23bc8ea67d02ad824d70e5c43fc2dc1b938e7bd5612ffb818abb43dd4",
+    "aoi.class": "718cded906024f6d3ba6d3aa0f29da61f3cd76f3927bc5f166af7434a31adb10",
+    "akn.class": "03867ef62244947df6fc03dda3a36043868807d3340cac89700c1b80fef3ef1b",
+    "aoe.class": "424564ee93681baef04fab5346a1eb6aceaeb35e797f47da069a5406d2713362",
+    "akz.class": "c6f1675cd29233a8851b1cb34425c715b89fdb2581c56718a13e0183a849869f",
+    "aje.class": "28f426fbab9273378e6f638759ed8b552f71fffcfcbe994ec26400699307c07a",
+    "ann.class": "11288baca98f4413dc67c71580692fe70eb54cd8d530e2969251d0659a11dbbf",
+    "ajw.class": "434ba5ed23fc9788956156f9ef7c981edf52b50be39c8e293cb692e6814ad658",
+    "aku.class": "c0cbd3528462a441554f2ef7a8f074d15767a4c9dc07f5e5510538ea6e1ff264",
+    "sa.class": "01b0b4c808c23eb5e4860e0d638edc242ed0f1c2952109c18fdb3db18f73c360",
+    "sw.class": "7b17d78a018b3cba009e4723ce8604d5ec7aa064d59d6683147fc12bc0ccfba3",
+    "td.class": "7d28408cdfd085186766c215743b892d245adddc5810d1860ed95e89497733e7",
+    "ahr.class": "e8a78f71400c5c16d5f1d7db44faf38ba5980a28f4aacde8e31dc0a460eb6189"
+  },
+  "reviewed_forge_patches": {
+    "net/minecraft/block/Block.java.patch": "3854398ea37c753922aefbe36b2980aff2a01d7ffff2dccf0abbe20abf0af065",
+    "net/minecraft/block/BlockDoor.java.patch": "befebdff3dd4e7aab9dc96f7d92f8fab6ec1d091f2241caf124f7db4f25586b7",
+    "net/minecraft/block/BlockTrapDoor.java.patch": "76d947fb390488b14bcd09a3129f62b86ed22b516a5cbec197ab2292f359441c",
+    "net/minecraft/block/BlockRailBase.java.patch": "4b7427318b64bdde0cdd2a2d737124917d9514d889873e3da5e58fcfa1237689",
+    "net/minecraft/block/BlockSnow.java.patch": "70d3fc01fc9495879b0b6c664b6f9ebfa3a34073d446f152c598c3c92a2c2a39",
+    "net/minecraft/entity/Entity.java.patch": "4ed0704027e21af5522c467eccf2fbd53d70db11864c18f3ce2ac4d666b2f481"
+  }
+}

@@ -78,7 +78,7 @@ public abstract class GlyphidStats {
 		@Override
 		public boolean handleAttack(EntityGlyphid glyphid, DamageSource source, float amount) {
 
-			if(!source.isDamageAbsolute() && !source.isUnblockable() && !glyphid.worldObj.isRemote && !source.isFireDamage() && !source.getDamageType().equals(ModDamageSource.s_cryolator)) {
+			if(!source.isDamageAbsolute() && !source.isUnblockable() && !glyphid.world.isRemote && !source.isFireDamage() && !source.getDamageType().equals(ModDamageSource.s_cryolator)) {
 				byte armor = glyphid.getDataWatcher().getWatchableObjectByte(glyphid.DW_ARMOR);
 
 				if(armor != 0) { //if at least one bit of armor is present

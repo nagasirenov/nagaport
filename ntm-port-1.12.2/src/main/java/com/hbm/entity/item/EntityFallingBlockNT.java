@@ -14,6 +14,12 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.MoverType;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
@@ -25,7 +31,9 @@ import net.minecraft.world.World;
 
 public class EntityFallingBlockNT extends Entity {
 
-	private Block fallingBlock;
+	private static final DataParameter<Integer> BLOCK = EntityDataManager.createKey(EntityFallingBlockNT.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> META = EntityDataManager.createKey(EntityFallingBlockNT.class, DataSerializers.VARINT);
+    private Block fallingBlock;
 	private int fallingMeta = -1;
 	public int fallingTicks;
 	public boolean canDrop;
@@ -41,7 +49,7 @@ public class EntityFallingBlockNT extends Entity {
 		this.damageCap = 40;
 		this.damageAmount = 2.0F;
 		this.setSize(0.98F, 0.98F);
-		this.yOffset = this.height / 2.0F;
+		
 	}
 
 	public EntityFallingBlockNT(World world, double x, double y, double z, Block block) {
@@ -50,13 +58,14 @@ public class EntityFallingBlockNT extends Entity {
 
 	public EntityFallingBlockNT(World world, double x, double y, double z, Block block, int meta) {
 		super(world);
-		this.canDrop = true;
-		this.damageCap = 40;
-		this.damageAmount = 2.0F;
+        // Preserve the original spawning constructor's Entity-default dimensions.
+        this.canDrop = true;
+        this.damageCap = 40;
+        this.damageAmount = 2.0F;
 		this.fallingBlock = block;
-		this.dataWatcher.updateObject(10, Block.getIdFromBlock(fallingBlock));
+		this.dataManager.set(BLOCK, Block.getIdFromBlock(fallingBlock));
 		this.fallingMeta = meta;
-		this.dataWatcher.updateObject(11, fallingMeta);
+		this.dataManager.set(META, fallingMeta);
 		this.preventEntitySpawning = true;
 		this.setPosition(x, y, z);
 		this.motionX = 0.0D;
@@ -68,31 +77,20 @@ public class EntityFallingBlockNT extends Entity {
 	}
 
 	@Override protected void entityInit() {
-		this.dataWatcher.addObject(10, new Integer(0));
-		this.dataWatcher.addObject(11, new Integer(0));
+		this.dataManager.register(BLOCK, 0);
+		this.dataManager.register(META, 0);
 	}
 	
-	public Block getBlock() {
-		if(this.fallingBlock != null) return this.fallingBlock;
-		
-		this.fallingBlock = Block.getBlockById(this.dataWatcher.getWatchableObjectInt(10));
-		return this.fallingBlock;
-	}
-	
-	public int getMeta() {
-		if(this.fallingMeta != -1) return this.fallingMeta;
-		this.fallingMeta = 0;
-		
-		this.fallingMeta = this.dataWatcher.getWatchableObjectInt(11);
-		return this.fallingMeta;
-	}
-	
+    public Block getBlock() { return Block.getBlockById(this.dataManager.get(BLOCK)); }
+    public int getMeta() { return this.dataManager.get(META); }
+    public IBlockState getFallingState() { return getBlock().getStateFromMeta(getMeta()); }
+
 	@Override protected boolean canTriggerWalking() { return false; }
 	@Override public boolean canBeCollidedWith() { return !this.isDead; }
 
 	public void onUpdate() {
 		
-		if(this.getBlock().getMaterial() == Material.air || this.getBlock() instanceof ISpotlight) {
+		if(this.getFallingState().getMaterial() == Material.AIR || this.getBlock() instanceof ISpotlight) {
 			this.setDead();
 		} else {
 			this.prevPosX = this.posX;
@@ -100,24 +98,24 @@ public class EntityFallingBlockNT extends Entity {
 			this.prevPosZ = this.posZ;
 			++this.fallingTicks;
 			this.motionY -= 0.04D;
-			this.moveEntity(this.motionX, this.motionY, this.motionZ);
+			this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 			this.motionX *= 0.98D;
 			this.motionY *= 0.98D;
 			this.motionZ *= 0.98D;
 
-			if(!this.worldObj.isRemote) {
-				int x = MathHelper.floor_double(this.posX);
-				int y = MathHelper.floor_double(this.posY);
-				int z = MathHelper.floor_double(this.posZ);
+			if(!this.world.isRemote) {
+				int x = MathHelper.floor(this.posX);
+				int y = MathHelper.floor(this.posY);
+				int z = MathHelper.floor(this.posZ);
 				int meta = this.getMeta();
 
 				if(this.fallingTicks == 1) {
-					if(this.worldObj.getBlock(x, y, z) != this.getBlock()) {
+					if(this.world.getBlockState(new BlockPos(x, y, z)).getBlock() != this.getBlock()) {
 						this.setDead();
 						return;
 					}
 
-					this.worldObj.setBlockToAir(x, y, z);
+					this.world.setBlockToAir(new BlockPos(x, y, z));
 				}
 
 				if(this.onGround) {
@@ -125,21 +123,22 @@ public class EntityFallingBlockNT extends Entity {
 					this.motionZ *= 0.7D;
 					this.motionY *= -0.5D;
 
-					if(this.worldObj.getBlock(x, y, z) != Blocks.piston_extension) {
+					if(this.world.getBlockState(new BlockPos(x, y, z)).getBlock() != Blocks.PISTON_EXTENSION) {
 						this.setDead();
 
-						if(!this.destroyOnLand && replacementCheck(x, y, z) && this.worldObj.setBlock(x, y, z, this.getBlock(), meta, 3)) {
+						IBlockState replacedState = this.world.getBlockState(new BlockPos(x, y, z));
+						if(!this.destroyOnLand && replacementCheck(x, y, z) && this.world.setBlockState(new BlockPos(x, y, z), this.getFallingState(), 3)) {
 
-							if(this.getBlock() instanceof BlockFalling) ((BlockFalling) this.getBlock()).func_149828_a(this.worldObj, x, y, z, meta);
-							if(this.getBlock() instanceof BlockFallingNT) ((BlockFallingNT) this.getBlock()).onLand(this.worldObj, x, y, z, meta);
+							if(this.getBlock() instanceof BlockFalling) ((BlockFalling) this.getBlock()).onEndFalling(this.world, new BlockPos(x, y, z), this.getFallingState(), replacedState);
+							if(this.getBlock() instanceof BlockFallingNT) ((BlockFallingNT) this.getBlock()).onLand(this.world, x, y, z, meta);
 
 							if(this.tileNBT != null && this.getBlock() instanceof ITileEntityProvider) {
-								TileEntity tileentity = this.worldObj.getTileEntity(x, y, z);
+								TileEntity tileentity = this.world.getTileEntity(new BlockPos(x, y, z));
 
 								if(tileentity != null) {
 									NBTTagCompound nbt = new NBTTagCompound();
 									tileentity.writeToNBT(nbt);
-									Iterator it = this.tileNBT.func_150296_c().iterator();
+									Iterator it = this.tileNBT.getKeySet().iterator();
 
 									while(it.hasNext()) {
 										String s = (String) it.next();
@@ -154,13 +153,13 @@ public class EntityFallingBlockNT extends Entity {
 									tileentity.markDirty();
 								}
 							}
-						} else if(this.canDrop && !this.destroyOnLand && this.getBlock().getItemDropped(meta, rand, 0) != null) {
-							this.entityDropItem(new ItemStack(this.getBlock().getItemDropped(meta, rand, 0), 1, this.getBlock().damageDropped(meta)), 0.0F);
+						} else if(this.canDrop && !this.destroyOnLand && this.getBlock().getItemDropped(this.getFallingState(), rand, 0) != null) {
+							this.entityDropItem(new ItemStack(this.getBlock().getItemDropped(this.getFallingState(), rand, 0), 1, this.getBlock().damageDropped(this.getFallingState())), 0.0F);
 						}
 					}
-				} else if(this.fallingTicks > 100 && !this.worldObj.isRemote && (y < 1 || y > 256) || this.fallingTicks > 600) {
-					if(this.canDrop && this.getBlock().getItemDropped(meta, rand, 0) != null) {
-						this.entityDropItem(new ItemStack(this.getBlock().getItemDropped(meta, rand, 0), 1, this.getBlock().damageDropped(meta)), 0.0F);
+				} else if(this.fallingTicks > 100 && !this.world.isRemote && (y < 1 || y > 256) || this.fallingTicks > 600) {
+					if(this.canDrop && this.getBlock().getItemDropped(this.getFallingState(), rand, 0) != null) {
+						this.entityDropItem(new ItemStack(this.getBlock().getItemDropped(this.getFallingState(), rand, 0), 1, this.getBlock().damageDropped(this.getFallingState())), 0.0F);
 					}
 
 					this.setDead();
@@ -170,24 +169,25 @@ public class EntityFallingBlockNT extends Entity {
 	}
 	
 	public boolean replacementCheck(int x, int y, int z) {
-		return worldObj.getBlock(x, y, z).isReplaceable(worldObj, x, y, z) && this.getBlock().canBlockStay(worldObj, x, y, z);
+		BlockPos pos = new BlockPos(x, y, z);
+        return world.getBlockState(pos).getBlock().isReplaceable(world, pos) && this.getBlock().canPlaceBlockAt(world, pos);
 	}
 
 	@Override
-	protected void fall(float fallDistance) {
+	public void fall(float fallDistance, float damageMultiplier) {
 		
 		if(this.canHurtEntities) {
-			int fall = MathHelper.ceiling_float_int(fallDistance - 1.0F);
+			int fall = MathHelper.ceil(fallDistance - 1.0F);
 
 			if(fall > 0) {
-				ArrayList arraylist = new ArrayList(this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox));
-				boolean isAnvil = this.getBlock() == Blocks.anvil;
-				DamageSource damagesource = isAnvil ? DamageSource.anvil : DamageSource.fallingBlock;
+				ArrayList arraylist = new ArrayList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox()));
+				boolean isAnvil = this.getBlock() == Blocks.ANVIL;
+				DamageSource damagesource = isAnvil ? DamageSource.ANVIL : DamageSource.FALLING_BLOCK;
 				Iterator iterator = arraylist.iterator();
 
 				while(iterator.hasNext()) {
 					Entity entity = (Entity) iterator.next();
-					entity.attackEntityFrom(damagesource, (float) Math.min(MathHelper.floor_float((float) fall * this.damageAmount), this.damageCap));
+					entity.attackEntityFrom(damagesource, (float) Math.min(MathHelper.floor((float) fall * this.damageAmount), this.damageCap));
 				}
 
 				if(isAnvil && (double) this.rand.nextFloat() < 0.05D + (double) fall * 0.05D) {
@@ -199,6 +199,7 @@ public class EntityFallingBlockNT extends Entity {
 						this.destroyOnLand = true;
 					} else {
 						this.fallingMeta = k | j << 2;
+                        this.dataManager.set(META, this.fallingMeta);
 					}
 				}
 			}
@@ -207,9 +208,9 @@ public class EntityFallingBlockNT extends Entity {
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
-		nbt.setByte("Tile", (byte) Block.getIdFromBlock(this.fallingBlock));
-		nbt.setInteger("TileID", Block.getIdFromBlock(this.fallingBlock));
-		nbt.setByte("Data", (byte) this.fallingMeta);
+		nbt.setByte("Tile", (byte) Block.getIdFromBlock(this.getBlock()));
+		nbt.setInteger("TileID", Block.getIdFromBlock(this.getBlock()));
+		nbt.setByte("Data", (byte) this.getMeta());
 		nbt.setByte("Time", (byte) this.fallingTicks);
 		nbt.setBoolean("DropItem", this.canDrop);
 		nbt.setBoolean("HurtEntities", this.canHurtEntities);
@@ -237,7 +238,7 @@ public class EntityFallingBlockNT extends Entity {
 			this.canHurtEntities = nbt.getBoolean("HurtEntities");
 			this.damageAmount = nbt.getFloat("FallHurtAmount");
 			this.damageCap = nbt.getInteger("FallHurtMax");
-		} else if(this.fallingBlock == Blocks.anvil) {
+		} else if(this.fallingBlock == Blocks.ANVIL) {
 			this.canHurtEntities = true;
 		}
 
@@ -249,9 +250,11 @@ public class EntityFallingBlockNT extends Entity {
 			this.tileNBT = nbt.getCompoundTag("TileEntityData");
 		}
 
-		if(this.fallingBlock.getMaterial() == Material.air) {
-			this.fallingBlock = Blocks.sand;
+		if(this.fallingBlock == null || this.fallingBlock.getDefaultState().getMaterial() == Material.AIR) {
+			this.fallingBlock = Blocks.SAND;
 		}
+        this.dataManager.set(BLOCK, Block.getIdFromBlock(this.fallingBlock));
+        this.dataManager.set(META, this.fallingMeta);
 	}
 
 	public void func_145806_a(boolean p_145806_1_) {
@@ -261,19 +264,13 @@ public class EntityFallingBlockNT extends Entity {
 	@Override
 	public void addEntityCrashInfo(CrashReportCategory report) {
 		super.addEntityCrashInfo(report);
-		report.addCrashSection("Immitating block ID", Integer.valueOf(Block.getIdFromBlock(this.fallingBlock)));
+		report.addCrashSection("Immitating block ID", Integer.valueOf(Block.getIdFromBlock(this.getBlock())));
 		report.addCrashSection("Immitating block data", Integer.valueOf(this.fallingMeta));
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public float getShadowSize() {
-		return 0.0F;
 	}
 
 	@SideOnly(Side.CLIENT)
 	public World getWorldForRender() {
-		return this.worldObj;
+		return this.world;
 	}
 
 	@Override

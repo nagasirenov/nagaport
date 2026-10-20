@@ -27,7 +27,7 @@ public class ItemPowerNetTool extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof BlockDummyable) {
 			int[] pos = ((BlockDummyable) b).findCore(world, x, y, z);
@@ -39,7 +39,7 @@ public class ItemPowerNetTool extends Item {
 			}
 		}
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(world.isRemote)
 			return true;
@@ -51,11 +51,11 @@ public class ItemPowerNetTool extends Item {
 
 				PowerNetMK2 net = node.net;
 				String id = Integer.toHexString(net.hashCode());
-				player.addChatComponentMessage(ChatBuilder.start("Start of diagnostic for network " + id).color(TextFormatting.GOLD).flush());
-				player.addChatComponentMessage(ChatBuilder.start("Links: " + net.links.size()).color(TextFormatting.YELLOW).flush());
-				player.addChatComponentMessage(ChatBuilder.start("Providers: " + net.providerEntries.size()).color(TextFormatting.YELLOW).flush());
-				player.addChatComponentMessage(ChatBuilder.start("Receivers: " + net.receiverEntries.size()).color(TextFormatting.YELLOW).flush());
-				player.addChatComponentMessage(ChatBuilder.start("End of diagnostic for network " + id).color(TextFormatting.GOLD).flush());
+				player.sendMessage(ChatBuilder.start("Start of diagnostic for network " + id).color(TextFormatting.GOLD).flush());
+				player.sendMessage(ChatBuilder.start("Links: " + net.links.size()).color(TextFormatting.YELLOW).flush());
+				player.sendMessage(ChatBuilder.start("Providers: " + net.providerEntries.size()).color(TextFormatting.YELLOW).flush());
+				player.sendMessage(ChatBuilder.start("Receivers: " + net.receiverEntries.size()).color(TextFormatting.YELLOW).flush());
+				player.sendMessage(ChatBuilder.start("End of diagnostic for network " + id).color(TextFormatting.GOLD).flush());
 
 				for(PowerNode link : net.links) {
 
@@ -65,12 +65,12 @@ public class ItemPowerNetTool extends Item {
 						data.setInteger("color", 0xffff00);
 						data.setFloat("scale", 0.5F);
 						data.setString("text", id);
-						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5), new TargetPoint(world.provider.dimensionId, pos.getX(), pos.getY(), pos.getZ(), radius));
+						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5), new TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), radius));
 					}
 				}
 
 			} else {
-				player.addChatComponentMessage(ChatBuilder.start("Error: No network found!").color(TextFormatting.RED).flush());
+				player.sendMessage(ChatBuilder.start("Error: No network found!").color(TextFormatting.RED).flush());
 			}
 
 			return true;

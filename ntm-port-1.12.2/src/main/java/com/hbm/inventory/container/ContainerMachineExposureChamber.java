@@ -81,6 +81,6 @@ public class ContainerMachineExposureChamber extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return chamber.isUseableByPlayer(player);
+		return chamber.isUsableByPlayer(player);
 	}
 }

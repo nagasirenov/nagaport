@@ -15,7 +15,7 @@ public class ContainerTurretBase extends Container {
 
 	public ContainerTurretBase(InventoryPlayer invPlayer, TileEntityTurretBaseNT te) {
 		turret = te;
-		turret.openInventory();
+		turret.openInventory(invPlayer.player);
 		
 		this.addSlotToContainer(new Slot(te, 0, 98, 27));
 
@@ -77,12 +77,12 @@ public class ContainerTurretBase extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return turret.isUseableByPlayer(player);
+		return turret.isUsableByPlayer(player);
 	}
 	
 	@Override
 	public void onContainerClosed(EntityPlayer p_75134_1_) {
 		super.onContainerClosed(p_75134_1_);
-		this.turret.closeInventory();
+		this.turret.closeInventory(p_75134_1_);
 	}
 }

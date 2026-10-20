@@ -25,11 +25,11 @@ import net.minecraft.world.World;
 			if(params.particle.equals("muke") && (MainRegistry.polaroidID == 11 || world.rand.nextInt(100) == 0)) {
 				data.setBoolean("balefire", true);
 			}
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(world.provider.dimensionId, posX, posY, posZ, 250));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 250));
 		}
 
 		// play the sound in any case
-		world.playSoundEffect(posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 
 		if(params.shrapnelCount > 0) ExplosionLarge.spawnShrapnels(world, posX, posY, posZ, params.shrapnelCount);
 		if(params.miniNuke && !params.safe) new ExplosionNT(world, null, posX, posY, posZ, params.blastRadius).addAllAttrib(params.explosionAttribs).overrideResolution(params.resolution).explode();

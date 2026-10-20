@@ -1,0 +1,10 @@
+[02:46:33] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:46:33] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:46:33] [main/INFO]: Replaced 1036 ore ingredients
+[02:46:33] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:46:33] [main/INFO]: Processing ObjectHolder annotations
+[02:46:33] [main/INFO]: Found 1167 ObjectHolder annotations
+[02:46:33] [main/INFO]: Reloading ResourceManager: resources, gui-sound-pack-6763148713953162028
+[02:46:33] [main/INFO]: Reloading ResourceManager: resources, gui-sound-pack-6763148713953162028
+[02:46:33] [main/INFO]: Reloading ResourceManager: resources
+PASS 2154 actual original/native property, resource, category, sample, missing, Forge cancellation/replacement and exact method checks; hardware output not run.

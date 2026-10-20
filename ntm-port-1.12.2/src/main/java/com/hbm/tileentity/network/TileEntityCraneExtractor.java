@@ -40,7 +40,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.craneExtractor";
 	}
 
@@ -48,18 +48,18 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	public void setInventorySlotContents(int i, ItemStack stack) {
 		super.setInventorySlotContents(i, stack);
 		
-		if(stack != null) {
+		if(stack != null && !stack.isEmpty()) {
 			
 			if((stack.getItem() == ModItems.upgrade_ejector && i == 19) || (stack.getItem() == ModItems.upgrade_stack && i == 18)) {
-				worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+				this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 			}
 		}
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote) {
+	public void update() {
+		super.update();
+		if(!this.world.isRemote) {
 			
 			int delay = 20;
 			
@@ -71,7 +71,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 				}
 			}
 			
-			if(worldObj.getTotalWorldTime() % delay == 0 && !this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {
+			if(this.world.getTotalWorldTime() % delay == 0 && !this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
 				int amount = 1;
 				
 				if(slots[18] != null && slots[18].getItem() == ModItems.upgrade_stack) {
@@ -84,8 +84,8 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 
 				ForgeDirection inputSide = getOutputSide(); // note the switcheroo!
 				ForgeDirection outputSide = getInputSide();
-				TileEntity te = worldObj.getTileEntity(xCoord + inputSide.offsetX, yCoord + inputSide.offsetY, zCoord + inputSide.offsetZ);
-				Block b = worldObj.getBlock(xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+				TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() + inputSide.offsetX, this.pos.getY() + inputSide.offsetY, this.pos.getZ() + inputSide.offsetZ));
+				Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ).getBlock();
 				
 				int[] access = null;
 				ISidedInventory sided = null;
@@ -114,24 +114,24 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 						int index = access == null ? i : access[i];
 						ItemStack stack = inv.getStackInSlot(index);
 						
-						if(stack != null && (sided == null || sided.canExtractItem(index, stack, inputSide.getOpposite().ordinal()))) {
+						if(stack != null && !stack.isEmpty() && (sided == null || sided.canExtractItem(index, stack, com.hbm.lib.ForgeDirection.getOrientation(inputSide.getOpposite().ordinal()).toEnumFacing()))) {
 
 							int maxTarget = Math.min(amount, stack.getMaxStackSize());
-							if(this.maxEject && stack.stackSize < maxTarget) continue;
+							if(this.maxEject && stack.getCount() < maxTarget) continue;
 							boolean match = this.matchesFilter(stack);
 							
 							if((isWhitelist && match) || (!isWhitelist && !match)) {
 								stack = stack.copy();
-								int toSend = Math.min(amount, stack.stackSize);
+								int toSend = Math.min(amount, stack.getCount());
 								
 								if (belt != null) {
 									inv.decrStackSize(index, toSend);
-									stack.stackSize = toSend;
+									stack.setCount(toSend);
 									sendItem(stack, belt, outputSide);
 								} else {
-									stack.stackSize = toSend;
+									stack.setCount(toSend);
 									ItemStack remaining = InventoryUtil.tryAddItemToInventory(this.slots, 9, 17, stack);
-									inv.decrStackSize(index, toSend - (remaining == null ? 0 : remaining.stackSize));
+									inv.decrStackSize(index, toSend - (remaining == null ? 0 : remaining.getCount()));
 								}
 								hasSent = true;
 								break;
@@ -148,13 +148,13 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 						
 						if(stack != null){
 							stack = stack.copy();
-							int toSend = Math.min(amount, stack.stackSize);
+							int toSend = Math.min(amount, stack.getCount());
 							
 							int maxTarget = Math.min(amount, stack.getMaxStackSize());
-							if(this.maxEject && stack.stackSize < maxTarget) continue;
+							if(this.maxEject && stack.getCount() < maxTarget) continue;
 
 							decrStackSize(i, toSend);
-							stack.stackSize = toSend;
+							stack.setCount(toSend);
 							sendItem(stack, belt, outputSide);
 
 							break;
@@ -168,18 +168,18 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	}
 
 	private void sendItem(ItemStack stack, IConveyorBelt belt, ForgeDirection outputSide) {
-		EntityMovingItem moving = new EntityMovingItem(worldObj);
-		Vec3d pos = new Vec3d(xCoord + 0.5 + outputSide.offsetX * 0.55, yCoord + 0.5 + outputSide.offsetY * 0.55, zCoord + 0.5 + outputSide.offsetZ * 0.55);
-		Vec3d snap = belt.getClosestSnappingPosition(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, pos);
+		EntityMovingItem moving = new EntityMovingItem(this.world);
+		Vec3d pos = new Vec3d(this.pos.getX() + 0.5 + outputSide.offsetX * 0.55, this.pos.getY() + 0.5 + outputSide.offsetY * 0.55, this.pos.getZ() + 0.5 + outputSide.offsetZ * 0.55);
+		Vec3d snap = belt.getClosestSnappingPosition(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, pos);
 		moving.setPosition(snap.x, snap.y, snap.z);
 		moving.setItemStack(stack);
-		worldObj.spawnEntityInWorld(moving);
+		this.world.spawnEntityInWorld(moving);
 
 		if(belt instanceof IEnterableBlock) {
 			IEnterableBlock enterable = (IEnterableBlock) belt;
 
-			if(enterable.canItemEnter(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, outputSide.getOpposite(), moving)) {
-				enterable.onItemEnter(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, outputSide.getOpposite(), moving);
+			if(enterable.canItemEnter(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, outputSide.getOpposite(), moving)) {
+				enterable.onItemEnter(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, outputSide.getOpposite(), moving);
 				moving.setDead();
 			}
 		}
@@ -207,7 +207,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 			return new int[] {2};
 		}
 		
-		return sided.getAccessibleSlotsFromSide(side);
+		return sided.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 	}
 	
 	public boolean matchesFilter(ItemStack stack) {
@@ -225,11 +225,12 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 
 	@Override
 	public void nextMode(int i) {
-		this.matcher.nextMode(worldObj, slots[i], i);
+		this.matcher.nextMode(this.world, slots[i], i);
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
 	}
 
@@ -239,7 +240,8 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i > 8 && i < 18;
 	}
 
@@ -263,16 +265,17 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("isWhitelist", this.isWhitelist);
 		nbt.setBoolean("maxEject", this.maxEject);
 		this.matcher.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override

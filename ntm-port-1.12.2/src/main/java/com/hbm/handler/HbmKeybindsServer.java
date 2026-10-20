@@ -17,7 +17,7 @@ public class HbmKeybindsServer {
 		props.setKeyPressed(key, state);
 		
 		// ITEM HANDLING
-		ItemStack held = player.getHeldItem();
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		if(held != null && held.getItem() instanceof IKeybindReceiver) {
 			IKeybindReceiver rec = (IKeybindReceiver) held.getItem();
 			if(rec.canHandleKeybind(player, held, key)) rec.handleKeybind(player, held, key, state);

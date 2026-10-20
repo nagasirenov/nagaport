@@ -9,6 +9,7 @@ import com.hbm.config.GeneralConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Spaceship2
@@ -25,425 +26,425 @@ public class Spaceship2
 	
 	public boolean generate_r00(World world, Random rand, int x, int y, int z)
     {
-		world.setBlock(x + 9, y + 0, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 23, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 24, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 24, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 24, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 24, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 24, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 24, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 24, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 24, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 24, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 25, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 25, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 25, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 25, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 25, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 25, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 25, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 25, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 25, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 26, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 26, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 26, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 26, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 26, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 26, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 26, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 26, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 26, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 27, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 27, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 27, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 27, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 27, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 27, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 27, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 27, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 27, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 28, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 28, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 28, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 28, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 28, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 28, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 28, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 28, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 28, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 29, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 29, Block3, 0, 3);
-		world.setBlock(x + 2, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 11, y + 0, z + 30, Block3, 0, 3);
-		world.setBlock(x + 3, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 10, y + 0, z + 31, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 32, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 32, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 32, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 32, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 33, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 33, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 33, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 33, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 34, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 34, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 34, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 34, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 35, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 35, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 35, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 35, Block3, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 36, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 36, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 36, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 36, Block3, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 37, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 37, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 37, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 37, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 37, Block3, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 38, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 38, Block3, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 38, Block3, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 38, Block3, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 38, Block3, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 38, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 39, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 39, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 39, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 39, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 39, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 39, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 40, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 40, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 40, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 40, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 40, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 41, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 41, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 41, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 42, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 42, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 42, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 42, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 0, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 0, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 0, z + 45, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 0, z + 45, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 0, z + 45, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 0, z + 45, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 1, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 1, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 1, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 1, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 41, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 42, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 42, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 43, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 44, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 45, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 2, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 2, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 2, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 2, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 2, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 2, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 2, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 2, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 2, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 2, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 2, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 3, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 3, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 3, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 3, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 4, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 4, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 4, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 4, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 4, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 4, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 4, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 4, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 4, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 4, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 4, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 4, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 4, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 4, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 4, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 4, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 7, Blocks.air, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 17); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 17); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 23); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 24); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 24); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 24); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 24, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 24, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 24, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 24, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 24); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 24); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 25); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 25); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 25); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 25, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 25, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 25, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 25, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 25); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 25); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 26); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 26); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 26); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 26, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 26, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 26, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 26, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 26); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 26); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 27); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 27); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 27); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 27, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 27, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 27, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 27, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 27); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 27); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 28); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 0, z + 28); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 28); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 28, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 28, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 28, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 28, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 28); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 0, z + 28); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 29); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 0, z + 29, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 30, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 0, z + 31, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 32, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 32, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 32, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 32, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 33, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 33, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 33, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 33, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 34, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 34, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 34, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 34, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 35, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 35, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 35, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 35, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 36, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 36, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 36, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 36, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 37); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 37, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 37, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 37, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 37, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 38); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 38, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 38, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 38, Block3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 38, Block3);
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 38); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 39); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 39); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 39); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 39); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 39); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 39); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 40); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 40); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 40); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 40); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 40); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 41); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 41); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 41); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 42); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 42); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 42); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 42); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 0, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 0, z + 45); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 0, z + 45); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 0, z + 45); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 0, z + 45); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 1, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 16); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 16); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 16); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 16); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 16); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 17); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 17); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 17); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 17); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 18); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 19); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 1, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 20); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 21); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 22); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 41); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 42); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 42); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 43); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 44); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 1, z + 45); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 2, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 2, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 2, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 2, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 2, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 15); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 2, z + 16); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 3, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 3, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 4, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 4, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 4, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 4, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		if(GeneralConfig.enableDebugMode)
 			System.out.print("[Debug] Successfully spawned spaceship at " + x + " " + y +" " + z + "\n");
 		return true;

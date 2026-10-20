@@ -30,14 +30,15 @@ public class RadioTorchReceiver extends RadioTorchRWBase {
 	}
 
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {
+	public int getWeakPower(net.minecraft.block.state.IBlockState blockState, IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) {
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile instanceof TileEntityRadioTorchReceiver) {
 			int state = ((TileEntityRadioTorchReceiver) tile).lastState;

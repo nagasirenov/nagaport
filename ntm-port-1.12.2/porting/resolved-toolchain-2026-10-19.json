@@ -1,0 +1,280 @@
+{
+  "input_revision": "dff345a2411f7d3d6bef5c0b6c3aa8ab47ac357e",
+  "java": "Eclipse Temurin 1.8.0_504-b01",
+  "gradle": "4.10.3",
+  "forge": "1.12.2-14.23.5.2768",
+  "mcp_mappings": "stable_39",
+  "forgegradle_declared": "2.3-SNAPSHOT",
+  "forgegradle_banner": "2.3.4-gfc67182",
+  "forgegradle_artifact": {
+    "file": "ForgeGradle-2.3-SNAPSHOT.jar",
+    "sha256": "5e8d1af585b0936a40ccc6489fa9871da008a41b4f481e462d1dc61279f0274e"
+  },
+  "production_java_sources": 3858,
+  "compile_artifacts": [
+    {
+      "file": "compileDummy.jar",
+      "sha256": "3fae6ce643be1b6622c3e252f7fbb6f94db9435853f9d31d3bebed85339c3a62"
+    },
+    {
+      "file": "providedDummy.jar",
+      "sha256": "1336c89c85d61f5263ee037a3f199e3eecd4cfc9d59cae27c54105810102cf65"
+    },
+    {
+      "file": "NotEnoughItems-1.12.2-2.4.3.245.jar",
+      "sha256": "0dbf9cf56b4845bab95f21128f4342c0e3670ca1dfc873fa3986bf236d039e5d"
+    },
+    {
+      "file": "OpenComputers-MC1.12.2-1.7.5.192.jar",
+      "sha256": "ace17b79ad55e723c2761d0fb91d2fb61f5234dc1e445562048f49c0a46c1eb7"
+    },
+    {
+      "file": "CodeChickenLib-1.12.2-3.2.3.358.jar",
+      "sha256": "522b8d31feb1d4c7cff8e62a8629e51fec80aef29a3b419e6f21908c36de78be"
+    },
+    {
+      "file": "jei_1.12.2-4.12.0.216.jar",
+      "sha256": "f84ca966adbf5af426fe55ef43aa75ad86dee335c4597725f8626509e72e7d08"
+    },
+    {
+      "file": "forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "198f11c24b8a7c188674bc34d093541ee591072a8d66ad5bf85048594b138e35"
+    },
+    {
+      "file": "authlib-1.5.25.jar",
+      "sha256": "c8a095123be93c59d4ac29e4a0616495b3d479ac65913cb719a81ee583e9dfcd"
+    },
+    {
+      "file": "jsr305-3.0.1.jar",
+      "sha256": "c885ce34249682bc0236b4a7d56efcc12048e6135a5baf7a9cde8ad8cda13fcd"
+    },
+    {
+      "file": "patchy-1.3.9.jar",
+      "sha256": "79f5a9d8c788489d3375cb77cc826a905e261e50d23f31b94c2d5f2b92ad3dc6"
+    },
+    {
+      "file": "oshi-core-1.1.jar",
+      "sha256": "27901e5d4d60d3502571d5e6358fc89e3fcf874138b69d495d139bcc3e169404"
+    },
+    {
+      "file": "text2speech-1.10.3.jar",
+      "sha256": "841d2f407824a4a9c3dd872c51ecd76d50381c569b79c3ea7b06b69eec2bba53"
+    },
+    {
+      "file": "java-objc-bridge-1.0.0.jar",
+      "sha256": "fec83601d2da127234728a8fffb429d0c4a59587452834da203163e6a3f941db"
+    },
+    {
+      "file": "jna-4.4.0.jar",
+      "sha256": "c4dadeeecaa90c8847902082aee5eb107fcf59c5d0e63a17fcaf273c0e2d2bd1"
+    },
+    {
+      "file": "platform-3.4.0.jar",
+      "sha256": "ea89d5090c8303ba4e9a0056e6d8a20429f3e021411e950bfd9eba3b6e6cf15c"
+    },
+    {
+      "file": "icu4j-core-mojang-51.2.jar",
+      "sha256": "147592c5eb8e11fc8394125954f877acf25918bae13aa210c2825aefc3030ed8"
+    },
+    {
+      "file": "launchwrapper-1.12.jar",
+      "sha256": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f"
+    },
+    {
+      "file": "jopt-simple-5.0.3.jar",
+      "sha256": "6f45c00908265947c39221035250024f2caec9a15c1c8cf553ebeecee289f342"
+    },
+    {
+      "file": "netty-all-4.1.9.Final.jar",
+      "sha256": "fd5ad66cdd0a496d281b26c699f4511da7c3f95083659ebb7bae22dab876581a"
+    },
+    {
+      "file": "guava-21.0.jar",
+      "sha256": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480"
+    },
+    {
+      "file": "maven-artifact-3.5.3.jar",
+      "sha256": "30d066e27379a51c8d9c67b1ab0b7e55d930c9721161b07ef1666ab9fc24c629"
+    },
+    {
+      "file": "commons-lang3-3.5.jar",
+      "sha256": "8ac96fc686512d777fca85e144f196cd7cfe0c0aec23127229497d1a38ff651c"
+    },
+    {
+      "file": "commons-io-2.5.jar",
+      "sha256": "a10418348d234968600ccb1d988efcbbd08716e1d96936ccc1880e7d22513474"
+    },
+    {
+      "file": "realms-1.10.22.jar",
+      "sha256": "dca25458971e72c7b06d381af2dc5e1c3fc0358756f842beac18eafa6895101e"
+    },
+    {
+      "file": "httpclient-4.3.3.jar",
+      "sha256": "9844cc9b5440d65a88d28bcba9d771374d2dfdab898848cda164611091633013"
+    },
+    {
+      "file": "commons-codec-1.10.jar",
+      "sha256": "4241dfa94e711d435f29a4604a3e2de5c4aa3c165e23bd066be6fc1fc4309569"
+    },
+    {
+      "file": "librarylwjglopenal-20100824.jar",
+      "sha256": "107d11509f6af59b8c2ba23df828bc5d3c4e067b58f3d858c7deb90ca5308f84"
+    },
+    {
+      "file": "lwjgl_util-2.9.4-nightly-20150209.jar",
+      "sha256": "034456b132a336b72757325bb7aaf99e075681ee5650d2bea21717bd485de42f"
+    },
+    {
+      "file": "lwjgl-2.9.4-nightly-20150209.jar",
+      "sha256": "833e721817f70d1445eec13d8ce5a86e12af70efac5014356302e2bbc68b3fe2"
+    },
+    {
+      "file": "jinput-2.0.5.jar",
+      "sha256": "79b5a4f5829e1a49a415711f7fb8eb5b9ad22defa72929fda2da96ec30d3f018"
+    },
+    {
+      "file": "jutils-1.0.0.jar",
+      "sha256": "c3334ff39cf0ab3b54925619101054c90098b7c733b1e7834c7b75e4c41e84a5"
+    },
+    {
+      "file": "gson-2.8.0.jar",
+      "sha256": "c6221763bd79c4f1c3dc7f750b5f29a0bb38b367b81314c4f71896e340c40825"
+    },
+    {
+      "file": "commons-compress-1.8.1.jar",
+      "sha256": "5fca136503f86ecc6cb61fbd17b137d59e56b45c7a5494e6b8fd3cabd4697fbd"
+    },
+    {
+      "file": "commons-logging-1.1.3.jar",
+      "sha256": "70903f6fc82e9908c8da9f20443f61d90f0870a312642991fe8462a0b9391784"
+    },
+    {
+      "file": "httpcore-4.3.2.jar",
+      "sha256": "abd02320e2356f89d054dae4cf02306bef20a9cf7865b3ac94ec7552b4f1528b"
+    },
+    {
+      "file": "fastutil-7.1.0.jar",
+      "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+    },
+    {
+      "file": "log4j-core-2.8.1.jar",
+      "sha256": "815a73e20e90a413662eefe8594414684df3d5723edcd76070e1a5aee864616e"
+    },
+    {
+      "file": "log4j-api-2.8.1.jar",
+      "sha256": "1205ab764b1326f7d96d99baa4a4e12614599bf3d735790947748ee116511fa2"
+    },
+    {
+      "file": "jline-3.5.1.jar",
+      "sha256": "7285f4a93d4205674e328a3e28e4d7cec10429f3ab5a0d7024b85746e958aeda"
+    },
+    {
+      "file": "asm-debug-all-5.2.jar",
+      "sha256": "254b82bec9da4f8efbc8b1f93ab2b87f7465227a82b36cf3d05d9e77a0e8dd2e"
+    },
+    {
+      "file": "akka-actor_2.11-2.3.3.jar",
+      "sha256": "4ccbc821a417f0174c9734fc721f078177cacef94ded09c3775ebf40c6a7bdfd"
+    },
+    {
+      "file": "config-1.2.1.jar",
+      "sha256": "c160fbd78f51a0c2375a794e435ce2112524a6871f64d0331895e9e26ee8b9ee"
+    },
+    {
+      "file": "scala-actors-migration_2.11-1.1.0.jar",
+      "sha256": "b89d0beb76df20c7b2c2bee59ba53b802cc48566bc3e89ac96ce6361c5c2ee38"
+    },
+    {
+      "file": "scala-continuations-plugin_2.11.1-1.0.2.jar",
+      "sha256": "79329971a31ede7b6823f21a6ab765506b4093d9276debdc9dbe17b996884f2b"
+    },
+    {
+      "file": "scala-compiler-2.11.1.jar",
+      "sha256": "3aa616f5c56d2052fc5e3231f3e8cf1736f876caff0142a66096fc5b4dc87ae5"
+    },
+    {
+      "file": "scala-continuations-library_2.11-1.0.2.jar",
+      "sha256": "8dd0a4941f4564117cc991734ca36aa53dff6bb0be329f39eab46d8819f60d1a"
+    },
+    {
+      "file": "scala-parser-combinators_2.11-1.0.1.jar",
+      "sha256": "19495ce701fd9ba3c499c137e3ad5364acee8f87a01ef99e912f995a23fd4cb1"
+    },
+    {
+      "file": "scala-reflect-2.11.1.jar",
+      "sha256": "41938d1e89670979dd783102777a8b879999f4fb00a5b811b51c105b02a9d4f8"
+    },
+    {
+      "file": "scala-swing_2.11-1.0.1.jar",
+      "sha256": "4a7c757d4d87dd37382bd777ad611b5875748aef148277cf25bb39eebb496d07"
+    },
+    {
+      "file": "scala-xml_2.11-1.0.2.jar",
+      "sha256": "13c0d8d442bde14b73af3ed60e8d53452f9e1ad62ffbe3d944cb918df652db6f"
+    },
+    {
+      "file": "scala-actors-2.11.0.jar",
+      "sha256": "fa33c031c291ef618e33398aa193ddf4d4c6859d805c9fb3cd4b7c4fbc9acbc6"
+    },
+    {
+      "file": "scala-library-2.11.1.jar",
+      "sha256": "088bcb80f71b6e6a2a31d2fe7288c1fd64f19663ce281b924cdfab3fb105f4f3"
+    },
+    {
+      "file": "lzma-0.0.1.jar",
+      "sha256": "0c3085cb93c3ef95d731c274b6f2dd195aa0405fe9328d69cab7f5e899d5e124"
+    },
+    {
+      "file": "trove4j-3.0.3.jar",
+      "sha256": "3c8616203d61a12a7e3487e8b34f3c198c2b5ba9e90da0c7ea32d99cd4958012"
+    },
+    {
+      "file": "codecjorbis-20101023.jar",
+      "sha256": "6c4b4e50e608763564afa1bde2d25ece9dd715e7c9129540faa1faded4896506"
+    },
+    {
+      "file": "codecwav-20101023.jar",
+      "sha256": "bb7d17b340afe6abdfbfdaa03683bce4aef39a64887dbab0636eaff3cf2d59ba"
+    },
+    {
+      "file": "libraryjavasound-20101123.jar",
+      "sha256": "333bbefeff5eb1722dc9b8d2e26c38bc69c1efa07d0ca870480f29d8858aa336"
+    },
+    {
+      "file": "soundsystem-20120107.jar",
+      "sha256": "2882d64550240dd0c026724da664d9f97ef205c91d6a85273d10790d88608f34"
+    },
+    {
+      "file": "vecmath-1.5.2.jar",
+      "sha256": "09adf7955baa6bddf57a4bdbf9a91cf690261314969b59a18085ece1e05eccf9"
+    },
+    {
+      "file": "plexus-utils-3.1.0.jar",
+      "sha256": "0ffa0ad084ebff5712540a7b7ea0abda487c53d3a18f78c98d1a3675dab9bf61"
+    },
+    {
+      "file": "jinput-platform-2.0.5-natives-linux.jar",
+      "sha256": "1ab4d194277816b6105253d224c8c69f1b6d720690efe7c85f3ce884f0ea273d"
+    },
+    {
+      "file": "jinput-platform-2.0.5-natives-windows.jar",
+      "sha256": "24afbd5e1fab17da57d16a4d3f19d53f36155ef46a9976484201a4bb9722287f"
+    },
+    {
+      "file": "jinput-platform-2.0.5-natives-osx.jar",
+      "sha256": "171024b00f9a743b92388b48733dc30fd3f6d3a7da4f66f9821531fbcf1aa074"
+    },
+    {
+      "file": "lwjgl-platform-2.9.4-nightly-20150209-natives-windows.jar",
+      "sha256": "f2e1f2c6bd7511a7504f389b8b716f5d8dc2fdc71e29c89b52644314cf0a228e"
+    },
+    {
+      "file": "lwjgl-platform-2.9.4-nightly-20150209-natives-linux.jar",
+      "sha256": "d312147c3999b868fd649887f45203a4195bc10fc563cee4c4f8d22761421f94"
+    },
+    {
+      "file": "lwjgl-platform-2.9.4-nightly-20150209-natives-osx.jar",
+      "sha256": "8831b2bd5a53dc343fd6fbed3c18f28ab33d3f28dbe62ebd4a3af81f25c0a5ab"
+    }
+  ]
+}

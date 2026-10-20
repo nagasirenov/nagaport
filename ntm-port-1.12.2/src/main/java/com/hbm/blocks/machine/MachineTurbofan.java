@@ -52,7 +52,7 @@ public class MachineTurbofan extends BlockDummyable implements ITooltipProvider 
 			if(pos == null)
 				return false;
 			
-			TileEntityMachineTurbofan turbofan = (TileEntityMachineTurbofan) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineTurbofan turbofan = (TileEntityMachineTurbofan) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
 			if(turbofan != null) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);

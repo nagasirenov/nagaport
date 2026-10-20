@@ -56,14 +56,14 @@ public class TileEntityMachineLiquefactor extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineLiquefactor";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.power = Library.chargeTEFromItems(slots, 1, power, maxPower);
 
 			this.updateConnections();
@@ -88,24 +88,24 @@ public class TileEntityMachineLiquefactor extends TileEntityMachineBase implemen
 
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
 	private void sendFluid() {
 		for(DirPos pos : getConPos()) {
-			this.sendFluid(tank, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.sendFluid(tank, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
 	private DirPos[] getConPos() {
 		return new DirPos[] {
-			new DirPos(xCoord, yCoord + 4, zCoord, Library.POS_Y),
-			new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-			new DirPos(xCoord + 2, yCoord + 1, zCoord, Library.POS_X),
-			new DirPos(xCoord - 2, yCoord + 1, zCoord, Library.NEG_X),
-			new DirPos(xCoord, yCoord + 1, zCoord + 2, Library.POS_Z),
-			new DirPos(xCoord, yCoord + 1, zCoord - 2, Library.NEG_Z)
+			new DirPos(this.pos.getX(), this.pos.getY() + 4, this.pos.getZ(), Library.POS_Y),
+			new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+			new DirPos(this.pos.getX() + 2, this.pos.getY() + 1, this.pos.getZ(), Library.POS_X),
+			new DirPos(this.pos.getX() - 2, this.pos.getY() + 1, this.pos.getZ(), Library.NEG_X),
+			new DirPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ() + 2, Library.POS_Z),
+			new DirPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -115,7 +115,8 @@ public class TileEntityMachineLiquefactor extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0 };
 	}
 
@@ -179,9 +180,10 @@ public class TileEntityMachineLiquefactor extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tank.writeToNBT(nbt, "tank");
+		return nbt;
 	}
 
 	@Override
@@ -206,12 +208,12 @@ public class TileEntityMachineLiquefactor extends TileEntityMachineBase implemen
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 4,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 2
 					);
 		}
 

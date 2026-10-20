@@ -127,12 +127,12 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 				}
 
 				if (x >= centerX - 16.0D - d6 * 2.0D && z >= centerZ - 16.0D - d6 * 2.0D && x <= centerX + 16.0D + d6 * 2.0D && z <= centerZ + 16.0D + d6 * 2.0D) {
-					int i4 = MathHelper.floor_double(x - d6) - chunkX * 16 - 1;
-					int l1 = MathHelper.floor_double(x + d6) - chunkX * 16 + 1;
-					int j4 = MathHelper.floor_double(y - d7) - 1;
-					int i2 = MathHelper.floor_double(y + d7) + 1;
-					int k4 = MathHelper.floor_double(z - d6) - chunkZ * 16 - 1;
-					int j2 = MathHelper.floor_double(z + d6) - chunkZ * 16 + 1;
+					int i4 = MathHelper.floor(x - d6) - chunkX * 16 - 1;
+					int l1 = MathHelper.floor(x + d6) - chunkX * 16 + 1;
+					int j4 = MathHelper.floor(y - d7) - 1;
+					int i2 = MathHelper.floor(y + d7) + 1;
+					int k4 = MathHelper.floor(z - d6) - chunkZ * 16 - 1;
+					int j2 = MathHelper.floor(z + d6) - chunkZ * 16 + 1;
 
 					if (i4 < 0) {
 						i4 = 0;

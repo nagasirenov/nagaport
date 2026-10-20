@@ -6,21 +6,23 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.model.ModelRubble;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
+import com.hbm.entity.projectile.EntityRubble;
+import com.hbm.render.util.NativeBlockMaterial;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderRubble extends Render {
+public class RenderRubble extends Render<EntityRubble> {
 	
 	ModelRubble mine;
 
-	public RenderRubble() {
+	public RenderRubble(RenderManager manager) {
+		super(manager);
 		mine = new ModelRubble();
 	}
 
 	@Override
-	public void doRender(Entity rocket, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+	public void doRender(EntityRubble rocket, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
 		GL11.glScalef(1.0F, 1.0F, 1.0F);
@@ -28,32 +30,9 @@ public class RenderRubble extends Render {
 		GL11.glRotatef(((rocket.ticksExisted + p_76986_9_) % 360) * 10, 1, 1, 1);
 
 		try {
-			int block = rocket.getDataWatcher().getWatchableObjectInt(16);
-			int meta = rocket.getDataWatcher().getWatchableObjectInt(17);
-			
-			Block b = Block.getBlockById(block);
-	
-			RenderBlocks rb = RenderBlocks.getInstance();
-			String s = rb.getBlockIconFromSideAndMetadata(b, 0, meta).getIconName();
-			
-			if(s == null || s.isEmpty())
-				s = "minecraft:stone";
-	
-			String[] split = s.split(":");
-			
-			String prefix = "";
-			String suffix = "";
-			
-			if(split.length == 2) {
-				prefix = split[0];
-				suffix = split[1];
-			} else {
-				prefix = "minecraft";
-				suffix = s;
-			}
-			
-			bindTexture(new ResourceLocation(prefix + ":textures/blocks/" + suffix + ".png"));
-			
+			Block block = Block.getBlockById(rocket.getBlockId());
+			bindTexture(NativeBlockMaterial.texture(block, rocket.getBlockMetadata()));
+
 			mine.renderAll(0.0625F);
 		} catch(Exception ex) { }
 		
@@ -61,7 +40,7 @@ public class RenderRubble extends Render {
 	}
 	
 	@Override
-	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(EntityRubble p_110775_1_) {
 		return new ResourceLocation(RefStrings.MODID + ":textures/models/ModelRubbleScrap.png");
 	}
 }

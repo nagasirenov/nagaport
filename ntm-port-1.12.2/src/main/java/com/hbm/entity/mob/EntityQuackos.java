@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 /**
  * BOW
  */
-public class EntityQuackos extends EntityDuck implements IBossDisplayData {
+public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 
 	/**
 	 * BOW
@@ -55,7 +55,7 @@ public class EntityQuackos extends EntityDuck implements IBossDisplayData {
 	 * BOW
 	 */
 	public EntityQuackos createChild(EntityAgeable entity) {
-		return new EntityQuackos(this.worldObj);
+		return new EntityQuackos(this.world);
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class EntityQuackos extends EntityDuck implements IBossDisplayData {
 	 * pluck
 	 */
 	public void setDead() {
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			super.setDead();
 		} else if(GeneralConfig.enableSacrilege) {
 			// if killed once per tick for a second OR if killed sequentially 10 times
@@ -101,7 +101,7 @@ public class EntityQuackos extends EntityDuck implements IBossDisplayData {
 
 		} else {
 
-			if(!this.worldObj.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player)) {
+			if(!this.world.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player)) {
 				player.mountEntity(this);
 				return true;
 			}
@@ -115,7 +115,7 @@ public class EntityQuackos extends EntityDuck implements IBossDisplayData {
 	 */
 	public void despawn() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			for(int i = 0; i < 150; i++) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "bf");
@@ -163,7 +163,7 @@ public class EntityQuackos extends EntityDuck implements IBossDisplayData {
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 
-		if(!worldObj.isRemote && this.posY < -30) {
+		if(!this.world.isRemote && this.posY < -30) {
 			this.setPosition(this.posX + rand.nextGaussian() * 30, 256, this.posZ + rand.nextGaussian() * 30);
 		}
 

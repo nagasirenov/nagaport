@@ -1,0 +1,16 @@
+// Whole battery API and explicitly extracted concrete energy/transfer methods only.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortBatteryEnergy', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if (javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    project.file('porting/tests/probe-battery-energy.py'),
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

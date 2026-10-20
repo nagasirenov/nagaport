@@ -1,11 +1,21 @@
 package com.hbm.blocks.generic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
 import com.hbm.blocks.IBlockSideRotation;
+import com.hbm.blocks.SideRotationModelState;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.blocks.ModBlocks;
@@ -21,7 +31,6 @@ import com.hbm.world.gen.nbt.INBTTileEntityTransformable;
 import com.mojang.authlib.GameProfile;
 
 import api.hbm.block.IToolable;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
@@ -29,7 +38,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -37,9 +45,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -49,60 +56,82 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 
 public class BlockWandLoot extends BlockContainer implements ILookOverlay, IToolable, ITooltipProvider, IBlockSideRotation {
 
-	@SideOnly(Side.CLIENT) protected IIcon iconTop;
+	private static final ResourceLocation blockTexture = new ResourceLocation(RefStrings.MODID, "blocks/wand_loot");
+	private static final ResourceLocation iconTop = new ResourceLocation(RefStrings.MODID, "blocks/wand_loot_top");
+	private static final Collection<ResourceLocation> MODEL_TEXTURES = Collections.unmodifiableList(Arrays.asList(blockTexture, iconTop));
 
 	public BlockWandLoot() {
-		super(Material.iron);
+		super(Material.IRON);
+		setDefaultState(blockState.getBaseState().withProperty(SideRotationModelState.METADATA, 0));
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":wand_loot");
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":wand_loot_top");
-	}
 
 	@Override
-	public IIcon getIcon(int side, int meta) {
-		return (side <= 1) ? iconTop : blockIcon;
+	public ResourceLocation getModelTexture(int side, int meta) {
+		return (side <= 1) ? iconTop : blockTexture;
 	}
 
 	@Override
 	public int getRotationFromSide(IBlockAccess world, int x, int y, int z, int side) {
-		if(side == 0) return IBlockSideRotation.topToBottom(world.getBlockMetadata(x, y, z));
-		if(side == 1) return world.getBlockMetadata(x, y, z);
+		if(side == 0) return IBlockSideRotation.topToBottom(getMetaFromState(world.getBlockState(new BlockPos(x, y, z))));
+		if(side == 1) return getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		return 0;
 	}
 
 	@Override
-	public int getRenderType() {
-		return IBlockSideRotation.getRenderType();
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+	public Collection<ResourceLocation> getModelTextures() {
+		return MODEL_TEXTURES;
+	}
 
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return SideRotationModelState.create(this);
+	}
 
-		TileEntity te = world.getTileEntity(x, y, z);
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(SideRotationModelState.METADATA, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(SideRotationModelState.METADATA);
+	}
+
+	@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return SideRotationModelState.extend(state, world, pos);
+	}
+
+	@Override
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+
+		if(i == 0) world.setBlockState(pos, getStateFromMeta(3), 2);
+		if(i == 1) world.setBlockState(pos, getStateFromMeta(2), 2);
+		if(i == 2) world.setBlockState(pos, getStateFromMeta(0), 2);
+		if(i == 3) world.setBlockState(pos, getStateFromMeta(1), 2);
+
+		TileEntity te = world.getTileEntity(pos);
 		if(!(te instanceof TileEntityWandLoot)) return;
 		((TileEntityWandLoot) te).placedRotation = player.rotationYaw;
 	}
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandLoot)) return;
 
 		TileEntityWandLoot loot = (TileEntityWandLoot) te;
 
 		List<String> text = new ArrayList<String>();
-		text.add("Will replace with: " + loot.replaceBlock.getUnlocalizedName());
+		text.add("Will replace with: " + loot.replaceBlock.getTranslationKey());
 		text.add("   meta: " + loot.replaceMeta);
 		text.add("Loot pool: " + loot.poolName);
 		if(loot.replaceBlock != ModBlocks.deco_loot) {
@@ -110,7 +139,7 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 			text.add("Maximum items: " + loot.maxItems);
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -124,8 +153,8 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		TileEntity te = world.getTileEntity(x, y, z);
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		TileEntity te = world.getTileEntity(pos);
 
 		if(!(te instanceof TileEntityWandLoot)) return false;
 
@@ -133,11 +162,11 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 
 		if(!player.isSneaking()) {
 
-			Block block = getLootableBlock(world, player.getHeldItem());
+			Block block = getLootableBlock(world, player.getHeldItem(hand));
 
 			if(block != null) {
 				loot.replaceBlock = block;
-				loot.replaceMeta = player.getHeldItem().getItemDamage();
+				loot.replaceMeta = player.getHeldItem(hand).getItemDamage();
 
 				List<String> poolNames = loot.getPoolNames(block == ModBlocks.deco_loot);
 				if(!poolNames.contains(loot.poolName)) {
@@ -167,7 +196,7 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandLoot)) return false;
 
@@ -201,7 +230,7 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 			int index = poolNames.indexOf(loot.poolName);
 
 			index += player.isSneaking() ? -1 : 1;
-			index = MathHelper.clamp_int(index, 0, poolNames.size() - 1);
+			index = MathHelper.clamp(index, 0, poolNames.size() - 1);
 
 			loot.poolName = poolNames.get(index);
 
@@ -216,7 +245,13 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 		return new TileEntityWandLoot();
 	}
 
-	public static class TileEntityWandLoot extends TileEntityLoadedBase implements INBTTileEntityTransformable {
+	public static class TileEntityWandLoot extends TileEntityLoadedBase implements INBTTileEntityTransformable, net.minecraft.util.ITickable {
+
+		@Override
+		public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+			return oldState.getBlock() != newState.getBlock();
+		}
+
 
 		private boolean triggerReplace;
 
@@ -233,8 +268,8 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 		private static FakePlayer fakePlayer;
 
 		@Override
-		public void updateEntity() {
-			if(!worldObj.isRemote) {
+		public void update() {
+			if(!this.world.isRemote) {
 				if(triggerReplace) {
 					// On the first tick of this TE, replace with intended block and fill with loot
 					replace();
@@ -245,51 +280,51 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 		}
 
 		private void replace() {
-			if(!(worldObj.getBlock(xCoord, yCoord, zCoord) instanceof BlockWandLoot)) {
-				MainRegistry.logger.warn("Somehow the block at: " + xCoord + ", " + yCoord + ", " + zCoord + " isn't a loot block but we're doing a TE update as if it is, cancelling!");
+			if(!(this.world.getBlockState(this.pos).getBlock() instanceof BlockWandLoot)) {
+				MainRegistry.logger.warn("Somehow the block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + " isn't a loot block but we're doing a TE update as if it is, cancelling!");
 				return;
 			}
 
 			WeightedRandomChestContent[] pool = ItemPool.getPool(poolName);
 
-			worldObj.setBlock(xCoord, yCoord, zCoord, replaceBlock, replaceMeta, 2);
+			this.world.setBlockState(this.pos, replaceBlock.getStateFromMeta(replaceMeta), 2);
 
-			TileEntity te = worldObj.getTileEntity(xCoord, yCoord, zCoord);
+			TileEntity te = this.world.getTileEntity(this.pos);
 
 			if(te == null || te instanceof TileEntityWandLoot) {
 				// Some generator has broken the TE->block relationship, which, honestly, rude.
 				// so we're just gonna hop in and force update the TE
 
-				MainRegistry.logger.warn("TE set incorrectly at: " + xCoord + ", " + yCoord + ", " + zCoord + ". If you're using some sort of world generation mod, report it to the author!");
+				MainRegistry.logger.warn("TE set incorrectly at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + ". If you're using some sort of world generation mod, report it to the author!");
 
-				te = replaceBlock.createTileEntity(worldObj, replaceMeta);
-				worldObj.setTileEntity(xCoord, yCoord, zCoord, te);
+				te = replaceBlock.createTileEntity(this.world, replaceBlock.getStateFromMeta(replaceMeta));
+				this.world.setTileEntity(this.pos, te);
 			}
 
 			if(te instanceof IInventory) {
 				int count = minItems;
-				if(maxItems - minItems > 0) count += worldObj.rand.nextInt(maxItems - minItems);
+				if(maxItems - minItems > 0) count += this.world.rand.nextInt(maxItems - minItems);
 				count = (int)Math.floor(count * StructureConfig.lootAmountFactor);
-				WeightedRandomChestContent.generateChestContents(worldObj.rand, pool, (IInventory) te, count);
+				WeightedRandomChestContent.generateChestContents(this.world.rand, pool, (IInventory) te, count);
 			} else if(te instanceof BlockLoot.TileEntityLoot) {
-				LootGenerator.applyLoot(worldObj, xCoord, yCoord, zCoord, poolName);
+				LootGenerator.applyLoot(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), poolName);
 			}
 
 			// Shouldn't happen but let's guard anyway, if it fails we just don't rotate the chest block correctly
-			if(!(worldObj instanceof WorldServer)) return;
+			if(!(this.world instanceof WorldServer)) return;
 
 			try {
-				if(fakePlayer == null || fakePlayer.worldObj != worldObj) {
-					fakePlayer = FakePlayerFactory.get((WorldServer)worldObj, FAKE_PROFILE);
+				if(fakePlayer == null || fakePlayer.world != this.world) {
+					fakePlayer = FakePlayerFactory.get((WorldServer)this.world, FAKE_PROFILE);
 				}
 
 				fakePlayer.rotationYaw = fakePlayer.rotationYawHead = placedRotation;
 
 				ItemStack fakeStack = new ItemStack(replaceBlock, 1, replaceMeta);
 
-				replaceBlock.onBlockPlacedBy(worldObj, xCoord, yCoord, zCoord, fakePlayer, fakeStack);
+				replaceBlock.onBlockPlacedBy(this.world, this.pos, this.world.getBlockState(this.pos), fakePlayer, fakeStack);
 			} catch(Exception ex) {
-				MainRegistry.logger.warn("Failed to correctly rotate loot block at: " + xCoord + ", " + yCoord + ", " + zCoord);
+				MainRegistry.logger.warn("Failed to correctly rotate loot block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ());
 				MainRegistry.logger.catching(ex);
 			}
 		}
@@ -305,14 +340,14 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 		@Override
 		public void transformTE(World world, int coordBaseMode) {
 			triggerReplace = !StructureConfig.debugStructures;
-			placedRotation = MathHelper.wrapAngleTo180_float(placedRotation + coordBaseMode * 90);
+			placedRotation = MathHelper.wrapDegrees(placedRotation + coordBaseMode * 90);
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			Block writeBlock = replaceBlock == null ? ModBlocks.deco_loot : replaceBlock;
-			nbt.setString("block", GameRegistry.findUniqueIdentifierFor(writeBlock).toString());
+			nbt.setString("block", writeBlock.getRegistryName().toString());
 			nbt.setInteger("meta", replaceMeta);
 			nbt.setInteger("min", minItems);
 			nbt.setInteger("max", maxItems);
@@ -320,6 +355,7 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 			nbt.setFloat("rot", placedRotation);
 
 			nbt.setBoolean("trigger", triggerReplace);
+			return nbt;
 		}
 
 		@Override

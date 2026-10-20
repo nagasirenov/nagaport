@@ -52,8 +52,8 @@ public class GUIScreenClayTablet extends GuiScreen {
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		if(player.getHeldItem() != null) tabletMeta = player.getHeldItem().getItemDamage();
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) tabletMeta = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage();
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 
 		int tabletOffset = tabletMeta == 1 ? 84 : 0;
@@ -63,8 +63,8 @@ public class GUIScreenClayTablet extends GuiScreen {
 		
 		ArrayList<PedestalRecipe> recipeSet = PedestalRecipes.recipeSets[Math.abs(tabletMeta) % PedestalRecipes.recipeSets.length];
 		
-		if(player.getHeldItem() != null && player.getHeldItem().hasTagCompound() && player.getHeldItem().stackTagCompound.hasKey("tabletSeed") && !recipeSet.isEmpty()) {
-			Random rand = new Random(player.getHeldItem().stackTagCompound.getLong("tabletSeed"));
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).hasTagCompound() && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getTagCompound().hasKey("tabletSeed") && !recipeSet.isEmpty()) {
+			Random rand = new Random(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getTagCompound().getLong("tabletSeed"));
 			PedestalRecipe recipe = recipeSet.get(rand.nextInt(recipeSet.size()));
 
 			if(recipe.extra == recipe.extra.FULL_MOON) drawTexturedModalRect(guiLeft + 120, guiTop + 62, 142 + iconOffset, 32, 16, 16);
@@ -93,7 +93,7 @@ public class GUIScreenClayTablet extends GuiScreen {
 						
 						FontRenderer font = null;
 						if(input != null) font = input.getItem().getFontRenderer(recipe.output);
-						if(font == null) font = fontRendererObj;
+						if(font == null) font = fontRenderer;
 
 						itemRender.zLevel = 300.0F;
 						itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), input, guiLeft + 7 + r * 27, guiTop + 7 + l * 27);
@@ -113,7 +113,7 @@ public class GUIScreenClayTablet extends GuiScreen {
 			
 			FontRenderer font = null;
 			if(recipe.output != null) font = recipe.output.getItem().getFontRenderer(recipe.output);
-			if(font == null) font = fontRendererObj;
+			if(font == null) font = fontRenderer;
 			
 			itemRender.zLevel = 300.0F;
 			itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), recipe.output, guiLeft + xSize / 2 - 8, guiTop - 20);
@@ -142,7 +142,7 @@ public class GUIScreenClayTablet extends GuiScreen {
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 	

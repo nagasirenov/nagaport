@@ -1,0 +1,14 @@
+{
+  "old_count": 96,
+  "new_count": 96,
+  "malformed": [
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "line": "147",
+      "before": "ctx.getPlayer().world.playSoundEffect(ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F)",
+      "after": "ctx.getPlayer().com.hbm.sound.WorldSoundEffects.play(world, ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F)",
+      "before_receiver": "ctx.getPlayer().world",
+      "after_receiver": "ctx.getPlayer().com.hbm.sound.WorldSoundEffects"
+    }
+  ]
+}

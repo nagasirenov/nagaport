@@ -1,5 +1,7 @@
 package com.hbm.render.tileentity;
 
+import com.hbm.render.util.NativeMachineItemRenderer;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
@@ -13,23 +15,21 @@ import com.hbm.tileentity.machine.TileEntityMachinePrecAss;
 import com.hbm.util.BobMathUtil;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderPrecAss extends TileEntitySpecialRenderer implements IItemRendererProvider {
+
+public class RenderPrecAss extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {
+	private final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();
 	
 	public static EntityItem dummy;
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {
+	public void render(TileEntity tileEntity, double x, double y, double z, float interp, int destroyStage, float alpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5, y, z + 0.5);
 		GL11.glRotated(90, 0, 1, 0);
@@ -72,16 +72,16 @@ public class RenderPrecAss extends TileEntitySpecialRenderer implements IItemRen
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
 		GenericRecipe recipe = PrecAssRecipes.INSTANCE.recipeNameMap.get(assembler.assemblerModule.recipe);
-		if(recipe != null && MainRegistry.proxy.me().getDistanceSq(tileEntity.xCoord + 0.5, tileEntity.yCoord + 1, tileEntity.zCoord + 0.5) < 35 * 35) {
+		if(recipe != null && MainRegistry.proxy.me().getDistanceSq(tileEntity.getPos().getX() + 0.5, tileEntity.getPos().getY() + 1, tileEntity.getPos().getZ() + 0.5) < 35 * 35) {
 
 			GL11.glRotated(90, 0, 1, 0);
 			GL11.glTranslated(0, 1.0625, 0);
 			
 			ItemStack stack = recipe.getIcon();
-			stack.stackSize = 1;
+			stack.setCount(1);
 
-			if(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock) {
-				if(RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType())) {
+			if(stack.getItem() instanceof ItemBlock) {
+				if(NativeMachineItemRenderer.isBlockModel(stack)) {
 					GL11.glTranslated(0, -0.0625, 0);
 				} else {
 					GL11.glTranslated(0, -0.125, 0);
@@ -94,13 +94,11 @@ public class RenderPrecAss extends TileEntitySpecialRenderer implements IItemRen
 			
 			GL11.glScaled(1.25, 1.25, 1.25);
 
-			if(dummy == null || dummy.worldObj != tileEntity.getWorldObj()) dummy = new EntityItem(tileEntity.getWorldObj(), 0, 0, 0, stack);
-			dummy.setEntityItemStack(stack);
+			if(dummy == null || dummy.world != tileEntity.getWorld()) dummy = new EntityItem(tileEntity.getWorld(), 0, 0, 0, stack);
+			dummy.setItem(stack);
 			dummy.hoverStart = 0.0F;
 
-			RenderItem.renderInFrame = true;
-			RenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-			RenderItem.renderInFrame = false;
+			itemRenderer.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);
 		}
 		
 		GL11.glPopMatrix();
@@ -134,7 +132,7 @@ public class RenderPrecAss extends TileEntitySpecialRenderer implements IItemRen
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		
 		return new ItemRenderBase() {
 			

@@ -1,0 +1,5 @@
+{
+  "src/main/java/com/hbm/world/generator/DungeonToolbox.java": "c77a86116e4eb1a4c31f17524e45fd05554e08330efed47655751eaa2aaca11c",
+  "porting/tests/dungeon-palette-native/NativeProof.java": "78e62bbf86fea0a824470b24aff1a271e3014336712668636b75398f4fdfbf39",
+  "porting/tests/ct-palette-native/EvaluationProof.java": "a45ea925baa1e3bb61e1b5f3dd2a8731dd3c765a7d188a0e9e8032e8ef0d7433"
+}

@@ -14,7 +14,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIProvider, IControlReceiver {
+public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIProvider, IControlReceiver, net.minecraft.util.ITickable {
+    /** Original panel metadata changed facing without replacing its stored controls. */
+    @Override
+    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+        return oldState.getBlock() != newState.getBlock();
+    }
+
 	
 	/*    __________
 	 *   /         /|
@@ -33,9 +40,9 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			for(int i = 0; i < 4; i++) this.keys[i].update();
 			
@@ -63,10 +70,11 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		for(int i = 0; i < 4; i++) this.keys[i].writeToNBT(nbt, i);
+		return nbt;
 	}
 
 	public class KeyUnit {
@@ -175,7 +183,7 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 15 * 15;
+		return player.getDistanceSq(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 15 * 15;
 	}
 
 	@Override
@@ -190,7 +198,7 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 		
 		for(int i = 0; i < 4; i++) {
 			KeyUnit key = this.keys[i];
-			key.color = MathHelper.clamp_int(data.getInteger("color" + i), 0, 0xffffff);
+			key.color = MathHelper.clamp(data.getInteger("color" + i), 0, 0xffffff);
 			key.label = data.getString("label" + i);
 			key.rtty = data.getString("rtty" + i);
 			key.command = data.getString("cmd" + i);

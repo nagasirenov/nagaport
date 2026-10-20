@@ -54,7 +54,7 @@ public class GUIScreenRadioTorchController extends GuiScreen {
 		int oX = 4;
 		int oY = 4;
 
-		this.frequency = new GuiTextField(this.fontRendererObj, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);
+		this.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);
 		this.frequency.setTextColor(0x00ff00);
 		this.frequency.setDisabledTextColour(0x00ff00);
 		this.frequency.setEnableBackgroundDrawing(false);
@@ -73,17 +73,17 @@ public class GUIScreenRadioTorchController extends GuiScreen {
 
 	private void drawGuiContainerForegroundLayer(int x, int y) {
 		String name = I18nUtil.resolveKey("container.rttyController");
-		this.fontRendererObj.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
+		this.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
 
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { rtty.polling ? "Polling" : "State Change" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { rtty.polling ? "Polling" : "State Change" }), x, y);
 		}
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Save Settings" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Save Settings" }), x, y);
 		}
 		if(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
 			ForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();
-			TileEntity tile = Compat.getTileStandard(rtty.getWorldObj(), rtty.xCoord + dir.offsetX, rtty.yCoord + dir.offsetY, rtty.zCoord + dir.offsetZ);
+			TileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);
 			if(tile instanceof IRORInfo) {
 				IRORInfo prov = (IRORInfo) tile;
 				String[] info = prov.getFunctionInfo();
@@ -93,7 +93,7 @@ public class GUIScreenRadioTorchController extends GuiScreen {
 					if(s.startsWith(IRORValueProvider.PREFIX_FUNCTION))
 					lines.add(TextFormatting.AQUA + s.substring(4));
 				}
-				func_146283_a(lines, x, y);
+				drawHoveringText(lines, x, y);
 			}
 		}
 	}
@@ -117,17 +117,17 @@ public class GUIScreenRadioTorchController extends GuiScreen {
 		this.frequency.mouseClicked(x, y, i);
 		
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("p", !rtty.polling);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.xCoord, rtty.yCoord, rtty.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.getPos().getX(), rtty.getPos().getY(), rtty.getPos().getZ()));
 		}
 		
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("c", this.frequency.getText());
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.xCoord, rtty.yCoord, rtty.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.getPos().getX(), rtty.getPos().getY(), rtty.getPos().getZ()));
 		}
 	}
 
@@ -136,7 +136,7 @@ public class GUIScreenRadioTorchController extends GuiScreen {
 		if(this.frequency.textboxKeyTyped(c, i)) return;
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}

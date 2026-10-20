@@ -49,24 +49,24 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.microwave";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			
 			this.power = Library.chargeTEFromItems(slots, 2, power, maxPower);
 			
 			if(canProcess()) {
 				
 				if(speed >= maxSpeed) {
-					worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-					ExplosionVNT vnt = new ExplosionVNT(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 5);
+					this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+					ExplosionVNT vnt = new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5);
 					vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 50));
 					vnt.setPlayerProcessor(new PlayerProcessorStandard());
 					vnt.setSFX(new ExplosionEffectWeapon(10, 2.5F, 1F));
@@ -163,17 +163,20 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 1;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return side == 0 ? new int[] { 1 } : new int[] { 0 };
 	}
 	
@@ -225,11 +228,12 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
 		nbt.setInteger("speed", speed);
+		return nbt;
 	}
 
 	@Override
@@ -253,7 +257,7 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 	@Callback(direct = true, setter = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] variableset(Context context, Arguments args) {
-		speed = MathHelper.clamp_int(args.checkInteger(0), 0, 5);
+		speed = MathHelper.clamp(args.checkInteger(0), 0, 5);
 		return new Object[] {"test of the `setter` callback function"};
 	}
 

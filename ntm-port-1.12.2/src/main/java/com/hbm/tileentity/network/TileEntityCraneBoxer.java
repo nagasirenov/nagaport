@@ -34,21 +34,21 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.craneBoxer";
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote) {
+	public void update() {
+		super.update();
+		if(!this.world.isRemote) {
 			
-			boolean redstone = worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord);
+			boolean redstone = this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			
 			if(mode == MODE_REDSTONE && redstone && !lastRedstone) {
 				
 				ForgeDirection outputSide = getOutputSide();
-				Block b = worldObj.getBlock(xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ).getBlock();
 				IConveyorBelt belt = null;
 				
 				if(b instanceof IConveyorBelt) {
@@ -76,18 +76,18 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 						}
 					}
 					
-					EntityMovingPackage moving = new EntityMovingPackage(worldObj);
-					Vec3d pos = new Vec3d(xCoord + 0.5 + outputSide.offsetX * 0.55, yCoord + 0.5 + outputSide.offsetY * 0.55, zCoord + 0.5 + outputSide.offsetZ * 0.55);
-					Vec3d snap = belt.getClosestSnappingPosition(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, pos);
+					EntityMovingPackage moving = new EntityMovingPackage(this.world);
+					Vec3d pos = new Vec3d(this.pos.getX() + 0.5 + outputSide.offsetX * 0.55, this.pos.getY() + 0.5 + outputSide.offsetY * 0.55, this.pos.getZ() + 0.5 + outputSide.offsetZ * 0.55);
+					Vec3d snap = belt.getClosestSnappingPosition(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, pos);
 					moving.setPosition(snap.x, snap.y, snap.z);
 					moving.setItemStacks(box);
-					worldObj.spawnEntityInWorld(moving);
+					this.world.spawnEntityInWorld(moving);
 				}
 			}
 					
 			this.lastRedstone = redstone;
 			
-			if(mode != MODE_REDSTONE && worldObj.getTotalWorldTime() % 2 == 0) {
+			if(mode != MODE_REDSTONE && this.world.getTotalWorldTime() % 2 == 0) {
 				int pack = 1;
 				
 				switch(mode) {
@@ -115,7 +115,7 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 				}
 				
 				ForgeDirection outputSide = getOutputSide();
-				Block b = worldObj.getBlock(xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ).getBlock();
 				IConveyorBelt belt = null;
 				
 				if(b instanceof IConveyorBelt) {
@@ -135,12 +135,12 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 						}
 					}
 					
-					EntityMovingPackage moving = new EntityMovingPackage(worldObj);
-					Vec3d pos = new Vec3d(xCoord + 0.5 + outputSide.offsetX * 0.55, yCoord + 0.5 + outputSide.offsetY * 0.55, zCoord + 0.5 + outputSide.offsetZ * 0.55);
-					Vec3d snap = belt.getClosestSnappingPosition(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, pos);
+					EntityMovingPackage moving = new EntityMovingPackage(this.world);
+					Vec3d pos = new Vec3d(this.pos.getX() + 0.5 + outputSide.offsetX * 0.55, this.pos.getY() + 0.5 + outputSide.offsetY * 0.55, this.pos.getZ() + 0.5 + outputSide.offsetZ * 0.55);
+					Vec3d snap = belt.getClosestSnappingPosition(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, pos);
 					moving.setPosition(snap.x, snap.y, snap.z);
 					moving.setItemStacks(box);
-					worldObj.spawnEntityInWorld(moving);
+					this.world.spawnEntityInWorld(moving);
 				}
 			}
 
@@ -161,7 +161,8 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 	}
 
@@ -178,10 +179,11 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setByte("mode", mode);
 		nbt.setBoolean("lastRedstone", lastRedstone);
+		return nbt;
 	}
 
 	@Override
@@ -197,7 +199,7 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override

@@ -29,14 +29,14 @@ public class TileEntityPylon extends TileEntityPylonBase {
 	@Override
 	public PowerNode createNode() {
 		TileEntity tile = (TileEntity) this;
-		PowerNode node = new PowerNode(new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(
-				new DirPos(xCoord, yCoord, zCoord, ForgeDirection.UNKNOWN),
-				new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord + 1, zCoord, Library.POS_Y),
-				new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z)
+		PowerNode node = new PowerNode(new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.UNKNOWN),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z)
 				);
 		for(int[] pos : this.connected) node.addConnection(new DirPos(pos[0], pos[1], pos[2], ForgeDirection.UNKNOWN));
 		return node;

@@ -1,11 +1,14 @@
 package com.hbm.items.weapon;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 
 import com.hbm.items.ItemCustomLore;
 import com.hbm.util.i18n.I18nUtil;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
@@ -39,7 +42,8 @@ public class ItemMissile extends ItemCustomLore {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		// Tier localized: missile.tier.tier0, missile.tier.tier1, ...
 		String tierKey = "item.missile.tier." + this.tier.name().toLowerCase();
 		list.add(TextFormatting.ITALIC + I18nUtil.resolveKey(tierKey));
@@ -50,7 +54,7 @@ public class ItemMissile extends ItemCustomLore {
 			// Fuel localized & colored via enum helper
 			list.add(I18nUtil.resolveKey("item.missile.desc.fuel") + ": " + this.fuel.getDisplay());
 			if(this.fuelCap > 0) list.add(I18nUtil.resolveKey("item.missile.desc.fuelCapacity") + ": " + this.fuelCap + "mB");
-			super.addInformation(itemstack, player, list, bool);
+			super.addInformation(itemstack, world, list, flag);
 		}
 	}
 

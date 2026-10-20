@@ -5,16 +5,14 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityTransporterRocket;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderTransporterRocket extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderTransporterRocket extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -43,7 +41,7 @@ public class RenderTransporterRocket extends TileEntitySpecialRenderer implement
 			GL11.glPushMatrix();
 			{
 
-				float rot = MathHelper.clamp_float(getPipeEngage(pad, interp), 0, 1);
+				float rot = MathHelper.clamp(getPipeEngage(pad, interp), (float) (0), (float) (1));
 
 				GL11.glTranslatef(0.0F, 0.75F, -0.75F);
 				GL11.glRotatef(rot * -30.0F, 1, 0, 0);
@@ -58,7 +56,7 @@ public class RenderTransporterRocket extends TileEntitySpecialRenderer implement
 				GL11.glPushMatrix();
 				{
 
-					GL11.glTranslatef(0.0F, 0.75F + MathHelper.clamp_float(pad.launchTicks + (pad.hasRocket ? -interp : interp), 0, 200), 0.0F);
+					GL11.glTranslatef(0.0F, 0.75F + MathHelper.clamp(pad.launchTicks + (pad.hasRocket ? -interp : interp), (float) (0), (float) (200)), 0.0F);
 					GL11.glDisable(GL11.GL_CULL_FACE);
 
 					bindTexture(ResourceManager.minerRocket_tex);
@@ -84,28 +82,6 @@ public class RenderTransporterRocket extends TileEntitySpecialRenderer implement
 		}
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				// GL11.glTranslated(0, -0.5, 0);
-				GL11.glScaled(3D, 3D, 3D);
-			}
-			public void renderCommon() {
-				GL11.glTranslated(0.5, 0, 0);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
 
-				bindTexture(ResourceManager.transporter_pad_tex);
-				ResourceManager.transporter_pad.renderAll();
-
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
-
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.transporter_rocket);
-	}
 
 }

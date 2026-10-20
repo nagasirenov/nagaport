@@ -1,0 +1,2834 @@
+Compiled from "ItemStack.java"
+public final class net.minecraft.item.ItemStack implements net.minecraftforge.common.capabilities.ICapabilitySerializable<net.minecraft.nbt.NBTTagCompound> {
+  public static final net.minecraft.item.ItemStack EMPTY;
+
+  public static final java.text.DecimalFormat DECIMALFORMAT;
+
+  private int stackSize;
+
+  private int animationsToGo;
+
+  private final net.minecraft.item.Item item;
+
+  private net.minecraft.nbt.NBTTagCompound stackTagCompound;
+
+  private boolean isEmpty;
+
+  int itemDamage;
+
+  private net.minecraft.entity.item.EntityItemFrame itemFrame;
+
+  private net.minecraft.block.Block canDestroyCacheBlock;
+
+  private boolean canDestroyCacheResult;
+
+  private net.minecraft.block.Block canPlaceOnCacheBlock;
+
+  private boolean canPlaceOnCacheResult;
+
+  private net.minecraftforge.registries.IRegistryDelegate<net.minecraft.item.Item> delegate;
+
+  private net.minecraftforge.common.capabilities.CapabilityDispatcher capabilities;
+
+  private net.minecraft.nbt.NBTTagCompound capNBT;
+
+  public net.minecraft.item.ItemStack(net.minecraft.block.Block);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_1
+       3: invokespecial #50                 // Method "<init>":(Lnet/minecraft/block/Block;I)V
+       6: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.block.Block, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iconst_0
+       4: invokespecial #55                 // Method "<init>":(Lnet/minecraft/block/Block;II)V
+       7: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.block.Block, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #63                 // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       5: iload_2
+       6: iload_3
+       7: invokespecial #66                 // Method "<init>":(Lnet/minecraft/item/Item;II)V
+      10: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.item.Item);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_1
+       3: invokespecial #73                 // Method "<init>":(Lnet/minecraft/item/Item;I)V
+       6: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.item.Item, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iconst_0
+       4: invokespecial #66                 // Method "<init>":(Lnet/minecraft/item/Item;II)V
+       7: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.item.Item, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: aconst_null
+       5: invokespecial #79                 // Method "<init>":(Lnet/minecraft/item/Item;IILnet/minecraft/nbt/NBTTagCompound;)V
+       8: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.item.Item, int, int, net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: invokespecial #86                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload         4
+       7: putfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      10: aload_0
+      11: aload_1
+      12: putfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      15: aload_0
+      16: iload_3
+      17: putfield      #92                 // Field itemDamage:I
+      20: aload_0
+      21: iload_2
+      22: putfield      #94                 // Field stackSize:I
+      25: aload_0
+      26: getfield      #92                 // Field itemDamage:I
+      29: ifge          37
+      32: aload_0
+      33: iconst_0
+      34: putfield      #92                 // Field itemDamage:I
+      37: aload_0
+      38: invokespecial #99                 // Method updateEmptyState:()V
+      41: aload_0
+      42: invokespecial #102                // Method forgeInit:()V
+      45: return
+
+  private void updateEmptyState();
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #109                // Method isEmpty:()Z
+       5: putfield      #111                // Field isEmpty:Z
+       8: return
+
+  public net.minecraft.item.ItemStack(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: invokespecial #86                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: ldc           #114                // String ForgeCaps
+       8: invokevirtual #118                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;)Z
+      11: ifeq          23
+      14: aload_1
+      15: ldc           #114                // String ForgeCaps
+      17: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      20: goto          24
+      23: aconst_null
+      24: putfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      27: aload_0
+      28: aload_1
+      29: ldc           #124                // String id
+      31: bipush        8
+      33: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      36: ifeq          51
+      39: aload_1
+      40: ldc           #124                // String id
+      42: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+      45: invokestatic  #135                // Method net/minecraft/item/Item.getByNameOrId:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+      48: goto          54
+      51: getstatic     #140                // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      54: putfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      57: aload_0
+      58: aload_1
+      59: ldc           #142                // String Count
+      61: invokevirtual #146                // Method net/minecraft/nbt/NBTTagCompound.getByte:(Ljava/lang/String;)B
+      64: putfield      #94                 // Field stackSize:I
+      67: aload_0
+      68: iconst_0
+      69: aload_1
+      70: ldc           #148                // String Damage
+      72: invokevirtual #152                // Method net/minecraft/nbt/NBTTagCompound.getShort:(Ljava/lang/String;)S
+      75: invokestatic  #158                // Method java/lang/Math.max:(II)I
+      78: putfield      #92                 // Field itemDamage:I
+      81: aload_1
+      82: ldc           #160                // String tag
+      84: bipush        10
+      86: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      89: ifeq          118
+      92: aload_0
+      93: aload_1
+      94: ldc           #160                // String tag
+      96: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      99: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     102: aload_0
+     103: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     106: ifnull        118
+     109: aload_0
+     110: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     113: aload_1
+     114: invokevirtual #166                // Method net/minecraft/item/Item.updateItemStackNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Z
+     117: pop
+     118: aload_0
+     119: invokespecial #99                 // Method updateEmptyState:()V
+     122: aload_0
+     123: invokespecial #102                // Method forgeInit:()V
+     126: return
+
+  public boolean isEmpty();
+    Code:
+       0: aload_0
+       1: getstatic     #169                // Field EMPTY:Lnet/minecraft/item/ItemStack;
+       4: if_acmpne     9
+       7: iconst_1
+       8: ireturn
+       9: aload_0
+      10: invokespecial #173                // Method getItemRaw:()Lnet/minecraft/item/Item;
+      13: ifnull        60
+      16: aload_0
+      17: invokespecial #173                // Method getItemRaw:()Lnet/minecraft/item/Item;
+      20: getstatic     #140                // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      23: if_acmpeq     60
+      26: aload_0
+      27: getfield      #94                 // Field stackSize:I
+      30: ifgt          35
+      33: iconst_1
+      34: ireturn
+      35: aload_0
+      36: getfield      #92                 // Field itemDamage:I
+      39: sipush        -32768
+      42: if_icmplt     54
+      45: aload_0
+      46: getfield      #92                 // Field itemDamage:I
+      49: ldc           #174                // int 65535
+      51: if_icmple     58
+      54: iconst_1
+      55: goto          59
+      58: iconst_0
+      59: ireturn
+      60: iconst_1
+      61: ireturn
+
+  public static void registerFixes(net.minecraft.util.datafix.DataFixer);
+    Code:
+       0: aload_0
+       1: getstatic     #182                // Field net/minecraft/util/datafix/FixTypes.ITEM_INSTANCE:Lnet/minecraft/util/datafix/FixTypes;
+       4: new           #184                // class net/minecraft/util/datafix/walkers/BlockEntityTag
+       7: dup
+       8: invokespecial #185                // Method net/minecraft/util/datafix/walkers/BlockEntityTag."<init>":()V
+      11: invokevirtual #191                // Method net/minecraft/util/datafix/DataFixer.registerWalker:(Lnet/minecraft/util/datafix/FixTypes;Lnet/minecraft/util/datafix/IDataWalker;)V
+      14: aload_0
+      15: getstatic     #182                // Field net/minecraft/util/datafix/FixTypes.ITEM_INSTANCE:Lnet/minecraft/util/datafix/FixTypes;
+      18: new           #193                // class net/minecraft/util/datafix/walkers/EntityTag
+      21: dup
+      22: invokespecial #194                // Method net/minecraft/util/datafix/walkers/EntityTag."<init>":()V
+      25: invokevirtual #191                // Method net/minecraft/util/datafix/DataFixer.registerWalker:(Lnet/minecraft/util/datafix/FixTypes;Lnet/minecraft/util/datafix/IDataWalker;)V
+      28: return
+
+  public net.minecraft.item.ItemStack splitStack(int);
+    Code:
+       0: iload_1
+       1: aload_0
+       2: getfield      #94                 // Field stackSize:I
+       5: invokestatic  #201                // Method java/lang/Math.min:(II)I
+       8: istore_2
+       9: aload_0
+      10: invokevirtual #205                // Method copy:()Lnet/minecraft/item/ItemStack;
+      13: astore_3
+      14: aload_3
+      15: iload_2
+      16: invokevirtual #209                // Method setCount:(I)V
+      19: aload_0
+      20: iload_2
+      21: invokevirtual #212                // Method shrink:(I)V
+      24: aload_3
+      25: areturn
+
+  public net.minecraft.item.Item getItem();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifne          14
+       7: aload_0
+       8: getfield      #218                // Field delegate:Lnet/minecraftforge/registries/IRegistryDelegate;
+      11: ifnonnull     20
+      14: getstatic     #140                // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      17: goto          32
+      20: aload_0
+      21: getfield      #218                // Field delegate:Lnet/minecraftforge/registries/IRegistryDelegate;
+      24: invokeinterface #224,  1          // InterfaceMethod net/minecraftforge/registries/IRegistryDelegate.get:()Ljava/lang/Object;
+      29: checkcast     #59                 // class net/minecraft/item/Item
+      32: areturn
+
+  public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: getfield      #231                // Field net/minecraft/world/World.isRemote:Z
+       4: ifne          25
+       7: aload_0
+       8: aload_1
+       9: aload_2
+      10: aload_3
+      11: aload         5
+      13: fload         6
+      15: fload         7
+      17: fload         8
+      19: aload         4
+      21: invokestatic  #237                // Method net/minecraftforge/common/ForgeHooks.onPlaceItemIntoWorld:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;FFFLnet/minecraft/util/EnumHand;)Lnet/minecraft/util/EnumActionResult;
+      24: areturn
+      25: aload_0
+      26: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      29: aload_1
+      30: aload_2
+      31: aload_3
+      32: aload         4
+      34: aload         5
+      36: fload         6
+      38: fload         7
+      40: fload         8
+      42: invokevirtual #241                // Method net/minecraft/item/Item.onItemUse:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/EnumFacing;FFF)Lnet/minecraft/util/EnumActionResult;
+      45: astore        9
+      47: aload         9
+      49: getstatic     #247                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+      52: if_acmpne     66
+      55: aload_1
+      56: aload_0
+      57: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      60: invokestatic  #253                // Method net/minecraft/stats/StatList.getObjectUseStats:(Lnet/minecraft/item/Item;)Lnet/minecraft/stats/StatBase;
+      63: invokevirtual #259                // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;)V
+      66: aload         9
+      68: areturn
+
+  public net.minecraft.util.EnumActionResult onItemUseFirst(net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_1
+       5: aload_2
+       6: aload_3
+       7: aload         5
+       9: fload         6
+      11: fload         7
+      13: fload         8
+      15: aload         4
+      17: invokevirtual #278                // Method net/minecraft/item/Item.onItemUseFirst:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;FFFLnet/minecraft/util/EnumHand;)Lnet/minecraft/util/EnumActionResult;
+      20: astore        9
+      22: aload         9
+      24: getstatic     #247                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+      27: if_acmpne     41
+      30: aload_1
+      31: aload_0
+      32: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      35: invokestatic  #253                // Method net/minecraft/stats/StatList.getObjectUseStats:(Lnet/minecraft/item/Item;)Lnet/minecraft/stats/StatBase;
+      38: invokevirtual #259                // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;)V
+      41: aload         9
+      43: areturn
+
+  public float getDestroySpeed(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #291                // Method net/minecraft/item/Item.getDestroySpeed:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/block/state/IBlockState;)F
+       9: freturn
+
+  public net.minecraft.util.ActionResult<net.minecraft.item.ItemStack> useItemRightClick(net.minecraft.world.World, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_1
+       5: aload_2
+       6: aload_3
+       7: invokevirtual #298                // Method net/minecraft/item/Item.onItemRightClick:(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/ActionResult;
+      10: areturn
+
+  public net.minecraft.item.ItemStack onItemUseFinish(net.minecraft.world.World, net.minecraft.entity.EntityLivingBase);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #306                // Method net/minecraft/item/Item.onItemUseFinish:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/EntityLivingBase;)Lnet/minecraft/item/ItemStack;
+      10: areturn
+
+  public net.minecraft.nbt.NBTTagCompound writeToNBT(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: getstatic     #315                // Field net/minecraft/item/Item.REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: aload_0
+       4: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       7: invokevirtual #321                // Method net/minecraft/util/registry/RegistryNamespaced.getNameForObject:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #323                // class net/minecraft/util/ResourceLocation
+      13: astore_2
+      14: aload_1
+      15: ldc           #124                // String id
+      17: aload_2
+      18: ifnonnull     27
+      21: ldc_w         #325                // String minecraft:air
+      24: goto          31
+      27: aload_2
+      28: invokevirtual #331                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+      31: invokevirtual #335                // Method net/minecraft/nbt/NBTTagCompound.setString:(Ljava/lang/String;Ljava/lang/String;)V
+      34: aload_1
+      35: ldc           #142                // String Count
+      37: aload_0
+      38: getfield      #94                 // Field stackSize:I
+      41: i2b
+      42: invokevirtual #339                // Method net/minecraft/nbt/NBTTagCompound.setByte:(Ljava/lang/String;B)V
+      45: aload_1
+      46: ldc           #148                // String Damage
+      48: aload_0
+      49: getfield      #92                 // Field itemDamage:I
+      52: i2s
+      53: invokevirtual #343                // Method net/minecraft/nbt/NBTTagCompound.setShort:(Ljava/lang/String;S)V
+      56: aload_0
+      57: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      60: ifnull        73
+      63: aload_1
+      64: ldc           #160                // String tag
+      66: aload_0
+      67: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      70: invokevirtual #347                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+      73: aload_0
+      74: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      77: ifnull        102
+      80: aload_0
+      81: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      84: invokevirtual #355                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+      87: astore_3
+      88: aload_3
+      89: invokevirtual #356                // Method net/minecraft/nbt/NBTTagCompound.isEmpty:()Z
+      92: ifne          102
+      95: aload_1
+      96: ldc           #114                // String ForgeCaps
+      98: aload_3
+      99: invokevirtual #347                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+     102: aload_1
+     103: areturn
+
+  public int getMaxStackSize();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #366                // Method net/minecraft/item/Item.getItemStackLimit:(Lnet/minecraft/item/ItemStack;)I
+       8: ireturn
+
+  public boolean isStackable();
+    Code:
+       0: aload_0
+       1: invokevirtual #369                // Method getMaxStackSize:()I
+       4: iconst_1
+       5: if_icmple     26
+       8: aload_0
+       9: invokevirtual #372                // Method isItemStackDamageable:()Z
+      12: ifeq          22
+      15: aload_0
+      16: invokevirtual #375                // Method isItemDamaged:()Z
+      19: ifne          26
+      22: iconst_1
+      23: goto          27
+      26: iconst_0
+      27: ireturn
+
+  public boolean isItemStackDamageable();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifeq          9
+       7: iconst_0
+       8: ireturn
+       9: aload_0
+      10: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      13: aload_0
+      14: invokevirtual #378                // Method net/minecraft/item/Item.getMaxDamage:(Lnet/minecraft/item/ItemStack;)I
+      17: ifgt          22
+      20: iconst_0
+      21: ireturn
+      22: aload_0
+      23: invokevirtual #381                // Method hasTagCompound:()Z
+      26: ifeq          42
+      29: aload_0
+      30: invokevirtual #384                // Method getTagCompound:()Lnet/minecraft/nbt/NBTTagCompound;
+      33: ldc_w         #386                // String Unbreakable
+      36: invokevirtual #389                // Method net/minecraft/nbt/NBTTagCompound.getBoolean:(Ljava/lang/String;)Z
+      39: ifne          46
+      42: iconst_1
+      43: goto          47
+      46: iconst_0
+      47: ireturn
+
+  public boolean getHasSubtypes();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: invokevirtual #392                // Method net/minecraft/item/Item.getHasSubtypes:()Z
+       7: ireturn
+
+  public boolean isItemDamaged();
+    Code:
+       0: aload_0
+       1: invokevirtual #372                // Method isItemStackDamageable:()Z
+       4: ifeq          22
+       7: aload_0
+       8: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      11: aload_0
+      12: invokevirtual #396                // Method net/minecraft/item/Item.isDamaged:(Lnet/minecraft/item/ItemStack;)Z
+      15: ifeq          22
+      18: iconst_1
+      19: goto          23
+      22: iconst_0
+      23: ireturn
+
+  public int getItemDamage();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #400                // Method net/minecraft/item/Item.getDamage:(Lnet/minecraft/item/ItemStack;)I
+       8: ireturn
+
+  public int getMetadata();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #403                // Method net/minecraft/item/Item.getMetadata:(Lnet/minecraft/item/ItemStack;)I
+       8: ireturn
+
+  public void setItemDamage(int);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: iload_1
+       6: invokevirtual #408                // Method net/minecraft/item/Item.setDamage:(Lnet/minecraft/item/ItemStack;I)V
+       9: return
+
+  public int getMaxDamage();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #378                // Method net/minecraft/item/Item.getMaxDamage:(Lnet/minecraft/item/ItemStack;)I
+       8: ireturn
+
+  public boolean attemptDamageItem(int, java.util.Random, net.minecraft.entity.player.EntityPlayerMP);
+    Code:
+       0: aload_0
+       1: invokevirtual #372                // Method isItemStackDamageable:()Z
+       4: ifne          9
+       7: iconst_0
+       8: ireturn
+       9: iload_1
+      10: ifle          69
+      13: getstatic     #417                // Field net/minecraft/init/Enchantments.UNBREAKING:Lnet/minecraft/enchantment/Enchantment;
+      16: aload_0
+      17: invokestatic  #423                // Method net/minecraft/enchantment/EnchantmentHelper.getEnchantmentLevel:(Lnet/minecraft/enchantment/Enchantment;Lnet/minecraft/item/ItemStack;)I
+      20: istore        4
+      22: iconst_0
+      23: istore        5
+      25: iconst_0
+      26: istore        6
+      28: iload         4
+      30: ifle          58
+      33: iload         6
+      35: iload_1
+      36: if_icmpge     58
+      39: aload_0
+      40: iload         4
+      42: aload_2
+      43: invokestatic  #429                // Method net/minecraft/enchantment/EnchantmentDurability.negateDamage:(Lnet/minecraft/item/ItemStack;ILjava/util/Random;)Z
+      46: ifeq          52
+      49: iinc          5, 1
+      52: iinc          6, 1
+      55: goto          28
+      58: iload_1
+      59: iload         5
+      61: isub
+      62: istore_1
+      63: iload_1
+      64: ifgt          69
+      67: iconst_0
+      68: ireturn
+      69: aload_3
+      70: ifnull        91
+      73: iload_1
+      74: ifeq          91
+      77: getstatic     #435                // Field net/minecraft/advancements/CriteriaTriggers.ITEM_DURABILITY_CHANGED:Lnet/minecraft/advancements/critereon/ItemDurabilityTrigger;
+      80: aload_3
+      81: aload_0
+      82: aload_0
+      83: getfield      #92                 // Field itemDamage:I
+      86: iload_1
+      87: iadd
+      88: invokevirtual #441                // Method net/minecraft/advancements/critereon/ItemDurabilityTrigger.trigger:(Lnet/minecraft/entity/player/EntityPlayerMP;Lnet/minecraft/item/ItemStack;I)V
+      91: aload_0
+      92: aload_0
+      93: invokevirtual #443                // Method getItemDamage:()I
+      96: iload_1
+      97: iadd
+      98: invokevirtual #445                // Method setItemDamage:(I)V
+     101: aload_0
+     102: invokevirtual #443                // Method getItemDamage:()I
+     105: aload_0
+     106: invokevirtual #447                // Method getMaxDamage:()I
+     109: if_icmple     116
+     112: iconst_1
+     113: goto          117
+     116: iconst_0
+     117: ireturn
+
+  public void damageItem(int, net.minecraft.entity.EntityLivingBase);
+    Code:
+       0: aload_2
+       1: instanceof    #255                // class net/minecraft/entity/player/EntityPlayer
+       4: ifeq          20
+       7: aload_2
+       8: checkcast     #255                // class net/minecraft/entity/player/EntityPlayer
+      11: getfield      #459                // Field net/minecraft/entity/player/EntityPlayer.capabilities:Lnet/minecraft/entity/player/PlayerCapabilities;
+      14: getfield      #464                // Field net/minecraft/entity/player/PlayerCapabilities.isCreativeMode:Z
+      17: ifne          92
+      20: aload_0
+      21: invokevirtual #372                // Method isItemStackDamageable:()Z
+      24: ifeq          92
+      27: aload_0
+      28: iload_1
+      29: aload_2
+      30: invokevirtual #470                // Method net/minecraft/entity/EntityLivingBase.getRNG:()Ljava/util/Random;
+      33: aload_2
+      34: instanceof    #472                // class net/minecraft/entity/player/EntityPlayerMP
+      37: ifeq          47
+      40: aload_2
+      41: checkcast     #472                // class net/minecraft/entity/player/EntityPlayerMP
+      44: goto          48
+      47: aconst_null
+      48: invokevirtual #476                // Method attemptDamageItem:(ILjava/util/Random;Lnet/minecraft/entity/player/EntityPlayerMP;)Z
+      51: ifeq          92
+      54: aload_2
+      55: aload_0
+      56: invokevirtual #480                // Method net/minecraft/entity/EntityLivingBase.renderBrokenItemStack:(Lnet/minecraft/item/ItemStack;)V
+      59: aload_0
+      60: iconst_1
+      61: invokevirtual #212                // Method shrink:(I)V
+      64: aload_2
+      65: instanceof    #255                // class net/minecraft/entity/player/EntityPlayer
+      68: ifeq          87
+      71: aload_2
+      72: checkcast     #255                // class net/minecraft/entity/player/EntityPlayer
+      75: astore_3
+      76: aload_3
+      77: aload_0
+      78: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      81: invokestatic  #483                // Method net/minecraft/stats/StatList.getObjectBreakStats:(Lnet/minecraft/item/Item;)Lnet/minecraft/stats/StatBase;
+      84: invokevirtual #259                // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;)V
+      87: aload_0
+      88: iconst_0
+      89: putfield      #92                 // Field itemDamage:I
+      92: return
+
+  public void hitEntity(net.minecraft.entity.EntityLivingBase, net.minecraft.entity.player.EntityPlayer);
+    Code:
+       0: aload_0
+       1: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #491                // Method net/minecraft/item/Item.hitEntity:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)Z
+      10: istore_3
+      11: iload_3
+      12: ifeq          26
+      15: aload_2
+      16: aload_0
+      17: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      20: invokestatic  #253                // Method net/minecraft/stats/StatList.getObjectUseStats:(Lnet/minecraft/item/Item;)Lnet/minecraft/stats/StatBase;
+      23: invokevirtual #259                // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;)V
+      26: return
+
+  public void onBlockDestroyed(net.minecraft.world.World, net.minecraft.block.state.IBlockState, net.minecraft.util.math.BlockPos, net.minecraft.entity.player.EntityPlayer);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: aload         4
+      10: invokevirtual #499                // Method net/minecraft/item/Item.onBlockDestroyed:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/EntityLivingBase;)Z
+      13: istore        5
+      15: iload         5
+      17: ifeq          32
+      20: aload         4
+      22: aload_0
+      23: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      26: invokestatic  #253                // Method net/minecraft/stats/StatList.getObjectUseStats:(Lnet/minecraft/item/Item;)Lnet/minecraft/stats/StatBase;
+      29: invokevirtual #259                // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;)V
+      32: return
+
+  public boolean canHarvestBlock(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_1
+       5: aload_0
+       6: invokevirtual #508                // Method net/minecraft/item/Item.canHarvestBlock:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/item/ItemStack;)Z
+       9: ireturn
+
+  public boolean interactWithEntity(net.minecraft.entity.player.EntityPlayer, net.minecraft.entity.EntityLivingBase, net.minecraft.util.EnumHand);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #515                // Method net/minecraft/item/Item.itemInteractionForEntity:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/util/EnumHand;)Z
+      11: ireturn
+
+  public net.minecraft.item.ItemStack copy();
+    Code:
+       0: new           #2                  // class net/minecraft/item/ItemStack
+       3: dup
+       4: aload_0
+       5: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       8: aload_0
+       9: getfield      #94                 // Field stackSize:I
+      12: aload_0
+      13: getfield      #92                 // Field itemDamage:I
+      16: aload_0
+      17: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      20: ifnull        33
+      23: aload_0
+      24: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      27: invokevirtual #355                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+      30: goto          34
+      33: aconst_null
+      34: invokespecial #79                 // Method "<init>":(Lnet/minecraft/item/Item;IILnet/minecraft/nbt/NBTTagCompound;)V
+      37: astore_1
+      38: aload_1
+      39: aload_0
+      40: invokevirtual #521                // Method getAnimationsToGo:()I
+      43: invokevirtual #524                // Method setAnimationsToGo:(I)V
+      46: aload_0
+      47: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      50: ifnull        64
+      53: aload_1
+      54: aload_0
+      55: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      58: invokevirtual #526                // Method net/minecraft/nbt/NBTTagCompound.copy:()Lnet/minecraft/nbt/NBTTagCompound;
+      61: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      64: aload_1
+      65: areturn
+
+  public static boolean areItemStackTagsEqual(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #109                // Method isEmpty:()Z
+       4: ifeq          16
+       7: aload_1
+       8: invokevirtual #109                // Method isEmpty:()Z
+      11: ifeq          16
+      14: iconst_1
+      15: ireturn
+      16: aload_0
+      17: invokevirtual #109                // Method isEmpty:()Z
+      20: ifne          81
+      23: aload_1
+      24: invokevirtual #109                // Method isEmpty:()Z
+      27: ifne          81
+      30: aload_0
+      31: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      34: ifnonnull     46
+      37: aload_1
+      38: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      41: ifnull        46
+      44: iconst_0
+      45: ireturn
+      46: aload_0
+      47: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      50: ifnull        67
+      53: aload_0
+      54: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      57: aload_1
+      58: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      61: invokevirtual #532                // Method net/minecraft/nbt/NBTTagCompound.equals:(Ljava/lang/Object;)Z
+      64: ifeq          79
+      67: aload_0
+      68: aload_1
+      69: invokevirtual #535                // Method areCapsCompatible:(Lnet/minecraft/item/ItemStack;)Z
+      72: ifeq          79
+      75: iconst_1
+      76: goto          80
+      79: iconst_0
+      80: ireturn
+      81: iconst_0
+      82: ireturn
+
+  public static boolean areItemStacksEqual(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #109                // Method isEmpty:()Z
+       4: ifeq          16
+       7: aload_1
+       8: invokevirtual #109                // Method isEmpty:()Z
+      11: ifeq          16
+      14: iconst_1
+      15: ireturn
+      16: aload_0
+      17: invokevirtual #109                // Method isEmpty:()Z
+      20: ifne          38
+      23: aload_1
+      24: invokevirtual #109                // Method isEmpty:()Z
+      27: ifne          38
+      30: aload_0
+      31: aload_1
+      32: invokespecial #541                // Method isItemStackEqual:(Lnet/minecraft/item/ItemStack;)Z
+      35: goto          39
+      38: iconst_0
+      39: ireturn
+
+  private boolean isItemStackEqual(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getfield      #94                 // Field stackSize:I
+       4: aload_1
+       5: getfield      #94                 // Field stackSize:I
+       8: if_icmpeq     13
+      11: iconst_0
+      12: ireturn
+      13: aload_0
+      14: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      17: aload_1
+      18: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      21: if_acmpeq     26
+      24: iconst_0
+      25: ireturn
+      26: aload_0
+      27: getfield      #92                 // Field itemDamage:I
+      30: aload_1
+      31: getfield      #92                 // Field itemDamage:I
+      34: if_icmpeq     39
+      37: iconst_0
+      38: ireturn
+      39: aload_0
+      40: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      43: ifnonnull     55
+      46: aload_1
+      47: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      50: ifnull        55
+      53: iconst_0
+      54: ireturn
+      55: aload_0
+      56: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      59: ifnull        76
+      62: aload_0
+      63: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      66: aload_1
+      67: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      70: invokevirtual #532                // Method net/minecraft/nbt/NBTTagCompound.equals:(Ljava/lang/Object;)Z
+      73: ifeq          88
+      76: aload_0
+      77: aload_1
+      78: invokevirtual #535                // Method areCapsCompatible:(Lnet/minecraft/item/ItemStack;)Z
+      81: ifeq          88
+      84: iconst_1
+      85: goto          89
+      88: iconst_0
+      89: ireturn
+
+  public static boolean areItemsEqual(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: if_acmpne     7
+       5: iconst_1
+       6: ireturn
+       7: aload_0
+       8: invokevirtual #109                // Method isEmpty:()Z
+      11: ifne          29
+      14: aload_1
+      15: invokevirtual #109                // Method isEmpty:()Z
+      18: ifne          29
+      21: aload_0
+      22: aload_1
+      23: invokevirtual #548                // Method isItemEqual:(Lnet/minecraft/item/ItemStack;)Z
+      26: goto          30
+      29: iconst_0
+      30: ireturn
+
+  public static boolean areItemsEqualIgnoreDurability(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: if_acmpne     7
+       5: iconst_1
+       6: ireturn
+       7: aload_0
+       8: invokevirtual #109                // Method isEmpty:()Z
+      11: ifne          29
+      14: aload_1
+      15: invokevirtual #109                // Method isEmpty:()Z
+      18: ifne          29
+      21: aload_0
+      22: aload_1
+      23: invokevirtual #554                // Method isItemEqualIgnoreDurability:(Lnet/minecraft/item/ItemStack;)Z
+      26: goto          30
+      29: iconst_0
+      30: ireturn
+
+  public boolean isItemEqual(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_1
+       1: invokevirtual #109                // Method isEmpty:()Z
+       4: ifne          33
+       7: aload_0
+       8: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      11: aload_1
+      12: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      15: if_acmpne     33
+      18: aload_0
+      19: getfield      #92                 // Field itemDamage:I
+      22: aload_1
+      23: getfield      #92                 // Field itemDamage:I
+      26: if_icmpne     33
+      29: iconst_1
+      30: goto          34
+      33: iconst_0
+      34: ireturn
+
+  public boolean isItemEqualIgnoreDurability(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #372                // Method isItemStackDamageable:()Z
+       4: ifne          13
+       7: aload_0
+       8: aload_1
+       9: invokevirtual #548                // Method isItemEqual:(Lnet/minecraft/item/ItemStack;)Z
+      12: ireturn
+      13: aload_1
+      14: invokevirtual #109                // Method isEmpty:()Z
+      17: ifne          35
+      20: aload_0
+      21: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      24: aload_1
+      25: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      28: if_acmpne     35
+      31: iconst_1
+      32: goto          36
+      35: iconst_0
+      36: ireturn
+
+  public java.lang.String getTranslationKey();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #562                // Method net/minecraft/item/Item.getTranslationKey:(Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+       8: areturn
+
+  public java.lang.String toString();
+    Code:
+       0: new           #564                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+       7: aload_0
+       8: getfield      #94                 // Field stackSize:I
+      11: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      14: ldc_w         #571                // String x
+      17: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: aload_0
+      21: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      24: invokevirtual #576                // Method net/minecraft/item/Item.getTranslationKey:()Ljava/lang/String;
+      27: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      30: ldc_w         #578                // String @
+      33: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      36: aload_0
+      37: getfield      #92                 // Field itemDamage:I
+      40: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      43: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      46: areturn
+
+  public void updateAnimation(net.minecraft.world.World, net.minecraft.entity.Entity, int, boolean);
+    Code:
+       0: aload_0
+       1: getfield      #583                // Field animationsToGo:I
+       4: ifle          17
+       7: aload_0
+       8: dup
+       9: getfield      #583                // Field animationsToGo:I
+      12: iconst_1
+      13: isub
+      14: putfield      #583                // Field animationsToGo:I
+      17: aload_0
+      18: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      21: ifnull        37
+      24: aload_0
+      25: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      28: aload_0
+      29: aload_1
+      30: aload_2
+      31: iload_3
+      32: iload         4
+      34: invokevirtual #587                // Method net/minecraft/item/Item.onUpdate:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;IZ)V
+      37: return
+
+  public void onCrafting(net.minecraft.world.World, net.minecraft.entity.player.EntityPlayer, int);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       5: invokestatic  #597                // Method net/minecraft/stats/StatList.getCraftStats:(Lnet/minecraft/item/Item;)Lnet/minecraft/stats/StatBase;
+       8: iload_3
+       9: invokevirtual #600                // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;I)V
+      12: aload_0
+      13: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      16: aload_0
+      17: aload_1
+      18: aload_2
+      19: invokevirtual #604                // Method net/minecraft/item/Item.onCreated:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;)V
+      22: return
+
+  public int getMaxItemUseDuration();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #610                // Method net/minecraft/item/Item.getMaxItemUseDuration:(Lnet/minecraft/item/ItemStack;)I
+       8: ireturn
+
+  public net.minecraft.item.EnumAction getItemUseAction();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #615                // Method net/minecraft/item/Item.getItemUseAction:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/EnumAction;
+       8: areturn
+
+  public void onPlayerStoppedUsing(net.minecraft.world.World, net.minecraft.entity.EntityLivingBase, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: iload_3
+       8: invokevirtual #620                // Method net/minecraft/item/Item.onPlayerStoppedUsing:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/EntityLivingBase;I)V
+      11: return
+
+  public boolean hasTagCompound();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifne          18
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: ifnull        18
+      14: iconst_1
+      15: goto          19
+      18: iconst_0
+      19: ireturn
+
+  public net.minecraft.nbt.NBTTagCompound getTagCompound();
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: areturn
+
+  public net.minecraft.nbt.NBTTagCompound getOrCreateSubCompound(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnull        29
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: aload_1
+      12: bipush        10
+      14: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      17: ifeq          29
+      20: aload_0
+      21: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      24: aload_1
+      25: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      28: areturn
+      29: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      32: dup
+      33: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      36: astore_2
+      37: aload_0
+      38: aload_1
+      39: aload_2
+      40: invokevirtual #628                // Method setTagInfo:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+      43: aload_2
+      44: areturn
+
+  public net.minecraft.nbt.NBTTagCompound getSubCompound(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnull        31
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: aload_1
+      12: bipush        10
+      14: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      17: ifeq          31
+      20: aload_0
+      21: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      24: aload_1
+      25: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      28: goto          32
+      31: aconst_null
+      32: areturn
+
+  public void removeSubCompound(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnull        28
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: aload_1
+      12: bipush        10
+      14: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      17: ifeq          28
+      20: aload_0
+      21: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      24: aload_1
+      25: invokevirtual #638                // Method net/minecraft/nbt/NBTTagCompound.removeTag:(Ljava/lang/String;)V
+      28: return
+
+  public net.minecraft.nbt.NBTTagList getEnchantmentTagList();
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnull        22
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: ldc_w         #643                // String ench
+      14: bipush        10
+      16: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      19: goto          29
+      22: new           #649                // class net/minecraft/nbt/NBTTagList
+      25: dup
+      26: invokespecial #650                // Method net/minecraft/nbt/NBTTagList."<init>":()V
+      29: areturn
+
+  public void setTagCompound(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       5: return
+
+  public java.lang.String getDisplayName();
+    Code:
+       0: aload_0
+       1: ldc_w         #655                // String display
+       4: invokevirtual #657                // Method getSubCompound:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+       7: astore_1
+       8: aload_1
+       9: ifnull        55
+      12: aload_1
+      13: ldc_w         #659                // String Name
+      16: bipush        8
+      18: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      21: ifeq          32
+      24: aload_1
+      25: ldc_w         #659                // String Name
+      28: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+      31: areturn
+      32: aload_1
+      33: ldc_w         #661                // String LocName
+      36: bipush        8
+      38: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      41: ifeq          55
+      44: aload_1
+      45: ldc_w         #661                // String LocName
+      48: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+      51: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+      54: areturn
+      55: aload_0
+      56: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      59: aload_0
+      60: invokevirtual #669                // Method net/minecraft/item/Item.getItemStackDisplayName:(Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+      63: areturn
+
+  public net.minecraft.item.ItemStack setTranslatableName(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #655                // String display
+       4: invokevirtual #673                // Method getOrCreateSubCompound:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+       7: ldc_w         #661                // String LocName
+      10: aload_1
+      11: invokevirtual #335                // Method net/minecraft/nbt/NBTTagCompound.setString:(Ljava/lang/String;Ljava/lang/String;)V
+      14: aload_0
+      15: areturn
+
+  public net.minecraft.item.ItemStack setStackDisplayName(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #655                // String display
+       4: invokevirtual #673                // Method getOrCreateSubCompound:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+       7: ldc_w         #659                // String Name
+      10: aload_1
+      11: invokevirtual #335                // Method net/minecraft/nbt/NBTTagCompound.setString:(Ljava/lang/String;Ljava/lang/String;)V
+      14: aload_0
+      15: areturn
+
+  public void clearCustomName();
+    Code:
+       0: aload_0
+       1: ldc_w         #655                // String display
+       4: invokevirtual #657                // Method getSubCompound:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+       7: astore_1
+       8: aload_1
+       9: ifnull        33
+      12: aload_1
+      13: ldc_w         #659                // String Name
+      16: invokevirtual #638                // Method net/minecraft/nbt/NBTTagCompound.removeTag:(Ljava/lang/String;)V
+      19: aload_1
+      20: invokevirtual #356                // Method net/minecraft/nbt/NBTTagCompound.isEmpty:()Z
+      23: ifeq          33
+      26: aload_0
+      27: ldc_w         #655                // String display
+      30: invokevirtual #679                // Method removeSubCompound:(Ljava/lang/String;)V
+      33: aload_0
+      34: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      37: ifnull        55
+      40: aload_0
+      41: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      44: invokevirtual #356                // Method net/minecraft/nbt/NBTTagCompound.isEmpty:()Z
+      47: ifeq          55
+      50: aload_0
+      51: aconst_null
+      52: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      55: return
+
+  public boolean hasDisplayName();
+    Code:
+       0: aload_0
+       1: ldc_w         #655                // String display
+       4: invokevirtual #657                // Method getSubCompound:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+       7: astore_1
+       8: aload_1
+       9: ifnull        28
+      12: aload_1
+      13: ldc_w         #659                // String Name
+      16: bipush        8
+      18: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn
+
+  public java.util.List<java.lang.String> getTooltip(net.minecraft.entity.player.EntityPlayer, net.minecraft.client.util.ITooltipFlag);
+    Code:
+       0: invokestatic  #692                // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+       3: astore_3
+       4: aload_0
+       5: invokevirtual #694                // Method getDisplayName:()Ljava/lang/String;
+       8: astore        4
+      10: aload_0
+      11: invokevirtual #696                // Method hasDisplayName:()Z
+      14: ifeq          40
+      17: new           #564                // class java/lang/StringBuilder
+      20: dup
+      21: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+      24: getstatic     #702                // Field net/minecraft/util/text/TextFormatting.ITALIC:Lnet/minecraft/util/text/TextFormatting;
+      27: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      30: aload         4
+      32: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      35: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      38: astore        4
+      40: new           #564                // class java/lang/StringBuilder
+      43: dup
+      44: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+      47: aload         4
+      49: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: getstatic     #710                // Field net/minecraft/util/text/TextFormatting.RESET:Lnet/minecraft/util/text/TextFormatting;
+      55: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      58: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      61: astore        4
+      63: aload_2
+      64: invokeinterface #715,  1          // InterfaceMethod net/minecraft/client/util/ITooltipFlag.isAdvanced:()Z
+      69: ifeq          231
+      72: ldc_w         #717                // String
+      75: astore        5
+      77: aload         4
+      79: invokevirtual #718                // Method java/lang/String.isEmpty:()Z
+      82: ifne          113
+      85: new           #564                // class java/lang/StringBuilder
+      88: dup
+      89: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+      92: aload         4
+      94: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      97: ldc_w         #720                // String  (
+     100: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     103: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     106: astore        4
+     108: ldc_w         #722                // String )
+     111: astore        5
+     113: aload_0
+     114: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     117: invokestatic  #726                // Method net/minecraft/item/Item.getIdFromItem:(Lnet/minecraft/item/Item;)I
+     120: istore        6
+     122: aload_0
+     123: invokevirtual #727                // Method getHasSubtypes:()Z
+     126: ifeq          185
+     129: new           #564                // class java/lang/StringBuilder
+     132: dup
+     133: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     136: aload         4
+     138: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     141: ldc_w         #729                // String #%04d/%d%s
+     144: iconst_3
+     145: anewarray     #5                  // class java/lang/Object
+     148: dup
+     149: iconst_0
+     150: iload         6
+     152: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     155: aastore
+     156: dup
+     157: iconst_1
+     158: aload_0
+     159: getfield      #92                 // Field itemDamage:I
+     162: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     165: aastore
+     166: dup
+     167: iconst_2
+     168: aload         5
+     170: aastore
+     171: invokestatic  #739                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     174: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     177: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     180: astore        4
+     182: goto          228
+     185: new           #564                // class java/lang/StringBuilder
+     188: dup
+     189: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     192: aload         4
+     194: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     197: ldc_w         #741                // String #%04d%s
+     200: iconst_2
+     201: anewarray     #5                  // class java/lang/Object
+     204: dup
+     205: iconst_0
+     206: iload         6
+     208: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     211: aastore
+     212: dup
+     213: iconst_1
+     214: aload         5
+     216: aastore
+     217: invokestatic  #739                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     220: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     223: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     226: astore        4
+     228: goto          278
+     231: aload_0
+     232: invokevirtual #696                // Method hasDisplayName:()Z
+     235: ifne          278
+     238: aload_0
+     239: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     242: getstatic     #745                // Field net/minecraft/init/Items.FILLED_MAP:Lnet/minecraft/item/ItemMap;
+     245: if_acmpne     278
+     248: new           #564                // class java/lang/StringBuilder
+     251: dup
+     252: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     255: aload         4
+     257: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     260: ldc_w         #747                // String  #
+     263: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     266: aload_0
+     267: getfield      #92                 // Field itemDamage:I
+     270: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     273: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     276: astore        4
+     278: aload_3
+     279: aload         4
+     281: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     286: pop
+     287: iconst_0
+     288: istore        5
+     290: aload_0
+     291: invokevirtual #381                // Method hasTagCompound:()Z
+     294: ifeq          324
+     297: aload_0
+     298: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     301: ldc_w         #752                // String HideFlags
+     304: bipush        99
+     306: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+     309: ifeq          324
+     312: aload_0
+     313: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     316: ldc_w         #752                // String HideFlags
+     319: invokevirtual #756                // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+     322: istore        5
+     324: iload         5
+     326: bipush        32
+     328: iand
+     329: ifne          354
+     332: aload_0
+     333: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+     336: aload_0
+     337: aload_1
+     338: ifnonnull     345
+     341: aconst_null
+     342: goto          349
+     345: aload_1
+     346: getfield      #759                // Field net/minecraft/entity/player/EntityPlayer.world:Lnet/minecraft/world/World;
+     349: aload_3
+     350: aload_2
+     351: invokevirtual #763                // Method net/minecraft/item/Item.addInformation:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)V
+     354: aload_0
+     355: invokevirtual #381                // Method hasTagCompound:()Z
+     358: ifeq          671
+     361: iload         5
+     363: iconst_1
+     364: iand
+     365: ifne          447
+     368: aload_0
+     369: invokevirtual #765                // Method getEnchantmentTagList:()Lnet/minecraft/nbt/NBTTagList;
+     372: astore        6
+     374: iconst_0
+     375: istore        7
+     377: iload         7
+     379: aload         6
+     381: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+     384: if_icmpge     447
+     387: aload         6
+     389: iload         7
+     391: invokevirtual #772                // Method net/minecraft/nbt/NBTTagList.getCompoundTagAt:(I)Lnet/minecraft/nbt/NBTTagCompound;
+     394: astore        8
+     396: aload         8
+     398: ldc           #124                // String id
+     400: invokevirtual #152                // Method net/minecraft/nbt/NBTTagCompound.getShort:(Ljava/lang/String;)S
+     403: istore        9
+     405: aload         8
+     407: ldc_w         #774                // String lvl
+     410: invokevirtual #152                // Method net/minecraft/nbt/NBTTagCompound.getShort:(Ljava/lang/String;)S
+     413: istore        10
+     415: iload         9
+     417: invokestatic  #780                // Method net/minecraft/enchantment/Enchantment.getEnchantmentByID:(I)Lnet/minecraft/enchantment/Enchantment;
+     420: astore        11
+     422: aload         11
+     424: ifnull        441
+     427: aload_3
+     428: aload         11
+     430: iload         10
+     432: invokevirtual #784                // Method net/minecraft/enchantment/Enchantment.getTranslatedName:(I)Ljava/lang/String;
+     435: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     440: pop
+     441: iinc          7, 1
+     444: goto          377
+     447: aload_0
+     448: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     451: ldc_w         #655                // String display
+     454: bipush        10
+     456: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+     459: ifeq          671
+     462: aload_0
+     463: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     466: ldc_w         #655                // String display
+     469: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+     472: astore        6
+     474: aload         6
+     476: ldc_w         #786                // String color
+     479: iconst_3
+     480: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+     483: ifeq          574
+     486: aload_2
+     487: invokeinterface #715,  1          // InterfaceMethod net/minecraft/client/util/ITooltipFlag.isAdvanced:()Z
+     492: ifeq          542
+     495: aload_3
+     496: ldc_w         #788                // String item.color
+     499: iconst_1
+     500: anewarray     #5                  // class java/lang/Object
+     503: dup
+     504: iconst_0
+     505: ldc_w         #790                // String #%06X
+     508: iconst_1
+     509: anewarray     #5                  // class java/lang/Object
+     512: dup
+     513: iconst_0
+     514: aload         6
+     516: ldc_w         #786                // String color
+     519: invokevirtual #756                // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+     522: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     525: aastore
+     526: invokestatic  #739                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     529: aastore
+     530: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     533: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     538: pop
+     539: goto          574
+     542: aload_3
+     543: new           #564                // class java/lang/StringBuilder
+     546: dup
+     547: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     550: getstatic     #702                // Field net/minecraft/util/text/TextFormatting.ITALIC:Lnet/minecraft/util/text/TextFormatting;
+     553: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     556: ldc_w         #795                // String item.dyed
+     559: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+     562: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     565: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     568: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     573: pop
+     574: aload         6
+     576: ldc_w         #797                // String Lore
+     579: invokevirtual #800                // Method net/minecraft/nbt/NBTTagCompound.getTagId:(Ljava/lang/String;)B
+     582: bipush        9
+     584: if_icmpne     671
+     587: aload         6
+     589: ldc_w         #797                // String Lore
+     592: bipush        8
+     594: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+     597: astore        7
+     599: aload         7
+     601: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+     604: ifne          671
+     607: iconst_0
+     608: istore        8
+     610: iload         8
+     612: aload         7
+     614: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+     617: if_icmpge     671
+     620: aload_3
+     621: new           #564                // class java/lang/StringBuilder
+     624: dup
+     625: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     628: getstatic     #804                // Field net/minecraft/util/text/TextFormatting.DARK_PURPLE:Lnet/minecraft/util/text/TextFormatting;
+     631: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     634: ldc_w         #717                // String
+     637: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     640: getstatic     #702                // Field net/minecraft/util/text/TextFormatting.ITALIC:Lnet/minecraft/util/text/TextFormatting;
+     643: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     646: aload         7
+     648: iload         8
+     650: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+     653: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     656: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     659: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     664: pop
+     665: iinc          8, 1
+     668: goto          610
+     671: invokestatic  #813                // Method net/minecraft/inventory/EntityEquipmentSlot.values:()[Lnet/minecraft/inventory/EntityEquipmentSlot;
+     674: astore        6
+     676: aload         6
+     678: arraylength
+     679: istore        7
+     681: iconst_0
+     682: istore        8
+     684: iload         8
+     686: iload         7
+     688: if_icmpge     1303
+     691: aload         6
+     693: iload         8
+     695: aaload
+     696: astore        9
+     698: aload_0
+     699: aload         9
+     701: invokevirtual #819                // Method getAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lcom/google/common/collect/Multimap;
+     704: astore        10
+     706: aload         10
+     708: invokeinterface #822,  1          // InterfaceMethod com/google/common/collect/Multimap.isEmpty:()Z
+     713: ifne          1297
+     716: iload         5
+     718: iconst_2
+     719: iand
+     720: ifne          1297
+     723: aload_3
+     724: ldc_w         #717                // String
+     727: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     732: pop
+     733: aload_3
+     734: new           #564                // class java/lang/StringBuilder
+     737: dup
+     738: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     741: ldc_w         #824                // String item.modifiers.
+     744: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     747: aload         9
+     749: invokevirtual #827                // Method net/minecraft/inventory/EntityEquipmentSlot.getName:()Ljava/lang/String;
+     752: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     755: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     758: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+     761: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     766: pop
+     767: aload         10
+     769: invokeinterface #831,  1          // InterfaceMethod com/google/common/collect/Multimap.entries:()Ljava/util/Collection;
+     774: invokeinterface #837,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     779: astore        11
+     781: aload         11
+     783: invokeinterface #842,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     788: ifeq          1297
+     791: aload         11
+     793: invokeinterface #845,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     798: checkcast     #10                 // class java/util/Map$Entry
+     801: astore        12
+     803: aload         12
+     805: invokeinterface #848,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     810: checkcast     #850                // class net/minecraft/entity/ai/attributes/AttributeModifier
+     813: astore        13
+     815: aload         13
+     817: invokevirtual #854                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getAmount:()D
+     820: dstore        14
+     822: iconst_0
+     823: istore        16
+     825: aload_1
+     826: ifnull        907
+     829: aload         13
+     831: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     834: getstatic     #862                // Field net/minecraft/item/Item.ATTACK_DAMAGE_MODIFIER:Ljava/util/UUID;
+     837: if_acmpne     876
+     840: dload         14
+     842: aload_1
+     843: getstatic     #868                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_DAMAGE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     846: invokevirtual #872                // Method net/minecraft/entity/player/EntityPlayer.getEntityAttribute:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+     849: invokeinterface #877,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.getBaseValue:()D
+     854: dadd
+     855: dstore        14
+     857: dload         14
+     859: aload_0
+     860: getstatic     #883                // Field net/minecraft/entity/EnumCreatureAttribute.UNDEFINED:Lnet/minecraft/entity/EnumCreatureAttribute;
+     863: invokestatic  #887                // Method net/minecraft/enchantment/EnchantmentHelper.getModifierForCreature:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EnumCreatureAttribute;)F
+     866: f2d
+     867: dadd
+     868: dstore        14
+     870: iconst_1
+     871: istore        16
+     873: goto          907
+     876: aload         13
+     878: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     881: getstatic     #890                // Field net/minecraft/item/Item.ATTACK_SPEED_MODIFIER:Ljava/util/UUID;
+     884: if_acmpne     907
+     887: dload         14
+     889: aload_1
+     890: getstatic     #893                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     893: invokevirtual #872                // Method net/minecraft/entity/player/EntityPlayer.getEntityAttribute:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+     896: invokeinterface #877,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.getBaseValue:()D
+     901: dadd
+     902: dstore        14
+     904: iconst_1
+     905: istore        16
+     907: aload         13
+     909: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     912: iconst_1
+     913: if_icmpeq     932
+     916: aload         13
+     918: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     921: iconst_2
+     922: if_icmpeq     932
+     925: dload         14
+     927: dstore        17
+     929: goto          940
+     932: dload         14
+     934: ldc2_w        #897                // double 100.0d
+     937: dmul
+     938: dstore        17
+     940: iload         16
+     942: ifeq          1051
+     945: aload_3
+     946: new           #564                // class java/lang/StringBuilder
+     949: dup
+     950: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     953: ldc_w         #900                // String
+     956: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     959: new           #564                // class java/lang/StringBuilder
+     962: dup
+     963: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     966: ldc_w         #902                // String attribute.modifier.equals.
+     969: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     972: aload         13
+     974: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     977: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     980: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     983: iconst_2
+     984: anewarray     #5                  // class java/lang/Object
+     987: dup
+     988: iconst_0
+     989: getstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+     992: dload         17
+     994: invokevirtual #909                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+     997: aastore
+     998: dup
+     999: iconst_1
+    1000: new           #564                // class java/lang/StringBuilder
+    1003: dup
+    1004: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1007: ldc_w         #911                // String attribute.name.
+    1010: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1013: aload         12
+    1015: invokeinterface #914,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+    1020: checkcast     #327                // class java/lang/String
+    1023: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1026: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1029: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1032: aastore
+    1033: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1036: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1039: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1042: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1047: pop
+    1048: goto          1294
+    1051: dload         14
+    1053: dconst_0
+    1054: dcmpl
+    1055: ifle          1170
+    1058: aload_3
+    1059: new           #564                // class java/lang/StringBuilder
+    1062: dup
+    1063: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1066: getstatic     #917                // Field net/minecraft/util/text/TextFormatting.BLUE:Lnet/minecraft/util/text/TextFormatting;
+    1069: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1072: ldc_w         #900                // String
+    1075: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1078: new           #564                // class java/lang/StringBuilder
+    1081: dup
+    1082: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1085: ldc_w         #919                // String attribute.modifier.plus.
+    1088: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1091: aload         13
+    1093: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+    1096: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+    1099: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1102: iconst_2
+    1103: anewarray     #5                  // class java/lang/Object
+    1106: dup
+    1107: iconst_0
+    1108: getstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+    1111: dload         17
+    1113: invokevirtual #909                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+    1116: aastore
+    1117: dup
+    1118: iconst_1
+    1119: new           #564                // class java/lang/StringBuilder
+    1122: dup
+    1123: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1126: ldc_w         #911                // String attribute.name.
+    1129: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1132: aload         12
+    1134: invokeinterface #914,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+    1139: checkcast     #327                // class java/lang/String
+    1142: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1145: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1148: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1151: aastore
+    1152: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1155: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1158: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1161: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1166: pop
+    1167: goto          1294
+    1170: dload         14
+    1172: dconst_0
+    1173: dcmpg
+    1174: ifge          1294
+    1177: dload         17
+    1179: ldc2_w        #920                // double -1.0d
+    1182: dmul
+    1183: dstore        17
+    1185: aload_3
+    1186: new           #564                // class java/lang/StringBuilder
+    1189: dup
+    1190: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1193: getstatic     #924                // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+    1196: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1199: ldc_w         #900                // String
+    1202: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1205: new           #564                // class java/lang/StringBuilder
+    1208: dup
+    1209: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1212: ldc_w         #926                // String attribute.modifier.take.
+    1215: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1218: aload         13
+    1220: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+    1223: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+    1226: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1229: iconst_2
+    1230: anewarray     #5                  // class java/lang/Object
+    1233: dup
+    1234: iconst_0
+    1235: getstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+    1238: dload         17
+    1240: invokevirtual #909                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+    1243: aastore
+    1244: dup
+    1245: iconst_1
+    1246: new           #564                // class java/lang/StringBuilder
+    1249: dup
+    1250: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1253: ldc_w         #911                // String attribute.name.
+    1256: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1259: aload         12
+    1261: invokeinterface #914,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+    1266: checkcast     #327                // class java/lang/String
+    1269: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1272: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1275: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1278: aastore
+    1279: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1282: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1285: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1288: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1293: pop
+    1294: goto          781
+    1297: iinc          8, 1
+    1300: goto          684
+    1303: aload_0
+    1304: invokevirtual #381                // Method hasTagCompound:()Z
+    1307: ifeq          1362
+    1310: aload_0
+    1311: invokevirtual #384                // Method getTagCompound:()Lnet/minecraft/nbt/NBTTagCompound;
+    1314: ldc_w         #386                // String Unbreakable
+    1317: invokevirtual #389                // Method net/minecraft/nbt/NBTTagCompound.getBoolean:(Ljava/lang/String;)Z
+    1320: ifeq          1362
+    1323: iload         5
+    1325: iconst_4
+    1326: iand
+    1327: ifne          1362
+    1330: aload_3
+    1331: new           #564                // class java/lang/StringBuilder
+    1334: dup
+    1335: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1338: getstatic     #917                // Field net/minecraft/util/text/TextFormatting.BLUE:Lnet/minecraft/util/text/TextFormatting;
+    1341: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1344: ldc_w         #928                // String item.unbreakable
+    1347: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1350: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1353: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1356: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1361: pop
+    1362: aload_0
+    1363: invokevirtual #381                // Method hasTagCompound:()Z
+    1366: ifeq          1555
+    1369: aload_0
+    1370: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1373: ldc_w         #930                // String CanDestroy
+    1376: bipush        9
+    1378: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+    1381: ifeq          1555
+    1384: iload         5
+    1386: bipush        8
+    1388: iand
+    1389: ifne          1555
+    1392: aload_0
+    1393: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1396: ldc_w         #930                // String CanDestroy
+    1399: bipush        8
+    1401: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+    1404: astore        6
+    1406: aload         6
+    1408: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+    1411: ifne          1555
+    1414: aload_3
+    1415: ldc_w         #717                // String
+    1418: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1423: pop
+    1424: aload_3
+    1425: new           #564                // class java/lang/StringBuilder
+    1428: dup
+    1429: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1432: getstatic     #933                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1435: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1438: ldc_w         #935                // String item.canBreak
+    1441: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1444: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1447: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1450: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1455: pop
+    1456: iconst_0
+    1457: istore        7
+    1459: iload         7
+    1461: aload         6
+    1463: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+    1466: if_icmpge     1555
+    1469: aload         6
+    1471: iload         7
+    1473: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+    1476: invokestatic  #941                // Method net/minecraft/block/Block.getBlockFromName:(Ljava/lang/String;)Lnet/minecraft/block/Block;
+    1479: astore        8
+    1481: aload         8
+    1483: ifnull        1520
+    1486: aload_3
+    1487: new           #564                // class java/lang/StringBuilder
+    1490: dup
+    1491: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1494: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1497: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1500: aload         8
+    1502: invokevirtual #947                // Method net/minecraft/block/Block.getLocalizedName:()Ljava/lang/String;
+    1505: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1508: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1511: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1516: pop
+    1517: goto          1549
+    1520: aload_3
+    1521: new           #564                // class java/lang/StringBuilder
+    1524: dup
+    1525: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1528: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1531: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1534: ldc_w         #949                // String missingno
+    1537: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1540: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1543: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1548: pop
+    1549: iinc          7, 1
+    1552: goto          1459
+    1555: aload_0
+    1556: invokevirtual #381                // Method hasTagCompound:()Z
+    1559: ifeq          1748
+    1562: aload_0
+    1563: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1566: ldc_w         #951                // String CanPlaceOn
+    1569: bipush        9
+    1571: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+    1574: ifeq          1748
+    1577: iload         5
+    1579: bipush        16
+    1581: iand
+    1582: ifne          1748
+    1585: aload_0
+    1586: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1589: ldc_w         #951                // String CanPlaceOn
+    1592: bipush        8
+    1594: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+    1597: astore        6
+    1599: aload         6
+    1601: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+    1604: ifne          1748
+    1607: aload_3
+    1608: ldc_w         #717                // String
+    1611: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1616: pop
+    1617: aload_3
+    1618: new           #564                // class java/lang/StringBuilder
+    1621: dup
+    1622: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1625: getstatic     #933                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1628: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1631: ldc_w         #953                // String item.canPlace
+    1634: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1637: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1640: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1643: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1648: pop
+    1649: iconst_0
+    1650: istore        7
+    1652: iload         7
+    1654: aload         6
+    1656: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+    1659: if_icmpge     1748
+    1662: aload         6
+    1664: iload         7
+    1666: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+    1669: invokestatic  #941                // Method net/minecraft/block/Block.getBlockFromName:(Ljava/lang/String;)Lnet/minecraft/block/Block;
+    1672: astore        8
+    1674: aload         8
+    1676: ifnull        1713
+    1679: aload_3
+    1680: new           #564                // class java/lang/StringBuilder
+    1683: dup
+    1684: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1687: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1690: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1693: aload         8
+    1695: invokevirtual #947                // Method net/minecraft/block/Block.getLocalizedName:()Ljava/lang/String;
+    1698: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1701: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1704: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1709: pop
+    1710: goto          1742
+    1713: aload_3
+    1714: new           #564                // class java/lang/StringBuilder
+    1717: dup
+    1718: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1721: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1724: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1727: ldc_w         #949                // String missingno
+    1730: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1733: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1736: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1741: pop
+    1742: iinc          7, 1
+    1745: goto          1652
+    1748: aload_2
+    1749: invokeinterface #715,  1          // InterfaceMethod net/minecraft/client/util/ITooltipFlag.isAdvanced:()Z
+    1754: ifeq          1909
+    1757: aload_0
+    1758: invokevirtual #375                // Method isItemDamaged:()Z
+    1761: ifeq          1806
+    1764: aload_3
+    1765: ldc_w         #955                // String item.durability
+    1768: iconst_2
+    1769: anewarray     #5                  // class java/lang/Object
+    1772: dup
+    1773: iconst_0
+    1774: aload_0
+    1775: invokevirtual #447                // Method getMaxDamage:()I
+    1778: aload_0
+    1779: invokevirtual #443                // Method getItemDamage:()I
+    1782: isub
+    1783: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1786: aastore
+    1787: dup
+    1788: iconst_1
+    1789: aload_0
+    1790: invokevirtual #447                // Method getMaxDamage:()I
+    1793: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1796: aastore
+    1797: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1800: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1805: pop
+    1806: aload_3
+    1807: new           #564                // class java/lang/StringBuilder
+    1810: dup
+    1811: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1814: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1817: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1820: getstatic     #315                // Field net/minecraft/item/Item.REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1823: aload_0
+    1824: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+    1827: invokevirtual #321                // Method net/minecraft/util/registry/RegistryNamespaced.getNameForObject:(Ljava/lang/Object;)Ljava/lang/Object;
+    1830: checkcast     #323                // class net/minecraft/util/ResourceLocation
+    1833: invokevirtual #331                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+    1836: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1839: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1842: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1847: pop
+    1848: aload_0
+    1849: invokevirtual #381                // Method hasTagCompound:()Z
+    1852: ifeq          1909
+    1855: aload_3
+    1856: new           #564                // class java/lang/StringBuilder
+    1859: dup
+    1860: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1863: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1866: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1869: ldc_w         #957                // String item.nbt_tags
+    1872: iconst_1
+    1873: anewarray     #5                  // class java/lang/Object
+    1876: dup
+    1877: iconst_0
+    1878: aload_0
+    1879: invokevirtual #384                // Method getTagCompound:()Lnet/minecraft/nbt/NBTTagCompound;
+    1882: invokevirtual #961                // Method net/minecraft/nbt/NBTTagCompound.getKeySet:()Ljava/util/Set;
+    1885: invokeinterface #966,  1          // InterfaceMethod java/util/Set.size:()I
+    1890: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1893: aastore
+    1894: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1897: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1900: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1903: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1908: pop
+    1909: aload_0
+    1910: aload_1
+    1911: aload_3
+    1912: aload_2
+    1913: invokestatic  #972                // Method net/minecraftforge/event/ForgeEventFactory.onItemTooltip:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/EntityPlayer;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)Lnet/minecraftforge/event/entity/player/ItemTooltipEvent;
+    1916: pop
+    1917: aload_3
+    1918: areturn
+
+  public boolean hasEffect();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #1010               // Method net/minecraft/item/Item.hasEffect:(Lnet/minecraft/item/ItemStack;)Z
+       8: ireturn
+
+  public net.minecraft.item.EnumRarity getRarity();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #1015               // Method net/minecraft/item/Item.getRarity:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/EnumRarity;
+       8: areturn
+
+  public boolean isItemEnchantable();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #1019               // Method net/minecraft/item/Item.isEnchantable:(Lnet/minecraft/item/ItemStack;)Z
+       8: ifne          13
+      11: iconst_0
+      12: ireturn
+      13: aload_0
+      14: invokevirtual #1022               // Method isItemEnchanted:()Z
+      17: ifne          24
+      20: iconst_1
+      21: goto          25
+      24: iconst_0
+      25: ireturn
+
+  public void addEnchantment(net.minecraft.enchantment.Enchantment, int);
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnonnull     18
+       7: aload_0
+       8: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      11: dup
+      12: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      15: invokevirtual #1026               // Method setTagCompound:(Lnet/minecraft/nbt/NBTTagCompound;)V
+      18: aload_0
+      19: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      22: ldc_w         #643                // String ench
+      25: bipush        9
+      27: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      30: ifne          50
+      33: aload_0
+      34: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      37: ldc_w         #643                // String ench
+      40: new           #649                // class net/minecraft/nbt/NBTTagList
+      43: dup
+      44: invokespecial #650                // Method net/minecraft/nbt/NBTTagList."<init>":()V
+      47: invokevirtual #347                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+      50: aload_0
+      51: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      54: ldc_w         #643                // String ench
+      57: bipush        10
+      59: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      62: astore_3
+      63: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      66: dup
+      67: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      70: astore        4
+      72: aload         4
+      74: ldc           #124                // String id
+      76: aload_1
+      77: invokestatic  #1030               // Method net/minecraft/enchantment/Enchantment.getEnchantmentID:(Lnet/minecraft/enchantment/Enchantment;)I
+      80: i2s
+      81: invokevirtual #343                // Method net/minecraft/nbt/NBTTagCompound.setShort:(Ljava/lang/String;S)V
+      84: aload         4
+      86: ldc_w         #774                // String lvl
+      89: iload_2
+      90: i2b
+      91: i2s
+      92: invokevirtual #343                // Method net/minecraft/nbt/NBTTagCompound.setShort:(Ljava/lang/String;S)V
+      95: aload_3
+      96: aload         4
+      98: invokevirtual #1034               // Method net/minecraft/nbt/NBTTagList.appendTag:(Lnet/minecraft/nbt/NBTBase;)V
+     101: return
+
+  public boolean isItemEnchanted();
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnull        46
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: ldc_w         #643                // String ench
+      14: bipush        9
+      16: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      19: ifeq          46
+      22: aload_0
+      23: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      26: ldc_w         #643                // String ench
+      29: bipush        10
+      31: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      34: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+      37: ifne          44
+      40: iconst_1
+      41: goto          45
+      44: iconst_0
+      45: ireturn
+      46: iconst_0
+      47: ireturn
+
+  public void setTagInfo(java.lang.String, net.minecraft.nbt.NBTBase);
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnonnull     18
+       7: aload_0
+       8: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      11: dup
+      12: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      15: invokevirtual #1026               // Method setTagCompound:(Lnet/minecraft/nbt/NBTTagCompound;)V
+      18: aload_0
+      19: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      22: aload_1
+      23: aload_2
+      24: invokevirtual #347                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+      27: return
+
+  public boolean canEditBlocks();
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: invokevirtual #1043               // Method net/minecraft/item/Item.canItemEditBlocks:()Z
+       7: ireturn
+
+  public boolean isOnItemFrame();
+    Code:
+       0: aload_0
+       1: getfield      #1046               // Field itemFrame:Lnet/minecraft/entity/item/EntityItemFrame;
+       4: ifnull        11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public void setItemFrame(net.minecraft.entity.item.EntityItemFrame);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #1046               // Field itemFrame:Lnet/minecraft/entity/item/EntityItemFrame;
+       5: return
+
+  public net.minecraft.entity.item.EntityItemFrame getItemFrame();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifeq          11
+       7: aconst_null
+       8: goto          15
+      11: aload_0
+      12: getfield      #1046               // Field itemFrame:Lnet/minecraft/entity/item/EntityItemFrame;
+      15: areturn
+
+  public int getRepairCost();
+    Code:
+       0: aload_0
+       1: invokevirtual #381                // Method hasTagCompound:()Z
+       4: ifeq          34
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: ldc_w         #1056               // String RepairCost
+      14: iconst_3
+      15: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      18: ifeq          34
+      21: aload_0
+      22: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      25: ldc_w         #1056               // String RepairCost
+      28: invokevirtual #756                // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+      31: goto          35
+      34: iconst_0
+      35: ireturn
+
+  public void setRepairCost(int);
+    Code:
+       0: aload_0
+       1: invokevirtual #381                // Method hasTagCompound:()Z
+       4: ifne          18
+       7: aload_0
+       8: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      11: dup
+      12: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      15: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      18: aload_0
+      19: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      22: ldc_w         #1056               // String RepairCost
+      25: iload_1
+      26: invokevirtual #1061               // Method net/minecraft/nbt/NBTTagCompound.setInteger:(Ljava/lang/String;I)V
+      29: return
+
+  public com.google.common.collect.Multimap<java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier> getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_0
+       1: invokevirtual #381                // Method hasTagCompound:()Z
+       4: ifeq          154
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: ldc_w         #1064               // String AttributeModifiers
+      14: bipush        9
+      16: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      19: ifeq          154
+      22: invokestatic  #1070               // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+      25: astore_2
+      26: aload_0
+      27: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      30: ldc_w         #1064               // String AttributeModifiers
+      33: bipush        10
+      35: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      38: astore_3
+      39: iconst_0
+      40: istore        4
+      42: iload         4
+      44: aload_3
+      45: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+      48: if_icmpge     151
+      51: aload_3
+      52: iload         4
+      54: invokevirtual #772                // Method net/minecraft/nbt/NBTTagList.getCompoundTagAt:(I)Lnet/minecraft/nbt/NBTTagCompound;
+      57: astore        5
+      59: aload         5
+      61: invokestatic  #1074               // Method net/minecraft/entity/SharedMonsterAttributes.readAttributeModifierFromNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/entity/ai/attributes/AttributeModifier;
+      64: astore        6
+      66: aload         6
+      68: ifnull        145
+      71: aload         5
+      73: ldc_w         #1076               // String Slot
+      76: bipush        8
+      78: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      81: ifeq          102
+      84: aload         5
+      86: ldc_w         #1076               // String Slot
+      89: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+      92: aload_1
+      93: invokevirtual #827                // Method net/minecraft/inventory/EntityEquipmentSlot.getName:()Ljava/lang/String;
+      96: invokevirtual #1077               // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      99: ifeq          145
+     102: aload         6
+     104: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     107: invokevirtual #1083               // Method java/util/UUID.getLeastSignificantBits:()J
+     110: lconst_0
+     111: lcmp
+     112: ifeq          145
+     115: aload         6
+     117: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     120: invokevirtual #1086               // Method java/util/UUID.getMostSignificantBits:()J
+     123: lconst_0
+     124: lcmp
+     125: ifeq          145
+     128: aload_2
+     129: aload         5
+     131: ldc_w         #1088               // String AttributeName
+     134: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+     137: aload         6
+     139: invokeinterface #1092,  3         // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+     144: pop
+     145: iinc          4, 1
+     148: goto          42
+     151: goto          164
+     154: aload_0
+     155: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+     158: aload_1
+     159: aload_0
+     160: invokevirtual #1095               // Method net/minecraft/item/Item.getAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+     163: astore_2
+     164: aload_2
+     165: areturn
+
+  public void addAttributeModifier(java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier, net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnonnull     18
+       7: aload_0
+       8: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      11: dup
+      12: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      15: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      18: aload_0
+      19: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      22: ldc_w         #1064               // String AttributeModifiers
+      25: bipush        9
+      27: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      30: ifne          50
+      33: aload_0
+      34: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      37: ldc_w         #1064               // String AttributeModifiers
+      40: new           #649                // class net/minecraft/nbt/NBTTagList
+      43: dup
+      44: invokespecial #650                // Method net/minecraft/nbt/NBTTagList."<init>":()V
+      47: invokevirtual #347                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+      50: aload_0
+      51: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      54: ldc_w         #1064               // String AttributeModifiers
+      57: bipush        10
+      59: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      62: astore        4
+      64: aload_2
+      65: invokestatic  #1102               // Method net/minecraft/entity/SharedMonsterAttributes.writeAttributeModifierToNBT:(Lnet/minecraft/entity/ai/attributes/AttributeModifier;)Lnet/minecraft/nbt/NBTTagCompound;
+      68: astore        5
+      70: aload         5
+      72: ldc_w         #1088               // String AttributeName
+      75: aload_1
+      76: invokevirtual #335                // Method net/minecraft/nbt/NBTTagCompound.setString:(Ljava/lang/String;Ljava/lang/String;)V
+      79: aload_3
+      80: ifnull        95
+      83: aload         5
+      85: ldc_w         #1076               // String Slot
+      88: aload_3
+      89: invokevirtual #827                // Method net/minecraft/inventory/EntityEquipmentSlot.getName:()Ljava/lang/String;
+      92: invokevirtual #335                // Method net/minecraft/nbt/NBTTagCompound.setString:(Ljava/lang/String;Ljava/lang/String;)V
+      95: aload         4
+      97: aload         5
+      99: invokevirtual #1034               // Method net/minecraft/nbt/NBTTagList.appendTag:(Lnet/minecraft/nbt/NBTBase;)V
+     102: return
+
+  public net.minecraft.util.text.ITextComponent getTextComponent();
+    Code:
+       0: new           #1109               // class net/minecraft/util/text/TextComponentString
+       3: dup
+       4: aload_0
+       5: invokevirtual #694                // Method getDisplayName:()Ljava/lang/String;
+       8: invokespecial #1111               // Method net/minecraft/util/text/TextComponentString."<init>":(Ljava/lang/String;)V
+      11: astore_1
+      12: aload_0
+      13: invokevirtual #696                // Method hasDisplayName:()Z
+      16: ifeq          31
+      19: aload_1
+      20: invokevirtual #1115               // Method net/minecraft/util/text/TextComponentString.getStyle:()Lnet/minecraft/util/text/Style;
+      23: iconst_1
+      24: invokestatic  #1120               // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      27: invokevirtual #1126               // Method net/minecraft/util/text/Style.setItalic:(Ljava/lang/Boolean;)Lnet/minecraft/util/text/Style;
+      30: pop
+      31: new           #1109               // class net/minecraft/util/text/TextComponentString
+      34: dup
+      35: ldc_w         #1128               // String [
+      38: invokespecial #1111               // Method net/minecraft/util/text/TextComponentString."<init>":(Ljava/lang/String;)V
+      41: aload_1
+      42: invokevirtual #1132               // Method net/minecraft/util/text/TextComponentString.appendSibling:(Lnet/minecraft/util/text/ITextComponent;)Lnet/minecraft/util/text/ITextComponent;
+      45: ldc_w         #1134               // String ]
+      48: invokeinterface #1140,  2         // InterfaceMethod net/minecraft/util/text/ITextComponent.appendText:(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+      53: astore_2
+      54: aload_0
+      55: getfield      #111                // Field isEmpty:Z
+      58: ifne          121
+      61: aload_0
+      62: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+      65: dup
+      66: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      69: invokevirtual #1142               // Method writeToNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;
+      72: astore_3
+      73: aload_2
+      74: invokeinterface #1143,  1         // InterfaceMethod net/minecraft/util/text/ITextComponent.getStyle:()Lnet/minecraft/util/text/Style;
+      79: new           #17                 // class net/minecraft/util/text/event/HoverEvent
+      82: dup
+      83: getstatic     #1147               // Field net/minecraft/util/text/event/HoverEvent$Action.SHOW_ITEM:Lnet/minecraft/util/text/event/HoverEvent$Action;
+      86: new           #1109               // class net/minecraft/util/text/TextComponentString
+      89: dup
+      90: aload_3
+      91: invokevirtual #1148               // Method net/minecraft/nbt/NBTTagCompound.toString:()Ljava/lang/String;
+      94: invokespecial #1111               // Method net/minecraft/util/text/TextComponentString."<init>":(Ljava/lang/String;)V
+      97: invokespecial #1151               // Method net/minecraft/util/text/event/HoverEvent."<init>":(Lnet/minecraft/util/text/event/HoverEvent$Action;Lnet/minecraft/util/text/ITextComponent;)V
+     100: invokevirtual #1155               // Method net/minecraft/util/text/Style.setHoverEvent:(Lnet/minecraft/util/text/event/HoverEvent;)Lnet/minecraft/util/text/Style;
+     103: pop
+     104: aload_2
+     105: invokeinterface #1143,  1         // InterfaceMethod net/minecraft/util/text/ITextComponent.getStyle:()Lnet/minecraft/util/text/Style;
+     110: aload_0
+     111: invokevirtual #1157               // Method getRarity:()Lnet/minecraft/item/EnumRarity;
+     114: getfield      #1161               // Field net/minecraft/item/EnumRarity.color:Lnet/minecraft/util/text/TextFormatting;
+     117: invokevirtual #1165               // Method net/minecraft/util/text/Style.setColor:(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+     120: pop
+     121: aload_2
+     122: areturn
+
+  public boolean canDestroy(net.minecraft.block.Block);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #1173               // Field canDestroyCacheBlock:Lnet/minecraft/block/Block;
+       5: if_acmpne     13
+       8: aload_0
+       9: getfield      #1175               // Field canDestroyCacheResult:Z
+      12: ireturn
+      13: aload_0
+      14: aload_1
+      15: putfield      #1173               // Field canDestroyCacheBlock:Lnet/minecraft/block/Block;
+      18: aload_0
+      19: invokevirtual #381                // Method hasTagCompound:()Z
+      22: ifeq          92
+      25: aload_0
+      26: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      29: ldc_w         #930                // String CanDestroy
+      32: bipush        9
+      34: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      37: ifeq          92
+      40: aload_0
+      41: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      44: ldc_w         #930                // String CanDestroy
+      47: bipush        8
+      49: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      52: astore_2
+      53: iconst_0
+      54: istore_3
+      55: iload_3
+      56: aload_2
+      57: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+      60: if_icmpge     92
+      63: aload_2
+      64: iload_3
+      65: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+      68: invokestatic  #941                // Method net/minecraft/block/Block.getBlockFromName:(Ljava/lang/String;)Lnet/minecraft/block/Block;
+      71: astore        4
+      73: aload         4
+      75: aload_1
+      76: if_acmpne     86
+      79: aload_0
+      80: iconst_1
+      81: putfield      #1175               // Field canDestroyCacheResult:Z
+      84: iconst_1
+      85: ireturn
+      86: iinc          3, 1
+      89: goto          55
+      92: aload_0
+      93: iconst_0
+      94: putfield      #1175               // Field canDestroyCacheResult:Z
+      97: iconst_0
+      98: ireturn
+
+  public boolean canPlaceOn(net.minecraft.block.Block);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #1179               // Field canPlaceOnCacheBlock:Lnet/minecraft/block/Block;
+       5: if_acmpne     13
+       8: aload_0
+       9: getfield      #1181               // Field canPlaceOnCacheResult:Z
+      12: ireturn
+      13: aload_0
+      14: aload_1
+      15: putfield      #1179               // Field canPlaceOnCacheBlock:Lnet/minecraft/block/Block;
+      18: aload_0
+      19: invokevirtual #381                // Method hasTagCompound:()Z
+      22: ifeq          92
+      25: aload_0
+      26: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      29: ldc_w         #951                // String CanPlaceOn
+      32: bipush        9
+      34: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      37: ifeq          92
+      40: aload_0
+      41: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      44: ldc_w         #951                // String CanPlaceOn
+      47: bipush        8
+      49: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      52: astore_2
+      53: iconst_0
+      54: istore_3
+      55: iload_3
+      56: aload_2
+      57: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+      60: if_icmpge     92
+      63: aload_2
+      64: iload_3
+      65: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+      68: invokestatic  #941                // Method net/minecraft/block/Block.getBlockFromName:(Ljava/lang/String;)Lnet/minecraft/block/Block;
+      71: astore        4
+      73: aload         4
+      75: aload_1
+      76: if_acmpne     86
+      79: aload_0
+      80: iconst_1
+      81: putfield      #1181               // Field canPlaceOnCacheResult:Z
+      84: iconst_1
+      85: ireturn
+      86: iinc          3, 1
+      89: goto          55
+      92: aload_0
+      93: iconst_0
+      94: putfield      #1181               // Field canPlaceOnCacheResult:Z
+      97: iconst_0
+      98: ireturn
+
+  public int getAnimationsToGo();
+    Code:
+       0: aload_0
+       1: getfield      #583                // Field animationsToGo:I
+       4: ireturn
+
+  public void setAnimationsToGo(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #583                // Field animationsToGo:I
+       5: return
+
+  public int getCount();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifeq          11
+       7: iconst_0
+       8: goto          15
+      11: aload_0
+      12: getfield      #94                 // Field stackSize:I
+      15: ireturn
+
+  public void setCount(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #94                 // Field stackSize:I
+       5: aload_0
+       6: invokespecial #99                 // Method updateEmptyState:()V
+       9: return
+
+  public void grow(int);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #94                 // Field stackSize:I
+       5: iload_1
+       6: iadd
+       7: invokevirtual #209                // Method setCount:(I)V
+      10: return
+
+  public void shrink(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: ineg
+       3: invokevirtual #1189               // Method grow:(I)V
+       6: return
+
+  public boolean hasCapability(net.minecraftforge.common.capabilities.Capability<?>, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifne          14
+       7: aload_0
+       8: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      11: ifnonnull     18
+      14: iconst_0
+      15: goto          27
+      18: aload_0
+      19: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      22: aload_1
+      23: aload_2
+      24: invokevirtual #1194               // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.hasCapability:(Lnet/minecraftforge/common/capabilities/Capability;Lnet/minecraft/util/EnumFacing;)Z
+      27: ireturn
+
+  public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T>, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifne          14
+       7: aload_0
+       8: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      11: ifnonnull     18
+      14: aconst_null
+      15: goto          27
+      18: aload_0
+      19: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      22: aload_1
+      23: aload_2
+      24: invokevirtual #1202               // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;Lnet/minecraft/util/EnumFacing;)Ljava/lang/Object;
+      27: areturn
+
+  public void deserializeNBT(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: new           #2                  // class net/minecraft/item/ItemStack
+       3: dup
+       4: aload_1
+       5: invokespecial #1208               // Method "<init>":(Lnet/minecraft/nbt/NBTTagCompound;)V
+       8: astore_2
+       9: aload_0
+      10: aload_2
+      11: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      14: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      17: aload_0
+      18: aload_2
+      19: getfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      22: putfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      25: return
+
+  public net.minecraft.nbt.NBTTagCompound serializeNBT();
+    Code:
+       0: new           #96                 // class net/minecraft/nbt/NBTTagCompound
+       3: dup
+       4: invokespecial #625                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: aload_1
+      10: invokevirtual #1142               // Method writeToNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;
+      13: pop
+      14: aload_1
+      15: areturn
+
+  public boolean areCapsCompatible(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+       4: ifnonnull     25
+       7: aload_1
+       8: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      11: ifnonnull     16
+      14: iconst_1
+      15: ireturn
+      16: aload_1
+      17: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      20: aconst_null
+      21: invokevirtual #1215               // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.areCompatible:(Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;)Z
+      24: ireturn
+      25: aload_0
+      26: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      29: aload_1
+      30: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      33: invokevirtual #1215               // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.areCompatible:(Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;)Z
+      36: ireturn
+
+  private void forgeInit();
+    Code:
+       0: aload_0
+       1: invokespecial #173                // Method getItemRaw:()Lnet/minecraft/item/Item;
+       4: astore_1
+       5: aload_1
+       6: ifnull        61
+       9: aload_0
+      10: aload_1
+      11: getfield      #1217               // Field net/minecraft/item/Item.delegate:Lnet/minecraftforge/registries/IRegistryDelegate;
+      14: putfield      #218                // Field delegate:Lnet/minecraftforge/registries/IRegistryDelegate;
+      17: aload_1
+      18: aload_0
+      19: aload_0
+      20: getfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      23: invokevirtual #1221               // Method net/minecraft/item/Item.initCapabilities:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraftforge/common/capabilities/ICapabilityProvider;
+      26: astore_2
+      27: aload_0
+      28: aload_0
+      29: aload_2
+      30: invokestatic  #1225               // Method net/minecraftforge/event/ForgeEventFactory.gatherCapabilities:(Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/capabilities/ICapabilityProvider;)Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      33: putfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      36: aload_0
+      37: getfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      40: ifnull        61
+      43: aload_0
+      44: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      47: ifnull        61
+      50: aload_0
+      51: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      54: aload_0
+      55: getfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      58: invokevirtual #1227               // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.deserializeNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+      61: return
+
+  private net.minecraft.item.Item getItemRaw();
+    Code:
+       0: aload_0
+       1: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       4: areturn
+
+  public static boolean areItemStacksEqualUsingNBTShareTag(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #109                // Method isEmpty:()Z
+       4: ifeq          12
+       7: aload_1
+       8: invokevirtual #109                // Method isEmpty:()Z
+      11: ireturn
+      12: aload_1
+      13: invokevirtual #109                // Method isEmpty:()Z
+      16: ifne          31
+      19: aload_0
+      20: aload_1
+      21: invokespecial #1233               // Method isItemStackEqualUsingNBTShareTag:(Lnet/minecraft/item/ItemStack;)Z
+      24: ifeq          31
+      27: iconst_1
+      28: goto          32
+      31: iconst_0
+      32: ireturn
+
+  private boolean isItemStackEqualUsingNBTShareTag(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getfield      #94                 // Field stackSize:I
+       4: aload_1
+       5: getfield      #94                 // Field stackSize:I
+       8: if_icmpne     45
+      11: aload_0
+      12: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      15: aload_1
+      16: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      19: if_acmpne     45
+      22: aload_0
+      23: getfield      #92                 // Field itemDamage:I
+      26: aload_1
+      27: getfield      #92                 // Field itemDamage:I
+      30: if_icmpne     45
+      33: aload_0
+      34: aload_1
+      35: invokestatic  #1238               // Method areItemStackShareTagsEqual:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+      38: ifeq          45
+      41: iconst_1
+      42: goto          46
+      45: iconst_0
+      46: ireturn
+
+  public static boolean areItemStackShareTagsEqual(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+       4: aload_0
+       5: invokevirtual #1243               // Method net/minecraft/item/Item.getNBTShareTag:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/nbt/NBTTagCompound;
+       8: astore_2
+       9: aload_1
+      10: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      13: aload_1
+      14: invokevirtual #1243               // Method net/minecraft/item/Item.getNBTShareTag:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/nbt/NBTTagCompound;
+      17: astore_3
+      18: aload_2
+      19: ifnonnull     32
+      22: aload_3
+      23: ifnonnull     30
+      26: iconst_1
+      27: goto          31
+      30: iconst_0
+      31: ireturn
+      32: aload_3
+      33: ifnull        48
+      36: aload_2
+      37: aload_3
+      38: invokevirtual #532                // Method net/minecraft/nbt/NBTTagCompound.equals:(Ljava/lang/Object;)Z
+      41: ifeq          48
+      44: iconst_1
+      45: goto          49
+      48: iconst_0
+      49: ireturn
+
+  public boolean doesSneakBypassUse(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.entity.player.EntityPlayer);
+    Code:
+       0: aload_0
+       1: invokevirtual #109                // Method isEmpty:()Z
+       4: ifne          21
+       7: aload_0
+       8: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+      11: aload_0
+      12: aload_1
+      13: aload_2
+      14: aload_3
+      15: invokevirtual #1252               // Method net/minecraft/item/Item.doesSneakBypassUse:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/EntityPlayer;)Z
+      18: ifeq          25
+      21: iconst_1
+      22: goto          26
+      25: iconst_0
+      26: ireturn
+
+  public void deserializeNBT(net.minecraft.nbt.NBTBase);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #96                 // class net/minecraft/nbt/NBTTagCompound
+       5: invokevirtual #1257               // Method deserializeNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+       8: return
+
+  public net.minecraft.nbt.NBTBase serializeNBT();
+    Code:
+       0: aload_0
+       1: invokevirtual #1259               // Method serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+       4: areturn
+
+  static {};
+    Code:
+       0: new           #2                  // class net/minecraft/item/ItemStack
+       3: dup
+       4: aconst_null
+       5: checkcast     #59                 // class net/minecraft/item/Item
+       8: invokespecial #1262               // Method "<init>":(Lnet/minecraft/item/Item;)V
+      11: putstatic     #169                // Field EMPTY:Lnet/minecraft/item/ItemStack;
+      14: new           #906                // class java/text/DecimalFormat
+      17: dup
+      18: ldc_w         #1264               // String #.##
+      21: invokespecial #1265               // Method java/text/DecimalFormat."<init>":(Ljava/lang/String;)V
+      24: putstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+      27: return
+}

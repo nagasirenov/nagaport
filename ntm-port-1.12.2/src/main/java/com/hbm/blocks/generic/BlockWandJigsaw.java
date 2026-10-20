@@ -1,11 +1,24 @@
 package com.hbm.blocks.generic;
 
+import java.io.IOException;
+import net.minecraft.util.math.MathHelper;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
 import com.hbm.blocks.IBlockSideRotation;
+import com.hbm.blocks.SideRotationModelState;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.interfaces.IControlReceiver;
@@ -21,18 +34,15 @@ import com.hbm.util.i18n.I18nUtil;
 import com.hbm.world.gen.nbt.INBTBlockTransformable;
 
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -41,19 +51,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotation, INBTBlockTransformable, IGUIProvider, ILookOverlay {
 
-	private IIcon iconTop;
-	private IIcon iconSide;
-	private IIcon iconBack;
+	private static final ResourceLocation blockTexture = new ResourceLocation(RefStrings.MODID, "blocks/wand_jigsaw");
+	private static final ResourceLocation iconTop = new ResourceLocation(RefStrings.MODID, "blocks/wand_jigsaw_top");
+	private static final ResourceLocation iconSide = new ResourceLocation(RefStrings.MODID, "blocks/wand_jigsaw_side");
+	private static final ResourceLocation iconBack = new ResourceLocation(RefStrings.MODID, "blocks/wand_jigsaw_back");
+	private static final Collection<ResourceLocation> MODEL_TEXTURES = Collections.unmodifiableList(Arrays.asList(blockTexture, iconTop, iconSide, iconBack));
 
 	public BlockWandJigsaw() {
-		super(Material.iron);
+		super(Material.IRON);
+		setDefaultState(blockState.getBaseState().withProperty(SideRotationModelState.METADATA, 0));
 	}
 
 	@Override
@@ -62,23 +74,27 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+		int l = determinePlacementOrientation(pos, player);
+		world.setBlockState(pos, getStateFromMeta(l), 2);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":wand_jigsaw");
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":wand_jigsaw_top");
-		this.iconSide = iconRegister.registerIcon(RefStrings.MODID + ":wand_jigsaw_side");
-		this.iconBack = iconRegister.registerIcon(RefStrings.MODID + ":wand_jigsaw_back");
+	/** 1.7 piston placement in native feet-relative coordinates; deliberately not EnumFacing.getDirectionFromEntityLiving. */
+	private static int determinePlacementOrientation(BlockPos pos, EntityLivingBase player) {
+		if(MathHelper.abs((float) player.posX - pos.getX()) < 2.0F && MathHelper.abs((float) player.posZ - pos.getZ()) < 2.0F) {
+			// The old posY - yOffset is the native entity feet position.
+			double height = player.posY + 1.82D;
+			if(height - pos.getY() > 2.0D) return 1;
+			if(pos.getY() - height > 0.0D) return 0;
+		}
+		int yaw = MathHelper.floor((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		return yaw == 0 ? 2 : (yaw == 1 ? 5 : (yaw == 2 ? 3 : (yaw == 3 ? 4 : 0)));
 	}
 
+
 	@Override
-	public IIcon getIcon(int side, int meta) {
-		if(side == meta) return blockIcon;
+	public ResourceLocation getModelTexture(int side, int meta) {
+		if(side == meta) return blockTexture;
 		if(IBlockSideRotation.isOpposite(side, meta)) return iconBack;
 		if(side <= 1) return iconTop;
 		if(side > 3 && meta <= 1) return iconTop;
@@ -89,7 +105,7 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 	public int getRotationFromSide(IBlockAccess world, int x, int y, int z, int side) {
 		if(side == 0) return IBlockSideRotation.topToBottom(getRotationFromSide(world, x, y, z, 1));
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		if(side == meta || IBlockSideRotation.isOpposite(side, meta)) return 0;
 
 		// downwards facing has no changes, upwards flips anything not handled already
@@ -116,8 +132,33 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 	}
 
 	@Override
-	public int getRenderType() {
-		return IBlockSideRotation.getRenderType();
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
+	}
+
+	@Override
+	public Collection<ResourceLocation> getModelTextures() {
+		return MODEL_TEXTURES;
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return SideRotationModelState.create(this);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(SideRotationModelState.METADATA, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(SideRotationModelState.METADATA);
+	}
+
+	@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return SideRotationModelState.extend(state, world, pos);
 	}
 
 	@Override
@@ -126,27 +167,27 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		TileEntity te = world.getTileEntity(x, y, z);
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		TileEntity te = world.getTileEntity(pos);
 
 		if(!(te instanceof TileEntityWandJigsaw)) return false;
 
 		TileEntityWandJigsaw jigsaw = (TileEntityWandJigsaw) te;
 
 		if(!player.isSneaking()) {
-			Block block = ModBlocks.getBlockFromStack(player.getHeldItem());
-			if(block == ModBlocks.wand_air) block = Blocks.air;
+			Block block = ModBlocks.getBlockFromStack(player.getHeldItem(hand));
+			if(block == ModBlocks.wand_air) block = Blocks.AIR;
 
 			if(block != null && !ModBlocks.isStructureBlock(block, false)) {
 				jigsaw.replaceBlock = block;
-				jigsaw.replaceMeta = player.getHeldItem().getItemDamage();
+				jigsaw.replaceMeta = player.getHeldItem(hand).getItemDamage();
 
 				return true;
 			}
 
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.wand_s) return false;
+			if(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() == ModItems.wand_s) return false;
 
-			if(world.isRemote) FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
+			if(world.isRemote) FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
 
 			return true;
 		}
@@ -157,7 +198,7 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GuiWandJigsaw((TileEntityWandJigsaw) world.getTileEntity(x, y, z));
+		return new GuiWandJigsaw((TileEntityWandJigsaw) world.getTileEntity(new BlockPos(x, y, z)));
 	}
 
 	@Override
@@ -167,7 +208,7 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 		if(!(te instanceof TileEntityWandJigsaw)) return;
 		TileEntityWandJigsaw jigsaw = (TileEntityWandJigsaw) te;
 
@@ -176,29 +217,35 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 		text.add(TextFormatting.GRAY + "Target pool: " + TextFormatting.RESET + jigsaw.pool);
 		text.add(TextFormatting.GRAY + "Name: " + TextFormatting.RESET + jigsaw.name);
 		text.add(TextFormatting.GRAY + "Target name: " + TextFormatting.RESET + jigsaw.target);
-		text.add(TextFormatting.GRAY + "Turns into: " + TextFormatting.RESET + GameRegistry.findUniqueIdentifierFor(jigsaw.replaceBlock).toString());
+		text.add(TextFormatting.GRAY + "Turns into: " + TextFormatting.RESET + jigsaw.replaceBlock.getRegistryName().toString());
 		text.add(TextFormatting.GRAY + "   with meta: " + TextFormatting.RESET + jigsaw.replaceMeta);
 		text.add(TextFormatting.GRAY + "Selection/Placement priority: " + TextFormatting.RESET + jigsaw.selectionPriority + "/" + jigsaw.placementPriority);
 		text.add(TextFormatting.GRAY + "Joint type: " + TextFormatting.RESET + (jigsaw.isRollable ? "Rollable" : "Aligned"));
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 
-	public static class TileEntityWandJigsaw extends TileEntityLoadedBase implements IControlReceiver {
+	public static class TileEntityWandJigsaw extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {
+
+		@Override
+		public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+			return oldState.getBlock() != newState.getBlock();
+		}
+
 
 		private int selectionPriority = 0; // higher priority = this jigsaw block is selected first for generation
 		private int placementPriority = 0; // higher priority = children of this jigsaw block are checked for jigsaw blocks of their own and selected first
 		private String pool = "default";
 		private String name = "default";
 		private String target = "default";
-		private Block replaceBlock = Blocks.air;
+		private Block replaceBlock = Blocks.AIR;
 		private int replaceMeta = 0;
 		private boolean isRollable = true; // sets joint type, rollable joints can be placed in any orientation for vertical jigsaw connections
 
 		@Override
-		public void updateEntity() {
-			if(!worldObj.isRemote) {
+		public void update() {
+			if(!this.world.isRemote) {
 				networkPackNT(15);
 			}
 		}
@@ -228,7 +275,7 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("direction", this.getBlockMetadata());
 
@@ -237,9 +284,10 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 			nbt.setString("pool", pool);
 			nbt.setString("name", name);
 			nbt.setString("target", target);
-			nbt.setString("block", GameRegistry.findUniqueIdentifierFor(replaceBlock).toString());
+			nbt.setString("block", replaceBlock.getRegistryName().toString());
 			nbt.setInteger("meta", replaceMeta);
 			nbt.setBoolean("roll", isRollable);
+			return nbt;
 		}
 
 		@Override
@@ -290,19 +338,19 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 		public void initGui() {
 			Keyboard.enableRepeatEvents(true);
 
-			textPool = new GuiTextField(fontRendererObj, this.width / 2 - 150, 50, 300, 20);
+			textPool = new GuiTextField(0, fontRenderer, this.width / 2 - 150, 50, 300, 20);
 			textPool.setText(jigsaw.pool);
 
-			textName = new GuiTextField(fontRendererObj, this.width / 2 - 150, 100, 140, 20);
+			textName = new GuiTextField(1, fontRenderer, this.width / 2 - 150, 100, 140, 20);
 			textName.setText(jigsaw.name);
 
-			textTarget = new GuiTextField(fontRendererObj, this.width / 2 + 10, 100, 140, 20);
+			textTarget = new GuiTextField(2, fontRenderer, this.width / 2 + 10, 100, 140, 20);
 			textTarget.setText(jigsaw.target);
 
-			textSelectionPriority = new GuiTextField(fontRendererObj, this.width / 2 - 150, 150, 90, 20);
+			textSelectionPriority = new GuiTextField(3, fontRenderer, this.width / 2 - 150, 150, 90, 20);
 			textSelectionPriority.setText("" + jigsaw.selectionPriority);
 
-			textPlacementPriority = new GuiTextField(fontRendererObj, this.width / 2 - 40, 150, 90, 20);
+			textPlacementPriority = new GuiTextField(4, fontRenderer, this.width / 2 - 40, 150, 90, 20);
 			textPlacementPriority.setText("" + jigsaw.placementPriority);
 
 			jointToggle = new GuiButton(0, this.width / 2 + 60, 150, 90, 20, jigsaw.isRollable ? "Rollable" : "Aligned");
@@ -312,23 +360,23 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 		public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 			drawDefaultBackground();
 
-			drawString(fontRendererObj, "Target pool:", this.width / 2 - 150, 37, 0xA0A0A0);
+			drawString(fontRenderer, "Target pool:", this.width / 2 - 150, 37, 0xA0A0A0);
 			textPool.drawTextBox();
 
-			drawString(fontRendererObj, "Name:", this.width / 2 - 150, 87, 0xA0A0A0);
+			drawString(fontRenderer, "Name:", this.width / 2 - 150, 87, 0xA0A0A0);
 			textName.drawTextBox();
 
-			drawString(fontRendererObj, "Target name:", this.width / 2 + 10, 87, 0xA0A0A0);
+			drawString(fontRenderer, "Target name:", this.width / 2 + 10, 87, 0xA0A0A0);
 			textTarget.drawTextBox();
 
-			drawString(fontRendererObj, "Selection priority:", this.width / 2 - 150, 137, 0xA0A0A0);
+			drawString(fontRenderer, "Selection priority:", this.width / 2 - 150, 137, 0xA0A0A0);
 			textSelectionPriority.drawTextBox();
 
-			drawString(fontRendererObj, "Placement priority:", this.width / 2 - 40, 137, 0xA0A0A0);
+			drawString(fontRenderer, "Placement priority:", this.width / 2 - 40, 137, 0xA0A0A0);
 			textPlacementPriority.drawTextBox();
 
-			drawString(fontRendererObj, "Joint type:", this.width / 2 + 60, 137, 0xA0A0A0);
-			jointToggle.drawButton(mc, mouseX, mouseY);
+			drawString(fontRenderer, "Joint type:", this.width / 2 + 60, 137, 0xA0A0A0);
+			jointToggle.drawButton(mc, mouseX, mouseY, partialTicks);
 
 			super.drawScreen(mouseX, mouseY, partialTicks);
 		}
@@ -349,11 +397,11 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 
 			data.setBoolean("roll", jointToggle.displayString == "Rollable");
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, jigsaw.xCoord, jigsaw.yCoord, jigsaw.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, jigsaw.getPos().getX(), jigsaw.getPos().getY(), jigsaw.getPos().getZ()));
 		}
 
 		@Override
-		protected void keyTyped(char typedChar, int keyCode) {
+		protected void keyTyped(char typedChar, int keyCode) throws IOException {
 			super.keyTyped(typedChar, keyCode);
 			textPool.textboxKeyTyped(typedChar, keyCode);
 			textName.textboxKeyTyped(typedChar, keyCode);
@@ -363,7 +411,7 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 		}
 
 		@Override
-		protected void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+		protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 			super.mouseClicked(mouseX, mouseY, mouseButton);
 			textPool.mouseClicked(mouseX, mouseY, mouseButton);
 			textName.mouseClicked(mouseX, mouseY, mouseButton);

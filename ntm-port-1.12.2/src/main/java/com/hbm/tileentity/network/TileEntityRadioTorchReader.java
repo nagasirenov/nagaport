@@ -12,7 +12,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityRadioTorchReader extends TileEntityLoadedBase implements IControlReceiver {
+public class TileEntityRadioTorchReader extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {
+
+    @Override public boolean canRenderBreaking() {
+        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
+    }
+
 
 	public String[] channels = new String[8];
 	public String[] names = new String[8];
@@ -26,12 +31,12 @@ public class TileEntityRadioTorchReader extends TileEntityLoadedBase implements 
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
 			
-			TileEntity tile = Compat.getTileStandard(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ);
+			TileEntity tile = Compat.getTileStandard(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);
 			
 			if(tile instanceof IRORValueProvider) {
 				IRORValueProvider prov = (IRORValueProvider) tile;
@@ -48,7 +53,7 @@ public class TileEntityRadioTorchReader extends TileEntityLoadedBase implements 
 					if(value == null) continue;
 					
 					if(polling || !value.equals(previous)) {
-						RTTYSystem.broadcast(worldObj, channel, value);
+						RTTYSystem.broadcast(this.world, channel, value);
 						this.prev[i] = value;
 					}
 				}
@@ -82,12 +87,13 @@ public class TileEntityRadioTorchReader extends TileEntityLoadedBase implements 
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("p", polling);
 		for(int i = 0; i < channels.length; i++) nbt.setString("c" + i, channels[i]);
 		for(int i = 0; i < names.length; i++) nbt.setString("n" + i, names[i]);
 		for(int i = 0; i < prev.length; i++) nbt.setString("p" + i, prev[i]);
+		return nbt;
 	}
 
 	@Override
@@ -101,6 +107,6 @@ public class TileEntityRadioTorchReader extends TileEntityLoadedBase implements 
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 16D;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;
 	}
 }

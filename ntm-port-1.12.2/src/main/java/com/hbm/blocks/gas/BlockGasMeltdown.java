@@ -74,7 +74,7 @@ public class BlockGasMeltdown extends BlockGasBase {
 
 			ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
 
-			if(rand.nextInt(7) == 0 && world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
+			if(rand.nextInt(7) == 0 && com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 				world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_radon_dense);
 			}
 			
@@ -83,7 +83,7 @@ public class BlockGasMeltdown extends BlockGasBase {
 			}
 			
 			if(rand.nextInt(350) == 0) {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				return;
 			}
 		}

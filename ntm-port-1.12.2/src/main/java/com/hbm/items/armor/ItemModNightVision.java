@@ -35,7 +35,7 @@ public class ItemModNightVision extends ItemArmorMod {
 
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		if(!entity.worldObj.isRemote && entity instanceof EntityPlayer && armor.getItem() instanceof ArmorFSBPowered && ArmorFSBPowered.hasFSBArmor((EntityPlayer) entity)) {
+		if(!entity.world.isRemote && entity instanceof EntityPlayer && armor.getItem() instanceof ArmorFSBPowered && ArmorFSBPowered.hasFSBArmor((EntityPlayer) entity)) {
 			if(HbmPlayerProps.getData(((EntityPlayer) entity)).enableHUD) {
 				// 15 seconds to make less flickering if the client lags
 				entity.addPotionEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0));

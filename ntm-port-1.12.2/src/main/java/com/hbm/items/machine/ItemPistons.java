@@ -1,5 +1,7 @@
 package com.hbm.items.machine;
 
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 import java.util.Locale;
 
@@ -10,7 +12,6 @@ import com.hbm.util.EnumUtil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import com.hbm.render.icon.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
@@ -34,13 +35,14 @@ public class ItemPistons extends ItemEnumMulti {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		Enum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
-		return super.getUnlocalizedName() + "_" + num.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "_" + num.name().toLowerCase(Locale.US);
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		EnumPistonType type = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
 		
 

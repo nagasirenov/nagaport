@@ -51,11 +51,11 @@ public class GUIScreenSatInterface extends GuiScreen {
 
     		if(i >= this.guiLeft + 8 && i < this.guiLeft + 208 && j >= this.guiTop + 8 && j < this.guiTop + 208 && player != null) {
     			
-    			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:item.techBleep"), 1.0F));
+    			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:item.techBleep"), 1.0F));
     			
     			int x = this.x - guiLeft + i - 8 - 100;
     			int z = this.z - guiTop + j - 8 - 100;
-    			PacketDispatcher.wrapper.sendToServer(new SatLaserPacket(x, z, ISatChip.getFreqS(player.getHeldItem())));
+    			PacketDispatcher.wrapper.sendToServer(new SatLaserPacket(x, z, ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(player))));
     		}
     	}
     }
@@ -92,7 +92,7 @@ public class GUIScreenSatInterface extends GuiScreen {
 
     			int x = this.x - guiLeft + i - 8 - 100;
     			int z = this.z - guiTop + j - 8 - 100;
-    			func_146283_a(Arrays.asList(new String[] { x + " / " + z }), i, j);
+    			drawHoveringText(Arrays.asList(new String[] { x + " / " + z }), i, j);
     		}
     	}
 	}
@@ -141,13 +141,13 @@ public class GUIScreenSatInterface extends GuiScreen {
 	
 	private void drawMap() {
 		
-		World world = player.worldObj;
+		World world = player.world;
 		
 		for(int i = -100; i < 100; i++) {
 			int x = this.x + i;
 			int z = this.z + scanPos - 100;
-			int y = world.getHeightValue(x, z) - 1;
-			map[i + 100][scanPos] = world.getBlock(x, y, z).getMaterial().getMaterialMapColor().colorValue;
+			int y = com.hbm.world.WorldHeight.read(world, x, z) - 1;
+			map[i + 100][scanPos] = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().getMaterialMapColor().colorValue;
 		}
 		prontMap();
 		progresScan();
@@ -155,14 +155,14 @@ public class GUIScreenSatInterface extends GuiScreen {
 	
 	private void drawScan() {
 		
-		World world = player.worldObj;
+		World world = player.world;
 		
 		for(int i = -100; i < 100; i++) {
 			int x = this.x + i;
 			int z = this.z + scanPos - 100;
 			
 			for(int j = 255; j >= 0; j--) {
-				int c = getColorFromBlock(new ItemStack(world.getBlock(x, j, z), 1, world.getBlockMetadata(x, j, z)));
+				int c = getColorFromBlock(new ItemStack(com.hbm.world.WorldBlockState.read(world, x, j, z).getBlock(), 1, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, j, z) )));
 				
 				if(c != 0) {
 					map[i + 100][scanPos] = c;
@@ -242,7 +242,7 @@ public class GUIScreenSatInterface extends GuiScreen {
 	
 	private void drawRadar() {
 		
-		List<Entity> entities = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, AxisAlignedBB.getBoundingBox(player.posX - 100, 0, player.posZ - 100, player.posX + 100, 5000, player.posZ + 100));
+		List<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, AxisAlignedBB.getBoundingBox(player.posX - 100, 0, player.posZ - 100, player.posX + 100, 5000, player.posZ + 100));
 		
 		if(!entities.isEmpty()) {
 			for(Entity e : entities) {
@@ -298,7 +298,7 @@ public class GUIScreenSatInterface extends GuiScreen {
     {
         if (p_73869_2_ == 1 || p_73869_2_ == this.mc.gameSettings.keyBindInventory.getKeyCode())
         {
-            this.mc.thePlayer.closeScreen();
+            this.mc.player.closeScreen();
         }
         
         if (p_73869_2_ == this.mc.gameSettings.keyBindForward.getKeyCode())

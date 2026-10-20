@@ -5,14 +5,14 @@ import com.hbm.tileentity.TileEntityLoadedBase;
 import api.hbm.energymk2.IEnergyReceiverMK2;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineDetector extends TileEntityLoadedBase implements IEnergyReceiverMK2 {
+public class TileEntityMachineDetector extends TileEntityLoadedBase implements IEnergyReceiverMK2, net.minecraft.util.ITickable {
 	
 	long power;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.updateConnections();
 			
@@ -25,7 +25,7 @@ public class TileEntityMachineDetector extends TileEntityLoadedBase implements I
 			}
 			
 			if(meta != state) {
-				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, state, 3);
+				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), state, 3);
 				this.markDirty();
 			}
 		}
@@ -34,7 +34,7 @@ public class TileEntityMachineDetector extends TileEntityLoadedBase implements I
 	private void updateConnections() {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 
 	@Override

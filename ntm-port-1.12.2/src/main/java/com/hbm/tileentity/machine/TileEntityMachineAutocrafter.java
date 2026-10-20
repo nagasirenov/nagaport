@@ -44,12 +44,12 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 
 	@Override
 	public void nextMode(int i) {
-		this.matcher.nextMode(worldObj, slots[i], i);
+		this.matcher.nextMode(this.world, slots[i], i);
 	}
 
 	public void nextTemplate() {
 		
-		if(worldObj.isRemote) return;
+		if(this.world.isRemote) return;
 		
 		this.recipeIndex++;
 		
@@ -64,24 +64,24 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.autocrafter";
 	}
 	
 	protected InventoryCraftingAuto craftingInventory = new InventoryCraftingAuto(3, 3);
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.power = Library.chargeTEFromItems(slots, 20, power, maxPower);
-			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			
 			if(!this.recipes.isEmpty() && this.power >= this.consumption) {
 				IRecipe recipe = this.recipes.get(recipeIndex);
 				
-				if(recipe.matches(this.getRecipeGrid(), this.worldObj)) {
+				if(recipe.matches(this.getRecipeGrid(), this.world)) {
 					ItemStack stack = recipe.getCraftingResult(this.getRecipeGrid());
 					
 					if(stack != null) {
@@ -101,7 +101,7 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 								
 								ItemStack ingredient = this.getStackInSlot(i);
 
-								if(ingredient != null) {
+								if(ingredient != null && !ingredient.isEmpty()) {
 									this.decrStackSize(i, 1);
 
 									if(slots[i] == null && ingredient.getItem().hasContainerItem(ingredient)) {
@@ -163,7 +163,7 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 		for(Object o : CraftingManager.getInstance().getRecipeList()) {
 			IRecipe recipe = (IRecipe) o;
 			
-			if(recipe.matches(grid, worldObj)) {
+			if(recipe.matches(grid, this.world)) {
 				recipes.add(recipe);
 			}
 		}
@@ -174,12 +174,14 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 	public int[] access = new int[] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
 	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return access;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(i == 19)
 			return true;
 		
@@ -273,12 +275,13 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 		public void loadIventory(ItemStack[] slots, int start) {
 			
 			for(int i = 0; i < this.getSizeInventory(); i++) {
-				this.setInventorySlotContents(i, slots[start + i]);
+				ItemStack stack = slots[start + i];
+				this.setInventorySlotContents(i, stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack);
 			}
 		}
 		
 		public void clear() {
-			for(int i = 0; i < this.getSizeInventory(); i++) this.setInventorySlotContents(i, null);
+			for(int i = 0; i < this.getSizeInventory(); i++) this.setInventorySlotContents(i, ItemStack.EMPTY);
 		}
 		
 		public static class ContainerBlank extends Container {
@@ -323,11 +326,12 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		matcher.writeToNBT(nbt);
 		nbt.setInteger("rec", this.recipeIndex);
+		return nbt;
 	}
 
 	@Override
@@ -343,7 +347,7 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override
@@ -355,8 +359,8 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 		NBTTagCompound stack = nbt.getCompoundTag("stack");
 		ItemStack item = ItemStack.loadItemStackFromNBT(stack);
 		inv.setInventorySlotContents(slot, item);
-		matcher.initPatternSmart(getWorldObj(), item, slot);
-		tile.getWorldObj().markTileEntityChunkModified(tile.xCoord, tile.yCoord, tile.zCoord, tile);
+		matcher.initPatternSmart(getWorld(), item, slot);
+		tile.getWorld().markTileEntityChunkModified(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), tile);
 		updateTemplateGrid();
 	}
 	@Override

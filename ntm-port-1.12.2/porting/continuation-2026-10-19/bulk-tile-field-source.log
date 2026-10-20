@@ -1,0 +1,3 @@
+PASS: 10,939 exact read-only native field tokens / 384 files; 434 tile owners; 38 nested named-owner files.
+PASS: full selected-file inverse, owner/count/shadow/write/anonymous and excluded receiver guards.
+SOURCE PARITY ONLY: not complete machine compilation, gameplay, saves or network acceptance.

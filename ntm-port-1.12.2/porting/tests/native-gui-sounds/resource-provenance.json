@@ -1,0 +1,241 @@
+{
+  "block.bobble": {
+    "original_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "block/bobble",
+          "stream": false
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/bobble",
+          "stream": false
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/block/bobble.ogg",
+        "native": "assets/hbm/sounds/block/bobble.ogg",
+        "sha256": "a47523c9917ecae7f95e5a27a6340069dc8fc4f984631552a079777dce83751c"
+      }
+    ]
+  },
+  "weapon.cSwing": {
+    "original_definition": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "weapon/cSwing",
+          "stream": false
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/cSwing",
+          "stream": false
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/weapon/cSwing.ogg",
+        "native": "assets/hbm/sounds/weapon/cswing.ogg",
+        "sha256": "e39d91763c886ab7f051652e606fa54bb6c49a1f8df32020944dac1c807caa82"
+      }
+    ]
+  },
+  "alarm.singer": {
+    "original_definition": {
+      "category": "player",
+      "sounds": [
+        "alarm/singer1",
+        "alarm/singer2",
+        "alarm/singer3",
+        "alarm/singer4"
+      ]
+    },
+    "native_definition": {
+      "category": "player",
+      "sounds": [
+        "hbm:alarm/singer1",
+        "hbm:alarm/singer2",
+        "hbm:alarm/singer3",
+        "hbm:alarm/singer4"
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/alarm/singer1.ogg",
+        "native": "assets/hbm/sounds/alarm/singer1.ogg",
+        "sha256": "d94881610fe97d69aaaef745999cae0ef46b185ccc90aeea103398460d9f6822"
+      },
+      {
+        "original": "assets/hbm/sounds/alarm/singer2.ogg",
+        "native": "assets/hbm/sounds/alarm/singer2.ogg",
+        "sha256": "8bcef2c333d0bcb0d43bd3c40544aa18f23cd22daff9271c0c3b5809253b1686"
+      },
+      {
+        "original": "assets/hbm/sounds/alarm/singer3.ogg",
+        "native": "assets/hbm/sounds/alarm/singer3.ogg",
+        "sha256": "1d0ce45d1458ab0de0ab129386513c4a4d82be8049cd05f3b5d0394fbd53b450"
+      },
+      {
+        "original": "assets/hbm/sounds/alarm/singer4.ogg",
+        "native": "assets/hbm/sounds/alarm/singer4.ogg",
+        "sha256": "97ea8a05f8e39ac5496bf78aa6b472f07807ff0c90f391730780c82176fbccbd"
+      }
+    ]
+  },
+  "block.rbmk_az5_cover": {
+    "original_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "block/rbmk_az5_cover",
+          "stream": false
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/rbmk_az5_cover",
+          "stream": false
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/block/rbmk_az5_cover.ogg",
+        "native": "assets/hbm/sounds/block/rbmk_az5_cover.ogg",
+        "sha256": "bf849ea4dad0e6d115c1daf1f311651e3d86e9168fc3ccd7d10c42d522a9f19b"
+      }
+    ]
+  },
+  "item.techBleep": {
+    "original_definition": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "tool/techBleep",
+          "stream": false
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:tool/techBleep",
+          "stream": false
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/tool/techBleep.ogg",
+        "native": "assets/hbm/sounds/tool/techbleep.ogg",
+        "sha256": "9c8997077e0e252ce9e65c4b48a0b91f5dc58dd11e38d86d8ee51f4fba576740"
+      }
+    ]
+  },
+  "block.leverLarge": {
+    "original_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "block/leverLarge",
+          "stream": false
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/leverLarge",
+          "stream": false
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/block/leverLarge.ogg",
+        "native": "assets/hbm/sounds/block/leverlarge.ogg",
+        "sha256": "f2b710e33f5ffec68ff3b595bfb28b4609ab80ed3239e3faf59413644e8ab74b"
+      }
+    ]
+  },
+  "block.shutdown": {
+    "original_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "block/shutdown",
+          "stream": true
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/shutdown",
+          "stream": true
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/block/shutdown.ogg",
+        "native": "assets/hbm/sounds/block/shutdown.ogg",
+        "sha256": "f033834c38eb546d7727d45e8260d974d6365e74380a8740c4b94dba3fb35c33"
+      }
+    ]
+  },
+  "item.techBoop": {
+    "original_definition": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "tool/techBoop",
+          "stream": false
+        }
+      ]
+    },
+    "native_definition": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:tool/techBoop",
+          "stream": false
+        }
+      ]
+    },
+    "existing_namespace_qualification_only": true,
+    "samples": [
+      {
+        "original": "assets/hbm/sounds/tool/techBoop.ogg",
+        "native": "assets/hbm/sounds/tool/techboop.ogg",
+        "sha256": "f52d0a4332819578e2f61af0c5b90a9761a472e756140e05bff3b2a1cec6cd3c"
+      }
+    ]
+  }
+}

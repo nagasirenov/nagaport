@@ -1,0 +1,23 @@
+PASS all 19 production paths match staged tree and independent snapshot; 16 edited Java sources match corresponding generated compiler inputs among 4012.
+Production tree 4c9496bf01ee2329b972797fbc3a1b69fea7b1d4
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "d8b62d1748ee02e40d903545f491dca484a3346e3c6aa60ef9cb1421ef3fa68f",
+  "src/main/java/com/hbm/blocks/generic/BlockGrate.java": "c9089b50ca34973228f7908eb7ccec4c76518db9c9f96f39d4e9142d0ea732ac",
+  "src/main/java/com/hbm/blocks/generic/BlockWand.java": "94a76044ae675cf9d37e406f770a0362d7092c096248b85aa41bb96cd954e898",
+  "src/main/java/com/hbm/entity/mob/EntityTankbot.java": "e368b385913c8684ed310bc03a59c1662e4387824a02328643373a070e09e268",
+  "src/main/java/com/hbm/main/ClientProxy.java": "51fe71271bb81bd67dfd2f39d1a452cf98244329ff84e0454804cdb4b2b3dd7a",
+  "src/main/java/com/hbm/main/GrateModelHandler.java": "4c8d1230370a970924cd7159e652831e30c0724b8508050794fee9cd18d6e236",
+  "src/main/java/com/hbm/main/WandModelHandler.java": "31c3efe07a5af02eec2fa4d4c7fcabacca9e2425469ca1554d5b55bd40eb486a",
+  "src/main/java/com/hbm/render/block/RenderBlockWand.java": "7322bf68e38b3206a5155104f190c70720a85a9a460516679c2c0c20b25456b2",
+  "src/main/java/com/hbm/render/block/RenderGrate.java": "402b071ddd0b0840e6e9fdc2c49b624d92bc40fdd26231514ed29771ce5d80f1",
+  "src/main/java/com/hbm/render/block/nativeblock/GrateBakedModel.java": "3dd252d70e97c313ccce91f9cc1558d7d8034afefbb13ea85072c10641cccf13",
+  "src/main/java/com/hbm/render/block/nativeblock/GrateShiftedLightQuad.java": "80283f76b52bb6b7cc60b9d7f00737967af38f4d38c99b652ce972e928bcb5a8",
+  "src/main/java/com/hbm/render/block/nativeblock/WandBakedModel.java": "219f985434d8d3aaa67de4e8b3be5abf6d6f2bac33358d79e738a417a78d435e",
+  "src/main/java/com/hbm/render/entity/item/RenderMovingItem.java": "26482f055a7959e5dd110ce2fe69785521619b7bdeee4c2d2be97baad0ab5a8f",
+  "src/main/java/com/hbm/render/entity/item/RenderMovingPackage.java": "4297ab5eddc7c68ea09505e70495ffd6b6990ad60cbbb13f0015ccb1f4c17b9e",
+  "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java": "88b0553fc9af75fc23fe11de69582112db832854a21cd02164aba5c997b014fe",
+  "src/main/java/com/hbm/wiaj/actors/ActorBasicPanel.java": "1e4a6d22e56e8b950d095610cd19f74591f637a4f05001c4eb8e7c9cd27c725c",
+  "src/main/resources/assets/hbm/blockstates/tile.steel_grate.json": "d2cae07f48b7384ffe6ef5ac7b8e5190abc1548ade1ddff08ddc24141c74b424",
+  "src/main/resources/assets/hbm/blockstates/tile.steel_grate_wide.json": "8a13953da1603e6ae7853886bd493eae1254077e8d9bc75539997bd0683c6d0f",
+  "src/main/resources/assets/hbm/blockstates/tile.wand_air.json": "fa57e05a49e01e3675b2c3ba8558418f4d59b93cf1c1fd82234de9469c359c78"
+}

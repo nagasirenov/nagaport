@@ -59,7 +59,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineArcWelder";
 	}
 
@@ -68,22 +68,22 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i >= 6 && i <= 7) {
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 		}
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.power = Library.chargeTEFromItems(slots, 4, this.getPower(), this.getMaxPower());
 			this.tank.setType(5, slots);
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
-					this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 
@@ -118,12 +118,12 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 						this.markDirty();
 					}
 
-					if(worldObj.getTotalWorldTime() % 2 == 0) {
+					if(this.world.getTotalWorldTime() % 2 == 0) {
 						ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 						NBTTagCompound dPart = new NBTTagCompound();
-						dPart.setString("type", worldObj.getTotalWorldTime() % 20 == 0 ? "tau" : "hadron");
+						dPart.setString("type", this.world.getTotalWorldTime() % 20 == 0 ? "tau" : "hadron");
 						dPart.setByte("count", (byte) 5);
-						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, xCoord + 0.5 - dir.offsetX * 0.5, yCoord + 1.25, zCoord + 0.5 - dir.offsetZ * 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 25));
+						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, this.pos.getX() + 0.5 - dir.offsetX * 0.5, this.pos.getY() + 1.25, this.pos.getZ() + 0.5 - dir.offsetZ * 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 25));
 					}
 
 				} else {
@@ -222,16 +222,16 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX + rot.offsetX, yCoord, zCoord + dir.offsetZ + rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX - rot.offsetX, yCoord, zCoord + dir.offsetZ - rot.offsetZ, dir),
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - dir.offsetX + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - rot.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ - rot.offsetZ * 2, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ * 2, rot.getOpposite())
 		};
 	}
 
@@ -247,7 +247,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -255,6 +255,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 		nbt.setInteger("progress", progress);
 		nbt.setInteger("processTime", processTime);
 		tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override
@@ -288,12 +289,14 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack  stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack  stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot == 3;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1, 3 };
 	}
 
@@ -317,7 +320,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 		BlockPos pos = new BlockPos(x, y, z);
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		BlockPos core = new BlockPos(xCoord, yCoord, zCoord);
+		BlockPos core = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 		//Red
 		if(pos.equals(core.clone().offset(rot)) || pos.equals(core.clone().offset(rot.getOpposite()).offset(dir.getOpposite())))
@@ -352,12 +355,12 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 3,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 2
 					);
 		}
 

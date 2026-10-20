@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:legacy/minewood",
+  "display": {
+    "icon": {
+      "item": "minecraft:crafting_table",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.buildWorkBench"
+    },
+    "description": {
+      "translate": "achievement.buildWorkBench.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

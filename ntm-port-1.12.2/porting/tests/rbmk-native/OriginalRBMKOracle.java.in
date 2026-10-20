@@ -1,0 +1,239 @@
+import java.io.File;
+import java.lang.reflect.Field;
+import java.net.URLClassLoader;
+import java.util.*;
+import java.util.function.Function;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import sun.misc.Unsafe;
+/** Pinned original RBMK callbacks/ObjUtil; fixture-only collaborators record, never replace production. */
+final class OriginalRBMKOracle {
+ static Layout active;
+ static final class Layout {
+  final List<Face> faces=new ArrayList<>();
+  final List<StandardCall> standardCalls=new ArrayList<>();
+  final List<Batch> batches=new ArrayList<>();
+  final List<String> events=new ArrayList<>();
+  final boolean item;
+  final LegacyFaces legacy;
+  final Function<String,TextureAtlasSprite> sprites;
+  final IBlockAccess world;
+  String texture,group; int side=-1; boolean standard;
+  int starts,draws,brightnessCalls;
+  Layout(boolean item,LegacyFaces legacy,Function<String,TextureAtlasSprite> sprites,IBlockAccess world){this.item=item;this.legacy=legacy;this.sprites=sprites;this.world=world;}
+ }
+ static final class VertexRecord {
+  final double x,y,z,u,v;
+  final int color,brightness;
+  final boolean hasColor,hasBrightness,hasNormal;
+  final float[] normal;
+  VertexRecord(double x,double y,double z,double u,double v,Tessellator t){
+   this.x=x;this.y=y;this.z=z;this.u=u;this.v=v;color=t.color;brightness=t.brightness;
+   hasColor=t.hasColor;hasBrightness=t.hasBrightness;hasNormal=t.hasNormal;normal=t.normal.clone();
+  }
+  double[] xyzuv(){return new double[]{x,y,z,u,v};}
+ }
+ static final class Face {
+  final VertexRecord[] vertices;
+  final String texture,group;
+  final int side,batch;
+  final boolean standard;
+  Face(VertexRecord[] vertices){this.vertices=vertices;texture=active.texture;group=active.group;side=active.side;standard=active.standard;batch=active.batches.size()-1;}
+ }
+ static final class Batch {final int firstFace;int lastFace;Batch(){firstFace=active.faces.size();}}
+ static final class StandardCall {
+  final double[] bounds;
+  final int x,y,z,lid;
+  final boolean pipes,onlySides;
+  StandardCall(double[] b,int x,int y,int z){bounds=b.clone();this.x=x;this.y=y;this.z=z;lid=RBMKBase.renderLid;pipes=RBMKPipedBase.renderPipes;onlySides=RBMKBase.overrideOnlyRenderSides;}
+ }
+ static final class IIcon {
+  final String name;final TextureAtlasSprite sprite;
+  IIcon(String n){name=n;sprite=active.sprites.apply(n);if(sprite==null)throw new AssertionError("Missing oracle sprite: "+n);}
+  double getInterpolatedU(double u){return sprite.getInterpolatedU(u);}
+  double getInterpolatedV(double v){return sprite.getInterpolatedV(v);}
+ }
+ static final class IBlockAccess {
+  final int meta;final Integer coreMeta;final int visibleMask;
+  IBlockAccess(int m,Integer c,int mask){meta=m;coreMeta=c;visibleMask=mask;}
+  int getBlockMetadata(int x,int y,int z){return y==-8?coreMeta==null?0:coreMeta:y==0?meta:0;}
+ }
+ static class Block {
+  String id,texture;
+  IIcon blockIcon;
+  IIcon getIcon(int side,int meta){throw new AssertionError();}
+  boolean shouldSideBeRendered(IBlockAccess w,int x,int y,int z,int side){return (w.visibleMask&(1<<side))!=0;}
+  int getMixedBrightnessForBlock(IBlockAccess w,int x,int y,int z){active.brightnessCalls++;return lightAt(x,y,z);}
+ }
+ static int lightAt(int x,int y,int z){return ((8+(x+y+z&7))*16)<<16 | (4+(x+2*y+3*z&7))*16;}
+ static class BlockDummyable extends Block {int[] findCore(IBlockAccess w,int x,int y,int z){return w.coreMeta==null?null:new int[]{0,-8,0};}}
+ static class RBMKBase extends BlockDummyable {
+  static final int LID_NONE=0,LID_STANDARD=1,LID_GLASS=2;
+  static int renderLid;static boolean overrideOnlyRenderSides;
+  static final ForgeDirection DIR_NO_LID=ForgeDirection.NORTH,DIR_NORMAL_LID=ForgeDirection.EAST,DIR_GLASS_LID=ForgeDirection.SOUTH;
+  IIcon coverTextureTop,coverTextureSide,glassTextureTop,glassTextureSide,textureTop;
+  /* BASE */
+  void icons(){blockIcon=new IIcon(texture+"_side");textureTop=new IIcon(texture+"_top");
+   if(!hasOwnLid()){coverTextureTop=new IIcon(texture+"_cover_top");coverTextureSide=new IIcon(texture+"_cover_side");glassTextureTop=new IIcon(texture+"_glass_top");glassTextureSide=new IIcon(texture+"_glass_side");}
+  }
+ }
+ static class RBMKPipedBase extends RBMKBase {
+  static boolean renderPipes;IIcon pipeTextureTop,pipeTextureSide;
+  /* PIPED */
+  void icons(){super.icons();pipeTextureTop=new IIcon(texture+"_pipe_top");pipeTextureSide=new IIcon(texture+"_pipe_side");}
+ }
+ static class RBMKRod extends RBMKBase {IIcon inner,fuel;void icons(){super.icons();inner=new IIcon(texture+"_inner");fuel=new IIcon(texture+"_fuel");}}
+ static final class RBMKControl extends RBMKPipedBase {
+  IIcon textureBottom;
+  /* CONTROL */
+  void icons(){super.icons();if(this==ModBlocks.rbmk_control_reasim)textureBottom=new IIcon(texture+"_bottom");}
+ }
+ static final class RBMKControlAuto extends RBMKPipedBase {
+  IIcon textureBottom;
+  /* AUTO */
+  void icons(){super.icons();if(this==ModBlocks.rbmk_control_reasim_auto)textureBottom=new IIcon(texture+"_bottom");}
+ }
+ static final class ModBlocks {
+  static final Map<String,RBMKBase> owners=new LinkedHashMap<>();
+  static RBMKBase register(String id,String texture,RBMKBase b){b.id=id;b.texture=texture;owners.put(id,b);return b;}
+  /* OWNERS */
+ }
+ enum ForgeDirection {DOWN,UP,NORTH,SOUTH,WEST,EAST,UNKNOWN}
+ static final class GL11 {
+  static double[] matrix={1,1,1,0,0,0};
+  static final Deque<double[]> stack=new ArrayDeque<>();
+  static void glPushMatrix(){stack.push(matrix.clone());active.events.add("push");}
+  static void glPopMatrix(){matrix=stack.pop();active.events.add("pop");}
+  static void glTranslated(double x,double y,double z){matrix[3]+=matrix[0]*x;matrix[4]+=matrix[1]*y;matrix[5]+=matrix[2]*z;active.events.add("translate "+x+" "+y+" "+z);}
+  static void glScalef(float x,float y,float z){matrix[0]*=x;matrix[1]*=y;matrix[2]*=z;active.events.add("scale "+x+" "+y+" "+z);}
+ }
+ static final class Tessellator {
+  static Tessellator instance;
+  boolean hasColor,hasBrightness,hasNormal;
+  int color=0xffffffff,brightness;float[] normal={0,0,0};double tx,ty,tz;
+  final List<VertexRecord> pending=new ArrayList<>();
+  void startDrawingQuads(){
+   if(!pending.isEmpty())throw new AssertionError("Unfinished quad");
+   hasColor=false;hasBrightness=false;hasNormal=false;active.starts++;active.batches.add(new Batch());
+  }
+  void draw(){if(!pending.isEmpty())throw new AssertionError("Unfinished quad");active.draws++;active.batches.get(active.batches.size()-1).lastFace=active.faces.size();}
+  void setColorOpaque_F(float r,float g,float b){setColorOpaque((int)(r*255F),(int)(g*255F),(int)(b*255F));}
+  void setColorOpaque(int r,int g,int b){color=0xff000000|clamp(r)<<16|clamp(g)<<8|clamp(b);hasColor=true;}
+  void setColorOpaque_I(int c){setColorOpaque(c>>16&255,c>>8&255,c&255);}
+  static int clamp(int n){return Math.max(0,Math.min(255,n));}
+  void setNormal(float x,float y,float z){normal=new float[]{x,y,z};hasNormal=true;}
+  void setBrightness(int b){brightness=b;hasBrightness=true;}
+  void addTranslation(float x,float y,float z){tx+=x;ty+=y;tz+=z;}
+  void addVertexWithUV(double x,double y,double z,double u,double v){
+   // Original Tessellator stores XYZUV as floats, before GL's inventory matrix.
+   x=(float)(x+tx);y=(float)(y+ty);z=(float)(z+tz);u=(float)u;v=(float)v;
+   if(active.item){x=GL11.matrix[0]*x+GL11.matrix[3]+.5;y=GL11.matrix[1]*y+GL11.matrix[4]+.5;z=GL11.matrix[2]*z+GL11.matrix[5]+.5;}
+   pending.add(new VertexRecord(x,y,z,u,v,this));
+   if(pending.size()==4){active.faces.add(new Face(pending.toArray(new VertexRecord[4])));pending.clear();}
+  }
+ }
+ static final class RenderBlocks {
+  double[] bounds={0,0,0,1,1,1};IIcon overrideBlockTexture;
+  boolean hasOverrideBlockTexture(){return overrideBlockTexture!=null;}
+  void setRenderBounds(double...b){bounds=b;}
+  void renderStandardBlock(Block block,int x,int y,int z){
+   active.standardCalls.add(new StandardCall(bounds,x,y,z));
+   for(int side=0;side<6;side++){
+    int[] d=OFFSETS[side];
+    if(block.shouldSideBeRendered(active.world,x+d[0],y+d[1],z+d[2],side)){
+     IIcon icon=hasOverrideBlockTexture()?overrideBlockTexture:block.getIcon(side,active.world.getBlockMetadata(x,y,z));
+     face(block,x,y,z,icon,side,true);
+    }
+   }
+  }
+  void face(Block block,double x,double y,double z,IIcon icon,int side,boolean standard){
+   if(hasOverrideBlockTexture())icon=overrideBlockTexture;
+   active.texture=icon.name;active.group="standard";active.side=side;active.standard=standard;
+   try {for(double[] v:active.legacy.standardFace(bounds,side,icon.sprite))Tessellator.instance.addVertexWithUV(v[0]+x,v[1]+y,v[2]+z,v[3],v[4]);}
+   catch(Exception e){throw new RuntimeException(e);}
+  }
+  void renderFaceYNeg(Block b,double x,double y,double z,IIcon i){face(b,x,y,z,i,0,false);}
+  void renderFaceYPos(Block b,double x,double y,double z,IIcon i){face(b,x,y,z,i,1,false);}
+  void renderFaceZNeg(Block b,double x,double y,double z,IIcon i){face(b,x,y,z,i,2,false);}
+  void renderFaceZPos(Block b,double x,double y,double z,IIcon i){face(b,x,y,z,i,3,false);}
+  void renderFaceXNeg(Block b,double x,double y,double z,IIcon i){face(b,x,y,z,i,4,false);}
+  void renderFaceXPos(Block b,double x,double y,double z,IIcon i){face(b,x,y,z,i,5,false);}
+ }
+ static final int[][] OFFSETS={{0,-1,0},{0,1,0},{0,0,-1},{0,0,1},{-1,0,0},{1,0,0}};
+ static final class RenderRBMKRod {/* RENDER_ROD */}
+ static final class RenderRBMKControl {/* RENDER_CONTROL */}
+ static final class RenderRBMKReflector {/* RENDER_REFLECTOR */}
+ static final class ObjUtil {
+  static boolean hasColor;static int red,green,blue;
+  /* OBJ */
+ }
+ static final class Vertex {final float x,y,z;Vertex(float x,float y,float z){this.x=x;this.y=y;this.z=z;}}
+ static final class TextureCoordinate {final float u,v;TextureCoordinate(float u,float v){this.u=u;this.v=v;}}
+ static final class S_Face {Vertex[] vertices;TextureCoordinate[] textureCoordinates;Vertex faceNormal;}
+ static final class S_GroupObject {final String name;final List<S_Face> faces=new ArrayList<>();S_GroupObject(String n){name=n;}}
+ static final class HFRWavefrontObject {final String name;final List<S_GroupObject> groupObjects=new ArrayList<>();HFRWavefrontObject(String n){name=n;}}
+ static final class Vec3 {
+  double xCoord,yCoord,zCoord;
+  static Vec3 createVectorHelper(double x,double y,double z){Vec3 v=new Vec3();v.xCoord=x==0?0:x;v.yCoord=y==0?0:y;v.zCoord=z==0?0:z;return v;}
+  void rotateAroundX(float angle){if(angle!=0)throw new AssertionError("Original RBMK never rotates OBJ");}
+  void rotateAroundY(float angle){if(angle!=0)throw new AssertionError("Original RBMK never rotates OBJ");}
+  void rotateAroundZ(float angle){if(angle!=0)throw new AssertionError("Original RBMK never rotates OBJ");}
+ }
+ static HFRWavefrontObject parseObj(String name,String text){
+  HFRWavefrontObject model=new HFRWavefrontObject(name);List<Vertex> v=new ArrayList<>();List<TextureCoordinate> uv=new ArrayList<>();S_GroupObject group=null;
+  for(String line:text.split("\\n")){
+   String[] a=line.trim().split("\\s+");
+   switch(a[0]){
+    case "v":v.add(new Vertex(Float.parseFloat(a[1]),Float.parseFloat(a[2]),Float.parseFloat(a[3])));break;
+    case "vt":uv.add(new TextureCoordinate(Float.parseFloat(a[1]),1-Float.parseFloat(a[2])));break;
+    case "o":case "g":group=new S_GroupObject(a[1]);model.groupObjects.add(group);break;
+    case "f":
+     if(group==null){group=new S_GroupObject("Default");model.groupObjects.add(group);}
+     S_Face f=new S_Face();f.vertices=new Vertex[a.length-1];f.textureCoordinates=new TextureCoordinate[a.length-1];
+     for(int i=1;i<a.length;i++){String[] p=a[i].split("/");f.vertices[i-1]=v.get(Integer.parseInt(p[0])-1);f.textureCoordinates[i-1]=uv.get(Integer.parseInt(p[1])-1);}
+     Vertex p=f.vertices[0],q=f.vertices[1],r=f.vertices[2];
+     // Java subtraction of float source positions occurs before Vec3 converts to doubles.
+     double ax=q.x-p.x,ay=q.y-p.y,az=q.z-p.z,bx=r.x-p.x,by=r.y-p.y,bz=r.z-p.z;
+     double nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx,len=(float)Math.sqrt(nx*nx+ny*ny+nz*nz);
+     f.faceNormal=len<1e-4?new Vertex(0,0,0):new Vertex((float)(nx/len),(float)(ny/len),(float)(nz/len));group.faces.add(f);break;
+    default:break;
+   }
+  }
+  return model;
+ }
+ static final class ResourceManager {/* ASSETS */}
+ static Layout layout(String owner,int meta,boolean item,Integer coreMeta,boolean override,int visibleMask,LegacyFaces legacy,Function<String,TextureAtlasSprite> sprites){
+  return layout(owner,meta,item,coreMeta,override,visibleMask,legacy,sprites,new double[]{0,0,0,1,1,1});
+ }
+ static Layout layout(String owner,int meta,boolean item,Integer coreMeta,boolean override,int visibleMask,LegacyFaces legacy,Function<String,TextureAtlasSprite> sprites,double[] initialBounds){
+  active=new Layout(item,legacy,sprites,new IBlockAccess(meta,coreMeta,visibleMask));
+  RBMKBase.renderLid=0;RBMKBase.overrideOnlyRenderSides=false;RBMKPipedBase.renderPipes=false;ObjUtil.hasColor=false;
+  GL11.matrix=new double[]{1,1,1,0,0,0};GL11.stack.clear();Tessellator.instance=new Tessellator();
+  RBMKBase b=ModBlocks.owners.get(owner);if(b==null)throw new IllegalArgumentException(owner);b.icons();
+  RenderBlocks r=new RenderBlocks();r.bounds=initialBounds.clone();if(override)r.overrideBlockTexture=new IIcon("override");
+  if(!item)active.batches.add(new Batch());
+  if(b instanceof RBMKRod){RenderRBMKRod h=new RenderRBMKRod();if(item)h.renderInventoryBlock(b,meta,0,r);else h.renderWorldBlock(active.world,0,0,0,b,0,r);}
+  else if(b instanceof RBMKPipedBase){RenderRBMKControl h=new RenderRBMKControl();if(item)h.renderInventoryBlock(b,meta,0,r);else h.renderWorldBlock(active.world,0,0,0,b,0,r);}
+  else {RenderRBMKReflector h=new RenderRBMKReflector();if(item)h.renderInventoryBlock(b,meta,0,r);else h.renderWorldBlock(active.world,0,0,0,b,0,r);}
+  if(!Tessellator.instance.pending.isEmpty())throw new AssertionError("Unfinished geometry");return active;
+ }
+ /** Original vanilla face bytecode, no reimplementation or native-production input. */
+ static final class LegacyFaces implements AutoCloseable {
+  final URLClassLoader loader;final Class<?> renderer,block,iconType,tessType;final Object render,tess;final Field raw,count,ptr;
+  static Field field(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}
+  LegacyFaces(File jar)throws Exception{
+   loader=new URLClassLoader(new java.net.URL[]{jar.toURI().toURL()},OriginalRBMKOracle.class.getClassLoader());
+   renderer=Class.forName("blm",true,loader);block=Class.forName("aji",true,loader);iconType=Class.forName("rf",true,loader);tessType=Class.forName("bmh",true,loader);
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+  }
+  double[][] standardFace(double[] bounds,int side,final TextureAtlasSprite sprite)throws Exception{
+   String[] names={"i","k","m","j","l","n"};for(int i=0;i<6;i++)field(renderer,names[i]).setDouble(render,bounds[i]);
+   Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(p,m,a)->{
+    if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);
+    switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}
+   });
+   count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(side,side+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);
+   if(count.getInt(tess)!=4)throw new AssertionError("Legacy face vertex count");int[] data=(int[])raw.get(tess);double[][] vertices=new double[4][5];for(int i=0;i<4;i++)for(int j=0;j<5;j++)vertices[i][j]=Float.intBitsToFloat(data[i*8+j]);return vertices;
+  }
+  public void close()throws Exception{loader.close();}
+ }
+}

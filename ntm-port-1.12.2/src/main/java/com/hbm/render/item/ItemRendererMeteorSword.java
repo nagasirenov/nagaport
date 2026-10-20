@@ -1,101 +1,53 @@
 package com.hbm.render.item;
 
 import org.lwjgl.opengl.GL11;
-
+import com.hbm.render.util.NativeIconExtrusion;
 import com.hbm.render.util.RenderItemStack;
-import com.hbm.render.util.RenderMiscEffects;
-
+import com.hbm.render.util.NativeGuiItemDraw;
+import com.hbm.render.util.NativeMachineItemRenderer;
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.TextureUtil;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
-import com.hbm.render.icon.IIcon;
-import net.minecraftforge.client.IItemRenderer;
 
-public class ItemRendererMeteorSword implements IItemRenderer {
+/** Original meteor tools always carry their own colored HBM shimmer, even without enchantments. */
+public class ItemRendererMeteorSword extends ItemRenderTransformer {
+    private final float r, g, b;
+    public ItemRendererMeteorSword(float r, float g, float b) {
+        super(new double[]{0,180,-90},new double[]{.2,.55,0},new double[]{1.7,1.7,.85},
+                new double[]{0,180,-90},new double[]{0,0,0},new double[]{1.36,1.36,.68},
+                new double[]{0,0,0},new double[]{0,0,0},new double[]{1,1,1});
+        this.r=r;this.g=g;this.b=b;
+    }
+    @Override protected void draw(ItemStack item, NativeItemContext context) {
+        net.minecraft.client.renderer.RenderHelper.enableGUIStandardItemLighting();
+        if(context.transform == TransformType.GUI) {
+            RenderItemStack.renderItemStackNoEffect(0,0,0,item);
+            renderGlintFlat();
+        } else {
+            IBakedModel base = NativeGuiItemDraw.baseModel(Minecraft.getMinecraft().getRenderItem(), item);
+            java.util.List<BakedQuad> layers = NativeMachineItemRenderer.iconLayers(base);
+            if(layers == null || layers.isEmpty()) {
+                Minecraft.getMinecraft().getRenderItem().renderItem(item,base);
+                return;
+            }
+            TextureAtlasSprite icon = layers.get(0).getSprite();
+            Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+            NativeIconExtrusion.draw(icon.getMaxU(),icon.getMinV(),icon.getMinU(),icon.getMaxV(),icon.getIconWidth(),icon.getIconHeight(),.0625F);
+            renderGlint3D(Tessellator.getInstance(),.0625F);
+        }
+    }
 
-	float r;
-	float g;
-	float b;
-
-	public ItemRendererMeteorSword(float r, float g, float b) {
-		this.r = r;
-		this.g = g;
-		this.b = b;
-	}
-
-	@Override
-	public boolean handleRenderType(ItemStack stack, ItemRenderType type) {
-		return type != ItemRenderType.ENTITY;
-	}
-
-	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return false;
-	}
-
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		GL11.glPushMatrix();
-		RenderHelper.enableGUIStandardItemLighting();
-		
-		switch(type) {
-		
-		case EQUIPPED_FIRST_PERSON:
-			GL11.glRotated(180, 0, 1, 0);
-			GL11.glRotated(-90, 0, 0, 1);
-			GL11.glTranslated(0.5, 0.5, 0);
-			GL11.glTranslated(-0.5, -0.5, 0);
-			GL11.glRotated(180, 0, 1, 0);
-			GL11.glRotated(-90, 0, 0, 1);
-			GL11.glTranslated(0.5, 0.5, 0);
-			GL11.glScaled(1.36 * 2, 1.36 * 2, 0.68 * 2);
-			GL11.glTranslated(-0.5, -0.5, 0.25);
-			break;
-		case EQUIPPED:
-			GL11.glRotated(180, 0, 1, 0);
-			GL11.glRotated(-90, 0, 0, 1);
-			GL11.glTranslated(0.2, 0.55, 0);
-			GL11.glRotated(45, 0, 0, 1);
-			GL11.glRotated(180, 0, 1, 0);
-			GL11.glRotated(-45, 0, 0, 1);
-			GL11.glScaled(1.7, 1.7, 0.85);
-			break;
-		case INVENTORY:
-			break;
-			
-		default: break;
-		}
-
-		if(data.length > 1 && data[1] instanceof EntityLivingBase) {
-			EntityLivingBase entity = (EntityLivingBase) data[1];
-			IIcon iicon = entity.getItemIcon(item, 0);
-
-			if(iicon == null) {
-				return;
-			}
-
-			Minecraft.getMinecraft().getTextureManager().bindTexture(Minecraft.getMinecraft().getTextureManager().getResourceLocation(item.getItemSpriteNumber()));
-			TextureUtil.func_152777_a(false, false, 1.0F);
-			Tessellator tessellator = Tessellator.instance;
-			ItemRenderer.renderItemIn2D(tessellator, iicon.getMaxU(), iicon.getMinV(), iicon.getMinU(), iicon.getMaxV(), iicon.getIconWidth(), iicon.getIconHeight(), 0.0625F);
-			renderGlint3D(tessellator, 0.0625F);
-		} else {
-			RenderItemStack.renderItemStackNoEffect(0, 0, 0, item);
-			renderGlintFlat();
-		}
-
-		GL11.glPopMatrix();
-	}
-	
 	public void renderGlintFlat() {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		mc.renderEngine.bindTexture(RenderMiscEffects.glint);
+		mc.renderEngine.bindTexture(new net.minecraft.util.ResourceLocation("hbm", "textures/misc/glint.png"));
 
 		GL11.glDepthFunc(GL11.GL_EQUAL);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -109,7 +61,7 @@ public class ItemRendererMeteorSword implements IItemRenderer {
 			float scaleV = 0.00390625F;
 			float anim = (float) (Minecraft.getSystemTime() % (long) (3000 + j1 * 1873)) / (3000.0F + (float) (j1 * 1873)) * 256.0F;
 			float offsetV = 0.0F;
-			Tessellator tessellator = Tessellator.instance;
+			Tessellator tessellator = Tessellator.getInstance();
 			float sizeMultU = 4.0F;
 
 			if(j1 == 1) {
@@ -125,11 +77,12 @@ public class ItemRendererMeteorSword implements IItemRenderer {
 			int sizeY = 16;
 			int zLevel = 0;
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(x + 0,		y + sizeY,	zLevel,	(anim + sizeY * sizeMultU) * scaleU,			(offsetV + sizeY) * scaleV);
-			tessellator.addVertexWithUV(x + sizeX,	y + sizeY,	zLevel,	(anim + sizeX + sizeY * sizeMultU) * scaleU,	(offsetV + sizeY) * scaleV);
-			tessellator.addVertexWithUV(x + sizeX,	y + 0,		zLevel,	(anim + sizeX) * scaleU,				(offsetV + 0.0F) * scaleV);
-			tessellator.addVertexWithUV(x + 0,		y + 0,		zLevel,	(anim + 0.0F) * scaleU,					(offsetV + 0.0F) * scaleV);
+			net.minecraft.client.renderer.BufferBuilder buffer = tessellator.getBuffer();
+            buffer.begin(GL11.GL_QUADS, net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_TEX);
+			buffer.pos(x + 0, y + sizeY, zLevel).tex((anim + sizeY * sizeMultU) * scaleU, (offsetV + sizeY) * scaleV).endVertex();
+			buffer.pos(x + sizeX, y + sizeY, zLevel).tex((anim + sizeX + sizeY * sizeMultU) * scaleU, (offsetV + sizeY) * scaleV).endVertex();
+			buffer.pos(x + sizeX, y + 0, zLevel).tex((anim + sizeX) * scaleU, (offsetV + 0.0F) * scaleV).endVertex();
+			buffer.pos(x + 0, y + 0, zLevel).tex((anim + 0.0F) * scaleU, (offsetV + 0.0F) * scaleV).endVertex();
 			tessellator.draw();
 		}
 
@@ -144,7 +97,7 @@ public class ItemRendererMeteorSword implements IItemRenderer {
 	public void renderGlint3D(Tessellator tessellator, float depth) {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		mc.renderEngine.bindTexture(RenderMiscEffects.glint);
+		mc.renderEngine.bindTexture(new net.minecraft.util.ResourceLocation("hbm", "textures/misc/glint.png"));
 		
 		GL11.glDepthFunc(GL11.GL_EQUAL);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -162,14 +115,14 @@ public class ItemRendererMeteorSword implements IItemRenderer {
 		float offset = (float) (Minecraft.getSystemTime() % 3000L) / 3000.0F * 8.0F;
 		GL11.glTranslatef(offset, 0.0F, 0.0F);
 		GL11.glRotatef(-50.0F, 0.0F, 0.0F, 1.0F);
-		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 255, 255, depth);
+		NativeIconExtrusion.draw(0.0F, 0.0F, 1.0F, 1.0F, 255, 255, depth);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
 		GL11.glScalef(scale, scale, scale);
 		offset = (float) (Minecraft.getSystemTime() % 4873L) / 4873.0F * 8.0F;
 		GL11.glTranslatef(-offset, 0.0F, 0.0F);
 		GL11.glRotatef(10.0F, 0.0F, 0.0F, 1.0F);
-		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 255, 255, depth);
+		NativeIconExtrusion.draw(0.0F, 0.0F, 1.0F, 1.0F, 255, 255, depth);
 		GL11.glPopMatrix();
 		
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);

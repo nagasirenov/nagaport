@@ -30,7 +30,7 @@ public interface IRepairable {
 
 		int[] pos = dummy.findCore(world, x, y, z);
 		if(pos == null) return null;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof IRepairable)) return null;
 
 		IRepairable repairable = (IRepairable) core;
@@ -43,7 +43,7 @@ public interface IRepairable {
 
 		int[] pos = dummy.findCore(world, x, y, z);
 		if(pos == null) return false;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof IRepairable)) return false;
 
 		IRepairable repairable = (IRepairable) core;
@@ -62,14 +62,14 @@ public interface IRepairable {
 	@SideOnly(Side.CLIENT)
 	public static void addGenericOverlay(Pre event, World world, int x, int y, int z, BlockDummyable dummyable) {
 
-		List<AStack> materials = IRepairable.getRepairMaterials(world, x, y, z, dummyable, Minecraft.getMinecraft().thePlayer);
+		List<AStack> materials = IRepairable.getRepairMaterials(world, x, y, z, dummyable, Minecraft.getMinecraft().player);
 
 		if(materials == null) return;
 
 		List<String> text = new ArrayList<>();
 		text.add(TextFormatting.GOLD + "Repair with:");
 
-		ItemStack held = Minecraft.getMinecraft().thePlayer.getHeldItem();
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player);
 		if(held == null || !(held.getItem() instanceof ItemBlowtorch)) {
 			text.add("Tool: Blowtorch");
 		}
@@ -83,7 +83,7 @@ public interface IRepairable {
 			}
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(dummyable.getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(dummyable.getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	public void tryExtinguish(World world, int x, int y, int z, EnumExtinguishType type);

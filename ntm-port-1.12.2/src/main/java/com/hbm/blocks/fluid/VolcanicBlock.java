@@ -57,12 +57,12 @@ public class VolcanicBlock extends BlockFluidClassic {
 
 	public Block getReaction(World world, int x, int y, int z) {
 		
-		Block b = world.getBlock(x, y, z);
-		if(b.getMaterial() == Material.water) return Blocks.stone;
-		if(b == Blocks.log || b == Blocks.log2) return ModBlocks.waste_log;
-		if(b == Blocks.planks) return ModBlocks.waste_planks;
-		if(b == Blocks.leaves || b == Blocks.leaves2) return Blocks.fire;
-		if(b == Blocks.diamond_ore) return ModBlocks.ore_basalt;
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		if(b.getDefaultState().getMaterial() == Material.WATER) return Blocks.STONE;
+		if(b == Blocks.LOG || b == Blocks.LOG2) return ModBlocks.waste_log;
+		if(b == Blocks.PLANKS) return ModBlocks.waste_planks;
+		if(b == Blocks.LEAVES || b == Blocks.LEAVES2) return Blocks.FIRE;
+		if(b == Blocks.DIAMOND_ORE) return ModBlocks.ore_basalt;
 		return null;
 	}
 	
@@ -75,7 +75,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 		int basaltCount = 0;
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 			
 			if(b == this)
 				lavaCount++;
@@ -84,7 +84,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 			}
 		}
 		
-		if(!world.isRemote && ((!this.isSourceBlock(world, x, y, z) && lavaCount < 2) || (rand.nextInt(5) == 0) && lavaCount < 5) && world.getBlock(x, y - 1, z) != this) {
+		if(!world.isRemote && ((!this.isSourceBlock(world, x, y, z) && lavaCount < 2) || (rand.nextInt(5) == 0) && lavaCount < 5) && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
 			this.onSolidify(world, x, y, z, lavaCount, basaltCount, rand);
 		}
 	}
@@ -96,7 +96,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 	public void onSolidify(World world, int x, int y, int z, int lavaCount, int basaltCount, Random rand) {
 		int r = rand.nextInt(200);
 		
-		Block above = world.getBlock(x, y + 10, z);
+		Block above = com.hbm.world.WorldBlockState.read(world, x, y + 10, z).getBlock();
 		boolean canMakeGem = lavaCount + basaltCount == 6 && lavaCount < 3 && (above == ModBlocks.basalt || above == ModBlocks.volcanic_lava_block);
 		
 		if(r < 2) world.setBlock(x, y, z, ModBlocks.ore_basalt, 0, 3);
@@ -111,7 +111,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
 		Block b = world.getBlock(x, y, z);
 		
-		if(Blocks.fire.getFlammability(b) > 0)
+		if(Blocks.FIRE.getFlammability(b) > 0)
 			return true;
 		
 		if(b.isReplaceable(world, x, y, z))
@@ -138,7 +138,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 		double dy;
 		double dz;
 
-		if(world.getBlock(x, y + 1, z).getMaterial() == Material.air && !world.getBlock(x, y + 1, z).isOpaqueCube()) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR && !com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isOpaqueCube()) {
 			if(rand.nextInt(100) == 0) {
 				dx = (double) ((float) x + rand.nextFloat());
 				dy = (double) y + this.maxY;
@@ -152,7 +152,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 			}
 		}
 
-		if(rand.nextInt(10) == 0 && World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !world.getBlock(x, y - 2, z).getMaterial().blocksMovement()) {
+		if(rand.nextInt(10) == 0 && World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !com.hbm.world.WorldBlockState.read(world, x, y - 2, z).getBlock().getDefaultState().getMaterial().blocksMovement()) {
 			dx = (double) ((float) x + rand.nextFloat());
 			dy = (double) y - 1.05D;
 			dz = (double) ((float) z + rand.nextFloat());

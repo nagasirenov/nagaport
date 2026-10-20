@@ -1,75 +1,27 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.*;
+import com.hbm.render.block.nativeblock.AtlasObjGeometry;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-import com.hbm.blocks.network.CranePartitioner;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderPartitioner implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setColorOpaque_F(1, 1, 1);
-		
-		GL11.glRotated(90, 0, 1, 0);
-		GL11.glTranslatef(0F, -0.5F, 0F);
-		
-		tessellator.startDrawingQuads();
-		drawPartitioner(tessellator, block, 0, false);
-		tessellator.draw();
-
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-		
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-
-		int meta = world.getBlockMetadata(x, y, z);
-		float rotation = 0;
-		if(meta == 2) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 4) rotation = 180F / 180F * (float) Math.PI;
-		if(meta == 5) rotation = 0F / 180F * (float) Math.PI;
-		if(meta == 3) rotation = 270F / 180F * (float)Math.PI;
-		drawPartitioner(tessellator, block, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-		
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-	
-	private static void drawPartitioner(Tessellator tessellator, Block block, float rotation, boolean shadeNormals) {
-		CranePartitioner partitioner = (CranePartitioner) block;
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, "Side", partitioner.getIcon(0, 0), tessellator, rotation, shadeNormals);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, "Back", partitioner.iconBack, tessellator, rotation, shadeNormals);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, "Top_Top.001", partitioner.iconTop, tessellator, rotation, shadeNormals);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, "Inner", partitioner.iconInner, tessellator, rotation, shadeNormals);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, "InnerSide", partitioner.iconInnerSide, tessellator, rotation, shadeNormals);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, "Belt", partitioner.iconBelt, tessellator, rotation, shadeNormals);
-	}
-
-	@Override
-	public int getRenderId() {
-		return CranePartitioner.renderID;
-	}
+/** Native original crane-buffer material groups and metadata rotations. */
+public final class RenderPartitioner {
+    private RenderPartitioner() { }
+    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite[] sprites) {
+        if(sprites.length != 6) throw new IllegalArgumentException("Six partitioner materials required");
+        float rotation = inventory ? (float)Math.PI * .5F : rotation(metadata);
+        String[] parts = {"Side", "Back", "Top_Top.001", "Inner", "InnerSide", "Belt"};
+        List<BakedQuad> result = new ArrayList<>();
+        for(int i = 0; i < parts.length; i++) AtlasObjGeometry.appendPart(result, mesh, parts[i], sprites[i], inventory,
+                rotation, 0, 1, .5, 0, .5);
+        return Collections.unmodifiableList(result);
+    }
+    public static float rotation(int metadata) {
+        if(metadata == 2) return 90F / 180F * (float)Math.PI;
+        if(metadata == 4) return 180F / 180F * (float)Math.PI;
+        if(metadata == 3) return 270F / 180F * (float)Math.PI;
+        return 0;
+    }
 }

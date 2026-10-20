@@ -1,0 +1,30 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[02:43:32] [main/INFO]: Setting user: AtlasProbe
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_fire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_fire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_poison`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_poison`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_acid`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_acid`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_wither`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_wither`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_ultradeath`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_ultradeath`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:33] [main/INFO]: Reloading ResourceManager: resources
+[02:43:33] [main/INFO]: OBJLoader: Domain hbm has been added.
+[02:43:33] [main/INFO]: Reloading ResourceManager: resources
+[02:43:33] [main/INFO]: Max texture size: 16384
+[02:43:33] [main/INFO]: Created: 128x64 textures-atlas
+Exception in thread "main" net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model hbm:tile.barbed_wire#orientation=0 with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
+	at BarbedResourceTest.run(BarbedResourceTest.java:28)
+	at BarbedResourceTest.main(BarbedResourceTest.java:58)
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83)
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175)
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
+	... 2 more

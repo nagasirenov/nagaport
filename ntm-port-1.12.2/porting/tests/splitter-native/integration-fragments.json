@@ -1,0 +1,21 @@
+{
+  "baseline": "641ba083c276c6ac75afa6a8f996cdd86f8b16d4",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "edits": [
+        {
+          "old": "\t\tcrane_splitter = new CraneSplitter().setBlockName(\"crane_splitter\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":crane_side\");",
+          "new": "\t\tcrane_splitter = new CraneSplitter().setTranslationKey(\"crane_splitter\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "edits": [
+        {
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderSplitter());",
+          "new": "\t\t// SplitterModelHandler owns the native splitter OBJ, item and damage routes."
+        }
+      ]
+    }
+  }
+}

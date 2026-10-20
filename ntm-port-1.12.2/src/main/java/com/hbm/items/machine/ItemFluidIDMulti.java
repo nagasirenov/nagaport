@@ -76,14 +76,14 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 	}
 	
 	public static void updateMeta(ItemStack stack) {
-		if(stack.hasTagCompound()) stack.setItemDamage(stack.stackTagCompound.getInteger("fluid1"));
+		if(stack.hasTagCompound()) stack.setItemDamage(stack.getTagCompound().getInteger("fluid1"));
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		list.add(I18nUtil.resolveKey(getUnlocalizedName() + ".info"));
+		list.add(I18nUtil.resolveKey(getTranslationKey() + ".info"));
 		list.add("   " + getType(stack, true).getLocalizedName());
-		list.add(I18nUtil.resolveKey(getUnlocalizedName() + ".info2"));
+		list.add(I18nUtil.resolveKey(getTranslationKey() + ".info2"));
 		list.add("   " + getType(stack, false).getLocalizedName());
 	}
 
@@ -150,16 +150,16 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 	
 	public static void setType(ItemStack stack, FluidType type, boolean primary) {
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		
-		stack.stackTagCompound.setInteger("fluid" + (primary ? 1 : 2), type.getID());
+		stack.getTagCompound().setInteger("fluid" + (primary ? 1 : 2), type.getID());
 	}
 	
 	public static FluidType getType(ItemStack stack, boolean primary) {
 		if(!stack.hasTagCompound())
 			return Fluids.NONE;
 		
-		int type = stack.stackTagCompound.getInteger("fluid" + (primary ? 1 : 2));
+		int type = stack.getTagCompound().getInteger("fluid" + (primary ? 1 : 2));
 		return Fluids.fromID(type);
 	}
 

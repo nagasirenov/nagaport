@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityFurnaceCombination;
 
 import net.minecraft.client.renderer.RenderHelper;
@@ -15,9 +14,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderFurnaceCombination extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderFurnaceCombination extends TileEntitySpecialRenderer {
 
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/particle/rbmk_fire.png");
 
@@ -46,7 +44,7 @@ public class RenderFurnaceCombination extends TileEntitySpecialRenderer implemen
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 			RenderHelper.disableStandardItemLighting();
 			
-			int texIndex = (int) (furnace.getWorldObj().getTotalWorldTime() / 2 % 14);
+			int texIndex = (int) (furnace.getWorld().getTotalWorldTime() / 2 % 14);
 			float f0 = 1F / 14F;
 
 			float uMin = texIndex % 5 * f0;
@@ -87,21 +85,5 @@ public class RenderFurnaceCombination extends TileEntitySpecialRenderer implemen
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.furnace_combination);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -1.5, 0);
-				GL11.glScaled(3.25, 3.25, 3.25);
-			}
-			public void renderCommon() {
-				bindTexture(ResourceManager.combination_oven_tex);
-				ResourceManager.combination_oven.renderAll();
-			}};
-	}
 }

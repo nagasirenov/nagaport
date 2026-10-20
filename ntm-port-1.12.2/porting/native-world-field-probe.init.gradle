@@ -1,0 +1,15 @@
+// Isolated native fixture/expression checks. Does not change/exclude production sources.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortNativeWorldFields', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/native-world-field-probe.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

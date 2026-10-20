@@ -1,0 +1,71 @@
+{
+  "test_sources": [
+    "porting/tests/client-sound-train-native-test.py",
+    "porting/tests/ClientSoundTrainNativeTest.java",
+    "porting/tests/ForgeEventNativeLauncher.java"
+  ],
+  "exact_extracted_methods": [
+    "onPlayMusic",
+    "onPlaySound",
+    "worldTick"
+  ],
+  "complete_production_compiled": [
+    "src/main/java/com/hbm/sound/ResourceLoopSound.java",
+    "src/main/java/com/hbm/sound/SoundCategoryResolver.java",
+    "src/main/java/com/hbm/sound/MovingSoundPlayerLoop.java",
+    "src/main/java/com/hbm/sound/MovingSoundChopper.java",
+    "src/main/java/com/hbm/sound/MovingSoundCrashing.java",
+    "src/main/java/com/hbm/sound/MovingSoundChopperMine.java"
+  ],
+  "ntm_only_fixtures": [
+    "MainRegistry.Proxy.me",
+    "ModBlocks.vacuum",
+    "ItemCustomLore.updateSystem",
+    "WorldProviderCelestial",
+    "WorldProviderOrbit",
+    "EntityHunterChopper",
+    "EntityChopperMine",
+    "EntityRailCarRidable",
+    "Library.getClosestChopperForSound/getClosestMineForSound"
+  ],
+  "native_boundaries": [
+    "Unsafe allocated real Minecraft/EntityPlayerSP",
+    "WorldClient subclass supplying block state",
+    "SoundHandler subclass recording play/isPlaying",
+    "NetHandlerPlayClient subclass recording sendPacket",
+    "native Forge EventSubscriptionTransformer and MinecraftForge.EVENT_BUS",
+    "actual ForgeHooksClient.playSound",
+    "native SoundHandler getSoundMap/loadSoundResource with FolderResourcePack and FileResourcePack",
+    "native CPacketPlayer.Rotation/CPacketInput serializers",
+    "unchanged 1.7.10 jg/jk/et bytecode from pinned legacy jar"
+  ],
+  "legacy_client_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "not_claimed": [
+    "whole ModEventHandlerClient compilation",
+    "whole mod compilation",
+    "real OpenAL audio",
+    "launched client",
+    "server gameplay acceptance",
+    "identical 1.7 versus 1.12 input packet bytes (vanilla changed flags encoding)"
+  ],
+  "sha256": {
+    "porting/tests/client-sound-train-native-test.py": "fdeaf5a895a0921770eb4a510c5bd51930b3667710efe3d234ff03571ca2c1c3",
+    "porting/tests/ClientSoundTrainNativeTest.java": "3f5605ad9d69a2fbc6225db8b4afac36e2ced03dbd9953b9fdeb59b96747471a",
+    "porting/tests/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "src/main/java/com/hbm/sound/ResourceLoopSound.java": "71ba79594f86448814614125d645f6be58f78d816d03244001655504d2a1bcf4",
+    "src/main/java/com/hbm/sound/SoundCategoryResolver.java": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33",
+    "src/main/java/com/hbm/sound/MovingSoundPlayerLoop.java": "6c9e06fdef25a9a1fca978fb56cb3192503a8759e47e7ca3e532fac6bcaa8c93",
+    "src/main/java/com/hbm/sound/MovingSoundChopper.java": "a448a0ae7bb26bc4d3af84a03135d12fab2398d6a4b7c654b05f9843d510bfbc",
+    "src/main/java/com/hbm/sound/MovingSoundCrashing.java": "d3ed605b3b423c30b6db029dd90cb9affa285178e60f0cc9b01c37c92414dfdf",
+    "src/main/java/com/hbm/sound/MovingSoundChopperMine.java": "1dad44b1c52d0de07d7d5799220cbcc4e6d77d023d1192910de40fdd2d774953",
+    "porting/tests/client-sound-train-production-scope.json": "9c278a3f45c4287e81ef2a827c8df5321e3669541c643590fc720e90ddc3fc3a",
+    "porting/tests/client-sound-train-resources.json": "185ecc3586792fbc409ac304d549b5d906cadef3b3c998c7cffdc6135e6b9fe4",
+    "porting/tests/client-sound-train-notes.md": "993ee75806aabd0f2b4a04207e1118e756150ae9959f2d9ce534cb045c7e73a9",
+    "porting/continuation-2026-10-19/client-sound-train-native-FINAL.log": "10c4e8b3f22577fdb6cb1f1b6cf3c430cc3eb97c5d373d8bab251442212619a2"
+  },
+  "external_sha256": {
+    "/tmp/nagaport-legacy-client.jar": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "/tmp/nagaport-forge1614-userdev.jar": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+    "/tmp/nagaport-ae2-native-classpath.txt": "fc0f467afcb7b98f4c107a469bd760c624616f45cc5b518704db0dde241e23dc"
+  }
+}

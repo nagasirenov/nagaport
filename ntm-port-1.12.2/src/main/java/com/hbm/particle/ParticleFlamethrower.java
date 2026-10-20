@@ -2,12 +2,12 @@ package com.hbm.particle;
 
 import java.awt.Color;
 
-import com.hbm.main.ModEventHandlerClient;
 import com.hbm.particle.helper.FlameCreator;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
@@ -17,7 +17,7 @@ public class ParticleFlamethrower extends EntityFXRotating {
 
 	public ParticleFlamethrower(World world, double x, double y, double z, int type) {
 		super(world, x, y, z);
-		particleIcon = ModEventHandlerClient.particleBase;
+		particleTexture = ParticleSprites.base;
 		this.particleMaxAge = 20 + rand.nextInt(10);
 		this.particleScale = 0.5F;
 		this.type = type;
@@ -48,7 +48,7 @@ public class ParticleFlamethrower extends EntityFXRotating {
 		this.particleAge++;
 
 		if(this.particleAge >= this.particleMaxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 
 		this.motionX *= 0.91D;
@@ -56,36 +56,35 @@ public class ParticleFlamethrower extends EntityFXRotating {
 		this.motionZ *= 0.91D;
 		
 		this.motionY += 0.01D;
-		this.prevRotationPitch = this.rotationPitch;
-		this.rotationPitch += 30 * ((this.getEntityId() % 2) - 0.5);
+		this.previousSpinDegrees = this.spinDegrees;
+		this.spinDegrees += 30 * ((this.visualSeed % 2) - 0.5);
 		
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 	}
 
 	@Override
-	public void renderParticle(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {
 
+		float red, green, blue, alpha;
 		double ageScaled = (double) this.particleAge / (double) this.particleMaxAge;
 		
 		if(type == FlameCreator.META_OXY) {
 			this.particleAlpha = (float) (1 - ageScaled);
 			float add = (float) ageScaled * 1.25F - 0.25F;
-			tess.setColorRGBA_F(this.particleRed - add, this.particleGreen - add * 0.75F, this.particleBlue, this.particleAlpha);
+			red = this.particleRed - add; green = this.particleGreen - add * 0.75F; blue = this.particleBlue; alpha = this.particleAlpha;
 		} else if(type == FlameCreator.META_BLACK) {
 			this.particleAlpha = (float) (1 - ageScaled);
 			float add = (float) ageScaled * 2F - 0.25F;
-			tess.setColorRGBA_F(this.particleRed - add * 0.75F, this.particleGreen - add, this.particleBlue - add * 0.5F, this.particleAlpha);
+			red = this.particleRed - add * 0.75F; green = this.particleGreen - add; blue = this.particleBlue - add * 0.5F; alpha = this.particleAlpha;
 		} else {
 			this.particleAlpha = (float) Math.pow(1 - Math.min(ageScaled, 1), 0.5);
 			float add = 0.75F - (float) ageScaled;
-			tess.setColorRGBA_F(this.particleRed + add, this.particleGreen + add, this.particleBlue + add, this.particleAlpha * 0.5F);
+			red = this.particleRed + add; green = this.particleGreen + add; blue = this.particleBlue + add; alpha = this.particleAlpha * 0.5F;
 		}
 		
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setBrightness(240);
 
 		double scale = (ageScaled * 1.25 + 0.25) * particleScale;
-		renderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale);
+		renderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale, red, green, blue, alpha, 240);
 	}
 	
 	@Override

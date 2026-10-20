@@ -14,9 +14,16 @@ import api.hbm.fluidmk2.FluidNode;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
@@ -35,25 +42,30 @@ public class FluidDuctBase extends BlockContainer implements IBlockFluidDuct, IA
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float fX, float fY, float fZ) {
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
-			IItemFluidIdentifier id = (IItemFluidIdentifier) player.getHeldItem().getItem();
-			FluidType type = id.getType(world, x, y, z, player.getHeldItem());
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
+		ItemStack held = player.getHeldItem(hand);
+
+		if(!held.isEmpty() && held.getItem() instanceof IItemFluidIdentifier) {
+			IItemFluidIdentifier id = (IItemFluidIdentifier) held.getItem();
+			FluidType type = id.getType(world, x, y, z, held);
 
 			if(!HbmPlayerProps.getData(player).getKeyPressed(HbmKeybinds.EnumKeybind.TOOL_CTRL) && !player.isSneaking()) {
 
-				TileEntity te = world.getTileEntity(x, y, z);
+				TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 				if(te instanceof TileEntityPipeBaseNT) {
 					TileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;
 
 					if(HbmPlayerProps.getData(player).getKeyPressed(HbmKeybinds.EnumKeybind.TOOL_ALT)) {
-						Item item = player.getHeldItem().getItem();
+						Item item = held.getItem();
 						if (item instanceof ItemFluidIDMulti) {
-							if (id.getType(world, x, y, z, player.getHeldItem()) != pipe.getType()) {
-								ItemFluidIDMulti.setType(player.getHeldItem(), pipe.getType(), true);
-								world.playSoundAtEntity(player, "random.orb", 0.25F, 0.75F);
+							if (id.getType(world, x, y, z, held) != pipe.getType()) {
+								ItemFluidIDMulti.setType(held, pipe.getType(), true);
+								world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.25F, 0.75F);
 								return true;
 							}
 						}
@@ -66,17 +78,17 @@ public class FluidDuctBase extends BlockContainer implements IBlockFluidDuct, IA
 				}
 			} else {
 
-				TileEntity te = world.getTileEntity(x, y, z);
+				TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 				if(te instanceof TileEntityPipeBaseNT) {
 					TileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;
 
 					if(HbmPlayerProps.getData(player).getKeyPressed(HbmKeybinds.EnumKeybind.TOOL_ALT)) {
-						Item item = player.getHeldItem().getItem();
+						Item item = held.getItem();
 						if (item instanceof ItemFluidIDMulti) {
-							if (id.getType(world, x, y, z, player.getHeldItem()) != pipe.getType()) {
-								ItemFluidIDMulti.setType(player.getHeldItem(), pipe.getType(), true);
-								world.playSoundAtEntity(player, "random.orb", 0.25F, 0.75F);
+							if (id.getType(world, x, y, z, held) != pipe.getType()) {
+								ItemFluidIDMulti.setType(held, pipe.getType(), true);
+								world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.25F, 0.75F);
 								return true;
 							}
 						}
@@ -94,7 +106,7 @@ public class FluidDuctBase extends BlockContainer implements IBlockFluidDuct, IA
 	@Override
 	public void changeTypeRecursively(World world, int x, int y, int z, FluidType prevType, FluidType type, int loopsRemaining) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(te instanceof TileEntityPipeBaseNT) {
 			TileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;
@@ -104,7 +116,7 @@ public class FluidDuctBase extends BlockContainer implements IBlockFluidDuct, IA
 
 				if(loopsRemaining > 0) {
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-						Block b = world.getBlock(x, y, z);
+						Block b = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 
 						if(b instanceof IBlockFluidDuct) {
 							((IBlockFluidDuct) b).changeTypeRecursively(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, prevType, type, loopsRemaining - 1);
@@ -118,7 +130,7 @@ public class FluidDuctBase extends BlockContainer implements IBlockFluidDuct, IA
 	@Override
 	public List<String> getDebugInfo(World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(te instanceof TileEntityPipeBaseNT) {
 			TileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;
@@ -131,7 +143,7 @@ public class FluidDuctBase extends BlockContainer implements IBlockFluidDuct, IA
 				if(node != null && node.net != null) {
 					FluidNetMK2 net = node.net;
 
-					List<String> debug = new ArrayList();
+					List<String> debug = new ArrayList<>();
 					debug.add("Links: " + net.links.size());
 					debug.add("Subscribers: " + net.receiverEntries.size());
 					debug.add("Providers: " + net.providerEntries.size());

@@ -55,7 +55,7 @@ public class ItemScraps extends ItemAutogen {
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int layer) {
 		
-		if(stack.hasTagCompound() && stack.stackTagCompound.getBoolean("liquid")) {
+		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
 			
 			NTMMaterial mat = Mats.matById.get(stack.getItemDamage());
 			
@@ -70,7 +70,7 @@ public class ItemScraps extends ItemAutogen {
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconIndex(ItemStack stack) {
 		
-		if(stack.hasTagCompound() && stack.stackTagCompound.getBoolean("liquid")) {
+		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
 			
 			NTMMaterial mat = Mats.matById.get(stack.getItemDamage());
 			
@@ -86,7 +86,7 @@ public class ItemScraps extends ItemAutogen {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		
-		if(stack.hasTagCompound() && stack.stackTagCompound.getBoolean("liquid")) {
+		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
 			MaterialStack contents = getMats(stack);
 			if(contents != null) {
 				return I18nUtil.resolveKey(contents.material.getUnlocalizedName());
@@ -102,7 +102,7 @@ public class ItemScraps extends ItemAutogen {
 		
 		if(contents != null) {
 			
-			if(stack.hasTagCompound() && stack.stackTagCompound.getBoolean("liquid")) {
+			if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
 				list.add(Mats.formatAmount(contents.amount, Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)));
 				if(contents.material.smeltable == contents.material.smeltable.ADDITIVE) list.add(TextFormatting.DARK_RED + "Additive, not castable!");
 			} else {
@@ -135,9 +135,9 @@ public class ItemScraps extends ItemAutogen {
 		if(stack.material == null)
 			return new ItemStack(ModItems.nothing); //why do i bother adding checks for fucking everything when they don't work
 		ItemStack scrap = new ItemStack(ModItems.scraps, 1, stack.material.id);
-		scrap.stackTagCompound = new NBTTagCompound();
-		scrap.stackTagCompound.setInteger("amount", stack.amount);
-		if(liquid) scrap.stackTagCompound.setBoolean("liquid", true);
+		scrap.setTagCompound(new NBTTagCompound());
+		scrap.getTagCompound().setInteger("amount", stack.amount);
+		if(liquid) scrap.getTagCompound().setBoolean("liquid", true);
 		return scrap;
 	}
 }

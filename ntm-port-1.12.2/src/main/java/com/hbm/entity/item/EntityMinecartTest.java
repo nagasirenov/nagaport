@@ -49,7 +49,7 @@ public class EntityMinecartTest extends EntityMinecartModBase
         if (this.minecartTNTFuse > 0)
         {
             --this.minecartTNTFuse;
-            this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+            this.world.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
         }
         else if (this.minecartTNTFuse == 0)
         {
@@ -75,7 +75,7 @@ public class EntityMinecartTest extends EntityMinecartModBase
 
         if (!p_94095_1_.isExplosion())
         {
-            this.entityDropItem(new ItemStack(Blocks.tnt, 1), 0.0F);
+            this.entityDropItem(new ItemStack(Blocks.TNT, 1), 0.0F);
         }
 
         if (p_94095_1_.isFireDamage() || p_94095_1_.isExplosion() || d0 >= 0.009999999776482582D)
@@ -89,7 +89,7 @@ public class EntityMinecartTest extends EntityMinecartModBase
      */
     protected void explodeCart(double p_94103_1_)
     {
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             double d1 = Math.sqrt(p_94103_1_);
 
@@ -98,7 +98,7 @@ public class EntityMinecartTest extends EntityMinecartModBase
                 d1 = 5.0D;
             }
 
-            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)(4.0D + this.rand.nextDouble() * 1.5D * d1), true);
+            this.world.createExplosion(this, this.posX, this.posY, this.posZ, (float)(4.0D + this.rand.nextDouble() * 1.5D * d1), true);
             this.setDead();
         }
     }
@@ -151,10 +151,10 @@ public class EntityMinecartTest extends EntityMinecartModBase
     {
         this.minecartTNTFuse = 80;
 
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
-            this.worldObj.setEntityState(this, (byte)10);
-            this.worldObj.playSoundAtEntity(this, "game.tnt.primed", 1.0F, 1.0F);
+            this.world.setEntityState(this, (byte)10);
+            this.world.playSoundAtEntity(this, "game.tnt.primed", 1.0F, 1.0F);
         }
     }
 

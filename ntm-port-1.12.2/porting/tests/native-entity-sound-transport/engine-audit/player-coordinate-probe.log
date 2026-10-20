@@ -1,0 +1,1 @@
+PASS player coordinate probe: 771 checks. Valid 0..255 bed Y values all preserve packet Y but differ raw; tested -256..-1 also preserve truncated packet Y. Actual native PlayerList recipient differs at source bedY=64 and recipientY=80.7. Old=64.73749999701977, native=64.6875. Arithmetic derived from exact javap; sleep methods themselves not executed.

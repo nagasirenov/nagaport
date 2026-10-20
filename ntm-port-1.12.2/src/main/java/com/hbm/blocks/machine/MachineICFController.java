@@ -42,7 +42,7 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 	private IIcon iconFront;
 
 	public MachineICFController() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -80,7 +80,7 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 			return true;
 		} else if(!player.isSneaking()) {
 
-			TileEntityICFController controller = (TileEntityICFController) world.getTileEntity(x, y, z);
+			TileEntityICFController controller = (TileEntityICFController) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(!controller.assembled) {
 				assemble(world, x, y, z, player);
@@ -112,13 +112,13 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 		turbochargers.clear();
 		assembly.put(new BlockPos(x, y, z), 0);
 
-		ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z)).getOpposite();
+		ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) )).getOpposite();
 
 		errored = false;
 		floodFill(world, x + dir.offsetX, y, z + dir.offsetZ, player);
 		assembly.remove(new BlockPos(x, y, z));
 
-		TileEntityICFController controller = (TileEntityICFController) world.getTileEntity(x, y, z);
+		TileEntityICFController controller = (TileEntityICFController) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!errored) {
 
@@ -132,7 +132,7 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 					world.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.icf_block, 0, 3);
 				}
 
-				TileEntityBlockICF icf = (TileEntityBlockICF) world.getTileEntity(pos.getX(), pos.getY(), pos.getZ());
+				TileEntityBlockICF icf = (TileEntityBlockICF) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()));
 				icf.block = ModBlocks.icf_laser_component;
 				icf.meta = entry.getValue();
 				icf.coreX = x;
@@ -166,8 +166,8 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 			return;
 		}
 
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		boolean validCasing = false;
 		boolean validCore = false;
@@ -216,11 +216,11 @@ public class MachineICFController extends BlockContainer implements ILookOverlay
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(te instanceof TileEntityICFController)) return;
 		TileEntityICFController icf = (TileEntityICFController) te;
 		List<String> text = new ArrayList();
 		text.add(BobMathUtil.getShortNumber(icf.getPower()) + "/" + BobMathUtil.getShortNumber(icf.getMaxPower()) + "HE");
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

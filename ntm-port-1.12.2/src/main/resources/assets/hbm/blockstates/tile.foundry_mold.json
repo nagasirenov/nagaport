@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:native_foundry/tile.foundry_mold/0/world"
+    },
+    "metadata=1": {
+      "model": "hbm:native_foundry/tile.foundry_mold/1/world"
+    },
+    "metadata=2": {
+      "model": "hbm:native_foundry/tile.foundry_mold/2/world"
+    },
+    "metadata=3": {
+      "model": "hbm:native_foundry/tile.foundry_mold/3/world"
+    },
+    "metadata=4": {
+      "model": "hbm:native_foundry/tile.foundry_mold/4/world"
+    },
+    "metadata=5": {
+      "model": "hbm:native_foundry/tile.foundry_mold/5/world"
+    },
+    "metadata=6": {
+      "model": "hbm:native_foundry/tile.foundry_mold/6/world"
+    },
+    "metadata=7": {
+      "model": "hbm:native_foundry/tile.foundry_mold/7/world"
+    },
+    "metadata=8": {
+      "model": "hbm:native_foundry/tile.foundry_mold/8/world"
+    },
+    "metadata=9": {
+      "model": "hbm:native_foundry/tile.foundry_mold/9/world"
+    },
+    "metadata=10": {
+      "model": "hbm:native_foundry/tile.foundry_mold/10/world"
+    },
+    "metadata=11": {
+      "model": "hbm:native_foundry/tile.foundry_mold/11/world"
+    },
+    "metadata=12": {
+      "model": "hbm:native_foundry/tile.foundry_mold/12/world"
+    },
+    "metadata=13": {
+      "model": "hbm:native_foundry/tile.foundry_mold/13/world"
+    },
+    "metadata=14": {
+      "model": "hbm:native_foundry/tile.foundry_mold/14/world"
+    },
+    "metadata=15": {
+      "model": "hbm:native_foundry/tile.foundry_mold/15/world"
+    }
+  }
+}

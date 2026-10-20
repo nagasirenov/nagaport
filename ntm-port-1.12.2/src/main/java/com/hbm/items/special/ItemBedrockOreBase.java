@@ -42,7 +42,7 @@ public class ItemBedrockOreBase extends Item {
 	}
 
 	public static void setOreAmount(World world, ItemStack stack, int x, int z, double mult) {
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		NBTTagCompound data = stack.getTagCompound();
 
 		SolarSystem.Body body = CelestialBody.getEnum(world);
@@ -68,7 +68,7 @@ public class ItemBedrockOreBase extends Item {
 	}
 
 	public static double getOreLevel(World world, int x, int z, CelestialBedrockOreType type) {
-		long seed = world.getSeed() + world.provider.dimensionId;
+		long seed = world.getSeed() + world.provider.getDimension();
 
 		NoiseGeneratorPerlin level = getGenerator(seed);
 		NoiseGeneratorPerlin ore = getGenerator(seed - 4096 + type.index);

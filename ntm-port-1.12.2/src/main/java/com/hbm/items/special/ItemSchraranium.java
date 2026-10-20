@@ -1,5 +1,7 @@
 package com.hbm.items.special;
 
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 
 import com.hbm.config.GeneralConfig;
@@ -8,7 +10,6 @@ import com.hbm.items.ItemCustomLore;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import com.hbm.render.icon.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import com.hbm.render.icon.IIcon;
 
@@ -39,7 +40,8 @@ public class ItemSchraranium extends ItemCustomLore {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		if(GeneralConfig.enableLBSM && GeneralConfig.enableLBSMFullSchrab) list.add("pankæk");
 	}
 }

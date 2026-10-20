@@ -179,7 +179,7 @@ public class GuiQMAW extends GuiScreen {
 
 		if(lines.size() > 1 && scrollProgress == lines.size() - 1) {
 			if(guiLeft + 60 <= x && guiLeft + 60 + 80 > x && guiTop + this.ySize - 84 < y && guiTop + this.ySize - 4 >= y) {
-				Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:alarm.singer"), 1.0F));
+				Minecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:alarm.singer"), 1.0F));
 			}
 		}
 	}
@@ -191,7 +191,7 @@ public class GuiQMAW extends GuiScreen {
 
 		QuickManualAndWiki qmaw = QMAWLoader.qmaw.get(prev);
 		if(qmaw != null) {
-			Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			Minecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			GuiQMAW screen = new GuiQMAW(qmaw);
 			screen.back.addAll(back);
 			screen.back.remove(screen.back.size() - 1);
@@ -208,7 +208,7 @@ public class GuiQMAW extends GuiScreen {
 
 		QuickManualAndWiki qmaw = QMAWLoader.qmaw.get(next);
 		if(qmaw != null) {
-			Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			Minecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			GuiQMAW screen = new GuiQMAW(qmaw);
 			screen.back.addAll(back);
 			screen.back.add(qmawID);
@@ -237,8 +237,8 @@ public class GuiQMAW extends GuiScreen {
 			int max = guiTop + 25 + 191 - 8;
 			int span = max - min;
 
-			double progress = MathHelper.clamp_double((double) (mouseY - min) / span, 0D, 1D);
-			this.scrollProgress = MathHelper.clamp_int((int) Math.round((lines.size() - 1) * progress), 0, lines.size() - 1);
+			double progress = MathHelper.clamp((double) (mouseY - min) / span, 0D, 1D);
+			this.scrollProgress = MathHelper.clamp((int) Math.round((lines.size() - 1) * progress), 0, lines.size() - 1);
 		}
 
 		handleScroll();
@@ -277,20 +277,20 @@ public class GuiQMAW extends GuiScreen {
 			GL11.glRotated(180, 1, 0, 0);
 			RenderHelper.enableStandardItemLighting();
 			GL11.glRotated(-180, 1, 0, 0);
-			itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, mc.renderEngine, this.icon, guiLeft + x, guiTop + y);
-			itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, mc.renderEngine, this.icon, guiLeft + x, guiTop + y, null);
+			itemRender.renderItemAndEffectIntoGUI(this.fontRenderer, mc.renderEngine, this.icon, guiLeft + x, guiTop + y);
+			itemRender.renderItemOverlayIntoGUI(this.fontRenderer, mc.renderEngine, this.icon, guiLeft + x, guiTop + y, null);
 			RenderHelper.disableStandardItemLighting();
 			GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 			GL11.glDisable(GL11.GL_DEPTH_TEST);
 			GL11.glPopMatrix();
 
 			x += 18;
-			y += (16 - this.fontRendererObj.FONT_HEIGHT) / 2;
+			y += (16 - this.fontRenderer.FONT_HEIGHT) / 2;
 		}
 
 		y += 1;
 
-		this.fontRendererObj.drawString(title, guiLeft + x, guiTop + y, 0xFFFFFF);
+		this.fontRenderer.drawString(title, guiLeft + x, guiTop + y, 0xFFFFFF);
 	}
 
 	private void drawGuiContainerBackgroundLayer(float f, int mouseX, int mouseY) {
@@ -330,7 +330,7 @@ public class GuiQMAW extends GuiScreen {
 
 			if(y + maxHeight > guiTop + 219) break;
 
-			if(line.isEmpty()) y += this.fontRendererObj.FONT_HEIGHT;
+			if(line.isEmpty()) y += this.fontRenderer.FONT_HEIGHT;
 
 			for(ManualElement element : line) {
 				int elementX = x + inset;

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 
+import com.hbm.main.ModSoundEvents;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.entity.logic.EntityBomber;
 import com.hbm.entity.missile.EntityMissileBaseNT;
@@ -39,12 +40,13 @@ import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.SimpleComponent;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.INpc;
 import net.minecraft.entity.boss.EntityDragon;
-import net.minecraft.entity.boss.EntityDragonPart;
+import net.minecraft.entity.MultiPartEntityPart;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.IAnimals;
@@ -70,7 +72,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -147,7 +149,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", this.power);
@@ -157,21 +159,22 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 		nbt.setBoolean("targetMobs", this.targetMobs);
 		nbt.setBoolean("targetMachines", this.targetMachines);
 		nbt.setInteger("stattrak", this.stattrak);
+		return nbt;
 	}
 
 	public void manualSetup() { }
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.lastRotationPitch = this.rotationPitch;
 			this.lastRotationYaw = this.rotationYaw;
 			this.rotationPitch = this.syncRotationPitch;
 			this.rotationYaw = this.syncRotationYaw;
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.aligned = false;
 			this.updateConnections();
@@ -287,17 +290,17 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		//how did i even make this? what???
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * -1 + rot.offsetX * 0, yCoord, zCoord + dir.offsetZ * -1 + rot.offsetZ * 0, dir.getOpposite());
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * -1 + rot.offsetX * -1, yCoord, zCoord + dir.offsetZ * -1 + rot.offsetZ * -1, dir.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -1 + rot.offsetX * 0, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * 0, dir.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -1 + rot.offsetX * -1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * -1, dir.getOpposite());
 
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 0 + rot.offsetX * -2, yCoord, zCoord + dir.offsetZ * 0 + rot.offsetZ * -2, rot.getOpposite());
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 1 + rot.offsetX * -2, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * -2, rot.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 0 + rot.offsetX * -2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * -2, rot.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 1 + rot.offsetX * -2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * -2, rot.getOpposite());
 
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 0 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 0 + rot.offsetZ * 1, rot);
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 1 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * 1, rot);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 0 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * 1, rot);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 1 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * 1, rot);
 
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * 0, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 0, dir);
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * -1, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * -1, dir);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 0, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 0, dir);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * -1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * -1, dir);
 	}
 
 	@Override
@@ -348,9 +351,9 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 		vec.rotateAroundZRad((float) -this.rotationPitch);
 		vec.rotateAroundYRad((float) -(this.rotationYaw + Math.PI * 0.5));
 
-		EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(worldObj, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);
+		EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, proj.rotationYaw, proj.rotationPitch);
-		worldObj.spawnEntityInWorld(proj);
+		this.world.spawnEntityInWorld(proj);
 
 		if(usesCasings()) {
 			if(this.casingDelay() == 0) {
@@ -435,7 +438,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 		Vec3d pos = this.getTurretPos();
 		double range = this.getDecetorRange();
-		List<Entity> entities = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(pos.x, pos.y, pos.z, pos.x, pos.y, pos.z).expand(range, range, range));
+		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(pos.x, pos.y, pos.z, pos.x, pos.y, pos.z).expand(range, range, range));
 
 		Entity target = null;
 		double closest = range;
@@ -574,7 +577,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 		if(pitchDeg < -this.getTurretDepression() || pitchDeg > this.getTurretElevation())
 			return false;
 
-		return !Library.isObstructedOpaque(worldObj, ent.x, ent.y, ent.z, pos.x, pos.y, pos.z);
+		return !Library.isObstructedOpaque(this.world, ent.x, ent.y, ent.z, pos.x, pos.y, pos.z);
 	}
 
 	/**
@@ -625,7 +628,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 			//never target the ender dragon directly
 			if(e instanceof EntityDragon) return false;
-			if(e instanceof EntityDragonPart) return true;
+			if(e instanceof MultiPartEntityPart) return true;
 			if(e instanceof IMob) return true;
 			for(Class c : CompatExternal.turretTargetHostile) if(c.isAssignableFrom(e.getClass())) return true;
 		}
@@ -745,7 +748,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 	 */
 	public Vec3d getTurretPos() {
 		Vec3d offset = getHorizontalOffset();
-		return new Vec3d(xCoord + offset.x, yCoord + getHeightOffset(), zCoord + offset.z);
+		return new Vec3d(this.pos.getX() + offset.x, this.pos.getY() + getHeightOffset(), this.pos.getZ() + offset.z);
 	}
 
 	/**
@@ -802,7 +805,8 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	}
 
@@ -849,13 +853,13 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void openInventory() {
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.openC", 1.0F, 1.0F);
+	public void openInventory(EntityPlayer player) {
+		this.world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ModSoundEvents.BLOCK_OPENC, SoundCategory.BLOCKS, 1.0F, 1.0F);
 	}
 
 	@Override
-	public void closeInventory() {
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.closeC", 1.0F, 1.0F);
+	public void closeInventory(EntityPlayer player) {
+		this.world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ModSoundEvents.BLOCK_CLOSEC, SoundCategory.BLOCKS, 1.0F, 1.0F);
 	}
 
 	protected Vec3d getCasingSpawnPos() {
@@ -879,7 +883,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 		data.setBoolean("crouched", false);
 		data.setString("name", cachedCasingConfig.getName());
 		if(ej != null) data.setInteger("ej", ej.getId());
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, spawn.x, spawn.y, spawn.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, spawn.x, spawn.y, spawn.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 
 		cachedCasingConfig = null;
 	}
@@ -998,7 +1002,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getPos(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Override

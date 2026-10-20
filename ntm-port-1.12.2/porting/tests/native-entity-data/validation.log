@@ -1,0 +1,5 @@
+PASS: all 21 operations retain exact receivers/arguments, 5 keys have declaring owners; all other production source unchanged from CP59
+Note: /tmp/native-entity-data-8jyhuf1z/Probe.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: 414 native manager, inherited allocation, packet, dirty, enum and NBT assertions
+PASS: 7 production owners, exact bounded methods; SHA256 source manifest verified

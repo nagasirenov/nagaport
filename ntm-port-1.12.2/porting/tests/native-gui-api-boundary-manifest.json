@@ -1,0 +1,2236 @@
+{
+  "baseline": "27dceb0ef9e5815de3dc5f0494ca43aef9997370",
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": {
+      "before_sha256": "729a89958c4be026b8494380725af3b475b354a1f3c1e7db3054ac3b699ed955",
+      "after_sha256": "9fc713668ddd489f06eaf668e3d36efeac7a21db64b74588877224ae8ea7c1dc",
+      "edits": [
+        {
+          "before_offset": 5681,
+          "after_offset": 5681,
+          "old": "\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.25D, y + 0D, z + 0.875D, x + 1D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0.75D, x + 0.25D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0D, x + 0.125D, y + 1D, z + 0.75D));\n",
+          "new": "\t\t\t\tbbs.add(new AxisAlignedBB(x + 0.25D, y + 0D, z + 0.875D, x + 1D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.75D, x + 0.25D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.125D, y + 1D, z + 0.75D));\n"
+        },
+        {
+          "before_offset": 5996,
+          "after_offset": 5963,
+          "old": "\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0D, x + 0.75D, y + 1D, z + 0.125D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.75D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.25D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.875D, y + 0D, z + 0.25D, x + 1D, y + 1D, z + 1D));\n",
+          "new": "\t\t\t\tbbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.75D, y + 1D, z + 0.125D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0.75D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.25D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0.875D, y + 0D, z + 0.25D, x + 1D, y + 1D, z + 1D));\n"
+        },
+        {
+          "before_offset": 6311,
+          "after_offset": 6245,
+          "old": "\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.875D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.75D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.75D, y + 0D, z + 0.75D, x + 1D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0.875D, x + 0.75D, y + 1D, z + 1D));\n",
+          "new": "\t\t\t\tbbs.add(new AxisAlignedBB(x + 0.875D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.75D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0.75D, y + 0D, z + 0.75D, x + 1D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.875D, x + 0.75D, y + 1D, z + 1D));\n"
+        },
+        {
+          "before_offset": 6626,
+          "after_offset": 6527,
+          "old": "\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0.25D, x + 0.125D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0D, x + 0.25D, y + 1D, z + 0.25D));\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.25D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.125D));\n",
+          "new": "\t\t\t\tbbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.25D, x + 0.125D, y + 1D, z + 1D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.25D, y + 1D, z + 0.25D));\n\t\t\t\tbbs.add(new AxisAlignedBB(x + 0.25D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.125D));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFluidTank.java": {
+      "before_sha256": "90c3bd7721e77c75cc85252135e587fddbf1b5d27b98a6a0cf25aa4f85d6a51b",
+      "after_sha256": "ce511f5220cd6d6fe67b853c8d11ecc035ed39ae57e4f1331ef3eb37b37d0a2d",
+      "edits": [
+        {
+          "before_offset": 5685,
+          "after_offset": 5685,
+          "old": "\t\t\t\t\t\tAxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));\n",
+          "new": "\t\t\t\t\t\tnew AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRefinery.java": {
+      "before_sha256": "5e774b04cf5b08d9abfe8e1a815dd58e17c9a5143a9af137421136691edf565e",
+      "after_sha256": "43c694576a1554b4738f60984055c572ee041fa53d912feedd4dfdb2f4366958",
+      "edits": [
+        {
+          "before_offset": 4326,
+          "after_offset": 4326,
+          "old": "\t\t\t\t\t\tAxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));\n",
+          "new": "\t\t\t\t\t\tnew AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before_sha256": "94d28af9dd5e85142acff5fdd359c86de9e0a732db817efa58a38524e2a6c9d7",
+      "after_sha256": "a35ef00c111172882e3c7389574e7d49b0d933cd386c84b07600c3be247abbe5",
+      "edits": [
+        {
+          "before_offset": 1402,
+          "after_offset": 1402,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1444,
+          "after_offset": 1609,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityMist.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Float> AREA_WIDTH = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> AREA_HEIGHT = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);\n"
+        },
+        {
+          "before_offset": 1602,
+          "after_offset": 2150,
+          "old": "\t\tthis.dataWatcher.updateObject(11, width);\n\t\tthis.dataWatcher.updateObject(12, height);\n",
+          "new": "\t\tthis.dataManager.set(AREA_WIDTH, width);\n\t\tthis.dataManager.set(AREA_HEIGHT, height);\n"
+        },
+        {
+          "before_offset": 1842,
+          "after_offset": 2389,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n\t\tthis.dataWatcher.addObject(11, new Float(0));\n\t\tthis.dataWatcher.addObject(12, new Float(0));\n",
+          "new": "\t\tthis.dataManager.register(FLUID_TYPE, new Integer(0));\n\t\tthis.dataManager.register(AREA_WIDTH, new Float(0));\n\t\tthis.dataManager.register(AREA_HEIGHT, new Float(0));\n"
+        },
+        {
+          "before_offset": 2039,
+          "after_offset": 2608,
+          "old": "\t\tthis.dataWatcher.updateObject(10, fluid.getID());\n",
+          "new": "\t\tthis.dataManager.set(FLUID_TYPE, fluid.getID());\n"
+        },
+        {
+          "before_offset": 2141,
+          "after_offset": 2709,
+          "old": "\t\treturn Fluids.fromID(this.dataWatcher.getWatchableObjectInt(10));\n",
+          "new": "\t\treturn Fluids.fromID(this.dataManager.get(FLUID_TYPE));\n"
+        },
+        {
+          "before_offset": 2259,
+          "after_offset": 2817,
+          "old": "\t\tfloat height = this.dataWatcher.getWatchableObjectFloat(12);\n",
+          "new": "\t\tfloat height = this.dataManager.get(AREA_HEIGHT);\n"
+        },
+        {
+          "before_offset": 2342,
+          "after_offset": 2889,
+          "old": "\t\tthis.setSize(this.dataWatcher.getWatchableObjectFloat(11), height);\n",
+          "new": "\t\tthis.setSize(this.dataManager.get(AREA_WIDTH), height);\n"
+        },
+        {
+          "before_offset": 8255,
+          "after_offset": 8790,
+          "old": "\t\tnbt.setFloat(\"width\", this.dataWatcher.getWatchableObjectFloat(11));\n\t\tnbt.setFloat(\"height\", this.dataWatcher.getWatchableObjectFloat(12));\n",
+          "new": "\t\tnbt.setFloat(\"width\", this.dataManager.get(AREA_WIDTH));\n\t\tnbt.setFloat(\"height\", this.dataManager.get(AREA_HEIGHT));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityDisperserCanister.java": {
+      "before_sha256": "58550c2bc373889c5b3787f9aaaa32d5aeb677a871d4643357651d3af894a852",
+      "after_sha256": "488e6d311f028ee2bcbd2407882ed68fabe327f53d2c27c32b9334f03d3bac59",
+      "edits": [
+        {
+          "before_offset": 308,
+          "after_offset": 308,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 374,
+          "after_offset": 539,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> ITEM_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 700,
+          "after_offset": 1149,
+          "old": "\t\tthis.dataWatcher.updateObject(12, id);\n",
+          "new": "\t\tthis.dataManager.set(FLUID_TYPE, id);\n"
+        },
+        {
+          "before_offset": 802,
+          "after_offset": 1250,
+          "old": "\t\tthis.dataWatcher.addObject(12, 0);\n\t\tthis.dataWatcher.addObject(13, 0);\n",
+          "new": "\t\tthis.dataManager.register(FLUID_TYPE, 0);\n\t\tthis.dataManager.register(ITEM_TYPE, 0);\n"
+        },
+        {
+          "before_offset": 930,
+          "after_offset": 1391,
+          "old": "\t\tthis.dataWatcher.updateObject(13, id);\n",
+          "new": "\t\tthis.dataManager.set(ITEM_TYPE, id);\n"
+        },
+        {
+          "before_offset": 1021,
+          "after_offset": 1480,
+          "old": "\t\treturn Fluids.fromID(this.dataWatcher.getWatchableObjectInt(12));\n",
+          "new": "\t\treturn Fluids.fromID(this.dataManager.get(FLUID_TYPE));\n"
+        },
+        {
+          "before_offset": 1118,
+          "after_offset": 1567,
+          "old": "\t\treturn Item.getItemById(this.dataWatcher.getWatchableObjectInt(13));\n",
+          "new": "\t\treturn Item.getItemById(this.dataManager.get(ITEM_TYPE));\n"
+        },
+        {
+          "before_offset": 1585,
+          "after_offset": 2023,
+          "old": "\t\tnbt.setInteger(\"fluid\", this.dataWatcher.getWatchableObjectInt(12));\n\t\tnbt.setInteger(\"item\", this.dataWatcher.getWatchableObjectInt(13));\n",
+          "new": "\t\tnbt.setInteger(\"fluid\", this.dataManager.get(FLUID_TYPE));\n\t\tnbt.setInteger(\"item\", this.dataManager.get(ITEM_TYPE));\n"
+        },
+        {
+          "before_offset": 1826,
+          "after_offset": 2243,
+          "old": "\t\tthis.dataWatcher.updateObject(12, nbt.getInteger(\"fluid\"));\n\t\tthis.dataWatcher.updateObject(13, nbt.getInteger(\"item\"));\n",
+          "new": "\t\tthis.dataManager.set(FLUID_TYPE, nbt.getInteger(\"fluid\"));\n\t\tthis.dataManager.set(ITEM_TYPE, nbt.getInteger(\"item\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityCog.java": {
+      "before_sha256": "830fc21d51ace005502013d58b0d0b05aadda181f38019eeac10f45dc11fb669",
+      "after_sha256": "bd71906378959d21b98754ed41a363c3b320ff6604d6d66987f9eb495f5ca2c4",
+      "edits": [
+        {
+          "before_offset": 758,
+          "after_offset": 758,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 814,
+          "after_offset": 979,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> META = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 1072,
+          "after_offset": 1489,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n\t\tthis.dataWatcher.addObject(11, new Integer(0));\n",
+          "new": "\t\tthis.dataManager.register(ORIENTATION, new Integer(0));\n\t\tthis.dataManager.register(META, new Integer(0));\n"
+        },
+        {
+          "before_offset": 1220,
+          "after_offset": 1646,
+          "old": "\t\tthis.dataWatcher.updateObject(10, rot);\n",
+          "new": "\t\tthis.dataManager.set(ORIENTATION, rot);\n"
+        },
+        {
+          "before_offset": 1319,
+          "after_offset": 1745,
+          "old": "\t\tthis.dataWatcher.updateObject(11, meta);\n",
+          "new": "\t\tthis.dataManager.set(META, meta);\n"
+        },
+        {
+          "before_offset": 1412,
+          "after_offset": 1831,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\treturn this.dataManager.get(ORIENTATION);\n"
+        },
+        {
+          "before_offset": 1493,
+          "after_offset": 1903,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(11);\n",
+          "new": "\t\treturn this.dataManager.get(META);\n"
+        },
+        {
+          "before_offset": 2827,
+          "after_offset": 3221,
+          "old": "\t\t\tint orientation = this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\t\tint orientation = this.dataManager.get(ORIENTATION);\n"
+        },
+        {
+          "before_offset": 2982,
+          "after_offset": 3367,
+          "old": "\t\t\t\t\tthis.dataWatcher.updateObject(10, orientation + 6);\n",
+          "new": "\t\t\t\t\tthis.dataManager.set(ORIENTATION, orientation + 6);\n"
+        },
+        {
+          "before_offset": 3828,
+          "after_offset": 4213,
+          "old": "\t\t\tint orientation = this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\t\tint orientation = this.dataManager.get(ORIENTATION);\n"
+        },
+        {
+          "before_offset": 3937,
+          "after_offset": 4313,
+          "old": "\t\t\t\tthis.dataWatcher.updateObject(10, orientation - 6);\n",
+          "new": "\t\t\t\tthis.dataManager.set(ORIENTATION, orientation - 6);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySawblade.java": {
+      "before_sha256": "ff7e4940747cad75c553460bdccfaf3b60741e080b84238d825b677752273693",
+      "after_sha256": "4b6550fccaac532206a0d71adc56981a6b396a949fe8c57c3bad49044a51107e",
+      "edits": [
+        {
+          "before_offset": 757,
+          "after_offset": 757,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 818,
+          "after_offset": 983,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntitySawblade.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> META = EntityDataManager.createKey(EntitySawblade.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 1086,
+          "after_offset": 1513,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n\t\tthis.dataWatcher.addObject(11, new Integer(0));\n",
+          "new": "\t\tthis.dataManager.register(ORIENTATION, new Integer(0));\n\t\tthis.dataManager.register(META, new Integer(0));\n"
+        },
+        {
+          "before_offset": 1239,
+          "after_offset": 1675,
+          "old": "\t\tthis.dataWatcher.updateObject(10, rot);\n",
+          "new": "\t\tthis.dataManager.set(ORIENTATION, rot);\n"
+        },
+        {
+          "before_offset": 1331,
+          "after_offset": 1767,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\treturn this.dataManager.get(ORIENTATION);\n"
+        },
+        {
+          "before_offset": 1412,
+          "after_offset": 1839,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(11);\n",
+          "new": "\t\treturn this.dataManager.get(META);\n"
+        },
+        {
+          "before_offset": 2725,
+          "after_offset": 3136,
+          "old": "\t\t\tint orientation = this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\t\tint orientation = this.dataManager.get(ORIENTATION);\n"
+        },
+        {
+          "before_offset": 2880,
+          "after_offset": 3282,
+          "old": "\t\t\t\t\tthis.dataWatcher.updateObject(10, orientation + 6);\n",
+          "new": "\t\t\t\t\tthis.dataManager.set(ORIENTATION, orientation + 6);\n"
+        },
+        {
+          "before_offset": 3726,
+          "after_offset": 4128,
+          "old": "\t\t\tint orientation = this.dataWatcher.getWatchableObjectInt(10);\n",
+          "new": "\t\t\tint orientation = this.dataManager.get(ORIENTATION);\n"
+        },
+        {
+          "before_offset": 3835,
+          "after_offset": 4228,
+          "old": "\t\t\t\tthis.dataWatcher.updateObject(10, orientation - 6);\n",
+          "new": "\t\t\t\tthis.dataManager.set(ORIENTATION, orientation - 6);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": {
+      "before_sha256": "7e5ffd0f10445b6923b869da09ddfc56f44a0dd14f2f4b075912ba7490170d31",
+      "after_sha256": "74fcd86a6a9bde515409c606aec8334dfa372cab6e4089562287a541d6c95334",
+      "edits": [
+        {
+          "before_offset": 2029,
+          "after_offset": 2029,
+          "old": "\t\tList<Entity> list = world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(x, y, z, x, y, z).expand(radius, radius, radius));\n",
+          "new": "\t\tList<Entity> list = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(x, y, z, x, y, z).expand(radius, radius, radius));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/neutron/PileNeutronHandler.java": {
+      "before_sha256": "42b533b8427a48961858624edd78a8959fd7e4de927a5310bc9b65d4b9c7219b",
+      "after_sha256": "2f5242cb2303d429cd94c032531e43c42ebe82f46ca9d1d8059f61702ee56933",
+      "edits": [
+        {
+          "before_offset": 3417,
+          "after_offset": 3417,
+          "old": "\t\t\t\tList<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x, y, z, x, y, z));\n",
+          "new": "\t\t\t\tList<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x, y, z, x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before_sha256": "f1d707baef3d73fb9f3bda2b538ce5c22ced4a290ed81df5bf86a01d8118b6dc",
+      "after_sha256": "8083ec5bf55c66764bb4befd9de4f437d95ec02766459e33579273318d0e1097",
+      "edits": [
+        {
+          "before_offset": 2351,
+          "after_offset": 2351,
+          "old": "\t\tthis.search = new GuiTextField(this.fontRenderer, guiLeft + 10, guiTop + 111, 84, 12);\n",
+          "new": "\t\tthis.search = new GuiTextField(0, this.fontRenderer, guiLeft + 10, guiTop + 111, 84, 12);\n"
+        },
+        {
+          "before_offset": 5252,
+          "after_offset": 5255,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5525,
+          "after_offset": 5522,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5847,
+          "after_offset": 5838,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6780,
+          "after_offset": 6765,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIBarrel.java": {
+      "before_sha256": "5c0c470a4a1a40644b75c5f089cecb2a7c01ef5c3aff2378f31ba5e7a02cf462",
+      "after_sha256": "8dd399a9e527aae8acc6420c16bd345df1d38b4bf7c0c8243875c0287c7f0587",
+      "edits": [
+        {
+          "before_offset": 1743,
+          "after_offset": 1743,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIBookLore.java": {
+      "before_sha256": "94a15613f93c13e0d9ae5c4919394e1a5f7b47562f3676f9ebf3932ca3e3f26e",
+      "after_sha256": "3da143788c67d0da5b63ce6e170935091361e2805849343eec87fc11182d204e",
+      "edits": [
+        {
+          "before_offset": 4938,
+          "after_offset": 4938,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5143,
+          "after_offset": 5137,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICalculator.java": {
+      "before_sha256": "6fe18524ce9fe3b3a171e3c2da214df926aaa544c2cb41cc6713c9affedc986c",
+      "after_sha256": "f5190e39513e85d551e56a4b79b1f72418b4b31f400bb70f95d6e359a58bc7cf",
+      "edits": [
+        {
+          "before_offset": 894,
+          "after_offset": 894,
+          "old": "\t\tinputField = new GuiTextField(fontRenderer, x + 5, y + 8, 210, 13);\n",
+          "new": "\t\tinputField = new GuiTextField(0, fontRenderer, x + 5, y + 8, 210, 13);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java": {
+      "before_sha256": "4f9a5ef1362bd37db04460121b35681a964fb80bac46014e4f10332f95d14a09",
+      "after_sha256": "de0cae20a1db4dd48d0287a232a0f94c79dd702efa7a31fbce63274af7948660",
+      "edits": [
+        {
+          "before_offset": 3485,
+          "after_offset": 3485,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3929,
+          "after_offset": 3923,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICompressor.java": {
+      "before_sha256": "f7abf826070cf3f1768336681c6c5d95d6730eba6bb2ddb48427498571b86448",
+      "after_sha256": "d719df624b7c6ef2e35ae3b8dbb7780bec53df1b2712c60ff4bddb6300bad88a",
+      "edits": [
+        {
+          "before_offset": 1867,
+          "after_offset": 1867,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICoreEmitter.java": {
+      "before_sha256": "8c4e07e6a970d862984fb765d58c6de3dcfaeb2ffdd62b91b49b0ecbaa6722aa",
+      "after_sha256": "2d0d4d2638baf57832014ffa24c80d45e6ab03b6250e5718ce2f3b0289b79f01",
+      "edits": [
+        {
+          "before_offset": 1264,
+          "after_offset": 1264,
+          "old": "\t\tthis.field = new GuiTextField(this.fontRenderer, guiLeft + 57, guiTop + 57, 29, 12);\n",
+          "new": "\t\tthis.field = new GuiTextField(0, this.fontRenderer, guiLeft + 57, guiTop + 57, 29, 12);\n"
+        },
+        {
+          "before_offset": 2254,
+          "after_offset": 2257,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2627,
+          "after_offset": 2624,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICoreStabilizer.java": {
+      "before_sha256": "ac0a45ad0f6a4d5fc7f1655644500506f3b4960833e6e2ca05e5eb95121cfb34",
+      "after_sha256": "93a743599fc7f890bf3e26cbfe730d0637138667470eed3eaf8593dc58c9462e",
+      "edits": [
+        {
+          "before_offset": 1274,
+          "after_offset": 1274,
+          "old": "        this.field = new GuiTextField(this.fontRenderer, guiLeft + 75, guiTop + 57, 29, 12);\n",
+          "new": "        this.field = new GuiTextField(0, this.fontRenderer, guiLeft + 75, guiTop + 57, 29, 12);\n"
+        },
+        {
+          "before_offset": 2244,
+          "after_offset": 2247,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICounterTorch.java": {
+      "before_sha256": "892d9f7a2310d474b7998481f8db218af8be09bdf56102c3acf76b02c2dae22b",
+      "after_sha256": "61b7e0e19f1459b5a48931b46deb259ea109ae160eb85f2a85c2ffa2593ef93a",
+      "edits": [
+        {
+          "before_offset": 1524,
+          "after_offset": 1524,
+          "old": "\t\t\tthis.frequency[i] = new GuiTextField(this.fontRenderer, guiLeft + 29, guiTop + 21 + 44 * i, 86, 14);\n",
+          "new": "\t\t\tthis.frequency[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 29, guiTop + 21 + 44 * i, 86, 14);\n"
+        },
+        {
+          "before_offset": 3086,
+          "after_offset": 3089,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3539,
+          "after_offset": 3536,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneBoxer.java": {
+      "before_sha256": "fab16c7df7e93c5760cfa5e905125f425d6e898165e14c767d0b2912e8212962",
+      "after_sha256": "735ecc6e7b078717e2f3cbc2ca903057c1e5bb194a69d3f2202d4703a0a9ab42",
+      "edits": [
+        {
+          "before_offset": 1182,
+          "after_offset": 1182,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java": {
+      "before_sha256": "b2c394e10953a06c771c5d193ac350777ad5cd426f2eff937ea420d55265d7b3",
+      "after_sha256": "35492433c2bca0193e27d678387f02ba88d43388d9e90732a2e495b59d8a1a78",
+      "edits": [
+        {
+          "before_offset": 1880,
+          "after_offset": 1880,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneInserter.java": {
+      "before_sha256": "8885a43bf0c40fb2422de0d87bedf4200cfed34fb27fed82f6d4fe0ac6616cf5",
+      "after_sha256": "62f4c9c88b497a2fb573ccb2bc90a6ec283cd658e6d71f01aaf800ab1683aa7f",
+      "edits": [
+        {
+          "before_offset": 1655,
+          "after_offset": 1655,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java": {
+      "before_sha256": "23a13af966491d8ae76e5433a723f35dfaf518d83d13bac8e517738910c0bf94",
+      "after_sha256": "cba74c5dda8236bc6ff51373a21e7b4bff43f6d3dbd9057a0350f3b3f2fd49f7",
+      "edits": [
+        {
+          "before_offset": 1483,
+          "after_offset": 1483,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDroneCrate.java": {
+      "before_sha256": "c5df054ba91063fe2ae028fb361dc5b4d20da73ea2d02ee26b1b52f89fd7ee1d",
+      "after_sha256": "c4f83ea06a514500cae0169cdb462764453002daad4a11ca33d9b8ffcf9d06ed",
+      "edits": [
+        {
+          "before_offset": 1571,
+          "after_offset": 1571,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIElectrolyserFluid.java": {
+      "before_sha256": "2d651fa68a2af7e38b3eb6a574a44a0fffb879c6be4e0ec342c46a1ee8727db3",
+      "after_sha256": "d63832a68e69df8729af19f1f27c1ca3d329143fc86e8cd3d8b6fe446b477a5e",
+      "edits": [
+        {
+          "before_offset": 1792,
+          "after_offset": 1792,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIElectrolyserMetal.java": {
+      "before_sha256": "4ba27a4048fe56bb3e7d8e874d36090c86ee280b74f3692c25a5e8e88f4611f7",
+      "after_sha256": "75b2fa5449d4955b34c513e67e33d57ee52e3dfffe391764bc717e466d0147df",
+      "edits": [
+        {
+          "before_offset": 2729,
+          "after_offset": 2729,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFEL.java": {
+      "before_sha256": "ad6e63c7a543f9de293fae603ca9a7ea280305b256628454476eb00c2b0e661e",
+      "after_sha256": "fea0c6537022aaa21289c0d0531f37146c8dc1529f27bc599fed4d55e7627c5e",
+      "edits": [
+        {
+          "before_offset": 1435,
+          "after_offset": 1435,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIForceField.java": {
+      "before_sha256": "d41d9678f3c0cbe53b1ee9d467409de23b4d6eb947a59065665a55bc32a484c8",
+      "after_sha256": "18db5dba3d829278386c693451ffb55ac4fa511a6373e20be5c51f27efe13a93",
+      "edits": [
+        {
+          "before_offset": 1981,
+          "after_offset": 1981,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFunnel.java": {
+      "before_sha256": "21ee230d78c621da12c76cae9d04ee0d8487654cd32a5fda4cac21922eda7150",
+      "after_sha256": "be062ac7b19177cc6fc71eaf71d6ba47e53ab3969205ec5bb1114a6071ef276a",
+      "edits": [
+        {
+          "before_offset": 1456,
+          "after_offset": 1456,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFusionKlystron.java": {
+      "before_sha256": "5e12d4cf4038c5b7d86fa13f3ca7cf1dc45ab4f52620e9ea6be767c03d55aa38",
+      "after_sha256": "b56375a7fe43dfeafc395ee4a20db9ff98d7c93a2b11bfa4b408b7bd5fabdf5d",
+      "edits": [
+        {
+          "before_offset": 1399,
+          "after_offset": 1399,
+          "old": "\t\tthis.field = new GuiTextField(this.fontRenderer, guiLeft + 84, guiTop + 22, 102, 12);\n",
+          "new": "\t\tthis.field = new GuiTextField(0, this.fontRenderer, guiLeft + 84, guiTop + 22, 102, 12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java": {
+      "before_sha256": "72ec5669c6819c5ed696c0945866cabfa7cfd2dd94196921bba8e16c40f1e233",
+      "after_sha256": "801a094e2db7d89ecbc7dac68d33eb4609aca8fd6c4cca10d82636ca916aa6b9",
+      "edits": [
+        {
+          "before_offset": 1249,
+          "after_offset": 1249,
+          "old": "\t\tthis.fieldCycles = new GuiTextField(this.fontRenderer, guiLeft + 73, guiTop + 31, 30, 10);\n",
+          "new": "\t\tthis.fieldCycles = new GuiTextField(0, this.fontRenderer, guiLeft + 73, guiTop + 31, 30, 10);\n"
+        },
+        {
+          "before_offset": 1440,
+          "after_offset": 1443,
+          "old": "\t\tthis.fieldDelay = new GuiTextField(this.fontRenderer, guiLeft + 73, guiTop + 49, 30, 10);\n",
+          "new": "\t\tthis.fieldDelay = new GuiTextField(1, this.fontRenderer, guiLeft + 73, guiTop + 49, 30, 10);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIITER.java": {
+      "before_sha256": "abad77a29616494d3dee720e7a32ee30ff6e98be22133969099a5deb69bbbc10",
+      "after_sha256": "3e6069761fbf3beda6ba49440b1985d457e823f89f3e7e20a5324ff5ad07954a",
+      "edits": [
+        {
+          "before_offset": 2060,
+          "after_offset": 2060,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUILaunchPadRocket.java": {
+      "before_sha256": "d84d0f8164c087d550e12c57728e63b99575da573a02ecd54a4f315979e82b83",
+      "after_sha256": "967e6992feda1018588776abc6c3ec38f9654c4910310e887124e7cc7f9ef318",
+      "edits": [
+        {
+          "before_offset": 3195,
+          "after_offset": 3195,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUILaunchPadRusted.java": {
+      "before_sha256": "0b8c1419b846abbb6cf7d284a8f40e5b2778e45c6e8f4043920219c6e56028ca",
+      "after_sha256": "2a83a925984030eeb6e279c80ca44eda0d1c0afe844cfd214790be5cb99408d5",
+      "edits": [
+        {
+          "before_offset": 2017,
+          "after_offset": 2017,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java": {
+      "before_sha256": "5bd5e1404d8aab00b6666241506e3b94e5715955dc537725427992b31f68c974",
+      "after_sha256": "1173d1c04fbe0f6c349de1f2039ae8a3dbfd10cce09070f07c5c4258b31d9dce",
+      "edits": [
+        {
+          "before_offset": 1910,
+          "after_offset": 1910,
+          "old": "\t\tthis.search = new GuiTextField(this.fontRenderer, guiLeft + 10, guiTop + 75, 66, 12);\n",
+          "new": "\t\tthis.search = new GuiTextField(0, this.fontRenderer, guiLeft + 10, guiTop + 75, 66, 12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java": {
+      "before_sha256": "f24e7b06e728c5b8e174e8b01d611261dd060c8fae87ec20cd6bf7ef6274c807",
+      "after_sha256": "d08b19a219d64befdb0f539903ff4f7dca86ab5c502a3673ba19490b70db9883",
+      "edits": [
+        {
+          "before_offset": 1349,
+          "after_offset": 1349,
+          "old": "\t\tthis.pool = new GuiTextField(this.fontRenderer, guiLeft + 31, guiTop + 85, 80, 8);\n",
+          "new": "\t\tthis.pool = new GuiTextField(0, this.fontRenderer, guiLeft + 31, guiTop + 85, 80, 8);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineArcFurnaceLarge.java": {
+      "before_sha256": "688f921a5b56337030989d2857e281a7b9e25a41c6d9b6bf29d3b1a6f1cb9587",
+      "after_sha256": "511dfe0e427053c901d00dd06e072b47e244bca49345ab310ec863bc9bbf94c2",
+      "edits": [
+        {
+          "before_offset": 1814,
+          "after_offset": 1814,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineBattery.java": {
+      "before_sha256": "9ea82c730ffdcb9388b9119a2c60eace39818153deeca499723dde0d0d7eae99",
+      "after_sha256": "646ba379bc3c16957dba676dd96c0beea78bf7efe553881bf7f7a27c17300c08",
+      "edits": [
+        {
+          "before_offset": 2733,
+          "after_offset": 2733,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3099,
+          "after_offset": 3093,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3465,
+          "after_offset": 3453,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineDriveProcessor.java": {
+      "before_sha256": "1548cff353060ab8dbe1b0d42810c08b72c3e081bb7d4bda4bd02e76ad62d44a",
+      "after_sha256": "72fc45cdbb64733b72ca397c030e99956919c0abdeaa81dedeb045a811cc022b",
+      "edits": [
+        {
+          "before_offset": 2542,
+          "after_offset": 2542,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2973,
+          "after_offset": 2967,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineExcavator.java": {
+      "before_sha256": "fd345142a8db073509cc75eebf20836522e44bb19478d2ea054ef12f86ef633d",
+      "after_sha256": "728f4ca03558abc8c6e24f0220c1185ac68bed3d564e7639f17b79eec5e00aa2",
+      "edits": [
+        {
+          "before_offset": 2669,
+          "after_offset": 2669,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.leverLarge\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.leverLarge\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineFluidTank.java": {
+      "before_sha256": "d0fbad0b70179d297b59a43f567750fad8801a5835afffb8f3d9ed8ebe045df6",
+      "after_sha256": "acd5661bf0667a7afd0bbee53e25cbee99a88e51b165a8e736e7e25a23e2931f",
+      "edits": [
+        {
+          "before_offset": 1811,
+          "after_offset": 1811,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineGasFlare.java": {
+      "before_sha256": "3b297090da4df4dab80898bd5e9612263f5e17baea11f677381e704a569fb928",
+      "after_sha256": "1cd54105d05cfdcbe043e4d9b0b24e2e037272b5333ac68997fccb7e72973c9c",
+      "edits": [
+        {
+          "before_offset": 1898,
+          "after_offset": 1898,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2345,
+          "after_offset": 2339,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineLaunchTable.java": {
+      "before_sha256": "cbe909729b3c122c733980a79786a8f4178a8e4d6c3ec572abc47161a00cd7c9",
+      "after_sha256": "9d957cffd322d7c3a01b4e6bd01422b9d5a0ec3def9286d3e1a671d07649141c",
+      "edits": [
+        {
+          "before_offset": 2834,
+          "after_offset": 2834,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3244,
+          "after_offset": 3238,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3654,
+          "after_offset": 3642,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineMissileAssembly.java": {
+      "before_sha256": "9cd80e01013f434a8ec0476e2905406d2d2dab6b321ce898d1b96911c0890a3d",
+      "after_sha256": "9f48cf1eae681d3fd5ca6f063bedb5fa974662bf48075e261cbcfcffa7e6a1b7",
+      "edits": [
+        {
+          "before_offset": 1474,
+          "after_offset": 1474,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "before_sha256": "ee5dcc0ee66752b3a5dc271adcb273bd82461254856ff5797680c334cf48eb0b",
+      "after_sha256": "5d0b8bf559a12c682e4f73062466acec13a57bfb4254d0179d776fe0781b8e6c",
+      "edits": [
+        {
+          "before_offset": 1880,
+          "after_offset": 1880,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": {
+      "before_sha256": "80f42513dd712a6a80dd2be9eb3e6e98e161cbdf81bd9ff784c740cb45b0e167",
+      "after_sha256": "05838e3473113cc6728682f1bc7870e8416d1ba29cc31dd6608a9147eb19cb91",
+      "edits": [
+        {
+          "before_offset": 1259,
+          "after_offset": 1259,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRocketAssembly.java": {
+      "before_sha256": "c1d185f58358e869560ace6af0149114e0f7fe89d126cdbbb39919c48e9049f3",
+      "after_sha256": "106105d99447ed3e9fee0e8f00670fe5c1a7aa3c6bb9afbebb2a7a0ab84a9dde",
+      "edits": [
+        {
+          "before_offset": 4666,
+          "after_offset": 4666,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 4907,
+          "after_offset": 4901,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5256,
+          "after_offset": 5244,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5652,
+          "after_offset": 5634,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineSolderingStation.java": {
+      "before_sha256": "9a56cc33eed8f0d3e65661d1ac8c88210546a79a510a1c18e2f907a4a827936c",
+      "after_sha256": "7f35c920fbce25e1360563d11eb021567f3a7651bbd55f3c0c67200bd3f2fc54",
+      "edits": [
+        {
+          "before_offset": 2056,
+          "after_offset": 2056,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java": {
+      "before_sha256": "c1b9f32e6e490161169933b6f34b18edac198b32ff14c28ae69504021d65c603",
+      "after_sha256": "fcdbe3eed0f9cbec8514f46bc9edac1d07291326e0da9fa42a56add392690e75",
+      "edits": [
+        {
+          "before_offset": 12527,
+          "after_offset": 12527,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 12978,
+          "after_offset": 12972,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 13526,
+          "after_offset": 13514,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 14556,
+          "after_offset": 14538,
+          "old": "\t\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 15237,
+          "after_offset": 15213,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineTurbineGas.java": {
+      "before_sha256": "005315041189fe7bafb8cbd5408341ca5a3261e5168f035f8e538d47823fc820",
+      "after_sha256": "5a87ef3142706132daf77be781f32d21f81267657b55d4cdf8bbd75ce85ae738",
+      "edits": [
+        {
+          "before_offset": 1958,
+          "after_offset": 1958,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2534,
+          "after_offset": 2528,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3371,
+          "after_offset": 3359,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java": {
+      "before_sha256": "73579f249671c2c58841eaeebadf773a8688c6f2c68d889aa224b3249f060622",
+      "after_sha256": "68ba5dcb9abe1fb107cd6b3dc175b83e52806b38a64a70f41f3895373c9883c9",
+      "edits": [
+        {
+          "before_offset": 2562,
+          "after_offset": 2562,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3008,
+          "after_offset": 3002,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMassStorage.java": {
+      "before_sha256": "17cb87639e6920e65a1ce03663bade49ec606a56b332cea122d90b25482fdfd5",
+      "after_sha256": "e1d109f57dbe9104d8454f816923c35d3023bee111ce2a9733fd7bf37d5c5ca0",
+      "edits": [
+        {
+          "before_offset": 2021,
+          "after_offset": 2021,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2506,
+          "after_offset": 2500,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMiningLaser.java": {
+      "before_sha256": "d988d839a7d8213e3ca4849822b71e3eabf1d0cb6cfe63bc5ba4e1d5e189167a",
+      "after_sha256": "8e85f15e8c4a036a030d7be95215964158615bf21b2f69a44ed6f6ca392fb9fa",
+      "edits": [
+        {
+          "before_offset": 1976,
+          "after_offset": 1976,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMixer.java": {
+      "before_sha256": "b168fea083828b771e5b1fa364ae01cb2a191500764701410709a0b7c39c6167",
+      "after_sha256": "52fec53ced0b046fda3116c374b92a9f4921dfc183b406e217ce120b47778792",
+      "edits": [
+        {
+          "before_offset": 2612,
+          "after_offset": 2612,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUINukeAntimatter.java": {
+      "before_sha256": "0f2b764668c7311e338679c3b49e9cd3251995b7c68e53d3fe82faadde29a19c",
+      "after_sha256": "2a5437905024dc5feb5250778f16b90d5865d71f0ee2fa3775f45e61d15239a5",
+      "edits": [
+        {
+          "before_offset": 1345,
+          "after_offset": 1345,
+          "old": "\t\tthis.timer = new GuiTextField(this.fontRenderer, guiLeft + 80, guiTop + 108, 29, 12);\n",
+          "new": "\t\tthis.timer = new GuiTextField(0, this.fontRenderer, guiLeft + 80, guiTop + 108, 29, 12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUINukeFstbmb.java": {
+      "before_sha256": "faabe49999a8fa189b957c064a2dbcf918bb64b97044f082e53d9f478e78b49e",
+      "after_sha256": "1137e8da6c3c299e75dfb6db7a1462038f6f33ba26b364dc6ce86aa3eab03511",
+      "edits": [
+        {
+          "before_offset": 1175,
+          "after_offset": 1175,
+          "old": "\t\tthis.timer = new GuiTextField(this.fontRenderer, guiLeft + 94, guiTop + 40, 29, 12);\n",
+          "new": "\t\tthis.timer = new GuiTextField(0, this.fontRenderer, guiLeft + 94, guiTop + 40, 29, 12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIOilburner.java": {
+      "before_sha256": "66adf9df0570e0daaa1b6419c03ef43a133e49b0e1cc651f1d1736e5f7d1724d",
+      "after_sha256": "32b2db1ae6676e09ef31bb850908d1053424cf42a161ab2ba7441d104259a5f6",
+      "edits": [
+        {
+          "before_offset": 2055,
+          "after_offset": 2055,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIOrbitalStationComputer.java": {
+      "before_sha256": "9c8a146c5e6367ac7644df67349f1f97dcd3573bd0477448613b301f5f3d3979",
+      "after_sha256": "328069ba5c03ec58a451f127eecfe24e357f154d7066f20f9a1c0cb07c8be060",
+      "edits": [
+        {
+          "before_offset": 1195,
+          "after_offset": 1195,
+          "old": "\t\tstationName = new GuiTextField(this.fontRenderer, guiLeft + 52, guiTop + 26, 136, 12);\n",
+          "new": "\t\tstationName = new GuiTextField(0, this.fontRenderer, guiLeft + 52, guiTop + 26, 136, 12);\n"
+        },
+        {
+          "before_offset": 2197,
+          "after_offset": 2200,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIOrbitalStationLauncher.java": {
+      "before_sha256": "61907c49549b15d900432bfaffbe340bc1d919c7e7863b9fcce2e2ae2470ba14",
+      "after_sha256": "38dc877386d4b616c4dc57e3fb7cf20a95ad2ceacbdbaac4d107a4f615a1649d",
+      "edits": [
+        {
+          "before_offset": 4985,
+          "after_offset": 4985,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5226,
+          "after_offset": 5220,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5569,
+          "after_offset": 5557,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPADipole.java": {
+      "before_sha256": "743f3584cc0b263ba8c9ea98208986a5fb32b42b5dafc2d2ffbea32beabebeb3",
+      "after_sha256": "7c5953460406a4b746e00ca54be6a66e98c3bfaee8fe723a17796d1af5f480dc",
+      "edits": [
+        {
+          "before_offset": 1445,
+          "after_offset": 1445,
+          "old": "\t\tthis.threshold = new GuiTextField(this.fontRenderer, guiLeft + 47, guiTop + 77, 66, 8);\n",
+          "new": "\t\tthis.threshold = new GuiTextField(0, this.fontRenderer, guiLeft + 47, guiTop + 77, 66, 8);\n"
+        },
+        {
+          "before_offset": 3124,
+          "after_offset": 3127,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3568,
+          "after_offset": 3565,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 4012,
+          "after_offset": 4003,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPASource.java": {
+      "before_sha256": "cd9ff86e9eb2eb16002efa281986550050527daa6d2d3e7ce266d63bfad5351b",
+      "after_sha256": "9eb85cbef4bf6c89ca7891e2f15d1ec66f3178b8fdad86ec4c5b7336091f30ad",
+      "edits": [
+        {
+          "before_offset": 2362,
+          "after_offset": 2362,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPWR.java": {
+      "before_sha256": "933bd90d29ef0d065e7cff64cb9aad7ebea9833359a17fc0c9cbce9e358f3675",
+      "after_sha256": "29016cd93a013a471498b8cdf9e65925de19d59eb216d06cc3425a642b0d20ed",
+      "edits": [
+        {
+          "before_offset": 1612,
+          "after_offset": 1612,
+          "old": "\t\tthis.field = new GuiTextField(this.fontRenderer, guiLeft + 57, guiTop + 63, 30, 8);\n",
+          "new": "\t\tthis.field = new GuiTextField(0, this.fontRenderer, guiLeft + 57, guiTop + 63, 30, 8);\n"
+        },
+        {
+          "before_offset": 8128,
+          "after_offset": 8131,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java": {
+      "before_sha256": "d80705069f5472efaf7bcdf7fb1ea557999405d796f284d3104b69ca1f0e2c67",
+      "after_sha256": "6c5d662b7e3256b67eea4c5094e71191046c92928ac1efa35a08301c278346a3",
+      "edits": [
+        {
+          "before_offset": 3458,
+          "after_offset": 3458,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPump.java": {
+      "before_sha256": "f06a0f022d75d6edbbf1fd51c2368a5845d98265dceae2ab56c3657e90f495b5",
+      "after_sha256": "bad1b49cdf890603a0392c710f99fb13427c3953a1fe76b5cfff4c679d9d6403",
+      "edits": [
+        {
+          "before_offset": 1186,
+          "after_offset": 1186,
+          "old": "\t\ttextPlacementPriority = new GuiTextField(fontRenderer, this.width / 2 - 150, 100, 90, 20);\n",
+          "new": "\t\ttextPlacementPriority = new GuiTextField(0, fontRenderer, this.width / 2 - 150, 100, 90, 20);\n"
+        },
+        {
+          "before_offset": 3325,
+          "after_offset": 3328,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3696,
+          "after_offset": 3693,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKAutoloader.java": {
+      "before_sha256": "ea2f963156279b000bf35882e4bc41aa3fdba8cc7d5cb5c737a8cb5dff00412a",
+      "after_sha256": "2876c6e6a71158e6fc9851d11907855e899954f13c038a3a39f6891da7b9188f",
+      "edits": [
+        {
+          "before_offset": 1327,
+          "after_offset": 1327,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 1771,
+          "after_offset": 1765,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKBoiler.java": {
+      "before_sha256": "4114ca7a1b6d0173d476670bef5308f165d5663e2f2b767a5f033476997b2a09",
+      "after_sha256": "c9bad90b51a8f2dc227d585262a10c7a03c4a3800d34edbfc9d383edea55e9e2",
+      "edits": [
+        {
+          "before_offset": 1555,
+          "after_offset": 1555,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java": {
+      "before_sha256": "c3844a9e432caae46899f294a560547f3f5153ac8cab9b05544ff1d4243d4981",
+      "after_sha256": "fcedf1a4353791b84d937ced44d97933090ba312747a9594ff822b8073262411",
+      "edits": [
+        {
+          "before_offset": 1922,
+          "after_offset": 1922,
+          "old": "\t\tthis.field = new GuiTextField(this.fontRenderer, guiLeft + 9, guiTop + 84, 35, 9);\n",
+          "new": "\t\tthis.field = new GuiTextField(0, this.fontRenderer, guiLeft + 9, guiTop + 84, 35, 9);\n"
+        },
+        {
+          "before_offset": 5929,
+          "after_offset": 5932,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.75F + (this.selection[index] ? 0.25F : 0.0F)));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.75F + (this.selection[index] ? 0.25F : 0.0F)));\n"
+        },
+        {
+          "before_offset": 6293,
+          "after_offset": 6290,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F));\n"
+        },
+        {
+          "before_offset": 6803,
+          "after_offset": 6794,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.5F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.5F));\n"
+        },
+        {
+          "before_offset": 7680,
+          "after_offset": 7665,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1F));\n"
+        },
+        {
+          "before_offset": 9010,
+          "after_offset": 8989,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.8F + k * 0.1F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.8F + k * 0.1F));\n"
+        },
+        {
+          "before_offset": 9330,
+          "after_offset": 9303,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n"
+        },
+        {
+          "before_offset": 9521,
+          "after_offset": 9488,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.shutdown\"), 1));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.shutdown\"), 1));\n"
+        },
+        {
+          "before_offset": 10117,
+          "after_offset": 10078,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1F));\n"
+        },
+        {
+          "before_offset": 11012,
+          "after_offset": 10967,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1F));\n"
+        },
+        {
+          "before_offset": 11670,
+          "after_offset": 11619,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F));\n"
+        },
+        {
+          "before_offset": 12342,
+          "after_offset": 12285,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.75F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.75F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKControl.java": {
+      "before_sha256": "ce9f052ad0be80b444bac0bc909b97919d564a91aa385424699cb749c7b34166",
+      "after_sha256": "3277aa66b8abc7b0dd9a0bfc47d9342a30aed16cb055d32eb07d92573984c934",
+      "edits": [
+        {
+          "before_offset": 1819,
+          "after_offset": 1819,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2311,
+          "after_offset": 2305,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKControlAuto.java": {
+      "before_sha256": "4da394a31de40eada19f5bf09ce7303c285d47de6e103b1f9e62a42bc9ed94a2",
+      "after_sha256": "30bff6699184694a689e3e9ab5a01fb9778818d27d38cadabe898136297c92b5",
+      "edits": [
+        {
+          "before_offset": 1422,
+          "after_offset": 1422,
+          "old": "\t\t\tthis.fields[i] = new GuiTextField(this.fontRenderer, guiLeft + 30, guiTop + 27 + 11 * i, 26, 6);\n",
+          "new": "\t\t\tthis.fields[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 30, guiTop + 27 + 11 * i, 26, 6);\n"
+        },
+        {
+          "before_offset": 4350,
+          "after_offset": 4353,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5386,
+          "after_offset": 5383,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRadioRec.java": {
+      "before_sha256": "903acd2bd8dbd88779a37f58717bc8c96c5404d1c147474adac35185f26a2e43",
+      "after_sha256": "9803144f612efe8b2acb82238b805cccd32174b35a11971332619151280ab7c4",
+      "edits": [
+        {
+          "before_offset": 1284,
+          "after_offset": 1284,
+          "old": "\t\tthis.frequency = new GuiTextField(this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n",
+          "new": "\t\tthis.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 3179,
+          "after_offset": 3182,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3645,
+          "after_offset": 3642,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIReactorControl.java": {
+      "before_sha256": "a96d51ac9102ea36785b5178254c0758c767e704346b4891f09a8368f71e0726",
+      "after_sha256": "b22f390c37df3ea5eebce0c042300b4a7e152ed63319656b5cc91cb8e4adf6ff",
+      "edits": [
+        {
+          "before_offset": 1775,
+          "after_offset": 1775,
+          "old": "\t\t\tthis.fields[i] = new GuiTextField(this.fontRenderer, guiLeft + 35 + 30 * i, guiTop + 38, 26, 7);\n",
+          "new": "\t\t\tthis.fields[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 35 + 30 * i, guiTop + 38, 26, 7);\n"
+        },
+        {
+          "before_offset": 2111,
+          "after_offset": 2114,
+          "old": "\t\t\tthis.fields[i + 2] = new GuiTextField(this.fontRenderer, guiLeft + 35 + 30 * i, guiTop + 49, 26, 7);\n",
+          "new": "\t\t\tthis.fields[i + 2] = new GuiTextField(i + 2, this.fontRenderer, guiLeft + 35 + 30 * i, guiTop + 49, 26, 7);\n"
+        },
+        {
+          "before_offset": 3072,
+          "after_offset": 3082,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 4118,
+          "after_offset": 4122,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java": {
+      "before_sha256": "ac99c5948e0939d081dc5473cab3d4361c00c9721db37123f11ff8aa06ded16c",
+      "after_sha256": "9fb66e00af5f5d0e8a35a7405b3ae7cc7be9ed2f1c0f4785218bf7d52cea1f32",
+      "edits": [
+        {
+          "before_offset": 1769,
+          "after_offset": 1769,
+          "old": "\t\tthis.field = new GuiTextField(this.fontRenderer, guiLeft + 8, guiTop + 99, 33, 16);\n",
+          "new": "\t\tthis.field = new GuiTextField(0, this.fontRenderer, guiLeft + 8, guiTop + 99, 33, 16);\n"
+        },
+        {
+          "before_offset": 4348,
+          "after_offset": 4351,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIReactorZirnox.java": {
+      "before_sha256": "d32ff5999abb80ea96599a27db51de6660582ac8f1f3bca9943f4caeaad24809",
+      "after_sha256": "d2f4b06e90f69b9d4a9102558265b3bcab6c087c327db5e48852ca07208b4428",
+      "edits": [
+        {
+          "before_offset": 3153,
+          "after_offset": 3153,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n"
+        },
+        {
+          "before_offset": 3594,
+          "after_offset": 3588,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.rbmk_az5_cover\"), 0.5F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUISILEX.java": {
+      "before_sha256": "803b5e5f98c0ba0bb749dbd7e598d644cc0a023d095b135047317d59f70c79d4",
+      "after_sha256": "88e44b828105563c5f5d726625a4b5794d67579effd97b0256054562cd4f6168",
+      "edits": [
+        {
+          "before_offset": 2015,
+          "after_offset": 2015,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenBobble.java": {
+      "before_sha256": "db421e4cc100ff1858676645e96160440f0eb0e6879d5fc1641086898752ac14",
+      "after_sha256": "fde63ae15b8e6be47314c133cb8df930d87cdfb5cb74881b686c856ee0db9187",
+      "edits": [
+        {
+          "before_offset": 724,
+          "after_offset": 724,
+          "old": "\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n",
+          "new": "\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java": {
+      "before_sha256": "ea71fcff0750a154ef42f2af4f18be96369a72ac24473ff29a42c5524f1dc85b",
+      "after_sha256": "e04647b33a4bf5549d0b658272c15a73c025e32bae1865540dbb925cf18b6a8b",
+      "edits": [
+        {
+          "before_offset": 5641,
+          "after_offset": 5641,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java": {
+      "before_sha256": "025e568a20d47a593fac99dc2388877b9cf5883b1d71888926af8db1bea82e67",
+      "after_sha256": "7522e55686d1ae2301ae3d54d4759fcbc2f7e63fb0b6a2dc43ea1582f8853440",
+      "edits": [
+        {
+          "before_offset": 6770,
+          "after_offset": 6770,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenFluid.java": {
+      "before_sha256": "609a963ac78102fdaa50b7a6ffe6df2316f0951dbcaddb3dcdad70a6ba37732d",
+      "after_sha256": "b4ce5bfd5eee32dd97e307063a6f9724620e35bf8c08cd6217fad2662f9e3b20",
+      "edits": [
+        {
+          "before_offset": 2092,
+          "after_offset": 2092,
+          "old": "\t\tthis.search = new GuiTextField(this.fontRenderer, guiLeft + 46, guiTop + 11, 86, 12);\n",
+          "new": "\t\tthis.search = new GuiTextField(0, this.fontRenderer, guiLeft + 46, guiTop + 11, 86, 12);\n"
+        },
+        {
+          "before_offset": 3091,
+          "after_offset": 3094,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3463,
+          "after_offset": 3460,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenGuide.java": {
+      "before_sha256": "8ecaea11af10245c221e347ddeb2f35f33a2289e96a5fcd30d39eaa4a9d0f9e5",
+      "after_sha256": "69046ab36ac96f0e56877f195e2ec4dbf3a804d788a6d9752e3c192d1b167ad8",
+      "edits": [
+        {
+          "before_offset": 7118,
+          "after_offset": 7118,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 7504,
+          "after_offset": 7498,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 7678,
+          "after_offset": 7666,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenHolotape.java": {
+      "before_sha256": "a9236ae733053fab71087d1283d74d0bf318ead9e9829b25286bb930057cd60f",
+      "after_sha256": "bb535a973ef33ef2c9a17287cdfc4afef211e523878535de4c3c51c84d5be080",
+      "edits": [
+        {
+          "before_offset": 679,
+          "after_offset": 679,
+          "old": "\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n",
+          "new": "\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRBMKGauge.java": {
+      "before_sha256": "810d65af95760a675e51efedcb4eaceace2041fcccbfefc7d53971cb18af4d35",
+      "after_sha256": "172e99dcffea71d3467c5fa5abee625f4da911b86dc099056666a5ff232e271b",
+      "edits": [
+        {
+          "before_offset": 1754,
+          "after_offset": 1754,
+          "old": "\t\t\tcolor[i] = new GuiTextField(this.fontRenderer, guiLeft + 27 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n",
+          "new": "\t\t\tcolor[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 27 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 1933,
+          "after_offset": 1936,
+          "old": "\t\t\tlabel[i] = new GuiTextField(this.fontRenderer, guiLeft + 175 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n",
+          "new": "\t\t\tlabel[i] = new GuiTextField(i + 4, this.fontRenderer, guiLeft + 175 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2133,
+          "after_offset": 2143,
+          "old": "\t\t\trtty[i] = new GuiTextField(this.fontRenderer, guiLeft + 27 + oX, guiTop + 73 + oY + i * 36, 72 - oX * 2, 14);\n",
+          "new": "\t\t\trtty[i] = new GuiTextField(i + 8, this.fontRenderer, guiLeft + 27 + oX, guiTop + 73 + oY + i * 36, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2329,
+          "after_offset": 2346,
+          "old": "\t\t\tmin[i] = new GuiTextField(this.fontRenderer, guiLeft + 121 + oX, guiTop + 73 + oY + i * 36, 52 - oX * 2, 14);\n",
+          "new": "\t\t\tmin[i] = new GuiTextField(i + 12, this.fontRenderer, guiLeft + 121 + oX, guiTop + 73 + oY + i * 36, 52 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2528,
+          "after_offset": 2553,
+          "old": "\t\t\tmax[i] = new GuiTextField(this.fontRenderer, guiLeft + 195 + oX, guiTop + 73 + oY + i * 36, 52 - oX * 2, 14);\n",
+          "new": "\t\t\tmax[i] = new GuiTextField(i + 16, this.fontRenderer, guiLeft + 195 + oX, guiTop + 73 + oY + i * 36, 52 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 4345,
+          "after_offset": 4378,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.active[i] ? 0.25F : 0F)));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.active[i] ? 0.25F : 0F)));\n"
+        },
+        {
+          "before_offset": 4675,
+          "after_offset": 4702,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.polling[i] ? 0.25F : 0F)));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.polling[i] ? 0.25F : 0F)));\n"
+        },
+        {
+          "before_offset": 4950,
+          "after_offset": 4971,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRBMKKeyPad.java": {
+      "before_sha256": "fdde5f780702f8cad0ce038e6e61edb0ee79b14eaa484b365f060e4b1716ce18",
+      "after_sha256": "479cd73503e4a686298c92e90421aba7604c06d7c0d5dd1109fb3d30d7019983",
+      "edits": [
+        {
+          "before_offset": 1992,
+          "after_offset": 1992,
+          "old": "\t\t\tcolor[i] = new GuiTextField(this.fontRenderer, guiLeft + 27 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n",
+          "new": "\t\t\tcolor[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 27 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2151,
+          "after_offset": 2154,
+          "old": "\t\t\tlabel[i] = new GuiTextField(this.fontRenderer, guiLeft + 175 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n",
+          "new": "\t\t\tlabel[i] = new GuiTextField(i + 4, this.fontRenderer, guiLeft + 175 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2329,
+          "after_offset": 2339,
+          "old": "\t\t\trtty[i] = new GuiTextField(this.fontRenderer, guiLeft + 27 + oX, guiTop + 73 + oY + i * 36, 72 - oX * 2, 14);\n",
+          "new": "\t\t\trtty[i] = new GuiTextField(i + 8, this.fontRenderer, guiLeft + 27 + oX, guiTop + 73 + oY + i * 36, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2503,
+          "after_offset": 2520,
+          "old": "\t\t\tcmd[i] = new GuiTextField(this.fontRenderer, guiLeft + 121 + oX, guiTop + 73 + oY + i * 36, 126 - oX * 2, 14);\n",
+          "new": "\t\t\tcmd[i] = new GuiTextField(i + 12, this.fontRenderer, guiLeft + 121 + oX, guiTop + 73 + oY + i * 36, 126 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 4265,
+          "after_offset": 4290,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.active[i] ? 0.25F : 0F)));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.active[i] ? 0.25F : 0F)));\n"
+        },
+        {
+          "before_offset": 4595,
+          "after_offset": 4614,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.polling[i] ? 0.25F : 0F)));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F + (this.polling[i] ? 0.25F : 0F)));\n"
+        },
+        {
+          "before_offset": 4870,
+          "after_offset": 4883,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java": {
+      "before_sha256": "56716c47655094b57e456b876f858721f77a6740f7c5f6c64187e9eddd8c8b3c",
+      "after_sha256": "8c30e5619268cc3117ef8f43228d5f32fd7f1833a3d2efe7d5593d22c34ebf0d",
+      "edits": [
+        {
+          "before_offset": 1892,
+          "after_offset": 1892,
+          "old": "\t\tthis.frequency = new GuiTextField(this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n",
+          "new": "\t\tthis.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2331,
+          "after_offset": 2334,
+          "old": "\t\t\tthis.remap[i] = new GuiTextField(this.fontRenderer, guiLeft + 7 + (130 * (i / 8)) + oX + in, guiTop + 53 + (18 * (i % 8)) + oY, 90 - oX * 2, 14);\n",
+          "new": "\t\t\tthis.remap[i] = new GuiTextField(i + 1, this.fontRenderer, guiLeft + 7 + (130 * (i / 8)) + oX + in, guiTop + 53 + (18 * (i % 8)) + oY, 90 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 5004,
+          "after_offset": 5014,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5457,
+          "after_offset": 5461,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5908,
+          "after_offset": 5906,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java": {
+      "before_sha256": "3d20cb73f535f2dc5246e9ee266e38b46fb2154e343bd450e60f276737c49803",
+      "after_sha256": "8e963b4b3e7dd412a2d49e663f1361cbcef0c96a5a3649141a7556d345a3836e",
+      "edits": [
+        {
+          "before_offset": 1664,
+          "after_offset": 1664,
+          "old": "\t\tthis.frequency = new GuiTextField(this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n",
+          "new": "\t\tthis.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 4334,
+          "after_offset": 4337,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 4781,
+          "after_offset": 4778,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java": {
+      "before_sha256": "cdd93679c12d67284b666ab9f1fa30a06be50aa193cc14f5b6331f53a2f4c827",
+      "after_sha256": "6b565d8ac6d453f25b42abe21c10f5f09ade366c3ed36264c9480cd235523cce",
+      "edits": [
+        {
+          "before_offset": 1502,
+          "after_offset": 1502,
+          "old": "\t\tthis.frequency = new GuiTextField(this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n",
+          "new": "\t\tthis.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 1972,
+          "after_offset": 1975,
+          "old": "\t\t\tthis.map[i] = new GuiTextField(this.fontRenderer, guiLeft + 7 + (130 * (i / 8)) + oX + 18, guiTop + 53 + (18 * (i % 8)) + oY, 54 - oX * 2, 14);\n",
+          "new": "\t\t\tthis.map[i] = new GuiTextField(i + 1, this.fontRenderer, guiLeft + 7 + (130 * (i / 8)) + oX + 18, guiTop + 53 + (18 * (i % 8)) + oY, 54 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 5856,
+          "after_offset": 5866,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6310,
+          "after_offset": 6314,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6761,
+          "after_offset": 6759,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 7515,
+          "after_offset": 7507,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java": {
+      "before_sha256": "991a96d9e6d6da4286e9eeea60fc61e80d6ae2060e79e41ef868d5dc0cdd9d54",
+      "after_sha256": "21ff3d93cc88a2f578248e84510abd4a67ab8ae53c896fba914daa804779a66c",
+      "edits": [
+        {
+          "before_offset": 1708,
+          "after_offset": 1708,
+          "old": "\t\t\tthis.frequencies[i] = new GuiTextField(this.fontRenderer, guiLeft + 25 + oX, guiTop + 53 + i * 18 + oY, 72 - oX * 2, 14);\n",
+          "new": "\t\t\tthis.frequencies[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 25 + oX, guiTop + 53 + i * 18 + oY, 72 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 2124,
+          "after_offset": 2127,
+          "old": "\t\t\tthis.names[i] = new GuiTextField(this.fontRenderer, guiLeft + 119 + oX, guiTop + 53 + i * 18 + oY, 126 - oX * 2, 14);\n",
+          "new": "\t\t\tthis.names[i] = new GuiTextField(i + 8, this.fontRenderer, guiLeft + 119 + oX, guiTop + 53 + i * 18 + oY, 126 - oX * 2, 14);\n"
+        },
+        {
+          "before_offset": 5000,
+          "after_offset": 5010,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5447,
+          "after_offset": 5451,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before_sha256": "f6c60c70a8c6c8d0dd1d3dd1b53c1c21e80df003650d7d8edd6fe98f277096b2",
+      "after_sha256": "dc7201b1e7f66d0f34fb49da6d7816ca875763eda65d798ce3f273b5ed94d55c",
+      "edits": [
+        {
+          "before_offset": 2795,
+          "after_offset": 2795,
+          "old": "\t\tthis.search = new GuiTextField(this.fontRenderer, guiLeft + 28, guiTop + 111, 102, 12);\n",
+          "new": "\t\tthis.search = new GuiTextField(0, this.fontRenderer, guiLeft + 28, guiTop + 111, 102, 12);\n"
+        },
+        {
+          "before_offset": 11895,
+          "after_offset": 11898,
+          "old": "\tpublic void click() { mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F)); }\n",
+          "new": "\tpublic void click() { mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F)); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatCoord.java": {
+      "before_sha256": "3c08002c8d4688d1d8541d54e969f8c62f9063323775b078b1dc39d498e360aa",
+      "after_sha256": "e8bf894f455cec9b9417f900724d673e62b3c4724e17e9bf8d3333e50e44605d",
+      "edits": [
+        {
+          "before_offset": 1414,
+          "after_offset": 1414,
+          "old": "\t\tthis.xField = new GuiTextField(this.fontRenderer, guiLeft + 66, guiTop + 21, 48, 12);\n",
+          "new": "\t\tthis.xField = new GuiTextField(0, this.fontRenderer, guiLeft + 66, guiTop + 21, 48, 12);\n"
+        },
+        {
+          "before_offset": 1661,
+          "after_offset": 1664,
+          "old": "\t\tthis.yField = new GuiTextField(this.fontRenderer, guiLeft + 66, guiTop + 56, 48, 12);\n",
+          "new": "\t\tthis.yField = new GuiTextField(1, this.fontRenderer, guiLeft + 66, guiTop + 56, 48, 12);\n"
+        },
+        {
+          "before_offset": 1908,
+          "after_offset": 1914,
+          "old": "\t\tthis.zField = new GuiTextField(this.fontRenderer, guiLeft + 66, guiTop + 92, 48, 12);\n",
+          "new": "\t\tthis.zField = new GuiTextField(2, this.fontRenderer, guiLeft + 66, guiTop + 92, 48, 12);\n"
+        },
+        {
+          "before_offset": 2837,
+          "after_offset": 2846,
+          "old": "\t\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:item.techBleep\"), 1.0F));\n",
+          "new": "\t\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:item.techBleep\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3302,
+          "after_offset": 3305,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:item.techBleep\"), 1.0F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:item.techBleep\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before_sha256": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+      "after_sha256": "5c7662acc8c761b7300988c858a55e0c5601bf26a6a8a2f5e0cf1a9027b243d2",
+      "edits": [
+        {
+          "before_offset": 1803,
+          "after_offset": 1803,
+          "old": "    \t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:item.techBleep\"), 1.0F));\n",
+          "new": "    \t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:item.techBleep\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSnowglobe.java": {
+      "before_sha256": "963829c0b5d523540402106d3030ec20d71cf2fcb648f165cca1dc196d2ee7b6",
+      "after_sha256": "d71ae93168b64781c6e88a47719a50962293aedd9c6b4eb730a1ef731810c054",
+      "edits": [
+        {
+          "before_offset": 646,
+          "after_offset": 646,
+          "old": "\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n",
+          "new": "\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java": {
+      "before_sha256": "2497b53ec9eaa9687a3abcbd5a2db28ae45fe6b53dd40358641a147b2e23c667",
+      "after_sha256": "355c28cb6e5238c940aba92c5189254832251362951ea70b9660d85ff5baf61d",
+      "edits": [
+        {
+          "before_offset": 4095,
+          "after_offset": 4095,
+          "old": "\t\tthis.search = new GuiTextField(this.fontRenderer, guiLeft + 61, guiTop + 213, 48, 12);\n",
+          "new": "\t\tthis.search = new GuiTextField(0, this.fontRenderer, guiLeft + 61, guiTop + 213, 48, 12);\n"
+        },
+        {
+          "before_offset": 9144,
+          "after_offset": 9147,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenToolAbility.java": {
+      "before_sha256": "4363df35af229641dda8f56f63707c95039740d6cb7fb686f84eeaaf1493346b",
+      "after_sha256": "c381a6e22518767fc079f0e49c9e4d2dd5d9ec364fec6a31708ab6420d04fff8",
+      "edits": [
+        {
+          "before_offset": 10414,
+          "after_offset": 10414,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 0.5F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 0.5F));\n"
+        },
+        {
+          "before_offset": 11139,
+          "after_offset": 11133,
+          "old": "\t\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:item.techBoop\"), 2F));\n",
+          "new": "\t\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:item.techBoop\"), 2F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUISoyuzLauncher.java": {
+      "before_sha256": "1d78fd4dd69fbda057c9afc3cfdf95fa137d33a41f8cff56dab5650bfd56ad5e",
+      "after_sha256": "fbf5e10772fea7819202c952d6080f5834cde683c99ee93a54f2f57ea26be8c8",
+      "edits": [
+        {
+          "before_offset": 2396,
+          "after_offset": 2396,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 2781,
+          "after_offset": 2775,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 3168,
+          "after_offset": 3156,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java": {
+      "before_sha256": "b3e1022bdb708dce4cf2c2418e2242a09511016a7e93954acd69ae5c78ded510",
+      "after_sha256": "8d525bf5b7865eaf30e8d46f7e0cbcd2ea9703258385bfd96ca6574662637c21",
+      "edits": [
+        {
+          "before_offset": 2459,
+          "after_offset": 2459,
+          "old": "\t\tsearch = new GuiTextField(fontRenderer, guiLeft + 59, guiTop + 46, 86, 12);\n",
+          "new": "\t\tsearch = new GuiTextField(0, fontRenderer, guiLeft + 59, guiTop + 46, 86, 12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITransporterRocket.java": {
+      "before_sha256": "840afe02e434c8cc65c216ffe5cac3e937f5d0836532d9bafc114706d97e7128",
+      "after_sha256": "9410a2034d94b0dd5879b07b460514d54d0ec40bc51b869ce121d96f07f9c297",
+      "edits": [
+        {
+          "before_offset": 1231,
+          "after_offset": 1231,
+          "old": "\t\ttransporterName = new GuiTextField(this.fontRenderer, guiLeft + 8, guiTop + 12, 122, 12);\n",
+          "new": "\t\ttransporterName = new GuiTextField(0, this.fontRenderer, guiLeft + 8, guiTop + 12, 122, 12);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITurretArty.java": {
+      "before_sha256": "512365153770b4b38ca141085fb58ce57e12991d7735bfbf9a31a8a8e823b74c",
+      "after_sha256": "2d0eb64889710679e7c3dea0ff1b6469043ca237f552a3440b345e2d9352305a",
+      "edits": [
+        {
+          "before_offset": 2833,
+          "after_offset": 2833,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITurretBase.java": {
+      "before_sha256": "a39723eb2d31aeba8ea9a54d6789134f7c6658f2a3a6057ba1e212a6ebe79aa3",
+      "after_sha256": "5c3f8fe6e8ad8b283a91972d28eded32fb0e4c036ac125e11b06b5fc36d79d95",
+      "edits": [
+        {
+          "before_offset": 1433,
+          "after_offset": 1433,
+          "old": "\t\tthis.field = new GuiTextField(this.fontRenderer, guiLeft + 10, guiTop + 65, 50, 14);\n",
+          "new": "\t\tthis.field = new GuiTextField(0, this.fontRenderer, guiLeft + 10, guiTop + 65, 50, 14);\n"
+        },
+        {
+          "before_offset": 4622,
+          "after_offset": 4625,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 4993,
+          "after_offset": 4990,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5366,
+          "after_offset": 5357,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5739,
+          "after_offset": 5724,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6112,
+          "after_offset": 6091,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6593,
+          "after_offset": 6566,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6863,
+          "after_offset": 6830,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 7105,
+          "after_offset": 7066,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 7667,
+          "after_offset": 7622,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITurretHIMARS.java": {
+      "before_sha256": "84e866e6c27c889e548d6ebf26b025bc6b8a6d3e1ce0d893502f20294d41212a",
+      "after_sha256": "536d557e5f6700f20d9f5abe8aced9ed942a58ae5e4f74b3085c830619dcec4d",
+      "edits": [
+        {
+          "before_offset": 1356,
+          "after_offset": 1356,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIWarController.java": {
+      "before_sha256": "ff4a7c56dc001e24e2845cf9ad74ed97ae8b5ac6e975e958ec4b2698e4d1fa28",
+      "after_sha256": "700955146e74592c14add23628e0be721ff067fb4ee8396d7d9d531735de6363",
+      "edits": [
+        {
+          "before_offset": 7068,
+          "after_offset": 7068,
+          "old": "\t\ttextField = new GuiTextField(fontRenderer, guiLeft - 74, guiTop + 28, 100, 20);\n",
+          "new": "\t\ttextField = new GuiTextField(0, fontRenderer, guiLeft - 74, guiTop + 28, 100, 20);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIWatz.java": {
+      "before_sha256": "8581819b53d24bb648ff97b713a93ab626c79f40902004d56ce0102501fd1c2d",
+      "after_sha256": "82abf9d71a2ec4e7255ca793f0f905ece932adad643d9433f61f12d4f79db307",
+      "edits": [
+        {
+          "before_offset": 2652,
+          "after_offset": 2652,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java": {
+      "before_sha256": "e98c69538470a9128c68cdc017eb1a865b91d9b34ba5fecd25a8a9f8aca0b171",
+      "after_sha256": "b09c15673540b84526cc6191a563f458e4fe18e8905a7de0d6cf5d54264b8f2a",
+      "edits": [
+        {
+          "before_offset": 1809,
+          "after_offset": 1809,
+          "old": "\t\tthis.txFrequency = new GuiTextField(this.fontRenderer, guiLeft + 29, guiTop + 110, 90, 14);\n",
+          "new": "\t\tthis.txFrequency = new GuiTextField(0, this.fontRenderer, guiLeft + 29, guiTop + 110, 90, 14);\n"
+        },
+        {
+          "before_offset": 2172,
+          "after_offset": 2175,
+          "old": "\t\tthis.rxFrequency = new GuiTextField(this.fontRenderer, guiLeft + 29, guiTop + 224, 90, 14);\n",
+          "new": "\t\tthis.rxFrequency = new GuiTextField(1, this.fontRenderer, guiLeft + 29, guiTop + 224, 90, 14);\n"
+        },
+        {
+          "before_offset": 9051,
+          "after_offset": 9057,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 9688,
+          "after_offset": 9688,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+      "before_sha256": "78537257d548b26a9011cfb885f0feb533918c1aa73a4ea2c32d0676f456d049",
+      "after_sha256": "aaf31b81b84f427390aa54e3e937cc8a20a21b2370ec0d1b964b35f74cf15694",
+      "edits": [
+        {
+          "before_offset": 6266,
+          "after_offset": 6266,
+          "old": "\t\tMinecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:weapon.cSwing\"), pitchProbablyIDontFuckingCare));\n",
+          "new": "\t\tMinecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:weapon.cSwing\"), pitchProbablyIDontFuckingCare));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/qmaw/GuiQMAW.java": {
+      "before_sha256": "d987d6f17f7e25894f6ba7971417f6344bb70383796002f852e317076f2d1632",
+      "after_sha256": "b42ffde02e40614d0fef0fbc6f727da4c0e218ab3f5ae33c2501a03d4b5bb3e1",
+      "edits": [
+        {
+          "before_offset": 5537,
+          "after_offset": 5537,
+          "old": "\t\t\t\tMinecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"hbm:alarm.singer\"), 1.0F));\n",
+          "new": "\t\t\t\tMinecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:alarm.singer\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 5870,
+          "after_offset": 5864,
+          "old": "\t\t\tMinecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tMinecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        },
+        {
+          "before_offset": 6444,
+          "after_offset": 6432,
+          "old": "\t\t\tMinecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tMinecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderCog.java": {
+      "before_sha256": "05abab4c6304e98e3db99e2bfffe347c6305b66b01d8c8d5ed247eb313ce2773",
+      "after_sha256": "c38873ebbaaeafafa0aa372165ffa5d9821b79f5e4c66782d44fbd775ac8bea9",
+      "edits": [
+        {
+          "before_offset": 259,
+          "after_offset": 259,
+          "old": "",
+          "new": "import com.hbm.entity.projectile.EntityCog;\n"
+        },
+        {
+          "before_offset": 576,
+          "after_offset": 620,
+          "old": "\t\tint orientation = cog.getDataWatcher().getWatchableObjectInt(10);\n",
+          "new": "\t\tint orientation = ((EntityCog) cog).getOrientation();\n"
+        },
+        {
+          "before_offset": 1243,
+          "after_offset": 1275,
+          "old": "\t\tint meta = entity.getDataWatcher().getWatchableObjectInt(11);\n",
+          "new": "\t\tint meta = ((EntityCog) entity).getMeta();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderSawblade.java": {
+      "before_sha256": "a384c419f4cc03853a4a627f821f5264c351acefc47fb1143df8727a8d26d0e5",
+      "after_sha256": "8a657272ae6c1891209c23103ad9a2d27f1f65f91c90c1a4e684b3745ef3f987",
+      "edits": [
+        {
+          "before_offset": 259,
+          "after_offset": 259,
+          "old": "",
+          "new": "import com.hbm.entity.projectile.EntitySawblade;\n"
+        },
+        {
+          "before_offset": 586,
+          "after_offset": 635,
+          "old": "\t\tint orientation = cog.getDataWatcher().getWatchableObjectInt(10);\n",
+          "new": "\t\tint orientation = ((EntitySawblade) cog).getOrientation();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java": {
+      "before_sha256": "87fd9ca39eb1821c4ae839b525e2d73f684cf623c7a03ab5021babb10b406868",
+      "after_sha256": "b1451e5c82154e197c55751ce16ce7ee02a33a66fb64e54d190fafe1de880646",
+      "edits": [
+        {
+          "before_offset": 1126,
+          "after_offset": 1126,
+          "old": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n",
+          "new": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java": {
+      "before_sha256": "ba5405486fac83755164c17a31660635c6b1db1ee5e5527c0630019a47cce052",
+      "after_sha256": "1caed290652c04d6bc0c706a07b6d6bbd72d6192742ceb9bc23003ed896d251d",
+      "edits": [
+        {
+          "before_offset": 6214,
+          "after_offset": 6214,
+          "old": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n",
+          "new": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityZirnoxDestroyed.java": {
+      "before_sha256": "57770db7acb8e8041d9bdc2e629e6ada115e8fa7b5ce2a3ecf0cc7fb9fe6c7a3",
+      "after_sha256": "1026d5aadfc2b0d0952283ffbbb10cfc16be77178d21aff3c0ed7a2509e54050",
+      "edits": [
+        {
+          "before_offset": 2321,
+          "after_offset": 2321,
+          "old": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n",
+          "new": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/Meteorite.java": {
+      "before_sha256": "d88e0f50b3d56535770cf5de3fe9ba577f9f08bdebe7dcfbabdcad95d497c264",
+      "after_sha256": "21ef92ed4b6190ce76be98e16e4d99de6ca0c62749576b206df52e6e05a39761",
+      "edits": [
+        {
+          "before_offset": 1004,
+          "after_offset": 1004,
+          "old": "\t\t\tList<Entity> list = (List<Entity>) world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(x - 7.5, y - 7.5, z - 7.5, x + 7.5, y + 7.5, z + 7.5));\n",
+          "new": "\t\t\tList<Entity> list = (List<Entity>) world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(x - 7.5, y - 7.5, z - 7.5, x + 7.5, y + 7.5, z + 7.5));\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/sound/GuiSound.java": "21991818d61aefba8412f2eca534cd3305942e21a1302222fab669e08d1763cb"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

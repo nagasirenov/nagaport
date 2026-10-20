@@ -18,9 +18,9 @@ public class EntityDummy extends EntityLiving implements IAnimals, ISuffocationI
 	@Override
 	public boolean interact(EntityPlayer player) {
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemArmor) {
-			ItemArmor armor = (ItemArmor) player.getHeldItem().getItem();
-			this.setCurrentItemOrArmor(4 - armor.armorType, player.getHeldItem().copy());
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemArmor) {
+			ItemArmor armor = (ItemArmor) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem();
+			this.setCurrentItemOrArmor(4 - armor.armorType, com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy());
 		}
 
 		return super.interact(player);

@@ -68,7 +68,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 		if(world.isRemote) {
 			return true;
 		} else {
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(!(te instanceof TileEntityOrbitalStation))
 				return false;
@@ -80,7 +80,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 			} else if(station.hasDocked) {
 				if(!station.hasRider) {
 					if(player.isSneaking()) {
-						if(player.getHeldItem() == null) {
+						if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null) {
 							station.despawnRocket();
 							station.giveStoredItems(player);
 						}
@@ -89,7 +89,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 					}
 				}
 			} else {
-				ItemStack held = player.getHeldItem();
+				ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 				if(held != null) {
 					if(held.getItem() == ModItems.rocket_custom && ItemCustomRocket.hasFuel(held)) {
 						station.spawnRocket(held);
@@ -138,7 +138,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 		if(!CelestialBody.inOrbit(world)) {
 			List<String> text = new ArrayList<String>();
 			text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! " + I18nUtil.resolveKey("atmosphere.noOrbit") + " ! ! !");
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 			return;
 		}
 
@@ -150,13 +150,13 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 		if(Math.abs(pos[0] - x) >= 2 || Math.abs(pos[2] - z) >= 2)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityOrbitalStation))
 			return;
 
 		TileEntityOrbitalStation station = (TileEntityOrbitalStation) te;
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		List<String> text = new ArrayList<String>();
 
@@ -172,7 +172,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 			if(station.hasDocked) {
 				if(!station.hasRider) {
 					if(player.isSneaking()) {
-						if(player.getHeldItem() == null) {
+						if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null) {
 							text.add(I18nUtil.resolveKey("station.removeRocket"));
 						}
 					} else {
@@ -192,7 +192,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 					}
 				}
 			} else if(!player.isSneaking()) {
-				ItemStack held = player.getHeldItem();
+				ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 				if(held != null) {
 					if(held.getItem() == ModItems.rocket_custom && ItemCustomRocket.hasFuel(held)) {
 						text.add(I18nUtil.resolveKey("station.placeRocket"));
@@ -207,7 +207,7 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 		if(text.isEmpty())
 			return;
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

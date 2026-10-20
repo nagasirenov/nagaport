@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -35,7 +38,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 		float offset = 0.8F;
 		
 		for(int i = -1; i <= 1; i += 2) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 			int index = i == -1 ? 0 : 1;
 			
 			GL11.glPushMatrix();
@@ -182,7 +185,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 		GL11.glRotated(25, 1, 0, 0);
 		GL11.glRotated(45, 0, 1, 0);
 		GL11.glTranslated(-1, 0, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 		ResourceManager.aberrator.renderPart("Gun");
 		ResourceManager.aberrator.renderPart("Hammer");
 		ResourceManager.aberrator.renderPart("Magazine");
@@ -198,7 +201,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 		GL11.glRotated(25, 1, 0, 0);
 		GL11.glRotated(-45, 0, 1, 0);
 		GL11.glTranslated(1, 0, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 		ResourceManager.aberrator.renderPart("Gun");
 		ResourceManager.aberrator.renderPart("Hammer");
 		ResourceManager.aberrator.renderPart("Magazine");
@@ -210,10 +213,10 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderEquipped(ItemStack stack, Object... data) {
+	public void renderEquipped(ItemStack stack, NativeItemContext context) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 		ResourceManager.aberrator.renderPart("Gun");
 		ResourceManager.aberrator.renderPart("Hammer");
 		ResourceManager.aberrator.renderPart("Magazine");
@@ -221,10 +224,10 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 		ResourceManager.aberrator.renderPart("Sight");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		EntityLivingBase ent = (EntityLivingBase) data[1];
+		EntityLivingBase ent = context.holder;
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[1];
 			shotRand = gun.shotRand;
@@ -252,7 +255,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase ent) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 		ResourceManager.aberrator.renderPart("Gun");
 		ResourceManager.aberrator.renderPart("Hammer");
 		ResourceManager.aberrator.renderPart("Magazine");
@@ -262,7 +265,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 		
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[0];
 			shotRand = gun.shotRand;
@@ -288,7 +291,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 
 	@Override
 	public void renderModTable(ItemStack stack, int index) {
-		renderOther(stack, ItemRenderType.INVENTORY);
+		renderOther(stack, new NativeItemContext(TransformType.GUI, null));
 	}
 	
 	@Override
@@ -297,7 +300,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 		
 		GL11.glTranslated(-1, 1, 0);
 		ResourceManager.aberrator.renderPart("Gun");
@@ -320,14 +323,14 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.eott_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.eott_tex);
 		ResourceManager.aberrator.renderPart("Gun");
 		ResourceManager.aberrator.renderPart("Hammer");
 		ResourceManager.aberrator.renderPart("Magazine");
@@ -352,7 +355,7 @@ public class ItemRenderEOTT extends ItemRenderWeaponBase {
 			double length = 10 * fire;
 			double offset = 1 * fire;
 			double lengthOffset = -1.125;
-			Minecraft.getMinecraft().renderEngine.bindTexture(flash_plume);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(flash_plume);
 			tess.startDrawingQuads();
 			tess.setBrightness(240);
 			tess.setNormal(0F, 1F, 0F);

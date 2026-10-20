@@ -1,180 +1,81 @@
 package com.hbm.render.block.ct;
 
+import java.util.Arrays;
 import net.minecraft.block.Block;
-import com.hbm.render.icon.IIcon;
+import net.minecraft.block.properties.*;
+import net.minecraft.block.state.*;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import com.hbm.lib.ForgeDirection;
+import net.minecraftforge.common.property.*;
 
-import static com.hbm.render.block.ct.CT.*;
-
-public class CTContext {
-	
-	public static CTFace[] faces;
-	
-	//dim 1: 6x faces (forgeDir)
-	//dim 2: 8x neighbors (TL, TC, TR, CL, CR, BL, BC, BR)
-	//dim 3: 3x coord (x/y/z, [-1;1])
-	public static int[][][] access = new int[][][] {
-		lcfs(ForgeDirection.SOUTH, ForgeDirection.WEST),	//DOWN guess
-		lcfs(ForgeDirection.NORTH, ForgeDirection.WEST),	//UP guess
-		lcfs(ForgeDirection.UP, ForgeDirection.EAST),		//NORTH
-		lcfs(ForgeDirection.UP, ForgeDirection.WEST),		//SOUTH
-		lcfs(ForgeDirection.UP, ForgeDirection.NORTH),		//WEST
-		lcfs(ForgeDirection.UP, ForgeDirection.SOUTH)		//EAST
-	};
-	
-	//lexical coordinates from side
-	private static int[][] lcfs(ForgeDirection up, ForgeDirection left) {
-		
-		ForgeDirection down = up.getOpposite();
-		ForgeDirection right = left.getOpposite();
-		
-		int[][] lexicalCoordinates = new int[][] {
-			cfs(up, left),
-			cfs(up),
-			cfs(up, right),
-			cfs(left),
-			cfs(right),
-			cfs(down, left),
-			cfs(down),
-			cfs(down, right),
-		};
-		
-		return lexicalCoordinates;
-	}
-	
-	//coordinates from sides
-	private static int[] cfs(ForgeDirection... dirs) {
-		int x = 0;
-		int y = 0;
-		int z = 0;
-		
-		for(ForgeDirection dir : dirs) {
-			x += dir.offsetX;
-			y += dir.offsetY;
-			z += dir.offsetZ;
-		}
-		
-		return new int[] {x, y, z};
-	}
-	
-	/**
-	 * Generates the six CTFaces and fills the faces array, the faces contain the information on what icon types should be used
-	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param block
-	 */
-	public static void loadContext(IBlockAccess world, int x, int y, int z, Block block) {
-		
-		faces = new CTFace[6];
-		
-		for(int i = 0; i < 6; i++) {
-			
-			boolean[] cons = new boolean[8];
-			int[][] dirs = access[i];
-			
-			for(int j = 0; j < 8; j++) {
-				
-				int[] coord = dirs[j];
-				Block neighbor = world.getBlock(x + coord[0], y + coord[1], z + coord[2]);
-				
-				if(((IBlockCT) block).canConnect(world, x + coord[0], y + coord[1], z + coord[2], neighbor)) {
-					cons[j] = true;
-				}
-			}
-			
-			/*
-			 * 0 1 2
-			 * 3   4
-			 * 5 6 7
-			 */
-			
-			int itl = t | l | cornerType(cons[3], cons[0], cons[1]);
-			int itr = t | r | cornerType(cons[4], cons[2], cons[1]);
-			int ibl = b | l | cornerType(cons[3], cons[5], cons[6]);
-			int ibr = b | r | cornerType(cons[4], cons[7], cons[6]);
-			
-			faces[i] = new CTFace(world, x, y, z, (IBlockCT)block, itl, itr, ibl, ibr);
-		}
-	}
-	
-	/**
-	 * Returns the overarching texture type based on whether the horizontal, vertical and corner are connected
-	 * @param hor
-	 * @param corner
-	 * @param vert
-	 * @return the bitmask for the full texture type that should be used (f/c/j/h/v)
-	 */
-	public static int cornerType(boolean hor, boolean corner, boolean vert) {
-		
-		/*
-		 * C - V
-		 * |
-		 * H
-		 */
-		
-		if(vert && hor && corner)
-			return c;
-		else if(vert && hor)
-			return j;
-		else if(vert)
-			return v;
-		else if(hor)
-			return h;
-		else
-			return f;
-	}
-	
-	/**
-	 * @return whether there's currently a context available
-	 */
-	public static boolean isContextLoaded() {
-		return faces != null;
-	}
-	
-	/**
-	 * Gets rid of the current context
-	 */
-	public static void dropContext() {
-		faces = null;
-	}
-	
-	/**
-	 * The buffered context information for a single side. Also stores the block itself for easier access.
-	 * @author hbm
-	 *
-	 */
-	public static class CTFace {
-
-		IBlockAccess world;
-		int x;
-		int y;
-		int z;
-		IBlockCT ct;
-		int index_tl;
-		int index_tr;
-		int index_bl;
-		int index_br;
-		
-		public CTFace() { }
-		
-		public CTFace(IBlockAccess world, int x, int y, int z, IBlockCT block, int i, int j, int k, int l) {
-			this.world = world;
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.ct = block;
-			this.index_tl = i;
-			this.index_tr = j;
-			this.index_bl = k;
-			this.index_br = l;
-		}
-		
-		public IIcon getTopLeft() { return ct.getFragments(world, x, y, z)[index_tl]; }
-		public IIcon getTopRight() { return ct.getFragments(world, x, y, z)[index_tr]; }
-		public IIcon getBottomLeft() { return ct.getFragments(world, x, y, z)[index_bl]; }
-		public IIcon getBottomRight() { return ct.getFragments(world, x, y, z)[index_br]; }
-	}
+/** Thread-safe value captured before baking. No static render context or world reference. */
+public final class CTContext {
+    public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
+    public static final IUnlistedProperty<CTContext> PROPERTY = new IUnlistedProperty<CTContext>() {
+        public String getName() { return "connected_texture"; }
+        public boolean isValid(CTContext value) { return value != null; }
+        public Class<CTContext> getType() { return CTContext.class; }
+        public String valueToString(CTContext value) { return value.toString(); }
+    };
+    private static final EnumFacing[] UP = {EnumFacing.SOUTH, EnumFacing.NORTH, EnumFacing.UP, EnumFacing.UP, EnumFacing.UP, EnumFacing.UP};
+    private static final EnumFacing[] LEFT = {EnumFacing.WEST, EnumFacing.WEST, EnumFacing.EAST, EnumFacing.WEST, EnumFacing.NORTH, EnumFacing.SOUTH};
+    private static final int[] HORIZONTAL = {1,0,-1,1,-1,1,0,-1};
+    private static final int[] VERTICAL = {1,1,1,0,0,-1,-1,-1};
+    private final long masks;
+    private final int material;
+    private CTContext(long masks, int material) { this.masks = masks; this.material = material; }
+    public static CTContext fromMasks(int[] masks) { return fromMasks(masks, 0); }
+    public static CTContext fromMasks(int[] masks, int material) {
+        if(masks.length != 6) throw new IllegalArgumentException("Six CT face masks required");
+        if(material < 0 || material > 1) throw new IllegalArgumentException("Unknown CT material " + material);
+        long packed = 0;
+        for(int face = 0; face < 6; face++) {
+            if((masks[face] & ~255) != 0) throw new IllegalArgumentException("CT mask must fit eight neighbors");
+            packed |= (long)masks[face] << (face * 8);
+        }
+        return new CTContext(packed, material);
+    }
+    public static CTContext capture(IBlockAccess world, BlockPos pos, IBlockCT owner) {
+        int[] masks = new int[6];
+        for(EnumFacing face : EnumFacing.values()) for(int neighbor = 0; neighbor < 8; neighbor++) {
+            BlockPos at = pos.add(offset(face, neighbor));
+            if(owner.canConnect(world, at.getX(), at.getY(), at.getZ(), world.getBlockState(at).getBlock())) masks[face.getIndex()] |= 1 << neighbor;
+        }
+        return fromMasks(masks, owner.getCTMaterial(world.getBlockState(pos)));
+    }
+    /** The original lexical TL,TC,TR,CL,CR,BL,BC,BR orientation, including top/bottom. */
+    public static BlockPos offset(EnumFacing face, int neighbor) {
+        if(neighbor < 0 || neighbor > 7) throw new IllegalArgumentException("CT neighbor must be 0..7");
+        EnumFacing up = UP[face.getIndex()], left = LEFT[face.getIndex()];
+        return new BlockPos(up.getXOffset()*VERTICAL[neighbor]+left.getXOffset()*HORIZONTAL[neighbor],
+                up.getYOffset()*VERTICAL[neighbor]+left.getYOffset()*HORIZONTAL[neighbor],
+                up.getZOffset()*VERTICAL[neighbor]+left.getZOffset()*HORIZONTAL[neighbor]);
+    }
+    public int mask(EnumFacing face) { return (int)(masks >>> (face.getIndex()*8)) & 255; }
+    public int material() { return material; }
+    public int fragment(EnumFacing face, int quadrant) { return fragment(mask(face), quadrant); }
+    public static int fragment(int mask, int quadrant) {
+        int horizontal, diagonal, vertical;
+        switch(quadrant) {
+            case 0: horizontal=3; diagonal=0; vertical=1; break;
+            case 1: horizontal=4; diagonal=2; vertical=1; break;
+            case 2: horizontal=3; diagonal=5; vertical=6; break;
+            case 3: horizontal=4; diagonal=7; vertical=6; break;
+            default: throw new IllegalArgumentException("CT quadrant must be 0..3");
+        }
+        return quadrant | cornerType((mask & (1 << horizontal)) != 0, (mask & (1 << diagonal)) != 0, (mask & (1 << vertical)) != 0);
+    }
+    public static int cornerType(boolean hor, boolean corner, boolean vert) {
+        return vert && hor && corner ? CT.c : vert && hor ? CT.j : vert ? CT.v : hor ? CT.h : CT.f;
+    }
+    public static BlockStateContainer stateContainer(Block owner) {
+        return new ExtendedBlockState(owner, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {PROPERTY});
+    }
+    public static IBlockState extend(IBlockState state, IBlockAccess world, BlockPos pos, IBlockCT owner) {
+        return ((IExtendedBlockState)state).withProperty(PROPERTY, capture(world, pos, owner));
+    }
+    @Override public boolean equals(Object other) { return other instanceof CTContext && ((CTContext)other).masks == masks && ((CTContext)other).material == material; }
+    @Override public int hashCode() { return 31 * Long.hashCode(masks) + material; }
+    @Override public String toString() { return Long.toHexString(masks) + ":" + material; }
 }

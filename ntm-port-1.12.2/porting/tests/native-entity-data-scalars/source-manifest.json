@@ -1,0 +1,268 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityFireLingering.java",
+    "original_sha256": "f055a5dfd1728df0b0202247bdfcb7771bfce6687777f060c55272caed06acb4",
+    "before_sha256": "f942b31a07d417937070dce01960a2f4ad05616bc4093708cc9a0bb66a4b8503",
+    "after_sha256": "edb071316640bb9310a5004fdec1b56b7fceee3c6379091efe79a70bc5f72f63",
+    "owner": "EntityFireLingering",
+    "superclass": "Entity",
+    "keys": [
+      {
+        "legacy_slot": 10,
+        "key": "FIRE_TYPE",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "default": "0"
+      },
+      {
+        "legacy_slot": 11,
+        "key": "AREA_WIDTH",
+        "java_type": "Float",
+        "serializer": "FLOAT",
+        "default": "0"
+      },
+      {
+        "legacy_slot": 12,
+        "key": "AREA_HEIGHT",
+        "java_type": "Float",
+        "serializer": "FLOAT",
+        "default": "0"
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 43,
+        "before": "this.dataWatcher.addObject(10, new Integer(0));",
+        "after": "this.dataManager.register(FIRE_TYPE, new Integer(0));",
+        "slot": 10,
+        "key": "FIRE_TYPE",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Integer",
+        "after_line": 50,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 49,
+        "before": "this.dataWatcher.updateObject(10, type);",
+        "after": "this.dataManager.set(FIRE_TYPE, type);",
+        "slot": 10,
+        "key": "FIRE_TYPE",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Integer",
+        "after_line": 56,
+        "source_method": "public EntityFireLingering setType(int type) {"
+      },
+      {
+        "before_line": 54,
+        "before": "return this.dataWatcher.getWatchableObjectInt(10);",
+        "after": "return this.dataManager.get(FIRE_TYPE);",
+        "slot": 10,
+        "key": "FIRE_TYPE",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Integer",
+        "after_line": 61,
+        "source_method": "public int getType() {"
+      },
+      {
+        "before_line": 44,
+        "before": "this.dataWatcher.addObject(11, new Float(0));",
+        "after": "this.dataManager.register(AREA_WIDTH, new Float(0));",
+        "slot": 11,
+        "key": "AREA_WIDTH",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Float",
+        "after_line": 51,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 32,
+        "before": "this.dataWatcher.updateObject(11, width);",
+        "after": "this.dataManager.set(AREA_WIDTH, width);",
+        "slot": 11,
+        "key": "AREA_WIDTH",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Float",
+        "after_line": 39,
+        "source_method": "public EntityFireLingering setArea(float width, float height) {"
+      },
+      {
+        "before_line": 62,
+        "before": "this.setSize(this.dataWatcher.getWatchableObjectFloat(11), height);",
+        "after": "this.setSize(this.dataManager.get(AREA_WIDTH), height);",
+        "slot": 11,
+        "key": "AREA_WIDTH",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Float",
+        "after_line": 69,
+        "source_method": "public void onEntityUpdate() {"
+      },
+      {
+        "before_line": 45,
+        "before": "this.dataWatcher.addObject(12, new Float(0));",
+        "after": "this.dataManager.register(AREA_HEIGHT, new Float(0));",
+        "slot": 12,
+        "key": "AREA_HEIGHT",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Float",
+        "after_line": 52,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 33,
+        "before": "this.dataWatcher.updateObject(12, height);",
+        "after": "this.dataManager.set(AREA_HEIGHT, height);",
+        "slot": 12,
+        "key": "AREA_HEIGHT",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Float",
+        "after_line": 40,
+        "source_method": "public EntityFireLingering setArea(float width, float height) {"
+      },
+      {
+        "before_line": 60,
+        "before": "float height = this.dataWatcher.getWatchableObjectFloat(12);",
+        "after": "float height = this.dataManager.get(AREA_HEIGHT);",
+        "slot": 12,
+        "key": "AREA_HEIGHT",
+        "receiver_type": "EntityFireLingering",
+        "receiver": "this",
+        "declaring_owner": "EntityFireLingering",
+        "java_type": "Float",
+        "after_line": 67,
+        "source_method": "public void onEntityUpdate() {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityWaypoint.java",
+    "original_sha256": "f54de1384f6148ec9d33ca8e5d04a4f6512e8921c1921c5d98323f42f58dfbef",
+    "before_sha256": "7ced3cefe8494eab0001d9a1d1fc34af5ed61aaabf07d9c5500ac748934e89d5",
+    "after_sha256": "70d5120117c4b3f1abd4496ff1e576e02e3a2f47ab11f6f56bd07afc125b9913",
+    "owner": "EntityWaypoint",
+    "superclass": "Entity",
+    "keys": [
+      {
+        "legacy_slot": 10,
+        "key": "WAYPOINT_TYPE",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "default": "0"
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 26,
+        "before": "this.dataWatcher.addObject(10, 0);",
+        "after": "this.dataManager.register(WAYPOINT_TYPE, 0);",
+        "slot": 10,
+        "key": "WAYPOINT_TYPE",
+        "receiver_type": "EntityWaypoint",
+        "receiver": "this",
+        "declaring_owner": "EntityWaypoint",
+        "java_type": "Integer",
+        "after_line": 31,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 49,
+        "before": "this.dataWatcher.updateObject(10, waypointType);",
+        "after": "this.dataManager.set(WAYPOINT_TYPE, waypointType);",
+        "slot": 10,
+        "key": "WAYPOINT_TYPE",
+        "receiver_type": "EntityWaypoint",
+        "receiver": "this",
+        "declaring_owner": "EntityWaypoint",
+        "java_type": "Integer",
+        "after_line": 54,
+        "source_method": "public void setWaypointType(int waypointType) {"
+      },
+      {
+        "before_line": 41,
+        "before": "return this.dataWatcher.getWatchableObjectInt(10);",
+        "after": "return this.dataManager.get(WAYPOINT_TYPE);",
+        "slot": 10,
+        "key": "WAYPOINT_TYPE",
+        "receiver_type": "EntityWaypoint",
+        "receiver": "this",
+        "declaring_owner": "EntityWaypoint",
+        "java_type": "Integer",
+        "after_line": 46,
+        "source_method": "public int getWaypointType() {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java",
+    "original_sha256": "99b43a7519800c8d09dd2043dcc639646c078b40e5230e6a0f269a11cd19b44e",
+    "before_sha256": "958b39fcb1abf5427a9f680b80c3101eb6c2acc083ae1601969836652c90c086",
+    "after_sha256": "015a53e486e3721749048b1eeedc587534326489ec28116dfb4b4bba20cd9afd",
+    "owner": "EntitySiegeLaser",
+    "superclass": "EntityThrowable",
+    "keys": [
+      {
+        "legacy_slot": 12,
+        "key": "COLOR",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "default": "0xffffff"
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 35,
+        "before": "this.getDataWatcher().addObject(12, (int) 0xffffff);",
+        "after": "this.dataManager.register(COLOR, (int) 0xffffff);",
+        "slot": 12,
+        "key": "COLOR",
+        "receiver_type": "EntitySiegeLaser",
+        "receiver": "this",
+        "declaring_owner": "EntitySiegeLaser",
+        "java_type": "Integer",
+        "after_line": 40,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 59,
+        "before": "this.getDataWatcher().updateObject(12, color);",
+        "after": "this.dataManager.set(COLOR, color);",
+        "slot": 12,
+        "key": "COLOR",
+        "receiver_type": "EntitySiegeLaser",
+        "receiver": "this",
+        "declaring_owner": "EntitySiegeLaser",
+        "java_type": "Integer",
+        "after_line": 64,
+        "source_method": "public EntitySiegeLaser setColor(int color) {"
+      },
+      {
+        "before_line": 64,
+        "before": "return this.getDataWatcher().getWatchableObjectInt(12);",
+        "after": "return this.dataManager.get(COLOR);",
+        "slot": 12,
+        "key": "COLOR",
+        "receiver_type": "EntitySiegeLaser",
+        "receiver": "this",
+        "declaring_owner": "EntitySiegeLaser",
+        "java_type": "Integer",
+        "after_line": 69,
+        "source_method": "public int getColor() {"
+      }
+    ]
+  }
+]

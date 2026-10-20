@@ -1,0 +1,142 @@
+PINNED ORIGINAL ROUTING SOURCES 14
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardBuffer.java 5f5abf7b47f9a06b57cf7b12762d1dbba8ed0600d013dae7ad467e5600694ab5
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardRamp.java 9a3a03a954f909553f62fd141f611e92b5f2d35b44f811baf989d3ceefc5fb85
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardStraightShort.java 8d3509ddddf8cc38aceac7848a71c1e6ebd07c11a6cde609b79d91d25e668141
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardCurveWide7.java 9cbff7d077944084917801ec59003881b7a6c56a5870cfe9157ed91ef49dddbf
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java b6936d8f99bf65f0fb18cde703ba0d71959dddd8beb5280c40b7fec51b5edae2
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardCurveBase.java 7b0687a6839b2d4fac17af3ea80707504483b648fdcd0144b5adbc5bea53d70a
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/BlockRailWaypointSystem.java 3225647e2b3cf2901467449c4a1e46be27cae8ea8cb53c799151a1faaafdb9ad
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardStraight.java 1e6d83b6141571174e4c94aeec0f39a44728edc6aa2fbcd88f704c896a552328
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardCurveWide9.java ca17168fa75c5d6b86d8dc118a44b3585633396daf83155a1dcae7d6616d3faf
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/BlockRailNTM.java f233129ad6d25ed6995e8677e21681de6c11d70b497b218ad5bab63fad4edf2e
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/IRailNTM.java d72d83422464d98af3ff78339ccc83ea282567f5ec0d3471e021deed0c3e1f32
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailNarrowStraight.java 7957de04b0ed48732100eab281541ffaa55eb74c3658b3c59df797fc3955f888
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/IRenderBlock.java 49278fef68b74b7fd4abd3043956a0b3526226c899067f0bcd8da83bf25354ad
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java 4a7df1b6683d0c1501091d6322cf7e3f98339d16579a77f286ccd3b010cd0bc8
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/RailNarrowCurve.java baebb738ddef3f3c5239fb0ed27dfc2513ee58b9afc2faf2ddd63de235068c8c
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFunnel.java fc0738295f34f0d09b0d3b13aa7f7de79b841d9aa2b538f45b4cbcb688700984
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockDummyable.java 37d31d015839532f4e26b57d46f603f8bd81d216d0cc2a509967252a6fe89163
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ICustomBlockHighlight.java 44b23377773484de6a0277cea837ff98aae7b50ea39d8f36d224592470c470db
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/handler/MultiblockHandlerXR.java cf660309ec2465376605096eca9926b28dca4001c849183e23dd63a95aeb4012
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/handler/ThreeInts.java c5b412aa821e92e552776ec38042855a6a6d64a6f25613d4bc00addf6d1721ce
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/interfaces/ICopiable.java 8ff8692757fe67d708cde45100aecb67e5f9e635a81194dc5b0897ea3cbfb226
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/IPersistentNBT.java 351d6d5004ad1e2ede9a95d7ac2d095e8f8ad779873619e5da8af178a797d7ce
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/util/Either.java f23ccc32cdec9813ddcefe0fc9ef1029de5c7752d2a6f1da41776b453d4e39fa
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/interfaces/Spaghetti.java f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/util/fauxpointtwelve/Rotation.java 03dd92b41e1a535480faebea6bf0ed171d909465c782cdb4e6cd534fbeb28f4f
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/util/Tuple.java 068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/util/fauxpointtwelve/BlockPos.java ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/block/RenderRail.java 3bb235256d1f4ece94cd18dec7b039e89c4ae2c7e422b2679c621ab117546d1e
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/block/nativeblock/RailBakedModel.java d68e72f0a8513146e5ceed0572c47d6e23081850a28a04628cb63163c15ec53b
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/main/RailModelHandler.java 0de9aa53a7a0cb92de5a1d223df2346cb79f43c93c07ef5469957a5b3116c1c9
+PRODUCTION /workspace/shared/nagaport-rail-native/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/main/MainRegistry.java 185bc2a1e1ac52df8e361bc31cabcc92376004102c7bcf07430a057a303f0e38
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/util/CompatExternal.java 237b7b7e48a0cef184cdc60ebe2d55f66da426e1b93faf96e25d5a93d53cd9fd
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/items/ModItems.java 6895c229477888f42c52705e303e17a2aa944efcff1a5cc05abf4b328fd335f9
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/lib/Library.java 6b393360922bb7f97209895d8723874ea7594d248fbf0edf74cfb03d2272b63a
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/util/ParticleUtil.java 633f339b41e5558bae3e5efc7c961fd8e775c124e007fe6bcbedecfa020d3bc9
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/util/i18n/I18nUtil.java d0439bc1a312bd2cf1469cb71c852ce26fd6028243e67a91cc23b98e15fc3a40
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/tileentity/machine/TileEntityMachineFunnel.java d8b1a91fec6047b384c5669cd21ea21b86f8970e69dc321f4ddaf6fcf02bd9e4
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/entity/train/EntityRailCarBase.java e42f91fc4b1d29aa12d6bc4ddd43de05308b5dcd70b9ec42ce1aabdf93afb9b2
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/com/hbm/util/BobMathUtil.java 0ed9d3f2ca8915699b919e5d9278b578f11e0f2b21ab5154d64e20c261e6fe86
+CONTROLLED NTM COLLABORATOR /tmp/rail-native-frozen-proof/RailRegistrationProbe.java 98c992204e3e4594abdef28dce300148ff99c03abab311e2a23d42a8f7f8cfdf
+/workspace/shared/nagaport-rail-native/ntm-port-1.12.2/porting/tests/rail-native/RailOwnerNativeTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks;static sun.misc.Unsafe unsafe;
+                                  ^
+/workspace/shared/nagaport-rail-native/ntm-port-1.12.2/porting/tests/rail-native/RailOwnerNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] args)throws Exception{net.minecraft.init.Bootstrap.register();Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);net.minecraft.tileentity.TileEntity.register("rail_switch_probe",RailStandardSwitch.TileEntityRailSwitch.class);routing();placement();boundaries();funnel();System.out.println("PASS "+checks+" native rail owner/routing/placement/lifecycle assertions against extracted pristine methods. Captured world boundary, not launched gameplay.");}
+                                                                                                                ^
+/workspace/shared/nagaport-rail-native/ntm-port-1.12.2/porting/tests/rail-native/RailOwnerNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] args)throws Exception{net.minecraft.init.Bootstrap.register();Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);net.minecraft.tileentity.TileEntity.register("rail_switch_probe",RailStandardSwitch.TileEntityRailSwitch.class);routing();placement();boundaries();funnel();System.out.println("PASS "+checks+" native rail owner/routing/placement/lifecycle assertions against extracted pristine methods. Captured world boundary, not launched gameplay.");}
+                                                                                                                                                                                                  ^
+/workspace/shared/nagaport-rail-native/ntm-port-1.12.2/porting/tests/rail-native/RailModelNativeTest.java:23: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager resources;
+                                                                                          ^
+/workspace/shared/nagaport-rail-native/ntm-port-1.12.2/porting/tests/rail-native/RailModelNativeTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(resources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);}
+                                      ^
+/workspace/shared/nagaport-rail-native/ntm-port-1.12.2/porting/tests/rail-native/RailModelNativeTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(resources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);}
+                                                                                                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+PASS 235183 native rail owner/routing/placement/lifecycle assertions against extracted pristine methods. Captured world boundary, not launched gameplay.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_narrow_curve`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_narrow_curve`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_narrow_straight`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_narrow_straight`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_buffer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_buffer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_curve`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_curve`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_curve_7`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_curve_7`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_curve_9`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_curve_9`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_ramp`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_ramp`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_straight`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_straight`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_straight_short`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_straight_short`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_switch`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_switch`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_switch_flipped`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rail_large_switch_flipped`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_funnel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_funnel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:57:57] [main/INFO]: Reloading ResourceManager: resources
+[23:57:57] [main/INFO]: Reloading ResourceManager: resources
+PASS actual Forge registry/state JSON/loader/item mesher and world flat lighting: resources
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: resources
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: resources
+PASS all12 original meshes changed/restored/missing resource reload: resources
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail-native-resources.jar
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail-native-resources.jar
+PASS actual Forge registry/state JSON/loader/item mesher and world flat lighting: rail-native-resources.jar
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail-native-resources.jar
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail controlled resource mutation
+[23:57:58] [main/INFO]: Reloading ResourceManager: rail-native-resources.jar
+PASS all12 original meshes changed/restored/missing resource reload: rail-native-resources.jar
+PASS 1038370 real native rail model registration/loader/flat-light assertions. CPU headless, not launched-game or CP37 visual approval.
+Note: /tmp/rail-native-frozen-proof/rail-mutation-gas_q185/com/hbm/blocks/rail/BlockRailWaypointSystem.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS intentional production behavior mutation rejected: com/hbm/blocks/rail/BlockRailWaypointSystem.java .subtractReverse( => .subtract(
+PASS intentional production behavior mutation rejected: com/hbm/blocks/rail/RailStandardRamp.java cY + 1 - dist => cY + 2 - dist
+PASS complete native rail owner/model closure and two behavior negative controls. Not full build/gameplay/visual acceptance.

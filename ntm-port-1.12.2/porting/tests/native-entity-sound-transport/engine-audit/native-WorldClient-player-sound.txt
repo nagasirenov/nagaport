@@ -1,0 +1,19 @@
+  public void playSound(net.minecraft.entity.player.EntityPlayer, double, double, double, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, float, float);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #88                 // Field mc:Lnet/minecraft/client/Minecraft;
+       5: getfield      #321                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+       8: if_acmpne     29
+      11: aload_0
+      12: dload_2
+      13: dload         4
+      15: dload         6
+      17: aload         8
+      19: aload         9
+      21: fload         10
+      23: fload         11
+      25: iconst_0
+      26: invokevirtual #576                // Method playSound:(DDDLnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FFZ)V
+      29: return
+

@@ -123,16 +123,16 @@ public class ModEventHandlerImpact {
 		TomSaveData data = TomSaveData.forWorld(event.world);
 
 		if(data.impact) {
-			if(!(event.entityLiving instanceof EntityPlayer) && event.entityLiving instanceof EntityLivingBase) {
-				if(event.entityLiving.height >= 0.85F || event.entityLiving.width >= 0.85F && !(event.entity instanceof EntityWaterMob) && !event.entityLiving.isChild()) {
+			if(!(event.getEntityLiving() instanceof EntityPlayer) && event.getEntityLiving() instanceof EntityLivingBase) {
+				if(event.getEntityLiving().height >= 0.85F || event.getEntityLiving().width >= 0.85F && !(event.getEntity() instanceof EntityWaterMob) && !event.getEntityLiving().isChild()) {
 					event.setResult(Result.DENY);
-					event.entityLiving.setDead();
+					event.getEntityLiving().setDead();
 				}
-				if(event.entityLiving instanceof EntityWaterMob) {
+				if(event.getEntityLiving() instanceof EntityWaterMob) {
 					Random rand = new Random();
 					if(rand.nextInt(5) != 0) {
 						event.setResult(Result.DENY);
-						event.entityLiving.setDead();
+						event.getEntityLiving().setDead();
 					}
 				}
 			}
@@ -169,20 +169,20 @@ public class ModEventHandlerImpact {
 		}
 
 		if(data.impact) {
-			if(mat == Material.wood || mat == Material.glass || b == Blocks.ladder || b instanceof BlockCrops ||
-					b == Blocks.chest || b instanceof BlockDoor || mat == Material.cloth || mat == Material.water || b == Blocks.stone_slab) {
-				event.replacement = Blocks.air;
+			if(mat == Material.wood || mat == Material.GLASS || b == Blocks.LADDER || b instanceof BlockCrops ||
+					b == Blocks.CHEST || b instanceof BlockDoor || mat == Material.cloth || mat == Material.WATER || b == Blocks.STONE_SLAB) {
+				event.replacement = Blocks.AIR;
 
-			} else if(b == Blocks.cobblestone || b == Blocks.stonebrick) {
+			} else if(b == Blocks.COBBLESTONE || b == Blocks.STONEBRICK) {
 				if(rand.nextInt(3) == 1) {
-					event.replacement = Blocks.gravel;
+					event.replacement = Blocks.GRAVEL;
 				}
-			} else if(b == Blocks.sandstone) {
+			} else if(b == Blocks.SANDSTONE) {
 				if(rand.nextInt(3) == 1) {
-					event.replacement = Blocks.sand;
+					event.replacement = Blocks.SAND;
 				}
-			} else if(b == Blocks.farmland) {
-				event.replacement = Blocks.dirt;
+			} else if(b == Blocks.FARMLAND) {
+				event.replacement = Blocks.DIRT;
 			}
 		}
 
@@ -200,11 +200,11 @@ public class ModEventHandlerImpact {
 		TomSaveData data = TomSaveData.getLastCachedOrNull(); //despite forcing the data, we cannot rule out canceling events or custom firing shenanigans
 		if(data != null && event.biome != null) {
 			if(event.biome.topBlock != null) {
-				if(event.biome.topBlock == Blocks.grass) {
+				if(event.biome.topBlock == Blocks.GRASS) {
 					if(data.impact && (data.dust > 0 || data.fire > 0)) {
 						event.biome.topBlock = ModBlocks.impact_dirt;
 					} else {
-						event.biome.topBlock = Blocks.grass;
+						event.biome.topBlock = Blocks.GRASS;
 					}
 				}
 			}
@@ -263,18 +263,18 @@ public class ModEventHandlerImpact {
 							for(int z = 0; z < 16; ++z) {
 
 								if(data.dust > 0.25 || data.fire > 0) {
-									if(storage.getBlockByExtId(x, y, z) == Blocks.grass) {
+									if(storage.getBlockByExtId(x, y, z) == Blocks.GRASS) {
 										storage.func_150818_a(x, y, z, ModBlocks.impact_dirt);
 									} else if(storage.getBlockByExtId(x, y, z) instanceof BlockLog) {
-										storage.func_150818_a(x, y, z, Blocks.air);
+										storage.func_150818_a(x, y, z, Blocks.AIR);
 									} else if(storage.getBlockByExtId(x, y, z) instanceof BlockLeaves) {
-										storage.func_150818_a(x, y, z, Blocks.air);
-									} else if(storage.getBlockByExtId(x, y, z).getMaterial() == Material.leaves) {
-										storage.func_150818_a(x, y, z, Blocks.air);
-									} else if(storage.getBlockByExtId(x, y, z).getMaterial() == Material.plants) {
-										storage.func_150818_a(x, y, z, Blocks.air);
+										storage.func_150818_a(x, y, z, Blocks.AIR);
+									} else if(storage.getBlockByExtId(x, y, z).getMaterial() == Material.LEAVES) {
+										storage.func_150818_a(x, y, z, Blocks.AIR);
+									} else if(storage.getBlockByExtId(x, y, z).getMaterial() == Material.PLANTS) {
+										storage.func_150818_a(x, y, z, Blocks.AIR);
 									} else if(storage.getBlockByExtId(x, y, z) instanceof BlockBush) {
-										storage.func_150818_a(x, y, z, Blocks.air);
+										storage.func_150818_a(x, y, z, Blocks.AIR);
 									}
 								}
 							}

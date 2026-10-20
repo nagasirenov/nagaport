@@ -24,7 +24,7 @@ public class ItemWiring extends Item {
 
 		if(!player.isSneaking()) {
 			
-			Block b = world.getBlock(x, y, z);
+			Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 			
 			if(b instanceof BlockDummyable) {
 				int[] core = ((BlockDummyable)b).findCore(world, x, y, z);
@@ -36,29 +36,29 @@ public class ItemWiring extends Item {
 				}
 			}
 			
-			TileEntity te = world.getTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(te != null && te instanceof TileEntityPylonBase) {
 
-				if(stack.stackTagCompound == null) {
-					stack.stackTagCompound = new NBTTagCompound();
+				if(stack.getTagCompound() == null) {
+					stack.setTagCompound(new NBTTagCompound());
 
-					stack.stackTagCompound.setInteger("x", x);
-					stack.stackTagCompound.setInteger("y", y);
-					stack.stackTagCompound.setInteger("z", z);
+					stack.getTagCompound().setInteger("x", x);
+					stack.getTagCompound().setInteger("y", y);
+					stack.getTagCompound().setInteger("z", z);
 
 					if(!world.isRemote) {
 						player.sendMessage(new TextComponentString("Wire start"));
 					}
 				} else if(!world.isRemote) {
 
-					int x1 = stack.stackTagCompound.getInteger("x");
-					int y1 = stack.stackTagCompound.getInteger("y");
-					int z1 = stack.stackTagCompound.getInteger("z");
+					int x1 = stack.getTagCompound().getInteger("x");
+					int y1 = stack.getTagCompound().getInteger("y");
+					int z1 = stack.getTagCompound().getInteger("z");
 
-					if(world.getTileEntity(x1, y1, z1) instanceof TileEntityPylonBase) {
+					if(world.getTileEntity(new net.minecraft.util.math.BlockPos(x1, y1, z1)) instanceof TileEntityPylonBase) {
 
-						TileEntityPylonBase first = (TileEntityPylonBase) world.getTileEntity(x1, y1, z1);
+						TileEntityPylonBase first = (TileEntityPylonBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(x1, y1, z1));
 						TileEntityPylonBase second = ((TileEntityPylonBase) te);
 						
 						switch (TileEntityPylonBase.canConnect(first, second)) {
@@ -78,14 +78,14 @@ public class ItemWiring extends Item {
 								break;
 						}
 						
-						stack.stackTagCompound = null;
+						stack.setTagCompound(null);
 
 					} else {
 
 						if(!world.isRemote) {
 							player.sendMessage(new TextComponentString("Wire error"));
 						}
-						stack.stackTagCompound = null;
+						stack.setTagCompound(null);
 					}
 				}
 
@@ -99,10 +99,10 @@ public class ItemWiring extends Item {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		if(itemstack.stackTagCompound != null) {
-			list.add("Wire start x: " + itemstack.stackTagCompound.getInteger("x"));
-			list.add("Wire start y: " + itemstack.stackTagCompound.getInteger("y"));
-			list.add("Wire start z: " + itemstack.stackTagCompound.getInteger("z"));
+		if(itemstack.getTagCompound() != null) {
+			list.add("Wire start x: " + itemstack.getTagCompound().getInteger("x"));
+			list.add("Wire start y: " + itemstack.getTagCompound().getInteger("y"));
+			list.add("Wire start z: " + itemstack.getTagCompound().getInteger("z"));
 		} else {
 			list.add("Right-click poles to connect");
 		}
@@ -112,11 +112,11 @@ public class ItemWiring extends Item {
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean inhand) {
 
 		if(world.isRemote) {
-			if(stack.stackTagCompound != null) {
+			if(stack.getTagCompound() != null) {
 				Vec3d vec = new Vec3d(
-						entity.posX - stack.stackTagCompound.getInteger("x"),
-						entity.posY - stack.stackTagCompound.getInteger("y"),
-						entity.posZ - stack.stackTagCompound.getInteger("z"));
+						entity.posX - stack.getTagCompound().getInteger("x"),
+						entity.posY - stack.getTagCompound().getInteger("y"),
+						entity.posZ - stack.getTagCompound().getInteger("z"));
 				
 				MainRegistry.proxy.displayTooltip(stack.getDisplayName() + ": " + ((int) vec.length()) + "m", MainRegistry.proxy.ID_CABLE);
 			}

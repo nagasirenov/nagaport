@@ -34,7 +34,7 @@ import net.minecraft.world.World;
 public class TileEntityTurretMaxwell extends TileEntityTurretBaseNT implements IUpgradeInfoProvider {
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretMaxwell";
 	}
 
@@ -167,9 +167,9 @@ public class TileEntityTurretMaxwell extends TileEntityTurretBaseNT implements I
 	public double lastDist;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			if(this.tPos != null) {
 				Vec3d pos = this.getTurretPos();
@@ -220,7 +220,7 @@ public class TileEntityTurretMaxwell extends TileEntityTurretBaseNT implements I
 			checkDelay--;
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	int redLevel;
@@ -257,9 +257,9 @@ public class TileEntityTurretMaxwell extends TileEntityTurretBaseNT implements I
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(vdat, this.target.posX, this.target.posY + this.target.height * 0.5, this.target.posZ), new TargetPoint(this.target.dimension, this.target.posX, this.target.posY + this.target.height * 0.5, this.target.posZ, 150));
 
 				if(this.screm)
-					worldObj.playSoundEffect(this.target.posX, this.target.posY, this.target.posZ, "hbm:block.screm", 20.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.target.posX, this.target.posY, this.target.posZ, "hbm:block.screm", 20.0F, 1.0F);
 				else
-					worldObj.playSoundEffect(this.target.posX, this.target.posY, this.target.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.target.posX, this.target.posY, this.target.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 			}
 
 			this.power -= demand;

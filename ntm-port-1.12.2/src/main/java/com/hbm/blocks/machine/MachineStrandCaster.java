@@ -30,7 +30,7 @@ import java.util.List;
 public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcceptor, ILookOverlay, IToolable {
 
 	public MachineStrandCaster() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	// reminder, if the machine is a solid brick, get dimensions will already
@@ -81,12 +81,12 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 	@Override
 	public boolean canAcceptPartialPour(World world, int x, int y, int z, double dX, double dY, double dZ, ForgeDirection side, Mats.MaterialStack stack) {
 
-		TileEntity poured = world.getTileEntity(x, y, z);
+		TileEntity poured = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(poured instanceof TileEntityProxyCombo && ((TileEntityProxyCombo) poured).moltenMetal)) return false;
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return false;
-		TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(tile instanceof TileEntityMachineStrandCaster)) return false;
 		TileEntityMachineStrandCaster caster = (TileEntityMachineStrandCaster) tile;
 
@@ -96,12 +96,12 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 	@Override
 	public Mats.MaterialStack pour(World world, int x, int y, int z, double dX, double dY, double dZ, ForgeDirection side, Mats.MaterialStack stack) {
 
-		TileEntity poured = world.getTileEntity(x, y, z);
+		TileEntity poured = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(poured instanceof TileEntityProxyCombo && ((TileEntityProxyCombo) poured).moltenMetal)) return stack;
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return stack;
-		TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(tile instanceof TileEntityMachineStrandCaster)) return stack;
 		TileEntityMachineStrandCaster caster = (TileEntityMachineStrandCaster) tile;
 
@@ -125,25 +125,25 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 		}
 
 		int[] coords = findCore(world, x, y, z);
-		TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) world.getTileEntity(coords[0], coords[1], coords[2]);
+		TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) world.getTileEntity(new net.minecraft.util.math.BlockPos(coords[0], coords[1], coords[2]));
 		if(cast != null) {
 			// insert mold
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.mold && cast.slots[0] == null) {
-				cast.slots[0] = player.getHeldItem().copy();
-				cast.slots[0].stackSize = 1;
-				player.getHeldItem().stackSize--;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.mold && cast.slots[0] == null) {
+				cast.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
+				cast.slots[0].setCount(1);
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 				cast.markDirty();
 				return true;
 
 			}
 
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemTool && player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("shovel")) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemTool && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem().getToolClasses(com.hbm.util.NativeHeldItem.getMainHandNullable(player)).contains("shovel")) {
 				if(cast.amount > 0) {
 					ItemStack scrap = ItemScraps.create(new Mats.MaterialStack(cast.type, cast.amount));
 					if(!player.inventory.addItemStackToInventory(scrap)) {
 						EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);
-						world.spawnEntityInWorld(item);
+						world.spawnEntity(item);
 					} else {
 						player.inventoryContainer.detectAndSendChanges();
 					}
@@ -160,14 +160,14 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block b, int i) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof TileEntityMachineStrandCaster) {
 			TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) te;
 
 			if(cast.amount > 0) {
 				ItemStack scrap = ItemScraps.create(new Mats.MaterialStack(cast.type, cast.amount));
 				EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);
-				world.spawnEntityInWorld(item);
+				world.spawnEntity(item);
 				cast.amount = 0; // just for safety
 			}
 		}
@@ -179,7 +179,7 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 		if(coords == null)
 			return;
 
-		TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) world.getTileEntity(coords[0], coords[1], coords[2]);
+		TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) world.getTileEntity(new net.minecraft.util.math.BlockPos(coords[0], coords[1], coords[2]));
 
 		List<String> text = new ArrayList();
 		if(cast != null) {
@@ -189,7 +189,7 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 				text.add(TextFormatting.BLUE + cast.getInstalledMold().getTitle());
 			}
 		}
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getUnlocalizedName() + ".name"), 0xFF4000, 0x401000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getTranslationKey() + ".name"), 0xFF4000, 0x401000, text);
 	}
 
 	@Override
@@ -208,14 +208,14 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 			return false;
 
 		int[] coords = findCore(world, x, y, z);
-		TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) world.getTileEntity(coords[0], coords[1], coords[2]);
+		TileEntityMachineStrandCaster cast = (TileEntityMachineStrandCaster) world.getTileEntity(new net.minecraft.util.math.BlockPos(coords[0], coords[1], coords[2]));
 
 		if(cast.slots[0] == null)
 			return false;
 
 		if(!player.inventory.addItemStackToInventory(cast.slots[0].copy())) {
 			EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, cast.slots[0].copy());
-			world.spawnEntityInWorld(item);
+			world.spawnEntity(item);
 		} else {
 			player.inventoryContainer.detectAndSendChanges();
 		}

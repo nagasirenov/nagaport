@@ -6,6 +6,9 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.main.ResourceManager;
 import com.hbm.render.loader.HmfController;
+import com.hbm.render.mesh.ObjMeshRenderer;
+import com.hbm.render.mesh.ObjMeshRenderer.Shading;
+import com.hbm.util.Clock;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -23,7 +26,7 @@ public class TomPronter {
 		TextureManager tex = Minecraft.getMinecraft().getTextureManager();
 		
 		tex.bindTexture(ResourceManager.tom_main_tex);
-		ResourceManager.tom_main.renderAll();
+		ObjMeshRenderer.drawParts(ResourceManager.tom_main.getMesh().parts, Shading.LEGACY_FLAT, 0);
 		
     	HmfController.setMod(50000D, 2500D);
 
@@ -44,7 +47,9 @@ public class TomPronter {
 			
 			GL11.glRotatef(rot + r, 0, 1, 0);
 			
-			ResourceManager.tom_flame.renderAll();
+			float currentTime = Clock.get_ms();
+			ObjMeshRenderer.drawParts(ResourceManager.tom_flame.getMesh().parts, Shading.HMF,
+					ObjMeshRenderer.hmfOffset(currentTime, HmfController.modoloMod, HmfController.quotientMod));
 			
 			GL11.glRotatef(rot, 0, -1, 0);
 			

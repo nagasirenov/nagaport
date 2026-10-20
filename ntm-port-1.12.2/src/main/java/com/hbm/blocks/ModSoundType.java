@@ -1,42 +1,60 @@
 package com.hbm.blocks;
 
-import net.minecraft.block.Block;
+import com.hbm.main.ModSoundEvents;
+
+import net.minecraft.block.SoundType;
+import net.minecraft.util.SoundEvent;
 
 import java.util.Random;
 
-public class ModSoundType extends Block.SoundType {
-	protected final String placeSound;
-	protected final String breakSound;
-	protected final String stepSound;
+public class ModSoundType extends SoundType {
+	protected final SoundEvent placeSound;
+	protected final SoundEvent breakSound;
+	protected final SoundEvent stepSound;
 
 	protected ModSoundType(String placeSound, String breakSound, String stepSound, float volume, float pitch) {
-		super("", volume, pitch);
+		this(ModSoundEvents.resolve(placeSound), ModSoundEvents.resolve(breakSound), ModSoundEvents.resolve(stepSound), volume, pitch);
+	}
+
+	protected ModSoundType(SoundEvent placeSound, SoundEvent breakSound, SoundEvent stepSound, float volume, float pitch) {
+		// Legacy hits and landing sounds used the step resource, not the break resource.
+		super(volume, pitch, breakSound, stepSound, placeSound, stepSound, stepSound);
 		this.placeSound = placeSound;
 		this.breakSound = breakSound;
 		this.stepSound = stepSound;
 	}
 
 	public ModEnvelopedSoundType enveloped() {
-		return new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, frequency);
+		return new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, pitch);
 	}
 
 	public ModEnvelopedSoundType enveloped(Random random) {
-		return new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, frequency, random);
+		return new ModEnvelopedSoundType(placeSound, breakSound, stepSound, volume, pitch, random);
 	}
 
 	@Override
-	public String func_150496_b() {
+	public SoundEvent getPlaceSound() {
 		return placeSound;
 	}
 
 	@Override
-	public String getBreakSound() {
+	public SoundEvent getBreakSound() {
 		return breakSound;
 	}
 
 	@Override
-	public String getStepResourcePath() {
+	public SoundEvent getStepSound() {
 		return stepSound;
+	}
+
+	@Override
+	public SoundEvent getHitSound() {
+		return getStepSound();
+	}
+
+	@Override
+	public SoundEvent getFallSound() {
+		return getStepSound();
 	}
 
 	// creates a sound type with vanilla-like sound strings name-spaced to the mod
@@ -66,20 +84,20 @@ public class ModSoundType extends Block.SoundType {
 	// these permutations copy sounds from an existing sound type and modify one of the sounds,
 	// but with a manual path for the custom sound
 
-	public static ModSoundType customPlace(Block.SoundType from, String placeSound, float volume, float pitch) {
-		return new ModSoundType(placeSound, from.getBreakSound(), from.getStepResourcePath(), volume, pitch);
+	public static ModSoundType customPlace(SoundType from, String placeSound, float volume, float pitch) {
+		return new ModSoundType(ModSoundEvents.resolve(placeSound), from.getBreakSound(), from.getStepSound(), volume, pitch);
 	}
 
-	public static ModSoundType customBreak(Block.SoundType from, String breakSound, float volume, float pitch) {
-		return new ModSoundType(from.func_150496_b(), breakSound, from.getStepResourcePath(), volume, pitch);
+	public static ModSoundType customBreak(SoundType from, String breakSound, float volume, float pitch) {
+		return new ModSoundType(from.getPlaceSound(), ModSoundEvents.resolve(breakSound), from.getStepSound(), volume, pitch);
 	}
 
-	public static ModSoundType customStep(Block.SoundType from, String stepSound, float volume, float pitch) {
-		return new ModSoundType(from.func_150496_b(), from.getBreakSound(), stepSound, volume, pitch);
+	public static ModSoundType customStep(SoundType from, String stepSound, float volume, float pitch) {
+		return new ModSoundType(from.getPlaceSound(), from.getBreakSound(), ModSoundEvents.resolve(stepSound), volume, pitch);
 	}
 
-	public static ModSoundType customDig(Block.SoundType from, String dig, float volume, float pitch) {
-		return new ModSoundType(dig, dig, from.getStepResourcePath(), volume, pitch);
+	public static ModSoundType customDig(SoundType from, String dig, float volume, float pitch) {
+		return new ModSoundType(ModSoundEvents.resolve(dig), ModSoundEvents.resolve(dig), from.getStepSound(), volume, pitch);
 	}
 
 	// customizes all sounds
@@ -99,11 +117,19 @@ public class ModSoundType extends Block.SoundType {
 		private final Random random;
 
 		ModEnvelopedSoundType(String placeSound, String breakSound, String stepSound, float volume, float pitch, Random random) {
+			this(ModSoundEvents.resolve(placeSound), ModSoundEvents.resolve(breakSound), ModSoundEvents.resolve(stepSound), volume, pitch, random);
+		}
+
+		ModEnvelopedSoundType(String placeSound, String breakSound, String stepSound, float volume, float pitch) {
+			this(placeSound, breakSound, stepSound, volume, pitch, new Random());
+		}
+
+		ModEnvelopedSoundType(SoundEvent placeSound, SoundEvent breakSound, SoundEvent stepSound, float volume, float pitch, Random random) {
 			super(placeSound, breakSound, stepSound, volume, pitch);
 			this.random = random;
 		}
 
-		ModEnvelopedSoundType(String placeSound, String breakSound, String stepSound, float volume, float pitch) {
+		ModEnvelopedSoundType(SoundEvent placeSound, SoundEvent breakSound, SoundEvent stepSound, float volume, float pitch) {
 			this(placeSound, breakSound, stepSound, volume, pitch, new Random());
 		}
 
@@ -111,21 +137,21 @@ public class ModSoundType extends Block.SoundType {
 		private SubType probableSubType = SubType.PLACE;
 
 		@Override
-		public String func_150496_b() {
+		public SoundEvent getPlaceSound() {
 			probableSubType = SubType.PLACE;
-			return super.func_150496_b();
+			return super.getPlaceSound();
 		}
 
 		@Override
-		public String getBreakSound() {
+		public SoundEvent getBreakSound() {
 			probableSubType = SubType.BREAK;
 			return super.getBreakSound();
 		}
 
 		@Override
-		public String getStepResourcePath() {
+		public SoundEvent getStepSound() {
 			probableSubType = SubType.STEP;
-			return super.getStepResourcePath();
+			return super.getStepSound();
 		}
 
 		private Envelope volumeEnvelope = null;

@@ -31,10 +31,10 @@ public class GUIToolBox extends GuiContainer {
 
 		if(firstHeld == null) {
 			// *very* unlikely to be incorrect on the first frame after opening, so doing this is good enough
-			firstHeld = this.mc.thePlayer.getHeldItem();
+			firstHeld = com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player);
 
 		// if the open box has changed or disappeared, close the inventory
-		} else if(this.mc.thePlayer.getHeldItem() != firstHeld) {
+		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player) != firstHeld) {
 			//this.mc.thePlayer.closeScreen();
 			//return;
 		}
@@ -50,8 +50,8 @@ public class GUIToolBox extends GuiContainer {
 			name = inventory.target.getDisplayName();
 		}
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 37, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 37, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

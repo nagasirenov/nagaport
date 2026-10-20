@@ -1,0 +1,10 @@
+{
+  "baseline": "d8f01842eecc744338eab5dd53c431fdbc013a76",
+  "nonimport_sha256": {
+    "crafting/RodRecipes": "9858c230e7f6093b9f02cb5420dc9148316e239fd7d0308c49e8d9b1a0c5e5fc",
+    "crafting/handlers/ContainerUpgradeCraftingHandler": "cd63474b0ada6815d4978e385359d821fb914cd204c59c13feda9ba426c1512a",
+    "crafting/handlers/MKUCraftingHandler": "84620476f864522e525353bf1ca5c1dc666c97915bec56c11fbb8abf3d9a6511",
+    "crafting/handlers/ShapedOreRecipeExt": "27ed84ce60c818d4be9b0ad429f0f8ec274f96943677d8e79685edc48b5c170f",
+    "main/CraftingManager": "522eed2f2822127b312d52d47b6bee57b16ca40844171ddbe482ed9b772177f4"
+  }
+}

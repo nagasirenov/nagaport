@@ -44,7 +44,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
-		World world = player.worldObj;
+		World world = player.world;
 		if(!entity.isEntityAlive()) return false;
 
 		ItemStack[] bolts = new ItemStack[] { new ItemStack(ModItems.bolt_spike), Mats.MAT_STEEL.make(ModItems.bolt), Mats.MAT_TUNGSTEN.make(ModItems.bolt), Mats.MAT_DURA.make(ModItems.bolt)};
@@ -62,7 +62,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 							EntityDamageUtil.attackEntityFromIgnoreIFrame(entity, DamageSource.causePlayerDamage(player).setDamageBypassesArmor(), 10F);
 
 							if(!entity.isEntityAlive() && entity instanceof EntityPlayer) {
-								((EntityPlayer) entity).triggerAchievement(MainRegistry.achGoFish);
+								com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achGoFish);
 							}
 
 							NBTTagCompound data = new NBTTagCompound();
@@ -70,7 +70,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 							data.setString("mode", "largeexplode");
 							data.setFloat("size", 1F);
 							data.setByte("count", (byte)1);
-							PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, entity.posX, entity.posY + entity.height / 2 - entity.yOffset, entity.posZ), new TargetPoint(world.provider.dimensionId, entity.posX, entity.posY, entity.posZ, 50));
+							PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, entity.posX, entity.posY + entity.height / 2 - entity.yOffset, entity.posZ), new TargetPoint(world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 50));
 
 							playAnimation(player, ToolAnimation.SWING);
 						}
@@ -87,7 +87,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof IToolable && ((IToolable)b).onScrew(world, player, x, y, z, side, fX, fY, fZ, ToolType.BOLT)) {
 
@@ -103,7 +103,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 1F);
 				data.setByte("count", (byte)1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + fX + dir.offsetX * off, y + fY + dir.offsetY * off, z + fZ + dir.offsetZ * off), new TargetPoint(world.provider.dimensionId, x, y, z, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + fX + dir.offsetX * off, y + fY + dir.offsetY * off, z + fZ + dir.offsetZ * off), new TargetPoint(world.provider.getDimension(), x, y, z, 50));
 
 				playAnimation(player, ToolAnimation.SWING);
 			}

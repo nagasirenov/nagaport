@@ -41,8 +41,8 @@ public class ItemMultiDetonator extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		if(player.isSneaking()) {
@@ -50,7 +50,7 @@ public class ItemMultiDetonator extends Item {
 
 			if(!world.isRemote) {
 				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Position added!").color(TextFormatting.GREEN).flush());
 			}
@@ -66,11 +66,11 @@ public class ItemMultiDetonator extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-		if(stack.stackTagCompound == null || getLocations(stack) == null) {
+		if(stack.getTagCompound() == null || getLocations(stack) == null) {
 			
 			if(!world.isRemote) {
 				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("No position set!").color(TextFormatting.RED).flush());
 			}
@@ -88,10 +88,10 @@ public class ItemMultiDetonator extends Item {
 					int y = locs[1][i];
 					int z = locs[2][i];
 
-					if(world.getBlock(x, y, z) instanceof IBomb) {
+					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {
 						
 						if(!world.isRemote) {
-							BombReturnCode ret = ((IBomb) world.getBlock(x, y, z)).explode(world, x, y, z);
+							BombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);
 							
 							if(ret.wasSuccessful())
 								succ++;
@@ -106,22 +106,22 @@ public class ItemMultiDetonator extends Item {
 				
 				if(!world.isRemote) {
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Triggered " + succ + "/" + locs[0].length + "!").color(TextFormatting.YELLOW).flush());
 				}
 				
 			} else {
 
-				stack.stackTagCompound.setIntArray("xValues", new int[0]);
-				stack.stackTagCompound.setIntArray("yValues", new int[0]);
-				stack.stackTagCompound.setIntArray("zValues", new int[0]);
+				stack.getTagCompound().setIntArray("xValues", new int[0]);
+				stack.getTagCompound().setIntArray("yValues", new int[0]);
+				stack.getTagCompound().setIntArray("zValues", new int[0]);
 
 				world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
 				
 				if(!world.isRemote) {
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Locations cleared!").color(TextFormatting.RED).flush());
 				}
@@ -134,24 +134,24 @@ public class ItemMultiDetonator extends Item {
 
 	private static void addLocation(ItemStack stack, int x, int y, int z) {
 
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		int[] xs = stack.stackTagCompound.getIntArray("xValues");
-		int[] ys = stack.stackTagCompound.getIntArray("yValues");
-		int[] zs = stack.stackTagCompound.getIntArray("zValues");
+		int[] xs = stack.getTagCompound().getIntArray("xValues");
+		int[] ys = stack.getTagCompound().getIntArray("yValues");
+		int[] zs = stack.getTagCompound().getIntArray("zValues");
 
-		stack.stackTagCompound.setIntArray("xValues", ArrayUtils.add(xs, x));
-		stack.stackTagCompound.setIntArray("yValues", ArrayUtils.add(ys, y));
-		stack.stackTagCompound.setIntArray("zValues", ArrayUtils.add(zs, z));
+		stack.getTagCompound().setIntArray("xValues", ArrayUtils.add(xs, x));
+		stack.getTagCompound().setIntArray("yValues", ArrayUtils.add(ys, y));
+		stack.getTagCompound().setIntArray("zValues", ArrayUtils.add(zs, z));
 	}
 
 	private static int[][] getLocations(ItemStack stack) {
 
-		int[] xs = stack.stackTagCompound.getIntArray("xValues");
-		int[] ys = stack.stackTagCompound.getIntArray("yValues");
-		int[] zs = stack.stackTagCompound.getIntArray("zValues");
+		int[] xs = stack.getTagCompound().getIntArray("xValues");
+		int[] ys = stack.getTagCompound().getIntArray("yValues");
+		int[] zs = stack.getTagCompound().getIntArray("zValues");
 
 		if(xs == null || ys == null || zs == null || xs.length == 0 || ys.length == 0 || zs.length == 0) {
 			return null;

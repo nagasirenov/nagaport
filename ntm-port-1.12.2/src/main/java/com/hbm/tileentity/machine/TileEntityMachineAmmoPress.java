@@ -39,13 +39,13 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineAmmoPress";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			if(this.playAnimation > 0) this.playAnimation--;
 			this.performRecipe();
 			this.networkPackNT(25);
@@ -147,12 +147,14 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 	public int[] access = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return access;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 9;
 	}
 
@@ -186,14 +188,15 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("recipe", selectedRecipe);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -211,12 +214,12 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 		

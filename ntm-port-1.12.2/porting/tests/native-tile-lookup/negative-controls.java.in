@@ -1,0 +1,28 @@
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.tileentity.TileEntity;
+class LookupControls {
+ World world;
+ static class Other { TileEntity getTileEntity(int x,int y,int z){return null;} }
+ abstract static class AmbiguousWorld extends World {
+  AmbiguousWorld(){super(null,null,null,null,false);}
+  TileEntity getTileEntity(int x,int y,int z){return null;}
+ }
+ void test(World w,IBlockAccess access,Other other,WorldServer server,AmbiguousWorld custom,Integer boxed,double d,int x,int y,int z) {
+  w.getTileEntity(x,y,z); // ACCEPT exact World, primitive ints
+  this.world.getTileEntity(x+1,y,z); // ACCEPT attributed field
+  access.getTileEntity(x,y,z); // EXCLUDE interface/cache semantics
+  other.getTileEntity(x,y,z); // EXCLUDE nonplatform owner
+  server.getTileEntity(x,y,z); // EXCLUDE subclass static type
+  custom.getTileEntity(x,y,z); // EXCLUDE subclass overload
+  w.getTileEntity(boxed,y,z); // EXCLUDE unboxing/new failure boundary
+  w.getTileEntity(d,y,z); // EXCLUDE double constructor
+  w.getTileEntity(unresolved+1,y,z); // EXCLUDE recovered int expression
+  factory().getTileEntity(x,y,z); // EXCLUDE complex receiver
+  w.getTileEntity(new net.minecraft.util.math.BlockPos(x,y,z)); // EXCLUDE already native
+  String text="w.getTileEntity(x,y,z)"; // EXCLUDE literal
+  // w.getTileEntity(x,y,z); EXCLUDE comment
+ }
+ World factory(){return world;}
+}

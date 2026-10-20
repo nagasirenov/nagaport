@@ -9,15 +9,16 @@ import com.hbm.tileentity.IGUIProvider;
 
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.common.IExtendedEntityProperties;
 
-public class HbmPlayerProps implements IExtendedEntityProperties {
+public class HbmPlayerProps {
 
 	public static final String key = "NTM_EXT_PLAYER";
 	public EntityPlayer player;
@@ -60,14 +61,13 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 		this.player = player;
 	}
 
+	/** Capabilities are attached by Forge during construction, never lazily or off-entity. */
 	public static HbmPlayerProps registerData(EntityPlayer player) {
-		player.registerExtendedProperties(key, new HbmPlayerProps(player));
-		return (HbmPlayerProps) player.getExtendedProperties(key);
+		return getData(player);
 	}
 
 	public static HbmPlayerProps getData(EntityPlayer player) {
-		HbmPlayerProps props = (HbmPlayerProps) player.getExtendedProperties(key);
-		return props != null ? props : registerData(player);
+		return HbmEntityProps.getPlayer(player);
 	}
 
 	public boolean getKeyPressed(EnumKeybind key) {
@@ -88,7 +88,7 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 
 			if(key == EnumKeybind.TOGGLE_JETPACK) {
 
-				if(!player.worldObj.isRemote) {
+				if(!player.world.isRemote) {
 					this.enableBackpack = !this.enableBackpack;
 
 					if(this.enableBackpack)
@@ -98,7 +98,7 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 				}
 			}
 			if (key == EnumKeybind.TOGGLE_MAGNET){
-				if (!player.worldObj.isRemote){
+				if (!player.world.isRemote){
 					this.enableMagnet = !this.enableMagnet;
 
 					if(this.enableMagnet)
@@ -109,7 +109,7 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 			}
 			if(key == EnumKeybind.TOGGLE_HEAD) {
 
-				if(!player.worldObj.isRemote) {
+				if(!player.world.isRemote) {
 					this.enableHUD = !this.enableHUD;
 
 					if(this.enableHUD)
@@ -121,10 +121,10 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 
 			if(key == EnumKeybind.TRAIN) {
 
-				if(!this.player.worldObj.isRemote) {
+				if(!this.player.world.isRemote) {
 
-					if(player.ridingEntity != null && player.ridingEntity instanceof EntityRailCarBase && player.ridingEntity instanceof IGUIProvider) {
-						FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, player.worldObj, player.ridingEntity.getEntityId(), 0, 0);
+					if(player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRailCarBase && player.getRidingEntity() instanceof IGUIProvider) {
+						FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, player.world, player.getRidingEntity().getEntityId(), 0, 0);
 					}
 				}
 			}
@@ -164,7 +164,11 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 		HbmPlayerProps props = HbmPlayerProps.getData(player);
 
 		if(props.plinkCooldown <= 0) {
-			player.worldObj.playSoundAtEntity(player, sound, volume, pitch);
+			// All existing callers use the renamed vanilla item-break sound.
+			SoundEvent event = "random.break".equals(sound) ? SoundEvents.ENTITY_ITEM_BREAK
+					: SoundEvent.REGISTRY.getObject(new ResourceLocation(sound));
+			if(event != null) player.world.playSound(player.world.isRemote ? player : null,
+					player.posX, player.posY, player.posZ, event, player.getSoundCategory(), volume, pitch);
 			props.plinkCooldown = props.plinkCooldownLength;
 		}
 	}
@@ -173,8 +177,8 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 
 		float max = this.maxShield;
 
-		if(player.getCurrentArmor(2) != null) {
-			ItemStack[] mods = ArmorModHandler.pryMods(player.getCurrentArmor(2));
+		if(!player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).isEmpty()) {
+			ItemStack[] mods = ArmorModHandler.pryMods(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST));
 			if(mods[ArmorModHandler.kevlar] != null && mods[ArmorModHandler.kevlar].getItem() instanceof ItemModShield) {
 				ItemModShield mod = (ItemModShield) mods[ArmorModHandler.kevlar].getItem();
 				max += mod.shield;
@@ -183,9 +187,6 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 
 		return max;
 	}
-
-	@Override
-	public void init(Entity entity, World world) { }
 
 	public void serialize(ByteBuf buf) {
 		buf.writeBoolean(this.hasReceivedBook);
@@ -211,8 +212,6 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 		}
 	}
 
-	@Deprecated
-	@Override
 	public void saveNBTData(NBTTagCompound nbt) {
 
 		NBTTagCompound props = new NBTTagCompound();
@@ -232,8 +231,6 @@ public class HbmPlayerProps implements IExtendedEntityProperties {
 		nbt.setTag("HbmPlayerProps", props);
 	}
 
-	@Deprecated
-	@Override
 	public void loadNBTData(NBTTagCompound nbt) {
 
 		NBTTagCompound props = (NBTTagCompound) nbt.getTag("HbmPlayerProps");

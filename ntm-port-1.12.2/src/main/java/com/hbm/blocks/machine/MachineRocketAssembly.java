@@ -51,7 +51,7 @@ public class MachineRocketAssembly extends BlockDummyable implements ITooltipPro
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof TileEntityMachineRocketAssembly) ((TileEntityMachineRocketAssembly) te).isBreaking = true;
 		super.breakBlock(world, x, y, z, block, meta);
 	}
@@ -112,7 +112,7 @@ public class MachineRocketAssembly extends BlockDummyable implements ITooltipPro
 		if(CelestialBody.inOrbit(world)) {
 			List<String> text = new ArrayList<String>();
 			text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! " + I18nUtil.resolveKey("atmosphere.yesOrbit") + " ! ! !");
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 			return;
 		}
 	}

@@ -1,0 +1,24 @@
+PASS exact original missile consumer/material/scale table source guard
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/render/item/ItemRenderMissileGeneric.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[18:02:43] [main/INFO]: Setting user: AtlasProbe
+[18:02:44] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `direct_owner`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 531 native direct mesh perspective/draw/stack/reentrancy/registration checks. Controlled NTM collaborators; no full-game visual acceptance.
+1992419e4bf1926e90b6d87fb351b51a6f5a9db956d0326745aefcaa50de5a2f src/main/java/com/hbm/render/item/ItemRenderMissileGeneric.java
+6f5e5835052abeee6d3740f7a4ebcea2975c751ba764f81bfe094f1aa591c1fa src/main/java/com/hbm/render/item/weapon/ItemRenderFireExt.java
+934bafdb2a3709b2dbfb50fde75b75db37b0bca8633585ab7d065a82b0e6e832 src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemRenderer.java
+0c30a14f9e795250306c9337876ae98f803aa031a3937a436cfdc1b768bd6c6a src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemModel.java
+20d857abbb3621312792f2b3a6d4624efae93b2661904eb93c3ffea5bb5ff0a7 src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemRegistration.java
+075d95ec624793f5694d278814a7edadd3800b04c2eff6e2a9e3d10bb1ec8229 src/main/java/com/hbm/render/item/nativeitem/direct/PlainItemPerspectives.java
+bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 src/main/java/com/hbm/render/util/NativeItemBaseModel.java
+20b32bc9dac6481f09a97bcdb7702b69da38de17fd676897905585373413fe32 src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java
+cbcd29d86a0131c3538d1dadc20bc33e825629bc0358ce40392ae470119f78ad src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemRegistration.java
+02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e src/main/java/com/hbm/render/item/nativeitem/ItemTransformMatrix.java
+c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3 src/main/java/com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java
+0d715a62af62c8305f7c89d0963e4b8155775d4ce60dbff765d6186d71ed5c4e src/main/java/com/hbm/render/item/nativeitem/staticfamily/OrdinaryMeshItemModel.java
+54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2 src/main/java/com/hbm/render/mesh/MeshModel.java
+d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736 src/main/java/com/hbm/render/mesh/ObjMesh.java

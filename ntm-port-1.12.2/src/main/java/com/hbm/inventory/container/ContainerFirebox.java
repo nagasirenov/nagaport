@@ -14,7 +14,7 @@ public class ContainerFirebox extends Container {
 	
 	public ContainerFirebox(InventoryPlayer invPlayer, TileEntityFireboxBase furnace) {
 		this.firebox = furnace;
-		this.firebox.openInventory();
+		this.firebox.openInventory(invPlayer.player);
 		
 		this.addSlotToContainer(new Slot(furnace, 0, 44, 27));
 		this.addSlotToContainer(new Slot(furnace, 1, 62, 27));
@@ -62,12 +62,12 @@ public class ContainerFirebox extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return firebox.isUseableByPlayer(player);
+		return firebox.isUsableByPlayer(player);
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.firebox.closeInventory();
+		this.firebox.closeInventory(player);
 	}
 }

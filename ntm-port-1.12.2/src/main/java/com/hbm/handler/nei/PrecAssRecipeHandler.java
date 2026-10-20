@@ -9,5 +9,5 @@ public class PrecAssRecipeHandler extends NEIGenericRecipeHandler {
 		super(ModBlocks.machine_precass.getLocalizedName(), PrecAssRecipes.INSTANCE, ModBlocks.machine_precass);
 	}
 
-	@Override public String getRecipeID() { return "ntmPrecAss"; }
+	@Override public String getUid() { return "ntmPrecAss"; }
 }

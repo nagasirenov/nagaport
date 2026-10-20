@@ -37,10 +37,10 @@ public class GUIMicrowave extends GuiInfoContainer {
     	super.mouseClicked(x, y, i);
 
 	    if(guiLeft + 43 <= x && guiLeft + 43 + 18 > x && guiTop + 25 < y && guiTop + 25 + 18 >= y) {
-	    	PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(microwave.xCoord, microwave.yCoord, microwave.zCoord, 0, 0));
+	    	PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(microwave.getPos().getX(), microwave.getPos().getY(), microwave.getPos().getZ(), 0, 0));
 	    }
 	    if(guiLeft + 43 <= x && guiLeft + 43 + 18 > x && guiTop + 43 < y && guiTop + 43 + 18 >= y) {
-	    	PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(microwave.xCoord, microwave.yCoord, microwave.zCoord, 1, 0));
+	    	PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(microwave.getPos().getX(), microwave.getPos().getY(), microwave.getPos().getZ(), 1, 0));
 	    }
     }
 	
@@ -48,8 +48,8 @@ public class GUIMicrowave extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.microwave.hasCustomInventoryName() ? this.microwave.getInventoryName() : I18n.format(this.microwave.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override

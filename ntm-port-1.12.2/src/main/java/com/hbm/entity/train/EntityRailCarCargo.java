@@ -6,8 +6,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 public abstract class EntityRailCarCargo extends EntityRailCarBase implements IInventory {
+
+	private static final DataParameter<Integer> OCCUPIED_SLOTS = EntityDataManager.createKey(EntityRailCarCargo.class, DataSerializers.VARINT);
 
 	protected String entityName;
 	protected ItemStack[] slots = new ItemStack[this.getSizeInventory()];
@@ -19,14 +24,15 @@ public abstract class EntityRailCarCargo extends EntityRailCarBase implements II
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(10, new Integer(0));
+		this.dataManager.register(OCCUPIED_SLOTS, 0);
 	}
 	
 	public int countOccupiedSlots() {
 		int slots = 0;
 		
 		for(int i = 0; i < this.getSizeInventory(); i++) {
-			if(this.getStackInSlot(i) != null) slots++;
+			// Retain original slot presence, including a live stack consumed to zero.
+			if(this.slots[i] != null) slots++;
 		}
 		
 		return slots;
@@ -34,7 +40,8 @@ public abstract class EntityRailCarCargo extends EntityRailCarBase implements II
 
 	@Override
 	public ItemStack getStackInSlot(int slot) {
-		return slots[slot];
+		ItemStack stack = slots[slot];
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 	}
 	
 	@Override
@@ -42,48 +49,49 @@ public abstract class EntityRailCarCargo extends EntityRailCarBase implements II
 		if(this.slots[slot] != null) {
 			ItemStack itemstack;
 
-			if(this.slots[slot].stackSize <= amount) {
+			if(this.slots[slot].getCount() <= amount) {
 				itemstack = this.slots[slot];
 				this.slots[slot] = null;
 				return itemstack;
 			} else {
 				itemstack = this.slots[slot].splitStack(amount);
 
-				if(this.slots[slot].stackSize == 0) {
+				if(this.slots[slot].getCount() == 0) {
 					this.slots[slot] = null;
 				}
 
 				return itemstack;
 			}
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int slot) {
+	public ItemStack removeStackFromSlot(int slot) {
 		if(this.slots[slot] != null) {
 			ItemStack itemstack = this.slots[slot];
 			this.slots[slot] = null;
-			return itemstack;
+			return itemstack == null || itemstack.isEmpty() ? ItemStack.EMPTY : itemstack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
+		stack = stack == null || stack.isEmpty() ? null : stack;
 		this.slots[slot] = stack;
 
-		if(stack != null && stack.stackSize > this.getInventoryStackLimit()) {
-			stack.stackSize = this.getInventoryStackLimit();
+		if(stack != null && stack.getCount() > this.getInventoryStackLimit()) {
+			stack.setCount(this.getInventoryStackLimit());
 		}
 	}
 	
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if(!this.worldObj.isRemote) this.dataWatcher.updateObject(10, this.countOccupiedSlots());
+		if(!this.world.isRemote) this.dataManager.set(OCCUPIED_SLOTS, this.countOccupiedSlots());
 	}
 
 	@Override
@@ -95,15 +103,15 @@ public abstract class EntityRailCarCargo extends EntityRailCarBase implements II
 	public void markDirty() { }
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		return this.isDead ? false : player.getDistanceSqToEntity(this) <= 64.0D;
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		return this.isDead ? false : player.getDistanceSq(this) <= 64.0D;
 	}
 
 	@Override
-	public void openInventory() { }
+	public void openInventory(EntityPlayer player) { }
 
 	@Override
-	public void closeInventory() { }
+	public void closeInventory(EntityPlayer player) { }
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
@@ -138,17 +146,33 @@ public abstract class EntityRailCarCargo extends EntityRailCarBase implements II
 			int j = nbttagcompound1.getByte("Slot") & 255;
 
 			if(j >= 0 && j < this.slots.length) {
-				this.slots[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+				ItemStack stack = new ItemStack(nbttagcompound1);
+				this.slots[j] = stack.isEmpty() ? null : stack;
 			}
 		}
 		
-		this.dataWatcher.updateObject(10, this.countOccupiedSlots());
+		this.dataManager.set(OCCUPIED_SLOTS, this.countOccupiedSlots());
 	}
 	
-	@Override
 	public boolean hasCustomInventoryName() {
 		return this.entityName != null;
 	}
+
+	/** Domain inventory label retained for the two original train GUIs. */
+	public abstract String getInventoryName();
+
+	@Override public boolean hasCustomName() { return hasCustomInventoryName() || super.hasCustomName(); }
+	@Override public boolean isEmpty() {
+		for(ItemStack stack : slots) if(stack != null && !stack.isEmpty()) return false;
+		return true;
+	}
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) { }
+	@Override public int getFieldCount() { return 0; }
+	@Override public void clear() { java.util.Arrays.fill(slots, null); }
+
+	/** Client display value, updated by the original server-tick/load boundaries. */
+	public int getSyncedOccupiedSlots() { return this.dataManager.get(OCCUPIED_SLOTS); }
 
 	public String getEntityName() {
 		return this.entityName;
@@ -159,7 +183,7 @@ public abstract class EntityRailCarCargo extends EntityRailCarBase implements II
 	}
 
 	@Override
-	public String getCommandSenderName() {
-		return this.entityName != null ? this.entityName : super.getCommandSenderName();
+	public String getName() {
+		return this.entityName != null ? this.entityName : super.getName();
 	}
 }

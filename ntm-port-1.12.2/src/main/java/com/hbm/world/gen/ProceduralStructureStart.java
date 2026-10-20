@@ -52,13 +52,13 @@ public class ProceduralStructureStart extends StructureStart {
 	
 	/** Reads from NBT. */
 	@Override
-	public void func_143017_b(NBTTagCompound nbt) {
+	public void readFromNBT(NBTTagCompound nbt) {
 		
 	}
 	
 	/** Writes to NBT. */
 	@Override
-	public void func_143022_a(NBTTagCompound nbt) {
+	public void writeToNBT(NBTTagCompound nbt) {
 		
 	}
 	
@@ -123,7 +123,7 @@ public class ProceduralStructureStart extends StructureStart {
 		if(components.size() > sizeLimit) //Hard limit on amount of components
 			return null;
 		
-		if(Math.abs(minX - (func_143019_e() * 16 + 8)) <= distanceLimit && Math.abs(minZ - (func_143018_f() * 16 + 8)) <= distanceLimit) { //Hard limit on spread of structure
+		if(Math.abs(minX - (getChunkPosX() * 16 + 8)) <= distanceLimit && Math.abs(minZ - (getChunkPosZ() * 16 + 8)) <= distanceLimit) { //Hard limit on spread of structure
 			
 			StructureComponent structure = getWeightedComponent(last, rand, minX, minY, minZ, coordMode, componentType + 1); //Returns null if all checks fail
 			

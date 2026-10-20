@@ -15,7 +15,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIProvider, IControlReceiver {
+public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIProvider, IControlReceiver, net.minecraft.util.ITickable {
+    /** Original panel metadata changed facing without replacing its stored controls. */
+    @Override
+    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+        return oldState.getBlock() != newState.getBlock();
+    }
+
 	
 	/*    __________
 	 *   /         /|
@@ -34,9 +41,9 @@ public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIPro
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			for(int i = 0; i < 4; i++) this.gauges[i].update();
 			
@@ -67,10 +74,11 @@ public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIPro
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		for(int i = 0; i < 4; i++) this.gauges[i].writeToNBT(nbt, i);
+		return nbt;
 	}
 
 	public class GaugeUnit {
@@ -178,7 +186,7 @@ public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIPro
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 15 * 15;
+		return player.getDistanceSq(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 15 * 15;
 	}
 
 	@Override
@@ -193,7 +201,7 @@ public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIPro
 		
 		for(int i = 0; i < 4; i++) {
 			GaugeUnit gauge = this.gauges[i];
-			gauge.color = MathHelper.clamp_int(data.getInteger("color" + i), 0, 0xffffff);
+			gauge.color = MathHelper.clamp(data.getInteger("color" + i), 0, 0xffffff);
 			gauge.label = data.getString("label" + i);
 			gauge.rtty = data.getString("rtty" + i);
 			gauge.min = data.getInteger("min" + i);

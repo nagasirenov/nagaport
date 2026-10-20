@@ -1,0 +1,39 @@
+{
+  "scope": "22 edited production files: complete native remaining Particle family and exact dependent creators/ejector. Actual native lifecycle/render/collision/registry APIs; explicit NTM collaborators, not whole-game acceptance.",
+  "base_commit": "b07d39647303bde866af809b678f88b48b562da3",
+  "production": {
+    "src/main/java/com/hbm/particle/ParticleMukeCloud.java": "86d78bb74fe2254336818dc709243d1a257a8d405b3779fa038596cb41582928",
+    "src/main/java/com/hbm/particle/ParticleNT.java": "51ded458606ca1d8e3f17658128821ad9ad3876ee171a263cd3f44039ef52106",
+    "src/main/java/com/hbm/particle/ParticleGiblet.java": "b70ad62b50b21f6705e8af254e03e4066412cf905f1f9e8669f1f15a0aa18371",
+    "src/main/java/com/hbm/particle/ParticleRift.java": "8e12fef9da24243d1a7caa24581cf6264cdc0220f8a1106ac9ed6d3cb5b584fd",
+    "src/main/java/com/hbm/particle/ParticleRocketFlame.java": "a20077416204e4ec43c7a4bad4f4e69e129aabf205b4c910ac262238531b1e43",
+    "src/main/java/com/hbm/particle/ParticleSpentCasing.java": "df5eda709eb60f7be292b5d13f40f3182ff036bbe63cb2b3b9a174534991549e",
+    "src/main/java/com/hbm/particle/ParticleSkeleton.java": "a8bbf9cf8445bc4f1f823bc953ddfc9eab1f69d6e9527ed5741f370ad3e588bd",
+    "src/main/java/com/hbm/particle/ParticleDebris.java": "4cf24e8238990d38e8f84cf63c935440dfed0cb3e0c689b98a3674c215c070c6",
+    "src/main/java/com/hbm/particle/ParticleFoam.java": "9c64280e881c9baa1e78f131382d1d8a080817911207f203254042c0063b8cb0",
+    "src/main/java/com/hbm/particle/ParticleSmokePlume.java": "3a840c1825132020f0f06c923cd078299a145cc430cb678067279bdaa00f9dc5",
+    "src/main/java/com/hbm/particle/ParticleSpark.java": "6807e7124570760037bd701b5a50440ed20032246549c4247cfd0f9666f12609",
+    "src/main/java/com/hbm/particle/ParticleLetter.java": "5353cbd2de18866b46cd99137a02dd6ea68ac987698e2539e9dc73fdf20120d0",
+    "src/main/java/com/hbm/particle/ParticleMukeFlash.java": "b97184611904dcf7b2b69ceb03df5e399a2261586cfb5d85c9d71112508364cf",
+    "src/main/java/com/hbm/particle/ParticleRocketBF.java": "aa641e76d46271c0a2f7b645d5557ef21f725b6f83833d821e734f28cb3108af",
+    "src/main/java/com/hbm/particle/ParticleRocketFusion.java": "1255f4155ffc8209e5be244bc0103d881115a4beb36f73bac48dea8225e62eb7",
+    "src/main/java/com/hbm/particle/ParticleRocketMUD.java": "9e5f47c9de415eb8a45a1354c6b4e0c60537d61d1fe26e8985f3862e87a7a831",
+    "src/main/java/com/hbm/particle/ParticleRocketSCH.java": "0cc770ae91d68a84f7f099e724b742ce0dd858bdc9fb75a00eb2ae810cfee1bd",
+    "src/main/java/com/hbm/particle/ParticleRocketUP.java": "bceacd2660e95c0910305981c14b45485f02d4748ed741595a94b22ee3db28a4",
+    "src/main/java/com/hbm/particle/helper/SkeletonCreator.java": "d8cef0d7609ebd457bb4c8736cb0a459852db282b369715f0bdbb6c7893e30ac",
+    "src/main/java/com/hbm/particle/helper/ExplosionCreator.java": "1fff656e087240ebb0afa7f984efa5447f025202c557c3391399b17a2cd1bd27",
+    "src/main/java/com/hbm/particle/helper/IParticleCreator.java": "b4983adc68475654a2d88bc9d7cd49f35a15c494b356864da6e393e4498b270a",
+    "src/main/java/com/hbm/handler/CasingEjector.java": "de7a71a90c542e5e552244c043703b8ef7652a986392aa8e545ec0488d2370bd"
+  },
+  "parent_owned_integration_dependency_at_test": {
+    "src/main/java/com/hbm/main/ModSoundEvents.java": "8feedecf355c393c45cd203a93dcc55c49667b6917a74c75ad0cbda74eceb1b8"
+  },
+  "artifacts": {
+    "porting/tests/NativeRemainingParticlesTest.java": "77c42dec79104523478f64021b14eca6f7691061d3aab9d5e24e517cc164c645",
+    "porting/tests/probe-native-remaining-particles.py": "e9bdee92e75637d37d771cd8cbdf408123a98a14dc9a8b8ab02283f5d74bed8d",
+    "porting/tests/native-remaining-particles-notes.md": "b447136d8d6e265aa9b774a856bd50927c1c3c024de6784d0cbe64f5f2825afb",
+    "porting/continuation-2026-10-19/native-remaining-particles-FINAL.log": "999a8768a7f9ed48a972f77a2590f474ebfdf95519a39e67394b212496774f45"
+  },
+  "checks": 1822,
+  "review": "Read-only collision/sound review found HOSTILE category correction; fixed and final regression passed."
+}

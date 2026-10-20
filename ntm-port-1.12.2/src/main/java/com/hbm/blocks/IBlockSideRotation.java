@@ -1,15 +1,21 @@
 package com.hbm.blocks;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import java.util.Collection;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public interface IBlockSideRotation {
 
 	public int getRotationFromSide(IBlockAccess world, int x, int y, int z, int side);
 
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-	public static int getRenderType() {
-		return renderID;
+	/** Native atlas materials, with the original inventory/world selectors kept separate. */
+	public ResourceLocation getModelTexture(int side, int metadata);
+	public Collection<ResourceLocation> getModelTextures();
+	public default ResourceLocation getModelTexture(IBlockAccess world, int x, int y, int z, int side) {
+		IBlockState state = world.getBlockState(new BlockPos(x, y, z));
+		return getModelTexture(side, state.getBlock().getMetaFromState(state));
 	}
 
 	// 0 1 3 2 becomes 0 2 3 1

@@ -1,161 +1,95 @@
 package com.hbm.blocks.generic;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
-import com.hbm.lib.Library;
+import java.util.*;
 import com.hbm.render.block.ISBRHUniversal;
-import com.hbm.render.util.RenderBlocksNT;
-
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class BlockBarrier extends Block implements ISBRHUniversal {
-
-	public BlockBarrier(Material mat) {
-		super(mat);
-	}
-
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
-
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-
-		if(world.getBlockMetadata(x, y, z) != 0) return;
-		
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-	}
-
-	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float fX, float fY, float fZ, int meta) {
-		return side >= 2 && side <= 5 ? side : meta;
-	}
-
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-
-		int meta = world.getBlockMetadata(x, y, z);
-		setBlockBounds(0, 0, 0, 1, 1, 1);
-		
-		if(meta == Library.POS_X.ordinal()) setBlockBounds(0, 0, 0, 0.125F, 1, 1);
-		if(meta == Library.POS_Z.ordinal()) setBlockBounds(0, 0, 0, 1, 1, 0.125F);
-		if(meta == Library.NEG_X.ordinal()) setBlockBounds(0.875F, 0, 0, 1, 1, 1);
-		if(meta == Library.NEG_Z.ordinal()) setBlockBounds(0, 0, 0.875F, 1, 1, 1);
-	}
-
-	@Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity collider) {
-
-		int meta = world.getBlockMetadata(x, y, z);
-		List<AxisAlignedBB> bbs = new ArrayList();
-		
-		Block nx = world.getBlock(x - 1, y, z);
-		Block px = world.getBlock(x + 1, y, z);
-		Block nz = world.getBlock(x, y, z - 1);
-		Block pz = world.getBlock(x, y, z + 1);
-
-		if(nx.isOpaqueCube() || nx.isNormalCube() || meta == Library.POS_X.ordinal()) bbs.add(AxisAlignedBB.getBoundingBox(x, y, z, x + 0.125, y + 1, z + 1));
-		if(nz.isOpaqueCube() || nz.isNormalCube() || meta == Library.POS_Z.ordinal()) bbs.add(AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 0.125));
-		if(px.isOpaqueCube() || px.isNormalCube() || meta == Library.NEG_X.ordinal()) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.875, y, z, x + 1, y + 1, z + 1));
-		if(pz.isOpaqueCube() || pz.isNormalCube() || meta == Library.NEG_Z.ordinal()) bbs.add(AxisAlignedBB.getBoundingBox(x, y, z + 0.875, x + 1, y + 1, z + 1));
-
-		for(AxisAlignedBB bb : bbs) {
-			if(aabb.intersectsWith(bb)) {
-				list.add(bb);
-			}
-		}
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-		return true;
-	}
-
-	@Override
-	public void renderInventoryBlock(Block block, int meta, int modelId, Object renderBlocks) {
-
-		GL11.glPushMatrix();
-		RenderBlocks renderer = (RenderBlocks) renderBlocks;
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
-		renderer.setRenderBounds(0.4375, 0D, 0.4375D, 0.5625D, 1D, 0.5625D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.5D, 0.0625D, 0D, 0.5625D, 0.4725, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.5D, 0.5625D, 0D, 0.5625D, 0.9375, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, Object renderBlocks) {
-
-		RenderBlocksNT renderer = RenderBlocksNT.INSTANCE.setWorld(world);
-		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-		
-		int meta = world.getBlockMetadata(x, y, z);
-		
-		Block nx = world.getBlock(x - 1, y, z);
-		Block px = world.getBlock(x + 1, y, z);
-		Block nz = world.getBlock(x, y, z - 1);
-		Block pz = world.getBlock(x, y, z + 1);
-		Block py = world.getBlock(x, y + 1, z);
-
-		boolean negX = nx.isOpaqueCube() || nx.isNormalCube() || meta == Library.POS_X.ordinal();
-		boolean negZ = nz.isOpaqueCube() || nz.isNormalCube() || meta == Library.POS_Z.ordinal();
-		boolean posX = px.isOpaqueCube() || px.isNormalCube() || meta == Library.NEG_X.ordinal();
-		boolean posZ = pz.isOpaqueCube() || pz.isNormalCube() || meta == Library.NEG_Z.ordinal();
-		boolean posY = py.isOpaqueCube() || py.isNormalCube();
-
+    public BlockBarrier(Material material) { super(material); }
+    @Override protected BlockStateContainer createBlockState() { return UniversalBlockState.create(this); }
+    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(UniversalBlockState.META, meta & 15); }
+    @Override public int getMetaFromState(IBlockState state) { return UniversalBlockState.metadata(state); }
+    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+    @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+    @Override public boolean isFullCube(IBlockState state) { return false; }
+    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }
+    @Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) { return true; }
+    @Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float x, float y, float z, int meta, EntityLivingBase placer) {
+        return getStateFromMeta(side.getAxis().isHorizontal() ? side.getIndex() : meta);
+    }
+    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        if(getMetaFromState(world.getBlockState(pos)) != 0) return;
+        int yaw = MathHelper.floor(placer.rotationYaw * 4F / 360F + .5D) & 3;
+        world.setBlockState(pos, getStateFromMeta(new int[]{2,5,3,4}[yaw]), 2);
+    }
+    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+        int meta = getMetaFromState(state), mask = UniversalBlockState.solidNeighbors(world,pos);
+        if(meta >= 2 && meta <= 5) mask |= 1 << EnumFacing.byIndex(meta).getOpposite().getIndex();
+        return UniversalBlockState.withConnections(state,mask);
+    }
+    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        switch(getMetaFromState(state)) {
+        case 5: return new AxisAlignedBB(0,0,0,.125,1,1);
+        case 3: return new AxisAlignedBB(0,0,0,1,1,.125);
+        case 4: return new AxisAlignedBB(.875,0,0,1,1,1);
+        case 2: return new AxisAlignedBB(0,0,.875,1,1,1);
+        default: return FULL_BLOCK_AABB;
+        }
+    }
+    @Override public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> result, Entity entity, boolean actualState) {
+        int mask=UniversalBlockState.connections(getExtendedState(state,world,pos));
+        if(UniversalBlockState.connected(mask,EnumFacing.WEST)) addCollisionBoxToList(pos,entityBox,result,new AxisAlignedBB(0,0,0,.125,1,1));
+        if(UniversalBlockState.connected(mask,EnumFacing.NORTH)) addCollisionBoxToList(pos,entityBox,result,new AxisAlignedBB(0,0,0,1,1,.125));
+        if(UniversalBlockState.connected(mask,EnumFacing.EAST)) addCollisionBoxToList(pos,entityBox,result,new AxisAlignedBB(.875,0,0,1,1,1));
+        if(UniversalBlockState.connected(mask,EnumFacing.SOUTH)) addCollisionBoxToList(pos,entityBox,result,new AxisAlignedBB(0,0,.875,1,1,1));
+    }
+    @Override public List<AxisAlignedBB> getRenderBoxes(IBlockState state, boolean inventory) {
+        List<AxisAlignedBB> boxes=new ArrayList<>();
+        if(inventory) {
+            boxes.add(new AxisAlignedBB(.4375,0,.4375,.5625,1,.5625));
+            boxes.add(new AxisAlignedBB(.5,.0625,0,.5625,.4725,1));
+            boxes.add(new AxisAlignedBB(.5,.5625,0,.5625,.9375,1));
+            return boxes;
+        }
+        int mask=UniversalBlockState.connections(state);
+        boolean negX=UniversalBlockState.connected(mask,EnumFacing.WEST), negZ=UniversalBlockState.connected(mask,EnumFacing.NORTH);
+        boolean posX=UniversalBlockState.connected(mask,EnumFacing.EAST), posZ=UniversalBlockState.connected(mask,EnumFacing.SOUTH);
+        boolean posY=UniversalBlockState.connected(mask,EnumFacing.UP);
 		if(negX) {
-			renderer.setRenderBounds(0D, 0D, 0.4375D, 0.125D, 1D, 0.5625D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0D, 0.0625D, negZ ? 0.125D : 0D, 0.0625D, 0.4375D, posZ ? 0.875D : 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0D, 0.5625D, negZ ? 0.125D : 0D, 0.0625D, 0.9375D, posZ ? 0.875D : 1D); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0D, 0D, 0.4375D, 0.125D, 1D, 0.5625D));
+			boxes.add(new AxisAlignedBB(0D, 0.0625D, negZ ? 0.125D : 0D, 0.0625D, 0.4375D, posZ ? 0.875D : 1D));
+			boxes.add(new AxisAlignedBB(0D, 0.5625D, negZ ? 0.125D : 0D, 0.0625D, 0.9375D, posZ ? 0.875D : 1D));
 		}
 		if(negZ) {
-			renderer.setRenderBounds(0.4375D, 0D, 0D, 0.5625D, 1D, 0.125D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(negX ? 0.125D : 0D, 0.0625D, 0D, posX ? 0.875D : 1D, 0.4375D, 0.0625D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(negX ? 0.125D : 0D, 0.5625D, 0D, posX ? 0.875D : 1D, 0.9375D, 0.0625D); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0.4375D, 0D, 0D, 0.5625D, 1D, 0.125D));
+			boxes.add(new AxisAlignedBB(negX ? 0.125D : 0D, 0.0625D, 0D, posX ? 0.875D : 1D, 0.4375D, 0.0625D));
+			boxes.add(new AxisAlignedBB(negX ? 0.125D : 0D, 0.5625D, 0D, posX ? 0.875D : 1D, 0.9375D, 0.0625D));
 		}
 		if(posX) {
-			renderer.setRenderBounds(0.875D, 0D, 0.4375D, 1D, 1D, 0.5625D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.9375D, 0.0625D, negZ ? 0.125D : 0D, 1D, 0.4375D, posZ ? 0.875D : 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.9375D, 0.5625D, negZ ? 0.125D : 0D, 1D, 0.9375D, posZ ? 0.875D : 1D); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0.875D, 0D, 0.4375D, 1D, 1D, 0.5625D));
+			boxes.add(new AxisAlignedBB(0.9375D, 0.0625D, negZ ? 0.125D : 0D, 1D, 0.4375D, posZ ? 0.875D : 1D));
+			boxes.add(new AxisAlignedBB(0.9375D, 0.5625D, negZ ? 0.125D : 0D, 1D, 0.9375D, posZ ? 0.875D : 1D));
 		}
 		if(posZ) {
-			renderer.setRenderBounds(0.4375D, 0D, 0.875D, 0.5625D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(negX ? 0.125D : 0D, 0.0625D, 0.9375D, posX ? 0.875D : 1D, 0.4375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(negX ? 0.125D : 0D, 0.5625D, 0.9375D, posX ? 0.875D : 1D, 0.9375D, 1D); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0.4375D, 0D, 0.875D, 0.5625D, 1D, 1D));
+			boxes.add(new AxisAlignedBB(negX ? 0.125D : 0D, 0.0625D, 0.9375D, posX ? 0.875D : 1D, 0.4375D, 1D));
+			boxes.add(new AxisAlignedBB(negX ? 0.125D : 0D, 0.5625D, 0.9375D, posX ? 0.875D : 1D, 0.9375D, 1D));
 		}
 		if(posY) {
-			renderer.setRenderBounds(0D, 0.875D, 0D, 0.125D, 0.9375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.875D, 0.875D, 0D, 1D, 0.9375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0D, 0.9375D, 0.0625D, 1D, 1D, 0.4375D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0D, 0.9375D, 0.5625D, 1D, 1D, 0.9375D); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0D, 0.875D, 0D, 0.125D, 0.9375D, 1D));
+			boxes.add(new AxisAlignedBB(0.875D, 0.875D, 0D, 1D, 0.9375D, 1D));
+			boxes.add(new AxisAlignedBB(0D, 0.9375D, 0.0625D, 1D, 1D, 0.4375D));
+			boxes.add(new AxisAlignedBB(0D, 0.9375D, 0.5625D, 1D, 1D, 0.9375D));
 		}
 		
-		return true;
-	}
+        return boxes;
+    }
 }

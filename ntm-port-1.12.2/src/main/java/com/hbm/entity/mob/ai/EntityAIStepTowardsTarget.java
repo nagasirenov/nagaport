@@ -63,9 +63,9 @@ public class EntityAIStepTowardsTarget extends EntityAIBase {
                 }
             } else {
                 // No target found, move to a random nearby block
-                int randomX = MathHelper.floor_double(this.entity.posX) + random.nextInt(10) - 5;
-                int randomZ = MathHelper.floor_double(this.entity.posZ) + random.nextInt(10) - 5;
-                int randomY = MathHelper.floor_double(this.entity.posY);
+                int randomX = MathHelper.floor(this.entity.posX) + random.nextInt(10) - 5;
+                int randomZ = MathHelper.floor(this.entity.posZ) + random.nextInt(10) - 5;
+                int randomY = MathHelper.floor(this.entity.posY);
                 this.entity.getNavigator().tryMoveToXYZ(randomX, randomY, randomZ, this.speed);
             }
             this.stepTimer = stepDuration + stepCooldown; // Reset step timer with cooldown

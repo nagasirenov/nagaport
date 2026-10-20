@@ -49,7 +49,7 @@ public abstract class BiomeGenBaseMoho extends BiomeGenBaseCelestial {
 			} else {
 				Block block2 = blocks[i];
 
-				if(block2 != null && block2.getMaterial() != Material.AIR) {
+				if(block2 != null && block2.getDefaultState().getMaterial() != Material.AIR) {
 					if(block2 == ModBlocks.moho_stone) {
 						if(k == -1) {
 							if(l <= 0) {
@@ -62,7 +62,7 @@ public abstract class BiomeGenBaseMoho extends BiomeGenBaseCelestial {
 								block1 = this.fillerBlock;
 							}
 
-					if(by < 63 && (block == null || block.getMaterial() == Material.AIR)) {
+					if(by < 63 && (block == null || block.getDefaultState().getMaterial() == Material.AIR)) {
 								if(this.getFloatTemperature(x, by, z) < 0.15F) {
 									block = this.topBlock;
 									b0 = 0;

@@ -35,7 +35,7 @@ public class GUIArmorTable extends GuiInfoContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			
 			String[] unloc = new String[] {
 					"armorMod.type.helmet",
@@ -55,7 +55,7 @@ public class GUIArmorTable extends GuiInfoContainer {
 				
 				if(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {
 					
-					this.drawCreativeTabHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y);
+					this.drawHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y);
 				}
 			}
 		}
@@ -64,8 +64,8 @@ public class GUIArmorTable extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int mX, int mY) {
 
 		String name = I18n.format("container.armorTable");
-		this.fontRendererObj.drawString(name, (this.xSize - 22) / 2 - this.fontRendererObj.getStringWidth(name) / 2 + 22, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8 + 22, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, (this.xSize - 22) / 2 - this.fontRenderer.getStringWidth(name) / 2 + 22, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8 + 22, this.ySize - 96 + 2, 4210752);
 	}
 
 	protected void drawGuiContainerBackgroundLayer(float inter, int mX, int mY) {

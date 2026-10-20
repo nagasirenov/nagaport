@@ -98,7 +98,7 @@ public class BiomeSyncPacket implements IMessage {
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(BiomeSyncPacket m, MessageContext ctx) {
 			
-			World world = Minecraft.getMinecraft().theWorld;
+			World world = Minecraft.getMinecraft().world;
 			if(!world.getChunkProvider().chunkExists(m.chunkX, m.chunkZ)) return null;
 			Chunk chunk = world.getChunkFromChunkCoords(m.chunkX, m.chunkZ);
 			chunk.isModified = true;

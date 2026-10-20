@@ -17,17 +17,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChunkCoordinates;
 
-public class TileEntitySolarBoiler extends TileEntityLoadedBase implements IFluidStandardTransceiverMK2, IBufPacketReceiver, IFluidCopiable {
+public class TileEntitySolarBoiler extends TileEntityLoadedBase implements IFluidStandardTransceiverMK2, IBufPacketReceiver, IFluidCopiable, net.minecraft.util.ITickable {
 
 	private FluidTank water;
 	private FluidTank steam;
 	public int display;
 	public int heat;
 
-	public HashSet<ChunkCoordinates> primary = new HashSet<>();
-	public HashSet<ChunkCoordinates> secondary = new HashSet<>();
+	public HashSet<SolarMirrorPosition> primary = new HashSet<>();
+	public HashSet<SolarMirrorPosition> secondary = new HashSet<>();
 
 	public TileEntitySolarBoiler() {
 		water = new FluidTank(Fluids.WATER, 100);
@@ -35,16 +34,16 @@ public class TileEntitySolarBoiler extends TileEntityLoadedBase implements IFlui
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			this.trySubscribe(water.getTankType(), worldObj, xCoord, yCoord + 3, zCoord, Library.POS_Y);
-			this.trySubscribe(water.getTankType(), worldObj, xCoord, yCoord - 1, zCoord, Library.NEG_Y);
+			this.trySubscribe(water.getTankType(), this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ(), Library.POS_Y);
+			this.trySubscribe(water.getTankType(), this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y);
 
-			float sunPower = worldObj.provider instanceof WorldProviderOrbit
-				? ((WorldProviderOrbit)worldObj.provider).getSunPower()
-				: CelestialBody.getBody(worldObj).getSunPower();
+			float sunPower = this.world.provider instanceof WorldProviderOrbit
+				? ((WorldProviderOrbit)this.world.provider).getSunPower()
+				: CelestialBody.getBody(this.world).getSunPower();
 
 			int process = (int)(heat * sunPower) / 50;
 			this.display = process;
@@ -56,8 +55,8 @@ public class TileEntitySolarBoiler extends TileEntityLoadedBase implements IFlui
 			water.setFill(water.getFill() - process);
 			steam.setFill(steam.getFill() + process * 100);
 
-			this.tryProvide(steam, worldObj, xCoord, yCoord + 3, zCoord, Library.POS_Y);
-			this.tryProvide(steam, worldObj, xCoord, yCoord - 1, zCoord, Library.NEG_Y);
+			this.tryProvide(steam, this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ(), Library.POS_Y);
+			this.tryProvide(steam, this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y);
 
 			heat = 0;
 
@@ -80,11 +79,12 @@ public class TileEntitySolarBoiler extends TileEntityLoadedBase implements IFlui
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		this.water.writeToNBT(nbt, "water");
 		this.steam.writeToNBT(nbt, "steam");
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -94,12 +94,12 @@ public class TileEntitySolarBoiler extends TileEntityLoadedBase implements IFlui
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 3,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 2
 					);
 		}
 

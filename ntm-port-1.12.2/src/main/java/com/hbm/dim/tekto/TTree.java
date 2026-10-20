@@ -39,7 +39,7 @@ public class TTree extends WorldGenAbstractTree {
 			return false;
 		}
 
-		Block blockBelow = world.getBlock(x, y - 1, z);
+		Block blockBelow = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		if (blockBelow != ModBlocks.rubber_grass && blockBelow != ModBlocks.rubber_silt) {
 			return false;
 		}
@@ -59,7 +59,7 @@ public class TTree extends WorldGenAbstractTree {
 				for (int dz = -bulbRadiusXz; dz <= bulbRadiusXz; dz++) {
 
 					if (Math.pow(dx / (double)bulbRadiusXz, 2) + Math.pow(dy / (double)bulbRadiusY, 2) + Math.pow(dz / (double)bulbRadiusXz, 2) <= 1) {
-						Block block = world.getBlock(x + dx, bulbStartY + dy, z + dz);
+						Block block = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz).getBlock();
 						if (block.isAir(world, x + dx, bulbStartY + dy, z + dz)) {
 							world.setBlock(x + dx, bulbStartY + dy, z + dz, leavBlock, 0, 2);
 							if (vines) {

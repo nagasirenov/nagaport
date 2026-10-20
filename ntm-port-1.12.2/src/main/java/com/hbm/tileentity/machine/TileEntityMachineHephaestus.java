@@ -26,7 +26,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardTransceiver, IFluidCopiable {
+public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardTransceiver, IFluidCopiable, net.minecraft.util.ITickable {
 
 	public FluidTank input;
 	public FluidTank output;
@@ -48,9 +48,9 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 	ByteBuf buf;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.buf != null)
 				this.buf.release();
@@ -58,20 +58,20 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 
 			setupTanks();
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				this.updateConnections();
 			}
 
-			int height = (int) (worldObj.getTotalWorldTime() % 10);
+			int height = (int) (this.world.getTotalWorldTime() % 10);
 			int range = 7;
-			int y = yCoord - 1 - height;
+			int y = this.pos.getY() - 1 - height;
 
 			heat[height] = 0;
 
 			if(y >= 0) {
 				for(int x = -range; x <= range; x++) {
 					for(int z = -range; z <= range; z++) {
-						heat[height] += heatFromBlock(xCoord + x, y, zCoord + z);
+						heat[height] += heatFromBlock(this.pos.getX() + x, y, this.pos.getZ() + z);
 					}
 				}
 			}
@@ -84,7 +84,7 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 
 			if(output.getFill() > 0) {
 				for(DirPos pos : getConPos()) {
-					this.sendFluid(output, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(output, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 			buf.writeInt(this.getTotalHeat());
@@ -97,15 +97,15 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 			if(this.bufferedHeat > 0) {
 				this.rot += 0.5F;
 
-				if(worldObj.rand.nextInt(7) == 0) {
-					double x = worldObj.rand.nextGaussian() * 2;
-					double y = worldObj.rand.nextGaussian() * 3;
-					double z = worldObj.rand.nextGaussian() * 2;
-					worldObj.spawnParticle("cloud", xCoord + 0.5 + x, yCoord + 6 + y, zCoord + 0.5 + z, 0, 0, 0);
+				if(this.world.rand.nextInt(7) == 0) {
+					double x = this.world.rand.nextGaussian() * 2;
+					double y = this.world.rand.nextGaussian() * 3;
+					double z = this.world.rand.nextGaussian() * 2;
+					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);
 				}
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.hephaestusRunning", xCoord, yCoord + 5F, zCoord, 0.75F, 10F, 1.0F);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.hephaestusRunning", this.pos.getX(), this.pos.getY() + 5F, this.pos.getZ(), 0.75F, 10F, 1.0F);
 					audio.startSound();
 				}
 			} else {
@@ -138,7 +138,7 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 
 			input.setFill(input.getFill() - step.amountReq * ops);
 			output.setFill(output.getFill() + step.amountProduced * ops);
-			worldObj.markTileEntityChunkModified(xCoord, yCoord, zCoord, this);
+			this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 		}
 	}
 
@@ -161,13 +161,13 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 	}
 
 	protected int heatFromBlock(int x, int y, int z) {
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-		if(b == Blocks.lava || b == Blocks.flowing_lava)	return 5;
+		if(b == Blocks.LAVA || b == Blocks.FLOWING_LAVA)	return 5;
 		if(b == ModBlocks.volcanic_lava_block)				return 150;
 
 		if(b == ModBlocks.ore_volcano) {
-			this.fissureScanTime = worldObj.getTotalWorldTime();
+			this.fissureScanTime = this.world.getTotalWorldTime();
 			return 300;
 		}
 
@@ -175,7 +175,7 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 	}
 
 	public int getTotalHeat() {
-		boolean fissure = worldObj.getTotalWorldTime() - this.fissureScanTime < 20;
+		boolean fissure = this.world.getTotalWorldTime() - this.fissureScanTime < 20;
 		int heat = 0;
 
 		for(int h : this.heat) {
@@ -207,21 +207,21 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 		if(input.getTankType() == Fluids.NONE) return;
 
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(input.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(input.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
 	private DirPos[] getConPos() {
 
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 2, yCoord + 11, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord + 11, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord + 11, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord + 11, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY() + 11, this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY() + 11, this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY() + 11, this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY() + 11, this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -234,11 +234,12 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		this.input.writeToNBT(nbt, "0");
 		this.output.writeToNBT(nbt, "1");
+		return nbt;
 	}
 
 	@Override
@@ -288,12 +289,12 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 12,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 12,
+					this.pos.getZ() + 4
 					);
 		}
 

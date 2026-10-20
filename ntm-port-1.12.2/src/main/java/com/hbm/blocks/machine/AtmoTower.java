@@ -66,7 +66,7 @@ public class AtmoTower extends BlockDummyable implements ILookOverlay {
 		if(pos == null)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityAtmoTower))
 			return;
@@ -79,7 +79,7 @@ public class AtmoTower extends BlockDummyable implements ILookOverlay {
 		for(int i = 0; i < tower.tanks.length; i++)
 			text.add((i < 1 ? (TextFormatting.GREEN + "-> ") : (TextFormatting.RED + "<- ")) + TextFormatting.RESET + I18nUtil.resolveKey("hbmfluid." + tower.tanks[i].getTankType().getName().toLowerCase()) + ": " + tower.tanks[i].getFill() + "/" + tower.tanks[i].getMaxFill() + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 
 	}
 

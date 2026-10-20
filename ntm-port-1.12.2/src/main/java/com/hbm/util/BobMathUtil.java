@@ -59,7 +59,7 @@ public class BobMathUtil {
 
 	public static double safeClamp(double val, double min, double max) {
 
-		val = MathHelper.clamp_double(val, min, max);
+		val = MathHelper.clamp(val, min, max);
 
 		if(val == Double.NaN) {
 			val = (min + max) / 2D;
@@ -124,7 +124,7 @@ public class BobMathUtil {
 	}
 
 	public static float remap01_clamp(float num, float min1, float max1){
-		return MathHelper.clamp_float((num - min1) / (max1 - min1), 0, 1);
+		return MathHelper.clamp((num - min1) / (max1 - min1), (float) (0), (float) (1));
 	}
 
 	public static ForgeDirection[] getShuffledDirs() {

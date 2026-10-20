@@ -4,14 +4,12 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderNukeTsar extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderNukeTsar extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
@@ -36,24 +34,5 @@ public class RenderNukeTsar extends TileEntitySpecialRenderer implements IItemRe
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.nuke_tsar);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glScaled(2.25, 2.25, 2.25);
-			}
-			public void renderCommon() {
-				GL11.glTranslated(1.5, 0, 0);
-				GL11.glDisable(GL11.GL_CULL_FACE);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.bomb_tsar_tex); ResourceManager.bomb_tsar.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-				GL11.glEnable(GL11.GL_CULL_FACE);
-			}};
-	}
 }

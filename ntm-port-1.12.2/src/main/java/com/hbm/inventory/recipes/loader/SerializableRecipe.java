@@ -378,7 +378,7 @@ public abstract class SerializableRecipe {
 		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));													//item name
 		if(stack.stackSize != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.stackSize);		//stack size
 		if(stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getItemDamage());						//metadata
-		if(stack.hasTagCompound()) writer.value(stack.stackTagCompound.toString());											//nbt
+		if(stack.hasTagCompound()) writer.value(stack.getTagCompound().toString());											//nbt
 		writer.endArray();
 		writer.setIndent("  ");
 	}
@@ -389,7 +389,7 @@ public abstract class SerializableRecipe {
 		writer.value(Item.itemRegistry.getNameForObject(stack.getKey().getItem()));																			//item name
 		if(stack.getKey().stackSize != 1 || stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackSize);	//stack size
 		if(stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().getItemDamage());							//metadata
-		if(stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackTagCompound.toString());														//nbt
+		if(stack.getKey().hasTagCompound()) writer.value(stack.getKey().getTagCompound().toString());														//nbt
 		writer.value(stack.value);																															//chance
 		writer.endArray();
 		writer.setIndent("  ");

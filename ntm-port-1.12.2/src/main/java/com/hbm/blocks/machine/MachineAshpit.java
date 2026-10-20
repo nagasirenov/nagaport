@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class MachineAshpit extends BlockDummyable implements ITooltipProvider {
 
 	public MachineAshpit() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

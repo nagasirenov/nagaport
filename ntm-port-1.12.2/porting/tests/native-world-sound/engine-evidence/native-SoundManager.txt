@@ -1,0 +1,251 @@
+# Exact javap method excerpts; source native-SoundManager.javap
+
+  public void playSound(net.minecraft.client.audio.ISound);
+    Code:
+       0: aload_0
+       1: getfield      #242                // Field loaded:Z
+       4: ifeq          596
+       7: aload_0
+       8: aload_1
+       9: invokestatic  #460                // Method net/minecraftforge/client/ForgeHooksClient.playSound:(Lnet/minecraft/client/audio/SoundManager;Lnet/minecraft/client/audio/ISound;)Lnet/minecraft/client/audio/ISound;
+      12: astore_1
+      13: aload_1
+      14: ifnonnull     18
+      17: return
+      18: aload_1
+      19: aload_0
+      20: getfield      #116                // Field sndHandler:Lnet/minecraft/client/audio/SoundHandler;
+      23: invokeinterface #464,  2          // InterfaceMethod net/minecraft/client/audio/ISound.createAccessor:(Lnet/minecraft/client/audio/SoundHandler;)Lnet/minecraft/client/audio/SoundEventAccessor;
+      28: astore_2
+      29: aload_1
+      30: invokeinterface #467,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getSoundLocation:()Lnet/minecraft/util/ResourceLocation;
+      35: astore_3
+      36: aload_2
+      37: ifnonnull     70
+      40: getstatic     #176                // Field UNABLE_TO_PLAY:Ljava/util/Set;
+      43: aload_3
+      44: invokeinterface #225,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      49: ifeq          596
+      52: getstatic     #157                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      55: getstatic     #159                // Field LOG_MARKER:Lorg/apache/logging/log4j/Marker;
+      58: ldc_w         #469                // String Unable to play unknown soundEvent: {}
+      61: aload_3
+      62: invokeinterface #471,  4          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+      67: goto          596
+      70: aload_0
+      71: getfield      #112                // Field listeners:Ljava/util/List;
+      74: invokeinterface #478,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      79: ifne          127
+      82: aload_0
+      83: getfield      #112                // Field listeners:Ljava/util/List;
+      86: invokeinterface #349,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      91: astore        4
+      93: aload         4
+      95: invokeinterface #199,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     100: ifeq          127
+     103: aload         4
+     105: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     110: checkcast     #480                // class net/minecraft/client/audio/ISoundEventListener
+     113: astore        5
+     115: aload         5
+     117: aload_1
+     118: aload_2
+     119: invokeinterface #484,  3          // InterfaceMethod net/minecraft/client/audio/ISoundEventListener.soundPlay:(Lnet/minecraft/client/audio/ISound;Lnet/minecraft/client/audio/SoundEventAccessor;)V
+     124: goto          93
+     127: aload_0
+     128: getfield      #279                // Field sndSystem:Lnet/minecraft/client/audio/SoundManager$SoundSystemStarterThread;
+     131: invokevirtual #487                // Method net/minecraft/client/audio/SoundManager$SoundSystemStarterThread.getMasterVolume:()F
+     134: fconst_0
+     135: fcmpg
+     136: ifgt          157
+     139: getstatic     #157                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     142: getstatic     #159                // Field LOG_MARKER:Lorg/apache/logging/log4j/Marker;
+     145: ldc_w         #489                // String Skipped playing soundEvent: {}, master volume was zero
+     148: aload_3
+     149: invokeinterface #418,  4          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+     154: goto          596
+     157: aload_1
+     158: invokeinterface #493,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getSound:()Lnet/minecraft/client/audio/Sound;
+     163: astore        4
+     165: aload         4
+     167: getstatic     #497                // Field net/minecraft/client/audio/SoundHandler.MISSING_SOUND:Lnet/minecraft/client/audio/Sound;
+     170: if_acmpne     203
+     173: getstatic     #176                // Field UNABLE_TO_PLAY:Ljava/util/Set;
+     176: aload_3
+     177: invokeinterface #225,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     182: ifeq          596
+     185: getstatic     #157                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     188: getstatic     #159                // Field LOG_MARKER:Lorg/apache/logging/log4j/Marker;
+     191: ldc_w         #499                // String Unable to play empty soundEvent: {}
+     194: aload_3
+     195: invokeinterface #471,  4          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+     200: goto          596
+     203: aload_1
+     204: invokeinterface #503,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getVolume:()F
+     209: fstore        5
+     211: ldc_w         #504                // float 16.0f
+     214: fstore        6
+     216: fload         5
+     218: fconst_1
+     219: fcmpl
+     220: ifle          230
+     223: fload         6
+     225: fload         5
+     227: fmul
+     228: fstore        6
+     230: aload_1
+     231: invokeinterface #427,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getCategory:()Lnet/minecraft/util/SoundCategory;
+     236: astore        7
+     238: aload_0
+     239: aload_1
+     240: invokespecial #300                // Method getClampedVolume:(Lnet/minecraft/client/audio/ISound;)F
+     243: fstore        8
+     245: aload_0
+     246: aload_1
+     247: invokespecial #360                // Method getClampedPitch:(Lnet/minecraft/client/audio/ISound;)F
+     250: fstore        9
+     252: fload         8
+     254: fconst_0
+     255: fcmpl
+     256: ifne          281
+     259: getstatic     #157                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     262: getstatic     #159                // Field LOG_MARKER:Lorg/apache/logging/log4j/Marker;
+     265: ldc_w         #506                // String Skipped playing sound {}, volume was zero.
+     268: aload         4
+     270: invokevirtual #507                // Method net/minecraft/client/audio/Sound.getSoundLocation:()Lnet/minecraft/util/ResourceLocation;
+     273: invokeinterface #418,  4          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+     278: goto          596
+     281: aload_1
+     282: invokeinterface #402,  1          // InterfaceMethod net/minecraft/client/audio/ISound.canRepeat:()Z
+     287: ifeq          303
+     290: aload_1
+     291: invokeinterface #399,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getRepeatDelay:()I
+     296: ifne          303
+     299: iconst_1
+     300: goto          304
+     303: iconst_0
+     304: istore        10
+     306: invokestatic  #513                // Method io/netty/util/internal/ThreadLocalRandom.current:()Lio/netty/util/internal/ThreadLocalRandom;
+     309: invokestatic  #519                // Method net/minecraft/util/math/MathHelper.getRandomUUID:(Ljava/util/Random;)Ljava/util/UUID;
+     312: invokevirtual #525                // Method java/util/UUID.toString:()Ljava/lang/String;
+     315: astore        11
+     317: aload         4
+     319: invokevirtual #528                // Method net/minecraft/client/audio/Sound.getSoundAsOggLocation:()Lnet/minecraft/util/ResourceLocation;
+     322: astore        12
+     324: aload         4
+     326: invokevirtual #531                // Method net/minecraft/client/audio/Sound.isStreaming:()Z
+     329: ifeq          404
+     332: aload_0
+     333: getfield      #279                // Field sndSystem:Lnet/minecraft/client/audio/SoundManager$SoundSystemStarterThread;
+     336: iconst_0
+     337: aload         11
+     339: aload         12
+     341: invokestatic  #535                // Method getURLForSoundResource:(Lnet/minecraft/util/ResourceLocation;)Ljava/net/URL;
+     344: aload         12
+     346: invokevirtual #536                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     349: iload         10
+     351: aload_1
+     352: invokeinterface #537,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getXPosF:()F
+     357: aload_1
+     358: invokeinterface #538,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getYPosF:()F
+     363: aload_1
+     364: invokeinterface #539,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getZPosF:()F
+     369: aload_1
+     370: invokeinterface #543,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getAttenuationType:()Lnet/minecraft/client/audio/ISound$AttenuationType;
+     375: invokevirtual #546                // Method net/minecraft/client/audio/ISound$AttenuationType.getTypeInt:()I
+     378: fload         6
+     380: invokevirtual #550                // Method net/minecraft/client/audio/SoundManager$SoundSystemStarterThread.newStreamingSource:(ZLjava/lang/String;Ljava/net/URL;Ljava/lang/String;ZFFFIF)V
+     383: getstatic     #140                // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/fml/common/eventhandler/EventBus;
+     386: new           #552                // class net/minecraftforge/client/event/sound/PlayStreamingSourceEvent
+     389: dup
+     390: aload_0
+     391: aload_1
+     392: aload         11
+     394: invokespecial #555                // Method net/minecraftforge/client/event/sound/PlayStreamingSourceEvent."<init>":(Lnet/minecraft/client/audio/SoundManager;Lnet/minecraft/client/audio/ISound;Ljava/lang/String;)V
+     397: invokevirtual #151                // Method net/minecraftforge/fml/common/eventhandler/EventBus.post:(Lnet/minecraftforge/fml/common/eventhandler/Event;)Z
+     400: pop
+     401: goto          473
+     404: aload_0
+     405: getfield      #279                // Field sndSystem:Lnet/minecraft/client/audio/SoundManager$SoundSystemStarterThread;
+     408: iconst_0
+     409: aload         11
+     411: aload         12
+     413: invokestatic  #535                // Method getURLForSoundResource:(Lnet/minecraft/util/ResourceLocation;)Ljava/net/URL;
+     416: aload         12
+     418: invokevirtual #536                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     421: iload         10
+     423: aload_1
+     424: invokeinterface #537,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getXPosF:()F
+     429: aload_1
+     430: invokeinterface #538,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getYPosF:()F
+     435: aload_1
+     436: invokeinterface #539,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getZPosF:()F
+     441: aload_1
+     442: invokeinterface #543,  1          // InterfaceMethod net/minecraft/client/audio/ISound.getAttenuationType:()Lnet/minecraft/client/audio/ISound$AttenuationType;
+     447: invokevirtual #546                // Method net/minecraft/client/audio/ISound$AttenuationType.getTypeInt:()I
+     450: fload         6
+     452: invokevirtual #558                // Method net/minecraft/client/audio/SoundManager$SoundSystemStarterThread.newSource:(ZLjava/lang/String;Ljava/net/URL;Ljava/lang/String;ZFFFIF)V
+     455: getstatic     #140                // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/fml/common/eventhandler/EventBus;
+     458: new           #560                // class net/minecraftforge/client/event/sound/PlaySoundSourceEvent
+     461: dup
+     462: aload_0
+     463: aload_1
+     464: aload         11
+     466: invokespecial #561                // Method net/minecraftforge/client/event/sound/PlaySoundSourceEvent."<init>":(Lnet/minecraft/client/audio/SoundManager;Lnet/minecraft/client/audio/ISound;Ljava/lang/String;)V
+     469: invokevirtual #151                // Method net/minecraftforge/fml/common/eventhandler/EventBus.post:(Lnet/minecraftforge/fml/common/eventhandler/Event;)Z
+     472: pop
+     473: getstatic     #157                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     476: getstatic     #159                // Field LOG_MARKER:Lorg/apache/logging/log4j/Marker;
+     479: ldc_w         #563                // String Playing sound {} for event {} as channel {}
+     482: aload         4
+     484: invokevirtual #507                // Method net/minecraft/client/audio/Sound.getSoundLocation:()Lnet/minecraft/util/ResourceLocation;
+     487: aload_3
+     488: aload         11
+     490: invokeinterface #566,  6          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     495: aload_0
+     496: getfield      #279                // Field sndSystem:Lnet/minecraft/client/audio/SoundManager$SoundSystemStarterThread;
+     499: aload         11
+     501: fload         9
+     503: invokevirtual #363                // Method net/minecraft/client/audio/SoundManager$SoundSystemStarterThread.setPitch:(Ljava/lang/String;F)V
+     506: aload_0
+     507: getfield      #279                // Field sndSystem:Lnet/minecraft/client/audio/SoundManager$SoundSystemStarterThread;
+     510: aload         11
+     512: fload         8
+     514: invokevirtual #307                // Method net/minecraft/client/audio/SoundManager$SoundSystemStarterThread.setVolume:(Ljava/lang/String;F)V
+     517: aload_0
+     518: getfield      #279                // Field sndSystem:Lnet/minecraft/client/audio/SoundManager$SoundSystemStarterThread;
+     521: aload         11
+     523: invokevirtual #569                // Method net/minecraft/client/audio/SoundManager$SoundSystemStarterThread.play:(Ljava/lang/String;)V
+     526: aload_0
+     527: getfield      #110                // Field playingSoundsStopTime:Ljava/util/Map;
+     530: aload         11
+     532: aload_0
+     533: getfield      #348                // Field playTime:I
+     536: bipush        20
+     538: iadd
+     539: invokestatic  #406                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     542: invokeinterface #410,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     547: pop
+     548: aload_0
+     549: getfield      #77                 // Field playingSounds:Ljava/util/Map;
+     552: aload         11
+     554: aload_1
+     555: invokeinterface #410,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     560: pop
+     561: aload_0
+     562: getfield      #92                 // Field categorySounds:Lcom/google/common/collect/Multimap;
+     565: aload         7
+     567: aload         11
+     569: invokeinterface #571,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+     574: pop
+     575: aload_1
+     576: instanceof    #351                // class net/minecraft/client/audio/ITickableSound
+     579: ifeq          596
+     582: aload_0
+     583: getfield      #100                // Field tickableSounds:Ljava/util/List;
+     586: aload_1
+     587: checkcast     #351                // class net/minecraft/client/audio/ITickableSound
+     590: invokeinterface #338,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     595: pop
+     596: return
+

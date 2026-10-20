@@ -1,0 +1,103 @@
+Compiled from "PlaySoundAtEntityEvent.java"
+public class net.minecraftforge.event.entity.PlaySoundAtEntityEvent extends net.minecraftforge.event.entity.EntityEvent {
+  private net.minecraft.util.SoundEvent name;
+
+  private net.minecraft.util.SoundCategory category;
+
+  private final float volume;
+
+  private final float pitch;
+
+  private float newVolume;
+
+  private float newPitch;
+
+  public net.minecraftforge.event.entity.PlaySoundAtEntityEvent(net.minecraft.entity.Entity, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, float, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #20                 // Method net/minecraftforge/event/entity/EntityEvent."<init>":(Lnet/minecraft/entity/Entity;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #22                 // Field name:Lnet/minecraft/util/SoundEvent;
+      10: aload_0
+      11: aload_3
+      12: putfield      #24                 // Field category:Lnet/minecraft/util/SoundCategory;
+      15: aload_0
+      16: fload         4
+      18: putfield      #26                 // Field volume:F
+      21: aload_0
+      22: fload         5
+      24: putfield      #28                 // Field pitch:F
+      27: aload_0
+      28: fload         4
+      30: putfield      #30                 // Field newVolume:F
+      33: aload_0
+      34: fload         5
+      36: putfield      #32                 // Field newPitch:F
+      39: return
+
+  public net.minecraft.util.SoundEvent getSound();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field name:Lnet/minecraft/util/SoundEvent;
+       4: areturn
+
+  public net.minecraft.util.SoundCategory getCategory();
+    Code:
+       0: aload_0
+       1: getfield      #24                 // Field category:Lnet/minecraft/util/SoundCategory;
+       4: areturn
+
+  public float getDefaultVolume();
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field volume:F
+       4: freturn
+
+  public float getDefaultPitch();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field pitch:F
+       4: freturn
+
+  public float getVolume();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field newVolume:F
+       4: freturn
+
+  public float getPitch();
+    Code:
+       0: aload_0
+       1: getfield      #32                 // Field newPitch:F
+       4: freturn
+
+  public void setSound(net.minecraft.util.SoundEvent);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #22                 // Field name:Lnet/minecraft/util/SoundEvent;
+       5: return
+
+  public void setCategory(net.minecraft.util.SoundCategory);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #24                 // Field category:Lnet/minecraft/util/SoundCategory;
+       5: return
+
+  public void setVolume(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: putfield      #30                 // Field newVolume:F
+       5: return
+
+  public void setPitch(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: putfield      #32                 // Field newPitch:F
+       5: return
+}

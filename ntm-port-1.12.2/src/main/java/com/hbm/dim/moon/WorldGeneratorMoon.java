@@ -64,7 +64,7 @@ public class WorldGeneratorMoon implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.moonDimension) {
+		if(world.provider.getDimension() == SpaceConfig.moonDimension) {
 			generateMoon(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}

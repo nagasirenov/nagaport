@@ -1,0 +1,14 @@
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortStaticItemEntityOwnership', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-static-item-entity-ownership.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

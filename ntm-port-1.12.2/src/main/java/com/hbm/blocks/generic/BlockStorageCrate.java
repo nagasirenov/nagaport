@@ -35,7 +35,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
@@ -112,14 +112,14 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		if(!world.isRemote && !ServerConfig.CRATE_KEEP_CONTENTS.get()) {
 			dropInv = true;
 			if(!player.capabilities.isCreativeMode) {
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(this)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(this)));
 			}
-			TileEntity inv = world.getTileEntity(x, y, z);
+			TileEntity inv = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(inv instanceof TileEntityLockableBase) {
 				TileEntityLockableBase lockable = (TileEntityLockableBase) inv;
 				if(lockable.isLocked()) dropInv = false;
 			}
-			boolean flag = world.setBlockToAir(x, y, z);
+			boolean flag = com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			dropInv = true;
 			return flag;
 		}
@@ -127,7 +127,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		if(!player.capabilities.isCreativeMode && !world.isRemote && willHarvest) {
 
 			ItemStack drop = new ItemStack(this);
-			ISidedInventory inv = (ISidedInventory)world.getTileEntity(x, y, z);
+			ISidedInventory inv = (ISidedInventory)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			NBTTagCompound nbt = new NBTTagCompound();
 
@@ -136,7 +136,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 				for(int i = 0; i < inv.getSizeInventory(); i++) {
 
 					ItemStack stack = inv.getStackInSlot(i);
-					if(stack == null)
+					if(stack == null || stack.isEmpty())
 						continue;
 
 					NBTTagCompound slot = new NBTTagCompound();
@@ -164,7 +164,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 			if(!nbt.hasNoTags()) {
 				nbt.setLong("stacklock", world.rand.nextLong());
-				drop.stackTagCompound = nbt;
+				drop.setTagCompound(nbt);
 			}
 
 			if(inv instanceof TileEntityCrateBase) {
@@ -176,22 +176,22 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 			if(drop.hasTagCompound()) {
 				try {
-					byte[] abyte = CompressedStreamTools.compress(drop.stackTagCompound);
+					byte[] abyte = CompressedStreamTools.compress(drop.getTagCompound());
 
 					if(abyte.length > 6000) {
-						player.addChatComponentMessage(new ChatComponentText(TextFormatting.RED + "Warning: Container NBT exceeds 6kB, contents will be ejected!"));
-						world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(this)));
-						return world.setBlockToAir(x, y, z);
+						player.sendMessage(new TextComponentString(TextFormatting.RED + "Warning: Container NBT exceeds 6kB, contents will be ejected!"));
+						world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(this)));
+						return com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 					}
 
 				} catch(IOException e) { }
 			}
 
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
+			world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
 		}
 
 		dropInv = false;
-		boolean flag = world.setBlockToAir(x, y, z);
+		boolean flag = com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		dropInv = true;
 
 		return flag;
@@ -201,11 +201,11 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if(world.isRemote) {
 			return true;
-		} else if(player.getHeldItem() != null && (player.getHeldItem().getItem() instanceof ItemLock || player.getHeldItem().getItem() == ModItems.key_kit)) {
+		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
 			return false;
 
 		} else if(!player.isSneaking()) {
-			TileEntity entity = world.getTileEntity(x, y, z);
+			TileEntity entity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity instanceof TileEntityCrateBase && ((TileEntityCrateBase) entity).canAccess(player)) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 				TileEntityCrateBase crate = (TileEntityCrateBase) entity;
@@ -220,27 +220,27 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
 
-		ISidedInventory inv = (ISidedInventory)world.getTileEntity(x, y, z);
+		ISidedInventory inv = (ISidedInventory)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(inv != null && stack.hasTagCompound()) {
 
 			for(int i = 0; i < inv.getSizeInventory(); i++) {
-				inv.setInventorySlotContents(i, ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot" + i)));
+				inv.setInventorySlotContents(i, new ItemStack(stack.getTagCompound().getCompoundTag("slot" + i)));
 			}
 
 			if(inv instanceof TileEntityLockableBase) {
 				TileEntityLockableBase lockable = (TileEntityLockableBase) inv;
 
-				if(stack.stackTagCompound.hasKey("lock")) {
-					lockable.setPins(stack.stackTagCompound.getInteger("lock"));
-					lockable.setMod(stack.stackTagCompound.getDouble("lockMod"));
+				if(stack.getTagCompound().hasKey("lock")) {
+					lockable.setPins(stack.getTagCompound().getInteger("lock"));
+					lockable.setMod(stack.getTagCompound().getDouble("lockMod"));
 					lockable.lock();
 				}
 			}
 
 			if(inv instanceof TileEntityCrateBase) {
 				TileEntityCrateBase crate = (TileEntityCrateBase) inv;
-				crate.hasSpiders = stack.stackTagCompound.getBoolean("spiders");
+				crate.hasSpiders = stack.getTagCompound().getBoolean("spiders");
 
 				if (stack.hasDisplayName()) {
 					crate.setCustomName(stack.getDisplayName());
@@ -251,7 +251,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		if(this != ModBlocks.safe)
 			super.onBlockPlacedBy(world, x, y, z, player, stack);
 
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -263,37 +263,41 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 
 		if(dropInv) {
-			ISidedInventory sided = (ISidedInventory) world.getTileEntity(x, y, z);
+			ISidedInventory sided = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			Random rand = world.rand;
 
 			if(sided != null) {
 				for(int i1 = 0; i1 < sided.getSizeInventory(); ++i1) {
 					ItemStack itemstack = sided.getStackInSlot(i1);
 
-					if(itemstack != null) {
+					if(itemstack != null && !itemstack.isEmpty()) {
 						float f = rand.nextFloat() * 0.8F + 0.1F;
 						float f1 = rand.nextFloat() * 0.8F + 0.1F;
 						float f2 = rand.nextFloat() * 0.8F + 0.1F;
 
-						while(itemstack.stackSize > 0) {
+						while(itemstack.getCount() > 0) {
 							int j1 = rand.nextInt(21) + 10;
 
-							if(j1 > itemstack.stackSize) {
-								j1 = itemstack.stackSize;
+							if(j1 > itemstack.getCount()) {
+								j1 = itemstack.getCount();
 							}
 
-							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							// Capture before depletion: native empty stacks hide their item.
+							net.minecraft.item.Item dropItem = itemstack.getItem();
+							int dropMeta = itemstack.getItemDamage();
+							NBTTagCompound dropTag = itemstack.getTagCompound();
+							itemstack.shrink(j1);
+							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-							if(itemstack.hasTagCompound()) {
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+							if(dropTag != null) {
+								entityitem.getItem().setTagCompound(dropTag.copy());
 							}
 
 							float f3 = 0.05F;
 							entityitem.motionX = (float) rand.nextGaussian() * f3;
 							entityitem.motionY = (float) rand.nextGaussian() * f3 + 0.2F;
 							entityitem.motionZ = (float) rand.nextGaussian() * f3;
-							world.spawnEntityInWorld(entityitem);
+							world.spawnEntity(entityitem);
 						}
 					}
 				}
@@ -306,7 +310,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -322,26 +326,26 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(x, y, z));
+		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 		if(stack.hasTagCompound()) {
 
-			if(stack.stackTagCompound.getBoolean("spiders")) {
-				if(stack.stackTagCompound.hasKey("lock")) {
+			if(stack.getTagCompound().getBoolean("spiders")) {
+				if(stack.getTagCompound().hasKey("lock")) {
 					list.add(TextFormatting.RED + "This container is locked.");
 				}
 				list.add(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Skittering emanates from within..."); // lamo
 				return;
 			}
 
-			if(stack.stackTagCompound.hasKey("lock")) {
+			if(stack.getTagCompound().hasKey("lock")) {
 				list.add(TextFormatting.RED + "This container is locked."); // Sorry people who want to see what's in it while it's locked...
 
 				for(int i = 0; i < 104; i++) {
-					ItemStack content = ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot" + i));
+					ItemStack content = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot" + i));
 					if(content != null) {
 						list.add(TextFormatting.YELLOW + "It feels heavy...");
 						return;
@@ -355,7 +359,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 			int amount = 0;
 
 			for(int i = 0; i < 104; i++) { //whatever the biggest container is, i can't be bothered to check
-				ItemStack content = ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot" + i));
+				ItemStack content = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot" + i));
 
 				if(content != null) {
 					amount++;
@@ -381,7 +385,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	@Override
 	public void printHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {
 		
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if (!(te instanceof IInventory))
 			return;

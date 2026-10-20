@@ -23,7 +23,7 @@ import com.hbm.lib.ForgeDirection;
 public class Watz extends BlockDummyable {
 
 	public Watz() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class Watz extends BlockDummyable {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 	
@@ -93,11 +93,11 @@ public class Watz extends BlockDummyable {
 
 		if(i >= 12 && drop) {
 
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.watz_end, 48)));
-			for(int j = 0; j < 3; j++) world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, Mats.MAT_DURA.make(ModItems.bolt, 64)));
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.watz_element, 36)));
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.watz_cooler, 26)));
-			world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_watz_core, 1)));
+			world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.watz_end, 48)));
+			for(int j = 0; j < 3; j++) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, Mats.MAT_DURA.make(ModItems.bolt, 64)));
+			world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.watz_element, 36)));
+			world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.watz_cooler, 26)));
+			world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_watz_core, 1)));
 		}
 
 		super.breakBlock(world, x, y, z, block, i);

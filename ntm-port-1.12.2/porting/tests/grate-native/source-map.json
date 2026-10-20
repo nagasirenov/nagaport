@@ -1,0 +1,24 @@
+{
+  "base": "e03449f",
+  "existing_replaced": [
+    "src/main/java/com/hbm/blocks/generic/BlockGrate.java",
+    "src/main/java/com/hbm/render/block/RenderGrate.java"
+  ],
+  "new_production": [
+    "src/main/java/com/hbm/main/GrateModelHandler.java",
+    "src/main/java/com/hbm/render/block/nativeblock/GrateBakedModel.java",
+    "src/main/java/com/hbm/render/block/nativeblock/GrateShiftedLightQuad.java",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_grate.json",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_grate_wide.json"
+  ],
+  "shared_integration": "registration-fragments.txt",
+  "unchanged_helpers": [
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java"
+  ],
+  "open_visual_gates": [
+    "optional vanilla shifted-origin lighting",
+    "native damage retexture loses shifted lighting wrapper",
+    "full breaking draw/color suppression and live GL unverified"
+  ],
+  "approval": "No visual simplification approval inferred."
+}

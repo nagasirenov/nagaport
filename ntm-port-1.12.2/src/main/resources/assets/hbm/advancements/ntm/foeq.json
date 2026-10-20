@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/desh",
+  "display": {
+    "icon": {
+      "item": "hbm:item.sat_foeq",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.FOEQ"
+    },
+    "description": {
+      "translate": "achievement.FOEQ.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

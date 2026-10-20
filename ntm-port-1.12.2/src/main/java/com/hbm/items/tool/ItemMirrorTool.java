@@ -26,7 +26,7 @@ public class ItemMirrorTool extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
 		if(b == ModBlocks.machine_solar_boiler) {
 			
@@ -35,13 +35,13 @@ public class ItemMirrorTool extends Item {
 			if(pos != null && !world.isRemote) {
 				
 				if(!stack.hasTagCompound())
-					stack.stackTagCompound = new NBTTagCompound();
+					stack.setTagCompound(new NBTTagCompound());
 
-				stack.stackTagCompound.setInteger("posX", pos[0]);
-				stack.stackTagCompound.setInteger("posY", pos[1] + 1);
-				stack.stackTagCompound.setInteger("posZ", pos[2]);
+				stack.getTagCompound().setInteger("posX", pos[0]);
+				stack.getTagCompound().setInteger("posY", pos[1] + 1);
+				stack.getTagCompound().setInteger("posZ", pos[2]);
 				
-				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -50,16 +50,16 @@ public class ItemMirrorTool extends Item {
 		if(b == ModBlocks.solar_mirror && stack.hasTagCompound()) {
 			
 			if(!world.isRemote) {
-				TileEntitySolarMirror mirror = (TileEntitySolarMirror) world.getTileEntity(x, y, z);
-				int tx = stack.stackTagCompound.getInteger("posX");
-				int ty = stack.stackTagCompound.getInteger("posY");
-				int tz = stack.stackTagCompound.getInteger("posZ");
+				TileEntitySolarMirror mirror = (TileEntitySolarMirror) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+				int tx = stack.getTagCompound().getInteger("posX");
+				int ty = stack.getTagCompound().getInteger("posY");
+				int tz = stack.getTagCompound().getInteger("posZ");
 
 				boolean withinReach = new Vec3d(x - tx, y - ty, z - tz).length() <= 100;
 				boolean withinAngle = (x - tx) * (x - tx) + (z - tz) * (z - tz) <= (y - ty) * (y - ty);
 				
-				if(!withinReach) player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".reach").setStyle(new Style().setColor(TextFormatting.RED)));
-				else if(!withinAngle) player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".angle").setStyle(new Style().setColor(TextFormatting.RED)));
+				if(!withinReach) player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".reach").setStyle(new Style().setColor(TextFormatting.RED)));
+				else if(!withinAngle) player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".angle").setStyle(new Style().setColor(TextFormatting.RED)));
 				else mirror.setTarget(tx, ty, tz);
 			}
 			
@@ -72,7 +72,7 @@ public class ItemMirrorTool extends Item {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 		
-		for(String s : I18nUtil.resolveKeyArray(this.getUnlocalizedName() + ".desc"))
+		for(String s : I18nUtil.resolveKeyArray(this.getTranslationKey() + ".desc"))
 			list.add(TextFormatting.YELLOW + s);
 	}
 

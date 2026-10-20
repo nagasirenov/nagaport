@@ -1,0 +1,4 @@
+Note: src/main/java/com/hbm/world/gen/ProceduralStructureStart.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+EXIT_CODE=0

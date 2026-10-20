@@ -45,7 +45,7 @@ public class BlockOreOutgas extends BlockOre {
 			return ModBlocks.gas_asbestos;
 		}
 		
-		return Blocks.air;
+		return Blocks.AIR;
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class BlockOreOutgas extends BlockOre {
 		
 		if(this.randomTick && getGas() == ModBlocks.gas_asbestos) {
 			
-			if(world.getBlock(x, y + 1, z) == Blocks.air) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR) {
 				
 				if(world.rand.nextInt(10) == 0)
 				world.setBlock(x, y + 1, z, ModBlocks.gas_asbestos);
@@ -69,7 +69,7 @@ public class BlockOreOutgas extends BlockOre {
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
 		
-		if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
+		if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 			world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());
 		}
 	}
@@ -91,7 +91,7 @@ public class BlockOreOutgas extends BlockOre {
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 				
-				if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
+				if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 					world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());
 				}
 			}

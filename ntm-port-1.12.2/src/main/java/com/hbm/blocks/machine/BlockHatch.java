@@ -20,7 +20,7 @@ public class BlockHatch extends BlockContainer {
 	
 	public void setControllerPos(World world, int x, int y, int z, int cX, int cY, int cZ) {
 		
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(te != null && te instanceof TileEntityHatch) {
 			((TileEntityHatch)te).setControllerPos(cX, cY, cZ);

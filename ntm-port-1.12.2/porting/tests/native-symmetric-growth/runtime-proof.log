@@ -1,0 +1,7 @@
+PASS 32 original-provenance expand-to-grow tokens / 26 exact source inverses / 52 source mutants
+Generated 32 exact production argument slices plus 2 complete original/native constructor-growth expressions
+PASS 3910874 actual original/native checks; 32 exact growth-argument sites, 2 complete center expressions, normalized-box IEEE boundaries, native EntityItem getter, evaluation/null/exception, 7 negative semantic controls
+PASS 67 actual dependency jars / 48245 classes / 1 AABB hierarchy members: no subclass expand/grow overrides; unknown external mods not certified
+Native attribution only; inputs=1; source AABB overrides=0; errors=5
+Native attribution only; inputs=1; source AABB overrides=1; errors=0
+PASS 4 positive / 15 negative compiler controls plus 2 reachable source-subclass override controls

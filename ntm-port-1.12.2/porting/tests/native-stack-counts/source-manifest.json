@@ -1,0 +1,499 @@
+{
+  "base": "e0d4369",
+  "files": {
+    "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java": {
+      "before_sha256": "f14cab9b0c41b284cd5514057bc48f47c3c2b3c7576cb7c621fc74ee6c4f1cac",
+      "edits": [
+        {
+          "start": 2057,
+          "end": 2085,
+          "before": "press.slots[0].stackSize = 1",
+          "after": "press.slots[0].setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "a5011b0cd8d486f7e2e2052be5466aa0c84ca86cfab69eec967d4e74a5bd8548"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSawmill.java": {
+      "before_sha256": "42b1e01394ba52d3ebc61d72e422b9c69c52be8312d840ef6d2d6a451c39591f",
+      "edits": [
+        {
+          "start": 3479,
+          "end": 3509,
+          "before": "sawmill.slots[0].stackSize = 1",
+          "after": "sawmill.slots[0].setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "8eb5a9a9652e66e8767ed23fda238bda3b52b5567588aac444c901b1f8818498"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java": {
+      "before_sha256": "31ae4b03c94f65dd27bfb4c0dc56872b5795be0a1b54aa13e99c070fb0beea9f",
+      "edits": [
+        {
+          "start": 5079,
+          "end": 5106,
+          "before": "cast.slots[0].stackSize = 1",
+          "after": "cast.slots[0].setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "b58b8ee3b23add4883a7b88c6118f5a8f7cf742411a6a15914e87f85c0ee6e1f"
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java": {
+      "before_sha256": "7ef98f190a98343d82ed97c333accafaa0a4ba5fd7da82de1b09145bd9ae3b96",
+      "edits": [
+        {
+          "start": 2889,
+          "end": 2916,
+          "before": "rbmk.slots[0].stackSize = 1",
+          "after": "rbmk.slots[0].setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "bf3d27ffeb3545494e1a4da9996f335fbcec91c438c23022ec12c880bc06eaa8"
+    },
+    "src/main/java/com/hbm/crafting/handlers/CargoShellCraftingHandler.java": {
+      "before_sha256": "289aaa613cea4870fa625c9642307c09af53c0bc0949a859c52551e04248b4c4",
+      "edits": [
+        {
+          "start": 1361,
+          "end": 1379,
+          "before": "copy.stackSize = 1",
+          "after": "copy.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        },
+        {
+          "start": 1450,
+          "end": 1468,
+          "before": "copy.stackSize = 1",
+          "after": "copy.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "2c5f0a9e6077627524c0a899c3929e5542afedc543a5b5ee0004c89d355f20fe"
+    },
+    "src/main/java/com/hbm/crafting/handlers/ScrapsCraftingHandler.java": {
+      "before_sha256": "7ebb48f42d0202ae8a17ba70cc5af77cc0256194c6bded64796ce26aaed4ebd8",
+      "edits": [
+        {
+          "start": 1366,
+          "end": 1385,
+          "before": "scrap.stackSize = 2",
+          "after": "scrap.setCount(2)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "4a0047562ab9dae6525ff671d3810729ae6d71fd735a77e9fa72653ce15e6505"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineRocketAssembly.java": {
+      "before_sha256": "00d40682c3e24b36b273eded061157d6610819549c40bd6a46f3c45374b407c6",
+      "edits": [
+        {
+          "start": 2325,
+          "end": 2354,
+          "before": "slot.getStack().stackSize = 1",
+          "after": "slot.getStack().setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "6ee8ad1a01fa2b54a9a94245bf6b3edc67645ff08b58d64d8bcebd22f77caec8"
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerOrbitalStationLauncher.java": {
+      "before_sha256": "77882b695a74a90e6e6f1b8c6959522cc9b7cc1340599433f2e45456c9c31c3b",
+      "edits": [
+        {
+          "start": 2492,
+          "end": 2521,
+          "before": "slot.getStack().stackSize = 1",
+          "after": "slot.getStack().setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "968ff5207cd6d5f3d3183095ba86ada757b5fc10a69b184fadbdfb9d5babb854"
+    },
+    "src/main/java/com/hbm/inventory/recipes/CentrifugeRecipes.java": {
+      "before_sha256": "074520198b6fea7945f364deb1427ae2661c98d5561c99166de7a601553447e9",
+      "edits": [
+        {
+          "start": 18834,
+          "end": 18853,
+          "before": "qItem.stackSize = 2",
+          "after": "qItem.setCount(2)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "bc6aacbc987c360b2cadd25500423b7516234f20f9bbd2b0ad1bf153946e7131"
+    },
+    "src/main/java/com/hbm/inventory/recipes/CrystallizerRecipes.java": {
+      "before_sha256": "75e858f408260b0e3dcff123a0086a2318ba195ce205582de5e5bf4f898bc2f1",
+      "edits": [
+        {
+          "start": 26026,
+          "end": 26046,
+          "before": "qItem.stackSize = 12",
+          "after": "qItem.setCount(12)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "6221c72fe24f8ad73bae11c95d3e223416ec5930a344d33290cd94a496ae61be"
+    },
+    "src/main/java/com/hbm/inventory/recipes/ExposureChamberRecipes.java": {
+      "before_sha256": "ca2bb9516870405658ff26baf798cb3edbe8d4ba2c331a86d061f3689a252250",
+      "edits": [
+        {
+          "start": 2455,
+          "end": 2475,
+          "before": "output.stackSize = 8",
+          "after": "output.setCount(8)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "c63824edc4080529ff53048c78a144a767cefc5777d1c755d0ce3a6affeb79bf"
+    },
+    "src/main/java/com/hbm/inventory/recipes/PUREXRecipes.java": {
+      "before_sha256": "b3ac4b6572870f52b03c8e80960108f6f179cdc49020d2e28ca4ca78fe99d21e",
+      "edits": [
+        {
+          "start": 26377,
+          "end": 26396,
+          "before": "copy.stackSize = 12",
+          "after": "copy.setCount(12)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "d8131745338d275e7b6b5f5852ed8b4c0afd3e599c099d923ce1f9a5c42af994"
+    },
+    "src/main/java/com/hbm/inventory/recipes/ShredderRecipes.java": {
+      "before_sha256": "731f7b2871eaeb12dffea8c6c6941a6bdfeb9998ad127cd49b3272b76fdbf9c6",
+      "edits": [
+        {
+          "start": 2254,
+          "end": 2272,
+          "before": "dust.stackSize = 9",
+          "after": "dust.setCount(9)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        },
+        {
+          "start": 2337,
+          "end": 2355,
+          "before": "dust.stackSize = 4",
+          "after": "dust.setCount(4)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "f8e7e6a978e95f8d7698d2c40fccb0d6dd35948ce5f5ee05b4bdf3a94d6a9ff9"
+    },
+    "src/main/java/com/hbm/inventory/recipes/anvil/AnvilSmithingCyanideRecipe.java": {
+      "before_sha256": "9747b3cf0aa14152db46b006860c5c93e0b8af655ae6e9a6937025e36bfdae65",
+      "edits": [
+        {
+          "start": 1050,
+          "end": 1067,
+          "before": "out.stackSize = 1",
+          "after": "out.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "f55f633a92afc6f38fc7063bcbe71269b19f894a6658d88c90ceaa9f43f631f9"
+    },
+    "src/main/java/com/hbm/inventory/recipes/anvil/AnvilSmithingRenameRecipe.java": {
+      "before_sha256": "6acc3efbf32234dc2a1f6ff6a64fa64b3cb1bd1e44c81820bef745fc8d070a5c",
+      "edits": [
+        {
+          "start": 824,
+          "end": 841,
+          "before": "out.stackSize = 1",
+          "after": "out.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "0e9d8f4e989920e4d283d7254a2dbb445d752b7db0dbe0aa49d0147bcd6ac898"
+    },
+    "src/main/java/com/hbm/items/ItemVOTVdrive.java": {
+      "before_sha256": "c4a240bd6b9b09af1f2df50777f6a3a5cbebebe62d01b81ba60c220bad9631cc",
+      "edits": [
+        {
+          "start": 9341,
+          "end": 9370,
+          "before": "rocket.navDrive.stackSize = 1",
+          "after": "rocket.navDrive.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "1701b45286457da4df536a15329251683527eeff0a4e66fa837f89d9367dc1f0"
+    },
+    "src/main/java/com/hbm/items/machine/ItemBlueprints.java": {
+      "before_sha256": "c4f628e420313812a091c251d7f8d0fd58adbcfa6055b23e1c371bcc0cc1f1ab",
+      "edits": [
+        {
+          "start": 2717,
+          "end": 2735,
+          "before": "copy.stackSize = 1",
+          "after": "copy.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        },
+        {
+          "start": 2971,
+          "end": 2989,
+          "before": "copy.stackSize = 1",
+          "after": "copy.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "41952f56c89ed1774c4374a8b5e49e1c8ba58dff5926df6f7ec2d134d8d5877b"
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "4636c15e62aa25e855a9d6d87fff6ec0b838482eaa497797d8a786c0423cb9a1",
+      "edits": [
+        {
+          "start": 42228,
+          "end": 42247,
+          "before": "stack.stackSize = 1",
+          "after": "stack.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "d06771b0e4a71270bc294e80ec95a9c2427f5719a9629f2bae4b2e0de57750ee"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java": {
+      "before_sha256": "8fe85ce1b670dae23449725422fc9eb6677afb0c63a7b38c370de2701380e452",
+      "edits": [
+        {
+          "start": 4717,
+          "end": 4739,
+          "before": "slots[i].stackSize = 1",
+          "after": "slots[i].setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "938c515ce3c88f10c651edfe641022cd2141d6ce83fb84b717455482a1804710"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java": {
+      "before_sha256": "28019fced11fa1d898f0fe970faf3980acc6e78a7d180aca45498d03aedbec09",
+      "edits": [
+        {
+          "start": 4127,
+          "end": 4147,
+          "before": "single.stackSize = 1",
+          "after": "single.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "9927be9e6cc8e5a639372d2980f9fdb396582fa9bf20d3df7050d14bbc5ffbbe"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java": {
+      "before_sha256": "d677b296bd98d9158631f227361251f4cba8ca6c725ae866272cf9fbc8f5232c",
+      "edits": [
+        {
+          "start": 6667,
+          "end": 6687,
+          "before": "output.stackSize = 1",
+          "after": "output.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "82e5b5ea5a2c34bab859bdcc787bb8ef5d83320b748226267fcf44d00822ad80"
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java": {
+      "before_sha256": "cfd9fcd3f8c0243d0c02400e56162cbd7110da846a6466e25f7ad1080f1563aa",
+      "edits": [
+        {
+          "start": 2806,
+          "end": 2825,
+          "before": "stack.stackSize = 1",
+          "after": "stack.setCount(1)",
+          "owner": "net.minecraft.item.ItemStack",
+          "receiver_type": "net.minecraft.item.ItemStack"
+        }
+      ],
+      "after_sha256": "501949c86d7dcf708e8fcac649d8cb1aec1b497c4f30fe8a8e72b0c8b9982ee7"
+    }
+  },
+  "excluded": [
+    {
+      "path": "src/main/java/api/hbm/ntl/StorageStack.java",
+      "expression": "this.type.stackSize = 0",
+      "reason": "Zero-count item identity / GUI sentinel requires native representation redesign."
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStationComputer.java",
+      "expression": "heldStack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonLauncher.java",
+      "expression": "heldStack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonReceiver.java",
+      "expression": "heldStack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/hazard/type/HazardTypeExplosive.java",
+      "expression": "stack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/hazard/type/HazardTypeHydroactive.java",
+      "expression": "stack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUIHydroponic.java",
+      "expression": "selected.stackSize = 0",
+      "reason": "Zero-count item identity / GUI sentinel requires native representation redesign."
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUILaunchPadLarge.java",
+      "expression": "selected.stackSize = 0",
+      "reason": "Zero-count item identity / GUI sentinel requires native representation redesign."
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUITurretBase.java",
+      "expression": "selected.stackSize = 0",
+      "reason": "Zero-count item identity / GUI sentinel requires native representation redesign."
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/recipes/ShredderRecipes.java",
+      "expression": "dust.stackSize = outCount",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/recipes/loader/GenericRecipes.java",
+      "expression": "finalStack.stackSize = finalSize",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+      "expression": "newStack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemMold.java",
+      "expression": "copy.stackSize = this.amount",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemMold.java",
+      "expression": "copy.stackSize = this.amount",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/special/ItemUnstable.java",
+      "expression": "stack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemAmmoContainer.java",
+      "expression": "ammo.stackSize = (int) Math.ceil(ammo.stackSize / 2D)",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemFilter.java",
+      "expression": "filter.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemPipette.java",
+      "expression": "stack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "expression": "selected.stackSize = 0",
+      "reason": "Zero-count item identity / GUI sentinel requires native representation redesign."
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ClientProxy.java",
+      "expression": "sta.stackSize = stack.stackSize",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      "expression": "slots[i].stackSize = toMove",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      "expression": "item.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java",
+      "expression": "slots[1].stackSize = 0",
+      "reason": "Zero-count item identity / GUI sentinel requires native representation redesign."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+      "expression": "out.stackSize = out.stackSize * 6 / 4",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "expression": "slots[2].stackSize = amount",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "expression": "stack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "expression": "slots[2].stackSize = amount",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      "expression": "copy.stackSize = toAdd",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java",
+      "expression": "stack.stackSize = toSend",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "expression": "stack.stackSize = 0",
+      "reason": "Zero writes change cached empty/public item identity: caller and alias continuation audit deferred."
+    },
+    {
+      "path": "src/main/java/com/hbm/util/Compat.java",
+      "expression": "stack.stackSize = count",
+      "reason": "Dynamic count or unresolved legacy count read: defer consumer range and EMPTY analysis."
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "expression": "result.stackSize = amount",
+      "reason": "Deferred dynamic quickExtract: external custom item maximum may be nonpositive; positive native limits alone do not prove original API edge behavior."
+    }
+  ]
+}

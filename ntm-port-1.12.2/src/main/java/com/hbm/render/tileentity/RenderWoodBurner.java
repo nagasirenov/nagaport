@@ -5,14 +5,12 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderWoodBurner extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderWoodBurner extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
@@ -38,24 +36,5 @@ public class RenderWoodBurner extends TileEntitySpecialRenderer implements IItem
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_wood_burner);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -4, 0);
-				GL11.glScaled(3.5, 3.5, 3.5);
-			}
-			public void renderCommon() {
-				GL11.glRotatef(90, 0F, 1F, 0F);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.wood_burner_tex);
-				ResourceManager.wood_burner.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 }

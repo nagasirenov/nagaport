@@ -1,0 +1,1523 @@
+{
+  "base": "5e6ba284ef32b46ad5f81cd1e1570c08b53cb24f",
+  "records": [
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java",
+      "start": 1528,
+      "end": 1541,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIAutocrafter",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\t\t\n\t\tthis.drawElectricityInfo(this, x, y, guiLeft + 17, guiTop + 45, 16, 52, diFurnace.getPower(), diFurnace.getMaxPower());\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 9; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && diFurnace.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(9);\n\t\t\t\n\t\t\tif(this.isMouseOverSlot(slot, x, y) && diFurnace.slots[9] != null) {\n\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", TextFormatting.YELLOW + \"\" + (diFurnace.recipeIndex + 1) + \" / \" + diFurnace.recipeCount }), x, y - 30);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java",
+      "start": 1856,
+      "end": 1869,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIAutocrafter",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", TextFormatting.YELLOW + \"\" + (diFurnace.recipeIndex + 1) + \" / \" + diFurnace.recipeCount })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\t\t\n\t\tthis.drawElectricityInfo(this, x, y, guiLeft + 17, guiTop + 45, 16, 52, diFurnace.getPower(), diFurnace.getMaxPower());\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 9; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && diFurnace.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(9);\n\t\t\t\n\t\t\tif(this.isMouseOverSlot(slot, x, y) && diFurnace.slots[9] != null) {\n\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", TextFormatting.YELLOW + \"\" + (diFurnace.recipeIndex + 1) + \" / \" + diFurnace.recipeCount }), x, y - 30);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", TextFormatting.YELLOW + \"\" + (diFurnace.recipeIndex + 1) + \" / \" + diFurnace.recipeCount }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICounterTorch.java",
+      "start": 2122,
+      "end": 2135,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUICounterTorch",
+      "arguments": [
+        "Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 8 < y && guiTop + 8 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 30 < y && guiTop + 30 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 3; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && counter.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICounterTorch.java",
+      "start": 2325,
+      "end": 2338,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUICounterTorch",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Save Settings\" })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 8 < y && guiTop + 8 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 30 < y && guiTop + 30 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 3; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && counter.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICounterTorch.java",
+      "start": 2645,
+      "end": 2658,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICounterTorch",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 8 < y && guiTop + 8 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 30 < y && guiTop + 30 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 3; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && counter.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICraneExtractor.java",
+      "start": 1466,
+      "end": 1479,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICraneExtractor",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 9; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && ejector.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(guiLeft + 187 <= x && guiLeft + 187 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {\n\t\t\tthis.func_146283_a(Arrays.asList(new String[] { \"Only take maximum possible: \" + (ejector.maxEject ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICraneExtractor.java",
+      "start": 1750,
+      "end": 1763,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICraneExtractor",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Only take maximum possible: \" + (ejector.maxEject ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 9; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && ejector.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(guiLeft + 187 <= x && guiLeft + 187 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {\n\t\t\tthis.func_146283_a(Arrays.asList(new String[] { \"Only take maximum possible: \" + (ejector.maxEject ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { \"Only take maximum possible: \" + (ejector.maxEject ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java",
+      "start": 1509,
+      "end": 1522,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICraneGrabber",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(grabber.matcher.modes[i]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 9; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && grabber.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(grabber.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(grabber.matcher.modes[i]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICraneInserter.java",
+      "start": 1298,
+      "end": 1311,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICraneInserter",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Destroy overflow: \" + (inserter.destroyer ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(guiLeft + 151 <= x && guiLeft + 151 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {\n\t\t\tthis.func_146283_a(Arrays.asList(new String[] { \"Destroy overflow: \" + (inserter.destroyer ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { \"Destroy overflow: \" + (inserter.destroyer ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java",
+      "start": 2595,
+      "end": 2608,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICraneRouter",
+      "arguments": [
+        "Arrays.asList(text)",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tfor(int j = 0; j < 2; j++) {\n\t\t\tfor(int k = 0; k < 3; k++) {\n\t\t\t\t\n\t\t\t\tif(guiLeft + 7 + j * 222 <= x && guiLeft + 7 + j * 222 + 18 > x && guiTop + 16 + k * 26 < y && guiTop + 16 + k * 26 + 18 >= y) {\n\t\t\t\t\t\n\t\t\t\t\tString[] text = new String[2];\n\t\t\t\t\tint index = j * 3 + k;\n\t\t\t\t\t\n\t\t\t\t\tswitch(router.modes[index]) {\n\t\t\t\t\tcase 0: text = new String[] { \"OFF\" }; break;\n\t\t\t\t\tcase 1: text[0] = \"WHITELIST\"; text[1] = \"Route if filter matches\"; break;\n\t\t\t\t\tcase 2: text[0] = \"BLACKLIST\"; text[1] = \"Route if filter doesn't match\"; break;\n\t\t\t\t\tcase 3: text[0] = \"WILDCARD\"; text[1] = \"Route if no other route is valid\"; break;\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, y);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 30; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\tModulePatternMatcher matcher = router.patterns[i / 5];\n\t\t\t\tint index = i % 5;\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && matcher.modes[index] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(text), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java",
+      "start": 2980,
+      "end": 2993,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUICraneRouter",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(matcher.modes[index])})",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tfor(int j = 0; j < 2; j++) {\n\t\t\tfor(int k = 0; k < 3; k++) {\n\t\t\t\t\n\t\t\t\tif(guiLeft + 7 + j * 222 <= x && guiLeft + 7 + j * 222 + 18 > x && guiTop + 16 + k * 26 < y && guiTop + 16 + k * 26 + 18 >= y) {\n\t\t\t\t\t\n\t\t\t\t\tString[] text = new String[2];\n\t\t\t\t\tint index = j * 3 + k;\n\t\t\t\t\t\n\t\t\t\t\tswitch(router.modes[index]) {\n\t\t\t\t\tcase 0: text = new String[] { \"OFF\" }; break;\n\t\t\t\t\tcase 1: text[0] = \"WHITELIST\"; text[1] = \"Route if filter matches\"; break;\n\t\t\t\t\tcase 2: text[0] = \"BLACKLIST\"; text[1] = \"Route if filter doesn't match\"; break;\n\t\t\t\t\tcase 3: text[0] = \"WILDCARD\"; text[1] = \"Route if no other route is valid\"; break;\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, y);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 30; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\tModulePatternMatcher matcher = router.patterns[i / 5];\n\t\t\t\tint index = i % 5;\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && matcher.modes[index] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java",
+      "start": 1526,
+      "end": 1539,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIDiFurnace",
+      "arguments": [
+        "Arrays.asList(new String[] { label })",
+        "x",
+        "y - (slot.getHasStack() ? 15 : 0)"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 3; i++) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y)) {\n\t\t\t\t\t\n\t\t\t\t\tString label = TextFormatting.YELLOW + \"Accepts items from: \";\n\t\t\t\t\tbyte dir = i == 0 ? diFurnace.sideUpper : i == 1 ? diFurnace.sideLower : diFurnace.sideFuel;\n\t\t\t\t\tlabel += ForgeDirection.getOrientation(dir);\n\t\t\t\t\t\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0));\n\t\t\t\t\t\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0))"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIDroneRequester.java",
+      "start": 1344,
+      "end": 1357,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIDroneRequester",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 9; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && diFurnace.matcher.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIFirebox.java",
+      "start": 1319,
+      "end": 1332,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIFirebox",
+      "arguments": [
+        "bonuses",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\t\n\t\t\tfor(int i = 0; i < 2; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {\n\t\t\t\t\t\n\t\t\t\t\tList<String> bonuses = this.firebox.getModule().getDesc();\n\t\t\t\t\t\n\t\t\t\t\tif(!bonuses.isEmpty()) {\n\t\t\t\t\t\tthis.func_146283_a(bonuses, x, y);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tthis.drawCustomInfoStat(x, y, guiLeft + 80, guiTop + 27, 71, 7, x, y, new String[] { String.format(Locale.US, \"%,d\", firebox.heatEnergy) + \" / \" + String.format(Locale.US, \"%,d\", firebox.getMaxHeat()) + \"TU\" });\n\t\tthis.drawCustomInfoStat(x, y, guiLeft + 80, guiTop + 36, 71, 7, x, y, new String[] { firebox.burnHeat + \"TU/t\", (firebox.burnTime / 20) + \"s\" });\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(bonuses, x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java",
+      "start": 3355,
+      "end": 3368,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIFusionTorus",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float interp) {\n\t\tsuper.drawScreen(mouseX, mouseY, interp);\n\t\t\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 18, 16, 62, torus.power, torus.getMaxPower());\n\t\ttorus.tanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 44, guiTop + 18, 16, 52);\n\t\ttorus.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 62, guiTop + 18, 16, 52);\n\t\ttorus.tanks[2].renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 18, 16, 52);\n\t\ttorus.tanks[3].renderTankInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 52);\n\t\ttorus.coolantTanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 188, guiTop + 46, 16, 52);\n\t\ttorus.coolantTanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 206, guiTop + 46, 16, 52);\n\t\t\n\t\tFusionRecipe recipe = (FusionRecipe) FusionRecipes.INSTANCE.recipeNameMap.get(this.torus.fusionModule.recipe);\n\t\t\n\t\tif(recipe != null) {\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 43, guiTop + 115, 18, 18, mouseX, mouseY, TextFormatting.GREEN + \"-> \" + TextFormatting.RESET + BobMathUtil.getShortNumber(torus.klystronEnergy) + \"KyU / \" + BobMathUtil.getShortNumber(recipe.ignitionTemp) + \"KyU\");\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 79, guiTop + 115, 18, 18, mouseX, mouseY, TextFormatting.RED + \"<- \" + TextFormatting.RESET + BobMathUtil.getShortNumber(torus.plasmaEnergy) + \"TU / \" + BobMathUtil.getShortNumber(recipe.outputTemp) + \"TU\");\n\t\t\tString[] lines = new String[recipe.inputFluid.length];\n\t\t\tfor(int i = 0; i < lines.length; i++) {\n\t\t\t\tint consumption = (int) Math.ceil(recipe.inputFluid[i].fill * torus.fuelConsumption);\n\t\t\t\tlines[i] = TextFormatting.GREEN + \"-> \" + TextFormatting.RESET + consumption + \"mB/t \" + recipe.inputFluid[i].type.getLocalizedName();\n\t\t\t}\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 115, guiTop + 115, 18, 18, mouseX, mouseY, lines);\n\t\t} else {\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 43, guiTop + 115, 18, 18, mouseX, mouseY, \"0KyU / 0KyU\");\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 79, guiTop + 115, 18, 18, mouseX, mouseY, \"0TU / 0TU\");\n\t\t}\n\n\t\tif(guiLeft + 43 <= mouseX && guiLeft + 43 + 18 > mouseX && guiTop + 80 < mouseY && guiTop + 80 + 18 >= mouseY) {\n\t\t\tif(recipe != null) {\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java",
+      "start": 2183,
+      "end": 2196,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIHeaterHeatex",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Amount per cycle\" })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float f) {\n\t\tsuper.drawScreen(x, y, f);\n\n\t\theater.tanks[0].renderTankInfo(this, x, y, guiLeft + 44, guiTop + 36, 16, 52);\n\t\theater.tanks[1].renderTankInfo(this, x, y, guiLeft + 116, guiTop + 36, 16, 52);\n\n\t\tif(guiLeft + 70 <= x && guiLeft + 70 + 36 > x && guiTop + 26 < y && guiTop + 26 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Amount per cycle\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 70 <= x && guiLeft + 70 + 36 > x && guiTop + 44 < y && guiTop + 44 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Cycle tick delay\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Amount per cycle\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java",
+      "start": 2358,
+      "end": 2371,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIHeaterHeatex",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Cycle tick delay\" })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float f) {\n\t\tsuper.drawScreen(x, y, f);\n\n\t\theater.tanks[0].renderTankInfo(this, x, y, guiLeft + 44, guiTop + 36, 16, 52);\n\t\theater.tanks[1].renderTankInfo(this, x, y, guiLeft + 116, guiTop + 36, 16, 52);\n\n\t\tif(guiLeft + 70 <= x && guiLeft + 70 + 36 > x && guiTop + 26 < y && guiTop + 26 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Amount per cycle\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 70 <= x && guiLeft + 70 + 36 > x && guiTop + 44 < y && guiTop + 44 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Cycle tick delay\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Cycle tick delay\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIICFPress.java",
+      "start": 1286,
+      "end": 1299,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIICFPress",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Top/Bottom\"})",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tpress.tanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 44, guiTop + 18, 16, 52);\n\t\tpress.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 52);\n\t\t\n\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(4), mouseX, mouseY) && !this.inventorySlots.getSlot(4).getHasStack()) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Top/Bottom\"}), mouseX, mouseY);\n\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(5), mouseX, mouseY) && !this.inventorySlots.getSlot(5).getHasStack()) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Sides\"}), mouseX, mouseY);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Top/Bottom\"}), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIICFPress.java",
+      "start": 1526,
+      "end": 1539,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIICFPress",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Sides\"})",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tpress.tanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 44, guiTop + 18, 16, 52);\n\t\tpress.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 52);\n\t\t\n\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(4), mouseX, mouseY) && !this.inventorySlots.getSlot(4).getHasStack()) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Top/Bottom\"}), mouseX, mouseY);\n\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(5), mouseX, mouseY) && !this.inventorySlots.getSlot(5).getHasStack()) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Sides\"}), mouseX, mouseY);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Sides\"}), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java",
+      "start": 2296,
+      "end": 2309,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineAnnihilator",
+      "arguments": [
+        "Arrays.asList(new String[] { name + \":\", String.format(Locale.US, \"%,d\", annihilator.monitorBigInt) })",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\t\t\n\t\tif(annihilator.slots[8] != null && this.checkClick(x, y, 151, 35, 18, 18)) {\n\t\t\tString name = annihilator.slots[8].getDisplayName();\n\t\t\tif(annihilator.slots[8].getItem() instanceof IItemFluidIdentifier) {\n\t\t\t\tIItemFluidIdentifier id = (IItemFluidIdentifier) annihilator.slots[8].getItem();\n\t\t\t\tFluidType type = id.getType(null, 0, 0, 0, annihilator.slots[8]);\n\t\t\t\tname = type.getLocalizedName();\n\t\t\t}\n\t\t\tthis.func_146283_a(Arrays.asList(new String[] { name + \":\", String.format(Locale.US, \"%,d\", annihilator.monitorBigInt) }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { name + \":\", String.format(Locale.US, \"%,d\", annihilator.monitorBigInt) }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java",
+      "start": 2458,
+      "end": 2471,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineAssemblyFactory",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int j = 0; j < 4; j++) {\n\t\t\tassembler.inputTanks[j].renderTankInfo(this, mouseX, mouseY, guiLeft + 105 + (j % 2) * 109, guiTop + 20 + (j / 2) * 56, 5, 32);\n\t\t\tassembler.outputTanks[j].renderTankInfo(this, mouseX, mouseY, guiLeft + 105 + (j % 2) * 109, guiTop + 54 + (j / 2) * 56, 5, 16);\n\t\t}\n\t\t\n\t\tassembler.water.renderTankInfo(this, mouseX, mouseY, guiLeft + 232, guiTop + 149, 7, 52);\n\t\tassembler.lps.renderTankInfo(this, mouseX, mouseY, guiLeft + 241, guiTop + 149, 7, 52);\n\t\t\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 234, guiTop + 18, 16, 92, assembler.power, assembler.maxPower);\n\n\t\tfor(int i = 0; i < 4; i++) if(guiLeft + 6 + (i % 2) * 109 <= mouseX && guiLeft + 6 + (i % 2) * 109 + 18 > mouseX && guiTop + 53 + (i / 2) * 56 < mouseY && guiTop + 53 + (i / 2) * 56 + 18 >= mouseY) {\n\t\t\tif(this.assembler.assemblerModule[i].recipe != null && AssemblyMachineRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule[i].recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule[i].recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java",
+      "start": 2056,
+      "end": 2069,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineAssemblyMachine",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tassembler.inputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 99, 52, 16);\n\t\tassembler.outputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 99, 52, 16);\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, assembler.power, assembler.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.assembler.assemblerModule.recipe != null && AssemblyMachineRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java",
+      "start": 2424,
+      "end": 2437,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineChemicalFactory",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int i = 0; i < 3; i++) for(int j = 0; j < 4; j++) {\n\t\t\tchemplant.inputTanks[i + j * 3].renderTankInfo(this, mouseX, mouseY, guiLeft + 60 + i * 5, guiTop + 20 + j * 22, 3, 16);\n\t\t\tchemplant.outputTanks[i + j * 3].renderTankInfo(this, mouseX, mouseY, guiLeft + 189 + i * 5, guiTop + 20 + j * 22, 3, 16);\n\t\t}\n\t\t\n\t\tchemplant.water.renderTankInfo(this, mouseX, mouseY, guiLeft + 224, guiTop + 125, 7, 52);\n\t\tchemplant.lps.renderTankInfo(this, mouseX, mouseY, guiLeft + 233, guiTop + 125, 7, 52);\n\t\t\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 224, guiTop + 18, 16, 68, chemplant.power, chemplant.maxPower);\n\n\t\tfor(int i = 0; i < 4; i++) if(guiLeft + 74 <= mouseX && guiLeft + 74 + 18 > mouseX && guiTop + 19 + i * 22 < mouseY && guiTop + 19 + i * 22 + 18 >= mouseY) {\n\t\t\tif(this.chemplant.chemplantModule[i].recipe != null && ChemicalPlantRecipes.INSTANCE.recipeNameMap.containsKey(this.chemplant.chemplantModule[i].recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) ChemicalPlantRecipes.INSTANCE.recipeNameMap.get(this.chemplant.chemplantModule[i].recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java",
+      "start": 2055,
+      "end": 2068,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineChemicalPlant",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tchemplant.inputTanks[i].renderTankInfo(this, mouseX, mouseY, guiLeft + 8 + i * 18, guiTop + 18, 16, 34);\n\t\t\tchemplant.outputTanks[i].renderTankInfo(this, mouseX, mouseY, guiLeft + 80 + i * 18, guiTop + 18, 16, 34);\n\t\t}\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, chemplant.power, chemplant.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.chemplant.chemplantModule.recipe != null && ChemicalPlantRecipes.INSTANCE.recipeNameMap.containsKey(this.chemplant.chemplantModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) ChemicalPlantRecipes.INSTANCE.recipeNameMap.get(this.chemplant.chemplantModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineCustom.java",
+      "start": 1930,
+      "end": 1943,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineCustom",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tthis.drawElectricityInfo(this, x, y, guiLeft + 150, guiTop + 18, 16, 52, custom.power, custom.config.maxPower);\n\t\tif(custom.config.maxHeat>0) this.drawCustomInfoStat(x, y, guiLeft + 61, guiTop + 53, 18, 18, x, y, new String[] { \"Heat:\" + String.format(Locale.US, \"%,d\", custom.heat) + \" / \" + String.format(Locale.US, \"%,d\", custom.config.maxHeat)});\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < this.inventorySlots.inventorySlots.size(); ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\tint tileIndex = slot.getSlotIndex();\n\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && slot instanceof SlotPattern && custom.matcher.modes[tileIndex - 10] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tfor(int i = 0; i < custom.inputTanks.length; i++) {\n\t\t\tcustom.inputTanks[i].renderTankInfo(this, x, y, guiLeft + 8 + 18 * i, guiTop + 18, 16, 34);\n\t\t}\n\n\t\tfor(int i = 0; i < custom.outputTanks.length; i++) {\n\t\t\tcustom.outputTanks[i].renderTankInfo(this, x, y, guiLeft + 78 + 18 * i, guiTop + 18, 16, 34);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java",
+      "start": 2647,
+      "end": 2660,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineDiFurnaceRTG",
+      "arguments": [
+        "Arrays.asList(new String[] { label })",
+        "mouseX",
+        "mouseY - (slot.getHasStack() ? 15 : 0)"
+      ],
+      "method": "@Override\n\t@Untested\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\t\tString[] descText = I18nUtil.resolveKeyArray(\"desc.gui.rtgBFurnace.desc\");\n\t\tString[] heatText = I18nUtil.resolveKeyArray(\"desc.gui.rtg.heat\", bFurnace.getPower());\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft - 15, guiTop + 36 + 16, 16, 16, guiLeft - 8, guiTop + 36 + 16, descText);\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 58, guiTop + 36, 18, 16, mouseX, mouseY, heatText);\n\t\t\n\t\tList<ItemRTGPellet> pellets = ItemRTGPellet.pelletList;\n\t\tString[] pelletText = new String[pellets.size() + 1];\n\t\tpelletText[0] = I18nUtil.resolveKey(\"desc.gui.rtg.pellets\");\n\t\t\n\t\tfor(int i = 0; i < pellets.size(); i++) {\n\t\t\tItemRTGPellet pellet = pellets.get(i);\n\t\t\tpelletText[i + 1] = I18nUtil.resolveKey(\"desc.gui.rtg.pelletHeat\", I18nUtil.resolveKey(pellet.getTranslationKey() + \".name\"), pellet.getHeat());\n\t\t}\n\t\t\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft - 15, guiTop + 36, 16, 16, guiLeft - 8, guiTop + 36 + 16, pelletText);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 2; i++) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, mouseX, mouseY)) {\n\t\t\t\t\t\n\t\t\t\t\tString label = TextFormatting.YELLOW + \"Accepts items from: \";\n\t\t\t\t\tbyte dir = i == 0 ? bFurnace.sideUpper : bFurnace.sideLower;\n\t\t\t\t\tlabel += ForgeDirection.getOrientation(dir);\n\t\t\t\t\t\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0));\n\t\t\t\t\t\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0))"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java",
+      "start": 1958,
+      "end": 1971,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachinePUREX",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tpurex.inputTanks[i].renderTankInfo(this, mouseX, mouseY, guiLeft + 8 + i * 18, guiTop + 18, 16, 52);\n\t\t}\n\t\tpurex.outputTanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 116, guiTop + 36, 16, 52);\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, purex.power, purex.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.purex.purexModule.recipe != null && PUREXRecipes.INSTANCE.recipeNameMap.containsKey(this.purex.purexModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) PUREXRecipes.INSTANCE.recipeNameMap.get(this.purex.purexModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java",
+      "start": 1974,
+      "end": 1987,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachinePrecAss",
+      "arguments": [
+        "recipe.print()",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tassembler.inputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 99, 52, 16);\n\t\tassembler.outputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 99, 52, 16);\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, assembler.power, assembler.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.assembler.assemblerModule.recipe != null && PrecAssRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) PrecAssRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 2695,
+      "end": 2708,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 2896,
+      "end": 2909,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3045,
+      "end": 3058,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3193,
+      "end": 3206,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3342,
+      "end": 3355,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3487,
+      "end": 3500,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3630,
+      "end": 3643,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3773,
+      "end": 3786,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 3918,
+      "end": 3931,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 4541,
+      "end": 4554,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(text)",
+        "x",
+        "z"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(text), x, z)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "start": 4909,
+      "end": 4922,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNT",
+      "arguments": [
+        "Arrays.asList(tX + \" / \" + tZ)",
+        "lastMouseX",
+        "lastMouseY"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {\n\n\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n\n\t\tif(!radar.entries.isEmpty()) {\n\t\t\tfor(RadarEntry m : radar.entries) {\n\t\t\t\tint x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;\n\t\t\t\tint z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;\n\t\t\t\t\n\t\t\t\tif(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {\n\n\t\t\t\t\tString[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + \" / \" + m.posZ, \"Alt.: \" + m.posY };\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {\n\t\t\tint tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());\n\t\t\tint tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());\n\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java",
+      "start": 1893,
+      "end": 1906,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRadarNTSlots",
+      "arguments": [
+        "Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\"))",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\t\t\n\t\tif(checkClick(mouseX, mouseY, 5, 5, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineRotaryFurnace.java",
+      "start": 1747,
+      "end": 1760,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineRotaryFurnace",
+      "arguments": [
+        "bonuses",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tfurnace.tanks[0].renderTankInfo(this, x, y, guiLeft + 8, guiTop + 36, 52, 16);\n\t\tfurnace.tanks[1].renderTankInfo(this, x, y, guiLeft + 134, guiTop + 18, 16, 52);\n\t\tfurnace.tanks[2].renderTankInfo(this, x, y, guiLeft + 152, guiTop + 18, 16, 52);\n\t\t\n\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(4);\n\t\tif(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {\n\t\t\tList<String> bonuses = this.furnace.burnModule.getDesc();\n\t\t\tif(!bonuses.isEmpty()) this.func_146283_a(bonuses, x, y);\n\t\t}\n\t\t\n\t\tif(furnace.output == null) {\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 98, guiTop + 18, 16, 52, x, y, TextFormatting.RED + \"Empty\");\n\t\t} else {\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 98, guiTop + 18, 16, 52, x, y,TextFormatting.YELLOW +\n\t\t\t\t\tI18nUtil.resolveKey(furnace.output.material.getUnlocalizedName()) + \": \" + Mats.formatAmount(furnace.output.amount, Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)));\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(bonuses, x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java",
+      "start": 1702,
+      "end": 1715,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineWoodBurner",
+      "arguments": [
+        "bonuses",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 18, 16, 34, burner.power, burner.maxPower);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\t\n\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(0);\n\t\t\tif(this.isMouseOverSlot(slot, mouseX, mouseY) && !slot.getHasStack()) {\n\t\t\t\tList<String> bonuses = burner.burnModule.getDesc();\n\t\t\t\tif(!bonuses.isEmpty()) {\n\t\t\t\t\tthis.func_146283_a(bonuses, mouseX, mouseY);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(burner.liquidBurn) burner.tank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 18, 16, 52);\n\t\t\n\t\tif(!burner.liquidBurn && guiLeft + 16 <= mouseX && guiLeft + 16 + 8 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 54 >= mouseY) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" }), mouseX, mouseY);\n\t\t}\n\t\t\n\t\tif(guiLeft + 53 <= mouseX && guiLeft + 53 + 16 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 15 >= mouseY) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" }), mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(bonuses, mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java",
+      "start": 2011,
+      "end": 2024,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineWoodBurner",
+      "arguments": [
+        "Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" })",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 18, 16, 34, burner.power, burner.maxPower);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\t\n\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(0);\n\t\t\tif(this.isMouseOverSlot(slot, mouseX, mouseY) && !slot.getHasStack()) {\n\t\t\t\tList<String> bonuses = burner.burnModule.getDesc();\n\t\t\t\tif(!bonuses.isEmpty()) {\n\t\t\t\t\tthis.func_146283_a(bonuses, mouseX, mouseY);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(burner.liquidBurn) burner.tank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 18, 16, 52);\n\t\t\n\t\tif(!burner.liquidBurn && guiLeft + 16 <= mouseX && guiLeft + 16 + 8 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 54 >= mouseY) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" }), mouseX, mouseY);\n\t\t}\n\t\t\n\t\tif(guiLeft + 53 <= mouseX && guiLeft + 53 + 16 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 15 >= mouseY) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" }), mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" }), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java",
+      "start": 2229,
+      "end": 2242,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineWoodBurner",
+      "arguments": [
+        "Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" })",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 18, 16, 34, burner.power, burner.maxPower);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\t\n\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(0);\n\t\t\tif(this.isMouseOverSlot(slot, mouseX, mouseY) && !slot.getHasStack()) {\n\t\t\t\tList<String> bonuses = burner.burnModule.getDesc();\n\t\t\t\tif(!bonuses.isEmpty()) {\n\t\t\t\t\tthis.func_146283_a(bonuses, mouseX, mouseY);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(burner.liquidBurn) burner.tank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 18, 16, 52);\n\t\t\n\t\tif(!burner.liquidBurn && guiLeft + 16 <= mouseX && guiLeft + 16 + 8 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 54 >= mouseY) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" }), mouseX, mouseY);\n\t\t}\n\t\t\n\t\tif(guiLeft + 53 <= mouseX && guiLeft + 53 + 16 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 15 >= mouseY) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" }), mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" }), mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java",
+      "start": 2798,
+      "end": 2811,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIPneumoTube",
+      "arguments": [
+        "Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) })",
+        "x",
+        "y - 30"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\t\t\n\t\tif(!endpointOnly) {\n\t\t\ttube.compair.renderTankInfo(this, x, y, guiLeft + 7, guiTop + 16, 18, 18);\n\t\t\t\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 7, guiTop + 52, 18, 18, x, y, (tube.redstone ? (TextFormatting.GREEN + \"ON \") : (TextFormatting.RED + \"OFF \")) + TextFormatting.RESET + \"with Redstone\");\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 6, guiTop + 36, 20, 8, x, y, \"Compressor: \" + tube.compair.getPressure() + \" PU\", \"Max range: \" + tube.getRangeFromPressure(tube.compair.getPressure()) + \"m\");\n\t\t\t\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 151, guiTop + 16, 18, 18, x, y, TextFormatting.YELLOW + \"Receiver order:\", tube.receiveOrder == PneumaticNetwork.RECEIVE_ROBIN ? \"Round robin\" : \"Random\");\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 151, guiTop + 52, 18, 18, x, y, TextFormatting.YELLOW + \"Provider slot order:\", tube.sendOrder == PneumaticNetwork.SEND_FIRST ? \"First to last\" : tube.sendOrder == PneumaticNetwork.SEND_LAST ? \"Last to first\" : \"Random\");\n\t\t}\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\tfor(int i = 0; i < 15; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && tube.pattern.modes[i] != null) {\n\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) }), x, y - 30);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) }), x, y - 30)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java",
+      "start": 2861,
+      "end": 2874,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIRBMKConsole",
+      "arguments": [
+        "list",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tthis.drawDefaultBackground();\n\t\tthis.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);\n\t\t\n\t\tint bX = 86;\n\t\tint bY = 11;\n\t\tint size = 10;\n\n\t\tif(guiLeft + 86 <= mouseX && guiLeft + 86 + 150 > mouseX && guiTop + 11 < mouseY && guiTop + 11 + 10150 >= mouseY) {\n\t\t\tint index = ((mouseX - bX - guiLeft) / size + (mouseY - bY - guiTop) / size * 15);\n\t\t\t\n\t\t\tif(index > 0 && index < console.columns.length) {\n\t\t\t\tRBMKColumn col = console.columns[index];\n\t\t\t\t\n\t\t\t\tif(col != null) {\n\t\t\t\t\t\n\t\t\t\t\tList<String> list = new ArrayList();\n\t\t\t\t\tlist.add(col.type.toString());\n\t\t\t\t\tlist.addAll(col.getFancyStats());\n\t\t\t\t\tthis.func_146283_a(list, mouseX, mouseY);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 61, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ \"Select all control rods\" } );\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 72, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ \"Deselect all\" } );\n\t\t\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tfor(int j = 0; j < 2; j++) {\n\t\t\t\tint id = i * 2 + j + 1;\n\t\t\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 6 + 40 * j, guiTop + 8 + 21 * i, 18, 18, mouseX, mouseY, new String[]{ TextFormatting.YELLOW + I18nUtil.resolveKey(\"rbmk.console.\" + console.screens[id - 1].type.name().toLowerCase(Locale.US), id) } );\n\t\t\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 24 + 40 * j, guiTop + 8 + 21 * i, 18, 18, mouseX, mouseY, new String[]{ I18nUtil.resolveKey(\"rbmk.console.assign\", id) } );\n\t\t\t}\n\t\t}\n\t\t\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 6, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ TextFormatting.RED + \"Left click: Select red group\", TextFormatting.RED + \"Right click: Assign red group\" } );\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 17, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ TextFormatting.YELLOW + \"Left click: Select yellow group\", TextFormatting.YELLOW + \"Right click: Assign yellow group\" } );\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 28, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ TextFormatting.GREEN + \"Left click: Select green group\", TextFormatting.GREEN + \"Right click: Assign green group\" } );\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 39, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ TextFormatting.BLUE + \"Left click: Select blue group\", TextFormatting.BLUE + \"Right click: Assign blue group\" } );\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 50, guiTop + 70, 10, 10, mouseX, mouseY, new String[]{ TextFormatting.LIGHT_PURPLE + \"Left click: Select purple group\", TextFormatting.LIGHT_PURPLE + \"Right click: Assign purple group\" } );\n\t\tthis.drawCustomInfoStat(mouseX, mouseY, guiLeft + 70, guiTop + 82, 12, 12, mouseX, mouseY, new String[]{ \"Cycle steam channel compressor setting\" } );\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(list, mouseX, mouseY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java",
+      "start": 5235,
+      "end": 5248,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIRBMKConsole",
+      "arguments": [
+        "Arrays.asList(text)",
+        "tPosX",
+        "tPosY"
+      ],
+      "method": "public void drawCustomInfoStat(int mouseX, int mouseY, int x, int y, int width, int height, int tPosX, int tPosY, String[] text) {\n\t\t\n\t\tif(x <= mouseX && x + width > mouseX && y < mouseY && y + height >= mouseY)\n\t\t\tthis.func_146283_a(Arrays.asList(text), tPosX, tPosY);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(text), tPosX, tPosY)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIRadioRec.java",
+      "start": 2307,
+      "end": 2320,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIRadioRec",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Save Settings\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.radio\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Toggle\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIRadioRec.java",
+      "start": 2481,
+      "end": 2494,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIRadioRec",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Toggle\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.radio\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Toggle\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Toggle\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java",
+      "start": 5545,
+      "end": 5558,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenBobmazon",
+      "arguments": [
+        "Arrays.asList(new String[] { info })",
+        "x",
+        "y"
+      ],
+      "method": "public void drawString(int x, int y) {\n\t\t\tif(info == null || info.isEmpty())\n\t\t\t\treturn;\n\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { info }), x, y);\n\t\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { info }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java",
+      "start": 6675,
+      "end": 6688,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenDesignator",
+      "arguments": [
+        "Arrays.asList(new String[] { s })",
+        "x",
+        "y"
+      ],
+      "method": "public void drawString(int x, int y) {\n\t\t\tif(info == null || info.isEmpty())\n\t\t\t\treturn;\n\t\t\t\n\t\t\tString s = info;\n\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { s }), x, y);\n\t\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { s }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenFluid.java",
+      "start": 4284,
+      "end": 4297,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenFluid",
+      "arguments": [
+        "tooltip",
+        "i",
+        "j"
+      ],
+      "method": "protected void drawGuiContainerForegroundLayer(int i, int j) {\n\t\tthis.search.drawTextBox();\n\n\t\tfor(int k = 0; k < this.searchArray.length; k++) {\n\t\t\t\n\t\t\tif(this.searchArray[k] == null)\n\t\t\t\treturn;\n\t\t\t\n\t\t\tif(guiLeft + 7 + k * 18 <= i && guiLeft + 7 + k * 18 + 18 > i && guiTop + 29 < j && guiTop + 29 + 18 >= j) {\n\t\t\t\tList<String> tooltip = new ArrayList();\n\t\t\t\ttooltip.add(this.searchArray[k].getLocalizedName());\n\t\t\t\tthis.searchArray[k].addInfo(tooltip);\n\t\t\t\tfunc_146283_a(tooltip, i, j);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(tooltip, i, j)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java",
+      "start": 3402,
+      "end": 3415,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorch",
+      "arguments": [
+        "Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(this.title);\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java",
+      "start": 3620,
+      "end": 3633,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorch",
+      "arguments": [
+        "Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(this.title);\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java",
+      "start": 3821,
+      "end": 3834,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorch",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Save Settings\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(this.title);\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java",
+      "start": 2693,
+      "end": 2706,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchController",
+      "arguments": [
+        "Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyController\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();\n\t\t\tTileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);\n\t\t\tif(tile instanceof IRORInfo) {\n\t\t\t\tIRORInfo prov = (IRORInfo) tile;\n\t\t\t\tString[] info = prov.getFunctionInfo();\n\t\t\t\tList<String> lines = new ArrayList();\n\t\t\t\tlines.add(\"Usable functions:\");\n\t\t\t\tfor(String s : info) {\n\t\t\t\t\tif(s.startsWith(IRORValueProvider.PREFIX_FUNCTION))\n\t\t\t\t\tlines.add(TextFormatting.AQUA + s.substring(4));\n\t\t\t\t}\n\t\t\t\tfunc_146283_a(lines, x, y);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java",
+      "start": 2893,
+      "end": 2906,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchController",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Save Settings\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyController\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();\n\t\t\tTileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);\n\t\t\tif(tile instanceof IRORInfo) {\n\t\t\t\tIRORInfo prov = (IRORInfo) tile;\n\t\t\t\tString[] info = prov.getFunctionInfo();\n\t\t\t\tList<String> lines = new ArrayList();\n\t\t\t\tlines.add(\"Usable functions:\");\n\t\t\t\tfor(String s : info) {\n\t\t\t\t\tif(s.startsWith(IRORValueProvider.PREFIX_FUNCTION))\n\t\t\t\t\tlines.add(TextFormatting.AQUA + s.substring(4));\n\t\t\t\t}\n\t\t\t\tfunc_146283_a(lines, x, y);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java",
+      "start": 3669,
+      "end": 3682,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchController",
+      "arguments": [
+        "lines",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyController\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();\n\t\t\tTileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);\n\t\t\tif(tile instanceof IRORInfo) {\n\t\t\t\tIRORInfo prov = (IRORInfo) tile;\n\t\t\t\tString[] info = prov.getFunctionInfo();\n\t\t\t\tList<String> lines = new ArrayList();\n\t\t\t\tlines.add(\"Usable functions:\");\n\t\t\t\tfor(String s : info) {\n\t\t\t\t\tif(s.startsWith(IRORValueProvider.PREFIX_FUNCTION))\n\t\t\t\t\tlines.add(TextFormatting.AQUA + s.substring(4));\n\t\t\t\t}\n\t\t\t\tfunc_146283_a(lines, x, y);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(lines, x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java",
+      "start": 3706,
+      "end": 3719,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchLogic",
+      "arguments": [
+        "Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyLogic\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\t\t//TODO add localization for *every* RTTY\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tfor(int j = 0; j < 16; j++) {\n\t\t\tif(guiLeft + 7 + (130 * (j / 8)) <= x && guiLeft + 7 + 18 + (130 * (j / 8)) > x && guiTop + 53 + (18 * (j % 8)) <= y && guiTop + 53 + 18 + (18 * (j % 8)) > y) {\n\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java",
+      "start": 3922,
+      "end": 3935,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchLogic",
+      "arguments": [
+        "Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyLogic\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\t\t//TODO add localization for *every* RTTY\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tfor(int j = 0; j < 16; j++) {\n\t\t\tif(guiLeft + 7 + (130 * (j / 8)) <= x && guiLeft + 7 + 18 + (130 * (j / 8)) > x && guiTop + 53 + (18 * (j % 8)) <= y && guiTop + 53 + 18 + (18 * (j % 8)) > y) {\n\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java",
+      "start": 4123,
+      "end": 4136,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchLogic",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Save Settings\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyLogic\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\t\t//TODO add localization for *every* RTTY\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tfor(int j = 0; j < 16; j++) {\n\t\t\tif(guiLeft + 7 + (130 * (j / 8)) <= x && guiLeft + 7 + 18 + (130 * (j / 8)) > x && guiTop + 53 + (18 * (j % 8)) <= y && guiTop + 53 + 18 + (18 * (j % 8)) > y) {\n\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java",
+      "start": 4397,
+      "end": 4410,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchLogic",
+      "arguments": [
+        "Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyLogic\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\t\t//TODO add localization for *every* RTTY\n\t\tif(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tfor(int j = 0; j < 16; j++) {\n\t\t\tif(guiLeft + 7 + (130 * (j / 8)) <= x && guiLeft + 7 + 18 + (130 * (j / 8)) > x && guiTop + 53 + (18 * (j % 8)) <= y && guiTop + 53 + 18 + (18 * (j % 8)) > y) {\n\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java",
+      "start": 3173,
+      "end": 3186,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchReader",
+      "arguments": [
+        "Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyReader\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 29 <= x && guiLeft + 29 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();\n\t\t\tTileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);\n\t\t\tif(tile instanceof IRORValueProvider) {\n\t\t\t\tIRORValueProvider prov = (IRORValueProvider) tile;\n\t\t\t\tString[] info = prov.getFunctionInfo();\n\t\t\t\tList<String> lines = new ArrayList();\n\t\t\t\tlines.add(\"Readable values:\");\n\t\t\t\tfor(String s : info) {\n\t\t\t\t\tif(s.startsWith(IRORValueProvider.PREFIX_VALUE))\n\t\t\t\t\tlines.add(TextFormatting.LIGHT_PURPLE + s.substring(4));\n\t\t\t\t}\n\t\t\t\tfunc_146283_a(lines, x, y);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java",
+      "start": 3373,
+      "end": 3386,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchReader",
+      "arguments": [
+        "Arrays.asList(new String[] { \"Save Settings\" })",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyReader\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 29 <= x && guiLeft + 29 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();\n\t\t\tTileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);\n\t\t\tif(tile instanceof IRORValueProvider) {\n\t\t\t\tIRORValueProvider prov = (IRORValueProvider) tile;\n\t\t\t\tString[] info = prov.getFunctionInfo();\n\t\t\t\tList<String> lines = new ArrayList();\n\t\t\t\tlines.add(\"Readable values:\");\n\t\t\t\tfor(String s : info) {\n\t\t\t\t\tif(s.startsWith(IRORValueProvider.PREFIX_VALUE))\n\t\t\t\t\tlines.add(TextFormatting.LIGHT_PURPLE + s.substring(4));\n\t\t\t\t}\n\t\t\t\tfunc_146283_a(lines, x, y);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java",
+      "start": 4178,
+      "end": 4191,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRadioTorchReader",
+      "arguments": [
+        "lines",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\t\tString name = I18nUtil.resolveKey(\"container.rttyReader\");\n\t\tthis.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);\n\n\t\tif(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n\t\t}\n\t\tif(guiLeft + 29 <= x && guiLeft + 29 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {\n\t\t\tForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();\n\t\t\tTileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);\n\t\t\tif(tile instanceof IRORValueProvider) {\n\t\t\t\tIRORValueProvider prov = (IRORValueProvider) tile;\n\t\t\t\tString[] info = prov.getFunctionInfo();\n\t\t\t\tList<String> lines = new ArrayList();\n\t\t\t\tlines.add(\"Readable values:\");\n\t\t\t\tfor(String s : info) {\n\t\t\t\t\tif(s.startsWith(IRORValueProvider.PREFIX_VALUE))\n\t\t\t\t\tlines.add(TextFormatting.LIGHT_PURPLE + s.substring(4));\n\t\t\t\t}\n\t\t\t\tfunc_146283_a(lines, x, y);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(lines, x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java",
+      "start": 4728,
+      "end": 4741,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRecipeSelector",
+      "arguments": [
+        "recipe.print()",
+        "0",
+        "900"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tthis.drawDefaultBackground();\n\t\tthis.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tthis.drawGuiContainerForegroundLayer(mouseX, mouseY);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tthis.handleScroll();\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 144 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 90 >= mouseY) {\n\t\t\tfor(int i = pageIndex * 8; i < pageIndex * 8 + 40; i++) {\n\t\t\t\tif(i >= this.recipes.size()) break;\n\t\t\t\t\n\t\t\t\tint ind = i - pageIndex * 8;\n\t\t\t\tint ix = 7 + 18 * (ind % 8);\n\t\t\t\tint iy = 17 + 18 * (ind / 8);\n\t\t\t\t\n\t\t\t\tif(guiLeft + ix <= mouseX && guiLeft + ix + 18 > mouseX && guiTop + iy < mouseY && guiTop + iy + 18 >= mouseY) {\n\t\t\t\t\tGenericRecipe recipe = recipes.get(i);\n\t\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 151 <= mouseX && guiLeft + 151 + 18 > mouseX && guiTop + 71 < mouseY && guiTop + 71 + 18 >= mouseY) {\n\t\t\tif(this.selection != null && this.recipeSet.recipeNameMap.containsKey(selection)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) this.recipeSet.recipeNameMap.get(selection);\n\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), 0, 900)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java",
+      "start": 5084,
+      "end": 5097,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRecipeSelector",
+      "arguments": [
+        "recipe.print()",
+        "0",
+        "900"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tthis.drawDefaultBackground();\n\t\tthis.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tthis.drawGuiContainerForegroundLayer(mouseX, mouseY);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tthis.handleScroll();\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 144 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 90 >= mouseY) {\n\t\t\tfor(int i = pageIndex * 8; i < pageIndex * 8 + 40; i++) {\n\t\t\t\tif(i >= this.recipes.size()) break;\n\t\t\t\t\n\t\t\t\tint ind = i - pageIndex * 8;\n\t\t\t\tint ix = 7 + 18 * (ind % 8);\n\t\t\t\tint iy = 17 + 18 * (ind / 8);\n\t\t\t\t\n\t\t\t\tif(guiLeft + ix <= mouseX && guiLeft + ix + 18 > mouseX && guiTop + iy < mouseY && guiTop + iy + 18 >= mouseY) {\n\t\t\t\t\tGenericRecipe recipe = recipes.get(i);\n\t\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 151 <= mouseX && guiLeft + 151 + 18 > mouseX && guiTop + 71 < mouseY && guiTop + 71 + 18 >= mouseY) {\n\t\t\tif(this.selection != null && this.recipeSet.recipeNameMap.containsKey(selection)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) this.recipeSet.recipeNameMap.get(selection);\n\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(recipe.print(), 0, 900)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java",
+      "start": 3262,
+      "end": 3275,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenSatInterface",
+      "arguments": [
+        "Arrays.asList(new String[] { x + \" / \" + z })",
+        "i",
+        "j"
+      ],
+      "method": "protected void drawGuiContainerForegroundLayer(int i, int j) {\n\n    \tif(ItemSatInterface.currentSat != null && ItemSatInterface.currentSat.ifaceAcs.contains(InterfaceActions.SHOW_COORDS)) {\n    \t\t\n    \t\tif(i >= this.guiLeft + 8 && i < this.guiLeft + 208 && j >= this.guiTop + 8 && j < this.guiTop + 208 && player != null) {\n\n    \t\t\tint x = this.x - guiLeft + i - 8 - 100;\n    \t\t\tint z = this.z - guiTop + j - 8 - 100;\n    \t\t\tfunc_146283_a(Arrays.asList(new String[] { x + \" / \" + z }), i, j);\n    \t\t}\n    \t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { x + \" / \" + z }), i, j)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java",
+      "start": 9046,
+      "end": 9059,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenTemplateFolder",
+      "arguments": [
+        "Arrays.asList(new String[] { info })",
+        "x",
+        "y"
+      ],
+      "method": "public void drawString(int x, int y) {\n\t\t\tif(info == null || info.isEmpty())\n\t\t\t\treturn;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tGUIScreenTemplateFolder.this.renderToolTip(stack, x, y);\n\t\t\t} else {\n\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { info }), x, y);\n\t\t\t}\n\t\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "func_146283_a(Arrays.asList(new String[] { info }), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 2942,
+      "end": 2955,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 3115,
+      "end": 3128,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 3302,
+      "end": 3315,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 3491,
+      "end": 3504,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 3669,
+      "end": 3682,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 3844,
+      "end": 3857,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 3975,
+      "end": 3988,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 4112,
+      "end": 4125,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 4258,
+      "end": 4271,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 4389,
+      "end": 4402,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y)"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "start": 4525,
+      "end": 4538,
+      "old": "func_146283_a",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GuiScreenRadioTelex",
+      "arguments": [
+        "Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"})",
+        "x",
+        "y"
+      ],
+      "method": "private void drawGuiContainerForegroundLayer(int x, int y) {\n\n\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n\n\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n\t\t\n\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y)"
+    }
+  ],
+  "files": {
+    "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java": {
+      "before_sha256": "6bdac743dc92359618eacadd7ea0931ce9dfe3fed4fd48ed3213e4f6bd20ea3f",
+      "after_sha256": "b03f8f7a49b3c1681b6eb706b74e49ad862df1b7d205c7b4a69b89df154e0f51"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICounterTorch.java": {
+      "before_sha256": "61b7e0e19f1459b5a48931b46deb259ea109ae160eb85f2a85c2ffa2593ef93a",
+      "after_sha256": "7c882b1c5135e5d27a22717c079c900d4e101c48c5c4b10e645ef98e69ad66f8"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneExtractor.java": {
+      "before_sha256": "08bfb22344116ef8f43d593cbd4124558f09ebb9c2a411288c56ec60a68adc74",
+      "after_sha256": "5ccf4990983219de63f6fa2f483b9beb3237b219354e179261b787e1ee505b23"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java": {
+      "before_sha256": "35492433c2bca0193e27d678387f02ba88d43388d9e90732a2e495b59d8a1a78",
+      "after_sha256": "1329f594407a1a2434c56255a407d3e9ee88d7c940f892c4cf3f1d1718081476"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneInserter.java": {
+      "before_sha256": "62f4c9c88b497a2fb573ccb2bc90a6ec283cd658e6d71f01aaf800ab1683aa7f",
+      "after_sha256": "0d83829de19f21c2cef4a3c025f82f17e734f4021eea1b21dc2d80228cd899c5"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java": {
+      "before_sha256": "cba74c5dda8236bc6ff51373a21e7b4bff43f6d3dbd9057a0350f3b3f2fd49f7",
+      "after_sha256": "9f1d73234282e41b5d9b41fad9a00c92e4c15042bf9b7e111a889174c3fb7f26"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "before_sha256": "1a779f7e9e0aff2b1b2691efafc69ad8eec7725b7f720ad7e05420b27b763586",
+      "after_sha256": "f6b233bee2ae579ab7905aa3e6098f5e416ff26d24c00e8c029c46da7c67b1e1"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDroneRequester.java": {
+      "before_sha256": "e9dd32f7e52ea490ebece78c424908e798c72c8b284012cd11f8dac21b93bd4b",
+      "after_sha256": "5d032b09970c9443ad16812f7b7d0aa4bf535ef956f79a0e657c73a0e99eb06f"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFirebox.java": {
+      "before_sha256": "43c411d44538d798dec3b72145f5aec9a844e1112095fcb9aa99759f09e02c6c",
+      "after_sha256": "61c114f8be8e5077524738a6c41c8270ee666243741b85f8e0fd2bd22aa27bbd"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java": {
+      "before_sha256": "476e70778248877ed4ae3dea7e431dafa3ee819a60df1440b13807c03e1765c9",
+      "after_sha256": "331a2515b60113cf1d0770f9dfe49a59f16554bf594a5983168c48b8d9d00e3a"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java": {
+      "before_sha256": "801a094e2db7d89ecbc7dac68d33eb4609aca8fd6c4cca10d82636ca916aa6b9",
+      "after_sha256": "801ec4785bb3dc7740494a79715b059c43d9d7544a7df6f5e7669475117f0969"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIICFPress.java": {
+      "before_sha256": "8fb0ad9f20417e603f6901a86ca67bff82f3abc8c8d364406f949b6f2ab742ee",
+      "after_sha256": "f89c71ae5ec7593826616c9f57a25b4a6a45467b7a257e4774e1cb6652d25df1"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java": {
+      "before_sha256": "d08b19a219d64befdb0f539903ff4f7dca86ab5c502a3673ba19490b70db9883",
+      "after_sha256": "b53f40d361b26443ed05189c725323baf0f21194aef1a8e13ada19ef8e710155"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java": {
+      "before_sha256": "f8b5291c289fd3bd3a75771d12e1f1d4b4b62164b4c17e42ff97a19c914e7caf",
+      "after_sha256": "76623d39da26bbbec25c4061388515c0797a5c39ab532ceecd2d5ac2ba4de1d4"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java": {
+      "before_sha256": "778e2a9cb5c6b9e83ff8fad1037c696bbec16d86f923866ccd7d252661973654",
+      "after_sha256": "46ddc41f482d12ed64912a6f8d0e80f2c6d2784ec26f000268ad53f3bb14344b"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java": {
+      "before_sha256": "c14187b2bdce1dbdf84bd631c1867d16487cd4f472b9c2eb815549e69438cb73",
+      "after_sha256": "21b583835542ecaabf63231dfd495f44bdb184c5be9e6e278b41603b0867ab73"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java": {
+      "before_sha256": "14e46eab4829691bf8bec164975dc8d54a7aad348634c42bc484bd8a528ce9c2",
+      "after_sha256": "3207b1a8dcf7ecf7396a32662f9814cef7c478ca0cfef943c45992147474c646"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineCustom.java": {
+      "before_sha256": "4bb72e28900c065325301af77bf563c06388134e3144a17de9581981e912cfeb",
+      "after_sha256": "400726fd81d6621cef7f00d33f44363805aefe5b2d89f044a2909c16d8cd7b14"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java": {
+      "before_sha256": "64548407cd245abf99ba87610418d2fd68bdb720c35dc7726ca618de62050f80",
+      "after_sha256": "81b1b17fdd31e53e7d0f6aa8789bbb731f3906771f473b182600758e5a7a504d"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java": {
+      "before_sha256": "c14bbb3d43c3a9ba941d50e8395e830b9f71e93c2e8cf26cb696ab73af51c6cc",
+      "after_sha256": "50e2c18011cdc6212e04380f65c2cfd5cbb7383ec1a7a78367f161e655f79fe3"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java": {
+      "before_sha256": "87828b4831a9294c2f493b46d07ea416464e93036438d415ea9d81a67f165e9a",
+      "after_sha256": "5ff31cf3ecf5bf7ccc77fe4395094c30a02dbe11116ee344058100e3389dce22"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "before_sha256": "5d0b8bf559a12c682e4f73062466acec13a57bfb4254d0179d776fe0781b8e6c",
+      "after_sha256": "44a79616e015fdf5edb6a9f6d0a95be8cd96dc991989a87531963c071cd2ce96"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": {
+      "before_sha256": "05838e3473113cc6728682f1bc7870e8416d1ba29cc31dd6608a9147eb19cb91",
+      "after_sha256": "50d9b4065f78fd8186fe8c49ad7f3b309a7d09ca6a2b0ce9962c97463fdf722f"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRotaryFurnace.java": {
+      "before_sha256": "4c73afb64dbf5e44292b5eef4cdd669e0bf08f07d96d89074bed2d63056152e4",
+      "after_sha256": "8c9ca6d4eb985bcf0eb6740068691d2e40824596280ff15e6c5c410271f8e36b"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java": {
+      "before_sha256": "68ba5dcb9abe1fb107cd6b3dc175b83e52806b38a64a70f41f3895373c9883c9",
+      "after_sha256": "9980490851cbd117b6468cf94f9d709bce024c591201e4ff0947903e38847aa5"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java": {
+      "before_sha256": "6c5d662b7e3256b67eea4c5094e71191046c92928ac1efa35a08301c278346a3",
+      "after_sha256": "91d6c63237f903b8c08424f9d847317227a0fd7828ba2b26d5752c941856b61d"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java": {
+      "before_sha256": "fcedf1a4353791b84d937ced44d97933090ba312747a9594ff822b8073262411",
+      "after_sha256": "a153e5350701136e51427d006075b12927acb84f2ae28a762614f1ccd68df5ff"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRadioRec.java": {
+      "before_sha256": "9803144f612efe8b2acb82238b805cccd32174b35a11971332619151280ab7c4",
+      "after_sha256": "edb0c8d32c4803b91d17947443a26b8f36aeea923c1255407d1df134819030c0"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java": {
+      "before_sha256": "e04647b33a4bf5549d0b658272c15a73c025e32bae1865540dbb925cf18b6a8b",
+      "after_sha256": "0faa60e9b7b60d99d15cd590bac3397218346fe29a19f2620268fd2e5a710074"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java": {
+      "before_sha256": "7522e55686d1ae2301ae3d54d4759fcbc2f7e63fb0b6a2dc43ea1582f8853440",
+      "after_sha256": "9759fa07787a61501cad88889969cccdd0d4d6c0784248a5ecbc02741758de5a"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenFluid.java": {
+      "before_sha256": "b4ce5bfd5eee32dd97e307063a6f9724620e35bf8c08cd6217fad2662f9e3b20",
+      "after_sha256": "9124e0447510edf0c86309771177d0249d02b717e0b676936942e08df3a194eb"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java": {
+      "before_sha256": "8c30e5619268cc3117ef8f43228d5f32fd7f1833a3d2efe7d5593d22c34ebf0d",
+      "after_sha256": "a32efae5d24d2826622d2d820ae072379bf25c6f9edff62ecc01a5d6d3d6e094"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java": {
+      "before_sha256": "8e963b4b3e7dd412a2d49e663f1361cbcef0c96a5a3649141a7556d345a3836e",
+      "after_sha256": "5009baa9720629dc9f3ab1a4f6e4190600e26e51bd38e4d182bc0dd415b8baaf"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java": {
+      "before_sha256": "6b565d8ac6d453f25b42abe21c10f5f09ade366c3ed36264c9480cd235523cce",
+      "after_sha256": "69661e6f31fca4d684bf48cc0cb7319ebb986c8cc231ac79ab5773b74dc07c5c"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java": {
+      "before_sha256": "21ff3d93cc88a2f578248e84510abd4a67ab8ae53c896fba914daa804779a66c",
+      "after_sha256": "eae066d9ab9f1c18efbc743aaa47cd8ac65805e023c4c729cfa255455106a5e6"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before_sha256": "dc7201b1e7f66d0f34fb49da6d7816ca875763eda65d798ce3f273b5ed94d55c",
+      "after_sha256": "e2393906a195b29c3078999217b88fca43031ffd91eabf479d6c1f753def1570"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before_sha256": "5c7662acc8c761b7300988c858a55e0c5601bf26a6a8a2f5e0cf1a9027b243d2",
+      "after_sha256": "a04f869f0dc8fb4c96d0981a7ded13efc33c6a5311ecd6aaa9ea7cbcc017877b"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java": {
+      "before_sha256": "355c28cb6e5238c940aba92c5189254832251362951ea70b9660d85ff5baf61d",
+      "after_sha256": "5b570e98dc1c288e0b3755f4ac7576b72f6a19771d3c653e566db5fc25e834f4"
+    },
+    "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java": {
+      "before_sha256": "b09c15673540b84526cc6191a563f458e4fe18e8905a7de0d6cf5d54264b8f2a",
+      "after_sha256": "c7b9283328b9c4b9a15af8df98635f68ca45032216c22fadedaacd9292c55a12"
+    }
+  }
+}

@@ -43,7 +43,7 @@ public class ItemModWD40 extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(!event.entityLiving.worldObj.isRemote && armor.getItemDamage() > 0 && event.entityLiving.getRNG().nextInt(5) != 0) {
+		if(!event.getEntityLiving().world.isRemote && armor.getItemDamage() > 0 && event.getEntityLiving().getRNG().nextInt(5) != 0) {
 			armor.setItemDamage(armor.getItemDamage() - 1);
 		}
 	}
@@ -61,7 +61,7 @@ public class ItemModWD40 extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(entity.worldObj.isRemote && entity.hurtTime > 0) {
+		if(entity.world.isRemote && entity.hurtTime > 0) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaExt");
 			data.setString("mode", "reddust");

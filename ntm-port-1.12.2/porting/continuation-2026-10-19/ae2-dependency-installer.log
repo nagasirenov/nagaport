@@ -1,0 +1,1 @@
+PASS installer: pinned artifact, idempotence, conflicting JAR refusal, conflicting POM refusal, wrong input refusal, source untouched.

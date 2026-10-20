@@ -1,0 +1,10 @@
+{
+  "files": {
+    "porting/tests/native-tape-scope.json": "2514051a920795e13ef6e146bccb09820733e44a6309d2c3939111876a6223c7",
+    "porting/tests/native-tape-notes.md": "bc29f5390069fef4142712fc056dfe83ae5fcd6d02d8f79ff9e1ec7ee7ea5848",
+    "porting/tests/NativeTapeTest.java": "007b6d9b72d502f6b1d1eeadba5456bc936e49b6461e92d18ce6f69443dc0176",
+    "porting/tests/probe-native-tape.py": "8c159871aedff6f1b5f6087833acf9652cfcfe00f5733683e023ae54d7a55356",
+    "porting/tests/check-native-tape-source.py": "33a2b272d4aa36a2e8720da05aecff83e6bda82e2745d9242547faebfe4665a4",
+    "porting/continuation-2026-10-19/native-tape-FINAL.log": "6f9a16a938a9fe70d15411b0848ed8e9952ac3d056cb302d127548e3398d51b8"
+  }
+}

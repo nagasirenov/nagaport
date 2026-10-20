@@ -1,0 +1,31 @@
+// Diagnostic tasks only. The full production compileJava/source sets are unchanged.
+allprojects {
+    afterEvaluate {
+        def coreProbe = tasks.create('compilePortCoreProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            dependsOn 'sourceMainJava'
+            source = project.fileTree('build/sources/main/java') {
+                include 'com/hbm/lib/LegacyWeightedLoot.java'
+                include 'com/hbm/lib/WeightedRandomChestContent.java'
+                include 'com/hbm/handler/VanillaLootHandler.java'
+                include 'com/hbm/world/gen/ProceduralStructureStart.java'
+            }
+            source project.file('porting/tests/LegacyWeightedLootTest.java')
+            source project.file('porting/tests/WeightedLootMinecraftTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portCoreProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('testPortLootAlgorithm', JavaExec) {
+            dependsOn coreProbe
+            classpath = files(coreProbe.destinationDir) + coreProbe.classpath
+            main = 'LegacyWeightedLootTest'
+        }
+        tasks.create('testPortLootMinecraft', JavaExec) {
+            dependsOn coreProbe
+            classpath = files(coreProbe.destinationDir) + coreProbe.classpath
+            main = 'WeightedLootMinecraftTest'
+        }
+    }
+}

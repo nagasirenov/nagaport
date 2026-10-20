@@ -1,0 +1,32 @@
+PASS thermal GUI: three exact count-guarded full-file reversals and drift rejections; original text, coordinates, arithmetic and GL calls; unchanged exact-case texture hashes; single inherited native slot tooltip
+PASS exact RecipesCommon reverse/forward source reconstruction; 6 drift mutations rejected; no Git dependency.
+PASS BufferUtil exact checkpoint18 reverse/forward source reconstruction, six drift rejections, immutable original hash, independent NBT wire fixtures.
+PASS Diode/network source: 6 byte-exact inverses/round trips, 3 new, 0 retired sources, 0 binary paths, 27 rejected mutations. Not runtime/GL proof.
+PASS Steel/player/tracker source: 9 byte-exact inverses/round trips, 10 new, 0 retired sources, 0 binary paths, 57 rejected mutations. Not runtime/GL proof.
+PASS Audio/item/falling source: 15 byte-exact inverses/round trips, 9 new, 0 retired sources, 450 binary paths, 72 rejected mutations. Not runtime/GL proof.
+PASS Decoration/plant/event source: 20 byte-exact inverses/round trips, 16 new, 0 retired sources, 12 binary paths, 108 rejected mutations. Not runtime/GL proof.
+PASS Loop/item/block source: 44 byte-exact inverses/round trips, 14 new, 1 retired sources, 92 binary paths, 174 rejected mutations. Not runtime/GL proof.
+PASS RTG/items source: 28 byte-exact inverses/round trips, 11 new, 0 retired sources, 16 binary paths, 117 rejected mutations. Not runtime/GL proof.
+PASS Particle/crane/registry source: 40 byte-exact inverses/round trips, 13 new, 0 retired sources, 4 binary paths, 159 rejected mutations. Not runtime/GL proof.
+PASS Foundry/light source: 24 byte-exact inverses/round trips, 23 new, 5 retired sources, 2 binary paths, 141 rejected mutations. Not runtime/GL proof.
+PASS Conveyor source: 25 byte-exact inverses/round trips, 16 retained new sources, 123 rejected mutations. Not runtime/GL proof.
+PASS Sedna source: 59 byte-exact inverses/round trips, 7 retained new sources, 198 rejected mutations. Not runtime/GL proof.
+PASS shared-render source: 43 byte-exact inverses/round trips, 19 retained new sources, 186 rejected mutations. Not runtime/GL proof.
+PASS atlas/particle source: 37 byte-exact inverses/round trips, 49 retained new sources, 258 rejected mutations. Not runtime/GL proof.
+PASS fluid/achievement source: 48 byte-exact inverses/round trips, 81 retained new sources, 387 rejected mutations. Not runtime/GL proof.
+PASS registry/connection source: 31 byte-exact inverses/round trips, 11 retained new sources, 126 rejected mutations. Not runtime/GL proof.
+PASS callback item source: 77 byte-exact inverses/round trips, 2 retained new sources, 237 rejected mutations. Not runtime/GL proof.
+PASS GUI/icon source: 8 byte-exact inverses/round trips, 3 retained new sources, 33 rejected mutations. Not runtime/GL proof.
+PASS owned particle source: 10 byte-exact inverses/round trips, 1 retained new source, 33 rejected mutations. Not runtime/GL proof.
+PASS native core/lifecycle: 20 byte-exact existing-source inverses/round trips; 9 pinned introduced files retained in historical scans; 87 drift mutations rejected; 2 CRLF inputs preserved.
+PASS one explicitly retired legacy renderer; exact original evidence and two native successors pinned.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS native render/compat: 113 byte-exact existing-source inverses/round trips; 13 pinned introduced files retained in historical scans; 378 drift mutations rejected; 0 CRLF inputs preserved.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS native integration roots: 85 byte-exact existing-source inverses/round trips; 13 pinned introduced files retained in historical scans; 294 drift mutations rejected; 2 CRLF inputs preserved.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS: 10,939 exact read-only native field tokens / 384 files; 434 tile owners; 38 nested named-owner files.
+PASS: full selected-file inverse, owner/count/shadow/write/anonymous and excluded receiver guards.
+SOURCE PARITY ONLY: not complete machine compilation, gameplay, saves or network acceptance.
+PASS six exact thermal whole-file forward/reverse reconstructions; 18 drift mutations rejected; original callback counts and unchanged support verified.
+PASS eleven exact thermal-family/recipe-key/codec source reversals before historical layers

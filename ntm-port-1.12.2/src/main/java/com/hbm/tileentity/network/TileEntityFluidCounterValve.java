@@ -20,10 +20,10 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 	private long counter;
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(node != null && node.net != null && getType() != Fluids.NONE) {
 				counter += node.net.fluidTracker;
 			}
@@ -41,7 +41,7 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 		this.blockMetadata = -1; // delete cache
 
 		if(this.getBlockMetadata() == 0 && this.node != null) {
-			UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, this.getType().getNetworkProvider());
+			UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getType().getNetworkProvider());
 			this.node = null;
 		}
 	}
@@ -58,9 +58,10 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("counter", counter);
+		return nbt;
 	}
 
 	@Override
@@ -74,8 +75,8 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 	}
 
 	private void setState(int state) {
-		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, state, 2);
-		worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.reactorStart", 1.0F, 1.0F);
+		this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), state, 2);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.reactorStart", 1.0F, 1.0F);
 		updateState();
 	}
 

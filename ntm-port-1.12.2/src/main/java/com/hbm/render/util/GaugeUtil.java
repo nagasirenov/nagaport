@@ -67,7 +67,7 @@ public class GaugeUtil {
 	public static void drawSmoothGauge(int x, int y, double z, double progress, double tipLength, double backLength, double backSide, int color, int colorOuter) {
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		
-		progress = MathHelper.clamp_double(progress, 0, 1);
+		progress = MathHelper.clamp(progress, (double) (0), (double) (1));
 		
 		float angle = (float) Math.toRadians(-progress * 270 - 45);
 		com.hbm.util.Vec3NT tip = new com.hbm.util.Vec3NT(0, tipLength, 0).rotateAroundZRad(angle);

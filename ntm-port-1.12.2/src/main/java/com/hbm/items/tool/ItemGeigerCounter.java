@@ -55,14 +55,14 @@ public class ItemGeigerCounter extends Item {
 
 	static void setFloat(ItemStack stack, float i, String name) {
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 
-		stack.stackTagCompound.setFloat(name, i);
+		stack.getTagCompound().setFloat(name, i);
 	}
 
 	public static float getFloat(ItemStack stack, String name) {
 		if(stack.hasTagCompound())
-			return stack.stackTagCompound.getFloat(name);
+			return stack.getTagCompound().getFloat(name);
 
 		return 0;
 	}

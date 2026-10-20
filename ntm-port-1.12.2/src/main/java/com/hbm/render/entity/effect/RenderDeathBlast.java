@@ -12,12 +12,12 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderDeathBlast extends Render {
 	
-	private static final IModelCustom sphere = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/Sphere.obj"));
+	private static final MeshModel sphere = new ObjMeshModel(new ResourceLocation(RefStrings.MODID, "models/Sphere.obj"));
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float p_76986_9_) {

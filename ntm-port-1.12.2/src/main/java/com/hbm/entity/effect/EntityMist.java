@@ -33,8 +33,15 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 public class EntityMist extends Entity {
+
+	private static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityMist.class, DataSerializers.VARINT);
+	private static final DataParameter<Float> AREA_WIDTH = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);
+	private static final DataParameter<Float> AREA_HEIGHT = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);
 
 	public EntityMist(World world) {
 		super(world);
@@ -42,8 +49,8 @@ public class EntityMist extends Entity {
 	}
 	public int maxAge = 150;
 	public EntityMist setArea(float width, float height) {
-		this.dataWatcher.updateObject(11, width);
-		this.dataWatcher.updateObject(12, height);
+		this.dataManager.set(AREA_WIDTH, width);
+		this.dataManager.set(AREA_HEIGHT, height);
 		return this;
 	}
 	public EntityMist setDuration(int duration){
@@ -53,29 +60,29 @@ public class EntityMist extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(10, new Integer(0));
-		this.dataWatcher.addObject(11, new Float(0));
-		this.dataWatcher.addObject(12, new Float(0));
+		this.dataManager.register(FLUID_TYPE, new Integer(0));
+		this.dataManager.register(AREA_WIDTH, new Float(0));
+		this.dataManager.register(AREA_HEIGHT, new Float(0));
 	}
 	
 	public EntityMist setType(FluidType fluid) {
-		this.dataWatcher.updateObject(10, fluid.getID());
+		this.dataManager.set(FLUID_TYPE, fluid.getID());
 		return this;
 	}
 	
 	public FluidType getType() {
-		return Fluids.fromID(this.dataWatcher.getWatchableObjectInt(10));
+		return Fluids.fromID(this.dataManager.get(FLUID_TYPE));
 	}
 
 	@Override
 	public void onEntityUpdate() {
 		
-		float height = this.dataWatcher.getWatchableObjectFloat(12);
+		float height = this.dataManager.get(AREA_HEIGHT);
 		this.yOffset = 0;
-		this.setSize(this.dataWatcher.getWatchableObjectFloat(11), height);
+		this.setSize(this.dataManager.get(AREA_WIDTH), height);
 		this.setPosition(this.posX, this.posY, this.posZ);
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.ticksExisted >= this.getMaxAge()) {
 				this.setDead();
@@ -85,19 +92,19 @@ public class EntityMist extends Entity {
 			
 			if(type.hasTrait(FT_VentRadiation.class)) {
 				FT_VentRadiation trait = type.getTrait(FT_VentRadiation.class);
-				ChunkRadiationManager.proxy.incrementRad(worldObj, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), trait.getRadPerMB() * 2);
+				ChunkRadiationManager.proxy.incrementRad(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), trait.getRadPerMB() * 2);
 			}
 			
 			double intensity = 1D - (double) this.ticksExisted / (double) this.getMaxAge();
 			
 			if(type.hasTrait(FT_Flammable.class) && this.isBurning()) {
-				worldObj.createExplosion(this, posX, posY + height / 2, posZ, (float) intensity * 15F, true);
+				this.world.createExplosion(this, posX, posY + height / 2, posZ, (float) intensity * 15F, true);
 				this.setDead();
 				return;
 			}
 			
-			AxisAlignedBB aabb = this.boundingBox.copy();
-			List<Entity> affected = worldObj.getEntitiesWithinAABBExcludingEntity(this, aabb.offset(-this.width / 2, 0, -this.width / 2));
+			AxisAlignedBB aabb = this.getEntityBoundingBox().copy();
+			List<Entity> affected = this.world.getEntitiesWithinAABBExcludingEntity(this, aabb.offset(-this.width / 2, 0, -this.width / 2));
 			
 			for(Entity e : affected) {
 				this.affect(e, intensity);
@@ -105,16 +112,16 @@ public class EntityMist extends Entity {
 		} else {
 			
 			for(int i = 0; i < 2; i++) {
-				double x = this.boundingBox.minX + (rand.nextDouble() - 0.5) * (this.boundingBox.maxX - this.boundingBox.minX);
-				double y = this.boundingBox.minY + rand.nextDouble() * (this.boundingBox.maxY - this.boundingBox.minY);
-				double z = this.boundingBox.minZ + (rand.nextDouble() - 0.5) * (this.boundingBox.maxZ - this.boundingBox.minZ);
+				double x = this.getEntityBoundingBox().minX + (rand.nextDouble() - 0.5) * (this.getEntityBoundingBox().maxX - this.getEntityBoundingBox().minX);
+				double y = this.getEntityBoundingBox().minY + rand.nextDouble() * (this.getEntityBoundingBox().maxY - this.getEntityBoundingBox().minY);
+				double z = this.getEntityBoundingBox().minZ + (rand.nextDouble() - 0.5) * (this.getEntityBoundingBox().maxZ - this.getEntityBoundingBox().minZ);
 				
 				NBTTagCompound fx = new NBTTagCompound();
 				fx.setString("type", "tower");
 				fx.setFloat("lift", 0.5F);
 				fx.setFloat("base", 0.75F);
 				fx.setFloat("max", 2F);
-				fx.setInteger("life", 50 + worldObj.rand.nextInt(10));
+				fx.setInteger("life", 50 + this.world.rand.nextInt(10));
 				fx.setInteger("color",this.getType().getColor());
 				fx.setDouble("posX", x);
 				fx.setDouble("posY", y);
@@ -236,8 +243,8 @@ public class EntityMist extends Entity {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("type", this.getType().getID());
-		nbt.setFloat("width", this.dataWatcher.getWatchableObjectFloat(11));
-		nbt.setFloat("height", this.dataWatcher.getWatchableObjectFloat(12));
+		nbt.setFloat("width", this.dataManager.get(AREA_WIDTH));
+		nbt.setFloat("height", this.dataManager.get(AREA_HEIGHT));
 	}
 
 	@Override
@@ -293,17 +300,17 @@ public class EntityMist extends Entity {
 		e.posY = y;
 		e.posZ = z;
 		boolean flag = false;
-		int i = MathHelper.floor_double(e.posX);
-		int j = MathHelper.floor_double(e.posY);
-		int k = MathHelper.floor_double(e.posZ);
+		int i = MathHelper.floor(e.posX);
+		int j = MathHelper.floor(e.posY);
+		int k = MathHelper.floor(e.posZ);
 
-		if(e.worldObj.blockExists(i, j, k)) {
+		if(e.world.blockExists(i, j, k)) {
 			boolean flag1 = false;
 
 			while(!flag1 && j > 0) {
-				Block block = e.worldObj.getBlock(i, j - 1, k);
+				Block block = com.hbm.world.WorldBlockState.read(e.world, i, j - 1, k).getBlock();
 
-				if(block.getMaterial().blocksMovement()) {
+				if(block.getDefaultState().getMaterial().blocksMovement()) {
 					flag1 = true;
 				} else {
 					--e.posY;
@@ -314,7 +321,7 @@ public class EntityMist extends Entity {
 			if(flag1) {
 				e.setPosition(e.posX, e.posY, e.posZ);
 
-				if(e.worldObj.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty() && !e.worldObj.isAnyLiquid(e.boundingBox)) {
+				if(e.world.getCollidingBoundingBoxes(e, e.getEntityBoundingBox()).isEmpty() && !e.world.isAnyLiquid(e.getEntityBoundingBox())) {
 					flag = true;
 				}
 			}
@@ -333,10 +340,10 @@ public class EntityMist extends Entity {
 				double d7 = targetX + (e.posX - targetX) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
 				double d8 = targetY + (e.posY - targetY) * d6 + this.rand.nextDouble() * (double) e.height;
 				double d9 = targetZ + (e.posZ - targetZ) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
-				e.worldObj.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				e.world.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
 			}
 
-			e.worldObj.playSoundEffect(targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);
 			e.playSound("mob.endermen.portal", 1.0F, 1.0F);
 		}
 	}

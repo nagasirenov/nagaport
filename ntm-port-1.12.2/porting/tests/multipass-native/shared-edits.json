@@ -1,0 +1,647 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_iron = new BlockOre(Material.rock, Blocks.iron_ore).setBlockName(\"ore_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_iron\");\r\n",
+    "after": "\t\tore_iron = new BlockOre(Material.ROCK, Blocks.IRON_ORE).setTranslationKey(\"ore_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_gold = new BlockOre(Material.rock, Blocks.gold_ore).setBlockName(\"ore_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_gold\");\r\n",
+    "after": "\t\tore_gold = new BlockOre(Material.ROCK, Blocks.GOLD_ORE).setTranslationKey(\"ore_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_redstone = new BlockOre(Material.rock, Blocks.redstone_ore).setBlockName(\"ore_redstone\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_redstone\");\r\n",
+    "after": "\t\tore_redstone = new BlockOre(Material.ROCK, Blocks.REDSTONE_ORE).setTranslationKey(\"ore_redstone\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_lapis = new BlockOre(Material.rock, Blocks.lapis_ore).setBlockName(\"ore_lapis\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_lapis\");\r\n",
+    "after": "\t\tore_lapis = new BlockOre(Material.ROCK, Blocks.LAPIS_ORE).setTranslationKey(\"ore_lapis\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_emerald = new BlockOre(Material.rock, Blocks.emerald_ore).setBlockName(\"ore_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_emerald\");\r\n",
+    "after": "\t\tore_emerald = new BlockOre(Material.ROCK, Blocks.EMERALD_ORE).setTranslationKey(\"ore_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_quartz = new BlockOre(Material.rock, Blocks.quartz_ore).setBlockName(\"ore_quartz\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_quartz\");\r\n",
+    "after": "\t\tore_quartz = new BlockOre(Material.ROCK, Blocks.QUARTZ_ORE).setTranslationKey(\"ore_quartz\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_diamond = new BlockOre(Material.rock, Blocks.diamond_ore).setBlockName(\"ore_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_diamond\");\r\n",
+    "after": "\t\tore_diamond = new BlockOre(Material.ROCK, Blocks.DIAMOND_ORE).setTranslationKey(\"ore_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_uranium = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_uranium\");\r\n",
+    "after": "\t\tore_uranium = new BlockOreOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_plutonium = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_plutonium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_plutonium\");\r\n",
+    "after": "\t\tore_plutonium = new BlockOreOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_plutonium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_titanium = new BlockOre(Material.rock).setBlockName(\"ore_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_titanium\");\r\n",
+    "after": "\t\tore_titanium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_sulfur = new BlockOre(Material.rock).setBlockName(\"ore_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_sulfur\");\r\n",
+    "after": "\t\tore_sulfur = new BlockOre(Material.ROCK).setTranslationKey(\"ore_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_glowstone = new BlockOre(Material.rock).setLightLevel(4F/15F).setBlockName(\"ore_glowstone\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_glowstone\");\r\n",
+    "after": "\t\tore_glowstone = new BlockOre(Material.ROCK).setLightLevel(4F/15F).setTranslationKey(\"ore_glowstone\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_thorium = new BlockOre(Material.rock).setBlockName(\"ore_thorium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_thorium\");\r\n",
+    "after": "\t\tore_thorium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_thorium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_morkite = new BlockOre(Material.rock).setBlockName(\"ore_morkite\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.mork).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_morkite\");\r\n",
+    "after": "\t\tore_morkite = new BlockOre(Material.ROCK).withSoundType(ModSoundTypes.mork).setTranslationKey(\"ore_morkite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_niter = new BlockOre(Material.rock).setBlockName(\"ore_niter\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_niter\");\r\n",
+    "after": "\t\tore_niter = new BlockOre(Material.ROCK).setTranslationKey(\"ore_niter\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_copper = new BlockOre(Material.rock).setBlockName(\"ore_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_copper\");\r\n",
+    "after": "\t\tore_copper = new BlockOre(Material.ROCK).setTranslationKey(\"ore_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_nickel = new BlockOre(Material.rock).setBlockName(\"ore_nickel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nickel\");\r\n",
+    "after": "\t\tore_nickel = new BlockOre(Material.ROCK).setTranslationKey(\"ore_nickel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_mineral = new BlockOre(Material.rock).setBlockName(\"ore_mineral\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_mineral\");\r\n",
+    "after": "\t\tore_mineral = new BlockOre(Material.ROCK).setTranslationKey(\"ore_mineral\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_zinc = new BlockOre(Material.rock).setBlockName(\"ore_zinc\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_zinc\");\r\n",
+    "after": "\t\tore_zinc = new BlockOre(Material.ROCK).setTranslationKey(\"ore_zinc\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_lithium = new BlockOre(Material.rock).setBlockName(\"ore_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lithium\");\r\n",
+    "after": "\t\tore_lithium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_niobium = new BlockOre(Material.rock).setBlockName(\"ore_niobium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_niobium\");\r\n",
+    "after": "\t\tore_niobium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_niobium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_palladium = new BlockOre(Material.rock).setBlockName(\"ore_palladium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_palladium\");\r\n",
+    "after": "\t\tore_palladium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_palladium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_iodine = new BlockOre(Material.rock).setBlockName(\"ore_iodine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_iodine\");\r\n",
+    "after": "\t\tore_iodine = new BlockOre(Material.ROCK).setTranslationKey(\"ore_iodine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_arsenic = new BlockOre(Material.rock).setBlockName(\"ore_arsenic\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_arsenic\");\r\n",
+    "after": "\t\tore_arsenic = new BlockOre(Material.ROCK).setTranslationKey(\"ore_arsenic\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_cadmium = new BlockOre(Material.rock).setBlockName(\"ore_cadmium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cadmium\");\r\n",
+    "after": "\t\tore_cadmium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_cadmium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_tungsten = new BlockOre(Material.rock).setBlockName(\"ore_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_tungsten\");\r\n",
+    "after": "\t\tore_tungsten = new BlockOre(Material.ROCK).setTranslationKey(\"ore_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_aluminium = new BlockOre(Material.rock).setBlockName(\"ore_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_aluminium\");\r\n",
+    "after": "\t\tore_aluminium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_fluorite = new BlockOre(Material.rock).setBlockName(\"ore_fluorite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_fluorite\");\r\n",
+    "after": "\t\tore_fluorite = new BlockOre(Material.ROCK).setTranslationKey(\"ore_fluorite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_lead = new BlockOre(Material.rock).setBlockName(\"ore_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lead\");\r\n",
+    "after": "\t\tore_lead = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_schrabidium = new BlockOre(Material.rock).setBlockName(\"ore_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":ore_schrabidium\");\r\n",
+    "after": "\t\tore_schrabidium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_beryllium = new BlockOre(Material.rock).setBlockName(\"ore_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_beryllium\");\r\n",
+    "after": "\t\tore_beryllium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_lignite = new BlockOre(Material.rock).setBlockName(\"ore_lignite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_lignite\");\r\n",
+    "after": "\t\tore_lignite = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lignite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_asbestos = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_asbestos\");\r\n",
+    "after": "\t\tore_asbestos = new BlockOreOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_silicon = new BlockOre(Material.rock).setBlockName(\"ore_silicon\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_silicon\");\r\n",
+    "after": "\t\tore_silicon = new BlockOre(Material.ROCK).setTranslationKey(\"ore_silicon\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_fire = new BlockOre(Material.rock).setBlockName(\"ore_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_fire\");\r\n",
+    "after": "\t\tore_fire = new BlockOre(Material.ROCK).setTranslationKey(\"ore_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_shale = new BlockOre(Material.rock).setBlockName(\"ore_shale\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_shale\");\r\n",
+    "after": "\t\tore_shale = new BlockOre(Material.ROCK).setTranslationKey(\"ore_shale\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tcluster_iron = new BlockCluster(Material.rock).setBlockName(\"cluster_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_iron\");\r\n",
+    "after": "\t\tcluster_iron = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tcluster_titanium = new BlockCluster(Material.rock).setBlockName(\"cluster_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_titanium\");\r\n",
+    "after": "\t\tcluster_titanium = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tcluster_aluminium = new BlockCluster(Material.rock).setBlockName(\"cluster_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_aluminium\");\r\n",
+    "after": "\t\tcluster_aluminium = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tcluster_copper = new BlockCluster(Material.rock).setBlockName(\"cluster_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_copper\");\r\n",
+    "after": "\t\tcluster_copper = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_bedrock = new BlockBedrockOreTE().setBlockName(\"ore_bedrock\").setCreativeTab(null);\r\n",
+    "after": "\t\tore_bedrock = new BlockBedrockOreTE().setTranslationKey(\"ore_bedrock\").setCreativeTab(null);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_volcano = new BlockFissure().setBlockName(\"ore_volcano\").setLightLevel(1F).setCreativeTab(MainRegistry.blockTab);\r\n",
+    "after": "\t\tore_volcano = new BlockFissure().setTranslationKey(\"ore_volcano\").setLightLevel(1F).setCreativeTab(MainRegistry.blockTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_australium = new BlockOre(Material.rock).setBlockName(\"ore_australium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_australium\");\r\n",
+    "after": "\t\tore_australium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_australium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_rare = new BlockOre(Material.rock).setBlockName(\"ore_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_rare\");\r\n",
+    "after": "\t\tore_rare = new BlockOre(Material.ROCK).setTranslationKey(\"ore_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_cobalt = new BlockOre(Material.rock).setBlockName(\"ore_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cobalt\");\r\n",
+    "after": "\t\tore_cobalt = new BlockOre(Material.ROCK).setTranslationKey(\"ore_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_cinnebar = new BlockOre(Material.rock).setBlockName(\"ore_cinnebar\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cinnebar\");\r\n",
+    "after": "\t\tore_cinnebar = new BlockOre(Material.ROCK).setTranslationKey(\"ore_cinnebar\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_coltan = new BlockOre(Material.rock).setBlockName(\"ore_coltan\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_coltan\");\r\n",
+    "after": "\t\tore_coltan = new BlockOre(Material.ROCK).setTranslationKey(\"ore_coltan\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_lanthanium = new BlockOre(Material.rock).setBlockName(\"ore_lanthanium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lanthanium\");\r\n",
+    "after": "\t\tore_lanthanium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lanthanium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_oil_empty = new BlockOre(Material.rock).setBlockName(\"ore_oil_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n",
+    "after": "\t\tore_oil_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_oil_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_oil = new BlockOreFluid(Material.rock, ore_oil_empty, ReserveType.OIL).setBlockName(\"ore_oil\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil\");\r\n",
+    "after": "\t\tore_oil = new BlockOreFluid(Material.ROCK, ore_oil_empty, ReserveType.OIL).setTranslationKey(\"ore_oil\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_bedrock_oil = new BlockOreFluid(Material.rock, null, ReserveType.OIL).setBlockName(\"ore_bedrock_oil\").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000).setBlockTextureName(RefStrings.MODID + \":ore_bedrock_oil\");\r\n",
+    "after": "\t\tore_bedrock_oil = new BlockOreFluid(Material.ROCK, null, ReserveType.OIL).setTranslationKey(\"ore_bedrock_oil\").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_gas_empty = new BlockOre(Material.rock).setBlockName(\"ore_gas_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n",
+    "after": "\t\tore_gas_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_gas_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_gas = new BlockOreFluid(Material.rock, ore_gas_empty, ReserveType.GAS).setBlockName(\"ore_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gas\");\r\n",
+    "after": "\t\tore_gas = new BlockOreFluid(Material.ROCK, ore_gas_empty, ReserveType.GAS).setTranslationKey(\"ore_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_brine_empty = new BlockOre(Material.rock).setBlockName(\"ore_brine_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n",
+    "after": "\t\tore_brine_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_brine_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_brine = new BlockOreFluid(Material.rock, ore_brine_empty, ReserveType.BRINE).setBlockName(\"ore_brine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_brine\");\r\n",
+    "after": "\t\tore_brine = new BlockOreFluid(Material.ROCK, ore_brine_empty, ReserveType.BRINE).setTranslationKey(\"ore_brine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_tekto_empty = new BlockOre(Material.rock).setBlockName(\"ore_tekto_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n",
+    "after": "\t\tore_tekto_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_tekto_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_tekto = new BlockOreFluid(Material.rock, ore_tekto_empty, ReserveType.OIL).setBlockName(\"ore_tekto\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_tekto\");\r\n",
+    "after": "\t\tore_tekto = new BlockOreFluid(Material.ROCK, ore_tekto_empty, ReserveType.OIL).setTranslationKey(\"ore_tekto\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_titanium = new BlockOre(Material.iron).noFortune().setBlockName(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_titanium\");\r\n",
+    "after": "\t\tdeco_titanium = new BlockOre(Material.IRON).noFortune().setTranslationKey(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_sellafield_diamond = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_diamond\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_diamond\");\r\n",
+    "after": "\t\tore_sellafield_diamond = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_sellafield_emerald = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_emerald\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_emerald\");\r\n",
+    "after": "\t\tore_sellafield_emerald = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_sellafield_uranium_scorched = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_uranium_scorched\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_uranium_scorched\");\r\n",
+    "after": "\t\tore_sellafield_uranium_scorched = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_sellafield_schrabidium = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_schrabidium\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_schrabidium\");\r\n",
+    "after": "\t\tore_sellafield_schrabidium = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tore_sellafield_radgem = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_radgem\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_radgem\");\r\n",
+    "after": "\t\tore_sellafield_radgem = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_radgem\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tred_cable_paintable = new BlockCablePaintable().setBlockName(\"red_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tred_cable_paintable = new BlockCablePaintable().setTranslationKey(\"red_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tred_cable_gauge = new BlockCableGauge().setBlockName(\"red_cable_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tred_cable_gauge = new BlockCableGauge().setTranslationKey(\"red_cable_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tfluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setBlockName(\"fluid_duct_paintable_block_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tfluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setTranslationKey(\"fluid_duct_paintable_block_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tfluid_duct_paintable = new FluidDuctPaintable().setBlockName(\"fluid_duct_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tfluid_duct_paintable = new FluidDuctPaintable().setTranslationKey(\"fluid_duct_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tfluid_duct_gauge = new FluidDuctGauge().setBlockName(\"fluid_duct_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tfluid_duct_gauge = new FluidDuctGauge().setTranslationKey(\"fluid_duct_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tcrane_router = new CraneRouter().setBlockName(\"crane_router\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tcrane_router = new CraneRouter().setTranslationKey(\"crane_router\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tpneumatic_tube_paintable = new PneumoTubePaintableBlock().setBlockName(\"pneumatic_tube_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\tpneumatic_tube_paintable = new PneumoTubePaintableBlock().setTranslationKey(\"pneumatic_tube_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\t\toc_cable_paintable = new BlockOpenComputersCablePaintable().setBlockName(\"oc_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+    "after": "\t\t\toc_cable_paintable = new BlockOpenComputersCablePaintable().setTranslationKey(\"oc_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "before": "\t\tRenderingRegistry.registerBlockHandler(new RenderBlockMultipass());\n",
+    "after": ""
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_iron, ItemBlockBase.class, ore_iron.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_iron);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_gold, ItemBlockBase.class, ore_gold.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_gold);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_redstone, ItemBlockBase.class, ore_redstone.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_redstone);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_lapis, ItemBlockBase.class, ore_lapis.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_lapis);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_emerald, ItemBlockBase.class, ore_emerald.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_emerald);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_quartz, ItemBlockBase.class, ore_quartz.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_quartz);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_diamond, ItemBlockBase.class, ore_diamond.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_diamond);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_uranium, ItemBlockBase.class, ore_uranium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_uranium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_plutonium, ItemBlockBase.class, ore_plutonium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_plutonium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_thorium, ItemBlockBase.class, ore_thorium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_thorium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_morkite, ItemBlockBase.class, ore_morkite.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_morkite);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_titanium, ItemBlockBase.class, ore_titanium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_titanium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_sulfur, ItemBlockBase.class, ore_sulfur.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_sulfur);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_glowstone, ItemBlockBase.class, ore_glowstone.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_glowstone);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_niter, ItemBlockBase.class, ore_niter.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_niter);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_copper, ItemBlockBase.class, ore_copper.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_copper);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_nickel, ItemBlockBase.class, ore_nickel.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_nickel);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_mineral, ItemBlockBase.class, ore_mineral.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_mineral);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_zinc, ItemBlockBase.class, ore_zinc.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_zinc);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_tungsten, ItemBlockBase.class, ore_tungsten.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_tungsten);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_aluminium, ItemBlockBase.class, ore_aluminium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_aluminium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_fluorite, ItemBlockBase.class, ore_fluorite.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_fluorite);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_beryllium, ItemBlockBase.class, ore_beryllium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_beryllium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_lead, ItemBlockBase.class, ore_lead.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_lead);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_oil, ItemBlockLore.class, ore_oil.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_oil, ItemBlockLore.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_oil_empty, ItemBlockBase.class, ore_oil_empty.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_oil_empty);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_gas, ItemBlockLore.class, ore_gas.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_gas, ItemBlockLore.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_gas_empty, ItemBlockBase.class, ore_gas_empty.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_gas_empty);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_lignite, ItemBlockBase.class, ore_lignite.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_lignite);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_asbestos, ItemBlockBase.class, ore_asbestos.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_asbestos);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_schrabidium, ItemBlockBase.class, ore_schrabidium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_schrabidium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_lithium, ItemBlockBase.class, ore_lithium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_lithium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_niobium, ItemBlockBase.class, ore_niobium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_niobium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_cadmium, ItemBlockBase.class, ore_cadmium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_cadmium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_palladium, ItemBlockBase.class, ore_palladium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_palladium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_iodine, ItemBlockBase.class, ore_iodine.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_iodine);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_arsenic, ItemBlockBase.class, ore_arsenic.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_arsenic);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_silicon, ItemBlockBase.class, ore_silicon.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_silicon);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_fire, ItemBlockBase.class, ore_fire.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_fire);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_shale, ItemBlockBase.class, ore_shale.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_shale);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_brine, ItemBlockLore.class, ore_brine.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_brine, ItemBlockLore.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_brine_empty, ItemBlockLore.class, ore_brine_empty.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_brine_empty, ItemBlockLore.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_tekto, ItemBlockLore.class, ore_tekto.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_tekto, ItemBlockLore.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_tekto_empty, ItemBlockLore.class, ore_tekto_empty.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_tekto_empty, ItemBlockLore.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_australium, ItemBlockBase.class, ore_australium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_australium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_rare, ItemBlockBase.class, ore_rare.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_rare);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_cobalt, ItemBlockBase.class, ore_cobalt.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_cobalt);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_cinnebar, ItemBlockBase.class, ore_cinnebar.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_cinnebar);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_coltan, ItemBlockBase.class, ore_coltan.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_coltan);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_lanthanium, ItemBlockBase.class, ore_lanthanium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_lanthanium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(cluster_iron, ItemBlockBase.class, cluster_iron.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(cluster_iron);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(cluster_titanium, ItemBlockBase.class, cluster_titanium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(cluster_titanium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(cluster_aluminium, ItemBlockBase.class, cluster_aluminium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(cluster_aluminium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(cluster_copper, ItemBlockBase.class, cluster_copper.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(cluster_copper);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(ore_bedrock_oil, ItemBlockBase.class, ore_bedrock_oil.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(ore_bedrock_oil);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_titanium, deco_titanium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_titanium, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(red_cable_paintable, red_cable_paintable.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(red_cable_paintable, ItemBlock.class);\r\n"
+  }
+]

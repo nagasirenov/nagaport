@@ -1,25 +1,24 @@
 package com.hbm.particle;
 
-import com.hbm.main.ModEventHandlerClient;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleDigammaSmoke extends EntityFX {
+public class ParticleDigammaSmoke extends Particle {
 
 	private int age;
 	public int maxAge;
 
 	public ParticleDigammaSmoke(TextureManager p_i1213_1_, World p_i1218_1_, double p_i1218_2_, double p_i1218_4_, double p_i1218_6_) {
 		super(p_i1218_1_, p_i1218_2_, p_i1218_4_, p_i1218_6_);
-		particleIcon = ModEventHandlerClient.particleBase;
+		particleTexture = ParticleSprites.base;
 		maxAge = 100 + rand.nextInt(40);
-		this.noClip = true;
+		this.canCollide = false;
 		
 		this.particleScale = 5;
 		
@@ -28,6 +27,12 @@ public class ParticleDigammaSmoke extends EntityFX {
 		this.particleBlue = 0.0F;
 	}
 	
+	public void setMotion(double x, double y, double z) {
+		this.motionX = x;
+		this.motionY = y;
+		this.motionZ = z;
+	}
+
 	@Override
 	public void onUpdate() {
 		this.prevPosX = this.posX;
@@ -39,36 +44,34 @@ public class ParticleDigammaSmoke extends EntityFX {
 		++this.age;
 
 		if(this.age == this.maxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 
 		this.motionX *= 0.99D;
 		this.motionY *= 0.99D;
 		this.motionZ *= 0.99D;
 
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 	}
 	
+	@Override
+	public boolean shouldDisableDepth() {
+		return true;
+	}
+
 	@Override
 	public int getFXLayer() {
 		return 1;
 	}
 	
 	@Override
-	public void renderParticle(Tessellator tess, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_) {
-
-		tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-
-		float scale = this.particleScale;
-		float pX = (float) ((this.prevPosX + (this.posX - this.prevPosX) * (double) p_70539_2_ - interpPosX));
-		float pY = (float) ((this.prevPosY + (this.posY - this.prevPosY) * (double) p_70539_2_ - interpPosY));
-		float pZ = (float) ((this.prevPosZ + (this.posZ - this.prevPosZ) * (double) p_70539_2_ - interpPosZ));
-
-		tess.addVertexWithUV((double) (pX - p_70539_3_ * scale - p_70539_6_ * scale), (double) (pY - p_70539_4_ * scale), (double) (pZ - p_70539_5_ * scale - p_70539_7_ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());
-		tess.addVertexWithUV((double) (pX - p_70539_3_ * scale + p_70539_6_ * scale), (double) (pY + p_70539_4_ * scale), (double) (pZ - p_70539_5_ * scale + p_70539_7_ * scale), particleIcon.getMaxU(), particleIcon.getMinV());
-		tess.addVertexWithUV((double) (pX + p_70539_3_ * scale + p_70539_6_ * scale), (double) (pY + p_70539_4_ * scale), (double) (pZ + p_70539_5_ * scale + p_70539_7_ * scale), particleIcon.getMinU(), particleIcon.getMinV());
-		tess.addVertexWithUV((double) (pX + p_70539_3_ * scale - p_70539_6_ * scale), (double) (pY - p_70539_4_ * scale), (double) (pZ + p_70539_5_ * scale - p_70539_7_ * scale), particleIcon.getMinU(), particleIcon.getMaxV());
+	public void renderParticle(BufferBuilder buffer, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {
+		float x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
+		float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
+		float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
+		ParticleQuadRenderer.append(buffer, particleTexture, x, y, z, particleScale,
+				fX, fY, fZ, sX, sZ, particleRed, particleGreen, particleBlue, particleAlpha,
+				getBrightnessForRender(interp));
 	}
 	
 	@Override

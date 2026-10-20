@@ -1,0 +1,21 @@
+/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-structure-text-fields/StructureFieldProbe.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-structure-text-fields/StructureFieldProbe.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-structure-text-fields/StructureFieldProbe.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-structure-text-fields/StructureFieldProbe.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+           ^
+/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-structure-text-fields/StructureFieldProbe.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+                                                                             ^
+/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-structure-text-fields/StructureFieldProbe.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+                                                                                       ^
+6 warnings
+PASS 231 native nested-owner constructor/configuration/ordered dispatch/file-selection assertions; reused prior old/native widget lifecycle proof, not rerun.
+REJECTED actual compiled duplicate-ID mutant

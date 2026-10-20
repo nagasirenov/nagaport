@@ -1,0 +1,47 @@
+PASS exact source inverses: 268 reads; 25 files; all other bytes retained
+/workspace/shared/nagaport-events/ntm-port-1.12.2/porting/tests/native-event-accessors/NativeEventTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-events/ntm-port-1.12.2/porting/tests/native-event-accessors/NativeEventTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-events/ntm-port-1.12.2/porting/tests/native-event-accessors/NativeEventTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-events/ntm-port-1.12.2/porting/tests/native-event-accessors/NativeEventTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+           ^
+/workspace/shared/nagaport-events/ntm-port-1.12.2/porting/tests/native-event-accessors/NativeEventTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+                                                                             ^
+/workspace/shared/nagaport-events/ntm-port-1.12.2/porting/tests/native-event-accessors/NativeEventTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+                                                                                       ^
+6 warnings
+/tmp/event-proof-e09dw_yc/ExtractedHandlerTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*; import net.minecraft.world.*; import net.minecraftforge.event.world.WorldEvent; import sun.misc.Unsafe;
+                                                                                                                           ^
+/tmp/event-proof-e09dw_yc/ExtractedHandlerTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*; import net.minecraft.world.*; import net.minecraftforge.event.world.WorldEvent; import sun.misc.Unsafe;
+                                                                                                                           ^
+/tmp/event-proof-e09dw_yc/ExtractedHandlerTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*; import net.minecraft.world.*; import net.minecraftforge.event.world.WorldEvent; import sun.misc.Unsafe;
+                                                                                                                           ^
+/tmp/event-proof-e09dw_yc/ExtractedHandlerTest.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+public class ExtractedHandlerTest { public static void main(String[] args)throws Exception {net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);World s=(World)u.allocateInstance(WorldServer.class),other=(World)u.allocateInstance(WorldServer.class),client=(World)u.allocateInstance(WorldServer.class);Field remote=World.class.getDeclaredField("isRemote");remote.setAccessible(true);remote.setBoolean(client,true);ExtractedHandler h=new ExtractedHandler();Object value=new Object();h.perWorld.put(s,value);h.perWorld.put(other,value);h.perWorld.put(client,value);h.receiveWorldUnload(new WorldEvent.Unload(client));if(h.perWorld.size()!=3)throw new AssertionError("client no removal");h.receiveWorldUnload(new WorldEvent.Unload(s));if(h.perWorld.containsKey(s)||h.perWorld.get(other)!=value||h.perWorld.get(client)!=value)throw new AssertionError("exact server identity removed");h.receiveWorldUnload(new WorldEvent.Unload(s));if(h.perWorld.size()!=2)throw new AssertionError("repeat harmless");try{h.receiveWorldUnload(new WorldEvent.Unload(null));throw new AssertionError();}catch(NullPointerException e){}try{h.receiveWorldUnload(null);throw new AssertionError();}catch(NullPointerException e){}System.out.println("PASS 5 extracted complete production unload handler checks; not whole radiation handler or event bus lifecycle");System.exit(0);}}
+                                                                                                                                            ^
+/tmp/event-proof-e09dw_yc/ExtractedHandlerTest.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+public class ExtractedHandlerTest { public static void main(String[] args)throws Exception {net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);World s=(World)u.allocateInstance(WorldServer.class),other=(World)u.allocateInstance(WorldServer.class),client=(World)u.allocateInstance(WorldServer.class);Field remote=World.class.getDeclaredField("isRemote");remote.setAccessible(true);remote.setBoolean(client,true);ExtractedHandler h=new ExtractedHandler();Object value=new Object();h.perWorld.put(s,value);h.perWorld.put(other,value);h.perWorld.put(client,value);h.receiveWorldUnload(new WorldEvent.Unload(client));if(h.perWorld.size()!=3)throw new AssertionError("client no removal");h.receiveWorldUnload(new WorldEvent.Unload(s));if(h.perWorld.containsKey(s)||h.perWorld.get(other)!=value||h.perWorld.get(client)!=value)throw new AssertionError("exact server identity removed");h.receiveWorldUnload(new WorldEvent.Unload(s));if(h.perWorld.size()!=2)throw new AssertionError("repeat harmless");try{h.receiveWorldUnload(new WorldEvent.Unload(null));throw new AssertionError();}catch(NullPointerException e){}try{h.receiveWorldUnload(null);throw new AssertionError();}catch(NullPointerException e){}System.out.println("PASS 5 extracted complete production unload handler checks; not whole radiation handler or event bus lifecycle");System.exit(0);}}
+                                                                                                                                                                                                             ^
+/tmp/event-proof-e09dw_yc/ExtractedHandlerTest.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+public class ExtractedHandlerTest { public static void main(String[] args)throws Exception {net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);World s=(World)u.allocateInstance(WorldServer.class),other=(World)u.allocateInstance(WorldServer.class),client=(World)u.allocateInstance(WorldServer.class);Field remote=World.class.getDeclaredField("isRemote");remote.setAccessible(true);remote.setBoolean(client,true);ExtractedHandler h=new ExtractedHandler();Object value=new Object();h.perWorld.put(s,value);h.perWorld.put(other,value);h.perWorld.put(client,value);h.receiveWorldUnload(new WorldEvent.Unload(client));if(h.perWorld.size()!=3)throw new AssertionError("client no removal");h.receiveWorldUnload(new WorldEvent.Unload(s));if(h.perWorld.containsKey(s)||h.perWorld.get(other)!=value||h.perWorld.get(client)!=value)throw new AssertionError("exact server identity removed");h.receiveWorldUnload(new WorldEvent.Unload(s));if(h.perWorld.size()!=2)throw new AssertionError("repeat harmless");try{h.receiveWorldUnload(new WorldEvent.Unload(null));throw new AssertionError();}catch(NullPointerException e){}try{h.receiveWorldUnload(null);throw new AssertionError();}catch(NullPointerException e){}System.out.println("PASS 5 extracted complete production unload handler checks; not whole radiation handler or event bus lifecycle");System.exit(0);}}
+                                                                                                                                                                                                                       ^
+6 warnings
+PASS 5 extracted complete production unload handler checks; not whole radiation handler or event bus lifecycle
+PASS 24 actual native checks; 67 dependency jars inspected; not full handler/game lifecycle execution
+PASS 3 original Forge1614 immutable source fields and authentic constructor bytecode comparisons; userdev SHA256 6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91
+PASS 33 real javac read/write/shadow/reachable override/unresolved/evaluation fixtures
+Attribution diagnostics (unfinished source, not compile success): 25894
+Attribution diagnostics (unfinished source, not compile success): 25894
+Attribution diagnostics (unfinished source, not compile success): 25894
+PASS complete native declaring-method re-attribution: 268 exact token positions; 4 pre-existing unrelated getters excluded

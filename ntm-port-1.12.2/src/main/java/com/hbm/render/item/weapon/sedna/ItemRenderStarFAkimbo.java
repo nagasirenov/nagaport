@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -39,7 +42,7 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 		
 		for(int i = -1; i <= 1; i += 2) {
 			int index = i == -1 ? 0 : 1;
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.star_f_elite_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.star_f_elite_tex);
 
 			GL11.glPushMatrix();
 			standardAimingTransform(stack, -2F * offset * i, -1.75F * offset, 2.5F * offset, 0, -7.625 / 8D, 1);
@@ -92,7 +95,7 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 			if(hasSilencer(stack, index)) {
 				GL11.glPushMatrix();
 				GL11.glTranslated(0, 2.375, -0.25);
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.uzi_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.uzi_tex);
 				ResourceManager.uzi.renderPart("Silencer");
 				GL11.glPopMatrix();
 				
@@ -150,9 +153,9 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderEquipped(ItemStack stack, Object... data) {
+	public void renderEquipped(ItemStack stack, NativeItemContext context) {
 		renderStandardGun(stack, 1);
-		if(!hasSilencer(stack, 1)) renderThirdPersonFlash((EntityLivingBase) data[1], stack, 1);
+		if(!hasSilencer(stack, 1)) renderThirdPersonFlash(context.holder, stack, 1);
 	}
 
 	@Override
@@ -166,14 +169,14 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.star_f_elite_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.star_f_elite_tex);
 		ResourceManager.star_f.renderPart("Gun");
 		ResourceManager.star_f.renderPart("Slide");
 		ResourceManager.star_f.renderPart("Mag");
 		ResourceManager.star_f.renderPart("Hammer");
 		if(hasSilencer(stack, index)) {
 			GL11.glTranslated(0, 2.375, -0.25);
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.uzi_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.uzi_tex);
 			ResourceManager.uzi.renderPart("Silencer");
 		}
 		GL11.glShadeModel(GL11.GL_FLAT);
@@ -204,7 +207,7 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 
@@ -251,7 +254,7 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 	public void renderStandardGun(ItemStack stack, int index) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.star_f_elite_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.star_f_elite_tex);
 		ResourceManager.star_f.renderPart("Gun");
 		ResourceManager.star_f.renderPart("Slide");
 		ResourceManager.star_f.renderPart("Mag");
@@ -259,7 +262,7 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 		boolean silenced = hasSilencer(stack, index);
 		if(silenced) {
 			GL11.glTranslated(0, 2.375, -0.25);
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.uzi_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.uzi_tex);
 			ResourceManager.uzi.renderPart("Silencer");
 		}
 		GL11.glShadeModel(GL11.GL_FLAT);
@@ -269,7 +272,7 @@ public class ItemRenderStarFAkimbo extends ItemRenderWeaponBase {
 		
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[config];
 			shotRand = gun.shotRand;

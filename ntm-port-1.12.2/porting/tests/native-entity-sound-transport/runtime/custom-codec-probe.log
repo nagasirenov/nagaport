@@ -1,0 +1,9 @@
+[02:14:24] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:14:24] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:14:24] [main/INFO]: Replaced 1036 ore ingredients
+[02:14:24] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:14:24] [main/INFO]: Processing ObjectHolder annotations
+[02:14:24] [main/INFO]: Found 1167 ObjectHolder annotations
+[02:14:25] [main/INFO]: Reloading ResourceManager: custom-codec-pack-8015989562208934162
+OBSERVED actual custom codec inbound payload refCnt after decode=0 (native SimpleNetworkWrapper comparison releases to zero)
+PASS actual custom codec functional path: 16 checks, discriminator33, exact bytes, locked encoding, native channel decode/client scheduling/category/playback. PacketThreading is explicitly only a lock/prefix boundary fixture. Successful new-packet scoped release is asserted; abnormal ownership paths are tested separately.

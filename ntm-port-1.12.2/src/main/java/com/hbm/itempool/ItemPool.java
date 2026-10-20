@@ -13,8 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPool {
 	
@@ -71,16 +70,14 @@ public class ItemPool {
 	}
 	
 	public static ItemStack getStack(WeightedRandomChestContent[] pool, Random rand) {
-		WeightedRandomChestContent weighted = (WeightedRandomChestContent) WeightedRandom.getRandomItem(rand, pool);
-		ItemStack stack = weighted.theItemId.copy();
-		stack.stackSize = weighted.theMinimumChanceToGenerateItem + rand.nextInt(weighted.theMaximumChanceToGenerateItem - weighted.theMinimumChanceToGenerateItem + 1);
-		return stack;
+		WeightedRandomChestContent weighted = WeightedRandomChestContent.getRandomItem(rand, pool);
+		return weighted.generateStack(rand);
 	}
 	
 	/** Should a pool be lost due to misconfiguration or otherwise, this pool will be returned in its place */
 	private static WeightedRandomChestContent[] backupPool = new WeightedRandomChestContent[] {
-			weighted(Items.bread, 0, 1, 3, 10),
-			weighted(Items.stick, 0, 2, 5, 10),
+			weighted(Items.BREAD, 0, 1, 3, 10),
+			weighted(Items.STICK, 0, 2, 5, 10),
 			weighted(ModItems.scrap, 0, 1, 3, 10),
 			weighted(ModItems.dust, 0, 2, 5, 5)
 	};

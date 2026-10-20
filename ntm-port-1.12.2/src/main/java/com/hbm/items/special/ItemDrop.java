@@ -42,19 +42,19 @@ public class ItemDrop extends Item {
 			ItemStack stack = entityItem.getEntityItem();
 
 			if (stack.getItem() != null && stack.getItem() == ModItems.detonator_deadman) {
-				if (!entityItem.worldObj.isRemote) {
+				if (!entityItem.world.isRemote) {
 					
-					if(stack.stackTagCompound != null) {
+					if(stack.getTagCompound() != null) {
 						
-						 int x = stack.stackTagCompound.getInteger("x");
-						 int y = stack.stackTagCompound.getInteger("y");
-						 int z = stack.stackTagCompound.getInteger("z");
+						 int x = stack.getTagCompound().getInteger("x");
+						 int y = stack.getTagCompound().getInteger("y");
+						 int z = stack.getTagCompound().getInteger("z");
 						 
-						 if(entityItem.worldObj.getBlock(x, y, z) instanceof IBomb)
+						 if(com.hbm.world.WorldBlockState.read(entityItem.world, x, y, z).getBlock() instanceof IBomb)
 						 {
-							if(!entityItem.worldObj.isRemote)
+							if(!entityItem.world.isRemote)
 							{
-								((IBomb)entityItem.worldObj.getBlock(x, y, z)).explode(entityItem.worldObj, x, y, z);
+								((IBomb)com.hbm.world.WorldBlockState.read(entityItem.world, x, y, z).getBlock()).explode(entityItem.world, x, y, z);
 
 					    		if(GeneralConfig.enableExtendedLogging)
 					    			MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / " + y + " / " + z + " by dead man's switch!");
@@ -62,14 +62,14 @@ public class ItemDrop extends Item {
 						 }
 					}
 
-					entityItem.worldObj.createExplosion(entityItem, entityItem.posX, entityItem.posY,
+					entityItem.world.createExplosion(entityItem, entityItem.posX, entityItem.posY,
 							entityItem.posZ, 0.0F, true);
 					entityItem.setDead();
 				}
 			}
 			if (stack.getItem() != null && stack.getItem() == ModItems.detonator_de) {
-				if (!entityItem.worldObj.isRemote && WeaponConfig.dropDead) {
-					entityItem.worldObj.createExplosion(entityItem, entityItem.posX, entityItem.posY,
+				if (!entityItem.world.isRemote && WeaponConfig.dropDead) {
+					entityItem.world.createExplosion(entityItem, entityItem.posX, entityItem.posY,
 							entityItem.posZ, 15.0F, true);
 
 		    		if(GeneralConfig.enableExtendedLogging)
@@ -82,88 +82,88 @@ public class ItemDrop extends Item {
 			if (entityItem.onGround) {
 
 				if (stack.getItem() != null && stack.getItem() == ModItems.cell_antimatter && WeaponConfig.dropCell) {
-					if (!entityItem.worldObj.isRemote) {
-						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 5F).makeAmat().explode();
+					if (!entityItem.world.isRemote) {
+						new ExplosionVNT(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, 5F).makeAmat().explode();
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.particle_amat && WeaponConfig.dropCell) {
-					if (!entityItem.worldObj.isRemote) {
-						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 5F).makeAmat().explode();
+					if (!entityItem.world.isRemote) {
+						new ExplosionVNT(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, 5F).makeAmat().explode();
 					}
 				}
 
 				if (stack.getItem() != null && stack.getItem() == ModItems.pellet_antimatter && WeaponConfig.dropCell) {
-					if (!entityItem.worldObj.isRemote) {
-						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 20F).makeAmat().explode();
+					if (!entityItem.world.isRemote) {
+						new ExplosionVNT(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, 20F).makeAmat().explode();
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.cell_anti_schrabidium && WeaponConfig.dropCell) {
-					if (!entityItem.worldObj.isRemote) {
-						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, BombConfig.aSchrabRadius);
+					if (!entityItem.world.isRemote) {
+						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, BombConfig.aSchrabRadius);
 						if(!ex.isDead) {
-							entityItem.worldObj.playSoundEffect(entityItem.posX, entityItem.posY, entityItem.posZ, "random.explode", 100.0F, entityItem.worldObj.rand.nextFloat() * 0.1F + 0.9F);
-							entityItem.worldObj.spawnEntityInWorld(ex);
+							com.hbm.sound.VanillaWorldSoundEffects.play(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, "random.explode", 100.0F, entityItem.world.rand.nextFloat() * 0.1F + 0.9F);
+							entityItem.world.spawnEntityInWorld(ex);
 
-							EntityCloudFleija cloud = new EntityCloudFleija(entityItem.worldObj, BombConfig.aSchrabRadius);
+							EntityCloudFleija cloud = new EntityCloudFleija(entityItem.world, BombConfig.aSchrabRadius);
 							cloud.posX = entityItem.posX;
 							cloud.posY = entityItem.posY;
 							cloud.posZ = entityItem.posZ;
-							entityItem.worldObj.spawnEntityInWorld(cloud);
+							entityItem.world.spawnEntityInWorld(cloud);
 						}
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity && WeaponConfig.dropSing) {
-					if (!entityItem.worldObj.isRemote) {
+					if (!entityItem.world.isRemote) {
 
-						EntityVortex bl = new EntityVortex(entityItem.worldObj, 1.5F);
+						EntityVortex bl = new EntityVortex(entityItem.world, 1.5F);
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.worldObj.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntityInWorld(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_counter_resonant && WeaponConfig.dropSing) {
-					if (!entityItem.worldObj.isRemote) {
+					if (!entityItem.world.isRemote) {
 
-						EntityVortex bl = new EntityVortex(entityItem.worldObj, 2.5F);
+						EntityVortex bl = new EntityVortex(entityItem.world, 2.5F);
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.worldObj.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntityInWorld(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_super_heated && WeaponConfig.dropSing) {
-					if (!entityItem.worldObj.isRemote) {
+					if (!entityItem.world.isRemote) {
 
-						EntityVortex bl = new EntityVortex(entityItem.worldObj, 2.5F);
+						EntityVortex bl = new EntityVortex(entityItem.world, 2.5F);
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.worldObj.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntityInWorld(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.black_hole && WeaponConfig.dropSing) {
-					if (!entityItem.worldObj.isRemote) {
-						EntityBlackHole bl = new EntityBlackHole(entityItem.worldObj, 1.5F);
+					if (!entityItem.world.isRemote) {
+						EntityBlackHole bl = new EntityBlackHole(entityItem.world, 1.5F);
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.worldObj.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntityInWorld(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_spark && WeaponConfig.dropSing) {
-					if (!entityItem.worldObj.isRemote) {
-						EntityRagingVortex bl = new EntityRagingVortex(entityItem.worldObj, 3.5F);
+					if (!entityItem.world.isRemote) {
+						EntityRagingVortex bl = new EntityRagingVortex(entityItem.world, 3.5F);
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.worldObj.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntityInWorld(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.crystal_xen && WeaponConfig.dropCrys) {
-					if (!entityItem.worldObj.isRemote) {
-						ExplosionChaos.floater(entityItem.worldObj, (int)entityItem.posX, (int)entityItem.posY, (int)entityItem.posZ, 25, 75);
-						ExplosionChaos.move(entityItem.worldObj, (int)entityItem.posX, (int)entityItem.posY, (int)entityItem.posZ, 25, 0, 75, 0);
+					if (!entityItem.world.isRemote) {
+						ExplosionChaos.floater(entityItem.world, (int)entityItem.posX, (int)entityItem.posY, (int)entityItem.posZ, 25, 75);
+						ExplosionChaos.move(entityItem.world, (int)entityItem.posX, (int)entityItem.posY, (int)entityItem.posZ, 25, 0, 75, 0);
 					}
 				}
 
@@ -224,7 +224,7 @@ public class ItemDrop extends Item {
 			{
 				list.add("No position set!");
 			} else {
-				list.add("Set pos to " + itemstack.stackTagCompound.getInteger("x") + ", " + itemstack.stackTagCompound.getInteger("y") + ", " + itemstack.stackTagCompound.getInteger("z"));
+				list.add("Set pos to " + itemstack.getTagCompound().getInteger("x") + ", " + itemstack.getTagCompound().getInteger("y") + ", " + itemstack.getTagCompound().getInteger("z"));
 			}
 		}
 		if (this == ModItems.detonator_de) {
@@ -241,16 +241,16 @@ public class ItemDrop extends Item {
 			return super.onItemUse(stack, player, world, x, y, z, p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_);
 		}
 		
-		if(stack.stackTagCompound == null)
+		if(stack.getTagCompound() == null)
 		{
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
 		if(player.isSneaking())
 		{
-			stack.stackTagCompound.setInteger("x", x);
-			stack.stackTagCompound.setInteger("y", y);
-			stack.stackTagCompound.setInteger("z", z);
+			stack.getTagCompound().setInteger("x", x);
+			stack.getTagCompound().setInteger("y", y);
+			stack.getTagCompound().setInteger("z", z);
 			
 			if(world.isRemote)
 			{

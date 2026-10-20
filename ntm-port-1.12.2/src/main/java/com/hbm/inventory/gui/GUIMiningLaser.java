@@ -53,8 +53,8 @@ public class GUIMiningLaser extends GuiInfoContainer {
 		
     	if(guiLeft + 61 <= x && guiLeft + 61 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
     		
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(laser.xCoord, laser.yCoord, laser.zCoord, 0, 0));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(laser.getPos().getX(), laser.getPos().getY(), laser.getPos().getZ(), 0, 0));
     	}
     }
 	
@@ -62,11 +62,11 @@ public class GUIMiningLaser extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.laser.hasCustomInventoryName() ? this.laser.getInventoryName() : I18n.format(this.laser.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 4, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 4, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		String width = "" + laser.getWidth();
-		this.fontRendererObj.drawString(width, 43 - this.fontRendererObj.getStringWidth(width) / 2, 26, 0xffffff);
+		this.fontRenderer.drawString(width, 43 - this.fontRenderer.getStringWidth(width) / 2, 26, 0xffffff);
 	}
 	
 	@Override

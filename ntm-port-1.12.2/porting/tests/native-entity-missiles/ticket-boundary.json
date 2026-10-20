@@ -1,0 +1,20 @@
+{
+  "entityInit": {
+    "before": "protected void entityInit() {\r\n\t\tsuper.entityInit();\r\n\t\tinit(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));\r\n\t\tthis.dataWatcher.addObject(3, new Byte((byte) 5));\r\n\t}",
+    "after": "protected void entityInit() {\r\n\t\tsuper.entityInit();\r\n\t\tinit(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));\r\n\t\tthis.dataManager.register(DIRECTION, new Byte((byte) 5));\r\n\t}",
+    "before_sha256": "ab3bc7933e17361059cce93c9048633fe95ddc4a580552252ce473ed50f0399c",
+    "after_sha256": "fac2d0fc4c27d790a4040c5c5500f55378fef275c55d537c03ff5489611570da"
+  },
+  "initTicket": {
+    "before": "public void init(Ticket ticket) {\r\n\t\tif(!this.world.isRemote) {\r\n\r\n\t\t\tif(ticket != null) {\r\n\r\n\t\t\t\tif(loaderTicket == null) {\r\n\r\n\t\t\t\t\tloaderTicket = ticket;\r\n\t\t\t\t\tloaderTicket.bindEntity(this);\r\n\t\t\t\t\tloaderTicket.getModData();\r\n\t\t\t\t}\r\n\r\n\t\t\t\tForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));\n\t\t\t}\r\n\t\t}\r\n\t}",
+    "after": "public void init(Ticket ticket) {\r\n\t\tif(!this.world.isRemote) {\r\n\r\n\t\t\tif(ticket != null) {\r\n\r\n\t\t\t\tif(loaderTicket == null) {\r\n\r\n\t\t\t\t\tloaderTicket = ticket;\r\n\t\t\t\t\tloaderTicket.bindEntity(this);\r\n\t\t\t\t\tloaderTicket.getModData();\r\n\t\t\t\t}\r\n\r\n\t\t\t\tForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));\n\t\t\t}\r\n\t\t}\r\n\t}",
+    "before_sha256": "a945aacd1e7fb73703e15772d092963dc2c6f674ef282f2796dbbd226b2bbab9",
+    "after_sha256": "a945aacd1e7fb73703e15772d092963dc2c6f674ef282f2796dbbd226b2bbab9"
+  },
+  "worldConstructor": {
+    "before": "public EntityMissileBaseNT(World world) {\r\n\t\tsuper(world);\r\n\t\tthis.ignoreFrustumCheck = true;\r\n\t\tstartX = (int) posX;\r\n\t\tstartZ = (int) posZ;\r\n\t\ttargetX = (int) posX;\r\n\t\ttargetZ = (int) posZ;\r\n\t}",
+    "after": "public EntityMissileBaseNT(World world) {\r\n\t\tsuper(world);\r\n\t\tthis.ignoreFrustumCheck = true;\r\n\t\tstartX = (int) posX;\r\n\t\tstartZ = (int) posZ;\r\n\t\ttargetX = (int) posX;\r\n\t\ttargetZ = (int) posZ;\r\n\t}",
+    "before_sha256": "399386414725c5ea5cdc2c629b38fecc75b00a098f6772c08f2bd8ec746df0d9",
+    "after_sha256": "399386414725c5ea5cdc2c629b38fecc75b00a098f6772c08f2bd8ec746df0d9"
+  }
+}

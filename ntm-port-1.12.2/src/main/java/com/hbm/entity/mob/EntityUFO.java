@@ -24,7 +24,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -37,7 +37,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
 
 	public int courseChangeCooldown;
 	public int scanCooldown;
@@ -86,9 +86,9 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 	@Override
 	protected void updateEntityActionState() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+			if(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
 				this.setDead();
 				return;
 			}
@@ -110,7 +110,7 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 		}
 
 		if(this.scanCooldown <= 0) {
-			List<Entity> entities = worldObj.getEntitiesWithinAABB(Entity.class, this.boundingBox.expand(100, 50, 100));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().grow(100, 50, 100));
 			this.secondaries.clear();
 			this.target = null;
 
@@ -160,12 +160,12 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 			int wX = (int)Math.floor(this.target.posX - vec.x / length * overshoot);
 			int wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);
 
-			this.setWaypoint(wX, Math.max(this.worldObj.getHeightValue(wX, wZ) + 20 + rand.nextInt(15), (int) this.target.posY + 15),  wZ);
+			this.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ) + 20 + rand.nextInt(15), (int) this.target.posY + 15),  wZ);
 
 			this.courseChangeCooldown = 40 + rand.nextInt(20);
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(beamTimer <= 0 && this.getBeam()) {
 				this.setBeam(false);
@@ -181,7 +181,7 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 				this.beamTimer--;
 
 				if(!this.getBeam()) {
-					worldObj.playSoundAtEntity(this, "hbm:entity.ufoBeam", 10.0F, 1.0F);
+					this.world.playSoundAtEntity(this, "hbm:entity.ufoBeam", 10.0F, 1.0F);
 					this.setBeam(true);
 				}
 
@@ -191,14 +191,14 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 
 				for(int i = (int)Math.ceil(this.posY); i >= 0; i--) {
 
-					if(this.worldObj.getBlock(ix, i, iz) != Blocks.air) {
+					if(com.hbm.world.WorldBlockState.read(this.world, ix, i, iz).getBlock() != Blocks.AIR) {
 						iy = i;
 						break;
 					}
 				}
 
 				if(iy < this.posY) {
-					List<Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
 
 					for(Entity e : entities) {
 						if(this.canAttackClass(e.getClass())) {
@@ -296,17 +296,17 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 		this.motionY -= 0.05D;
 
 		if(this.deathTime == -10) {
-			worldObj.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
 		}
 
-		if(this.deathTime == 19 && !worldObj.isRemote) {
-			worldObj.newExplosion(this, posX, posY, posZ, 10F, true, true);
-			ExplosionNukeSmall.explode(worldObj, posX, posY, posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
+		if(this.deathTime == 19 && !this.world.isRemote) {
+			this.world.newExplosion(this, posX, posY, posZ, 10F, true, true);
+			ExplosionNukeSmall.explode(this.world, posX, posY, posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
 
-			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(200, 200, 200));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));
 
 			for(EntityPlayer player : players) {
-				player.triggerAchievement(MainRegistry.bossUFO);
+				com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossUFO);
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.coin_ufo));
 			}
 		}
@@ -327,11 +327,11 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 		Vec3d heading = new Vec3d(e.posX - pivotX, e.posY + e.height / 2 - pivotY, e.posZ - pivotZ);
 		heading = heading.normalize();
 
-		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.worldObj, BulletConfigSyncingUtil.WORM_LASER);
+		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_LASER);
 		bullet.setThrower(this);
 		bullet.setPosition(pivotX, pivotY, pivotZ);
 		bullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);
-		this.worldObj.spawnEntityInWorld(bullet);
+		this.world.spawnEntityInWorld(bullet);
 		this.playSound("hbm:weapon.ballsLaser", 5.0F, 1.0F);
 	}
 
@@ -340,12 +340,12 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 		Vec3d heading = new Vec3d(e.posX - this.posX, e.posY + e.height / 2 - posY - 0.5D, e.posZ - this.posZ);
 		heading = heading.normalize();
 
-		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.worldObj, BulletConfigSyncingUtil.UFO_ROCKET);
+		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.UFO_ROCKET);
 		bullet.setThrower(this);
 		bullet.setPosition(this.posX, this.posY - 0.5D, this.posZ);
 		bullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);
 		bullet.getEntityData().setInteger("homingTarget", e.getEntityId());
-		this.worldObj.spawnEntityInWorld(bullet);
+		this.world.spawnEntityInWorld(bullet);
 		this.playSound("hbm:turret.richard_fire", 5.0F, 1.0F);
 	}
 
@@ -368,12 +368,12 @@ public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, I
 		double d4 = (this.getX() - this.posX) / p_70790_7_;
 		double d5 = (this.getY() - this.posY) / p_70790_7_;
 		double d6 = (this.getZ() - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.boundingBox.copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}

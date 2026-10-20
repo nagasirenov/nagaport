@@ -1,0 +1,11 @@
+{
+  "commit": "e72ec3d2ae8db6653ebaad529a574ee32c99260b",
+  "diagnostic_source": "/tmp/compile-cp58.log",
+  "diagnostic_sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+  "archive": "/tmp/player-sound-attribution/cp59-sources.zip",
+  "archive_sha256": "5abee8734159bedaf3af131afa30414252a5a3493d787af0dfe0fda7991d1951",
+  "archive_bytes": 6214848,
+  "java_units": 4056,
+  "diagnostic_sites": 41,
+  "selection": "Exact CP58 diagnostic method signature plus package bounds; all expression/type/name decisions are made from CP59 javac AST, not a receiver regex."
+}

@@ -1,37 +1,41 @@
 package com.hbm.tileentity.network;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityRadioTorchSender extends TileEntityRadioTorchBase {
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
-			int input = worldObj.getIndirectPowerLevelTo(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, this.getBlockMetadata());
+			BlockPos sourcePos = this.pos.add(dir.offsetX, dir.offsetY, dir.offsetZ);
+			int input = this.world.getRedstonePower(sourcePos, dir.getOpposite().toEnumFacing());
 			
-			Block b = worldObj.getBlock(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ);
+			IBlockState sourceState = this.world.getBlockState(sourcePos);
 			
-			if(b.hasComparatorInputOverride()) {
-				input = b.getComparatorInputOverride(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir.getOpposite().ordinal());
+			if(sourceState.hasComparatorInputOverride()) {
+				input = sourceState.getComparatorInputOverride(this.world, sourcePos);
 			}
 			
 			boolean shouldSend = this.polling;
 			
 			if(input != this.lastState) {
 				this.markDirty();
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 				this.lastState = input;
+				// Native notification may request the update packet immediately.
+				IBlockState state = this.world.getBlockState(this.pos);
+				this.world.notifyBlockUpdate(this.pos, state, state, 2);
 				shouldSend = true;
 			}
 
 			if(shouldSend && !this.channel.isEmpty()) {
-				RTTYSystem.broadcast(worldObj, this.channel, this.customMap ? this.mapping[input] : (input + ""));
+				RTTYSystem.broadcast(this.world, this.channel, this.customMap ? this.mapping[input] : (input + ""));
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 }

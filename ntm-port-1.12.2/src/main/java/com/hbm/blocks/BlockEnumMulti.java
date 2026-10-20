@@ -49,7 +49,7 @@ public class BlockEnumMulti extends BlockMulti {
 			return getUnlocalizedMultiName(num);
 		}
 
-		return this.getUnlocalizedName();
+		return this.getTranslationKey();
 	}
 
 	public String getTextureMultiName(Enum num) {
@@ -57,7 +57,7 @@ public class BlockEnumMulti extends BlockMulti {
 	}
 
 	public String getUnlocalizedMultiName(Enum num) {
-		return super.getUnlocalizedName() + "." + num.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "." + num.name().toLowerCase(Locale.US);
 	}
 
 	@Override

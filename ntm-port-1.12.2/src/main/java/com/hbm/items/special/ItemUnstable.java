@@ -58,16 +58,16 @@ public class ItemUnstable extends Item {
     
     private void setTimer(ItemStack stack, int time) {
     	if(!stack.hasTagCompound())
-    		stack.stackTagCompound = new NBTTagCompound();
+    		stack.setTagCompound(new NBTTagCompound());
     	
-    	stack.stackTagCompound.setInteger("timer", time);
+    	stack.getTagCompound().setInteger("timer", time);
     }
     
     private int getTimer(ItemStack stack) {
     	if(!stack.hasTagCompound())
-    		stack.stackTagCompound = new NBTTagCompound();
+    		stack.setTagCompound(new NBTTagCompound());
     	
-    	return stack.stackTagCompound.getInteger("timer");
+    	return stack.getTagCompound().getInteger("timer");
     }
 
     @Override
@@ -106,7 +106,7 @@ public class ItemUnstable extends Item {
 	    	case 1: return "ELEMENTS";
 	    	case 2: return "ARSENIC";
 	    	case 3: return "VAULT";
-			default: return ("" + I18nUtil.resolveKey(this.getUnlocalizedName() + ".name")).trim();
+			default: return ("" + I18nUtil.resolveKey(this.getTranslationKey() + ".name")).trim();
     	}
     }
 

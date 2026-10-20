@@ -10,7 +10,7 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -40,13 +40,13 @@ public class ContainerElectricFurnace extends Container {
 	}
 
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
 	}
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -55,7 +55,7 @@ public class ContainerElectricFurnace extends Container {
 
 			if(index <= 3) {
 				if(!this.mergeItemStack(stack, 4, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(stack, rStack);
@@ -63,18 +63,18 @@ public class ContainerElectricFurnace extends Container {
 				
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false))
-						return null;
+						return ItemStack.EMPTY;
 					
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(stack, 3, 4, false))
-						return null;
+						return ItemStack.EMPTY;
 					
 				} else if(!this.mergeItemStack(stack, 1, 2, false))
-					return null;
+					return ItemStack.EMPTY;
 			}
 
-			if(stack.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+			if(stack.isEmpty()) {
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -85,6 +85,6 @@ public class ContainerElectricFurnace extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return diFurnace.isUseableByPlayer(player);
+		return diFurnace.isUsableByPlayer(player);
 	}
 }

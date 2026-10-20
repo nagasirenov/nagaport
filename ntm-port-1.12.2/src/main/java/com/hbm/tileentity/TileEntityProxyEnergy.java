@@ -7,9 +7,6 @@ import com.hbm.lib.ForgeDirection;
 //can be used as a soruce too since the core TE handles that anyway
 public class TileEntityProxyEnergy extends TileEntityProxyBase implements IEnergyReceiverMK2 {
 	
-	public boolean canUpdate() {
-		return false;
-	}
 
 	@Override
 	public void setPower(long i) {

@@ -96,6 +96,6 @@ public class ContainerElectrolyserFluid extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return electrolyser.isUseableByPlayer(player);
+		return electrolyser.isUsableByPlayer(player);
 	}
 }

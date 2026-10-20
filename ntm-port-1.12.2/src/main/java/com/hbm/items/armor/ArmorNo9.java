@@ -83,7 +83,7 @@ public class ArmorNo9 extends ArmorModel implements IAttackHandler, IDamageHandl
 		
 		if(!world.isRemote) {
 			if(!armor.hasTagCompound()) {
-				armor.stackTagCompound = new NBTTagCompound();
+				armor.setTagCompound(new NBTTagCompound());
 			}
 			
 			boolean turnOn = HbmPlayerProps.getData(player).enableHUD;

@@ -23,7 +23,7 @@ public class EntityWastePearl extends EntityGrenadeBase {
 	@Override
 	public void explode() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.setDead();
 
 			int x = (int)Math.floor(posX);
@@ -34,14 +34,14 @@ public class EntityWastePearl extends EntityGrenadeBase {
 				for(int iy = y - 3; iy <= y + 3; iy++) {
 					for(int iz = z - 3; iz <= z + 3; iz++) {
 						
-						if(worldObj.rand.nextInt(3) == 0 && worldObj.getBlock(ix, iy, iz).isReplaceable(worldObj, ix, iy, iz) && ModBlocks.fallout.canPlaceBlockAt(worldObj, ix, iy, iz)) {
-							worldObj.setBlock(ix, iy, iz, ModBlocks.fallout);
-						} else if(worldObj.getBlock(ix, iy, iz) == Blocks.air) {
+						if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().isReplaceable(this.world, ix, iy, iz) && ModBlocks.fallout.canPlaceBlockAt(this.world, ix, iy, iz)) {
+							this.world.setBlock(ix, iy, iz, ModBlocks.fallout);
+						} else if(com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock() == Blocks.AIR) {
 							
 							if(rand.nextBoolean())
-								worldObj.setBlock(ix, iy, iz, ModBlocks.gas_radon);
+								this.world.setBlock(ix, iy, iz, ModBlocks.gas_radon);
 							else
-								worldObj.setBlock(ix, iy, iz, ModBlocks.gas_radon_dense);
+								this.world.setBlock(ix, iy, iz, ModBlocks.gas_radon_dense);
 						}
 					}
 				}

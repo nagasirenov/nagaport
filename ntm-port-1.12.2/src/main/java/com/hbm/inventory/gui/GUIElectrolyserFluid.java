@@ -43,10 +43,10 @@ public class GUIElectrolyserFluid extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 8 <= x && guiLeft + 8 + 54 > x && guiTop + 82 < y && guiTop + 82 + 12 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("sgm", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, electrolyser.xCoord, electrolyser.yCoord, electrolyser.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, electrolyser.getPos().getX(), electrolyser.getPos().getY(), electrolyser.getPos().getZ()));
 		}
 	}
 	
@@ -54,8 +54,8 @@ public class GUIElectrolyserFluid extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.electrolyser.hasCustomInventoryName() ? this.electrolyser.getInventoryName() : I18n.format(this.electrolyser.getInventoryName());
 
-		this.fontRendererObj.drawString(name, (this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2) - 16, 7, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 94, 4210752);
+		this.fontRenderer.drawString(name, (this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2) - 16, 7, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 94, 4210752);
 	}
 
 	@Override

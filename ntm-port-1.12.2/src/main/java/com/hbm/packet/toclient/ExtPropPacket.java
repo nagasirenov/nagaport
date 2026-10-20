@@ -42,11 +42,11 @@ public class ExtPropPacket extends PrecompiledPacket {
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(ExtPropPacket m, MessageContext ctx) {
 
-			if(Minecraft.getMinecraft().theWorld == null)
+			if(Minecraft.getMinecraft().world == null)
 				return null;
 
-			HbmLivingProps props = HbmLivingProps.getData(Minecraft.getMinecraft().thePlayer);
-			HbmPlayerProps pprps = HbmPlayerProps.getData(Minecraft.getMinecraft().thePlayer);
+			HbmLivingProps props = HbmLivingProps.getData(Minecraft.getMinecraft().player);
+			HbmPlayerProps pprps = HbmPlayerProps.getData(Minecraft.getMinecraft().player);
 
 			props.deserialize(m.buf);
 			pprps.deserialize(m.buf);

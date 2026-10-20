@@ -58,11 +58,12 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("progress", progress);
 		nbt.setLong("power", power);
 		nbt.setInteger("savedParticles", savedParticles);
+		return nbt;
 	}
 
 	public TileEntityMachineExposureChamber() {
@@ -79,20 +80,20 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.exposureChamber";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.isOn = false;
 			this.power = Library.chargeTEFromItems(slots, 5, power, maxPower);
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
-				for(DirPos pos : getConPos()) this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			if(this.world.getTotalWorldTime() % 20 == 0) {
+				for(DirPos pos : getConPos()) this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			upgradeManager.checkSlots(this, slots, 6, 7);
@@ -189,11 +190,11 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP).getOpposite();
 		return new DirPos[] {
-				new DirPos(xCoord + rot.offsetX * 7 + dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 7 + dir.offsetZ * 2, dir),
-				new DirPos(xCoord + rot.offsetX * 7 - dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 7 - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 8 + dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 8 + dir.offsetZ * 2, dir),
-				new DirPos(xCoord + rot.offsetX * 8 - dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 8 - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 9, yCoord, zCoord + rot.offsetZ * 9, rot)
+				new DirPos(this.pos.getX() + rot.offsetX * 7 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 7 + dir.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() + rot.offsetX * 7 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 7 - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 8 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 8 + dir.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() + rot.offsetX * 8 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 8 - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 9, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 9, rot)
 		};
 	}
 
@@ -238,12 +239,14 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 2 || i == 4;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 2, 3, 4};
 	}
 
@@ -289,12 +292,12 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 8,
-					yCoord,
-					zCoord - 8,
-					xCoord + 9,
-					yCoord + 5,
-					zCoord + 9
+					this.pos.getX() - 8,
+					this.pos.getY(),
+					this.pos.getZ() - 8,
+					this.pos.getX() + 9,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 9
 					);
 		}
 

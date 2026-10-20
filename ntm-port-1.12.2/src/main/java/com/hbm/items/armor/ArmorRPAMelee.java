@@ -31,7 +31,7 @@ public class ArmorRPAMelee implements IPAMelee {
 	@Override
 	public void orchestra(ItemStack stack, LambdaContext ctx) {
 		EntityLivingBase entity = ctx.entity;
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 		
@@ -62,11 +62,11 @@ public class ArmorRPAMelee implements IPAMelee {
 						mop.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(ctx.getPlayer()), damage);
 					}
 					
-					entity.worldObj.playSoundAtEntity(mop.entityHit, "hbm:weapon.fire.smack", 1F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+					entity.world.playSoundAtEntity(mop.entityHit, "hbm:weapon.fire.smack", 1F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 				}
 				if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-					Block b = entity.worldObj.getBlockState(mop.getBlockPos()).getBlock();
-					entity.worldObj.playSoundEffect(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, b.stepSound.getStepResourcePath(), 2F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+					Block b = entity.world.getBlockState(mop.getBlockPos()).getBlock();
+					entity.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, b.stepSound.getStepResourcePath(), 2F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 				}
 			}
 		}

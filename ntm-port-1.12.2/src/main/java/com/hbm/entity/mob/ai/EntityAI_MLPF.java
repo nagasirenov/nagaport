@@ -95,7 +95,7 @@ public class EntityAI_MLPF extends EntityAIBase {
 	//scans the area and determines a new target entity
 	private void calculateTarget() {
 		
-		List list = mover.worldObj.getEntitiesWithinAABB(targetClass, AxisAlignedBB.getBoundingBox(
+		List list = mover.world.getEntitiesWithinAABB(targetClass, AxisAlignedBB.getBoundingBox(
 				mover.posX - range,
 				mover.posY - vertical,
 				mover.posZ - range,

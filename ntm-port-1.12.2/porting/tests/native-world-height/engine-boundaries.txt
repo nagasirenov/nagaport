@@ -1,0 +1,270 @@
+original World
+  public int f(int, int);
+    Code:
+       0: iload_1
+       1: ldc           #1                  // int -30000000
+       3: if_icmplt     24
+       6: iload_2
+       7: ldc           #1                  // int -30000000
+       9: if_icmplt     24
+      12: iload_1
+      13: ldc           #5                  // int 30000000
+      15: if_icmpge     24
+      18: iload_2
+      19: ldc           #5                  // int 30000000
+      21: if_icmplt     27
+      24: bipush        64
+      26: ireturn
+      27: aload_0
+      28: iload_1
+      29: iconst_4
+      30: ishr
+      31: iload_2
+      32: iconst_4
+      33: ishr
+      34: invokevirtual #344                // Method c:(II)Z
+      37: ifne          42
+      40: iconst_0
+      41: ireturn
+      42: aload_0
+      43: iload_1
+      44: iconst_4
+      45: ishr
+      46: iload_2
+      47: iconst_4
+      48: ishr
+      49: invokevirtual #355                // Method e:(II)Lapx;
+      52: astore_3
+      53: aload_3
+      54: iload_1
+      55: bipush        15
+      57: iand
+      58: iload_2
+      59: bipush        15
+      61: iand
+      62: invokevirtual #428                // Method apx.b:(II)I
+      65: ireturn
+
+original World
+  protected boolean c(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #224                // Field v:Lapu;
+       4: iload_1
+       5: iload_2
+       6: invokeinterface #571,  3          // InterfaceMethod apu.a:(II)Z
+      11: ireturn
+
+original Chunk
+  public int b(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #87                 // Field f:[I
+       4: iload_2
+       5: iconst_4
+       6: ishl
+       7: iload_1
+       8: ior
+       9: iaload
+      10: ireturn
+
+original empty Chunk
+  public int b(int, int);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+original server provider
+  public boolean a(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #56                 // Field g:Lqd;
+       4: iload_1
+       5: iload_2
+       6: invokestatic  #64                 // Method agu.a:(II)J
+       9: invokevirtual #102                // Method qd.b:(J)Z
+      12: ireturn
+
+original server provider
+  public apx d(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #56                 // Field g:Lqd;
+       4: iload_1
+       5: iload_2
+       6: invokestatic  #64                 // Method agu.a:(II)J
+       9: invokevirtual #100                // Method qd.a:(J)Ljava/lang/Object;
+      12: checkcast     #17                 // class apx
+      15: astore_3
+      16: aload_3
+      17: ifnonnull     49
+      20: aload_0
+      21: getfield      #58                 // Field i:Lmt;
+      24: getfield      #61                 // Field mt.y:Z
+      27: ifne          37
+      30: aload_0
+      31: getfield      #50                 // Field a:Z
+      34: ifeq          44
+      37: aload_0
+      38: iload_1
+      39: iload_2
+      40: invokevirtual #92                 // Method c:(II)Lapx;
+      43: areturn
+      44: aload_0
+      45: getfield      #53                 // Field d:Lapx;
+      48: areturn
+      49: aload_3
+      50: areturn
+
+original client provider
+  public boolean a(int, int);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+original client provider
+  public apx d(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field c:Lqd;
+       4: iload_1
+       5: iload_2
+       6: invokestatic  #29                 // Method agu.a:(II)J
+       9: invokevirtual #47                 // Method qd.a:(J)Ljava/lang/Object;
+      12: checkcast     #7                  // class apx
+      15: astore_3
+      16: aload_3
+      17: ifnonnull     25
+      20: aload_0
+      21: getfield      #25                 // Field b:Lapx;
+      24: areturn
+      25: aload_3
+      26: areturn
+
+native World
+  public int getHeight(int, int);
+    Code:
+       0: iload_1
+       1: ldc_w         #389                // int -30000000
+       4: if_icmplt     72
+       7: iload_2
+       8: ldc_w         #389                // int -30000000
+      11: if_icmplt     72
+      14: iload_1
+      15: ldc_w         #390                // int 30000000
+      18: if_icmpge     72
+      21: iload_2
+      22: ldc_w         #390                // int 30000000
+      25: if_icmpge     72
+      28: aload_0
+      29: iload_1
+      30: iconst_4
+      31: ishr
+      32: iload_2
+      33: iconst_4
+      34: ishr
+      35: iconst_1
+      36: invokevirtual #416                // Method isChunkLoaded:(IIZ)Z
+      39: ifeq          67
+      42: aload_0
+      43: iload_1
+      44: iconst_4
+      45: ishr
+      46: iload_2
+      47: iconst_4
+      48: ishr
+      49: invokevirtual #466                // Method getChunk:(II)Lnet/minecraft/world/chunk/Chunk;
+      52: iload_1
+      53: bipush        15
+      55: iand
+      56: iload_2
+      57: bipush        15
+      59: iand
+      60: invokevirtual #810                // Method net/minecraft/world/chunk/Chunk.getHeightValue:(II)I
+      63: istore_3
+      64: goto          79
+      67: iconst_0
+      68: istore_3
+      69: goto          79
+      72: aload_0
+      73: invokevirtual #369                // Method getSeaLevel:()I
+      76: iconst_1
+      77: iadd
+      78: istore_3
+      79: iload_3
+      80: ireturn
+
+native client World
+  protected boolean isChunkLoaded(int, int, boolean);
+    Code:
+       0: iload_3
+       1: ifne          19
+       4: aload_0
+       5: invokevirtual #291                // Method getChunkProvider:()Lnet/minecraft/client/multiplayer/ChunkProviderClient;
+       8: iload_1
+       9: iload_2
+      10: invokevirtual #295                // Method net/minecraft/client/multiplayer/ChunkProviderClient.provideChunk:(II)Lnet/minecraft/world/chunk/Chunk;
+      13: invokevirtual #298                // Method net/minecraft/world/chunk/Chunk.isEmpty:()Z
+      16: ifne          23
+      19: iconst_1
+      20: goto          24
+      23: iconst_0
+      24: ireturn
+
+native Chunk
+  public int getHeightValue(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #134                // Field heightMap:[I
+       4: iload_2
+       5: iconst_4
+       6: ishl
+       7: iload_1
+       8: ior
+       9: iaload
+      10: ireturn
+
+native server provider
+  public net.minecraft.world.chunk.Chunk getLoadedChunk(int, int);
+    Code:
+       0: iload_1
+       1: iload_2
+       2: invokestatic  #97                 // Method net/minecraft/util/math/ChunkPos.asLong:(II)J
+       5: lstore_3
+       6: aload_0
+       7: getfield      #47                 // Field loadedChunks:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+      10: lload_3
+      11: invokeinterface #144,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ObjectMap.get:(J)Ljava/lang/Object;
+      16: checkcast     #78                 // class net/minecraft/world/chunk/Chunk
+      19: astore        5
+      21: aload         5
+      23: ifnull        32
+      26: aload         5
+      28: iconst_0
+      29: putfield      #113                // Field net/minecraft/world/chunk/Chunk.unloadQueued:Z
+      32: aload         5
+      34: areturn
+
+native server provider
+  public boolean chunkExists(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field loadedChunks:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+       4: iload_1
+       5: iload_2
+       6: invokestatic  #97                 // Method net/minecraft/util/math/ChunkPos.asLong:(II)J
+       9: invokeinterface #488,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ObjectMap.containsKey:(J)Z
+      14: ireturn
+
+native client provider
+  public net.minecraft.world.chunk.Chunk provideChunk(int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: invokevirtual #116                // Method getLoadedChunk:(II)Lnet/minecraft/world/chunk/Chunk;
+       6: aload_0
+       7: getfield      #44                 // Field blankChunk:Lnet/minecraft/world/chunk/Chunk;
+      10: invokestatic  #122                // Method com/google/common/base/MoreObjects.firstNonNull:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      13: checkcast     #57                 // class net/minecraft/world/chunk/Chunk
+      16: areturn

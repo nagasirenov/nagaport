@@ -29,7 +29,8 @@ public class TileEntityDroneProvider extends TileEntityRequestNetworkContainer i
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
 	}
 
@@ -39,7 +40,8 @@ public class TileEntityDroneProvider extends TileEntityRequestNetworkContainer i
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 

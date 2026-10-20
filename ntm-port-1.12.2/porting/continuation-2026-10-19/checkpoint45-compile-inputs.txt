@@ -1,0 +1,13 @@
+PASS all nine changed Java sources match staged tree, independent snapshot and 4007 generated main compiler inputs.
+Production tree b8500a1b820647607a27fec1536b41524475b7f8
+{
+  "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": "d534353ce27929ab50e023c6930027920fcd40096a045ccb22680dfd18b57555",
+  "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": "5e02fb759eeb10ec32b7f87282dabcb757c62b6f47e5b91e210e4eb3b4a83196",
+  "src/main/java/com/hbm/entity/projectile/EntityBullet.java": "0768ba317ad66f778567f1e5131d5899398006d39dfa919e085bbf45a6da3b30",
+  "src/main/java/com/hbm/entity/projectile/EntityRocket.java": "275126cb78eb6b84ab6cb9f3ec52a78d43842bf4848ad83978c568fa888941e6",
+  "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": "ac7b30574bfcd964b9c52d958ed8ed21e04d841ac2ea043f402428505796ce47",
+  "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": "0918525a8277837cc156cf8e92a2e50216ef7d48fdbf276bbcf282f3849d6f6f",
+  "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": "2df12a7d2eaec36a1e3afb89e72e92c5734e41c78f303a79018f3c45e4d25d79",
+  "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java": "a5f060dab310a5acaf7f7235c8bbce1566674b41d70b91fe24d63059a1df8e86",
+  "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java": "1c9addecac84d1dee63b50e980f6d5e2a9d656b56e7e527addbc8a897d6c87c3"
+}

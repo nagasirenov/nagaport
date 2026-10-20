@@ -63,13 +63,13 @@ public interface IEnergyReceiverMK2 extends IEnergyHandlerMK2 {
 			data.setDouble("mX", -dir.offsetX * (red ? 0.025 : 0.1));
 			data.setDouble("mY", -dir.offsetY * (red ? 0.025 : 0.1));
 			data.setDouble("mZ", -dir.offsetZ * (red ? 0.025 : 0.1));
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.dimensionId, posX, posY, posZ, 25));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 25));
 		}
 	}
 
 	public default void tryUnsubscribe(World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof IEnergyConductorMK2) {
 			IEnergyConductorMK2 con = (IEnergyConductorMK2) te;

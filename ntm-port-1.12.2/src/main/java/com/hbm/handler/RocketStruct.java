@@ -17,7 +17,7 @@ import com.hbm.util.BufferUtil;
 import com.hbm.util.Tuple.Pair;
 
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.DataWatcher;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -261,7 +261,7 @@ public class RocketStruct {
 			}
 		}
 
-		return MathHelper.ceiling_float_int(mass);
+		return MathHelper.ceil((float) (mass));
 	}
 
 	public double getHeight() {
@@ -388,37 +388,32 @@ public class RocketStruct {
 		return rocket;
 	}
 
-	// Sets up a DataWatcher to accept serialization
-	public static void setupDataWatcher(DataWatcher watcher, int start) {
-		watcher.addObject(start, 0);
-		watcher.addObject(start + 1, 0);
-		for(int i = 0; i < MAX_STAGES; i++) {
-			watcher.addObject(start + i * 2 + 2, 0);
-			watcher.addObject(start + i * 2 + 3, 0);
-		}
+	// Registers the fixed-capacity native rocket metadata fields
+	public static void setupDataManager(EntityDataManager manager, RocketMetadata keys) {
+		keys.register(manager);
 	}
 
-	// Serializes into an entity DataWatcher
-	public void writeToDataWatcher(DataWatcher watcher, int start) {
-		watcher.updateObject(start, MissilePart.getId(capsule));
-		watcher.updateObject(start + 1, stages.size());
+	// Serializes into native entity metadata, preserving the original update order
+	public void writeToDataManager(EntityDataManager manager, RocketMetadata keys) {
+		keys.setCapsule(manager, MissilePart.getId(capsule));
+		keys.setStageCount(manager, stages.size());
 		for(int i = 0; i < stages.size(); i++) {
 			Pair<Integer, Integer> watchable = stages.get(i).zipWatchable();
-			watcher.updateObject(start + i * 2 + 2, watchable.key);
-			watcher.updateObject(start + i * 2 + 3, watchable.value);
+			keys.setFirst(manager, i, watchable.key);
+			keys.setSecond(manager, i, watchable.value);
 		}
 	}
 
-	public static RocketStruct readFromDataWatcher(DataWatcher watcher, int start) {
+	public static RocketStruct readFromDataManager(EntityDataManager manager, RocketMetadata keys) {
 		RocketStruct rocket = new RocketStruct();
 
-		rocket.capsule = MissilePart.getPart(watcher.getWatchableObjectInt(start));
+		rocket.capsule = MissilePart.getPart(keys.getCapsule(manager));
 
-		int count = watcher.getWatchableObjectInt(start + 1);
+		int count = keys.getStageCount(manager);
 		for(int i = 0; i < count; i++) {
 			Pair<Integer, Integer> watchable = new Pair<Integer, Integer>(
-				watcher.getWatchableObjectInt(start + i * 2 + 2),
-				watcher.getWatchableObjectInt(start + i * 2 + 3));
+				keys.getFirst(manager, i),
+				keys.getSecond(manager, i));
 			rocket.stages.add(RocketStage.unzipWatchable(watchable));
 		}
 

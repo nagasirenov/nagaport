@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
@@ -37,8 +40,8 @@ public class ItemRenderMissileLauncher extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.missile_launcher_tex);
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.missile_launcher_tex);
 		double scale = 0.5D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -97,7 +100,7 @@ public class ItemRenderMissileLauncher extends ItemRenderWeaponBase {
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 			
-			int brightness = player.worldObj.getLightBrightnessForSkyBlocks(MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ), 0);
+			int brightness = player.world.getLightBrightnessForSkyBlocks(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ), 0);
 			int j = brightness % 65536;
 			int k = brightness / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j / 1.0F, (float) k / 1.0F);
@@ -142,10 +145,10 @@ public class ItemRenderMissileLauncher extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.missile_launcher_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.missile_launcher_tex);
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
@@ -155,11 +158,11 @@ public class ItemRenderMissileLauncher extends ItemRenderWeaponBase {
 		if(gun.getConfig(stack, 0).getReceivers(stack)[0].getMagazine(stack).getAmount(stack, null) > 0) ResourceManager.missile_launcher.renderPart("Missile");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;
 			} else {

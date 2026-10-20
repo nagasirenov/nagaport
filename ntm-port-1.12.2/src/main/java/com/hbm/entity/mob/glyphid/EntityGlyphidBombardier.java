@@ -42,7 +42,7 @@ public class EntityGlyphidBombardier extends EntityGlyphid {
 	public void onUpdate() {
 		super.onUpdate();
 		Entity e = this.getEntityToAttack();
-		if(!this.worldObj.isRemote && e instanceof EntityLivingBase) {
+		if(!this.world.isRemote && e instanceof EntityLivingBase) {
 
 			if(this.ticksExisted % 20 == 0) {
 				this.lastTarget = e;
@@ -89,11 +89,11 @@ public class EntityGlyphidBombardier extends EntityGlyphid {
 					Vec3d fireVec = rotatedFireVec.toVec3d();
 					
 					for(int i = 0; i < getBombCount(); i++) {
-						EntityAcidBomb bomb = new EntityAcidBomb(worldObj, posX, posY + 1, posZ);
+						EntityAcidBomb bomb = new EntityAcidBomb(this.world, posX, posY + 1, posZ);
 						bomb.setThrower(this);
 						bomb.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, i * getSpreadMult());
 						bomb.damage = getBombDamage();
-						worldObj.spawnEntityInWorld(bomb);
+						this.world.spawnEntityInWorld(bomb);
 					}
 					
 					this.swingItem();

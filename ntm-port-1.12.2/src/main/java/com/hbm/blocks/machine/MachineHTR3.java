@@ -29,7 +29,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineHTR3 extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public MachineHTR3() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -59,20 +59,20 @@ public class MachineHTR3 extends BlockDummyable implements ILookOverlay, IToolti
 
 		if(!world.isRemote && !player.isSneaking()) {
 
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
 				int[] pos = this.findCore(world, x, y, z);
 
 				if(pos == null)
 					return false;
 
-				TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+				TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 				if(!(te instanceof TileEntityMachineHTR3))
 					return false;
 
 				TileEntityMachineHTR3 htr3 = (TileEntityMachineHTR3) te;
 
-				FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, pos[0], pos[1], pos[2], player.getHeldItem());
+				FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, pos[0], pos[1], pos[2], com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 
 				FT_Heatable heatable = type.getTrait(FT_Heatable.class);
 
@@ -115,7 +115,7 @@ public class MachineHTR3 extends BlockDummyable implements ILookOverlay, IToolti
 
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityMachineHTR3))
 			return;
@@ -132,12 +132,12 @@ public class MachineHTR3 extends BlockDummyable implements ILookOverlay, IToolti
 				text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + tank.getTankType().getLocalizedName() + ": " + tank.getFill() + "/" + tank.getMaxFill() + "mB");
 			}
 
-			if(world.getTileEntity(x, y, z) instanceof TileEntityProxyCombo) {
+			if(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)) instanceof TileEntityProxyCombo) {
 				text.add("Connect to PWR from here");
 			}
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

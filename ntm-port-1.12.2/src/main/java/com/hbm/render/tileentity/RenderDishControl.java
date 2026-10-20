@@ -3,15 +3,13 @@ package com.hbm.render.tileentity;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityDishControl;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
-public class RenderDishControl extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderDishControl extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -52,25 +50,5 @@ public class RenderDishControl extends TileEntitySpecialRenderer implements IIte
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -0.5, 0);
-				GL11.glScaled(6D, 6D, 6D);
-			}
-			public void renderCommon() {
-				GL11.glTranslated(0.5, 0, 0);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.dish_controller_tex);
-				ResourceManager.dish_controller.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_dish_controller);
-	}
 }

@@ -1,0 +1,209 @@
+PASS exact shared-base delta; original integer damage formulas and enum naming/texture/variant logic retained
+[
+  {
+    "class": "BlockAbsorber",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockBiomeStone",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCM",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCMGlass",
+    "parent": "BlockCM",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCMPort",
+    "parent": "BlockCM",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCap",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCoke",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockConcreteColoredExt",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCoral",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockCrashedBomb",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockDeadPlant",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockDecoCRT",
+    "parent": "BlockMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockDecoContainer",
+    "parent": "BlockDecoModel",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockDecoModel",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockDecoToaster",
+    "parent": "BlockMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": true
+  },
+  {
+    "class": "BlockEnumMulti",
+    "parent": "BlockMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockFusionComponent",
+    "parent": "BlockToolConversion",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockICFComponent",
+    "parent": "BlockToolConversion",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockICFLaserComponent",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockLightstone",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockMeteorOre",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockNTMFlower",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockNTMSand",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockOreBasalt",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockResourceStone",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockRubberCacti",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": true
+  },
+  {
+    "class": "BlockRubberPlant",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockScaffold",
+    "parent": "BlockMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockStalagmite",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockTallPlant",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": true,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockTallPlantWater",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockToolConversion",
+    "parent": "BlockMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockToolConversionPillar",
+    "parent": "BlockToolConversion",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  },
+  {
+    "class": "BlockWoodStructure",
+    "parent": "BlockEnumMulti",
+    "integer_damage_hook": false,
+    "state_damage_hook": false
+  }
+]
+AUDIT ONLY: descendants outside appliance scope are not claimed fully native or runtime verified. Native callback dispatch is tested with inherited/overridden hooks and actual appliance owners.
+PASS two original mesh assets and four material PNGs byte-identical to pristine

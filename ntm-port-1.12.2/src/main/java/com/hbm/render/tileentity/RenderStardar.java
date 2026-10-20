@@ -5,15 +5,13 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityMachineStardar;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderStardar extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderStardar extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -64,28 +62,6 @@ public class RenderStardar extends TileEntitySpecialRenderer implements IItemRen
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -5, 0);
-				GL11.glScaled(1.5D, 1.5D, 1.5D);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.55, 0.55, 0.55);
-				GL11.glDisable(GL11.GL_CULL_FACE);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.stardar_tex);
-				ResourceManager.stardar.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-				GL11.glEnable(GL11.GL_CULL_FACE);
-			}
-		};
-	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_stardar);
-	}
 
 }

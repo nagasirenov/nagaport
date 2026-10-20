@@ -87,7 +87,7 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineOreSlopper";
 	}
 
@@ -96,11 +96,11 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 
@@ -109,9 +109,9 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 			if(conversion != null) tanks[1].setTankType(conversion);
 
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			this.processing = false;
@@ -145,7 +145,7 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 
 				if(markDirty) this.markDirty();
 
-				List<Entity> entities = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord + 1, zCoord - 0.5, xCoord + 1.5, yCoord + 3, zCoord + 1.5).offset(dir.offsetX, 0, dir.offsetZ));
+				List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 1, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 3, this.pos.getZ() + 1.5).offset(dir.offsetX, 0, dir.offsetZ));
 
 				for(Entity e : entities) {
 					e.attackEntityFrom(ModDamageSource.turbofan, 1000F);
@@ -157,7 +157,7 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 						vdat.setInteger("cDiv", 5);
 						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(vdat, e.posX, e.posY + e.height * 0.5, e.posZ), new TargetPoint(e.dimension, e.posX, e.posY + e.height * 0.5, e.posZ, 150));
 
-						worldObj.playSoundEffect(e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+						com.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 					}
 				}
 
@@ -202,14 +202,14 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 					prevFan -= 360;
 				}
 
-				if(animation == animation.DUMPING && MainRegistry.proxy.me().getDistance(xCoord + 0.5, yCoord + 4, zCoord + 0.5) <= 50) {
+				if(animation == animation.DUMPING && MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 4, this.pos.getZ() + 0.5) <= 50) {
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "vanillaExt");
 					data.setString("mode", "blockdust");
-					data.setInteger("block", Block.getIdFromBlock(Blocks.iron_block));
-					data.setDouble("posX", xCoord + 0.5 + dir.offsetX + worldObj.rand.nextGaussian() * 0.25);
-					data.setDouble("posY", yCoord + 4.25);
-					data.setDouble("posZ", zCoord + 0.5 + dir.offsetZ + worldObj.rand.nextGaussian() * 0.25);
+					data.setInteger("block", Block.getIdFromBlock(Blocks.IRON_BLOCK));
+					data.setDouble("posX", this.pos.getX() + 0.5 + dir.offsetX + this.world.rand.nextGaussian() * 0.25);
+					data.setDouble("posY", this.pos.getY() + 4.25);
+					data.setDouble("posZ", this.pos.getZ() + 0.5 + dir.offsetZ + this.world.rand.nextGaussian() * 0.25);
 					data.setDouble("mY", -0.2D);
 					MainRegistry.proxy.effectNT(data);
 				}
@@ -264,14 +264,14 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 4, yCoord, zCoord + dir.offsetZ * 4, dir),
-				new DirPos(xCoord - dir.offsetX * 4, yCoord, zCoord - dir.offsetZ * 4, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - rot.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ * 2, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 4, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 4, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 4, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 4, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 2, rot.getOpposite())
 		};
 	}
 
@@ -281,14 +281,16 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= 3 && i <= 8;
 	}
 
 	private static final int[] slot_access = new int[] {2, 3, 4, 5, 6, 7, 8};
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot_access;
 	}
 
@@ -322,12 +324,13 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setFloat("progress", progress);
 		tanks[0].writeToNBT(nbt, "water");
 		tanks[1].writeToNBT(nbt, "slop");
+		return nbt;
 	}
 
 	public boolean canSlop() {
@@ -359,12 +362,12 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 7,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 7,
+					this.pos.getZ() + 4
 					);
 		}
 

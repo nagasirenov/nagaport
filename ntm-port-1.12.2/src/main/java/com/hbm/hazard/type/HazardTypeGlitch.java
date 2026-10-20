@@ -37,7 +37,7 @@ public class HazardTypeGlitch extends HazardTypeBase{
 
 	@Override
 	public void addHazardInformation(EntityPlayer player, List list, float level, ItemStack stack, List<HazardModifier> modifiers) {
-		if(player.worldObj.rand.nextInt(10) == 0) {
+		if(player.world.rand.nextInt(10) == 0) {
 			list.add(TextFormatting.DARK_RED + "WORLD");
 		} else {
 			Random rand = new Random(System.currentTimeMillis() / 500);

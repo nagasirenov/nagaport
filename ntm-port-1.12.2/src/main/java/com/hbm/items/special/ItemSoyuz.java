@@ -70,7 +70,7 @@ public class ItemSoyuz extends Item {
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int meta)
     {
-        int j = MathHelper.clamp_int(meta, 0, icons.length - 1);
+        int j = MathHelper.clamp(meta, 0, icons.length - 1);
         return icons[j];
     }
 

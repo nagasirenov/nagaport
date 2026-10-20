@@ -47,7 +47,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			long start = System.currentTimeMillis();
 
@@ -69,14 +69,14 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 							for(int z = chunkPosZ << 4; z < (chunkPosZ << 4) + 16; z++) {
 								double percent = Math.hypot(x - posX, z - posZ) * 100 / getScale();
 								stomp(x, z, percent);
-								Biome biome = getBiomeChange(percent, getScale(), worldObj.getBiome(new BlockPos(x, 0, z)));
+								Biome biome = getBiomeChange(percent, getScale(), this.world.getBiome(new BlockPos(x, 0, z)));
 								if(biome != null) {
-									WorldUtil.setBiome(worldObj, x, z, biome);
+									WorldUtil.setBiome(this.world, x, z, biome);
 									biomeModified = true;
 								}
 							}
 						}
-						if(biomeModified) WorldUtil.syncBiomeChange(worldObj, chunkPosX << 4, chunkPosZ << 4);
+						if(biomeModified) WorldUtil.syncBiomeChange(this.world, chunkPosX << 4, chunkPosZ << 4);
 
 					} else if (!outerChunksToProcess.isEmpty()) {
 						long chunkPos = outerChunksToProcess.remove(outerChunksToProcess.size() - 1);
@@ -89,15 +89,15 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 								if(distance <= getScale()) {
 									double percent = distance * 100 / getScale();
 									stomp(x, z, percent);
-									Biome biome = getBiomeChange(percent, getScale(), worldObj.getBiome(new BlockPos(x, 0, z)));
+									Biome biome = getBiomeChange(percent, getScale(), this.world.getBiome(new BlockPos(x, 0, z)));
 									if(biome != null) {
-										WorldUtil.setBiome(worldObj, x, z, biome);
+										WorldUtil.setBiome(this.world, x, z, biome);
 										biomeModified = true;
 									}
 								}
 							}
 						}
-						if(biomeModified) WorldUtil.syncBiomeChange(worldObj, chunkPosX << 4, chunkPosZ << 4);
+						if(biomeModified) WorldUtil.syncBiomeChange(this.world, chunkPosX << 4, chunkPosZ << 4);
 
 					} else {
 						this.clearChunkLoader();
@@ -160,19 +160,19 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 
 			if(depth >= 3) return;
 
-			Block b = worldObj.getBlock(x, y, z);
+			Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-			if(b.getMaterial() == Material.air || b == ModBlocks.fallout) continue;
+			if(b.getDefaultState().getMaterial() == Material.AIR || b == ModBlocks.fallout) continue;
 
 			if(b == ModBlocks.volcano_core) {
-				worldObj.setBlock(x, y, z, ModBlocks.volcano_rad_core, worldObj.getBlockMetadata(x, y, z), 3);
+				this.world.setBlock(x, y, z, ModBlocks.volcano_rad_core, this.world.getBlockMetadata(x, y, z), 3);
 				continue;
 			}
 
-			Block ab = worldObj.getBlock(x, y + 1, z);
-			int meta = worldObj.getBlockMetadata(x, y, z);
+			Block ab = com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock();
+			int meta = this.world.getBlockMetadata(x, y, z);
 
-			if(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.air || (ab.isReplaceable(worldObj, x, y + 1, z) && !ab.getMaterial().isLiquid()))) {
+			if(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab.isReplaceable(this.world, x, y + 1, z) && !ab.getDefaultState().getMaterial().isLiquid()))) {
 
 				double d = dist / 100;
 
@@ -180,26 +180,26 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 				//double chance = 1-d;
 				if(this.salted)
 				{
-					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(worldObj, x, y + 1, z))
+					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(this.world, x, y + 1, z))
 						setBlock(x, y + 1, z, ModBlocks.salted_fallout);
 				}
 				else
 				{
-					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(worldObj, x, y + 1, z))
+					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(this.world, x, y + 1, z))
 						setBlock(x, y + 1, z, ModBlocks.fallout);
 				}
 			}
 
-			if(dist < 65 && com.hbm.lib.FacingCompat.isFlammable(b, worldObj, x, y, z, ForgeDirection.UP)) {
-				if(rand.nextInt(5) == 0 && worldObj.getBlock(x, y + 1, z).isAir(worldObj, x, y + 1, z))
-					setBlock(x, y + 1, z, Blocks.fire);
+			if(dist < 65 && com.hbm.lib.FacingCompat.isFlammable(b, this.world, x, y, z, ForgeDirection.UP)) {
+				if(rand.nextInt(5) == 0 && com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock().isAir(this.world, x, y + 1, z))
+					setBlock(x, y + 1, z, Blocks.FIRE);
 			}
 
 			boolean eval = false;
 
 			for(FalloutEntry entry : FalloutConfigJSON.entries) {
 
-				if(entry.eval(worldObj, x, y, z, b, meta, dist)) {
+				if(entry.eval(this.world, x, y, z, b, meta, dist)) {
 					if(entry.isSolid()) {
 						depth++;
 					}
@@ -208,17 +208,17 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 				}
 			}
 
-			float hardness = b.getBlockHardness(worldObj, x, y, z);
-			if(y > 0 && dist < 65 && hardness <= Blocks.stonebrick.getExplosionResistance(null) && hardness >= 0/* && !b.hasTileEntity(worldObj.getBlockMetadata(x, y, z))*/ && !(b instanceof BlockDummyable)) {
+			float hardness = b.getBlockHardness(this.world, x, y, z);
+			if(y > 0 && dist < 65 && hardness <= Blocks.STONEBRICK.getExplosionResistance(null) && hardness >= 0/* && !b.hasTileEntity(worldObj.getBlockMetadata(x, y, z))*/ && !(b instanceof BlockDummyable)) {
 
-				if(worldObj.getBlock(x, y - 1, z) == Blocks.air) {
+				if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock() == Blocks.AIR) {
 					for(int i = 0; i <= depth; i++) {
-						Block block = worldObj.getBlock(x, y + i, z);
-						hardness = block.getBlockHardness(worldObj, x, y + i, z);
-						if(hardness <= Blocks.stonebrick.getExplosionResistance(null) && hardness >= 0) {
-							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(worldObj, x + 0.5D, y + 0.5D + i, z + 0.5D, block, worldObj.getBlockMetadata(x, y + i, z));
+						Block block = com.hbm.world.WorldBlockState.read(this.world, x, y + i, z).getBlock();
+						hardness = block.getBlockHardness(this.world, x, y + i, z);
+						if(hardness <= Blocks.STONEBRICK.getExplosionResistance(null) && hardness >= 0) {
+							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(this.world, x + 0.5D, y + 0.5D + i, z + 0.5D, block, this.world.getBlockMetadata(x, y + i, z));
 							entityfallingblock.canDrop = false; //turn off block drops because block dropping was coded by a mule with dementia
-							worldObj.spawnEntityInWorld(entityfallingblock);
+							this.world.spawnEntityInWorld(entityfallingblock);
 						}
 					}
 				}
@@ -235,7 +235,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 	}
 
 	public void setBlock(int x, int y, int z, Block block, int meta) {
-		worldObj.setBlock(x, y, z, block, meta, 3); //this was supposed to write the position to a list for a multi block update, but forge already has that built-in. whoops.
+		this.world.setBlock(x, y, z, block, meta, 3); //this was supposed to write the position to a list for a multi block update, but forge already has that built-in. whoops.
 	}
 
 	@Override

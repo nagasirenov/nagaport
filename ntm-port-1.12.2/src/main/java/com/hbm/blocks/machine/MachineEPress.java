@@ -37,7 +37,7 @@ public class MachineEPress extends BlockDummyable implements IToolable {
 
 	@Override
 	protected boolean isLegacyMonoblock(World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		return te != null && te instanceof TileEntityMachineEPress;
 	}
 
@@ -48,7 +48,7 @@ public class MachineEPress extends BlockDummyable implements IToolable {
 		if(itemStack.hasDisplayName()) {
 			int[] pos = this.findCore(world, x, y, z);
 			if(pos != null) {
-				TileEntityMachineEPress entity = (TileEntityMachineEPress) world.getTileEntity(pos[0], pos[1], pos[2]);
+				TileEntityMachineEPress entity = (TileEntityMachineEPress) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				if(entity != null) {
 					entity.setCustomName(itemStack.getDisplayName());
 				}
@@ -68,12 +68,12 @@ public class MachineEPress extends BlockDummyable implements IToolable {
 		if (tool != ToolType.HAND_DRILL) 
 			return false;
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		if (meta >= 12)
 			return false;
 		
 		safeRem = true;
-		world.setBlockToAir(x, y, z);
+		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		safeRem = false;
 		return true;
 	}

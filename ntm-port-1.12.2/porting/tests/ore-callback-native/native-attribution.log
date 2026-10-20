@@ -1,0 +1,729 @@
+Compiled from "BlockOre.java"
+public class com.hbm.blocks.generic.BlockOre extends net.minecraft.block.Block implements com.hbm.blocks.IBlockMultiPass,com.hbm.blocks.IBlockMulti,com.hbm.blocks.ITooltipProvider {
+  public java.util.Set<com.hbm.dim.SolarSystem$Body> spawnsOn;
+
+  public static java.util.Map<net.minecraft.block.Block, com.hbm.blocks.generic.BlockOre> vanillaMap;
+
+  public boolean allowFortune;
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: aload_1
+       3: invokevirtual #1                  // Method getMetaFromState:(Lnet/minecraft/block/state/IBlockState;)I
+       6: aload_2
+       7: iload_3
+       8: invokevirtual #2                  // Method getItemDropped:(ILjava/util/Random;I)Lnet/minecraft/item/Item;
+      11: areturn
+
+  public int damageDropped(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: aload_1
+       3: invokevirtual #1                  // Method getMetaFromState:(Lnet/minecraft/block/state/IBlockState;)I
+       6: invokevirtual #3                  // Method damageDropped:(I)I
+       9: ireturn
+
+  public void getSubBlocks(net.minecraft.creativetab.CreativeTabs, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack>);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #5                  // Method getSubBlocks:(Lnet/minecraft/item/Item;Lnet/minecraft/creativetab/CreativeTabs;Ljava/util/List;)V
+      10: return
+
+  public void onBlockPlacedBy(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.EntityLivingBase, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokevirtual #6                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       6: aload_2
+       7: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: aload_2
+      11: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      14: aload         4
+      16: aload         5
+      18: invokevirtual #9                  // Method onBlockPlacedBy:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;)V
+      21: return
+
+  public com.hbm.blocks.generic.BlockOre withSoundType(net.minecraft.block.SoundType);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #10                 // Method setSoundType:(Lnet/minecraft/block/SoundType;)Lnet/minecraft/block/Block;
+       5: pop
+       6: aload_0
+       7: areturn
+
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+    Code:
+       0: aload_0
+       1: invokestatic  #11                 // Method com/hbm/blocks/MultipassContext.stateContainer:(Lnet/minecraft/block/Block;)Lnet/minecraft/block/state/BlockStateContainer;
+       4: areturn
+
+  public net.minecraft.block.state.IBlockState getStateFromMeta(int);
+    Code:
+       0: aload_0
+       1: invokevirtual #12                 // Method getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+       4: getstatic     #13                 // Field com/hbm/blocks/MultipassContext.METADATA:Lnet/minecraft/block/properties/PropertyInteger;
+       7: iload_1
+       8: bipush        15
+      10: iand
+      11: invokestatic  #14                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      14: invokeinterface #15,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      19: areturn
+
+  public int getMetaFromState(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_1
+       1: getstatic     #13                 // Field com/hbm/blocks/MultipassContext.METADATA:Lnet/minecraft/block/properties/PropertyInteger;
+       4: invokeinterface #16,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+       9: checkcast     #17                 // class java/lang/Integer
+      12: invokevirtual #18                 // Method java/lang/Integer.intValue:()I
+      15: ireturn
+
+  public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState);
+    Code:
+       0: getstatic     #19                 // Field net/minecraft/util/EnumBlockRenderType.MODEL:Lnet/minecraft/util/EnumBlockRenderType;
+       3: areturn
+
+  public net.minecraft.util.BlockRenderLayer getRenderLayer();
+    Code:
+       0: getstatic     #20                 // Field net/minecraft/util/BlockRenderLayer.CUTOUT_MIPPED:Lnet/minecraft/util/BlockRenderLayer;
+       3: areturn
+
+  public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: checkcast     #21                 // class net/minecraftforge/common/property/IExtendedBlockState
+       4: getstatic     #22                 // Field com/hbm/blocks/MultipassContext.PROPERTY:Lnet/minecraftforge/common/property/IUnlistedProperty;
+       7: aload_0
+       8: aload_1
+       9: aload_2
+      10: aload_3
+      11: invokevirtual #23                 // Method getMultipassContext:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcom/hbm/blocks/MultipassContext;
+      14: invokeinterface #24,  3           // InterfaceMethod net/minecraftforge/common/property/IExtendedBlockState.withProperty:(Lnet/minecraftforge/common/property/IUnlistedProperty;Ljava/lang/Object;)Lnet/minecraftforge/common/property/IExtendedBlockState;
+      19: areturn
+
+  public com.hbm.blocks.generic.BlockOre(net.minecraft.block.material.Material);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #25                 // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       5: aload_0
+       6: new           #26                 // class java/util/HashSet
+       9: dup
+      10: invokespecial #27                 // Method java/util/HashSet."<init>":()V
+      13: putfield      #28                 // Field spawnsOn:Ljava/util/Set;
+      16: aload_0
+      17: iconst_1
+      18: putfield      #29                 // Field allowFortune:Z
+      21: return
+
+  public static void addValidBody(net.minecraft.block.Block, com.hbm.dim.SolarSystem$Body);
+    Code:
+       0: aload_0
+       1: instanceof    #30                 // class com/hbm/blocks/generic/BlockOre
+       4: ifne          8
+       7: return
+       8: aload_0
+       9: checkcast     #30                 // class com/hbm/blocks/generic/BlockOre
+      12: getfield      #28                 // Field spawnsOn:Ljava/util/Set;
+      15: aload_1
+      16: invokeinterface #31,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      21: pop
+      22: return
+
+  public static void addAllBodies(net.minecraft.block.Block);
+    Code:
+       0: invokestatic  #32                 // Method com/hbm/dim/SolarSystem$Body.values:()[Lcom/hbm/dim/SolarSystem$Body;
+       3: astore_1
+       4: aload_1
+       5: arraylength
+       6: istore_2
+       7: iconst_0
+       8: istore_3
+       9: iload_3
+      10: iload_2
+      11: if_icmpge     31
+      14: aload_1
+      15: iload_3
+      16: aaload
+      17: astore        4
+      19: aload_0
+      20: aload         4
+      22: invokestatic  #33                 // Method addValidBody:(Lnet/minecraft/block/Block;Lcom/hbm/dim/SolarSystem$Body;)V
+      25: iinc          3, 1
+      28: goto          9
+      31: return
+
+  public static void addAllExcept(net.minecraft.block.Block, com.hbm.dim.SolarSystem$Body);
+    Code:
+       0: invokestatic  #32                 // Method com/hbm/dim/SolarSystem$Body.values:()[Lcom/hbm/dim/SolarSystem$Body;
+       3: astore_2
+       4: aload_2
+       5: arraylength
+       6: istore_3
+       7: iconst_0
+       8: istore        4
+      10: iload         4
+      12: iload_3
+      13: if_icmpge     43
+      16: aload_2
+      17: iload         4
+      19: aaload
+      20: astore        5
+      22: aload         5
+      24: aload_1
+      25: if_acmpne     31
+      28: goto          37
+      31: aload_0
+      32: aload         5
+      34: invokestatic  #33                 // Method addValidBody:(Lnet/minecraft/block/Block;Lcom/hbm/dim/SolarSystem$Body;)V
+      37: iinc          4, 1
+      40: goto          10
+      43: return
+
+  public com.hbm.blocks.generic.BlockOre(net.minecraft.block.material.Material, net.minecraft.block.Block);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #34                 // Method "<init>":(Lnet/minecraft/block/material/Material;)V
+       5: getstatic     #35                 // Field vanillaMap:Ljava/util/Map;
+       8: aload_2
+       9: aload_0
+      10: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      15: pop
+      16: return
+
+  public net.minecraft.item.Item getItemDropped(int, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #37                 // Field com/hbm/blocks/ModBlocks.ore_fluorite:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #38                 // Field com/hbm/items/ModItems.fluorite:Lnet/minecraft/item/Item;
+      10: areturn
+      11: aload_0
+      12: getstatic     #39                 // Field com/hbm/blocks/ModBlocks.ore_niter:Lnet/minecraft/block/Block;
+      15: if_acmpne     22
+      18: getstatic     #40                 // Field com/hbm/items/ModItems.niter:Lnet/minecraft/item/Item;
+      21: areturn
+      22: aload_0
+      23: getstatic     #41                 // Field com/hbm/blocks/ModBlocks.ore_sulfur:Lnet/minecraft/block/Block;
+      26: if_acmpne     33
+      29: getstatic     #42                 // Field com/hbm/items/ModItems.sulfur:Lnet/minecraft/item/Item;
+      32: areturn
+      33: aload_0
+      34: getstatic     #43                 // Field com/hbm/blocks/ModBlocks.ore_glowstone:Lnet/minecraft/block/Block;
+      37: if_acmpne     44
+      40: getstatic     #44                 // Field net/minecraft/init/Items.GLOWSTONE_DUST:Lnet/minecraft/item/Item;
+      43: areturn
+      44: aload_0
+      45: getstatic     #45                 // Field com/hbm/blocks/ModBlocks.ore_fire:Lnet/minecraft/block/Block;
+      48: if_acmpne     74
+      51: aload_2
+      52: ifnull        70
+      55: aload_2
+      56: bipush        10
+      58: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      61: ifne          70
+      64: getstatic     #47                 // Field com/hbm/items/ModItems.ingot_phosphorus:Lnet/minecraft/item/Item;
+      67: goto          73
+      70: getstatic     #48                 // Field com/hbm/items/ModItems.powder_fire:Lnet/minecraft/item/Item;
+      73: areturn
+      74: aload_0
+      75: getstatic     #49                 // Field com/hbm/blocks/ModBlocks.ore_rare:Lnet/minecraft/block/Block;
+      78: if_acmpne     85
+      81: getstatic     #50                 // Field com/hbm/items/ModItems.chunk_ore:Lnet/minecraft/item/Item;
+      84: areturn
+      85: aload_0
+      86: getstatic     #51                 // Field com/hbm/blocks/ModBlocks.ore_asbestos:Lnet/minecraft/block/Block;
+      89: if_acmpne     96
+      92: getstatic     #52                 // Field com/hbm/items/ModItems.ingot_asbestos:Lnet/minecraft/item/Item;
+      95: areturn
+      96: aload_0
+      97: getstatic     #53                 // Field com/hbm/blocks/ModBlocks.ore_lignite:Lnet/minecraft/block/Block;
+     100: if_acmpne     107
+     103: getstatic     #54                 // Field com/hbm/items/ModItems.lignite:Lnet/minecraft/item/Item;
+     106: areturn
+     107: aload_0
+     108: getstatic     #55                 // Field com/hbm/blocks/ModBlocks.ore_cinnebar:Lnet/minecraft/block/Block;
+     111: if_acmpne     118
+     114: getstatic     #56                 // Field com/hbm/items/ModItems.cinnebar:Lnet/minecraft/item/Item;
+     117: areturn
+     118: aload_0
+     119: getstatic     #57                 // Field com/hbm/blocks/ModBlocks.ore_coltan:Lnet/minecraft/block/Block;
+     122: if_acmpne     129
+     125: getstatic     #58                 // Field com/hbm/items/ModItems.fragment_coltan:Lnet/minecraft/item/Item;
+     128: areturn
+     129: aload_0
+     130: getstatic     #59                 // Field com/hbm/blocks/ModBlocks.ore_cobalt:Lnet/minecraft/block/Block;
+     133: if_acmpne     140
+     136: getstatic     #60                 // Field com/hbm/items/ModItems.fragment_cobalt:Lnet/minecraft/item/Item;
+     139: areturn
+     140: aload_0
+     141: getstatic     #61                 // Field com/hbm/blocks/ModBlocks.ore_redstone:Lnet/minecraft/block/Block;
+     144: if_acmpne     151
+     147: getstatic     #62                 // Field net/minecraft/init/Items.REDSTONE:Lnet/minecraft/item/Item;
+     150: areturn
+     151: aload_0
+     152: getstatic     #63                 // Field com/hbm/blocks/ModBlocks.ore_lapis:Lnet/minecraft/block/Block;
+     155: if_acmpne     162
+     158: getstatic     #64                 // Field net/minecraft/init/Items.DYE:Lnet/minecraft/item/Item;
+     161: areturn
+     162: aload_0
+     163: getstatic     #65                 // Field com/hbm/blocks/ModBlocks.ore_emerald:Lnet/minecraft/block/Block;
+     166: if_acmpne     173
+     169: getstatic     #66                 // Field net/minecraft/init/Items.EMERALD:Lnet/minecraft/item/Item;
+     172: areturn
+     173: aload_0
+     174: getstatic     #67                 // Field com/hbm/blocks/ModBlocks.ore_quartz:Lnet/minecraft/block/Block;
+     177: if_acmpne     184
+     180: getstatic     #68                 // Field net/minecraft/init/Items.QUARTZ:Lnet/minecraft/item/Item;
+     183: areturn
+     184: aload_0
+     185: getstatic     #69                 // Field com/hbm/blocks/ModBlocks.ore_diamond:Lnet/minecraft/block/Block;
+     188: if_acmpne     195
+     191: getstatic     #70                 // Field net/minecraft/init/Items.DIAMOND:Lnet/minecraft/item/Item;
+     194: areturn
+     195: aload_0
+     196: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+     199: areturn
+
+  public int quantityDropped(java.util.Random);
+    Code:
+       0: aload_0
+       1: getstatic     #37                 // Field com/hbm/blocks/ModBlocks.ore_fluorite:Lnet/minecraft/block/Block;
+       4: if_acmpne     15
+       7: iconst_2
+       8: aload_1
+       9: iconst_3
+      10: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      13: iadd
+      14: ireturn
+      15: aload_0
+      16: getstatic     #39                 // Field com/hbm/blocks/ModBlocks.ore_niter:Lnet/minecraft/block/Block;
+      19: if_acmpne     30
+      22: iconst_2
+      23: aload_1
+      24: iconst_3
+      25: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      28: iadd
+      29: ireturn
+      30: aload_0
+      31: getstatic     #41                 // Field com/hbm/blocks/ModBlocks.ore_sulfur:Lnet/minecraft/block/Block;
+      34: if_acmpne     45
+      37: iconst_2
+      38: aload_1
+      39: iconst_3
+      40: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      43: iadd
+      44: ireturn
+      45: aload_0
+      46: getstatic     #43                 // Field com/hbm/blocks/ModBlocks.ore_glowstone:Lnet/minecraft/block/Block;
+      49: if_acmpne     60
+      52: iconst_1
+      53: aload_1
+      54: iconst_3
+      55: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      58: iadd
+      59: ireturn
+      60: aload_0
+      61: getstatic     #59                 // Field com/hbm/blocks/ModBlocks.ore_cobalt:Lnet/minecraft/block/Block;
+      64: if_acmpne     76
+      67: iconst_4
+      68: aload_1
+      69: bipush        6
+      71: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      74: iadd
+      75: ireturn
+      76: aload_0
+      77: getstatic     #61                 // Field com/hbm/blocks/ModBlocks.ore_redstone:Lnet/minecraft/block/Block;
+      80: if_acmpne     91
+      83: iconst_4
+      84: aload_1
+      85: iconst_2
+      86: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      89: iadd
+      90: ireturn
+      91: aload_0
+      92: getstatic     #63                 // Field com/hbm/blocks/ModBlocks.ore_lapis:Lnet/minecraft/block/Block;
+      95: if_acmpne     106
+      98: iconst_4
+      99: aload_1
+     100: iconst_5
+     101: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+     104: iadd
+     105: ireturn
+     106: iconst_1
+     107: ireturn
+
+  public com.hbm.blocks.generic.BlockOre noFortune();
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: putfield      #29                 // Field allowFortune:Z
+       5: aload_0
+       6: areturn
+
+  public int quantityDroppedWithBonus(int, java.util.Random);
+    Code:
+       0: iload_1
+       1: ifle          51
+       4: aload_0
+       5: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       8: aload_0
+       9: iconst_0
+      10: aload_2
+      11: iload_1
+      12: invokevirtual #2                  // Method getItemDropped:(ILjava/util/Random;I)Lnet/minecraft/item/Item;
+      15: if_acmpeq     51
+      18: aload_0
+      19: getfield      #29                 // Field allowFortune:Z
+      22: ifeq          51
+      25: aload_2
+      26: iload_1
+      27: iconst_2
+      28: iadd
+      29: invokevirtual #46                 // Method java/util/Random.nextInt:(I)I
+      32: iconst_1
+      33: isub
+      34: istore_3
+      35: iload_3
+      36: ifge          41
+      39: iconst_0
+      40: istore_3
+      41: aload_0
+      42: aload_2
+      43: invokevirtual #71                 // Method quantityDropped:(Ljava/util/Random;)I
+      46: iload_3
+      47: iconst_1
+      48: iadd
+      49: imul
+      50: ireturn
+      51: aload_0
+      52: aload_2
+      53: invokevirtual #71                 // Method quantityDropped:(Ljava/util/Random;)I
+      56: ireturn
+
+  public int damageDropped(int);
+    Code:
+       0: aload_0
+       1: getstatic     #49                 // Field com/hbm/blocks/ModBlocks.ore_rare:Lnet/minecraft/block/Block;
+       4: if_acmpne     14
+       7: getstatic     #72                 // Field com/hbm/items/ItemEnums$EnumChunkType.RARE:Lcom/hbm/items/ItemEnums$EnumChunkType;
+      10: invokevirtual #73                 // Method com/hbm/items/ItemEnums$EnumChunkType.ordinal:()I
+      13: ireturn
+      14: aload_0
+      15: getstatic     #63                 // Field com/hbm/blocks/ModBlocks.ore_lapis:Lnet/minecraft/block/Block;
+      18: if_acmpne     23
+      21: iconst_4
+      22: ireturn
+      23: aload_0
+      24: iconst_0
+      25: aconst_null
+      26: iconst_0
+      27: invokevirtual #2                  // Method getItemDropped:(ILjava/util/Random;I)Lnet/minecraft/item/Item;
+      30: aload_0
+      31: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      34: if_acmpeq     39
+      37: iconst_0
+      38: ireturn
+      39: aload_0
+      40: iload_1
+      41: invokevirtual #74                 // Method rectify:(I)I
+      44: ireturn
+
+  public void getSubBlocks(net.minecraft.item.Item, net.minecraft.creativetab.CreativeTabs, java.util.List);
+    Code:
+       0: iconst_0
+       1: istore        4
+       3: iload         4
+       5: aload_0
+       6: invokevirtual #75                 // Method getSubCount:()I
+       9: if_icmpge     36
+      12: aload_3
+      13: new           #76                 // class net/minecraft/item/ItemStack
+      16: dup
+      17: aload_1
+      18: iconst_1
+      19: iload         4
+      21: invokespecial #77                 // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;II)V
+      24: invokeinterface #78,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      29: pop
+      30: iinc          4, 1
+      33: goto          3
+      36: return
+
+  public void addInformation(net.minecraft.item.ItemStack, net.minecraft.entity.player.EntityPlayer, java.util.List, boolean);
+    Code:
+       0: getstatic     #79                 // Field com/hbm/config/SpaceConfig.showOreLocations:Z
+       3: ifne          7
+       6: return
+       7: aload_0
+       8: getfield      #28                 // Field spawnsOn:Ljava/util/Set;
+      11: invokeinterface #80,  1           // InterfaceMethod java/util/Set.isEmpty:()Z
+      16: ifeq          20
+      19: return
+      20: aload_0
+      21: getfield      #28                 // Field spawnsOn:Ljava/util/Set;
+      24: invokeinterface #81,  1           // InterfaceMethod java/util/Set.size:()I
+      29: invokestatic  #32                 // Method com/hbm/dim/SolarSystem$Body.values:()[Lcom/hbm/dim/SolarSystem$Body;
+      32: arraylength
+      33: if_icmpne     65
+      36: aload_3
+      37: new           #82                 // class java/lang/StringBuilder
+      40: dup
+      41: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+      44: getstatic     #84                 // Field net/minecraft/util/text/TextFormatting.GOLD:Lnet/minecraft/util/text/TextFormatting;
+      47: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      50: ldc           #86                 // String Can be found anywhere
+      52: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      55: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      58: invokeinterface #78,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      63: pop
+      64: return
+      65: aload_0
+      66: getfield      #28                 // Field spawnsOn:Ljava/util/Set;
+      69: invokeinterface #81,  1           // InterfaceMethod java/util/Set.size:()I
+      74: invokestatic  #32                 // Method com/hbm/dim/SolarSystem$Body.values:()[Lcom/hbm/dim/SolarSystem$Body;
+      77: arraylength
+      78: iconst_1
+      79: isub
+      80: if_icmpne     223
+      83: aload_3
+      84: new           #82                 // class java/lang/StringBuilder
+      87: dup
+      88: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+      91: getstatic     #84                 // Field net/minecraft/util/text/TextFormatting.GOLD:Lnet/minecraft/util/text/TextFormatting;
+      94: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      97: ldc           #89                 // String Can be found anywhere except:
+      99: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     102: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     105: invokeinterface #78,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     110: pop
+     111: invokestatic  #32                 // Method com/hbm/dim/SolarSystem$Body.values:()[Lcom/hbm/dim/SolarSystem$Body;
+     114: astore        5
+     116: aload         5
+     118: arraylength
+     119: istore        6
+     121: iconst_0
+     122: istore        7
+     124: iload         7
+     126: iload         6
+     128: if_icmpge     222
+     131: aload         5
+     133: iload         7
+     135: aaload
+     136: astore        8
+     138: aload_0
+     139: getfield      #28                 // Field spawnsOn:Ljava/util/Set;
+     142: aload         8
+     144: invokeinterface #90,  2           // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     149: ifeq          155
+     152: goto          216
+     155: aload_3
+     156: new           #82                 // class java/lang/StringBuilder
+     159: dup
+     160: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+     163: getstatic     #91                 // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+     166: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     169: ldc           #92                 // String  -
+     171: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     174: new           #82                 // class java/lang/StringBuilder
+     177: dup
+     178: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+     181: ldc           #93                 // String body.
+     183: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     186: aload         8
+     188: getfield      #94                 // Field com/hbm/dim/SolarSystem$Body.name:Ljava/lang/String;
+     191: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     194: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     197: iconst_0
+     198: anewarray     #95                 // class java/lang/Object
+     201: invokestatic  #96                 // Method com/hbm/util/i18n/I18nUtil.resolveKey:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     204: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     207: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     210: invokeinterface #78,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     215: pop
+     216: iinc          7, 1
+     219: goto          124
+     222: return
+     223: aload_3
+     224: new           #82                 // class java/lang/StringBuilder
+     227: dup
+     228: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+     231: getstatic     #84                 // Field net/minecraft/util/text/TextFormatting.GOLD:Lnet/minecraft/util/text/TextFormatting;
+     234: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     237: ldc           #97                 // String Can be found on:
+     239: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     242: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     245: invokeinterface #78,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     250: pop
+     251: aload_0
+     252: getfield      #28                 // Field spawnsOn:Ljava/util/Set;
+     255: invokeinterface #98,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     260: astore        5
+     262: aload         5
+     264: invokeinterface #99,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     269: ifeq          348
+     272: aload         5
+     274: invokeinterface #100,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     279: checkcast     #101                // class com/hbm/dim/SolarSystem$Body
+     282: astore        6
+     284: aload_3
+     285: new           #82                 // class java/lang/StringBuilder
+     288: dup
+     289: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+     292: getstatic     #102                // Field net/minecraft/util/text/TextFormatting.AQUA:Lnet/minecraft/util/text/TextFormatting;
+     295: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     298: ldc           #92                 // String  -
+     300: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     303: new           #82                 // class java/lang/StringBuilder
+     306: dup
+     307: invokespecial #83                 // Method java/lang/StringBuilder."<init>":()V
+     310: ldc           #93                 // String body.
+     312: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     315: aload         6
+     317: getfield      #94                 // Field com/hbm/dim/SolarSystem$Body.name:Ljava/lang/String;
+     320: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     323: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     326: iconst_0
+     327: anewarray     #95                 // class java/lang/Object
+     330: invokestatic  #96                 // Method com/hbm/util/i18n/I18nUtil.resolveKey:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     333: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     336: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     339: invokeinterface #78,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     344: pop
+     345: goto          262
+     348: return
+
+  public net.minecraft.item.EnumRarity getRarity(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getstatic     #103                // Field com/hbm/blocks/ModBlocks.ore_australium:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #104                // Field net/minecraft/item/EnumRarity.UNCOMMON:Lnet/minecraft/item/EnumRarity;
+      10: areturn
+      11: aload_0
+      12: getstatic     #49                 // Field com/hbm/blocks/ModBlocks.ore_rare:Lnet/minecraft/block/Block;
+      15: if_acmpne     22
+      18: getstatic     #104                // Field net/minecraft/item/EnumRarity.UNCOMMON:Lnet/minecraft/item/EnumRarity;
+      21: areturn
+      22: getstatic     #105                // Field net/minecraft/item/EnumRarity.COMMON:Lnet/minecraft/item/EnumRarity;
+      25: areturn
+
+  public void onBlockPlacedBy(net.minecraft.world.World, int, int, int, net.minecraft.entity.EntityLivingBase, net.minecraft.item.ItemStack);
+    Code:
+       0: aload         6
+       2: invokevirtual #106                // Method net/minecraft/item/ItemStack.getItemDamage:()I
+       5: istore        7
+       7: aload_1
+       8: ifnonnull     19
+      11: new           #107                // class java/lang/NullPointerException
+      14: dup
+      15: invokespecial #108                // Method java/lang/NullPointerException."<init>":()V
+      18: athrow
+      19: iload_2
+      20: ldc           #109                // int -30000000
+      22: if_icmplt     175
+      25: iload_2
+      26: ldc           #110                // int 30000000
+      28: if_icmpge     175
+      31: iload         4
+      33: ldc           #109                // int -30000000
+      35: if_icmplt     175
+      38: iload         4
+      40: ldc           #110                // int 30000000
+      42: if_icmpge     175
+      45: iload_3
+      46: iflt          175
+      49: iload_3
+      50: sipush        256
+      53: if_icmpge     175
+      56: new           #111                // class net/minecraft/util/math/BlockPos
+      59: dup
+      60: iload_2
+      61: iload_3
+      62: iload         4
+      64: invokespecial #112                // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      67: astore        8
+      69: aload_1
+      70: aload         8
+      72: invokevirtual #113                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      75: astore        9
+      77: aload         9
+      79: invokeinterface #114,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      84: iload         7
+      86: invokevirtual #115                // Method net/minecraft/block/Block.getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+      89: astore        10
+      91: aload         10
+      93: aload         9
+      95: if_acmpne     165
+      98: aload         9
+     100: invokeinterface #114,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     105: aload         9
+     107: invokevirtual #116                // Method net/minecraft/block/Block.getMetaFromState:(Lnet/minecraft/block/state/IBlockState;)I
+     110: iload         7
+     112: if_icmpeq     165
+     115: aload_1
+     116: aload         8
+     118: invokevirtual #117                // Method net/minecraft/world/World.getChunk:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/world/chunk/Chunk;
+     121: astore        11
+     123: aload         11
+     125: invokevirtual #118                // Method net/minecraft/world/chunk/Chunk.getBlockStorageArray:()[Lnet/minecraft/world/chunk/storage/ExtendedBlockStorage;
+     128: iload_3
+     129: iconst_4
+     130: ishr
+     131: aaload
+     132: getstatic     #119                // Field net/minecraft/world/chunk/Chunk.NULL_BLOCK_STORAGE:Lnet/minecraft/world/chunk/storage/ExtendedBlockStorage;
+     135: if_acmpeq     162
+     138: aload         11
+     140: invokevirtual #120                // Method net/minecraft/world/chunk/Chunk.markDirty:()V
+     143: aload         11
+     145: invokevirtual #121                // Method net/minecraft/world/chunk/Chunk.isPopulated:()Z
+     148: ifeq          162
+     151: aload_1
+     152: aload         8
+     154: aload         9
+     156: aload         10
+     158: iconst_2
+     159: invokevirtual #122                // Method net/minecraft/world/World.notifyBlockUpdate:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;I)V
+     162: goto          175
+     165: aload_1
+     166: aload         8
+     168: aload         10
+     170: iconst_2
+     171: invokevirtual #123                // Method net/minecraft/world/World.setBlockState:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z
+     174: pop
+     175: return
+
+  public int getPasses();
+    Code:
+       0: iconst_2
+       1: ireturn
+
+  public boolean shouldRenderItemMulti();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public int getSubCount();
+    Code:
+       0: invokestatic  #32                 // Method com/hbm/dim/SolarSystem$Body.values:()[Lcom/hbm/dim/SolarSystem$Body;
+       3: arraylength
+       4: ireturn
+
+  static {};
+    Code:
+       0: new           #124                // class java/util/HashMap
+       3: dup
+       4: invokespecial #125                // Method java/util/HashMap."<init>":()V
+       7: putstatic     #35                 // Field vanillaMap:Ljava/util/Map;
+      10: return
+}

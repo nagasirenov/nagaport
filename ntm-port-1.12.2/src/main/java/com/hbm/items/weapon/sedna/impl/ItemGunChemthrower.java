@@ -91,9 +91,9 @@ public class ItemGunChemthrower extends ItemGunBaseNT implements IFillableItem {
 		double heightOffset = offset.y;
 		double sideOffset = offset.z;
 
-		EntityChemical chem = new EntityChemical(entity.worldObj, entity, sideOffset, heightOffset, forwardOffset);
+		EntityChemical chem = new EntityChemical(entity.world, entity, sideOffset, heightOffset, forwardOffset);
 		chem.setFluid((FluidType) mag.getType(stack, ctx.inventory));
-		entity.worldObj.spawnEntityInWorld(chem);
+		entity.world.spawnEntityInWorld(chem);
 
 		mag.useUpAmmo(stack, ctx.inventory, CONSUMPTION);
 		ItemGunBaseNT.setWear(stack, index, Math.min(ItemGunBaseNT.getWear(stack, index) + 1F, ctx.config.getDurability(stack)));

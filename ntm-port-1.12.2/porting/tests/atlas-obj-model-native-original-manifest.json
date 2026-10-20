@@ -1,0 +1,758 @@
+{
+  "sha256": {
+    "src/main/java/com/hbm/render/block/RenderPipe.java": "5aa006b77b7b9948fb0502f88bf681da6d290e907d0c7bbebbebadd90d9de685",
+    "src/main/java/com/hbm/render/block/RenderCapacitor.java": "50600c9ca5972b4afaadaa3551ada7b414337131f9c28023b55e0a4a22efceaa",
+    "src/main/java/com/hbm/render/block/RenderBarrel.java": "d2f9019872b198ad8589f19e9bd296a1c487e84d619ddbff072df87b2f3e2009",
+    "src/main/java/com/hbm/render/block/RenderBattery.java": "2bdfbdb197df5b7a7f2f6f9868caba00059a745f42e6de8f1586d232a981838e",
+    "src/main/java/com/hbm/render/block/RenderAntennaTop.java": "e0d7b15672f869e9bd70a88f93a5f0d626dd69872915e32ad6526f8957a6e06c",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/main/ResourceManager.java": "dd86786c08d235f29318f1775afc5d8b34d17829307f93ea13114875596ba0d9",
+    "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java": "116cb7f065429618dfe713973de000b519cea7198c064525fd49f044dffbd2c4",
+    "src/main/java/com/hbm/blocks/generic/BlockPipe.java": "1e9c1785bd649cc0b697279eadc030e9e5523d7aba638ac05a3d9c5841097b83",
+    "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java": "4786f0d79b35f68b2cc91e71e98044d19902e1331e5a150d013b02a710b74fda",
+    "src/main/java/com/hbm/render/loader/S_Face.java": "8c486959d24a0306f974860ec212c246a44dbbc680d33d69a3eedbf2d761f7a9",
+    "src/main/java/com/hbm/blocks/generic/BrownBarrel.java": "acf9aa43ab3489c088300022773e3d5e3dc9f188e1a3bb2aaf2cfcc274c7d392",
+    "src/main/java/com/hbm/blocks/generic/YellowBarrel.java": "775c7c105f03c5af159ffe67914e22ff80fa1a35e91e64a3a6d838a08f76d7d4",
+    "src/main/java/com/hbm/blocks/generic/RedBarrel.java": "d4a1ecc7061aa5c921e6fc2b1a84ead032a237e70322032c309937fab5727f73",
+    "src/main/resources/assets/hbm/models/blocks/antenna_top.obj": "f4609ed615516540da09fff5c318cb92e88191c6e8beecbdea932cc44ab69a9b",
+    "src/main/resources/assets/hbm/models/blocks/barrel.obj": "4c0ef9ba3ddc4e1e733151c25739b5292c1ddd1f97f443e2895c5126cb10c59d",
+    "src/main/resources/assets/hbm/models/blocks/battery.obj": "d61ae1d2583632cee1f6858082e3254b69b82493e2dd793e6031aff4471cfa80",
+    "src/main/resources/assets/hbm/models/blocks/capacitor.obj": "d444475a8466d453c855d91a829896833b447fad96e8ecfdab291703f8829348",
+    "src/main/resources/assets/hbm/models/blocks/pipe.obj": "167c4d2bb0f5ff293b3d31be9a50d5f5bbb5643b67a49457d2b6132afcc08585",
+    "src/main/resources/assets/hbm/models/blocks/pipe_frame.obj": "b55a354a12be4989f535b63b7ed45590bdaed0cfac1f914d68d2a7743a32ea92",
+    "src/main/resources/assets/hbm/models/blocks/pipe_quad.obj": "64c6b62a789258cbb078c2c5971741bb3d9e57fea3a41eff8730de7e2ce1338c",
+    "src/main/resources/assets/hbm/models/blocks/pipe_rim.obj": "13a63e7a88558e8c6d15c7c23f95b9e28f821a83d2ae6179f7f203e1708d0a53",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_antimatter.png": "6ac9777e1bac69eb63e9db6dc074435e0509eaf3c3171b2e98b2e90494c59c82",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_corroded.png": "a6fd79419684d76df559866d28915569b14879c90aa2cfd089a876efebd04ce1",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_iron.png": "9b2c197e440be51493389c27de9eb4e8be8f910f0ed86f2eaa1d6e07b93314be",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_lox.png": "0e17a9635c9314e86eec13e782ed61a5a9b9a03cab00649414cde25968926287",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_oily.png": "86375fd9d5452b712a6859d72b332b8a0c62d958442d5b693a81af5edd59ad3f",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_pink.png": "90b6246353372063768cdc8385549e2c2bfe79e47cf31ef658836fc5dd4b5da1",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_plastic.png": "78e9a6209fafc1062ede03a036e04febbe86bba89e0f51f8b8714c0d6afaa0c1",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_red.png": "b84991190b6718c451b4857abc6ee60578eb10832665ea5a9f34f2682c52981d",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_steel.png": "d771cd2ac80e23fd912f4e39b84a6d4f3b3a1b2edcdb9f76bd41ed57318b8840",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_taint.png": "e1a7c7a5f388b3b411abea17d1bbc8a795a073d2f54a2f70457789f6036ade06",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_tcalloy.png": "e720afcf455bb2a95b549a4f91f4662f0c9f58ee0d19588bc2adc314adc3c446",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_vitrified.png": "57706e5fe09028bf08bf249ec674708aed44f1b21ef9355d23c62c1d9d35148f",
+    "src/main/resources/assets/hbm/textures/blocks/barrel_yellow.png": "a17190a58e2d3c9e28566c56e6d3a52446bdea23ddcbd634f23084a4ee2b04cb",
+    "src/main/resources/assets/hbm/textures/blocks/block_cadmium.png": "8980e491a76d6d888544183fe69026db7bcdf2b53ab9e64df66d010900597e38",
+    "src/main/resources/assets/hbm/textures/blocks/block_copper.png": "555fb19b8e1cd1deb23bed453b97382c82f81f11d48aefc28821a6f5afec1d1f",
+    "src/main/resources/assets/hbm/textures/blocks/block_niobium.png": "0e6a149c7f3f172091401213fb874578bfae89f3880956a3a402c2fae85112c7",
+    "src/main/resources/assets/hbm/textures/blocks/block_schrabidate.png": "83ca922c2f5980d43c4ed52ab1804c347d4bd0fa9cc0451710a298908b2e5de2",
+    "src/main/resources/assets/hbm/textures/blocks/block_tantalium.png": "bbbe5d2977e3ed1973a86b3af516f5f14a503f4339778f27be9e4fb138426d28",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_complex_bottom.png": "2191e5886f7d0048376d35e415f4e2c6f5d8d8840376712bfdce07938941f626",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_complex_inner_side.png": "bac1e1f97d242693c76183f5031efd398438f30a39a29a16346cd64b5a6192b3",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_complex_inner_top.png": "87db2750f7a8555a342eb3f93e26ac4f574d69bf8e82bcdf0bfcf3bc721f7a49",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_complex_side.png": "76178bcee3a959d8b4bbc7107144eec7fcd4f5f2770ee66fb90285bc13222c64",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_complex_top.png": "6aeca0f062f317a2307e4a814f83d819ca36debee462cc8afbe91e18c3d50d91",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_copper_bottom.png": "932395e31cf3ea4c9f49e16cdfa1fcadf3c5cac6b43123c9ddf07e574359ee82",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_copper_inner_side.png": "135d17e6171df4a028683292186c86583709ae571e6aedd397fa74361d144e91",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_copper_inner_top.png": "6645cb49cdb2431d92dffe10320f3ac7122b6f78f503c8d50781db8b845dccc6",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_copper_side.png": "9c62add6f21fe8e0cbc5373454a37d908f6fd889664e71d88d404d21a038264c",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_copper_top.png": "05fe9dac46cfcdbb88fcc1f675da9a1be7edaa40929c42c48a7c4adc6d7f9733",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_gold_bottom.png": "09d5c9503afa2d26d8cc6af68b48411377b758b451a305258d2321e9d086a39f",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_gold_inner_side.png": "4c9fc60c3a6ee4bca98b2884eea2d2ac9e76cd8fecb6eff4877e299b2ee92d9b",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_gold_inner_top.png": "fea7b1916fa2121aae7205bd2ff26d858c42334d930fe85bdf2d77e1e583e964",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_gold_side.png": "e0c022d7c06fafed8d1af1fefdc418df63dca8736f4f19cad2e5204c0ea607cd",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_gold_top.png": "1335c03924fb0c50b657131b85859592054aaa403948c0cc9f7acbe62030d951",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_niobium_bottom.png": "2990c0846ed4f1d9db66fdc98368b274a176c4f59c178a8bde3593e60b7b41b9",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_niobium_inner_side.png": "f1199f6cd7f76c0cec33590ece3a24e3127331408e6280f17474f3e60abd1f35",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_niobium_inner_top.png": "b70832185007f7cadd8ee8d9a4fb3c10f6e68be691bfd5f5f61c038949e7bd14",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_niobium_side.png": "9e87e838c79418559a423a686dc4156c020d3d68ce89487f510330d8e8b2c4d3",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_niobium_top.png": "7ace738a827beb8f74b6ff0e4308d2cf3a98a9cd75f834921a077174b1db982b",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_schrabidate_bottom.png": "8941c883440b8a31188afcbcb27f336681d5e53a96ac1cf831d199db56edceed",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_schrabidate_inner_side.png": "b62230c510558044ccc29727cbe0f464d02e3d8a425bdedddc88e27bce958155",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_schrabidate_inner_top.png": "0c098957a5dfabb7a1ddadf2d72af5bdfc3a8041fcbf1e46fab336db952ae9e6",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_schrabidate_side.png": "54933f4426cf34a0d6c22ad518ce432a7cb91310ca1860f6766a35979ed4fd5d",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_schrabidate_top.png": "4825a84cc7b0906a9030c27c4989c6eb598cfba4dec4b1309b4822d04c1c06b7",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_tantalium_bottom.png": "545643b230e7bd611e294fcc2b13922bc22041daa5eff17e8a03064ed0fcd565",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_tantalium_inner_side.png": "a056f023a53a0736e95f3b3df55776d2a74b7838cd80cf1544efd7655f94b731",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_tantalium_inner_top.png": "f2c1bdfab5055c962cb35cc5abb308530e840f35156baaf424676c16b6ebd25e",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_tantalium_side.png": "8a85007c5ed86097439f6a5f51b5c472360a4a932ee146767fc5beff3777d6fd",
+    "src/main/resources/assets/hbm/textures/blocks/capacitor_tantalium_top.png": "0fd547d304c8d4cd866da4ec1bed8e1a69fa2eb9fdfe219b31c20d1a5fd4ecd6",
+    "src/main/resources/assets/hbm/textures/blocks/deco_pole_top.png": "5ca7296263ebd4d158f8b9dd79ac58384098fb9868192bd251fd7d3242ab910a",
+    "src/main/resources/assets/hbm/textures/blocks/hev_battery.png": "3cfa85006505ad6fa069232e243b1267ca7e29875540bd3a77405b8d88e5dad4",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_frame.png": "9132499d458a74852a59cae25c5c69b16fa4433f87323a617aae59c4defdee61",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_mesh.png": "82e90a66d5cff0a8f6016144dce47eb72df9eae0295aeaf5b360dff216575285",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_side.png": "4d6f9076f15e4bfc0e64630db0a27241d686d91a522916907d27e13ab10ff9b4",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_side_green.png": "daecf9ff313ec3611fc0dbe8df0c3754a6d746c453648d0cd5d9ef968989d698",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_side_green_rusty.png": "9c012105e4440c79757f87d420beff28a4295bf5cbb924f655f1b23ee036513b",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_side_marked.png": "e50e3f09a86a162c5c5a8dc5f1102b80f6cdc91d3e767f347760b23521c03f3a",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_side_red.png": "13855e5301ba2ba83a803ed329cd7255104fa4c0e8cd9f1617466b745a36346c",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_side_rusty.png": "d7d1bf0fc7825b403e95703238ecd877434a54a2dc0d16fc6d0d388a84818165",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_top.png": "305e14e594dfe083147f44b30fbbdbf50468b833f5fffa47d7443685d3157f6f",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_top_green.png": "1531c084f913c4be00715f510b5bd46d4ead0d11753b764dc6fd25ea9f19c2c4",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_top_green_rusty.png": "6a7568c620c7325819501f5fd59b5fa94120a768e14bd93cf16e67df9af6fc11",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_top_marked.png": "2c3eef67aa3b0d43c454d45f720afc66974c56e529d9a7a44442192663260a37",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_top_red.png": "b4dd060708b9f03e30a841a072261168f74705ab1fe449ba953290b65f481d64",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_top_rusty.png": "406e5e3ed9c21875a5889930ecc52b195fd9d0947eec0b36d3b31d06b2523b39"
+  },
+  "assets": [
+    "models/blocks/antenna_top.obj",
+    "models/blocks/barrel.obj",
+    "models/blocks/battery.obj",
+    "models/blocks/capacitor.obj",
+    "models/blocks/pipe.obj",
+    "models/blocks/pipe_frame.obj",
+    "models/blocks/pipe_quad.obj",
+    "models/blocks/pipe_rim.obj",
+    "textures/blocks/barrel_antimatter.png",
+    "textures/blocks/barrel_corroded.png",
+    "textures/blocks/barrel_iron.png",
+    "textures/blocks/barrel_lox.png",
+    "textures/blocks/barrel_oily.png",
+    "textures/blocks/barrel_pink.png",
+    "textures/blocks/barrel_plastic.png",
+    "textures/blocks/barrel_red.png",
+    "textures/blocks/barrel_steel.png",
+    "textures/blocks/barrel_taint.png",
+    "textures/blocks/barrel_tcalloy.png",
+    "textures/blocks/barrel_vitrified.png",
+    "textures/blocks/barrel_yellow.png",
+    "textures/blocks/block_cadmium.png",
+    "textures/blocks/block_copper.png",
+    "textures/blocks/block_niobium.png",
+    "textures/blocks/block_schrabidate.png",
+    "textures/blocks/block_tantalium.png",
+    "textures/blocks/capacitor_complex_bottom.png",
+    "textures/blocks/capacitor_complex_inner_side.png",
+    "textures/blocks/capacitor_complex_inner_top.png",
+    "textures/blocks/capacitor_complex_side.png",
+    "textures/blocks/capacitor_complex_top.png",
+    "textures/blocks/capacitor_copper_bottom.png",
+    "textures/blocks/capacitor_copper_inner_side.png",
+    "textures/blocks/capacitor_copper_inner_top.png",
+    "textures/blocks/capacitor_copper_side.png",
+    "textures/blocks/capacitor_copper_top.png",
+    "textures/blocks/capacitor_gold_bottom.png",
+    "textures/blocks/capacitor_gold_inner_side.png",
+    "textures/blocks/capacitor_gold_inner_top.png",
+    "textures/blocks/capacitor_gold_side.png",
+    "textures/blocks/capacitor_gold_top.png",
+    "textures/blocks/capacitor_niobium_bottom.png",
+    "textures/blocks/capacitor_niobium_inner_side.png",
+    "textures/blocks/capacitor_niobium_inner_top.png",
+    "textures/blocks/capacitor_niobium_side.png",
+    "textures/blocks/capacitor_niobium_top.png",
+    "textures/blocks/capacitor_schrabidate_bottom.png",
+    "textures/blocks/capacitor_schrabidate_inner_side.png",
+    "textures/blocks/capacitor_schrabidate_inner_top.png",
+    "textures/blocks/capacitor_schrabidate_side.png",
+    "textures/blocks/capacitor_schrabidate_top.png",
+    "textures/blocks/capacitor_tantalium_bottom.png",
+    "textures/blocks/capacitor_tantalium_inner_side.png",
+    "textures/blocks/capacitor_tantalium_inner_top.png",
+    "textures/blocks/capacitor_tantalium_side.png",
+    "textures/blocks/capacitor_tantalium_top.png",
+    "textures/blocks/deco_pole_top.png",
+    "textures/blocks/hev_battery.png",
+    "textures/blocks/pipe_frame.png",
+    "textures/blocks/pipe_mesh.png",
+    "textures/blocks/pipe_side.png",
+    "textures/blocks/pipe_side_green.png",
+    "textures/blocks/pipe_side_green_rusty.png",
+    "textures/blocks/pipe_side_marked.png",
+    "textures/blocks/pipe_side_red.png",
+    "textures/blocks/pipe_side_rusty.png",
+    "textures/blocks/pipe_top.png",
+    "textures/blocks/pipe_top_green.png",
+    "textures/blocks/pipe_top_green_rusty.png",
+    "textures/blocks/pipe_top_marked.png",
+    "textures/blocks/pipe_top_red.png",
+    "textures/blocks/pipe_top_rusty.png"
+  ],
+  "owners": [
+    {
+      "name": "tile.pole_top",
+      "owner": "DecoPoleTop",
+      "shape": 0,
+      "asset": "antenna_top",
+      "material": "",
+      "particle": "hbm:deco_pole_top",
+      "textures": [
+        "hbm:deco_pole_top"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe",
+      "owner": "BlockPipe",
+      "shape": 0,
+      "asset": "pipe",
+      "material": "",
+      "particle": "hbm:pipe_top",
+      "textures": [
+        "hbm:pipe_top",
+        "hbm:pipe_side",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rusted",
+      "owner": "BlockPipe",
+      "shape": 0,
+      "asset": "pipe",
+      "material": "",
+      "particle": "hbm:pipe_top_rusty",
+      "textures": [
+        "hbm:pipe_top_rusty",
+        "hbm:pipe_side_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_green",
+      "owner": "BlockPipe",
+      "shape": 0,
+      "asset": "pipe",
+      "material": "",
+      "particle": "hbm:pipe_top_green",
+      "textures": [
+        "hbm:pipe_top_green",
+        "hbm:pipe_side_green",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_green_rusted",
+      "owner": "BlockPipe",
+      "shape": 0,
+      "asset": "pipe",
+      "material": "",
+      "particle": "hbm:pipe_top_green_rusty",
+      "textures": [
+        "hbm:pipe_top_green_rusty",
+        "hbm:pipe_side_green_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_red",
+      "owner": "BlockPipe",
+      "shape": 0,
+      "asset": "pipe",
+      "material": "",
+      "particle": "hbm:pipe_top_red",
+      "textures": [
+        "hbm:pipe_top_red",
+        "hbm:pipe_side_red",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_marked",
+      "owner": "BlockPipe",
+      "shape": 0,
+      "asset": "pipe",
+      "material": "",
+      "particle": "hbm:pipe_top_marked",
+      "textures": [
+        "hbm:pipe_top_marked",
+        "hbm:pipe_side_marked",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rim",
+      "owner": "BlockPipe",
+      "shape": 1,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top",
+      "textures": [
+        "hbm:pipe_top",
+        "hbm:pipe_side",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rim_rusted",
+      "owner": "BlockPipe",
+      "shape": 1,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_rusty",
+      "textures": [
+        "hbm:pipe_top_rusty",
+        "hbm:pipe_side_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rim_green",
+      "owner": "BlockPipe",
+      "shape": 1,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_green",
+      "textures": [
+        "hbm:pipe_top_green",
+        "hbm:pipe_side_green",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rim_green_rusted",
+      "owner": "BlockPipe",
+      "shape": 1,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_green_rusty",
+      "textures": [
+        "hbm:pipe_top_green_rusty",
+        "hbm:pipe_side_green_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rim_red",
+      "owner": "BlockPipe",
+      "shape": 1,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_red",
+      "textures": [
+        "hbm:pipe_top_red",
+        "hbm:pipe_side_red",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_rim_marked",
+      "owner": "BlockPipe",
+      "shape": 1,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_marked",
+      "textures": [
+        "hbm:pipe_top_marked",
+        "hbm:pipe_side_marked",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_framed",
+      "owner": "BlockPipe",
+      "shape": 3,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top",
+      "textures": [
+        "hbm:pipe_top",
+        "hbm:pipe_side",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_framed_rusted",
+      "owner": "BlockPipe",
+      "shape": 3,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_rusty",
+      "textures": [
+        "hbm:pipe_top_rusty",
+        "hbm:pipe_side_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_framed_green",
+      "owner": "BlockPipe",
+      "shape": 3,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_green",
+      "textures": [
+        "hbm:pipe_top_green",
+        "hbm:pipe_side_green",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_framed_green_rusted",
+      "owner": "BlockPipe",
+      "shape": 3,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_green_rusty",
+      "textures": [
+        "hbm:pipe_top_green_rusty",
+        "hbm:pipe_side_green_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_framed_red",
+      "owner": "BlockPipe",
+      "shape": 3,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_red",
+      "textures": [
+        "hbm:pipe_top_red",
+        "hbm:pipe_side_red",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_framed_marked",
+      "owner": "BlockPipe",
+      "shape": 3,
+      "asset": "pipe_rim",
+      "material": "",
+      "particle": "hbm:pipe_top_marked",
+      "textures": [
+        "hbm:pipe_top_marked",
+        "hbm:pipe_side_marked",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_quad",
+      "owner": "BlockPipe",
+      "shape": 2,
+      "asset": "pipe_quad",
+      "material": "",
+      "particle": "hbm:pipe_top",
+      "textures": [
+        "hbm:pipe_top",
+        "hbm:pipe_side",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_quad_rusted",
+      "owner": "BlockPipe",
+      "shape": 2,
+      "asset": "pipe_quad",
+      "material": "",
+      "particle": "hbm:pipe_top_rusty",
+      "textures": [
+        "hbm:pipe_top_rusty",
+        "hbm:pipe_side_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_quad_green",
+      "owner": "BlockPipe",
+      "shape": 2,
+      "asset": "pipe_quad",
+      "material": "",
+      "particle": "hbm:pipe_top_green",
+      "textures": [
+        "hbm:pipe_top_green",
+        "hbm:pipe_side_green",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_quad_green_rusted",
+      "owner": "BlockPipe",
+      "shape": 2,
+      "asset": "pipe_quad",
+      "material": "",
+      "particle": "hbm:pipe_top_green_rusty",
+      "textures": [
+        "hbm:pipe_top_green_rusty",
+        "hbm:pipe_side_green_rusty",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_quad_red",
+      "owner": "BlockPipe",
+      "shape": 2,
+      "asset": "pipe_quad",
+      "material": "",
+      "particle": "hbm:pipe_top_red",
+      "textures": [
+        "hbm:pipe_top_red",
+        "hbm:pipe_side_red",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.deco_pipe_quad_marked",
+      "owner": "BlockPipe",
+      "shape": 2,
+      "asset": "pipe_quad",
+      "material": "",
+      "particle": "hbm:pipe_top_marked",
+      "textures": [
+        "hbm:pipe_top_marked",
+        "hbm:pipe_side_marked",
+        "hbm:pipe_frame",
+        "hbm:pipe_mesh"
+      ]
+    },
+    {
+      "name": "tile.hev_battery",
+      "owner": "HEVBattery",
+      "shape": 0,
+      "asset": "battery",
+      "material": "",
+      "particle": "hbm:hev_battery",
+      "textures": [
+        "hbm:hev_battery"
+      ]
+    },
+    {
+      "name": "tile.red_barrel",
+      "owner": "RedBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_red",
+      "textures": [
+        "hbm:barrel_red"
+      ]
+    },
+    {
+      "name": "tile.pink_barrel",
+      "owner": "RedBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_pink",
+      "textures": [
+        "hbm:barrel_pink"
+      ]
+    },
+    {
+      "name": "tile.yellow_barrel",
+      "owner": "YellowBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_yellow",
+      "textures": [
+        "hbm:barrel_yellow"
+      ]
+    },
+    {
+      "name": "tile.oil_barrel",
+      "owner": "BrownBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_oily",
+      "textures": [
+        "hbm:barrel_oily"
+      ]
+    },
+    {
+      "name": "tile.vitrified_barrel",
+      "owner": "YellowBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_vitrified",
+      "textures": [
+        "hbm:barrel_vitrified"
+      ]
+    },
+    {
+      "name": "tile.lox_barrel",
+      "owner": "RedBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_lox",
+      "textures": [
+        "hbm:barrel_lox"
+      ]
+    },
+    {
+      "name": "tile.taint_barrel",
+      "owner": "RedBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_taint",
+      "textures": [
+        "hbm:barrel_taint"
+      ]
+    },
+    {
+      "name": "tile.capacitor_copper",
+      "owner": "MachineCapacitor",
+      "shape": 0,
+      "asset": "capacitor",
+      "material": "copper",
+      "particle": "hbm:block_copper",
+      "textures": [
+        "hbm:capacitor_copper_top",
+        "hbm:capacitor_copper_side",
+        "hbm:capacitor_copper_bottom",
+        "hbm:capacitor_copper_inner_top",
+        "hbm:capacitor_copper_inner_side"
+      ]
+    },
+    {
+      "name": "tile.capacitor_gold",
+      "owner": "MachineCapacitor",
+      "shape": 0,
+      "asset": "capacitor",
+      "material": "gold",
+      "particle": "minecraft:gold_block",
+      "textures": [
+        "hbm:capacitor_gold_top",
+        "hbm:capacitor_gold_side",
+        "hbm:capacitor_gold_bottom",
+        "hbm:capacitor_gold_inner_top",
+        "hbm:capacitor_gold_inner_side"
+      ]
+    },
+    {
+      "name": "tile.capacitor_niobium",
+      "owner": "MachineCapacitor",
+      "shape": 0,
+      "asset": "capacitor",
+      "material": "niobium",
+      "particle": "hbm:block_niobium",
+      "textures": [
+        "hbm:capacitor_niobium_top",
+        "hbm:capacitor_niobium_side",
+        "hbm:capacitor_niobium_bottom",
+        "hbm:capacitor_niobium_inner_top",
+        "hbm:capacitor_niobium_inner_side"
+      ]
+    },
+    {
+      "name": "tile.capacitor_complex",
+      "owner": "MachineCapacitor",
+      "shape": 0,
+      "asset": "capacitor",
+      "material": "complex",
+      "particle": "hbm:block_cadmium",
+      "textures": [
+        "hbm:capacitor_complex_top",
+        "hbm:capacitor_complex_side",
+        "hbm:capacitor_complex_bottom",
+        "hbm:capacitor_complex_inner_top",
+        "hbm:capacitor_complex_inner_side"
+      ]
+    },
+    {
+      "name": "tile.capacitor_tantalium",
+      "owner": "MachineCapacitor",
+      "shape": 0,
+      "asset": "capacitor",
+      "material": "tantalium",
+      "particle": "hbm:block_tantalium",
+      "textures": [
+        "hbm:capacitor_tantalium_top",
+        "hbm:capacitor_tantalium_side",
+        "hbm:capacitor_tantalium_bottom",
+        "hbm:capacitor_tantalium_inner_top",
+        "hbm:capacitor_tantalium_inner_side"
+      ]
+    },
+    {
+      "name": "tile.capacitor_schrabidate",
+      "owner": "MachineCapacitor",
+      "shape": 0,
+      "asset": "capacitor",
+      "material": "schrabidate",
+      "particle": "hbm:block_schrabidate",
+      "textures": [
+        "hbm:capacitor_schrabidate_top",
+        "hbm:capacitor_schrabidate_side",
+        "hbm:capacitor_schrabidate_bottom",
+        "hbm:capacitor_schrabidate_inner_top",
+        "hbm:capacitor_schrabidate_inner_side"
+      ]
+    },
+    {
+      "name": "tile.barrel_plastic",
+      "owner": "BlockFluidBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_plastic",
+      "textures": [
+        "hbm:barrel_plastic"
+      ]
+    },
+    {
+      "name": "tile.barrel_corroded",
+      "owner": "BlockFluidBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_corroded",
+      "textures": [
+        "hbm:barrel_corroded"
+      ]
+    },
+    {
+      "name": "tile.barrel_iron",
+      "owner": "BlockFluidBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_iron",
+      "textures": [
+        "hbm:barrel_iron"
+      ]
+    },
+    {
+      "name": "tile.barrel_steel",
+      "owner": "BlockFluidBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_steel",
+      "textures": [
+        "hbm:barrel_steel"
+      ]
+    },
+    {
+      "name": "tile.barrel_tcalloy",
+      "owner": "BlockFluidBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_tcalloy",
+      "textures": [
+        "hbm:barrel_tcalloy"
+      ]
+    },
+    {
+      "name": "tile.barrel_antimatter",
+      "owner": "BlockFluidBarrel",
+      "shape": 0,
+      "asset": "barrel",
+      "material": "",
+      "particle": "hbm:barrel_antimatter",
+      "textures": [
+        "hbm:barrel_antimatter"
+      ]
+    }
+  ]
+}

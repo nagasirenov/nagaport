@@ -84,7 +84,7 @@ public class GUILaunchPadRocket extends GuiInfoContainer {
 				List<String> issues = machine.findIssues();
 				for(int i = 0; i < issues.size(); i++) {
 					String issue = issues.get(i);
-					fontRendererObj.drawString(issue, (guiLeft + 6) * 2, (guiTop + 66) * 2 + i * 8, 0xFFFFFF);
+					fontRenderer.drawString(issue, (guiLeft + 6) * 2, (guiTop + 66) * 2 + i * 8, 0xFFFFFF);
 				}
 
 			}
@@ -98,10 +98,10 @@ public class GUILaunchPadRocket extends GuiInfoContainer {
 
 		// COMMIT TO LAUNCH
 		if(machine.rocket != null && machine.rocket.validate() && checkClick(x, y, 56, 20, 18, 17)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("launch", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.xCoord, machine.yCoord, machine.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.getPos().getX(), machine.getPos().getY(), machine.getPos().getZ()));
 		}
 	}
 

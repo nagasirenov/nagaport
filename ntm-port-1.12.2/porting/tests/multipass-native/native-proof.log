@@ -1,0 +1,81 @@
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.generic.BlockOre protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public BlockOre withSoundType,public boolean shouldRenderItemMulti
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.generic.BlockBedrockOreTE protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public MultipassContext getMultipassContext
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.generic.BlockSellafieldOre protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public BlockSellafieldOre withSoundType,public MultipassContext getMultipassContext,public boolean shouldRenderItemMulti
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.BlockCablePaintable protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public MultipassContext getMultipassContext
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.BlockCableGauge protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.FluidDuctPaintableBlockExhaust protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public MultipassContext getMultipassContext
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.FluidDuctPaintable protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public MultipassContext getMultipassContext
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.FluidDuctGauge protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.CraneRouter protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public boolean shouldSideBeRendered(net.minecraft.block.state.IBlockState
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.PneumoTubePaintableBlock protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public MultipassContext getMultipassContext
+EXTRACTED OWNER RENDER HOOKS com.hbm.blocks.network.BlockOpenComputersCablePaintable protected net.minecraft.block.state.BlockStateContainer createBlockState,public net.minecraft.block.state.IBlockState getStateFromMeta,public int getMetaFromState,public net.minecraft.util.EnumBlockRenderType getRenderType,public net.minecraft.util.BlockRenderLayer getRenderLayer,public net.minecraft.block.state.IBlockState getExtendedState,public int getPasses,public MultipassContext getMultipassContext
+PRODUCTION com/hbm/blocks/IBlockMultiPass.java 0f63a002a56ec7e1a2649d6038f061e89e10113538e9651e6c6db5712dc1a5b0
+PRODUCTION com/hbm/blocks/MultipassContext.java 98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3
+PRODUCTION com/hbm/blocks/generic/BlockFissure.java ea735255809091cb3cd6328e2bcb612272492b47a08b3a70d2fb9b76908c79f3
+PRODUCTION com/hbm/blocks/BlockBase.java c39027a1e7a2d1cc5df0dc2a5a52aacf28cf5b90b90e5654e5f58487ee52dbfe
+PRODUCTION com/hbm/render/icon/IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+PRODUCTION com/hbm/render/icon/IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/render/block/RenderBlockMultipass.java b31f8bfa884a1d5a5ebb32ddc645f688b030b70b12df3a6cfde53c5711e02271
+PRODUCTION com/hbm/render/block/multipass/MultipassMaterials.java 4970e1fb8684157942a9d9043666d9033ce4b9cacd650ea5be91bd849246f6c7
+PRODUCTION com/hbm/main/MultipassModelHandler.java 848560f450be5835f97f0621b0f99ce1f900c8d1b9ab689658e26742d7ea19c1
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+PRODUCTION com/hbm/render/block/ct/RenderBlocksCT.java d06b051704a26c9a8f2c550ca2b844ca2b3f494c0ead2cb1d593c341d8ac4ea3
+PRODUCTION com/hbm/render/block/ct/CTContext.java 8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70
+PRODUCTION com/hbm/render/block/ct/IBlockCT.java d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34
+PRODUCTION com/hbm/render/block/ct/CT.java bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+SHARED PRODUCTION DEPENDENCY NativeBlockMaterial.java 948cdeae5bb39ac0919e1f8fcf2fd415be1bf38a889a74442339f4a15b387a01
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:180: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+  ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:180: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+                 ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:180: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+                              ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:230: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+  ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:230: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+                 ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:230: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+                              ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:247: warning: Unsafe is internal proprietary API and may be removed in a future release
+  SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);field(net.minecraft.client.Minecraft.class,"instance").set(null,mc);field(net.minecraft.client.Minecraft.class,"resourceManager").set(mc,resources);
+                                                                                                                                              ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:247: warning: Unsafe is internal proprietary API and may be removed in a future release
+  SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);field(net.minecraft.client.Minecraft.class,"instance").set(null,mc);field(net.minecraft.client.Minecraft.class,"resourceManager").set(mc,resources);
+                                                                                                                                                             ^
+/tmp/multipass-native-u878onb3/MultipassNativeTest.java:247: warning: Unsafe is internal proprietary API and may be removed in a future release
+  SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);field(net.minecraft.client.Minecraft.class,"instance").set(null,mc);field(net.minecraft.client.Minecraft.class,"resourceManager").set(mc,resources);
+                                                                                                                                                                          ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/multipass-native-u878onb3/MultipassNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+12 warnings
+[00:09:46] [main/INFO]: Processing ObjectHolder annotations
+[00:09:46] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 71 actual registration identities, exact extracted render hooks,16 metadata states, immutable tile snapshots, and complete Fissure native owner compilation.
+PASS complete native Fissure tick:16 metadata,replaceable/solid neighbors,client/server,live-state crater selection and exact lava refill/sender boundary. Actual fluid network remains an NTM collaborator fixture.
+PASS actual official1.7.10 RenderBlocks/Tessellator geometry: 30720 vertices across12 families,16 metadata,two atlas layouts,world/item rotation and all preserved repeats.
+PASS actual native Forge/vanilla flat/smooth light, culling and destruction-model smoke. OPEN: full old/native light-solver and RenderGlobal breaking draw comparison, not waived.
+PASS unique foreign face and owned multipass pass-zero material resolution plus explicit absent/ambiguous foreign face failure; no particle fallback.
+PASS actual BlockRendererDispatcher.renderBlockDamage with exact RenderGlobal noColor contract: 384000 emitted vertices are white across12 families,16 metadata,10 stages,Forge/vanilla AO/flat. Baked tint retention is not a rendered damage-tint mismatch.
+[00:09:47] [main/INFO]: Reloading ResourceManager: resources
+PASS actual native registration,71 world state mappers,1136 per-meta item routes, asset discovery/bake and reload callbacks.
+PASS8 concurrent streams x256 snapshots x6 sides with no global pass/color leaks.
+PASS multipass native model/owner proof: 1712721 assertions, 30720 original geometry vertices.

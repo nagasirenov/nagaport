@@ -1,0 +1,65 @@
+PASS pinned original source/assets 23 unchanged native assets 9
+PASS three exact original renderer transform/light/material routes
+PRODUCTION com/hbm/render/block/RenderSteelBeam.java d964f52de9557ca369d73d2c49f577c65920dab905a2d79744ba28e0b9cb766e
+PRODUCTION com/hbm/render/block/RenderConserve.java fccd39f778e393394a604c0ddeeeb032f8037ee58f0730fdf4a5fd4f2b76d6a7
+PRODUCTION com/hbm/render/block/RenderPribris.java 6ee5404ab9dddb687acc645cf148ea62d0be454fefc2b62fa4b4b5136c996f5c
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjBakedModel.java e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa
+PRODUCTION com/hbm/render/block/nativeblock/ConnectionQuadFactory.java 81d2b3a95cef3980479d4cf15dc697c33fcac2972aab7fb533e214376d5e4d4a
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/main/DecorationObjBlockModelHandler.java 47149b708c172ae56ada66b3515cf864406e2b14ca61fbed8c5dcb4a89ceeb06
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+/tmp/decoration-obj-native-w67tqc5t/DecorationObjModelNativeTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+                ^
+/tmp/decoration-obj-native-w67tqc5t/DecorationObjModelNativeTest.java:144: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+                                            ^
+/tmp/decoration-obj-native-w67tqc5t/DecorationObjModelNativeTest.java:144: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+                                                                                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.steel_beam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.steel_beam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crate_can`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crate_can`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crate_supply`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crate_supply`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris_burning`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris_burning`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris_radiating`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris_radiating`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris_digamma`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:09:20] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pribris_digamma`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+ORIGINAL OBJ beam: 1 ordered groups, 12 triangles
+ORIGINAL OBJ conservecrate: 1 ordered groups, 60 triangles
+ORIGINAL OBJ debris: 1 ordered groups, 48 triangles
+[18:09:20] [main/INFO]: Reloading ResourceManager: resources
+[18:09:20] [main/INFO]: Reloading ResourceManager: resources
+PASS resources: all7 owners x16 state/item routes, complete source-ordered vertices, real Forge+vanilla light, actual ItemModelMesher
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: resources
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: resources
+PASS resources: changed/reloaded/restored/missing resources for all3 meshes, retained lists immutable
+[18:09:20] [main/INFO]: Reloading ResourceManager: decoration-family-resources.jar
+[18:09:20] [main/INFO]: Reloading ResourceManager: decoration-family-resources.jar
+PASS decoration-family-resources.jar: all7 owners x16 state/item routes, complete source-ordered vertices, real Forge+vanilla light, actual ItemModelMesher
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: decoration-family-resources.jar
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[18:09:20] [main/INFO]: Reloading ResourceManager: decoration-family-resources.jar
+PASS decoration-family-resources.jar: changed/reloaded/restored/missing resources for all3 meshes, retained lists immutable
+PASS native decoration OBJ model parity: 385021 assertions, 86016 complete native vertices; three complete production renderers/helpers/loader, independent pinned pristine selectors/shaders and ordered OBJ, all7 owners x16 state/item routes in directory and jar, all3 mesh resources, native flat light and ItemModelMesher; unchanged geometry helper retains its separately tested replacement-quad contract.
+Boundaries: only controlled NTM owner blocks expose metadata and material collaborators. No fake Minecraft/Forge classes. Complete actual owner behavior is verified separately. CPU-headless proof, not live graphical acceptance.

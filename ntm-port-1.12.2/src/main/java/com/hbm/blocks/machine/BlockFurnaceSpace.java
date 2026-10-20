@@ -15,8 +15,8 @@ public class BlockFurnaceSpace extends BlockFurnace implements IBlockSealable {
 	}
 
 	public static void updateFurnaceBlockState(boolean lit, World world, int x, int y, int z) {
-		int l = world.getBlockMetadata(x, y, z);
-		TileEntity tileentity = world.getTileEntity(x, y, z);
+		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		TileEntity tileentity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		BlockFurnace.field_149934_M = true;
 
 		if(lit) {

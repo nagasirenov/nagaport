@@ -1,0 +1,40 @@
+Attribution diagnostics (unfinished source, not compile success): 20
+Attribution diagnostics (unfinished source, not compile success): 2
+Attribution diagnostics (unfinished source, not compile success): 2
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/entity-bounds-native/NativeBoundsTest.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/entity-bounds-native/NativeBoundsTest.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/entity-bounds-native/NativeBoundsTest.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/entity-bounds-native/NativeBoundsTest.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+           ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/entity-bounds-native/NativeBoundsTest.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+                                                                             ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/entity-bounds-native/NativeBoundsTest.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);
+                                                                                       ^
+6 warnings
+PASS 17 actual native/original field, accessor bytecode, reference, evaluation, exception, production callback and override negative controls; 67 resolved dependency JARs scanned
+/tmp/entity-bounds-proof-2sl55at8/LegacyBoundsTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import sun.misc.Unsafe;
+                                          ^
+/tmp/entity-bounds-proof-2sl55at8/LegacyBoundsTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] a)throws Exception{Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);sa e=(sa)u.allocateInstance(xk.class);azt box=azt.a(-3,2,7,9,13,17);Field bf=sa.class.getField("C");bf.setAccessible(true);bf.set(e,box);if(read(e)!=box||!trace.equals("R")||getCollisionBox(e)!=box)throw new AssertionError();sa alias=e;bf.set(e,null);if(read(alias)!=null)throw new AssertionError();trace="";try{read(null);throw new AssertionError();}catch(NullPointerException ex){if(!trace.equals("R"))throw new AssertionError();}trace="";try{failure();throw new AssertionError();}catch(IllegalStateException ex){if(!trace.equals("X"))throw new AssertionError();}System.out.println("PASS 5 actual original field read, callback body, alias/null and receiver-exception oracle controls");}}
+                                                              ^
+/tmp/entity-bounds-proof-2sl55at8/LegacyBoundsTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] a)throws Exception{Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);sa e=(sa)u.allocateInstance(xk.class);azt box=azt.a(-3,2,7,9,13,17);Field bf=sa.class.getField("C");bf.setAccessible(true);bf.set(e,box);if(read(e)!=box||!trace.equals("R")||getCollisionBox(e)!=box)throw new AssertionError();sa alias=e;bf.set(e,null);if(read(alias)!=null)throw new AssertionError();trace="";try{read(null);throw new AssertionError();}catch(NullPointerException ex){if(!trace.equals("R"))throw new AssertionError();}trace="";try{failure();throw new AssertionError();}catch(IllegalStateException ex){if(!trace.equals("X"))throw new AssertionError();}System.out.println("PASS 5 actual original field read, callback body, alias/null and receiver-exception oracle controls");}}
+                                                                                                                                ^
+/tmp/entity-bounds-proof-2sl55at8/LegacyBoundsTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] a)throws Exception{Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);sa e=(sa)u.allocateInstance(xk.class);azt box=azt.a(-3,2,7,9,13,17);Field bf=sa.class.getField("C");bf.setAccessible(true);bf.set(e,box);if(read(e)!=box||!trace.equals("R")||getCollisionBox(e)!=box)throw new AssertionError();sa alias=e;bf.set(e,null);if(read(alias)!=null)throw new AssertionError();trace="";try{read(null);throw new AssertionError();}catch(NullPointerException ex){if(!trace.equals("R"))throw new AssertionError();}trace="";try{failure();throw new AssertionError();}catch(IllegalStateException ex){if(!trace.equals("X"))throw new AssertionError();}System.out.println("PASS 5 actual original field read, callback body, alias/null and receiver-exception oracle controls");}}
+                                                                                                                                          ^
+4 warnings
+PASS 5 actual original field read, callback body, alias/null and receiver-exception oracle controls
+PASS 57 exact forward/inverse files and 171 source mutation negative controls
+PASS 26 actual javac ownership/read-only/shadow/Unicode and reachable-subclass override fixtures
+Scope: field read identity only, not AABB mutation/arithmetic migration, complete entity compilation or gameplay; unknown external accessor overrides are not certified.

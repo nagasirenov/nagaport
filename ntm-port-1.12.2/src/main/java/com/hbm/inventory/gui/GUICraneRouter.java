@@ -43,10 +43,10 @@ public class GUICraneRouter extends GuiInfoContainer {
 				
 				if(guiLeft + 7 + j * 222 <= x && guiLeft + 7 + j * 222 + 18 > x && guiTop + 16 + k * 26 < y && guiTop + 16 + k * 26 + 18 >= y) {
 
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 					NBTTagCompound data = new NBTTagCompound();
 					data.setInteger("toggle", j * 3 + k);
-					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, router.xCoord, router.yCoord, router.zCoord));
+					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, router.getPos().getX(), router.getPos().getY(), router.getPos().getZ()));
 				}
 			}
 		}
@@ -71,19 +71,19 @@ public class GUICraneRouter extends GuiInfoContainer {
 					case 3: text[0] = "WILDCARD"; text[1] = "Route if no other route is valid"; break;
 					}
 					
-					this.func_146283_a(Arrays.asList(text), x, y);
+					this.drawHoveringText(Arrays.asList(text), x, y);
 				}
 			}
 		}
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 30; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 				ModulePatternMatcher matcher = router.patterns[i / 5];
 				int index = i % 5;
 				
 				if(this.isMouseOverSlot(slot, x, y) && matcher.modes[index] != null) {
-					this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30);
+					this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30);
 				}
 			}
 		}
@@ -93,8 +93,8 @@ public class GUICraneRouter extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.router.hasCustomInventoryName() ? this.router.getInventoryName() : I18n.format(this.router.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 5, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8 + 39, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 5, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8 + 39, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -116,8 +116,8 @@ public class GUICraneRouter extends GuiInfoContainer {
 		for(int i = 0; i < this.inventorySlots.inventorySlots.size(); i++) {
 			Slot s = this.inventorySlots.getSlot(i);
 
-			this.fontRendererObj.drawStringWithShadow(i + "", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition, 0xffffff);
-			this.fontRendererObj.drawStringWithShadow(s.getSlotIndex() + "", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition + 8, 0xff8080);
+			this.fontRenderer.drawStringWithShadow(i + "", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition, 0xffffff);
+			this.fontRenderer.drawStringWithShadow(s.getSlotIndex() + "", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition + 8, 0xff8080);
 		}
 	}
 }

@@ -47,7 +47,7 @@ public class RenderAntimatter extends TileEntitySpecialRenderer {
 			int c = 0x010101;
 			GL11.glColor3ub((byte)((c & 0xff0000) >> 16), (byte)((c & 0x00ff00) >> 8), (byte)((c & 0x0000ff)));
 			GL11.glPushMatrix();
-			GL11.glTranslated(0, 2.4D + Math.sin(((te.getWorldObj().getTotalWorldTime() + f) * 0.1D) % (Math.PI * 2D)) * 0.125 * scale, 0);
+			GL11.glTranslated(0, 2.4D + Math.sin(((te.getWorld().getTotalWorldTime() + f) * 0.1D) % (Math.PI * 2D)) * 0.125 * scale, 0);
 			GL11.glScaled(scale, scale, scale);
 			ResourceManager.sphere_uv.renderAll();
 			GL11.glPopMatrix();
@@ -62,8 +62,8 @@ public class RenderAntimatter extends TileEntitySpecialRenderer {
 		if(amat.hasAmatCore()) {
 			GL11.glTranslated(0, 1, 0);
 			BeamPronter.prontBeam(new Vec3d(0, 2.5, 0), EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0x101020, 0x101020, 0, 1, 0F, 6, (float)scale * 0.1F, 0.5F);
-			BeamPronter.prontBeam(new Vec3d(0, 2.5, 0), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(te.getWorldObj().getTotalWorldTime() / 2) % 1000, 6, (float)scale, 2, 0.0625F * (float)scale, 0.5F);
-			BeamPronter.prontBeam(new Vec3d(0, 2.5, 0), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(te.getWorldObj().getTotalWorldTime() / 4) % 1000, 6, (float)scale, 2, 0.0625F * (float)scale, 0.5F);
+			BeamPronter.prontBeam(new Vec3d(0, 2.5, 0), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(te.getWorld().getTotalWorldTime() / 2) % 1000, 6, (float)scale, 2, 0.0625F * (float)scale, 0.5F);
+			BeamPronter.prontBeam(new Vec3d(0, 2.5, 0), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(te.getWorld().getTotalWorldTime() / 4) % 1000, 6, (float)scale, 2, 0.0625F * (float)scale, 0.5F);
 		}
 		
 

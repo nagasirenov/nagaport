@@ -41,10 +41,10 @@ public class EntityBufPacket extends PrecompiledPacket {
 		@Override
 		public IMessage onMessage(EntityBufPacket m, MessageContext ctx) {
 
-			if(Minecraft.getMinecraft().theWorld == null)
+			if(Minecraft.getMinecraft().world == null)
 				return null;
 
-			Entity entity = Minecraft.getMinecraft().theWorld.getEntityByID(m.entityId);
+			Entity entity = Minecraft.getMinecraft().world.getEntityByID(m.entityId);
 
 			if(entity instanceof IBufPacketReceiver) {
 				try {

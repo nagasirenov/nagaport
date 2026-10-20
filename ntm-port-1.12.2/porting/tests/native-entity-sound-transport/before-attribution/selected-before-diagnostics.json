@@ -1,0 +1,290 @@
+[
+  {
+    "path": "com/hbm/items/tool/ItemAmmoContainer.java",
+    "line": "80",
+    "start": "2456",
+    "end": "2479",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemBoltgun.java",
+    "line": "96",
+    "start": "3519",
+    "end": "3542",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemBombCaller.java",
+    "line": "76",
+    "start": "2650",
+    "end": "2673",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemBombCaller.java",
+    "line": "80",
+    "start": "2821",
+    "end": "2844",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDesignatorArtyRange.java",
+    "line": "59",
+    "start": "1948",
+    "end": "1971",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDesignatorArtyRange.java",
+    "line": "84",
+    "start": "2793",
+    "end": "2816",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDesingator.java",
+    "line": "44",
+    "start": "1461",
+    "end": "1484",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDesingatorRange.java",
+    "line": "50",
+    "start": "1666",
+    "end": "1689",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDetonator.java",
+    "line": "51",
+    "start": "1886",
+    "end": "1909",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDetonator.java",
+    "line": "75",
+    "start": "2730",
+    "end": "2753",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDigammaDiagnostic.java",
+    "line": "16",
+    "start": "400",
+    "end": "423",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemDosimeter.java",
+    "line": "60",
+    "start": "1499",
+    "end": "1522",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemFilter.java",
+    "line": "68",
+    "start": "1715",
+    "end": "1738",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemGeigerCounter.java",
+    "line": "79",
+    "start": "2173",
+    "end": "2196",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemLaserDetonator.java",
+    "line": "49",
+    "start": "1753",
+    "end": "1776",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemLaserDetonator.java",
+    "line": "53",
+    "start": "2108",
+    "end": "2131",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemLock.java",
+    "line": "35",
+    "start": "926",
+    "end": "949",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemMeteorRemote.java",
+    "line": "38",
+    "start": "968",
+    "end": "991",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+    "line": "58",
+    "start": "1937",
+    "end": "1960",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+    "line": "105",
+    "start": "3345",
+    "end": "3368",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+    "line": "120",
+    "start": "3999",
+    "end": "4022",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemOilDetector.java",
+    "line": "60",
+    "start": "2293",
+    "end": "2316",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemRadarLinker.java",
+    "line": "28",
+    "start": "1000",
+    "end": "1023",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemRepairKit.java",
+    "line": "46",
+    "start": "1269",
+    "end": "1292",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemRepairKit.java",
+    "line": "47",
+    "start": "1366",
+    "end": "1389",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemTurretControl.java",
+    "line": "114",
+    "start": "4389",
+    "end": "4412",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/items/tool/ItemTurretControl.java",
+    "line": "145",
+    "start": "5351",
+    "end": "5374",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+    "line": "84",
+    "start": "2108",
+    "end": "2136",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+    "line": "89",
+    "start": "2269",
+    "end": "2297",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+    "line": "124",
+    "start": "3358",
+    "end": "3386",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+    "line": "128",
+    "start": "3456",
+    "end": "3484",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "line": "455",
+    "start": "14234",
+    "end": "14262",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "line": "464",
+    "start": "14642",
+    "end": "14670",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "line": "473",
+    "start": "15094",
+    "end": "15122",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "line": "490",
+    "start": "15818",
+    "end": "15846",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  },
+  {
+    "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "line": "497",
+    "start": "16114",
+    "end": "16142",
+    "code": "compiler.err.cant.resolve.location.args",
+    "message": "cannot find symbol\\n  symbol:   method playSoundAtEntity(net.minecraft.entity.player.EntityPlayer,java.lang.String,float,float)\\n  location: variable world of type net.minecraft.world.World"
+  }
+]

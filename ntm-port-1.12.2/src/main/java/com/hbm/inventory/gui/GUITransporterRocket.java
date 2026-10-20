@@ -38,7 +38,7 @@ public class GUITransporterRocket extends GuiInfoContainer {
 		super.initGui();
 		
 		Keyboard.enableRepeatEvents(true);
-		transporterName = new GuiTextField(this.fontRendererObj, guiLeft + 8, guiTop + 12, 122, 12);
+		transporterName = new GuiTextField(0, this.fontRenderer, guiLeft + 8, guiTop + 12, 122, 12);
 		transporterName.setTextColor(0x00ff00);
 		transporterName.setDisabledTextColour(0x00ff00);
 		transporterName.setEnableBackgroundDrawing(false);
@@ -102,9 +102,9 @@ public class GUITransporterRocket extends GuiInfoContainer {
 		drawTexturedModalRect(guiLeft + 100 + (int)(transporter.threshold * 6.78), guiTop + 122, xSize, 0, 4, 15);
 
 		int threshold = transporter.getThreshold();
-		int width = fontRendererObj.getStringWidth("x" + threshold);
+		int width = fontRenderer.getStringWidth("x" + threshold);
 
-		fontRendererObj.drawStringWithShadow("x" + threshold, guiLeft + 167 - width, guiTop + 12, -1);
+		fontRenderer.drawStringWithShadow("x" + threshold, guiLeft + 167 - width, guiTop + 12, -1);
 		
 		transporterName.drawTextBox();
 	}
@@ -123,11 +123,11 @@ public class GUITransporterRocket extends GuiInfoContainer {
 
 		if(isInAABB(mouseX, mouseY, guiLeft + 98, guiTop + 120, 74, 20)) {
 			slidPos = (int)((mouseX - (guiLeft + 98)) / 6.78);
-			slidPos = MathHelper.clamp_int(slidPos, 0, 10); // 2^0 - 2^9 | 0 - 512
+			slidPos = MathHelper.clamp(slidPos, 0, 10); // 2^0 - 2^9 | 0 - 512
 			
 			NBTTagCompound data = new NBTTagCompound();
 			data.setDouble("threshold", slidPos);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, transporter.xCoord, transporter.yCoord, transporter.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, transporter.getPos().getX(), transporter.getPos().getY(), transporter.getPos().getZ()));
 		}
 	}
 
@@ -140,7 +140,7 @@ public class GUITransporterRocket extends GuiInfoContainer {
 		}
 
 		if(key == 1) {
-			mc.thePlayer.closeScreen();
+			mc.player.closeScreen();
 		}
 	}
 

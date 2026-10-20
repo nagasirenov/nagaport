@@ -55,6 +55,14 @@ import com.hbm.lib.ForgeDirection;
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "opencomputers")})
 public class TileEntityBarrel extends TileEntityMachineBase implements SimpleComponent, IFluidStandardTransceiverMK2, IPersistentNBT, IGUIProvider, CompatHandler.OCComponent, IFluidCopiable, IRORValueProvider, IRORInteractive, IOverpressurable {
 
+	/** Placement metadata does not replace a barrel; corrosion block changes do. */
+	@Override
+	public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+			net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
+	}
+
+
 	protected FluidNode node;
 	protected FluidType lastType;
 
@@ -76,14 +84,14 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.barrel";
 	}
 
 	public byte getComparatorPower() {
 		if(tank.getFill() == 0) return 0;
 		double frac = (double) tank.getFill() / (double) tank.getMaxFill() * 15D;
-		return (byte) (MathHelper.clamp_int((int) frac + 1, 0, 15));
+		return (byte) (MathHelper.clamp((int) frac + 1, 0, 15));
 	}
 
 	@Override
@@ -94,9 +102,9 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			byte comp = this.getComparatorPower(); //do comparator shenanigans
 			if(comp != this.lastRedstone) {
@@ -115,11 +123,11 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 				if(mode == 1) {
 					if(this.node == null || this.node.expired || tank.getTankType() != lastType) {
 
-						this.node = (FluidNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+						this.node = (FluidNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 
 						if(this.node == null || this.node.expired || tank.getTankType() != lastType) {
 							this.node = this.createNode(tank.getTankType());
-							UniNodespace.createNode(worldObj, this.node);
+							UniNodespace.createNode(this.world, this.node);
 							lastType = tank.getTankType();
 						}
 					}
@@ -130,15 +138,15 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 					}
 				} else {
 					if(this.node != null) {
-						UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+						UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 						this.node = null;
 					}
 
 					for(DirPos pos : getConPos()) {
-						FluidNode dirNode = (FluidNode) UniNodespace.getNode(worldObj, pos.getX(), pos.getY(), pos.getZ(), tank.getTankType().getNetworkProvider());
+						FluidNode dirNode = (FluidNode) UniNodespace.getNode(this.world, pos.getX(), pos.getY(), pos.getZ(), tank.getTankType().getNetworkProvider());
 
 						if(mode == 2) {
-							tryProvide(tank, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+							tryProvide(tank, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 						} else {
 							if(dirNode != null && dirNode.hasValidNet()) dirNode.net.removeProvider(this);
 						}
@@ -155,7 +163,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 					checkFluidInteraction();
 				}
 			} else if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 				this.node = null;
 			}
 
@@ -180,9 +188,9 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 			}
 		}
 	}
@@ -203,12 +211,12 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord + 1, zCoord, Library.POS_Y),
-				new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z)
 		};
 	}
 
@@ -227,12 +235,14 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 3 || i == 5;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {2, 3, 4, 5};
 	}
 
@@ -242,15 +252,15 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 
 		//for when you fill antimatter into a matter tank
 		if(b != ModBlocks.barrel_antimatter && tank.getTankType().isAntimatter()) {
-			worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-			new ExplosionVNT(worldObj, xCoord, yCoord, zCoord, 5).makeAmat().explode();
+			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			new ExplosionVNT(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 5).makeAmat().explode();
 			//worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 5, true, true);
 		}
 
 		//for when you fill hot or corrosive liquids into a plastic tank
 		if(b == ModBlocks.barrel_plastic && (tank.getTankType().isCorrosive() || tank.getTankType().isHot())) {
-			worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.fizz", 1.0F, 1.0F);
+			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "random.fizz", 1.0F, 1.0F);
 		}
 
 		//for when you fill corrosive liquid into an iron tank
@@ -258,8 +268,8 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 				(b == ModBlocks.barrel_steel && tank.getTankType().hasTrait(FT_Corrosive.class) && tank.getTankType().getTrait(FT_Corrosive.class).getRating() > 50)) {
 			ItemStack[] copy = this.slots.clone();
 			this.slots = new ItemStack[6];
-			worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.barrel_corroded);
-			TileEntityBarrel barrel = (TileEntityBarrel)worldObj.getTileEntity(xCoord, yCoord, zCoord);
+			this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.barrel_corroded);
+			TileEntityBarrel barrel = (TileEntityBarrel)this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 
 			if(barrel != null) {
 				barrel.tank.setTankType(tank.getTankType());
@@ -267,23 +277,23 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 				barrel.slots = copy;
 			}
 
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.fizz", 1.0F, 1.0F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "random.fizz", 1.0F, 1.0F);
 		}
 
 		if(b == ModBlocks.barrel_corroded ) {
-			if(worldObj.rand.nextInt(3) == 0) {
+			if(this.world.rand.nextInt(3) == 0) {
 				tank.setFill(tank.getFill() - 1);
-				FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.SPILL, 1F);
+				FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.SPILL, 1F);
 			}
-			if(worldObj.rand.nextInt(3 * 60 * 20) == 0) worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+			if(this.world.rand.nextInt(3 * 60 * 20) == 0) this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		}
 
 		//For when Tom's firestorm hits a barrel full of water
-		if(tank.getTankType() == Fluids.WATER && TomSaveData.forWorld(worldObj).fire > 1e-5) {
-			int light = this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, this.xCoord, this.yCoord, this.zCoord);
+		if(tank.getTankType() == Fluids.WATER && TomSaveData.forWorld(this.world).fire > 1e-5) {
+			int light = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 			if(light > 7) {
-				worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 5, true, true);
+				this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5, true, true);
 			}
 		}
 	}
@@ -297,11 +307,12 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setShort("mode", mode);
 		tank.writeToNBT(nbt, "tank");
+		return nbt;
 	}
 
 	@Override public boolean canConnect(FluidType fluid, ForgeDirection dir) { return true; }
@@ -398,28 +409,28 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 		if(tank.getTankType() == Fluids.AMAT || tank.getTankType() == Fluids.ASCHRAB) {
 			float amat = Math.min(tank.getFill() / 100, 90);
 			float aschrab = Math.min(tank.getFill() / 100, 90);
-			if(this.hasExploded && !worldObj.isRemote) {
+			if(this.hasExploded && !this.world.isRemote) {
 				if(amat > 0) {
 					if(amat >= 25) {
-						EntityBalefire bf = new EntityBalefire(worldObj);
+						EntityBalefire bf = new EntityBalefire(this.world);
 						bf.antimatter();
-						bf.setPosition(xCoord, yCoord, zCoord);
+						bf.setPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 						bf.destructionRange = (int) amat;
-						worldObj.spawnEntityInWorld(bf);
-						EntityNukeTorex.startFacAnti(worldObj, xCoord, yCoord, zCoord, amat * 1.5F);
+						this.world.spawnEntityInWorld(bf);
+						EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);
 						return;
 					} else {
-						new ExplosionVNT(worldObj, xCoord, yCoord, zCoord, amat).makeAmat().explode();
+						new ExplosionVNT(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat).makeAmat().explode();
 					}
 				}
 				if(aschrab > 0) {
-					EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, (int) aschrab);
+					EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, (int) aschrab);
 					if(!ex.isDead) {
-						worldObj.spawnEntityInWorld(ex);
+						this.world.spawnEntityInWorld(ex);
 
-						EntityCloudFleija cloud = new EntityCloudFleija(worldObj, (int) aschrab);
-						cloud.setPosition(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5);
-						worldObj.spawnEntityInWorld(cloud);
+						EntityCloudFleija cloud = new EntityCloudFleija(this.world, (int) aschrab);
+						cloud.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
+						this.world.spawnEntityInWorld(cloud);
 					}
 					return;
 				}

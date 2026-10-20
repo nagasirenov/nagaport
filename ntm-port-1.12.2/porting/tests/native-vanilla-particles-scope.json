@@ -1,0 +1,27 @@
+{
+  "base_head": "66a7b7b",
+  "whole_files": {
+    "src/main/java/com/hbm/particle/NativeVanillaParticles.java": "59571ac7bd033f0453eed70121356fdc3d5a52b4300f6f495154f4b66721e24e",
+    "src/main/java/com/hbm/particle/helper/ExplosionSmallCreator.java": "271288b61a31e518b0fa2a1023e5d7f3827224b15ea84ab0240e97f2c2ea7ade"
+  },
+  "effectNT_sha256": "799dd44284507ee4617bc807afbe24598a08f316ed3346be8f95682f451c3c11",
+  "branches": {
+    "waterSplash": "0ab33eb3bdde20233a2cf4bbd7dc8d6fd0c0b8fd056c73fdd5086e6b0da35459",
+    "cloudFX2": "a2823066684a32237106e916431595802d09f5eff869c693da7be5810c714818",
+    "fireworks": "f4dd29a0638e9dd76eb9026b74515e5c90780ea06dde14e021bdcde1136abdd1",
+    "vanillaburst": "72d2e36ac5f9f9613bd43af183399a91d72ccc4e46c830b09f465a4d68f863b9",
+    "vanillaExt": "5a91d5b4d2b0cd84fb9b91e279826b8bdca0a938b8c9903994b011cbabb4f2a3",
+    "vanilla": "b6906200df6ce3188a483827d9b777040834520adf4e0f5e266d0aef8e042493",
+    "jetpack": "d7135445f84a3c47520ef66597d04b4baec9b4aaea315d124917764521d15c90",
+    "bnuuy": "10850e104aa70d83ded332a225d56f53ad3b037da410c78b14a322c3cae7ea45",
+    "jetpack_bj": "f8d71835496f3103e6dd907c71685696cf7f4a5338c9de51e655e267a1727333",
+    "jetpack_dns": "b97b38282619458987bc42162d582f2f0fb33b4586e269045c38f0ad3b2f5c2e",
+    "sweat": "4904d92b755bfe567b165a44ae2044dd4ddbde946dd48b9fb04018c16c4451c1",
+    "vomit": "49ffae0e5d614e730c95284ee2324c60357f393bace3ed61830547c055ad5657",
+    "radiation": "74a6b74aebcbe5258bab7250fea3c123ee70150c59d809b9b0a933b719ffe760",
+    "schrabfog": "99e64a6f52fffe8386049e0feaaf61bec95c4087bc7a12c32711403df87f9d04",
+    "fluidfill": "7f001ba2b283daeaebf9210dc9cabeb8d28fd53ed3369730b582ecffb85b0e6b"
+  },
+  "clientproxy_full_snapshot_sha256": "376df61c21f8a19e30bf092dcad52b7be48366162ce81a34a87e3ae9f30a910c",
+  "scope": "Whole helper and creator compile; 15 unchanged ClientProxy branches extracted verbatim; no full ClientProxy or whole-mod claim."
+}

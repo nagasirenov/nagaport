@@ -59,6 +59,6 @@ public class ContainerHeaterHeatex extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return heater.isUseableByPlayer(player);
+		return heater.isUsableByPlayer(player);
 	}
 }

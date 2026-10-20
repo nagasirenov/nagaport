@@ -59,9 +59,9 @@ public class GUIFusionTorus extends GuiInfoContainer {
 
 		if(guiLeft + 43 <= mouseX && guiLeft + 43 + 18 > mouseX && guiTop + 80 < mouseY && guiTop + 80 + 18 >= mouseY) {
 			if(recipe != null) {
-				this.func_146283_a(recipe.print(), mouseX, mouseY);
+				this.drawHoveringText(recipe.print(), mouseX, mouseY);
 			} else {
-				this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey("gui.recipe.setRecipe"), mouseX, mouseY);
+				this.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey("gui.recipe.setRecipe"), mouseX, mouseY);
 			}
 		}
 	}
@@ -76,13 +76,13 @@ public class GUIFusionTorus extends GuiInfoContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.torus.hasCustomInventoryName() ? this.torus.getInventoryName() : I18n.format(this.torus.getInventoryName());
-		this.fontRendererObj.drawString(name, 106 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 35, this.ySize - 93, 4210752);
+		this.fontRenderer.drawString(name, 106 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 35, this.ySize - 93, 4210752);
 
-		this.fontRendererObj.drawString(TextFormatting.AQUA + "/123K", 136 + 54, 32, 4210752);
+		this.fontRenderer.drawString(TextFormatting.AQUA + "/123K", 136 + 54, 32, 4210752);
 		int heat = (int) Math.ceil(torus.temperature);
 		String label = (heat > 123 ? TextFormatting.RED : TextFormatting.AQUA) + "" + heat + "K";
-		this.fontRendererObj.drawString(label, 166 + 54 - this.fontRendererObj.getStringWidth(label), 22, 4210752);
+		this.fontRenderer.drawString(label, 166 + 54 - this.fontRenderer.getStringWidth(label), 22, 4210752);
 	}
 
 	@Override

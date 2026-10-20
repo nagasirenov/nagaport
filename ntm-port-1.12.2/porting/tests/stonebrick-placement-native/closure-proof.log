@@ -1,0 +1,2 @@
+PASS 4050 tracked-source selector/subclass/Random/owner closure, exact original selector body and four rejected closure mutations; full actual EntityThrowableNT ancestor supplied for chemical World attribution.
+Scoped getBrick range is 0..2 under java.util.Random.nextInt contract. External subclasses, noncontractual RNG overrides and final-field replacement are outside this proof, not normalized or explicitly rejected by production.

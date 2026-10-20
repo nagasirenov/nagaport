@@ -1,0 +1,11 @@
+{
+  "baseline": "641d2641bf196265e34e3f6968dba795f1dd061b",
+  "all_five_production_sources_byte_identical": true,
+  "sha256": {
+    "com/hbm/main/ModSoundEvents.java": "2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33",
+    "com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "com/hbm/sound/WorldSoundEffects.java": "444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e",
+    "com/hbm/sound/WorldSoundCategories.java": "27f10f7689b907e30e2cddc0b8ce58fa02e325cbd3b60c18d4905a80bb33e164",
+    "com/hbm/sound/SoundCategoryResolver.java": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33"
+  }
+}

@@ -13,7 +13,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class ArmorBismuth extends ArmorFSB implements IItemRendererProvider {
 	
@@ -41,7 +41,8 @@ public class ArmorBismuth extends ArmorFSB implements IItemRendererProvider {
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }

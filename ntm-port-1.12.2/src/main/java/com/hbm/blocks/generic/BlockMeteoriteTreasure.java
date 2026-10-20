@@ -8,7 +8,7 @@ import com.hbm.itempool.ItemPoolsSingle;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 
 public class BlockMeteoriteTreasure extends Block {

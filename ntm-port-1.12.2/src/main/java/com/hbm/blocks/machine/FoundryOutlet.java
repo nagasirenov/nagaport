@@ -1,5 +1,9 @@
 package com.hbm.blocks.machine;
 
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +11,13 @@ import com.hbm.blocks.ILookOverlay;
 import com.hbm.inventory.material.Mats.MaterialStack;
 import com.hbm.items.ModItems;
 import com.hbm.items.machine.ItemScraps;
-import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.machine.TileEntityFoundryOutlet;
 import com.hbm.util.i18n.I18nUtil;
 
 import api.hbm.block.ICrucibleAcceptor;
 import api.hbm.block.IToolable;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,53 +25,32 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import com.hbm.lib.ForgeDirection;
 
-public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, ILookOverlay, IToolable {
+public class FoundryOutlet extends FoundryBlock implements ICrucibleAcceptor, ILookOverlay, IToolable {
 
-	@SideOnly(Side.CLIENT) public IIcon iconTop;
-	@SideOnly(Side.CLIENT) public IIcon iconSide;
-	@SideOnly(Side.CLIENT) public IIcon iconBottom;
-	@SideOnly(Side.CLIENT) public IIcon iconInner;
-	@SideOnly(Side.CLIENT) public IIcon iconFront;
-	@SideOnly(Side.CLIENT) public IIcon iconLock;
-	@SideOnly(Side.CLIENT) public IIcon iconFilter;
 
 	public FoundryOutlet() {
-		super(Material.rock);
+		super();
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_top");
-		this.iconSide = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_side");
-		this.iconBottom = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_bottom");
-		this.iconInner = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_inner");
-		this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_front");
-		this.iconLock = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_lock");
-		this.iconFilter = iconRegister.registerIcon(RefStrings.MODID + ":foundry_outlet_filter");
-	}
 
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-		return true;
-	}
+
+
 	
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+		if(i == 0) world.setBlockState(pos, getStateFromMeta(2), 2);
+		if(i == 1) world.setBlockState(pos, getStateFromMeta(5), 2);
+		if(i == 2) world.setBlockState(pos, getStateFromMeta(3), 2);
+		if(i == 3) world.setBlockState(pos, getStateFromMeta(4), 2);
 	}
 
 	@Override
@@ -81,55 +59,40 @@ public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, 
 	}
 
 	@Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBounding, List<AxisAlignedBB> list, Entity entity, boolean actualState) {
+		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
 		
 		AxisAlignedBB aabb = null;
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 
-		if(meta == 4) aabb = AxisAlignedBB.getBoundingBox(x + 0.625D, y, z + 0.3125D, x + 1D, y + 0.5D, z + 0.6875D);
-		if(meta == 5) aabb = AxisAlignedBB.getBoundingBox(x + 0D, y, z + 0.3125D, x + 0.375D, y + 0.5D, z + 0.6875D);
-		if(meta == 2) aabb = AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z + 0.625D, x + 0.6875D, y + 0.5D, z + 1D);
-		if(meta == 3) aabb = AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z + 0D, x + 0.6875D, y + 0.5D, z + 0.375D);
+		if(meta == 4) aabb = new AxisAlignedBB(x + 0.625D, y, z + 0.3125D, x + 1D, y + 0.5D, z + 0.6875D);
+		if(meta == 5) aabb = new AxisAlignedBB(x + 0D, y, z + 0.3125D, x + 0.375D, y + 0.5D, z + 0.6875D);
+		if(meta == 2) aabb = new AxisAlignedBB(x + 0.3125D, y, z + 0.625D, x + 0.6875D, y + 0.5D, z + 1D);
+		if(meta == 3) aabb = new AxisAlignedBB(x + 0.3125D, y, z + 0D, x + 0.6875D, y + 0.5D, z + 0.375D);
 		
-		if(aabb != null && entityBounding.intersectsWith(aabb)) {
+		if(aabb != null && entityBounding.intersects(aabb)) {
 			list.add(aabb);
 		}
 	}
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
 
-		int meta = world.getBlockMetadata(x, y, z);
-		if(meta == 4) this.setBlockBounds(0.625F, 0F, 0.3125F, 1F, 0.5F, 0.6875F);
-		if(meta == 5) this.setBlockBounds(0F, 0F, 0.3125F, 0.375F, 0.5F, 0.6875F);
-		if(meta == 2) this.setBlockBounds(0.3125F, 0F, 0.625F, 0.6875F, 0.5F, 1F);
-		if(meta == 3) this.setBlockBounds(0.3125F, 0F, 0F, 0.6875F, 0.5F, 0.375F);
-	}
+
+
 	
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
 		if(world.isRemote) {
 			return true;
 		}
 		
 		if(!player.isSneaking()) {
-			TileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);
+			TileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));
 			
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.scraps) {
-				MaterialStack mat = ItemScraps.getMats(player.getHeldItem());
+			if(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() == ModItems.scraps) {
+				MaterialStack mat = ItemScraps.getMats(player.getHeldItem(hand));
 				if(mat != null) {
 					tile.filter = mat.material;
 				}
@@ -137,7 +100,7 @@ public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, 
 				tile.invertRedstone = !tile.invertRedstone;
 			}
 			tile.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			notifyChange(world, new BlockPos(x, y, z));
 		}
 		
 		return true;
@@ -149,20 +112,20 @@ public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, 
 		if(tool == ToolType.SCREWDRIVER) {
 			if(world.isRemote) return true;
 
-			TileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);
+			TileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));
 			tile.filter = null;
 			tile.invertFilter = false;
 			tile.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			notifyChange(world, new BlockPos(x, y, z));
 		}
 		
 		if(tool == ToolType.HAND_DRILL) {
 			if(world.isRemote) return true;
 
-			TileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);
+			TileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));
 			tile.invertFilter = !tile.invertFilter;
 			tile.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			notifyChange(world, new BlockPos(x, y, z));
 		}
 		
 		return false;
@@ -173,34 +136,24 @@ public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, 
 
 	@Override
 	public boolean canAcceptPartialFlow(World world, int x, int y, int z, ForgeDirection side, MaterialStack stack) {
-		return ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialFlow(world, x, y, z, side, stack);
+		return ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialFlow(world, x, y, z, side, stack);
 	}
 	
 	@Override
 	public MaterialStack flow(World world, int x, int y, int z, ForgeDirection side, MaterialStack stack) {
-		return ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).flow(world, x, y, z, side, stack);
+		return ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).flow(world, x, y, z, side, stack);
 	}
 
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
+
 	
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
+
 	
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
+
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntityFoundryOutlet outlet = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);
+		TileEntityFoundryOutlet outlet = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));
 		List<String> text = new ArrayList();
 		
 		if(outlet.filter != null) {
@@ -213,6 +166,17 @@ public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, 
 			text.add(TextFormatting.DARK_RED + I18nUtil.resolveKey("foundry.inverted"));
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getUnlocalizedName() + ".name"), 0xFF4000, 0x401000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getTranslationKey() + ".name"), 0xFF4000, 0x401000, text);
 	}
+
+	@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        switch(getMetaFromState(state)) {
+        case 4:return new AxisAlignedBB(.625,0,.3125,1,.5,.6875);
+        case 5:return new AxisAlignedBB(0,0,.3125,.375,.5,.6875);
+        case 2:return new AxisAlignedBB(.3125,0,.625,.6875,.5,1);
+        case 3:return new AxisAlignedBB(.3125,0,0,.6875,.5,.375);
+        default:return FULL_BLOCK_AABB;
+        }
+    }
+    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state,world,pos); }
 }

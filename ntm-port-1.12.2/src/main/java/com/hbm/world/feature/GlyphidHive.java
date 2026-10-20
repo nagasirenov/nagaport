@@ -96,8 +96,8 @@ public class GlyphidHive {
 					case 3:
 						int r = rand.nextInt(3);
 						if(r == 0) {
-							world.setBlock(iX, iY, iZ, Blocks.skull, 1, 3);
-							TileEntitySkull skull = (TileEntitySkull) world.getTileEntity(iX, iY, iZ);
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = iX; int nativePlacementY = iY; int nativePlacementZ = iZ; net.minecraft.block.Block nativePlacementBlock = Blocks.SKULL; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+							TileEntitySkull skull = (TileEntitySkull) world.getTileEntity(new net.minecraft.util.math.BlockPos(iX, iY, iZ));
 							if(skull != null) skull.func_145903_a(rand.nextInt(16));
 						} else if(r == 1) {
 							world.setBlock(iX, iY, z + k - 5, ModBlocks.deco_loot, 0, 2);

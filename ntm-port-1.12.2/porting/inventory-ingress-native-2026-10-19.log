@@ -1,0 +1,3 @@
+PASS 828 checks across 35 setters and 34 removals extracted verbatim from production; actual native ItemStack, controlled callback fixtures.
+PASS: four exact native decrement clear calls; 35 setter/removal/clear-only whole-file reversals and 105 drift rejections; no getter/storage contract migration claim.
+Scope: native ItemStack and verbatim setters/removals; controlled arrays/callback counters. No full classes, gameplay, or Windows runtime acceptance.

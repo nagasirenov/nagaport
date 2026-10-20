@@ -26,7 +26,7 @@ public class BlockLayering extends Block {
 	}
 
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
-		int l = p_149668_1_.getBlockMetadata(p_149668_2_, p_149668_3_, p_149668_4_) & 7;
+		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_) ) & 7;
 		float f = 0.125F;
 		return AxisAlignedBB.getBoundingBox((double) p_149668_2_ + this.minX, (double) p_149668_3_ + this.minY, (double) p_149668_4_ + this.minZ, (double) p_149668_2_ + this.maxX, (double) ((float) p_149668_3_ + (float) l * f), (double) p_149668_4_ + this.maxZ);
 	}
@@ -54,12 +54,12 @@ public class BlockLayering extends Block {
 	}
 
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		Block block = world.getBlock(x, y - 1, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		
 		if(block instanceof RBMKDebris || block instanceof ZirnoxDestroyed)
 			return true;
 		
-		return block != Blocks.ice && block != Blocks.packed_ice ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (world.getBlockMetadata(x, y - 1, z) & 7) == 7 ? true : block.isOpaqueCube() && block.getMaterial().blocksMovement())) : false;
+		return block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement())) : false;
 	}
 
 	public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_) {
@@ -68,7 +68,7 @@ public class BlockLayering extends Block {
 
 	private boolean func_150155_m(World p_150155_1_, int p_150155_2_, int p_150155_3_, int p_150155_4_) {
 		if(!this.canPlaceBlockAt(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_)) {
-			p_150155_1_.setBlockToAir(p_150155_2_, p_150155_3_, p_150155_4_);
+			com.hbm.world.WorldAirRemoval.remove(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_);
 			return false;
 		} else {
 			return true;
@@ -77,10 +77,10 @@ public class BlockLayering extends Block {
 
 	public void harvestBlock(World p_149636_1_, EntityPlayer p_149636_2_, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_) {
 		super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
-		p_149636_1_.setBlockToAir(p_149636_3_, p_149636_4_, p_149636_5_);
+		com.hbm.world.WorldAirRemoval.remove(p_149636_1_, p_149636_3_, p_149636_4_, p_149636_5_);
 	}
 
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;
 	}
 

@@ -50,7 +50,7 @@ public class GUIRadiolysis extends GuiInfoContainer {
 		
 		for(int i = 0; i < pellets.size(); i++) {
 			ItemRTGPellet pellet = pellets.get(i);
-			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletPower", I18nUtil.resolveKey(pellet.getUnlocalizedName() + ".name"), pellet.getHeat() * 10);
+			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletPower", I18nUtil.resolveKey(pellet.getTranslationKey() + ".name"), pellet.getHeat() * 10);
 		}
 		
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 16, guiTop + 16 + 36, 16, 16, guiLeft - 8, guiTop + 16 + 36 + 16, pelletText);
@@ -61,8 +61,8 @@ public class GUIRadiolysis extends GuiInfoContainer {
 		
 		String name = this.radiolysis.hasCustomInventoryName() ? this.radiolysis.getInventoryName() : I18n.format(this.radiolysis.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, 88 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 88 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override

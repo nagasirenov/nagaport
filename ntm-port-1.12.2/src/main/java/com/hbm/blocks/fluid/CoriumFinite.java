@@ -35,13 +35,13 @@ public class CoriumFinite extends GenericFiniteFluid {
 			return true;
 		Random rand = new Random();
 		
-		return b.getMaterial().isLiquid() || rand.nextInt((int) res) == 0;
+		return b.getDefaultState().getMaterial().isLiquid() || rand.nextInt((int) res) == 0;
 	}
 
 	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
-		if(world.getBlock(x, y, z).getMaterial().isLiquid()) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
 			return false;
 		}
 		return canDisplace(world, x, y, z);
@@ -66,10 +66,10 @@ public class CoriumFinite extends GenericFiniteFluid {
 		try {
 			super.updateTick(world, x, y, z, rand);
 		} catch(ClassCastException ex) {
-			if(!world.isRemote) world.setBlockToAir(x, y, z);
+			if(!world.isRemote) com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 		
-		if(!world.isRemote && rand.nextInt(10) == 0 && world.getBlock(x, y - 1, z) != this) {
+		if(!world.isRemote && rand.nextInt(10) == 0 && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
 			
 			if(rand.nextInt(3) == 0)
 				world.setBlock(x, y, z, ModBlocks.block_corium);

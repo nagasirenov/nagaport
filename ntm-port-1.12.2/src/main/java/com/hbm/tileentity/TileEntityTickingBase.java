@@ -2,7 +2,7 @@ package com.hbm.tileentity;
 
 import net.minecraftforge.fluids.FluidTank;
 
-public abstract class TileEntityTickingBase extends TileEntityLoadedBase {
+public abstract class TileEntityTickingBase extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 	public TileEntityTickingBase() { }
 
@@ -17,7 +17,7 @@ public abstract class TileEntityTickingBase extends TileEntityLoadedBase {
 	//was it update? onUpdate? updateTile? did it have any args?
 	//shit i don't know man
 	@Override
-	public abstract void updateEntity();
+	public abstract void update();
 
 	@Deprecated
 	public void handleButtonPacket(int value, int meta) { }

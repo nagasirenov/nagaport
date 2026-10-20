@@ -1,0 +1,386 @@
+{
+  "baseline": "c97cd8bb2646b39e3688922121b7af888c130aa8",
+  "files": {
+    "src/main/java/api/hbm/fluid/IFluidStandardReceiver.java": {
+      "before_sha256": "94aa890b1528eec3d55598a4c71e277e382aabf7e75d495a081d54e8852c6fc9",
+      "after_sha256": "4a6a94fabb5a42b5281e2a3c1bc5cc4fcfee606b7102ee8553f4fac4db87d722",
+      "edits": [
+        {
+          "before_offset": 465,
+          "after_offset": 465,
+          "old": "\t\tsubscribeToAllAround(type, tile.getWorldObj(), tile.xCoord, tile.yCoord, tile.zCoord);\n",
+          "new": "\t\tsubscribeToAllAround(type, tile.getWorld(), tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());\n"
+        },
+        {
+          "before_offset": 1193,
+          "after_offset": 1217,
+          "old": "\t\t\ttryUnsubscribe(type, tile.getWorldObj(), tile.xCoord + dir.offsetX, tile.yCoord + dir.offsetY, tile.zCoord + dir.offsetZ);\n",
+          "new": "\t\t\ttryUnsubscribe(type, tile.getWorld(), tile.getPos().getX() + dir.offsetX, tile.getPos().getY() + dir.offsetY, tile.getPos().getZ() + dir.offsetZ);\n"
+        }
+      ]
+    },
+    "src/main/java/api/hbm/fluid/IFluidStandardSender.java": {
+      "before_sha256": "67d03a9dc58bc1c627ebeffecad2ff7067ee6cb4b666c905e384dca5732b830c",
+      "after_sha256": "d50548d044ee9fb2e862addf4d6c18af442785966e915f987e180ae6f44223fe",
+      "edits": [
+        {
+          "before_offset": 601,
+          "after_offset": 601,
+          "old": "\t\t\ttryProvide(tank, tile.getWorldObj(), tile.xCoord + dir.offsetX, tile.yCoord + dir.offsetY, tile.zCoord + dir.offsetZ, dir);\n",
+          "new": "\t\t\ttryProvide(tank, tile.getWorld(), tile.getPos().getX() + dir.offsetX, tile.getPos().getY() + dir.offsetY, tile.getPos().getZ() + dir.offsetZ, dir);\n"
+        }
+      ]
+    },
+    "src/main/java/api/hbm/fluidmk2/IFluidPipeMK2.java": {
+      "before_sha256": "ac60aca9acc337abeb6e0816ddf5de9586167ac055c3799dbc8407063309d827",
+      "after_sha256": "1b80ee92ce05515ad862a2f66f7eaa63525084391c92ac9ab3b5dfbc4b42b01b",
+      "edits": [
+        {
+          "before_offset": 466,
+          "after_offset": 466,
+          "old": "\t\treturn new FluidNode(type.getNetworkProvider(), new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(\n\t\t\t\tnew DirPos(tile.xCoord + 1, tile.yCoord, tile.zCoord, Library.POS_X),\n\t\t\t\tnew DirPos(tile.xCoord - 1, tile.yCoord, tile.zCoord, Library.NEG_X),\n\t\t\t\tnew DirPos(tile.xCoord, tile.yCoord + 1, tile.zCoord, Library.POS_Y),\n\t\t\t\tnew DirPos(tile.xCoord, tile.yCoord - 1, tile.zCoord, Library.NEG_Y),\n\t\t\t\tnew DirPos(tile.xCoord, tile.yCoord, tile.zCoord + 1, Library.POS_Z),\n\t\t\t\tnew DirPos(tile.xCoord, tile.yCoord, tile.zCoord - 1, Library.NEG_Z)\n",
+          "new": "\t\treturn new FluidNode(type.getNetworkProvider(), new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(\n\t\t\t\tnew DirPos(tile.getPos().getX() + 1, tile.getPos().getY(), tile.getPos().getZ(), Library.POS_X),\n\t\t\t\tnew DirPos(tile.getPos().getX() - 1, tile.getPos().getY(), tile.getPos().getZ(), Library.NEG_X),\n\t\t\t\tnew DirPos(tile.getPos().getX(), tile.getPos().getY() + 1, tile.getPos().getZ(), Library.POS_Y),\n\t\t\t\tnew DirPos(tile.getPos().getX(), tile.getPos().getY() - 1, tile.getPos().getZ(), Library.NEG_Y),\n\t\t\t\tnew DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() + 1, Library.POS_Z),\n\t\t\t\tnew DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() - 1, Library.NEG_Z)\n"
+        }
+      ]
+    },
+    "src/main/java/api/hbm/fluidmk2/IFluidReceiverMK2.java": {
+      "before_sha256": "d86f9db40c6e10aa06bec838ab8bfbeeda1bab8f1ab3eaa10dc1c14c06b6608d",
+      "after_sha256": "4a049ab96a8854fce5bf6de929e679f15e7994b0c503dd9aea5e4de06e1092ca",
+      "edits": [
+        {
+          "before_offset": 2367,
+          "after_offset": 2367,
+          "old": "\t\t\tPacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.dimensionId, posX, posY, posZ, 25));\n",
+          "new": "\t\t\tPacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 25));\n"
+        }
+      ]
+    },
+    "src/main/java/api/hbm/fluidmk2/IFluidStandardSenderMK2.java": {
+      "before_sha256": "96fef72f0cf22d10804e8ffa4b58ae156f02faf100818fe348e3a2132830d679",
+      "after_sha256": "559e6b88bc18060228f4c4b5d47b502d6dd9874fc9e19fd828a1f75f55d4264f",
+      "edits": [
+        {
+          "before_offset": 3299,
+          "after_offset": 3299,
+          "old": "\t\t\tPacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.dimensionId, posX, posY, posZ, 25));\n",
+          "new": "\t\t\tPacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 25));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/FluidContainerRegistry.java": {
+      "before_sha256": "6acb4cf33f4687c028caf13b416c9f250bebea72c7a531e79e178cbe3e8cb68c",
+      "after_sha256": "bcb0a6953b744b298e93a5b702731f5538468a535c61d0d79a51038471dc8033",
+      "edits": [
+        {
+          "before_offset": 992,
+          "after_offset": 992,
+          "old": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.water_bucket), new ItemStack(Items.bucket), Fluids.WATER, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.potionitem), new ItemStack(Items.glass_bottle), Fluids.WATER, 250));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.lava_bucket), new ItemStack(Items.bucket), Fluids.LAVA, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_mud), new ItemStack(Items.bucket), Fluids.WATZ, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_schrabidic_acid), new ItemStack(Items.bucket), Fluids.SCHRABIDIC, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_sulfuric_acid), new ItemStack(Items.bucket), Fluids.SULFURIC_ACID, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_mercury), new ItemStack(Items.bucket), Fluids.MERCURY, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_bromine), new ItemStack(Items.bucket), Fluids.BROMINE, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_ccl), new ItemStack(Items.bucket), Fluids.CCL, 1000));\n",
+          "new": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.WATER_BUCKET), new ItemStack(Items.BUCKET), Fluids.WATER, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.POTIONITEM), new ItemStack(Items.GLASS_BOTTLE), Fluids.WATER, 250));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.LAVA_BUCKET), new ItemStack(Items.BUCKET), Fluids.LAVA, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_mud), new ItemStack(Items.BUCKET), Fluids.WATZ, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_schrabidic_acid), new ItemStack(Items.BUCKET), Fluids.SCHRABIDIC, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_sulfuric_acid), new ItemStack(Items.BUCKET), Fluids.SULFURIC_ACID, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_mercury), new ItemStack(Items.BUCKET), Fluids.MERCURY, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_bromine), new ItemStack(Items.BUCKET), Fluids.BROMINE, 1000));\n\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_ccl), new ItemStack(Items.BUCKET), Fluids.CCL, 1000));\n"
+        },
+        {
+          "before_offset": 4620,
+          "after_offset": 4620,
+          "old": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_mercury), new ItemStack(Items.glass_bottle), Fluids.MERCURY, 1000));\n",
+          "new": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_mercury), new ItemStack(Items.GLASS_BOTTLE), Fluids.MERCURY, 1000));\n"
+        },
+        {
+          "before_offset": 5890,
+          "after_offset": 5890,
+          "old": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.experience_bottle), new ItemStack(Items.glass_bottle), Fluids.XPJUICE, 100));\n",
+          "new": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.EXPERIENCE_BOTTLE), new ItemStack(Items.GLASS_BOTTLE), Fluids.XPJUICE, 100));\n"
+        },
+        {
+          "before_offset": 6357,
+          "after_offset": 6357,
+          "old": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.milk_bucket), new ItemStack(Items.bucket), Fluids.MILK, 1000));\n",
+          "new": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.MILK_BUCKET), new ItemStack(Items.BUCKET), Fluids.MILK, 1000));\n"
+        },
+        {
+          "before_offset": 6806,
+          "after_offset": 6806,
+          "old": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_honey), new ItemStack(Items.glass_bottle), Fluids.HONEY, 100));\n",
+          "new": "\t\tFluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_honey), new ItemStack(Items.GLASS_BOTTLE), Fluids.HONEY, 100));\n"
+        },
+        {
+          "before_offset": 9334,
+          "after_offset": 9334,
+          "old": "\t\tif(stack == null) return null;\n",
+          "new": "\t\tif(stack == null || stack.isEmpty()) return null;\n"
+        },
+        {
+          "before_offset": 9400,
+          "after_offset": 9419,
+          "old": "\t\tsta.stackSize = 1;\n",
+          "new": "\t\tsta.setCount(1);\n"
+        },
+        {
+          "before_offset": 9533,
+          "after_offset": 9550,
+          "old": "\t\t\tif(container.emptyContainer != null && container.emptyContainer.isItemEqual(sta))\n",
+          "new": "\t\t\tif(container.emptyContainer != null && !container.emptyContainer.isEmpty() && container.emptyContainer.isItemEqual(sta))\n"
+        },
+        {
+          "before_offset": 9735,
+          "after_offset": 9791,
+          "old": "\t\tif(stack == null)\n",
+          "new": "\t\tif(stack == null || stack.isEmpty())\n"
+        },
+        {
+          "before_offset": 9801,
+          "after_offset": 9876,
+          "old": "\t\tsta.stackSize = 1;\n",
+          "new": "\t\tsta.setCount(1);\n"
+        },
+        {
+          "before_offset": 10090,
+          "after_offset": 10163,
+          "old": "\t\tif(stack == null) return Fluids.NONE;\n",
+          "new": "\t\tif(stack == null || stack.isEmpty()) return Fluids.NONE;\n"
+        },
+        {
+          "before_offset": 10163,
+          "after_offset": 10255,
+          "old": "\t\tsta.stackSize = 1;\n",
+          "new": "\t\tsta.setCount(1);\n"
+        },
+        {
+          "before_offset": 10418,
+          "after_offset": 10508,
+          "old": "\t\tif(stack == null) return null;\n",
+          "new": "\t\tif(stack == null || stack.isEmpty()) return null;\n"
+        },
+        {
+          "before_offset": 10484,
+          "after_offset": 10593,
+          "old": "\t\tsta.stackSize = 1;\n",
+          "new": "\t\tsta.setCount(1);\n"
+        },
+        {
+          "before_offset": 10617,
+          "after_offset": 10724,
+          "old": "\t\t\tif(container.emptyContainer != null && container.emptyContainer.isItemEqual(sta))\n",
+          "new": "\t\t\tif(container.emptyContainer != null && !container.emptyContainer.isEmpty() && container.emptyContainer.isItemEqual(sta))\n"
+        },
+        {
+          "before_offset": 10831,
+          "after_offset": 10977,
+          "old": "\t\tif(stack == null) return null;\n",
+          "new": "\t\tif(stack == null || stack.isEmpty()) return null;\n"
+        },
+        {
+          "before_offset": 10897,
+          "after_offset": 11062,
+          "old": "\t\tsta.stackSize = 1;\n",
+          "new": "\t\tsta.setCount(1);\n"
+        },
+        {
+          "before_offset": 11017,
+          "after_offset": 11180,
+          "old": "\t\t\t\treturn container.emptyContainer == null ? null : container.emptyContainer.copy();\n",
+          "new": "\t\t\t\treturn container.emptyContainer == null || container.emptyContainer.isEmpty() ? null : container.emptyContainer.copy();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderFillableItem.java": {
+      "before_sha256": "bbade8a0c3f6b2be96ecc390de3cbcabdc439b2219ab7ab0676f60d794eed9c8",
+      "after_sha256": "73bcf060093cc601daf7636685387c4cf88d968af9d5c8ca58fba8a63aee663f",
+      "edits": [
+        {
+          "before_offset": 532,
+          "after_offset": 532,
+          "old": "\t\tif(stack == null)\n",
+          "new": "\t\tif(stack == null || stack.isEmpty())\n"
+        },
+        {
+          "before_offset": 755,
+          "after_offset": 774,
+          "old": "\t\t\t\tif(mod != null && mod.getItem() instanceof IFillableItem) {\n",
+          "new": "\t\t\t\tif(mod != null && !mod.isEmpty() && mod.getItem() instanceof IFillableItem) {\n"
+        },
+        {
+          "before_offset": 1537,
+          "after_offset": 1574,
+          "old": "\t\t\t\tif(mod != null && mod.getItem() instanceof IFillableItem) {\n",
+          "new": "\t\t\t\tif(mod != null && !mod.isEmpty() && mod.getItem() instanceof IFillableItem) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderInfinite.java": {
+      "before_sha256": "b40513e8e93c21005a969e423d14bab5cd770c3f9fc7fda35b9e329ed7f15a68",
+      "after_sha256": "fd1ebc87d2ebd5b4394482dfabb2bb6028d5067c9beabb2758fb5db56e5774e8",
+      "edits": [
+        {
+          "before_offset": 394,
+          "after_offset": 394,
+          "old": "\t\tif(slots[in] == null || !(slots[in].getItem() instanceof ItemInfiniteFluid)) return false;\n",
+          "new": "\t\tif(slots[in] == null || slots[in].isEmpty() || !(slots[in].getItem() instanceof ItemInfiniteFluid)) return false;\n"
+        },
+        {
+          "before_offset": 995,
+          "after_offset": 1018,
+          "old": "\t\tif(slots[in] == null || !(slots[in].getItem() instanceof ItemInfiniteFluid) || tank.getTankType() == Fluids.NONE) return false;\n",
+          "new": "\t\tif(slots[in] == null || slots[in].isEmpty() || !(slots[in].getItem() instanceof ItemInfiniteFluid) || tank.getTankType() == Fluids.NONE) return false;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderStandard.java": {
+      "before_sha256": "015f580834cde987da66e28e512166294cfddd7e3329446b41f979e7111ca588",
+      "after_sha256": "3ac79249c44e6972a097cf579afc048c4a674dab9397635813b05b0e4b919ffc",
+      "edits": [
+        {
+          "before_offset": 365,
+          "after_offset": 365,
+          "old": "\t\tif(slots[in] == null) return true;\n",
+          "new": "\t\tif((slots[in] == null || slots[in].isEmpty())) return true;\n"
+        },
+        {
+          "before_offset": 524,
+          "after_offset": 549,
+          "old": "\t\tif(full != null && slots[in] != null && tank.getFill() - FluidContainerRegistry.getFluidContent(full, type) >= 0) {\n",
+          "new": "\t\tif(full != null && slots[in] != null && !slots[in].isEmpty() && tank.getFill() - FluidContainerRegistry.getFluidContent(full, type) >= 0) {\n"
+        },
+        {
+          "before_offset": 731,
+          "after_offset": 780,
+          "old": "\t\t\tif(slots[out] == null) {\n",
+          "new": "\t\t\tif((slots[out] == null || slots[out].isEmpty())) {\n"
+        },
+        {
+          "before_offset": 881,
+          "after_offset": 956,
+          "old": "\t\t\t\tslots[in].stackSize--;\n\t\t\t\tif(slots[in].stackSize <= 0) {\n\t\t\t\t\tslots[in] = null;\n",
+          "new": "\t\t\t\tslots[in].shrink(1);\n\t\t\t\tif(slots[in].getCount() <= 0) {\n\t\t\t\t\tslots[in] = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1041,
+          "after_offset": 1126,
+          "old": "\t\t\t} else if(slots[out] != null && slots[out].getItem() == full.getItem() && slots[out].getItemDamage() == full.getItemDamage() && slots[out].stackSize < slots[out].getMaxStackSize()) {\n",
+          "new": "\t\t\t} else if(slots[out] != null && !slots[out].isEmpty() && slots[out].getItem() == full.getItem() && slots[out].getItemDamage() == full.getItemDamage() && slots[out].getCount() < slots[out].getMaxStackSize()) {\n"
+        },
+        {
+          "before_offset": 1319,
+          "after_offset": 1430,
+          "old": "\t\t\t\tslots[in].stackSize--;\n",
+          "new": "\t\t\t\tslots[in].shrink(1);\n"
+        },
+        {
+          "before_offset": 1351,
+          "after_offset": 1460,
+          "old": "\t\t\t\tif(slots[in].stackSize <= 0) {\n\t\t\t\t\tslots[in] = null;\n",
+          "new": "\t\t\t\tif(slots[in].getCount() <= 0) {\n\t\t\t\t\tslots[in] = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1415,
+          "after_offset": 1536,
+          "old": "\t\t\t\tslots[out].stackSize++;\n",
+          "new": "\t\t\t\tslots[out].grow(1);\n"
+        },
+        {
+          "before_offset": 1633,
+          "after_offset": 1750,
+          "old": "\t\tif(slots[in] == null)\n",
+          "new": "\t\tif((slots[in] == null || slots[in].isEmpty()))\n"
+        },
+        {
+          "before_offset": 2029,
+          "after_offset": 2171,
+          "old": "\t\t\tif(slots[out] == null) {\n",
+          "new": "\t\t\tif((slots[out] == null || slots[out].isEmpty())) {\n"
+        },
+        {
+          "before_offset": 2105,
+          "after_offset": 2273,
+          "old": "\t\t\t\tslots[out] = emptyContainer;\n",
+          "new": "\t\t\t\tslots[out] = emptyContainer == null ? ItemStack.EMPTY : emptyContainer;\n"
+        },
+        {
+          "before_offset": 2247,
+          "after_offset": 2458,
+          "old": "\t\t\t\tslots[in].stackSize--;\n\t\t\t\tif(slots[in].stackSize <= 0) {\n\t\t\t\t\tslots[in] = null;\n",
+          "new": "\t\t\t\tslots[in].shrink(1);\n\t\t\t\tif(slots[in].getCount() <= 0) {\n\t\t\t\t\tslots[in] = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 2343,
+          "after_offset": 2564,
+          "old": "\t\t\t} else if(slots[out] != null && (emptyContainer == null || (slots[out].getItem() == emptyContainer.getItem() && slots[out].getItemDamage() == emptyContainer.getItemDamage() && slots[out].stackSize < slots[out].getMaxStackSize()))) {\n",
+          "new": "\t\t\t} else if(slots[out] != null && !slots[out].isEmpty() && (emptyContainer == null || (slots[out].getItem() == emptyContainer.getItem() && slots[out].getItemDamage() == emptyContainer.getItemDamage() && slots[out].getCount() < slots[out].getMaxStackSize()))) {\n"
+        },
+        {
+          "before_offset": 2627,
+          "after_offset": 2874,
+          "old": "\t\t\t\tslots[in].stackSize--;\n",
+          "new": "\t\t\t\tslots[in].shrink(1);\n"
+        },
+        {
+          "before_offset": 2659,
+          "after_offset": 2904,
+          "old": "\t\t\t\tif(slots[in].stackSize <= 0) {\n\t\t\t\t\tslots[in] = null;\n",
+          "new": "\t\t\t\tif(slots[in].getCount() <= 0) {\n\t\t\t\t\tslots[in] = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 2761,
+          "after_offset": 3018,
+          "old": "\t\t\t\t\tslots[out].stackSize++;\n",
+          "new": "\t\t\t\t\tslots[out].grow(1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/fluid/tank/FluidTank.java": {
+      "before_sha256": "ea1a4c57fd6209a8b6cb440384b6a33c8e7bfc50afb5803cd3de5f392d8ce4ac",
+      "after_sha256": "1a623d1e884aeae51e2468dddef784415ca8e9333d988f1962fd50e48e537259",
+      "edits": [
+        {
+          "before_offset": 670,
+          "after_offset": 670,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 2673,
+          "after_offset": 2791,
+          "old": "\t\tif(slots[in] == null) return false;\n",
+          "new": "\t\tif(slots[in] == null || slots[in].isEmpty()) return false;\n"
+        },
+        {
+          "before_offset": 3144,
+          "after_offset": 3285,
+          "old": "\t\tif(slots[in] == null) return false;\n",
+          "new": "\t\tif(slots[in] == null || slots[in].isEmpty()) return false;\n"
+        },
+        {
+          "before_offset": 3660,
+          "after_offset": 3824,
+          "old": "\t\tif(slots[in] != null && slots[in].getItem() instanceof IItemFluidIdentifier) {\n",
+          "new": "\t\tif(slots[in] != null && !slots[in].isEmpty() && slots[in].getItem() instanceof IItemFluidIdentifier) {\n"
+        },
+        {
+          "before_offset": 3996,
+          "after_offset": 4184,
+          "old": "\t\t\t} else if(slots[out] == null) {\n",
+          "new": "\t\t\t} else if(slots[out] == null || slots[out].isEmpty()) {\n"
+        },
+        {
+          "before_offset": 4176,
+          "after_offset": 4388,
+          "old": "\t\t\t\t\tslots[in] = null;\n",
+          "new": "\t\t\t\t\tslots[in] = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 5662,
+          "after_offset": 5885,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(minX, maxY, z, minU, maxV);\n\t\ttessellator.addVertexWithUV(maxX, maxY, z, maxU, maxV);\n\t\ttessellator.addVertexWithUV(maxX, minY, z, maxU, minV);\n\t\ttessellator.addVertexWithUV(minX, minY, z, minU, minV);\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tessellator.getBuffer();\n\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);\n\t\tbuffer.pos(minX, maxY, z).tex(minU, maxV).endVertex();\n\t\tbuffer.pos(maxX, maxY, z).tex(maxU, maxV).endVertex();\n\t\tbuffer.pos(maxX, minY, z).tex(maxU, minV).endVertex();\n\t\tbuffer.pos(minX, minY, z).tex(minU, minV).endVertex();\n"
+        },
+        {
+          "before_offset": 7192,
+          "after_offset": 7497,
+          "old": "\t\tfluid = MathHelper.clamp_int(fluid, 0, max);\n",
+          "new": "\t\tfluid = MathHelper.clamp(fluid, 0, max);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

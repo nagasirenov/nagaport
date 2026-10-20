@@ -1,0 +1,282 @@
+{
+  "baseline": "f34230ba411e22b268b62e0ac973edeb82a10fca",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "c24145b93b321f1f652754b6baf6fb9179f156677557f4ebe97dc263abc8abfb",
+      "after_sha256": "dd5f915fdad903a50584c25762371abf679f2ea591f30b63e3fb6f3ea3709855",
+      "edits": [
+        {
+          "before_offset": 187388,
+          "after_offset": 187388,
+          "old": "\t\tcable_diode = new CableDiode(Material.iron).setBlockName(\"cable_diode\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":cable_diode\");\r\n",
+          "new": "\t\tcable_diode = new CableDiode(Material.IRON).setTranslationKey(\"cable_diode\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 193517,
+          "after_offset": 193467,
+          "old": "\t\tcrane_partitioner = new CranePartitioner().setBlockName(\"crane_partitioner\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":crane_partitioner_side\");\r\n",
+          "new": "\t\tcrane_partitioner = new CranePartitioner().setTranslationKey(\"crane_partitioner\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 345409,
+          "after_offset": 345298,
+          "old": "\t\tGameRegistry.registerBlock(cable_diode, ItemBlockBase.class, cable_diode.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(cable_diode);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CableDiode.java": {
+      "before_sha256": "ef2cdb6f17bd41be7a838e2d622d44fc3500e0bfff8fb762514ae542e596ca02",
+      "after_sha256": "30159db6ac2c97605a831b2ee936c0bf528e8f536112d29f3ca63c5cfe5f8929",
+      "edits": [
+        {
+          "before_offset": 0,
+          "after_offset": 0,
+          "old": "package com.hbm.blocks.network;\r\n\r\nimport api.hbm.block.IToolable;\r\nimport api.hbm.energymk2.IEnergyConnectorBlock;\r\nimport api.hbm.energymk2.IEnergyConnectorMK2;\r\nimport api.hbm.energymk2.IEnergyReceiverMK2;\r\nimport api.hbm.energymk2.IEnergyReceiverMK2.ConnectionPriority;\r\nimport api.hbm.energymk2.Nodespace;\r\nimport api.hbm.energymk2.Nodespace.PowerNode;\r\nimport com.hbm.blocks.ILookOverlay;\r\nimport com.hbm.blocks.ITooltipProvider;\r\nimport com.hbm.tileentity.TileEntityLoadedBase;\r\nimport com.hbm.util.BobMathUtil;\r\nimport com.hbm.util.Compat;\r\nimport com.hbm.util.i18n.I18nUtil;\r\n\r\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\r\nimport net.minecraftforge.fml.relauncher.Side;\r\nimport net.minecraftforge.fml.relauncher.SideOnly;\r\nimport net.minecraft.block.BlockContainer;\r\nimport net.minecraft.block.BlockPistonBase;\r\nimport net.minecraft.block.material.Material;\r\nimport net.minecraft.entity.EntityLivingBase;\r\nimport net.minecraft.entity.player.EntityPlayer;\r\nimport net.minecraft.item.ItemStack;\r\nimport net.minecraft.nbt.NBTTagCompound;\r\nimport net.minecraft.network.NetworkManager;\r\n",
+          "new": "package com.hbm.blocks.network;\n\nimport api.hbm.block.IToolable;\nimport api.hbm.energymk2.IEnergyConnectorBlock;\nimport api.hbm.energymk2.IEnergyConnectorMK2;\nimport api.hbm.energymk2.IEnergyReceiverMK2;\nimport api.hbm.energymk2.IEnergyReceiverMK2.ConnectionPriority;\nimport api.hbm.energymk2.Nodespace;\nimport api.hbm.energymk2.Nodespace.PowerNode;\nimport com.hbm.blocks.ILookOverlay;\nimport com.hbm.blocks.ITooltipProvider;\nimport com.hbm.tileentity.TileEntityLoadedBase;\nimport com.hbm.util.BobMathUtil;\nimport com.hbm.util.Compat;\nimport com.hbm.util.i18n.I18nUtil;\n\nimport net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.entity.EntityLivingBase;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.nbt.NBTTagCompound;\nimport net.minecraft.network.NetworkManager;\n"
+        },
+        {
+          "before_offset": 1178,
+          "after_offset": 944,
+          "old": "import net.minecraft.tileentity.TileEntity;\r\nimport net.minecraft.util.text.TextFormatting;\r\nimport net.minecraft.world.IBlockAccess;\r\nimport net.minecraft.world.World;\r\nimport net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;\r\nimport com.hbm.lib.ForgeDirection;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class CableDiode extends BlockContainer implements IEnergyConnectorBlock, ILookOverlay, IToolable, ITooltipProvider {\r\n\r\n\tpublic CableDiode(Material mat) {\r\n\t\tsuper(mat);\r\n\t}\r\n\r\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\r\n\r\n\t@Override\r\n\tpublic int getRenderType() {\r\n\t\treturn renderID;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic boolean isOpaqueCube() {\r\n\t\treturn false;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic boolean renderAsNormalBlock() {\r\n\t\treturn false;\r\n\t}\r\n\r\n\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {\r\n\t\treturn true;\r\n\t}\r\n\r\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\r\n\t\tint l = BlockPistonBase.determineOrientation(world, x, y, z, player);\r\n\t\tworld.setBlockMetadataWithNotify(x, y, z, l, 2);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic boolean canConnect(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {\r\n\t\treturn true;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {\r\n\r\n\t\tTileEntityDiode te = (TileEntityDiode)world.getTileEntity(x, y, z);\r\n\r\n\t\tif(world.isRemote)\r\n\t\t\treturn true;\r\n\r\n\t\tif(tool == ToolType.SCREWDRIVER) {\r\n\t\t\tif(te.level < 11)\r\n\t\t\t\tte.level++;\r\n\t\t\tte.markDirty();\r\n\t\t\tworld.markBlockForUpdate(x, y, z);\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\tif(tool == ToolType.HAND_DRILL) {\r\n\t\t\tif(te.level > 1)\r\n\t\t\t\tte.level--;\r\n\t\t\tte.markDirty();\r\n\t\t\tworld.markBlockForUpdate(x, y, z);\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\tif(tool == ToolType.DEFUSER) {\r\n\t\t\tint p = te.priority.ordinal() + 1;\r\n\t\t\tif(p > 4) p = 0;\r\n\t\t\tte.priority = ConnectionPriority.values()[p];\r\n\t\t\tte.markDirty();\r\n\t\t\tworld.markBlockForUpdate(x, y, z);\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\treturn false;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\r\n\t\tlist.add(TextFormatting.GOLD + \"Limits throughput and restricts flow direction\");\r\n\t\tlist.add(TextFormatting.YELLOW + \"Use screwdriver to increase throughput\");\r\n\t\tlist.add(TextFormatting.YELLOW + \"Use hand drill to decrease throughput\");\r\n\t\tlist.add(TextFormatting.YELLOW + \"Use defuser to change network priority\");\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void printHook(Pre event, World world, int x, int y, int z) {\r\n\r\n\t\tTileEntity te = world.getTileEntity(x, y, z);\r\n\r\n\t\tif(!(te instanceof TileEntityDiode))\r\n\t\t\treturn;\r\n\r\n\t\tTileEntityDiode diode = (TileEntityDiode) te;\r\n\r\n\t\tList<String> text = new ArrayList();\r\n\t\ttext.add(\"Max.: \" + BobMathUtil.getShortNumber(diode.getMaxPower()) + \"HE/t\");\r\n\t\ttext.add(\"Priority: \" + diode.priority.name());\r\n\r\n\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\r\n\t\treturn new TileEntityDiode();\r\n\t}\r\n\r\n\tpublic static class TileEntityDiode extends TileEntityLoadedBase implements IEnergyReceiverMK2, net.minecraft.util.ITickable {\r\n\r\n\t\t@Override\r\n\t\tpublic void readFromNBT(NBTTagCompound nbt) {\r\n\t\t\tsuper.readFromNBT(nbt);\r\n\t\t\tlevel = nbt.getInteger(\"level\");\r\n\t\t\tpriority = ConnectionPriority.values()[nbt.getByte(\"p\")];\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\r\n\t\t\tsuper.writeToNBT(nbt);\r\n\t\t\tnbt.setInteger(\"level\", level);\r\n\t\t\tnbt.setByte(\"p\", (byte) this.priority.ordinal());\r\n\t\t\treturn nbt;\r\n\t\t}\r\n\r\n\t\t@Override\r\n",
+          "new": "import net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.text.TextFormatting;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;\nimport com.hbm.lib.ForgeDirection;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.*;\nimport net.minecraft.util.*;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraftforge.common.property.*;\n\npublic class CableDiode extends BlockContainer implements IEnergyConnectorBlock, ILookOverlay, IToolable, ITooltipProvider {\n\n\tpublic CableDiode(Material mat) {\n\t\tsuper(mat);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n\t}\n\n    public static boolean isNativeModelOwner(net.minecraft.block.Block block) {\n        return block != null && block.getClass() == CableDiode.class\n                && new ResourceLocation(\"hbm\", \"tile.cable_diode\").equals(block.getRegistryName());\n    }\n    @Override public boolean hasCustomBreakingProgress(IBlockState state) { return isNativeModelOwner(this); }\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS}); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {\n        // The original renderer mixed AO-lit standard cubes with pre-shaded OBJ arms.\n        // Native passes separate those lighting contracts without changing geometry.\n        return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.CUTOUT_MIPPED;\n    }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return ((IExtendedBlockState)state).withProperty(ConnectionState.CONNECTIONS, ConnectionState.energy(world, pos));\n    }\n    @Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) { return true; }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n        world.setBlockState(pos, getStateFromMeta(EnumFacing.getDirectionFromEntityLiving(pos, player).getIndex()), 2);\n    }\n\n\t@Override\n\tpublic boolean canConnect(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {\n\n\t\tTileEntityDiode te = (TileEntityDiode)world.getTileEntity(new BlockPos(x, y, z));\n\n\t\tif(world.isRemote)\n\t\t\treturn true;\n\n\t\tif(tool == ToolType.SCREWDRIVER) {\n\t\t\tif(te.level < 11)\n\t\t\t\tte.level++;\n\t\t\tte.markDirty();\n\t\t\tBlockPos pos = new BlockPos(x, y, z);\n\t\t\tworld.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);\n\t\t\treturn true;\n\t\t}\n\n\t\tif(tool == ToolType.HAND_DRILL) {\n\t\t\tif(te.level > 1)\n\t\t\t\tte.level--;\n\t\t\tte.markDirty();\n\t\t\tBlockPos pos = new BlockPos(x, y, z);\n\t\t\tworld.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);\n\t\t\treturn true;\n\t\t}\n\n\t\tif(tool == ToolType.DEFUSER) {\n\t\t\tint p = te.priority.ordinal() + 1;\n\t\t\tif(p > 4) p = 0;\n\t\t\tte.priority = ConnectionPriority.values()[p];\n\t\t\tte.markDirty();\n\t\t\tBlockPos pos = new BlockPos(x, y, z);\n\t\t\tworld.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);\n\t\t\treturn true;\n\t\t}\n\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\tlist.add(TextFormatting.GOLD + \"Limits throughput and restricts flow direction\");\n\t\tlist.add(TextFormatting.YELLOW + \"Use screwdriver to increase throughput\");\n\t\tlist.add(TextFormatting.YELLOW + \"Use hand drill to decrease throughput\");\n\t\tlist.add(TextFormatting.YELLOW + \"Use defuser to change network priority\");\n\t}\n\n\t@Override\n\tpublic void printHook(Pre event, World world, int x, int y, int z) {\n\n\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n\n\t\tif(!(te instanceof TileEntityDiode))\n\t\t\treturn;\n\n\t\tTileEntityDiode diode = (TileEntityDiode) te;\n\n\t\tList<String> text = new ArrayList();\n\t\ttext.add(\"Max.: \" + BobMathUtil.getShortNumber(diode.getMaxPower()) + \"HE/t\");\n\t\ttext.add(\"Priority: \" + diode.priority.name());\n\n\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n\t}\n\n\t@Override\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\n\t\treturn new TileEntityDiode();\n\t}\n\n\tpublic static class TileEntityDiode extends TileEntityLoadedBase implements IEnergyReceiverMK2, net.minecraft.util.ITickable {\n        @Override public boolean canRenderBreaking() {\n            return getClass() == TileEntityDiode.class && getWorld() != null && isNativeModelOwner(getWorld().getBlockState(getPos()).getBlock());\n        }\n\n\n\t\t@Override\n\t\tpublic void readFromNBT(NBTTagCompound nbt) {\n\t\t\tsuper.readFromNBT(nbt);\n\t\t\tlevel = nbt.getInteger(\"level\");\n\t\t\tpriority = ConnectionPriority.values()[nbt.getByte(\"p\")];\n\t\t}\n\n\t\t@Override\n\t\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\n\t\t\tsuper.writeToNBT(nbt);\n\t\t\tnbt.setInteger(\"level\", level);\n\t\t\tnbt.setByte(\"p\", (byte) this.priority.ordinal());\n\t\t\treturn nbt;\n\t\t}\n\n\t\t@Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }\n\n\t\t@Override\n"
+        },
+        {
+          "before_offset": 5067,
+          "after_offset": 7248,
+          "old": "\t\t\tNBTTagCompound nbt = new NBTTagCompound();\r\n\t\t\tthis.writeToNBT(nbt);\r\n",
+          "new": "\t\t\tNBTTagCompound nbt = new NBTTagCompound();\n\t\t\tthis.writeToNBT(nbt);\n"
+        },
+        {
+          "before_offset": 5202,
+          "after_offset": 7381,
+          "old": "\t\t}\r\n\r\n\t\t@Override\r\n",
+          "new": "\t\t}\n\n\t\t@Override\n"
+        },
+        {
+          "before_offset": 5343,
+          "after_offset": 7519,
+          "old": "\t\t}\r\n\r\n\t\tint level = 1;\r\n\r\n\t\tprivate ForgeDirection getDir() {\r\n\t\t\treturn ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic void update() {\r\n\r\n\t\t\tif(!this.world.isRemote) {\r\n\t\t\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\r\n\r\n\t\t\t\t\tif(dir == getDir())\r\n\t\t\t\t\t\tcontinue;\r\n\r\n\t\t\t\t\tthis.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);\r\n\t\t\t\t}\r\n\r\n\t\t\t\tpulses = 0;\r\n\t\t\t\tthis.setPower(0); //tick is over, reset our allowed transfe\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic boolean canConnect(ForgeDirection dir) {\r\n\t\t\treturn dir != getDir();\r\n\t\t}\r\n\r\n\t\t/** Used as an intra-tick tracker for how much energy has been transmitted, resets to 0 each tick and maxes out based on transfer */\r\n\t\tprivate long power;\r\n\t\tprivate boolean recursionBrake = false;\r\n\t\tprivate int pulses = 0;\r\n\t\tpublic ConnectionPriority priority = ConnectionPriority.NORMAL;\r\n\r\n\t\t@Override\r\n\t\tpublic long transferPower(long power) {\r\n\r\n\t\t\tif(recursionBrake)\r\n\t\t\t\treturn power;\r\n\r\n\t\t\tpulses++;\r\n\t\t\tif(this.getPower() >= this.getMaxPower() || pulses > 10) return power; //if we have already maxed out transfer or max pulses, abort\r\n\r\n\t\t\trecursionBrake = true;\r\n\r\n\t\t\tForgeDirection dir = getDir();\r\n\t\t\tPowerNode node = Nodespace.getNode(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);\r\n\t\t\tTileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);\r\n\r\n\t\t\tif(node != null && !node.expired && node.hasValidNet() && te instanceof IEnergyConnectorMK2 && ((IEnergyConnectorMK2) te).canConnect(dir.getOpposite())) {\r\n\t\t\t\tlong toTransfer = Math.min(power, this.getReceiverSpeed());\r\n\t\t\t\tlong remainder = node.net.sendPowerDiode(toTransfer);\r\n\t\t\t\tlong transferred = (toTransfer - remainder);\r\n\t\t\t\tthis.power += transferred;\r\n\t\t\t\tpower -= transferred;\r\n\r\n\t\t\t} else if(te instanceof IEnergyReceiverMK2 && te != this) {\r\n\t\t\t\tIEnergyReceiverMK2 rec = (IEnergyReceiverMK2) te;\r\n\t\t\t\tif(rec.canConnect(dir.getOpposite())) {\r\n\t\t\t\t\tlong toTransfer = Math.min(power, rec.getReceiverSpeed());\r\n\t\t\t\t\tlong remainder = rec.transferPower(toTransfer);\r\n\t\t\t\t\tpower -= (toTransfer - remainder);\r\n\t\t\t\t\trecursionBrake = false;\r\n\t\t\t\t\treturn power;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\trecursionBrake = false;\r\n\t\t\treturn power;\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic long getReceiverSpeed() {\r\n\t\t\treturn this.getMaxPower() - this.getPower();\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic long getMaxPower() {\r\n\t\t\treturn (long) Math.pow(10, level);\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic long getPower() {\r\n\t\t\treturn Math.min(power, this.getMaxPower());\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic void setPower(long power) {\r\n\t\t\tthis.power = power;\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic ConnectionPriority getPriority() {\r\n\t\t\treturn this.priority;\r\n\t\t}\r\n\t}\r\n}\r\n",
+          "new": "\t\t}\n\n\t\tint level = 1;\n\n\t\tprivate ForgeDirection getDir() {\n\t\t\treturn ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();\n\t\t}\n\n\t\t@Override\n\t\tpublic void update() {\n\n\t\t\tif(!this.world.isRemote) {\n\t\t\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\n\t\t\t\t\tif(dir == getDir())\n\t\t\t\t\t\tcontinue;\n\n\t\t\t\t\tthis.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);\n\t\t\t\t}\n\n\t\t\t\tpulses = 0;\n\t\t\t\tthis.setPower(0); //tick is over, reset our allowed transfe\n\t\t\t}\n\t\t}\n\n\t\t@Override\n\t\tpublic boolean canConnect(ForgeDirection dir) {\n\t\t\treturn dir != getDir();\n\t\t}\n\n\t\t/** Used as an intra-tick tracker for how much energy has been transmitted, resets to 0 each tick and maxes out based on transfer */\n\t\tprivate long power;\n\t\tprivate boolean recursionBrake = false;\n\t\tprivate int pulses = 0;\n\t\tpublic ConnectionPriority priority = ConnectionPriority.NORMAL;\n\n\t\t@Override\n\t\tpublic long transferPower(long power) {\n\n\t\t\tif(recursionBrake)\n\t\t\t\treturn power;\n\n\t\t\tpulses++;\n\t\t\tif(this.getPower() >= this.getMaxPower() || pulses > 10) return power; //if we have already maxed out transfer or max pulses, abort\n\n\t\t\trecursionBrake = true;\n\n\t\t\tForgeDirection dir = getDir();\n\t\t\tPowerNode node = Nodespace.getNode(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);\n\t\t\tTileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);\n\n\t\t\tif(node != null && !node.expired && node.hasValidNet() && te instanceof IEnergyConnectorMK2 && ((IEnergyConnectorMK2) te).canConnect(dir.getOpposite())) {\n\t\t\t\tlong toTransfer = Math.min(power, this.getReceiverSpeed());\n\t\t\t\tlong remainder = node.net.sendPowerDiode(toTransfer);\n\t\t\t\tlong transferred = (toTransfer - remainder);\n\t\t\t\tthis.power += transferred;\n\t\t\t\tpower -= transferred;\n\n\t\t\t} else if(te instanceof IEnergyReceiverMK2 && te != this) {\n\t\t\t\tIEnergyReceiverMK2 rec = (IEnergyReceiverMK2) te;\n\t\t\t\tif(rec.canConnect(dir.getOpposite())) {\n\t\t\t\t\tlong toTransfer = Math.min(power, rec.getReceiverSpeed());\n\t\t\t\t\tlong remainder = rec.transferPower(toTransfer);\n\t\t\t\t\tpower -= (toTransfer - remainder);\n\t\t\t\t\trecursionBrake = false;\n\t\t\t\t\treturn power;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\trecursionBrake = false;\n\t\t\treturn power;\n\t\t}\n\n\t\t@Override\n\t\tpublic long getReceiverSpeed() {\n\t\t\treturn this.getMaxPower() - this.getPower();\n\t\t}\n\n\t\t@Override\n\t\tpublic long getMaxPower() {\n\t\t\treturn (long) Math.pow(10, level);\n\t\t}\n\n\t\t@Override\n\t\tpublic long getPower() {\n\t\t\treturn Math.min(power, this.getMaxPower());\n\t\t}\n\n\t\t@Override\n\t\tpublic void setPower(long power) {\n\t\t\tthis.power = power;\n\t\t}\n\n\t\t@Override\n\t\tpublic ConnectionPriority getPriority() {\n\t\t\treturn this.priority;\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CranePartitioner.java": {
+      "before_sha256": "0315e53144a428efe651c2813ff5f2f40c90154d18873da2c16e02bf689a5dc7",
+      "after_sha256": "0349b3bdf4ad9cffdcca22cf293d79259133f93c8d3aa5efe537293482bb0567",
+      "edits": [
+        {
+          "before_offset": 333,
+          "after_offset": 333,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 448,
+          "after_offset": 417,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 734,
+          "after_offset": 541,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1081,
+          "after_offset": 847,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1413,
+          "after_offset": 1146,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.*;\nimport net.minecraft.util.*;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.math.AxisAlignedBB;\n\n"
+        },
+        {
+          "before_offset": 1529,
+          "after_offset": 1470,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconBack;\n\t@SideOnly(Side.CLIENT) public IIcon iconBelt;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n\t@SideOnly(Side.CLIENT) public IIcon iconInnerSide;\n\n\tpublic CranePartitioner() {\n\t\tsuper(Material.iron);\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":crane_top\");\n\t\tthis.iconBack = iconRegister.registerIcon(RefStrings.MODID + \":crane_partitioner_back\");\n\t\tthis.iconBelt = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_belt\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_inner\");\n\t\tthis.iconInnerSide = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_inner_side\");\n\t}\n",
+          "new": "    public CranePartitioner() { super(Material.IRON); setDefaultState(blockState.getBaseState().withProperty(METADATA, 0)); }\n"
+        },
+        {
+          "before_offset": 2548,
+          "after_offset": 1730,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\tif(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\tif(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\tif(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\tif(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\tif(i == 0) world.setBlockState(pos, getStateFromMeta(2), 2);\n\t\tif(i == 1) world.setBlockState(pos, getStateFromMeta(5), 2);\n\t\tif(i == 2) world.setBlockState(pos, getStateFromMeta(3), 2);\n\t\tif(i == 3) world.setBlockState(pos, getStateFromMeta(4), 2);\n"
+        },
+        {
+          "before_offset": 2993,
+          "after_offset": 2184,
+          "old": "\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override public int getRenderType() { return renderID; }\n\t@Override public boolean isOpaqueCube() { return false; }\n\t@Override public boolean renderAsNormalBlock() { return false; }\n",
+          "new": "    public static boolean isNativeModelOwner(net.minecraft.block.Block block) {\n        return block != null && block.getClass() == CranePartitioner.class\n                && new ResourceLocation(\"hbm\", \"tile.crane_partitioner\").equals(block.getRegistryName());\n    }\n    @Override public boolean hasCustomBreakingProgress(IBlockState state) { return isNativeModelOwner(this); }\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return new AxisAlignedBB(0, 0, 0, 1, .75, 1); }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state, world, pos); }\n"
+        },
+        {
+          "before_offset": 4212,
+          "after_offset": 4639,
+          "old": "\t\titemPos = new Vec3d(MathHelper.clamp_double(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp_double(itemPos.z, z, z + 1));\n",
+          "new": "\t\titemPos = new Vec3d(MathHelper.clamp(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp(itemPos.z, z, z + 1));\n"
+        },
+        {
+          "before_offset": 4907,
+          "after_offset": 5320,
+          "old": "\t\tdouble itemX = MathHelper.clamp_double(itemPos.x, x, x + 1);\n\t\tdouble itemZ = MathHelper.clamp_double(itemPos.z, z, z + 1);\n",
+          "new": "\t\tdouble itemX = MathHelper.clamp(itemPos.x, x, x + 1);\n\t\tdouble itemZ = MathHelper.clamp(itemPos.z, z, z + 1);\n"
+        },
+        {
+          "before_offset": 5296,
+          "after_offset": 5695,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));\n"
+        },
+        {
+          "before_offset": 5506,
+          "after_offset": 5934,
+          "old": "\t\tTileEntityCranePartitioner partitioner = (TileEntityCranePartitioner) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityCranePartitioner partitioner = (TileEntityCranePartitioner) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6062,
+          "after_offset": 6504,
+          "old": "\t\tif(remainder != null) {\n",
+          "new": "\t\tif(remainder != null && !remainder.isEmpty()) {\n"
+        },
+        {
+          "before_offset": 6177,
+          "after_offset": 6643,
+          "old": "\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 6300,
+          "after_offset": 6759,
+          "old": "",
+          "new": "        @Override public boolean canRenderBreaking() {\n            return getClass() == TileEntityCranePartitioner.class && getWorld() != null && isNativeModelOwner(getWorld().getBlockState(getPos()).getBlock());\n        }\n\n"
+        },
+        {
+          "before_offset": 6798,
+          "after_offset": 7481,
+          "old": "\t\t\t\tfor(int i = 0; i < INPUT_COUNT; i++) if(slots[i] != null) stacks.add(slots[i]);\n",
+          "new": "\t\t\t\tfor(int i = 0; i < INPUT_COUNT; i++) if(slots[i] != null && !slots[i].isEmpty()) stacks.add(slots[i]);\n"
+        },
+        {
+          "before_offset": 7044,
+          "after_offset": 7750,
+          "old": "\t\t\t\t\tif(amount == 0) amount = stack.stackSize; // eject full stack if invalid type somehow ended up in the queue\n",
+          "new": "\t\t\t\t\tif(amount == 0) amount = stack.getCount(); // eject full stack if invalid type somehow ended up in the queue\n"
+        },
+        {
+          "before_offset": 7163,
+          "after_offset": 7870,
+          "old": "\t\t\t\t\twhile(stack.stackSize >= amount) {\n",
+          "new": "\t\t\t\t\twhile(stack.getCount() >= amount) {\n"
+        },
+        {
+          "before_offset": 7247,
+          "after_offset": 7955,
+          "old": "\t\t\t\t\t\tentityStack.stackSize = amount;\n\t\t\t\t\t\tstack.stackSize -= amount;\n",
+          "new": "\t\t\t\t\t\tentityStack.setCount(amount);\n\t\t\t\t\t\tstack.shrink(amount);\n"
+        },
+        {
+          "before_offset": 7514,
+          "after_offset": 8215,
+          "old": "\t\t\t\t\t\tthis.world.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\t\tthis.world.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 7571,
+          "after_offset": 8265,
+          "old": "\t\t\t\tfor(int i = 0; i < INPUT_COUNT; i++) if(slots[i] != null && slots[i].stackSize <= 0) slots[i] = null;\n",
+          "new": "\t\t\t\tfor(int i = 0; i < INPUT_COUNT; i++) if(slots[i] != null && slots[i].getCount() <= 0) slots[i] = null;\n"
+        },
+        {
+          "before_offset": 7879,
+          "after_offset": 8574,
+          "old": "\t\t\t\treturn (int) Math.signum(o1.stackSize - o2.stackSize);\n",
+          "new": "\t\t\t\treturn (int) Math.signum(o1.getCount() - o2.getCount());\n"
+        },
+        {
+          "before_offset": 8982,
+          "after_offset": 9679,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block block, int meta) {\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tTileEntity tile = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 10447,
+          "after_offset": 11207,
+          "old": "\t\t\tworld.func_147453_f(x, y, z, block);\n",
+          "new": "\t\t\tworld.updateComparatorOutputLevel(pos, this);\n"
+        },
+        {
+          "before_offset": 10491,
+          "after_offset": 11260,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, block, meta);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "7e2710ee9d7ce95c9ecdcc994ef5225d68178e431de528e94fa2bff0fddae60c",
+      "after_sha256": "97a8bbc71b008cf9eeaa4f096086e0fe0932f8453493dec3d4d49fe2dafea6c8",
+      "edits": [
+        {
+          "before_offset": 80430,
+          "after_offset": 80430,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderDiode());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 80737,
+          "after_offset": 80676,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderPartitioner());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderDiode.java": {
+      "before_sha256": "9e3ab57ebb6afd175df1bdc951fd8a6cafb4387a421251f96e6669236cf7571b",
+      "after_sha256": "b373cdb813db62323b08fca394a552d4a43985957c9daf6353f6fe6f49ad7a70",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.blocks.network.ConnectionState;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 420,
+          "old": "import com.hbm.blocks.ModBlocks;\nimport com.hbm.blocks.network.CableDiode;\nimport com.hbm.lib.Library;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderDiode implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tblock.setBlockBoundsForItemRender();\n\t\trenderer.setRenderBoundsFromBlock(block);\n\t\tGL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);\n\t\tGL11.glTranslatef(-0.5F, -0.625F, -0.5F);\n\t\t\n\t\tIIcon iiconPad = ModBlocks.hadron_coil_alloy.getIcon(0, 0);\n\t\tIIcon iconCable = ModBlocks.red_cable.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tfor(int i = 0; i< 2; i++) {\n\t\t\t\n\t\t\tif(i == 0) {\n\t\t\t\trenderer.setRenderBounds( 0D, 0.875D, 0D, 1D, 1D, 1D);\n\t\t\t} else {\n\n\t\t\t\trenderer.setOverrideBlockTexture(iiconPad);\n\t\t\t\tdouble radius = 0.375D;\n\t\t\t\trenderer.setRenderBounds(0.5D - radius, 0.5D - radius, 0.5D - radius, 0.5D + radius, 0.5D + radius, 0.5D + radius);\n\t\t\t}\n\t\t\t\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, -1.0F, 0.0F);\n\t\t\trenderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));\n\t\t\ttessellator.draw();\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\trenderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));\n\t\t\ttessellator.draw();\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 0.0F, -1.0F);\n\t\t\trenderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));\n\t\t\ttessellator.draw();\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 0.0F, 1.0F);\n\t\t\trenderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));\n\t\t\ttessellator.draw();\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(-1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));\n\t\t\ttessellator.draw();\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));\n\t\t\ttessellator.draw();\n\t\t}\n\n\t\tGL11.glTranslatef(0.5F, 0.5F, 0.5F);\n\t\tGL11.glRotated(180, 0, 1, 0);\n\t\t\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posX\", iconCable, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negX\", iconCable, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negY\", iconCable, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posZ\", iconCable, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negZ\", iconCable, tessellator, 0, false);\n\t\ttessellator.draw();\n\t\t\n\t\trenderer.clearOverrideBlockTexture();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iiconPad = ModBlocks.hadron_coil_alloy.getIcon(0, 0);\n\t\tIIcon iconCable = ModBlocks.red_cable.getIcon(0, 0);\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tdouble width = 0.875D;\n\t\trenderer.setRenderBounds(\n\t\t\t\t0D + (meta == 4 ? width : 0),\n\t\t\t\t0D + (meta == 0 ? width : 0),\n\t\t\t\t0D + (meta == 2 ? width : 0),\n\t\t\t\t1D - (meta == 5 ? width : 0),\n\t\t\t\t1D - (meta == 1 ? width : 0),\n\t\t\t\t1D - (meta == 3 ? width : 0)\n\t\t\t\t);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\n\t\trenderer.setOverrideBlockTexture(iiconPad);\n\t\tdouble radius = 0.375D;\n\t\tdouble minus = 0D;\n\t\trenderer.setRenderBounds(\n\t\t\t\t0.5D - radius + (meta == 4 ? minus : 0),\n\t\t\t\t0.5D - radius + (meta == 0 ? minus : 0),\n\t\t\t\t0.5D - radius + (meta == 2 ? minus : 0),\n\t\t\t\t0.5D + radius - (meta == 5 ? minus : 0),\n\t\t\t\t0.5D + radius - (meta == 1 ? minus : 0),\n\t\t\t\t0.5D + radius - (meta == 3 ? minus : 0)\n\t\t\t\t);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\trenderer.clearOverrideBlockTexture();\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tboolean pX = Library.canConnect(world, x + 1, y, z, Library.POS_X);\n\t\tboolean nX = Library.canConnect(world, x - 1, y, z, Library.NEG_X);\n\t\tboolean pY = Library.canConnect(world, x, y + 1, z, Library.POS_Y);\n\t\tboolean nY = Library.canConnect(world, x, y - 1, z, Library.NEG_Y);\n\t\tboolean pZ = Library.canConnect(world, x, y, z + 1, Library.POS_Z);\n\t\tboolean nZ = Library.canConnect(world, x, y, z - 1, Library.NEG_Z);\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\t\t\n\t\t//ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.cable_neo, \"Core\", iconCable, tessellator, 0, true);\n\t\tif(pX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posX\", iconCable, tessellator, 0, true);\n\t\tif(nX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negX\", iconCable, tessellator, 0, true);\n\t\tif(pY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posY\", iconCable, tessellator, 0, true);\n\t\tif(nY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negY\", iconCable, tessellator, 0, true);\n\t\tif(nZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posZ\", iconCable, tessellator, 0, true);\n\t\tif(pZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negZ\", iconCable, tessellator, 0, true);\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn CableDiode.renderID;\n\t}\n",
+          "new": "/** Original diode plate, coil cube and independently connected cable OBJ arms. */\npublic final class RenderDiode {\n    private RenderDiode() { }\n    public static List<BakedQuad> bake(ObjMesh cable, int metadata, int connections, boolean inventory, TextureAtlasSprite[] sprites) {\n        if(sprites.length != 3) throw new IllegalArgumentException(\"Diode plate, coil and cable sprites required\");\n        List<BakedQuad> result = new ArrayList<>();\n        int meta = inventory ? 0 : metadata;\n        cuboid(result, inventory, sprites[0], meta == 4 ? .875 : 0, meta == 0 ? .875 : 0, meta == 2 ? .875 : 0,\n                meta == 5 ? .125 : 1, meta == 1 ? .125 : 1, meta == 3 ? .125 : 1);\n        cuboid(result, inventory, sprites[1], .125, .125, .125, .875, .875, .875);\n        String[] parts = {\"posX\", \"negX\", \"posY\", \"negY\", \"posZ\", \"negZ\"};\n        int[] bits = {ConnectionState.POS_X, ConnectionState.NEG_X, ConnectionState.POS_Y, ConnectionState.NEG_Y,\n                ConnectionState.NEG_Z, ConnectionState.POS_Z};\n        for(int i = 0; i < parts.length; i++) if(inventory ? i != 2 : (connections & bits[i]) != 0)\n            AtlasObjGeometry.appendPart(result, cable, parts[i], sprites[2], inventory, inventory ? (float)(Math.PI * 1.5) : 0,\n                    0, 1, .5, inventory ? .375 : .5, .5);\n        return Collections.unmodifiableList(result);\n    }\n    private static void cuboid(List<BakedQuad> out, boolean inventory, TextureAtlasSprite sprite,\n            double x0, double y0, double z0, double x1, double y1, double z1) {\n        for(EnumFacing face : EnumFacing.values()) {\n            BakedQuad quad = ConveyorCuboidGeometry.face(sprite, inventory, face, 0, x0, y0, z0, x1, y1, z1, inventory ? -.125 : 0);\n            if(inventory) {\n                int[] data = quad.getVertexData().clone();\n                int stride = quad.getFormat().getIntegerSize();\n                int normal = quad.getFormat().getNormalOffset() / 4;\n                for(int v = 0; v < 4; v++) {\n                    int at = v * stride; float x = Float.intBitsToFloat(data[at]), z = Float.intBitsToFloat(data[at + 2]);\n                    data[at] = Float.floatToRawIntBits(z); data[at + 2] = Float.floatToRawIntBits(1 - x);\n                    int n = data[at + normal], nx = (byte)n, ny = (byte)(n >> 8), nz = (byte)(n >> 16);\n                    data[at + normal] = (n & 0xff000000) | (nz & 255) | ((ny & 255) << 8) | ((-nx & 255) << 16);\n                }\n                EnumFacing rotated = face.getAxis().isHorizontal() ? face.rotateYCCW() : face;\n                quad = new BakedQuad(data, quad.getTintIndex(), rotated, sprite, true, quad.getFormat());\n            }\n            out.add(quad);\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderPartitioner.java": {
+      "before_sha256": "8d9ffc4d963146e6180d37168f8c28d4bc44573fd53c1bd33cd1444306a9cd71",
+      "after_sha256": "8dfbbbdb19cb86e09a2956525f8722c7f0a775c96e38853bb076a0f9310273f5",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 271,
+          "old": "import com.hbm.blocks.network.CranePartitioner;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderPartitioner implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tGL11.glRotated(90, 0, 1, 0);\n\t\tGL11.glTranslatef(0F, -0.5F, 0F);\n\t\t\n\t\ttessellator.startDrawingQuads();\n\t\tdrawPartitioner(tessellator, block, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tfloat rotation = 0;\n\t\tif(meta == 2) rotation = 90F / 180F * (float) Math.PI;\n\t\tif(meta == 4) rotation = 180F / 180F * (float) Math.PI;\n\t\tif(meta == 5) rotation = 0F / 180F * (float) Math.PI;\n\t\tif(meta == 3) rotation = 270F / 180F * (float)Math.PI;\n\t\tdrawPartitioner(tessellator, block, rotation, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\t\n\tprivate static void drawPartitioner(Tessellator tessellator, Block block, float rotation, boolean shadeNormals) {\n\t\tCranePartitioner partitioner = (CranePartitioner) block;\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, \"Side\", partitioner.getIcon(0, 0), tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, \"Back\", partitioner.iconBack, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, \"Top_Top.001\", partitioner.iconTop, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, \"Inner\", partitioner.iconInner, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, \"InnerSide\", partitioner.iconInnerSide, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crane_buffer, \"Belt\", partitioner.iconBelt, tessellator, rotation, shadeNormals);\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn CranePartitioner.renderID;\n\t}\n",
+          "new": "/** Native original crane-buffer material groups and metadata rotations. */\npublic final class RenderPartitioner {\n    private RenderPartitioner() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite[] sprites) {\n        if(sprites.length != 6) throw new IllegalArgumentException(\"Six partitioner materials required\");\n        float rotation = inventory ? (float)Math.PI * .5F : rotation(metadata);\n        String[] parts = {\"Side\", \"Back\", \"Top_Top.001\", \"Inner\", \"InnerSide\", \"Belt\"};\n        List<BakedQuad> result = new ArrayList<>();\n        for(int i = 0; i < parts.length; i++) AtlasObjGeometry.appendPart(result, mesh, parts[i], sprites[i], inventory,\n                rotation, 0, 1, .5, 0, .5);\n        return Collections.unmodifiableList(result);\n    }\n    public static float rotation(int metadata) {\n        if(metadata == 2) return 90F / 180F * (float)Math.PI;\n        if(metadata == 4) return 180F / 180F * (float)Math.PI;\n        if(metadata == 3) return 270F / 180F * (float)Math.PI;\n        return 0;\n    }\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/main/DiodeNetworkModelHandler.java": "67d768acf14cb55c3552911db92dbf5a0de3c1e173a4b60cd0fa189e1138ff25",
+    "src/main/java/com/hbm/render/block/nativeblock/DiodeBakedModel.java": "f8c5db928ddb70646cbb0c00a9eec47808b4456bc297b4e8c807b3854f2cb05a",
+    "src/main/java/com/hbm/render/tileentity/NetworkBreakingRenderer.java": "88ebcac850808614ed09ce4caf43924f42519ca5f8a93be50a2cbbe377021173"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

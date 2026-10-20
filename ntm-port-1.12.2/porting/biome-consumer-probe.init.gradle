@@ -1,0 +1,15 @@
+// Extracted production biome methods/expressions against native target classes, not whole consumers.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortBiomeConsumers', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-biome-consumers.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ import com.hbm.tileentity.machine.TileEntityMachineDiesel;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderDieselGen extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -52,7 +52,7 @@ public class RenderDieselGen extends TileEntitySpecialRenderer implements IItemR
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, -2.5, 0);

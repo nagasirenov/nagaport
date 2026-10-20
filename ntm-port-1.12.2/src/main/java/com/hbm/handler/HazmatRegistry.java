@@ -125,15 +125,15 @@ public class HazmatRegistry {
 		HazmatRegistry.registerHazmat(ModItems.cobalt_legs, cobalt * legs);
 		HazmatRegistry.registerHazmat(ModItems.cobalt_boots, cobalt * boots);
 
-		HazmatRegistry.registerHazmat(Items.iron_helmet, iron * helmet);
-		HazmatRegistry.registerHazmat(Items.iron_chestplate, iron * chest);
-		HazmatRegistry.registerHazmat(Items.iron_leggings, iron * legs);
-		HazmatRegistry.registerHazmat(Items.iron_boots, iron * boots);
+		HazmatRegistry.registerHazmat(Items.IRON_HELMET, iron * helmet);
+		HazmatRegistry.registerHazmat(Items.IRON_CHESTPLATE, iron * chest);
+		HazmatRegistry.registerHazmat(Items.IRON_LEGGINGS, iron * legs);
+		HazmatRegistry.registerHazmat(Items.IRON_BOOTS, iron * boots);
 
-		HazmatRegistry.registerHazmat(Items.golden_helmet, gold * helmet);
-		HazmatRegistry.registerHazmat(Items.golden_chestplate, gold * chest);
-		HazmatRegistry.registerHazmat(Items.golden_leggings, gold * legs);
-		HazmatRegistry.registerHazmat(Items.golden_boots, gold * boots);
+		HazmatRegistry.registerHazmat(Items.GOLDEN_HELMET, gold * helmet);
+		HazmatRegistry.registerHazmat(Items.GOLDEN_CHESTPLATE, gold * chest);
+		HazmatRegistry.registerHazmat(Items.GOLDEN_LEGGINGS, gold * legs);
+		HazmatRegistry.registerHazmat(Items.GOLDEN_BOOTS, gold * boots);
 
 		HazmatRegistry.registerHazmat(ModItems.alloy_helmet, alloy * helmet);
 		HazmatRegistry.registerHazmat(ModItems.alloy_plate, alloy * chest);
@@ -182,8 +182,8 @@ public class HazmatRegistry {
 	
 	public static double getCladding(ItemStack stack) {
 
-		if(stack.hasTagCompound() && stack.stackTagCompound.getFloat("hfr_cladding") > 0)
-			return stack.stackTagCompound.getFloat("hfr_cladding");
+		if(stack.hasTagCompound() && stack.getTagCompound().getFloat("hfr_cladding") > 0)
+			return stack.getTagCompound().getFloat("hfr_cladding");
 		
 		if(ArmorModHandler.hasMods(stack)) {
 			

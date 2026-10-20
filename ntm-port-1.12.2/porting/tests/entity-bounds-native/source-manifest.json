@@ -1,0 +1,1821 @@
+{
+  "base": "5663b44d12fe9cad50d7d1a10496e55d32eabc9d",
+  "scope": "184 native Entity boundingBox reads; no writes changed",
+  "files": {
+    "src/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java": {
+      "before_sha256": "295798e12cf3327fbb3e92fb0d5ae00b8eb2eaa2fefb9bbd87fc8727817bdced",
+      "after_sha256": "85d2b545b80f7cabd5b9f1e4f16d7ab6c3b39fa26f4413635e4925f77890701b",
+      "edits": [
+        {
+          "start": 2532,
+          "end": 2543,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2532
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/test/TestEventTester.java": {
+      "before_sha256": "9392fe48dde95494377d36c8ee9a1c6f0fee602687a484115a6e3f9a0cc87083",
+      "after_sha256": "0ad1c646fe38a04f2eea2a6a5c30feca7b664ad734267bf67b08ca0c1fa25fb9",
+      "edits": [
+        {
+          "start": 18174,
+          "end": 18185,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 18174
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java": {
+      "before_sha256": "25991978de477a6747c8c1af352e92c8ce4ffe836df4e0b2bc4271d893b34835",
+      "after_sha256": "6f75e5a6dd79dcd28adacafc331d95f84febf79a61d2d755fc00d7cb2f9cd490",
+      "edits": [
+        {
+          "start": 2071,
+          "end": 2082,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2071
+        },
+        {
+          "start": 2154,
+          "end": 2165,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.cart.EntityMinecartDestroyer",
+          "after_start": 2165
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java": {
+      "before_sha256": "063bdd3742a40bb8e9540be0858dbd8bb22741b4b6d7e6ca905e44cc21c2d07d",
+      "after_sha256": "72a2107194024c677a3f431f7d3e12fe1974ceefcc7cb3cc5c509bb073f1ca70",
+      "edits": [
+        {
+          "start": 1430,
+          "end": 1441,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 1430
+        },
+        {
+          "start": 1513,
+          "end": 1524,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.cart.EntityMinecartNTM",
+          "after_start": 1524
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before_sha256": "56dc5aa0fb6a67cdbea5e1c5ce6ef104e51c4521bc39c97c2366e7498bc88b22",
+      "after_sha256": "cda323f829492ff67868e452b38f5c5733744508bc2720b6321510429fb0af79",
+      "edits": [
+        {
+          "start": 3213,
+          "end": 3224,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3213
+        },
+        {
+          "start": 3502,
+          "end": 3513,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3513
+        },
+        {
+          "start": 3555,
+          "end": 3566,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3577
+        },
+        {
+          "start": 3579,
+          "end": 3590,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3612
+        },
+        {
+          "start": 3618,
+          "end": 3629,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3662
+        },
+        {
+          "start": 3663,
+          "end": 3674,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3718
+        },
+        {
+          "start": 3687,
+          "end": 3698,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3753
+        },
+        {
+          "start": 3726,
+          "end": 3737,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3803
+        },
+        {
+          "start": 3779,
+          "end": 3790,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3867
+        },
+        {
+          "start": 3803,
+          "end": 3814,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.effect.EntityMist",
+          "after_start": 3902
+        },
+        {
+          "start": 10289,
+          "end": 10300,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 10399
+        },
+        {
+          "start": 10338,
+          "end": 10349,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 10459
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java": {
+      "before_sha256": "4f1da4a6f3e2832f1cb68ec7bec4c582dc7fa72c83718294ee95066cf6ecf1b3",
+      "after_sha256": "3840355021396040c2a5e6d037dd5640d13adf047623cddacbddf52140ecae6f",
+      "edits": [
+        {
+          "start": 2597,
+          "end": 2608,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+          "after_start": 2597
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "2a8dbb713b5a9700b035eeef829f01ababa2d5da4d6e927b64efcb4a00d12b79",
+      "after_sha256": "3f9a6ba2200e890869b837be5df8817e91c39f40fcae757c6251bf7503d4b313",
+      "edits": [
+        {
+          "start": 2125,
+          "end": 2136,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2125
+        },
+        {
+          "start": 2207,
+          "end": 2218,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 2218
+        },
+        {
+          "start": 4750,
+          "end": 4761,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 4772
+        },
+        {
+          "start": 4775,
+          "end": 4786,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 4808
+        },
+        {
+          "start": 4799,
+          "end": 4810,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 4843
+        },
+        {
+          "start": 4880,
+          "end": 4891,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 4935
+        },
+        {
+          "start": 4905,
+          "end": 4916,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 4971
+        },
+        {
+          "start": 4929,
+          "end": 4940,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 5006
+        },
+        {
+          "start": 5057,
+          "end": 5068,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 5145
+        },
+        {
+          "start": 5084,
+          "end": 5095,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 5183
+        },
+        {
+          "start": 5107,
+          "end": 5118,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 5217
+        },
+        {
+          "start": 5134,
+          "end": 5145,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 5255
+        },
+        {
+          "start": 10545,
+          "end": 10556,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 10677
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "60579098a4270b2de552b8794ef56a793e8993964719b5bed88aceadb37851e2",
+      "after_sha256": "943f5121af62246de97860fdc5dbde3243ee95319b972e5fef738bf447f2dc9d",
+      "edits": [
+        {
+          "start": 5516,
+          "end": 5527,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5516
+        },
+        {
+          "start": 12462,
+          "end": 12473,
+          "old": "boundingBox",
+          "new": "this.getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityMinecartDeobf",
+          "after_start": 12473
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "7bfa7172548624b5023173986f7bfe84ea4e6b6ce77a175906d7aeca9b0725dd",
+      "after_sha256": "1671e519f1d8fc54a8a8ae0bafaf93116a24c80dfe56ed3e7b22c6428617fbe7",
+      "edits": [
+        {
+          "start": 6106,
+          "end": 6117,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 6106
+        },
+        {
+          "start": 15514,
+          "end": 15525,
+          "old": "boundingBox",
+          "new": "this.getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityMinecartModBase",
+          "after_start": 15525
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "cc083d9749bc8843a849c085d43fcd39f80fe9d2fbbccd60192d2c455309dfe0",
+      "after_sha256": "49a3ecb0e6a3bd998fb1ffa2646f46177a65fb193fce56545cd4721544d6f11b",
+      "edits": [
+        {
+          "start": 13796,
+          "end": 13807,
+          "old": "boundingBox",
+          "new": "this.getEntityBoundingBox()",
+          "owner": "com.hbm.entity.missile.EntityRideableRocket",
+          "after_start": 13796
+        },
+        {
+          "start": 20638,
+          "end": 20649,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.missile.EntityRideableRocket",
+          "after_start": 20654
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "d580af4495f2e60f373a78f99c002e146434071de0079f833df44a403ee9a0c6",
+      "after_sha256": "b749a7e1dbe6a4e047e7bcb391fa519bbeda887f6b5b96d824404cff1c1a0ce7",
+      "edits": [
+        {
+          "start": 4095,
+          "end": 4106,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBFAngel",
+          "after_start": 4095
+        },
+        {
+          "start": 13381,
+          "end": 13392,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBFAngel",
+          "after_start": 13392
+        },
+        {
+          "start": 16494,
+          "end": 16505,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBFAngel",
+          "after_start": 16516
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java": {
+      "before_sha256": "de1256f71083386b4dc629d8de5e155297eafcfc0573c760fb56a44a4e774977",
+      "after_sha256": "887b6956f0ad31e0bfa9c551904081624ebe9761c2170aa5429ee6e5a1caa52b",
+      "edits": [
+        {
+          "start": 3220,
+          "end": 3231,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 3220
+        },
+        {
+          "start": 3776,
+          "end": 3787,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 3787
+        },
+        {
+          "start": 3800,
+          "end": 3811,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 3822
+        },
+        {
+          "start": 3847,
+          "end": 3858,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 3880
+        },
+        {
+          "start": 3871,
+          "end": 3882,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 3915
+        },
+        {
+          "start": 3918,
+          "end": 3929,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 3973
+        },
+        {
+          "start": 3942,
+          "end": 3953,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityBurrowingSwingingBase",
+          "after_start": 4008
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java": {
+      "before_sha256": "5c994fdd9abb2e0f9c3c62e9761a08b194dce2cf9c2b3932078f0eb451485bed",
+      "after_sha256": "388fd4f9b8d9b23b7f1c9d1bd8f1c6608f4cce204f0054fc5b26144b7d27e209",
+      "edits": [
+        {
+          "start": 2586,
+          "end": 2597,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityCreeperNuclear",
+          "after_start": 2586
+        },
+        {
+          "start": 3169,
+          "end": 3180,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityCreeperNuclear",
+          "after_start": 3180
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityGhost.java": {
+      "before_sha256": "2844106f3bbde2ebe084cc73d4a76f8bb2dba2c5c63e7f480de5d0bdfb50eab3",
+      "after_sha256": "1ffb62f882e6e638ec74509c4bee8b6e6ef7ce8ed3661ea772dbc6a53b5b11e8",
+      "edits": [
+        {
+          "start": 1288,
+          "end": 1299,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityGhost",
+          "after_start": 1288
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "before_sha256": "ea7460373a2a6e2983b9ca8c6a25eaa98f7fb394b5c95be27560873f36001f0b",
+      "after_sha256": "af2ffbd767fe767958f00aa41fe00566f8ba7ca572dfc4c4b9c3909a5382dfe4",
+      "edits": [
+        {
+          "start": 6321,
+          "end": 6332,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 6321
+        },
+        {
+          "start": 12689,
+          "end": 12700,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityHunterChopper",
+          "after_start": 12700
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityMaskMan.java": {
+      "before_sha256": "9ea7a505a1b3c70575c35c13209ed7214f3fb0b68c431b8de167504dbe0c695c",
+      "after_sha256": "480da67d7cfe14a6139cdd8eb978bed0f3409441ae05d4d55261154a7e76cbac",
+      "edits": [
+        {
+          "start": 3698,
+          "end": 3709,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityMaskMan",
+          "after_start": 3698
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityPlasticBag.java": {
+      "before_sha256": "e7d9413e77bb3dca6ba3268680b8a01968cdf565ee2ac59acab0432607dfe678",
+      "after_sha256": "979f33b308f3ca26352117e7a6e79a09c72d9c182a7561aef9ffe4c5828e6b9d",
+      "edits": [
+        {
+          "start": 2041,
+          "end": 2052,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityPlasticBag",
+          "after_start": 2041
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+      "before_sha256": "ec63d83d92a9e8da8b8a87e07d199344c8b53887ae867ca2091e3d4c75507c46",
+      "after_sha256": "3411b368f5a9fd9c0c65d726b40ba45383fbeb2722a238991bf79069aaa0ec5d",
+      "edits": [
+        {
+          "start": 4143,
+          "end": 4154,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 4143
+        },
+        {
+          "start": 4167,
+          "end": 4178,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityRADBeast",
+          "after_start": 4178
+        },
+        {
+          "start": 4194,
+          "end": 4205,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 4216
+        },
+        {
+          "start": 4218,
+          "end": 4229,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityRADBeast",
+          "after_start": 4251
+        },
+        {
+          "start": 5365,
+          "end": 5376,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityRADBeast",
+          "after_start": 5409
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "63de4020ca6b803fd6779d27d32030addada2a8d6c133fbf90ac883c8bd5b91e",
+      "after_sha256": "4c040e1a6e35e2120eaa4cc2d38f5d3bcbc93525a830d418ee0b849009e5bcd5",
+      "edits": [
+        {
+          "start": 3142,
+          "end": 3153,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUFO",
+          "after_start": 3142
+        },
+        {
+          "start": 8745,
+          "end": 8756,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUFO",
+          "after_start": 8756
+        },
+        {
+          "start": 11123,
+          "end": 11134,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUFO",
+          "after_start": 11145
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFOBase.java": {
+      "before_sha256": "d3afe0bc0c79e6df4089f9a9b27c6880dcedfab114cba7e42c4502e91ebcdd60",
+      "after_sha256": "4864cae59246254ef013b8dd56fabdf2f2b21d1c57be9ef0ee607526ee0aa087",
+      "edits": [
+        {
+          "start": 1874,
+          "end": 1885,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUFOBase",
+          "after_start": 1874
+        },
+        {
+          "start": 2954,
+          "end": 2965,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUFOBase",
+          "after_start": 2965
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java": {
+      "before_sha256": "1670bcd109a2de0014d8cdd4fdf1a1d32e442ffac223b6b62ee8f2c2b1ffe6bd",
+      "after_sha256": "bbf1f9c46b645a7c6d211d3d548ac9633658e0cde3c2500efe064c6042599a2c",
+      "edits": [
+        {
+          "start": 4483,
+          "end": 4494,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUndeadSoldier",
+          "after_start": 4483
+        },
+        {
+          "start": 4547,
+          "end": 4558,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUndeadSoldier",
+          "after_start": 4558
+        },
+        {
+          "start": 4602,
+          "end": 4613,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityUndeadSoldier",
+          "after_start": 4624
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIEatBread.java": {
+      "before_sha256": "7925f727b9ca12899db45c106885ea294c17218872cc90d52c946dcc70e9ab62",
+      "after_sha256": "f420aad9c30008c7838948a73965fd1ff197bf012e3762cef612149c0346c291",
+      "edits": [
+        {
+          "start": 756,
+          "end": 767,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.EntityPigeon",
+          "after_start": 756
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAISwimAway.java": {
+      "before_sha256": "67b54a84dc97537e59c19efb71926c4cbbd091b48c0d87962f6e1c18620e1ce9",
+      "after_sha256": "fa6c235cbd8e434b9bf39517caefe6d1313c832351935e49ae1393f3fc343975",
+      "edits": [
+        {
+          "start": 740,
+          "end": 751,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityCreature",
+          "after_start": 740
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityMoonWalkHelper.java": {
+      "before_sha256": "d1a5c9af5acc43cc7a5294fff81fb2f5e144d405d48384f5358cf7da506a6fda",
+      "after_sha256": "e59f27c863697b42f2e503ba10ab86126dda78d08ad02594ab3b0f1c5b8a402e",
+      "edits": [
+        {
+          "start": 523,
+          "end": 534,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLiving",
+          "after_start": 523
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": {
+      "before_sha256": "d5e0d39f2cba1627711bf11a19d81abbb427761da1b72c2bf9279ee4be57597e",
+      "after_sha256": "76e5c1712e8609cfa6239745135157341305585fe63312283775fa1ff944cfa3",
+      "edits": [
+        {
+          "start": 4227,
+          "end": 4238,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityBOTPrimeHead",
+          "after_start": 4227
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java": {
+      "before_sha256": "24ef8b5436d0d31ce7aabc5c9f4ae4e57f6599eb9890ad80aad6e660b2ade4d8",
+      "after_sha256": "b186f6c00dc8101aeb830088b6bd30e808f28f3e484f025cfe4e983a2cdaffcb",
+      "edits": [
+        {
+          "start": 3053,
+          "end": 3064,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3053
+        },
+        {
+          "start": 3736,
+          "end": 3747,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3747
+        },
+        {
+          "start": 3760,
+          "end": 3771,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3782
+        },
+        {
+          "start": 3807,
+          "end": 3818,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3840
+        },
+        {
+          "start": 3831,
+          "end": 3842,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3875
+        },
+        {
+          "start": 3878,
+          "end": 3889,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3933
+        },
+        {
+          "start": 3902,
+          "end": 3913,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.botprime.EntityWormBaseNT",
+          "after_start": 3968
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "5cef3ffcdf4e1284f5a068f6030a485ff45961e5465c266373b1bb3003591c24",
+      "after_sha256": "defc4b36b2cc0e3610035cee713a11b4353fcfc2b0cbf6df102d1b342f02ede6",
+      "edits": [
+        {
+          "start": 21946,
+          "end": 21957,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.glyphid.EntityGlyphid",
+          "after_start": 21946
+        },
+        {
+          "start": 22010,
+          "end": 22021,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.glyphid.EntityGlyphid",
+          "after_start": 22021
+        },
+        {
+          "start": 22065,
+          "end": 22076,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.glyphid.EntityGlyphid",
+          "after_start": 22087
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "before_sha256": "c3a377d7153d445f91725db92a1f6c87999c163a323085df77acf265cceacc0c",
+      "after_sha256": "a1fa1f14ffa3dd8e062deb1758eb2fe50222739fd108733809a36f9cda882838",
+      "edits": [
+        {
+          "start": 10724,
+          "end": 10735,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.mob.glyphid.EntityGlyphidScout",
+          "after_start": 10724
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "4542ac5be72c94eaadb280232fe1240236fb24ac9a5cccd229d15b8928b2f833",
+      "after_sha256": "a8c87dce2da39e34eb11f27171c189b5cb4d2e422c22a21195a4651fcde0d8ec",
+      "edits": [
+        {
+          "start": 3295,
+          "end": 3306,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 3295
+        },
+        {
+          "start": 15770,
+          "end": 15781,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBullet",
+          "after_start": 15781
+        },
+        {
+          "start": 16147,
+          "end": 16158,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 16169
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "85a4c8eea34255d5a3ebfe6ef7f54b07dacac2c9c00bc0432ef8036c9426e279",
+      "after_sha256": "8a25ce9fd09c045c0cd6dc4ba5731e7beb7e90ff947a785dad6298b952d5f382",
+      "edits": [
+        {
+          "start": 6574,
+          "end": 6585,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 6574
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java": {
+      "before_sha256": "f6728fe162429f5d67ce434f643affc543a490ab0eccdd4910853f1162b921e9",
+      "after_sha256": "0791bcf14e1fbc4f0460beefbb4bcfe0a9fcaf61c75ced37b595ecc8ea272f38",
+      "edits": [
+        {
+          "start": 5489,
+          "end": 5500,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBulletBeamBase",
+          "after_start": 5489
+        },
+        {
+          "start": 5908,
+          "end": 5919,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5919
+        },
+        {
+          "start": 6498,
+          "end": 6509,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 6520
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "f0fed87e51371df011ebce0faabf2626bf7840ac42365f666c05c9cf21f0288f",
+      "after_sha256": "6bc28d7953289101717200bb993df324dc021ecffae3e6e4f624d57dd83b101b",
+      "edits": [
+        {
+          "start": 3552,
+          "end": 3563,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityChemical",
+          "after_start": 3552
+        },
+        {
+          "start": 12085,
+          "end": 12096,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 12096
+        },
+        {
+          "start": 12134,
+          "end": 12145,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 12156
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChopperMine.java": {
+      "before_sha256": "889169ef4e5d53f8f53d9e8803946fcb44b900aa6fd91957cb7834e4a7735dfe",
+      "after_sha256": "05d1790db5b0a3ae3fadbf764f6bc15d6ca040d5fa3ef53bab75c053d5bbadd1",
+      "edits": [
+        {
+          "start": 2102,
+          "end": 2113,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityChopperMine",
+          "after_start": 2102
+        },
+        {
+          "start": 2440,
+          "end": 2451,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2451
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityCoin.java": {
+      "before_sha256": "b92bd832897cf320468a62b95714d6cf4f5ac333c736c0a087d3bbecca39d3ef",
+      "after_sha256": "8eb65b01c68f58c9788a8a8172a7ee7709d2a74997f5395d0be4ba1c3d280fd7",
+      "edits": [
+        {
+          "start": 484,
+          "end": 495,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityCoin",
+          "after_start": 484
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityDebrisBase.java": {
+      "before_sha256": "fecb28fe55f7d892b4bbccdb480368c511345088cbd4caaedc9446cc75155db1",
+      "after_sha256": "748965581c4bd3c86ccacfdff9b47b25cefb8059f512708653349357ba3a3b88",
+      "edits": [
+        {
+          "start": 1589,
+          "end": 1600,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 1589
+        },
+        {
+          "start": 1672,
+          "end": 1683,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 1683
+        },
+        {
+          "start": 1813,
+          "end": 1824,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 1835
+        },
+        {
+          "start": 1844,
+          "end": 1855,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 1877
+        },
+        {
+          "start": 2161,
+          "end": 2172,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 2205
+        },
+        {
+          "start": 2192,
+          "end": 2203,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 2247
+        },
+        {
+          "start": 2424,
+          "end": 2435,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 2490
+        },
+        {
+          "start": 2455,
+          "end": 2466,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 2532
+        },
+        {
+          "start": 2899,
+          "end": 2910,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 2987
+        },
+        {
+          "start": 2927,
+          "end": 2938,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3026
+        },
+        {
+          "start": 3019,
+          "end": 3030,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3129
+        },
+        {
+          "start": 3166,
+          "end": 3177,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3287
+        },
+        {
+          "start": 3199,
+          "end": 3210,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3331
+        },
+        {
+          "start": 3438,
+          "end": 3449,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3581
+        },
+        {
+          "start": 3471,
+          "end": 3482,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3625
+        },
+        {
+          "start": 3710,
+          "end": 3721,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3875
+        },
+        {
+          "start": 3743,
+          "end": 3754,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 3919
+        },
+        {
+          "start": 4131,
+          "end": 4142,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4318
+        },
+        {
+          "start": 4166,
+          "end": 4177,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4364
+        },
+        {
+          "start": 4319,
+          "end": 4330,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4528
+        },
+        {
+          "start": 4470,
+          "end": 4481,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4690
+        },
+        {
+          "start": 4494,
+          "end": 4505,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4725
+        },
+        {
+          "start": 4539,
+          "end": 4550,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4781
+        },
+        {
+          "start": 4623,
+          "end": 4634,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4876
+        },
+        {
+          "start": 4647,
+          "end": 4658,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityDebrisBase",
+          "after_start": 4911
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "7eb0d11c454baad2f03c018fbb4b5e1fc0aa32fa3ac77c72f0bfd2a0351f6c53",
+      "after_sha256": "0b1d65e8302a88d49d7c22e9312e3bf3224afd0c2fd94a639a76c150de3232af",
+      "edits": [
+        {
+          "start": 2479,
+          "end": 2490,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 2479
+        },
+        {
+          "start": 10755,
+          "end": 10766,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "after_start": 10766
+        },
+        {
+          "start": 11249,
+          "end": 11260,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 11271
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java": {
+      "before_sha256": "ff26f57df4837ebdcbc8ce061325512bc14ef56b62720a76eeedc7b404ba7a17",
+      "after_sha256": "802244307896ae34f2c0092d53e13f0714363be599eee8e7976540c2e833002d",
+      "edits": [
+        {
+          "start": 3262,
+          "end": 3273,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityRBMKDebris",
+          "after_start": 3262
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "795a6d18ff6b9abc49fc9988531f03044e67310ce78d14aae74bd321e79f9fe1",
+      "after_sha256": "e5a020d485eabfa493bd985bd35e99afd8e188d43e91da902b38a9fac2ac16d5",
+      "edits": [
+        {
+          "start": 2787,
+          "end": 2798,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 2787
+        },
+        {
+          "start": 11632,
+          "end": 11643,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityRocket",
+          "after_start": 11643
+        },
+        {
+          "start": 12126,
+          "end": 12137,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 12148
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "5a0c7eba07ae030e05ca26d71477119a77865378cf9714ba748e8906245ca79e",
+      "after_sha256": "b1ba05ece362246719daf53c35bb5cefb4df28d508e9ee11db05999af78e2c33",
+      "edits": [
+        {
+          "start": 2806,
+          "end": 2817,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 2806
+        },
+        {
+          "start": 11739,
+          "end": 11750,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntitySchrab",
+          "after_start": 11750
+        },
+        {
+          "start": 12233,
+          "end": 12244,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 12255
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "21d969e44a41a661526539acf429137ba53c477e32abf5e64cceed5cfc39899e",
+      "after_sha256": "1b97cb6377925fedf2c0a6b3d9b4074866fda5ceb08ec5d8a9477755513f077a",
+      "edits": [
+        {
+          "start": 1937,
+          "end": 1948,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "after_start": 1937
+        },
+        {
+          "start": 6665,
+          "end": 6676,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "after_start": 6676
+        },
+        {
+          "start": 7205,
+          "end": 7216,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 7227
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java": {
+      "before_sha256": "fb56ebed88dbf32f6085a617d9f90e467a3f8b2e037712b06c2b6d46d5b20f49",
+      "after_sha256": "0af10ca726899395a9466e738536cd9bbdf7337f6f7969ea1dd6ed2792f796e6",
+      "edits": [
+        {
+          "start": 3612,
+          "end": 3623,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityZirnoxDebris",
+          "after_start": 3612
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/EntityRailCarBase.java": {
+      "before_sha256": "96bee156ba8b22ed7cf6f14d72252d63737f6d3fbe699966009a9f3361580683",
+      "after_sha256": "41f0b1d06c75db4fba9e0d1ea26e3268d38377a4cec7b0b89a4da6478d100651",
+      "edits": [
+        {
+          "start": 2699,
+          "end": 2710,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.train.EntityRailCarBase",
+          "after_start": 2699
+        },
+        {
+          "start": 30657,
+          "end": 30668,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.train.EntityRailCarBase",
+          "after_start": 30668
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNT.java": {
+      "before_sha256": "61df70747d1d43de5dfe3d8c5d475f187d7ba3e34d80a0db725ffff814aa4b5e",
+      "after_sha256": "7bf458e3b0b901a3db2123327101d2cd865938e567ee79c9b098916f3620d585",
+      "edits": [
+        {
+          "start": 6104,
+          "end": 6115,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 6104
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/EntityProcessorCross.java": {
+      "before_sha256": "b37a17c31dc5ecba0dd217c54f7b1c96e84a3a0242e72bd8b726f594442c0f97",
+      "after_sha256": "856af30a6ef8db07730c4ef94c5130d140e3623cd3ec45df0ab0bb262161a3e3",
+      "edits": [
+        {
+          "start": 2789,
+          "end": 2800,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2789
+        },
+        {
+          "start": 2821,
+          "end": 2832,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2832
+        },
+        {
+          "start": 2875,
+          "end": 2886,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2897
+        },
+        {
+          "start": 2914,
+          "end": 2925,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2947
+        },
+        {
+          "start": 2964,
+          "end": 2975,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3008
+        },
+        {
+          "start": 2996,
+          "end": 3007,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3051
+        },
+        {
+          "start": 3050,
+          "end": 3061,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3116
+        },
+        {
+          "start": 3089,
+          "end": 3100,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3166
+        },
+        {
+          "start": 3139,
+          "end": 3150,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3227
+        },
+        {
+          "start": 3171,
+          "end": 3182,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3270
+        },
+        {
+          "start": 3225,
+          "end": 3236,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3335
+        },
+        {
+          "start": 3264,
+          "end": 3275,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3385
+        },
+        {
+          "start": 3889,
+          "end": 3900,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 4021
+        },
+        {
+          "start": 4987,
+          "end": 4998,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5130
+        },
+        {
+          "start": 5019,
+          "end": 5030,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5173
+        },
+        {
+          "start": 5073,
+          "end": 5084,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5238
+        },
+        {
+          "start": 5112,
+          "end": 5123,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5288
+        },
+        {
+          "start": 5163,
+          "end": 5174,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5350
+        },
+        {
+          "start": 5195,
+          "end": 5206,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5393
+        },
+        {
+          "start": 5249,
+          "end": 5260,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5458
+        },
+        {
+          "start": 5288,
+          "end": 5299,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5508
+        },
+        {
+          "start": 5339,
+          "end": 5350,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5570
+        },
+        {
+          "start": 5371,
+          "end": 5382,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5613
+        },
+        {
+          "start": 5425,
+          "end": 5436,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5678
+        },
+        {
+          "start": 5464,
+          "end": 5475,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 5728
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/EntityProcessorStandard.java": {
+      "before_sha256": "6baf44fc66c3ff52273746d2789b16feb1fb8acf6cf6f403bef8a84418646628",
+      "after_sha256": "f72e40963b88c4b640eb8a2f00bb9270955715c7b3dcebcc2c907d2be33d2480",
+      "edits": [
+        {
+          "start": 2406,
+          "end": 2417,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2406
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "aa9c0bcbd0fa59dca1579fc5a28bc7d44961aaf1f9760a9c6878adcd9525e0ff",
+      "after_sha256": "16163dc5fc495a76171e481270c31586ec9ada2dc900988b273fa768d936e028",
+      "edits": [
+        {
+          "start": 20184,
+          "end": 20195,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 20184
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/guncfg/BulletConfigFactory.java": {
+      "before_sha256": "34d9c21b5fa32e4831269752e97e449a74ac00a94656f36da56341bc6c14044f",
+      "after_sha256": "de929f01e148293b670ccdea927b2efa4e17a8f5696d65872a86d3b972385fd2",
+      "edits": [
+        {
+          "start": 3713,
+          "end": 3724,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "after_start": 3713
+        },
+        {
+          "start": 4725,
+          "end": 4736,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "after_start": 4736
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java": {
+      "before_sha256": "9cd11763dbdf9878266f934297f41095161d8b44695614aee0938260e6b3380e",
+      "after_sha256": "7f71798163fd79c793d2b81bdea26753263b1961875446160ba5cef42440ecf7",
+      "edits": [
+        {
+          "start": 1876,
+          "end": 1887,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "after_start": 1876
+        },
+        {
+          "start": 8378,
+          "end": 8389,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "after_start": 8389
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "03dc4eb5d655003d03634a5abf29ae2cbe4f5bac75e6f17dffaa30ec183ab64c",
+      "after_sha256": "cbc7d78da2a3c9896d29ca72c69bd06055b1360e1e63b280183a5f79a0b54095",
+      "edits": [
+        {
+          "start": 11511,
+          "end": 11522,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.player.EntityPlayer",
+          "after_start": 11511
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModDefuser.java": {
+      "before_sha256": "78a099a1fe8225bc0c6f1e48e48f1dd2d9dc7351e8010f6dc1aaa412720b63fa",
+      "after_sha256": "d9a6eae73a4ee16b445b82b2b25821f9b6c83f983e064e79e6ccd96c686623b6",
+      "edits": [
+        {
+          "start": 1415,
+          "end": 1426,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 1415
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModLodestone.java": {
+      "before_sha256": "249350a5bbfd9bc72bade6070aff0b5a8b9041cb89aeaf73e0b53ab865b62c2c",
+      "after_sha256": "dea70c6344dc2813ab80a6ecda4df55b2d83e9a80b4bbbb0b83a9b91f2dda6b4",
+      "edits": [
+        {
+          "start": 1413,
+          "end": 1424,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.EntityLivingBase",
+          "after_start": 1413
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBoatRubber.java": {
+      "before_sha256": "dc12627210b8e83b9ea1ace95f630f546c1cbd8f82f0558f039b37e269fa91ea",
+      "after_sha256": "ba8f0a2f82adf5148f651e76c04426c7e433985b48387deabd9790bd848d034b",
+      "edits": [
+        {
+          "start": 2035,
+          "end": 2046,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.player.EntityPlayer",
+          "after_start": 2035
+        },
+        {
+          "start": 2349,
+          "end": 2360,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2360
+        },
+        {
+          "start": 3132,
+          "end": 3143,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.item.EntityBoatRubber",
+          "after_start": 3154
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPeas.java": {
+      "before_sha256": "8461fc948cb20d0e62e2e5b1f90ab91eff1bd6a40c46262163831e9cf342fc63",
+      "after_sha256": "5e6f4d01cfc7ac11fa80b9290d5afbbc3131c0f6843fdc8d9b54889695b43fde",
+      "edits": [
+        {
+          "start": 548,
+          "end": 559,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.player.EntityPlayer",
+          "after_start": 548
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTurretControl.java": {
+      "before_sha256": "c06c5eb97d33368c3f4f1cf1c96f1400d622a1ef0a9de939ca8a49d0c4cbf048",
+      "after_sha256": "1a66567e64f436e1888b1872f2bccc888e21db9fd645c81b5a0533b25d01eb74",
+      "edits": [
+        {
+          "start": 2401,
+          "end": 2412,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.player.EntityPlayer",
+          "after_start": 2401
+        },
+        {
+          "start": 2576,
+          "end": 2587,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 2587
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFolly.java": {
+      "before_sha256": "ce1312862b2044f5c6ce675320c6491c2b1f41cb377a011befc8fc98ba5995a3",
+      "after_sha256": "3fd331e8d1fcbcf4428897513c50948ac78ab9a9ae406a786f85ef92243ed0aa",
+      "edits": [
+        {
+          "start": 3233,
+          "end": 3244,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "com.hbm.entity.projectile.EntityBulletBeamBase",
+          "after_start": 3233
+        },
+        {
+          "start": 3884,
+          "end": 3895,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 3895
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "cd91bc93a2fe8bca73dce2da8e9cc8dee2c44984f8b6a0ee4ad27b5cf408ff8f",
+      "after_sha256": "31d2e2ee850e88da8ab4183b9bb862f5280e3c0b38cceabdb27133424c5907d7",
+      "edits": [
+        {
+          "start": 15564,
+          "end": 15575,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 15564
+        },
+        {
+          "start": 53950,
+          "end": 53961,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.player.EntityPlayer",
+          "after_start": 53961
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "709e56ad37089c590673e41107f1d6610ffc5a169b84db6c2cca3b249f2bceb8",
+      "after_sha256": "930173063b97240049a1865206b9aea8b9db007515917adec23c232ed1a41cfd",
+      "edits": [
+        {
+          "start": 17214,
+          "end": 17225,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.player.EntityPlayer",
+          "after_start": 17214
+        },
+        {
+          "start": 17597,
+          "end": 17608,
+          "old": "boundingBox",
+          "new": "getEntityBoundingBox()",
+          "owner": "net.minecraft.entity.Entity",
+          "after_start": 17608
+        }
+      ]
+    }
+  },
+  "original_candidate_baseline": "e0d436953a26ba3e7cb58effa31adc48282eb501"
+}

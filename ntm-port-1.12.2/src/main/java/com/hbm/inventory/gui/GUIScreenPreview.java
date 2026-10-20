@@ -27,7 +27,7 @@ public class GUIScreenPreview extends GuiScreen {
 
 	public void drawScreen(int mouseX, int mouseY, float f) {
 		
-		if(this.mc.theWorld != null) {
+		if(this.mc.world != null) {
 			this.drawRect(0, 0, this.width, this.height, 0xFFC6C6C6);
 		} else {
 			this.drawBackground(0);
@@ -61,9 +61,9 @@ public class GUIScreenPreview extends GuiScreen {
 
 		GL11.glPushMatrix();
 		GL11.glScaled(0.5, 0.5, 1);
-		this.fontRendererObj.drawString(zoomString, this.width * 2 - this.fontRendererObj.getStringWidth(zoomString) - 2, this.height * 2 - 35, 0xff0000);
-		this.fontRendererObj.drawString(scaleString, this.width * 2 - this.fontRendererObj.getStringWidth(scaleString) - 2, this.height * 2 - 25, 0xff0000);
-		this.fontRendererObj.drawString(nameString, this.width * 2 - this.fontRendererObj.getStringWidth(nameString) - 2, this.height * 2 - 15, 0xff0000);
+		this.fontRenderer.drawString(zoomString, this.width * 2 - this.fontRenderer.getStringWidth(zoomString) - 2, this.height * 2 - 35, 0xff0000);
+		this.fontRenderer.drawString(scaleString, this.width * 2 - this.fontRenderer.getStringWidth(scaleString) - 2, this.height * 2 - 25, 0xff0000);
+		this.fontRenderer.drawString(nameString, this.width * 2 - this.fontRenderer.getStringWidth(nameString) - 2, this.height * 2 - 15, 0xff0000);
 		GL11.glPopMatrix();
 	}
 
@@ -101,8 +101,8 @@ public class GUIScreenPreview extends GuiScreen {
 		itemRender.zLevel = 200.0F;
 
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), preview, -8, -8);
-		itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), preview, -8, -8, null);
+		itemRender.renderItemAndEffectIntoGUI(this.fontRenderer, this.mc.getTextureManager(), preview, -8, -8);
+		itemRender.renderItemOverlayIntoGUI(this.fontRenderer, this.mc.getTextureManager(), preview, -8, -8, null);
 
 		itemRender.zLevel = 0.0F;
 		this.zLevel = 0.0F;
@@ -113,7 +113,7 @@ public class GUIScreenPreview extends GuiScreen {
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 }

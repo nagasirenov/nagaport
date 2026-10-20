@@ -18,17 +18,25 @@ import net.minecraft.util.ResourceLocation;
 public final class LegacyIconRegister implements IIconRegister {
 
 	private final TextureMap textureMap;
+	private final boolean itemTextures;
 	private final Map<TextureAtlasSprite, LegacyTextureAtlasSprite> wrappers = new IdentityHashMap<>();
 
 	public LegacyIconRegister(TextureMap textureMap) {
+		this(textureMap, false);
+	}
+
+	/** Item callbacks use the old item-atlas-relative resource convention. */
+	public LegacyIconRegister(TextureMap textureMap, boolean itemTextures) {
 		if(textureMap == null) throw new IllegalArgumentException("textureMap cannot be null");
 		this.textureMap = textureMap;
+		this.itemTextures = itemTextures;
 	}
 
 	@Override
 	public IIcon registerIcon(String name) {
 		if(name == null || name.trim().isEmpty()) throw new IllegalArgumentException("Icon name cannot be empty");
-		return wrap(registerSprite(new ResourceLocation(name)));
+		return wrap(registerSprite(itemTextures
+				? com.hbm.render.item.NativeItemTextureRegistry.atlasLocation(name) : new ResourceLocation(name)));
 	}
 
 	/** Registers a normal resource in the 1.12 texture atlas. */

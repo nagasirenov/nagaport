@@ -15,6 +15,11 @@ import net.minecraft.tileentity.TileEntity;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityRadioTorchCounter extends TileEntityMachineBase implements IControlReceiverFilter {
+
+    @Override public boolean canRenderBreaking() {
+        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
+    }
+
 	
 	public String[] channel;
 	public int[] lastCount;
@@ -30,25 +35,28 @@ public class TileEntityRadioTorchCounter extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.rttyCounter";
 	}
 	@Override
 	public void nextMode(int i) {
-		this.matcher.nextMode(worldObj, slots[i], i);
+		this.matcher.nextMode(this.world, slots[i], i);
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
 			
-			TileEntity tile = Compat.getTileStandard(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ);
+			TileEntity tile = Compat.getTileStandard(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);
 			if(tile instanceof IInventory) {
 				IInventory inv = (IInventory) tile;
 				ItemStack[] invSlots = new ItemStack[inv.getSizeInventory()];
-				for(int i = 0; i < invSlots.length; i++) invSlots[i] = inv.getStackInSlot(i);
+				for(int i = 0; i < invSlots.length; i++) {
+					ItemStack stack = inv.getStackInSlot(i);
+					invSlots[i] = stack == null || stack.isEmpty() ? null : stack;
+				}
 				
 				for(int i = 0; i < 3; i++) {
 					if(channel[i].isEmpty()) continue;
@@ -59,12 +67,12 @@ public class TileEntityRadioTorchCounter extends TileEntityMachineBase implement
 
 					for(int j = 0; j < invSlots.length; j++) {
 						if(invSlots[j] != null && matcher.isValidForFilter(pattern, i, invSlots[j])) {
-							count += invSlots[j].stackSize;
+							count += invSlots[j].getCount();
 						}
 					}
 					
 					if(this.polling || this.lastCount[i] != count) {
-						RTTYSystem.broadcast(worldObj, this.channel[i], count);
+						RTTYSystem.broadcast(this.world, this.channel[i], count);
 					}
 					
 					this.lastCount[i] = count;
@@ -105,7 +113,7 @@ public class TileEntityRadioTorchCounter extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("p", polling);
 		for(int i = 0; i < 3; i++) {
@@ -113,11 +121,12 @@ public class TileEntityRadioTorchCounter extends TileEntityMachineBase implement
 			nbt.setInteger("l" + i, lastCount[i]);
 		}
 		this.matcher.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

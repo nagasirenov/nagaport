@@ -37,21 +37,22 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if (slots[i] != null) {
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
-			itemStack.stackSize = getInventoryStackLimit();
+		if (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
 		this.markDirty();
 	}
@@ -72,22 +73,22 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		if (world.getTileEntity(pos) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;
+			return player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 64;
 		}
 	}
 
 	@Override
 	public void openInventory() {
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateOpen", 1.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateOpen", 1.0F, 1.0F);
 	}
 
 	@Override
 	public void closeInventory() {
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateClose", 1.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateClose", 1.0F, 1.0F);
 	}
 
 	@Override
@@ -135,7 +136,7 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
@@ -154,6 +155,7 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
@@ -169,19 +171,22 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		int[] slots = new int[this.slots.length];
 		for(int i = 0; i < slots.length; i++) slots[i] = i;
 		return slots;
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack) && !this.isLocked();
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return !this.isLocked();
 	}
 
@@ -200,7 +205,7 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 			for (int i = 0; i < numSpiders; i++) {
 
 				EntityCaveSpider spider = new EntityCaveSpider(worldObj); // lord
-				spider.setLocationAndAngles(crate.xCoord + random.nextGaussian() * 2, crate.yCoord + 1, crate.zCoord + random.nextGaussian() * 2, random.nextFloat(), 0);
+				spider.setLocationAndAngles(crate.getPos().getX() + random.nextGaussian() * 2, crate.getPos().getY() + 1, crate.getPos().getZ() + random.nextGaussian() * 2, random.nextFloat(), 0);
 				spider.setAttackTarget(player);
 
 				worldObj.spawnEntityInWorld(spider);

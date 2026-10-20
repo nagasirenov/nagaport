@@ -161,7 +161,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(!hasHome) {
 				homeX = (int) posX;
 				homeY = (int) posY;
@@ -183,7 +183,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 			} else if (getCurrentTask() == TASK_DIG && ticksExisted % 20 == 0 && isAtDestination()) {
 				swingItem();
 
-				ExplosionVNT vnt = new ExplosionVNT(worldObj, taskX, taskY + 2, taskZ, blastSize, this);
+				ExplosionVNT vnt = new ExplosionVNT(this.world, taskX, taskY + 2, taskZ, blastSize, this);
 				vnt.setBlockAllocator(new BlockAllocatorGlyphidDig(blastResToDig));
 				vnt.setBlockProcessor(new BlockProcessorStandard().setNoDrop());
 				vnt.setEntityProcessor(null);
@@ -213,7 +213,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	protected Entity findPlayerToAttack() {
 		if(this.isPotionActive(Potion.blindness)) return null;
 
-		return this.worldObj.getClosestVulnerablePlayerToEntity(this, useExtendedTargeting() ? 128D : 16D);
+		return this.world.getClosestVulnerablePlayerToEntity(this, useExtendedTargeting() ? 128D : 16D);
 	}
 
 	@Override
@@ -232,10 +232,10 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 				// hell yeah!!
 				if(useExtendedTargeting() && this.entityToAttack != null) {
-					this.setPathToEntity(PathFinderUtils.getPathEntityToEntityPartial(worldObj, this, this.entityToAttack, 16F, true, false, true, true));
+					this.setPathToEntity(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.entityToAttack, 16F, true, false, true, true));
 				} else if (getCurrentTask() != TASK_IDLE) {
 
-					this.worldObj.theProfiler.startSection("stroll");
+					this.world.theProfiler.startSection("stroll");
 
 					if (!isAtDestination()) {
 
@@ -261,18 +261,18 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 								} else {
 									Vec3d vec = new Vec3d(posX, posY, posZ);
 									int maxDist = (int) (Math.sqrt(vec.squareDistanceTo(taskX, taskY, taskZ)) * 1.2);
-									this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(worldObj, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
+									this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
 								}
 
 							} else {
 								Vec3d vec = new Vec3d(posX, posY, posZ);
 								int maxDist = (int) (Math.sqrt(vec.squareDistanceTo(taskX, taskY, taskZ)) * 1.2);
-								this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(worldObj, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
+								this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
 							}
 						}
 					}
 
-					this.worldObj.theProfiler.endSection();
+					this.world.theProfiler.endSection();
 				}
 			}
 		}
@@ -295,16 +295,16 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 					rot = rot.rotateYaw(angle);
 					Vec3d pos = new Vec3d(this.posX, this.posY + 1, this.posZ);
 					Vec3d nextPos = new Vec3d(this.posX + rot.x, this.posY + 1, this.posZ + rot.z);
-					RayTraceResult mop = this.worldObj.rayTraceBlocks(pos, nextPos);
+					RayTraceResult mop = this.world.rayTraceBlocks(pos, nextPos);
 
 					if (mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-						Block block = worldObj.getBlockState(mop.getBlockPos()).getBlock();
+						Block block = this.world.getBlockState(mop.getBlockPos()).getBlock();
 
 						if (block == ModBlocks.lantern) {
 							rotationYaw = 360F / 16 * i;
 							swingItem();
-							worldObj.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+							this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 						}
 
 					}
@@ -314,7 +314,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	}
 
 	public boolean useExtendedTargeting() {
-		return MobConfig.rampantExtendedTargetting || PollutionHandler.getPollution(worldObj, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), PollutionType.SOOT) >= MobConfig.targetingThreshold;
+		return MobConfig.rampantExtendedTargetting || PollutionHandler.getPollution(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), PollutionType.SOOT) >= MobConfig.targetingThreshold;
 	}
 
 	@Override
@@ -326,22 +326,22 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	public void onDeath(DamageSource source) {
 		super.onDeath(source);
 
-		if(!worldObj.isRemote && doesInfectedSpawnMaggots() && this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {
+		if(!this.world.isRemote && doesInfectedSpawnMaggots() && this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {
 
 			int j = 2 + this.rand.nextInt(3);
 
 			for(int k = 0; k < j; ++k) {
 				float f = ((float) (k % 2) - 0.5F) * 0.5F;
 				float f1 = ((float) (k / 2) - 0.5F) * 0.5F;
-				EntityParasiteMaggot maggot = new EntityParasiteMaggot(worldObj);
+				EntityParasiteMaggot maggot = new EntityParasiteMaggot(this.world);
 				maggot.setLocationAndAngles(this.posX + (double) f, this.posY + 0.5D, this.posZ + (double) f1, this.rand.nextFloat() * 360.0F, 0.0F);
 				maggot.motionX = f;
 				maggot.motionZ = f1;
 				maggot.velocityChanged = true;
-				this.worldObj.spawnEntityInWorld(maggot);
+				this.world.spawnEntityInWorld(maggot);
 			}
 
-			worldObj.playSoundEffect(posX, posY, posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 
 			NBTTagCompound vdat = new NBTTagCompound();
 			vdat.setString("type", "giblets");
@@ -390,7 +390,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 				armor &= ~bit;
 				armor = (byte) (armor & 0b11111);
 				this.dataWatcher.updateObject(DW_ARMOR, armor);
-				worldObj.playSoundAtEntity(this, "mob.zombie.woodbreak", 1.0F, 1.25F);
+				this.world.playSoundAtEntity(this, "mob.zombie.woodbreak", 1.0F, 1.25F);
 				break;
 			}
 		}
@@ -521,19 +521,19 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 		case TASK_INITIATE_RETREAT:
 
-			if(!worldObj.isRemote && taskWaypoint == null) {
+			if(!this.world.isRemote && taskWaypoint == null) {
 
 				// Then, Come back later
-				EntityWaypoint additional = new EntityWaypoint(worldObj);
+				EntityWaypoint additional = new EntityWaypoint(this.world);
 				additional.setLocationAndAngles(posX, posY, posZ, 0, 0);
 
 				// First, go home and get reinforcements
-				EntityWaypoint home = new EntityWaypoint(worldObj);
+				EntityWaypoint home = new EntityWaypoint(this.world);
 				home.setWaypointType(TASK_RETREAT_FOR_REINFORCEMENTS);
 				home.setAdditionalWaypoint(additional);
 				home.setHighPriority();
 				home.setLocationAndAngles(homeX, homeY, homeZ, 0, 0);
-				worldObj.spawnEntityInWorld(home);
+				this.world.spawnEntityInWorld(home);
 
 				this.taskWaypoint = home;
 				communicate(TASK_FOLLOW, home);
@@ -560,7 +560,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 		int radius = waypoint != null ? waypoint.radius : 4;
 		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
 
-		List<Entity> bugs = worldObj.getEntitiesWithinAABBExcludingEntity(this, bb);
+		List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 		for(Entity e : bugs) {
 			if(e instanceof EntityGlyphid && !(e instanceof EntityGlyphidScout)) {
 				if(((EntityGlyphid) e).getCurrentTask() != task) {
@@ -590,9 +590,9 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 		Vec3d bugVec = new Vec3d(posX, posY + getEyeHeight(), posZ);
 		Vec3d waypointVec =  new Vec3d(taskX, taskY, taskZ);
 		//incomplete forge docs my beloved
-		RayTraceResult obstruction = worldObj.rayTraceBlocks(bugVec, waypointVec, false, true, false);
+		RayTraceResult obstruction = this.world.rayTraceBlocks(bugVec, waypointVec, false, true, false);
 		if(obstruction != null){
-			Block blockHit = worldObj.getBlockState(obstruction.getBlockPos()).getBlock();
+			Block blockHit = this.world.getBlockState(obstruction.getBlockPos()).getBlock();
 			if(blockHit.getExplosionResistance(null) <= blastResToDig){
 				return obstruction;
 			}
@@ -602,10 +602,10 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	public void digToWaypoint(RayTraceResult obstacle){
 
-		EntityWaypoint target =  new EntityWaypoint(worldObj);
+		EntityWaypoint target =  new EntityWaypoint(this.world);
 		target.setLocationAndAngles(obstacle.getBlockPos().getX(), obstacle.getBlockPos().getY(), obstacle.getBlockPos().getZ(), 0 , 0);
 		target.radius = 5;
-		worldObj.spawnEntityInWorld(target);
+		this.world.spawnEntityInWorld(target);
 
 		previousTask = getCurrentTask();
 		previousWaypoint =  getWaypoint();
@@ -614,7 +614,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 		Vec3d vec = new Vec3d(posX, posY, posZ);
 		int maxDist = (int) (Math.sqrt(vec.squareDistanceTo(taskX, taskY, taskZ)) * 1.2);
-		this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(worldObj, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
+		this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
 
 		communicate(TASK_DIG, target);
 
@@ -661,6 +661,6 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+		return this.world.difficultySetting != EnumDifficulty.PEACEFUL && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.isAnyLiquid(this.getEntityBoundingBox());
 	}
 }

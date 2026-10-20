@@ -41,7 +41,7 @@ public class ContainerPASource extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return source.isUseableByPlayer(player);
+		return source.isUsableByPlayer(player);
 	}
 
 	@Override

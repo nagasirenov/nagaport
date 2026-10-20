@@ -35,7 +35,7 @@ public class RenderRBMKControlRod extends TileEntitySpecialRenderer {
 		
 		for(int o = 1; o < 16; o++) {
 			
-			if(te.getWorldObj().getBlock(te.xCoord, te.yCoord + o, te.zCoord) == te.getBlockType()) {
+			if(te.getWorld().getBlock(te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ()) == te.getBlockType()) {
 				offset = o;
 			} else {
 				break;
@@ -47,7 +47,7 @@ public class RenderRBMKControlRod extends TileEntitySpecialRenderer {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		
-		int brightness = control.getWorldObj().getLightBrightnessForSkyBlocks(control.xCoord, control.yCoord + offset + 1, control.zCoord, 0);
+		int brightness = control.getWorld().getLightBrightnessForSkyBlocks(control.getPos().getX(), control.getPos().getY() + offset + 1, control.getPos().getZ(), 0);
 		int lX = brightness % 65536;
 		int lY = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);

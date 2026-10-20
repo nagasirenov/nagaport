@@ -5,7 +5,7 @@ import com.hbm.tileentity.machine.TileEntityMachineTeleporter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineTeleporter extends Container {
@@ -22,11 +22,11 @@ public class ContainerMachineTeleporter extends Container {
 	}
 	
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 1, this.diFurnace.targetX);
-		crafting.sendProgressBarUpdate(this, 2, this.diFurnace.targetY);
-		crafting.sendProgressBarUpdate(this, 3, this.diFurnace.targetZ);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
+		crafting.sendWindowProperty(this, 1, this.diFurnace.targetX);
+		crafting.sendWindowProperty(this, 2, this.diFurnace.targetY);
+		crafting.sendWindowProperty(this, 3, this.diFurnace.targetZ);
 	}
 	
 	@Override
@@ -44,21 +44,21 @@ public class ContainerMachineTeleporter extends Container {
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 		
-		for(int i = 0; i < this.crafters.size(); i++)
+		for(int i = 0; i < this.listeners.size(); i++)
 		{
-			ICrafting par1 = (ICrafting)this.crafters.get(i);
+			IContainerListener par1 = (IContainerListener)this.listeners.get(i);
 
 			if(this.x != this.diFurnace.targetX)
 			{
-				par1.sendProgressBarUpdate(this, 1, this.diFurnace.targetX);
+				par1.sendWindowProperty(this, 1, this.diFurnace.targetX);
 			}
 			if(this.y != this.diFurnace.targetY)
 			{
-				par1.sendProgressBarUpdate(this, 2, this.diFurnace.targetY);
+				par1.sendWindowProperty(this, 2, this.diFurnace.targetY);
 			}
 			if(this.z != this.diFurnace.targetZ)
 			{
-				par1.sendProgressBarUpdate(this, 3, this.diFurnace.targetZ);
+				par1.sendWindowProperty(this, 3, this.diFurnace.targetZ);
 			}
 		}
 

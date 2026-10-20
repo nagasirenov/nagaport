@@ -1,0 +1,117 @@
+Item foundation callback and icon audit
+Baseline commit: 077492a6c31c910f34697783f1aa0cfabd8ff88e
+Scope: source audit from the pre-migration commit; later approved implementation changes the 18 descendant callback files listed in descendant-callback-files.json. No downloads or full compilation.
+Compared with pristine source: named descendant sets match for both foundations.
+Anonymous subclass scan across all source: none for either foundation or their named descendants.
+
+TOOLTIP AND NAME CALLBACK CLOSURE
+
+ItemCustomLore: 3 descendants; 3 declared tooltips including base.
+All descendants: ItemMissile, ItemSchraranium, ItemSimpleConsumable.
+src/main/java/com/hbm/items/ItemCustomLore.java
+  25: public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+    Player dependency: world only; replace player.worldObj with nullable World argument.
+  105: public Item setUnlocalizedName(String uloc)
+src/main/java/com/hbm/items/weapon/ItemMissile.java
+  42: public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/special/ItemSchraranium.java
+  42: public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+
+ItemEnumMulti: 29 descendants; 16 declared tooltips including base.
+All descendants: ItemAmmo, ItemArcElectrode, ItemArcElectrodeBurnt, ItemBatteryPack, ItemBatterySC, ItemBedrockOre, ItemBreedingRod, ItemByproduct, ItemChemicalDye, ItemCircuit, ItemCircuitStarComponent, ItemConserve, ItemDrillbit, ItemDrone, ItemExpensive, ItemFlask, ItemGenericPart, ItemHoloTape, ItemHolotapeImage, ItemPACoil, ItemPWRFuel, ItemPistons, ItemPlasticScrap, ItemProduct, ItemRTGPelletDepleted, ItemTrain, ItemVOTVdrive, ItemWatzPellet, ItemZirnoxRod.
+src/main/java/com/hbm/items/weapon/ItemAmmo.java
+  129: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)
+    Player dependency: none (except forwarded super argument where present).
+  166: public String getUnlocalizedName(ItemStack stack)
+  172: public ItemEnumMulti setUnlocalizedName(String uloc)
+src/main/java/com/hbm/items/machine/ItemBatteryPack.java
+  137: public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/machine/ItemBatterySC.java
+  58: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/machine/ItemCircuit.java
+  89: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/food/ItemConserve.java
+  79: public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+  105: public String getUnlocalizedName(ItemStack stack)
+src/main/java/com/hbm/items/machine/ItemDrillbit.java
+  36: public String getUnlocalizedName(ItemStack stack)
+  42: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/tool/ItemDrone.java
+  62: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/special/ItemExpensive.java
+  19: public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/special/ItemHolotapeImage.java
+  31: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/machine/ItemPACoil.java
+  42: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/machine/ItemPWRFuel.java
+  53: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/machine/ItemPistons.java
+  37: public String getUnlocalizedName(ItemStack stack)
+  43: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/special/ItemTrain.java
+  31: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/ItemVOTVdrive.java
+  40: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: world only; replace player.worldObj with nullable World argument.
+src/main/java/com/hbm/items/machine/ItemWatzPellet.java
+  137: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+src/main/java/com/hbm/items/machine/ItemZirnoxRod.java
+  66: public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+    Player dependency: none (except forwarded super argument where present).
+  96: public String getUnlocalizedName(ItemStack stack)
+
+Base ItemEnumMulti additionally declares setUnlocalizedName(String) and getUnlocalizedName(ItemStack).
+No no-argument getUnlocalizedName override occurs in either descendant set.
+ItemAmmo is the only descendant setUnlocalizedName override.
+Native renames must preserve the existing localization keys and separators:
+  ItemEnumMulti: item.<base>.<lowercase enum> when multiName; base name otherwise.
+  ItemAmmo: item.<IAmmoItemEnum.getInternalName()>.
+  ItemConserve: item.canned_<lowercase enum>.
+  ItemDrillbit, ItemPistons, ItemZirnoxRod: base name + underscore + lowercase enum.
+Additional internal old-name calls to update: ItemConserve tooltip and ItemDrone tooltip (ItemStack.getUnlocalizedName).
+Native stable_39 Item still exposes getUnlocalizedNameInefficiently(ItemStack), including its translation of getTranslationKey(stack). Preserve the original ItemBedrockOre and ItemCustomLore display calls to retain double-resolution semantics; neither display callback needs a name-method migration. ItemBedrockOre is not part of the edited descendant closure.
+ItemSimpleConsumable factory uses setUnlocalizedName on newly constructed consumables; no override exists there.
+
+WORLD AND SUPER-CHAIN DETAILS
+ItemCustomLore uses only player.worldObj.rand in undefined-item tooltip. Native World may be null; retain the existing UNDEFINED fallback without needing Minecraft.getMinecraft().player.
+ItemVOTVdrive uses only player.worldObj: provider.dimensionId twice and CelestialBody.getBody(world) once. Use world.provider.getDimension() and guard nullable world; skip world-relative guidance or give an unknown requirement rather than inventing a current body.
+No tooltip in either closure needs actual player state or Minecraft player access.
+Only ItemMissile, ItemAmmo and ItemVOTVdrive forward super.addInformation; convert forwarded World and ITooltipFlag arguments too.
+ItemMissile intentionally calls lore superclass only in its launchable branch. ItemSchraranium intentionally does not call lore superclass.
+ItemCircuit tooltip body is entirely commented out; preserve as no-op or remove override without changing behavior.
+
+ENUM ICON/LAYER CONTRACTS TO PRESERVE
+ItemEnumMulti default: multiTexture uses <iconString>.<lowercase enum>; single texture uses iconString. Invalid metadata is normalized by EnumUtil.grabEnumSafely.
+ItemAmmo.registerIcons: custom hbm:<IAmmoItemEnum.getInternalName()>, not enum/base naming.
+ItemConserve, ItemDrillbit, ItemFlask, ItemPistons, ItemZirnoxRod.registerIcons: <iconString>_<lowercase enum>, not dot naming. ItemFlask texture separator differs from inherited localization separator.
+ItemGenericPart.registerIcons: custom hbm:<EnumPartType.texName>, not enum/base naming.
+ItemWatzPellet.registerIcons: generated TextureAtlasSpriteMutatable via LegacyIconRegister.registerGeneratedSprite; retain live/depleted palette and desaturation, unique placeholder hbm:watz_pellet-<enum name><registry path>, and hbm:watz_pellet fallback. getIconFromDamage returns fallback when generated icon is null.
+ItemBedrockOre: two layers. Layer 0 default base, white; layer 1 hbm:ore_overlay (hbm:ore_overlay_b for BISMUTH), tinted enum color. Preserve bismuth overlay branch.
+ItemChemicalDye: two layers. Layer 0 default base, white; layer 1 hbm:chemical_dye_overlay, tinted enum color.
+ItemVOTVdrive: exactly two layers. Layer 0 hbm:votv_f; layer 1 hbm:votv.<body name>, with ORBIT using lowercase orbit. Its legacy overlay callback directly indexes metadata, unlike base safe enum lookup.
+ItemByproduct and ItemProduct: shared base texture tinted with enum color on any pass.
+Lore-side ItemSchraranium: base icon switches to hbm:ingot_nikonium only when both enableLBSM and enableLBSMFullSchrab are true.
+
+NEARBY CREATIVE-TAB CALLBACK CLOSURE
+The three pre-migration legacy getSubItems(Item, CreativeTabs, List) overrides were also approved and converted: ItemBatteryPack, ItemCircuit, ItemVOTVdrive. All now use NonNullList<ItemStack> and isInCreativeTab(tab), retaining source order and NBT semantics. Battery charge helpers outside the callback remain untouched.
+ItemVOTVdrive creative stacks receive x=1, ax=1, Processed=true NBT.
+
+IMPLEMENTATION VERIFICATION
+Run python3 porting/tests/item-foundation-native/audit-descendant-callbacks.py.
+This verifies exact callback-body preservation after the finite native adapter substitutions against verbatim baseline fixtures, including nullable-world VOTV behavior and the three creative callbacks. It also checks all named descendants for leftover legacy tooltip/name overrides. It is a source-level check, not Java compilation or runtime validation.

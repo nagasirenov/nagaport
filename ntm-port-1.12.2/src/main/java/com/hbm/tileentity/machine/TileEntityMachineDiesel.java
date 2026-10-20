@@ -69,7 +69,7 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineDiesel";
 	}
 
@@ -90,21 +90,24 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("powerTime", power);
 		nbt.setLong("powerCap", powerCap);
 		tank.writeToNBT(nbt, "fuel");
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return side == 0 ? slots_bottom : (side == 1 ? slots_top : slots_side);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(i == 1) return stack.getItem() == ModItems.canister_empty || stack.getItem() == ModItems.tank_steel;
 		if(i == 2) return stack.getItem() instanceof IBatteryItem && ((IBatteryItem) stack.getItem()).getCharge(stack) == ((IBatteryItem) stack.getItem()).getMaxCharge(stack);
 		return false;
@@ -115,15 +118,15 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.wasOn = false;
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				this.tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
-				this.sendSmoke(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
+				this.sendSmoke(this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 
 			//Tank Management
@@ -171,7 +174,7 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.engine", xCoord, yCoord, zCoord, 1.0F, 10F, 1.0F, 10);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.engine", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 10F, 1.0F, 10);
 	}
 
 	@Override
@@ -234,7 +237,7 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 
 	public void generate() {
 
-		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) return;
+		if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) return;
 
 		if(hasAcceptableFuel()) {
 			if (tank.getFill() > 0 && breatheAir(1)) {
@@ -245,7 +248,7 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 				if(tank.getFill() < 0)
 					tank.setFill(0);
 
-				if(worldObj.getTotalWorldTime() % 5 == 0) {
+				if(this.world.getTotalWorldTime() % 5 == 0) {
 					super.pollute(tank.getTankType(), FluidReleaseType.BURN, 5F);
 				}
 

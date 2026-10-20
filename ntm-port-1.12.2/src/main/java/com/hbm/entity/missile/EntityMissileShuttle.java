@@ -30,17 +30,17 @@ public class EntityMissileShuttle extends EntityMissileBaseNT {
 
 	@Override
 	public void onMissileImpact(RayTraceResult mop) {
-		ExplosionNT explosion = new ExplosionNT(worldObj, null, this.posX + 0.5F, this.posY + 0.5F, this.posZ + 0.5F, 20.0F).overrideResolution(64);
+		ExplosionNT explosion = new ExplosionNT(this.world, null, this.posX + 0.5F, this.posY + 0.5F, this.posZ + 0.5F, 20.0F).overrideResolution(64);
 		explosion.atttributes.add(ExAttrib.NOSOUND);
 		explosion.atttributes.add(ExAttrib.NOPARTICLE);
 		explosion.explode();
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "rbmkmush");
 		data.setFloat("scale", 10);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.posX + 0.5, this.posY + 1, this.posZ + 0.5), new TargetPoint(worldObj.provider.dimensionId,this.posX + 0.5, this.posY + 1, this.posZ + 0.5, 250));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.posX + 0.5, this.posY + 1, this.posZ + 0.5), new TargetPoint(this.world.provider.getDimension(),this.posX + 0.5, this.posY + 1, this.posZ + 0.5, 250));
 		MainRegistry.proxy.effectNT(data);
 
-		this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:weapon.robin_explosion", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:weapon.robin_explosion", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class EntityMissileShuttle extends EntityMissileBaseNT {
 		list.add(new ItemStack(ModItems.plate_steel, 8));
 		list.add(new ItemStack(ModItems.thruster_medium, 2));
 		list.add(new ItemStack(ModItems.canister_empty, 1));
-		list.add(new ItemStack(Blocks.glass_pane, 2));
+		list.add(new ItemStack(Blocks.GLASS_PANE, 2));
 
 		return list;
 	}

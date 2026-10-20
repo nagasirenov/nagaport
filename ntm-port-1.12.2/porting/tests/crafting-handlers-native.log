@@ -1,0 +1,102 @@
+PASS exact source conservation crafting/RodRecipes
+PASS exact source conservation crafting/handlers/ContainerUpgradeCraftingHandler
+PASS exact source conservation crafting/handlers/MKUCraftingHandler
+PASS exact source conservation crafting/handlers/ShapedOreRecipeExt
+PASS exact source conservation main/CraftingManager
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.special("special/mku", new MKUCraftingHandler())
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.special("container_upgrade/desh_crate", new ContainerUpgradeCraftingHandler(new ItemStack(ModBlocks.crate_desh, 1), new Object[] { " D ", "DSD", " D ", 'D', ModItems.plate_desh, 'S', ModBlocks.crate_steel }))
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.special("container_upgrade/tungsten_crate", new ContainerUpgradeCraftingHandler(new ItemStack(ModBlocks.crate_tungsten, 1), new Object[] { "BPB", "PCP", "BPB", 'B', W.block(), 'P', CU.plateCast(), 'C', ModBlocks.crate_steel }))
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.special("container_upgrade/safe", new ContainerUpgradeCraftingHandler(new ItemStack(ModBlocks.safe, 1), new Object[] { "LAL", "ACA", "LAL", 'L', PB.plate(), 'A', ALLOY.plate(), 'C', ModBlocks.crate_steel }))
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.special("container_upgrade/mass_storage_1", new ContainerUpgradeCraftingHandler(new ItemStack(ModBlocks.mass_storage, 1, 1), new Object[] { " C ", "PMP", " P ", 'P', DESH.ingot(), 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.CHIP), 'M', new ItemStack(ModBlocks.mass_storage, 1, 0) }))
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.special("container_upgrade/mass_storage_2", new ContainerUpgradeCraftingHandler(new ItemStack(ModBlocks.mass_storage, 1, 2), new Object[] { " C ", "PMP", " P ", 'P', ANY_RESISTANTALLOY.ingot(), 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED), 'M', new ItemStack(ModBlocks.mass_storage, 1, 1) }))
+EXACT PRODUCTION STATEMENT NtmCraftingRegistry.shaped("rod/zirnox_empty", true, new ItemStack(ModItems.rod_zirnox_empty, 4), new Object[] { "Z Z", "ZBZ", "Z Z", 'Z', ZR.nugget(), 'B', BE.ingot() })
+PRODUCTION com/hbm/crafting/handlers/ContainerUpgradeCraftingHandler.java 773674ced93c8cb1ee04e0a9497ea745591944b1effa96ad4c1d99b207885cad
+PRODUCTION com/hbm/crafting/handlers/MKUCraftingHandler.java cc8fae12520be60faacf5530469b9eda3f59f1e443ce80dd5874db0314140337
+PRODUCTION com/hbm/crafting/handlers/ShapedOreRecipeExt.java fd54b59fc0b8e7916c1ad944d70a5502f3cee8b2a7fc4bd275baff39ec52116a
+PRODUCTION com/hbm/crafting/nativeapi/NtmCraftingRecipe.java e3ff6277b52c25b5ae557ad37a68361f990fd0d1256b28060371e2ce042703ec
+PRODUCTION com/hbm/crafting/nativeapi/NtmCraftingRegistry.java dd1a163a72494fee73608f19bfeef29d49f8b9bf99d4b165b877850745c813cd
+PRODUCTION com/hbm/registry/GameRegistry.java fed01b4eeeec1e0b44bc754a06da858d079cfe9a39596eb59926d633364d4456
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+[01:47:54] [main/INFO]: Processing ObjectHolder annotations
+[01:47:54] [main/INFO]: Found 1167 ObjectHolder annotations
+[01:47:54] [main/INFO]: Applying holder lookups
+[01:47:54] [main/INFO]: Holder lookups applied
+[01:47:54] [main/INFO]: Applying holder lookups
+[01:47:54] [main/INFO]: Holder lookups applied
+[01:47:54] [main/INFO]: Applying holder lookups
+[01:47:54] [main/INFO]: Holder lookups applied
+[01:47:54] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:47:55] [main/INFO]: Replaced 1036 ore ingredients
+[01:47:55] [main/INFO]: Applying holder lookups
+[01:47:55] [main/INFO]: Holder lookups applied
+PASS desh_crate exact extracted producer matches
+PASS desh_crate exact output/count/metadata
+PASS desh_crate original NBT alias preserved
+PASS desh_crate original alias mutation visible
+PASS desh_crate fresh result stack
+PASS desh_crate absent source NBT preserved
+PASS desh_crate missing container rejected
+PASS tungsten_crate exact extracted producer matches
+PASS tungsten_crate exact output/count/metadata
+PASS tungsten_crate original NBT alias preserved
+PASS tungsten_crate original alias mutation visible
+PASS tungsten_crate fresh result stack
+PASS tungsten_crate absent source NBT preserved
+PASS tungsten_crate missing container rejected
+PASS safe exact extracted producer matches
+PASS safe exact output/count/metadata
+PASS safe original NBT alias preserved
+PASS safe original alias mutation visible
+PASS safe fresh result stack
+PASS safe absent source NBT preserved
+PASS safe missing container rejected
+PASS mass_storage_1 exact extracted producer matches
+PASS mass_storage_1 exact output/count/metadata
+PASS mass_storage_1 original NBT alias preserved
+PASS mass_storage_1 original alias mutation visible
+PASS mass_storage_1 fresh result stack
+PASS mass_storage_1 absent source NBT preserved
+PASS mass_storage_1 incorrect source tier rejected
+PASS mass_storage_1 missing container rejected
+PASS mass_storage_2 exact extracted producer matches
+PASS mass_storage_2 exact output/count/metadata
+PASS mass_storage_2 original NBT alias preserved
+PASS mass_storage_2 original alias mutation visible
+PASS mass_storage_2 fresh result stack
+PASS mass_storage_2 absent source NBT preserved
+PASS mass_storage_2 incorrect source tier rejected
+PASS mass_storage_2 missing container rejected
+PASS single rod producer
+PASS extracted rod shape uses six nuggets and one ingot
+PASS rod output four empty Zirnox rods
+PASS rod accepts live late ore alternative
+PASS rod missing central ingot rejected
+PASS MKU same seed cache 0
+PASS MKU actual seeded six-ingredient array matches 0
+PASS MKU original ignores input count/NBT
+PASS MKU exact metadata required
+PASS MKU extra occupied slot rejected
+PASS MKU same seed cache 1
+PASS MKU actual seeded six-ingredient array matches 1
+PASS MKU original ignores input count/NBT
+PASS MKU exact metadata required
+PASS MKU extra occupied slot rejected
+PASS MKU same seed cache -1
+PASS MKU actual seeded six-ingredient array matches -1
+PASS MKU original ignores input count/NBT
+PASS MKU exact metadata required
+PASS MKU extra occupied slot rejected
+PASS MKU same seed cache 9223372036854775807
+PASS MKU actual seeded six-ingredient array matches 9223372036854775807
+PASS MKU original ignores input count/NBT
+PASS MKU exact metadata required
+PASS MKU extra occupied slot rejected
+PASS MKU same seed cache 0
+PASS MKU actual seeded six-ingredient array matches 0
+PASS MKU original ignores input count/NBT
+PASS MKU exact metadata required
+PASS MKU extra occupied slot rejected
+PASS MKU null-world guard/native fit/dynamic policy
+PASS MKU fresh original output
+PASS duplicate explicit identity rejected without override
+PASS native handler checks=70

@@ -7,134 +7,95 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
-
 import com.hbm.blocks.ModBlocks;
-import com.hbm.handler.imc.ICompatNHNEI;
 import com.hbm.inventory.RecipesCommon.AStack;
 import com.hbm.inventory.recipes.CrucibleRecipes;
 import com.hbm.lib.RefStrings;
-
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
-
-public class CrucibleSmeltingHandler extends TemplateRecipeHandler implements ICompatNHNEI {
-
-	@Override
-	public ItemStack[] getMachinesForRecipe() {
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.recipe.IFocus;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.ResourceLocation;
+/** Native JEI category for the original CrucibleSmeltingHandler recipe source. */
+public class CrucibleSmeltingHandler extends MachineRecipeCategory {
+    private final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/nei/gui_nei_crucible_smelting.png");
+    private IDrawable background;
+    @Override public String getUid() { return "ntmCrucibleSmelting"; }
+    @Override public String getTitle() {
+		return "Crucible Smelting";
+	 }
+    @Override public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModBlocks.machine_crucible)};
-	}
-	@Override
-	public String getRecipeID() {
-		return "ntmCrucibleSmelting";
-	}
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-	
-	public class RecipeSet extends TemplateRecipeHandler.CachedRecipe {
+	 }
+    @Override public IDrawable getBackground() { return background; }
+    @Override public void initialize(IGuiHelper helper) {
+        super.initialize(helper);
+        background = helper.createDrawable(texture, 5, 11, 166, 65);
 
-		PositionedStack input;
-		PositionedStack crucible;
-		List<PositionedStack> outputs = new ArrayList();
-		
-		public RecipeSet(AStack input, List<ItemStack> outputs) {
-			this.input = new PositionedStack(input.extractForNEI(), 48, 24);
-			this.crucible = new PositionedStack(new ItemStack(ModBlocks.machine_crucible), 75, 42);
-			
-			for(int i = 0; i < outputs.size(); i++) {
-				PositionedStack pos = new PositionedStack(outputs.get(i), 102 + (i % 3) * 18, 6 + (i / 3) * 18);
-				this.outputs.add(pos);
-			}
-		}
+    }
+    @Override public void registerGuiAreas(IModRegistry registry) {  }
+    @Override public boolean isNavigationArea(int x, int y) {
+        return (new java.awt.Rectangle(65, 23, 36, 18).contains(x, y));
+    }
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> views = new ArrayList<>();
+        if(focus == null) {
 
-		@Override
-		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(cycleticks / 20, Arrays.asList(input));
-		}
-
-		@Override
-		public PositionedStack getResult() {
-			return outputs.get(0);
-		}
-
-		@Override
-		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> other = new ArrayList();
-			other.add(input);
-			other.add(crucible);
-			other.addAll(outputs);
-			return getCycledIngredients(cycleticks / 20, other);
-		}
-	}
-
-	@Override
-	public String getRecipeName() {
-		return "Crucible Smelting";
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei_crucible_smelting.png";
-	}
-	
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-		
-		if(outputId.equals("ntmCrucibleSmelting")) {
-			
 			HashMap<AStack, List<ItemStack>> smelting = CrucibleRecipes.getSmeltingRecipes();
-			
+
 			for(Entry<AStack, List<ItemStack>> recipe : smelting.entrySet()) {
-				this.arecipes.add(new RecipeSet(recipe.getKey(), recipe.getValue()));
+				views.add(createView(recipe.getKey(), recipe.getValue()));
 			}
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
-	
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
+		 }
+        else if(focus.getMode() == IFocus.Mode.OUTPUT) {
+            ItemStack result = focus.getValue();
+
 		HashMap<AStack, List<ItemStack>> smelting = CrucibleRecipes.getSmeltingRecipes();
 
 		for(Entry<AStack, List<ItemStack>> recipe : smelting.entrySet()) {
-			
+
 			for(ItemStack stack : recipe.getValue()) {
-				
-				if(NEIServerUtils.areStacksSameTypeCrafting(stack, result)) {
-					this.arecipes.add(new RecipeSet(recipe.getKey(), recipe.getValue()));
+
+				if(RecipeStackMatcher.matchesCrafting(stack, result)) {
+					views.add(createView(recipe.getKey(), recipe.getValue()));
 					break;
 				}
 			}
 		}
-	}
-	
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		
-		if(inputId.equals("ntmCrucibleSmelting")) {
-			loadCraftingRecipes("ntmCrucibleSmelting", new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
-	
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
+
+        } else {
+            ItemStack ingredient = focus.getValue();
+
 		HashMap<AStack, List<ItemStack>> smelting = CrucibleRecipes.getSmeltingRecipes();
 
 		for(Entry<AStack, List<ItemStack>> recipe : smelting.entrySet()) {
 			if(recipe.getKey().matchesRecipe(ingredient, true)) {
-				this.arecipes.add(new RecipeSet(recipe.getKey(), recipe.getValue()));
+				views.add(createView(recipe.getKey(), recipe.getValue()));
 			}
 		}
-	}
-	
-	@Override
-	public void loadTransferRects() {
-		transferRects.add(new RecipeTransferRect(new Rectangle(65, 23, 36, 18), "ntmCrucibleSmelting"));
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-	}
+
+        }
+        return views;
+    }
+    private MachineRecipeView createView(AStack input, List<ItemStack> outputs) {
+        ItemStack[][] out = new ItemStack[outputs.size()][];
+        for(int i = 0; i < out.length; i++) out[i] = new ItemStack[]{outputs.get(i)};
+        MachineRecipeView view = new MachineRecipeView(this, input, new ItemStack[][]{input.extractForNEI().toArray(new ItemStack[0])}, out)
+            .addInputSlot(0, 48, 24).addDecoration(new ItemStack[]{new ItemStack(ModBlocks.machine_crucible)}, 75, 42);
+        for(int i = 0; i < out.length; i++) view.addOutputSlot(i, 102 + (i % 3) * 18, 6 + (i / 3) * 18);
+        return view;
+    }
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+
+    }
+
 }

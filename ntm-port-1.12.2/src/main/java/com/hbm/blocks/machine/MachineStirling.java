@@ -28,7 +28,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineStirling extends BlockDummyable implements ILookOverlay, ITooltipProvider, IBlockMulti {
 
 	public MachineStirling() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -78,11 +78,11 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 			if(pos == null)
 				return false;
 			
-			TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			int meta = stirling.getGeatMeta();
 			
-			if(!stirling.hasCog && player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.gear_large && player.getHeldItem().getItemDamage() == meta) {
-				player.getHeldItem().stackSize--;
+			if(!stirling.hasCog && com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.gear_large && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage() == meta) {
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				stirling.hasCog = true;
 				stirling.markDirty();
 				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.5F, 0.75F);
@@ -99,7 +99,7 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 		
 		if(itemStack.getItemDamage() == 1) {
 
-			int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+			int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 			int o = -getOffset();
 			
 			ForgeDirection dir = ForgeDirection.NORTH;
@@ -110,7 +110,7 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 			
 			dir = getDirModified(dir);
 
-			TileEntity te = world.getTileEntity(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o));
 			
 			if(te instanceof TileEntityStirling) {
 				((TileEntityStirling) te).hasCog = false;
@@ -128,7 +128,7 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 		int[] pos = this.findCore(world, x, y, z);
 		
 		if(pos != null) {
-			TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(!stirling.hasCog) {
 				dmg = 1;
 			}
@@ -151,7 +151,7 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 		if(pos == null)
 			return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityStirling))
 			return;
@@ -181,7 +181,7 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 			}
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

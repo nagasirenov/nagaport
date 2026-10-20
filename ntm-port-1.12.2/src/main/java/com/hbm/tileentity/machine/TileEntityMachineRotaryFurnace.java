@@ -82,35 +82,35 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineRotaryFurnace";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			tanks[0].setType(3, slots);
 
 			for(DirPos pos : getSteamPos()) {
-				this.trySubscribe(tanks[1].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 			if(tanks[0].getTankType() != Fluids.NONE) for(DirPos pos : getFluidPos()) {
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
-			if(smoke.getFill() > 0) this.sendFluid(smoke, worldObj, xCoord + rot.offsetX, yCoord + 5, zCoord + rot.offsetZ, Library.POS_Y);
+			if(smoke.getFill() > 0) this.sendFluid(smoke, this.world, this.pos.getX() + rot.offsetX, this.pos.getY() + 5, this.pos.getZ() + rot.offsetZ, Library.POS_Y);
 
 			if(this.output != null) {
 
 				int prev = this.output.amount;
 				Vec3NT impact = new Vec3NT(0, 0, 0);
-				MaterialStack leftover = CrucibleUtil.pourSingleStack(worldObj, xCoord + 0.5D + rot.offsetX * 2.875D, yCoord + 1.25D, zCoord + 0.5D + rot.offsetZ * 2.875D, 6, true, this.output, MaterialShapes.INGOT.q(1), impact);
+				MaterialStack leftover = CrucibleUtil.pourSingleStack(this.world, this.pos.getX() + 0.5D + rot.offsetX * 2.875D, this.pos.getY() + 1.25D, this.pos.getZ() + 0.5D + rot.offsetZ * 2.875D, 6, true, this.output, MaterialShapes.INGOT.q(1), impact);
 				this.output = leftover;
 
 				if(prev != this.output.amount) {
@@ -121,8 +121,8 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 					data.setByte("dir", (byte) rot.ordinal());
 					data.setFloat("off", 0.625F);
 					data.setFloat("base", 0.625F);
-					data.setFloat("len", Math.max(1F, yCoord + 1 - (float) (Math.ceil(impact.y) - 1.125)));
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5D + rot.offsetX * 2.875D, yCoord + 0.75, zCoord + 0.5D + rot.offsetZ * 2.875D), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 50));
+					data.setFloat("len", Math.max(1F, this.pos.getY() + 1 - (float) (Math.ceil(impact.y) - 1.125)));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D + rot.offsetX * 2.875D, this.pos.getY() + 0.75, this.pos.getZ() + 0.5D + rot.offsetZ * 2.875D), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 50));
 				}
 
 				if(output.amount <= 0) this.output = null;
@@ -189,23 +189,23 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 
 		} else {
 
-			if(this.burnTime > 0 && MainRegistry.proxy.me().getDistance(xCoord, yCoord, zCoord) < 25) {
-				Random rand = worldObj.rand;
-				worldObj.spawnParticle("flame", xCoord + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, yCoord + 0.375, zCoord + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);
+			if(this.burnTime > 0 && MainRegistry.proxy.me().getDistance(this.pos.getX(), this.pos.getY(), this.pos.getZ()) < 25) {
+				Random rand = this.world.rand;
+				this.world.spawnParticle("flame", this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);
 			}
 
-			if(isVenting && worldObj.getTotalWorldTime() % 2 == 0) {
+			if(isVenting && this.world.getTotalWorldTime() % 2 == 0) {
 
 				NBTTagCompound fx = new NBTTagCompound();
 				fx.setString("type", "tower");
 				fx.setFloat("lift", 10F);
 				fx.setFloat("base", 0.25F);
 				fx.setFloat("max", 2.5F);
-				fx.setInteger("life", 100 + worldObj.rand.nextInt(20));
+				fx.setInteger("life", 100 + this.world.rand.nextInt(20));
 				fx.setInteger("color",0x202020);
-				fx.setDouble("posX", xCoord + 0.5 + rot.offsetX);
-				fx.setDouble("posY", yCoord + 5);
-				fx.setDouble("posZ", zCoord + 0.5 + rot.offsetZ);
+				fx.setDouble("posX", this.pos.getX() + 0.5 + rot.offsetX);
+				fx.setDouble("posY", this.pos.getY() + 5);
+				fx.setDouble("posZ", this.pos.getZ() + 0.5 + rot.offsetZ);
 				MainRegistry.proxy.effectNT(fx);
 			}
 			this.lastAnim = this.anim;
@@ -270,7 +270,7 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tanks[0].writeToNBT(nbt, "t0");
 		this.tanks[1].writeToNBT(nbt, "t1");
@@ -283,6 +283,7 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 			nbt.setInteger("outType", this.output.material.id);
 			nbt.setInteger("outAmount", this.output.amount);
 		}
+		return nbt;
 	}
 
 	public DirPos[] getSteamPos() {
@@ -290,8 +291,8 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite())
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite())
 		};
 	}
 
@@ -300,8 +301,8 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - dir.offsetX + rot.offsetX * 3, yCoord, zCoord - dir.offsetZ + rot.offsetZ * 3, rot)
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 3, rot)
 		};
 	}
 
@@ -358,14 +359,16 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 		if(tank.getFill() > tank.getMaxFill()) {
 			int overflow = tank.getFill() - tank.getMaxFill();
 			tank.setFill(tank.getMaxFill());
-			PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, type, overflow / 100F);
+			PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), type, overflow / 100F);
 			this.isVenting = true;
 		}
 	}
 
-	@Override public int[] getAccessibleSlotsFromSide(int side) { return new int[0]; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[0]; }
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return slot < 3 || slot == 4; }
-	@Override public boolean canExtractItem(int slot, ItemStack  stack, int side) { return false; }
+	@Override public boolean canExtractItem(int slot, ItemStack  stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return false; }
 
 	@Override public boolean isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack) { return slot < 3 || slot == 4; }
 	@Override public boolean canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side) { return false; }
@@ -377,12 +380,12 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 5,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 3
 					);
 		}
 
@@ -400,7 +403,7 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 		BlockPos pos = new BlockPos(x, y, z);
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		BlockPos core = new BlockPos(xCoord, yCoord, zCoord);
+		BlockPos core = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 		//Red
 		if(side == dir.getOpposite().ordinal() && pos.equals(core.clone().offset(dir, -1).offset(rot, -2))) return new int[] {0};

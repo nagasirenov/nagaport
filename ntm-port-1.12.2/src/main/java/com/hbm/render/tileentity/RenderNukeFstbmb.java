@@ -38,7 +38,7 @@ public class RenderNukeFstbmb extends TileEntitySpecialRenderer {
 
 		if(bf.loaded) {
 			bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/misc/glintBF.png"));
-			RenderMiscEffects.renderClassicGlint(tileEntity.getWorldObj(), f, ResourceManager.fstbmb, "Balefire", 0.0F, 0.8F, 0.15F, 5, 2F);
+			RenderMiscEffects.renderClassicGlint(tileEntity.getWorld(), f, ResourceManager.fstbmb, "Balefire", 0.0F, 0.8F, 0.15F, 5, 2F);
 
 			FontRenderer font = Minecraft.getMinecraft().fontRenderer;
 			float f3 = 0.04F;

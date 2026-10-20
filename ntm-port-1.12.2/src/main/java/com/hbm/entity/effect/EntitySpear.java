@@ -49,33 +49,33 @@ public class EntitySpear extends Entity {
 		int y = (int) Math.floor(posY);
 		int z = (int) Math.floor(posZ);
 		
-		if(worldObj.getBlock(x, y - 1, z).getMaterial() == Material.air) {
+		if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock().getMaterial() == Material.AIR) {
 			this.setPositionAndRotation(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ, 0, 0);
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				double ix = posX + rand.nextGaussian() * 25;
 				double iz = posZ + rand.nextGaussian() * 25;
-				double iy = worldObj.getHeightValue((int)Math.floor(ix), (int)Math.floor(iz)) + 2;
+				double iy = this.world.getHeightValue((int)Math.floor(ix), (int)Math.floor(iz)) + 2;
 				
 				ExAttrib at = new Vec3d(ix - posX, 0, iz - posZ).length() < 20 ? ExAttrib.DIGAMMA_CIRCUIT : ExAttrib.DIGAMMA;
 				
-				new ExplosionNT(worldObj, this, ix, iy, iz, 7.5F)
+				new ExplosionNT(this.world, this, ix, iy, iz, 7.5F)
 				.addAttrib(ExAttrib.NOHURT)
 				.addAttrib(ExAttrib.NOPARTICLE)
 				.addAttrib(ExAttrib.NODROP)
 				.addAttrib(ExAttrib.NOSOUND)
 				.addAttrib(at).explode();
 				
-				for(Object obj : worldObj.playerEntities) {
+				for(Object obj : this.world.playerEntities) {
 					EntityPlayer player = (EntityPlayer) obj;
 					ContaminationUtil.contaminate(player, HazardType.DIGAMMA, ContaminationType.DIGAMMA, 0.05F);
-					player.triggerAchievement(MainRegistry.digammaKauaiMoho);
+					com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.digammaKauaiMoho);
 				}
 			}
 			
-			if(worldObj.isRemote) {
+			if(this.world.isRemote) {
 				
-				double dy = worldObj.getHeightValue((int)Math.floor(posX), (int)Math.floor(posZ)) + 2;
+				double dy = this.world.getHeightValue((int)Math.floor(posX), (int)Math.floor(posZ)) + 2;
 				
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "smoke");
@@ -88,16 +88,16 @@ public class EntitySpear extends Entity {
 			}
 
 			
-			if(worldObj.getBlock(x, y - 3, z).getMaterial() == Material.air)
+			if(com.hbm.world.WorldBlockState.read(this.world, x, y - 3, z).getBlock().getMaterial() == Material.AIR)
 				ticksInGround = 0;
 			
 		} else {
 			
 			ticksInGround++;
 			
-			if(!worldObj.isRemote && ticksInGround > 100) {
+			if(!this.world.isRemote && ticksInGround > 100) {
 				
-				List entities =  new ArrayList(worldObj.loadedEntityList);
+				List entities =  new ArrayList(this.world.loadedEntityList);
 				for(Object obj : entities) {
 					
 					if(obj instanceof EntityLivingBase)
@@ -105,7 +105,7 @@ public class EntitySpear extends Entity {
 				}
 				this.setDead();
 				
-				worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.dFlash", 25000.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.dFlash", 25000.0F, 1.0F);
 				
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "smoke");

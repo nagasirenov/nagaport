@@ -26,7 +26,7 @@ public class BlockOreBasalt extends BlockEnumMulti {
 	protected IIcon[] topIcons;
 
 	public BlockOreBasalt() {
-		super(Material.rock, EnumBasaltOreType.class, true, true);
+		super(Material.ROCK, EnumBasaltOreType.class, true, true);
 	}
 	
 	public static enum EnumBasaltOreType {
@@ -49,7 +49,7 @@ public class BlockOreBasalt extends BlockEnumMulti {
 	}
 	
 	public String getUnlocalizedMultiName(Enum num) {
-		return super.getUnlocalizedName() + "_" + num.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "_" + num.name().toLowerCase(Locale.US);
 	}
 	
 	@Override
@@ -60,8 +60,8 @@ public class BlockOreBasalt extends BlockEnumMulti {
 
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-		int meta = world.getBlockMetadata(x, y, z);
-		if(meta == EnumBasaltOreType.ASBESTOS.ordinal() && world.getBlock(x, y + 1, z) == Blocks.air) {
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		if(meta == EnumBasaltOreType.ASBESTOS.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR) {
 			if(world.rand.nextInt(10) == 0) world.setBlock(x, y + 1, z, ModBlocks.gas_asbestos);
 			for(int i = 0; i < 5; i++) world.spawnParticle("townaura", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}

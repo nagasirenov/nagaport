@@ -1,0 +1,4 @@
+PASS 7792 actual old/native assertions; 74 literal factory expressions; no whole-class claim.
+PASS exact reversible literal-only scope: 74 calls; 14 files
+Attribution only, unfinished-port errors: 6
+PASS 2 positive and 6 negative ownership/argument fixtures; actual native constructor descriptor (DDDDDD)V

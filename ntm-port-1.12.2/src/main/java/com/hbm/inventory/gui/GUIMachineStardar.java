@@ -71,8 +71,8 @@ public class GUIMachineStardar extends GuiInfoContainer {
 	private final int[] groundColors;
 
 	public void init() {
-		currentBody = CelestialBody.getBody(star.getWorldObj());
-		boolean inOrbit = CelestialBody.inOrbit(star.getWorldObj());
+		currentBody = CelestialBody.getBody(star.getWorld());
+		boolean inOrbit = CelestialBody.inOrbit(star.getWorld());
 
 		for(CelestialBody landable : CelestialBody.getLandableBodies()) {
 			if(landable != currentBody || inOrbit) {
@@ -117,8 +117,8 @@ public class GUIMachineStardar extends GuiInfoContainer {
 			velocityY *= 0.85;
 			starX += velocityX;
 			starY += velocityY;
-			starX = MathHelper.clamp_float(starX, -256 + 158, 256);
-			starY = MathHelper.clamp_float(starY, -256 + 108, 256);
+			starX = MathHelper.clamp(starX, (float) (-256 + 158), (float) (256));
+			starY = MathHelper.clamp(starY, (float) (-256 + 108), (float) (256));
 		}
 
 		if(!star.radarMode) {
@@ -177,8 +177,8 @@ public class GUIMachineStardar extends GuiInfoContainer {
 			Minecraft.getMinecraft().getTextureManager().bindTexture(nightTexture);
 			drawTexturedModalRect(guiLeft, guiTop, (int) starX * -1, (int) starY * -1, 256, 256);
 
-			if(CelestialBody.getBody(star.getWorldObj()).hasTrait(CBT_War.class)) {
-				CBT_War wardat = CelestialBody.getTrait(star.getWorldObj(), CBT_War.class);
+			if(CelestialBody.getBody(star.getWorld()).hasTrait(CBT_War.class)) {
+				CBT_War wardat = CelestialBody.getTrait(star.getWorld(), CBT_War.class);
 				for(int i = 0; i < wardat.getProjectiles().size(); i++) {
 					CBT_War.Projectile projectile = wardat.getProjectiles().get(i);
 					int projvel = (int) projectile.getTravel();
@@ -222,7 +222,7 @@ public class GUIMachineStardar extends GuiInfoContainer {
 
 			GL11.glPushMatrix();
 
-			Minecraft.getMinecraft().getTextureManager().bindTexture(CelestialBody.getBody(star.getWorldObj()).texture);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(CelestialBody.getBody(star.getWorld()).texture);
 
 			Tessellator tessellator = Tessellator.instance;
 			tessellator.startDrawingQuads();
@@ -275,27 +275,27 @@ public class GUIMachineStardar extends GuiInfoContainer {
 
 					popScissor();
 
-					fontRendererObj.drawString(canLand ? "Valid location" : info, 10, 128, canLand ? 0x00FF00 : 0xFF0000);
-					if(altitude > 0) fontRendererObj.drawString("Target altitude: " + altitude, 10, 148, 0x00FF00);
+					fontRenderer.drawString(canLand ? "Valid location" : info, 10, 128, canLand ? 0x00FF00 : 0xFF0000);
+					if(altitude > 0) fontRenderer.drawString("Target altitude: " + altitude, 10, 148, 0x00FF00);
 				}
 			} else if(star.heightmap != null) {
-				fontRendererObj.drawString("Select landing zone", 10, 128, 0x00FF00);
+				fontRenderer.drawString("Select landing zone", 10, 128, 0x00FF00);
 			}
 
 			if(star.heightmap == null) {
-				if(slotStack == null) {
-					fontRendererObj.drawString("Insert drive", 10, 128, 0x00FF00);
+				if(slotStack == null || slotStack.isEmpty()) {
+					fontRenderer.drawString("Insert drive", 10, 128, 0x00FF00);
 				} else {
 					if(slotStack.getItem() == ModItems.full_drive) {
 						if(ItemVOTVdrive.getDestination(slotStack).body == SolarSystem.Body.ORBIT) {
-							fontRendererObj.drawString("Orbital station ready", 10, 128, 0x00FF00);
+							fontRenderer.drawString("Orbital station ready", 10, 128, 0x00FF00);
 						} else {
-							fontRendererObj.drawString("Loading heightmap...", 10, 128, 0x00FF00);
-							fontRendererObj.drawString("Please wait", 10, 148, 0x00FF00);
+							fontRenderer.drawString("Loading heightmap...", 10, 128, 0x00FF00);
+							fontRenderer.drawString("Please wait", 10, 148, 0x00FF00);
 						}
 					} else if(slotStack.getItem() == ModItems.hard_drive) {
-						fontRendererObj.drawString("Select body", 10, 128, 0x00FF00);
-						fontRendererObj.drawString("Drag map to pan", 10, 148, 0x00FF00);
+						fontRenderer.drawString("Select body", 10, 128, 0x00FF00);
+						fontRenderer.drawString("Drag map to pan", 10, 148, 0x00FF00);
 					}
 				}
 			}
@@ -386,17 +386,17 @@ public class GUIMachineStardar extends GuiInfoContainer {
 
 		// Clicking ORB will generate a new orbital station
 		if(checkClick(x, y, 129, 143, 18, 18)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setInteger("pid", SpaceConfig.orbitDimension);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.xCoord, star.yCoord, star.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.getPos().getX(), star.getPos().getY(), star.getPos().getZ()));
 		}
 
 		// Clicking RAD will activate Orrey Mode
 		if(checkClick(x, y, 129, 123, 18, 18)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("radarmode", true);
@@ -406,19 +406,19 @@ public class GUIMachineStardar extends GuiInfoContainer {
 			}
 			//starY =0;
 			//starX =0;
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.xCoord, star.yCoord, star.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.getPos().getX(), star.getPos().getY(), star.getPos().getZ()));
 		}
 
 		// Clicking SLF will load in the current body
 		if(checkClick(x, y, 149, 143, 18, 18)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
-			data.setInteger("pid", star.getWorldObj().provider.dimensionId);
-			data.setInteger("ix", star.xCoord);
-			data.setInteger("iz", star.zCoord);
+			data.setInteger("pid", star.getWorld().provider.dimensionId);
+			data.setInteger("ix", star.getPos().getX());
+			data.setInteger("iz", star.getPos().getZ());
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.xCoord, star.yCoord, star.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.getPos().getX(), star.getPos().getY(), star.getPos().getZ()));
 		}
 	}
 
@@ -438,12 +438,12 @@ public class GUIMachineStardar extends GuiInfoContainer {
 
 					// Again, a small buffer area around
 					if(checkClick(x, y, poiX - 2, poiY - 2, 12, 12)) {
-						mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+						mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 						NBTTagCompound data = new NBTTagCompound();
 						data.setInteger("pid", poi.body.dimensionId);
 
-						PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.xCoord, star.yCoord, star.zCoord));
+						PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.getPos().getX(), star.getPos().getY(), star.getPos().getZ()));
 						break;
 					}
 				}
@@ -455,13 +455,13 @@ public class GUIMachineStardar extends GuiInfoContainer {
 				// check landing zone is valid
 				boolean canLand = landingInfo(hx, hz) == null;
 				if(canLand) {
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 					NBTTagCompound data = new NBTTagCompound();
 					data.setInteger("px", hx);
 					data.setInteger("pz", hz);
 
-					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.xCoord, star.yCoord, star.zCoord));
+					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, star.getPos().getX(), star.getPos().getY(), star.getPos().getZ()));
 				}
 			}
 		}

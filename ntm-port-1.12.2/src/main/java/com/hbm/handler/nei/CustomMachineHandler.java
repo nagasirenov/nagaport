@@ -4,7 +4,6 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import codechicken.lib.gui.GuiDraw;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.config.CustomMachineConfigJSON;
@@ -17,130 +16,52 @@ import com.hbm.items.machine.ItemFluidIcon;
 import com.hbm.lib.RefStrings;
 import com.hbm.util.ItemStackUtil;
 import com.hbm.util.Tuple.Pair;
-
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-
-public class CustomMachineHandler extends TemplateRecipeHandler {
-
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-
-	public MachineConfiguration conf;
-
-	@Override
-	public TemplateRecipeHandler newInstance() { // brick by brick, suck my dick
-		try {
-			return new CustomMachineHandler(conf);
-		} catch(Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	public CustomMachineHandler(MachineConfiguration conf) {
-		super();
-		this.conf = conf;
-		loadTransferRects();
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-	}
-
-	public class RecipeSet extends TemplateRecipeHandler.CachedRecipe {
-
-		List<PositionedStack> inputs = new ArrayList();
-		PositionedStack machine;
-		List<PositionedStack> outputs = new ArrayList();
-		public int flux = 0;
-		public int heat = 0;
-		public float radiationAmount = 0;
-		public String pollutionType;
-		public float pollutionAmount = 0;
-
-		public RecipeSet(CustomMachineRecipe recipe) {
-
-			for(int i = 0; i < 3; i++) if(recipe.inputFluids.length > i) inputs.add(new PositionedStack(ItemFluidIcon.make(recipe.inputFluids[i]), 12 + i * 18, 6));
-			for(int i = 0; i < 3; i++) if(recipe.inputItems.length > i) inputs.add(new PositionedStack(recipe.inputItems[i].extractForNEI(), 12 + i * 18, 24));
-			for(int i = 3; i < 6; i++) if(recipe.inputItems.length > i) inputs.add(new PositionedStack(recipe.inputItems[i].extractForNEI(), 12 + (i - 3) * 18, 42));
-
-			for(int i = 0; i < 3; i++) if(recipe.outputFluids.length > i) outputs.add(new PositionedStack(ItemFluidIcon.make(recipe.outputFluids[i]), 102 + i * 18, 6));
-
-			for(int i = 0; i < 3; i++) if(recipe.outputItems.length > i) {
-				Pair<ItemStack, Float> pair = recipe.outputItems[i];
-				ItemStack out = pair.getKey().copy();
-				if(pair.getValue() != 1) {
-					ItemStackUtil.addTooltipToStack(out, TextFormatting.RED + "" + (((int)(pair.getValue() * 1000)) / 10D) + "%");
-				}
-				outputs.add(new PositionedStack(out, 102 + i * 18, 24));
-			}
-
-			for(int i = 3; i < 6; i++) if(recipe.outputItems.length > i) {
-				Pair<ItemStack, Float> pair = recipe.outputItems[i];
-				ItemStack out = pair.getKey().copy();
-				if(pair.getValue() != 1) {
-					ItemStackUtil.addTooltipToStack(out, TextFormatting.RED + "" + (((int)(pair.getValue() * 1000)) / 10D) + "%");
-				}
-				outputs.add(new PositionedStack(out, 102 + (i - 3) * 18, 42));
-			}
-			
-			this.pollutionType = recipe.pollutionType;
-			this.pollutionAmount = recipe.pollutionAmount;
-			this.radiationAmount = recipe.radiationAmount;
-			if(conf.fluxMode) this.flux = recipe.flux;
-			if(conf.maxHeat > 0 && recipe.heat > 0) this.heat = recipe.heat;
-			
-			this.machine = new PositionedStack(new ItemStack(ModBlocks.custom_machine, 1, 100 + CustomMachineConfigJSON.niceList.indexOf(conf)), 75, 42);
-		}
-
-		@Override
-		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(cycleticks / 20, inputs);
-		}
-
-		@Override
-		public PositionedStack getResult() {
-			return outputs.get(0);
-		}
-
-		@Override
-		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> other = new ArrayList();
-			other.addAll(inputs);
-			other.add(machine);
-			other.addAll(outputs);
-			return getCycledIngredients(cycleticks / 20, other);
-		}
-	}
-
-	@Override
-	public String getRecipeName() {
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.recipe.IFocus;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.ResourceLocation;
+/** Native JEI category for the original CustomMachineHandler recipe source. */
+public class CustomMachineHandler extends MachineRecipeCategory {
+    private final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/nei/gui_nei_custom.png");
+    private IDrawable background;
+    @Override public String getUid() { return "ntm_" + conf.unlocalizedName; }
+    @Override public String getTitle() {
 		return conf.localizedName;
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei_custom.png";
-	}
-
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-
-		if(outputId.equals("ntm_" + conf.unlocalizedName)) {
+	 }
+    @Override public ItemStack[] getMachines() { return new ItemStack[0]; }
+    @Override public IDrawable getBackground() { return background; }
+    @Override public void initialize(IGuiHelper helper) {
+        super.initialize(helper);
+        background = helper.createDrawable(texture, 5, 11, 166, 65);
+        background = helper.createBlankDrawable(166, 84);
+    }
+    @Override public void registerGuiAreas(IModRegistry registry) {  }
+    @Override public boolean isNavigationArea(int x, int y) {
+        return new java.awt.Rectangle(65, 23, 36, 18).contains(x, y);
+    }
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> views = new ArrayList<>();
+        if(focus == null) {
 
 			List<CustomMachineRecipe> recipes = CustomMachineRecipes.recipes.get(conf.recipeKey);
 
 			if(recipes != null) for(CustomMachineRecipe recipe : recipes) {
-				this.arecipes.add(new RecipeSet(recipe));
+				views.add(createView(recipe));
 			}
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
+		 }
+        else if(focus.getMode() == IFocus.Mode.OUTPUT) {
+            ItemStack result = focus.getValue();
 
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
 
 		List<CustomMachineRecipe> recipes = CustomMachineRecipes.recipes.get(conf.recipeKey);
 
@@ -148,8 +69,8 @@ public class CustomMachineHandler extends TemplateRecipeHandler {
 
 			for(Pair<ItemStack, Float> stack : recipe.outputItems) {
 
-				if(NEIServerUtils.areStacksSameTypeCrafting(stack.getKey(), result)) {
-					this.arecipes.add(new RecipeSet(recipe));
+				if(RecipeStackMatcher.matchesCrafting(stack.getKey(), result)) {
+					views.add(createView(recipe));
 					continue outer;
 				}
 			}
@@ -158,25 +79,15 @@ public class CustomMachineHandler extends TemplateRecipeHandler {
 				ItemStack drop = ItemFluidIcon.make(fluid);
 
 				if(compareFluidStacks(result, drop)) {
-					this.arecipes.add(new RecipeSet(recipe));
+					views.add(createView(recipe));
 					continue outer;
 				}
 			}
 		}
-	}
 
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
+        } else {
+            ItemStack ingredient = focus.getValue();
 
-		if(inputId.equals("ntm_" + conf.unlocalizedName)) {
-			loadCraftingRecipes("ntm_" + conf.unlocalizedName, new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
-
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
 
 		List<CustomMachineRecipe> recipes = CustomMachineRecipes.recipes.get(conf.recipeKey);
 
@@ -187,8 +98,8 @@ public class CustomMachineHandler extends TemplateRecipeHandler {
 				List<ItemStack> stacks = stack.extractForNEI();
 
 				for(ItemStack sta : stacks) {
-					if(NEIServerUtils.areStacksSameTypeCrafting(ingredient, sta)) {
-						this.arecipes.add(new RecipeSet(recipe));
+					if(RecipeStackMatcher.matchesCrafting(ingredient, sta)) {
+						views.add(createView(recipe));
 						continue outer;
 					}
 				}
@@ -198,43 +109,59 @@ public class CustomMachineHandler extends TemplateRecipeHandler {
 				ItemStack drop = ItemFluidIcon.make(fluid);
 
 				if(compareFluidStacks(ingredient, drop)) {
-					this.arecipes.add(new RecipeSet(recipe));
+					views.add(createView(recipe));
 					continue outer;
 				}
 			}
 		}
-	}
 
-	public static boolean compareFluidStacks(ItemStack sta1, ItemStack sta2) {
-		return sta1.getItem() == sta2.getItem() && sta1.getItemDamage() == sta2.getItemDamage();
-	}
-
-	@Override
-	public void loadTransferRects() {
-		if(this.conf == null) return;
-		transferRects.clear();
-		transferRects.add(new RecipeTransferRect(new Rectangle(65, 23, 36, 18), "ntm_" + conf.unlocalizedName));
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-	}
-	@Override
-	public void drawExtras(int recipe) {
-		RecipeSet Recipe = (RecipeSet) this.arecipes.get(recipe);
-		int side = 83;
-		if(Recipe.radiationAmount != 0){
-			String radiation = "Radiation:" + Recipe.radiationAmount + "";
-			GuiDraw.drawString(radiation, 160 - GuiDraw.fontRenderer.getStringWidth(radiation), 63, 0x08FF00);
-		}
-		if (Recipe.pollutionAmount != 0){
-			String pollution = Recipe.pollutionType + ":" + Recipe.pollutionAmount + "";
-			GuiDraw.drawString(pollution, 160 - GuiDraw.fontRenderer.getStringWidth(pollution), 75, 0x404040);
-		}
-		if(conf.fluxMode) {
-			String flux = "Flux:" + Recipe.flux + "";
-			GuiDraw.drawString(flux, side - GuiDraw.fontRenderer.getStringWidth(flux) / 2, 16, 0x08FF00);
-		}
-		if(conf.maxHeat>0 && Recipe.heat>0){
-			String heat = "Heat:" + Recipe.heat + "";
-			GuiDraw.drawString(heat, side - GuiDraw.fontRenderer.getStringWidth(heat) / 2, 8, 0xFF0000);
-		}
-	}
+        }
+        return views;
+    }
+    private MachineRecipeView createView(CustomMachineRecipe recipe) {
+        List<ItemStack[]> inputs = new ArrayList<>();
+        List<ItemStack[]> outputs = new ArrayList<>();
+        for(int i = 0; i < Math.min(recipe.inputFluids.length, 3); i++) inputs.add(new ItemStack[]{ItemFluidIcon.make(recipe.inputFluids[i])});
+        for(int i = 0; i < Math.min(recipe.inputItems.length, 6); i++) inputs.add(recipe.inputItems[i].extractForNEI().toArray(new ItemStack[0]));
+        for(int i = 0; i < Math.min(recipe.outputFluids.length, 3); i++) outputs.add(new ItemStack[]{ItemFluidIcon.make(recipe.outputFluids[i])});
+        for(int i = 0; i < Math.min(recipe.outputItems.length, 6); i++) {
+            Pair<ItemStack, Float> pair = recipe.outputItems[i];
+            ItemStack output = pair.getKey().copy();
+            if(pair.getValue() != 1) ItemStackUtil.addTooltipToStack(output, TextFormatting.RED + "" + (((int)(pair.getValue() * 1000)) / 10D) + "%");
+            outputs.add(new ItemStack[]{output});
+        }
+        MachineRecipeView view = new MachineRecipeView(this, recipe, inputs.toArray(new ItemStack[0][]), outputs.toArray(new ItemStack[0][]));
+        int slot = 0;
+        for(int i = 0; i < Math.min(recipe.inputFluids.length, 3); i++) view.addInputSlot(slot++, 12 + i * 18, 6);
+        for(int i = 0; i < Math.min(recipe.inputItems.length, 6); i++) view.addInputSlot(slot++, 12 + (i % 3) * 18, i < 3 ? 24 : 42);
+        slot = 0;
+        for(int i = 0; i < Math.min(recipe.outputFluids.length, 3); i++) view.addOutputSlot(slot++, 102 + i * 18, 6);
+        for(int i = 0; i < Math.min(recipe.outputItems.length, 6); i++) view.addOutputSlot(slot++, 102 + (i % 3) * 18, i < 3 ? 24 : 42);
+        view.addDecoration(new ItemStack[]{new ItemStack(ModBlocks.custom_machine, 1, 100 + CustomMachineConfigJSON.niceList.indexOf(conf))}, 75, 42);
+        return view;
+    }
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        minecraft.getTextureManager().bindTexture(texture);
+        Gui.drawModalRectWithCustomSizedTexture(0, 0, 5, 11, 166, 65, 256, 256);
+        CustomMachineRecipe recipe = (CustomMachineRecipe) view.source;
+        if(recipe.radiationAmount != 0) {
+            String radiation = "Radiation:" + recipe.radiationAmount;
+            minecraft.fontRenderer.drawString(radiation, 160 - minecraft.fontRenderer.getStringWidth(radiation), 63, 0x08FF00);
+        }
+        if(recipe.pollutionAmount != 0) {
+            String pollution = recipe.pollutionType + ":" + recipe.pollutionAmount;
+            minecraft.fontRenderer.drawString(pollution, 160 - minecraft.fontRenderer.getStringWidth(pollution), 75, 0x404040);
+        }
+        if(conf.fluxMode) {
+            String flux = "Flux:" + recipe.flux;
+            minecraft.fontRenderer.drawString(flux, 83 - minecraft.fontRenderer.getStringWidth(flux) / 2, 16, 0x08FF00);
+        }
+        if(conf.maxHeat > 0 && recipe.heat > 0) {
+            String heat = "Heat:" + recipe.heat;
+            minecraft.fontRenderer.drawString(heat, 83 - minecraft.fontRenderer.getStringWidth(heat) / 2, 8, 0xFF0000);
+        }
+    }
+    public final MachineConfiguration conf;
+    public CustomMachineHandler(MachineConfiguration configuration) { this.conf = configuration; }
+    public static boolean compareFluidStacks(ItemStack a, ItemStack b) { return a.getItem() == b.getItem() && a.getItemDamage() == b.getItemDamage(); }
 }

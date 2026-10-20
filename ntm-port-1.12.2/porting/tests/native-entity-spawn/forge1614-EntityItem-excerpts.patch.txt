@@ -1,0 +1,11 @@
+@@ -46,8 +54,9 @@
+ 
+     public EntityItem(World p_i1710_1_, double p_i1710_2_, double p_i1710_4_, double p_i1710_6_, ItemStack p_i1710_8_)
+     {
+-        this(p_i1710_1_, p_i1710_2_, p_i1710_4_, p_i1710_6_);
++        this(p_i1710_1_, p_i1710_2_, p_i1710_4_, p_i1710_6_);        
+         this.func_92058_a(p_i1710_8_);
++        this.lifespan = (p_i1710_8_.func_77973_b() == null ? 6000 : p_i1710_8_.func_77973_b().getEntityLifespan(p_i1710_8_, p_i1710_1_));
+     }
+ 
+     protected boolean func_70041_e_()

@@ -39,13 +39,13 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 		
-		if(!worldObj.isRemote && worldObj.getTotalWorldTime() % 20 == 0 && this.hasDrone()) {
+		if(!this.world.isRemote && this.world.getTotalWorldTime() % 20 == 0 && this.hasDrone()) {
 			
 			// grab all nodes in a 5 chunk radius
-			HashedSet<PathNode> localNodes = this.getAllLocalNodes(worldObj, xCoord, zCoord, 5);
+			HashedSet<PathNode> localNodes = this.getAllLocalNodes(this.world, this.pos.getX(), this.pos.getZ(), 5);
 			List<RequestNode> requests = new ArrayList();
 			List<OfferNode> offers = new ArrayList();
 			
@@ -71,8 +71,8 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 				
 				if(firstRequest != null) {
 
-					PathNode own = localNodes.getMap().get(new BlockPos(xCoord, yCoord + 1, zCoord).hashCode());
-					AStack request = firstRequest.request.get(worldObj.rand.nextInt(firstRequest.request.size()));
+					PathNode own = localNodes.getMap().get(new BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).hashCode());
+					AStack request = firstRequest.request.get(this.world.rand.nextInt(firstRequest.request.size()));
 					
 					outer: for(OfferNode offer : offers) {
 						
@@ -106,8 +106,8 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 			}
 		}
 		
-		EntityRequestDrone drone = new EntityRequestDrone(worldObj);
-		drone.setPosition(xCoord + 0.5, yCoord + 1, zCoord + 0.5);
+		EntityRequestDrone drone = new EntityRequestDrone(this.world);
+		drone.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5);
 		
 		// write programming
 		for(PathNode node : dockToOffer) drone.program.add(node.pos);
@@ -120,8 +120,8 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 		drone.program.add(dock.pos);
 		drone.program.add(DroneProgram.DOCK);
 		
-		worldObj.spawnEntityInWorld(drone);
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.storageOpen", 2.0F, 1.0F);
+		this.world.spawnEntityInWorld(drone);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.storageOpen", 2.0F, 1.0F);
 		
 		return true;
 	}

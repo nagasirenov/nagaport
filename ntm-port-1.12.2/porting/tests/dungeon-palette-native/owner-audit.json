@@ -1,0 +1,1796 @@
+{
+  "baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "scope": "Textual source inventory; Java symbol attribution remains separate",
+  "classes": {
+    "Spaceship": {
+      "path": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+      "fields": {
+        "Block1": {
+          "owner": "ModBlocks.deco_tungsten",
+          "declaration_line": 22,
+          "assignments_in_class": [
+            22
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 28
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1665,
+              "text": "deco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block2": {
+          "owner": "ModBlocks.deco_red_copper",
+          "declaration_line": 23,
+          "assignments_in_class": [
+            23
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 54
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1664,
+              "text": "deco_red_copper = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_red_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.deco_steel",
+          "declaration_line": 24,
+          "assignments_in_class": [
+            24
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 188
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1667,
+              "text": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block4": {
+          "owner": "ModBlocks.fusion_heater",
+          "declaration_line": 25,
+          "assignments_in_class": [
+            25
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 12
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2286,
+              "text": "fusion_heater = new BlockPillar(Material.IRON, RefStrings.MODID + \":fusion_heater_top\").setTranslationKey(\"fusion_heater\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":fusion_heater_side\");"
+            }
+          ]
+        },
+        "Block5": {
+          "owner": "ModBlocks.block_meteor",
+          "declaration_line": 26,
+          "assignments_in_class": [
+            26
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1793,
+              "text": "block_meteor = new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor\");"
+            }
+          ]
+        },
+        "Block6": {
+          "owner": "ModBlocks.pwr_fuel",
+          "declaration_line": 27,
+          "assignments_in_class": [
+            27
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2274,
+              "text": "pwr_fuel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");"
+            }
+          ]
+        },
+        "Block7": {
+          "owner": "ModBlocks.cable_switch",
+          "declaration_line": 28,
+          "assignments_in_class": [
+            28
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2168,
+              "text": "cable_switch = new CableSwitch(Material.IRON).setTranslationKey(\"cable_switch\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+            }
+          ]
+        },
+        "Block8": {
+          "owner": "ModBlocks.fusion_hatch",
+          "declaration_line": 29,
+          "assignments_in_class": [
+            29
+          ],
+          "placements": [
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2287,
+              "text": "fusion_hatch = new FusionHatch(Material.IRON).setTranslationKey(\"fusion_hatch\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":fusion_hatch\");"
+            }
+          ]
+        },
+        "Block9": {
+          "owner": "ModBlocks.reinforced_light",
+          "declaration_line": 30,
+          "assignments_in_class": [
+            30
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 4
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1698,
+              "text": "reinforced_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1.0F).setHardness(15.0F).setResistance(80.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_light\");"
+            }
+          ]
+        },
+        "Block10": {
+          "owner": "ModBlocks.reinforced_glass",
+          "declaration_line": 31,
+          "assignments_in_class": [
+            31
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 10
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1696,
+              "text": "reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);"
+            }
+          ]
+        }
+      }
+    },
+    "Spaceship2": {
+      "path": "src/main/java/com/hbm/world/dungeon/Spaceship2.java",
+      "fields": {
+        "Block1": {
+          "owner": "ModBlocks.deco_tungsten",
+          "declaration_line": 17,
+          "assignments_in_class": [
+            17
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1665,
+              "text": "deco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block2": {
+          "owner": "ModBlocks.hadron_coil_alloy",
+          "declaration_line": 18,
+          "assignments_in_class": [
+            18
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2090,
+              "text": "hadron_coil_alloy = new BlockHadronCoil(Material.IRON, 10).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_alloy\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.deco_steel",
+          "declaration_line": 19,
+          "assignments_in_class": [
+            19
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 74
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1667,
+              "text": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block4": {
+          "owner": "ModBlocks.fusion_heater",
+          "declaration_line": 20,
+          "assignments_in_class": [
+            20
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2286,
+              "text": "fusion_heater = new BlockPillar(Material.IRON, RefStrings.MODID + \":fusion_heater_top\").setTranslationKey(\"fusion_heater\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":fusion_heater_side\");"
+            }
+          ]
+        },
+        "Block5": {
+          "owner": "ModBlocks.block_meteor",
+          "declaration_line": 21,
+          "assignments_in_class": [
+            21
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1793,
+              "text": "block_meteor = new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor\");"
+            }
+          ]
+        },
+        "Block6": {
+          "owner": "ModBlocks.pwr_fuel",
+          "declaration_line": 22,
+          "assignments_in_class": [
+            22
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2274,
+              "text": "pwr_fuel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");"
+            }
+          ]
+        },
+        "Block8": {
+          "owner": "ModBlocks.fusion_hatch",
+          "declaration_line": 23,
+          "assignments_in_class": [
+            23
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2287,
+              "text": "fusion_hatch = new FusionHatch(Material.IRON).setTranslationKey(\"fusion_hatch\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":fusion_hatch\");"
+            }
+          ]
+        },
+        "Block9": {
+          "owner": "ModBlocks.reinforced_light",
+          "declaration_line": 24,
+          "assignments_in_class": [
+            24
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1698,
+              "text": "reinforced_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1.0F).setHardness(15.0F).setResistance(80.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_light\");"
+            }
+          ]
+        },
+        "Block10": {
+          "owner": "ModBlocks.reinforced_glass",
+          "declaration_line": 25,
+          "assignments_in_class": [
+            25
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1696,
+              "text": "reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);"
+            }
+          ]
+        }
+      }
+    },
+    "Ruin001": {
+      "path": "src/main/java/com/hbm/world/dungeon/Ruin001.java",
+      "fields": {
+        "Block1": {
+          "owner": "ModBlocks.brick_concrete",
+          "declaration_line": 18,
+          "assignments_in_class": [
+            18
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 211
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1735,
+              "text": "brick_concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete\");"
+            }
+          ]
+        },
+        "Block2": {
+          "owner": "ModBlocks.brick_concrete_cracked",
+          "declaration_line": 19,
+          "assignments_in_class": [
+            19
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 7
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1737,
+              "text": "brick_concrete_cracked = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete_cracked\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(60.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete_cracked\");"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.brick_concrete_broken",
+          "declaration_line": 20,
+          "assignments_in_class": [
+            20
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 14
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1738,
+              "text": "brick_concrete_broken = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(45.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete_broken\");"
+            }
+          ]
+        }
+      }
+    },
+    "Ruin002": {
+      "path": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+      "fields": {
+        "Block1": {
+          "owner": "ModBlocks.brick_concrete",
+          "declaration_line": 16,
+          "assignments_in_class": [
+            16
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 199
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1735,
+              "text": "brick_concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete\");"
+            }
+          ]
+        },
+        "Block4": {
+          "owner": "ModBlocks.deco_steel",
+          "declaration_line": 17,
+          "assignments_in_class": [
+            17
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 7
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1667,
+              "text": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block5": {
+          "owner": "ModBlocks.steel_wall",
+          "declaration_line": 18,
+          "assignments_in_class": [
+            18
+          ],
+          "placements": [
+            {
+              "metadata": "5",
+              "flags": "3",
+              "count": 4
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1858,
+              "text": "steel_wall = new BlockSteelDecoration(Material.IRON, false).setTranslationKey(\"steel_wall\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        }
+      }
+    },
+    "Barrel": {
+      "path": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+      "fields": {
+        "Block1": {
+          "owner": "ModBlocks.reinforced_brick",
+          "declaration_line": 69,
+          "assignments_in_class": [
+            69
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 38
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1695,
+              "text": "reinforced_brick = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_brick\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(300.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_brick\");"
+            }
+          ]
+        },
+        "Block2": {
+          "owner": "ModBlocks.sellafield_slaked",
+          "declaration_line": 70,
+          "assignments_in_class": [
+            70
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 22
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1963,
+              "text": "sellafield_slaked = new BlockSellafieldSlaked(Material.ROCK).setTranslationKey(\"sellafield_slaked\").setStepSound(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":sellafield_slaked\");"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.brick_concrete",
+          "declaration_line": 71,
+          "assignments_in_class": [
+            71
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1735,
+              "text": "brick_concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete\");"
+            }
+          ]
+        },
+        "sellafield": {
+          "owner": "ModBlocks.sellafield",
+          "declaration_line": 72,
+          "assignments_in_class": [
+            72
+          ],
+          "placements": [
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 10
+            },
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 6
+            },
+            {
+              "metadata": "5",
+              "flags": "3",
+              "count": 1
+            },
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 9
+            },
+            {
+              "metadata": "1",
+              "flags": "3",
+              "count": 13
+            },
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 12
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1965,
+              "text": "sellafield = new BlockSellafield(Material.ROCK).setTranslationKey(\"sellafield\").setStepSound(SoundType.STONE).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":sellafield_0\");"
+            }
+          ]
+        },
+        "Block10": {
+          "owner": "ModBlocks.deco_lead",
+          "declaration_line": 73,
+          "assignments_in_class": [
+            73
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 31
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1669,
+              "text": "deco_lead = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block11": {
+          "owner": "ModBlocks.reinforced_glass",
+          "declaration_line": 74,
+          "assignments_in_class": [
+            74
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 5
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1696,
+              "text": "reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);"
+            }
+          ]
+        },
+        "Block12": {
+          "owner": "ModBlocks.toxic_block",
+          "declaration_line": 75,
+          "assignments_in_class": [
+            75
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 29
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2641,
+              "text": "toxic_block = new ToxicBlock(toxic_fluid, fluidtoxic.setReplaceable(), ModDamageSource.radiation).setTranslationKey(\"toxic_block\").setResistance(500F);"
+            }
+          ]
+        }
+      }
+    },
+    "DesertAtom001": {
+      "path": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
+      "fields": {
+        "Block2": {
+          "owner": "ModBlocks.yellow_barrel",
+          "declaration_line": 23,
+          "assignments_in_class": [
+            23
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 9
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2007,
+              "text": "yellow_barrel = new YellowBarrel(Material.IRON).setTranslationKey(\"yellow_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.reinforced_sand",
+          "declaration_line": 24,
+          "assignments_in_class": [
+            24
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 604
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1699,
+              "text": "reinforced_sand = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_sand\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(40.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_sand\");"
+            }
+          ]
+        },
+        "Block4": {
+          "owner": "ModBlocks.crashed_balefire",
+          "declaration_line": 25,
+          "assignments_in_class": [
+            25
+          ],
+          "placements": [
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2012,
+              "text": "crashed_balefire = ((BlockBase) new BlockCrashedBomb(Material.IRON).setBlockName(\"crashed_bomb\").setCreativeTab(MainRegistry.nukeTab).setBlockUnbreakable().setResistance(6000.0F)).setBlockTextureName(RefStrings.MODID + \":block_rust\");"
+            }
+          ]
+        },
+        "Block7": {
+          "owner": "ModBlocks.deco_tungsten",
+          "declaration_line": 26,
+          "assignments_in_class": [
+            26
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1665,
+              "text": "deco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        }
+      }
+    },
+    "DesertAtom002": {
+      "path": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+      "fields": {
+        "Block2": {
+          "owner": "ModBlocks.yellow_barrel",
+          "declaration_line": 23,
+          "assignments_in_class": [
+            23
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 81
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2007,
+              "text": "yellow_barrel = new YellowBarrel(Material.IRON).setTranslationKey(\"yellow_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.reinforced_sand",
+          "declaration_line": 24,
+          "assignments_in_class": [
+            24
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 135
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1699,
+              "text": "reinforced_sand = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_sand\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(40.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_sand\");"
+            }
+          ]
+        },
+        "Block5": {
+          "owner": "ModBlocks.deco_steel",
+          "declaration_line": 25,
+          "assignments_in_class": [
+            25
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 320
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1667,
+              "text": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block6": {
+          "owner": "ModBlocks.brick_light",
+          "declaration_line": 26,
+          "assignments_in_class": [
+            26
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 318
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1741,
+              "text": "brick_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_light\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F)).setBlockTextureName(RefStrings.MODID + \":brick_light\");"
+            }
+          ]
+        },
+        "Block7": {
+          "owner": "ModBlocks.deco_tungsten",
+          "declaration_line": 27,
+          "assignments_in_class": [
+            27
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1665,
+              "text": "deco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block8": {
+          "owner": "ModBlocks.steel_poles",
+          "declaration_line": 28,
+          "assignments_in_class": [
+            28
+          ],
+          "placements": [
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 10
+            },
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 9
+            },
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 13
+            },
+            {
+              "metadata": "5",
+              "flags": "3",
+              "count": 7
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1855,
+              "text": "steel_poles = new DecoSteelPoles(Material.IRON).setTranslationKey(\"steel_poles\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        },
+        "Block9": {
+          "owner": "ModBlocks.tape_recorder",
+          "declaration_line": 29,
+          "assignments_in_class": [
+            29
+          ],
+          "placements": [
+            {
+              "metadata": "5",
+              "flags": "3",
+              "count": 7
+            },
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 8
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1854,
+              "text": "tape_recorder = new DecoTapeRecorder(Material.IRON).setTranslationKey(\"tape_recorder\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        },
+        "Block10": {
+          "owner": "ModBlocks.machine_rtg_furnace_off",
+          "declaration_line": 30,
+          "assignments_in_class": [
+            30
+          ],
+          "placements": [
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2082,
+              "text": "machine_rtg_furnace_off = new MachineRtgFurnace(false).setTranslationKey(\"machine_rtg_furnace_off\").setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block11": {
+          "owner": "ModBlocks.reinforced_glass",
+          "declaration_line": 31,
+          "assignments_in_class": [
+            31
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 16
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1696,
+              "text": "reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);"
+            }
+          ]
+        },
+        "Block12": {
+          "owner": "ModBlocks.reinforced_lamp_off",
+          "declaration_line": 32,
+          "assignments_in_class": [
+            32
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1700,
+              "text": "reinforced_lamp_off = new ReinforcedLamp(Material.ROCK, false).setTranslationKey(\"reinforced_lamp_off\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(80.0F).setBlockTextureName(RefStrings.MODID + \":reinforced_lamp_off\");"
+            }
+          ]
+        },
+        "Block13": {
+          "owner": "ModBlocks.pole_satellite_receiver",
+          "declaration_line": 33,
+          "assignments_in_class": [
+            33
+          ],
+          "placements": [
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1857,
+              "text": "pole_satellite_receiver = new DecoPoleSatelliteReceiver(Material.IRON).setTranslationKey(\"pole_satellite_receiver\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":deco_satellite_receiver\");"
+            }
+          ]
+        },
+        "Block14": {
+          "owner": "ModBlocks.pwr_fuel",
+          "declaration_line": 34,
+          "assignments_in_class": [
+            34
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 4
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2274,
+              "text": "pwr_fuel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");"
+            }
+          ]
+        },
+        "Block15": {
+          "owner": "ModBlocks.deco_titanium",
+          "declaration_line": 35,
+          "assignments_in_class": [
+            35
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 32
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1663,
+              "text": "deco_titanium = new BlockOre(Material.IRON).noFortune().setTranslationKey(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block16": {
+          "owner": "ModBlocks.block_lead",
+          "declaration_line": 36,
+          "assignments_in_class": [
+            36
+          ],
+          "placements": [
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 1
+            },
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1594,
+              "text": "block_lead = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName(\"block_lead\").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F)).setBlockTextureName(RefStrings.MODID + \":block_lead\");"
+            }
+          ]
+        },
+        "Block17": {
+          "owner": "ModBlocks.ore_nether_plutonium",
+          "declaration_line": 37,
+          "assignments_in_class": [
+            37
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1480,
+              "text": "ore_nether_plutonium = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"ore_nether_plutonium\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":ore_nether_plutonium\");"
+            }
+          ]
+        }
+      }
+    },
+    "DesertAtom003": {
+      "path": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+      "fields": {
+        "Block2": {
+          "owner": "ModBlocks.yellow_barrel",
+          "declaration_line": 26,
+          "assignments_in_class": [
+            26
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 15
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2007,
+              "text": "yellow_barrel = new YellowBarrel(Material.IRON).setTranslationKey(\"yellow_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.reinforced_sand",
+          "declaration_line": 27,
+          "assignments_in_class": [
+            27
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1699,
+              "text": "reinforced_sand = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_sand\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(40.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_sand\");"
+            }
+          ]
+        },
+        "Block4": {
+          "owner": "ModBlocks.nuke_man",
+          "declaration_line": 28,
+          "assignments_in_class": [
+            28
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1982,
+              "text": "nuke_man = new NukeMan(Material.IRON).setTranslationKey(\"nuke_man\").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + \":fatMan\");"
+            }
+          ]
+        },
+        "Block5": {
+          "owner": "ModBlocks.deco_steel",
+          "declaration_line": 29,
+          "assignments_in_class": [
+            29
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 216
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1667,
+              "text": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block6": {
+          "owner": "ModBlocks.brick_light",
+          "declaration_line": 30,
+          "assignments_in_class": [
+            30
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 241
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1741,
+              "text": "brick_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_light\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F)).setBlockTextureName(RefStrings.MODID + \":brick_light\");"
+            }
+          ]
+        },
+        "Block7": {
+          "owner": "ModBlocks.deco_tungsten",
+          "declaration_line": 31,
+          "assignments_in_class": [
+            31
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 93
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1665,
+              "text": "deco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block8": {
+          "owner": "ModBlocks.steel_poles",
+          "declaration_line": 32,
+          "assignments_in_class": [
+            32
+          ],
+          "placements": [
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 5
+            },
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 8
+            },
+            {
+              "metadata": "5",
+              "flags": "3",
+              "count": 8
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1855,
+              "text": "steel_poles = new DecoSteelPoles(Material.IRON).setTranslationKey(\"steel_poles\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        },
+        "Block9": {
+          "owner": "ModBlocks.tape_recorder",
+          "declaration_line": 33,
+          "assignments_in_class": [
+            33
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1854,
+              "text": "tape_recorder = new DecoTapeRecorder(Material.IRON).setTranslationKey(\"tape_recorder\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        },
+        "Block10": {
+          "owner": "ModBlocks.machine_rtg_furnace_off",
+          "declaration_line": 34,
+          "assignments_in_class": [
+            34
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2082,
+              "text": "machine_rtg_furnace_off = new MachineRtgFurnace(false).setTranslationKey(\"machine_rtg_furnace_off\").setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block11": {
+          "owner": "ModBlocks.reinforced_glass",
+          "declaration_line": 35,
+          "assignments_in_class": [
+            35
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 39
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1696,
+              "text": "reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);"
+            }
+          ]
+        },
+        "Block12": {
+          "owner": "ModBlocks.reinforced_lamp_off",
+          "declaration_line": 36,
+          "assignments_in_class": [
+            36
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 4
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1700,
+              "text": "reinforced_lamp_off = new ReinforcedLamp(Material.ROCK, false).setTranslationKey(\"reinforced_lamp_off\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(80.0F).setBlockTextureName(RefStrings.MODID + \":reinforced_lamp_off\");"
+            }
+          ]
+        },
+        "Block13": {
+          "owner": "ModBlocks.pole_satellite_receiver",
+          "declaration_line": 37,
+          "assignments_in_class": [
+            37
+          ],
+          "placements": [
+            {
+              "metadata": "5",
+              "flags": "3",
+              "count": 3
+            },
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1857,
+              "text": "pole_satellite_receiver = new DecoPoleSatelliteReceiver(Material.IRON).setTranslationKey(\"pole_satellite_receiver\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":deco_satellite_receiver\");"
+            }
+          ]
+        },
+        "Block14": {
+          "owner": "ModBlocks.pwr_fuel",
+          "declaration_line": 38,
+          "assignments_in_class": [
+            38
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2274,
+              "text": "pwr_fuel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");"
+            }
+          ]
+        },
+        "Block15": {
+          "owner": "ModBlocks.deco_titanium",
+          "declaration_line": 39,
+          "assignments_in_class": [
+            39
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 246
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1663,
+              "text": "deco_titanium = new BlockOre(Material.IRON).noFortune().setTranslationKey(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block16": {
+          "owner": "ModBlocks.block_lead",
+          "declaration_line": 40,
+          "assignments_in_class": [
+            40
+          ],
+          "placements": [
+            {
+              "metadata": "4",
+              "flags": "3",
+              "count": 3
+            },
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 2
+            },
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 5
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1594,
+              "text": "block_lead = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName(\"block_lead\").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F)).setBlockTextureName(RefStrings.MODID + \":block_lead\");"
+            }
+          ]
+        },
+        "Block17": {
+          "owner": "ModBlocks.ore_schrabidium",
+          "declaration_line": 41,
+          "assignments_in_class": [
+            41
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1463,
+              "text": "ore_schrabidium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F);"
+            }
+          ]
+        },
+        "Block18": {
+          "owner": "ModBlocks.waste_planks",
+          "declaration_line": 42,
+          "assignments_in_class": [
+            42
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 35
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1941,
+              "text": "waste_planks = new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_planks\");"
+            }
+          ]
+        },
+        "Block19": {
+          "owner": "ModBlocks.machine_centrifuge",
+          "declaration_line": 43,
+          "assignments_in_class": [
+            43
+          ],
+          "placements": [
+            {
+              "metadata": "12",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2068,
+              "text": "machine_centrifuge = new MachineCentrifuge(Material.IRON).setTranslationKey(\"machine_centrifuge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":block_steel\");"
+            }
+          ]
+        },
+        "Block20": {
+          "owner": "ModBlocks.machine_uf6_tank",
+          "declaration_line": 44,
+          "assignments_in_class": [
+            44
+          ],
+          "placements": [
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2075,
+              "text": "machine_uf6_tank = new MachineUF6Tank(Material.IRON).setTranslationKey(\"machine_uf6_tank\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);"
+            }
+          ]
+        },
+        "Block21": {
+          "owner": "ModBlocks.machine_puf6_tank",
+          "declaration_line": 45,
+          "assignments_in_class": [
+            45
+          ],
+          "placements": [
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2076,
+              "text": "machine_puf6_tank = new MachinePuF6Tank(Material.IRON).setTranslationKey(\"machine_puf6_tank\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);"
+            }
+          ]
+        },
+        "Block22": {
+          "owner": "ModBlocks.reinforced_brick",
+          "declaration_line": 46,
+          "assignments_in_class": [
+            46
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 13
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1695,
+              "text": "reinforced_brick = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_brick\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(300.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_brick\");"
+            }
+          ]
+        },
+        "Block23": {
+          "owner": "ModBlocks.waste_earth",
+          "declaration_line": 47,
+          "assignments_in_class": [
+            47
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 3
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1935,
+              "text": "waste_earth = new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_earth\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_earth\");"
+            }
+          ]
+        },
+        "Block24": {
+          "owner": "ModBlocks.deco_lead",
+          "declaration_line": 48,
+          "assignments_in_class": [
+            48
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 18
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1669,
+              "text": "deco_lead = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        },
+        "Block25": {
+          "owner": "ModBlocks.red_wire_coated",
+          "declaration_line": 49,
+          "assignments_in_class": [
+            49
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 46
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2153,
+              "text": "red_wire_coated = new WireCoated(Material.IRON).setTranslationKey(\"red_wire_coated\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+            }
+          ]
+        },
+        "Block26": {
+          "owner": "ModBlocks.block_uranium",
+          "declaration_line": 50,
+          "assignments_in_class": [
+            50
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1565,
+              "text": "block_uranium = new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium\");"
+            }
+          ]
+        },
+        "Block27": {
+          "owner": "ModBlocks.pole_top",
+          "declaration_line": 51,
+          "assignments_in_class": [
+            51
+          ],
+          "placements": [
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1856,
+              "text": "pole_top = new DecoPoleTop(Material.IRON).setTranslationKey(\"pole_top\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        },
+        "Block28": {
+          "owner": "ModBlocks.capacitor_copper",
+          "declaration_line": 52,
+          "assignments_in_class": [
+            52
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 2
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2123,
+              "text": "capacitor_copper = new MachineCapacitor(Material.IRON, 1_000_000L, \"copper\").setTranslationKey(\"capacitor_copper\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+            }
+          ]
+        },
+        "Block29": {
+          "owner": "ModBlocks.machine_electric_furnace_off",
+          "declaration_line": 53,
+          "assignments_in_class": [
+            53
+          ],
+          "placements": [
+            {
+              "metadata": "3",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2107,
+              "text": "machine_electric_furnace_off = new MachineElectricFurnace(false).setTranslationKey(\"machine_electric_furnace_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+            }
+          ]
+        }
+      }
+    },
+    "Silo": {
+      "path": "src/main/java/com/hbm/world/dungeon/Silo.java",
+      "fields": {
+        "Block2": {
+          "owner": "ModBlocks.launch_pad",
+          "declaration_line": 27,
+          "assignments_in_class": [
+            27
+          ],
+          "placements": [],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 2368,
+              "text": "launch_pad = new LaunchPad(Material.IRON).setTranslationKey(\"launch_pad\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + \":launch_pad\");"
+            }
+          ]
+        },
+        "Block3": {
+          "owner": "ModBlocks.reinforced_light",
+          "declaration_line": 28,
+          "assignments_in_class": [
+            28
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 14
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1698,
+              "text": "reinforced_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1.0F).setHardness(15.0F).setResistance(80.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_light\");"
+            }
+          ]
+        },
+        "Block4": {
+          "owner": "ModBlocks.tape_recorder",
+          "declaration_line": 29,
+          "assignments_in_class": [
+            29
+          ],
+          "placements": [
+            {
+              "metadata": "2",
+              "flags": "3",
+              "count": 1
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1854,
+              "text": "tape_recorder = new DecoTapeRecorder(Material.IRON).setTranslationKey(\"tape_recorder\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);"
+            }
+          ]
+        },
+        "Block5": {
+          "owner": "ModBlocks.reinforced_glass",
+          "declaration_line": 30,
+          "assignments_in_class": [
+            30
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 6
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1696,
+              "text": "reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);"
+            }
+          ]
+        },
+        "Block6": {
+          "owner": "ModBlocks.deco_steel",
+          "declaration_line": 31,
+          "assignments_in_class": [
+            31
+          ],
+          "placements": [
+            {
+              "metadata": "0",
+              "flags": "3",
+              "count": 23
+            }
+          ],
+          "owner_assignments": [
+            {
+              "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+              "line": 1667,
+              "text": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "subclasses": [],
+  "qualified_palette_assignments": []
+}

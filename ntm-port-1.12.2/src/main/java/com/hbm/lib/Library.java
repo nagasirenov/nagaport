@@ -36,8 +36,8 @@ public class Library {
 	static Random rand = new Random();
 
 	public static boolean checkForHeld(EntityPlayer player, Item item) {
-		if(player.getHeldItem() == null) return false;
-		return player.getHeldItem().getItem() == item;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null) return false;
+		return com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == item;
 	}
 
 	public static final ForgeDirection POS_X = ForgeDirection.EAST;
@@ -55,7 +55,7 @@ public class Library {
 		if(y > 255 || y < 0)
 			return false;
 
-		Block b = world.getBlock(x, y, z);
+		Block b = world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();
 
 		if(b instanceof IEnergyConnectorBlock) {
 			IEnergyConnectorBlock con = (IEnergyConnectorBlock) b;
@@ -64,7 +64,7 @@ public class Library {
 				return true;
 		}
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof IEnergyConnectorMK2) {
 			IEnergyConnectorMK2 con = (IEnergyConnectorMK2) te;
@@ -82,7 +82,7 @@ public class Library {
 		if(y > 255 || y < 0)
 			return false;
 
-		Block b = world.getBlock(x, y, z);
+		Block b = world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();
 
 		if(b instanceof IFluidConnectorBlockMK2) {
 			IFluidConnectorBlockMK2 con = (IFluidConnectorBlockMK2) b;
@@ -91,7 +91,7 @@ public class Library {
 				return true;
 		}
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof IFluidConnectorMK2) {
 			IFluidConnectorMK2 con = (IFluidConnectorMK2) te;
@@ -197,14 +197,14 @@ public class Library {
 		Vec3d vec3 = getPosition(interpolation, player).addVector(0, player.eyeHeight, 0);
 		Vec3d vec31 = player.getLook(interpolation);
 		Vec3d vec32 = vec3.addVector(vec31.x * length, vec31.y * length, vec31.z * length);
-		return player.worldObj.rayTraceBlocks(vec3, vec32, false, false, true);
+		return player.world.rayTraceBlocks(vec3, vec32, false, false, true);
 	}
 
 	public static RayTraceResult rayTrace(EntityPlayer player, double length, float interpolation, boolean allowLiquids, boolean disallowNonCollidingBlocks, boolean mopOnMiss) {
 		Vec3d vec3 = getPosition(interpolation, player).addVector(0, player.eyeHeight, 0);
 		Vec3d vec31 = player.getLook(interpolation);
 		Vec3d vec32 = vec3.addVector(vec31.x * length, vec31.y * length, vec31.z * length);
-		return player.worldObj.rayTraceBlocks(vec3, vec32, allowLiquids, disallowNonCollidingBlocks, mopOnMiss);
+		return player.world.rayTraceBlocks(vec3, vec32, allowLiquids, disallowNonCollidingBlocks, mopOnMiss);
 	}
 
 	public static Vec3d getPosition(float interpolation, EntityPlayer player) {
@@ -286,11 +286,11 @@ public class Library {
 	// Added for sake of doors
 	// Original: Drillgon200: https://thebookofshaders.com/glossary/?search=smoothstep
 	public static double smoothstep(double t, double edge0, double edge1){
-		t = MathHelper.clamp_double((t - edge0) / (edge1 - edge0), 0.0, 1.0);
+		t = MathHelper.clamp((t - edge0) / (edge1 - edge0), 0.0, 1.0);
 		return t * t * (3.0 - 2.0 * t);
 	}
 	public static float smoothstep(float t, float edge0, float edge1){
-		t = MathHelper.clamp_float((t - edge0) / (edge1 - edge0), 0.0F, 1.0F);
+		t = MathHelper.clamp((t - edge0) / (edge1 - edge0), 0.0F, 1.0F);
 		return t * t * (3.0F - 2.0F * t);
 	}
 

@@ -38,7 +38,7 @@ public class GUIOrbitalStationComputer extends GuiInfoContainer {
 		super.initGui();
 		
 		Keyboard.enableRepeatEvents(true);
-		stationName = new GuiTextField(this.fontRendererObj, guiLeft + 52, guiTop + 26, 136, 12);
+		stationName = new GuiTextField(0, this.fontRenderer, guiLeft + 52, guiTop + 26, 136, 12);
 		stationName.setTextColor(0xffffff);
 		stationName.setDisabledTextColour(0xdddddd);
 		stationName.setEnableBackgroundDrawing(false);
@@ -70,7 +70,7 @@ public class GUIOrbitalStationComputer extends GuiInfoContainer {
 		
 		// Toggle gravity
 		if(checkClick(x, y, 36, 84, 29, 5)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			setGravity(OrbitalStation.clientStation.gravityMultiplier == 0);
 		}
 	}
@@ -84,20 +84,20 @@ public class GUIOrbitalStationComputer extends GuiInfoContainer {
 		}
 
 		if(key == 1) {
-			mc.thePlayer.closeScreen();
+			mc.player.closeScreen();
 		}
 	}
 
 	private void setName(String name) {
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("name", name);
-		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, computer.xCoord, computer.yCoord, computer.zCoord));
+		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, computer.getPos().getX(), computer.getPos().getY(), computer.getPos().getZ()));
 	}
 
 	private void setGravity(boolean enabled) {
 		NBTTagCompound data = new NBTTagCompound();
 		data.setBoolean("gravity", enabled);
-		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, computer.xCoord, computer.yCoord, computer.zCoord));
+		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, computer.getPos().getX(), computer.getPos().getY(), computer.getPos().getZ()));
 	}
 	
 }

@@ -1,0 +1,504 @@
+{
+  "base": "0bbba4f47800cea8dd60370f697450597f27c8a6",
+  "files": {
+    "com/hbm/inventory/gui/GUIAnvil.java": {
+      "before": "f1d707baef3d73fb9f3bda2b538ce5c22ced4a290ed81df5bf86a01d8118b6dc",
+      "after": "3503babc8f8620be69cf6c1a9da88a2c128db6506dc6f794b8515b12ab7292d7",
+      "full_selector_inverse_equals_input": true,
+      "calls": 4
+    },
+    "com/hbm/inventory/gui/GUIBarrel.java": {
+      "before": "5c0c470a4a1a40644b75c5f089cecb2a7c01ef5c3aff2378f31ba5e7a02cf462",
+      "after": "8dd399a9e527aae8acc6420c16bd345df1d38b4bf7c0c8243875c0287c7f0587",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIBookLore.java": {
+      "before": "94a15613f93c13e0d9ae5c4919394e1a5f7b47562f3676f9ebf3932ca3e3f26e",
+      "after": "3da143788c67d0da5b63ce6e170935091361e2805849343eec87fc11182d204e",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUICombustionEngine.java": {
+      "before": "4f9a5ef1362bd37db04460121b35681a964fb80bac46014e4f10332f95d14a09",
+      "after": "de0cae20a1db4dd48d0287a232a0f94c79dd702efa7a31fbce63274af7948660",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUICompressor.java": {
+      "before": "f7abf826070cf3f1768336681c6c5d95d6730eba6bb2ddb48427498571b86448",
+      "after": "d719df624b7c6ef2e35ae3b8dbb7780bec53df1b2712c60ff4bddb6300bad88a",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUICoreEmitter.java": {
+      "before": "8c4e07e6a970d862984fb765d58c6de3dcfaeb2ffdd62b91b49b0ecbaa6722aa",
+      "after": "0a09ded45a83ea8927397e50a5c415317a7c657a7a47a769b60803e5377030c4",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUICoreStabilizer.java": {
+      "before": "ac0a45ad0f6a4d5fc7f1655644500506f3b4960833e6e2ca05e5eb95121cfb34",
+      "after": "137b9cc583eb2b1c004d72c16f047b624bb80f2f964f1a39eb0a91b195277e69",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUICounterTorch.java": {
+      "before": "892d9f7a2310d474b7998481f8db218af8be09bdf56102c3acf76b02c2dae22b",
+      "after": "52823ef90a26d22d1220c4d1611129bc245562fa9e53beceaad85e854bd031bb",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUICraneBoxer.java": {
+      "before": "fab16c7df7e93c5760cfa5e905125f425d6e898165e14c767d0b2912e8212962",
+      "after": "735ecc6e7b078717e2f3cbc2ca903057c1e5bb194a69d3f2202d4703a0a9ab42",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUICraneGrabber.java": {
+      "before": "b2c394e10953a06c771c5d193ac350777ad5cd426f2eff937ea420d55265d7b3",
+      "after": "35492433c2bca0193e27d678387f02ba88d43388d9e90732a2e495b59d8a1a78",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUICraneInserter.java": {
+      "before": "8885a43bf0c40fb2422de0d87bedf4200cfed34fb27fed82f6d4fe0ac6616cf5",
+      "after": "62f4c9c88b497a2fb573ccb2bc90a6ec283cd658e6d71f01aaf800ab1683aa7f",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUICraneRouter.java": {
+      "before": "23a13af966491d8ae76e5433a723f35dfaf518d83d13bac8e517738910c0bf94",
+      "after": "cba74c5dda8236bc6ff51373a21e7b4bff43f6d3dbd9057a0350f3b3f2fd49f7",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIDroneCrate.java": {
+      "before": "c5df054ba91063fe2ae028fb361dc5b4d20da73ea2d02ee26b1b52f89fd7ee1d",
+      "after": "c4f83ea06a514500cae0169cdb462764453002daad4a11ca33d9b8ffcf9d06ed",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIElectrolyserFluid.java": {
+      "before": "2d651fa68a2af7e38b3eb6a574a44a0fffb879c6be4e0ec342c46a1ee8727db3",
+      "after": "d63832a68e69df8729af19f1f27c1ca3d329143fc86e8cd3d8b6fe446b477a5e",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIElectrolyserMetal.java": {
+      "before": "4ba27a4048fe56bb3e7d8e874d36090c86ee280b74f3692c25a5e8e88f4611f7",
+      "after": "75b2fa5449d4955b34c513e67e33d57ee52e3dfffe391764bc717e466d0147df",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIFEL.java": {
+      "before": "ad6e63c7a543f9de293fae603ca9a7ea280305b256628454476eb00c2b0e661e",
+      "after": "fea0c6537022aaa21289c0d0531f37146c8dc1529f27bc599fed4d55e7627c5e",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIForceField.java": {
+      "before": "d41d9678f3c0cbe53b1ee9d467409de23b4d6eb947a59065665a55bc32a484c8",
+      "after": "18db5dba3d829278386c693451ffb55ac4fa511a6373e20be5c51f27efe13a93",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIFunnel.java": {
+      "before": "21ee230d78c621da12c76cae9d04ee0d8487654cd32a5fda4cac21922eda7150",
+      "after": "be062ac7b19177cc6fc71eaf71d6ba47e53ab3969205ec5bb1114a6071ef276a",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIITER.java": {
+      "before": "abad77a29616494d3dee720e7a32ee30ff6e98be22133969099a5deb69bbbc10",
+      "after": "3e6069761fbf3beda6ba49440b1985d457e823f89f3e7e20a5324ff5ad07954a",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUILaunchPadRocket.java": {
+      "before": "d84d0f8164c087d550e12c57728e63b99575da573a02ecd54a4f315979e82b83",
+      "after": "967e6992feda1018588776abc6c3ec38f9654c4910310e887124e7cc7f9ef318",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUILaunchPadRusted.java": {
+      "before": "0b8c1419b846abbb6cf7d284a8f40e5b2778e45c6e8f4043920219c6e56028ca",
+      "after": "2a83a925984030eeb6e279c80ca44eda0d1c0afe844cfd214790be5cb99408d5",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineArcFurnaceLarge.java": {
+      "before": "688f921a5b56337030989d2857e281a7b9e25a41c6d9b6bf29d3b1a6f1cb9587",
+      "after": "511dfe0e427053c901d00dd06e072b47e244bca49345ab310ec863bc9bbf94c2",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineBattery.java": {
+      "before": "9ea82c730ffdcb9388b9119a2c60eace39818153deeca499723dde0d0d7eae99",
+      "after": "646ba379bc3c16957dba676dd96c0beea78bf7efe553881bf7f7a27c17300c08",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIMachineDriveProcessor.java": {
+      "before": "1548cff353060ab8dbe1b0d42810c08b72c3e081bb7d4bda4bd02e76ad62d44a",
+      "after": "72fc45cdbb64733b72ca397c030e99956919c0abdeaa81dedeb045a811cc022b",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIMachineExcavator.java": {
+      "before": "fd345142a8db073509cc75eebf20836522e44bb19478d2ea054ef12f86ef633d",
+      "after": "728f4ca03558abc8c6e24f0220c1185ac68bed3d564e7639f17b79eec5e00aa2",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineFluidTank.java": {
+      "before": "d0fbad0b70179d297b59a43f567750fad8801a5835afffb8f3d9ed8ebe045df6",
+      "after": "acd5661bf0667a7afd0bbee53e25cbee99a88e51b165a8e736e7e25a23e2931f",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineGasFlare.java": {
+      "before": "3b297090da4df4dab80898bd5e9612263f5e17baea11f677381e704a569fb928",
+      "after": "1cd54105d05cfdcbe043e4d9b0b24e2e037272b5333ac68997fccb7e72973c9c",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIMachineLaunchTable.java": {
+      "before": "cbe909729b3c122c733980a79786a8f4178a8e4d6c3ec572abc47161a00cd7c9",
+      "after": "9d957cffd322d7c3a01b4e6bd01422b9d5a0ec3def9286d3e1a671d07649141c",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIMachineMissileAssembly.java": {
+      "before": "9cd80e01013f434a8ec0476e2905406d2d2dab6b321ce898d1b96911c0890a3d",
+      "after": "9f48cf1eae681d3fd5ca6f063bedb5fa974662bf48075e261cbcfcffa7e6a1b7",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "before": "ee5dcc0ee66752b3a5dc271adcb273bd82461254856ff5797680c334cf48eb0b",
+      "after": "5d0b8bf559a12c682e4f73062466acec13a57bfb4254d0179d776fe0781b8e6c",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": {
+      "before": "80f42513dd712a6a80dd2be9eb3e6e98e161cbdf81bd9ff784c740cb45b0e167",
+      "after": "05838e3473113cc6728682f1bc7870e8416d1ba29cc31dd6608a9147eb19cb91",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineRocketAssembly.java": {
+      "before": "c1d185f58358e869560ace6af0149114e0f7fe89d126cdbbb39919c48e9049f3",
+      "after": "106105d99447ed3e9fee0e8f00670fe5c1a7aa3c6bb9afbebb2a7a0ab84a9dde",
+      "full_selector_inverse_equals_input": true,
+      "calls": 4
+    },
+    "com/hbm/inventory/gui/GUIMachineSolderingStation.java": {
+      "before": "9a56cc33eed8f0d3e65661d1ac8c88210546a79a510a1c18e2f907a4a827936c",
+      "after": "7f35c920fbce25e1360563d11eb021567f3a7651bbd55f3c0c67200bd3f2fc54",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMachineStardar.java": {
+      "before": "c1b9f32e6e490161169933b6f34b18edac198b32ff14c28ae69504021d65c603",
+      "after": "fcdbe3eed0f9cbec8514f46bc9edac1d07291326e0da9fa42a56add392690e75",
+      "full_selector_inverse_equals_input": true,
+      "calls": 5
+    },
+    "com/hbm/inventory/gui/GUIMachineTurbineGas.java": {
+      "before": "005315041189fe7bafb8cbd5408341ca5a3261e5168f035f8e538d47823fc820",
+      "after": "5a87ef3142706132daf77be781f32d21f81267657b55d4cdf8bbd75ce85ae738",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIMachineWoodBurner.java": {
+      "before": "73579f249671c2c58841eaeebadf773a8688c6f2c68d889aa224b3249f060622",
+      "after": "68ba5dcb9abe1fb107cd6b3dc175b83e52806b38a64a70f41f3895373c9883c9",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIMassStorage.java": {
+      "before": "17cb87639e6920e65a1ce03663bade49ec606a56b332cea122d90b25482fdfd5",
+      "after": "e1d109f57dbe9104d8454f816923c35d3023bee111ce2a9733fd7bf37d5c5ca0",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIMiningLaser.java": {
+      "before": "d988d839a7d8213e3ca4849822b71e3eabf1d0cb6cfe63bc5ba4e1d5e189167a",
+      "after": "8e85f15e8c4a036a030d7be95215964158615bf21b2f69a44ed6f6ca392fb9fa",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIMixer.java": {
+      "before": "b168fea083828b771e5b1fa364ae01cb2a191500764701410709a0b7c39c6167",
+      "after": "52fec53ced0b046fda3116c374b92a9f4921dfc183b406e217ce120b47778792",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIOilburner.java": {
+      "before": "66adf9df0570e0daaa1b6419c03ef43a133e49b0e1cc651f1d1736e5f7d1724d",
+      "after": "32b2db1ae6676e09ef31bb850908d1053424cf42a161ab2ba7441d104259a5f6",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIOrbitalStationComputer.java": {
+      "before": "9c8a146c5e6367ac7644df67349f1f97dcd3573bd0477448613b301f5f3d3979",
+      "after": "9fb91823c72fa62e9302c9df617e7af9f0558ee1cfb2c5e737f3c9a1409e6c12",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIOrbitalStationLauncher.java": {
+      "before": "61907c49549b15d900432bfaffbe340bc1d919c7e7863b9fcce2e2ae2470ba14",
+      "after": "38dc877386d4b616c4dc57e3fb7cf20a95ad2ceacbdbaac4d107a4f615a1649d",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIPADipole.java": {
+      "before": "743f3584cc0b263ba8c9ea98208986a5fb32b42b5dafc2d2ffbea32beabebeb3",
+      "after": "62445b1f4b8da662cc3c0f4f89a242ea174d2dd65f96b9bec0d883203b33d1f1",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIPASource.java": {
+      "before": "cd9ff86e9eb2eb16002efa281986550050527daa6d2d3e7ce266d63bfad5351b",
+      "after": "9eb85cbef4bf6c89ca7891e2f15d1ec66f3178b8fdad86ec4c5b7336091f30ad",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIPWR.java": {
+      "before": "933bd90d29ef0d065e7cff64cb9aad7ebea9833359a17fc0c9cbce9e358f3675",
+      "after": "4d63248b1a1798600ac12cbbb9643593b48ed1c20b694f0338b6f4c238a79425",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIPneumoTube.java": {
+      "before": "d80705069f5472efaf7bcdf7fb1ea557999405d796f284d3104b69ca1f0e2c67",
+      "after": "6c5d662b7e3256b67eea4c5094e71191046c92928ac1efa35a08301c278346a3",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIPump.java": {
+      "before": "f06a0f022d75d6edbbf1fd51c2368a5845d98265dceae2ab56c3657e90f495b5",
+      "after": "6021bc7b81f69fd6e5d6811767ccdd9534377cac16685d4987d0699d7f7b018d",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIRBMKAutoloader.java": {
+      "before": "ea2f963156279b000bf35882e4bc41aa3fdba8cc7d5cb5c737a8cb5dff00412a",
+      "after": "2876c6e6a71158e6fc9851d11907855e899954f13c038a3a39f6891da7b9188f",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIRBMKBoiler.java": {
+      "before": "4114ca7a1b6d0173d476670bef5308f165d5663e2f2b767a5f033476997b2a09",
+      "after": "c9bad90b51a8f2dc227d585262a10c7a03c4a3800d34edbfc9d383edea55e9e2",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIRBMKConsole.java": {
+      "before": "c3844a9e432caae46899f294a560547f3f5153ac8cab9b05544ff1d4243d4981",
+      "after": "beb83a68c0523ac9d8582f3e372745a76de63c13f786814d58357eded3ed3d63",
+      "full_selector_inverse_equals_input": true,
+      "calls": 11
+    },
+    "com/hbm/inventory/gui/GUIRBMKControl.java": {
+      "before": "ce9f052ad0be80b444bac0bc909b97919d564a91aa385424699cb749c7b34166",
+      "after": "3277aa66b8abc7b0dd9a0bfc47d9342a30aed16cb055d32eb07d92573984c934",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIRBMKControlAuto.java": {
+      "before": "4da394a31de40eada19f5bf09ce7303c285d47de6e103b1f9e62a42bc9ed94a2",
+      "after": "5250cb660da49d046ae64f964a4fb424ea39c5cff1ec6a22342da5d53f8392d7",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIRadioRec.java": {
+      "before": "903acd2bd8dbd88779a37f58717bc8c96c5404d1c147474adac35185f26a2e43",
+      "after": "6fbd6f401e320f24ca174392620ca650caaf716a775aaa7ec6e7497bbb4cc543",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIReactorControl.java": {
+      "before": "a96d51ac9102ea36785b5178254c0758c767e704346b4891f09a8368f71e0726",
+      "after": "c22e537444102d5a3d0e7dae50e35b72db35d470b7273fe11d195ff498e0bc3b",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIReactorResearch.java": {
+      "before": "ac99c5948e0939d081dc5473cab3d4361c00c9721db37123f11ff8aa06ded16c",
+      "after": "cab389169d697300631b9c9c38ae5d1ecd6ca241bc79ee88c0837607e064dc23",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIReactorZirnox.java": {
+      "before": "d32ff5999abb80ea96599a27db51de6660582ac8f1f3bca9943f4caeaad24809",
+      "after": "d2f4b06e90f69b9d4a9102558265b3bcab6c087c327db5e48852ca07208b4428",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUISILEX.java": {
+      "before": "803b5e5f98c0ba0bb749dbd7e598d644cc0a023d095b135047317d59f70c79d4",
+      "after": "88e44b828105563c5f5d726625a4b5794d67579effd97b0256054562cd4f6168",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenBobble.java": {
+      "before": "db421e4cc100ff1858676645e96160440f0eb0e6879d5fc1641086898752ac14",
+      "after": "fde63ae15b8e6be47314c133cb8df930d87cdfb5cb74881b686c856ee0db9187",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenBobmazon.java": {
+      "before": "ea71fcff0750a154ef42f2af4f18be96369a72ac24473ff29a42c5524f1dc85b",
+      "after": "e04647b33a4bf5549d0b658272c15a73c025e32bae1865540dbb925cf18b6a8b",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenDesignator.java": {
+      "before": "025e568a20d47a593fac99dc2388877b9cf5883b1d71888926af8db1bea82e67",
+      "after": "7522e55686d1ae2301ae3d54d4759fcbc2f7e63fb0b6a2dc43ea1582f8853440",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenFluid.java": {
+      "before": "609a963ac78102fdaa50b7a6ffe6df2316f0951dbcaddb3dcdad70a6ba37732d",
+      "after": "39ee62b64d2a4cdc5b8840e0223c84d830f5c6f9284279ba66a91ca50fe7c9cf",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIScreenGuide.java": {
+      "before": "8ecaea11af10245c221e347ddeb2f35f33a2289e96a5fcd30d39eaa4a9d0f9e5",
+      "after": "69046ab36ac96f0e56877f195e2ec4dbf3a804d788a6d9752e3c192d1b167ad8",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIScreenHolotape.java": {
+      "before": "a9236ae733053fab71087d1283d74d0bf318ead9e9829b25286bb930057cd60f",
+      "after": "bb535a973ef33ef2c9a17287cdfc4afef211e523878535de4c3c51c84d5be080",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenRBMKGauge.java": {
+      "before": "810d65af95760a675e51efedcb4eaceace2041fcccbfefc7d53971cb18af4d35",
+      "after": "781e79718e5f2d41945fd98be1c947be480014be30dbe43ab46e0526edee7efb",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIScreenRBMKKeyPad.java": {
+      "before": "fdde5f780702f8cad0ce038e6e61edb0ee79b14eaa484b365f060e4b1716ce18",
+      "after": "f8e53b41e3b606104de00835fec46a5d49927bfcd74befe389d0b904b16a773a",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIScreenRadioTorch.java": {
+      "before": "56716c47655094b57e456b876f858721f77a6740f7c5f6c64187e9eddd8c8b3c",
+      "after": "e8391204bd208a9d8397f9f12243c57920da1565e385164fbbc9409b0edafaad",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUIScreenRadioTorchController.java": {
+      "before": "3d20cb73f535f2dc5246e9ee266e38b46fb2154e343bd450e60f276737c49803",
+      "after": "0cf8c13aa0cba2cc50540b30aed3fe8fa66310cb41ce553ce8c01ce9a31edbce",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java": {
+      "before": "cdd93679c12d67284b666ab9f1fa30a06be50aa193cc14f5b6331f53a2f4c827",
+      "after": "5d733d86b3be41b6de89fcf7ddcec5d2588f04f10ea464d49060a684038c299d",
+      "full_selector_inverse_equals_input": true,
+      "calls": 4
+    },
+    "com/hbm/inventory/gui/GUIScreenRadioTorchReader.java": {
+      "before": "991a96d9e6d6da4286e9eeea60fc61e80d6ae2060e79e41ef868d5dc0cdd9d54",
+      "after": "5558861cc9d0b1ccef6fbc628b773629d1bc5bb5d689479583cb21f9b4116382",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before": "f6c60c70a8c6c8d0dd1d3dd1b53c1c21e80df003650d7d8edd6fe98f277096b2",
+      "after": "a494b641b0d9d206d083828b3295730f5911d8caff9eb25000ae664fdfa7d2b3",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenSatCoord.java": {
+      "before": "3c08002c8d4688d1d8541d54e969f8c62f9063323775b078b1dc39d498e360aa",
+      "after": "245d86c86837cf9b4dce35f764bdf9a23b9d9112ddffb5f2324fed92aa3f1be5",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+      "after": "5c7662acc8c761b7300988c858a55e0c5601bf26a6a8a2f5e0cf1a9027b243d2",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenSnowglobe.java": {
+      "before": "963829c0b5d523540402106d3030ec20d71cf2fcb648f165cca1dc196d2ee7b6",
+      "after": "d71ae93168b64781c6e88a47719a50962293aedd9c6b4eb730a1ef731810c054",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenTemplateFolder.java": {
+      "before": "2497b53ec9eaa9687a3abcbd5a2db28ae45fe6b53dd40358641a147b2e23c667",
+      "after": "fb7b59340ab5a0a1fcd20628166af14fa3c7bd64152f950a51a61579b8ed064e",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIScreenToolAbility.java": {
+      "before": "4363df35af229641dda8f56f63707c95039740d6cb7fb686f84eeaaf1493346b",
+      "after": "c381a6e22518767fc079f0e49c9e4d2dd5d9ec364fec6a31708ab6420d04fff8",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/inventory/gui/GUISoyuzLauncher.java": {
+      "before": "1d78fd4dd69fbda057c9afc3cfdf95fa137d33a41f8cff56dab5650bfd56ad5e",
+      "after": "fbf5e10772fea7819202c952d6080f5834cde683c99ee93a54f2f57ea26be8c8",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/inventory/gui/GUITurretArty.java": {
+      "before": "512365153770b4b38ca141085fb58ce57e12991d7735bfbf9a31a8a8e823b74c",
+      "after": "2d0eb64889710679e7c3dea0ff1b6469043ca237f552a3440b345e2d9352305a",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUITurretBase.java": {
+      "before": "a39723eb2d31aeba8ea9a54d6789134f7c6658f2a3a6057ba1e212a6ebe79aa3",
+      "after": "bef7dd16df6a28710d449551e21a93c1eacabd4ecac83eda4b5c9ca947181bf0",
+      "full_selector_inverse_equals_input": true,
+      "calls": 9
+    },
+    "com/hbm/inventory/gui/GUITurretHIMARS.java": {
+      "before": "84e866e6c27c889e548d6ebf26b025bc6b8a6d3e1ce0d893502f20294d41212a",
+      "after": "536d557e5f6700f20d9f5abe8aced9ed942a58ae5e4f74b3085c830619dcec4d",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GUIWatz.java": {
+      "before": "8581819b53d24bb648ff97b713a93ab626c79f40902004d56ce0102501fd1c2d",
+      "after": "82abf9d71a2ec4e7255ca793f0f905ece932adad643d9433f61f12d4f79db307",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/inventory/gui/GuiScreenRadioTelex.java": {
+      "before": "e98c69538470a9128c68cdc017eb1a865b91d9b34ba5fecd25a8a9f8aca0b171",
+      "after": "59802d57d24c3bc9b3da2d8da2f91606eb76782c84943b07a7d654c45e69f83c",
+      "full_selector_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/items/weapon/ItemCrucible.java": {
+      "before": "78537257d548b26a9011cfb885f0feb533918c1aa73a4ea2c32d0676f456d049",
+      "after": "aaf31b81b84f427390aa54e3e937cc8a20a21b2370ec0d1b964b35f74cf15694",
+      "full_selector_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/qmaw/GuiQMAW.java": {
+      "before": "d987d6f17f7e25894f6ba7971417f6344bb70383796002f852e317076f2d1632",
+      "after": "b42ffde02e40614d0fef0fbc6f727da4c0e218ab3f5ae33c2501a03d4b5bb3e1",
+      "full_selector_inverse_equals_input": true,
+      "calls": 3
+    }
+  },
+  "helper_sha256": "21991818d61aefba8412f2eca534cd3305942e21a1302222fab669e08d1763cb"
+}

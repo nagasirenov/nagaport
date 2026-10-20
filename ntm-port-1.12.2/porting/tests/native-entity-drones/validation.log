@@ -1,0 +1,4 @@
+PASS: 14 original calls; byte-exact inverse including mixed CRLF; inherited/private owner keys; exact receiver/method ranges; complete named-consumer closure
+PASS: 107 native drone constructor/inheritance/byte/consumer/bounded-NBT assertions
+PASS: actual World constructor/init hierarchy, complete base NBT, explicit child scalar calls; payload/chunk-ticket operations not simulated
+PASS: CRLF-aware diff check (original mixed line endings preserved)

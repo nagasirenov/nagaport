@@ -89,7 +89,7 @@ public class EntityChemical extends EntityThrowableNT {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.ticksExisted > this.getMaxAge()) {
 				this.setDead();
@@ -100,7 +100,7 @@ public class EntityChemical extends EntityThrowableNT {
 			if(type.hasTrait(Fluids.GASEOUS.getClass()) || type.hasTrait(Fluids.EVAP.getClass())) {
 
 				double intensity = 1D - (double) this.ticksExisted / (double) this.getMaxAge();
-				List<Entity> affected = worldObj.getEntitiesWithinAABBExcludingEntity(this.thrower, this.boundingBox.expand(intensity * 2.5, intensity * 2.5, intensity * 2.5));
+				List<Entity> affected = this.world.getEntitiesWithinAABBExcludingEntity(this.thrower, this.getEntityBoundingBox().expand(intensity * 2.5, intensity * 2.5, intensity * 2.5));
 
 				for(Entity e : affected) {
 					this.affect(e, intensity);
@@ -115,7 +115,7 @@ public class EntityChemical extends EntityThrowableNT {
 			if(type == Fluids.BALEFIRE) {
 
 				if(MainRegistry.proxy.me().getDistanceToEntity(this) < 100)
-					FlameCreator.composeEffectClient(worldObj, posX, posY - 0.125, posZ, FlameCreator.META_BALEFIRE);
+					FlameCreator.composeEffectClient(this.world, posX, posY - 0.125, posZ, FlameCreator.META_BALEFIRE);
 
 			} else if(style == ChemicalStyle.LIQUID) {
 
@@ -127,9 +127,9 @@ public class EntityChemical extends EntityThrowableNT {
 				data.setDouble("posX", posX);
 				data.setDouble("posY", posY);
 				data.setDouble("posZ", posZ);
-				data.setDouble("mX", motionX + worldObj.rand.nextGaussian() * 0.05);
-				data.setDouble("mY", motionY - 0.2 + worldObj.rand.nextGaussian() * 0.05);
-				data.setDouble("mZ", motionZ + worldObj.rand.nextGaussian() * 0.05);
+				data.setDouble("mX", motionX + this.world.rand.nextGaussian() * 0.05);
+				data.setDouble("mY", motionY - 0.2 + this.world.rand.nextGaussian() * 0.05);
+				data.setDouble("mZ", motionZ + this.world.rand.nextGaussian() * 0.05);
 				data.setFloat("r", color.getRed() / 255F);
 				data.setFloat("g", color.getGreen() / 255F);
 				data.setFloat("b", color.getBlue() / 255F);
@@ -138,7 +138,7 @@ public class EntityChemical extends EntityThrowableNT {
 			} else if(style == ChemicalStyle.BURNING) {
 
 				if(MainRegistry.proxy.me().getDistanceToEntity(this) < 100)
-					FlameCreator.composeEffectClient(worldObj, posX, posY - 0.125, posZ, FlameCreator.META_FIRE);
+					FlameCreator.composeEffectClient(this.world, posX, posY - 0.125, posZ, FlameCreator.META_FIRE);
 			}
 		}
 		super.onUpdate();
@@ -243,7 +243,7 @@ public class EntityChemical extends EntityThrowableNT {
 			if(living != null) {
 				ContaminationUtil.contaminate(living, HazardType.RADIATION, ContaminationType.CREATIVE, trait.getRadPerMB() * 5);
 			}
-			ChunkRadiationManager.proxy.incrementRad(worldObj, (int) Math.floor(e.posX), (int) Math.floor(e.posY), (int) Math.floor(e.posZ), trait.getRadPerMB() * 5);
+			ChunkRadiationManager.proxy.incrementRad(this.world, (int) Math.floor(e.posX), (int) Math.floor(e.posY), (int) Math.floor(e.posZ), trait.getRadPerMB() * 5);
 		}
 
 		if(type.hasTrait(FT_Poison.class)) {
@@ -331,17 +331,17 @@ public class EntityChemical extends EntityThrowableNT {
 		e.posY = y;
 		e.posZ = z;
 		boolean flag = false;
-		int i = MathHelper.floor_double(e.posX);
-		int j = MathHelper.floor_double(e.posY);
-		int k = MathHelper.floor_double(e.posZ);
+		int i = MathHelper.floor(e.posX);
+		int j = MathHelper.floor(e.posY);
+		int k = MathHelper.floor(e.posZ);
 
-		if(e.worldObj.blockExists(i, j, k)) {
+		if(e.world.blockExists(i, j, k)) {
 			boolean flag1 = false;
 
 			while(!flag1 && j > 0) {
-				Block block = e.worldObj.getBlock(i, j - 1, k);
+				Block block = com.hbm.world.WorldBlockState.read(e.world, i, j - 1, k).getBlock();
 
-				if(block.getMaterial().blocksMovement()) {
+				if(block.getDefaultState().getMaterial().blocksMovement()) {
 					flag1 = true;
 				} else {
 					--e.posY;
@@ -352,7 +352,7 @@ public class EntityChemical extends EntityThrowableNT {
 			if(flag1) {
 				e.setPosition(e.posX, e.posY, e.posZ);
 
-				if(e.worldObj.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty() && !e.worldObj.isAnyLiquid(e.boundingBox)) {
+				if(e.world.getCollidingBoundingBoxes(e, e.getEntityBoundingBox()).isEmpty() && !e.world.isAnyLiquid(e.getEntityBoundingBox())) {
 					flag = true;
 				}
 			}
@@ -372,10 +372,10 @@ public class EntityChemical extends EntityThrowableNT {
 				double d7 = targetX + (e.posX - targetX) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
 				double d8 = targetY + (e.posY - targetY) * d6 + this.rand.nextDouble() * (double) e.height;
 				double d9 = targetZ + (e.posZ - targetZ) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
-				e.worldObj.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				e.world.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
 			}
 
-			e.worldObj.playSoundEffect(targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);
 			e.playSound("mob.endermen.portal", 1.0F, 1.0F);
 			return true;
 		}
@@ -384,7 +384,7 @@ public class EntityChemical extends EntityThrowableNT {
 	@Override
 	protected void onImpact(RayTraceResult mop) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 				this.affect(mop.entityHit, 1D - (double) this.ticksExisted / (double) this.getMaxAge());
@@ -399,7 +399,7 @@ public class EntityChemical extends EntityThrowableNT {
 
 				if(type.hasTrait(FT_VentRadiation.class)) {
 					FT_VentRadiation trait = type.getTrait(FT_VentRadiation.class);
-					ChunkRadiationManager.proxy.incrementRad(worldObj, x, y, z, trait.getRadPerMB() * 5);
+					ChunkRadiationManager.proxy.incrementRad(this.world, x, y, z, trait.getRadPerMB() * 5);
 				}
 
 				ChemicalStyle style = getStyle();
@@ -408,10 +408,10 @@ public class EntityChemical extends EntityThrowableNT {
 
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
-						Block fire = type == Fluids.BALEFIRE ? ModBlocks.balefire : Blocks.fire;
+						Block fire = type == Fluids.BALEFIRE ? ModBlocks.balefire : Blocks.FIRE;
 
-						if(worldObj.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).isAir(worldObj, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
-							worldObj.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
+						if(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
+							this.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
 						}
 					}
 				}
@@ -420,10 +420,10 @@ public class EntityChemical extends EntityThrowableNT {
 
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
-						Block fire = type == Fluids.BALEFIRE ? ModBlocks.balefire : Blocks.fire;
+						Block fire = type == Fluids.BALEFIRE ? ModBlocks.balefire : Blocks.FIRE;
 
-						if(worldObj.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).isAir(worldObj, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
-							worldObj.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
+						if(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
+							this.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
 						}
 					}
 				}
@@ -432,25 +432,25 @@ public class EntityChemical extends EntityThrowableNT {
 
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
-						if(worldObj.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.fire) {
-							worldObj.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, Blocks.air);
+						if(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.FIRE) {
+							this.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, Blocks.AIR);
 						}
 					}
 				}
 
 				EnumExtinguishType fext = this.getExtinguishingType(type);
 				if(fext != null) {
-					TileEntity core = CompatExternal.getCoreFromPos(worldObj, x, y, z);
+					TileEntity core = CompatExternal.getCoreFromPos(this.world, x, y, z);
 					if(core instanceof IRepairable) {
-						((IRepairable) core).tryExtinguish(worldObj, x, y, z, fext);
+						((IRepairable) core).tryExtinguish(this.world, x, y, z, fext);
 					}
 
 					if(fext == EnumExtinguishType.WATER && style == ChemicalStyle.LIQUID) {
 						for(int i = -2; i <= 2; i++) {
 							for(int j = 0; j <= 1; j++) {
 								for(int k = -2; k <= 2; k++) {
-									if(worldObj.getBlock(x + i, y + j, z + k) == ModBlocks.fallout) {
-										worldObj.setBlock(x + i, y + j, z + k, Blocks.air);
+									if(com.hbm.world.WorldBlockState.read(this.world, x + i, y + j, z + k).getBlock() == ModBlocks.fallout) {
+										this.world.setBlock(x + i, y + j, z + k, Blocks.AIR);
 									}
 								}
 							}
@@ -458,40 +458,40 @@ public class EntityChemical extends EntityThrowableNT {
 					}
 				}
 
-				Block block = worldObj.getBlock(x, y, z);
+				Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 				if(type == Fluids.SEEDSLURRY) {
-					if(block == Blocks.dirt || block == ModBlocks.waste_earth || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily) {
+					if(block == Blocks.DIRT || block == ModBlocks.waste_earth || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily) {
 
-						if(worldObj.getBlockLightValue(x, y + 1, z) >= 9 && worldObj.getBlockLightOpacity(x, y + 1, z) <= 2) {
-							CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+						if(this.world.getBlockLightValue(x, y + 1, z) >= 9 && this.world.getBlockLightOpacity(x, y + 1, z) <= 2) {
+							CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 							if(atmosphere != null && (atmosphere.hasFluid(Fluids.EARTHAIR) || atmosphere.hasFluid(Fluids.DUNAAIR) || atmosphere.hasFluid(Fluids.CARBONDIOXIDE) || atmosphere.hasFluid(Fluids.OXYGEN))) {
-								worldObj.setBlock(x, y, z, Blocks.grass);
-								ChunkAtmosphereManager.proxy.addGrowth(worldObj, Blocks.grass, x, y, z, 4, 6);
+								this.world.setBlock(x, y, z, Blocks.GRASS);
+								ChunkAtmosphereManager.proxy.addGrowth(this.world, Blocks.GRASS, x, y, z, 4, 6);
 								int totalConversion = ChunkAtmosphereHandler.GRASS_GROWTH_CONVERSION * 4 * 6;
 
-								if(CelestialBody.consumeGas(worldObj, Fluids.CARBONDIOXIDE, totalConversion) || CelestialBody.consumeGas(worldObj, Fluids.DUNAAIR, totalConversion)) {
-									CelestialBody.emitGas(worldObj, Fluids.EARTHAIR, totalConversion);
+								if(CelestialBody.consumeGas(this.world, Fluids.CARBONDIOXIDE, totalConversion) || CelestialBody.consumeGas(this.world, Fluids.DUNAAIR, totalConversion)) {
+									CelestialBody.emitGas(this.world, Fluids.EARTHAIR, totalConversion);
 								}
 
-								worldObj.playAuxSFX(2005, x, y + 1, z, 0);
+								this.world.playAuxSFX(2005, x, y + 1, z, 0);
 							}
 						}
 					}
-					int meta = worldObj.getBlockMetadata(x, y, z);
-					if(block == Blocks.cobblestone) worldObj.setBlock(x, y, z, Blocks.mossy_cobblestone);
-					if(block == Blocks.stonebrick && meta == 0) worldObj.setBlock(x, y, z, Blocks.stonebrick, 1, 3);
-					if(block == ModBlocks.waste_earth) worldObj.setBlock(x, y, z, Blocks.grass);
-					if(block == ModBlocks.brick_concrete) worldObj.setBlock(x, y, z, ModBlocks.brick_concrete_mossy);
-					if(block == ModBlocks.concrete_brick_slab && meta % 8 == 0) worldObj.setBlock(x, y, z, ModBlocks.concrete_brick_slab, meta + 1, 3);
-					if(block == ModBlocks.brick_concrete_stairs) worldObj.setBlock(x, y, z, ModBlocks.brick_concrete_mossy_stairs, meta, 3);
+					int meta = this.world.getBlockMetadata(x, y, z);
+					if(block == Blocks.COBBLESTONE) this.world.setBlock(x, y, z, Blocks.MOSSY_COBBLESTONE);
+					if(block == Blocks.STONEBRICK && meta == 0) { net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.STONEBRICK; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+					if(block == ModBlocks.waste_earth) this.world.setBlock(x, y, z, Blocks.GRASS);
+					if(block == ModBlocks.brick_concrete) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy);
+					if(block == ModBlocks.concrete_brick_slab && meta % 8 == 0) this.world.setBlock(x, y, z, ModBlocks.concrete_brick_slab, meta + 1, 3);
+					if(block == ModBlocks.brick_concrete_stairs) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy_stairs, meta, 3);
 				}
 
 				if(type.hasTrait(FT_Terraformer.class)) {
 					FT_Terraformer terra = type.getTrait(FT_Terraformer.class);
 					if(block == terra.getTargetBlock()) {
-						worldObj.setBlock(x, y, z, Blocks.dirt);
-						ChunkAtmosphereManager.proxy.addGrowth(worldObj, block, Blocks.dirt, x, y, z, 4, 6);
+						this.world.setBlock(x, y, z, Blocks.DIRT);
+						ChunkAtmosphereManager.proxy.addGrowth(this.world, block, Blocks.DIRT, x, y, z, 4, 6);
 					}
 				}
 

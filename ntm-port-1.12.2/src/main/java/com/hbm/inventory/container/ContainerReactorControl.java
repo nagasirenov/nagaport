@@ -67,6 +67,6 @@ public class ContainerReactorControl extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return control.isUseableByPlayer(player);
+		return control.isUsableByPlayer(player);
 	}
 }

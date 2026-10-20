@@ -14,11 +14,7 @@ import com.hbm.util.BobMathUtil;
 import com.hbm.util.Compat;
 import com.hbm.util.i18n.I18nUtil;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,39 +32,45 @@ import com.hbm.lib.ForgeDirection;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.property.*;
+
 public class CableDiode extends BlockContainer implements IEnergyConnectorBlock, ILookOverlay, IToolable, ITooltipProvider {
 
 	public CableDiode(Material mat) {
 		super(mat);
+        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));
 	}
 
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
-
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {
-		return true;
-	}
-
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
-	}
+    public static boolean isNativeModelOwner(net.minecraft.block.Block block) {
+        return block != null && block.getClass() == CableDiode.class
+                && new ResourceLocation("hbm", "tile.cable_diode").equals(block.getRegistryName());
+    }
+    @Override public boolean hasCustomBreakingProgress(IBlockState state) { return isNativeModelOwner(this); }
+    public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
+    @Override protected BlockStateContainer createBlockState() { return new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS}); }
+    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }
+    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }
+    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+    @Override public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
+        // The original renderer mixed AO-lit standard cubes with pre-shaded OBJ arms.
+        // Native passes separate those lighting contracts without changing geometry.
+        return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.CUTOUT_MIPPED;
+    }
+    @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+    @Override public boolean isFullCube(IBlockState state) { return false; }
+    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }
+    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return ((IExtendedBlockState)state).withProperty(ConnectionState.CONNECTIONS, ConnectionState.energy(world, pos));
+    }
+    @Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) { return true; }
+    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+        world.setBlockState(pos, getStateFromMeta(EnumFacing.getDirectionFromEntityLiving(pos, player).getIndex()), 2);
+    }
 
 	@Override
 	public boolean canConnect(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
@@ -78,7 +80,7 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
 
-		TileEntityDiode te = (TileEntityDiode)world.getTileEntity(x, y, z);
+		TileEntityDiode te = (TileEntityDiode)world.getTileEntity(new BlockPos(x, y, z));
 
 		if(world.isRemote)
 			return true;
@@ -87,7 +89,8 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 			if(te.level < 11)
 				te.level++;
 			te.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			BlockPos pos = new BlockPos(x, y, z);
+			world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
 			return true;
 		}
 
@@ -95,7 +98,8 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 			if(te.level > 1)
 				te.level--;
 			te.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			BlockPos pos = new BlockPos(x, y, z);
+			world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
 			return true;
 		}
 
@@ -104,7 +108,8 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 			if(p > 4) p = 0;
 			te.priority = ConnectionPriority.values()[p];
 			te.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			BlockPos pos = new BlockPos(x, y, z);
+			world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
 			return true;
 		}
 
@@ -122,7 +127,7 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityDiode))
 			return;
@@ -133,7 +138,7 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 		text.add("Max.: " + BobMathUtil.getShortNumber(diode.getMaxPower()) + "HE/t");
 		text.add("Priority: " + diode.priority.name());
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -141,7 +146,11 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 		return new TileEntityDiode();
 	}
 
-	public static class TileEntityDiode extends TileEntityLoadedBase implements IEnergyReceiverMK2 {
+	public static class TileEntityDiode extends TileEntityLoadedBase implements IEnergyReceiverMK2, net.minecraft.util.ITickable {
+        @Override public boolean canRenderBreaking() {
+            return getClass() == TileEntityDiode.class && getWorld() != null && isNativeModelOwner(getWorld().getBlockState(getPos()).getBlock());
+        }
+
 
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
@@ -151,11 +160,14 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("level", level);
 			nbt.setByte("p", (byte) this.priority.ordinal());
+			return nbt;
 		}
+
+		@Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -176,15 +188,15 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 		}
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
 					if(dir == getDir())
 						continue;
 
-					this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+					this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 				}
 
 				pulses = 0;
@@ -215,8 +227,8 @@ public class CableDiode extends BlockContainer implements IEnergyConnectorBlock,
 			recursionBrake = true;
 
 			ForgeDirection dir = getDir();
-			PowerNode node = Nodespace.getNode(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ);
-			TileEntity te = Compat.getTileStandard(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ);
+			PowerNode node = Nodespace.getNode(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);
+			TileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);
 
 			if(node != null && !node.expired && node.hasValidNet() && te instanceof IEnergyConnectorMK2 && ((IEnergyConnectorMK2) te).canConnect(dir.getOpposite())) {
 				long toTransfer = Math.min(power, this.getReceiverSpeed());

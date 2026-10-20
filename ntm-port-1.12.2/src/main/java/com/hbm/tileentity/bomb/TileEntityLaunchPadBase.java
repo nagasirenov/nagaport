@@ -121,17 +121,19 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.launchPad";
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0 };
 	}
 
@@ -143,15 +145,15 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 	public abstract DirPos[] getConPos();
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
-					this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					if(tanks[1].getTankType() != Fluids.NONE) this.trySubscribe(tanks[1].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					if(tanks[1].getTankType() != Fluids.NONE) this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 			
@@ -227,7 +229,7 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "t0");
@@ -244,11 +246,12 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 			i++;
 		}
 		nbt.setTag("activatedBlocks", activatedBlocks);
+		return nbt;
 	}
 
 	public void updateRedstonePower(int x, int y, int z) {
 		BlockPos pos = new BlockPos(x, y, z);
-		boolean powered = worldObj.isBlockIndirectlyGettingPowered(x, y, z);
+		boolean powered = this.world.isBlockIndirectlyGettingPowered(x, y, z);
 		boolean contained = activatedBlocks.contains(pos);
 		if(!contained && powered){
 			activatedBlocks.add(pos);
@@ -339,18 +342,18 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 		
 		if(clazz != null) {
 			try {
-				EntityMissileBaseNT missile = clazz.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class).newInstance(worldObj, xCoord + 0.5F, yCoord + (float) getLaunchOffset() /* Position arguments need to be floats, jackass */, zCoord + 0.5F, targetX, targetZ);
-				if(GeneralConfig.enableExtendedLogging) MainRegistry.logger.log(Level.INFO, "[MISSILE] Tried to launch missile at " + xCoord + " / " + yCoord + " / " + zCoord + " to " + xCoord + " / " + zCoord + "!");
-				missile.getDataWatcher().updateObject(3, (byte) MathHelper.clamp_int(this.getBlockMetadata() - 10, 2, 5));
+				EntityMissileBaseNT missile = clazz.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class).newInstance(this.world, this.pos.getX() + 0.5F, this.pos.getY() + (float) getLaunchOffset() /* Position arguments need to be floats, jackass */, this.pos.getZ() + 0.5F, targetX, targetZ);
+				if(GeneralConfig.enableExtendedLogging) MainRegistry.logger.log(Level.INFO, "[MISSILE] Tried to launch missile at " + this.pos.getX() + " / " + this.pos.getY() + " / " + this.pos.getZ() + " to " + this.pos.getX() + " / " + this.pos.getZ() + "!");
+				missile.setDirection((byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5));
 				return missile;
 			} catch(Exception e) { }
 		}
 
 		if(slots[0].getItem() == ModItems.missile_anti_ballistic) {
-			EntityMissileAntiBallistic missile = new EntityMissileAntiBallistic(worldObj);
-			missile.posX = xCoord + 0.5D;
-			missile.posY = yCoord + getLaunchOffset();
-			missile.posZ = zCoord + 0.5D;
+			EntityMissileAntiBallistic missile = new EntityMissileAntiBallistic(this.world);
+			missile.posX = this.pos.getX() + 0.5D;
+			missile.posY = this.pos.getY() + getLaunchOffset();
+			missile.posZ = this.pos.getZ() + 0.5D;
 			return missile;
 		}
 		
@@ -358,9 +361,9 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 	}
 	
 	public void finalizeLaunch(Entity missile) {
-		worldObj.spawnEntityInWorld(missile);
-		TrackerUtil.setTrackingRange(worldObj, missile, 500);
-		worldObj.playSoundEffect(xCoord + 0.5, yCoord, zCoord + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F);
+		this.world.spawnEntityInWorld(missile);
+		TrackerUtil.setTrackingRange(this.world, missile, 500);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F);
 
 		this.power -= 75_000;
 		
@@ -378,16 +381,16 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 		
 		boolean needsDesignator = needsDesignator(slots[0].getItem());
 
-		int targetX = xCoord;
-		int targetZ = zCoord;
+		int targetX = this.pos.getX();
+		int targetZ = this.pos.getZ();
 		
 		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem) {
 			IDesignatorItem designator = (IDesignatorItem) slots[1].getItem();
 			
 			if(needsDesignator) {
-				if(!designator.isReady(worldObj, slots[1], xCoord, yCoord, zCoord)) return BombReturnCode.ERROR_MISSING_COMPONENT;
+				if(!designator.isReady(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ())) return BombReturnCode.ERROR_MISSING_COMPONENT;
 				
-				Vec3d coords = designator.getCoords(worldObj, slots[1], xCoord, yCoord, zCoord);
+				Vec3d coords = designator.getCoords(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				targetX = (int) Math.floor(coords.x);
 				targetZ = (int) Math.floor(coords.z);
 			}
@@ -531,7 +534,7 @@ public abstract class TileEntityLaunchPadBase extends TileEntityMachineBase impl
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getPos(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Override

@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class HeaterFirebox extends BlockDummyable implements ITooltipProvider {
 
 	public HeaterFirebox() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "meta=0": {
+      "model": "hbm:native_crt/tile.deco_crt/0/world"
+    },
+    "meta=1": {
+      "model": "hbm:native_crt/tile.deco_crt/1/world"
+    },
+    "meta=2": {
+      "model": "hbm:native_crt/tile.deco_crt/2/world"
+    },
+    "meta=3": {
+      "model": "hbm:native_crt/tile.deco_crt/3/world"
+    },
+    "meta=4": {
+      "model": "hbm:native_crt/tile.deco_crt/4/world"
+    },
+    "meta=5": {
+      "model": "hbm:native_crt/tile.deco_crt/5/world"
+    },
+    "meta=6": {
+      "model": "hbm:native_crt/tile.deco_crt/6/world"
+    },
+    "meta=7": {
+      "model": "hbm:native_crt/tile.deco_crt/7/world"
+    },
+    "meta=8": {
+      "model": "hbm:native_crt/tile.deco_crt/8/world"
+    },
+    "meta=9": {
+      "model": "hbm:native_crt/tile.deco_crt/9/world"
+    },
+    "meta=10": {
+      "model": "hbm:native_crt/tile.deco_crt/10/world"
+    },
+    "meta=11": {
+      "model": "hbm:native_crt/tile.deco_crt/11/world"
+    },
+    "meta=12": {
+      "model": "hbm:native_crt/tile.deco_crt/12/world"
+    },
+    "meta=13": {
+      "model": "hbm:native_crt/tile.deco_crt/13/world"
+    },
+    "meta=14": {
+      "model": "hbm:native_crt/tile.deco_crt/14/world"
+    },
+    "meta=15": {
+      "model": "hbm:native_crt/tile.deco_crt/15/world"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-string-tooltips/StringTooltipProbe.java": "a30177933fd0d71da0a8ba43d5587b024f5c27f05bec8abcd4a97f8800f57098",
+    "/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-string-tooltips/OldStringCapture.java": "741dcc0ecb52f025047ad838c26a5611d8601bd6b1e222c4548980e0da110075",
+    "/workspace/shared/nagaport-native-text-fields/ntm-port-1.12.2/porting/tests/native-gui-sounds/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "/tmp/native-string-tooltips-run/RepresentativeStringBranches.java": "5db4ff82d5bca49e5701b08e49453745439793fb3fa58d16dcfae085a9c66182",
+    "/tmp/nagaport-legacy-client.jar": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "/tmp/attribute-legacy-unsigned.jar": "4a210b7d8487d7a0bbf2adc5352289118e603ff4cfed773de7526408690d954e"
+  },
+  "verified_original_and_unsigned_non_metadata_entries": 2844,
+  "original_bdw.class": "70761126a8f9b6d0298e3205afb55caf01b8a0682b92dd82cb0b7ca807cb07cf"
+}

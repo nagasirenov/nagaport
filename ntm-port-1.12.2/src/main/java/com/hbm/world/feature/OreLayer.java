@@ -29,7 +29,7 @@ public class OreLayer {
 	int dim = 0;
 	
 	public OreLayer(Block ore, float density) {
-		this(ore, 0, Blocks.stone, density);
+		this(ore, 0, Blocks.STONE, density);
 	}
 	
 	public OreLayer(Block ore, int meta, Block target, float density) {
@@ -69,7 +69,7 @@ public class OreLayer {
 		
 		World world = event.world;
 		
-		if(world.provider == null || world.provider.dimensionId != this.dim) return;
+		if(world.provider == null || world.provider.getDimension() != this.dim) return;
 		
 		if(this.noise == null) {
 			this.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() + (ore.getID() * 31) + yLevel), 4);
@@ -97,9 +97,9 @@ public class OreLayer {
 					for(int y = yLevel - range; y <= yLevel + range; y++) {
 						
 						if(event.rand.nextFloat() < density) {
-							Block genTarget = world.getBlock(x, y, z);
+							Block genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 							
-							if(genTarget.isReplaceableOreGen(world, x, y, z, target) && genTarget.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
+							if(genTarget.isReplaceableOreGen(world, x, y, z, target) && genTarget.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {
 								world.setBlock(x, y, z, ore.block, ore.meta, 2);
 							}
 						}

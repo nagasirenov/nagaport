@@ -33,7 +33,7 @@ public class GUIFirebox extends GuiInfoContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			
 			for(int i = 0; i < 2; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
@@ -43,7 +43,7 @@ public class GUIFirebox extends GuiInfoContainer {
 					List<String> bonuses = this.firebox.getModule().getDesc();
 					
 					if(!bonuses.isEmpty()) {
-						this.func_146283_a(bonuses, x, y);
+						this.drawHoveringText(bonuses, x, y);
 					}
 				}
 			}
@@ -59,8 +59,8 @@ public class GUIFirebox extends GuiInfoContainer {
 		
 		int color = firebox instanceof TileEntityHeaterOven ? 0xffffff : 4210752;
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, color);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, color);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
 	public DroneDock() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -85,37 +85,41 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 
 	private final Random rand = new Random();
 	public void dropContents(World world, int x, int y, int z, Block block, int meta, int start, int end) {
-		ISidedInventory sidedInventory = (ISidedInventory) world.getTileEntity(x, y, z);
+		ISidedInventory sidedInventory = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(sidedInventory != null) {
 			
 			for(int i1 = start; i1 < end; ++i1) {
 				ItemStack stack = sidedInventory.getStackInSlot(i1);
 
-				if(stack != null) {
+				if(stack != null && !stack.isEmpty()) {
 					float f = this.rand.nextFloat() * 0.8F + 0.1F;
 					float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
 
-					while(stack.stackSize > 0) {
+					while(stack.getCount() > 0) {
 						int j1 = this.rand.nextInt(21) + 10;
 
-						if(j1 > stack.stackSize) {
-							j1 = stack.stackSize;
+						if(j1 > stack.getCount()) {
+							j1 = stack.getCount();
 						}
 
-						stack.stackSize -= j1;
-						EntityItem entity = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(stack.getItem(), j1, stack.getItemDamage()));
+						// Capture before depletion: native empty stacks hide their item.
+						net.minecraft.item.Item dropItem = stack.getItem();
+						int dropMeta = stack.getItemDamage();
+						NBTTagCompound dropTag = stack.getTagCompound();
+						stack.shrink(j1);
+						EntityItem entity = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-						if(stack.hasTagCompound()) {
-							entity.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
+						if(dropTag != null) {
+							entity.getItem().setTagCompound(dropTag.copy());
 						}
 
 						float f3 = 0.05F;
 						entity.motionX = (float) this.rand.nextGaussian() * f3;
 						entity.motionY = (float) this.rand.nextGaussian() * f3 + 0.2F;
 						entity.motionZ = (float) this.rand.nextGaussian() * f3;
-						world.spawnEntityInWorld(entity);
+						world.spawnEntity(entity);
 					}
 				}
 			}

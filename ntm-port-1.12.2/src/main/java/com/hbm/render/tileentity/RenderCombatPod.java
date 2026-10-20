@@ -22,7 +22,7 @@ public class RenderCombatPod extends TileEntitySpecialRenderer {
         GL11.glEnable(GL11.GL_LIGHTING);
 
         GL11.glTranslatef(0.0F, -0.25F, 0.0F);
-        rand.setSeed(BlockPos.getIdentity(te.xCoord, te.yCoord, te.zCoord));
+        rand.setSeed(BlockPos.getIdentity(te.getPos().getX(), te.getPos().getY(), te.getPos().getZ()));
 		double yaw = rand.nextDouble() * 360;
 		double pitch = rand.nextDouble() * 8;
 		double roll = rand.nextDouble() * 6;

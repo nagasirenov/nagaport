@@ -1,0 +1,3 @@
+PASS: all 13 pristine vanilla item/table/weight/count registrations retained; preInit event registration present
+PASS: all 8 LibraryDungeon chest-fill consumers migrated; removed loot imports absent from production sources
+EXIT_CODE=0

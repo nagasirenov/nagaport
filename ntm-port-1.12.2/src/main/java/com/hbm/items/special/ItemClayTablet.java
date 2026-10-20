@@ -23,8 +23,8 @@ public class ItemClayTablet extends Item implements IGUIProvider {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!world.isRemote && !stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
-			stack.stackTagCompound.setLong("tabletSeed", player.getRNG().nextLong());
+			stack.setTagCompound(new NBTTagCompound());
+			stack.getTagCompound().setLong("tabletSeed", player.getRNG().nextLong());
 		}
 		if(world.isRemote) player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		return stack;

@@ -1,0 +1,197 @@
+{
+  "base": "641ba083c276c6ac75afa6a8f996cdd86f8b16d4",
+  "production": [
+    {
+      "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+      "sha256": "e91811e5597b1a29f4db2879d11f4c21171512084f7390f6d9273e39803e088e",
+      "baseline_sha256": "d8b62d1748ee02e40d903545f491dca484a3346e3c6aa60ef9cb1421ef3fa68f",
+      "edits": [
+        {
+          "old": "\t\trbmk_rod = new RBMKRod(false).setBlockName(\"rbmk_rod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element\");\r\n\t\trbmk_rod_mod = new RBMKRod(true).setBlockName(\"rbmk_rod_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_mod\");\r\n\t\trbmk_rod_reasim = new RBMKRodReaSim(false).setBlockName(\"rbmk_rod_reasim\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_reasim\");\r\n\t\trbmk_rod_reasim_mod = new RBMKRodReaSim(true).setBlockName(\"rbmk_rod_reasim_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_reasim_mod\");\r\n\t\trbmk_control = new RBMKControl(false).setBlockName(\"rbmk_control\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control\");\r\n\t\trbmk_control_mod = new RBMKControl(true).setBlockName(\"rbmk_control_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_mod\");\r\n\t\trbmk_control_auto = new RBMKControlAuto().setBlockName(\"rbmk_control_auto\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_auto\");\r\n\t\trbmk_control_reasim = new RBMKControl(false).setBlockName(\"rbmk_control_reasim\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_reasim\");\r\n\t\trbmk_control_reasim_auto = new RBMKControlAuto().setBlockName(\"rbmk_control_reasim_auto\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_reasim_auto\");\r\n\t\trbmk_blank = new RBMKBlank().setBlockName(\"rbmk_blank\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_blank\");\r\n\t\trbmk_boiler = new RBMKBoiler().setBlockName(\"rbmk_boiler\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_boiler\");\r\n\t\trbmk_reflector = new RBMKReflector().setBlockName(\"rbmk_reflector\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_reflector\");\r\n\t\trbmk_absorber = new RBMKAbsorber().setBlockName(\"rbmk_absorber\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_absorber\");\r\n\t\trbmk_moderator = new RBMKModerator().setBlockName(\"rbmk_moderator\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_moderator\");\r\n\t\trbmk_outgasser = new RBMKOutgasser().setBlockName(\"rbmk_outgasser\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_outgasser\");\r\n\t\trbmk_storage = new RBMKStorage().setBlockName(\"rbmk_storage\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_storage\");\r\n\t\trbmk_cooler = new RBMKCooler().setBlockName(\"rbmk_cooler\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_cooler\");\r\n\t\trbmk_heater = new RBMKHeater().setBlockName(\"rbmk_heater\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_heater\");\r\n",
+          "new": "\t\trbmk_rod = new RBMKRod(false).setTranslationKey(\"rbmk_rod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_rod_mod = new RBMKRod(true).setTranslationKey(\"rbmk_rod_mod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_rod_reasim = new RBMKRodReaSim(false).setTranslationKey(\"rbmk_rod_reasim\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_rod_reasim_mod = new RBMKRodReaSim(true).setTranslationKey(\"rbmk_rod_reasim_mod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control = new RBMKControl(false).setTranslationKey(\"rbmk_control\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_mod = new RBMKControl(true).setTranslationKey(\"rbmk_control_mod\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_auto = new RBMKControlAuto().setTranslationKey(\"rbmk_control_auto\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_reasim = new RBMKControl(false).setTranslationKey(\"rbmk_control_reasim\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_control_reasim_auto = new RBMKControlAuto().setTranslationKey(\"rbmk_control_reasim_auto\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_blank = new RBMKBlank().setTranslationKey(\"rbmk_blank\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_boiler = new RBMKBoiler().setTranslationKey(\"rbmk_boiler\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_reflector = new RBMKReflector().setTranslationKey(\"rbmk_reflector\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_absorber = new RBMKAbsorber().setTranslationKey(\"rbmk_absorber\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_moderator = new RBMKModerator().setTranslationKey(\"rbmk_moderator\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_outgasser = new RBMKOutgasser().setTranslationKey(\"rbmk_outgasser\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_storage = new RBMKStorage().setTranslationKey(\"rbmk_storage\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_cooler = new RBMKCooler().setTranslationKey(\"rbmk_cooler\").setCreativeTab(MainRegistry.machineTab);\r\n\t\trbmk_heater = new RBMKHeater().setTranslationKey(\"rbmk_heater\").setCreativeTab(MainRegistry.machineTab);\r\n",
+          "start": 227895,
+          "end": 230003
+        },
+        {
+          "old": "\t\tGameRegistry.registerBlock(rbmk_rod, rbmk_rod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_rod_mod, rbmk_rod_mod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_rod_reasim, rbmk_rod_reasim.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_rod_reasim_mod, rbmk_rod_reasim_mod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control, rbmk_control.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_mod, rbmk_control_mod.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_auto, rbmk_control_auto.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_reasim, rbmk_control_reasim.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_control_reasim_auto, rbmk_control_reasim_auto.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_blank, rbmk_blank.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_boiler, rbmk_boiler.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_reflector, rbmk_reflector.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_absorber, rbmk_absorber.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_moderator, rbmk_moderator.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_outgasser, rbmk_outgasser.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_storage, rbmk_storage.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_cooler, rbmk_cooler.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(rbmk_heater, rbmk_heater.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(rbmk_rod);\r\n\t\tregister(rbmk_rod_mod);\r\n\t\tregister(rbmk_rod_reasim);\r\n\t\tregister(rbmk_rod_reasim_mod);\r\n\t\tregister(rbmk_control);\r\n\t\tregister(rbmk_control_mod);\r\n\t\tregister(rbmk_control_auto);\r\n\t\tregister(rbmk_control_reasim);\r\n\t\tregister(rbmk_control_reasim_auto);\r\n\t\tregister(rbmk_blank);\r\n\t\tregister(rbmk_boiler);\r\n\t\tregister(rbmk_reflector);\r\n\t\tregister(rbmk_absorber);\r\n\t\tregister(rbmk_moderator);\r\n\t\tregister(rbmk_outgasser);\r\n\t\tregister(rbmk_storage);\r\n\t\tregister(rbmk_cooler);\r\n\t\tregister(rbmk_heater);\r\n",
+          "start": 340765,
+          "end": 341287
+        }
+      ],
+      "shared": true
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+      "sha256": "5a57416c4afa80018d65bdd2de4cd77aa8db949020b04727e58e10bfeff0ee2e",
+      "baseline_sha256": "30e20bae0f795ef8dfa6d52564fbe8717cf160c6c4d9b1d62e5616ca2147aba7",
+      "edits": [
+        {
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "",
+          "start": 600,
+          "end": 600
+        },
+        {
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\n",
+          "start": 805,
+          "end": 1231
+        },
+        {
+          "old": "",
+          "new": "\t/** Native rendering boundary only; core, inventory, lid installation and neutron mechanics remain unchanged. */\n\t@Override protected BlockStateContainer createBlockState() {\n\t\treturn new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {RBMKRenderState.RENDER});\n\t}\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override @SideOnly(Side.CLIENT) public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\tint meta = getMetaFromState(state), lid = LID_NONE;\n\t\tif(meta >= 6 && meta < 12 && !hasOwnLid()) {\n\t\t\tint[] core = findCore(world, pos.getX(), pos.getY(), pos.getZ());\n\t\t\tif(core != null) {\n\t\t\t\tIBlockState coreState = world.getBlockState(new net.minecraft.util.math.BlockPos(core[0], core[1], core[2]));\n\t\t\t\tlid = metaToLid(coreState.getBlock().getMetaFromState(coreState));\n\t\t\t}\n\t\t}\n\t\treturn ((IExtendedBlockState)state).withProperty(RBMKRenderState.RENDER, new RBMKRenderState.Snapshot(state, world, pos, meta, lid));\n\t}\n\tprotected IIcon blockIcon;\n\tprotected String getRBMKTexture() {\n\t\tRBMKRenderState.Profile profile = RBMKRenderState.profile(this);\n\t\tif(profile == null) throw new IllegalStateException(\"Unspecified RBMK texture owner \" + getRegistryName());\n\t\treturn profile.texture.replace(\":blocks/\", \":\");\n\t}\n\n",
+          "start": 2401,
+          "end": 3878
+        },
+        {
+          "old": "\t\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\tif(overrideOnlyRenderSides && side < 2) return false;\n\t\tif(renderLid != LID_NONE && side > 1) return true;\n\t\treturn super.shouldSideBeRendered(world, x, y, z, side);\n\t}\n",
+          "new": "",
+          "start": 4001,
+          "end": 4001
+        },
+        {
+          "old": "\t@Override\n",
+          "new": "",
+          "start": 4246,
+          "end": 4246
+        },
+        {
+          "old": "\t\tthis.blockIcon = reg.registerIcon(this.getTextureName() + \"_side\");\n\t\tthis.textureTop = reg.registerIcon(this.getTextureName() + \"_top\");\n",
+          "new": "\t\tthis.blockIcon = reg.registerIcon(this.getRBMKTexture() + \"_side\");\n\t\tthis.textureTop = reg.registerIcon(this.getRBMKTexture() + \"_top\");\n",
+          "start": 4323,
+          "end": 4463
+        },
+        {
+          "old": "\t\tthis.coverTextureTop = reg.registerIcon(this.getTextureName() + \"_cover_top\");\n\t\tthis.coverTextureSide = reg.registerIcon(this.getTextureName() + \"_cover_side\");\n\t\tthis.glassTextureTop = reg.registerIcon(this.getTextureName() + \"_glass_top\");\n\t\tthis.glassTextureSide = reg.registerIcon(this.getTextureName() + \"_glass_side\");\n",
+          "new": "\t\tthis.coverTextureTop = reg.registerIcon(this.getRBMKTexture() + \"_cover_top\");\n\t\tthis.coverTextureSide = reg.registerIcon(this.getRBMKTexture() + \"_cover_side\");\n\t\tthis.glassTextureTop = reg.registerIcon(this.getRBMKTexture() + \"_glass_top\");\n\t\tthis.glassTextureSide = reg.registerIcon(this.getRBMKTexture() + \"_glass_side\");\n",
+          "start": 4489,
+          "end": 4817
+        },
+        {
+          "old": "\t@Override\n",
+          "new": "",
+          "start": 4821,
+          "end": 4821
+        },
+        {
+          "old": "\tpublic static int renderIDRods = RenderingRegistry.getNextAvailableRenderId();\n\tpublic static int renderIDPassive = RenderingRegistry.getNextAvailableRenderId();\n\tpublic static int renderIDControl = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\t// Retained NTM family tags for existing descendant hooks, not native engine render IDs.\n\tpublic static final int renderIDRods = 1;\n\tpublic static final int renderIDPassive = 2;\n\tpublic static final int renderIDControl = 3;\n",
+          "start": 9692,
+          "end": 9917
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControl.java",
+      "sha256": "febd8b20f2f7b8bc6ead3c8f0d03f876942360931fe229a4c90ad970546000a1",
+      "baseline_sha256": "28a174be3cfa15deb3cda92f6e46dca961ae9a5c646b0d3eb82dcdcfda6ec2b7",
+      "edits": [
+        {
+          "old": "\t\t\tthis.textureBottom = reg.registerIcon(this.getTextureName() + \"_bottom\");\n",
+          "new": "\t\t\tthis.textureBottom = reg.registerIcon(this.getRBMKTexture() + \"_bottom\");\n",
+          "start": 904,
+          "end": 981
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControlAuto.java",
+      "sha256": "90d580ab43ece28ae758d78123be33a4650c8752222d725856445620c899c8fc",
+      "baseline_sha256": "e5ce84669766403c9f0da5f24706b4b374672196c986df6ef18efeaca95ba039",
+      "edits": [
+        {
+          "old": "\t\t\tthis.textureBottom = reg.registerIcon(this.getTextureName() + \"_bottom\");\n",
+          "new": "\t\t\tthis.textureBottom = reg.registerIcon(this.getRBMKTexture() + \"_bottom\");\n",
+          "start": 740,
+          "end": 817
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKPipedBase.java",
+      "sha256": "fe87a244e798bbabb33c69704ce4b95a62644dedd964115b9458a7e47568df3c",
+      "baseline_sha256": "1782588fdb0d13a400efadb84acc2005c551b340fea8fbdd7d81eda29d039a29",
+      "edits": [
+        {
+          "old": "\t\tthis.pipeTextureTop = reg.registerIcon(this.getTextureName() + \"_pipe_top\");\n\t\tthis.pipeTextureSide = reg.registerIcon(this.getTextureName() + \"_pipe_side\");\n",
+          "new": "\t\tthis.pipeTextureTop = reg.registerIcon(this.getRBMKTexture() + \"_pipe_top\");\n\t\tthis.pipeTextureSide = reg.registerIcon(this.getRBMKTexture() + \"_pipe_side\");\n",
+          "start": 498,
+          "end": 658
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRenderState.java",
+      "sha256": "767a538141e14b8333532ad3b90b7d5af9641f6992cee4fe9f10a634d35369e8",
+      "baseline_sha256": null
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+      "sha256": "7ef98f190a98343d82ed97c333accafaa0a4ba5fd7da82de1b09145bd9ae3b96",
+      "baseline_sha256": "5b5a864aaeff379a83d6bb2ead3ecebc59556db658b5717ada481cceca3537f4",
+      "edits": [
+        {
+          "old": "\t\tthis.inner = reg.registerIcon(this.getTextureName() + \"_inner\");\n\t\tthis.fuel = reg.registerIcon(this.getTextureName() + \"_fuel\");\n",
+          "new": "\t\tthis.inner = reg.registerIcon(this.getRBMKTexture() + \"_inner\");\n\t\tthis.fuel = reg.registerIcon(this.getRBMKTexture() + \"_fuel\");\n",
+          "start": 1978,
+          "end": 2110
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ClientProxy.java",
+      "sha256": "efc7efde2b5bacee43aa4437cb283d34ee977823ebe275a1a051fda17e07cbd2",
+      "baseline_sha256": "51fe71271bb81bd67dfd2f39d1a452cf98244329ff84e0454804cdb4b2b3dd7a",
+      "edits": [
+        {
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKRod());\n\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKReflector());\n\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKControl());\n",
+          "new": "\t\t// RBMKModelHandler owns the eighteen native column block/item models.\n",
+          "start": 80678,
+          "end": 80751
+        }
+      ],
+      "shared": true
+    },
+    {
+      "path": "src/main/java/com/hbm/main/RBMKModelHandler.java",
+      "sha256": "15903823b776d79c5e1d4f43fc7b007c65419bceeaab959582df9d8cf6ddd796",
+      "baseline_sha256": null
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderRBMKControl.java",
+      "sha256": "9f3569968e8fae2d8b935a22934c28140050dcd77af40a87bd60b3fe28a5513c",
+      "baseline_sha256": "f0f9921f340ba99ca21f39fd100daf464b404bff29bb69e1e99f9b0b7735f04f"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderRBMKReflector.java",
+      "sha256": "92d091bdca4a78810e43c3761553e268b88663358523cb3252a8e4a7db3e8334",
+      "baseline_sha256": "9efd25eeb79895f938b14bd37363aa17720a2ec8f79c9070a4cb61461331b271"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderRBMKRod.java",
+      "sha256": "1d5f1864b025553b7b7b6627d6b3b27d5d7b028958ff59ad98ad95116383db46",
+      "baseline_sha256": "e25adcc043a502fe00507bffb8a61e6cdcf976fe6e02de63d98b177ff0855980"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/RBMKBakedModel.java",
+      "sha256": "05a459175686518dba2094bdb1b328f8fda3e94d22e66a701d5bea2d4f077ce5",
+      "baseline_sha256": null
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/RBMKContextQuad.java",
+      "sha256": "220976aa8a973a9c21a1b9cead99a6d8a3fa73cbeab3cd2ec389e60db8245f24",
+      "baseline_sha256": null
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/RBMKGeometry.java",
+      "sha256": "4602bb1404a5f5034de1b53d00b0d65d8629eabce47d6f423f4a0a094f5c04b2",
+      "baseline_sha256": null
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/RBMKMaterials.java",
+      "sha256": "2271624ebbb8189360981694633502b600e820c2fa5a74f65b92bc35111626a8",
+      "baseline_sha256": null
+    }
+  ]
+}

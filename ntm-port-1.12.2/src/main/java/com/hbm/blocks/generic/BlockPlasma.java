@@ -21,7 +21,7 @@ public class BlockPlasma extends Block {
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		if(world.getGameRules().getGameRuleBooleanValue("doFireTick"))
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class BlockPlasma extends Block {
 	}
 
 	@Override public boolean isOpaqueCube() { return false; }
-	@Override public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) { return null; }
+	@Override public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) { return null; }
 	@Override public boolean renderAsNormalBlock() { return false; }
 
 }

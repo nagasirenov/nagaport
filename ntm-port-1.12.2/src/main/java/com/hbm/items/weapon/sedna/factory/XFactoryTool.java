@@ -62,140 +62,140 @@ public class XFactoryTool {
 	public static BulletConfig ct_mortar_charge;
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_WATER_HIT = (bullet, mop) -> {
-		if(!bullet.worldObj.isRemote) {
+		if(!bullet.world.isRemote) {
 			int ix = mop.getBlockPos().getX();
 			int iy = mop.getBlockPos().getY();
 			int iz = mop.getBlockPos().getZ();
 			boolean fizz = false;
 			for(int i = -1; i <= 1; i++) for(int j = -1; j <= 1; j++) for(int k = -1; k <= 1; k++) {
-				Block block = bullet.worldObj.getBlock(ix + i, iy + j, iz + k);
+				Block block = com.hbm.world.WorldBlockState.read(bullet.world, ix + i, iy + j, iz + k).getBlock();
 				if(block == Blocks.fire || block == ModBlocks.foam_layer || block == ModBlocks.block_foam) {
-					bullet.worldObj.setBlock(ix + i, iy + j, iz + k, Blocks.air);
+					bullet.world.setBlock(ix + i, iy + j, iz + k, Blocks.air);
 					fizz = true;
 				}
 			}
-			TileEntity core = CompatExternal.getCoreFromPos(bullet.worldObj, ix, iy, iz);
-			if(core instanceof IRepairable) ((IRepairable) core).tryExtinguish(bullet.worldObj, ix, iy, iz, EnumExtinguishType.WATER);
-			if(fizz) bullet.worldObj.playSoundEffect(bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.worldObj.rand.nextFloat() * 0.5F);
+			TileEntity core = CompatExternal.getCoreFromPos(bullet.world, ix, iy, iz);
+			if(core instanceof IRepairable) ((IRepairable) core).tryExtinguish(bullet.world, ix, iy, iz, EnumExtinguishType.WATER);
+			if(fizz) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);
 			bullet.setDead();
 		}
 	};
 
 	public static Consumer<Entity> LAMBDA_WATER_UPDATE = (bullet) -> {
-		if(bullet.worldObj.isRemote) {
+		if(bullet.world.isRemote) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaExt");
 			data.setString("mode", "blockdust");
 			data.setInteger("block", Block.getIdFromBlock(Blocks.water));
 			data.setDouble("posX", bullet.posX); data.setDouble("posY", bullet.posY); data.setDouble("posZ", bullet.posZ);
-			data.setDouble("mX", bullet.motionX + bullet.worldObj.rand.nextGaussian() * 0.05);
-			data.setDouble("mY", bullet.motionY - 0.2 + bullet.worldObj.rand.nextGaussian() * 0.05);
-			data.setDouble("mZ", bullet.motionZ + bullet.worldObj.rand.nextGaussian() * 0.05);
+			data.setDouble("mX", bullet.motionX + bullet.world.rand.nextGaussian() * 0.05);
+			data.setDouble("mY", bullet.motionY - 0.2 + bullet.world.rand.nextGaussian() * 0.05);
+			data.setDouble("mZ", bullet.motionZ + bullet.world.rand.nextGaussian() * 0.05);
 			MainRegistry.proxy.effectNT(data);
 		} else {
 			int x = (int)Math.floor(bullet.posX);
 			int y = (int)Math.floor(bullet.posY);
 			int z = (int)Math.floor(bullet.posZ);
-			if(bullet.worldObj.getBlock(x, y, z) == ModBlocks.volcanic_lava_block && bullet.worldObj.getBlockMetadata(x, y, z) == 0) {
-				bullet.worldObj.setBlock(x, y, z, Blocks.obsidian);
+			if(com.hbm.world.WorldBlockState.read(bullet.world, x, y, z).getBlock() == ModBlocks.volcanic_lava_block && bullet.world.getBlockMetadata(x, y, z) == 0) {
+				bullet.world.setBlock(x, y, z, Blocks.obsidian);
 				bullet.setDead();
 			}
 		}
 	};
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_FOAM_HIT = (bullet, mop) -> {
-		if(!bullet.worldObj.isRemote) {
+		if(!bullet.world.isRemote) {
 			int ix = mop.getBlockPos().getX();
 			int iy = mop.getBlockPos().getY();
 			int iz = mop.getBlockPos().getZ();
 			boolean fizz = false;
 			for(int i = -1; i <= 1; i++) for(int j = -1; j <= 1; j++) for(int k = -1; k <= 1; k++) {
-				Block b = bullet.worldObj.getBlock(ix + i, iy + j, iz + k);
-				if(b.getMaterial() == Material.fire) {
-					bullet.worldObj.setBlock(ix + i, iy + j, iz + k, Blocks.air);
+				Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix + i, iy + j, iz + k).getBlock();
+				if(b.getDefaultState().getMaterial() == Material.FIRE) {
+					bullet.world.setBlock(ix + i, iy + j, iz + k, Blocks.air);
 					fizz = true;
 				}
 			}
-			TileEntity core = CompatExternal.getCoreFromPos(bullet.worldObj, ix, iy, iz);
-			if(core instanceof IRepairable) { ((IRepairable) core).tryExtinguish(bullet.worldObj, ix, iy, iz, EnumExtinguishType.FOAM); return; }
-			if(bullet.worldObj.rand.nextBoolean()) {
+			TileEntity core = CompatExternal.getCoreFromPos(bullet.world, ix, iy, iz);
+			if(core instanceof IRepairable) { ((IRepairable) core).tryExtinguish(bullet.world, ix, iy, iz, EnumExtinguishType.FOAM); return; }
+			if(bullet.world.rand.nextBoolean()) {
 				net.minecraft.util.EnumFacing side = mop.sideHit;
 				ix += side.getFrontOffsetX(); iy += side.getFrontOffsetY(); iz += side.getFrontOffsetZ();
 			}
-			Block b = bullet.worldObj.getBlock(ix, iy, iz);
-			if(b.isReplaceable(bullet.worldObj, ix, iy, iz) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.worldObj, ix, iy, iz)) {
+			Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock();
+			if(b.isReplaceable(bullet.world, ix, iy, iz) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {
 				if(b != ModBlocks.foam_layer) {
-					bullet.worldObj.setBlock(ix, iy, iz, ModBlocks.foam_layer);
+					bullet.world.setBlock(ix, iy, iz, ModBlocks.foam_layer);
 				} else {
-					int meta = bullet.worldObj.getBlockMetadata(ix, iy, iz);
-					if(meta < 6) bullet.worldObj.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
-					else bullet.worldObj.setBlock(ix, iy, iz, ModBlocks.block_foam);
+					int meta = bullet.world.getBlockMetadata(ix, iy, iz);
+					if(meta < 6) bullet.world.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
+					else bullet.world.setBlock(ix, iy, iz, ModBlocks.block_foam);
 				}
 			}
-			if(fizz) bullet.worldObj.playSoundEffect(bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.worldObj.rand.nextFloat() * 0.5F);
+			if(fizz) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);
 		}
 	};
 
 	public static Consumer<Entity> LAMBDA_FOAM_UPDATE = (bullet) -> {
-		if(bullet.worldObj.isRemote) {
+		if(bullet.world.isRemote) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaExt");
 			data.setString("mode", "blockdust");
 			data.setInteger("block", Block.getIdFromBlock(ModBlocks.block_foam));
 			data.setDouble("posX", bullet.posX); data.setDouble("posY", bullet.posY); data.setDouble("posZ", bullet.posZ);
-			data.setDouble("mX", bullet.motionX + bullet.worldObj.rand.nextGaussian() * 0.1);
-			data.setDouble("mY", bullet.motionY - 0.2 + bullet.worldObj.rand.nextGaussian() * 0.1);
-			data.setDouble("mZ", bullet.motionZ + bullet.worldObj.rand.nextGaussian() * 0.1);
+			data.setDouble("mX", bullet.motionX + bullet.world.rand.nextGaussian() * 0.1);
+			data.setDouble("mY", bullet.motionY - 0.2 + bullet.world.rand.nextGaussian() * 0.1);
+			data.setDouble("mZ", bullet.motionZ + bullet.world.rand.nextGaussian() * 0.1);
 			MainRegistry.proxy.effectNT(data);
 		}
 	};
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_SAND_HIT = (bullet, mop) -> {
-		if(!bullet.worldObj.isRemote) {
+		if(!bullet.world.isRemote) {
 			int ix = mop.getBlockPos().getX();
 			int iy = mop.getBlockPos().getY();
 			int iz = mop.getBlockPos().getZ();
-			TileEntity core = CompatExternal.getCoreFromPos(bullet.worldObj, ix, iy, iz);
-			if(core instanceof IRepairable) { ((IRepairable) core).tryExtinguish(bullet.worldObj, ix, iy, iz, EnumExtinguishType.SAND); return; }
-			if(bullet.worldObj.rand.nextBoolean()) {
+			TileEntity core = CompatExternal.getCoreFromPos(bullet.world, ix, iy, iz);
+			if(core instanceof IRepairable) { ((IRepairable) core).tryExtinguish(bullet.world, ix, iy, iz, EnumExtinguishType.SAND); return; }
+			if(bullet.world.rand.nextBoolean()) {
 				net.minecraft.util.EnumFacing side = mop.sideHit;
 				ix += side.getFrontOffsetX(); iy += side.getFrontOffsetY(); iz += side.getFrontOffsetZ();
 			}
-			Block b = bullet.worldObj.getBlock(ix, iy, iz);
-			if((b.isReplaceable(bullet.worldObj, ix, iy, iz) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.worldObj, ix, iy, iz)) {
+			Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock();
+			if((b.isReplaceable(bullet.world, ix, iy, iz) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {
 				if(b != ModBlocks.sand_boron_layer) {
-					bullet.worldObj.setBlock(ix, iy, iz, ModBlocks.sand_boron_layer);
+					bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_boron_layer);
 				} else {
-					int meta = bullet.worldObj.getBlockMetadata(ix, iy, iz);
-					if(meta < 6) bullet.worldObj.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
-					else bullet.worldObj.setBlock(ix, iy, iz, ModBlocks.sand_mix, EnumSandType.BORON.ordinal(), 3);
+					int meta = bullet.world.getBlockMetadata(ix, iy, iz);
+					if(meta < 6) bullet.world.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
+					else bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_mix, EnumSandType.BORON.ordinal(), 3);
 				}
-				if(b.getMaterial() == Material.fire) bullet.worldObj.playSoundEffect(bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.worldObj.rand.nextFloat() * 0.5F);
+				if(b.getDefaultState().getMaterial() == Material.FIRE) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);
 			}
 		}
 	};
 
 	public static Consumer<Entity> LAMBDA_SAND_UPDATE = (bullet) -> {
-		if(bullet.worldObj.isRemote) {
+		if(bullet.world.isRemote) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaExt");
 			data.setString("mode", "blockdust");
 			data.setInteger("block", Block.getIdFromBlock(ModBlocks.sand_mix));
 			data.setInteger("meta", EnumSandType.BORON.ordinal());
 			data.setDouble("posX", bullet.posX); data.setDouble("posY", bullet.posY); data.setDouble("posZ", bullet.posZ);
-			data.setDouble("mX", bullet.motionX + bullet.worldObj.rand.nextGaussian() * 0.1);
-			data.setDouble("mY", bullet.motionY - 0.2 + bullet.worldObj.rand.nextGaussian() * 0.1);
-			data.setDouble("mZ", bullet.motionZ + bullet.worldObj.rand.nextGaussian() * 0.1);
+			data.setDouble("mX", bullet.motionX + bullet.world.rand.nextGaussian() * 0.1);
+			data.setDouble("mY", bullet.motionY - 0.2 + bullet.world.rand.nextGaussian() * 0.1);
+			data.setDouble("mZ", bullet.motionZ + bullet.world.rand.nextGaussian() * 0.1);
 			MainRegistry.proxy.effectNT(data);
 		}
 	};
 
 	public static Consumer<Entity> LAMBDA_SET_HOOK = (entity) -> {
 		EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;
-		if(!bullet.worldObj.isRemote && bullet.ticksExisted < 2 && bullet.getThrower() instanceof EntityPlayer) {
+		if(!bullet.world.isRemote && bullet.ticksExisted < 2 && bullet.getThrower() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) bullet.getThrower();
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.gun_charge_thrower) {
-				ItemGunChargeThrower.setLastHook(player.getHeldItem(), bullet.getEntityId());
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.gun_charge_thrower) {
+				ItemGunChargeThrower.setLastHook(com.hbm.util.NativeHeldItem.getMainHandNullable(player), bullet.getEntityId());
 			}
 		}
 		bullet.ignoreFrustumCheck = true;
@@ -211,7 +211,7 @@ public class XFactoryTool {
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_MORTAR = (bullet, mop) -> {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3 && mop.entityHit == bullet.getThrower()) return;
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5, bullet.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5, bullet.getThrower());
 		vnt.setBlockAllocator(new BlockAllocatorBulkie(60, 8));
 		vnt.setBlockProcessor(new BlockProcessorStandard());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage).setupPiercing(bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent));
@@ -223,12 +223,12 @@ public class XFactoryTool {
 
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_MORTAR_CHARGE = (bullet, mop) -> {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3 && mop.entityHit == bullet.getThrower()) return;
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, bullet.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, bullet.getThrower());
 		vnt.setBlockAllocator(new BlockAllocatorStandard());
 		vnt.setBlockProcessor(new BlockProcessorStandard().setNoDrop().withBlockEffect(new BlockMutatorDebris(ModBlocks.block_slag, 1)));
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage).setupPiercing(bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
-		ExplosionCreator.composeEffectSmall(bullet.worldObj, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z);
+		ExplosionCreator.composeEffectSmall(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z);
 		vnt.explode();
 		bullet.setDead();
 	};
@@ -264,7 +264,7 @@ public class XFactoryTool {
 						.setupStandardFire())
 				.setupStandardConfiguration()
 				.orchestra(Orchestras.ORCHESTRA_FIREEXT)
-				).setUnlocalizedName("gun_fireext");
+				).setTranslationKey("gun_fireext");
 
 		ModItems.gun_charge_thrower = new ItemGunChargeThrower(WeaponQuality.UTILITY, new GunConfig()
 				.dura(3_000).draw(10).inspect(55).reloadChangeType(true).hideCrosshair(false).crosshair(Crosshair.L_CIRCUMFLEX)

@@ -44,7 +44,7 @@ public class GUIMachineRotaryFurnace extends GuiInfoContainer {
 		Slot slot = (Slot) this.inventorySlots.inventorySlots.get(4);
 		if(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {
 			List<String> bonuses = this.furnace.burnModule.getDesc();
-			if(!bonuses.isEmpty()) this.func_146283_a(bonuses, x, y);
+			if(!bonuses.isEmpty()) this.drawHoveringText(bonuses, x, y);
 		}
 		
 		if(furnace.output == null) {
@@ -58,8 +58,8 @@ public class GUIMachineRotaryFurnace extends GuiInfoContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.furnace.hasCustomInventoryName() ? this.furnace.getInventoryName() : I18n.format(this.furnace.getInventoryName());
-		this.fontRendererObj.drawString(name, (this.xSize - 54) / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, (this.xSize - 54) / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

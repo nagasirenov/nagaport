@@ -38,9 +38,9 @@ public abstract class TileEntityMachinePolluting extends TileEntityMachineBase i
 		if(tank.getFill() > tank.getMaxFill()) {
 			int overflow = tank.getFill() - tank.getMaxFill();
 			tank.setFill(tank.getMaxFill());
-			PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, type, overflow / 100F);
+			PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), type, overflow / 100F);
 			
-			if(worldObj.rand.nextInt(3) == 0) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.fizz", 0.1F, 1.5F);
+			if(this.world.rand.nextInt(3) == 0) com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "random.fizz", 0.1F, 1.5F);
 		}
 	}
 	public void pollute(FluidType type, FluidTrait.FluidReleaseType release, float amount) {
@@ -60,18 +60,18 @@ public abstract class TileEntityMachinePolluting extends TileEntityMachineBase i
 			if (tank.getFill() > tank.getMaxFill()) {
 				int overflow = tank.getFill() - tank.getMaxFill();
 				tank.setFill(tank.getMaxFill());
-				PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, entry.getKey(), overflow / 100F);
+				PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), entry.getKey(), overflow / 100F);
 
-				if (worldObj.rand.nextInt(3) == 0)
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.fizz", 0.1F, 1.5F);
+				if (this.world.rand.nextInt(3) == 0)
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "random.fizz", 0.1F, 1.5F);
 			}
 		}
 	}
 	
 	public void sendSmoke(int x, int y, int z, ForgeDirection dir) {
-		if(this.smoke.getFill() > 0) this.sendFluid(smoke, worldObj, x, y, z, dir);
-		if(this.smoke_leaded.getFill() > 0) this.sendFluid(smoke_leaded, worldObj, x, y, z, dir);
-		if(this.smoke_poison.getFill() > 0) this.sendFluid(smoke_poison, worldObj, x, y, z, dir);
+		if(this.smoke.getFill() > 0) this.sendFluid(smoke, this.world, x, y, z, dir);
+		if(this.smoke_leaded.getFill() > 0) this.sendFluid(smoke_leaded, this.world, x, y, z, dir);
+		if(this.smoke_poison.getFill() > 0) this.sendFluid(smoke_poison, this.world, x, y, z, dir);
 	}
 	
 	public FluidTank[] getSmokeTanks() {
@@ -88,11 +88,12 @@ public abstract class TileEntityMachinePolluting extends TileEntityMachineBase i
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		smoke.writeToNBT(nbt, "smoke0");
 		smoke_leaded.writeToNBT(nbt, "smoke1");
 		smoke_poison.writeToNBT(nbt, "smoke2");
+		return nbt;
 	}
 }

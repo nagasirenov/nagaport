@@ -103,8 +103,8 @@ public class ItemModInsert extends ItemArmorMod {
 		
 		insert.setItemDamage(insert.getItemDamage() + 1);
 		
-		if(!event.entity.worldObj.isRemote && this == ModItems.insert_era) {
-			event.entity.worldObj.newExplosion(event.entity, event.entity.posX, event.entity.posY - event.entity.yOffset + event.entity.height * 0.5, event.entity.posZ, 0.05F, false, false);
+		if(!event.getEntity().world.isRemote && this == ModItems.insert_era) {
+			event.getEntity().world.newExplosion(event.getEntity(), event.getEntity().posX, event.getEntity().posY - event.getEntity().yOffset + event.getEntity().height * 0.5, event.getEntity().posZ, 0.05F, false, false);
 		}
 		
 		if(insert.getItemDamage() >= insert.getMaxDamage()) {
@@ -117,7 +117,7 @@ public class ItemModInsert extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote && this == ModItems.insert_polonium) {
+		if(!entity.world.isRemote && this == ModItems.insert_polonium) {
 			HbmLivingProps.incrementRadiation(entity, 100F);
 		}
 	}

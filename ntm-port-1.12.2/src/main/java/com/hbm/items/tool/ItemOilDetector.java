@@ -23,8 +23,8 @@ public class ItemOilDetector extends Item {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		list.add(I18nUtil.format(this.getUnlocalizedName() + ".desc1"));
-		list.add(I18nUtil.format(this.getUnlocalizedName() + ".desc2"));
+		list.add(I18nUtil.format(this.getTranslationKey() + ".desc1"));
+		list.add(I18nUtil.format(this.getTranslationKey() + ".desc2"));
 	}
 
 	@Override
@@ -32,9 +32,9 @@ public class ItemOilDetector extends Item {
 
 		if(!world.isRemote) {
 			boolean direct = false;
-			int x = MathHelper.floor_double(player.posX);
-			int y = MathHelper.floor_double(player.posY);
-			int z = MathHelper.floor_double(player.posZ);
+			int x = MathHelper.floor(player.posX);
+			int y = MathHelper.floor(player.posY);
+			int z = MathHelper.floor(player.posZ);
 
 			Block reserve;
 
@@ -49,11 +49,11 @@ public class ItemOilDetector extends Item {
 				reserveType = ((BlockOreFluid) reserve).getUnlocalizedReserveType();
 
 			if(direct) {
-				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(this.getUnlocalizedName() + ".bullseye" + reserveType).color(TextFormatting.DARK_GREEN).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);
+				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(this.getTranslationKey() + ".bullseye" + reserveType).color(TextFormatting.DARK_GREEN).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);
 			} else if(reserve != null) {
-				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(this.getUnlocalizedName() + ".detected" + reserveType).color(TextFormatting.GOLD).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);
+				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(this.getTranslationKey() + ".detected" + reserveType).color(TextFormatting.GOLD).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);
 			} else {
-				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(this.getUnlocalizedName() + ".noOil").color(TextFormatting.RED).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);
+				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(this.getTranslationKey() + ".noOil").color(TextFormatting.RED).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);
 			}
 		}
 
@@ -86,7 +86,7 @@ public class ItemOilDetector extends Item {
 
 	private Block searchDirect(World world, int x, int y, int z) {
 		for(int i =  y + 15; i > 5; i--) {
-			Block block = world.getBlock(x, i, z);
+			Block block = com.hbm.world.WorldBlockState.read(world, x, i, z).getBlock();
 			if(block instanceof BlockOreFluid) return block;
 		}
 

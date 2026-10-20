@@ -1,5 +1,6 @@
 package com.hbm.render.tileentity;
 
+import com.hbm.render.util.NativeIconExtrusion;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -9,10 +10,8 @@ import com.hbm.items.ModItems;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.render.util.HorsePronter;
 
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -21,9 +20,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderCatalyticReformer extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderCatalyticReformer extends TileEntitySpecialRenderer {
 	
 	private static ResourceLocation extra = new ResourceLocation(RefStrings.MODID, "textures/models/horse/dyx.png");
 	
@@ -78,31 +76,12 @@ public class RenderCatalyticReformer extends TileEntitySpecialRenderer implement
 			GL11.glRotated(60, 0, 0, -1);
 			bindTexture(TextureMap.locationItemsTexture);
 			IIcon icon = stack.getIconIndex();
-			ItemRenderer.renderItemIn2D(Tessellator.instance, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
+			NativeIconExtrusion.draw(icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 		}
 
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_catalytic_reformer);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -3, 0);
-				GL11.glScaled(3.5, 3.5, 3.5);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.5, 0.5, 0.5);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.catalytic_reformer_tex);
-				ResourceManager.catalytic_reformer.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 }

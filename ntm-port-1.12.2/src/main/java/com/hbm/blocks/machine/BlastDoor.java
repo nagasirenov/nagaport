@@ -45,7 +45,7 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 	public BombReturnCode explode(World world, int x, int y, int z) {
 		
 		if(!world.isRemote) {
-			TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(x, y, z);
+			TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null) {
 				
 				if(!entity.isLocked()) {
@@ -65,12 +65,12 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 		if(world.isRemote)
 		{
 			return true;
-		} else if(player.getHeldItem() != null && (player.getHeldItem().getItem() instanceof ItemLock || player.getHeldItem().getItem() == ModItems.key_kit)) {
+		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
 			return false;
 			
 		} if(!player.isSneaking()) {
 			
-			TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(x, y, z);
+			TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null)
 			{
 				if(entity.isLocked()) {
@@ -90,9 +90,9 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
 		
-		TileEntityBlastDoor te = (TileEntityBlastDoor) world.getTileEntity(x, y, z);
+		TileEntityBlastDoor te = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		
 		if(i == 0)
 		{

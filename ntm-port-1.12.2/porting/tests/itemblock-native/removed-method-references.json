@@ -1,0 +1,447 @@
+[
+  {
+    "path": "src/main/java/com/hbm/main/LegacyBaseModelHandler.java",
+    "line": 162,
+    "text": "Method itemColor = findLegacyMethod(item.getClass(), \"getColorFromItemStack\", ItemStack.class, int.class);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/ItemEnumMulti.java",
+    "line": 83,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+    "line": 112,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+    "line": 113,
+    "text": "if(pass == 0) return this.getIconFromDamage(meta);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/ItemRemap.java",
+    "line": 27,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/ItemRemap.java",
+    "line": 28,
+    "text": "return this.remapItem.getIconFromDamage(this.remapMeta);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/ItemRemap.java",
+    "line": 41,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/BrokenItem.java",
+    "line": 35,
+    "text": "return item.getIconFromDamage(meta);"
+  },
+  {
+    "path": "src/main/java/com/hbm/util/ColorUtil.java",
+    "line": 24,
+    "text": "String iconName = stack.getItem().getIconFromDamage(stack.getItemDamage()).getIconName();"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/food/ItemCrayon.java",
+    "line": 59,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/food/ItemCrayon.java",
+    "line": 60,
+    "text": "return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/food/ItemCrayon.java",
+    "line": 65,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/food/ItemMarshmallow.java",
+    "line": 37,
+    "text": "public IIcon getIconFromDamage(int damage) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/food/ItemMarshmallow.java",
+    "line": 42,
+    "text": "return super.getIconFromDamage(damage);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/block/ItemBlockBase.java",
+    "line": 78,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/block/ItemBlockBase.java",
+    "line": 94,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java",
+    "line": 55,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+    "line": 131,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+    "line": 132,
+    "text": "IIcon icon = super.getIconFromDamage(meta);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemICFPellet.java",
+    "line": 165,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemICFPellet.java",
+    "line": 166,
+    "text": "return pass == 1 ? super.getIconFromDamageForRenderPass(meta, pass) : this.iconBG;"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemICFPellet.java",
+    "line": 171,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidIcon.java",
+    "line": 122,
+    "text": "public int getColorFromItemStack(ItemStack stack, int p_82790_2_) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemRBMKPellet.java",
+    "line": 102,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java",
+    "line": 131,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java",
+    "line": 132,
+    "text": "return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java",
+    "line": 137,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemDepletedFuel.java",
+    "line": 33,
+    "text": "public int getColorFromItemStack(ItemStack p_82790_1_, int p_82790_2_)"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemCanister.java",
+    "line": 67,
+    "text": "public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemCanister.java",
+    "line": 68,
+    "text": "return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemCanister.java",
+    "line": 73,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemBlueprintFolder.java",
+    "line": 38,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemScraps.java",
+    "line": 56,
+    "text": "public int getColorFromItemStack(ItemStack stack, int layer) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemScraps.java",
+    "line": 67,
+    "text": "return super.getColorFromItemStack(stack, layer);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemScraps.java",
+    "line": 83,
+    "text": "return this.getIconFromDamage(stack.getItemDamage());"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+    "line": 159,
+    "text": "public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_)"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+    "line": 161,
+    "text": "return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+    "line": 166,
+    "text": "public int getColorFromItemStack(ItemStack stack, int p_82790_2_)"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemChemicalDye.java",
+    "line": 37,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemChemicalDye.java",
+    "line": 38,
+    "text": "return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemChemicalDye.java",
+    "line": 43,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemMold.java",
+    "line": 125,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidDuct.java",
+    "line": 67,
+    "text": "public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidDuct.java",
+    "line": 68,
+    "text": "return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidDuct.java",
+    "line": 73,
+    "text": "public int getColorFromItemStack(ItemStack stack, int p_82790_2_) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidTank.java",
+    "line": 73,
+    "text": "public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidTank.java",
+    "line": 74,
+    "text": "return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemFluidTank.java",
+    "line": 79,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemGasTank.java",
+    "line": 75,
+    "text": "public IIcon getIconFromDamageForRenderPass(int damage, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemGasTank.java",
+    "line": 76,
+    "text": "return pass == 2 ? this.labelIcon : pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemGasTank.java",
+    "line": 81,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemAmmoContainer.java",
+    "line": 48,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemPipette.java",
+    "line": 181,
+    "text": "return pass == 1 ? this.overlayIcon : getIconFromDamageForRenderPass(stack.getItemDamage(), pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemPipette.java",
+    "line": 192,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+    "line": 66,
+    "text": "return renderPass == 1 ? this.iconClosed : getIconFromDamageForRenderPass(stack.getItemDamage(), renderPass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+    "line": 173,
+    "text": "return this.getIconFromDamage(stack.getItemDamage());"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+    "line": 178,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemUnstable.java",
+    "line": 93,
+    "text": "public IIcon getIconFromDamageForRenderPass(int damage, int layer)"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBookLore.java",
+    "line": 86,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBookLore.java",
+    "line": 93,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemMineralOre.java",
+    "line": 114,
+    "text": "return this.getIconFromDamage(stack.getItemDamage());"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemMineralOre.java",
+    "line": 119,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOreNew.java",
+    "line": 88,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOreNew.java",
+    "line": 89,
+    "text": "if(pass == 0) return this.getIconFromDamage(meta);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOreNew.java",
+    "line": 95,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOreNew.java",
+    "line": 357,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemByproduct.java",
+    "line": 18,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemKitCustom.java",
+    "line": 46,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemKitCustom.java",
+    "line": 47,
+    "text": "return pass == 1 ? this.overlay1 : pass == 2 ? this.overlay2 : super.getIconFromDamageForRenderPass(meta, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemKitCustom.java",
+    "line": 52,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemProduct.java",
+    "line": 19,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOre.java",
+    "line": 46,
+    "text": "public IIcon getIconFromDamageForRenderPass(int meta, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOre.java",
+    "line": 50,
+    "text": "return pass == 1 ? this.overlayIconBismuth : super.getIconFromDamageForRenderPass(meta, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOre.java",
+    "line": 53,
+    "text": "return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemBedrockOre.java",
+    "line": 58,
+    "text": "public int getColorFromItemStack(ItemStack stack, int pass) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemStarmetal.java",
+    "line": 46,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemAutogen.java",
+    "line": 87,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemAutogen.java",
+    "line": 103,
+    "text": "public int getColorFromItemStack(ItemStack stack, int layer) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemAutogen.java",
+    "line": 105,
+    "text": "if(this.getIconFromDamage(stack.getItemDamage()) != this.defaultIcon) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemSiegeCoin.java",
+    "line": 32,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemSiegeCoin.java",
+    "line": 39,
+    "text": "this.itemIcon = Items.stick.getIconFromDamage(0);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemSoyuz.java",
+    "line": 71,
+    "text": "public IIcon getIconFromDamage(int meta)"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemSchraranium.java",
+    "line": 26,
+    "text": "public IIcon getIconFromDamage(int meta) {"
+  },
+  {
+    "path": "src/main/java/com/hbm/render/tileentity/RenderLoot.java",
+    "line": 204,
+    "text": "int k1 = stack.getItem().getColorFromItemStack(stack, i);"
+  },
+  {
+    "path": "src/main/java/com/hbm/render/model/LegacyBaseBakedModel.java",
+    "line": 79,
+    "text": "return forFlatItem(item, metadata, resolve(item.getIconFromDamage(metadata)));"
+  },
+  {
+    "path": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+    "line": 136,
+    "text": "IIcon icon = Items.golden_sword.getIconFromDamage(0);"
+  },
+  {
+    "path": "src/main/java/com/hbm/render/entity/effect/MultiCloudRenderer.java",
+    "line": 79,
+    "text": "IIcon iicon = item.getIconFromDamage(field_94150_f);"
+  },
+  {
+    "path": "src/main/java/com/hbm/render/entity/projectile/RenderGenericGrenade.java",
+    "line": 35,
+    "text": "iicon = canister.getType().getIconFromDamageForRenderPass(fluid.getID(), i);"
+  },
+  {
+    "path": "src/main/java/com/hbm/render/entity/projectile/RenderGenericGrenade.java",
+    "line": 47,
+    "text": "iicon = grenade.getGrenade().getIconFromDamage(i);"
+  }
+]

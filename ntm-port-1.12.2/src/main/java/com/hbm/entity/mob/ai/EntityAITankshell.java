@@ -100,7 +100,7 @@ public class EntityAITankshell extends EntityAIBase {
 		data.setBoolean("crouched", false);
 		data.setString("name", cachedCasingConfig.getName());
 		if(ej != null) data.setInteger("ej", ej.getId());
-		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, spawn.x, spawn.y, spawn.z), new TargetPoint(owner.worldObj.provider.dimensionId, owner.posX, owner.posY, owner.posZ, 50));
+		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, spawn.x, spawn.y, spawn.z), new TargetPoint(owner.world.provider.getDimension(), owner.posX, owner.posY, owner.posZ, 50));
 
 		cachedCasingConfig = null;
 	}
@@ -128,14 +128,14 @@ public class EntityAITankshell extends EntityAIBase {
 					bullet.motionX = targetX * 0.5D;
 					bullet.motionZ = targetZ * 0.5D;
 					bullet.motionY = targetY * 0.1D;
-					owner.worldObj.spawnEntityInWorld(bullet);
+					owner.world.spawnEntityInWorld(bullet);
 				}else {
 					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactoryRocket.rocket_qd[1], 4, 0.01F, owner.posX, owner.posY + 3, owner.posZ);
 					bullet.setPosition(owner.posX, owner.posY + 3, owner.posZ);
 					bullet.motionX = targetX * 0.5D;
 					bullet.motionZ = targetZ * 0.5D;
 					bullet.motionY = targetY * 0.1D;
-					owner.worldObj.spawnEntityInWorld(bullet);
+					owner.world.spawnEntityInWorld(bullet);
 				}
 			} else {
 				for (int i = 0; i < 8; i++) {
@@ -146,18 +146,18 @@ public class EntityAITankshell extends EntityAIBase {
 					bullet.motionZ = targetZ * (0.2 + (0.5 * Math.random()));
 					bullet.motionY = targetY * 0.1;
 
-					owner.worldObj.spawnEntityInWorld(bullet);
+					owner.world.spawnEntityInWorld(bullet);
 				}
 			}
 
-			owner.worldObj.playSoundEffect(owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
 			reloadTimer = reloadDelay;
 		} else {
 			reloadTimer--;
 		}
 
 		if(reloadTimer == 20) {
-			owner.worldObj.playSoundEffect(owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_reload", 3.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_reload", 3.0F, 1.0F);
 		}
 	}
 

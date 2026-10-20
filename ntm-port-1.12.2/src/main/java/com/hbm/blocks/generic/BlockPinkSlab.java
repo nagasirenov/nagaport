@@ -16,7 +16,7 @@ public class BlockPinkSlab extends BlockSlab {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return Item.getItemFromBlock(ModBlocks.pink_slab);
 	}
 

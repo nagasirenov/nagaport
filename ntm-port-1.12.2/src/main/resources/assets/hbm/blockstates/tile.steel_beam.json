@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/0/world"
+    },
+    "metadata=1": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/1/world"
+    },
+    "metadata=2": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/2/world"
+    },
+    "metadata=3": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/3/world"
+    },
+    "metadata=4": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/4/world"
+    },
+    "metadata=5": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/5/world"
+    },
+    "metadata=6": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/6/world"
+    },
+    "metadata=7": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/7/world"
+    },
+    "metadata=8": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/8/world"
+    },
+    "metadata=9": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/9/world"
+    },
+    "metadata=10": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/10/world"
+    },
+    "metadata=11": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/11/world"
+    },
+    "metadata=12": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/12/world"
+    },
+    "metadata=13": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/13/world"
+    },
+    "metadata=14": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/14/world"
+    },
+    "metadata=15": {
+      "model": "hbm:native_decoration_obj/tile.steel_beam/15/world"
+    }
+  }
+}

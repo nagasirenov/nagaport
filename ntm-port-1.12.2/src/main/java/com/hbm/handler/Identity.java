@@ -24,7 +24,7 @@ public class Identity {
 		if(idFile.exists() && idFile.isFile()) {
 			try {
 				String line = Files.readFirstLine(idFile, StandardCharsets.US_ASCII);
-				value = MathHelper.clamp_int(Integer.parseInt(line), MIN, MAX);
+				value = MathHelper.clamp(Integer.parseInt(line), MIN, MAX);
 			} catch(Throwable e) { }
 		}
 		

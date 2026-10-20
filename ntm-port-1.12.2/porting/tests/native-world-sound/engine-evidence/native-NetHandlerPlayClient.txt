@@ -1,0 +1,32 @@
+# Exact javap method excerpts; source native-NetHandlerPlayClient.javap
+
+  public void handleSoundEffect(net.minecraft.network.play.server.SPacketSoundEffect);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: aload_0
+       3: getfield      #175                // Field client:Lnet/minecraft/client/Minecraft;
+       6: invokestatic  #205                // Method net/minecraft/network/PacketThreadUtil.checkThreadAndEnqueue:(Lnet/minecraft/network/Packet;Lnet/minecraft/network/INetHandler;Lnet/minecraft/util/IThreadListener;)V
+       9: aload_0
+      10: getfield      #175                // Field client:Lnet/minecraft/client/Minecraft;
+      13: getfield      #716                // Field net/minecraft/client/Minecraft.world:Lnet/minecraft/client/multiplayer/WorldClient;
+      16: aload_0
+      17: getfield      #175                // Field client:Lnet/minecraft/client/Minecraft;
+      20: getfield      #280                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+      23: aload_1
+      24: invokevirtual #2775               // Method net/minecraft/network/play/server/SPacketSoundEffect.getX:()D
+      27: aload_1
+      28: invokevirtual #2776               // Method net/minecraft/network/play/server/SPacketSoundEffect.getY:()D
+      31: aload_1
+      32: invokevirtual #2777               // Method net/minecraft/network/play/server/SPacketSoundEffect.getZ:()D
+      35: aload_1
+      36: invokevirtual #2781               // Method net/minecraft/network/play/server/SPacketSoundEffect.getSound:()Lnet/minecraft/util/SoundEvent;
+      39: aload_1
+      40: invokevirtual #2784               // Method net/minecraft/network/play/server/SPacketSoundEffect.getCategory:()Lnet/minecraft/util/SoundCategory;
+      43: aload_1
+      44: invokevirtual #2787               // Method net/minecraft/network/play/server/SPacketSoundEffect.getVolume:()F
+      47: aload_1
+      48: invokevirtual #2788               // Method net/minecraft/network/play/server/SPacketSoundEffect.getPitch:()F
+      51: invokevirtual #2142               // Method net/minecraft/client/multiplayer/WorldClient.playSound:(Lnet/minecraft/entity/player/EntityPlayer;DDDLnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FF)V
+      54: return
+

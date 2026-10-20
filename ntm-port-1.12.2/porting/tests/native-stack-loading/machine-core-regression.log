@@ -1,0 +1,3 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS: 130 complete production MachineBase + LoadedBase with native Slot/ItemStack/NBT/World/Block/Netty APIs; controlled NTM collaborators, not live mod

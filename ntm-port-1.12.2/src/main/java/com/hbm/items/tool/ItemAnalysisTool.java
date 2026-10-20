@@ -19,7 +19,7 @@ public class ItemAnalysisTool extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
 		if(b instanceof BlockDummyable) {
 			int[] pos = ((BlockDummyable) b).findCore(world, x, y, z);

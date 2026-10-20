@@ -24,7 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class ArmorNCRPA extends ArmorFSBPowered implements IItemRendererProvider, IPAWeaponsProvider {
 
@@ -73,7 +73,8 @@ public class ArmorNCRPA extends ArmorFSBPowered implements IItemRendererProvider
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }

@@ -35,7 +35,7 @@ public class RenderSealDoor implements IRenderDoors {
 		buf.put(new double[] { 0, 0, -1, 0.5001 }); buf.rewind();
 		GL11.glClipPlane(GL11.GL_CLIP_PLANE0, buf);
 		
-		GL11.glTranslated(0, 0, Library.smoothstep(MathHelper.clamp_double(raise, 0, maxRaise), 0, 1) * 0.9);
+		GL11.glTranslated(0, 0, Library.smoothstep(MathHelper.clamp(raise, (double) (0), maxRaise), 0, 1) * 0.9);
 		ResourceManager.pheo_seal_door.renderPart("Door");
 		
 		GL11.glDisable(GL11.GL_CLIP_PLANE0);

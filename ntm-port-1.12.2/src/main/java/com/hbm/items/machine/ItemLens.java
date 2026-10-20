@@ -18,11 +18,11 @@ public class ItemLens extends Item {
 	public static long getLensDamage(ItemStack stack) {
 		
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 		
-		return stack.stackTagCompound.getLong("damage");
+		return stack.getTagCompound().getLong("damage");
 	}
 
 	
@@ -38,10 +38,10 @@ public class ItemLens extends Item {
 	public static void setLensDamage(ItemStack stack, long damage) {
 		
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
-		stack.stackTagCompound.setLong("damage", damage);
+		stack.getTagCompound().setLong("damage", damage);
 	}
 
 	@Override

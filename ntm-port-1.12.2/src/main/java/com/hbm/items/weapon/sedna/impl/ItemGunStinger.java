@@ -58,7 +58,7 @@ public class ItemGunStinger extends ItemGunBaseNT {
 						progressLockon(world, stack);
 						
 						if(this.getLockonProgress(stack) >= 60 && !this.getIsLockedOn(stack)) {
-							player.worldObj.playSoundAtEntity(player, "hbm:item.techBleep", 1F, 1F);
+							player.world.playSoundAtEntity(player, "hbm:item.techBleep", 1F, 1F);
 							this.setIsLockedOn(stack, true);
 						}
 					}
@@ -100,7 +100,7 @@ public class ItemGunStinger extends ItemGunBaseNT {
 		
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(Vec3NT.getMinX(look, left, right, pos), Vec3NT.getMinY(look, left, right, pos), Vec3NT.getMinZ(look, left, right, pos),
 				Vec3NT.getMaxX(look, left, right, pos), Vec3NT.getMaxY(look, left, right, pos), Vec3NT.getMaxZ(look, left, right, pos));
-		List<Entity> entities = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, aabb);
+		List<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, aabb);
 		Entity closestEntity = null;
 		double closestAngle = 360D;
 		

@@ -33,7 +33,7 @@ public class CustomMachineRecipes extends SerializableRecipe {
 			recipe.inputFluids = new FluidStack[] {new FluidStack(Fluids.WATER, 250)};
 			recipe.inputItems = new AStack[] {new ComparableStack(ModItems.powder_sawdust)};
 			recipe.outputFluids = new FluidStack[0];
-			recipe.outputItems = new Pair[] {new Pair(new ItemStack(Items.paper, 3), 1F)};
+			recipe.outputItems = new Pair[] {new Pair(new ItemStack(Items.PAPER, 3), 1F)};
 			recipe.duration = 60;
 			recipe.consumptionPerTick = 10;
 			recipe.pollutionType = "SOOT";

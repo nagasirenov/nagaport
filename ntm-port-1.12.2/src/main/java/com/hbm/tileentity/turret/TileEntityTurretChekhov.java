@@ -39,7 +39,7 @@ public class TileEntityTurretChekhov extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretChekhov";
 	}
 
@@ -78,7 +78,7 @@ public class TileEntityTurretChekhov extends TileEntityTurretBaseNT {
 				this.cachedCasingConfig = conf.casing;
 				this.spawnBullet(conf, 10F);
 				this.conusmeAmmo(conf.ammo);
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.chekhov_fire", 2.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.chekhov_fire", 2.0F, 1.0F);
 
 				Vec3d pos = this.getTurretPos();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
@@ -90,7 +90,7 @@ public class TileEntityTurretChekhov extends TileEntityTurretBaseNT {
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 1.5F);
 				data.setByte("count", (byte)1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 			}
 		}
 	}
@@ -123,10 +123,10 @@ public class TileEntityTurretChekhov extends TileEntityTurretBaseNT {
 	private boolean manual;
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			if(this.tPos != null || manual) {
 				this.accel = Math.min(45F, this.accel += 2);

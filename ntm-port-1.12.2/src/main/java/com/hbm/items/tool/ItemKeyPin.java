@@ -27,18 +27,18 @@ public class ItemKeyPin extends Item {
 	}
 
 	public static int getPins(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
-		return stack.stackTagCompound.getInteger("pins");
+		return stack.getTagCompound().getInteger("pins");
 	}
 	
 	public static void setPins(ItemStack stack, int i) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
-		stack.stackTagCompound.setInteger("pins", i);
+		stack.getTagCompound().setInteger("pins", i);
 	}
 	
 	public boolean canTransfer() {

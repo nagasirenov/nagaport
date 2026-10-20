@@ -26,7 +26,7 @@ public class EntityC130 extends EntityPlaneBase {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			if(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {
 				if(audio == null || !audio.isPlaying()) {
 					audio = MainRegistry.proxy.getLoopedSound("hbm:entity.bomberLoop", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);
@@ -42,8 +42,8 @@ public class EntityC130 extends EntityPlaneBase {
 			}
 		}
 		
-		if(!worldObj.isRemote && this.ticksExisted == this.getLifetime() / 2 && this.health > 0) {
-			EntityParachuteCrate crate = new EntityParachuteCrate(worldObj);
+		if(!this.world.isRemote && this.ticksExisted == this.getLifetime() / 2 && this.health > 0) {
+			EntityParachuteCrate crate = new EntityParachuteCrate(this.world);
 			crate.setPosition(posX - motionX * 7, posY - 10, posZ - motionZ * 7);
 
 			if(this.payload == C130PayloadType.SUPPLIES) {
@@ -55,7 +55,7 @@ public class EntityC130 extends EntityPlaneBase {
 				for(int i = 0; i < 6; i++) crate.items.add(ItemPool.getStack(ItemPoolsC130.POOL_AMMO, this.rand));
 			}
 			
-			worldObj.spawnEntityInWorld(crate);
+			this.world.spawnEntityInWorld(crate);
 		}
 	}
 

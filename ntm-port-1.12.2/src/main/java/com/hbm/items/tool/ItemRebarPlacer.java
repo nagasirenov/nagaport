@@ -72,16 +72,16 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 	// if the placer isn't equipped or no concrete is loaded, forget the cached position
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
-		if(stack.hasTagCompound() && stack.stackTagCompound.hasKey("pos")) {
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("pos")) {
 			ItemStack theConk = ItemStackUtil.readStacksFromNBT(stack, 1)[0];
 			
 			if(!held || theConk == null) {
-				stack.stackTagCompound.removeTag("pos");
+				stack.getTagCompound().removeTag("pos");
 				return;
 			}
 			
 			if(!isValidConk(theConk.getItem(), theConk.getItemDamage())) {
-				stack.stackTagCompound.removeTag("pos");
+				stack.getTagCompound().removeTag("pos");
 				return;
 			}
 		}
@@ -102,7 +102,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 		if(world.isRemote) return true;
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 			ItemStackUtil.addStacksToNBT(stack, new ItemStack[] {new ItemStack(ModBlocks.concrete_rebar)});
 		}
 		ItemStack theConk = ItemStackUtil.readStacksFromNBT(stack, 1)[0];
@@ -110,8 +110,8 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		boolean hasConk = theConk != null && isValidConk(theConk.getItem(), theConk.getItemDamage());
 		
 		if(!hasConk) {
-			player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-					.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 					.next("] ").color(TextFormatting.DARK_AQUA)
 					.next("No valid concrete type set!").color(TextFormatting.RED).flush());
 			return true;
@@ -119,20 +119,20 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(side);
 		
-		if(!stack.stackTagCompound.hasKey("pos")) {
-			stack.stackTagCompound.setIntArray("pos", new int[] {x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ});
+		if(!stack.getTagCompound().hasKey("pos")) {
+			stack.getTagCompound().setIntArray("pos", new int[] {x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ});
 		} else {
 			int rebarLeft = InventoryUtil.countAStackMatches(player, new ComparableStack(ModBlocks.rebar), true);
 			if(rebarLeft <= 0) {
-				player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Out of rebar!").color(TextFormatting.RED).flush());
-				stack.stackTagCompound.removeTag("pos");
+				stack.getTagCompound().removeTag("pos");
 				return true;
 			}
 			
-			int[] pos = stack.stackTagCompound.getIntArray("pos");
+			int[] pos = stack.getTagCompound().getIntArray("pos");
 			int iX = x + dir.offsetX;
 			int iY = y + dir.offsetY;
 			int iZ = z + dir.offsetZ;
@@ -151,9 +151,9 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 					for(int i = minX; i<= maxX; i++) {
 						if(rebarLeft <= 0) break outer;
 						
-						if(world.getBlock(i, k, j).isReplaceable(world, i, k, j) && player.canPlayerEdit(i, k, j, side, stack)) {
+						if(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, i, k, j) && player.canPlayerEdit(i, k, j, side, stack)) {
 							world.setBlock(i, k, j, ModBlocks.rebar);
-							TileEntity tile = world.getTileEntity(i, k, j);
+							TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(i, k, j));
 							if(tile instanceof TileEntityRebar) {
 								((TileEntityRebar) tile).setup(Block.getBlockFromItem(theConk.getItem()), theConk.getItemDamage());
 							}
@@ -166,12 +166,12 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 			
 			InventoryUtil.tryConsumeAStack(player.inventory.mainInventory, 0, player.inventory.mainInventory.length - 1, new ComparableStack(ModBlocks.rebar, rebarUsed));
 			
-			player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-					.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 					.next("] ").color(TextFormatting.DARK_AQUA)
 					.next("Placed " + rebarUsed + " rebar!").color(TextFormatting.GREEN).flush());
 			
-			stack.stackTagCompound.removeTag("pos");
+			stack.getTagCompound().removeTag("pos");
 			player.inventoryContainer.detectAndSendChanges();
 		}
 		
@@ -180,13 +180,13 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerRebar(player.inventory, new InventoryRebar(player, player.getHeldItem()));
+		return new ContainerRebar(player.inventory, new InventoryRebar(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUIRebar(player.inventory, new InventoryRebar(player, player.getHeldItem()));
+		return new GUIRebar(player.inventory, new InventoryRebar(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	public static class InventoryRebar extends ItemInventory {
@@ -315,7 +315,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 				}
 				
 				lines.add(new Object[] {I18nUtil.resolveKey(selected.getDisplayName())});
-				this.drawStackText(lines, mouseX, mouseY, this.fontRendererObj);
+				this.drawStackText(lines, mouseX, mouseY, this.fontRenderer);
 			}
 		}
 
@@ -323,8 +323,8 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		protected void drawGuiContainerForegroundLayer(int i, int j) {
 			String name = I18n.format(this.inventory.getInventoryName());
 			if(inventory.hasCustomInventoryName()) name = inventory.target.getDisplayName();
-			this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-			this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+			this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+			this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		}
 
 		@Override

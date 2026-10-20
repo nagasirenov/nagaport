@@ -21,9 +21,9 @@ public class EntityGrenadeGascan extends EntityGrenadeBase {
 	@Override
 	public void explode() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.setDead();
-			this.worldObj.newExplosion((Entity) null, (float) this.posX, (float) this.posY, (float) this.posZ, 5.0F, true, false);
+			this.world.newExplosion((Entity) null, (float) this.posX, (float) this.posY, (float) this.posZ, 5.0F, true, false);
 		}
 	}
 }

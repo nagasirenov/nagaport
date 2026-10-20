@@ -7,7 +7,10 @@ import com.hbm.world.feature.WorldGenSurfaceSpot;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import java.util.Random;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
@@ -33,98 +36,99 @@ public class BiomeDecoratorNoMansLand extends BiomeDecorator {
 		this.gravelPerChunk = 2;
 	}
 
-	protected void genDecorations(BiomeGenBase biome) {
-		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(currentWorld, randomGenerator, chunk_X, chunk_Z));
-		this.generateOres();
+	@Override
+	protected void genDecorations(Biome biome, World world, Random rand) {
+		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(world, rand, this.chunkPos));
+		this.generateOres(world, rand);
 		
 		int x;
 		int y;
 		int z;
 
 		/// SAND IN WATER ///
-		boolean doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, SAND);
-		for(int i = 0; doGen && i < this.sandPerChunk2; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			this.sandGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);
+		boolean doGen = TerrainGen.decorate(world, rand, this.chunkPos, SAND);
+		for(int i = 0; doGen && i < this.sandPatchesPerChunk; ++i) {
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			this.sandGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));
 		}
 
 		/// GRAVEL IN WATER ///
-		doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, SAND_PASS2);
-		for(int i = 0; doGen && i < this.sandPerChunk; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			this.gravelAsSandGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);
+		doGen = TerrainGen.decorate(world, rand, this.chunkPos, SAND_PASS2);
+		for(int i = 0; doGen && i < this.gravelPatchesPerChunk; ++i) {
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			super.gravelGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));
 		}
 		
 		/// SELLAFITE ///
 		for(int i = 0; i < this.sellafitePerChunk; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			this.sellafiteGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			this.sellafiteGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));
 		}
 		
 		/// GRAVEL ///
 		for(int i = 0; i < this.gravelPerChunk; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			this.gravelGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			this.gravelGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));
 		}
 
 		int trees = this.treesPerChunk;
 
-		if(this.randomGenerator.nextInt(10) == 0) trees++;
+		if(rand.nextInt(10) == 0) trees++;
 
 		/// TREES ///
-		doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, TREE);
+		doGen = TerrainGen.decorate(world, rand, this.chunkPos, TREE);
 		for(int i = 0; doGen && i < trees; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			y = this.currentWorld.getHeightValue(x, z);
-			WorldGenAbstractTree worldgenabstracttree = biome.func_150567_a(this.randomGenerator);
-			worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			y = world.getHeight(new BlockPos(x, 0, z)).getY();
+			WorldGenAbstractTree worldgenabstracttree = biome.getRandomTreeFeature(rand);
+			worldgenabstracttree.setDecorationDefaults();
 
-			if(worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, x, y, z)) {
-				worldgenabstracttree.func_150524_b(this.currentWorld, this.randomGenerator, x, y, z);
+			if(worldgenabstracttree.generate(world, rand, new BlockPos(x, y, z))) {
+				worldgenabstracttree.generateSaplings(world, rand, new BlockPos(x, y, z));
 			}
 		}
 
 		/// TALL GRASS ///
-		doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, GRASS);
+		doGen = TerrainGen.decorate(world, rand, this.chunkPos, GRASS);
 		for(int i = 0; doGen && i < this.grassPerChunk; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			y = nextInt(this.currentWorld.getHeightValue(x, z) * 2);
-			WorldGenerator worldgenerator = biome.getRandomWorldGenForGrass(this.randomGenerator);
-			worldgenerator.generate(this.currentWorld, this.randomGenerator, x, y, z);
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			y = nextInt(rand, world.getHeight(new BlockPos(x, 0, z)).getY() * 2);
+			WorldGenerator worldgenerator = biome.getRandomWorldGenForGrass(rand);
+			worldgenerator.generate(world, rand, new BlockPos(x, y, z));
 		}
 
 		/// SHRUBBERY ///
-		doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, DEAD_BUSH);
+		doGen = TerrainGen.decorate(world, rand, this.chunkPos, DEAD_BUSH);
 		for(int i = 0; doGen && i < this.deadBushPerChunk; ++i) {
-			x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-			z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			y = nextInt(this.currentWorld.getHeightValue(x, z) * 2);
-			(new WorldGenDeadBush(Blocks.deadbush)).generate(this.currentWorld, this.randomGenerator, x, y, z);
+			x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+			z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+			y = nextInt(rand, world.getHeight(new BlockPos(x, 0, z)).getY() * 2);
+			(new WorldGenDeadBush()).generate(world, rand, new BlockPos(x, y, z));
 		}
 
 		/// LAKES ///
-		doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, LAKE);
-		if(doGen && this.generateLakes) {
+		doGen = TerrainGen.decorate(world, rand, this.chunkPos, LAKE_WATER);
+		if(doGen && this.generateFalls) {
 			for(int i = 0; i < 50; ++i) {
-				x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-				y = this.randomGenerator.nextInt(this.randomGenerator.nextInt(248) + 8);
-				z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-				(new WorldGenLiquids(Blocks.flowing_water)).generate(this.currentWorld, this.randomGenerator, x, y, z);
+				x = this.chunkPos.getX() + rand.nextInt(16) + 8;
+				y = rand.nextInt(rand.nextInt(248) + 8);
+				z = this.chunkPos.getZ() + rand.nextInt(16) + 8;
+				(new WorldGenLiquids(Blocks.FLOWING_WATER)).generate(world, rand, new BlockPos(x, y, z));
 			}
 		}
 
-		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(currentWorld, randomGenerator, chunk_X, chunk_Z));
+		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(world, rand, this.chunkPos));
 	}
 
-	private int nextInt(int i) {
+	private int nextInt(Random rand, int i) {
 		if(i <= 1)
 			return 0;
-		return this.randomGenerator.nextInt(i);
+		return rand.nextInt(i);
 	}
 }

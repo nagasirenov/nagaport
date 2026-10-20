@@ -1,0 +1,15 @@
+PASS all 11 production paths match staged tree and independent snapshot; 11 edited Java sources match generated compiler inputs among 4062.
+Production tree 66c913f14cb3e4fdd4d873c3cd8496dc5fcad789
+{
+  "src/main/java/com/hbm/entity/effect/EntityBlackHole.java": "d22fcd64095587bbc1130880c6349420c77e65f402533acaf51b2d853e85d4f3",
+  "src/main/java/com/hbm/entity/effect/EntityQuasar.java": "27a07cfb3be1478d748647ddd8c681baf2b0d96906737a8616d92c79f20bc762",
+  "src/main/java/com/hbm/entity/effect/EntityRagingVortex.java": "28fc7da11b8f8bc5ddd23b68560f33f104fa218dde44e0c6a44cd20176045be0",
+  "src/main/java/com/hbm/entity/effect/EntityVortex.java": "610438d5a93cb6ce2cd1760a3c9e64574d4902067245694806430afadb0529ec",
+  "src/main/java/com/hbm/entity/projectile/EntityChemical.java": "c7cb849b3378f472d0398140ebe66f8024741c5d39f7690b27c20630987fbedb",
+  "src/main/java/com/hbm/items/ModItemsArmor.java": "fc3b04aa6a3bb013c94cb488d34b43cfb24e169bc81b64ced3722d76096a5c6f",
+  "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java": "51aee53a661aace503ea564e99452009c8861a6b534f7b51bee83890cc516ff7",
+  "src/main/java/com/hbm/render/entity/effect/RenderQuasar.java": "8be233cb55a949d9f9bc9d649540da92b368485da0f9de22321cc8d1a4114b90",
+  "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": "dd55ab0e5d7c8603d4b3828842f642e0f150b724bf255396dc8ab4769a50fca3",
+  "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": "708c5b7283d87857647291fa7ba13bfa47456a919a7dab97abbd32bde8d84ee4",
+  "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java": "9fe9962122907f481ac80a7ef9a60deb2cc27051a82d1f90f451d1d157925f63"
+}

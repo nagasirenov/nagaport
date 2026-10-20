@@ -57,14 +57,14 @@ public class ItemDigamma extends Item {
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		if(entityItem != null) {
 
-			if(entityItem.onGround && !entityItem.worldObj.isRemote) {
+			if(entityItem.onGround && !entityItem.world.isRemote) {
 
 				if(WeaponConfig.dropSing) {
-					EntityQuasar bl = new EntityQuasar(entityItem.worldObj, 5F);
+					EntityQuasar bl = new EntityQuasar(entityItem.world, 5F);
 					bl.posX = entityItem.posX;
 					bl.posY = entityItem.posY;
 					bl.posZ = entityItem.posZ;
-					entityItem.worldObj.spawnEntityInWorld(bl);
+					entityItem.world.spawnEntityInWorld(bl);
 				}
 
 				entityItem.setDead();

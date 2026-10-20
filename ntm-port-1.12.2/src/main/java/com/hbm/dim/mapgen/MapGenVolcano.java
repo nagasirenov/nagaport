@@ -68,7 +68,7 @@ public class MapGenVolcano extends MapGenBase {
 
 							if(r - rand.nextInt(16) <= radius) {
 								// Carve out to intended depth
-								int height = (int)MathHelper.clamp_double(heightFunc(r, radius, depth), 0, y - 1);
+								int height = (int)MathHelper.clamp(heightFunc(r, radius, depth), (double) (0), (double) (y - 1));
 								if(height > 0) {
 									for(int i = 0; i < height && i + y < 255; i++) {
 										primer.setBlockState(bx, y + i, bz, getState(materialBlock));

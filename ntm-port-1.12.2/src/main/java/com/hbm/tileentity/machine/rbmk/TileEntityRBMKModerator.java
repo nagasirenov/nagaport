@@ -9,7 +9,7 @@ public class TileEntityRBMKModerator extends TileEntityRBMKBase {
 	@Override
 	public void onMelt(int reduce) {
 		
-		int count = 2 + worldObj.rand.nextInt(2);
+		int count = 2 + this.world.rand.nextInt(2);
 		
 		for(int i = 0; i < count; i++) {
 			spawnDebris(DebrisType.GRAPHITE);

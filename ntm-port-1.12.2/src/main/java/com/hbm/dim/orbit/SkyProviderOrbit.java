@@ -98,7 +98,7 @@ public class SkyProviderOrbit extends SkyProviderCelestial {
 
 		double progress = station.getUnscaledProgress(partialTicks);
 		float travelAngle = -(float)SolarSystem.calculateSingleAngle(metrics, lastBody, station.target);
-		travelAngle = MathHelper.wrapAngleTo180_float(travelAngle + 90.0F);
+		travelAngle = MathHelper.wrapDegrees(travelAngle + 90.0F);
 
 		if(station.state == StationState.TRANSFER) {
 			return (travelAngle + 180.0F) / 360.0F;

@@ -5,7 +5,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityTracker;
 import net.minecraft.entity.EntityTrackerEntry;
-import net.minecraft.network.play.server.S18PacketEntityTeleport;
+import net.minecraft.network.play.server.SPacketEntityTeleport;
 import net.minecraft.util.IntHashMap;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -22,8 +22,8 @@ public class TrackerUtil {
 	/** Grabs the tracker entry from the given entity */
 	public static EntityTrackerEntry getTrackerEntry(WorldServer world, int entityId) {
 		EntityTracker entitytracker = world.getEntityTracker();
-		IntHashMap map = ReflectionHelper.getPrivateValue(EntityTracker.class, entitytracker, "trackedEntityIDs", "field_72794_c");
-		EntityTrackerEntry entry = (EntityTrackerEntry) map.lookup(entityId);
+		IntHashMap<EntityTrackerEntry> map = ReflectionHelper.getPrivateValue(EntityTracker.class, entitytracker, "trackedEntityHashTable", "field_72794_c");
+		EntityTrackerEntry entry = map.lookup(entityId);
 		return entry;
 	}
 
@@ -33,14 +33,15 @@ public class TrackerUtil {
 		if(world instanceof WorldServer) {
 			WorldServer server = (WorldServer) world;
 			EntityTrackerEntry entry = getTrackerEntry(server, e.getEntityId());
-			int xScaled = e.myEntitySize.multiplyBy32AndRound(e.posX);
-			int yScaled = MathHelper.floor_double(e.posY * 32.0D);
-			int zScaled = e.myEntitySize.multiplyBy32AndRound(e.posZ);
-			int yaw = MathHelper.floor_float(e.rotationYaw * 256.0F / 360.0F);
-			int pitch = MathHelper.floor_float(e.rotationPitch * 256.0F / 360.0F);
-			entry.func_151259_a(new S18PacketEntityTeleport(e.getEntityId(), xScaled, yScaled, zScaled, (byte)yaw, (byte)pitch));
+			// Native 1.12 teleport packet carries double coordinates and on-ground state.
+			SPacketEntityTeleport packet = new SPacketEntityTeleport(e);
+			// Preserve the original floor quantization, including negative angles; the native
+			// Entity constructor otherwise truncates toward zero. Never mutate the entity.
+			ReflectionHelper.setPrivateValue(SPacketEntityTeleport.class, packet, (byte)MathHelper.floor(e.rotationYaw * 256.0F / 360.0F), "yaw", "field_149455_e");
+			ReflectionHelper.setPrivateValue(SPacketEntityTeleport.class, packet, (byte)MathHelper.floor(e.rotationPitch * 256.0F / 360.0F), "pitch", "field_149453_f");
+			entry.sendPacketToTrackedPlayers(packet);
 			//this prevents the tracker from sending movement updates in the same tick
-			entry.ticks = 0;
+			entry.updateCounter = 0;
 		}
 	}
 
@@ -49,7 +50,7 @@ public class TrackerUtil {
 		if(world instanceof WorldServer) {
 			WorldServer server = (WorldServer) world;
 			EntityTrackerEntry entry = getTrackerEntry(server, e.getEntityId());
-			if(entry != null) entry.blocksDistanceThreshold = range;
+			if(entry != null) ReflectionHelper.setPrivateValue(EntityTrackerEntry.class, entry, range, "range", "field_73130_b");
 		}
 	}
 }

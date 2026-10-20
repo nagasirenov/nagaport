@@ -1,0 +1,110 @@
+[
+  {
+    "before": "\t\tore_uranium_scorched = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_uranium_scorched\");",
+    "after": "\t\tore_uranium_scorched = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":ore_uranium_scorched\");"
+  },
+  {
+    "before": "\t\tore_nether_smoldering = new BlockSmolder(Material.ROCK).setTranslationKey(\"ore_nether_smoldering\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_smoldering\");",
+    "after": "\t\tore_nether_smoldering = com.hbm.blocks.PlainCubeTextures.bind(new BlockSmolder(Material.ROCK).setTranslationKey(\"ore_nether_smoldering\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_smoldering\");"
+  },
+  {
+    "before": "\t\tore_nether_uranium = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_nether_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_uranium\");",
+    "after": "\t\tore_nether_uranium = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_nether_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_uranium\");"
+  },
+  {
+    "before": "\t\tore_nether_uranium_scorched = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_nether_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_uranium_scorched\");",
+    "after": "\t\tore_nether_uranium_scorched = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_nether_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_uranium_scorched\");"
+  },
+  {
+    "before": "\t\tore_nether_sulfur = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_nether_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_sulfur\");",
+    "after": "\t\tore_nether_sulfur = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_nether_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_sulfur\");"
+  },
+  {
+    "before": "\t\tore_nether_fire = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_nether_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_fire\");",
+    "after": "\t\tore_nether_fire = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_nether_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_fire\");"
+  },
+  {
+    "before": "\t\tore_nether_cobalt = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_nether_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_cobalt\");",
+    "after": "\t\tore_nether_cobalt = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_nether_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_cobalt\");"
+  },
+  {
+    "before": "\t\tore_gneiss_iron = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_iron\");",
+    "after": "\t\tore_gneiss_iron = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_iron\");"
+  },
+  {
+    "before": "\t\tore_gneiss_gold = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_gold\");",
+    "after": "\t\tore_gneiss_gold = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_gold\");"
+  },
+  {
+    "before": "\t\tore_gneiss_uranium = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_gneiss_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_uranium\");",
+    "after": "\t\tore_gneiss_uranium = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_gneiss_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_uranium\");"
+  },
+  {
+    "before": "\t\tore_gneiss_uranium_scorched = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_gneiss_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_uranium_scorched\");",
+    "after": "\t\tore_gneiss_uranium_scorched = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_gneiss_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_uranium_scorched\");"
+  },
+  {
+    "before": "\t\tore_gneiss_copper = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_copper\");",
+    "after": "\t\tore_gneiss_copper = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_copper\");"
+  },
+  {
+    "before": "\t\tore_gneiss_asbestos = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_gneiss_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_asbestos\");",
+    "after": "\t\tore_gneiss_asbestos = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_gneiss_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_asbestos\");"
+  },
+  {
+    "before": "\t\tore_gneiss_lithium = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_lithium\");",
+    "after": "\t\tore_gneiss_lithium = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_lithium\");"
+  },
+  {
+    "before": "\t\tore_gneiss_schrabidium = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_schrabidium\");",
+    "after": "\t\tore_gneiss_schrabidium = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_schrabidium\");"
+  },
+  {
+    "before": "\t\tore_gneiss_rare = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_rare\");",
+    "after": "\t\tore_gneiss_rare = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_rare\");"
+  },
+  {
+    "before": "\t\tore_gneiss_gas = new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gneiss_gas\");",
+    "after": "\t\tore_gneiss_gas = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_gas\");"
+  },
+  {
+    "before": "\t\tancient_scrap = new BlockOutgas(Material.IRON, true, 1, true, true).setTranslationKey(\"ancient_scrap\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F).setBlockTextureName(RefStrings.MODID + \":ancient_scrap\");",
+    "after": "\t\tancient_scrap = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.IRON, true, 1, true, true).setTranslationKey(\"ancient_scrap\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + \":ancient_scrap\");"
+  },
+  {
+    "before": "\t\tblock_corium_cobble = new BlockOutgas(Material.IRON, true, 1, true, true).setTranslationKey(\"block_corium_cobble\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F).setBlockTextureName(RefStrings.MODID + \":block_corium_cobble\");",
+    "after": "\t\tblock_corium_cobble = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.IRON, true, 1, true, true).setTranslationKey(\"block_corium_cobble\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + \":block_corium_cobble\");"
+  },
+  {
+    "before": "\t\tdeco_asbestos = new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"deco_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_asbestos\");",
+    "after": "\t\tdeco_asbestos = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"deco_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":deco_asbestos\");"
+  },
+  {
+    "before": "\t\tbrick_asbestos = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"brick_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(1000.0F).setBlockTextureName(RefStrings.MODID + \":brick_asbestos\");",
+    "after": "\t\tbrick_asbestos = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"brick_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(1000.0F), RefStrings.MODID + \":brick_asbestos\");"
+  },
+  {
+    "before": "\r\n\t\tblock_meteor = new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor\");",
+    "after": "\r\n\t\tblock_meteor = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor\");"
+  },
+  {
+    "before": "\t\tblock_meteor_cobble = new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor_cobble\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor_cobble\");",
+    "after": "\t\tblock_meteor_cobble = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor_cobble\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor_cobble\");"
+  },
+  {
+    "before": "\t\tblock_meteor_broken = new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor_crushed\");",
+    "after": "\t\tblock_meteor_broken = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor_crushed\");"
+  },
+  {
+    "before": "\t\tblock_meteor_molten = new BlockStepEffect(Material.ROCK, true).noFortune().setTranslationKey(\"block_meteor_molten\").setLightLevel(0.75F).setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor_cobble_molten\");",
+    "after": "\t\tblock_meteor_molten = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK, true).noFortune().setTranslationKey(\"block_meteor_molten\").setLightLevel(0.75F).setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor_cobble_molten\");"
+  },
+  {
+    "before": "\t\tbrick_jungle_ooze = new BlockStepEffect(Material.ROCK).setTranslationKey(\"brick_jungle_ooze\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F).setBlockTextureName(RefStrings.MODID + \":brick_jungle_ooze\");",
+    "after": "\t\tbrick_jungle_ooze = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"brick_jungle_ooze\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F), RefStrings.MODID + \":brick_jungle_ooze\");"
+  },
+  {
+    "before": "\t\tbrick_jungle_mystic = new BlockStepEffect(Material.ROCK).setTranslationKey(\"brick_jungle_mystic\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F).setBlockTextureName(RefStrings.MODID + \":brick_jungle_mystic\");",
+    "after": "\t\tbrick_jungle_mystic = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"brick_jungle_mystic\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F), RefStrings.MODID + \":brick_jungle_mystic\");"
+  }
+]

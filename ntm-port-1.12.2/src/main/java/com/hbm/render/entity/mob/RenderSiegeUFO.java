@@ -8,10 +8,15 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSiegeUFO extends Render {
+
+	public RenderSiegeUFO(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {

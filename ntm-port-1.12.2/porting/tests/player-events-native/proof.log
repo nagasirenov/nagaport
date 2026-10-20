@@ -1,0 +1,8 @@
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/util/ShadyUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[21:06:43] [main/INFO]: Processing ObjectHolder annotations
+[21:06:43] [main/INFO]: Found 1167 ObjectHolder annotations
+[21:06:43] [main/WARN]: Potentially Dangerous alternative prefix `appliedenergistics2` for name `probe`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[21:06:43] [main/WARN]: Potentially Dangerous alternative prefix `appliedenergistics2extra` for name `probe`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 122 native player-event assertions; four exact methods, no whole-handler/game proof.
+PASS four exact original-derived event methods and full production ShadyUtil; explicit NTM explosion/config/provider/log/item/damage collaborators, no whole handler/game claim.

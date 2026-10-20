@@ -1,0 +1,7 @@
+import net.minecraft.util.math.AxisAlignedBB;
+class OverrideControl extends AxisAlignedBB {
+ OverrideControl(){super(0,0,0,1,1,1);}
+ @Override public AxisAlignedBB expand(double x,double y,double z){return this;}
+ Object direct(){return this.expand(1,1,1);}
+ Object baseTyped(AxisAlignedBB b){return b.expand(1,1,1);}
+}

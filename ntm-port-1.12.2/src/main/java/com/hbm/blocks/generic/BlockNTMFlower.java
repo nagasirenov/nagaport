@@ -15,6 +15,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -29,8 +33,27 @@ import net.minecraftforge.common.IPlantable;
 
 public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowable, ITooltipProvider {
 
+	// Keep the complete legacy metadata nibble, including unused values from saves.
+	public static final PropertyInteger VARIANT = PropertyInteger.create("variant", 0, 15);
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, VARIANT);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(VARIANT, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(VARIANT);
+	}
+
 	public BlockNTMFlower() {
-		super(Material.plants, EnumFlowerType.class, true, true);
+		super(Material.PLANTS, EnumFlowerType.class, true, true);
+		setDefaultState(blockState.getBaseState().withProperty(VARIANT, 0));
 		this.setTickRandomly(true);
 	}
 	
@@ -66,30 +89,31 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	public boolean canPlaceBlockAt(World world, BlockPos pos) {
+		return super.canPlaceBlockAt(world, pos) && this.canBlockStay(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	protected boolean canPlaceBlockOn(Block block) {
-		return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily;
+		return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily;
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		super.onNeighborBlockChange(world, x, y, z, block);
-		this.checkAndDropBlock(world, x, y, z);
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		super.neighborChanged(state, world, pos, block, fromPos);
+		this.checkAndDropBlock(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 	
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		if(!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-			world.setBlock(x, y, z, Blocks.air, 0, 2);
+			BlockPos pos = new BlockPos(x, y, z);
+			this.dropBlockAsItem(world, pos, world.getBlockState(pos), 0);
+			world.setBlockState(pos, Blocks.AIR.getDefaultState(), 2);
 		}
 	}
 
-	@Override
+	// Legacy callers still use coordinates; placement routes through this same rule.
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z));
+		return canPlaceBlockOn(world.getBlockState(new BlockPos(x, y - 1, z)).getBlock());
 	}
 
 	@Override
@@ -126,7 +150,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 
 		if(world.isRemote) return; //not possible i believe, but better safe than sorry
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		EnumFlowerType type = EnumFlowerType.values()[rectify(meta)];
 		
 		if(!(type == EnumFlowerType.WEED || type == EnumFlowerType.CD0 || type == EnumFlowerType.CD1)) return;
@@ -140,15 +164,15 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	@Override
 	public boolean func_149851_a(World world, int x, int y, int z, boolean b) {
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		//cadmium willows can only grow with water
 		if(meta == EnumFlowerType.CD0.ordinal() || meta == EnumFlowerType.CD1.ordinal()) {
 			
-			if(world.getBlock(x + 1, y - 1, z).getMaterial() != Material.water &&
-					world.getBlock(x - 1, y - 1, z).getMaterial() != Material.water &&
-					world.getBlock(x, y - 1, z + 1).getMaterial() != Material.water &&
-					world.getBlock(x, y - 1, z - 1).getMaterial() != Material.water) {
+			if(com.hbm.world.WorldBlockState.read(world, x + 1, y - 1, z).getBlock().getDefaultState().getMaterial() != Material.WATER &&
+					com.hbm.world.WorldBlockState.read(world, x - 1, y - 1, z).getBlock().getDefaultState().getMaterial() != Material.WATER &&
+					com.hbm.world.WorldBlockState.read(world, x, y - 1, z + 1).getBlock().getDefaultState().getMaterial() != Material.WATER &&
+					com.hbm.world.WorldBlockState.read(world, x, y - 1, z - 1).getBlock().getDefaultState().getMaterial() != Material.WATER) {
 				return false;
 			}
 		}
@@ -163,7 +187,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	@Override
 	public boolean func_149852_a(World world, Random rand, int x, int y, int z) {
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		if(meta == EnumFlowerType.WEED.ordinal() || meta == EnumFlowerType.CD0.ordinal() || meta == EnumFlowerType.CD1.ordinal()) {
 			return rand.nextFloat() < 0.33F;
@@ -176,8 +200,8 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	@Override
 	public void func_149853_b(World world, Random rand, int x, int y, int z) {
 
-		int meta = world.getBlockMetadata(x, y, z);
-		Block onTop = world.getBlock(x, y - 1, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		Block onTop = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		
 		if(meta == EnumFlowerType.WEED.ordinal()) {
 			if(onTop == ModBlocks.dirt_dead || onTop == ModBlocks.dirt_oily) {
@@ -203,7 +227,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 			return;
 		}
 		
-		this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+		this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
 	}
 	
 	

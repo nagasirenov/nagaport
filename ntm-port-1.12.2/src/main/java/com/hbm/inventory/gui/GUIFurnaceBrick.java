@@ -21,9 +21,9 @@ public class GUIFurnaceBrick extends GuiInfoContainer {
 	}
 
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
-		String name = this.furnace.hasCustomInventoryName() ? this.furnace.getInventoryName() : I18n.format(this.furnace.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 0xffffff);
+		String name = this.furnace.hasCustomName() ? this.furnace.getName() : I18n.format(this.furnace.getName());
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 0xffffff);
 	}
 
 	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
@@ -31,8 +31,8 @@ public class GUIFurnaceBrick extends GuiInfoContainer {
 		this.mc.getTextureManager().bindTexture(texture);
 		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, this.xSize, this.ySize);
 		
-		if(furnace.isInvalid() && furnace.getWorldObj().getTileEntity(furnace.xCoord, furnace.yCoord, furnace.zCoord) instanceof TileEntityFurnaceBrick)
-			furnace = (TileEntityFurnaceBrick) furnace.getWorldObj().getTileEntity(furnace.xCoord, furnace.yCoord, furnace.zCoord);
+		if(furnace.isInvalid() && furnace.getWorld().getTileEntity(furnace.getPos()) instanceof TileEntityFurnaceBrick)
+			furnace = (TileEntityFurnaceBrick) furnace.getWorld().getTileEntity(furnace.getPos());
 
 		if(this.furnace.burnTime > 0) {
 			int b = furnace.burnTime * 13 / furnace.maxBurnTime;

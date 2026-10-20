@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import java.nio.DoubleBuffer;
 
 import org.lwjgl.opengl.GL11;
@@ -51,7 +54,7 @@ public class ItemRenderMAS36 extends ItemRenderWeaponBase {
 		if(buf == null) buf = GLAllocation.createDirectByteBuffer(8*4).asDoubleBuffer();
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.mas36_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.mas36_tex);
 		double scale = 0.375D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -169,7 +172,7 @@ public class ItemRenderMAS36 extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.mas36_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.mas36_tex);
 		ResourceManager.mas36.renderPart("Gun");
 		ResourceManager.mas36.renderPart("Stock");
 		ResourceManager.mas36.renderPart("Bolt");
@@ -179,24 +182,24 @@ public class ItemRenderMAS36 extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.mas36_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.mas36_tex);
 		ResourceManager.mas36.renderPart("Gun");
 		ResourceManager.mas36.renderPart("Stock");
 		ResourceManager.mas36.renderPart("Bolt");
 		if(isScoped(stack)) ResourceManager.mas36.renderPart("Scope");
-		if(type != ItemRenderType.EQUIPPED) GL11.glTranslated(0, -1, -6);
+		if(!isThirdPerson(context.transform)) GL11.glTranslated(0, -1, -6);
 		if(hasBayonet(stack)) ResourceManager.mas36.renderPart("Bayonet");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

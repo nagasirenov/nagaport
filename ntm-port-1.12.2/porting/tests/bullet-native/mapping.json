@@ -1,0 +1,4331 @@
+{
+  "baseline": "641ba083c276c6ac75afa6a8f996cdd86f8b16d4",
+  "complete_sources": {
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "baseline_sha256": "9e75d7a670353f5931ffda91d5362d408780aa303e8202346394e4f902051088",
+      "native_sha256": "6ca022ab883eb8d4dd549c192e40a647d9c50b6ce16741a0990891066af36629",
+      "edits": [
+        {
+          "native_start": 1731,
+          "native_end": 1896,
+          "before": "",
+          "after": "network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\nimport net.minecraft."
+        },
+        {
+          "native_start": 2639,
+          "native_end": 3201,
+          "before": "",
+          "after": "\n\n\tprivate static final DataParameter<Byte> RENDER_STYLE = EntityDataManager.createKey(EntityBulletBaseNT.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Byte> RENDER_TRAIL = EntityDataManager.createKey(EntityBulletBaseNT.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBaseNT.class, DataSerializers.VARINT);\n\n\tpublic int getRenderStyle() { return this.dataManager.get(RENDER_STYLE); }\n\tpublic int getRenderTrail() { return this.dataManager.get(RENDER_TRAIL); }"
+        },
+        {
+          "native_start": 4210,
+          "native_end": 4211,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 4212,
+          "native_end": 4215,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 4218,
+          "native_end": 4219,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 4220,
+          "native_end": 4220,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 4222,
+          "native_end": 4235,
+          "before": "18",
+          "after": "BULLET_CONFIG"
+        },
+        {
+          "native_start": 4257,
+          "native_end": 4258,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 4259,
+          "native_end": 4262,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 4265,
+          "native_end": 4266,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 4267,
+          "native_end": 4267,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 4269,
+          "native_end": 4281,
+          "before": "16",
+          "after": "RENDER_STYLE"
+        },
+        {
+          "native_start": 4320,
+          "native_end": 4321,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 4322,
+          "native_end": 4325,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 4328,
+          "native_end": 4329,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 4330,
+          "native_end": 4330,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 4332,
+          "native_end": 4344,
+          "before": "17",
+          "after": "RENDER_TRAIL"
+        },
+        {
+          "native_start": 4671,
+          "native_end": 4672,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 4673,
+          "native_end": 4676,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 4679,
+          "native_end": 4680,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 4681,
+          "native_end": 4681,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 4683,
+          "native_end": 4696,
+          "before": "18",
+          "after": "BULLET_CONFIG"
+        },
+        {
+          "native_start": 4718,
+          "native_end": 4719,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 4720,
+          "native_end": 4723,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 4726,
+          "native_end": 4727,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 4728,
+          "native_end": 4728,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 4730,
+          "native_end": 4742,
+          "before": "16",
+          "after": "RENDER_STYLE"
+        },
+        {
+          "native_start": 4781,
+          "native_end": 4782,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 4783,
+          "native_end": 4786,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 4789,
+          "native_end": 4790,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 4791,
+          "native_end": 4791,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 4793,
+          "native_end": 4805,
+          "before": "17",
+          "after": "RENDER_TRAIL"
+        },
+        {
+          "native_start": 6184,
+          "native_end": 6185,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 6186,
+          "native_end": 6189,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 6192,
+          "native_end": 6193,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 6194,
+          "native_end": 6194,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 6196,
+          "native_end": 6209,
+          "before": "18",
+          "after": "BULLET_CONFIG"
+        },
+        {
+          "native_start": 6231,
+          "native_end": 6232,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 6233,
+          "native_end": 6236,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 6239,
+          "native_end": 6240,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 6241,
+          "native_end": 6241,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 6243,
+          "native_end": 6255,
+          "before": "16",
+          "after": "RENDER_STYLE"
+        },
+        {
+          "native_start": 6294,
+          "native_end": 6295,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 6296,
+          "native_end": 6299,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 6302,
+          "native_end": 6303,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 6304,
+          "native_end": 6304,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 6306,
+          "native_end": 6318,
+          "before": "17",
+          "after": "RENDER_TRAIL"
+        },
+        {
+          "native_start": 7196,
+          "native_end": 7197,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 7198,
+          "native_end": 7201,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 7204,
+          "native_end": 7205,
+          "before": "addObj",
+          "after": "r"
+        },
+        {
+          "native_start": 7206,
+          "native_end": 7209,
+          "before": "c",
+          "after": "gis"
+        },
+        {
+          "native_start": 7210,
+          "native_end": 7212,
+          "before": "",
+          "after": "er"
+        },
+        {
+          "native_start": 7213,
+          "native_end": 7225,
+          "before": "16",
+          "after": "RENDER_STYLE"
+        },
+        {
+          "native_start": 7273,
+          "native_end": 7274,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 7275,
+          "native_end": 7278,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 7281,
+          "native_end": 7282,
+          "before": "addObj",
+          "after": "r"
+        },
+        {
+          "native_start": 7283,
+          "native_end": 7286,
+          "before": "c",
+          "after": "gis"
+        },
+        {
+          "native_start": 7287,
+          "native_end": 7289,
+          "before": "",
+          "after": "er"
+        },
+        {
+          "native_start": 7290,
+          "native_end": 7302,
+          "before": "17",
+          "after": "RENDER_TRAIL"
+        },
+        {
+          "native_start": 7363,
+          "native_end": 7364,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 7365,
+          "native_end": 7368,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 7371,
+          "native_end": 7388,
+          "before": "add",
+          "after": "register(BULLET_C"
+        },
+        {
+          "native_start": 7389,
+          "native_end": 7393,
+          "before": "bject(18",
+          "after": "NFIG"
+        },
+        {
+          "native_start": 7533,
+          "native_end": 7534,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 7535,
+          "native_end": 7538,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 7544,
+          "native_end": 7553,
+          "before": "Watchable",
+          "after": "(BULLET_C"
+        },
+        {
+          "native_start": 7554,
+          "native_end": 7556,
+          "before": "bject",
+          "after": "NF"
+        },
+        {
+          "native_start": 7557,
+          "native_end": 7558,
+          "before": "nt(18",
+          "after": "G"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "baseline_sha256": "7ad5d343b4925d99741ccbb18aa983ae3ea7fb1811d118401defe45f7fdca5c5",
+      "native_sha256": "aa22ae486fe9e8131da418f44c5afd3e6a36f061933b658145898f8f5a9c56a3",
+      "edits": [
+        {
+          "native_start": 494,
+          "native_end": 659,
+          "before": "",
+          "after": "network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\nimport net.minecraft."
+        },
+        {
+          "native_start": 1023,
+          "native_end": 1155,
+          "before": "",
+          "after": "\n\n\tprivate static final DataParameter<Byte> STUCK_FACE = EntityDataManager.createKey(EntityThrowableNT.class, DataSerializers.BYTE);"
+        },
+        {
+          "native_start": 1598,
+          "native_end": 1599,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 1600,
+          "native_end": 1603,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 1606,
+          "native_end": 1607,
+          "before": "addObj",
+          "after": "r"
+        },
+        {
+          "native_start": 1608,
+          "native_end": 1611,
+          "before": "c",
+          "after": "gis"
+        },
+        {
+          "native_start": 1612,
+          "native_end": 1614,
+          "before": "",
+          "after": "er"
+        },
+        {
+          "native_start": 1615,
+          "native_end": 1625,
+          "before": "2",
+          "after": "STUCK_FACE"
+        },
+        {
+          "native_start": 1703,
+          "native_end": 1704,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 1705,
+          "native_end": 1708,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 1711,
+          "native_end": 1712,
+          "before": "updat",
+          "after": "s"
+        },
+        {
+          "native_start": 1713,
+          "native_end": 1713,
+          "before": "Objec",
+          "after": ""
+        },
+        {
+          "native_start": 1715,
+          "native_end": 1725,
+          "before": "2",
+          "after": "STUCK_FACE"
+        },
+        {
+          "native_start": 1791,
+          "native_end": 1792,
+          "before": "W",
+          "after": "M"
+        },
+        {
+          "native_start": 1793,
+          "native_end": 1796,
+          "before": "tch",
+          "after": "nag"
+        },
+        {
+          "native_start": 1802,
+          "native_end": 1802,
+          "before": "WatchableObjectByte",
+          "after": ""
+        },
+        {
+          "native_start": 1803,
+          "native_end": 1813,
+          "before": "2",
+          "after": "STUCK_FACE"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderBullet.java": {
+      "baseline_sha256": "415407dbdbe328f4569bb68994fa463adbd887c6201baf71809fcc238330051b",
+      "native_sha256": "72a82e65cafbc375664d4f7b28d9233ed15538ee2d2b620635870810f87f59ce",
+      "edits": [
+        {
+          "native_start": 97,
+          "native_end": 97,
+          "before": ";\nimport org.lwjgl.opengl.GL12",
+          "after": ""
+        },
+        {
+          "native_start": 585,
+          "native_end": 639,
+          "before": "",
+          "after": "render.util.NativeMachineItemRenderer;\nimport com.hbm."
+        },
+        {
+          "native_start": 783,
+          "native_end": 822,
+          "before": "",
+          "after": "BufferBuilder;\nimport net.minecraft.cli"
+        },
+        {
+          "native_start": 825,
+          "native_end": 825,
+          "before": "ity",
+          "after": ""
+        },
+        {
+          "native_start": 826,
+          "native_end": 827,
+          "before": "R",
+          "after": "r"
+        },
+        {
+          "native_start": 832,
+          "native_end": 973,
+          "before": "",
+          "after": "er.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft.client.renderer.vertex.VertexFormat"
+        },
+        {
+          "native_start": 1025,
+          "native_end": 1025,
+          "before": "Item",
+          "after": ""
+        },
+        {
+          "native_start": 1336,
+          "native_end": 1496,
+          "before": "",
+          "after": "/** State writes also update the native cache, but remain unconditional for\n * existing raw-GL callers. Do not remove the raw write before its cache update. */\n"
+        },
+        {
+          "native_start": 1548,
+          "native_end": 1568,
+          "before": "",
+          "after": "<EntityBulletBaseNT>"
+        },
+        {
+          "native_start": 1580,
+          "native_end": 1922,
+          "before": "",
+          "after": " static final VertexFormat TRAIL_FORMAT = new VertexFormat()\n\t\t\t.addElement(DefaultVertexFormats.POSITION_3F).addElement(DefaultVertexFormats.COLOR_4UB)\n\t\t\t.addElement(DefaultVertexFormats.NORMAL_3B).addElement(DefaultVertexFormats.PADDING_1B);\n\tprivate final NativeMachineItemRenderer items = new NativeMachineItemRenderer();\n\n\tprivate final"
+        },
+        {
+          "native_start": 1965,
+          "native_end": 1992,
+          "before": "",
+          "after": "RenderManager renderManager"
+        },
+        {
+          "native_start": 1995,
+          "native_end": 2019,
+          "before": "",
+          "after": "\n\t\tsuper(renderManager);"
+        },
+        {
+          "native_start": 2093,
+          "native_end": 2105,
+          "before": "",
+          "after": "BulletBaseNT"
+        },
+        {
+          "native_start": 2552,
+          "native_end": 2556,
+          "before": "DataWatch",
+          "after": "Rend"
+        },
+        {
+          "native_start": 2558,
+          "native_end": 2559,
+          "before": "().ge",
+          "after": "S"
+        },
+        {
+          "native_start": 2560,
+          "native_end": 2561,
+          "before": "Watchab",
+          "after": "y"
+        },
+        {
+          "native_start": 2563,
+          "native_end": 2563,
+          "before": "ObjectByte",
+          "after": ""
+        },
+        {
+          "native_start": 2564,
+          "native_end": 2564,
+          "before": "16",
+          "after": ""
+        },
+        {
+          "native_start": 2591,
+          "native_end": 2595,
+          "before": "DataWatch",
+          "after": "Rend"
+        },
+        {
+          "native_start": 2597,
+          "native_end": 2602,
+          "before": "",
+          "after": "Trail"
+        },
+        {
+          "native_start": 2603,
+          "native_end": 2603,
+          "before": ").getWatchableObjectByte(17",
+          "after": ""
+        },
+        {
+          "native_start": 2780,
+          "native_end": 2809,
+          "before": "",
+          "after": "); GlStateManager.enableCull("
+        },
+        {
+          "native_start": 4503,
+          "native_end": 4546,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 4666,
+          "native_end": 4707,
+          "before": "",
+          "after": "hadeModel(GL11.GL_FLAT); GlStateManager.s"
+        },
+        {
+          "native_start": 4917,
+          "native_end": 4960,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 5079,
+          "native_end": 5120,
+          "before": "",
+          "after": "hadeModel(GL11.GL_FLAT); GlStateManager.s"
+        },
+        {
+          "native_start": 5322,
+          "native_end": 5365,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 5475,
+          "native_end": 5516,
+          "before": "",
+          "after": "hadeModel(GL11.GL_FLAT); GlStateManager.s"
+        },
+        {
+          "native_start": 5719,
+          "native_end": 5762,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 5868,
+          "native_end": 5909,
+          "before": "",
+          "after": "hadeModel(GL11.GL_FLAT); GlStateManager.s"
+        },
+        {
+          "native_start": 6117,
+          "native_end": 6160,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 6292,
+          "native_end": 6333,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_FLAT);"
+        },
+        {
+          "native_start": 6417,
+          "native_end": 6446,
+          "before": "",
+          "after": " GlStateManager.enableCull();"
+        },
+        {
+          "native_start": 6488,
+          "native_end": 6522,
+          "before": "",
+          "after": " GlStateManager.disableLighting();"
+        },
+        {
+          "native_start": 6539,
+          "native_end": 6582,
+          "before": "",
+          "after": "hadeModel(GL11.GL_SMOOTH); GlStateManager.s"
+        },
+        {
+          "native_start": 6646,
+          "native_end": 6676,
+          "before": "",
+          "after": " GlStateManager.enableBlend();"
+        },
+        {
+          "native_start": 6734,
+          "native_end": 6792,
+          "before": "",
+          "after": " GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);"
+        },
+        {
+          "native_start": 6809,
+          "native_end": 6842,
+          "before": "",
+          "after": "epthMask(false); GlStateManager.d"
+        },
+        {
+          "native_start": 7352,
+          "native_end": 7387,
+          "before": "",
+          "after": " GlStateManager.disableTexture2D();"
+        },
+        {
+          "native_start": 7405,
+          "native_end": 7451,
+          "before": "",
+          "after": "(0.5F, 0.0F, 0.0F, 0.5F); GlStateManager.color"
+        },
+        {
+          "native_start": 7685,
+          "native_end": 7719,
+          "before": "",
+          "after": " GlStateManager.enableTexture2D();"
+        },
+        {
+          "native_start": 7920,
+          "native_end": 7951,
+          "before": "",
+          "after": " GlStateManager.disableBlend();"
+        },
+        {
+          "native_start": 7992,
+          "native_end": 8025,
+          "before": "",
+          "after": " GlStateManager.enableLighting();"
+        },
+        {
+          "native_start": 8042,
+          "native_end": 8074,
+          "before": "",
+          "after": "epthMask(true); GlStateManager.d"
+        },
+        {
+          "native_start": 8177,
+          "native_end": 8206,
+          "before": "",
+          "after": " GlStateManager.enableCull();"
+        },
+        {
+          "native_start": 8246,
+          "native_end": 8280,
+          "before": "",
+          "after": "); GlStateManager.disableLighting("
+        },
+        {
+          "native_start": 8594,
+          "native_end": 8627,
+          "before": "",
+          "after": " GlStateManager.enableLighting();"
+        },
+        {
+          "native_start": 8803,
+          "native_end": 8846,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 8958,
+          "native_end": 8999,
+          "before": "",
+          "after": "hadeModel(GL11.GL_FLAT); GlStateManager.s"
+        },
+        {
+          "native_start": 9170,
+          "native_end": 9213,
+          "before": "",
+          "after": "hadeModel(GL11.GL_SMOOTH); GlStateManager.s"
+        },
+        {
+          "native_start": 9417,
+          "native_end": 9458,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_FLAT);"
+        },
+        {
+          "native_start": 9623,
+          "native_end": 9666,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_SMOOTH);"
+        },
+        {
+          "native_start": 9778,
+          "native_end": 9819,
+          "before": "",
+          "after": "hadeModel(GL11.GL_FLAT); GlStateManager.s"
+        },
+        {
+          "native_start": 10738,
+          "native_end": 10773,
+          "before": "",
+          "after": " GlStateManager.disableTexture2D();"
+        },
+        {
+          "native_start": 10814,
+          "native_end": 10844,
+          "before": "",
+          "after": "); GlStateManager.disableCull("
+        },
+        {
+          "native_start": 10888,
+          "native_end": 10922,
+          "before": "",
+          "after": " GlStateManager.disableLighting();"
+        },
+        {
+          "native_start": 10939,
+          "native_end": 10982,
+          "before": "",
+          "after": "hadeModel(GL11.GL_SMOOTH); GlStateManager.s"
+        },
+        {
+          "native_start": 11046,
+          "native_end": 11076,
+          "before": "",
+          "after": " GlStateManager.enableBlend();"
+        },
+        {
+          "native_start": 11134,
+          "native_end": 11192,
+          "before": "",
+          "after": " GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);"
+        },
+        {
+          "native_start": 11209,
+          "native_end": 11242,
+          "before": "",
+          "after": "epthMask(false); GlStateManager.d"
+        },
+        {
+          "native_start": 11412,
+          "native_end": 11416,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "native_start": 11423,
+          "native_end": 11468,
+          "before": "",
+          "after": "();\n\t\tBufferBuilder buffer = tess.getBuffer()"
+        },
+        {
+          "native_start": 11485,
+          "native_end": 11527,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 11529,
+          "native_end": 11536,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 11538,
+          "native_end": 11552,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 11557,
+          "native_end": 11561,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 11562,
+          "native_end": 11566,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 11567,
+          "native_end": 11576,
+          "before": "s",
+          "after": "(6, 0, 0)"
+        },
+        {
+          "native_start": 11577,
+          "native_end": 11578,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 11582,
+          "native_end": 11582,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 11602,
+          "native_end": 11603,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 11604,
+          "native_end": 11605,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 11606,
+          "native_end": 11607,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 11615,
+          "native_end": 11615,
+          "before": "6, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 11620,
+          "native_end": 11624,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 11625,
+          "native_end": 11629,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 11630,
+          "native_end": 11641,
+          "before": "s",
+          "after": "(3, -1, -1)"
+        },
+        {
+          "native_start": 11642,
+          "native_end": 11643,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 11647,
+          "native_end": 11647,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 11667,
+          "native_end": 11668,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 11669,
+          "native_end": 11670,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 11671,
+          "native_end": 11672,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 11680,
+          "native_end": 11680,
+          "before": "3, -1, -1",
+          "after": ""
+        },
+        {
+          "native_start": 11685,
+          "native_end": 11689,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 11691,
+          "native_end": 11695,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 11704,
+          "native_end": 11744,
+          "before": "",
+          "after": ").color(red, green, blue, 0F).endVertex("
+        },
+        {
+          "native_start": 11765,
+          "native_end": 11807,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 11809,
+          "native_end": 11816,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 11818,
+          "native_end": 11832,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 11837,
+          "native_end": 11841,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 11842,
+          "native_end": 11846,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 11847,
+          "native_end": 11857,
+          "before": "s",
+          "after": "(3, -1, 1)"
+        },
+        {
+          "native_start": 11858,
+          "native_end": 11859,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 11863,
+          "native_end": 11863,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 11883,
+          "native_end": 11884,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 11885,
+          "native_end": 11886,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 11887,
+          "native_end": 11888,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 11896,
+          "native_end": 11896,
+          "before": "3, -1, 1",
+          "after": ""
+        },
+        {
+          "native_start": 11901,
+          "native_end": 11905,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 11906,
+          "native_end": 11910,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 11911,
+          "native_end": 11920,
+          "before": "s",
+          "after": "(6, 0, 0)"
+        },
+        {
+          "native_start": 11921,
+          "native_end": 11922,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 11926,
+          "native_end": 11926,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 11946,
+          "native_end": 11947,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 11948,
+          "native_end": 11949,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 11950,
+          "native_end": 11951,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 11959,
+          "native_end": 11959,
+          "before": "6, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 11964,
+          "native_end": 11968,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 11969,
+          "native_end": 11973,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 11974,
+          "native_end": 11983,
+          "before": "s",
+          "after": "(3, 1, 1)"
+        },
+        {
+          "native_start": 11984,
+          "native_end": 11985,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 11989,
+          "native_end": 11989,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12009,
+          "native_end": 12010,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12011,
+          "native_end": 12012,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12013,
+          "native_end": 12014,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12022,
+          "native_end": 12022,
+          "before": "3, 1, 1",
+          "after": ""
+        },
+        {
+          "native_start": 12043,
+          "native_end": 12085,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 12087,
+          "native_end": 12094,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 12096,
+          "native_end": 12110,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 12115,
+          "native_end": 12119,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12120,
+          "native_end": 12124,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12125,
+          "native_end": 12136,
+          "before": "s",
+          "after": "(3, -1, -1)"
+        },
+        {
+          "native_start": 12137,
+          "native_end": 12138,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12142,
+          "native_end": 12142,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12162,
+          "native_end": 12163,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12164,
+          "native_end": 12165,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12166,
+          "native_end": 12167,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12175,
+          "native_end": 12175,
+          "before": "3, -1, -1",
+          "after": ""
+        },
+        {
+          "native_start": 12180,
+          "native_end": 12184,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12185,
+          "native_end": 12189,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12190,
+          "native_end": 12199,
+          "before": "s",
+          "after": "(6, 0, 0)"
+        },
+        {
+          "native_start": 12200,
+          "native_end": 12201,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12205,
+          "native_end": 12205,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12225,
+          "native_end": 12226,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12227,
+          "native_end": 12228,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12229,
+          "native_end": 12230,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12238,
+          "native_end": 12238,
+          "before": "6, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 12243,
+          "native_end": 12247,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12248,
+          "native_end": 12252,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12253,
+          "native_end": 12263,
+          "before": "s",
+          "after": "(3, -1, 1)"
+        },
+        {
+          "native_start": 12264,
+          "native_end": 12265,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12269,
+          "native_end": 12269,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12289,
+          "native_end": 12290,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12291,
+          "native_end": 12292,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12293,
+          "native_end": 12294,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12302,
+          "native_end": 12302,
+          "before": "3, -1, 1",
+          "after": ""
+        },
+        {
+          "native_start": 12323,
+          "native_end": 12365,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 12367,
+          "native_end": 12374,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 12376,
+          "native_end": 12390,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 12395,
+          "native_end": 12399,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12400,
+          "native_end": 12404,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12405,
+          "native_end": 12414,
+          "before": "s",
+          "after": "(6, 0, 0)"
+        },
+        {
+          "native_start": 12415,
+          "native_end": 12416,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12420,
+          "native_end": 12420,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12440,
+          "native_end": 12441,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12442,
+          "native_end": 12443,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12444,
+          "native_end": 12445,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12453,
+          "native_end": 12453,
+          "before": "6, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 12458,
+          "native_end": 12462,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12463,
+          "native_end": 12467,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12468,
+          "native_end": 12478,
+          "before": "s",
+          "after": "(3, 1, -1)"
+        },
+        {
+          "native_start": 12479,
+          "native_end": 12480,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12484,
+          "native_end": 12484,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12504,
+          "native_end": 12505,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12506,
+          "native_end": 12507,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12508,
+          "native_end": 12509,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12517,
+          "native_end": 12533,
+          "before": "",
+          "after": ");\n\t\tbuffer.pos("
+        },
+        {
+          "native_start": 12539,
+          "native_end": 12539,
+          "before": "-",
+          "after": ""
+        },
+        {
+          "native_start": 12541,
+          "native_end": 12541,
+          "before": ";\n\t\ttess",
+          "after": ""
+        },
+        {
+          "native_start": 12542,
+          "native_end": 12543,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12547,
+          "native_end": 12547,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12567,
+          "native_end": 12568,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12569,
+          "native_end": 12570,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12571,
+          "native_end": 12572,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12580,
+          "native_end": 12580,
+          "before": "3, 1, 1",
+          "after": ""
+        },
+        {
+          "native_start": 12611,
+          "native_end": 12653,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 12655,
+          "native_end": 12662,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 12664,
+          "native_end": 12678,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 12683,
+          "native_end": 12687,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12688,
+          "native_end": 12692,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12693,
+          "native_end": 12702,
+          "before": "s",
+          "after": "(6, 0, 0)"
+        },
+        {
+          "native_start": 12703,
+          "native_end": 12704,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 12708,
+          "native_end": 12708,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 12728,
+          "native_end": 12729,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 12730,
+          "native_end": 12731,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 12732,
+          "native_end": 12733,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 12741,
+          "native_end": 12741,
+          "before": "6, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 12746,
+          "native_end": 12750,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 12752,
+          "native_end": 12756,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 12771,
+          "native_end": 12779,
+          "before": ";\n\t\tt",
+          "after": ".color(r"
+        },
+        {
+          "native_start": 12780,
+          "native_end": 12799,
+          "before": "ss",
+          "after": "d, green, blue, 1F)"
+        },
+        {
+          "native_start": 12800,
+          "native_end": 12802,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 12809,
+          "native_end": 12825,
+          "before": "",
+          "after": "();\n\t\tbuffer.pos"
+        },
+        {
+          "native_start": 12838,
+          "native_end": 12878,
+          "before": "",
+          "after": ").color(red, green, blue, 1F).endVertex("
+        },
+        {
+          "native_start": 12899,
+          "native_end": 12941,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 12943,
+          "native_end": 12950,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 12952,
+          "native_end": 12966,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 12971,
+          "native_end": 12975,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 12976,
+          "native_end": 12980,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 12981,
+          "native_end": 12987,
+          "before": "s",
+          "after": "(4, -0"
+        },
+        {
+          "native_start": 12988,
+          "native_end": 12997,
+          "before": "setC",
+          "after": "5, 0.5).c"
+        },
+        {
+          "native_start": 13001,
+          "native_end": 13001,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 13021,
+          "native_end": 13022,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 13023,
+          "native_end": 13024,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 13025,
+          "native_end": 13026,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 13034,
+          "native_end": 13034,
+          "before": "4, -0.5, 0.5",
+          "after": ""
+        },
+        {
+          "native_start": 13039,
+          "native_end": 13043,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 13045,
+          "native_end": 13049,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 13058,
+          "native_end": 13066,
+          "before": ";\n\t\tt",
+          "after": ".color(r"
+        },
+        {
+          "native_start": 13067,
+          "native_end": 13086,
+          "before": "ss",
+          "after": "d, green, blue, 1F)"
+        },
+        {
+          "native_start": 13087,
+          "native_end": 13089,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 13096,
+          "native_end": 13112,
+          "before": "",
+          "after": "();\n\t\tbuffer.pos"
+        },
+        {
+          "native_start": 13124,
+          "native_end": 13164,
+          "before": "",
+          "after": ").color(red, green, blue, 1F).endVertex("
+        },
+        {
+          "native_start": 13185,
+          "native_end": 13227,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 13229,
+          "native_end": 13236,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 13238,
+          "native_end": 13252,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 13257,
+          "native_end": 13261,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 13262,
+          "native_end": 13266,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 13267,
+          "native_end": 13273,
+          "before": "s",
+          "after": "(4, -0"
+        },
+        {
+          "native_start": 13274,
+          "native_end": 13284,
+          "before": "setC",
+          "after": "5, -0.5).c"
+        },
+        {
+          "native_start": 13288,
+          "native_end": 13288,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 13308,
+          "native_end": 13309,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 13310,
+          "native_end": 13311,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 13312,
+          "native_end": 13313,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 13321,
+          "native_end": 13321,
+          "before": "4, -0.5, -0.5",
+          "after": ""
+        },
+        {
+          "native_start": 13326,
+          "native_end": 13330,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 13332,
+          "native_end": 13336,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 13345,
+          "native_end": 13353,
+          "before": ";\n\t\tt",
+          "after": ".color(r"
+        },
+        {
+          "native_start": 13354,
+          "native_end": 13373,
+          "before": "ss",
+          "after": "d, green, blue, 1F)"
+        },
+        {
+          "native_start": 13374,
+          "native_end": 13376,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 13383,
+          "native_end": 13399,
+          "before": "",
+          "after": "();\n\t\tbuffer.pos"
+        },
+        {
+          "native_start": 13412,
+          "native_end": 13452,
+          "before": "",
+          "after": ").color(red, green, blue, 1F).endVertex("
+        },
+        {
+          "native_start": 13473,
+          "native_end": 13515,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_TRIANGLES, DefaultVer"
+        },
+        {
+          "native_start": 13517,
+          "native_end": 13524,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 13526,
+          "native_end": 13540,
+          "before": "startDrawing(4",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 13545,
+          "native_end": 13549,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 13550,
+          "native_end": 13554,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 13555,
+          "native_end": 13564,
+          "before": "s",
+          "after": "(6, 0, 0)"
+        },
+        {
+          "native_start": 13565,
+          "native_end": 13566,
+          "before": "setC",
+          "after": "c"
+        },
+        {
+          "native_start": 13570,
+          "native_end": 13570,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 13590,
+          "native_end": 13591,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 13592,
+          "native_end": 13593,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 13594,
+          "native_end": 13595,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 13603,
+          "native_end": 13603,
+          "before": "6, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 13608,
+          "native_end": 13612,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 13614,
+          "native_end": 13618,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 13632,
+          "native_end": 13640,
+          "before": ";\n\t\tt",
+          "after": ".color(r"
+        },
+        {
+          "native_start": 13641,
+          "native_end": 13660,
+          "before": "ss",
+          "after": "d, green, blue, 1F)"
+        },
+        {
+          "native_start": 13661,
+          "native_end": 13663,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 13670,
+          "native_end": 13686,
+          "before": "",
+          "after": "();\n\t\tbuffer.pos"
+        },
+        {
+          "native_start": 13698,
+          "native_end": 13738,
+          "before": "",
+          "after": ").color(red, green, blue, 1F).endVertex("
+        },
+        {
+          "native_start": 13770,
+          "native_end": 13808,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 13810,
+          "native_end": 13817,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 13819,
+          "native_end": 13833,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 13838,
+          "native_end": 13842,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 13843,
+          "native_end": 13847,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 13848,
+          "native_end": 13853,
+          "before": "s",
+          "after": "(4, 0"
+        },
+        {
+          "native_start": 13854,
+          "native_end": 13864,
+          "before": "setC",
+          "after": "5, -0.5).c"
+        },
+        {
+          "native_start": 13868,
+          "native_end": 13868,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 13888,
+          "native_end": 13889,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 13890,
+          "native_end": 13891,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 13892,
+          "native_end": 13893,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 13901,
+          "native_end": 13901,
+          "before": "4, 0.5, -0.5",
+          "after": ""
+        },
+        {
+          "native_start": 13906,
+          "native_end": 13910,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 13912,
+          "native_end": 13916,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 13929,
+          "native_end": 13969,
+          "before": "",
+          "after": ".color(red, green, blue, 1F).endVertex()"
+        },
+        {
+          "native_start": 13973,
+          "native_end": 13977,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 13978,
+          "native_end": 13982,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 13983,
+          "native_end": 13988,
+          "before": "s",
+          "after": "(0, 0"
+        },
+        {
+          "native_start": 13989,
+          "native_end": 13998,
+          "before": "setC",
+          "after": "5, 0.5).c"
+        },
+        {
+          "native_start": 14002,
+          "native_end": 14002,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 14022,
+          "native_end": 14023,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 14024,
+          "native_end": 14025,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 14026,
+          "native_end": 14027,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 14035,
+          "native_end": 14035,
+          "before": "0, 0.5, 0.5",
+          "after": ""
+        },
+        {
+          "native_start": 14040,
+          "native_end": 14044,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 14046,
+          "native_end": 14050,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 14063,
+          "native_end": 14103,
+          "before": "",
+          "after": ").color(red, green, blue, 0F).endVertex("
+        },
+        {
+          "native_start": 14124,
+          "native_end": 14162,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 14164,
+          "native_end": 14171,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 14173,
+          "native_end": 14187,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 14192,
+          "native_end": 14196,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 14197,
+          "native_end": 14201,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 14202,
+          "native_end": 14208,
+          "before": "s",
+          "after": "(4, -0"
+        },
+        {
+          "native_start": 14209,
+          "native_end": 14219,
+          "before": "setC",
+          "after": "5, -0.5).c"
+        },
+        {
+          "native_start": 14223,
+          "native_end": 14223,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 14243,
+          "native_end": 14244,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 14245,
+          "native_end": 14246,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 14247,
+          "native_end": 14248,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 14256,
+          "native_end": 14256,
+          "before": "4, -0.5, -0.5",
+          "after": ""
+        },
+        {
+          "native_start": 14261,
+          "native_end": 14265,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 14267,
+          "native_end": 14271,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 14285,
+          "native_end": 14325,
+          "before": "",
+          "after": ".color(red, green, blue, 1F).endVertex()"
+        },
+        {
+          "native_start": 14329,
+          "native_end": 14333,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 14334,
+          "native_end": 14338,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 14339,
+          "native_end": 14345,
+          "before": "s",
+          "after": "(0, -0"
+        },
+        {
+          "native_start": 14346,
+          "native_end": 14355,
+          "before": "setC",
+          "after": "5, 0.5).c"
+        },
+        {
+          "native_start": 14359,
+          "native_end": 14359,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 14379,
+          "native_end": 14380,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 14381,
+          "native_end": 14382,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 14383,
+          "native_end": 14384,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 14392,
+          "native_end": 14392,
+          "before": "0, -0.5, 0.5",
+          "after": ""
+        },
+        {
+          "native_start": 14397,
+          "native_end": 14401,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 14403,
+          "native_end": 14407,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 14421,
+          "native_end": 14461,
+          "before": "",
+          "after": ").color(red, green, blue, 0F).endVertex("
+        },
+        {
+          "native_start": 14482,
+          "native_end": 14520,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 14522,
+          "native_end": 14529,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 14531,
+          "native_end": 14545,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 14550,
+          "native_end": 14554,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 14555,
+          "native_end": 14559,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 14560,
+          "native_end": 14566,
+          "before": "s",
+          "after": "(4, -0"
+        },
+        {
+          "native_start": 14567,
+          "native_end": 14576,
+          "before": "setC",
+          "after": "5, 0.5).c"
+        },
+        {
+          "native_start": 14580,
+          "native_end": 14580,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 14600,
+          "native_end": 14601,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 14602,
+          "native_end": 14603,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 14604,
+          "native_end": 14605,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 14613,
+          "native_end": 14613,
+          "before": "4, -0.5, 0.5",
+          "after": ""
+        },
+        {
+          "native_start": 14618,
+          "native_end": 14622,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 14624,
+          "native_end": 14628,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 14641,
+          "native_end": 14681,
+          "before": "",
+          "after": ".color(red, green, blue, 1F).endVertex()"
+        },
+        {
+          "native_start": 14685,
+          "native_end": 14689,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 14690,
+          "native_end": 14694,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 14695,
+          "native_end": 14700,
+          "before": "s",
+          "after": "(0, 0"
+        },
+        {
+          "native_start": 14701,
+          "native_end": 14710,
+          "before": "setC",
+          "after": "5, 0.5).c"
+        },
+        {
+          "native_start": 14714,
+          "native_end": 14714,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 14734,
+          "native_end": 14735,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 14736,
+          "native_end": 14737,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 14738,
+          "native_end": 14739,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 14747,
+          "native_end": 14747,
+          "before": "0, 0.5, 0.5",
+          "after": ""
+        },
+        {
+          "native_start": 14752,
+          "native_end": 14756,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 14758,
+          "native_end": 14762,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 14775,
+          "native_end": 14815,
+          "before": "",
+          "after": ").color(red, green, blue, 0F).endVertex("
+        },
+        {
+          "native_start": 14836,
+          "native_end": 14874,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 14876,
+          "native_end": 14883,
+          "before": "s",
+          "after": "xFormat"
+        },
+        {
+          "native_start": 14885,
+          "native_end": 14899,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 14904,
+          "native_end": 14908,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 14909,
+          "native_end": 14913,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 14914,
+          "native_end": 14920,
+          "before": "s",
+          "after": "(4, -0"
+        },
+        {
+          "native_start": 14921,
+          "native_end": 14931,
+          "before": "setC",
+          "after": "5, -0.5).c"
+        },
+        {
+          "native_start": 14935,
+          "native_end": 14935,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 14955,
+          "native_end": 14956,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 14957,
+          "native_end": 14958,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 14959,
+          "native_end": 14960,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 14968,
+          "native_end": 14968,
+          "before": "4, -0.5, -0.5",
+          "after": ""
+        },
+        {
+          "native_start": 14973,
+          "native_end": 14977,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 14979,
+          "native_end": 14983,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 14997,
+          "native_end": 15037,
+          "before": "",
+          "after": ".color(red, green, blue, 1F).endVertex()"
+        },
+        {
+          "native_start": 15041,
+          "native_end": 15045,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 15046,
+          "native_end": 15050,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 15051,
+          "native_end": 15056,
+          "before": "s",
+          "after": "(0, 0"
+        },
+        {
+          "native_start": 15057,
+          "native_end": 15067,
+          "before": "setC",
+          "after": "5, -0.5).c"
+        },
+        {
+          "native_start": 15071,
+          "native_end": 15071,
+          "before": "RGBA_F",
+          "after": ""
+        },
+        {
+          "native_start": 15091,
+          "native_end": 15092,
+          "before": "",
+          "after": "F"
+        },
+        {
+          "native_start": 15093,
+          "native_end": 15094,
+          "before": ";\n\t\tt",
+          "after": "."
+        },
+        {
+          "native_start": 15095,
+          "native_end": 15096,
+          "before": "ss.ad",
+          "after": "n"
+        },
+        {
+          "native_start": 15104,
+          "native_end": 15104,
+          "before": "0, 0.5, -0.5",
+          "after": ""
+        },
+        {
+          "native_start": 15109,
+          "native_end": 15113,
+          "before": "tess.addV",
+          "after": "buff"
+        },
+        {
+          "native_start": 15115,
+          "native_end": 15119,
+          "before": "tex",
+          "after": ".pos"
+        },
+        {
+          "native_start": 15133,
+          "native_end": 15173,
+          "before": "",
+          "after": ").color(red, green, blue, 0F).endVertex("
+        },
+        {
+          "native_start": 15230,
+          "native_end": 15264,
+          "before": "",
+          "after": " GlStateManager.enableTexture2D();"
+        },
+        {
+          "native_start": 15295,
+          "native_end": 15326,
+          "before": "",
+          "after": "); GlStateManager.disableBlend("
+        },
+        {
+          "native_start": 15361,
+          "native_end": 15394,
+          "before": "",
+          "after": "); GlStateManager.enableLighting("
+        },
+        {
+          "native_start": 15432,
+          "native_end": 15461,
+          "before": "",
+          "after": " GlStateManager.enableCull();"
+        },
+        {
+          "native_start": 15472,
+          "native_end": 15504,
+          "before": "",
+          "after": "epthMask(true); GlStateManager.d"
+        },
+        {
+          "native_start": 15667,
+          "native_end": 15668,
+          "before": "theW",
+          "after": "w"
+        },
+        {
+          "native_start": 15735,
+          "native_end": 15735,
+          "before": "Entity",
+          "after": ""
+        },
+        {
+          "native_start": 15743,
+          "native_end": 15744,
+          "before": "",
+          "after": "e"
+        },
+        {
+          "native_start": 15745,
+          "native_end": 15751,
+          "before": "ackSize = ",
+          "after": "Count("
+        },
+        {
+          "native_start": 15752,
+          "native_end": 15753,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "native_start": 15999,
+          "native_end": 16000,
+          "before": "RenderI",
+          "after": "i"
+        },
+        {
+          "native_start": 16003,
+          "native_end": 16004,
+          "before": "",
+          "after": "s"
+        },
+        {
+          "native_start": 16011,
+          "native_end": 16011,
+          "before": "In",
+          "after": ""
+        },
+        {
+          "native_start": 16016,
+          "native_end": 16016,
+          "before": " = true;\n\t\tRenderManager.instance.renderEntityWithPosYaw",
+          "after": ""
+        },
+        {
+          "native_start": 16052,
+          "native_end": 16053,
+          "before": ");",
+          "after": ","
+        },
+        {
+          "native_start": 16056,
+          "native_end": 16075,
+          "before": "",
+          "after": "\t\tNativeMachineItem"
+        },
+        {
+          "native_start": 16081,
+          "native_end": 16081,
+          "before": "Item.rend",
+          "after": ""
+        },
+        {
+          "native_start": 16083,
+          "native_end": 16095,
+          "before": "",
+          "after": ".Display.ENT"
+        },
+        {
+          "native_start": 16096,
+          "native_end": 16099,
+          "before": "n",
+          "after": "TY_"
+        },
+        {
+          "native_start": 16100,
+          "native_end": 16105,
+          "before": "rame = false",
+          "after": "RAME)"
+        },
+        {
+          "native_start": 16245,
+          "native_end": 16249,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "native_start": 16256,
+          "native_end": 16308,
+          "before": "",
+          "after": "();\n\t\tBufferBuilder buffer = tessellator.getBuffer()"
+        },
+        {
+          "native_start": 16870,
+          "native_end": 16871,
+          "before": "theP",
+          "after": "p"
+        },
+        {
+          "native_start": 17454,
+          "native_end": 17454,
+          "before": "Vector",
+          "after": ""
+        },
+        {
+          "native_start": 17510,
+          "native_end": 17514,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 17515,
+          "native_end": 17515,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 17517,
+          "native_end": 17520,
+          "before": "startDraw",
+          "after": "beg"
+        },
+        {
+          "native_start": 17522,
+          "native_end": 17531,
+          "before": "g",
+          "after": "(GL11.GL_"
+        },
+        {
+          "native_start": 17532,
+          "native_end": 17536,
+          "before": "uads();\n\t\ttessellator.setNormal(0F",
+          "after": "UADS"
+        },
+        {
+          "native_start": 17538,
+          "native_end": 17544,
+          "before": "1",
+          "after": "TRAIL_"
+        },
+        {
+          "native_start": 17545,
+          "native_end": 17550,
+          "before": ", 0F",
+          "after": "ORMAT"
+        },
+        {
+          "native_start": 18088,
+          "native_end": 18091,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18092,
+          "native_end": 18092,
+          "before": "lator.setNormal(0F, 1F, 0F);\n\t\t\ttessellator.setColorRGBA_F(r, g, b, nodeAlpha);\n\t\t\ttessellator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18099,
+          "native_end": 18107,
+          "before": "",
+          "after": "buffer, "
+        },
+        {
+          "native_start": 18138,
+          "native_end": 18140,
+          "before": ");\n\t\t\ttessellator.setColorRGBA_F(",
+          "after": ", "
+        },
+        {
+          "native_start": 18158,
+          "native_end": 18158,
+          "before": " * outerAlpha",
+          "after": ""
+        },
+        {
+          "native_start": 18165,
+          "native_end": 18168,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18169,
+          "native_end": 18169,
+          "before": "lator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18176,
+          "native_end": 18184,
+          "before": "",
+          "after": "buffer, "
+        },
+        {
+          "native_start": 18223,
+          "native_end": 18256,
+          "before": "",
+          "after": ", r, g, b, nodeAlpha * outerAlpha"
+        },
+        {
+          "native_start": 18262,
+          "native_end": 18271,
+          "before": "",
+          "after": "\ttrailVer"
+        },
+        {
+          "native_start": 18273,
+          "native_end": 18285,
+          "before": "",
+          "after": "x(buffer, pa"
+        },
+        {
+          "native_start": 18286,
+          "native_end": 18296,
+          "before": "",
+          "after": "tLoc.x, pa"
+        },
+        {
+          "native_start": 18297,
+          "native_end": 18310,
+          "before": "",
+          "after": "tLoc.y + scal"
+        },
+        {
+          "native_start": 18311,
+          "native_end": 18314,
+          "before": "ll",
+          "after": ", p"
+        },
+        {
+          "native_start": 18315,
+          "native_end": 18316,
+          "before": "",
+          "after": "s"
+        },
+        {
+          "native_start": 18317,
+          "native_end": 18318,
+          "before": "",
+          "after": "L"
+        },
+        {
+          "native_start": 18319,
+          "native_end": 18320,
+          "before": "r",
+          "after": "c"
+        },
+        {
+          "native_start": 18321,
+          "native_end": 18324,
+          "before": "setColorRGBA_F(",
+          "after": "z, "
+        },
+        {
+          "native_start": 18363,
+          "native_end": 18366,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18367,
+          "native_end": 18367,
+          "before": "lator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18374,
+          "native_end": 18378,
+          "before": "pastLoc.x, pastLoc.y + scal",
+          "after": "buff"
+        },
+        {
+          "native_start": 18379,
+          "native_end": 18379,
+          "before": ", pastLoc.z);\n\t\t\ttessellator.setColorRGBA_F(",
+          "after": ""
+        },
+        {
+          "native_start": 18382,
+          "native_end": 18382,
+          "before": "g, b, pastAlpha);\n\t\t\t\ttessellator.addVertex(",
+          "after": ""
+        },
+        {
+          "native_start": 18413,
+          "native_end": 18415,
+          "before": ");\n\n\t\t\ttessellator.setColorRGBA_F(",
+          "after": ", "
+        },
+        {
+          "native_start": 18424,
+          "native_end": 18428,
+          "before": "node",
+          "after": "past"
+        },
+        {
+          "native_start": 18436,
+          "native_end": 18437,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "native_start": 18441,
+          "native_end": 18444,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18445,
+          "native_end": 18445,
+          "before": "lator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18452,
+          "native_end": 18460,
+          "before": "",
+          "after": "buffer, "
+        },
+        {
+          "native_start": 18491,
+          "native_end": 18493,
+          "before": ");\n\t\t\ttessellator.setColorRGBA_F(",
+          "after": ", "
+        },
+        {
+          "native_start": 18511,
+          "native_end": 18511,
+          "before": " * outerAlpha",
+          "after": ""
+        },
+        {
+          "native_start": 18518,
+          "native_end": 18521,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18522,
+          "native_end": 18522,
+          "before": "lator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18529,
+          "native_end": 18537,
+          "before": "",
+          "after": "buffer, "
+        },
+        {
+          "native_start": 18576,
+          "native_end": 18578,
+          "before": ");\n\t\t\ttessellator.setColorRGBA_F(",
+          "after": ", "
+        },
+        {
+          "native_start": 18587,
+          "native_end": 18591,
+          "before": "past",
+          "after": "node"
+        },
+        {
+          "native_start": 18616,
+          "native_end": 18619,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18620,
+          "native_end": 18620,
+          "before": "lator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18627,
+          "native_end": 18635,
+          "before": "",
+          "after": "buffer, "
+        },
+        {
+          "native_start": 18674,
+          "native_end": 18676,
+          "before": ");\n\t\t\ttessellator.setColorRGBA_F(",
+          "after": ", "
+        },
+        {
+          "native_start": 18694,
+          "native_end": 18707,
+          "before": "",
+          "after": " * outerAlpha"
+        },
+        {
+          "native_start": 18714,
+          "native_end": 18717,
+          "before": "esse",
+          "after": "rai"
+        },
+        {
+          "native_start": 18718,
+          "native_end": 18718,
+          "before": "lator.add",
+          "after": ""
+        },
+        {
+          "native_start": 18725,
+          "native_end": 18733,
+          "before": "",
+          "after": "buffer, "
+        },
+        {
+          "native_start": 18764,
+          "native_end": 18784,
+          "before": "",
+          "after": ", r, g, b, pastAlpha"
+        },
+        {
+          "native_start": 18790,
+          "native_end": 18790,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "native_start": 18807,
+          "native_end": 18841,
+          "before": "",
+          "after": "(1F, 1F, 1F); GlStateManager.color"
+        },
+        {
+          "native_start": 18880,
+          "native_end": 18912,
+          "before": "",
+          "after": " GlStateManager.depthMask(true);"
+        },
+        {
+          "native_start": 18923,
+          "native_end": 18970,
+          "before": "",
+          "after": "lphaFunc(GL11.GL_GREATER, 0F); GlStateManager.a"
+        },
+        {
+          "native_start": 19032,
+          "native_end": 19062,
+          "before": "",
+          "after": " GlStateManager.enableBlend();"
+        },
+        {
+          "native_start": 19098,
+          "native_end": 19133,
+          "before": "",
+          "after": "); GlStateManager.disableTexture2D("
+        },
+        {
+          "native_start": 19172,
+          "native_end": 19202,
+          "before": "",
+          "after": " GlStateManager.disableCull();"
+        },
+        {
+          "native_start": 19213,
+          "native_end": 19256,
+          "before": "",
+          "after": "hadeModel(GL11.GL_SMOOTH); GlStateManager.s"
+        },
+        {
+          "native_start": 19339,
+          "native_end": 19380,
+          "before": "",
+          "after": " GlStateManager.shadeModel(GL11.GL_FLAT);"
+        },
+        {
+          "native_start": 19414,
+          "native_end": 19443,
+          "before": "",
+          "after": "); GlStateManager.enableCull("
+        },
+        {
+          "native_start": 19482,
+          "native_end": 19516,
+          "before": "",
+          "after": " GlStateManager.enableTexture2D();"
+        },
+        {
+          "native_start": 19549,
+          "native_end": 19580,
+          "before": "",
+          "after": " GlStateManager.disableBlend();"
+        },
+        {
+          "native_start": 19591,
+          "native_end": 19639,
+          "before": "",
+          "after": "lphaFunc(GL11.GL_GEQUAL, 0.1F); GlStateManager.a"
+        },
+        {
+          "native_start": 19728,
+          "native_end": 20027,
+          "before": "",
+          "after": ");\n\t}\n\n\tprivate static void trailVertex(BufferBuilder buffer, double x, double y, double z, float r, float g, float b, float alpha) {\n\t\tbuffer.pos(x, y, z).color((int) (r * 255F), (int) (g * 255F), (int) (b * 255F),\n\t\t\t\tMath.max(0, Math.min(255, (int) (alpha * 255F)))).normal(0F, 1F, 0F).endVertex("
+        },
+        {
+          "native_start": 20215,
+          "native_end": 20248,
+          "before": "",
+          "after": " GlStateManager.enableLighting();"
+        },
+        {
+          "native_start": 20265,
+          "native_end": 20282,
+          "before": "",
+          "after": "org.lwjgl.opengl."
+        },
+        {
+          "native_start": 20304,
+          "native_end": 20342,
+          "before": "",
+          "after": "); GlStateManager.enableRescaleNormal("
+        },
+        {
+          "native_start": 20841,
+          "native_end": 20853,
+          "before": "",
+          "after": "BulletBaseNT"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/BeamPronter.java": {
+      "baseline_sha256": "439129809bd591a671def0de37d58cd9102be57b82c622f10fec9f4d0f52c227",
+      "native_sha256": "07accbe0062fde793b3582886c017809740816559e43f3bdc3737c38b5f36536",
+      "edits": [
+        {
+          "native_start": 158,
+          "native_end": 329,
+          "before": "",
+          "after": "client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft."
+        },
+        {
+          "native_start": 389,
+          "native_end": 549,
+          "before": "",
+          "after": "\n/** State writes also update the native cache, but remain unconditional for\n * existing raw-GL callers. Do not remove the raw write before its cache update. */"
+        },
+        {
+          "native_start": 1991,
+          "native_end": 2028,
+          "before": "",
+          "after": " GlStateManager.depthMask(depthMask);"
+        },
+        {
+          "native_start": 2138,
+          "native_end": 2138,
+          "before": "_double",
+          "after": ""
+        },
+        {
+          "native_start": 2444,
+          "native_end": 2479,
+          "before": "",
+          "after": " GlStateManager.disableTexture2D();"
+        },
+        {
+          "native_start": 2513,
+          "native_end": 2547,
+          "before": "",
+          "after": "); GlStateManager.disableLighting("
+        },
+        {
+          "native_start": 2623,
+          "native_end": 2653,
+          "before": "",
+          "after": " GlStateManager.disableCull();"
+        },
+        {
+          "native_start": 2687,
+          "native_end": 2717,
+          "before": "",
+          "after": " GlStateManager.enableBlend();"
+        },
+        {
+          "native_start": 2730,
+          "native_end": 2788,
+          "before": "",
+          "after": "lendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.b"
+        },
+        {
+          "native_start": 2875,
+          "native_end": 2879,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "native_start": 2886,
+          "native_end": 2938,
+          "before": "",
+          "after": "();\n\t\tBufferBuilder buffer = tessellator.getBuffer()"
+        },
+        {
+          "native_start": 3796,
+          "native_end": 3839,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_LINE_STRIP, DefaultVer"
+        },
+        {
+          "native_start": 3841,
+          "native_end": 3846,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 3848,
+          "native_end": 3849,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 3850,
+          "native_end": 3864,
+          "before": "startDrawing(3",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 3871,
+          "native_end": 3875,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 3876,
+          "native_end": 3876,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 3878,
+          "native_end": 3880,
+          "before": "",
+          "after": "po"
+        },
+        {
+          "native_start": 3881,
+          "native_end": 3881,
+          "before": "etColorOpaque_I(outerColor);\n\t\t\t\ttessellator.addVertex",
+          "after": ""
+        },
+        {
+          "native_start": 3893,
+          "native_end": 3902,
+          "before": ";\n\t\t\t\t",
+          "after": ".color(ou"
+        },
+        {
+          "native_start": 3904,
+          "native_end": 3907,
+          "before": "sse",
+          "after": "rCo"
+        },
+        {
+          "native_start": 3908,
+          "native_end": 3908,
+          "before": "lat",
+          "after": ""
+        },
+        {
+          "native_start": 3910,
+          "native_end": 3969,
+          "before": "",
+          "after": " >> 16 & 255, outerColor >> 8 & 255, outerColor & 255, 255)"
+        },
+        {
+          "native_start": 3970,
+          "native_end": 3972,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 3979,
+          "native_end": 3997,
+          "before": "",
+          "after": "();\n\t\t\t\tbuffer.pos"
+        },
+        {
+          "native_start": 4017,
+          "native_end": 4105,
+          "before": "",
+          "after": ").color(outerColor >> 16 & 255, outerColor >> 8 & 255, outerColor & 255, 255).endVertex("
+        },
+        {
+          "native_start": 4803,
+          "native_end": 4841,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 4843,
+          "native_end": 4848,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 4850,
+          "native_end": 4851,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 4852,
+          "native_end": 4860,
+          "before": "startDrawingQuads(",
+          "after": "POSITION"
+        },
+        {
+          "native_start": 4919,
+          "native_end": 4923,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 4924,
+          "native_end": 4924,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 4926,
+          "native_end": 4929,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 4980,
+          "native_end": 4992,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 4999,
+          "native_end": 5003,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5004,
+          "native_end": 5004,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5006,
+          "native_end": 5009,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5060,
+          "native_end": 5072,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5079,
+          "native_end": 5083,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5084,
+          "native_end": 5084,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5086,
+          "native_end": 5089,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5131,
+          "native_end": 5143,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5150,
+          "native_end": 5154,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5155,
+          "native_end": 5155,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5157,
+          "native_end": 5160,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5202,
+          "native_end": 5214,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5246,
+          "native_end": 5284,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 5286,
+          "native_end": 5291,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 5293,
+          "native_end": 5294,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 5295,
+          "native_end": 5303,
+          "before": "startDrawingQuads(",
+          "after": "POSITION"
+        },
+        {
+          "native_start": 5362,
+          "native_end": 5366,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5367,
+          "native_end": 5367,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5369,
+          "native_end": 5372,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5423,
+          "native_end": 5435,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5442,
+          "native_end": 5446,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5447,
+          "native_end": 5447,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5449,
+          "native_end": 5452,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5503,
+          "native_end": 5515,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5522,
+          "native_end": 5526,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5527,
+          "native_end": 5527,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5529,
+          "native_end": 5532,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5574,
+          "native_end": 5586,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5593,
+          "native_end": 5597,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5598,
+          "native_end": 5598,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5600,
+          "native_end": 5603,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5645,
+          "native_end": 5657,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5689,
+          "native_end": 5727,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 5729,
+          "native_end": 5734,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 5736,
+          "native_end": 5737,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 5738,
+          "native_end": 5746,
+          "before": "startDrawingQuads(",
+          "after": "POSITION"
+        },
+        {
+          "native_start": 5805,
+          "native_end": 5809,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5810,
+          "native_end": 5810,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5812,
+          "native_end": 5815,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5866,
+          "native_end": 5878,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5885,
+          "native_end": 5889,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5890,
+          "native_end": 5890,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5892,
+          "native_end": 5895,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 5946,
+          "native_end": 5958,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 5965,
+          "native_end": 5969,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 5970,
+          "native_end": 5970,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 5972,
+          "native_end": 5975,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6017,
+          "native_end": 6029,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 6036,
+          "native_end": 6040,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6041,
+          "native_end": 6041,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6043,
+          "native_end": 6046,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6088,
+          "native_end": 6100,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 6132,
+          "native_end": 6170,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "native_start": 6172,
+          "native_end": 6177,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 6179,
+          "native_end": 6180,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 6181,
+          "native_end": 6189,
+          "before": "startDrawingQuads(",
+          "after": "POSITION"
+        },
+        {
+          "native_start": 6248,
+          "native_end": 6252,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6253,
+          "native_end": 6253,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6255,
+          "native_end": 6258,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6309,
+          "native_end": 6321,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 6328,
+          "native_end": 6332,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6333,
+          "native_end": 6333,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6335,
+          "native_end": 6338,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6389,
+          "native_end": 6401,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 6408,
+          "native_end": 6412,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6413,
+          "native_end": 6413,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6415,
+          "native_end": 6418,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6460,
+          "native_end": 6472,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "native_start": 6479,
+          "native_end": 6483,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6484,
+          "native_end": 6484,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6486,
+          "native_end": 6489,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6530,
+          "native_end": 6542,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "native_start": 6682,
+          "native_end": 6725,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_LINE_STRIP, DefaultVer"
+        },
+        {
+          "native_start": 6727,
+          "native_end": 6732,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 6734,
+          "native_end": 6735,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 6736,
+          "native_end": 6750,
+          "before": "startDrawing(3",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 6756,
+          "native_end": 6760,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6761,
+          "native_end": 6761,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6763,
+          "native_end": 6765,
+          "before": "",
+          "after": "po"
+        },
+        {
+          "native_start": 6766,
+          "native_end": 6777,
+          "before": "etC",
+          "after": "(0, 0, 0).c"
+        },
+        {
+          "native_start": 6781,
+          "native_end": 6781,
+          "before": "Opaque_I",
+          "after": ""
+        },
+        {
+          "native_start": 6792,
+          "native_end": 6809,
+          "before": ");\n\t\t\tt",
+          "after": " >> 16 & 255, inn"
+        },
+        {
+          "native_start": 6810,
+          "native_end": 6813,
+          "before": "sse",
+          "after": "rCo"
+        },
+        {
+          "native_start": 6814,
+          "native_end": 6814,
+          "before": "lat",
+          "after": ""
+        },
+        {
+          "native_start": 6816,
+          "native_end": 6851,
+          "before": "",
+          "after": " >> 8 & 255, innerColor & 255, 255)"
+        },
+        {
+          "native_start": 6852,
+          "native_end": 6854,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 6862,
+          "native_end": 6862,
+          "before": "0, 0, 0",
+          "after": ""
+        },
+        {
+          "native_start": 6868,
+          "native_end": 6872,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 6873,
+          "native_end": 6873,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 6875,
+          "native_end": 6878,
+          "before": "addVertex",
+          "after": "pos"
+        },
+        {
+          "native_start": 6902,
+          "native_end": 6990,
+          "before": "",
+          "after": ").color(innerColor >> 16 & 255, innerColor >> 8 & 255, innerColor & 255, 255).endVertex("
+        },
+        {
+          "native_start": 7089,
+          "native_end": 7120,
+          "before": "",
+          "after": " GlStateManager.disableBlend();"
+        },
+        {
+          "native_start": 7156,
+          "native_end": 7190,
+          "before": "",
+          "after": "); GlStateManager.enableTexture2D("
+        },
+        {
+          "native_start": 7233,
+          "native_end": 7266,
+          "before": "",
+          "after": " GlStateManager.enableLighting();"
+        },
+        {
+          "native_start": 7301,
+          "native_end": 7335,
+          "before": "",
+          "after": "); GlStateManager.enableTexture2D("
+        },
+        {
+          "native_start": 7373,
+          "native_end": 7405,
+          "before": "",
+          "after": "epthMask(true); GlStateManager.d"
+        },
+        {
+          "native_start": 7750,
+          "native_end": 7797,
+          "before": "",
+          "after": " GlStateManager.color(red, green, blue, alpha);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderSparks.java": {
+      "baseline_sha256": "2cb76f82be02ba48e6b678a65db7a5e71af3fee2e3aea5085d7adef62c7102c5",
+      "native_sha256": "d4dc77dec44243791e4d9109f6b8e12c9488e2c99a6678f860380f962029a420",
+      "edits": [
+        {
+          "native_start": 158,
+          "native_end": 329,
+          "before": "",
+          "after": "client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft."
+        },
+        {
+          "native_start": 346,
+          "native_end": 506,
+          "before": "",
+          "after": "\n/** State writes also update the native cache, but remain unconditional for\n * existing raw-GL callers. Do not remove the raw write before its cache update. */"
+        },
+        {
+          "native_start": 740,
+          "native_end": 775,
+          "before": "",
+          "after": " GlStateManager.disableTexture2D();"
+        },
+        {
+          "native_start": 815,
+          "native_end": 849,
+          "before": "",
+          "after": "); GlStateManager.disableLighting("
+        },
+        {
+          "native_start": 928,
+          "native_end": 932,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "native_start": 939,
+          "native_end": 991,
+          "before": "",
+          "after": "();\n\t\tBufferBuilder buffer = tessellator.getBuffer()"
+        },
+        {
+          "native_start": 1372,
+          "native_end": 1373,
+          "before": "",
+          "after": "("
+        },
+        {
+          "native_start": 1398,
+          "native_end": 1399,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "native_start": 1409,
+          "native_end": 1410,
+          "before": "",
+          "after": "("
+        },
+        {
+          "native_start": 1435,
+          "native_end": 1436,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "native_start": 1446,
+          "native_end": 1447,
+          "before": "",
+          "after": "("
+        },
+        {
+          "native_start": 1471,
+          "native_end": 1472,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "native_start": 1587,
+          "native_end": 1630,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_LINE_STRIP, DefaultVer"
+        },
+        {
+          "native_start": 1632,
+          "native_end": 1637,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 1639,
+          "native_end": 1640,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 1641,
+          "native_end": 1655,
+          "before": "startDrawing(3",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 1670,
+          "native_end": 1674,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 1675,
+          "native_end": 1675,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 1677,
+          "native_end": 1679,
+          "before": "",
+          "after": "po"
+        },
+        {
+          "native_start": 1680,
+          "native_end": 1680,
+          "before": "etColorOpaque_I(color1);\n            tessellator.addVertex",
+          "after": ""
+        },
+        {
+          "native_start": 1701,
+          "native_end": 1777,
+          "before": "",
+          "after": ".color(color1 >> 16 & 255, color1 >> 8 & 255, color1 & 255, 255).endVertex()"
+        },
+        {
+          "native_start": 1791,
+          "native_end": 1795,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 1796,
+          "native_end": 1800,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 1801,
+          "native_end": 1813,
+          "before": "se",
+          "after": "(x, y, z).co"
+        },
+        {
+          "native_start": 1814,
+          "native_end": 1814,
+          "before": "lat",
+          "after": ""
+        },
+        {
+          "native_start": 1816,
+          "native_end": 1874,
+          "before": "",
+          "after": "(color1 >> 16 & 255, color1 >> 8 & 255, color1 & 255, 255)"
+        },
+        {
+          "native_start": 1875,
+          "native_end": 1877,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 1885,
+          "native_end": 1885,
+          "before": "x, y, z",
+          "after": ""
+        },
+        {
+          "native_start": 1963,
+          "native_end": 2006,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_LINE_STRIP, DefaultVer"
+        },
+        {
+          "native_start": 2008,
+          "native_end": 2013,
+          "before": "ssell",
+          "after": "xForm"
+        },
+        {
+          "native_start": 2015,
+          "native_end": 2016,
+          "before": "or",
+          "after": "s"
+        },
+        {
+          "native_start": 2017,
+          "native_end": 2031,
+          "before": "startDrawing(3",
+          "after": "POSITION_COLOR"
+        },
+        {
+          "native_start": 2046,
+          "native_end": 2050,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 2051,
+          "native_end": 2051,
+          "before": "ssellato",
+          "after": ""
+        },
+        {
+          "native_start": 2053,
+          "native_end": 2055,
+          "before": "",
+          "after": "po"
+        },
+        {
+          "native_start": 2056,
+          "native_end": 2056,
+          "before": "etColorOpaque_I(color2);\n            tessellator.addVertex",
+          "after": ""
+        },
+        {
+          "native_start": 2077,
+          "native_end": 2153,
+          "before": "",
+          "after": ".color(color2 >> 16 & 255, color2 >> 8 & 255, color2 & 255, 255).endVertex()"
+        },
+        {
+          "native_start": 2167,
+          "native_end": 2171,
+          "before": "t",
+          "after": "buff"
+        },
+        {
+          "native_start": 2172,
+          "native_end": 2176,
+          "before": "",
+          "after": "r.po"
+        },
+        {
+          "native_start": 2177,
+          "native_end": 2189,
+          "before": "se",
+          "after": "(x, y, z).co"
+        },
+        {
+          "native_start": 2190,
+          "native_end": 2190,
+          "before": "lat",
+          "after": ""
+        },
+        {
+          "native_start": 2192,
+          "native_end": 2250,
+          "before": "",
+          "after": "(color2 >> 16 & 255, color2 >> 8 & 255, color2 & 255, 255)"
+        },
+        {
+          "native_start": 2251,
+          "native_end": 2253,
+          "before": "ad",
+          "after": "en"
+        },
+        {
+          "native_start": 2261,
+          "native_end": 2261,
+          "before": "x, y, z",
+          "after": ""
+        },
+        {
+          "native_start": 2341,
+          "native_end": 2374,
+          "before": "",
+          "after": " GlStateManager.enableLighting();"
+        },
+        {
+          "native_start": 2417,
+          "native_end": 2451,
+          "before": "",
+          "after": " GlStateManager.enableTexture2D();"
+        }
+      ]
+    }
+  },
+  "shared_fragments": {
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before": "RenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseNT.class, new RenderBullet());",
+      "after": "RenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseNT.class, RenderBullet::new);"
+    }
+  }
+}

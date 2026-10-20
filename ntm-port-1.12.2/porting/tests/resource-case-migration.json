@@ -1,0 +1,62 @@
+{
+  "baseline": "a60fe7806f90257b5dbfbe9a62f46b887946bf93",
+  "reason": "Actual target ResourceLocation lowercases namespace and path with Locale.ROOT. These referenced assets now exist at the requested native paths; bytes are unchanged.",
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/models/armor/AJR.obj",
+      "after": "src/main/resources/assets/hbm/models/armor/ajr.obj",
+      "sha256": "c55b032abb9ab5bcc0b9cd62ccc287ec755d427df653201f77c1b142e1fe8c13"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/armor/BJ.obj",
+      "after": "src/main/resources/assets/hbm/models/armor/bj.obj",
+      "sha256": "c48efe91702b3bece74a01163faa0560d68f114088ed17d736559f41f867fb9b"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/bombs/Prototype.obj",
+      "after": "src/main/resources/assets/hbm/models/bombs/prototype.obj",
+      "sha256": "54af5b53b58e743319a6b94f76ac9103bebe1a50b2bc13200c1f7231a68ffe97"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/BombGeneric.obj",
+      "after": "src/main/resources/assets/hbm/models/bombgeneric.obj",
+      "sha256": "416db567bc93e642fa50c6b87e89c697d0040af649ee975687305324e4a1fd5c"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/LilBoy1.obj",
+      "after": "src/main/resources/assets/hbm/models/lilboy1.obj",
+      "sha256": "d92058850835922d4634b962dbb0f7c383b7b987fdd34c7be856817e9aeb174a"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/Sphere.obj",
+      "after": "src/main/resources/assets/hbm/models/sphere.obj",
+      "sha256": "a3aa379204d05f35be38b1e27a15a174e570b7a5e78a86c42374eee1f276461e"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/bombletTheta.obj",
+      "after": "src/main/resources/assets/hbm/models/bomblettheta.obj",
+      "sha256": "a0a2fa2ec0362b5aea411234cc21e0e87d142129fb52b635ddd1f3763bd18aff"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/minerRocket.obj",
+      "after": "src/main/resources/assets/hbm/models/minerrocket.obj",
+      "sha256": "ab3a008f82c19feebf067dcc341a547125fd3071f52f2366f7c91924e12f896b"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/missileShuttle.obj",
+      "after": "src/main/resources/assets/hbm/models/missileshuttle.obj",
+      "sha256": "836d613c15b11962b2e7070cd2068a84c00c405a3f223465de5ee7dec0bb2206"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/models/Ring.obj",
+      "after": "src/main/resources/assets/hbm/models/ring.obj",
+      "sha256": "8cd07021419e853cfa2d32ec8e4d00223304124133d5c15efcc43470d6b65783"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/EMPBlast.png",
+      "after": "src/main/resources/assets/hbm/textures/models/empblast.png",
+      "sha256": "fd679b8d79dce0982091c068b628f17222fb803c83082ea14a1d27b5aaa350e8"
+    }
+  ],
+  "known_remaining": "Other uppercase textures/sounds/structures/lang/shader/disk resources require separate owner/reference audit. Unused missileDoomsday.obj unchanged. Original missing BombGenericLarge.obj not fabricated."
+}

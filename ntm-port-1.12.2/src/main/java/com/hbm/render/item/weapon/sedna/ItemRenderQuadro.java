@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
@@ -37,7 +40,7 @@ public class ItemRenderQuadro extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		double scale = 1.75D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -58,7 +61,7 @@ public class ItemRenderQuadro extends ItemRenderWeaponBase {
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.quadro_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.quadro_tex);
 		ResourceManager.quadro.renderPart("Launcher");
 
 		GL11.glPushMatrix();
@@ -68,7 +71,7 @@ public class ItemRenderQuadro extends ItemRenderWeaponBase {
 		GL11.glRotated(reloadPush[1] * 30, 1, 0, 0);
 		GL11.glTranslated(0, -3, 0);
 		GL11.glTranslated(0, 0, reloadPush[0] * 3);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.quadro_rocket_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.quadro_rocket_tex);
 		ResourceManager.quadro.renderPart("Rockets");
 		GL11.glPopMatrix();
 		
@@ -96,7 +99,7 @@ public class ItemRenderQuadro extends ItemRenderWeaponBase {
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 			
-			int brightness = player.worldObj.getLightBrightnessForSkyBlocks(MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ), 0);
+			int brightness = player.world.getLightBrightnessForSkyBlocks(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ), 0);
 			int j = brightness % 65536;
 			int k = brightness / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j / 1.0F, (float) k / 1.0F);
@@ -139,19 +142,19 @@ public class ItemRenderQuadro extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.quadro_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.quadro_tex);
 		ResourceManager.quadro.renderPart("Launcher");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

@@ -1,0 +1,1796 @@
+{
+  "baseline": "ae8284453fb887301fe3411c63ce5ae84556f45e",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "1885e0c8c66db11ffd707798327ee27c80495ad39afd6a73213fae4562cd7b5f",
+      "after_sha256": "ecfddba58de76f32821e73bae9c02e452efe25377bc794aa809f614cc03fb75a",
+      "edits": [
+        {
+          "before_offset": 132907,
+          "after_offset": 132907,
+          "old": "\t\tsteel_beam = new DecoBlock(Material.iron).setBlockName(\"steel_beam\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":steel_beam\");\r\n",
+          "new": "\t\tsteel_beam = new BlockSteelBeam(Material.IRON).setTranslationKey(\"steel_beam\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+        },
+        {
+          "before_offset": 226795,
+          "after_offset": 226751,
+          "old": "\t\tcrate_supply = new BlockSupplyCrate(Material.wood).setBlockName(\"crate_supply\").setStepSound(Block.soundTypeWood).setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + \":crate_can\");\r\n",
+          "new": "\t\tcrate_supply = new BlockSupplyCrate(Material.WOOD).setTranslationKey(\"crate_supply\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.missileTab);\r\n"
+        },
+        {
+          "before_offset": 234976,
+          "after_offset": 234850,
+          "old": "\t\tpribris = new RBMKDebris().setBlockName(\"pribris\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_debris\");\r\n\t\tpribris_burning = new RBMKDebrisBurning().setBlockName(\"pribris_burning\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_debris_burning\");\r\n\t\tpribris_radiating = new RBMKDebrisRadiating().setBlockName(\"pribris_radiating\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_debris_radiating\");\r\n\t\tpribris_digamma = new RBMKDebrisDigamma().setBlockName(\"pribris_digamma\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_debris_digamma\");\r\n",
+          "new": "\t\tpribris = new RBMKDebris().setTranslationKey(\"pribris\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);\r\n\t\tpribris_burning = new RBMKDebrisBurning().setTranslationKey(\"pribris_burning\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);\r\n\t\tpribris_radiating = new RBMKDebrisRadiating().setTranslationKey(\"pribris_radiating\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);\r\n\t\tpribris_digamma = new RBMKDebrisDigamma().setTranslationKey(\"pribris_digamma\").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);\r\n"
+        },
+        {
+          "before_offset": 240452,
+          "after_offset": 240080,
+          "old": "\t\tcrate_can = new BlockCanCrate(Material.wood).setBlockName(\"crate_can\").setStepSound(Block.soundTypeWood).setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_can\");\r\n",
+          "new": "\t\tcrate_can = new BlockCanCrate(Material.WOOD).setTranslationKey(\"crate_can\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCanCrate.java": {
+      "before_sha256": "7c4fe3fc6dadb8f0255daf0dcec54fa331887b15cf660b6860254329282c449e",
+      "after_sha256": "f17de046762dd5b14a1f8fd70c1fcd749fa24df1f72078e082ebd7bf967e47c6",
+      "edits": [
+        {
+          "before_offset": 141,
+          "after_offset": 141,
+          "old": "",
+          "new": "import com.hbm.main.ModSoundEvents;\n"
+        },
+        {
+          "before_offset": 195,
+          "after_offset": 231,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 294,
+          "after_offset": 265,
+          "old": "",
+          "new": "import net.minecraft.block.SoundType;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.SoundCategory;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 573,
+          "after_offset": 1074,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n\t\tsetSoundType(SoundType.WOOD);\n"
+        },
+        {
+          "before_offset": 577,
+          "after_offset": 1182,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\n\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n"
+        },
+        {
+          "before_offset": 665,
+          "after_offset": 2134,
+          "old": "\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {\n\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem().equals(ModItems.crowbar)) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tItemStack held = player.getHeldItem(hand);\n\t\tif(!held.isEmpty() && held.getItem().equals(ModItems.crowbar)) {\n"
+        },
+        {
+          "before_offset": 1149,
+          "after_offset": 2441,
+          "old": "\t\t\t\tdropContents(world, x, y, z);\n\t\t\t\tworld.setBlockToAir(x, y, z);\n\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.crateBreak\", 0.5F, 1.0F);\n",
+          "new": "\t\t\t\tdropContents(world, pos.getX(), pos.getY(), pos.getZ());\n\t\t\t\tworld.setBlockToAir(pos);\n\t\t\t\tworld.playSound(null, pos.getX(), pos.getY(), pos.getZ(), ModSoundEvents.BLOCK_CRATE_BREAK, SoundCategory.BLOCKS, 0.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 1519,
+          "after_offset": 2893,
+          "old": "\t\t\tthis.dropBlockAsItem(world, x, y, z, item);\n",
+          "new": "\t\t\tspawnAsEntity(world, new BlockPos(x, y, z), item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java": {
+      "before_sha256": "9602f2201ff659eb063081b08349ca9304a0483f66339d304711dcfbad3445f8",
+      "after_sha256": "c0c735be817ebeda382f83ee8910fc11a2fa77052abcaff615cde8b4f4b81f6c",
+      "edits": [
+        {
+          "before_offset": 141,
+          "after_offset": 141,
+          "old": "",
+          "new": "import com.hbm.main.ModSoundEvents;\n"
+        },
+        {
+          "before_offset": 185,
+          "after_offset": 221,
+          "old": "",
+          "new": "import net.minecraft.block.SoundType;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.init.Items;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.SoundCategory;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 708,
+          "after_offset": 1307,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n\t\tsetSoundType(SoundType.WOOD);\n"
+        },
+        {
+          "before_offset": 829,
+          "after_offset": 1532,
+          "old": "\t@Override public int getRenderType() { return BlockCanCrate.renderID; }\n\t@Override public boolean isOpaqueCube() { return false; }\n\t@Override public boolean renderAsNormalBlock() { return false; }\n",
+          "new": "\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "before_offset": 1028,
+          "after_offset": 1624,
+          "old": "\t@Override public Item getItemDropped(int i, Random rand, int j) { return null; }\n",
+          "new": "\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n\n\t@Override public Item getItemDropped(IBlockState state, Random rand, int fortune) { return Items.AIR; }\n"
+        },
+        {
+          "before_offset": 1123,
+          "after_offset": 2591,
+          "old": "\tpublic boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {\n",
+          "new": "\tpublic boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {\n"
+        },
+        {
+          "before_offset": 1359,
+          "after_offset": 2839,
+          "old": "\t\t\tTileEntitySupplyCrate inv = (TileEntitySupplyCrate) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntitySupplyCrate inv = (TileEntitySupplyCrate) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 1604,
+          "after_offset": 3080,
+          "old": "\t\t\t\t\tif(stack == null) continue;\n",
+          "new": "\t\t\t\t\tif(stack == null || stack.isEmpty()) continue;\n"
+        },
+        {
+          "before_offset": 1813,
+          "after_offset": 3308,
+          "old": "\t\t\tif(!nbt.hasNoTags()) drop.stackTagCompound = nbt;\n\t\t\tworld.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));\n",
+          "new": "\t\t\tif(!nbt.isEmpty()) drop.setTagCompound(nbt);\n\t\t\tworld.spawnEntity(new EntityItem(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, drop));\n"
+        },
+        {
+          "before_offset": 1955,
+          "after_offset": 3465,
+          "old": "\t\treturn world.setBlockToAir(x, y, z);\n",
+          "new": "\t\treturn world.setBlockToAir(pos);\n"
+        },
+        {
+          "before_offset": 2009,
+          "after_offset": 3515,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n"
+        },
+        {
+          "before_offset": 2119,
+          "after_offset": 3637,
+          "old": "\t\tTileEntitySupplyCrate inv = (TileEntitySupplyCrate) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntitySupplyCrate inv = (TileEntitySupplyCrate) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 2252,
+          "after_offset": 3766,
+          "old": "\t\t\tint amount = stack.stackTagCompound.getInteger(\"amount\");\n",
+          "new": "\t\t\tint amount = stack.getTagCompound().getInteger(\"amount\");\n"
+        },
+        {
+          "before_offset": 2350,
+          "after_offset": 3864,
+          "old": "\t\t\t\tinv.items.add(ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag(\"slot\" + i)));\n",
+          "new": "\t\t\t\tinv.items.add(new ItemStack(stack.getTagCompound().getCompoundTag(\"slot\" + i)));\n"
+        },
+        {
+          "before_offset": 2462,
+          "after_offset": 3959,
+          "old": "\t\tsuper.onBlockPlacedBy(world, x, y, z, player, stack);\n",
+          "new": "\t\tsuper.onBlockPlacedBy(world, pos, state, player, stack);\n"
+        },
+        {
+          "before_offset": 2533,
+          "after_offset": 4033,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {\n\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem().equals(ModItems.crowbar)) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tItemStack held = player.getHeldItem(hand);\n\t\tif(!held.isEmpty() && held.getItem().equals(ModItems.crowbar)) {\n"
+        },
+        {
+          "before_offset": 2818,
+          "after_offset": 4340,
+          "old": "\t\t\t\tdropContents(world, x, y, z);\n\t\t\t\tworld.func_147480_a(x, y, z, false);\n\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.crateBreak\", 0.5F, 1.0F);\n",
+          "new": "\t\t\t\tdropContents(world, pos.getX(), pos.getY(), pos.getZ());\n\t\t\t\tworld.destroyBlock(pos, false);\n\t\t\t\tworld.playSound(null, pos.getX(), pos.getY(), pos.getZ(), ModSoundEvents.BLOCK_CRATE_BREAK, SoundCategory.BLOCKS, 0.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 3072,
+          "after_offset": 4675,
+          "old": "\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 3274,
+          "after_offset": 4891,
+          "old": "\t\t\t\tthis.dropBlockAsItem(world, x, y, z, item);\n",
+          "new": "\t\t\t\tspawnAsEntity(world, new BlockPos(x, y, z), item);\n"
+        },
+        {
+          "before_offset": 3453,
+          "after_offset": 5077,
+          "old": "",
+          "new": "\n\t\t/** Metadata changes do not replace the stored inventory's block identity. */\n\t\t@Override\n\t\tpublic boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {\n\t\t\treturn oldState.getBlock() != newState.getBlock();\n\t\t}\n"
+        },
+        {
+          "before_offset": 3709,
+          "after_offset": 5588,
+          "old": "\t\t\t\titems.add(ItemStack.loadItemStackFromNBT(nbt1));\n",
+          "new": "\t\t\t\titems.add(new ItemStack(nbt1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebris.java": {
+      "before_sha256": "f6153ce867f8063ca4694c37995d21aecb428a358f1279f61cd3c5009dbdc13c",
+      "after_sha256": "ad90e085eff050a1db1975049db8cfcd2734e278583f049c90575223f00b10cb",
+      "edits": [
+        {
+          "before_offset": 38,
+          "after_offset": 38,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 183,
+          "after_offset": 118,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 225,
+          "after_offset": 575,
+          "old": "",
+          "new": "\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\n"
+        },
+        {
+          "before_offset": 248,
+          "after_offset": 690,
+          "old": "\t\tsuper(Material.iron);\n",
+          "new": "\t\tsuper(Material.IRON);\n\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 276,
+          "after_offset": 790,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\t\n\t@Override\n\tpublic int getRenderType(){\n\t\treturn this.renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n",
+          "new": "\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java": {
+      "before_sha256": "d526668b988f3dff0781b6f0a5c237fe8e92c6e9f18b2a2c16ed66f3f9f6ae76",
+      "after_sha256": "af5b78989213b64a992188ebec85fe7b2e394efdd9fb3779f1c62ef44e269ded",
+      "edits": [
+        {
+          "before_offset": 399,
+          "after_offset": 399,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 433,
+          "after_offset": 520,
+          "old": "",
+          "new": "import net.minecraft.init.SoundEvents;\nimport net.minecraft.util.SoundCategory;\n"
+        },
+        {
+          "before_offset": 699,
+          "after_offset": 866,
+          "old": "\tpublic void updateTick(World world, int x, int y, int z, Random rand) {\n",
+          "new": "\tpublic void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 953,
+          "after_offset": 1186,
+          "old": "\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + rand.nextDouble() * 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));\n",
+          "new": "\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + rand.nextDouble() * 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));\n"
+        },
+        {
+          "before_offset": 1233,
+          "after_offset": 1469,
+          "old": "\t\t\t\tworld.playSoundEffect(x + 0.5F, y + 0.5, z + 0.5, \"fire.fire\", 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);\n",
+          "new": "\t\t\t\tworld.playSound(null, x + 0.5F, y + 0.5, z + 0.5, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);\n"
+        },
+        {
+          "before_offset": 1436,
+          "after_offset": 1713,
+          "old": "\t\t\tBlock block = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\tint meta = world.getBlockMetadata(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n",
+          "new": "\t\t\tBlock block = world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)).getBlock();\n\t\t\tint meta = block.getMetaFromState(world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)));\n"
+        },
+        {
+          "before_offset": 1610,
+          "after_offset": 1918,
+          "old": "\t\t\tif(rand.nextInt(10) == 0 && block == Blocks.air) {\n\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_meltdown);\n",
+          "new": "\t\t\tif(rand.nextInt(10) == 0 && block == Blocks.AIR) {\n\t\t\t\tworld.setBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ), ModBlocks.gas_meltdown.getDefaultState());\n"
+        },
+        {
+          "before_offset": 2107,
+          "after_offset": 2435,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.pribris);\n",
+          "new": "\t\t\t\tworld.setBlockState(pos, ModBlocks.pribris.getDefaultState());\n"
+        },
+        {
+          "before_offset": 2167,
+          "after_offset": 2514,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 2248,
+          "after_offset": 2586,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n",
+          "new": "\t@Override\n\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 2534,
+          "after_offset": 2952,
+          "old": "\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + world.rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + world.rand.nextDouble() * 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));\n",
+          "new": "\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + world.rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + world.rand.nextDouble() * 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));\n"
+        },
+        {
+          "before_offset": 2836,
+          "after_offset": 3257,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisDigamma.java": {
+      "before_sha256": "2b457e071500a800f0de3d96aa5a5c6d7bc843ef36ad9798f5fb96ef7d4d6550",
+      "after_sha256": "d058e1d1a0b927c6e91f13506957127b3c7e44e6b861ccb9fe85ae22013ced28",
+      "edits": [
+        {
+          "before_offset": 132,
+          "after_offset": 132,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 267,
+          "after_offset": 354,
+          "old": "\tpublic void updateTick(World world, int x, int y, int z, Random rand) {\n",
+          "new": "\tpublic void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {\n"
+        },
+        {
+          "before_offset": 434,
+          "after_offset": 533,
+          "old": "\t\t\t\tBlock b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n",
+          "new": "\t\t\t\tBlock b = world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 625,
+          "after_offset": 737,
+          "old": "\t\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this);\n",
+          "new": "\t\t\t\t\tworld.setBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ), getDefaultState());\n"
+        },
+        {
+          "before_offset": 716,
+          "after_offset": 843,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n",
+          "new": "\t@Override\n\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tworld.scheduleUpdate(pos, this, 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java": {
+      "before_sha256": "35ac2a005bdf52dc6bb26a79fe8ed2601083ae8258e28466dd281618f638190d",
+      "after_sha256": "a53fdd9f1506f2585c423c742496f7709c9f97aff7dde9cbb27f1eb933eeb9d3",
+      "edits": [
+        {
+          "before_offset": 565,
+          "after_offset": 565,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 694,
+          "after_offset": 781,
+          "old": "",
+          "new": "import net.minecraft.init.SoundEvents;\nimport net.minecraft.util.SoundCategory;\n"
+        },
+        {
+          "before_offset": 1092,
+          "after_offset": 1259,
+          "old": "\tpublic void updateTick(World world, int x, int y, int z, Random rand) {\n",
+          "new": "\tpublic void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1375,
+          "after_offset": 1608,
+          "old": "\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + rand.nextDouble(), y + 1.75, z + rand.nextDouble()), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));\n",
+          "new": "\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + rand.nextDouble(), y + 1.75, z + rand.nextDouble()), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));\n"
+        },
+        {
+          "before_offset": 1631,
+          "after_offset": 1867,
+          "old": "\t\t\t\tworld.playSoundEffect(x + 0.5F, y + 0.5, z + 0.5, \"fire.fire\", 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);\n",
+          "new": "\t\t\t\tworld.playSound(null, x + 0.5F, y + 0.5, z + 0.5, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);\n"
+        },
+        {
+          "before_offset": 1835,
+          "after_offset": 2112,
+          "old": "\t\t\tBlock block = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\tint m = world.getBlockMetadata(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n",
+          "new": "\t\t\tBlock block = world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)).getBlock();\n\t\t\tint m = block.getMetaFromState(world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)));\n"
+        },
+        {
+          "before_offset": 2006,
+          "after_offset": 2314,
+          "old": "\t\t\tif(rand.nextInt(10) == 0 && block == Blocks.air) {\n\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_meltdown);\n",
+          "new": "\t\t\tif(rand.nextInt(10) == 0 && block == Blocks.AIR) {\n\t\t\t\tworld.setBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ), ModBlocks.gas_meltdown.getDefaultState());\n"
+        },
+        {
+          "before_offset": 2426,
+          "after_offset": 2754,
+          "old": "\t\t\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\t\t\tint meta = getMetaFromState(world.getBlockState(pos));\n"
+        },
+        {
+          "before_offset": 2495,
+          "after_offset": 2834,
+          "old": "\t\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);\n\t\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\t\t\tworld.setBlockState(pos, getStateFromMeta(meta + 1), 2);\n\t\t\t\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 2638,
+          "after_offset": 2969,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.pribris_burning);\n",
+          "new": "\t\t\t\t\tworld.setBlockState(pos, ModBlocks.pribris_burning.getDefaultState());\n"
+        },
+        {
+          "before_offset": 2714,
+          "after_offset": 3064,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 2903,
+          "after_offset": 3244,
+          "old": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));\n",
+          "new": "\t\tList<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(range, range, range));\n"
+        },
+        {
+          "before_offset": 3517,
+          "after_offset": 3845,
+          "old": "\t\t\t\tres += world.getBlock(ix, iy, iz).getExplosionResistance(null);\n",
+          "new": "\t\t\t\tres += world.getBlockState(new BlockPos(ix, iy, iz)).getBlock().getExplosionResistance(null);\n"
+        },
+        {
+          "before_offset": 3812,
+          "after_offset": 4170,
+          "old": "\t\t\t\te.attackEntityFrom(DamageSource.inFire, 100);\n",
+          "new": "\t\t\t\te.attackEntityFrom(DamageSource.IN_FIRE, 100);\n"
+        },
+        {
+          "before_offset": 3955,
+          "after_offset": 4314,
+          "old": "\t\t\t\tif(p.getHeldItem() != null && p.getHeldItem().getItem() == ModItems.marshmallow && p.getHeldItem().getItemDamage() != 1 && p.getRNG().nextInt(100) == 0) {\n\t\t\t\t\tp.getHeldItem().setItemDamage(1);\n",
+          "new": "\t\t\t\tif(!p.getHeldItemMainhand().isEmpty() && p.getHeldItemMainhand().getItem() == ModItems.marshmallow && p.getHeldItemMainhand().getItemDamage() != 1 && p.getRNG().nextInt(100) == 0) {\n\t\t\t\t\tp.getHeldItemMainhand().setItemDamage(1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "5d23831b3bde8c5eab0938c4a5b1e2a27f6c555fd37a7a4d79ef25cd7def294f",
+      "after_sha256": "42b807ebc41052c94f654fe8108b620b7fcfb38a301f09894a6c27a3b6aa67ab",
+      "edits": [
+        {
+          "before_offset": 6456,
+          "after_offset": 6456,
+          "old": "",
+          "new": "    private java.util.Set<Item> nativeOneMeshItems;\n    private com.hbm.render.item.nativeitem.context.ContextItemRegistration nativeContextItems;\n    private boolean nativeItemOwnershipFinished;\n"
+        },
+        {
+          "before_offset": 48114,
+          "after_offset": 48310,
+          "old": "\t\tMinecraftForgeClient.registerItemRenderer(ModItems.boltgun, new ItemRenderBoltgun());\n",
+          "new": "        java.util.Map<Item, com.hbm.render.item.nativeitem.context.ContextItemRenderer> contextRenderers = new java.util.IdentityHashMap<>();\n        contextRenderers.put(ModItems.boltgun, new ItemRenderBoltgun());\n"
+        },
+        {
+          "before_offset": 49590,
+          "after_offset": 49913,
+          "old": "        MinecraftForge.EVENT_BUS.register(new com.hbm.render.item.nativeitem.staticfamily.StaticItemEntityOwnership(oneMeshItems, MainRegistry.logger::warn));\n",
+          "new": "        nativeOneMeshItems = oneMeshItems;\n        nativeContextItems = new com.hbm.render.item.nativeitem.context.ContextItemRegistration(contextRenderers, MainRegistry.logger::warn);\n        nativeContextItems.register(event);\n        MinecraftForge.EVENT_BUS.register(nativeContextItems);\n    }\n\n\n    @Override\n    public void onLoadComplete() {\n        if(nativeItemOwnershipFinished) return;\n        if(nativeContextItems == null || nativeOneMeshItems == null)\n            throw new IllegalStateException(\"Native item model registration did not precede load completion\");\n        nativeItemOwnershipFinished = true;\n        com.hbm.render.item.nativeitem.context.NativeItemRendererOwnership ownership =\n                new com.hbm.render.item.nativeitem.context.NativeItemRendererOwnership(nativeContextItems);\n        if(ownership.install()) nativeOneMeshItems.addAll(nativeContextItems.items());\n        // Preserve exact native dropped ownership during context preflight. An\n        // aborted context transaction must not change fallback item counting.\n        MinecraftForge.EVENT_BUS.register(new com.hbm.render.item.nativeitem.staticfamily.StaticItemEntityOwnership(nativeOneMeshItems, MainRegistry.logger::warn));\n"
+        },
+        {
+          "before_offset": 76713,
+          "after_offset": 78104,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderSteelBeam());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 76971,
+          "after_offset": 78297,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderConserve());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 79439,
+          "after_offset": 80701,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderPribris());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/MainRegistry.java": {
+      "before_sha256": "8d8c6b26cb81cd8bc9bc8aa89fb81f93490346a2699413516c2a8b776aa5295d",
+      "after_sha256": "4d90d3424ff5c50c0cd2f33141fd3bde80a60860e2d3af72026e8cf14d55ad4b",
+      "edits": [
+        {
+          "before_offset": 24072,
+          "after_offset": 24072,
+          "old": "",
+          "new": "\t}\r\n\r\n\t@EventHandler\r\n\tpublic static void LoadComplete(net.minecraftforge.fml.common.event.FMLLoadCompleteEvent event) {\r\n\t\tproxy.onLoadComplete();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModSoundEvents.java": {
+      "before_sha256": "4c473be88e9e510470ef3b3a26d80e20db1b52e959831ab917aad3cd336066d5",
+      "after_sha256": "f11734453407566473aaf618b0e8ffee0a70e16e920955473b8b3b8fdf05957e",
+      "edits": [
+        {
+          "before_offset": 1030,
+          "after_offset": 1030,
+          "old": "",
+          "new": "\tpublic static final SoundEvent BLOCK_CRATE_BREAK = create(\"block.crateBreak\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ServerProxy.java": {
+      "before_sha256": "ae56c3578f5e28f9afef93d243cf947d15cbc9b520b31da585c26bc849c1e05b",
+      "after_sha256": "7935fdeab80e25fb2a90d9aa560aaa2df5162244735055596a4486a81e67a144",
+      "edits": [
+        {
+          "before_offset": 1306,
+          "after_offset": 1306,
+          "old": "",
+          "new": "\tpublic void onLoadComplete() { }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderConserve.java": {
+      "before_sha256": "ecb0938903a04bd3d0f564797aef4b51827a713ad7583f3ba6e07ead54cd99ea",
+      "after_sha256": "fccd39f778e393394a604c0ddeeeb032f8037ee58f0730fdf4a5fd4f2b76d6a7",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.generic.BlockCanCrate;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderConserve implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.conservecrate, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.conservecrate, iicon, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockCanCrate.renderID;\n\t}\n",
+          "new": "/** Native whole-OBJ successor for the original can/supply crate renderer. */\npublic final class RenderConserve {\n    private RenderConserve() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        // Original world origin is (x+.5,y,z+.5); original item GL translates y by -.5.\n        // Native item coordinates add the common block center back before camera transforms.\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, 0, 0, 1D, .5D, 0D, .5D);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderPribris.java": {
+      "before_sha256": "43ed691e9b3fb47f6a7077359a77cf908319b2f8c64535485c2bd94015bce4f4",
+      "after_sha256": "6ee5404ab9dddb687acc645cf148ea62d0be454fefc2b62fa4b4b5136c996f5c",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.machine.rbmk.RBMKDebris;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderPribris implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rbmk_debris, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rbmk_debris, iicon, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn RBMKDebris.renderID;\n\t}\n",
+          "new": "/** Native whole-OBJ successor for the original all four RBMK debris renderer. */\npublic final class RenderPribris {\n    private RenderPribris() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        // Original world origin is (x+.5,y,z+.5); original item GL translates y by -.5.\n        // Native item coordinates add the common block center back before camera transforms.\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, 0, 0, 1D, .5D, 0D, .5D);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelBeam.java": {
+      "before_sha256": "54c5322e3d71f63cbe66f5a4335b632e4381fb306ec3d3a509bcd7de14438a01",
+      "after_sha256": "d964f52de9557ca369d73d2c49f577c65920dab905a2d79744ba28e0b9cb766e",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.generic.DecoBlock;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderSteelBeam implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.beam, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.beam, iicon, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn DecoBlock.renderIDBeam;\n\t}\n",
+          "new": "/** Native whole-OBJ successor for the original steel beam renderer. */\npublic final class RenderSteelBeam {\n    private RenderSteelBeam() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        // Original world origin is (x+.5,y,z+.5); original item GL translates y by -.5.\n        // Native item coordinates add the common block center back before camera transforms.\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, 0, 0, 1D, .5D, 0D, .5D);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/ItemRenderBoltgun.java": {
+      "before_sha256": "2e1e679f3962d8af8ac0f97c658d1c8814871dcdf38f4b186c66aa4ed814eef4",
+      "after_sha256": "148044f3b058601c3cdbd3a241e7f23e09567fa511b0d7d61f8922af2f76f0d2",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "",
+          "new": "import javax.vecmath.Matrix4f;\n"
+        },
+        {
+          "before_offset": 60,
+          "after_offset": 91,
+          "old": "\n",
+          "new": ""
+        },
+        {
+          "before_offset": 140,
+          "after_offset": 170,
+          "old": "",
+          "new": "import com.hbm.render.item.nativeitem.ItemTransformMatrix;\nimport com.hbm.render.item.nativeitem.context.ContextItemRenderer;\nimport com.hbm.render.item.nativeitem.context.NativeItemContext;\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.item.ItemStack;\n"
+        },
+        {
+          "before_offset": 141,
+          "after_offset": 438,
+          "old": "import net.minecraft.client.Minecraft;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\nimport net.minecraftforge.client.IItemRenderer;\n\npublic class ItemRenderBoltgun implements IItemRenderer {\n\n\t@Override\n\tpublic boolean handleRenderType(ItemStack item, ItemRenderType type) {\n\t\tswitch(type) {\n\t\tcase EQUIPPED:\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\tcase ENTITY:\n\t\tcase INVENTORY:\n\t\t\treturn true;\n\t\tdefault: return false;\n\t\t}\n\t}\n\n\t@Override\n\tpublic boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {\n\t\treturn type == ItemRenderType.ENTITY && (helper == ItemRendererHelper.ENTITY_ROTATION || helper == ItemRendererHelper.ENTITY_BOBBING);\n\t}\n\t\n\t@Override\n\tpublic void renderItem(ItemRenderType type, ItemStack item, Object... data) {\n\t\t\n\t\tGL11.glPushMatrix();\n\t\t\n\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n\t\t\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\tMinecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.boltgun_tex);\n\t\t\n\t\tswitch(type) {\n\t\t\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\t\t\n\t\t\tdouble s0 = 0.15D;\n\t\t\tGL11.glTranslated(0.5, 0.35, -0.25F);\n\t\t\tGL11.glRotated(15, 0, 0, 1);\n\t\t\tGL11.glRotated(80, 0, 1, 0);\n\t\t\tGL11.glScaled(s0, s0, s0);\n\t\t\t\n\t\t\tGL11.glPushMatrix();\n\t\t\tdouble[] anim = HbmAnimations.getRelevantTransformation(\"RECOIL\");\n\t\t\tGL11.glTranslated(0, 0, -anim[0]);\n\t\t\tif(anim[0] != 0) player.isSwingInProgress = false;\n\t\t\tResourceManager.boltgun.renderPart(\"Barrel\");\n\t\t\tGL11.glPopMatrix();\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tcase EQUIPPED:\n\n\t\t\tdouble scale = 0.25D;\n\t\t\tGL11.glScaled(scale, scale, scale);\n\t\t\tGL11.glRotated(10, 0, 1, 0);\n\t\t\tGL11.glRotated(10, 0, 0, 1);\n\t\t\tGL11.glRotated(10, 1, 0, 0);\n\t\t\tGL11.glTranslated(1.5, -0.25, 1);\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tcase ENTITY:\n\n\t\t\tdouble s1 = 0.1D;\n\t\t\tGL11.glScaled(s1, s1, s1);\n\t\t\tbreak;\n\t\t\t\n\t\tcase INVENTORY:\n\n\t\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\t\t\n\t\t\tdouble s = 1.75D;\n\t\t\tGL11.glTranslated(7, 10, 0);\n\t\t\tGL11.glRotated(-90, 0, 1, 0);\n\t\t\tGL11.glRotated(-135, 1, 0, 0);\n\t\t\tGL11.glScaled(s, s, -s);\n\t\t\t\n\t\t\tbreak;\n\t\t\t\n\t\tdefault: break;\n\t\t}\n\n\t\tResourceManager.boltgun.renderPart(\"Gun\");\n\t\tif(type != type.EQUIPPED_FIRST_PERSON) {\n\t\t\tResourceManager.boltgun.renderPart(\"Barrel\");\n\t\t}\n\t\tGL11.glShadeModel(GL11.GL_FLAT);\n\t\t\n\t\tGL11.glPopMatrix();\n\t}\n",
+          "new": "/** Context-dependent native mesh: first-person Barrel recoil is not a matrix-only callback. */\npublic class ItemRenderBoltgun extends ContextItemRenderer {\n    @Override public Matrix4f localTransform(ItemStack stack, NativeItemContext context) {\n        ItemTransformMatrix matrix = new ItemTransformMatrix();\n        switch(context.transform) {\n        case FIRST_PERSON_LEFT_HAND:\n        case FIRST_PERSON_RIGHT_HAND:\n            return matrix.translate(.5, .35, -.25F).rotateZ(15).rotateY(80).scale(.15).build();\n        case THIRD_PERSON_LEFT_HAND:\n        case THIRD_PERSON_RIGHT_HAND:\n            return matrix.scale(.25).rotateY(10).rotateZ(10).rotateX(10).translate(1.5, -.25, 1).build();\n        case GUI:\n            return matrix.translate(7, 10, 0).rotateY(-90).rotateX(-135).scale(1.75, 1.75, -1.75).build();\n        default: return matrix.scale(.1).build();\n        }\n    }\n    @Override protected void draw(ItemStack stack, NativeItemContext context) {\n        GL11.glEnable(GL11.GL_CULL_FACE);\n        GL11.glShadeModel(GL11.GL_SMOOTH);\n        Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.boltgun_tex);\n        if(context.isFirstPerson()) {\n            GL11.glPushMatrix();\n            try {\n                double[] animation = HbmAnimations.getRelevantTransformation(\"RECOIL\");\n                GL11.glTranslated(0, 0, -animation[0]);\n                // Original renderer suppresses the local player's swing, not a remote holder's.\n                if(animation[0] != 0) Minecraft.getMinecraft().player.isSwingInProgress = false;\n                ResourceManager.boltgun.renderPart(\"Barrel\");\n            } finally { GL11.glPopMatrix(); }\n        } else if(context.transform == net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType.GUI) {\n            GL11.glEnable(GL11.GL_ALPHA_TEST);\n            GL11.glEnable(GL11.GL_LIGHTING);\n        }\n        ResourceManager.boltgun.renderPart(\"Gun\");\n        if(!context.isFirstPerson()) ResourceManager.boltgun.renderPart(\"Barrel\");\n        GL11.glShadeModel(GL11.GL_FLAT);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/ItemRendererHot.java": {
+      "before_sha256": "a2b1d40bed9abc936c20fa54ab24a9bcd3ab0893027f7c824ff61b79eb90f31c",
+      "after_sha256": "82ddfa17dcd59a6c25ced8158a3242b309eb3893962662bcfd0d7797b5663981",
+      "edits": [
+        {
+          "before_offset": 957,
+          "after_offset": 957,
+          "old": "\t\tRenderItemStack.renderItem.renderItemIntoGUI(mc.fontRenderer, mc.renderEngine, item, 0, 0);\n",
+          "new": "\t\tcom.hbm.render.util.NativeGuiItemDraw.withoutEffect(RenderItemStack.renderer(), item, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/AngelCoreItemModel.java": {
+      "before_sha256": "4b7c5be4a559d93215d6e77bb4acc1b93510acad614f1072ac50af19fd2073c4",
+      "after_sha256": "a7b73890a72fe830d3a8257cee8280c9f2ca490dac0c7344b33c96e19fa0878a",
+      "edits": [
+        {
+          "before_offset": 2552,
+          "after_offset": 2552,
+          "old": "            return new AngelCoreItemModel(corrected, sprite);\n",
+          "new": "            return new AngelCoreItemModel(corrected, sprite, getBaseModel());\n"
+        },
+        {
+          "before_offset": 2731,
+          "after_offset": 2747,
+          "old": "        super(transforms, sprite);\n",
+          "new": "        this(transforms, sprite, null);\n    }\n    private AngelCoreItemModel(Map<TransformType, Matrix4f> transforms, TextureAtlasSprite sprite, IBakedModel baseModel) {\n        super(transforms, sprite, baseModel);\n"
+        },
+        {
+          "before_offset": 2840,
+          "after_offset": 3037,
+          "old": "",
+          "new": "    }\n    @Override public AngelCoreItemModel withBaseModel(IBakedModel original) {\n        return new AngelCoreItemModel(transforms, sprite, original);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java": {
+      "before_sha256": "fa778385fb4cb733124fea34c0e8395ef038ef7e600bd424c61010f29ccdd49f",
+      "after_sha256": "20b32bc9dac6481f09a97bcdb7702b69da38de17fd676897905585373413fe32",
+      "edits": [
+        {
+          "before_offset": 806,
+          "after_offset": 806,
+          "old": "public class StaticMeshItemModel implements IBakedModel {\n",
+          "new": "public class StaticMeshItemModel implements IBakedModel, com.hbm.render.util.NativeItemBaseModel {\n    private final IBakedModel baseModel;\n"
+        },
+        {
+          "before_offset": 1112,
+          "after_offset": 1194,
+          "old": "",
+          "new": "        this(transforms, particle, null);\n    }\n    protected StaticMeshItemModel(Map<TransformType, Matrix4f> transforms, TextureAtlasSprite particle, IBakedModel baseModel) {\n        this.baseModel = baseModel;\n"
+        },
+        {
+          "before_offset": 1405,
+          "after_offset": 1700,
+          "old": "",
+          "new": "    }\n    @Override public IBakedModel getBaseModel() { return baseModel; }\n    public StaticMeshItemModel withBaseModel(IBakedModel original) {\n        return new StaticMeshItemModel(perspectives, particle, original);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemRegistration.java": {
+      "before_sha256": "94e858de9ccb0b982bd40c7aaa63b3b5f85d343d9d5b0617e3ed9d41ec8879f0",
+      "after_sha256": "cbcd29d86a0131c3538d1dadc20bc33e825629bc0358ce40392ae470119f78ad",
+      "edits": [
+        {
+          "before_offset": 1884,
+          "after_offset": 1884,
+          "old": "",
+          "new": "        // Keep the original native geometry for explicit no-custom GUI draws.\n        model = model.withBaseModel(event.getModelRegistry().getObject(key));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemModel.java": {
+      "before_sha256": "6b35f3f4d9d7b0c4e754651459014d5d1cd9a45d16bff860607e729be95dcc1b",
+      "after_sha256": "2cbf2a0a80ba19c90a51386e70ef49b9da5aae05c16b7362923b3694bd35626f",
+      "edits": [
+        {
+          "before_offset": 1312,
+          "after_offset": 1312,
+          "old": "public final class CallbackItemModel implements IBakedModel {\n",
+          "new": "public final class CallbackItemModel implements IBakedModel, com.hbm.render.util.NativeItemBaseModel {\n    private final IBakedModel baseModel;\n"
+        },
+        {
+          "before_offset": 1801,
+          "after_offset": 1883,
+          "old": "            return selected == perspective ? original : new CallbackItemModel(selected, renderer);\n",
+          "new": "            return selected == perspective ? original : new CallbackItemModel(selected, renderer, baseModel);\n"
+        },
+        {
+          "before_offset": 2000,
+          "after_offset": 2093,
+          "old": "        this(new OrdinaryMeshItemModel(StaticItemPerspectives.complete(new ItemTransformMatrix().build()), sprite), renderer);\n",
+          "new": "        this(sprite, renderer, null);\n"
+        },
+        {
+          "before_offset": 2133,
+          "after_offset": 2137,
+          "old": "    private CallbackItemModel(IBakedModel perspective, ItemRenderBase renderer) {\n",
+          "new": "    public CallbackItemModel(TextureAtlasSprite sprite, ItemRenderBase renderer, IBakedModel baseModel) {\n        this(new OrdinaryMeshItemModel(StaticItemPerspectives.complete(new ItemTransformMatrix().build()), sprite), renderer, baseModel);\n    }\n    private CallbackItemModel(IBakedModel perspective, ItemRenderBase renderer, IBakedModel baseModel) {\n        this.baseModel = baseModel;\n"
+        },
+        {
+          "before_offset": 2283,
+          "after_offset": 2596,
+          "old": "",
+          "new": "    @Override public IBakedModel getBaseModel() { return baseModel; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemRegistration.java": {
+      "before_sha256": "f2015e2c7a62a3931352a8a869d5e014cc391e896158c12e54e40be7100787f0",
+      "after_sha256": "304f27f65dc0b7923549dfd2ee501b961f46c802afa580ec30925c3de8253c84",
+      "edits": [
+        {
+          "before_offset": 2455,
+          "after_offset": 2455,
+          "old": "            models.put(e.getKey(),new CallbackItemModel(sprite,e.getValue()));\n",
+          "new": "            models.put(e.getKey(),new CallbackItemModel(sprite,e.getValue(),original));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemModel.java": {
+      "before_sha256": "05acbfacf1d3a3aafebe7c1eedf5da4625517643285bcc4df15df1846644882d",
+      "after_sha256": "0c30a14f9e795250306c9337876ae98f803aa031a3937a436cfdc1b768bd6c6a",
+      "edits": [
+        {
+          "before_offset": 1338,
+          "after_offset": 1338,
+          "old": "public final class DirectMeshItemModel implements IBakedModel {\n",
+          "new": "public final class DirectMeshItemModel implements IBakedModel, com.hbm.render.util.NativeItemBaseModel {\n    private final IBakedModel baseModel;\n"
+        },
+        {
+          "before_offset": 2466,
+          "after_offset": 2548,
+          "old": "            return new DirectMeshItemModel(sprite, renderer, right, left);\n",
+          "new": "            return new DirectMeshItemModel(sprite, renderer, right, left, baseModel);\n"
+        },
+        {
+          "before_offset": 2651,
+          "after_offset": 2744,
+          "old": "        this(sprite, renderer, null, null);\n",
+          "new": "        this(sprite, renderer, null);\n"
+        },
+        {
+          "before_offset": 2701,
+          "after_offset": 2788,
+          "old": "    private DirectMeshItemModel(TextureAtlasSprite sprite, DirectMeshItemRenderer renderer, Matrix4f right, Matrix4f left) {\n",
+          "new": "    public DirectMeshItemModel(TextureAtlasSprite sprite, DirectMeshItemRenderer renderer, IBakedModel baseModel) {\n        this(sprite, renderer, null, null, baseModel);\n    }\n    private DirectMeshItemModel(TextureAtlasSprite sprite, DirectMeshItemRenderer renderer, Matrix4f right, Matrix4f left, IBakedModel baseModel) {\n        this.baseModel = baseModel;\n"
+        },
+        {
+          "before_offset": 3032,
+          "after_offset": 3355,
+          "old": "",
+          "new": "    @Override public IBakedModel getBaseModel() { return baseModel; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/direct/DirectMeshItemRegistration.java": {
+      "before_sha256": "b9225c5d3db1aca10e70e9efa4623f9a67fa8fd689e88d3e7a549868817681b4",
+      "after_sha256": "20d857abbb3621312792f2b3a6d4624efae93b2661904eb93c3ffea5bb5ff0a7",
+      "edits": [
+        {
+          "before_offset": 2418,
+          "after_offset": 2418,
+          "old": "            models.put(e.getKey(),new DirectMeshItemModel(sprite,e.getValue()));\n",
+          "new": "            models.put(e.getKey(),new DirectMeshItemModel(sprite,e.getValue(),original));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/staticfamily/OrdinaryMeshItemModel.java": {
+      "before_sha256": "f6b89009160166020795bfb31c1338bdfec32a0513339a7082efe159ab68aae3",
+      "after_sha256": "0d715a62af62c8305f7c89d0963e4b8155775d4ce60dbff765d6186d71ed5c4e",
+      "edits": [
+        {
+          "before_offset": 2687,
+          "after_offset": 2687,
+          "old": "            return new OrdinaryMeshItemModel(corrected, sprite);\n",
+          "new": "            return new OrdinaryMeshItemModel(corrected, sprite, getBaseModel());\n"
+        },
+        {
+          "before_offset": 2872,
+          "after_offset": 2888,
+          "old": "        super(transforms, sprite);\n",
+          "new": "        this(transforms, sprite, null);\n    }\n    private OrdinaryMeshItemModel(Map<TransformType, Matrix4f> transforms, TextureAtlasSprite sprite, IBakedModel baseModel) {\n        super(transforms, sprite, baseModel);\n"
+        },
+        {
+          "before_offset": 2981,
+          "after_offset": 3181,
+          "old": "",
+          "new": "    }\n    @Override public OrdinaryMeshItemModel withBaseModel(IBakedModel original) {\n        return new OrdinaryMeshItemModel(transforms, sprite, original);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/staticfamily/StaticItemFamilyRegistration.java": {
+      "before_sha256": "6bd59bd5921a56f1398bb2b4d7736a5c534163452fbc9725f671123110e37d20",
+      "after_sha256": "60806086fcd0f1c0683ff0c2057c7675eb7311647c4d01e13ebfce972e226319",
+      "edits": [
+        {
+          "before_offset": 2780,
+          "after_offset": 2780,
+          "old": "            models.add(model);\n",
+          "new": "            models.add(model.withBaseModel(event.getModelRegistry().getObject(descriptor.modelLocation())));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderArcWelder.java": {
+      "before_sha256": "cf34198b77070a7ffd80de463c96750feeab42bfc2c44a2d62821221aa5033bc",
+      "after_sha256": "388be51b26e5a039afceb6a3551f3a635dd9e12023a2eb7c5d901e12f75e7d65",
+      "edits": [
+        {
+          "before_offset": 175,
+          "after_offset": 175,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 281,
+          "after_offset": 292,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 571,
+          "after_offset": 526,
+          "old": "public class RenderArcWelder extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderArcWelder extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 638,
+          "after_offset": 605,
+          "old": "\tprivate RenderItem itemRenderer = new RenderDecoItem(this);\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 712,
+          "after_offset": 707,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1776,
+          "after_offset": 1790,
+          "old": "\t\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 1849,
+          "after_offset": 1855,
+          "old": "\t\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1920,
+          "after_offset": 1889,
+          "old": "\t\t\t\tthis.itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\tthis.itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAssemblyFactory.java": {
+      "before_sha256": "ae8bb7191e51f03bf81afe0ca70a077cdc9d813d4f5700cdfb3d95a0a73d01c3",
+      "after_sha256": "63a18863896d9f52a46780d6829e568b5888c620ccf9743422638e3fdda4ec77",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 518,
+          "after_offset": 573,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 619,
+          "after_offset": 623,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1006,
+          "after_offset": 1013,
+          "old": "public class RenderAssemblyFactory extends TileEntitySpecialRenderer implements IItemRendererProvider {\n",
+          "new": "public class RenderAssemblyFactory extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {\n\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 1157,
+          "after_offset": 1265,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tileEntity, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 5872,
+          "after_offset": 5999,
+          "old": "\t\tif(MainRegistry.proxy.me().getDistanceSq(tileEntity.xCoord + 0.5, tileEntity.yCoord + 1, tileEntity.zCoord + 0.5) < 35 * 35) {\n",
+          "new": "\t\tif(MainRegistry.proxy.me().getDistanceSq(tileEntity.getPos().getX() + 0.5, tileEntity.getPos().getY() + 1, tileEntity.getPos().getZ() + 0.5) < 35 * 35) {\n"
+        },
+        {
+          "before_offset": 6361,
+          "after_offset": 6515,
+          "old": "\t\t\t\t\tstack.stackSize = 1;\n",
+          "new": "\t\t\t\t\tstack.setCount(1);\n"
+        },
+        {
+          "before_offset": 6390,
+          "after_offset": 6542,
+          "old": "\t\t\t\t\tif(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock) {\n\t\t\t\t\t\tif(RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType())) {\n",
+          "new": "\t\t\t\t\tif(stack.getItem() instanceof ItemBlock) {\n\t\t\t\t\t\tif(NativeMachineItemRenderer.isBlockModel(stack)) {\n"
+        },
+        {
+          "before_offset": 6854,
+          "after_offset": 6931,
+          "old": "\t\t\t\t\tif(dummy == null || dummy.worldObj != tileEntity.getWorldObj()) dummy = new EntityItem(tileEntity.getWorldObj(), 0, 0, 0, stack);\n\t\t\t\t\tdummy.setEntityItemStack(stack);\n",
+          "new": "\t\t\t\t\tif(dummy == null || dummy.world != tileEntity.getWorld()) dummy = new EntityItem(tileEntity.getWorld(), 0, 0, 0, stack);\n\t\t\t\t\tdummy.setItem(stack);\n"
+        },
+        {
+          "before_offset": 7060,
+          "after_offset": 7117,
+          "old": "\t\t\t\t\tRenderItem.renderInFrame = true;\n\t\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\t\titemRenderer.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 7523,
+          "after_offset": 7530,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder buffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 7645,
+          "after_offset": 7701,
+          "old": "\t\t\tdouble uMin = ((tileEntity.getWorldObj().getTotalWorldTime() / 10D + interp)) % 10;\n",
+          "new": "\t\t\tdouble uMin = ((tileEntity.getWorld().getTotalWorldTime() / 10D + interp)) % 10;\n"
+        },
+        {
+          "before_offset": 8131,
+          "after_offset": 8184,
+          "old": "\t\t\t\ttess.startDrawingQuads();\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0F);\n\t\t\t\ttess.addVertexWithUV(-epsilon, -wide, length, uMin + 0.5, 0);\n\t\t\t\ttess.addVertexWithUV(-epsilon, wide, length, uMin + 0.5, 1);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 1F);\n\t\t\t\ttess.addVertexWithUV(-epsilon, narrow, 0, uMax + 0.5, 1);\n\t\t\t\ttess.addVertexWithUV(-epsilon, -narrow, 0, uMax + 0.5, 0);\n",
+          "new": "\t\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);\n\t\t\t\tbuffer.pos(-epsilon, -wide, length).tex(uMin + 0.5, 0).color(1F, 1F, 1F, 0F).endVertex();\n\t\t\t\tbuffer.pos(-epsilon, wide, length).tex(uMin + 0.5, 1).color(1F, 1F, 1F, 0F).endVertex();\n\t\t\t\tbuffer.pos(-epsilon, narrow, 0).tex(uMax + 0.5, 1).color(1F, 1F, 1F, 1F).endVertex();\n\t\t\t\tbuffer.pos(-epsilon, -narrow, 0).tex(uMax + 0.5, 0).color(1F, 1F, 1F, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 8501,
+          "after_offset": 8628,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0F);\n\t\t\t\ttess.addVertexWithUV(epsilon, -wide, length, uMin, 1);\n\t\t\t\ttess.addVertexWithUV(epsilon, wide, length, uMin, 0);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 1F);\n\t\t\t\ttess.addVertexWithUV(epsilon, narrow, 0, uMax, 0);\n\t\t\t\ttess.addVertexWithUV(epsilon, -narrow, 0, uMax, 1);\n",
+          "new": "\t\t\t\tbuffer.pos(epsilon, -wide, length).tex(uMin, 1).color(1F, 1F, 1F, 0F).endVertex();\n\t\t\t\tbuffer.pos(epsilon, wide, length).tex(uMin, 0).color(1F, 1F, 1F, 0F).endVertex();\n\t\t\t\tbuffer.pos(epsilon, narrow, 0).tex(uMax, 0).color(1F, 1F, 1F, 1F).endVertex();\n\t\t\t\tbuffer.pos(epsilon, -narrow, 0).tex(uMax, 1).color(1F, 1F, 1F, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 8969,
+          "after_offset": 9126,
+          "old": "\t\t\t\ttess.startDrawingQuads();\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0F);\n\t\t\t\ttess.addVertexWithUV(-epsilon, -wide, -length, uMin + 0.5, 0);\n\t\t\t\ttess.addVertexWithUV(-epsilon, wide, -length, uMin + 0.5, 1);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 1F);\n\t\t\t\ttess.addVertexWithUV(-epsilon, narrow, 0, uMax + 0.5, 1);\n\t\t\t\ttess.addVertexWithUV(-epsilon, -narrow, 0, uMax + 0.5, 0);\n",
+          "new": "\t\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n\t\t\t\tbuffer.pos(-epsilon, -wide, -length).tex(uMin + 0.5, 0).color(1F, 1F, 1F, 0F).normal(0, 0, 0).endVertex();\n\t\t\t\tbuffer.pos(-epsilon, wide, -length).tex(uMin + 0.5, 1).color(1F, 1F, 1F, 0F).normal(0, 0, 0).endVertex();\n\t\t\t\tbuffer.pos(-epsilon, narrow, 0).tex(uMax + 0.5, 1).color(1F, 1F, 1F, 1F).normal(0, 0, 0).endVertex();\n\t\t\t\tbuffer.pos(-epsilon, -narrow, 0).tex(uMax + 0.5, 0).color(1F, 1F, 1F, 1F).normal(0, 0, 0).endVertex();\n"
+        },
+        {
+          "before_offset": 9341,
+          "after_offset": 9643,
+          "old": "\t\t\t\ttess.setNormal(-1, 0, 0);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0F);\n\t\t\t\ttess.addVertexWithUV(epsilon, -wide, -length, uMin, 1);\n\t\t\t\ttess.addVertexWithUV(epsilon, wide, -length, uMin, 0);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 1F);\n\t\t\t\ttess.addVertexWithUV(epsilon, narrow, 0, uMax, 0);\n\t\t\t\ttess.addVertexWithUV(epsilon, -narrow, 0, uMax, 1);\n",
+          "new": "\t\t\t\tbuffer.pos(epsilon, -wide, -length).tex(uMin, 1).color(1F, 1F, 1F, 0F).normal(-1, 0, 0).endVertex();\n\t\t\t\tbuffer.pos(epsilon, wide, -length).tex(uMin, 0).color(1F, 1F, 1F, 0F).normal(-1, 0, 0).endVertex();\n\t\t\t\tbuffer.pos(epsilon, narrow, 0).tex(uMax, 0).color(1F, 1F, 1F, 1F).normal(-1, 0, 0).endVertex();\n\t\t\t\tbuffer.pos(epsilon, -narrow, 0).tex(uMax, 1).color(1F, 1F, 1F, 1F).normal(-1, 0, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAssemblyMachine.java": {
+      "before_sha256": "425154f848afd99bc0c83ce355720b6d7afd39a24235f2798392eee5d7e31267",
+      "after_sha256": "3ee6ff22f9951eb36ba9b05ff5f9a8844d56f813d0d13d0ee08d8dfdd77ed8b8",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 500,
+          "after_offset": 555,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 938,
+          "after_offset": 827,
+          "old": "public class RenderAssemblyMachine extends TileEntitySpecialRenderer implements IItemRendererProvider {\n",
+          "new": "public class RenderAssemblyMachine extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {\n\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 1089,
+          "after_offset": 1079,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tileEntity, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 3738,
+          "after_offset": 3747,
+          "old": "\t\tif(recipe != null && MainRegistry.proxy.me().getDistanceSq(tileEntity.xCoord + 0.5, tileEntity.yCoord + 1, tileEntity.zCoord + 0.5) < 35 * 35) {\n",
+          "new": "\t\tif(recipe != null && MainRegistry.proxy.me().getDistanceSq(tileEntity.getPos().getX() + 0.5, tileEntity.getPos().getY() + 1, tileEntity.getPos().getZ() + 0.5) < 35 * 35) {\n"
+        },
+        {
+          "before_offset": 3997,
+          "after_offset": 4033,
+          "old": "\t\t\tstack.stackSize = 1;\n",
+          "new": "\t\t\tstack.setCount(1);\n"
+        },
+        {
+          "before_offset": 4022,
+          "after_offset": 4056,
+          "old": "\t\t\tif(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock) {\n\t\t\t\tif(RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType())) {\n",
+          "new": "\t\t\tif(stack.getItem() instanceof ItemBlock) {\n\t\t\t\tif(NativeMachineItemRenderer.isBlockModel(stack)) {\n"
+        },
+        {
+          "before_offset": 4458,
+          "after_offset": 4417,
+          "old": "\t\t\tif(dummy == null || dummy.worldObj != tileEntity.getWorldObj()) dummy = new EntityItem(tileEntity.getWorldObj(), 0, 0, 0, stack);\n\t\t\tdummy.setEntityItemStack(stack);\n",
+          "new": "\t\t\tif(dummy == null || dummy.world != tileEntity.getWorld()) dummy = new EntityItem(tileEntity.getWorld(), 0, 0, 0, stack);\n\t\t\tdummy.setItem(stack);\n"
+        },
+        {
+          "before_offset": 4656,
+          "after_offset": 4595,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\titemRenderer.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDecoBlockAlt.java": {
+      "before_sha256": "551e2292529a57cc2135098cfc4ca50e3515a41b2ca2e50922fb41481f7288b3",
+      "after_sha256": "45af64d18a82b61a79ed8a75922be4263f8849ec9321779868a0b31df1458ad2",
+      "edits": [
+        {
+          "before_offset": 208,
+          "after_offset": 208,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 420,
+          "after_offset": 431,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 781,
+          "after_offset": 677,
+          "old": "public class RenderDecoBlockAlt extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderDecoBlockAlt extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 1163,
+          "after_offset": 1071,
+          "old": "\tprivate RenderItem itemRenderer;\n\tprivate RenderManager renderManager = RenderManager.instance;\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 1372,
+          "after_offset": 1272,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {\n\t\titemRenderer = new RenderDecoItem(this);\n\t\titemRenderer.setRenderManager(renderManager);\n",
+          "new": "\tpublic void render(TileEntity tileentity, double x, double y, double z, float f, int destroyStage, float alpha) {\n\n"
+        },
+        {
+          "before_offset": 2093,
+          "after_offset": 1922,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2398,
+          "after_offset": 2191,
+          "old": "\t\t\t\tthis.itemRenderer.doRender(watch, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\tthis.itemRenderer.renderFrame(watch, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderEPress.java": {
+      "before_sha256": "5b8226ddc9343ed59b5b77e0cfc2eab9c55acf3fc90ac0be7b35ab801a917b44",
+      "after_sha256": "3daca4a3daf2b0b01990e5940e069a99c83ae8157f1b0da092777d2c95181f04",
+      "edits": [
+        {
+          "before_offset": 142,
+          "after_offset": 142,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 245,
+          "after_offset": 256,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 605,
+          "after_offset": 501,
+          "old": "public class RenderEPress extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderEPress extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 669,
+          "after_offset": 577,
+          "old": "\tprivate RenderItem itemRenderer;\n\tprivate RenderManager renderManager = RenderManager.instance;\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 808,
+          "after_offset": 708,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {\n",
+          "new": "\tpublic void render(TileEntity tileentity, double x, double y, double z, float f, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 2201,
+          "after_offset": 2120,
+          "old": "\t\t\tGL11.glTranslated(0, MathHelper.clamp_double((1D - p), 0D, 1D) * 0.875D, 0);\n",
+          "new": "\t\t\tGL11.glTranslated(0, MathHelper.clamp((1D - p), 0D, 1D) * 0.875D, 0);\n"
+        },
+        {
+          "before_offset": 2562,
+          "after_offset": 2474,
+          "old": "\t\titemRenderer = new RenderDecoItem(this);\n\t\titemRenderer.setRenderManager(renderManager);\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 3487,
+          "after_offset": 3309,
+          "old": "\t\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 3563,
+          "after_offset": 3377,
+          "old": "\t\t\t\tRenderItem.renderInFrame = true;\n\t\t\t\tthis.itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\tthis.itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderMassStorage.java": {
+      "before_sha256": "441f5079e7e948e8167c832ccb14c7a4b8d27e325a35fe6f7949e6f628fe41ef",
+      "after_sha256": "0a81a7bc905d41a1fd8c89fe53283661160ed6945325809f212bf9e53515504d",
+      "edits": [
+        {
+          "before_offset": 394,
+          "after_offset": 394,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.GlStateManager;\n"
+        },
+        {
+          "before_offset": 444,
+          "after_offset": 497,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 643,
+          "after_offset": 758,
+          "old": "public class RenderMassStorage extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderMassStorage extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 711,
+          "after_offset": 838,
+          "old": "\tprivate RenderItem itemRenderer = new RenderDecoItem(this);\n",
+          "new": "\tprivate final RenderDecoItem itemRenderer = new RenderDecoItem();\n"
+        },
+        {
+          "before_offset": 784,
+          "after_offset": 917,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1325,
+          "after_offset": 1477,
+          "old": "\t\tGL11.glDisable(GL12.GL_RESCALE_NORMAL);\n\t\tGL11.glDisable(GL11.GL_NORMALIZE);\n",
+          "new": "\t\tGlStateManager.disableRescaleNormal();\n\t\tGlStateManager.disableNormalize();\n"
+        },
+        {
+          "before_offset": 2259,
+          "after_offset": 2410,
+          "old": "\t\t\t\t\titemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.renderEngine, storage.type, 0, 0);\n",
+          "new": "\t\t\t\t\titemRenderer.renderGui(storage.type, 0, 0, true, true);\n"
+        },
+        {
+          "before_offset": 2372,
+          "after_offset": 2484,
+          "old": "\t\t\t\t\titemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.renderEngine, storage.type, 0, 0, true);\n",
+          "new": "\t\t\t\t\titemRenderer.renderGui(storage.type, 0, 0, false, true);\n"
+        },
+        {
+          "before_offset": 3476,
+          "after_offset": 3553,
+          "old": "\t\t\tTessellator tessellator = Tessellator.instance;\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertex(bMinX, bMaxY, 0);\n\t\t\ttessellator.addVertex(bMaxX, bMaxY, 0);\n\t\t\ttessellator.addVertex(bMaxX, bMinY, 0);\n\t\t\ttessellator.addVertex(bMinX, bMinY, 0);\n",
+          "new": "\t\t\tTessellator tessellator = Tessellator.getInstance();\n\t\t\tBufferBuilder buffer = tessellator.getBuffer();\n\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);\n\t\t\tbuffer.pos(bMinX, bMaxY, 0).endVertex();\n\t\t\tbuffer.pos(bMaxX, bMaxY, 0).endVertex();\n\t\t\tbuffer.pos(bMaxX, bMinY, 0).endVertex();\n\t\t\tbuffer.pos(bMinX, bMinY, 0).endVertex();\n"
+        },
+        {
+          "before_offset": 3883,
+          "after_offset": 4047,
+          "old": "",
+          "new": "\t\tsynchronizeNativeCaches();\n"
+        },
+        {
+          "before_offset": 3886,
+          "after_offset": 4079,
+          "old": "",
+          "new": "\n    /** This legacy scope restores raw attribs behind native item/font caches.\n     * Reconcile the flags and scalar state those draws touch, without changing\n     * the restored GL values or assuming a new default render state. */\n    private static void synchronizeNativeCaches() {\n        sync(GL11.GL_ALPHA_TEST, GlStateManager::enableAlpha, GlStateManager::disableAlpha);\n        sync(GL11.GL_BLEND, GlStateManager::enableBlend, GlStateManager::disableBlend);\n        sync(GL11.GL_LIGHTING, GlStateManager::enableLighting, GlStateManager::disableLighting);\n        sync(GL11.GL_CULL_FACE, GlStateManager::enableCull, GlStateManager::disableCull);\n        sync(GL12.GL_RESCALE_NORMAL, GlStateManager::enableRescaleNormal, GlStateManager::disableRescaleNormal);\n        sync(GL11.GL_NORMALIZE, GlStateManager::enableNormalize, GlStateManager::disableNormalize);\n        sync(GL11.GL_DEPTH_TEST, GlStateManager::enableDepth, GlStateManager::disableDepth);\n        sync(GL11.GL_COLOR_MATERIAL, GlStateManager::enableColorMaterial, GlStateManager::disableColorMaterial);\n        sync(GL11.GL_TEXTURE_2D, GlStateManager::enableTexture2D, GlStateManager::disableTexture2D);\n        sync(GL11.GL_POLYGON_OFFSET_FILL, GlStateManager::enablePolygonOffset, GlStateManager::disablePolygonOffset);\n        for(int i = 0; i < 8; i++) {\n            final int light = i;\n            sync(GL11.GL_LIGHT0 + i, () -> GlStateManager.enableLight(light), () -> GlStateManager.disableLight(light));\n        }\n        int function = GL11.glGetInteger(GL11.GL_ALPHA_TEST_FUNC);\n        float reference = GL11.glGetFloat(GL11.GL_ALPHA_TEST_REF);\n        GlStateManager.alphaFunc(function == GL11.GL_ALWAYS ? GL11.GL_NEVER : GL11.GL_ALWAYS, 0);\n        GlStateManager.alphaFunc(function, reference);\n        int src = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_SRC_RGB), dst = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_DST_RGB);\n        int srcAlpha = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_SRC_ALPHA), dstAlpha = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_DST_ALPHA);\n        GlStateManager.tryBlendFuncSeparate(src == GL11.GL_ONE ? GL11.GL_ZERO : GL11.GL_ONE, 0, 1, 0);\n        GlStateManager.tryBlendFuncSeparate(src, dst, srcAlpha, dstAlpha);\n        int shade = GL11.glGetInteger(GL11.GL_SHADE_MODEL);\n        GlStateManager.shadeModel(shade == GL11.GL_FLAT ? GL11.GL_SMOOTH : GL11.GL_FLAT);\n        GlStateManager.shadeModel(shade);\n        int face = GL11.glGetInteger(GL11.GL_COLOR_MATERIAL_FACE), parameter = GL11.glGetInteger(GL11.GL_COLOR_MATERIAL_PARAMETER);\n        GlStateManager.colorMaterial(face == GL11.GL_FRONT ? GL11.GL_BACK : GL11.GL_FRONT, GL11.GL_AMBIENT);\n        GlStateManager.colorMaterial(face, parameter);\n        java.nio.FloatBuffer color = org.lwjgl.BufferUtils.createFloatBuffer(16);\n        GL11.glGetFloat(GL11.GL_CURRENT_COLOR, color);\n        GlStateManager.resetColor();\n        GlStateManager.color(color.get(0), color.get(1), color.get(2), color.get(3));\n    }\n    private static void sync(int capability, Runnable enable, Runnable disable) {\n        if(GL11.glIsEnabled(capability)) { disable.run(); enable.run(); }\n        else { enable.run(); disable.run(); }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderOreSlopper.java": {
+      "before_sha256": "476973f5defee4d549d9685b068bf09c51517d5a64d8c8370949347f64de5192",
+      "after_sha256": "4aed11a3896b0dd7fe8588a3913a6480be431126015a4f01c535279caef3dcb8",
+      "edits": [
+        {
+          "before_offset": 249,
+          "after_offset": 249,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 356,
+          "after_offset": 367,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 690,
+          "after_offset": 645,
+          "old": "public class RenderOreSlopper extends TileEntitySpecialRenderer implements IItemRendererProvider {\n",
+          "new": "public class RenderOreSlopper extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {\n"
+        },
+        {
+          "before_offset": 791,
+          "after_offset": 758,
+          "old": "\tprivate RenderItem itemRenderer = new RenderDecoItem(this);\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 864,
+          "after_offset": 859,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1901,
+          "after_offset": 1915,
+          "old": "\t\tGL11.glTranslated(0, -MathHelper.clamp_double(extend - 0.25, 0, 1.25), 0);\n",
+          "new": "\t\tGL11.glTranslated(0, -MathHelper.clamp(extend - 0.25, 0, 1.25), 0);\n"
+        },
+        {
+          "before_offset": 2034,
+          "after_offset": 2041,
+          "old": "\t\tGL11.glTranslated(0, -MathHelper.clamp_double(extend, 0, 1.25), 0);\n",
+          "new": "\t\tGL11.glTranslated(0, -MathHelper.clamp(extend, 0, 1.25), 0);\n"
+        },
+        {
+          "before_offset": 2497,
+          "after_offset": 2497,
+          "old": "\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 2563,
+          "after_offset": 2555,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2635,
+          "after_offset": 2591,
+          "old": "\t\t\titemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\titemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPedestalTile.java": {
+      "before_sha256": "14c4c8ce831cd92fb308a144755ac54d934b0772726016c612b8111c553859a2",
+      "after_sha256": "b6dd69207c1a50ee83189621d4df4fc26235afd692e6608944c645d729fe3822",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 205,
+          "after_offset": 260,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 307,
+          "after_offset": 311,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 710,
+          "after_offset": 599,
+          "old": "public class RenderPedestalTile extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderPedestalTile extends TileEntitySpecialRenderer<TileEntity> {\n\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 790,
+          "after_offset": 780,
+          "old": "\tpublic void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity te, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1126,
+          "after_offset": 1135,
+          "old": "\t\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\t\tEntityPlayer player = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 1264,
+          "after_offset": 1270,
+          "old": "\t\t\tif(!(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock && RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType()))) {\n",
+          "new": "\t\t\tif(!(NativeMachineItemRenderer.isBlockModel(stack))) {\n"
+        },
+        {
+          "before_offset": 1803,
+          "after_offset": 1694,
+          "old": "\t\t\tEntityItem dummy = new EntityItem(te.getWorldObj(), 0, 0, 0, stack);\n",
+          "new": "\t\t\tEntityItem dummy = new EntityItem(te.getWorld(), 0, 0, 0, stack);\n"
+        },
+        {
+          "before_offset": 1904,
+          "after_offset": 1792,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\titemRenderer.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPistonInserter.java": {
+      "before_sha256": "ff8c81630eeee3fcc72d3e38b734975999e3a65fe9894b0d6fae57749a6c722f",
+      "after_sha256": "83a796abfb3eaede1cc7c01befa73038f537507d8dee8e6c4c330603a02b17c7",
+      "edits": [
+        {
+          "before_offset": 251,
+          "after_offset": 251,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 295,
+          "after_offset": 306,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 682,
+          "after_offset": 578,
+          "old": "public class RenderPistonInserter extends TileEntitySpecialRenderer implements IItemRendererProvider {\n",
+          "new": "public class RenderPistonInserter extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {\n"
+        },
+        {
+          "before_offset": 798,
+          "after_offset": 706,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1913,
+          "after_offset": 1840,
+          "old": "\t\t\tRenderItem itemRenderer = new RenderDecoItem(this);\n\t\t\titemRenderer.setRenderManager(RenderManager.instance);\n",
+          "new": "\t\t\tNativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 2175,
+          "after_offset": 2066,
+          "old": "\t\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 2397,
+          "after_offset": 2280,
+          "old": "\t\t\t\t\tif(!RenderManager.instance.options.fancyGraphics)\n",
+          "new": "\t\t\t\t\tif(!net.minecraft.client.Minecraft.getMinecraft().gameSettings.fancyGraphics)\n"
+        },
+        {
+          "before_offset": 2548,
+          "after_offset": 2459,
+          "old": "\t\t\t\tRenderItem.renderInFrame = true;\n\t\t\t\titemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\titemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPrecAss.java": {
+      "before_sha256": "4681ad6eda32350a460fa77248ab2557bbe8e6e6377e192f12e28ee835c0666e",
+      "after_sha256": "9f5256c1e4f660dc2ad741b23a6d0981ce3f8b45aef5ce0fdb2980b4b70b8173",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 484,
+          "after_offset": 539,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 922,
+          "after_offset": 811,
+          "old": "public class RenderPrecAss extends TileEntitySpecialRenderer implements IItemRendererProvider {\n",
+          "new": "public class RenderPrecAss extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {\n\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 1065,
+          "after_offset": 1055,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tileEntity, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 2705,
+          "after_offset": 2714,
+          "old": "\t\tif(recipe != null && MainRegistry.proxy.me().getDistanceSq(tileEntity.xCoord + 0.5, tileEntity.yCoord + 1, tileEntity.zCoord + 0.5) < 35 * 35) {\n",
+          "new": "\t\tif(recipe != null && MainRegistry.proxy.me().getDistanceSq(tileEntity.getPos().getX() + 0.5, tileEntity.getPos().getY() + 1, tileEntity.getPos().getZ() + 0.5) < 35 * 35) {\n"
+        },
+        {
+          "before_offset": 2964,
+          "after_offset": 3000,
+          "old": "\t\t\tstack.stackSize = 1;\n",
+          "new": "\t\t\tstack.setCount(1);\n"
+        },
+        {
+          "before_offset": 2989,
+          "after_offset": 3023,
+          "old": "\t\t\tif(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock) {\n\t\t\t\tif(RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType())) {\n",
+          "new": "\t\t\tif(stack.getItem() instanceof ItemBlock) {\n\t\t\t\tif(NativeMachineItemRenderer.isBlockModel(stack)) {\n"
+        },
+        {
+          "before_offset": 3425,
+          "after_offset": 3384,
+          "old": "\t\t\tif(dummy == null || dummy.worldObj != tileEntity.getWorldObj()) dummy = new EntityItem(tileEntity.getWorldObj(), 0, 0, 0, stack);\n\t\t\tdummy.setEntityItemStack(stack);\n",
+          "new": "\t\t\tif(dummy == null || dummy.world != tileEntity.getWorld()) dummy = new EntityItem(tileEntity.getWorld(), 0, 0, 0, stack);\n\t\t\tdummy.setItem(stack);\n"
+        },
+        {
+          "before_offset": 3623,
+          "after_offset": 3562,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\titemRenderer.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPress.java": {
+      "before_sha256": "deb0e06a62a0922ef16a674320e6854a12eded9b6cc032769128ab3003931a65",
+      "after_sha256": "0df8e68cb157ffedb725ec8aa5477ce79cd71ecc747d5f4117e0c3ca906fe8b4",
+      "edits": [
+        {
+          "before_offset": 104,
+          "after_offset": 104,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 206,
+          "after_offset": 217,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 566,
+          "after_offset": 462,
+          "old": "public class RenderPress extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderPress extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 629,
+          "after_offset": 537,
+          "old": "\tprivate RenderItem itemRenderer;\n\tprivate RenderManager renderManager = RenderManager.instance;\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 767,
+          "after_offset": 667,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {\n",
+          "new": "\tpublic void render(TileEntity tileentity, double x, double y, double z, float f, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1597,
+          "after_offset": 1516,
+          "old": "\t\t\tGL11.glTranslated(0, MathHelper.clamp_double((1D - p), 0D, 1D) * 0.875D, 0);\n",
+          "new": "\t\t\tGL11.glTranslated(0, MathHelper.clamp((1D - p), 0D, 1D) * 0.875D, 0);\n"
+        },
+        {
+          "before_offset": 1956,
+          "after_offset": 1868,
+          "old": "\t\titemRenderer = new RenderDecoItem(this);\n\t\titemRenderer.setRenderManager(renderManager);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2453,
+          "after_offset": 2274,
+          "old": "\t\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 2526,
+          "after_offset": 2339,
+          "old": "\t\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2624,
+          "after_offset": 2400,
+          "old": "\t\t\t\tthis.itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\tthis.itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSkeletonHolder.java": {
+      "before_sha256": "256310ec8172544662496e6e4253fb2782bd9ca4ff5150b65b92b6e8a3dee6a0",
+      "after_sha256": "c7cda41c3cee90f4bf15ec2df309f943a63fc823ba82e95d362b4078cb5a6a22",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 215,
+          "after_offset": 270,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 317,
+          "after_offset": 321,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 671,
+          "after_offset": 560,
+          "old": "public class RenderSkeletonHolder extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderSkeletonHolder extends TileEntitySpecialRenderer<TileEntity> {\n\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 753,
+          "after_offset": 743,
+          "old": "\tpublic void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity te, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1612,
+          "after_offset": 1621,
+          "old": "\t\t\tif(!(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock && RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType()))) {\n",
+          "new": "\t\t\tif(!(NativeMachineItemRenderer.isBlockModel(stack))) {\n"
+        },
+        {
+          "before_offset": 1861,
+          "after_offset": 1755,
+          "old": "\t\t\tEntityItem dummy = new EntityItem(te.getWorldObj(), 0, 0, 0, stack);\n",
+          "new": "\t\t\tEntityItem dummy = new EntityItem(te.getWorld(), 0, 0, 0, stack);\n"
+        },
+        {
+          "before_offset": 1962,
+          "after_offset": 1853,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\titemRenderer.renderFrame(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSolderingStation.java": {
+      "before_sha256": "15d9b07a5436d5ceedcebe1961fe664acec4e2e26747b1b6444a6da23e066e88",
+      "after_sha256": "65f4f194bd93d1ea5433719d5453c3498dad1ea8d12517652e127f6b4c05bb27",
+      "edits": [
+        {
+          "before_offset": 175,
+          "after_offset": 175,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 288,
+          "after_offset": 299,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 578,
+          "after_offset": 533,
+          "old": "public class RenderSolderingStation extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderSolderingStation extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 652,
+          "after_offset": 619,
+          "old": "\tprivate RenderItem itemRenderer = new RenderDecoItem(this);\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 726,
+          "after_offset": 721,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1828,
+          "after_offset": 1842,
+          "old": "\t\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 1901,
+          "after_offset": 1907,
+          "old": "\t\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1972,
+          "after_offset": 1941,
+          "old": "\t\t\t\tthis.itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\tthis.itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderVacuumCircuit.java": {
+      "before_sha256": "566b6a087fd0ac0cb9f13bfbbb2dfa620f6a115a6d47b467eba7f8d1624f353a",
+      "after_sha256": "b38ebd1f000b075b36405f4f77b48bcb4f8911af3517b598c64d376dabd94db8",
+      "edits": [
+        {
+          "before_offset": 175,
+          "after_offset": 175,
+          "old": "import com.hbm.render.util.RenderDecoItem;\n",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 285,
+          "after_offset": 296,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 575,
+          "after_offset": 530,
+          "old": "public class RenderVacuumCircuit extends TileEntitySpecialRenderer {\n",
+          "new": "public class RenderVacuumCircuit extends TileEntitySpecialRenderer<TileEntity> {\n"
+        },
+        {
+          "before_offset": 646,
+          "after_offset": 613,
+          "old": "\tprivate RenderItem itemRenderer = new RenderDecoItem(this);\n",
+          "new": "\tprivate final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 720,
+          "after_offset": 715,
+          "old": "\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n",
+          "new": "\tpublic void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {\n"
+        },
+        {
+          "before_offset": 1772,
+          "after_offset": 1786,
+          "old": "\t\t\t\t\titem.getEntityItem().stackSize = 1;\n",
+          "new": "\t\t\t\t\titem.getItem().setCount(1);\n"
+        },
+        {
+          "before_offset": 1848,
+          "after_offset": 1854,
+          "old": "\t\t\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1921,
+          "after_offset": 1889,
+          "old": "\t\t\t\t\tthis.itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": "\t\t\t\t\tthis.itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/NativeGuiItemDraw.java": {
+      "before_sha256": "aff8148502cc9de591b2ba8a4f48c3d5c63aa9d3703ef06c5e4f987ff2988df1",
+      "after_sha256": "77a08cf17c72d3d7f88016e15944e5a73ee2bc7ec754abb4f611300bf1e9809c",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "",
+          "new": "import net.minecraft.client.Minecraft;\nimport net.minecraft.client.renderer.block.model.IBakedModel;\nimport net.minecraft.client.renderer.texture.TextureManager;\nimport net.minecraft.util.ResourceLocation;\nimport net.minecraft.client.renderer.texture.TextureMap;\nimport net.minecraft.client.renderer.texture.ITextureObject;\nimport net.minecraft.client.renderer.GlStateManager;\nimport org.lwjgl.opengl.GL11;\nimport net.minecraftforge.client.ForgeHooksClient;\nimport net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport java.util.Set;\nimport java.util.Collections;\nimport java.util.IdentityHashMap;\n"
+        },
+        {
+          "before_offset": 484,
+          "after_offset": 1281,
+          "old": "",
+          "new": "\n    /** The old no-effect entry also bypassed custom IItemRenderer dispatch. */\n    public static void withoutEffect(RenderItem renderer, ItemStack stack, int x, int y) {\n        baseIntoGui(renderer, stack, x, y, false);\n    }\n\n    public static void withoutEffect(RenderItem renderer, ItemStack stack, int x, int y, float zLevel) {\n        float previous = renderer.zLevel;\n        renderer.zLevel = zLevel;\n        try { withoutEffect(renderer, stack, x, y); }\n        finally { renderer.zLevel = previous; }\n    }\n\n    public static void baseIntoGui(RenderItem renderer, ItemStack stack, int x, int y, boolean effect) {\n        ItemStack display = displayStack(stack);\n        if(display.isEmpty()) return;\n        Minecraft mc = Minecraft.getMinecraft();\n        IBakedModel model = baseModel(renderer, display);\n        TextureManager textures = mc.getTextureManager();\n        ResourceLocation atlas = TextureMap.LOCATION_BLOCKS_TEXTURE;\n        textures.bindTexture(atlas);\n        ITextureObject texture = textures.getTexture(atlas);\n        texture.setBlurMipmap(false, false);\n        GlStateManager.pushMatrix();\n        try {\n            GlStateManager.enableRescaleNormal();\n            GlStateManager.enableAlpha();\n            GlStateManager.alphaFunc(GL11.GL_GREATER, .1F);\n            GlStateManager.enableBlend();\n            GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);\n            GlStateManager.color(1, 1, 1, 1);\n            GlStateManager.translate(x, y, 100F + renderer.zLevel);\n            GlStateManager.translate(8, 8, 0);\n            GlStateManager.scale(16, -16, 16);\n            if(model.isGui3d()) GlStateManager.enableLighting();\n            else GlStateManager.disableLighting();\n            model = ForgeHooksClient.handleCameraTransforms(model,\n                    TransformType.GUI, false);\n            if(effect || model.isBuiltInRenderer()) {\n                // Native builtin base rendering does not add generic enchant glint.\n                // Use the installed owner, including its typed context dispatcher.\n                renderer.renderItem(display, model);\n            } else {\n                GlStateManager.translate(-.5F, -.5F, -.5F);\n                BufferBuilder buffer = Tessellator.getInstance().getBuffer();\n                buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);\n                NativeItemQuadRenderer.appendModel(buffer, model, display, mc.getItemColors());\n                Tessellator.getInstance().draw();\n            }\n        } finally {\n            GlStateManager.disableAlpha();\n            GlStateManager.disableRescaleNormal();\n            GlStateManager.disableLighting();\n            GlStateManager.popMatrix();\n            textures.bindTexture(atlas);\n            texture.restoreLastBlurMipmap();\n        }\n    }\n\n    public static IBakedModel baseModel(RenderItem renderer, ItemStack stack) {\n        IBakedModel model = renderer.getItemModelMesher().getItemModel(stack);\n        Set<IBakedModel> seen =\n                Collections.newSetFromMap(new IdentityHashMap<>());\n        while(model instanceof NativeItemBaseModel && seen.add(model)) {\n            IBakedModel base = ((NativeItemBaseModel) model).getBaseModel();\n            // A missing registry entry had native missing-model geometry before the\n            // replacement too. Do not reinterpret its particle sprite as an icon.\n            model = base == null ? renderer.getItemModelMesher().getModelManager().getMissingModel() : base;\n        }\n        return model.getOverrides().handleItemState(model, stack, null, null);\n    }\n\n    /** Recover intentional zero-count preview identity on a copy, never a slot. */\n    public static ItemStack displayStack(ItemStack stack) {\n        if(stack == null || stack == ItemStack.EMPTY) return ItemStack.EMPTY;\n        if(!stack.isEmpty()) return stack;\n        ItemStack display = stack.copy();\n        display.setCount(1);\n        return display;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderDecoItem.java": {
+      "before_sha256": "b66eb20ce636ac4f31a69650cea63b9a6b4a92b1bb39331a3b1e637789955cef",
+      "after_sha256": "9e1b048ec7b4e76f4369b44a1e04d38974e7240c7496a937d2683eb4b7862dc6",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "",
+          "new": "import java.util.List;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.RenderItem;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.block.model.IBakedModel;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.client.renderer.texture.TextureMap;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft.item.ItemBlock;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.ResourceLocation;\n"
+        },
+        {
+          "before_offset": 61,
+          "after_offset": 833,
+          "old": "import net.minecraft.block.Block;\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.gui.FontRenderer;\nimport net.minecraft.client.renderer.OpenGlHelper;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\nimport net.minecraft.client.renderer.texture.TextureManager;\nimport net.minecraft.client.renderer.texture.TextureMap;\nimport net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;\nimport net.minecraft.item.Item;\nimport net.minecraft.item.ItemStack;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.util.ResourceLocation;\n",
+          "new": "/** World-space GUI display. Retains the old flat glint and cube/icon placement,\n * while complete native custom models use the installed RenderItem owner. */\npublic final class RenderDecoItem {\n    private static final ResourceLocation GLINT = new ResourceLocation(\"textures/misc/enchanted_item_glint.png\");\n"
+        },
+        {
+          "before_offset": 788,
+          "after_offset": 1143,
+          "old": "/**\n * For small items as part of a TESR, e.g. items in a press\n * @author hbm\n */\npublic class RenderDecoItem extends RenderItem {\n\n\tpublic RenderDecoItem(TileEntitySpecialRenderer render) {\n\t\tthis.setRenderManager(RenderManager.instance);\n\t}\n\n\t@Override\n\tpublic byte getMiniBlockCount(ItemStack stack, byte original) {\n\t\treturn 1;\n\t}\n\n\t@Override\n\tpublic byte getMiniItemCount(ItemStack stack, byte original) {\n\t\treturn 1;\n\t}\n\n\t@Override\n\tpublic boolean shouldBob() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean shouldSpreadItems() {\n\t\treturn false;\n\t}\n\n\n\t/**\n\t * Fixes z-fighting issues with item glints when using GUI (flat) rendering in world, from StorageDrawers 1.7.10\n\t */\n\n\tprivate static final ResourceLocation RES_ITEM_GLINT = new ResourceLocation(\"textures/misc/enchanted_item_glint.png\");\n\tprivate RenderBlocks renderBlocksRi = new RenderBlocks();\n\n\t@Override\n\tpublic void renderItemIntoGUI(FontRenderer fontRenderer, TextureManager texManager, ItemStack itemStack, int x, int y, boolean renderEffect) {\n\t\tif(itemStack.getItemSpriteNumber() == 0 && RenderBlocks.renderItemIn3d(Block.getBlockFromItem(itemStack.getItem()).getRenderType())) {\n\t\t\trenderItemIntoGUIBlock(fontRenderer, texManager, itemStack, x, y, renderEffect);\n\t\t\treturn;\n\t\t}\n\n\t\tItem item = itemStack.getItem();\n\t\tint meta = itemStack.getItemDamage();\n\n\t\tResourceLocation loc = itemStack.getItem().requiresMultipleRenderPasses()\n\t\t\t? (item.getSpriteNumber() == 0 ? TextureMap.locationBlocksTexture : TextureMap.locationItemsTexture)\n\t\t\t: (texManager.getResourceLocation(itemStack.getItemSpriteNumber()));\n\n\t\tfor(int i = 0; i < item.getRenderPasses(meta); ++i) {\n\t\t\tOpenGlHelper.glBlendFunc(770, 771, 1, 0);\n\t\t\ttexManager.bindTexture(loc);\n\n\t\t\tIIcon icon = itemStack.getItem().requiresMultipleRenderPasses()\n\t\t\t\t? item.getIcon(itemStack, i)\n\t\t\t\t: itemStack.getIconIndex();\n\n\t\t\tif(icon == null) continue;\n\n\t\t\tint color = itemStack.getItem().getColorFromItemStack(itemStack, i);\n\t\t\tfloat r = (float)(color >> 16 & 255) / 255.0F;\n\t\t\tfloat g = (float)(color >> 8 & 255) / 255.0F;\n\t\t\tfloat b = (float)(color & 255) / 255.0F;\n\n\t\t\tif(renderWithColor)\n\t\t\t\tGL11.glColor4f(r, g, b, 1.0F);\n\n\t\t\tGL11.glEnable(GL11.GL_POLYGON_OFFSET_FILL);\n\t\t\tGL11.glPolygonOffset(-1f, -1);\n\n\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\n\t\t\trenderIcon(x, y, icon, 16, 16);\n\n\t\t\tGL11.glDisable(GL11.GL_ALPHA_TEST);\n\t\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\n\t\t\tif(renderEffect && itemStack.hasEffect(i))\n\t\t\t\trenderEffect(texManager, x, y);\n\n\t\t\tGL11.glDisable(GL11.GL_POLYGON_OFFSET_FILL);\n\t\t}\n\t}\n\n\t@Override\n\tpublic void renderEffect(TextureManager manager, int x, int y) {\n\t\tGL11.glDepthFunc(GL11.GL_EQUAL);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tGL11.glDepthMask(false);\n\t\tmanager.bindTexture(RES_ITEM_GLINT);\n\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glColor4f(0.5F, 0.25F, 0.8F, 1.0F);\n\t\trenderGlint(x, y, 16, 16);\n\t\tGL11.glDepthMask(true);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glDisable(GL11.GL_ALPHA_TEST);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tGL11.glDepthFunc(GL11.GL_LEQUAL);\n\t}\n\n\tprivate void renderGlint(int x, int y, int w, int h) {\n\t\tfor(int i = 0; i < 2; ++i) {\n\t\t\tOpenGlHelper.glBlendFunc(772, 1, 0, 0);\n\t\t\tfloat uScale = 0.00390625F;\n\t\t\tfloat vScale = 0.00390625F;\n\t\t\tfloat u = (Minecraft.getSystemTime() % (3000 + i * 1873)) / (3000.0F + i * 1873) * 256.0F;\n\t\t\tfloat v = 0.0F;\n\n\t\t\tfloat hScale = (i < 1) ? 4.0F : -1.0F;\n\n\t\t\tTessellator tessellator = Tessellator.instance;\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(x + 0, y + h, 0, (u + (float)h * hScale) * uScale, (v + (float)h) * vScale);\n\t\t\ttessellator.addVertexWithUV(x + w, y + h, 0, (u + (float)w + (float)h * hScale) * uScale, (v + (float)h) * vScale);\n\t\t\ttessellator.addVertexWithUV(x + w, y + 0, 0, (u + (float)w) * uScale, (v + 0.0F) * vScale);\n\t\t\ttessellator.addVertexWithUV(x + 0, y + 0, 0, (u + 0.0F) * uScale, (v + 0.0F) * vScale);\n\t\t\ttessellator.draw();\n\t\t}\n\t}\n\n\tprivate void renderItemIntoGUIBlock(FontRenderer fontRenderer, TextureManager texManager, ItemStack itemStack, int x, int y, boolean renderEffect) {\n\t\ttexManager.bindTexture(TextureMap.locationBlocksTexture);\n\t\tBlock block = Block.getBlockFromItem(itemStack.getItem());\n\n\t\tif(block.getRenderBlockPass() != 0) {\n\t\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\t\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\t\tOpenGlHelper.glBlendFunc(770, 771, 1, 0);\n\t\t} else {\n\t\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.5F);\n\t\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\t}\n\n\t\tGL11.glPushMatrix();\n\t\tGL11.glTranslatef(x - 2, y + 3, zLevel - 3);\n\t\tGL11.glScalef(10, 10, 10);\n\t\tGL11.glTranslatef(1, 0.5f, 1);\n\t\tGL11.glScalef(1, 1, -1);\n\t\tGL11.glRotatef(210, 1, 0, 0);\n\t\tGL11.glRotatef(45, 0, 1, 0);\n\n\t\tint color = itemStack.getItem().getColorFromItemStack(itemStack, 0);\n\t\tfloat r = (float)(color >> 16 & 255) / 255.0F;\n\t\tfloat g = (float)(color >> 8 & 255) / 255.0F;\n\t\tfloat b = (float)(color & 255) / 255.0F;\n\n\t\tif(this.renderWithColor)\n\t\t\tGL11.glColor4f(r * 1, g * 1, b * 1, 1.0F);\n\n\t\tGL11.glRotatef(-90, 0, 1, 0);\n\t\tGL11.glEnable(GL11.GL_POLYGON_OFFSET_FILL);\n\t\tGL11.glPolygonOffset(-1f, -1f);\n\n\t\tthis.renderBlocksRi.useInventoryTint = this.renderWithColor;\n\t\tthis.renderBlocksRi.renderBlockAsItem(block, itemStack.getItemDamage(), 1);\n\t\tthis.renderBlocksRi.useInventoryTint = true;\n\n\t\tGL11.glDisable(GL11.GL_POLYGON_OFFSET_FILL);\n\n\t\tif(block.getRenderBlockPass() == 0)\n\t\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n\n\t\tGL11.glPopMatrix();\n\t}\n\n",
+          "new": "    public void renderGui(ItemStack source, int x, int y, boolean custom, boolean effect) {\n        RenderItem renderer = Minecraft.getMinecraft().getRenderItem();\n        float previous = renderer.zLevel;\n        renderer.zLevel = 0;\n        try { renderGuiAtLocalDepth(source, x, y, custom, effect); }\n        finally { renderer.zLevel = previous; }\n    }\n    private void renderGuiAtLocalDepth(ItemStack source, int x, int y, boolean custom, boolean effect) {\n        ItemStack stack = NativeGuiItemDraw.displayStack(source);\n        if(stack.isEmpty()) return;\n        Minecraft mc = Minecraft.getMinecraft();\n        RenderItem renderer = mc.getRenderItem();\n        IBakedModel selected = renderer.getItemModelWithOverrides(stack, null, null);\n        if(custom && selected.isBuiltInRenderer()) {\n            renderer.renderItemAndEffectIntoGUI(stack, x, y);\n            return;\n        }\n        IBakedModel model = NativeGuiItemDraw.baseModel(renderer, stack);\n        List<BakedQuad> layers = NativeMachineItemRenderer.iconLayers(model);\n        if(stack.getItem() instanceof ItemBlock && model.isGui3d() && !model.isBuiltInRenderer()) {\n            drawCube(mc, stack, model, x, y);\n        } else if(layers != null) {\n            for(BakedQuad layer : layers) {\n                mc.getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n                GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n                int color = layer.hasTintIndex() ? mc.getItemColors().colorMultiplier(stack, layer.getTintIndex()) : 0xFFFFFF;\n                GlStateManager.color((color >> 16 & 255) / 255F, (color >> 8 & 255) / 255F, (color & 255) / 255F, 1);\n                GlStateManager.enablePolygonOffset();\n                GlStateManager.doPolygonOffset(-1, -1);\n                try {\n                    GlStateManager.disableLighting();\n                    GlStateManager.enableBlend();\n                    GlStateManager.enableAlpha();\n                    icon(layer.getSprite(), x, y);\n                    GlStateManager.disableAlpha();\n                    GlStateManager.disableBlend();\n                    GlStateManager.enableLighting();\n                    if(effect && stack.hasEffect()) glint(mc, x, y);\n                } finally { GlStateManager.disablePolygonOffset(); }\n            }\n        } else {\n            // Native-only non-generated base geometry remains complete. It cannot\n            // safely be reconstructed from a particle sprite or legacy render ID.\n            NativeGuiItemDraw.baseIntoGui(renderer, stack, x, y, effect);\n        }\n    }\n    private static void icon(TextureAtlasSprite icon, int x, int y) {\n        BufferBuilder b = Tessellator.getInstance().getBuffer();\n        b.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);\n        b.pos(x, y + 16, 0).tex(icon.getMinU(), icon.getMaxV()).endVertex();\n        b.pos(x + 16, y + 16, 0).tex(icon.getMaxU(), icon.getMaxV()).endVertex();\n        b.pos(x + 16, y, 0).tex(icon.getMaxU(), icon.getMinV()).endVertex();\n        b.pos(x, y, 0).tex(icon.getMinU(), icon.getMinV()).endVertex();\n        Tessellator.getInstance().draw();\n    }\n    private static void drawCube(Minecraft mc, ItemStack stack, IBakedModel model, int x, int y) {\n        mc.getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n        Block block = ((ItemBlock) stack.getItem()).getBlock();\n        boolean translucent = block.getRenderLayer() == BlockRenderLayer.TRANSLUCENT;\n        GlStateManager.alphaFunc(GL11.GL_GREATER, translucent ? .1F : .5F);\n        if(translucent) { GlStateManager.enableBlend(); GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0); }\n        else GlStateManager.disableBlend();\n        GlStateManager.pushMatrix();\n        try {\n            GlStateManager.translate(x - 2, y + 3, -3);\n            GlStateManager.scale(10, 10, 10);\n            GlStateManager.translate(1, .5F, 1);\n            GlStateManager.scale(1, 1, -1);\n            GlStateManager.rotate(210, 1, 0, 0);\n            GlStateManager.rotate(45, 0, 1, 0);\n            GlStateManager.rotate(-90, 0, 1, 0);\n            GlStateManager.enablePolygonOffset();\n            GlStateManager.doPolygonOffset(-1, -1);\n            GlStateManager.translate(-.5F, -.5F, -.5F); // native cubes are [0,1], legacy inventory cubes centered\n            NativeMachineItemRenderer.drawModel(mc, model, stack);\n        } finally {\n            GlStateManager.disablePolygonOffset();\n            if(!translucent) GlStateManager.alphaFunc(GL11.GL_GREATER, .1F);\n            GlStateManager.popMatrix();\n        }\n    }\n    private static void glint(Minecraft mc, int x, int y) {\n        GlStateManager.depthFunc(GL11.GL_EQUAL);\n        GlStateManager.disableLighting();\n        GlStateManager.depthMask(false);\n        mc.getTextureManager().bindTexture(GLINT);\n        GlStateManager.enableAlpha();\n        GlStateManager.enableBlend();\n        GlStateManager.color(.5F, .25F, .8F, 1);\n        try {\n            for(int i = 0; i < 2; i++) {\n                GlStateManager.tryBlendFuncSeparate(772, 1, 0, 0);\n                float u = (Minecraft.getSystemTime() % (3000 + i * 1873)) / (3000F + i * 1873) * 256F;\n                float hScale = i < 1 ? 4F : -1F;\n                BufferBuilder b = Tessellator.getInstance().getBuffer();\n                b.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);\n                b.pos(x, y + 16, 0).tex((u + 16 * hScale) * .00390625F, 16 * .00390625F).endVertex();\n                b.pos(x + 16, y + 16, 0).tex((u + 16 + 16 * hScale) * .00390625F, 16 * .00390625F).endVertex();\n                b.pos(x + 16, y, 0).tex((u + 16) * .00390625F, 0).endVertex();\n                b.pos(x, y, 0).tex(u * .00390625F, 0).endVertex();\n                Tessellator.getInstance().draw();\n            }\n        } finally {\n            GlStateManager.depthMask(true);\n            GlStateManager.disableBlend();\n            GlStateManager.disableAlpha();\n            GlStateManager.enableLighting();\n            GlStateManager.depthFunc(GL11.GL_LEQUAL);\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderItemStack.java": {
+      "before_sha256": "d4d53ee80a2ad60f7c5991856799220fafd1630afa1bbe45d8bd20ccb8248ce9",
+      "after_sha256": "c4e06ea8cdd8fe2ad45d42d9be96ddad5df7e208d8592fc6f900130f85e29caf",
+      "edits": [
+        {
+          "before_offset": 60,
+          "after_offset": 60,
+          "old": "\n",
+          "new": ""
+        },
+        {
+          "before_offset": 100,
+          "after_offset": 99,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": "import net.minecraft.client.renderer.RenderItem;\n"
+        },
+        {
+          "before_offset": 225,
+          "after_offset": 217,
+          "old": "\t\n\tpublic static RenderItem renderItem = new RenderItem();\n\t\n\tpublic static void renderItemStack(int x, int y, float f0, ItemStack stack) {\n\t\t\n\t\tMinecraft mc = Minecraft.getMinecraft();\n\t\t\n\t\tif (stack != null) {\n\t\t\t\n\t\t\tfloat f1 = stack.animationsToGo - f0;\n\t\t\t\n\t\t\tif (f1 > 0.0F) {\n\t\t\t\tGL11.glPushMatrix();\n\t\t\t\tfloat f2 = 1.0F + f1 / 5.0F;\n\t\t\t\tGL11.glTranslatef(x + 8, y + 12, 0.0F);\n\t\t\t\tGL11.glScalef(1.0F / f2, (f2 + 1.0F) / 2.0F, 1.0F);\n\t\t\t\tGL11.glTranslatef(-(x + 8), -(y + 12), 0.0F);\n\t\t\t}\n\t\t\trenderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.renderEngine, stack, x, y);\n\t\t\t\n\t\t\tif (f1 > 0.0F)\n\t\t\t\tGL11.glPopMatrix();\n\t\t\t\n\t\t\trenderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.renderEngine, stack, x, y);\n\t\t}\n\t}\n\t\n\tpublic static void renderItemStackNoEffect(int x, int y, float f0, ItemStack stack) {\n\t\t\n\t\tMinecraft mc = Minecraft.getMinecraft();\n\t\t\n\t\tif (stack != null) {\n\t\t\t\n\t\t\tfloat f1 = stack.animationsToGo - f0;\n\t\t\t\n\t\t\tif (f1 > 0.0F) {\n\t\t\t\tGL11.glPushMatrix();\n\t\t\t\tfloat f2 = 1.0F + f1 / 5.0F;\n\t\t\t\tGL11.glTranslatef(x + 8, y + 12, 0.0F);\n\t\t\t\tGL11.glScalef(1.0F / f2, (f2 + 1.0F) / 2.0F, 1.0F);\n\t\t\t\tGL11.glTranslatef(-(x + 8), -(y + 12), 0.0F);\n\t\t\t}\n\t\t\trenderItem.renderItemIntoGUI(mc.fontRenderer, mc.renderEngine, stack, x, y);\n\t\t\t\n\t\t\tif (f1 > 0.0F)\n\t\t\t\tGL11.glPopMatrix();\n\t\t\t\n\t\t\trenderItem.renderItemIntoGUI(mc.fontRenderer, mc.renderEngine, stack, x, y);\n\t\t}\n\t}\n",
+          "new": "\n    /** Resolve the installed native owner, never the pre-load-complete instance. */\n    public static RenderItem renderer() { return Minecraft.getMinecraft().getRenderItem(); }\n\n    public static void renderItemStack(int x, int y, float partialTicks, ItemStack stack) {\n        render(x, y, partialTicks, stack, true);\n    }\n    public static void renderItemStackNoEffect(int x, int y, float partialTicks, ItemStack stack) {\n        render(x, y, partialTicks, stack, false);\n    }\n    private static void render(int x, int y, float partialTicks, ItemStack stack, boolean effect) {\n        if(stack == null || stack == ItemStack.EMPTY) return;\n        float animation = stack.getAnimationsToGo() - partialTicks;\n        if(animation > 0) {\n            GL11.glPushMatrix();\n            float scale = 1F + animation / 5F;\n            GL11.glTranslatef(x + 8, y + 12, 0);\n            GL11.glScalef(1F / scale, (scale + 1F) / 2F, 1F);\n            GL11.glTranslatef(-(x + 8), -(y + 12), 0);\n        }\n        try { draw(stack, x, y, effect); }\n        finally { if(animation > 0) GL11.glPopMatrix(); }\n        // Deliberate original second, unanimated draw. Do not \"optimize\" away.\n        draw(stack, x, y, effect);\n    }\n    private static void draw(ItemStack stack, int x, int y, boolean effect) {\n        RenderItem renderer = renderer();\n        float previous = renderer.zLevel;\n        renderer.zLevel = 0; // the original dedicated renderer's local GUI depth\n        try {\n            if(effect) renderer.renderItemAndEffectIntoGUI(NativeGuiItemDraw.displayStack(stack), x, y);\n            else NativeGuiItemDraw.withoutEffect(renderer, stack, x, y);\n        } finally { renderer.zLevel = previous; }\n    }\n"
+        }
+      ]
+    },
+    "src/main/resources/assets/hbm/sounds.json": {
+      "before_sha256": "fa246c0126dc060a7bb5539674296059adaddeba62ac85bdc865b9a756e497b1",
+      "after_sha256": "5b4ebcaf6a1c1e797907e6d9fa0d1f4cf4eb12e497a865413c8e9f9d7d3631c5",
+      "edits": [
+        {
+          "before_offset": 1640,
+          "after_offset": 1640,
+          "old": "\t\"block.crateBreak\": {\"category\": \"block\", \"sounds\": [\"block/crateBreak1\", \"block/crateBreak2\", \"block/crateBreak3\", \"block/crateBreak4\", \"block/crateBreak5\"]},\n",
+          "new": "\t\"block.crateBreak\": {\"category\": \"block\", \"sounds\": [\"hbm:block/crateBreak1\", \"hbm:block/crateBreak2\", \"hbm:block/crateBreak3\", \"hbm:block/crateBreak4\", \"hbm:block/crateBreak5\"]},\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/generic/BlockSteelBeam.java": "81bfad257126b94ac5e42d053626de8ac03e601e122df765d920e879edb36cf2",
+    "src/main/java/com/hbm/main/DecorationObjBlockModelHandler.java": "47149b708c172ae56ada66b3515cf864406e2b14ca61fbed8c5dcb4a89ceeb06",
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextItemModel.java": "716b6051d3f150e12f52aee325efe7d440f5b98dcb86b3263eb13411b0bfc3aa",
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRegistration.java": "755a95c4afe10f2ebf2295af213be69e80db0ff8020b92cc03e3038fbcc8f25a",
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRenderer.java": "7dad7762aa0fd9c380bb3e2c32da9f3f6df1fd7b1b15b29072a1171a704cb6fa",
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextRenderItem.java": "64f854575c2c7b5e2a0351b2949dd509952c28bca1c8f7f740d0263633488346",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemContext.java": "4dfd13588ae934e38266aeda7968b9b9633a7e1ac1f9ffc0705ee40661b5f3aa",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFailureScope.java": "d11ccf970c8a9afc1b8352ecda9bc49d7ba92d75ff509b47f489f209af89facc",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFields.java": "37283fbe744fce6729dbde308c3683ac86d6c1db9758dd5293a38760a43ddec4",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemRendererOwnership.java": "2978ab2eb9a55cd3a903adba9444f279d5b9f7dfce3c63ca4548dd949708deb2",
+    "src/main/java/com/hbm/render/util/NativeItemBaseModel.java": "bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12",
+    "src/main/java/com/hbm/render/util/NativeMachineItemRenderer.java": "e5c859fef82d17074c1882795fc99bb1707261b6cdd9ed20b0b1933693a49e73",
+    "src/main/resources/assets/hbm/blockstates/tile.crate_can.json": "46fc34c4467f5346e8c3a2b2887f910c9c713d3f1d042e4f82f8a451e754e9eb",
+    "src/main/resources/assets/hbm/blockstates/tile.crate_supply.json": "6d70b25cb901fe41dc72f4998238da76129bcb8e0d49dd219cedea82b62e7d27",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris.json": "36dc429ff5afa10a67a6245a30b00ce16244f77c3bffc65b7e12e30e3822b6bd",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_burning.json": "ccfa40afd751abcf79d0cd051ae06f94213c8a9895cf87716e007013bca5ec7c",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_digamma.json": "795c3462abf91e2ed84be1d4ec0dccd0f4186a43f0469fc72d9d65a40697deb5",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_radiating.json": "78cd77e14aa23534b802c466d3d9308d74565d02527ffc8007e27a9858e6bbba",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_beam.json": "7ec2fa65ee8d2cc775512f484c3c93a1236caa28eea7d210ea2ddabed28c95f2"
+  }
+}

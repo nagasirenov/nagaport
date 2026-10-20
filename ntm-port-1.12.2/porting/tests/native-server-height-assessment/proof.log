@@ -1,0 +1,14 @@
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java:16: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U;static int checks;
+                      ^
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                             ^
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                          ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: 12195 owned-server experiment assertions plus 1521 reused real original server assertions; no production activation
+PASS: six queue/World-owner/provider-owner/absent-key/null-value/coordinate mutants rejected

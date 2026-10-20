@@ -8,6 +8,7 @@ import org.lwjgl.opengl.GL12;
 import com.hbm.entity.particle.EntityModFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -17,13 +18,14 @@ import net.minecraft.util.ResourceLocation;
 public class MultiCloudRenderer extends Render {
 	private Item[] field_94151_a;
 	private int field_94150_f;
-	public MultiCloudRenderer(Item[] p_i1259_1_, int p_i1259_2_) {
+	public MultiCloudRenderer(RenderManager renderManager, Item[] p_i1259_1_, int p_i1259_2_) {
+		super(renderManager);
 		this.field_94151_a = p_i1259_1_;
 		this.field_94150_f = p_i1259_2_;
 	}
 
-	public MultiCloudRenderer(Item[] p_i1260_1_) {
-		this(p_i1260_1_, 0);
+	public MultiCloudRenderer(RenderManager renderManager, Item[] p_i1260_1_) {
+		this(renderManager, p_i1260_1_, 0);
 	}
 
 	/**

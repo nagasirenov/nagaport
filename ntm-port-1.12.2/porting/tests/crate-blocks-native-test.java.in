@@ -1,0 +1,294 @@
+import java.util.*;
+import com.mojang.authlib.GameProfile;
+import com.hbm.blocks.generic.BlockCanCrate;
+import com.hbm.blocks.generic.BlockSteelBeam;
+import api.hbm.block.IToolable.ToolType;
+import com.hbm.world.gen.nbt.INBTBlockTransformable;
+import com.hbm.blocks.generic.BlockSupplyCrate;
+import com.hbm.blocks.generic.BlockSupplyCrate.TileEntitySupplyCrate;
+import com.hbm.items.ModItems;
+import com.hbm.items.food.ItemConserve.EnumFoodType;
+import com.hbm.main.ModSoundEvents;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.*;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+/** Entire native production owners, including all supply tile NBT and lifecycle. */
+public final class CrateBlocksNativeTest {
+    static int checks;
+    static final BlockPos POS = new BlockPos(8, 64, 8);
+    static BlockCanCrate can;
+    static BlockSupplyCrate supply;
+    static BlockSteelBeam beam;
+    static void check(boolean condition, String name) { checks++; if(!condition) throw new AssertionError(name); }
+    static final class NativeWorld extends World {
+        final Map<Long, Chunk> chunks = new HashMap<>();
+        final List<EntityItem> drops = new ArrayList<>();
+        final List<String> events = new ArrayList<>();
+        int sounds, destroyed;
+        boolean destroyDrops;
+        SoundEvent sound;
+        SoundCategory category;
+        EntityPlayer excluded;
+        double soundX, soundY, soundZ;
+        float volume, pitch;
+        NativeWorld(boolean remote) {
+            super(new SaveHandlerMP(), new WorldInfo(new NBTTagCompound()), new WorldProviderSurface(), new Profiler(), remote);
+            provider.setWorld(this);
+            chunkProvider = createChunkProvider();
+            for(int x = -1; x <= 1; x++) for(int z = -1; z <= 1; z++) {
+                Chunk c = new Chunk(this, x, z); c.markLoaded(true); chunks.put(key(x, z), c);
+            }
+        }
+        static long key(int x, int z) { return ((long)x << 32) ^ (z & 0xffffffffL); }
+        protected IChunkProvider createChunkProvider() {
+            return new IChunkProvider() {
+                public Chunk getLoadedChunk(int x, int z) { return chunks.get(key(x, z)); }
+                public Chunk provideChunk(int x, int z) { return getLoadedChunk(x, z); }
+                public boolean tick() { return false; }
+                public String makeString() { return "native crate probe"; }
+                public boolean isChunkGeneratedAt(int x, int z) { return getLoadedChunk(x, z) != null; }
+            };
+        }
+        protected boolean isChunkLoaded(int x, int z, boolean empty) { return chunks.containsKey(key(x, z)); }
+        public boolean checkLight(BlockPos pos) { return true; }
+        public boolean spawnEntity(Entity entity) {
+            if(entity instanceof EntityItem) { drops.add((EntityItem)entity); events.add("drop"); }
+            return true;
+        }
+        public boolean destroyBlock(BlockPos pos, boolean drop) {
+            destroyed++; destroyDrops = drop; events.add("destroy"); return super.destroyBlock(pos, drop);
+        }
+        public boolean setBlockToAir(BlockPos pos) { events.add("air"); return super.setBlockToAir(pos); }
+        public void playSound(EntityPlayer player, double x, double y, double z, SoundEvent event, SoundCategory group, float v, float p) {
+            sounds++; excluded = player; sound = event; category = group;
+            soundX = x; soundY = y; soundZ = z; volume = v; pitch = p; events.add("sound");
+        }
+    }
+    static final class Player extends EntityPlayer {
+        Player(World world) { super(world, new GameProfile(new UUID(1, 2), "crate-probe")); }
+        public boolean isSpectator() { return false; }
+        public boolean isCreative() { return capabilities.isCreativeMode; }
+    }
+    static void register(Block block, String id) {
+        ForgeRegistries.BLOCKS.register(block.setRegistryName("crate_probe", id).setTranslationKey(id));
+        ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+    }
+    static NativeWorld placed(Block block, int meta, boolean remote) {
+        NativeWorld world = new NativeWorld(remote);
+        world.setBlockState(POS, block.getStateFromMeta(meta)); world.drops.clear(); world.events.clear();
+        return world;
+    }
+    static TileEntitySupplyCrate tile(NativeWorld world) { return (TileEntitySupplyCrate)world.getTileEntity(POS); }
+    static boolean equal(ItemStack a, ItemStack b) { return ItemStack.areItemStacksEqual(a, b); }
+    static ItemStack payload() {
+        ItemStack stack = new ItemStack(ModItems.canned_conserve, 13, 7);
+        NBTTagCompound tag = new NBTTagCompound(); tag.setString("fixture", "nested crate payload");
+        NBTTagCompound child = new NBTTagCompound(); child.setLong("value", 9876543210L); tag.setTag("nested", child);
+        stack.setTagCompound(tag); return stack;
+    }
+    static void setup() throws Exception {
+        Bootstrap.register();
+        for(String id : "crowbar canned_conserve can_smart can_creature can_redbomb can_mrsugar can_overcharge can_luna can_breen can_bepis pudding".split(" ")) {
+            Item item = new Item().setHasSubtypes(true).setRegistryName("crate_probe", id);
+            ForgeRegistries.ITEMS.register(item); ModItems.class.getField(id).set(null, item);
+        }
+        can = new BlockCanCrate(Material.WOOD); supply = new BlockSupplyCrate(Material.WOOD);
+        register(can, "can"); register(supply, "supply");
+        beam = new BlockSteelBeam(Material.IRON); register(beam, "beam");
+        TileEntity.register("crate_probe_supply", TileEntitySupplyCrate.class);
+    }
+    static void statesAndCollision() {
+        for(Block block : new Block[]{can, supply}) for(int meta = 0; meta < 16; meta++) {
+            IBlockState state = block.getStateFromMeta(meta);
+            check(block.getMetaFromState(state) == meta, "all 16 metadata round trips");
+            check(state.getRenderType() == EnumBlockRenderType.MODEL, "native MODEL dispatch");
+            check(block.getRenderLayer() == BlockRenderLayer.CUTOUT_MIPPED, "native cutout-mipped layer");
+            check(!state.isOpaqueCube() && !state.isFullCube(), "nonopaque nonfull");
+            check(state.getBoundingBox(null, POS).equals(Block.FULL_BLOCK_AABB), "original full selection");
+            check(block.getCollisionBoundingBox(state, null, POS).equals(Block.FULL_BLOCK_AABB), "original full collision");
+            check(block.getSoundType(state, null, POS, null) == SoundType.WOOD, "wood constructor sound");
+            for(EnumFacing face : EnumFacing.values()) {
+                check(block.getBlockFaceShape(null, state, POS, face) == BlockFaceShape.UNDEFINED, "undefined face support");
+                check(!block.isSideSolid(state, null, POS, face), "nonfull crate does not invent support");
+            }
+            check(supply.getItemDropped(state, new Random(3), 4) == Items.AIR, "supply no ordinary block drop");
+        }
+        for(Block block : new Block[]{can, supply}) for(EnumFacing face : EnumFacing.values()) for(EnumHand hand : EnumHand.values())
+            check(block.getMetaFromState(block.getStateForPlacement(null, POS, face, .2F, .3F, .4F, 15, null, hand)) == 15, "native placement retains metadata");
+    }
+    static ItemStack expectedChoice(int index) {
+        if(index < EnumFoodType.values().length) return new ItemStack(ModItems.canned_conserve, 1, index);
+        Item[] after = {ModItems.can_smart, ModItems.can_creature, ModItems.can_redbomb, ModItems.can_mrsugar, ModItems.can_overcharge, ModItems.can_luna, ModItems.can_breen, ModItems.can_bepis, ModItems.pudding};
+        return new ItemStack(after[index - EnumFoodType.values().length]);
+    }
+    static void seededContents() {
+        final int variants = EnumFoodType.values().length + 9;
+        check(EnumFoodType.values().length == 27, "pristine conserve variant count");
+        for(int i = 0; i < variants; i++) {
+            final int selected = i;
+            Random exact = new Random() { public int nextInt(int bound) { check(bound == variants, "exact random pool bound"); return selected; } };
+            check(equal(can.getRandomItem(exact), expectedChoice(i)), "every canned choice and original ordering");
+        }
+        NativeWorld world = placed(can, 0, false);
+        for(int seed = 0; seed < 1000; seed++) {
+            Random expected = new Random(seed); world.rand.setSeed(seed);
+            int count = 5 + expected.nextInt(4);
+            List<ItemStack> contents = can.getContents(world, POS.getX(), POS.getY(), POS.getZ());
+            check(contents.size() == count, "seeded count 5..8");
+            for(ItemStack stack : contents) check(equal(stack, expectedChoice(expected.nextInt(variants))), "seeded exact choice order and count");
+            check(world.rand.nextLong() == expected.nextLong(), "exact random draw consumption");
+        }
+        for(final int value : new int[]{0, 3}) check(can.getContentAmount(new Random() { public int nextInt(int bound) { check(bound == 4, "count bound four"); return value; } }) == 5 + value, "count extrema");
+    }
+    static void tilePersistence() {
+        NativeWorld world = placed(supply, 9, false); TileEntitySupplyCrate source = tile(world);
+        ItemStack first = payload(), third = new ItemStack(ModItems.pudding, 37);
+        source.items.add(first); source.items.add(ItemStack.EMPTY); source.items.add(third);
+        NBTTagCompound saved = new NBTTagCompound(); check(source.writeToNBT(saved) == saved, "native write returns supplied compound");
+        check(saved.getString("id").equals("minecraft:crate_probe_supply") && saved.getInteger("x") == 8 && saved.getInteger("y") == 64 && saved.getInteger("z") == 8, "native base tile identity and coordinates");
+        NBTTagList list = saved.getTagList("items", 10); check(list.tagCount() == 3, "tile list retains hole position and length");
+        check(equal(new ItemStack(list.getCompoundTagAt(0)), first) && new ItemStack(list.getCompoundTagAt(1)).isEmpty() && equal(new ItemStack(list.getCompoundTagAt(2)), third), "tile list ordering, tags, metadata, counts");
+        TileEntitySupplyCrate restored = new TileEntitySupplyCrate(); restored.items.add(new ItemStack(Items.APPLE)); restored.readFromNBT(saved);
+        check(restored.items.size() == 3 && equal(restored.items.get(0), first) && restored.items.get(1).isEmpty() && equal(restored.items.get(2), third), "tile read clears old data and restores full list");
+        restored.readFromNBT(saved); check(restored.items.size() == 3, "repeated tile read replaces instead of appending");
+        restored.readFromNBT(new NBTTagCompound()); check(restored.items.isEmpty(), "missing tile list clears inventory");
+        for(int meta = 0; meta < 16; meta++) {
+            world.setBlockState(POS, supply.getStateFromMeta(meta), 2);
+            check(tile(world) == source && !source.isInvalid() && source.items.size() == 3, "metadata changes retain exact tile and inventory");
+        }
+        check(world.drops.isEmpty(), "metadata never spills supply contents");
+        world.setBlockState(POS, Blocks.STONE.getDefaultState());
+        check(source.isInvalid() && world.getTileEntity(POS) == null, "different block identity invalidates old tile");
+    }
+    static void playerRemovalAndPlacement() {
+        for(boolean remote : new boolean[]{false, true}) for(boolean creative : new boolean[]{false, true}) for(boolean harvest : new boolean[]{false, true}) {
+            NativeWorld world = placed(supply, 13, remote); Player player = new Player(world); player.capabilities.isCreativeMode = creative;
+            ItemStack first = payload(), third = new ItemStack(ModItems.pudding, 37);
+            tile(world).items.add(first); tile(world).items.add(null); tile(world).items.add(ItemStack.EMPTY); tile(world).items.add(third);
+            TileEntitySupplyCrate before = tile(world);
+            check(supply.removedByPlayer(world.getBlockState(POS), world, POS, player, harvest), "player removal reports native success");
+            check(world.isAirBlock(POS) && world.getTileEntity(POS) == null && before.isInvalid(), "player removal removes block and tile");
+            boolean shouldDrop = !remote && !creative && harvest;
+            check(world.drops.size() == (shouldDrop ? 1 : 0), "survival server willHarvest predicate exact");
+            if(shouldDrop) {
+                EntityItem entity = world.drops.get(0); ItemStack drop = entity.getItem(); NBTTagCompound nbt = drop.getTagCompound();
+                check(entity.posX == 8.5 && entity.posY == 64.5 && entity.posZ == 8.5, "packed crate original centered spawn");
+                check(drop.getItem() == Item.getItemFromBlock(supply) && drop.getCount() == 1 && drop.getMetadata() == 0, "packed crate original item/count/meta");
+                check(nbt.getInteger("amount") == 4 && nbt.hasKey("slot0") && !nbt.hasKey("slot1") && !nbt.hasKey("slot2") && nbt.hasKey("slot3"), "packed amount and sparse slot keys");
+                check(equal(new ItemStack(nbt.getCompoundTag("slot0")), first) && equal(new ItemStack(nbt.getCompoundTag("slot3")), third), "packed payload preserved exactly");
+                NativeWorld destination = placed(supply, 2, false);
+                supply.onBlockPlacedBy(destination, POS, destination.getBlockState(POS), new Player(destination), drop);
+                check(tile(destination).items.size() == 4 && equal(tile(destination).items.get(0), first) && tile(destination).items.get(1).isEmpty() && tile(destination).items.get(2).isEmpty() && equal(tile(destination).items.get(3), third), "placement restores amount order and hole as EMPTY");
+                supply.onBlockPlacedBy(destination, POS, destination.getBlockState(POS), new Player(destination), drop);
+                check(tile(destination).items.size() == 8, "placement preserves original append behavior");
+            }
+            check(world.sounds == 0 && world.destroyed == 0, "ordinary player removal never opens with crowbar effects");
+        }
+        NativeWorld world = placed(supply, 0, false); Player player = new Player(world); world.setBlockState(POS, Blocks.STONE.getDefaultState());
+        supply.removedByPlayer(world.getBlockState(POS), world, POS, player, true);
+        check(world.drops.size() == 1 && !world.drops.get(0).getItem().hasTagCompound(), "missing tile still drops bare crate");
+        world = placed(supply, 0, false); supply.removedByPlayer(world.getBlockState(POS), world, POS, new Player(world), true);
+        check(world.drops.size() == 1 && world.drops.get(0).getItem().getTagCompound().getInteger("amount") == 0, "empty tile stores explicit zero amount");
+        world = placed(supply, 0, false); world.getGameRules().setOrCreateGameRule("doTileDrops", "false");
+        supply.removedByPlayer(world.getBlockState(POS), world, POS, new Player(world), true);
+        check(world.drops.size() == 1, "original explicit player spawn independent of doTileDrops");
+        world = placed(supply, 0, false); tile(world).items.add(payload());
+        supply.onBlockPlacedBy(world, POS, world.getBlockState(POS), new Player(world), new ItemStack(supply));
+        check(tile(world).items.size() == 1, "placement without NBT leaves inventory unchanged");
+        ItemStack negative = new ItemStack(supply); negative.setTagCompound(new NBTTagCompound()); negative.getTagCompound().setInteger("amount", -3);
+        supply.onBlockPlacedBy(world, POS, world.getBlockState(POS), new Player(world), negative);
+        check(tile(world).items.size() == 1, "negative amount retains original zero-iteration behavior");
+    }
+    static void activationAndDrops() {
+        for(Block block : new Block[]{can, supply}) for(boolean remote : new boolean[]{false, true}) for(EnumHand hand : EnumHand.values()) {
+            NativeWorld world = placed(block, 11, remote); Player player = new Player(world);
+            ItemStack crowbar = new ItemStack(ModItems.crowbar); player.setHeldItem(hand, crowbar);
+            // Native player hand assignment emits an equip sound; measure activation only.
+            world.events.clear(); world.sounds = 0;
+            List<ItemStack> expected;
+            if(block == supply) { tile(world).items.add(payload()); tile(world).items.add(ItemStack.EMPTY); tile(world).items.add(new ItemStack(ModItems.pudding, 37)); expected = Arrays.asList(payload(), new ItemStack(ModItems.pudding, 37)); }
+            else { world.rand.setSeed(729); expected = can.getContents(world, 8, 64, 8); world.rand.setSeed(729); }
+            check(block.onBlockActivated(world, POS, world.getBlockState(POS), player, hand, EnumFacing.NORTH, .1F, .2F, .3F), "crowbar consumes matching hand on either side");
+            check(player.getHeldItem(hand) == crowbar && crowbar.getCount() == 1 && crowbar.getItemDamage() == 0, "crowbar not consumed or damaged");
+            if(remote) {
+                check(world.getBlockState(POS).getBlock() == block && world.drops.isEmpty() && world.events.isEmpty(), "client crowbar predicts without server mutations");
+            } else {
+                check(world.isAirBlock(POS) && world.getTileEntity(POS) == null, "server crowbar removes block and tile");
+                check(world.drops.size() == expected.size(), "crowbar drops contents exactly once, skips EMPTY");
+                for(int i = 0; i < expected.size(); i++) check(equal(world.drops.get(i).getItem(), expected.get(i)), "native contents drop order and payload");
+                check(world.sounds == 1 && world.excluded == null && world.sound == ModSoundEvents.BLOCK_CRATE_BREAK && world.category == SoundCategory.BLOCKS && world.soundX == 8 && world.soundY == 64 && world.soundZ == 8 && world.volume == .5F && world.pitch == 1F, "exact sound event/category/original integer position/volume/pitch: " + block + ": " + world.sounds + ", " + world.excluded + ", " + world.sound + ", " + world.category + ", " + world.soundX + ", " + world.soundY + ", " + world.soundZ + ", " + world.volume + ", " + world.pitch);
+                check(world.destroyed == (block == supply ? 1 : 0) && !world.destroyDrops, "supply uses native destroy without duplicate block drops; cans use air");
+                check(world.events.get(world.events.size() - 1).equals("sound") && world.events.subList(0, expected.size()).equals(Collections.nCopies(expected.size(), "drop")), "contents precede removal then sound");
+            }
+        }
+        for(Block block : new Block[]{can, supply}) for(EnumHand hand : EnumHand.values()) {
+            NativeWorld world = placed(block, 0, false); Player player = new Player(world);
+            player.setHeldItem(hand == EnumHand.MAIN_HAND ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, new ItemStack(ModItems.crowbar));
+            world.events.clear(); world.sounds = 0;
+            check(!block.onBlockActivated(world, POS, world.getBlockState(POS), player, hand, EnumFacing.UP, 0, 0, 0), "crowbar in other hand cannot trigger activation");
+            player.setHeldItem(hand, new ItemStack(Items.APPLE)); world.events.clear(); world.sounds = 0;
+            check(!block.onBlockActivated(world, POS, world.getBlockState(POS), player, hand, EnumFacing.UP, 0, 0, 0), "non-crowbar hand rejected");
+            check(world.events.isEmpty() && world.getBlockState(POS).getBlock() == block, "rejected activation leaves world untouched");
+        }
+        for(Block block : new Block[]{can, supply}) for(boolean remote : new boolean[]{false, true}) {
+            NativeWorld world = placed(block, 0, remote); world.getGameRules().setOrCreateGameRule("doTileDrops", "false");
+            if(block == supply) { tile(world).items.add(payload()); supply.dropContents(world, 8, 64, 8); }
+            else can.dropContents(world, 8, 64, 8);
+            check(world.drops.isEmpty(), "native spawnAsEntity respects remote and doTileDrops");
+        }
+        NativeWorld world = placed(supply, 0, false); supply.dropBlockAsItem(world, POS, world.getBlockState(POS), 7);
+        check(world.drops.isEmpty(), "generic supply destruction cannot duplicate packed item");
+        world.setBlockState(POS, Blocks.STONE.getDefaultState()); supply.dropContents(world, 8, 64, 8);
+        check(world.drops.isEmpty(), "missing supply tile contents are a no-op");
+        world = placed(can, 0, false); can.dropBlockAsItem(world, POS, world.getBlockState(POS), 7);
+        check(world.drops.size() == 1 && world.drops.get(0).getItem().getItem() == Item.getItemFromBlock(can), "ordinary can break drops crate rather than random contents");
+    }
+    static void steelBeamOwner() {
+        AxisAlignedBB bounds = new AxisAlignedBB(7 / 16D, 0, 7 / 16D, 9 / 16D, 1, 9 / 16D);
+        for(int meta = 0; meta < 16; meta++) {
+            IBlockState state = beam.getStateFromMeta(meta);
+            check(beam.getMetaFromState(state) == meta, "beam all 16 metadata round trips");
+            check(state.getRenderType() == EnumBlockRenderType.MODEL && beam.getRenderLayer() == BlockRenderLayer.CUTOUT_MIPPED, "beam native model and cutout-mipped");
+            check(!state.isOpaqueCube() && !state.isFullCube(), "beam nonopaque nonfull");
+            check(state.getBoundingBox(null, POS).equals(bounds) && beam.getCollisionBoundingBox(state, null, POS).equals(bounds), "beam original narrow selection and collision bounds");
+            check(!beam.hasTileEntity(state), "beam preserves original null-tile behavior");
+            check(beam.getItemDropped(state, new Random(2), 12) == Item.getItemFromBlock(beam) && beam.damageDropped(state) == 0, "beam original self drop identity and metadata");
+            for(EnumFacing side : EnumFacing.values()) {
+                check(beam.getBlockFaceShape(null, state, POS, side) == BlockFaceShape.UNDEFINED && !beam.isSideSolid(state, null, POS, side), "beam does not invent solid faces");
+                check(beam.shouldSideBeRendered(state, null, POS, side), "beam renders all faces including adjacent blocks");
+            }
+            for(int rotation = 0; rotation < 4; rotation++) check(beam.transformMeta(meta, rotation) == INBTBlockTransformable.transformMetaDeco(meta, rotation), "beam uses unchanged deco transform");
+            NativeWorld world = placed(beam, meta, false); Player player = new Player(world);
+            check(world.getTileEntity(POS) == null, "native chunk creates no beam tile");
+            for(ToolType tool : ToolType.values()) check(!beam.onScrew(world, player, 8, 64, 8, 3, .2F, .3F, .4F, tool) && world.getBlockState(POS) == state, "all original tool types reject beam rotation without mutation");
+        }
+        for(float yaw : new float[]{0, 90, 180, 270, -90, -180, -270, 360, 44.99F, 45, 134.99F, 135, 224.99F, 225, 314.99F, 315}) {
+            NativeWorld world = placed(beam, 0, false); Player player = new Player(world); player.rotationYaw = yaw;
+            beam.onBlockPlacedBy(world, POS, world.getBlockState(POS), player, new ItemStack(beam));
+            int quadrant = MathHelper.floor(yaw * 4.0F / 360.0F + 0.5D) & 3;
+            check(beam.getMetaFromState(world.getBlockState(POS)) == new int[]{3, 4, 2, 5}[quadrant], "beam exact yaw placement mapping and boundaries");
+            check(world.getTileEntity(POS) == null && world.drops.isEmpty(), "beam placement has no hidden tile or drops");
+        }
+        NativeWorld world = placed(beam, 5, false); beam.dropBlockAsItem(world, POS, world.getBlockState(POS), 3);
+        check(world.drops.size() == 1 && world.drops.get(0).getItem().getItem() == Item.getItemFromBlock(beam), "beam native drop spawn identity");
+    }
+    public static void main(String[] args) throws Exception {
+        setup(); statesAndCollision(); seededContents(); tilePersistence(); playerRemovalAndPlacement(); activationAndDrops(); steelBeamOwner();
+        System.out.println("PASS complete native can/supply crate owners, nested supply tile, and steel beam owner: " + checks + " checks. Real World/Chunk/TileEntity/ItemStack/NBT/drop APIs; NTM item registries, food effects and unused tool-recipe matching are controlled collaborators, not whole-mod integration.");
+    }
+}

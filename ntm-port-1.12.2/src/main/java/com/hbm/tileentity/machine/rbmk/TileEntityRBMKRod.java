@@ -112,9 +112,9 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(slots[0] != null && slots[0].getItem() instanceof ItemRBMKRod) {
 
@@ -129,7 +129,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 				if(rod.specialFluxCurve) {
 					fluxRatioOut = rod.fluxRatioOut(this.fluxFastRatio, ItemRBMKRod.getEnrichment(slots[0]));
 					double fluxIn = rod.fluxFromRatio(this.fluxQuantity, this.fluxFastRatio);
-					fluxQuantityOut = rod.burn(worldObj, slots[0], fluxIn);
+					fluxQuantityOut = rod.burn(this.world, slots[0], fluxIn);
 				} else {
 					NType rType = rod.rType;
 					if(rType == NType.SLOW)
@@ -138,22 +138,22 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 						fluxRatioOut = 1;
 
 					double fluxIn = fluxFromType(rod.nType);
-					fluxQuantityOut = rod.burn(worldObj, slots[0], fluxIn);
+					fluxQuantityOut = rod.burn(this.world, slots[0], fluxIn);
 				}
 
-				rod.updateHeat(worldObj, slots[0], 1.0D);
-				this.heat += rod.provideHeat(worldObj, slots[0], heat, 1.0D);
+				rod.updateHeat(this.world, slots[0], 1.0D);
+				this.heat += rod.provideHeat(this.world, slots[0], heat, 1.0D);
 
 				if(!this.hasLid()) {
-					ChunkRadiationManager.proxy.incrementRad(worldObj, xCoord, yCoord, zCoord, (float) (this.fluxQuantity * 0.05F));
+					ChunkRadiationManager.proxy.incrementRad(this.world, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), (float) (this.fluxQuantity * 0.05F));
 				}
 
-				super.updateEntity();
+				super.update();
 
 				if(this.heat > this.maxHeat()) {
 
-					if(RBMKDials.getMeltdownsDisabled(worldObj)) {
-						ParticleUtil.spawnGasFlame(worldObj, xCoord + 0.5, yCoord + RBMKDials.getColumnHeight(worldObj) + 0.5, zCoord + 0.5, 0, 0.2, 0);
+					if(RBMKDials.getMeltdownsDisabled(this.world)) {
+						ParticleUtil.spawnGasFlame(this.world, this.getPos().getX() + 0.5, this.getPos().getY() + RBMKDials.getColumnHeight(this.world) + 0.5, this.getPos().getZ() + 0.5, 0, 0.2, 0);
 					} else {
 						this.meltdown();
 					}
@@ -186,7 +186,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 
 				hasRod = false;
 
-				super.updateEntity();
+				super.update();
 			}
 		}
 	}
@@ -221,11 +221,11 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 
 		if(flux == 0) {
 			// simple way to remove the node from the cache when no flux is going into it!
-			NeutronNodeWorld.removeNode(worldObj, pos);
+			NeutronNodeWorld.removeNode(this.world, pos);
 			return;
 		}
 
-		StreamWorld streamWorld = NeutronNodeWorld.getOrAddWorld(worldObj);
+		StreamWorld streamWorld = NeutronNodeWorld.getOrAddWorld(this.world);
 		RBMKNeutronNode node = (RBMKNeutronNode) streamWorld.getNode(pos);
 
 		if(node == null) {
@@ -261,7 +261,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		if(!diag) {
@@ -272,6 +272,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 			nbt.setDouble("fluxFast", this.fluxQuantity * fluxFastRatio);
 		}
 		nbt.setBoolean("hasRod", this.hasRod);
+		return nbt;
 	}
 
 	@Override
@@ -323,10 +324,10 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 	public void onMelt(int reduce) {
 
 		boolean moderated = this.isModerated();
-		int h = RBMKDials.getColumnHeight(worldObj);
-		reduce = MathHelper.clamp_int(reduce, 1, h);
+		int h = RBMKDials.getColumnHeight(this.world);
+		reduce = MathHelper.clamp(reduce, 1, h);
 
-		if(worldObj.rand.nextInt(3) == 0)
+		if(this.world.rand.nextInt(3) == 0)
 			reduce++;
 
 		boolean corium = slots[0] != null && slots[0].getItem() instanceof ItemRBMKRod;
@@ -339,11 +340,11 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 		if(corium) {
 
 			for(int i = h; i >= 0; i--) {
-				worldObj.setBlock(xCoord, yCoord + i, zCoord, ModBlocks.corium_block, 5, 3);
-				worldObj.markBlockForUpdate(xCoord, yCoord + i, zCoord);
+				this.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ(), ModBlocks.corium_block, 5, 3);
+				this.world.markBlockForUpdate(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ());
 			}
 
-			int count = 1 + worldObj.rand.nextInt(RBMKDials.getColumnHeight(worldObj));
+			int count = 1 + this.world.rand.nextInt(RBMKDials.getColumnHeight(this.world));
 
 			for(int i = 0; i < count; i++) {
 				spawnDebris(DebrisType.FUEL);
@@ -354,7 +355,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 
 		if(moderated) {
 
-			int count = 2 + worldObj.rand.nextInt(2);
+			int count = 2 + this.world.rand.nextInt(2);
 
 			for(int i = 0; i < count; i++) {
 				spawnDebris(DebrisType.GRAPHITE);
@@ -486,7 +487,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getType(Context context, Arguments args) {
 		if(slots[0] != null && slots[0].getItem() instanceof ItemRBMKRod) {
-			return new Object[] {slots[0].getItem().getUnlocalizedName()};
+			return new Object[] {slots[0].getItem().getTranslationKey()};
 		}
 		return new Object[] {"N/A"};
 	}
@@ -500,7 +501,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 			returnValues.add(ItemRBMKRod.getCoreHeat(slots[0]));
 			returnValues.add(ItemRBMKRod.getEnrichment(slots[0]));
 			returnValues.add(ItemRBMKRod.getPoison(slots[0]));
-			returnValues.add(slots[0].getItem().getUnlocalizedName());
+			returnValues.add(slots[0].getItem().getTranslationKey());
 		} else {
 			for(int i = 0; i < 5; i++) returnValues.add("N/A");
 		}
@@ -508,7 +509,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 		return new Object[] {
 			heat, returnValues.get(0), returnValues.get(1),
 			fluxQuantity, fluxFastRatio, returnValues.get(2), returnValues.get(3), returnValues.get(4),
-			((RBMKRod)this.getBlockType()).moderated, xCoord, yCoord, zCoord
+			((RBMKRod)this.getBlockType()).moderated, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ()
 		};
 	}
 
@@ -521,7 +522,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getCoordinates(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.getPos().getX(), this.getPos().getY(), this.getPos().getZ()};
 	}
 
 	@Override

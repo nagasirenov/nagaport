@@ -1,0 +1,1107 @@
+{
+  "scope": "Consumer EMPTY closure and coherent native transfer APIs; exact UTF-8 bytes including CRLF from original pre-edit source snapshots, not whole-project compile acceptance.",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/util/InventoryUtil.java",
+      "before_sha256": "80dc196fb5681ef4e6f1dd3c944409dc7e025c2782827ddb0bcf8748772b1832",
+      "after_sha256": "6777c430c6c5ce4c00af64f83ddb09b9895e9e40de8294f723aa3d81086a811b",
+      "hunks": [
+        {
+          "after_start": 136,
+          "before": [
+            "\t\tif(stack == null || stack.stackSize == 0)\n"
+          ],
+          "after": [
+            "\t\tif(stack == null || stack.isEmpty())\n"
+          ]
+        },
+        {
+          "after_start": 141,
+          "before": [
+            "\t\t\tif(doesStackDataMatch(inv.getStackInSlot(i), stack)) {\n"
+          ],
+          "after": [
+            "\t\t\tItemStack current = inv.getStackInSlot(i);\n",
+            "\t\t\tif(current != null && !current.isEmpty() && doesStackDataMatch(current, stack)) {\n"
+          ]
+        },
+        {
+          "after_start": 144,
+          "before": [
+            "\t\t\t\tint transfer = Math.min(stack.stackSize, inv.getStackInSlot(i).getMaxStackSize() - inv.getStackInSlot(i).stackSize);\n"
+          ],
+          "after": [
+            "\t\t\t\tint transfer = Math.min(stack.getCount(), inv.getStackInSlot(i).getMaxStackSize() - inv.getStackInSlot(i).getCount());\n"
+          ]
+        },
+        {
+          "after_start": 147,
+          "before": [
+            "\t\t\t\t\tinv.getStackInSlot(i).stackSize += transfer;\n",
+            "\t\t\t\t\tstack.stackSize -= transfer;\n"
+          ],
+          "after": [
+            "\t\t\t\t\tinv.getStackInSlot(i).grow(transfer);\n",
+            "\t\t\t\t\tstack.shrink(transfer);\n"
+          ]
+        },
+        {
+          "after_start": 150,
+          "before": [
+            "\t\t\t\t\tif(stack.stackSize == 0)\n"
+          ],
+          "after": [
+            "\t\t\t\t\tif(stack.getCount() == 0)\n"
+          ]
+        },
+        {
+          "after_start": 161,
+          "before": [
+            "\t\tif(stack == null || stack.stackSize == 0)\n"
+          ],
+          "after": [
+            "\t\tif(stack == null || stack.isEmpty())\n"
+          ]
+        },
+        {
+          "after_start": 166,
+          "before": [
+            "\t\t\tif(inv.getStackInSlot(i) == null) {\n"
+          ],
+          "after": [
+            "\t\t\tItemStack current = inv.getStackInSlot(i);\n",
+            "\t\t\tif(current == null || current.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 507,
+          "before": [],
+          "after": [
+            "\t\tif(stack == null || stack.isEmpty()) return false;\n",
+            "\n"
+          ]
+        },
+        {
+          "after_start": 521,
+          "before": [
+            "\t\t\twhile(stack.stackSize > 0 && (!reverse && index < end || reverse && index >= start)) {\n"
+          ],
+          "after": [
+            "\t\t\twhile(stack.getCount() > 0 && (!reverse && index < end || reverse && index >= start)) {\n"
+          ]
+        },
+        {
+          "after_start": 525,
+          "before": [
+            "\t\t\t\tif(current != null) {\n"
+          ],
+          "after": [
+            "\t\t\t\tif(current != null && !current.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 527,
+          "before": [
+            "\t\t\t\t\tint toRemove = Math.min(stack.stackSize, max);\n"
+          ],
+          "after": [
+            "\t\t\t\t\tint toRemove = Math.min(stack.getCount(), max);\n"
+          ]
+        },
+        {
+          "after_start": 532,
+          "before": [
+            "\t\t\t\t\t\tint currentSize = current.stackSize + stack.stackSize;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tint currentSize = current.getCount() + stack.getCount();\n"
+          ]
+        },
+        {
+          "after_start": 534,
+          "before": [
+            "\t\t\t\t\t\t\tstack.stackSize = 0;\n",
+            "\t\t\t\t\t\t\tcurrent.stackSize = currentSize;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tstack.setCount(0);\n",
+            "\t\t\t\t\t\t\tcurrent.setCount(currentSize);\n"
+          ]
+        },
+        {
+          "after_start": 538,
+          "before": [
+            "\t\t\t\t\t\t} else if(current.stackSize < max) {\n",
+            "\t\t\t\t\t\t\tstack.stackSize -= max - current.stackSize;\n",
+            "\t\t\t\t\t\t\tcurrent.stackSize = max;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t} else if(current.getCount() < max) {\n",
+            "\t\t\t\t\t\t\tstack.shrink(max - current.getCount());\n",
+            "\t\t\t\t\t\t\tcurrent.setCount(max);\n"
+          ]
+        },
+        {
+          "after_start": 555,
+          "before": [
+            "\t\tif(stack.stackSize > 0) {\n"
+          ],
+          "after": [
+            "\t\tif(stack.getCount() > 0) {\n"
+          ]
+        },
+        {
+          "after_start": 562,
+          "before": [
+            "\t\t\twhile((!reverse && index < end || reverse && index >= start) && stack.stackSize > 0) {\n"
+          ],
+          "after": [
+            "\t\t\twhile((!reverse && index < end || reverse && index >= start) && stack.getCount() > 0) {\n"
+          ]
+        },
+        {
+          "after_start": 566,
+          "before": [
+            "\t\t\t\tif(current == null) {\n"
+          ],
+          "after": [
+            "\t\t\t\tif(current == null || current.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 569,
+          "before": [
+            "\t\t\t\t\tint toRemove = Math.min(stack.stackSize, max);\n"
+          ],
+          "after": [
+            "\t\t\t\t\tint toRemove = Math.min(stack.getCount(), max);\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java",
+      "before_sha256": "0e42766c971ff063320dbc414c17f17c1027c14d8399fc47631c4e03cf5648ef",
+      "after_sha256": "a18b099060338d10cd67610863409d668c0bdf11999ec1c8e52d2ec0cc9f5a6c",
+      "hunks": [
+        {
+          "after_start": 75,
+          "before": [
+            "\t\t\tif(stack != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(stack != null && !stack.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 119,
+          "before": [
+            "\t\t\t\tint sq = (tile1.xCoord - tile2.xCoord) * (tile1.xCoord - tile2.xCoord) + (tile1.yCoord - tile2.yCoord) * (tile1.yCoord - tile2.yCoord) + (tile1.zCoord - tile2.zCoord) * (tile1.zCoord - tile2.zCoord);\n"
+          ],
+          "after": [
+            "\t\t\t\tint sq = (tile1.getPos().getX() - tile2.getPos().getX()) * (tile1.getPos().getX() - tile2.getPos().getX()) + (tile1.getPos().getY() - tile2.getPos().getY()) * (tile1.getPos().getY() - tile2.getPos().getY()) + (tile1.getPos().getZ() - tile2.getPos().getZ()) * (tile1.getPos().getZ() - tile2.getPos().getZ());\n"
+          ]
+        },
+        {
+          "after_start": 135,
+          "before": [
+            "\t\t\t\tif(sourceStack == null) continue;\n"
+          ],
+          "after": [
+            "\t\t\t\tif(sourceStack == null || sourceStack.isEmpty()) continue;\n"
+          ]
+        },
+        {
+          "after_start": 146,
+          "before": [
+            "\t\t\t\tint proportionalValue = MathHelper.clamp_int(64 / sourceStack.getMaxStackSize(), 1, 64);\n"
+          ],
+          "after": [
+            "\t\t\t\tint proportionalValue = MathHelper.clamp(64 / sourceStack.getMaxStackSize(), 1, 64);\n"
+          ]
+        },
+        {
+          "after_start": 151,
+          "before": [
+            "\t\t\t\t\tif(destStack == null) continue;\n"
+          ],
+          "after": [
+            "\t\t\t\t\tif(destStack == null || destStack.isEmpty()) continue;\n"
+          ]
+        },
+        {
+          "after_start": 153,
+          "before": [
+            "\t\t\t\t\tint toMove = BobMathUtil.min(sourceStack.stackSize, destStack.getMaxStackSize() - destStack.stackSize, dest.getInventoryStackLimit() - destStack.stackSize, itemsLeftToSend / proportionalValue, itemHardCap);\n"
+          ],
+          "after": [
+            "\t\t\t\t\tint toMove = BobMathUtil.min(sourceStack.getCount(), destStack.getMaxStackSize() - destStack.getCount(), dest.getInventoryStackLimit() - destStack.getCount(), itemsLeftToSend / proportionalValue, itemHardCap);\n"
+          ]
+        },
+        {
+          "after_start": 157,
+          "before": [
+            "\t\t\t\t\tcheckStack.stackSize += toMove;\n"
+          ],
+          "after": [
+            "\t\t\t\t\tcheckStack.grow(toMove);\n"
+          ]
+        },
+        {
+          "after_start": 161,
+          "before": [
+            "\t\t\t\t\tsourceStack.stackSize -= toMove;\n",
+            "\t\t\t\t\tif(sourceStack.stackSize <= 0) source.setInventorySlotContents(sourceIndex, null);\n",
+            "\t\t\t\t\tdestStack.stackSize += toMove;\n"
+          ],
+          "after": [
+            "\t\t\t\t\tsourceStack.shrink(toMove);\n",
+            "\t\t\t\t\tif(sourceStack.getCount() <= 0) source.setInventorySlotContents(sourceIndex, ItemStack.EMPTY);\n",
+            "\t\t\t\t\tdestStack.grow(toMove);\n"
+          ]
+        },
+        {
+          "after_start": 170,
+          "before": [
+            "\t\t\t\tif(itemsLeftToSend > 0 && sourceStack.stackSize > 0) for(int destIndex : destSlotAccess) {\n",
+            "\t\t\t\t\tif(dest.getStackInSlot(destIndex) != null) continue;\n",
+            "\t\t\t\t\tint toMove = BobMathUtil.min(sourceStack.stackSize, dest.getInventoryStackLimit(), itemsLeftToSend / proportionalValue, itemHardCap);\n"
+          ],
+          "after": [
+            "\t\t\t\tif(itemsLeftToSend > 0 && sourceStack.getCount() > 0) for(int destIndex : destSlotAccess) {\n",
+            "\t\t\t\t\tItemStack destStack = dest.getStackInSlot(destIndex);\n",
+            "\t\t\t\t\tif(destStack != null && !destStack.isEmpty()) continue;\n",
+            "\t\t\t\t\tint toMove = BobMathUtil.min(sourceStack.getCount(), dest.getInventoryStackLimit(), itemsLeftToSend / proportionalValue, itemHardCap);\n"
+          ]
+        },
+        {
+          "after_start": 177,
+          "before": [
+            "\t\t\t\t\tcheckStack.stackSize = toMove;\n"
+          ],
+          "after": [
+            "\t\t\t\t\tcheckStack.setCount(toMove);\n"
+          ]
+        },
+        {
+          "after_start": 182,
+          "before": [
+            "\t\t\t\t\tnewStack.stackSize = toMove;\n",
+            "\t\t\t\t\tsourceStack.stackSize -= toMove;\n",
+            "\t\t\t\t\tif(sourceStack.stackSize <= 0) source.setInventorySlotContents(sourceIndex, null);\n"
+          ],
+          "after": [
+            "\t\t\t\t\tnewStack.setCount(toMove);\n",
+            "\t\t\t\t\tsourceStack.shrink(toMove);\n",
+            "\t\t\t\t\tif(sourceStack.getCount() <= 0) source.setInventorySlotContents(sourceIndex, ItemStack.EMPTY);\n"
+          ]
+        },
+        {
+          "after_start": 240,
+          "before": [
+            "\t\t\tint dist1 = (tile1.xCoord - origin.xCoord) * (tile1.xCoord - origin.xCoord) + (tile1.yCoord - origin.yCoord) * (tile1.yCoord - origin.yCoord) + (tile1.zCoord - origin.zCoord) * (tile1.zCoord - origin.zCoord);\n",
+            "\t\t\tint dist2 = (tile2.xCoord - origin.xCoord) * (tile2.xCoord - origin.xCoord) + (tile2.yCoord - origin.yCoord) * (tile2.yCoord - origin.yCoord) + (tile2.zCoord - origin.zCoord) * (tile2.zCoord - origin.zCoord);\n"
+          ],
+          "after": [
+            "\t\t\tint dist1 = (tile1.getPos().getX() - origin.getPos().getX()) * (tile1.getPos().getX() - origin.getPos().getX()) + (tile1.getPos().getY() - origin.getPos().getY()) * (tile1.getPos().getY() - origin.getPos().getY()) + (tile1.getPos().getZ() - origin.getPos().getZ()) * (tile1.getPos().getZ() - origin.getPos().getZ());\n",
+            "\t\t\tint dist2 = (tile2.getPos().getX() - origin.getPos().getX()) * (tile2.getPos().getX() - origin.getPos().getX()) + (tile2.getPos().getY() - origin.getPos().getY()) * (tile2.getPos().getY() - origin.getPos().getY()) + (tile2.getPos().getZ() - origin.getPos().getZ()) * (tile2.getPos().getZ() - origin.getPos().getZ());\n"
+          ]
+        },
+        {
+          "after_start": 245,
+          "before": [
+            "\t\t\t\treturn TileEntityPneumoTube.getIdentifier(tile1.xCoord, tile1.yCoord, tile1.zCoord) - TileEntityPneumoTube.getIdentifier(tile2.xCoord, tile2.yCoord, tile2.zCoord);\n"
+          ],
+          "after": [
+            "\t\t\t\treturn TileEntityPneumoTube.getIdentifier(tile1.getPos().getX(), tile1.getPos().getY(), tile1.getPos().getZ()) - TileEntityPneumoTube.getIdentifier(tile2.getPos().getX(), tile2.getPos().getY(), tile2.getPos().getZ());\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java",
+      "before_sha256": "b9003d76936c6e0e766ce12b40c67c3c9ff6b9c00de2ca08b14561cf2312b21e",
+      "after_sha256": "1fbc141b99366e8fde71adeeb1cd753d709b2c3b4905811cefc0be17254d6c37",
+      "hunks": [
+        {
+          "after_start": 194,
+          "before": [
+            "\t\t\tif(stack != null && (sided == null || sided.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()))) {\n"
+          ],
+          "after": [
+            "\t\t\tif(stack != null && !stack.isEmpty() && (sided == null || sided.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()))) {\n"
+          ]
+        },
+        {
+          "after_start": 196,
+          "before": [
+            "\t\t\t\t\tif(slots[j] != null && slots[j].stackSize < slots[j].getMaxStackSize() & InventoryUtil.doesStackDataMatch(slots[j], stack)) {\n"
+          ],
+          "after": [
+            "\t\t\t\t\tif(slots[j] != null && slots[j].getCount() < slots[j].getMaxStackSize() & InventoryUtil.doesStackDataMatch(slots[j], stack)) {\n"
+          ]
+        },
+        {
+          "after_start": 198,
+          "before": [
+            "\t\t\t\t\t\tslots[j].stackSize++;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tslots[j].grow(1);\n"
+          ]
+        },
+        {
+          "after_start": 206,
+          "before": [
+            "\t\t\t\t\t\tslots[j].stackSize = 1;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tslots[j].setCount(1);\n"
+          ]
+        },
+        {
+          "after_start": 235,
+          "before": [
+            "\t\t\t\t\tif(InventoryUtil.doesStackDataMatch(out, target) && target.stackSize < Math.min(target.getMaxStackSize(), inv.getInventoryStackLimit())) {\n"
+          ],
+          "after": [
+            "\t\t\t\t\tif(target != null && !target.isEmpty() && InventoryUtil.doesStackDataMatch(out, target) && target.getCount() < Math.min(target.getMaxStackSize(), inv.getInventoryStackLimit())) {\n"
+          ]
+        },
+        {
+          "after_start": 237,
+          "before": [
+            "\t\t\t\t\t\ttarget.stackSize++;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\ttarget.grow(1);\n"
+          ]
+        },
+        {
+          "after_start": 248,
+          "before": [
+            "\t\t\t\t\tif(inv.getStackInSlot(slot) == null && (sided != null ? sided.canInsertItem(slot, out, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()) : inv.isItemValidForSlot(slot, out))) {\n"
+          ],
+          "after": [
+            "\t\t\t\t\tItemStack target = inv.getStackInSlot(slot);\n",
+            "\t\t\t\t\tif((target == null || target.isEmpty()) && (sided != null ? sided.canInsertItem(slot, out, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()) : inv.isItemValidForSlot(slot, out))) {\n"
+          ]
+        },
+        {
+          "after_start": 251,
+          "before": [
+            "\t\t\t\t\t\tcopy.stackSize = 1;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tcopy.setCount(1);\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+      "before_sha256": "9c9731475d6749a6cb9f64c6e858b2993522f4ea82f0038f4b0d8ec1a839f0bd",
+      "after_sha256": "9f170463cd822614fa244c93d1cd239f9634b8e47eb503e71ae43f593d07d3cc",
+      "hunks": [
+        {
+          "after_start": 191,
+          "before": [
+            "\t\tif(slots[0] != null && slots[0].stackSize >= MEMBERS_PER_LAUNCH) return;\n"
+          ],
+          "after": [
+            "\t\tif(slots[0] != null && slots[0].getCount() >= MEMBERS_PER_LAUNCH) return;\n"
+          ]
+        },
+        {
+          "after_start": 203,
+          "before": [
+            "\t\t\tif(stack != null && stack.getItem() == ModItems.swarm_member && (sided == null || sided.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()))) {\n"
+          ],
+          "after": [
+            "\t\t\tif(stack != null && !stack.isEmpty() && stack.getItem() == ModItems.swarm_member && (sided == null || sided.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()))) {\n"
+          ]
+        },
+        {
+          "after_start": 205,
+          "before": [
+            "\t\t\t\tif(slots[0] == null) {\n",
+            "\t\t\t\t\tslots[0] = removed;\n",
+            "\t\t\t\t} else {\n",
+            "\t\t\t\t\tslots[0].stackSize++;\n"
+          ],
+          "after": [
+            "\t\t\t\tif(removed != null && !removed.isEmpty()) {\n",
+            "\t\t\t\t\tif(slots[0] == null) {\n",
+            "\t\t\t\t\t\tslots[0] = removed;\n",
+            "\t\t\t\t\t} else {\n",
+            "\t\t\t\t\t\tslots[0].grow(1);\n",
+            "\t\t\t\t\t}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneInserter.java",
+      "before_sha256": "75b98a9389852bd8a062997d63ed33491dd54fcf54b589f3aad0d9b1677a8a94",
+      "after_sha256": "acedeadcf423214f319439730a5d07c23ad3bc36c8e4785c4941e61288736ed1",
+      "hunks": [
+        {
+          "after_start": 108,
+          "before": [
+            "\t\t\tif(stack != null && toAdd.isItemEqual(stack) && ItemStack.areItemStackTagsEqual(toAdd, stack) && stack.stackSize < Math.min(stack.getMaxStackSize(), limit)\n"
+          ],
+          "after": [
+            "\t\t\tif(stack != null && !stack.isEmpty() && toAdd.isItemEqual(stack) && ItemStack.areItemStackTagsEqual(toAdd, stack) && stack.getCount() < Math.min(stack.getMaxStackSize(), limit)\n"
+          ]
+        },
+        {
+          "after_start": 112,
+          "before": [
+            "\t\t\t\tint amount = Math.min(toAdd.stackSize, stackLimit - stack.stackSize);\n"
+          ],
+          "after": [
+            "\t\t\t\tint amount = Math.min(toAdd.getCount(), stackLimit - stack.getCount());\n"
+          ]
+        },
+        {
+          "after_start": 114,
+          "before": [
+            "\t\t\t\tstack.stackSize += amount;\n",
+            "\t\t\t\ttoAdd.stackSize -= amount;\n"
+          ],
+          "after": [
+            "\t\t\t\tstack.grow(amount);\n",
+            "\t\t\t\ttoAdd.shrink(amount);\n"
+          ]
+        },
+        {
+          "after_start": 118,
+          "before": [
+            "\t\t\t\tif(toAdd.stackSize == 0) {\n"
+          ],
+          "after": [
+            "\t\t\t\tif(toAdd.getCount() == 0) {\n"
+          ]
+        },
+        {
+          "after_start": 128,
+          "before": [
+            "\t\t\tif(stack == null && ((sided == null || sided.canInsertItem(index, toAdd, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing())) && inv.isItemValidForSlot(index, toAdd))) {\n"
+          ],
+          "after": [
+            "\t\t\tif((stack == null || stack.isEmpty()) && ((sided == null || sided.canInsertItem(index, toAdd, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing())) && inv.isItemValidForSlot(index, toAdd))) {\n"
+          ]
+        },
+        {
+          "after_start": 130,
+          "before": [
+            "\t\t\t\tint amount = Math.min(toAdd.stackSize, limit);\n"
+          ],
+          "after": [
+            "\t\t\t\tint amount = Math.min(toAdd.getCount(), limit);\n"
+          ]
+        },
+        {
+          "after_start": 133,
+          "before": [
+            "\t\t\t\tnewStack.stackSize = amount;\n"
+          ],
+          "after": [
+            "\t\t\t\tnewStack.setCount(amount);\n"
+          ]
+        },
+        {
+          "after_start": 135,
+          "before": [
+            "\t\t\t\ttoAdd.stackSize -= amount;\n"
+          ],
+          "after": [
+            "\t\t\t\ttoAdd.shrink(amount);\n"
+          ]
+        },
+        {
+          "after_start": 138,
+          "before": [
+            "\t\t\t\tif(toAdd.stackSize == 0) {\n"
+          ],
+          "after": [
+            "\t\t\t\tif(toAdd.getCount() == 0) {\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java",
+      "before_sha256": "214f0e96ec3b2b95c5c3a56ab906dac0bf98c3ce5b4bb0321d66af6b0cb4e765",
+      "after_sha256": "232476591bdae6a4436bc65f8b09213d67608e507861ef1fc245b96379be0df1",
+      "hunks": [
+        {
+          "after_start": 50,
+          "before": [
+            "\t\tif(stack != null) {\n"
+          ],
+          "after": [
+            "\t\tif(stack != null && !stack.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 116,
+          "before": [
+            "\t\t\t\t\t\tif(stack != null && (sided == null || sided.canExtractItem(index, stack, com.hbm.lib.ForgeDirection.getOrientation(inputSide.getOpposite().ordinal()).toEnumFacing()))) {\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tif(stack != null && !stack.isEmpty() && (sided == null || sided.canExtractItem(index, stack, com.hbm.lib.ForgeDirection.getOrientation(inputSide.getOpposite().ordinal()).toEnumFacing()))) {\n"
+          ]
+        },
+        {
+          "after_start": 119,
+          "before": [
+            "\t\t\t\t\t\t\tif(this.maxEject && stack.stackSize < maxTarget) continue;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tif(this.maxEject && stack.getCount() < maxTarget) continue;\n"
+          ]
+        },
+        {
+          "after_start": 124,
+          "before": [
+            "\t\t\t\t\t\t\t\tint toSend = Math.min(amount, stack.stackSize);\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\t\tint toSend = Math.min(amount, stack.getCount());\n"
+          ]
+        },
+        {
+          "after_start": 128,
+          "before": [
+            "\t\t\t\t\t\t\t\t\tstack.stackSize = toSend;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\t\t\tstack.setCount(toSend);\n"
+          ]
+        },
+        {
+          "after_start": 131,
+          "before": [
+            "\t\t\t\t\t\t\t\t\tstack.stackSize = toSend;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\t\t\tstack.setCount(toSend);\n"
+          ]
+        },
+        {
+          "after_start": 133,
+          "before": [
+            "\t\t\t\t\t\t\t\t\tinv.decrStackSize(index, toSend - (remaining == null ? 0 : remaining.stackSize));\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\t\t\tinv.decrStackSize(index, toSend - (remaining == null ? 0 : remaining.getCount()));\n"
+          ]
+        },
+        {
+          "after_start": 150,
+          "before": [
+            "\t\t\t\t\t\t\tint toSend = Math.min(amount, stack.stackSize);\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tint toSend = Math.min(amount, stack.getCount());\n"
+          ]
+        },
+        {
+          "after_start": 153,
+          "before": [
+            "\t\t\t\t\t\t\tif(this.maxEject && stack.stackSize < maxTarget) continue;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tif(this.maxEject && stack.getCount() < maxTarget) continue;\n"
+          ]
+        },
+        {
+          "after_start": 156,
+          "before": [
+            "\t\t\t\t\t\t\tstack.stackSize = toSend;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tstack.setCount(toSend);\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java",
+      "before_sha256": "e03970a1b29ceba72e8a7b746f80626b2130e8ee4c6a336059c8aeddf5052f1e",
+      "after_sha256": "6c9e4e40504d18eabc1c739e08f1bba8ee56dd94b37fb9bd07880c699c7ef594",
+      "hunks": [
+        {
+          "after_start": 42,
+          "before": [
+            "\tpublic ItemStack getStackInSlotOnClosing(int i) {\n",
+            "\t\tif(slots[i] != null) {\n",
+            "\t\t\tItemStack itemStack = slots[i];\n",
+            "\t\t\tslots[i] = null;\n",
+            "\t\t\treturn itemStack;\n",
+            "\t\t} else {\n",
+            "\t\t\treturn null;\n",
+            "\t\t}\n"
+          ],
+          "after": [
+            "\tpublic ItemStack removeStackFromSlot(int i) {\n",
+            "\t\tItemStack itemStack = slots[i];\n",
+            "\t\tslots[i] = null;\n",
+            "\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n"
+          ]
+        },
+        {
+          "after_start": 50,
+          "before": [],
+          "after": [
+            "\t\titemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;\n"
+          ]
+        },
+        {
+          "after_start": 52,
+          "before": [
+            "\t\tif(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {\n",
+            "\t\t\titemStack.stackSize = getInventoryStackLimit();\n"
+          ],
+          "after": [
+            "\t\tif(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {\n",
+            "\t\t\titemStack.setCount(getInventoryStackLimit());\n"
+          ]
+        },
+        {
+          "after_start": 237,
+          "before": [
+            "\t\t\t\t\t\tsta.stackSize = 1;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tsta.setCount(1);\n"
+          ]
+        },
+        {
+          "after_start": 239,
+          "before": [
+            "\t\t\t\t\t\tif(chest.getStackInSlot(j) != null && chest.getStackInSlot(j).isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(chest.getStackInSlot(j), slots[i])\n",
+            "\t\t\t\t\t\t\t\t&& chest.getStackInSlot(j).stackSize < chest.getStackInSlot(j).getMaxStackSize()) {\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tif(chest.getStackInSlot(j) != null && !chest.getStackInSlot(j).isEmpty() && chest.getStackInSlot(j).isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(chest.getStackInSlot(j), slots[i])\n",
+            "\t\t\t\t\t\t\t\t&& chest.getStackInSlot(j).getCount() < chest.getStackInSlot(j).getMaxStackSize()) {\n"
+          ]
+        },
+        {
+          "after_start": 242,
+          "before": [
+            "\t\t\t\t\t\t\tslots[i].stackSize--;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tslots[i].shrink(1);\n"
+          ]
+        },
+        {
+          "after_start": 244,
+          "before": [
+            "\t\t\t\t\t\t\tif(slots[i].stackSize <= 0)\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tif(slots[i].getCount() <= 0)\n"
+          ]
+        },
+        {
+          "after_start": 247,
+          "before": [
+            "\t\t\t\t\t\t\tchest.getStackInSlot(j).stackSize++;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tchest.getStackInSlot(j).grow(1);\n"
+          ]
+        },
+        {
+          "after_start": 258,
+          "before": [
+            "\t\t\t\t\t\tsta.stackSize = 1;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tsta.setCount(1);\n"
+          ]
+        },
+        {
+          "after_start": 260,
+          "before": [
+            "\t\t\t\t\t\tif(chest.getStackInSlot(j) == null && chest.isItemValidForSlot(j, sta)) {\n",
+            "\t\t\t\t\t\t\tslots[i].stackSize--;\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\tif((chest.getStackInSlot(j) == null || chest.getStackInSlot(j).isEmpty()) && chest.isItemValidForSlot(j, sta)) {\n",
+            "\t\t\t\t\t\t\tslots[i].shrink(1);\n"
+          ]
+        },
+        {
+          "after_start": 263,
+          "before": [
+            "\t\t\t\t\t\t\tif(slots[i].stackSize <= 0)\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tif(slots[i].getCount() <= 0)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/IControlReceiverFilter.java",
+      "before_sha256": "2000b994b863917faae62d7fa2bf16274a81772d73a190e81daff777dc004b35",
+      "after_sha256": "2577b53d842d7d873223936b94820f7f223502cfa5345490c5a357173006a3d9",
+      "hunks": [
+        {
+          "after_start": 38,
+          "before": [
+            "\t\tItemStack item = ItemStack.loadItemStackFromNBT(stack);\n",
+            "\t\titem.stackSize = 1;\n",
+            "\t\tinv.setInventorySlotContents(slot, item);\n"
+          ],
+          "after": [
+            "\t\tItemStack item = new ItemStack(stack);\n",
+            "\t\tif(!item.isEmpty()) item.setCount(1);\n",
+            "\t\tinv.setInventorySlotContents(slot, item.isEmpty() ? ItemStack.EMPTY : item);\n"
+          ]
+        },
+        {
+          "after_start": 58,
+          "before": [
+            "\t\t\tif(inv.getStackInSlot(i) != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(inv.getStackInSlot(i) != null && !inv.getStackInSlot(i).isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 83,
+          "before": [
+            "\t\t\t\t\tItemStack loadedStack = ItemStack.loadItemStackFromNBT(slotNBT);\n"
+          ],
+          "after": [
+            "\t\t\t\t\tItemStack loadedStack = new ItemStack(slotNBT);\n"
+          ]
+        },
+        {
+          "after_start": 87,
+          "before": [
+            "\t\t\t\t\tif (loadedStack != null && index < listSize && (slot < getFilterSlots()[1] || router)) {\n",
+            "\t\t\t\t\t\tinv.setInventorySlotContents(slot + getFilterSlots()[0], ItemStack.loadItemStackFromNBT(slotNBT));\n"
+          ],
+          "after": [
+            "\t\t\t\t\tif (!loadedStack.isEmpty() && index < listSize && (slot < getFilterSlots()[1] || router)) {\n",
+            "\t\t\t\t\t\tinv.setInventorySlotContents(slot + getFilterSlots()[0], new ItemStack(slotNBT));\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java",
+      "before_sha256": "bc714cedd5b11dbace9e063f9b652a9dc81e97586127bcbe46313d95ce22425a",
+      "after_sha256": "243e69abff935bd6a9620cdeba027c0b8a2b2c6647ba9965bcfcb709acd4f761",
+      "hunks": [
+        {
+          "after_start": 11,
+          "before": [
+            "import net.minecraft.network.play.server.SPacketUpdateTileEntity;\n"
+          ],
+          "after": [
+            "import net.minecraft.network.play.server.SPacketUpdateTileEntity;\r\n"
+          ]
+        },
+        {
+          "after_start": 86,
+          "before": [
+            "\tpublic SPacketUpdateTileEntity getUpdatePacket() {\n"
+          ],
+          "after": [
+            "\tpublic SPacketUpdateTileEntity getUpdatePacket() {\r\n"
+          ]
+        },
+        {
+          "after_start": 89,
+          "before": [
+            "\t\treturn new SPacketUpdateTileEntity(this.getPos(), 0, nbt);\n"
+          ],
+          "after": [
+            "\t\treturn new SPacketUpdateTileEntity(this.getPos(), 0, nbt);\r\n"
+          ]
+        },
+        {
+          "after_start": 93,
+          "before": [
+            "\tpublic void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {\n",
+            "\t\treadFromNBT(pkt.getNbtCompound());\n"
+          ],
+          "after": [
+            "\tpublic void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {\r\n",
+            "\t\treadFromNBT(pkt.getNbtCompound());\r\n"
+          ]
+        },
+        {
+          "after_start": 125,
+          "before": [
+            "\t\t\t\tif(inv.getStackInSlot(i) != null) {\r\n"
+          ],
+          "after": [
+            "\t\t\t\tif(inv.getStackInSlot(i) != null && !inv.getStackInSlot(i).isEmpty()) {\r\n"
+          ]
+        },
+        {
+          "after_start": 161,
+          "before": [
+            "\t\t\t\t\t\t\tItemStack loadedStack = ItemStack.loadItemStackFromNBT(slotNBT);\r\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tItemStack loadedStack = new ItemStack(slotNBT);\r\n"
+          ]
+        },
+        {
+          "after_start": 164,
+          "before": [
+            "\t\t\t\t\t\t\tif (loadedStack != null && (slot < filter.getFilterSlots()[1] || router)) {\r\n",
+            "\t\t\t\t\t\t\t\tinv.setInventorySlotContents(slot + filter.getFilterSlots()[0], ItemStack.loadItemStackFromNBT(slotNBT));\r\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\tif (!loadedStack.isEmpty() && (slot < filter.getFilterSlots()[1] || router)) {\r\n",
+            "\t\t\t\t\t\t\t\tinv.setInventorySlotContents(slot + filter.getFilterSlots()[0], new ItemStack(slotNBT));\r\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java",
+      "before_sha256": "25fcaa40ded9f568e332477efdf627cd6b1580f7d634f348216a349d995c4392",
+      "after_sha256": "3aa381f6fed0958cb324c43469c252413f83236046b14dbb4ef472420eb888b1",
+      "hunks": [
+        {
+          "after_start": 157,
+          "before": [
+            "\t\t\tif (inv.getStackInSlot(i) != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif (inv.getStackInSlot(i) != null && !inv.getStackInSlot(i).isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 181,
+          "before": [
+            "\t\t\t\tItemStack loadedStack = ItemStack.loadItemStackFromNBT(slotNBT);\n"
+          ],
+          "after": [
+            "\t\t\t\tItemStack loadedStack = new ItemStack(slotNBT);\n"
+          ]
+        },
+        {
+          "after_start": 183,
+          "before": [
+            "\t\t\t\tif (loadedStack != null && slot > index * 5 && slot < Math.min(index * 5 + 5, 30)) {\n",
+            "\t\t\t\t\tthis.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(slotNBT));\n"
+          ],
+          "after": [
+            "\t\t\t\tif (!loadedStack.isEmpty() && slot > index * 5 && slot < Math.min(index * 5 + 5, 30)) {\n",
+            "\t\t\t\t\tthis.setInventorySlotContents(slot, new ItemStack(slotNBT));\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java",
+      "before_sha256": "5eb1228adf2ef94412e26abefb6192bc0b12ca849f7dd74061a4cd593ec139d5",
+      "after_sha256": "7ba66e51e83ee82ae57d84b9704b42a24ed63dc79912edbe4091050b8b15ead7",
+      "hunks": [
+        {
+          "after_start": 50,
+          "before": [
+            "\t\t\t\tfor(int i = 0; i < invSlots.length; i++) invSlots[i] = inv.getStackInSlot(i);\n"
+          ],
+          "after": [
+            "\t\t\t\tfor(int i = 0; i < invSlots.length; i++) {\n",
+            "\t\t\t\t\tItemStack stack = inv.getStackInSlot(i);\n",
+            "\t\t\t\t\tinvSlots[i] = stack == null || stack.isEmpty() ? null : stack;\n",
+            "\t\t\t\t}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java",
+      "before_sha256": "abb70f476969339a48f8d958b417f7d9564465c6847294d11718c257e8aff496",
+      "after_sha256": "cd997c55389ec814c52a4223945e4a02357e103b38f8eba97a021e506dc10efc",
+      "hunks": [
+        {
+          "after_start": 103,
+          "before": [
+            "\t\t\t\t\t\t\t\tif(ingredient != null) {\n"
+          ],
+          "after": [
+            "\t\t\t\t\t\t\t\tif(ingredient != null && !ingredient.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 277,
+          "before": [
+            "\t\t\t\tthis.setInventorySlotContents(i, slots[start + i]);\n"
+          ],
+          "after": [
+            "\t\t\t\tItemStack stack = slots[start + i];\n",
+            "\t\t\t\tthis.setInventorySlotContents(i, stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack);\n"
+          ]
+        },
+        {
+          "after_start": 283,
+          "before": [
+            "\t\t\tfor(int i = 0; i < this.getSizeInventory(); i++) this.setInventorySlotContents(i, null);\n"
+          ],
+          "after": [
+            "\t\t\tfor(int i = 0; i < this.getSizeInventory(); i++) this.setInventorySlotContents(i, ItemStack.EMPTY);\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/module/ModulePatternMatcher.java",
+      "before_sha256": "d41835af3f7fb69500c2dd53c0eedb8c550e40f46c483584efe40a5ec4188605",
+      "after_sha256": "047acd61c9fb9ed96c23cca018733b02d0ad618eba783e64e900a197b150afc9",
+      "hunks": [
+        {
+          "after_start": 33,
+          "before": [
+            "\t\tif(stack == null) {\n"
+          ],
+          "after": [
+            "\t\tif(stack == null || stack.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 71,
+          "before": [
+            "\t\tif(stack == null) {\n"
+          ],
+          "after": [
+            "\t\tif(stack == null || stack.isEmpty()) {\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotPattern.java",
+      "before_sha256": "48a875e2b93b341f3c497d387275b2323bcacf69c8934bf756b019e9e61caaf3",
+      "after_sha256": "fa609729a077bf5f7a415d58afb7ce8d691a56cdd51465859bdb3f9b4884710d",
+      "hunks": [
+        {
+          "after_start": 36,
+          "before": [
+            "\t\tif (stack != null) {\n"
+          ],
+          "after": [
+            "\t\tif (stack != null && !stack.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 40,
+          "before": [
+            "\t\t\t\tstack.stackSize = 1;\n"
+          ],
+          "after": [
+            "\t\t\t\tstack.setCount(1);\n"
+          ]
+        },
+        {
+          "after_start": 42,
+          "before": [
+            "\t\tsuper.putStack(stack);\n"
+          ],
+          "after": [
+            "\t\tsuper.putStack(stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack);\n"
+          ]
+        },
+        {
+          "after_start": 52,
+          "before": [
+            "\tpublic boolean func_111238_b() {\n"
+          ],
+          "after": [
+            "\tpublic boolean isEnabled() {\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java",
+      "before_sha256": "ca051286e687be32f886b59637e24cb26b9098a7aa29c09f500ee35c7dd3d92e",
+      "after_sha256": "59300b4c4793d65ece89a7943ecb7c482bc607a312c448efd5b32ab731aa5a63",
+      "hunks": [
+        {
+          "after_start": 285,
+          "before": [
+            "\t\t\t\tif(slotStack == null) {\n"
+          ],
+          "after": [
+            "\t\t\t\tif(slotStack == null || slotStack.isEmpty()) {\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/mags/MagazineBelt.java",
+      "before_sha256": "fba2e1abe603e77a15e69502e180de8736703866150936d5ed79a3cd1dfdb56b",
+      "after_sha256": "3578f9371f8123f15216f4fba8d6ea129753a4f8d91d6d0705140bcd89443331",
+      "hunks": [
+        {
+          "after_start": 40,
+          "before": [
+            "\t\t\tif(slot != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(slot != null && !slot.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 89,
+          "before": [
+            "\t\t\tif(slot != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(slot != null && !slot.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 134,
+          "before": [
+            "\t\t\tif(slot != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(slot != null && !slot.isEmpty()) {\n"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/mags/MagazineSingleTypeBase.java",
+      "before_sha256": "2da1059082ef9ab8f2f1bd47ddd5b574af4a3364e0c28ef97550d43658344127",
+      "after_sha256": "70003f69399f19cee3420b9cd50aa910feb725825dc2bf028aec10dd8eedd6eb",
+      "hunks": [
+        {
+          "after_start": 102,
+          "before": [
+            "\t\t\tif(slot != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(slot != null && !slot.isEmpty()) {\n"
+          ]
+        },
+        {
+          "after_start": 184,
+          "before": [
+            "\t\t\tif(slot != null) {\n"
+          ],
+          "after": [
+            "\t\t\tif(slot != null && !slot.isEmpty()) {\n"
+          ]
+        }
+      ]
+    }
+  ]
+}

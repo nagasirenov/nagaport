@@ -37,19 +37,19 @@ public class GUIAutocrafter extends GuiInfoContainer {
 		
 		this.drawElectricityInfo(this, x, y, guiLeft + 17, guiTop + 45, 16, 52, diFurnace.getPower(), diFurnace.getMaxPower());
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 9; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	
 				if(this.isMouseOverSlot(slot, x, y) && diFurnace.matcher.modes[i] != null) {
-					this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);
+					this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);
 				}
 			}
 			
 			Slot slot = (Slot) this.inventorySlots.inventorySlots.get(9);
 			
 			if(this.isMouseOverSlot(slot, x, y) && diFurnace.slots[9] != null) {
-				this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", TextFormatting.YELLOW + "" + (diFurnace.recipeIndex + 1) + " / " + diFurnace.recipeCount }), x, y - 30);
+				this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", TextFormatting.YELLOW + "" + (diFurnace.recipeIndex + 1) + " / " + diFurnace.recipeCount }), x, y - 30);
 			}
 		}
 	}
@@ -58,8 +58,8 @@ public class GUIAutocrafter extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.diFurnace.hasCustomInventoryName() ? this.diFurnace.getInventoryName() : I18n.format(this.diFurnace.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

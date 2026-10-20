@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/root",
+  "display": {
+    "icon": {
+      "item": "hbm:item.shimmer_sledge",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.fiend"
+    },
+    "description": {
+      "translate": "achievement.fiend.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

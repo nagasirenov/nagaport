@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "0732d318302d807ce8579878a0cdde6b18bbba86",
+  "source_only_routes_sha256": {
+    "com/hbm/items/block/ItemBlockBase.java": "117146a96fc87357c114469f851d935f1911b87aa11d8d84e16b5a7d4e4e9203",
+    "com/hbm/items/block/ItemBlockBlastInfo.java": "8dfda67b4a2d525778f8b5fe16ec60076ca5e651a7d40305432ab67ec7a01568",
+    "com/hbm/main/LegacyBaseModelHandler.java": "228ac231cafd97d12f360297a417e331c643116401b0f883776b04305000b431"
+  },
+  "scope": "metadata-zero concrete owner and four exact construction slices; no full ModBlocks/Library compile",
+  "complete_production_sources": {
+    "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+    "src/main/java/com/hbm/blocks/generic/BlockGeneric.java": "aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "src/main/java/com/hbm/render/icon/IIcon.java": "5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205",
+    "src/main/java/com/hbm/render/icon/IIconRegister.java": "071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752",
+    "src/main/java/com/hbm/render/icon/LegacyIconRegister.java": "020b31fa967e929352e5af5fa71dfc0934c699299d037142924a6e8b94ec508d",
+    "src/main/java/com/hbm/render/icon/LegacyTextureAtlasSprite.java": "2345b038dee3508bd3ddf6b87bb12d38f888cc76f033eed28a5324d48e70ad0e",
+    "src/main/java/com/hbm/render/item/NativeItemTextureRegistry.java": "c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412",
+    "src/main/java/com/hbm/main/LegacyIconRegistrationHandler.java": "57b06be6b30eb4b5e4e653ece86f9c3a660c18facf3e2953d64ac8018fdfb8cf",
+    "src/main/java/com/hbm/render/model/LegacyBaseBakedModel.java": "af137d82bc3ecd05d50e86be818e9fe31af6e5d0368a280f164bfbdadde8d377",
+    "src/main/java/com/hbm/items/ItemEnumMulti.java": "911a049fb452c91eb67eb5dc29070eec6ae05bd103f531f23bb18b5a84e14a75",
+    "src/main/java/com/hbm/interfaces/IOrderedEnum.java": "6b679d0b15d75dcd0d450f332b1e553c452c77c430e8545e3adc78618bbc6f9f",
+    "src/main/java/com/hbm/util/EnumUtil.java": "7fd70aab941e36a7d79eb369f88c12da0e95afafa597875eb97d8e776698d107"
+  },
+  "construction_statements": [
+    "brick_concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete\");",
+    "brick_concrete_mossy = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete_mossy\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete_mossy\");",
+    "brick_concrete_cracked = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete_cracked\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(60.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete_cracked\");",
+    "brick_concrete_broken = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(45.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete_broken\");"
+  ],
+  "registration_statements_audited_not_executed": [
+    "GameRegistry.registerBlock(brick_concrete, ItemBlockBlastInfo.class, brick_concrete.getTranslationKey());",
+    "GameRegistry.registerBlock(brick_concrete_mossy, ItemBlockBlastInfo.class, brick_concrete_mossy.getTranslationKey());",
+    "GameRegistry.registerBlock(brick_concrete_cracked, ItemBlockBlastInfo.class, brick_concrete_cracked.getTranslationKey());",
+    "GameRegistry.registerBlock(brick_concrete_broken, ItemBlockBlastInfo.class, brick_concrete_broken.getTranslationKey());"
+  ],
+  "random_field": "static Random rand = new Random();",
+  "library_method": "public static Block getRandomConcrete() {\n\t\tint i = rand.nextInt(20);\n\t\tif(i <= 1) return ModBlocks.brick_concrete_broken;\n\t\tif(i <= 4) return ModBlocks.brick_concrete_cracked;\n\t\tif(i <= 10) return ModBlocks.brick_concrete_mossy;\n\t\treturn ModBlocks.brick_concrete;\n\t}",
+  "random_slice_only_change": "ModBlocks. -> ConcreteConstructionSlice.",
+  "item_boundary": "Native ItemBlock stand-in only for isolated native drop/pick/placement mechanics; actual ItemBlockBlastInfo and tooltip graph NOT_RUN",
+  "source_only_item_checks": [
+    "real ItemBlockBlastInfo forwards constructor",
+    "real ItemBlockBase non-IBlockMulti metadata delegates native",
+    "neither class overrides placement"
+  ],
+  "texture_sha256": {
+    "assets/hbm/textures/blocks/brick_concrete.png": "b5bfef311e10ccfd1c80f6c2a93e49a7fbe38bac4e27a26a4db907b43964c1b5",
+    "assets/hbm/textures/blocks/brick_concrete_mossy.png": "d7808c0754a83a410f9c40a6478bc82734070625de4f61ae91754f96c66e2a09",
+    "assets/hbm/textures/blocks/brick_concrete_cracked.png": "a1ce487dce83a4a283ea6461630a5d1092001b755daf0febf3af8201aabff1f1",
+    "assets/hbm/textures/blocks/brick_concrete_broken.png": "9ab4fa5d25b6b60388f3d0596614235e3b5407e26c4f054ce13286e08b58ec09"
+  },
+  "archived_assets_sha256": "3f5629077628b5956ff7ff4e254c25ef0e1bc51f5b6668fde77badd5f784f67b",
+  "source_baseline_zip_sha256": "00fd338ee83ad053707da076fd9ccf3c06592b67719c4e3ad902da4c8b6edb7d"
+}

@@ -35,10 +35,10 @@ public class BlockGeysir extends BlockContainer {
 		
 		if(this == ModBlocks.geysir_nether) {
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":geysir_nether");
-			this.blockIcon = Blocks.netherrack.getIcon(0, 0);
+			this.blockIcon = Blocks.NETHERRACK.getIcon(0, 0);
 		} else {
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":geysir_stone");
-			this.blockIcon = Blocks.stone.getIcon(0, 0);
+			this.blockIcon = Blocks.STONE.getIcon(0, 0);
 		}
 	}
 
@@ -54,7 +54,7 @@ public class BlockGeysir extends BlockContainer {
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -67,7 +67,7 @@ public class BlockGeysir extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World p_149734_1_, int x, int y, int z, Random rand) {
 
-		int l = p_149734_1_.getBlockMetadata(x, y, z);
+		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149734_1_, x, y, z) );
 		
 		if(this == ModBlocks.geysir_vapor && l == 1) {
 			float f = x + 0.5F;

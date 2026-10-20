@@ -1,0 +1,25 @@
+package tileoracle;
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+/** Test-only named endpoint adapter. Every attribute/vertex/draw call executes
+ * the hash-pinned, unchanged 1.7.10 bmh class; this is not a tessellator reimplementation. */
+public final class LegacyTess {
+ public static final LegacyTess instance=new LegacyTess();
+ public static URLClassLoader loader; public static Class<?> type; public static Object actual; public static Runnable capture;
+ public static void initialize(String jar)throws Exception {
+  loader=new URLClassLoader(new URL[]{new File(jar).toURI().toURL()},LegacyTess.class.getClassLoader());
+  type=Class.forName("bmh",true,loader);actual=type.getField("a").get(null);
+ }
+ public static Object field(String name){try{Field f=type.getDeclaredField(name);f.setAccessible(true);return f.get(actual);}catch(Exception e){throw new RuntimeException(e);}}
+ private static Object call(String name,Class<?>[] types,Object...args){try{return type.getMethod(name,types).invoke(actual,args);}catch(InvocationTargetException e){throw new RuntimeException(e.getCause());}catch(Exception e){throw new RuntimeException(e);}}
+ public void startDrawing(int mode){call("a",new Class[]{int.class},mode);}
+ public void startDrawingQuads(){call("b",new Class[]{});}
+ public void setColorRGBA_F(float r,float g,float b,float a){call("a",new Class[]{float.class,float.class,float.class,float.class},r,g,b,a);}
+ public void setColorOpaque_I(int color){call("c",new Class[]{int.class},color);}
+ public void setNormal(float x,float y,float z){call("c",new Class[]{float.class,float.class,float.class},x,y,z);}
+ public void addVertex(double x,double y,double z){call("a",new Class[]{double.class,double.class,double.class},x,y,z);}
+ public void addVertexWithUV(double x,double y,double z,double u,double v){call("a",new Class[]{double.class,double.class,double.class,double.class,double.class},x,y,z,u,v);}
+ public int draw(){if(capture!=null)capture.run();return (Integer)call("a",new Class[]{});}
+}

@@ -1,0 +1,209 @@
+Compiled from "SourceFile"
+public class hc extends ft {
+  private java.lang.String a;
+
+  private int b;
+
+  private int c;
+
+  private int d;
+
+  private float e;
+
+  private int f;
+
+  public hc();
+    Code:
+       0: aload_0
+       1: invokespecial #28                 // Method ft."<init>":()V
+       4: aload_0
+       5: ldc           #1                  // int 2147483647
+       7: putfield      #16                 // Field c:I
+      10: return
+
+  public hc(java.lang.String, double, double, double, float, float);
+    Code:
+       0: aload_0
+       1: invokespecial #28                 // Method ft."<init>":()V
+       4: aload_0
+       5: ldc           #1                  // int 2147483647
+       7: putfield      #16                 // Field c:I
+      10: aload_1
+      11: ldc           #4                  // String name
+      13: iconst_0
+      14: anewarray     #9                  // class java/lang/Object
+      17: invokestatic  #30                 // Method org/apache/commons/lang3/Validate.notNull:(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+      20: pop
+      21: aload_0
+      22: aload_1
+      23: putfield      #14                 // Field a:Ljava/lang/String;
+      26: aload_0
+      27: dload_2
+      28: ldc2_w        #12                 // double 8.0d
+      31: dmul
+      32: d2i
+      33: putfield      #15                 // Field b:I
+      36: aload_0
+      37: dload         4
+      39: ldc2_w        #12                 // double 8.0d
+      42: dmul
+      43: d2i
+      44: putfield      #16                 // Field c:I
+      47: aload_0
+      48: dload         6
+      50: ldc2_w        #12                 // double 8.0d
+      53: dmul
+      54: d2i
+      55: putfield      #17                 // Field d:I
+      58: aload_0
+      59: fload         8
+      61: putfield      #18                 // Field e:F
+      64: aload_0
+      65: fload         9
+      67: ldc           #3                  // float 63.0f
+      69: fmul
+      70: f2i
+      71: putfield      #19                 // Field f:I
+      74: aload_0
+      75: getfield      #19                 // Field f:I
+      78: ifge          86
+      81: aload_0
+      82: iconst_0
+      83: putfield      #19                 // Field f:I
+      86: aload_0
+      87: getfield      #19                 // Field f:I
+      90: sipush        255
+      93: if_icmple     103
+      96: aload_0
+      97: sipush        255
+     100: putfield      #19                 // Field f:I
+     103: return
+
+  public void a(et);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: sipush        256
+       5: invokevirtual #21                 // Method et.c:(I)Ljava/lang/String;
+       8: putfield      #14                 // Field a:Ljava/lang/String;
+      11: aload_0
+      12: aload_1
+      13: invokevirtual #23                 // Method et.readInt:()I
+      16: putfield      #15                 // Field b:I
+      19: aload_0
+      20: aload_1
+      21: invokevirtual #23                 // Method et.readInt:()I
+      24: putfield      #16                 // Field c:I
+      27: aload_0
+      28: aload_1
+      29: invokevirtual #23                 // Method et.readInt:()I
+      32: putfield      #17                 // Field d:I
+      35: aload_0
+      36: aload_1
+      37: invokevirtual #22                 // Method et.readFloat:()F
+      40: putfield      #18                 // Field e:F
+      43: aload_0
+      44: aload_1
+      45: invokevirtual #24                 // Method et.readUnsignedByte:()S
+      48: putfield      #19                 // Field f:I
+      51: return
+
+  public void b(et);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #14                 // Field a:Ljava/lang/String;
+       5: invokevirtual #20                 // Method et.a:(Ljava/lang/String;)V
+       8: aload_1
+       9: aload_0
+      10: getfield      #15                 // Field b:I
+      13: invokevirtual #27                 // Method et.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      16: pop
+      17: aload_1
+      18: aload_0
+      19: getfield      #16                 // Field c:I
+      22: invokevirtual #27                 // Method et.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      25: pop
+      26: aload_1
+      27: aload_0
+      28: getfield      #17                 // Field d:I
+      31: invokevirtual #27                 // Method et.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      34: pop
+      35: aload_1
+      36: aload_0
+      37: getfield      #18                 // Field e:F
+      40: invokevirtual #26                 // Method et.writeFloat:(F)Lio/netty/buffer/ByteBuf;
+      43: pop
+      44: aload_1
+      45: aload_0
+      46: getfield      #19                 // Field f:I
+      49: invokevirtual #25                 // Method et.writeByte:(I)Lio/netty/buffer/ByteBuf;
+      52: pop
+      53: return
+
+  public java.lang.String c();
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field a:Ljava/lang/String;
+       4: areturn
+
+  public double d();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field b:I
+       4: i2f
+       5: ldc           #2                  // float 8.0f
+       7: fdiv
+       8: f2d
+       9: dreturn
+
+  public double e();
+    Code:
+       0: aload_0
+       1: getfield      #16                 // Field c:I
+       4: i2f
+       5: ldc           #2                  // float 8.0f
+       7: fdiv
+       8: f2d
+       9: dreturn
+
+  public double f();
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field d:I
+       4: i2f
+       5: ldc           #2                  // float 8.0f
+       7: fdiv
+       8: f2d
+       9: dreturn
+
+  public float g();
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field e:F
+       4: freturn
+
+  public float h();
+    Code:
+       0: aload_0
+       1: getfield      #19                 // Field f:I
+       4: i2f
+       5: ldc           #3                  // float 63.0f
+       7: fdiv
+       8: freturn
+
+  public void a(fv);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #31,  2           // InterfaceMethod fv.a:(Lhc;)V
+       7: return
+
+  public void a(fb);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #7                  // class fv
+       5: invokevirtual #29                 // Method a:(Lfv;)V
+       8: return
+}

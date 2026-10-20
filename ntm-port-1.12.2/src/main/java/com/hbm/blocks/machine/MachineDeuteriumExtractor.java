@@ -55,7 +55,7 @@ public class MachineDeuteriumExtractor extends BlockContainer implements ILookOv
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityDeuteriumExtractor))
 			return;
@@ -68,6 +68,6 @@ public class MachineDeuteriumExtractor extends BlockContainer implements ILookOv
 		for(int i = 0; i < extractor.tanks.length; i++)
 			text.add((i < 1 ? (TextFormatting.GREEN + "-> ") : (TextFormatting.RED + "<- ")) + TextFormatting.RESET + extractor.tanks[i].getTankType().getLocalizedName() + ": " + extractor.tanks[i].getFill() + "/" + extractor.tanks[i].getMaxFill() + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

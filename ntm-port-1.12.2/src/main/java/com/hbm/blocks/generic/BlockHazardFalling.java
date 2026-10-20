@@ -19,11 +19,17 @@ public class BlockHazardFalling extends BlockFalling {
 	private boolean beaconable = false;
 
 	public BlockHazardFalling() {
-		this(Material.sand);
+		this(Material.SAND);
 	}
 
 	public BlockHazardFalling(Material mat) {
 		super(mat);
+	}
+
+	/** NTM construction hook for the native protected sound setter. */
+	public BlockHazardFalling withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
 	}
 
 	public BlockHazardFalling makeBeaconable() {

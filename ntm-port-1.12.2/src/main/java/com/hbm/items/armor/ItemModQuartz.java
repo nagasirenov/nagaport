@@ -32,10 +32,10 @@ public class ItemModQuartz extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(!event.entityLiving.worldObj.isRemote) {
-			float rad = HbmLivingProps.getRadiation(event.entityLiving);
+		if(!event.getEntityLiving().world.isRemote) {
+			float rad = HbmLivingProps.getRadiation(event.getEntityLiving());
 			rad = Math.max(rad - 10, 0);
-			HbmLivingProps.setRadiation(event.entityLiving, rad);
+			HbmLivingProps.setRadiation(event.getEntityLiving(), rad);
 		}
 	}
 }

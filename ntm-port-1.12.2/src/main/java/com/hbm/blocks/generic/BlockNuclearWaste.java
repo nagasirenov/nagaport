@@ -15,7 +15,7 @@ public class BlockNuclearWaste extends BlockHazard {
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
 		
-		if(rand.nextInt(2) == 0 && world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
+		if(rand.nextInt(2) == 0 && com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 			world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_radon_dense);
 		}
 		

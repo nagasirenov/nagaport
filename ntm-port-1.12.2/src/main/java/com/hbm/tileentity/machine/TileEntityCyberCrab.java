@@ -10,32 +10,32 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityCyberCrab extends TileEntity {
+public class TileEntityCyberCrab extends TileEntity implements net.minecraft.util.ITickable {
 	
 	int age = 0;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if (!this.worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			
 			age++;
-			if(age > 200 && worldObj.getBlock(xCoord, yCoord + 1, zCoord) == Blocks.air && worldObj.getClosestPlayer(xCoord + 0.5, yCoord + 1, zCoord + 0.5, 25) != null) {
-				List<Entity> entities = this.worldObj.getEntitiesWithinAABB(EntityCyberCrab.class,
-						AxisAlignedBB.getBoundingBox(this.xCoord - 5, this.yCoord - 2, this.zCoord - 5, this.xCoord + 6,
-								this.yCoord + 4, this.zCoord + 6));
+			if(age > 200 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).getBlock() == Blocks.AIR && this.world.getClosestPlayer(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 25) != null) {
+				List<Entity> entities = this.world.getEntitiesWithinAABB(EntityCyberCrab.class,
+						AxisAlignedBB.getBoundingBox(this.pos.getX() - 5, this.pos.getY() - 2, this.pos.getZ() - 5, this.pos.getX() + 6,
+								this.pos.getY() + 4, this.pos.getZ() + 6));
 				
 				if(entities.size() < 5) {
 					
 					EntityCyberCrab crab;
 					
-					if(worldObj.rand.nextInt(5) == 0)
-						crab = new EntityTeslaCrab(worldObj);
+					if(this.world.rand.nextInt(5) == 0)
+						crab = new EntityTeslaCrab(this.world);
 					else
-						crab = new EntityCyberCrab(worldObj);
+						crab = new EntityCyberCrab(this.world);
 					
-					crab.setPosition(this.xCoord + 0.5, this.yCoord + 1, this.zCoord + 0.5);
-					worldObj.spawnEntityInWorld(crab);
+					crab.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5);
+					this.world.spawnEntityInWorld(crab);
 				}
 				
 				age = 0;

@@ -29,7 +29,7 @@ public class TileEntityTurretFriendly extends TileEntityTurretChekhov {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretFriendly";
 	}
 

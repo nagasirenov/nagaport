@@ -10,7 +10,9 @@ import com.hbm.util.i18n.I18nUtil;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
+import com.hbm.render.item.NativeItemTextureRegistry;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,12 +24,13 @@ public class ItemCustomLore extends Item {
 	protected boolean hasEffect = false;
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 
-		boolean p11 = !I18nUtil.resolveKey(this.getUnlocalizedName() + ".desc.P11").equals(this.getUnlocalizedName() + ".desc.P11");
+		boolean p11 = !I18nUtil.resolveKey(this.getTranslationKey() + ".desc.P11").equals(this.getTranslationKey() + ".desc.P11");
 
 		if(MainRegistry.polaroidID == 11 && p11) {
-			String unlocP11 = this.getUnlocalizedName() + ".desc.P11";
+			String unlocP11 = this.getTranslationKey() + ".desc.P11";
 			String locP11 = I18nUtil.resolveKey(unlocP11);
 
 			if(!unlocP11.equals(locP11)) {
@@ -38,7 +41,7 @@ public class ItemCustomLore extends Item {
 				}
 			}
 		} else {
-			String unloc = this.getUnlocalizedName() + ".desc";
+			String unloc = this.getTranslationKey() + ".desc";
 			String loc = I18nUtil.resolveKey(unloc);
 
 			if(!unloc.equals(loc)) {
@@ -53,13 +56,13 @@ public class ItemCustomLore extends Item {
 		if(this == ModItems.undefined) {
 
 			try {
-				if(player.worldObj.rand.nextInt(10) == 0) {
+				if(world == null || world.rand.nextInt(10) == 0) {
 					list.add(TextFormatting.DARK_RED + "UNDEFINED");
 				} else {
 					Random rand = new Random(System.currentTimeMillis() / 500);
 
 					if(setSize == 0)
-						setSize = Item.itemRegistry.getKeys().size();
+						setSize = Item.REGISTRY.getKeys().size();
 
 					int r = rand.nextInt(setSize);
 
@@ -102,9 +105,9 @@ public class ItemCustomLore extends Item {
 	}
 
 	@Override
-	public Item setUnlocalizedName(String uloc) {
-		setTextureName(RefStrings.MODID + ':' + uloc);
-		return super.setUnlocalizedName(uloc);
+	public Item setTranslationKey(String uloc) {
+		NativeItemTextureRegistry.texture(this, RefStrings.MODID + ':' + uloc);
+		return super.setTranslationKey(uloc);
 	}
 
 	@Override

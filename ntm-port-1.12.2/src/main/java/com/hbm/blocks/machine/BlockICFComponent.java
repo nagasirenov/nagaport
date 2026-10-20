@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class BlockICFComponent extends BlockToolConversion {
 
 	public BlockICFComponent() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.addVariant(".vessel", ".vessel_welded", ".structure", ".structure_bolted");
 	}
 }

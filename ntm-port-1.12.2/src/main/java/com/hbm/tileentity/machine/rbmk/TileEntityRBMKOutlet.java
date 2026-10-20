@@ -13,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityRBMKOutlet extends TileEntityLoadedBase implements IFluidStandardSender, IBufPacketReceiver {
+public class TileEntityRBMKOutlet extends TileEntityLoadedBase implements IFluidStandardSender, IBufPacketReceiver, net.minecraft.util.ITickable {
 	
 	public FluidTank steam;
 	
@@ -22,19 +22,19 @@ public class TileEntityRBMKOutlet extends TileEntityLoadedBase implements IFluid
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			if(RBMKDials.getReasimBoilers(worldObj)) for(int i = 2; i < 6; i++) {
+			if(RBMKDials.getReasimBoilers(this.world)) for(int i = 2; i < 6; i++) {
 				ForgeDirection dir = ForgeDirection.getOrientation(i);
-				Block b = worldObj.getBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock();
 				
 				if(b instanceof RBMKBase) {
-					int[] pos = ((RBMKBase)b).findCore(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+					int[] pos = ((RBMKBase)b).findCore(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);
 					
 					if(pos != null) {
-						TileEntity te = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+						TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 						
 						if(te instanceof TileEntityRBMKBase) {
 							TileEntityRBMKBase rbmk = (TileEntityRBMKBase) te;
@@ -58,9 +58,10 @@ public class TileEntityRBMKOutlet extends TileEntityLoadedBase implements IFluid
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.steam.writeToNBT(nbt, "tank");
+		return nbt;
 	}
 
 	@Override
@@ -75,7 +76,7 @@ public class TileEntityRBMKOutlet extends TileEntityLoadedBase implements IFluid
 
 	public void fillFluidInit() {
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.sendFluid(steam, worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.sendFluid(steam, this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 
 	@Override

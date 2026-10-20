@@ -1,0 +1,85 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java
+index d14b56e..1691fcb 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java
+@@ -2154,7 +2154,7 @@ public class ModBlocks {
+ 		red_cable_classic = new BlockCable(Material.IRON).setTranslationKey("red_cable_classic").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+ 		red_cable_paintable = new BlockCablePaintable().setBlockName("red_cable_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+ 		red_cable_gauge = new BlockCableGauge().setBlockName("red_cable_gauge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+-		red_cable_box = new PowerCableBox(Material.iron).setBlockName("red_cable_box").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":fluid_duct_box");
++		red_cable_box = new PowerCableBox(Material.IRON).setTranslationKey("red_cable_box").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+ 		red_connector = new ConnectorRedWire(Material.iron).setBlockName("red_connector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_connector");
+ 		red_connector_super = new ConnectorRedWireSuper(Material.iron).setBlockName("red_connector_super").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_connector");
+ 		red_pylon = new PylonRedWire(Material.iron).setBlockName("red_pylon").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon");
+@@ -2169,8 +2169,8 @@ public class ModBlocks {
+ 		cable_diode = new CableDiode(Material.IRON).setTranslationKey("cable_diode").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+ 		machine_detector = new PowerDetector(Material.iron).setBlockName("machine_detector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_detector_off");
+ 		fluid_duct_neo = new FluidDuctStandard(Material.IRON).setTranslationKey("fluid_duct_neo").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+-		fluid_duct_box = new FluidDuctBox(Material.iron).setBlockName("fluid_duct_box").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":fluid_duct_box");
+-		fluid_duct_exhaust = new FluidDuctBoxExhaust(Material.iron).setBlockName("fluid_duct_exhaust").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":fluid_duct_box");
++		fluid_duct_box = new FluidDuctBox(Material.IRON).setTranslationKey("fluid_duct_box").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
++		fluid_duct_exhaust = new FluidDuctBoxExhaust(Material.IRON).setTranslationKey("fluid_duct_exhaust").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+ 		fluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setBlockName("fluid_duct_paintable_block_exhaust").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+ 		pipe_anchor = new FluidPipeAnchor().setBlockName("pipe_anchor").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+ 		fluid_duct_paintable = new FluidDuctPaintable().setBlockName("fluid_duct_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java b/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java
+index fb42429..582eab7 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java
+@@ -946,7 +946,7 @@ public class ClientProxy extends ServerProxy {
+ 		RenderingRegistry.registerBlockHandler(new RenderBlockCT());
+ 		// DetCordModelHandler owns the native detonator cord model.
+ 		RenderingRegistry.registerBlockHandler(new RenderBlockMultipass());
+-		RenderingRegistry.registerBlockHandler(new RenderBoxDuct());
++		// BoxDuctModelHandler owns native box-duct world, inventory and original damage models.
+ 		// RadioTorchModelHandler owns the native RTTY world and flat item models.
+ 		// SplitterModelHandler owns the native splitter OBJ, item and damage routes.
+ 
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java
+index 866a5e3..a365fbc 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java
+@@ -8,6 +8,11 @@ import com.hbm.lib.ForgeDirection;
+ 
+ public class TileEntityCableBaseNT extends TileEntityLoadedBase implements IEnergyConductorMK2, net.minecraft.util.ITickable {
+ 
++    @Override public boolean canRenderBreaking() {
++        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
++    }
++
++
+ 	protected PowerNode node;
+ 
+ 	@Override
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java
+index c0046ec..5865247 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java
+@@ -24,6 +24,11 @@ import com.hbm.lib.ForgeDirection;
+ 
+ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluidPipeMK2, IFluidCopiable, net.minecraft.util.ITickable {
+ 
++    @Override public boolean canRenderBreaking() {
++        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
++    }
++
++
+ 	protected FluidNode node;
+ 	protected FluidType type = Fluids.NONE;
+ 	protected FluidType lastType = Fluids.NONE;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java
+index e175c81..8817637 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java
+@@ -10,6 +10,11 @@ import net.minecraft.tileentity.TileEntity;
+ import com.hbm.lib.ForgeDirection;
+ 
+ public class TileEntityPipeExhaust extends TileEntity implements IFluidPipeMK2, net.minecraft.util.ITickable {
++
++    @Override public boolean canRenderBreaking() {
++        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
++    }
++
+ 	
+ 	protected FluidNode[] nodes = new FluidNode[3];
+ 	protected FluidType[] smokes = new FluidType[] {Fluids.SMOKE, Fluids.SMOKE_LEADED, Fluids.SMOKE_POISON};

@@ -1,0 +1,7 @@
+{
+  "baseline": "077492a6c31c910f34697783f1aa0cfabd8ff88e",
+  "source_files": 3573,
+  "accepted_references": 3073,
+  "attributed_accesses_sha256": "f1024e128aec239615aded681e879b36526c33e6860431d171f92c412ce4e1a3",
+  "note": "Javac analyzed3573 reserved-scope sources against the real native dependency classpath;48159 errors were expected in this unfinished subset. Only resolved TypeElement owners net.minecraft.init.Blocks/Items were accepted. This is not whole-source compilation success."
+}

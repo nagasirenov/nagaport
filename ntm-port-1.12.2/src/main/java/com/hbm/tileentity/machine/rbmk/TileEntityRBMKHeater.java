@@ -46,9 +46,9 @@ public class TileEntityRBMKHeater extends TileEntityRBMKSlottedBase implements I
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			feed.setType(0, slots);
 
@@ -81,38 +81,38 @@ public class TileEntityRBMKHeater extends TileEntityRBMKSlottedBase implements I
 				steam.setTankType(Fluids.NONE);
 			}
 			
-			this.trySubscribe(feed.getTankType(), worldObj, xCoord, yCoord - 1, zCoord, Library.NEG_Y);
+			this.trySubscribe(feed.getTankType(), this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y);
 			for(DirPos pos : getOutputPos()) {
-				if(this.steam.getFill() > 0) this.tryProvide(steam, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.steam.getFill() > 0) this.tryProvide(steam, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 
 	protected DirPos[] getOutputPos() {
 		
-		if(worldObj.getBlock(xCoord, yCoord - 1, zCoord) == ModBlocks.rbmk_loader) {
+		if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock() == ModBlocks.rbmk_loader) {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord + 1, this.yCoord - 1, this.zCoord, Library.POS_X),
-					new DirPos(this.xCoord - 1, this.yCoord - 1, this.zCoord, Library.NEG_X),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord + 1, Library.POS_Z),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord - 1, Library.NEG_Z),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX() + 1, this.pos.getY() - 1, this.pos.getZ(), Library.POS_X),
+					new DirPos(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ(), Library.NEG_X),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() + 1, Library.POS_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() - 1, Library.NEG_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ(), Library.NEG_Y)
 			};
-		} else if(worldObj.getBlock(xCoord, yCoord - 2, zCoord) == ModBlocks.rbmk_loader) {
+		} else if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 2, this.pos.getZ()).getBlock() == ModBlocks.rbmk_loader) {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord + 1, this.yCoord - 2, this.zCoord, Library.POS_X),
-					new DirPos(this.xCoord - 1, this.yCoord - 2, this.zCoord, Library.NEG_X),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord + 1, Library.POS_Z),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord - 1, Library.NEG_Z),
-					new DirPos(this.xCoord, this.yCoord - 3, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX() + 1, this.pos.getY() - 2, this.pos.getZ(), Library.POS_X),
+					new DirPos(this.pos.getX() - 1, this.pos.getY() - 2, this.pos.getZ(), Library.NEG_X),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() + 1, Library.POS_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() - 1, Library.NEG_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 3, this.pos.getZ(), Library.NEG_Y)
 			};
 		} else {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y)
 			};
 		}
 	}
@@ -126,11 +126,12 @@ public class TileEntityRBMKHeater extends TileEntityRBMKSlottedBase implements I
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		feed.writeToNBT(nbt, "feed");
 		steam.writeToNBT(nbt, "steam");
+		return nbt;
 	}
 
 	@Override
@@ -150,7 +151,7 @@ public class TileEntityRBMKHeater extends TileEntityRBMKSlottedBase implements I
 	@Override
 	public void onMelt(int reduce) {
 		
-		int count = 1 + worldObj.rand.nextInt(2);
+		int count = 1 + this.world.rand.nextInt(2);
 		
 		for(int i = 0; i < count; i++) {
 			spawnDebris(DebrisType.BLANK);
@@ -243,13 +244,13 @@ public class TileEntityRBMKHeater extends TileEntityRBMKSlottedBase implements I
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getInfo(Context context, Arguments args) {
-		return new Object[] {heat, feed.getFill(), feed.getMaxFill(), steam.getFill(), steam.getMaxFill(), feed.getTankType().getName(), steam.getTankType().getName(), xCoord, yCoord, zCoord};
+		return new Object[] {heat, feed.getFill(), feed.getMaxFill(), steam.getFill(), steam.getMaxFill(), feed.getTankType().getName(), steam.getTankType().getName(), this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getCoordinates(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Override

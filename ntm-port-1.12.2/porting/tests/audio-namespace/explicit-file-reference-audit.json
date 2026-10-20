@@ -1,0 +1,4 @@
+{
+  "scope": "Explicit renamed OGG path strings in production Java/text resources excluding sounds.json; event keys remain unchanged. Native parser and collision tests cover event-key case normalization.",
+  "matches": []
+}

@@ -4,9 +4,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 import net.minecraft.world.World;
 
 public class EntityCloudTom extends Entity {
+
+	private static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudTom.class, DataSerializers.VARINT);
 
 	public int maxAge = 100;
 	public int age;
@@ -21,7 +27,7 @@ public class EntityCloudTom extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(16, Integer.valueOf(0));
+		this.dataManager.register(MAX_AGE, Integer.valueOf(0));
 	}
 
 	@Override
@@ -46,7 +52,7 @@ public class EntityCloudTom extends Entity {
 	public void onUpdate() {
 		
 		this.age++;
-		this.worldObj.lastLightningBolt = 2;
+		this.world.lastLightningBolt = 2;
 
 		if (this.age >= this.getMaxAge()) {
 			this.setDead();
@@ -64,11 +70,11 @@ public class EntityCloudTom extends Entity {
 	}
 
 	public void setMaxAge(int i) {
-		this.dataWatcher.updateObject(16, Integer.valueOf(i));
+		this.dataManager.set(MAX_AGE, Integer.valueOf(i));
 	}
 
 	public int getMaxAge() {
-		return this.dataWatcher.getWatchableObjectInt(16);
+		return this.dataManager.get(MAX_AGE);
 	}
 
 	@Override

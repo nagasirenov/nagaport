@@ -91,6 +91,6 @@ public class ContainerICFPress extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return press.isUseableByPlayer(player);
+		return press.isUsableByPlayer(player);
 	}
 }

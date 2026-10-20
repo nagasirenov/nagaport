@@ -1,0 +1,11 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockAlgaeFilm.java": "59acee7204c4f15d5b48fc3f1c07495f7289e75f6764532ad9761d1e7fb9c1d7",
+  "src/main/java/com/hbm/render/block/RenderAlgaeFilm.java": "74a980d048e42cf8b64d9399f764ace44f0e20d8d279a6848675b758eec24f1f",
+  "src/main/java/com/hbm/main/AlgaeFilmModelHandler.java": "6405aa06a4bb3aae9ec48ab325653ab10681e45b8f3e0525f4557643854e9688",
+  "src/main/resources/assets/hbm/blockstates/tile.algae_film.json": "140bda8af431ff6fa36a9833141428ae1aee4ac05df84e2de01702b0ec1a3ce3",
+  "porting/tests/algae-film-native-probe.py": "c6a24a76b6f9bcdb899540cec73339cdbf4c26f057dce86a953be1f35fee86f4",
+  "porting/tests/algae-film-native-test.java.in": "c74d0cd0f2c02fc0591cba65cebfbc3b96dadfe1e478d26fc84d765761031fd2",
+  "porting/tests/algae-film-original-manifest.json": "d87dc555eb86242509757554747a16db082b8ad75f561275118fe9d3bb99b5f1",
+  "porting/algae-film-native-test.log": "6a947821392112517f13a7b2b2d6d69ec0a1e496ae1897fa8b9d1f3dacceabed",
+  "porting/tests/algae-film-native-notes.md": "8ab5486dbebd690f9690ff6df888428ec8294a6ac13d88344816dd15548e1242"
+}

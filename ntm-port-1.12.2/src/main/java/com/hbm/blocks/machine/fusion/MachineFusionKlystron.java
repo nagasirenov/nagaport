@@ -18,7 +18,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineFusionKlystron extends BlockDummyable implements ITooltipProvider {
 
 	public MachineFusionKlystron() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

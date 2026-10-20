@@ -11,7 +11,7 @@ import com.hbm.tileentity.machine.TileEntityMachineIndustrialTurbine;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderIndustrialTurbine extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -59,7 +59,7 @@ public class RenderIndustrialTurbine extends TileEntitySpecialRenderer implement
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(1, 0, 0);

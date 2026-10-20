@@ -42,11 +42,11 @@ public class ItemWandD extends Item {
 
 		if(pos != null) {
 
-			if(stack.stackTagCompound == null)
-				stack.stackTagCompound = new NBTTagCompound();
+			if(stack.getTagCompound() == null)
+				stack.setTagCompound(new NBTTagCompound());
 
 			if(!player.isSneaking()) {
-				int targetId = stack.stackTagCompound.getInteger("dim");
+				int targetId = stack.getTagCompound().getInteger("dim");
 
 				if(targetId == 0) {
 					CelestialTeleporter.teleport(player, SpaceConfig.orbitDimension, player.posX, 128, player.posZ, false);
@@ -61,14 +61,14 @@ public class ItemWandD extends Item {
 			} else {
 
 				
-				int targetId = stack.stackTagCompound.getInteger("dim");
+				int targetId = stack.getTagCompound().getInteger("dim");
 				targetId++;
 
 				if(targetId >= SolarSystem.Body.values().length) {
 					targetId = 0;
 				}
 
-				stack.stackTagCompound.setInteger("dim", targetId);
+				stack.getTagCompound().setInteger("dim", targetId);
 
 				if(targetId == 0) {
 					player.sendMessage(new TextComponentString("Set teleport target to: ORBIT"));
@@ -120,7 +120,7 @@ public class ItemWandD extends Item {
 				}
 			}
 		} else {
-			world.setBlock(MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY) - 1, MathHelper.floor_double(player.posZ), ModBlocks.concrete);
+			world.setBlock(MathHelper.floor(player.posX), MathHelper.floor(player.posY) - 1, MathHelper.floor(player.posZ), ModBlocks.concrete);
 		}
 
 		return stack;
@@ -131,8 +131,8 @@ public class ItemWandD extends Item {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 		list.add("Dimension teleporter and atmosphere debugger.");
 
-		if(stack.stackTagCompound != null) {
-			int targetId = stack.stackTagCompound.getInteger("dim");
+		if(stack.getTagCompound() != null) {
+			int targetId = stack.getTagCompound().getInteger("dim");
 			if(targetId == 0) {
 				list.add("Teleportation target: ORBIT");
 			} else {

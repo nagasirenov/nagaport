@@ -20,6 +20,6 @@ public class ControlTab extends CreativeTabs {
 			return ModItems.pellet_rtg;
 		}
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 }

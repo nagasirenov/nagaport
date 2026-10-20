@@ -20,7 +20,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class TileEntityMassStorage extends TileEntityCrateBase implements IControlReceiverFilter, IRORValueProvider, IRORInteractive {
+public class TileEntityMassStorage extends TileEntityCrateBase implements IControlReceiverFilter, IRORValueProvider, IRORInteractive, net.minecraft.util.ITickable {
 
 	private int stack = 0;
 	public boolean output = false;
@@ -44,9 +44,9 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			int newRed = this.getStockpile() * 15 / this.capacity;
 
@@ -68,7 +68,7 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 				int toRemove = Math.min(remaining, slots[0].stackSize);
 				this.decrStackSize(0, toRemove);
 				this.stack += toRemove;
-				this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+				this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 			}
 
 			if(output && getType() != null) {
@@ -136,13 +136,13 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 		int result = getStockpile();
 
 		ItemStack inStack = slots[0];
-		if(inStack != null && ItemStackUtil.areStacksCompatible(type, inStack)) {
-			result += inStack.stackSize;
+		if(inStack != null && !inStack.isEmpty() && ItemStackUtil.areStacksCompatible(type, inStack)) {
+			result += inStack.getCount();
 		}
 
 		ItemStack outStack = slots[2];
-		if(outStack != null && ItemStackUtil.areStacksCompatible(type, outStack)) {
-			result += outStack.stackSize;
+		if(outStack != null && !outStack.isEmpty() && ItemStackUtil.areStacksCompatible(type, outStack)) {
+			result += outStack.getCount();
 		}
 
 		return result;
@@ -176,21 +176,21 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 
 		int inputAvail = 0;
 		ItemStack inStack = slots[0];
-		if(inStack != null && ItemStackUtil.areStacksCompatible(type, inStack)) {
-			inputAvail = sign > 0 ? inStack.getMaxStackSize() - inStack.stackSize : inStack.stackSize;
-		} else if(inStack == null) {
+		if(inStack != null && !inStack.isEmpty() && ItemStackUtil.areStacksCompatible(type, inStack)) {
+			inputAvail = sign > 0 ? inStack.getMaxStackSize() - inStack.getCount() : inStack.getCount();
+		} else if(inStack == null || inStack.isEmpty()) {
 			inputAvail = sign > 0 ? type.getMaxStackSize() : 0;
 		}
 
 		if(amount > 0 && inputAvail > 0) {
 			int depositInput = Math.min(amount, inputAvail);
 			if(actually) {
-				if(slots[0] == null) { // Only possible with sign == +1
+				if(slots[0] == null || slots[0].isEmpty()) { // Only possible with sign == +1
 					slots[0] = slots[1].copy();
-					slots[0].stackSize = 0;
+					slots[0].setCount(0);
 				}
-				slots[0].stackSize += sign * depositInput;
-				if(slots[0].stackSize == 0) {
+				slots[0].grow(sign * depositInput);
+				if(slots[0].getCount() == 0) {
 					slots[0] = null;
 				}
 			}
@@ -199,21 +199,21 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 
 		int outputAvail = 0;
 		ItemStack outStack = slots[2];
-		if(outStack != null && ItemStackUtil.areStacksCompatible(type, outStack)) {
-			outputAvail = sign > 0 ? outStack.getMaxStackSize() - outStack.stackSize : outStack.stackSize;
-		} else if(outStack == null) {
+		if(outStack != null && !outStack.isEmpty() && ItemStackUtil.areStacksCompatible(type, outStack)) {
+			outputAvail = sign > 0 ? outStack.getMaxStackSize() - outStack.getCount() : outStack.getCount();
+		} else if(outStack == null || outStack.isEmpty()) {
 			outputAvail = sign > 0 ? type.getMaxStackSize() : 0;
 		}
 
 		if(amount > 0 && outputAvail > 0) {
 			int depositOutput = Math.min(amount, outputAvail);
 			if(actually) {
-				if(slots[2] == null) { // Only possible with sign == +1
+				if(slots[2] == null || slots[2].isEmpty()) { // Only possible with sign == +1
 					slots[2] = slots[1].copy();
-					slots[2].stackSize = 0;
+					slots[2].setCount(0);
 				}
-				slots[2].stackSize += sign * depositOutput;
-				if(slots[2].stackSize == 0) {
+				slots[2].grow(sign * depositOutput);
+				if(slots[2].getCount() == 0) {
 					slots[2] = null;
 				}
 			}
@@ -246,7 +246,7 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 	}
 
 	public ItemStack getType() {
-		return slots[1] == null ? null : slots[1].copy();
+		return slots[1] == null || slots[1].isEmpty() ? null : slots[1].copy();
 	}
 
 	public int getStockpile() {
@@ -259,17 +259,17 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override
 	public void openInventory() {
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.storageOpen", 0.5F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.storageOpen", 0.5F, 1.0F);
 	}
 
 	@Override
 	public void closeInventory() {
-		this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.storageClose", 0.5F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.storageClose", 0.5F, 1.0F);
 	}
 
 	@Override
@@ -286,12 +286,13 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("stack", stack);
 		nbt.setBoolean("output", output);
 		nbt.setInteger("capacity", capacity);
 		nbt.setByte("redstone", (byte) redstone);
+		return nbt;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -340,17 +341,20 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return !this.isLocked() && i == 0 && (this.getType() == null || (getType().isItemEqual(itemStack) && ItemStack.areItemStackTagsEqual(itemStack, getType())));
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return !this.isLocked() && i == 2;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 2 };
 	}
 

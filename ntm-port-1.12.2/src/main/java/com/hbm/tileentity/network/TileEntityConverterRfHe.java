@@ -14,7 +14,7 @@ import com.hbm.lib.ForgeDirection;
 
 import java.io.IOException;
 
-public class TileEntityConverterRfHe extends TileEntityLoadedBase implements IEnergyProviderMK2, IEnergyHandler, IConfigurableMachine {
+public class TileEntityConverterRfHe extends TileEntityLoadedBase implements IEnergyProviderMK2, IEnergyHandler, IConfigurableMachine, net.minecraft.util.ITickable {
 
 	public long power;
 	public final long maxPower = 5_000_000;
@@ -25,18 +25,18 @@ public class TileEntityConverterRfHe extends TileEntityLoadedBase implements IEn
 	public EnergyStorage storage = new EnergyStorage(1_000_000, 1_000_000, 1_000_000);
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			
 			long rfCreated = Math.min(storage.getEnergyStored(), (maxPower - power) * rfInput / heOutput);
 			storage.setEnergyStored((int) (storage.getEnergyStored() - rfCreated));
 			power += rfCreated * heOutput / rfInput;
 			if(storage.getEnergyStored() > 0) storage.extractEnergy((int) Math.ceil(storage.getEnergyStored() * inputDecay), false);
-			if(rfCreated > 0) this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+			if(rfCreated > 0) this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				this.tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 		}
 	}
@@ -60,11 +60,12 @@ public class TileEntityConverterRfHe extends TileEntityLoadedBase implements IEn
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
 		storage.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override

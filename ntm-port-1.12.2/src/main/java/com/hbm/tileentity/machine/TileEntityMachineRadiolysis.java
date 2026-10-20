@@ -54,7 +54,7 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.radiolysis";
 	}
 
@@ -65,12 +65,14 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot_io;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return (i < 10 && itemStack.getItem() instanceof ItemRTGPelletDepleted) || i == 13;
 	}
 
@@ -88,7 +90,7 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -97,12 +99,13 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 		tanks[0].writeToNBT(nbt, "input");
 		tanks[1].writeToNBT(nbt, "output1");
 		tanks[2].writeToNBT(nbt, "output2");
+		return nbt;
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			power = Library.chargeItemsFromTE(slots, 14, power, maxPower);
 
 			heat = RTGUtil.updateRTGs(slots, slot_rtg);
@@ -117,18 +120,18 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 			if(heat > 100) {
 				int crackTime = (int) Math.max(-0.1 * (heat - 100) + 30, 5);
 
-				if(worldObj.getTotalWorldTime() % crackTime == 0)
+				if(this.world.getTotalWorldTime() % crackTime == 0)
 					crack();
 
-				if(heat >= 200 && worldObj.getTotalWorldTime() % 100 == 0)
+				if(heat >= 200 && this.world.getTotalWorldTime() % 100 == 0)
 					sterilize();
 			}
 
 			for(DirPos pos : getConPos()) {
-				this.tryProvide(worldObj, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
-				if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
-				if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], worldObj, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
+				this.tryProvide(this.world, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
+				if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
+				if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], this.world, pos.getX(), pos.getY(),pos.getZ(), pos.getDir());
 			}
 
 			this.networkPackNT(50);
@@ -157,10 +160,10 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -211,22 +214,22 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 			if(!checkIfValid()) return;
 
 			ItemStack output = slots[12].copy();
-			output.stackSize = 1;
+			output.setCount(1);
 
 			if(slots[13] == null) {
 				this.decrStackSize(12, output.stackSize);
 				slots[13] = output;
-				slots[13].stackTagCompound.removeTag("ntmContagion");
-				if(slots[13].stackTagCompound.hasNoTags()) {
-					slots[13].stackTagCompound = null;
+				slots[13].getTagCompound().removeTag("ntmContagion");
+				if(slots[13].getTagCompound().hasNoTags()) {
+					slots[13].setTagCompound(null);
 				}
 			} else if(slots[13].isItemEqual(output) && slots[13].stackSize + output.stackSize <= slots[13].getMaxStackSize()) {
 				this.decrStackSize(12, output.stackSize);
 				slots[13].stackSize += output.stackSize;
 				if(slots[13].hasTagCompound()) { // redundant but just to be sure
-					slots[13].stackTagCompound.removeTag("ntmContagion");
-					if(slots[13].stackTagCompound.hasNoTags()) {
-						slots[13].stackTagCompound = null;
+					slots[13].getTagCompound().removeTag("ntmContagion");
+					if(slots[13].getTagCompound().hasNoTags()) {
+						slots[13].setTagCompound(null);
 					}
 				}
 			}
@@ -277,7 +280,7 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 	}
 
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord, zCoord - 1, xCoord + 2, yCoord + 3, zCoord + 2);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
 	}
 
 	@SideOnly(Side.CLIENT)

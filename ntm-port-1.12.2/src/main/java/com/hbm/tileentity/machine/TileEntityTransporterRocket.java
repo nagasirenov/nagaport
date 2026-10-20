@@ -38,23 +38,23 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
     }
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
 		// If our transporter state sync is incorrect, fix whichever one gets updated first
-		if(!worldObj.isRemote && linkedTransporter != null && linkedTransporter instanceof TileEntityTransporterRocket) {
+		if(!this.world.isRemote && linkedTransporter != null && linkedTransporter instanceof TileEntityTransporterRocket) {
 			if(hasRocket == ((TileEntityTransporterRocket) linkedTransporter).hasRocket) {
 				hasRocket = !hasRocket;
 			}
 		}
 
-		launchTicks = MathHelper.clamp_int(launchTicks + (hasRocket ? -1 : 1), hasRocket ? -20 : 0, 100);
+		launchTicks = MathHelper.clamp(launchTicks + (hasRocket ? -1 : 1), hasRocket ? -20 : 0, 100);
 
-		if(worldObj.isRemote && launchTicks > 0 && launchTicks < 100) {
-			ParticleUtil.spawnGasFlame(worldObj, xCoord + 0.5, yCoord + 0.5 + launchTicks, zCoord + 0.5, 0.0, -1.0, 0.0);
+		if(this.world.isRemote && launchTicks > 0 && launchTicks < 100) {
+			ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + launchTicks, this.pos.getZ() + 0.5, 0.0, -1.0, 0.0);
 
 			if(launchTicks < 10) {
-				ExplosionLarge.spawnShock(worldObj, xCoord + 0.5, yCoord, zCoord + 0.5, 1 + worldObj.rand.nextInt(3), 1 + worldObj.rand.nextGaussian());
+				ExplosionLarge.spawnShock(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 1 + this.world.rand.nextInt(3), 1 + this.world.rand.nextGaussian());
 			}
 		}
 
@@ -81,8 +81,8 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 
 		if(fuelStats == null) return false;
 
-		Target from = CelestialBody.getTarget(worldObj, xCoord, zCoord);
-		Target to = CelestialBody.getTarget(linkedTransporter.getWorldObj(), linkedTransporter.xCoord, linkedTransporter.zCoord);
+		Target from = CelestialBody.getTarget(this.world, this.pos.getX(), this.pos.getZ());
+		Target to = CelestialBody.getTarget(linkedTransporter.getWorld(), linkedTransporter.getPos().getX(), linkedTransporter.getPos().getZ());
 
 		int sendCost = Math.min(64_000, SolarSystem.getCostBetween(from.body, to.body, mass * MASS_MULT, (int)fuelStats.getThrust(), fuelStats.getISP(), from.inOrbit, to.inOrbit));
 
@@ -95,8 +95,8 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 		FT_Rocket fuelStats = tanks[8].getTankType().getTrait(FT_Rocket.class);
 		if(fuelStats == null) fuelStats = tanks[9].getTankType().getTrait(FT_Rocket.class);
 
-		Target from = CelestialBody.getTarget(worldObj, xCoord, zCoord);
-		Target to = CelestialBody.getTarget(linkedTransporter.getWorldObj(), linkedTransporter.xCoord, linkedTransporter.zCoord);
+		Target from = CelestialBody.getTarget(this.world, this.pos.getX(), this.pos.getZ());
+		Target to = CelestialBody.getTarget(linkedTransporter.getWorld(), linkedTransporter.getPos().getX(), linkedTransporter.getPos().getZ());
 
 		int sendCost = Math.min(64_000, SolarSystem.getCostBetween(from.body, to.body, quantitySent * MASS_MULT, (int)fuelStats.getThrust(), fuelStats.getISP(), from.inOrbit, to.inOrbit));
 
@@ -153,10 +153,11 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("rocket", hasRocket);
 		nbt.setInteger("threshold", threshold);
+		return nbt;
 	}
 
 	@Override
@@ -165,15 +166,15 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-			new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
-			new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
-			new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir),
-			new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir),
+			new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
+			new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir),
 
-			new DirPos(xCoord + dir.offsetX - rot.offsetX, yCoord + 1, zCoord + dir.offsetZ - rot.offsetZ, ForgeDirection.UP),
-			new DirPos(xCoord + dir.offsetX + rot.offsetX, yCoord + 1, zCoord + dir.offsetZ + rot.offsetZ, ForgeDirection.UP),
-			new DirPos(xCoord - dir.offsetX - rot.offsetX, yCoord + 1, zCoord - dir.offsetZ - rot.offsetZ, ForgeDirection.UP),
-			new DirPos(xCoord - dir.offsetX + rot.offsetX, yCoord + 1, zCoord - dir.offsetZ + rot.offsetZ, ForgeDirection.UP),
+			new DirPos(this.pos.getX() + dir.offsetX - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ - rot.offsetZ, ForgeDirection.UP),
+			new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ + rot.offsetZ, ForgeDirection.UP),
+			new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, ForgeDirection.UP),
+			new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ + rot.offsetZ, ForgeDirection.UP),
 		};
 	}
 
@@ -183,8 +184,8 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-			new DirPos(xCoord + dir.offsetX - rot.offsetX * 3, yCoord, zCoord + dir.offsetZ - rot.offsetZ * 3, rot),
-			new DirPos(xCoord - dir.offsetX - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ - rot.offsetZ * 3, rot),
+			new DirPos(this.pos.getX() + dir.offsetX - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ * 3, rot),
+			new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ * 3, rot),
 		};
 	}
 
@@ -193,7 +194,7 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 
 		return new DirPos[] {
-			new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir),
 		};
 	}
 
@@ -202,7 +203,7 @@ public class TileEntityTransporterRocket extends TileEntityTransporterBase {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 
 		return new DirPos[] {
-			new DirPos(xCoord + dir.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2, dir.getOpposite()),
+			new DirPos(this.pos.getX() + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2, dir.getOpposite()),
 		};
 	}
 

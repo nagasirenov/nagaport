@@ -1,0 +1,283 @@
+  protected void entityInit();
+    Code:
+       0: return
+
+  public boolean isInRangeToRenderDist(double);
+    Code:
+       0: aload_0
+       1: invokevirtual #96                 // Method getEntityBoundingBox:()Lnet/minecraft/util/math/AxisAlignedBB;
+       4: invokevirtual #102                // Method net/minecraft/util/math/AxisAlignedBB.getAverageEdgeLength:()D
+       7: ldc2_w        #103                // double 4.0d
+      10: dmul
+      11: dstore_3
+      12: dload_3
+      13: invokestatic  #109                // Method java/lang/Double.isNaN:(D)Z
+      16: ifeq          23
+      19: ldc2_w        #103                // double 4.0d
+      22: dstore_3
+      23: dload_3
+      24: ldc2_w        #110                // double 64.0d
+      27: dmul
+      28: dstore_3
+      29: dload_1
+      30: dload_3
+      31: dload_3
+      32: dmul
+      33: dcmpg
+      34: ifge          41
+      37: iconst_1
+      38: goto          42
+      41: iconst_0
+      42: ireturn
+
+  public void shoot(net.minecraft.entity.Entity, float, float, float, float, float);
+    Code:
+       0: fload_3
+       1: ldc           #116                // float 0.017453292f
+       3: fmul
+       4: invokestatic  #122                // Method net/minecraft/util/math/MathHelper.sin:(F)F
+       7: fneg
+       8: fload_2
+       9: ldc           #116                // float 0.017453292f
+      11: fmul
+      12: invokestatic  #125                // Method net/minecraft/util/math/MathHelper.cos:(F)F
+      15: fmul
+      16: fstore        7
+      18: fload_2
+      19: fload         4
+      21: fadd
+      22: ldc           #116                // float 0.017453292f
+      24: fmul
+      25: invokestatic  #122                // Method net/minecraft/util/math/MathHelper.sin:(F)F
+      28: fneg
+      29: fstore        8
+      31: fload_3
+      32: ldc           #116                // float 0.017453292f
+      34: fmul
+      35: invokestatic  #125                // Method net/minecraft/util/math/MathHelper.cos:(F)F
+      38: fload_2
+      39: ldc           #116                // float 0.017453292f
+      41: fmul
+      42: invokestatic  #125                // Method net/minecraft/util/math/MathHelper.cos:(F)F
+      45: fmul
+      46: fstore        9
+      48: aload_0
+      49: fload         7
+      51: f2d
+      52: fload         8
+      54: f2d
+      55: fload         9
+      57: f2d
+      58: fload         5
+      60: fload         6
+      62: invokevirtual #128                // Method shoot:(DDDFF)V
+      65: aload_0
+      66: dup
+      67: getfield      #131                // Field motionX:D
+      70: aload_1
+      71: getfield      #132                // Field net/minecraft/entity/Entity.motionX:D
+      74: dadd
+      75: putfield      #131                // Field motionX:D
+      78: aload_0
+      79: dup
+      80: getfield      #135                // Field motionZ:D
+      83: aload_1
+      84: getfield      #136                // Field net/minecraft/entity/Entity.motionZ:D
+      87: dadd
+      88: putfield      #135                // Field motionZ:D
+      91: aload_1
+      92: getfield      #139                // Field net/minecraft/entity/Entity.onGround:Z
+      95: ifne          111
+      98: aload_0
+      99: dup
+     100: getfield      #142                // Field motionY:D
+     103: aload_1
+     104: getfield      #143                // Field net/minecraft/entity/Entity.motionY:D
+     107: dadd
+     108: putfield      #142                // Field motionY:D
+     111: return
+
+  public void shoot(double, double, double, float, float);
+    Code:
+       0: dload_1
+       1: dload_1
+       2: dmul
+       3: dload_3
+       4: dload_3
+       5: dmul
+       6: dadd
+       7: dload         5
+       9: dload         5
+      11: dmul
+      12: dadd
+      13: invokestatic  #157                // Method net/minecraft/util/math/MathHelper.sqrt:(D)F
+      16: fstore        9
+      18: dload_1
+      19: fload         9
+      21: f2d
+      22: ddiv
+      23: dstore_1
+      24: dload_3
+      25: fload         9
+      27: f2d
+      28: ddiv
+      29: dstore_3
+      30: dload         5
+      32: fload         9
+      34: f2d
+      35: ddiv
+      36: dstore        5
+      38: dload_1
+      39: aload_0
+      40: getfield      #161                // Field rand:Ljava/util/Random;
+      43: invokevirtual #166                // Method java/util/Random.nextGaussian:()D
+      46: ldc2_w        #167                // double 0.007499999832361937d
+      49: dmul
+      50: fload         8
+      52: f2d
+      53: dmul
+      54: dadd
+      55: dstore_1
+      56: dload_3
+      57: aload_0
+      58: getfield      #161                // Field rand:Ljava/util/Random;
+      61: invokevirtual #166                // Method java/util/Random.nextGaussian:()D
+      64: ldc2_w        #167                // double 0.007499999832361937d
+      67: dmul
+      68: fload         8
+      70: f2d
+      71: dmul
+      72: dadd
+      73: dstore_3
+      74: dload         5
+      76: aload_0
+      77: getfield      #161                // Field rand:Ljava/util/Random;
+      80: invokevirtual #166                // Method java/util/Random.nextGaussian:()D
+      83: ldc2_w        #167                // double 0.007499999832361937d
+      86: dmul
+      87: fload         8
+      89: f2d
+      90: dmul
+      91: dadd
+      92: dstore        5
+      94: dload_1
+      95: fload         7
+      97: f2d
+      98: dmul
+      99: dstore_1
+     100: dload_3
+     101: fload         7
+     103: f2d
+     104: dmul
+     105: dstore_3
+     106: dload         5
+     108: fload         7
+     110: f2d
+     111: dmul
+     112: dstore        5
+     114: aload_0
+     115: dload_1
+     116: putfield      #131                // Field motionX:D
+     119: aload_0
+     120: dload_3
+     121: putfield      #142                // Field motionY:D
+     124: aload_0
+     125: dload         5
+     127: putfield      #135                // Field motionZ:D
+     130: dload_1
+     131: dload_1
+     132: dmul
+     133: dload         5
+     135: dload         5
+     137: dmul
+     138: dadd
+     139: invokestatic  #157                // Method net/minecraft/util/math/MathHelper.sqrt:(D)F
+     142: fstore        10
+     144: aload_0
+     145: dload_1
+     146: dload         5
+     148: invokestatic  #172                // Method net/minecraft/util/math/MathHelper.atan2:(DD)D
+     151: ldc2_w        #173                // double 57.29577951308232d
+     154: dmul
+     155: d2f
+     156: putfield      #177                // Field rotationYaw:F
+     159: aload_0
+     160: dload_3
+     161: fload         10
+     163: f2d
+     164: invokestatic  #172                // Method net/minecraft/util/math/MathHelper.atan2:(DD)D
+     167: ldc2_w        #173                // double 57.29577951308232d
+     170: dmul
+     171: d2f
+     172: putfield      #180                // Field rotationPitch:F
+     175: aload_0
+     176: aload_0
+     177: getfield      #177                // Field rotationYaw:F
+     180: putfield      #183                // Field prevRotationYaw:F
+     183: aload_0
+     184: aload_0
+     185: getfield      #180                // Field rotationPitch:F
+     188: putfield      #186                // Field prevRotationPitch:F
+     191: aload_0
+     192: iconst_0
+     193: putfield      #188                // Field ticksInGround:I
+     196: return
+
+  public void setVelocity(double, double, double);
+    Code:
+       0: aload_0
+       1: dload_1
+       2: putfield      #131                // Field motionX:D
+       5: aload_0
+       6: dload_3
+       7: putfield      #142                // Field motionY:D
+      10: aload_0
+      11: dload         5
+      13: putfield      #135                // Field motionZ:D
+      16: aload_0
+      17: getfield      #186                // Field prevRotationPitch:F
+      20: fconst_0
+      21: fcmpl
+      22: ifne          95
+      25: aload_0
+      26: getfield      #183                // Field prevRotationYaw:F
+      29: fconst_0
+      30: fcmpl
+      31: ifne          95
+      34: dload_1
+      35: dload_1
+      36: dmul
+      37: dload         5
+      39: dload         5
+      41: dmul
+      42: dadd
+      43: invokestatic  #157                // Method net/minecraft/util/math/MathHelper.sqrt:(D)F
+      46: fstore        7
+      48: aload_0
+      49: dload_1
+      50: dload         5
+      52: invokestatic  #172                // Method net/minecraft/util/math/MathHelper.atan2:(DD)D
+      55: ldc2_w        #173                // double 57.29577951308232d
+      58: dmul
+      59: d2f
+      60: putfield      #177                // Field rotationYaw:F
+      63: aload_0
+      64: dload_3
+      65: fload         7
+      67: f2d
+      68: invokestatic  #172                // Method net/minecraft/util/math/MathHelper.atan2:(DD)D
+      71: ldc2_w        #173                // double 57.29577951308232d
+      74: dmul
+      75: d2f
+      76: putfield      #180                // Field rotationPitch:F
+      79: aload_0
+      80: aload_0
+      81: getfield      #177                // Field rotationYaw:F
+      84: putfield      #183                // Field prevRotationYaw:F
+      87: aload_0
+      88: aload_0
+      89: getfield      #180                // Field rotationPitch:F
+      92: putfield      #186                // Field prevRotationPitch:F
+      95: return
+
+  public void onUpdate();

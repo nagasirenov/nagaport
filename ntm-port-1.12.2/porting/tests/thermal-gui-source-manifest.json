@@ -1,0 +1,108 @@
+{
+  "baseline": "2cc79304086a82ddb5af1c32e74024b2db2ba05e",
+  "whitelist": [
+    "src/main/java/com/hbm/inventory/gui/GUIFurnaceBrick.java",
+    "src/main/java/com/hbm/inventory/gui/GUIFurnaceIron.java",
+    "src/main/java/com/hbm/inventory/gui/GUIFurnaceSteel.java"
+  ],
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUIFurnaceBrick.java",
+      "before_source": "package com.hbm.inventory.gui;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.inventory.container.ContainerFurnaceBrick;\nimport com.hbm.lib.RefStrings;\nimport com.hbm.tileentity.machine.TileEntityFurnaceBrick;\n\nimport net.minecraft.client.resources.I18n;\nimport net.minecraft.entity.player.InventoryPlayer;\nimport net.minecraft.util.ResourceLocation;\n\npublic class GUIFurnaceBrick extends GuiInfoContainer {\n\n\tprivate static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + \":textures/gui/processing/gui_furnace_brick.png\");\n\tprivate TileEntityFurnaceBrick furnace;\n\n\tpublic GUIFurnaceBrick(InventoryPlayer invPlayer, TileEntityFurnaceBrick tile) {\n\t\tsuper(new ContainerFurnaceBrick(invPlayer, tile));\n\t\tthis.furnace = tile;\n\t}\n\n\tprotected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {\n\t\tString name = this.furnace.hasCustomInventoryName() ? this.furnace.getInventoryName() : I18n.format(this.furnace.getInventoryName());\n\t\tthis.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);\n\t\tthis.fontRendererObj.drawString(I18n.format(\"container.inventory\", new Object[0]), 8, this.ySize - 96 + 2, 0xffffff);\n\t}\n\n\tprotected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tthis.mc.getTextureManager().bindTexture(texture);\n\t\tthis.drawTexturedModalRect(guiLeft, guiTop, 0, 0, this.xSize, this.ySize);\n\t\t\n\t\tif(furnace.isInvalid() && furnace.getWorldObj().getTileEntity(furnace.xCoord, furnace.yCoord, furnace.zCoord) instanceof TileEntityFurnaceBrick)\n\t\t\tfurnace = (TileEntityFurnaceBrick) furnace.getWorldObj().getTileEntity(furnace.xCoord, furnace.yCoord, furnace.zCoord);\n\n\t\tif(this.furnace.burnTime > 0) {\n\t\t\tint b = furnace.burnTime * 13 / furnace.maxBurnTime;\n\t\t\tthis.drawTexturedModalRect(guiLeft + 62, guiTop + 54 + 12 - b, 176, 12 - b, 14, b + 1);\n\t\t\tint p = this.furnace.progress * 24 / 200;\n\t\t\tthis.drawTexturedModalRect(guiLeft + 85, guiTop + 34, 176, 14, p + 1, 16);\n\t\t}\n\t}\n}\n",
+      "before_sha256": "03485a7b206873e504bbc951135e3289adc80c7929cbc60a501296bcf1b6b422",
+      "after_sha256": "316adf8700f5a786afedef180bbc73854c1088062a416e20a4b3711327f4aced",
+      "rules": [
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ],
+        [
+          "getInventoryName()",
+          "getName()",
+          2
+        ],
+        [
+          "fontRendererObj",
+          "fontRenderer",
+          3
+        ],
+        [
+          "furnace.getWorldObj().getTileEntity(furnace.xCoord, furnace.yCoord, furnace.zCoord)",
+          "furnace.getWorld().getTileEntity(furnace.getPos())",
+          2
+        ]
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUIFurnaceIron.java",
+      "before_source": "package com.hbm.inventory.gui;\n\nimport java.util.List;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.inventory.container.ContainerFurnaceIron;\nimport com.hbm.lib.RefStrings;\nimport com.hbm.tileentity.machine.TileEntityFurnaceIron;\n\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.resources.I18n;\nimport net.minecraft.entity.player.InventoryPlayer;\nimport net.minecraft.inventory.Slot;\nimport net.minecraft.util.ResourceLocation;\n\npublic class GUIFurnaceIron extends GuiInfoContainer {\n\t\n\tprivate static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + \":textures/gui/processing/gui_furnace_iron.png\");\n\tprivate TileEntityFurnaceIron furnace;\n\n\tpublic GUIFurnaceIron(InventoryPlayer invPlayer, TileEntityFurnaceIron tedf) {\n\t\tsuper(new ContainerFurnaceIron(invPlayer, tedf));\n\t\tfurnace = tedf;\n\t\t\n\t\tthis.xSize = 176;\n\t\tthis.ySize = 166;\n\t}\n\t\n\t@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.thePlayer.inventory.getItemStack() == null) {\n\t\t\t\n\t\t\tfor(int i = 1; i < 3; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {\n\t\t\t\t\t\n\t\t\t\t\tList<String> bonuses = this.furnace.burnModule.getTimeDesc();\n\t\t\t\t\t\n\t\t\t\t\tif(!bonuses.isEmpty()) {\n\t\t\t\t\t\tthis.func_146283_a(bonuses, x, y);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tthis.drawCustomInfoStat(x, y, guiLeft + 52, guiTop + 35, 71, 7, x, y, new String[] { (furnace.progress * 100 / Math.max(furnace.processingTime, 1)) + \"%\" });\n\t\tthis.drawCustomInfoStat(x, y, guiLeft + 52, guiTop + 44, 71, 7, x, y, new String[] { (furnace.burnTime / 20) + \"s\" });\n\t}\n\t\n\t@Override\n\tprotected void drawGuiContainerForegroundLayer(int i, int j) {\n\t\tString name = this.furnace.hasCustomInventoryName() ? this.furnace.getInventoryName() : I18n.format(this.furnace.getInventoryName());\n\t\t\n\t\tthis.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);\n\t\tthis.fontRendererObj.drawString(I18n.format(\"container.inventory\"), 8, this.ySize - 96 + 2, 4210752);\n\t}\n\n\t@Override\n\tprotected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tMinecraft.getMinecraft().getTextureManager().bindTexture(texture);\n\t\tdrawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);\n\t\t\n\t\tint i = furnace.progress * 70 / Math.max(furnace.processingTime, 1);\n\t\tdrawTexturedModalRect(guiLeft + 53, guiTop + 36, 176, 18, i, 5);\n\t\t\n\t\tint j = furnace.burnTime * 70 / Math.max(furnace.maxBurnTime, 1);\n\t\tdrawTexturedModalRect(guiLeft + 53, guiTop + 45, 176, 23, j, 5);\n\t\t\n\t\tif(furnace.canSmelt())\n\t\t\tdrawTexturedModalRect(guiLeft + 70, guiTop + 16, 176, 0, 18, 18);\n\t}\n}\n",
+      "before_sha256": "8f2d4f0579aa1dc6ac7bf5fbb1662a86caaea0bad9da9fce3132f9e9aa85048c",
+      "after_sha256": "8fb12aa27f5a2362377dfab5f613798eb5a938081ee72cb9e2288326a8e03dab",
+      "rules": [
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ],
+        [
+          "getInventoryName()",
+          "getName()",
+          2
+        ],
+        [
+          "fontRendererObj",
+          "fontRenderer",
+          3
+        ],
+        [
+          "this.mc.thePlayer.inventory.getItemStack() == null",
+          "this.mc.player.inventory.getItemStack().isEmpty()",
+          1
+        ],
+        [
+          "this.func_146283_a(bonuses, x, y)",
+          "this.drawHoveringText(bonuses, x, y)",
+          1
+        ]
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUIFurnaceSteel.java",
+      "before_source": "package com.hbm.inventory.gui;\n\nimport java.util.Locale;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.inventory.container.ContainerFurnaceSteel;\nimport com.hbm.lib.RefStrings;\nimport com.hbm.tileentity.machine.TileEntityFurnaceSteel;\n\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.resources.I18n;\nimport net.minecraft.entity.player.InventoryPlayer;\nimport net.minecraft.util.ResourceLocation;\n\npublic class GUIFurnaceSteel extends GuiInfoContainer {\n\t\n\tprivate static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + \":textures/gui/processing/gui_furnace_steel.png\");\n\tprivate TileEntityFurnaceSteel furnace;\n\n\tpublic GUIFurnaceSteel(InventoryPlayer invPlayer, TileEntityFurnaceSteel tedf) {\n\t\tsuper(new ContainerFurnaceSteel(invPlayer, tedf));\n\t\tfurnace = tedf;\n\t\t\n\t\tthis.xSize = 176;\n\t\tthis.ySize = 166;\n\t}\n\t\n\t@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\t\t\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 53, guiTop + 17 + 18 * i, 70, 7, x, y, new String[] { String.format(Locale.US, \"%,d\", furnace.progress[i]) + \" / \" + String.format(Locale.US, \"%,d\", furnace.processTime) + \"TU\" });\n\t\t\tthis.drawCustomInfoStat(x, y, guiLeft + 53, guiTop + 26 + 18 * i, 70, 7, x, y, new String[] { \"Bonus: \" + furnace.bonus[i] + \"%\" });\n\t\t}\n\t\t\n\t\tthis.drawCustomInfoStat(x, y, guiLeft + 151, guiTop + 18, 9, 50, x, y, new String[] { String.format(Locale.US, \"%,d\", furnace.heat) + \" / \" + String.format(Locale.US, \"%,d\", furnace.maxHeat) + \"TU\" });\n\t}\n\t\n\t@Override\n\tprotected void drawGuiContainerForegroundLayer(int i, int j) {\n\t\tString name = this.furnace.hasCustomInventoryName() ? this.furnace.getInventoryName() : I18n.format(this.furnace.getInventoryName());\n\t\t\n\t\tthis.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);\n\t\tthis.fontRendererObj.drawString(I18n.format(\"container.inventory\"), 8, this.ySize - 96 + 2, 4210752);\n\t}\n\n\t@Override\n\tprotected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n\t\tMinecraft.getMinecraft().getTextureManager().bindTexture(texture);\n\t\tdrawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);\n\t\t\n\t\tint h = furnace.heat * 48 / furnace.maxHeat;\n\t\tdrawTexturedModalRect(guiLeft + 152, guiTop + 67 - h, 176, 76 - h, 7, h);\n\t\t\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tint p = furnace.progress[i] * 69 / furnace.processTime;\n\t\t\tdrawTexturedModalRect(guiLeft + 54, guiTop + 18 + 18 * i, 176, 18, p, 5);\n\t\t\tint b = furnace.bonus[i] * 69 / 100;\n\t\t\tdrawTexturedModalRect(guiLeft + 54, guiTop + 27 + 18 * i, 176, 23, b, 5);\n\t\t\t\n\t\t\tif(furnace.wasOn)\n\t\t\t\tdrawTexturedModalRect(guiLeft + 16, guiTop + 16 + 18 * i, 176, 0, 18, 18);\n\t\t}\n\t}\n}\n",
+      "before_sha256": "25e257fa559287c03a2e1793ad052fb4727a0372b7148a4c0f958b0b6b95a832",
+      "after_sha256": "9d59eb24367d553f2245320a85eaafad8c5e0f69875537853509b6cb3d5f1454",
+      "rules": [
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ],
+        [
+          "getInventoryName()",
+          "getName()",
+          2
+        ],
+        [
+          "fontRendererObj",
+          "fontRenderer",
+          3
+        ]
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "src/main/resources/assets/hbm/textures/gui/processing/gui_furnace_brick.png",
+      "sha256": "d4fddeb6a93bb06a03724fdf5464647960071e096512b67361227cb42b4afa3c"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/gui/processing/gui_furnace_iron.png",
+      "sha256": "36f991c6b65eb68462cc896603a56080acda684a604d0bb6f8ba12b6355a6061"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/gui/processing/gui_furnace_steel.png",
+      "sha256": "63e527a8284f7c5d88f31dfb813ade87ae0af47affd2404ec448837841b10a88"
+    }
+  ]
+}

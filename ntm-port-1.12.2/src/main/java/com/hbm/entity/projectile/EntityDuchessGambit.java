@@ -30,7 +30,7 @@ public class EntityDuchessGambit extends EntityThrowable {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote && this.ticksExisted == 1) {
+		if(!this.world.isRemote && this.ticksExisted == 1) {
 			for(int i = 0; i < 50; i++) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "bf");
@@ -52,30 +52,30 @@ public class EntityDuchessGambit extends EntityThrowable {
 		if(motionY < -1.5)
 			motionY = -1.5;
 
-		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air) {
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:alarm.gambit", 10000.0F, 1F);
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) this.posX, (int) this.posY, (int) this.posZ).getBlock() != Blocks.AIR) {
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:alarm.gambit", 10000.0F, 1F);
 			this.setDead();
 
-			List<Entity> list = (List<Entity>) worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 5, posY - 2, posZ - 9, posX + 5, posY + 2, posZ + 9));
+			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 5, posY - 2, posZ - 9, posX + 5, posY + 2, posZ + 9));
 
 			for(Entity e : list) {
 				e.attackEntityFrom(ModDamageSource.boat, 1000);
 			}
 
-			if(!worldObj.isRemote) {
-				ExplosionLarge.explode(worldObj, posX, posY, posZ - 6, 2, true, false, false);
-				ExplosionLarge.explode(worldObj, posX, posY, posZ - 3, 2, true, false, false);
-				ExplosionLarge.explode(worldObj, posX, posY, posZ, 2, true, false, false);
-				ExplosionLarge.explode(worldObj, posX, posY, posZ + 3, 2, true, false, false);
-				ExplosionLarge.explode(worldObj, posX, posY, posZ + 6, 2, true, false, false);
+			if(!this.world.isRemote) {
+				ExplosionLarge.explode(this.world, posX, posY, posZ - 6, 2, true, false, false);
+				ExplosionLarge.explode(this.world, posX, posY, posZ - 3, 2, true, false, false);
+				ExplosionLarge.explode(this.world, posX, posY, posZ, 2, true, false, false);
+				ExplosionLarge.explode(this.world, posX, posY, posZ + 3, 2, true, false, false);
+				ExplosionLarge.explode(this.world, posX, posY, posZ + 6, 2, true, false, false);
 
-				worldObj.setBlock((int) (this.posX - 0.5), (int) (this.posY + 0.5), (int) (this.posZ - 0.5), ModBlocks.boat);
+				this.world.setBlock((int) (this.posX - 0.5), (int) (this.posY + 0.5), (int) (this.posZ - 0.5), ModBlocks.boat);
 			}
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 3);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 2.5);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 2);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 1.5);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 1);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 2.5);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 2);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 1.5);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 1);
 		}
 	}
 

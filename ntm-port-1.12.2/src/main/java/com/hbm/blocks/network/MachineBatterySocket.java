@@ -21,7 +21,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineBatterySocket extends BlockDummyable implements ITooltipProvider, ILookOverlay {
 
 	public MachineBatterySocket() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -61,10 +61,10 @@ public class MachineBatterySocket extends BlockDummyable implements ITooltipProv
 
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		if(world.getBlockMetadata(x, y, z) < 6) return 0;
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) < 6) return 0;
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return 0;
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityBatterySocket)) return 0;
 		
 		TileEntityBatterySocket battery = (TileEntityBatterySocket) te;
@@ -76,7 +76,7 @@ public class MachineBatterySocket extends BlockDummyable implements ITooltipProv
 		
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityBatterySocket)) return;
 		TileEntityBatterySocket socket = (TileEntityBatterySocket) te;
 		if(socket.syncStack == null) return;

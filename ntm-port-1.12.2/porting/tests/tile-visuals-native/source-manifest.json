@@ -1,0 +1,3149 @@
+{
+  "base": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "complete_sources": {
+    "src/main/java/com/hbm/render/tileentity/RenderMagma.java": {
+      "baseline_sha256": "09f093aff7c271c4b3d9ff6f141e56caae5875d7ed6133e0ce7b2ed6add32f40",
+      "native_sha256": "39fbb210b91c31e5ecbe3eadaaab998585c6cb802a0ea4abc0158e5c07de4047",
+      "edits": [
+        {
+          "baseline_start": 190,
+          "native_start": 190,
+          "before": "",
+          "after": "render.item.nativeitem.context.NativeProjectionScope;\nimport com.hbm."
+        },
+        {
+          "baseline_start": 262,
+          "native_start": 331,
+          "before": "",
+          "after": "Minecraft;\nimport net.minecraft.client."
+        },
+        {
+          "baseline_start": 271,
+          "native_start": 379,
+          "before": "R",
+          "after": "BufferBuilder;\nimport net.minecraft.client.r"
+        },
+        {
+          "baseline_start": 277,
+          "native_start": 428,
+          "before": "B",
+          "after": "er.texture.TextureAt"
+        },
+        {
+          "baseline_start": 279,
+          "native_start": 449,
+          "before": "",
+          "after": "asSprite;\nimp"
+        },
+        {
+          "baseline_start": 280,
+          "native_start": 463,
+          "before": "",
+          "after": "rt net.mine"
+        },
+        {
+          "baseline_start": 281,
+          "native_start": 475,
+          "before": "k",
+          "after": "raft.client.renderer.vertex.DefaultVertexFormat"
+        },
+        {
+          "baseline_start": 467,
+          "native_start": 707,
+          "before": "",
+          "after": "\n/** Native magma TESR, retaining original model parts, opposed an"
+        },
+        {
+          "baseline_start": 469,
+          "native_start": 775,
+          "before": "p",
+          "after": "ati"
+        },
+        {
+          "baseline_start": 471,
+          "native_start": 779,
+          "before": "rt",
+          "after": "n and"
+        },
+        {
+          "baseline_start": 475,
+          "native_start": 786,
+          "before": "et.m",
+          "after": ""
+        },
+        {
+          "baseline_start": 482,
+          "native_start": 789,
+          "before": "cr",
+          "after": " l"
+        },
+        {
+          "baseline_start": 485,
+          "native_start": 792,
+          "before": "f",
+          "after": "va "
+        },
+        {
+          "baseline_start": 487,
+          "native_start": 796,
+          "before": "",
+          "after": "ops"
+        },
+        {
+          "baseline_start": 488,
+          "native_start": 800,
+          "before": "init.Blocks;\nimport",
+          "after": ""
+        },
+        {
+          "baseline_start": 508,
+          "native_start": 801,
+          "before": "net.minecraft.item.Item;\nimport net.minecraft.tileentity.TileEntity;\nimport com.hbm.render.icon.IIcon;\n",
+          "after": "*/"
+        },
+        {
+          "baseline_start": 670,
+          "native_start": 862,
+          "before": "",
+          "after": "<TileEntityMachineMagma>"
+        },
+        {
+          "baseline_start": 704,
+          "native_start": 920,
+          "before": "TileEntityAt",
+          "after": ""
+        },
+        {
+          "baseline_start": 727,
+          "native_start": 931,
+          "before": "",
+          "after": "MachineMagma"
+        },
+        {
+          "baseline_start": 776,
+          "native_start": 992,
+          "before": "",
+          "after": ", int destroyStage, float alpha"
+        },
+        {
+          "baseline_start": 780,
+          "native_start": 1027,
+          "before": "",
+          "after": "\t\ttry (NativeProjectionScope scope = new NativeProjectionScope()) {\n\t"
+        },
+        {
+          "baseline_start": 820,
+          "native_start": 1136,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "baseline_start": 828,
+          "native_start": 1147,
+          "before": "",
+          "after": "()"
+        },
+        {
+          "baseline_start": 831,
+          "native_start": 1152,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 856,
+          "native_start": 1178,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 859,
+          "native_start": 1182,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 907,
+          "native_start": 1231,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 940,
+          "native_start": 1265,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 977,
+          "native_start": 1303,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 978,
+          "native_start": 1305,
+          "before": "\t\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1045,
+          "native_start": 1369,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1091,
+          "native_start": 1416,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1141,
+          "native_start": 1467,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1195,
+          "native_start": 1522,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1246,
+          "native_start": 1574,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1248,
+          "native_start": 1577,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1249,
+          "native_start": 1579,
+          "before": "\t\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1343,
+          "native_start": 1670,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1344,
+          "native_start": 1672,
+          "before": "\t\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1381,
+          "native_start": 1706,
+          "before": "(TileEntityMachineMagma) ",
+          "after": ""
+        },
+        {
+          "baseline_start": 1412,
+          "native_start": 1712,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1413,
+          "native_start": 1714,
+          "before": "\t\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1454,
+          "native_start": 1752,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1503,
+          "native_start": 1802,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1575,
+          "native_start": 1875,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1687,
+          "native_start": 1988,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1781,
+          "native_start": 2083,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1782,
+          "native_start": 2085,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1810,
+          "native_start": 2112,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1813,
+          "native_start": 2116,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1857,
+          "native_start": 2161,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1914,
+          "native_start": 2219,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1915,
+          "native_start": 2221,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1921,
+          "native_start": 2226,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1944,
+          "native_start": 2250,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1945,
+          "native_start": 2252,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1973,
+          "native_start": 2279,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1976,
+          "native_start": 2283,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2021,
+          "native_start": 2329,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2075,
+          "native_start": 2384,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 2076,
+          "native_start": 2386,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 2082,
+          "native_start": 2391,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2106,
+          "native_start": 2416,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2138,
+          "native_start": 2449,
+          "before": "II",
+          "after": "\t// The original side-0 lava i"
+        },
+        {
+          "baseline_start": 2143,
+          "native_start": 2482,
+          "before": "",
+          "after": " is the still atlas sprite, not the flow texture.\n\t\t\t\t\tTextureAtlasSprite"
+        },
+        {
+          "baseline_start": 2151,
+          "native_start": 2563,
+          "before": "",
+          "after": "Minecraft.getMinecraft().getTextureMap"
+        },
+        {
+          "baseline_start": 2157,
+          "native_start": 2607,
+          "before": ".lava",
+          "after": "()"
+        },
+        {
+          "baseline_start": 2166,
+          "native_start": 2613,
+          "before": "I",
+          "after": "AtlasSprite(\"mine"
+        },
+        {
+          "baseline_start": 2168,
+          "native_start": 2631,
+          "before": "on(0, 0);\n\t\t\t\tRende",
+          "after": ""
+        },
+        {
+          "baseline_start": 2188,
+          "native_start": 2632,
+          "before": "B",
+          "after": "aft:b"
+        },
+        {
+          "baseline_start": 2194,
+          "native_start": 2642,
+          "before": " renderer = RenderB",
+          "after": "/"
+        },
+        {
+          "baseline_start": 2214,
+          "native_start": 2644,
+          "before": "ocks.getIn",
+          "after": "ava_"
+        },
+        {
+          "baseline_start": 2226,
+          "native_start": 2650,
+          "before": "ance(",
+          "after": "ill\""
+        },
+        {
+          "baseline_start": 2234,
+          "native_start": 2657,
+          "before": "\n",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2262,
+          "native_start": 2685,
+          "before": "location",
+          "after": "LOCATION_"
+        },
+        {
+          "baseline_start": 2271,
+          "native_start": 2695,
+          "before": "locks",
+          "after": "LOCKS_"
+        },
+        {
+          "baseline_start": 2277,
+          "native_start": 2702,
+          "before": "exture",
+          "after": "EXTURE"
+        },
+        {
+          "baseline_start": 2285,
+          "native_start": 2710,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 2291,
+          "native_start": 2715,
+          "before": "",
+          "after": "\tBufferBuilder buffer = "
+        },
+        {
+          "baseline_start": 2303,
+          "native_start": 2751,
+          "before": "s",
+          "after": "ge"
+        },
+        {
+          "baseline_start": 2305,
+          "native_start": 2754,
+          "before": "a",
+          "after": "Buffe"
+        },
+        {
+          "baseline_start": 2307,
+          "native_start": 2760,
+          "before": "tDrawingQuads",
+          "after": ""
+        },
+        {
+          "baseline_start": 2328,
+          "native_start": 2768,
+          "before": "",
+          "after": "\tbuffe"
+        },
+        {
+          "baseline_start": 2329,
+          "native_start": 2775,
+          "before": "",
+          "after": ".begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\t\t\t\tapp"
+        },
+        {
+          "baseline_start": 2332,
+          "native_start": 2851,
+          "before": "",
+          "after": "LavaSurface(buff"
+        },
+        {
+          "baseline_start": 2334,
+          "native_start": 2869,
+          "before": "er.setRenderBounds(0D",
+          "after": ""
+        },
+        {
+          "baseline_start": 2357,
+          "native_start": 2871,
+          "before": "0D, 0D, 1D",
+          "after": "lava"
+        },
+        {
+          "baseline_start": 2379,
+          "native_start": 2887,
+          "before": ", 1D",
+          "after": ""
+        },
+        {
+          "baseline_start": 2387,
+          "native_start": 2891,
+          "before": "\t\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\t\t\tfor(int ox = -1; ox <= 1; ox++) {\n\t\t\t\t\tfor(int oz = -1; oz <= 1; oz++) {\n\t\t\t\t\t\trenderer.renderFaceYPos(Blocks.lava, ox - 0.5D, 0.0D, oz - 0.5D, lava);\n\t\t\t\t\t}\n\t\t\t\t}\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 2620,
+          "native_start": 2918,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2622,
+          "native_start": 2921,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 2623,
+          "native_start": 2923,
+          "before": "\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 2660,
+          "native_start": 2959,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 2661,
+          "native_start": 2961,
+          "before": "\t\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 2668,
+          "native_start": 2965,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 2691,
+          "native_start": 2989,
+          "before": "",
+          "after": "\t}\n\t"
+        },
+        {
+          "baseline_start": 2694,
+          "native_start": 2996,
+          "before": "",
+          "after": "\t/** Exact original RenderBlocks.renderFaceYPos full-block UVs and winding. */"
+        },
+        {
+          "baseline_start": 2695,
+          "native_start": 3075,
+          "before": "",
+          "after": "\tstatic void appendLavaSurface(BufferBuilder buffer, TextureAtlasSprite lava, float height) {\n\t\tfor (int ox = -1; ox <= 1; ox++) {\n\t\t\tfor (int oz = -1; oz <= 1; oz++) {\n\t\t\t\tdouble x = ox - 0.5D, z = oz - 0.5D;\n\t\t\t\tbuffer.pos(x + 1, height, z + 1).tex(lava.getMaxU(), lava.getMaxV()).normal(0, 1, 0).endVertex();\n\t\t\t\tbuffer.pos(x + 1, height, z).tex(lava.getMaxU(), lava.getMinV()).normal(0, 1, 0).endVertex();\n\t\t\t\tbuffer.pos(x, height, z).tex(lava.getMinU(), lava.getMinV()).normal(0, 1, 0).endVertex();\n\t\t\t\tbuffer.pos(x, height, z + 1).tex(lava.getMinU(), lava.getMaxV()).normal(0, 1, 0).endVertex();\n\t\t\t}\n\t\t}\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderMultiblock.java": {
+      "baseline_sha256": "33f2a2dd4ce9a8df0b01f05df313724b6134313d6ad4e038bb1d1643f398a6db",
+      "native_sha256": "2bc7ac82b41e22b2bc76873e6d5b20d47c38660827238b39f94c530038ee3365",
+      "edits": [
+        {
+          "baseline_start": 131,
+          "native_start": 131,
+          "before": "",
+          "after": "import com.hbm.render.item.nativeitem.context.NativeProjectionScope;\n"
+        },
+        {
+          "baseline_start": 254,
+          "native_start": 323,
+          "before": "R",
+          "after": "BufferBuilder;\nimport net.minecraft.client.r"
+        },
+        {
+          "baseline_start": 260,
+          "native_start": 372,
+          "before": "B",
+          "after": "er.vertex.Defau"
+        },
+        {
+          "baseline_start": 262,
+          "native_start": 388,
+          "before": "",
+          "after": "tVertexF"
+        },
+        {
+          "baseline_start": 263,
+          "native_start": 397,
+          "before": "ck",
+          "after": "rmat"
+        },
+        {
+          "baseline_start": 444,
+          "native_start": 580,
+          "before": "com.hbm.render.icon.IIcon;\nimport ",
+          "after": ""
+        },
+        {
+          "baseline_start": 515,
+          "native_start": 617,
+          "before": "",
+          "after": "\n/** Native preview TESR. Original fixed materials, cube vertices and placement order are retained. */"
+        },
+        {
+          "baseline_start": 579,
+          "native_start": 783,
+          "before": "",
+          "after": "<TileEntity>"
+        },
+        {
+          "baseline_start": 582,
+          "native_start": 798,
+          "before": "\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 638,
+          "native_start": 853,
+          "before": "TileEntityAt",
+          "after": ""
+        },
+        {
+          "baseline_start": 703,
+          "native_start": 906,
+          "before": "",
+          "after": ", int destroyStage, float alpha) {\n\t\ttry (NativeProjectionScope scope = new NativeProjectionScope()"
+        },
+        {
+          "baseline_start": 708,
+          "native_start": 1010,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 731,
+          "native_start": 1034,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 732,
+          "native_start": 1036,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 796,
+          "native_start": 1098,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 826,
+          "native_start": 1129,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 862,
+          "native_start": 1166,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 912,
+          "native_start": 1211,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 961,
+          "native_start": 1255,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 1005,
+          "native_start": 1294,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1007,
+          "native_start": 1297,
+          "before": "\n        ",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1045,
+          "native_start": 1327,
+          "before": "        ",
+          "after": ""
+        },
+        {
+          "baseline_start": 1054,
+          "native_start": 1328,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 1102,
+          "native_start": 1371,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 1136,
+          "native_start": 1400,
+          "before": "        ",
+          "after": ""
+        },
+        {
+          "baseline_start": 1145,
+          "native_start": 1401,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 1199,
+          "native_start": 1450,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 1230,
+          "native_start": 1476,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1263,
+          "native_start": 1510,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 1306,
+          "native_start": 1548,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1307,
+          "native_start": 1550,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1332,
+          "native_start": 1573,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1335,
+          "native_start": 1577,
+          "before": "",
+          "after": "}\n"
+        },
+        {
+          "baseline_start": 1376,
+          "native_start": 1620,
+          "before": "\t\t\n\t\tRenderBlocks rb = RenderBlocks.getInstance();\n        \n        IIcon icon = rb.getBlockIconFromSide(ModBlocks.struct_launcher, 1);\n        ",
+          "after": ""
+        },
+        {
+          "baseline_start": 1583,
+          "native_start": 1683,
+          "before": " +",
+          "after": ","
+        },
+        {
+          "baseline_start": 1587,
+          "native_start": 1686,
+          "before": ":",
+          "after": ""
+        },
+        {
+          "baseline_start": 1604,
+          "native_start": 1702,
+          "before": "\" + icon.getIconName().sub",
+          "after": ""
+        },
+        {
+          "baseline_start": 1633,
+          "native_start": 1705,
+          "before": "i",
+          "after": "uct_lau"
+        },
+        {
+          "baseline_start": 1635,
+          "native_start": 1713,
+          "before": "g(4, i",
+          "after": ""
+        },
+        {
+          "baseline_start": 1642,
+          "native_start": 1714,
+          "before": "on.g",
+          "after": "h"
+        },
+        {
+          "baseline_start": 1647,
+          "native_start": 1716,
+          "before": "tIconName().length()) + \"",
+          "after": "r"
+        },
+        {
+          "baseline_start": 1680,
+          "native_start": 1725,
+          "before": "\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 1812,
+          "native_start": 1855,
+          "before": "\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 1850,
+          "native_start": 1892,
+          "before": "\t\t\n\t\tRenderBlocks rb = RenderBlocks.getInstance();\n        \n        IIcon icon = rb.getBlockIconFromSide(ModBlocks.struct_launcher, 1);",
+          "after": ""
+        },
+        {
+          "baseline_start": 2048,
+          "native_start": 1955,
+          "before": " +",
+          "after": ","
+        },
+        {
+          "baseline_start": 2052,
+          "native_start": 1958,
+          "before": ":",
+          "after": ""
+        },
+        {
+          "baseline_start": 2069,
+          "native_start": 1974,
+          "before": "\" + icon.getIconName().sub",
+          "after": ""
+        },
+        {
+          "baseline_start": 2098,
+          "native_start": 1977,
+          "before": "i",
+          "after": "uct_lau"
+        },
+        {
+          "baseline_start": 2100,
+          "native_start": 1985,
+          "before": "g(4, i",
+          "after": ""
+        },
+        {
+          "baseline_start": 2107,
+          "native_start": 1986,
+          "before": "on.g",
+          "after": "h"
+        },
+        {
+          "baseline_start": 2112,
+          "native_start": 1988,
+          "before": "tIconName().length()) + \"",
+          "after": "r"
+        },
+        {
+          "baseline_start": 2145,
+          "native_start": 1997,
+          "before": "\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 2274,
+          "native_start": 2124,
+          "before": "        \n        icon = rb.getBlockIconFromSide(ModBlocks.struct_scaffold, 1);",
+          "after": ""
+        },
+        {
+          "baseline_start": 2398,
+          "native_start": 2170,
+          "before": " +",
+          "after": ","
+        },
+        {
+          "baseline_start": 2402,
+          "native_start": 2173,
+          "before": ":",
+          "after": ""
+        },
+        {
+          "baseline_start": 2419,
+          "native_start": 2189,
+          "before": "\" + icon.getIconName().sub",
+          "after": ""
+        },
+        {
+          "baseline_start": 2448,
+          "native_start": 2192,
+          "before": "ing(4, i",
+          "after": "u"
+        },
+        {
+          "baseline_start": 2457,
+          "native_start": 2194,
+          "before": "",
+          "after": "t_scaff"
+        },
+        {
+          "baseline_start": 2458,
+          "native_start": 2202,
+          "before": "n.getIconName().",
+          "after": ""
+        },
+        {
+          "baseline_start": 2475,
+          "native_start": 2203,
+          "before": "ength()) + \"",
+          "after": "d"
+        },
+        {
+          "baseline_start": 2495,
+          "native_start": 2212,
+          "before": "\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 2646,
+          "native_start": 2361,
+          "before": "\t\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 2738,
+          "native_start": 2450,
+          "before": "\t\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 2831,
+          "native_start": 2540,
+          "before": "\t\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 2931,
+          "native_start": 2637,
+          "before": "\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 3034,
+          "native_start": 2739,
+          "before": "",
+          "after": "try {\n\t\t\t"
+        },
+        {
+          "baseline_start": 3062,
+          "native_start": 2776,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 3097,
+          "native_start": 2812,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 3098,
+          "native_start": 2814,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 3138,
+          "native_start": 2852,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "baseline_start": 3146,
+          "native_start": 2863,
+          "before": "",
+          "after": "()"
+        },
+        {
+          "baseline_start": 3150,
+          "native_start": 2869,
+          "before": "",
+          "after": "\tBufferBuilder buffer = "
+        },
+        {
+          "baseline_start": 3160,
+          "native_start": 2903,
+          "before": "s",
+          "after": "ge"
+        },
+        {
+          "baseline_start": 3162,
+          "native_start": 2906,
+          "before": "a",
+          "after": "Buffe"
+        },
+        {
+          "baseline_start": 3164,
+          "native_start": 2912,
+          "before": "tDrawingQuads",
+          "after": ""
+        },
+        {
+          "baseline_start": 3210,
+          "native_start": 2945,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 3216,
+          "native_start": 2951,
+          "before": "",
+          "after": ".begin(GL11.GL_QUADS, Def"
+        },
+        {
+          "baseline_start": 3217,
+          "native_start": 2977,
+          "before": "c",
+          "after": "ul"
+        },
+        {
+          "baseline_start": 3219,
+          "native_start": 2980,
+          "before": ".add",
+          "after": ""
+        },
+        {
+          "baseline_start": 3229,
+          "native_start": 2986,
+          "before": "Wi",
+          "after": "Forma"
+        },
+        {
+          "baseline_start": 3232,
+          "native_start": 2992,
+          "before": "hUV",
+          "after": "s.POSITION_TEX);\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3294,
+          "native_start": 3081,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3301,
+          "native_start": 3092,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3308,
+          "native_start": 3094,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3325,
+          "native_start": 3102,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3386,
+          "native_start": 3174,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3393,
+          "native_start": 3185,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3400,
+          "native_start": 3187,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3417,
+          "native_start": 3195,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3474,
+          "native_start": 3263,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3481,
+          "native_start": 3274,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3488,
+          "native_start": 3276,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3505,
+          "native_start": 3284,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3567,
+          "native_start": 3357,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3573,
+          "native_start": 3367,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 3601,
+          "native_start": 3407,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 3603,
+          "native_start": 3447,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 3604,
+          "native_start": 3455,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 3611,
+          "native_start": 3456,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 3635,
+          "native_start": 3474,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 3641,
+          "native_start": 3480,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 3645,
+          "native_start": 3481,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 3715,
+          "native_start": 3539,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3722,
+          "native_start": 3550,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3729,
+          "native_start": 3552,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3746,
+          "native_start": 3560,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3811,
+          "native_start": 3636,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3818,
+          "native_start": 3647,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3825,
+          "native_start": 3649,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3842,
+          "native_start": 3657,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3903,
+          "native_start": 3729,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3910,
+          "native_start": 3740,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3917,
+          "native_start": 3742,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3934,
+          "native_start": 3750,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3992,
+          "native_start": 3819,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3998,
+          "native_start": 3829,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 4026,
+          "native_start": 3869,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 4028,
+          "native_start": 3909,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 4029,
+          "native_start": 3917,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 4036,
+          "native_start": 3918,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 4060,
+          "native_start": 3936,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 4066,
+          "native_start": 3942,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 4070,
+          "native_start": 3943,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 4136,
+          "native_start": 3997,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4143,
+          "native_start": 4008,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4150,
+          "native_start": 4010,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4167,
+          "native_start": 4018,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4228,
+          "native_start": 4090,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4235,
+          "native_start": 4101,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4242,
+          "native_start": 4103,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4259,
+          "native_start": 4111,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4317,
+          "native_start": 4180,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4324,
+          "native_start": 4191,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4331,
+          "native_start": 4193,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4348,
+          "native_start": 4201,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4401,
+          "native_start": 4265,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4407,
+          "native_start": 4275,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 4435,
+          "native_start": 4315,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 4437,
+          "native_start": 4355,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 4438,
+          "native_start": 4363,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 4445,
+          "native_start": 4364,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 4469,
+          "native_start": 4382,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 4475,
+          "native_start": 4388,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 4479,
+          "native_start": 4389,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 4549,
+          "native_start": 4447,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4556,
+          "native_start": 4458,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4563,
+          "native_start": 4460,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4580,
+          "native_start": 4468,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4637,
+          "native_start": 4536,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4644,
+          "native_start": 4547,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4651,
+          "native_start": 4549,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4668,
+          "native_start": 4557,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4722,
+          "native_start": 4622,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4729,
+          "native_start": 4633,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4736,
+          "native_start": 4635,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4753,
+          "native_start": 4643,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4810,
+          "native_start": 4711,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4816,
+          "native_start": 4721,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 4844,
+          "native_start": 4761,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 4846,
+          "native_start": 4801,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 4847,
+          "native_start": 4809,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 4854,
+          "native_start": 4810,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 4878,
+          "native_start": 4828,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 4884,
+          "native_start": 4834,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 4888,
+          "native_start": 4835,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 4958,
+          "native_start": 4893,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4965,
+          "native_start": 4904,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4972,
+          "native_start": 4906,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4989,
+          "native_start": 4914,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5046,
+          "native_start": 4982,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5053,
+          "native_start": 4993,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5060,
+          "native_start": 4995,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5077,
+          "native_start": 5003,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5139,
+          "native_start": 5076,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5146,
+          "native_start": 5087,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5153,
+          "native_start": 5089,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5170,
+          "native_start": 5097,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5235,
+          "native_start": 5173,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5241,
+          "native_start": 5183,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 5269,
+          "native_start": 5223,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 5271,
+          "native_start": 5263,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 5272,
+          "native_start": 5271,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 5279,
+          "native_start": 5272,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 5303,
+          "native_start": 5290,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 5309,
+          "native_start": 5296,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 5313,
+          "native_start": 5297,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 5375,
+          "native_start": 5347,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5382,
+          "native_start": 5358,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5389,
+          "native_start": 5360,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5406,
+          "native_start": 5368,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5463,
+          "native_start": 5436,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5470,
+          "native_start": 5447,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5477,
+          "native_start": 5449,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5494,
+          "native_start": 5457,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5555,
+          "native_start": 5529,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5562,
+          "native_start": 5540,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5569,
+          "native_start": 5542,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5586,
+          "native_start": 5550,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5644,
+          "native_start": 5619,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5651,
+          "native_start": 5630,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "baseline_start": 5653,
+          "native_start": 5644,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 5673,
+          "native_start": 5665,
+          "before": "",
+          "after": "\t\t} finally {\n\t"
+        },
+        {
+          "baseline_start": 5697,
+          "native_start": 5704,
+          "before": "",
+          "after": "}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSoyuzMultiblock.java": {
+      "baseline_sha256": "2a1ca30682c88c5d8782eb238ff6863b0c0dd31113543d3abd6163275343747c",
+      "native_sha256": "3d14296a1ffab4943cbb34bb6540c79d9d0c621067edfb85b93631d739080db7",
+      "edits": [
+        {
+          "baseline_start": 82,
+          "native_start": 82,
+          "before": "",
+          "after": "li"
+        },
+        {
+          "baseline_start": 83,
+          "native_start": 85,
+          "before": "locks",
+          "after": ""
+        },
+        {
+          "baseline_start": 89,
+          "native_start": 86,
+          "before": "ModBlock",
+          "after": "RefString"
+        },
+        {
+          "baseline_start": 115,
+          "native_start": 113,
+          "before": "l",
+          "after": "render."
+        },
+        {
+          "baseline_start": 117,
+          "native_start": 121,
+          "before": "b",
+          "after": "tem"
+        },
+        {
+          "baseline_start": 119,
+          "native_start": 125,
+          "before": "R",
+          "after": "nativ"
+        },
+        {
+          "baseline_start": 121,
+          "native_start": 131,
+          "before": "f",
+          "after": "item.context.NativeProjection"
+        },
+        {
+          "baseline_start": 123,
+          "native_start": 161,
+          "before": "trings",
+          "after": "cope"
+        },
+        {
+          "baseline_start": 220,
+          "native_start": 256,
+          "before": "R",
+          "after": "BufferBuilder;\nimport net.minecraft.client.r"
+        },
+        {
+          "baseline_start": 226,
+          "native_start": 305,
+          "before": "B",
+          "after": "er.vertex.Defau"
+        },
+        {
+          "baseline_start": 228,
+          "native_start": 321,
+          "before": "",
+          "after": "tVertexF"
+        },
+        {
+          "baseline_start": 229,
+          "native_start": 330,
+          "before": "ck",
+          "after": "rmat"
+        },
+        {
+          "baseline_start": 410,
+          "native_start": 513,
+          "before": "com.hbm.render.icon.IIcon;\nimport ",
+          "after": ""
+        },
+        {
+          "baseline_start": 481,
+          "native_start": 550,
+          "before": "",
+          "after": "\n/** Native preview TESR. Original fixed materials, cube vertices and placement order are retained. */"
+        },
+        {
+          "baseline_start": 550,
+          "native_start": 721,
+          "before": "",
+          "after": "<TileEntity>"
+        },
+        {
+          "baseline_start": 553,
+          "native_start": 736,
+          "before": "\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 609,
+          "native_start": 791,
+          "before": "TileEntityAt",
+          "after": ""
+        },
+        {
+          "baseline_start": 674,
+          "native_start": 844,
+          "before": "",
+          "after": ", int destroyStage, float alpha) {\n\t\ttry (NativeProjectionScope scope = new NativeProjectionScope()"
+        },
+        {
+          "baseline_start": 679,
+          "native_start": 948,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 702,
+          "native_start": 972,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 703,
+          "native_start": 974,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 767,
+          "native_start": 1036,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 797,
+          "native_start": 1067,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 833,
+          "native_start": 1104,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 883,
+          "native_start": 1149,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 932,
+          "native_start": 1193,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 978,
+          "native_start": 1234,
+          "before": "\n\t\tRenderBlocks rb = RenderBlocks.getInstance();\n\n        IIcon icon;\n\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 1067,
+          "native_start": 1252,
+          "before": "loc;\n\t\t\n        icon = rb.getBlockIconFromSide(ModBlocks.struct_launcher, 1);\n\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 1190,
+          "native_start": 1295,
+          "before": " +",
+          "after": ","
+        },
+        {
+          "baseline_start": 1194,
+          "native_start": 1298,
+          "before": ":",
+          "after": ""
+        },
+        {
+          "baseline_start": 1211,
+          "native_start": 1314,
+          "before": "\" + icon.getIconName().sub",
+          "after": ""
+        },
+        {
+          "baseline_start": 1240,
+          "native_start": 1317,
+          "before": "i",
+          "after": "uct_lau"
+        },
+        {
+          "baseline_start": 1242,
+          "native_start": 1325,
+          "before": "g(4, i",
+          "after": ""
+        },
+        {
+          "baseline_start": 1249,
+          "native_start": 1326,
+          "before": "on.g",
+          "after": "h"
+        },
+        {
+          "baseline_start": 1254,
+          "native_start": 1328,
+          "before": "tIconName().length()) + \"",
+          "after": "r"
+        },
+        {
+          "baseline_start": 1287,
+          "native_start": 1337,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1288,
+          "native_start": 1339,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1324,
+          "native_start": 1373,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1352,
+          "native_start": 1402,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1390,
+          "native_start": 1441,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1423,
+          "native_start": 1475,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1424,
+          "native_start": 1477,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1460,
+          "native_start": 1511,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1488,
+          "native_start": 1540,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1527,
+          "native_start": 1580,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1560,
+          "native_start": 1614,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1561,
+          "native_start": 1616,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1594,
+          "native_start": 1647,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1629,
+          "native_start": 1683,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 1642,
+          "native_start": 1697,
+          "before": "",
+          "after": "; k <= 9; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t\t\tfor(int i = -2; i <= 2; i++)\n\t\t\t\tfor(int k = 5"
+        },
+        {
+          "baseline_start": 1688,
+          "native_start": 1847,
+          "before": "j, k);\n\t\t\n\t\tfor(int i = -2; i <= 2; i++)\n\t\t\tfor(int k = 5; k <= 9; k++)\n\t\t\t\trenderSmolBlockAt(loc, i, ",
+          "after": ""
+        },
+        {
+          "baseline_start": 1798,
+          "native_start": 1855,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 1799,
+          "native_start": 1857,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 1828,
+          "native_start": 1884,
+          "before": "++)\n\t\t\tfor(int k = -8; k <= -6; k++)\n\t\t\t\trenderSmolBlockAt(loc, i, 38, k);\n        \n        icon = rb.getBlockIconFromSide(ModBlocks.concrete_smooth, 1);\n\t\tloc = new ResourceLocation(RefStrings.MODID + \":textures/blocks/\" + icon.getIconName().substring(4, icon.getIconName().length()) + \".png\");\n\t\t\n\t\tfor(int i = 3; i <= 6; i++)\n\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\tfor(int k = 3; k <= 6; k++)\n\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\t\t\n\t\tfor(int i = -6; i <= -3; i++)\n\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\tfor(int k = 3; k <= 6; k++)\n\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\t\t\n\t\tfor(int i = -6; i <= -3; i++)\n\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\tfor(int k = -6; k <= -3; k++)\n\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\t\t\n\t\tfor(int i = 3; i <= 6; i++)\n\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\tfor(int k = -6; k <= -3; k++)\n\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\t\t\n\t\tfor(int i = -1; i <= 1; i++)\n\t\t\tfor(int j = 0; j <= 2; j",
+          "after": ""
+        },
+        {
+          "baseline_start": 2798,
+          "native_start": 1953,
+          "before": "j",
+          "after": "38"
+        },
+        {
+          "baseline_start": 2805,
+          "native_start": 1961,
+          "before": "\t\t",
+          "after": ""
+        },
+        {
+          "baseline_start": 2809,
+          "native_start": 1963,
+          "before": "\tfor(int i = -2; i <= 2; i++)\n\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\tfor(int k = 5; k <= 9; k++)\n\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n        \n        icon = rb.getBlockIconFromSide(ModBlocks.struct_scaffold, 1);\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 3064,
+          "native_start": 2008,
+          "before": " +",
+          "after": ","
+        },
+        {
+          "baseline_start": 3068,
+          "native_start": 2011,
+          "before": ":",
+          "after": ""
+        },
+        {
+          "baseline_start": 3085,
+          "native_start": 2027,
+          "before": "\" + i",
+          "after": ""
+        },
+        {
+          "baseline_start": 3093,
+          "native_start": 2030,
+          "before": ".g",
+          "after": "cr"
+        },
+        {
+          "baseline_start": 3097,
+          "native_start": 2034,
+          "before": "IconNam",
+          "after": ""
+        },
+        {
+          "baseline_start": 3105,
+          "native_start": 2035,
+          "before": "().substring(4, icon.getIconName().length()) + \"",
+          "after": ""
+        },
+        {
+          "baseline_start": 3161,
+          "native_start": 2043,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 3162,
+          "native_start": 2045,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 3178,
+          "native_start": 2059,
+          "before": "-1",
+          "after": "3"
+        },
+        {
+          "baseline_start": 3187,
+          "native_start": 2067,
+          "before": "1",
+          "after": "6"
+        },
+        {
+          "baseline_start": 3191,
+          "native_start": 2071,
+          "before": "++)\n\t\t\tfor(int j = 5; j <= 50; j",
+          "after": ""
+        },
+        {
+          "baseline_start": 3239,
+          "native_start": 2087,
+          "before": "",
+          "after": "j = 0; j <= 2; j++)\n\t\t\t\t\tfor(int "
+        },
+        {
+          "baseline_start": 3243,
+          "native_start": 2124,
+          "before": "6",
+          "after": "3"
+        },
+        {
+          "baseline_start": 3251,
+          "native_start": 2132,
+          "before": "8",
+          "after": "6"
+        },
+        {
+          "baseline_start": 3259,
+          "native_start": 2140,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 3297,
+          "native_start": 2179,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 3299,
+          "native_start": 2182,
+          "before": "",
+          "after": "\tfor(int i = -6; i <= -3; i++)"
+        },
+        {
+          "baseline_start": 3300,
+          "native_start": 2213,
+          "before": "",
+          "after": "\t\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\t\tfor(int k = 3; k <= 6; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t\t\tfor(int i = -6; i <= -3; i++)\n\t\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\t\tfor(int k = -6; k <= -3; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t\t\tfor(int i = 3; i <= 6; i++)\n\t\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\t\tfor(int k = -6; k <= -3; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t\t\tfor(int i = -1; i <= 1; i++)\n\t\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\t\tfor(int k = -8; k <= -6; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t\t\tfor(int i = -2; i <= 2; i++)\n\t\t\t\tfor(int j = 0; j <= 2; j++)\n\t\t\t\t\tfor(int k = 5; k <= 9; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t\t\tloc = new ResourceLocation(RefStrings.MODID, \"textures/blocks/struct_scaffold.png\");\n\n\t\t\tfor(int i = -1; i <= 1; i++)\n\t\t\t\tfor(int j = 5; j <= 50; j++)\n\t\t\t\t\tfor(int k = 6; k <= 8; k++)\n\t\t\t\t\t\trenderSmolBlockAt(loc, i, j, k);\n\n\t"
+        },
+        {
+          "baseline_start": 3331,
+          "native_start": 3131,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 3371,
+          "native_start": 3172,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 3402,
+          "native_start": 3204,
+          "before": "        ",
+          "after": "\t\t\t"
+        },
+        {
+          "baseline_start": 3445,
+          "native_start": 3242,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 3446,
+          "native_start": 3244,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 3471,
+          "native_start": 3267,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 3474,
+          "native_start": 3271,
+          "before": "",
+          "after": "}\n"
+        },
+        {
+          "baseline_start": 3576,
+          "native_start": 3375,
+          "before": "",
+          "after": "try {\n\t\t\t"
+        },
+        {
+          "baseline_start": 3604,
+          "native_start": 3412,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 3639,
+          "native_start": 3448,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "baseline_start": 3640,
+          "native_start": 3450,
+          "before": "\t\n",
+          "after": ""
+        },
+        {
+          "baseline_start": 3680,
+          "native_start": 3488,
+          "before": "i",
+          "after": "getI"
+        },
+        {
+          "baseline_start": 3688,
+          "native_start": 3499,
+          "before": "",
+          "after": "()"
+        },
+        {
+          "baseline_start": 3692,
+          "native_start": 3505,
+          "before": "",
+          "after": "\tBufferBuilder buffer = "
+        },
+        {
+          "baseline_start": 3702,
+          "native_start": 3539,
+          "before": "s",
+          "after": "ge"
+        },
+        {
+          "baseline_start": 3704,
+          "native_start": 3542,
+          "before": "a",
+          "after": "Buffe"
+        },
+        {
+          "baseline_start": 3706,
+          "native_start": 3548,
+          "before": "tDrawingQuads",
+          "after": ""
+        },
+        {
+          "baseline_start": 3752,
+          "native_start": 3581,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 3758,
+          "native_start": 3587,
+          "before": "",
+          "after": ".begin(GL11.GL_QUADS, Def"
+        },
+        {
+          "baseline_start": 3759,
+          "native_start": 3613,
+          "before": "c",
+          "after": "ul"
+        },
+        {
+          "baseline_start": 3761,
+          "native_start": 3616,
+          "before": ".add",
+          "after": ""
+        },
+        {
+          "baseline_start": 3771,
+          "native_start": 3622,
+          "before": "Wi",
+          "after": "Forma"
+        },
+        {
+          "baseline_start": 3774,
+          "native_start": 3628,
+          "before": "hUV",
+          "after": "s.POSITION_TEX);\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3836,
+          "native_start": 3717,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3843,
+          "native_start": 3728,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3850,
+          "native_start": 3730,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3867,
+          "native_start": 3738,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 3928,
+          "native_start": 3810,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 3935,
+          "native_start": 3821,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 3942,
+          "native_start": 3823,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 3959,
+          "native_start": 3831,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4016,
+          "native_start": 3899,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4023,
+          "native_start": 3910,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4030,
+          "native_start": 3912,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4047,
+          "native_start": 3920,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4109,
+          "native_start": 3993,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4115,
+          "native_start": 4003,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 4143,
+          "native_start": 4043,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 4145,
+          "native_start": 4083,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 4146,
+          "native_start": 4091,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 4153,
+          "native_start": 4092,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 4177,
+          "native_start": 4110,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 4183,
+          "native_start": 4116,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 4187,
+          "native_start": 4117,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 4257,
+          "native_start": 4175,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4264,
+          "native_start": 4186,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4271,
+          "native_start": 4188,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4288,
+          "native_start": 4196,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4353,
+          "native_start": 4272,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4360,
+          "native_start": 4283,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4367,
+          "native_start": 4285,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4384,
+          "native_start": 4293,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4445,
+          "native_start": 4365,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4452,
+          "native_start": 4376,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4459,
+          "native_start": 4378,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4476,
+          "native_start": 4386,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4534,
+          "native_start": 4455,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4540,
+          "native_start": 4465,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 4568,
+          "native_start": 4505,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 4570,
+          "native_start": 4545,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 4571,
+          "native_start": 4553,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 4578,
+          "native_start": 4554,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 4602,
+          "native_start": 4572,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 4608,
+          "native_start": 4578,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 4612,
+          "native_start": 4579,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 4678,
+          "native_start": 4633,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4685,
+          "native_start": 4644,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4692,
+          "native_start": 4646,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4709,
+          "native_start": 4654,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4770,
+          "native_start": 4726,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4777,
+          "native_start": 4737,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4784,
+          "native_start": 4739,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4801,
+          "native_start": 4747,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4859,
+          "native_start": 4816,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4866,
+          "native_start": 4827,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 4873,
+          "native_start": 4829,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 4890,
+          "native_start": 4837,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 4943,
+          "native_start": 4901,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 4949,
+          "native_start": 4911,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 4977,
+          "native_start": 4951,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 4979,
+          "native_start": 4991,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 4980,
+          "native_start": 4999,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 4987,
+          "native_start": 5000,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 5011,
+          "native_start": 5018,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 5017,
+          "native_start": 5024,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 5021,
+          "native_start": 5025,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 5091,
+          "native_start": 5083,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5098,
+          "native_start": 5094,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5105,
+          "native_start": 5096,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5122,
+          "native_start": 5104,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5179,
+          "native_start": 5172,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5186,
+          "native_start": 5183,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5193,
+          "native_start": 5185,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5210,
+          "native_start": 5193,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5264,
+          "native_start": 5258,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5271,
+          "native_start": 5269,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5278,
+          "native_start": 5271,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5295,
+          "native_start": 5279,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5352,
+          "native_start": 5347,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5358,
+          "native_start": 5357,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 5386,
+          "native_start": 5397,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 5388,
+          "native_start": 5437,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 5389,
+          "native_start": 5445,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 5396,
+          "native_start": 5446,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 5420,
+          "native_start": 5464,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 5426,
+          "native_start": 5470,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 5430,
+          "native_start": 5471,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 5500,
+          "native_start": 5529,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5507,
+          "native_start": 5540,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5514,
+          "native_start": 5542,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5531,
+          "native_start": 5550,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5588,
+          "native_start": 5618,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5595,
+          "native_start": 5629,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5602,
+          "native_start": 5631,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5619,
+          "native_start": 5639,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5681,
+          "native_start": 5712,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5688,
+          "native_start": 5723,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5695,
+          "native_start": 5725,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5712,
+          "native_start": 5733,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 5777,
+          "native_start": 5809,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5783,
+          "native_start": 5819,
+          "before": "",
+          "after": ").endVertex("
+        },
+        {
+          "baseline_start": 5811,
+          "native_start": 5859,
+          "before": "",
+          "after": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "baseline_start": 5813,
+          "native_start": 5899,
+          "before": "",
+          "after": "xFormat"
+        },
+        {
+          "baseline_start": 5814,
+          "native_start": 5907,
+          "before": "seract",
+          "after": ""
+        },
+        {
+          "baseline_start": 5821,
+          "native_start": 5908,
+          "before": "startDrawingQuads(",
+          "after": "POSITION_TEX"
+        },
+        {
+          "baseline_start": 5845,
+          "native_start": 5926,
+          "before": "tess",
+          "after": "buff"
+        },
+        {
+          "baseline_start": 5851,
+          "native_start": 5932,
+          "before": "act",
+          "after": ""
+        },
+        {
+          "baseline_start": 5855,
+          "native_start": 5933,
+          "before": "addVertexWithUV",
+          "after": "pos"
+        },
+        {
+          "baseline_start": 5917,
+          "native_start": 5983,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 5924,
+          "native_start": 5994,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 5931,
+          "native_start": 5996,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 5948,
+          "native_start": 6004,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 6005,
+          "native_start": 6072,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 6012,
+          "native_start": 6083,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 6019,
+          "native_start": 6085,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 6036,
+          "native_start": 6093,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 6097,
+          "native_start": 6165,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 6104,
+          "native_start": 6176,
+          "before": ";\n\t\t\tt",
+          "after": "."
+        },
+        {
+          "baseline_start": 6111,
+          "native_start": 6178,
+          "before": "sseract.ad",
+          "after": "n"
+        },
+        {
+          "baseline_start": 6128,
+          "native_start": 6186,
+          "before": "WithUV",
+          "after": "();\n\t\t\tbuffer.pos"
+        },
+        {
+          "baseline_start": 6186,
+          "native_start": 6255,
+          "before": ", ",
+          "after": ").tex("
+        },
+        {
+          "baseline_start": 6193,
+          "native_start": 6266,
+          "before": "",
+          "after": ".endVertex()"
+        },
+        {
+          "baseline_start": 6195,
+          "native_start": 6280,
+          "before": "",
+          "after": "\t"
+        },
+        {
+          "baseline_start": 6215,
+          "native_start": 6301,
+          "before": "",
+          "after": "\t\t} finally {\n\t"
+        },
+        {
+          "baseline_start": 6239,
+          "native_start": 6340,
+          "before": "",
+          "after": "}"
+        }
+      ]
+    }
+  }
+}

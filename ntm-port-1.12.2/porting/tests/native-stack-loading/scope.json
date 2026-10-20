@@ -1,0 +1,11 @@
+{
+  "base": "e0d4369",
+  "production_files": [
+    "blocks/generic/BlockStorageCrate.java",
+    "blocks/machine/BlockMassStorage.java",
+    "entity/cart/EntityMinecartCrate.java"
+  ],
+  "removed_factory_calls": 3,
+  "remaining_factory_calls": 67,
+  "forge1614_userdev_sha256": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91"
+}

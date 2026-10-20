@@ -37,7 +37,7 @@ public class GUICoreStabilizer extends GuiInfoContainer {
 		super.initGui();
 
         Keyboard.enableRepeatEvents(true);
-        this.field = new GuiTextField(this.fontRendererObj, guiLeft + 75, guiTop + 57, 29, 12);
+        this.field = new GuiTextField(0, this.fontRenderer, guiLeft + 75, guiTop + 57, 29, 12);
         this.field.setTextColor(-1);
         this.field.setDisabledTextColour(-1);
         this.field.setEnableBackgroundDrawing(false);
@@ -59,10 +59,10 @@ public class GUICoreStabilizer extends GuiInfoContainer {
     	if(guiLeft + 124 <= x && guiLeft + 124 + 18 > x && guiTop + 52 < y && guiTop + 52 + 18 >= y) {
     		
     		if(NumberUtils.isNumber(field.getText())) {
-    			int j = MathHelper.clamp_int(Integer.parseInt(field.getText()), 1, 100);
+    			int j = MathHelper.clamp(Integer.parseInt(field.getText()), 1, 100);
     			field.setText(j + "");
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-	    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(stabilizer.xCoord, stabilizer.yCoord, stabilizer.zCoord, j, 0));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+	    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(stabilizer.getPos().getX(), stabilizer.getPos().getY(), stabilizer.getPos().getZ(), j, 0));
     		}
     	}
 	}
@@ -70,9 +70,9 @@ public class GUICoreStabilizer extends GuiInfoContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		String name = this.stabilizer.hasCustomInventoryName() ? this.stabilizer.getInventoryName() : I18n.format(this.stabilizer.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
 		
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override

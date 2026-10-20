@@ -1,0 +1,5 @@
+PASS complete teleporter source matches staged tree, independent snapshot and 4005 generated main compiler inputs.
+Production tree 3a65664fe74eb22aa89287fe3fc35c0e1102b74f
+{
+  "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTeleporter.java": "320706295967dce7511ef8d382eed400d122dfacc4be657dd1391a7b49a6ae15"
+}

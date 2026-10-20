@@ -77,34 +77,34 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.fluidtank";
 	}
 
 	public byte getComparatorPower() {
 		if(tank.getFill() == 0) return 0;
 		double frac = (double) tank.getFill() / (double) tank.getMaxFill() * 15D;
-		return (byte) (MathHelper.clamp_int((int) frac + 1, 0, 15));
+		return (byte) (MathHelper.clamp((int) frac + 1, 0, 15));
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			//meta below 12 means that it's an old multiblock configuration
 			if(this.getBlockMetadata() < 12) {
 				//get old direction
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);
 				//remove tile from the world to prevent inventory dropping
-				worldObj.removeTileEntity(xCoord, yCoord, zCoord);
+				this.world.removeTileEntity(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				//use fillspace to create a new multiblock configuration
-				worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.machine_fluidtank, dir.ordinal() + 10, 3);
-				MultiblockHandlerXR.fillSpace(worldObj, xCoord, yCoord, zCoord, ((BlockDummyable) ModBlocks.machine_fluidtank).getDimensions(), ModBlocks.machine_fluidtank, dir);
+				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_fluidtank, dir.ordinal() + 10, 3);
+				MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ((BlockDummyable) ModBlocks.machine_fluidtank).getDimensions(), ModBlocks.machine_fluidtank, dir);
 				//load the tile data to restore the old values
 				NBTTagCompound data = new NBTTagCompound();
 				this.writeToNBT(data);
-				worldObj.getTileEntity(xCoord, yCoord, zCoord).readFromNBT(data);
+				this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())).readFromNBT(data);
 				return;
 			}
 
@@ -121,11 +121,11 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 				if(mode == 1) {
 					if(this.node == null || this.node.expired || tank.getTankType() != lastType) {
 
-						this.node = (FluidNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+						this.node = (FluidNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 
 						if(this.node == null || this.node.expired || tank.getTankType() != lastType) {
 							this.node = this.createNode(tank.getTankType());
-							UniNodespace.createNode(worldObj, this.node);
+							UniNodespace.createNode(this.world, this.node);
 							lastType = tank.getTankType();
 						}
 					}
@@ -136,15 +136,15 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 					}
 				} else {
 					if(this.node != null) {
-						UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+						UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 						this.node = null;
 					}
 
 					for(DirPos pos : getConPos()) {
-						FluidNode dirNode = (FluidNode) UniNodespace.getNode(worldObj, pos.getX(), pos.getY(), pos.getZ(), tank.getTankType().getNetworkProvider());
+						FluidNode dirNode = (FluidNode) UniNodespace.getNode(this.world, pos.getX(), pos.getY(), pos.getZ(), tank.getTankType().getNetworkProvider());
 
 						if(mode == 2) {
-							tryProvide(tank, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+							tryProvide(tank, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 						} else {
 							if(dirNode != null && dirNode.hasValidNet()) dirNode.net.removeProvider(this);
 						}
@@ -160,7 +160,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 				tank.loadTank(2, 3, slots);
 				tank.setType(0, 1, slots);
 			} else if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 				this.node = null;
 			}
 
@@ -173,7 +173,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 			if(tank.getFill() > 0) {
 				if(tank.getTankType().isAntimatter()) {
-					new ExplosionVNT(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, 5F).makeAmat().setBlockAllocator(null).setBlockProcessor(null).explode();
+					new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, 5F).makeAmat().setBlockAllocator(null).setBlockProcessor(null).explode();
 					this.explode();
 					this.tank.setFill(0);
 				}
@@ -204,7 +204,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 2.875, zCoord + 1).offset(dir.offsetX * 0.5 - rot.offsetX * 2.25, 0, dir.offsetZ * 0.5 - rot.offsetZ * 2.25));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 2.875, this.pos.getZ() + 1).offset(dir.offsetX * 0.5 - rot.offsetX * 2.25, 0, dir.offsetZ * 0.5 - rot.offsetZ * 2.25));
 
 		for(EntityPlayer player : players) {
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
@@ -229,9 +229,9 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, tank.getTankType().getNetworkProvider());
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType().getNetworkProvider());
 			}
 		}
 	}
@@ -270,33 +270,33 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 		FluidType type = tank.getTankType();
 
 		if(type.hasTrait(FT_Amat.class)) {
-			new ExplosionVNT(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, 5F).makeAmat().setBlockAllocator(null).setBlockProcessor(null).explode();
+			new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, 5F).makeAmat().setBlockAllocator(null).setBlockProcessor(null).explode();
 
 		} else if(type.hasTrait(FT_Flammable.class) && onFire) {
-			List<Entity> affected = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(xCoord - 1.5, yCoord, zCoord - 1.5, xCoord + 2.5, yCoord + 5, zCoord + 2.5));
+			List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 1.5, this.pos.getY(), this.pos.getZ() - 1.5, this.pos.getX() + 2.5, this.pos.getY() + 5, this.pos.getZ() + 2.5));
 			for(Entity e : affected) e.setFire(5);
-			Random rand = worldObj.rand;
-			ParticleUtil.spawnGasFlame(worldObj, xCoord + rand.nextDouble(), yCoord + 0.5 + rand.nextDouble(), zCoord + rand.nextDouble(), rand.nextGaussian() * 0.2, 0.1, rand.nextGaussian() * 0.2);
+			Random rand = this.world.rand;
+			ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + rand.nextDouble(), this.pos.getY() + 0.5 + rand.nextDouble(), this.pos.getZ() + rand.nextDouble(), rand.nextGaussian() * 0.2, 0.1, rand.nextGaussian() * 0.2);
 
-			if(worldObj.getTotalWorldTime() % 5 == 0) {
-				FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.BURN, amount * 5);
+			if(this.world.getTotalWorldTime() % 5 == 0) {
+				FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.BURN, amount * 5);
 			}
 
 		} else if(type.hasTrait(FT_Gaseous.class) || type.hasTrait(FT_Gaseous_ART.class)) {
 
-			if(worldObj.getTotalWorldTime() % 5 == 0) {
+			if(this.world.getTotalWorldTime() % 5 == 0) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "tower");
 				data.setFloat("lift", 1F);
 				data.setFloat("base", 1F);
 				data.setFloat("max", 5F);
-				data.setInteger("life", 100 + worldObj.rand.nextInt(20));
+				data.setInteger("life", 100 + this.world.rand.nextInt(20));
 				data.setInteger("color", tank.getTankType().getColor());
-				PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, xCoord + 0.5, yCoord + 1, zCoord + 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 150));
+				PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 150));
 			}
 
-			if(worldObj.getTotalWorldTime() % 5 == 0 ) {
-				FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.SPILL, amount * 5);
+			if(this.world.getTotalWorldTime() % 5 == 0 ) {
+				FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.SPILL, amount * 5);
 			}
 		}
 	}
@@ -316,7 +316,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 		if(type == EnumExtinguishType.WATER) {
 			if(tank.getTankType().hasTrait(FT_Liquid.class)) { // extinguishing oil with water is a terrible idea!
-				worldObj.newExplosion(null, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, 5F, true, true);
+				this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, 5F, true, true);
 			} else {
 				this.onFire = false;
 				this.markChanged();
@@ -332,14 +332,14 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -355,12 +355,12 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 3,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 3
 					);
 		}
 
@@ -384,13 +384,14 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setShort("mode", mode);
 		tank.writeToNBT(nbt, "tank");
 		nbt.setBoolean("exploded", hasExploded);
 		nbt.setBoolean("onFire", onFire);
+		return nbt;
 	}
 
 	@Override
@@ -463,13 +464,13 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerMachineFluidTank(player.inventory, (TileEntityMachineFluidTank) world.getTileEntity(x, y, z));
+		return new ContainerMachineFluidTank(player.inventory, (TileEntityMachineFluidTank) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUIMachineFluidTank(player.inventory, (TileEntityMachineFluidTank) world.getTileEntity(x, y, z));
+		return new GUIMachineFluidTank(player.inventory, (TileEntityMachineFluidTank) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 
 	@Override

@@ -1,0 +1,48 @@
+PASS frozen complete model handler, 67 native JSON assets, five unchanged source PNG hashes
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java:49: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static Unsafe unsafe;
+                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java:187: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field uf = Unsafe.class.getDeclaredField("theUnsafe"); uf.setAccessible(true); unsafe = (Unsafe) uf.get(null);
+                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java:187: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field uf = Unsafe.class.getDeclaredField("theUnsafe"); uf.setAccessible(true); unsafe = (Unsafe) uf.get(null);
+                                                                                                 ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceModelNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+[14:09:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:09:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:09:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:09:33] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS electric-furnace native models: 40575 assertions; 32 states + 32 items baked through real Forge, folder and ZIP resources, exact 32 native mesher selections.
+Boundaries: controlled BlockContainer metadata fixture and atlas sprites; bypassed GL loader initialization. No client rendering/reload, actual furnace gameplay or full-mod compilation claim.
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceLegacyFaceOracle.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceLegacyFaceOracle.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceLegacyFaceOracle.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceLegacyFaceOracle.java:25: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field uf = Unsafe.class.getDeclaredField("theUnsafe"); uf.setAccessible(true);
+                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceLegacyFaceOracle.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Unsafe unsafe = (Unsafe) uf.get(null);
+        ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ElectricFurnaceLegacyFaceOracle.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Unsafe unsafe = (Unsafe) uf.get(null);
+                         ^
+6 warnings
+PASS official 1.7.10 RenderBlocks six-face UV oracle: 150 assertions; actual Tessellator bytes, no GL draw.

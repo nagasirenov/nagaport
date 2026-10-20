@@ -1,0 +1,142 @@
+import java.awt.Color;
+import java.util.*;
+
+/** Only selected NTM material methods are source-extracted. All engine APIs are
+ * the official 1.7.10 classes from the pinned client JAR, not replacement APIs. */
+public final class OriginalMultipassMaterials {
+ static int currentPass;
+ static long assertions, rows;
+ static final String[] STONES={"textures/blocks/stone.png","textures/blocks/stone.png","hbm:textures/blocks/moon_rock.png","hbm:textures/blocks/minmus_stone.png","hbm:textures/blocks/duna_rock.png","hbm:textures/blocks/moho_stone.png","hbm:textures/blocks/dresbase.png","hbm:textures/blocks/eve_stone_2.png","hbm:textures/blocks/ike_stone.png","textures/blocks/stone.png","hbm:textures/blocks/basalt.png"};
+ static final Map<String,rf> ICONS=new LinkedHashMap<>();
+ static final rg REGISTER=name->ICONS.computeIfAbsent(name.indexOf(':')<0?"minecraft:"+name:name, Icon::new);
+ static final OriginalBase BEDROCK=new OriginalBase();
+ static final OriginalBase PAINT=new OriginalBase(){@Override public rf getIcon(int side,int meta){return REGISTER.a("fixture:paint_side_"+side+"_meta_"+meta);}};
+ static final aji AIR=new aji(awt.a){@Override public boolean c(){return false;}};
+ static final aji SOLID=new aji(awt.e){};
+ static final class Icon implements rf {
+  final String name;Icon(String name){this.name=name;}
+  public int a(){return 19;}public int b(){return 23;}
+  public float c(){return .1875f;}public float d(){return .265625f;}public float e(){return .375f;}public float f(){return .484375f;}
+  public float a(double d){return c()+(d()-c())*(float)d/16f;}public float b(double d){return e()+(f()-e())*(float)d/16f;}
+  public String g(){return name;}
+ }
+ static class OriginalBase extends aji {
+  rf overlay,overlayColor,overlayGauge,iconOverlay,overlayIn,overlayOut;rf[] overlays=new rf[10],stoneIcons,icons;
+  OriginalBase(){super(awt.e);}
+  public void registerBlockIcons(rg reg){super.a(reg);}
+  public rf getIcon(int side,int meta){return super.a(side,meta);}
+  @Override public rf a(int side,int meta){return getIcon(side,meta);}
+  public rf getIcon(ahl w,int x,int y,int z,int side){return super.e(w,x,y,z,side);}
+  @Override public rf e(ahl w,int x,int y,int z,int side){return getIcon(w,x,y,z,side);}
+  public int colorMultiplier(ahl w,int x,int y,int z){return super.d(w,x,y,z);}
+  public boolean shouldSideBeRendered(ahl w,int x,int y,int z,int side){return super.a(w,x,y,z,side);}
+  public int getPasses(){return 1;}
+  public boolean shouldRenderItemMulti(){return false;}
+ }
+ static class PaintTile extends aor {OriginalBase block;int meta=13;int color=0x25b37e;int shape;Direction ejectionDir=Direction.NORTH,insertionDir=Direction.SOUTH;int getColor(){return color;}FluidType getType(){return new FluidType();}}
+ static class TileEntityCablePaintable extends PaintTile{}
+ static class TileEntityOpenComputersCablePaintable extends PaintTile{}
+ static class TileEntityPipePaintable extends PaintTile{}
+ static class TileEntityPipeExhaustPaintable extends PaintTile{}
+ static class TileEntityPneumoTubePaintable extends PaintTile{}
+ static class TileEntityBedrockOre extends PaintTile{}
+ enum Direction{DOWN,UP,NORTH,SOUTH,WEST,EAST,UNKNOWN}
+ static class FluidType{int getColor(){return 0x31a9d4;}}
+ static final class World implements ahl {
+  int meta; aor tile;boolean opaque;
+  public aji a(int x,int y,int z){return opaque?SOLID:AIR;}
+  public aor o(int x,int y,int z){return tile;}
+  public int e(int x,int y,int z){return meta;}
+  public int c(int x,int y,int z,int light){return 0xf000f0;}
+  public boolean c(int x,int y,int z){return !opaque;}
+  public ahu a(int x,int z){return null;}
+  public int R(){return 256;}public boolean T(){return false;}public int e(int x,int y,int z,int side){return 0;}
+ }
+ /*SOURCE_EXTRACTED_CLASSES*/
+ static void check(boolean ok,String message){assertions++;if(!ok)throw new AssertionError(message);}
+ static PaintTile tile(OriginalBase b){
+  if(b instanceof BlockBedrockOreTE)return new TileEntityBedrockOre();
+  if(b instanceof BlockCablePaintable)return new TileEntityCablePaintable();
+  if(b instanceof BlockOpenComputersCablePaintable)return new TileEntityOpenComputersCablePaintable();
+  if(b instanceof FluidDuctPaintable)return new TileEntityPipePaintable();
+  if(b instanceof FluidDuctPaintableBlockExhaust)return new TileEntityPipeExhaustPaintable();
+  if(b instanceof PneumoTubePaintableBlock)return new TileEntityPneumoTubePaintable();
+  return null;
+ }
+ static String stone(int meta){String name=STONES[meta%STONES.length].replace("textures/blocks/","").replace(".png","");return name.indexOf(':')<0?"minecraft:"+name:name;}
+ static String expected(OriginalBase b,World w,int side,int scenario,boolean item){
+  int p=currentPass;boolean painted=scenario==2&&!item;
+  if(b instanceof BlockOre)return p==0?stone(w.meta):"hbm:ore_iron";
+  if(b instanceof BlockFissure)return p==0?"minecraft:bedrock":"hbm:molten_overlay";
+  if(b instanceof BlockBedrockOreTE)return p==0||scenario==0?"minecraft:bedrock":"hbm:ore_random_"+(((PaintTile)w.tile).shape%10+1);
+  if(b instanceof BlockSellafieldOre){
+   if(p==1)return "hbm:ore_overlay_diamond";
+   long l=(long)(X*3129871)^(long)Y*116129781L^(long)Z;l=l*l*42317861L+l*11L;int i=item?0:(int)(l>>16&3L);
+   return "hbm:sellafield_slaked"+(i==0?"":"_"+i);
+  }
+  if(b instanceof CraneRouter)return p==0?"hbm:crane_in":"hbm:crane_router_overlay";
+  if(b instanceof BlockCableGauge)return p==0||side!=w.meta?"hbm:deco_red_copper":"hbm:cable_gauge";
+  if(b instanceof FluidDuctGauge)return p==0?"hbm:deco_steel":side==w.meta?"hbm:pipe_gauge":"hbm:fluid_duct_paintable_overlay";
+  if(p==0&&painted)return "fixture:paint_side_"+side+"_meta_13";
+  if(b instanceof BlockCablePaintable)return p==0?"hbm:red_cable_base":"hbm:red_cable_overlay";
+  if(b instanceof BlockOpenComputersCablePaintable)return p==0?"hbm:oc_cable_base":p==1?"hbm:oc_cable_overlay":"hbm:oc_cable_color";
+  if(b instanceof FluidDuctPaintable)return p==0?"hbm:fluid_duct_paintable":painted?"hbm:fluid_duct_paintable_overlay":"hbm:fluid_duct_paintable_color";
+  if(b instanceof FluidDuctPaintableBlockExhaust)return p==1&&painted?"hbm:fluid_duct_paintable_overlay":"hbm:fluid_duct_paintable_block_exhaust";
+  if(b instanceof PneumoTubePaintableBlock){
+   if(p==0||scenario==0)return "hbm:pneumatic_tube_paintable";
+   PaintTile t=(PaintTile)w.tile;
+   return side==t.ejectionDir.ordinal()?"hbm:pneumatic_tube_paintable_overlay_in":side==t.insertionDir.ordinal()?"hbm:pneumatic_tube_paintable_overlay_out":"hbm:pneumatic_tube_paintable_overlay";
+  }
+  throw new AssertionError(b.getClass());
+ }
+ static int tint(OriginalBase b,World w,int scenario){
+  if(b instanceof BlockSellafieldOre&&currentPass==0)return Color.HSBtoRGB(0,0,1-w.meta/15f);
+  if(b instanceof BlockBedrockOreTE&&currentPass==1&&scenario>0)return 0x25b37e;
+  if(b instanceof BlockOpenComputersCablePaintable&&currentPass==2&&scenario>0)return 0x25b37e;
+  if(b instanceof FluidDuctPaintable&&currentPass==1&&scenario==1)return 0x31a9d4;
+  if(b instanceof CraneRouter&&currentPass>0)return new int[]{0xff0000,0xff8000,0xffff00,0x00ff00,0x0080ff,0x8000ff}[currentPass-1];
+  return 0xffffff;
+ }
+ static int X,Y,Z;
+ static void emit(OriginalBase b,World w,int scenario,boolean item,int side,int color,boolean rendered,rf icon){
+  System.out.println(b.getClass().getSimpleName()+"\t"+(item?"item":"world")+"\t"+scenario+"\t"+w.meta+"\t"+X+"\t"+Y+"\t"+Z+"\t"+currentPass+"\t"+side+"\t"+icon.g()+"\t"+Integer.toHexString(color&0xffffff)+"\t"+rendered+"\t"+w.opaque);rows++;
+ }
+ public static void main(String[] args){
+  BEDROCK.d("minecraft:bedrock");BEDROCK.registerBlockIcons(REGISTER);
+  OriginalBase[] blocks={new BlockBedrockOreTE(),new BlockFissure(),new BlockOre(),new BlockSellafieldOre(),new BlockCableGauge(),new BlockCablePaintable(),new BlockOpenComputersCablePaintable(),new CraneRouter(),new FluidDuctGauge(),new FluidDuctPaintable(),new FluidDuctPaintableBlockExhaust(),new PneumoTubePaintableBlock()};
+  System.out.println("family\tmode\tscenario\tmeta\tx\ty\tz\tpass\tside\ttexture\trgb\trendered\topaque_neighbor");
+  for(OriginalBase b:blocks){
+   b.d(b instanceof BlockSellafieldOre?"hbm:ore_overlay_diamond":b instanceof CraneRouter?"hbm:crane_in":"hbm:ore_iron");b.registerBlockIcons(REGISTER);
+   check(b.getPasses()==(b instanceof CraneRouter?7:b instanceof BlockOpenComputersCablePaintable?3:2),"pass count "+b.getClass());
+   boolean multi=b instanceof BlockOre||b instanceof BlockSellafieldOre||b instanceof BlockFissure;
+   check(b.shouldRenderItemMulti()==multi,"inventory opt-in "+b.getClass());
+   World w=new World();
+   for(int[] pos:new int[][]{{0,0,0},{4,0,0},{-17,63,311},{1000001,127,-1000002}}){
+    X=pos[0];Y=pos[1];Z=pos[2];
+    for(int meta=0;meta<16;meta++){w.meta=meta;
+     for(int scenario=0;scenario<3;scenario++){
+      PaintTile t=tile(b);w.tile=scenario==0?null:t;if(t!=null){t.block=scenario==2?PAINT:null;t.shape=meta;}
+      for(int opaque=0;opaque<2;opaque++){w.opaque=opaque!=0;
+       for(currentPass=0;currentPass<b.getPasses();currentPass++)for(int side=0;side<6;side++){
+        rf icon=b.getIcon(w,X,Y,Z,side);int color=b.colorMultiplier(w,X,Y,Z);boolean rendered=b.shouldSideBeRendered(w,X,Y,Z,side);
+        check(icon.g().equals(expected(b,w,side,scenario,false)),"material "+b.getClass()+" pass="+currentPass+" scenario="+scenario+" side="+side+" actual="+icon.g());
+        check(color==tint(b,w,scenario),"tint "+b.getClass());
+        check(rendered==(b instanceof CraneRouter?(currentPass==0||side==currentPass-1):!w.opaque),"culling "+b.getClass());
+        emit(b,w,scenario,false,side,color,rendered,icon);
+       }
+      }
+     }
+     w.opaque=false;w.tile=null;
+     for(currentPass=0;currentPass<(multi?b.getPasses():1);currentPass++)for(int side=0;side<6;side++){
+      rf icon=b.getIcon(side,meta);check(icon.g().equals(expected(b,w,side,0,true)),"item material "+b.getClass());
+      emit(b,w,0,true,side,0xffffff,true,icon);
+     }
+    }
+   }
+  }
+  // Direction precedence matters when insertion and ejection are the same.
+  PneumoTubePaintableBlock tube=new PneumoTubePaintableBlock();tube.registerBlockIcons(REGISTER);World w=new World();TileEntityPneumoTubePaintable t=new TileEntityPneumoTubePaintable();w.tile=t;currentPass=1;
+  for(Direction in:Direction.values())for(Direction out:Direction.values()){t.insertionDir=in;t.ejectionDir=out;for(int side=0;side<6;side++)check(tube.getIcon(w,0,0,0,side).g().equals(expected(tube,w,side,1,false)),"pneumatic full direction pair truth table");}
+  System.err.println("PASS original methods on real 1.7.10 Block/IIcon/IBlockAccess/TileEntity: "+assertions+" assertions, "+rows+" material/culling rows; all12 families; metadata0..15; absent/unpainted/painted tiles; all6 sides;4 coordinates/all4 Sellafield variants; all49 pneumatic direction pairs.");
+ }
+}

@@ -1,0 +1,15 @@
+Parent-owned integration (do not apply RenderGrate changes):
+
+src/main/java/com/hbm/main/ClientProxy.java:
+Remove:
+    RenderingRegistry.registerBlockHandler(new RenderFence());
+    RenderingRegistry.registerBlockHandler(new RenderChain());
+Keep RenderGrate registration unchanged. StructuralBlockModelHandler is a client EventBusSubscriber.
+
+src/main/java/com/hbm/blocks/ModBlocks.java:
+Replace exactly the existing fence_metal construction with:
+    fence_metal = new BlockMetalFence(Material.IRON).setTranslationKey("fence_metal").setCreativeTab(MainRegistry.machineTab).setHardness(15.0F).setResistance(0.25F);
+Replace exactly the existing chain construction with:
+    chain = new BlockChain(Material.IRON).setTranslationKey("dungeon_chain").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab);
+
+Both new native model routes expect the original registry names hbm:tile.fence_metal and hbm:tile.dungeon_chain, and ItemBlockBase for the metal fence to retain its two item variants. Original textures are declared by StructuralBlockModelHandler, not a removed setBlockTextureName callback. The parent-owned remaining legacy registry family is unchanged by this worker.

@@ -30,7 +30,7 @@ public class StorageManifest {
 			meta.metaNBT.put(stack.getItemDamage(), nbt);
 		}
 		
-		NBTTagCompound compound = stack.hasTagCompound() ? (NBTTagCompound) stack.stackTagCompound.copy() : null;
+		NBTTagCompound compound = stack.hasTagCompound() ? (NBTTagCompound) stack.getTagCompound().copy() : null;
 		long amount = nbt.nbtAmount.containsKey(compound) ? nbt.nbtAmount.get(compound) : 0;
 		
 		amount += stack.stackSize;
@@ -46,7 +46,7 @@ public class StorageManifest {
 				for(Entry<NBTTagCompound, Long> nbtNode : metaNode.getValue().nbtAmount.entrySet()) {
 					
 					ItemStack itemStack = new ItemStack(Item.getItemById(itemNode.getKey()), 1, metaNode.getKey());
-					itemStack.stackTagCompound = nbtNode.getKey();
+					itemStack.setTagCompound(nbtNode.getKey());
 					StorageStack stack = new StorageStack(itemStack, nbtNode.getValue());
 					stacks.add(stack);
 				}

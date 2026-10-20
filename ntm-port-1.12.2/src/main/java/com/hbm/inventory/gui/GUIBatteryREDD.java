@@ -46,21 +46,21 @@ public class GUIBatteryREDD extends GuiInfoContainer {
 		if(this.checkClick(x, y, 133, 52, 18, 18)) { this.click(); data.setBoolean("high", true); }
 		if(this.checkClick(x, y, 152, 35, 16, 16)) { this.click(); data.setBoolean("priority", true); }
 		
-		if(!data.hasNoTags()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.xCoord, battery.yCoord, battery.zCoord));
+		if(!data.hasNoTags()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.getPos().getX(), battery.getPos().getY(), battery.getPos().getZ()));
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.battery.hasCustomInventoryName() ? this.battery.getInventoryName() : I18n.format(this.battery.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		GL11.glPushMatrix();
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 		GL11.glScaled(0.5, 0.5, 1);
 		
 		String label = String.format(Locale.US, "%,d", battery.power) + " HE";
-		this.fontRendererObj.drawString(label, 242 - this.fontRendererObj.getStringWidth(label), 45, 0x00ff00);
+		this.fontRenderer.drawString(label, 242 - this.fontRenderer.getStringWidth(label), 45, 0x00ff00);
 		
 		String deltaText = String.format(Locale.US, "%,d", battery.delta) + " HE/s";
 
@@ -69,7 +69,7 @@ public class GUIBatteryREDD extends GuiInfoContainer {
 		else if(comp < 0) deltaText = TextFormatting.RED + deltaText;
 		else deltaText = TextFormatting.YELLOW + "+" + deltaText;
 		
-		this.fontRendererObj.drawString(deltaText, 242 - this.fontRendererObj.getStringWidth(deltaText), 65, 0x00ff00);
+		this.fontRenderer.drawString(deltaText, 242 - this.fontRenderer.getStringWidth(deltaText), 65, 0x00ff00);
 		
 		GL11.glPopMatrix();
 	}

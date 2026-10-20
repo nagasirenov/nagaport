@@ -41,11 +41,11 @@ public class BlockNTMSand extends BlockEnumMulti {
 
 			if(!BlockFalling.fallInstantly && world.checkChunksExist(x - b0, y - b0, z - b0, x + b0, y + b0, z + b0)) {
 				if(!world.isRemote) {
-					EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, x + 0.5, y + 0.5, z + 0.5, this, world.getBlockMetadata(x, y, z));
+					EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, x + 0.5, y + 0.5, z + 0.5, this, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 					world.spawnEntityInWorld(entityfallingblock);
 				}
 			} else {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 
 				while(BlockFalling.func_149831_e(world, x, y - 1, z) && y > 0) {
 					--y;

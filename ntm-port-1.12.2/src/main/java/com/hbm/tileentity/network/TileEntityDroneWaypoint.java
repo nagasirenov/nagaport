@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDroneLinkable {
+public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDroneLinkable, net.minecraft.util.ITickable {
 
 	public int height = 5;
 	public int nextX = -1;
@@ -22,12 +22,12 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 	public int nextZ = -1;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(nextY != -1) {
-				List<EntityDeliveryDrone> drones = worldObj.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 1, zCoord + 1).offset(dir.offsetX * height, dir.offsetY * height, dir.offsetZ * height));
+				List<EntityDeliveryDrone> drones = this.world.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).offset(dir.offsetX * height, dir.offsetY * height, dir.offsetZ * height));
 				for(EntityDeliveryDrone drone : drones) {
 					if(new Vec3d(drone.motionX, drone.motionY, drone.motionZ).length() < 0.05) {
 						drone.setTarget(nextX + 0.5, nextY, nextZ + 0.5);
@@ -38,14 +38,14 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 			networkPackNT(15);
 		} else {
 			BlockPos pos = getCoord(dir);
-			if(nextY != -1 && worldObj.getTotalWorldTime() % 2 == 0) {
-				double x = xCoord + height * dir.offsetX + 0.5;
-				double y = yCoord + height * dir.offsetY + 0.5;
-				double z = zCoord + height * dir.offsetZ + 0.5;
+			if(nextY != -1 && this.world.getTotalWorldTime() % 2 == 0) {
+				double x = this.pos.getX() + height * dir.offsetX + 0.5;
+				double y = this.pos.getY() + height * dir.offsetY + 0.5;
+				double z = this.pos.getZ() + height * dir.offsetZ + 0.5;
 
-				worldObj.spawnParticle("reddust", x, y, z, 0, 0, 0);
+				this.world.spawnParticle("reddust", x, y, z, 0, 0, 0);
 
-				ParticleUtil.spawnDroneLine(worldObj,
+				ParticleUtil.spawnDroneLine(this.world,
 				pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
 				(nextX  - pos.getX()), (nextY - pos.getY()), (nextZ - pos.getZ()), 0x0000ff);
 			}
@@ -71,7 +71,7 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 	@Override
 	public BlockPos getPoint() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
-		return new BlockPos(xCoord, yCoord, zCoord).offset(dir, height);
+		return new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(dir, height);
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 
 	public void addHeight(int h) {
 		height += h;
-		height = MathHelper.clamp_int(height, 1, 15);
+		height = MathHelper.clamp(height, 1, 15);
 	}
 
 	@Override
@@ -99,13 +99,14 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("height", height);
 		nbt.setIntArray("pos", new int[] {nextX, nextY, nextZ});
+		return nbt;
 	}
 	public BlockPos getCoord(ForgeDirection dir) {
-		return new BlockPos(xCoord  + height * dir.offsetX + 0.5, yCoord + height * dir.offsetY + 0.5, zCoord + height * dir.offsetZ + 0.5);
+		return new BlockPos(this.pos.getX()  + height * dir.offsetX + 0.5, this.pos.getY() + height * dir.offsetY + 0.5, this.pos.getZ() + height * dir.offsetZ + 0.5);
 	}
 }

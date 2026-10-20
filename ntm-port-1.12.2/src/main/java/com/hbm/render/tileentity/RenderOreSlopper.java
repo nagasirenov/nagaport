@@ -7,24 +7,23 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.items.ModItems;
 import com.hbm.main.ResourceManager;
 import com.hbm.render.item.ItemRenderBase;
-import com.hbm.render.util.RenderDecoItem;
+import com.hbm.render.util.NativeMachineItemRenderer;
 import com.hbm.tileentity.machine.TileEntityMachineOreSlopper;
 
-import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderOreSlopper extends TileEntitySpecialRenderer implements IItemRendererProvider {
+
+public class RenderOreSlopper extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {
 	
-	private RenderItem itemRenderer = new RenderDecoItem(this);
+	private final NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 		GL11.glEnable(GL11.GL_LIGHTING);
@@ -51,9 +50,9 @@ public class RenderOreSlopper extends TileEntitySpecialRenderer implements IItem
 
 		GL11.glPushMatrix();
 		double extend = (slopper.prevBucket + (slopper.bucket - slopper.prevBucket) * interp) * 1.5;
-		GL11.glTranslated(0, -MathHelper.clamp_double(extend - 0.25, 0, 1.25), 0);
+		GL11.glTranslated(0, -MathHelper.clamp(extend - 0.25, 0, 1.25), 0);
 		ResourceManager.ore_slopper.renderPart("Hydraulics");
-		GL11.glTranslated(0, -MathHelper.clamp_double(extend, 0, 1.25), 0);
+		GL11.glTranslated(0, -MathHelper.clamp(extend, 0, 1.25), 0);
 		ResourceManager.ore_slopper.renderPart("Bucket");
 		
 		if(slopper.animation == slopper.animation.LIFTING) {
@@ -63,12 +62,10 @@ public class RenderOreSlopper extends TileEntitySpecialRenderer implements IItem
 			GL11.glRotatef(-90, 1F, 0F, 0F);
 			ItemStack stack = new ItemStack(ModItems.bedrock_ore, 1, 0);
 			EntityItem item = new EntityItem(null, 0.0D, 0.0D, 0.0D, stack);
-			item.getEntityItem().stackSize = 1;
+			item.getItem().setCount(1);
 			item.hoverStart = 0.0F;
-			RenderItem.renderInFrame = true;
 			GL11.glScaled(1.75, 1.75, 1.75);
-			itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-			RenderItem.renderInFrame = false;
+			itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);
 			bindTexture(ResourceManager.ore_slopper_tex);
 		}
 		
@@ -111,7 +108,7 @@ public class RenderOreSlopper extends TileEntitySpecialRenderer implements IItem
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(0, -3, 0);

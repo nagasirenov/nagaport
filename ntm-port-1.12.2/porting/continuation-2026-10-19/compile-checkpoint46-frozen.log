@@ -1,0 +1,636 @@
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :clean UP-TO-DATE
+> Task :extractMcpMappings SKIPPED
+> Task :deobfCompileDeobfDepTask0 SKIPPED
+> Task :deobfCompileDeobfDepTask1 SKIPPED
+> Task :deobfCompileDeobfDepTask2 SKIPPED
+> Task :deobfCompileDeobfDepTask3 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask4 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask5 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask6 SKIPPED
+> Task :deobfCompileDummyTask
+> Task :getVersionJson
+> Task :extractUserdev UP-TO-DATE
+> Task :downloadClient SKIPPED
+> Task :downloadServer SKIPPED
+> Task :splitServerJar SKIPPED
+> Task :mergeJars SKIPPED
+> Task :applyBinaryPatches SKIPPED
+> Task :deobfProvidedDeobfDepTask0 SKIPPED
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData SKIPPED
+> Task :genSrgs SKIPPED
+> Task :deobfMcMCP SKIPPED
+> Task :sourceApiJava
+> Task :compileApiJava
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses
+> Task :sourceMainJava
+
+> Task :compileJava
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:18: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:22: error: cannot find symbol
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
+                                           ^
+  symbol:   class RendererLivingEntity
+  location: package net.minecraft.client.renderer.entity
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:27: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderOverhead.java:37: error: cannot find symbol
+	public static void renderTag(EntityLivingBase living, double x, double y, double z, RendererLivingEntity renderer, String name, boolean depthTest) {
+	                                                                                    ^
+  symbol:   class RendererLivingEntity
+  location: class RenderOverhead
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemChopper.java:21: error: cannot find symbol
+import net.minecraft.util.Facing;
+                         ^
+  symbol:   class Facing
+  location: package net.minecraft.util
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/world/biome/BiomeGenNoMansLand.java:13: error: cannot find symbol
+import net.minecraft.world.biome.BiomeGenBase;
+                                ^
+  symbol:   class BiomeGenBase
+  location: package net.minecraft.world.biome
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/world/biome/BiomeGenNoMansLand.java:19: error: cannot find symbol
+public class BiomeGenNoMansLand extends BiomeGenBase {
+                                        ^
+  symbol: class BiomeGenBase
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/world/biome/BiomeGenNoMansLand.java:24: error: cannot find symbol
+	public static final BiomeGenBase noMansLand = new BiomeGenNoMansLand(99).setBiomeName("No Man's Land");
+	                    ^
+  symbol:   class BiomeGenBase
+  location: class BiomeGenNoMansLand
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/world/biome/BiomeDecoratorNoMansLand.java:10: error: cannot find symbol
+import net.minecraft.world.biome.BiomeGenBase;
+                                ^
+  symbol:   class BiomeGenBase
+  location: package net.minecraft.world.biome
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/world/biome/BiomeDecoratorNoMansLand.java:36: error: cannot find symbol
+	protected void genDecorations(BiomeGenBase biome) {
+	                              ^
+  symbol:   class BiomeGenBase
+  location: class BiomeDecoratorNoMansLand
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/wiaj/GuiWorldInAJar.java:25: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/wiaj/GuiWorldInAJar.java:39: error: cannot find symbol
+	RenderBlocks renderer;
+	^
+  symbol:   class RenderBlocks
+  location: class GuiWorldInAJar
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityMaskMan.java:21: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityMaskMan.java:31: error: cannot find symbol
+public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+                                                        ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityFBI.java:20: error: cannot find symbol
+import net.minecraft.entity.ai.EntityAIArrowAttack;
+                              ^
+  symbol:   class EntityAIArrowAttack
+  location: package net.minecraft.entity.ai
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityFBI.java:21: error: cannot find symbol
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+                              ^
+  symbol:   class EntityAIAttackOnCollide
+  location: package net.minecraft.entity.ai
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java:13: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java:21: error: cannot find symbol
+public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements IBossDisplayData {
+                                                                      ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityCyberCrab.java:14: error: cannot find symbol
+import net.minecraft.entity.ai.EntityAIArrowAttack;
+                              ^
+  symbol:   class EntityAIArrowAttack
+  location: package net.minecraft.entity.ai
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityCyberCrab.java:47: error: cannot find symbol
+	protected EntityAIArrowAttack arrowAI() {
+	          ^
+  symbol:   class EntityAIArrowAttack
+  location: class EntityCyberCrab
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityTaintCrab.java:17: error: cannot find symbol
+import net.minecraft.entity.ai.EntityAIArrowAttack;
+                              ^
+  symbol:   class EntityAIArrowAttack
+  location: package net.minecraft.entity.ai
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityTaintCrab.java:35: error: cannot find symbol
+	protected EntityAIArrowAttack arrowAI() {
+	          ^
+  symbol:   class EntityAIArrowAttack
+  location: class EntityTaintCrab
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityHunterChopper.java:20: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityHunterChopper.java:32: error: cannot find symbol
+public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+                                                                       ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityQuackos.java:13: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityQuackos.java:23: error: cannot find symbol
+public class EntityQuackos extends EntityDuck implements IBossDisplayData {
+                                                         ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityBFAngel.java:36: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityBFAngel.java:52: error: cannot find symbol
+public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+                                                                 ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityUFO.java:27: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityUFO.java:40: error: cannot find symbol
+public class EntityUFO extends EntityFlying implements IMob, IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+                                                             ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java:19: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java:29: error: cannot find symbol
+public class EntitySiegeCraft extends EntityUFOBase implements IBossDisplayData {
+                                                               ^
+  symbol: class IBossDisplayData
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/pathfinder/PathFinderUtils.java:4: error: cannot find symbol
+import net.minecraft.pathfinding.PathEntity;
+                                ^
+  symbol:   class PathEntity
+  location: package net.minecraft.pathfinding
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/pathfinder/PathFinderUtils.java:13: error: cannot find symbol
+	public static PathEntity getPathEntityToEntityPartial(World world, Entity fromEntity, Entity toEntity, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {
+	              ^
+  symbol:   class PathEntity
+  location: class PathFinderUtils
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/pathfinder/PathFinderUtils.java:60: error: cannot find symbol
+	public static PathEntity getPathEntityToCoordPartial(World world, Entity fromEntity, int posX, int posY, int posZ, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {
+	              ^
+  symbol:   class PathEntity
+  location: class PathFinderUtils
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/item/RenderTNTPrimedBase.java:7: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/item/RenderTNTPrimedBase.java:15: error: cannot find symbol
+	private RenderBlocks blockRenderer = new RenderBlocks();
+	        ^
+  symbol:   class RenderBlocks
+  location: class RenderTNTPrimedBase
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/item/RenderTrainCargoTramTrailer.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.entity.RenderItem;
+                                           ^
+  symbol:   class RenderItem
+  location: package net.minecraft.client.renderer.entity
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderMaskMan.java:9: error: cannot find symbol
+import net.minecraft.entity.boss.BossStatus;
+                                ^
+  symbol:   class BossStatus
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderWormHead.java:11: error: cannot find symbol
+import net.minecraft.entity.boss.BossStatus;
+                                ^
+  symbol:   class BossStatus
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderQuacc.java:10: error: cannot find symbol
+import net.minecraft.entity.boss.BossStatus;
+                                ^
+  symbol:   class BossStatus
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderQuacc.java:11: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderHunterChopper.java:11: error: cannot find symbol
+import net.minecraft.entity.boss.BossStatus;
+                                ^
+  symbol:   class BossStatus
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderUFO.java:14: error: cannot find symbol
+import net.minecraft.entity.boss.BossStatus;
+                                ^
+  symbol:   class BossStatus
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderUFO.java:15: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderBFA.java:19: error: cannot find symbol
+import net.minecraft.entity.boss.BossStatus;
+                                ^
+  symbol:   class BossStatus
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderBFA.java:20: error: cannot find symbol
+import net.minecraft.entity.boss.IBossDisplayData;
+                                ^
+  symbol:   class IBossDisplayData
+  location: package net.minecraft.entity.boss
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderRubble.java:9: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderBullet.java:24: error: cannot find symbol
+import net.minecraft.client.renderer.entity.RenderItem;
+                                           ^
+  symbol:   class RenderItem
+  location: package net.minecraft.client.renderer.entity
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBoxDuct.java:14: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBoxDuct.java:16: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBoxDuct.java:21: error: cannot find symbol
+public class RenderBoxDuct implements ISimpleBlockRenderingHandler {
+                                      ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBoxDuct.java:24: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderBoxDuct
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBoxDuct.java:96: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderBoxDuct
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKRod.java:12: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKRod.java:14: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKRod.java:19: error: cannot find symbol
+public class RenderRBMKRod implements ISimpleBlockRenderingHandler {
+                                      ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKRod.java:22: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderRBMKRod
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKRod.java:59: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderRBMKRod
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKControl.java:12: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKControl.java:14: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKControl.java:20: error: cannot find symbol
+public class RenderRBMKControl implements ISimpleBlockRenderingHandler {
+                                          ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKControl.java:23: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderRBMKControl
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKControl.java:89: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderRBMKControl
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRTTY.java:11: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRTTY.java:13: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRTTY.java:20: error: cannot find symbol
+public class RenderRTTY implements ISimpleBlockRenderingHandler {
+                                   ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRTTY.java:23: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderRTTY
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRTTY.java:26: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderRTTY
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRail.java:8: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRail.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRail.java:14: error: cannot find symbol
+public class RenderRail implements ISimpleBlockRenderingHandler {
+                                   ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRail.java:17: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderRail
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRail.java:26: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderRail
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockCT.java:7: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockCT.java:9: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockCT.java:12: error: cannot find symbol
+public class RenderBlockCT implements ISimpleBlockRenderingHandler {
+                                      ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockCT.java:15: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderBlockCT
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockCT.java:20: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderBlockCT
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlocksFixed.java:3: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlocksFixed.java:6: error: cannot find symbol
+public class RenderBlocksFixed extends RenderBlocks {
+                                       ^
+  symbol: class RenderBlocks
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderCRT.java:10: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderCRT.java:12: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderCRT.java:17: error: cannot find symbol
+public class RenderCRT implements ISimpleBlockRenderingHandler {
+                                  ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderCRT.java:20: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderCRT
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderCRT.java:40: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderCRT
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderSplitter.java:10: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderSplitter.java:12: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderSplitter.java:16: error: cannot find symbol
+public class RenderSplitter implements ISimpleBlockRenderingHandler {
+                                       ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderSplitter.java:19: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderSplitter
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderSplitter.java:40: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderSplitter
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKReflector.java:8: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKReflector.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKReflector.java:15: error: cannot find symbol
+public class RenderRBMKReflector implements ISimpleBlockRenderingHandler {
+                                            ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKReflector.java:18: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderRBMKReflector
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderRBMKReflector.java:44: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderRBMKReflector
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:7: error: cannot find symbol
+import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
+                                             ^
+  symbol:   class ISimpleBlockRenderingHandler
+  location: package net.minecraftforge.fml.client.registry
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:9: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:13: error: cannot find symbol
+public class RenderBlockMultipass implements ISimpleBlockRenderingHandler {
+                                             ^
+  symbol: class ISimpleBlockRenderingHandler
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:29: error: cannot find symbol
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+	                                                                         ^
+  symbol:   class RenderBlocks
+  location: class RenderBlockMultipass
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/RenderBlockMultipass.java:134: error: cannot find symbol
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+	                                                                                                   ^
+  symbol:   class RenderBlocks
+  location: class RenderBlockMultipass
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/ct/RenderBlocksCT.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/block/ct/RenderBlocksCT.java:17: error: cannot find symbol
+public class RenderBlocksCT extends RenderBlocks {
+                                    ^
+  symbol: class RenderBlocks
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/tileentity/RenderMagma.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/tileentity/RenderSoyuzMultiblock.java:9: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/tileentity/RenderMultiblock.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksNT.java:4: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksNT.java:9: error: cannot find symbol
+public class RenderBlocksNT extends RenderBlocks {
+                                    ^
+  symbol: class RenderBlocks
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksNT.java:28: error: cannot find symbol
+	public static void renderStandardInventoryBlock(Block block, int meta, RenderBlocks renderer) {
+	                                                                       ^
+  symbol:   class RenderBlocks
+  location: class RenderBlocksNT
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksWrapper.java:28: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksWrapper.java:33: error: cannot find symbol
+public class RenderBlocksWrapper extends RenderBlocks {
+                                         ^
+  symbol: class RenderBlocks
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksWrapper.java:36: error: cannot find symbol
+	public RenderBlocks rb;
+	       ^
+  symbol:   class RenderBlocks
+  location: class RenderBlocksWrapper
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/RenderBlocksWrapper.java:38: error: cannot find symbol
+	public void setup(RenderBlocks rb) { this.rb = rb; }
+	                  ^
+  symbol:   class RenderBlocks
+  location: class RenderBlocksWrapper
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/util/IconUtil.java:6: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/model/ModelBlockSpider.java:10: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIScreenSlicePrinter.java:16: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIScreenSlicePrinter.java:34: error: cannot find symbol
+	private RenderBlocks renderer;
+	        ^
+  symbol:   class RenderBlocks
+  location: class GUIScreenSlicePrinter
+/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockModDoor.java:14: error: cannot find symbol
+import net.minecraft.client.renderer.IconFlipped;
+                                    ^
+  symbol:   class IconFlipped
+  location: package net.minecraft.client.renderer
+118 errors
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/4.10.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 28s
+9 actionable tasks: 7 executed, 2 up-to-date

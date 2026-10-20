@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/root",
+  "display": {
+    "icon": {
+      "item": "hbm:item.particle_digamma",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.omega12"
+    },
+    "description": {
+      "translate": "achievement.omega12.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

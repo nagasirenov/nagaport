@@ -1,0 +1,2567 @@
+{
+  "baseline": "0732d318302d807ce8579878a0cdde6b18bbba86",
+  "files": {
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "edits": [
+        {
+          "start": 24996,
+          "end": 25007,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 24996
+        },
+        {
+          "start": 35447,
+          "end": 35458,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 35450
+        },
+        {
+          "start": 35872,
+          "end": 35883,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 35878
+        },
+        {
+          "start": 36980,
+          "end": 36991,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 36989
+        },
+        {
+          "start": 52656,
+          "end": 52667,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 52668
+        },
+        {
+          "start": 52786,
+          "end": 52797,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 52801
+        }
+      ],
+      "before_sha256": "4fb75330ff5642e8daf31dc42cab2102c47c4302d4f35e3c06a21c9c39b6d1c9",
+      "after_sha256": "c900f5777201e9b91fbc9c416e9dd3f8f810715e9d85aabb8eceda8bdf8ca5aa"
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "edits": [
+        {
+          "start": 46255,
+          "end": 46266,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 46255
+        },
+        {
+          "start": 51793,
+          "end": 51804,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 51796
+        }
+      ],
+      "before_sha256": "f131805c4f394152014f5557e71a677e7e8675c989fc86949ac45335a9bc29f8",
+      "after_sha256": "4c5ecc380f5b82cfb51374506c9d3262ca9d526fe4fd369d4f3fca07b2a95bfd"
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBooster.java": {
+      "edits": [
+        {
+          "start": 1574,
+          "end": 1585,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1574
+        }
+      ],
+      "before_sha256": "5978916b6452b30a1c4ff6e08ac387810359e3296ac79e3bd4cf561ffde898d1",
+      "after_sha256": "dab71984065aaef1b0be6c016f73526914f080d20101115c91cabaaabbbf5b1c"
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBreak.java": {
+      "edits": [
+        {
+          "start": 1716,
+          "end": 1727,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1716
+        }
+      ],
+      "before_sha256": "6fe81d17492314b2497d1094bca840835c08649a6c8baca911002a32bf8c1fba",
+      "after_sha256": "a726885a56ea0365100d99feb1264c60d5ec8594ae3e3984b7194e4b05956689"
+    },
+    "src/main/java/com/hbm/items/armor/JetpackRegular.java": {
+      "edits": [
+        {
+          "start": 1544,
+          "end": 1555,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1544
+        }
+      ],
+      "before_sha256": "f7d0b5e9588b3c0122db62e625deaf602c50a53799b8b3defbcc8fb5895a643f",
+      "after_sha256": "11f142669d98593d25e9c4a16daf8da03aa0c42efcbf918b7c52a08ea2f10397"
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "edits": [
+        {
+          "start": 4653,
+          "end": 4664,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4653
+        }
+      ],
+      "before_sha256": "0588b1f300ed6c4f6e7877dca7b520cfa3c00c8f5d68fe94e3bd6092fc4eeedf",
+      "after_sha256": "a408d9859af1ac8cffad2a25e8d7d274aba3b94a52f958aeb6bbeb3311a66d9a"
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJJetpack.java": {
+      "edits": [
+        {
+          "start": 1904,
+          "end": 1915,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1904
+        }
+      ],
+      "before_sha256": "c45bf63f4929ec19241204be131cf47c35847786e991e1c9a2f9967f5ec96056",
+      "after_sha256": "ef81d836b4d9dbc588a5183754678dbdc542463e5ff0999f231b9dd8141ca3ff"
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "edits": [
+        {
+          "start": 2696,
+          "end": 2707,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2696
+        }
+      ],
+      "before_sha256": "414f62086f3d0faacf22d748d4bf91568346c8833b274892a94c006deefda0d4",
+      "after_sha256": "a9c5a0c3fa55efb98dd6e29fc656bd51c6145dac3cc104a2d58a2e2c73c01e5a"
+    },
+    "src/main/java/com/hbm/items/armor/JetpackVectorized.java": {
+      "edits": [
+        {
+          "start": 1584,
+          "end": 1595,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1584
+        }
+      ],
+      "before_sha256": "f2a8a565a03bdfef7b316605c98bcbec00db87afdaf98490e04eedfa8c92e65a",
+      "after_sha256": "d0ad9952f985f98733f66b7a83cf45b2414ce8638a35c2491d3a4a0a8da71db0"
+    },
+    "src/main/java/com/hbm/items/tool/ItemBlowtorch.java": {
+      "edits": [
+        {
+          "start": 4932,
+          "end": 4943,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4932
+        }
+      ],
+      "before_sha256": "a03bd39a87b4314eb4b94b134f9c4dd7b5944d0ed4dbd4d79b4b58e1fefce8f0",
+      "after_sha256": "64466cc76e59e05d4e683b4cf8b51c92a6a17ffa419de1b72e21d04492f77302"
+    },
+    "src/main/java/com/hbm/items/tool/ItemPowerNetTool.java": {
+      "edits": [
+        {
+          "start": 2684,
+          "end": 2695,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2684
+        }
+      ],
+      "before_sha256": "a7dce23b003efd8bcf6f6ce975df06fe16e25fbec0b9d07c97d621b7ca90ea22",
+      "after_sha256": "8eaf355cf40e5b53de12459fe469759e04d5a93bb9ec7c7e2df41716e1b4ea8c"
+    },
+    "src/main/java/com/hbm/items/tool/ItemTransporterLinker.java": {
+      "edits": [
+        {
+          "start": 2379,
+          "end": 2390,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2379
+        },
+        {
+          "start": 5826,
+          "end": 5837,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5829
+        }
+      ],
+      "before_sha256": "a39c728b3282f175317364ad8462cd4dbfe5b7b78f758bf42575eff94cae38ec",
+      "after_sha256": "83c0604864926e37efe62d9554dae045e189f9aea6d717d54cd75365dafc8541"
+    },
+    "src/main/java/com/hbm/items/tool/ItemBoltgun.java": {
+      "edits": [
+        {
+          "start": 2962,
+          "end": 2973,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2962
+        },
+        {
+          "start": 4118,
+          "end": 4129,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4121
+        }
+      ],
+      "before_sha256": "d0a8e06208e75344abeb972b7ed1569aca8bd89870a84e03b53e065346b0a42f",
+      "after_sha256": "8e03ae655633d820177ff1b948d64a5e6c9dc5f2bc34f9f78fdb6120e52f2762"
+    },
+    "src/main/java/com/hbm/items/ItemVOTVdrive.java": {
+      "edits": [
+        {
+          "start": 8384,
+          "end": 8395,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8384
+        },
+        {
+          "start": 8921,
+          "end": 8932,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8924
+        },
+        {
+          "start": 9868,
+          "end": 9879,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 9874
+        },
+        {
+          "start": 10543,
+          "end": 10554,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10552
+        }
+      ],
+      "before_sha256": "1701b45286457da4df536a15329251683527eeff0a4e66fa837f89d9367dc1f0",
+      "after_sha256": "89714bb758d1103de8df9a40a6186ae38312436f00840cfe67a21421cfd07e9b"
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java": {
+      "edits": [
+        {
+          "start": 3106,
+          "end": 3117,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3106
+        },
+        {
+          "start": 4477,
+          "end": 4488,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4480
+        },
+        {
+          "start": 6098,
+          "end": 6109,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6104
+        },
+        {
+          "start": 7816,
+          "end": 7827,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 7825
+        },
+        {
+          "start": 10408,
+          "end": 10419,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10420
+        },
+        {
+          "start": 11884,
+          "end": 11895,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11899
+        },
+        {
+          "start": 14828,
+          "end": 14839,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 14846
+        },
+        {
+          "start": 17056,
+          "end": 17067,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 17077
+        },
+        {
+          "start": 18403,
+          "end": 18414,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 18427
+        },
+        {
+          "start": 22408,
+          "end": 22419,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 22435
+        },
+        {
+          "start": 23586,
+          "end": 23597,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 23616
+        },
+        {
+          "start": 25760,
+          "end": 25771,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 25793
+        },
+        {
+          "start": 27448,
+          "end": 27459,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 27484
+        },
+        {
+          "start": 29536,
+          "end": 29547,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 29575
+        },
+        {
+          "start": 32542,
+          "end": 32553,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 32584
+        },
+        {
+          "start": 36687,
+          "end": 36698,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 36732
+        },
+        {
+          "start": 38716,
+          "end": 38727,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 38764
+        },
+        {
+          "start": 40608,
+          "end": 40619,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 40659
+        },
+        {
+          "start": 42486,
+          "end": 42497,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 42540
+        },
+        {
+          "start": 45026,
+          "end": 45037,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 45083
+        },
+        {
+          "start": 46134,
+          "end": 46145,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 46194
+        },
+        {
+          "start": 48555,
+          "end": 48566,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 48618
+        },
+        {
+          "start": 51042,
+          "end": 51053,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 51108
+        },
+        {
+          "start": 53800,
+          "end": 53811,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 53869
+        },
+        {
+          "start": 56109,
+          "end": 56120,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 56181
+        },
+        {
+          "start": 58928,
+          "end": 58939,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 59003
+        },
+        {
+          "start": 59846,
+          "end": 59857,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 59924
+        },
+        {
+          "start": 61270,
+          "end": 61281,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 61351
+        },
+        {
+          "start": 64359,
+          "end": 64370,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 64443
+        },
+        {
+          "start": 65098,
+          "end": 65109,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 65185
+        },
+        {
+          "start": 66889,
+          "end": 66900,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 66979
+        },
+        {
+          "start": 68692,
+          "end": 68703,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 68785
+        },
+        {
+          "start": 70830,
+          "end": 70841,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 70926
+        },
+        {
+          "start": 72421,
+          "end": 72432,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 72520
+        },
+        {
+          "start": 74434,
+          "end": 74445,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 74536
+        },
+        {
+          "start": 80635,
+          "end": 80646,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 80740
+        },
+        {
+          "start": 82492,
+          "end": 82503,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 82600
+        },
+        {
+          "start": 83165,
+          "end": 83176,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 83276
+        },
+        {
+          "start": 88906,
+          "end": 88917,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 89020
+        },
+        {
+          "start": 89995,
+          "end": 90006,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 90112
+        },
+        {
+          "start": 91657,
+          "end": 91668,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 91777
+        }
+      ],
+      "before_sha256": "0ae0586f07f4756a2e87cc9a2cae9416b27d700ba741b9dc6713dd3de1ce5c92",
+      "after_sha256": "8b23038d1582707b728a1598b5a7289095a1ae6e7df98b2d575e01fa105bd2d7"
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java": {
+      "edits": [
+        {
+          "start": 11325,
+          "end": 11336,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11325
+        }
+      ],
+      "before_sha256": "15634053f8e1479947c53b97730c5acfccf911002aeaea639c42abf7de373dec",
+      "after_sha256": "0d978b9897a75b8b872f897724491db7d747275ba158da2bc779d44b9599156c"
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java": {
+      "edits": [
+        {
+          "start": 4101,
+          "end": 4112,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4101
+        }
+      ],
+      "before_sha256": "b692ee968648e641bba130a6302001c9740f81d7421cad1f98dc028b592f4900",
+      "after_sha256": "2e99d1fe21ef0f7dfa4ba4cf6bd75202eab55977bea90b6e82118079798509f6"
+    },
+    "src/main/java/com/hbm/items/special/ItemBedrockOreBase.java": {
+      "edits": [
+        {
+          "start": 2775,
+          "end": 2786,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2775
+        }
+      ],
+      "before_sha256": "9b2c0c00b638c74aa81e3572c883bc0cfc8b75b1391a173c6e2eb0ab3662003b",
+      "after_sha256": "028c92d93bb3905343b8f93582ed804409f591919eced263b0f663c492916dcf"
+    },
+    "src/main/java/com/hbm/world/gen/NTMWorldGenerator.java": {
+      "edits": [
+        {
+          "start": 12417,
+          "end": 12428,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 12417
+        }
+      ],
+      "before_sha256": "4678c4702a34234c5bbf8046da07256c5ef78d62f17a4afea3d97144650b0922",
+      "after_sha256": "dc554aedd01f5b4dbaa81133650164a0469720bf75b5b603929a68ff03c0dd52"
+    },
+    "src/main/java/com/hbm/world/feature/OreLayer.java": {
+      "edits": [
+        {
+          "start": 2092,
+          "end": 2103,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2092
+        }
+      ],
+      "before_sha256": "0e954d44076f0b5fd50075d0753927d6d852498b956dbdf819febb476693730c",
+      "after_sha256": "acc85c624ffc32073b641d780e1767463e54324d6465a45f5840a97c9cc95286"
+    },
+    "src/main/java/com/hbm/world/feature/OreLayer3D.java": {
+      "edits": [
+        {
+          "start": 2237,
+          "end": 2248,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2237
+        },
+        {
+          "start": 2295,
+          "end": 2306,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2298
+        },
+        {
+          "start": 2459,
+          "end": 2470,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2465
+        },
+        {
+          "start": 4060,
+          "end": 4071,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4069
+        },
+        {
+          "start": 4213,
+          "end": 4224,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4225
+        }
+      ],
+      "before_sha256": "42a85412791bacdaa90fbff16613541eb5e7b1e0a80a091223899282734254c9",
+      "after_sha256": "1069e3a250df61429e9baac0fe5b4534307c5779702437fe891f89c2c5dbe587"
+    },
+    "src/main/java/com/hbm/world/feature/OreCave.java": {
+      "edits": [
+        {
+          "start": 3174,
+          "end": 3185,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3174
+        },
+        {
+          "start": 3232,
+          "end": 3243,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3235
+        }
+      ],
+      "before_sha256": "d72715d8c3ac0f13eb94d20a6aa6129a98d01c6b5d7bbef1ccb42f2b7ec3e0fc",
+      "after_sha256": "a44a9bcf1d68aa1f63110ece9df4573982d66187b3d180e5558ffd16ce9cc470"
+    },
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": {
+      "edits": [
+        {
+          "start": 1916,
+          "end": 1927,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1916
+        }
+      ],
+      "before_sha256": "45466cf55195c3f27a6d318a92f5f26abce0932e344d039271d21e67257b201e",
+      "after_sha256": "91e2e84182740fd937746548b0dcabcb70376d47723d14cb31f3aa80d5845754"
+    },
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": {
+      "edits": [
+        {
+          "start": 749,
+          "end": 760,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 749
+        }
+      ],
+      "before_sha256": "573c897c9728e09dc5a05e08ee188d231fcb2b5d8c0148c7f13202963e54dce0",
+      "after_sha256": "f446195d9e1ff2b01780d366341b44cc958d0aa9be5f87e11785f729a4da52ce"
+    },
+    "src/main/java/com/hbm/world/generator/TimedGenerator.java": {
+      "edits": [
+        {
+          "start": 460,
+          "end": 471,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 460
+        },
+        {
+          "start": 851,
+          "end": 862,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 854
+        },
+        {
+          "start": 949,
+          "end": 960,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 955
+        }
+      ],
+      "before_sha256": "e8f70864d5688b833969e49276232bcfb7c40e28ddf37a7ddd7c0f2c982bed6d",
+      "after_sha256": "c6a151c94be0797c3a0267a7fa4db126b60b4274088daff1bc0eda33f42f6d2e"
+    },
+    "src/main/java/com/hbm/world/WorldUtil.java": {
+      "edits": [
+        {
+          "start": 2142,
+          "end": 2153,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2142
+        },
+        {
+          "start": 2321,
+          "end": 2332,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2324
+        },
+        {
+          "start": 2708,
+          "end": 2719,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2714
+        },
+        {
+          "start": 2926,
+          "end": 2937,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2935
+        },
+        {
+          "start": 3871,
+          "end": 3882,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3883
+        },
+        {
+          "start": 4092,
+          "end": 4103,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4107
+        }
+      ],
+      "before_sha256": "f8679bc6747ab0323cb278cd84a1c25c412bcd76516ec1dae17d42cbc2af735b",
+      "after_sha256": "335e6553289ff6a22f2769cd37ab28f04ef3bb1e4089389e6c1657bbf5388144"
+    },
+    "src/main/java/com/hbm/packet/PermaSyncHandler.java": {
+      "edits": [
+        {
+          "start": 4447,
+          "end": 4458,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4447
+        }
+      ],
+      "before_sha256": "d191be8d624d4db4f5f88e5a8137598f311db0e76e24aaa04e7efbd2fbbc40a0",
+      "after_sha256": "592289ed2e765e1df770a5c4be0f4da22cb8ebeab0b98cc43cf10731c57da162"
+    },
+    "src/main/java/com/hbm/packet/toserver/ItemBobmazonPacket.java": {
+      "edits": [
+        {
+          "start": 1728,
+          "end": 1739,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1728
+        }
+      ],
+      "before_sha256": "6ef3ecd638a904053d778915f9a2ddd8cd219314eda0eabbcba544dcc78ff612",
+      "after_sha256": "84f6c841a54e34ccd4e04be3716bb0cd61778fd2b432ada515567ccff576c163"
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "edits": [
+        {
+          "start": 7456,
+          "end": 7467,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 7456
+        },
+        {
+          "start": 10058,
+          "end": 10069,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10061
+        },
+        {
+          "start": 31399,
+          "end": 31410,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 31405
+        }
+      ],
+      "before_sha256": "02b492c31e5d44dc8dc8176e07cd8636ed9b4327f4729be923129fd606e4cbc0",
+      "after_sha256": "7a560dde0e1c8fe7d6622ba9e6c7dc0470111e1a09af2f8b185534d72442278d"
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileShuttle.java": {
+      "edits": [
+        {
+          "start": 1471,
+          "end": 1482,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1471
+        }
+      ],
+      "before_sha256": "4030b8f4aea1494a5c89c2d056810becd0b7b3d7a48e457515b40bfdf217a0b9",
+      "after_sha256": "c2abb92555f03d5c896cff47709a99ca3b02652e202dbf0a53fc295b769ade13"
+    },
+    "src/main/java/com/hbm/entity/item/EntityFireworks.java": {
+      "edits": [
+        {
+          "start": 1447,
+          "end": 1458,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1447
+        }
+      ],
+      "before_sha256": "9929b44f578b83f794a56749497807de5d388f45bbffe5bb537f33a26d5484df",
+      "after_sha256": "6a44f416b13010c8ace5a04262d6b882b381b2614b245e2b5c68559b8077280e"
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "edits": [
+        {
+          "start": 11315,
+          "end": 11326,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11315
+        }
+      ],
+      "before_sha256": "1671e519f1d8fc54a8a8ae0bafaf93116a24c80dfe56ed3e7b22c6428617fbe7",
+      "after_sha256": "4a44c82bd6e27b342aa00bde0979c82b23196d66c2cc2872c55c53048881d678"
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "edits": [
+        {
+          "start": 8909,
+          "end": 8920,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8909
+        }
+      ],
+      "before_sha256": "943f5121af62246de97860fdc5dbde3243ee95319b972e5fef738bf447f2dc9d",
+      "after_sha256": "5fba362a0181cb8fa653aeaec6e39776dc7a6e28f7be71fd1bcaa308669b4dff"
+    },
+    "src/main/java/com/hbm/entity/logic/EntityEMP.java": {
+      "edits": [
+        {
+          "start": 3365,
+          "end": 3376,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3365
+        }
+      ],
+      "before_sha256": "a58b8d72a61e2d5ac723081bc69a9114f62540a066672be67d2f20a3f2a0bb15",
+      "after_sha256": "bd54e52bd7e7ae88fc78aa1e8517ceb3cb439d739a8e6544bf42651000edb032"
+    },
+    "src/main/java/com/hbm/entity/logic/EntityDeathBlast.java": {
+      "edits": [
+        {
+          "start": 1819,
+          "end": 1830,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1819
+        }
+      ],
+      "before_sha256": "8f1ddddae3b7f88220f5517e94c84bc58a4d9680808103bb6713a302f5ea0365",
+      "after_sha256": "ed7c3425636135fc44b57a64a0e52191cbc9316b7dc408acccfb98aa8bba181f"
+    },
+    "src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK3.java": {
+      "edits": [
+        {
+          "start": 7656,
+          "end": 7667,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 7656
+        }
+      ],
+      "before_sha256": "95788554dd633bbf4d35db72aca96777715b918bd6f2e743b266ad03827ca0f6",
+      "after_sha256": "6866e6a59dac45ab4e9c55dc1abfa7e381fbf1e4bcd77c56d46470fcb3787b9a"
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAITankshell.java": {
+      "edits": [
+        {
+          "start": 3223,
+          "end": 3234,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3223
+        }
+      ],
+      "before_sha256": "0b84562a7be8180240d5fdf49c8dbff90207bec9c83cdeda99b3c028c622d01f",
+      "after_sha256": "023a534a990a4048faa2e640b440af30f2d6abd8661c04dc28f581dd5569725d"
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java": {
+      "edits": [
+        {
+          "start": 5457,
+          "end": 5468,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5457
+        }
+      ],
+      "before_sha256": "0bf6568a025b2aaf537d14499716ed2528f02ba3b0ec36428feb0661cd3098f6",
+      "after_sha256": "592e042cc3c8a0d8dbcaaed05b3b9a362496ed71b75f272a80667b969669ab0f"
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java": {
+      "edits": [
+        {
+          "start": 10633,
+          "end": 10644,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10633
+        }
+      ],
+      "before_sha256": "0791bcf14e1fbc4f0460beefbb4bcfe0a9fcaf61c75ced37b595ecc8ea272f38",
+      "after_sha256": "85ac2554c91f948e1252351d2575fc971149794e2fc9f6d99da8e44c14453047"
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRubble.java": {
+      "edits": [
+        {
+          "start": 1984,
+          "end": 1995,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1984
+        }
+      ],
+      "before_sha256": "9615485cce1bb5160313c691f4e922a7db73cb54079c17c994d2aedaa19dd7f3",
+      "after_sha256": "396682f0f5d0c253ffaf1f75b53c5ebc0e1a05e48c9f3ec92ca464a4ac05223b"
+    },
+    "src/main/java/com/hbm/handler/pollution/PollutionHandler.java": {
+      "edits": [
+        {
+          "start": 6126,
+          "end": 6137,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6126
+        },
+        {
+          "start": 6159,
+          "end": 6170,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6162
+        },
+        {
+          "start": 15284,
+          "end": 15295,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 15290
+        }
+      ],
+      "before_sha256": "c0c5d106366d41f393899912d5b81618ac5d1883deeac48a42e7c3c0d77626bb",
+      "after_sha256": "30f7d6bc71639fed4df11cc2833d4a14ea31180ed01c73d2ef268823aa7cab69"
+    },
+    "src/main/java/com/hbm/handler/ImpactWorldHandler.java": {
+      "edits": [
+        {
+          "start": 792,
+          "end": 803,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 792
+        }
+      ],
+      "before_sha256": "580bce70131fd895ec930856a6d5725d29d50a90eb8bf7ba9f45f82e7224adff",
+      "after_sha256": "0b4726bb51c7a152820c918363572375db57cc776917eefc2f551966ad406802"
+    },
+    "src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java": {
+      "edits": [
+        {
+          "start": 3007,
+          "end": 3018,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3007
+        },
+        {
+          "start": 4181,
+          "end": 4192,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4184
+        },
+        {
+          "start": 4570,
+          "end": 4581,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4576
+        },
+        {
+          "start": 5086,
+          "end": 5097,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5095
+        },
+        {
+          "start": 8847,
+          "end": 8858,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8859
+        },
+        {
+          "start": 9222,
+          "end": 9233,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 9237
+        },
+        {
+          "start": 10925,
+          "end": 10936,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10943
+        },
+        {
+          "start": 10994,
+          "end": 11005,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11015
+        },
+        {
+          "start": 11172,
+          "end": 11183,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11196
+        },
+        {
+          "start": 11227,
+          "end": 11238,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11254
+        },
+        {
+          "start": 11559,
+          "end": 11570,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11589
+        },
+        {
+          "start": 14961,
+          "end": 14972,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 14994
+        },
+        {
+          "start": 16371,
+          "end": 16382,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 16407
+        },
+        {
+          "start": 16607,
+          "end": 16618,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 16646
+        }
+      ],
+      "before_sha256": "5d094aa1742f98038479dc1825499eea8b668964930e8d17c483df7d4ed28308",
+      "after_sha256": "77250a8ad5549c9cac76ae4be210d2eb843151110f9dcb144d3bc5d4d01fd004"
+    },
+    "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java": {
+      "edits": [
+        {
+          "start": 10337,
+          "end": 10348,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10337
+        }
+      ],
+      "before_sha256": "7f71798163fd79c793d2b81bdea26753263b1961875446160ba5cef42440ecf7",
+      "after_sha256": "6e24f5c4abefdce0c27b877cdeabeb1ff58b40dcfbfba2827fd69d19d75805f9"
+    },
+    "src/main/java/com/hbm/explosion/ExplosionLarge.java": {
+      "edits": [
+        {
+          "start": 1179,
+          "end": 1190,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1179
+        },
+        {
+          "start": 1582,
+          "end": 1593,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1585
+        },
+        {
+          "start": 1978,
+          "end": 1989,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1984
+        },
+        {
+          "start": 2601,
+          "end": 2612,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2610
+        }
+      ],
+      "before_sha256": "61216e2d7095caec38d3312d595cacf9fa795bafe3f1676fe8c91a431287d493",
+      "after_sha256": "4ae44c63a36d6f33b1fe7e12e162022a9bbcdca6afa7c8b4c3dbb0e3f04f5862"
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java": {
+      "edits": [
+        {
+          "start": 1181,
+          "end": 1192,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1181
+        }
+      ],
+      "before_sha256": "95a579852fd40e5367cf202f001a7169693811ea3ec97993f00dbdd5032e5e4c",
+      "after_sha256": "1681a34515c3e112268b107deae8dbbc1d46356dae4a3de9eb71d8913551cc9b"
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectTiny.java": {
+      "edits": [
+        {
+          "start": 990,
+          "end": 1001,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 990
+        }
+      ],
+      "before_sha256": "2ff6dc92a9eac60a39178dccfd71822d43d937e6fcd08fbe1fe0768915b70f81",
+      "after_sha256": "55984f4cba8940ad8f84d72efe95e105d000b2c12b943dda6f8728fc05266c49"
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectAmat.java": {
+      "edits": [
+        {
+          "start": 1050,
+          "end": 1061,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1050
+        }
+      ],
+      "before_sha256": "838308a80d9b7f82437ae41ab7c8fdd1592f0ce68b15e6dc081b9e0ab02e8133",
+      "after_sha256": "030187df5a808383117b49398cab88ef4b0034befffcf5b76925e058e6d6cbd8"
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeSmall.java": {
+      "edits": [
+        {
+          "start": 1182,
+          "end": 1193,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1182
+        }
+      ],
+      "before_sha256": "079443d6cdf367e35d63d56cdfc4dea99c82dea658dee1f72dc3712a61afbf37",
+      "after_sha256": "171d42c0105165792ee2329e96e4ab53b1a3066d55f26532cf95a8c8b2f6d35b"
+    },
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "edits": [
+        {
+          "start": 10455,
+          "end": 10466,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10455
+        }
+      ],
+      "before_sha256": "be8fa657399260e19a8b29ca44d5268ba81aa4c0212825d1592454c69e0e5863",
+      "after_sha256": "27ffb21860352d316022bac011c497d729e36b7bdfbbbd057867b5727f152bf2"
+    },
+    "src/main/java/com/hbm/dim/Ike/WorldGeneratorIke.java": {
+      "edits": [
+        {
+          "start": 2005,
+          "end": 2016,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2005
+        }
+      ],
+      "before_sha256": "62a77fcd19b475b0ad51d0690014be7ad0d36e1b0706de1618555fcdae23a9dc",
+      "after_sha256": "1b20235ef5cb1ea46188529389f470190f9bb921f28d66954218017643dfc8df"
+    },
+    "src/main/java/com/hbm/dim/dres/WorldGeneratorDres.java": {
+      "edits": [
+        {
+          "start": 3605,
+          "end": 3616,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3605
+        }
+      ],
+      "before_sha256": "180df97fedb2b63e112a191f3c1ed78c1edb355ce6db4ed066c9459f27c9ea10",
+      "after_sha256": "71eec87ba8f82ed8b56bfb34ece1c129149436bb2c4e790a6f4e72b827ccf319"
+    },
+    "src/main/java/com/hbm/dim/moon/WorldGeneratorMoon.java": {
+      "edits": [
+        {
+          "start": 2881,
+          "end": 2892,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2881
+        }
+      ],
+      "before_sha256": "911e42ad487ca38e8baa7f8a2e45dce4e0b1dcf8c65c349e1e9ca801b8d4e269",
+      "after_sha256": "77c5cd0be67f0c02b95d065a0fb348c31f2a89ce1df96c254bd81d760a0ce912"
+    },
+    "src/main/java/com/hbm/dim/laythe/WorldGeneratorLaythe.java": {
+      "edits": [
+        {
+          "start": 2152,
+          "end": 2163,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2152
+        }
+      ],
+      "before_sha256": "4ac4ff78c7ca2cf08f0f1ea67e3e373bac1e90b6171731012d82a96d974b2865",
+      "after_sha256": "78b688225bbd2951a239bee006369ee9170658082b71e704f63eea97bf053b17"
+    },
+    "src/main/java/com/hbm/dim/eve/WorldGeneratorEve.java": {
+      "edits": [
+        {
+          "start": 1487,
+          "end": 1498,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1487
+        }
+      ],
+      "before_sha256": "21a37de295bf263f435e48510b457105c51b1e8f8f3a4b7cc8e80d72744fadf2",
+      "after_sha256": "b1d0860fba48dfb2f6913d98dbddb48679b724472e707d9516093ead8eb8eeb0"
+    },
+    "src/main/java/com/hbm/dim/WorldProviderCelestial.java": {
+      "edits": [
+        {
+          "start": 20012,
+          "end": 20023,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.WorldProviderCelestial",
+          "after_start": 20012
+        },
+        {
+          "start": 20386,
+          "end": 20397,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.WorldProviderCelestial",
+          "after_start": 20394
+        },
+        {
+          "start": 21048,
+          "end": 21059,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.WorldProviderCelestial",
+          "after_start": 21064
+        },
+        {
+          "start": 21322,
+          "end": 21333,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.WorldProviderCelestial",
+          "after_start": 21346
+        },
+        {
+          "start": 21559,
+          "end": 21570,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.WorldProviderCelestial",
+          "after_start": 21591
+        },
+        {
+          "start": 25238,
+          "end": 25249,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.WorldProviderCelestial",
+          "after_start": 25278
+        }
+      ],
+      "before_sha256": "dbd8fcda86988bd3394641ad56fd631d0757cf5ff5336d18c0f1b0fd24245772",
+      "after_sha256": "f546f1a8c2fe82c5e7aa4d4c0839a34b98b56c27fd19d3c6f1bf97f51f3a01ed"
+    },
+    "src/main/java/com/hbm/dim/duna/WorldProviderDuna.java": {
+      "edits": [
+        {
+          "start": 4285,
+          "end": 4296,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.duna.WorldProviderDuna",
+          "after_start": 4285
+        }
+      ],
+      "before_sha256": "31ec0a5f5fad370da6e7243b47bbc64f3cfbfdebc092b5081d837c18850b330e",
+      "after_sha256": "17da3f17e81501fda5186692b157274305d45d6bc72e0fdea710536997ffb398"
+    },
+    "src/main/java/com/hbm/dim/duna/WorldGeneratorDuna.java": {
+      "edits": [
+        {
+          "start": 1669,
+          "end": 1680,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1669
+        }
+      ],
+      "before_sha256": "4a73ab40bf52b51e2752587b25616487b7c128eb17e957153d34dab1e75594e4",
+      "after_sha256": "1a732a24100736c6cbb1a0b94aed1e9b69baec312659160ff5319c4a5bf49bf0"
+    },
+    "src/main/java/com/hbm/dim/CelestialBody.java": {
+      "edits": [
+        {
+          "start": 16040,
+          "end": 16051,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 16040
+        },
+        {
+          "start": 17322,
+          "end": 17333,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 17325
+        }
+      ],
+      "before_sha256": "63de76aa2b818e48688e3e8f9e2ecd7456fda530ed62db70826d633cf72c4894",
+      "after_sha256": "80dc0a88ff6ea7f398cca9b1932f48dfada7ca32f6ae21e6321c421209cf13d1"
+    },
+    "src/main/java/com/hbm/dim/WorldGeneratorCelestial.java": {
+      "edits": [
+        {
+          "start": 8975,
+          "end": 8986,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8975
+        }
+      ],
+      "before_sha256": "c7ab2dc9bc97ae77f6df63085c028f5c3bf6746ffe36a8349801eb0fda075205",
+      "after_sha256": "5df67a32d6c6ecc64184ea5307ed2138c285e715606febe4505d7261d5337540"
+    },
+    "src/main/java/com/hbm/dim/thatmo/WorldGeneratorThatmo.java": {
+      "edits": [
+        {
+          "start": 3766,
+          "end": 3777,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3766
+        }
+      ],
+      "before_sha256": "533259b1a07c97ec3a4b9fe9c74413fc63636addfe36774eeb42df964a8b96ca",
+      "after_sha256": "3150ddddea938607df67723f9314d3f54bb9901dc9b120c60737e45025e4b70e"
+    },
+    "src/main/java/com/hbm/dim/moho/WorldGeneratorMoho.java": {
+      "edits": [
+        {
+          "start": 3192,
+          "end": 3203,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3192
+        }
+      ],
+      "before_sha256": "b3b21fb747d5398a2e837cd37929cd10bd62637904952daa089001658b4f5dd8",
+      "after_sha256": "709c5c4bc20de1ce8832716bc6ac3770629dffb53d2e12dd2e1de21036702c02"
+    },
+    "src/main/java/com/hbm/dim/minmus/WorldGeneratorMinmus.java": {
+      "edits": [
+        {
+          "start": 3045,
+          "end": 3056,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3045
+        }
+      ],
+      "before_sha256": "ac97d29bd2a63b6e9f0b57fa26b4bb1651eb95fe2ace1f9818b093dfa0cc5d2f",
+      "after_sha256": "bdd3411d6667be8e2d1399895b3feb790ead3050b282c5facf5d6df9729bf73e"
+    },
+    "src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java": {
+      "edits": [
+        {
+          "start": 6827,
+          "end": 6838,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.orbit.WorldProviderOrbit",
+          "after_start": 6827
+        },
+        {
+          "start": 7210,
+          "end": 7221,
+          "new": "this.getDimension()",
+          "old": "dimensionId",
+          "receiver": "com.hbm.dim.orbit.WorldProviderOrbit",
+          "after_start": 7218
+        }
+      ],
+      "before_sha256": "e4fe58fb24669308302b66777967bb6dec2936f534dd46e7ca763bd9cf23f1af",
+      "after_sha256": "ddffb95f3dd12bec28ec65a1f9a4bce50870b3d2fa42b98cb68f586b74be9296"
+    },
+    "src/main/java/com/hbm/dim/tekto/WorldGeneratorTekto.java": {
+      "edits": [
+        {
+          "start": 1166,
+          "end": 1177,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1166
+        }
+      ],
+      "before_sha256": "69bdefa12e227bc40e87d19ec8e1701f5c00fa97a07f261e2e3358e339fa0832",
+      "after_sha256": "fb74be8d7084385b9f93122e7eca1ea8dab9bfd0cd891f659e1872c8999f29bc"
+    },
+    "src/main/java/com/hbm/dim/CelestialTeleporter.java": {
+      "edits": [
+        {
+          "start": 2388,
+          "end": 2399,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2388
+        },
+        {
+          "start": 3026,
+          "end": 3037,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3029
+        },
+        {
+          "start": 3967,
+          "end": 3978,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3973
+        }
+      ],
+      "before_sha256": "b575948ba7489c375116ccf86bd2e6369deff3d80af75044175edb932abdbd85",
+      "after_sha256": "4b9432e5f1276c98087d78ff620bddb22296975d5f33155f825a6d93a20736bf"
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityFireworks.java": {
+      "edits": [
+        {
+          "start": 1637,
+          "end": 1648,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1637
+        }
+      ],
+      "before_sha256": "596825bacc210fb8e67d9cf791fe49f1db17fd0061796474442fea9d762619c5",
+      "after_sha256": "14b10c72efb95e2b6b46057f638f128d4735076b6a197ffcb4c4eef7f57a31ae"
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java": {
+      "edits": [
+        {
+          "start": 5954,
+          "end": 5965,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5954
+        },
+        {
+          "start": 6216,
+          "end": 6227,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6219
+        }
+      ],
+      "before_sha256": "d62802bffed0dfb61b2571e289167f660b049742b61f00ddeb028112c2ede859",
+      "after_sha256": "17abb9fc1f8e3f5c106fbf0c4229646967ae6854b98161fb49fec4d4efcc74ef"
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java": {
+      "edits": [
+        {
+          "start": 5573,
+          "end": 5584,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5573
+        },
+        {
+          "start": 5835,
+          "end": 5846,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5838
+        }
+      ],
+      "before_sha256": "a4f7e7c30c9b3ff11bdee4aa0f3f5a129def4bf6cbd57dbd3e15979887fdc425",
+      "after_sha256": "9848baefd814a020db27d9b78d1a7773b93860093a238004789f1717593bf4d3"
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java": {
+      "edits": [
+        {
+          "start": 11602,
+          "end": 11613,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11602
+        }
+      ],
+      "before_sha256": "c768fbd3d310e2e680b3ef3ab9ad67bc37f17e0b9e8edd8c6da2ad19798df6ce",
+      "after_sha256": "ea173cf685742861ba2d324e5a452e2acd3daf11e3a207a05a3c9a0fbfe50946"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java": {
+      "edits": [
+        {
+          "start": 4218,
+          "end": 4229,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4218
+        }
+      ],
+      "before_sha256": "1cc82de30d5f1ac96b703ab1d939049abbe2bbd493485aa5dee0df136e1e12ad",
+      "after_sha256": "692b3b23d5fc9ff7d7038dc8b2cf05a81ac47eb525dae1e1688188240fe7621c"
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBoiler.java": {
+      "edits": [
+        {
+          "start": 4011,
+          "end": 4022,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4011
+        }
+      ],
+      "before_sha256": "0926cfde70d470a2043089d8e43f24fa21f89e1027b117a2e74f82eaa2718504",
+      "after_sha256": "3609b28e2d7a20ec234eaea6abbe7dc18fffeec24bf1246a63b4cdad0079a1eb"
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "edits": [
+        {
+          "start": 16008,
+          "end": 16019,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 16008
+        }
+      ],
+      "before_sha256": "980937493cccdb17a5d9d0dc1bb79dba200a75646da35071a26bce407b30d7b1",
+      "after_sha256": "bd4327d7fd99dbf4d536c29ba364ecc1398da06f14e6fcbd472f13b707a098c3"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java": {
+      "edits": [
+        {
+          "start": 15660,
+          "end": 15671,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 15660
+        }
+      ],
+      "before_sha256": "a8d2f2a0e733717b32a277f9b9441af885a2d1d296ad763c91d0be5f38850c7c",
+      "after_sha256": "06890b1d1685bf178f116ef99a2070cafe91163218f1fff3fdc31ec702bb1694"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java": {
+      "edits": [
+        {
+          "start": 5455,
+          "end": 5466,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5455
+        }
+      ],
+      "before_sha256": "dd98364853b60d943c73b58108b2c7e86fee3e8639548ed095ea43d2e2b98c58",
+      "after_sha256": "c7c5e310aebbfa87bdc831a700593f4f8b5aa6b09e246db8e55b2d5e3375e5c0"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java": {
+      "edits": [
+        {
+          "start": 6729,
+          "end": 6740,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6729
+        },
+        {
+          "start": 8549,
+          "end": 8560,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8552
+        }
+      ],
+      "before_sha256": "379dc8a98b28cf0f01642fe40e2651e5a5cd007c0f8f27a19e7b991f407d21e1",
+      "after_sha256": "c3c99decd40d25df69b0aefe891ac700d3f7a9aca3b3f04b5090a81891c5786f"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java": {
+      "edits": [
+        {
+          "start": 3196,
+          "end": 3207,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3196
+        }
+      ],
+      "before_sha256": "82f493d39dc373e1a1d36b97d1068a37ef0e9ce3e052205d765d2c7a7fe71b3c",
+      "after_sha256": "6e0cc363273d66ebc2bb0f76ae40feb1572f37ef73d34c7baccd284ce0842221"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java": {
+      "edits": [
+        {
+          "start": 11328,
+          "end": 11339,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 11328
+        }
+      ],
+      "before_sha256": "edb500c6fef5095d691e978f853da4b8b1ac3b7ac6fbcdf8f01c7503944be85a",
+      "after_sha256": "c294d1c12acdcf3b19251c6ad5785f3d4ad905fdee70e5ce4a0a6764772ece5d"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java": {
+      "edits": [
+        {
+          "start": 5545,
+          "end": 5556,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5545
+        },
+        {
+          "start": 5998,
+          "end": 6009,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6001
+        },
+        {
+          "start": 6294,
+          "end": 6305,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6300
+        },
+        {
+          "start": 6528,
+          "end": 6539,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6537
+        }
+      ],
+      "before_sha256": "673584ac03622ccb777bde69fcfe416ccce7906352fa4b16b9d8a4809252aebf",
+      "after_sha256": "c2e1d7d53ce4c54fc71e7456242c8d1f3a5635bde70013e723e9e2593cf6c4e7"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java": {
+      "edits": [
+        {
+          "start": 9657,
+          "end": 9668,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 9657
+        }
+      ],
+      "before_sha256": "f11602486d811c87d24c1aa70c464312781a9deb59b09cbef7c3a6d8d3b48b0d",
+      "after_sha256": "b815a4abdd41000e033105e0749689c4ee7ffe97c5df9938d1f5fb2aa1b24f72"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java": {
+      "edits": [
+        {
+          "start": 6320,
+          "end": 6331,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6320
+        }
+      ],
+      "before_sha256": "e1c3e07e6fa515162f183923d44a575b9d60f7119383ca7a283d5cbdb37fc461",
+      "after_sha256": "3d9318d6cf8e995fc3709fd1872d4d41a85f330a26f66f46e609236d5c860c17"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java": {
+      "edits": [
+        {
+          "start": 5024,
+          "end": 5035,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5024
+        }
+      ],
+      "before_sha256": "7d1f135c743c36b647796af96c362eb1c4d6b2ecc8654bee8d29e2bf52cf6713",
+      "after_sha256": "d846ab1d9f7c445823ee5d4c191c70c3115b2b4886a2ab11e8f14e94fbd8927f"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java": {
+      "edits": [
+        {
+          "start": 4352,
+          "end": 4363,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4352
+        }
+      ],
+      "before_sha256": "96f9bf295ea07506d7cb44a9c75bd430ac88a8c68b573d8062b50dfb7fb2f676",
+      "after_sha256": "12fced20f49947748468a5a4998b1a0ede881f041b3a51b20940bbf149d30901"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java": {
+      "edits": [
+        {
+          "start": 4517,
+          "end": 4528,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4517
+        }
+      ],
+      "before_sha256": "11f6b9b7c6a8aef5d4a7568a661e1f61ff41d7849bcde828515cb24dfea8eb23",
+      "after_sha256": "4ba7a83398a25343528b8a2589c279a031aed0bed26b725d816cef4d4084af1b"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java": {
+      "edits": [
+        {
+          "start": 3767,
+          "end": 3778,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3767
+        }
+      ],
+      "before_sha256": "77b04b3e5aa4fb338908f8dafb17f6ca3b855866e41df46446a17ce8069c8b22",
+      "after_sha256": "6ba49f72c43a429feccf9e1092e89d4cdc6314ea6a597ba84d8de70468f790e6"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java": {
+      "edits": [
+        {
+          "start": 4758,
+          "end": 4769,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4758
+        }
+      ],
+      "before_sha256": "e5d29d84ed21a1e214c93c29115f567229a519afcf55a2e6746a3e6600a90154",
+      "after_sha256": "976ed46a0d6c533392033f4e5d50dd828b447899e3b111f2a2b36d24a12b1e1f"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java": {
+      "edits": [
+        {
+          "start": 1996,
+          "end": 2007,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1996
+        },
+        {
+          "start": 2313,
+          "end": 2324,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2316
+        },
+        {
+          "start": 2630,
+          "end": 2641,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2636
+        },
+        {
+          "start": 2947,
+          "end": 2958,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2956
+        }
+      ],
+      "before_sha256": "06ae888968140ac10c63a562bc77e3be24930e53f533be6500ee2b553fc68b25",
+      "after_sha256": "30a39391558ac4b9afa44e0b7382783b305bf15dc11e3322907129133a155985"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java": {
+      "edits": [
+        {
+          "start": 5100,
+          "end": 5111,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5100
+        }
+      ],
+      "before_sha256": "36112c1853819ec71d6ed302ebfc827ba6b553f8c7fb33696662f2bfc89fcd3a",
+      "after_sha256": "e658955f8c81d282316545e9a5ec990c476e4661e03e76d7b061309f337a0dad"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java": {
+      "edits": [
+        {
+          "start": 7136,
+          "end": 7147,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 7136
+        },
+        {
+          "start": 8471,
+          "end": 8482,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8474
+        }
+      ],
+      "before_sha256": "7a6c1edf2141e79e1d3222ea5c68e95c518956a22ced86e4520f68e55b29c0fd",
+      "after_sha256": "4ed034488b8240419a1b6f3edf23aaf44a3d5a5a764ef0236a0cf1a279806cd5"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java": {
+      "edits": [
+        {
+          "start": 8945,
+          "end": 8956,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8945
+        },
+        {
+          "start": 10187,
+          "end": 10198,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10190
+        }
+      ],
+      "before_sha256": "e8f00af2681475104b6b282a6b253859617129c57364f69fb14e4cb345e978be",
+      "after_sha256": "3f1e93c09a4f4ae4abcfd9287287e0e34927ac1127c4d78c6a4021c221ab2660"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java": {
+      "edits": [
+        {
+          "start": 6556,
+          "end": 6567,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6556
+        },
+        {
+          "start": 6990,
+          "end": 7001,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6993
+        }
+      ],
+      "before_sha256": "4c168f24c8ca8f77b60b17f718e1fb6ec1e27323dc4681012c21432a624d55de",
+      "after_sha256": "de29369693c2191d4f420da6385dbe29b509ac3b2f2da711a2f7713ab4e6b641"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityZirnoxDestroyed.java": {
+      "edits": [
+        {
+          "start": 1858,
+          "end": 1869,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1858
+        }
+      ],
+      "before_sha256": "46fa067c5230129ece16656abfdb8754318f7d98f16d6d11723c3b183c6b64b2",
+      "after_sha256": "57770db7acb8e8041d9bdc2e629e6ada115e8fa7b5ce2a3ecf0cc7fb9fe6c7a3"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "edits": [
+        {
+          "start": 3028,
+          "end": 3039,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3028
+        },
+        {
+          "start": 3328,
+          "end": 3339,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3331
+        },
+        {
+          "start": 3956,
+          "end": 3967,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3962
+        }
+      ],
+      "before_sha256": "1d57ef9abcedf4136b3c73177aa912b807872f81845f617afb79db4ec80209cd",
+      "after_sha256": "7d8faf618f6d02d15787c1fb030abfce5423f306e6b908df2e354295b55b82c9"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java": {
+      "edits": [
+        {
+          "start": 9740,
+          "end": 9751,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 9740
+        }
+      ],
+      "before_sha256": "6b17756518ced3d7a6b4f431e84e4ef4f81f77c716c6b9e408423d57e80644da",
+      "after_sha256": "45b09e3e08052a01e49302a7185a07503bac56ce6928e4419cf6e45b6a446ff3"
+    },
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java": {
+      "edits": [
+        {
+          "start": 1670,
+          "end": 1681,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1670
+        }
+      ],
+      "before_sha256": "fc6bb6687d27278cde426d5bf0dd3e539a084538804ab3d50cd1ebfe027c6e92",
+      "after_sha256": "fc096f709839f1fb6a4efdff122310d7ef3c4a3a4b9967e00b36373b6339e3da"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java": {
+      "edits": [
+        {
+          "start": 6649,
+          "end": 6660,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 6649
+        }
+      ],
+      "before_sha256": "27f589b3b2876efc9004d5acfa81566d53f2389fbc43141fa347bd7c39f47114",
+      "after_sha256": "40a703ef3b942a4bf2debb21535b46eb2826ce145e25fbe87db66107f02abdce"
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityGeysir.java": {
+      "edits": [
+        {
+          "start": 3994,
+          "end": 4005,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3994
+        }
+      ],
+      "before_sha256": "8b7ba4a06ad46421344b973e8f0a7ffd3a8e73475c516c9b727ddfee3580faed",
+      "after_sha256": "6ca36852e40380fdf083ea16bffd59ba2a17f77f105878287226322838b01122"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentryDamaged.java": {
+      "edits": [
+        {
+          "start": 2722,
+          "end": 2733,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2722
+        }
+      ],
+      "before_sha256": "c472bbd31c22d2b9607cba5be79e1240918e89cdd00d5e66b426617fca3aa2e3",
+      "after_sha256": "1a4fe3822ba8971b8fb60e4bc8007870a4c1bdcb95180444606f63dfc967b669"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java": {
+      "edits": [
+        {
+          "start": 4241,
+          "end": 4252,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4241
+        }
+      ],
+      "before_sha256": "0bbc212863bd3edecdc498f86e5ce56d5fe0e130ce9c82cf3307d319c291983d",
+      "after_sha256": "703a34770474e1280d13e7321822299223874d9833d7440733241e60d46919a6"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": {
+      "edits": [
+        {
+          "start": 9375,
+          "end": 9386,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 9375
+        }
+      ],
+      "before_sha256": "b1260c8235dbae968822efbb4031e9251a0ea4ddbf3a2566ab964ccfe9d727eb",
+      "after_sha256": "f700a5d6c12c9d5b8787c02e30e150553c1a458477452ceea3aa64c08f8c4fcd"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java": {
+      "edits": [
+        {
+          "start": 3334,
+          "end": 3345,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3334
+        }
+      ],
+      "before_sha256": "8cf209439b40f98c0773a492a87bb81912d950a22b38573c37f7a2952fcd68dc",
+      "after_sha256": "043e9a407361b240dcad3151badefa0d389fabebe4a2aa922f93d854be329385"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java": {
+      "edits": [
+        {
+          "start": 4449,
+          "end": 4460,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 4449
+        }
+      ],
+      "before_sha256": "a20e67177587eceb88c25085fe6048b9486d01d759e53da266c71fe9f1244e9a",
+      "after_sha256": "7e797d99b4260e70b5a1afaac9d95a6dc8b0442a4c87af7d987fcb4c929f4397"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java": {
+      "edits": [
+        {
+          "start": 2716,
+          "end": 2727,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2716
+        }
+      ],
+      "before_sha256": "46a391a3499b3728d0b66d47bf818e0a0f6ad02cb9e3fa18ba9a454b1f0122bf",
+      "after_sha256": "efce040ba2d4d6eaddbe7d8b84ae7f9ed377bd7c4a40734754fbbdcd6f2f76cf"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java": {
+      "edits": [
+        {
+          "start": 2838,
+          "end": 2849,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2838
+        }
+      ],
+      "before_sha256": "9b942d46193aa704ad814374cdd3e404d4f009f8ef9b3f5316dee6127de88fc8",
+      "after_sha256": "2762b7e2624339b1a6270862626ba10a081b7ec698eae344ca82ccae7ceeabd8"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java": {
+      "edits": [
+        {
+          "start": 24685,
+          "end": 24696,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 24685
+        }
+      ],
+      "before_sha256": "1c9addecac84d1dee63b50e980f6d5e2a9d656b56e7e527addbc8a897d6c87c3",
+      "after_sha256": "57c17f9de2655d626e9e26c8bf8c5ea70a8e05f30605c92a9bb3e469fb56dcb2"
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHowardDamaged.java": {
+      "edits": [
+        {
+          "start": 2934,
+          "end": 2945,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2934
+        }
+      ],
+      "before_sha256": "6e86cae43b954704164269053f5b7c8f21af0a4d75da6ff8fd862a0eafd4e098",
+      "after_sha256": "16167a0a3b2b5c390a022e2ba4ef2ea6d360213f00054dff1b4fc93d84b5ec32"
+    },
+    "src/main/java/com/hbm/util/ParticleUtil.java": {
+      "edits": [
+        {
+          "start": 927,
+          "end": 938,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 927
+        },
+        {
+          "start": 1498,
+          "end": 1509,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1501
+        },
+        {
+          "start": 2151,
+          "end": 2162,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2157
+        },
+        {
+          "start": 2701,
+          "end": 2712,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2710
+        },
+        {
+          "start": 3339,
+          "end": 3350,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3351
+        },
+        {
+          "start": 3980,
+          "end": 3991,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3995
+        }
+      ],
+      "before_sha256": "bf1895893d27f6c2044de42c0f09ef5f7a767d1c4f5352a74c5f42b1da065ede",
+      "after_sha256": "6dcd80e68c44d0c769083278bd3c5945a46efd844fd4f80f3c5b94b2bde8ff21"
+    },
+    "src/main/java/com/hbm/blocks/generic/PartEmitter.java": {
+      "edits": [
+        {
+          "start": 3140,
+          "end": 3151,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3140
+        }
+      ],
+      "before_sha256": "5256b5a94747af78b29b870e9dead1bda66458917cbe09819c223ba012a7abeb",
+      "after_sha256": "a56982b7f57dc6c7de3c05c0f2950d3071c3df23c57bd52d3ae615a6a0a5c995"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockEmitter.java": {
+      "edits": [
+        {
+          "start": 5519,
+          "end": 5530,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5519
+        }
+      ],
+      "before_sha256": "afbe5fbcb83cd4b33812a5473cbcb318aa64e9dbd8ed309316860f4499fdbd8a",
+      "after_sha256": "bd39632aebf5bb3dd21d5b212853a5972960320b030b45450a72b39c25a1c0fd"
+    },
+    "src/main/java/com/hbm/blocks/BlockVolcanoV2.java": {
+      "edits": [
+        {
+          "start": 2639,
+          "end": 2650,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2639
+        },
+        {
+          "start": 3168,
+          "end": 3179,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 3171
+        }
+      ],
+      "before_sha256": "6f77c34da2139e1b955416c2a21fa485247333aebd513e72c548f53791d0502b",
+      "after_sha256": "4175466527e0b8462a9f205c31b10b6c24fdb7d6b2c278ad1d542fdc2d773e18"
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "edits": [
+        {
+          "start": 8152,
+          "end": 8163,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 8152
+        }
+      ],
+      "before_sha256": "6e14c9d2f4c302d49095832c9f3508ea76fcf58e955792de05361682821d2860",
+      "after_sha256": "10df2d56b6530db16d21ed2c089e121ab348205f3c4a15e46186ce2d2e0d6a18"
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": {
+      "edits": [
+        {
+          "start": 5119,
+          "end": 5130,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5119
+        }
+      ],
+      "before_sha256": "f8debb9d18144d37913b645956c404e78ddd641f57c4a63bf4d213dec3bfbbfe",
+      "after_sha256": "bdc930d725f38b8102e6ab5c54e4df5b6da1c4e070a927967e6fae664940d19d"
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "edits": [
+        {
+          "start": 10570,
+          "end": 10581,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 10570
+        }
+      ],
+      "before_sha256": "c6f605627f7acc58b62b72a26a1d6d6beae13918ee5ea5845dc8812eb70202ee",
+      "after_sha256": "35cfe130acc1747f8b90dd66ff5276240f153137d2b6d3250ebab85dc34613fe"
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockAtmosphereEditor.java": {
+      "edits": [
+        {
+          "start": 5752,
+          "end": 5763,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 5752
+        }
+      ],
+      "before_sha256": "2762b6f2c94f70809d44f0b1a5f2f5065da9fd1cd930ba9a6bd41199fe7953b0",
+      "after_sha256": "9a87017b99c6b063f03edb94c50126f9161a5c25d494b6fc82fc7a8fa136375b"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineTeleporter.java": {
+      "edits": [
+        {
+          "start": 2316,
+          "end": 2327,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2316
+        }
+      ],
+      "before_sha256": "264c56aac77545b853006a163152719e97c9a39f061b9e2b030ae593e99cabe3",
+      "after_sha256": "9f7cb0af9577da770608035639bd1096a65bf6acb1619b063be916083bd65ae9"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java": {
+      "edits": [
+        {
+          "start": 1195,
+          "end": 1206,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1195
+        }
+      ],
+      "before_sha256": "ff3bf816f05885380194c41bfad728bd90fda74bf194bf5b6b0bbbe3cbe3b20b",
+      "after_sha256": "fa82f39acfd7fa459bb6cec1bb1f746ce4d970e8af55d4348d82a7b1b0c9ce2b"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java": {
+      "edits": [
+        {
+          "start": 863,
+          "end": 874,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 863
+        }
+      ],
+      "before_sha256": "1f95d65d6023dfdee6c92286bf1622ddacbbee13a1870bec763477a41f6abb25",
+      "after_sha256": "1d6871c7c53ffad767e7581e600f7a385066964b43ab3fbf29e76ddb0af32322"
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphite.java": {
+      "edits": [
+        {
+          "start": 1184,
+          "end": 1195,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 1184
+        }
+      ],
+      "before_sha256": "56d2339976e07e07572ede6ba10f9f40759c59c597b1567cc60024e05f65d168",
+      "after_sha256": "fb5e3186068f9375e8d5930b08ccdbeb7720edc616d5ef4e582f389a4573f8b2"
+    },
+    "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java": {
+      "edits": [
+        {
+          "start": 2927,
+          "end": 2938,
+          "new": "getDimension()",
+          "old": "dimensionId",
+          "receiver": "net.minecraft.world.WorldProvider",
+          "after_start": 2927
+        }
+      ],
+      "before_sha256": "e65853624d76941c761471bf76a86d5bbf819becb260b169e6e1e148a1ea19c8",
+      "after_sha256": "ccb54169608cc22491d51ea936c5c346a8f0e42def2728903f3e2f1dddbf5902"
+    }
+  }
+}

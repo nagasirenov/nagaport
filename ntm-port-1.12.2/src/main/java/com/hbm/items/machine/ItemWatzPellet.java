@@ -1,5 +1,6 @@
 package com.hbm.items.machine;
 
+import net.minecraft.client.util.ITooltipFlag;
 import java.util.List;
 import java.util.Locale;
 
@@ -134,7 +135,8 @@ public class ItemWatzPellet extends ItemEnumMulti {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		
 		if(this != ModItems.watz_pellet) return;
 		
@@ -183,17 +185,17 @@ public class ItemWatzPellet extends ItemEnumMulti {
 	
 	public static void setDouble(ItemStack stack, String key, double yield) {
 		if(!stack.hasTagCompound()) setNBTDefaults(stack);
-		stack.stackTagCompound.setDouble(key, yield);
+		stack.getTagCompound().setDouble(key, yield);
 	}
 	
 	public static double getDouble(ItemStack stack, String key) {
 		if(!stack.hasTagCompound()) setNBTDefaults(stack);
-		return stack.stackTagCompound.getDouble(key);
+		return stack.getTagCompound().getDouble(key);
 	}
 	
 	private static void setNBTDefaults(ItemStack stack) {
 		EnumWatzType num = EnumUtil.grabEnumSafely(EnumWatzType.class, stack.getItemDamage());
-		stack.stackTagCompound = new NBTTagCompound();
+		stack.setTagCompound(new NBTTagCompound());
 		setYield(stack, num.yield);
 	}
 	

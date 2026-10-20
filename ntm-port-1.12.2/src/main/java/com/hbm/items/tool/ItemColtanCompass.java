@@ -44,8 +44,8 @@ public class ItemColtanCompass extends Item {
 		
 		if(world.isRemote) {
 			if(stack.hasTagCompound()) {
-				lastX = stack.stackTagCompound.getInteger("colX");
-				lastZ = stack.stackTagCompound.getInteger("colZ");
+				lastX = stack.getTagCompound().getInteger("colX");
+				lastZ = stack.getTagCompound().getInteger("colZ");
 				lease = System.currentTimeMillis() + 1000;
 				
 				Vec3d vec = new Vec3d(entity.posX - lastX, 0, entity.posZ - lastZ);
@@ -59,14 +59,14 @@ public class ItemColtanCompass extends Item {
 			
 		} else {
 			if(!stack.hasTagCompound()) {
-				stack.stackTagCompound = new NBTTagCompound();
+				stack.setTagCompound(new NBTTagCompound());
 
 				Random colRand = new Random(world.getSeed() + 5);
 				int colX = (int) (colRand.nextGaussian() * 1500);
 				int colZ = (int) (colRand.nextGaussian() * 1500);
 
-				stack.stackTagCompound.setInteger("colX", colX);
-				stack.stackTagCompound.setInteger("colZ", colZ);
+				stack.getTagCompound().setInteger("colX", colX);
+				stack.getTagCompound().setInteger("colZ", colZ);
 			}
 		}
 	}

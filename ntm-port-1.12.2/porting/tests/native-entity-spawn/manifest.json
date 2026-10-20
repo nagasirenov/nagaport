@@ -1,0 +1,452 @@
+{
+  "baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+  "scope": "Exact World receivers, inline native vanilla five-argument EntityItem construction; standalone owned behavior, external constructor mutation compatibility gate",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": {
+      "before": "846f6b1fed8c84360b87081b6ccfd01ed7d29e16cbe8fc061a070dc6289fa374",
+      "after": "0c972a8a6548f1f47bd8c93b6b9b758d8369150262af0f54d11063ae8f33abeb",
+      "edits": [
+        {
+          "start": 3122,
+          "end": 3140,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before": "ca110980ed4b693332ad966939d47f248057fa72e5565c5e470fef262b6ffd69",
+      "after": "32ee60e5e6147c8d7b9cfdb5fd8903eb9ddf9b5520df45ab8eacd44db56180f7",
+      "edits": [
+        {
+          "start": 4526,
+          "end": 4544,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 6718,
+          "end": 6736,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 6930,
+          "end": 6948,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before": "0671964ffbe66f367b39574a049a5cc1996bdabce622f270e5c21a2077e4d36e",
+      "after": "939c2493956066dc34505f65a10455b57b6d43605c5041e4b63a5037591e15ef",
+      "edits": [
+        {
+          "start": 6223,
+          "end": 6241,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Radiobox.java": {
+      "before": "eba411832f4b02eecb18f27733267fc07dfcf840b4ec61c73883555cab8c16fc",
+      "after": "b2cdaefcf7b560cb96f2040e11d3a8d5f7b910b4418a1caed98d6f1e9f809bdf",
+      "edits": [
+        {
+          "start": 4436,
+          "end": 4454,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before": "a04f9543a7f3640cfa5a04fe99a9cf8b4acf92c0f57d74f6115eec1f6fa704e8",
+      "after": "c759b28ab04248502e8e1d9cfd62b27894c4ac8846510fea31b7729b1b45ec88",
+      "edits": [
+        {
+          "start": 7616,
+          "end": 7634,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 7774,
+          "end": 7792,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 7932,
+          "end": 7950,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 8058,
+          "end": 8076,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 8184,
+          "end": 8202,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 8310,
+          "end": 8328,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 8436,
+          "end": 8454,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Watz.java": {
+      "before": "5542689f4fafef253f3a59bf678aa694033e1c46352e88d650513960055a3913",
+      "after": "8501e02cac5849cc5af075ae5fda74e5e5a1ef16ec12ad34601e080ceae4cd4f",
+      "edits": [
+        {
+          "start": 3519,
+          "end": 3537,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 3664,
+          "end": 3682,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 3782,
+          "end": 3800,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 3904,
+          "end": 3922,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 4025,
+          "end": 4043,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java": {
+      "before": "a730a60eef7301dab1d0b6dad071a42d54bab3752e197417e2367981e2140eec",
+      "after": "2cb8b6a0236190296f6b08b0058344175ba60af8ba0ee05779071bb84a0507c9",
+      "edits": [
+        {
+          "start": 7884,
+          "end": 7902,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 8085,
+          "end": 8103,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 9077,
+          "end": 9095,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 9302,
+          "end": 9320,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CraneRouter.java": {
+      "before": "0601fcdae23be482e1dba1af990ea27c9a7700ad0676dede276b63e468a74db4",
+      "after": "08a646ae0d643ba50ee507dc6360a2372361cc8a60713daac8098cad470ebb33",
+      "edits": [
+        {
+          "start": 4393,
+          "end": 4411,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 5338,
+          "end": 5356,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 5914,
+          "end": 5932,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 6734,
+          "end": 6752,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeSmart.java": {
+      "before": "caa9578d13549d7204438a42d9798fe24b993ec716203e5ec1d9267aa032ac65",
+      "after": "a3ae5322a5c2224bf871298f61b36e5c4673b4ce33b2de1d5bdda1fd6922e754",
+      "edits": [
+        {
+          "start": 1034,
+          "end": 1052,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMovingPackage.java": {
+      "before": "5c444c0e87c29279d04d9d05223f0851d244c320d995e693bfebb5640d6035c4",
+      "after": "079af157430f67c7de3ce3286a03323bdcc55e34457f4efe71f3fc5b98064e76",
+      "edits": [
+        {
+          "start": 1255,
+          "end": 1273,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 1574,
+          "end": 1592,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ability/IToolHarvestAbility.java": {
+      "before": "5ab30b9de7af1e73f75289737dc73ae73fe2bbad2ec20baad557bca1b4a34d29",
+      "after": "7f72b8deb0d7f7d1033ea0341fad1c47de47ca002e1f9e8c72852d4d46f43005",
+      "edits": [
+        {
+          "start": 5534,
+          "end": 5552,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 6537,
+          "end": 6555,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 7571,
+          "end": 7589,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 8592,
+          "end": 8610,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 9630,
+          "end": 9648,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemDemonCore.java": {
+      "before": "46c38dcb17f8c2def9d419aa0609b9dc434569481876a1a333d25fa66e604578",
+      "after": "a73edd5413ca6abc611324f5dbcee76646af1aeb2d3840bae55ef99295ce5398",
+      "edits": [
+        {
+          "start": 628,
+          "end": 646,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+      "before": "133e9f28e5ace18b4230a9ab206ace1063d993ec38d937857c1f57a9f505f557",
+      "after": "160f15be4e08ba8a6d3243d4cb068cb22c1717c5ae6c8cd6e175ef09dc65535b",
+      "edits": [
+        {
+          "start": 1224,
+          "end": 1242,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+      "before": "86e0d07d8fb6019db6bc7c55fcd8c1973c96ee02dbb271a759501e32f0246b60",
+      "after": "4dd0141df190c925df2f2c364d95195af1c91ce8ef6ad5ef6b8ce916ee0b774d",
+      "edits": [
+        {
+          "start": 5881,
+          "end": 5899,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before": "a58d804388ae1f34f49df4f666dee3458ccd4dca3ff7082a3e100e4832c24b32",
+      "after": "55bd1a860ce2aad265e742d6472c155f119608a985ae46ea862e50379f630fe8",
+      "edits": [
+        {
+          "start": 16064,
+          "end": 16082,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": {
+      "before": "45a78eef92868b7602c56a191ae9c6524a8ae21095267907f5f3dbedbe28be97",
+      "after": "f96513b9b86c552a36ee771c8391e2576523810c4c0f5cab40455d7ce3118ea6",
+      "edits": [
+        {
+          "start": 9580,
+          "end": 9598,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 9920,
+          "end": 9938,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 10245,
+          "end": 10263,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        },
+        {
+          "start": 10527,
+          "end": 10545,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTelex.java": {
+      "before": "377332904f5f33f7baf1eb2cc5d8414ad6758f2d11d018e6409b189eff1a4899",
+      "after": "14e0ca0b8cb833096fff1107aa78e84a06d80ceed0a3332f1c18ef93e85668ae",
+      "edits": [
+        {
+          "start": 5789,
+          "end": 5807,
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "receiver": "net.minecraft.world.World",
+          "constructor": "EntityItem(net.minecraft.world.World,double,double,double,net.minecraft.item.ItemStack)"
+        }
+      ]
+    }
+  }
+}

@@ -19,7 +19,7 @@ public class ItemPileRod extends Item {
 			list.add(loc);
 		}
 		
-		String[] descLocs = I18nUtil.resolveKey(this.getUnlocalizedName() + ".desc").split("\\$");
+		String[] descLocs = I18nUtil.resolveKey(this.getTranslationKey() + ".desc").split("\\$");
 		
 		for(String loc : descLocs) {
 			list.add(loc);

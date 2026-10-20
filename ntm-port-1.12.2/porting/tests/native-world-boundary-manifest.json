@@ -1,0 +1,1478 @@
+{
+  "baseline": "4117777482629b159d6cfa5dcc20c1f4ec5aa311",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "546ab338c10986179c92fd22dab0e2a51399412ece3771424f32b9e95593c9dd",
+      "after_sha256": "33d0befbe63d82104aafd3b728f439ad7116c854d477b79fe9e62356647233c6",
+      "edits": [
+        {
+          "before_offset": 96316,
+          "after_offset": 96316,
+          "old": "\t\tdeco_red_copper = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_red_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_red_copper\");\r\n\t\tdeco_tungsten = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_tungsten\");\r\n\t\tdeco_aluminium = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_aluminium\");\r\n\t\tdeco_steel = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_steel\");\r\n\t\tdeco_rusty_steel = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_rusty_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_rusty_steel\");\r\n\t\tdeco_lead = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_lead\");\r\n\t\tdeco_beryllium = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_beryllium\");\r\n",
+          "new": "\t\tdeco_red_copper = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_red_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tdeco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tdeco_aluminium = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tdeco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tdeco_rusty_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_rusty_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tdeco_lead = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tdeco_beryllium = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 98574,
+          "after_offset": 98210,
+          "old": "\t\tdeco_stainless = new BlockDecoCT(Material.iron).setBlockName(\"deco_stainless\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_stainless\");\r\n",
+          "new": "\t\tdeco_stainless = new BlockDecoCT(Material.IRON).setTranslationKey(\"deco_stainless\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 102241,
+          "after_offset": 101824,
+          "old": "\t\treinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.rock).setBlockName(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);\r\n",
+          "new": "\t\treinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);\r\n"
+        },
+        {
+          "before_offset": 103690,
+          "after_offset": 103278,
+          "old": "\t\treinforced_laminate = new BlockNTMGlassCT(1, RefStrings.MODID + \":reinforced_laminate\", Material.rock, true).setBlockName(\"reinforced_laminate\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(15.0F).setResistance(300.0F);\r\n",
+          "new": "\t\treinforced_laminate = new BlockNTMGlassCT(1, RefStrings.MODID + \":reinforced_laminate\", Material.ROCK, true).setTranslationKey(\"reinforced_laminate\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(15.0F).setResistance(300.0F);\r\n"
+        },
+        {
+          "before_offset": 139029,
+          "after_offset": 138622,
+          "old": "\t\tglass_boron = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_boron\", Material.glass).setBlockName(\"glass_boron\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_lead = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_lead\", Material.glass).setBlockName(\"glass_lead\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_uranium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_uranium\", Material.glass).setBlockName(\"glass_uranium\").setLightLevel(5F/15F).setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_trinitite = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_trinitite\", Material.glass).setBlockName(\"glass_trinitite\").setLightLevel(5F/15F).setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_polonium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_polonium\", Material.glass).setBlockName(\"glass_polonium\").setLightLevel(5F/15F).setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_ash = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_ash\", Material.glass).setBlockName(\"glass_ash\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(3F);\r\n\t\tglass_quartz = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_quartz\", Material.packedIce, true).setBlockName(\"glass_quartz\").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeGlass).setHardness(1.0F).setResistance(40.0F).setBlockTextureName(RefStrings.MODID + \"glass_quartz\");\r\n\t\tglass_polarized = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_polarized\", Material.glass).setBlockName(\"glass_polarized\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+          "new": "\t\tglass_boron = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_boron\", Material.GLASS).setTranslationKey(\"glass_boron\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_lead = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_lead\", Material.GLASS).setTranslationKey(\"glass_lead\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_uranium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_uranium\", Material.GLASS).setTranslationKey(\"glass_uranium\").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_trinitite = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_trinitite\", Material.GLASS).setTranslationKey(\"glass_trinitite\").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_polonium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_polonium\", Material.GLASS).setTranslationKey(\"glass_polonium\").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n\t\tglass_ash = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_ash\", Material.GLASS).setTranslationKey(\"glass_ash\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(3F);\r\n\t\tglass_quartz = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_quartz\", Material.PACKED_ICE, true).setTranslationKey(\"glass_quartz\").setCreativeTab(MainRegistry.blockTab).setSoundType(net.minecraft.block.SoundType.GLASS).setHardness(1.0F).setResistance(40.0F);\r\n\t\tglass_polarized = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_polarized\", Material.GLASS).setTranslationKey(\"glass_polarized\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+        },
+        {
+          "before_offset": 173232,
+          "after_offset": 172931,
+          "old": "\t\thadron_coil_alloy = new BlockHadronCoil(Material.iron, 10).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_alloy\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_alloy\");\r\n\t\thadron_coil_gold = new BlockHadronCoil(Material.iron, 25).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_gold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_gold\");\r\n\t\thadron_coil_neodymium = new BlockHadronCoil(Material.iron, 50).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_neodymium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_neodymium\");\r\n\t\thadron_coil_magtung = new BlockHadronCoil(Material.iron, 100).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_magtung\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_magtung\");\r\n\t\thadron_coil_schrabidium = new BlockHadronCoil(Material.iron, 250).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_schrabidium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_schrabidium\");\r\n\t\thadron_coil_schrabidate = new BlockHadronCoil(Material.iron, 500).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_schrabidate\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_schrabidate\");\r\n\t\thadron_coil_starmetal = new BlockHadronCoil(Material.iron, 1000).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_starmetal\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_starmetal\");\r\n\t\thadron_coil_chlorophyte = new BlockHadronCoil(Material.iron, 2500).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_chlorophyte\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_chlorophyte\");\r\n\t\thadron_coil_mese = new BlockHadronCoil(Material.iron, 10000).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_mese\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_mese\");\r\n",
+          "new": "\t\thadron_coil_alloy = new BlockHadronCoil(Material.IRON, 10).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_alloy\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_gold = new BlockHadronCoil(Material.IRON, 25).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_gold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_neodymium = new BlockHadronCoil(Material.IRON, 50).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_neodymium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_magtung = new BlockHadronCoil(Material.IRON, 100).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_magtung\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_schrabidium = new BlockHadronCoil(Material.IRON, 250).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_schrabidium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_schrabidate = new BlockHadronCoil(Material.IRON, 500).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_schrabidate\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_starmetal = new BlockHadronCoil(Material.IRON, 1000).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_starmetal\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_chlorophyte = new BlockHadronCoil(Material.IRON, 2500).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_chlorophyte\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\thadron_coil_mese = new BlockHadronCoil(Material.IRON, 10000).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_mese\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 183826,
+          "after_offset": 183040,
+          "old": "\t\tred_wire_coated = new WireCoated(Material.iron).setBlockName(\"red_wire_coated\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":red_wire_coated\");\r\n",
+          "new": "\t\tred_wire_coated = new WireCoated(Material.IRON).setTranslationKey(\"red_wire_coated\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 184698,
+          "after_offset": 183858,
+          "old": "\t\tred_cable_box = new PowerCableBox(Material.iron).setBlockName(\"red_cable_box\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":fluid_duct_box\");\r\n",
+          "new": "\t\tred_cable_box = new PowerCableBox(Material.IRON).setTranslationKey(\"red_cable_box\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 187869,
+          "after_offset": 186976,
+          "old": "\t\tfluid_duct_box = new FluidDuctBox(Material.iron).setBlockName(\"fluid_duct_box\").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":fluid_duct_box\");\r\n\t\tfluid_duct_exhaust = new FluidDuctBoxExhaust(Material.iron).setBlockName(\"fluid_duct_exhaust\").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":fluid_duct_box\");\r\n",
+          "new": "\t\tfluid_duct_box = new FluidDuctBox(Material.IRON).setTranslationKey(\"fluid_duct_box\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfluid_duct_exhaust = new FluidDuctBoxExhaust(Material.IRON).setTranslationKey(\"fluid_duct_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 207401,
+          "after_offset": 206336,
+          "old": "\t\tpwr_block = new BlockPWR(Material.iron).setBlockName(\"pwr_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":pwr_block\");\r\n",
+          "new": "\t\tpwr_block = new BlockPWR(Material.IRON).setTranslationKey(\"pwr_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n"
+        },
+        {
+          "before_offset": 211512,
+          "after_offset": 210399,
+          "old": "\t\ticf_block = new BlockICF(Material.iron).setBlockName(\"icf_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":icf_block\");\r\n",
+          "new": "\t\ticf_block = new BlockICF(Material.IRON).setTranslationKey(\"icf_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n"
+        },
+        {
+          "before_offset": 301723,
+          "after_offset": 300562,
+          "old": "\t\tGameRegistry.registerBlock(deco_red_copper, deco_red_copper.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(deco_tungsten, deco_tungsten.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(deco_aluminium, deco_aluminium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(deco_steel, deco_steel.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(deco_rusty_steel, deco_rusty_steel.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(deco_lead, deco_lead.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(deco_beryllium, deco_beryllium.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(deco_red_copper, ItemBlock.class);\r\n\t\tregister(deco_tungsten, ItemBlock.class);\r\n\t\tregister(deco_aluminium, ItemBlock.class);\r\n\t\tregister(deco_steel, ItemBlock.class);\r\n\t\tregister(deco_rusty_steel, ItemBlock.class);\r\n\t\tregister(deco_lead, ItemBlock.class);\r\n\t\tregister(deco_beryllium, ItemBlock.class);\r\n"
+        },
+        {
+          "before_offset": 302379,
+          "after_offset": 300959,
+          "old": "\t\tGameRegistry.registerBlock(deco_stainless, deco_stainless.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(deco_stainless, ItemBlock.class);\r\n"
+        },
+        {
+          "before_offset": 305382,
+          "after_offset": 303924,
+          "old": "\t\tGameRegistry.registerBlock(reinforced_glass, ItemBlockBlastInfo.class, reinforced_glass.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(reinforced_glass, ItemBlock.class);\r\n"
+        },
+        {
+          "before_offset": 306084,
+          "after_offset": 304560,
+          "old": "\t\tGameRegistry.registerBlock(reinforced_laminate, ItemBlockBlastInfo.class, reinforced_laminate.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(reinforced_laminate, ItemBlock.class);\r\n"
+        },
+        {
+          "before_offset": 331715,
+          "after_offset": 330122,
+          "old": "\t\tGameRegistry.registerBlock(glass_boron, glass_boron.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_lead, glass_lead.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_uranium, glass_uranium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_trinitite, glass_trinitite.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_polonium, glass_polonium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_ash, glass_ash.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_quartz, glass_quartz.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(glass_polarized, glass_polarized.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(glass_boron, ItemBlock.class);\r\n\t\tregister(glass_lead, ItemBlock.class);\r\n\t\tregister(glass_uranium, ItemBlock.class);\r\n\t\tregister(glass_trinitite, ItemBlock.class);\r\n\t\tregister(glass_polonium, ItemBlock.class);\r\n\t\tregister(glass_ash, ItemBlock.class);\r\n\t\tregister(glass_quartz, ItemBlock.class);\r\n\t\tregister(glass_polarized, ItemBlock.class);\r\n"
+        },
+        {
+          "before_offset": 339287,
+          "after_offset": 337403,
+          "old": "\t\tGameRegistry.registerBlock(hadron_coil_alloy, ItemBlockBase.class, hadron_coil_alloy.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_gold, ItemBlockBase.class, hadron_coil_gold.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_neodymium, ItemBlockBase.class, hadron_coil_neodymium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_magtung, ItemBlockBase.class, hadron_coil_magtung.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_schrabidium, ItemBlockBase.class, hadron_coil_schrabidium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_schrabidate, ItemBlockBase.class, hadron_coil_schrabidate.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_starmetal, ItemBlockBase.class, hadron_coil_starmetal.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_chlorophyte, ItemBlockBase.class, hadron_coil_chlorophyte.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(hadron_coil_mese, ItemBlockBase.class, hadron_coil_mese.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(hadron_coil_alloy);\r\n\t\tregister(hadron_coil_gold);\r\n\t\tregister(hadron_coil_neodymium);\r\n\t\tregister(hadron_coil_magtung);\r\n\t\tregister(hadron_coil_schrabidium);\r\n\t\tregister(hadron_coil_schrabidate);\r\n\t\tregister(hadron_coil_starmetal);\r\n\t\tregister(hadron_coil_chlorophyte);\r\n\t\tregister(hadron_coil_mese);\r\n"
+        },
+        {
+          "before_offset": 342033,
+          "after_offset": 339412,
+          "old": "\t\tGameRegistry.registerBlock(red_wire_coated, red_wire_coated.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(red_wire_coated, ItemBlock.class);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDecoCT.java": {
+      "before_sha256": "3982977b163b660a385627332f7dd91325e81269faa4b8533c1bc14a2f522e44",
+      "after_sha256": "de101a7ca9e5256c0069375a5e7eaa5e0349ea001125a72f143d73e41f598f1c",
+      "edits": [
+        {
+          "before_offset": 92,
+          "after_offset": 92,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTStitchReceiver;\n",
+          "new": "import com.hbm.render.block.ct.CTContext;\n"
+        },
+        {
+          "before_offset": 218,
+          "after_offset": 176,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 396,
+          "after_offset": 256,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 470,
+          "after_offset": 288,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 695,
+          "after_offset": 479,
+          "old": "",
+          "new": "        setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));\n"
+        },
+        {
+          "before_offset": 699,
+          "after_offset": 571,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return CTContext.extend(state, world, pos, this);\n    }\n"
+        },
+        {
+          "before_offset": 766,
+          "after_offset": 1427,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic CTStitchReceiver rec;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 821,
+          "after_offset": 1428,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(this.getTextureName());\n\t\tthis.rec = IBlockCT.primeReceiver(reg, this.getTextureName(), this.blockIcon);\n\t}\n\n\t@Override\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {\n\t\treturn rec.fragCache;\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1629,
+          "after_offset": 1904,
+          "old": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune) && allowFortune) {\n",
+          "new": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune) && allowFortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMGlass.java": {
+      "before_sha256": "5c2a1651fd48c54ba76e0167329f5226b5b4829e1a587a2e82d63eeba7afcf27",
+      "after_sha256": "71e432fc6fd478ba8d2f023e7d5e8b4266bdb8613dba55e477589ea5da775f3c",
+      "edits": [
+        {
+          "before_offset": 540,
+          "after_offset": 540,
+          "old": "\t\tsuper(name, material, false);\n",
+          "new": "\t\tsuper(material, false);\n"
+        },
+        {
+          "before_offset": 752,
+          "after_offset": 746,
+          "old": "\tpublic int getRenderBlockPass() {\n\t\treturn renderLayer;\n",
+          "new": "\tpublic net.minecraft.util.BlockRenderLayer getRenderLayer() {\n\t\treturn renderLayer == 1 ? net.minecraft.util.BlockRenderLayer.TRANSLUCENT : net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED;\n"
+        },
+        {
+          "before_offset": 824,
+          "after_offset": 953,
+          "old": "\tpublic boolean renderAsNormalBlock() {\n",
+          "new": "\tpublic boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMGlassCT.java": {
+      "before_sha256": "84e370e4a263ba42814cce494add9a9aab59c8819c7cc79aec8e2bd3d44335bc",
+      "after_sha256": "e46be1ef1417d4e6dfda837d5616a8b426f61bfc20f36e9615d97d90c2f20d38",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTStitchReceiver;\n",
+          "new": "import com.hbm.render.block.ct.CTContext;\n"
+        },
+        {
+          "before_offset": 159,
+          "after_offset": 117,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 303,
+          "after_offset": 163,
+          "old": "import com.hbm.render.icon.IIconRegister;\nimport com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 733,
+          "after_offset": 517,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return CTContext.extend(state, world, pos, this);\n    }\n"
+        },
+        {
+          "before_offset": 800,
+          "after_offset": 1373,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic CTStitchReceiver rec;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 855,
+          "after_offset": 1374,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tsuper.registerBlockIcons(reg);\n\t\tthis.rec = IBlockCT.primeReceiver(reg, this.blockIcon.getIconName(), this.blockIcon);\n\t}\n\n\t@Override\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {\n\t\treturn rec.fragCache;\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockHadronCoil.java": {
+      "before_sha256": "114f6bd82c808e981f7df9b27737bc6e2c147dbab2d2d6123257ce7f4ba4e7f0",
+      "after_sha256": "ffd2f53c6e8ca1a18db7edcb4e34a559fb6e1faa54ec8983bf8c1d13837c1bd7",
+      "edits": [
+        {
+          "before_offset": 122,
+          "after_offset": 122,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTStitchReceiver;\n",
+          "new": "import com.hbm.render.block.ct.CTContext;\n"
+        },
+        {
+          "before_offset": 283,
+          "after_offset": 241,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 461,
+          "after_offset": 321,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 589,
+          "after_offset": 407,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 837,
+          "after_offset": 621,
+          "old": "",
+          "new": "        setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));\n"
+        },
+        {
+          "before_offset": 865,
+          "after_offset": 737,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return CTContext.extend(state, world, pos, this);\n    }\n"
+        },
+        {
+          "before_offset": 932,
+          "after_offset": 1593,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic CTStitchReceiver rec;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 987,
+          "after_offset": 1594,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(this.getTextureName());\n\t\tthis.rec = IBlockCT.primeReceiver(reg, this.getTextureName(), this.blockIcon);\n\t}\n\n\t@Override\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {\n\t\treturn rec.fragCache;\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICF.java": {
+      "before_sha256": "4de9c15d6d40357b0895c92ac1f9a9849d03fd13ab3fc1e853b146ada3f2a05a",
+      "after_sha256": "120e3e064edb4cb25df3d3fcce70a2dc7437763880cbaee70b449df2794df3d0",
+      "edits": [
+        {
+          "before_offset": 123,
+          "after_offset": 123,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTStitchReceiver;\n",
+          "new": "import com.hbm.render.block.ct.CTContext;\n"
+        },
+        {
+          "before_offset": 353,
+          "after_offset": 311,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 574,
+          "after_offset": 434,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 767,
+          "after_offset": 585,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 981,
+          "after_offset": 765,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon iconPort;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1080,
+          "after_offset": 814,
+          "old": "",
+          "new": "        setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));\n"
+        },
+        {
+          "before_offset": 1084,
+          "after_offset": 906,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return CTContext.extend(state, world, pos, this);\n    }\n\n"
+        },
+        {
+          "before_offset": 1240,
+          "after_offset": 1852,
+          "old": "\t@SideOnly(Side.CLIENT) public CTStitchReceiver rec;\n\t@SideOnly(Side.CLIENT) public CTStitchReceiver recPort;\n",
+          "new": "    @Override public int getCTMaterial(net.minecraft.block.state.IBlockState state) { return getMetaFromState(state) == 1 ? 1 : 0; }\n"
+        },
+        {
+          "before_offset": 1351,
+          "after_offset": 1986,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tsuper.registerBlockIcons(reg);\n\t\tthis.iconPort = reg.registerIcon(RefStrings.MODID + \":icf_block_port\");\n\t\tthis.rec = IBlockCT.primeReceiver(reg, this.blockIcon.getIconName(), this.blockIcon);\n\t\tthis.recPort = IBlockCT.primeReceiver(reg, this.iconPort.getIconName(), this.iconPort);\n\t}\n\n\t@Override\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tif(meta == 1) return recPort.fragCache;\n\t\treturn rec.fragCache;\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockPWR.java": {
+      "before_sha256": "b8bfe0121055f62990403ac4d264f24567fca6a97c181a1ead4101d3352451fe",
+      "after_sha256": "eec6a541c44c533024c75d46353e60b346739f1fe684524cdc10ef9205b9cf6a",
+      "edits": [
+        {
+          "before_offset": 212,
+          "after_offset": 212,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTStitchReceiver;\n",
+          "new": "import com.hbm.render.block.ct.CTContext;\n"
+        },
+        {
+          "before_offset": 542,
+          "after_offset": 500,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 763,
+          "after_offset": 623,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1090,
+          "after_offset": 908,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1304,
+          "after_offset": 1088,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon iconPort;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1403,
+          "after_offset": 1137,
+          "old": "",
+          "new": "        setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));\n"
+        },
+        {
+          "before_offset": 1407,
+          "after_offset": 1229,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return CTContext.extend(state, world, pos, this);\n    }\n\n"
+        },
+        {
+          "before_offset": 1563,
+          "after_offset": 2175,
+          "old": "\t@SideOnly(Side.CLIENT) public CTStitchReceiver rec;\n\t@SideOnly(Side.CLIENT) public CTStitchReceiver recPort;\n",
+          "new": "    @Override public int getCTMaterial(net.minecraft.block.state.IBlockState state) { return getMetaFromState(state) == 1 ? 1 : 0; }\n"
+        },
+        {
+          "before_offset": 1674,
+          "after_offset": 2309,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tsuper.registerBlockIcons(reg);\n\t\tthis.iconPort = reg.registerIcon(RefStrings.MODID + \":pwr_casing_port\");\n\t\tthis.rec = IBlockCT.primeReceiver(reg, this.blockIcon.getIconName(), this.blockIcon);\n\t\tthis.recPort = IBlockCT.primeReceiver(reg, this.iconPort.getIconName(), this.iconPort);\n\t}\n\n\t@Override\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tif(meta == 1) return recPort.fragCache;\n\t\treturn rec.fragCache;\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctBox.java": {
+      "before_sha256": "6fc665187a372777d7ea9dbb259780830f5af6a6f9a87b7fb67d8489101ada1e",
+      "after_sha256": "e831f99c7e9453b8648f735612b1750c763cd0ed89d929382ac8172208a33800",
+      "edits": [
+        {
+          "before_offset": 68,
+          "after_offset": 68,
+          "old": "",
+          "new": "import com.hbm.lib.ForgeDirection;\nimport com.hbm.lib.Library;\n"
+        },
+        {
+          "before_offset": 104,
+          "after_offset": 167,
+          "old": "import com.hbm.lib.Library;\nimport com.hbm.lib.RefStrings;\n",
+          "new": "import com.hbm.blocks.ModSoundTypes;\n"
+        },
+        {
+          "before_offset": 219,
+          "after_offset": 260,
+          "old": "",
+          "new": "import com.hbm.util.ColorUtil;\n"
+        },
+        {
+          "before_offset": 254,
+          "after_offset": 326,
+          "old": "\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.creativetab.CreativeTabs;\nimport net.minecraft.entity.Entity;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.NonNullList;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\n"
+        },
+        {
+          "before_offset": 418,
+          "after_offset": 1470,
+          "old": "import net.minecraft.block.material.Material;\nimport com.hbm.render.icon.IIconRegister;\nimport net.minecraft.creativetab.CreativeTabs;\nimport net.minecraft.entity.Entity;\nimport net.minecraft.item.Item;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;\nimport com.hbm.lib.ForgeDirection;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1100,
+          "after_offset": 1611,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon[] iconStraight;\n\t@SideOnly(Side.CLIENT) public IIcon[] iconEnd;\n\t@SideOnly(Side.CLIENT) public IIcon[] iconCurveTL;\n\t@SideOnly(Side.CLIENT) public IIcon[] iconCurveTR;\n\t@SideOnly(Side.CLIENT) public IIcon[] iconCurveBL;\n\t@SideOnly(Side.CLIENT) public IIcon[] iconCurveBR;\n\t@SideOnly(Side.CLIENT) public IIcon[][] iconJunction;\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "before_offset": 1465,
+          "after_offset": 1706,
+          "old": "\tprivate static final String[] materials = new String[] { \"silver\", \"copper\", \"white\" };\n",
+          "new": "    public FluidDuctBox(Material material) {\n        super(material);\n        setSoundType(ModSoundTypes.pipe);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n"
+        },
+        {
+          "before_offset": 1555,
+          "after_offset": 1903,
+          "old": "\tpublic FluidDuctBox(Material mat) {\n\t\tsuper(mat);\n\t}\n",
+          "new": "    @Override\n    protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[] {METADATA},\n                new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS, FluidConnectionState.FLUID_COLOR});\n    }\n"
+        },
+        {
+          "before_offset": 1610,
+          "after_offset": 2163,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n",
+          "new": "    @Override\n    public IBlockState getStateFromMeta(int metadata) {\n        // Preserve every persisted nibble, including metadata outside the creative variants.\n        return getDefaultState().withProperty(METADATA, metadata & 15);\n    }\n"
+        },
+        {
+          "before_offset": 1750,
+          "after_offset": 2406,
+          "old": "\t\tint count = materials.length;\n\t\ticonStraight = new IIcon[count];\n\t\ticonEnd = new IIcon[count];\n\t\ticonCurveTL = new IIcon[count];\n\t\ticonCurveTR = new IIcon[count];\n\t\ticonCurveBL = new IIcon[count];\n\t\ticonCurveBR = new IIcon[count];\n\t\ticonJunction = new IIcon[count][5];\n",
+          "new": "    @Override\n    public int getMetaFromState(IBlockState state) {\n        return state.getValue(METADATA);\n    }\n"
+        },
+        {
+          "before_offset": 2022,
+          "after_offset": 2521,
+          "old": "\t\tfor(int i = 0; i < count; i++) {\n\t\t\ticonStraight[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_straight\");\n\t\t\ticonEnd[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_end\");\n\t\t\ticonCurveTL[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_curve_tl\");\n\t\t\ticonCurveTR[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_curve_tr\");\n\t\t\ticonCurveBL[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_curve_bl\");\n\t\t\ticonCurveBR[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_curve_br\");\n\t\t\tfor(int j = 0; j < 5; j++) iconJunction[i][j] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + materials[i] + \"_junction_\" + j);\n\t\t}\n\t}\n",
+          "new": "    @Override\n    public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        TileEntity tile = world.getTileEntity(pos);\n        int color = 0xffffff;\n        if(getMetaFromState(state) % 3 == 2 && tile instanceof TileEntityPipeBaseNT) {\n            color = ColorUtil.lightenColor(((TileEntityPipeBaseNT) tile).getType().getColor(), 0.25D);\n        }\n        return ((IExtendedBlockState) state)\n                .withProperty(ConnectionState.CONNECTIONS, connections(world, pos, tile))\n                .withProperty(FluidConnectionState.FLUID_COLOR, color);\n    }\n"
+        },
+        {
+          "before_offset": 2849,
+          "after_offset": 3126,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {\n        for(int metadata = 0; metadata < 15; metadata++) {\n            items.add(new ItemStack(this, 1, metadata));\n        }\n    }\n"
+        },
+        {
+          "before_offset": 2949,
+          "after_offset": 3379,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "    @Override\n    public int damageDropped(IBlockState state) {\n        return getMetaFromState(state) % 15;\n    }\n"
+        },
+        {
+          "before_offset": 2998,
+          "after_offset": 3495,
+          "old": "\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, te);\n",
+          "new": "    @Override\n    public boolean hasCustomBreakingProgress(IBlockState state) {\n        return BoxDuctRenderState.family(this) >= 0;\n    }\n"
+        },
+        {
+          "before_offset": 3383,
+          "after_offset": 3635,
+          "old": "\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\tint count = 0 + (pX ? 1 : 0) + (nX ? 1 : 0) + (pY ? 1 : 0) + (nY ? 1 : 0) + (pZ ? 1 : 0) + (nZ ? 1 : 0);\n",
+          "new": "    @Override\n    public EnumBlockRenderType getRenderType(IBlockState state) {\n        return EnumBlockRenderType.MODEL;\n    }\n"
+        },
+        {
+          "before_offset": 3599,
+          "after_offset": 3764,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tint m = rectify(meta);\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public BlockRenderLayer getRenderLayer() {\n        // Original render pass 0 retained binary alpha testing and terrain mipmaps.\n        return BlockRenderLayer.CUTOUT_MIPPED;\n    }\n"
+        },
+        {
+          "before_offset": 3671,
+          "after_offset": 3991,
+          "old": "\t\tif((mask & 0b001111) == 0 && mask > 0) {\n\t\t\treturn (side == 4 || side == 5) ? iconEnd[m] : iconStraight[m];\n\t\t} else if((mask & 0b111100) == 0 && mask > 0) {\n\t\t\treturn (side == 2 || side == 3) ? iconEnd[m] : iconStraight[m];\n\t\t} else if((mask & 0b110011) == 0 && mask > 0) {\n\t\t\treturn (side == 0 || side == 1) ? iconEnd[m] : iconStraight[m];\n\t\t} else if(count == 2) {\n",
+          "new": "    @Override\n    public boolean isOpaqueCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 4042,
+          "after_offset": 4087,
+          "old": "\t\t\tif(side == 0 && nY || side == 1 && pY || side == 2 && nZ || side == 3 && pZ || side == 4 && nX || side == 5 && pX)\n\t\t\t\treturn iconEnd[m];\n\t\t\tif(side == 1 && nY || side == 0 && pY || side == 3 && nZ || side == 2 && pZ || side == 5 && nX || side == 4 && pX)\n\t\t\t\treturn iconStraight[m];\n",
+          "new": "    @Override\n    public boolean isFullCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 4330,
+          "after_offset": 4181,
+          "old": "\t\t\tif(nY && pZ) return side == 4 ? iconCurveBR[m] : iconCurveBL[m];\n\t\t\tif(nY && nZ) return side == 5 ? iconCurveBR[m] : iconCurveBL[m];\n\t\t\tif(nY && pX) return side == 3 ? iconCurveBR[m] : iconCurveBL[m];\n\t\t\tif(nY && nX) return side == 2 ? iconCurveBR[m] : iconCurveBL[m];\n\t\t\tif(pY && pZ) return side == 4 ? iconCurveTR[m] : iconCurveTL[m];\n\t\t\tif(pY && nZ) return side == 5 ? iconCurveTR[m] : iconCurveTL[m];\n\t\t\tif(pY && pX) return side == 3 ? iconCurveTR[m] : iconCurveTL[m];\n\t\t\tif(pY && nX) return side == 2 ? iconCurveTR[m] : iconCurveTL[m];\n",
+          "new": "    @Override\n    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) {\n        return BlockFaceShape.UNDEFINED;\n    }\n"
+        },
+        {
+          "before_offset": 4875,
+          "after_offset": 4359,
+          "old": "\t\t\tif(pX && nZ) return side == 0 ? iconCurveTR[m] : iconCurveTR[m];\n\t\t\tif(pX && pZ) return side == 0 ? iconCurveBR[m] : iconCurveBR[m];\n\t\t\tif(nX && nZ) return side == 0 ? iconCurveTL[m] : iconCurveTL[m];\n\t\t\tif(nX && pZ) return side == 0 ? iconCurveBL[m] : iconCurveBL[m];\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {\n        return true;\n    }\n"
+        },
+        {
+          "before_offset": 5148,
+          "after_offset": 4540,
+          "old": "\t\t\treturn iconJunction[m][meta / 3];\n\t\t}\n",
+          "new": "    @Override\n    public int getSubCount() {\n        return 3;\n    }\n"
+        },
+        {
+          "before_offset": 5190,
+          "after_offset": 4610,
+          "old": "\t\treturn iconJunction[m][meta / 3];\n\t}\n",
+          "new": "    @Override\n    public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox,\n            List<AxisAlignedBB> boxes, Entity entity, boolean actualState) {\n        int mask = connections(world, pos, world.getTileEntity(pos));\n        for(AxisAlignedBB box : collisionBoxes(getMetaFromState(state), mask)) {\n            addCollisionBoxToList(pos, entityBox, boxes, box);\n        }\n    }\n"
+        },
+        {
+          "before_offset": 5230,
+          "after_offset": 5041,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void getSubBlocks(Item item, CreativeTabs tab, List list) {\n\t\tfor(int i = 0; i < 15; ++i) {\n\t\t\tlist.add(new ItemStack(item, 1, i));\n\t\t}\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return getBoundingBox(state, world, pos);\n    }\n"
+        },
+        {
+          "before_offset": 5402,
+          "after_offset": 5216,
+          "old": "\tpublic int damageDropped(int meta) {\n\t\treturn meta % 15;\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return bounds(getMetaFromState(state), connections(world, pos, world.getTileEntity(pos)));\n    }\n"
+        },
+        {
+          "before_offset": 5464,
+          "after_offset": 5431,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos) {\n        return getBoundingBox(state, world, pos).offset(pos);\n    }\n"
+        },
+        {
+          "before_offset": 5541,
+          "after_offset": 5637,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "    /** Local-coordinate collision boxes in the original center, +X, -X, +Y, -Y, +Z, -Z order. */\n    public static List<AxisAlignedBB> collisionBoxes(int metadata, int mask) {\n        List<AxisAlignedBB> boxes = new ArrayList<>();\n        double lower = lowerBound(metadata), upper = 1D - lower;\n        double jLower = lower - 0.0625D, jUpper = upper + 0.0625D;\n        if(mask == 0) {\n            boxes.add(new AxisAlignedBB(jLower, jLower, jLower, jUpper, jUpper, jUpper));\n        } else if((mask & 0b001111) == 0) {\n            boxes.add(new AxisAlignedBB(0, lower, lower, 1, upper, upper));\n        } else if((mask & 0b110011) == 0) {\n            boxes.add(new AxisAlignedBB(lower, 0, lower, upper, 1, upper));\n        } else if((mask & 0b111100) == 0) {\n            boxes.add(new AxisAlignedBB(lower, lower, 0, upper, upper, 1));\n        } else {\n            if(Integer.bitCount(mask) != 2) {\n                boxes.add(new AxisAlignedBB(jLower, jLower, jLower, jUpper, jUpper, jUpper));\n            } else {\n                boxes.add(new AxisAlignedBB(lower, lower, lower, upper, upper, upper));\n            }\n            if((mask & ConnectionState.POS_X) != 0) boxes.add(new AxisAlignedBB(upper, lower, lower, 1, upper, upper));\n            if((mask & ConnectionState.NEG_X) != 0) boxes.add(new AxisAlignedBB(0, lower, lower, lower, upper, upper));\n            if((mask & ConnectionState.POS_Y) != 0) boxes.add(new AxisAlignedBB(lower, upper, lower, upper, 1, upper));\n            if((mask & ConnectionState.NEG_Y) != 0) boxes.add(new AxisAlignedBB(lower, 0, lower, upper, lower, upper));\n            if((mask & ConnectionState.POS_Z) != 0) boxes.add(new AxisAlignedBB(lower, lower, upper, upper, upper, 1));\n            if((mask & ConnectionState.NEG_Z) != 0) boxes.add(new AxisAlignedBB(lower, lower, 0, upper, upper, lower));\n        }\n        return boxes;\n    }\n"
+        },
+        {
+          "before_offset": 5605,
+          "after_offset": 7514,
+          "old": "\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n",
+          "new": "    /** Original merged selection/collision envelope; compound collision remains separate above. */\n    public static AxisAlignedBB bounds(int metadata, int mask) {\n        double lower = lowerBound(metadata), upper = 1D - lower;\n        double jLower = lower - 0.0625D, jUpper = upper + 0.0625D;\n        if(mask == 0) return new AxisAlignedBB(jLower, jLower, jLower, jUpper, jUpper, jUpper);\n        if((mask & 0b001111) == 0) return new AxisAlignedBB(0, lower, lower, 1, upper, upper);\n        if((mask & 0b110011) == 0) return new AxisAlignedBB(lower, 0, lower, upper, 1, upper);\n        if((mask & 0b111100) == 0) return new AxisAlignedBB(lower, lower, 0, upper, upper, 1);\n        if(Integer.bitCount(mask) != 2) {\n            lower = jLower;\n            upper = jUpper;\n        }\n        return new AxisAlignedBB(\n                (mask & ConnectionState.NEG_X) != 0 ? 0 : lower,\n                (mask & ConnectionState.NEG_Y) != 0 ? 0 : lower,\n                (mask & ConnectionState.NEG_Z) != 0 ? 0 : lower,\n                (mask & ConnectionState.POS_X) != 0 ? 1 : upper,\n                (mask & ConnectionState.POS_Y) != 0 ? 1 : upper,\n                (mask & ConnectionState.POS_Z) != 0 ? 1 : upper);\n    }\n"
+        },
+        {
+          "before_offset": 5669,
+          "after_offset": 8732,
+          "old": "\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n",
+          "new": "    private static double lowerBound(int metadata) {\n        double lower = 0.125D;\n        for(int i = 2; i < 13; i += 3) {\n            if(metadata > i) lower += 0.0625D;\n        }\n        return lower;\n    }\n"
+        },
+        {
+          "before_offset": 5740,
+          "after_offset": 8943,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {\n\t\treturn true;\n\t}\n",
+          "new": "    private int connections(IBlockAccess world, BlockPos pos, TileEntity tile) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        // Preserve the owners' directional predicate order and the legacy mask layout.\n        boolean nX = canConnectTo(world, x, y, z, Library.NEG_X, tile);\n        boolean pX = canConnectTo(world, x, y, z, Library.POS_X, tile);\n        boolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, tile);\n        boolean pY = canConnectTo(world, x, y, z, Library.POS_Y, tile);\n        boolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, tile);\n        boolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, tile);\n        return (pX ? ConnectionState.POS_X : 0) | (nX ? ConnectionState.NEG_X : 0)\n             | (pY ? ConnectionState.POS_Y : 0) | (nY ? ConnectionState.NEG_Y : 0)\n             | (pZ ? ConnectionState.POS_Z : 0) | (nZ ? ConnectionState.NEG_Z : 0);\n    }\n"
+        },
+        {
+          "before_offset": 5927,
+          "after_offset": 9861,
+          "old": "\t@Override\n\tpublic int getSubCount() {\n\t\treturn 3;\n\t}\n",
+          "new": "    public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection direction, TileEntity tile) {\n        if(tile instanceof TileEntityPipeBaseNT) {\n            return Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY,\n                    z + direction.offsetZ, direction, ((TileEntityPipeBaseNT) tile).getType());\n        }\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 5982,
+          "after_offset": 10261,
+          "old": "\t@Override\n\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n\n\t\tList<AxisAlignedBB> bbs = new ArrayList();\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\n\t\tdouble lower = 0.125D;\n\t\tdouble upper = 0.875D;\n\t\tdouble jLower = 0.0625D;\n\t\tdouble jUpper = 0.9375D;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tfor(int i = 2; i < 13; i += 3) {\n\n\t\t\tif(meta > i) {\n\t\t\t\tlower += 0.0625D;\n\t\t\t\tupper -= 0.0625D;\n\t\t\t\tjLower += 0.0625D;\n\t\t\t\tjUpper -= 0.0625D;\n\t\t\t}\n\t\t}\n\n\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, te);\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\tint count = 0 + (pX ? 1 : 0) + (nX ? 1 : 0) + (pY ? 1 : 0) + (nY ? 1 : 0) + (pZ ? 1 : 0) + (nZ ? 1 : 0);\n\n\t\tif(mask == 0) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + jLower, y + jLower, z + jLower, x + jUpper, y + jUpper, z + jUpper));\n\t\t} else if(mask == 0b100000 || mask == 0b010000 || mask == 0b110000) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + lower, z + lower, x + 1.0D, y + upper, z + upper));\n\t\t} else if(mask == 0b001000 || mask == 0b000100 || mask == 0b001100) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + 0.0D, z + lower, x + upper, y + 1.0D, z + upper));\n\t\t} else if(mask == 0b000010 || mask == 0b000001 || mask == 0b000011) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + 0.0D, x + upper, y + upper, z + 1.0D));\n\t\t} else {\n\n\t\t\tif(count != 2) {\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + jLower, y + jLower, z + jLower, x + jUpper, y + jUpper, z + jUpper));\n\t\t\t} else {\n\t\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + lower, x + upper, y + upper, z + upper));\n\t\t\t}\n\n\t\t\tif(pX) bbs.add(AxisAlignedBB.getBoundingBox(x + upper, y + lower, z + lower, x + 1.0D, y + upper, z + upper));\n\t\t\tif(nX) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + lower, z + lower, x + lower, y + upper, z + upper));\n\t\t\tif(pY) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + upper, z + lower, x + upper, y + 1.0D, z + upper));\n\t\t\tif(nY) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + 0.0D, z + lower, x + upper, y + lower, z + upper));\n\t\t\tif(pZ) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + upper, x + upper, y + upper, z + 1.0D));\n\t\t\tif(nZ) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + 0.0D, x + upper, y + upper, z + lower));\n\t\t}\n\n\t\tfor(AxisAlignedBB bb : bbs) {\n\t\t\tif(entityBounding.intersectsWith(bb)) {\n\t\t\t\tlist.add(bb);\n\t\t\t}\n\t\t}\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\n\t\tfloat lower = 0.125F;\n\t\tfloat upper = 0.875F;\n\t\tfloat jLower = 0.0625F;\n\t\tfloat jUpper = 0.9375F;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tfor(int i = 2; i < 13; i += 3) {\n\n\t\t\tif(meta > i) {\n\t\t\t\tlower += 0.0625F;\n\t\t\t\tupper -= 0.0625F;\n\t\t\t\tjLower += 0.0625F;\n\t\t\t\tjUpper -= 0.0625F;\n\t\t\t}\n\t\t}\n\n\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, te);\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\tint count = 0 + (pX ? 1 : 0) + (nX ? 1 : 0) + (pY ? 1 : 0) + (nY ? 1 : 0) + (pZ ? 1 : 0) + (nZ ? 1 : 0);\n\n\t\tif(mask == 0) {\n\t\t\tthis.setBlockBounds(jLower, jLower, jLower, jUpper, jUpper, jUpper);\n\t\t} else if(mask == 0b100000 || mask == 0b010000 || mask == 0b110000) {\n\t\t\tthis.setBlockBounds(0F, lower, lower, 1F, upper, upper);\n\t\t} else if(mask == 0b001000 || mask == 0b000100 || mask == 0b001100) {\n\t\t\tthis.setBlockBounds(lower, 0F, lower, upper, 1F, upper);\n\t\t} else if(mask == 0b000010 || mask == 0b000001 || mask == 0b000011) {\n\t\t\tthis.setBlockBounds(lower, lower, 0F, upper, upper, 1F);\n\t\t} else {\n\n\t\t\tif(count != 2) {\n\t\t\t\tthis.setBlockBounds(\n\t\t\t\t\t\tnX ? 0F : jLower,\n\t\t\t\t\t\tnY ? 0F : jLower,\n\t\t\t\t\t\tnZ ? 0F : jLower,\n\t\t\t\t\t\tpX ? 1F : jUpper,\n\t\t\t\t\t\tpY ? 1F : jUpper,\n\t\t\t\t\t\tpZ ? 1F : jUpper);\n\t\t\t} else {\n\t\t\t\tthis.setBlockBounds(\n\t\t\t\t\t\tnX ? 0F : lower,\n\t\t\t\t\t\tnY ? 0F : lower,\n\t\t\t\t\t\tnZ ? 0F : lower,\n\t\t\t\t\t\tpX ? 1F : upper,\n\t\t\t\t\t\tpY ? 1F : upper,\n\t\t\t\t\t\tpZ ? 1F : upper);\n\t\t\t}\n\t\t}\n\t}\n\n\tpublic boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir, TileEntity tile) {\n\t\tif(tile instanceof TileEntityPipeBaseNT) {\n\t\t\treturn Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, ((TileEntityPipeBaseNT) tile).getType());\n\t\t}\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void printHook(Pre event, World world, int x, int y, int z) {\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\n\t\tif(!(te instanceof TileEntityPipeBaseNT))\n\t\t\treturn;\n\n\t\tTileEntityPipeBaseNT duct = (TileEntityPipeBaseNT) te;\n\n\t\tList<String> text = new ArrayList();\n\t\ttext.add(\"&[\" + duct.getType().getColor() + \"&]\" + duct.getType().getLocalizedName());\n\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n\t}\n\n\tpublic static int cachedColor = 0xffffff;\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic int colorMultiplier(IBlockAccess world, int x, int y, int z) {\n\t\treturn cachedColor;\n\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void printHook(Pre event, World world, int x, int y, int z) {\n        TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));\n        if(!(tile instanceof TileEntityPipeBaseNT)) return;\n        TileEntityPipeBaseNT duct = (TileEntityPipeBaseNT) tile;\n        List<String> text = new ArrayList<>();\n        text.add(\"&[\" + duct.getType().getColor() + \"&]\" + duct.getType().getLocalizedName());\n        ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctBoxExhaust.java": {
+      "before_sha256": "e7034c15504a341172257238b7851392dc7e2e80db568aa91313855b23f89948",
+      "after_sha256": "8bd53b49fc505ed70fcf11cbd90a033b2fcee2b08d6937f846438777d03fe8cb",
+      "edits": [
+        {
+          "before_offset": 108,
+          "after_offset": 108,
+          "old": "",
+          "new": "import com.hbm.lib.ForgeDirection;\n"
+        },
+        {
+          "before_offset": 136,
+          "after_offset": 171,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 259,
+          "after_offset": 263,
+          "old": "\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 404,
+          "after_offset": 309,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 493,
+          "after_offset": 356,
+          "old": "import net.minecraft.item.Item;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 606,
+          "after_offset": 437,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.util.NonNullList;\n"
+        },
+        {
+          "before_offset": 782,
+          "after_offset": 618,
+          "old": "import com.hbm.lib.ForgeDirection;\n",
+          "new": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n"
+        },
+        {
+          "before_offset": 927,
+          "after_offset": 826,
+          "old": "\tpublic FluidDuctBoxExhaust(Material mat) {\n\t\tsuper(mat);\n\t}\n",
+          "new": "    public FluidDuctBoxExhaust(Material material) {\n        super(material);\n    }\n"
+        },
+        {
+          "before_offset": 989,
+          "after_offset": 910,
+          "old": "\t@Override\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\n\t\treturn new TileEntityPipeExhaust();\n\t}\n",
+          "new": "    @Override\n    public TileEntity createNewTileEntity(World world, int metadata) {\n        return new TileEntityPipeExhaust();\n    }\n"
+        },
+        {
+          "before_offset": 1106,
+          "after_offset": 1046,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n",
+          "new": "    @Override\n    public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection direction, TileEntity tile) {\n        return Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, direction, Fluids.SMOKE) ||\n                Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, direction, Fluids.SMOKE_LEADED) ||\n                Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, direction, Fluids.SMOKE_POISON);\n    }\n"
+        },
+        {
+          "before_offset": 1246,
+          "after_offset": 1628,
+          "old": "\t\ticonStraight = new IIcon[1];\n\t\ticonEnd = new IIcon[1];\n\t\ticonCurveTL = new IIcon[1];\n\t\ticonCurveTR = new IIcon[1];\n\t\ticonCurveBL = new IIcon[1];\n\t\ticonCurveBR = new IIcon[1];\n\t\ticonJunction = new IIcon[1][5];\n",
+          "new": "    @Override\n    public int getSubCount() {\n        return 1;\n    }\n"
+        },
+        {
+          "before_offset": 1458,
+          "after_offset": 1698,
+          "old": "\t\ticonStraight[0] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_straight\");\n\t\ticonEnd[0] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_end\");\n\t\ticonCurveTL[0] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_curve_tl\");\n\t\ticonCurveTR[0] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_curve_tr\");\n\t\ticonCurveBL[0] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_curve_bl\");\n\t\ticonCurveBR[0] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_curve_br\");\n\t\tfor(int i = 0; i < 5; i++) iconJunction[0][i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_exhaust_junction_\" + i);\n\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {\n        for(int metadata = 0; metadata < 15; metadata += 3) {\n            items.add(new ItemStack(this, 1, metadata));\n        }\n    }\n"
+        },
+        {
+          "before_offset": 2148,
+          "after_offset": 1954,
+          "old": "\tpublic boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir, TileEntity tile) {\n\t\treturn Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, Fluids.SMOKE) ||\n\t\t\t\tLibrary.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, Fluids.SMOKE_LEADED) ||\n\t\t\t\tLibrary.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, Fluids.SMOKE_POISON);\n\t}\n\n\t@Override\n\tpublic int getSubCount() {\n\t\treturn 1;\n\t}\n\n\t@SideOnly(Side.CLIENT)\n\tpublic void getSubBlocks(Item item, CreativeTabs tab, List list) {\n\t\tfor(int i = 0; i < 15; i += 3) {\n\t\t\tlist.add(new ItemStack(item, 1, i));\n\t\t}\n\t}\n\n\t@Override\n\tpublic void printHook(Pre event, World world, int x, int y, int z) {\n\t\tList<String> text = new ArrayList();\n\t\ttext.add(Fluids.SMOKE.getLocalizedName());\n\t\ttext.add(Fluids.SMOKE_LEADED.getLocalizedName());\n\t\ttext.add(Fluids.SMOKE_POISON.getLocalizedName());\n\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void printHook(Pre event, World world, int x, int y, int z) {\n        List<String> text = new ArrayList<>();\n        text.add(Fluids.SMOKE.getLocalizedName());\n        text.add(Fluids.SMOKE_LEADED.getLocalizedName());\n        text.add(Fluids.SMOKE_POISON.getLocalizedName());\n        ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/PowerCableBox.java": {
+      "before_sha256": "4526bd07ae40a0aaa14d2de6b80b349cd13ab46243254393f0f885c18b1f3bdf",
+      "after_sha256": "b0caff26a08ab51f02e90bf3fd0c97a48081ab495da21a4690930b24f5f4ea71",
+      "edits": [
+        {
+          "before_offset": 32,
+          "after_offset": 32,
+          "old": "",
+          "new": "\nimport com.hbm.blocks.IBlockMulti;\nimport com.hbm.lib.ForgeDirection;\nimport com.hbm.lib.Library;\nimport com.hbm.tileentity.network.TileEntityCableBaseNT;\nimport net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.creativetab.CreativeTabs;\nimport net.minecraft.entity.Entity;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.NonNullList;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n"
+        },
+        {
+          "before_offset": 85,
+          "after_offset": 1361,
+          "old": "import com.hbm.blocks.IBlockMulti;\nimport com.hbm.lib.Library;\nimport com.hbm.lib.RefStrings;\nimport com.hbm.tileentity.network.TileEntityCableBaseNT;\n\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\nimport net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\nimport com.hbm.render.icon.IIconRegister;\nimport net.minecraft.creativetab.CreativeTabs;\nimport net.minecraft.entity.Entity;\nimport net.minecraft.item.Item;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport com.hbm.lib.ForgeDirection;\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 929,
+          "after_offset": 1437,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconStraight;\n\t@SideOnly(Side.CLIENT) public IIcon[] iconEnd;\n\t@SideOnly(Side.CLIENT) public IIcon iconCurveTL;\n\t@SideOnly(Side.CLIENT) public IIcon iconCurveTR;\n\t@SideOnly(Side.CLIENT) public IIcon iconCurveBL;\n\t@SideOnly(Side.CLIENT) public IIcon iconCurveBR;\n\t@SideOnly(Side.CLIENT) public IIcon iconJunction;\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "before_offset": 1280,
+          "after_offset": 1532,
+          "old": "\tpublic PowerCableBox(Material mat) {\n\t\tsuper(mat);\n\t}\n",
+          "new": "    public PowerCableBox(Material material) {\n        super(material);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n"
+        },
+        {
+          "before_offset": 1336,
+          "after_offset": 1688,
+          "old": "\t@Override\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\n\t\treturn new TileEntityCableBaseNT();\n\t}\n",
+          "new": "    @Override\n    public TileEntity createNewTileEntity(World world, int metadata) {\n        return new TileEntityCableBaseNT();\n    }\n"
+        },
+        {
+          "before_offset": 1453,
+          "after_offset": 1824,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n",
+          "new": "    @Override\n    protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[] {METADATA},\n                new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS});\n    }\n"
+        },
+        {
+          "before_offset": 1593,
+          "after_offset": 2050,
+          "old": "\t\ticonEnd = new IIcon[5];\n",
+          "new": "    @Override\n    public IBlockState getStateFromMeta(int metadata) {\n        // Preserve every persisted nibble, including metadata outside the creative variants.\n        return getDefaultState().withProperty(METADATA, metadata & 15);\n    }\n"
+        },
+        {
+          "before_offset": 1620,
+          "after_offset": 2293,
+          "old": "\t\ticonStraight = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_straight\");\n\t\tfor(int i = 0; i < 5; i++) iconEnd[i] = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_end_\" + i);\n\t\ticonCurveTL = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_curve_tl\");\n\t\ticonCurveTR = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_curve_tr\");\n\t\ticonCurveBL = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_curve_bl\");\n\t\ticonCurveBR = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_curve_br\");\n\t\ticonJunction = iconRegister.registerIcon(RefStrings.MODID + \":boxduct_\" + \"cable\" + \"_junction\");\n\t}\n",
+          "new": "    @Override\n    public int getMetaFromState(IBlockState state) {\n        return state.getValue(METADATA);\n    }\n"
+        },
+        {
+          "before_offset": 2345,
+          "after_offset": 2408,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": "    @Override\n    public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        TileEntity tile = world.getTileEntity(pos);\n        return ((IExtendedBlockState) state)\n                .withProperty(ConnectionState.CONNECTIONS, connections(world, pos, tile));\n    }\n"
+        },
+        {
+          "before_offset": 2445,
+          "after_offset": 2712,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {\n        for(int metadata = 0; metadata < 5; metadata++) {\n            items.add(new ItemStack(this, 1, metadata));\n        }\n    }\n"
+        },
+        {
+          "before_offset": 2494,
+          "after_offset": 2964,
+          "old": "\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, te);\n",
+          "new": "    @Override\n    public int damageDropped(IBlockState state) {\n        return getMetaFromState(state) % 5;\n    }\n"
+        },
+        {
+          "before_offset": 2879,
+          "after_offset": 3079,
+          "old": "\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\tint count = 0 + (pX ? 1 : 0) + (nX ? 1 : 0) + (pY ? 1 : 0) + (nY ? 1 : 0) + (pZ ? 1 : 0) + (nZ ? 1 : 0);\n",
+          "new": "    @Override\n    public boolean hasCustomBreakingProgress(IBlockState state) {\n        return BoxDuctRenderState.family(this) >= 0;\n    }\n"
+        },
+        {
+          "before_offset": 3095,
+          "after_offset": 3219,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "    @Override\n    public EnumBlockRenderType getRenderType(IBlockState state) {\n        return EnumBlockRenderType.MODEL;\n    }\n"
+        },
+        {
+          "before_offset": 3142,
+          "after_offset": 3348,
+          "old": "\t\tif((mask & 0b001111) == 0 && mask > 0) {\n\t\t\treturn (side == 4 || side == 5) ? iconEnd[meta] : iconStraight;\n\t\t} else if((mask & 0b111100) == 0 && mask > 0) {\n\t\t\treturn (side == 2 || side == 3) ? iconEnd[meta] : iconStraight;\n\t\t} else if((mask & 0b110011) == 0 && mask > 0) {\n\t\t\treturn (side == 0 || side == 1) ? iconEnd[meta] : iconStraight;\n\t\t} else {\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public BlockRenderLayer getRenderLayer() {\n        // Original render pass 0 retained binary alpha testing and terrain mipmaps.\n        return BlockRenderLayer.CUTOUT_MIPPED;\n    }\n"
+        },
+        {
+          "before_offset": 3498,
+          "after_offset": 3575,
+          "old": "\t\t\tif(side == 0 && nY || side == 1 && pY || side == 2 && nZ || side == 3 && pZ || side == 4 && nX || side == 5 && pX)\n\t\t\t\treturn iconEnd[meta];\n",
+          "new": "    @Override\n    public boolean isOpaqueCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 3643,
+          "after_offset": 3671,
+          "old": "\t\t\tif(count == 2) {\n\t\t\t\tif(side == 1 && nY || side == 0 && pY || side == 3 && nZ || side == 2 && pZ || side == 5 && nX || side == 4 && pX)\n\t\t\t\t\treturn iconStraight;\n",
+          "new": "    @Override\n    public boolean isFullCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 3809,
+          "after_offset": 3765,
+          "old": "\t\t\t\tif(nY && pZ) return side == 4 ? iconCurveBR : iconCurveBL;\n\t\t\t\tif(nY && nZ) return side == 5 ? iconCurveBR : iconCurveBL;\n\t\t\t\tif(nY && pX) return side == 3 ? iconCurveBR : iconCurveBL;\n\t\t\t\tif(nY && nX) return side == 2 ? iconCurveBR : iconCurveBL;\n\t\t\t\tif(pY && pZ) return side == 4 ? iconCurveTR : iconCurveTL;\n\t\t\t\tif(pY && nZ) return side == 5 ? iconCurveTR : iconCurveTL;\n\t\t\t\tif(pY && pX) return side == 3 ? iconCurveTR : iconCurveTL;\n\t\t\t\tif(pY && nX) return side == 2 ? iconCurveTR : iconCurveTL;\n",
+          "new": "    @Override\n    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) {\n        return BlockFaceShape.UNDEFINED;\n    }\n"
+        },
+        {
+          "before_offset": 4314,
+          "after_offset": 3943,
+          "old": "\t\t\t\tif(pX && nZ) return side == 0 ? iconCurveTR : iconCurveTR;\n\t\t\t\tif(pX && pZ) return side == 0 ? iconCurveBR : iconCurveBR;\n\t\t\t\tif(nX && nZ) return side == 0 ? iconCurveTL : iconCurveTL;\n\t\t\t\tif(nX && pZ) return side == 0 ? iconCurveBL : iconCurveBL;\n\t\t\t}\n\t\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {\n        return true;\n    }\n"
+        },
+        {
+          "before_offset": 4576,
+          "after_offset": 4124,
+          "old": "\t\treturn iconJunction;\n\t}\n",
+          "new": "    @Override\n    public int getSubCount() {\n        return 1;\n    }\n"
+        },
+        {
+          "before_offset": 4603,
+          "after_offset": 4194,
+          "old": "\t@SuppressWarnings({ \"rawtypes\", \"unchecked\" })\n\t@SideOnly(Side.CLIENT)\n\tpublic void getSubBlocks(Item item, CreativeTabs tab, List list) {\n\t\tfor(int i = 0; i < 5; ++i) {\n\t\t\tlist.add(new ItemStack(item, 1, i));\n\t\t}\n\t}\n",
+          "new": "    @Override\n    public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox,\n            List<AxisAlignedBB> boxes, Entity entity, boolean actualState) {\n        int mask = connections(world, pos, world.getTileEntity(pos));\n        for(AxisAlignedBB box : collisionBoxes(getMetaFromState(state), mask)) {\n            addCollisionBoxToList(pos, entityBox, boxes, box);\n        }\n    }\n"
+        },
+        {
+          "before_offset": 4822,
+          "after_offset": 4625,
+          "old": "\tpublic int damageDropped(int meta) {\n\t\treturn meta % 5;\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return getBoundingBox(state, world, pos);\n    }\n"
+        },
+        {
+          "before_offset": 4883,
+          "after_offset": 4800,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn FluidDuctBox.renderID;\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return bounds(getMetaFromState(state), connections(world, pos, world.getTileEntity(pos)));\n    }\n"
+        },
+        {
+          "before_offset": 4960,
+          "after_offset": 5015,
+          "old": "\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos) {\n        return getBoundingBox(state, world, pos).offset(pos);\n    }\n"
+        },
+        {
+          "before_offset": 5024,
+          "after_offset": 5221,
+          "old": "\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n",
+          "new": "    /** Local-coordinate collision boxes in the original center, +X, -X, +Y, -Y, +Z, -Z order. */\n    public static List<AxisAlignedBB> collisionBoxes(int metadata, int mask) {\n        List<AxisAlignedBB> boxes = new ArrayList<>();\n        double lower = lowerBound(metadata), upper = 1D - lower;\n        if(mask == 0) {\n            boxes.add(new AxisAlignedBB(lower, lower, lower, upper, upper, upper));\n        } else if((mask & 0b001111) == 0) {\n            boxes.add(new AxisAlignedBB(0, lower, lower, 1, upper, upper));\n        } else if((mask & 0b110011) == 0) {\n            boxes.add(new AxisAlignedBB(lower, 0, lower, upper, 1, upper));\n        } else if((mask & 0b111100) == 0) {\n            boxes.add(new AxisAlignedBB(lower, lower, 0, upper, upper, 1));\n        } else {\n            boxes.add(new AxisAlignedBB(lower, lower, lower, upper, upper, upper));\n            if((mask & ConnectionState.POS_X) != 0) boxes.add(new AxisAlignedBB(upper, lower, lower, 1, upper, upper));\n            if((mask & ConnectionState.NEG_X) != 0) boxes.add(new AxisAlignedBB(0, lower, lower, lower, upper, upper));\n            if((mask & ConnectionState.POS_Y) != 0) boxes.add(new AxisAlignedBB(lower, upper, lower, upper, 1, upper));\n            if((mask & ConnectionState.NEG_Y) != 0) boxes.add(new AxisAlignedBB(lower, 0, lower, upper, lower, upper));\n            if((mask & ConnectionState.POS_Z) != 0) boxes.add(new AxisAlignedBB(lower, lower, upper, upper, upper, 1));\n            if((mask & ConnectionState.NEG_Z) != 0) boxes.add(new AxisAlignedBB(lower, lower, 0, upper, upper, lower));\n        }\n        return boxes;\n    }\n"
+        },
+        {
+          "before_offset": 5095,
+          "after_offset": 6846,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\treturn true;\n\t}\n",
+          "new": "    /** Original merged selection/collision envelope; compound collision remains separate above. */\n    public static AxisAlignedBB bounds(int metadata, int mask) {\n        double lower = lowerBound(metadata), upper = 1D - lower;\n        if(mask == 0) return new AxisAlignedBB(lower, lower, lower, upper, upper, upper);\n        if((mask & 0b001111) == 0) return new AxisAlignedBB(0, lower, lower, 1, upper, upper);\n        if((mask & 0b110011) == 0) return new AxisAlignedBB(lower, 0, lower, upper, 1, upper);\n        if((mask & 0b111100) == 0) return new AxisAlignedBB(lower, lower, 0, upper, upper, 1);\n        return new AxisAlignedBB(\n                (mask & ConnectionState.NEG_X) != 0 ? 0 : lower,\n                (mask & ConnectionState.NEG_Y) != 0 ? 0 : lower,\n                (mask & ConnectionState.NEG_Z) != 0 ? 0 : lower,\n                (mask & ConnectionState.POS_X) != 0 ? 1 : upper,\n                (mask & ConnectionState.POS_Y) != 0 ? 1 : upper,\n                (mask & ConnectionState.POS_Z) != 0 ? 1 : upper);\n    }\n"
+        },
+        {
+          "before_offset": 5239,
+          "after_offset": 7883,
+          "old": "\t@SuppressWarnings({ \"unchecked\", \"rawtypes\" })\n\t@Override\n\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n",
+          "new": "    private static double lowerBound(int metadata) {\n        double lower = 0.125D;\n        for(int i = 0; i < 5; i++) {\n            if(metadata > i) lower += 0.0625D;\n        }\n        return lower;\n    }\n"
+        },
+        {
+          "before_offset": 5428,
+          "after_offset": 8090,
+          "old": "\t\tList<AxisAlignedBB> bbs = new ArrayList<>();\n",
+          "new": "    private int connections(IBlockAccess world, BlockPos pos, TileEntity tile) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        // Preserve the owners' directional predicate order and the legacy mask layout.\n        boolean nX = canConnectTo(world, x, y, z, Library.NEG_X, tile);\n        boolean pX = canConnectTo(world, x, y, z, Library.POS_X, tile);\n        boolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, tile);\n        boolean pY = canConnectTo(world, x, y, z, Library.POS_Y, tile);\n        boolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, tile);\n        boolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, tile);\n        return (pX ? ConnectionState.POS_X : 0) | (nX ? ConnectionState.NEG_X : 0)\n             | (pY ? ConnectionState.POS_Y : 0) | (nY ? ConnectionState.NEG_Y : 0)\n             | (pZ ? ConnectionState.POS_Z : 0) | (nZ ? ConnectionState.NEG_Z : 0);\n    }\n"
+        },
+        {
+          "before_offset": 5476,
+          "after_offset": 9008,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n\n\t\tdouble lower = 0.125D;\n\t\tdouble upper = 0.875D;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tfor(int i = 0; i < 5; i++) {\n\n\t\t\tif(meta > i) {\n\t\t\t\tlower += 0.0625D;\n\t\t\t\tupper -= 0.0625D;\n\t\t\t}\n\t\t}\n\n\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, te);\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\n\t\tif(mask == 0) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + lower, x + upper, y + upper, z + upper));\n\t\t} else if(mask == 0b100000 || mask == 0b010000 || mask == 0b110000) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + lower, z + lower, x + 1.0D, y + upper, z + upper));\n\t\t} else if(mask == 0b001000 || mask == 0b000100 || mask == 0b001100) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + 0.0D, z + lower, x + upper, y + 1.0D, z + upper));\n\t\t} else if(mask == 0b000010 || mask == 0b000001 || mask == 0b000011) {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + 0.0D, x + upper, y + upper, z + 1.0D));\n\t\t} else {\n\t\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + lower, x + upper, y + upper, z + upper));\n\n\t\t\tif(pX) bbs.add(AxisAlignedBB.getBoundingBox(x + upper, y + lower, z + lower, x + 1.0D, y + upper, z + upper));\n\t\t\tif(nX) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.0D, y + lower, z + lower, x + lower, y + upper, z + upper));\n\t\t\tif(pY) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + upper, z + lower, x + upper, y + 1.0D, z + upper));\n\t\t\tif(nY) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + 0.0D, z + lower, x + upper, y + lower, z + upper));\n\t\t\tif(pZ) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + upper, x + upper, y + upper, z + 1.0D));\n\t\t\tif(nZ) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + 0.0D, x + upper, y + upper, z + lower));\n\t\t}\n\n\t\tfor(AxisAlignedBB bb : bbs) {\n\t\t\tif(entityBounding.intersectsWith(bb)) {\n\t\t\t\tlist.add(bb);\n\t\t\t}\n\t\t}\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\n\t\tfloat lower = 0.125F;\n\t\tfloat upper = 0.875F;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tfor(int i = 0; i < 5; i++) {\n\n\t\t\tif(meta > i) {\n\t\t\t\tlower += 0.0625F;\n\t\t\t\tupper -= 0.0625F;\n\t\t\t}\n\t\t}\n\n\t\tboolean nX = canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\tboolean pX = canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\tboolean nY = canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\tboolean pY = canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\tboolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\t\tboolean pZ = canConnectTo(world, x, y, z, Library.POS_Z, te);\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\n\t\tif(mask == 0) {\n\t\t\tthis.setBlockBounds(lower, lower, lower, upper, upper, upper);\n\t\t} else if(mask == 0b100000 || mask == 0b010000 || mask == 0b110000) {\n\t\t\tthis.setBlockBounds(0F, lower, lower, 1F, upper, upper);\n\t\t} else if(mask == 0b001000 || mask == 0b000100 || mask == 0b001100) {\n\t\t\tthis.setBlockBounds(lower, 0F, lower, upper, 1F, upper);\n\t\t} else if(mask == 0b000010 || mask == 0b000001 || mask == 0b000011) {\n\t\t\tthis.setBlockBounds(lower, lower, 0F, upper, upper, 1F);\n\t\t} else {\n\n\t\t\tthis.setBlockBounds(\n\t\t\t\t\tnX ? 0F : lower,\n\t\t\t\t\tnY ? 0F : lower,\n\t\t\t\t\tnZ ? 0F : lower,\n\t\t\t\t\tpX ? 1F : upper,\n\t\t\t\t\tpY ? 1F : upper,\n\t\t\t\t\tpZ ? 1F : upper);\n\t\t}\n\t}\n\n\tpublic boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir, TileEntity tile) {\n\t\tif(tile instanceof TileEntityCableBaseNT) {\n\t\t\treturn Library.canConnect(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir);\n\t\t}\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getSubCount() {\n\t\treturn 1;\n\t}\n\n",
+          "new": "    public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection direction, TileEntity tile) {\n        if(tile instanceof TileEntityCableBaseNT) {\n            return Library.canConnect(world, x + direction.offsetX, y + direction.offsetY,\n                    z + direction.offsetZ, direction);\n        }\n        return false;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/WireCoated.java": {
+      "before_sha256": "da8616c8feb0fc8d274ffec0caf5122e8a299a9afd576b4e70ba9f9f450227b1",
+      "after_sha256": "74d9e40793c3cfc55af20bafac67cac179e311708bd43cdaeda2f478ec032107",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTStitchReceiver;\n",
+          "new": "import com.hbm.render.block.ct.CTContext;\n"
+        },
+        {
+          "before_offset": 215,
+          "after_offset": 173,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 402,
+          "after_offset": 262,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 488,
+          "after_offset": 306,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 733,
+          "after_offset": 517,
+          "old": "",
+          "new": "        setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));\n"
+        },
+        {
+          "before_offset": 867,
+          "after_offset": 739,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return CTContext.extend(state, world, pos, this);\n    }\n"
+        },
+        {
+          "before_offset": 934,
+          "after_offset": 1595,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic CTStitchReceiver rec;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 989,
+          "after_offset": 1596,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(this.getTextureName());\n\t\tthis.rec = IBlockCT.primeReceiver(reg, this.getTextureName(), this.blockIcon);\n\t}\n\n\t@Override\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {\n\t\treturn rec.fragCache;\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "28e1c01aeb3f61933e7b1c5f06ea8432ddaebc6f430b77d640a770e3d1e96181",
+      "after_sha256": "7112f22df61cad70c37e7c26b22a16f4951fcce22c1ba9e23742186f434095aa",
+      "edits": [
+        {
+          "before_offset": 4822,
+          "after_offset": 4822,
+          "old": "\t\t\tthis.getNavigator().setPath(PathFinderUtils.getPathEntityToEntityPartial(worldObj, this, this.getAttackTarget(), 16F, true, false, false, true), 1);\n",
+          "new": "\t\t\tthis.getNavigator().setPath(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.getAttackTarget(), 16F, true, false, false, true), 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "f2d175b98a234add95d166c2e1a84420ae3618dc8bafabff2f41b3dbd188c882",
+      "after_sha256": "ab8fb55dc956e223c219f83f98dd5add73a68542ba8800b9fef865c314e9bb27",
+      "edits": [
+        {
+          "before_offset": 8702,
+          "after_offset": 8702,
+          "old": "\t\t\t\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToEntityPartial(worldObj, this, this.entityToAttack, 16F, true, false, true, true));\n",
+          "new": "\t\t\t\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.entityToAttack, 16F, true, false, true, true));\n"
+        },
+        {
+          "before_offset": 9611,
+          "after_offset": 9608,
+          "old": "\t\t\t\t\t\t\t\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(worldObj, this, taskX, taskY, taskZ, maxDist, true, false, true, true));\n",
+          "new": "\t\t\t\t\t\t\t\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));\n"
+        },
+        {
+          "before_offset": 9924,
+          "after_offset": 9918,
+          "old": "\t\t\t\t\t\t\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(worldObj, this, taskX, taskY, taskZ, maxDist, true, false, true, true));\n",
+          "new": "\t\t\t\t\t\t\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));\n"
+        },
+        {
+          "before_offset": 20386,
+          "after_offset": 20377,
+          "old": "\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(worldObj, this, taskX, taskY, taskZ, maxDist, true, false, true, true));\n",
+          "new": "\t\tthis.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/pathfinder/PathFinderUtils.java": {
+      "before_sha256": "61843202217108c953fa74a30a3c88d977d600fd6879d6f59ced6b05772aa96e",
+      "after_sha256": "1b998e13d9ebad52e9b38ce9d206741cb9551d19872685d41ff6babfcb7596df",
+      "edits": [
+        {
+          "before_offset": 72,
+          "after_offset": 72,
+          "old": "import net.minecraft.pathfinding.PathEntity;\nimport net.minecraft.pathfinding.PathFinder;\n",
+          "new": "import net.minecraft.pathfinding.Path;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 349,
+          "after_offset": 339,
+          "old": "\tpublic static PathEntity getPathEntityToEntityPartial(World world, Entity fromEntity, Entity toEntity, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {\n\t\tworld.theProfiler.startSection(\"pathfind\");\n\t\tint startX = MathHelper.floor_double(fromEntity.posX);\n\t\tint startY = MathHelper.floor_double(fromEntity.posY + 1.0D);\n\t\tint startZ = MathHelper.floor_double(fromEntity.posZ);\n",
+          "new": "\tpublic static Path getPathEntityToEntityPartial(World world, Entity fromEntity, Entity toEntity, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {\n\t\tworld.profiler.startSection(\"pathfind\");\n\t\tint startX = MathHelper.floor(fromEntity.posX);\n\t\tint startY = MathHelper.floor(fromEntity.posY + 1.0D);\n\t\tint startZ = MathHelper.floor(fromEntity.posZ);\n"
+        },
+        {
+          "before_offset": 1022,
+          "after_offset": 982,
+          "old": "\t\tChunkCache chunkcache = new ChunkCache(world, minX, minY, minZ, maxX, maxY, maxZ, 0);\n",
+          "new": "\t\tChunkCache chunkcache = new ChunkCache(world, new BlockPos(minX, minY, minZ), new BlockPos(maxX, maxY, maxZ), 0);\n"
+        },
+        {
+          "before_offset": 1628,
+          "after_offset": 1616,
+          "old": "\t\t\tif(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {\n",
+          "new": "\t\t\tif(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {\n"
+        },
+        {
+          "before_offset": 1842,
+          "after_offset": 1889,
+          "old": "\t\t\tif(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {\n",
+          "new": "\t\t\tif(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {\n"
+        },
+        {
+          "before_offset": 2003,
+          "after_offset": 2109,
+          "old": "\t\t//PathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, toEntity, maxDist);\n\t\tPathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);\n\t\tworld.theProfiler.endSection();\n",
+          "new": "\t\tPath pathentity = (new NTMPathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);\n\t\tworld.profiler.endSection();\n"
+        },
+        {
+          "before_offset": 2371,
+          "after_offset": 2315,
+          "old": "\tpublic static PathEntity getPathEntityToCoordPartial(World world, Entity fromEntity, int posX, int posY, int posZ, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {\n\t\tworld.theProfiler.startSection(\"pathfind\");\n\t\tint startX = MathHelper.floor_double(fromEntity.posX);\n\t\tint startY = MathHelper.floor_double(fromEntity.posY + 1.0D);\n\t\tint startZ = MathHelper.floor_double(fromEntity.posZ);\n",
+          "new": "\tpublic static Path getPathEntityToCoordPartial(World world, Entity fromEntity, int posX, int posY, int posZ, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {\n\t\tworld.profiler.startSection(\"pathfind\");\n\t\tint startX = MathHelper.floor(fromEntity.posX);\n\t\tint startY = MathHelper.floor(fromEntity.posY + 1.0D);\n\t\tint startZ = MathHelper.floor(fromEntity.posZ);\n"
+        },
+        {
+          "before_offset": 3056,
+          "after_offset": 2970,
+          "old": "\t\tChunkCache chunkcache = new ChunkCache(world, minX, minY, minZ, maxX, maxY, maxZ, 0);\n",
+          "new": "\t\tChunkCache chunkcache = new ChunkCache(world, new BlockPos(minX, minY, minZ), new BlockPos(maxX, maxY, maxZ), 0);\n"
+        },
+        {
+          "before_offset": 3629,
+          "after_offset": 3571,
+          "old": "\t\t\tif(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {\n",
+          "new": "\t\t\tif(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {\n"
+        },
+        {
+          "before_offset": 3838,
+          "after_offset": 3839,
+          "old": "\t\t\tif(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {\n",
+          "new": "\t\t\tif(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {\n"
+        },
+        {
+          "before_offset": 3999,
+          "after_offset": 4059,
+          "old": "\t\t//PathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, toEntity, maxDist);\n\t\tPathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);\n\t\tworld.theProfiler.endSection();\n",
+          "new": "\t\tPath pathentity = (new NTMPathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);\n\t\tworld.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemChopper.java": {
+      "before_sha256": "ad21910d6461c77f285f0719938b560b1904f9c3ff5715ad37f6c815cc3a8dca",
+      "after_sha256": "f8dfc4cf5d7c48d5a7f47f0a85608b75ce22464523069041d5e69132ca44c3c4",
+      "edits": [
+        {
+          "before_offset": 379,
+          "after_offset": 379,
+          "old": "",
+          "new": "import com.hbm.blocks.generic.BlockMetalFence;\n"
+        },
+        {
+          "before_offset": 1626,
+          "after_offset": 1673,
+          "old": "\t\t\tif(face == EnumFacing.UP && block instanceof BlockFence)\n",
+          "new": "\t\t\tif(face == EnumFacing.UP && block instanceof BlockFence && !(block instanceof BlockMetalFence))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "61c3b24b8a2dca63d7765c46b852d1cf03aa37ae5a35c3eaa5a4af36f2891ea9",
+      "after_sha256": "2967e20ce6805ebff10dcc247d6d9e71a8b94e4c84011e068b9ba128664e5281",
+      "edits": [
+        {
+          "before_offset": 80172,
+          "after_offset": 80172,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderBlockCT());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 80368,
+          "after_offset": 80305,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderBoxDuct());\n",
+          "new": "\t\t// BoxDuctModelHandler owns native box-duct world, inventory and original damage models.\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderBlockCT.java": {
+      "before_sha256": "4606608f3d2ee53e1af161031281dd60ef50bd49880a2e7434f94856c276ec26",
+      "after_sha256": "7333353045dee00b9194315e0222cdfe4a0855b97568d9f628bd3f789294ee67",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import com.hbm.render.block.ct.CT;\nimport com.hbm.render.block.ct.CTContext;\nimport com.hbm.render.block.ct.RenderBlocksCT;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.ct.*;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.client.renderer.block.model.*;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport org.lwjgl.util.vector.Vector3f;\n"
+        },
+        {
+          "before_offset": 156,
+          "after_offset": 389,
+          "old": "import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderBlockCT implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\tRenderBlocksCT.instance.renderBlockAsItem(block, metadata, 1F);\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tRenderBlocksCT rbct = RenderBlocksCT.instance;\n\t\trbct.prepWorld(world);\n\t\t\n\t\tCTContext.loadContext(world, x, y, z, block);\n\t\trbct.renderStandardBlock(block, x, y, z);\n\t\tCTContext.dropContext();\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn CT.renderID;\n\t}\n",
+          "new": "/** Native CT model. Each world request owns its context; baking never mutates a global renderer. */\npublic final class RenderBlockCT implements IBakedModel {\n    private final TextureAtlasSprite full;\n    private final List<BakedQuad> inventory;\n    private final List<BakedQuad>[][][] faces;\n    @SuppressWarnings(\"unchecked\")\n    public RenderBlockCT(TextureAtlasSprite full, TextureAtlasSprite connected, TextureAtlasSprite portFull, TextureAtlasSprite portConnected, boolean item) {\n        this.full=Objects.requireNonNull(full,\"full\");\n        this.inventory=item ? RenderBlocksCT.bakeInventory(full) : null;\n        faces=new List[2][6][256];\n        if(!item) for(int material=0;material<2;material++) for(EnumFacing side:EnumFacing.values()) {\n            if(material==1 && portFull==null) { faces[1][side.getIndex()]=faces[0][side.getIndex()]; continue; }\n            TextureAtlasSprite base=material==1?portFull:full, joined=material==1?portConnected:connected;\n            BakedQuad reference=RenderBlocksCT.fullFace(base,side);\n            BakedQuad[] fragments=new BakedQuad[20];\n            for(int mask=0;mask<256;mask++) {\n                List<BakedQuad> raw=RenderBlocksCT.bakeFace(base,joined,side,mask);\n                List<BakedQuad> lit=new ArrayList<>(4);\n                for(int quadrant=0;quadrant<4;quadrant++) {\n                    int index=CTContext.fragment(mask,quadrant);\n                    if(fragments[index]==null) fragments[index]=new CTLightQuad(raw.get(quadrant),reference,quadrant);\n                    lit.add(fragments[index]);\n                }\n                faces[material][side.getIndex()][mask]=Collections.unmodifiableList(lit);\n            }\n        }\n    }\n    @Override public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long seed) {\n        if(inventory!=null) return side==null?inventory:Collections.emptyList();\n        if(side==null) return Collections.emptyList();\n        CTContext context=state instanceof IExtendedBlockState?((IExtendedBlockState)state).getValue(CTContext.PROPERTY):null;\n        return faces[context==null?0:context.material()][side.getIndex()][context==null?0:context.mask(side)];\n    }\n    @Override public boolean isAmbientOcclusion() { return true; }\n    @Override public boolean isGui3d() { return true; }\n    @Override public boolean isBuiltInRenderer() { return false; }\n    @Override public TextureAtlasSprite getParticleTexture() { return full; }\n    @Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }\n    private static ItemTransformVec3f transform(float x,float y,float z,float ty,float scale) {\n        return new ItemTransformVec3f(new Vector3f(x,y,z),new Vector3f(0,ty/16F,0),new Vector3f(scale,scale,scale));\n    }\n    private static final ItemCameraTransforms TRANSFORMS=new ItemCameraTransforms(\n        transform(75,45,0,2.5F,.375F),transform(75,45,0,2.5F,.375F),transform(0,225,0,0,.4F),transform(0,45,0,0,.4F),\n        ItemTransformVec3f.DEFAULT,transform(30,225,0,0,.625F),transform(0,0,0,3,.25F),transform(0,0,0,0,.5F));\n    @Override public ItemCameraTransforms getItemCameraTransforms() { return TRANSFORMS; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderBoxDuct.java": {
+      "before_sha256": "f4512b1542c9f063355ee09dc0e7f6ab47875bfbb228cd4d76d63e0ab4488cf2",
+      "after_sha256": "e96831e334fdbcc5f67b328c64d9daa0a158d5ffa6b9f2158caa8fc1eb549869",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.nativeblock.BoxDuctMaterials;\nimport com.hbm.render.block.nativeblock.BoxDuctMaterials.Kind;\nimport com.hbm.render.block.nativeblock.PneumaticCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 401,
+          "old": "import com.hbm.blocks.network.FluidDuctBox;\nimport com.hbm.blocks.network.PowerCableBox;\nimport com.hbm.inventory.fluid.FluidType;\nimport com.hbm.inventory.fluid.Fluids;\nimport com.hbm.lib.Library;\nimport com.hbm.render.util.RenderBlocksNT;\nimport com.hbm.tileentity.network.TileEntityPipeBaseNT;\nimport com.hbm.util.ColorUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderBoxDuct implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\tTessellator tessellator = Tessellator.instance;\n\n\t\tif(block instanceof FluidDuctBox) {\n\t\t\tFluidDuctBox duct = (FluidDuctBox) block;\n\t\t\tint type = duct.rectify(metadata);\n\n\t\t\tfloat lower = 0.125F;\n\t\t\tfloat upper = 0.875F;\n\n\t\t\tfor(int i = 2; i < 13; i += 3) {\n\n\t\t\t\tif(metadata > i) {\n\t\t\t\t\tlower += 0.0625F;\n\t\t\t\t\tupper -= 0.0625F;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\n\t\t\trenderer.setRenderBounds(lower, lower, 0.0F, upper, upper, 1.0F);\n\n\t\t\trenderer.uvRotateNorth = 1;\n\t\t\trenderer.uvRotateSouth = 2;\n\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, 0, 0, 0, duct.iconStraight[type]);\n\t\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, 0, 0, 0, duct.iconStraight[type]);\n\t\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, 0, 0, 0, duct.iconStraight[type]);\n\t\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, 0, 0, 0, duct.iconStraight[type]);\n\t\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, 0, 0, 0, duct.iconEnd[type]);\n\t\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, 0, 0, 0, duct.iconEnd[type]);\n\t\t\ttessellator.draw();\n\n\t\t\trenderer.uvRotateNorth = 0;\n\t\t\trenderer.uvRotateSouth = 0;\n\t\t} else if(block instanceof PowerCableBox) {\n\t\t\tPowerCableBox cable = (PowerCableBox) block;\n\n\t\t\tfloat lower = 0.125F;\n\t\t\tfloat upper = 0.875F;\n\n\t\t\tfor(int i = 0; i < 5; i++) {\n\n\t\t\t\tif(metadata > i) {\n\t\t\t\t\tlower += 0.0625F;\n\t\t\t\t\tupper -= 0.0625F;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\n\t\t\trenderer.setRenderBounds(lower, lower, 0.0F, upper, upper, 1.0F);\n\n\t\t\trenderer.uvRotateNorth = 1;\n\t\t\trenderer.uvRotateSouth = 2;\n\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, 0, 0, 0, cable.iconStraight);\n\t\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, 0, 0, 0, cable.iconStraight);\n\t\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, 0, 0, 0, cable.iconStraight);\n\t\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, 0, 0, 0, cable.iconStraight);\n\t\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, 0, 0, 0, cable.iconEnd[metadata]);\n\t\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, 0, 0, 0, cable.iconEnd[metadata]);\n\t\t\ttessellator.draw();\n\n\t\t\trenderer.uvRotateNorth = 0;\n\t\t\trenderer.uvRotateSouth = 0;\n\t\t}\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\trenderer = RenderBlocksNT.INSTANCE.setWorld(world);\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tboolean pX = false;\n\t\tboolean nX = false;\n\t\tboolean pY = false;\n\t\tboolean nY = false;\n\t\tboolean pZ = false;\n\t\tboolean nZ = false;\n\n\t\tdouble lower = 0.125D;\n\t\tdouble upper = 0.875D;\n\t\tdouble jLower = lower;\n\t\tdouble jUpper = upper;\n\n\t\tif(block instanceof FluidDuctBox) {\n\t\t\tFluidDuctBox.cachedColor = 0xffffff;\n\t\t\tFluidDuctBox duct = (FluidDuctBox) block;\n\n\t\t\tpX = duct.canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\t\tnX = duct.canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\t\tpY = duct.canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\t\tnY = duct.canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\t\tpZ = duct.canConnectTo(world, x, y, z, Library.POS_Z, te);\n\t\t\tnZ = duct.canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\n\t\t\tif(te instanceof TileEntityPipeBaseNT) {\n\t\t\t\tFluidType type = Fluids.NONE;\n\t\t\t\tTileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;\n\t\t\t\ttype = pipe.getType();\n\t\t\t\tif(meta % 3 == 2) {\n\t\t\t\t\tFluidDuctBox.cachedColor = ColorUtil.lightenColor(type.getColor(), 0.25D); //making very dark things not vantablack\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tjLower = 0.0625D;\n\t\t\tjUpper = 0.9375D;\n\n\t\t\tfor(int i = 2; i < 13; i += 3) {\n\n\t\t\t\tif(meta > i) {\n\t\t\t\t\tlower += 0.0625D;\n\t\t\t\t\tupper -= 0.0625D;\n\t\t\t\t\tjLower += 0.0625D;\n\t\t\t\t\tjUpper -= 0.0625D;\n\t\t\t\t}\n\t\t\t}\n\t\t} else {\n\t\t\tPowerCableBox cable = (PowerCableBox) block;\n\n\t\t\tpX = cable.canConnectTo(world, x, y, z, Library.POS_X, te);\n\t\t\tnX = cable.canConnectTo(world, x, y, z, Library.NEG_X, te);\n\t\t\tpY = cable.canConnectTo(world, x, y, z, Library.POS_Y, te);\n\t\t\tnY = cable.canConnectTo(world, x, y, z, Library.NEG_Y, te);\n\t\t\tpZ = cable.canConnectTo(world, x, y, z, Library.POS_Z, te);\n\t\t\tnZ = cable.canConnectTo(world, x, y, z, Library.NEG_Z, te);\n\n\t\t\tfor(int i = 0; i < 5; i++) {\n\n\t\t\t\tif(meta > i) {\n\t\t\t\t\tlower += 0.0625F;\n\t\t\t\t\tupper -= 0.0625F;\n\t\t\t\t\tjLower += 0.0625F;\n\t\t\t\t\tjUpper -= 0.0625F;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\tint count = 0 + (pX ? 1 : 0) + (nX ? 1 : 0) + (pY ? 1 : 0) + (nY ? 1 : 0) + (pZ ? 1 : 0) + (nZ ? 1 : 0);\n\n\t\t//Straight along X\n\t\tif((mask & 0b001111) == 0 && mask > 0) {\n\t\t\trenderer.uvRotateTop = 1;\n\t\t\trenderer.uvRotateBottom = 1;\n\t\t\trenderer.uvRotateEast = 2;\n\t\t\trenderer.uvRotateWest = 1;\n\t\t\trenderer.setRenderBounds(0.0D, lower, lower, 1.0D, upper, upper);\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\n\t\t//Straight along Z\n\t\t} else if((mask & 0b111100) == 0 && mask > 0) {\n\t\t\trenderer.uvRotateNorth = 1;\n\t\t\trenderer.uvRotateSouth = 2;\n\t\t\trenderer.setRenderBounds(lower, lower, 0.0D, upper, upper, 1.0D);\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\n\t\t//Straight along Y\n\t\t} else if((mask & 0b110011) == 0 && mask > 0) {\n\t\t\trenderer.setRenderBounds(lower, 0.0D, lower, upper, 1.0D, upper);\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\n\t\t//Curve\n\t\t} else if(count == 2) {\n\n\t\t\tif(nY && (pX || nX)) {\n\t\t\t\trenderer.uvRotateTop = 1;\n\t\t\t\trenderer.uvRotateBottom = 1;\n\t\t\t}\n\n\t\t\tif(pY && (pX || nX)) {\n\t\t\t\trenderer.uvRotateTop = 1;\n\t\t\t\trenderer.uvRotateBottom = 1;\n\t\t\t}\n\n\t\t\tif(!nY && !pY) {\n\t\t\t\trenderer.uvRotateNorth = 1;\n\t\t\t\trenderer.uvRotateSouth = 2;\n\t\t\t\trenderer.uvRotateEast = 2;\n\t\t\t\trenderer.uvRotateWest = 1;\n\t\t\t}\n\n\t\t\trenderer.setRenderBounds(lower, lower, lower, upper, upper, upper);\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\n\t\t\tif(nY) {\n\t\t\t\trenderer.setRenderBounds(lower, 0.0D, lower, upper, lower, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(pY) {\n\t\t\t\trenderer.setRenderBounds(lower, upper, lower, upper, 1.0D, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(nX) {\n\t\t\t\trenderer.setRenderBounds(0.0D, lower, lower, lower, upper, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(pX) {\n\t\t\t\trenderer.setRenderBounds(upper, lower, lower, 1.0D, upper, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(nZ) {\n\t\t\t\trenderer.setRenderBounds(lower, lower, 0.0D, upper, upper, lower);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(pZ) {\n\t\t\t\trenderer.setRenderBounds(lower, lower, upper, upper, upper, 1.0D);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\n\t\t//Junction\n\t\t} else {\n\t\t\trenderer.setRenderBounds(jLower, jLower, jLower, jUpper, jUpper, jUpper);\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\n\t\t\tif(nY) {\n\t\t\t\trenderer.setRenderBounds(lower, 0.0D, lower, upper, jLower, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(pY) {\n\t\t\t\trenderer.setRenderBounds(lower, jUpper, lower, upper, 1.0D, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(nX) {\n\t\t\t\trenderer.setRenderBounds(0.0D, lower, lower, jLower, upper, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(pX) {\n\t\t\t\trenderer.setRenderBounds(jUpper, lower, lower, 1.0D, upper, upper);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(nZ) {\n\t\t\t\trenderer.setRenderBounds(lower, lower, 0.0D, upper, upper, jLower);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t\tif(pZ) {\n\t\t\t\trenderer.setRenderBounds(lower, lower, jUpper, upper, upper, 1.0D);\n\t\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\t}\n\t\t}\n\n\t\trenderer.uvRotateTop = 0;\n\t\trenderer.uvRotateBottom = 0;\n\t\trenderer.uvRotateNorth = 0;\n\t\trenderer.uvRotateSouth = 0;\n\t\trenderer.uvRotateEast = 0;\n\t\trenderer.uvRotateWest = 0;\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FluidDuctBox.renderID;\n\t}\n\n",
+          "new": "/** Complete native geometry successor to the original box-duct ISBRH, not a RenderBlocks facade. */\npublic final class RenderBoxDuct {\n    private RenderBoxDuct() { }\n    public static List<BakedQuad> bake(BoxDuctMaterials materials, int metadata, int mask, boolean inventory, int color) {\n        if(mask<0 || mask>63) throw new IllegalArgumentException(\"Invalid box-duct connection mask \" + mask);\n        boolean fluid = materials.kind != Kind.CABLE;\n        double lower=.125D, upper=.875D, jLower=fluid?.0625D:.125D, jUpper=fluid?.9375D:.875D;\n        if(fluid) { for(int i=2;i<13;i+=3) if(metadata>i) { lower+=.0625D;upper-=.0625D;jLower+=.0625D;jUpper-=.0625D; } }\n        else { for(int i=0;i<5;i++) if(metadata>i) { lower+=.0625D;upper-=.0625D;jLower+=.0625D;jUpper-=.0625D; } }\n        TextureAtlasSprite[] sprites = new TextureAtlasSprite[6];\n        for(int side=0;side<6;side++) sprites[side]=materials.face(metadata,mask,side,inventory);\n        int[] rotations=new int[6];\n        List<BakedQuad> quads=new ArrayList<>();\n        if(inventory) {\n            rotations[4]=1;rotations[5]=2;\n            // Original single batch was UP, DOWN, EAST, WEST, SOUTH, NORTH.\n            for(EnumFacing side:new EnumFacing[]{EnumFacing.UP,EnumFacing.DOWN,EnumFacing.EAST,EnumFacing.WEST,EnumFacing.SOUTH,EnumFacing.NORTH})\n                quads.add(PneumaticCuboidGeometry.face(sprites[side.getIndex()],true,side,rotations[side.getIndex()],lower,lower,0,upper,upper,1,0));\n            return Collections.unmodifiableList(quads);\n        }\n        if((mask&15)==0&&mask>0) {\n            rotations[0]=1;rotations[1]=1;rotations[2]=2;rotations[3]=1;\n            append(quads,sprites,rotations,0,lower,lower,1,upper,upper,color);\n        } else if((mask&60)==0&&mask>0) {\n            rotations[4]=1;rotations[5]=2;\n            append(quads,sprites,rotations,lower,lower,0,upper,upper,1,color);\n        } else if((mask&51)==0&&mask>0) {\n            append(quads,sprites,rotations,lower,0,lower,upper,1,upper,color);\n        } else {\n            boolean curve=Integer.bitCount(mask)==2;\n            if(curve) {\n                if((mask&12)!=0&&(mask&48)!=0) { rotations[0]=1;rotations[1]=1; }\n                if((mask&12)==0) { rotations[4]=1;rotations[5]=2;rotations[2]=2;rotations[3]=1; }\n                jLower=lower;jUpper=upper;\n            }\n            append(quads,sprites,rotations,jLower,jLower,jLower,jUpper,jUpper,jUpper,color);\n            if((mask&4)!=0) append(quads,sprites,rotations,lower,0,lower,upper,jLower,upper,color);\n            if((mask&8)!=0) append(quads,sprites,rotations,lower,jUpper,lower,upper,1,upper,color);\n            if((mask&16)!=0) append(quads,sprites,rotations,0,lower,lower,jLower,upper,upper,color);\n            if((mask&32)!=0) append(quads,sprites,rotations,jUpper,lower,lower,1,upper,upper,color);\n            if((mask&1)!=0) append(quads,sprites,rotations,lower,lower,0,upper,upper,jLower,color);\n            if((mask&2)!=0) append(quads,sprites,rotations,lower,lower,jUpper,upper,upper,1,color);\n        }\n        return Collections.unmodifiableList(quads);\n    }\n    private static void append(List<BakedQuad> quads, TextureAtlasSprite[] sprites, int[] rotations,\n            double x0,double y0,double z0,double x1,double y1,double z1,int color) {\n        for(EnumFacing side:EnumFacing.values()) {\n            BakedQuad face=PneumaticCuboidGeometry.face(sprites[side.getIndex()],false,side,rotations[side.getIndex()],x0,y0,z0,x1,y1,z1,0);\n            if(color!=0xffffff) {\n                int[] data=face.getVertexData().clone();int stride=face.getFormat().getIntegerSize(),at=face.getFormat().getColorOffset()/4;\n                int rgba=0xff000000|(color&255)<<16|(color&0xff00)|(color>>>16&255);\n                for(int v=0;v<4;v++) data[v*stride+at]=rgba;\n                face=new BakedQuad(data,-1,side,face.getSprite(),true,face.getFormat());\n            }\n            quads.add(face);\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/ct/CT.java": {
+      "before_sha256": "e7e587730e25e3b496e904b98e858bac58c6fb53c7e554649c91d08bd66f4653",
+      "after_sha256": "bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76",
+      "edits": [
+        {
+          "before_offset": 34,
+          "after_offset": 34,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2054,
+          "after_offset": 1989,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/ct/CTContext.java": {
+      "before_sha256": "cc044bc92571b97a15a37ad3b050113050c07fffa7649bed055abcb9cb861c4d",
+      "after_sha256": "8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70",
+      "edits": [
+        {
+          "before_offset": 34,
+          "after_offset": 34,
+          "old": "",
+          "new": "import java.util.Arrays;\n"
+        },
+        {
+          "before_offset": 68,
+          "after_offset": 93,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.block.properties.*;\nimport net.minecraft.block.state.*;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 143,
+          "after_offset": 290,
+          "old": "import com.hbm.lib.ForgeDirection;\n",
+          "new": "import net.minecraftforge.common.property.*;\n"
+        },
+        {
+          "before_offset": 179,
+          "after_offset": 336,
+          "old": "import static com.hbm.render.block.ct.CT.*;\n\npublic class CTContext {\n\t\n\tpublic static CTFace[] faces;\n\t\n\t//dim 1: 6x faces (forgeDir)\n\t//dim 2: 8x neighbors (TL, TC, TR, CL, CR, BL, BC, BR)\n\t//dim 3: 3x coord (x/y/z, [-1;1])\n\tpublic static int[][][] access = new int[][][] {\n\t\tlcfs(ForgeDirection.SOUTH, ForgeDirection.WEST),\t//DOWN guess\n\t\tlcfs(ForgeDirection.NORTH, ForgeDirection.WEST),\t//UP guess\n\t\tlcfs(ForgeDirection.UP, ForgeDirection.EAST),\t\t//NORTH\n\t\tlcfs(ForgeDirection.UP, ForgeDirection.WEST),\t\t//SOUTH\n\t\tlcfs(ForgeDirection.UP, ForgeDirection.NORTH),\t\t//WEST\n\t\tlcfs(ForgeDirection.UP, ForgeDirection.SOUTH)\t\t//EAST\n\t};\n\t\n\t//lexical coordinates from side\n\tprivate static int[][] lcfs(ForgeDirection up, ForgeDirection left) {\n\t\t\n\t\tForgeDirection down = up.getOpposite();\n\t\tForgeDirection right = left.getOpposite();\n\t\t\n\t\tint[][] lexicalCoordinates = new int[][] {\n\t\t\tcfs(up, left),\n\t\t\tcfs(up),\n\t\t\tcfs(up, right),\n\t\t\tcfs(left),\n\t\t\tcfs(right),\n\t\t\tcfs(down, left),\n\t\t\tcfs(down),\n\t\t\tcfs(down, right),\n\t\t};\n\t\t\n\t\treturn lexicalCoordinates;\n\t}\n\t\n\t//coordinates from sides\n\tprivate static int[] cfs(ForgeDirection... dirs) {\n\t\tint x = 0;\n\t\tint y = 0;\n\t\tint z = 0;\n\t\t\n\t\tfor(ForgeDirection dir : dirs) {\n\t\t\tx += dir.offsetX;\n\t\t\ty += dir.offsetY;\n\t\t\tz += dir.offsetZ;\n\t\t}\n\t\t\n\t\treturn new int[] {x, y, z};\n\t}\n\t\n\t/**\n\t * Generates the six CTFaces and fills the faces array, the faces contain the information on what icon types should be used\n\t * @param world\n\t * @param x\n\t * @param y\n\t * @param z\n\t * @param block\n\t */\n\tpublic static void loadContext(IBlockAccess world, int x, int y, int z, Block block) {\n\t\t\n\t\tfaces = new CTFace[6];\n\t\t\n\t\tfor(int i = 0; i < 6; i++) {\n\t\t\t\n\t\t\tboolean[] cons = new boolean[8];\n\t\t\tint[][] dirs = access[i];\n\t\t\t\n\t\t\tfor(int j = 0; j < 8; j++) {\n\t\t\t\t\n\t\t\t\tint[] coord = dirs[j];\n\t\t\t\tBlock neighbor = world.getBlock(x + coord[0], y + coord[1], z + coord[2]);\n\t\t\t\t\n\t\t\t\tif(((IBlockCT) block).canConnect(world, x + coord[0], y + coord[1], z + coord[2], neighbor)) {\n\t\t\t\t\tcons[j] = true;\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\t/*\n\t\t\t * 0 1 2\n\t\t\t * 3   4\n\t\t\t * 5 6 7\n\t\t\t */\n\t\t\t\n\t\t\tint itl = t | l | cornerType(cons[3], cons[0], cons[1]);\n\t\t\tint itr = t | r | cornerType(cons[4], cons[2], cons[1]);\n\t\t\tint ibl = b | l | cornerType(cons[3], cons[5], cons[6]);\n\t\t\tint ibr = b | r | cornerType(cons[4], cons[7], cons[6]);\n\t\t\t\n\t\t\tfaces[i] = new CTFace(world, x, y, z, (IBlockCT)block, itl, itr, ibl, ibr);\n\t\t}\n\t}\n\t\n\t/**\n\t * Returns the overarching texture type based on whether the horizontal, vertical and corner are connected\n\t * @param hor\n\t * @param corner\n\t * @param vert\n\t * @return the bitmask for the full texture type that should be used (f/c/j/h/v)\n\t */\n\tpublic static int cornerType(boolean hor, boolean corner, boolean vert) {\n\t\t\n\t\t/*\n\t\t * C - V\n\t\t * |\n\t\t * H\n\t\t */\n\t\t\n\t\tif(vert && hor && corner)\n\t\t\treturn c;\n\t\telse if(vert && hor)\n\t\t\treturn j;\n\t\telse if(vert)\n\t\t\treturn v;\n\t\telse if(hor)\n\t\t\treturn h;\n\t\telse\n\t\t\treturn f;\n\t}\n\t\n\t/**\n\t * @return whether there's currently a context available\n\t */\n\tpublic static boolean isContextLoaded() {\n\t\treturn faces != null;\n\t}\n\t\n\t/**\n\t * Gets rid of the current context\n\t */\n\tpublic static void dropContext() {\n\t\tfaces = null;\n\t}\n\t\n\t/**\n\t * The buffered context information for a single side. Also stores the block itself for easier access.\n\t * @author hbm\n\t *\n\t */\n\tpublic static class CTFace {\n\n\t\tIBlockAccess world;\n\t\tint x;\n\t\tint y;\n\t\tint z;\n\t\tIBlockCT ct;\n\t\tint index_tl;\n\t\tint index_tr;\n\t\tint index_bl;\n\t\tint index_br;\n\t\t\n\t\tpublic CTFace() { }\n\t\t\n\t\tpublic CTFace(IBlockAccess world, int x, int y, int z, IBlockCT block, int i, int j, int k, int l) {\n\t\t\tthis.world = world;\n\t\t\tthis.x = x;\n\t\t\tthis.y = y;\n\t\t\tthis.z = z;\n\t\t\tthis.ct = block;\n\t\t\tthis.index_tl = i;\n\t\t\tthis.index_tr = j;\n\t\t\tthis.index_bl = k;\n\t\t\tthis.index_br = l;\n\t\t}\n\t\t\n\t\tpublic IIcon getTopLeft() { return ct.getFragments(world, x, y, z)[index_tl]; }\n\t\tpublic IIcon getTopRight() { return ct.getFragments(world, x, y, z)[index_tr]; }\n\t\tpublic IIcon getBottomLeft() { return ct.getFragments(world, x, y, z)[index_bl]; }\n\t\tpublic IIcon getBottomRight() { return ct.getFragments(world, x, y, z)[index_br]; }\n\t}\n",
+          "new": "/** Thread-safe value captured before baking. No static render context or world reference. */\npublic final class CTContext {\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    public static final IUnlistedProperty<CTContext> PROPERTY = new IUnlistedProperty<CTContext>() {\n        public String getName() { return \"connected_texture\"; }\n        public boolean isValid(CTContext value) { return value != null; }\n        public Class<CTContext> getType() { return CTContext.class; }\n        public String valueToString(CTContext value) { return value.toString(); }\n    };\n    private static final EnumFacing[] UP = {EnumFacing.SOUTH, EnumFacing.NORTH, EnumFacing.UP, EnumFacing.UP, EnumFacing.UP, EnumFacing.UP};\n    private static final EnumFacing[] LEFT = {EnumFacing.WEST, EnumFacing.WEST, EnumFacing.EAST, EnumFacing.WEST, EnumFacing.NORTH, EnumFacing.SOUTH};\n    private static final int[] HORIZONTAL = {1,0,-1,1,-1,1,0,-1};\n    private static final int[] VERTICAL = {1,1,1,0,0,-1,-1,-1};\n    private final long masks;\n    private final int material;\n    private CTContext(long masks, int material) { this.masks = masks; this.material = material; }\n    public static CTContext fromMasks(int[] masks) { return fromMasks(masks, 0); }\n    public static CTContext fromMasks(int[] masks, int material) {\n        if(masks.length != 6) throw new IllegalArgumentException(\"Six CT face masks required\");\n        if(material < 0 || material > 1) throw new IllegalArgumentException(\"Unknown CT material \" + material);\n        long packed = 0;\n        for(int face = 0; face < 6; face++) {\n            if((masks[face] & ~255) != 0) throw new IllegalArgumentException(\"CT mask must fit eight neighbors\");\n            packed |= (long)masks[face] << (face * 8);\n        }\n        return new CTContext(packed, material);\n    }\n    public static CTContext capture(IBlockAccess world, BlockPos pos, IBlockCT owner) {\n        int[] masks = new int[6];\n        for(EnumFacing face : EnumFacing.values()) for(int neighbor = 0; neighbor < 8; neighbor++) {\n            BlockPos at = pos.add(offset(face, neighbor));\n            if(owner.canConnect(world, at.getX(), at.getY(), at.getZ(), world.getBlockState(at).getBlock())) masks[face.getIndex()] |= 1 << neighbor;\n        }\n        return fromMasks(masks, owner.getCTMaterial(world.getBlockState(pos)));\n    }\n    /** The original lexical TL,TC,TR,CL,CR,BL,BC,BR orientation, including top/bottom. */\n    public static BlockPos offset(EnumFacing face, int neighbor) {\n        if(neighbor < 0 || neighbor > 7) throw new IllegalArgumentException(\"CT neighbor must be 0..7\");\n        EnumFacing up = UP[face.getIndex()], left = LEFT[face.getIndex()];\n        return new BlockPos(up.getXOffset()*VERTICAL[neighbor]+left.getXOffset()*HORIZONTAL[neighbor],\n                up.getYOffset()*VERTICAL[neighbor]+left.getYOffset()*HORIZONTAL[neighbor],\n                up.getZOffset()*VERTICAL[neighbor]+left.getZOffset()*HORIZONTAL[neighbor]);\n    }\n    public int mask(EnumFacing face) { return (int)(masks >>> (face.getIndex()*8)) & 255; }\n    public int material() { return material; }\n    public int fragment(EnumFacing face, int quadrant) { return fragment(mask(face), quadrant); }\n    public static int fragment(int mask, int quadrant) {\n        int horizontal, diagonal, vertical;\n        switch(quadrant) {\n            case 0: horizontal=3; diagonal=0; vertical=1; break;\n            case 1: horizontal=4; diagonal=2; vertical=1; break;\n            case 2: horizontal=3; diagonal=5; vertical=6; break;\n            case 3: horizontal=4; diagonal=7; vertical=6; break;\n            default: throw new IllegalArgumentException(\"CT quadrant must be 0..3\");\n        }\n        return quadrant | cornerType((mask & (1 << horizontal)) != 0, (mask & (1 << diagonal)) != 0, (mask & (1 << vertical)) != 0);\n    }\n    public static int cornerType(boolean hor, boolean corner, boolean vert) {\n        return vert && hor && corner ? CT.c : vert && hor ? CT.j : vert ? CT.v : hor ? CT.h : CT.f;\n    }\n    public static BlockStateContainer stateContainer(Block owner) {\n        return new ExtendedBlockState(owner, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {PROPERTY});\n    }\n    public static IBlockState extend(IBlockState state, IBlockAccess world, BlockPos pos, IBlockCT owner) {\n        return ((IExtendedBlockState)state).withProperty(PROPERTY, capture(world, pos, owner));\n    }\n    @Override public boolean equals(Object other) { return other instanceof CTContext && ((CTContext)other).masks == masks && ((CTContext)other).material == material; }\n    @Override public int hashCode() { return 31 * Long.hashCode(masks) + material; }\n    @Override public String toString() { return Long.toHexString(masks) + \":\" + material; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/ct/IBlockCT.java": {
+      "before_sha256": "67d0e4000021b6539e98b6a4b39cc704ea2fe5080ce8c1b447ec684276b1fd56",
+      "after_sha256": "d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34",
+      "edits": [
+        {
+          "before_offset": 68,
+          "after_offset": 68,
+          "old": "import com.hbm.render.icon.IIconRegister;\nimport com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 186,
+          "after_offset": 156,
+          "old": "",
+          "new": "/** Connectivity belongs to the owner; models receive only an immutable result. */\n"
+        },
+        {
+          "before_offset": 214,
+          "after_offset": 267,
+          "old": "\n\tpublic IIcon[] getFragments(IBlockAccess world, int x, int y, int z);\n\t\n\tpublic default boolean canConnect(IBlockAccess world, int x, int y, int z, Block block) {\n\t\treturn this == block;\n\t}\n\t\n\tpublic static CTStitchReceiver primeReceiver(IIconRegister reg, String textureName, IIcon blockIcon) {\n\t\tIIcon ct = reg.registerIcon(textureName + \"_ct\");\n\t\treturn new CTStitchReceiver(blockIcon, ct);\n\t}\n",
+          "new": "    default boolean canConnect(IBlockAccess world, int x, int y, int z, Block neighbor) { return this == neighbor; }\n    default int getCTMaterial(IBlockState state) { return 0; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/ct/RenderBlocksCT.java": {
+      "before_sha256": "361e451d1067f96d506c4607b3458e2c0b010057f953f08aa8efca25ad1cf25c",
+      "after_sha256": "d06b051704a26c9a8f2c550ca2b844ca2b3f494c0ead2cb1d593c341d8ac4ea3",
+      "edits": [
+        {
+          "before_offset": 34,
+          "after_offset": 34,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.client.renderer.vertex.*;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;\n"
+        },
+        {
+          "before_offset": 65,
+          "after_offset": 396,
+          "old": "import com.hbm.interfaces.NotableComments;\nimport com.hbm.main.MainRegistry;\nimport com.hbm.render.block.ct.CTContext.CTFace;\n\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport com.hbm.lib.ForgeDirection;\n\n@NotableComments\npublic class RenderBlocksCT extends RenderBlocks {\n\n\tpublic static RenderBlocksCT instance = new RenderBlocksCT();\n\n\tVertInfo tl;\n\tVertInfo tc;\n\tVertInfo tr;\n\tVertInfo cl;\n\tVertInfo cc;\n\tVertInfo cr;\n\tVertInfo bl;\n\tVertInfo bc;\n\tVertInfo br;\n\n\tpublic RenderBlocksCT() {\n\t\tsuper();\n\t}\n\n\tpublic void prepWorld(IBlockAccess acc) {\n\t\tthis.blockAccess = acc;\n\t}\n\n\tprivate void initSideInfo(int side) {\n\n\t\tif(!this.enableAO)\n\t\t\treturn;\n\n\t\t/*\n\t\t * so what's the actual solution here? instantiating the VertInfos with TL red being 1 causes all faces to be red on the top left, so there's\n\t\t * no translation issues here. perhaps i have to rotate the light and color info before instantiating the infos? afterwards is no good because\n\t\t * of the avg calculations. either way forge is a fucking liar when saying \"ayy lmao this is the color of the top left\" no it fucking ain't,\n\t\t * it's only the color in ONE PARTICULAR SIDE. well thanks for that i think that's rather poggers, lex.\n\t\t */\n\n\t\t/*float red = (colorRedTopLeft + colorRedTopRight + colorRedBottomLeft + colorRedBottomRight) / 4F;\n\t\tfloat green = (colorGreenTopLeft + colorGreenTopRight + colorGreenBottomLeft + colorGreenBottomRight) / 4F;\n\t\tfloat blue = (colorBlueTopLeft + colorBlueTopRight + colorBlueBottomLeft + colorBlueBottomRight) / 4F;\n\t\tint light = (brightnessTopLeft + brightnessTopRight + brightnessBottomLeft + brightnessBottomRight) / 4;*/\n\n\t\tif(side == ForgeDirection.SOUTH.ordinal()) {\n\t\t\tthis.tl = new VertInfo(colorRedTopLeft, colorGreenTopLeft, colorBlueTopLeft, brightnessTopLeft);\n\t\t\tthis.tr = new VertInfo(colorRedTopRight, colorGreenTopRight, colorBlueTopRight, brightnessTopRight);\n\t\t\tthis.bl = new VertInfo(colorRedBottomLeft, colorGreenBottomLeft, colorBlueBottomLeft, brightnessBottomLeft);\n\t\t\tthis.br = new VertInfo(colorRedBottomRight, colorGreenBottomRight, colorBlueBottomRight, brightnessBottomRight);\n\t\t} else if(side == ForgeDirection.NORTH.ordinal()) {\n\t\t\tthis.tr = new VertInfo(colorRedTopLeft, colorGreenTopLeft, colorBlueTopLeft, brightnessTopLeft);\n\t\t\tthis.br = new VertInfo(colorRedTopRight, colorGreenTopRight, colorBlueTopRight, brightnessTopRight);\n\t\t\tthis.tl = new VertInfo(colorRedBottomLeft, colorGreenBottomLeft, colorBlueBottomLeft, brightnessBottomLeft);\n\t\t\tthis.bl = new VertInfo(colorRedBottomRight, colorGreenBottomRight, colorBlueBottomRight, brightnessBottomRight);\n\t\t} else if(side == ForgeDirection.EAST.ordinal()) {\n\t\t\tthis.bl = new VertInfo(colorRedTopLeft, colorGreenTopLeft, colorBlueTopLeft, brightnessTopLeft);\n\t\t\tthis.tl = new VertInfo(colorRedTopRight, colorGreenTopRight, colorBlueTopRight, brightnessTopRight);\n\t\t\tthis.br = new VertInfo(colorRedBottomLeft, colorGreenBottomLeft, colorBlueBottomLeft, brightnessBottomLeft);\n\t\t\tthis.tr = new VertInfo(colorRedBottomRight, colorGreenBottomRight, colorBlueBottomRight, brightnessBottomRight);\n\t\t} else if(side == ForgeDirection.WEST.ordinal()) {\n\t\t\tthis.tr = new VertInfo(colorRedTopLeft, colorGreenTopLeft, colorBlueTopLeft, brightnessTopLeft);\n\t\t\tthis.br = new VertInfo(colorRedTopRight, colorGreenTopRight, colorBlueTopRight, brightnessTopRight);\n\t\t\tthis.tl = new VertInfo(colorRedBottomLeft, colorGreenBottomLeft, colorBlueBottomLeft, brightnessBottomLeft);\n\t\t\tthis.bl = new VertInfo(colorRedBottomRight, colorGreenBottomRight, colorBlueBottomRight, brightnessBottomRight);\n\t\t} else if(side == ForgeDirection.UP.ordinal()) {\n\t\t\tthis.br = new VertInfo(colorRedTopLeft, colorGreenTopLeft, colorBlueTopLeft, brightnessTopLeft);\n\t\t\tthis.bl = new VertInfo(colorRedTopRight, colorGreenTopRight, colorBlueTopRight, brightnessTopRight);\n\t\t\tthis.tr = new VertInfo(colorRedBottomLeft, colorGreenBottomLeft, colorBlueBottomLeft, brightnessBottomLeft);\n\t\t\tthis.tl = new VertInfo(colorRedBottomRight, colorGreenBottomRight, colorBlueBottomRight, brightnessBottomRight);\n\t\t} else {\n\t\t\tthis.tl = new VertInfo(colorRedTopLeft, colorGreenTopLeft, colorBlueTopLeft, brightnessTopLeft);\n\t\t\tthis.tr = new VertInfo(colorRedTopRight, colorGreenTopRight, colorBlueTopRight, brightnessTopRight);\n\t\t\tthis.bl = new VertInfo(colorRedBottomLeft, colorGreenBottomLeft, colorBlueBottomLeft, brightnessBottomLeft);\n\t\t\tthis.br = new VertInfo(colorRedBottomRight, colorGreenBottomRight, colorBlueBottomRight, brightnessBottomRight);\n\t\t}\n\n\t\tthis.tc = VertInfo.avg(tl, tr);\n\t\tthis.bc = VertInfo.avg(bl, br);\n\t\tthis.cl = VertInfo.avg(tl, bl);\n\t\tthis.cr = VertInfo.avg(tr, br);\n\n\t\tthis.cc = VertInfo.avg(tl, tr, bl, br);\n\t}\n\n\t@Override\n\tpublic boolean renderStandardBlock(Block block, int x, int y, int z) {\n\n\t\tif(this.blockAccess == null) {\n\t\t\tMainRegistry.logger.error(\"Tried to call RenderBlocksCT without setting up a world context!\");\n\t\t\treturn false;\n\t\t}\n\n\t\t// fucked up evil crash fix\n\t\t// LexManos can suck my nards\n\t\tTessellator t = Tessellator.instance;\n\t\tfor(int i = 0; i < 8; i++) t.addVertex(0, 0, 0);\n\n\t\treturn super.renderStandardBlock(block, x, y, z);\n\t}\n\n\t@Override\n\tpublic void renderFaceXPos(Block block, double x, double y, double z, IIcon icon) {\n\t\tinitSideInfo(ForgeDirection.EAST.ordinal());\n\t\tCTFace face = CTContext.faces[ForgeDirection.EAST.ordinal()];\n\n\t\t/// ORDER: LEXICAL ///\n\t\tdrawFace(\n\t\t\t\tnew double[] {x + 1, y + 1, z + 1},\n\t\t\t\tnew double[] {x + 1, y + 1, z + 0},\n\t\t\t\tnew double[] {x + 1, y + 0, z + 1},\n\t\t\t\tnew double[] {x + 1, y + 0, z + 0},\n\t\t\t\tface.getTopLeft(),\n\t\t\t\tface.getTopRight(),\n\t\t\t\tface.getBottomLeft(),\n\t\t\t\tface.getBottomRight());\n\t}\n\n\t@Override\n\tpublic void renderFaceXNeg(Block block, double x, double y, double z, IIcon icon) {\n\t\tinitSideInfo(ForgeDirection.WEST.ordinal());\n\t\tCTFace face = CTContext.faces[ForgeDirection.WEST.ordinal()];\n\n\t\t/// ORDER: LEXICAL ///\n\t\tdrawFace(\n\t\t\t\tnew double[] {x + 0, y + 1, z + 0},\n\t\t\t\tnew double[] {x + 0, y + 1, z + 1},\n\t\t\t\tnew double[] {x + 0, y + 0, z + 0},\n\t\t\t\tnew double[] {x + 0, y + 0, z + 1},\n\t\t\t\tface.getTopLeft(),\n\t\t\t\tface.getTopRight(),\n\t\t\t\tface.getBottomLeft(),\n\t\t\t\tface.getBottomRight());\n\t}\n\n\t@Override\n\tpublic void renderFaceYPos(Block block, double x, double y, double z, IIcon icon) {\n\t\tinitSideInfo(ForgeDirection.UP.ordinal());\n\t\tCTFace face = CTContext.faces[ForgeDirection.UP.ordinal()];\n\n\t\t/// ORDER: LEXICAL ///\n\t\tdrawFace(\n\t\t\t\tnew double[] {x + 0, y + 1, z + 0},\n\t\t\t\tnew double[] {x + 1, y + 1, z + 0},\n\t\t\t\tnew double[] {x + 0, y + 1, z + 1},\n\t\t\t\tnew double[] {x + 1, y + 1, z + 1},\n\t\t\t\tface.getTopLeft(),\n\t\t\t\tface.getTopRight(),\n\t\t\t\tface.getBottomLeft(),\n\t\t\t\tface.getBottomRight());\n\t}\n\n\t@Override\n\tpublic void renderFaceYNeg(Block block, double x, double y, double z, IIcon icon) {\n\t\tinitSideInfo(ForgeDirection.DOWN.ordinal());\n\t\tCTFace face = CTContext.faces[ForgeDirection.DOWN.ordinal()];\n\n\t\t/// ORDER: LEXICAL ///\n\t\tdrawFace(\n\t\t\t\tnew double[] {x + 0, y + 0, z + 1},\n\t\t\t\tnew double[] {x + 1, y + 0, z + 1},\n\t\t\t\tnew double[] {x + 0, y + 0, z + 0},\n\t\t\t\tnew double[] {x + 1, y + 0, z + 0},\n\t\t\t\tface.getTopLeft(),\n\t\t\t\tface.getTopRight(),\n\t\t\t\tface.getBottomLeft(),\n\t\t\t\tface.getBottomRight());\n\t}\n\n\t@Override\n\tpublic void renderFaceZPos(Block block, double x, double y, double z, IIcon icon) {\n\t\tinitSideInfo(ForgeDirection.SOUTH.ordinal());\n\t\tCTFace face = CTContext.faces[ForgeDirection.SOUTH.ordinal()];\n\n\t\t/// ORDER: LEXICAL ///\n\t\tdrawFace(\n\t\t\t\tnew double[] {x + 0, y + 1, z + 1},\n\t\t\t\tnew double[] {x + 1, y + 1, z + 1},\n\t\t\t\tnew double[] {x + 0, y + 0, z + 1},\n\t\t\t\tnew double[] {x + 1, y + 0, z + 1},\n\t\t\t\tface.getTopLeft(),\n\t\t\t\tface.getTopRight(),\n\t\t\t\tface.getBottomLeft(),\n\t\t\t\tface.getBottomRight());\n\t}\n\n\t@Override\n\tpublic void renderFaceZNeg(Block block, double x, double y, double z, IIcon icon) {\n\t\tinitSideInfo(ForgeDirection.NORTH.ordinal());\n\t\tCTFace face = CTContext.faces[ForgeDirection.NORTH.ordinal()];\n\n\t\t/// ORDER: LEXICAL ///\n\t\tdrawFace(\n\t\t\t\tnew double[] {x + 1, y + 1, z + 0},\n\t\t\t\tnew double[] {x + 0, y + 1, z + 0},\n\t\t\t\tnew double[] {x + 1, y + 0, z + 0},\n\t\t\t\tnew double[] {x + 0, y + 0, z + 0},\n\t\t\t\tface.getTopLeft(),\n\t\t\t\tface.getTopRight(),\n\t\t\t\tface.getBottomLeft(),\n\t\t\t\tface.getBottomRight());\n\t}\n\n\t/// ORDER: LEXICAL ///\n\tprivate void drawFace(double[] ftl, double[] ftr, double[] fbl, double[] fbr, IIcon itl, IIcon itr, IIcon ibl, IIcon ibr) {\n\n\t\tdouble[] ftc = avgCoords(ftl, ftr);\n\t\tdouble[] fbc = avgCoords(fbl, fbr);\n\t\tdouble[] fcl = avgCoords(ftl, fbl);\n\t\tdouble[] fcr = avgCoords(ftr, fbr);\n\t\tdouble[] fcc = avgCoords(ftc, fbc);\n\n\t\t/*IIcon atl = ModBlocks.block_steel.getIcon(0, 0);\n\t\tIIcon atr = ModBlocks.block_copper.getIcon(0, 0);\n\t\tIIcon abl = ModBlocks.block_tungsten.getIcon(0, 0);\n\t\tIIcon abr = ModBlocks.block_aluminium.getIcon(0, 0);*/\n\n\t\t/*drawSubFace(ftl, this.tl, ftc, this.tc, fcl, this.cl, fcc, this.cc, atl);\n\t\tdrawSubFace(ftc, this.tc, ftr, this.tr, fcc, this.cc, fcr, this.cr, atr);\n\t\tdrawSubFace(fcl, this.cl, fcc, this.cc, fbl, this.bl, fbc, this.bc, abl);\n\t\tdrawSubFace(fcc, this.cc, fcr, this.cr, fbc, this.bc, fbr, this.br, abr);*/\n\n\t\tdrawSubFace(ftl, this.tl, ftc, this.tc, fcl, this.cl, fcc, this.cc, itl);\n\t\tdrawSubFace(ftc, this.tc, ftr, this.tr, fcc, this.cc, fcr, this.cr, itr);\n\t\tdrawSubFace(fcl, this.cl, fcc, this.cc, fbl, this.bl, fbc, this.bc, ibl);\n\t\tdrawSubFace(fcc, this.cc, fcr, this.cr, fbc, this.bc, fbr, this.br, ibr);\n\t}\n\n\t/// ORDER: LEXICAL ///\n\tprivate void drawSubFace(double[] ftl, VertInfo ntl, double[] ftr, VertInfo ntr, double[] fbl, VertInfo nbl, double[] fbr, VertInfo nbr, IIcon icon) {\n\n\t\tboolean debugColor = false;\n\n\t\t/// ORDER: ROTATIONAL ///\n\t\tif(debugColor) Tessellator.instance.setColorOpaque_F(1F, 1F, 0F);\n\t\tdrawVert(ftr, icon.getMaxU(), icon.getMinV(), ntr);\n\t\tif(debugColor) Tessellator.instance.setColorOpaque_F(1F, 0F, 0F);\n\t\tdrawVert(ftl, icon.getMinU(), icon.getMinV(), ntl);\n\t\tif(debugColor) Tessellator.instance.setColorOpaque_F(0F, 0F, 1F);\n\t\tdrawVert(fbl, icon.getMinU(), icon.getMaxV(), nbl);\n\t\tif(debugColor) Tessellator.instance.setColorOpaque_F(0F, 1F, 0F);\n\t\tdrawVert(fbr, icon.getMaxU(), icon.getMaxV(), nbr);\n\t}\n\n\tprivate void drawVert(double[] coord, double u, double v, VertInfo info) {\n\t\tdrawVert(coord[0], coord[1], coord[2], u, v, info);\n\t}\n\n\tprivate void drawVert(double x, double y, double z, double u, double v, VertInfo info) {\n\n\t\tif(this.enableAO) {\n\t\t\tTessellator.instance.setColorOpaque_F(info.red, info.green, info.blue);\n\t\t\tTessellator.instance.setBrightness(info.brightness);\n\t\t}\n\n\t\tTessellator.instance.addVertexWithUV(x, y, z, u, v);\n\t}\n\n\tprivate double[] avgCoords(double[] first, double[] second) {\n\t\treturn new double[] {\n\t\t\t\t(first[0] + second[0]) / 2D,\n\t\t\t\t(first[1] + second[1]) / 2D,\n\t\t\t\t(first[2] + second[2]) / 2D\n\t\t};\n\t}\n\n\tpublic static class VertInfo {\n\t\tfloat red;\n\t\tfloat green;\n\t\tfloat blue;\n\t\tint brightness;\n\n\t\tpublic VertInfo(float red, float green, float blue, int brightness) {\n\t\t\tthis.red = red;\n\t\t\tthis.green = green;\n\t\t\tthis.blue = blue;\n\t\t\tthis.brightness = brightness;\n\t\t}\n\n\t\tpublic static VertInfo avg(VertInfo...infos) {\n\t\t\tfloat r = 0F;\n\t\t\tfloat g = 0F;\n\t\t\tfloat b = 0F;\n\t\t\tint l = 0;\n\n\t\t\tfor(VertInfo vert : infos) {\n\t\t\t\tr += vert.red;\n\t\t\t\tg += vert.green;\n\t\t\t\tb += vert.blue;\n\t\t\t\tl += vert.brightness;\n\t\t\t}\n\n\t\t\tr /= infos.length;\n\t\t\tg /= infos.length;\n\t\t\tb /= infos.length;\n\t\t\tl /= infos.length;\n\n\t\t\treturn new VertInfo(r, g, b, l);\n\t\t}\n\t}\n\n\t@Override\n\tpublic void renderBlockAsItem(Block block, int meta, float mult) {\n\n\t\tblock.setBlockBoundsForItemRender();\n\t\tthis.setRenderBoundsFromBlock(block);\n\t\tGL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\n\t\tTessellator.instance.startDrawingQuads();\n\t\tTessellator.instance.setNormal(0.0F, -1.0F, 0.0F);\n\t\tsuper.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, this.getBlockIconFromSideAndMetadata(block, 0, meta));\n\t\tTessellator.instance.draw();\n\t\tTessellator.instance.startDrawingQuads();\n\t\tTessellator.instance.setNormal(0.0F, 1.0F, 0.0F);\n\t\tsuper.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, this.getBlockIconFromSideAndMetadata(block, 1, meta));\n\t\tTessellator.instance.draw();\n\n\t\tTessellator.instance.startDrawingQuads();\n\t\tTessellator.instance.setNormal(0.0F, 0.0F, -1.0F);\n\t\tsuper.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, this.getBlockIconFromSideAndMetadata(block, 2, meta));\n\t\tTessellator.instance.draw();\n\t\tTessellator.instance.startDrawingQuads();\n\t\tTessellator.instance.setNormal(0.0F, 0.0F, 1.0F);\n\t\tsuper.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, this.getBlockIconFromSideAndMetadata(block, 3, meta));\n\t\tTessellator.instance.draw();\n\n\t\tTessellator.instance.startDrawingQuads();\n\t\tTessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);\n\t\tsuper.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, this.getBlockIconFromSideAndMetadata(block, 4, meta));\n\t\tTessellator.instance.draw();\n\t\tTessellator.instance.startDrawingQuads();\n\t\tTessellator.instance.setNormal(1.0F, 0.0F, 0.0F);\n\t\tsuper.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, this.getBlockIconFromSideAndMetadata(block, 5, meta));\n\t\tTessellator.instance.draw();\n\n\t\tGL11.glTranslatef(0.5F, 0.5F, 0.5F);\n\t}\n",
+          "new": "/** Original four-fragment full-cube geometry, now native baked quads, not a RenderBlocks facade. */\npublic final class RenderBlocksCT {\n    private RenderBlocksCT() { }\n    // Lexical TL,TR,BL,BR. The original face renderer ignores mutable block bounds.\n    private static final float[][][] CORNERS = {\n        {{0,0,1},{1,0,1},{0,0,0},{1,0,0}}, {{0,1,0},{1,1,0},{0,1,1},{1,1,1}},\n        {{1,1,0},{0,1,0},{1,0,0},{0,0,0}}, {{0,1,1},{1,1,1},{0,0,1},{1,0,1}},\n        {{0,1,0},{0,1,1},{0,0,0},{0,0,1}}, {{1,1,1},{1,1,0},{1,0,1},{1,0,0}}\n    };\n    public static List<BakedQuad> bakeFace(TextureAtlasSprite full, TextureAtlasSprite connected, EnumFacing face, int mask) {\n        List<BakedQuad> result = new ArrayList<>(4);\n        for(int quadrant=0; quadrant<4; quadrant++) {\n            int fragment=CTContext.fragment(mask, quadrant);\n            TextureAtlasSprite sprite=fragment<4 ? full : connected;\n            int sub=fragment<4 ? 2 : 4;\n            float cellU=(sprite.getMaxU()-sprite.getMinU())/sub;\n            float cellV=(sprite.getMaxV()-sprite.getMinV())/sub;\n            float u=sprite.getMinU(),v=sprite.getMinV();\n            if(CT.isV(fragment)||CT.isJ(fragment)) u+=cellU*2;\n            if(CT.isH(fragment)||CT.isJ(fragment)) v+=cellV*2;\n            if(CT.isR(fragment)) u+=cellU;\n            if(CT.isB(fragment)) v+=cellV;\n            float left=(quadrant&1)*.5F, top=(quadrant>>>1)*.5F;\n            result.add(quad(sprite, face, left, top, .5F, u, v, cellU, cellV));\n        }\n        return Collections.unmodifiableList(result);\n    }\n    /** Unsplit reference for the native full-face corner light solver, in TR,TL,BL,BR order. */\n    public static BakedQuad fullFace(TextureAtlasSprite sprite, EnumFacing face) {\n        return quad(sprite, face, 0, 0, 1, sprite.getMinU(), sprite.getMinV(), sprite.getMaxU()-sprite.getMinU(), sprite.getMaxV()-sprite.getMinV());\n    }\n    private static BakedQuad quad(TextureAtlasSprite sprite, EnumFacing face, float left, float top, float span, float u, float v, float cellU, float cellV) {\n        VertexFormat format=DefaultVertexFormats.ITEM;\n        UnpackedBakedQuad.Builder builder=new UnpackedBakedQuad.Builder(format);\n        builder.setTexture(sprite); builder.setQuadTint(-1); builder.setQuadOrientation(face);\n        builder.setApplyDiffuseLighting(true); builder.setContractUVs(false);\n        float[][] uv={{1,0},{0,0},{0,1},{1,1}}; // Original rotational TR,TL,BL,BR.\n        float[][] corners=CORNERS[face.getIndex()];\n        for(float[] corner : uv) {\n            float h=left+corner[0]*span, w=top+corner[1]*span;\n            float[] position=new float[3];\n            for(int axis=0;axis<3;axis++) position[axis]=corners[0][axis]+(corners[1][axis]-corners[0][axis])*h+(corners[2][axis]-corners[0][axis])*w;\n            for(int e=0;e<format.getElementCount();e++) {\n                switch(format.getElement(e).getUsage()) {\n                    case POSITION: builder.put(e,position[0],position[1],position[2],1); break;\n                    case COLOR: builder.put(e,1,1,1,1); break;\n                    case UV: builder.put(e,u+corner[0]*cellU,v+corner[1]*cellV,0,1); break;\n                    case NORMAL: builder.put(e,face.getXOffset(),face.getYOffset(),face.getZOffset(),0); break;\n                    default: builder.put(e);\n                }\n            }\n        }\n        return builder.build();\n    }\n    public static List<BakedQuad> bakeInventory(TextureAtlasSprite full) {\n        List<BakedQuad> result=new ArrayList<>(6);\n        for(EnumFacing face:EnumFacing.values()) {\n            BakedQuad original=ConveyorCuboidGeometry.face(full,true,face,0,0,0,0,1,1,1,0);\n            int[] data=original.getVertexData().clone(); int stride=original.getFormat().getIntegerSize();\n            EnumFacing rotated=face.getAxis()==EnumFacing.Axis.Y ? face : face.rotateYCCW();\n            int normal=original.getFormat().getNormalOffset()/4;\n            for(int vertex=0;vertex<4;vertex++) {\n                int at=vertex*stride; float x=Float.intBitsToFloat(data[at]);\n                data[at]=data[at+2]; data[at+2]=Float.floatToRawIntBits(1F-x);\n                data[at+normal]=(rotated.getXOffset()*127 & 255)|((rotated.getYOffset()*127 & 255)<<8)|((rotated.getZOffset()*127 & 255)<<16);\n            }\n            result.add(new BakedQuad(data,-1,rotated,full,true,original.getFormat()));\n        }\n        return Collections.unmodifiableList(result);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java": {
+      "before_sha256": "be0dc3f5bee4fabfa28cf8d7809069ffa9dd92ab79ddaa8fe8467293d962ecc3",
+      "after_sha256": "55ff9186deb2c58af1d1a859852b76b2b0b91255772c37b2bda8be37a0b30b50",
+      "edits": [
+        {
+          "before_offset": 376,
+          "after_offset": 376,
+          "old": "",
+          "new": "\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java": {
+      "before_sha256": "f71109d24442eea701d3610de2e128a7a7ccd20a6ef16942b6a12fad119607c5",
+      "after_sha256": "7c7d13a4cef0d8e7a191e094bfb280d816ed18301f85d35728b7f72a68e673d0",
+      "edits": [
+        {
+          "before_offset": 961,
+          "after_offset": 961,
+          "old": "",
+          "new": "\r\n    @Override public boolean canRenderBreaking() {\r\n        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\r\n    }\r\n\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java": {
+      "before_sha256": "a2f2bec0458074f638498fbd6a2e0c0ec0956e2e3a63f5dbcafba3d95e1c0fb0",
+      "after_sha256": "a7d13cc06ecdd573fd110db86be8e54a5dd4787ab6ae284368ad0c11ecad2145",
+      "edits": [
+        {
+          "before_offset": 420,
+          "after_offset": 420,
+          "old": "",
+          "new": "\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/biome/BiomeDecoratorNoMansLand.java": {
+      "before_sha256": "c194fbd814f11b0fd63942db3750f6252a0a3dcce5b4433e75969d2f064c446f",
+      "after_sha256": "eda9fcd2724d20769026f01d42e012f05d267110a5df752197724eaa3eea0257",
+      "edits": [
+        {
+          "before_offset": 289,
+          "after_offset": 289,
+          "old": "import net.minecraft.world.biome.BiomeGenBase;\n",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.world.World;\nimport net.minecraft.util.math.BlockPos;\nimport java.util.Random;\n"
+        },
+        {
+          "before_offset": 1299,
+          "after_offset": 1392,
+          "old": "\tprotected void genDecorations(BiomeGenBase biome) {\n\t\tMinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(currentWorld, randomGenerator, chunk_X, chunk_Z));\n\t\tthis.generateOres();\n",
+          "new": "\t@Override\n\tprotected void genDecorations(Biome biome, World world, Random rand) {\n\t\tMinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(world, rand, this.chunkPos));\n\t\tthis.generateOres(world, rand);\n"
+        },
+        {
+          "before_offset": 1540,
+          "after_offset": 1653,
+          "old": "\t\tboolean doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, SAND);\n\t\tfor(int i = 0; doGen && i < this.sandPerChunk2; ++i) {\n\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\tthis.sandGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);\n",
+          "new": "\t\tboolean doGen = TerrainGen.decorate(world, rand, this.chunkPos, SAND);\n\t\tfor(int i = 0; doGen && i < this.sandPatchesPerChunk; ++i) {\n\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\tthis.sandGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));\n"
+        },
+        {
+          "before_offset": 1965,
+          "after_offset": 2018,
+          "old": "\t\tdoGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, SAND_PASS2);\n\t\tfor(int i = 0; doGen && i < this.sandPerChunk; ++i) {\n\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\tthis.gravelAsSandGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);\n",
+          "new": "\t\tdoGen = TerrainGen.decorate(world, rand, this.chunkPos, SAND_PASS2);\n\t\tfor(int i = 0; doGen && i < this.gravelPatchesPerChunk; ++i) {\n\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\tsuper.gravelGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));\n"
+        },
+        {
+          "before_offset": 2443,
+          "after_offset": 2434,
+          "old": "\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\tthis.sellafiteGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);\n",
+          "new": "\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\tthis.sellafiteGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));\n"
+        },
+        {
+          "before_offset": 2764,
+          "after_offset": 2710,
+          "old": "\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\tthis.gravelGen.generate(this.currentWorld, this.randomGenerator, x, this.currentWorld.getTopSolidOrLiquidBlock(x, z), z);\n",
+          "new": "\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\tthis.gravelGen.generate(world, rand, world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)));\n"
+        },
+        {
+          "before_offset": 3049,
+          "after_offset": 2950,
+          "old": "\t\tif(this.randomGenerator.nextInt(10) == 0) trees++;\n",
+          "new": "\t\tif(rand.nextInt(10) == 0) trees++;\n"
+        },
+        {
+          "before_offset": 3119,
+          "after_offset": 3004,
+          "old": "\t\tdoGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, TREE);\n",
+          "new": "\t\tdoGen = TerrainGen.decorate(world, rand, this.chunkPos, TREE);\n"
+        },
+        {
+          "before_offset": 3249,
+          "after_offset": 3113,
+          "old": "\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\ty = this.currentWorld.getHeightValue(x, z);\n\t\t\tWorldGenAbstractTree worldgenabstracttree = biome.func_150567_a(this.randomGenerator);\n\t\t\tworldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);\n",
+          "new": "\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\ty = world.getHeight(new BlockPos(x, 0, z)).getY();\n\t\t\tWorldGenAbstractTree worldgenabstracttree = biome.getRandomTreeFeature(rand);\n\t\t\tworldgenabstracttree.setDecorationDefaults();\n"
+        },
+        {
+          "before_offset": 3559,
+          "after_offset": 3402,
+          "old": "\t\t\tif(worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, x, y, z)) {\n\t\t\t\tworldgenabstracttree.func_150524_b(this.currentWorld, this.randomGenerator, x, y, z);\n",
+          "new": "\t\t\tif(worldgenabstracttree.generate(world, rand, new BlockPos(x, y, z))) {\n\t\t\t\tworldgenabstracttree.generateSaplings(world, rand, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 3769,
+          "after_offset": 3587,
+          "old": "\t\tdoGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, GRASS);\n",
+          "new": "\t\tdoGen = TerrainGen.decorate(world, rand, this.chunkPos, GRASS);\n"
+        },
+        {
+          "before_offset": 3913,
+          "after_offset": 3710,
+          "old": "\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\ty = nextInt(this.currentWorld.getHeightValue(x, z) * 2);\n\t\t\tWorldGenerator worldgenerator = biome.getRandomWorldGenForGrass(this.randomGenerator);\n\t\t\tworldgenerator.generate(this.currentWorld, this.randomGenerator, x, y, z);\n",
+          "new": "\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\ty = nextInt(rand, world.getHeight(new BlockPos(x, 0, z)).getY() * 2);\n\t\t\tWorldGenerator worldgenerator = biome.getRandomWorldGenForGrass(rand);\n\t\t\tworldgenerator.generate(world, rand, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4286,
+          "after_offset": 4050,
+          "old": "\t\tdoGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, DEAD_BUSH);\n",
+          "new": "\t\tdoGen = TerrainGen.decorate(world, rand, this.chunkPos, DEAD_BUSH);\n"
+        },
+        {
+          "before_offset": 4437,
+          "after_offset": 4180,
+          "old": "\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\ty = nextInt(this.currentWorld.getHeightValue(x, z) * 2);\n\t\t\t(new WorldGenDeadBush(Blocks.deadbush)).generate(this.currentWorld, this.randomGenerator, x, y, z);\n",
+          "new": "\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\ty = nextInt(rand, world.getHeight(new BlockPos(x, 0, z)).getY() * 2);\n\t\t\t(new WorldGenDeadBush()).generate(world, rand, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4741,
+          "after_offset": 4452,
+          "old": "\t\tdoGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, LAKE);\n\t\tif(doGen && this.generateLakes) {\n",
+          "new": "\t\tdoGen = TerrainGen.decorate(world, rand, this.chunkPos, LAKE_WATER);\n\t\tif(doGen && this.generateFalls) {\n"
+        },
+        {
+          "before_offset": 4896,
+          "after_offset": 4592,
+          "old": "\t\t\t\tx = this.chunk_X + this.randomGenerator.nextInt(16) + 8;\n\t\t\t\ty = this.randomGenerator.nextInt(this.randomGenerator.nextInt(248) + 8);\n\t\t\t\tz = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;\n\t\t\t\t(new WorldGenLiquids(Blocks.flowing_water)).generate(this.currentWorld, this.randomGenerator, x, y, z);\n",
+          "new": "\t\t\t\tx = this.chunkPos.getX() + rand.nextInt(16) + 8;\n\t\t\t\ty = rand.nextInt(rand.nextInt(248) + 8);\n\t\t\t\tz = this.chunkPos.getZ() + rand.nextInt(16) + 8;\n\t\t\t\t(new WorldGenLiquids(Blocks.FLOWING_WATER)).generate(world, rand, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5213,
+          "after_offset": 4847,
+          "old": "\t\tMinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(currentWorld, randomGenerator, chunk_X, chunk_Z));\n",
+          "new": "\t\tMinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(world, rand, this.chunkPos));\n"
+        },
+        {
+          "before_offset": 5328,
+          "after_offset": 4941,
+          "old": "\tprivate int nextInt(int i) {\n",
+          "new": "\tprivate int nextInt(Random rand, int i) {\n"
+        },
+        {
+          "before_offset": 5384,
+          "after_offset": 5010,
+          "old": "\t\treturn this.randomGenerator.nextInt(i);\n",
+          "new": "\t\treturn rand.nextInt(i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/biome/BiomeGenNoMansLand.java": {
+      "before_sha256": "f9fae37f6d0075ba76e43db20664cfb4088aaf7d376ae6bf3afd5746c65165de",
+      "after_sha256": "cd2fb6eb709ac22431b13accdbe88006741d272f7e6ac78c5cbc7460145f3ed9",
+      "edits": [
+        {
+          "before_offset": 339,
+          "after_offset": 339,
+          "old": "import net.minecraft.world.biome.BiomeGenBase;\n",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraftforge.fml.common.registry.ForgeRegistries;\n"
+        },
+        {
+          "before_offset": 599,
+          "after_offset": 696,
+          "old": "public class BiomeGenNoMansLand extends BiomeGenBase {\n",
+          "new": "public class BiomeGenNoMansLand extends Biome {\n"
+        },
+        {
+          "before_offset": 774,
+          "after_offset": 864,
+          "old": "\tpublic static final BiomeGenBase noMansLand = new BiomeGenNoMansLand(99).setBiomeName(\"No Man's Land\");\n",
+          "new": "\tpublic static final Biome noMansLand = new BiomeGenNoMansLand();\n"
+        },
+        {
+          "before_offset": 881,
+          "after_offset": 932,
+          "old": "",
+          "new": "\t/** Explicit activation hook, only for the native biome registration phase.\n\t * The original MainRegistry call remains commented out; this is not subscribed automatically. */\n"
+        },
+        {
+          "before_offset": 920,
+          "after_offset": 1147,
+          "old": "\t\tBiomeDictionary.registerBiomeType(noMansLand,\tDEAD,\tPLAINS,\tWASTELAND);\n",
+          "new": "\t\tif(!ForgeRegistries.BIOMES.containsKey(noMansLand.getRegistryName())) ForgeRegistries.BIOMES.register(noMansLand);\n\t\telse if(ForgeRegistries.BIOMES.getValue(noMansLand.getRegistryName()) != noMansLand)\n\t\t\tthrow new IllegalStateException(\"Biome registry owner conflict: \" + noMansLand.getRegistryName());\n\t\tBiomeDictionary.addTypes(noMansLand,\tDEAD,\tPLAINS,\tWASTELAND);\n"
+        },
+        {
+          "before_offset": 1070,
+          "after_offset": 1594,
+          "old": "\tpublic BiomeGenNoMansLand(int id) {\n\t\tsuper(id);\n\t\tthis.theBiomeDecorator = new BiomeDecoratorNoMansLand();\n\t\tthis.waterColorMultiplier = 0x6F6F12;\n",
+          "new": "\tpublic BiomeGenNoMansLand() {\n\t\tsuper(new BiomeProperties(\"No Man's Land\").setBaseHeight(0.125F).setHeightVariation(0.05F).setWaterColor(0x6F6F12));\n\t\tsetRegistryName(\"hbm\", \"no_mans_land\");\n\t\tthis.decorator = new BiomeDecoratorNoMansLand();\n"
+        },
+        {
+          "before_offset": 1342,
+          "after_offset": 1960,
+          "old": "\t\tthis.setHeight(height_LowPlains);\n\t\tthis.theBiomeDecorator.treesPerChunk = -999;\n\t\tthis.theBiomeDecorator.flowersPerChunk = 0;\n\t\tthis.theBiomeDecorator.grassPerChunk = 0;\n",
+          "new": "\t\tthis.decorator.treesPerChunk = -999;\n\t\tthis.decorator.flowersPerChunk = 0;\n\t\tthis.decorator.grassPerChunk = 0;\n"
+        },
+        {
+          "before_offset": 1542,
+          "after_offset": 2100,
+          "old": "\t\tthis.HOSTILE_LIST.add(new BiomeGenBase.SpawnListEntry(EntityUndeadSoldier.class, 1, 4, 6));\n",
+          "new": "\t\tthis.HOSTILE_LIST.add(new Biome.SpawnListEntry(EntityUndeadSoldier.class, 1, 4, 6));\n"
+        },
+        {
+          "before_offset": 1707,
+          "after_offset": 2258,
+          "old": "\t\tif(type == type.monster) {\n",
+          "new": "\t\tif(type == EnumCreatureType.MONSTER) {\n"
+        },
+        {
+          "before_offset": 1806,
+          "after_offset": 2369,
+          "old": "\t\t\t\tthis.HOSTILE_LIST.add(new BiomeGenBase.SpawnListEntry(EntityUndeadSoldier.class, 1, 4, 6));\n",
+          "new": "\t\t\t\tthis.HOSTILE_LIST.add(new Biome.SpawnListEntry(EntityUndeadSoldier.class, 1, 4, 6));\n"
+        },
+        {
+          "before_offset": 2048,
+          "after_offset": 2604,
+          "old": "\tpublic int getBiomeGrassColor(int x, int y, int z) { return 0x696F59; }\n",
+          "new": "\tpublic int getGrassColorAtPos(BlockPos pos) { return 0x696F59; }\n"
+        },
+        {
+          "before_offset": 2156,
+          "after_offset": 2705,
+          "old": "\tpublic int getBiomeFoliageColor(int x, int y, int z) { return 0x767C67; }\n",
+          "new": "\tpublic int getFoliageColorAtPos(BlockPos pos) { return 0x767C67; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/WorldGenSurfaceSpot.java": {
+      "before_sha256": "0961141aa985becda1e72e2665e046a1c25d73da27033d908fae9c95211ca21d",
+      "after_sha256": "9b27fc7ca56ab2bc79a057704764f9739e769c57d7725256dded2f4f6987b2f6",
+      "edits": [
+        {
+          "before_offset": 160,
+          "after_offset": 160,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 486,
+          "after_offset": 527,
+          "old": "\tpublic boolean generate(World world, Random rand, int x, int y, int z) {\n",
+          "new": "\t@Override\n\tpublic boolean generate(World world, Random rand, BlockPos pos) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 845,
+          "after_offset": 944,
+          "old": "\t\t\t\t\t\tBlock block = world.getBlock(iX, iY, iZ);\n",
+          "new": "\t\t\t\t\t\tBlock block = world.getBlockState(new BlockPos(iX, iY, iZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 894,
+          "after_offset": 1023,
+          "old": "\t\t\t\t\t\tif(block == Blocks.dirt || block == Blocks.grass) {\n\t\t\t\t\t\t\tif(rand.nextFloat() < this.chance) world.setBlock(iX, iY, iZ, this.block, 0, 2);\n",
+          "new": "\t\t\t\t\t\tif(block == Blocks.DIRT || block == Blocks.GRASS) {\n\t\t\t\t\t\t\tif(rand.nextFloat() < this.chance) world.setBlockState(new BlockPos(iX, iY, iZ), this.block.getStateFromMeta(0), 2);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/network/BoxDuctRenderState.java": "a2e911a63355a0a0e3d142e00f9d7ad8bd840bdbd2615f5b222da55d762dae14",
+    "src/main/java/com/hbm/entity/pathfinder/NTMPathFinder.java": "917cac970d420f5e4b3777c431f16148dbcced853f8ed8b0bb42d09da8400577",
+    "src/main/java/com/hbm/main/BoxDuctModelHandler.java": "e5a913dbd1b8ae224702b25aaf542885119058a2bfc28bd44f22516497b3d31d",
+    "src/main/java/com/hbm/main/CTModelHandler.java": "d29acfcd055abb1e05f98118fd19b08ed9d8381b45380c82b42632661129aa27",
+    "src/main/java/com/hbm/render/block/ct/CTLightQuad.java": "23d55234bbf3555cd4aab306becde225ab229c83e1ad4935acee91ff26c23531",
+    "src/main/java/com/hbm/render/block/nativeblock/BoxDuctBakedModel.java": "90aa8fbd93f532bd8bbbd4b2b4378d917eb3880ff508fee4fa0631c463c776d6",
+    "src/main/java/com/hbm/render/block/nativeblock/BoxDuctMaterials.java": "6645cfab011ca8df615839a10c8a5c379bbe9c4d03000fc46379f38f6b9fcca2",
+    "src/main/java/com/hbm/render/tileentity/BoxDuctBreakingRenderer.java": "aab32c8a06c2c689c310c6c43e198ed70f9bd4139363c41000b3bf629b2237da",
+    "src/main/resources/assets/hbm/blockstates/tile.fluid_duct_box.json": "8d126fa42e498b5709163db2d48adbd2acca6e124a05ea3c80a5d3fe7bad7a2a",
+    "src/main/resources/assets/hbm/blockstates/tile.fluid_duct_exhaust.json": "2ab2ddc12ce1132c76de91d47df0004f7bd272219bf16bb7b280610b68c78fd1",
+    "src/main/resources/assets/hbm/blockstates/tile.red_cable_box.json": "daf439575f4891cf4c2588a29ff7ac8ee65ae5160dff71d46555876bbd759f01"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

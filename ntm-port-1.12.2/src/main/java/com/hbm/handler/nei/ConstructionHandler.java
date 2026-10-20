@@ -19,7 +19,7 @@ public class ConstructionHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public ItemStack[] getMachinesForRecipe() {
+	public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModItems.acetylene_torch),
 				new ItemStack(ModItems.blowtorch),
@@ -27,7 +27,7 @@ public class ConstructionHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmConstruction";
 	}
 

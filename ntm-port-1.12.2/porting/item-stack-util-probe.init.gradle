@@ -1,0 +1,22 @@
+// Entire production utility and native fixtures. Does not alter main sourceSets or compileJava.
+allprojects {
+    afterEvaluate {
+        def probe = tasks.create('compilePortItemStackUtilProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            source project.file('src/main/java/com/hbm/util/ItemStackUtil.java')
+            source project.file('porting/tests/ItemStackUtilMinecraftTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portItemStackUtilProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('checkPortItemStackUtilSource', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/probe-item-stack-util.py'), '--source-only'
+        }
+        tasks.create('testPortItemStackUtil', JavaExec) {
+            dependsOn probe, 'checkPortItemStackUtilSource'
+            classpath = files(probe.destinationDir) + probe.classpath
+            main = 'ItemStackUtilMinecraftTest'
+        }
+    }
+}

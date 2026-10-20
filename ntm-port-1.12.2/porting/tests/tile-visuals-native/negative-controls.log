@@ -1,0 +1,42 @@
+/tmp/tile-visuals-native-0gx3a2dy/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+          ^
+/tmp/tile-visuals-native-0gx3a2dy/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                  ^
+/tmp/tile-visuals-native-0gx3a2dy/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                                        ^
+Note: /workspace/shared/nagaport-native-tile-visuals-cp49/ntm-port-1.12.2/porting/tests/tile-visuals-native/TileVisualsNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS all three complete native TESRs, existing native mesh/state helpers and exact native registration statements compile.
+PASS behavioral negative control lava-uv rejected by actual native/original assertion: Exception in thread "main" java.lang.AssertionError: magma 0 0.0 vertex 0:0:3 1.0 != 0.0
+/tmp/tile-visuals-native-ds50y88e/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+          ^
+/tmp/tile-visuals-native-ds50y88e/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                  ^
+/tmp/tile-visuals-native-ds50y88e/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                                        ^
+Note: /workspace/shared/nagaport-native-tile-visuals-cp49/ntm-port-1.12.2/porting/tests/tile-visuals-native/TileVisualsNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS all three complete native TESRs, existing native mesh/state helpers and exact native registration statements compile.
+PASS behavioral negative control preview-geometry rejected by actual native/original assertion: Exception in thread "main" java.lang.AssertionError: compact/unowned vertex 0:0:0 0.65625 != 0.3125
+/tmp/tile-visuals-native-clbrqtf6/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+          ^
+/tmp/tile-visuals-native-clbrqtf6/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                  ^
+/tmp/tile-visuals-native-clbrqtf6/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                                        ^
+Note: /workspace/shared/nagaport-native-tile-visuals-cp49/ntm-port-1.12.2/porting/tests/tile-visuals-native/TileVisualsNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS all three complete native TESRs, existing native mesh/state helpers and exact native registration statements compile.
+PASS behavioral negative control animation-direction rejected by actual native/original assertion: Exception in thread "main" java.lang.AssertionError: original interpolated opposed drill rotation and height offset

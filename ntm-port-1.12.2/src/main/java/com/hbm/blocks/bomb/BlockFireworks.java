@@ -19,8 +19,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
@@ -60,43 +60,43 @@ public class BlockFireworks extends BlockContainer {
 		if(world.isRemote)
 			return true;
 		
-		TileEntityFireworks te = (TileEntityFireworks)world.getTileEntity(x, y, z);
+		TileEntityFireworks te = (TileEntityFireworks)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
-		if(player.getHeldItem() != null) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 			
-			if(player.getHeldItem().getItem() == Items.gunpowder) {
-				te.charges += player.getHeldItem().stackSize * 3;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == Items.GUNPOWDER) {
+				te.charges += com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize * 3;
 				te.markDirty();
-				player.getHeldItem().stackSize = 0;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize = 0;
 				return true;
 			}
 			
-			if(player.getHeldItem().getItem() == ModItems.sulfur) {
-				te.charges += player.getHeldItem().stackSize;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.sulfur) {
+				te.charges += com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize;
 				te.markDirty();
-				player.getHeldItem().stackSize = 0;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize = 0;
 				return true;
 			}
 			
-			if(player.getHeldItem().getItem() instanceof ItemDye) {
-				te.color = ItemDye.field_150922_c[player.getHeldItem().getItemDamage()];
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemDye) {
+				te.color = ItemDye.field_150922_c[com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage()];
 				te.markDirty();
-				player.getHeldItem().stackSize--;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				return true;
 			}
 			
-			if(player.getHeldItem().getItem() == Items.name_tag) {
-				te.message = player.getHeldItem().getDisplayName();
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == Items.NAME_TAG) {
+				te.message = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getDisplayName();
 				te.markDirty();
-				player.getHeldItem().stackSize--;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				return true;
 			}
 		}
 
-		player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".name").setChatStyle(new ChatStyle().setColor(TextFormatting.GOLD)));
-		player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".charges", te.charges).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-		player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".color", Integer.toHexString(te.color)).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-		player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".message", te.message).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".name").setStyle(new Style().setColor(TextFormatting.GOLD)));
+		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".charges", te.charges).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".color", Integer.toHexString(te.color)).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".message", te.message).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 		
 		return true;
 	}

@@ -43,8 +43,8 @@ public class EntityCloudFX extends EntityModFX {
 			maxAge = rand.nextInt(301) + 900;
 		}
 
-		if (!worldObj.isRemote && rand.nextInt(50) == 0)
-			ExplosionChaos.c(worldObj, (int) posX, (int) posY, (int) posZ, 2);
+		if (!this.world.isRemote && rand.nextInt(50) == 0)
+			ExplosionChaos.c(this.world, (int) posX, (int) posY, (int) posZ, 2);
 
 		this.particleAge++;
 
@@ -61,7 +61,7 @@ public class EntityCloudFX extends EntityModFX {
 			this.motionZ *= 0.699999988079071D;
 		}
 		
-		if(worldObj.isRaining() && worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))) {
+		if(this.world.isRaining() && this.world.canBlockSeeTheSky(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ))) {
 			this.motionY -= 0.01;
 		}
 		
@@ -73,9 +73,9 @@ public class EntityCloudFX extends EntityModFX {
 			this.posY += this.motionY/subdivisions;
 			this.posZ += this.motionZ/subdivisions;
 			
-			if (worldObj.getBlock((int) posX, (int) posY, (int) posZ).isNormalCube()) {
+			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {
 	
-				if(!worldObj.isRemote && rand.nextInt(5) != 0) {
+				if(!this.world.isRemote && rand.nextInt(5) != 0) {
 					this.setDead();
 				}
 				

@@ -1,0 +1,34 @@
+{
+  "deleted": [],
+  "parent_owned_integration": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/main/ClientProxy.java"
+  ],
+  "production": {
+    "src/main/java/com/hbm/blocks/generic/BlockSteelDecoration.java": "5bd5c41aa0da3f57f6d5d11e3ea21463728f15a1f75e6def311f6444e362aa74",
+    "src/main/java/com/hbm/blocks/machine/SolarMirror.java": "4948f85a7c1e04915950f51ef5c8ad47798e4a9b7832a87b43e26d4b3bbd3f23",
+    "src/main/java/com/hbm/blocks/machine/SolarMirrorModelState.java": "ff374db2cd3ea1227b13218bbc8f6b27934fb7945a072299fc5d101c87d1512e",
+    "src/main/java/com/hbm/main/SolarMirrorModelHandler.java": "04b82ec00f2edae6adf3aeb5609d0aa05ec71aa28503aa05d8a6cef5eda3736a",
+    "src/main/java/com/hbm/main/SteelDecorationModelHandler.java": "842eb2173884070954a9f445d72531c6d5f0bbac474053af0b9ef766b840f69a",
+    "src/main/java/com/hbm/render/block/RenderMirror.java": "d45775900e6d160d9e0cc85db3759c05e1e7c1758f51e08163e9d6b0964a8e58",
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java": "35a3e6938eab2f1293f1bd5412c1a786d287e05db323ec6ef7aa0db25d2fb6ad",
+    "src/main/java/com/hbm/render/block/RenderSteelWall.java": "964715852bbce46395747812f0da41ac5cee56bd2ab6cdaa9a4a710d9d8c8918",
+    "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorBakedModel.java": "d2ef56e9219cc185d6a4057a7e9e0a374e7b7f66590ce819b21c325d17764ae3",
+    "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorGeometry.java": "bc523b4ec40d545ebe690f4b00a74f3d75e48a2a4b07fc8fa9b74dced70ade72",
+    "src/main/java/com/hbm/render/block/nativeblock/SteelDecorationBakedModel.java": "84d6ef290b1954f50080a530d41b44c4917e3fbbb3c80ab977e7a6bb96ca75d3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java": "4cdfae5009ab3794c5a6f5d3575a5fd59bb6bdd4444acbd550c5dae69caf02d5",
+    "src/main/resources/assets/hbm/blockstates/tile.solar_mirror.json": "e869df48c1469822f1730c74ad9309dc6581a1b51ab1e36d3fcd59e1efe1c697",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_corner.json": "4af45c0ab4328e829e1c734cfcaa5dde7ecd6eba4b7adc881eb2f6333d45c5cc",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_wall.json": "bab6b0622f11a96164128ad73056f7d4a7b60b559b8c941b3ff96a0bba0d4da6"
+  },
+  "unchanged_dependencies": {
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": "2507eba19e0a341a9ac2b792b28d3e19c928dd204db1503f7a36dc33cc5ce682",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java": "236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e",
+    "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java": "741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925",
+    "src/main/java/com/hbm/render/block/nativeblock/PneumaticCuboidGeometry.java": "6d1f1f5649dc94ceb714f0d97f0c8614e5779f7b986aa8b5308a91ed26a5756d",
+    "src/main/resources/assets/hbm/models/machines/solar_mirror.obj": "e2c47d9d957ad10410dca5b16bb609b4190fee6a83f06051e75713a37a6e520c",
+    "src/main/resources/assets/hbm/textures/blocks/solar_mirror.png": "c84b9de85728fe5e9777d4bc937584dce9444326355a03c7ab204b301aa02aeb",
+    "src/main/resources/assets/hbm/textures/blocks/steel_wall.png": "342e53288fe18ae08348e20d5683e1e6e13b727133931d612021de6ae16b34b2"
+  }
+}

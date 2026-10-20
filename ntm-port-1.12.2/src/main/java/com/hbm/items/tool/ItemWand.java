@@ -23,52 +23,52 @@ public class ItemWand extends Item {
 		list.add("(Set positions with right click,");
 		list.add("set block with shift-right click!)");
 
-		if(stack.stackTagCompound != null && !(stack.stackTagCompound.getInteger("x") == 0 && stack.stackTagCompound.getInteger("y") == 0 && stack.stackTagCompound.getInteger("z") == 0)) {
-			list.add("Pos: " + stack.stackTagCompound.getInteger("x") + ", " + stack.stackTagCompound.getInteger("y") + ", " + stack.stackTagCompound.getInteger("z"));
+		if(stack.getTagCompound() != null && !(stack.getTagCompound().getInteger("x") == 0 && stack.getTagCompound().getInteger("y") == 0 && stack.getTagCompound().getInteger("z") == 0)) {
+			list.add("Pos: " + stack.getTagCompound().getInteger("x") + ", " + stack.getTagCompound().getInteger("y") + ", " + stack.getTagCompound().getInteger("z"));
 		} else {
 			list.add("Positions not set!");
 		}
-		if(stack.stackTagCompound != null)
-			list.add("Block saved: " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName());
+		if(stack.getTagCompound() != null)
+			list.add("Block saved: " + Block.getBlockById(stack.getTagCompound().getInteger("block")).getTranslationKey());
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		if(player.isSneaking()) {
-			stack.stackTagCompound.setInteger("block", Block.getIdFromBlock(world.getBlock(x, y, z)));
-			stack.stackTagCompound.setInteger("meta", world.getBlockMetadata(x, y, z));
+			stack.getTagCompound().setInteger("block", Block.getIdFromBlock(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()));
+			stack.getTagCompound().setInteger("meta", com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 			if(world.isRemote)
-				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName()));
+				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.getTagCompound().getInteger("block")).getTranslationKey()));
 		} else {
-			if(stack.stackTagCompound.getInteger("x") == 0 && stack.stackTagCompound.getInteger("y") == 0 && stack.stackTagCompound.getInteger("z") == 0) {
-				stack.stackTagCompound.setInteger("x", x);
-				stack.stackTagCompound.setInteger("y", y);
-				stack.stackTagCompound.setInteger("z", z);
+			if(stack.getTagCompound().getInteger("x") == 0 && stack.getTagCompound().getInteger("y") == 0 && stack.getTagCompound().getInteger("z") == 0) {
+				stack.getTagCompound().setInteger("x", x);
+				stack.getTagCompound().setInteger("y", y);
+				stack.getTagCompound().setInteger("z", z);
 				if(world.isRemote)
 					player.sendMessage(new TextComponentString("Position set!"));
 			} else {
 
-				int ox = stack.stackTagCompound.getInteger("x");
-				int oy = stack.stackTagCompound.getInteger("y");
-				int oz = stack.stackTagCompound.getInteger("z");
+				int ox = stack.getTagCompound().getInteger("x");
+				int oy = stack.getTagCompound().getInteger("y");
+				int oz = stack.getTagCompound().getInteger("z");
 
-				stack.stackTagCompound.setInteger("x", 0);
-				stack.stackTagCompound.setInteger("y", 0);
-				stack.stackTagCompound.setInteger("z", 0);
+				stack.getTagCompound().setInteger("x", 0);
+				stack.getTagCompound().setInteger("y", 0);
+				stack.getTagCompound().setInteger("z", 0);
 
 				if(!world.isRemote) {
-					Block block = Block.getBlockById(stack.stackTagCompound.getInteger("block"));
-					int meta = stack.stackTagCompound.getInteger("meta");
+					Block block = Block.getBlockById(stack.getTagCompound().getInteger("block"));
+					int meta = stack.getTagCompound().getInteger("meta");
 					boolean replaceAir = block == ModBlocks.wand_air;
 
 					for(int i = Math.min(ox, x); i <= Math.max(ox, x); i++) {
 						for(int j = Math.min(oy, y); j <= Math.max(oy, y); j++) {
 							for(int k = Math.min(oz, z); k <= Math.max(oz, z); k++) {
-								if(replaceAir && world.getBlock(i, j, k) != Blocks.air) continue;
+								if(replaceAir && com.hbm.world.WorldBlockState.read(world, i, j, k).getBlock() != Blocks.air) continue;
 								world.setBlock(i, j, k, block, meta, 3);
 							}
 						}
@@ -84,14 +84,14 @@ public class ItemWand extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		if(player.isSneaking()) {
-			stack.stackTagCompound.setInteger("block", 0);
-			stack.stackTagCompound.setInteger("meta", 0);
+			stack.getTagCompound().setInteger("block", 0);
+			stack.getTagCompound().setInteger("meta", 0);
 			if(world.isRemote)
-				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName()));
+				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.getTagCompound().getInteger("block")).getTranslationKey()));
 		}
 
 		return stack;

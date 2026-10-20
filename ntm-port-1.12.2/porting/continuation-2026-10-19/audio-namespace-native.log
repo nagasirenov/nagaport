@@ -1,0 +1,13 @@
+PASS 456 token edits / 318 events, byte-exact JSON inversion, unchanged metadata, 225 names, all 593 pristine/current OGG hashes, zero collisions
+Note: /workspace/shared/nagaport-audio-next/portable-module-5va9hsdv/src/main/java/com/hbm/sound/SoundCategoryResolver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[20:48:03] [main/WARN]: File minecraft:sounds/clap.ogg does not exist, cannot add it to event hbm:fm.clap
+[20:48:03] [main/WARN]: File minecraft:sounds/mug.ogg does not exist, cannot add it to event hbm:fm.mug
+[20:48:03] [main/WARN]: File minecraft:sounds/sample.ogg does not exist, cannot add it to event hbm:fm.sample
+PASS folder 408 events, 571 sample refs, 3 unchanged unresolved
+[20:48:03] [main/WARN]: File minecraft:sounds/clap.ogg does not exist, cannot add it to event hbm:fm.clap
+[20:48:03] [main/WARN]: File minecraft:sounds/mug.ogg does not exist, cannot add it to event hbm:fm.mug
+[20:48:03] [main/WARN]: File minecraft:sounds/sample.ogg does not exist, cannot add it to event hbm:fm.sample
+PASS jar 408 events, 571 sample refs, 3 unchanged unresolved
+PASS 15168 native checks; all 408 events, all samples, actual folder/JAR resources; no OpenAL, audible output, or launched gameplay claim
+PASS portable migrated-module probe; temporary artifacts removed, no audio hardware or full-client claim

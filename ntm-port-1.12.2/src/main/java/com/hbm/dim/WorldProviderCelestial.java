@@ -56,7 +56,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	// Ore gen will attempt to replace this block with ores
 	public Block getStone() {
-		return Blocks.stone;
+		return Blocks.STONE;
 	}
 
 	// What fluid is required to extract new bedrock ores
@@ -215,7 +215,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		for(AstroMetric metric : metrics) {
 			if(metric.apparentSize < 1) continue;
 
-			double planetArc = getArc(MathHelper.clamp_double(metric.apparentSize, 0, maxSize));
+			double planetArc = getArc(MathHelper.clamp(metric.apparentSize, (double) (0), maxSize));
 			double minPhase = 1 - (planetArc + sunArc);
 			double maxPhase = 1 - (planetArc - sunArc);
 			if(metric.phaseObscure < minPhase) continue;
@@ -242,7 +242,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		// The cold hard vacuum of space
 		if(atmosphere == null) return new Vec3d(0, 0, 0);
 
-		float sun = MathHelper.clamp_float(MathHelper.cos(solarAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F, 0.0F, 1.0F);
+		float sun = MathHelper.clamp(MathHelper.cos(solarAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F, 0.0F, 1.0F);
 
 		float sunR = sun;
 		float sunG = sun;
@@ -281,20 +281,20 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 		// Add minimum fog colour, for night-time glow
 		if(!GeneralConfig.enableHardcoreDarkness) {
-			float nightDensity = MathHelper.clamp_float(totalPressure, 0.0F, 1.0F);
+			float nightDensity = MathHelper.clamp(totalPressure, 0.0F, 1.0F);
 			color.x += 0.06F * nightDensity;
 			color.y += 0.06F * nightDensity;
 			color.z += 0.09F * nightDensity;
 		}
 
 		// Fog intensity remains high to simulate a thin looking atmosphere on low pressure planets
-		float pressureFactor = MathHelper.clamp_float(totalPressure * 10.0F, 0.0F, 1.0F);
+		float pressureFactor = MathHelper.clamp(totalPressure * 10.0F, 0.0F, 1.0F);
 		color.x *= pressureFactor;
 		color.y *= pressureFactor;
 		color.z *= pressureFactor;
 
 		if(Minecraft.getMinecraft().renderViewEntity.posY > 600) {
-			double curvature = MathHelper.clamp_float((1000.0F - (float)Minecraft.getMinecraft().renderViewEntity.posY) / 400.0F, 0.0F, 1.0F);
+			double curvature = MathHelper.clamp((1000.0F - (float)Minecraft.getMinecraft().renderViewEntity.posY) / 400.0F, 0.0F, 1.0F);
 			color.x *= curvature;
 			color.y *= curvature;
 			color.z *= curvature;
@@ -307,7 +307,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 			float[] sunsetFog = calcSunriseSunsetColors(0.25F, 0);
 			if(sunsetFog != null) {
-				double sunsetAmount = MathHelper.clamp_double(eclipseAmount * 0.5 - (1 - sun), 0.0, 1.0);
+				double sunsetAmount = MathHelper.clamp(eclipseAmount * 0.5 - (1 - sun), 0.0, 1.0);
 				color.x = color.x * (1.0F - sunsetAmount) + sunsetFog[0] * sunsetAmount;
 				color.y = color.y * (1.0F - sunsetAmount) + sunsetFog[1] * sunsetAmount;
 				color.z = color.z * (1.0F - sunsetAmount) + sunsetFog[2] * sunsetAmount;
@@ -413,7 +413,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		}
 
 		// Lower pressure sky renders thinner
-		float pressureFactor = MathHelper.clamp_float(totalPressure, 0.0F, 1.0F);
+		float pressureFactor = MathHelper.clamp(totalPressure, 0.0F, 1.0F);
 		color.x *= pressureFactor;
 		color.y *= pressureFactor;
 		color.z *= pressureFactor;
@@ -528,13 +528,13 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		float distanceEnd = 80_000_000;
 
 		float semiMajorAxisKm = CelestialBody.getPlanet(worldObj).semiMajorAxisKm;
-		float distanceFactor = MathHelper.clamp_float((semiMajorAxisKm - distanceStart) / (distanceEnd - distanceStart), 0F, 1F);
+		float distanceFactor = MathHelper.clamp((semiMajorAxisKm - distanceStart) / (distanceEnd - distanceStart), 0F, 1F);
 
 		float starBrightness = super.getStarBrightness(par1);
 
 		float dust = ImpactWorldHandler.getDustForClient(worldObj);
 
-		return MathHelper.clamp_float(starBrightness, distanceFactor, 1F) * (1 - dust);
+		return MathHelper.clamp(starBrightness, distanceFactor, 1F) * (1 - dust);
 	}
 
 	@Override
@@ -581,7 +581,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return sunBrightness + insideBrightness;
 		}
 
-		return sunBrightness * MathHelper.clamp_float(1.0F - ((float) atmosphere.getPressure() - 1.5F) * 0.2F, 0.25F, 1.0F) + insideBrightness;
+		return sunBrightness * MathHelper.clamp(1.0F - ((float) atmosphere.getPressure() - 1.5F) * 0.2F, 0.25F, 1.0F) + insideBrightness;
 	}
 
 	public float[] getSunColor() {
@@ -599,7 +599,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			|| entry.fluid == Fluids.CHLOROMETHANE
 			|| entry.fluid == Fluids.RADIOSOLVENT
 			|| entry.fluid == Fluids.CCL) {
-				float absorption = MathHelper.clamp_float(1.0F - (float)entry.pressure * 0.5F, 0.0F, 1.0F);
+				float absorption = MathHelper.clamp(1.0F - (float)entry.pressure * 0.5F, 0.0F, 1.0F);
 				sunColor[1] *= absorption;
 				sunColor[2] *= absorption;
 			}
@@ -610,7 +610,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		BlockPos coords = player.getBedLocation(dimensionId);
+		BlockPos coords = player.getBedLocation(this.getDimension());
 
 		// If no bed, respawn in overworld
 		if(coords == null)
@@ -621,7 +621,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		if(!ChunkAtmosphereManager.proxy.canBreathe(atmosphere))
 			return 0;
 
-		return dimensionId;
+		return this.getDimension();
 	}
 
 	// We want spawning to check for breathable, and getRespawnDimension() only runs if this is FALSE
@@ -644,7 +644,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	public void resetRainAndThunder() {
 		super.resetRainAndThunder();
 
-		if(dimensionId == 0) return;
+		if(this.getDimension() == 0) return;
 		if(!worldObj.getGameRules().getGameRuleBooleanValue("doDaylightCycle")) return;
 
 		long dayLength = (long)getDayLength();
@@ -654,7 +654,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	@Override
 	public long getWorldTime() {
-		if(dimensionId == 0) {
+		if(this.getDimension() == 0) {
 			return super.getWorldTime();
 		}
 
@@ -667,7 +667,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	@Override
 	public void setWorldTime(long time) {
-		if(dimensionId == 0) {
+		if(this.getDimension() == 0) {
 			super.setWorldTime(time);
 			return;
 		}
@@ -774,7 +774,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	@Override
 	public double getHorizon() {
-		if(dimensionId == 0) return super.getHorizon();
+		if(this.getDimension() == 0) return super.getHorizon();
 		return 63;
 	}
 

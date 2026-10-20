@@ -7,7 +7,9 @@ import com.hbm.items.ModItems;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockConveyor extends BlockConveyorBendable {
@@ -17,7 +19,7 @@ public class BlockConveyor extends BlockConveyorBendable {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return ModItems.conveyor_wand;
 	}
 
@@ -26,7 +28,7 @@ public class BlockConveyor extends BlockConveyorBendable {
 
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		int newMeta = meta;
 
 		int dir = getPathDirection(meta);
@@ -43,12 +45,12 @@ public class BlockConveyor extends BlockConveyorBendable {
 				newMeta -= 8;
 
 				// switcheroo
-				world.setBlock(x, y, z, ModBlocks.conveyor_lift, newMeta, 3);
+				world.setBlockState(new BlockPos(x, y, z), ModBlocks.conveyor_lift.getStateFromMeta(newMeta), 3);
 				return true;
 			}
 		}
 
-		world.setBlockMetadataWithNotify(x, y, z, newMeta, 3);
+		world.setBlockState(new BlockPos(x, y, z), getStateFromMeta(newMeta), 3);
 
 		return true;
 	}

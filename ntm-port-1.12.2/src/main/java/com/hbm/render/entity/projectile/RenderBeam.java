@@ -6,10 +6,15 @@ import com.hbm.entity.projectile.EntityBulletBeamBase;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBeam extends Render {
+
+	public RenderBeam(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float interp) {

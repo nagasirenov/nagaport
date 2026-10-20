@@ -55,14 +55,14 @@ public class GUIScreenRadioTorchReader extends GuiScreen {
 		this.names = new GuiTextField[8];
 		
 		for(int i = 0; i < 8; i++) {
-			this.frequencies[i] = new GuiTextField(this.fontRendererObj, guiLeft + 25 + oX, guiTop + 53 + i * 18 + oY, 72 - oX * 2, 14);
+			this.frequencies[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 25 + oX, guiTop + 53 + i * 18 + oY, 72 - oX * 2, 14);
 			this.frequencies[i].setTextColor(0x00ff00);
 			this.frequencies[i].setDisabledTextColour(0x00ff00);
 			this.frequencies[i].setEnableBackgroundDrawing(false);
 			this.frequencies[i].setMaxStringLength(15);
 			this.frequencies[i].setText(rtty.channels[i] == null ? "" : rtty.channels[i]);
 
-			this.names[i] = new GuiTextField(this.fontRendererObj, guiLeft + 119 + oX, guiTop + 53 + i * 18 + oY, 126 - oX * 2, 14);
+			this.names[i] = new GuiTextField(i + 8, this.fontRenderer, guiLeft + 119 + oX, guiTop + 53 + i * 18 + oY, 126 - oX * 2, 14);
 			this.names[i].setTextColor(0x00ff00);
 			this.names[i].setDisabledTextColour(0x00ff00);
 			this.names[i].setEnableBackgroundDrawing(false);
@@ -82,17 +82,17 @@ public class GUIScreenRadioTorchReader extends GuiScreen {
 
 	private void drawGuiContainerForegroundLayer(int x, int y) {
 		String name = I18nUtil.resolveKey("container.rttyReader");
-		this.fontRendererObj.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
+		this.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
 
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { rtty.polling ? "Polling" : "State Change" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { rtty.polling ? "Polling" : "State Change" }), x, y);
 		}
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Save Settings" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Save Settings" }), x, y);
 		}
 		if(guiLeft + 29 <= x && guiLeft + 29 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
 			ForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();
-			TileEntity tile = Compat.getTileStandard(rtty.getWorldObj(), rtty.xCoord + dir.offsetX, rtty.yCoord + dir.offsetY, rtty.zCoord + dir.offsetZ);
+			TileEntity tile = Compat.getTileStandard(rtty.getWorld(), rtty.getPos().getX() + dir.offsetX, rtty.getPos().getY() + dir.offsetY, rtty.getPos().getZ() + dir.offsetZ);
 			if(tile instanceof IRORValueProvider) {
 				IRORValueProvider prov = (IRORValueProvider) tile;
 				String[] info = prov.getFunctionInfo();
@@ -102,7 +102,7 @@ public class GUIScreenRadioTorchReader extends GuiScreen {
 					if(s.startsWith(IRORValueProvider.PREFIX_VALUE))
 					lines.add(TextFormatting.LIGHT_PURPLE + s.substring(4));
 				}
-				func_146283_a(lines, x, y);
+				drawHoveringText(lines, x, y);
 			}
 		}
 	}
@@ -126,18 +126,18 @@ public class GUIScreenRadioTorchReader extends GuiScreen {
 		for(GuiTextField field : names) field.mouseClicked(x, y, i);
 		
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("p", !rtty.polling);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.xCoord, rtty.yCoord, rtty.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.getPos().getX(), rtty.getPos().getY(), rtty.getPos().getZ()));
 		}
 		
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			for(int j = 0; j < 8; j++) data.setString("c" + j, this.frequencies[j].getText());
 			for(int j = 0; j < 8; j++) data.setString("n" + j, this.names[j].getText());
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.xCoord, rtty.yCoord, rtty.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rtty.getPos().getX(), rtty.getPos().getY(), rtty.getPos().getZ()));
 		}
 	}
 
@@ -148,7 +148,7 @@ public class GUIScreenRadioTorchReader extends GuiScreen {
 		for(GuiTextField field : names) if(field.textboxKeyTyped(c, i)) return;
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}

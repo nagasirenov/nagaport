@@ -29,11 +29,11 @@ public class TileEntityRBMKRodReaSim extends TileEntityRBMKRod {
 
 		if(flux == 0) {
 			// simple way to remove the node from the cache when no flux is going into it!
-			NeutronNodeWorld.removeNode(worldObj, pos);
+			NeutronNodeWorld.removeNode(this.world, pos);
 			return;
 		}
 
-		StreamWorld streamWorld = NeutronNodeWorld.getOrAddWorld(worldObj);
+		StreamWorld streamWorld = NeutronNodeWorld.getOrAddWorld(this.world);
 		RBMKNeutronNode node = (RBMKNeutronNode) streamWorld.getNode(pos);
 
 		if(node == null) {
@@ -42,7 +42,7 @@ public class TileEntityRBMKRodReaSim extends TileEntityRBMKRod {
 		}
 
 		Vec3NT vec = new Vec3NT(1, 0, 0);
-		vec.rotateAroundYDeg(worldObj.rand.nextInt(4) * 9D);
+		vec.rotateAroundYDeg(this.world.rand.nextInt(4) * 9D);
 		for(int i = 0; i < 8; i++) {
 			new RBMKNeutronHandler.RBMKNeutronStream(node, vec.toVec3d(), flux * 0.75, ratio);
 			vec.rotateAroundYDeg(45D);

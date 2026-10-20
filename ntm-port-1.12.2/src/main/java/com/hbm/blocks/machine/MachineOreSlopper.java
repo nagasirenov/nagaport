@@ -14,20 +14,20 @@ import com.hbm.lib.ForgeDirection;
 public class MachineOreSlopper extends BlockDummyable {
 
 	public MachineOreSlopper() {
-		super(Material.iron);
+		super(Material.IRON);
 		
 		//Base
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-3.5, 0, -1.5, 3.5, 1, 1.5));
+		this.bounding.add(new AxisAlignedBB(-3.5, 0, -1.5, 3.5, 1, 1.5));
 		//Slop bucket
-		this.bounding.add(AxisAlignedBB.getBoundingBox(0.5, 1, -1.5, 3.5, 3.25, 1.5));
+		this.bounding.add(new AxisAlignedBB(0.5, 1, -1.5, 3.5, 3.25, 1.5));
 		//Shredder
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-2.25, 1, -1.5, 0.25, 3.25, -0.75));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-2.25, 1, 0.75, 0.25, 3.25, 1.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-2.25, 1, -1.5, -2, 3.25, 1.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(0, 1, -1.5, 0.25, 3.25, 1.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-2, 1, -0.75, 0, 2, 0.75));
+		this.bounding.add(new AxisAlignedBB(-2.25, 1, -1.5, 0.25, 3.25, -0.75));
+		this.bounding.add(new AxisAlignedBB(-2.25, 1, 0.75, 0.25, 3.25, 1.5));
+		this.bounding.add(new AxisAlignedBB(-2.25, 1, -1.5, -2, 3.25, 1.5));
+		this.bounding.add(new AxisAlignedBB(0, 1, -1.5, 0.25, 3.25, 1.5));
+		this.bounding.add(new AxisAlignedBB(-2, 1, -0.75, 0, 2, 0.75));
 		//Outlet
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-3.25, 1, -1, -2.25, 3, 1));
+		this.bounding.add(new AxisAlignedBB(-3.25, 1, -1, -2.25, 3, 1));
 	}
 
 	@Override

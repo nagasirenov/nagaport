@@ -1,0 +1,8 @@
+PASS payload and hook signatures: Component.java
+PASS payload and hook signatures: BunkerComponents.java
+PASS payload and hook signatures: CivilianFeatures.java
+PASS payload and hook signatures: OfficeFeatures.java
+PASS payload and hook signatures: SiloComponent.java
+PASS: 28 component NBT hooks; registration IDs; procedural start payloads.
+STATIC ONLY: full component compilation and world save/reload are separate checks.
+EXIT_CODE=0

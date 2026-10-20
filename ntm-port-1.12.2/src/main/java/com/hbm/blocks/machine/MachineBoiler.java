@@ -28,7 +28,7 @@ public class MachineBoiler extends Block {
 	private IIcon iconSide;
 
 	public MachineBoiler(boolean blockState) {
-		super(Material.iron);
+		super(Material.IRON);
 		isActive = blockState;
 	}
 
@@ -68,10 +68,10 @@ public class MachineBoiler extends Block {
 
 	private void setDefaultDirection(World world, int x, int y, int z) {
 		if(!world.isRemote) {
-			Block block1 = world.getBlock(x, y, z - 1);
-			Block block2 = world.getBlock(x, y, z + 1);
-			Block block3 = world.getBlock(x - 1, y, z);
-			Block block4 = world.getBlock(x + 1, y, z);
+			Block block1 = com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock();
+			Block block2 = com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock();
+			Block block3 = com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock();
+			Block block4 = com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock();
 
 			byte b0 = 3;
 
@@ -94,7 +94,7 @@ public class MachineBoiler extends Block {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);

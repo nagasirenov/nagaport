@@ -1,0 +1,1934 @@
+{
+  "baseline": "c986d3f35683a7b81fe0e2caf928f6a47a7a6b5f",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockKelp.java": {
+      "before_sha256": "7c11cf71623b010f0977212f3ee7b64a20f0f483087d0f9221afe9c0f531bdba",
+      "after_sha256": "36d5219921ad74d3411f1356f3f301017d2f97cfd186acbad80227d79e5ee957",
+      "edits": [
+        {
+          "before_offset": 2098,
+          "after_offset": 2098,
+          "old": "\tpublic Item getItemDropped(int parMetadata, Random parRand, int parFortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata, Random parRand, int parFortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockRubberLeaves.java": {
+      "before_sha256": "07306fe0bf68f3f7adff859be3c391a82c2de1d6067acfcdc1c0073dd0b6839a",
+      "after_sha256": "7181bb29411111bba041070f5c7d767474807e7b4fc3f45ed24f1385a8012cc7",
+      "edits": [
+        {
+          "before_offset": 510,
+          "after_offset": 510,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockWaterPlant.java": {
+      "before_sha256": "5efa6e0a423b4d5fc12fafe899a2f588c91e451642fc8aebd17ac7d96a287015",
+      "after_sha256": "80dd45577ed8d2d8c1a3e046dbd4596c7c6f3d53188364005bd14c177c4d0bd7",
+      "edits": [
+        {
+          "before_offset": 810,
+          "after_offset": 810,
+          "old": "\tpublic Item getItemDropped(int parMetadata, Random parRand, int parFortune)   {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata, Random parRand, int parFortune)   {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "6b476d5d951faca8434e05825537d8833f402b185b9f4e9c1a398ebe996d2e17",
+      "after_sha256": "fc5a8792d525d4593cf3454ae0ba2387a2ef4d1367f317b8ec6f7d3e3ff3e802",
+      "edits": [
+        {
+          "before_offset": 70558,
+          "after_offset": 70558,
+          "old": "\t\tblock_uranium = new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium\");\r\n\t\tblock_u233 = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u233\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u233\");\r\n\t\tblock_u235 = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u235\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u235\");\r\n\t\tblock_u238 = new BlockHazard().makeBeaconable().setTranslationKey(\"block_u238\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u238\");\r\n\t\tblock_uranium_fuel = new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium_fuel\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium_fuel\");\r\n\t\tblock_thorium = new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium\");\r\n\t\tblock_thorium_fuel = new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium_fuel\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium_fuel\");\r\n\t\tblock_neptunium = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_neptunium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + \":block_neptunium\");\r\n\t\tblock_polonium = new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_polonium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_polonium\");\r\n\t\tblock_mox_fuel = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_mox_fuel\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_mox_fuel\");\r\n\t\tblock_plutonium = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium\");\r\n\t\tblock_pu238 = new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu238\").setCreativeTab(MainRegistry.blockTab).setLightLevel(5F/15F).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu238\");\r\n\t\tblock_pu239 = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu239\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu239\");\r\n\t\tblock_pu240 = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu240\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu240\");\r\n\t\tblock_pu_mix = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu_mix\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu_mix\");\r\n\t\tblock_plutonium_fuel = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium_fuel\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium_fuel\");\r\n",
+          "new": "\t\tblock_uranium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium\");\r\n\t\tblock_u233 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u233\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u233\");\r\n\t\tblock_u235 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u235\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u235\");\r\n\t\tblock_u238 = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_u238\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u238\");\r\n\t\tblock_uranium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium_fuel\");\r\n\t\tblock_thorium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium\");\r\n\t\tblock_thorium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium_fuel\");\r\n\t\tblock_neptunium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_neptunium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + \":block_neptunium\");\r\n\t\tblock_polonium = ((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_polonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_polonium\");\r\n\t\tblock_mox_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_mox_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_mox_fuel\");\r\n\t\tblock_plutonium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium\");\r\n\t\tblock_pu238 = ((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu238\").setCreativeTab(MainRegistry.blockTab).setLightLevel(5F/15F)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu238\");\r\n\t\tblock_pu239 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu239\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu239\");\r\n\t\tblock_pu240 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu240\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu240\");\r\n\t\tblock_pu_mix = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu_mix\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu_mix\");\r\n\t\tblock_plutonium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium_fuel\");\r\n"
+        },
+        {
+          "before_offset": 83187,
+          "after_offset": 83459,
+          "old": "\t\tblock_schraranium = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schraranium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F).setBlockTextureName(RefStrings.MODID + \":block_schraranium\");\r\n\t\tblock_schrabidium = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium\");\r\n\t\tblock_schrabidate = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidate\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidate\");\r\n\t\tblock_solinium = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_solinium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_solinium\");\r\n\t\tblock_schrabidium_fuel = new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium_fuel\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium_fuel\");\r\n",
+          "new": "\t\tblock_schraranium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schraranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F).setBlockTextureName(RefStrings.MODID + \":block_schraranium\");\r\n\t\tblock_schrabidium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium\");\r\n\t\tblock_schrabidate = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidate\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidate\");\r\n\t\tblock_solinium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_solinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_solinium\");\r\n\t\tblock_schrabidium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium_fuel\");\r\n"
+        },
+        {
+          "before_offset": 88616,
+          "after_offset": 88973,
+          "old": "\t\tblock_yellowcake = new BlockHazardFalling().makeBeaconable().setTranslationKey(\"block_yellowcake\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.SAND).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_yellowcake\");\r\n",
+          "new": "\t\tblock_yellowcake = ((BlockHazardFalling) new BlockHazardFalling().makeBeaconable().setTranslationKey(\"block_yellowcake\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.SAND).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_yellowcake\");\r\n"
+        },
+        {
+          "before_offset": 90893,
+          "after_offset": 91274,
+          "old": "\t\tblock_red_phosphorus = new BlockHazardFalling().makeBeaconable().setStepSound(SoundType.SAND).setTranslationKey(\"block_red_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_red_phosphorus\");\r\n\t\tblock_fallout = new BlockHazardFalling().setStepSound(SoundType.GROUND).setTranslationKey(\"block_fallout\").setCreativeTab(MainRegistry.blockTab).setHardness(0.2F).setBlockTextureName(RefStrings.MODID + \":ash\");\r\n",
+          "new": "\t\tblock_red_phosphorus = ((BlockHazardFalling) new BlockHazardFalling().makeBeaconable()).withSoundType(SoundType.SAND).setTranslationKey(\"block_red_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_red_phosphorus\");\r\n\t\tblock_fallout = ((BlockHazardFalling) new BlockHazardFalling()).withSoundType(SoundType.GROUND).setTranslationKey(\"block_fallout\").setCreativeTab(MainRegistry.blockTab).setHardness(0.2F).setBlockTextureName(RefStrings.MODID + \":ash\");\r\n"
+        },
+        {
+          "before_offset": 93485,
+          "after_offset": 93914,
+          "old": "\t\tblock_ra226 = new BlockHazard().makeBeaconable().setTranslationKey(\"block_ra226\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_ra226\");\r\n\t\tblock_actinium = new BlockHazard().makeBeaconable().setTranslationKey(\"block_actinium\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_actinium\");\r\n",
+          "new": "\t\tblock_ra226 = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_ra226\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_ra226\");\r\n\t\tblock_actinium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_actinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_actinium\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/RubberGrass.java": {
+      "before_sha256": "ab218a8f276f21270b6c49142ef4434e91ec6d9b83b28877875e43ff9c02eb3a",
+      "after_sha256": "dc7dc793cdc1f23db754404ad61b1daecc8fc184567ebcd1cf2a9335293b7c86",
+      "edits": [
+        {
+          "before_offset": 1480,
+          "after_offset": 1480,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "3db082727414bbc75ce7621513a5e173aa8188b8e0bdf55946a6b635acadf8b9",
+      "after_sha256": "5d738fd62471c2c68047a39303397e30857c862cadcbfe0fc61c27eeb121d03b",
+      "edits": [
+        {
+          "before_offset": 2987,
+          "after_offset": 2987,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockTaint.java": {
+      "before_sha256": "a1e20b78937f7095be00340126557aa9436b516bfc2d31c9ee811e5841f72f8b",
+      "after_sha256": "56f76edc27bf4683b5ae8d9362011a29b19a2c708b299dce8dd24da6d271e63e",
+      "edits": [
+        {
+          "before_offset": 1210,
+          "after_offset": 1210,
+          "old": "\t@Override public Item getItemDropped(int i, Random rand, int j) { return null; }\n",
+          "new": "\t@Override public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) { return null; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": {
+      "before_sha256": "64fff672e09af64022122d4a8fe116b29db8494ce3ef8e2c7c0f3d2953ca6f47",
+      "after_sha256": "d1f1b58837c81666fa4141b9532f621d8f7e6130eb8b10c7adfe6d95085e8089",
+      "edits": [
+        {
+          "before_offset": 1573,
+          "after_offset": 1573,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombThermo.java": {
+      "before_sha256": "2c51b0b7d8434e0ba9730a0e22eb22b50c949dadb3aa517141dd0a4110cefba1",
+      "after_sha256": "e3f60cd2003a12e3a5413d5c63d6f963bfb48031e82161af1360e195b5aa7856",
+      "edits": [
+        {
+          "before_offset": 1237,
+          "after_offset": 1237,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java": {
+      "before_sha256": "76fd0c8551b571d8d488cd7d3177c8fb728aee2181699be682a59bfda4fa66c8",
+      "after_sha256": "2c45813075633a2df4f56806b2439ad1aa0351fa7b0e57b869762fc827e7e2b8",
+      "edits": [
+        {
+          "before_offset": 1462,
+          "after_offset": 1462,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DetMiner.java": {
+      "before_sha256": "1d0fa493465619310c76be01d111156a12c7a38d023a1fdd5892216d61747196",
+      "after_sha256": "f9eefbc59c42e5adb7132efec958fdea5e7d0075b04b0caffc2cce55e8d8b813",
+      "edits": [
+        {
+          "before_offset": 731,
+          "after_offset": 731,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java": {
+      "before_sha256": "66ed68295f9fcaeb8bf8a578cfc5fbb52dd64a8a6390a2f5d4852bf5ecc8afd5",
+      "after_sha256": "bf4ead6f4b275b9fb0a728e98d73f438ccd8cc416ec73772bcc84ad52742f012",
+      "edits": [
+        {
+          "before_offset": 1267,
+          "after_offset": 1267,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "84c76a0727d28594ec8e66ea201005cf29c3665d5348cbddb31393e4d739377d",
+      "after_sha256": "25d02c550d833c77a36e6ee24413c6ecad8ed0ad5c05a617cf0766d1b3597b06",
+      "edits": [
+        {
+          "before_offset": 1907,
+          "after_offset": 1907,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java": {
+      "before_sha256": "7675fab039a2fed35bb36a14b8e7c6e4ffff55c958f9f10c4f3213f0c413bd91",
+      "after_sha256": "32328958ca487642c9ccf42e741e0539a3846631bc5fc448b1e35dbbc4c0b8f4",
+      "edits": [
+        {
+          "before_offset": 1212,
+          "after_offset": 1212,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "3fdf48feb0e609b790f6f990e26c5b8a9f7a17a83c2831bf72e7448868ee1358",
+      "after_sha256": "19c966e2fe25ec6c7437c437a6166ebf6ba3d683f46d6224e834be070f0b3946",
+      "edits": [
+        {
+          "before_offset": 1435,
+          "after_offset": 1435,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "0175dd2ba4de68bd5ff81e5ba188ebd835c9fd05cb23ea2b8e0a925c5419c66f",
+      "after_sha256": "f7e598f6b3faa9bc79fed5d1c89e30d30d05f749aa6f557cc369883dc4f39200",
+      "edits": [
+        {
+          "before_offset": 1451,
+          "after_offset": 1451,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "0dd56f983310e21b89f9b1b35de589914769e77af2f4c9c54f96eadcc85c9aa5",
+      "after_sha256": "0630c985e7daebb909cc6d2426c9b486238d690e8091049ff3e3e42f49821e16",
+      "edits": [
+        {
+          "before_offset": 1677,
+          "after_offset": 1677,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "1f25149d54556c69a0fa6ee81cef76dcca59a3d030bb1786c103c157b2d8aa5b",
+      "after_sha256": "280095d40f0dfe926438c268ff55b96fce4db7a09b1c84f18882d0ef3c8afaa7",
+      "edits": [
+        {
+          "before_offset": 1431,
+          "after_offset": 1431,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "f81131b2c192ba35bfa5588b183618ad75196ebdd5db5239115e8552f7e65529",
+      "after_sha256": "de08ff5ab6db52889078f1ecaf48981039febf580140c74bed1d5f8eaf951161",
+      "edits": [
+        {
+          "before_offset": 1430,
+          "after_offset": 1430,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "1d17ce7932b91dcb25113126c84128e72d4cb8cddae55b2c2359c3eb382f8c7b",
+      "after_sha256": "aa30a17f0059319550536d7554948d4cf3a9185abd9e94c5dc3302f23d2dcd2c",
+      "edits": [
+        {
+          "before_offset": 1412,
+          "after_offset": 1412,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "5491492a5d13c4af9c601584f58961fc8e7b1e58f8f5844fd137d0187bf7c81b",
+      "after_sha256": "53766d45fc2c84ba71f89a8f9ae82347c90f72709d08cebf57881e73dea649dc",
+      "edits": [
+        {
+          "before_offset": 1417,
+          "after_offset": 1417,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "b13cce79b8ea0016a74c0be0edc120c08a8ba97ce79f31029867760f05e3739b",
+      "after_sha256": "dc3439cff1c4ee8823126dc20a0fe24b83f15080998ea692af5c0cf9b72f440a",
+      "edits": [
+        {
+          "before_offset": 1348,
+          "after_offset": 1348,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "9e43a5d9947e9282859753769992bbf2ad676608337312aa064d8489d37045ad",
+      "after_sha256": "f1fbc4ddc6cfafe21e762643336bd0fdc651b870dbd3aa0bb945ce11876d5456",
+      "edits": [
+        {
+          "before_offset": 1480,
+          "after_offset": 1480,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "2e09dc186a07e0d41bf8e8b00e373d7232613172d7b61a3f75e12d397be70f14",
+      "after_sha256": "d02085086678e66b565daf245ae55fcb8581b6f0a054edde4f5450a05507a999",
+      "edits": [
+        {
+          "before_offset": 1376,
+          "after_offset": 1376,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "66a7e590781c9a484c6f4ee6922d8721237cd89d5bf160a959eac5cac4d97ecb",
+      "after_sha256": "0aa3c1f210fc6cdcf5ee3a7fc5b3afc9c6d12e40ad03d07d1e0aa8773cacca81",
+      "edits": [
+        {
+          "before_offset": 1417,
+          "after_offset": 1417,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "e46c733f487c557ca13b01b256392c221d6901cc4b67e4a1286a8d4689d74e32",
+      "after_sha256": "bf8d3ed50f126b983c71c4e22015de0a6c4992852fb6339bb629a8864015e1c1",
+      "edits": [
+        {
+          "before_offset": 818,
+          "after_offset": 818,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": {
+      "before_sha256": "9879b9bd3175c9b6ce7352c89ee2273394bc45849d0409f4dea4b82fdb8c202b",
+      "after_sha256": "3c0ecd0d7c20ebd7d80fed49e79e28ee2cad7d6930896a4955cfc67b80083019",
+      "edits": [
+        {
+          "before_offset": 1229,
+          "after_offset": 1229,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before_sha256": "3057c0a176abf6c5d7e739f327c9fa63f9b09ac86bfda6875fef3b9fbb2af56e",
+      "after_sha256": "e5118f618d8a555eb179a9c46cbcfd188d9654153f44ef9049c6e4e689fbadf0",
+      "edits": [
+        {
+          "before_offset": 1011,
+          "after_offset": 1011,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java": {
+      "before_sha256": "6ff34bc60a3b1a7a71c999eb4f6edf3fec6356a04d027ec29447f81c1ef33cd7",
+      "after_sha256": "e8783a7b300f1130b6910e2e2a41960113ca2f367b06ea35b4786ba852b50dd5",
+      "edits": [
+        {
+          "before_offset": 3648,
+          "after_offset": 3648,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\r\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before_sha256": "90b8a4cbd9d0f41090ca7cbfd3822a726e2fa1f83aa08c8684425175133cd6be",
+      "after_sha256": "2afdab9773fa8fe9864e26d227ca04363cc73da07dcdf07f6d557dfe83c77519",
+      "edits": [
+        {
+          "before_offset": 1825,
+          "after_offset": 1825,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\r\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java": {
+      "before_sha256": "b3534832dcbe8316d87af606c3d3fa4df68432e9031f6bce924e42733358e4a5",
+      "after_sha256": "ceab99f5cbdc40d309f51cbb61f5ece25ecd50c024f089c6be1a74e4f53a87fd",
+      "edits": [
+        {
+          "before_offset": 2047,
+          "after_offset": 2047,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDirt.java": {
+      "before_sha256": "cb13562b30a1ba9a0273e5dafc76adbe7a1888f7752899938939d6bece99dfba",
+      "after_sha256": "43044900fb7a7bd2d0ca51be7f09848280806e256af458e7f3b09d70bfafa9e0",
+      "edits": [
+        {
+          "before_offset": 773,
+          "after_offset": 773,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "9d05a4ae1456ec69c13c52376ed2a3920ac285fdaf5b48d6d6b5e92b65f085ac",
+      "after_sha256": "695262ea1919ffb12efeb964739cbd3633eab4357d12903821997f0976ef120f",
+      "edits": [
+        {
+          "before_offset": 1085,
+          "after_offset": 1085,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockGenericDrop.java": {
+      "before_sha256": "8702a3e3149e6ec70eab99b160cb6e4d034156b7fc530a708e9d9be7c833485c",
+      "after_sha256": "f73213f028ba0d252144e9cb22f31f87560ce5845a80809af5ea3f247967eda1",
+      "edits": [
+        {
+          "before_offset": 353,
+          "after_offset": 353,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\t@Override\n\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockGeysir.java": {
+      "before_sha256": "c80200a944331aea7d1574eb277d66b9f9cb72d490b033f87acd3a4d288cf0c1",
+      "after_sha256": "ab0b57ecdd1f5b4337d1167c0334a8cf77fa57e7ff89544235ed814f3c3aadd8",
+      "edits": [
+        {
+          "before_offset": 1578,
+          "after_offset": 1578,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockGlyphid.java": {
+      "before_sha256": "dc2f02a23c359817bbb61a3ad14a545a4e592eb16adeddd7b3abc18b81a12c6d",
+      "after_sha256": "3309a79b0ae47d88d6da963b7e160000e34e361a58fc3e10581b44ae6a73f541",
+      "edits": [
+        {
+          "before_offset": 907,
+          "after_offset": 907,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java": {
+      "before_sha256": "02d1e2725526b03b85183949cc8ff21f6637e08b183779ac551f99dcea023d0c",
+      "after_sha256": "524cdb9fb62a8e8fd82e53a352ae80b2406230f897c5904a0317ed97e9bf2b63",
+      "edits": [
+        {
+          "before_offset": 1729,
+          "after_offset": 1729,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazard.java": {
+      "before_sha256": "1a2fa469d8739ead410527e5f4af15d718e1e58b3d929ceaf64cd871db0c91ed",
+      "after_sha256": "cfa78cbe78a61fbe039d78e4d41f0758f9df324a12151b2a91e42d932cc429b5",
+      "edits": [
+        {
+          "before_offset": 3247,
+          "after_offset": 3247,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic BlockHazard withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java": {
+      "before_sha256": "bb79d3d6bb206ac6a80d62e713dc5e9a508af331a7a037d6410ba10253bb451d",
+      "after_sha256": "b065c12215db546dd38fa1dd5bf9baf6ddd7ab87f7e76dc593fd3075f4b0b438",
+      "edits": [
+        {
+          "before_offset": 629,
+          "after_offset": 629,
+          "old": "",
+          "new": "\t}\n\n\t/** NTM construction hook for the native protected sound setter. */\n\tpublic BlockHazardFalling withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLanternBehemoth.java": {
+      "before_sha256": "49ad465d3aee4e114f76b0841c68e472cc2c768990b128e135c16974dde1ccbf",
+      "after_sha256": "a9d7d9ffec44d4f5a1114fba75aca73263984301473f45766f8a313379af9c69",
+      "edits": [
+        {
+          "before_offset": 992,
+          "after_offset": 992,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLayering.java": {
+      "before_sha256": "65dc0f77c27bc0376633149077c8407275a9403efa9de345e28ee88bd2e20c7b",
+      "after_sha256": "a32183619b6c2e258f99260c0a58b8fcf39ca43b58d215914a73bf4a99274934",
+      "edits": [
+        {
+          "before_offset": 3366,
+          "after_offset": 3366,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before_sha256": "456251ba694dcc5b5a476026bd39d0d746f42cb8fff6f4684671a81a2377409a",
+      "after_sha256": "2711d45399aaa7242a149ce8fbf6a83a48e5ec51a67094508db05934219450ac",
+      "edits": [
+        {
+          "before_offset": 1097,
+          "after_offset": 1097,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\r\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMultiSlab.java": {
+      "before_sha256": "87b8e073914560a07038cce94d9410b07e3a7cc25046149e5213fa6d571bf03c",
+      "after_sha256": "1346d84c24ce7b07cb7871048bc7d95a7c2dbf03dcf0432344c9d6cc12bd84d8",
+      "edits": [
+        {
+          "before_offset": 1569,
+          "after_offset": 1569,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMushHuge.java": {
+      "before_sha256": "abc0ac8b925f1ecba3c0d18505dfd2342414e981db086587d6a1510ae9a934c4",
+      "after_sha256": "3f392b41a1535ab1c7114783ab1b7253e020ec0bf9f32819bbfcbced61602506",
+      "edits": [
+        {
+          "before_offset": 1372,
+          "after_offset": 1372,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMDirt.java": {
+      "before_sha256": "ff2385f98220e1cfbae066b8f9360cd6a7b735ebf9a048b66b51c026d2f0fad7",
+      "after_sha256": "32ff9b6b7a8e1e39482f886a76b1d92815f2fcd188a916a083beb460dca97e87",
+      "edits": [
+        {
+          "before_offset": 801,
+          "after_offset": 801,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNetherCoal.java": {
+      "before_sha256": "e5b2747d8396e51fb68a2b0a42d8fe66fcd42b742fe575bd4e0d8174c9d0e6f8",
+      "after_sha256": "f7ca98d0143fd5b403c11f41e283ec1e3be9366a90cb3aff84d54da324601c1b",
+      "edits": [
+        {
+          "before_offset": 568,
+          "after_offset": 568,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNoDrop.java": {
+      "before_sha256": "a9ed1e12c63488abb98fe33bbd2877d2a7d83115ecf3d3b5d5311769fb96aa08",
+      "after_sha256": "c1ebea91a7fff9f2d3347f02b40f27050d55895ad49d7a7cc8916a13e908996c",
+      "edits": [
+        {
+          "before_offset": 295,
+          "after_offset": 295,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": {
+      "before_sha256": "c17c645283de8cbacecfa923a4438368a7594a0f1fd202881e69abac540e0865",
+      "after_sha256": "2ac423a447e452271a1c56b179ac982a3e9c14216fe136052aff108430491800",
+      "edits": [
+        {
+          "before_offset": 2127,
+          "after_offset": 2127,
+          "old": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune)) {\n",
+          "new": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPinkSlab.java": {
+      "before_sha256": "b62f959c4d14d631960b5c4bd94d7449970a1c1b3c894835be2d8f2b714a4bb9",
+      "after_sha256": "c69f43d8c4317a88ab12929152a568cd25ed896183e27b49ca44506ab148d732",
+      "edits": [
+        {
+          "before_offset": 382,
+          "after_offset": 382,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlasma.java": {
+      "before_sha256": "6d320e109c776c8bdb8d94c554066ff0891c7f49dea4e66cbd7760f911ca2615",
+      "after_sha256": "8d4271d2c9e8c2dea6ad13748721c1cdb645cd2a7a247c4943374aadb92d8602",
+      "edits": [
+        {
+          "before_offset": 1763,
+          "after_offset": 1763,
+          "old": "\t@Override public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) { return null; }\n",
+          "new": "\t@Override public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) { return null; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": {
+      "before_sha256": "20c43266a797c49f39268abd1fcdd9dd95afd0a2bacca60760d1b1009d51e75c",
+      "after_sha256": "b755464d4c6182df1149008d8e67d8a4abd6a70640dfbca2e532358dcf684f8a",
+      "edits": [
+        {
+          "before_offset": 1531,
+          "after_offset": 1531,
+          "old": "\t@Override public Item getItemDropped(int i, Random rand, int j) { return null; }\r\n",
+          "new": "\t@Override public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) { return null; }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrick.java": {
+      "before_sha256": "d7c7f089fd7b35dba48ef6c2f67500ca8bed5229219ff8be89f5e1cfbb50cafa",
+      "after_sha256": "a4e05b82b994e57c62b3baef856f0beac08b1847d054af14de6bf4431c436b1e",
+      "edits": [
+        {
+          "before_offset": 1240,
+          "after_offset": 1240,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java": {
+      "before_sha256": "dc53c91fc0b081dd3454ce6e9802bca4380308285b439c9b92b56764bec2ab97",
+      "after_sha256": "04a4b0a57590bb6ecbf710458a7915fcf4bc653667b7fdbf7d89eb68b9c4f5e7",
+      "edits": [
+        {
+          "before_offset": 1935,
+          "after_offset": 1935,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java": {
+      "before_sha256": "014d97cf91c81fd22351c5fea2ad7fc4d58a8abbf9160bc5c080479dc83ba037",
+      "after_sha256": "32917b0d6b5b4dad18aa434789d32475f23d4d74778c03952d2ad5c672a126aa",
+      "edits": [
+        {
+          "before_offset": 1952,
+          "after_offset": 1952,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java": {
+      "before_sha256": "96c4585fab28c3c27854a7c142289f3a96b7d4e7dc606f75a8b90270615feae7",
+      "after_sha256": "8875823e70a0275411fe959a37af99f43d1ac455a514a073c7e3bcee5b25b706",
+      "edits": [
+        {
+          "before_offset": 2575,
+          "after_offset": 2575,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        },
+        {
+          "before_offset": 3038,
+          "after_offset": 3072,
+          "old": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune)) {\n",
+          "new": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune)) {\n"
+        },
+        {
+          "before_offset": 3414,
+          "after_offset": 3466,
+          "old": "\t\tif(this.getItemDropped(meta, rand, fortune) != Item.getItemFromBlock(this)) {\n",
+          "new": "\t\tif(this.getItemDropped(getStateFromMeta(meta), rand, fortune) != Item.getItemFromBlock(this)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSmolder.java": {
+      "before_sha256": "7176d16f5a6ac7478a595cba87d5a4b8f422a011d0e16830ac28b2a8af20b7eb",
+      "after_sha256": "4ab7c46436f17d49d3c3728e57465797c902635f524d513c2ef07c9590e33f47",
+      "edits": [
+        {
+          "before_offset": 1034,
+          "after_offset": 1034,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before_sha256": "291803be0d93bb0c14946a81792ad09a29ff27e6580315ea7ac1b2f220febfae",
+      "after_sha256": "7d19587f4c475fbba61b0ace7ba3719bf1e214cb2ec0e8e76544f734c13f231d",
+      "edits": [
+        {
+          "before_offset": 1640,
+          "after_offset": 1640,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\r\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": {
+      "before_sha256": "dd951b5c5924e11b412f424b2d5deae701c92e0874d1f277a217ccbe19f7425a",
+      "after_sha256": "8f8b93e6b04e86c901959ac69e5e812dfc180fbd55a9a29eb0d4f57e9d33dab6",
+      "edits": [
+        {
+          "before_offset": 1403,
+          "after_offset": 1403,
+          "old": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune) && allowFortune) {\n",
+          "new": "\t\tif(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune) && allowFortune) {\n"
+        },
+        {
+          "before_offset": 1717,
+          "after_offset": 1735,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before_sha256": "32ee60e5e6147c8d7b9cfdb5fd8903eb9ddf9b5520df45ab8eacd44db56180f7",
+      "after_sha256": "803146a1aefa46d73f5b005a2b323ab96c969500b80af5e816c051deed30c290",
+      "edits": [
+        {
+          "before_offset": 11162,
+          "after_offset": 11162,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before_sha256": "d24911031948b393ea210e7c956c9c45e59d2995212e1aca0e6603082b91fcdc",
+      "after_sha256": "755d196caadda131ea41b960b850d360e133176c06f66c3ea470cbf4916800a3",
+      "edits": [
+        {
+          "before_offset": 1562,
+          "after_offset": 1562,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": {
+      "before_sha256": "a2778ed850f2d0fbdb494560fb7fef127767acff64130da3d7e3fba332c56207",
+      "after_sha256": "2a74f8e4000ae8f933e374cdef2169591e48b71bfcd6064962d47a49c3399ab1",
+      "edits": [
+        {
+          "before_offset": 9391,
+          "after_offset": 9391,
+          "old": "\tpublic Item getItemDropped(int parMetadata, Random parRand, int parFortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata, Random parRand, int parFortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockVent.java": {
+      "before_sha256": "2cbd49ce7000429ab97458e2e936776472654e4b09a9324e01409d7b956c0e6a",
+      "after_sha256": "19a1cab5d35e1b46ad91918a1c59060a7805bfa8d96a44da192e4e57c0246238",
+      "edits": [
+        {
+          "before_offset": 1203,
+          "after_offset": 1203,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": {
+      "before_sha256": "9fc713668ddd489f06eaf668e3d36efeac7a21db64b74588877224ae8ea7c1dc",
+      "after_sha256": "9ac41e3a5b378666b8cfcef6479d8ccd1894a7832fa60c812e37fe77c9b99a21",
+      "edits": [
+        {
+          "before_offset": 3178,
+          "after_offset": 3178,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/FragileBrick.java": {
+      "before_sha256": "edb1e0b6aed7788adb0aba32321bfeec8604268ad54607d88637b915dd02fc6c",
+      "after_sha256": "43d362860e5d334c89291354fb61fdb66feeaa5db207dc6e5bf8825e0a1be72b",
+      "edits": [
+        {
+          "before_offset": 386,
+          "after_offset": 386,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java": {
+      "before_sha256": "80b3772c66b4401845e91e3cafab224c92fc191afbaee4b68c201a1d4a549b2e",
+      "after_sha256": "748cad26fd50017cce16adfe602b70ae97cca28a6aed6f9b03d23ca474c2a0b4",
+      "edits": [
+        {
+          "before_offset": 1575,
+          "after_offset": 1575,
+          "old": "\tpublic Item getItemDropped(int i, Random r, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random r, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/TritiumLamp.java": {
+      "before_sha256": "d1ecae79bd51ad04b4fcdbf44f50d31323f96303ea887caf9156a446ae119d90",
+      "after_sha256": "73c1fc3b0c49979c63e27d9064b22cd9a9d86cafd5956f5d2c947c1f5aa07c7c",
+      "edits": [
+        {
+          "before_offset": 2281,
+          "after_offset": 2281,
+          "old": "\tpublic Item getItemDropped(int i, Random r, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random r, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "edc84a4f4939212153026ee14438575cef89e8b9f30f5a1af6cb82923a24998e",
+      "after_sha256": "e5d01c7f71ffc446df08d0fac7f80fecf709787d8abbca7a15b80176b332836f",
+      "edits": [
+        {
+          "before_offset": 2555,
+          "after_offset": 2555,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java": {
+      "before_sha256": "cefb3ac72966f962119d63efdeab0b346413a9990dcdd5a7540f872bf9703154",
+      "after_sha256": "d2a80c8299ad3dda33b41daa8fd18b31aadfdc702b985985b372cdb957498b9e",
+      "edits": [
+        {
+          "before_offset": 859,
+          "after_offset": 859,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLog.java": {
+      "before_sha256": "49bae6aed8349ccc4964aabbeebf221d0efe2aff4c990581219b575d03fcb9f3",
+      "after_sha256": "e4457f00fbde887bbab814dcf9986cd89a65cd462090f6ff70a343ee2bac325e",
+      "edits": [
+        {
+          "before_offset": 1276,
+          "after_offset": 1276,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCybercrab.java": {
+      "before_sha256": "41956ce1b79a5f5d9ead1be4abe7520093e9649a7ee06d5c6b2abcae9cc6c45a",
+      "after_sha256": "0926e2bf0936a3effd2bc9fedc0947253c8fadfa18ac91b82f00fb1c7b89ad03",
+      "edits": [
+        {
+          "before_offset": 1405,
+          "after_offset": 1405,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICF.java": {
+      "before_sha256": "aa29990311503b8c2c234bea1af7127021e1e591470ced8d3cdec48fe7a0754c",
+      "after_sha256": "5ecd62c72f90832fc9033e6555ee6c0cbea66fc9050f5ec5bcfd4201271e6126",
+      "edits": [
+        {
+          "before_offset": 1775,
+          "after_offset": 1775,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j)  {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)  {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before_sha256": "939c2493956066dc34505f65a10455b57b6d43605c5041e4b63a5037591e15ef",
+      "after_sha256": "a0e123772fb5ba6d3915ede3cfce2e0f5b6ddb326b6e0c7aeb4b8293be3804bc",
+      "edits": [
+        {
+          "before_offset": 9452,
+          "after_offset": 9452,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockPWR.java": {
+      "before_sha256": "b15b25e806bb8d0a3ca2f8fa558c80beedab8b29b08ba325e18723e45a062724",
+      "after_sha256": "27dd69bda896525ec745dc805d2f97c10e9e28313ec5420abb55754bced751d2",
+      "edits": [
+        {
+          "before_offset": 2098,
+          "after_offset": 2098,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j)  {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)  {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockSeal.java": {
+      "before_sha256": "2f07b11e4a270b7423fec5f2aab7b64aad7ec4cfb3db1ef4d0d79e99881c6c71",
+      "after_sha256": "6eeae9485f99fa55749f9e167cf1b078028816e0374011a4031dfa772aa77ee3",
+      "edits": [
+        {
+          "before_offset": 1565,
+          "after_offset": 1565,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java": {
+      "before_sha256": "9b834aa560dcd26ac4cd966b910810a015e78f019b81237a43f186bf4ca20597",
+      "after_sha256": "22fa40cde72cfe7c384457b887242a9a52b4dff61d89e9aff822c349a4e3ce71",
+      "edits": [
+        {
+          "before_offset": 1782,
+          "after_offset": 1782,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DummyOldBase.java": {
+      "before_sha256": "c5b121eb5ef4ebad716d3faaa26caa557e4f7c071a653f1bfce901a0fe971ae1",
+      "after_sha256": "3083519e4dc4b2401efd670f83147323553b66cde6a37c01eb89b466aefdc748",
+      "edits": [
+        {
+          "before_offset": 1826,
+          "after_offset": 1826,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBattery.java": {
+      "before_sha256": "5fe5c751c30c7b4650a3873e7b4f6ff54a0904b171b1368ff9392e7a79b5d58e",
+      "after_sha256": "e2baa91ed9ca4df58ab1f37a329a8331b1afaa85cc04860b9b413ffe97e27cdf",
+      "edits": [
+        {
+          "before_offset": 3846,
+          "after_offset": 3846,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java": {
+      "before_sha256": "1dd086749e4df28c7b866e72b1e00a61d03cc331a6bebb2a2219360575babd99",
+      "after_sha256": "0983eda80eb9500e8596bb79ac0011f75b89670e63f187954d3574ee26cf00d4",
+      "edits": [
+        {
+          "before_offset": 1281,
+          "after_offset": 1281,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineReactorControl.java": {
+      "before_sha256": "77d45b8b2398e806f0c251c8bb50023cee25348cdedc61c6165abd214847e29d",
+      "after_sha256": "e7d424c2339f5014b3ab3d957688bfa14933cbe1ac5c5726ff7ade96293d92cc",
+      "edits": [
+        {
+          "before_offset": 3040,
+          "after_offset": 3040,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineShredder.java": {
+      "before_sha256": "823742859757b9293454b51e55003b4f69c33a4ce019619f4384f8fce6aa675c",
+      "after_sha256": "908b709713176304bee1df0b6358ef1283980b1e9defa51ec89714f3ac576265",
+      "edits": [
+        {
+          "before_offset": 1897,
+          "after_offset": 1897,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java": {
+      "before_sha256": "a1703bde9454669c765c859ce98293613e908e622dab77cc7cac5d63235bbf21",
+      "after_sha256": "d4586ed4fa179644f46d796eccecc340bfcacc85c4e1df4fadda27876c11586c",
+      "edits": [
+        {
+          "before_offset": 1276,
+          "after_offset": 1276,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before_sha256": "c759b28ab04248502e8e1d9cfd62b27894c4ac8846510fea31b7729b1b45ec88",
+      "after_sha256": "7860e6ce83d0e43dc1a565647de7ea2d08036f9177003f954b8ac324581ea0a0",
+      "edits": [
+        {
+          "before_offset": 1278,
+          "after_offset": 1278,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Watz.java": {
+      "before_sha256": "8501e02cac5849cc5af075ae5fda74e5e5a1ef16ec12ad34601e080ceae4cd4f",
+      "after_sha256": "4bd4acdb628002ecf0a8f21007f70eac129327d103a13392b95794d5339646ef",
+      "edits": [
+        {
+          "before_offset": 1015,
+          "after_offset": 1015,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java": {
+      "before_sha256": "ccb54169608cc22491d51ea936c5c346a8f0e42def2728903f3e2f1dddbf5902",
+      "after_sha256": "6e27f9a4c15a0692eac5e2f5db76a2fc0ef0f8c30b855067906d9aa42aa93832",
+      "edits": [
+        {
+          "before_offset": 3244,
+          "after_offset": 3244,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+      "before_sha256": "24db7e4dcd67e41c7954fadcbf85c458eb79fe102809db1aa1b68e5b032b4a91",
+      "after_sha256": "269200ca7c9cd5f3e2af085c367954aee4d3aacd74e3691f0577e0b6df3bbb7e",
+      "edits": [
+        {
+          "before_offset": 2566,
+          "after_offset": 2566,
+          "old": "\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretHowardDamaged.java": {
+      "before_sha256": "e2947d7382fc3b8823ac5298546d718563deedf015fa6ad1df97370173c83678",
+      "after_sha256": "0657b53719af8aac273dcf9b5881b2227e57bf4756ef4d73bbceb863069727bf",
+      "edits": [
+        {
+          "before_offset": 781,
+          "after_offset": 781,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java": {
+      "before_sha256": "2119304394bd9a4af34217eee10d550a21f88ffdee026e4bee81bc84714ed5a8",
+      "after_sha256": "1fc366932eb18744914a8d9916a9ef08bd5eefb479237f48c011aaf3fb492d1d",
+      "edits": [
+        {
+          "before_offset": 772,
+          "after_offset": 772,
+          "old": "\tpublic Item getItemDropped(int i, Random rand, int j) {\n",
+          "new": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java": {
+      "before_sha256": "e0f163258137c6cc1881320f20a4707ec8b5d55a5409db9bce194dd3f87b4ea2",
+      "after_sha256": "e1e92708ac826819b898b90e261771fbe843509a54bdab5207c7a393962e9892",
+      "edits": [
+        {
+          "before_offset": 1263,
+          "after_offset": 1263,
+          "old": "import net.minecraft.world.World;\n",
+          "new": "import net.minecraft.world.World;\r\nimport net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1630,
+          "after_offset": 1798,
+          "old": "",
+          "new": "\r\n\tprotected static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityMissileBaseNT.class, DataSerializers.BYTE);\r\n"
+        },
+        {
+          "before_offset": 1887,
+          "after_offset": 2192,
+          "old": "",
+          "new": "\r\n\tpublic byte getDirection() {\r\n\t\treturn this.dataManager.get(DIRECTION);\r\n\t}\r\n\r\n\tpublic void setDirection(byte direction) {\r\n\t\tthis.dataManager.set(DIRECTION, direction);\r\n\t}\r\n"
+        },
+        {
+          "before_offset": 3302,
+          "after_offset": 3785,
+          "old": "\t\tthis.dataWatcher.addObject(3, new Byte((byte) 5));\r\n",
+          "new": "\t\tthis.dataManager.register(DIRECTION, new Byte((byte) 5));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java": {
+      "before_sha256": "7398249e97d2308c0998d6b708ba2fbcc1e353f0ea45ff28e553dab07cd8dc33",
+      "after_sha256": "a09c61f5f529c9e48fdfb6c9f95aea057e3051226c7c6a81e473b753b7b57332",
+      "edits": [
+        {
+          "before_offset": 1128,
+          "after_offset": 1128,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1217,
+          "after_offset": 1382,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> HEALTH_SNAPSHOT = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WARHEAD = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> FUSELAGE = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> FINS = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> THRUSTER = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 1264,
+          "after_offset": 2112,
+          "old": "",
+          "new": "\n\tpublic int getWarheadId() {\n\t\treturn this.dataManager.get(WARHEAD);\n\t}\n\n\tpublic int getFuselageId() {\n\t\treturn this.dataManager.get(FUSELAGE);\n\t}\n\n\tpublic int getFinsId() {\n\t\treturn this.dataManager.get(FINS);\n\t}\n\n\tpublic int getThrusterId() {\n\t\treturn this.dataManager.get(THRUSTER);\n\t}\n"
+        },
+        {
+          "before_offset": 1762,
+          "after_offset": 2900,
+          "old": "\t\tthis.dataWatcher.updateObject(9, Item.getIdFromItem(template.warhead));\n\t\tthis.dataWatcher.updateObject(10, Item.getIdFromItem(template.fuselage));\n\t\tthis.dataWatcher.updateObject(12, Item.getIdFromItem(template.thruster));\n",
+          "new": "\t\tthis.dataManager.set(WARHEAD, Item.getIdFromItem(template.warhead));\n\t\tthis.dataManager.set(FUSELAGE, Item.getIdFromItem(template.fuselage));\n\t\tthis.dataManager.set(THRUSTER, Item.getIdFromItem(template.thruster));\n"
+        },
+        {
+          "before_offset": 2018,
+          "after_offset": 3147,
+          "old": "\t\t\tthis.dataWatcher.updateObject(11, Item.getIdFromItem(template.fins));\n",
+          "new": "\t\t\tthis.dataManager.set(FINS, Item.getIdFromItem(template.fins));\n"
+        },
+        {
+          "before_offset": 2102,
+          "after_offset": 3224,
+          "old": "\t\t\tthis.dataWatcher.updateObject(11, Integer.valueOf(0));\n",
+          "new": "\t\t\tthis.dataManager.set(FINS, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 2769,
+          "after_offset": 3884,
+          "old": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(9));\n",
+          "new": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(WARHEAD));\n"
+        },
+        {
+          "before_offset": 3284,
+          "after_offset": 4387,
+          "old": "\t\tthis.dataWatcher.addObject(8, Integer.valueOf(this.health));\n\t\tthis.dataWatcher.addObject(9, Integer.valueOf(0));\n\t\tthis.dataWatcher.addObject(10, Integer.valueOf(0));\n\t\tthis.dataWatcher.addObject(11, Integer.valueOf(0));\n\t\tthis.dataWatcher.addObject(12, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(HEALTH_SNAPSHOT, Integer.valueOf(this.health));\n\t\tthis.dataManager.register(WARHEAD, Integer.valueOf(0));\n\t\tthis.dataManager.register(FUSELAGE, Integer.valueOf(0));\n\t\tthis.dataManager.register(FINS, Integer.valueOf(0));\n\t\tthis.dataManager.register(THRUSTER, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 3738,
+          "after_offset": 4870,
+          "old": "\t\tthis.dataWatcher.updateObject(9, nbt.getInteger(\"warhead\"));\n\t\tthis.dataWatcher.updateObject(10, nbt.getInteger(\"fuselage\"));\n\t\tthis.dataWatcher.updateObject(11, nbt.getInteger(\"fins\"));\n\t\tthis.dataWatcher.updateObject(12, nbt.getInteger(\"thruster\"));\n",
+          "new": "\t\tthis.dataManager.set(WARHEAD, nbt.getInteger(\"warhead\"));\n\t\tthis.dataManager.set(FUSELAGE, nbt.getInteger(\"fuselage\"));\n\t\tthis.dataManager.set(FINS, nbt.getInteger(\"fins\"));\n\t\tthis.dataManager.set(THRUSTER, nbt.getInteger(\"thruster\"));\n"
+        },
+        {
+          "before_offset": 4164,
+          "after_offset": 5280,
+          "old": "\t\tnbt.setInteger(\"warhead\", this.dataWatcher.getWatchableObjectInt(9));\n\t\tnbt.setInteger(\"fuselage\", this.dataWatcher.getWatchableObjectInt(10));\n\t\tnbt.setInteger(\"fins\", this.dataWatcher.getWatchableObjectInt(11));\n\t\tnbt.setInteger(\"thruster\", this.dataWatcher.getWatchableObjectInt(12));\n",
+          "new": "\t\tnbt.setInteger(\"warhead\", this.dataManager.get(WARHEAD));\n\t\tnbt.setInteger(\"fuselage\", this.dataManager.get(FUSELAGE));\n\t\tnbt.setInteger(\"fins\", this.dataManager.get(FINS));\n\t\tnbt.setInteger(\"thruster\", this.dataManager.get(THRUSTER));\n"
+        },
+        {
+          "before_offset": 4587,
+          "after_offset": 5651,
+          "old": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(10));\n",
+          "new": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));\n"
+        },
+        {
+          "before_offset": 5507,
+          "after_offset": 6559,
+          "old": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(9));\n",
+          "new": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(WARHEAD));\n"
+        },
+        {
+          "before_offset": 8603,
+          "after_offset": 9643,
+          "old": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(10));\n",
+          "new": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));\n"
+        },
+        {
+          "before_offset": 9323,
+          "after_offset": 10351,
+          "old": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(10));\n",
+          "new": "\t\tItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier4.java": {
+      "before_sha256": "24d452adf6efe128489b970612c176b3c2185861b87f6ffe1a4619b862a589bb",
+      "after_sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34",
+      "edits": [
+        {
+          "before_offset": 1352,
+          "after_offset": 1352,
+          "old": "\t\tbyte rot = this.dataWatcher.getWatchableObjectByte(3);\n",
+          "new": "\t\tbyte rot = this.dataManager.get(DIRECTION);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java": {
+      "before_sha256": "6bdac743dc92359618eacadd7ea0931ce9dfe3fed4fd48ed3213e4f6bd20ea3f",
+      "after_sha256": "b03f8f7a49b3c1681b6eb706b74e49ad862df1b7d205c7b4a69b89df154e0f51",
+      "edits": [
+        {
+          "before_offset": 1518,
+          "after_offset": 1518,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n"
+        },
+        {
+          "before_offset": 1847,
+          "after_offset": 1850,
+          "old": "\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", TextFormatting.YELLOW + \"\" + (diFurnace.recipeIndex + 1) + \" / \" + diFurnace.recipeCount }), x, y - 30);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", TextFormatting.YELLOW + \"\" + (diFurnace.recipeIndex + 1) + \" / \" + diFurnace.recipeCount }), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICounterTorch.java": {
+      "before_sha256": "61b7e0e19f1459b5a48931b46deb259ea109ae160eb85f2a85c2ffa2593ef93a",
+      "after_sha256": "7c882b1c5135e5d27a22717c079c900d4e101c48c5c4b10e645ef98e69ad66f8",
+      "edits": [
+        {
+          "before_offset": 2119,
+          "after_offset": 2119,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { counter.polling ? \"Polling\" : \"State Change\" }), x, y);\n"
+        },
+        {
+          "before_offset": 2322,
+          "after_offset": 2325,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n"
+        },
+        {
+          "before_offset": 2635,
+          "after_offset": 2641,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneExtractor.java": {
+      "before_sha256": "08bfb22344116ef8f43d593cbd4124558f09ebb9c2a411288c56ec60a68adc74",
+      "after_sha256": "5ccf4990983219de63f6fa2f483b9beb3237b219354e179261b787e1ee505b23",
+      "edits": [
+        {
+          "before_offset": 1456,
+          "after_offset": 1456,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30);\n"
+        },
+        {
+          "before_offset": 1742,
+          "after_offset": 1745,
+          "old": "\t\t\tthis.func_146283_a(Arrays.asList(new String[] { \"Only take maximum possible: \" + (ejector.maxEject ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n",
+          "new": "\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { \"Only take maximum possible: \" + (ejector.maxEject ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java": {
+      "before_sha256": "35492433c2bca0193e27d678387f02ba88d43388d9e90732a2e495b59d8a1a78",
+      "after_sha256": "1329f594407a1a2434c56255a407d3e9ee88d7c940f892c4cf3f1d1718081476",
+      "edits": [
+        {
+          "before_offset": 1499,
+          "after_offset": 1499,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(grabber.matcher.modes[i]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(grabber.matcher.modes[i]) }), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneInserter.java": {
+      "before_sha256": "62f4c9c88b497a2fb573ccb2bc90a6ec283cd658e6d71f01aaf800ab1683aa7f",
+      "after_sha256": "0d83829de19f21c2cef4a3c025f82f17e734f4021eea1b21dc2d80228cd899c5",
+      "edits": [
+        {
+          "before_offset": 1290,
+          "after_offset": 1290,
+          "old": "\t\t\tthis.func_146283_a(Arrays.asList(new String[] { \"Destroy overflow: \" + (inserter.destroyer ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n",
+          "new": "\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { \"Destroy overflow: \" + (inserter.destroyer ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\") }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java": {
+      "before_sha256": "cba74c5dda8236bc6ff51373a21e7b4bff43f6d3dbd9057a0350f3b3f2fd49f7",
+      "after_sha256": "9f1d73234282e41b5d9b41fad9a00c92e4c15042bf9b7e111a889174c3fb7f26",
+      "edits": [
+        {
+          "before_offset": 2585,
+          "after_offset": 2585,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, y);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(text), x, y);\n"
+        },
+        {
+          "before_offset": 2970,
+          "after_offset": 2973,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(matcher.modes[index])}), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "before_sha256": "1a779f7e9e0aff2b1b2691efafc69ad8eec7725b7f720ad7e05420b27b763586",
+      "after_sha256": "f6b233bee2ae579ab7905aa3e6098f5e416ff26d24c00e8c029c46da7c67b1e1",
+      "edits": [
+        {
+          "before_offset": 1516,
+          "after_offset": 1516,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0));\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDroneRequester.java": {
+      "before_sha256": "e9dd32f7e52ea490ebece78c424908e798c72c8b284012cd11f8dac21b93bd4b",
+      "after_sha256": "5d032b09970c9443ad16812f7b7d0aa4bf535ef956f79a0e657c73a0e99eb06f",
+      "edits": [
+        {
+          "before_offset": 1334,
+          "after_offset": 1334,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(diFurnace.matcher.modes[i]) }), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFirebox.java": {
+      "before_sha256": "43c411d44538d798dec3b72145f5aec9a844e1112095fcb9aa99759f09e02c6c",
+      "after_sha256": "61c114f8be8e5077524738a6c41c8270ee666243741b85f8e0fd2bd22aa27bbd",
+      "edits": [
+        {
+          "before_offset": 1308,
+          "after_offset": 1308,
+          "old": "\t\t\t\t\t\tthis.func_146283_a(bonuses, x, y);\n",
+          "new": "\t\t\t\t\t\tthis.drawHoveringText(bonuses, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java": {
+      "before_sha256": "476e70778248877ed4ae3dea7e431dafa3ee819a60df1440b13807c03e1765c9",
+      "after_sha256": "331a2515b60113cf1d0770f9dfe49a59f16554bf594a5983168c48b8d9d00e3a",
+      "edits": [
+        {
+          "before_offset": 3346,
+          "after_offset": 3346,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java": {
+      "before_sha256": "801a094e2db7d89ecbc7dac68d33eb4609aca8fd6c4cca10d82636ca916aa6b9",
+      "after_sha256": "801ec4785bb3dc7740494a79715b059c43d9d7544a7df6f5e7669475117f0969",
+      "edits": [
+        {
+          "before_offset": 2180,
+          "after_offset": 2180,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Amount per cycle\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Amount per cycle\" }), x, y);\n"
+        },
+        {
+          "before_offset": 2355,
+          "after_offset": 2358,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Cycle tick delay\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Cycle tick delay\" }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIICFPress.java": {
+      "before_sha256": "8fb0ad9f20417e603f6901a86ca67bff82f3abc8c8d364406f949b6f2ab742ee",
+      "after_sha256": "f89c71ae5ec7593826616c9f57a25b4a6a45467b7a257e4774e1cb6652d25df1",
+      "edits": [
+        {
+          "before_offset": 1157,
+          "after_offset": 1157,
+          "old": "\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(4), mouseX, mouseY) && !this.inventorySlots.getSlot(4).getHasStack()) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Top/Bottom\"}), mouseX, mouseY);\n\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(5), mouseX, mouseY) && !this.inventorySlots.getSlot(5).getHasStack()) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Sides\"}), mouseX, mouseY);\n",
+          "new": "\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(4), mouseX, mouseY) && !this.inventorySlots.getSlot(4).getHasStack()) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Top/Bottom\"}), mouseX, mouseY);\n\t\tif(this.isMouseOverSlot(this.inventorySlots.getSlot(5), mouseX, mouseY) && !this.inventorySlots.getSlot(5).getHasStack()) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.YELLOW + \"Item input: Sides\"}), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java": {
+      "before_sha256": "d08b19a219d64befdb0f539903ff4f7dca86ab5c502a3673ba19490b70db9883",
+      "after_sha256": "b53f40d361b26443ed05189c725323baf0f21194aef1a8e13ada19ef8e710155",
+      "edits": [
+        {
+          "before_offset": 2288,
+          "after_offset": 2288,
+          "old": "\t\t\tthis.func_146283_a(Arrays.asList(new String[] { name + \":\", String.format(Locale.US, \"%,d\", annihilator.monitorBigInt) }), x, y);\n",
+          "new": "\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { name + \":\", String.format(Locale.US, \"%,d\", annihilator.monitorBigInt) }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java": {
+      "before_sha256": "f8b5291c289fd3bd3a75771d12e1f1d4b4b62164b4c17e42ff97a19c914e7caf",
+      "after_sha256": "76623d39da26bbbec25c4061388515c0797a5c39ab532ceecd2d5ac2ba4de1d4",
+      "edits": [
+        {
+          "before_offset": 2449,
+          "after_offset": 2449,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java": {
+      "before_sha256": "778e2a9cb5c6b9e83ff8fad1037c696bbec16d86f923866ccd7d252661973654",
+      "after_sha256": "46ddc41f482d12ed64912a6f8d0e80f2c6d2784ec26f000268ad53f3bb14344b",
+      "edits": [
+        {
+          "before_offset": 2047,
+          "after_offset": 2047,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java": {
+      "before_sha256": "c14187b2bdce1dbdf84bd631c1867d16487cd4f472b9c2eb815549e69438cb73",
+      "after_sha256": "21b583835542ecaabf63231dfd495f44bdb184c5be9e6e278b41603b0867ab73",
+      "edits": [
+        {
+          "before_offset": 2415,
+          "after_offset": 2415,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java": {
+      "before_sha256": "14e46eab4829691bf8bec164975dc8d54a7aad348634c42bc484bd8a528ce9c2",
+      "after_sha256": "3207b1a8dcf7ecf7396a32662f9814cef7c478ca0cfef943c45992147474c646",
+      "edits": [
+        {
+          "before_offset": 2046,
+          "after_offset": 2046,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineCustom.java": {
+      "before_sha256": "4bb72e28900c065325301af77bf563c06388134e3144a17de9581981e912cfeb",
+      "after_sha256": "400726fd81d6621cef7f00d33f44363805aefe5b2d89f044a2909c16d8cd7b14",
+      "edits": [
+        {
+          "before_offset": 1920,
+          "after_offset": 1920,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) }), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java": {
+      "before_sha256": "64548407cd245abf99ba87610418d2fd68bdb720c35dc7726ca618de62050f80",
+      "after_sha256": "81b1b17fdd31e53e7d0f6aa8789bbb731f3906771f473b182600758e5a7a504d",
+      "edits": [
+        {
+          "before_offset": 2637,
+          "after_offset": 2637,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0));\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java": {
+      "before_sha256": "c14bbb3d43c3a9ba941d50e8395e830b9f71e93c2e8cf26cb696ab73af51c6cc",
+      "after_sha256": "50e2c18011cdc6212e04380f65c2cfd5cbb7383ec1a7a78367f161e655f79fe3",
+      "edits": [
+        {
+          "before_offset": 1949,
+          "after_offset": 1949,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java": {
+      "before_sha256": "87828b4831a9294c2f493b46d07ea416464e93036438d415ea9d81a67f165e9a",
+      "after_sha256": "5ff31cf3ecf5bf7ccc77fe4395094c30a02dbe11116ee344058100e3389dce22",
+      "edits": [
+        {
+          "before_offset": 1965,
+          "after_offset": 1965,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "before_sha256": "5d0b8bf559a12c682e4f73062466acec13a57bfb4254d0179d776fe0781b8e6c",
+      "after_sha256": "44a79616e015fdf5edb6a9f6d0a95be8cd96dc991989a87531963c071cd2ce96",
+      "edits": [
+        {
+          "before_offset": 2641,
+          "after_offset": 2641,
+          "old": "\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n",
+          "new": "\t\tif(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.drawHoveringText(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + \"/\" + BobMathUtil.getShortNumber(radar.maxPower) + \"HE\"), mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 2843,
+          "after_offset": 2846,
+          "old": "\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n",
+          "new": "\t\tif(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectMissiles\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectShells\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.detectPlayers\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.smartMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.redMode\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.showMap\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n\t\tif(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.clearMap\")), mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 4531,
+          "after_offset": 4558,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(text), x, z);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(text), x, z);\n"
+        },
+        {
+          "before_offset": 4901,
+          "after_offset": 4931,
+          "old": "\t\t\tthis.func_146283_a(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n",
+          "new": "\t\t\tthis.drawHoveringText(Arrays.asList(tX + \" / \" + tZ), lastMouseX, lastMouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java": {
+      "before_sha256": "05838e3473113cc6728682f1bc7870e8416d1ba29cc31dd6608a9147eb19cb91",
+      "after_sha256": "50d9b4065f78fd8186fe8c49ad7f3b309a7d09ca6a2b0ce9962c97463fdf722f",
+      "edits": [
+        {
+          "before_offset": 1843,
+          "after_offset": 1843,
+          "old": "\t\tif(checkClick(mouseX, mouseY, 5, 5, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n",
+          "new": "\t\tif(checkClick(mouseX, mouseY, 5, 5, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray(\"radar.toggleGui\")), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRotaryFurnace.java": {
+      "before_sha256": "4c73afb64dbf5e44292b5eef4cdd669e0bf08f07d96d89074bed2d63056152e4",
+      "after_sha256": "8c9ca6d4eb985bcf0eb6740068691d2e40824596280ff15e6c5c410271f8e36b",
+      "edits": [
+        {
+          "before_offset": 1716,
+          "after_offset": 1716,
+          "old": "\t\t\tif(!bonuses.isEmpty()) this.func_146283_a(bonuses, x, y);\n",
+          "new": "\t\t\tif(!bonuses.isEmpty()) this.drawHoveringText(bonuses, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java": {
+      "before_sha256": "68ba5dcb9abe1fb107cd6b3dc175b83e52806b38a64a70f41f3895373c9883c9",
+      "after_sha256": "9980490851cbd117b6468cf94f9d709bce024c591201e4ff0947903e38847aa5",
+      "edits": [
+        {
+          "before_offset": 1692,
+          "after_offset": 1692,
+          "old": "\t\t\t\t\tthis.func_146283_a(bonuses, mouseX, mouseY);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(bonuses, mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 2008,
+          "after_offset": 2011,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" }), mouseX, mouseY);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { (burner.burnTime / 20) + \"s\" }), mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 2226,
+          "after_offset": 2232,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" }), mouseX, mouseY);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + \"ON\" : TextFormatting.RED + \"OFF\" }), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java": {
+      "before_sha256": "6c5d662b7e3256b67eea4c5094e71191046c92928ac1efa35a08301c278346a3",
+      "after_sha256": "91d6c63237f903b8c08424f9d847317227a0fd7828ba2b26d5752c941856b61d",
+      "edits": [
+        {
+          "before_offset": 2788,
+          "after_offset": 2788,
+          "old": "\t\t\t\t\tthis.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) }), x, y - 30);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + \"Right click to change\", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) }), x, y - 30);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java": {
+      "before_sha256": "fcedf1a4353791b84d937ced44d97933090ba312747a9594ff822b8073262411",
+      "after_sha256": "a153e5350701136e51427d006075b12927acb84f2ae28a762614f1ccd68df5ff",
+      "edits": [
+        {
+          "before_offset": 2851,
+          "after_offset": 2851,
+          "old": "\t\t\t\t\tthis.func_146283_a(list, mouseX, mouseY);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(list, mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 5227,
+          "after_offset": 5230,
+          "old": "\t\t\tthis.func_146283_a(Arrays.asList(text), tPosX, tPosY);\n",
+          "new": "\t\t\tthis.drawHoveringText(Arrays.asList(text), tPosX, tPosY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRadioRec.java": {
+      "before_sha256": "9803144f612efe8b2acb82238b805cccd32174b35a11971332619151280ab7c4",
+      "after_sha256": "edb0c8d32c4803b91d17947443a26b8f36aeea923c1255407d1df134819030c0",
+      "edits": [
+        {
+          "before_offset": 2304,
+          "after_offset": 2304,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n"
+        },
+        {
+          "before_offset": 2478,
+          "after_offset": 2481,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Toggle\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Toggle\" }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java": {
+      "before_sha256": "e04647b33a4bf5549d0b658272c15a73c025e32bae1865540dbb925cf18b6a8b",
+      "after_sha256": "0faa60e9b7b60d99d15cd590bac3397218346fe29a19f2620268fd2e5a710074",
+      "edits": [
+        {
+          "before_offset": 5542,
+          "after_offset": 5542,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { info }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { info }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java": {
+      "before_sha256": "7522e55686d1ae2301ae3d54d4759fcbc2f7e63fb0b6a2dc43ea1582f8853440",
+      "after_sha256": "9759fa07787a61501cad88889969cccdd0d4d6c0784248a5ecbc02741758de5a",
+      "edits": [
+        {
+          "before_offset": 6672,
+          "after_offset": 6672,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { s }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { s }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenFluid.java": {
+      "before_sha256": "b4ce5bfd5eee32dd97e307063a6f9724620e35bf8c08cd6217fad2662f9e3b20",
+      "after_sha256": "9124e0447510edf0c86309771177d0249d02b717e0b676936942e08df3a194eb",
+      "edits": [
+        {
+          "before_offset": 4280,
+          "after_offset": 4280,
+          "old": "\t\t\t\tfunc_146283_a(tooltip, i, j);\n",
+          "new": "\t\t\t\tdrawHoveringText(tooltip, i, j);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java": {
+      "before_sha256": "8c30e5619268cc3117ef8f43228d5f32fd7f1833a3d2efe7d5593d22c34ebf0d",
+      "after_sha256": "a32efae5d24d2826622d2d820ae072379bf25c6f9edff62ecc01a5d6d3d6e094",
+      "edits": [
+        {
+          "before_offset": 3399,
+          "after_offset": 3399,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { radio.customMap ? \"Custom Mapping\" : \"Redstone Passthrough\" }), x, y);\n"
+        },
+        {
+          "before_offset": 3617,
+          "after_offset": 3620,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { radio.polling ? \"Polling\" : \"State Change\" }), x, y);\n"
+        },
+        {
+          "before_offset": 3818,
+          "after_offset": 3824,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java": {
+      "before_sha256": "8e963b4b3e7dd412a2d49e663f1361cbcef0c96a5a3649141a7556d345a3836e",
+      "after_sha256": "5009baa9720629dc9f3ab1a4f6e4190600e26e51bd38e4d182bc0dd415b8baaf",
+      "edits": [
+        {
+          "before_offset": 2690,
+          "after_offset": 2690,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n"
+        },
+        {
+          "before_offset": 2890,
+          "after_offset": 2893,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n"
+        },
+        {
+          "before_offset": 3665,
+          "after_offset": 3671,
+          "old": "\t\t\t\tfunc_146283_a(lines, x, y);\n",
+          "new": "\t\t\t\tdrawHoveringText(lines, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java": {
+      "before_sha256": "6b565d8ac6d453f25b42abe21c10f5f09ade366c3ed36264c9480cd235523cce",
+      "after_sha256": "69661e6f31fca4d684bf48cc0cb7319ebb986c8cc231ac79ab5773b74dc07c5c",
+      "edits": [
+        {
+          "before_offset": 3703,
+          "after_offset": 3703,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { logic.descending ? \"Descending Order\" : \"Ascending Order\" }), x, y);\n"
+        },
+        {
+          "before_offset": 3919,
+          "after_offset": 3922,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { logic.polling ? \"Polling\" : \"State Change\" }), x, y);\n"
+        },
+        {
+          "before_offset": 4120,
+          "after_offset": 4126,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n"
+        },
+        {
+          "before_offset": 4393,
+          "after_offset": 4402,
+          "old": "\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y);\n",
+          "new": "\t\t\t\tdrawHoveringText(Arrays.asList(new String[] { I18nUtil.resolveKey(\"desc.gui.rttyLogic.cond\" + this.conditions[j]) }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java": {
+      "before_sha256": "21ff3d93cc88a2f578248e84510abd4a67ab8ae53c896fba914daa804779a66c",
+      "after_sha256": "eae066d9ab9f1c18efbc743aaa47cd8ac65805e023c4c729cfa255455106a5e6",
+      "edits": [
+        {
+          "before_offset": 3170,
+          "after_offset": 3170,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { rtty.polling ? \"Polling\" : \"State Change\" }), x, y);\n"
+        },
+        {
+          "before_offset": 3370,
+          "after_offset": 3373,
+          "old": "\t\t\tfunc_146283_a(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n",
+          "new": "\t\t\tdrawHoveringText(Arrays.asList(new String[] { \"Save Settings\" }), x, y);\n"
+        },
+        {
+          "before_offset": 4174,
+          "after_offset": 4180,
+          "old": "\t\t\t\tfunc_146283_a(lines, x, y);\n",
+          "new": "\t\t\t\tdrawHoveringText(lines, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before_sha256": "dc7201b1e7f66d0f34fb49da6d7816ca875763eda65d798ce3f273b5ed94d55c",
+      "after_sha256": "e2393906a195b29c3078999217b88fca43031ffd91eabf479d6c1f753def1570",
+      "edits": [
+        {
+          "before_offset": 4718,
+          "after_offset": 4718,
+          "old": "\t\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText(recipe.print(), 0, 900);\n"
+        },
+        {
+          "before_offset": 5075,
+          "after_offset": 5078,
+          "old": "\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(recipe.print(), 0, 900);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before_sha256": "5c7662acc8c761b7300988c858a55e0c5601bf26a6a8a2f5e0cf1a9027b243d2",
+      "after_sha256": "a04f869f0dc8fb4c96d0981a7ded13efc33c6a5311ecd6aaa9ea7cbcc017877b",
+      "edits": [
+        {
+          "before_offset": 3255,
+          "after_offset": 3255,
+          "old": "    \t\t\tfunc_146283_a(Arrays.asList(new String[] { x + \" / \" + z }), i, j);\n",
+          "new": "    \t\t\tdrawHoveringText(Arrays.asList(new String[] { x + \" / \" + z }), i, j);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java": {
+      "before_sha256": "355c28cb6e5238c940aba92c5189254832251362951ea70b9660d85ff5baf61d",
+      "after_sha256": "5b570e98dc1c288e0b3755f4ac7576b72f6a19771d3c653e566db5fc25e834f4",
+      "edits": [
+        {
+          "before_offset": 9042,
+          "after_offset": 9042,
+          "old": "\t\t\t\tfunc_146283_a(Arrays.asList(new String[] { info }), x, y);\n",
+          "new": "\t\t\t\tdrawHoveringText(Arrays.asList(new String[] { info }), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java": {
+      "before_sha256": "b09c15673540b84526cc6191a563f458e4fe18e8905a7de0d6cf5d54264b8f2a",
+      "after_sha256": "c7b9283328b9c4b9a15af8df98635f68ca45032216c22fadedaacd9292c55a12",
+      "edits": [
+        {
+          "before_offset": 2899,
+          "after_offset": 2899,
+          "old": "\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n",
+          "new": "\t\tif(checkClick(x, y, 7, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + \"BELL\", \"Plays a bell when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 27, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + \"PRINT\", \"Forces recipient to print message after transmission ends\"}), x, y);\n\t\tif(checkClick(x, y, 47, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + \"CLEAR SCREEN\", \"Wipes message buffer when this character is received\"}), x, y);\n\t\tif(checkClick(x, y, 67, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + \"FORMAT\", \"Inserts format character for message formatting\"}), x, y);\n\t\tif(checkClick(x, y, 87, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + \"PAUSE\", \"Pauses message transmission for one second\"}), x, y);\n"
+        },
+        {
+          "before_offset": 3798,
+          "after_offset": 3813,
+          "old": "\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n",
+          "new": "\t\tif(checkClick(x, y, 127, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.YELLOW + \"SEND MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.RED + \"DELETE MESSAGE BUFFER\"}), x, y);\n"
+        },
+        {
+          "before_offset": 4212,
+          "after_offset": 4236,
+          "old": "\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n",
+          "new": "\t\tif(checkClick(x, y, 127, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GREEN + \"SAVE ID\"}), x, y);\n\t\tif(checkClick(x, y, 147, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.AQUA + \"PRINT MESSAGE\"}), x, y);\n\t\tif(checkClick(x, y, 167, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.RED + \"CLEAR SCREEN\"}), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderMissileCustom.java": {
+      "before_sha256": "b612c2117cb639150459aa68048a1d9ac7b3379aff1f941aa49e864a9a96d647",
+      "after_sha256": "4783e3972a59a4e0de5448f36f67912f84531de5c6587fba7570998e61875914",
+      "edits": [
+        {
+          "before_offset": 422,
+          "after_offset": 422,
+          "old": "",
+          "new": "import com.hbm.entity.missile.EntityMissileCustom;\n"
+        },
+        {
+          "before_offset": 1202,
+          "after_offset": 1253,
+          "old": "\t\tint w = entity.getDataWatcher().getWatchableObjectInt(9);\n\t\tint f = entity.getDataWatcher().getWatchableObjectInt(10);\n\t\tint s = entity.getDataWatcher().getWatchableObjectInt(11);\n\t\tint t = entity.getDataWatcher().getWatchableObjectInt(12);\n",
+          "new": "\t\tint w = ((EntityMissileCustom) entity).getWarheadId();\n\t\tint f = ((EntityMissileCustom) entity).getFuselageId();\n\t\tint s = ((EntityMissileCustom) entity).getFinsId();\n\t\tint t = ((EntityMissileCustom) entity).getThrusterId();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderMissileGeneric.java": {
+      "before_sha256": "d3aae0461eea26a30f6b484231625d3550da819ed4cd96c95780423df7eaaca8",
+      "after_sha256": "ba317d0a8a72649f1824691726892ca7294012e560f63868c5742b08daa1626b",
+      "edits": [
+        {
+          "before_offset": 1218,
+          "after_offset": 1218,
+          "old": "\t\tif(entity instanceof EntityMissileBaseNT) switch(entity.getDataWatcher().getWatchableObjectByte(3)) {\n",
+          "new": "\t\tif(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderMissileHuge.java": {
+      "before_sha256": "fdd83ca386c2f0631c64dae06aa7bc12c7be6ee31d7002a5807dce6178ac1b23",
+      "after_sha256": "0afbd8a1a06ee01736c28986d17166bcef9900c792b9ea43ea35ebce8c5aedb8",
+      "edits": [
+        {
+          "before_offset": 1102,
+          "after_offset": 1102,
+          "old": "\t\tif(entity instanceof EntityMissileBaseNT) switch(entity.getDataWatcher().getWatchableObjectByte(3)) {\n",
+          "new": "\t\tif(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderMissileNuclear.java": {
+      "before_sha256": "b0abfb748de11edcc070d1f937c3c9d8d85ba49c705c1cfd0289664f5b2a9c7f",
+      "after_sha256": "41e9021002aaef92d75d580c1134c2078f3388b207126386a609c2b6e3fcb079",
+      "edits": [
+        {
+          "before_offset": 1108,
+          "after_offset": 1108,
+          "old": "\t\tif(entity instanceof EntityMissileBaseNT) switch(entity.getDataWatcher().getWatchableObjectByte(3)) {\n",
+          "new": "\t\tif(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderMissileStrong.java": {
+      "before_sha256": "f0ff7dd4ae4cf07f162625d43243b06fb178c4c058f0f1b08fc761849fd615e6",
+      "after_sha256": "e2fa4090e406ed565d16d47d0f9ac48bee5b4e4a82eb5e28e5e32cb49e4ab627",
+      "edits": [
+        {
+          "before_offset": 1141,
+          "after_offset": 1141,
+          "old": "\t\tif(entity instanceof EntityMissileBaseNT) switch(entity.getDataWatcher().getWatchableObjectByte(3)) {\n",
+          "new": "\t\tif(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderMissileTaint.java": {
+      "before_sha256": "98269050267bd6cd9826344e39fa623ce3568c6af9ee9c33a5ae87c6e66000b3",
+      "after_sha256": "ea5613c580c5a51d6e8952caeb9cd06af2e8c6b5f97d14faeb8e08f34d0360a6",
+      "edits": [
+        {
+          "before_offset": 1105,
+          "after_offset": 1105,
+          "old": "\t\tif(entity instanceof EntityMissileBaseNT) switch(entity.getDataWatcher().getWatchableObjectByte(3)) {\n",
+          "new": "\t\tif(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": {
+      "before_sha256": "d84fd6dc51e2f369f4be1d8b47799774659cd8957a964e83af0b02a2a34cdbca",
+      "after_sha256": "8194813d6f8af96720162a07f431e819c9d5c12a093329a7f9c505ca64f4ffd8",
+      "edits": [
+        {
+          "before_offset": 13082,
+          "after_offset": 13082,
+          "old": "\t\t\t\tmissile.getDataWatcher().updateObject(3, (byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5));\n",
+          "new": "\t\t\t\tmissile.setDirection((byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5));\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

@@ -73,11 +73,11 @@ public class EntityFallingNuke extends EntityThrowable {
         
         this.rotation();
         
-        if(this.worldObj.getBlock((int)Math.floor(this.posX), (int)Math.floor(this.posY), (int)Math.floor(this.posZ)) != Blocks.air)
+        if(com.hbm.world.WorldBlockState.read(this.world, (int)Math.floor(this.posX), (int)Math.floor(this.posY), (int)Math.floor(this.posZ)).getBlock() != Blocks.AIR)
         {
-    		if(!this.worldObj.isRemote)
+    		if(!this.world.isRemote)
     		{
-				NukeCustom.explodeCustom(worldObj, posX, posY, posZ, tnt, nuke, hydro, amat, dirty, schrab, euph);
+				NukeCustom.explodeCustom(this.world, posX, posY, posZ, tnt, nuke, hydro, amat, dirty, schrab, euph);
 	    		this.setDead();
     		}
         }

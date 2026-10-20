@@ -41,7 +41,7 @@ public class ItemGasTank extends Item {
 	}
 
 	public String getItemStackDisplayName(ItemStack stack) {
-		String s = ("" + I18nUtil.resolveKey(this.getUnlocalizedName() + ".name")).trim();
+		String s = ("" + I18nUtil.resolveKey(this.getTranslationKey() + ".name")).trim();
 		String s1 = ("" + I18nUtil.resolveKey(Fluids.fromID(stack.getItemDamage()).getConditionalName())).trim();
 
 		if(s1 != null) {

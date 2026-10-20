@@ -1,0 +1,12 @@
+/tmp/native-world-field-wo9441gs/NativeWorldFieldTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field unsafe=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafe.setAccessible(true);
+                                 ^
+/tmp/native-world-field-wo9441gs/NativeWorldFieldTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+            FixtureWorld w=(FixtureWorld)((sun.misc.Unsafe)unsafe.get(null)).allocateInstance(FixtureWorld.class);
+                                                   ^
+2 warnings
+PASS: 28 native World identity, direct/inherited/nested/Furnace access, rebind/null, native admission/onLoad/deferred scheduler and exact production-expression assertions
+LIMIT: controlled native World storage fixtures and four extracted expressions, not production tile compilation or gameplay
+PASS: 148 exact inherited reads / 92 files; 434-tile closure, field-shadow and anonymous ownership checks
+PASS: byte-reversible migration; all 560 excluded receivers, comments, literals, line endings and unrelated Java files unchanged
+SOURCE PARITY ONLY: not full production tile compilation or gameplay

@@ -59,7 +59,7 @@ public class WorldProviderLaythe extends WorldProviderCelestial {
 
 	@Override
 	public float fogDensity(FogDensity event) {
-		if(event.block.getMaterial() == Material.water) {
+		if(event.block.getMaterial() == Material.WATER) {
 			return 0.03F;
 		}
 

@@ -1,0 +1,9 @@
+PASS rejected narrow-yaw: Exception in thread "main" java.lang.AssertionError: RailNarrowCurve metadata=12 inventory=false tile=-1 quad=0 vertex=0 exact original XYZ axis=0: 2.291727 != 1.570188
+PASS rejected dummy-visibility: Exception in thread "main" java.lang.AssertionError: RailNarrowCurve metadata=0 inventory=false tile=-1 vertex count: 928 != 0
+PASS rejected inventory-matrix: Exception in thread "main" java.lang.AssertionError: RailNarrowCurve metadata=0 inventory=true tile=-1 quad=0 vertex=0 exact original XYZ axis=0: 0.6616546 != 0.6416546
+PASS rejected sign-selection: Exception in thread "main" java.lang.AssertionError: RailStandardSwitch metadata=12 inventory=false tile=1 quad=1261 vertex=0 exact source UV; no contraction
+PASS rejected funnel-material: Exception in thread "main" java.lang.AssertionError: MachineFunnel metadata=0 inventory=false tile=-1 quad=0 vertex=0 source material/part order
+PASS rejected whole-shader: Exception in thread "main" java.lang.AssertionError: RailNarrowCurve metadata=12 inventory=false tile=-1 quad=0 vertex=0 exact whole/part color ff848484 != ff969696
+PASS rejected triangle-duplication: Exception in thread "main" java.lang.AssertionError: RailNarrowCurve metadata=0 inventory=true tile=-1 vertex count: 696 != 928
+PASS rejected inventory-normal: Exception in thread "main" java.lang.AssertionError: RailStandardBuffer metadata=0 inventory=true tile=-1 quad=10 vertex=0 transformed original packed normal axis=0: -1.0 != -6.123234E-17
+PASS all eight deliberate native geometry/material/normal/shading mutations were rejected; no production files changed.

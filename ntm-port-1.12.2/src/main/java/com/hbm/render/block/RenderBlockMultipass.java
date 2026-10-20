@@ -1,169 +1,83 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.*;
+import java.util.function.Function;
+import com.hbm.blocks.MultipassContext;
+import com.hbm.render.block.ct.RenderBlocksCT;
+import com.hbm.render.block.multipass.MultipassMaterials;
+import com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;
+import com.hbm.render.util.NativeBlockMaterial;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import org.lwjgl.util.vector.Vector3f;
 
-import com.hbm.blocks.IBlockMultiPass;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderBlockMultipass implements ISimpleBlockRenderingHandler {
-
-	/**
-	 * First I wanted to pass the current render pass in the methods for getting color and icon, but the later one would have to work with
-	 * texture overrides which would either break sided textures or force me to implement renderStandardBlock myself, so that's a big nono.
-	 * So I made a static variable for the current render pass so that Block.getIcon could use it while still minding sides. Great, I put it
-	 * into IBlockMultiPass because that's the only logical place I could put it since I intend to use IBlockMultiPass for more rendering
-	 * handlers than just this one and BOOM, primitive fields in interfaces are implicitly final. Why? Because "functionality in interfaces
-	 * bad", or so the HeckOverflow people are trying to tell me. Mh-hm, holding a single static value is "functionality" now, and functionality
-	 * in interfaces is very very bad in a language that allows interfaces to define a default behavior that is LITERALLY FULLY FUNCTIONAL
-	 * METHODS. Statistically speaking I, the individual, should be wrong and many people who - supposedly - know what they're talking about
-	 * should be right, but if you ask me there's something off about this whole ordeal. I don't know.
-	 */
-	public static int currentPass = 0;
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-		
-		Tessellator tessellator = Tessellator.instance;
-		block.setBlockBoundsForItemRender();
-		renderer.setRenderBoundsFromBlock(block);
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-		IBlockMultiPass multi = (IBlockMultiPass) block;
-		
-		for(int i = 0; i < (multi.shouldRenderItemMulti() ? multi.getPasses() : 1); i++) {
-			currentPass = i;
-			tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, -1.0F, 0.0F);
-			renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, 1.0F, 0.0F);
-			renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, 0.0F, -1.0F);
-			renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, 0.0F, 1.0F);
-			renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(-1.0F, 0.0F, 0.0F);
-			renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(1.0F, 0.0F, 0.0F);
-			renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));
-			tessellator.draw();
-		}
-		
-		/** terrible hack to make this shit work */
-		/*if(block == ModBlocks.ore_random) {
-
-			currentPass = 1;
-			renderer.setOverrideBlockTexture(block.getIcon(0, metadata));
-			currentPass = 0;
-			ComparableStack stack = BlockMotherOfAllOres.itemMap.get(metadata);
-			int color = ColorUtil.getAverageColorFromStack(stack != null ? stack.toStack() : new ItemStack(ModItems.nothing));
-			color = ColorUtil.amplifyColor(color);
-			
-			Color col = new Color(color);
-			int r = col.getRed();
-			int g = col.getGreen();
-			int b = col.getBlue();
-			
-			float[] hsb = new Color(color).RGBtoHSB(r, g, b, new float[3]);
-			
-			if(hsb[1] > 0F && hsb[1] < 0.75F)
-				hsb[1] = 0.75F;
-			
-			color = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
-			col = new Color(color);
-			
-			GL11.glColor3f(col.getRed() / 255F, col.getGreen() / 255F, col.getBlue() / 255F);
-			
-			tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, -1.0F, 0.0F);
-			renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, 1.0F, 0.0F);
-			renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, 0.0F, -1.0F);
-			renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(0.0F, 0.0F, 1.0F);
-			renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(-1.0F, 0.0F, 0.0F);
-			renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));
-			//yer welcome to PR an improvement
-			//tessellator.draw();
-			//tessellator.startDrawingQuads();
-			tessellator.setNormal(1.0F, 0.0F, 0.0F);
-			renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));
-			tessellator.draw();
-			
-			renderer.clearOverrideBlockTexture();
-			GL11.glColor3f(1F, 1F, 1F);
-		}*/
-		
-		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		
-		if(!(block instanceof IBlockMultiPass)) {
-			renderer.renderStandardBlock(block, x, y, z);
-			return true;
-		}
-		
-		IBlockMultiPass multi = (IBlockMultiPass) block;
-		renderer.setRenderBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
-		
-		int passes = multi.getPasses();
-		
-		for(int i = 0; i < passes; i++) {
-			currentPass = i;
-			renderer.renderStandardBlock(block, x, y, z);
-		}
-		
-		currentPass = 0;
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return IBlockMultiPass.getRenderType();
-	}
+/** Native layered full-cube model. There is deliberately no mutable global render pass. */
+public final class RenderBlockMultipass implements IBakedModel {
+    private final MultipassMaterials materials;
+    private final Function<ResourceLocation,TextureAtlasSprite> sprites;
+    private final Function<IBlockState,IBakedModel> camouflageModels;
+    private final boolean item;
+    private final int metadata;
+    public RenderBlockMultipass(MultipassMaterials materials,Function<ResourceLocation,TextureAtlasSprite> sprites,
+            Function<IBlockState,IBakedModel> camouflageModels,boolean item,int metadata) {
+        this.materials=Objects.requireNonNull(materials); this.sprites=Objects.requireNonNull(sprites);
+        this.camouflageModels=Objects.requireNonNull(camouflageModels); this.item=item; this.metadata=metadata;
+    }
+    @Override public List<BakedQuad> getQuads(IBlockState state,EnumFacing face,long seed) {
+        boolean unculled=materials.kind==MultipassMaterials.Kind.ROUTER;
+        if(item && face!=null || !item && unculled && face!=null || !item && !unculled && face==null) return Collections.emptyList();
+        MultipassContext context=state instanceof IExtendedBlockState?((IExtendedBlockState)state).getValue(MultipassContext.PROPERTY):null;
+        if(item || context==null) context=MultipassContext.basic(item?metadata:state==null?metadata:state.getBlock().getMetaFromState(state));
+        List<BakedQuad> result=new ArrayList<>();
+        for(int pass=0;pass<materials.passes(item);pass++) for(EnumFacing side:EnumFacing.values()) {
+            if(face!=null && face!=side || !materials.visible(pass,side.getIndex(),item)) continue;
+            TextureAtlasSprite sprite;
+            if(materials.camouflage(context,pass,item)) {
+                String material;
+                if(context.paint.getBlock() instanceof com.hbm.blocks.BlockBase) {
+                    com.hbm.render.icon.IIcon icon=((com.hbm.blocks.BlockBase)context.paint.getBlock()).getIcon(side.getIndex(),context.paint.getBlock().getMetaFromState(context.paint));
+                    material=icon==null?"minecraft:missingno":MultipassMaterials.texture(icon.getIconName()).toString();
+                } else {
+                    IBakedModel paintModel=camouflageModels.apply(context.paint);
+                    // An NTM multipass block's old metadata-only getIcon observed pass zero here.
+                    // Its other layers are not part of the camouflage material.
+                    if(paintModel instanceof RenderBlockMultipass) material=((RenderBlockMultipass)paintModel).baseSprite(context.paint.getBlock().getMetaFromState(context.paint),side).getIconName();
+                    else material=NativeBlockMaterial.faceSprite(paintModel,context.paint,side);
+                }
+                if(material==null) throw new IllegalStateException("Ambiguous camouflage face material: "+context.paint+" / "+side+". No particle-texture fallback is authorized.");
+                sprite=sprites.apply(new ResourceLocation(material));
+            } else sprite=sprites.apply(materials.material(context,pass,side.getIndex(),item));
+            BakedQuad quad=item?RenderBlocksCT.bakeInventory(sprite).get(side.getIndex()):
+                ConveyorCuboidGeometry.face(sprite,false,side,0,0,0,0,1,1,1,0);
+            int tint=materials.color(context,pass,item);
+            if(tint!=0xffffff) {
+                int[] data=quad.getVertexData().clone(); int stride=quad.getFormat().getIntegerSize();
+                int color=quad.getFormat().getColorOffset()/4;
+                int packed=0xff000000|(tint>>16&255)|(tint&0xff00)|(tint&255)<<16;
+                for(int vertex=0;vertex<4;vertex++) data[vertex*stride+color]=packed;
+                quad=new BakedQuad(data,-1,quad.getFace(),sprite,true,quad.getFormat());
+            }
+            result.add(quad);
+        }
+        return Collections.unmodifiableList(result);
+    }
+    public TextureAtlasSprite baseSprite(int metadata,EnumFacing side) {
+        return sprites.apply(materials.material(MultipassContext.basic(metadata),0,side.getIndex(),true));
+    }
+    @Override public boolean isAmbientOcclusion() { return true; }
+    @Override public boolean isGui3d() { return true; }
+    @Override public boolean isBuiltInRenderer() { return false; }
+    @Override public TextureAtlasSprite getParticleTexture() { return sprites.apply(materials.material(MultipassContext.basic(metadata),0,0,true)); }
+    @Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }
+    private static ItemTransformVec3f transform(float x,float y,float z,float ty,float scale) {
+        return new ItemTransformVec3f(new Vector3f(x,y,z),new Vector3f(0,ty/16F,0),new Vector3f(scale,scale,scale));
+    }
+    private static final ItemCameraTransforms TRANSFORMS=new ItemCameraTransforms(
+        transform(75,45,0,2.5F,.375F),transform(75,45,0,2.5F,.375F),transform(0,225,0,0,.4F),transform(0,45,0,0,.4F),
+        ItemTransformVec3f.DEFAULT,transform(30,225,0,0,.625F),transform(0,0,0,3,.25F),transform(0,0,0,0,.5F));
+    @Override public ItemCameraTransforms getItemCameraTransforms() { return TRANSFORMS; }
 }

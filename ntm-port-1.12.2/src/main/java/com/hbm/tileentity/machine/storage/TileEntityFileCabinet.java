@@ -15,7 +15,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIProvider, IBufPacketReceiver {
+public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIProvider, IBufPacketReceiver, net.minecraft.util.ITickable {
 
 	private int timer = 0;
 	private int playersUsing = 0;
@@ -36,12 +36,12 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 
 	@Override
 	public void openInventory() {
-		if(!worldObj.isRemote) this.playersUsing++;
+		if(!this.world.isRemote) this.playersUsing++;
 	}
 
 	@Override
 	public void closeInventory() {
-		if(!worldObj.isRemote) this.playersUsing--;
+		if(!this.world.isRemote) this.playersUsing--;
 	}
 
 	@Override public void serialize(ByteBuf buf) {
@@ -55,9 +55,9 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.playersUsing > 0) {
 				if(timer < 10) {
@@ -77,13 +77,13 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 
 		if(this.playersUsing > 0) {
 			if(lowerExtent == 0F && upperExtent == 0F)
-				this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateOpen", 0.8F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateOpen", 0.8F, 1.0F);
 			else {
 				if(upperExtent + openSpeed >= maxExtent && lowerExtent < maxExtent)
-					this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateOpen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.7F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateOpen", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F);
 
 				if(lowerExtent + openSpeed >= maxExtent && lowerExtent < maxExtent)
-					this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateOpen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.7F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateOpen", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F);
 			}
 
 			this.lowerExtent += openSpeed;
@@ -93,17 +93,17 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 
 		} else if(lowerExtent > 0) {
 			if(upperExtent - openSpeed < maxExtent / 2 && upperExtent >= maxExtent / 2 && upperExtent != lowerExtent)
-				this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateClose", 0.8F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateClose", 0.8F, 1.0F);
 
 			if(lowerExtent - openSpeed < maxExtent / 2 && lowerExtent >= maxExtent / 2)
-				this.worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.crateClose", 0.8F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateClose", 0.8F, 1.0F);
 
 			this.upperExtent -= openSpeed;
 			this.lowerExtent -= openSpeed;
 		}
 
-		this.lowerExtent = MathHelper.clamp_float(lowerExtent, 0F, maxExtent);
-		this.upperExtent = MathHelper.clamp_float(upperExtent, 0F, maxExtent);
+		this.lowerExtent = MathHelper.clamp(lowerExtent, 0F, maxExtent);
+		this.upperExtent = MathHelper.clamp(upperExtent, 0F, maxExtent);
 	}
 
 	@Override
@@ -124,12 +124,14 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
@@ -140,12 +142,12 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 1,
-					yCoord + 1,
-					zCoord + 1
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 1,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 1
 					);
 		}
 

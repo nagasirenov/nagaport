@@ -4,7 +4,7 @@ import com.hbm.entity.projectile.EntityBulletBaseNT;
 import com.hbm.handler.BulletConfigSyncingUtil;
 
 import api.hbm.entity.IRadiationImmune;
-import net.minecraft.command.IEntitySelector;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,10 +15,10 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 
 	public int attackCounter = 0;
 
-	protected final IEntitySelector selector = new IEntitySelector() {
+	protected final Predicate<Entity> selector = new Predicate<Entity>() {
 
 		@Override
-		public boolean isEntityApplicable(Entity ent) {
+		public boolean apply(Entity ent) {
 
 			if(ent instanceof EntityWormBaseNT && ((EntityWormBaseNT) ent).getHeadID() == EntityBOTPrimeBase.this.getHeadID())
 				return false;
@@ -41,14 +41,14 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 	}
 
 	public boolean canEntityBeSeenThroughNonSolids(Entity p_70685_1_) {
-		return this.worldObj.rayTraceBlocks(new Vec3d(this.posX, this.posY + (double) this.getEyeHeight(), this.posZ), new Vec3d(p_70685_1_.posX, p_70685_1_.posY + (double) p_70685_1_.getEyeHeight(), p_70685_1_.posZ), false, true, false) == null;
+		return this.world.rayTraceBlocks(new Vec3d(this.posX, this.posY + (double) this.getEyeHeight(), this.posZ), new Vec3d(p_70685_1_.posX, p_70685_1_.posY + (double) p_70685_1_.getEyeHeight(), p_70685_1_.posZ), false, true, false) == null;
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15000.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 	}
 
 	@Override
@@ -80,15 +80,15 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 
 			for(int i = 0; i < 5; i++) {
 
-				EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.worldObj, BulletConfigSyncingUtil.WORM_LASER, this, living, 1.0F, i * 0.05F);
-				this.worldObj.spawnEntityInWorld(bullet);
+				EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_LASER, this, living, 1.0F, i * 0.05F);
+				this.world.spawnEntityInWorld(bullet);
 			}
 
 			this.playSound("hbm:weapon.ballsLaser", 5.0F, 0.75F);
 
 		} else {
-			EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.worldObj, BulletConfigSyncingUtil.WORM_BOLT, this, living, 0.5F, 0.125F);
-			this.worldObj.spawnEntityInWorld(bullet);
+			EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_BOLT, this, living, 0.5F, 0.125F);
+			this.world.spawnEntityInWorld(bullet);
 			this.playSound("hbm:weapon.ballsLaser", 5.0F, 1.0F);
 		}
 	}

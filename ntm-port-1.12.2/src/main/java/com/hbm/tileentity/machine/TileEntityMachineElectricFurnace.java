@@ -52,7 +52,13 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public String getName() {
+	public boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+		// Legacy metadata-only facing changes retained this tile and its inventory.
+		return oldState.getBlock() != newState.getBlock();
+	}
+
+	@Override
+	public String getDefaultName() {
 		return "container.electricFurnace";
 	}
 
@@ -63,7 +69,7 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 		}
 
 		if(i == 1) {
-			return FurnaceRecipes.smelting().getSmeltingResult(itemStack) != null;
+			return !FurnaceRecipes.instance().getSmeltingResult(itemStack).isEmpty();
 		}
 
 		return false;
@@ -78,19 +84,22 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setInteger("progress", progress);
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_io;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(i == 0)
 			if(itemStack.getItem() instanceof IBatteryItem && ((IBatteryItem) itemStack.getItem()).getCharge(itemStack) == 0)
 				return true;
@@ -118,16 +127,16 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 
 	public boolean canProcess() {
 
-		if(slots[1] == null || cooldown > 0) {
+		if(slots[1] == null || slots[1].isEmpty() || cooldown > 0) {
 			return false;
 		}
-		ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[1]);
+		ItemStack itemStack = FurnaceRecipes.instance().getSmeltingResult(this.slots[1]);
 
-		if(itemStack == null) {
+		if(itemStack.isEmpty()) {
 			return false;
 		}
 
-		if(slots[2] == null) {
+		if(slots[2] == null || slots[2].isEmpty()) {
 			return true;
 		}
 
@@ -135,30 +144,30 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 			return false;
 		}
 
-		if(slots[2].stackSize < getInventoryStackLimit() && slots[2].stackSize < slots[2].getMaxStackSize()) {
+		if(slots[2].getCount() < getInventoryStackLimit() && slots[2].getCount() < slots[2].getMaxStackSize()) {
 			return true;
 		} else {
-			return slots[2].stackSize < itemStack.getMaxStackSize();
+			return slots[2].getCount() < itemStack.getMaxStackSize();
 		}
 	}
 
 	private void processItem() {
 		if(canProcess()) {
-			ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[1]);
+			ItemStack itemStack = FurnaceRecipes.instance().getSmeltingResult(this.slots[1]);
 
-			if(slots[2] == null) {
+			if(slots[2] == null || slots[2].isEmpty()) {
 				slots[2] = itemStack.copy();
 			} else if(slots[2].isItemEqual(itemStack)) {
-				slots[2].stackSize += itemStack.stackSize;
+				slots[2].grow(itemStack.getCount());
 			}
 
 			for(int i = 1; i < 2; i++) {
-				if(slots[i].stackSize <= 0) {
+				if(slots[i].getCount() <= 0) {
 					slots[i] = new ItemStack(slots[i].getItem());
 				} else {
-					slots[i].stackSize--;
+					slots[i].shrink(1);
 				}
-				if(slots[i].stackSize <= 0) {
+				if(slots[i].getCount() <= 0) {
 					slots[i] = null;
 				}
 			}
@@ -166,10 +175,10 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		boolean markDirty = false;
 
-		if(!worldObj.isRemote) {
+		if(!world.isRemote) {
 
 			if(cooldown > 0) {
 				cooldown--;
@@ -177,7 +186,7 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 
-			if(worldObj.getTotalWorldTime() % 40 == 0) this.updateConnections();
+			if(world.getTotalWorldTime() % 40 == 0) this.updateConnections();
 
 			this.consumption = 50;
 			this.maxProgress = 100;
@@ -201,7 +210,7 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 
 				power -= consumption;
 
-				if(worldObj.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND);
+				if(world.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(world, pos.getX(), pos.getY(), pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND);
 
 				if(this.progress >= maxProgress) {
 					this.progress = 0;
@@ -220,7 +229,7 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 
 			if(trigger) {
 				markDirty = true;
-				MachineElectricFurnace.updateBlockState(this.progress > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				MachineElectricFurnace.updateBlockState(this.progress > 0, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 
 			this.networkPackNT(50);
@@ -251,7 +260,7 @@ public class TileEntityMachineElectricFurnace extends TileEntityMachineBase impl
 	private void updateConnections() {
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(world, pos.getX() + dir.offsetX, pos.getY() + dir.offsetY, pos.getZ() + dir.offsetZ, dir);
 	}
 
 	@Override

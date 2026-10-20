@@ -1,8 +1,8 @@
 package com.hbm.entity.pathfinder;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.pathfinding.PathEntity;
-import net.minecraft.pathfinding.PathFinder;
+import net.minecraft.pathfinding.Path;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.ChunkCache;
@@ -10,11 +10,11 @@ import net.minecraft.world.World;
 
 public class PathFinderUtils {
 
-	public static PathEntity getPathEntityToEntityPartial(World world, Entity fromEntity, Entity toEntity, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {
-		world.theProfiler.startSection("pathfind");
-		int startX = MathHelper.floor_double(fromEntity.posX);
-		int startY = MathHelper.floor_double(fromEntity.posY + 1.0D);
-		int startZ = MathHelper.floor_double(fromEntity.posZ);
+	public static Path getPathEntityToEntityPartial(World world, Entity fromEntity, Entity toEntity, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {
+		world.profiler.startSection("pathfind");
+		int startX = MathHelper.floor(fromEntity.posX);
+		int startY = MathHelper.floor(fromEntity.posY + 1.0D);
+		int startZ = MathHelper.floor(fromEntity.posZ);
 		int maxDistEff = (int) (maxDist + 16.0F);
 		int minX = startX - maxDistEff;
 		int minY = startY - maxDistEff;
@@ -22,7 +22,7 @@ public class PathFinderUtils {
 		int maxX = startX + maxDistEff;
 		int maxY = startY + maxDistEff;
 		int maxZ = startZ + maxDistEff;
-		ChunkCache chunkcache = new ChunkCache(world, minX, minY, minZ, maxX, maxY, maxZ, 0);
+		ChunkCache chunkcache = new ChunkCache(world, new BlockPos(minX, minY, minZ), new BlockPos(maxX, maxY, maxZ), 0);
 		
 		Vec3d vec = new Vec3d(toEntity.posX - fromEntity.posX, toEntity.posY - fromEntity.posY, toEntity.posZ - fromEntity.posZ);
 		vec = vec.normalize().scale(maxDist);
@@ -35,7 +35,7 @@ public class PathFinderUtils {
 		boolean solid = false;
 		
 		for(int i = y; i > y - 10; i--) {
-			if(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {
+			if(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {
 				solid = true;
 				y = i;
 				break;
@@ -44,24 +44,23 @@ public class PathFinderUtils {
 		}
 		
 		if(!solid) for(int i = y + 10; i > y; i--) {
-			if(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {
+			if(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {
 				solid = true;
 				y = i;
 				break;
 			}
 		}
 
-		//PathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, toEntity, maxDist);
-		PathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);
-		world.theProfiler.endSection();
+		Path pathentity = (new NTMPathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);
+		world.profiler.endSection();
 		return pathentity;
 	}
 
-	public static PathEntity getPathEntityToCoordPartial(World world, Entity fromEntity, int posX, int posY, int posZ, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {
-		world.theProfiler.startSection("pathfind");
-		int startX = MathHelper.floor_double(fromEntity.posX);
-		int startY = MathHelper.floor_double(fromEntity.posY + 1.0D);
-		int startZ = MathHelper.floor_double(fromEntity.posZ);
+	public static Path getPathEntityToCoordPartial(World world, Entity fromEntity, int posX, int posY, int posZ, float maxDist, boolean allowDoors, boolean allowBlocked, boolean allowWater, boolean canDrown) {
+		world.profiler.startSection("pathfind");
+		int startX = MathHelper.floor(fromEntity.posX);
+		int startY = MathHelper.floor(fromEntity.posY + 1.0D);
+		int startZ = MathHelper.floor(fromEntity.posZ);
 		int maxDistEff = (int) (maxDist + 16.0F);
 		int minX = startX - maxDistEff;
 		int minY = startY - maxDistEff;
@@ -69,7 +68,7 @@ public class PathFinderUtils {
 		int maxX = startX + maxDistEff;
 		int maxY = startY + maxDistEff;
 		int maxZ = startZ + maxDistEff;
-		ChunkCache chunkcache = new ChunkCache(world, minX, minY, minZ, maxX, maxY, maxZ, 0);
+		ChunkCache chunkcache = new ChunkCache(world, new BlockPos(minX, minY, minZ), new BlockPos(maxX, maxY, maxZ), 0);
 
 		Vec3d vec = new Vec3d(posX - fromEntity.posX, posY - fromEntity.posY, posZ - fromEntity.posZ);
 		vec = vec.normalize().scale(maxDist);
@@ -82,7 +81,7 @@ public class PathFinderUtils {
 		boolean solid = false;
 
 		for(int i = y; i > y - 10; i--) {
-			if(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {
+			if(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {
 				solid = true;
 				y = i;
 				break;
@@ -91,16 +90,15 @@ public class PathFinderUtils {
 		}
 
 		if(!solid) for(int i = y + 10; i > y; i--) {
-			if(!world.getBlock(x, i, z).getMaterial().blocksMovement() && world.getBlock(x, i - 1, z).isNormalCube()) {
+			if(!world.getBlockState(new BlockPos(x, i, z)).getMaterial().blocksMovement() && NTMPathFinder.isOriginalNormalCube(world.getBlockState(new BlockPos(x, i - 1, z)))) {
 				solid = true;
 				y = i;
 				break;
 			}
 		}
 
-		//PathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, toEntity, maxDist);
-		PathEntity pathentity = (new PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);
-		world.theProfiler.endSection();
+		Path pathentity = (new NTMPathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPathTo(fromEntity, x, y, z, maxDist);
+		world.profiler.endSection();
 		return pathentity;
 	}
 }

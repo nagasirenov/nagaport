@@ -1,0 +1,17 @@
+// Whole four interfaces against native APIs and explicit controlled NTM collaborators.
+// Does not compile or claim gameplay/network topology.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortEnergyConnectors', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if (javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    project.file('porting/tests/probe-energy-connectors.py'),
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

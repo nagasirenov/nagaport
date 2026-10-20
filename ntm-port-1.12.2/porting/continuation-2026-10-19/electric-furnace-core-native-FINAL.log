@@ -1,0 +1,44 @@
+PRODUCTION com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java 99d7047a6005a17709bc9b4d961b4a3a0df2c8b5961250a6c43b10a499a35346
+PRODUCTION com/hbm/inventory/container/ContainerElectricFurnace.java 33f63f5c6f6407158218d95195945fbefbf41fb2fed800bb1c1eb5f65b06a0da
+PRODUCTION com/hbm/inventory/SlotUpgrade.java 2c450c840abac47aa37048f2069d2c9cc5d013913be0ff92508fe82aefdfc742
+PRODUCTION com/hbm/items/machine/ItemMachineUpgrade.java e8a4eb329f99c8a9582ccb7db958323f83d88207a6d340ecdaab433447588e04
+PRODUCTION com/hbm/tileentity/IUpgradeInfoProvider.java d4c172d400c55901bb86298ef6052d178dea4147cb509cdd98a9454c885e350f
+PRODUCTION com/hbm/inventory/UpgradeManagerNT.java f24f0b0130bcf35321f2c7ae833e4d1467dd8e0fc20e9f1991730961e4348cd7
+PRODUCTION com/hbm/items/machine/ItemBattery.java b3409e0a7903c2ad62fd8cebb4449806e34f8c406600501e6d09cd8aee1316af
+PRODUCTION com/hbm/items/machine/ItemBatteryCreative.java 6132c97b1e15c4b78d697b789c777ff23cdf0b64d7469e6bbd73282e78cf5bee
+PRODUCTION api/hbm/energymk2/IBatteryItem.java c5e4990221abd8d88bd0b9b4daec28052f2d02cc17a6097961b3f3f62e528d4c
+PRODUCTION api/hbm/energymk2/IEnergyReceiverMK2.java 009561cdccc240754b22a8ceb2d12e91ddab6b245570e8fc32ec42ffa7bfa7ae
+PRODUCTION api/hbm/energymk2/IEnergyHandlerMK2.java b1f3bb8831430b67ddb6a9bc323a3d29d3f1d2cae342931cfed7dd8904f43868
+PRODUCTION api/hbm/energymk2/IEnergyConnectorMK2.java ef60540477fc62d1b40599d4213ae2fec8f5103b6a860ef7b51fa2b7948790a5
+PRODUCTION api/hbm/energymk2/IEnergyConductorMK2.java fdc75abf05333db21262561aed90d35754fea0227bf4a672d12b3a16624fc9cf
+PRODUCTION api/hbm/tile/ILoadedTile.java c0e7626ef492b694543ff355a6b5e096361eeb8df91f12b238a03474257ab897
+PRODUCTION com/hbm/util/Tuple.java 068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41
+PRODUCTION com/hbm/interfaces/NotableComments.java 33740494056eeca8f903570fb940d0a6e5556b10359091854d22a9c8e0aea943
+PRODUCTION com/hbm/interfaces/Spaghetti.java f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70
+PRODUCTION com/hbm/tileentity/TileEntityMachineBase.java c4244ca5683cb8e51c139b7e5b0116fdf2ec5deda57df09fd69d9a35f3e41e00
+PRODUCTION com/hbm/tileentity/TileEntityLoadedBase.java b3853d47d40045826978c19c70ba803b71b81bb63b066bf16b07b88761491cc3
+PRODUCTION com/hbm/tileentity/IGUIProvider.java 43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47
+PRODUCTION com/hbm/tileentity/IBufPacketReceiver.java 295d694c4c4219a01ea709acb02450d6b0d9981648a91634ae03b90d8c650e4b
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION com/hbm/sound/AudioWrapper.java d645b14f65af7adb8a0c59d4fb4d7ebc7c48c204a4836950400e8eeb0db5d0c7
+PRODUCTION com/hbm/packet/threading/ThreadedPacket.java 235f68c8e133815b95cc144ac91da930f420a98ac65be5147cc6f0739a6b8310
+PRODUCTION com/hbm/packet/threading/PrecompiledPacket.java 77ba407769d242823edffed5554564b6b72df6b80b5aea33224d1465e12eb56a
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `creative`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `source`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `result`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `speed1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `power1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `speed2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `power2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `speed3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `power3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `mutex_low`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `mutex_high`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:27] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `zero_battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS electric furnace native core: 484 assertions. Complete production furnace/container/upgrades/batteries/bases, controlled NTM collaborators; no live gameplay claim.
+PASS complete furnace/container/upgrade/battery/native inheritance compile; controlled NTM collaborators, no live gameplay claim.

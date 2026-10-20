@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/workspace/shared/nagaport-item-registry",
+    "commit": "d91051c481908a152c263451df341316d95ee0d4",
+    "proof": "item-registry-native",
+    "restore": "git sparse-checkout disable"
+  },
+  {
+    "path": "/workspace/shared/nagaport-item-foundation",
+    "commit": "9ba30b460c92edf30ce6b0cf0f12ca9938ffc329",
+    "proof": "item-foundation-native",
+    "restore": "git sparse-checkout disable"
+  },
+  {
+    "path": "/workspace/shared/nagaport-block-registry-cp51",
+    "commit": "9937d2732c37cf1b4078390dc2cf3ef4670a34df",
+    "proof": "block-registry-native",
+    "restore": "git sparse-checkout disable"
+  },
+  {
+    "path": "/workspace/shared/nagaport-dungeon-native",
+    "commit": "ea8c53b8b8c9efc8cfad6cdabacdebb51a118bdb",
+    "proof": "dungeon-world-native",
+    "restore": "git sparse-checkout disable"
+  },
+  {
+    "path": "/workspace/shared/nagaport-stack-counts",
+    "commit": "08fdb36a48d8c9f16d40c15c4460f9c7727f7026",
+    "proof": "native-stack-counts",
+    "restore": "git sparse-checkout disable"
+  },
+  {
+    "path": "/workspace/shared/nagaport-math-native",
+    "commit": "16712dd2c96e5d398c2de0c4dd9411e7ba0423f7",
+    "proof": "native-math-calls",
+    "restore": "git sparse-checkout disable"
+  }
+]

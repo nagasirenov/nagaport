@@ -45,8 +45,8 @@ public class EntityOrangeFX extends EntityModFX {
 			maxAge = rand.nextInt(301) + 900;
 		}
 
-		if(!worldObj.isRemote && rand.nextInt(50) == 0)
-			ExplosionChaos.poison(worldObj, (int) posX, (int) posY, (int) posZ, 2);
+		if(!this.world.isRemote && rand.nextInt(50) == 0)
+			ExplosionChaos.poison(this.world, (int) posX, (int) posY, (int) posZ, 2);
 
 		this.particleAge++;
 
@@ -68,18 +68,18 @@ public class EntityOrangeFX extends EntityModFX {
 			this.posY += this.motionY / subdivisions;
 			this.posZ += this.motionZ / subdivisions;
 
-			if(worldObj.getBlock((int) posX, (int) posY, (int) posZ).getMaterial() != Material.air) {
+			if(com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().getMaterial() != Material.AIR) {
 				this.setDead();
 
 				for(int a = -1; a < 2; a++) {
 					for(int b = -1; b < 2; b++) {
 						for(int c = -1; c < 2; c++) {
 
-							Block bl = worldObj.getBlock((int) posX + a, (int) posY + b, (int) posZ + c);
-							if(bl == Blocks.grass) {
-								worldObj.setBlock((int) posX + a, (int) posY + b, (int) posZ + c, Blocks.dirt, 1, 3);
+							Block bl = com.hbm.world.WorldBlockState.read(this.world, (int) posX + a, (int) posY + b, (int) posZ + c).getBlock();
+							if(bl == Blocks.GRASS) {
+								this.world.setBlock((int) posX + a, (int) posY + b, (int) posZ + c, Blocks.DIRT, 1, 3);
 							} else {
-								ExplosionNukeGeneric.solinium(worldObj, (int) posX + a, (int) posY + b, (int) posZ + c);
+								ExplosionNukeGeneric.solinium(this.world, (int) posX + a, (int) posY + b, (int) posZ + c);
 							}
 						}
 					}

@@ -6,11 +6,18 @@ import com.hbm.packet.toclient.ParticleBurstPacket;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityRubble extends EntityThrowableNT {
+
+	private static final DataParameter<Integer> BLOCK_ID = EntityDataManager.createKey(EntityRubble.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> BLOCK_META = EntityDataManager.createKey(EntityRubble.class, DataSerializers.VARINT);
+
 
     public EntityRubble(World world)
     {
@@ -19,8 +26,8 @@ public class EntityRubble extends EntityThrowableNT {
 
     @Override
 	public void entityInit() {
-        this.dataWatcher.addObject(16, (int)Integer.valueOf(0));
-        this.dataWatcher.addObject(17, (int)Integer.valueOf(0));
+        this.dataManager.register(BLOCK_ID, 0);
+        this.dataManager.register(BLOCK_META, 0);
     }
 
     public EntityRubble(World world, double x, double y, double z) {
@@ -40,11 +47,11 @@ public class EntityRubble extends EntityThrowableNT {
         if(this.ticksExisted > 2) {
         	this.setDead();
         	
-    		worldObj.playSoundAtEntity(this, "hbm:block.debris", 1.5F, 1.0F);
-            //worldObj.playAuxSFX(2001, (int)posX, (int)posY, (int)posZ, this.dataWatcher.getWatchableObjectInt(16) + (this.dataWatcher.getWatchableObjectInt(17) << 12));
+    		this.world.playSoundAtEntity(this, "hbm:block.debris", 1.5F, 1.0F);
+            //worldObj.playAuxSFX(2001, (int)posX, (int)posY, (int)posZ, this.dataManager.get(BLOCK_ID) + (this.dataManager.get(BLOCK_META) << 12));
     		
-    		if(!worldObj.isRemote)
-    			PacketDispatcher.wrapper.sendToAllAround(new ParticleBurstPacket((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), this.dataWatcher.getWatchableObjectInt(16), this.dataWatcher.getWatchableObjectInt(17)), new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 50));
+    		if(!this.world.isRemote)
+			PacketDispatcher.wrapper.sendToAllAround(new ParticleBurstPacket((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), this.dataManager.get(BLOCK_ID), this.dataManager.get(BLOCK_META)), new TargetPoint(this.world.provider.getDimension(), posX, posY, posZ, 50));
         }
     }
 
@@ -55,21 +62,24 @@ public class EntityRubble extends EntityThrowableNT {
 
     public void setMetaBasedOnBlock(Block b, int i) {
 
-    	this.dataWatcher.updateObject(16, Block.getIdFromBlock(b));
-    	this.dataWatcher.updateObject(17, i);
+		this.dataManager.set(BLOCK_ID, Block.getIdFromBlock(b));
+		this.dataManager.set(BLOCK_META, i);
     }
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.dataWatcher.updateObject(16, nbt.getInteger("block"));
-		this.dataWatcher.updateObject(17, nbt.getInteger("meta"));
+		this.dataManager.set(BLOCK_ID, nbt.getInteger("block"));
+		this.dataManager.set(BLOCK_META, nbt.getInteger("meta"));
 	}
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("block", this.dataWatcher.getWatchableObjectInt(16));
-		nbt.setInteger("meta", this.dataWatcher.getWatchableObjectInt(17));
+		nbt.setInteger("block", this.dataManager.get(BLOCK_ID));
+		nbt.setInteger("meta", this.dataManager.get(BLOCK_META));
 	}
+
+	public int getBlockId() { return this.dataManager.get(BLOCK_ID); }
+	public int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }
 }

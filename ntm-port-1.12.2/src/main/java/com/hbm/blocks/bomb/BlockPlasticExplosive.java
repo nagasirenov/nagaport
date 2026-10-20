@@ -62,7 +62,7 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 			}
 		}
 		
-		int l = MathHelper.floor_double((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		int l = MathHelper.floor((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 		
 		return l == 0 ? 3 : (l == 1 ? 4 : (l == 2 ? 2 : (l == 3 ? 5 : 1)));
 	}
@@ -86,6 +86,6 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 
 	@Override
 	public void explodeEntity(World world, double x, double y, double z, EntityTNTPrimedBase entity) {
-		explode(world, MathHelper.floor_double(x), MathHelper.floor_double(y), MathHelper.floor_double(z));
+		explode(world, MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));
 	}
 }

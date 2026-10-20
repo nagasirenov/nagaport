@@ -20,7 +20,7 @@ public interface ILookOverlay {
 	public static void printGeneric(RenderGameOverlayEvent.Pre event, String title, int titleCol, int bgCol, List<String> text) {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		ScaledResolution resolution = event.resolution;
+		ScaledResolution resolution = event.getResolution();
 
 		GL11.glPushMatrix();
 
@@ -51,6 +51,6 @@ public interface ILookOverlay {
 		GL11.glColor3f(1F, 1F, 1F);
 
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 }

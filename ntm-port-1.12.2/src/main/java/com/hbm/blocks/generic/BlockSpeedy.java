@@ -36,6 +36,6 @@ public class BlockSpeedy extends Block implements IStepTickReceiver, ITooltipPro
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
-		list.add(TextFormatting.BLUE + "Increases speed by " + (MathHelper.floor_double((speed - 1) * 100)) + "%");
+		list.add(TextFormatting.BLUE + "Increases speed by " + (MathHelper.floor((speed - 1) * 100)) + "%");
 	}
 }

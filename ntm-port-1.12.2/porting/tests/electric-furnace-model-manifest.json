@@ -1,0 +1,376 @@
+{
+  "description": "Dedicated native electric furnace JSON models and automatic client-only metadata item registration. Existing textures are pinned, not modified.",
+  "legacy_uv_oracle": {
+    "sha1": "e80d9b3bf5085002218d4be59e668bac718abbc6",
+    "url": "https://launcher.mojang.com/v1/objects/e80d9b3bf5085002218d4be59e668bac718abbc6/client.jar",
+    "class": "blm",
+    "methods": "a..f(aji,double,double,double,rf)"
+  },
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/main/ElectricFurnaceModelHandler.java",
+      "sha256": "ec6f75c97689a44166974aa79e00abaf5706086664748ef23cd262a160f97e59",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_electric_furnace_off.json",
+      "sha256": "afa4309c7bf019d18a384ad75a7006fc4798dfaa788ec274acd2c74483228119",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.machine_electric_furnace_on.json",
+      "sha256": "f9db1e5027646673fc22ef6f6cdf387604164f8523b39d9db018f98705f6c5ab",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/machine_electric_furnace_cube.json",
+      "sha256": "3cd93a06baac6e73dada39ad52d299cfb125605b8b26fb472bf89b5173cbf70b",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_0.json",
+      "sha256": "7ec7924f47e8079d379302e9bd0d362c0e551209bf399c3b87bbc9eac277ee9e",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_1.json",
+      "sha256": "0d243f46ce84cc08d4d550e6e3d40679c5d34f1eb51f7f4f1466890d4418b9d6",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_10.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_11.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_12.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_13.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_14.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_15.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_2.json",
+      "sha256": "84c698ea571b0bac21da3e2ece85339bf8a14153cf455e13ce5cd4a604a454f1",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_3.json",
+      "sha256": "7f3d0e7ca56a8bb58989c2d889ccef0078e1ff177b1b4ccbd5067f8c2770c4a3",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_4.json",
+      "sha256": "630f484f80a5cb2c9fa9bab84ed38ca8cb9797b80b359d6eb06f6d19500a7832",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_5.json",
+      "sha256": "f11052b87a3b1a0f3f9f7485b39b631ad8ee45201323ceefb5ddfa8378b5ab9f",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_6.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_7.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_8.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_off_9.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_0.json",
+      "sha256": "d3158b99a636c20d0a3361daa2d11efb77ee998901604a13c84991f7c68d6292",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_1.json",
+      "sha256": "5a5c89e81936b6e424795474407195da1c0adbdbdc1057002ac27daf6149c532",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_10.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_11.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_12.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_13.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_14.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_15.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_2.json",
+      "sha256": "84d4255001bf5b9cb2c09f31ed6ba2e73d5b7ce5c001ef1a52e32404cd231f5d",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_3.json",
+      "sha256": "ae6a84a08626e6abb53f33c14adff06dd5e1aef4bc1839e273092828dd995531",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_4.json",
+      "sha256": "ac9fdcaeaf068bd6fbfaa1e66dd340294bb3408e5c59a7cbaab1be045db2c4a1",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_5.json",
+      "sha256": "371320461967784e78d44727092c0949d97128f9efe40fc8b7816d65a59c5fcc",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_6.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_7.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_8.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/block/tile.machine_electric_furnace_on_9.json",
+      "sha256": "d5004656cf9b74985b0fbcdb55b64dc87c97654656fc7a3109b16d015bb18517",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_0.json",
+      "sha256": "ee7b808d41458a67a26b7369aaa67903f9d18ced2f08147f6391004d221e276e",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_1.json",
+      "sha256": "e5daa76b0d9f737dd1172401491700438f946bee347fbbe3dc172a485d23335f",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_10.json",
+      "sha256": "1268bd3ba3b3201728543e1292efd69aec3a6b0bbd0440fea725465176469087",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_11.json",
+      "sha256": "6ec9c0f6b558be111f333f758a1cc7925215d7ead0419bb0f2f0569e66ac5268",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_12.json",
+      "sha256": "f1597cad9a546ddc389cf7401632ba9a9efed5522e7eafc828a80563a6dbb825",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_13.json",
+      "sha256": "ee07ca13254511b988d8382106f5999f16e03c7b224888be5ce1eb3ab3308bb3",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_14.json",
+      "sha256": "97475b9059dde30dc637e0ceb2430ffa8e75162632cae1a5fb1e504b79e463b3",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_15.json",
+      "sha256": "a1519cf014899ad791f8ddf09a6efb28529ddbe846567c03cec449a40a8dd4d0",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_2.json",
+      "sha256": "23399daf7ef1e9a70303dbb5a6450413f791bdb71cfad6d55eec5cf829681695",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_3.json",
+      "sha256": "41593309682f030eac54d1279dac01cb9575c6bbde6e623d2de0e38b4f70d4e6",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_4.json",
+      "sha256": "90ebdbc2cfe481685dd49ec932e89f283f046ea5147e76d761b31a682977b490",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_5.json",
+      "sha256": "e36b2f5daacb69998033053f9a9bc31a6545e130a67e0c1c6172c71c451f409b",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_6.json",
+      "sha256": "1a29a04a8b871e255a048b431f4c818edb04eacf1b86959422f0b13d646980c9",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_7.json",
+      "sha256": "fe53a12be7ce388fac113bd24279753108611927ddeeb1d5e9959da44ad48536",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_8.json",
+      "sha256": "58208d885417402eabd75762eb5cb95de0c5ce88834244403acd8e9e09f8d2be",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_off_9.json",
+      "sha256": "6b59e5506b40a80b453309360bcac99e400647f72b9ad635ba848b557ea78297",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_0.json",
+      "sha256": "63cd8455e10c8270e948ebb960080801521e5f9a89da583a0b8b9cb9472b8f69",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_1.json",
+      "sha256": "d31a16d374916b8884758fffd2b9123f2fb76124b229966f9601f9bf7d259616",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_10.json",
+      "sha256": "7f873ccc45e434debd45a607286681a1a718d7d59347a5563df8f3f1065d9c1f",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_11.json",
+      "sha256": "67bc86cedabc0f79ad07816b49ac070688f4b57791f4dcdb0f5a500fb3cdf437",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_12.json",
+      "sha256": "ebe3d6edd6b2bb8b2b0f6f879a8ae29399062446c1b7a6aa16d3bf181b232f61",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_13.json",
+      "sha256": "02a2e6dfda64c9b7b3447b36cf6d35e30d3e5bf2c97ab0ce2bcb7bb55af15e77",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_14.json",
+      "sha256": "6d782d0958f0a8a7430eb8aee45c2a08aa20950505e8c4b0ac96d0d5009e3d4e",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_15.json",
+      "sha256": "d6f0d32df064f01bfdaa85d244125b2f9fcbcb46b2b68c7bd0a6b5b91c0e16a0",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_2.json",
+      "sha256": "cffb3c2fabfe51f9effc7cfe8c61acba57ea715f161bf1d236e73e78250af77c",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_3.json",
+      "sha256": "9e08ca741ce6a36fc47668407024b0eaa348024528fe080d7be6e5c18a117ac8",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_4.json",
+      "sha256": "ff1362e4f426b0d0c023505e13dd372bb302b77b570603bbd1aa5b1f3f2f760c",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_5.json",
+      "sha256": "020454d23c8ff7dca0ff281055aa4bd1b5d857421b0d801c9a9f9616f26fe71b",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_6.json",
+      "sha256": "e5aca92f476d1257fc82935ec01a9d31487186ca66cc026951681d8336ec2d11",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_7.json",
+      "sha256": "5248144726b54fa09c45edc1a543336c5863014152beb6293a8800963e614737",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_8.json",
+      "sha256": "5e3ef1fc5fd66c1d5d9a058daed083c3fced76535c3e3d7fbf3bf1c1253c4cdf",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/models/item/tile.machine_electric_furnace_on_9.json",
+      "sha256": "c8283620b7e487f92e6cd0fe1c035b41e1816575831e5479b571bc692eb72b7d",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_electric_furnace_front_off.png",
+      "sha256": "7dfbf6faa8423b019de0d210b969a13d493a785c186bd2a9933503989d39f54b",
+      "new": false
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_electric_furnace_front_on.png",
+      "sha256": "acb69c107e38ab749976a118415905ca13a5e8589815b3e5e69c509e11304b42",
+      "new": false
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_electric_furnace_top.png",
+      "sha256": "154c2cf958ebdc233039b582deff152fd6df3ccfa12ab03e2018101e5970a099",
+      "new": false
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_electric_furnace_bottom.png",
+      "sha256": "cdee5617e488542245eb1d4e536104ad2a14fb08d018ab73a8897c73293dafc7",
+      "new": false
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/blocks/machine_electric_furnace_side.png",
+      "sha256": "13282102bb8275e58b68d2679ce73ea602072b061ceadd099f961ef4c45e09b4",
+      "new": false
+    }
+  ]
+}

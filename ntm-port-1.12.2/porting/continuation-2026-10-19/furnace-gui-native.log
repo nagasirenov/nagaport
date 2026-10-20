@@ -1,0 +1,23 @@
+COMPLETE INPUT c7f5dec1e1c5829be0e06ae24b9c441af6a03bec9a6b2f85d6d896391af306d4 com/hbm/handler/GUIHandler.java
+COMPLETE INPUT 10b5abee7d67f9f528cc24dbf5ef8c8278ad20669bd31163eddde2027d3386b2 com/hbm/inventory/gui/GuiInfoContainer.java
+COMPLETE INPUT 7f26b13004a24960054b749dca75ce79e8503c13eb6b7ebe41949cde16ce80fc com/hbm/inventory/gui/GUIMachineElectricFurnace.java
+COMPLETE INPUT fa609729a077bf5f7a415d58afb7ce8d691a56cdd51465859bdb3f9b4884710d com/hbm/inventory/SlotPattern.java
+COMPLETE INPUT 43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47 com/hbm/tileentity/IGUIProvider.java
+COMPLETE INPUT d4c172d400c55901bb86298ef6052d178dea4147cb509cdd98a9454c885e350f com/hbm/tileentity/IUpgradeInfoProvider.java
+COMPLETE INPUT 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 com/hbm/lib/RefStrings.java
+COMPLETE INPUT e8a4eb329f99c8a9582ccb7db958323f83d88207a6d340ecdaab433447588e04 com/hbm/items/machine/ItemMachineUpgrade.java
+Complete production classes: com/hbm/handler/GUIHandler.java, com/hbm/inventory/gui/GuiInfoContainer.java, com/hbm/inventory/gui/GUIMachineElectricFurnace.java, com/hbm/inventory/SlotPattern.java, com/hbm/tileentity/IGUIProvider.java, com/hbm/tileentity/IUpgradeInfoProvider.java, com/hbm/lib/RefStrings.java, com/hbm/items/machine/ItemMachineUpgrade.java
+Controlled NTM collaborators: com/hbm/items/ModItems.java, com/hbm/util/BobMathUtil.java, com/hbm/util/i18n/I18nUtil.java, com/hbm/inventory/container/ContainerBase.java, com/hbm/inventory/container/ContainerElectricFurnace.java, com/hbm/packet/toserver/NBTControlPacket.java, com/hbm/packet/PacketDispatcher.java, com/hbm/blocks/ModBlocks.java, com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java
+/tmp/hbm-furnace-gui-m8hg0zuz/FurnaceGuiNativeTest.java:46: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;
+                ^
+/tmp/hbm-furnace-gui-m8hg0zuz/FurnaceGuiNativeTest.java:188: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);Bootstrap.register();field(null,net.minecraft.client.resources.I18n.class,"i18nLocale",new net.minecraft.client.resources.Locale());routing();guiLogic();furnace();
+                  ^
+/tmp/hbm-furnace-gui-m8hg0zuz/FurnaceGuiNativeTest.java:188: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);Bootstrap.register();field(null,net.minecraft.client.resources.I18n.class,"i18nLocale",new net.minecraft.client.resources.Locale());routing();guiLogic();furnace();
+                                                                                                    ^
+Note: /tmp/hbm-furnace-gui-m8hg0zuz/com/hbm/inventory/gui/GuiInfoContainer.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS 785 native GUI/router/resource checks. Complete classes compile; no GL draw, real client, packet dispatch or playable machine claim.

@@ -61,13 +61,13 @@ public class GUIScreenRBMKKeyPad extends GuiScreen {
 		for(int i = 0; i < 4; i++) {
 			String col = Integer.toHexString(keypad.keys[i].color);
 			while(col.length() < 6) col = "0" + col;
-			color[i] = new GuiTextField(this.fontRendererObj, guiLeft + 27 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);
+			color[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 27 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);
 			setupTextFieldStandard(color[i], 6, col);
-			label[i] = new GuiTextField(this.fontRendererObj, guiLeft + 175 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);
+			label[i] = new GuiTextField(i + 4, this.fontRenderer, guiLeft + 175 + oX, guiTop + 55 + oY + i * 36, 72 - oX * 2, 14);
 			setupTextFieldStandard(label[i], 15, keypad.keys[i].label);
-			rtty[i] = new GuiTextField(this.fontRendererObj, guiLeft + 27 + oX, guiTop + 73 + oY + i * 36, 72 - oX * 2, 14);
+			rtty[i] = new GuiTextField(i + 8, this.fontRenderer, guiLeft + 27 + oX, guiTop + 73 + oY + i * 36, 72 - oX * 2, 14);
 			setupTextFieldStandard(rtty[i], 10, keypad.keys[i].rtty);
-			cmd[i] = new GuiTextField(this.fontRendererObj, guiLeft + 121 + oX, guiTop + 73 + oY + i * 36, 126 - oX * 2, 14);
+			cmd[i] = new GuiTextField(i + 12, this.fontRenderer, guiLeft + 121 + oX, guiTop + 73 + oY + i * 36, 126 - oX * 2, 14);
 			setupTextFieldStandard(cmd[i], 32, keypad.keys[i].command);
 
 			active[i] = keypad.keys[i].active;
@@ -86,7 +86,7 @@ public class GUIScreenRBMKKeyPad extends GuiScreen {
 
 	private void drawGuiContainerForegroundLayer(int x, int y) {
 		String name = I18nUtil.resolveKey("container.rbmkKeyPad");
-		this.fontRendererObj.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
+		this.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
 	}
 
 	private void drawGuiContainerBackgroundLayer(float f, int mouseX, int mouseY) {
@@ -114,19 +114,19 @@ public class GUIScreenRBMKKeyPad extends GuiScreen {
 		for(int i = 0; i < 4; i++) {
 			if(guiLeft + 111 <= x && guiLeft + 111 + 16 > x && guiTop + i * 36 + 54 < y && guiTop + i * 36 + 54 + 16 >= y) {
 				this.active[i] = !this.active[i];
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.5F + (this.active[i] ? 0.25F : 0F)));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.5F + (this.active[i] ? 0.25F : 0F)));
 				return;
 			}
 			
 			if(guiLeft + 128 <= x && guiLeft + 128 + 18 > x && guiTop + i * 36 + 53 < y && guiTop + i * 36 + 53 + 18 >= y) {
 				this.polling[i] = !this.polling[i];
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.5F + (this.polling[i] ? 0.25F : 0F)));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.5F + (this.polling[i] ? 0.25F : 0F)));
 				return;
 			}
 		}
 		
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			byte active = 0;
 			byte polling = 0;
@@ -143,7 +143,7 @@ public class GUIScreenRBMKKeyPad extends GuiScreen {
 				data.setString("rtty" + i, this.rtty[i].getText());
 				data.setString("cmd" + i, this.cmd[i].getText());
 			}
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, keypad.xCoord, keypad.yCoord, keypad.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, keypad.getPos().getX(), keypad.getPos().getY(), keypad.getPos().getZ()));
 			return;
 		}
 		
@@ -166,7 +166,7 @@ public class GUIScreenRBMKKeyPad extends GuiScreen {
 		}
 		
 		if(b == 1 || b == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}

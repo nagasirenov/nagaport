@@ -1,0 +1,12 @@
+{
+  "methods": {
+    "com/hbm/inventory/gui/GUIScreenBobble.java": "initGui()",
+    "com/hbm/inventory/gui/GUIScreenRecipeSelector.java": "click()",
+    "com/hbm/items/weapon/ItemCrucible.java": "playSwing(float)"
+  },
+  "full_extracted_methods": [
+    "@Override\n\tpublic void initGui() {\n\t\tmc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:block.bobble\"), 1.0F));\n\t}",
+    "public void click() { mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"gui.button.press\"), 1.0F)); }",
+    "@SideOnly(Side.CLIENT)\n\tprivate void playSwing(float pitchProbablyIDontFuckingCare) {\n\t\tMinecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation(\"hbm:weapon.cSwing\"), pitchProbablyIDontFuckingCare));\n\t}"
+  ]
+}

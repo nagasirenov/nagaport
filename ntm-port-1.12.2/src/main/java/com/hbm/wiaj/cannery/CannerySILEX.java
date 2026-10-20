@@ -57,7 +57,7 @@ public class CannerySILEX extends CanneryBase {
 		
 		for(int x = world.sizeX - 1; x >= 0 ; x--) {
 			for(int z = 0; z < world.sizeZ; z++) {
-				scene0.add(new ActionSetBlock(x, 0, z, Blocks.brick_block));
+				scene0.add(new ActionSetBlock(x, 0, z, Blocks.BRICK_BLOCK));
 			}
 			
 			scene0.add(new ActionWait(1));
@@ -107,7 +107,7 @@ public class CannerySILEX extends CanneryBase {
 		
 		for(int y = 1; y < 4; y++) {
 			for(int z = 1; z < 4; z++) {
-				scene0.add(new ActionSetBlock(5, y, z, Blocks.stone));
+				scene0.add(new ActionSetBlock(5, y, z, Blocks.STONE));
 			}
 			scene0.add(new ActionWait(5));
 		}
@@ -119,9 +119,9 @@ public class CannerySILEX extends CanneryBase {
 		
 		scene0.add(new ActionWait(40));
 		scene0.add(new ActionUpdateActor(0, "length", 11));
-		scene0.add(new ActionSetBlock(5, 2, 2, Blocks.fire));
+		scene0.add(new ActionSetBlock(5, 2, 2, Blocks.FIRE));
 		scene0.add(new ActionWait(10));
-		scene0.add(new ActionSetBlock(5, 2, 2, Blocks.air));
+		scene0.add(new ActionSetBlock(5, 2, 2, Blocks.AIR));
 		scene0.add(new ActionWait(40));
 		
 		for(int y = 1; y < 4; y++) {
@@ -143,7 +143,7 @@ public class CannerySILEX extends CanneryBase {
 		
 		for(int y = 3; y > 0; y--) {
 			for(int z = 1; z < 4; z++) {
-				scene0.add(new ActionSetBlock(5, y, z, Blocks.air));
+				scene0.add(new ActionSetBlock(5, y, z, Blocks.AIR));
 			}
 			
 			if(y == 2) {
@@ -267,10 +267,10 @@ public class CannerySILEX extends CanneryBase {
 				EnumWavelengths wave = EnumWavelengths.values()[mode];
 				int color = wave.guiColor;
 				if(color == 0)
-					color = Color.HSBtoRGB(Minecraft.getMinecraft().theWorld.getTotalWorldTime() / 50.0F, 0.5F, 0.1F) & 16777215;
+					color = Color.HSBtoRGB(Minecraft.getMinecraft().world.getTotalWorldTime() / 50.0F, 0.5F, 0.1F) & 16777215;
 				
 				BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, -length - 1), EnumWaveType.SPIRAL, EnumBeamType.SOLID, color, color, 0, 1, 0F, 2, 0.0625F, 256);
-				BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, -length - 1), EnumWaveType.RANDOM, EnumBeamType.SOLID, color, color, (int)(Minecraft.getMinecraft().theWorld.getTotalWorldTime() % 1000 / 2), (length / 2) + 1, 0.0625F, 2, 0.0625F, 256);
+				BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, -length - 1), EnumWaveType.RANDOM, EnumBeamType.SOLID, color, color, (int)(Minecraft.getMinecraft().world.getTotalWorldTime() % 1000 / 2), (length / 2) + 1, 0.0625F, 2, 0.0625F, 256);
 			}
 		}
 

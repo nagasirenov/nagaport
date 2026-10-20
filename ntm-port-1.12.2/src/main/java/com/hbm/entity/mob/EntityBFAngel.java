@@ -33,7 +33,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -41,15 +41,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
 
 	public int courseChangeCooldown;
 	public int scanCooldown;
@@ -114,9 +114,9 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 	@Override
 	protected void updateEntityActionState() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+			if(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
 				this.setDead();
 				return;
 			}
@@ -138,7 +138,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 		}
 
 		if(this.scanCooldown <= 0) {
-			List<Entity> entities = worldObj.getEntitiesWithinAABB(Entity.class, this.boundingBox.expand(100, 50, 100));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().grow(100, 50, 100));
 			this.secondaries.clear();
 			this.target = null;
 
@@ -188,12 +188,12 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 			int wX = (int)Math.floor(this.target.posX - vec.x / length * overshoot);
 			int wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);
 
-			this.setWaypoint(wX, Math.max(this.worldObj.getHeightValue(wX, wZ) + rand.nextInt(15), (int) this.target.posY - 5),  wZ);
+			this.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ) + rand.nextInt(15), (int) this.target.posY - 5),  wZ);
 
 			this.courseChangeCooldown = 40 + rand.nextInt(20);
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(beamTimer <= 0 && this.getBeam()) {
 				this.setBeam(false);
@@ -226,7 +226,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 				}
 
 				if(iy < this.posY) {
-					List<Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
 
 					for(Entity e : entities) {
 						if(this.canAttackClass(e.getClass())) {
@@ -273,7 +273,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 						gatlingCharge--;
 
 						if (gatlingCharge == 30) {
-							worldObj.playSoundAtEntity(this, "hbm:entity.bfatalk", 10.0F, 1.0F);
+							this.world.playSoundAtEntity(this, "hbm:entity.bfatalk", 10.0F, 1.0F);
 						}
 
 						if (gatlingCharge <= 0) {
@@ -349,7 +349,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 			                fx.setString("mode", "reddust");
 			                fx.setDouble("motion", 0.2D);
 			                fx.setInteger("count", 35);
-					  worldObj.playSoundEffect(pos.x, pos.y, pos.z, "hbm:weapon.stingerLockOn", 1.0F, 1F);
+					  com.hbm.sound.WorldSoundEffects.play(this.world, pos.x, pos.y, pos.z, "hbm:weapon.stingerLockOn", 1.0F, 1F);
 
 			                PacketThreading.createAllAroundThreadedPacket(
 			                    new AuxParticlePacketNT(fx, pos.x, pos.y, pos.z),
@@ -427,7 +427,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 
 			    float targetYaw = (float)(Math.atan2(dz, dx) * 180D / Math.PI) + 90F;
 
-			    float delta = net.minecraft.util.math.MathHelper.wrapAngleTo180_float(targetYaw - this.rotationYaw);
+			    float delta = net.minecraft.util.math.MathHelper.wrapDegrees(targetYaw - this.rotationYaw);
 			    this.rotationYaw += delta * 0.15F;
 			    
 			    double dist = Math.sqrt(dx * dx + dz * dz);
@@ -444,25 +444,25 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 		this.motionY -= 0.05D;
 
 		if(this.deathTime == -10) {
-			worldObj.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
 		}
 
-		if(this.deathTime == 19 && !worldObj.isRemote) {
+		if(this.deathTime == 19 && !this.world.isRemote) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "tinytot");
 			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(this.dimension, posX, posY, posZ, 250));
-			worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 			
 			this.entityDropItem(new ItemStack(ModItems.core_angel, 1, 0), 1);
 
-			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(200, 200, 200));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));
 
 			
 			for(EntityPlayer player : players) {
-				player.addChatComponentMessage(new ChatComponentText("Stars are starting to flicker...").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+				player.sendMessage(new TextComponentString("Stars are starting to flicker...").setStyle(new Style().setColor(TextFormatting.RED)));
 			}
 			
-			CelestialBody body = CelestialBody.getBody(worldObj);
+			CelestialBody body = CelestialBody.getBody(this.world);
 
 			CBT_Invasion invasion = body.getTrait(CBT_Invasion.class);
 
@@ -497,7 +497,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 
 		    bullet.performHitscanExternal(250D);
 
-		    this.worldObj.spawnEntityInWorld(bullet);
+		    this.world.spawnEntityInWorld(bullet);
 		    this.playSound("hbm:entity.bfashoot", 5.0F, 1.0F);
 		}
 	
@@ -521,7 +521,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 
 		    bullet.performHitscanExternal(250D);
 
-		    this.worldObj.spawnEntityInWorld(bullet);
+		    this.world.spawnEntityInWorld(bullet);
 
 		    this.playSound("hbm:entity.bfashoot", 5.0F, 1.0F);
 		}
@@ -549,7 +549,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 		    bullet.motionY = heading.y * speed;
 		    bullet.motionZ = heading.z * speed;
 
-		    this.worldObj.spawnEntityInWorld(bullet);
+		    this.world.spawnEntityInWorld(bullet);
 		    this.playSound("hbm:turret.richard_fire", 5.0F, 1.0F);
 		}
 
@@ -572,12 +572,12 @@ public class EntityBFAngel extends EntityFlying implements IMob, IBossDisplayDat
 		double d4 = (this.getX() - this.posX) / p_70790_7_;
 		double d5 = (this.getY() - this.posY) / p_70790_7_;
 		double d6 = (this.getZ() - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.boundingBox.copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}

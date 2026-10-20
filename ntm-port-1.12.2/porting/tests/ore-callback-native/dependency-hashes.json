@@ -1,0 +1,9 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockCluster.java": "cf7f2c757f41d58649218032e6fa3b5a22dafeb457d67273fbdb9806de65e6e2",
+  "src/main/java/com/hbm/blocks/generic/BlockOreOutgas.java": "62758a60256de58d13657ba4ea031980028d9dcbcd21e5a0f60e111aa3ebad6b",
+  "src/main/java/com/hbm/blocks/generic/BlockOreFluid.java": "2da72db0b4c10945cd203dba1a69cc98a45ba12466b105716dd888abf289ae82",
+  "src/main/java/com/hbm/blocks/IBlockMulti.java": "f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9",
+  "src/main/java/com/hbm/blocks/IBlockMultiPass.java": "0f63a002a56ec7e1a2649d6038f061e89e10113538e9651e6c6db5712dc1a5b0",
+  "src/main/java/com/hbm/blocks/ITooltipProvider.java": "8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5",
+  "src/main/java/com/hbm/blocks/MultipassContext.java": "98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3"
+}

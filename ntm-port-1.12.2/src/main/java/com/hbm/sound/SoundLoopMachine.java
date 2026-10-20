@@ -1,11 +1,10 @@
 package com.hbm.sound;
 
 import net.minecraft.client.audio.ITickableSound;
-import net.minecraft.client.audio.PositionedSound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class SoundLoopMachine extends PositionedSound implements ITickableSound {
+public class SoundLoopMachine extends ResourceLoopSound implements ITickableSound {
 	boolean donePlaying = false;
 	TileEntity te;
 
@@ -13,11 +12,11 @@ public class SoundLoopMachine extends PositionedSound implements ITickableSound 
 		super(path);
 		this.repeat = true;
 		this.volume = 1;
-		this.field_147663_c = 1;
-		this.xPosF = te.xCoord;
-		this.yPosF = te.yCoord;
-		this.zPosF = te.zCoord;
-		this.field_147665_h = 0;
+		this.pitch = 1;
+		this.xPosF = te.getPos().getX();
+		this.yPosF = te.getPos().getY();
+		this.zPosF = te.getPos().getZ();
+		this.repeatDelay = 0;
 		this.te = te;
 	}
 
@@ -37,7 +36,7 @@ public class SoundLoopMachine extends PositionedSound implements ITickableSound 
 	}
 	
 	public void setPitch(float f) {
-		field_147663_c = f;
+		pitch = f;
 	}
 	
 	public void stop() {

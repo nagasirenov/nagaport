@@ -1,0 +1,48 @@
+PRISTINE BlockCraneBase 4d92348a934efdaefcb2eb1c4f50afa5cf1b5ddec1df9a924cece2a05e73c561
+PRISTINE CraneBoxer 402136d92fee0517dac4e6b4d44e04149f71871b1ce21701cda3725ecab0eb2b
+PRISTINE CraneExtractor 0a3d06a2456debf5e01e0b997ab7b06f66af199829c4106d6e30f1c6d81de046
+PRISTINE CraneGrabber db0d3143f01968fc91a98ebd4ef60475bc8454b727d922b3ad4e1f6a8f9c8852
+PRISTINE CraneInserter 0a1e631a6c33e946199abdaab606025cb9850dd8108d6777710acf4340891f8d
+PRISTINE CraneUnboxer 17cb02d4f77f18f1eade1f3186c6f28d477504ee1526da5c9a875045113f5ff3
+ORACLE_SHA256 2453bb18970d367e735f7c1371ddb77a62bb0adfede1366fa54a927442e4ad1b
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS six whole production owners, actual crane tile base, native state and interfaces compile.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:29:50] [main/WARN]: Potentially Dangerous alternative prefix `crane_probe` for name `crane_4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS all16 native states/default iron-STONE/full-cube/drop semantics and pristine exhaustive inventory/world texture/rotation selectors across all seven overrides.
+PASS native ItemStack two-pass insertion, EMPTY/null absence, limits/access/order, side predicates, validity, NBT/damage matching, aliases and dirty calls.
+PASS native world item/package transfer, redstone gating, buffer/destroyer/remainder drops, input/output predicates, comparator and extractor redstone faces.
+PASS actual World/Chunk tile-preserving all16 metadata lifecycle, screwdriver direction/swap/flags, NBT/packet/client redraw and settings order; block replacement removes tile.
+PASS exact legacy piston fixed1.82/corner float/strict threshold/yaw placement across 840 cases and native hand/client/sneak activation boundaries (GUI transport excluded).
+PASS filter-settings relative slots/counts and original indexing/mode order, missing-key behavior, detached base lifecycle and native packet byte roundtrip.
+PASS initial native full/partial SPacketChunkData tag and byte roundtrip plus native client handleUpdateTag restore override/inventory/world textures for all five crane owners.
+PASS exact seeded drop slot ranges, count splitting, RNG/float motion order, retained item/damage/deep NBT, rejected-spawn behavior and comparator/removal order.
+PASS NativeCraneOwnersTest: 15477 native assertions.
+PRODUCTION 836177005773e3e657578a155e1f8cbf9e3d6844f2fe341cd10b282c03df2943 com/hbm/blocks/network/BlockCraneBase.java
+PRODUCTION fc58f26f7a91e6c61ae15c51bcf33270c1c9e3c7789db2f472ceeaf9e79a1e4a com/hbm/blocks/network/CraneBoxer.java
+PRODUCTION f9d47e961046504d75437d6af906cb3aec313790e36e7da37a64e7e55202e7f7 com/hbm/blocks/network/CraneExtractor.java
+PRODUCTION 00945b5f4fddfa72e1b48fcda8626e9c3f5c4c08539e1fea5e57f5d4c37ad751 com/hbm/blocks/network/CraneGrabber.java
+PRODUCTION b471c05ef087813855b58b7a254eb9b346a2ea7288889f0226c4477767a1a800 com/hbm/blocks/network/CraneInserter.java
+PRODUCTION ea2a626b8b3e3def33d6db75874c059a5eb018be67aca93a63be667adce7a5ff com/hbm/blocks/network/CraneUnboxer.java
+PRODUCTION 95aeabd7638417c5a90e2ea7441dd82ca1415d5f85f0b5b38c6085604ac5cc34 com/hbm/tileentity/network/TileEntityCraneBase.java
+PRODUCTION 59785176dea684180f3e8f48600a9e9aba13c1c0f108b47b9328becff1ac7879 com/hbm/blocks/IBlockSideRotation.java
+PRODUCTION dc4731f61ac3223a9170c0c2b22bae5d4c547ee23c9b4d8eee1566afe707d5bf com/hbm/blocks/SideRotationModelState.java
+PRODUCTION 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5 com/hbm/blocks/ITooltipProvider.java
+PRODUCTION 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b com/hbm/lib/ForgeDirection.java
+PRODUCTION 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 com/hbm/lib/RefStrings.java
+PRODUCTION c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62 api/hbm/block/IToolable.java
+PRODUCTION c07ead5d9ea14cc0965ed186ead974855e5a80bdd5029ed892e7b2241348e53c api/hbm/conveyor/IConveyorItem.java
+PRODUCTION 13edae9ee3a50964220945f959047c6fd361f18374215250b3fe9a60a25f87de api/hbm/conveyor/IConveyorPackage.java
+PRODUCTION 66e60569c71ba196aa26b625ae7decfcbd9b117ee35cebb29e693d3b09a834ed api/hbm/conveyor/IEnterableBlock.java
+BOUNDARY: real native registry/World/Chunk/Block/ItemStack/NBT/Container/redstone, bounded chunk provider/light skip/entity output; explicit NTM MachineBase/concrete tile engines/copy/filter/InventoryUtil/tool/registry collaborators. No production tile-engine tick/save/network transport/GUI/GL/full-mod acceptance.

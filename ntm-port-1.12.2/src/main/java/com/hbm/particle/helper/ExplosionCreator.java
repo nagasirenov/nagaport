@@ -16,7 +16,9 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
+import com.hbm.main.ModSoundEvents;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -72,7 +74,7 @@ public class ExplosionCreator implements IParticleCreator {
 
 		if(dist <= soundRange) {
 			String sound = dist <= soundRange * 0.4 ? "hbm:weapon.explosionLargeNear" : "hbm:weapon.explosionLargeFar";
-			PositionedSoundRecord positionedsoundrecord = new PositionedSoundRecord(new ResourceLocation(sound), 1000F, 0.9F + rand.nextFloat() * 0.2F, (float) x, (float) y, (float) z);
+			PositionedSoundRecord positionedsoundrecord = new PositionedSoundRecord(ModSoundEvents.resolve(sound), SoundCategory.BLOCKS, 1000F, 0.9F + rand.nextFloat() * 0.2F, (float) x, (float) y, (float) z);
 			Minecraft.getMinecraft().getSoundHandler().playDelayedSound(positionedsoundrecord, (int) (dist / speedOfSound));
 		}
 		
@@ -84,14 +86,9 @@ public class ExplosionCreator implements IParticleCreator {
 		// SMOKE PLUME
 		for(int i = 0; i < cloudCount; i++) {
 			ParticleRocketFlame fx = new ParticleRocketFlame(man, world, x, y, z).setScale(cloudScale);
-			fx.prevPosX = fx.posX;
-			fx.prevPosY = fx.posY;
-			fx.prevPosZ = fx.posZ;
-			fx.motionX = rand.nextGaussian() * 0.5 * cloudSpeedMult;
-			fx.motionY = rand.nextDouble() * 3 * cloudSpeedMult;
-			fx.motionZ = rand.nextGaussian() * 0.5 * cloudSpeedMult;
+			fx.setMotion(rand.nextGaussian() * 0.5 * cloudSpeedMult, rand.nextDouble() * 3 * cloudSpeedMult, rand.nextGaussian() * 0.5 * cloudSpeedMult);
 			fx.setMaxAge(70 + rand.nextInt(20));
-			fx.noClip = true;
+			fx.setCollides(false);
 			Minecraft.getMinecraft().effectRenderer.addEffect(fx);
 		}
 		
@@ -117,7 +114,7 @@ public class ExplosionCreator implements IParticleCreator {
 				int middle = debrisSize / 2 - 1;
 				
 				for(int i = 0; i < 2; i++) for(int j = 0; j < 2; j++) for(int k = 0; k < 2; k++)
-					wiaj.setBlock(middle + i, middle + j, middle + k, world.getBlock(cX + i, cY + j, cZ + k), world.getBlockMetadata(cX + i, cY+ j, cZ + k));
+					wiaj.setBlock(middle + i, middle + j, middle + k, world.getBlockState(new BlockPos(cX + i, cY + j, cZ + k)).getBlock(), world.getBlockState(new BlockPos(cX + i, cY+ j, cZ + k)).getBlock().getMetaFromState(world.getBlockState(new BlockPos(cX + i, cY+ j, cZ + k))));
 				
 				for(int layer = 2; layer <= (debrisSize / 2); layer++) {
 					for(int i = 0; i < debrisRetry; i++) {
@@ -125,12 +122,12 @@ public class ExplosionCreator implements IParticleCreator {
 						int jy = -layer + rand.nextInt(layer * 2 + 1);
 						int jz = -layer + rand.nextInt(layer * 2 + 1);
 						
-						if(wiaj.getBlock(middle + jx + 1, middle + jy, middle + jz) != Blocks.air || wiaj.getBlock(middle + jx - 1, middle + jy, middle + jz) != Blocks.air || 
-								wiaj.getBlock(middle + jx, middle + jy + 1, middle + jz) != Blocks.air || wiaj.getBlock(middle + jx, middle + jy - 1, middle + jz) != Blocks.air || 
-								wiaj.getBlock(middle + jx, middle + jy, middle + jz + 1) != Blocks.air || wiaj.getBlock(middle + jx, middle + jy, middle + jz - 1) != Blocks.air) {
+						if(wiaj.getBlock(middle + jx + 1, middle + jy, middle + jz) != Blocks.AIR || wiaj.getBlock(middle + jx - 1, middle + jy, middle + jz) != Blocks.AIR ||
+								wiaj.getBlock(middle + jx, middle + jy + 1, middle + jz) != Blocks.AIR || wiaj.getBlock(middle + jx, middle + jy - 1, middle + jz) != Blocks.AIR ||
+								wiaj.getBlock(middle + jx, middle + jy, middle + jz + 1) != Blocks.AIR || wiaj.getBlock(middle + jx, middle + jy, middle + jz - 1) != Blocks.AIR) {
 		
-							Block b = world.getBlock(cX + jx, cY + jy, cZ + jz);
-							int m = world.getBlockMetadata(cX + jx, cY + jy, cZ + jz);
+							Block b = world.getBlockState(new BlockPos(cX + jx, cY + jy, cZ + jz)).getBlock();
+							int m = world.getBlockState(new BlockPos(cX + jx, cY + jy, cZ + jz)).getBlock().getMetaFromState(world.getBlockState(new BlockPos(cX + jx, cY + jy, cZ + jz)));
 							wiaj.setBlock(middle + jx, middle + jy, middle + jz, b, m);
 						}
 					}

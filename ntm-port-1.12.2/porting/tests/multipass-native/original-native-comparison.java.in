@@ -1,0 +1,83 @@
+import java.nio.file.*;
+import java.util.*;
+import com.hbm.blocks.MultipassContext;
+import com.hbm.render.block.multipass.MultipassMaterials;
+import com.hbm.render.block.multipass.MultipassMaterials.Kind;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
+
+/** Compares the native pure selector to rows executed by pristine original methods.
+ * World/tile capture, camouflage model resolution, geometry and lighting are
+ * separate integration obligations. Nothing here replaces a platform API. */
+public class OriginalNativeComparison {
+ static long assertions;
+ static void check(boolean ok,String label){assertions++;if(!ok)throw new AssertionError(label);}
+ static Kind kind(String family){
+  switch(family){
+   case "BlockCablePaintable":return Kind.CABLE;case "BlockOpenComputersCablePaintable":return Kind.OC_CABLE;
+   case "FluidDuctPaintable":return Kind.FLUID;case "FluidDuctPaintableBlockExhaust":return Kind.EXHAUST;
+   case "PneumoTubePaintableBlock":return Kind.PNEUMATIC;case "BlockCableGauge":return Kind.CABLE_GAUGE;
+   case "FluidDuctGauge":return Kind.FLUID_GAUGE;case "CraneRouter":return Kind.ROUTER;
+   case "BlockFissure":return Kind.FISSURE;case "BlockOre":return Kind.ORE;
+   case "BlockBedrockOreTE":return Kind.BEDROCK_ORE;case "BlockSellafieldOre":return Kind.SELLAFIELD;
+   default:throw new AssertionError(family);
+  }
+ }
+ static String base(Kind k){
+  switch(k){
+   case CABLE:return "hbm:red_cable_base";case OC_CABLE:return "hbm:oc_cable_base";
+   case FLUID:return "hbm:fluid_duct_paintable";case EXHAUST:return "hbm:fluid_duct_paintable_block_exhaust";
+   case PNEUMATIC:return "hbm:pneumatic_tube_paintable";case CABLE_GAUGE:return "hbm:deco_red_copper";
+   case FLUID_GAUGE:return "hbm:deco_steel";case ROUTER:return "hbm:crane_in";
+   case FISSURE:case BEDROCK_ORE:return "minecraft:bedrock";
+   case ORE:return "hbm:ore_iron";case SELLAFIELD:return "hbm:ore_overlay_diamond";
+   default:throw new AssertionError(k);
+  }
+ }
+ static ResourceLocation nativeTexture(String name){int sep=name.indexOf(':');return new ResourceLocation(name.substring(0,sep),"blocks/"+name.substring(sep+1));}
+ public static void main(String[] args)throws Exception{
+  net.minecraft.init.Bootstrap.register();
+  IBlockState paint=new Block(Material.ROCK).getDefaultState();
+  List<ResourceLocation> stones=new ArrayList<>();
+  for(int n=0;n<OriginalMultipassMaterials.STONES.length;n++)stones.add(nativeTexture(OriginalMultipassMaterials.stone(n)));
+  Map<Kind,MultipassMaterials> materials=new EnumMap<>(Kind.class);
+  for(Kind k:Kind.values())materials.put(k,new MultipassMaterials(k,base(k),stones));
+  OriginalMultipassMaterials.BlockSellafieldSlaked slaked=new OriginalMultipassMaterials.BlockSellafieldSlaked();slaked.registerBlockIcons(OriginalMultipassMaterials.REGISTER);
+  OriginalMultipassMaterials.World world=new OriginalMultipassMaterials.World();
+  long rows=0,camouflage=0;
+  for(String line:Files.readAllLines(Paths.get(args[0]))){
+   if(!line.contains("\t")||line.startsWith("family\t"))continue;
+   String[] a=line.split("\t");Kind k=kind(a[0]);MultipassMaterials m=materials.get(k);
+   boolean item=a[1].equals("item");int scenario=Integer.parseInt(a[2]),meta=Integer.parseInt(a[3]);
+   int x=Integer.parseInt(a[4]),y=Integer.parseInt(a[5]),z=Integer.parseInt(a[6]),pass=Integer.parseInt(a[7]),side=Integer.parseInt(a[8]);
+   int expectedColor=Integer.parseInt(a[10],16);boolean visible=Boolean.parseBoolean(a[11]),opaque=Boolean.parseBoolean(a[12]);
+   boolean paintable=k==Kind.CABLE||k==Kind.OC_CABLE||k==Kind.FLUID||k==Kind.EXHAUST||k==Kind.PNEUMATIC;
+   boolean tile=!item&&scenario>0&&(paintable||k==Kind.BEDROCK_ORE);
+   world.meta=meta;String variant=slaked.getIcon(world,x,y,z,side).g();
+   int variation=variant.equals("hbm:sellafield_slaked")?0:Integer.parseInt(variant.substring(variant.lastIndexOf('_')+1));
+   int color=k==Kind.SELLAFIELD?slaked.colorMultiplier(world,x,y,z):k==Kind.FLUID&&tile?0x31a9d4:(k==Kind.OC_CABLE||k==Kind.BEDROCK_ORE)&&tile?0x25b37e:0xffffff;
+   MultipassContext c=MultipassContext.of(meta,!item&&scenario==2&&paintable?paint:null,tile,color,meta,2,3,variation);
+   String label=a[0]+" "+a[1]+" scenario="+scenario+" metadata="+meta+" pass="+pass+" side="+side;
+   boolean expectedCamouflage=a[9].startsWith("fixture:paint_side_");
+   check(m.camouflage(c,pass,item)==expectedCamouflage,label+" camouflage branch");
+   if(expectedCamouflage){check(c.paint==paint,label+" captured native paint state identity");camouflage++;}
+   else check(m.material(c,pass,side,item).equals(nativeTexture(a[9])),label+" material "+m.material(c,pass,side,item)+" != "+nativeTexture(a[9]));
+   check((m.color(c,pass,item)&0xffffff)==expectedColor,label+" RGB");
+   if(!opaque||k==Kind.ROUTER)check(m.visible(pass,side,item)==visible,label+" pass-local visibility");
+   else check(!visible,label+" original opaque-neighbor culling (native engine responsibility)");
+   int expectedPasses=item&&k!=Kind.FISSURE&&k!=Kind.ORE&&k!=Kind.SELLAFIELD?1:k==Kind.ROUTER?7:k==Kind.OC_CABLE?3:2;
+   check(m.passes(item)==expectedPasses,label+" pass count");rows++;
+  }
+  MultipassMaterials tube=materials.get(Kind.PNEUMATIC);
+  OriginalMultipassMaterials.PneumoTubePaintableBlock oldTube=new OriginalMultipassMaterials.PneumoTubePaintableBlock();oldTube.registerBlockIcons(OriginalMultipassMaterials.REGISTER);
+  OriginalMultipassMaterials.TileEntityPneumoTubePaintable oldTile=new OriginalMultipassMaterials.TileEntityPneumoTubePaintable();world.tile=oldTile;OriginalMultipassMaterials.currentPass=1;
+  for(int in=0;in<7;in++)for(int out=0;out<7;out++)for(int side=0;side<6;side++){
+   oldTile.insertionDir=OriginalMultipassMaterials.Direction.values()[in];oldTile.ejectionDir=OriginalMultipassMaterials.Direction.values()[out];
+   MultipassContext c=MultipassContext.of(0,null,true,0xffffff,0,out,in,0);
+   check(tube.material(c,1,side,false).equals(nativeTexture(oldTube.getIcon(world,0,0,0,side).g())),"all49 tube direction pairs");
+  }
+  System.out.println("PASS native MultipassMaterials against real-1.7.10-API original-source oracle: "+rows+" rows, "+assertions+" assertions; "+camouflage+" camouflage dispatches. All12 families, item exceptions, tint, pass-local culling, all49 direction pairs. Not world-capture/paint-sprite/geometry/light/damage parity.");
+ }
+}

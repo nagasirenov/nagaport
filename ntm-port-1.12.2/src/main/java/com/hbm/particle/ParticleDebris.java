@@ -7,18 +7,27 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.wiaj.WorldInAJar;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BlockRendererDispatcher;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class ParticleDebris extends EntityFX {
+public class ParticleDebris extends Particle {
+	// Local mesh orientation, independent of native particle billboard angle.
+	public float rotationYaw, rotationPitch, prevRotationYaw, prevRotationPitch;
+	// Purely cosmetic variation; native particles do not allocate Entity IDs.
+	protected final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;
+
 	
-	private RenderBlocks renderer;
 	public WorldInAJar world;
 	public static Random rng = new Random();
 
@@ -34,7 +43,7 @@ public class ParticleDebris extends EntityFX {
 		this.motionZ = mz * mult;
 		this.particleMaxAge = 100;
 		this.particleGravity = 0.15F;
-		this.noClip = true;
+		this.canCollide = false;
 	}
 
 	@Override
@@ -48,42 +57,36 @@ public class ParticleDebris extends EntityFX {
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
 		
-		if(this.particleAge > 5) this.noClip = false;
+		if(this.particleAge > 5) this.canCollide = true;
 		
-		rng.setSeed(this.getEntityId());
+		rng.setSeed(this.visualSeed);
 		this.prevRotationPitch = this.rotationPitch;
 		this.prevRotationYaw = this.rotationYaw;
 		this.rotationPitch += rng.nextFloat() * 10;
 		this.rotationYaw += rng.nextFloat() * 10;
 
-		if(this.getEntityId() % 3 == 0) {
+		if(this.visualSeed % 3 == 0) {
 			TextureManager man = Minecraft.getMinecraft().renderEngine;
-			ParticleRocketFlame fx = new ParticleRocketFlame(man, worldObj, posX, posY, posZ).setScale(1F * Math.max(world.sizeY, 6) / 16F);
-			fx.prevPosX = fx.posX;
-			fx.prevPosY = fx.posY;
-			fx.prevPosZ = fx.posZ;
+			ParticleRocketFlame fx = new ParticleRocketFlame(man, super.world, posX, posY, posZ).setScale(1F * Math.max(world.sizeY, 6) / 16F);
 			fx.setMaxAge(50);
 			Minecraft.getMinecraft().effectRenderer.addEffect(fx);
 		}
 		
 		this.motionY -= this.particleGravity;
 		
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 		
 		this.particleAge++;
-		if(this.onGround || this.isInWeb) this.setDead();
+		if(this.onGround || super.world.isMaterialInBB(getBoundingBox(), net.minecraft.block.material.Material.WEB)) this.setExpired();
 	}
 
 	@Override
-	public void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {
 		
 		if(world == null) return;
-		
-		if(renderer == null) {
-			renderer = new RenderBlocks(world);
-		}
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		Entity player = camera != null ? camera : Minecraft.getMinecraft().player;
+		if(player == null) return;
 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;
 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;
 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
@@ -92,12 +95,12 @@ public class ParticleDebris extends EntityFX {
 		float pY = (float) ((this.prevPosY + (this.posY - this.prevPosY) * (double) interp - dY));
 		float pZ = (float) ((this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - dZ));
 		
-		renderer.enableAO = true;
-		world.lightlevel = worldObj.getLightBrightnessForSkyBlocks((int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), 0);
+		BlockRendererDispatcher renderer = Minecraft.getMinecraft().getBlockRendererDispatcher();
+		world.lightlevel = super.world.getCombinedLight(new BlockPos(posX, posY, posZ), 0);
 
 		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL11.GL_BLEND);
-		//OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+		GlStateManager.disableBlend();
+		//GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
 		
 		GL11.glPushMatrix();
 		GL11.glTranslatef(pX, pY, pZ);
@@ -105,20 +108,20 @@ public class ParticleDebris extends EntityFX {
 		GL11.glRotated(prevRotationYaw + (rotationYaw - prevRotationYaw) * interp, 0, 0, 1);
 		GL11.glTranslated(-world.sizeX / 2D, -world.sizeY / 2D, -world.sizeZ / 2D);
 		
-		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Tessellator.instance.startDrawingQuads();
+		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		GlStateManager.shadeModel(GL11.GL_SMOOTH);
+		tess.begin(7, DefaultVertexFormats.BLOCK);
 		
 		for(int ix = 0; ix < world.sizeX; ix++) {
 			for(int iy = 0; iy < world.sizeY; iy++) {
 				for(int iz = 0; iz < world.sizeZ; iz++) {
-					try { renderer.renderBlockByRenderType(world.getBlock(ix, iy, iz), ix, iy, iz); } catch(Exception ex) { }
+					try { BlockPos blockPos = new BlockPos(ix, iy, iz); renderer.renderBlock(world.getBlockState(blockPos), blockPos, world, tess); } catch(Exception ex) { }
 				}
 			}
 		}
 		
-		Tessellator.instance.draw();
-		GL11.glShadeModel(GL11.GL_FLAT);
+		Tessellator.getInstance().draw();
+		GlStateManager.shadeModel(GL11.GL_FLAT);
 		GL11.glPopMatrix();
 	}
 }

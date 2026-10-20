@@ -18,8 +18,8 @@ public class ItemCustomRocket extends Item implements ISatChip {
 	public static ItemStack build(RocketStruct rocket) {
 		ItemStack stack = new ItemStack(ModItems.rocket_custom);
 
-		stack.stackTagCompound = new NBTTagCompound();
-		rocket.writeToNBT(stack.stackTagCompound);
+		stack.setTagCompound(new NBTTagCompound());
+		rocket.writeToNBT(stack.getTagCompound());
 
 		return stack;
 	}
@@ -33,21 +33,21 @@ public class ItemCustomRocket extends Item implements ISatChip {
 	}
 
 	public static RocketStruct get(ItemStack stack) {
-		if(stack == null || !(stack.getItem() instanceof ItemCustomRocket) || stack.stackTagCompound == null)
+		if(stack == null || !(stack.getItem() instanceof ItemCustomRocket) || stack.getTagCompound() == null)
 			return null;
 
-		return RocketStruct.readFromNBT(stack.stackTagCompound);
+		return RocketStruct.readFromNBT(stack.getTagCompound());
 	}
 
 	public static boolean hasFuel(ItemStack stack) {
-		if(stack == null || stack.stackTagCompound == null) return false;
-		return stack.stackTagCompound.getBoolean("hasFuel");
+		if(stack == null || stack.getTagCompound() == null) return false;
+		return stack.getTagCompound().getBoolean("hasFuel");
 	}
 
 	public static void setFuel(ItemStack stack, boolean hasFuel) {
 		if(stack == null) return;
-		if(stack.stackTagCompound == null) stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setBoolean("hasFuel", hasFuel);
+		if(stack.getTagCompound() == null) stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setBoolean("hasFuel", hasFuel);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -57,7 +57,7 @@ public class ItemCustomRocket extends Item implements ISatChip {
 
 		if(rocket == null) return;
 
-		list.add(TextFormatting.BOLD + "Payload: " + TextFormatting.GRAY + I18nUtil.resolveKey(rocket.capsule.part.getUnlocalizedName() + ".name"));
+		list.add(TextFormatting.BOLD + "Payload: " + TextFormatting.GRAY + I18nUtil.resolveKey(rocket.capsule.part.getTranslationKey() + ".name"));
 		list.add(TextFormatting.BOLD + "Stages: " + TextFormatting.GRAY + rocket.stages.size());
 
 		if(hasFuel(stack)) {

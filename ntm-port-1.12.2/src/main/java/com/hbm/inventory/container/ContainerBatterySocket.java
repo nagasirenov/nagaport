@@ -31,7 +31,7 @@ public class ContainerBatterySocket extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return socket.isUseableByPlayer(player);
+		return socket.isUsableByPlayer(player);
 	}
 	
 	@Override

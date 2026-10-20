@@ -1,77 +1,36 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
 
-import com.hbm.blocks.generic.BlockAlgaeFilm;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.util.ObjUtil;
+/** Native cached quads from the original algae OBJ, retaining ObjUtil's face shading. */
+public final class RenderAlgaeFilm implements IBakedModel {
+    private final List<BakedQuad> quads;
+    private final TextureAtlasSprite sprite;
+    private final ItemCameraTransforms transforms;
 
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.client.model.obj.WavefrontObject;
-
-public class RenderAlgaeFilm implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-		GL11.glPushMatrix();
-		{
-
-			Tessellator tessellator = Tessellator.instance;
-			IIcon iicon = block.getIcon(0, 0);
-			tessellator.setColorOpaque_F(1, 1, 1);
-	
-			if(renderer.hasOverrideBlockTexture()) {
-				iicon = renderer.overrideBlockTexture;
-			}
-	
-			GL11.glTranslated(0, -0.5, 0);
-			// GL11.glScaled(3.0D, 3.0D, 3.0D);
-			tessellator.startDrawingQuads();
-			ObjUtil.renderWithIcon(ResourceManager.algae_film, iicon, tessellator, 0, false);
-			tessellator.draw();
-			
-		}
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		if(renderer.hasOverrideBlockTexture()) {
-			iicon = renderer.overrideBlockTexture;
-		}
-
-		int meta = world.getBlockMetadata(x, y, z);
-		float rotation = 0;
-		if(meta == 4) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 5) rotation = 270F / 180F * (float) Math.PI;
-		if(meta == 3) rotation = 180F / 180F * (float)Math.PI;
-
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderWithIcon(ResourceManager.algae_film, iicon, tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockAlgaeFilm.renderID;
-	}
-	
+    public RenderAlgaeFilm(ObjMesh mesh, TextureAtlasSprite sprite, int meta, boolean inventory, ItemCameraTransforms transforms) {
+        this.sprite = sprite;
+        this.transforms = transforms;
+        List<BakedQuad> result = new ArrayList<>();
+        com.hbm.render.block.nativeblock.AtlasObjGeometry.appendWhole(result, mesh, sprite,
+                inventory, rotation(meta), 0F, 1D, 0.5D, 0D, 0.5D);
+        quads = Collections.unmodifiableList(result);
+    }
+    public static float rotation(int meta) {
+        return meta == 4 ? 90F / 180F * (float)Math.PI : meta == 5 ? 270F / 180F * (float)Math.PI : meta == 3 ? (float)Math.PI : 0F;
+    }
+    @Override public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) { return side == null ? quads : Collections.<BakedQuad>emptyList(); }
+    @Override public boolean isAmbientOcclusion() { return false; }
+    @Override public boolean isGui3d() { return true; }
+    @Override public boolean isBuiltInRenderer() { return false; }
+    @Override public TextureAtlasSprite getParticleTexture() { return sprite; }
+    @Override public ItemCameraTransforms getItemCameraTransforms() { return transforms; }
+    @Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }
 }

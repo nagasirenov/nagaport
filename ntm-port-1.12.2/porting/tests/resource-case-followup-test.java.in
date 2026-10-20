@@ -1,0 +1,63 @@
+import java.io.*;
+import java.net.*;
+import java.nio.file.*;
+import java.security.*;
+import java.util.*;
+import javax.imageio.ImageIO;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.resources.FolderResourcePack;
+import net.minecraft.client.resources.FileResourcePack;
+import net.minecraft.nbt.CompressedStreamTools;
+public class ResourceCaseFollowupMinecraftTest {
+ static byte[] bytes(InputStream in) throws Exception {try(InputStream s=in;ByteArrayOutputStream b=new ByteArrayOutputStream()){byte[] a=new byte[8192];int n;while((n=s.read(a))!=-1)b.write(a,0,n);return b.toByteArray();}}
+ static void check(boolean b,String m){if(!b)throw new AssertionError(m);}
+ static String hash(byte[] b)throws Exception{StringBuilder s=new StringBuilder();for(byte v:MessageDigest.getInstance("SHA-256").digest(b))s.append(String.format("%02x",v&255));return s.toString();}
+ public static void main(String[]args)throws Exception{
+  FolderResourcePack resources=new FolderResourcePack(new File(args[0]));
+  URLClassLoader resourcesLoader=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},null);
+  int png=0,nbt=0;
+  for(String line:Files.readAllLines(Paths.get(args[1]))){String[] e=line.split("\t");ResourceLocation loc=new ResourceLocation("hbm",e[0]);check(loc.getPath().equals(e[1]),"native normalize "+e[0]);
+   check(resources.resourceExists(loc),"resources missing "+loc);byte[] data=bytes(resources.getInputStream(loc));check(hash(data).equals(e[2]),"hash "+loc);
+   if(e[0].endsWith(".nbt")){String p="assets/"+loc.getNamespace()+"/"+loc.getPath();byte[] n=bytes(resourcesLoader.getResourceAsStream(p));check(hash(n).equals(e[2]),"classloader hash");check(CompressedStreamTools.readCompressed(new ByteArrayInputStream(n))!=null,"NBT parse");nbt++;}
+   else {check(ImageIO.read(new ByteArrayInputStream(data))!=null,"PNG parse");png++;}
+   System.out.println("PASS native real repository lookup / original bytes: "+loc);
+  }
+  System.out.println("PASS 32 native FolderResourcePack lookups; "+png+" PNG decodes; "+nbt+" native classloader/NBT decodes. Real repository resources; no staged copies or permissive case search.");
+  int zipCount = 0, jarNbtCount = 0;
+  try (FileResourcePack oldPack = new FileResourcePack(new File(args[3]));
+       FileResourcePack canonicalPack = new FileResourcePack(new File(args[4]));
+       URLClassLoader oldJar = new URLClassLoader(new URL[]{new File(args[3]).toURI().toURL()}, null);
+       URLClassLoader canonicalJar = new URLClassLoader(new URL[]{new File(args[4]).toURI().toURL()}, null)) {
+   for (String line : Files.readAllLines(Paths.get(args[2]))) {
+    String[] entry = line.split("\\t");
+    ResourceLocation location = new ResourceLocation("hbm", entry[0]);
+    check(location.getPath().equals(entry[1]), "ZIP native normalization " + location);
+    check(!oldPack.resourceExists(location), "historical case unexpectedly resolves " + location);
+    boolean missing = false;
+    try (InputStream ignored = oldPack.getInputStream(location)) {
+     // A successful lookup here would invalidate the case-regression oracle.
+    } catch (IOException expected) {
+     missing = true;
+    }
+    check(missing, "historical mixed-case ZIP must fail native lookup " + location);
+    check(canonicalPack.resourceExists(location), "canonical ZIP missing " + location);
+    byte[] data = bytes(canonicalPack.getInputStream(location));
+    check(hash(data).equals(entry[2]), "ZIP original hash " + location);
+    if (entry[0].endsWith(".nbt")) {
+     String name = "assets/" + location.getNamespace() + "/" + location.getPath();
+     check(oldJar.getResourceAsStream(name) == null, "historical classloader JAR unexpectedly resolves");
+     byte[] nbtBytes = bytes(canonicalJar.getResourceAsStream(name));
+     check(hash(nbtBytes).equals(entry[2]), "JAR classloader original hash");
+     check(CompressedStreamTools.readCompressed(new ByteArrayInputStream(nbtBytes)) != null, "JAR native NBT decode");
+     jarNbtCount++;
+    }
+    zipCount++;
+    System.out.println("PASS native FileResourcePack: historical entry fails, exact canonical entry resolves original bytes: " + location);
+   }
+  }
+  check(zipCount == 43 && jarNbtCount == 10, "bounded combined archive counts");
+  resourcesLoader.close();
+  System.out.println("PASS 43 native ZIP/JAR resource lookups and 10 classloader JAR/NBT decodes. Executed on host OS only; not a Windows runtime test.");
+
+ }
+}

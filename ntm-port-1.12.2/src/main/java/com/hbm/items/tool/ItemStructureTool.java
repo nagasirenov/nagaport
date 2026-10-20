@@ -59,24 +59,24 @@ public abstract class ItemStructureTool extends Item implements ILookOverlay {
 			return null;
 		}
 		
-		return new BlockPos(stack.stackTagCompound.getInteger("anchorX"), stack.stackTagCompound.getInteger("anchorY"), stack.stackTagCompound.getInteger("anchorZ"));
+		return new BlockPos(stack.getTagCompound().getInteger("anchorX"), stack.getTagCompound().getInteger("anchorY"), stack.getTagCompound().getInteger("anchorZ"));
 	}
 
 	public static void setAnchor(ItemStack stack, int x, int y, int z) {
 		
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("anchorX", x);
-		stack.stackTagCompound.setInteger("anchorY", y);
-		stack.stackTagCompound.setInteger("anchorZ", z);
+		stack.getTagCompound().setInteger("anchorX", x);
+		stack.getTagCompound().setInteger("anchorY", y);
+		stack.getTagCompound().setInteger("anchorZ", z);
 	}
 	
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
 		if(b == ModBlocks.structure_anchor) {
 			this.setAnchor(stack, x, y, z);
@@ -91,16 +91,16 @@ public abstract class ItemStructureTool extends Item implements ILookOverlay {
 			this.doTheThing(stack, world, x, y, z);
 		} else {
 			
-			if(!stack.stackTagCompound.hasKey("x")) {
-				stack.stackTagCompound.setInteger("x", x);
-				stack.stackTagCompound.setInteger("y", y);
-				stack.stackTagCompound.setInteger("z", z);
+			if(!stack.getTagCompound().hasKey("x")) {
+				stack.getTagCompound().setInteger("x", x);
+				stack.getTagCompound().setInteger("y", y);
+				stack.getTagCompound().setInteger("z", z);
 			} else {
 				if(world.isRemote)
 					this.doTheThing(stack, world, x, y, z);
-				stack.stackTagCompound.removeTag("x");
-				stack.stackTagCompound.removeTag("y");
-				stack.stackTagCompound.removeTag("z");
+				stack.getTagCompound().removeTag("x");
+				stack.getTagCompound().removeTag("y");
+				stack.getTagCompound().removeTag("z");
 			}
 		}
 		
@@ -115,7 +115,7 @@ public abstract class ItemStructureTool extends Item implements ILookOverlay {
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		ItemStack stack = Minecraft.getMinecraft().thePlayer.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player);
 		List<String> text = new ArrayList();
 		
 		BlockPos anchor = getAnchor(stack);
@@ -129,16 +129,16 @@ public abstract class ItemStructureTool extends Item implements ILookOverlay {
 			int dZ = z - anchor.getZ();
 			text.add(TextFormatting.YELLOW + "Position: " + dX + " / " + dY + " / " + dZ);
 			
-			if(this.dualUse() && stack.stackTagCompound.hasKey("x")) {
-				int sX = Math.abs(x - stack.stackTagCompound.getInteger("x")) + 1;
-				int sY = Math.abs(y - stack.stackTagCompound.getInteger("y")) + 1;
-				int sZ = Math.abs(z - stack.stackTagCompound.getInteger("z")) + 1;
+			if(this.dualUse() && stack.getTagCompound().hasKey("x")) {
+				int sX = Math.abs(x - stack.getTagCompound().getInteger("x")) + 1;
+				int sY = Math.abs(y - stack.getTagCompound().getInteger("y")) + 1;
+				int sZ = Math.abs(z - stack.getTagCompound().getInteger("z")) + 1;
 				text.add(TextFormatting.GOLD + "Selection: " + sX + " / " + sY + " / " + sZ);
 			}
 		}
 		
-		if(Minecraft.getMinecraft().thePlayer.isSneaking())
-			text.add("B: " + world.getBlock(x, y, z).getUnlocalizedName() + ", M: " + world.getBlockMetadata(x, y, z));
+		if(Minecraft.getMinecraft().player.isSneaking())
+			text.add("B: " + com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getTranslationKey() + ", M: " + com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 		
 		ILookOverlay.printGeneric(event, this.getItemStackDisplayName(stack), 0xffff00, 0x404000, text);
 	}

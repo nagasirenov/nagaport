@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/bismuth",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.iter",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.fusion"
+    },
+    "description": {
+      "translate": "achievement.fusion.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

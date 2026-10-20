@@ -1,0 +1,7 @@
+CL: bdw net/minecraft/client/gui/GuiScreen
+MD: bdw/a (Ljava/lang/String;II)V net/minecraft/client/gui/GuiScreen/func_146279_a (Ljava/lang/String;II)V
+MD: bdw/a (Ljava/util/List;II)V net/minecraft/client/gui/GuiScreen/func_146283_a (Ljava/util/List;II)V
+Original Forge1614 conf/methods.csv:
+func_146279_a,drawCreativeTabHoveringText,0,"Draws the text when mouse is over creative inventory tab. Params: current creative tab to be checked, current mouse x position, current mouse y position."
+Native stable39 methods.csv:
+func_146279_a,drawHoveringText,0,Draws the given text as a tooltip.

@@ -1,0 +1,46 @@
+import java.lang.reflect.*;
+import java.util.*;
+import sun.misc.Unsafe;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.util.math.Vec3d;
+import com.hbm.packet.toclient.ExplosionKnockbackPacket;
+public class ClientFieldNativeTest {
+ static Unsafe unsafe; static int assertions;
+ static void check(boolean b){assertions++;if(!b)throw new AssertionError(assertions);}
+ static <T>T alloc(Class<T> c)throws Exception{return (T)unsafe.allocateInstance(c);}
+ static void field(Class<?> c,String name,Class<?> type,int visibility)throws Exception{Field f=c.getDeclaredField(name);check(f.getType()==type);check((f.getModifiers()&(Modifier.PUBLIC|Modifier.PROTECTED|Modifier.PRIVATE))==visibility);check(!Modifier.isFinal(f.getModifiers())&&!Modifier.isStatic(f.getModifiers()));}
+ public static class Font extends FontRenderer {
+  List<String> calls; Font(){super(null,null,null,false);} public int drawString(String s,int x,int y,int color){calls.add(s+":"+x+":"+y+":"+color);return 0;}
+ }
+ public static class Screen extends GuiContainer {
+  Screen(){super(null);} void font(FontRenderer f){fontRenderer=f;} void size(int n){ySize=n;}
+  @Override protected void drawGuiContainerBackgroundLayer(float a,int b,int c){}
+  /*PRODUCTION_METHOD*/
+ }
+ public static void main(String[] args)throws Exception {
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);
+  field(GuiScreen.class,"fontRenderer",FontRenderer.class,Modifier.PROTECTED);
+  field(Minecraft.class,"player",EntityPlayerSP.class,Modifier.PUBLIC);
+  field(Minecraft.class,"world",WorldClient.class,Modifier.PUBLIC);
+  Field locale=I18n.class.getDeclaredField("i18nLocale");locale.setAccessible(true);locale.set(null,new net.minecraft.client.resources.Locale());
+  Screen screen=alloc(Screen.class);Font font=alloc(Font.class);font.calls=new ArrayList<>();screen.font(font);screen.size(204);
+  Method callback=GuiContainer.class.getDeclaredMethod("drawGuiContainerForegroundLayer",int.class,int.class);callback.setAccessible(true);callback.invoke(screen,0,0);
+  check(font.calls.equals(Arrays.asList("container.inventory:8:110:4210752")));
+  Font replacement=alloc(Font.class);replacement.calls=new ArrayList<>();screen.font(replacement);screen.size(222);callback.invoke(screen,99,-2);check(replacement.calls.equals(Arrays.asList("container.inventory:8:128:4210752")));check(font.calls.size()==1);
+  screen.font(null);try{callback.invoke(screen,0,0);throw new AssertionError();}catch(InvocationTargetException e){check(e.getCause() instanceof NullPointerException);}
+  Minecraft mc=alloc(Minecraft.class);Field instance=Minecraft.class.getDeclaredField("instance");instance.setAccessible(true);Object prior=instance.get(null);instance.set(null,mc);
+  try {
+   EntityPlayerSP player=alloc(EntityPlayerSP.class);mc.player=player;player.motionX=2;player.motionY=-3;player.motionZ=4;
+   ExplosionKnockbackPacket packet=new ExplosionKnockbackPacket(new Vec3d(0.5,1.5,-2));ExplosionKnockbackPacket.Handler handler=new ExplosionKnockbackPacket.Handler();check(handler.onMessage(packet,null)==null);check(player.motionX==2.5&&player.motionY==-1.5&&player.motionZ==2);
+   EntityPlayerSP next=alloc(EntityPlayerSP.class);mc.player=next;handler.onMessage(packet,null);check(next.motionX==.5&&next.motionY==1.5&&next.motionZ==-2);check(player.motionX==2.5);
+   mc.player=null;try{handler.onMessage(packet,null);throw new AssertionError();}catch(NullPointerException expected){check(true);}
+   WorldClient world=alloc(WorldClient.class);mc.world=world;check(Minecraft.getMinecraft().world==world);mc.world=null;check(Minecraft.getMinecraft().world==null);
+  } finally{instance.set(null,prior);}
+  System.out.println("PASS "+assertions+" native assertions; complete production packet plus exact extracted GUI callback; no GL or gameplay acceptance");
+ }
+}

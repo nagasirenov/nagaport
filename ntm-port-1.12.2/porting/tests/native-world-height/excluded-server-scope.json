@@ -1,0 +1,925 @@
+{
+  "reason": "Unproven unload queue lifecycle; no production edits applied",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before_sha256": "94e0b471a688c278f290855fd7d0c23f540c9c2f8f31e051b107c0e65693f901",
+      "after_sha256": "fa7dac7df5962fbd1a27cd3f4e000ec77df6d859923531791df45c89a1d2c078",
+      "edits": [
+        {
+          "start": 8141,
+          "end": 8172,
+          "a": 8167,
+          "b": 8171,
+          "before": "this.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, x, z)",
+          "receiver": "this.world",
+          "arguments": "x, z",
+          "left_context": "rand.nextGaussian() * radius);\n\t\t\t\t//gaussian distribution makes conversions more likely on the surface and rarer at the bottom\n\t\t\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/commands/CommandStations.java": {
+      "before_sha256": "0f87dba8fcbd0a0a4ad774f31c373995a8485c4e5423d1bb08b2cbdcbc4641cb",
+      "after_sha256": "c26caeca96ecc2e05de4a3acb7d7d66613f9aea99f6364f0035b259f9034ecbb",
+      "edits": [
+        {
+          "start": 3637,
+          "end": 3670,
+          "a": 3665,
+          "b": 3669,
+          "before": "player.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(player.world, x, z)",
+          "receiver": "player.world",
+          "arguments": "x, z",
+          "left_context": "\tif(dimensionId == SpaceConfig.orbitDimension) {\r\n\t\t\t\t\tplayer.setPositionAndUpdate(x + 0.5D, 130.0D, z + 0.5D);\r\n\t\t\t\t} else {\r\n\t\t\t\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/Ike/WorldGeneratorIke.java": {
+      "before_sha256": "1b20235ef5cb1ea46188529389f470190f9bb921f28d66954218017643dfc8df",
+      "after_sha256": "b2ec0d0288a48f2244fe22b2991bc61f3ef43b09078845c2a2efe9cdee172d2f",
+      "edits": [
+        {
+          "start": 3989,
+          "end": 4015,
+          "a": 4010,
+          "b": 4014,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "ture > 0 && rand.nextInt(WorldConfig.pyramidStructure) == 0) {\n\t\t\tint x = i + rand.nextInt(16);\n\t\t\tint z = j + rand.nextInt(16);\n\t\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/WorldGeneratorDuna.java": {
+      "before_sha256": "1a732a24100736c6cbb1a0b94aed1e9b69baec312659160ff5319c4a5bf49bf0",
+      "after_sha256": "6b048a305f5ba28fe4600b850ae3f3f1505661523dfca73b612d5d25f579f216",
+      "edits": [
+        {
+          "start": 2918,
+          "end": 2944,
+          "a": 2939,
+          "b": 2943,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "t);\n\n\n\t\tif(i == 0 && j == 0 && world.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian) {\n\t\t\tint x = 0;\n\t\t\tint z = 0;\n\t\t\tint y = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 3199,
+          "end": 3225,
+          "a": 3220,
+          "b": 3224,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "sableOnGeneration = true;\n\t\t}\n\n\t\tif(rand.nextInt(1234) == 0) {\n\t\t\tint x = i + rand.nextInt(16);\n\t\t\tint z = j + rand.nextInt(16);\n\t\t\tint y = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 1
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/WorldGeneratorEve.java": {
+      "before_sha256": "b1d0860fba48dfb2f6913d98dbddb48679b724472e707d9516093ead8eb8eeb0",
+      "after_sha256": "be9ef34a27e887ad7f2190c398183510df4bd3348eb04bd5c812f8240e0f24da",
+      "edits": [
+        {
+          "start": 2164,
+          "end": 2190,
+          "a": 2185,
+          "b": 2189,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": ", 1,  4, 1, 16, ModBlocks.ore_schrabidium, meta, stone);\n\n\t\tint x = i + rand.nextInt(16) + 8;\n\t\tint z = j + rand.nextInt(16) + 8;\n\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/orbit/OrbitalStation.java": {
+      "before_sha256": "ca112cc6ba8d0b63dfd4952b8fa0f139c6020dc0220cc719b67bcb4db853f09f",
+      "after_sha256": "ea1e8c6eeacc7221dbfe57a3ac065c8c8c53be3cd7b0893b2d86fcc4ee47c90e",
+      "edits": [
+        {
+          "start": 9406,
+          "end": 9440,
+          "a": 9427,
+          "b": 9439,
+          "before": "world.getHeightValue(pos.x, pos.z)",
+          "after": "com.hbm.world.WorldHeight.read(world, pos.x, pos.z)",
+          "receiver": "world",
+          "arguments": "pos.x, pos.z",
+          "left_context": "xtPos);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn (maxX - minX + 1) * (maxZ - minZ + 1);\n\t}\n\n\tprivate boolean isInStation(World world, ThreeInts pos) {\n\t\tif(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/WorldGeneratorTekto.java": {
+      "before_sha256": "fb74be8d7084385b9f93122e7eca1ea8dab9bfd0cd891f659e1872c8999f29bc",
+      "after_sha256": "80030e51a55be2d2c005d5448c0cc28baab49567367d69cffe6a77d6c45b7e6d",
+      "edits": [
+        {
+          "start": 2258,
+          "end": 2284,
+          "a": 2279,
+          "b": 2283,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "0; o < 2; o++) {\n\t\t\t\tif(rand.nextInt(10) == 0) {\n\t\t\t\t\tint x = i + rand.nextInt(16) + 8;\n\t\t\t\t\tint z = j + rand.nextInt(16) + 8;\n\t\t\t\t\tint y = ",
+          "invocation_total": 4,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 2594,
+          "end": 2620,
+          "a": 2615,
+          "b": 2619,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": " x, y, z);\n\t\t\t\t}\n\n\t\t\t\tif(rand.nextInt(8) == 0) {\n\t\t\t\t\tint x = i + rand.nextInt(16) + 8;\n\t\t\t\t\tint z = j + rand.nextInt(16) + 8;\n\t\t\t\t\tint y = ",
+          "invocation_total": 4,
+          "invocation_ordinal": 1
+        },
+        {
+          "start": 3007,
+          "end": 3033,
+          "a": 3028,
+          "b": 3032,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "Int(12) == 0) {\n\t\t\t\tfor(int o = 0; o < 4; o++) {\n\t\t\t\t\tint x = i + rand.nextInt(16) + 8;\n\t\t\t\t\tint z = j + rand.nextInt(16) + 8;\n\t\t\t\t\tint y = ",
+          "invocation_total": 4,
+          "invocation_ordinal": 2
+        },
+        {
+          "start": 3392,
+          "end": 3418,
+          "a": 3413,
+          "b": 3417,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "BaseTekto.forest) {\n\t\t\tfor(int o = 0; o < 8; o++) {\n\t\t\t\tint x = i + rand.nextInt(16) + 8;\n\t\t\t\tint z = j + rand.nextInt(16) + 8;\n\t\t\t\tint y = ",
+          "invocation_total": 4,
+          "invocation_ordinal": 3
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntitySpear.java": {
+      "before_sha256": "e491ef98e53738e2316a1359bbc82ba3a1ff9bfaf789801be42be31b022fe725",
+      "after_sha256": "a20cfba3c5dfafcc0957b31260c29acb2b3d151ec45f09fd08bbedceba362719",
+      "edits": [
+        {
+          "start": 1679,
+          "end": 1746,
+          "a": 1705,
+          "b": 1745,
+          "before": "this.world.getHeightValue((int)Math.floor(ix), (int)Math.floor(iz))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int)Math.floor(ix), (int)Math.floor(iz))",
+          "receiver": "this.world",
+          "arguments": "(int)Math.floor(ix), (int)Math.floor(iz)",
+          "left_context": "f(!this.world.isRemote) {\n\t\t\t\tdouble ix = posX + rand.nextGaussian() * 25;\n\t\t\t\tdouble iz = posZ + rand.nextGaussian() * 25;\n\t\t\t\tdouble iy = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 2447,
+          "end": 2518,
+          "a": 2473,
+          "b": 2517,
+          "before": "this.world.getHeightValue((int)Math.floor(posX), (int)Math.floor(posZ))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int)Math.floor(posX), (int)Math.floor(posZ))",
+          "receiver": "this.world",
+          "arguments": "(int)Math.floor(posX), (int)Math.floor(posZ)",
+          "left_context": ".advancement.NtmAdvancements.award(player, MainRegistry.digammaKauaiMoho);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif(this.world.isRemote) {\n\t\t\t\t\n\t\t\t\tdouble dy = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityBomber.java": {
+      "before_sha256": "035d8c851ff2438511d544ef8b5bb5855349689bfd8b6e286def32859683ccde",
+      "after_sha256": "3f3c29ac7444a2cdbffd7d94625c07e6c47400bd6f6c28eb5e6a7b9cc0eac19d",
+      "edits": [
+        {
+          "start": 3143,
+          "end": 3202,
+          "a": 3169,
+          "b": 3201,
+          "before": "this.world.getHeightValue((int) this.posX, (int) this.posZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) this.posX, (int) this.posZ)",
+          "receiver": "this.world",
+          "arguments": "(int) this.posX, (int) this.posZ",
+          "left_context": ".5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n\t\t\t\tExplosionChaos.spawnPoisonCloud(this.world, this.posX, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "e76dd90efd0b7ebabfde8dbf1b5b80f2f379699bb30b9490453c766ca257a7ef",
+      "after_sha256": "6d2368eaf7be1c1272415581f82cbea06309edd8e64c5cb6a343b05aa4534f2e",
+      "edits": [
+        {
+          "start": 13231,
+          "end": 13278,
+          "a": 13257,
+          "b": 13277,
+          "before": "this.world.getHeightValue((int)posX, (int)posZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int)posX, (int)posZ)",
+          "receiver": "this.world",
+          "arguments": "(int)posX, (int)posZ",
+          "left_context": "er.instance().hasOptifine()) {\n\t\t\t\t\trotationPitch = 0;\n\t\t\t\t}\n\t\t\t} else if(state == RocketState.LANDING) {\n\t\t\t\tdouble targetHeight = (double)",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 22819,
+          "end": 22866,
+          "a": 22845,
+          "b": 22865,
+          "before": "this.world.getHeightValue((int)posX, (int)posZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int)posX, (int)posZ)",
+          "receiver": "this.world",
+          "arguments": "(int)posX, (int)posZ",
+          "left_context": "cketState.TIPPING);\n\t\t\twillExplode = true;\n\t\t} else {\n\t\t\tsetState(RocketState.LANDED);\n\t\t}\n\n\t\tdestinationOverride = null;\n\n\t\tposY = (double)",
+          "invocation_total": 2,
+          "invocation_ordinal": 1
+        },
+        {
+          "start": 26195,
+          "end": 26236,
+          "a": 26221,
+          "b": 26235,
+          "before": "this.world.getHeightValue((int)x, (int)z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int)x, (int)z)",
+          "receiver": "this.world",
+          "arguments": "(int)x, (int)z",
+          "left_context": "25, -0.75, -0.25);\n\t\t\t\tParticleUtil.spawnGasFlame(this.world, x - r, y, z - r, -0.25, -0.75, -0.25);\n\t\t\t}\n\n\t\t\tdouble groundHeight = (double)",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 26691,
+          "end": 26732,
+          "a": 26717,
+          "b": 26731,
+          "before": "this.world.getHeightValue((int)x, (int)z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int)x, (int)z)",
+          "receiver": "this.world",
+          "arguments": "(int)x, (int)z",
+          "left_context": "\n\t\tif(state == RocketState.LANDING) {\n\t\t\tParticleUtil.spawnGasFlame(this.world, x, y, z, 0.0, -1.0, 0.0);\n\n\t\t\tdouble groundHeight = (double)",
+          "invocation_total": 2,
+          "invocation_ordinal": 1
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "98ca0f59742d6295f8533872daa84ebf3bc33770dd02c13a7baf07d2862c776c",
+      "after_sha256": "e77b75c64380cd9a586b4586ac990873ba635d0e5ee8fbb7630fb0ff74b97ba3",
+      "edits": [
+        {
+          "start": 5596,
+          "end": 5629,
+          "a": 5622,
+          "b": 5628,
+          "before": "this.world.getHeightValue(wX, wZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, wX, wZ)",
+          "receiver": "this.world",
+          "arguments": "wX, wZ",
+          "left_context": " vec.x / length * overshoot);\n\t\t\tint wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);\n\n\t\t\tthis.setWaypoint(wX, Math.max(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java": {
+      "before_sha256": "887b6956f0ad31e0bfa9c551904081624ebe9761c2170aa5429ee6e5a1caa52b",
+      "after_sha256": "43d4fbd70104b4dc9a84bbbf1c637cb5b85460173bd4f9008ed03049abb77b6c",
+      "edits": [
+        {
+          "start": 6264,
+          "end": 6357,
+          "a": 6290,
+          "b": 6356,
+          "before": "this.world.getHeightValue(MathHelper.floor(this.waypointX), MathHelper.floor(this.waypointZ))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, MathHelper.floor(this.waypointX), MathHelper.floor(this.waypointZ))",
+          "receiver": "this.world",
+          "arguments": "MathHelper.floor(this.waypointX), MathHelper.floor(this.waypointZ)",
+          "left_context": "pointY = this.targetedEntity.posY + this.targetedEntity.height * 0.5;\n\t\t\t\tthis.waypointZ = this.targetedEntity.posZ;\n\t\t\t\t\n\t\t\t\tint surface = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "before_sha256": "af2ffbd767fe767958f00aa41fe00566f8ba7ca572dfc4c4b9c3909a5382dfe4",
+      "after_sha256": "90914bff1b0d3fa69beb3e47ee78a350e497ea86dd7d3604d57483082c0a170e",
+      "edits": [
+        {
+          "start": 4530,
+          "end": 4589,
+          "a": 4556,
+          "b": 4588,
+          "before": "this.world.getHeightValue((int) waypointX, (int) waypointZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) waypointX, (int) waypointZ)",
+          "receiver": "this.world",
+          "arguments": "(int) waypointX, (int) waypointZ",
+          "left_context": "() * 2.0F - 1.0F) * 16.0F;\n\t\t\t\t\tthis.waypointZ = targetedEntity.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;\n\t\t\t\t\tthis.waypointY = ",
+          "invocation_total": 3,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 4812,
+          "end": 4871,
+          "a": 4838,
+          "b": 4870,
+          "before": "this.world.getHeightValue((int) waypointX, (int) waypointZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) waypointX, (int) waypointZ)",
+          "receiver": "this.world",
+          "arguments": "(int) waypointX, (int) waypointZ",
+          "left_context": ".nextFloat() * 2.0F - 1.0F) * 16.0F;\n\t\t\t\t\tthis.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;\n\t\t\t\t\tthis.waypointY = ",
+          "invocation_total": 3,
+          "invocation_ordinal": 1
+        },
+        {
+          "start": 5436,
+          "end": 5495,
+          "a": 5462,
+          "b": 5494,
+          "before": "this.world.getHeightValue((int) waypointX, (int) waypointZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) waypointX, (int) waypointZ)",
+          "receiver": "this.world",
+          "arguments": "(int) waypointX, (int) waypointZ",
+          "left_context": ".nextFloat() * 2.0F - 1.0F) * 16.0F;\n\t\t\t\t\tthis.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;\n\t\t\t\t\tthis.waypointY = ",
+          "invocation_total": 3,
+          "invocation_ordinal": 2
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityPigeon.java": {
+      "before_sha256": "ebb6ff13a73e0e65f9d8a7104dced8eacfa0a1b5dc6c59ea01002f06b6ae2fb6",
+      "after_sha256": "674b02918a4e6ab66d8155ce89285d80f8369bc348b6624bd0881042937dc439",
+      "edits": [
+        {
+          "start": 4405,
+          "end": 4478,
+          "a": 4431,
+          "b": 4477,
+          "before": "this.world.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) Math.floor(posX), (int) Math.floor(posZ))",
+          "receiver": "this.world",
+          "arguments": "(int) Math.floor(posX), (int) Math.floor(posZ)",
+          "left_context": "\n\n\t@Override\n\tprotected void updateAITasks() {\n\t\tsuper.updateAITasks();\n\n\t\tif(this.getFlyingState() == this.STATE_FLYING) {\n\t\t\tint height = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "b205eb4de786efbb1c883cd9651d652a4fa55740f3a926497b62e845ae9b80f3",
+      "after_sha256": "bd2582cb6a10039b7817d56ba65becd213ad368e2d8cf5b1466bee78aad72e21",
+      "edits": [
+        {
+          "start": 4643,
+          "end": 4676,
+          "a": 4669,
+          "b": 4675,
+          "before": "this.world.getHeightValue(wX, wZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, wX, wZ)",
+          "receiver": "this.world",
+          "arguments": "wX, wZ",
+          "left_context": " vec.x / length * overshoot);\n\t\t\tint wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);\n\n\t\t\tthis.setWaypoint(wX, Math.max(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFOBase.java": {
+      "before_sha256": "4864cae59246254ef013b8dd56fabdf2f2b21d1c57be9ef0ee607526ee0aa087",
+      "after_sha256": "79cac3bd814139d27aad1c5e872d6cedd639a9537ab7c933307641b3b990140b",
+      "edits": [
+        {
+          "start": 4445,
+          "end": 4478,
+          "a": 4471,
+          "b": 4477,
+          "before": "this.world.getHeightValue(wX, wZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, wX, wZ)",
+          "receiver": "this.world",
+          "arguments": "wX, wZ",
+          "left_context": " - vec.x / length * overshoot);\n\t\tint wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);\n\n\t\tthis.setWaypoint(wX, Math.max(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 4866,
+          "end": 4897,
+          "a": 4892,
+          "b": 4896,
+          "before": "this.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, x, z)",
+          "receiver": "this.world",
+          "arguments": "x, z",
+          "left_context": "int x = (int) Math.floor(posX + rand.nextGaussian() * 5);\n\t\tint z = (int) Math.floor(posZ + rand.nextGaussian() * 5);\n\t\tthis.setWaypoint(x, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "before_sha256": "4d7e7452c3710d9abe1a0179bb0c5386e3645ac9f4a96aa30a755e2714c035b5",
+      "after_sha256": "e8fc91dfe2e26fe845301af547727c6756264e9495eb55a139b749e7dbe88e56",
+      "edits": [
+        {
+          "start": 7219,
+          "end": 7258,
+          "a": 7245,
+          "b": 7257,
+          "before": "this.world.getHeightValue(nestX, nestZ)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, nestX, nestZ)",
+          "receiver": "this.world",
+          "arguments": "nestX, nestZ",
+          "left_context": "eX - scoutingRange);\n\t\tint nestZ = rand.nextInt((homeZ + scoutingRange) - (homeZ - scoutingRange)) + (homeZ - scoutingRange);\n\t\tint nestY = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java": {
+      "before_sha256": "7e0d4a664c33d128db4b8f77049e3335e0e2e7ddfb208f22edb58fb2e5ba0504",
+      "after_sha256": "8f380147b34f783bb1affa720becdd72f47f3c79355b837e5e330a0d0e634eec",
+      "edits": [
+        {
+          "start": 9554,
+          "end": 9585,
+          "a": 9580,
+          "b": 9584,
+          "before": "this.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, x, z)",
+          "receiver": "this.world",
+          "arguments": "x, z",
+          "left_context": "t x = (int) Math.floor(posX + rand.nextGaussian() * 15);\n\t\tint z = (int) Math.floor(posZ + rand.nextGaussian() * 15);\n\t\tthis.setWaypoint(x, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionBalefire.java": {
+      "before_sha256": "d9e7dfe88b89276f721ff17a3889bac6526703af8975c3c126da5567e04117b1",
+      "after_sha256": "216ea08a982a45b9ae708ee51d20ec399f0fad5a2fb2484c070c7e62a74ab3ad",
+      "edits": [
+        {
+          "start": 3091,
+          "end": 3122,
+          "a": 3115,
+          "b": 3121,
+          "before": "worldObj.getHeightValue(pX, pZ)",
+          "after": "com.hbm.world.WorldHeight.read(worldObj, pX, pZ)",
+          "receiver": "worldObj",
+          "arguments": "pX, pZ",
+          "left_context": "\t{\n\t\tint dist = (int) (radius - Math.sqrt(x * x + z * z));\n\t\t\n\t\tif (dist > 0) {\n\t\t\tint pX = posX + x;\n\t\t\tint pZ = posZ + z;\n\t\t\t\n\t\t\tint y  = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/BossSpawnHandler.java": {
+      "before_sha256": "4a87ef9dd99863372acf4a55b0f068de2dbd7a93ea72060293af44a72d7584a8",
+      "after_sha256": "07f0866f825f67862dc0cec73cc0a07b483a0faab95cb219151b3a2ae662377e",
+      "edits": [
+        {
+          "start": 2925,
+          "end": 2981,
+          "a": 2946,
+          "b": 2980,
+          "before": "world.getHeightValue((int)player.posX, (int)player.posZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, (int)player.posX, (int)player.posZ)",
+          "receiver": "world",
+          "arguments": "(int)player.posX, (int)player.posZ",
+          "left_context": "erMP.func_147099_x().writeStat(statPlace) > 0);\r\n\r\n\t\t\t\t\tif(acidizerStat && ContaminationUtil.getRads(player) >= MobConfig.maskmanMinRad && (",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 3410,
+          "end": 3456,
+          "a": 3431,
+          "b": 3455,
+          "before": "world.getHeightValue((int)spawnX, (int)spawnZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, (int)spawnX, (int)spawnZ)",
+          "receiver": "world",
+          "arguments": "(int)spawnX, (int)spawnZ",
+          "left_context": "= player.posX + world.rand.nextGaussian() * 20;\r\n\t\t\t\t\t\tdouble spawnZ = player.posZ + world.rand.nextGaussian() * 20;\r\n\t\t\t\t\t\tdouble spawnY = ",
+          "invocation_total": 5,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 4551,
+          "end": 4597,
+          "a": 4572,
+          "b": 4596,
+          "before": "world.getHeightValue((int)spawnX, (int)spawnZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, (int)spawnX, (int)spawnZ)",
+          "receiver": "world",
+          "arguments": "(int)spawnX, (int)spawnZ",
+          "left_context": "vec.x + world.rand.nextGaussian() * 5;\r\n\t\t\t\t\t\t\tdouble spawnZ = player.posZ + vec.z + world.rand.nextGaussian() * 5;\r\n\t\t\t\t\t\t\tdouble spawnY = ",
+          "invocation_total": 5,
+          "invocation_ordinal": 1
+        },
+        {
+          "start": 4939,
+          "end": 4985,
+          "a": 4960,
+          "b": 4984,
+          "before": "world.getHeightValue((int)spawnX, (int)spawnZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, (int)spawnX, (int)spawnZ)",
+          "receiver": "world",
+          "arguments": "(int)spawnX, (int)spawnZ",
+          "left_context": "vec.x + world.rand.nextGaussian() * 5;\r\n\t\t\t\t\t\t\tdouble spawnZ = player.posZ + vec.z + world.rand.nextGaussian() * 5;\r\n\t\t\t\t\t\t\tdouble spawnY = ",
+          "invocation_total": 5,
+          "invocation_ordinal": 2
+        },
+        {
+          "start": 6207,
+          "end": 6253,
+          "a": 6228,
+          "b": 6252,
+          "before": "world.getHeightValue((int)spawnX, (int)spawnZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, (int)spawnX, (int)spawnZ)",
+          "receiver": "world",
+          "arguments": "(int)spawnX, (int)spawnZ",
+          "left_context": ".posX + vec.x + world.rand.nextGaussian();\r\n\t\t\t\t\t\t\tdouble spawnZ = player.posZ + vec.z + world.rand.nextGaussian();\r\n\t\t\t\t\t\t\tdouble spawnY = ",
+          "invocation_total": 5,
+          "invocation_ordinal": 3
+        },
+        {
+          "start": 7167,
+          "end": 7213,
+          "a": 7188,
+          "b": 7212,
+          "before": "world.getHeightValue((int)spawnX, (int)spawnZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, (int)spawnX, (int)spawnZ)",
+          "receiver": "world",
+          "arguments": "(int)spawnX, (int)spawnZ",
+          "left_context": "ayer.posX + vec.x + world.rand.nextGaussian();\r\n\t\t\t\t\tdouble spawnZ = player.posZ + vec.z + world.rand.nextGaussian();\r\n\t\t\t\t\tdouble spawnY = ",
+          "invocation_total": 5,
+          "invocation_ordinal": 4
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ImpactWorldHandler.java": {
+      "before_sha256": "3e528f8ee43423152f9891d2467ced77eea41d9a156a6706cf5c5d7a3529fca1",
+      "after_sha256": "d74001a60a0160168232bda5ca75089e4c1591f6861e08623636553405320908",
+      "edits": [
+        {
+          "start": 1424,
+          "end": 1450,
+          "a": 1445,
+          "b": 1449,
+          "before": "world.getHeightValue(X, Z)",
+          "after": "com.hbm.world.WorldHeight.read(world, X, Z)",
+          "receiver": "world",
+          "arguments": "X, Z",
+          "left_context": "+) {\n\n\t\t\t\t\t\tif(world.rand.nextBoolean()) continue;\n\n\t\t\t\t\t\tint X = coord.getXStart() + x;\n\t\t\t\t\t\tint Z = coord.getZStart() + z;\n\t\t\t\t\t\tint Y = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 1484,
+          "end": 1510,
+          "a": 1505,
+          "b": 1509,
+          "before": "world.getHeightValue(X, Z)",
+          "after": "com.hbm.world.WorldHeight.read(world, X, Z)",
+          "receiver": "world",
+          "arguments": "X, Z",
+          "left_context": "t X = coord.getXStart() + x;\n\t\t\t\t\t\tint Z = coord.getZStart() + z;\n\t\t\t\t\t\tint Y = world.getHeightValue(X, Z) - world.rand.nextInt(Math.max(1, ",
+          "invocation_total": 2,
+          "invocation_ordinal": 1
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/pollution/PollutionHandler.java": {
+      "before_sha256": "e7244ee5cfa2d0a3f01cd8c7995ad11a373d655f4fe6e71bed80c24f455e42e4",
+      "after_sha256": "bb9c9ddab111f1ea1460ef6dc2cddf36688474085c367f769228844afc0fde0f",
+      "edits": [
+        {
+          "start": 9762,
+          "end": 9788,
+          "a": 9783,
+          "b": 9787,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "d.nextInt(64);\n\t\t\t\t\tint z = (entryPos.z << 6) + world.rand.nextInt(64);\n\t\t\t\t\t\n\t\t\t\t\tif(provider.chunkExists(x >> 4, z >> 4)) {\n\t\t\t\t\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java": {
+      "before_sha256": "55a069d821e8b9af4db39bd4547b9db79bf3e375244364551ba5342c5e41792f",
+      "after_sha256": "ec3632ba3283f6d9f436f0f0a3695f8a2a203dff74d233f21557c5790e48cd54",
+      "edits": [
+        {
+          "start": 3622,
+          "end": 3648,
+          "a": 3643,
+          "b": 3647,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "x, coord.z)) {\n\r\n\t\t\t\t\t\t\tint x = coord.x * 16 + world.rand.nextInt(16);\n\t\t\t\t\t\t\tint z = coord.z * 16 + world.rand.nextInt(16);\n\t\t\t\t\t\t\tint y = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 6901,
+          "end": 6927,
+          "a": 6922,
+          "b": 6926,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "orld.rand.nextInt(3) != 0)\r\n\t\t\t\t\t\t\t\t\tcontinue;\r\n\r\n\t\t\t\t\t\t\t\tint x = (coords.x << 4) + a;\n\t\t\t\t\t\t\t\tint z = (coords.z << 4) + b;\n\t\t\t\t\t\t\t\tint y = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 1
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory40mm.java": {
+      "before_sha256": "5b9876de6207e56e1cfc7dacf2a16368c10edf493e832c5424673e30843f22dc",
+      "after_sha256": "eef80a1e8a462a64f037380fecce52a217b4e50f3766baca69765c1dabd368cb",
+      "edits": [
+        {
+          "start": 6789,
+          "end": 6822,
+          "a": 6817,
+          "b": 6821,
+          "before": "bullet.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(bullet.world, x, z)",
+          "receiver": "bullet.world",
+          "arguments": "x, z",
+          "left_context": "ityC130 c130 = new EntityC130(bullet.world);\n\t\t\tint x = (int) Math.floor(bullet.posX);\n\t\t\tint z = (int) Math.floor(bullet.posZ);\n\t\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteLaser.java": {
+      "before_sha256": "24de6289348f94d9da3542c254289e7a9e1d07efc32835ff219e117059b89000",
+      "after_sha256": "5577402b92d6b5506b26a46faac0bdfe945472ff6b14b51450aab42dc16b8828",
+      "edits": [
+        {
+          "start": 780,
+          "end": 806,
+          "a": 801,
+          "b": 805,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "World world, int x, int z) {\n\n\t\tif(lastOp + 10000 < System.currentTimeMillis()) {\n    \t\tlastOp = System.currentTimeMillis();\n\n    \t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java": {
+      "before_sha256": "dee8283e4e399b6d867ab9f8da2a2f6bfc7d6d8f9fb67b617b53545d62b75c5b",
+      "after_sha256": "0df2157ad654fb2161c67ef13362d0037b3746971f659a6079820d7703d64181",
+      "edits": [
+        {
+          "start": 3542,
+          "end": 3609,
+          "a": 3568,
+          "b": 3608,
+          "before": "this.world.getHeightValue(this.pos.getX() + x, this.pos.getZ() + z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, this.pos.getX() + x, this.pos.getZ() + z)",
+          "receiver": "this.world",
+          "arguments": "this.pos.getX() + x, this.pos.getZ() + z",
+          "left_context": "s.world.skylightSubtracted - 11;\n\n\t\t\tboolean occluded = false;\n\t\t\tfor(int x = -3; x <= 3; x++) {\n\t\t\t\tfor(int z = -3; z <= 3; z++) {\n\t\t\t\t\tif(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java": {
+      "before_sha256": "c294d1c12acdcf3b19251c6ad5785f3d4ad905fdee70e5ce4a0a6764772ece5d",
+      "after_sha256": "9673384acb4f03856ee9cabc181eee90a7fee4b2ce72b2d53440e4abc3dac729",
+      "edits": [
+        {
+          "start": 6298,
+          "end": 6329,
+          "a": 6324,
+          "b": 6328,
+          "before": "this.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, x, z)",
+          "receiver": "this.world",
+          "arguments": "x, z",
+          "left_context": " getRange() + iZ;\n\n\t\t\t\t\tif(this.world.getChunkProvider().chunkExists(x >> 4, z >> 4)) {\n\t\t\t\t\t\tthis.map[index] = (byte) MathHelper.clamp_int(",
+          "invocation_total": 3,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 6564,
+          "end": 6595,
+          "a": 6590,
+          "b": 6594,
+          "before": "this.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, x, z)",
+          "receiver": "this.world",
+          "arguments": "x, z",
+          "left_context": "if(this.generateChunks) {\n\t\t\t\t\t\t\t\tthis.world.getChunkFromChunkCoords(x >> 4, z >> 4);\n\t\t\t\t\t\t\t\tthis.map[index] = (byte) MathHelper.clamp_int(",
+          "invocation_total": 3,
+          "invocation_ordinal": 1
+        },
+        {
+          "start": 6773,
+          "end": 6804,
+          "a": 6799,
+          "b": 6803,
+          "before": "this.world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(this.world, x, z)",
+          "receiver": "this.world",
+          "arguments": "x, z",
+          "left_context": "\t\t\t} else {\n\t\t\t\t\t\t\t\tWorldUtil.provideChunk((WorldServer) this.world, x >> 4, z >> 4);\n\t\t\t\t\t\t\t\tthis.map[index] = (byte) MathHelper.clamp_int(",
+          "invocation_total": 3,
+          "invocation_ordinal": 2
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseArtillery.java": {
+      "before_sha256": "d61e0a154dd14f69b910083b9050dd0cc3ce0abe98193887636156be3c0d0b70",
+      "after_sha256": "58186db89756115ae8846f8d6c49cb029ed59921330ad8e88660b9aed8951742",
+      "edits": [
+        {
+          "start": 1690,
+          "end": 1767,
+          "a": 1716,
+          "b": 1766,
+          "before": "this.world.getHeightValue((int) Math.floor(e.posX), (int) Math.floor(e.posZ))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) Math.floor(e.posX), (int) Math.floor(e.posZ))",
+          "receiver": "this.world",
+          "arguments": "(int) Math.floor(e.posX), (int) Math.floor(e.posZ)",
+          "left_context": "orRange() * 1.1) //the latter statement is only relevant for entities that have already been detected\n\t\t\t\treturn false;\n\t\t\t\n\t\t\tint height = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": {
+      "before_sha256": "a10c822c57c4d2ee6492cf8e8db2b4097a40ee298930b65b3177c08aa062b7c6",
+      "after_sha256": "0a02195e08422c57d1c37a1887e1c5367af90de536b2fbae39217f621cf233c4",
+      "edits": [
+        {
+          "start": 757,
+          "end": 783,
+          "a": 778,
+          "b": 782,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "concrete_broken),\n\t\t\t\tnew MetaBlock(ModBlocks.brick_concrete_cracked)});\n\t\t\n\t\ty = 20;\n\t\t\n\t\t/// PYRAMID Y LOCATION ///\n\t\tint yOff = Math.max(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 2771,
+          "end": 2799,
+          "a": 2792,
+          "b": 2798,
+          "before": "world.getHeightValue(ix, iz)",
+          "after": "com.hbm.world.WorldHeight.read(world, ix, iz)",
+          "receiver": "world",
+          "arguments": "ix, iz",
+          "left_context": " variance = 1D + rand.nextDouble() * 0.4D;\n\n\t\t\tint ix = (int) (x + vec.x * variance);\n\t\t\tint iz = (int) (z + vec.z * variance);\n\t\t\tint iy = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/ArcticVault.java": {
+      "before_sha256": "d747540e596849449d51ff5bff3e17093151c3f5e8ee9be3629ffdd777c877aa",
+      "after_sha256": "c47deb3e1c5742642c92fd8f6723d8bfbb8d0233d7ae2b1d34fa043be4887b4a",
+      "edits": [
+        {
+          "start": 4236,
+          "end": 4262,
+          "a": 4257,
+          "b": 4261,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "mentY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tint iy = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before_sha256": "cf448a60be951674dfd82be6c96fcfbf0dd76727477736843ab74ea8873d006d",
+      "after_sha256": "4d65d4f6e6b5bc68aa8e1da8a6d93e286ede0328ccc61561558c1f064ef676a1",
+      "edits": [
+        {
+          "start": 1160,
+          "end": 1188,
+          "a": 1181,
+          "b": 1187,
+          "before": "world.getHeightValue(rX, rZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, rX, rZ)",
+          "receiver": "world",
+          "arguments": "rX, rZ",
+          "left_context": "unt; i++) {\n\t\t\tint rX = x + (int)(world.rand.nextGaussian() * width);\n\t\t\tint rZ = z + (int)(world.rand.nextGaussian() * width);\n\t\t\tint rY = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 5294,
+          "end": 5322,
+          "a": 5315,
+          "b": 5321,
+          "before": "world.getHeightValue(rX, rZ)",
+          "after": "com.hbm.world.WorldHeight.read(world, rX, rZ)",
+          "receiver": "world",
+          "arguments": "rX, rZ",
+          "left_context": "aussian() * width);\n\n\t\t\tdouble crack = crackGeneratorPerlin.func_151601_a(rX * 0.25, rZ * 0.25);\n\n\t\t\tif(crack < 0.9) continue;\n\n\t\t\tint rY = ",
+          "invocation_total": 2,
+          "invocation_ordinal": 1
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/util/LogicBlockActions.java": {
+      "before_sha256": "800bd708e33ff872acbac40bd9211bd45ef3aaff12c4ea87268d0f35f4217f67",
+      "after_sha256": "e7ad9f0fe97c3692deb37384b9d8e318e4019983eba32f0e34f0f9afa92458fc",
+      "edits": [
+        {
+          "start": 2106,
+          "end": 2175,
+          "a": 2127,
+          "b": 2174,
+          "before": "world.getHeightValue((int) (x + 0.5 + vec.x),(int) (z + 0.5 + vec.z))",
+          "after": "com.hbm.world.WorldHeight.read(world, (int) (x + 0.5 + vec.x),(int) (z + 0.5 + vec.z))",
+          "receiver": "world",
+          "arguments": "(int) (x + 0.5 + vec.x),(int) (z + 0.5 + vec.z)",
+          "left_context": "yUndeadSoldier mob = new EntityUndeadSoldier(world);\r\n\t\t\t\t\tfor (int j = 0; j < 7; j++) {\r\n\t\t\t\t\t\tmob.setPositionAndRotation(x + 0.5 + vec.x, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 7941,
+          "end": 7966,
+          "a": 7962,
+          "b": 7965,
+          "before": "world.getHeightValue(x,z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x,z)",
+          "receiver": "world",
+          "arguments": "x,z",
+          "left_context": "0, 0);\r\n\t\t\tfor (int i = 0; i < 10; i++) {\r\n\t\t\t\tEntityZombie mob = new EntityZombie(world);\r\n\t\t\t\tmob.setPositionAndRotation(x + 0.5 + vec.x, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 15147,
+          "end": 15173,
+          "a": 15168,
+          "b": 15172,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "\tif(tile.phase == 2){\r\n\t\t\tworld.setBlock(x,y,z, ModBlocks.crate_steel);\r\n\r\n\t\t\tEntityLightningBolt blitz = new EntityLightningBolt(world, x, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    }
+  }
+}

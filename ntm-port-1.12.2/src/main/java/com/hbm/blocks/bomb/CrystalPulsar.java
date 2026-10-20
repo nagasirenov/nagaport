@@ -16,12 +16,12 @@ public class CrystalPulsar extends Block {
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
     	
-    	if(world.getBlock(x + 1, y, z) == ModBlocks.crystal_virus || 
-    			world.getBlock(x - 1, y, z) == ModBlocks.crystal_virus || 
-    			world.getBlock(x, y + 1, z) == ModBlocks.crystal_virus || 
-    			world.getBlock(x, y - 1, z) == ModBlocks.crystal_virus || 
-    			world.getBlock(x, y, z + 1) == ModBlocks.crystal_virus || 
-    			world.getBlock(x, y, z - 1) == ModBlocks.crystal_virus || 
+    	if(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || 
+    			com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || 
+    			com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || 
+    			com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || 
+    			com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || 
+    			com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || 
     			!world.isRemote) {
 			ExplosionChaos.hardenVirus(world, x, y, z, 10);
     	}

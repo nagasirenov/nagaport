@@ -1,0 +1,181 @@
+import java.io.File;
+import java.lang.reflect.Field;
+import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import sun.misc.Unsafe;
+
+/**
+ * Independent pristine-source recordings. Method bodies are inserted by build_oracle.py.
+ * This is not a Minecraft replacement: the recorder retains only calls made by the
+ * original callbacks; LegacyFaces executes the cached original Minecraft face code.
+ */
+final class OriginalSteelOracle {
+ static final double[] FULL={0,0,0,1,1,1};
+ static Layout active;
+ static final class Layout {
+  final List<Face> faces=new ArrayList<>();
+  final List<double[]> boxes=new ArrayList<>();
+  final double[] translation=new double[3];
+  int starts,draws,brightnessCalls;
+ }
+ static final class Face {
+  final double[] bounds;
+  final int side;
+  final boolean nt;
+  final float[] normal;
+  Face(RenderBlocks r,int s){bounds=r.bounds.clone();side=s;nt=r instanceof RecorderNT;normal=Tessellator.instance.normal.clone();}
+ }
+ static class IBlockAccess {
+  int meta;
+  IBlockAccess(int m){meta=m;}
+  int getBlockMetadata(int x,int y,int z){return meta;}
+ }
+ static final class World extends IBlockAccess {
+  int writes,flags=-1;
+  World(int m){super(m);}
+  boolean setBlockMetadataWithNotify(int x,int y,int z,int metadata,int flags){this.meta=metadata;this.flags=flags;writes++;return true;}
+ }
+ static final class IIcon {}
+ static class Entity {}
+ static class EntityLivingBase extends Entity {float rotationYaw;}
+ static final class EntityPlayer extends EntityLivingBase {boolean sneaking;boolean isSneaking(){return sneaking;}}
+ static final class ItemStack {}
+ static class TileEntity {}
+ static final class TileEntityDecoBlock extends TileEntity {}
+ static final class Item {static Item getItemFromBlock(Block block){return new Item();}}
+ enum ToolType {SCREWDRIVER,OTHER}
+ static final class MathHelper {static int floor_double(double d){int i=(int)d;return d<i?i-1:i;}}
+ static final class AxisAlignedBB {
+  final double minX,minY,minZ,maxX,maxY,maxZ;
+  AxisAlignedBB(double a,double b,double c,double d,double e,double f){minX=a;minY=b;minZ=c;maxX=d;maxY=e;maxZ=f;}
+  static AxisAlignedBB getBoundingBox(double a,double b,double c,double d,double e,double f){return new AxisAlignedBB(a,b,c,d,e,f);}
+  boolean intersectsWith(AxisAlignedBB b){return b.maxX>minX&&b.minX<maxX&&b.maxY>minY&&b.minY<maxY&&b.maxZ>minZ&&b.minZ<maxZ;}
+  double[] bounds(){return new double[]{minX,minY,minZ,maxX,maxY,maxZ};}
+ }
+ static class Block {
+  double minX,minY,minZ,maxX=1,maxY=1,maxZ=1;
+  void setBlockBounds(double a,double b,double c,double d,double e,double f){minX=a;minY=b;minZ=c;maxX=d;maxY=e;maxZ=f;}
+  void setBounds(double[] b){setBlockBounds(b[0],b[1],b[2],b[3],b[4],b[5]);}
+  double[] bounds(){return new double[]{minX,minY,minZ,maxX,maxY,maxZ};}
+  IIcon getIcon(int side,int meta){return new IIcon();}
+  int getMixedBrightnessForBlock(IBlockAccess w,int x,int y,int z){return 0x00f000f0;}
+  void setBlockBoundsBasedOnState(IBlockAccess w,int x,int y,int z){}
+  AxisAlignedBB getCollisionBoundingBoxFromPool(World w,int x,int y,int z){return AxisAlignedBB.getBoundingBox(x+minX,y+minY,z+minZ,x+maxX,y+maxY,z+maxZ);}
+  @SuppressWarnings("unchecked") void addCollisionBoxesToList(World w,int x,int y,int z,AxisAlignedBB mask,List result,Entity collider){AxisAlignedBB b=getCollisionBoundingBoxFromPool(w,x,y,z);if(b!=null&&mask.intersectsWith(b))result.add(b);}
+ }
+ static final class ModBlocks {
+  static final DecoBlock steel_wall=new DecoBlock(),steel_corner=new DecoBlock(),steel_roof=new DecoBlock(),steel_beam=new DecoBlock(),steel_scaffold=new DecoBlock();
+ }
+ static final class DecoBlock extends Block {
+  /* OWNER_METHODS */
+ }
+ static final class INBTBlockTransformable {
+  /* TRANSFORM_METHOD */
+ }
+ static final class Tessellator {
+  static final Tessellator instance=new Tessellator();
+  float[] normal={0,0,0};
+  void setBrightness(int b){active.brightnessCalls++;}
+  void startDrawingQuads(){active.starts++;}
+  void draw(){active.draws++;}
+  void setNormal(float x,float y,float z){normal=new float[]{x,y,z};}
+ }
+ static final class GL11 {
+  static void glTranslatef(float x,float y,float z){active.translation[0]+=x;active.translation[1]+=y;active.translation[2]+=z;}
+ }
+ static class RenderBlocks {
+  double[] bounds=FULL.clone();
+  void setRenderBounds(double... b){bounds=b.clone();}
+  void face(int s){active.faces.add(new Face(this,s));}
+  void renderStandardBlock(Block b,int x,int y,int z){active.boxes.add(bounds.clone());for(int s=0;s<6;s++)face(s);}
+  void renderFaceYNeg(Block b,double x,double y,double z,IIcon i){face(0);}
+  void renderFaceYPos(Block b,double x,double y,double z,IIcon i){face(1);}
+  void renderFaceZNeg(Block b,double x,double y,double z,IIcon i){face(2);}
+  void renderFaceZPos(Block b,double x,double y,double z,IIcon i){face(3);}
+  void renderFaceXNeg(Block b,double x,double y,double z,IIcon i){face(4);}
+  void renderFaceXPos(Block b,double x,double y,double z,IIcon i){face(5);}
+ }
+ static final class RecorderNT extends RenderBlocks {
+  static final RecorderNT INSTANCE=new RecorderNT();
+  RecorderNT setWorld(IBlockAccess w){return this;}
+ }
+ static final class Wall {
+  /* WALL_METHODS */
+ }
+ static final class Corner {
+  /* CORNER_METHODS */
+ }
+ static DecoBlock owner(boolean corner){return corner?ModBlocks.steel_corner:ModBlocks.steel_wall;}
+ static Layout layout(boolean corner,int metadata,boolean item){return layout(corner,metadata,item,FULL);}
+ /** priorBounds models the legacy singleton owner's preceding query/render history. */
+ static Layout layout(boolean corner,int metadata,boolean item,double[] priorBounds){
+  active=new Layout();Tessellator.instance.normal=new float[]{0,0,0};
+  DecoBlock owner=owner(corner);owner.setBounds(priorBounds);
+  IBlockAccess world=new IBlockAccess(metadata);RenderBlocks renderer=new RenderBlocks();
+  if(!item){owner.setBlockBoundsBasedOnState(world,0,0,0);renderer.setRenderBounds(owner.bounds());}
+  if(corner){if(item)new Corner().renderInventoryBlock(owner,metadata,0,renderer);else new Corner().renderWorldBlock(world,0,0,0,owner,0,renderer);}
+  else {if(item)new Wall().renderInventoryBlock(owner,metadata,0,renderer);else new Wall().renderWorldBlock(world,0,0,0,owner,0,renderer);}
+  return active;
+ }
+ static double[] selection(boolean corner,int metadata){return selection(corner,metadata,FULL);}
+ static double[] selection(boolean corner,int metadata,double[] priorBounds){DecoBlock b=owner(corner);b.setBounds(priorBounds);b.setBlockBoundsBasedOnState(new IBlockAccess(metadata),0,0,0);return b.bounds();}
+ static List<AxisAlignedBB> collision(boolean corner,int metadata,int x,int y,int z,AxisAlignedBB mask){return collision(corner,metadata,x,y,z,mask,FULL);}
+ static List<AxisAlignedBB> collision(boolean corner,int metadata,int x,int y,int z,AxisAlignedBB mask,double[] priorBounds){DecoBlock b=owner(corner);b.setBounds(priorBounds);List<AxisAlignedBB> out=new ArrayList<>();b.addCollisionBoxesToList(new World(metadata),x,y,z,mask,out,null);return out;}
+ static World placed(boolean corner,float yaw){World w=new World(0);EntityLivingBase player=new EntityLivingBase();player.rotationYaw=yaw;owner(corner).onBlockPlacedBy(w,0,0,0,player,new ItemStack());return w;}
+ static final class ScrewResult {final boolean handled;final World world;ScrewResult(boolean h,World w){handled=h;world=w;}}
+ static ScrewResult screw(boolean corner,int metadata,boolean sneaking,boolean screwdriver){World w=new World(metadata);EntityPlayer p=new EntityPlayer();p.sneaking=sneaking;boolean h=owner(corner).onScrew(w,p,0,0,0,0,0,0,0,screwdriver?ToolType.SCREWDRIVER:ToolType.OTHER);return new ScrewResult(h,w);}
+
+ /** The two corrected faces are extracted from pristine RenderBlocksNT verbatim. */
+ static final class OriginalNTFaces {
+  double renderMinX,renderMinY,renderMinZ,renderMaxX,renderMaxY,renderMaxZ;
+  boolean field_152631_f,flipTexture,renderFromInside,enableAO;
+  int uvRotateEast,uvRotateSouth,brightnessTopLeft,brightnessBottomLeft,brightnessBottomRight,brightnessTopRight;
+  float colorRedTopLeft,colorGreenTopLeft,colorBlueTopLeft,colorRedBottomLeft,colorGreenBottomLeft,colorBlueBottomLeft,colorRedBottomRight,colorGreenBottomRight,colorBlueBottomRight,colorRedTopRight,colorGreenTopRight,colorBlueTopRight;
+  TextureAtlasSprite overrideBlockTexture;
+  boolean hasOverrideBlockTexture(){return overrideBlockTexture!=null;}
+  static final class VertexTessellator {
+   static final VertexTessellator instance=new VertexTessellator();
+   final List<double[]> vertices=new ArrayList<>();
+   void addVertexWithUV(double x,double y,double z,double u,double v){vertices.add(new double[]{(float)x,(float)y,(float)z,(float)u,(float)v});}
+   void setColorOpaque_F(float r,float g,float b){}
+   void setBrightness(int light){}
+  }
+  /* NT_FACE_METHODS */
+  static double[][] face(double[] b,int side,TextureAtlasSprite icon){
+   OriginalNTFaces r=new OriginalNTFaces();r.renderMinX=b[0];r.renderMinY=b[1];r.renderMinZ=b[2];r.renderMaxX=b[3];r.renderMaxY=b[4];r.renderMaxZ=b[5];
+   VertexTessellator.instance.vertices.clear();
+   if(side==2)r.renderFaceZNeg(null,0,0,0,icon);else if(side==5)r.renderFaceXPos(null,0,0,0,icon);else throw new IllegalArgumentException("NT only changes north and east faces");
+   return VertexTessellator.instance.vertices.toArray(new double[0][]);
+  }
+ }
+ /** No downloads; original vanilla 1.7.10 class bytes execute in an isolated loader. */
+ static final class LegacyFaces implements AutoCloseable {
+  final URLClassLoader loader;
+  final Class<?> renderer,block,iconType,tessType;
+  final Object render,tess;
+  final Field raw,count,ptr;
+  static Field field(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}
+  LegacyFaces(File jar)throws Exception{
+   loader=new URLClassLoader(new java.net.URL[]{jar.toURI().toURL()},OriginalSteelOracle.class.getClassLoader());
+   renderer=Class.forName("blm",true,loader);block=Class.forName("aji",true,loader);iconType=Class.forName("rf",true,loader);tessType=Class.forName("bmh",true,loader);
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+  }
+  double[][] standardFace(double[] bounds,int side,final TextureAtlasSprite sprite)throws Exception{
+   String[] names={"i","k","m","j","l","n"};for(int i=0;i<6;i++)field(renderer,names[i]).setDouble(render,bounds[i]);
+   Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(p,m,a)->{
+    if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);
+    switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}
+   });
+   count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(side,side+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);
+   if(count.getInt(tess)!=4)throw new AssertionError("Legacy face vertex count");int[] data=(int[])raw.get(tess);double[][] v=new double[4][5];for(int i=0;i<4;i++)for(int j=0;j<5;j++)v[i][j]=Float.intBitsToFloat(data[i*8+j]);return v;
+  }
+  double[][] face(Face face,TextureAtlasSprite sprite)throws Exception{return face.nt&&(face.side==2||face.side==5)?OriginalNTFaces.face(face.bounds,face.side,sprite):standardFace(face.bounds,face.side,sprite);}
+  /** Native item coordinates are block-centered, adding +.5 to each legacy GL axis. */
+  double[][] face(Face face,TextureAtlasSprite sprite,Layout layout,boolean item)throws Exception{double[][] vertices=face(face,sprite);if(item)for(double[] v:vertices)for(int axis=0;axis<3;axis++)v[axis]=(float)(v[axis]+layout.translation[axis]+.5);return vertices;}
+  public void close()throws Exception{loader.close();}
+ }
+}

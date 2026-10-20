@@ -77,11 +77,11 @@ public class GenericFluidBlock extends BlockFluidClassic {
 					if(entity.ticksExisted % 20 == 0 && !world.isRemote) {
 						entity.attackEntityFrom(damageSource, damage * 0.1F);
 						
-						if(this == ModBlocks.sulfuric_acid_block && entity.isDead && ((EntityItem)entity).getEntityItem().getItem() == Items.slime_ball) {
-							List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, entity.boundingBox.expand(10, 10, 10));
+						if(this == ModBlocks.sulfuric_acid_block && entity.isDead && ((EntityItem)entity).getEntityItem().getItem() == Items.SLIME_BALL) {
+							List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, entity.getEntityBoundingBox().grow(10, 10, 10));
 							
 							for(EntityPlayer player : players)
-								player.triggerAchievement(MainRegistry.achSulfuric);
+								com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achSulfuric);
 						}
 					}
 					if(entity.ticksExisted % 5 == 0) {

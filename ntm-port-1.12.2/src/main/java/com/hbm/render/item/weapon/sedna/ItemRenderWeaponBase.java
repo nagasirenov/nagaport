@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,9 +29,22 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
+import com.hbm.render.item.nativeitem.context.ContextItemRenderer;
 
-public abstract class ItemRenderWeaponBase implements IItemRenderer {
+public abstract class ItemRenderWeaponBase extends ContextItemRenderer {
+
+    private static final net.minecraft.client.renderer.vertex.VertexFormat WEAPON_FLASH_FORMAT = new net.minecraft.client.renderer.vertex.VertexFormat()
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_3F)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.COLOR_4UB)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.TEX_2F)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.TEX_2S)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.NORMAL_3B)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.PADDING_1B);
+    private static final net.minecraft.client.renderer.vertex.VertexFormat WEAPON_SMOKE_FORMAT = new net.minecraft.client.renderer.vertex.VertexFormat()
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_3F)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.COLOR_4UB)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.NORMAL_3B)
+            .addElement(net.minecraft.client.renderer.vertex.DefaultVertexFormats.PADDING_1B);
 
 	public static final ResourceLocation flash_plume = new ResourceLocation(RefStrings.MODID, "textures/models/weapons/lilmac_plume.png");
 	public static final ResourceLocation laser_flash = new ResourceLocation(RefStrings.MODID, "textures/models/weapons/laser_flash.png");
@@ -39,83 +55,74 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	public boolean isAkimbo(EntityLivingBase entity) { return false; }
 	public boolean isLeftHanded() { return false; }
 
-	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		return type != ItemRenderType.FIRST_PERSON_MAP;
-	}
+    @Override public final javax.vecmath.Matrix4f localTransform(ItemStack stack, NativeItemContext context) {
+        // Caller compensation belongs to the native baked model. Setup methods
+        // execute in the actual draw, not in a matrix-capture approximation.
+        return new com.hbm.render.item.nativeitem.ItemTransformMatrix().build();
+    }
+    protected static boolean isThirdPerson(TransformType type) {
+        return type == TransformType.THIRD_PERSON_LEFT_HAND || type == TransformType.THIRD_PERSON_RIGHT_HAND;
+    }
+    @Override protected void draw(ItemStack item, NativeItemContext context) {
+        GL11.glPushMatrix();
+        try {
+            GL11.glEnable(GL11.GL_CULL_FACE);
+            switch(context.transform) {
+            case FIRST_PERSON_LEFT_HAND:
+            case FIRST_PERSON_RIGHT_HAND: setupFirstPerson(item); renderFirstPerson(item); break;
+            case THIRD_PERSON_LEFT_HAND:
+            case THIRD_PERSON_RIGHT_HAND:
+                if(!isLeftHanded()) { setupThirdPerson(item); renderEquipped(item, context); }
+                break;
+            case GUI: setupInv(item); renderInv(item); break;
+            case GROUND:
+            case FIXED:
+            case HEAD:
+            case NONE: setupEntity(item); renderEntity(item); break;
+            default: throw new IllegalArgumentException("Unsupported native weapon transform: " + context.transform);
+            }
+        } finally { GL11.glPopMatrix(); }
+    }
 
-	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return helper == ItemRendererHelper.ENTITY_BOBBING || helper == ItemRendererHelper.ENTITY_ROTATION;
-	}
-	
-	@SuppressWarnings("incomplete-switch") //shut the fuck up
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		switch(type) {
-		case EQUIPPED_FIRST_PERSON:	setupFirstPerson(item);	renderFirstPerson(item); break;
-		case EQUIPPED:
-		if(isLeftHanded()) break;	setupThirdPerson(item);	renderEquipped(item, data); break;
-		case INVENTORY:				setupInv(item);			renderInv(item); break;
-		case ENTITY:				setupEntity(item);		renderEntity(item); break;
-		}
-		GL11.glPopMatrix();
-	}
-	//entitylivingbase is second Object passed
-	public void renderEquipped(ItemStack stack, Object... data) { renderOther(stack, ItemRenderType.EQUIPPED, data); }
-	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase entity) { renderOther(stack, ItemRenderType.EQUIPPED); }
-	public void renderInv(ItemStack stack) { renderOther(stack, ItemRenderType.INVENTORY); }
-	public void renderEntity(ItemStack stack) { renderOther(stack, ItemRenderType.ENTITY); }
+	// Explicit native holder, including remote players, is supplied by item overrides.
+	public void renderEquipped(ItemStack stack, NativeItemContext context) { renderOther(stack, context); }
+	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase entity) { renderOther(stack, new NativeItemContext(TransformType.THIRD_PERSON_LEFT_HAND, entity)); }
+	public void renderInv(ItemStack stack) { renderOther(stack, new NativeItemContext(TransformType.GUI, null)); }
+	public void renderEntity(ItemStack stack) { renderOther(stack, new NativeItemContext(TransformType.GROUND, null)); }
 
-	public void setPerspectiveAndRender(ItemStack stack, float interp) {
-		
-		this.interp = interp;
-		
-		Minecraft mc = Minecraft.getMinecraft();
-		EntityRenderer entityRenderer = mc.entityRenderer;
-		float farPlaneDistance = mc.gameSettings.renderDistanceChunks * 16;
+    /** Draw one real cached native hand, preserving the original custom projection
+     * and animation body. The caller owns depth clearing and the single overlay. */
+    public void renderNativeHand(ItemStack stack, float partialTicks, net.minecraft.util.EnumHand hand,
+            net.minecraft.util.EnumHandSide side) {
+        float previousInterpolation = interp;
+        interp = partialTicks;
+        try(com.hbm.render.item.nativeitem.context.NativeProjectionScope scope = new com.hbm.render.item.nativeitem.context.NativeProjectionScope()) {
+            applyHandProjection(stack, partialTicks, hand);
+            GL11.glMatrixMode(GL11.GL_MODELVIEW);
+            GL11.glLoadIdentity();
+            if(side == net.minecraft.util.EnumHandSide.LEFT) {
+                GL11.glScalef(-1, 1, 1);
+                net.minecraft.client.renderer.GlStateManager.cullFace(net.minecraft.client.renderer.GlStateManager.CullFace.FRONT);
+            }
+            setupTransformsAndRender(stack, side == net.minecraft.util.EnumHandSide.LEFT
+                    ? TransformType.FIRST_PERSON_LEFT_HAND : TransformType.FIRST_PERSON_RIGHT_HAND);
+        } finally { interp = previousInterpolation; }
+    }
+    public void applyHandProjection(ItemStack stack, float partialTicks, net.minecraft.util.EnumHand hand) {
+        Minecraft mc = Minecraft.getMinecraft();
+        float farPlaneDistance = mc.gameSettings.renderDistanceChunks * 16;
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glLoadIdentity();
+        Project.gluPerspective(getFOVModifier(stack, partialTicks, ClientConfig.GUN_MODEL_FOV.get(), hand),
+                (float)mc.displayWidth / (float)mc.displayHeight, .05F, farPlaneDistance * 2);
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+    }
 
-		GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
-		GL11.glMatrixMode(GL11.GL_PROJECTION);
-		GL11.glLoadIdentity();
-
-		Project.gluPerspective(this.getFOVModifier(interp, ClientConfig.GUN_MODEL_FOV.get()), (float) mc.displayWidth / (float) mc.displayHeight, 0.05F, farPlaneDistance * 2.0F);
-
-		GL11.glMatrixMode(GL11.GL_MODELVIEW);
-		GL11.glLoadIdentity();
-
-		GL11.glPushMatrix();
-
-		if(mc.gameSettings.thirdPersonView == 0 && !mc.renderViewEntity.isPlayerSleeping() && !mc.gameSettings.hideGUI && !mc.playerController.enableEverythingIsScrewedUpMode()) {
-			/*ItemRenderer ir = mc.entityRenderer.itemRenderer;
-			float equip = ir.prevEquippedProgress + (ir.equippedProgress- ir.prevEquippedProgress) * interp;
-			Animation current = HbmAnimations.getRelevantAnim();
-			// flicker prevention, if equip is in progress, only render if an animation is playing
-			if(!(equip < 0.25 && ir.prevEquippedProgress < ir.equippedProgress && (current == null || current.type != AnimType.EQUIP))) {
-				entityRenderer.enableLightmap(interp);
-				this.setupTransformsAndRender(stack);
-				entityRenderer.disableLightmap(interp);
-			}*/
-			
-			entityRenderer.enableLightmap(interp);
-			this.setupTransformsAndRender(stack);
-			entityRenderer.disableLightmap(interp);
-		}
-
-		GL11.glPopMatrix();
-
-		if(mc.gameSettings.thirdPersonView == 0 && !mc.renderViewEntity.isPlayerSleeping()) {
-			entityRenderer.itemRenderer.renderOverlays(interp);
-		}
-	}
-
-	private float getFOVModifier(float interp, boolean useFOVSetting) {
+	private float getFOVModifier(ItemStack stack, float interp, boolean useFOVSetting, net.minecraft.util.EnumHand hand) {
 		
 		Minecraft mc = Minecraft.getMinecraft();
-		EntityLivingBase entityplayer = (EntityLivingBase) mc.renderViewEntity;
-		float fov = getBaseFOV(entityplayer.getHeldItem());
+		EntityLivingBase entityplayer = (EntityLivingBase) mc.getRenderViewEntity();
+		float fov = getBaseFOV(hand == net.minecraft.util.EnumHand.MAIN_HAND ? entityplayer.getHeldItemMainhand() : stack);
 
 		if(useFOVSetting) fov = mc.gameSettings.fovSetting;
 
@@ -124,8 +131,8 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 			fov /= (1.0F - 500.0F / (f2 + 500.0F)) * 2.0F + 1.0F;
 		}
 
-		Block block = ActiveRenderInfo.getBlockAtEntityViewpoint(mc.theWorld, entityplayer, interp);
-		if(block.getMaterial() == Material.water) fov = fov * 60.0F / 70.0F;
+		net.minecraft.block.state.IBlockState block = ActiveRenderInfo.getBlockStateAtEntityViewpoint(mc.world, entityplayer, interp);
+		if(block.getMaterial() == Material.WATER) fov = fov * 60.0F / 70.0F;
 
 		return fov;
 	}
@@ -136,9 +143,9 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	protected float getSwayPeriod(ItemStack stack) { return 0.75F; }
 	protected float getTurnMagnitude(ItemStack stack) { return 2.75F; }
 	
-	protected void setupTransformsAndRender(ItemStack stack) {
+	protected void setupTransformsAndRender(ItemStack stack, TransformType transform) {
 		Minecraft mc = Minecraft.getMinecraft();
-		EntityPlayer player = mc.thePlayer;
+		EntityPlayer player = mc.player;
 
 		float swayMagnitude = getSwayMagnitude(stack);
 		float swayPeriod = getSwayPeriod(stack);
@@ -162,14 +169,14 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 		GL11.glRotatef((player.rotationYaw - armYaw) * 0.1F * turnMagnitude, 0.0F, 1.0F, 0.0F);
 
 		//brightness setup
-		int brightness = mc.theWorld.getLightBrightnessForSkyBlocks(MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ), 0);
+		int brightness = mc.world.getCombinedLight(new net.minecraft.util.math.BlockPos(player.posX, player.posY, player.posZ), 0);
 		int j = brightness % 65536;
 		int k = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j / 1.0F, (float) k / 1.0F);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
 		//color setup
-		int color = stack.getItem().getColorFromItemStack(stack, 0);
+		int color = mc.getItemColors().colorMultiplier(stack, 0);
 		float r = (float) (color >> 16 & 255) / 255.0F;
 		float g = (float) (color >> 8 & 255) / 255.0F;
 		float b = (float) (color & 255) / 255.0F;
@@ -180,12 +187,12 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 		//swing
 		/*float swing = player.getSwingProgress(interp);
 		float swingZ = MathHelper.sin(swing * (float) Math.PI);
-		float swingX = MathHelper.sin(MathHelper.sqrt_float(swing) * (float) Math.PI);
-		GL11.glTranslatef(-swingX * 0.4F, MathHelper.sin(MathHelper.sqrt_float(swing) * (float) Math.PI * 2.0F) * 0.2F, -swingZ * 0.2F);
+		float swingX = MathHelper.sin(MathHelper.sqrt(swing) * (float) Math.PI);
+		GL11.glTranslatef(-swingX * 0.4F, MathHelper.sin(MathHelper.sqrt(swing) * (float) Math.PI * 2.0F) * 0.2F, -swingZ * 0.2F);
 
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		float swingYaw = MathHelper.sin(swing * swing * (float) Math.PI);
-		float swingPitchRoll = MathHelper.sin(MathHelper.sqrt_float(swing) * (float) Math.PI);
+		float swingPitchRoll = MathHelper.sin(MathHelper.sqrt(swing) * (float) Math.PI);
 		GL11.glRotatef(-swingYaw * 20.0F, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-swingPitchRoll * 20.0F, 0.0F, 0.0F, 1.0F);
 		GL11.glRotatef(-swingPitchRoll * 80.0F, 1.0F, 0.0F, 0.0F);*/
@@ -195,8 +202,8 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 		GL11.glRotated(180, 0, 1, 0);
 
 		//viewbob
-		if(mc.renderViewEntity instanceof EntityPlayer) {
-			EntityPlayer entityplayer = (EntityPlayer) mc.renderViewEntity;
+		if(mc.getRenderViewEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) mc.getRenderViewEntity();
 			float distanceDelta = entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
 			float distanceInterp = -(entityplayer.distanceWalkedModified + distanceDelta * interp);
 			float camYaw = entityplayer.prevCameraYaw + (entityplayer.cameraYaw - entityplayer.prevCameraYaw) * interp;
@@ -207,7 +214,7 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 			GL11.glRotatef(camPitch, 1.0F, 0.0F, 0.0F);
 		}
 		
-		this.renderItem(ItemRenderType.EQUIPPED_FIRST_PERSON, stack, null, player);
+		this.render(stack, new NativeItemContext(transform, player));
 
 		GL11.glPopMatrix();
 
@@ -218,7 +225,7 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	public void setupFirstPerson(ItemStack stack) {
 		GL11.glTranslated(0, 0, 1);
 		
-		if(Minecraft.getMinecraft().thePlayer.isSneaking()) {
+		if(Minecraft.getMinecraft().player.isSneaking()) {
 			GL11.glTranslated(0, -3.875 / 8D, 0);
 		} else {
 			float offset = 0.8F;
@@ -275,11 +282,11 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	}
 	
 	public void renderModTable(ItemStack stack, int index) {
-		renderOther(stack, ItemRenderType.INVENTORY);
+		renderOther(stack, new NativeItemContext(TransformType.GUI, null));
 	}
 
 	public abstract void renderFirstPerson(ItemStack stack);
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) { }
+	public void renderOther(ItemStack stack, NativeItemContext context) { }
 	
 	public static void standardAimingTransform(ItemStack stack, double sX, double sY, double sZ, double aX, double aY, double aZ) {
 		float aimingProgress = ItemGunBaseNT.prevAimingProgress + (ItemGunBaseNT.aimingProgress - ItemGunBaseNT.prevAimingProgress) * interp;
@@ -290,7 +297,8 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	}
 	
 	public static void renderSmokeNodes(List<SmokeNode> nodes, double scale) {
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+        net.minecraft.client.renderer.BufferBuilder buffer = tess.getBuffer();
 		
 		if(nodes.size() > 1) {
 
@@ -301,30 +309,31 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 			GL11.glDepthMask(false);
 
-			tess.startDrawingQuads();
-			tess.setNormal(0F, 1F, 0F);
+			buffer.begin(GL11.GL_QUADS, WEAPON_SMOKE_FORMAT);
+            float alpha = 1;
+
 			
 			for(int i = 0; i < nodes.size() - 1; i++) {
 				SmokeNode node = nodes.get(i);
 				SmokeNode past = nodes.get(i + 1);
 				
-				tess.setColorRGBA_F(1F, 1F, 1F, (float) node.alpha);
-				tess.addVertex(node.forward, node.lift, node.side);
-				tess.setColorRGBA_F(1F, 1F, 1F, 0F);
-				tess.addVertex(node.forward, node.lift, node.side + node.width * scale);
-				tess.setColorRGBA_F(1F, 1F, 1F, 0F);
-				tess.addVertex(past.forward, past.lift, past.side + past.width * scale);
-				tess.setColorRGBA_F(1F, 1F, 1F, (float) past.alpha);
-				tess.addVertex(past.forward, past.lift, past.side);
+				alpha = (float) node.alpha;
+				buffer.pos(node.forward, node.lift, node.side).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
+				alpha = 0F;
+				buffer.pos(node.forward, node.lift, node.side + node.width * scale).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
+				alpha = 0F;
+				buffer.pos(past.forward, past.lift, past.side + past.width * scale).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
+				alpha = (float) past.alpha;
+				buffer.pos(past.forward, past.lift, past.side).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
 				
-				tess.setColorRGBA_F(1F, 1F, 1F, (float) node.alpha);
-				tess.addVertex(node.forward, node.lift, node.side);
-				tess.setColorRGBA_F(1F, 1F, 1F, 0F);
-				tess.addVertex(node.forward, node.lift, node.side - node.width * scale);
-				tess.setColorRGBA_F(1F, 1F, 1F, 0F);
-				tess.addVertex(past.forward, past.lift, past.side - past.width * scale);
-				tess.setColorRGBA_F(1F, 1F, 1F, (float) past.alpha);
-				tess.addVertex(past.forward, past.lift, past.side);
+				alpha = (float) node.alpha;
+				buffer.pos(node.forward, node.lift, node.side).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
+				alpha = 0F;
+				buffer.pos(node.forward, node.lift, node.side - node.width * scale).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
+				alpha = 0F;
+				buffer.pos(past.forward, past.lift, past.side - past.width * scale).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
+				alpha = (float) past.alpha;
+				buffer.pos(past.forward, past.lift, past.side).color(1F, 1F, 1F, alpha).normal(0, 1, 0).endVertex();
 			}
 			tess.draw();
 			
@@ -341,7 +350,8 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	}
 	
 	public static void renderMuzzleFlash(long lastShot, int duration, double l) {
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+        net.minecraft.client.renderer.BufferBuilder buffer = tess.getBuffer();
 		
 		int flash = duration;
 		
@@ -357,31 +367,31 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 			double width = 6 * fire;
 			double length = l * fire;
 			double inset = 2;
-			Minecraft.getMinecraft().renderEngine.bindTexture(flash_plume);
-			tess.startDrawingQuads();
-			tess.setBrightness(240);
-			tess.setNormal(0F, 1F, 0F);
-			tess.setColorRGBA_F(1F, 1F, 1F, 1F);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(flash_plume);
+			buffer.begin(GL11.GL_QUADS, WEAPON_FLASH_FORMAT);
 			
-			tess.addVertexWithUV(0, -width, - inset, 1, 1);
-			tess.addVertexWithUV(0, width, - inset, 0, 1);
-			tess.addVertexWithUV(0.1, width, length - inset, 0 ,0);
-			tess.addVertexWithUV(0.1, -width, length - inset, 1, 0);
 
-			tess.addVertexWithUV(0, width, inset, 0, 1);
-			tess.addVertexWithUV(0, -width, inset, 1, 1);
-			tess.addVertexWithUV(0.1, -width, -length + inset, 1, 0);
-			tess.addVertexWithUV(0.1, width, -length + inset, 0 ,0);
 
-			tess.addVertexWithUV(0, - inset, width, 0, 1);
-			tess.addVertexWithUV(0, - inset, -width, 1, 1);
-			tess.addVertexWithUV(0.1, length - inset, -width, 1, 0);
-			tess.addVertexWithUV(0.1, length - inset, width, 0 ,0);
 
-			tess.addVertexWithUV(0, inset, -width, 1, 1);
-			tess.addVertexWithUV(0, inset, width, 0, 1);
-			tess.addVertexWithUV(0.1, -length + inset, width, 0 ,0);
-			tess.addVertexWithUV(0.1, -length + inset, -width, 1, 0);
+			buffer.pos(0,  -width,  - inset).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  width,  - inset).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  width,  length - inset).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  -width,  length - inset).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+
+			buffer.pos(0,  width,  inset).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  -width,  inset).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  -width,  -length + inset).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  width,  -length + inset).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+
+			buffer.pos(0,  - inset,  width).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  - inset,  -width).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  length - inset,  -width).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  length - inset,  width).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+
+			buffer.pos(0,  inset,  -width).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  inset,  width).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  -length + inset,  width).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0.1,  -length + inset,  -width).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
 			
 			tess.draw();
 			GL11.glPopMatrix();
@@ -392,7 +402,8 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	}
 	
 	public static void renderGapFlash(long lastShot) {
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+        net.minecraft.client.renderer.BufferBuilder buffer = tess.getBuffer();
 		
 		int flash = 75;
 		
@@ -409,31 +420,31 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 			double lift = 3 * fire;
 			double offset = 1 * fire;
 			double lengthOffset = 0.125;
-			Minecraft.getMinecraft().renderEngine.bindTexture(flash_plume);
-			tess.startDrawingQuads();
-			tess.setBrightness(240);
-			tess.setNormal(0F, 1F, 0F);
-			tess.setColorRGBA_F(1F, 1F, 1F, 1F);
-			
-			tess.addVertexWithUV(0, -height, -offset, 1, 1);
-			tess.addVertexWithUV(0, height, -offset, 0, 1);
-			tess.addVertexWithUV(0, height + lift, length - offset, 0 ,0);
-			tess.addVertexWithUV(0, -height + lift, length - offset, 1, 0);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(flash_plume);
+			buffer.begin(GL11.GL_QUADS, WEAPON_FLASH_FORMAT);
 
-			tess.addVertexWithUV(0, height, offset, 0, 1);
-			tess.addVertexWithUV(0, -height, offset, 1, 1);
-			tess.addVertexWithUV(0, -height + lift, -length + offset, 1, 0);
-			tess.addVertexWithUV(0, height + lift, -length + offset, 0 ,0);
-			
-			tess.addVertexWithUV(0, -height, -offset, 1, 1);
-			tess.addVertexWithUV(0, height, -offset, 0, 1);
-			tess.addVertexWithUV(lengthOffset, height, length - offset, 0 ,0);
-			tess.addVertexWithUV(lengthOffset, -height, length - offset, 1, 0);
 
-			tess.addVertexWithUV(0, height, offset, 0, 1);
-			tess.addVertexWithUV(0, -height, offset, 1, 1);
-			tess.addVertexWithUV(lengthOffset, -height, -length + offset, 1, 0);
-			tess.addVertexWithUV(lengthOffset, height, -length + offset, 0 ,0);
+			
+			
+			buffer.pos(0,  -height,  -offset).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  height,  -offset).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  height + lift,  length - offset).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  -height + lift,  length - offset).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+
+			buffer.pos(0,  height,  offset).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  -height,  offset).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  -height + lift,  -length + offset).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  height + lift,  -length + offset).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+
+			buffer.pos(0,  -height,  -offset).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  height,  -offset).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(lengthOffset,  height,  length - offset).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(lengthOffset,  -height,  length - offset).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+
+			buffer.pos(0,  height,  offset).color(255, 255, 255, 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  -height,  offset).color(255, 255, 255, 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(lengthOffset,  -height,  -length + offset).color(255, 255, 255, 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(lengthOffset,  height,  -length + offset).color(255, 255, 255, 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
 			
 			tess.draw();
 			GL11.glPopMatrix();
@@ -443,7 +454,8 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 	}
 	
 	public static void renderLaserFlash(long lastShot, int flash, double scale, int color) {
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+        net.minecraft.client.renderer.BufferBuilder buffer = tess.getBuffer();
 		
 		if(System.currentTimeMillis() - lastShot < flash) {
 			GL11.glEnable(GL11.GL_BLEND);
@@ -456,17 +468,17 @@ public abstract class ItemRenderWeaponBase implements IItemRenderer {
 			
 			double size = 4 * fire * scale;
 			
-			Minecraft.getMinecraft().renderEngine.bindTexture(laser_flash);
-			tess.startDrawingQuads();
-			tess.setBrightness(240);
-			tess.setNormal(0F, 1F, 0F);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(laser_flash);
+			buffer.begin(GL11.GL_QUADS, WEAPON_FLASH_FORMAT);
+
+
+
 			
-			tess.setColorRGBA_I(color, 255);
 			
-			tess.addVertexWithUV(0, -size, -size, 1, 1);
-			tess.addVertexWithUV(0, size, -size, 0, 1);
-			tess.addVertexWithUV(0, size, size, 0 ,0);
-			tess.addVertexWithUV(0, -size, size, 1, 0);
+			buffer.pos(0,  -size,  -size).color(((color >> 16) & 255), ((color >> 8) & 255), (color & 255), 255).tex( 1,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  size,  -size).color(((color >> 16) & 255), ((color >> 8) & 255), (color & 255), 255).tex( 0,  1).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  size,  size).color(((color >> 16) & 255), ((color >> 8) & 255), (color & 255), 255).tex( 0 , 0).lightmap(0, 240).normal(0, 1, 0).endVertex();
+			buffer.pos(0,  -size,  size).color(((color >> 16) & 255), ((color >> 8) & 255), (color & 255), 255).tex( 1,  0).lightmap(0, 240).normal(0, 1, 0).endVertex();
 			
 			tess.draw();
 			GL11.glPopMatrix();

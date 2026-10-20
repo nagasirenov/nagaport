@@ -1,5 +1,7 @@
 package com.hbm.items.weapon;
 
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Set;
 
 import com.hbm.items.ItemAmmoEnums.IAmmoItemEnum;
 import com.hbm.items.ItemEnumMulti;
+import com.hbm.render.item.NativeItemTextureRegistry;
 import com.hbm.lib.RefStrings;
 import com.hbm.util.EnumUtil;
 import com.hbm.util.i18n.I18nUtil;
@@ -15,7 +18,6 @@ import com.hbm.util.i18n.I18nUtil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import com.hbm.render.icon.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
@@ -126,8 +128,9 @@ public class ItemAmmo extends ItemEnumMulti {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
-		super.addInformation(stack, player, list, ext);
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
+		super.addInformation(stack, world, list, flag);
 		
 		if(!altName.isEmpty()) list.add(TextFormatting.ITALIC + I18nUtil.resolveKey(altName));
 
@@ -163,14 +166,14 @@ public class ItemAmmo extends ItemEnumMulti {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		IAmmoItemEnum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
 		return "item." + num.getInternalName();
 	}
 	
 	@Override
-	public ItemEnumMulti setUnlocalizedName(String uloc) {
-		setTextureName(RefStrings.MODID + ':' + uloc);
-		return (ItemEnumMulti) super.setUnlocalizedName(uloc);
+	public ItemEnumMulti setTranslationKey(String uloc) {
+		NativeItemTextureRegistry.texture(this, RefStrings.MODID + ':' + uloc);
+		return (ItemEnumMulti) super.setTranslationKey(uloc);
 	}
 }

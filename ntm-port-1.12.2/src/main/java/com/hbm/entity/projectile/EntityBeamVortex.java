@@ -32,7 +32,7 @@ public class EntityBeamVortex extends EntityBeamBase {
 		
 		int range = 100;
 		
-		EntityPlayer player = worldObj.getPlayerEntityByName(this.dataWatcher.getWatchableObjectString(20));
+		EntityPlayer player = this.world.getPlayerEntityByName(this.dataWatcher.getWatchableObjectString(20));
 		
 		if(player != null) {
 			
@@ -41,10 +41,10 @@ public class EntityBeamVortex extends EntityBeamBase {
 			if(pos == null)
 				return;
 			
-			worldObj.spawnParticle("cloud", pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);
-			worldObj.playSound(pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, "random.fizz", 1, 1, true);
+			this.world.spawnParticle("cloud", pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);
+			this.world.playSound(pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, "random.fizz", 1, 1, true);
 			
-			List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(pos.hitVec.x - 1, pos.hitVec.y - 1, pos.hitVec.z - 1, pos.hitVec.x + 1, pos.hitVec.y + 1, pos.hitVec.z + 1));
+			List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(pos.hitVec.x - 1, pos.hitVec.y - 1, pos.hitVec.z - 1, pos.hitVec.x + 1, pos.hitVec.y + 1, pos.hitVec.z + 1));
 			
 			for(Entity e : list)
 				e.attackEntityFrom(ModDamageSource.radiation, 5);

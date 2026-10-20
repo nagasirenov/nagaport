@@ -71,15 +71,15 @@ public class ItemBlowtorch extends Item implements IFillableItem {
 
 		//just in case
 		String name = Fluids.toNameCompat(type);
-		if(stack.stackTagCompound.hasKey(name)) {
-			int fill = stack.stackTagCompound.getInteger(name);
-			stack.stackTagCompound.removeTag(name);
-			stack.stackTagCompound.setInteger(Integer.toString(type.getID()), fill);
+		if(stack.getTagCompound().hasKey(name)) {
+			int fill = stack.getTagCompound().getInteger(name);
+			stack.getTagCompound().removeTag(name);
+			stack.getTagCompound().setInteger(Integer.toString(type.getID()), fill);
 
 			return fill;
 		}
 
-		return stack.stackTagCompound.getInteger(Integer.toString(type.getID()));
+		return stack.getTagCompound().getInteger(Integer.toString(type.getID()));
 	}
 
 	public int getMaxFill(FluidType type) {
@@ -95,12 +95,12 @@ public class ItemBlowtorch extends Item implements IFillableItem {
 			initNBT(stack);
 		}
 
-		stack.stackTagCompound.setInteger(Integer.toString(type.getID()), fill);
+		stack.getTagCompound().setInteger(Integer.toString(type.getID()), fill);
 	}
 
 	public void initNBT(ItemStack stack) {
 
-		stack.stackTagCompound = new NBTTagCompound();
+		stack.setTagCompound(new NBTTagCompound());
 
 		if(this == ModItems.blowtorch) {
 			this.setFill(stack, Fluids.GAS, this.getMaxFill(Fluids.GAS));
@@ -129,7 +129,7 @@ public class ItemBlowtorch extends Item implements IFillableItem {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof IToolable) {
 
@@ -160,7 +160,7 @@ public class ItemBlowtorch extends Item implements IFillableItem {
 					NBTTagCompound dPart = new NBTTagCompound();
 					dPart.setString("type", "tau");
 					dPart.setByte("count", (byte) 10);
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, x + fX, y + fY, z + fZ), new TargetPoint(world.provider.dimensionId, x, y, z, 50));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, x + fX, y + fY, z + fZ), new TargetPoint(world.provider.getDimension(), x, y, z, 50));
 				}
 
 				return true;

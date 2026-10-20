@@ -55,12 +55,12 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 	}
 
 	@Override
-	public String getName() { return ""; }
+	public String getDefaultName() { return ""; }
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(hasBlade) {
 				tryPullHeat();
@@ -83,7 +83,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 							float sawdustChance = sawdustChance(result);
 
 							if(sawdustChance > 0) {
-								if(worldObj.rand.nextFloat() < sawdustChance) {
+								if(this.world.rand.nextFloat() < sawdustChance) {
 									slots[2] = new ItemStack(ModItems.powder_sawdust);
 								}
 							}
@@ -95,19 +95,19 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 						this.progress = 0;
 					}
 
-					AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(-1D, 0.375D, -1D, -0.875, 2.375D, 1D);
-					aabb = BlockDummyable.getAABBRotationOffset(aabb, xCoord + 0.5, yCoord, zCoord + 0.5, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP));
-					for(Object o : worldObj.getEntitiesWithinAABB(EntityLivingBase.class, aabb)) {
+					AxisAlignedBB aabb = new AxisAlignedBB(-1D, 0.375D, -1D, -0.875, 2.375D, 1D);
+					aabb = BlockDummyable.getAABBRotationOffset(aabb, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP));
+					for(Object o : this.world.getEntitiesWithinAABB(EntityLivingBase.class, aabb)) {
 						EntityLivingBase e = (EntityLivingBase) o;
 						if(e.isEntityAlive() && e.attackEntityFrom(ModDamageSource.turbofan, 100)) {
-							worldObj.playSoundEffect(e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+							com.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 							int count = Math.min((int)Math.ceil(e.getMaxHealth() / 4), 250);
 							NBTTagCompound data = new NBTTagCompound();
 							data.setString("type", "vanillaburst");
 							data.setInteger("count", count * 4);
 							data.setDouble("motion", 0.1D);
 							data.setString("mode", "blockdust");
-							data.setInteger("block", Block.getIdFromBlock(Blocks.redstone_block));
+							data.setInteger("block", Block.getIdFromBlock(Blocks.REDSTONE_BLOCK));
 							PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, e.posX, e.posY + e.height * 0.5, e.posZ), new TargetPoint(e.dimension, e.posX, e.posY, e.posZ, 50));
 						}
 					}
@@ -122,22 +122,22 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 
 					if(overspeed > 60 && warnCooldown == 0) {
 						warnCooldown = 100;
-						worldObj.playSoundEffect(xCoord + 0.5, yCoord + 1, zCoord + 0.5, "hbm:block.warnOverspeed", 2.0F, 1.0F);
+						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, "hbm:block.warnOverspeed", 2.0F, 1.0F);
 					}
 
 					if(overspeed > 300) {
 						this.hasBlade = false;
-						this.worldObj.newExplosion(null, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 5F, false, false);
+						this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 5F, false, false);
 
 						int orientation = this.getBlockMetadata() - BlockDummyable.offset;
 						ForgeDirection dir = ForgeDirection.getOrientation(orientation);
-						EntitySawblade cog = new EntitySawblade(worldObj, xCoord + 0.5 + dir.offsetX, yCoord + 1, zCoord + 0.5 + dir.offsetZ).setOrientation(orientation);
+						EntitySawblade cog = new EntitySawblade(this.world, this.pos.getX() + 0.5 + dir.offsetX, this.pos.getY() + 1, this.pos.getZ() + 0.5 + dir.offsetZ).setOrientation(orientation);
 						ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 						cog.motionX = rot.offsetX;
 						cog.motionY = 1 + (heat - 100) * 0.0001D;
 						cog.motionZ = rot.offsetZ;
-						worldObj.spawnEntityInWorld(cog);
+						this.world.spawnEntityInWorld(cog);
 
 						this.markDirty();
 					}
@@ -198,14 +198,15 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("hasBlade", hasBlade);
 		nbt.setInteger("progress", progress);
+		return nbt;
 	}
 
 	protected void tryPullHeat() {
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -229,12 +230,14 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i > 0;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 1, 2};
 	}
 
@@ -245,7 +248,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 		if(item == ModItems.stick_pvc || item == ModItems.stick_vinyl) return 0;
 		if(block == ModBlocks.vinyl_planks || block == ModBlocks.pvc_planks) return 0;
 		if(block == ModBlocks.vinyl_log || block == ModBlocks.pvc_log) return 0;
-		if(item == Items.stick) return 0.1F;
+		if(item == Items.STICK) return 0.1F;
 		return 0.5F;
 	}
 
@@ -288,7 +291,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 		if(names.contains("logWood")) {
 			for(Object o : CraftingManager.getInstance().getRecipeList()) {
 				IRecipe recipe = (IRecipe) o;
-				if(recipe.matches(craftingInventory, worldObj)) {
+				if(recipe.matches(craftingInventory, this.world)) {
 					ItemStack out = recipe.getCraftingResult(craftingInventory);
 					if(out != null) {
 						out = out.copy(); //for good measure
@@ -300,11 +303,11 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 		}
 
 		if(names.contains("plankWood")) {
-			return new ItemStack(Items.stick, 6);
+			return new ItemStack(Items.STICK, 6);
 		}
 
 		if(names.contains("treeSapling")) {
-			return new ItemStack(Items.stick, 1);
+			return new ItemStack(Items.STICK, 1);
 		}
 
 		return null;
@@ -333,12 +336,12 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 		for(ItemStack log : logs) {
 			ComparableStack stack = new ComparableStack(log);
 			if(recipes.containsKey(stack)) continue;
-			recipes.put(stack, new ItemStack[] { new ItemStack(Blocks.planks, 6), ItemStackUtil.addTooltipToStack(new ItemStack(ModItems.powder_sawdust), TextFormatting.RED + "50%") });
+			recipes.put(stack, new ItemStack[] { new ItemStack(Blocks.PLANKS, 6), ItemStackUtil.addTooltipToStack(new ItemStack(ModItems.powder_sawdust), TextFormatting.RED + "50%") });
 		}
 		for(ItemStack plank : planks) {
 			ComparableStack stack = new ComparableStack(plank);
 			if(recipes.containsKey(stack)) continue;
-			recipes.put(stack, new ItemStack[] { new ItemStack(Items.stick, 6), ItemStackUtil.addTooltipToStack(new ItemStack(ModItems.powder_sawdust), TextFormatting.RED + "10%") });
+			recipes.put(stack, new ItemStack[] { new ItemStack(Items.STICK, 6), ItemStackUtil.addTooltipToStack(new ItemStack(ModItems.powder_sawdust), TextFormatting.RED + "10%") });
 		}
 		for(ItemStack stick : sticks) {
 			ComparableStack stack = new ComparableStack(stick);
@@ -348,7 +351,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 		for(ItemStack sapling : saplings) {
 			ComparableStack stack = new ComparableStack(sapling);
 			if(recipes.containsKey(stack)) continue;
-			recipes.put(stack, new ItemStack[] { new ItemStack(Items.stick, 1), ItemStackUtil.addTooltipToStack(new ItemStack(ModItems.powder_sawdust), TextFormatting.RED + "10%") });
+			recipes.put(stack, new ItemStack[] { new ItemStack(Items.STICK, 1), ItemStackUtil.addTooltipToStack(new ItemStack(ModItems.powder_sawdust), TextFormatting.RED + "10%") });
 		}
 
 		return recipes;
@@ -361,12 +364,12 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 

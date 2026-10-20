@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
-public class ScrapsCraftingHandler implements IRecipe {
+public class ScrapsCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
@@ -18,7 +18,7 @@ public class ScrapsCraftingHandler implements IRecipe {
 		for(int i = 0; i < 9; i++) {
 			ItemStack stack = inventory.getStackInRowAndColumn(i % 3, i / 3);
 			
-			if(stack == null) continue;
+			if(stack.isEmpty()) continue;
 			if(stack.getItem() != ModItems.scraps) return false;
 			if(mat != null) return false;
 			
@@ -36,24 +36,33 @@ public class ScrapsCraftingHandler implements IRecipe {
 		for(int i = 0; i < 9; i++) {
 			ItemStack stack = inventory.getStackInRowAndColumn(i % 3, i / 3);
 			
-			if(stack == null) continue;
-			if(stack.getItem() != ModItems.scraps) return null;
-			if(mat != null) return null;
+			if(stack.isEmpty()) continue;
+			if(stack.getItem() != ModItems.scraps) return ItemStack.EMPTY;
+			if(mat != null) return ItemStack.EMPTY;
 			
 			mat = ItemScraps.getMats(stack);
-			if(mat.amount < 2) return null;
+			if(mat.amount < 2) return ItemStack.EMPTY;
 		}
 		
-		if(mat == null) return null;
+		if(mat == null) return ItemStack.EMPTY;
 		
 		ItemStack scrap = ItemScraps.create(new MaterialStack(mat.material, mat.amount / 2));
-		scrap.stackSize = 2;
+		scrap.setCount(2);
 		return scrap;
 	}
 
-	@Override
 	public int getRecipeSize() {
 		return 1;
+	}
+
+	@Override
+	public boolean canFit(int width, int height) {
+		return width * height >= 1;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return true;
 	}
 
 	@Override

@@ -58,18 +58,18 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dfcEmitter";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!worldObj.isRemote) {
-			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+		if (!this.world.isRemote) {
+			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			this.subscribeToAllAround(tank.getTankType(), this);
 			
-			watts = MathHelper.clamp_int(watts, 1, 100);
+			watts = MathHelper.clamp(watts, 1, 100);
 			long demand = maxPower * watts / 2000;
 			
 			beam = 0;
@@ -79,7 +79,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 				if(tank.getFill() >= 20) {
 					tank.setFill(tank.getFill() - 20);
 				} else {
-					worldObj.setBlock(xCoord, yCoord, zCoord, Blocks.flowing_lava);
+					this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA);
 					return;
 				}
 			}
@@ -105,30 +105,30 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 						
 						beam = i;
 		
-						int x = xCoord + dir.offsetX * i;
-						int y = yCoord + dir.offsetY * i;
-						int z = zCoord + dir.offsetZ * i;
+						int x = this.pos.getX() + dir.offsetX * i;
+						int y = this.pos.getY() + dir.offsetY * i;
+						int z = this.pos.getZ() + dir.offsetZ * i;
 						
-						Block block = worldObj.getBlock(x, y, z);
-						TileEntity te = worldObj.getTileEntity(x, y, z);
+						Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+						TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 						
-						if(block instanceof ILaserable) { ((ILaserable)block).addEnergy(worldObj, x, y, z, out, dir); break; }
-						if(te instanceof ILaserable) { ((ILaserable)te).addEnergy(worldObj, x, y, z, out, dir); break; }
+						if(block instanceof ILaserable) { ((ILaserable)block).addEnergy(this.world, x, y, z, out, dir); break; }
+						if(te instanceof ILaserable) { ((ILaserable)te).addEnergy(this.world, x, y, z, out, dir); break; }
 						if(te instanceof TileEntityCore) { out = ((TileEntityCore)te).burn(out); continue; }
 						
-						Block b = worldObj.getBlock(x, y, z);
+						Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 						
-						if(!b.isAir(worldObj, x, y, z)) {
+						if(!b.isAir(this.world, x, y, z)) {
 							
-							if(b.getMaterial().isLiquid()) {
-								worldObj.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
-								worldObj.setBlockToAir(x, y, z);
+							if(b.getDefaultState().getMaterial().isLiquid()) {
+								com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
+								com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 								break;
 							}
 							
 							float hardness = b.getExplosionResistance(null);
-							if(hardness < 6000 && worldObj.rand.nextInt(20) == 0) {
-								worldObj.func_147480_a(x, y, z, false);
+							if(hardness < 6000 && this.world.rand.nextInt(20) == 0) {
+								this.world.func_147480_a(x, y, z, false);
 							}
 							
 							break;
@@ -138,14 +138,14 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 					
 					joules = 0;
 		
-					double blx = Math.min(xCoord, xCoord + dir.offsetX * beam) + 0.2;
-					double bux = Math.max(xCoord, xCoord + dir.offsetX * beam) + 0.8;
-					double bly = Math.min(yCoord, yCoord + dir.offsetY * beam) + 0.2;
-					double buy = Math.max(yCoord, yCoord + dir.offsetY * beam) + 0.8;
-					double blz = Math.min(zCoord, zCoord + dir.offsetZ * beam) + 0.2;
-					double buz = Math.max(zCoord, zCoord + dir.offsetZ * beam) + 0.8;
+					double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * beam) + 0.2;
+					double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * beam) + 0.8;
+					double bly = Math.min(this.pos.getY(), this.pos.getY() + dir.offsetY * beam) + 0.2;
+					double buy = Math.max(this.pos.getY(), this.pos.getY() + dir.offsetY * beam) + 0.8;
+					double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beam) + 0.2;
+					double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beam) + 0.8;
 					
-					List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
+					List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
 					
 					for(Entity e : list) {
 						e.attackEntityFrom(ModDamageSource.amsCore, 50);
@@ -248,7 +248,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
@@ -257,6 +257,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 		nbt.setLong("prev", prev);
 		nbt.setBoolean("isOn", isOn);
 		tank.writeToNBT(nbt, "tank");
+		return nbt;
 	}
 
 	@Override
@@ -317,7 +318,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setInput(Context context, Arguments args) {
 		int newOutput = args.checkInteger(0);
-		watts = MathHelper.clamp_int(newOutput, 0, 100);
+		watts = MathHelper.clamp(newOutput, 0, 100);
 		return new Object[] {};
 	}
 

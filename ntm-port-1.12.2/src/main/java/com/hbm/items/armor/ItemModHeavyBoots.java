@@ -72,7 +72,7 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 		if(boots == null)
 			return;
 
-		onArmorTick(entity.worldObj, (EntityPlayer)entity, boots);
+		onArmorTick(entity.world, (EntityPlayer)entity, boots);
 		ArmorModHandler.applyMod(armor, boots);
 	}
 
@@ -113,11 +113,11 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
-		float yawWrapped = MathHelper.wrapAngleTo180_float(yawHead - yawOffset);
+		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 
 		modelbiped.setLivingAnimations(player, swingLeft, swingRight, interp);
-		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.entity, 3, null)));
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), 3, null)));
 		modelbiped.render(event.entityPlayer, swingLeft, swingRight, yawWrapped, yaw, pitch, 0.0625F);
 	}
 

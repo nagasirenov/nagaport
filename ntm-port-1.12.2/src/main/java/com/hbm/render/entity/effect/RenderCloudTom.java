@@ -9,11 +9,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderCloudTom extends Render {
+
+	public RenderCloudTom(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
@@ -45,7 +50,7 @@ public class RenderCloudTom extends Render {
         GL11.glMatrixMode(GL11.GL_TEXTURE);
         GL11.glLoadIdentity();
 
-    	float movement = -(Minecraft.getMinecraft().thePlayer.ticksExisted + f0) * 0.005F * 10;
+    	float movement = -(Minecraft.getMinecraft().player.ticksExisted + f0) * 0.005F * 10;
     	GL11.glTranslatef(0, movement, 0);
         
         GL11.glMatrixMode(GL11.GL_MODELVIEW);

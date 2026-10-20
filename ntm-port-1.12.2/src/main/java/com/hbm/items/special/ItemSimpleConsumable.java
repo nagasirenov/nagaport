@@ -51,7 +51,7 @@ public class ItemSimpleConsumable extends ItemCustomLore {
 		if(this.hitAction != null)
 			this.hitAction.accept(stack, new Pair(entity, entityPlayer));
 		
-		if(!entity.worldObj.isRemote && this.hitActionServer != null)
+		if(!entity.world.isRemote && this.hitActionServer != null)
 			this.hitActionServer.accept(stack, new Pair(entity, entityPlayer));
 		
 		return false;
@@ -59,7 +59,7 @@ public class ItemSimpleConsumable extends ItemCustomLore {
 	
 	public static void giveSoundAndDecrement(ItemStack stack, EntityLivingBase entity, String sound, ItemStack container) {
 		stack.stackSize--;
-		entity.worldObj.playSoundAtEntity(entity, sound, 1.0F, 1.0F);
+		entity.world.playSoundAtEntity(entity, sound, 1.0F, 1.0F);
 		ItemSimpleConsumable.tryAddItem(entity, container);
 	}
 	

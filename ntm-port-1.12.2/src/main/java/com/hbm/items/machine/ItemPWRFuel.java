@@ -1,5 +1,9 @@
 package com.hbm.items.machine;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 
 import com.hbm.items.ItemEnumMulti;
@@ -8,7 +12,6 @@ import com.hbm.util.function.Function;
 import com.hbm.util.function.Function.FunctionLogarithmic;
 import com.hbm.util.function.Function.FunctionSqrt;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
@@ -50,7 +53,8 @@ public class ItemPWRFuel extends ItemEnumMulti {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		
 		EnumPWRFuel num = EnumUtil.grabEnumSafely(EnumPWRFuel.class, stack.getItemDamage());
 		

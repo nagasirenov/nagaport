@@ -107,7 +107,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 		
-		double ix = (tile.getWorldObj().getTotalWorldTime() * 0.1D) % (Math.PI * 2D);
+		double ix = (tile.getWorld().getTotalWorldTime() * 0.1D) % (Math.PI * 2D);
 		double t = 0.8F;
 		float pulse = (float) ((1D / t) * Math.atan((t * Math.sin(ix)) / (1 - t * Math.cos(ix))));
 		
@@ -144,7 +144,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		
 		Tessellator tessellator = Tessellator.instance;
 		RenderHelper.disableStandardItemLighting();
-		float f1 = (core.getWorldObj().getTotalWorldTime()) / 200.0F;
+		float f1 = (core.getWorld().getTotalWorldTime()) / 200.0F;
 		float f2 = 0.0F;
 
 		Random random = new Random(432L);
@@ -159,7 +159,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		RenderHelper.disableStandardItemLighting();
 		GL11.glPushMatrix();
 		
-		double ix = (core.getWorldObj().getTotalWorldTime() * 0.2D) % (Math.PI * 2D);
+		double ix = (core.getWorld().getTotalWorldTime() * 0.2D) % (Math.PI * 2D);
 		double t = 0.8F;
 		float pulse = (float) ((1D / t) * Math.atan((t * Math.sin(ix)) / (1 - t * Math.cos(ix))));
 		
@@ -211,7 +211,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
         
         TileEntityCore core = (TileEntityCore)tile;
 
-		World world = tile.getWorldObj();
+		World world = tile.getWorld();
         GL11.glPushMatrix();
         
         GL11.glDisable(GL11.GL_LIGHTING);

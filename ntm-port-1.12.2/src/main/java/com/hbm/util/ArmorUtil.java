@@ -300,7 +300,7 @@ public class ArmorUtil {
 				if(stack.getItemDamage() >= stack.getMaxDamage() || !(stack.getItem() instanceof ArmorFSB) || !((ArmorFSB)stack.getItem()).isArmorEnabled(stack)) {
 					stack.stackSize = 0;
 					player.inventory.armorInventory[i] = null;
-					entity.worldObj.playSoundAtEntity(entity, "random.fizz", 0.2F, 1F);
+					entity.world.playSoundAtEntity(entity, "random.fizz", 0.2F, 1F);
 				}
 			}
 
@@ -427,12 +427,12 @@ public class ArmorUtil {
 			return;
 
 		if(!mask.hasTagCompound())
-			mask.stackTagCompound = new NBTTagCompound();
+			mask.setTagCompound(new NBTTagCompound());
 
 		NBTTagCompound attach = new NBTTagCompound();
 		filter.writeToNBT(attach);
 
-		mask.stackTagCompound.setTag(FILTERK_KEY, attach);
+		mask.getTagCompound().setTag(FILTERK_KEY, attach);
 	}
 
 	public static void removeFilter(ItemStack mask) {
@@ -443,7 +443,7 @@ public class ArmorUtil {
 		if(!mask.hasTagCompound())
 			return;
 
-		mask.stackTagCompound.removeTag(FILTERK_KEY);
+		mask.getTagCompound().removeTag(FILTERK_KEY);
 	}
 
 	/**
@@ -475,7 +475,7 @@ public class ArmorUtil {
 		if(!mask.hasTagCompound())
 			return null;
 
-		NBTTagCompound attach = mask.stackTagCompound.getCompoundTag(FILTERK_KEY);
+		NBTTagCompound attach = mask.getTagCompound().getCompoundTag(FILTERK_KEY);
 		ItemStack filter = ItemStack.loadItemStackFromNBT(attach);
 
 		return filter;

@@ -42,7 +42,7 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return bFurnace.isUseableByPlayer(player);
+		return bFurnace.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 		if(index >= 0 && index < 2 && button == 1 && mode == 0) {
 			Slot slot = this.getSlot(index);
 			if(!slot.getHasStack() && player.inventory.getItemStack() == null) {
-				if(!player.worldObj.isRemote) {
+				if(!player.world.isRemote) {
 					if(index == 0) bFurnace.sideUpper = (byte) ((bFurnace.sideUpper + 1) % 6);
 					if(index == 1) bFurnace.sideLower = (byte) ((bFurnace.sideLower + 1) % 6);
 					

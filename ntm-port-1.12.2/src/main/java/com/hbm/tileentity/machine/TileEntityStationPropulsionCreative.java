@@ -7,15 +7,15 @@ import com.hbm.dim.CelestialBody;
 import api.hbm.tile.IPropulsion;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityStationPropulsionCreative extends TileEntity implements IPropulsion {
+public class TileEntityStationPropulsionCreative extends TileEntity implements IPropulsion, net.minecraft.util.ITickable {
 
 	private boolean hasRegistered = false;
 
 	@Override
-	public void updateEntity() {
-		if(!CelestialBody.inOrbit(worldObj)) return;
+	public void update() {
+		if(!CelestialBody.inOrbit(this.world)) return;
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(!hasRegistered) {
 				registerPropulsion();
 				hasRegistered = true;

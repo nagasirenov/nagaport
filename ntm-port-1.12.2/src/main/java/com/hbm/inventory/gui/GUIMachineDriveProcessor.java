@@ -56,7 +56,7 @@ public class GUIMachineDriveProcessor extends GuiInfoContainer {
 			drawTexturedModalRect(guiLeft + 59, guiTop + 63, 192, 14, p, 14);
 		}
 
-		fontRendererObj.drawString(machine.status, guiLeft + 41, guiTop + 86, 0xFFFFFF);
+		fontRenderer.drawString(machine.status, guiLeft + 41, guiTop + 86, 0xFFFFFF);
 	}
 
 	@Override
@@ -70,22 +70,22 @@ public class GUIMachineDriveProcessor extends GuiInfoContainer {
 
 		// Process drive
 		if(checkClick(x, y, 38, 61, 18, 18)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("process", !machine.isProcessing);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.xCoord, machine.yCoord, machine.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.getPos().getX(), machine.getPos().getY(), machine.getPos().getZ()));
 		}
 
 		// Clone drive
 		if(checkClick(x, y, 49, 17, 18, 18)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("clone", true);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.xCoord, machine.yCoord, machine.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.getPos().getX(), machine.getPos().getY(), machine.getPos().getZ()));
 		}
 	}
 	

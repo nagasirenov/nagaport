@@ -20,7 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderFluidTank extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -106,7 +106,7 @@ public class RenderFluidTank extends TileEntitySpecialRenderer implements IItemR
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		
 		return new ItemRenderBase() {
 			

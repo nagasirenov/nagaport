@@ -123,7 +123,7 @@ public class CasingEjector implements Cloneable {
 		final Vector3f result = new Vector3f(); // create result vector
 		result.set(offsetVector.x, offsetVector.y, offsetVector.z); // set result vector using transformed coordinates
 		// Apply rotation
-		casing.setPosition(casing.posX + result.x, casing.posY + result.y, casing.posZ + result.z);
+		casing.offsetSpawn(result.x, result.y, result.z);
 	}
 
 	private static Vec3d rotateVector(Vec3d vector, float pitch, float yaw, float pitchFactor, float yawFactor) {

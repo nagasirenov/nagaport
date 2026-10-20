@@ -21,7 +21,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 public class BlockLanternBehemoth extends BlockDummyable implements IToolable, ILookOverlay {
 
 	public BlockLanternBehemoth() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class BlockLanternBehemoth extends BlockDummyable implements IToolable, I
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 

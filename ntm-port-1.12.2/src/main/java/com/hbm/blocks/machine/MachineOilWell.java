@@ -33,7 +33,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineOilWell extends BlockDummyable implements IPersistentInfoProvider {
 
 	public MachineOilWell() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -111,10 +111,10 @@ public class MachineOilWell extends BlockDummyable implements IPersistentInfoPro
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityMachineOilWell)) return;
 		
-		world.setBlockToAir(x, y, z);
+		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		onBlockDestroyedByExplosion(world, x, y, z, explosion);
 		
 		TileEntityMachineOilWell well = (TileEntityMachineOilWell) core;

@@ -1,0 +1,6 @@
+Previous diagnostics:1458
+Current diagnostics:1458
+Removed:Counter()
+Added:Counter()
+PASS:166modified production files exactly match compiler inputs;3861Java inputs.
+Full clean compile FAIL exit1 in23s. Not runnable mod.

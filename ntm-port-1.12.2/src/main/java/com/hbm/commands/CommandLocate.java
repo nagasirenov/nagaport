@@ -57,10 +57,10 @@ public class CommandLocate extends CommandBase {
 				return;
 			}
 
-			int chunkX = MathHelper.floor_double(player.posX) / 16;
-			int chunkZ = MathHelper.floor_double(player.posZ) / 16;
+			int chunkX = MathHelper.floor(player.posX) / 16;
+			int chunkZ = MathHelper.floor(player.posZ) / 16;
 
-			ChunkPos pos = getNearestLocationTo(structure, player.worldObj, chunkX, chunkZ);
+			ChunkPos pos = getNearestLocationTo(structure, player.world, chunkX, chunkZ);
 
 			if(pos == null) {
 				TextComponentTranslation message = new TextComponentTranslation("commands.locate.none_found");

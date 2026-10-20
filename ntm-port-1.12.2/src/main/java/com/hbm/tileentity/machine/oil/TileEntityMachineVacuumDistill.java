@@ -52,14 +52,14 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.vacuumDistill";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.isOn = false;
 			
@@ -78,7 +78,7 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 			for(DirPos pos : getConPos()) {
 				for(int i = 1; i < 5; i++) {
 					if(tanks[i].getFill() > 0) {
-						this.sendFluid(tanks[i], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						this.sendFluid(tanks[i], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 					}
 				}
 			}
@@ -115,7 +115,7 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 	
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.boiler", xCoord, yCoord, zCoord, 0.25F, 15F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.boiler", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 15F, 1.0F, 20);
 	}
 
 	@Override
@@ -177,21 +177,21 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 	
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 	
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 	
@@ -208,7 +208,7 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
@@ -217,6 +217,7 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 		tanks[2].writeToNBT(nbt, "reformate");
 		tanks[3].writeToNBT(nbt, "light");
 		tanks[4].writeToNBT(nbt, "gas");
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -226,12 +227,12 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 9,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 9,
+					this.pos.getZ() + 2
 					);
 		}
 		

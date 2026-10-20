@@ -41,8 +41,8 @@ public class ItemCatalog extends Item implements IGUIProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if(BobmazonOfferFactory.getOffers(player.getHeldItem()) != null)
-			return new GUIScreenBobmazon(player, BobmazonOfferFactory.getOffers(player.getHeldItem()));
+		if(BobmazonOfferFactory.getOffers(com.hbm.util.NativeHeldItem.getMainHandNullable(player)) != null)
+			return new GUIScreenBobmazon(player, BobmazonOfferFactory.getOffers(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 		return null;
 	}
 }

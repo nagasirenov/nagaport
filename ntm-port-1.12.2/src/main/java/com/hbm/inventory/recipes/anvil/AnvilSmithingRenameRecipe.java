@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 public class AnvilSmithingRenameRecipe extends AnvilSmithingRecipe {
 	
 	public AnvilSmithingRenameRecipe() {
-		super(1, new ItemStack(Items.iron_sword), new ComparableStack(Items.iron_sword), new ComparableStack(Items.name_tag, 0));
+		super(1, new ItemStack(Items.IRON_SWORD), new ComparableStack(Items.IRON_SWORD), new ComparableStack(Items.NAME_TAG, 0));
 	}
 	
 	@Override
@@ -26,7 +26,7 @@ public class AnvilSmithingRenameRecipe extends AnvilSmithingRecipe {
 	public ItemStack getOutput(ItemStack left, ItemStack right) {
 		
 		ItemStack out = left.copy();
-		out.stackSize = 1;
+		out.setCount(1);
 		
 		String name = getDisplayName(right);
 				
@@ -41,8 +41,8 @@ public class AnvilSmithingRenameRecipe extends AnvilSmithingRecipe {
 	public String getDisplayName(ItemStack stack) {
 		String s = null;
 
-		if(stack.stackTagCompound != null && stack.stackTagCompound.hasKey("display", 10)) {
-			NBTTagCompound nbttagcompound = stack.stackTagCompound.getCompoundTag("display");
+		if(stack.getTagCompound() != null && stack.getTagCompound().hasKey("display", 10)) {
+			NBTTagCompound nbttagcompound = stack.getTagCompound().getCompoundTag("display");
 
 			if(nbttagcompound.hasKey("Name", 8)) {
 				s = nbttagcompound.getString("Name");

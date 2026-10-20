@@ -83,7 +83,7 @@ public class ContainerMachineArcFurnaceLarge extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return furnace.isUseableByPlayer(player);
+		return furnace.isUsableByPlayer(player);
 	}
 	
 	public static class SlotArcFurnace extends SlotNonRetarded {

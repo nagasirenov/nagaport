@@ -35,7 +35,7 @@ public class MachinePress extends BlockDummyable implements IToolable {
 
 	@Override
 	protected boolean isLegacyMonoblock(World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		return te != null && te instanceof TileEntityMachinePress;
 	}
 	
@@ -51,12 +51,12 @@ public class MachinePress extends BlockDummyable implements IToolable {
 		if (tool != ToolType.HAND_DRILL) 
 			return false;
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		if (meta >= 12)
 			return false;
 		
 		safeRem = true;
-		world.setBlockToAir(x, y, z);
+		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		safeRem = false;
 		return true;
 	}

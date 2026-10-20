@@ -44,14 +44,14 @@ public class NukeMike extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return Item.getItemFromBlock(ModBlocks.nuke_mike);
 	}
 
 	@Override
 	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
 		if(!keepInventory) {
-			TileEntityNukeMike tileentityfurnace = (TileEntityNukeMike) p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+			TileEntityNukeMike tileentityfurnace = (TileEntityNukeMike) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
 			if(tileentityfurnace != null) {
 				for(int i1 = 0; i1 < tileentityfurnace.getSizeInventory(); ++i1) {
@@ -97,7 +97,7 @@ public class NukeMike extends BlockContainer implements IBomb {
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntityNukeMike entity = (TileEntityNukeMike) world.getTileEntity(x, y, z);
+			TileEntityNukeMike entity = (TileEntityNukeMike) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
@@ -109,19 +109,19 @@ public class NukeMike extends BlockContainer implements IBomb {
 
 	@Override
 	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
-		TileEntityNukeMike entity = (TileEntityNukeMike) p_149695_1_.getTileEntity(x, y, z);
+		TileEntityNukeMike entity = (TileEntityNukeMike) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {
 			if(entity.isReady() && !entity.isFilled()) {
 				this.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);
 				entity.clearSlots();
-				p_149695_1_.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);
 				igniteTestBomb(p_149695_1_, x, y, z, BombConfig.manRadius);
 			}
 
 			if(entity.isFilled()) {
 				this.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);
 				entity.clearSlots();
-				p_149695_1_.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);
 				igniteTestBomb(p_149695_1_, x, y, z, BombConfig.mikeRadius);
 			}
 		}
@@ -131,7 +131,7 @@ public class NukeMike extends BlockContainer implements IBomb {
 		if(!world.isRemote) {
 			tetn.clearSlots();
 			// world.spawnParticle("hugeexplosion", x, y, z, 0, 0, 0);
-			world.playSoundEffect(x, y, z, "random.explode", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, "random.explode", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);
 
 			world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(world, BombConfig.mikeRadius, x + 0.5, y + 0.5, z + 0.5));
 			EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.mikeRadius);
@@ -157,7 +157,7 @@ public class NukeMike extends BlockContainer implements IBomb {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -184,11 +184,11 @@ public class NukeMike extends BlockContainer implements IBomb {
 
 		if(!world.isRemote) {
 			
-			TileEntityNukeMike entity = (TileEntityNukeMike) world.getTileEntity(x, y, z);
+			TileEntityNukeMike entity = (TileEntityNukeMike) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity.isReady() && !entity.isFilled()) {
 				this.onBlockDestroyedByPlayer(world, x, y, z, 1);
 				entity.clearSlots();
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				igniteTestBomb(world, x, y, z, BombConfig.manRadius);
 				return BombReturnCode.DETONATED;
 			}
@@ -196,7 +196,7 @@ public class NukeMike extends BlockContainer implements IBomb {
 			if(entity.isFilled()) {
 				this.onBlockDestroyedByPlayer(world, x, y, z, 1);
 				entity.clearSlots();
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				igniteTestBomb(world, x, y, z, BombConfig.mikeRadius);
 				return BombReturnCode.DETONATED;
 			}

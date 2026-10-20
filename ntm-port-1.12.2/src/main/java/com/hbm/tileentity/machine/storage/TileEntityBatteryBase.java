@@ -53,20 +53,20 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(priority == null || priority.ordinal() == 0 || priority.ordinal() == 4) {
 				priority = ConnectionPriority.LOW;
 			}
 
 			if(this.node == null || this.node.expired) {
-				this.node = (PowerNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, Nodespace.THE_POWER_PROVIDER);
+				this.node = (PowerNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Nodespace.THE_POWER_PROVIDER);
 
 				if(this.node == null || this.node.expired) {
 					this.node = this.createNode();
-					UniNodespace.createNode(worldObj, this.node);
+					UniNodespace.createNode(this.world, this.node);
 				}
 			}
 
@@ -80,7 +80,7 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 			byte comp = this.getComparatorPower();
 			if(comp != this.lastRedstone) {
 				for(BlockPos port : this.getPortPos()) {
-					TileEntity tile = Compat.getTileStandard(worldObj, port.getX(), port.getY(), port.getZ());
+					TileEntity tile = Compat.getTileStandard(this.world, port.getX(), port.getY(), port.getZ());
 					if(tile != null) tile.markDirty();
 				}
 			}
@@ -94,7 +94,7 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 
 	public byte getComparatorPower() {
 		double frac = (double) this.getPower() / (double) Math.max(this.getMaxPower(), 1) * 15D;
-		return (byte) (MathHelper.clamp_int((int) Math.round(frac), 0, 15)); //to combat eventual rounding errors with the FEnSU's stupid maxPower
+		return (byte) (MathHelper.clamp((int) Math.round(frac), 0, 15)); //to combat eventual rounding errors with the FEnSU's stupid maxPower
 	}
 
 	@Override
@@ -106,9 +106,9 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, Nodespace.THE_POWER_PROVIDER);
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Nodespace.THE_POWER_PROVIDER);
 			}
 		}
 	}
@@ -147,13 +147,14 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setShort("redLow", redLow);
 		nbt.setShort("redHigh", redHigh);
 		nbt.setByte("lastRedstone", lastRedstone);
 		nbt.setByte("priority", (byte) this.priority.ordinal());
+		return nbt;
 	}
 
 	@Override public boolean allowDirectProvision() { return false; }
@@ -167,12 +168,12 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 	public short getRelevantMode(boolean useCache) {
 		if(useCache) return this.modeCache;
 		boolean powered = false;
-		for(BlockPos pos : getPortPos()) if(worldObj.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) { powered = true; break; }
+		for(BlockPos pos : getPortPos()) if(this.world.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) { powered = true; break; }
 		this.modeCache = powered ? this.redHigh : this.redLow;
 		return this.modeCache;
 	}
 
-	@Override public boolean hasPermission(EntityPlayer player) { return this.isUseableByPlayer(player); }
+	@Override public boolean hasPermission(EntityPlayer player) { return this.isUsableByPlayer(player); }
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {

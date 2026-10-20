@@ -32,7 +32,7 @@ public class BiomeGenLaythePolar extends BiomeGenBaseLaythe {
 			} else {
 				Block block2 = blocks[i2];
 
-				if (block2 != null && block2.getMaterial() != Material.AIR) {
+				if (block2 != null && block2.getDefaultState().getMaterial() != Material.AIR) {
 					if (block2 == Blocks.STONE) {
 						if (k == -1) {
 							if (l <= 0) {
@@ -45,7 +45,7 @@ public class BiomeGenLaythePolar extends BiomeGenBaseLaythe {
 								block1 = this.fillerBlock;
 							}
 
-							if (l1 < 63 && (block == null || block.getMaterial() == Material.AIR)) {
+							if (l1 < 63 && (block == null || block.getDefaultState().getMaterial() == Material.AIR)) {
 								if (this.getFloatTemperature(x, l1, z) < 0.15F) {
 									block = this.topBlock;
 									b0 = 0;

@@ -19,7 +19,7 @@ public class ItemPeas extends Item{
 			--stack.stackSize;
 		}
 		
-		List<EntityQuackos> quacc = world.getEntitiesWithinAABB(EntityQuackos.class, player.boundingBox.expand(50, 50, 50));
+		List<EntityQuackos> quacc = world.getEntitiesWithinAABB(EntityQuackos.class, player.getEntityBoundingBox().grow(50, 50, 50));
 		
 		for(EntityQuackos ducc : quacc) {
 			ducc.despawn();

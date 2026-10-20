@@ -31,13 +31,13 @@ import com.hbm.lib.ForgeDirection;
 public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor, ITooltipProvider {
 
 	public MachineCrucible() {
-		super(Material.rock);
+		super(Material.ROCK);
 
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, 1.5D, 0.5D, 1.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.25D, 0.5D, -1.25D, 1.25D, 1.5D, -1D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.25D, 0.5D, -1.25D, -1D, 1.5D, 1.25D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.25D, 0.5D, 1D, 1.25D, 1.5D, 1.25D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(1D, 0.5D, -1.25D, 1.25D, 1.5D, 1.25D));
+		this.bounding.add(new AxisAlignedBB(-1.5D, 0D, -1.5D, 1.5D, 0.5D, 1.5D));
+		this.bounding.add(new AxisAlignedBB(-1.25D, 0.5D, -1.25D, 1.25D, 1.5D, -1D));
+		this.bounding.add(new AxisAlignedBB(-1.25D, 0.5D, -1.25D, -1D, 1.5D, 1.25D));
+		this.bounding.add(new AxisAlignedBB(-1.25D, 0.5D, 1D, 1.25D, 1.5D, 1.25D));
+		this.bounding.add(new AxisAlignedBB(1D, 0.5D, -1.25D, 1.25D, 1.5D, 1.25D));
 		this.maxY = 0.999D; //item bounce prevention
 	}
 
@@ -58,8 +58,8 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 
 			if(pos == null)
 				return false;
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem().getItem()).getToolClasses(player.getHeldItem()).contains("shovel")) {
-				TileEntityCrucible crucible = (TileEntityCrucible) world.getTileEntity(pos[0], pos[1], pos[2]);
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemTool && ((ItemTool) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getToolClasses(com.hbm.util.NativeHeldItem.getMainHandNullable(player)).contains("shovel")) {
+				TileEntityCrucible crucible = (TileEntityCrucible) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				List<MaterialStack> stacks = new ArrayList();
 				stacks.addAll(crucible.recipeStack);
 				stacks.addAll(crucible.wasteStack);
@@ -68,7 +68,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 					ItemStack scrap = ItemScraps.create(new MaterialStack(stack.material, stack.amount));
 					if(!player.inventory.addItemStackToInventory(scrap)) {
 						EntityItem item = new EntityItem(world, x + hitX, y + hitY, z + hitZ, scrap);
-						world.spawnEntityInWorld(item);
+						world.spawnEntity(item);
 					}
 				}
 				
@@ -99,7 +99,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block b, int i) {
 		
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(te instanceof TileEntityCrucible) {
 			TileEntityCrucible crucible = (TileEntityCrucible) te;
@@ -111,7 +111,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 			for(MaterialStack stack : stacks) {
 				ItemStack scrap = ItemScraps.create(new MaterialStack(stack.material, stack.amount));
 				EntityItem item = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, scrap);
-				world.spawnEntityInWorld(item);
+				world.spawnEntity(item);
 			}
 			
 			crucible.recipeStack.clear();
@@ -133,13 +133,13 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 		
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(tile instanceof TileEntityCrucible)) return;
 		TileEntityCrucible crucible = (TileEntityCrucible) tile;
 		
-		x = crucible.xCoord;
-		y = crucible.yCoord;
-		z = crucible.zCoord;
+		x = crucible.getPos().getX();
+		y = crucible.getPos().getY();
+		z = crucible.getPos().getZ();
 		
 		EntityPlayer player = event.player;
 		float interp = event.partialTicks;
@@ -161,7 +161,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 		
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return false;
-		TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(tile instanceof TileEntityCrucible)) return false;
 		TileEntityCrucible crucible = (TileEntityCrucible) tile;
 		
@@ -173,7 +173,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 		
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return stack;
-		TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(tile instanceof TileEntityCrucible)) return stack;
 		TileEntityCrucible crucible = (TileEntityCrucible) tile;
 		

@@ -1,0 +1,45 @@
+{
+  "artifacts": {
+    "porting/native-steel-decoration-acceptance.md": "4d4eb16648a7245d40e7d2c717fea43f9999b3d66756115be1c7135cffe47e3d",
+    "porting/tests/solar-mirror-native-notes.md": "eb821ed7a8c6811a183e12c67f36b3b782b836cabaee7b31de4ec0621e24c692",
+    "porting/tests/solar-mirror-native-proof.log": "d7df533ee3aa087d1ea7fa8224d4bfab6cf891a24d12954ccf7d328b692f1dcc",
+    "porting/tests/solar-mirror-native/NativeSolarMirrorTest.java": "700995f49fee19c0ed5e8ec88b5738d867d1088c14f002ee93ec9437cecc9972",
+    "porting/tests/solar-mirror-native/OriginalMirrorOracle.java": "5066da4754fda8f8f32c3e5ced54225e2316075bfa31b700ef33bfa240082843",
+    "porting/tests/solar-mirror-native/README.md": "69e1eb246a020126d7afdf5af0c9ef6bbbb2d3a4236c3d6fc7054f4cb94c8cb4",
+    "porting/tests/solar-mirror-native/fixtures/com/hbm/tileentity/TileEntityTickingBase.java": "8f744d69bbeee8306be3bc883ab9a08bffd0b47e93d5cbc6ea9afc09e7518666",
+    "porting/tests/solar-mirror-native/fixtures/com/hbm/tileentity/machine/TileEntitySolarBoiler.java": "f31d2b4468daca8a407180ea55b019d52ba4c4e520b5f9102c8dc2fb7a78b6c4",
+    "porting/tests/solar-mirror-native/last-result.json": "128205447f4be768dc9e5dead069b21d7e63ba4e7cb7d4893c59519a0d7e6068",
+    "porting/tests/solar-mirror-native/manifest.sha256": "65e902217b402a6f36cd3c2c57a3578eb074c875fdb184782d78762b6395b957",
+    "porting/tests/solar-mirror-native/original-sha256.json": "5c37da8e641341ed84c189988b13f0367fc948fc2e8db1295ac0f1db23dfade3",
+    "porting/tests/solar-mirror-native/run.py": "139fd162eb417b1b5a12d8e62cf059d2308f36bf1b8af8af6c9c6db233dc4f64",
+    "porting/tests/steel-decoration-production-scope.json": "e4fc83590b8e4b7a7f1e7dc621c89708ce1762f42934bf2e24697b7788b52fa3",
+    "porting/tests/steel-native-portable-proof.log": "306006ecbd95482db7e6e7efe6c6ce851c8b6c40fefe129a56b0f1e0e7392232",
+    "porting/tests/steel-native/LICENSE": "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad",
+    "porting/tests/steel-native/LICENSE.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+    "porting/tests/steel-native/OriginalSteelOracle.java.in": "9141fe53b212cbcb52ca5233c167da13c4bb5ec714465f89c478e6063e06fb82",
+    "porting/tests/steel-native/README.md": "62f02775a58511ae8273bff662931f490fc912a46300da9c7155e4f540446fe0",
+    "porting/tests/steel-native/SteelNativeTest.java": "12dd15cb66d7dac5d156088953131244ea49dc96978ace56d9483310a30d327d",
+    "porting/tests/steel-native/build_oracle.py": "4fe4392899db4f69fe7671ad15f96deee8253c98753b272dd5f9074098842535",
+    "porting/tests/steel-native/manifest.sha256": "575c817dcceeb502bc5063bb1d48f9d5975c28d2ab3d80adf4b90a1ad0b26fc2",
+    "porting/tests/steel-native/oracle-notes.md": "ad6ca4b6ac1ded5b0b90d0a9b805ba9c2382196b2b7e49c4c9b4205ea2aec605",
+    "porting/tests/steel-native/pristine-steel-sources.zip": "040ad83071cf62ee2d833322eb736e58ae6e4e776e834ebe5eb1f5062a68f70d",
+    "porting/tests/steel-native/proof.log": "9768e36618f8ba53764ba7b4eeeaaaaa3856df4a641a51d155f656d31ac5133e",
+    "porting/tests/steel-native/run.py": "88c1e4d2ccc5046efea9e9f4722b8d64d66f89a1b3fcb13b7924fc2e49defc02",
+    "porting/tests/steel-native/source-manifest.json": "8994a918ab2720d2815367a91572b09aeb91c463c90f8fbb9d68b6df5632dde3"
+  },
+  "explicit_collaborators": {
+    "solar": [
+      "solar-mirror-native/fixtures/com/hbm/tileentity/TileEntityTickingBase.java",
+      "solar-mirror-native/fixtures/com/hbm/tileentity/machine/TileEntitySolarBoiler.java"
+    ],
+    "steel": [
+      "Runner literal RecipesCommon.ComparableStack outside-owner recipe-key fixture; production IToolable and INBTBlockTransformable compile complete."
+    ]
+  },
+  "external_inputs": {
+    "native_runtime": "Caller-supplied --java-home JDK8 and --classpath native Minecraft/Forge 1.12.2 dependency jars. No precompiled project output is required.",
+    "solar_original_sources": "Caller-supplied --original pristine NTM root, with all paths and digests pinned in solar-mirror-native/original-sha256.json.",
+    "steel_legacy_client": "Caller-supplied --legacy-client original 1.7.10 client jar SHA256 a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce; never downloaded or redistributed.",
+    "steel_original_sources": "All required pristine files and texture are bundled in pristine-steel-sources.zip with source-manifest.json; --original is optional."
+  }
+}

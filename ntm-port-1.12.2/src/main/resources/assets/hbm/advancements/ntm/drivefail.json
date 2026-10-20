@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/polymer",
+  "display": {
+    "icon": {
+      "item": "hbm:item.hard_drive_full",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.driveFail"
+    },
+    "description": {
+      "translate": "achievement.driveFail.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

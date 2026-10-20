@@ -45,28 +45,28 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.droneCrate";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			BlockPos pos = getCoord();
 			this.tank.setType(18, slots);
 			
-			if(sendingMode && !itemType && worldObj.getTotalWorldTime() % 20 == 0) {
+			if(sendingMode && !itemType && this.world.getTotalWorldTime() % 20 == 0) {
 				this.subscribeToAllAround(tank.getTankType(), this);
 			}
 			
-			if(!sendingMode && !itemType && worldObj.getTotalWorldTime() % 20 == 0) {
+			if(!sendingMode && !itemType && this.world.getTotalWorldTime() % 20 == 0) {
 				this.sendFluidToAll(tank, this);
 			}
 			
 			if(nextY != -1) {
 				
-				List<EntityDeliveryDrone> drones = worldObj.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(xCoord, yCoord + 1, zCoord, xCoord + 1, yCoord + 2, zCoord + 1));
+				List<EntityDeliveryDrone> drones = this.world.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 2, this.pos.getZ() + 1));
 				for(EntityDeliveryDrone drone : drones) {
 					if(new Vec3d(drone.motionX, drone.motionY, drone.motionZ).length() < 0.05) {
 						drone.setTarget(nextX + 0.5, nextY, nextZ + 0.5);
@@ -78,7 +78,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 					}
 				}
 
-				ParticleUtil.spawnDroneLine(worldObj,
+				ParticleUtil.spawnDroneLine(this.world,
 						pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
 						(nextX  - pos.getX()), (nextY - pos.getY()), (nextZ - pos.getZ()), 0x00ffff);
 			}
@@ -127,7 +127,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 		if(loaded) {
 			this.markDirty();
 			drone.setAppearance(1);
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
 		}
 	}
 	
@@ -142,7 +142,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 			
 			if(this.slots[i] == null && droneSlot != null) {
 				this.slots[i] = droneSlot.copy();
-				drone.setInventorySlotContents(i, null);
+				drone.setInventorySlotContents(i, ItemStack.EMPTY);
 			} else if(this.slots[i] != null && droneSlot != null) {
 				emptied = false;
 			}
@@ -152,7 +152,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 		
 		if(emptied) {
 			drone.setAppearance(0);
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
 		}
 	}
 	
@@ -164,7 +164,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 			drone.fluid = new FluidStack(tank.getTankType(), tank.getFill());
 			this.tank.setFill(0);
 			drone.setAppearance(2);
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
 			
 			this.markDirty();
 		}
@@ -185,14 +185,15 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 				tank.setFill(tank.getMaxFill());
 				drone.fluid.fill = overshoot;
 			}
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.unpack", 0.5F, 0.75F);
 			
 			this.markDirty();
 		}
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 };
 	}
 
@@ -202,13 +203,14 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 
 	@Override
 	public BlockPos getPoint() {
-		return new BlockPos(xCoord, yCoord + 1, zCoord);
+		return new BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ());
 	}
 
 	@Override
@@ -233,17 +235,18 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 	}
 
 	public BlockPos getCoord() {
-		return new BlockPos(xCoord, yCoord + 1, zCoord);
+		return new BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ());
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setIntArray("pos", new int[] {nextX, nextY, nextZ});
 		nbt.setBoolean("mode", sendingMode);
 		nbt.setBoolean("type", itemType);
 		tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override
@@ -259,7 +262,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

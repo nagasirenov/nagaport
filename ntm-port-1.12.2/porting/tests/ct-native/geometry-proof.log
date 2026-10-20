@@ -1,0 +1,46 @@
+PINNED ORIGINAL src/main/java/com/hbm/render/block/RenderBlockCT.java 8d472a94078608fc1c993d441ad4bc6e22957e291fb92b2a7aedb0702a017df6
+PINNED ORIGINAL src/main/java/com/hbm/render/block/ct/CT.java 2371d65ec46c5c94b21ae21512bd4cb4f74e59bf2d632334bead1d08c23f13a2
+PINNED ORIGINAL src/main/java/com/hbm/render/block/ct/CTContext.java bdfd31255f9afcc85c9c8379a731ff716e7063c52d575cead1de96807030cf1a
+PINNED ORIGINAL src/main/java/com/hbm/render/block/ct/CTStitchReceiver.java 9b94e11a25813f49da5dcc6c4b8de0b368e29bda91b74d709126e7ce7a0c8566
+PINNED ORIGINAL src/main/java/com/hbm/render/block/ct/IBlockCT.java 34b6323671e96acc5cbf6ece2b4201a8139972345f6fb4cc6f6feaf8344ea829
+PINNED ORIGINAL src/main/java/com/hbm/render/block/ct/IconCT.java d55a857b022be4246e8131ee8cec2f90fcbf76bdf9537636a32584963b6a1253
+PINNED ORIGINAL src/main/java/com/hbm/render/block/ct/RenderBlocksCT.java d62851ee5a7a6e64fd42bcd7609ba99df621be4bf15aa6f6d4261170fd323173
+PINNED ORIGINAL ARTIFACT client a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+PINNED ORIGINAL ARTIFACT srg d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2
+PRODUCTION com/hbm/render/block/ct/CT.java bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76
+PRODUCTION com/hbm/render/block/ct/CTContext.java 8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70
+PRODUCTION com/hbm/render/block/ct/IBlockCT.java d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+PRODUCTION com/hbm/render/block/ct/RenderBlocksCT.java d06b051704a26c9a8f2c550ca2b844ca2b3f494c0ead2cb1d593c341d8ac4ea3
+PRODUCTION com/hbm/render/block/RenderBlockCT.java 7333353045dee00b9194315e0222cdfe4a0855b97568d9f628bd3f789294ee67
+PRODUCTION com/hbm/render/block/ct/CTLightQuad.java 23d55234bbf3555cd4aab306becde225ab229c83e1ad4935acee91ff26c23531
+/tmp/ct-native-proof-2ksdx7k3/CTNativeTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/ct-native-proof-2ksdx7k3/CTNativeTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/ct-native-proof-2ksdx7k3/CTNativeTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/ct-native-proof-2ksdx7k3/CTNativeTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+  ^
+/tmp/ct-native-proof-2ksdx7k3/CTNativeTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+                 ^
+/tmp/ct-native-proof-2ksdx7k3/CTNativeTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+PASS immutable capture, original lexical offsets, all 256 masks x six orientations x four quadrants; all 20 regions reached.
+PASS actual official 1.7.10 RenderBlocks/Tessellator bytecode: six unsplit inventory faces, UV float bits, winding, and original +90 Y rotation on two atlas layouts; no GL draw.
+PASS actual Forge and vanilla flat/smooth chunk render paths: 96 vertices, asymmetric light response, all-face neighbor culling, and finite opaque output. This is native integration smoke, not complete old/new light-solver parity.
+PASS 8 concurrent request streams x 1024 independently captured six-face contexts without shared-context leakage.
+PASS exact pinned original source geometry/UV float bits: two nontrivial atlas layouts x two materials x 256 masks x six orientations, both direct native quad builder and real IBakedModel.
+PASS actual native Forge Flat/Smooth full-corner sampling + pinned original ordered color/packed-brightness averaging: all 256 masks x six faces, every midpoint/center and parent restoration on success/error. Native corner solver is explicitly not the old complete light solver.
+PASS native SimpleBakedModel destruction builder + BakedQuadRetextured smoke: 24 quads and both renderers. MEASURED OPEN GATE: native retexturing removes CTLightQuad, so the fragment midpoint/center light wrapper is bypassed; original break-overlay/pixel parity is not claimed.
+PASS CT native geometry/context proof: 1986964 assertions.
+LIMITATION: Native full-corner interpolation is tested, not claimed bit-identical to the complete original 1.7.10 light solver. Native destruction retexturing bypasses CTLightQuad; old/new crack-overlay pixel parity remains open.

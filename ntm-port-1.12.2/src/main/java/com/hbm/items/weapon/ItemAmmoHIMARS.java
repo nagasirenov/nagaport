@@ -149,7 +149,7 @@ public class ItemAmmoHIMARS extends Item {
 
 	public static void standardExplosion(EntityArtilleryRocket rocket, RayTraceResult mop, float size, float rangeMod, boolean breaksBlocks, Block slag, int slagMeta) {
 		Vec3d vec = new Vec3d(rocket.motionX, rocket.motionY, rocket.motionZ).normalize();
-		ExplosionVNT xnt = new ExplosionVNT(rocket.worldObj, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, size);
+		ExplosionVNT xnt = new ExplosionVNT(rocket.world, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, size);
 		if(breaksBlocks) {
 			xnt.setBlockAllocator(new BlockAllocatorStandard(48));
 			xnt.setBlockProcessor(new BlockProcessorStandard().setNoDrop().withBlockEffect(new BlockMutatorDebris(slag, slagMeta)));
@@ -169,27 +169,27 @@ public class ItemAmmoHIMARS extends Item {
 
 	private void init() {
 		/* STANDARD ROCKETS */
-		this.itemTypes[SMALL] = new HIMARSRocket("standard", "himars_standard",					0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, false, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.worldObj, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 15, 5F, 1F, 45F, 10, 0, 50, 1F, 3F, -2F, 200); }};
-		this.itemTypes[SMALL_HE] = new HIMARSRocket("standard_he", "himars_standard_he",		0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, true, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.worldObj, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 15, 5F, 1F, 45F, 10, 16, 50, 1F, 3F, -2F, 200); }};
+		this.itemTypes[SMALL] = new HIMARSRocket("standard", "himars_standard",					0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, false, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.world, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 15, 5F, 1F, 45F, 10, 0, 50, 1F, 3F, -2F, 200); }};
+		this.itemTypes[SMALL_HE] = new HIMARSRocket("standard_he", "himars_standard_he",		0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, true, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.world, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 15, 5F, 1F, 45F, 10, 16, 50, 1F, 3F, -2F, 200); }};
 		this.itemTypes[SMALL_LAVA] = new HIMARSRocket("standard_lava", "himars_standard_lava",	0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, true, ModBlocks.volcanic_lava_block, 0); }};
-		this.itemTypes[LARGE] = new HIMARSRocket("single", "himars_single",						1) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 50F, 5F, true, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.worldObj, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 30, 6.5F, 2F, 65F, 25, 16, 50, 1.25F, 3F, -2F, 350); }};
+		this.itemTypes[LARGE] = new HIMARSRocket("single", "himars_single",						1) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 50F, 5F, true, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.world, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 30, 6.5F, 2F, 65F, 25, 16, 50, 1.25F, 3F, -2F, 350); }};
 
 		this.itemTypes[SMALL_MINI_NUKE] = new HIMARSRocket("standard_mini_nuke", "himars_standard_mini_nuke", 0) {
 			public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {
 				rocket.killAndClear();
 				Vec3d vec = new Vec3d(rocket.motionX, rocket.motionY, rocket.motionZ).normalize();
-				ExplosionNukeSmall.explode(rocket.worldObj, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, ExplosionNukeSmall.PARAMS_MEDIUM);
+				ExplosionNukeSmall.explode(rocket.world, mop.hitVec.x - vec.x, mop.hitVec.y - vec.y, mop.hitVec.z - vec.z, ExplosionNukeSmall.PARAMS_MEDIUM);
 			}
 		};
 
 		this.itemTypes[SMALL_WP] = new HIMARSRocket("standard_wp", "himars_standard_wp", 0) {
 			public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {
-				rocket.worldObj.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rocket.worldObj.rand.nextFloat() * 0.2F);
+				com.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);
 				standardExplosion(rocket, mop, 20F, 3F, false, ModBlocks.block_slag, 1);
-				ExplosionLarge.spawnShrapnels(rocket.worldObj, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
-				ExplosionChaos.burn(rocket.worldObj, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 20);
+				ExplosionLarge.spawnShrapnels(rocket.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
+				ExplosionChaos.burn(rocket.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 20);
 				int radius = 30;
-				List<Entity> hit = rocket.worldObj.getEntitiesWithinAABBExcludingEntity(rocket, AxisAlignedBB.getBoundingBox(rocket.posX - radius, rocket.posY - radius, rocket.posZ - radius, rocket.posX + radius, rocket.posY + radius, rocket.posZ + radius));
+				List<Entity> hit = rocket.world.getEntitiesWithinAABBExcludingEntity(rocket, AxisAlignedBB.getBoundingBox(rocket.posX - radius, rocket.posY - radius, rocket.posZ - radius, rocket.posX + radius, rocket.posY + radius, rocket.posZ + radius));
 				for(Entity e : hit) {
 					e.setFire(5);
 					if(e instanceof EntityLivingBase) {
@@ -201,24 +201,24 @@ public class ItemAmmoHIMARS extends Item {
 				for(int i = 0; i < 10; i++) {
 					NBTTagCompound haze = new NBTTagCompound();
 					haze.setString("type", "haze");
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(haze, mop.hitVec.x + rocket.worldObj.rand.nextGaussian() * 15, mop.hitVec.y, mop.hitVec.z + rocket.worldObj.rand.nextGaussian() * 15), new TargetPoint(rocket.dimension, rocket.posX, rocket.posY, rocket.posZ, 150));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(haze, mop.hitVec.x + rocket.world.rand.nextGaussian() * 15, mop.hitVec.y, mop.hitVec.z + rocket.world.rand.nextGaussian() * 15), new TargetPoint(rocket.dimension, rocket.posX, rocket.posY, rocket.posZ, 150));
 				}
 				standardMush(rocket, mop, 15);
 			}};
 
 		this.itemTypes[SMALL_TB] = new HIMARSRocket("standard_tb", "himars_standard_tb", 0) {
 			public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {
-				rocket.worldObj.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rocket.worldObj.rand.nextFloat() * 0.2F);
+				com.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);
 				standardExplosion(rocket, mop, 20F, 10F, true, ModBlocks.block_slag, 1);
-				ExplosionLarge.spawnShrapnels(rocket.worldObj, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
+				ExplosionLarge.spawnShrapnels(rocket.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
 				standardMush(rocket, mop, 20);
 			}};
 
 		this.itemTypes[LARGE_TB] = new HIMARSRocket("single_tb", "himars_single_tb", 1) {
 			public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {
-				rocket.worldObj.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rocket.worldObj.rand.nextFloat() * 0.2F);
+				com.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, "hbm:weapon.explosionMedium", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);
 				standardExplosion(rocket, mop, 50F, 12F, true, ModBlocks.block_slag, 1);
-				ExplosionLarge.spawnShrapnels(rocket.worldObj, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
+				ExplosionLarge.spawnShrapnels(rocket.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
 				standardMush(rocket, mop, 35);
 			}};
 		}

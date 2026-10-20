@@ -1,0 +1,1203 @@
+Compiled from "SourceFile"
+public class ajn {
+  public static final aji a;
+
+  public static final aji b;
+
+  public static final alh c;
+
+  public static final aji d;
+
+  public static final aji e;
+
+  public static final aji f;
+
+  public static final aji g;
+
+  public static final aji h;
+
+  public static final alw i;
+
+  public static final aji j;
+
+  public static final alw k;
+
+  public static final aji l;
+
+  public static final anh m;
+
+  public static final aji n;
+
+  public static final aji o;
+
+  public static final aji p;
+
+  public static final aji q;
+
+  public static final aji r;
+
+  public static final aji s;
+
+  public static final alt t;
+
+  public static final alt u;
+
+  public static final aji v;
+
+  public static final aji w;
+
+  public static final aji x;
+
+  public static final aji y;
+
+  public static final aji z;
+
+  public static final aji A;
+
+  public static final aji B;
+
+  public static final aji C;
+
+  public static final aji D;
+
+  public static final aji E;
+
+  public static final app F;
+
+  public static final aji G;
+
+  public static final anz H;
+
+  public static final akh I;
+
+  public static final app J;
+
+  public static final apq K;
+
+  public static final aji L;
+
+  public static final apr M;
+
+  public static final alc N;
+
+  public static final alc O;
+
+  public static final ajr P;
+
+  public static final ajr Q;
+
+  public static final aji R;
+
+  public static final aji S;
+
+  public static final alj T;
+
+  public static final alj U;
+
+  public static final aji V;
+
+  public static final aji W;
+
+  public static final aji X;
+
+  public static final aji Y;
+
+  public static final aji Z;
+
+  public static final aji aa;
+
+  public static final alb ab;
+
+  public static final aji ac;
+
+  public static final aji ad;
+
+  public static final ajx ae;
+
+  public static final ana af;
+
+  public static final aji ag;
+
+  public static final aji ah;
+
+  public static final aji ai;
+
+  public static final aji aj;
+
+  public static final aji ak;
+
+  public static final aji al;
+
+  public static final aji am;
+
+  public static final aji an;
+
+  public static final aji ao;
+
+  public static final aji ap;
+
+  public static final aji aq;
+
+  public static final aji ar;
+
+  public static final aji as;
+
+  public static final aji at;
+
+  public static final aji au;
+
+  public static final aji av;
+
+  public static final aji aw;
+
+  public static final aji ax;
+
+  public static final aji ay;
+
+  public static final aji az;
+
+  public static final aji aA;
+
+  public static final aji aB;
+
+  public static final aji aC;
+
+  public static final aji aD;
+
+  public static final aji aE;
+
+  public static final aji aF;
+
+  public static final aji aG;
+
+  public static final aji aH;
+
+  public static final aji aI;
+
+  public static final aji aJ;
+
+  public static final aji aK;
+
+  public static final aji aL;
+
+  public static final aji aM;
+
+  public static final aji aN;
+
+  public static final amp aO;
+
+  public static final aji aP;
+
+  public static final aji aQ;
+
+  public static final anf aR;
+
+  public static final anf aS;
+
+  public static final aji aT;
+
+  public static final aji aU;
+
+  public static final aji aV;
+
+  public static final aji aW;
+
+  public static final aji aX;
+
+  public static final aji aY;
+
+  public static final aji aZ;
+
+  public static final aji ba;
+
+  public static final aji bb;
+
+  public static final aji bc;
+
+  public static final aji bd;
+
+  public static final aji be;
+
+  public static final aji bf;
+
+  public static final aji bg;
+
+  public static final amd bh;
+
+  public static final aji bi;
+
+  public static final aji bj;
+
+  public static final aji bk;
+
+  public static final aji bl;
+
+  public static final aji bm;
+
+  public static final aji bn;
+
+  public static final aji bo;
+
+  public static final ajw bp;
+
+  public static final aji bq;
+
+  public static final aji br;
+
+  public static final aji bs;
+
+  public static final aji bt;
+
+  public static final aji bu;
+
+  public static final aji bv;
+
+  public static final alj bw;
+
+  public static final alj bx;
+
+  public static final aji by;
+
+  public static final aji bz;
+
+  public static final aji bA;
+
+  public static final aji bB;
+
+  public static final aog bC;
+
+  public static final aji bD;
+
+  public static final aji bE;
+
+  public static final aji bF;
+
+  public static final aji bG;
+
+  public static final aji bH;
+
+  public static final aji bI;
+
+  public static final ajg bJ;
+
+  public static final aji bK;
+
+  public static final aji bL;
+
+  public static final aji bM;
+
+  public static final aji bN;
+
+  public static final aji bO;
+
+  public static final aji bP;
+
+  public static final aji bQ;
+
+  public static final aji bR;
+
+  public static final aji bS;
+
+  public static final aji bT;
+
+  public static final akc bU;
+
+  public static final akc bV;
+
+  public static final akg bW;
+
+  public static final aji bX;
+
+  public static final aji bY;
+
+  public static final aln bZ;
+
+  public static final aji ca;
+
+  public static final aji cb;
+
+  public static final aji cc;
+
+  public static final aji cd;
+
+  public static final aji ce;
+
+  public static final aji cf;
+
+  public static final aji cg;
+
+  public static final aji ch;
+
+  public static final aji ci;
+
+  public static final aji cj;
+
+  public static final aji ck;
+
+  public static final aji cl;
+
+  public static final ako cm;
+
+  public static final anq cn;
+
+  public static final anr co;
+
+  static {};
+    Code:
+       0: getstatic     #203                // Field aji.c:Lcw;
+       3: ldc           #3                  // String air
+       5: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+       8: checkcast     #173                // class aji
+      11: putstatic     #230                // Field a:Laji;
+      14: getstatic     #203                // Field aji.c:Lcw;
+      17: ldc           #143                // String stone
+      19: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      22: checkcast     #173                // class aji
+      25: putstatic     #283                // Field b:Laji;
+      28: getstatic     #203                // Field aji.c:Lcw;
+      31: ldc           #63                 // String grass
+      33: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      36: checkcast     #184                // class alh
+      39: putstatic     #336                // Field c:Lalh;
+      42: getstatic     #203                // Field aji.c:Lcw;
+      45: ldc           #35                 // String dirt
+      47: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      50: checkcast     #173                // class aji
+      53: putstatic     #352                // Field d:Laji;
+      56: getstatic     #203                // Field aji.c:Lcw;
+      59: ldc           #24                 // String cobblestone
+      61: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      64: checkcast     #173                // class aji
+      67: putstatic     #353                // Field e:Laji;
+      70: getstatic     #203                // Field aji.c:Lcw;
+      73: ldc           #108                // String planks
+      75: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      78: checkcast     #173                // class aji
+      81: putstatic     #354                // Field f:Laji;
+      84: getstatic     #203                // Field aji.c:Lcw;
+      87: ldc           #131                // String sapling
+      89: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      92: checkcast     #173                // class aji
+      95: putstatic     #355                // Field g:Laji;
+      98: getstatic     #203                // Field aji.c:Lcw;
+     101: ldc           #7                  // String bedrock
+     103: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     106: checkcast     #173                // class aji
+     109: putstatic     #356                // Field h:Laji;
+     112: getstatic     #203                // Field aji.c:Lcw;
+     115: ldc           #55                 // String flowing_water
+     117: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     120: checkcast     #188                // class alw
+     123: putstatic     #357                // Field i:Lalw;
+     126: getstatic     #203                // Field aji.c:Lcw;
+     129: ldc           #162                // String water
+     131: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     134: checkcast     #173                // class aji
+     137: putstatic     #358                // Field j:Laji;
+     140: getstatic     #203                // Field aji.c:Lcw;
+     143: ldc           #54                 // String flowing_lava
+     145: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     148: checkcast     #188                // class alw
+     151: putstatic     #359                // Field k:Lalw;
+     154: getstatic     #203                // Field aji.c:Lcw;
+     157: ldc           #79                 // String lava
+     159: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     162: checkcast     #173                // class aji
+     165: putstatic     #360                // Field l:Laji;
+     168: getstatic     #203                // Field aji.c:Lcw;
+     171: ldc           #128                // String sand
+     173: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     176: checkcast     #193                // class anh
+     179: putstatic     #361                // Field m:Lanh;
+     182: getstatic     #203                // Field aji.c:Lcw;
+     185: ldc           #64                 // String gravel
+     187: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     190: checkcast     #173                // class aji
+     193: putstatic     #362                // Field n:Laji;
+     196: getstatic     #203                // Field aji.c:Lcw;
+     199: ldc           #61                 // String gold_ore
+     201: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     204: checkcast     #173                // class aji
+     207: putstatic     #363                // Field o:Laji;
+     210: getstatic     #203                // Field aji.c:Lcw;
+     213: ldc           #73                 // String iron_ore
+     215: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     218: checkcast     #173                // class aji
+     221: putstatic     #364                // Field p:Laji;
+     224: getstatic     #203                // Field aji.c:Lcw;
+     227: ldc           #23                 // String coal_ore
+     229: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     232: checkcast     #173                // class aji
+     235: putstatic     #365                // Field q:Laji;
+     238: getstatic     #203                // Field aji.c:Lcw;
+     241: ldc           #88                 // String log
+     243: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     246: checkcast     #173                // class aji
+     249: putstatic     #366                // Field r:Laji;
+     252: getstatic     #203                // Field aji.c:Lcw;
+     255: ldc           #89                 // String log2
+     257: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     260: checkcast     #173                // class aji
+     263: putstatic     #367                // Field s:Laji;
+     266: getstatic     #203                // Field aji.c:Lcw;
+     269: ldc           #80                 // String leaves
+     271: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     274: checkcast     #187                // class alt
+     277: putstatic     #368                // Field t:Lalt;
+     280: getstatic     #203                // Field aji.c:Lcw;
+     283: ldc           #81                 // String leaves2
+     285: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     288: checkcast     #187                // class alt
+     291: putstatic     #369                // Field u:Lalt;
+     294: getstatic     #203                // Field aji.c:Lcw;
+     297: ldc           #136                // String sponge
+     299: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     302: checkcast     #173                // class aji
+     305: putstatic     #370                // Field v:Laji;
+     308: getstatic     #203                // Field aji.c:Lcw;
+     311: ldc           #57                 // String glass
+     313: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     316: checkcast     #173                // class aji
+     319: putstatic     #371                // Field w:Laji;
+     322: getstatic     #203                // Field aji.c:Lcw;
+     325: ldc           #78                 // String lapis_ore
+     327: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     330: checkcast     #173                // class aji
+     333: putstatic     #372                // Field x:Laji;
+     336: getstatic     #203                // Field aji.c:Lcw;
+     339: ldc           #77                 // String lapis_block
+     341: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     344: checkcast     #173                // class aji
+     347: putstatic     #373                // Field y:Laji;
+     350: getstatic     #203                // Field aji.c:Lcw;
+     353: ldc           #36                 // String dispenser
+     355: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     358: checkcast     #173                // class aji
+     361: putstatic     #374                // Field z:Laji;
+     364: getstatic     #203                // Field aji.c:Lcw;
+     367: ldc           #129                // String sandstone
+     369: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     372: checkcast     #173                // class aji
+     375: putstatic     #204                // Field A:Laji;
+     378: getstatic     #203                // Field aji.c:Lcw;
+     381: ldc           #101                // String noteblock
+     383: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     386: checkcast     #173                // class aji
+     389: putstatic     #205                // Field B:Laji;
+     392: getstatic     #203                // Field aji.c:Lcw;
+     395: ldc           #6                  // String bed
+     397: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     400: checkcast     #173                // class aji
+     403: putstatic     #206                // Field C:Laji;
+     406: getstatic     #203                // Field aji.c:Lcw;
+     409: ldc           #62                 // String golden_rail
+     411: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     414: checkcast     #173                // class aji
+     417: putstatic     #207                // Field D:Laji;
+     420: getstatic     #203                // Field aji.c:Lcw;
+     423: ldc           #32                 // String detector_rail
+     425: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     428: checkcast     #173                // class aji
+     431: putstatic     #208                // Field E:Laji;
+     434: getstatic     #203                // Field aji.c:Lcw;
+     437: ldc           #142                // String sticky_piston
+     439: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     442: checkcast     #198                // class app
+     445: putstatic     #209                // Field F:Lapp;
+     448: getstatic     #203                // Field aji.c:Lcw;
+     451: ldc           #164                // String web
+     453: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     456: checkcast     #173                // class aji
+     459: putstatic     #210                // Field G:Laji;
+     462: getstatic     #203                // Field aji.c:Lcw;
+     465: ldc           #150                // String tallgrass
+     467: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     470: checkcast     #196                // class anz
+     473: putstatic     #211                // Field H:Lanz;
+     476: getstatic     #203                // Field aji.c:Lcw;
+     479: ldc           #31                 // String deadbush
+     481: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     484: checkcast     #180                // class akh
+     487: putstatic     #212                // Field I:Lakh;
+     490: getstatic     #203                // Field aji.c:Lcw;
+     493: ldc           #105                // String piston
+     495: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     498: checkcast     #198                // class app
+     501: putstatic     #213                // Field J:Lapp;
+     504: getstatic     #203                // Field aji.c:Lcw;
+     507: ldc           #107                // String piston_head
+     509: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     512: checkcast     #199                // class apq
+     515: putstatic     #214                // Field K:Lapq;
+     518: getstatic     #203                // Field aji.c:Lcw;
+     521: ldc           #170                // String wool
+     523: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     526: checkcast     #173                // class aji
+     529: putstatic     #215                // Field L:Laji;
+     532: getstatic     #203                // Field aji.c:Lcw;
+     535: ldc           #106                // String piston_extension
+     537: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     540: checkcast     #200                // class apr
+     543: putstatic     #216                // Field M:Lapr;
+     546: getstatic     #203                // Field aji.c:Lcw;
+     549: ldc           #171                // String yellow_flower
+     551: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     554: checkcast     #183                // class alc
+     557: putstatic     #217                // Field N:Lalc;
+     560: getstatic     #203                // Field aji.c:Lcw;
+     563: ldc           #119                // String red_flower
+     565: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     568: checkcast     #183                // class alc
+     571: putstatic     #218                // Field O:Lalc;
+     574: getstatic     #203                // Field aji.c:Lcw;
+     577: ldc           #13                 // String brown_mushroom
+     579: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     582: checkcast     #175                // class ajr
+     585: putstatic     #219                // Field P:Lajr;
+     588: getstatic     #203                // Field aji.c:Lcw;
+     591: ldc           #120                // String red_mushroom
+     593: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     596: checkcast     #175                // class ajr
+     599: putstatic     #220                // Field Q:Lajr;
+     602: getstatic     #203                // Field aji.c:Lcw;
+     605: ldc           #60                 // String gold_block
+     607: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     610: checkcast     #173                // class aji
+     613: putstatic     #221                // Field R:Laji;
+     616: getstatic     #203                // Field aji.c:Lcw;
+     619: ldc           #71                 // String iron_block
+     621: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     624: checkcast     #173                // class aji
+     627: putstatic     #222                // Field S:Laji;
+     630: getstatic     #203                // Field aji.c:Lcw;
+     633: ldc           #38                 // String double_stone_slab
+     635: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     638: checkcast     #185                // class alj
+     641: putstatic     #223                // Field T:Lalj;
+     644: getstatic     #203                // Field aji.c:Lcw;
+     647: ldc           #147                // String stone_slab
+     649: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     652: checkcast     #185                // class alj
+     655: putstatic     #224                // Field U:Lalj;
+     658: getstatic     #203                // Field aji.c:Lcw;
+     661: ldc           #11                 // String brick_block
+     663: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     666: checkcast     #173                // class aji
+     669: putstatic     #225                // Field V:Laji;
+     672: getstatic     #203                // Field aji.c:Lcw;
+     675: ldc           #151                // String tnt
+     677: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     680: checkcast     #173                // class aji
+     683: putstatic     #226                // Field W:Laji;
+     686: getstatic     #203                // Field aji.c:Lcw;
+     689: ldc           #9                  // String bookshelf
+     691: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     694: checkcast     #173                // class aji
+     697: putstatic     #227                // Field X:Laji;
+     700: getstatic     #203                // Field aji.c:Lcw;
+     703: ldc           #94                 // String mossy_cobblestone
+     705: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     708: checkcast     #173                // class aji
+     711: putstatic     #228                // Field Y:Laji;
+     714: getstatic     #203                // Field aji.c:Lcw;
+     717: ldc           #103                // String obsidian
+     719: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     722: checkcast     #173                // class aji
+     725: putstatic     #229                // Field Z:Laji;
+     728: getstatic     #203                // Field aji.c:Lcw;
+     731: ldc           #152                // String torch
+     733: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     736: checkcast     #173                // class aji
+     739: putstatic     #257                // Field aa:Laji;
+     742: getstatic     #203                // Field aji.c:Lcw;
+     745: ldc           #52                 // String fire
+     747: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     750: checkcast     #182                // class alb
+     753: putstatic     #258                // Field ab:Lalb;
+     756: getstatic     #203                // Field aji.c:Lcw;
+     759: ldc           #92                 // String mob_spawner
+     761: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     764: checkcast     #173                // class aji
+     767: putstatic     #259                // Field ac:Laji;
+     770: getstatic     #203                // Field aji.c:Lcw;
+     773: ldc           #102                // String oak_stairs
+     775: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     778: checkcast     #173                // class aji
+     781: putstatic     #260                // Field ad:Laji;
+     784: getstatic     #203                // Field aji.c:Lcw;
+     787: ldc           #20                 // String chest
+     789: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     792: checkcast     #177                // class ajx
+     795: putstatic     #261                // Field ae:Lajx;
+     798: getstatic     #203                // Field aji.c:Lcw;
+     801: ldc           #126                // String redstone_wire
+     803: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     806: checkcast     #191                // class ana
+     809: putstatic     #262                // Field af:Lana;
+     812: getstatic     #203                // Field aji.c:Lcw;
+     815: ldc           #34                 // String diamond_ore
+     817: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     820: checkcast     #173                // class aji
+     823: putstatic     #263                // Field ag:Laji;
+     826: getstatic     #203                // Field aji.c:Lcw;
+     829: ldc           #33                 // String diamond_block
+     831: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     834: checkcast     #173                // class aji
+     837: putstatic     #264                // Field ah:Laji;
+     840: getstatic     #203                // Field aji.c:Lcw;
+     843: ldc           #28                 // String crafting_table
+     845: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     848: checkcast     #173                // class aji
+     851: putstatic     #265                // Field ai:Laji;
+     854: getstatic     #203                // Field aji.c:Lcw;
+     857: ldc           #165                // String wheat
+     859: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     862: checkcast     #173                // class aji
+     865: putstatic     #266                // Field aj:Laji;
+     868: getstatic     #203                // Field aji.c:Lcw;
+     871: ldc           #49                 // String farmland
+     873: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     876: checkcast     #173                // class aji
+     879: putstatic     #267                // Field ak:Laji;
+     882: getstatic     #203                // Field aji.c:Lcw;
+     885: ldc           #56                 // String furnace
+     887: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     890: checkcast     #173                // class aji
+     893: putstatic     #268                // Field al:Laji;
+     896: getstatic     #203                // Field aji.c:Lcw;
+     899: ldc           #84                 // String lit_furnace
+     901: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     904: checkcast     #173                // class aji
+     907: putstatic     #269                // Field am:Laji;
+     910: getstatic     #203                // Field aji.c:Lcw;
+     913: ldc           #141                // String standing_sign
+     915: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     918: checkcast     #173                // class aji
+     921: putstatic     #270                // Field an:Laji;
+     924: getstatic     #203                // Field aji.c:Lcw;
+     927: ldc           #167                // String wooden_door
+     929: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     932: checkcast     #173                // class aji
+     935: putstatic     #271                // Field ao:Laji;
+     938: getstatic     #203                // Field aji.c:Lcw;
+     941: ldc           #76                 // String ladder
+     943: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     946: checkcast     #173                // class aji
+     949: putstatic     #272                // Field ap:Laji;
+     952: getstatic     #203                // Field aji.c:Lcw;
+     955: ldc           #118                // String rail
+     957: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     960: checkcast     #173                // class aji
+     963: putstatic     #273                // Field aq:Laji;
+     966: getstatic     #203                // Field aji.c:Lcw;
+     969: ldc           #148                // String stone_stairs
+     971: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     974: checkcast     #173                // class aji
+     977: putstatic     #274                // Field ar:Laji;
+     980: getstatic     #203                // Field aji.c:Lcw;
+     983: ldc           #161                // String wall_sign
+     985: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+     988: checkcast     #173                // class aji
+     991: putstatic     #275                // Field as:Laji;
+     994: getstatic     #203                // Field aji.c:Lcw;
+     997: ldc           #82                 // String lever
+     999: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1002: checkcast     #173                // class aji
+    1005: putstatic     #276                // Field at:Laji;
+    1008: getstatic     #203                // Field aji.c:Lcw;
+    1011: ldc           #146                // String stone_pressure_plate
+    1013: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1016: checkcast     #173                // class aji
+    1019: putstatic     #277                // Field au:Laji;
+    1022: getstatic     #203                // Field aji.c:Lcw;
+    1025: ldc           #72                 // String iron_door
+    1027: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1030: checkcast     #173                // class aji
+    1033: putstatic     #278                // Field av:Laji;
+    1036: getstatic     #203                // Field aji.c:Lcw;
+    1039: ldc           #168                // String wooden_pressure_plate
+    1041: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1044: checkcast     #173                // class aji
+    1047: putstatic     #279                // Field aw:Laji;
+    1050: getstatic     #203                // Field aji.c:Lcw;
+    1053: ldc           #124                // String redstone_ore
+    1055: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1058: checkcast     #173                // class aji
+    1061: putstatic     #280                // Field ax:Laji;
+    1064: getstatic     #203                // Field aji.c:Lcw;
+    1067: ldc           #87                 // String lit_redstone_ore
+    1069: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1072: checkcast     #173                // class aji
+    1075: putstatic     #281                // Field ay:Laji;
+    1078: getstatic     #203                // Field aji.c:Lcw;
+    1081: ldc           #157                // String unlit_redstone_torch
+    1083: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1086: checkcast     #173                // class aji
+    1089: putstatic     #282                // Field az:Laji;
+    1092: getstatic     #203                // Field aji.c:Lcw;
+    1095: ldc           #125                // String redstone_torch
+    1097: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1100: checkcast     #173                // class aji
+    1103: putstatic     #231                // Field aA:Laji;
+    1106: getstatic     #203                // Field aji.c:Lcw;
+    1109: ldc           #145                // String stone_button
+    1111: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1114: checkcast     #173                // class aji
+    1117: putstatic     #232                // Field aB:Laji;
+    1120: getstatic     #203                // Field aji.c:Lcw;
+    1123: ldc           #134                // String snow_layer
+    1125: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1128: checkcast     #173                // class aji
+    1131: putstatic     #233                // Field aC:Laji;
+    1134: getstatic     #203                // Field aji.c:Lcw;
+    1137: ldc           #69                 // String ice
+    1139: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1142: checkcast     #173                // class aji
+    1145: putstatic     #234                // Field aD:Laji;
+    1148: getstatic     #203                // Field aji.c:Lcw;
+    1151: ldc           #133                // String snow
+    1153: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1156: checkcast     #173                // class aji
+    1159: putstatic     #235                // Field aE:Laji;
+    1162: getstatic     #203                // Field aji.c:Lcw;
+    1165: ldc           #15                 // String cactus
+    1167: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1170: checkcast     #173                // class aji
+    1173: putstatic     #236                // Field aF:Laji;
+    1176: getstatic     #203                // Field aji.c:Lcw;
+    1179: ldc           #21                 // String clay
+    1181: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1184: checkcast     #173                // class aji
+    1187: putstatic     #237                // Field aG:Laji;
+    1190: getstatic     #203                // Field aji.c:Lcw;
+    1193: ldc           #127                // String reeds
+    1195: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1198: checkcast     #173                // class aji
+    1201: putstatic     #238                // Field aH:Laji;
+    1204: getstatic     #203                // Field aji.c:Lcw;
+    1207: ldc           #74                 // String jukebox
+    1209: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1212: checkcast     #173                // class aji
+    1215: putstatic     #239                // Field aI:Laji;
+    1218: getstatic     #203                // Field aji.c:Lcw;
+    1221: ldc           #50                 // String fence
+    1223: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1226: checkcast     #173                // class aji
+    1229: putstatic     #240                // Field aJ:Laji;
+    1232: getstatic     #203                // Field aji.c:Lcw;
+    1235: ldc           #113                // String pumpkin
+    1237: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1240: checkcast     #173                // class aji
+    1243: putstatic     #241                // Field aK:Laji;
+    1246: getstatic     #203                // Field aji.c:Lcw;
+    1249: ldc           #100                // String netherrack
+    1251: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1254: checkcast     #173                // class aji
+    1257: putstatic     #242                // Field aL:Laji;
+    1260: getstatic     #203                // Field aji.c:Lcw;
+    1263: ldc           #135                // String soul_sand
+    1265: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1268: checkcast     #173                // class aji
+    1271: putstatic     #243                // Field aM:Laji;
+    1274: getstatic     #203                // Field aji.c:Lcw;
+    1277: ldc           #59                 // String glowstone
+    1279: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1282: checkcast     #173                // class aji
+    1285: putstatic     #244                // Field aN:Laji;
+    1288: getstatic     #203                // Field aji.c:Lcw;
+    1291: ldc           #109                // String portal
+    1293: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1296: checkcast     #190                // class amp
+    1299: putstatic     #245                // Field aO:Lamp;
+    1302: getstatic     #203                // Field aji.c:Lcw;
+    1305: ldc           #85                 // String lit_pumpkin
+    1307: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1310: checkcast     #173                // class aji
+    1313: putstatic     #246                // Field aP:Laji;
+    1316: getstatic     #203                // Field aji.c:Lcw;
+    1319: ldc           #16                 // String cake
+    1321: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1324: checkcast     #173                // class aji
+    1327: putstatic     #247                // Field aQ:Laji;
+    1330: getstatic     #203                // Field aji.c:Lcw;
+    1333: ldc           #159                // String unpowered_repeater
+    1335: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1338: checkcast     #192                // class anf
+    1341: putstatic     #248                // Field aR:Lanf;
+    1344: getstatic     #203                // Field aji.c:Lcw;
+    1347: ldc           #112                // String powered_repeater
+    1349: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1352: checkcast     #192                // class anf
+    1355: putstatic     #249                // Field aS:Lanf;
+    1358: getstatic     #203                // Field aji.c:Lcw;
+    1361: ldc           #153                // String trapdoor
+    1363: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1366: checkcast     #173                // class aji
+    1369: putstatic     #250                // Field aT:Laji;
+    1372: getstatic     #203                // Field aji.c:Lcw;
+    1375: ldc           #93                 // String monster_egg
+    1377: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1380: checkcast     #173                // class aji
+    1383: putstatic     #251                // Field aU:Laji;
+    1386: getstatic     #203                // Field aji.c:Lcw;
+    1389: ldc           #149                // String stonebrick
+    1391: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1394: checkcast     #173                // class aji
+    1397: putstatic     #252                // Field aV:Laji;
+    1400: getstatic     #203                // Field aji.c:Lcw;
+    1403: ldc           #14                 // String brown_mushroom_block
+    1405: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1408: checkcast     #173                // class aji
+    1411: putstatic     #253                // Field aW:Laji;
+    1414: getstatic     #203                // Field aji.c:Lcw;
+    1417: ldc           #121                // String red_mushroom_block
+    1419: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1422: checkcast     #173                // class aji
+    1425: putstatic     #254                // Field aX:Laji;
+    1428: getstatic     #203                // Field aji.c:Lcw;
+    1431: ldc           #70                 // String iron_bars
+    1433: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1436: checkcast     #173                // class aji
+    1439: putstatic     #255                // Field aY:Laji;
+    1442: getstatic     #203                // Field aji.c:Lcw;
+    1445: ldc           #58                 // String glass_pane
+    1447: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1450: checkcast     #173                // class aji
+    1453: putstatic     #256                // Field aZ:Laji;
+    1456: getstatic     #203                // Field aji.c:Lcw;
+    1459: ldc           #90                 // String melon_block
+    1461: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1464: checkcast     #173                // class aji
+    1467: putstatic     #310                // Field ba:Laji;
+    1470: getstatic     #203                // Field aji.c:Lcw;
+    1473: ldc           #114                // String pumpkin_stem
+    1475: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1478: checkcast     #173                // class aji
+    1481: putstatic     #311                // Field bb:Laji;
+    1484: getstatic     #203                // Field aji.c:Lcw;
+    1487: ldc           #91                 // String melon_stem
+    1489: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1492: checkcast     #173                // class aji
+    1495: putstatic     #312                // Field bc:Laji;
+    1498: getstatic     #203                // Field aji.c:Lcw;
+    1501: ldc           #160                // String vine
+    1503: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1506: checkcast     #173                // class aji
+    1509: putstatic     #313                // Field bd:Laji;
+    1512: getstatic     #203                // Field aji.c:Lcw;
+    1515: ldc           #51                 // String fence_gate
+    1517: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1520: checkcast     #173                // class aji
+    1523: putstatic     #314                // Field be:Laji;
+    1526: getstatic     #203                // Field aji.c:Lcw;
+    1529: ldc           #12                 // String brick_stairs
+    1531: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1534: checkcast     #173                // class aji
+    1537: putstatic     #315                // Field bf:Laji;
+    1540: getstatic     #203                // Field aji.c:Lcw;
+    1543: ldc           #144                // String stone_brick_stairs
+    1545: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1548: checkcast     #173                // class aji
+    1551: putstatic     #316                // Field bg:Laji;
+    1554: getstatic     #203                // Field aji.c:Lcw;
+    1557: ldc           #95                 // String mycelium
+    1559: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1562: checkcast     #189                // class amd
+    1565: putstatic     #317                // Field bh:Lamd;
+    1568: getstatic     #203                // Field aji.c:Lcw;
+    1571: ldc           #163                // String waterlily
+    1573: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1576: checkcast     #173                // class aji
+    1579: putstatic     #318                // Field bi:Laji;
+    1582: getstatic     #203                // Field aji.c:Lcw;
+    1585: ldc           #96                 // String nether_brick
+    1587: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1590: checkcast     #173                // class aji
+    1593: putstatic     #319                // Field bj:Laji;
+    1596: getstatic     #203                // Field aji.c:Lcw;
+    1599: ldc           #97                 // String nether_brick_fence
+    1601: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1604: checkcast     #173                // class aji
+    1607: putstatic     #320                // Field bk:Laji;
+    1610: getstatic     #203                // Field aji.c:Lcw;
+    1613: ldc           #98                 // String nether_brick_stairs
+    1615: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1618: checkcast     #173                // class aji
+    1621: putstatic     #321                // Field bl:Laji;
+    1624: getstatic     #203                // Field aji.c:Lcw;
+    1627: ldc           #99                 // String nether_wart
+    1629: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1632: checkcast     #173                // class aji
+    1635: putstatic     #322                // Field bm:Laji;
+    1638: getstatic     #203                // Field aji.c:Lcw;
+    1641: ldc           #44                 // String enchanting_table
+    1643: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1646: checkcast     #173                // class aji
+    1649: putstatic     #323                // Field bn:Laji;
+    1652: getstatic     #203                // Field aji.c:Lcw;
+    1655: ldc           #10                 // String brewing_stand
+    1657: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1660: checkcast     #173                // class aji
+    1663: putstatic     #324                // Field bo:Laji;
+    1666: getstatic     #203                // Field aji.c:Lcw;
+    1669: ldc           #19                 // String cauldron
+    1671: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1674: checkcast     #176                // class ajw
+    1677: putstatic     #325                // Field bp:Lajw;
+    1680: getstatic     #203                // Field aji.c:Lcw;
+    1683: ldc           #45                 // String end_portal
+    1685: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1688: checkcast     #173                // class aji
+    1691: putstatic     #326                // Field bq:Laji;
+    1694: getstatic     #203                // Field aji.c:Lcw;
+    1697: ldc           #46                 // String end_portal_frame
+    1699: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1702: checkcast     #173                // class aji
+    1705: putstatic     #327                // Field br:Laji;
+    1708: getstatic     #203                // Field aji.c:Lcw;
+    1711: ldc           #47                 // String end_stone
+    1713: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1716: checkcast     #173                // class aji
+    1719: putstatic     #328                // Field bs:Laji;
+    1722: getstatic     #203                // Field aji.c:Lcw;
+    1725: ldc           #40                 // String dragon_egg
+    1727: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1730: checkcast     #173                // class aji
+    1733: putstatic     #329                // Field bt:Laji;
+    1736: getstatic     #203                // Field aji.c:Lcw;
+    1739: ldc           #123                // String redstone_lamp
+    1741: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1744: checkcast     #173                // class aji
+    1747: putstatic     #330                // Field bu:Laji;
+    1750: getstatic     #203                // Field aji.c:Lcw;
+    1753: ldc           #86                 // String lit_redstone_lamp
+    1755: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1758: checkcast     #173                // class aji
+    1761: putstatic     #331                // Field bv:Laji;
+    1764: getstatic     #203                // Field aji.c:Lcw;
+    1767: ldc           #39                 // String double_wooden_slab
+    1769: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1772: checkcast     #185                // class alj
+    1775: putstatic     #332                // Field bw:Lalj;
+    1778: getstatic     #203                // Field aji.c:Lcw;
+    1781: ldc           #169                // String wooden_slab
+    1783: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1786: checkcast     #185                // class alj
+    1789: putstatic     #333                // Field bx:Lalj;
+    1792: getstatic     #203                // Field aji.c:Lcw;
+    1795: ldc           #26                 // String cocoa
+    1797: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1800: checkcast     #173                // class aji
+    1803: putstatic     #334                // Field by:Laji;
+    1806: getstatic     #203                // Field aji.c:Lcw;
+    1809: ldc           #130                // String sandstone_stairs
+    1811: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1814: checkcast     #173                // class aji
+    1817: putstatic     #335                // Field bz:Laji;
+    1820: getstatic     #203                // Field aji.c:Lcw;
+    1823: ldc           #43                 // String emerald_ore
+    1825: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1828: checkcast     #173                // class aji
+    1831: putstatic     #284                // Field bA:Laji;
+    1834: getstatic     #203                // Field aji.c:Lcw;
+    1837: ldc           #48                 // String ender_chest
+    1839: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1842: checkcast     #173                // class aji
+    1845: putstatic     #285                // Field bB:Laji;
+    1848: getstatic     #203                // Field aji.c:Lcw;
+    1851: ldc           #156                // String tripwire_hook
+    1853: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1856: checkcast     #197                // class aog
+    1859: putstatic     #286                // Field bC:Laog;
+    1862: getstatic     #203                // Field aji.c:Lcw;
+    1865: ldc           #155                // String tripwire
+    1867: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1870: checkcast     #173                // class aji
+    1873: putstatic     #287                // Field bD:Laji;
+    1876: getstatic     #203                // Field aji.c:Lcw;
+    1879: ldc           #42                 // String emerald_block
+    1881: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1884: checkcast     #173                // class aji
+    1887: putstatic     #288                // Field bE:Laji;
+    1890: getstatic     #203                // Field aji.c:Lcw;
+    1893: ldc           #137                // String spruce_stairs
+    1895: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1898: checkcast     #173                // class aji
+    1901: putstatic     #289                // Field bF:Laji;
+    1904: getstatic     #203                // Field aji.c:Lcw;
+    1907: ldc           #8                  // String birch_stairs
+    1909: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1912: checkcast     #173                // class aji
+    1915: putstatic     #290                // Field bG:Laji;
+    1918: getstatic     #203                // Field aji.c:Lcw;
+    1921: ldc           #75                 // String jungle_stairs
+    1923: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1926: checkcast     #173                // class aji
+    1929: putstatic     #291                // Field bH:Laji;
+    1932: getstatic     #203                // Field aji.c:Lcw;
+    1935: ldc           #27                 // String command_block
+    1937: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1940: checkcast     #173                // class aji
+    1943: putstatic     #292                // Field bI:Laji;
+    1946: getstatic     #203                // Field aji.c:Lcw;
+    1949: ldc           #5                  // String beacon
+    1951: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1954: checkcast     #172                // class ajg
+    1957: putstatic     #293                // Field bJ:Lajg;
+    1960: getstatic     #203                // Field aji.c:Lcw;
+    1963: ldc           #25                 // String cobblestone_wall
+    1965: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1968: checkcast     #173                // class aji
+    1971: putstatic     #294                // Field bK:Laji;
+    1974: getstatic     #203                // Field aji.c:Lcw;
+    1977: ldc           #53                 // String flower_pot
+    1979: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1982: checkcast     #173                // class aji
+    1985: putstatic     #295                // Field bL:Laji;
+    1988: getstatic     #203                // Field aji.c:Lcw;
+    1991: ldc           #18                 // String carrots
+    1993: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    1996: checkcast     #173                // class aji
+    1999: putstatic     #296                // Field bM:Laji;
+    2002: getstatic     #203                // Field aji.c:Lcw;
+    2005: ldc           #110                // String potatoes
+    2007: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2010: checkcast     #173                // class aji
+    2013: putstatic     #297                // Field bN:Laji;
+    2016: getstatic     #203                // Field aji.c:Lcw;
+    2019: ldc           #166                // String wooden_button
+    2021: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2024: checkcast     #173                // class aji
+    2027: putstatic     #298                // Field bO:Laji;
+    2030: getstatic     #203                // Field aji.c:Lcw;
+    2033: ldc           #132                // String skull
+    2035: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2038: checkcast     #173                // class aji
+    2041: putstatic     #299                // Field bP:Laji;
+    2044: getstatic     #203                // Field aji.c:Lcw;
+    2047: ldc           #4                  // String anvil
+    2049: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2052: checkcast     #173                // class aji
+    2055: putstatic     #300                // Field bQ:Laji;
+    2058: getstatic     #203                // Field aji.c:Lcw;
+    2061: ldc           #154                // String trapped_chest
+    2063: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2066: checkcast     #173                // class aji
+    2069: putstatic     #301                // Field bR:Laji;
+    2072: getstatic     #203                // Field aji.c:Lcw;
+    2075: ldc           #83                 // String light_weighted_pressure_plate
+    2077: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2080: checkcast     #173                // class aji
+    2083: putstatic     #302                // Field bS:Laji;
+    2086: getstatic     #203                // Field aji.c:Lcw;
+    2089: ldc           #67                 // String heavy_weighted_pressure_plate
+    2091: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2094: checkcast     #173                // class aji
+    2097: putstatic     #303                // Field bT:Laji;
+    2100: getstatic     #203                // Field aji.c:Lcw;
+    2103: ldc           #158                // String unpowered_comparator
+    2105: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2108: checkcast     #178                // class akc
+    2111: putstatic     #304                // Field bU:Lakc;
+    2114: getstatic     #203                // Field aji.c:Lcw;
+    2117: ldc           #111                // String powered_comparator
+    2119: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2122: checkcast     #178                // class akc
+    2125: putstatic     #305                // Field bV:Lakc;
+    2128: getstatic     #203                // Field aji.c:Lcw;
+    2131: ldc           #30                 // String daylight_detector
+    2133: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2136: checkcast     #179                // class akg
+    2139: putstatic     #306                // Field bW:Lakg;
+    2142: getstatic     #203                // Field aji.c:Lcw;
+    2145: ldc           #122                // String redstone_block
+    2147: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2150: checkcast     #173                // class aji
+    2153: putstatic     #307                // Field bX:Laji;
+    2156: getstatic     #203                // Field aji.c:Lcw;
+    2159: ldc           #116                // String quartz_ore
+    2161: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2164: checkcast     #173                // class aji
+    2167: putstatic     #308                // Field bY:Laji;
+    2170: getstatic     #203                // Field aji.c:Lcw;
+    2173: ldc           #68                 // String hopper
+    2175: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2178: checkcast     #186                // class aln
+    2181: putstatic     #309                // Field bZ:Laln;
+    2184: getstatic     #203                // Field aji.c:Lcw;
+    2187: ldc           #115                // String quartz_block
+    2189: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2192: checkcast     #173                // class aji
+    2195: putstatic     #337                // Field ca:Laji;
+    2198: getstatic     #203                // Field aji.c:Lcw;
+    2201: ldc           #117                // String quartz_stairs
+    2203: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2206: checkcast     #173                // class aji
+    2209: putstatic     #338                // Field cb:Laji;
+    2212: getstatic     #203                // Field aji.c:Lcw;
+    2215: ldc           #2                  // String activator_rail
+    2217: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2220: checkcast     #173                // class aji
+    2223: putstatic     #339                // Field cc:Laji;
+    2226: getstatic     #203                // Field aji.c:Lcw;
+    2229: ldc           #41                 // String dropper
+    2231: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2234: checkcast     #173                // class aji
+    2237: putstatic     #340                // Field cd:Laji;
+    2240: getstatic     #203                // Field aji.c:Lcw;
+    2243: ldc           #140                // String stained_hardened_clay
+    2245: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2248: checkcast     #173                // class aji
+    2251: putstatic     #341                // Field ce:Laji;
+    2254: getstatic     #203                // Field aji.c:Lcw;
+    2257: ldc           #66                 // String hay_block
+    2259: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2262: checkcast     #173                // class aji
+    2265: putstatic     #342                // Field cf:Laji;
+    2268: getstatic     #203                // Field aji.c:Lcw;
+    2271: ldc           #17                 // String carpet
+    2273: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2276: checkcast     #173                // class aji
+    2279: putstatic     #343                // Field cg:Laji;
+    2282: getstatic     #203                // Field aji.c:Lcw;
+    2285: ldc           #65                 // String hardened_clay
+    2287: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2290: checkcast     #173                // class aji
+    2293: putstatic     #344                // Field ch:Laji;
+    2296: getstatic     #203                // Field aji.c:Lcw;
+    2299: ldc           #22                 // String coal_block
+    2301: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2304: checkcast     #173                // class aji
+    2307: putstatic     #345                // Field ci:Laji;
+    2310: getstatic     #203                // Field aji.c:Lcw;
+    2313: ldc           #104                // String packed_ice
+    2315: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2318: checkcast     #173                // class aji
+    2321: putstatic     #346                // Field cj:Laji;
+    2324: getstatic     #203                // Field aji.c:Lcw;
+    2327: ldc           #1                  // String acacia_stairs
+    2329: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2332: checkcast     #173                // class aji
+    2335: putstatic     #347                // Field ck:Laji;
+    2338: getstatic     #203                // Field aji.c:Lcw;
+    2341: ldc           #29                 // String dark_oak_stairs
+    2343: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2346: checkcast     #173                // class aji
+    2349: putstatic     #348                // Field cl:Laji;
+    2352: getstatic     #203                // Field aji.c:Lcw;
+    2355: ldc           #37                 // String double_plant
+    2357: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2360: checkcast     #181                // class ako
+    2363: putstatic     #349                // Field cm:Lako;
+    2366: getstatic     #203                // Field aji.c:Lcw;
+    2369: ldc           #138                // String stained_glass
+    2371: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2374: checkcast     #194                // class anq
+    2377: putstatic     #350                // Field cn:Lanq;
+    2380: getstatic     #203                // Field aji.c:Lcw;
+    2383: ldc           #139                // String stained_glass_pane
+    2385: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+    2388: checkcast     #195                // class anr
+    2391: putstatic     #351                // Field co:Lanr;
+    2394: return
+}

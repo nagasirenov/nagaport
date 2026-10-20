@@ -44,7 +44,7 @@ public abstract class NeutronStream {
 		this.fluxRatio = ratio;
 		this.type = type;
 
-		NeutronNodeWorld.getOrAddWorld(origin.tile.getWorldObj()).addStream(this);
+		NeutronNodeWorld.getOrAddWorld(origin.tile.getWorld()).addStream(this);
 	}
 
 	protected BlockPos posInstance;
@@ -68,7 +68,7 @@ public abstract class NeutronStream {
 				int z = (int) Math.floor(0.5 + vector.z * i);
 
 				i++;
-				return posInstance.mutate(origin.tile.xCoord + x, origin.tile.yCoord, origin.tile.zCoord + z);
+				return posInstance.mutate(origin.tile.getPos().getX() + x, origin.tile.getPos().getY(), origin.tile.getPos().getZ() + z);
 			}
 		};
 	}

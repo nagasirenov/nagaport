@@ -13,7 +13,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineElectrolyser extends BlockDummyable {
 
 	public MachineElectrolyser() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

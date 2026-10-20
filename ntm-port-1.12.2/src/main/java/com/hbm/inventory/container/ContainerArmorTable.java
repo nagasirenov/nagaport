@@ -72,7 +72,7 @@ public class ContainerArmorTable extends Container {
 					
 					//ideally, this should always return true so long as the mod slot is not null due to the insert restriction
 					if(ArmorModHandler.isApplicable(stack, mod)) {
-						upgrades.setInventorySlotContents(i, null);
+						upgrades.setInventorySlotContents(i, ItemStack.EMPTY);
 					}
 				}
 			}
@@ -169,7 +169,7 @@ public class ContainerArmorTable extends Container {
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 
-		if(!player.worldObj.isRemote) {
+		if(!player.world.isRemote) {
 			for(int i = 0; i < this.upgrades.getSizeInventory(); ++i) {
 				ItemStack itemstack = this.upgrades.getStackInSlotOnClosing(i);
 

@@ -28,10 +28,10 @@ public class ItemWandS extends Item {
 		list.add("(Saves an area defined by two right-clicks,");
 		list.add("adds a block to the blacklist by crouch right-clicking!)");
 
-		if(stack.stackTagCompound != null) {
-			int px = stack.stackTagCompound.getInteger("x");
-			int py = stack.stackTagCompound.getInteger("y");
-			int pz = stack.stackTagCompound.getInteger("z");
+		if(stack.getTagCompound() != null) {
+			int px = stack.getTagCompound().getInteger("x");
+			int py = stack.getTagCompound().getInteger("y");
+			int pz = stack.getTagCompound().getInteger("z");
 
 			if(px != 0 || py != 0 || pz != 0) {
 				list.add(TextFormatting.AQUA + "From: " + px + ", " + py + ", " + pz);
@@ -44,7 +44,7 @@ public class ItemWandS extends Item {
 			if(blocks.size() > 0) {
 				list.add("Blacklist:");
 				for(Pair<Block, Integer> block : blocks) {
-					list.add(TextFormatting.RED + "- " + block.key.getUnlocalizedName());
+					list.add(TextFormatting.RED + "- " + block.key.getTranslationKey());
 				}
 			}
 		}
@@ -53,28 +53,28 @@ public class ItemWandS extends Item {
 	// why the fuck ye'd leave this whole thing obfuscated is beyond me
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		if(player.isSneaking()) {
-			Pair<Block, Integer> target = new Pair<Block, Integer>(world.getBlock(x, y, z), world.getBlockMetadata(x, y, z));
+			Pair<Block, Integer> target = new Pair<Block, Integer>(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 			Set<Pair<Block, Integer>> blocks = getBlocks(stack);
 
 			if(blocks.contains(target)) {
 				blocks.remove(target);
-				if(world.isRemote) player.sendMessage(new TextComponentString("Removed from blacklist " + target.key.getUnlocalizedName()));
+				if(world.isRemote) player.sendMessage(new TextComponentString("Removed from blacklist " + target.key.getTranslationKey()));
 			} else {
 				blocks.add(target);
-				if(world.isRemote) player.sendMessage(new TextComponentString("Added to blacklist " + target.key.getUnlocalizedName()));
+				if(world.isRemote) player.sendMessage(new TextComponentString("Added to blacklist " + target.key.getTranslationKey()));
 			}
 
 			setBlocks(stack, blocks);
 
 		} else {
-			int px = stack.stackTagCompound.getInteger("x");
-			int py = stack.stackTagCompound.getInteger("y");
-			int pz = stack.stackTagCompound.getInteger("z");
+			int px = stack.getTagCompound().getInteger("x");
+			int py = stack.getTagCompound().getInteger("y");
+			int pz = stack.getTagCompound().getInteger("z");
 
 			if(px == 0 && py == 0 && pz == 0) {
 				setPosition(stack, x, y, z);
@@ -93,7 +93,7 @@ public class ItemWandS extends Item {
 
 				world.setBlock(minX, minY, minZ, ModBlocks.wand_structure);
 
-				TileEntity te = world.getTileEntity(minX, minY, minZ);
+				TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(minX, minY, minZ));
 				if (te instanceof TileEntityWandStructure) {
 					TileEntityWandStructure structure = (TileEntityWandStructure) te;
 
@@ -117,18 +117,18 @@ public class ItemWandS extends Item {
 	}
 
 	private void setPosition(ItemStack stack, int x, int y, int z) {
-		stack.stackTagCompound.setInteger("x", x);
-		stack.stackTagCompound.setInteger("y", y);
-		stack.stackTagCompound.setInteger("z", z);
+		stack.getTagCompound().setInteger("x", x);
+		stack.getTagCompound().setInteger("y", y);
+		stack.getTagCompound().setInteger("z", z);
 	}
 
 	private Set<Pair<Block, Integer>> getBlocks(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
+		if(stack.getTagCompound() == null) {
 			return new HashSet<>();
 		}
 
-		int[] blockIds = stack.stackTagCompound.getIntArray("blocks");
-		int[] metas = stack.stackTagCompound.getIntArray("metas");
+		int[] blockIds = stack.getTagCompound().getIntArray("blocks");
+		int[] metas = stack.getTagCompound().getIntArray("metas");
 		Set<Pair<Block, Integer>> blocks = new HashSet<>(blockIds.length);
 
 		for(int i = 0; i < blockIds.length; i++) {
@@ -140,23 +140,23 @@ public class ItemWandS extends Item {
 
 	@SuppressWarnings("unchecked")
 	private void setBlocks(ItemStack stack, Set<Pair<Block, Integer>> blocks) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setIntArray("blocks", BobMathUtil.collectionToIntArray(blocks, i -> Block.getIdFromBlock(((Pair<Block, Integer>)i).getKey())));
-		stack.stackTagCompound.setIntArray("metas", BobMathUtil.collectionToIntArray(blocks, i -> ((Pair<Block, Integer>)i).getValue()));
+		stack.getTagCompound().setIntArray("blocks", BobMathUtil.collectionToIntArray(blocks, i -> Block.getIdFromBlock(((Pair<Block, Integer>)i).getKey())));
+		stack.getTagCompound().setIntArray("metas", BobMathUtil.collectionToIntArray(blocks, i -> ((Pair<Block, Integer>)i).getValue()));
 	}
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		if(player.isSneaking()) {
-			stack.stackTagCompound.setIntArray("blocks", new int[0]);
-			stack.stackTagCompound.setIntArray("metas", new int[0]);
+			stack.getTagCompound().setIntArray("blocks", new int[0]);
+			stack.getTagCompound().setIntArray("metas", new int[0]);
 
 			if(world.isRemote) {
 				player.sendMessage(new TextComponentString("Cleared blacklist"));

@@ -72,7 +72,7 @@ public class GUIAnvil extends GuiContainer {
 		super.initGui();
 
 		Keyboard.enableRepeatEvents(true);
-		this.search = new GuiTextField(this.fontRendererObj, guiLeft + 10, guiTop + 111, 84, 12);
+		this.search = new GuiTextField(0, this.fontRenderer, guiLeft + 10, guiTop + 111, 84, 12);
 		this.search.setTextColor(-1);
 		this.search.setDisabledTextColour(-1);
 		this.search.setEnableBackgroundDrawing(false);
@@ -100,7 +100,7 @@ public class GUIAnvil extends GuiContainer {
 		}
 
 		this.selection = pos;
-		this.index = MathHelper.clamp_int(pos / 2, 0, this.size);
+		this.index = MathHelper.clamp(pos / 2, 0, this.size);
 	}
 
 	private void regenerateRecipes() {
@@ -189,7 +189,7 @@ public class GUIAnvil extends GuiContainer {
 		this.search.mouseClicked(x, y, k);
 
 		if(guiLeft + 7 <= x && guiLeft + 7 + 9 > x && guiTop + 71 < y && guiTop + 71 + 36 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			if(this.index > 0)
 				this.index--;
 
@@ -197,7 +197,7 @@ public class GUIAnvil extends GuiContainer {
 		}
 
 		if(guiLeft + 106 <= x && guiLeft + 106 + 9 > x && guiTop + 71 < y && guiTop + 71 + 36 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			if(this.index < this.size)
 				this.index++;
 
@@ -209,7 +209,7 @@ public class GUIAnvil extends GuiContainer {
 			if(this.selection == -1)
 				return;
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			PacketDispatcher.wrapper.sendToServer(new AnvilCraftPacket(this.recipes.get(this.selection), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) ? 1 : 0));
 
 			return;
@@ -237,7 +237,7 @@ public class GUIAnvil extends GuiContainer {
 				else
 					this.selection = -1;
 
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 				return;
 			}
 		}
@@ -246,8 +246,8 @@ public class GUIAnvil extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mX, int mY) {
 		String name = I18n.format("container.anvil", tier);
-		this.fontRendererObj.drawString(name, 61 - this.fontRendererObj.getStringWidth(name) / 2, 8, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 61 - this.fontRenderer.getStringWidth(name) / 2, 8, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
 		if(this.selection >= 0) {
 
@@ -256,7 +256,7 @@ public class GUIAnvil extends GuiContainer {
 			int longest = 0;
 
 			for(String s : list) {
-				int length = this.fontRendererObj.getStringWidth(s);
+				int length = this.fontRenderer.getStringWidth(s);
 
 				if(length > longest)
 					longest = length;
@@ -266,7 +266,7 @@ public class GUIAnvil extends GuiContainer {
 			GL11.glScaled(scale, scale, scale);
 			int offset = 0;
 			for(String s : list) {
-				this.fontRendererObj.drawString(s, 260, 50 + offset, 0xffffff);
+				this.fontRenderer.drawString(s, 260, 50 + offset, 0xffffff);
 				offset += 9;
 			}
 
@@ -391,7 +391,7 @@ public class GUIAnvil extends GuiContainer {
 
 		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, this.xSize, this.ySize);
 
-		int slide = MathHelper.clamp_int(this.lastSize - 42, 0, 1000);
+		int slide = MathHelper.clamp(this.lastSize - 42, 0, 1000);
 
 		int mul = 1;
 		while(true) {
@@ -440,7 +440,7 @@ public class GUIAnvil extends GuiContainer {
 
 			FontRenderer font = null;
 			if (display != null) font = display.getItem().getFontRenderer(display);
-			if (font == null) font = fontRendererObj;
+			if (font == null) font = fontRenderer;
 
 			itemRender.zLevel = 100.0F;
 			itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), recipe.getDisplay(), guiLeft + 17 + 18 * (ind / 2), guiTop + 72 + 18 * (ind % 2));

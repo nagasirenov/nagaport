@@ -140,7 +140,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 		boolean hasAtmosphere = atmosphere != null;
 
 		float pressure = hasAtmosphere ? (float)atmosphere.getPressure() : 0.0F;
-		float visibility = hasAtmosphere ? MathHelper.clamp_float(2.0F - pressure, 0.1F, 1.0F) : 1.0F;
+		float visibility = hasAtmosphere ? MathHelper.clamp(2.0F - pressure, 0.1F, 1.0F) : 1.0F;
 
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		Vec3d skyColor = world.getSkyColor(mc.renderViewEntity, partialTicks);
@@ -151,7 +151,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 		// Diminish sky colour when leaving the atmosphere
 		if(mc.renderViewEntity.posY > 300) {
-			double curvature = MathHelper.clamp_float((800.0F - (float)mc.renderViewEntity.posY) / 500.0F, 0.0F, 1.0F);
+			double curvature = MathHelper.clamp((800.0F - (float)mc.renderViewEntity.posY) / 500.0F, 0.0F, 1.0F);
 			skyR *= curvature;
 			skyG *= curvature;
 			skyB *= curvature;
@@ -229,11 +229,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 			// Scale sun size for rendering (texture is 4 times larger than actual, for glow)
 			double sunSize = SolarSystem.calculateSunSize(body) * SolarSystem.SUN_RENDER_SCALE;
-			double coronaSize = sunSize * (3 - MathHelper.clamp_float(pressure, 0.0F, 1.0F));
+			double coronaSize = sunSize * (3 - MathHelper.clamp(pressure, 0.0F, 1.0F));
 
 			renderSun(partialTicks, world, mc, sun, sunSize, coronaSize, visibility, pressure);
 
-			float blendAmount = hasAtmosphere ? MathHelper.clamp_float(1 - world.getSunBrightnessFactor(partialTicks), 0.25F, 1F) : 1F;
+			float blendAmount = hasAtmosphere ? MathHelper.clamp(1 - world.getSunBrightnessFactor(partialTicks), 0.25F, 1F) : 1F;
 
 			renderCelestials(partialTicks, world, mc, celestialProvider.metrics, solarAngle, null, planetTint, visibility, blendAmount, null, SolarSystem.MAX_APPARENT_SIZE_SURFACE);
 
@@ -242,7 +242,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 			if(visibility > 0.2F) {
 				// JEFF BOZOS WOULD LIKE TO KNOW YOUR LOCATION
 				// ... to send you a pakedge :)))
-				if(world.provider.dimensionId == 0) {
+				if(world.provider.getDimension() == 0) {
 					Satellite.renderDefault(partialTicks, world, mc, solarAngle, 1916169, new float[] { 1.0F, 0.534F, 0.385F, 1.0F });
 				}
 
@@ -308,9 +308,9 @@ public class SkyProviderCelestial extends IRenderHandler {
 				}
 			}
 		}
-		double playerX = mc.thePlayer.prevPosX + (mc.thePlayer.posX - mc.thePlayer.prevPosX) * partialTicks;
-		double playerY = mc.thePlayer.prevPosY + (mc.thePlayer.posY - mc.thePlayer.prevPosY) * partialTicks;
-		double playerZ = mc.thePlayer.prevPosZ + (mc.thePlayer.posZ - mc.thePlayer.prevPosZ) * partialTicks;
+		double playerX = mc.player.prevPosX + (mc.player.posX - mc.player.prevPosX) * partialTicks;
+		double playerY = mc.player.prevPosY + (mc.player.posY - mc.player.prevPosY) * partialTicks;
+		double playerZ = mc.player.prevPosZ + (mc.player.posZ - mc.player.prevPosZ) * partialTicks;
 		for(com.hbm.dim.WorldProviderCelestial.Meteor meteor : WorldProviderCelestial.meteors) {
 			GL11.glPushMatrix();
 
@@ -395,7 +395,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glColor3f(0.0F, 0.0F, 0.0F);
 
-		Vec3d pos = mc.thePlayer.getPosition(partialTicks);
+		Vec3d pos = mc.player.getPosition(partialTicks);
 		double heightAboveHorizon = pos.y - world.getHorizon();
 
 		if(heightAboveHorizon < 0.0D) {
@@ -712,7 +712,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 			tessellator.draw();
 
 			// Draw a big ol' spiky flare! Less so when there is an atmosphere
-			GL11.glColor4f(sunColor[0], sunColor[1], sunColor[2], 1 - MathHelper.clamp_float(pressure, 0.0F, 1.0F) * 0.75F);
+			GL11.glColor4f(sunColor[0], sunColor[1], sunColor[2], 1 - MathHelper.clamp(pressure, 0.0F, 1.0F) * 0.75F);
 			mc.renderEngine.bindTexture(flareTexture);
 
 			tessellator.startDrawingQuads();
@@ -754,7 +754,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 		int offsetLocation = swarmShader.getUniformLocation("iOffset");
 
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-		GL11.glColor4f(0.0F, 0.0F, 0.0F, MathHelper.clamp_float(swarmScreenSize, 0, 1));
+		GL11.glColor4f(0.0F, 0.0F, 0.0F, MathHelper.clamp(swarmScreenSize, (float) (0), (float) (1)));
 
 		GL11.glPushMatrix();
 		{
@@ -853,7 +853,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 			GL11.glPushMatrix();
 			{
 
-				double size = MathHelper.clamp_double(metric.apparentSize, 0, maxSize);
+				double size = MathHelper.clamp(metric.apparentSize, (double) (0), (double) (maxSize));
 				boolean renderPoint = size < transitionMaxSize;
 				boolean renderBody = size > transitionMinSize;
 
@@ -1145,7 +1145,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 				}
 
 				if(renderPoint) {
-					float alpha = MathHelper.clamp_float((float)size * 100.0F, 0.0F, 1.0F);
+					float alpha = MathHelper.clamp((float)size * 100.0F, 0.0F, 1.0F);
 					alpha *= 1 - BobMathUtil.remap01_clamp((float)size, (float)transitionMinSize, (float)transitionMaxSize);
 					GL11.glColor4f(metric.body.color[0], metric.body.color[1], metric.body.color[2], alpha * visibility);
 					mc.renderEngine.bindTexture(planetTexture);
@@ -1216,7 +1216,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 			mc.renderEngine.bindTexture(digammaStar);
 
-			float digamma = HbmLivingProps.getDigamma(Minecraft.getMinecraft().thePlayer);
+			float digamma = HbmLivingProps.getDigamma(Minecraft.getMinecraft().player);
 			var12 = 1F * (1 + digamma * 0.25F);
 			dist = 100D - digamma * 2.5;
 
@@ -1331,7 +1331,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 		//double near = distant*(Math.min(40000f, Math.max(0d, y-35000f))/40000f)*Math.min(1d,Minecraft.getMinecraft().thePlayer.worldObj.getStarBrightness(partialTicks)+sf);
 		double near = 0.51d*(Math.min(40000f, Math.max(0d, y-35000d))/40000d);
 		//  System.out.println((1d-(Math.min(200d, Math.max(0d, y-2017d))/200f)));
-		double entry = near*(1d-Minecraft.getMinecraft().thePlayer.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));
+		double entry = near*(1d-Minecraft.getMinecraft().player.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));
 		GL11.glColor4d(entry, entry, entry, entry);
 		Tessellator tess = Tessellator.instance;
 		TextureManager tex = Minecraft.getMinecraft().getTextureManager();

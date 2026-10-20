@@ -23,8 +23,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
@@ -47,16 +46,16 @@ public class BlockKeyhole extends BlockStone {
 
 	@Override
 	public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		return new ItemStack(Blocks.stone);
+		return new ItemStack(Blocks.STONE);
 	}
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
-		if(player.getHeldItem() != null) {
-			boolean cracked = player.getHeldItem().getItem() == ModItems.key_red_cracked;
-			if((player.getHeldItem().getItem() == ModItems.key_red || cracked) && side != 0 && side != 1) {
-				if(cracked) player.getHeldItem().stackSize--;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
+			boolean cracked = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red_cracked;
+			if((com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red || cracked) && side != 0 && side != 1) {
+				if(cracked) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				if(world.isRemote) return true;
 				ForgeDirection dir = ForgeDirection.getOrientation(side);
 				generateRoom(world, x - dir.offsetX * 4, y - 2, z - dir.offsetZ * 4);
@@ -67,7 +66,7 @@ public class BlockKeyhole extends BlockStone {
 				if(side == 4) b = 0;
 				ItemModDoor.placeDoorBlock(world, x, y - 1, z, b, ModBlocks.door_red);
 				world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
-				player.triggerAchievement(MainRegistry.achRedRoom);
+				com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRedRoom);
 				return true;
 			}
 		}
@@ -124,7 +123,7 @@ public class BlockKeyhole extends BlockStone {
 				world.setBlock(x + i, y + height - 1, z + j, ModBlocks.brick_red, 0, 3);
 				
 				for(int k = 1; k <= height - 2; k++) {
-					world.setBlock(x + i, y + k, z + j, Blocks.air);
+					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + i; int nativePlacementY = y + k; int nativePlacementZ = z + j; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
 		}
@@ -132,20 +131,20 @@ public class BlockKeyhole extends BlockStone {
 		//Torches
 		int torchDist = width - 1;
 		int torchOff = torchDist - 1;
-		world.setBlock(x + torchDist, y + 2, z + torchOff, Blocks.torch);
-		world.setBlock(x + torchDist, y + 2, z - torchOff, Blocks.torch);
-		world.setBlock(x - torchDist, y + 2, z + torchOff, Blocks.torch);
-		world.setBlock(x - torchDist, y + 2, z - torchOff, Blocks.torch);
-		world.setBlock(x + torchOff, y + 2, z + torchDist, Blocks.torch);
-		world.setBlock(x - torchOff, y + 2, z + torchDist, Blocks.torch);
-		world.setBlock(x + torchOff, y + 2, z - torchDist, Blocks.torch);
-		world.setBlock(x - torchOff, y + 2, z - torchDist, Blocks.torch);
+		world.setBlock(x + torchDist, y + 2, z + torchOff, Blocks.TORCH);
+		world.setBlock(x + torchDist, y + 2, z - torchOff, Blocks.TORCH);
+		world.setBlock(x - torchDist, y + 2, z + torchOff, Blocks.TORCH);
+		world.setBlock(x - torchDist, y + 2, z - torchOff, Blocks.TORCH);
+		world.setBlock(x + torchOff, y + 2, z + torchDist, Blocks.TORCH);
+		world.setBlock(x - torchOff, y + 2, z + torchDist, Blocks.TORCH);
+		world.setBlock(x + torchOff, y + 2, z - torchDist, Blocks.TORCH);
+		world.setBlock(x - torchOff, y + 2, z - torchDist, Blocks.TORCH);
 		
 		//Cobwebs
 		if(world.rand.nextInt(4) == 0) {
 			for(int i = -width + 1; i <= width - 1; i++) {
 				for(int j = -width + 1; j <= width - 1; j++) {
-					if(world.rand.nextBoolean()) world.setBlock(x + i, y + height - 2, z + j, Blocks.web);
+					if(world.rand.nextBoolean()) { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + i; int nativePlacementY = y + height - 2; int nativePlacementZ = z + j; net.minecraft.block.Block nativePlacementBlock = Blocks.WEB; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
 		}
@@ -162,14 +161,14 @@ public class BlockKeyhole extends BlockStone {
 		
 		//Fire
 		if(world.rand.nextInt(4) == 0) {
-			world.setBlock(x + width - 1, y, z + width - 1, Blocks.netherrack);
-			world.setBlock(x + width - 1, y, z - width + 1, Blocks.netherrack);
-			world.setBlock(x - width + 1, y, z + width - 1, Blocks.netherrack);
-			world.setBlock(x - width + 1, y, z - width + 1, Blocks.netherrack);
-			world.setBlock(x + width - 1, y + 1, z + width - 1, Blocks.fire);
-			world.setBlock(x + width - 1, y + 1, z - width + 1, Blocks.fire);
-			world.setBlock(x - width + 1, y + 1, z + width - 1, Blocks.fire);
-			world.setBlock(x - width + 1, y + 1, z - width + 1, Blocks.fire);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y + 1; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y + 1; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y + 1; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y + 1; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 		
 		//Circle
@@ -183,29 +182,29 @@ public class BlockKeyhole extends BlockStone {
 		
 		//Lava
 		if(world.rand.nextInt(4) == 0) {
-			world.setBlock(x + width - 2, y, z + width - 1, Blocks.lava);
-			world.setBlock(x + width - 3, y, z + width - 1, Blocks.lava);
-			world.setBlock(x - width + 2, y, z + width - 1, Blocks.lava);
-			world.setBlock(x - width + 3, y, z + width - 1, Blocks.lava);
-			world.setBlock(x + width - 2, y, z - width + 1, Blocks.lava);
-			world.setBlock(x + width - 3, y, z - width + 1, Blocks.lava);
-			world.setBlock(x - width + 2, y, z - width + 1, Blocks.lava);
-			world.setBlock(x - width + 3, y, z - width + 1, Blocks.lava);
-			world.setBlock(x + width - 1, y, z + width - 2, Blocks.lava);
-			world.setBlock(x + width - 1, y, z + width - 3, Blocks.lava);
-			world.setBlock(x + width - 1, y, z - width + 2, Blocks.lava);
-			world.setBlock(x + width - 1, y, z - width + 3, Blocks.lava);
-			world.setBlock(x - width + 1, y, z + width - 2, Blocks.lava);
-			world.setBlock(x - width + 1, y, z + width - 3, Blocks.lava);
-			world.setBlock(x - width + 1, y, z - width + 2, Blocks.lava);
-			world.setBlock(x - width + 1, y, z - width + 3, Blocks.lava);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 2; int nativePlacementY = y; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 3; int nativePlacementY = y; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 2; int nativePlacementY = y; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 3; int nativePlacementY = y; int nativePlacementZ = z + width - 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 2; int nativePlacementY = y; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 3; int nativePlacementY = y; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 2; int nativePlacementY = y; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 3; int nativePlacementY = y; int nativePlacementZ = z - width + 1; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y; int nativePlacementZ = z + width - 2; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y; int nativePlacementZ = z + width - 3; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y; int nativePlacementZ = z - width + 2; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + width - 1; int nativePlacementY = y; int nativePlacementZ = z - width + 3; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y; int nativePlacementZ = z + width - 2; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y; int nativePlacementZ = z + width - 3; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y; int nativePlacementZ = z - width + 2; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x - width + 1; int nativePlacementY = y; int nativePlacementZ = z - width + 3; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 		
 		int rand = world.rand.nextInt(20);
 		
 		if(rand == 0) {
 	 		world.setBlock(x, y + 1, z, ModBlocks.deco_loot);
-			TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y + 1, z);
+			TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y + 1, z));
 			
 			if(world.rand.nextInt(5) == 0) {
 				loot.addItem(new ItemStack(ModItems.ncrpa_helmet), 0, 0, 0);
@@ -229,8 +228,8 @@ public class BlockKeyhole extends BlockStone {
 	
 	public static void spawnPedestalItem(World world, int x, int y, int z) {
 		world.setBlock(x, y, z, ModBlocks.pedestal);
-		TileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(x, y, z);
-		WeightedRandomChestContent content = (WeightedRandomChestContent) WeightedRandom.getRandomItem(world.rand, ItemPool.getPool(ItemPoolsRedRoom.POOL_RED_PEDESTAL));
+		TileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+		WeightedRandomChestContent content = WeightedRandomChestContent.getRandomItem(world.rand, ItemPool.getPool(ItemPoolsRedRoom.POOL_RED_PEDESTAL));
 		pedestal.item = content.theItemId.copy();
 	}
 }

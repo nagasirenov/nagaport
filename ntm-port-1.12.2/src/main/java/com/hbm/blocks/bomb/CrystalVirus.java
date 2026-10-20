@@ -24,27 +24,27 @@ public class CrystalVirus extends Block {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
     	
     	if(GeneralConfig.enableVirus) {
-    		if(world.getBlock(x + 1, y, z) != ModBlocks.crystal_virus && world.getBlock(x + 1, y, z) != Blocks.air && world.getBlock(x + 1, y, z) != ModBlocks.crystal_hardened && world.getBlock(x + 1, y, z) != ModBlocks.crystal_pulsar) {
+    		if(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x + 1, y, z, ModBlocks.crystal_virus);
     		}
     	
-    		if(world.getBlock(x, y + 1, z) != ModBlocks.crystal_virus && world.getBlock(x, y + 1, z) != Blocks.air && world.getBlock(x, y + 1, z) != ModBlocks.crystal_hardened && world.getBlock(x, y + 1, z) != ModBlocks.crystal_pulsar) {
+    		if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x, y + 1, z, ModBlocks.crystal_virus);
     		}
     	
-    		if(world.getBlock(x, y, z + 1) != ModBlocks.crystal_virus && world.getBlock(x, y, z + 1) != Blocks.air && world.getBlock(x, y, z + 1) != ModBlocks.crystal_hardened && world.getBlock(x, y, z + 1) != ModBlocks.crystal_pulsar) {
+    		if(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x, y, z + 1, ModBlocks.crystal_virus);
     		}
     	
-    		if(world.getBlock(x - 1, y, z) != ModBlocks.crystal_virus && world.getBlock(x - 1, y, z) != Blocks.air && world.getBlock(x - 1, y, z) != ModBlocks.crystal_hardened && world.getBlock(x - 1, y, z) != ModBlocks.crystal_pulsar) {
+    		if(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x - 1, y, z, ModBlocks.crystal_virus);
     		}
     	
-    		if(world.getBlock(x, y - 1, z) != ModBlocks.crystal_virus && world.getBlock(x, y - 1, z) != Blocks.air && world.getBlock(x, y - 1, z) != ModBlocks.crystal_hardened && world.getBlock(x, y - 1, z) != ModBlocks.crystal_pulsar) {
+    		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x, y - 1, z, ModBlocks.crystal_virus);
     		}
     	
-    		if(world.getBlock(x, y, z - 1) != ModBlocks.crystal_virus && world.getBlock(x, y, z - 1) != Blocks.air && world.getBlock(x, y, z - 1) != ModBlocks.crystal_hardened && world.getBlock(x, y, z - 1) != ModBlocks.crystal_pulsar) {
+    		if(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x, y, z - 1, ModBlocks.crystal_virus);
     		}
 			world.setBlock(x, y, z, ModBlocks.crystal_hardened);
@@ -55,12 +55,12 @@ public class CrystalVirus extends Block {
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
     	
-    	if((world.getBlock(x + 1, y, z) == Blocks.air || world.getBlock(x + 1, y, z) == ModBlocks.crystal_virus || world.getBlock(x + 1, y, z) == ModBlocks.crystal_hardened || world.getBlock(x + 1, y, z) == ModBlocks.crystal_pulsar) && 
-    			(world.getBlock(x - 1, y, z) == Blocks.air || world.getBlock(x - 1, y, z) == ModBlocks.crystal_virus || world.getBlock(x - 1, y, z) == ModBlocks.crystal_hardened || world.getBlock(x - 1, y, z) == ModBlocks.crystal_pulsar) && 
-    			(world.getBlock(x, y + 1, z) == Blocks.air || world.getBlock(x, y + 1, z) == ModBlocks.crystal_virus || world.getBlock(x, y + 1, z) == ModBlocks.crystal_hardened || world.getBlock(x, y + 1, z) == ModBlocks.crystal_pulsar) && 
-    			(world.getBlock(x, y - 1, z) == Blocks.air || world.getBlock(x, y - 1, z) == ModBlocks.crystal_virus || world.getBlock(x, y - 1, z) == ModBlocks.crystal_hardened || world.getBlock(x, y - 1, z) == ModBlocks.crystal_pulsar) && 
-    			(world.getBlock(x, y, z + 1) == Blocks.air || world.getBlock(x, y, z + 1) == ModBlocks.crystal_virus || world.getBlock(x, y, z + 1) == ModBlocks.crystal_hardened || world.getBlock(x, y, z + 1) == ModBlocks.crystal_pulsar) && 
-    			(world.getBlock(x, y, z - 1) == Blocks.air || world.getBlock(x, y, z - 1) == ModBlocks.crystal_virus || world.getBlock(x, y, z - 1) == ModBlocks.crystal_hardened || world.getBlock(x, y, z - 1) == ModBlocks.crystal_pulsar) && 
+    	if((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_pulsar) && 
+    			(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_pulsar) && 
+    			(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_pulsar) && 
+    			(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_pulsar) && 
+    			(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_pulsar) && 
+    			(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_pulsar) && 
     			!world.isRemote) {
 			world.setBlock(x, y, z, ModBlocks.crystal_hardened);
     	}

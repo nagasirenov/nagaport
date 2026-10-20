@@ -26,24 +26,24 @@ public class ItemDetonator extends Item {
 		if(itemstack.getTagCompound() == null) {
 			list.add(TextFormatting.RED + "No position set!");
 		} else {
-			list.add(TextFormatting.YELLOW + "Linked to " + itemstack.stackTagCompound.getInteger("x") + ", " + itemstack.stackTagCompound.getInteger("y") + ", " + itemstack.stackTagCompound.getInteger("z"));
+			list.add(TextFormatting.YELLOW + "Linked to " + itemstack.getTagCompound().getInteger("x") + ", " + itemstack.getTagCompound().getInteger("y") + ", " + itemstack.getTagCompound().getInteger("z"));
 		}
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		if(player.isSneaking()) {
-			stack.stackTagCompound.setInteger("x", x);
-			stack.stackTagCompound.setInteger("y", y);
-			stack.stackTagCompound.setInteger("z", z);
+			stack.getTagCompound().setInteger("x", x);
+			stack.getTagCompound().setInteger("y", y);
+			stack.getTagCompound().setInteger("z", z);
 
 			if(!world.isRemote) {
 				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Position set!").color(TextFormatting.GREEN).flush());
 			}
@@ -59,28 +59,28 @@ public class ItemDetonator extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-		if(stack.stackTagCompound == null) {
+		if(stack.getTagCompound() == null) {
 			if(!world.isRemote) {
 				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("No position set!").color(TextFormatting.RED).flush());
 			}
 		} else {
-			int x = stack.stackTagCompound.getInteger("x");
-			int y = stack.stackTagCompound.getInteger("y");
-			int z = stack.stackTagCompound.getInteger("z");
+			int x = stack.getTagCompound().getInteger("x");
+			int y = stack.getTagCompound().getInteger("y");
+			int z = stack.getTagCompound().getInteger("z");
 
-			if(world.getBlock(x, y, z) instanceof IBomb) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
 				if(!world.isRemote) {
-					BombReturnCode ret = ((IBomb) world.getBlock(x, y, z)).explode(world, x, y, z);
+					BombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);
 
 					if(GeneralConfig.enableExtendedLogging)
 						MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / " + y + " / " + z + " by " + player.getDisplayName() + "!");
 					
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(ret.getUnlocalizedMessage()).color(ret.wasSuccessful() ? TextFormatting.YELLOW : TextFormatting.RED).flush());
 				}
@@ -88,7 +88,7 @@ public class ItemDetonator extends Item {
 			} else {
 				if(!world.isRemote) {
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(BombReturnCode.ERROR_NO_BOMB.getUnlocalizedMessage()).color(TextFormatting.RED).flush());
 				}

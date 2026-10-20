@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class MachineAmmoPress extends BlockDummyable {
 
 	public MachineAmmoPress() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

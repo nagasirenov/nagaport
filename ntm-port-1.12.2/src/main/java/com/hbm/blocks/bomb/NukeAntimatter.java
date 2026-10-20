@@ -64,7 +64,7 @@ public class NukeAntimatter extends BlockMachineBase implements IBomb {
 	public BombReturnCode explode(World world, int x, int y, int z) {
 		
 		if(!world.isRemote) {
-			TileEntityAntimatter bomb = (TileEntityAntimatter) world.getTileEntity(x, y, z);
+			TileEntityAntimatter bomb = (TileEntityAntimatter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				
 			if(bomb.isLoaded()) {
 				bomb.explode();

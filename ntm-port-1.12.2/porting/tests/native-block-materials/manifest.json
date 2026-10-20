@@ -1,0 +1,5665 @@
+{
+  "base": "2fa015374be0e330d2541e5bfe9d4b96e380aa05",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockKelp.java": {
+      "before": "bb078dbc54780b345f506b9e45ffe9ebd3127e24cee92a70e959c07743ab3f9a",
+      "after": "7c11cf71623b010f0977212f3ee7b64a20f0f483087d0f9221afe9c0f531bdba",
+      "edits": [
+        {
+          "start": 537,
+          "end": 542,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockRemap.java": {
+      "before": "0a214f6caf0b0ef3013fa9d95f3eb50cd92c8f2297821d66df42aa13b321f8ef",
+      "after": "576acf87c2e800476e4549fa3d4577c822a0b7043b5fa9b97d13a47cba3e037b",
+      "edits": [
+        {
+          "start": 604,
+          "end": 607,
+          "old": "tnt",
+          "new": "TNT",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockRubberFarm.java": {
+      "before": "f082b5c525d4803447c74ef419f5713662fcb3655650b152b37f1e9990e59927",
+      "after": "29451c64b74e7d5128b69ee144f45f64f410b97052559a468d6f36a48c4216cd",
+      "edits": [
+        {
+          "start": 3122,
+          "end": 3136,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockWaterPlant.java": {
+      "before": "bde51ad2b5654b425c6bb1aa2d6951a620dac5b07a4ed6cdef1c486cf6adff31",
+      "after": "5efa6e0a423b4d5fc12fafe899a2f588c91e451642fc8aebd17ac7d96a287015",
+      "edits": [
+        {
+          "start": 1281,
+          "end": 1295,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 473,
+          "end": 478,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/WarController.java": {
+      "before": "35b0f4c1ccda4059d43872332ae956458d80e36e2c56534222eab4da53fb5d71",
+      "after": "2d5237c76c0c1e9e61bb21deaf62711459b84a922e7fe946eb76081f6e3312d5",
+      "edits": [
+        {
+          "start": 422,
+          "end": 426,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before": "62f2c726d77d7406ae0b460ea2d1f1a7f9f03b580c0f2731e729455f0a76830b",
+      "after": "79fc2713d738a851748cbc72f3a48e99535aa49975b5f97b84ce67a28698b139",
+      "edits": [
+        {
+          "start": 1872,
+          "end": 1875,
+          "old": "tnt",
+          "new": "TNT",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": {
+      "before": "9bd4df545938dcf697bc052e02ca33af7cb7f5732142b01d18e832612586b40d",
+      "after": "db4ab7396fa62c1ccbdfcd2a244771f095baea33467eadaa022339c338988b28",
+      "edits": [
+        {
+          "start": 948,
+          "end": 951,
+          "old": "tnt",
+          "new": "TNT",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before": "c6f605627f7acc58b62b72a26a1d6d6beae13918ee5ea5845dc8812eb70202ee",
+      "after": "00017d797281ab92e132d25599ff348c82b39b12ba6831d8dac175c1eb7c798a",
+      "edits": [
+        {
+          "start": 1377,
+          "end": 1381,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java": {
+      "before": "38db20761b03ccfd6c97eb8768189799f99d8d78514ca0f766c29c4893d5241f",
+      "after": "76fd0c8551b571d8d488cd7d3177c8fb728aee2181699be682a59bfda4fa66c8",
+      "edits": [
+        {
+          "start": 3036,
+          "end": 3050,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2937,
+          "end": 2951,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2834,
+          "end": 2848,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2735,
+          "end": 2749,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2632,
+          "end": 2646,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2533,
+          "end": 2547,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2430,
+          "end": 2444,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2331,
+          "end": 2345,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java": {
+      "before": "28a7cc03cb8ad02dee6e2ee9e8793c005574c54bd2d7efad07e0e009da2d9878",
+      "after": "0b3c493f8ae9c5ebcea6ce9dca1c485ae627b5e69969eea480a546297f26ac2a",
+      "edits": [
+        {
+          "start": 563,
+          "end": 567,
+          "old": "fire",
+          "new": "FIRE",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java": {
+      "before": "013255047fa1fdd52e77985f7315762696798cc90041a3f40adc1d2634691ba9",
+      "after": "0393a015896302cb776cd5b7c0ec563b350b77a2f7a5d609040a051f82a0943c",
+      "edits": [
+        {
+          "start": 426,
+          "end": 432,
+          "old": "portal",
+          "new": "PORTAL",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/AcidBlock.java": {
+      "before": "1903442316dc232ab4e2aa86e4b0bbf57dd6bf34f4b6453eeed0f4bd43b2c65a",
+      "after": "6f9e8f547d9b6eaca7e7e74f968402483a43b2abef48524e892cf7cd311c9f78",
+      "edits": [
+        {
+          "start": 1892,
+          "end": 1906,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumBlock.java": {
+      "before": "93c8cb0c686500649112d8735f24ed4b92b9779f927bfdcfd6f64354b1ef8944",
+      "after": "19c63ef4d6ff11964d03554dbb21628da61eb6ab2daf3885ade6d2be3b994e69",
+      "edits": [
+        {
+          "start": 2111,
+          "end": 2125,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1891,
+          "end": 1905,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java": {
+      "before": "e39d0e7e25dae13231a7758079acd93dbaa68785663d0914bbbc11027b044417",
+      "after": "586f62d802aa5a51682090b2a890821f1c3fde3a3ed8245445324cf4e838c7cc",
+      "edits": [
+        {
+          "start": 1348,
+          "end": 1362,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1136,
+          "end": 1150,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before": "eb80a51ba9812ae14d90ce4269969d3200a3d464b58364769d332f992fb62afd",
+      "after": "a6d1fc1174f6146671de3f4547fca0ea804ff5e67c66f9722e43a3c4a2ed42ef",
+      "edits": [
+        {
+          "start": 1520,
+          "end": 1534,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MudBlock.java": {
+      "before": "3f92fe1bee94c9c096d6412cdf7968bbf7a75a8c0186df95e7c97724b8b3d41d",
+      "after": "70b0529d40aac75689ac21615d58aa54bb17f425fa302350abd2adc1a5c20a25",
+      "edits": [
+        {
+          "start": 22559,
+          "end": 22573,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 21811,
+          "end": 21815,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 21784,
+          "end": 21798,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 21007,
+          "end": 21021,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 20259,
+          "end": 20263,
+          "old": "snow",
+          "new": "SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 20232,
+          "end": 20246,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 19475,
+          "end": 19488,
+          "old": "redstoneLight",
+          "new": "REDSTONE_LIGHT",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 19448,
+          "end": 19462,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 18698,
+          "end": 18704,
+          "old": "portal",
+          "new": "PORTAL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 18671,
+          "end": 18685,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 17921,
+          "end": 17927,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17894,
+          "end": 17908,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 17144,
+          "end": 17150,
+          "old": "piston",
+          "new": "PISTON",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17117,
+          "end": 17131,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 16364,
+          "end": 16373,
+          "old": "packedIce",
+          "new": "PACKED_ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16337,
+          "end": 16351,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 15587,
+          "end": 15593,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 15560,
+          "end": 15574,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 14813,
+          "end": 14816,
+          "old": "ice",
+          "new": "ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 14786,
+          "end": 14800,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 14037,
+          "end": 14042,
+          "old": "gourd",
+          "new": "GOURD",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 14010,
+          "end": 14024,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 13261,
+          "end": 13266,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 13234,
+          "end": 13248,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 12479,
+          "end": 12490,
+          "old": "craftedSnow",
+          "new": "CRAFTED_SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 12452,
+          "end": 12466,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 11703,
+          "end": 11708,
+          "old": "coral",
+          "new": "CORAL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 11676,
+          "end": 11690,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 10900,
+          "end": 10914,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 10148,
+          "end": 10156,
+          "old": "circuits",
+          "new": "CIRCUITS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 10121,
+          "end": 10135,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9373,
+          "end": 9377,
+          "old": "cake",
+          "new": "CAKE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9346,
+          "end": 9360,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8596,
+          "end": 8602,
+          "old": "cactus",
+          "new": "CACTUS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8569,
+          "end": 8583,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 7794,
+          "end": 7808,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4273,
+          "end": 4287,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3379,
+          "end": 3393,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3244,
+          "end": 3258,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1969,
+          "end": 1983,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/RadBlock.java": {
+      "before": "8c30a34a9a196a8566445a106e375b90c5fe0e7d36903329528981c4a699a959",
+      "after": "b393c26bdce1afc252a7c2d080b901f04ae46cab6072a944368e47cd642cd36d",
+      "edits": [
+        {
+          "start": 2655,
+          "end": 2660,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2628,
+          "end": 2642,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java": {
+      "before": "d707a1f2886fc827990c65b2e5e02632d0c8747d0be414d14d3beb3ed999b089",
+      "after": "de02622184bd21327fe79925ae95d4d888f27dd8474e9ead4acf8801e31f0856",
+      "edits": [
+        {
+          "start": 4052,
+          "end": 4057,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4025,
+          "end": 4039,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4015,
+          "end": 4019,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3988,
+          "end": 4002,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3436,
+          "end": 3441,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3409,
+          "end": 3423,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2231,
+          "end": 2245,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/ToxicBlock.java": {
+      "before": "6765058044b70577f3f005b1b325389339c12ec3c1519742a121930206d79493",
+      "after": "8b56d1deb45c78d3a395e1648ceb5739a98aab7adafd6c39c62d00b0fa8e8a00",
+      "edits": [
+        {
+          "start": 3397,
+          "end": 3411,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3288,
+          "end": 3302,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2019,
+          "end": 2033,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": {
+      "before": "4f413e248f482f1e2e333266fad79d38d519291495ac52d4874c0c278a33c7cd",
+      "after": "a2923b073def6f39d7431a4af76338fa04151371ebbd167ea8e49c49329a0bad",
+      "edits": [
+        {
+          "start": 5410,
+          "end": 5424,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4621,
+          "end": 4624,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4594,
+          "end": 4608,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1942,
+          "end": 1947,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1915,
+          "end": 1929,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java": {
+      "before": "df2dc5fb969d79a959c08c2fef853d43f719c8a7e27ef0a7462dd8fac67b8fd5",
+      "after": "3dfb3881db4ab4cd3f35bb2a18e5a56c7f2a8015d5f73362710139cd6a7eb651",
+      "edits": [
+        {
+          "start": 3513,
+          "end": 3517,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3486,
+          "end": 3500,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3475,
+          "end": 3481,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3448,
+          "end": 3462,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3437,
+          "end": 3443,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3410,
+          "end": 3424,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3400,
+          "end": 3405,
+          "old": "grass",
+          "new": "GRASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3373,
+          "end": 3387,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before": "c319f7e325605f51be7544f15d594ba8ebdcbd2655bbaff28779da156e720947",
+      "after": "a492fd7901497c90315b2cb00731631a60eaefae09e1c878cc74f71ae3eb9e59",
+      "edits": [
+        {
+          "start": 2650,
+          "end": 2653,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2623,
+          "end": 2637,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 657,
+          "end": 660,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBiomeStone.java": {
+      "before": "a4f2a04232ddbeb261dee945fb0d2dbda3737d49c7b22ab9fc4eb61557482e31",
+      "after": "ad119bb94f2d7646e2c1ee5837977d1dca9601a210f932bb945b07aa16fc94a3",
+      "edits": [
+        {
+          "start": 508,
+          "end": 512,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before": "815a663e078665292aae9d6217644f0594dd8afc4a10e5dc1bc9347e34c8702b",
+      "after": "0b64993dd823e750e75c9a5b66d8c9bbbfad4f300108a5ef9c98cc1131a45e92",
+      "edits": [
+        {
+          "start": 1591,
+          "end": 1595,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCap.java": {
+      "before": "4ea01d3aa554a64f655abee9c02063f7f2995712dbbcc5a2904615c66cd7cfda",
+      "after": "7698d884f08354c2f278ba35a421529f689ef8e8567e35655f9c8b425543e353",
+      "edits": [
+        {
+          "start": 554,
+          "end": 558,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCoke.java": {
+      "before": "cbe10899823e288cf442a3c8de963e0b2e729215dcc0b7197e48cf9e8e8557b7",
+      "after": "1aa7e0f7cae5626d092c2260f53393ad94577521b1452744e5088c522d495957",
+      "edits": [
+        {
+          "start": 359,
+          "end": 363,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java": {
+      "before": "fabe46fa9f21c88081cd1bc34bfe69b98148e3f2fb5e157a6d0be557fea888b3",
+      "after": "b3534832dcbe8316d87af606c3d3fa4df68432e9031f6bce924e42733358e4a5",
+      "edits": [
+        {
+          "start": 456,
+          "end": 462,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDepth.java": {
+      "before": "d9f8109dacf4a409e6d07ea39acd6557f1cc60541ee506e2082a6d84cf535b0b",
+      "after": "ac7d28e0e6987eb369130bc976247de386e8a06b4c995e8aea66fddd293f3244",
+      "edits": [
+        {
+          "start": 526,
+          "end": 530,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": {
+      "before": "5f383152549c31be1ee088d684443cae9e986b76bf19ff3c7652e197e1ef2b83",
+      "after": "b3b6ba5f756b73bb5cc59583b36d7088a44df9ef1a68f9661855d60e6467e56f",
+      "edits": [
+        {
+          "start": 1646,
+          "end": 1650,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockEmitter.java": {
+      "before": "a745621f346ce3ad9ee44e64cd4f734a0137792f31b2c65bf75e03c015f11078",
+      "after": "c3e0d44b3ebd91118a870ef9681620d69205943de7634852cefbfcba08b100f1",
+      "edits": [
+        {
+          "start": 1367,
+          "end": 1371,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before": "cc894164274921c5604cff8830faffefbdf0b57fa4cc198c690c99c40490e8aa",
+      "after": "99e204badefb312bd3fe457195a0af940ace8fbd76228815a4b365689151d88d",
+      "edits": [
+        {
+          "start": 1697,
+          "end": 1711,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazard.java": {
+      "before": "cbee5d9f470b4b09a3efe268239f58d15560449e6c5e555dfa1d0e50fb676469",
+      "after": "1a2fa469d8739ead410527e5f4af15d718e1e58b3d929ceaf64cd871db0c91ed",
+      "edits": [
+        {
+          "start": 2041,
+          "end": 2044,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2014,
+          "end": 2028,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 999,
+          "end": 1003,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java": {
+      "before": "3f39c68bcbb7f6aa1b917f209c5ea5602fd737081f8c6507189f59db635d7743",
+      "after": "bb79d3d6bb206ac6a80d62e713dc5e9a508af331a7a037d6410ba10253bb451d",
+      "edits": [
+        {
+          "start": 561,
+          "end": 565,
+          "old": "sand",
+          "new": "SAND",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHotHazard.java": {
+      "before": "d1cb0f6acf10d36861eb0b4090dad4003baae96e25f4c1b30fd0fd4bf200dacd",
+      "after": "614575aec7878b9cfb9b0fcb8e6a4e48b81470948f7bbd7e330245d4711619c1",
+      "edits": [
+        {
+          "start": 922,
+          "end": 927,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 895,
+          "end": 909,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLantern.java": {
+      "before": "0242becee0f772b30983f21909070d9eb38b258564f31f15cc805505464df893",
+      "after": "96e76227c3a850cfe1059aeb610ef6ef8efd5a4c29d7b5f7ee10a77e1f4fba05",
+      "edits": [
+        {
+          "start": 341,
+          "end": 345,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLanternBehemoth.java": {
+      "before": "3eee662e93cb257bb5c24e002bab63d22b3dab2e6ff7f3671cac128bed6a77b5",
+      "after": "49ad465d3aee4e114f76b0841c68e472cc2c768990b128e135c16974dde1ccbf",
+      "edits": [
+        {
+          "start": 818,
+          "end": 822,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLayering.java": {
+      "before": "1f4667aeb29fafc0ccb95f82106bb27a829e86cc27e2fcd5510e8612aa229624",
+      "after": "238a7ea5b8f8f67007a9287506d4dad44de84c90351cefba2fae4aa76b777311",
+      "edits": [
+        {
+          "start": 2430,
+          "end": 2444,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLithium.java": {
+      "before": "9827cb653a246b583664037fe0eb3d7f4c09480a2ced707571c012e90756ec7e",
+      "after": "8d2321e42630509e10102d8f6b0a9402d85ae8e09b6b06b57795b01b03947e9c",
+      "edits": [
+        {
+          "start": 1123,
+          "end": 1128,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1096,
+          "end": 1110,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1018,
+          "end": 1023,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 991,
+          "end": 1005,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 913,
+          "end": 918,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 886,
+          "end": 900,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 808,
+          "end": 813,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 781,
+          "end": 795,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 703,
+          "end": 708,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 676,
+          "end": 690,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 598,
+          "end": 603,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 571,
+          "end": 585,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before": "c2534e16500b454c046325655d2e5c4990a10063420ed811ff038296b527c206",
+      "after": "11ae0fa1478389ed81c45d25681c73ca6a2c78ad18b51667e8d22569ab488bf3",
+      "edits": [
+        {
+          "start": 863,
+          "end": 867,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMeteorOre.java": {
+      "before": "52c9b562ccd9400b93920c56b553396221136b60617c387dab78470b06926fbb",
+      "after": "0c585a7f7392b5c5c1c349184c11fa9fda02bbda1f78ffcb450447d223ab4d9f",
+      "edits": [
+        {
+          "start": 251,
+          "end": 255,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": {
+      "before": "06a5eb4314aca1aa86823d8e2b3821ef54b4844accbce7369afb28c22091e4a4",
+      "after": "c565040c4b50780dfdfbacdda99370e87a6d9d939afc7a979a620e16fbe126fd",
+      "edits": [
+        {
+          "start": 5677,
+          "end": 5682,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5650,
+          "end": 5664,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5567,
+          "end": 5572,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5540,
+          "end": 5554,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5457,
+          "end": 5462,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5430,
+          "end": 5444,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5347,
+          "end": 5352,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5320,
+          "end": 5334,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNetherCoal.java": {
+      "before": "5cd6e4645b6fdd616be29fc30207edb937753e0afc62bc20d8f0a280b2a10ec1",
+      "after": "e5b2747d8396e51fb68a2b0a42d8fe66fcd42b742fe575bd4e0d8174c9d0e6f8",
+      "edits": [
+        {
+          "start": 1191,
+          "end": 1194,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1164,
+          "end": 1178,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java": {
+      "before": "a06adaea28da856e4b7a428792f75b32ec9d179a3fdd60c14383887b68508717",
+      "after": "5c3c6cc0ff88269f02d3babfb69361aa949b3603b31c8eeaa650189b4a552f09",
+      "edits": [
+        {
+          "start": 802,
+          "end": 806,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockResourceStone.java": {
+      "before": "8f10d31ef28f0d1dc3d07c7dfc26a24be6956dac06866c6a9fdb72eff10f9b1c",
+      "after": "702264881a1021e76d746dd87207fb20d2fbdcaa18079afafef77451122a2fa6",
+      "edits": [
+        {
+          "start": 520,
+          "end": 524,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRubberCacti.java": {
+      "before": "9d92dfea20baed4cd5de76cb27097666b7f990ed4460e23dfa5d017a58a5ed4c",
+      "after": "34aa9e24a250fc6df19661dd8deb78411fb8f530101cff9c0c716e0a1d3fe344",
+      "edits": [
+        {
+          "start": 1120,
+          "end": 1126,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java": {
+      "before": "6d8ef8f3dcd652933e0daf067b880bcb24c69d59805058e81b2a4352cca82e99",
+      "after": "014d97cf91c81fd22351c5fea2ad7fc4d58a8abbf9160bc5c080479dc83ba037",
+      "edits": [
+        {
+          "start": 426,
+          "end": 430,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before": "6fb6f3194b1dcb216e174538f7fe971f982d7f99e0c6cce65b4a68fd3349b4a1",
+      "after": "e4989afbf1bf3c48ec45dce22ff44c92bcc8aa18df67ca30122f23fca5129194",
+      "edits": [
+        {
+          "start": 733,
+          "end": 737,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSmolder.java": {
+      "before": "c4cf98143629e180f2e22f63e5a13a377c8532930c5d3ab42fd72508435f986e",
+      "after": "7176d16f5a6ac7478a595cba87d5a4b8f422a011d0e16830ac28b2a8af20b7eb",
+      "edits": [
+        {
+          "start": 732,
+          "end": 735,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 705,
+          "end": 719,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before": "c2cf237eb669b6946b1f86a4edb8cbdecf209a49cad6a106553e3edb6ebbbaba",
+      "after": "74aa22ed2fcb714cc721bf786849f3be7d2596a0aae425c94abd960cd82506e1",
+      "edits": [
+        {
+          "start": 1405,
+          "end": 1410,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java": {
+      "before": "5321b0b249c12e6faf0e0da7b158a6d0e3c04028a0a4f5e492c61d077a20f25a",
+      "after": "e9cacad3deb46e4d4aaaa091f9ca07abfd21e4b5fc870861a4d1d85205bae463",
+      "edits": [
+        {
+          "start": 589,
+          "end": 593,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before": "1aedfe7af7750e9735f193a1b5831663733105a6f14ceec34b7c07eec7568a4c",
+      "after": "d24911031948b393ea210e7c956c9c45e59d2995212e1aca0e6603082b91fcdc",
+      "edits": [
+        {
+          "start": 9372,
+          "end": 9377,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9345,
+          "end": 9359,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9261,
+          "end": 9266,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9234,
+          "end": 9248,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9150,
+          "end": 9155,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9123,
+          "end": 9137,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9039,
+          "end": 9044,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9012,
+          "end": 9026,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1271,
+          "end": 1277,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": {
+      "before": "f57178ca35690eb2c230978843196ab5e5e21c4dcb6f89110a8007910f15fb21",
+      "after": "70c9aca51fe4e4dcc2a34abe12a8eea0dd29c6b898f630025b251787ad2af9fb",
+      "edits": [
+        {
+          "start": 2972,
+          "end": 2986,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1273,
+          "end": 1278,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWandStructure.java": {
+      "before": "24f5892ebc5ed7126dc56dc26ed27bfecb30a961f31399b7ab55cd40ae2608d4",
+      "after": "e52b6cc50fd58fdcaa8892ef994822a407337cb6e73c4c99dd27172e70e47963",
+      "edits": [
+        {
+          "start": 2278,
+          "end": 2282,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DungeonSpawner.java": {
+      "before": "9ad4255181a1e354c7aa4e1593faa48d4a7a2a8d0364f33b3942c3f95d5abf41",
+      "after": "c98521173f41a823a868cec670aecf962d5ae60eb8eb70b5c0778c161056ad36",
+      "edits": [
+        {
+          "start": 839,
+          "end": 843,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/LogicBlock.java": {
+      "before": "58e0ad6e3832106929f8c4a534e3cfe34194697ee16f59fe554f06ad9ee8a50b",
+      "after": "99fd946f9fcdf7e2281ae515ba516146c81249911f5cbe2b8ad7b28a94c7e66e",
+      "edits": [
+        {
+          "start": 1082,
+          "end": 1086,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/PartEmitter.java": {
+      "before": "5256b5a94747af78b29b870e9dead1bda66458917cbe09819c223ba012a7abeb",
+      "after": "55a7c31ab2c279cb5c283c22fb33be1564ffe48b2a18df9021ad59ef5805c6b2",
+      "edits": [
+        {
+          "start": 948,
+          "end": 952,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java": {
+      "before": "d81d475f9e3b3ca0c9d06e0c26f5f15a234e84de257b3eed7de15ff2de05d784",
+      "after": "5402a91b2d47d1b0ca7b68c7f273fc9822eae208b4c26bc5b5b0db2cc93bb56a",
+      "edits": [
+        {
+          "start": 1781,
+          "end": 1784,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1754,
+          "end": 1768,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1212,
+          "end": 1215,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1185,
+          "end": 1199,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java": {
+      "before": "33e52d796fa2b7ba36210ac268490bd205644890c47611c3b51822d8d64c2675",
+      "after": "6199c6c582fb0f99bac5075f5c8a0bf2afb0cb83a3e743c4f6c86789920baea5",
+      "edits": [
+        {
+          "start": 618,
+          "end": 622,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java": {
+      "before": "9dba57bb29ad90912f62dfe487eecd47a3a7b83c369cf10af814eb4865f4705c",
+      "after": "8b688bbc56ebc67100a6092a2fe6bbc8d9bca8b0d74b6fb6a096a048c622878b",
+      "edits": [
+        {
+          "start": 1431,
+          "end": 1435,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockFusionComponent.java": {
+      "before": "0e07982724d0cee36b007f6b4333b733028eeb73c6f7cc55be9bab0444af8bc0",
+      "after": "69524b141387cc134360919a07c862e586b3e3b17c36b57a75ea2ad108b19ffc",
+      "edits": [
+        {
+          "start": 247,
+          "end": 251,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICFComponent.java": {
+      "before": "6ac73e1850a2d7e0955a686d7c13755014a4936ccf33f3b162048d13b1ad518d",
+      "after": "5b243b053d9c77dc21b8645cd09a077894a0178b1ad6a2ded26d7c1ce38be043",
+      "edits": [
+        {
+          "start": 241,
+          "end": 245,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICFLaserComponent.java": {
+      "before": "b5bac2e20c5b4b71fb5541b16072840f497a7bf073bc118b382c7c99bb18739b",
+      "after": "411473e2c98fad8df1e2a4f7437d43eea19f8abf30d564b4af6ae7ad72424df4",
+      "edits": [
+        {
+          "start": 467,
+          "end": 471,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before": "3d0d1876047088fa2d792a0395e92d7fdc63eb221df4a5450279009608164835",
+      "after": "28182c863962fdba5961cae9157bba0dc0ce984a91782f7a1f994331af90d30c",
+      "edits": [
+        {
+          "start": 1761,
+          "end": 1765,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockWeaponTable.java": {
+      "before": "9df3a5b6876f3376915df8c16fa754df8d3f050dc4f4aa04299fa2d7182c1320",
+      "after": "f9002c40a5e4ccee11b0c9527d66169a3639b1870ee73c65213d4ef9ed836ee3",
+      "edits": [
+        {
+          "start": 909,
+          "end": 913,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DemonLamp.java": {
+      "before": "d632b891d8f45c7ac9aead57ee09338f8f8bf3d45a67a782ce9ea1716dee9965",
+      "after": "e3123c98a43a9cd57a8b9408c23c31b063f077636d64c9dab4af89c2fb39783c",
+      "edits": [
+        {
+          "start": 346,
+          "end": 350,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FurnaceCombination.java": {
+      "before": "a763b8caa09e80ab1a9a77d55485acaa864e7ea488b9f7db896574433388f44c",
+      "after": "e455f4918f641c79a82a9578cb2f68ca4b3fabb0671df5cf7f87cf21d4bddf5c",
+      "edits": [
+        {
+          "start": 592,
+          "end": 596,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FurnaceIron.java": {
+      "before": "6cfce30bf95542209afd5ea093b32ee2230234b49402305acc55f4e8f6981176",
+      "after": "cf75fa5a8aac5ba4b7d2f86812fe8125e0d8796fada6afb4c8e95d8cf895d039",
+      "edits": [
+        {
+          "start": 572,
+          "end": 576,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FurnaceSteel.java": {
+      "before": "c9b65bfa3c3e1af41e545f7ae01b7ecc3b82a3483f653679edae1992eaf7ba82",
+      "after": "7ee58a74d28d0c40fdd7eeb9c66a8b710cd6ca5cfd08f0476025ffc84af60b2f",
+      "edits": [
+        {
+          "start": 575,
+          "end": 579,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterElectric.java": {
+      "before": "f9a2d59234744789b5e1dfea1432b8b0f4406db6afb898840952edb2118ad34c",
+      "after": "1acd27c44f4c4a1484e7398875da25e6c68f128b9d73a1aba0b8f048aba6bfc3",
+      "edits": [
+        {
+          "start": 911,
+          "end": 915,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterFirebox.java": {
+      "before": "789896cea44b1153101dca49af767546be5d43da6465ed81d3ca8517df0c243d",
+      "after": "cfa4036fc6f71fb5bc4384dc4f926e89ffc991faba95936067074f6054dd1043",
+      "edits": [
+        {
+          "start": 578,
+          "end": 582,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterHeatex.java": {
+      "before": "251dac9baa19ac7250607115a0d2aec301d5f7471e5dc44bb79165f537417beb",
+      "after": "f14f0c587fe4115be90b9a4314f3c24b3791caee388bdd425a699cd953e26173",
+      "edits": [
+        {
+          "start": 1209,
+          "end": 1213,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterOilburner.java": {
+      "before": "82783e06de88b41b6837ea2246be91b4ddda4330fae261c6ebbac0c54341ac92",
+      "after": "098bed2d86f3212547b433565f83e5dd3a7c11bf464c02b161cc5483f6ec5d7a",
+      "edits": [
+        {
+          "start": 1007,
+          "end": 1011,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterOven.java": {
+      "before": "a7c08cd2a1276332177e95baa5936a5af0fda390dad22a864259cbf3094b7247",
+      "after": "6a8b99ce049c702a562e1376cc2e83bf1f0f643bcc230ed5317ab85d8afb5e53",
+      "edits": [
+        {
+          "start": 569,
+          "end": 573,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAmmoPress.java": {
+      "before": "2fdacf62b2e48fd70abee1f32e974abe624bc2fc2d28362d5d7f0d2f186c6427",
+      "after": "7b99707eae02056668359afedd2b686ceb698f560c826809410775a68220b2a9",
+      "edits": [
+        {
+          "start": 458,
+          "end": 462,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAnnihilator.java": {
+      "before": "61fbad63738aebe9d28c5cb5d0b3f7427e7d26aa5fb3c08e5eb3cef38d2a8eb6",
+      "after": "3c62e575900d05c0d220a4aad93df77f88fc12af21fb3bd554b6bae0fe41c8c8",
+      "edits": [
+        {
+          "start": 543,
+          "end": 547,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java": {
+      "before": "eb3aa5c9c30d43081b67636462fc21a030c4ee2ced76b3371bf5d88404afa04e",
+      "after": "45299f2d263bab611379a98850b722ad11eae97b3ed1058c18121738cd89ab55",
+      "edits": [
+        {
+          "start": 874,
+          "end": 878,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAshpit.java": {
+      "before": "551a12e0bfae370135f40d5fe35b5ae4d3b00c70f1d2e25dd9401aee3a7c1498",
+      "after": "09f2209eaf7509bc76abc09a4edf078b78808bd067e1b2ec40e3698105c97116",
+      "edits": [
+        {
+          "start": 571,
+          "end": 575,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAtmosphericEmitter.java": {
+      "before": "dcc425389162c0b4038568b77ffe195fa98ed47f09d85cb7d7b1b43df239f45a",
+      "after": "c4c55eca7605ec027da510a4cba138ab9686d4979bcc48d599bbc0f5120e4519",
+      "edits": [
+        {
+          "start": 1166,
+          "end": 1170,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAutocrafter.java": {
+      "before": "644b3de06fb17e402cc0ac77d598aa7cb480124ebd92df2b50b27f65606ad558",
+      "after": "a46a8446d346e2bfe01f9ae32bba013b645db001a40a05b9ea771c7dfb9c30d7",
+      "edits": [
+        {
+          "start": 1061,
+          "end": 1065,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java": {
+      "before": "da1b1b1eba064a243e331f96e686c43f1b792de607429334fe7993512ea7d189",
+      "after": "a790a964d0609eaeff71902f3c8e3861652855d63cc02286c87c5962d4d7c038",
+      "edits": [
+        {
+          "start": 1048,
+          "end": 1052,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBoiler.java": {
+      "before": "7d81b3afa02969f577e828a8e9efe98da8920d271987001be8f49c9dee28a07f",
+      "after": "4f4f70b69204131cf7adc9fd940af9de198d1ecdb9638969e33b048a4a9747c2",
+      "edits": [
+        {
+          "start": 852,
+          "end": 856,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCombustionEngine.java": {
+      "before": "b9918f518aaa648df7b694f4e5b0809529cf10a4aeff9d71a8d595141f69f5ad",
+      "after": "99e7431d8b0bb7165b89e77aa2cbec65a0789a3a2d642c8c9eabf43c04b86dd7",
+      "edits": [
+        {
+          "start": 513,
+          "end": 517,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCompressor.java": {
+      "before": "f48b86570f31a520399e049122ea86d546005d4ec548d021aa818103c819730c",
+      "after": "81d4a0f2ce9218ccb9e04104761955d78973e76ab2cd38f73640397b68186030",
+      "edits": [
+        {
+          "start": 540,
+          "end": 544,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCompressorCompact.java": {
+      "before": "c696818dab4b3d7b93f47aeee47ffb2d3f212b8fbc4b34bfa428db9f31ac3fff",
+      "after": "8e9fa4ec446d9a22091a452deedb73e410e9e165600b62c9d29b65c62e1a83c6",
+      "edits": [
+        {
+          "start": 517,
+          "end": 521,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCrucible.java": {
+      "before": "a181f829917de800fa35f4c231558b50a4ed93338d26bf62fde3734a07b28e5e",
+      "after": "395fd625ce6fbc521c35f4c167e49571ec7eb9fa52ba1183180b4808b6ed6798",
+      "edits": [
+        {
+          "start": 1269,
+          "end": 1273,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDiesel.java": {
+      "before": "bf7f5728de351790106bb7ec26e1119de10cb05067f9ccc53ebbf4891179318f",
+      "after": "a676a5ad8cad95226a1038762727b348e457d3e334f94abadc3894d5bbda94f6",
+      "edits": [
+        {
+          "start": 828,
+          "end": 832,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineElectrolyser.java": {
+      "before": "8e36cbb91e0c00b02ab59d17fbc6a905166d1523f72dc26b825ace8d9d717690",
+      "after": "64ed08991164a2c8c5b700c8dcefc07a8ef63da739a08055aac553776b9be1e3",
+      "edits": [
+        {
+          "start": 538,
+          "end": 542,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineExcavator.java": {
+      "before": "27e103cf6ab1895deeafbfecb602a89f31edefc78f0ee1894c42bdbc57c606de",
+      "after": "0bce9958a7a570219272df5f9da4afe18e3020c7fb1d940b7444773c22ca63d5",
+      "edits": [
+        {
+          "start": 537,
+          "end": 541,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before": "7e6f15200cc6f8b908c33b6601c96a4242bf77c29d20e384e39e85d7653d1e87",
+      "after": "9a2ee11908ee86d513db184e2ae4247d9d73b6cf9d00e85866802bea03908220",
+      "edits": [
+        {
+          "start": 1794,
+          "end": 1798,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java": {
+      "before": "1f95d65d6023dfdee6c92286bf1622ddacbbee13a1870bec763477a41f6abb25",
+      "after": "d45b98d3a7f4cfbdd80aa8e08a5459a5fde5ce8f2d1f20f55f2ee216c8bd603e",
+      "edits": [
+        {
+          "start": 389,
+          "end": 393,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFrackingTower.java": {
+      "before": "5bc857814578d0d4973fca1989d686418134cfd7f3da327cf7c888e58ce17eed",
+      "after": "dc8cc1e5779223fdf90fd2a4b47c47e3db40efd3687f412b17a637f881f0d17d",
+      "edits": [
+        {
+          "start": 1079,
+          "end": 1083,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHTR3.java": {
+      "before": "91856e03af685d631a9e28f339d44c7b5333944c99b4ff59635c8a10c0b9d089",
+      "after": "67324540b85f1db94adc84bcfaaa8e1fcfc78f6176e2aa654d83875c0c92a46d",
+      "edits": [
+        {
+          "start": 1139,
+          "end": 1143,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHTRF4.java": {
+      "before": "10e06094a5bef0cc4c56709209932763a9f829de82081af4257ab98cd20bfaa0",
+      "after": "a75d44819219a1caef3ba23f89141e8b7bc6725afbe606b0733b4205895773c8",
+      "edits": [
+        {
+          "start": 807,
+          "end": 811,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHTRFNeo.java": {
+      "before": "625059fe96b8a107ed68dea86b8ad69824442b96f854389c88cb301686037047",
+      "after": "748378e57a8aa52a88aea2d14417f9b4a4dfa01dc5a57477bef01aa7741711e6",
+      "edits": [
+        {
+          "start": 909,
+          "end": 913,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java": {
+      "before": "a4a029e550fe9368268ade5374aeed65619b11f13f0f67b08927c32c54012e31",
+      "after": "d0650eaed7867446aab4e22c91b9beb9817c03c98510dc15ebd30c63580b0e28",
+      "edits": [
+        {
+          "start": 1422,
+          "end": 1426,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHeatBoilerIndustrial.java": {
+      "before": "7eeb696392b9581532dc22c3ea2692b9fd3dfe015af0172f6afeca2ed53f9826",
+      "after": "2601bda04a344ce93309af406f8290c13e7989ed12314ba93f4d2b06a76af0b5",
+      "edits": [
+        {
+          "start": 1252,
+          "end": 1256,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICF.java": {
+      "before": "c4ccfc52647eb243631b06a2f9d7137d0937b2b3a85945567498dd1c9b2415ad",
+      "after": "bdf599ddf49324e1cc87f4b3f80474e60d1b1110142050723a221e88d17ab5cc",
+      "edits": [
+        {
+          "start": 512,
+          "end": 516,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICFController.java": {
+      "before": "98c3dc696e5e5d81552973394d8ae10373b0bcf2cb388d10d72f78ef736a318e",
+      "after": "09a0ab467ce2a961502422bc20d52f0445776bcd0dab3183c5626846c840225d",
+      "edits": [
+        {
+          "start": 1596,
+          "end": 1600,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICFPress.java": {
+      "before": "292bac75017f6b1a4a38f9c242dc1eedfe2e55df73524609d32c25c4775e61ec",
+      "after": "d190e071cf7f1c3cac128f0d7e5fd87669a19c0203179f2c17faf0b68cc461f6",
+      "edits": [
+        {
+          "start": 1145,
+          "end": 1149,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before": "e628bf2cbe387efa6bb2f21e24aa108491dbe900b7e62f2d87ba9705d73687bf",
+      "after": "743df8164146b43d7ece2b031953bdd78004c845eb0c1bb56aab8278c659b7ac",
+      "edits": [
+        {
+          "start": 842,
+          "end": 846,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java": {
+      "before": "04e5403d2b49a29f7aa9497ab3e9431fe1a164c88418e697c7bfb505838d164d",
+      "after": "15b3ae1268259732564c2b7113220cbe6da2507f82a29e3ff803f373b7f9de95",
+      "edits": [
+        {
+          "start": 1218,
+          "end": 1222,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineIntake.java": {
+      "before": "14aa9cc65d4a78185d8283ba806c140b35306ac2d50fd040c39aa228b17d573c",
+      "after": "54fcd84579195c7001295c618a76692705055b4b289b2a833a7e08cc0b2b3498",
+      "edits": [
+        {
+          "start": 694,
+          "end": 698,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineLPW2.java": {
+      "before": "a17248779f9ca6985cc997012c003c39026a77218e96bfe69188313d46438101",
+      "after": "5eef0749d43f2c30cb49e886ff52a2587075705f3f8a317bc39ecbbbd092c820",
+      "edits": [
+        {
+          "start": 804,
+          "end": 808,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineLiquefactor.java": {
+      "before": "00ac47fb9e8a209ff615e4cbf7a4288851a17d241755b5e3c5b0b5762f6f48af",
+      "after": "3ae9c7386e31543230758ed6ab11908a692af913e3e4a529fb989468cfaa41e4",
+      "edits": [
+        {
+          "start": 631,
+          "end": 635,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMagma.java": {
+      "before": "e8b125d662e2afddecf5ae10b4d6fdb47afbd738e393e8761d64bd56e5f62f80",
+      "after": "3d964f4c305ba73fea0c925354b4f37c29e3350b5d970c97e583fc241c5a66f1",
+      "edits": [
+        {
+          "start": 998,
+          "end": 1002,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineOilWell.java": {
+      "before": "5fadf1d5e53abe023f488017ba04a3c1aec9f894224eceaabd1b94ed855b4158",
+      "after": "67e99634f4a250da7d3dc272636f421803fd3b3effe171494bb0e28234f38b21",
+      "edits": [
+        {
+          "start": 1424,
+          "end": 1428,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java": {
+      "before": "56e9472a77d91d85c4abc725640f400a3e75f3ce0713a3411caff7fe9f3cdc37",
+      "after": "0b962ea6b6e72fc86984a4cc1c1d6a2d88af207c9596713562f1dd95e633ec7a",
+      "edits": [
+        {
+          "start": 542,
+          "end": 546,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePlasmaHeater.java": {
+      "before": "e0442096622d289e64a2c8d3969a91370dc2d05d2313852c848179b20cf1d7e3",
+      "after": "efad1074e6d8fdf74f2105b6cb23bce99aebfda0942af7e3c9e64c58b43d36d8",
+      "edits": [
+        {
+          "start": 739,
+          "end": 743,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePump.java": {
+      "before": "2462ef0d3200cbbc04710cf2745dff1840b73d022c953f2e63c9e8f00e00431c",
+      "after": "157e492cba7fe2b529888e5ede8df475dc9f49ee47913b6d06d0ac0238b86bcf",
+      "edits": [
+        {
+          "start": 1056,
+          "end": 1060,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePumpjack.java": {
+      "before": "af3620f8d124a7867486c9996b7c382d598245f32432797f7420015ea7ceb5ea",
+      "after": "367981828a155f408bf02eaa4b630c15cb746aada49fb32345b147c1581be532",
+      "edits": [
+        {
+          "start": 1065,
+          "end": 1069,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSawmill.java": {
+      "before": "b0f3e788c50c98d23eeb8636dd7915240404a02481358e0fa6febe38d2c8c9d6",
+      "after": "c4d6488a82270258a1885e0274ae575c51ba6aa8f1606bf9c03c9071e1982ca7",
+      "edits": [
+        {
+          "start": 1067,
+          "end": 1071,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSolidifier.java": {
+      "before": "480d71792af9b0bb1e0ad820d43d677b41ba59dd6561ec36189a19a18d1fc3d6",
+      "after": "c3d8671cdf10b74a1d3967e05376266165100039255fe1b3b2f521fd41ec6581",
+      "edits": [
+        {
+          "start": 629,
+          "end": 633,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSteamEngine.java": {
+      "before": "f7bdf0a45e87f87f9beb8fff2c2ab1995773c93d4cc40072b5d600083275e56b",
+      "after": "4d3dec11e1fefa0417deb65120187a80447edfa34e166baff60269ddb283ba08",
+      "edits": [
+        {
+          "start": 873,
+          "end": 877,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineStirling.java": {
+      "before": "492990211ce2803311e59c27101bdde300ebbe86b1ff9076fca7977c1bf72104",
+      "after": "04dcc7160f9444dcad92d0221fb8a8568cdf18b2d6dff56466131d640b913ae7",
+      "edits": [
+        {
+          "start": 1058,
+          "end": 1062,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java": {
+      "before": "9790799286b5360c944c212cd3573d8ec6dd29f82734725744c1c6890bc795bc",
+      "after": "1402012d04c0821f6683511413385eb06395257afade7521cef49b11ef83a7dd",
+      "edits": [
+        {
+          "start": 1169,
+          "end": 1173,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineTeleanchor.java": {
+      "before": "963cb63fcb847f502b656d1dbfa82b67c96b016cc33f51e6018a68130ad06c97",
+      "after": "28d31dabc67d3707896cdd3b58b1c776b1c0d12bcadfa2bab398badab07735c5",
+      "edits": [
+        {
+          "start": 467,
+          "end": 471,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java": {
+      "before": "ff3bf816f05885380194c41bfad728bd90fda74bf194bf5b6b0bbbe3cbe3b20b",
+      "after": "83ef2d41f80e4fcfb8bcb78c3d551a2cc3768510801c7412cd8d07f005626727",
+      "edits": [
+        {
+          "start": 569,
+          "end": 573,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before": "c0b00a54a86f20cce7d6bb26dd3853d632e98322db5b3183b2eac12349a0c05f",
+      "after": "720e96f86d64fb757b7d5f12c0a6106a03ba629299ae6e997610d687403df135",
+      "edits": [
+        {
+          "start": 1225,
+          "end": 1229,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/ReactorResearch.java": {
+      "before": "0e9eb4fdc7506cebf90be4a766b0ee239bdfad00832cd7410560df67edace727",
+      "after": "64b70a9545561b0c96e17c8b453dc2bb934e5ddc21ea583d761327aab917b562",
+      "edits": [
+        {
+          "start": 1943,
+          "end": 1948,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1916,
+          "end": 1930,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/WasteDrum.java": {
+      "before": "d3b6ea48155d141dbbcce28c4abe172ce5cfe642db85f04e37b05205ead546f9",
+      "after": "acdccf4919ab5f7381585c519d053aee76583a6d6743e97f6ca7a1095e7143b3",
+      "edits": [
+        {
+          "start": 2079,
+          "end": 2084,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2052,
+          "end": 2066,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Watz.java": {
+      "before": "13b6d401d449016db6861827b70f6fc14141c9cf127e4db4cff4143d3a30648a",
+      "after": "5542689f4fafef253f3a59bf678aa694033e1c46352e88d650513960055a3913",
+      "edits": [
+        {
+          "start": 779,
+          "end": 783,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/WatzPump.java": {
+      "before": "327bce29f7e9f6b50801996e326a9ea130ba45a3ecf11bbc9feb69e3d81a2337",
+      "after": "74e2c14c4152339a28348c3c59ec18e1b2da824794540d77dbd86aa95a75626b",
+      "edits": [
+        {
+          "start": 593,
+          "end": 597,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPABeamline.java": {
+      "before": "e11b86a3f7f94c972edc93f3cfaea50076412c768ae7d3f1cf8728dec49a9006",
+      "after": "eae0bd3c198cb43b0f3979058e8f060fc01216b97034df0fd18b2123f818e54b",
+      "edits": [
+        {
+          "start": 653,
+          "end": 657,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPADetector.java": {
+      "before": "ebde0a712f241f30e98fff3c4b80368dfb6068cff63c0c404daa064bc036296a",
+      "after": "dcd897934439b3351e756cf571607c7727efdd1b7787ea8a150f9ce8a0816864",
+      "edits": [
+        {
+          "start": 693,
+          "end": 697,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPADipole.java": {
+      "before": "d97d537bf546aec1af1d0541c6bba607238d4a2386c7beb55842d2982e0050e8",
+      "after": "6b30f1a3d0b6cd4af8fe4962dea8a8df06c2f8632295fd96ed0738d292676c51",
+      "edits": [
+        {
+          "start": 687,
+          "end": 691,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPAQuadrupole.java": {
+      "before": "4f74453cf35756d8c77a0fb76d538846154ec5789b9389a11a6f2057ab90302d",
+      "after": "adbecaee384b0fc00fc51b6ffb75902e0672c571e3a3f2be3ca2b2c88e1da78f",
+      "edits": [
+        {
+          "start": 699,
+          "end": 703,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPARFC.java": {
+      "before": "c642e7e49e19d715e20e5f0747d7a0f0d2b4ecc7c6add6233b88d7c17c08b3c9",
+      "after": "98d5e8d6005d8012400a70d941579328ae5fc64d53949baac89952736d07f65f",
+      "edits": [
+        {
+          "start": 678,
+          "end": 682,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPASource.java": {
+      "before": "ede86dedea4d804f6da038de8f0bde749e4d2ed27d5752b42cefb1bcb81ec92e",
+      "after": "983787a1bf81f361883299e5b96f2756e14014a703f255292b7bafc7f49ccca2",
+      "edits": [
+        {
+          "start": 687,
+          "end": 691,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBoiler.java": {
+      "before": "2eb6304fb3b45ec499270ba224fd61b1f052f405373149aa763b2425db10ff26",
+      "after": "cf6252ba27977fc8bb0746a3606b80ec9bcd745e727a25743a90e9cc8bf91e38",
+      "edits": [
+        {
+          "start": 945,
+          "end": 949,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBreeder.java": {
+      "before": "ff343bfcc0d21b33e69b49dd55e862b1b1304c051eedaea84f1de0d497264fb8",
+      "after": "3543a668a55abcf6d27e57c2ae5eea31dfb814b30104130f7a3643634450e6b2",
+      "edits": [
+        {
+          "start": 641,
+          "end": 645,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCollector.java": {
+      "before": "efb5b77e5ad20d0692aacf5a5816e11c29a7068f3a6ddf6826a5250aa5c3e7c3",
+      "after": "ce2da6b566d6c5d3ba42a31d81941fe4e04a1bf79cba775c3955aa3e0c53822a",
+      "edits": [
+        {
+          "start": 599,
+          "end": 603,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCoupler.java": {
+      "before": "43c235b996e7935059567f8471ebf4675e28ca546799f98f0ee6c0f0c8187576",
+      "after": "52eb14fa57942a31ce678baedd852b16c1395488018ea8c1d5cd0f96b0fb094e",
+      "edits": [
+        {
+          "start": 558,
+          "end": 562,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystron.java": {
+      "before": "9711b550bcacca66c5f23285c2f1b6845c657c70dd10f5edbec264edc5d6e548",
+      "after": "00270f194f3fe8dd15935358bfc747f066bc39170387efed2ca201b5e713bc5d",
+      "edits": [
+        {
+          "start": 688,
+          "end": 692,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystronCreative.java": {
+      "before": "74c72f3dcaaf2c183042c0260f52f5692ecd1b44334357f84e56b7c80834809b",
+      "after": "7423656d4498e10924624b3640b622b4f335c3e95cfa2278f4811d37954c3a57",
+      "edits": [
+        {
+          "start": 664,
+          "end": 668,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionMHDT.java": {
+      "before": "955a0a0c3ba826bb51467a2b5db2fc310bea4f60674c650e693ee908cecd3f89",
+      "after": "c3d414160b9531bf90a3bf6d9b77bc3c8c178708479d72bbd81daf4a9c837843",
+      "edits": [
+        {
+          "start": 983,
+          "end": 987,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java": {
+      "before": "46651162ca8c6615099b2890f32dcb570c04993ff9558039130c32b8f52dcbaf",
+      "after": "5c05d27401f1c770230a833d6ab2376871bb27e3a9c331b343b4bc33d627cfa6",
+      "edits": [
+        {
+          "start": 2830,
+          "end": 2834,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+      "before": "975e30c5f5e23d18eee60ba8a9ab23673f31c5aee8c3fd9b18be21aa78702bf5",
+      "after": "4eeac13ea4de591ec04c30d35f00df35c2575562a791f340ea8dbc0c7058959b",
+      "edits": [
+        {
+          "start": 1227,
+          "end": 1241,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java": {
+      "before": "e0f9765da6b822a60d9456937a77767597b9ae9d53be68d015b182f26a06900f",
+      "after": "ccabac153be7e2f11dd68e340f58b1015185386e3a89ad0f8ebcd1d3ae9580c9",
+      "edits": [
+        {
+          "start": 508,
+          "end": 512,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java": {
+      "before": "1b678c65efe98e60abf51adcfec05d16b918d31be6b27b79d2bc3146b2d98d83",
+      "after": "a730a60eef7301dab1d0b6dad071a42d54bab3752e197417e2367981e2140eec",
+      "edits": [
+        {
+          "start": 2339,
+          "end": 2343,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java": {
+      "before": "4e1d79d8436681153ee180878499845bf374f8c5f2d7c266ceef24a4c62d1114",
+      "after": "8760fb6554f4c94abe2763d43750dfb9e3d2b5fb96177fb2ed0f23a48c6bd74b",
+      "edits": [
+        {
+          "start": 841,
+          "end": 845,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKCraneConsole.java": {
+      "before": "c87f48615780e8583d58a890bdf30f4068b218c26d7cb6736ec856697ab3b99e",
+      "after": "ebf18a7a56f35c0c2c7df37c73589fa5bdd1ed27a6c7ee6f116d97a1fb6df3d2",
+      "edits": [
+        {
+          "start": 635,
+          "end": 639,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneCrate.java": {
+      "before": "60680eed51bd884a32249cf8de1eb0c9f8ea12e8b707551c178ef169efb37979",
+      "after": "8f545ae08c71d11b5da4d50845f73794b71e9096acab2eb1599ab4bdff36dccf",
+      "edits": [
+        {
+          "start": 1337,
+          "end": 1341,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneDock.java": {
+      "before": "475436f78de276e2a083511ffea70b15e772f2e36e2692ff4d76134637b466d6",
+      "after": "06be95da0f38445312af50fd064b18a5f8e4957c7c5171d805e8123f3730e0cd",
+      "edits": [
+        {
+          "start": 1246,
+          "end": 1250,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypoint.java": {
+      "before": "e2e14961a73f702f4d9efc5ff4dac6661624dd04e0b7ac1d870bf7c457e28d0a",
+      "after": "3cdd59963957f2ce916811286741be7577a293991af6f469a70a539916e37b35",
+      "edits": [
+        {
+          "start": 1172,
+          "end": 1180,
+          "old": "circuits",
+          "new": "CIRCUITS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java": {
+      "before": "ca56a41b53e370de3c75173eaaaf78d5f72a8892eb52428558777b5cec5e5915",
+      "after": "94796c7bea8aab183efaaf8ca523bd78572889dceee3cb02f61b70100ea31753",
+      "edits": [
+        {
+          "start": 803,
+          "end": 811,
+          "old": "circuits",
+          "new": "CIRCUITS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java": {
+      "before": "129265fe8452d4385532ad088a67980b577e43abaca5764855cb067807b1219f",
+      "after": "9d66161f31763acfe16273174f09c0344ca4d05ddfcca27844f2ef71eda9652b",
+      "edits": [
+        {
+          "start": 1001,
+          "end": 1005,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/MachineBatteryREDD.java": {
+      "before": "0508fa727e44c08b7c05ca5f2f167664360deef1e9f95bdf605ec184a1b5fbc9",
+      "after": "90df561e53a2b31a87fa55e575efd0cbe2915e4b56b6f88665572635db7f576f",
+      "edits": [
+        {
+          "start": 900,
+          "end": 904,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/MachineBatterySocket.java": {
+      "before": "65efa6b10d4e94001746e8e08e90f6974545c0659d741e3974d8cc738ce55cd8",
+      "after": "6464c60432237d6306b19b3015a324acb501a8988b66387f21ec74e48654c9b5",
+      "edits": [
+        {
+          "start": 813,
+          "end": 817,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretSentry.java": {
+      "before": "c41d68fb9739b7ce1a943b245275d8c8270fa5aece5c4d15dcc371d6c33d5974",
+      "after": "663f5b0311aa8e57075841a1a4482b361fae07d24e329e5598a5cbe2c3ff15f1",
+      "edits": [
+        {
+          "start": 691,
+          "end": 695,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java": {
+      "before": "510ba87a3ffeec3e768929048baf633cdff36ae9fe2e74aa40a6571fe5a1bf78",
+      "after": "2119304394bd9a4af34217eee10d550a21f88ffdee026e4bee81bc84714ed5a8",
+      "edits": [
+        {
+          "start": 431,
+          "end": 435,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/config/FalloutConfigJSON.java": {
+      "before": "1090fba82adb75e7d0c823ac334b3020d6b930a1e6af9aee512eb90e78f4069e",
+      "after": "182e4f0b095565e0230a0f608d01f365cce9e20967e889e54339e011b5cc8df3",
+      "edits": [
+        {
+          "start": 17453,
+          "end": 17457,
+          "old": "cake",
+          "new": "CAKE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17412,
+          "end": 17418,
+          "old": "portal",
+          "new": "PORTAL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17366,
+          "end": 17375,
+          "old": "dragonEgg",
+          "new": "DRAGON_EGG",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17321,
+          "end": 17326,
+          "old": "gourd",
+          "new": "GOURD",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17281,
+          "end": 17285,
+          "old": "clay",
+          "new": "CLAY",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17240,
+          "end": 17246,
+          "old": "cactus",
+          "new": "CACTUS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17192,
+          "end": 17203,
+          "old": "craftedSnow",
+          "new": "CRAFTED_SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17146,
+          "end": 17150,
+          "old": "snow",
+          "new": "SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17102,
+          "end": 17111,
+          "old": "packedIce",
+          "new": "PACKED_ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17059,
+          "end": 17062,
+          "old": "ice",
+          "new": "ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 17020,
+          "end": 17025,
+          "old": "coral",
+          "new": "CORAL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16981,
+          "end": 16984,
+          "old": "tnt",
+          "new": "TNT",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16934,
+          "end": 16947,
+          "old": "redstoneLight",
+          "new": "REDSTONE_LIGHT",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16839,
+          "end": 16847,
+          "old": "circuits",
+          "new": "CIRCUITS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16796,
+          "end": 16800,
+          "old": "sand",
+          "new": "SAND",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16757,
+          "end": 16761,
+          "old": "fire",
+          "new": "FIRE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16634,
+          "end": 16638,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16593,
+          "end": 16599,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16550,
+          "end": 16556,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16509,
+          "end": 16513,
+          "old": "lava",
+          "new": "LAVA",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16469,
+          "end": 16474,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16428,
+          "end": 16433,
+          "old": "anvil",
+          "new": "ANVIL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16388,
+          "end": 16392,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16349,
+          "end": 16353,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 16227,
+          "end": 16232,
+          "old": "grass",
+          "new": "GRASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 10851,
+          "end": 10865,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 6711,
+          "end": 6716,
+          "old": "grass",
+          "new": "GRASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6429,
+          "end": 6433,
+          "old": "sand",
+          "new": "SAND",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6293,
+          "end": 6297,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6157,
+          "end": 6161,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3137,
+          "end": 3141,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3017,
+          "end": 3023,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2897,
+          "end": 2903,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/Ike/BiomeGenIke.java": {
+      "before": "b7a8b6d7a19321b5b22a3aa3b0fcbbd444eb785e3939b2b8e56ab2dabc83638d",
+      "after": "a2765f68b6c130c2d432cabf31d9529b84263d8d076ccec4d258c383aad0354d",
+      "edits": [
+        {
+          "start": 1602,
+          "end": 1616,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1236,
+          "end": 1250,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/dres/biome/BiomeGenDresCanyon.java": {
+      "before": "2fe41eb67ecaf52fbc9551d38d1c00f3625f903f6e25c2f6703b011fff858ecd",
+      "after": "d85c0a54c6ada3d40004c9dd36df4584287878593c3ecce289391f8647eed2c9",
+      "edits": [
+        {
+          "start": 1294,
+          "end": 1308,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 920,
+          "end": 934,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/dres/biome/BiomeGenDresPlains.java": {
+      "before": "bc1fcebec45240f764eef31fc0d6f4ceed5fb17177a242052a7f79f6968780d0",
+      "after": "0ea101a8b0c3df1c62fb9d27bd524b292ce29b3132d5d6b00ecbaec8dfcfaf47",
+      "edits": [
+        {
+          "start": 1292,
+          "end": 1306,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 918,
+          "end": 932,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaHills.java": {
+      "before": "ab3e231ce67cf44f140219a9dbccea6c37533ddcaef2dcd18a48202b1802a6dc",
+      "after": "8595100e347c4df5413f31c1328bc3b0bf12b9a25abf6dc2b62bedf5ddda5f82",
+      "edits": [
+        {
+          "start": 2871,
+          "end": 2885,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2481,
+          "end": 2495,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2240,
+          "end": 2254,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaLowlands.java": {
+      "before": "7631276e6f4621cd367f579c4ac657828bd1ebd7079444763a045eb936a14834",
+      "after": "2feb3129203e0f99b0adb6b23029f093d2b3be090d4cdd328d0c500356c8166f",
+      "edits": [
+        {
+          "start": 1303,
+          "end": 1317,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 932,
+          "end": 946,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaPlains.java": {
+      "before": "9dac161e9c15ed049dd94be2ff03b7b1de649f334e517334588ff4d36bb164c2",
+      "after": "7dbae5256b743cb1818ada3e355550a9d655ce039797a5d72bbb00560acb2522",
+      "edits": [
+        {
+          "start": 1376,
+          "end": 1390,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1005,
+          "end": 1019,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaPolar.java": {
+      "before": "468a4c99d071cc7e48e48d8b52d95741a86ea802c84833ebb36a30aa53aa590b",
+      "after": "5c43c5fdb011983b9ff4e30407bc04cf64e5b30d22824473e09c778e032a336b",
+      "edits": [
+        {
+          "start": 1359,
+          "end": 1373,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 988,
+          "end": 1002,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaPolarHills.java": {
+      "before": "cdaeed44472d0fb95eaf8c9d042b04ba664ab77683cd0af6e8317961d7e7436f",
+      "after": "5cf59505b0e205e1d8595730f415050e6786651dc38f3ef9141f03ea1162a075",
+      "edits": [
+        {
+          "start": 1374,
+          "end": 1388,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1003,
+          "end": 1017,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveMountains.java": {
+      "before": "82540bcadd5eebcc6af04263d9799abd7eefb507806e4aa80a8b9da18eb3db89",
+      "after": "acd44ed4d5f401d8524c685c18dafe2bee17eb668f06fccbdf17f84680c700e1",
+      "edits": [
+        {
+          "start": 1292,
+          "end": 1306,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 928,
+          "end": 942,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveOcean.java": {
+      "before": "1e699d9fc98f1d8d46ad1fccf9af21b2653ff53fc5b08046c84aed05152c5cbc",
+      "after": "124b23460342f98d8c1b437d526820df452a8a6ab02545a32e5b5b0d8d5c931b",
+      "edits": [
+        {
+          "start": 1368,
+          "end": 1382,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1002,
+          "end": 1016,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/biome/BiomeGenEvePlains.java": {
+      "before": "47309b01d69803f4342c2051273a845723fbc9bd49bf75bf829676ac3b30e6fc",
+      "after": "84ea756cccef295bde11985ab5da49c4c3d96bb67b870c8444c9e8809bddeb6b",
+      "edits": [
+        {
+          "start": 1364,
+          "end": 1378,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1000,
+          "end": 1014,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveRiver.java": {
+      "before": "1c76873ff994782b72d85d67527098e4f460d8dabce856ef59229f79120a451b",
+      "after": "884ee9555d3672d8b216f091ae6fcc0c4482f1aff14abe511c2846c0e051e3b3",
+      "edits": [
+        {
+          "start": 1367,
+          "end": 1381,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1001,
+          "end": 1015,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveSeismicPlains.java": {
+      "before": "f1fda84ab334527183013e3dea0ed76ebddc8e1ee977984ea327a5a93267a5d5",
+      "after": "990b36b4373997fbe9df910f39312638b57201d70311f2f88250c3c710370f15",
+      "edits": [
+        {
+          "start": 1385,
+          "end": 1399,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1021,
+          "end": 1035,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java": {
+      "before": "34391d16860542b08396046010c809eaffb307d7765f1326d933626dc6a6d9ec",
+      "after": "890cc6ff7c474f722fce08373b404fc20bc643ea11fd787aa523068dea2d7f98",
+      "edits": [
+        {
+          "start": 3374,
+          "end": 3377,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3347,
+          "end": 3361,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2973,
+          "end": 2976,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2946,
+          "end": 2960,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2525,
+          "end": 2528,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2498,
+          "end": 2512,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2161,
+          "end": 2164,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2134,
+          "end": 2148,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java": {
+      "before": "83f93d4aacc2e602655ff8838195587c116e11c8a1fbe9feb942ad878ee8141b",
+      "after": "f25c42f4136fc42a262f31d01cce79b21ec90bce0fb0d2c342a371c02b85960a",
+      "edits": [
+        {
+          "start": 2751,
+          "end": 2754,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2724,
+          "end": 2738,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2022,
+          "end": 2025,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1995,
+          "end": 2009,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1630,
+          "end": 1633,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1603,
+          "end": 1617,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/laythe/WorldProviderLaythe.java": {
+      "before": "aa8291a2e2a86fa343d0c29c1ebd3311bf5b06bd47b1152ea3cb1ab4ec9802fa",
+      "after": "5159109f6aed29e58153e8f8b929f34c89ca3f59e2322dad6168a44d49c05a88",
+      "edits": [
+        {
+          "start": 1848,
+          "end": 1853,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/laythe/biome/BiomeGenBaseLaythe.java": {
+      "before": "dde3a04249e6c20abd02c5488e1b6fb98a0f664d4d698ce266e800e65699e147",
+      "after": "c7ba97f2f47b6d81013c51bab6973ab97f72f5fa3f641bce00d7716a91e098ae",
+      "edits": [
+        {
+          "start": 2678,
+          "end": 2692,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 2324,
+          "end": 2338,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/laythe/biome/BiomeGenLaythePolar.java": {
+      "before": "d7cacb0b5a8c43950aadbf0ed9f52f9e06fdceb395f5b4091b3eab7baa206e55",
+      "after": "64ff1356dc23440631a2cc45ff3a735308ae70a6697e5590b72e36c1b85b114c",
+      "edits": [
+        {
+          "start": 1326,
+          "end": 1340,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 967,
+          "end": 981,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/minmus/biome/BiomeGenMinmusHills.java": {
+      "before": "f42fc5c7a93b524cf2e51c9ead4073a1b9183c2133c6410c3405cdb10d3ee7a0",
+      "after": "c0c5d3b907a8fa01bb12a0f458ace2f749be115ba337f9820b97a7bfa903fab5",
+      "edits": [
+        {
+          "start": 1395,
+          "end": 1409,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1018,
+          "end": 1032,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/moho/biome/BiomeGenBaseMoho.java": {
+      "before": "671c902e01447aad5ce9def9e7d43c630f2bdd580e2bc6aa856861361a24b0ca",
+      "after": "0c7ae1626aca89083168d5402a8f10d3858317dfba862da4412cc07919b52c9f",
+      "edits": [
+        {
+          "start": 1818,
+          "end": 1832,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1450,
+          "end": 1464,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/moho/biome/BiomeGenMohoBasalt.java": {
+      "before": "ad068b3574ef64cefaed7e5907c5c189805d9543b4a470b0ac7542d375a975e4",
+      "after": "24fbd6693618b135debb92bc6c12d029c58981091a49451edb0313b609afa3ce",
+      "edits": [
+        {
+          "start": 1554,
+          "end": 1568,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1186,
+          "end": 1200,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/moon/BiomeGenMoon.java": {
+      "before": "bd53f165056d8b66825ae77c7df90ea69b44a7eff72c3326aedf8b4ee132b604",
+      "after": "7d2f719174fccef12b6d4ce1cf66b70390ae9b9ab46999ad971abbca27dc30d3",
+      "edits": [
+        {
+          "start": 1786,
+          "end": 1800,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1415,
+          "end": 1429,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/biome/BiomeGenForest.java": {
+      "before": "dfc4c966808c39a18afcd192493e8427c61f84d8a7e5369d75af688acf7c4ca7",
+      "after": "7638692851e5910f624e084bad8fe1c65a9eaac086846127b11f604435ef5b66",
+      "edits": [
+        {
+          "start": 1366,
+          "end": 1380,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1006,
+          "end": 1020,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/biome/BiomeGenHalogenHills.java": {
+      "before": "231211cb4f495f7baa710c0c3965f34ab260d0aef1c26eba7d8563da7d6fb8a4",
+      "after": "6091a7d3d9eb0726641b0aa0c53c415dc5b92f113da746bc7699b6f12b536993",
+      "edits": [
+        {
+          "start": 1378,
+          "end": 1392,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1018,
+          "end": 1032,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/biome/BiomeGenPolyvinylPlains.java": {
+      "before": "c541de1b6b8e13f4b31adb042a5923cdb097fcc778910ec95c6abc7a7aaed42d",
+      "after": "b99cf592559f2b3170f190b9b919317d359b53fa077d2577efc9bd8f44448484",
+      "edits": [
+        {
+          "start": 1389,
+          "end": 1403,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1029,
+          "end": 1043,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/biome/BiomeGenTetrachloricRiver.java": {
+      "before": "6aa8e6685d630b492ddfc01942deb7417c1a64eaefeb9ff82548b6082be0b842",
+      "after": "835b0f7264c1735eef07595aeae187a3dc4188b1080ba63ad10a1d91d3abff63",
+      "edits": [
+        {
+          "start": 1419,
+          "end": 1433,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1053,
+          "end": 1067,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/biome/BiomeGenVinylSands.java": {
+      "before": "909dcbf301ca3ba1d4470ace98e40e24a8f0d86b8eabe99cbdd6d71d44ef86ff",
+      "after": "33c5dec7fd98ac5d3b6554b4468553963dfd43a539f733309af7c82ce2934c25",
+      "edits": [
+        {
+          "start": 1370,
+          "end": 1384,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1010,
+          "end": 1024,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/BiomeGenThatmo.java": {
+      "before": "483eef53e23a6f016d8d04743e9c86c97150b1741fa5d34518c7ab8f0a8bc3e3",
+      "after": "fe30eb1e9152091d96848ec2765a5bdb084fde7f40bce9904808c5d46b94412a",
+      "edits": [
+        {
+          "start": 1903,
+          "end": 1917,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1538,
+          "end": 1552,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java": {
+      "before": "84b11afa548d1d301a09e6275ada7b77bbcf4459c5abd8764f17d23d61d8dadc",
+      "after": "47783f7134ee2a26a7ee4ece9ed783fe337245dca472ec86dcb91779693c119e",
+      "edits": [
+        {
+          "start": 7069,
+          "end": 7083,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 6640,
+          "end": 6643,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6613,
+          "end": 6627,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before": "cda323f829492ff67868e452b38f5c5733744508bc2720b6321510429fb0af79",
+      "after": "1afd8a0c9698f72d44b468607cdb7fc5482f2d2a052eb740492188c4ddcda56d",
+      "edits": [
+        {
+          "start": 10190,
+          "end": 10204,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntitySpear.java": {
+      "before": "9c39742c001b8d4a933f0a72f0d6f96d820f011e1c8676bacc4b38fbf06ac069",
+      "after": "f792eac9b42348d5a423ad5878f325c430466c56ebec722a38ba05bfad4fedeb",
+      "edits": [
+        {
+          "start": 2868,
+          "end": 2871,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1373,
+          "end": 1376,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before": "3f9a6ba2200e890869b837be5df8817e91c39f40fcae757c6251bf7503d4b313",
+      "after": "e6d77775a2622bd4e4fec92deeca98a0739b54028498b6609a43714fd901e037",
+      "edits": [
+        {
+          "start": 13938,
+          "end": 13943,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5344,
+          "end": 5349,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityItemBuoyant.java": {
+      "before": "63f19e6b25354efebea0ca30103727415b5461418eb666905a0bc93d5cb58479",
+      "after": "092ebd833127f238489b77e2c1310a1234b19f8b04ccee76eeaba206f63144a4",
+      "edits": [
+        {
+          "start": 642,
+          "end": 647,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before": "943f5121af62246de97860fdc5dbde3243ee95319b972e5fef738bf447f2dc9d",
+      "after": "8bd907879ec1eaba8f20c5d3cb8ce772f0f705e71711428b987cc8e77d79c7e7",
+      "edits": [
+        {
+          "start": 23939,
+          "end": 23942,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 23912,
+          "end": 23926,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before": "1671e519f1d8fc54a8a8ae0bafaf93116a24c80dfe56ed3e7b22c6428617fbe7",
+      "after": "a19eb4744208955449a57ec222cf4af56da8cdfbc3b4ac1397f880cb1cd1cf20",
+      "edits": [
+        {
+          "start": 29956,
+          "end": 29959,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 29929,
+          "end": 29943,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityBobmazon.java": {
+      "before": "ae5a136e7c2ccb1f611d49074af1c2b62e28e233b3996921c0ec2c794056f2aa",
+      "after": "253748bf090cc42559adc739f6e477ad2a66644b964887a831f912bdefddffcb",
+      "edits": [
+        {
+          "start": 1136,
+          "end": 1139,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java": {
+      "before": "504251b67791747282f08a0383e6e8c23cc8ecef1031c5ae6d7ac8e749922488",
+      "after": "20cb76fa027e185ef2eaaf82e6c9f2ff4f4fa472a678a677e19cab3f6192f9ad",
+      "edits": [
+        {
+          "start": 2387,
+          "end": 2390,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMinerRocket.java": {
+      "before": "05b25ab99e134e711c245ad7bb91f080f313ddeb6c764e6c8d2ac5ee754fce3b",
+      "after": "1c2ec5ef9263ae81feecbc36830a8c2ef585b58ffeebb68b437682958737e940",
+      "edits": [
+        {
+          "start": 1368,
+          "end": 1371,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before": "31bdeffc2c57c71a4a46b8105e6c9ca927094b5c410d26a8fdcf40d7a0bfb5bb",
+      "after": "2f28fa9f3aa2fabe528a1ce3353317d93c710ad43077f17ff971c73f8c5cdd5b",
+      "edits": [
+        {
+          "start": 17530,
+          "end": 17534,
+          "old": "lava",
+          "new": "LAVA",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java": {
+      "before": "654559457ab4c19dc833911d860015bd2077bdebf40e57f7f5b9da28873bfbe6",
+      "after": "268c43f9fc1e1477b411377e1d25550ead2f48438d605564daaa8a8618b71a1f",
+      "edits": [
+        {
+          "start": 3412,
+          "end": 3426,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3351,
+          "end": 3365,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3290,
+          "end": 3304,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3229,
+          "end": 3243,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3168,
+          "end": 3182,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3107,
+          "end": 3121,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityPlasticBag.java": {
+      "before": "979f33b308f3ca26352117e7a6e79a09c72d9c182a7561aef9ffe4c5828e6b9d",
+      "after": "1778070c748e974e3e6771f8a1c327b9bee724c2572e779e8ad01d42df93a695",
+      "edits": [
+        {
+          "start": 2100,
+          "end": 2105,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "before": "a1fa1f14ffa3dd8e062deb1758eb2fe50222739fd108733809a36f9cda882838",
+      "after": "972ef20e289349ef615fa9e770808f9d0b790033d24d3b40f6a6e6ff794c4d3c",
+      "edits": [
+        {
+          "start": 7481,
+          "end": 7484,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 7454,
+          "end": 7468,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityOrangeFX.java": {
+      "before": "4763b6a35bb24625555f46191798ddfe579524da2786866dde0fa8b61df02ef6",
+      "after": "4d562ce8eb63febc9b729ae0291947a806b33727876545c8731d9e25047f6011",
+      "edits": [
+        {
+          "start": 2144,
+          "end": 2147,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before": "a8c87dce2da39e34eb11f27171c189b5cb4d2e422c22a21195a4651fcde0d8ec",
+      "after": "3c7d9c8d2b76e95f2d244c3518a67a3f5f11248091585fed5a7f785e79970e5d",
+      "edits": [
+        {
+          "start": 24734,
+          "end": 24737,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 24707,
+          "end": 24721,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 14065,
+          "end": 14068,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 14038,
+          "end": 14052,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before": "6bc28d7953289101717200bb993df324dc021ecffae3e6e4f624d57dd83b101b",
+      "after": "437e5c3f713f44ae71d79e731bec75d453d3307c925294245320859a5b6ba154",
+      "edits": [
+        {
+          "start": 11887,
+          "end": 11901,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChopperMine.java": {
+      "before": "05d1790db5b0a3ae3fadbf764f6bc15d6ca040d5fa3ef53bab75c053d5bbadd1",
+      "after": "82756fa1406d72c0ac5ca0377f5924909ff831cd2e85bc817e41ca9ded6066df",
+      "edits": [
+        {
+          "start": 3517,
+          "end": 3520,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before": "0b1d65e8302a88d49d7c22e9312e3bf3224afd0c2fd94a639a76c150de3232af",
+      "after": "5f653274063b583bec2432b01f76e496185f324714f083af900245243028f5f3",
+      "edits": [
+        {
+          "start": 9655,
+          "end": 9658,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9628,
+          "end": 9642,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before": "e5a020d485eabfa493bd985bd35e99afd8e188d43e91da902b38a9fac2ac16d5",
+      "after": "672469eed125e4599e79cd66a1408fbb09557e72f2864800c3825ace056921ab",
+      "edits": [
+        {
+          "start": 18598,
+          "end": 18601,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 18571,
+          "end": 18585,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8726,
+          "end": 8729,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8699,
+          "end": 8713,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before": "b1ba05ece362246719daf53c35bb5cefb4df28d508e9ee11db05999af78e2c33",
+      "after": "dba80cfed8c625228b2eb95a34524ab510b55a4eb5fb334f657089c455dd8f4e",
+      "edits": [
+        {
+          "start": 18693,
+          "end": 18696,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 18666,
+          "end": 18680,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8833,
+          "end": 8836,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8806,
+          "end": 8820,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionBalefire.java": {
+      "before": "01e9e3348c55fd60e90474466ef6492c9aa7498324986f74a97f04cac62cb452",
+      "after": "2263bfa79ba707aa86de9a202a07c3fc6f235be024cc6d4a2cd1696f27470b10",
+      "edits": [
+        {
+          "start": 3945,
+          "end": 3954,
+          "old": "packedIce",
+          "new": "PACKED_ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3926,
+          "end": 3929,
+          "old": "ice",
+          "new": "ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3906,
+          "end": 3910,
+          "old": "snow",
+          "new": "SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3879,
+          "end": 3890,
+          "old": "craftedSnow",
+          "new": "CRAFTED_SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3843,
+          "end": 3857,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionLarge.java": {
+      "before": "61216e2d7095caec38d3312d595cacf9fa795bafe3f1676fe8c91a431287d493",
+      "after": "d2e3b568c771fad7a2b7138ba21acaa89ea3d847938f440e4b42d8ebbac43ebc",
+      "edits": [
+        {
+          "start": 9055,
+          "end": 9069,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNT.java": {
+      "before": "24c20950bf189fce814814930a53386a9715f807191dd93140822eb32e992351",
+      "after": "00a8695dd0100c779acb87c1c90e794e0a67bdc4f0112d28dff1c4d9ea8d7f1c",
+      "edits": [
+        {
+          "start": 11980,
+          "end": 11983,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 11953,
+          "end": 11967,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9152,
+          "end": 9155,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9125,
+          "end": 9139,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 3547,
+          "end": 3550,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3520,
+          "end": 3534,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": {
+      "before": "10561fee5b5fdf41648dba75fb0f75bbfc4deaced8b3fb627aa98d2f810c1dd0",
+      "after": "f65884ff1797b0bce6e605d1a7a45650ecfd0da441cc68cebc88bb5e89c65ef0",
+      "edits": [
+        {
+          "start": 30017,
+          "end": 30022,
+          "old": "gourd",
+          "new": "GOURD",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 29995,
+          "end": 29999,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 29947,
+          "end": 29953,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 29923,
+          "end": 29929,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 29900,
+          "end": 29905,
+          "old": "coral",
+          "new": "CORAL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 29876,
+          "end": 29882,
+          "old": "cactus",
+          "new": "CACTUS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 28979,
+          "end": 28993,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 17778,
+          "end": 17792,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java": {
+      "before": "1bb58781afcb5f729537f22e3e3ccdd4f038602c958b7f367a72d69a32122b4f",
+      "after": "64024193aca41d9b53ebfe3d443b05387727ff84020d75a7c47acd9215ae0de9",
+      "edits": [
+        {
+          "start": 3017,
+          "end": 3031,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeRayParallelized.java": {
+      "before": "6379cb60ca5e681ed8be5a50ba39dac11fc07f087de6019ed6711dd93a988236",
+      "after": "8b3dd752953cd3a0de7f0641c2b0c85b9a826c839610256f67d3506e9ef18e75",
+      "edits": [
+        {
+          "start": 4696,
+          "end": 4710,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": {
+      "before": "6ccb58cc2e67dd9f98b292165b2fcb732d4b88432b63241c9de9d5bdb70ea489",
+      "after": "2ce859d64cc61033d40ee6640db46b11af7f2101e76a263746e3aa4b53620a5e",
+      "edits": [
+        {
+          "start": 6028,
+          "end": 6031,
+          "old": "ice",
+          "new": "ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6001,
+          "end": 6015,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5914,
+          "end": 5919,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5887,
+          "end": 5901,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4720,
+          "end": 4734,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4634,
+          "end": 4638,
+          "old": "snow",
+          "new": "SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4607,
+          "end": 4621,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4522,
+          "end": 4525,
+          "old": "ice",
+          "new": "ICE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4495,
+          "end": 4509,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4408,
+          "end": 4413,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4381,
+          "end": 4395,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/NukeEnvironmentalEffect.java": {
+      "before": "6bb1bbcc5129e996fa93d4e6a0b5bc7854c41d9a2d8437e68ff7e567eb1f2c66",
+      "after": "33af84c997dab8b9b6a6ab6acd95a42d5fa45b9b2763d9f9e0121da6c61256f7",
+      "edits": [
+        {
+          "start": 2794,
+          "end": 2808,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorBulkie.java": {
+      "before": "2e91015cc0ca0553d96bc42ea812a3907d532b3dc2f1b93d8bdcbd64900653fa",
+      "after": "ad03661776a82c956129fb50283f8ef045a746c5078f7ad165ee831ecc1260db",
+      "edits": [
+        {
+          "start": 2312,
+          "end": 2315,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2285,
+          "end": 2299,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorGlyphidDig.java": {
+      "before": "9e2f1ccb965b78efdd72233d9cd75698894c3960fa3ae23ee583ff8590901f57",
+      "after": "26b6e5106cf983539e31365d743fe92ccc9d34060d626aa9facae956a9f89b8e",
+      "edits": [
+        {
+          "start": 2355,
+          "end": 2358,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2328,
+          "end": 2342,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorStandard.java": {
+      "before": "460c2250c077981836522c39f6ae967bfb8f0034a334c5ac0a27f4d985997255",
+      "after": "f460c41c04c2b695d7a378665660b24f5ce64b5df355c836bf776dee6c45b37f",
+      "edits": [
+        {
+          "start": 2108,
+          "end": 2111,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2081,
+          "end": 2095,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorWater.java": {
+      "before": "49abdf71c81ea8e5f912fdb3b045ea54097694020f7d808e87d03b3450aef19a",
+      "after": "2cd95d4a73a15c5706ee9cbe7ddfe9f6220b5f1f13ec55ac4f5da428afc6756d",
+      "edits": [
+        {
+          "start": 2062,
+          "end": 2065,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1965,
+          "end": 1979,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorBalefire.java": {
+      "before": "84342ea1557c99f7d2f3246d53e1c96ca93eda2c485a7ab505636201b1bca0a9",
+      "after": "f8fec25bb634afc6123303321af5e78c8e77b0c55aa5a2616c64436f326d1269",
+      "edits": [
+        {
+          "start": 743,
+          "end": 746,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 716,
+          "end": 730,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorFire.java": {
+      "before": "adbcd12f07f017c8a718f3b24c989c65429b812225ac109d1f60b3e218099a4d",
+      "after": "02443e4edf5acc2bca9892845b703ae91288d18ac8909d4871e08039fd5c784d",
+      "edits": [
+        {
+          "start": 740,
+          "end": 743,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 713,
+          "end": 727,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockProcessorNoDamage.java": {
+      "before": "2dc147fb13bf231084efe86170f526b4fe03d1df498634eb81deb5053ee2335a",
+      "after": "e82fec623866084e096763c557a962dfb92c0ffee274b5d77ba40ad8eeb6cf80",
+      "edits": [
+        {
+          "start": 1902,
+          "end": 1905,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1875,
+          "end": 1889,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1246,
+          "end": 1249,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1219,
+          "end": 1233,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockProcessorStandard.java": {
+      "before": "5393363f9eaad0d5873e1973d0a4d2edc932dc5b8cdf8f4aa84bc4771ddb58af",
+      "after": "75e04ca12f67e4ae2fc8ef1fd1d1af5a72def5c4575c9592a74e4d583b081c05",
+      "edits": [
+        {
+          "start": 3035,
+          "end": 3038,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3008,
+          "end": 3022,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1739,
+          "end": 1742,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1712,
+          "end": 1726,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java": {
+      "before": "94439818c563c0ed3d9bbf8edd7ecbc875939c0c3e62c0771141457abe0adaf4",
+      "after": "a8ebf61e0fe70c2ff5e6460b282ef7544428a1731215fd5191b90e6e0816158b",
+      "edits": [
+        {
+          "start": 3342,
+          "end": 3348,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3149,
+          "end": 3163,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/pollution/PollutionHandler.java": {
+      "before": "c0c5d106366d41f393899912d5b81618ac5d1883deeac48a42e7c3c0d77626bb",
+      "after": "45dae48ffb433e4bcaea459639616442a6d14a8f0e57f6ef4c9b58bf17cde6f7",
+      "edits": [
+        {
+          "start": 10842,
+          "end": 10848,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 10815,
+          "end": 10829,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 10804,
+          "end": 10810,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 10777,
+          "end": 10791,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java": {
+      "before": "5bd01196b59cde04cee61afe52b42fe175280ced87d94da4ed5d8c28ae91de4c",
+      "after": "9c18a0e791563dcc7104b730d956cedd7cd950a5368bdd2090af4eb032723295",
+      "edits": [
+        {
+          "start": 14711,
+          "end": 14714,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 14684,
+          "end": 14698,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 13479,
+          "end": 13482,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 13452,
+          "end": 13466,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java": {
+      "before": "501d634523310c74157eb3d688a21515d54a41b7f26e0079cd3dff9c082705a0",
+      "after": "e2bbb4f5f18f440f30ebf2d7b72c936c5493a78b117399265117bb0a1fd4c54d",
+      "edits": [
+        {
+          "start": 7998,
+          "end": 8004,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 7971,
+          "end": 7985,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/type/HazardTypeHydroactive.java": {
+      "before": "0f8a1b29c0f08bf1e2c92b02c18b04a5219a30b08950de0ccd90e1a62de8f2c9",
+      "after": "84df2b36b7e954569532dabb96fbd019fde829e4760ad1a0eb1035d876f222e1",
+      "edits": [
+        {
+          "start": 1144,
+          "end": 1149,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before": "e425ad7ff5ade10643116ada7fc1e50a9d6fddabd4719809228a52d92a81e318",
+      "after": "7b7d684cef8809b18c23867634b86825a24ae852eb5e136a61087b6bce94c770",
+      "edits": [
+        {
+          "start": 4695,
+          "end": 4709,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before": "cbc7d78da2a3c9896d29ca72c69bd06055b1360e1e63b280183a5f79a0b54095",
+      "after": "7a777f6e351383059759f49c9d537240afbda39947ae2c192b3cd9c3ffd3b2b4",
+      "edits": [
+        {
+          "start": 10631,
+          "end": 10634,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 10604,
+          "end": 10618,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemRag.java": {
+      "before": "4da0c62347064fcc4595fa67c86b217536cf36c9fc3e2912609b79e80f8689fe",
+      "after": "58dbcb349896ea34d2fb658d999b7868011fdbf0f852d550259ebf62d733572e",
+      "edits": [
+        {
+          "start": 741,
+          "end": 746,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMatch.java": {
+      "before": "107e07ab1649b0c998873e57283cc89cab7444c6cf05c131d7d28de4c9d42418",
+      "after": "bf91af52a514054a0cc409b0d92863545071aa7b1a3b8fb99e6acd3507604d3c",
+      "edits": [
+        {
+          "start": 1517,
+          "end": 1520,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1490,
+          "end": 1504,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModMinecart.java": {
+      "before": "c0c5d4871aec5dcd5e895cbec4cc40fa1cf679bbcb486c55f3e0b3ccee896b81",
+      "after": "37bc44fbc532f3729440f83c8c30df81a640f362bf6eb73b4bdb7d86aec873d5",
+      "edits": [
+        {
+          "start": 5801,
+          "end": 5804,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5774,
+          "end": 5788,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before": "03b7dbdc3abb1adeaedab026a083fa026f13348ce3578c3329d481e4b86bd0a2",
+      "after": "26caae0f7f7509f10c77da38aaff50fa7aa3c6652237ba6a6d073e9828e8c159",
+      "edits": [
+        {
+          "start": 9346,
+          "end": 9360,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4919,
+          "end": 4930,
+          "old": "craftedSnow",
+          "new": "CRAFTED_SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4904,
+          "end": 4908,
+          "old": "snow",
+          "new": "SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4872,
+          "end": 4876,
+          "old": "sand",
+          "new": "SAND",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4857,
+          "end": 4861,
+          "old": "clay",
+          "new": "CLAY",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4842,
+          "end": 4846,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4826,
+          "end": 4831,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4810,
+          "end": 4815,
+          "old": "anvil",
+          "new": "ANVIL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4795,
+          "end": 4799,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4779,
+          "end": 4784,
+          "old": "grass",
+          "new": "GRASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4511,
+          "end": 4522,
+          "old": "craftedSnow",
+          "new": "CRAFTED_SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4496,
+          "end": 4500,
+          "old": "snow",
+          "new": "SNOW",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4464,
+          "end": 4468,
+          "old": "sand",
+          "new": "SAND",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4449,
+          "end": 4453,
+          "old": "clay",
+          "new": "CLAY",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4231,
+          "end": 4235,
+          "old": "vine",
+          "new": "VINE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4214,
+          "end": 4220,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3644,
+          "end": 3649,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3629,
+          "end": 3633,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3613,
+          "end": 3618,
+          "old": "anvil",
+          "new": "ANVIL",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3598,
+          "end": 3602,
+          "old": "iron",
+          "new": "IRON",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemGrenadeFishing.java": {
+      "before": "42c82a179f490627e8f7a4d09cb697670fa6ca888511ac3f7894db5a6142f1ab",
+      "after": "0a13a584d72a73c5f58f89e096ec462a92750e997a52b06b1bca7e2b78a96955",
+      "edits": [
+        {
+          "start": 1018,
+          "end": 1023,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 991,
+          "end": 1005,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/BulletConfig.java": {
+      "before": "073b3d1a9293b7223b7d2cf30cd77bd8fcad08cadb573288e32e4406b6d17d0b",
+      "after": "63d7ec349e5f8e2621d0968b7c859d47a23929d01dd53b261c8c29cfb5534add",
+      "edits": [
+        {
+          "start": 9200,
+          "end": 9205,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9173,
+          "end": 9187,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java": {
+      "before": "15634053f8e1479947c53b97730c5acfccf911002aeaea639c42abf7de373dec",
+      "after": "4f6d5e213456d934349c43c5e8c8b856a0a2c88e49a97191216938799b56dba7",
+      "edits": [
+        {
+          "start": 7295,
+          "end": 7300,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 7268,
+          "end": 7282,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java": {
+      "before": "e57b0b241ec30c09e10660e7ae6f080060c16f659518788c7d76eee5523420ff",
+      "after": "0f548405dd24efbb4466df20d3778372ee22ef33e536a1e95432a092c15146fc",
+      "edits": [
+        {
+          "start": 3077,
+          "end": 3080,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 3050,
+          "end": 3064,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": {
+      "before": "447f8a08907332374a127431e375b77c67456205b700101e7552cf36f067e69b",
+      "after": "9bb3b86aae90e420c6093665f88862a25dc7b703dfab26925fa71204d3cb74bf",
+      "edits": [
+        {
+          "start": 8306,
+          "end": 8310,
+          "old": "fire",
+          "new": "FIRE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8279,
+          "end": 8293,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5171,
+          "end": 5175,
+          "old": "fire",
+          "new": "FIRE",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5144,
+          "end": 5158,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before": "af9f2d4d1f23b5e18c11caea34d5b5800fc67e3a7c75397c1178260b26491dac",
+      "after": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+      "edits": [
+        {
+          "start": 129382,
+          "end": 129396,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerImpact.java": {
+      "before": "23aad44381304eaa9ad79827ef7df60caee81d8559129582ea85155e3250e816",
+      "after": "27aed684c391c910504a1cf06bbc479d9570fca485a004de8eb312e104bf78ab",
+      "edits": [
+        {
+          "start": 9253,
+          "end": 9259,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9111,
+          "end": 9117,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5884,
+          "end": 5889,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5733,
+          "end": 5738,
+          "old": "glass",
+          "new": "GLASS",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerRenderer.java": {
+      "before": "2ca1c68d4b20c2f13127f921658ad719c3d8b7d383c2af0e2a4b5c97849ef8fc",
+      "after": "0b8b641895f0d4f67fdf8cf39095519a889d0406e36dfb63d8beb4b41a8ca388",
+      "edits": [
+        {
+          "start": 6339,
+          "end": 6344,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before": "87a52ce2e1bc059980913bb4ffb2e29392bebe75648e64743d67e606e75681e4",
+      "after": "3695ef34ec043e1d2488ad571af672139cb6fa6e0d2c2cbd1cbfce2eececf8fd",
+      "edits": [
+        {
+          "start": 4106,
+          "end": 4120,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+      "before": "8d87c64e79bfde1bf6cdd1d573dfbc0e854704899804af1dc34821a34cdaa38a",
+      "after": "119bc0b494aa9d622321b4b458bf6832e6c176bc1a2509b0ab17f2f9f2125b49",
+      "edits": [
+        {
+          "start": 6139,
+          "end": 6153,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 6042,
+          "end": 6056,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4852,
+          "end": 4866,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": {
+      "before": "234e5b0efd22cbba3dbe3f07e21d9d071d1dcccff6382ea9c0779ef5d8ded99b",
+      "after": "4416b4d59a7423350e5e751bc2f2ab04238ee5c041e799541f5cdde3d74451f8",
+      "edits": [
+        {
+          "start": 15810,
+          "end": 15824,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 14870,
+          "end": 14876,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 14807,
+          "end": 14821,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 12946,
+          "end": 12960,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 12486,
+          "end": 12500,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 12279,
+          "end": 12293,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9412,
+          "end": 9426,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9366,
+          "end": 9372,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9339,
+          "end": 9353,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9328,
+          "end": 9334,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9301,
+          "end": 9315,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 6495,
+          "end": 6501,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6468,
+          "end": 6482,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 6457,
+          "end": 6463,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 6430,
+          "end": 6444,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 6394,
+          "end": 6408,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java": {
+      "before": "609b157b4523f33a4cdf0c101175652b24fade4c57c25f3fa8070156b388582d",
+      "after": "5fccb4d792e0da2b9bad5ebd59d1d5b46437cd4f0625695d45ae5d7a0d065877",
+      "edits": [
+        {
+          "start": 3357,
+          "end": 3371,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before": "881c9c99930843d7f5c11757a8a28d2470e0875a1caae47a821884510ec79887",
+      "after": "1fbf69f50f0d2c94e203b331bd9cd7f2640147e5094154cc1a2a65e82b36cc37",
+      "edits": [
+        {
+          "start": 22568,
+          "end": 22582,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 22469,
+          "end": 22483,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 16985,
+          "end": 16999,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 16868,
+          "end": 16882,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": {
+      "before": "5263e57e3414b9365e58327a0fc7021e9c260d28dbdb483ffe768c5eac6de15e",
+      "after": "5b9b005f3651725bcaad9e5d9fedbaa7f1646daa2c7f51a1ab6fda0f928c59eb",
+      "edits": [
+        {
+          "start": 14694,
+          "end": 14708,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 14593,
+          "end": 14607,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 14097,
+          "end": 14111,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 7873,
+          "end": 7887,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5805,
+          "end": 5819,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before": "8a1f62e3fd9fdd51c11c8e1aabcb0c843a1e1f570e2f22113d307422b64bb00a",
+      "after": "52797b6fb21fc6c85eff2b3654e35e866fd020dd6ec1d05f90915d13968eabae",
+      "edits": [
+        {
+          "start": 12525,
+          "end": 12530,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 12498,
+          "end": 12512,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 12193,
+          "end": 12198,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 12166,
+          "end": 12180,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9273,
+          "end": 9278,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9246,
+          "end": 9260,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 9117,
+          "end": 9122,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 9090,
+          "end": 9104,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8961,
+          "end": 8966,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8934,
+          "end": 8948,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8805,
+          "end": 8810,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8778,
+          "end": 8792,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8557,
+          "end": 8562,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8530,
+          "end": 8544,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 8315,
+          "end": 8320,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 8288,
+          "end": 8302,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Antenna.java": {
+      "before": "6920c4a07d5b60fd999f0149266ee719ac8b2fc45639981a59b299ae46c25c7c",
+      "after": "4cc0b5a733e13410778d3b56fa50fa410f0550ae049fc5e7d92cd96cfd4898f7",
+      "edits": [
+        {
+          "start": 1614,
+          "end": 1620,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1587,
+          "end": 1601,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/ArcticVault.java": {
+      "before": "610d633de0406e59f301826beac5cd172578e855bd8d7756a1611167207d6521",
+      "after": "d747540e596849449d51ff5bff3e17093151c3f5e8ee9be3629ffdd777c877aa",
+      "edits": [
+        {
+          "start": 960,
+          "end": 964,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 933,
+          "end": 947,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Barrel.java": {
+      "before": "e8597d13ff20622266c2e2651e5ef289abe9c8e8943eb1e8efddb732bd0911d5",
+      "after": "d0d3bfe1006d76cd489eaa7dc83af1a57181f4d11adf8008f51b36352184fddb",
+      "edits": [
+        {
+          "start": 1756,
+          "end": 1762,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1729,
+          "end": 1743,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": {
+      "before": "7bfab6ca6cf6afb9568260075d26cb95788ba053ad2e7462eff9b4caa3bac556",
+      "after": "17d22278b7c0b419c5bfc76c27afcc9f22eb969b7968f44739637373207849d0",
+      "edits": [
+        {
+          "start": 1862,
+          "end": 1868,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1835,
+          "end": 1849,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java": {
+      "before": "8e8623f0c48c7624975a323350211bbd0a0390b9f7d1433aade43dcf62b1b02c",
+      "after": "f61e28e76c3a0702e3e1e440a26139dba02f305971d28e86c0592075c7d52d39",
+      "edits": [
+        {
+          "start": 1530,
+          "end": 1544,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 1492,
+          "end": 1506,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": {
+      "before": "0948b9c5cfeb02c8753938fcc3f81ec1cabc49d4781f21fab165fa1c3815952f",
+      "after": "f9926fca90578ca15c4f79edf1bb32a72be4916f6fec6d871f6301e5c2a0e2a7",
+      "edits": [
+        {
+          "start": 1490,
+          "end": 1496,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1463,
+          "end": 1477,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship.java": {
+      "before": "33ef1597f79485abef1a1e78f148d51fcfd4278713ff3d5925b9a1bb5445299a",
+      "after": "1bcf48495c756f5cd775ec5e449a1406080d353babdce3c52c9d6a41b604bd6a",
+      "edits": [
+        {
+          "start": 2263,
+          "end": 2269,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 2236,
+          "end": 2250,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/Dud.java": {
+      "before": "35bb11c46014052ffcd19f79e2e03c5b2820069713c11cc4b0eb5426842db339",
+      "after": "bb61cb4bd16916c17cc88e306bb9bfed28248965c557c88e2d4140910e4c1c77",
+      "edits": [
+        {
+          "start": 1205,
+          "end": 1211,
+          "old": "plants",
+          "new": "PLANTS",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1178,
+          "end": 1192,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before": "4aefb88fc2d733bc435c4edcdf128cef2010e3d625d1719b02a80bbc9280d0c6",
+      "after": "173181fec873e152a604f7f6ec308dc94bdda22cc1a7c138b46f5bd9650448fe",
+      "edits": [
+        {
+          "start": 4601,
+          "end": 4607,
+          "old": "leaves",
+          "new": "LEAVES",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4574,
+          "end": 4588,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreCave.java": {
+      "before": "d72715d8c3ac0f13eb94d20a6aa6129a98d01c6b5d7bbef1ccb42f2b7ec3e0fc",
+      "after": "72ac2f15229f2fea3ee541a83a33ad34370a9fb1ff40132e86d59fa7fb2afc14",
+      "edits": [
+        {
+          "start": 5988,
+          "end": 6002,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 5911,
+          "end": 5914,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 5884,
+          "end": 5898,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4810,
+          "end": 4813,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4783,
+          "end": 4797,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 4526,
+          "end": 4531,
+          "old": "water",
+          "new": "WATER",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4482,
+          "end": 4485,
+          "old": "air",
+          "new": "AIR",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 4434,
+          "end": 4448,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": {
+      "before": "573c897c9728e09dc5a05e08ee188d231fcb2b5d8c0148c7f13202963e54dce0",
+      "after": "75863f15b5258125da4698ff5b837102881ae20e46a1b3c3559b00af9f738f4a",
+      "edits": [
+        {
+          "start": 1419,
+          "end": 1423,
+          "old": "rock",
+          "new": "ROCK",
+          "owner": "net.minecraft.block.material.Material"
+        },
+        {
+          "start": 1392,
+          "end": 1406,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/component/CivilianFeatures.java": {
+      "before": "4d017a2f0caa34f594f62e7b7ec9e338c862a6863c1ea2ce3a5f313fa7ec7ca0",
+      "after": "1504dbaaec79e626e122fa87c8d6ae686efb607dd97ac14d801292594d26ba4e",
+      "edits": [
+        {
+          "start": 25709,
+          "end": 25723,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        },
+        {
+          "start": 18221,
+          "end": 18235,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java": {
+      "before": "92e88e102adfd835fb4badea1edfc71315ac57033c0d22360e7104514bb208ff",
+      "after": "f7d0a071567f5d6f4cb46b2fb2f72f8bc391d1e3b92a8923cbee5648e15244ca",
+      "edits": [
+        {
+          "start": 23138,
+          "end": 23152,
+          "old": ".getMaterial()",
+          "new": ".getDefaultState().getMaterial()",
+          "owner": "net.minecraft.block.Block"
+        }
+      ]
+    }
+  }
+}

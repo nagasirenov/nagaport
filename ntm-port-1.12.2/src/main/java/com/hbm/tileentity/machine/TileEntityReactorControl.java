@@ -37,7 +37,7 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 	}
 	
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.reactorControl";
 	}
 	
@@ -67,7 +67,7 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
 		
@@ -90,6 +90,7 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 			}
 		}
 		nbt.setTag("items", list);
+		return nbt;
 	}
 	
 	public TileEntityReactorResearch reactor;
@@ -107,9 +108,9 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 	public RodFunction function = RodFunction.LINEAR;
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			isLinked = establishLink();
 			
@@ -130,7 +131,7 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 					fauxLevel = getTargetLevel(this.function, this.heat);
 				}
 				
-				double level = MathHelper.clamp_double((fauxLevel * 0.01D), 0D, 1D);
+				double level = MathHelper.clamp((fauxLevel * 0.01D), 0D, 1D);
 				
 				if(level != this.level) {
 					reactor.setTarget(level);
@@ -170,20 +171,20 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 	}
 	
 	private boolean establishLink() {
-		if(slots[0] != null && slots[0].getItem() == ModItems.reactor_sensor && slots[0].stackTagCompound != null) {
-			int xCoord = slots[0].stackTagCompound.getInteger("x");
-    		int yCoord = slots[0].stackTagCompound.getInteger("y");
-    		int zCoord = slots[0].stackTagCompound.getInteger("z");
+		if(slots[0] != null && slots[0].getItem() == ModItems.reactor_sensor && slots[0].getTagCompound() != null) {
+			int xCoord = slots[0].getTagCompound().getInteger("x");
+    		int yCoord = slots[0].getTagCompound().getInteger("y");
+    		int zCoord = slots[0].getTagCompound().getInteger("z");
     		
-    		Block b = worldObj.getBlock(xCoord, yCoord, zCoord);
+    		Block b = com.hbm.world.WorldBlockState.read(this.world, xCoord, yCoord, zCoord).getBlock();
     		
     		if(b == ModBlocks.reactor_research) {
     			
-    			int[] pos = ((ReactorResearch) ModBlocks.reactor_research).findCore(worldObj, xCoord, yCoord, zCoord);
+    			int[] pos = ((ReactorResearch) ModBlocks.reactor_research).findCore(this.world, xCoord, yCoord, zCoord);
     			
     			if(pos != null) {
 
-					TileEntity tile = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 					if(tile instanceof TileEntityReactorResearch) {
 						reactor = (TileEntityReactorResearch) tile;
@@ -248,7 +249,7 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 	
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.getPos().getX() - player.posX, this.getPos().getY() - player.posY, this.getPos().getZ() - player.posZ).length() < 20;
 	}
 	
 	public enum RodFunction {
@@ -284,11 +285,11 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 		double newMinHeat = args.checkDouble(2);
 		double newMaxLevel = args.checkDouble(3)/100.0;
 		double newMinLevel = args.checkDouble(4)/100.0;
-		function = RodFunction.values()[MathHelper.clamp_int(newFunction, 0, 2)];
-		heatUpper = MathHelper.clamp_double(newMaxHeat, 0, 9999);
-		heatLower = MathHelper.clamp_double(newMinHeat, 0, 9999);
-		levelUpper = MathHelper.clamp_double(newMaxLevel, 0, 1);
-		levelLower = MathHelper.clamp_double(newMinLevel, 0, 1);
+		function = RodFunction.values()[MathHelper.clamp(newFunction, 0, 2)];
+		heatUpper = MathHelper.clamp(newMaxHeat, (double) (0), (double) (9999));
+		heatLower = MathHelper.clamp(newMinHeat, (double) (0), (double) (9999));
+		levelUpper = MathHelper.clamp(newMaxLevel, (double) (0), (double) (1));
+		levelLower = MathHelper.clamp(newMinLevel, (double) (0), (double) (1));
 		return new Object[] {};
 	}
 

@@ -18,24 +18,21 @@ public class CrystallizerRecipeHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmCrystallizer";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(80 - 5, 47 - 11, 27, 12), "ntmCrystallizer"));
-		guiGui.add(GUICrystallizer.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUICrystallizer.class, (80 - 5) + 5, (47 - 11) + 11, 27, 12, "ntmCrystallizer");
 	}
 
 	@Override
-	public void drawExtras(int recipe) {
+	public void drawRecipe(com.hbm.handler.jei.MachineRecipeView rec, Minecraft minecraft, int mouseX, int mouseY) {
 
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
+		super.drawRecipe(rec, minecraft, mouseX, mouseY);
 		
-		CrystallizerRecipe cRecipe = CrystallizerRecipes.getOutput(rec.input[1].item, Fluids.fromID(rec.input[0].item.getItemDamage()));
+		CrystallizerRecipe cRecipe = CrystallizerRecipes.getOutput(rec.displayedInput(1), Fluids.fromID(rec.displayedInput(0).getItemDamage()));
 		
 		if(cRecipe != null && cRecipe.productivity > 0) {
 			FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;

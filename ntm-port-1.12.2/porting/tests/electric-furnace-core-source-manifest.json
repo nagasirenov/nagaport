@@ -1,0 +1,584 @@
+{
+  "baseline": "48bd00359478c16dc9c47891073e700cb8107cb6",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java",
+      "before_sha256": "cfb0f206a80f2402ccb050147d0d6f7dbada1ed49a4b14469e4c0dec57f646bf",
+      "after_sha256": "99d7047a6005a17709bc9b4d961b4a3a0df2c8b5961250a6c43b10a499a35346",
+      "edits": [
+        {
+          "before_offset": 1969,
+          "after_offset": 1969,
+          "old": "",
+          "new": "boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {\n\t\t// Legacy metadata-only facing changes retained this tile and its inventory.\n\t\treturn oldState.getBlock() != newState.getBlock();\n\t}\n\n\t@Override\n\tpublic "
+        },
+        {
+          "before_offset": 2213,
+          "after_offset": 2539,
+          "old": "",
+          "new": "!"
+        },
+        {
+          "before_offset": 2228,
+          "after_offset": 2555,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 2235,
+          "after_offset": 2557,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 2267,
+          "after_offset": 2594,
+          "old": " != null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 3570,
+          "after_offset": 3899,
+          "old": "",
+          "new": "slots[1].isEmpty() || "
+        },
+        {
+          "before_offset": 3646,
+          "after_offset": 3997,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 3653,
+          "after_offset": 3999,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 3706,
+          "after_offset": 4057,
+          "old": " == null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 3761,
+          "after_offset": 4114,
+          "old": "",
+          "new": " || slots[2].isEmpty()"
+        },
+        {
+          "before_offset": 3863,
+          "after_offset": 4238,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 3865,
+          "after_offset": 4241,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 3912,
+          "after_offset": 4288,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 3914,
+          "after_offset": 4291,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 4000,
+          "after_offset": 4377,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 4002,
+          "after_offset": 4380,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 4140,
+          "after_offset": 4518,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 4147,
+          "after_offset": 4520,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 4208,
+          "after_offset": 4586,
+          "old": "",
+          "new": " || slots[2].isEmpty()"
+        },
+        {
+          "before_offset": 4306,
+          "after_offset": 4706,
+          "old": "stackSize += ",
+          "new": "grow("
+        },
+        {
+          "before_offset": 4329,
+          "after_offset": 4721,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 4331,
+          "after_offset": 4724,
+          "old": "ackSize",
+          "new": "Count())"
+        },
+        {
+          "before_offset": 4394,
+          "after_offset": 4788,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 4396,
+          "after_offset": 4791,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 4491,
+          "after_offset": 4886,
+          "old": "tac",
+          "new": "hrin"
+        },
+        {
+          "before_offset": 4495,
+          "after_offset": 4891,
+          "old": "Size--",
+          "new": "(1)"
+        },
+        {
+          "before_offset": 4525,
+          "after_offset": 4918,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 4527,
+          "after_offset": 4921,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 4660,
+          "after_offset": 5054,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 4798,
+          "after_offset": 5189,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 5372,
+          "after_offset": 5760,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 5448,
+          "after_offset": 5833,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 5453,
+          "after_offset": 5835,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5456,
+          "after_offset": 5837,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 5461,
+          "after_offset": 5847,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5464,
+          "after_offset": 5849,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 5469,
+          "after_offset": 5859,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5472,
+          "after_offset": 5861,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 5918,
+          "after_offset": 6312,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5921,
+          "after_offset": 6314,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 5931,
+          "after_offset": 6329,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5934,
+          "after_offset": 6331,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 5944,
+          "after_offset": 6346,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5947,
+          "after_offset": 6348,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 6487,
+          "after_offset": 6893,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 6492,
+          "after_offset": 6895,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6495,
+          "after_offset": 6897,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 6514,
+          "after_offset": 6921,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6517,
+          "after_offset": 6923,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 6536,
+          "after_offset": 6947,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6539,
+          "after_offset": 6949,
+          "old": "ord",
+          "new": "s.getZ()"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerElectricFurnace.java",
+      "before_sha256": "ac199990acf2fd10ed07356aa3ba704d77cef663ea095c5569190a9becacf89f",
+      "after_sha256": "33f63f5c6f6407158218d95195945fbefbf41fb2fed800bb1c1eb5f65b06a0da",
+      "edits": [
+        {
+          "before_offset": 1550,
+          "after_offset": 1550,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1825,
+          "after_offset": 1836,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 2056,
+          "after_offset": 2078,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 2195,
+          "after_offset": 2228,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 2275,
+          "after_offset": 2319,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 2299,
+          "after_offset": 2354,
+          "old": "",
+          "new": "i"
+        },
+        {
+          "before_offset": 2300,
+          "after_offset": 2356,
+          "old": "",
+          "new": "Emp"
+        },
+        {
+          "before_offset": 2301,
+          "after_offset": 2360,
+          "old": "ackSize == 0",
+          "new": "y()"
+        },
+        {
+          "before_offset": 2335,
+          "after_offset": 2385,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "before_offset": 2345,
+          "after_offset": 2394,
+          "old": ") null",
+          "new": ".EMPTY"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemMachineUpgrade.java",
+      "before_sha256": "f87288318c0494ecb2b49c07bcf1d55f70f1bdbe8a735868f7c4d4d3b49a41f5",
+      "after_sha256": "e8a4eb329f99c8a9582ccb7db958323f83d88207a6d340ecdaab433447588e04",
+      "edits": [
+        {
+          "before_offset": 295,
+          "after_offset": 295,
+          "old": "",
+          "new": "cli"
+        },
+        {
+          "before_offset": 298,
+          "after_offset": 301,
+          "old": "",
+          "new": ".ut"
+        },
+        {
+          "before_offset": 299,
+          "after_offset": 305,
+          "old": "",
+          "new": "l.ITool"
+        },
+        {
+          "before_offset": 300,
+          "after_offset": 313,
+          "old": "y.",
+          "new": "i"
+        },
+        {
+          "before_offset": 303,
+          "after_offset": 315,
+          "old": "",
+          "new": "F"
+        },
+        {
+          "before_offset": 305,
+          "after_offset": 318,
+          "old": "y",
+          "new": "g;\nimport n"
+        },
+        {
+          "before_offset": 307,
+          "after_offset": 330,
+          "old": "",
+          "new": "t.minec"
+        },
+        {
+          "before_offset": 308,
+          "after_offset": 338,
+          "old": "",
+          "new": "aft"
+        },
+        {
+          "before_offset": 309,
+          "after_offset": 342,
+          "old": "EntityP",
+          "new": "wor"
+        },
+        {
+          "before_offset": 317,
+          "after_offset": 346,
+          "old": "aye",
+          "new": "d.Wo"
+        },
+        {
+          "before_offset": 321,
+          "after_offset": 351,
+          "old": "",
+          "new": "ld"
+        },
+        {
+          "before_offset": 1014,
+          "after_offset": 1046,
+          "old": "EntityP",
+          "new": "Wor"
+        },
+        {
+          "before_offset": 1022,
+          "after_offset": 1050,
+          "old": "aye",
+          "new": "d wo"
+        },
+        {
+          "before_offset": 1026,
+          "after_offset": 1055,
+          "old": " p",
+          "new": ""
+        },
+        {
+          "before_offset": 1029,
+          "after_offset": 1056,
+          "old": "ayer",
+          "new": "d"
+        },
+        {
+          "before_offset": 1039,
+          "after_offset": 1063,
+          "old": "",
+          "new": "<String>"
+        },
+        {
+          "before_offset": 1046,
+          "after_offset": 1078,
+          "old": "b",
+          "new": "IT"
+        },
+        {
+          "before_offset": 1050,
+          "after_offset": 1083,
+          "old": "e",
+          "new": "tipFl"
+        },
+        {
+          "before_offset": 1052,
+          "after_offset": 1089,
+          "old": "n",
+          "new": "g"
+        },
+        {
+          "before_offset": 1054,
+          "after_offset": 1091,
+          "old": "boo",
+          "new": "f"
+        },
+        {
+          "before_offset": 1058,
+          "after_offset": 1093,
+          "old": "",
+          "new": "ag"
+        },
+        {
+          "before_offset": 1586,
+          "after_offset": 1623,
+          "old": "boo",
+          "new": "f"
+        },
+        {
+          "before_offset": 1590,
+          "after_offset": 1625,
+          "old": "",
+          "new": "ag.isAdvanced()"
+        },
+        {
+          "before_offset": 1650,
+          "after_offset": 1700,
+          "old": "boo",
+          "new": "f"
+        },
+        {
+          "before_offset": 1654,
+          "after_offset": 1702,
+          "old": "",
+          "new": "ag.isAdvanced()"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/IUpgradeInfoProvider.java",
+      "before_sha256": "369d2dba9994519bac73854ccbc8013eab732dc623696d989e5296b043a64247",
+      "after_sha256": "d4c172d400c55901bb86298ef6052d178dea4147cb509cdd98a9454c885e350f",
+      "edits": [
+        {
+          "before_offset": 827,
+          "after_offset": 827,
+          "old": "U",
+          "new": "Tra"
+        },
+        {
+          "before_offset": 829,
+          "after_offset": 831,
+          "old": "",
+          "new": "s"
+        },
+        {
+          "before_offset": 830,
+          "after_offset": 833,
+          "old": "",
+          "new": "ati"
+        },
+        {
+          "before_offset": 831,
+          "after_offset": 837,
+          "old": "caliz",
+          "new": "nK"
+        },
+        {
+          "before_offset": 837,
+          "after_offset": 840,
+          "old": "dName",
+          "new": "y"
+        }
+      ]
+    }
+  ],
+  "unchanged_support": {
+    "src/main/java/com/hbm/inventory/UpgradeManagerNT.java": "f24f0b0130bcf35321f2c7ae833e4d1467dd8e0fc20e9f1991730961e4348cd7",
+    "src/main/java/com/hbm/inventory/SlotUpgrade.java": "2c450c840abac47aa37048f2069d2c9cc5d013913be0ff92508fe82aefdfc742",
+    "src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java": "be6c0168bab4528fdf6088666476071bce2fce5224ee73c6747f4cad1143a462"
+  }
+}

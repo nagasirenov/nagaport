@@ -1,0 +1,8 @@
+Pinned CP48 4117777482629b159d6cfa5dcc20c1f4ec5aa311
+PASS src/main/java/com/hbm/blocks/ModBlocks.java: 3 exact fragment(s); forward reproduces frozen after bytes; reverse reproduces immutable CP48 bytes; no newline normalization.
+PASS src/main/java/com/hbm/main/ClientProxy.java: 1 exact fragment(s); forward reproduces frozen after bytes; reverse reproduces immutable CP48 bytes; no newline normalization.
+PASS src/main/java/com/hbm/tileentity/network/TileEntityCableBaseNT.java: 1 exact fragment(s); forward reproduces frozen after bytes; reverse reproduces immutable CP48 bytes; no newline normalization.
+PASS src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java: 1 exact fragment(s); forward reproduces frozen after bytes; reverse reproduces immutable CP48 bytes; no newline normalization.
+PASS src/main/java/com/hbm/tileentity/network/TileEntityPipeExhaust.java: 1 exact fragment(s); forward reproduces frozen after bytes; reverse reproduces immutable CP48 bytes; no newline normalization.
+PASS isolated frozen source:12 owned full hashes,5 shared files,7 exact fragments,14 rejected mutations.
+PASS coordinator combined box+CT source:12 owned full hashes,5 shared files,7 exact fragments,14 rejected mutations; unrelated CT modifications retained unchanged.

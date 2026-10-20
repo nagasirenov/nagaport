@@ -1,0 +1,141 @@
+import java.util.*;
+import com.hbm.blocks.*;
+import com.hbm.blocks.network.*;
+import com.hbm.extprop.HbmPlayerProps;
+import com.hbm.inventory.fluid.*;
+import com.hbm.items.ModItems;
+import com.hbm.items.machine.*;
+import com.hbm.lib.*;
+import com.hbm.tileentity.network.TileEntityPipeBaseNT;
+import com.hbm.uninos.UniNodespace;
+import api.hbm.fluidmk2.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+public final class DuctNativeTest {
+ static int checks;
+ static final BlockPos POS=new BlockPos(-7,64,9);
+ static final FluidType WATER=new FluidType(13,0x123456,"Water"),OTHER=new FluidType(47,0xa0b0c0,"Other");
+ static FluidDuctStandard duct;
+ static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ static void setup(){
+  duct=new FluidDuctStandard(Material.IRON);check(duct.getSoundType()==com.hbm.blocks.ModSoundTypes.pipe,"original pipe sound bound through native constructor");duct.setTranslationKey("fluid_duct");ForgeRegistries.BLOCKS.register(duct.setRegistryName("hbm","tile.fluid_duct"));
+  ForgeRegistries.ITEMS.register(new ItemBlock(duct).setHasSubtypes(true).setRegistryName(duct.getRegistryName()));
+  ModItems.fluid_duct=new Item().setHasSubtypes(true).setRegistryName("hbm","fluid_duct");ForgeRegistries.ITEMS.register(ModItems.fluid_duct);
+ }
+ static class MapWorld extends World {
+  final Map<BlockPos,IBlockState> blocks=new HashMap<>();final Map<BlockPos,TileEntity> tiles=new HashMap<>();int sounds,reads;SoundEvent sound;SoundCategory category;float volume,pitch;
+  MapWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);}
+  protected IChunkProvider createChunkProvider(){return null;}protected boolean isChunkLoaded(int x,int z,boolean e){return true;}
+  public IBlockState getBlockState(BlockPos p){reads++;return blocks.getOrDefault(p,Blocks.AIR.getDefaultState());}
+  public TileEntity getTileEntity(BlockPos p){reads++;return tiles.get(p);}
+  public boolean checkLight(BlockPos p){return true;}
+  public void playSound(EntityPlayer excluded,double x,double y,double z,SoundEvent sound,SoundCategory category,float volume,float pitch){sounds++;this.sound=sound;this.category=category;this.volume=volume;this.pitch=pitch;check(excluded==null,"original sound includes all players");}
+  TileEntityPipeBaseNT pipe(BlockPos p,FluidType type){blocks.put(p,duct.getDefaultState());TileEntityPipeBaseNT tile=new TileEntityPipeBaseNT();tile.type=type;tiles.put(p,tile);tile.setWorld(this);tile.setPos(p);return tile;}
+ }
+ static final class ConnectorBlock extends Block implements IFluidConnectorBlockMK2 {
+  FluidType type;ForgeDirection side;boolean allow;int calls;BlockPos last;
+  ConnectorBlock(){super(Material.IRON);}
+  public boolean canConnect(FluidType type,IBlockAccess w,int x,int y,int z,ForgeDirection side){calls++;last=new BlockPos(x,y,z);check(this.side==side,"correct opposite target-block connection face");return allow&&this.type==type;}
+ }
+ static final class ConnectorTile extends TileEntity implements IFluidConnectorMK2 {
+  FluidType type;ForgeDirection side;boolean allow;int calls;
+  public boolean canConnect(FluidType type,ForgeDirection side){calls++;check(this.side==side,"correct opposite target-tile connection face");return allow&&this.type==type;}
+ }
+ static final EnumFacing[] DIRECTIONS={EnumFacing.EAST,EnumFacing.WEST,EnumFacing.UP,EnumFacing.DOWN,EnumFacing.SOUTH,EnumFacing.NORTH};
+ static MapWorld connected(int mask,FluidType type){
+  MapWorld world=new MapWorld();world.pipe(POS,type);
+  for(int i=0;i<DIRECTIONS.length;i++){
+   EnumFacing face=DIRECTIONS[i];BlockPos p=POS.offset(face);ConnectorBlock block=new ConnectorBlock();block.type=type;block.side=ForgeDirection.fromEnumFacing(face.getOpposite());block.allow=(mask&(32>>i))!=0&&i%2==0;world.blocks.put(p,block.getDefaultState());
+   ConnectorTile tile=new ConnectorTile();tile.type=type;tile.side=block.side;tile.allow=(mask&(32>>i))!=0&&i%2!=0;world.tiles.put(p,tile);
+  }
+  return world;
+ }
+ static List<AxisAlignedBB> collisions(World world,IBlockState state,AxisAlignedBB query){List<AxisAlignedBB> actual=new ArrayList<>();duct.addCollisionBoxToList(state,world,POS,query,actual,null,false);return actual;}
+ static void metadataAndGeometry(){
+  check(duct.getBlockState().getValidStates().size()==16,"all sixteen metadata states retained");
+  NonNullList<ItemStack> creative=NonNullList.create();duct.getSubBlocks(null,creative);check(creative.size()==3,"three original creative skins");for(int i=0;i<3;i++)check(creative.get(i).getItem()==Item.getItemFromBlock(duct)&&creative.get(i).getMetadata()==i,"exact creative block skin");
+  Random random=new Random(55123L);
+  for(int meta=0;meta<16;meta++){
+   IBlockState state=duct.getStateFromMeta(meta);check(duct.getMetaFromState(state)==meta,"metadata exact roundtrip");check(duct.damageDropped(state)==Math.abs(meta%3),"drop metadata original rectify");check(duct.getMetaFromState(duct.getStateForPlacement(null,POS,EnumFacing.UP,0,0,0,meta,null))==meta,"native placement retains metadata");
+   check(duct.getRenderType(state)==EnumBlockRenderType.MODEL&&duct.getRenderLayer()==BlockRenderLayer.CUTOUT_MIPPED,"native alpha-tested MODEL rendering");check(!duct.isOpaqueCube(state)&&!duct.isFullCube(state),"nonfull nonopaque duct");
+   for(EnumFacing face:DIRECTIONS)check(duct.getBlockFaceShape(null,state,POS,face)==BlockFaceShape.UNDEFINED,"not a solid attachment face");
+   for(FluidType type:new FluidType[]{Fluids.NONE,WATER,OTHER})for(int mask=0;mask<64;mask++){
+    MapWorld world=connected(mask,type);world.blocks.put(POS,state);String label="meta="+meta+" type="+type.getID()+" mask="+mask;
+    IExtendedBlockState extended=(IExtendedBlockState)duct.getExtendedState(state,world,POS);check(extended.getValue(ConnectionState.CONNECTIONS)==mask,label+" exact six typed connections");check(extended.getValue(FluidConnectionState.FLUID_COLOR)==type.getColor(),label+" exact fluid tint");check(extended.getClean()==state&&duct.getMetaFromState(extended)==meta,label+" dynamic properties never persist");
+    AxisAlignedBB expected=OriginalDuctOracle.bounds(mask);check(duct.getBoundingBox(state,world,POS).equals(expected),label+" pristine selection bounds");check(duct.getSelectedBoundingBox(state,world,POS).equals(expected.offset(POS)),label+" selection offset exactly once");check(duct.getCollisionBoundingBox(state,world,POS).equals(expected),label+" pristine merged collision bound");check(FluidDuctStandard.bounds(mask).equals(expected),label+" helper bound");
+    List<AxisAlignedBB> boxes=OriginalDuctOracle.collisions(mask,POS);check(collisions(world,state,new AxisAlignedBB(POS).grow(2)).equals(boxes),label+" exact ordered pristine compound boxes");
+    for(int trial=0;trial<3;trial++){double x=POS.getX()-.5+random.nextDouble()*2,y=POS.getY()-.5+random.nextDouble()*2,z=POS.getZ()-.5+random.nextDouble()*2;AxisAlignedBB query=new AxisAlignedBB(x,y,z,x+.25,y+.25,z+.25);List<AxisAlignedBB> filtered=new ArrayList<>();for(AxisAlignedBB box:boxes)if(query.intersects(box))filtered.add(box);check(collisions(world,state,query).equals(filtered),label+" exact native collision clipping");}
+    if(mask==0)check(collisions(world,state,new AxisAlignedBB(.4,.4,.4,.6,.6,.6).offset(POS)).isEmpty(),"isolated original duct intentionally has no core collision");
+   }
+  }
+  for(int meta:new int[]{-1,16,31,255})check(duct.getMetaFromState(duct.getStateFromMeta(meta))==(meta&15),"native bounded persisted nibble");
+  for(FluidType type:new FluidType[]{Fluids.NONE,WATER,OTHER}){
+   MapWorld world=connected(63,type);((TileEntityPipeBaseNT)world.tiles.get(POS)).type=type==OTHER?WATER:OTHER;
+   check(((IExtendedBlockState)duct.getExtendedState(duct.getDefaultState(),world,POS)).getValue(ConnectionState.CONNECTIONS)==0,"connections reject all mismatched fluids");
+  }
+  for(int y:new int[]{-1,256,Integer.MIN_VALUE,Integer.MAX_VALUE}){MapWorld w=new MapWorld();check(!Library.canConnectFluid(w,0,y,0,ForgeDirection.UP,WATER)&&w.reads==0,"fluid connection y boundary before world access");}
+  for(EnumFacing face:DIRECTIONS){MapWorld world=connected(63,WATER);BlockPos p=POS.offset(face);ConnectorBlock b=(ConnectorBlock)world.blocks.get(p).getBlock();ConnectorTile t=(ConnectorTile)world.tiles.get(p);b.allow=true;t.allow=true;check(Library.canConnectFluid(world,p.getX(),p.getY(),p.getZ(),ForgeDirection.fromEnumFacing(face),WATER)&&b.calls==1&&t.calls==0,"accepting block short-circuits tile fallback");}
+  MapWorld missing=connected(63,Fluids.NONE);missing.tiles.remove(POS);IExtendedBlockState extended=(IExtendedBlockState)duct.getExtendedState(duct.getDefaultState(),missing,POS);check(extended.getValue(FluidConnectionState.FLUID_COLOR)==0xff00ff&&extended.getValue(ConnectionState.CONNECTIONS)==63,"missing tile uses magenta and NONE connections");
+  check(collisions(missing,duct.getDefaultState(),new AxisAlignedBB(POS).grow(2)).isEmpty(),"missing tile preserves no physical collisions");check(duct.getCollisionBoundingBox(duct.getDefaultState(),missing,POS)==null,"missing tile null collision bound");check(duct.getBoundingBox(duct.getDefaultState(),missing,POS).equals(Block.FULL_BLOCK_AABB),"missing tile deterministic full selection rather than stale shared bounds");
+ }
+ static final class Player extends EntityPlayer {
+  ItemStack main=ItemStack.EMPTY,off=ItemStack.EMPTY;boolean sneaking;
+  Player(World world){super(world,new com.mojang.authlib.GameProfile(UUID.fromString("00000000-0000-0000-0000-000000000001"),"DuctProbe"));}
+  public boolean isSpectator(){return false;}public boolean isCreative(){return false;}public boolean isSneaking(){return sneaking;}public ItemStack getHeldItem(EnumHand hand){return hand==EnumHand.MAIN_HAND?main:off;}
+ }
+ static final class Identifier extends Item implements IItemFluidIdentifier {
+  FluidType type;Identifier(FluidType t){type=t;}public FluidType getType(World world,int x,int y,int z,ItemStack stack){check(new BlockPos(x,y,z).equals(POS),"identifier receives native block coordinates");return type;}
+ }
+ static ItemStack held(Player player,EnumHand hand,Item item){ItemStack stack=new ItemStack(item);if(hand==EnumHand.MAIN_HAND)player.main=stack;else player.off=stack;return stack;}
+ static boolean activate(MapWorld world,Player player,EnumHand hand){return duct.onBlockActivated(world,POS,duct.getDefaultState(),player,hand,EnumFacing.NORTH,.1F,.2F,.3F);}
+ static void activation(){
+  for(EnumHand hand:EnumHand.values())for(boolean ctrl:new boolean[]{false,true})for(boolean sneak:new boolean[]{false,true})for(boolean alt:new boolean[]{false,true})for(boolean multi:new boolean[]{false,true})for(boolean same:new boolean[]{false,true}){
+   MapWorld world=new MapWorld();TileEntityPipeBaseNT center=world.pipe(POS,WATER),neighbor=world.pipe(POS.east(),WATER);Player player=new Player(world);player.sneaking=sneak;HbmPlayerProps.INSTANCE.ctrl=ctrl;HbmPlayerProps.INSTANCE.alt=alt;
+   ItemFluidIDMulti fluidID=new ItemFluidIDMulti();fluidID.type=same?WATER:OTHER;Item item=multi?fluidID:new Identifier(same?WATER:OTHER);held(player,hand,item);int copies=ItemFluidIDMulti.writes;boolean result=activate(world,player,hand);boolean copy=alt&&multi&&!same;boolean recursive=ctrl||sneak;
+   check(result==(copy||recursive||!same),"original activation result across ctrl/sneak/alt/item/hand/type");
+   if(copy){check(center.type==WATER&&neighbor.type==WATER&&fluidID.type==WATER&&ItemFluidIDMulti.writes==copies+1&&ItemFluidIDMulti.lastFlag,"alt copies current pipe type without edits");check(world.sounds==1&&world.sound==SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP&&world.category==SoundCategory.PLAYERS&&world.volume==.25F&&world.pitch==.75F,"native original orb sound");}
+   else{check(center.type==(same?WATER:OTHER),"ordinary activation exact pipe type");check(neighbor.type==(!same&&recursive?OTHER:WATER),"ctrl or sneak performs network change");check(center.writes==(same?0:1),"unchanged type does not write");check(world.sounds==0&&ItemFluidIDMulti.writes==copies,"non-copy activation no sound or identifier write");}
+  }
+  HbmPlayerProps.INSTANCE.ctrl=false;HbmPlayerProps.INSTANCE.alt=false;MapWorld world=new MapWorld();world.pipe(POS,WATER);Player p=new Player(world);check(!activate(world,p,EnumHand.MAIN_HAND),"empty native ItemStack ignored");held(p,EnumHand.MAIN_HAND,new Item());check(!activate(world,p,EnumHand.MAIN_HAND),"ordinary item ignored");held(p,EnumHand.MAIN_HAND,new Identifier(OTHER));world.tiles.remove(POS);check(!activate(world,p,EnumHand.MAIN_HAND),"missing tile activation false");world.tiles.put(POS,new TileEntity() {});check(!activate(world,p,EnumHand.MAIN_HAND),"wrong tile activation false");
+ }
+ static void recursion(){
+  MapWorld world=new MapWorld();for(int i=0;i<68;i++)world.pipe(POS.east(i),WATER);duct.changeTypeRecursively(world,POS.getX(),POS.getY(),POS.getZ(),WATER,OTHER,64);for(int i=0;i<68;i++){TileEntityPipeBaseNT pipe=(TileEntityPipeBaseNT)world.tiles.get(POS.east(i));check(pipe.type==(i<=64?OTHER:WATER),"original recursion depth includes start and 64 neighbors");check(pipe.writes==(i<=64?1:0),"each reachable pipe rewritten once");}
+  world=new MapWorld();TileEntityPipeBaseNT center=world.pipe(POS,WATER),neighbor=world.pipe(POS.east(),WATER);duct.changeTypeRecursively(world,POS.getX(),POS.getY(),POS.getZ(),OTHER,Fluids.NONE,64);check(center.type==WATER&&neighbor.type==WATER,"previous type mismatch stops recursion");duct.changeTypeRecursively(world,POS.getX(),POS.getY(),POS.getZ(),WATER,WATER,64);check(center.writes==0&&neighbor.writes==0,"identical new type does not recurse");duct.changeTypeRecursively(world,POS.getX(),POS.getY(),POS.getZ(),WATER,OTHER,0);check(center.type==OTHER&&neighbor.type==WATER,"zero depth changes only start");
+  world=new MapWorld();center=world.pipe(POS,WATER);neighbor=world.pipe(POS.east(),WATER);TileEntityPipeBaseNT beyond=world.pipe(POS.east(2),WATER);world.blocks.put(POS.east(),Blocks.STONE.getDefaultState());duct.changeTypeRecursively(world,POS.getX(),POS.getY(),POS.getZ(),WATER,OTHER,64);check(center.type==OTHER&&neighbor.type==OTHER&&beyond.type==WATER,"original source-block dispatch preserved, including nondduct neighbor tile endpoint");
+ }
+ static void debugPickOverlay(){
+  MapWorld world=new MapWorld();TileEntityPipeBaseNT pipe=world.pipe(POS,WATER);Player player=new Player(world);IBlockState state=duct.getStateFromMeta(14);ItemStack picked=duct.getPickBlock(state,null,world,POS,player);check(picked.getItem()==ModItems.fluid_duct&&picked.getMetadata()==WATER.getID()&&picked.getCount()==1,"native pick uses fluid item and fluid ID, never skin metadata");
+  check(duct.getDebugInfo(world,POS.getX(),POS.getY(),POS.getZ())==null,"missing network debug null");FluidNode node=new FluidNode();UniNodespace.node=node;check(duct.getDebugInfo(world,POS.getX(),POS.getY(),POS.getZ())==null,"node without net debug null");node.net=new FluidNetMK2();node.net.links.add(new Object());node.net.receiverEntries.add(new Object());node.net.receiverEntries.add(new Object());node.net.providerEntries.add(new Object());node.net.fluidTracker=987654321L;
+  check(duct.getDebugInfo(world,POS.getX(),POS.getY(),POS.getZ()).equals(Arrays.asList("Links: 1","Subscribers: 2","Providers: 1","Transfer: 987654321")),"all original debug values");check(UniNodespace.provider==WATER&&UniNodespace.pos.equals(POS),"debug looks up same type network at native location");
+  duct.printHook(null,world,POS.getX(),POS.getY(),POS.getZ());check(ILookOverlay.Capture.title.equals("tile.fluid_duct.name")&&ILookOverlay.Capture.titleColor==0xffff00&&ILookOverlay.Capture.backgroundColor==0x404000&&ILookOverlay.Capture.text.equals(Collections.singletonList("&[1193046&]Water")),"original overlay title, colors, fluid label retained");
+  world.tiles.remove(POS);check(duct.getDebugInfo(world,POS.getX(),POS.getY(),POS.getZ())==null,"missing tile debug null");duct.printHook(null,world,POS.getX(),POS.getY(),POS.getZ());check(ILookOverlay.Capture.calls==1,"missing tile overlay omitted");picked=duct.getPickBlock(state,null,world,POS,player);check(picked.getItem()==Item.getItemFromBlock(duct)&&picked.getMetadata()==2,"missing tile native superclass pick uses rectified skin");
+  pipe.type=null;world.tiles.put(POS,pipe);check(duct.getDebugInfo(world,POS.getX(),POS.getY(),POS.getZ())==null,"null fluid debug safely absent");
+ }
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "native duct fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+ }
+ static void lifecycle(){
+  for(int meta=0;meta<16;meta++){NativeWorld world=new NativeWorld();world.setBlockState(POS,duct.getStateFromMeta(meta),3);TileEntity tile=world.getTileEntity(POS);check(tile instanceof TileEntityPipeBaseNT&&tile.getPos().equals(POS),"real chunk creates native pipe tile");((TileEntityPipeBaseNT)tile).type=WATER;for(EnumFacing face:DIRECTIONS){world.setBlockState(POS.offset(face),duct.getDefaultState(),3);((TileEntityPipeBaseNT)world.getTileEntity(POS.offset(face))).type=WATER;}
+   IBlockState actual=world.getBlockState(POS);IExtendedBlockState render=(IExtendedBlockState)duct.getExtendedState(actual,world,POS);check(duct.getMetaFromState(actual)==meta&&render.getValue(ConnectionState.CONNECTIONS)==63&&render.getValue(FluidConnectionState.FLUID_COLOR)==WATER.getColor(),"real chunk native state and tile fluid render properties");world.setBlockState(POS.east(),Blocks.AIR.getDefaultState(),3);render=(IExtendedBlockState)duct.getExtendedState(actual,world,POS);check(render.getValue(ConnectionState.CONNECTIONS)==31&&world.getTileEntity(POS)==tile,"native neighbor removal updates shape and keeps same pipe tile");check(collisions(world,actual,new AxisAlignedBB(POS).grow(2)).equals(OriginalDuctOracle.collisions(31,POS)),"real chunk exact collision hook");
+  }
+ }
+ public static void main(String[] args){Bootstrap.register();setup();metadataAndGeometry();activation();recursion();debugPickOverlay();lifecycle();System.out.println("PASS native fluid duct blocks: "+checks+" assertions. Complete production Base/Standard classes; all64 masks x16 metadata x3 fluids; pristine-source compound collisions and merged selection, native clipping, directional typed connectivity, activation modifier and hand matrix, recursive depth/source dispatch, debug, pick, overlay, real World/Chunk tile creation and neighbor updates.");System.out.println("Boundary: controlled NTM type/tile/identifier/player-properties/network/overlay collaborators, original production connection methods extracted unchanged. Real Minecraft/Forge throughout; CPU-headless, not graphical acceptance.");}
+}

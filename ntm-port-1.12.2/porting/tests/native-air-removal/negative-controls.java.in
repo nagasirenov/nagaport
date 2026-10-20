@@ -1,0 +1,13 @@
+import net.minecraft.world.*;
+class Controls {
+ World world; IBlockAccess cache; WorldServer server; Custom custom;
+ int x; long wide;
+ void test() {
+  world.setBlockToAir(x, 2, 3); world.setBlockToAir(1, 2, x);
+  cache.setBlockToAir(1,2,3); cache.setBlockToAir(1,2,3);
+  server.setBlockToAir(1,2,3); custom.setBlockToAir(1,2,3);
+  world.setBlockToAir(wide,2,3); world.setBlockToAir(unknown+1,2,3);
+  world.setBlockToAir(1,2); world.setBlockToAir("x",2,3);
+ }
+ static class Custom {Object setBlockToAir(int a,int b,int c){return null;}}
+}

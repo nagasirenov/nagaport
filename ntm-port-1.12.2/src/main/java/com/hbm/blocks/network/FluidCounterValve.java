@@ -48,7 +48,7 @@ public class FluidCounterValve extends FluidDuctBase implements ILookOverlay, IT
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityFluidCounterValve))
 			return;
@@ -58,7 +58,7 @@ public class FluidCounterValve extends FluidDuctBase implements ILookOverlay, IT
 		List<String> text = new ArrayList<>();
 		text.add("&[" + duct.getType().getColor() + "&]" + duct.getType().getLocalizedName());
 		text.add("Counter: " + duct.getCounter());
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

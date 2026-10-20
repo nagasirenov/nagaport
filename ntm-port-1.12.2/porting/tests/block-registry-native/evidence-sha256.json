@@ -1,0 +1,15 @@
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "b22404a43463078894ad7762b3fb7c7c9e7925bc2a6b773b95ce78c91ea9efeb",
+  "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+  "porting/tests/block-registry-native/BlockRegistryNativeTest.java": "d7a2109ef8e9b425a5fef189376156cdc5c46db727783893d3967a43b06816b3",
+  "porting/tests/block-registry-native/NativeAtlasEnvironment.java": "7961b085f7af51c201cb00375cdd193667524c115aa35a882c0de2a76e4ddd9a",
+  "porting/tests/block-registry-native/ParseProduction.java": "d7a8b093913584e6d07f781a1d729c1f0f96afa0d9c0dcb3e559bb7b7cf5a220",
+  "porting/tests/block-registry-native/README.md": "c74a8aafe505ea500c51ce47443f5ff41e99008ccf95dc588611808af3898f22",
+  "porting/tests/block-registry-native/check-source.py": "b3b45f8b5bf49fafdb50d21403fbc82f109974ea1ad4185a3a0ce3ababd63884",
+  "porting/tests/block-registry-native/native-test.log": "d0421bc8c16ef61d31e13165376495b590d73480398f28d0df74be66ce94b0d2",
+  "porting/tests/block-registry-native/pending-owners.json": "71762a7053443e19ef9ccf8875be1b82c16f3705606df5a80a9efd332429ff03",
+  "porting/tests/block-registry-native/run-native.py": "cf8efe95a5fa31fda0b20f2a190ffd0cdc419547b150786077ebc1a984096402",
+  "porting/tests/block-registry-native/source-manifest.json": "0be60fa88512f20d71074f45e31f5ffb0842b11104396c7225a433e17e612e6b",
+  "porting/tests/block-registry-native/source-test.log": "fe612826e7a896f3b14b051e2ec34a070349e53dca4a1f67b9233567593cc28e",
+  "porting/tests/block-registry-native/texture-resource-audit.json": "6c3989af8166ab78aa8267524b739ef995758db966ee9e5b4c3fe0a8a738ebbd"
+}

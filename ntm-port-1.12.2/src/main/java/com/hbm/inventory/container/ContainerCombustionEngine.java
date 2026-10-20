@@ -18,7 +18,7 @@ public class ContainerCombustionEngine extends Container {
 
 	public ContainerCombustionEngine(InventoryPlayer invPlayer, TileEntityMachineCombustionEngine tedf) {
 		this.engine = tedf;
-		this.engine.openInventory();
+		this.engine.openInventory(invPlayer.player);
 
 		this.addSlotToContainer(new Slot(tedf, 0, 17, 17));
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, tedf, 1, 17, 53));
@@ -82,12 +82,12 @@ public class ContainerCombustionEngine extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return engine.isUseableByPlayer(player);
+		return engine.isUsableByPlayer(player);
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.engine.closeInventory();
+		this.engine.closeInventory(player);
 	}
 }

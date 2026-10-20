@@ -17,9 +17,9 @@ public class LaunchPadLarge extends BlockDummyable implements IBomb {
 
 	public LaunchPadLarge(Material mat) {
 		super(mat);
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-4.5D, 0D, -4.5D, 4.5D, 1D, -0.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-4.5D, 0D, 0.5D, 4.5D, 1D, 4.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-4.5D, 0.875D, -0.5D, 4.5D, 1D, 0.5D));
+		this.bounding.add(new AxisAlignedBB(-4.5D, 0D, -4.5D, 4.5D, 1D, -0.5D));
+		this.bounding.add(new AxisAlignedBB(-4.5D, 0D, 0.5D, 4.5D, 1D, 4.5D));
+		this.bounding.add(new AxisAlignedBB(-4.5D, 0.875D, -0.5D, 4.5D, 1D, 0.5D));
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class LaunchPadLarge extends BlockDummyable implements IBomb {
 			
 			int[] corePos = findCore(world, x, y, z);
 			if(corePos != null){
-				TileEntity core = world.getTileEntity(corePos[0], corePos[1], corePos[2]);
+				TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));
 				if(core instanceof TileEntityLaunchPadLarge){
 					TileEntityLaunchPadLarge entity = (TileEntityLaunchPadLarge)core;
 					return entity.launchFromDesignator();
@@ -69,7 +69,7 @@ public class LaunchPadLarge extends BlockDummyable implements IBomb {
 			
 			int[] corePos = findCore(world, x, y, z);
 			if(corePos != null){
-				TileEntity core = world.getTileEntity(corePos[0], corePos[1], corePos[2]);
+				TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));
 				if(core instanceof TileEntityLaunchPadLarge){
 					TileEntityLaunchPadLarge launchpad = (TileEntityLaunchPadLarge)core;
 					launchpad.updateRedstonePower(x, y, z);

@@ -1,0 +1,19 @@
+{
+  "description": "Pristine original routing/placement method inputs, not port sources. Original mutable Vec3 argument-minus-this subtraction is retained in the independent test oracle.",
+  "sha256": {
+    "src/main/java/com/hbm/entity/train/EntityRailCarBase.java": "14fb9f85afb1c07b0c6b9de0cdd76dbf083880199fac4884e8985868bac19c50",
+    "src/main/java/com/hbm/util/BobMathUtil.java": "d0524c90ecc515af1bac88e5f7a19fc19f85b55423ce5e81bea6f56db5018328",
+    "src/main/java/com/hbm/blocks/rail/RailNarrowStraight.java": "a3fb39936b616dcff870230275c64dc9cf5ff88e30cdd67da4bc17ddad8b2a27",
+    "src/main/java/com/hbm/blocks/rail/RailNarrowCurve.java": "2c09add4b298c0010b3bf7fb90f594a7c783f0b9a942f9117516c20ab4a2ff7d",
+    "src/main/java/com/hbm/blocks/rail/RailStandardStraight.java": "200713737d1c4e571fb8e40f474ad721033bed4d1f4e9464f139bf7900cd746a",
+    "src/main/java/com/hbm/blocks/rail/RailStandardStraightShort.java": "c3de408d8d577b2fc1a6ac4c1eb55df6b955bfba4a293178bdc08fdfe9691c8f",
+    "src/main/java/com/hbm/blocks/rail/RailStandardCurveBase.java": "aadafa77d2ba9293a0c4670d2665da320eacd7ad73168354012e073b5fb573e8",
+    "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide7.java": "80a9db0445abcc75cfdff6f32729a7242c86856a751a89097e6faf589edf5ad8",
+    "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide9.java": "ecc74ca9b5f918b63e3ccdff9e767135185f81913d91af51862a0d3e24a2df7a",
+    "src/main/java/com/hbm/blocks/rail/RailStandardRamp.java": "641669bb85f7a2e2f8ceeee055a4cb0399def919867e5afafb6ebba3997e8e2f",
+    "src/main/java/com/hbm/blocks/rail/RailStandardBuffer.java": "119da0b007efaa77b10c73110897760c6d5833aff3d326905eb681f09a87781e",
+    "src/main/java/com/hbm/blocks/rail/BlockRailWaypointSystem.java": "478c9ceeb595e4163df03727f6fd5860a5c0097cbc72efe0347de58825cd8a6b",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java": "21d97e03b2b30df6a474b2ae9dccf127e862174cd219d944a13df8ba28638e29",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java": "ac44f8933582b683cfdeed47e723c1c5c158cd374a2f6cdb726b8db47e8e3be6"
+  }
+}

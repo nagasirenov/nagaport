@@ -34,7 +34,7 @@ public class BiomeGenEveRiver extends BiomeGenBaseEve {
 			} else {
 				Block block2 = blocks[i2];
 
-				if(block2 != null && block2.getMaterial() != Material.AIR) {
+				if(block2 != null && block2.getDefaultState().getMaterial() != Material.AIR) {
 					if(block2 == ModBlocks.duna_rock) {
 						if(k == -1) {
 							if(l <= 0) {
@@ -47,7 +47,7 @@ public class BiomeGenEveRiver extends BiomeGenBaseEve {
 								block1 = this.fillerBlock;
 							}
 
-					if(l1 < 63 && (block == null || block.getMaterial() == Material.AIR)) {
+					if(l1 < 63 && (block == null || block.getDefaultState().getMaterial() == Material.AIR)) {
 								if(this.getFloatTemperature(x, l1, z) < 0.15F) {
 									block = this.topBlock;
 									b0 = 0;

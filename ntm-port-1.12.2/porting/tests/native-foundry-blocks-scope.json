@@ -1,0 +1,68 @@
+{
+  "baseline": "e8970b85e0c8fe46f17348330b3853bb32ffaa0b",
+  "production": {
+    "src/main/java/com/hbm/blocks/machine/FoundryBlock.java": "c934f636a7a742b85ba41d0b529d8f792bfebe518aa019a313a75276e3f031be",
+    "src/main/java/com/hbm/blocks/machine/FoundryModelState.java": "61dce1fab1a16e2dcaeb89d3bd332e6b775d457435fb732612b3925ca1856792",
+    "src/main/java/com/hbm/blocks/machine/FoundryCastingBase.java": "da8cdcd819c7901a9fa46d9203d482c6ec05738c7daa1eda82ef2ecf17ed9604",
+    "src/main/java/com/hbm/blocks/machine/FoundryBasin.java": "bdb2f4731f73528b8bab09eaaed5381019aa6a7d99f6dad9873ff28ce795efff",
+    "src/main/java/com/hbm/blocks/machine/FoundryMold.java": "cd2b97b722f29bc007d00e501ee5ec4e9275e115360c28d1c439b08342e9e58b",
+    "src/main/java/com/hbm/blocks/machine/FoundryChannel.java": "730564092964bf2fa733f0bc5d457aaf85d731b4b60993d76004238011d22a7d",
+    "src/main/java/com/hbm/blocks/machine/FoundryTank.java": "31a6754568874cc5249d64dc46a58b8d9a54dcd04458c0950b35771e9fbe1548",
+    "src/main/java/com/hbm/blocks/machine/FoundryOutlet.java": "c14cfcea40ff08dc0133e133158e82b9af8a01d1b2cd8331b437263e5e6d45a3",
+    "src/main/java/com/hbm/blocks/machine/FoundrySlagtap.java": "8cdeec71794abc62d0306b68d000c68be50e0b3996a18cf51ebd9583749b8552",
+    "src/main/java/com/hbm/render/block/nativeblock/FoundryGeometry.java": "2ded98a4fa009e6fd91bfea4ecc2d333ff710ff49e9c5bab7f89eead7d878754",
+    "src/main/java/com/hbm/render/block/nativeblock/FoundryMaterials.java": "ca5f8d4092dc5737ee1a8d9f7176de246c01492db4e9f5033972fc1c7c3a6fe3",
+    "src/main/java/com/hbm/render/block/nativeblock/FoundryBakedModel.java": "0f15022e4b8311a3698b79c451d3c8aa9b5fd33086631710b89aa3555582ffbd",
+    "src/main/java/com/hbm/main/FoundryBlockModelHandler.java": "5172a169227e8c591b4dda6daf9f60a7b46fff6f6fbfba3e8c1e6000a843a32a",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_basin.json": "3902482376641626df56b5719be7d70506d9d4f91db4060600ab42322b15fe01",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_mold.json": "8e37e15cd46d874610f9963b2468429379cf1c5cf71dd1cc972043b805ed8176",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_channel.json": "a94ef917d5dcb93752eb80f6e7ee063b2197f57e194bbd4d450de834bf58aa70",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_tank.json": "e745bab833348d00232f5aab2043a06c1ac3e4a53d14ea2ec3539fc65d3ea421",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_outlet.json": "e06a6f51697997ab17c7dad56ba7c68ebdcf5d86c7c6d50e4749ab974b4dcd5e",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_slagtap.json": "edd39777368c6b3c5d805ee88534e509dc56de3d657ec40de1acb9712f99e5c3",
+    "src/main/java/com/hbm/render/tileentity/RenderFoundry.java": "06d8765f1ae05f093a0dac69e66b3fa81768b8ffaf9e4b7393a005bbe0130c3c",
+    "src/main/java/com/hbm/render/tileentity/RenderFoundryFluid.java": "6342d1bf8f6138cd7a862a6c4f813de3e731cb41a0afc8a2a7e9886d70e93d11"
+  },
+  "deleted": [
+    "src/main/java/com/hbm/render/block/RenderFoundryBasin.java",
+    "src/main/java/com/hbm/render/block/RenderFoundryMold.java",
+    "src/main/java/com/hbm/render/block/RenderFoundryChannel.java",
+    "src/main/java/com/hbm/render/block/RenderFoundryTank.java",
+    "src/main/java/com/hbm/render/block/RenderFoundryOutlet.java"
+  ],
+  "geometry_oracle_baseline": "c7d59ae",
+  "original_inputs": {
+    "src/main/java/com/hbm/blocks/machine/FoundryCastingBase.java": "29960d56d7df66811503b6fed65cc310565f684246873e5cc8088ee4a6a67217",
+    "src/main/java/com/hbm/blocks/machine/FoundryBasin.java": "9444b90adbdbd8e6f593afca709144bf5fe305e140cc29003ccc4b17fbb7b779",
+    "src/main/java/com/hbm/blocks/machine/FoundryMold.java": "1c822d2ddbb970daae5054ba4345f6668b2da0c496bfbe8acf9a5ec55d6339da",
+    "src/main/java/com/hbm/blocks/machine/FoundryChannel.java": "f189edfcbf7fa9241038adf6f1e9b4f9b06c49234f0ac948ad4d96efdc7a2faf",
+    "src/main/java/com/hbm/blocks/machine/FoundryTank.java": "72a85468d01a847240b2363fc64bbc480bdf0b223435be3886a23ceeae69026f",
+    "src/main/java/com/hbm/blocks/machine/FoundryOutlet.java": "3b73b06e855083d1705feb7da5c753fb789fc25a849a2e4b90b0fc334ebeeaed",
+    "src/main/java/com/hbm/blocks/machine/FoundrySlagtap.java": "42462872a43b8ad8062a4693031854a46e3dfca407893a1e94fed47f4f5c6dea",
+    "src/main/java/com/hbm/render/block/RenderFoundryBasin.java": "0cd02338ecb2a83027a39491b715895cb02ffb29ccdf268e3309e0923aa3bd9b",
+    "src/main/java/com/hbm/render/block/RenderFoundryMold.java": "9af2ddb81837f6691f4717f3c1dbae5414aaa9bdb69f24b5aa8178fdf51e98a3",
+    "src/main/java/com/hbm/render/block/RenderFoundryChannel.java": "14377914eaee6ab55af57fe3eb01191c2c87a150f009b3ed317768dae1ab5dc7",
+    "src/main/java/com/hbm/render/block/RenderFoundryTank.java": "7853b1e75fe47997f04cde98b7e41ba29592eda202444d70bdec9cd0c0f240d1",
+    "src/main/java/com/hbm/render/block/RenderFoundryOutlet.java": "c0bc434cb3cdf97b2c4b32919bb50c1caf5d9c5b7a7306588aa60eb8bc4dbeb9",
+    "src/main/java/com/hbm/render/tileentity/RenderFoundry.java": "5b6373a6f100815d60497024583aa5204437ce6cdf196be9c0739023ab3ae6d5"
+  },
+  "coordinated_tile_additions": {
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryChannel.java": "0d99fca15897d41b5accc70e665ce97f22fb24dd782f18597f82509c49723f8d",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryTank.java": "4119eb0290dcbf11329b95217c0b4bd95b797df7d3c9c689e252e9d5cd3f210f"
+  },
+  "tests": [
+    "porting/tests/probe-native-foundry-blocks.py",
+    "porting/tests/NativeFoundryBlocksTest.java",
+    "porting/tests/FoundryRenderNativeTest.java",
+    "porting/tests/foundry-legacy-geometry-oracle.py",
+    "porting/tests/check-native-foundry-blocks.py",
+    "porting/tests/native-foundry-blocks-notes.md",
+    "porting/tests/native-foundry-blocks-scope.json"
+  ],
+  "results": {
+    "owner_model_assertions": 1956401,
+    "geometry_faces": 53176,
+    "native_egl_assertions": 4841
+  },
+  "log": "porting/continuation-2026-10-19/native-foundry-blocks-FINAL.log"
+}

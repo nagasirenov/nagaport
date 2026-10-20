@@ -29,6 +29,13 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityDiFurnace extends TileEntityMachinePolluting implements IFluidStandardSender, IGUIProvider, IInfoProviderEC {
+    @Override
+    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+        // Legacy metadata-only orientation changes retained inventory and all tile state.
+        return oldState.getBlock() != newState.getBlock();
+    }
+
 
 	public int progress;
 	public int fuel;
@@ -45,7 +52,7 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.diFurnace";
 	}
 
@@ -65,12 +72,12 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 		} else {
 			Item item = stack.getItem();
 
-			if(item == Items.coal) return canBreathe ? 200 : 0;
-			if(item == Item.getItemFromBlock(Blocks.coal_block)) return canBreathe ? 2000 : 0;
+			if(item == Items.COAL) return canBreathe ? 200 : 0;
+			if(item == Item.getItemFromBlock(Blocks.COAL_BLOCK)) return canBreathe ? 2000 : 0;
 			if(item == Item.getItemFromBlock(ModBlocks.block_coke)) return canBreathe ? 4000 : 0;
-			if(item == Items.lava_bucket) return 12800;
-			if(item == Items.blaze_rod) return canBreathe ? 1000 : 0;
-			if(item == Items.blaze_powder) return canBreathe ? 300 : 0;
+			if(item == Items.LAVA_BUCKET) return 12800;
+			if(item == Items.BLAZE_ROD) return canBreathe ? 1000 : 0;
+			if(item == Items.BLAZE_POWDER) return canBreathe ? 300 : 0;
 			if(item == ModItems.lignite) return canBreathe ? 150 : 0;
 			if(item == ModItems.powder_lignite) return canBreathe ? 150 : 0;
 			if(item == ModItems.powder_coal) return canBreathe ? 200 : 0;
@@ -97,20 +104,23 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("powerTime", fuel);
 		nbt.setShort("cookTime", (short) progress);
 		nbt.setByteArray("modes", new byte[] {(byte) sideFuel, (byte) sideUpper, (byte) sideLower});
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_io;
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 
 		if(i == 0 && this.sideUpper != j) return false;
 		if(i == 1 && this.sideLower != j) return false;
@@ -121,7 +131,8 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 3;
 	}
 
@@ -172,17 +183,17 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			boolean extension = worldObj.getBlock(xCoord, yCoord + 1, zCoord) == ModBlocks.machine_difurnace_extension;
+			boolean extension = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).getBlock() == ModBlocks.machine_difurnace_extension;
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				this.sendSmoke(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.sendSmoke(this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 			
-			if(extension) this.sendSmoke(xCoord, yCoord + 2, zCoord, ForgeDirection.UP);
+			if(extension) this.sendSmoke(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), ForgeDirection.UP);
 
 			boolean markDirty = false;
 			boolean canOperate = breatheAir(0); // checks breathable but doesn't consume air
@@ -214,7 +225,7 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 					fuel = 0;
 				}
 
-				if(worldObj.getTotalWorldTime() % 20 == 0) this.pollute(PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * (extension ? 3 : 1));
+				if(this.world.getTotalWorldTime() % 20 == 0) this.pollute(PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * (extension ? 3 : 1));
 				
 			} else {
 				progress = 0;
@@ -228,7 +239,7 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 
 			if(trigger) {
 				markDirty = true;
-				MachineDiFurnace.updateBlockState(this.progress > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				MachineDiFurnace.updateBlockState(this.progress > 0, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 
 			networkPackNT(15);

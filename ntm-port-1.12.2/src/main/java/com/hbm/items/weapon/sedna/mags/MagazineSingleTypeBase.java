@@ -100,7 +100,7 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 			
 			if(loadLimit <= 0) return;
 			
-			if(slot != null) {
+			if(slot != null && !slot.isEmpty()) {
 				
 				//mag is empty, assume next best type
 				if(this.getAmount(stack, null) == 0) {
@@ -182,7 +182,7 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 		for(int i = 0; i < inventory.getSizeInventory(); i++) {
 			ItemStack slot = inventory.getStackInSlot(i);
 			
-			if(slot != null) {
+			if(slot != null && !slot.isEmpty()) {
 				if(this.getAmount(stack, null) == 0) {
 					for(BulletConfig config : this.acceptedBullets) {
 						if(config.ammo.matchesRecipe(slot, true)) return config;

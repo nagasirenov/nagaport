@@ -59,9 +59,9 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.lastLevel = this.level;
 
 		} else {
@@ -69,7 +69,7 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 			this.hasPower = true;
 			
 			if(this.isPowered()) {
-				this.trySubscribe(worldObj, xCoord, yCoord - 1, zCoord, ForgeDirection.DOWN);
+				this.trySubscribe(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), ForgeDirection.DOWN);
 				if(this.power < consumption) this.hasPower = false;
 			}
 
@@ -77,12 +77,12 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 			
 			if(this.hasPower) {
 				if(level < targetLevel) {
-					level += speed * RBMKDials.getControlSpeed(worldObj);
+					level += speed * RBMKDials.getControlSpeed(this.world);
 					if(level > targetLevel) level = targetLevel;
 				}
 	
 				if(level > targetLevel) {
-					level -= speed * RBMKDials.getControlSpeed(worldObj);
+					level -= speed * RBMKDials.getControlSpeed(this.world);
 					if(level < targetLevel) level = targetLevel;
 				}
 				
@@ -92,7 +92,7 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	public void setTarget(double target) {
@@ -117,11 +117,12 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setDouble("level", this.level);
 		nbt.setDouble("targetLevel", this.targetLevel);
+		return nbt;
 	}
 
 	@Override
@@ -153,14 +154,14 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 
 		if(this.isModerated()) {
 
-			int count = 2 + worldObj.rand.nextInt(2);
+			int count = 2 + this.world.rand.nextInt(2);
 
 			for(int i = 0; i < count; i++) {
 				spawnDebris(DebrisType.GRAPHITE);
 			}
 		}
 
-		int count = 2 + worldObj.rand.nextInt(2);
+		int count = 2 + this.world.rand.nextInt(2);
 
 		for(int i = 0; i < count; i++) {
 			spawnDebris(DebrisType.ROD);
@@ -204,7 +205,7 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getCoordinates(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Callback(direct = true)
@@ -216,14 +217,14 @@ public abstract class TileEntityRBMKControl extends TileEntityRBMKSlottedBase im
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getInfo(Context context, Arguments args) {
-		return new Object[] {heat, getMult() * 100, targetLevel * 100, xCoord, yCoord, zCoord};
+		return new Object[] {heat, getMult() * 100, targetLevel * 100, this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Callback(direct = true, limit = 4)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setLevel(Context context, Arguments args) {
 		double newLevel = args.checkDouble(0)/100.0;
-		targetLevel = MathHelper.clamp_double(newLevel, 0, 1);
+		targetLevel = MathHelper.clamp(newLevel, (double) (0), (double) (1));
 		return new Object[] {};
 	}
 }

@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityPABeamline extends TileEntityLoadedBase implements IParticleUser {
+public class TileEntityPABeamline extends TileEntityLoadedBase implements IParticleUser, net.minecraft.util.ITickable {
 	
 	public boolean window = false;
 	public boolean didPass = false;
@@ -19,9 +19,9 @@ public class TileEntityPABeamline extends TileEntityLoadedBase implements IParti
 	public float prevLight;
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			
 			this.prevLight = this.light;
 			if(this.light > 0) this.light -= 0.25F;
@@ -56,15 +56,16 @@ public class TileEntityPABeamline extends TileEntityLoadedBase implements IParti
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("window", window);
+		return nbt;
 	}
 
 	@Override
 	public boolean canParticleEnter(Particle particle, ForgeDirection dir, int x, int y, int z) {
 		ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
-		BlockPos input = new BlockPos(xCoord, yCoord, zCoord).offset(beamlineDir, -1);
+		BlockPos input = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(beamlineDir, -1);
 		return input.compare(x, y, z) && beamlineDir == dir;
 	}
 
@@ -77,7 +78,7 @@ public class TileEntityPABeamline extends TileEntityLoadedBase implements IParti
 	@Override
 	public BlockPos getExitPos(Particle particle) {
 		ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
-		return new BlockPos(xCoord, yCoord, zCoord).offset(beamlineDir, 2);
+		return new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(beamlineDir, 2);
 	}
 	
 	AxisAlignedBB bb = null;
@@ -87,12 +88,12 @@ public class TileEntityPABeamline extends TileEntityLoadedBase implements IParti
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 1,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 2
 					);
 		}
 		

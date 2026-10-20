@@ -41,7 +41,7 @@ public class RenderEmitter extends TileEntitySpecialRenderer {
 		GL11.glTranslated(0, 0.5, 0.5);
 		TileEntityEmitter emitter = (TileEntityEmitter) tileEntity;
 		int range = emitter.beam - 1;
-		int originalColor = emitter.color == 0 ? Color.HSBtoRGB(tileEntity.getWorldObj().getTotalWorldTime() / 50.0F, 0.5F, 0.25F) & 16777215 : emitter.color;
+		int originalColor = emitter.color == 0 ? Color.HSBtoRGB(tileEntity.getWorld().getTotalWorldTime() / 50.0F, 0.5F, 0.25F) & 16777215 : emitter.color;
 		float girth = emitter.girth;
 		int r = (originalColor & 0xff0000) >> 16;
 		int g = (originalColor & 0x00ff00) >> 8;
@@ -57,18 +57,18 @@ public class RenderEmitter extends TileEntitySpecialRenderer {
 			BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, 0, 1, 0F, segments, girth, 0.5F);
 			
 			if(emitter.effect == 1) {
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.RANDOM, EnumBeamType.SOLID, colorOuter, colorInner, (int) tileEntity.getWorldObj().getTotalWorldTime() / 2, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.RANDOM, EnumBeamType.SOLID, colorOuter, colorInner, (int) tileEntity.getWorldObj().getTotalWorldTime() / 2 + 15, (int)Math.max(range / girth / 4, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.RANDOM, EnumBeamType.SOLID, colorOuter, colorInner, (int) tileEntity.getWorld().getTotalWorldTime() / 2, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.RANDOM, EnumBeamType.SOLID, colorOuter, colorInner, (int) tileEntity.getWorld().getTotalWorldTime() / 2 + 15, (int)Math.max(range / girth / 4, 1), girth * 2, 4, girth * 0.1F, 0.5F);
 			}
 
 			if(emitter.effect == 2) {
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorldObj().getTotalWorldTime() + f) * -10 % 360, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorldObj().getTotalWorldTime() + f) * -10 % 360 + 180, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorld().getTotalWorldTime() + f) * -10 % 360, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorld().getTotalWorldTime() + f) * -10 % 360 + 180, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
 			}
 			if(emitter.effect == 3) {
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorldObj().getTotalWorldTime() + f) * -10 % 360, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorldObj().getTotalWorldTime() + f) * -10 % 360 + 120, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
-				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorldObj().getTotalWorldTime() + f) * -10 % 360 + 240, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorld().getTotalWorldTime() + f) * -10 % 360, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorld().getTotalWorldTime() + f) * -10 % 360 + 120, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
+				BeamPronter.prontBeam(new Vec3d(0, 0, range), EnumWaveType.SPIRAL, EnumBeamType.SOLID, colorOuter, colorInner, (int) (tileEntity.getWorld().getTotalWorldTime() + f) * -10 % 360 + 240, (int)Math.max(range / girth / 2, 1), girth * 2, 4, girth * 0.1F, 0.5F);
 			}
 		}
 

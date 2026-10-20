@@ -12,7 +12,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineCombustionEngine extends BlockDummyable {
 
 	public MachineCombustionEngine() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

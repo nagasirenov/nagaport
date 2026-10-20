@@ -15,7 +15,7 @@ public class ContainerAshpit extends Container {
 	
 	public ContainerAshpit(InventoryPlayer invPlayer, TileEntityAshpit ashpit) {
 		this.ashpit = ashpit;
-		this.ashpit.openInventory();
+		this.ashpit.openInventory(invPlayer.player);
 		
 		for(int i = 0; i < 5; i++) this.addSlotToContainer(new SlotTakeOnly(ashpit, i, 44 + i * 18, 27));
 		
@@ -62,12 +62,12 @@ public class ContainerAshpit extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return ashpit.isUseableByPlayer(player);
+		return ashpit.isUsableByPlayer(player);
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.ashpit.closeInventory();
+		this.ashpit.closeInventory(player);
 	}
 }

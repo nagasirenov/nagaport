@@ -1,0 +1,2912 @@
+[
+  {
+    "file": "src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+    "start": 17406,
+    "end": 17460,
+    "old": "this.world.setBlock(x, y, z, Blocks.STONEBRICK, 1, 3);",
+    "new": "{ net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.STONEBRICK; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2311,
+    "end": 2385,
+    "old": "world.setBlock(x + 1, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2388,
+    "end": 2462,
+    "old": "world.setBlock(x + 2, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2465,
+    "end": 2539,
+    "old": "world.setBlock(x + 3, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2542,
+    "end": 2616,
+    "old": "world.setBlock(x + 4, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2619,
+    "end": 2693,
+    "old": "world.setBlock(x + 5, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2696,
+    "end": 2770,
+    "old": "world.setBlock(x + 6, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 2773,
+    "end": 2847,
+    "old": "world.setBlock(x + 7, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3019,
+    "end": 3093,
+    "old": "world.setBlock(x + 0, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3096,
+    "end": 3170,
+    "old": "world.setBlock(x + 1, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3173,
+    "end": 3247,
+    "old": "world.setBlock(x + 2, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3250,
+    "end": 3324,
+    "old": "world.setBlock(x + 3, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3327,
+    "end": 3401,
+    "old": "world.setBlock(x + 4, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3404,
+    "end": 3478,
+    "old": "world.setBlock(x + 5, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3481,
+    "end": 3555,
+    "old": "world.setBlock(x + 6, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3558,
+    "end": 3632,
+    "old": "world.setBlock(x + 7, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3635,
+    "end": 3709,
+    "old": "world.setBlock(x + 8, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3712,
+    "end": 3786,
+    "old": "world.setBlock(x + 0, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3789,
+    "end": 3863,
+    "old": "world.setBlock(x + 1, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3866,
+    "end": 3940,
+    "old": "world.setBlock(x + 2, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 3943,
+    "end": 4017,
+    "old": "world.setBlock(x + 3, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4020,
+    "end": 4094,
+    "old": "world.setBlock(x + 4, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4097,
+    "end": 4171,
+    "old": "world.setBlock(x + 5, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4174,
+    "end": 4248,
+    "old": "world.setBlock(x + 6, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4251,
+    "end": 4325,
+    "old": "world.setBlock(x + 7, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4328,
+    "end": 4402,
+    "old": "world.setBlock(x + 8, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4405,
+    "end": 4479,
+    "old": "world.setBlock(x + 0, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4482,
+    "end": 4556,
+    "old": "world.setBlock(x + 1, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4559,
+    "end": 4633,
+    "old": "world.setBlock(x + 2, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4636,
+    "end": 4710,
+    "old": "world.setBlock(x + 3, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4713,
+    "end": 4787,
+    "old": "world.setBlock(x + 4, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4790,
+    "end": 4864,
+    "old": "world.setBlock(x + 5, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4867,
+    "end": 4941,
+    "old": "world.setBlock(x + 6, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 4944,
+    "end": 5018,
+    "old": "world.setBlock(x + 7, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5021,
+    "end": 5095,
+    "old": "world.setBlock(x + 8, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5098,
+    "end": 5172,
+    "old": "world.setBlock(x + 0, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5175,
+    "end": 5249,
+    "old": "world.setBlock(x + 1, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5252,
+    "end": 5326,
+    "old": "world.setBlock(x + 2, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5329,
+    "end": 5403,
+    "old": "world.setBlock(x + 3, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5406,
+    "end": 5480,
+    "old": "world.setBlock(x + 4, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5483,
+    "end": 5557,
+    "old": "world.setBlock(x + 5, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5560,
+    "end": 5634,
+    "old": "world.setBlock(x + 6, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5637,
+    "end": 5711,
+    "old": "world.setBlock(x + 7, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5714,
+    "end": 5788,
+    "old": "world.setBlock(x + 8, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5791,
+    "end": 5865,
+    "old": "world.setBlock(x + 0, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5868,
+    "end": 5942,
+    "old": "world.setBlock(x + 1, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 5945,
+    "end": 6019,
+    "old": "world.setBlock(x + 2, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6022,
+    "end": 6096,
+    "old": "world.setBlock(x + 3, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6099,
+    "end": 6173,
+    "old": "world.setBlock(x + 4, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6176,
+    "end": 6250,
+    "old": "world.setBlock(x + 5, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6253,
+    "end": 6327,
+    "old": "world.setBlock(x + 6, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6330,
+    "end": 6404,
+    "old": "world.setBlock(x + 7, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6407,
+    "end": 6481,
+    "old": "world.setBlock(x + 8, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6484,
+    "end": 6558,
+    "old": "world.setBlock(x + 0, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6561,
+    "end": 6635,
+    "old": "world.setBlock(x + 1, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6638,
+    "end": 6712,
+    "old": "world.setBlock(x + 2, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6715,
+    "end": 6789,
+    "old": "world.setBlock(x + 3, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6792,
+    "end": 6866,
+    "old": "world.setBlock(x + 4, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6869,
+    "end": 6943,
+    "old": "world.setBlock(x + 5, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 6946,
+    "end": 7020,
+    "old": "world.setBlock(x + 6, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7023,
+    "end": 7097,
+    "old": "world.setBlock(x + 7, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7100,
+    "end": 7174,
+    "old": "world.setBlock(x + 8, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7177,
+    "end": 7251,
+    "old": "world.setBlock(x + 0, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7254,
+    "end": 7328,
+    "old": "world.setBlock(x + 1, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7331,
+    "end": 7405,
+    "old": "world.setBlock(x + 2, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7408,
+    "end": 7482,
+    "old": "world.setBlock(x + 3, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7485,
+    "end": 7559,
+    "old": "world.setBlock(x + 4, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7562,
+    "end": 7636,
+    "old": "world.setBlock(x + 5, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7639,
+    "end": 7713,
+    "old": "world.setBlock(x + 6, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7716,
+    "end": 7790,
+    "old": "world.setBlock(x + 7, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7793,
+    "end": 7867,
+    "old": "world.setBlock(x + 8, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7870,
+    "end": 7944,
+    "old": "world.setBlock(x + 0, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 7947,
+    "end": 8021,
+    "old": "world.setBlock(x + 1, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8024,
+    "end": 8098,
+    "old": "world.setBlock(x + 2, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8101,
+    "end": 8175,
+    "old": "world.setBlock(x + 3, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8178,
+    "end": 8252,
+    "old": "world.setBlock(x + 4, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8255,
+    "end": 8329,
+    "old": "world.setBlock(x + 5, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8332,
+    "end": 8406,
+    "old": "world.setBlock(x + 6, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8409,
+    "end": 8483,
+    "old": "world.setBlock(x + 7, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8486,
+    "end": 8560,
+    "old": "world.setBlock(x + 8, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8563,
+    "end": 8637,
+    "old": "world.setBlock(x + 0, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8640,
+    "end": 8714,
+    "old": "world.setBlock(x + 1, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8717,
+    "end": 8791,
+    "old": "world.setBlock(x + 2, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8794,
+    "end": 8868,
+    "old": "world.setBlock(x + 3, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8871,
+    "end": 8945,
+    "old": "world.setBlock(x + 4, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 8948,
+    "end": 9022,
+    "old": "world.setBlock(x + 5, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9025,
+    "end": 9099,
+    "old": "world.setBlock(x + 6, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9102,
+    "end": 9176,
+    "old": "world.setBlock(x + 7, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9179,
+    "end": 9253,
+    "old": "world.setBlock(x + 8, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9426,
+    "end": 9501,
+    "old": "world.setBlock(x + 1, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9504,
+    "end": 9579,
+    "old": "world.setBlock(x + 2, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9582,
+    "end": 9657,
+    "old": "world.setBlock(x + 3, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9660,
+    "end": 9735,
+    "old": "world.setBlock(x + 4, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9738,
+    "end": 9813,
+    "old": "world.setBlock(x + 5, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9816,
+    "end": 9891,
+    "old": "world.setBlock(x + 6, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 9894,
+    "end": 9969,
+    "old": "world.setBlock(x + 7, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10311,
+    "end": 10385,
+    "old": "world.setBlock(x + 1, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10388,
+    "end": 10462,
+    "old": "world.setBlock(x + 2, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10465,
+    "end": 10539,
+    "old": "world.setBlock(x + 3, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10542,
+    "end": 10616,
+    "old": "world.setBlock(x + 4, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10619,
+    "end": 10693,
+    "old": "world.setBlock(x + 5, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10696,
+    "end": 10770,
+    "old": "world.setBlock(x + 6, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 10773,
+    "end": 10847,
+    "old": "world.setBlock(x + 7, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 11019,
+    "end": 11093,
+    "old": "world.setBlock(x + 0, y + 1, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 12129,
+    "end": 12203,
+    "old": "world.setBlock(x + 8, y + 1, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 12206,
+    "end": 12280,
+    "old": "world.setBlock(x + 0, y + 1, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 13767,
+    "end": 13841,
+    "old": "world.setBlock(x + 8, y + 1, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 13844,
+    "end": 13918,
+    "old": "world.setBlock(x + 0, y + 1, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 14960,
+    "end": 15034,
+    "old": "world.setBlock(x + 8, y + 1, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 15037,
+    "end": 15111,
+    "old": "world.setBlock(x + 0, y + 1, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 16147,
+    "end": 16221,
+    "old": "world.setBlock(x + 8, y + 1, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 16224,
+    "end": 16298,
+    "old": "world.setBlock(x + 0, y + 1, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 17670,
+    "end": 17744,
+    "old": "world.setBlock(x + 8, y + 1, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 17747,
+    "end": 17821,
+    "old": "world.setBlock(x + 0, y + 1, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 18863,
+    "end": 18937,
+    "old": "world.setBlock(x + 8, y + 1, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 18940,
+    "end": 19014,
+    "old": "world.setBlock(x + 0, y + 1, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 20050,
+    "end": 20124,
+    "old": "world.setBlock(x + 8, y + 1, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 20127,
+    "end": 20201,
+    "old": "world.setBlock(x + 0, y + 1, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 22196,
+    "end": 22270,
+    "old": "world.setBlock(x + 8, y + 1, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 22273,
+    "end": 22347,
+    "old": "world.setBlock(x + 0, y + 1, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 1, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 23383,
+    "end": 23457,
+    "old": "world.setBlock(x + 8, y + 1, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 1, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 23630,
+    "end": 23705,
+    "old": "world.setBlock(x + 1, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 23708,
+    "end": 23783,
+    "old": "world.setBlock(x + 2, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 23786,
+    "end": 23861,
+    "old": "world.setBlock(x + 3, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 23864,
+    "end": 23939,
+    "old": "world.setBlock(x + 4, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 23942,
+    "end": 24017,
+    "old": "world.setBlock(x + 5, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24020,
+    "end": 24095,
+    "old": "world.setBlock(x + 6, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24098,
+    "end": 24173,
+    "old": "world.setBlock(x + 7, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24515,
+    "end": 24589,
+    "old": "world.setBlock(x + 1, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24592,
+    "end": 24666,
+    "old": "world.setBlock(x + 2, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24669,
+    "end": 24743,
+    "old": "world.setBlock(x + 3, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24746,
+    "end": 24820,
+    "old": "world.setBlock(x + 4, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24823,
+    "end": 24897,
+    "old": "world.setBlock(x + 5, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24900,
+    "end": 24974,
+    "old": "world.setBlock(x + 6, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 24977,
+    "end": 25051,
+    "old": "world.setBlock(x + 7, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 25223,
+    "end": 25297,
+    "old": "world.setBlock(x + 0, y + 2, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 26333,
+    "end": 26407,
+    "old": "world.setBlock(x + 8, y + 2, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 26410,
+    "end": 26484,
+    "old": "world.setBlock(x + 0, y + 2, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 27520,
+    "end": 27594,
+    "old": "world.setBlock(x + 8, y + 2, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 27597,
+    "end": 27671,
+    "old": "world.setBlock(x + 0, y + 2, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 29052,
+    "end": 29126,
+    "old": "world.setBlock(x + 8, y + 2, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 29129,
+    "end": 29203,
+    "old": "world.setBlock(x + 0, y + 2, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 30239,
+    "end": 30313,
+    "old": "world.setBlock(x + 8, y + 2, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 30316,
+    "end": 30390,
+    "old": "world.setBlock(x + 0, y + 2, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 31535,
+    "end": 31609,
+    "old": "world.setBlock(x + 8, y + 2, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 31612,
+    "end": 31686,
+    "old": "world.setBlock(x + 0, y + 2, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 32728,
+    "end": 32802,
+    "old": "world.setBlock(x + 8, y + 2, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 32805,
+    "end": 32879,
+    "old": "world.setBlock(x + 0, y + 2, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 33915,
+    "end": 33989,
+    "old": "world.setBlock(x + 8, y + 2, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 33992,
+    "end": 34066,
+    "old": "world.setBlock(x + 0, y + 2, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 35211,
+    "end": 35285,
+    "old": "world.setBlock(x + 8, y + 2, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 35288,
+    "end": 35362,
+    "old": "world.setBlock(x + 0, y + 2, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 2, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 36398,
+    "end": 36472,
+    "old": "world.setBlock(x + 8, y + 2, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 2, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 36645,
+    "end": 36720,
+    "old": "world.setBlock(x + 1, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 36723,
+    "end": 36798,
+    "old": "world.setBlock(x + 2, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 36801,
+    "end": 36876,
+    "old": "world.setBlock(x + 3, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 36879,
+    "end": 36954,
+    "old": "world.setBlock(x + 4, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 36957,
+    "end": 37032,
+    "old": "world.setBlock(x + 5, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37035,
+    "end": 37110,
+    "old": "world.setBlock(x + 6, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37113,
+    "end": 37188,
+    "old": "world.setBlock(x + 7, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37530,
+    "end": 37604,
+    "old": "world.setBlock(x + 1, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37607,
+    "end": 37681,
+    "old": "world.setBlock(x + 2, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37684,
+    "end": 37758,
+    "old": "world.setBlock(x + 3, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37761,
+    "end": 37835,
+    "old": "world.setBlock(x + 4, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37838,
+    "end": 37912,
+    "old": "world.setBlock(x + 5, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37915,
+    "end": 37989,
+    "old": "world.setBlock(x + 6, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 37992,
+    "end": 38066,
+    "old": "world.setBlock(x + 7, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 38238,
+    "end": 38312,
+    "old": "world.setBlock(x + 0, y + 3, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 39449,
+    "end": 39523,
+    "old": "world.setBlock(x + 8, y + 3, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 39526,
+    "end": 39600,
+    "old": "world.setBlock(x + 0, y + 3, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 40575,
+    "end": 40649,
+    "old": "world.setBlock(x + 8, y + 3, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 40652,
+    "end": 40726,
+    "old": "world.setBlock(x + 0, y + 3, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 41740,
+    "end": 41814,
+    "old": "world.setBlock(x + 8, y + 3, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 41817,
+    "end": 41891,
+    "old": "world.setBlock(x + 0, y + 3, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 43060,
+    "end": 43134,
+    "old": "world.setBlock(x + 8, y + 3, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 43137,
+    "end": 43211,
+    "old": "world.setBlock(x + 0, y + 3, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 44380,
+    "end": 44454,
+    "old": "world.setBlock(x + 8, y + 3, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 44457,
+    "end": 44531,
+    "old": "world.setBlock(x + 0, y + 3, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 45545,
+    "end": 45619,
+    "old": "world.setBlock(x + 8, y + 3, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 45622,
+    "end": 45696,
+    "old": "world.setBlock(x + 0, y + 3, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 46865,
+    "end": 46939,
+    "old": "world.setBlock(x + 8, y + 3, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 46942,
+    "end": 47016,
+    "old": "world.setBlock(x + 0, y + 3, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 48185,
+    "end": 48259,
+    "old": "world.setBlock(x + 8, y + 3, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 48262,
+    "end": 48336,
+    "old": "world.setBlock(x + 0, y + 3, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 3, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 49505,
+    "end": 49579,
+    "old": "world.setBlock(x + 8, y + 3, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 3, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 49752,
+    "end": 49827,
+    "old": "world.setBlock(x + 1, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 49830,
+    "end": 49905,
+    "old": "world.setBlock(x + 2, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 49908,
+    "end": 49983,
+    "old": "world.setBlock(x + 3, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 49986,
+    "end": 50061,
+    "old": "world.setBlock(x + 4, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50064,
+    "end": 50139,
+    "old": "world.setBlock(x + 5, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50142,
+    "end": 50217,
+    "old": "world.setBlock(x + 6, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50220,
+    "end": 50295,
+    "old": "world.setBlock(x + 7, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50637,
+    "end": 50711,
+    "old": "world.setBlock(x + 1, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50714,
+    "end": 50788,
+    "old": "world.setBlock(x + 2, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50791,
+    "end": 50865,
+    "old": "world.setBlock(x + 3, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50868,
+    "end": 50942,
+    "old": "world.setBlock(x + 4, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 50945,
+    "end": 51019,
+    "old": "world.setBlock(x + 5, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 51022,
+    "end": 51096,
+    "old": "world.setBlock(x + 6, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 51099,
+    "end": 51173,
+    "old": "world.setBlock(x + 7, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 51345,
+    "end": 51419,
+    "old": "world.setBlock(x + 0, y + 4, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 52556,
+    "end": 52630,
+    "old": "world.setBlock(x + 8, y + 4, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 52633,
+    "end": 52707,
+    "old": "world.setBlock(x + 0, y + 4, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 53844,
+    "end": 53918,
+    "old": "world.setBlock(x + 8, y + 4, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 53921,
+    "end": 53995,
+    "old": "world.setBlock(x + 0, y + 4, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 55138,
+    "end": 55212,
+    "old": "world.setBlock(x + 8, y + 4, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 55215,
+    "end": 55289,
+    "old": "world.setBlock(x + 0, y + 4, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 56325,
+    "end": 56399,
+    "old": "world.setBlock(x + 8, y + 4, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 56402,
+    "end": 56476,
+    "old": "world.setBlock(x + 0, y + 4, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 58471,
+    "end": 58545,
+    "old": "world.setBlock(x + 8, y + 4, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 58548,
+    "end": 58622,
+    "old": "world.setBlock(x + 0, y + 4, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 59664,
+    "end": 59738,
+    "old": "world.setBlock(x + 8, y + 4, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 59741,
+    "end": 59815,
+    "old": "world.setBlock(x + 0, y + 4, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 60851,
+    "end": 60925,
+    "old": "world.setBlock(x + 8, y + 4, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 60928,
+    "end": 61002,
+    "old": "world.setBlock(x + 0, y + 4, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 62038,
+    "end": 62112,
+    "old": "world.setBlock(x + 8, y + 4, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 62115,
+    "end": 62189,
+    "old": "world.setBlock(x + 0, y + 4, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 4, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63362,
+    "end": 63436,
+    "old": "world.setBlock(x + 8, y + 4, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 4, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63609,
+    "end": 63684,
+    "old": "world.setBlock(x + 1, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63687,
+    "end": 63762,
+    "old": "world.setBlock(x + 2, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63765,
+    "end": 63840,
+    "old": "world.setBlock(x + 3, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63843,
+    "end": 63918,
+    "old": "world.setBlock(x + 4, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63921,
+    "end": 63996,
+    "old": "world.setBlock(x + 5, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 63999,
+    "end": 64074,
+    "old": "world.setBlock(x + 6, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64077,
+    "end": 64152,
+    "old": "world.setBlock(x + 7, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64494,
+    "end": 64568,
+    "old": "world.setBlock(x + 1, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64571,
+    "end": 64645,
+    "old": "world.setBlock(x + 2, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64648,
+    "end": 64722,
+    "old": "world.setBlock(x + 3, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64725,
+    "end": 64799,
+    "old": "world.setBlock(x + 4, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64802,
+    "end": 64876,
+    "old": "world.setBlock(x + 5, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64879,
+    "end": 64953,
+    "old": "world.setBlock(x + 6, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 64956,
+    "end": 65030,
+    "old": "world.setBlock(x + 7, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 65202,
+    "end": 65276,
+    "old": "world.setBlock(x + 0, y + 5, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 66445,
+    "end": 66519,
+    "old": "world.setBlock(x + 8, y + 5, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 66522,
+    "end": 66596,
+    "old": "world.setBlock(x + 0, y + 5, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 67765,
+    "end": 67839,
+    "old": "world.setBlock(x + 8, y + 5, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 67842,
+    "end": 67916,
+    "old": "world.setBlock(x + 0, y + 5, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 68930,
+    "end": 69004,
+    "old": "world.setBlock(x + 8, y + 5, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 69007,
+    "end": 69081,
+    "old": "world.setBlock(x + 0, y + 5, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 70149,
+    "end": 70223,
+    "old": "world.setBlock(x + 8, y + 5, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 70226,
+    "end": 70300,
+    "old": "world.setBlock(x + 0, y + 5, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 71477,
+    "end": 71551,
+    "old": "world.setBlock(x + 8, y + 5, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 71554,
+    "end": 71628,
+    "old": "world.setBlock(x + 0, y + 5, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 72541,
+    "end": 72615,
+    "old": "world.setBlock(x + 8, y + 5, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 72618,
+    "end": 72692,
+    "old": "world.setBlock(x + 0, y + 5, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 73905,
+    "end": 73979,
+    "old": "world.setBlock(x + 8, y + 5, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 73982,
+    "end": 74056,
+    "old": "world.setBlock(x + 0, y + 5, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 75092,
+    "end": 75166,
+    "old": "world.setBlock(x + 8, y + 5, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 75169,
+    "end": 75243,
+    "old": "world.setBlock(x + 0, y + 5, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 5, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76186,
+    "end": 76260,
+    "old": "world.setBlock(x + 8, y + 5, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 5, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76433,
+    "end": 76508,
+    "old": "world.setBlock(x + 1, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76511,
+    "end": 76586,
+    "old": "world.setBlock(x + 2, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76589,
+    "end": 76664,
+    "old": "world.setBlock(x + 3, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76667,
+    "end": 76742,
+    "old": "world.setBlock(x + 4, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76745,
+    "end": 76820,
+    "old": "world.setBlock(x + 5, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76823,
+    "end": 76898,
+    "old": "world.setBlock(x + 6, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 76901,
+    "end": 76976,
+    "old": "world.setBlock(x + 7, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77318,
+    "end": 77392,
+    "old": "world.setBlock(x + 1, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77395,
+    "end": 77469,
+    "old": "world.setBlock(x + 2, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77472,
+    "end": 77546,
+    "old": "world.setBlock(x + 3, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77549,
+    "end": 77623,
+    "old": "world.setBlock(x + 4, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77626,
+    "end": 77700,
+    "old": "world.setBlock(x + 5, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77703,
+    "end": 77777,
+    "old": "world.setBlock(x + 6, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 77780,
+    "end": 77854,
+    "old": "world.setBlock(x + 7, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 78026,
+    "end": 78100,
+    "old": "world.setBlock(x + 0, y + 6, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 79273,
+    "end": 79347,
+    "old": "world.setBlock(x + 8, y + 6, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 79350,
+    "end": 79424,
+    "old": "world.setBlock(x + 0, y + 6, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 80460,
+    "end": 80534,
+    "old": "world.setBlock(x + 8, y + 6, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 80537,
+    "end": 80611,
+    "old": "world.setBlock(x + 0, y + 6, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 81653,
+    "end": 81727,
+    "old": "world.setBlock(x + 8, y + 6, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 81730,
+    "end": 81804,
+    "old": "world.setBlock(x + 0, y + 6, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 83799,
+    "end": 83873,
+    "old": "world.setBlock(x + 8, y + 6, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 83876,
+    "end": 83950,
+    "old": "world.setBlock(x + 0, y + 6, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 84986,
+    "end": 85060,
+    "old": "world.setBlock(x + 8, y + 6, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 85063,
+    "end": 85137,
+    "old": "world.setBlock(x + 0, y + 6, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 86280,
+    "end": 86354,
+    "old": "world.setBlock(x + 8, y + 6, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 86357,
+    "end": 86431,
+    "old": "world.setBlock(x + 0, y + 6, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 87568,
+    "end": 87642,
+    "old": "world.setBlock(x + 8, y + 6, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 87645,
+    "end": 87719,
+    "old": "world.setBlock(x + 0, y + 6, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 88856,
+    "end": 88930,
+    "old": "world.setBlock(x + 8, y + 6, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 88933,
+    "end": 89007,
+    "old": "world.setBlock(x + 0, y + 6, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 6, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90144,
+    "end": 90218,
+    "old": "world.setBlock(x + 8, y + 6, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 6, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90391,
+    "end": 90466,
+    "old": "world.setBlock(x + 1, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90469,
+    "end": 90544,
+    "old": "world.setBlock(x + 2, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90547,
+    "end": 90622,
+    "old": "world.setBlock(x + 3, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90625,
+    "end": 90700,
+    "old": "world.setBlock(x + 4, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90703,
+    "end": 90778,
+    "old": "world.setBlock(x + 5, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90781,
+    "end": 90856,
+    "old": "world.setBlock(x + 6, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 90859,
+    "end": 90934,
+    "old": "world.setBlock(x + 7, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91276,
+    "end": 91350,
+    "old": "world.setBlock(x + 1, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91353,
+    "end": 91427,
+    "old": "world.setBlock(x + 2, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91430,
+    "end": 91504,
+    "old": "world.setBlock(x + 3, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91507,
+    "end": 91581,
+    "old": "world.setBlock(x + 4, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91584,
+    "end": 91658,
+    "old": "world.setBlock(x + 5, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91661,
+    "end": 91735,
+    "old": "world.setBlock(x + 6, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91738,
+    "end": 91812,
+    "old": "world.setBlock(x + 7, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 91984,
+    "end": 92058,
+    "old": "world.setBlock(x + 0, y + 7, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 93001,
+    "end": 93075,
+    "old": "world.setBlock(x + 8, y + 7, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 93078,
+    "end": 93152,
+    "old": "world.setBlock(x + 0, y + 7, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 94188,
+    "end": 94262,
+    "old": "world.setBlock(x + 8, y + 7, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 94265,
+    "end": 94339,
+    "old": "world.setBlock(x + 0, y + 7, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 95381,
+    "end": 95455,
+    "old": "world.setBlock(x + 8, y + 7, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 95458,
+    "end": 95532,
+    "old": "world.setBlock(x + 0, y + 7, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 96677,
+    "end": 96751,
+    "old": "world.setBlock(x + 8, y + 7, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 96754,
+    "end": 96828,
+    "old": "world.setBlock(x + 0, y + 7, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 97864,
+    "end": 97938,
+    "old": "world.setBlock(x + 8, y + 7, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 97941,
+    "end": 98015,
+    "old": "world.setBlock(x + 0, y + 7, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 99158,
+    "end": 99232,
+    "old": "world.setBlock(x + 8, y + 7, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 99235,
+    "end": 99309,
+    "old": "world.setBlock(x + 0, y + 7, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 100446,
+    "end": 100520,
+    "old": "world.setBlock(x + 8, y + 7, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 100523,
+    "end": 100597,
+    "old": "world.setBlock(x + 0, y + 7, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 101734,
+    "end": 101808,
+    "old": "world.setBlock(x + 8, y + 7, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 101811,
+    "end": 101885,
+    "old": "world.setBlock(x + 0, y + 7, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 7, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103022,
+    "end": 103096,
+    "old": "world.setBlock(x + 8, y + 7, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 7, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103269,
+    "end": 103344,
+    "old": "world.setBlock(x + 1, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103347,
+    "end": 103422,
+    "old": "world.setBlock(x + 2, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103425,
+    "end": 103500,
+    "old": "world.setBlock(x + 3, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103503,
+    "end": 103578,
+    "old": "world.setBlock(x + 4, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103581,
+    "end": 103656,
+    "old": "world.setBlock(x + 5, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103659,
+    "end": 103734,
+    "old": "world.setBlock(x + 6, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 103737,
+    "end": 103812,
+    "old": "world.setBlock(x + 7, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104154,
+    "end": 104228,
+    "old": "world.setBlock(x + 1, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104231,
+    "end": 104305,
+    "old": "world.setBlock(x + 2, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104308,
+    "end": 104382,
+    "old": "world.setBlock(x + 3, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104385,
+    "end": 104459,
+    "old": "world.setBlock(x + 4, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104462,
+    "end": 104536,
+    "old": "world.setBlock(x + 5, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104539,
+    "end": 104613,
+    "old": "world.setBlock(x + 6, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104616,
+    "end": 104690,
+    "old": "world.setBlock(x + 7, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104862,
+    "end": 104936,
+    "old": "world.setBlock(x + 0, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 104939,
+    "end": 105013,
+    "old": "world.setBlock(x + 1, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105016,
+    "end": 105090,
+    "old": "world.setBlock(x + 2, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105093,
+    "end": 105167,
+    "old": "world.setBlock(x + 3, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105170,
+    "end": 105244,
+    "old": "world.setBlock(x + 4, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105247,
+    "end": 105321,
+    "old": "world.setBlock(x + 5, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105324,
+    "end": 105398,
+    "old": "world.setBlock(x + 6, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105401,
+    "end": 105475,
+    "old": "world.setBlock(x + 7, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105478,
+    "end": 105552,
+    "old": "world.setBlock(x + 8, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105555,
+    "end": 105629,
+    "old": "world.setBlock(x + 0, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105632,
+    "end": 105706,
+    "old": "world.setBlock(x + 1, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105709,
+    "end": 105783,
+    "old": "world.setBlock(x + 2, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105786,
+    "end": 105860,
+    "old": "world.setBlock(x + 3, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105863,
+    "end": 105937,
+    "old": "world.setBlock(x + 4, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 105940,
+    "end": 106014,
+    "old": "world.setBlock(x + 5, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106017,
+    "end": 106091,
+    "old": "world.setBlock(x + 6, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106094,
+    "end": 106168,
+    "old": "world.setBlock(x + 7, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106171,
+    "end": 106245,
+    "old": "world.setBlock(x + 8, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106248,
+    "end": 106322,
+    "old": "world.setBlock(x + 0, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106325,
+    "end": 106399,
+    "old": "world.setBlock(x + 1, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106402,
+    "end": 106476,
+    "old": "world.setBlock(x + 2, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106479,
+    "end": 106553,
+    "old": "world.setBlock(x + 3, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106556,
+    "end": 106630,
+    "old": "world.setBlock(x + 4, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106633,
+    "end": 106707,
+    "old": "world.setBlock(x + 5, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106710,
+    "end": 106784,
+    "old": "world.setBlock(x + 6, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106787,
+    "end": 106861,
+    "old": "world.setBlock(x + 7, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106864,
+    "end": 106938,
+    "old": "world.setBlock(x + 8, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 106941,
+    "end": 107015,
+    "old": "world.setBlock(x + 0, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107018,
+    "end": 107092,
+    "old": "world.setBlock(x + 1, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107095,
+    "end": 107169,
+    "old": "world.setBlock(x + 2, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107172,
+    "end": 107246,
+    "old": "world.setBlock(x + 3, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107249,
+    "end": 107323,
+    "old": "world.setBlock(x + 4, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107326,
+    "end": 107400,
+    "old": "world.setBlock(x + 5, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107403,
+    "end": 107477,
+    "old": "world.setBlock(x + 6, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107480,
+    "end": 107554,
+    "old": "world.setBlock(x + 7, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107557,
+    "end": 107631,
+    "old": "world.setBlock(x + 8, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107634,
+    "end": 107708,
+    "old": "world.setBlock(x + 0, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107711,
+    "end": 107785,
+    "old": "world.setBlock(x + 1, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107788,
+    "end": 107862,
+    "old": "world.setBlock(x + 2, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107865,
+    "end": 107939,
+    "old": "world.setBlock(x + 3, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 107942,
+    "end": 108016,
+    "old": "world.setBlock(x + 4, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108019,
+    "end": 108093,
+    "old": "world.setBlock(x + 5, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108096,
+    "end": 108170,
+    "old": "world.setBlock(x + 6, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108173,
+    "end": 108247,
+    "old": "world.setBlock(x + 7, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108250,
+    "end": 108324,
+    "old": "world.setBlock(x + 8, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108327,
+    "end": 108401,
+    "old": "world.setBlock(x + 0, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108404,
+    "end": 108478,
+    "old": "world.setBlock(x + 1, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108481,
+    "end": 108555,
+    "old": "world.setBlock(x + 2, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108558,
+    "end": 108632,
+    "old": "world.setBlock(x + 3, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108635,
+    "end": 108709,
+    "old": "world.setBlock(x + 4, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108712,
+    "end": 108786,
+    "old": "world.setBlock(x + 5, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108789,
+    "end": 108863,
+    "old": "world.setBlock(x + 6, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108866,
+    "end": 108940,
+    "old": "world.setBlock(x + 7, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 108943,
+    "end": 109017,
+    "old": "world.setBlock(x + 8, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109020,
+    "end": 109094,
+    "old": "world.setBlock(x + 0, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109097,
+    "end": 109171,
+    "old": "world.setBlock(x + 1, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109174,
+    "end": 109248,
+    "old": "world.setBlock(x + 2, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109251,
+    "end": 109325,
+    "old": "world.setBlock(x + 3, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109328,
+    "end": 109402,
+    "old": "world.setBlock(x + 4, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109405,
+    "end": 109479,
+    "old": "world.setBlock(x + 5, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109482,
+    "end": 109556,
+    "old": "world.setBlock(x + 6, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109559,
+    "end": 109633,
+    "old": "world.setBlock(x + 7, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109636,
+    "end": 109710,
+    "old": "world.setBlock(x + 8, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109713,
+    "end": 109787,
+    "old": "world.setBlock(x + 0, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109790,
+    "end": 109864,
+    "old": "world.setBlock(x + 1, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109867,
+    "end": 109941,
+    "old": "world.setBlock(x + 2, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 109944,
+    "end": 110018,
+    "old": "world.setBlock(x + 3, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110021,
+    "end": 110095,
+    "old": "world.setBlock(x + 4, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110098,
+    "end": 110172,
+    "old": "world.setBlock(x + 5, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110175,
+    "end": 110249,
+    "old": "world.setBlock(x + 6, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110252,
+    "end": 110326,
+    "old": "world.setBlock(x + 7, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110329,
+    "end": 110403,
+    "old": "world.setBlock(x + 8, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110406,
+    "end": 110480,
+    "old": "world.setBlock(x + 0, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 0, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110483,
+    "end": 110557,
+    "old": "world.setBlock(x + 1, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110560,
+    "end": 110634,
+    "old": "world.setBlock(x + 2, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110637,
+    "end": 110711,
+    "old": "world.setBlock(x + 3, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110714,
+    "end": 110788,
+    "old": "world.setBlock(x + 4, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110791,
+    "end": 110865,
+    "old": "world.setBlock(x + 5, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110868,
+    "end": 110942,
+    "old": "world.setBlock(x + 6, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 110945,
+    "end": 111019,
+    "old": "world.setBlock(x + 7, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111022,
+    "end": 111096,
+    "old": "world.setBlock(x + 8, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 8, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111269,
+    "end": 111344,
+    "old": "world.setBlock(x + 1, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 1, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111347,
+    "end": 111422,
+    "old": "world.setBlock(x + 2, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 2, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111425,
+    "end": 111500,
+    "old": "world.setBlock(x + 3, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 3, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111503,
+    "end": 111578,
+    "old": "world.setBlock(x + 4, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 4, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111581,
+    "end": 111656,
+    "old": "world.setBlock(x + 5, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 5, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111659,
+    "end": 111734,
+    "old": "world.setBlock(x + 6, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 6, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "start": 111737,
+    "end": 111812,
+    "old": "world.setBlock(x + 7, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);",
+    "new": "placeStoneBrick(world, x + 7, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "old": "    private static void fillDungeonChest(",
+    "new": "    /** Native boundary for this dungeon's audited vanilla stone-brick variants. */\n    private static void placeStoneBrick(World world, int x, int y, int z,\n            net.minecraft.block.BlockStoneBrick brick, int metadata) {\n        if(world == null) throw new NullPointerException();\n        if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {\n            world.setBlockState(new BlockPos(x, y, z), brick.getStateFromMeta(metadata), 3);\n        }\n    }\n\n    private static void fillDungeonChest("
+  }
+]

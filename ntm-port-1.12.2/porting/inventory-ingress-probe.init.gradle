@@ -1,0 +1,16 @@
+// Prepared only: extracted production setters, real native ItemStack, no sourceSet changes.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortInventoryIngress', Exec) {
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                def javacName = System.getProperty('os.name').toLowerCase().contains('windows') ? 'javac.exe' : 'javac'
+                if (!new File(javaHome, 'bin/' + javacName).isFile()) javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    project.file('porting/tests/inventory-ingress-native-test.py'),
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

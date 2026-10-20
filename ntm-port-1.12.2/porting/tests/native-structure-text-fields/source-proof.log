@@ -1,0 +1,3 @@
+REJECTED real-javac widget escape control
+REJECTED real-javac widget responder control
+PASS five exact constructor insertions, whole-file inverse, 62-site before/after AST inventory, five private fields/34 references without escape or responder, seven existing native IDs and prior50 sites unchanged.

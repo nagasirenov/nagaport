@@ -109,6 +109,6 @@ public class ContainerMachineCyclotron extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return cyclotron.isUseableByPlayer(player);
+		return cyclotron.isUsableByPlayer(player);
 	}
 }

@@ -26,7 +26,7 @@ public class MissileTab extends CreativeTabs {
 			return ModItems.missile_nuclear;
 		}
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 	
 	@Override

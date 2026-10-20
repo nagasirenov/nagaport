@@ -45,7 +45,7 @@ public class ArmorHat extends ArmorModel implements IAttackHandler, IDamageHandl
 			return;
 		
 		if(event.ammount <= 2F) {
-			event.entityLiving.worldObj.playSoundAtEntity(event.entityLiving, "random.break", 5F, 1.0F + event.entityLiving.getRNG().nextFloat() * 0.5F);
+			event.getEntityLiving().world.playSoundAtEntity(event.getEntityLiving(), "random.break", 5F, 1.0F + event.getEntityLiving().getRNG().nextFloat() * 0.5F);
 			event.setCanceled(true);
 		}
 	}

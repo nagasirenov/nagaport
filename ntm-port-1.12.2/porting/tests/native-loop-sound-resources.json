@@ -1,0 +1,1735 @@
+{
+  "events": [
+    "alarm.airRaid",
+    "alarm.amsSiren",
+    "alarm.apcLoop",
+    "alarm.apcPass",
+    "alarm.autopilot",
+    "alarm.bankAlarm",
+    "alarm.beepSiren",
+    "alarm.blastDoorAlarm",
+    "alarm.classic",
+    "alarm.containerAlarm",
+    "alarm.ducc",
+    "alarm.easAlarm",
+    "alarm.foKlaxonA",
+    "alarm.foKlaxonB",
+    "alarm.hatch",
+    "alarm.klaxon",
+    "alarm.mama",
+    "alarm.nostromoSiren",
+    "alarm.razortrainHorn",
+    "alarm.regularSiren",
+    "alarm.striderSiren",
+    "alarm.sweepSiren",
+    "block.boiler",
+    "block.broadcast1",
+    "block.broadcast2",
+    "block.broadcast3",
+    "block.centrifugeOperate",
+    "block.chemicalPlant",
+    "block.chungusTurbineRunning",
+    "block.dysonBeam",
+    "block.electricHum",
+    "block.engine",
+    "block.fel",
+    "block.fensuHum",
+    "block.fusionReactorRunning",
+    "block.hephaestusRunning",
+    "block.igeneratorOperate",
+    "block.largeTurbineRunning",
+    "block.motor",
+    "block.pyroOperate",
+    "block.reactorLoop",
+    "block.soyuzReady",
+    "block.turbinegasRunning",
+    "block.turbofanOperate",
+    "door.alarm6",
+    "door.garage_move",
+    "door.qe_sliding_opening",
+    "door.sliding_door_opening",
+    "door.wghStart",
+    "door.wgh_big_start",
+    "door.wgh_start",
+    "entity.bomberLoop",
+    "entity.bomberSmallLoop",
+    "entity.chopperCrashingLoop",
+    "entity.chopperFlyingLoop",
+    "entity.chopperMineLoop",
+    "entity.jetloopbomb",
+    "entity.meteoriteFallingLoop",
+    "entity.rocketFlyHeavy",
+    "entity.rocketFlyLight",
+    "entity.rocketIgnition",
+    "entity.rocketStage",
+    "misc.htrloop",
+    "misc.lpwloop",
+    "misc.stationhum",
+    "player.plss_breathing",
+    "weapon.fire.flameLoop",
+    "weapon.fire.lockon",
+    "weapon.fire.tauLoop"
+  ],
+  "call_sites": [
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "expression": "\"hbm:misc.stationhum\"",
+      "resource": "hbm:misc.stationhum",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "expression": "new ResourceLocation(\"hbm:entity.chopperFlyingLoop\")",
+      "resource": "hbm:entity.chopperFlyingLoop",
+      "kind": "moving loop"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "expression": "new ResourceLocation(\"hbm:entity.chopperCrashingLoop\")",
+      "resource": "hbm:entity.chopperCrashingLoop",
+      "kind": "moving loop"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "expression": "new ResourceLocation(\"hbm:entity.chopperMineLoop\")",
+      "resource": "hbm:entity.chopperMineLoop",
+      "kind": "moving loop"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModOxy.java",
+      "expression": "\"hbm:player.plss_breathing\"",
+      "resource": "hbm:player.plss_breathing",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "expression": "\"hbm:weapon.fire.flameLoop\"",
+      "resource": "hbm:weapon.fire.flameLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "expression": "\"hbm:weapon.fire.lockon\"",
+      "resource": "hbm:weapon.fire.lockon",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "expression": "\"hbm:weapon.fire.flameLoop\"",
+      "resource": "hbm:weapon.fire.flameLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "expression": "\"hbm:weapon.fire.tauLoop\"",
+      "resource": "hbm:weapon.fire.tauLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "expression": "electric ? \"hbm:block.largeTurbineRunning\" : \"hbm:block.engine\"",
+      "resource": "hbm:block.largeTurbineRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "expression": "electric ? \"hbm:block.largeTurbineRunning\" : \"hbm:block.engine\"",
+      "resource": "hbm:block.engine",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "expression": "\"hbm:entity.rocketIgnition\"",
+      "resource": "hbm:entity.rocketIgnition",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "expression": "\"hbm:entity.rocketStage\"",
+      "resource": "hbm:entity.rocketStage",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "expression": "\"hbm:entity.rocketStage\"",
+      "resource": "hbm:entity.rocketStage",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityC130.java",
+      "expression": "\"hbm:entity.bomberLoop\"",
+      "resource": "hbm:entity.bomberLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "expression": "\"hbm:entity.jetloopbomb\"",
+      "resource": "hbm:entity.jetloopbomb",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "expression": "bomberType <= 4 ? \"hbm:entity.bomberSmallLoop\" : \"hbm:entity.bomberLoop\"",
+      "resource": "hbm:entity.bomberSmallLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "expression": "bomberType <= 4 ? \"hbm:entity.bomberSmallLoop\" : \"hbm:entity.bomberLoop\"",
+      "resource": "hbm:entity.bomberLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityMeteor.java",
+      "expression": "\"hbm:entity.meteoriteFallingLoop\"",
+      "resource": "hbm:entity.meteoriteFallingLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java",
+      "expression": "\"hbm:door.wgh_start\"",
+      "resource": "hbm:door.wgh_start",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java",
+      "expression": "\"hbm:door.garage_move\"",
+      "resource": "hbm:door.garage_move",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIntake.java",
+      "expression": "\"hbm:block.motor\"",
+      "resource": "hbm:block.motor",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterElectric.java",
+      "expression": "\"hbm:block.electricHum\"",
+      "resource": "hbm:block.electricHum",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java",
+      "expression": "\"hbm:block.chungusTurbineRunning\"",
+      "resource": "hbm:block.chungusTurbineRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java",
+      "expression": "\"hbm:block.chemicalPlant\"",
+      "resource": "hbm:block.chemicalPlant",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      "expression": "\"hbm:misc.htrloop\"",
+      "resource": "hbm:misc.htrloop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      "expression": "\"hbm:misc.lpwloop\"",
+      "resource": "hbm:misc.lpwloop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+      "expression": "\"hbm:block.soyuzReady\"",
+      "resource": "hbm:block.soyuzReady",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java",
+      "expression": "\"hbm:block.fusionReactorRunning\"",
+      "resource": "hbm:block.fusionReactorRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      "expression": "\"hbm:block.chemicalPlant\"",
+      "resource": "hbm:block.chemicalPlant",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      "expression": "\"hbm:door.wgh_start\"",
+      "resource": "hbm:door.wgh_start",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      "expression": "\"hbm:block.electricHum\"",
+      "resource": "hbm:block.electricHum",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java",
+      "expression": "\"hbm:block.motor\"",
+      "resource": "hbm:block.motor",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java",
+      "expression": "\"hbm:block.centrifugeOperate\"",
+      "resource": "hbm:block.centrifugeOperate",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      "expression": "\"hbm:misc.lpwloop\"",
+      "resource": "hbm:misc.lpwloop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+      "expression": "\"hbm:misc.htrloop\"",
+      "resource": "hbm:misc.htrloop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java",
+      "expression": "\"hbm:block.dysonBeam\"",
+      "resource": "hbm:block.dysonBeam",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java",
+      "expression": "\"hbm:block.motor\"",
+      "resource": "hbm:block.motor",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java",
+      "expression": "\"hbm:block.largeTurbineRunning\"",
+      "resource": "hbm:block.largeTurbineRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java",
+      "expression": "\"hbm:block.engine\"",
+      "resource": "hbm:block.engine",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java",
+      "expression": "\"hbm:block.reactorLoop\"",
+      "resource": "hbm:block.reactorLoop",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java",
+      "expression": "\"hbm:block.turbinegasRunning\"",
+      "resource": "hbm:block.turbinegasRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java",
+      "expression": "\"hbm:block.turbinegasRunning\"",
+      "resource": "hbm:block.turbinegasRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java",
+      "expression": "\"hbm:block.boiler\"",
+      "resource": "hbm:block.boiler",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      "expression": "\"hbm:block.turbofanOperate\"",
+      "resource": "hbm:block.turbofanOperate",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoilerIndustrial.java",
+      "expression": "\"hbm:block.boiler\"",
+      "resource": "hbm:block.boiler",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      "expression": "\"hbm:block.motor\"",
+      "resource": "hbm:block.motor",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java",
+      "expression": "\"hbm:block.igeneratorOperate\"",
+      "resource": "hbm:block.igeneratorOperate",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+      "expression": "\"hbm:block.fel\"",
+      "resource": "hbm:block.fel",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java",
+      "expression": "\"hbm:block.centrifugeOperate\"",
+      "resource": "hbm:block.centrifugeOperate",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java",
+      "expression": "\"hbm:block.motor\"",
+      "resource": "hbm:block.motor",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHephaestus.java",
+      "expression": "\"hbm:block.hephaestusRunning\"",
+      "resource": "hbm:block.hephaestusRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java",
+      "expression": "\"hbm:block.largeTurbineRunning\"",
+      "resource": "hbm:block.largeTurbineRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java",
+      "expression": "\"hbm:block.fensuHum\"",
+      "resource": "hbm:block.fensuHum",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java",
+      "expression": "\"hbm:block.fusionReactorRunning\"",
+      "resource": "hbm:block.fusionReactorRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java",
+      "expression": "\"hbm:block.fel\"",
+      "resource": "hbm:block.fel",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystronCreative.java",
+      "expression": "\"hbm:block.fel\"",
+      "resource": "hbm:block.fel",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java",
+      "expression": "\"hbm:block.largeTurbineRunning\"",
+      "resource": "hbm:block.largeTurbineRunning",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java",
+      "expression": "\"hbm:door.wgh_start\"",
+      "resource": "hbm:door.wgh_start",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java",
+      "expression": "\"hbm:block.boiler\"",
+      "resource": "hbm:block.boiler",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+      "expression": "\"hbm:block.pyroOperate\"",
+      "resource": "hbm:block.pyroOperate",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java",
+      "expression": "\"hbm:block.boiler\"",
+      "resource": "hbm:block.boiler",
+      "kind": "direct loop first argument"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "expression": "String rocketAudio = getRocket().stages.size() <= 1 ? \"hbm:entity.rocketFlyLight\" : \"hbm:entity.rocketFlyHeavy\"",
+      "resource": "hbm:entity.rocketFlyLight",
+      "kind": "rocket dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "expression": "String rocketAudio = getRocket().stages.size() <= 1 ? \"hbm:entity.rocketFlyLight\" : \"hbm:entity.rocketFlyHeavy\"",
+      "resource": "hbm:entity.rocketFlyHeavy",
+      "kind": "rocket dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.wghStart\"; }",
+      "resource": "hbm:door.wghStart",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getSoundLoop2() { return \"hbm:door.alarm6\"; }",
+      "resource": "hbm:door.alarm6",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.sliding_door_opening\"; }",
+      "resource": "hbm:door.sliding_door_opening",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getSoundLoop2() { return \"hbm:door.sliding_door_opening\"; }",
+      "resource": "hbm:door.sliding_door_opening",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getCloseSoundLoop() { return \"hbm:door.garage_move\"; }",
+      "resource": "hbm:door.garage_move",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.garage_move\"; }",
+      "resource": "hbm:door.garage_move",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.garage_move\"; }",
+      "resource": "hbm:door.garage_move",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.qe_sliding_opening\"; };",
+      "resource": "hbm:door.qe_sliding_opening",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.wgh_start\"; };",
+      "resource": "hbm:door.wgh_start",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.wgh_big_start\"; };",
+      "resource": "hbm:door.wgh_big_start",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.wgh_big_start\"; };",
+      "resource": "hbm:door.wgh_big_start",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.wgh_big_start\"; };",
+      "resource": "hbm:door.wgh_big_start",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "expression": "getOpenSoundLoop() { return \"hbm:door.garage_move\"; };",
+      "resource": "hbm:door.garage_move",
+      "kind": "door dynamic selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.hatch\")",
+      "resource": "hbm:alarm.hatch",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.autopilot\")",
+      "resource": "hbm:alarm.autopilot",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.amsSiren\")",
+      "resource": "hbm:alarm.amsSiren",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.blastDoorAlarm\")",
+      "resource": "hbm:alarm.blastDoorAlarm",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.apcLoop\")",
+      "resource": "hbm:alarm.apcLoop",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.klaxon\")",
+      "resource": "hbm:alarm.klaxon",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.foKlaxonA\")",
+      "resource": "hbm:alarm.foKlaxonA",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.foKlaxonB\")",
+      "resource": "hbm:alarm.foKlaxonB",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.regularSiren\")",
+      "resource": "hbm:alarm.regularSiren",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.classic\")",
+      "resource": "hbm:alarm.classic",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.bankAlarm\")",
+      "resource": "hbm:alarm.bankAlarm",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.beepSiren\")",
+      "resource": "hbm:alarm.beepSiren",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.containerAlarm\")",
+      "resource": "hbm:alarm.containerAlarm",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.sweepSiren\")",
+      "resource": "hbm:alarm.sweepSiren",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.striderSiren\")",
+      "resource": "hbm:alarm.striderSiren",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.airRaid\")",
+      "resource": "hbm:alarm.airRaid",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.nostromoSiren\")",
+      "resource": "hbm:alarm.nostromoSiren",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.easAlarm\")",
+      "resource": "hbm:alarm.easAlarm",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.apcPass\")",
+      "resource": "hbm:alarm.apcPass",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.razortrainHorn\")",
+      "resource": "hbm:alarm.razortrainHorn",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.ducc\")",
+      "resource": "hbm:alarm.ducc",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemCassette.java",
+      "expression": "new ResourceLocation(\"hbm:alarm.mama\")",
+      "resource": "hbm:alarm.mama",
+      "kind": "siren track selector"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityBroadcaster.java",
+      "expression": "\"hbm:block.broadcast\" + (rand.nextInt(3) + 1)",
+      "resource": "hbm:block.broadcast1",
+      "kind": "bounded random selector 1..3"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityBroadcaster.java",
+      "expression": "\"hbm:block.broadcast\" + (rand.nextInt(3) + 1)",
+      "resource": "hbm:block.broadcast2",
+      "kind": "bounded random selector 1..3"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityBroadcaster.java",
+      "expression": "\"hbm:block.broadcast\" + (rand.nextInt(3) + 1)",
+      "resource": "hbm:block.broadcast3",
+      "kind": "bounded random selector 1..3"
+    }
+  ],
+  "original_missing_events": [],
+  "samples": [
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/airraid.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/airRaid.ogg",
+      "events": [
+        "alarm.airRaid"
+      ],
+      "sha256": "a6a482ac12b546ffa60f8c4746bcfc7ab2b98c4638f1229f5e3ddbabd7e81267"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/amssiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/amsSiren.ogg",
+      "events": [
+        "alarm.amsSiren"
+      ],
+      "sha256": "fd241d36e3fff399cb821bdf453295459e2b3926cf0e721d84b4e9f1196db19a"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/apcloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/apcLoop.ogg",
+      "events": [
+        "alarm.apcLoop"
+      ],
+      "sha256": "1a5faf41ef058b3fa447ae9b1456c05e148e45fe7d9b111a972fe5e2bd8e69b8"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/apcpass.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/apcPass.ogg",
+      "events": [
+        "alarm.apcPass"
+      ],
+      "sha256": "7d1888e2626b0c5faad49d18c223818c5531a387817326b69b8239538cd6a7b2"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/boeing707autopilotdisconnected.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/boeing707AutopilotDisconnected.ogg",
+      "events": [
+        "alarm.autopilot"
+      ],
+      "sha256": "1d187a26d966c0fa6c79c88764d0a6c70547d93d70f31d52b400c495678653a5"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/bankalarm.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/bankAlarm.ogg",
+      "events": [
+        "alarm.bankAlarm"
+      ],
+      "sha256": "8961c70c145547f211bae4f7ead38976ec8af1d37b8bb60dcde7e07a3cbd54b8"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/beepsiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/beepSiren.ogg",
+      "events": [
+        "alarm.beepSiren"
+      ],
+      "sha256": "d5b43f381bd08881008c29a6247dd63aa22fe551945df9a95794a43f4d0ce084"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/blastdooralarm.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/blastDoorAlarm.ogg",
+      "events": [
+        "alarm.blastDoorAlarm"
+      ],
+      "sha256": "0f794184780152ec9e8646e7e95d9e503825b59127aa6653ba14da78512df4d3"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/classicsiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/classicSiren.ogg",
+      "events": [
+        "alarm.classic"
+      ],
+      "sha256": "9a299ecdd2f232d6dd2c8a2f2f4b07b16684d0ba94793b7150f07b5cc6343ee4"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/containeralarm.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/containerAlarm.ogg",
+      "events": [
+        "alarm.containerAlarm"
+      ],
+      "sha256": "25cae31298ac5b6a7a73ba3f1fc12b75a9db7eb0113cf96d9f27c7425fb75d4b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/ducc.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/ducc.ogg",
+      "events": [
+        "alarm.ducc"
+      ],
+      "sha256": "195755328222744e941ebcbaae9fa7135a23c3780d4e2c531bd0e9656adba76c"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/easalarm.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/easAlarm.ogg",
+      "events": [
+        "alarm.easAlarm"
+      ],
+      "sha256": "32d276a4a874a35f0e2b2f7172b475c0d198d088b42175018da406e249c423b9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/foklaxona.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/foKlaxonA.ogg",
+      "events": [
+        "alarm.foKlaxonA"
+      ],
+      "sha256": "5a62ce76c589eebb14c38ea494d3d9cd39be157adc43f7bcaa017f96a6823799"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/foklaxonb.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/foKlaxonB.ogg",
+      "events": [
+        "alarm.foKlaxonB"
+      ],
+      "sha256": "61cac318b99ee3f0c5689c5a0be276f9b4ae6d561db5f0f0f6ba5d50ab79de87"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/lpfhaiwg.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/lpfhaiwg.ogg",
+      "events": [
+        "alarm.hatch"
+      ],
+      "sha256": "4ff1d7c41b275420f21364c2f8434b29183f2f837afb22889cd18683bfa084df"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/klaxon.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/klaxon.ogg",
+      "events": [
+        "alarm.klaxon"
+      ],
+      "sha256": "c12a2f7e5c444b56b962eacc4045bddfd8e6b26c378637a7bc082e4193a8517c"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/mama.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/mama.ogg",
+      "events": [
+        "alarm.mama"
+      ],
+      "sha256": "b0f4babcc9dc5d1a0c9352d431093e8a93176400646cb40020babb212b870caa"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/nostromosiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/nostromoSiren.ogg",
+      "events": [
+        "alarm.nostromoSiren"
+      ],
+      "sha256": "32657000c3c4f6078580683beab009ffbcdcee1f65b92039f2073388edf4111c"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/razortrainhorn.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/razortrainHorn.ogg",
+      "events": [
+        "alarm.razortrainHorn"
+      ],
+      "sha256": "4168c2f8da4cb00c6d303124f7926613faee745205121e87bf514cf85bdb4941"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/regularsiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/regularSiren.ogg",
+      "events": [
+        "alarm.regularSiren"
+      ],
+      "sha256": "9e9725cfb487dc729e5149dbebc63538bbd29076b5a5493d3dd333d6e1543dbf"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/stridersiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/striderSiren.ogg",
+      "events": [
+        "alarm.striderSiren"
+      ],
+      "sha256": "0b2c379cfe1d8f77d93ba89d2eaa54acc49bdb4fc92f098342d982e1c6e6ace9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/alarm/sweepsiren.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/alarm/sweepSiren.ogg",
+      "events": [
+        "alarm.sweepSiren"
+      ],
+      "sha256": "d06a48b363f08dd1302bffa183796885c43387415c216ac5029f604fd66956ab"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/boiler.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/boiler.ogg",
+      "events": [
+        "block.boiler"
+      ],
+      "sha256": "784634e7bc29e31850ae93f9bcc95070e6b66793bd4bef9485893e5b5c10eb11"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/broadcast1.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/broadcast1.ogg",
+      "events": [
+        "block.broadcast1"
+      ],
+      "sha256": "e2f2f4f2b036cd432eab05ac90890ff4136676faff263350aba5176acd44e991"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/broadcast2.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/broadcast2.ogg",
+      "events": [
+        "block.broadcast2"
+      ],
+      "sha256": "58a45f72e7d54811c3705e295513510bbc204c2dbbafcf955a9a18f36136bd59"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/broadcast3.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/broadcast3.ogg",
+      "events": [
+        "block.broadcast3"
+      ],
+      "sha256": "39c44162acd1f34179f601eea2b2033a4a2f74267b0104a858e79282200cdda2"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/centrifugeoperate.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/centrifugeOperate.ogg",
+      "events": [
+        "block.centrifugeOperate"
+      ],
+      "sha256": "00a11c52857d206ddcb06fbf9a1df76a1696825205ca8a9a263cad3b645f701f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/chemicalplant.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/chemicalPlant.ogg",
+      "events": [
+        "block.chemicalPlant"
+      ],
+      "sha256": "8de0c2558da2af819eacd9acc779b5a973580859cb21b215da62279c033a2433"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/chungusturbine.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/chungusTurbine.ogg",
+      "events": [
+        "block.chungusTurbineRunning"
+      ],
+      "sha256": "1294966b8c9e458e22402bdb41d73fb5a8985bb1f81a925361c8b660a51791ed"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/dysonbeam.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/dysonBeam.ogg",
+      "events": [
+        "block.dysonBeam"
+      ],
+      "sha256": "c3a69369e727669017976333697e53d5773c8e54b069d82b0d652b51a6a62999"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/electrichum.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/electricHum.ogg",
+      "events": [
+        "block.electricHum"
+      ],
+      "sha256": "47f4c813a35bfe3d72a16051692aff0ddeb7dfffe61179b3500c4f595f241784"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/engine.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/engine.ogg",
+      "events": [
+        "block.engine"
+      ],
+      "sha256": "f3a7970eab8edfd9a7110476ce1eedc6d04a3847950682cf9b8bc5110a02820f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/fel.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/fel.ogg",
+      "events": [
+        "block.fel"
+      ],
+      "sha256": "895c9abcfa691777cf44384347ac4818010193a760f0318ac3995a192a7f7cbc"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/fensuhum.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/fensuHum.ogg",
+      "events": [
+        "block.fensuHum"
+      ],
+      "sha256": "e93bddeea43334392ca4cdff46304b8fe83c170adb553ed6984321f420b859e7"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/fusionreactorspin.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/fusionReactorSpin.ogg",
+      "events": [
+        "block.fusionReactorRunning"
+      ],
+      "sha256": "05f75d673233c000526f0dc954138563928cca35dcc170bf03d2b440dfab2997"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/hephaestusrunning.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/hephaestusRunning.ogg",
+      "events": [
+        "block.hephaestusRunning"
+      ],
+      "sha256": "ef093c5bdff08234606b05cdff453d78ce7bc1f63f4e75be9d18807112894afb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/igeneratoroperate.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/igeneratorOperate.ogg",
+      "events": [
+        "block.igeneratorOperate"
+      ],
+      "sha256": "7a6e82f4f73ffcfb543ba35ea9a2c444049899b44b7eeb20ca29815d14f38f37"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/largeturbine.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/largeTurbine.ogg",
+      "events": [
+        "block.largeTurbineRunning"
+      ],
+      "sha256": "1b0f754e358a5c65f75add64cd4cbf4254a08369d974c96e0da97c5ca9912882"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/motor.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/motor.ogg",
+      "events": [
+        "block.motor"
+      ],
+      "sha256": "58b985e1477f8ddacf76fe7b08be9f6b275506da39fe61a3ffa77a0a60a2720a"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/pyrooperate.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/pyroOperate.ogg",
+      "events": [
+        "block.pyroOperate"
+      ],
+      "sha256": "f4a66233b4138fa9741ea5ea899516df46a136df0300c55448fac86efe24ebd4"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/reactorloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/reactorLoop.ogg",
+      "events": [
+        "block.reactorLoop"
+      ],
+      "sha256": "e20a3b4c25f3ef5e4fed8cc46f9903d9fbe50a2609fed26de50924cf91d28fe9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/soyuzready.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/soyuzReady.ogg",
+      "events": [
+        "block.soyuzReady"
+      ],
+      "sha256": "9ec99c591f0d2c477006b33e4d865ab51049f59b4f3b2a4f67a1ecd1c6c173a6"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/turbinegasrunning.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/turbinegasRunning.ogg",
+      "events": [
+        "block.turbinegasRunning"
+      ],
+      "sha256": "0be728dda1ffe787c38f115c059c8dbfa1e33e8baeb6f848e29e64d2e477dc41"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/turbofanoperate.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/turbofanOperate.ogg",
+      "events": [
+        "block.turbofanOperate"
+      ],
+      "sha256": "f609e527082ce242d97935bcd8fa9fb7115c2345091f8cea19e5e337f8a48dd4"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/door/alarm6.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/door/alarm6.ogg",
+      "events": [
+        "door.alarm6"
+      ],
+      "sha256": "a0a1db31985069ffd784101bbd0be7ca4ac6cd139cd7bb38f6f316c7a474e843"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/door/garage_move.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/door/garage_move.ogg",
+      "events": [
+        "door.garage_move"
+      ],
+      "sha256": "5f65a51e6a39d35d7fe9a8b86c1429856a1babd35a150dfc3f4f310550bf9d60"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/door/doorslide_opening1.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/door/doorslide_opening1.ogg",
+      "events": [
+        "door.qe_sliding_opening"
+      ],
+      "sha256": "116b45cd71a86305094513e1a1ce908a6a15c460600109add2d5869b4144a4a1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/door/sliding_door_opening.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/door/sliding_door_opening.ogg",
+      "events": [
+        "door.sliding_door_opening"
+      ],
+      "sha256": "116b45cd71a86305094513e1a1ce908a6a15c460600109add2d5869b4144a4a1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/door/wgh_start.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/door/wgh_start.ogg",
+      "events": [
+        "door.wghStart",
+        "door.wgh_start"
+      ],
+      "sha256": "cd9dc680daa7388258a06b867bd17c4347f64dee08ae34a202b077ba5fe961f1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/block/door/door_wgh_big_start.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/block/door/door_wgh_big_start.ogg",
+      "events": [
+        "door.wgh_big_start"
+      ],
+      "sha256": "b1e9f6c2a044dfd73894f9c0ffd79cc981bece80a10812cc21a6c51e48aaa9b2"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/bomber1.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/bomber1.ogg",
+      "events": [
+        "entity.bomberLoop"
+      ],
+      "sha256": "323ff90a0893fb034634948303ae94dd049c11616910d47ca41ef0f0996e4bdf"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/bomber2.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/bomber2.ogg",
+      "events": [
+        "entity.bomberSmallLoop"
+      ],
+      "sha256": "9e38837cf194db34fa36ff4615feabe05d01ebf7748b4c38e9966785529eaf58"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/choppercrashingloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/chopperCrashingLoop.ogg",
+      "events": [
+        "entity.chopperCrashingLoop"
+      ],
+      "sha256": "43a157cb6bb0f5724a9f638d92604dc2e92c0183fdfcbff93f8ce2c078b2e2bb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/chopperflyingloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/chopperFlyingLoop.ogg",
+      "events": [
+        "entity.chopperFlyingLoop"
+      ],
+      "sha256": "6d65c1fdf36feffd6a139b2983c89d7847296ade43ec12b457f169811d6a6226"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/choppermineloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/chopperMineLoop.ogg",
+      "events": [
+        "entity.chopperMineLoop"
+      ],
+      "sha256": "512bc0c83dab7203c06e6868f0096b96128884b3b809e7e482dacc52fc60e4e9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/jetbomb2.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/jetbomb2.ogg",
+      "events": [
+        "entity.jetloopbomb"
+      ],
+      "sha256": "73493e4d2ebb18ec31a701e2d5d10933d123d9ff6f45c29463f4a471f254c9c0"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/meteoritefallingloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/meteoriteFallingLoop.ogg",
+      "events": [
+        "entity.meteoriteFallingLoop"
+      ],
+      "sha256": "894fd33987ef1e2267d161cde1549f15d9d040964ef7e93b8df109dd1610d84d"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/rocketflyheavy.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/rocketFlyHeavy.ogg",
+      "events": [
+        "entity.rocketFlyHeavy"
+      ],
+      "sha256": "d0c914a32b25cd51d00495d4fb09f61ff2601a49e205136db1cbc586c06e8f77"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/rocketflylight.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/rocketFlyLight.ogg",
+      "events": [
+        "entity.rocketFlyLight"
+      ],
+      "sha256": "a39236f150cd10a21d804f8a370fe92f4dd8c6b08596ec3fd1e783888f6b7d95"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/rocketignition.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/rocketIgnition.ogg",
+      "events": [
+        "entity.rocketIgnition"
+      ],
+      "sha256": "ad10cb1813cf0a09b6847f751760653b022b290e611a9889aceefb9961714044"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/entity/rocketstage.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/entity/rocketStage.ogg",
+      "events": [
+        "entity.rocketStage"
+      ],
+      "sha256": "097b0ebd3ad1e515294544aedafc5a8295b267be618e61020d0a85e051ad4346"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/misc/htrloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/misc/htrloop.ogg",
+      "events": [
+        "misc.htrloop"
+      ],
+      "sha256": "3b8290a9cdd9d1c9be865e5c7a402025b5bc21f709afeeef500a487e198471a6"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/misc/lpwloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/misc/lpwloop.ogg",
+      "events": [
+        "misc.lpwloop"
+      ],
+      "sha256": "557d82bfc335909b7fd21625bf4d5d67221e830723f2af9e82212fcfe5f03a40"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/misc/stationhum.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/misc/stationhum.ogg",
+      "events": [
+        "misc.stationhum"
+      ],
+      "sha256": "4027c46ac28a5812c0255184b7ee88c96ed036fbb792f87947d4b4eee6bc93a5"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/player/plss_breathing.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/player/plss_breathing.ogg",
+      "events": [
+        "player.plss_breathing"
+      ],
+      "sha256": "864fb03609e9c13cf244a48861ff4d8e6b8ef4d1981b59c593103dcae314eed5"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/fire/flameloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/weapon/fire/flameLoop.ogg",
+      "events": [
+        "weapon.fire.flameLoop"
+      ],
+      "sha256": "b138625e2719e780b259efe0259c7109acd18ac8684cd9643fa39233b3a519ba"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/fire/lockon.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/weapon/fire/lockon.ogg",
+      "events": [
+        "weapon.fire.lockon"
+      ],
+      "sha256": "ad004632d8198d09358d62e1b467dd411efa04b321895396031639cd5a3bd73b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/fire/tauloop.ogg",
+      "original": "src/main/resources/assets/hbm/sounds/weapon/fire/tauLoop.ogg",
+      "events": [
+        "weapon.fire.tauLoop"
+      ],
+      "sha256": "65e72e067b441baefa5b07714a5d2278e4f16aa6d16ae40fda8b9ec5bb4dd6b0"
+    }
+  ],
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/airRaid.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/airraid.ogg",
+      "sha256": "a6a482ac12b546ffa60f8c4746bcfc7ab2b98c4638f1229f5e3ddbabd7e81267"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/amsSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/amssiren.ogg",
+      "sha256": "fd241d36e3fff399cb821bdf453295459e2b3926cf0e721d84b4e9f1196db19a"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/apcLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/apcloop.ogg",
+      "sha256": "1a5faf41ef058b3fa447ae9b1456c05e148e45fe7d9b111a972fe5e2bd8e69b8"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/apcPass.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/apcpass.ogg",
+      "sha256": "7d1888e2626b0c5faad49d18c223818c5531a387817326b69b8239538cd6a7b2"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/bankAlarm.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/bankalarm.ogg",
+      "sha256": "8961c70c145547f211bae4f7ead38976ec8af1d37b8bb60dcde7e07a3cbd54b8"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/beepSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/beepsiren.ogg",
+      "sha256": "d5b43f381bd08881008c29a6247dd63aa22fe551945df9a95794a43f4d0ce084"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/blastDoorAlarm.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/blastdooralarm.ogg",
+      "sha256": "0f794184780152ec9e8646e7e95d9e503825b59127aa6653ba14da78512df4d3"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/boeing707AutopilotDisconnected.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/boeing707autopilotdisconnected.ogg",
+      "sha256": "1d187a26d966c0fa6c79c88764d0a6c70547d93d70f31d52b400c495678653a5"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/classicSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/classicsiren.ogg",
+      "sha256": "9a299ecdd2f232d6dd2c8a2f2f4b07b16684d0ba94793b7150f07b5cc6343ee4"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/containerAlarm.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/containeralarm.ogg",
+      "sha256": "25cae31298ac5b6a7a73ba3f1fc12b75a9db7eb0113cf96d9f27c7425fb75d4b"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/easAlarm.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/easalarm.ogg",
+      "sha256": "32d276a4a874a35f0e2b2f7172b475c0d198d088b42175018da406e249c423b9"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/foKlaxonA.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/foklaxona.ogg",
+      "sha256": "5a62ce76c589eebb14c38ea494d3d9cd39be157adc43f7bcaa017f96a6823799"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/foKlaxonB.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/foklaxonb.ogg",
+      "sha256": "61cac318b99ee3f0c5689c5a0be276f9b4ae6d561db5f0f0f6ba5d50ab79de87"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/nostromoSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/nostromosiren.ogg",
+      "sha256": "32657000c3c4f6078580683beab009ffbcdcee1f65b92039f2073388edf4111c"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/razortrainHorn.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/razortrainhorn.ogg",
+      "sha256": "4168c2f8da4cb00c6d303124f7926613faee745205121e87bf514cf85bdb4941"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/regularSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/regularsiren.ogg",
+      "sha256": "9e9725cfb487dc729e5149dbebc63538bbd29076b5a5493d3dd333d6e1543dbf"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/striderSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/stridersiren.ogg",
+      "sha256": "0b2c379cfe1d8f77d93ba89d2eaa54acc49bdb4fc92f098342d982e1c6e6ace9"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/alarm/sweepSiren.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/alarm/sweepsiren.ogg",
+      "sha256": "d06a48b363f08dd1302bffa183796885c43387415c216ac5029f604fd66956ab"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/centrifugeOperate.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/centrifugeoperate.ogg",
+      "sha256": "00a11c52857d206ddcb06fbf9a1df76a1696825205ca8a9a263cad3b645f701f"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/chemicalPlant.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/chemicalplant.ogg",
+      "sha256": "8de0c2558da2af819eacd9acc779b5a973580859cb21b215da62279c033a2433"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/chungusTurbine.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/chungusturbine.ogg",
+      "sha256": "1294966b8c9e458e22402bdb41d73fb5a8985bb1f81a925361c8b660a51791ed"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/dysonBeam.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/dysonbeam.ogg",
+      "sha256": "c3a69369e727669017976333697e53d5773c8e54b069d82b0d652b51a6a62999"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/electricHum.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/electrichum.ogg",
+      "sha256": "47f4c813a35bfe3d72a16051692aff0ddeb7dfffe61179b3500c4f595f241784"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/fensuHum.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/fensuhum.ogg",
+      "sha256": "e93bddeea43334392ca4cdff46304b8fe83c170adb553ed6984321f420b859e7"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/fusionReactorSpin.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/fusionreactorspin.ogg",
+      "sha256": "05f75d673233c000526f0dc954138563928cca35dcc170bf03d2b440dfab2997"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/hephaestusRunning.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/hephaestusrunning.ogg",
+      "sha256": "ef093c5bdff08234606b05cdff453d78ce7bc1f63f4e75be9d18807112894afb"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/igeneratorOperate.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/igeneratoroperate.ogg",
+      "sha256": "7a6e82f4f73ffcfb543ba35ea9a2c444049899b44b7eeb20ca29815d14f38f37"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/largeTurbine.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/largeturbine.ogg",
+      "sha256": "1b0f754e358a5c65f75add64cd4cbf4254a08369d974c96e0da97c5ca9912882"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/pyroOperate.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/pyrooperate.ogg",
+      "sha256": "f4a66233b4138fa9741ea5ea899516df46a136df0300c55448fac86efe24ebd4"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/reactorLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/reactorloop.ogg",
+      "sha256": "e20a3b4c25f3ef5e4fed8cc46f9903d9fbe50a2609fed26de50924cf91d28fe9"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/soyuzReady.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/soyuzready.ogg",
+      "sha256": "9ec99c591f0d2c477006b33e4d865ab51049f59b4f3b2a4f67a1ecd1c6c173a6"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/turbinegasRunning.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/turbinegasrunning.ogg",
+      "sha256": "0be728dda1ffe787c38f115c059c8dbfa1e33e8baeb6f848e29e64d2e477dc41"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/turbofanOperate.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/turbofanoperate.ogg",
+      "sha256": "f609e527082ce242d97935bcd8fa9fb7115c2345091f8cea19e5e337f8a48dd4"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/chopperCrashingLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/choppercrashingloop.ogg",
+      "sha256": "43a157cb6bb0f5724a9f638d92604dc2e92c0183fdfcbff93f8ce2c078b2e2bb"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/chopperFlyingLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/chopperflyingloop.ogg",
+      "sha256": "6d65c1fdf36feffd6a139b2983c89d7847296ade43ec12b457f169811d6a6226"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/chopperMineLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/choppermineloop.ogg",
+      "sha256": "512bc0c83dab7203c06e6868f0096b96128884b3b809e7e482dacc52fc60e4e9"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/meteoriteFallingLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/meteoritefallingloop.ogg",
+      "sha256": "894fd33987ef1e2267d161cde1549f15d9d040964ef7e93b8df109dd1610d84d"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/rocketFlyHeavy.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/rocketflyheavy.ogg",
+      "sha256": "d0c914a32b25cd51d00495d4fb09f61ff2601a49e205136db1cbc586c06e8f77"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/rocketFlyLight.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/rocketflylight.ogg",
+      "sha256": "a39236f150cd10a21d804f8a370fe92f4dd8c6b08596ec3fd1e783888f6b7d95"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/rocketIgnition.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/rocketignition.ogg",
+      "sha256": "ad10cb1813cf0a09b6847f751760653b022b290e611a9889aceefb9961714044"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/entity/rocketStage.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/entity/rocketstage.ogg",
+      "sha256": "097b0ebd3ad1e515294544aedafc5a8295b267be618e61020d0a85e051ad4346"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/fire/flameLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/fire/flameloop.ogg",
+      "sha256": "b138625e2719e780b259efe0259c7109acd18ac8684cd9643fa39233b3a519ba"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/fire/tauLoop.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/fire/tauloop.ogg",
+      "sha256": "65e72e067b441baefa5b07714a5d2278e4f16aa6d16ae40fda8b9ec5bb4dd6b0"
+    }
+  ],
+  "sounds_json": {
+    "path": "src/main/resources/assets/hbm/sounds.json",
+    "before_sha256": "e08310510df89b22ca9622903be821e449674a3426ecc3c7ec85ec2a3395f33b",
+    "after_sha256": "680a0f2787b0057cbbe4f1a02c9a8cc713fdb0c3664bf18b80978fc22536d4c4",
+    "replacements": [
+      {
+        "before": "\t\"alarm.airRaid\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/airRaid\", \"stream\": true}]},",
+        "after": "\t\"alarm.airRaid\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/airRaid\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"alarm.amsSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/amsSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.amsSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/amsSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.apcLoop\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/apcLoop\", \"stream\": false}]},",
+        "after": "\t\"alarm.apcLoop\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/apcLoop\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.apcPass\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/apcPass\", \"stream\": false}]},",
+        "after": "\t\"alarm.apcPass\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/apcPass\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.autopilot\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/boeing707AutopilotDisconnected\", \"stream\": false}]},",
+        "after": "\t\"alarm.autopilot\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/boeing707AutopilotDisconnected\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.bankAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/bankAlarm\", \"stream\": false}]},",
+        "after": "\t\"alarm.bankAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/bankAlarm\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.beepSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/beepSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.beepSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/beepSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.blastDoorAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/blastDoorAlarm\", \"stream\": false}]},",
+        "after": "\t\"alarm.blastDoorAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/blastDoorAlarm\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.classic\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/classicSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.classic\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/classicSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.containerAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/containerAlarm\", \"stream\": false}]},",
+        "after": "\t\"alarm.containerAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/containerAlarm\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.ducc\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/ducc\", \"stream\": false}]},",
+        "after": "\t\"alarm.ducc\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/ducc\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.easAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/easAlarm\", \"stream\": false}]},",
+        "after": "\t\"alarm.easAlarm\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/easAlarm\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.foKlaxonA\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/foKlaxonA\", \"stream\": false}]},",
+        "after": "\t\"alarm.foKlaxonA\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/foKlaxonA\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.foKlaxonB\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/foKlaxonB\", \"stream\": false}]},",
+        "after": "\t\"alarm.foKlaxonB\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/foKlaxonB\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.hatch\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/lpfhaiwg\", \"stream\": false}]},",
+        "after": "\t\"alarm.hatch\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/lpfhaiwg\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.klaxon\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/klaxon\", \"stream\": false}]},",
+        "after": "\t\"alarm.klaxon\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/klaxon\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.mama\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/mama\", \"stream\": false}]},",
+        "after": "\t\"alarm.mama\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/mama\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.nostromoSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/nostromoSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.nostromoSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/nostromoSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.razortrainHorn\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/razortrainHorn\", \"stream\": false}]},",
+        "after": "\t\"alarm.razortrainHorn\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/razortrainHorn\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.regularSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/regularSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.regularSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/regularSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.striderSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/striderSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.striderSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/striderSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"alarm.sweepSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"alarm/sweepSiren\", \"stream\": false}]},",
+        "after": "\t\"alarm.sweepSiren\": {\"category\": \"record\", \"sounds\": [{\"name\": \"hbm:alarm/sweepSiren\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.boiler\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/boiler\", \"stream\": false}]},",
+        "after": "\t\"block.boiler\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/boiler\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.broadcast1\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/broadcast1\", \"stream\": true}]},",
+        "after": "\t\"block.broadcast1\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/broadcast1\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"block.broadcast2\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/broadcast2\", \"stream\": true}]},",
+        "after": "\t\"block.broadcast2\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/broadcast2\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"block.broadcast3\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/broadcast3\", \"stream\": true}]},",
+        "after": "\t\"block.broadcast3\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/broadcast3\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"block.centrifugeOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/centrifugeOperate\", \"stream\": false}]},",
+        "after": "\t\"block.centrifugeOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/centrifugeOperate\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.chemicalPlant\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/chemicalPlant\", \"stream\": false}]},",
+        "after": "\t\"block.chemicalPlant\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/chemicalPlant\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.chungusTurbineRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/chungusTurbine\", \"stream\": false}]},",
+        "after": "\t\"block.chungusTurbineRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/chungusTurbine\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.dysonBeam\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/dysonBeam\", \"stream\": false}]},",
+        "after": "\t\"block.dysonBeam\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/dysonBeam\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.electricHum\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/electricHum\", \"stream\": false}]},",
+        "after": "\t\"block.electricHum\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/electricHum\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.engine\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/engine\", \"stream\": false}]},",
+        "after": "\t\"block.engine\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/engine\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.fel\": {\"category\":  \"block\", \"sounds\":  [{\"name\": \"block/fel\", \"stream\":  false}]},",
+        "after": "\t\"block.fel\": {\"category\":  \"block\", \"sounds\":  [{\"name\": \"hbm:block/fel\", \"stream\":  false}]},"
+      },
+      {
+        "before": "\t\"block.fensuHum\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/fensuHum\", \"stream\": false}]},",
+        "after": "\t\"block.fensuHum\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/fensuHum\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.fusionReactorRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/fusionReactorSpin\", \"stream\": false}]},",
+        "after": "\t\"block.fusionReactorRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/fusionReactorSpin\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.hephaestusRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/hephaestusRunning\", \"stream\": false}]},",
+        "after": "\t\"block.hephaestusRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/hephaestusRunning\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.igeneratorOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/igeneratorOperate\", \"stream\": false}]},",
+        "after": "\t\"block.igeneratorOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/igeneratorOperate\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.largeTurbineRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/largeTurbine\", \"stream\": false}]},",
+        "after": "\t\"block.largeTurbineRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/largeTurbine\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.motor\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/motor\", \"stream\": false}]},",
+        "after": "\t\"block.motor\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/motor\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.pyroOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/pyroOperate\", \"stream\": false}]},",
+        "after": "\t\"block.pyroOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/pyroOperate\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.reactorLoop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/reactorLoop\", \"stream\": false}]},",
+        "after": "\t\"block.reactorLoop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/reactorLoop\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.soyuzReady\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/soyuzReady\", \"stream\": true}]},",
+        "after": "\t\"block.soyuzReady\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/soyuzReady\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"block.turbinegasRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/turbinegasRunning\", \"stream\": false}]},",
+        "after": "\t\"block.turbinegasRunning\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/turbinegasRunning\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"block.turbofanOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/turbofanOperate\", \"stream\": true}]},",
+        "after": "\t\"block.turbofanOperate\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/turbofanOperate\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"door.alarm6\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/door/alarm6\", \"stream\": true}]},",
+        "after": "\t\"door.alarm6\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/alarm6\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"door.garage_move\": { \"category\": \"block\", \"sounds\": [{\"name\": \"block/door/garage_move\", \"stream\": false}] },",
+        "after": "\t\"door.garage_move\": { \"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/garage_move\", \"stream\": false}] },"
+      },
+      {
+        "before": "\t\"door.qe_sliding_opening\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/door/doorslide_opening1\", \"stream\": false}]},",
+        "after": "\t\"door.qe_sliding_opening\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/doorslide_opening1\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"door.sliding_door_opening\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/door/sliding_door_opening\", \"stream\": false}]},",
+        "after": "\t\"door.sliding_door_opening\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/sliding_door_opening\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"door.wghStart\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/door/wgh_start\", \"stream\": true}]},",
+        "after": "\t\"door.wghStart\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/wgh_start\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"door.wgh_big_start\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/door/door_wgh_big_start\", \"stream\": false}]},",
+        "after": "\t\"door.wgh_big_start\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/door_wgh_big_start\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"door.wgh_start\": {\"category\": \"block\", \"sounds\": [{\"name\": \"block/door/wgh_start\", \"stream\": false}]},",
+        "after": "\t\"door.wgh_start\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:block/door/wgh_start\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.bomberLoop\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/bomber1\", \"stream\": false}]},",
+        "after": "\t\"entity.bomberLoop\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/bomber1\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.bomberSmallLoop\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/bomber2\", \"stream\": false}]},",
+        "after": "\t\"entity.bomberSmallLoop\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/bomber2\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.chopperCrashingLoop\": {\"category\": \"hostile\", \"sounds\": [{\"name\": \"entity/chopperCrashingLoop\", \"stream\": true}]},",
+        "after": "\t\"entity.chopperCrashingLoop\": {\"category\": \"hostile\", \"sounds\": [{\"name\": \"hbm:entity/chopperCrashingLoop\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"entity.chopperFlyingLoop\": {\"category\": \"hostile\", \"sounds\": [{\"name\": \"entity/chopperFlyingLoop\", \"stream\": true}]},",
+        "after": "\t\"entity.chopperFlyingLoop\": {\"category\": \"hostile\", \"sounds\": [{\"name\": \"hbm:entity/chopperFlyingLoop\", \"stream\": true}]},"
+      },
+      {
+        "before": "\t\"entity.chopperMineLoop\": {\"category\": \"hostile\", \"sounds\": [{\"name\": \"entity/chopperMineLoop\", \"stream\": false}]},",
+        "after": "\t\"entity.chopperMineLoop\": {\"category\": \"hostile\", \"sounds\": [{\"name\": \"hbm:entity/chopperMineLoop\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.jetloopbomb\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/jetbomb2\", \"stream\": false}]},",
+        "after": "\t\"entity.jetloopbomb\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/jetbomb2\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.meteoriteFallingLoop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"entity/meteoriteFallingLoop\", \"stream\": false}]},",
+        "after": "\t\"entity.meteoriteFallingLoop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:entity/meteoriteFallingLoop\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.rocketFlyHeavy\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/rocketFlyHeavy\", \"stream\": false}]},",
+        "after": "\t\"entity.rocketFlyHeavy\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/rocketFlyHeavy\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.rocketFlyLight\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/rocketFlyLight\", \"stream\": false}]},",
+        "after": "\t\"entity.rocketFlyLight\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/rocketFlyLight\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.rocketIgnition\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/rocketIgnition\", \"stream\": false}]},",
+        "after": "\t\"entity.rocketIgnition\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/rocketIgnition\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"entity.rocketStage\": {\"category\": \"player\", \"sounds\": [{\"name\": \"entity/rocketStage\", \"stream\": false}]},",
+        "after": "\t\"entity.rocketStage\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:entity/rocketStage\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"misc.htrloop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"misc/htrloop\", \"stream\": false}]},",
+        "after": "\t\"misc.htrloop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:misc/htrloop\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"misc.lpwloop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"misc/lpwloop\", \"stream\": false}]},",
+        "after": "\t\"misc.lpwloop\": {\"category\": \"block\", \"sounds\": [{\"name\": \"hbm:misc/lpwloop\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"misc.stationhum\": {\"category\": \"ambient\", \"sounds\": [{\"name\": \"misc/stationhum\", \"stream\": false}]},",
+        "after": "\t\"misc.stationhum\": {\"category\": \"ambient\", \"sounds\": [{\"name\": \"hbm:misc/stationhum\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"player.plss_breathing\": {\"category\": \"player\", \"sounds\": [{\"name\": \"player/plss_breathing\", \"stream\": false}]},",
+        "after": "\t\"player.plss_breathing\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:player/plss_breathing\", \"stream\": false}]},"
+      },
+      {
+        "before": "\t\"weapon.fire.flameLoop\": {\"category\": \"player\", \"sounds\": [\"weapon/fire/flameLoop\"]},",
+        "after": "\t\"weapon.fire.flameLoop\": {\"category\": \"player\", \"sounds\": [\"hbm:weapon/fire/flameLoop\"]},"
+      },
+      {
+        "before": "\t\"weapon.fire.lockon\": {\"category\": \"player\", \"sounds\": [\"weapon/fire/lockon\"]},",
+        "after": "\t\"weapon.fire.lockon\": {\"category\": \"player\", \"sounds\": [\"hbm:weapon/fire/lockon\"]},"
+      },
+      {
+        "before": "\t\"weapon.fire.tauLoop\": {\"category\": \"player\", \"sounds\": [\"weapon/fire/tauLoop\"]},",
+        "after": "\t\"weapon.fire.tauLoop\": {\"category\": \"player\", \"sounds\": [\"hbm:weapon/fire/tauLoop\"]},"
+      }
+    ]
+  }
+}

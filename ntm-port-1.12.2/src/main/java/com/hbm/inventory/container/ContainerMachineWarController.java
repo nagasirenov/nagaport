@@ -8,7 +8,7 @@ import com.hbm.tileentity.machine.oil.TileEntityMachineVacuumDistill;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -48,7 +48,7 @@ public class ContainerMachineWarController extends ContainerBase {
 			}
 
 			if(itemstack1.stackSize == 0) {
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -59,6 +59,6 @@ public class ContainerMachineWarController extends ContainerBase {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return shill.isUseableByPlayer(player);
+		return shill.isUsableByPlayer(player);
 	}
 }

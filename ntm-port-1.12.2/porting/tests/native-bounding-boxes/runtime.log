@@ -1,0 +1,5 @@
+PASS 20 exact replacements / 9 whole-file inverses; 18 source mutations rejected
+Generated exact 20-expression and complete DecoBlock switch oracle from verified production bytes
+PASS 1632429 actual original/native checks; 20 exact expressions, full 12-piece DecoBlock switch, 7 semantic differences retained; not complete gameplay classes
+Attribution only; production inputs=1; unfinished-port errors=16
+PASS 4 positive / 14 negative exact-owner, type and arithmetic attribution controls

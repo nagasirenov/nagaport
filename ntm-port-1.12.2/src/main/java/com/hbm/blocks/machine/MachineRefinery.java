@@ -56,7 +56,7 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 			if(pos == null)
 				return false;
 			
-			TileEntityMachineRefinery refinery = (TileEntityMachineRefinery) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineRefinery refinery = (TileEntityMachineRefinery) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
 			if(refinery.hasExploded) return false;
 
@@ -112,7 +112,7 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityMachineRefinery)) return;
 		
 		TileEntityMachineRefinery refinery = (TileEntityMachineRefinery) core;
@@ -124,12 +124,12 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 			
 			if(explosion.exploder != null && explosion.exploder instanceof EntityBombletZeta) {
 				List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class,
-						AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));
+						new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(100, 100, 100));
 				
-				for(EntityPlayer p : players) p.triggerAchievement(MainRegistry.achInferno);
+				for(EntityPlayer p : players) com.hbm.advancement.NtmAdvancements.award(p, MainRegistry.achInferno);
 			}
 		} else {
-			world.setBlock(pos[0], pos[1], pos[2], Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = pos[0]; int nativePlacementY = pos[1]; int nativePlacementZ = pos[2]; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 

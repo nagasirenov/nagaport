@@ -58,7 +58,7 @@ public class RenderRadGen extends TileEntitySpecialRenderer {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopAttrib();
 		
-		int brightness = radgen.getWorldObj().getLightBrightnessForSkyBlocks(MathHelper.floor_double(radgen.xCoord), MathHelper.floor_double(radgen.yCoord), MathHelper.floor_double(radgen.zCoord), 0);
+		int brightness = radgen.getWorld().getLightBrightnessForSkyBlocks(MathHelper.floor_double(radgen.getPos().getX()), MathHelper.floor_double(radgen.getPos().getY()), MathHelper.floor_double(radgen.getPos().getZ()), 0);
 		int lX = brightness % 65536;
 		int lY = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);

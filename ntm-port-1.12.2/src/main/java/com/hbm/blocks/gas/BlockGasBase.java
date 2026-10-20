@@ -51,7 +51,7 @@ public abstract class BlockGasBase extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;
 	}
 
@@ -81,14 +81,14 @@ public abstract class BlockGasBase extends Block {
 
 		if(!world.isRemote) {
 			
-			if(world.getBlockMetadata(x, y, z) == 0)
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 0)
 				world.scheduleBlockUpdate(x, y, z, this, 10);
 		}
 	}
 	
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(world.getBlockMetadata(x, y, z) != 0) {
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 0, 4);
 			world.scheduleBlockUpdate(x, y, z, this, 10);
 		}
@@ -115,8 +115,8 @@ public abstract class BlockGasBase extends Block {
 
 	public boolean tryMove(World world, int x, int y, int z, ForgeDirection dir) {
 
-		if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
-			world.setBlockToAir(x, y, z);
+		if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this);
 			world.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, getDelay(world));
 			return true;

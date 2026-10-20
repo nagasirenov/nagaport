@@ -70,7 +70,7 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 
 	/** Mainly composed of crusty old power fist code, with some touch ups **/
 	public void groundSlam(){
-		if (!worldObj.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 30) {
+		if (!this.world.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 30) {
 			Entity e = this.getEntityToAttack();
 
 			boolean topAttack = false;
@@ -132,24 +132,24 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 				int z1 = ints[2];
 
 
-				Block b = worldObj.getBlock(x1, y1, z1);
-				float k = b.getExplosionResistance(this, worldObj, x1, y1, z1, posX, posY, posZ);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1).getBlock();
+				float k = b.getExplosionResistance(this, this.world, x1, y1, z1, posX, posY, posZ);
 
-				if (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube() && !(b instanceof BlockDummyable) && worldObj.getTileEntity(x1, y1, z1) == null) {
+				if (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube() && !(b instanceof BlockDummyable) && this.world.getTileEntity(x1, y1, z1) == null) {
 
-					EntityRubble rubble = new EntityRubble(worldObj);
+					EntityRubble rubble = new EntityRubble(this.world);
 					rubble.posX = x1 + 0.5F;
 					rubble.posY = y1 + 2;
 					rubble.posZ = z1 + 0.5F;
 
-					rubble.setMetaBasedOnBlock(b, worldObj.getBlockMetadata(x1, y1, z1));
+					rubble.setMetaBasedOnBlock(b, this.world.getBlockMetadata(x1, y1, z1));
 
 					if(fireVec != null)
 						rubble.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());
 
-					worldObj.spawnEntityInWorld(rubble);
+					this.world.spawnEntityInWorld(rubble);
 
-					worldObj.setBlock(x1, y1, z1, Blocks.air);
+					this.world.setBlock(x1, y1, z1, Blocks.AIR);
 				}
 			}
 		}

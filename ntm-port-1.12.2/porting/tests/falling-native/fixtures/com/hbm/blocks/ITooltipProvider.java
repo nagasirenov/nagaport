@@ -1,0 +1,1 @@
+package com.hbm.blocks; public interface ITooltipProvider { void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.entity.player.EntityPlayer player, java.util.List list, boolean extended); }

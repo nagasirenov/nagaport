@@ -1,0 +1,19 @@
+{
+  "src/main/java/com/hbm/render/entity/item/RenderTNTPrimedBase.java": "118751cbad84c87055517375c7c2e018aa2560bea4eb782fa78c4f357e84e282",
+  "src/main/java/com/hbm/render/entity/projectile/RenderRubble.java": "fa8c419bbee1544f53919a315730acd14b35969cbe464b6a4b6a3d2088832aaf",
+  "src/main/java/com/hbm/render/entity/mob/RenderBlockSpider.java": "6467df621e048c1f2866070463b6280a5f60a766cd018ca8d97a9e30c496e63a",
+  "src/main/java/com/hbm/render/model/ModelBlockSpider.java": "d8da06baa99c1519b67368b4c9929f93f8b60de446a699723704fb5466146ba6",
+  "src/main/java/com/hbm/render/model/ModelRubble.java": "08306b0c5cc5e38ee1ca0e638a4da9b2cc235099b8490024875e2fbe57a7c374",
+  "src/main/java/com/hbm/entity/item/EntityTNTPrimedBase.java": "e058d5040237d27c7a6d45330034e656168b0b3e662f5d453161e35f82cccd6d",
+  "src/main/java/com/hbm/entity/projectile/EntityRubble.java": "fa393b3bd9f4a99e80d1eeb6e155c232606b988105c139d95f56e12c00bf40fb",
+  "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": "e9deda761e1c5914ab52124ba929a0bc15dc449e682fc257b13ef077d6ae0a29",
+  "src/main/java/com/hbm/entity/mob/EntityBlockSpider.java": "d4db9ee657a0dd611ac906c4a63f5c8c2d3e7c8c74868af37829c7074eea8674",
+  "src/main/java/com/hbm/render/block/RenderBarrel.java": "d2f9019872b198ad8589f19e9bd296a1c487e84d619ddbff072df87b2f3e2009",
+  "src/main/java/com/hbm/render/block/RenderBlockRotated.java": "e7d7e790cebaa259ec71fdf8d73a7ca15e484cd8f2907475800221aac439e70f",
+  "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+  "src/main/resources/assets/hbm/models/mobs/blockspider.obj": "d0164bd5a34365dd1bea7ecf7586ba41467d746f3c4632efbbbe7777a78de6ab",
+  "src/main/resources/assets/hbm/textures/entity/blockspider.png": "3eb8fa3f50fb44451fea14579341ad09104f7a46a4a7f091e9fd4d9ff6e6dc2c",
+  "src/main/resources/assets/hbm/models/blocks/barrel.obj": "4c0ef9ba3ddc4e1e733151c25739b5292c1ddd1f97f443e2895c5126cb10c59d",
+  "src/main/resources/assets/hbm/models/blocks/charge_c4.obj": "299bac160773c415a069ffabaa905c409423c3a95e2c5cfb11308a38bd21a1b3",
+  "src/main/resources/assets/hbm/models/blocks/charge_dynamite.obj": "fb8c2b1178914b35d2ae8a8fb39d0fb0e80e976cb42379c543e0f232f58dff5b"
+}

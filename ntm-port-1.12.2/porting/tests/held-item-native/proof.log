@@ -1,0 +1,37 @@
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+        ^
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                ^
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                                                                                         ^
+/workspace/shared/nagaport-held-stack/ntm-port-1.12.2/porting/tests/held-item-native/NativeHeldTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register(); Unsafe u=unsafe();
+                        ^
+7 warnings
+PASS 77 actual original/native held-stack, virtual override, empty, offhand exclusion, tagged zero and exact production-method checks
+Override declaration audit: /tmp/ntm-held-proof-1z0hoez3/T5.java getHeldItem 
+Override declaration audit: /tmp/ntm-held-proof-1z0hoez3/T6.java getHeldItem 
+Override declaration audit: /tmp/ntm-held-proof-1z0hoez3/T19.java getHeldItemMainhand 
+Override declaration audit: /tmp/ntm-held-proof-1z0hoez3/T20.java getHeldItem Object... x
+Override declaration audit: /tmp/ntm-held-proof-1z0hoez3/T21.java getHeldItem 
+Override declaration audit: /tmp/ntm-held-proof-1z0hoez3/T22.java getHeldItem 
+Expected incomplete-port attribution errors: 16
+Expected incomplete-port attribution errors: 26162
+Expected incomplete-port attribution errors: 25787
+PASS 136 exact forward/inverse production files; 408 source mutation controls
+PASS real helper bytecode: one virtual native main-hand call, canonical EMPTY identity only, no offhand/isEmpty normalization
+PASS 23 actual javac owner, shadow, generic, static, explicit-hand, super and Unicode fixtures
+PASS full native javac re-attribution equality: 406 calls, 136 production files; unrelated port diagnostics remain expected
+PASS exact post-edit native static owner/EntityLivingBase signature attribution: 406 calls

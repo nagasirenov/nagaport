@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -30,7 +33,7 @@ public class ItemRenderChemthrower extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.chemthrower_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.chemthrower_tex);
 		double scale = 0.75D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -86,12 +89,12 @@ public class ItemRenderChemthrower extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 
 		GL11.glRotated(90, 0, 1, 0);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.chemthrower_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.chemthrower_tex);
 		ResourceManager.chemthrower.renderPart("Gun");
 		ResourceManager.chemthrower.renderPart("Hose");
 		ResourceManager.chemthrower.renderPart("Nozzle");

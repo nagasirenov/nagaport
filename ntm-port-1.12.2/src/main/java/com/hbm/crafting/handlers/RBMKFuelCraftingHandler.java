@@ -8,7 +8,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class RBMKFuelCraftingHandler implements IRecipe {
+public class RBMKFuelCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	/**
 	 * The only rules for matching is that the item is fuel (meta and NBT don't matter) and that it's the only stack in the grid
@@ -25,7 +25,6 @@ public class RBMKFuelCraftingHandler implements IRecipe {
 				ItemRBMKRod.getHullHeat(stack) < 50 && ItemRBMKRod.getCoreHeat(stack) < 50;
 	}
 
-	@Override
 	public int getRecipeSize() {
 		return 1;
 	}
@@ -34,7 +33,7 @@ public class RBMKFuelCraftingHandler implements IRecipe {
 	public ItemStack getCraftingResult(InventoryCrafting inventory) {
 		
 		if(!hasExactlyOneStack(inventory))
-			return null;
+			return ItemStack.EMPTY;
 		
 		ItemStack stack = getFirstStack(inventory);
 		
@@ -43,26 +42,36 @@ public class RBMKFuelCraftingHandler implements IRecipe {
 			ItemRBMKRod rod = (ItemRBMKRod)stack.getItem();
 			
 			if(rod.pellet == null)
-				return null;
+				return ItemStack.EMPTY;
 			
 			if(ItemRBMKRod.getEnrichment(stack) > 0.99D)
-				return null;
+				return ItemStack.EMPTY;
 			
 			if(ItemRBMKRod.getHullHeat(stack) < 50 && ItemRBMKRod.getCoreHeat(stack) < 50) {
 				ItemStack result = new ItemStack(rod.pellet, 8);
-				int enrichment = 4 - MathHelper.clamp_int((int)Math.ceil(ItemRBMKRod.getEnrichment(stack) * 5 - 1), 0, 4);
+				int enrichment = 4 - MathHelper.clamp((int)Math.ceil(ItemRBMKRod.getEnrichment(stack) * 5 - 1), 0, 4);
 				int meta = enrichment + (ItemRBMKRod.getPoisonLevel(stack) >= 0.5D ? 5 : 0);
 				result.setItemDamage(meta);
 				return result;
 			}
 		}
 
-		return null;
+		return ItemStack.EMPTY;
+	}
+
+	@Override
+	public boolean canFit(int width, int height) {
+		return width * height >= 1;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return true;
 	}
 
 	@Override
 	public ItemStack getRecipeOutput() {
-		return null;
+		return ItemStack.EMPTY;
 	}
 	
 	private boolean hasExactlyOneStack(InventoryCrafting inventory) {
@@ -74,7 +83,7 @@ public class RBMKFuelCraftingHandler implements IRecipe {
 				
 				ItemStack stack = inventory.getStackInRowAndColumn(j, i);
 				
-				if(stack != null) {
+				if(!stack.isEmpty()) {
 					
 					if(!hasOne)
 						hasOne = true;
@@ -94,13 +103,13 @@ public class RBMKFuelCraftingHandler implements IRecipe {
 				
 				ItemStack stack = inventory.getStackInRowAndColumn(j, i);
 				
-				if(stack != null) {
+				if(!stack.isEmpty()) {
 					return stack;
 				}
 			}
 		}
 		
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 }

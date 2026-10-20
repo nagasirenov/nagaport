@@ -1,0 +1,7 @@
+{
+  "files": 90176,
+  "duplicate_bytes_recovered": 471957942,
+  "full_manifest": "checkpoint63-frozen-java-deduplication.json.gz",
+  "manifest_sha256": "84af32d348964ea83cea5d23872ac05c4529129f08c18c52fccb3b78a3724a73",
+  "compressed_sha256": "ad617e9d0d0b1cd4a54b5e24ff86d28173e39a4a56c18ed59da9cee48f6acb25"
+}

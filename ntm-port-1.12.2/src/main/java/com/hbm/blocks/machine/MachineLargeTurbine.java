@@ -73,7 +73,7 @@ public class MachineLargeTurbine extends BlockDummyable implements ITooltipProvi
 		if(world.isRemote)
 			return;
 
-		int k = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int k = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		ForgeDirection dir = ForgeDirection.NORTH;
 
 		if(k == 0)

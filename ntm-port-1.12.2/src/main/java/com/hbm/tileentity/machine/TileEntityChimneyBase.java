@@ -14,31 +14,31 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.lib.ForgeDirection;
 
-public abstract class TileEntityChimneyBase extends TileEntityLoadedBase implements IFluidReceiverMK2, IBufPacketReceiver {
+public abstract class TileEntityChimneyBase extends TileEntityLoadedBase implements IFluidReceiverMK2, IBufPacketReceiver, net.minecraft.util.ITickable {
 
 	public long ashTick = 0;
 	public long sootTick = 0;
 	public int onTicks;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				FluidType[] types = new FluidType[] {Fluids.SMOKE, Fluids.SMOKE_LEADED, Fluids.SMOKE_POISON};
 
 				for(FluidType type : types) {
-					this.trySubscribe(type, worldObj, xCoord + 2, yCoord, zCoord, Library.POS_X);
-					this.trySubscribe(type, worldObj, xCoord - 2, yCoord, zCoord, Library.NEG_X);
-					this.trySubscribe(type, worldObj, xCoord, yCoord, zCoord + 2, Library.POS_Z);
-					this.trySubscribe(type, worldObj, xCoord, yCoord, zCoord - 2, Library.NEG_Z);
+					this.trySubscribe(type, this.world, this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X);
+					this.trySubscribe(type, this.world, this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X);
+					this.trySubscribe(type, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z);
+					this.trySubscribe(type, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z);
 				}
 			}
 
 			if(ashTick > 0 || sootTick > 0) {
 
-				TileEntity below = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+				TileEntity below = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 				if(below instanceof TileEntityAshpit) {
 					TileEntityAshpit ashpit = (TileEntityAshpit) below;
@@ -99,9 +99,9 @@ public abstract class TileEntityChimneyBase extends TileEntityLoadedBase impleme
 
 		fluid *= getPollutionMod();
 
-		if(type == Fluids.SMOKE) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, fluid / 100F);
-		if(type == Fluids.SMOKE_LEADED) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.HEAVYMETAL, fluid / 100F);
-		if(type == Fluids.SMOKE_POISON) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.POISON, fluid / 100F);
+		if(type == Fluids.SMOKE) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, fluid / 100F);
+		if(type == Fluids.SMOKE_LEADED) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.HEAVYMETAL, fluid / 100F);
+		if(type == Fluids.SMOKE_POISON) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.POISON, fluid / 100F);
 
 		return 0;
 	}

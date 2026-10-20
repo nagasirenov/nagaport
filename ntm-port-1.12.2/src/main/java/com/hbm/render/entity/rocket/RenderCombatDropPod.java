@@ -6,10 +6,15 @@ import com.hbm.entity.missile.EntityCombatDropPod;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderCombatDropPod extends Render {
+
+	public RenderCombatDropPod(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float i, float j) {
@@ -19,7 +24,7 @@ public class RenderCombatDropPod extends Render {
         GL11.glTranslated(x, y, z);
         EntityCombatDropPod pod = (EntityCombatDropPod) entity;
         int color = pod.getColor();
-        double time = (entity.worldObj.getTotalWorldTime());
+        double time = (entity.world.getTotalWorldTime());
 
         int height = 7;
         

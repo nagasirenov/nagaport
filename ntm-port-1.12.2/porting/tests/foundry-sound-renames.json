@@ -1,0 +1,9 @@
+{
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/tool/upgradePlug.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/tool/upgradeplug.ogg",
+      "sha256": "178c665506261be8737749c01642baf397a5f4d8de56e0123abca56fd85aa33b"
+    }
+  ]
+}

@@ -7,12 +7,14 @@ import com.hbm.entity.missile.EntityMissileTier0.*;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMissileTaint extends Render {
 	
-	public RenderMissileTaint() {
+	public RenderMissileTaint(RenderManager renderManager) {
+		super(renderManager);
 	}
 
 	@Override
@@ -24,7 +26,7 @@ public class RenderMissileTaint extends Render {
 		GL11.glRotatef(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * interp, 0.0F, 0.0F, 1.0F);
 		GL11.glRotatef(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * interp - 90.0F, 0.0F, -1.0F, 0.0F);
 
-		if(entity instanceof EntityMissileBaseNT) switch(entity.getDataWatcher().getWatchableObjectByte(3)) {
+		if(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {
 		case 2: GL11.glRotatef(90, 0F, 1F, 0F); break;
 		case 4: GL11.glRotatef(180, 0F, 1F, 0F); break;
 		case 3: GL11.glRotatef(270, 0F, 1F, 0F); break;

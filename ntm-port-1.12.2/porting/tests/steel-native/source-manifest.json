@@ -1,0 +1,131 @@
+{
+  "assets": {
+    "src/main/resources/assets/hbm/textures/blocks/steel_wall.png": "342e53288fe18ae08348e20d5683e1e6e13b727133931d612021de6ae16b34b2"
+  },
+  "legacy_client": {
+    "bounds_fields_xyz_min_max": [
+      "i",
+      "k",
+      "m",
+      "j",
+      "l",
+      "n"
+    ],
+    "faces_by_side_index": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "render_type_dispatch": "blm.b(aji,int,int,int), offsets 14..28: owner.a(ahl,int,int,int) then renderer.a(aji), before type dispatch. These are setBlockBoundsBasedOnState and setRenderBoundsFromBlock.",
+    "runtime_classes": {
+      "Block": "aji",
+      "IIcon": "rf",
+      "RenderBlocks": "blm",
+      "Tessellator": "bmh"
+    },
+    "sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "vertex_stride_ints": 8,
+    "vertex_xyz_uv_offsets": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "methods": {
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#addCollisionBoxesToList": {
+      "line": 147,
+      "sha256": "c70589eadde8a1e7cd16fbec0fe3c3776abff3cf89d8eacd30b2e7ba64987890"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#createNewTileEntity": {
+      "line": 61,
+      "sha256": "86449fedc166233628841e2404f52d78d6731c764a1a317c066676bbda2c5546"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#getCollisionBoundingBoxFromPool": {
+      "line": 141,
+      "sha256": "67232004609cc041d4fa473017e9eb024861668c5340b998db8d7b111410d4f8"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#getItemDropped": {
+      "line": 89,
+      "sha256": "da87fccc4d28f7a6601af12c41dd20d7a2ffc195fee2bf6d7ccf7395aa2dd0ac"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#isOpaqueCube": {
+      "line": 79,
+      "sha256": "04803b37f2b8a789abd587d6c7f16e380ac4b05d92491f09b025bdde8a45c7d0"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#onBlockPlacedBy": {
+      "line": 94,
+      "sha256": "fd737aa81900b53a1a8e4d5361bb0f1a3776ec9bef2128bad60737139d658f8c"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#onScrew": {
+      "line": 37,
+      "sha256": "0511b7345c6c3a74ed4a03bbb6c3de25420bf73336b6d9a689518ea4094c63dc"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#renderAsNormalBlock": {
+      "line": 84,
+      "sha256": "154732325a3701f7e1b3766b1ac8d6080986b91a284d9e29c385fe1e47f3b407"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#setBlockBoundsBasedOnState": {
+      "line": 104,
+      "sha256": "cd1a0f145e6ab6c93fb48429ab8e5720bc6af4e4794be072f0236d4303e0287d"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#shouldSideBeRendered": {
+      "line": 58,
+      "sha256": "97582bafecb90e58b05b6f65113e1b5466f940e36084ac39e57b9f00843e5bbc"
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java#transformMeta": {
+      "line": 187,
+      "sha256": "3c25635707d3c4fcfc7b570014ccf553e929dc1f070224de7c0de1084b10ee0e"
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java#renderInventoryBlock": {
+      "line": 17,
+      "sha256": "6b446979578f79d517ea6b19656ee6d36713d90b21d2024303d2470477178591"
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java#renderWorldBlock": {
+      "line": 52,
+      "sha256": "73c222e24d20e7658774663dcf1d0b82c5792b9e3fe3f3d2f23594558a1df588"
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java#shouldRender3DInInventory": {
+      "line": 86,
+      "sha256": "a73c35d6918831810e6490177f8de22e49de83c21ad0f227b3d3e0c04e05637c"
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelWall.java#renderInventoryBlock": {
+      "line": 16,
+      "sha256": "4838cd1d9fe10ec40c08304e9b79e8981c8fdea5e85926142c62a0ec99889959"
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelWall.java#renderWorldBlock": {
+      "line": 34,
+      "sha256": "c3904a79e9e9e10f88e6e2179aae19ef99640765f49c971fee14c300de74cb75"
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelWall.java#shouldRender3DInInventory": {
+      "line": 52,
+      "sha256": "a73c35d6918831810e6490177f8de22e49de83c21ad0f227b3d3e0c04e05637c"
+    },
+    "src/main/java/com/hbm/render/util/RenderBlocksNT.java#renderFaceXPos": {
+      "line": 166,
+      "sha256": "c4183c5ec677c8233d5067b92d5fe91fcd8a60c543be22c275402e906e021f47"
+    },
+    "src/main/java/com/hbm/render/util/RenderBlocksNT.java#renderFaceZNeg": {
+      "line": 60,
+      "sha256": "15b5ff3ba7b70b928ba993f4c99834d31efd2f5b0102f1442f6bc38d35a7061f"
+    },
+    "src/main/java/com/hbm/world/gen/nbt/INBTBlockTransformable.java#transformMetaDeco": {
+      "line": 25,
+      "sha256": "ebaadd4d876ca732b483e58094c13fadae3257fb984b3a4a8134ed5a3f85bb90"
+    }
+  },
+  "purpose": "Pinned pristine Steel wall/corner callbacks, owner behavior, original RenderBlocksNT N/E UV corrections, original registry/texture/registration evidence. No native production files contribute to this oracle.",
+  "sources": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": "cf68503a802e931e2bae0a49c0d57de9ca748cf19edcddaa0d957b34edbadf11",
+    "src/main/java/com/hbm/main/ClientProxy.java": "493673afb0ca5ed090478ea8622b4683104618e5c1d4d1b361c12305fa2387c7",
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java": "252038c8b3e038ac3bce253e96e6d39c8fb5aa741c8fb364326666e00c2afc99",
+    "src/main/java/com/hbm/render/block/RenderSteelWall.java": "1aaeef035196436d06e07bed7b7201cbea7f0b3cb99f930e12430771231ffd42",
+    "src/main/java/com/hbm/render/util/RenderBlocksNT.java": "2931117a09e84e88aa7a933e07ccb87952b0923e38817e541065339e87240aac",
+    "src/main/java/com/hbm/world/gen/nbt/INBTBlockTransformable.java": "6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b"
+  }
+}

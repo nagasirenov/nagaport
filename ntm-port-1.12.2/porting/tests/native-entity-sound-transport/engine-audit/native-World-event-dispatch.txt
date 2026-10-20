@@ -1,0 +1,53 @@
+  public void playSound(net.minecraft.entity.player.EntityPlayer, double, double, double, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, float, float);
+    Code:
+       0: aload_1
+       1: aload         8
+       3: aload         9
+       5: fload         10
+       7: fload         11
+       9: invokestatic  #979                // Method net/minecraftforge/event/ForgeEventFactory.onPlaySoundAtEntity:(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FF)Lnet/minecraftforge/event/entity/PlaySoundAtEntityEvent;
+      12: astore        12
+      14: aload         12
+      16: invokevirtual #982                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.isCanceled:()Z
+      19: ifne          30
+      22: aload         12
+      24: invokevirtual #986                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getSound:()Lnet/minecraft/util/SoundEvent;
+      27: ifnonnull     31
+      30: return
+      31: aload         12
+      33: invokevirtual #986                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getSound:()Lnet/minecraft/util/SoundEvent;
+      36: astore        8
+      38: aload         12
+      40: invokevirtual #990                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getCategory:()Lnet/minecraft/util/SoundCategory;
+      43: astore        9
+      45: aload         12
+      47: invokevirtual #994                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getVolume:()F
+      50: fstore        10
+      52: aload         12
+      54: invokevirtual #997                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getPitch:()F
+      57: fstore        11
+      59: iconst_0
+      60: istore        13
+      62: iload         13
+      64: aload_0
+      65: getfield      #203                // Field eventListeners:Ljava/util/List;
+      68: invokeinterface #609,  1          // InterfaceMethod java/util/List.size:()I
+      73: if_icmpge     115
+      76: aload_0
+      77: getfield      #203                // Field eventListeners:Ljava/util/List;
+      80: iload         13
+      82: invokeinterface #613,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      87: checkcast     #198                // class net/minecraft/world/IWorldEventListener
+      90: aload_1
+      91: aload         8
+      93: aload         9
+      95: dload_2
+      96: dload         4
+      98: dload         6
+     100: fload         10
+     102: fload         11
+     104: invokeinterface #1001,  12        // InterfaceMethod net/minecraft/world/IWorldEventListener.playSoundToAllNearExcept:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;DDDFF)V
+     109: iinc          13, 1
+     112: goto          62
+     115: return
+

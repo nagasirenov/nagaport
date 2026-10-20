@@ -22,7 +22,7 @@ public class InventoryUtil {
 		if(sided instanceof TileEntityFurnace) return new int[] {1, 0};
 		if(sided instanceof TileEntityFurnaceBrick) return new int[] {1, 0, 3};
 
-		return sided.getAccessibleSlotsFromSide(side);
+		return sided.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 	}
 
 	/**
@@ -134,20 +134,21 @@ public class InventoryUtil {
 
 	public static ItemStack tryAddItemToExistingStack(IInventory inv, int start, int end, ItemStack stack) {
 
-		if(stack == null || stack.stackSize == 0)
+		if(stack == null || stack.isEmpty())
 			return null;
 
 		for(int i = start; i <= end; i++) {
 
-			if(doesStackDataMatch(inv.getStackInSlot(i), stack)) {
+			ItemStack current = inv.getStackInSlot(i);
+			if(current != null && !current.isEmpty() && doesStackDataMatch(current, stack)) {
 
-				int transfer = Math.min(stack.stackSize, inv.getStackInSlot(i).getMaxStackSize() - inv.getStackInSlot(i).stackSize);
+				int transfer = Math.min(stack.getCount(), inv.getStackInSlot(i).getMaxStackSize() - inv.getStackInSlot(i).getCount());
 
 				if(transfer > 0) {
-					inv.getStackInSlot(i).stackSize += transfer;
-					stack.stackSize -= transfer;
+					inv.getStackInSlot(i).grow(transfer);
+					stack.shrink(transfer);
 
-					if(stack.stackSize == 0)
+					if(stack.getCount() == 0)
 						return null;
 				}
 			}
@@ -158,12 +159,13 @@ public class InventoryUtil {
 
 	public static boolean tryAddItemToNewSlot(IInventory inv, int start, int end, ItemStack stack) {
 
-		if(stack == null || stack.stackSize == 0)
+		if(stack == null || stack.isEmpty())
 			return true;
 
 		for(int i = start; i <= end; i++) {
 
-			if(inv.getStackInSlot(i) == null) {
+			ItemStack current = inv.getStackInSlot(i);
+			if(current == null || current.isEmpty()) {
 				inv.setInventorySlotContents(i, stack);
 				return true;
 			}
@@ -503,6 +505,8 @@ public class InventoryUtil {
 	 */
 	public static boolean mergeItemStack(List<Slot> slots, ItemStack stack, int start, int end, boolean reverse) {
 
+		if(stack == null || stack.isEmpty()) return false;
+
 		boolean success = false;
 		int index = start;
 
@@ -515,26 +519,26 @@ public class InventoryUtil {
 
 		if(stack.isStackable()) {
 
-			while(stack.stackSize > 0 && (!reverse && index < end || reverse && index >= start)) {
+			while(stack.getCount() > 0 && (!reverse && index < end || reverse && index >= start)) {
 				slot = slots.get(index);
 				current = slot.getStack();
 
-				if(current != null) {
+				if(current != null && !current.isEmpty()) {
 					int max = Math.min(stack.getMaxStackSize(), slot.getSlotStackLimit());
-					int toRemove = Math.min(stack.stackSize, max);
+					int toRemove = Math.min(stack.getCount(), max);
 
 					if(slot.isItemValid(ItemStackUtil.carefulCopyWithSize(stack, toRemove)) && current.getItem() == stack.getItem() &&
 							(!stack.getHasSubtypes() || stack.getItemDamage() == current.getItemDamage()) && ItemStack.areItemStackTagsEqual(stack, current)) {
 
-						int currentSize = current.stackSize + stack.stackSize;
+						int currentSize = current.getCount() + stack.getCount();
 						if(currentSize <= max) {
-							stack.stackSize = 0;
-							current.stackSize = currentSize;
+							stack.setCount(0);
+							current.setCount(currentSize);
 							slot.putStack(current);
 							success = true;
-						} else if(current.stackSize < max) {
-							stack.stackSize -= max - current.stackSize;
-							current.stackSize = max;
+						} else if(current.getCount() < max) {
+							stack.shrink(max - current.getCount());
+							current.setCount(max);
 							slot.putStack(current);
 							success = true;
 						}
@@ -549,21 +553,21 @@ public class InventoryUtil {
 			}
 		}
 
-		if(stack.stackSize > 0) {
+		if(stack.getCount() > 0) {
 			if(reverse) {
 				index = end - 1;
 			} else {
 				index = start;
 			}
 
-			while((!reverse && index < end || reverse && index >= start) && stack.stackSize > 0) {
+			while((!reverse && index < end || reverse && index >= start) && stack.getCount() > 0) {
 				slot = slots.get(index);
 				current = slot.getStack();
 
-				if(current == null) {
+				if(current == null || current.isEmpty()) {
 
 					int max = Math.min(stack.getMaxStackSize(), slot.getSlotStackLimit());
-					int toRemove = Math.min(stack.stackSize, max);
+					int toRemove = Math.min(stack.getCount(), max);
 
 					if(slot.isItemValid(ItemStackUtil.carefulCopyWithSize(stack, toRemove))) {
 						current = stack.splitStack(toRemove);

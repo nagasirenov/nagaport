@@ -1,0 +1,46 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.*;
+import net.minecraft.util.math.BlockPos;
+public class NativeWorldTest {
+ static int n,evals;static void check(boolean b,String s){n++;if(!b)throw new AssertionError(s);}
+ static TileEntity receiver(TileEntity t){evals++;return t;}
+ static World read(TileEntity t){return receiver(t).getWorld();}
+ static class Pump extends TileEntity { @PUMP@ }
+ static class PumpChild extends Pump { private World world; }
+ // Only domain argument/sink test seams: never a fake Minecraft API or fake getter.
+ static class FluidTank {}
+ static class Release {
+  World seen; int x,y,z,amount,calls; FluidTank tank;
+  @RELEASE@
+  public void onFluidRelease(World w,int x,int y,int z,FluidTank t,int a){calls++;seen=w;this.x=x;this.y=y;this.z=z;tank=t;amount=a;}
+ }
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+  URLClassLoader loader=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NativeWorldTest.class.getClassLoader());
+  Class<?> oldTile=loader.loadClass("aor"),oldWorld=loader.loadClass("ahb");Object old=oldTile.newInstance();
+  Method getter=oldTile.getMethod("w"),setter=oldTile.getMethod("a",oldWorld);Object ow1=u.allocateInstance(loader.loadClass("bjf")),ow2=u.allocateInstance(loader.loadClass("bjf"));
+  World w1=(World)u.allocateInstance(WorldServer.class),w2=(World)u.allocateInstance(WorldServer.class);
+  check(getter.invoke(old)==null,"old constructor null");
+  for(TileEntity tile:new TileEntity[]{new TileEntity(){},new Pump(),new PumpChild()}){
+   check(tile.getWorld()==null,"native constructor null");
+   for(int i=0;i<6;i++){
+    World w=new World[]{null,w1,w2,w1,null,w2}[i];Object ow=new Object[]{null,ow1,ow2,ow1,null,ow2}[i];
+    setter.invoke(old,ow);tile.setWorld(w);check(getter.invoke(old)==ow&&tile.getWorld()==w,"actual setter/getter identity");
+    tile.invalidate();oldTile.getMethod("s").invoke(old);check(tile.getWorld()==w&&getter.invoke(old)==ow,"invalidate identity");
+    tile.validate();oldTile.getMethod("t").invoke(old);check(tile.getWorld()==w&&getter.invoke(old)==ow,"validate identity");
+    tile.onChunkUnload();check(tile.getWorld()==w,"native unload identity");
+    tile.setPos(new BlockPos(-3,Integer.MIN_VALUE,42));check(tile.getWorld()==w,"position mutation independent");
+    evals=0;check(read(tile)==w&&evals==1,"once-only receiver");
+    Release r=new Release();FluidTank tank=new FluidTank();r.onFluidRelease(tile,tank,Integer.MIN_VALUE);check(r.calls==1&&r.seen==w&&r.x==-3&&r.y==Integer.MIN_VALUE&&r.z==42&&r.tank==tank&&r.amount==Integer.MIN_VALUE,"exact production fluid-release forwarding");
+   }
+  }
+  evals=0;try{read(null);throw new AssertionError("null accepted");}catch(NullPointerException expected){check(evals==1,"null receiver once");}
+  Release r=new Release();try{r.onFluidRelease(null,null,1);throw new AssertionError();}catch(NullPointerException expected){check(r.calls==0,"production null before dispatch");}
+  System.out.println("PASS "+n+" original/native getter, identity, lifecycle, dispatch, exact fluid forwarding assertions");
+ }
+}

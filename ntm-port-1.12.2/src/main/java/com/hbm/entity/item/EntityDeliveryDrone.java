@@ -17,11 +17,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, IChunkLoader {
+
+	private static final DataParameter<Byte> LOAD = EntityDataManager.createKey(EntityDeliveryDrone.class, DataSerializers.BYTE);
 
 	protected ItemStack[] slots = new ItemStack[this.getSizeInventory()];
 	public FluidStack fluid;
@@ -38,7 +43,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 
 		if(this.isDead) return false;
 		
-		if(attacker instanceof EntityPlayer && !worldObj.isRemote) {
+		if(attacker instanceof EntityPlayer && !this.world.isRemote) {
 			this.setDead();
 			for (ItemStack stack : slots) {
 				if(stack != null)
@@ -47,7 +52,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 			int meta = 0;
 
 			//whether it is an express drone
-			if(this.dataWatcher.getWatchableObjectByte(11) == 1)
+			if(this.dataManager.get(LOAD) == 1)
 				meta = 2;
 
 			if(chunkLoading)
@@ -62,18 +67,26 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(11, new Byte((byte) 0));
+		this.dataManager.register(LOAD, new Byte((byte) 0));
+	}
+
+	public void setLoad(byte load) {
+		this.dataManager.set(LOAD, load);
+	}
+
+	public byte getLoad() {
+		return this.dataManager.get(LOAD);
 	}
 
 	public void setChunkLoading() {
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 		this.chunkLoading = true;
 	}
 
 
 	@Override
 	public double getSpeed() {
-		return this.dataWatcher.getWatchableObjectByte(11) == 1 ? 0.375 * 3 : 0.375;
+		return this.dataManager.get(LOAD) == 1 ? 0.375 * 3 : 0.375;
 	}
 
 	@Override
@@ -98,7 +111,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 			nbt.setInteger("fluidAmount", fluid.fill);
 		}
 
-		nbt.setByte("load", this.dataWatcher.getWatchableObjectByte(11));
+		nbt.setByte("load", this.dataManager.get(LOAD));
 		nbt.setBoolean("chunkLoading", chunkLoading);
 	}
 
@@ -128,7 +141,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 			this.fluid = new FluidStack(type, nbt.getInteger("fluidAmount"));
 		}
 
-		this.dataWatcher.updateObject(11, nbt.getByte("load"));
+		this.dataManager.set(LOAD, nbt.getByte("load"));
 		if(nbt.getBoolean("chunkLoading")) this.setChunkLoading();
 	}
 
@@ -161,22 +174,23 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int slot) {
+	public ItemStack removeStackFromSlot(int slot) {
 		if(this.slots[slot] != null) {
 			ItemStack itemstack = this.slots[slot];
 			this.slots[slot] = null;
-			return itemstack;
+			return itemstack == null || itemstack.isEmpty() ? ItemStack.EMPTY : itemstack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
+		stack = stack == null || stack.isEmpty() ? null : stack;
 		this.slots[slot] = stack;
 
-		if(stack != null && stack.stackSize > this.getInventoryStackLimit()) {
-			stack.stackSize = this.getInventoryStackLimit();
+		if(stack != null && stack.getCount() > this.getInventoryStackLimit()) {
+			stack.setCount(this.getInventoryStackLimit());
 		}
 	}
 
@@ -193,7 +207,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 
 	@Override
 	protected void loadNeighboringChunks() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
@@ -213,7 +227,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	}
 
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}
@@ -221,7 +235,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote && ticket != null) {
+		if(!this.world.isRemote && ticket != null) {
 			if(loaderTicket == null) {
 				loaderTicket = ticket;
 				loaderTicket.bindEntity(this);

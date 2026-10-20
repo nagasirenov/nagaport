@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.entity.effect.EntityRagingVortex;
 import com.hbm.entity.effect.EntityVortex;
 import com.hbm.lib.RefStrings;
+import com.hbm.entity.effect.EntityBlackHole;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
@@ -15,19 +16,19 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderBlackHole extends Render {
 
 	protected static final ResourceLocation objTesterModelRL = new ResourceLocation(RefStrings.MODID, "models/Sphere.obj");
-	protected IModelCustom blastModel;
+	protected MeshModel blastModel;
 	protected ResourceLocation hole = new ResourceLocation(RefStrings.MODID, "textures/models/BlackHole.png");
 	protected ResourceLocation swirl = new ResourceLocation(RefStrings.MODID, "textures/entity/bhole.png");
 	protected ResourceLocation disc = new ResourceLocation(RefStrings.MODID, "textures/entity/bholeDisc.png");
 
 	public RenderBlackHole() {
-		blastModel = AdvancedModelLoader.loadModel(objTesterModelRL);
+		blastModel = new ObjMeshModel(objTesterModelRL);
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class RenderBlackHole extends Render {
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 
-		float size = entity.getDataWatcher().getWatchableObjectFloat(16);
+		float size = ((EntityBlackHole) entity).getBlackHoleSize();
 
 		GL11.glScalef(size, size, size);
 

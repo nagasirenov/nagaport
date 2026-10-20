@@ -20,6 +20,9 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.RayTraceResult;
@@ -27,6 +30,8 @@ import net.minecraft.world.World;
 import scala.reflect.internal.Trees.This;
 
 public class EntityCombatDropPod extends EntityThrowable {
+
+	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityCombatDropPod.class, DataSerializers.VARINT);
 
 	private NBTTagCompound entityType;
 	private int amount;
@@ -46,16 +51,16 @@ public class EntityCombatDropPod extends EntityThrowable {
 	
 	public void setColor(int color) {
 		this.color = color;
-		this.dataWatcher.updateObject(20, color);
+		this.dataManager.set(COLOR, color);
 	}
 
 	public int getColor() {
-		return this.dataWatcher.getWatchableObjectInt(20);
+		return this.dataManager.get(COLOR);
 	}
 	
 	@Override
 	protected void entityInit() {
-	    this.dataWatcher.addObject(20, (int) 0);
+	    this.dataManager.register(COLOR, (int) 0);
 	}
 	
 	public void setPayload(NBTTagCompound entityData, int amount, int color) {
@@ -75,18 +80,18 @@ public class EntityCombatDropPod extends EntityThrowable {
 		
 		for(int i = 0; i < 4; i++) {
 			
-			if(worldObj.getBlock((int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getMaterial() != Material.air && !worldObj.isRemote) {
-				ExplosionLarge.spawnParticles(worldObj, posX, posY + 1, posZ, 50);
+			if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote) {
+				ExplosionLarge.spawnParticles(this.world, posX, posY + 1, posZ, 50);
 
-	            this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:block.hatchImpact", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F);
+	            com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:block.hatchImpact", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F);
 
 	            int x = (int)this.posX;
 	            int y = (int)this.posY + 1;
 	            int z = (int)this.posZ;
 
-	            worldObj.setBlock(x, y, z, ModBlocks.combat_drop);
+	            this.world.setBlock(x, y, z, ModBlocks.combat_drop);
 
-	            TileEntity te = worldObj.getTileEntity(x, y, z);
+	            TileEntity te = this.world.getTileEntity(x, y, z);
 
 	            if(te instanceof TileEntityCombatDropPod) {
 
@@ -94,7 +99,7 @@ public class EntityCombatDropPod extends EntityThrowable {
 
 	                if(this.entityType != null) {
 	                    capsule.setPayload(this.entityType, this.amount, this.color);
-	                    worldObj.markBlockForUpdate(x, y, z);
+	                    this.world.markBlockForUpdate(x, y, z);
 
 	                } else {
 	                    return;

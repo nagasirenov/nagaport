@@ -54,7 +54,7 @@ public class DecoBlockAlt extends BlockContainer {
 	
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
@@ -77,10 +77,10 @@ public class DecoBlockAlt extends BlockContainer {
 		} else if(!player.isSneaking()) {
 			
 			if(player.getCurrentEquippedItem() != null) {
-				boolean cracked = player.getHeldItem().getItem() == ModItems.key_red_cracked;
+				boolean cracked = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red_cracked;
 				
-				if((player.getHeldItem().getItem() == ModItems.key_red || cracked)) {
-					if(cracked) player.getHeldItem().stackSize--;
+				if((com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red || cracked)) {
+					if(cracked) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 					world.func_147480_a(x, y, z, true);
 					return true;
 				}

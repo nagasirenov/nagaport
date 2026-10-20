@@ -86,7 +86,7 @@ public class RBMKNeutronHandler {
 							z = -fluxRange;
 							x++;
 						}
-						return posInstance.mutate(tile.xCoord + x, tile.yCoord, tile.zCoord + z);
+						return posInstance.mutate(tile.getPos().getX() + x, tile.getPos().getY(), tile.getPos().getZ() + z);
 					} else {
 						z++;
 						if(z > fluxRange) {
@@ -214,13 +214,13 @@ public class RBMKNeutronHandler {
 			NeutronNode[] positions = new RBMKNeutronNode[fluxRange];
 
 			BlockPos pos = new BlockPos(origin.tile);
-			World world = origin.tile.getWorldObj();
+			World world = origin.tile.getWorld();
 
 			for(int i = 1; i <= fluxRange; i++) {
 				int x = (int) Math.floor(0.5 + vector.x * i);
 				int z = (int) Math.floor(0.5 + vector.z * i);
 
-				pos.mutate(origin.tile.xCoord + x, origin.tile.yCoord, origin.tile.zCoord + z);
+				pos.mutate(origin.tile.getPos().getX() + x, origin.tile.getPos().getY(), origin.tile.getPos().getZ() + z);
 
 				NeutronNode node = streamWorld.getNode(pos);
 				if(node instanceof RBMKNeutronNode) {
@@ -370,7 +370,7 @@ public class RBMKNeutronHandler {
 
 			if(lastNode == null) { // This implies that there was *no* last node, meaning either way it was never caught.
 				// There is really no good way to figure out where exactly it should irradiate, so just irradiate at the origin tile.
-				irradiateFromFlux(new BlockPos(origin.tile.xCoord + this.vector.x, origin.tile.yCoord, origin.tile.zCoord + this.vector.z));
+				irradiateFromFlux(new BlockPos(origin.tile.getPos().getX() + this.vector.x, origin.tile.getPos().getY(), origin.tile.getPos().getZ() + this.vector.z));
 				return;
 			}
 
@@ -380,7 +380,7 @@ public class RBMKNeutronHandler {
 				TileEntityRBMKControl rod = (TileEntityRBMKControl) lastNode.tile;
 				if(rod.getMult() > 0.0D) {
 					this.fluxQuantity *= rod.getMult();
-					BlockPos posAfter = new BlockPos(lastNode.tile.xCoord + this.vector.x, lastNode.tile.yCoord, lastNode.tile.zCoord + this.vector.z);
+					BlockPos posAfter = new BlockPos(lastNode.tile.getPos().getX() + this.vector.x, lastNode.tile.getPos().getY(), lastNode.tile.getPos().getZ() + this.vector.z);
 
 					// The below code checks if the block after the control rod is actually a block or if it's an RBMK rod.
 					// Resolves GitHub issue #1933.
@@ -405,7 +405,7 @@ public class RBMKNeutronHandler {
 				// I have had this one line cause me like tens of problems
 				// I FUCKING HATE THIS
 				// total count of bugs fixed attributed to this function: 14
-				Block block = origin.tile.getWorldObj().getBlock(pos.getX(), pos.getY() + h, pos.getZ());
+				Block block = origin.tile.getWorld().getBlock(pos.getX(), pos.getY() + h, pos.getZ());
 				if(block.isOpaqueCube())
 					hits += 1;
 			}
@@ -414,11 +414,11 @@ public class RBMKNeutronHandler {
 		}
 
 		public void irradiateFromFlux(BlockPos pos) {
-			ChunkRadiationManager.proxy.incrementRad(origin.tile.getWorldObj(), pos.getX(), pos.getY(), pos.getZ(), (float) (fluxQuantity * 0.05F * (1 - (double) getHits(pos) / columnHeight)));
+			ChunkRadiationManager.proxy.incrementRad(origin.tile.getWorld(), pos.getX(), pos.getY(), pos.getZ(), (float) (fluxQuantity * 0.05F * (1 - (double) getHits(pos) / columnHeight)));
 		}
 
 		public void irradiateFromFlux(BlockPos pos, int hits) {
-			ChunkRadiationManager.proxy.incrementRad(origin.tile.getWorldObj(), pos.getX(), pos.getY(), pos.getZ(), (float) (fluxQuantity * 0.05F * (1 - (double) hits / columnHeight)));
+			ChunkRadiationManager.proxy.incrementRad(origin.tile.getWorld(), pos.getX(), pos.getY(), pos.getZ(), (float) (fluxQuantity * 0.05F * (1 - (double) hits / columnHeight)));
 		}
 
 		public void moderateStream() {

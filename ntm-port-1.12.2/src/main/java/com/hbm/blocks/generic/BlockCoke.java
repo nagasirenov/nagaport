@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockCoke extends BlockEnumMulti {
 
 	public BlockCoke() {
-		super(Material.iron, ItemEnums.EnumCokeType.class, true, true);
+		super(Material.IRON, ItemEnums.EnumCokeType.class, true, true);
 	}
 	
 	@Override

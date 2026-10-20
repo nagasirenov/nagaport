@@ -35,9 +35,9 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 	@Override
 	protected void updateEntityActionState() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+			if(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
 				this.setDead();
 				return;
 			}
@@ -72,7 +72,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 		int range = getScanRange();
 
 		if(this.scanCooldown <= 0) {
-			List<Entity> entities = worldObj.getEntitiesWithinAABB(Entity.class, this.boundingBox.expand(range, range / 2, range));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().expand(range, range / 2, range));
 			this.target = null;
 
 			for(Entity entity : entities) {
@@ -115,12 +115,12 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 		double d4 = (this.getX() - this.posX) / p_70790_7_;
 		double d5 = (this.getY() - this.posY) / p_70790_7_;
 		double d6 = (this.getZ() - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.boundingBox.copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}
@@ -168,7 +168,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 		int wX = (int)Math.floor(this.target.posX - vec.x / length * overshoot);
 		int wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);
 
-		this.setWaypoint(wX, Math.max(this.worldObj.getHeightValue(wX, wZ), (int) this.target.posY) + targetHeightOffset(),  wZ);
+		this.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ), (int) this.target.posY) + targetHeightOffset(),  wZ);
 	}
 
 	protected int targetHeightOffset() {
@@ -182,7 +182,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 	protected void setCourseWithoutTaget() {
 		int x = (int) Math.floor(posX + rand.nextGaussian() * 5);
 		int z = (int) Math.floor(posZ + rand.nextGaussian() * 5);
-		this.setWaypoint(x, this.worldObj.getHeightValue(x, z) + wanderHeightOffset(),  z);
+		this.setWaypoint(x, this.world.getHeightValue(x, z) + wanderHeightOffset(),  z);
 	}
 
 	public void setWaypoint(int x, int y, int z) {

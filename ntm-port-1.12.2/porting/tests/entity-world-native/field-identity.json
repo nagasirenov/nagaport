@@ -1,0 +1,11 @@
+{
+  "native_Entity_class_sha256": "267a4f7f57a252396f1054f194e2f506eda6297e4f891ddf1b093eb3205db0ca",
+  "native_artifact": "forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+  "original_Entity_class_sha256": "01b0b4c808c23eb5e4860e0d638edc242ed0f1c2952109c18fdb3db18f73c360",
+  "original_field": "sa/o:Lahb;",
+  "srg_field": "net/minecraft/entity/Entity/field_70170_p",
+  "legacy_mcp_name": "worldObj",
+  "native_field": "net/minecraft/entity/Entity/world:Lnet/minecraft/world/World;",
+  "original_client_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "legacy_srg_sha256": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2"
+}

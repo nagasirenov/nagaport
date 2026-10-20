@@ -1,0 +1,99 @@
+{
+  "ambient.weather.thunder": {
+    "category": "weather",
+    "sounds": [
+      "ambient/weather/thunder1",
+      "ambient/weather/thunder2",
+      "ambient/weather/thunder3"
+    ]
+  },
+  "random.explode": {
+    "category": "block",
+    "sounds": [
+      "random/explode1",
+      "random/explode2",
+      "random/explode3",
+      "random/explode4"
+    ]
+  },
+  "random.fizz": {
+    "category": "block",
+    "sounds": [
+      "random/fizz"
+    ]
+  },
+  "random.click": {
+    "category": "block",
+    "sounds": [
+      "random/click"
+    ]
+  },
+  "fire.fire": {
+    "category": "block",
+    "sounds": [
+      "fire/fire"
+    ]
+  },
+  "random.break": {
+    "category": "player",
+    "sounds": [
+      "random/break"
+    ]
+  },
+  "mob.zombie.woodbreak": {
+    "category": "hostile",
+    "sounds": [
+      "mob/zombie/woodbreak"
+    ]
+  },
+  "mob.endermen.portal": {
+    "category": "hostile",
+    "sounds": [
+      "mob/endermen/portal",
+      "mob/endermen/portal2"
+    ]
+  },
+  "fireworks.blast": {
+    "category": "ambient",
+    "sounds": [
+      "fireworks/blast1"
+    ]
+  },
+  "fire.ignite": {
+    "category": "block",
+    "sounds": [
+      "fire/ignite"
+    ]
+  },
+  "tile.piston.out": {
+    "category": "block",
+    "sounds": [
+      "tile/piston/out"
+    ]
+  },
+  "tile.piston.in": {
+    "category": "block",
+    "sounds": [
+      "tile/piston/in"
+    ]
+  },
+  "minecart.base": {
+    "category": "neutral",
+    "sounds": [
+      "minecart/base"
+    ]
+  },
+  "game.neutral.swim.splash": {
+    "category": "neutral",
+    "sounds": [
+      "liquid/splash",
+      "liquid/splash2"
+    ]
+  },
+  "random.orb": {
+    "category": "player",
+    "sounds": [
+      "random/orb"
+    ]
+  }
+}

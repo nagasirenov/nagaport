@@ -1,0 +1,80 @@
+{
+  "baseline": "e72ec3d2ae8db6653ebaad529a574ee32c99260b",
+  "checkpoint": "CP59",
+  "production_units": 4058,
+  "parse_errors": 0,
+  "baseline_errors": 17475,
+  "after_errors": 17474,
+  "removed_baseline_diagnostic": "NetworkHandler FMLProxyPacket(ByteBuf) requires native PacketBuffer",
+  "candidate_invocations_unchanged": 41,
+  "eligible_candidate_calls": 36,
+  "activated_calls": 0,
+  "native_bindings": [
+    {
+      "path": "com/hbm/main/NetworkHandler.java",
+      "line": "137",
+      "receiver_source": "serverChannel",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraftforge.fml.common.network.FMLEmbeddedChannel",
+      "method_owner": "net.minecraftforge.fml.common.network.FMLEmbeddedChannel",
+      "method_signature": "generatePacketFrom(java.lang.Object)",
+      "arguments_source": "message",
+      "arguments_type": "net.minecraftforge.fml.common.network.simpleimpl.IMessage",
+      "full_invocation": "serverChannel.generatePacketFrom(message)"
+    },
+    {
+      "path": "com/hbm/packet/toclient/LegacyEntitySoundPacket.java",
+      "line": "67",
+      "receiver_source": "client",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.client.Minecraft",
+      "method_owner": "net.minecraft.client.Minecraft",
+      "method_signature": "addScheduledTask(java.lang.Runnable)",
+      "arguments_source": "() -> {\\n                ResourceLocation location = new ResourceLocation(message.name);\\n                client.getSoundHandler().playSound(new PositionedSoundRecord(location,\\n                    SoundCategoryResolver.get(location), message.volume, message.pitch / 63.0F,\\n                    false, 0, ISound.AttenuationType.LINEAR,\\n                    (float)(message.x / 8.0D), (float)(message.y / 8.0D), (float)(message.z / 8.0D)));\\n            }",
+      "arguments_type": "java.lang.Runnable",
+      "full_invocation": "client.addScheduledTask(() -> {\\n                ResourceLocation location = new ResourceLocation(message.name);\\n                client.getSoundHandler().playSound(new PositionedSoundRecord(location,\\n                    SoundCategoryResolver.get(location), message.volume, message.pitch / 63.0F,\\n                    false, 0, ISound.AttenuationType.LINEAR,\\n                    (float)(message.x / 8.0D), (float)(message.y / 8.0D), (float)(message.z / 8.0D)));\\n            })"
+    },
+    {
+      "path": "com/hbm/packet/toclient/LegacyEntitySoundPacket.java",
+      "line": "69",
+      "receiver_source": "client.getSoundHandler()",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.client.audio.SoundHandler",
+      "method_owner": "net.minecraft.client.audio.SoundHandler",
+      "method_signature": "playSound(net.minecraft.client.audio.ISound)",
+      "arguments_source": "new PositionedSoundRecord(location,\\n                    SoundCategoryResolver.get(location), message.volume, message.pitch / 63.0F,\\n                    false, 0, ISound.AttenuationType.LINEAR,\\n                    (float)(message.x / 8.0D), (float)(message.y / 8.0D), (float)(message.z / 8.0D))",
+      "arguments_type": "net.minecraft.client.audio.PositionedSoundRecord",
+      "full_invocation": "client.getSoundHandler().playSound(new PositionedSoundRecord(location,\\n                    SoundCategoryResolver.get(location), message.volume, message.pitch / 63.0F,\\n                    false, 0, ISound.AttenuationType.LINEAR,\\n                    (float)(message.x / 8.0D), (float)(message.y / 8.0D), (float)(message.z / 8.0D)))"
+    },
+    {
+      "path": "com/hbm/sound/EntitySoundTransport.java",
+      "line": "34",
+      "receiver_source": "listener",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.IWorldEventListener",
+      "method_owner": "net.minecraft.world.IWorldEventListener",
+      "method_signature": "playSoundToAllNearExcept(net.minecraft.entity.player.EntityPlayer,net.minecraft.util.SoundEvent,net.minecraft.util.SoundCategory,double,double,double,float,float)",
+      "arguments_source": "null || sound || category || x || y || z || volume || pitch",
+      "arguments_type": "<nulltype> || net.minecraft.util.SoundEvent || net.minecraft.util.SoundCategory || double || double || double || float || float",
+      "full_invocation": "listener.playSoundToAllNearExcept(null, sound, category, x, y, z, volume, pitch)"
+    },
+    {
+      "path": "com/hbm/sound/EntitySoundTransport.java",
+      "line": "48",
+      "receiver_source": "players",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.server.management.PlayerList",
+      "method_owner": "net.minecraft.server.management.PlayerList",
+      "method_signature": "sendToAllNearExcept(net.minecraft.entity.player.EntityPlayer,double,double,double,double,int,net.minecraft.network.Packet<?>)",
+      "arguments_source": "null || x || y || z || volume > 1.0F ? (double)(16.0F * volume) : 16.0D || dimension || encoder.apply(message)",
+      "arguments_type": "<nulltype> || double || double || double || double || int || net.minecraft.network.Packet<capture#616 of ?>",
+      "full_invocation": "players.sendToAllNearExcept(null, x, y, z,\\n                volume > 1.0F ? (double)(16.0F * volume) : 16.0D,\\n                dimension, encoder.apply(message))"
+    }
+  ],
+  "overlay_sha256": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/NetworkHandler.java": "93f111393b4e0aff25a4301a41b8f8675d16768b61cbd1ad689dcf0cdafcc25d",
+    "ntm-port-1.12.2/src/main/java/com/hbm/packet/PacketDispatcher.java": "7f6e03acb4aaa72e6e89fbb3e20cf1424e60a1fb4b78afa6b0fc62eff321c303",
+    "ntm-port-1.12.2/src/main/java/com/hbm/packet/toclient/LegacyEntitySoundPacket.java": "25dc12da5106dd0ad3b76b338271d9a744582bd34719a27e8fd65c60570c2133",
+    "ntm-port-1.12.2/src/main/java/com/hbm/sound/EntitySoundTransport.java": "f839041f2e308e0539b9038a7d1f0956782da396578357d3e9beecace8aba6f1"
+  }
+}

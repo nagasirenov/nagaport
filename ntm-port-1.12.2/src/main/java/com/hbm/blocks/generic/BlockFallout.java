@@ -41,18 +41,18 @@ public class BlockFallout extends Block {
 		return false;
 	}
 
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return ModItems.fallout;
 	}
 
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		Block block = world.getBlock(x, y - 1, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 
-		if (block == Blocks.ice || block == Blocks.packed_ice) return false;
+		if (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;
 		if (block.isLeaves(world, x, y - 1, z) && !block.isAir(world, x, y - 1, z)) return true;
-		if (block == this && (world.getBlockMetadata(x, y - 1, z) & 7) == 7) return true;
+		if (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7) return true;
 
-		return block.isOpaqueCube() && block.getMaterial().blocksMovement();
+		return block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement();
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class BlockFallout extends Block {
 
 	private boolean func_150155_m(World world, int x, int y, int z) {
 		if(!this.canPlaceBlockAt(world, x, y, z)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return false;
 		} else {
 			return true;

@@ -1,0 +1,20 @@
+[
+  "src/main/java/com/hbm/items/weapon/ItemMissile.java",
+  "src/main/java/com/hbm/items/special/ItemSchraranium.java",
+  "src/main/java/com/hbm/items/weapon/ItemAmmo.java",
+  "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+  "src/main/java/com/hbm/items/machine/ItemBatterySC.java",
+  "src/main/java/com/hbm/items/machine/ItemCircuit.java",
+  "src/main/java/com/hbm/items/food/ItemConserve.java",
+  "src/main/java/com/hbm/items/machine/ItemDrillbit.java",
+  "src/main/java/com/hbm/items/tool/ItemDrone.java",
+  "src/main/java/com/hbm/items/special/ItemExpensive.java",
+  "src/main/java/com/hbm/items/special/ItemHolotapeImage.java",
+  "src/main/java/com/hbm/items/machine/ItemPACoil.java",
+  "src/main/java/com/hbm/items/machine/ItemPWRFuel.java",
+  "src/main/java/com/hbm/items/machine/ItemPistons.java",
+  "src/main/java/com/hbm/items/special/ItemTrain.java",
+  "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+  "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+  "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java"
+]

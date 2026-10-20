@@ -44,7 +44,7 @@ public class ExplosionKnockbackPacket implements IMessage {
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(ExplosionKnockbackPacket m, MessageContext ctx) {
 
-			EntityPlayer thePlayer = Minecraft.getMinecraft().thePlayer;
+			EntityPlayer thePlayer = Minecraft.getMinecraft().player;
 			thePlayer.motionX += m.motionX;
 			thePlayer.motionY += m.motionY;
 			thePlayer.motionZ += m.motionZ;

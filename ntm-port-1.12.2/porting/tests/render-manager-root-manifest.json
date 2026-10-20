@@ -1,0 +1,1399 @@
+{
+  "base_commit": "f15a65995a9fcd20a8b817d190f540dd0fa0e577",
+  "scope": "Native constructor/factory boundary only; not complete renderer migration",
+  "renderers": [
+    {
+      "path": "src/main/java/com/hbm/render/entity/RenderEmpty.java",
+      "baseline_sha256": "f7efd17fc7499ed15c17a0085203e3ed28f6b38b59418550538f47efc2ce6d4f",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderEmpty() {",
+          "new": "public RenderEmpty(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/FogRenderer.java",
+      "baseline_sha256": "e078c24069cecb3e8e155f6b83c974fc723c6d6da2421aab2c4c442f83e3e81d",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class FogRenderer extends Render {",
+          "new": "public class FogRenderer extends Render {\n\n\tpublic FogRenderer(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/MultiCloudRenderer.java",
+      "baseline_sha256": "518a995556c8b604ab0b18fc40b889de47a85acfc347e0b82d8e0a8e3e048619",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public MultiCloudRenderer(Item[] p_i1259_1_, int p_i1259_2_) {",
+          "new": "public MultiCloudRenderer(RenderManager renderManager, Item[] p_i1259_1_, int p_i1259_2_) {\n\t\tsuper(renderManager);",
+          "count": 1
+        },
+        {
+          "old": "public MultiCloudRenderer(Item[] p_i1260_1_) {",
+          "new": "public MultiCloudRenderer(RenderManager renderManager, Item[] p_i1260_1_) {",
+          "count": 1
+        },
+        {
+          "old": "this(p_i1260_1_, 0);",
+          "new": "this(renderManager, p_i1260_1_, 0);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudTom.java",
+      "baseline_sha256": "722a62ee99ad6c6f8b203c580336eb12bd7d759a49f37cea10adb56239443866",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderCloudTom extends Render {",
+          "new": "public class RenderCloudTom extends Render {\n\n\tpublic RenderCloudTom(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderFlare.java",
+      "baseline_sha256": "ebf8753d74f06999c63ef9a722645f91b8bc5ed26012e006e679c44e514c1fd9",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderFlare extends Render {",
+          "new": "public class RenderFlare extends Render {\n\n\tpublic RenderFlare(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderMist.java",
+      "baseline_sha256": "5d797f970083fb08c7ff836756d76978590d3312f39c4f810c6a3e8558c27329",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderMist extends Render {",
+          "new": "public class RenderMist extends Render {\n\n\tpublic RenderMist(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderSpear.java",
+      "baseline_sha256": "d14b9be886e5b46fccc90e2abcb30d8d7f2a2c3296b68b7c841e60c203adce80",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSpear extends Render {",
+          "new": "public class RenderSpear extends Render {\n\n\tpublic RenderSpear(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderTorex.java",
+      "baseline_sha256": "4ce4244f1dc4ddf7a8c7b2fc94677a3a40a9f967117da351ca5b83ab60769218",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderTorex extends Render {",
+          "new": "public class RenderTorex extends Render {\n\n\tpublic RenderTorex(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderBomber.java",
+      "baseline_sha256": "d1e63da3206406f0d282cabad5ef1f66d278bd3515ece60282b0218ef96a5299",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderBomber() {",
+          "new": "public RenderBomber(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderC130.java",
+      "baseline_sha256": "825f12b03fd252ccb1d1e79549d430a224f832a173fdd02d2576cc820fce5fd6",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderC130 extends Render {",
+          "new": "public class RenderC130 extends Render {\n\n\tpublic RenderC130(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderDeliveryDrone.java",
+      "baseline_sha256": "1a967724063e26ffca87ed560b95381ffd8c78e60790991823eecde47eff40e2",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderDeliveryDrone extends Render {",
+          "new": "public class RenderDeliveryDrone extends Render {\n\n\tpublic RenderDeliveryDrone(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderMagnusCartus.java",
+      "baseline_sha256": "ec90f603c9aa69eec2fc10eb5a43089115479b8a10108b5c50c5e6cd6c46d41c",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderMagnusCartus extends Render {",
+          "new": "public class RenderMagnusCartus extends Render {\n\n\tpublic RenderMagnusCartus(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderMovingItem.java",
+      "baseline_sha256": "9e7b298a951d3be0df24c6b969534dd57caf49e66ce5989236f3d63154b7c386",
+      "changes": [
+        {
+          "old": "public class RenderMovingItem extends Render {",
+          "new": "public class RenderMovingItem extends Render {\n\n\tpublic RenderMovingItem(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderMovingPackage.java",
+      "baseline_sha256": "d264195c8f6638986e39d1f9886d66e42db28a59c59d42416337d06435f73f21",
+      "changes": [
+        {
+          "old": "public class RenderMovingPackage extends Render {",
+          "new": "public class RenderMovingPackage extends Render {\n\n\tpublic RenderMovingPackage(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderNeoCart.java",
+      "baseline_sha256": "b0a472c112e3a40ed312a7e0ea726ec53c6c443b121edc9866d750e9b6c70e3c",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderNeoCart extends Render {",
+          "new": "public class RenderNeoCart extends Render {\n\n\tpublic RenderNeoCart(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderParachuteCrate.java",
+      "baseline_sha256": "742498acc5e39b4ae3cfd53020faad7f6cf5a5a6cc37f4aa9596f614578233e3",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderParachuteCrate extends Render {",
+          "new": "public class RenderParachuteCrate extends Render {\n\n\tpublic RenderParachuteCrate(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderTrainCargoTram.java",
+      "baseline_sha256": "a6b8ff9affd73c3dab7cf111710e931e31bfded6fdb7bbf232c2f0e2de9a9278",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderTrainCargoTram extends Render {",
+          "new": "public class RenderTrainCargoTram extends Render {\n\n\tpublic RenderTrainCargoTram(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderTrainCargoTramTrailer.java",
+      "baseline_sha256": "18e491da0aa6ad82b6eed206e0c604714445ccf2a0113897172293c1c1c9bec6",
+      "changes": [
+        {
+          "old": "public class RenderTrainCargoTramTrailer extends Render {",
+          "new": "public class RenderTrainCargoTramTrailer extends Render {\n\n\tpublic RenderTrainCargoTramTrailer(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderBFA.java",
+      "baseline_sha256": "1a0fcd4e0faaee6bff06f65cc5b34d0f4dcc0c8735d03fd64fd60eaf106d26a9",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderBFA extends Render {",
+          "new": "public class RenderBFA extends Render {\n\n\tpublic RenderBFA(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderDrone.java",
+      "baseline_sha256": "5f280f130061a3e796258e18fb12d987e1da6db61aecfb8c383973ea5d01dab4",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderDrone extends Render {",
+          "new": "public class RenderDrone extends Render {\n\n\tpublic RenderDrone(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderSiegeCraft.java",
+      "baseline_sha256": "a69121486cee4895c7629a2bdcd9954f6e1be1a8ae10c30dd0849849894cad83",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSiegeCraft extends Render {",
+          "new": "public class RenderSiegeCraft extends Render {\n\n\tpublic RenderSiegeCraft(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderSiegeUFO.java",
+      "baseline_sha256": "347e841518828514665961abbab730e7bacad7791c8bce53d95e91cf77590fde",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSiegeUFO extends Render {",
+          "new": "public class RenderSiegeUFO extends Render {\n\n\tpublic RenderSiegeUFO(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderUFO.java",
+      "baseline_sha256": "df98aa76582b5a9a2a4fb64814e80497efbae101b45307845f9e62bec7ee5d27",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderUFO extends Render {",
+          "new": "public class RenderUFO extends Render {\n\n\tpublic RenderUFO(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderArtilleryRocket.java",
+      "baseline_sha256": "cf1b877d29070f9bc0dfeb6a4020577cdd045ec9559422b8fa4160cdf0c0347e",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderArtilleryRocket extends Render {",
+          "new": "public class RenderArtilleryRocket extends Render {\n\n\tpublic RenderArtilleryRocket(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderArtilleryShell.java",
+      "baseline_sha256": "e92519954d9b99edf2a46e5cd2b2bd8074a82c0d540b8f496c1a6c1c8590d602",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderArtilleryShell extends Render {",
+          "new": "public class RenderArtilleryShell extends Render {\n\n\tpublic RenderArtilleryShell(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderBeam.java",
+      "baseline_sha256": "f56a8974a1ab45abbe4a8da27e6c0259b1910a07c756b09f7317c1fd6b946539",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderBeam extends Render {",
+          "new": "public class RenderBeam extends Render {\n\n\tpublic RenderBeam(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderBoxcar.java",
+      "baseline_sha256": "30c2122d138318df8a1d0ba87cbb6497b13b5e926d6b82e3da038098dcda9a5a",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderBoxcar extends Render {",
+          "new": "public class RenderBoxcar extends Render {\n\n\tpublic RenderBoxcar(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderBulletMK4.java",
+      "baseline_sha256": "cc9161cde6336abbd1a570ddaab5ce4463b18c7585e34ba3d22cf01e3290033a",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderBulletMK4 extends Render {",
+          "new": "public class RenderBulletMK4 extends Render {\n\n\tpublic RenderBulletMK4(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "baseline_sha256": "8f6bde12904158c82272d79dad89c2cf6a4021d935b6eafe7bc74b38bf333f6b",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderChemical extends Render {",
+          "new": "public class RenderChemical extends Render {\n\n\tpublic RenderChemical(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderCog.java",
+      "baseline_sha256": "0e412b6b3c45899585ae8e3315fd2c60428f2972aecf6a6ca007c225039d8231",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderCog extends Render {",
+          "new": "public class RenderCog extends Render {\n\n\tpublic RenderCog(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderFOEQ.java",
+      "baseline_sha256": "3e2a0cf482797c9fdb072e2f190207ad3421e22d925e7e2a49ad24671c30d879",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderFOEQ() {",
+          "new": "public RenderFOEQ(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderGenericGrenade.java",
+      "baseline_sha256": "f0bbd495e0d43aa6792102c3281892bba08471da768b4b6693e47825220eaa86",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderGenericGrenade extends Render {",
+          "new": "public class RenderGenericGrenade extends Render {\n\n\tpublic RenderGenericGrenade(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderGrenade.java",
+      "baseline_sha256": "b2dd81044c12bde80eefe9c94a411afb9d65e1534d40609366ba8a313021851b",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderGrenade extends Render {",
+          "new": "public class RenderGrenade extends Render {\n\n\tpublic RenderGrenade(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderMeteor.java",
+      "baseline_sha256": "8496972000da41e726971d5aa21400bfc3602fbbf977410b38a9db46fe323a63",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMeteor() {",
+          "new": "public RenderMeteor(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderRBMKDebris.java",
+      "baseline_sha256": "861b5d3ae4c51d82024851c015f949e28c312928d49aeabe9d049f03154e24cd",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderRBMKDebris extends Render {",
+          "new": "public class RenderRBMKDebris extends Render {\n\n\tpublic RenderRBMKDebris(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderSawblade.java",
+      "baseline_sha256": "89c1942135dfecef200283c8e6e3422e7441ba339dbc136466a14e7f3a5cf6be",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSawblade extends Render {",
+          "new": "public class RenderSawblade extends Render {\n\n\tpublic RenderSawblade(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "baseline_sha256": "a1a44a979599a80471d20d64e25b55575dd4a005850c3607645c1d01c2bb2cfc",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSiegeLaser extends Render {",
+          "new": "public class RenderSiegeLaser extends Render {\n\n\tpublic RenderSiegeLaser(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderTom.java",
+      "baseline_sha256": "b8eaf8db9f2432a46f0f90b0fba276692234ccadeb94a59c15063c37b5be1e09",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderTom extends Render {",
+          "new": "public class RenderTom extends Render {\n\n\tpublic RenderTom(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java",
+      "baseline_sha256": "44a3942e90b3c7f10c767fba4720243c7ac8266c8871c094517b4f573f082e57",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderVortexBeam extends Render {",
+          "new": "public class RenderVortexBeam extends Render {\n\n\tpublic RenderVortexBeam(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderZirnoxDebris.java",
+      "baseline_sha256": "a57b6d9e9706b142817337794e66e02c1c1b867bdfd0db7358f82a97cdc9facd",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderZirnoxDebris extends Render {",
+          "new": "public class RenderZirnoxDebris extends Render {\n\n\tpublic RenderZirnoxDebris(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderCombatDropPod.java",
+      "baseline_sha256": "0e734d2b44b6a447ec35029ebbb91c6ba595438e047a0c4da370d63a1d4ee36e",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderCombatDropPod extends Render {",
+          "new": "public class RenderCombatDropPod extends Render {\n\n\tpublic RenderCombatDropPod(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMinerRocket.java",
+      "baseline_sha256": "ba0155d7eb6f104e6b6beb49a1ba77ddb533488c59e257ce28ece2f2b147701c",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderMinerRocket extends Render {",
+          "new": "public class RenderMinerRocket extends Render {\n\n\tpublic RenderMinerRocket(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileCustom.java",
+      "baseline_sha256": "e887586997522f4cf30dd0882ccfeb3a799f886a227ec3970ad9840ad0f6429a",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderMissileCustom extends Render {",
+          "new": "public class RenderMissileCustom extends Render {\n\n\tpublic RenderMissileCustom(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileGeneric.java",
+      "baseline_sha256": "973f868c3a971176e28598669780b14a28b763998a0cb09a55210e9e242732df",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMissileGeneric() {",
+          "new": "public RenderMissileGeneric(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileHuge.java",
+      "baseline_sha256": "f14f1b39e8be284a35d8aa3ffa319b327de4be32aafc0b3a3da749efe5bfe06c",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMissileHuge() {",
+          "new": "public RenderMissileHuge(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileNuclear.java",
+      "baseline_sha256": "094647a8e96fa53a12622518a6d97b424a35bece0f27e300cdf5a42d06ffcdb8",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMissileNuclear() {",
+          "new": "public RenderMissileNuclear(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileShuttle.java",
+      "baseline_sha256": "361630f26c18d1c74b8e649554600f2d4028f44503d8bd25055f109b95188fb1",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMissileShuttle() {",
+          "new": "public RenderMissileShuttle(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileStrong.java",
+      "baseline_sha256": "a616a17d32aa6b47ff2bb4ca95613b94200bf8177c50322b2b01f12b19f5ce04",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMissileStrong() {",
+          "new": "public RenderMissileStrong(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderMissileTaint.java",
+      "baseline_sha256": "2d58a844f18f939724b5b90e6ed4ad06db229e73a91b47dbb4113709b02c4c5a",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public RenderMissileTaint() {",
+          "new": "public RenderMissileTaint(RenderManager renderManager) {\n\t\tsuper(renderManager);",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderRocketCustom.java",
+      "baseline_sha256": "6c57df258c1c6ab79cc807b4ee444ad7a183a4d9ff547d51eae1909995d3aac0",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderRocketCustom extends Render {",
+          "new": "public class RenderRocketCustom extends Render {\n\n\tpublic RenderRocketCustom(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderSoyuz.java",
+      "baseline_sha256": "c834ce9cff247e13b65a02aee0c9c5067a3aeae534150cc8d7ce0f7bef7aae5e",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSoyuz extends Render {",
+          "new": "public class RenderSoyuz extends Render {\n\n\tpublic RenderSoyuz(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/rocket/RenderSoyuzCapsule.java",
+      "baseline_sha256": "5727e42b069fbccaeaf3c69ca6ccd15cd54c2aa53bf530a6a4e983bd503b4598",
+      "changes": [
+        {
+          "old": "import net.minecraft.client.renderer.entity.Render;",
+          "new": "import net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderManager;",
+          "count": 1
+        },
+        {
+          "old": "public class RenderSoyuzCapsule extends Render {",
+          "new": "public class RenderSoyuzCapsule extends Render {\n\n\tpublic RenderSoyuzCapsule(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "registrations": [
+    {
+      "entity": "EntitySchrab.class",
+      "renderer": "RenderFlare",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySchrab.class, new RenderFlare());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySchrab.class, renderManager -> new RenderFlare(renderManager));\n"
+    },
+    {
+      "entity": "EntityBulletBaseMK4.class",
+      "renderer": "RenderBulletMK4",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseMK4.class, new RenderBulletMK4());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseMK4.class, renderManager -> new RenderBulletMK4(renderManager));\n"
+    },
+    {
+      "entity": "EntityBulletBaseMK4CL.class",
+      "renderer": "RenderBulletMK4",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseMK4CL.class, new RenderBulletMK4());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseMK4CL.class, renderManager -> new RenderBulletMK4(renderManager));\n"
+    },
+    {
+      "entity": "EntityBulletBeamBase.class",
+      "renderer": "RenderBeam",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBeamBase.class, new RenderBeam());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBulletBeamBase.class, renderManager -> new RenderBeam(renderManager));\n"
+    },
+    {
+      "entity": "EntitySiegeLaser.class",
+      "renderer": "RenderSiegeLaser",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeLaser.class, new RenderSiegeLaser());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeLaser.class, renderManager -> new RenderSiegeLaser(renderManager));\n"
+    },
+    {
+      "entity": "EntityMeteor.class",
+      "renderer": "RenderMeteor",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, new RenderMeteor());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, renderManager -> new RenderMeteor(renderManager));\n"
+    },
+    {
+      "entity": "EntityBoxcar.class",
+      "renderer": "RenderBoxcar",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBoxcar.class, new RenderBoxcar());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBoxcar.class, renderManager -> new RenderBoxcar(renderManager));\n"
+    },
+    {
+      "entity": "EntityDuchessGambit.class",
+      "renderer": "RenderBoxcar",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDuchessGambit.class, new RenderBoxcar());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDuchessGambit.class, renderManager -> new RenderBoxcar(renderManager));\n"
+    },
+    {
+      "entity": "EntityBuilding.class",
+      "renderer": "RenderBoxcar",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBuilding.class, new RenderBoxcar());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBuilding.class, renderManager -> new RenderBoxcar(renderManager));\n"
+    },
+    {
+      "entity": "EntityTorpedo.class",
+      "renderer": "RenderBoxcar",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityTorpedo.class, new RenderBoxcar());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityTorpedo.class, renderManager -> new RenderBoxcar(renderManager));\n"
+    },
+    {
+      "entity": "EntityBomber.class",
+      "renderer": "RenderBomber",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBomber.class, new RenderBomber());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBomber.class, renderManager -> new RenderBomber(renderManager));\n"
+    },
+    {
+      "entity": "EntityC130.class",
+      "renderer": "RenderC130",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityC130.class, new RenderC130());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityC130.class, renderManager -> new RenderC130(renderManager));\n"
+    },
+    {
+      "entity": "EntityBurningFOEQ.class",
+      "renderer": "RenderFOEQ",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBurningFOEQ.class, new RenderFOEQ());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBurningFOEQ.class, renderManager -> new RenderFOEQ(renderManager));\n"
+    },
+    {
+      "entity": "EntityMinerRocket.class",
+      "renderer": "RenderMinerRocket",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMinerRocket.class, new RenderMinerRocket());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMinerRocket.class, renderManager -> new RenderMinerRocket(renderManager));\n"
+    },
+    {
+      "entity": "EntityBobmazon.class",
+      "renderer": "RenderMinerRocket",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBobmazon.class, new RenderMinerRocket());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBobmazon.class, renderManager -> new RenderMinerRocket(renderManager));\n"
+    },
+    {
+      "entity": "EntityTom.class",
+      "renderer": "RenderTom",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityTom.class, new RenderTom());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityTom.class, renderManager -> new RenderTom(renderManager));\n"
+    },
+    {
+      "entity": "EntityWaterSplash.class",
+      "renderer": "RenderEmpty",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityWaterSplash.class, new RenderEmpty());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityWaterSplash.class, renderManager -> new RenderEmpty(renderManager));\n"
+    },
+    {
+      "entity": "EntityEMP.class",
+      "renderer": "RenderEmpty",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, new RenderEmpty());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, renderManager -> new RenderEmpty(renderManager));\n"
+    },
+    {
+      "entity": "EntityBeamVortex.class",
+      "renderer": "RenderVortexBeam",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBeamVortex.class, new RenderVortexBeam());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBeamVortex.class, renderManager -> new RenderVortexBeam(renderManager));\n"
+    },
+    {
+      "entity": "EntityRBMKDebris.class",
+      "renderer": "RenderRBMKDebris",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRBMKDebris.class, new RenderRBMKDebris());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRBMKDebris.class, renderManager -> new RenderRBMKDebris(renderManager));\n"
+    },
+    {
+      "entity": "EntityZirnoxDebris.class",
+      "renderer": "RenderZirnoxDebris",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityZirnoxDebris.class, new RenderZirnoxDebris());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityZirnoxDebris.class, renderManager -> new RenderZirnoxDebris(renderManager));\n"
+    },
+    {
+      "entity": "EntityArtilleryShell.class",
+      "renderer": "RenderArtilleryShell",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityArtilleryShell.class, new RenderArtilleryShell());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityArtilleryShell.class, renderManager -> new RenderArtilleryShell(renderManager));\n"
+    },
+    {
+      "entity": "EntityArtilleryRocket.class",
+      "renderer": "RenderArtilleryRocket",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityArtilleryRocket.class, new RenderArtilleryRocket());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityArtilleryRocket.class, renderManager -> new RenderArtilleryRocket(renderManager));\n"
+    },
+    {
+      "entity": "EntityCog.class",
+      "renderer": "RenderCog",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCog.class, new RenderCog());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCog.class, renderManager -> new RenderCog(renderManager));\n"
+    },
+    {
+      "entity": "EntitySawblade.class",
+      "renderer": "RenderSawblade",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySawblade.class, new RenderSawblade());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySawblade.class, renderManager -> new RenderSawblade(renderManager));\n"
+    },
+    {
+      "entity": "EntityChemical.class",
+      "renderer": "RenderChemical",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityChemical.class, new RenderChemical());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityChemical.class, renderManager -> new RenderChemical(renderManager));\n"
+    },
+    {
+      "entity": "EntityMist.class",
+      "renderer": "RenderMist",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMist.class, new RenderMist());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMist.class, renderManager -> new RenderMist(renderManager));\n"
+    },
+    {
+      "entity": "EntityFireLingering.class",
+      "renderer": "RenderMist",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFireLingering.class, new RenderMist());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFireLingering.class, renderManager -> new RenderMist(renderManager));\n"
+    },
+    {
+      "entity": "EntityWaypoint.class",
+      "renderer": "RenderMist",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityWaypoint.class, new RenderMist());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityWaypoint.class, renderManager -> new RenderMist(renderManager));\n"
+    },
+    {
+      "entity": "EntityGrenadeFlare.class",
+      "renderer": "RenderFlare",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeFlare.class, new RenderFlare());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeFlare.class, renderManager -> new RenderFlare(renderManager));\n"
+    },
+    {
+      "entity": "EntityGrenadeMk2.class",
+      "renderer": "RenderGrenade",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeMk2.class, new RenderGrenade());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeMk2.class, renderManager -> new RenderGrenade(renderManager));\n"
+    },
+    {
+      "entity": "EntityGrenadeASchrab.class",
+      "renderer": "RenderGrenade",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeASchrab.class, new RenderGrenade());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeASchrab.class, renderManager -> new RenderGrenade(renderManager));\n"
+    },
+    {
+      "entity": "EntityGrenadeBouncyGeneric.class",
+      "renderer": "RenderGenericGrenade",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBouncyGeneric.class, new RenderGenericGrenade());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBouncyGeneric.class, renderManager -> new RenderGenericGrenade(renderManager));\n"
+    },
+    {
+      "entity": "EntityGrenadeImpactGeneric.class",
+      "renderer": "RenderGenericGrenade",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpactGeneric.class, new RenderGenericGrenade());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpactGeneric.class, renderManager -> new RenderGenericGrenade(renderManager));\n"
+    },
+    {
+      "entity": "EntityDisperserCanister.class",
+      "renderer": "RenderGenericGrenade",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDisperserCanister.class, new RenderGenericGrenade());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDisperserCanister.class, renderManager -> new RenderGenericGrenade(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileCustom.class",
+      "renderer": "RenderMissileCustom",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileCustom.class, new RenderMissileCustom());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileCustom.class, renderManager -> new RenderMissileCustom(renderManager));\n"
+    },
+    {
+      "entity": "EntityRideableRocket.class",
+      "renderer": "RenderRocketCustom",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRideableRocket.class, new RenderRocketCustom());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRideableRocket.class, renderManager -> new RenderRocketCustom(renderManager));\n"
+    },
+    {
+      "entity": "EntityRideableRocketDummy.class",
+      "renderer": "RenderEmpty",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRideableRocketDummy.class, new RenderEmpty());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRideableRocketDummy.class, renderManager -> new RenderEmpty(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileGeneric.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileGeneric.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileGeneric.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileDecoy.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDecoy.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDecoy.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileStealth.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileStealth.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileStealth.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileAntiBallistic.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileAntiBallistic.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileAntiBallistic.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileIncendiary.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileIncendiary.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileIncendiary.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileCluster.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileCluster.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileCluster.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileBunkerBuster.class",
+      "renderer": "RenderMissileGeneric",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBunkerBuster.class, new RenderMissileGeneric());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBunkerBuster.class, renderManager -> new RenderMissileGeneric(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileStrong.class",
+      "renderer": "RenderMissileStrong",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileStrong.class, new RenderMissileStrong());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileStrong.class, renderManager -> new RenderMissileStrong(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileIncendiaryStrong.class",
+      "renderer": "RenderMissileStrong",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileIncendiaryStrong.class, new RenderMissileStrong());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileIncendiaryStrong.class, renderManager -> new RenderMissileStrong(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileClusterStrong.class",
+      "renderer": "RenderMissileStrong",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileClusterStrong.class, new RenderMissileStrong());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileClusterStrong.class, renderManager -> new RenderMissileStrong(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileBusterStrong.class",
+      "renderer": "RenderMissileStrong",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBusterStrong.class, new RenderMissileStrong());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBusterStrong.class, renderManager -> new RenderMissileStrong(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileEMPStrong.class",
+      "renderer": "RenderMissileStrong",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileEMPStrong.class, new RenderMissileStrong());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileEMPStrong.class, renderManager -> new RenderMissileStrong(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileBurst.class",
+      "renderer": "RenderMissileHuge",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBurst.class, new RenderMissileHuge());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBurst.class, renderManager -> new RenderMissileHuge(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileInferno.class",
+      "renderer": "RenderMissileHuge",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileInferno.class, new RenderMissileHuge());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileInferno.class, renderManager -> new RenderMissileHuge(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileRain.class",
+      "renderer": "RenderMissileHuge",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileRain.class, new RenderMissileHuge());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileRain.class, renderManager -> new RenderMissileHuge(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileDrill.class",
+      "renderer": "RenderMissileHuge",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDrill.class, new RenderMissileHuge());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDrill.class, renderManager -> new RenderMissileHuge(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileNuclear.class",
+      "renderer": "RenderMissileNuclear",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileNuclear.class, new RenderMissileNuclear());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileNuclear.class, renderManager -> new RenderMissileNuclear(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileMirv.class",
+      "renderer": "RenderMissileNuclear",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileMirv.class, new RenderMissileNuclear());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileMirv.class, renderManager -> new RenderMissileNuclear(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileVolcano.class",
+      "renderer": "RenderMissileNuclear",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileVolcano.class, new RenderMissileNuclear());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileVolcano.class, renderManager -> new RenderMissileNuclear(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileDoomsday.class",
+      "renderer": "RenderMissileNuclear",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDoomsday.class, new RenderMissileNuclear());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDoomsday.class, renderManager -> new RenderMissileNuclear(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileDoomsdayRusted.class",
+      "renderer": "RenderMissileNuclear",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDoomsdayRusted.class, new RenderMissileNuclear());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileDoomsdayRusted.class, renderManager -> new RenderMissileNuclear(renderManager));\n"
+    },
+    {
+      "entity": "EntitySoyuz.class",
+      "renderer": "RenderSoyuz",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySoyuz.class, new RenderSoyuz());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySoyuz.class, renderManager -> new RenderSoyuz(renderManager));\n"
+    },
+    {
+      "entity": "EntitySoyuzCapsule.class",
+      "renderer": "RenderSoyuzCapsule",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySoyuzCapsule.class, new RenderSoyuzCapsule());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySoyuzCapsule.class, renderManager -> new RenderSoyuzCapsule(renderManager));\n"
+    },
+    {
+      "entity": "EntityCombatDropPod.class",
+      "renderer": "RenderCombatDropPod",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCombatDropPod.class, new RenderCombatDropPod());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCombatDropPod.class, renderManager -> new RenderCombatDropPod(renderManager));\n"
+    },
+    {
+      "entity": "EntitySiegeUFO.class",
+      "renderer": "RenderSiegeUFO",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeUFO.class, new RenderSiegeUFO());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeUFO.class, renderManager -> new RenderSiegeUFO(renderManager));\n"
+    },
+    {
+      "entity": "EntityParachuteCrate.class",
+      "renderer": "RenderParachuteCrate",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityParachuteCrate.class, new RenderParachuteCrate());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityParachuteCrate.class, renderManager -> new RenderParachuteCrate(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileTaint.class",
+      "renderer": "RenderMissileTaint",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileTaint.class, new RenderMissileTaint());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileTaint.class, renderManager -> new RenderMissileTaint(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileMicro.class",
+      "renderer": "RenderMissileTaint",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileMicro.class, new RenderMissileTaint());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileMicro.class, renderManager -> new RenderMissileTaint(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileBHole.class",
+      "renderer": "RenderMissileTaint",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBHole.class, new RenderMissileTaint());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileBHole.class, renderManager -> new RenderMissileTaint(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileSchrabidium.class",
+      "renderer": "RenderMissileTaint",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileSchrabidium.class, new RenderMissileTaint());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileSchrabidium.class, renderManager -> new RenderMissileTaint(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileEMP.class",
+      "renderer": "RenderMissileTaint",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileEMP.class, new RenderMissileTaint());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileEMP.class, renderManager -> new RenderMissileTaint(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileShuttle.class",
+      "renderer": "RenderMissileShuttle",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileShuttle.class, new RenderMissileShuttle());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileShuttle.class, renderManager -> new RenderMissileShuttle(renderManager));\n"
+    },
+    {
+      "entity": "EntityMissileTest.class",
+      "renderer": "RenderMissileTaint",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileTest.class, new RenderMissileTaint());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMissileTest.class, renderManager -> new RenderMissileTaint(renderManager));\n"
+    },
+    {
+      "entity": "EntityCloudTom.class",
+      "renderer": "RenderCloudTom",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudTom.class, new RenderCloudTom());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudTom.class, renderManager -> new RenderCloudTom(renderManager));\n"
+    },
+    {
+      "entity": "EntitySpear.class",
+      "renderer": "RenderSpear",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySpear.class, new RenderSpear());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySpear.class, renderManager -> new RenderSpear(renderManager));\n"
+    },
+    {
+      "entity": "EntityNukeTorex.class",
+      "renderer": "RenderTorex",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityNukeTorex.class, new RenderTorex());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityNukeTorex.class, renderManager -> new RenderTorex(renderManager));\n"
+    },
+    {
+      "entity": "EntityMinecartNTM.class",
+      "renderer": "RenderNeoCart",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMinecartNTM.class, new RenderNeoCart());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMinecartNTM.class, renderManager -> new RenderNeoCart(renderManager));\n"
+    },
+    {
+      "entity": "EntityMagnusCartus.class",
+      "renderer": "RenderMagnusCartus",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMagnusCartus.class, new RenderMagnusCartus());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMagnusCartus.class, renderManager -> new RenderMagnusCartus(renderManager));\n"
+    },
+    {
+      "entity": "SeatDummyEntity.class",
+      "renderer": "RenderEmpty",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(SeatDummyEntity.class, new RenderEmpty());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(SeatDummyEntity.class, renderManager -> new RenderEmpty(renderManager));\n"
+    },
+    {
+      "entity": "BoundingBoxDummyEntity.class",
+      "renderer": "RenderEmpty",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(BoundingBoxDummyEntity.class, new RenderEmpty());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(BoundingBoxDummyEntity.class, renderManager -> new RenderEmpty(renderManager));\n"
+    },
+    {
+      "entity": "TrainCargoTram.class",
+      "renderer": "RenderTrainCargoTram",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(TrainCargoTram.class, new RenderTrainCargoTram());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(TrainCargoTram.class, renderManager -> new RenderTrainCargoTram(renderManager));\n"
+    },
+    {
+      "entity": "TrainCargoTramTrailer.class",
+      "renderer": "RenderTrainCargoTramTrailer",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(TrainCargoTramTrailer.class, new RenderTrainCargoTramTrailer());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(TrainCargoTramTrailer.class, renderManager -> new RenderTrainCargoTramTrailer(renderManager));\n"
+    },
+    {
+      "entity": "EntityMovingItem.class",
+      "renderer": "RenderMovingItem",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMovingItem.class, new RenderMovingItem());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMovingItem.class, renderManager -> new RenderMovingItem(renderManager));\n"
+    },
+    {
+      "entity": "EntityMovingPackage.class",
+      "renderer": "RenderMovingPackage",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMovingPackage.class, new RenderMovingPackage());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityMovingPackage.class, renderManager -> new RenderMovingPackage(renderManager));\n"
+    },
+    {
+      "entity": "EntityDeliveryDrone.class",
+      "renderer": "RenderDeliveryDrone",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDeliveryDrone.class, new RenderDeliveryDrone());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDeliveryDrone.class, renderManager -> new RenderDeliveryDrone(renderManager));\n"
+    },
+    {
+      "entity": "EntityRequestDrone.class",
+      "renderer": "RenderDeliveryDrone",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRequestDrone.class, new RenderDeliveryDrone());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRequestDrone.class, renderManager -> new RenderDeliveryDrone(renderManager));\n"
+    },
+    {
+      "entity": "EntityUFO.class",
+      "renderer": "RenderUFO",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityUFO.class, new RenderUFO());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityUFO.class, renderManager -> new RenderUFO(renderManager));\n"
+    },
+    {
+      "entity": "EntityBFAngel.class",
+      "renderer": "RenderBFA",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBFAngel.class, new RenderBFA());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBFAngel.class, renderManager -> new RenderBFA(renderManager));\n"
+    },
+    {
+      "entity": "EntitySiegeCraft.class",
+      "renderer": "RenderSiegeCraft",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeCraft.class, new RenderSiegeCraft());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeCraft.class, renderManager -> new RenderSiegeCraft(renderManager));\n"
+    },
+    {
+      "entity": "EntityFBIDrone.class",
+      "renderer": "RenderDrone",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFBIDrone.class, new RenderDrone());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFBIDrone.class, renderManager -> new RenderDrone(renderManager));\n"
+    },
+    {
+      "entity": "EntityDepress.class",
+      "renderer": "RenderEmpty",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDepress.class, new RenderEmpty());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDepress.class, renderManager -> new RenderEmpty(renderManager));\n"
+    },
+    {
+      "entity": "EntityChlorineFX.class",
+      "renderer": "MultiCloudRenderer",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityChlorineFX.class, new MultiCloudRenderer(new Item[] { ModItems.chlorine1, ModItems.chlorine2, ModItems.chlorine3, ModItems.chlorine4, ModItems.chlorine5, ModItems.chlorine6, ModItems.chlorine7, ModItems.chlorine8 }));\n",
+      "new": "\t\tfinal Item[] rendererItemsEntityChlorineFX = new Item[] { ModItems.chlorine1, ModItems.chlorine2, ModItems.chlorine3, ModItems.chlorine4, ModItems.chlorine5, ModItems.chlorine6, ModItems.chlorine7, ModItems.chlorine8 };\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityChlorineFX.class, renderManager -> new MultiCloudRenderer(renderManager, rendererItemsEntityChlorineFX));\n"
+    },
+    {
+      "entity": "EntityPinkCloudFX.class",
+      "renderer": "MultiCloudRenderer",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityPinkCloudFX.class, new MultiCloudRenderer(new Item[] { ModItems.pc1, ModItems.pc2, ModItems.pc3, ModItems.pc4, ModItems.pc5, ModItems.pc6, ModItems.pc7, ModItems.pc8 }));\n",
+      "new": "\t\tfinal Item[] rendererItemsEntityPinkCloudFX = new Item[] { ModItems.pc1, ModItems.pc2, ModItems.pc3, ModItems.pc4, ModItems.pc5, ModItems.pc6, ModItems.pc7, ModItems.pc8 };\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityPinkCloudFX.class, renderManager -> new MultiCloudRenderer(renderManager, rendererItemsEntityPinkCloudFX));\n"
+    },
+    {
+      "entity": "com.hbm.entity.particle.EntityCloudFX.class",
+      "renderer": "MultiCloudRenderer",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(com.hbm.entity.particle.EntityCloudFX.class, new MultiCloudRenderer(new Item[] { ModItems.cloud1, ModItems.cloud2, ModItems.cloud3, ModItems.cloud4, ModItems.cloud5, ModItems.cloud6, ModItems.cloud7, ModItems.cloud8 }));\n",
+      "new": "\t\tfinal Item[] rendererItemsEntityCloudFX = new Item[] { ModItems.cloud1, ModItems.cloud2, ModItems.cloud3, ModItems.cloud4, ModItems.cloud5, ModItems.cloud6, ModItems.cloud7, ModItems.cloud8 };\n\t\tRenderingRegistry.registerEntityRenderingHandler(com.hbm.entity.particle.EntityCloudFX.class, renderManager -> new MultiCloudRenderer(renderManager, rendererItemsEntityCloudFX));\n"
+    },
+    {
+      "entity": "EntityOrangeFX.class",
+      "renderer": "MultiCloudRenderer",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityOrangeFX.class, new MultiCloudRenderer(new Item[] { ModItems.orange1, ModItems.orange2, ModItems.orange3, ModItems.orange4, ModItems.orange5, ModItems.orange6, ModItems.orange7, ModItems.orange8 }));\n",
+      "new": "\t\tfinal Item[] rendererItemsEntityOrangeFX = new Item[] { ModItems.orange1, ModItems.orange2, ModItems.orange3, ModItems.orange4, ModItems.orange5, ModItems.orange6, ModItems.orange7, ModItems.orange8 };\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityOrangeFX.class, renderManager -> new MultiCloudRenderer(renderManager, rendererItemsEntityOrangeFX));\n"
+    },
+    {
+      "entity": "EntityFogFX.class",
+      "renderer": "FogRenderer",
+      "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFogFX.class, new FogRenderer());\n",
+      "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFogFX.class, renderManager -> new FogRenderer(renderManager));\n"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+PASS ReceiverRangeTest: 55 checks;8 complete javac-attributed receivers before/after, native destination owners,3 independent negative controls including reported regression and compiling wrong-receiver mutation

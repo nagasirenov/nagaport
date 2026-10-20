@@ -63,6 +63,6 @@ public class ContainerFusionKlystron extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return klystron.isUseableByPlayer(player);
+		return klystron.isUsableByPlayer(player);
 	}
 }

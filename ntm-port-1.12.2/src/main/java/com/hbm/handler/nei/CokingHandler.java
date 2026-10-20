@@ -13,15 +13,12 @@ public class CokingHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmCoking";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(55, 15, 36, 18), "ntmCoking"));
-		guiGui.add(GUIMachineCoker.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMachineCoker.class, (55) + 5, (15) + 11, 36, 18, "ntmCoking");
 	}
 }

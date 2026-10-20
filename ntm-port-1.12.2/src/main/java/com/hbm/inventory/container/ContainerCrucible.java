@@ -76,6 +76,6 @@ public class ContainerCrucible extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return crucible.isUseableByPlayer(player);
+		return crucible.isUsableByPlayer(player);
 	}
 }

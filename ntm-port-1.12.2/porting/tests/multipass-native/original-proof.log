@@ -1,0 +1,9 @@
+PASS pinned old RenderGlobal start/noColor/render ordering and Tessellator color-disabled bytecode; Forge1614 patches preserve relevant color gates
+PASS all 100 original PNGs byte-identical in port
+PASS all 71 original owner classes, family routes and material aliases exactly match native loader
+NATIVE SOURCE com/hbm/blocks/MultipassContext.java 98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3
+NATIVE SOURCE com/hbm/render/block/multipass/MultipassMaterials.java 4970e1fb8684157942a9d9043666d9033ce4b9cacd650ea5be91bd849246f6c7
+PASS original Tessellator noColor: 72 assertions; seven color setter entrypoints suppressed after actual startDrawingQuads/disableColor, color buffer untouched, positions/UV/brightness retained, ordinary-color positive control. GL draw itself not invoked.
+PASS original methods on real 1.7.10 Block/IIcon/IBlockAccess/TileEntity: 213438 assertions, 74880 material/culling rows; all12 families; metadata0..15; absent/unpainted/painted tiles; all6 sides;4 coordinates/all4 Sellafield variants; all49 pneumatic direction pairs.
+PASS native MultipassMaterials against real-1.7.10-API original-source oracle: 74880 rows, 374694 assertions; 3840 camouflage dispatches. All12 families, item exceptions, tint, pass-local culling, all49 direction pairs. Not world-capture/paint-sprite/geometry/light/damage parity.
+PASS pinned original source/API material oracle; 71 owners, 100 textures; no native model or old/new lighting parity claimed.

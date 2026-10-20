@@ -13,11 +13,16 @@ import com.hbm.blocks.machine.BlockPWR.TileEntityBlockPWR;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
+import com.hbm.render.util.NativeSceneBlockDraw;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import com.hbm.lib.ForgeDirection;
 
 public class GUIScreenSlicePrinter extends GuiScreen {
@@ -31,7 +36,6 @@ public class GUIScreenSlicePrinter extends GuiScreen {
 
 	private int yIndex;
 
-	private RenderBlocks renderer;
 
 	private String dirname;
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
@@ -60,16 +64,12 @@ public class GUIScreenSlicePrinter extends GuiScreen {
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float f) {
-		if(renderer == null) {
-			this.renderer = new RenderBlocks(mc.theWorld);
-		}
-
 		GuiScreen.drawRect(0, 0, width, height, 0xFFFF00FF);
 
 		// Once we've reached the top slice, close the GUI
 		if(yIndex >= sizeY) {
-			mc.thePlayer.addChatMessage(new ChatComponentText("Slices saved to: .minecraft/printer/" + dirname));
-			mc.thePlayer.closeScreen();
+			mc.player.sendMessage(new TextComponentString("Slices saved to: .minecraft/printer/" + dirname));
+			mc.player.closeScreen();
 			return;
 		}
 
@@ -78,18 +78,20 @@ public class GUIScreenSlicePrinter extends GuiScreen {
 
 			setupRotation();
 
-			mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-			GL11.glShadeModel(GL11.GL_SMOOTH);
-			Tessellator.instance.startDrawingQuads();
+			mc.getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+			GlStateManager.shadeModel(GL11.GL_SMOOTH);
+			BufferBuilder buffer = Tessellator.getInstance().getBuffer();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
 
 			for(int x = 0; x < sizeX; x++) {
 				for(int z = 0; z < sizeZ; z++) {
-					Block block = mc.theWorld.getBlock(x1 + x, y1 + yIndex, z1 + z);
+					BlockPos source = new BlockPos(x1 + x, y1 + yIndex, z1 + z);
+					Block block = mc.world.getBlockState(source).getBlock();
 					if(whitelist != null && !whitelist.contains(block)) continue;
 
 					// Revert PWR blocks to originals for slice rendering
 					if(block instanceof BlockPWR) {
-						TileEntity tile = mc.theWorld.getTileEntity(x1 + x, y1 + yIndex, z1 + z);
+						TileEntity tile = mc.world.getTileEntity(source);
 						if(tile instanceof TileEntityBlockPWR) {
 							TileEntityBlockPWR pwr = (TileEntityBlockPWR) tile;
 							if(pwr.block != null) {
@@ -113,17 +115,20 @@ public class GUIScreenSlicePrinter extends GuiScreen {
 						dz = sizeX - 1 - x;
 					}
 
-					renderer.renderBlockByRenderType(block, dx, 0, dz);
+					// Original RenderBlocks read metadata at the destination, not source.
+					BlockPos destination = new BlockPos(dx, 0, dz);
+					IBlockState state = NativeSceneBlockDraw.sliceState(block, mc.world, destination);
+					NativeSceneBlockDraw.append(mc.world, state, destination, buffer);
 				}
 			}
 
-			Tessellator.instance.draw();
-			GL11.glShadeModel(GL11.GL_FLAT);
+			Tessellator.getInstance().draw();
+			GlStateManager.shadeModel(GL11.GL_FLAT);
 
 		}
 		GL11.glPopMatrix();
 
-		File printerDir = new File(mc.mcDataDir, "printer");
+		File printerDir = new File(mc.gameDir, "printer");
 		printerDir.mkdir();
 
 		GUIScreenWikiRender.saveScreenshot(printerDir, dirname, "slice_" + yIndex + ".png", 0, 0, mc.displayWidth, mc.displayHeight, 0xFFFF00FF);

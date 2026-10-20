@@ -54,15 +54,15 @@ public class RenderTankbot extends RenderLiving {
 		        
 		        int targetId = tankbot.getDataWatcher().getWatchableObjectInt(20);
 
-		        EntityLivingBase targetBase = (EntityLivingBase) tankbot.worldObj.getEntityByID(targetId);
+		        EntityLivingBase targetBase = (EntityLivingBase) tankbot.world.getEntityByID(targetId);
 		        
-		        if (tankbot.worldObj != null) {
+		        if (tankbot.world != null) {
 		            if (targetBase != null) {
 		                double dx = targetBase.posX - tankbot.posX;
 		                double dz = targetBase.posZ - tankbot.posZ;
 
 		                double targetYaw = Math.atan2(dz, dx) * (180 / Math.PI) - 90;
-		                double deltaYaw = MathHelper.wrapAngleTo180_double(targetYaw - tankbot.headTargetYaw);
+		                double deltaYaw = MathHelper.wrapDegrees(targetYaw - tankbot.headTargetYaw);
 		                tankbot.headTargetYaw += deltaYaw * 0.1; // Adjust the multiplier for smoothing effect
 		            }
 		        }

@@ -34,9 +34,9 @@ public class EntityGhost extends EntityCreature {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			double despawnRange = 50;
-			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(despawnRange, despawnRange, despawnRange));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(despawnRange, despawnRange, despawnRange));
 			if(!players.isEmpty())
 				this.setDead();
 		}

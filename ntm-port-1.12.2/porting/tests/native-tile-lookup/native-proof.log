@@ -1,0 +1,21 @@
+/workspace/shared/nagaport-tile-lookup/ntm-port-1.12.2/porting/tests/native-tile-lookup/TileLookupNativeTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final sun.misc.Unsafe UNSAFE;
+                         ^
+/workspace/shared/nagaport-tile-lookup/ntm-port-1.12.2/porting/tests/native-tile-lookup/TileLookupNativeTest.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); UNSAFE=(sun.misc.Unsafe)f.get(null); } catch(Exception e) { throw new RuntimeException(e); } }
+                                   ^
+/workspace/shared/nagaport-tile-lookup/ntm-port-1.12.2/porting/tests/native-tile-lookup/TileLookupNativeTest.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); UNSAFE=(sun.misc.Unsafe)f.get(null); } catch(Exception e) { throw new RuntimeException(e); } }
+                                                                                                                       ^
+Note: /workspace/shared/nagaport-tile-lookup/ntm-port-1.12.2/porting/tests/native-tile-lookup/TileLookupNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: 98 real native World/client/server/ChunkCache and evaluation checks
+PASS: 7 complete extracted production RBMK access and crate comparator checks; not complete owner classes
+Attribution diagnostics, not compile success: 8
+Attribution diagnostics, not compile success: 31890
+Attribution diagnostics, not compile success: 32469
+PASS: 579 exact reversible World calls / 301 files; 579 fragment drift rejections; whole-file byte parity
+PASS: both complete extracted production methods invoke native int BlockPos constructor and World lookup
+PASS: attributed controls accept only two exact-World/int calls; 11 excluded cases remain excluded
+PASS: all 579 baseline candidates replayed exactly; all 579 target calls resolve native World and BlockPos(int,int,int), amid expected unrelated unfinished-port errors

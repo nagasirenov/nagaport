@@ -17,11 +17,11 @@ public class BlockPorous extends BlockStone {
 	@Override
 	protected ItemStack createStackedBlock(int meta) {
 		//in theory this should keep the block silk-harvestable, but dropping smooth stone instead
-		return new ItemStack(Blocks.stone);
+		return new ItemStack(Blocks.STONE);
 	}
 	
 	@Override
 	public boolean isReplaceableOreGen(World world, int x, int y, int z, Block target) {
-		return target == this || target == Blocks.stone;
+		return target == this || target == Blocks.STONE;
 	}
 }

@@ -9,8 +9,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.TempCategory;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome.TempCategory;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.common.MinecraftForge;
 import com.hbm.lib.ForgeDirection;
@@ -57,7 +58,7 @@ public class BiomeCave {
 		
 		World world = event.world;
 		
-		if(world.provider == null || world.provider.dimensionId != 0) return;
+		if(world.provider == null || world.provider.getDimension() != 0) return;
 		
 		if(this.noise == null) {
 			this.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() - 1916169 + yLevel), 2);
@@ -71,7 +72,7 @@ public class BiomeCave {
 		for(int x = cX + 8; x < cX + 24; x++) {
 			for(int z = cZ + 8; z < cZ + 24; z++) {
 				
-				BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+				Biome biome = world.getBiome(new BlockPos(x, 0, z));
 				EnumBiomeType type = getTypeFromBiome(biome);
 				
 				double n = noise.func_151601_a(x * scale, z * scale);
@@ -94,17 +95,17 @@ public class BiomeCave {
 	}
 	
 	private static void handleBiome(World world, int x, int y, int z, EnumBiomeType type) {
-		Block target = world.getBlock(x, y, z);
+		Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
-		if(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
+		if(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {
 			
 			boolean shouldGen = false;
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).isAir(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
+				if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
 					shouldGen = true; break;
 				}
-				if(world.getBlock(x + dir.offsetX * 2, y + dir.offsetY * 2, z + dir.offsetZ * 2).isAir(world, x + dir.offsetX * 2, y + dir.offsetY * 2, z + dir.offsetZ * 2)) {
+				if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX * 2, y + dir.offsetY * 2, z + dir.offsetZ * 2).getBlock().isAir(world, x + dir.offsetX * 2, y + dir.offsetY * 2, z + dir.offsetZ * 2)) {
 					shouldGen = true; break;
 				}
 			}
@@ -115,10 +116,10 @@ public class BiomeCave {
 		}
 	}
 	
-	private static EnumBiomeType getTypeFromBiome(BiomeGenBase biome) {
+	private static EnumBiomeType getTypeFromBiome(Biome biome) {
 
-		if(biome.temperature >= 1 && biome.rainfall < 0.25) return EnumBiomeType.DESERT;
-		if(biome.temperature >= 0.5 && biome.rainfall > 0.25 && biome.getTempCategory() != TempCategory.OCEAN) return EnumBiomeType.WOODLAND;
+		if(biome.getDefaultTemperature() >= 1 && biome.getRainfall() < 0.25) return EnumBiomeType.DESERT;
+		if(biome.getDefaultTemperature() >= 0.5 && biome.getRainfall() > 0.25 && biome.getTempCategory() != TempCategory.OCEAN) return EnumBiomeType.WOODLAND;
 		
 		return null;
 	}

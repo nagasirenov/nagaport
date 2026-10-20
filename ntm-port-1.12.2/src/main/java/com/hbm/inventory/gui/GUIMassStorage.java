@@ -49,18 +49,18 @@ public class GUIMassStorage extends GuiInfoContainer {
 
 		if(guiLeft + 62 <= x && guiLeft + 62 + 14 > x && guiTop + 72 < y && guiTop + 72 + 14 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("provide", Keyboard.isKeyDown(Keyboard.KEY_LSHIFT));
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, storage.xCoord, storage.yCoord, storage.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, storage.getPos().getX(), storage.getPos().getY(), storage.getPos().getZ()));
 		}
 
 		if(guiLeft + 80 <= x && guiLeft + 80 + 14 > x && guiTop + 72 < y && guiTop + 72 + 14 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("toggle", false);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, storage.xCoord, storage.yCoord, storage.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, storage.getPos().getX(), storage.getPos().getY(), storage.getPos().getZ()));
 		}
 	}
 	
@@ -68,8 +68,8 @@ public class GUIMassStorage extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.storage.hasCustomInventoryName() ? this.storage.getInventoryName() : I18n.format(this.storage.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

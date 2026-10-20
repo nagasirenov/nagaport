@@ -52,7 +52,7 @@ public class ItemCigarette extends Item  {
 
 				ItemStack helmet = player.getEquipmentInSlot(4);
 				if(helmet != null && helmet.getItem() == ModItems.no9) {
-					player.triggerAchievement(MainRegistry.achNo9);
+					com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achNo9);
 				}
 			}
 
@@ -62,7 +62,7 @@ public class ItemCigarette extends Item  {
 				player.heal(10F);
 			}
 
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:player.cough", 1.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "hbm:player.cough", 1.0F, 1.0F);
 
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("type", "vomit");

@@ -37,7 +37,7 @@ public class GUIScreenGuide extends GuiScreen {
 
 	public GUIScreenGuide(EntityPlayer player) {
 		
-		type = BookType.getType(player.getHeldItem().getItemDamage());
+		type = BookType.getType(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage());
 		
 		page = -1;
 		maxPage = (int)Math.ceil(type.pages.size() / 2D) - 1;
@@ -120,7 +120,7 @@ public class GUIScreenGuide extends GuiScreen {
 				
 				GL11.glPushMatrix();
 				GL11.glScalef(scale, scale, 1F);
-				this.fontRendererObj.drawString(cover, (int)((guiLeft + ((this.xSize / 2) - (this.fontRendererObj.getStringWidth(cover) / 2 * scale))) / scale), (int)((guiTop + 50 + i * 10 * scale) / scale), 0xfece00);
+				this.fontRenderer.drawString(cover, (int)((guiLeft + ((this.xSize / 2) - (this.fontRenderer.getStringWidth(cover) / 2 * scale))) / scale), (int)((guiTop + 50 + i * 10 * scale) / scale), 0xfece00);
 				GL11.glPopMatrix();
 			}
 			
@@ -147,18 +147,18 @@ public class GUIScreenGuide extends GuiScreen {
  					String[] words = text.split(" ");
  					
  					lines.add(words[0]);
- 					int indent = this.fontRendererObj.getStringWidth(words[0]);
+ 					int indent = this.fontRenderer.getStringWidth(words[0]);
  					
  					for(int w = 1; w < words.length; w++) {
  						
- 						indent += this.fontRendererObj.getStringWidth(" " + words[w]);
+ 						indent += this.fontRenderer.getStringWidth(" " + words[w]);
  						
  						if(indent <= widthScaled) {
  							String last = lines.get(lines.size() - 1);
  							lines.set(lines.size() - 1, last += (" " + words[w]));
  						} else {
  							lines.add(words[w]);
- 							indent = this.fontRendererObj.getStringWidth(words[w]);
+ 							indent = this.fontRenderer.getStringWidth(words[w]);
  						}
  					}
  					
@@ -176,7 +176,7 @@ public class GUIScreenGuide extends GuiScreen {
  					}
  					
  					for(int l = 0; l < lines.size(); l++) {
- 						this.fontRendererObj.drawString(lines.get(l), (int)((guiLeft + 20 + i * sideOffset + textBox.xOffset) * scale), (int)((guiTop + 30 + topOffset) * scale + (12 * l)), 4210752);
+ 						this.fontRenderer.drawString(lines.get(l), (int)((guiLeft + 20 + i * sideOffset + textBox.xOffset) * scale), (int)((guiTop + 30 + topOffset) * scale + (12 * l)), 4210752);
  					}
  					
  					GL11.glPopMatrix();
@@ -189,7 +189,7 @@ public class GUIScreenGuide extends GuiScreen {
 					
 					GL11.glPushMatrix();
 					GL11.glScalef(1F/tScale, 1F/tScale, 1F);
-					this.fontRendererObj.drawString(titleLoc, (int)((guiLeft + 20 + i * sideOffset + ((100 / 2) - (this.fontRendererObj.getStringWidth(titleLoc) / 2 / tScale))) * tScale), (int)((guiTop + 20) * tScale), page.titleColor);
+					this.fontRenderer.drawString(titleLoc, (int)((guiLeft + 20 + i * sideOffset + ((100 / 2) - (this.fontRenderer.getStringWidth(titleLoc) / 2 / tScale))) * tScale), (int)((guiTop + 20) * tScale), page.titleColor);
 					
 					GL11.glPopMatrix();
 				}
@@ -209,7 +209,7 @@ public class GUIScreenGuide extends GuiScreen {
 				}
 				
 				String pageLabel = (defacto + 1) + "/" + (this.type.pages.size());
-				this.fontRendererObj.drawString(pageLabel, guiLeft + 44 + i * 185 - i * this.fontRendererObj.getStringWidth(pageLabel), guiTop + 156, 4210752);
+				this.fontRenderer.drawString(pageLabel, guiLeft + 44 + i * 185 - i * this.fontRenderer.getStringWidth(pageLabel), guiTop + 156, 4210752);
 			}
 		}
 	}
@@ -230,7 +230,7 @@ public class GUIScreenGuide extends GuiScreen {
 		
 		if(page < 0) {
 			page = 0;
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			return;
 		}
 		
@@ -239,19 +239,19 @@ public class GUIScreenGuide extends GuiScreen {
 		
 		if(overLeft && page > 0) {
 			page--;
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 		
 		if(overRight && page < maxPage) {
 			page++;
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 	}
 
 	@Override
 	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
 		if(p_73869_2_ == 1 || p_73869_2_ == Minecraft.getMinecraft().gameSettings.keyBindInventory.getKeyCode()) {
-			Minecraft.getMinecraft().thePlayer.closeScreen();
+			Minecraft.getMinecraft().player.closeScreen();
 		}
 	}
 }

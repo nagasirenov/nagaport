@@ -1,0 +1,2 @@
+PASS: 1505 real ISidedInventory dispatch assertions; six faces + null, array alias/order, battery/press/drum predicates and directional battery/ICF/funnel and proxy callbacks
+Scope: extracted current production callbacks + complete inventory base/ForgeDirection/IBatteryItem/IConditionalInvAccess; NOT full machines or gameplay.

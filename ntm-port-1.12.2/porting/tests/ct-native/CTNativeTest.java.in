@@ -1,0 +1,251 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.nio.ByteBuffer;
+import java.util.*;
+import java.util.concurrent.*;
+import sun.misc.Unsafe;
+import com.hbm.render.block.RenderBlockCT;
+import com.hbm.render.block.ct.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraftforge.client.model.pipeline.*;
+import net.minecraftforge.common.property.IExtendedBlockState;
+
+/** Real native API/runtime proof; oracle bodies are generated from SHA-pinned pristine source. */
+public final class CTNativeTest {
+ static int checks;
+ static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ static void bits(float actual,float expected,String context){check(Float.floatToIntBits(actual)==Float.floatToIntBits(expected),context+": "+actual+" ["+Integer.toHexString(Float.floatToIntBits(actual))+"] != "+expected+" ["+Integer.toHexString(Float.floatToIntBits(expected))+"]");}
+ static final class Sprite extends TextureAtlasSprite {
+  Sprite(String name,int variant){super(name);setIconWidth(variant==0?16:37);setIconHeight(variant==0?16:29);initSprite(variant==0?512:997,variant==0?256:503,variant==0?32:137,variant==0?64:97,false);}
+ }
+ static final BlockPos ORIGIN=new BlockPos(-13,72,31);
+ static final class Owner extends Block implements IBlockCT {
+  Owner(){super(Material.IRON);setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA,0));}
+  @Override protected BlockStateContainer createBlockState(){return CTContext.stateContainer(this);}
+  @Override public int getCTMaterial(IBlockState state){return state.getValue(CTContext.METADATA)==1?1:0;}
+  @Override public boolean shouldSideBeRendered(IBlockState state,IBlockAccess world,BlockPos pos,EnumFacing side){return !world.getBlockState(pos.offset(side)).isOpaqueCube();}
+ }
+ static final class World implements IBlockAccess {
+  final IBlockState own;final Map<BlockPos,IBlockState> cells=new HashMap<>();boolean sealed,asymmetric;int samples;
+  World(IBlockState own){this.own=own;}
+  public TileEntity getTileEntity(BlockPos p){return null;}
+  public int getCombinedLight(BlockPos p,int emission){samples++;if(!asymmetric)return 0x00F000F0;int x=p.getX()-ORIGIN.getX(),y=p.getY()-ORIGIN.getY(),z=p.getZ()-ORIGIN.getZ();return Math.floorMod(3*x+5*y+7*z+11,16)*16<<16|Math.floorMod(7*x+3*y+z+7,16)*16;}
+  public IBlockState getBlockState(BlockPos p){if(p.equals(ORIGIN))return own;if(cells.containsKey(p))return cells.get(p);return sealed?Blocks.STONE.getDefaultState():Blocks.AIR.getDefaultState();}
+  public boolean isAirBlock(BlockPos p){return getBlockState(p).getBlock()==Blocks.AIR;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing side){return 0;}
+  public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing side,boolean fallback){return getBlockState(p).isOpaqueCube();}
+ }
+ static IBlockState extended(Owner owner,int[] masks,int material){return ((IExtendedBlockState)owner.getDefaultState()).withProperty(CTContext.PROPERTY,CTContext.fromMasks(masks,material));}
+ static void contexts(Owner owner){
+  for(Field f:CTContext.class.getDeclaredFields()){
+   if(!Modifier.isStatic(f.getModifiers()))check(Modifier.isFinal(f.getModifiers()),"context fields final: "+f);
+   check(!IBlockAccess.class.isAssignableFrom(f.getType()),"context retains no mutable world reference");
+  }
+  for(EnumFacing side:EnumFacing.values())for(int n=0;n<8;n++){
+   int[] expected=OriginalCTOracle.access[side.getIndex()][n];BlockPos actual=CTContext.offset(side,n);
+   check(actual.equals(new BlockPos(expected[0],expected[1],expected[2])),"pinned original lexical offset "+side+" neighbor "+n);
+  }
+  Set<Integer> observed=new HashSet<>();
+  for(EnumFacing side:EnumFacing.values())for(int mask=0;mask<256;mask++){
+   int[] masks=new int[6];masks[side.getIndex()]=mask;CTContext context=CTContext.fromMasks(masks);
+   int[] expected=OriginalCTOracle.fragments(mask);
+   check(context.mask(side)==mask,"all eight mask bits retained");
+   for(int quadrant=0;quadrant<4;quadrant++){check(context.fragment(side,quadrant)==expected[quadrant],"original quadrant selection "+side+" mask="+mask+" quadrant="+quadrant);observed.add(expected[quadrant]);}
+   World world=new World(owner.getDefaultState());
+   for(int n=0;n<8;n++)if((mask&(1<<n))!=0)world.cells.put(ORIGIN.add(CTContext.offset(side,n)),owner.getDefaultState());
+   CTContext captured=CTContext.capture(world,ORIGIN,owner);
+   check(captured.mask(side)==mask,"real native world capture "+side+" mask="+mask);
+   world.cells.clear();check(captured.mask(side)==mask,"capture snapshot independent of later world mutation");
+   masks[side.getIndex()]=mask^255;check(context.mask(side)==mask,"input array defensively captured");
+  }
+  check(observed.size()==20,"all twenty original fragment regions reachable");
+  for(int bits=0;bits<8;bits++)check(CTContext.cornerType((bits&1)!=0,(bits&2)!=0,(bits&4)!=0)==OriginalCTOracle.cornerType((bits&1)!=0,(bits&2)!=0,(bits&4)!=0),"corner truth table "+bits);
+  CTContext a=CTContext.fromMasks(new int[]{1,2,3,4,5,6}),b=CTContext.fromMasks(new int[]{1,2,3,4,5,6});
+  check(a.equals(b)&&a.hashCode()==b.hashCode(),"value equality and hash");check(!a.equals(CTContext.fromMasks(new int[]{1,2,3,4,5,6},1)),"material participates in context identity");
+  World material=new World(owner.getDefaultState().withProperty(CTContext.METADATA,1));check(CTContext.capture(material,ORIGIN,owner).material()==1,"capture derives original port material from real state");
+  check(((IExtendedBlockState)CTContext.extend(owner.getDefaultState(),material,ORIGIN,owner)).getValue(CTContext.PROPERTY).material()==1,"actual unlisted extended state capture");
+  for(int bad:new int[]{-1,256})try{CTContext.fromMasks(new int[]{bad,0,0,0,0,0});throw new AssertionError("bad mask accepted");}catch(IllegalArgumentException expected){checks++;}
+  for(int bad:new int[]{-1,2})try{CTContext.fromMasks(new int[6],bad);throw new AssertionError("bad material accepted");}catch(IllegalArgumentException expected){checks++;}
+  for(int length:new int[]{0,5,7})try{CTContext.fromMasks(new int[length]);throw new AssertionError("bad count accepted");}catch(IllegalArgumentException expected){checks++;}
+  System.out.println("PASS immutable capture, original lexical offsets, all 256 masks x six orientations x four quadrants; all 20 regions reached.");
+ }
+ static void geometry(List<BakedQuad> actual,List<double[]> expected,EnumFacing face,TextureAtlasSprite full,TextureAtlasSprite connected,int mask,String label){
+  check(actual.size()==4&&expected.size()==16,label+" four unsimplified original subfaces");int[] fragments=OriginalCTOracle.fragments(mask);
+  for(int q=0;q<4;q++){
+   BakedQuad quad=actual.get(q);check(quad.getFace()==face,label+" original outward face");check(quad.getSprite()==(fragments[q]<4?full:connected),label+" selected fragment parent sprite "+q);
+   check(!quad.hasTintIndex()&&quad.shouldApplyDiffuseLighting(),label+" white native diffuse, no tint");check(quad.getFormat().equals(DefaultVertexFormats.ITEM),label+" native normal-bearing format");
+   int[] data=quad.getVertexData();check(data.length==28,label+" real BakedQuad packed bytes");
+   // The exact source rotational winding is retained. If a native canonical cyclic
+   // shift becomes necessary for light association, that is an explicit test change.
+   for(int vertex=0;vertex<4;vertex++){
+    double[] want=expected.get(q*4+vertex);int at=vertex*7;
+    for(int axis=0;axis<3;axis++)bits(Float.intBitsToFloat(data[at+axis]),(float)want[axis],label+" q="+q+" vertex="+vertex+" original position "+axis);
+    bits(Float.intBitsToFloat(data[at+4]),(float)want[3],label+" q="+q+" vertex="+vertex+" original fragment U");bits(Float.intBitsToFloat(data[at+5]),(float)want[4],label+" q="+q+" vertex="+vertex+" original fragment V");
+    check(data[at+3]==-1,label+" unshaded white vertex");int normal=data[at+6];check((byte)normal==face.getXOffset()*127&&(byte)(normal>>8)==face.getYOffset()*127&&(byte)(normal>>16)==face.getZOffset()*127,label+" explicit outward normal");
+   }
+  }
+  try{actual.add(null);throw new AssertionError("mutable CT list");}catch(UnsupportedOperationException expectedFailure){checks++;}
+ }
+ static void models(Owner owner){
+  for(int atlas=0;atlas<2;atlas++){
+   TextureAtlasSprite full=new Sprite("hbm:full-"+atlas,atlas),connected=new Sprite("hbm:ct-"+atlas,1-atlas),portFull=new Sprite("hbm:port-full-"+atlas,1-atlas),portCT=new Sprite("hbm:port-ct-"+atlas,atlas);
+   IBakedModel model=new RenderBlockCT(full,connected,portFull,portCT,false);
+   check(model.isAmbientOcclusion()&&model.isGui3d()&&!model.isBuiltInRenderer(),"native ordinary 3D AO model");check(model.getParticleTexture()==full,"full sprite particle");check(model.getOverrides()==ItemOverrideList.NONE,"no custom legacy item renderer");
+   for(int material=0;material<2;material++)for(EnumFacing face:EnumFacing.values())for(int mask=0;mask<256;mask++){
+    TextureAtlasSprite a=material==0?full:portFull,b=material==0?connected:portCT;String label="atlas="+atlas+" material="+material+" face="+face+" mask="+mask;
+    List<double[]> expected=OriginalCTOracle.vertices(face.getIndex(),mask,a,b);geometry(RenderBlocksCT.bakeFace(a,b,face,mask),expected,face,a,b,mask,label+" direct");
+    int[] masks={17,33,65,129,7,240};masks[face.getIndex()]=mask;IBlockState state=extended(owner,masks,material);
+    geometry(model.getQuads(state,face,0),expected,face,a,b,mask,label+" model");check(model.getQuads(state,face,0)==model.getQuads(state,face,99),label+" immutable cached variant seed-independent");check(model.getQuads(state,null,0).isEmpty(),label+" no duplicated general quads");
+   }
+   for(EnumFacing face:EnumFacing.values()){
+    geometry(model.getQuads(null,face,0),OriginalCTOracle.vertices(face.getIndex(),0,full,connected),face,full,connected,0,"null state disconnected fallback");
+    geometry(model.getQuads(owner.getDefaultState(),face,0),OriginalCTOracle.vertices(face.getIndex(),0,full,connected),face,full,connected,0,"missing unlisted context disconnected fallback");
+   }
+   IBakedModel item=new RenderBlockCT(full,connected,portFull,portCT,true);check(item.getQuads(null,null,0).size()==6,"six unsplit inventory faces, not CT subdivision");
+   check(item.getQuads(null,null,0)==item.getQuads(extended(owner,new int[]{255,255,255,255,255,255},1),null,7),"inventory ignores world connection/material context");
+   for(EnumFacing face:EnumFacing.values())check(item.getQuads(null,face,0).isEmpty(),"inventory general bucket only");
+  }
+  System.out.println("PASS exact pinned original source geometry/UV float bits: two nontrivial atlas layouts x two materials x 256 masks x six orientations, both direct native quad builder and real IBakedModel.");
+ }
+ static Field field(Class<?> type,String name)throws Exception{Field f=type.getDeclaredField(name);f.setAccessible(true);return f;}
+ static void inventory(String jar)throws Exception{
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+  try(URLClassLoader loader=new URLClassLoader(new URL[]{new java.io.File(jar).toURI().toURL()},CTNativeTest.class.getClassLoader())){
+   Class<?> renderer=Class.forName("blm",true,loader),block=Class.forName("aji",true,loader),iconType=Class.forName("rf",true,loader),tessType=Class.forName("bmh",true,loader);
+   Object render=unsafe.allocateInstance(renderer),tess=tessType.getField("a").get(null);
+   for(String maximum:new String[]{"j","l","n"})field(renderer,maximum).setDouble(render,1);
+   Field raw=field(tessType,"f"),count=field(tessType,"g"),ptr=field(tessType,"p");
+   for(int atlas=0;atlas<2;atlas++){
+    TextureAtlasSprite full=new Sprite("inventory-"+atlas,atlas);List<BakedQuad> quads=RenderBlocksCT.bakeInventory(full);
+    Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(proxy,method,args)->{
+     if(args!=null&&args.length==1)return method.getName().equals("a")?full.getInterpolatedU((Double)args[0]):full.getInterpolatedV((Double)args[0]);
+     switch(method.getName()){case "a":return full.getIconWidth();case "b":return full.getIconHeight();case "c":return full.getMinU();case "d":return full.getMaxU();case "e":return full.getMinV();case "f":return full.getMaxV();default:return full.getIconName();}
+    });
+    for(EnumFacing originalFace:EnumFacing.values()){
+     count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(originalFace.getIndex(),originalFace.getIndex()+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);
+     check(count.getInt(tess)==4,"actual original superclass inventory face emits four vertices");int[] old=(int[])raw.get(tess);BakedQuad q=quads.get(originalFace.getIndex());int[] data=q.getVertexData();EnumFacing rotated=EnumFacing.getFacingFromVector(originalFace.getZOffset(),originalFace.getYOffset(),-originalFace.getXOffset());
+     check(q.getFace()==rotated&&q.getSprite()==full,"inventory +90 Y face/texture identity");
+     // Conveyor helper uses a canonical cyclic shift. Matching is cyclic only,
+     // never sorted, so the proof also detects reversed winding.
+     int shift=-1;
+     for(int s=0;s<4;s++){
+      boolean same=true;
+      for(int v=0;v<4;v++){int o=((v+s)%4)*8,k=v*7;float[] want={Float.intBitsToFloat(old[o+2]),Float.intBitsToFloat(old[o+1]),1-Float.intBitsToFloat(old[o])};for(int axis=0;axis<3;axis++)if(Float.floatToIntBits(want[axis])!=data[k+axis])same=false;}
+      if(same){shift=s;break;}
+     }
+     check(shift>=0,"actual old inventory position and winding after original GL rotation "+originalFace);
+     for(int v=0;v<4;v++){
+      int o=((v+shift)%4)*8,k=v*7;bits(Float.intBitsToFloat(data[k+4]),Float.intBitsToFloat(old[o+3]),"actual bytecode inventory U "+originalFace);bits(Float.intBitsToFloat(data[k+5]),Float.intBitsToFloat(old[o+4]),"actual bytecode inventory V "+originalFace);
+      int n=data[k+6];check((byte)n==127*rotated.getXOffset()&&(byte)(n>>8)==127*rotated.getYOffset()&&(byte)(n>>16)==127*rotated.getZOffset(),"inventory original rotated outward normals");
+     }
+    }
+   }
+  }
+  System.out.println("PASS actual official 1.7.10 RenderBlocks/Tessellator bytecode: six unsplit inventory faces, UV float bits, winding, and original +90 Y rotation on two atlas layouts; no GL draw.");
+ }
+ static int[][] render(IBakedModel model,World world,boolean forge,boolean smooth,boolean cull){
+  BufferBuilder buffer=new BufferBuilder(16384);buffer.begin(7,DefaultVertexFormats.BLOCK);BlockColors colors=new BlockColors();
+  if(forge){VertexLighterFlat lighter=smooth?new VertexLighterSmoothAo(colors):new VertexLighterFlat(colors);VertexBufferConsumer consumer=new VertexBufferConsumer(buffer);consumer.setOffset(ORIGIN);lighter.setParent(consumer);ForgeBlockModelRenderer.render(lighter,world,model,world.own,ORIGIN,buffer,cull,0);}
+  else{BlockModelRenderer renderer=new BlockModelRenderer(colors);if(smooth)renderer.renderModelSmooth(world,model,world.own,ORIGIN,buffer,cull,0);else renderer.renderModelFlat(world,model,world.own,ORIGIN,buffer,cull,0);}
+  buffer.finishDrawing();ByteBuffer bytes=buffer.getByteBuffer();int[][] result=new int[buffer.getVertexCount()][7];for(int v=0;v<result.length;v++)for(int k=0;k<7;k++)result[v][k]=bytes.getInt(v*28+k*4);return result;
+ }
+ static void nativeLighting(Owner owner){
+  IBakedModel model=new RenderBlockCT(new Sprite("light-full",0),new Sprite("light-ct",1),null,null,false);
+  for(boolean forge:new boolean[]{false,true})for(boolean smooth:new boolean[]{false,true}){
+   IBlockState state=extended(owner,new int[]{17,99,255,24,123,0},0);World world=new World(state);world.asymmetric=true;int[][] bytes=render(model,world,forge,smooth,true);
+   check(bytes.length==96,"native renderer keeps 24 fragment quads "+forge+" smooth="+smooth);check(world.samples>0,"actual native light samples surrounding world");Set<Integer> lights=new HashSet<>();Set<Integer> colors=new HashSet<>();
+   for(int[] vertex:bytes){for(int axis=0;axis<3;axis++)check(Float.isFinite(Float.intBitsToFloat(vertex[axis])),"finite native position");check((vertex[3]>>>24)==255,"native opaque vertex");lights.add(vertex[6]);colors.add(vertex[3]);}
+   check(lights.size()>1&&colors.size()>1,"asymmetric native light and directional colors respond "+forge+" smooth="+smooth);
+   World sealed=new World(state);sealed.sealed=true;check(render(model,sealed,forge,smooth,true).length==0,"all six face buckets culled against opaque adjacent blocks");check(render(model,sealed,forge,smooth,false).length==96,"disable culling exposes all fragment quads");
+  }
+  System.out.println("PASS actual Forge and vanilla flat/smooth chunk render paths: 96 vertices, asymmetric light response, all-face neighbor culling, and finite opaque output. This is native integration smoke, not complete old/new light-solver parity.");
+ }
+ static void concurrency(Owner owner)throws Exception{
+  final TextureAtlasSprite full=new Sprite("thread-full",1),ct=new Sprite("thread-ct",0);final IBakedModel model=new RenderBlockCT(full,ct,null,null,false);ExecutorService pool=Executors.newFixedThreadPool(4);List<Future<Boolean>> pending=new ArrayList<>();
+  for(int task=0;task<8;task++){final int n=task;pending.add(pool.submit(()->{for(int i=0;i<1024;i++){int[] masks=new int[6];for(int f=0;f<6;f++)masks[f]=(i*13+n*17+f*19)&255;CTContext c=CTContext.fromMasks(masks);IBlockState state=((IExtendedBlockState)owner.getDefaultState()).withProperty(CTContext.PROPERTY,c);for(EnumFacing face:EnumFacing.values()){List<BakedQuad> q=model.getQuads(state,face,i);if(q.size()!=4||c.mask(face)!=masks[face.getIndex()])return false;TextureAtlasSprite want=OriginalCTOracle.fragments(masks[face.getIndex()])[0]<4?full:ct;if(q.get(0).getSprite()!=want)return false;}}return true;}));}
+  try{for(Future<Boolean> future:pending)check(future.get(),"parallel bake requests cannot leak another context");}finally{pool.shutdownNow();}
+  System.out.println("PASS 8 concurrent request streams x 1024 independently captured six-face contexts without shared-context leakage.");
+ }
+ static final class Captured implements IVertexConsumer {
+  final net.minecraft.client.renderer.vertex.VertexFormat format=DefaultVertexFormats.BLOCK;
+  final List<float[][]> vertices=new ArrayList<>();float[][] current=new float[format.getElementCount()][];TextureAtlasSprite texture;
+  public net.minecraft.client.renderer.vertex.VertexFormat getVertexFormat(){return format;}
+  public void setQuadTint(int tint){}public void setQuadOrientation(EnumFacing side){}public void setApplyDiffuseLighting(boolean diffuse){}public void setTexture(TextureAtlasSprite sprite){texture=sprite;}
+  public void put(int element,float... data){current[element]=data.clone();if(element==format.getElementCount()-1){vertices.add(current);current=new float[format.getElementCount()][];}}
+  int index(net.minecraft.client.renderer.vertex.VertexFormatElement.EnumUsage usage,int number){for(int i=0;i<format.getElementCount();i++)if(format.getElement(i).getUsage()==usage&&format.getElement(i).getIndex()==number)return i;throw new AssertionError("attribute not present");}
+ }
+ static VertexLighterFlat lighter(World world,boolean smooth,Captured collector){
+  VertexLighterFlat l=smooth?new VertexLighterSmoothAo(new BlockColors()):new VertexLighterFlat(new BlockColors());l.setParent(collector);l.setWorld(world);l.setState(world.own);l.setBlockPos(ORIGIN);l.updateBlockInfo();return l;
+ }
+ static OriginalCTOracle.VertInfo nativeCorner(Captured captured,int vertex){
+  float[][] data=captured.vertices.get(vertex);float[] color=data[captured.index(net.minecraft.client.renderer.vertex.VertexFormatElement.EnumUsage.COLOR,0)],light=data[captured.index(net.minecraft.client.renderer.vertex.VertexFormatElement.EnumUsage.UV,1)];
+  int brightness=(Math.round(light[0]*32767F)&65535)|(Math.round(light[1]*32767F)&65535)<<16;
+  return new OriginalCTOracle.VertInfo(color[0],color[1],color[2],brightness);
+ }
+ static void cornerInterpolation(Owner owner)throws Exception{
+  TextureAtlasSprite full=new Sprite("corner-full",1),ct=new Sprite("corner-ct",0);IBakedModel model=new RenderBlockCT(full,ct,null,null,false);Field parent=field(QuadGatheringTransformer.class,"parent");
+  for(boolean smooth:new boolean[]{false,true})for(EnumFacing face:EnumFacing.values()){
+   IBlockState state=extended(owner,new int[]{43,99,237,67,154,211},0);World world=new World(state);world.asymmetric=true;
+   // Independent native canonical full-face geometry, not the CT wrapper reference.
+   BakedQuad reference=com.hbm.render.block.nativeblock.ConveyorCuboidGeometry.face(full,false,face,0,0,0,0,1,1,1,0);
+   Captured source=new Captured();VertexLighterFlat referenceLighter=lighter(world,smooth,source);reference.pipe(referenceLighter);check(source.vertices.size()==4,"native full corner sampler returns four vertices");
+   List<double[]> original=OriginalCTOracle.vertices(face.getIndex(),0,full,ct);int[] lexicalIndices={1,4,10,15};OriginalCTOracle.VertInfo[] lexical=new OriginalCTOracle.VertInfo[4];
+   for(int k=0;k<4;k++){
+    double[] position=original.get(lexicalIndices[k]);int found=-1;int[] bytes=reference.getVertexData();
+    for(int vertex=0;vertex<4;vertex++)if(Float.intBitsToFloat(bytes[vertex*7])==position[0]&&Float.intBitsToFloat(bytes[vertex*7+1])==position[1]&&Float.intBitsToFloat(bytes[vertex*7+2])==position[2])found=vertex;
+    check(found>=0,"independently match native corner to pinned original lexical geometry");lexical[k]=nativeCorner(source,found);
+   }
+   OriginalCTOracle.VertInfo tl=lexical[0],tr=lexical[1],bl=lexical[2],br=lexical[3];
+   OriginalCTOracle.VertInfo[] grid={tl,OriginalCTOracle.VertInfo.avg(tl,tr),tr,OriginalCTOracle.VertInfo.avg(tl,bl),OriginalCTOracle.VertInfo.avg(tl,tr,bl,br),OriginalCTOracle.VertInfo.avg(tr,br),bl,OriginalCTOracle.VertInfo.avg(bl,br),br};
+   for(int mask=0;mask<256;mask++){
+    int[] masks=new int[6];masks[face.getIndex()]=mask;Captured actual=new Captured();VertexLighterFlat l=lighter(world,smooth,actual);List<BakedQuad> fragments=model.getQuads(extended(owner,masks,0),face,0);
+    for(BakedQuad q:fragments){q.pipe(l);check(parent.get(l)==actual,"native lighter parent restored after fragment success");}
+    check(actual.vertices.size()==16,"native wrapper emits sixteen final fragment vertices");List<double[]> coordinates=OriginalCTOracle.vertices(face.getIndex(),mask,full,ct);
+    // Select expected lexical grid node from actual original geometry, not the wrapper GRID table.
+    double[] topLeft=original.get(1),topRight=original.get(4),bottomLeft=original.get(10);
+    for(int vertex=0;vertex<16;vertex++){
+     double[] p=coordinates.get(vertex);double horizontal=0,vertical=0;
+     for(int axis=0;axis<3;axis++){horizontal+=(p[axis]-topLeft[axis])*(topRight[axis]-topLeft[axis]);vertical+=(p[axis]-topLeft[axis])*(bottomLeft[axis]-topLeft[axis]);}
+     OriginalCTOracle.VertInfo expected=grid[(int)Math.round(vertical*2)*3+(int)Math.round(horizontal*2)];
+     float[] color=actual.vertices.get(vertex)[actual.index(net.minecraft.client.renderer.vertex.VertexFormatElement.EnumUsage.COLOR,0)],light=actual.vertices.get(vertex)[actual.index(net.minecraft.client.renderer.vertex.VertexFormatElement.EnumUsage.UV,1)];
+     bits(color[0],expected.red,"source-derived ordered red average "+face+" smooth="+smooth);bits(color[1],expected.green,"source-derived ordered green average");bits(color[2],expected.blue,"source-derived ordered blue average");bits(color[3],1,"opaque average alpha");
+     bits(light[0],(expected.brightness&65535)/32767F,"source-derived packed-brightness low average");bits(light[1],(expected.brightness>>>16&65535)/32767F,"source-derived packed-brightness high average");
+    }
+   }
+   Captured target=new Captured();VertexLighterFlat l=lighter(world,smooth,target);BakedQuad fragment=model.getQuads(state,face,0).get(0);final RuntimeException sentinel=new RuntimeException("expected corner failure");
+   BakedQuad failing=new BakedQuad(reference.getVertexData(),-1,face,full,true,reference.getFormat()){@Override public void pipe(IVertexConsumer output){throw sentinel;}};
+   try{new CTLightQuad(fragment,failing,0).pipe(l);throw new AssertionError("corner exception swallowed");}catch(RuntimeException expected){check(expected==sentinel,"corner exception propagated unchanged");}
+   check(parent.get(l)==target,"native lighter parent restored on failed corner sample");check(target.vertices.isEmpty(),"failed corner sample emits no partial fragments");
+  }
+  System.out.println("PASS actual native Forge Flat/Smooth full-corner sampling + pinned original ordered color/packed-brightness averaging: all 256 masks x six faces, every midpoint/center and parent restoration on success/error. Native corner solver is explicitly not the old complete light solver.");
+ }
+ static void destructionOverlay(Owner owner){
+  TextureAtlasSprite full=new Sprite("damage-full",0),ct=new Sprite("damage-ct",1),crack=new Sprite("minecraft:destroy_stage_5",1);IBlockState state=extended(owner,new int[]{255,99,17,63,128,0},0);IBakedModel model=new RenderBlockCT(full,ct,null,null,false);
+  IBakedModel damaged=new SimpleBakedModel.Builder(state,model,crack,ORIGIN).makeBakedModel();int retextured=0;
+  for(EnumFacing face:EnumFacing.values()){
+   List<BakedQuad> before=model.getQuads(state,face,0),after=damaged.getQuads(state,face,0);check(after.size()==4,"native destruction builder retains four fragment quads");
+   for(int q=0;q<4;q++){BakedQuad quad=after.get(q);check(quad instanceof BakedQuadRetextured,"actual native destruction retexture class");check(!(quad instanceof CTLightQuad),"explicit damage gate: native retexturing strips CT light wrapper");check(quad.getSprite()==crack,"native destruction sprite");retextured++;
+    for(int v=0;v<4;v++)for(int axis=0;axis<3;axis++)check(quad.getVertexData()[v*7+axis]==before.get(q).getVertexData()[v*7+axis],"native damage preserves fragment positions");
+   }
+  }
+  for(boolean forge:new boolean[]{false,true}){World world=new World(state);world.asymmetric=true;check(render(damaged,world,forge,true,true).length==96,"actual native retextured model can render through chunk path");}
+  System.out.println("PASS native SimpleBakedModel destruction builder + BakedQuadRetextured smoke: "+retextured+" quads and both renderers. MEASURED OPEN GATE: native retexturing removes CTLightQuad, so the fragment midpoint/center light wrapper is bypassed; original break-overlay/pixel parity is not claimed.");
+ }
+ public static void main(String[] args)throws Exception{
+  Bootstrap.register();Owner owner=new Owner();contexts(owner);inventory(args[0]);nativeLighting(owner);concurrency(owner);models(owner);cornerInterpolation(owner);destructionOverlay(owner);System.out.println("PASS CT native geometry/context proof: "+checks+" assertions.");
+ }
+}

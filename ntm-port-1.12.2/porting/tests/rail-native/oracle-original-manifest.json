@@ -1,0 +1,610 @@
+{
+  "description": "Pinned pristine 1.7.10 RenderRail-owned source, asset, transform, primitive and material facts. Production CP49 geometry is not an oracle.",
+  "native_base_commit": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "renderer": "src/main/java/com/hbm/render/block/RenderRail.java",
+  "obj_util": "src/main/java/com/hbm/render/util/ObjUtil.java",
+  "face_source": "src/main/java/com/hbm/render/loader/S_Face.java",
+  "loader_source": "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java",
+  "resource_manager": "src/main/java/com/hbm/main/ResourceManager.java",
+  "block_registrations": "src/main/java/com/hbm/blocks/ModBlocks.java",
+  "owners": [
+    {
+      "owner": "RailNarrowCurve",
+      "name": "rail_narrow_curve",
+      "source": "src/main/java/com/hbm/blocks/rail/RailNarrowCurve.java",
+      "resource_field": "rail_narrow_curve",
+      "asset": "models/blocks/rail_narrow_bend.obj",
+      "texture": "hbm:blocks/rail_narrow_neo",
+      "registration": "rail_narrow_curve = new RailNarrowCurve().setBlockName(\"rail_narrow_curve\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_narrow_neo\");",
+      "inventory_gl_operations": [
+        "GL11.glScaled(0.2, 0.2, 0.2);",
+        "GL11.glTranslated(2.5, -0.0625, -1.5);"
+      ]
+    },
+    {
+      "owner": "RailNarrowStraight",
+      "name": "rail_narrow_straight",
+      "source": "src/main/java/com/hbm/blocks/rail/RailNarrowStraight.java",
+      "resource_field": "rail_narrow_straight",
+      "asset": "models/blocks/rail_narrow.obj",
+      "texture": "hbm:blocks/rail_narrow_neo",
+      "registration": "rail_narrow_straight = new RailNarrowStraight().setBlockName(\"rail_narrow_straight\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_narrow_neo\");",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, 0);"
+      ]
+    },
+    {
+      "owner": "RailStandardBuffer",
+      "name": "rail_large_buffer",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardBuffer.java",
+      "resource_field": "rail_standard_buffer",
+      "asset": "models/blocks/rail_standard_buffer.obj",
+      "texture": "hbm:blocks/rail_standard_buffer",
+      "registration": "rail_large_buffer = new RailStandardBuffer().setBlockName(\"rail_large_buffer\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_buffer\");",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, 0);",
+        "GL11.glRotated(90, 0, 1, 0);",
+        "GL11.glScaled(0.3, 0.3, 0.3);"
+      ]
+    },
+    {
+      "owner": "RailStandardCurveBase",
+      "name": "rail_large_curve",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardCurveBase.java",
+      "resource_field": "rail_standard_curve",
+      "asset": "models/blocks/rail_standard_bend.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_curve = new RailStandardCurveBase().setBlockName(\"rail_large_curve\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "inventory_gl_operations": [
+        "GL11.glScaled(0.3, 0.3, 0.3);",
+        "GL11.glRotated(45, 0, 1, 0);",
+        "GL11.glRotated(60, 1, 0, 0);",
+        "GL11.glTranslated(2, 0, 2);"
+      ]
+    },
+    {
+      "owner": "RailStandardCurveWide7",
+      "name": "rail_large_curve_7",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide7.java",
+      "resource_field": "rail_standard_curve_wide7",
+      "asset": "models/blocks/rail_standard_bend_wide.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_curve_7 = new RailStandardCurveWide7().setBlockName(\"rail_large_curve_7\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "inventory_gl_operations": [
+        "GL11.glScaled(0.225, 0.225, 0.225);",
+        "GL11.glRotated(45, 0, 1, 0);",
+        "GL11.glRotated(60, 1, 0, 0);",
+        "GL11.glTranslated(3, 0, 3);"
+      ]
+    },
+    {
+      "owner": "RailStandardCurveWide9",
+      "name": "rail_large_curve_9",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide9.java",
+      "resource_field": "rail_standard_curve_wide9",
+      "asset": "models/blocks/rail_standard_bend_wide9.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_curve_9 = new RailStandardCurveWide9().setBlockName(\"rail_large_curve_9\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "inventory_gl_operations": [
+        "GL11.glScaled(0.175, 0.175, 0.175);",
+        "GL11.glRotated(45, 0, 1, 0);",
+        "GL11.glRotated(60, 1, 0, 0);",
+        "GL11.glTranslated(4, 0, 4);"
+      ]
+    },
+    {
+      "owner": "RailStandardRamp",
+      "name": "rail_large_ramp",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardRamp.java",
+      "resource_field": "rail_standard_ramp",
+      "asset": "models/blocks/rail_standard_ramp.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_ramp = new RailStandardRamp().setBlockName(\"rail_large_ramp\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, 0);",
+        "GL11.glRotated(90, 0, 1, 0);",
+        "GL11.glScaled(0.3, 0.3, 0.3);"
+      ]
+    },
+    {
+      "owner": "RailStandardStraight",
+      "name": "rail_large_straight",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardStraight.java",
+      "resource_field": "rail_standard_straight",
+      "asset": "models/blocks/rail_standard.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_straight = new RailStandardStraight().setBlockName(\"rail_large_straight\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, 0);",
+        "GL11.glRotated(90, 0, 1, 0);",
+        "GL11.glScaled(0.3, 0.3, 0.3);"
+      ]
+    },
+    {
+      "owner": "RailStandardStraightShort",
+      "name": "rail_large_straight_short",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardStraightShort.java",
+      "resource_field": "rail_standard_straight_short",
+      "asset": "models/blocks/rail_standard_short.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_straight_short = new RailStandardStraightShort().setBlockName(\"rail_large_straight_short\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, 0);",
+        "GL11.glRotated(90, 0, 1, 0);",
+        "GL11.glScaled(0.7, 0.7, 0.7);"
+      ]
+    },
+    {
+      "owner": "RailStandardSwitch",
+      "name": "rail_large_switch",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java",
+      "resource_field": "rail_standard_switch",
+      "asset": "models/blocks/rail_standard_switch.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_switch = new RailStandardSwitch().setBlockName(\"rail_large_switch\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "sign": "hbm:blocks/rail_switch_sign",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, -0.1875);",
+        "GL11.glRotated(90, 0, 1, 0);",
+        "GL11.glScaled(0.1, 0.1, 0.1);"
+      ]
+    },
+    {
+      "owner": "RailStandardSwitchFlipped",
+      "name": "rail_large_switch_flipped",
+      "source": "src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java",
+      "resource_field": "rail_standard_switch_flipped",
+      "asset": "models/blocks/rail_standard_switch_flipped.obj",
+      "texture": "hbm:blocks/rail_standard_straight",
+      "registration": "rail_large_switch_flipped = new RailStandardSwitchFlipped().setBlockName(\"rail_large_switch_flipped\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":rail_standard_straight\");",
+      "sign": "hbm:blocks/rail_switch_sign_flipped",
+      "inventory_gl_operations": [
+        "GL11.glTranslated(0, -0.0625, 0);",
+        "GL11.glRotated(90, 0, 1, 0);",
+        "GL11.glScaled(0.1, 0.1, 0.1);"
+      ]
+    },
+    {
+      "owner": "MachineFunnel",
+      "name": "machine_funnel",
+      "source": "src/main/java/com/hbm/blocks/machine/MachineFunnel.java",
+      "resource_field": "funnel",
+      "asset": "models/blocks/funnel.obj",
+      "texture": "hbm:blocks/machine_funnel_side",
+      "registration": "machine_funnel = new MachineFunnel().setBlockName(\"machine_funnel\").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab);",
+      "inventory_gl_operations": [
+        "GL11.glTranslatef(0F, -0.5F, 0F);"
+      ]
+    }
+  ],
+  "assets": [
+    "models/blocks/funnel.obj",
+    "models/blocks/rail_narrow.obj",
+    "models/blocks/rail_narrow_bend.obj",
+    "models/blocks/rail_standard.obj",
+    "models/blocks/rail_standard_bend.obj",
+    "models/blocks/rail_standard_bend_wide.obj",
+    "models/blocks/rail_standard_bend_wide9.obj",
+    "models/blocks/rail_standard_buffer.obj",
+    "models/blocks/rail_standard_ramp.obj",
+    "models/blocks/rail_standard_short.obj",
+    "models/blocks/rail_standard_switch.obj",
+    "models/blocks/rail_standard_switch_flipped.obj",
+    "textures/blocks/machine_funnel_bottom.png",
+    "textures/blocks/machine_funnel_side.png",
+    "textures/blocks/machine_funnel_top.png",
+    "textures/blocks/rail_narrow_neo.png",
+    "textures/blocks/rail_standard_buffer.png",
+    "textures/blocks/rail_standard_straight.png",
+    "textures/blocks/rail_switch_sign.png",
+    "textures/blocks/rail_switch_sign_flipped.png"
+  ],
+  "asset_geometry": {
+    "models/blocks/rail_narrow_bend.obj": {
+      "groups": [
+        {
+          "name": "Plane",
+          "triangles": 232,
+          "quads": 0,
+          "whole_stream_vertices": 928,
+          "part_stream_vertices": 928
+        }
+      ],
+      "vertices": 137,
+      "texture_coordinates": 272,
+      "xyz_bounds": [
+        [
+          -4.482049,
+          0.5
+        ],
+        [
+          0.0,
+          0.125
+        ],
+        [
+          -0.482049,
+          4.5
+        ]
+      ]
+    },
+    "models/blocks/rail_narrow.obj": {
+      "groups": [
+        {
+          "name": "Plane",
+          "triangles": 80,
+          "quads": 0,
+          "whole_stream_vertices": 320,
+          "part_stream_vertices": 320
+        }
+      ],
+      "vertices": 64,
+      "texture_coordinates": 160,
+      "xyz_bounds": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.125
+        ],
+        [
+          -0.5,
+          0.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_buffer.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 372,
+          "quads": 0,
+          "whole_stream_vertices": 1488,
+          "part_stream_vertices": 1488
+        }
+      ],
+      "vertices": 256,
+      "texture_coordinates": 499,
+      "xyz_bounds": [
+        [
+          -1.0625,
+          1.0625
+        ],
+        [
+          0.0,
+          1.5
+        ],
+        [
+          -2.6875,
+          2.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_bend.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 312,
+          "quads": 0,
+          "whole_stream_vertices": 1248,
+          "part_stream_vertices": 1248
+        }
+      ],
+      "vertices": 208,
+      "texture_coordinates": 414,
+      "xyz_bounds": [
+        [
+          -4.5,
+          0.481698
+        ],
+        [
+          0.0,
+          0.1875
+        ],
+        [
+          -4.481698,
+          0.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_bend_wide.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 440,
+          "quads": 0,
+          "whole_stream_vertices": 1760,
+          "part_stream_vertices": 1760
+        }
+      ],
+      "vertices": 296,
+      "texture_coordinates": 583,
+      "xyz_bounds": [
+        [
+          -6.5,
+          0.489705
+        ],
+        [
+          0.0,
+          0.1875
+        ],
+        [
+          -6.489705,
+          0.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_bend_wide9.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 632,
+          "quads": 0,
+          "whole_stream_vertices": 2528,
+          "part_stream_vertices": 2528
+        }
+      ],
+      "vertices": 416,
+      "texture_coordinates": 832,
+      "xyz_bounds": [
+        [
+          -8.5,
+          0.492993
+        ],
+        [
+          0.0,
+          0.1875
+        ],
+        [
+          -8.491539,
+          0.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_ramp.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 348,
+          "quads": 0,
+          "whole_stream_vertices": 1392,
+          "part_stream_vertices": 1392
+        }
+      ],
+      "vertices": 248,
+      "texture_coordinates": 531,
+      "xyz_bounds": [
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          -0.05,
+          1.1875
+        ],
+        [
+          -2.5,
+          2.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 248,
+          "quads": 0,
+          "whole_stream_vertices": 992,
+          "part_stream_vertices": 992
+        }
+      ],
+      "vertices": 168,
+      "texture_coordinates": 331,
+      "xyz_bounds": [
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.1875
+        ],
+        [
+          -2.5,
+          2.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_short.obj": {
+      "groups": [
+        {
+          "name": "Plane.001",
+          "triangles": 56,
+          "quads": 0,
+          "whole_stream_vertices": 224,
+          "part_stream_vertices": 224
+        }
+      ],
+      "vertices": 40,
+      "texture_coordinates": 79,
+      "xyz_bounds": [
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.1875
+        ],
+        [
+          -0.5,
+          0.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_switch.obj": {
+      "groups": [
+        {
+          "name": "SignTurn",
+          "triangles": 22,
+          "quads": 0,
+          "whole_stream_vertices": 88,
+          "part_stream_vertices": 88
+        },
+        {
+          "name": "SignStraight",
+          "triangles": 22,
+          "quads": 0,
+          "whole_stream_vertices": 88,
+          "part_stream_vertices": 88
+        },
+        {
+          "name": "Rail",
+          "triangles": 1260,
+          "quads": 0,
+          "whole_stream_vertices": 5040,
+          "part_stream_vertices": 5040
+        }
+      ],
+      "vertices": 872,
+      "texture_coordinates": 1703,
+      "xyz_bounds": [
+        [
+          -5.0,
+          1.0
+        ],
+        [
+          0.0,
+          2.0
+        ],
+        [
+          -7.5,
+          7.5
+        ]
+      ]
+    },
+    "models/blocks/rail_standard_switch_flipped.obj": {
+      "groups": [
+        {
+          "name": "SignTurn",
+          "triangles": 22,
+          "quads": 0,
+          "whole_stream_vertices": 88,
+          "part_stream_vertices": 88
+        },
+        {
+          "name": "SignStraight",
+          "triangles": 22,
+          "quads": 0,
+          "whole_stream_vertices": 88,
+          "part_stream_vertices": 88
+        },
+        {
+          "name": "Rail",
+          "triangles": 1260,
+          "quads": 0,
+          "whole_stream_vertices": 5040,
+          "part_stream_vertices": 5040
+        }
+      ],
+      "vertices": 872,
+      "texture_coordinates": 1713,
+      "xyz_bounds": [
+        [
+          -1.0,
+          5.0
+        ],
+        [
+          0.0,
+          2.0
+        ],
+        [
+          -7.5,
+          7.5
+        ]
+      ]
+    },
+    "models/blocks/funnel.obj": {
+      "groups": [
+        {
+          "name": "Bottom",
+          "triangles": 2,
+          "quads": 0,
+          "whole_stream_vertices": 8,
+          "part_stream_vertices": 8
+        },
+        {
+          "name": "Top",
+          "triangles": 2,
+          "quads": 0,
+          "whole_stream_vertices": 8,
+          "part_stream_vertices": 8
+        },
+        {
+          "name": "Side",
+          "triangles": 16,
+          "quads": 0,
+          "whole_stream_vertices": 64,
+          "part_stream_vertices": 64
+        }
+      ],
+      "vertices": 20,
+      "texture_coordinates": 32,
+      "xyz_bounds": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          -0.5,
+          0.5
+        ]
+      ]
+    }
+  },
+  "sha256": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/blocks/machine/MachineFunnel.java": "e586e1dc05109af653d29a3430f273fde462364a823a21fca9657b10cb5c5ecd",
+    "src/main/java/com/hbm/blocks/rail/RailNarrowCurve.java": "2c09add4b298c0010b3bf7fb90f594a7c783f0b9a942f9117516c20ab4a2ff7d",
+    "src/main/java/com/hbm/blocks/rail/RailNarrowStraight.java": "a3fb39936b616dcff870230275c64dc9cf5ff88e30cdd67da4bc17ddad8b2a27",
+    "src/main/java/com/hbm/blocks/rail/RailStandardBuffer.java": "119da0b007efaa77b10c73110897760c6d5833aff3d326905eb681f09a87781e",
+    "src/main/java/com/hbm/blocks/rail/RailStandardCurveBase.java": "aadafa77d2ba9293a0c4670d2665da320eacd7ad73168354012e073b5fb573e8",
+    "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide7.java": "80a9db0445abcc75cfdff6f32729a7242c86856a751a89097e6faf589edf5ad8",
+    "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide9.java": "ecc74ca9b5f918b63e3ccdff9e767135185f81913d91af51862a0d3e24a2df7a",
+    "src/main/java/com/hbm/blocks/rail/RailStandardRamp.java": "641669bb85f7a2e2f8ceeee055a4cb0399def919867e5afafb6ebba3997e8e2f",
+    "src/main/java/com/hbm/blocks/rail/RailStandardStraight.java": "200713737d1c4e571fb8e40f474ad721033bed4d1f4e9464f139bf7900cd746a",
+    "src/main/java/com/hbm/blocks/rail/RailStandardStraightShort.java": "c3de408d8d577b2fc1a6ac4c1eb55df6b955bfba4a293178bdc08fdfe9691c8f",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java": "21d97e03b2b30df6a474b2ae9dccf127e862174cd219d944a13df8ba28638e29",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java": "ac44f8933582b683cfdeed47e723c1c5c158cd374a2f6cdb726b8db47e8e3be6",
+    "src/main/java/com/hbm/main/ResourceManager.java": "dd86786c08d235f29318f1775afc5d8b34d17829307f93ea13114875596ba0d9",
+    "src/main/java/com/hbm/render/block/RenderRail.java": "c10d45e8f6cd77d1fcbba0a1f7ff6e50a0def2db7352b9ecc280599953a00ca7",
+    "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java": "4786f0d79b35f68b2cc91e71e98044d19902e1331e5a150d013b02a710b74fda",
+    "src/main/java/com/hbm/render/loader/S_Face.java": "8c486959d24a0306f974860ec212c246a44dbbc680d33d69a3eedbf2d761f7a9",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+    "src/main/resources/assets/hbm/models/blocks/funnel.obj": "774a3ce12d760d10e4ac17b2bd13c0830d27f6bde98b2c6a00e1c38d3299d19a",
+    "src/main/resources/assets/hbm/models/blocks/rail_narrow.obj": "c357fcbaf586784c2a153bf68abaea8e2a2af604cc26b39e9bf7ead495601ddd",
+    "src/main/resources/assets/hbm/models/blocks/rail_narrow_bend.obj": "7b3f3ffb62ec6e12edcf90d5d5da135eb74ad92d154bbbe3ae07914dcd12da7c",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard.obj": "34cf02e6f7fcf58a682c6a56645685d45ebda59b0d5c4043b3d22427c6dfcaf7",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_bend.obj": "490e410a304603c69bec9129695d735f38fda41bc2d4e666ea2133898763996b",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_bend_wide.obj": "4f57cf0982d800ee577765b3e8cacf446ac5fe20bed0cc3f3ebee75cd923bb26",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_bend_wide9.obj": "d4db1a3639e6a6eb38295a7497f1fb3ffd1ada862d70bbd888e7546f3b940399",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_buffer.obj": "0fb4b6349f8f9378a9a76e2b201ebeafab5e6397a48354d507768f9c6ff56eb4",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_ramp.obj": "b35a7cd26cb44fcc88397be803ac1ec3d9d56c5493dec53933d724d8bedc9b78",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_short.obj": "685a5b1659bff3ab2c48e74f595480332d011ea5fccab7d5d066cfbc7941ce0a",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_switch.obj": "daa9f7aa99729e3e4ad9c20e2c2a28124c35082f0dfacd87750c0206bbda1002",
+    "src/main/resources/assets/hbm/models/blocks/rail_standard_switch_flipped.obj": "db75568c656e937a418fe92654f1c32658965a1e4e5d0dd8efb26d0d2e2fa7c1",
+    "src/main/resources/assets/hbm/textures/blocks/machine_funnel_bottom.png": "88ce1314dfff79a51350f53d54ce08257e5998c8dc84c15b7440330b13cdf0fe",
+    "src/main/resources/assets/hbm/textures/blocks/machine_funnel_side.png": "67d2bec58d9eacb0ecae91dfe249f5b4f330bdc87321b08114855fcfacce88f8",
+    "src/main/resources/assets/hbm/textures/blocks/machine_funnel_top.png": "f746a62d6d678328f1ecbfa4643f74ff24d6024502e64aeb4e982c7b360a43ab",
+    "src/main/resources/assets/hbm/textures/blocks/rail_narrow_neo.png": "1acd9911c77ec4a4bea1123d825f7d63b3778f4152b89325c35396024dc707f4",
+    "src/main/resources/assets/hbm/textures/blocks/rail_standard_buffer.png": "95906c906fa8b262aec9d468022ae15bf89cd7d313a23c1a525519d455517754",
+    "src/main/resources/assets/hbm/textures/blocks/rail_standard_straight.png": "de59ffc26a9c67f909c0264aa2bc76bf9593cf1402ab1c2becd1b14cf58282a3",
+    "src/main/resources/assets/hbm/textures/blocks/rail_switch_sign.png": "bd866be6687044de14396e2eef3a2854ef671118dccb6b807bd200dd1a396c4d",
+    "src/main/resources/assets/hbm/textures/blocks/rail_switch_sign_flipped.png": "ab0b7767b5cab46d62c8204d3cdea7f2d8ffc567c80ddc7c3ec5b6b9f1993684"
+  }
+}

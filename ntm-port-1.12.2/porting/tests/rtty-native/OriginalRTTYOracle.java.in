@@ -1,0 +1,18 @@
+/** Verbatim pinned original RenderRTTY world selector, with recording-only original API shapes. */
+final class OriginalRTTYOracle {
+ static Layout active;
+ static class Layout {float yaw,flip;double x,y,z;boolean shade;int icon,brightness,color;}
+ static class IIcon {int id;IIcon(int i){id=i;}}
+ static class IBlockAccess {int meta;TileEntity tile;IBlockAccess(int m,TileEntity t){meta=m;tile=t;}int getBlockMetadata(int x,int y,int z){return meta;}TileEntity getTileEntity(int x,int y,int z){return tile;}}
+ static class Block {IIcon getIcon(int side,int meta){return new IIcon(side);}int getMixedBrightnessForBlock(IBlockAccess w,int x,int y,int z){return 0x00a00070;}}
+ static class TileEntity {}
+ static class TileEntityRadioTorchBase extends TileEntity {int lastState;TileEntityRadioTorchBase(int s){lastState=s;}}
+ static class TileEntityRadioTorchLogic extends TileEntity {int lastState;TileEntityRadioTorchLogic(int s){lastState=s;}}
+ static class RenderBlocks {}
+ static class HFRWavefrontObject {}
+ static class ResourceManager {static HFRWavefrontObject rtty=new HFRWavefrontObject();}
+ static class Tessellator {static final Tessellator instance=new Tessellator();double x,y,z;void setBrightness(int b){active.brightness=b;}void setColorOpaque_F(float r,float g,float b){if(r!=1||g!=1||b!=1)throw new AssertionError();active.color=-1;}void addTranslation(float a,float b,float c){x+=a;y+=b;z+=c;}}
+ static class ObjUtil {static void renderWithIcon(HFRWavefrontObject o,IIcon i,Tessellator t,float yaw,float flip,boolean shade){active.yaw=yaw;active.flip=flip;active.shade=shade;active.icon=i.id;active.x=t.x;active.y=t.y;active.z=t.z;}}
+ /* BODY */
+ static Layout layout(int meta,int signal,boolean logic){active=new Layout();new OriginalRTTYOracle().renderWorldBlock(new IBlockAccess(meta,logic?new TileEntityRadioTorchLogic(signal):new TileEntityRadioTorchBase(signal)),0,0,0,new Block(),0,new RenderBlocks());return active;}
+}

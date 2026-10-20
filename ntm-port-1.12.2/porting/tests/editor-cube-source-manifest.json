@@ -1,0 +1,30 @@
+{
+  "scope": "four complete editor cube owners including all nested tiles and GUI",
+  "native_assertions": 2439,
+  "preserved_complete_methods": 54,
+  "production": {
+    "src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java": {
+      "sha256": "5a586d2ba2fbd903edff8ed8fa293544a641efe705a37bee9b3b9a67c56bed6f",
+      "pristine_sha256": "85e87318621e278e229818a30e047bb498630a7853cd8dbec6d74e0eebea0af4"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java": {
+      "sha256": "93a1803afd66427ff7a9cc3b4535a04365a5a33e322a4e9af16764ba92a7e4c4",
+      "pristine_sha256": "14f76251328ab82f78d669f7b861352a4dd6f687db83c56e32f9d87b1d85b211"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWandLogic.java": {
+      "sha256": "83a1ddcbd11a8a329648e3611381b70092b22f480cf0ebd442984193f349ca73",
+      "pristine_sha256": "2c2b6b2c70b7f3e0fd85a74756b0c3841e94668b436b5e6aae54480ddfe7a275"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWandLoot.java": {
+      "sha256": "30b2b8d35325aec818634325d904aa9644496af3a9959a002ec5cdf7933e72ed",
+      "pristine_sha256": "5178733d032ed9d683e4f690cd6d39130f57929f97308ccccf7c9b1cf32e3575"
+    }
+  },
+  "test_artifacts": {
+    "porting/tests/editor-cube-native-probe.py": "2964cad74508b9544f6b3bf0b3795617aaf6470831af6f121b154d274d71f973",
+    "porting/tests/editor-cube-native-test.java.in": "9fff292eaa8cbcaf2d376bbaf89de16742c3065f1206439821b1c6633ec02f9a",
+    "porting/tests/editor-cube-source-test.py": "8c12710b5d20d63b650234f8ab44d3932c9070b3d9f475934e4105cd02efaaa1",
+    "porting/tests/editor-cube-notes.md": "1a81d34224b0994e115ac210d5783f1878279b5515964c627b971ebf29987048"
+  },
+  "portable_oracle": "porting/tests/fixtures/side-rotation-pristine.zip"
+}

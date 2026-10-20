@@ -18,7 +18,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityEgg;
@@ -28,7 +28,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.world.World;
 
-public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+public class EntityMaskMan extends EntityMob implements INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
 
 	public EntityMaskMan(World world) {
 		super(world);
@@ -52,9 +52,9 @@ public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadia
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(100.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
 	}
 
@@ -87,8 +87,8 @@ public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadia
 
 			prevHealth = this.getHealth();
 
-			if(!worldObj.isRemote)
-				worldObj.createExplosion(this, posX, posY + 4, posZ, 2.5F, true);
+			if(!this.world.isRemote)
+				this.world.createExplosion(this, posX, posY + 4, posZ, 2.5F, true);
 		}
 	}
 
@@ -96,10 +96,10 @@ public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadia
 	public void onDeath(DamageSource p_70645_1_) {
 		super.onDeath(p_70645_1_);
 
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(50, 50, 50));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(50, 50, 50));
 
 		for(EntityPlayer player : players) {
-			player.triggerAchievement(MainRegistry.bossMaskman);
+			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossMaskman);
 		}
 	}
 
@@ -116,7 +116,7 @@ public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadia
 	@Override
 	protected void dropFewItems(boolean bool, int i) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			ItemStack mask = new ItemStack(ModItems.gas_mask_m65);
 			ArmorUtil.installGasMaskFilter(mask, new ItemStack(ModItems.gas_mask_filter_combo));
@@ -124,7 +124,7 @@ public class EntityMaskMan extends EntityMob implements IBossDisplayData, IRadia
 			this.entityDropItem(mask, 0F);
 			this.dropItem(ModItems.coin_maskman, 1);
 			this.dropItem(ModItems.v1, 1);
-			this.dropItem(Items.skull, 1);
+			this.dropItem(Items.SKULL, 1);
 		}
 	}
 }

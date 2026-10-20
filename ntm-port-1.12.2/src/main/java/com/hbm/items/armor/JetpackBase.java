@@ -55,7 +55,7 @@ public abstract class JetpackBase extends ItemArmorMod {
 		if(jetpack == null)
 			return;
 				
-		onArmorTick(entity.worldObj, (EntityPlayer)entity, jetpack);
+		onArmorTick(entity.world, (EntityPlayer)entity, jetpack);
 		ArmorModHandler.applyMod(armor, jetpack);
 	}
 
@@ -63,7 +63,7 @@ public abstract class JetpackBase extends ItemArmorMod {
 	@SideOnly(Side.CLIENT)
 	public void modRender(RenderPlayerEvent.SetArmorModel event, ItemStack armor) {
 
-		ModelBiped modelJetpack = getArmorModel(event.entityLiving, null, 1);
+		ModelBiped modelJetpack = getArmorModel(event.getEntityLiving(), null, 1);
 		
 		RenderPlayer renderer = event.renderer;
 		ModelBiped model = renderer.modelArmor;
@@ -75,10 +75,10 @@ public abstract class JetpackBase extends ItemArmorMod {
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
-		float yawWrapped = MathHelper.wrapAngleTo180_float(yawHead - yawOffset);
+		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.entity, 1, null)));
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), 1, null)));
 		modelJetpack.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 	}
 

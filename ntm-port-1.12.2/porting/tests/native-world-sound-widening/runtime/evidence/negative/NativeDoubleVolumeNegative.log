@@ -1,0 +1,5 @@
+/workspace/shared/world-sound-widening-replay.qcPMl4/negative/NativeDoubleVolumeNegative.java:1: error: incompatible types: possible lossy conversion from double to float
+class NativeDoubleVolumeNegative { static void test(net.minecraft.world.World w) { com.hbm.sound.WorldSoundEffects.play(w, 1, 2, 3, "hbm:player.vomit", 1D, 1F); } }
+                                                                                                                                                        ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

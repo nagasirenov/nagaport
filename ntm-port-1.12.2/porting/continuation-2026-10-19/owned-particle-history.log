@@ -1,0 +1,16 @@
+PASS thermal GUI: three exact count-guarded full-file reversals and drift rejections; original text, coordinates, arithmetic and GL calls; unchanged exact-case texture hashes; single inherited native slot tooltip
+PASS exact RecipesCommon reverse/forward source reconstruction; 6 drift mutations rejected; no Git dependency.
+PASS BufferUtil exact checkpoint18 reverse/forward source reconstruction, six drift rejections, immutable original hash, independent NBT wire fixtures.
+PASS owned particle source: 10 byte-exact inverses/round trips, 1 retained new source, 33 rejected mutations. Not runtime/GL proof.
+PASS native core/lifecycle: 20 byte-exact existing-source inverses/round trips; 9 pinned introduced files retained in historical scans; 87 drift mutations rejected; 2 CRLF inputs preserved.
+PASS one explicitly retired legacy renderer; exact original evidence and two native successors pinned.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS native render/compat: 113 byte-exact existing-source inverses/round trips; 13 pinned introduced files retained in historical scans; 378 drift mutations rejected; 0 CRLF inputs preserved.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS native integration roots: 85 byte-exact existing-source inverses/round trips; 13 pinned introduced files retained in historical scans; 294 drift mutations rejected; 2 CRLF inputs preserved.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS: 10,939 exact read-only native field tokens / 384 files; 434 tile owners; 38 nested named-owner files.
+PASS: full selected-file inverse, owner/count/shadow/write/anonymous and excluded receiver guards.
+SOURCE PARITY ONLY: not complete machine compilation, gameplay, saves or network acceptance.
+PASS six exact thermal whole-file forward/reverse reconstructions; 18 drift mutations rejected; original callback counts and unchanged support verified.
+PASS eleven exact thermal-family/recipe-key/codec source reversals before historical layers

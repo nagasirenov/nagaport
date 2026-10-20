@@ -1,0 +1,27 @@
+/workspace/shared/nagaport-teleporter-next/porting/tests/teleporter-native/TeleporterNativeTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks;static sun.misc.Unsafe unsafe;static List<String> order=new ArrayList<>();
+                                  ^
+/workspace/shared/nagaport-teleporter-next/porting/tests/teleporter-native/TeleporterNativeTest.java:72: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] args)throws Exception {net.minecraft.init.Bootstrap.register();Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);net.minecraftforge.fml.common.registry.ForgeRegistries.ENTITIES.register(new net.minecraftforge.fml.common.registry.EntityEntry(E.class,"teleporter_probe").setRegistryName("test","teleporter_probe"));Server server=alloc(Server.class);server.worlds=new HashMap<>();server.manager=alloc(Manager.class);W a=world(server,0),b=world(server,10);accounting(server,a,b);entityTransfer(server,a,b);droppedItems(server,a,b);playerTransfer(server,a,b);saveTick(server,a);System.out.println("PASS "+checks+" complete native teleporter assertions. Real entity/NBT/packet/event paths; server/world/chunk IO boundaries captured, not a launched server/save acceptance.");}
+                                                                                                                 ^
+/workspace/shared/nagaport-teleporter-next/porting/tests/teleporter-native/TeleporterNativeTest.java:72: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[] args)throws Exception {net.minecraft.init.Bootstrap.register();Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);net.minecraftforge.fml.common.registry.ForgeRegistries.ENTITIES.register(new net.minecraftforge.fml.common.registry.EntityEntry(E.class,"teleporter_probe").setRegistryName("test","teleporter_probe"));Server server=alloc(Server.class);server.worlds=new HashMap<>();server.manager=alloc(Manager.class);W a=world(server,0),b=world(server,10);accounting(server,a,b);entityTransfer(server,a,b);droppedItems(server,a,b);playerTransfer(server,a,b);saveTick(server,a);System.out.println("PASS "+checks+" complete native teleporter assertions. Real entity/NBT/packet/event paths; server/world/chunk IO boundaries captured, not a launched server/save acceptance.");}
+                                                                                                                                                                                                   ^
+Note: /workspace/shared/nagaport-teleporter-next/src/main/java/com/hbm/tileentity/machine/TileEntityMachineTeleporter.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[21:42:31] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `teleporter_probe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:42:31] [main/ERROR]: Unable to determine registrant mod for TeleporterNativeTest$Listener@2864f887. This is a critical error and should be impossible
+java.lang.Throwable: null
+	at net.minecraftforge.fml.common.eventhandler.EventBus.register(EventBus.java:75) [EventBus.class:?]
+	at TeleporterNativeTest.playerTransfer(TeleporterNativeTest.java:60) [TeleporterNativeTest.class:?]
+	at TeleporterNativeTest.main(TeleporterNativeTest.java:72) [TeleporterNativeTest.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_504]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_504]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_504]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_504]
+	at ForgeEventNativeLauncher.main(ForgeEventNativeLauncher.java:44) [fluid-core-native-bqwaal8a/:?]
+PASS 54 complete native teleporter assertions. Real entity/NBT/packet/event paths; server/world/chunk IO boundaries captured, not a launched server/save acceptance.
+Complete teleporter + 35 real production dependencies; 24 explicit external NTM fixtures. No full game/server claim.

@@ -94,12 +94,13 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.zirnox";
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_io;
 	}
 
@@ -109,7 +110,8 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i < 24 && !(stack.getItem() instanceof ItemZirnoxRod);
 	}
 
@@ -126,7 +128,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("heat", heat);
 		nbt.setInteger("pressure", pressure);
@@ -136,6 +138,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 		water.writeToNBT(nbt, "water");
 		nbt.setBoolean("redstonePowered", redstonePowered);
 
+		return nbt;
 	}
 
 	public int getGaugeScaled(int i, int type) {
@@ -182,15 +185,15 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if (redstonePowered) {
 				isOn = true;
 			}
 			this.output = 0;
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				this.updateConnections();
 			}
 
@@ -224,7 +227,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 			}
 
 			for(DirPos pos : getConPos()) {
-				this.sendFluid(steam, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.sendFluid(steam, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			checkIfMeltdown();
@@ -331,14 +334,14 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 
 	private void spawnDebris(DebrisType type) {
 
-		EntityZirnoxDebris debris = new EntityZirnoxDebris(worldObj, xCoord + 0.5D, yCoord + 4D, zCoord + 0.5D, type);
-		debris.motionX = worldObj.rand.nextGaussian() * 0.75D;
-		debris.motionZ = worldObj.rand.nextGaussian() * 0.75D;
-		debris.motionY = 0.01D + worldObj.rand.nextDouble() * 1.25D;
+		EntityZirnoxDebris debris = new EntityZirnoxDebris(this.world, this.pos.getX() + 0.5D, this.pos.getY() + 4D, this.pos.getZ() + 0.5D, type);
+		debris.motionX = this.world.rand.nextGaussian() * 0.75D;
+		debris.motionZ = this.world.rand.nextGaussian() * 0.75D;
+		debris.motionY = 0.01D + this.world.rand.nextDouble() * 1.25D;
 
 		if(type == DebrisType.CONCRETE) {
 			debris.motionX *= 0.25D;
-			debris.motionY += worldObj.rand.nextDouble();
+			debris.motionY += this.world.rand.nextDouble();
 			debris.motionZ *= 0.25D;
 		}
 
@@ -348,7 +351,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 			debris.motionZ += 0.5D;
 		}
 
-		worldObj.spawnEntityInWorld(debris);
+		this.world.spawnEntityInWorld(debris);
 	}
 
 	private void zirnoxDebris() {
@@ -377,18 +380,18 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 		}
 
 		int[] dimensions = {1, 0, 2, 2, 2, 2,};
-		worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, ModBlocks.zirnox_destroyed, this.getBlockMetadata(), 3);
-		MultiblockHandlerXR.fillSpace(worldObj, this.xCoord, this.yCoord, this.zCoord, dimensions, ModBlocks.zirnox_destroyed, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset));
-		worldObj.playSoundEffect(xCoord, yCoord + 2, zCoord, "hbm:block.rbmk_explosion", 10.0F, 1.0F);
-		worldObj.createExplosion(null, this.xCoord, this.yCoord + 3, this.zCoord, 12.0F, true);
+		this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.zirnox_destroyed, this.getBlockMetadata(), 3);
+		MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), dimensions, ModBlocks.zirnox_destroyed, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset));
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), "hbm:block.rbmk_explosion", 10.0F, 1.0F);
+		this.world.createExplosion(null, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ(), 12.0F, true);
 		zirnoxDebris();
-		ExplosionNukeGeneric.waste(worldObj, this.xCoord, this.yCoord, this.zCoord, 35);
+		ExplosionNukeGeneric.waste(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 35);
 
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class,
-				AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(100, 100, 100));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class,
+				AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));
 
 		for(EntityPlayer player : players) {
-			player.triggerAchievement(MainRegistry.achZIRNOXBoom);
+			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achZIRNOXBoom);
 		}
 
 		if(MobConfig.enableElementals) {
@@ -400,8 +403,8 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(water.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(carbonDioxide.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(water.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(carbonDioxide.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -410,10 +413,10 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(this.xCoord + rot.offsetX * 3, this.yCoord + 1, this.zCoord + rot.offsetZ * 3, rot),
-				new DirPos(this.xCoord + rot.offsetX * 3, this.yCoord + 3, this.zCoord + rot.offsetZ * 3, rot),
-				new DirPos(this.xCoord + rot.offsetX * -3, this.yCoord + 1, this.zCoord + rot.offsetZ * -3, rot.getOpposite()),
-				new DirPos(this.xCoord + rot.offsetX * -3, this.yCoord + 3, this.zCoord + rot.offsetZ * -3, rot.getOpposite())
+				new DirPos(this.pos.getX() + rot.offsetX * 3, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 3, this.pos.getY() + 3, this.pos.getZ() + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * -3, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * -3, rot.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * -3, this.pos.getY() + 3, this.pos.getZ() + rot.offsetZ * -3, rot.getOpposite())
 		};
 	}
 
@@ -427,7 +430,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	}
 
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord, zCoord - 2, xCoord + 3, yCoord + 5, zCoord + 3);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 5, this.pos.getZ() + 3);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -437,7 +440,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override
@@ -530,7 +533,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] ventCarbonDioxide(Context context, Arguments args) {
-		int ventAmount = MathHelper.clamp_int(args.optInteger(0, 1000), 0, carbonDioxide.getMaxFill()); // Get how much CO2 to vent in mB (1000mB default), clamp between 0 and carbonDioxide's max fill.
+		int ventAmount = MathHelper.clamp(args.optInteger(0, 1000), 0, carbonDioxide.getMaxFill()); // Get how much CO2 to vent in mB (1000mB default), clamp between 0 and carbonDioxide's max fill.
 		int fill = this.carbonDioxide.getFill();
 		this.carbonDioxide.setFill(Math.max(fill - ventAmount, 0)); // Make sure it isn't a negative number.
 		return new Object[] {};

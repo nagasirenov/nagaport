@@ -42,7 +42,7 @@ public class AuxParticlePacketNT extends ThreadedPacket {
 		@Override
 		public IMessage onMessage(AuxParticlePacketNT m, MessageContext ctx) {
 
-			if(Minecraft.getMinecraft().theWorld == null)
+			if(Minecraft.getMinecraft().world == null)
 				return null;
 
 			if(m.nbt != null)

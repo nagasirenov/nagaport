@@ -60,7 +60,7 @@ public class ItemFolderPacket implements IMessage {
 					}
 
 					if(stack.getItem() instanceof ItemCrucibleTemplate) {
-						tryMakeItem(p, stack, Items.paper, "dye");
+						tryMakeItem(p, stack, Items.PAPER, "dye");
 						return null;
 					}
 					if(stack.getItem() instanceof ItemCassette) {

@@ -18,12 +18,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.model.IModelCustom;
+
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderSnowglobe extends TileEntitySpecialRenderer implements IItemRendererProvider {
 	
-	public static final IModelCustom snowglobe = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/snowglobe.obj"), false).asVBO();
+	public static final MeshModel snowglobe = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/snowglobe.obj"), false).asVBO();
 	public static final ResourceLocation socket = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/snowglobe.png");
 	public static final ResourceLocation glass = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/snowglobe_glass.png");
 	public static final ResourceLocation features = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/snowglobe_features.png");
@@ -92,7 +92,7 @@ public class RenderSnowglobe extends TileEntitySpecialRenderer implements IItemR
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, -2, 0);

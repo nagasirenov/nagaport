@@ -1,0 +1,297 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_red_copper = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_red_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_red_copper\");\r\n",
+    "after": "\t\tdeco_red_copper = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_red_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_tungsten = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_tungsten\");\r\n",
+    "after": "\t\tdeco_tungsten = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_aluminium = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_aluminium\");\r\n",
+    "after": "\t\tdeco_aluminium = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_steel = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_steel\");\r\n",
+    "after": "\t\tdeco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_rusty_steel = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_rusty_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_rusty_steel\");\r\n",
+    "after": "\t\tdeco_rusty_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_rusty_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_lead = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_lead\");\r\n",
+    "after": "\t\tdeco_lead = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_beryllium = new BlockDecoCT(Material.iron).noFortune().setBlockName(\"deco_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_beryllium\");\r\n",
+    "after": "\t\tdeco_beryllium = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tdeco_stainless = new BlockDecoCT(Material.iron).setBlockName(\"deco_stainless\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_stainless\");\r\n",
+    "after": "\t\tdeco_stainless = new BlockDecoCT(Material.IRON).setTranslationKey(\"deco_stainless\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\treinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.rock).setBlockName(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);\r\n",
+    "after": "\t\treinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + \":reinforced_glass\", Material.ROCK).setTranslationKey(\"reinforced_glass\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\treinforced_laminate = new BlockNTMGlassCT(1, RefStrings.MODID + \":reinforced_laminate\", Material.rock, true).setBlockName(\"reinforced_laminate\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(15.0F).setResistance(300.0F);\r\n",
+    "after": "\t\treinforced_laminate = new BlockNTMGlassCT(1, RefStrings.MODID + \":reinforced_laminate\", Material.ROCK, true).setTranslationKey(\"reinforced_laminate\").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(15.0F).setResistance(300.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_boron = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_boron\", Material.glass).setBlockName(\"glass_boron\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+    "after": "\t\tglass_boron = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_boron\", Material.GLASS).setTranslationKey(\"glass_boron\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_lead = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_lead\", Material.glass).setBlockName(\"glass_lead\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+    "after": "\t\tglass_lead = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_lead\", Material.GLASS).setTranslationKey(\"glass_lead\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_uranium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_uranium\", Material.glass).setBlockName(\"glass_uranium\").setLightLevel(5F/15F).setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+    "after": "\t\tglass_uranium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_uranium\", Material.GLASS).setTranslationKey(\"glass_uranium\").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_trinitite = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_trinitite\", Material.glass).setBlockName(\"glass_trinitite\").setLightLevel(5F/15F).setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+    "after": "\t\tglass_trinitite = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_trinitite\", Material.GLASS).setTranslationKey(\"glass_trinitite\").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_polonium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_polonium\", Material.glass).setBlockName(\"glass_polonium\").setLightLevel(5F/15F).setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+    "after": "\t\tglass_polonium = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_polonium\", Material.GLASS).setTranslationKey(\"glass_polonium\").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_ash = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_ash\", Material.glass).setBlockName(\"glass_ash\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(3F);\r\n",
+    "after": "\t\tglass_ash = new BlockNTMGlassCT(1, RefStrings.MODID + \":glass_ash\", Material.GLASS).setTranslationKey(\"glass_ash\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_quartz = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_quartz\", Material.packedIce, true).setBlockName(\"glass_quartz\").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeGlass).setHardness(1.0F).setResistance(40.0F).setBlockTextureName(RefStrings.MODID + \"glass_quartz\");\r\n",
+    "after": "\t\tglass_quartz = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_quartz\", Material.PACKED_ICE, true).setTranslationKey(\"glass_quartz\").setCreativeTab(MainRegistry.blockTab).setSoundType(net.minecraft.block.SoundType.GLASS).setHardness(1.0F).setResistance(40.0F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tglass_polarized = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_polarized\", Material.glass).setBlockName(\"glass_polarized\").setStepSound(Block.soundTypeGlass).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n",
+    "after": "\t\tglass_polarized = new BlockNTMGlassCT(0, RefStrings.MODID + \":glass_polarized\", Material.GLASS).setTranslationKey(\"glass_polarized\").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_alloy = new BlockHadronCoil(Material.iron, 10).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_alloy\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_alloy\");\r\n",
+    "after": "\t\thadron_coil_alloy = new BlockHadronCoil(Material.IRON, 10).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_alloy\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_gold = new BlockHadronCoil(Material.iron, 25).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_gold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_gold\");\r\n",
+    "after": "\t\thadron_coil_gold = new BlockHadronCoil(Material.IRON, 25).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_gold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_neodymium = new BlockHadronCoil(Material.iron, 50).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_neodymium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_neodymium\");\r\n",
+    "after": "\t\thadron_coil_neodymium = new BlockHadronCoil(Material.IRON, 50).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_neodymium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_magtung = new BlockHadronCoil(Material.iron, 100).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_magtung\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_magtung\");\r\n",
+    "after": "\t\thadron_coil_magtung = new BlockHadronCoil(Material.IRON, 100).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_magtung\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_schrabidium = new BlockHadronCoil(Material.iron, 250).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_schrabidium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_schrabidium\");\r\n",
+    "after": "\t\thadron_coil_schrabidium = new BlockHadronCoil(Material.IRON, 250).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_schrabidium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_schrabidate = new BlockHadronCoil(Material.iron, 500).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_schrabidate\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_schrabidate\");\r\n",
+    "after": "\t\thadron_coil_schrabidate = new BlockHadronCoil(Material.IRON, 500).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_schrabidate\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_starmetal = new BlockHadronCoil(Material.iron, 1000).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_starmetal\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_starmetal\");\r\n",
+    "after": "\t\thadron_coil_starmetal = new BlockHadronCoil(Material.IRON, 1000).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_starmetal\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_chlorophyte = new BlockHadronCoil(Material.iron, 2500).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_chlorophyte\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_chlorophyte\");\r\n",
+    "after": "\t\thadron_coil_chlorophyte = new BlockHadronCoil(Material.IRON, 2500).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_chlorophyte\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\thadron_coil_mese = new BlockHadronCoil(Material.iron, 10000).setStepSound(Block.soundTypeMetal).setBlockName(\"hadron_coil_mese\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":hadron_coil_mese\");\r\n",
+    "after": "\t\thadron_coil_mese = new BlockHadronCoil(Material.IRON, 10000).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey(\"hadron_coil_mese\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tred_wire_coated = new WireCoated(Material.iron).setBlockName(\"red_wire_coated\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":red_wire_coated\");\r\n",
+    "after": "\t\tred_wire_coated = new WireCoated(Material.IRON).setTranslationKey(\"red_wire_coated\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tpwr_block = new BlockPWR(Material.iron).setBlockName(\"pwr_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":pwr_block\");\r\n",
+    "after": "\t\tpwr_block = new BlockPWR(Material.IRON).setTranslationKey(\"pwr_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\ticf_block = new BlockICF(Material.iron).setBlockName(\"icf_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":icf_block\");\r\n",
+    "after": "\t\ticf_block = new BlockICF(Material.IRON).setTranslationKey(\"icf_block\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_red_copper, deco_red_copper.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_red_copper, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_tungsten, deco_tungsten.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_tungsten, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_aluminium, deco_aluminium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_aluminium, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_steel, deco_steel.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_steel, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_rusty_steel, deco_rusty_steel.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_rusty_steel, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_lead, deco_lead.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_lead, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_beryllium, deco_beryllium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_beryllium, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(deco_stainless, deco_stainless.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(deco_stainless, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(reinforced_glass, ItemBlockBlastInfo.class, reinforced_glass.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(reinforced_glass, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(reinforced_laminate, ItemBlockBlastInfo.class, reinforced_laminate.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(reinforced_laminate, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_boron, glass_boron.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_boron, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_lead, glass_lead.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_lead, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_uranium, glass_uranium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_uranium, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_trinitite, glass_trinitite.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_trinitite, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_polonium, glass_polonium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_polonium, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_ash, glass_ash.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_ash, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_quartz, glass_quartz.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_quartz, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(glass_polarized, glass_polarized.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(glass_polarized, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_alloy, ItemBlockBase.class, hadron_coil_alloy.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_alloy);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_gold, ItemBlockBase.class, hadron_coil_gold.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_gold);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_neodymium, ItemBlockBase.class, hadron_coil_neodymium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_neodymium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_magtung, ItemBlockBase.class, hadron_coil_magtung.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_magtung);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_schrabidium, ItemBlockBase.class, hadron_coil_schrabidium.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_schrabidium);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_schrabidate, ItemBlockBase.class, hadron_coil_schrabidate.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_schrabidate);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_starmetal, ItemBlockBase.class, hadron_coil_starmetal.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_starmetal);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_chlorophyte, ItemBlockBase.class, hadron_coil_chlorophyte.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_chlorophyte);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(hadron_coil_mese, ItemBlockBase.class, hadron_coil_mese.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(hadron_coil_mese);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\tGameRegistry.registerBlock(red_wire_coated, red_wire_coated.getUnlocalizedName());\r\n",
+    "after": "\t\tregister(red_wire_coated, ItemBlock.class);\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "before": "\t\tRenderingRegistry.registerBlockHandler(new RenderBlockCT());\n",
+    "after": ""
+  }
+]

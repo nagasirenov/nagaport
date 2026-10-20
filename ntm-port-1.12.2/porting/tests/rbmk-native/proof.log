@@ -1,0 +1,95 @@
+COMPLETE PRODUCTION com/hbm/blocks/machine/rbmk/RBMKRenderState.java 767a538141e14b8333532ad3b90b7d5af9641f6992cee4fe9f10a634d35369e8
+COMPLETE PRODUCTION com/hbm/main/RBMKModelHandler.java 15903823b776d79c5e1d4f43fc7b007c65419bceeaab959582df9d8cf6ddd796
+COMPLETE PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+COMPLETE PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+COMPLETE PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+COMPLETE PRODUCTION com/hbm/render/block/RenderRBMKRod.java 1d5f1864b025553b7b7b6627d6b3b27d5d7b028958ff59ad98ad95116383db46
+COMPLETE PRODUCTION com/hbm/render/block/RenderRBMKControl.java 9f3569968e8fae2d8b935a22934c28140050dcd77af40a87bd60b3fe28a5513c
+COMPLETE PRODUCTION com/hbm/render/block/RenderRBMKReflector.java 92d091bdca4a78810e43c3761553e268b88663358523cb3252a8e4a7db3e8334
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/RBMKMaterials.java 2271624ebbb8189360981694633502b600e820c2fa5a74f65b92bc35111626a8
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/RBMKGeometry.java 4602bb1404a5f5034de1b53d00b0d65d8629eabce47d6f423f4a0a094f5c04b2
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/RBMKContextQuad.java 220976aa8a973a9c21a1b9cead99a6d8a3fa73cbeab3cd2ec389e60db8245f24
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/RBMKBakedModel.java 05a459175686518dba2094bdb1b328f8fda3e94d22e66a701d5bea2d4f077ce5
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/ConnectionQuadFactory.java 81d2b3a95cef3980479d4cf15dc697c33fcac2972aab7fb533e214376d5e4d4a
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+EXTRACTED OWNER HOOKS f0a1900bf34df38160a4332481d853a92ea853e44fe9b4ff31974842438edf0b
+/tmp/rbmk-native-ag66ne_l/OriginalRBMKOracle.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/rbmk-native-ag66ne_l/OriginalRBMKOracle.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/rbmk-native-ag66ne_l/OriginalRBMKOracle.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/rbmk-native-ag66ne_l/OriginalRBMKOracle.java:581: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/tmp/rbmk-native-ag66ne_l/OriginalRBMKOracle.java:581: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/tmp/rbmk-native-ag66ne_l/OriginalRBMKOracle.java:581: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+/workspace/shared/nagaport-rbmk-native/ntm-port-1.12.2/porting/tests/rbmk-native/RBMKNativeTest.java:40: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;
+                ^
+/workspace/shared/nagaport-rbmk-native/ntm-port-1.12.2/porting/tests/rbmk-native/RBMKNativeTest.java:52: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                  ^
+/workspace/shared/nagaport-rbmk-native/ntm-port-1.12.2/porting/tests/rbmk-native/RBMKNativeTest.java:52: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-rbmk-native/ntm-port-1.12.2/porting/tests/rbmk-native/RBMKNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 warnings
+PASS complete native model and extracted owner-render bytecode contains no removed renderer APIs
+[23:19:45] [main/INFO]: Processing ObjectHolder annotations
+[23:19:45] [main/INFO]: Found 1167 ObjectHolder annotations
+OPEN DEFAULT DAMAGE tile.rbmk_rod smooth=false materialQuads=32 lightVertices=304 colorVertices=0 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod smooth=true materialQuads=32 lightVertices=360 colorVertices=130 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod_mod smooth=false materialQuads=32 lightVertices=304 colorVertices=0 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod_mod smooth=true materialQuads=32 lightVertices=360 colorVertices=130 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod_reasim smooth=false materialQuads=32 lightVertices=304 colorVertices=0 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod_reasim smooth=true materialQuads=32 lightVertices=360 colorVertices=130 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod_reasim_mod smooth=false materialQuads=32 lightVertices=304 colorVertices=0 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_rod_reasim_mod smooth=true materialQuads=32 lightVertices=360 colorVertices=130 / 384; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control smooth=false materialQuads=0 lightVertices=96 colorVertices=0 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control smooth=true materialQuads=0 lightVertices=96 colorVertices=7 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_mod smooth=false materialQuads=0 lightVertices=96 colorVertices=0 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_mod smooth=true materialQuads=0 lightVertices=96 colorVertices=7 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_auto smooth=false materialQuads=0 lightVertices=96 colorVertices=0 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_auto smooth=true materialQuads=0 lightVertices=96 colorVertices=7 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_reasim smooth=false materialQuads=0 lightVertices=96 colorVertices=0 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_reasim smooth=true materialQuads=0 lightVertices=96 colorVertices=7 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_reasim_auto smooth=false materialQuads=0 lightVertices=96 colorVertices=0 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_control_reasim_auto smooth=true materialQuads=0 lightVertices=96 colorVertices=7 / 120; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_boiler smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_boiler smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_heater smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_heater smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_blank smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_blank smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_reflector smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_reflector smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_absorber smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_absorber smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_moderator smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_moderator smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_outgasser smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_outgasser smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_storage smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_storage smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_cooler smooth=false materialQuads=0 lightVertices=24 colorVertices=0 / 48; callable original damage is NOT a registered dispatcher
+OPEN DEFAULT DAMAGE tile.rbmk_cooler smooth=true materialQuads=0 lightVertices=16 colorVertices=2 / 48; callable original damage is NOT a registered dispatcher
+PASS native Flat/SmoothAo shifted cube and fixed OBJ context restored on output and intentional sink failure
+[23:19:46] [main/INFO]: Reloading ResourceManager: resources
+[23:19:46] [main/INFO]: Reloading ResourceManager: rbmk-resources.jar
+[23:19:46] [main/INFO]: Reloading ResourceManager: rbmk-resources.jar
+PASS actual custom mapper, 288 block states, 288 item routes, ModelLoaderRegistry, native ItemModelMesher/BlockModelShapes and mesh reload
+[23:19:46] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.rbmk_rod`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS RBMK native 390511 assertions; 1053360 original vertex comparisons (standard=151504, other=901856). Complete models/loader + extracted owner render hooks only; no whole reactor/client/GL/server claim.

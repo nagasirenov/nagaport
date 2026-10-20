@@ -1,0 +1,193 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import javax.imageio.ImageIO;
+import com.hbm.blocks.generic.*;
+import com.hbm.blocks.machine.rbmk.*;
+import com.hbm.lib.*;
+import com.hbm.render.block.*;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.render.mesh.*;
+import com.google.gson.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+/** Pinned pristine selectors/shaders and independent ordered OBJ oracle; real native client APIs. */
+public final class DecorationObjModelNativeTest {
+ static long checks,vertices;static final BlockPos POS=new BlockPos(8,64,8);static final List<Owner> owners=new ArrayList<>();
+ static final Map<String,List<Part>> original=new LinkedHashMap<>();static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();
+ static final class Sprite extends TextureAtlasSprite {Sprite(String name,int index){super(name);setIconWidth(16);setIconHeight(16);initSprite(2048,128,16*index,32,false);}}
+ static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ static void close(float got,float want,String message){check(Math.abs(got-want)<0.000003F,message+": "+got+" != "+want);}
+ static TextureAtlasSprite sprite(String name){return sprites.computeIfAbsent(name,k->new Sprite(k,sprites.size()+1));}
+ static ResourceLocation texture(String name){ResourceLocation n=new ResourceLocation(name);return new ResourceLocation(n.getNamespace(),"blocks/"+n.getPath());}
+ static final class Owner {
+  String name,owner,asset,material,particle;int shape;String[] textures;transient Block block;
+  TextureAtlasSprite sprite(int i){return DecorationObjModelNativeTest.sprite(texture(textures[i]).toString());}
+  Set<ResourceLocation> textures(){Set<ResourceLocation> out=new LinkedHashSet<>();for(String t:textures)out.add(texture(t));out.add(texture(particle));return out;}
+ }
+ static void setup(File manifest)throws Exception {
+  JsonObject data;try(Reader r=new FileReader(manifest)){data=new JsonParser().parse(r).getAsJsonObject();}
+  for(JsonElement e:data.getAsJsonArray("owners")){Owner o=new Gson().fromJson(e,Owner.class);Block b;
+   switch(o.owner){case "BlockSteelBeam":b=new BlockSteelBeam();break;case "BlockCanCrate":b=new BlockCanCrate();break;case "BlockSupplyCrate":b=new BlockSupplyCrate();break;case "RBMKDebris":b=new RBMKDebris();break;case "RBMKDebrisBurning":b=new RBMKDebrisBurning();break;case "RBMKDebrisRadiating":b=new RBMKDebrisRadiating();break;default:b=new RBMKDebrisDigamma();}
+   b.setTranslationKey(o.name.substring(5));ForgeRegistries.BLOCKS.register(b.setRegistryName("hbm",o.name));ForgeRegistries.ITEMS.register(new ItemBlock(b){public int getMetadata(int damage){return damage;}}.setHasSubtypes(true).setRegistryName(b.getRegistryName()));o.block=b;owners.add(o);
+  }check(owners.size()==7,"exact 7 original owners");
+ }
+ static final class Face {float[][] xyz,uv;float[] normal;}
+ static final class Part {String name;List<Face> faces=new ArrayList<>();Part(String n){name=n;}}
+ static List<Part> originalObj(Reader source)throws Exception {
+  List<float[]> points=new ArrayList<>(),uvs=new ArrayList<>();List<Part> groups=new ArrayList<>();BufferedReader in=new BufferedReader(source);String line;Part group=null;
+  while((line=in.readLine())!=null){String[] p=line.trim().split("\\s+");if(p[0].equals("o")||p[0].equals("g")){group=new Part(p[1]);groups.add(group);}
+   else if(p[0].equals("v"))points.add(new float[]{Float.parseFloat(p[1]),Float.parseFloat(p[2]),Float.parseFloat(p[3])});
+   else if(p[0].equals("vt"))uvs.add(new float[]{Float.parseFloat(p[1]),1-Float.parseFloat(p[2])});
+   else if(p[0].equals("f")){check(p.length==4||p.length==5,"original triangle/quad primitive");if(group==null){group=new Part("Default");groups.add(group);}Face f=new Face();f.xyz=new float[p.length-1][];f.uv=new float[p.length-1][];
+    for(int i=1;i<p.length;i++){String[] k=p[i].split("/");f.xyz[i-1]=points.get(Integer.parseInt(k[0])-1);f.uv[i-1]=uvs.get(Integer.parseInt(k[1])-1);}
+    double ax=f.xyz[1][0]-f.xyz[0][0],ay=f.xyz[1][1]-f.xyz[0][1],az=f.xyz[1][2]-f.xyz[0][2],bx=f.xyz[2][0]-f.xyz[0][0],by=f.xyz[2][1]-f.xyz[0][1],bz=f.xyz[2][2]-f.xyz[0][2];
+    double nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx,length=(float)Math.sqrt(nx*nx+ny*ny+nz*nz);
+    f.normal=length<1E-4D?new float[3]:new float[]{(float)(nx/length),(float)(ny/length),(float)(nz/length)};group.faces.add(f);
+   }
+  }return groups;
+ }
+ static double[] rotate(float[] v,float yaw,float pitch){
+  double cz=net.minecraft.util.math.MathHelper.cos(pitch),sz=net.minecraft.util.math.MathHelper.sin(pitch),cy=net.minecraft.util.math.MathHelper.cos(yaw),sy=net.minecraft.util.math.MathHelper.sin(yaw);
+  double x=v[0]*cz+v[1]*sz,y=v[1]*cz-v[0]*sz;return new double[]{x*cy+v[2]*sy,y,v[2]*cy-x*sy};
+ }
+ static final class Vertex {float x,y,z,u,v,nx,ny,nz;int color;TextureAtlasSprite sprite;}
+ static List<Vertex> stream(List<Part> parts,String group,TextureAtlasSprite sprite,boolean item,float yaw,float pitch,double scale,double x,double y,double z){
+  List<Vertex> out=new ArrayList<>();List<Part> selected=parts;
+  if(group!=null){Part last=null;for(Part p:parts)if(p.name.equals(group))last=p;selected=last==null?Collections.emptyList():Collections.singletonList(last);}
+  for(Part p:selected)for(Face f:p.faces){double[] n=rotate(f.normal,yaw,pitch);int color=OriginalDecorationOracle.color(n,!item,group==null);
+   for(int i=0;i<f.xyz.length;i++){double[] q=rotate(f.xyz[i],yaw,pitch);Vertex v=new Vertex();v.x=(float)(x+(float)q[0]*scale);v.y=(float)(y+(float)q[1]*scale);v.z=(float)(z+(float)q[2]*scale);v.nx=(float)n[0];v.ny=(float)n[1];v.nz=(float)n[2];v.color=color;v.sprite=sprite;
+    v.u=sprite.getInterpolatedU(group==null?f.uv[i][0]*16F:f.uv[i][0]*16D);v.v=sprite.getInterpolatedV(group==null?f.uv[i][1]*16F:f.uv[i][1]*16D);out.add(v);
+    if(i%3==2&&(group==null||f.xyz.length==3))out.add(v);
+   }
+  }return out;
+ }
+ static List<Vertex> oracle(Owner owner,int meta,boolean item,Map<String,List<Part>> source){
+  return stream(source.get(owner.asset),null,owner.sprite(0),item,0,0,1,.5,0,.5);
+ }
+ static String assetPath(String name){return "debris".equals(name)?"models/rbmk/debris.obj":"models/blocks/"+name+".obj";}
+ static void geometry(List<BakedQuad> actual,List<Vertex> want,boolean item,String context){
+  check(actual.size()==want.size()/4,context+" original stream quad count "+actual.size()+" != "+want.size()/4);
+  for(int i=0;i<actual.size();i++){BakedQuad q=actual.get(i);String label=context+" quad="+i;int[] bytes=q.getVertexData();
+   check(q.getSprite()==want.get(i*4).sprite,label+" original material/part order");check(q.shouldApplyDiffuseLighting()==item&&!q.hasTintIndex(),label+" native diffuse and untinted RGB");check(q.getFormat().equals(item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK)&&bytes.length==28,label+" real native vertex format");
+   for(int v=0;v<4;v++){int k=v*7;Vertex e=want.get(i*4+v);vertices++;
+    check(Float.floatToIntBits(e.x)==bytes[k]&&Float.floatToIntBits(e.y)==bytes[k+1]&&Float.floatToIntBits(e.z)==bytes[k+2],label+" exact original XYZ at vertex "+v+" actual="+Float.intBitsToFloat(bytes[k])+","+Float.intBitsToFloat(bytes[k+1])+","+Float.intBitsToFloat(bytes[k+2])+" expected="+e.x+","+e.y+","+e.z);
+    check(Float.floatToIntBits(e.u)==bytes[k+4]&&Float.floatToIntBits(e.v)==bytes[k+5],label+" exact original uncontracted UV");check(e.color==bytes[k+3],label+" original whole/part shader: "+Integer.toHexString(bytes[k+3])+" != "+Integer.toHexString(e.color));
+    if(item){int n=bytes[k+6];check((byte)n==(byte)(e.nx*127F)&&(byte)(n>>8)==(byte)(e.ny*127F)&&(byte)(n>>16)==(byte)(e.nz*127F),label+" original signed-byte normals");}
+   }
+  }
+ }
+ static final class LightingWorld implements IBlockAccess {
+  final IBlockState state;final int own=0x00A00070;
+  LightingWorld(IBlockState state){this.state=state;}
+  public TileEntity getTileEntity(BlockPos p){return null;}
+  public int getCombinedLight(BlockPos p,int emission){return p.equals(POS)?own:0x00100010*((Math.abs(p.getX()+2*p.getY()+3*p.getZ())%8)+1);}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?state:Blocks.STONE.getDefaultState();}
+  public boolean isAirBlock(BlockPos p){return false;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing side){return 0;}
+  public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing side,boolean fallback){return !p.equals(POS);}
+ }
+ static void lighting(IBakedModel model,IBlockState state,String context){
+  LightingWorld world=new LightingWorld(state);net.minecraft.client.renderer.color.BlockColors colors=new net.minecraft.client.renderer.color.BlockColors();List<BakedQuad> quads=model.getQuads(state,null,0);
+  for(boolean forge:new boolean[]{false,true}){
+   net.minecraft.client.renderer.BufferBuilder out=new net.minecraft.client.renderer.BufferBuilder(65536);out.begin(7,DefaultVertexFormats.BLOCK);
+   if(forge){net.minecraftforge.client.model.pipeline.VertexLighterFlat lighter=new net.minecraftforge.client.model.pipeline.VertexLighterFlat(colors);
+    net.minecraftforge.client.model.pipeline.VertexBufferConsumer consumer=new net.minecraftforge.client.model.pipeline.VertexBufferConsumer(out);consumer.setOffset(POS);lighter.setParent(consumer);lighter.setWorld(world);lighter.setState(state);lighter.setBlockPos(POS);lighter.updateBlockInfo();
+    for(BakedQuad q:quads)q.pipe(lighter);lighter.resetBlockInfo();
+   }else check(new net.minecraft.client.renderer.BlockModelRenderer(colors).renderModelFlat(world,model,state,POS,out,true,0),context+" native vanilla emits model");
+   out.finishDrawing();check(out.getVertexCount()==quads.size()*4,context+" native emitted vertices "+forge);java.nio.ByteBuffer data=out.getByteBuffer();
+   for(int v=0;v<out.getVertexCount();v++){
+    check(data.getInt(v*28+24)==world.own,context+" "+(forge?"Forge":"vanilla")+" original block-position light, not neighbor at vertex "+v+": "+Integer.toHexString(data.getInt(v*28+24)));
+    check(data.getInt(v*28+12)==quads.get(v/4).getVertexData()[v%4*7+3],context+" original shading without doubled diffuse "+forge);
+   }
+  }
+ }
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+ static void set(Object o,Class<?> c,String field,Object value)throws Exception{Field f=c.getDeclaredField(field);f.setAccessible(true);f.set(o,value);}
+ static Object get(Object o,Class<?> c,String field)throws Exception{Field f=c.getDeclaredField(field);f.setAccessible(true);return f.get(o);}
+ static void event()throws Exception{
+  Class<?> type=com.hbm.main.DecorationObjBlockModelHandler.class;net.minecraftforge.fml.common.Mod.EventBusSubscriber ann=type.getAnnotation(net.minecraftforge.fml.common.Mod.EventBusSubscriber.class);
+  check(ann!=null&&ann.modid().equals("hbm")&&Arrays.equals(ann.value(),new net.minecraftforge.fml.relauncher.Side[]{net.minecraftforge.fml.relauncher.Side.CLIENT}),"native automatic client-only subscriber");int count=0;
+  for(Method m:type.getDeclaredMethods())if(m.isAnnotationPresent(net.minecraftforge.fml.common.eventhandler.SubscribeEvent.class)&&Arrays.equals(m.getParameterTypes(),new Class<?>[]{net.minecraftforge.client.event.ModelRegistryEvent.class})){check(Modifier.isStatic(m.getModifiers()),"native subscribed handler static");m.invoke(null,new net.minecraftforge.client.event.ModelRegistryEvent());count++;}
+  check(count==1,"one native model-registry subscriber");
+ }
+ static IBakedModel bake(ResourceLocation id,Owner owner,boolean item)throws Exception {
+  net.minecraftforge.client.model.IModel model=net.minecraftforge.client.model.ModelLoaderRegistry.getModel(id);check(model!=net.minecraftforge.client.model.ModelLoaderRegistry.getMissingModel(),"actual native custom loader: "+id);
+  check(model.getDependencies().isEmpty(),"no invented dependencies");Set<ResourceLocation> textures=owner.textures();check(new HashSet<>(model.getTextures()).equals(textures),"exact original atlas materials: "+id);
+  Set<ResourceLocation> asked=new HashSet<>();IBakedModel baked=model.bake(model.getDefaultState(),item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK,r->{check(textures.contains(r),"bake requested original sprite "+r);asked.add(r);return sprite(r.toString());});
+  check(asked.equals(textures),"bake resolves all advertised materials");check(baked.getParticleTexture()==sprite(texture(owner.particle).toString()),"original particle material");check(!baked.isAmbientOcclusion()&&baked.isGui3d()&&!baked.isBuiltInRenderer(),"native flat non-AO block model");check(baked.getOverrides()==ItemOverrideList.NONE,"no fabricated item overrides");
+  close(baked.getItemCameraTransforms().gui.scale.x,.625F,"native block GUI transform");for(EnumFacing side:EnumFacing.values())check(baked.getQuads(null,side,1).isEmpty(),"unculled general bucket only");List<BakedQuad> quads=baked.getQuads(null,null,0);check(quads==baked.getQuads(null,null,77),"immutable cached RNG-independent list");try{quads.add(null);throw new AssertionError("mutable atlas model");}catch(UnsupportedOperationException expected){checks++;}return baked;
+ }
+ static ResourceLocation route(Owner owner,int meta,boolean item){return new ResourceLocation("hbm","native_decoration_obj/"+owner.name+"/"+meta+(item?"/item":"/world"));}
+ static void registry(IResourcePack pack)throws Exception {
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+  sharedResources.reloadResources(Collections.singletonList(pack));net.minecraft.launchwrapper.Launch.blackboard=new HashMap<String,Object>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+  TextureMap atlas=new TextureMap("textures");ModelManager loaderManager=new ModelManager(atlas);net.minecraft.client.renderer.BlockModelShapes shapes=new net.minecraft.client.renderer.BlockModelShapes(loaderManager);
+  new net.minecraftforge.client.model.ModelLoader(sharedResources,atlas,shapes);event();sharedResources.reloadResources(Collections.singletonList(pack));net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(sharedResources);
+  Map<?,?> custom=(Map<?,?>)get(null,net.minecraftforge.client.model.ModelLoader.class,"customModels");check(custom.size()==7*16,"all 112 ItemBlock metadata registrations");net.minecraftforge.client.model.ModelLoader.onRegisterAllBlocks(shapes);
+  net.minecraft.util.registry.RegistrySimple<ModelResourceLocation,IBakedModel> baked=new net.minecraft.util.registry.RegistrySimple<>();Set<String> lit=new HashSet<>();
+  for(Owner owner:owners){Map<IBlockState,ModelResourceLocation> mapping=shapes.getBlockStateMapper().getVariants(owner.block);check(mapping.size()==16&&new HashSet<>(mapping.values()).size()==16,"all native metadata states: "+owner.name);
+   ResourceLocation json=new ResourceLocation("hbm","blockstates/"+owner.name+".json");ModelBlockDefinition definition;try(Reader r=new InputStreamReader(pack.getInputStream(json),StandardCharsets.UTF_8)){definition=ModelBlockDefinition.parseFromReader(r,owner.block.getRegistryName());}
+   for(int meta=0;meta<16;meta++){IBlockState state=owner.block.getStateFromMeta(meta);ModelResourceLocation mapped=mapping.get(state);check(mapped.getVariant().equals("metadata="+meta),"native metadata variant name");check(definition.hasVariant(mapped.getVariant()),"packaged exact-case state route");List<Variant> variants=definition.getVariant(mapped.getVariant()).getVariantList();check(variants.size()==1,"one original geometry route");Variant variant=variants.get(0);check(variant.getRotation()==ModelRotation.X0_Y0&&!variant.isUvLock(),"no extra rotation or UV lock");check(variant.getModelLocation().getPath().equals("block/"+route(owner,meta,false).getPath()),"original world route "+variant.getModelLocation());
+    IBakedModel world=bake(variant.getModelLocation(),owner,false);baked.putObject(mapped,world);geometry(world.getQuads(state,null,0),oracle(owner,meta,false,original),false,owner.name+" world metadata="+meta);
+    if(meta==0&&lit.add(owner.owner))lighting(world,state,owner.name+" meta="+meta);if(meta==8&&owner.owner.equals("BlockPipe")&&lit.add(owner.owner+owner.shape+"/8"))lighting(world,state,owner.name+" meta=8");
+    Item item=Item.getItemFromBlock(owner.block);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(id!=null&&id.getPath().equals(route(owner,meta,true).getPath()),"actual inventory metadata registration");IBakedModel inventory=bake(id,owner,true);baked.putObject(id,inventory);geometry(inventory.getQuads(null,null,0),oracle(owner,meta,true,original),true,owner.name+" item metadata="+meta);
+   }
+   for(ResourceLocation tex:owner.textures())if(tex.getNamespace().equals("hbm")){ResourceLocation png=new ResourceLocation("hbm","textures/"+tex.getPath()+".png");check(pack.resourceExists(png),"exact-case original sprite resource "+png);try(InputStream in=pack.getInputStream(png)){check(ImageIO.read(in)!=null,"original PNG decodes "+png);}}
+  }
+  ModelManager manager=(ModelManager)unsafe.allocateInstance(ModelManager.class);set(manager,ModelManager.class,"modelRegistry",baked);net.minecraft.client.renderer.ItemModelMesher mesher=new net.minecraft.client.renderer.ItemModelMesher(manager);net.minecraftforge.client.model.ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();
+  for(Owner owner:owners)for(int meta=0;meta<16;meta++){Item item=Item.getItemFromBlock(owner.block);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(mesher.getItemModel(new ItemStack(item,1,meta))==baked.getObject(id),"real native ItemModelMesher "+owner.name+"/"+meta);}
+  for(String prefix:new String[]{"","block/"}){Owner owner=owners.get(0);geometry(bake(new ResourceLocation("hbm",prefix+route(owner,4,false).getPath()),owner,false).getQuads(null,null,0),oracle(owner,4,false,original),false,"loader normalization "+prefix);}
+  System.out.println("PASS "+pack.getPackName()+": all7 owners x16 state/item routes, complete source-ordered vertices, real Forge+vanilla light, actual ItemModelMesher");
+ }
+ static final class AlteredPack implements IResourcePack {
+  final IResourcePack original;final String missing;final boolean translate;AlteredPack(IResourcePack p,String m,boolean shift){original=p;missing=m;translate=shift;}
+  boolean absent(ResourceLocation id){return id.getNamespace().equals("hbm")&&id.getPath().equals(assetPath(missing));}
+  public InputStream getInputStream(ResourceLocation id)throws IOException {
+   if(absent(id))throw new FileNotFoundException(id.toString());if(!translate||!id.getPath().endsWith(".obj"))return original.getInputStream(id);
+   StringBuilder changed=new StringBuilder();try(BufferedReader in=new BufferedReader(new InputStreamReader(original.getInputStream(id),StandardCharsets.UTF_8))){String line;while((line=in.readLine())!=null){if(line.startsWith("v ")){String[] p=line.trim().split("\\s+");line="v "+(Float.parseFloat(p[1])+.0625F)+" "+p[2]+" "+p[3];}changed.append(line).append('\n');}}
+   return new ByteArrayInputStream(changed.toString().getBytes(StandardCharsets.UTF_8));
+  }
+  public boolean resourceExists(ResourceLocation id){return !absent(id)&&original.resourceExists(id);}public Set<String> getResourceDomains(){return original.getResourceDomains();}
+  public <T extends net.minecraft.client.resources.data.IMetadataSection>T getPackMetadata(net.minecraft.client.resources.data.MetadataSerializer m,String k)throws IOException{return original.getPackMetadata(m,k);}
+  public java.awt.image.BufferedImage getPackImage()throws IOException{return original.getPackImage();}public String getPackName(){return "Controlled OBJ mutation";}
+ }
+ static void reload(IResourcePack pack)throws Exception{sharedResources.reloadResources(Collections.singletonList(pack));net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(sharedResources);}
+ static void resourceFailuresAndReload(IResourcePack pack)throws Exception {
+  Map<String,Owner> representatives=new LinkedHashMap<>();for(Owner o:owners){representatives.putIfAbsent(o.asset,o);}check(representatives.size()==3,"all three original mesh choices");
+  Map<String,List<BakedQuad>> retained=new LinkedHashMap<>();Map<String,net.minecraftforge.client.model.IModel> before=new HashMap<>();for(Map.Entry<String,Owner> e:representatives.entrySet()){retained.put(e.getKey(),bake(route(e.getValue(),1,false),e.getValue(),false).getQuads(null,null,0));before.put(e.getKey(),net.minecraftforge.client.model.ModelLoaderRegistry.getModel(route(e.getValue(),1,false)));}
+  AlteredPack changed=new AlteredPack(pack,null,true);Map<String,List<Part>> changedOracle=new LinkedHashMap<>();for(String name:original.keySet())try(Reader r=new InputStreamReader(changed.getInputStream(new ResourceLocation("hbm",assetPath(name))),StandardCharsets.UTF_8)){changedOracle.put(name,originalObj(r));}reload(changed);
+  for(Map.Entry<String,Owner> e:representatives.entrySet()){Owner o=e.getValue();check(net.minecraftforge.client.model.ModelLoaderRegistry.getModel(route(o,1,false))!=before.get(e.getKey()),"reload invalidates original model "+e.getKey());geometry(bake(route(o,1,false),o,false).getQuads(null,null,0),oracle(o,1,false,changedOracle),false,"changed resource "+e.getKey());geometry(retained.get(e.getKey()),oracle(o,1,false,original),false,"retained geometry not mutated "+e.getKey());}
+  reload(pack);for(Map.Entry<String,Owner> e:representatives.entrySet()){Owner o=e.getValue();geometry(bake(route(o,1,false),o,false).getQuads(null,null,0),oracle(o,1,false,original),false,"restored original resource "+e.getKey());}
+  for(Map.Entry<String,Owner> e:representatives.entrySet()){reload(new AlteredPack(pack,e.getKey(),false));boolean failed=false;try{net.minecraftforge.client.model.ModelLoaderRegistry.getModel(route(e.getValue(),1,false));}catch(Exception expected){StringBuilder reasons=new StringBuilder();for(Throwable x=expected;x!=null;x=x.getCause())reasons.append(x.toString());check(reasons.toString().contains(e.getKey()+".obj"),"missing-resource error names exact mesh: "+reasons);failed=true;}check(failed,"missing original mesh fails explicitly: "+e.getKey());}
+  reload(pack);System.out.println("PASS "+pack.getPackName()+": changed/reloaded/restored/missing resources for all3 meshes, retained lists immutable");
+ }
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();setup(new File(args[3]));for(String name:new String[]{"beam","conservecrate","debris"})try(Reader r=new InputStreamReader(new FileInputStream(new File(args[2],"assets/hbm/"+assetPath(name))),StandardCharsets.UTF_8)){original.put(name,originalObj(r));}
+  for(Map.Entry<String,List<Part>> entry:original.entrySet()){int faces=0;for(Part part:entry.getValue())for(Face face:part.faces){check(face.xyz.length==3,"pinned original family is entirely triangulated");faces++;}System.out.println("ORIGINAL OBJ "+entry.getKey()+": "+entry.getValue().size()+" ordered groups, "+faces+" triangles");}
+  try(FileResourcePack zip=new FileResourcePack(new File(args[1]))){IResourcePack folder=new FolderResourcePack(new File(args[0]));registry(folder);resourceFailuresAndReload(folder);registry(zip);resourceFailuresAndReload(zip);}
+  System.out.println("PASS native decoration OBJ model parity: "+checks+" assertions, "+vertices+" complete native vertices; three complete production renderers/helpers/loader, independent pinned pristine selectors/shaders and ordered OBJ, all7 owners x16 state/item routes in directory and jar, all3 mesh resources, native flat light and ItemModelMesher; unchanged geometry helper retains its separately tested replacement-quad contract.");
+  System.out.println("Boundaries: only controlled NTM owner blocks expose metadata and material collaborators. No fake Minecraft/Forge classes. Complete actual owner behavior is verified separately. CPU-headless proof, not live graphical acceptance.");
+ }
+}

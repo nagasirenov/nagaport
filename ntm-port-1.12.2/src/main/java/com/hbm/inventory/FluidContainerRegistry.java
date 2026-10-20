@@ -31,15 +31,15 @@ public class FluidContainerRegistry {
 
 	public static void register() {
 
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.water_bucket), new ItemStack(Items.bucket), Fluids.WATER, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.potionitem), new ItemStack(Items.glass_bottle), Fluids.WATER, 250));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.lava_bucket), new ItemStack(Items.bucket), Fluids.LAVA, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_mud), new ItemStack(Items.bucket), Fluids.WATZ, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_schrabidic_acid), new ItemStack(Items.bucket), Fluids.SCHRABIDIC, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_sulfuric_acid), new ItemStack(Items.bucket), Fluids.SULFURIC_ACID, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_mercury), new ItemStack(Items.bucket), Fluids.MERCURY, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_bromine), new ItemStack(Items.bucket), Fluids.BROMINE, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_ccl), new ItemStack(Items.bucket), Fluids.CCL, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.WATER_BUCKET), new ItemStack(Items.BUCKET), Fluids.WATER, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.POTIONITEM), new ItemStack(Items.GLASS_BOTTLE), Fluids.WATER, 250));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.LAVA_BUCKET), new ItemStack(Items.BUCKET), Fluids.LAVA, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_mud), new ItemStack(Items.BUCKET), Fluids.WATZ, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_schrabidic_acid), new ItemStack(Items.BUCKET), Fluids.SCHRABIDIC, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_sulfuric_acid), new ItemStack(Items.BUCKET), Fluids.SULFURIC_ACID, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_mercury), new ItemStack(Items.BUCKET), Fluids.MERCURY, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_bromine), new ItemStack(Items.BUCKET), Fluids.BROMINE, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_ccl), new ItemStack(Items.BUCKET), Fluids.CCL, 1000));
 
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModBlocks.red_barrel), new ItemStack(ModItems.tank_steel), Fluids.DIESEL, 10000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModBlocks.pink_barrel), new ItemStack(ModItems.tank_steel), Fluids.KEROSENE, 10000));
@@ -60,7 +60,7 @@ public class FluidContainerRegistry {
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.cell_antimatter), new ItemStack(ModItems.cell_empty), Fluids.AMAT, 1000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.cell_anti_schrabidium), new ItemStack(ModItems.cell_empty), Fluids.ASCHRAB, 1000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.cell_sas3), new ItemStack(ModItems.cell_empty), Fluids.SAS3, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_mercury), new ItemStack(Items.glass_bottle), Fluids.MERCURY, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_mercury), new ItemStack(Items.GLASS_BOTTLE), Fluids.MERCURY, 1000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.ingot_mercury), null, Fluids.MERCURY, 125));
 
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.rod_zirnox_tritium), new ItemStack(ModItems.rod_zirnox_empty), Fluids.TRITIUM, 2000));
@@ -71,14 +71,14 @@ public class FluidContainerRegistry {
 
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.iv_blood), new ItemStack(ModItems.iv_empty), Fluids.BLOOD, 100));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.iv_xp), new ItemStack(ModItems.iv_xp_empty), Fluids.XPJUICE, 100));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.experience_bottle), new ItemStack(Items.glass_bottle), Fluids.XPJUICE, 100));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.EXPERIENCE_BOTTLE), new ItemStack(Items.GLASS_BOTTLE), Fluids.XPJUICE, 100));
 
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.glass_smilk), new ItemStack(ModItems.glass_empty), Fluids.SMILK, 100));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.can_mug), new ItemStack(ModItems.can_empty), Fluids.MUG, 100));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.milk_bucket), new ItemStack(Items.bucket), Fluids.MILK, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.MILK_BUCKET), new ItemStack(Items.BUCKET), Fluids.MILK, 1000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.coffee), new ItemStack(ModItems.cmug_empty), Fluids.COFFEE, 100));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.teacup), new ItemStack(ModItems.teacup_empty), Fluids.TEA, 100));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_honey), new ItemStack(Items.glass_bottle), Fluids.HONEY, 100));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bottle_honey), new ItemStack(Items.GLASS_BOTTLE), Fluids.HONEY, 100));
 
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModBlocks.dry_ice), null, Fluids.CARBONDIOXIDE, 1000)); //literal block of carbon dioxide
 		//will be useful to heat up atmospheres, trust me.
@@ -126,16 +126,16 @@ public class FluidContainerRegistry {
 	}
 
 	public static FluidContainer getContainer(FluidType type, ItemStack stack) {
-		if(stack == null) return null;
+		if(stack == null || stack.isEmpty()) return null;
 
 		ItemStack sta = stack.copy();
-		sta.stackSize = 1;
+		sta.setCount(1);
 
 		if(!containerMap.containsKey(type))
 			return null;
 
 		for(FluidContainer container : getContainers(type)) {
-			if(container.emptyContainer != null && container.emptyContainer.isItemEqual(sta))
+			if(container.emptyContainer != null && !container.emptyContainer.isEmpty() && container.emptyContainer.isItemEqual(sta))
 				return container;
 		}
 
@@ -144,11 +144,11 @@ public class FluidContainerRegistry {
 
 	public static int getFluidContent(ItemStack stack, FluidType type) {
 
-		if(stack == null)
+		if(stack == null || stack.isEmpty())
 			return 0;
 
 		ItemStack sta = stack.copy();
-		sta.stackSize = 1;
+		sta.setCount(1);
 
 		if(!containerMap.containsKey(type))
 			return 0;
@@ -162,10 +162,10 @@ public class FluidContainerRegistry {
 	}
 
 	public static FluidType getFluidType(ItemStack stack) {
-		if(stack == null) return Fluids.NONE;
+		if(stack == null || stack.isEmpty()) return Fluids.NONE;
 
 		ItemStack sta = stack.copy();
-		sta.stackSize = 1;
+		sta.setCount(1);
 
 		for(FluidContainer container : allContainers) {
 			if(container.fullContainer.isItemEqual(sta))
@@ -176,15 +176,15 @@ public class FluidContainerRegistry {
 	}
 
 	public static ItemStack getFullContainer(ItemStack stack, FluidType type) {
-		if(stack == null) return null;
+		if(stack == null || stack.isEmpty()) return null;
 
 		ItemStack sta = stack.copy();
-		sta.stackSize = 1;
+		sta.setCount(1);
 
 		if(!containerMap.containsKey(type)) return null;
 
 		for(FluidContainer container : containerMap.get(type)) {
-			if(container.emptyContainer != null && container.emptyContainer.isItemEqual(sta))
+			if(container.emptyContainer != null && !container.emptyContainer.isEmpty() && container.emptyContainer.isItemEqual(sta))
 				return container.fullContainer.copy();
 		}
 
@@ -192,14 +192,14 @@ public class FluidContainerRegistry {
 	}
 
 	public static ItemStack getEmptyContainer(ItemStack stack) {
-		if(stack == null) return null;
+		if(stack == null || stack.isEmpty()) return null;
 
 		ItemStack sta = stack.copy();
-		sta.stackSize = 1;
+		sta.setCount(1);
 
 		for(FluidContainer container : allContainers) {
 			if(container.fullContainer.isItemEqual(sta))
-				return container.emptyContainer == null ? null : container.emptyContainer.copy();
+				return container.emptyContainer == null || container.emptyContainer.isEmpty() ? null : container.emptyContainer.copy();
 		}
 
 		return null;

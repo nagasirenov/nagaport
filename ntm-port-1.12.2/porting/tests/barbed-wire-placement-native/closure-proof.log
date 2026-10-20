@@ -1,0 +1,2 @@
+PASS 4050 tracked sources: exact mutable static assignment/factory, no subclasses, three closure mutants; native owner/model/helper unchanged.
+INHERITED RESOURCE BLOCKER: intentional hbm:tile.barbed_wire* identity requests blocks/tile.barbed_wire*_model textures and tile.barbed_wire* state routes, whereas tracked assets use names without tile. No OBJ/resource runtime acceptance. Original registry identity is not changed.

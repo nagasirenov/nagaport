@@ -44,9 +44,9 @@ public class SatActivatePacket implements IMessage {
 		public IMessage onMessage(SatActivatePacket m, MessageContext ctx) {
 			EntityPlayer p = ctx.getServerHandler().playerEntity;
 			//how gross is this...
-			Satellite sat = SatelliteSavedData.getData(p.worldObj, (int)p.posX, (int)p.posZ).getSatFromFreq(m.freq);
+			Satellite sat = SatelliteSavedData.getData(p.world, (int)p.posX, (int)p.posZ).getSatFromFreq(m.freq);
 			if(sat != null) {
-				sat.onClick(p.worldObj, 0, 0);
+				sat.onClick(p.world, 0, 0);
 
 			}
 

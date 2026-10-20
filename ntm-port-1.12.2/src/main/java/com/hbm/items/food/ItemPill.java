@@ -93,10 +93,10 @@ public class ItemPill extends ItemFood {
 				HbmLivingProps.setDigamma(player, Math.max(digamma - 0.5F, 0F));
 			}
 			if(this == ModItems.animan) {
-				int x = (int)MathHelper.floor_double(player.posX);
-				int y = (int)MathHelper.floor_double(player.posY);
-				int z = (int)MathHelper.floor_double(player.posZ);
-				world.playSoundEffect(x, y, z, "hbm:player.oil", 1.0F, 1.0F);
+				int x = (int)MathHelper.floor(player.posX);
+				int y = (int)MathHelper.floor(player.posY);
+				int z = (int)MathHelper.floor(player.posZ);
+				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:player.oil", 1.0F, 1.0F);
 				
 				player.addPotionEffect(new PotionEffect(HbmPotion.run.id, 10 * 20, 0));
 				
@@ -107,7 +107,7 @@ public class ItemPill extends ItemFood {
 				nbt.setInteger("entity", player.getEntityId());
 				PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(player.dimension, x, y, z, 25));
 				
-				world.playSoundEffect(x, y, z, "hbm:player.vomit", 1.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:player.vomit", 1.0F, 1.0F);
 				player.addPotionEffect(new PotionEffect(Potion.hunger.id, 60, 19));
 			
 			}
@@ -137,7 +137,7 @@ public class ItemPill extends ItemFood {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		String unloc = this.getUnlocalizedName() + ".desc"; //this should really be an interface...
+		String unloc = this.getTranslationKey() + ".desc"; //this should really be an interface...
 		String loc = I18nUtil.resolveKey(unloc);
 		
 		if(!unloc.equals(loc)) {

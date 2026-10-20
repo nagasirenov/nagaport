@@ -30,7 +30,7 @@ public class BlockHazard extends Block implements ITooltipProvider {
 	private boolean beaconable = false;
 
 	public BlockHazard() {
-		this(Material.iron);
+		this(Material.IRON);
 	}
 
 	public BlockHazard(Material mat) {
@@ -74,7 +74,7 @@ public class BlockHazard extends Block implements ITooltipProvider {
 			if(dir == ForgeDirection.DOWN && this.extEffect == ExtDisplayEffect.FLAMES)
 				continue;
 
-			if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getMaterial() == Material.air) {
+			if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().getDefaultState().getMaterial() == Material.AIR) {
 
 				double ix = x + 0.5F + dir.offsetX + rand.nextDouble() * 3 - 1.5D;
 				double iy = y + 0.5F + dir.offsetY + rand.nextDouble() * 3 - 1.5D;
@@ -105,6 +105,12 @@ public class BlockHazard extends Block implements ITooltipProvider {
 				}
 			}
 		}
+	}
+
+	/** NTM construction hook for the native protected sound setter. */
+	public BlockHazard withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
 	}
 
 	public BlockHazard makeBeaconable() {

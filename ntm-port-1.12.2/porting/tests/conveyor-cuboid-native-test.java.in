@@ -1,0 +1,123 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.util.*;
+import java.nio.*;
+import sun.misc.Unsafe;
+import com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.client.model.pipeline.*;
+
+/** Actual cached original face execution versus production native quads; no engine stubs. */
+public final class ConveyorCuboidNativeTest {
+ static int checks;
+ static void check(boolean ok,String why){checks++;if(!ok)throw new AssertionError(why);}
+ static void equal(float a,float b,String why){check(Float.floatToIntBits(a)==Float.floatToIntBits(b),why+": "+a+" != "+b);}
+ static final class Sprite extends TextureAtlasSprite {
+  Sprite(int side){super("conveyor-probe-"+side);setIconWidth(16);setIconHeight(16);initSprite(512,128,side*32+16,32,false);}
+ }
+ static final TextureAtlasSprite[] sprites=new TextureAtlasSprite[6];
+ static List<BakedQuad> faces(double[] bounds,int rotation,boolean item,double offset){List<BakedQuad> q=new ArrayList<>();int[] r={rotation,rotation,rotation,rotation,rotation,rotation};ConveyorCuboidGeometry.append(q,item,sprites,r,bounds[0],bounds[1],bounds[2],bounds[3],bounds[4],bounds[5],offset);return q;}
+ static Field field(Class<?> c,String name)throws Exception{Field f=c.getDeclaredField(name);f.setAccessible(true);return f;}
+ static void oracle(String jar)throws Exception{
+  Field uf=field(Unsafe.class,"theUnsafe");Unsafe unsafe=(Unsafe)uf.get(null);
+  try(URLClassLoader legacy=new URLClassLoader(new URL[]{new java.io.File(jar).toURI().toURL()},ConveyorCuboidNativeTest.class.getClassLoader())){
+   Class<?> renderer=Class.forName("blm",true,legacy),block=Class.forName("aji",true,legacy),iconType=Class.forName("rf",true,legacy),tessType=Class.forName("bmh",true,legacy);
+   Object r=unsafe.allocateInstance(renderer),tess=tessType.getField("a").get(null);
+   String[] boundFields={"i","k","m","j","l","n"},rotationFields={"w","v","r","s","u","t"};
+   Field raw=field(tessType,"f"),count=field(tessType,"g"),ptr=field(tessType,"p");
+   List<double[]> boxes=new ArrayList<>();
+   boxes.add(new double[]{0,0,0,1,.25,1});boxes.add(new double[]{.25,0,.625,.75,1,.75});boxes.add(new double[]{.25,.25,.25,.25,.75,.75});boxes.add(new double[]{.25,.25,.25,.75,.75,.25});boxes.add(new double[]{.125,.1875,.3125,.625,.8125,.9375});
+   Random random=new Random(7101122);for(int i=0;i<256;i++){double[] b=new double[6];for(int axis=0;axis<3;axis++){b[axis]=random.nextInt(17)/16D;b[axis+3]=b[axis]+random.nextInt((int)((1-b[axis])*16)+1)/16D;}boxes.add(b);}
+   for(double[] b:boxes)for(int rotation=0;rotation<4;rotation++)for(boolean item:new boolean[]{false,true})for(boolean mixed:new boolean[]{false,true}){
+    double offset=item?.25:0;List<BakedQuad> nativeQuads=new ArrayList<>();int[] faceRotations=new int[6];for(int f=0;f<6;f++)faceRotations[f]=(rotation+(mixed?f:0))%4;ConveyorCuboidGeometry.append(nativeQuads,item,sprites,faceRotations,b[0],b[1],b[2],b[3],b[4],b[5],offset);check(nativeQuads.size()==6,"six preserved faces including zero-area faces");
+    for(int i=0;i<6;i++){field(renderer,boundFields[i]).setDouble(r,b[i]);field(renderer,rotationFields[i]).setInt(r,faceRotations[i]);}
+    for(EnumFacing side:EnumFacing.values()){
+     TextureAtlasSprite sprite=sprites[side.getIndex()];Object icon=java.lang.reflect.Proxy.newProxyInstance(legacy,new Class<?>[]{iconType},(p,m,a)->{
+      if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);
+      switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}
+     });
+     count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(side.getIndex(),side.getIndex()+1),block,double.class,double.class,double.class,iconType).invoke(r,null,0D,offset,0D,icon);
+     check(count.getInt(tess)==4,"actual original emits exactly four vertices");int[] old=(int[])raw.get(tess);BakedQuad q=nativeQuads.get(side.getIndex());int[] data=q.getVertexData();
+     check(q.getFace()==side&&q.shouldApplyDiffuseLighting()&&!q.hasTintIndex(),"natural direction, diffuse, no tint");check(q.getSprite()==sprite,"per-face material identity");check(q.getFormat().equals(DefaultVertexFormats.ITEM),"native baked format retaining normals");
+     for(int vertex=0;vertex<4;vertex++){
+      int oldVertex=(vertex+new int[]{0,2,1,0,1,3}[side.getIndex()])%4;
+      for(int axis=0;axis<3;axis++)equal(Float.intBitsToFloat(data[7*vertex+axis]),Float.intBitsToFloat(old[8*oldVertex+axis]),"exact original position "+side+" rotation="+rotation);
+      for(int uv=0;uv<2;uv++)equal(Float.intBitsToFloat(data[7*vertex+4+uv]),Float.intBitsToFloat(old[8*oldVertex+3+uv]),"exact original UV "+side+" rotation="+rotation+" bounds="+Arrays.toString(b));
+      check(data[7*vertex+3]==-1,"white vertices, no pre-baked AO/double diffuse");int normal=data[7*vertex+6];check((byte)normal==127*side.getXOffset()&&(byte)(normal>>8)==127*side.getYOffset()&&(byte)(normal>>16)==127*side.getZOffset(),"explicit finite axis normals including degenerate faces");
+     }
+    }
+   }
+  }
+  System.out.println("PASS actual cached 1.7.10 face runtime: 261 asymmetric/partial/degenerate boxes x 4 original rotations x item/world x uniform/mixed face rotations x six faces; exact native position/UV float bits, materials, normal and diffuse checks.");
+ }
+ static final class ProbeBlock extends Block {
+  ProbeBlock(){super(Material.IRON);}
+  public boolean isOpaqueCube(IBlockState state){return false;}
+  public boolean isFullCube(IBlockState state){return false;}
+  public boolean shouldSideBeRendered(IBlockState s,IBlockAccess w,BlockPos p,EnumFacing f){return !w.getBlockState(p.offset(f)).isOpaqueCube();}
+ }
+ static final class LightingWorld implements IBlockAccess {
+  final BlockPos origin=new BlockPos(8,64,8);final IBlockState own;final boolean asymmetric,occluded;int samples;
+  LightingWorld(IBlockState own,boolean asymmetric,boolean occluded){this.own=own;this.asymmetric=asymmetric;this.occluded=occluded;}
+  public net.minecraft.tileentity.TileEntity getTileEntity(BlockPos p){return null;}
+  public int getCombinedLight(BlockPos p,int emission){samples++;if(!asymmetric)return 0x00f000f0;int x=p.getX()-8,y=p.getY()-64,z=p.getZ()-8;int sky=Math.floorMod(11+3*x+5*y+7*z,16),block=Math.floorMod(7+5*x+3*y+z,16);return sky*16<<16|block*16;}
+  public IBlockState getBlockState(BlockPos p){if(p.equals(origin))return own;int x=p.getX()-8,y=p.getY()-64,z=p.getZ()-8;return (occluded||asymmetric&&x==-1&&z>=0&&y>=0)?net.minecraft.init.Blocks.STONE.getDefaultState():net.minecraft.init.Blocks.AIR.getDefaultState();}
+  public boolean isAirBlock(BlockPos p){return getBlockState(p).getBlock()==net.minecraft.init.Blocks.AIR;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return net.minecraft.init.Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing f){return 0;}
+  public net.minecraft.world.WorldType getWorldType(){return net.minecraft.world.WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing f,boolean fallback){return getBlockState(p).isOpaqueCube();}
+ }
+ static final class Mesh implements IBakedModel {
+  final List<BakedQuad> faces;final boolean slabCull;
+  Mesh(List<BakedQuad> faces,boolean slabCull){this.faces=faces;this.slabCull=slabCull;}
+  public List<BakedQuad> getQuads(IBlockState s,EnumFacing side,long seed){if(!slabCull)return side==null?faces:Collections.emptyList();if(side==null)return Collections.singletonList(faces.get(1));return side==EnumFacing.UP?Collections.emptyList():Collections.singletonList(faces.get(side.getIndex()));}
+  public boolean isAmbientOcclusion(){return true;}public boolean isGui3d(){return true;}public boolean isBuiltInRenderer(){return false;}public TextureAtlasSprite getParticleTexture(){return sprites[0];}public ItemCameraTransforms getItemCameraTransforms(){return ItemCameraTransforms.DEFAULT;}public ItemOverrideList getOverrides(){return ItemOverrideList.NONE;}
+ }
+ static int[][] render(Mesh mesh,LightingWorld world,boolean forge,boolean smooth,boolean cull){
+  BufferBuilder out=new BufferBuilder(4096);out.begin(7,DefaultVertexFormats.BLOCK);BlockColors colors=new BlockColors();boolean rendered;
+  if(forge){VertexLighterFlat lighter=smooth?new VertexLighterSmoothAo(colors):new VertexLighterFlat(colors);VertexBufferConsumer consumer=new VertexBufferConsumer(out);consumer.setOffset(world.origin);lighter.setParent(consumer);rendered=ForgeBlockModelRenderer.render(lighter,world,mesh,world.own,world.origin,out,cull,0);}
+  else{BlockModelRenderer renderer=new BlockModelRenderer(colors);rendered=smooth?renderer.renderModelSmooth(world,mesh,world.own,world.origin,out,cull,0):renderer.renderModelFlat(world,mesh,world.own,world.origin,out,cull,0);}
+  out.finishDrawing();check(rendered,"native renderer emits geometry");ByteBuffer bytes=out.getByteBuffer();int[][] result=new int[out.getVertexCount()][7];for(int v=0;v<result.length;v++)for(int k=0;k<7;k++)result[v][k]=bytes.getInt(v*28+k*4);check(world.samples>0,"native world light sampled");return result;
+ }
+ static Mesh nativeReference(double[] b){
+  List<BakedQuad> q=new ArrayList<>();FaceBakery bakery=new FaceBakery();
+  for(EnumFacing side:EnumFacing.values())q.add(bakery.makeBakedQuad(new org.lwjgl.util.vector.Vector3f((float)(b[0]*16),(float)(b[1]*16),(float)(b[2]*16)),new org.lwjgl.util.vector.Vector3f((float)(b[3]*16),(float)(b[4]*16),(float)(b[5]*16)),new BlockPartFace(side,-1,"#test",new BlockFaceUV(new float[]{0,0,16,16},0)),sprites[side.getIndex()],side,ModelRotation.X0_Y0,null,false,true));
+  return new Mesh(q,false);
+ }
+ static void lighting(){
+  net.minecraft.init.Bootstrap.register();IBlockState own=new ProbeBlock().getDefaultState();
+  double[][] boxes={{0,0,0,1,.25,1},{.25,0,.625,.75,1,.75},{.25,.25,.25,.25,.75,.75},{.25,.25,.25,.75,.75,.25}};
+  for(boolean forge:new boolean[]{false,true})for(double[] box:boxes){Mesh mesh=new Mesh(faces(box,0,false,0),false);
+   int[][] smooth=render(mesh,new LightingWorld(own,true,false),forge,true,false),flat=render(mesh,new LightingWorld(own,true,false),forge,false,false);
+   if(box[0]!=box[3]&&box[1]!=box[4]&&box[2]!=box[5]){
+    int[][] canonical=render(nativeReference(box),new LightingWorld(own,true,false),forge,true,false);
+    for(int v=0;v<24;v++)for(int k:new int[]{0,1,2,3,6})check(smooth[v][k]==canonical[v][k],"native FaceBakery reference AO/light corner association "+forge+" vertex="+v+" field="+k);
+   }
+   check(smooth.length==24&&flat.length==24,"native AO keeps all six faces, including zero area");Set<Integer> lights=new HashSet<>(),colors=new HashSet<>();boolean differs=false;
+   for(int i=0;i<24;i++){lights.add(smooth[i][6]);colors.add(smooth[i][3]);if(smooth[i][6]!=flat[i][6]||smooth[i][3]!=flat[i][3])differs=true;check((smooth[i][3]>>>24)==255,"finite opaque native AO colors");}
+   check(lights.size()>1&&colors.size()>1,"asymmetric surroundings affect real native per-vertex lights and AO");check(differs,"actual native smooth path differs from flat");
+   System.out.println("AO "+(forge?"Forge SmoothAo":"vanilla smooth")+" bounds="+Arrays.toString(box)+" lights="+lights.size()+" colors="+colors.size());
+  }
+  for(boolean forge:new boolean[]{false,true}){
+   Mesh slab=new Mesh(faces(boxes[0],0,false,0),true),open=new Mesh(faces(boxes[1],0,false,0),false);
+   check(render(slab,new LightingWorld(own,false,true),forge,true,true).length==4,"opaque neighbors cull only slab bottom/horizontal faces, top remains");
+   check(render(slab,new LightingWorld(own,false,false),forge,true,true).length==24,"slab has six faces against air");
+   check(render(open,new LightingWorld(own,false,true),forge,true,true).length==24,"lift/chute general faces never neighbor-culled");
+   int[][] lit=render(new Mesh(faces(boxes[0],0,false,0),false),new LightingWorld(own,false,false),forge,true,false);
+   {for(int f=0;f<6;f++){int expected=Math.round(LightUtil.diffuseLight(EnumFacing.byIndex(f))*255);for(int v=0;v<4;v++)check(Math.abs((lit[f*4+v][3]&255)-expected)<=1,"native single directional diffuse, no double shading");}}
+  }
+  System.out.println("PASS actual native Forge SmoothAo and vanilla smooth renderer: asymmetric neighbor-light response, non-flat AO, finite zero-width grate output, diffuse and cull-bucket topology. Topology model fixture deliberately does not claim production model integration or old/new lighting pixel parity.");
+ }
+ public static void main(String[] args)throws Exception{for(int i=0;i<6;i++)sprites[i]=new Sprite(i);oracle(args[0]);lighting();System.out.println("PASS conveyor cuboid native helper: "+checks+" assertions.");}
+}

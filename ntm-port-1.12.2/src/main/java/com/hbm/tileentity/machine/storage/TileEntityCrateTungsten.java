@@ -15,7 +15,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILaserable, IDysonConverter {
+public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILaserable, IDysonConverter, net.minecraft.util.ITickable {
 
 	private int heatTimer;
 
@@ -29,39 +29,40 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(heatTimer > 0)
 				heatTimer--;
 
-			if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) != 1 && heatTimer > 0)
-				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 3);
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) != 1 && heatTimer > 0)
+				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1, 3);
 
-			if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) != 0 && heatTimer <= 0)
-				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 0, 3);
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) != 0 && heatTimer <= 0)
+				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 3);
 		}
 
-		if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) == 1) {
-			worldObj.spawnParticle("flame", xCoord + worldObj.rand.nextDouble(), yCoord + 1.1, zCoord + worldObj.rand.nextDouble(), 0.0, 0.0, 0.0);
-			worldObj.spawnParticle("smoke", xCoord + worldObj.rand.nextDouble(), yCoord + 1.1, zCoord + worldObj.rand.nextDouble(), 0.0, 0.0, 0.0);
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) == 1) {
+			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
 
-			worldObj.spawnParticle("flame", xCoord - 0.1, yCoord + worldObj.rand.nextDouble(), zCoord + worldObj.rand.nextDouble(), 0.0, 0.0, 0.0);
-			worldObj.spawnParticle("smoke", xCoord - 0.1, yCoord + worldObj.rand.nextDouble(), zCoord + worldObj.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle("flame", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle("smoke", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
 
-			worldObj.spawnParticle("flame", xCoord + 1.1, yCoord + worldObj.rand.nextDouble(), zCoord + worldObj.rand.nextDouble(), 0.0, 0.0, 0.0);
-			worldObj.spawnParticle("smoke", xCoord + 1.1, yCoord + worldObj.rand.nextDouble(), zCoord + worldObj.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle("flame", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle("smoke", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
 
-			worldObj.spawnParticle("flame", xCoord + worldObj.rand.nextDouble(), yCoord + worldObj.rand.nextDouble(), zCoord - 0.1, 0.0, 0.0, 0.0);
-			worldObj.spawnParticle("smoke", xCoord + worldObj.rand.nextDouble(), yCoord + worldObj.rand.nextDouble(), zCoord - 0.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
 
-			worldObj.spawnParticle("flame", xCoord + worldObj.rand.nextDouble(), yCoord + worldObj.rand.nextDouble(), zCoord + 1.1, 0.0, 0.0, 0.0);
-			worldObj.spawnParticle("smoke", xCoord + worldObj.rand.nextDouble(), yCoord + worldObj.rand.nextDouble(), zCoord + 1.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
 		}
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(this.isLocked())
 			return false;
 
@@ -117,7 +118,7 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 	// Dyson laser support
 	@Override
 	public boolean provideEnergy(int x, int y, int z, long energy) {
-		addEnergy(worldObj, x, y, z, energy / 5000, ForgeDirection.NORTH);
+		addEnergy(this.world, x, y, z, energy / 5000, ForgeDirection.NORTH);
 		return true;
 	}
 

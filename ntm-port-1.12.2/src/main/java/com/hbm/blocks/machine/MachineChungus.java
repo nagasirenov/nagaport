@@ -54,19 +54,19 @@ public class MachineChungus extends BlockDummyable implements ITooltipProvider, 
 			if(pos == null)
 				return true;
 
-			TileEntityChungus entity = (TileEntityChungus) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityChungus entity = (TileEntityChungus) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null && !entity.damaged) {
 
 				ForgeDirection dir = ForgeDirection.getOrientation(entity.getBlockMetadata() - offset);
 				ForgeDirection turn = dir.getRotation(ForgeDirection.DOWN);
 
-				int iX = entity.xCoord + dir.offsetX + turn.offsetX * 2;
-				int iX2 = entity.xCoord + dir.offsetX * 2 + turn.offsetX * 2;
-				int iZ = entity.zCoord + dir.offsetZ + turn.offsetZ * 2;
-				int iZ2 = entity.zCoord + dir.offsetZ * 2 + turn.offsetZ * 2;
+				int iX = entity.getPos().getX() + dir.offsetX + turn.offsetX * 2;
+				int iX2 = entity.getPos().getX() + dir.offsetX * 2 + turn.offsetX * 2;
+				int iZ = entity.getPos().getZ() + dir.offsetZ + turn.offsetZ * 2;
+				int iZ2 = entity.getPos().getZ() + dir.offsetZ * 2 + turn.offsetZ * 2;
 
-				if((x == iX || x == iX2) && (z == iZ || z == iZ2) && y < entity.yCoord + 2) {
-					world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:block.chungusLever", 1.5F, 1.0F);
+				if((x == iX || x == iX2) && (z == iZ || z == iZ2) && y < entity.getPos().getY() + 2) {
+					com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:block.chungusLever", 1.5F, 1.0F);
 
 					if(!world.isRemote) {
 						FluidType type = entity.tanks[0].getTankType();
@@ -135,7 +135,7 @@ public class MachineChungus extends BlockDummyable implements ITooltipProvider, 
 		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {4, -4, 0, 3, 1, 1}, x, y, z, dir)) return false;
 		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {3, 0, 6, -1, 1, 1}, x, y, z, dir)) return false;
 		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {2, 0, 10, -7, 1, 1}, x, y, z, dir)) return false;
-		if(!world.getBlock(x + dir.offsetX, y + 2, z + dir.offsetZ).canPlaceBlockAt(world, x + dir.offsetX, y + 2, z + dir.offsetZ)) return false;
+		if(!com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + 2, z + dir.offsetZ).getBlock().canPlaceBlockAt(world, x + dir.offsetX, y + 2, z + dir.offsetZ)) return false;
 
 		return true;
 	}
@@ -151,7 +151,7 @@ public class MachineChungus extends BlockDummyable implements ITooltipProvider, 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityChungus)) return;
 
 		TileEntityChungus chungus = (TileEntityChungus) te;
@@ -177,7 +177,7 @@ public class MachineChungus extends BlockDummyable implements ITooltipProvider, 
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + BobMathUtil.getShortNumber(chungus.powerBuffer) + "HE");
 
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -201,7 +201,7 @@ public class MachineChungus extends BlockDummyable implements ITooltipProvider, 
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityChungus)) return;
 
 		TileEntityChungus tank = (TileEntityChungus) core;
@@ -212,7 +212,7 @@ public class MachineChungus extends BlockDummyable implements ITooltipProvider, 
 			tank.damaged = true;
 			tank.markDirty();
 		} else {
-			world.setBlock(pos[0], pos[1], pos[2], Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = pos[0]; int nativePlacementY = pos[1]; int nativePlacementZ = pos[2]; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 

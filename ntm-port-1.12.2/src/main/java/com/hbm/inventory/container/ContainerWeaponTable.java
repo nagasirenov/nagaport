@@ -62,7 +62,7 @@ public class ContainerWeaponTable extends Container {
 				
 				for(int i = 0; i < 7; i++) {
 					ItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);
-					if(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, null);
+					if(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);
 				}
 				
 				ContainerWeaponTable.this.index = 0;
@@ -86,7 +86,7 @@ public class ContainerWeaponTable extends Container {
 	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
 		
 		if(mode == 999_999) {
-			if(player.worldObj.isRemote) return null;
+			if(player.world.isRemote) return null;
 			ItemStack stack = gun.getStackInSlot(0);
 			if(stack != null && stack.getItem() instanceof ItemGunBaseNT) {
 				int configs = ((ItemGunBaseNT) stack.getItem()).getConfigCount();
@@ -104,7 +104,7 @@ public class ContainerWeaponTable extends Container {
 				
 				for(int i = 0; i < 7; i++) {
 					ItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);
-					if(XWeaponModManager.isApplicable(stack, mod, this.index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, null);
+					if(XWeaponModManager.isApplicable(stack, mod, this.index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);
 				}
 
 				this.index = button;
@@ -129,7 +129,7 @@ public class ContainerWeaponTable extends Container {
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 
-		if(!player.worldObj.isRemote) {
+		if(!player.world.isRemote) {
 			for(int i = 0; i < this.mods.getSizeInventory(); ++i) {
 				ItemStack itemstack = this.mods.getStackInSlotOnClosing(i);
 

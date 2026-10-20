@@ -8,15 +8,18 @@ import java.util.Random;
 
 import com.hbm.blocks.BlockEnums.LightType;
 import com.hbm.blocks.ISpotlight;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
+import com.hbm.lib.RefStrings;
 import com.hbm.world.gen.nbt.INBTBlockTransformable;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,11 +27,18 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class Spotlight extends Block implements ISpotlight, INBTBlockTransformable {
+
+	public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
 
 	public static final int META_YELLOW = 0;
 	public static final int META_GREEN = 1;
@@ -46,6 +56,7 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 
 	public Spotlight(Material mat, int beamLength, LightType type, boolean isOn) {
 		super(mat);
+		setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));
 
 		this.beamLength = beamLength;
 		this.type = type;
@@ -56,19 +67,48 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		if(isOn) setLightLevel(1.0F);
 	}
 
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
 	@Override
-	public int getRenderType() {
-		return renderID;
+	protected BlockStateContainer createBlockState() {
+		return SpotlightModelState.create(this, METADATA);
 	}
 
-	public HFRWavefrontObject getModel() {
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(METADATA, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(METADATA);
+	}
+
+	@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return SpotlightModelState.extend(state, world, pos);
+	}
+
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
+	}
+
+	public ResourceLocation getModelResource() {
 		switch(type) {
-		case FLUORESCENT: return (HFRWavefrontObject) ResourceManager.fluorescent_lamp;
-		case HALOGEN: return (HFRWavefrontObject) ResourceManager.flood_lamp;
-		default: return (HFRWavefrontObject) ResourceManager.cage_lamp;
+		case FLUORESCENT: return new ResourceLocation(RefStrings.MODID, "models/lights/fluorescent_lamp.obj");
+		case HALOGEN: return new ResourceLocation(RefStrings.MODID, "models/lights/flood_lamp.obj");
+		default: return new ResourceLocation(RefStrings.MODID, "models/lights/cage_lamp.obj");
 		}
+	}
+
+	/** Atlas identifiers formerly assigned by the six registration texture setters. */
+	public ResourceLocation getModelTexture() {
+		String texture;
+		switch(type) {
+		case FLUORESCENT: texture = "fluorescent_lamp"; break;
+		case HALOGEN: texture = "flood_lamp"; break;
+		default: texture = "cage_lamp"; break;
+		}
+		return new ResourceLocation(RefStrings.MODID, "blocks/" + texture + (isOn ? "" : "_off"));
 	}
 
 	public String getPartName(int connectionCount) {
@@ -79,38 +119,43 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
 	// Ah yes, I love methods named the literal opposite of what they do
-	public boolean getBlocksMovement(IBlockAccess world, int x, int y, int z) {
+	public boolean isPassable(IBlockAccess world, BlockPos pos) {
 		return true;
 	}
 
 	@Override
-	public MapColor getMapColor(int meta) {
-        return MapColor.airColor;
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return MapColor.AIR;
     }
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return null;
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		ForgeDirection dir = getDirection(world, x, y, z);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		ForgeDirection dir = getDirection(world, pos.getX(), pos.getY(), pos.getZ());
 		float[] bounds = swizzleBounds(dir);
 		float[] offset = new float[] { 0.5F - dir.offsetX * (0.5F - bounds[0]), 0.5F - dir.offsetY * (0.5F - bounds[1]), 0.5F - dir.offsetZ * (0.5F - bounds[2]) };
 
-		setBlockBounds(offset[0] - bounds[0], offset[1] - bounds[1], offset[2] - bounds[2], offset[0] + bounds[0], offset[1] + bounds[1], offset[2] + bounds[2]);
+		return new AxisAlignedBB(offset[0] - bounds[0], offset[1] - bounds[1], offset[2] - bounds[2], offset[0] + bounds[0], offset[1] + bounds[1], offset[2] + bounds[2]);
+	}
+
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {
+		return BlockFaceShape.UNDEFINED;
 	}
 
 	private float[] swizzleBounds(ForgeDirection dir) {
@@ -134,26 +179,27 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hx, float hy, float hz, int initData) {
-		return side << 1;
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hx, float hy, float hz, int initData, EntityLivingBase placer) {
+		return getStateFromMeta(side.getIndex() << 1);
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(world.isRemote) return;
 		if(updatePower(world, x, y, z)) return;
 		updateBeam(world, x, y, z);
 	}
 
 	private boolean updatePower(World world, int x, int y, int z) {
-		if(isBroken(world.getBlockMetadata(x, y, z))) return false;
+		if(isBroken(metadata(world, x, y, z))) return false;
 
-		boolean isPowered = world.isBlockIndirectlyGettingPowered(x, y, z);
+		boolean isPowered = world.isBlockPowered(new BlockPos(x, y, z));
 		if(isOn && isPowered) {
-			world.scheduleBlockUpdate(x, y, z, this, 4);
+			world.scheduleUpdate(new BlockPos(x, y, z), this, 4);
 			return true;
 		} else if(!isOn && !isPowered) {
-			world.setBlock(x, y, z, getOn(), world.getBlockMetadata(x, y, z), 2);
+			world.setBlockState(new BlockPos(x, y, z), getOn().getStateFromMeta(metadata(world, x, y, z)), 2);
 			return true;
 		}
 
@@ -161,9 +207,10 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {
-		ForgeDirection dir = getDirection(metadata);
-		super.breakBlock(world, x, y, z, block, metadata);
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		ForgeDirection dir = getDirection(getMetaFromState(state));
+		super.breakBlock(world, pos, state);
 
 		if(world.isRemote) return;
 
@@ -171,26 +218,28 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random p_149674_5_) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if (world.isRemote) return;
 
-		if (isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {
-			world.setBlock(x, y, z, getOff(), world.getBlockMetadata(x, y, z), 2);
+		if (isOn && world.isBlockPowered(new BlockPos(x, y, z))) {
+			world.setBlockState(new BlockPos(x, y, z), getOff().getStateFromMeta(metadata(world, x, y, z)), 2);
 		}
 	}
 
 	// Repropagate the beam if we've become unblocked
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(world.isRemote) return;
 		if(neighborBlock instanceof SpotlightBeam) return;
-		if(neighborBlock == Blocks.air) return;
+		if(neighborBlock == Blocks.AIR) return;
 
 		ForgeDirection dir = getDirection(world, x, y, z);
 
 		if(!canPlace(world, x, y, z, dir)) {
-			dropBlockAsItem(world, x, y, z, 0, 0);
-			world.setBlockToAir(x, y, z);
+			dropBlockAsItem(world, pos, getStateFromMeta(0), 0);
+			world.setBlockToAir(new BlockPos(x, y, z));
 			return;
 		}
 
@@ -200,10 +249,11 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {
-		if(!super.canPlaceBlockOnSide(world, x, y, z, side)) return false;
+	public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		if(!super.canPlaceBlockOnSide(world, pos, side)) return false;
 
-		ForgeDirection dir = ForgeDirection.getOrientation(side);
+		ForgeDirection dir = ForgeDirection.fromEnumFacing(side);
 
 		return canPlace(world, x, y, z, dir);
 	}
@@ -216,10 +266,10 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		y -= dir.offsetY;
 		z -= dir.offsetZ;
 
-		Block block = world.getBlock(x, y, z);
+		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(block instanceof BlockSlab) {
-			int meta = world.getBlockMetadata(x, y, z);
-			return dir == ((meta & 8) == 8 ? ForgeDirection.UP : ForgeDirection.DOWN) || block.func_149730_j();
+			int meta = metadata(world, x, y, z);
+			return dir == ((meta & 8) == 8 ? ForgeDirection.UP : ForgeDirection.DOWN) || block.getDefaultState().isFullBlock();
 		}
 
 		return com.hbm.lib.FacingCompat.isBlockSideSolid(world, x, y, z, dir);
@@ -232,8 +282,13 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		propagateBeam(world, x, y, z, dir, beamLength, META_YELLOW);
 	}
 
+	private static int metadata(IBlockAccess world, int x, int y, int z) {
+		IBlockState state = world.getBlockState(new BlockPos(x, y, z));
+		return state.getBlock().getMetaFromState(state);
+	}
+
 	public ForgeDirection getDirection(IBlockAccess world, int x, int y, int z) {
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = metadata(world, x, y, z);
 		return getDirection(metadata);
 	}
 
@@ -243,8 +298,9 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 
 	// Replace bulbs on broken lights with a click
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		int meta = world.getBlockMetadata(x, y, z);
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		int meta = metadata(world, x, y, z);
 		if(!isBroken(meta)) return false;
 
 		repair(world, x, y, z);
@@ -252,10 +308,10 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	private void repair(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = metadata(world, x, y, z);
 		if(!isBroken(meta)) return;
 
-		world.setBlock(x, y, z, getOn(), meta - 1, 2);
+		world.setBlockState(new BlockPos(x, y, z), getOn().getStateFromMeta(meta - 1), 2);
 
 		if(!world.isRemote) {
 			// gwa gwa
@@ -272,7 +328,7 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 			int ox = x + dir.offsetX;
 			int oy = y + dir.offsetY;
 			int oz = z + dir.offsetZ;
-			Block block = world.getBlock(ox, oy, oz);
+			Block block = world.getBlockState(new BlockPos(ox, oy, oz)).getBlock();
 			if(block == this) repair(world, ox, oy, oz);
 		}
 	}
@@ -282,18 +338,18 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random r, int j) {
+	public Item getItemDropped(IBlockState state, Random r, int fortune) {
 		return Item.getItemFromBlock(getOn());
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Item getItem(World world, int x, int y, int z) {
-		return Item.getItemFromBlock(getOn());
+	public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
+		return new ItemStack(getOn());
 	}
 
 	@Override
-	protected ItemStack createStackedBlock(int e) {
+	protected ItemStack getSilkTouchDrop(IBlockState state) {
 		return new ItemStack(getOn());
 	}
 
@@ -307,12 +363,12 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		y += dir.offsetY;
 		z += dir.offsetZ;
 
-		Block block = world.getBlock(x, y, z);
-		if(!block.isAir(world, x, y, z))
+		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
+		if(!block.isAir(world.getBlockState(new BlockPos(x, y, z)), world, new BlockPos(x, y, z)))
 			return;
 
 		if(!(block instanceof SpotlightBeam)) {
-			world.setBlock(x, y, z, ModBlocks.spotlight_beam, meta, 3);
+			world.setBlockState(new BlockPos(x, y, z), ModBlocks.spotlight_beam.getStateFromMeta(meta), 3);
 		}
 
 		// If we encounter an existing beam, add a new INCOMING direction to the
@@ -329,14 +385,14 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		y += dir.offsetY;
 		z += dir.offsetZ;
 
-		Block block = world.getBlock(x, y, z);
+		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(!(block instanceof SpotlightBeam))
 			return;
 
 		// Remove the metadata associated with this direction
 		// If all directions are set to zero, delete the beam
 		if(SpotlightBeam.setDirection(world, x, y, z, dir, false) == 0) {
-			world.setBlockToAir(x, y, z);
+			world.setBlockToAir(new BlockPos(x, y, z));
 		}
 
 		unpropagateBeam(world, x, y, z, dir);
@@ -348,7 +404,7 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		y -= dir.offsetY;
 		z -= dir.offsetZ;
 
-		Block block = world.getBlock(x, y, z);
+		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(block instanceof ISpotlight) {
 			ISpotlight spot = (ISpotlight) block;
 			propagateBeam(world, x, y, z, dir, spot.getBeamLength(), meta);

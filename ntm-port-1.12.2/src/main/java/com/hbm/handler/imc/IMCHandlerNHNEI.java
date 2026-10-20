@@ -1,61 +1,15 @@
 package com.hbm.handler.imc;
 
-import codechicken.nei.recipe.TemplateRecipeHandler;
-import com.hbm.lib.RefStrings;
-import com.hbm.main.NEIRegistry;
-
-import net.minecraftforge.fml.common.event.FMLInterModComms;
+import com.hbm.handler.jei.MachineRecipeCategory;
+import mezz.jei.api.IModRegistry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
-public class IMCHandlerNHNEI {
-
-	public static void IMCSender() {
-
-		for(TemplateRecipeHandler handler : NEIRegistry.listAllHandlers()) {
-
-			Class<? extends TemplateRecipeHandler> handlerClass = handler.getClass();
-
-			if(handler instanceof ICompatNHNEI && ((ICompatNHNEI) handler).getMachinesForRecipe() != null) {
-				String blockName = "hbm:" + ((ICompatNHNEI) handler).getMachinesForRecipe()[0].getUnlocalizedName();
-				String hClass = handlerClass.getName();
-				sendHandler(hClass, ((ICompatNHNEI) handler).getRecipeID(), blockName);
-				for(ItemStack stack : ((ICompatNHNEI) handler).getMachinesForRecipe()) {
-					sendCatalyst(hClass, "hbm:" + stack.getUnlocalizedName());
-				}
-			}
-		}
-	}
-
-	private static void sendHandler(String aName, String handlerID, String aBlock) {
-		sendHandler(aName, handlerID, aBlock, 3);
-	}
-
-	private static void sendHandler(String aName, String handlerID, String aBlock, int maxRecipesPerPage) {
-		NBTTagCompound aNBT = new NBTTagCompound();
-		aNBT.setString("handler", aName);
-		aNBT.setString("handlerID", handlerID);
-		aNBT.setString("modName", RefStrings.NAME);
-		aNBT.setString("modId", RefStrings.MODID);
-		aNBT.setBoolean("modRequired", true);
-		aNBT.setString("itemName", aBlock);
-		aNBT.setInteger("handlerHeight", 65);
-		aNBT.setInteger("handlerWidth", 166);
-		aNBT.setInteger("maxRecipesPerPage", maxRecipesPerPage);
-		aNBT.setInteger("yShift", 6);
-		FMLInterModComms.sendMessage("NotEnoughItems", "registerHandlerInfo", aNBT);
-	}
-
-	private static void sendCatalyst(String aName, String aStack, int aPriority) {
-		NBTTagCompound aNBT = new NBTTagCompound();
-		aNBT.setString("handlerID", aName);
-		aNBT.setString("catalystHandlerID", aName);
-		aNBT.setString("itemName", aStack);
-		aNBT.setInteger("priority", aPriority);
-		FMLInterModComms.sendMessage("NotEnoughItems", "registerCatalystInfo", aNBT);
-	}
-
-	private static void sendCatalyst(String aName, String aStack) {
-		sendCatalyst(aName, aStack, 0);
-	}
+/** Registers the original machine/catalyst mappings through the supported 1.12 recipe API. */
+public final class IMCHandlerNHNEI {
+    private IMCHandlerNHNEI() { }
+    public static void registerCatalysts(IModRegistry registry, Iterable<MachineRecipeCategory> categories) {
+        for(MachineRecipeCategory category : categories)
+            for(ItemStack machine : category.getMachines())
+                if(machine != null && !machine.isEmpty()) registry.addRecipeCatalyst(machine, category.getUid());
+    }
 }

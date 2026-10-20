@@ -40,12 +40,12 @@ public class RenderVehicleDoor implements IRenderDoors {
 		GL11.glClipPlane(GL11.GL_CLIP_PLANE1, buf);
 		
 		GL11.glPushMatrix();
-		GL11.glTranslated(-MathHelper.clamp_double(open, 0, maxOpen), 0, 0);
+		GL11.glTranslated(-MathHelper.clamp(open, (double) (0), maxOpen), 0, 0);
 		ResourceManager.pheo_vehicle_door.renderPart("Left");
 		GL11.glPopMatrix();
 		
 		GL11.glPushMatrix();
-		GL11.glTranslated(MathHelper.clamp_double(open, 0, maxOpen), 0, 0);
+		GL11.glTranslated(MathHelper.clamp(open, (double) (0), maxOpen), 0, 0);
 		ResourceManager.pheo_vehicle_door.renderPart("Right");
 		GL11.glPopMatrix();
 

@@ -1,0 +1,6871 @@
+{
+  "base": "e0d436953a26ba3e7cb58effa31adc48282eb501",
+  "counts": {
+    "clamp_float": 64,
+    "floor_double": 227,
+    "clamp_double": 78,
+    "clamp_int": 77,
+    "sqrt_double": 77,
+    "wrapAngleTo180_double": 16,
+    "ceiling_double_int": 10,
+    "floor_float": 10,
+    "ceiling_float_int": 5,
+    "sqrt_float": 2,
+    "wrapAngleTo180_float": 18
+  },
+  "casts": 148,
+  "files": {
+    "src/main/java/com/hbm/animloader/AnimatedModel.java": {
+      "before_sha256": "ed2653d055f41e24a4069fa804936f8e338749c0bd899f6412032a669a139f62",
+      "after_sha256": "97de2e27056bd871ca3fbc33e90cc727316e68d9e0415de9958c898592b07aad",
+      "edits": [
+        {
+          "start": 1980,
+          "end": 1991,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 2065,
+          "end": 2065,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 2066,
+          "end": 2066,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2068,
+          "end": 2068,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 2084,
+          "end": 2084,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockGeysierDCM.java": {
+      "before_sha256": "b0b511a5f766290019e67e65e4f93e35f36268cf86262533f036fab6bbc27fc2",
+      "after_sha256": "97c638cb254a576ac6473abb160e8db9d7af7b49e4b7d72489d658f1017cdafa",
+      "edits": [
+        {
+          "start": 2379,
+          "end": 2390,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 2437,
+          "end": 2437,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 2438,
+          "end": 2438,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2440,
+          "end": 2440,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 2442,
+          "end": 2442,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockVolcanoV2.java": {
+      "before_sha256": "ef4be9571457b7f5ebb93669e9bc055b37f11c9f799f0debf7aa520737ed7c3a",
+      "after_sha256": "6f77c34da2139e1b955416c2a21fa485247333aebd513e72c548f53791d0502b",
+      "edits": [
+        {
+          "start": 4384,
+          "end": 4395,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 4440,
+          "end": 4440,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4441,
+          "end": 4441,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4443,
+          "end": 4443,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4445,
+          "end": 4445,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "ed2c246cdb757c4917cb1fc13dd3d2bdcf9df744c9cec986d4325e9f5002c1ec",
+      "after_sha256": "5c2c6becf7b6720b2e1e529b9321fb0dd519f0b7fb888c06f4ad4962ecb22392",
+      "edits": [
+        {
+          "start": 6179,
+          "end": 6191,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 6207,
+          "end": 6219,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 6235,
+          "end": 6247,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java": {
+      "before_sha256": "3b1dd8586b21b18179dc76aa3c2f0d2086f5dead1aa039666c018235d15771f4",
+      "after_sha256": "480e7207b5aa4b7c74009c43403c6afda247932a9651db6a95aacdd20c5a5fac",
+      "edits": [
+        {
+          "start": 2198,
+          "end": 2210,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2972,
+          "end": 2984,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3000,
+          "end": 3012,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3028,
+          "end": 3040,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": {
+      "before_sha256": "47f49bb154fc7e6ec06527516f73d7982690930c01b43f3453de15c55e752f86",
+      "after_sha256": "46ca4c9e2e2f28f0d3ac31e978f85cbab159fec31c29069d1585c1721073240f",
+      "edits": [
+        {
+          "start": 6557,
+          "end": 6569,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DetMiner.java": {
+      "before_sha256": "9036644a34c0022b85a42907023a1b2431dffe41baf7ab08e47df9ba0c5efa3c",
+      "after_sha256": "1d0fa493465619310c76be01d111156a12c7a38d023a1fdd5892216d61747196",
+      "edits": [
+        {
+          "start": 2059,
+          "end": 2071,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2087,
+          "end": 2099,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2115,
+          "end": 2127,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java": {
+      "before_sha256": "74f483ea9777205191edb0d2ca7f289097e0aaf2edd693b2c6ed909eb0f390dd",
+      "after_sha256": "8ab9073862dd218b70839e1ad9ada218ba9556bc0ee9f640c2c6994a96019cf3",
+      "edits": [
+        {
+          "start": 3583,
+          "end": 3595,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3611,
+          "end": 3623,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3639,
+          "end": 3651,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "e2c0bff44a17556d05ee2ae212fd19e7b770ff45d8ce8a09660bb575ea339d5a",
+      "after_sha256": "59e28db4893141214e40ae9e096c7bc2c3d6bd40404359f8e62f75762fe7f0dc",
+      "edits": [
+        {
+          "start": 2226,
+          "end": 2238,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "e9e636e079bbe8af7188fd05ccea5f063d228e502e0df5badb47cecd36d5b4fe",
+      "after_sha256": "d860000d2a5cbcd7e67e2197f29104d937379b77bc57a9f201371cf7062449da",
+      "edits": [
+        {
+          "start": 5372,
+          "end": 5384,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "d344dc45cbcd643db3b4db8dc6dfb301c77f0a25d7d74df18f5c0e7e9e9815ed",
+      "after_sha256": "07a55e957cdc26e53583b7623003832bdeb9714c99ecb40b5f5d60db17125f73",
+      "edits": [
+        {
+          "start": 7942,
+          "end": 7954,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "8c191d912d29ba3a2c7b10acfb5907edbf546bc67efd19341928660a4a3743f7",
+      "after_sha256": "c90fa506344f9e8084ced4b671f3b74afd18cc38cc67a4078f7a8758f8ba0888",
+      "edits": [
+        {
+          "start": 5211,
+          "end": 5223,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "3a87b6b1746812cf822f4c90abe8d40aab73575be9bfd37a05411f3774708e39",
+      "after_sha256": "976af9be4d85e39b2f834495b628041949c6031ef422b45c175a6677760831b5",
+      "edits": [
+        {
+          "start": 5145,
+          "end": 5157,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "261810189efc4178189892c013cd35664016384a980e203be226b222c178c945",
+      "after_sha256": "867469ab3117901eb574d756c69df4aee9444436c38290b5fc382dd417b49059",
+      "edits": [
+        {
+          "start": 5043,
+          "end": 5055,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "e0061751d583648e717b51a3f073b662ab615a1c26ccd6329f2a88e9ee85a841",
+      "after_sha256": "f7d0b4a847afaea0557738b2e42402cf6cd6934f89cb663adb47b48ad465cbc2",
+      "edits": [
+        {
+          "start": 5393,
+          "end": 5405,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "bed0d2845a1ad7d8afa65e5b84f0aea39db53c932fba9b27c6b6a9423ea533e8",
+      "after_sha256": "9f0541bb105bd14f657ab3e4460fea140056ad0790a5ac8b4db85dee6f2b3228",
+      "edits": [
+        {
+          "start": 4945,
+          "end": 4957,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "3df5f292bc26dedd535fe8b5e19536db46050fa718dfc562761c8d2277a86f86",
+      "after_sha256": "4787234b398394e9512608d6103ed29e40f89e3ff2f918ba9ebd1dadda39b84c",
+      "edits": [
+        {
+          "start": 5766,
+          "end": 5778,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "2b396bdfa6f24b5253b010675c164e892a7a7abbdd2fd721ff2f65f439391bc9",
+      "after_sha256": "b9f66145b9c20b23c9a3799fbb6a5c2dbb399c58a931a7e08be4b6dde548f06e",
+      "edits": [
+        {
+          "start": 5186,
+          "end": 5198,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "c9c7a2a815ae946394e0fae8137cc5bb527b7a6bb92638a98d6f591f268dbdda",
+      "after_sha256": "7229ee54b99d5503b3a01c5510ef51ecc8a81f89ee0872abd11ee9816b9b5c9d",
+      "edits": [
+        {
+          "start": 5290,
+          "end": 5302,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before_sha256": "f2a54ba79d437564d5a13c41ad83578074f02b4f4698fb6887d8a6ee932fe902",
+      "after_sha256": "c74e02615304d96b1b8bbded118972e31506465042284e1e71719ceaae657b81",
+      "edits": [
+        {
+          "start": 3800,
+          "end": 3812,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": {
+      "before_sha256": "0623785617820f916aa742e59d6bf38d7f64c30eb643ca1720958e4a74678bfb",
+      "after_sha256": "d20d75a144abbedeae2abe2a84ad9b006f0c78a62817dc11d0f63efcef7272e6",
+      "edits": [
+        {
+          "start": 3178,
+          "end": 3190,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "7cd76b63a89a5d33cf4509fe4545235cc6e90eacc44bee6ee6382bbc8699ac4d",
+      "after_sha256": "1e7c96b6653e65b881f9a88a86d575a605c7b9afbefef5c31323b0e75cdf7d9b",
+      "edits": [
+        {
+          "start": 1200,
+          "end": 1212,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before_sha256": "b9120a5fd7819b53559512797b69da41fa5be3ccb59c9eec851b3c70e79f090d",
+      "after_sha256": "9835a9a7c40b7e1901f0c5697c8e85243ecca8107936dc2fee96c0525bf640d6",
+      "edits": [
+        {
+          "start": 3616,
+          "end": 3628,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSpeedy.java": {
+      "before_sha256": "07f0ab976d7cff4ea351048dc3402e57fd0827fd1d058fec1209939578853d12",
+      "after_sha256": "aa47369ee170b52477911e904c20d3a51d5c5c1be7857d7438aa4c3035f69f72",
+      "edits": [
+        {
+          "start": 1055,
+          "end": 1067,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSpeedyStairs.java": {
+      "before_sha256": "2bd89cb2b3d79c8d969c01160e23eb158ac7733a6fe88774550061f21361c660",
+      "after_sha256": "ea92fa35255ac7c5bb9045af1504afeb1aed6f05f812d91fc58938642decf82f",
+      "edits": [
+        {
+          "start": 1045,
+          "end": 1057,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before_sha256": "89e3b8b674d3e76f9381bba6efeb7bc8b3c30f9d81ca8ef32b5377456c103132",
+      "after_sha256": "47ce002a43f9b37b0db558e4f628cf1f6129b13733016729b973068351eefc7b",
+      "edits": [
+        {
+          "start": 8929,
+          "end": 8941,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": {
+      "before_sha256": "2507eba19e0a341a9ac2b792b28d3e19c928dd204db1503f7a36dc33cc5ce682",
+      "after_sha256": "81e71ecbe20228ee8deea10df63deb5d18bda481f30f3f61e9c3e27a46118a34",
+      "edits": [
+        {
+          "start": 3387,
+          "end": 3399,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java": {
+      "before_sha256": "e71d4a003d388a942c9e7623d24dc223913b91bdde1d820e6d1fd262b48b0b93",
+      "after_sha256": "b6e917cf16d8b8349c29e9389c15851e311fecd7b02d046454c04a7e7a0b2136",
+      "edits": [
+        {
+          "start": 1576,
+          "end": 1588,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java": {
+      "before_sha256": "a99480545b3144b9c727c5b5f37c6943c697da8154f4e834c5aeefa7275766ea",
+      "after_sha256": "5caa76b984c3a14e50b78a538205508224f934084ec1eb4eda833d497e59c79b",
+      "edits": [
+        {
+          "start": 1111,
+          "end": 1123,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/Guide.java": {
+      "before_sha256": "c152a4a2799fb1a1ef70e6a8ec79d38327aa02571a00bd2a19d5b38238856bdb",
+      "after_sha256": "546d2e46a71630199ccb32fe5ddf63299c81cb8186527ffa2ff92ebb0431ee60",
+      "edits": [
+        {
+          "start": 3045,
+          "end": 3057,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlastDoor.java": {
+      "before_sha256": "57ea46ad17619072d11c8fe3610e46c1766a773735e5cf33641226a97abf3e95",
+      "after_sha256": "b794195fbf16e6af1e795f87fd8d8651592b2fb81bb8a5afb1668205545e427c",
+      "edits": [
+        {
+          "start": 2382,
+          "end": 2394,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java": {
+      "before_sha256": "b7c3406d739830cce730f97d86d052e95d9e1afdd1b62ceb5eda8d9afa08463a",
+      "after_sha256": "33e52d796fa2b7ba36210ac268490bd205644890c47611c3b51822d8d64c2675",
+      "edits": [
+        {
+          "start": 1244,
+          "end": 1256,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java": {
+      "before_sha256": "7cd2a838860c04cdfe1ca8f5c865ebe86d057f0f44f170915a9e19df78331ece",
+      "after_sha256": "8094aa7a5dbf526fffba21485464a8cd2260d20f2f94390dd91da589b9dd027c",
+      "edits": [
+        {
+          "start": 2892,
+          "end": 2904,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICFStruct.java": {
+      "before_sha256": "94dc7c5733e2b57237b5b343a72c6839d7f8de83838dcfc90417542ddc36d7a8",
+      "after_sha256": "3fc6c881b48fed12a01e545005c6c2b1e32e4ebc94e6351ac9b5651148415618",
+      "edits": [
+        {
+          "start": 804,
+          "end": 816,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMachineBase.java": {
+      "before_sha256": "160594eb265ee7a9c50988549155cf3d92ddea5d340740fafa03aaba93ad3688",
+      "after_sha256": "dcea6240fe44e419be5500c9ea24aa78a219f7bf6a1133ebbb511ee23699a6e0",
+      "edits": [
+        {
+          "start": 3282,
+          "end": 3294,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before_sha256": "38a902f5c0f34b092eb2562be0bd7f5ae947426be7fe04bf138e4fd143c5333f",
+      "after_sha256": "7c61be2299445b5c7391a29c914fe9a632662f35af05b2fe9c6acb2a7b41dc40",
+      "edits": [
+        {
+          "start": 7064,
+          "end": 7076,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockRefueler.java": {
+      "before_sha256": "a8d4da1d1030d20e862824e62a4d4b521bdd70761bfe4ab649e1ac304c6a9ec4",
+      "after_sha256": "21ce0ea4869a839be9f3a9b79c1f65e373e3b281ec76064272fd613b3dbaa32a",
+      "edits": [
+        {
+          "start": 2350,
+          "end": 2362,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockSeal.java": {
+      "before_sha256": "94bb4e1597069306936e7741c083b608f7a1dacb47722036f5c34b5556b59926",
+      "after_sha256": "abb68d297eb46826567a5e859576bd4eb2d54c5e9ba186b9db3eb3c4bef58aec",
+      "edits": [
+        {
+          "start": 1834,
+          "end": 1846,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Charger.java": {
+      "before_sha256": "de4fcb1f417edcd738f245db9f74d5d4d876369939a4cb14167c76129d8b5e0c",
+      "after_sha256": "5c104de61b5857e7594264e18e63f708be6113cfb6e653296a38919916d81e1c",
+      "edits": [
+        {
+          "start": 1101,
+          "end": 1113,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Floodlight.java": {
+      "before_sha256": "63e03b84551c1dad93a62573066af3c5ff0a63c7de554b8ab0a60de885abd7b8",
+      "after_sha256": "3c76d9a79c3d9724226001a375008bddf6a62a89872516490d1362b6a8b4ef99",
+      "edits": [
+        {
+          "start": 2453,
+          "end": 2465,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FusionHatch.java": {
+      "before_sha256": "431f4cb9ff68ba68988822dc8e3fd1c4b1c4c1673a4347e211a997c19f4a50b8",
+      "after_sha256": "13562d4d55790fb4418b4b6d684d60147f31477e3f2825ed4b5c81ffd0a8d6e8",
+      "edits": [
+        {
+          "start": 1421,
+          "end": 1433,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/GeigerCounter.java": {
+      "before_sha256": "f75b7148b9bb8ff426a7057c2fe2a2ebe490166ab676ee722593559cb802a1b4",
+      "after_sha256": "d6550b3d95ab8489b95684709120cc3480c96f557616cf37696f55d57d70f02a",
+      "edits": [
+        {
+          "start": 1140,
+          "end": 1152,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBattery.java": {
+      "before_sha256": "eb88da342860091b95c84ec0e24a6427f0aaf44bd0274984e66851d950c9227f",
+      "after_sha256": "b04237456597f3bc9e82e638d529c3068b0a4ef9ce4d9bdf4679ac3d549031b6",
+      "edits": [
+        {
+          "start": 4940,
+          "end": 4952,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBoiler.java": {
+      "before_sha256": "7d14a56043fdef1e0b78853e40612300c8e22c3cf3b88389609271d83c7e97f1",
+      "after_sha256": "f7b803c073a2c8532b3cd01bfed20f572b564cead6cc4eac223edd74a0372e34",
+      "edits": [
+        {
+          "start": 2853,
+          "end": 2865,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java": {
+      "before_sha256": "f14cab9b0c41b284cd5514057bc48f47c3c2b3c7576cb7c621fc74ee6c4f1cac",
+      "after_sha256": "a9fd8d917518fb79014081134224f26c15b20b6a8b39cd40c543ffdb9e4952ac",
+      "edits": [
+        {
+          "start": 3476,
+          "end": 3488,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 3500,
+          "end": 3500,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3501,
+          "end": 3501,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3503,
+          "end": 3503,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3508,
+          "end": 3508,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3533,
+          "end": 3545,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 3557,
+          "end": 3557,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3558,
+          "end": 3558,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3560,
+          "end": 3560,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3565,
+          "end": 3565,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4400,
+          "end": 4412,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 4424,
+          "end": 4424,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4425,
+          "end": 4425,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4427,
+          "end": 4427,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4432,
+          "end": 4432,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4463,
+          "end": 4475,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 4487,
+          "end": 4487,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4488,
+          "end": 4488,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4490,
+          "end": 4490,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4495,
+          "end": 4495,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java": {
+      "before_sha256": "2ff39f7fe7c9f283752b2883000249a300dfccbe65c84dca64a3c7997447587b",
+      "after_sha256": "431b211c33e19beb94ca124a687ad0a0f72047c5d4de4f0f3507d58ca674bd72",
+      "edits": [
+        {
+          "start": 3152,
+          "end": 3164,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICFController.java": {
+      "before_sha256": "33f8abf71d95bd5bf2ece79aa26b991725f449f763e88e94cb25823c26cd93b3",
+      "after_sha256": "e817d3c8e88b1055fdf29672374df34504d479cdb0c880d5114884e101940d30",
+      "edits": [
+        {
+          "start": 2292,
+          "end": 2304,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "16f3da1e91630b6fe3c85158702bdf3b6567d5a5d8b0b7db29a96d4ee8808026",
+      "after_sha256": "0fc32c6e260151066b1c7a0aebbf33c634946a26f50f15cd2ff6a99a5d560002",
+      "edits": [
+        {
+          "start": 2043,
+          "end": 2055,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineLargeTurbine.java": {
+      "before_sha256": "d5c521864eb6f9fda288cef98c296c6c4d73246334d6ff1c47f13a0c6ca0ff93",
+      "after_sha256": "ff485460b982cfc0546c41b8744771005453feacaff850fdf59ca063a33c7ba3",
+      "edits": [
+        {
+          "start": 1919,
+          "end": 1931,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java": {
+      "before_sha256": "3ae6ceff74a5f449a224f1dc55b67ece6f08fb596ed16c4221afca5ee1b8024c",
+      "after_sha256": "20875b2d7cb4fb2231217787f51b5085e14918c01aebc8a0b94522f50a917e5c",
+      "edits": [
+        {
+          "start": 3905,
+          "end": 3917,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePWRController.java": {
+      "before_sha256": "9a5fe832d000f9aedcb27b42acee050ca3a324bb94478c8405f726cb8176222c",
+      "after_sha256": "00e35bb14b4ab1dcee0e89422251068cbdee8c23ed5a5d419807621f003b46b1",
+      "edits": [
+        {
+          "start": 2184,
+          "end": 2196,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java": {
+      "before_sha256": "c243481f722830fdc097b76baf7d969435ed5be50dbb75a60b4f76e460351764",
+      "after_sha256": "1dd086749e4df28c7b866e72b1e00a61d03cc331a6bebb2a2219360575babd99",
+      "edits": [
+        {
+          "start": 1527,
+          "end": 1539,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineReactorControl.java": {
+      "before_sha256": "3510663a26347f42731d3143277beca2fa23eb5c82be382b689f89a2200dc8fb",
+      "after_sha256": "251387bb8671868b4413bc5a3ce2ff3ef5147c46e517cbe4f375f7b9bfe2b4c6",
+      "edits": [
+        {
+          "start": 2362,
+          "end": 2374,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSawmill.java": {
+      "before_sha256": "42b1e01394ba52d3ebc61d72e422b9c69c52be8312d840ef6d2d6a451c39591f",
+      "after_sha256": "1705cd0f3c2dbaf63d33db469ee5ae82ac08e89f8ca9752231b3b308349438a6",
+      "edits": [
+        {
+          "start": 3932,
+          "end": 3944,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineStirling.java": {
+      "before_sha256": "840d1fba2eb822cd33a6e56893f0fccc0938d92434b3594a2975a8ad66c3c7b3",
+      "after_sha256": "6a20f7f4af1a654cee946c95926388d19192db7b19cf6433c26a594fc4a554c5",
+      "edits": [
+        {
+          "start": 2885,
+          "end": 2897,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java": {
+      "before_sha256": "41e5998335b6a6aff76e806a9203e5bb026495dd8fcb341e99c02a1cde839823",
+      "after_sha256": "a1703bde9454669c765c859ce98293613e908e622dab77cc7cac5d63235bbf21",
+      "edits": [
+        {
+          "start": 1522,
+          "end": 1534,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java": {
+      "before_sha256": "7a2df8daa368bf0ca651f9c5291c341b9a632588a44e0af2c4c4c9150fda1eca",
+      "after_sha256": "755617047a0fcff258ffa11d031ec6311ea23325b5176bc618bbe701528fee19",
+      "edits": [
+        {
+          "start": 1075,
+          "end": 1087,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/RadioRec.java": {
+      "before_sha256": "d6b1b8225c894f0c2f414697e21c4a4e5e8ef5fff6c86e592f7774f1af34ddba",
+      "after_sha256": "e818a2c44428366b611a6d10fe108b45273393ddae13ded3f2f54344e670e07c",
+      "edits": [
+        {
+          "start": 1420,
+          "end": 1432,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Radiobox.java": {
+      "before_sha256": "8e8b3bcc37de298dc5973ce4898fd843a005735395f5e17c48b0f42b7147cf36",
+      "after_sha256": "f121576b432cc7844187f6b3e6d7b41c732efd77a25e04b69d4120286c533d79",
+      "edits": [
+        {
+          "start": 1175,
+          "end": 1187,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteFuel.java": {
+      "before_sha256": "40c8721955f50494aacc0c334b0508c62ccba466382140cadd83208c4ff51b29",
+      "after_sha256": "7db991e1eb941d69c81799257f182083f91bed27f86107bf10cb290bf38e5a58",
+      "edits": [
+        {
+          "start": 1670,
+          "end": 1679,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidPump.java": {
+      "before_sha256": "f84fcf2d70e7a676eedc84bc8e9ef453f430eef4f61af412d6f250f7280b0d81",
+      "after_sha256": "6367564b70a6cf907ac19c166291b1678fe2bc4e0b1c1616d29e2200ee43cd0e",
+      "edits": [
+        {
+          "start": 2549,
+          "end": 2561,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8475,
+          "end": 8484,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 8605,
+          "end": 8614,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 8615,
+          "end": 8615,
+          "before": "",
+          "after": "(int) ("
+        },
+        {
+          "start": 8639,
+          "end": 8639,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/PylonLarge.java": {
+      "before_sha256": "2c09070a3570d2d69be04fab45de8c3fc8eb24273595fe2f6bc233dde88a7646",
+      "after_sha256": "ffb798a469dc478407c9afc8d18f002a327f5fb49df3650c3e0d6fb0b8e30b8a",
+      "edits": [
+        {
+          "start": 1807,
+          "end": 1819,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/test/TestEventTester.java": {
+      "before_sha256": "efdec7694ac90a371a531ed71b2fe381af56f7e34045ae73be13e69d0a165ebd",
+      "after_sha256": "e5068971ad3f34dab03ad73c18f3bc2f54d462cd756f4079f614c85970a3a051",
+      "edits": [
+        {
+          "start": 16393,
+          "end": 16405,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 16447,
+          "end": 16459,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 16501,
+          "end": 16513,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 16560,
+          "end": 16572,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 16618,
+          "end": 16630,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 16677,
+          "end": 16689,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 17288,
+          "end": 17299,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/test/TestObjTester.java": {
+      "before_sha256": "b2f4a1a1690ab7594a71067851079892c53af3d930493aa6e6365297bfd77c7a",
+      "after_sha256": "8f42964486cc97534ed9da809d1f4a13a845423eb6d6098d74cc5dfe31bc4195",
+      "edits": [
+        {
+          "start": 1536,
+          "end": 1548,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/commands/CommandLocate.java": {
+      "before_sha256": "0aa1defebb805c16ef62c8515c2663751772d16439357a1beae45befad1a7067",
+      "after_sha256": "7f54030895b9415da831dba43968e6327c9ce98336879cb6b3e996dfaaa2c528",
+      "edits": [
+        {
+          "start": 1888,
+          "end": 1900,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1948,
+          "end": 1960,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/crafting/handlers/RBMKFuelCraftingHandler.java": {
+      "before_sha256": "e88e6471d678df0cccda141c671e76433e6b3962f075e5bff4ed119c41248417",
+      "after_sha256": "900e360f3a36612a452ee52e3b2080ff6df663c840be23227a5987cc0fcd70c2",
+      "edits": [
+        {
+          "start": 1493,
+          "end": 1502,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/CelestialTeleporter.java": {
+      "before_sha256": "c10f372d432e237c813ce70c8761fe051c4a9b31f6438e9eac5cdcdf635f48b9",
+      "after_sha256": "5950279c22a4c2b2b51aa48692d330ed8ed7140e3f33b674508c8becb4a32877",
+      "edits": [
+        {
+          "start": 1639,
+          "end": 1648,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "42ca4a686d058d99883c37f23c4a4e7967b265418eea1fa9cf1181fa423f8cbd",
+      "after_sha256": "76b2d77b109fa50702a06282e3f98398e7ec507c454664901dcc2423aafd0610",
+      "edits": [
+        {
+          "start": 6837,
+          "end": 6848,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 7230,
+          "end": 7241,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 9880,
+          "end": 9891,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 10055,
+          "end": 10066,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 26410,
+          "end": 26421,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 28321,
+          "end": 28332,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 28350,
+          "end": 28350,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 28351,
+          "end": 28351,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 28353,
+          "end": 28353,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 28354,
+          "end": 28354,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 30660,
+          "end": 30672,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 30694,
+          "end": 30694,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 30695,
+          "end": 30695,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 30697,
+          "end": 30697,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 30704,
+          "end": 30704,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 42293,
+          "end": 42304,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SolarSystem.java": {
+      "before_sha256": "cae0bfdaa764291d172d5221e7ba74f7834245e1e040e6a61521b6e5cf305b8c",
+      "after_sha256": "ac4737a9d10c6238453afaf98a84ef192e0212782455bd5f4ed3994f1f6b9bf1",
+      "edits": [
+        {
+          "start": 18744,
+          "end": 18756,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 18757,
+          "end": 18757,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 18775,
+          "end": 18775,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 18945,
+          "end": 18957,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 18958,
+          "end": 18958,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 18972,
+          "end": 18972,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 24764,
+          "end": 24785,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 25084,
+          "end": 25105,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 29572,
+          "end": 29590,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SolarSystemWorldSavedData.java": {
+      "before_sha256": "c7e3ad4d2a4d4e89b27e6527b94ad9ac1ef93f9ebd0727871866779a2e66d551",
+      "after_sha256": "270e9f6ffb6104cc78f858b54f47a467610ada26c69a49af92630476fae38dbe",
+      "edits": [
+        {
+          "start": 6310,
+          "end": 6321,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 6374,
+          "end": 6385,
+          "before": "floor_float",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/WorldProviderCelestial.java": {
+      "before_sha256": "7de48dc8684954b83e98d813194018557262f291549b05f92df28844cf545970",
+      "after_sha256": "dbd8fcda86988bd3394641ad56fd631d0757cf5ff5336d18c0f1b0fd24245772",
+      "edits": [
+        {
+          "start": 6486,
+          "end": 6498,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 6520,
+          "end": 6520,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 6521,
+          "end": 6521,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 7454,
+          "end": 7465,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 8930,
+          "end": 8941,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 9213,
+          "end": 9224,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 9443,
+          "end": 9454,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 9890,
+          "end": 9902,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 13476,
+          "end": 13487,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 17383,
+          "end": 17394,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 17612,
+          "end": 17623,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 19071,
+          "end": 19082,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 19802,
+          "end": 19813,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java": {
+      "before_sha256": "f26169c70daec3e6dbf2ace705bf4b6965f5bbc9651da86b453aa73445a4d42f",
+      "after_sha256": "f9a12d18618dfffdbfa16bf7d903613a88d75312cb11e5c2e97863751acfe58d",
+      "edits": [
+        {
+          "start": 1597,
+          "end": 1614,
+          "before": "ceiling_float_int",
+          "after": "ceil"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java": {
+      "before_sha256": "41869ed2bb9ea796406ffea61b5750b511aa9ca173d4b7a54a87251f2dab055a",
+      "after_sha256": "02e0e5fcca8353cd148cbdce19e125a63cf329e1b0319263f50778a5e11e50ac",
+      "edits": [
+        {
+          "start": 1066,
+          "end": 1083,
+          "before": "ceiling_float_int",
+          "after": "ceil"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java": {
+      "before_sha256": "edef7f1b9ba148f07bff9a3779a8d00b48469000c10b823c69853fddb6d991fb",
+      "after_sha256": "97047db6537c5a365be04e7a0eedc5f169fc39b017b4971daf06a861fb2f748d",
+      "edits": [
+        {
+          "start": 4678,
+          "end": 4690,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4743,
+          "end": 4755,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4808,
+          "end": 4820,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4859,
+          "end": 4871,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4910,
+          "end": 4922,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4975,
+          "end": 4987,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/mapgen/MapGenCrater.java": {
+      "before_sha256": "5e123a8a1d5fe89314260a9dbcde515e9c775d884ed218b9646f01098e8e81f6",
+      "after_sha256": "e2a5c5a3113cc7531b4ac8602eb3720d22ee811d1fb978b75adc519edcc22c10",
+      "edits": [
+        {
+          "start": 2154,
+          "end": 2166,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 2196,
+          "end": 2196,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2197,
+          "end": 2197,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2199,
+          "end": 2199,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2204,
+          "end": 2204,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/mapgen/MapGenGreg.java": {
+      "before_sha256": "19a41478fa96205539e7576d2e7def4804bf4ba8a5ab94bd0ada63e02825741d",
+      "after_sha256": "545a6853fbba078692cd4f413378e91d32cf9247665c4008d3c29b1eaa42e09d",
+      "edits": [
+        {
+          "start": 1646,
+          "end": 1656,
+          "before": "sqrt_float",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/mapgen/MapGenVolcano.java": {
+      "before_sha256": "5d9430f5d191b8a74609d6f3e431d4092e56ad46053c71492520c7c6ab2fa805",
+      "after_sha256": "516fc159992dd36d8690288a58e83a808dcb66434626079ac0aee316dd401876",
+      "edits": [
+        {
+          "start": 2297,
+          "end": 2309,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 2340,
+          "end": 2340,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2341,
+          "end": 2341,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2343,
+          "end": 2343,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2348,
+          "end": 2348,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/orbit/OrbitalStation.java": {
+      "before_sha256": "19f4e867f22a669c654ab8438b65b31d36a75f0ed4367e412f5ba2f3661efdae",
+      "after_sha256": "4098e91f5c7c180df51b844ee40f9111ad609757ac76b64cfe96be0bf360229c",
+      "edits": [
+        {
+          "start": 9541,
+          "end": 9553,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 9615,
+          "end": 9615,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 9616,
+          "end": 9616,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 9618,
+          "end": 9618,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 9619,
+          "end": 9619,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 10371,
+          "end": 10382,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 10420,
+          "end": 10431,
+          "before": "floor_float",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/orbit/SkyProviderOrbit.java": {
+      "before_sha256": "bfca6326173cc07010c149a8f2e051972ee64d1022abd2fecc8043509b39308b",
+      "after_sha256": "79f7e95d5bf5ac6eeff9d506914675932b5c21d10723a83ce96ed34ae82edb6c",
+      "edits": [
+        {
+          "start": 3760,
+          "end": 3780,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java": {
+      "before_sha256": "e2411c8e64e6ad4314edc5cee4da77f599a9fdf2eb8b686d4930be4b0aa40466",
+      "after_sha256": "e4fe58fb24669308302b66777967bb6dec2936f534dd46e7ca763bd9cf23f1af",
+      "edits": [
+        {
+          "start": 5726,
+          "end": 5737,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 5887,
+          "end": 5898,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/trait/CBT_Invasion.java": {
+      "before_sha256": "cada1fcbedac487efb237f6414b844fc1d976c43a87f798e016f8fdf3dd323de",
+      "after_sha256": "49f07694972c5c517c6df2bbc78d23ebe16f00bfc56978599a752f2299a32bf7",
+      "edits": [
+        {
+          "start": 9373,
+          "end": 9393,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before_sha256": "f9614928ab3e7ab04c6a20f6583c8f775abd63f10454911c00b8b1f8c089ff36",
+      "after_sha256": "82838b178dd621c432e3ee0b20666c2f11e6a028cebf12555e02cf9a40f703d3",
+      "edits": [
+        {
+          "start": 9828,
+          "end": 9840,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 9871,
+          "end": 9883,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 9914,
+          "end": 9926,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": {
+      "before_sha256": "0ab651f887cc83205e648a14491ac87119bf36ec483353aaf11b48ad4ffe83fa",
+      "after_sha256": "a0b9f1680a8ce300c697554f5523e19ca9e693fc4daddd649f24147ac4457237",
+      "edits": [
+        {
+          "start": 10945,
+          "end": 10957,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 11033,
+          "end": 11033,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 11034,
+          "end": 11034,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 11036,
+          "end": 11036,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 11037,
+          "end": 11037,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 11317,
+          "end": 11329,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 11405,
+          "end": 11405,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 11406,
+          "end": 11406,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 11408,
+          "end": 11408,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 11409,
+          "end": 11409,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 12053,
+          "end": 12065,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 12141,
+          "end": 12141,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 12142,
+          "end": 12142,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 12144,
+          "end": 12144,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 12145,
+          "end": 12145,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 16179,
+          "end": 16191,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 16251,
+          "end": 16251,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 16252,
+          "end": 16252,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 16254,
+          "end": 16254,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 16255,
+          "end": 16255,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 20697,
+          "end": 20708,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 21104,
+          "end": 21115,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java": {
+      "before_sha256": "9c523cd5b88b89bdf43f51d5de3e5453ac3116d20a80e9cfb28118a4e0ee1eff",
+      "after_sha256": "a9d802b3a7c1f8cb8614e57ab0acd4d604e9f471ed921aea48d6ab3c9136a898",
+      "edits": [
+        {
+          "start": 3064,
+          "end": 3075,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "b5f849f8a0dec10c84af3d872740a6ca3ec921eee8192226e6c8ab097efb9487",
+      "after_sha256": "3bf8425ee64030bd264052cb5341f882e6d77ecfd80b416ca76305cc200560e1",
+      "edits": [
+        {
+          "start": 5676,
+          "end": 5697,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 7948,
+          "end": 7959,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 8802,
+          "end": 8814,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8889,
+          "end": 8901,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 9020,
+          "end": 9032,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 10162,
+          "end": 10183,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 12800,
+          "end": 12820,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 13496,
+          "end": 13508,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 13542,
+          "end": 13554,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 13588,
+          "end": 13600,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "2d6d970193d338cb251370f13b1f38e748bd3b204683d2aa3f2a40020e424fb6",
+      "after_sha256": "88704097021ad5896268381b05c9afd4e1a32a23ea8dd2a4f67184a8228aaff2",
+      "edits": [
+        {
+          "start": 9937,
+          "end": 9958,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 10671,
+          "end": 10683,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 10722,
+          "end": 10734,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 10773,
+          "end": 10785,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12251,
+          "end": 12271,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 17620,
+          "end": 17632,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 17685,
+          "end": 17697,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 17867,
+          "end": 17879,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 17932,
+          "end": 17944,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 18540,
+          "end": 18552,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 18587,
+          "end": 18599,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 20145,
+          "end": 20157,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 20189,
+          "end": 20201,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 20234,
+          "end": 20246,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 20989,
+          "end": 21001,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 21048,
+          "end": 21060,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 21185,
+          "end": 21197,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 21244,
+          "end": 21256,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 21511,
+          "end": 21523,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 21553,
+          "end": 21565,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 21595,
+          "end": 21607,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 25350,
+          "end": 25361,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "bfeaa88f2e14c522d9cb35952cd4d1a5b022f73a97c2523b2fa9f7a32ae2e26f",
+      "after_sha256": "d35697b2aa295ad8e3d6c024590b03378c14d6a0b453e2c3ccb32ecea0f9415b",
+      "edits": [
+        {
+          "start": 12576,
+          "end": 12597,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 13437,
+          "end": 13449,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 13489,
+          "end": 13501,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 13546,
+          "end": 13558,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 15038,
+          "end": 15058,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 22000,
+          "end": 22012,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 22066,
+          "end": 22078,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 22262,
+          "end": 22274,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 22328,
+          "end": 22340,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 23055,
+          "end": 23067,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 23108,
+          "end": 23120,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 25477,
+          "end": 25489,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 25530,
+          "end": 25542,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 25583,
+          "end": 25595,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 26477,
+          "end": 26489,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 26534,
+          "end": 26546,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 26699,
+          "end": 26711,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 26756,
+          "end": 26768,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 27093,
+          "end": 27105,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 27146,
+          "end": 27158,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 27199,
+          "end": 27211,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 31815,
+          "end": 31826,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityPlaneBase.java": {
+      "before_sha256": "d60da01ad698d1490f2502d6d1baa2ca4254bb62d62d1a4477c77198e212710a",
+      "after_sha256": "05744deb7ef8a8f119f4e39ec03f65ebda2240a57f57297c2836cbfd55edeeea",
+      "edits": [
+        {
+          "start": 3480,
+          "end": 3501,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 5177,
+          "end": 5188,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileAntiBallistic.java": {
+      "before_sha256": "e23f614d41bc1902791b5c2189695a56bff7ec146e0f0cab9fc3ae1224236820",
+      "after_sha256": "e6a22f991e2a596b14f22467a46f3571deb900395bf13a7a4d555d3e9742898f",
+      "edits": [
+        {
+          "start": 2947,
+          "end": 2958,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java": {
+      "before_sha256": "f28a62817b55fdd242d85ac7baf43956deae4f425d919aa07ef28ba25fda9569",
+      "after_sha256": "8d7bbb62442ffa410f78d6c927dda2ac92c0146283e2c4cba8d65ba7734188b5",
+      "edits": [
+        {
+          "start": 3716,
+          "end": 3728,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 3762,
+          "end": 3762,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3763,
+          "end": 3763,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4615,
+          "end": 4626,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java": {
+      "before_sha256": "1dc774a91e567d59b46993a9184215a173d2929c7ec92a1af49ee39c5ae4e35b",
+      "after_sha256": "5f5c9cdc02ca4cd9a8ccddb2b91c4853751e3a275d30bf6dd8d6b99d6ce5d3e8",
+      "edits": [
+        {
+          "start": 2563,
+          "end": 2575,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 2619,
+          "end": 2619,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2620,
+          "end": 2620,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2622,
+          "end": 2622,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2624,
+          "end": 2624,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "80ac1961377730852f9082aba3031d98bf9039e70547449c9188ab6ed497fabc",
+      "after_sha256": "dae4031517a3a14d43071510f01275664b3aa5c3c99688b27a490df7050f143c",
+      "edits": [
+        {
+          "start": 11472,
+          "end": 11484,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 11503,
+          "end": 11515,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 11550,
+          "end": 11562,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12566,
+          "end": 12577,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 12675,
+          "end": 12687,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 12715,
+          "end": 12715,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 12716,
+          "end": 12716,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 12816,
+          "end": 12827,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 12925,
+          "end": 12937,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 12975,
+          "end": 12975,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 12976,
+          "end": 12976,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 13357,
+          "end": 13369,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 13461,
+          "end": 13473,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 17314,
+          "end": 17326,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 17345,
+          "end": 17357,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 17376,
+          "end": 17388,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "6c3b7b564c26c4dde1756768f7b2b898f78074702992b2898b1ef66ec7bb0561",
+      "after_sha256": "42535f04395f9fd6c2cb1845e161ce35c124220f0438d45908411ad05dce5ddb",
+      "edits": [
+        {
+          "start": 12301,
+          "end": 12321,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java": {
+      "before_sha256": "c8d800a1697af58b93cede5dbec6ae368ad2d018343f4fbd3788cc6d837d8c8e",
+      "after_sha256": "12a48069679699aff423769f609a2a9f5b29a84b5903e2413154073b9d5cc200",
+      "edits": [
+        {
+          "start": 1894,
+          "end": 1905,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 5720,
+          "end": 5731,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 6241,
+          "end": 6253,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 6282,
+          "end": 6294,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 7644,
+          "end": 7656,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 7690,
+          "end": 7702,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 7736,
+          "end": 7748,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityDepthSquid.java": {
+      "before_sha256": "b925a393ec70215c55da8d0245fcacc3881e6fa6e32be6aebf5de9b2f73b0dd0",
+      "after_sha256": "2cc63f994477a99c20b05f7c506da2283436c90aca7106a9b8d1cf129059184a",
+      "edits": [
+        {
+          "start": 989,
+          "end": 1000,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFish.java": {
+      "before_sha256": "9fe0539e63e2fbbadf5081ee10b9fd620199a53a1122ff567070310c50edbb21",
+      "after_sha256": "c32445b5b813e9c0c6e4c02ce2101c78b25749544c993b49e4f88b4406a8399e",
+      "edits": [
+        {
+          "start": 2595,
+          "end": 2606,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 3475,
+          "end": 3486,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 4358,
+          "end": 4378,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "before_sha256": "7ce6f4875c3a3ff5000faa598b29df94f8a491505976a879bd2328daf302a8b4",
+      "after_sha256": "d6e092ef625a73037158404dc5963bd1be927fa6b5e28e926fa3d0197d337cdf",
+      "edits": [
+        {
+          "start": 5047,
+          "end": 5058,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 10332,
+          "end": 10343,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 11160,
+          "end": 11171,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityPlasticBag.java": {
+      "before_sha256": "1cc72f35f4ce576ac3339ed1cd7f910f4c978ecf7a47ffcfda37b8e3720f93a9",
+      "after_sha256": "8840ade1bcfa03d57258b33ba915da8bca6a36b8101649b7cfaff598337741a8",
+      "edits": [
+        {
+          "start": 3014,
+          "end": 3025,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIBreaking.java": {
+      "before_sha256": "a0037b91159c450c77a62e1370fc0b6160fb65b9e302613ea74232a93cd62df9",
+      "after_sha256": "aa2afc7b2abf1ea4772fdd34e6966f5894298a403c8043e3c459194d5aa4b996",
+      "edits": [
+        {
+          "start": 4595,
+          "end": 4613,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 4614,
+          "end": 4614,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4632,
+          "end": 4632,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4670,
+          "end": 4688,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 4689,
+          "end": 4689,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4708,
+          "end": 4708,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIStepTowardsTarget.java": {
+      "before_sha256": "0aceb39d39266c2d6c1e42b23b83a31c8e27adbfebc692b4da839ae22be5db24",
+      "after_sha256": "f137e2db50ce7e2d21436bdc93eda9c0812d7cc8ce352b4a855bd438d5d52312",
+      "edits": [
+        {
+          "start": 2239,
+          "end": 2251,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2337,
+          "end": 2349,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2435,
+          "end": 2447,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityMoonWalkHelper.java": {
+      "before_sha256": "d5238cfc7ac3f290f2bdf893884c11dba9983602fbc1c7045911b8bd275ce6e0",
+      "after_sha256": "d1a5c9af5acc43cc7a5294fff81fb2f5e144d405d48384f5358cf7da506a6fda",
+      "edits": [
+        {
+          "start": 505,
+          "end": 517,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBody.java": {
+      "before_sha256": "d54ed20527fce8a2c33a439a65100bb3ed5e5906cb8c9415c31b7d61140436d6",
+      "after_sha256": "62e416614fc8f3d09db933d6b8d3f7a9b054db7c4234bac52ee58fb1abd319ce",
+      "edits": [
+        {
+          "start": 2321,
+          "end": 2332,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 2802,
+          "end": 2813,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": {
+      "before_sha256": "6666d771a2bc10e6c2d58b7f1980ec3745406c8e757afe50b2da396965572f16",
+      "after_sha256": "32335feab24f8845792ea4fb8c7e5e805f0ba161df21edcc90245b4da5be7d39",
+      "edits": [
+        {
+          "start": 2339,
+          "end": 2351,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2391,
+          "end": 2403,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2443,
+          "end": 2455,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3848,
+          "end": 3859,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 5400,
+          "end": 5411,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 6661,
+          "end": 6672,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java": {
+      "before_sha256": "3b94dab68516a08e177a15af2170d9f8b6d284428e2bb985115fe9ec973f8b13",
+      "after_sha256": "e8eb700f3ba407333f26a97c97aa42923d44a354b3cb3bfeb0c8f26c30548b0b",
+      "edits": [
+        {
+          "start": 5869,
+          "end": 5880,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrawler.java": {
+      "before_sha256": "f33645e418e69d5629f4b8597f8ac4306708c0904f9c2c668cb8710f57255966",
+      "after_sha256": "b6511b092b0e27249938e4a9e74c57ff9cba2bb7775bb9ff3063ea1234fda9b2",
+      "edits": [
+        {
+          "start": 2658,
+          "end": 2669,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 3238,
+          "end": 3249,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityChlorineFX.java": {
+      "before_sha256": "38a6ec43999a69a1b8ef31385f02b04c3a3ef5fb34977d73c2dc5b35b43052e8",
+      "after_sha256": "b6e84d1fd7895fb5579a36dcfe66ace666cb6075417494230ffa984eeaf165ed",
+      "edits": [
+        {
+          "start": 2152,
+          "end": 2164,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2188,
+          "end": 2200,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2224,
+          "end": 2236,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityCloudFX.java": {
+      "before_sha256": "cae92b383f273067bd5b0ee821851aff3272cb6cb512d8efec3e8a048fa385f3",
+      "after_sha256": "f1c61140b9a8aef9b5192ab08a27995f5712d0954c9d0c53eb7981bf215699a0",
+      "edits": [
+        {
+          "start": 2034,
+          "end": 2046,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2070,
+          "end": 2082,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2106,
+          "end": 2118,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityModFX.java": {
+      "before_sha256": "01290baf536ca608708c65c9fbff42d09ea1b189641fda334d3efd6518e10254",
+      "after_sha256": "5fd0d01fc9892bfeec56b0ef982ff1ee25646c4377ea1bc8b645f69b8a4c8227",
+      "edits": [
+        {
+          "start": 2876,
+          "end": 2887,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java": {
+      "before_sha256": "2f4f7237e2d256df415997ba4c86fbd62f97bd63a46083b6d0f865617846a801",
+      "after_sha256": "f50e312cf59c97d4606feec1650debbd10a821920486c63dcda4fdded2071ef7",
+      "edits": [
+        {
+          "start": 2084,
+          "end": 2096,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2120,
+          "end": 2132,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2156,
+          "end": 2168,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java": {
+      "before_sha256": "b12da398c11aca10c013e69c364cd4a4135fc25971d9b64be35ce7190fee090e",
+      "after_sha256": "850025f398380b3104f87add066ddb35332f2b2917aee802404c37398bfb4662",
+      "edits": [
+        {
+          "start": 4013,
+          "end": 4034,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBombletZeta.java": {
+      "before_sha256": "2f695615e3579d314da87aebe1a73eb5a79545c4541f49968df5516cf3785cd8",
+      "after_sha256": "107489d53523e57ffe4b4e7c210bf7b5fd2aca5f7ecc4d2fc1a6f7bc8dd6dbbe",
+      "edits": [
+        {
+          "start": 4260,
+          "end": 4271,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "f3508f312f8ce5d823c7455f3cac72c3c9dadec1fb8c5e042883355d87d8cc23",
+      "after_sha256": "862481b264cb439c5542e262d7ab9b38f2916ac69f5d5c9c821dc8f640a035af",
+      "edits": [
+        {
+          "start": 3426,
+          "end": 3437,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 9974,
+          "end": 9985,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 10679,
+          "end": 10690,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 11144,
+          "end": 11155,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 11849,
+          "end": 11860,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 12961,
+          "end": 12972,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 13672,
+          "end": 13683,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 17747,
+          "end": 17758,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 17882,
+          "end": 17900,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 21269,
+          "end": 21280,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 24422,
+          "end": 24433,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 25679,
+          "end": 25690,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java": {
+      "before_sha256": "b2b7ceac118ddba467502a93d463d158a49f46b602f328009e17407d83fc235d",
+      "after_sha256": "b729d5d4af7d30dd56737842d6122c0b01cf773e15448997864be1dd619cc119",
+      "edits": [
+        {
+          "start": 5767,
+          "end": 5778,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 6125,
+          "end": 6136,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "e84edb7921fb01773600f12868b10d35bab95feb59987fc19974f1b7445d4045",
+      "after_sha256": "fa316f39cfacdbff0604a10a3e330c2a2cc2ef07d5a8e2a44404bd2bbd193343",
+      "edits": [
+        {
+          "start": 6693,
+          "end": 6704,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBurningFOEQ.java": {
+      "before_sha256": "78d71585640406c185d3fb6db9a3274fc3a0970155619b56e1c076621b215873",
+      "after_sha256": "0d0d0d1cbbfba4b1fdb8df66a14600f853a5ec942c775c092f4798a345bd28ec",
+      "edits": [
+        {
+          "start": 2135,
+          "end": 2146,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "99238030deb3e72b1af6b414a80fa3c5a0c61a023e5f3a98a04ce82625ea4323",
+      "after_sha256": "85b047fbc84950d2a98c01525d0fbd2e1c4f66d558334cfda6d1a377ca73c3bd",
+      "edits": [
+        {
+          "start": 11618,
+          "end": 11630,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 11661,
+          "end": 11673,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 11704,
+          "end": 11716,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "35a2a62d8c67792919f4c2b99f9a2a4be6a7fd2c24c93575ca176626e643d4a8",
+      "after_sha256": "71bc4eae24aba1044c41a407437b1c4ec9f24d93dd0ac4d9b4f2a5253e997183",
+      "edits": [
+        {
+          "start": 2622,
+          "end": 2633,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 6299,
+          "end": 6310,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 7070,
+          "end": 7081,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 8295,
+          "end": 8306,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 9198,
+          "end": 9209,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 12708,
+          "end": 12719,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 12849,
+          "end": 12867,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 13837,
+          "end": 13848,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "275126cb78eb6b84ab6cb9f3ec52a78d43842bf4848ad83978c568fa888941e6",
+      "after_sha256": "5f454345304596f1a30db03bb3fe892a99867beaa2562cc7df3f573ecb8d7339",
+      "edits": [
+        {
+          "start": 2930,
+          "end": 2941,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 5528,
+          "end": 5539,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 6299,
+          "end": 6310,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 7524,
+          "end": 7535,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 13589,
+          "end": 13600,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 13730,
+          "end": 13748,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 15017,
+          "end": 15028,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 18124,
+          "end": 18135,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 19611,
+          "end": 19622,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "ac7b30574bfcd964b9c52d958ed8ed21e04d841ac2ea043f402428505796ce47",
+      "after_sha256": "a3b06b23c2b0376040f374499c8b00af3941f0445c9a6d1dcdb56e1818ef9f63",
+      "edits": [
+        {
+          "start": 2949,
+          "end": 2960,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 5547,
+          "end": 5558,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 6318,
+          "end": 6329,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 7543,
+          "end": 7554,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 8376,
+          "end": 8387,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 13726,
+          "end": 13737,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 13867,
+          "end": 13885,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 15154,
+          "end": 15165,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 18148,
+          "end": 18159,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 19580,
+          "end": 19591,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java": {
+      "before_sha256": "35a6895bae447a81a20ab27f7dbf02d779f9da84bf3f996b16d878980ef65438",
+      "after_sha256": "9e25443e186208fed0bea387b79ca7e4de436cfde40bbf839ff2d060564a8e3c",
+      "edits": [
+        {
+          "start": 1316,
+          "end": 1337,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "ab3626ad8a068480829e4370610d1c229669f73cea48a1916b9210824f7f8451",
+      "after_sha256": "7455504e076cbc680805e516cffe7d1ce47cdad88b1f587b51a889c344ebafc1",
+      "edits": [
+        {
+          "start": 3770,
+          "end": 3781,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 4383,
+          "end": 4394,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 4930,
+          "end": 4941,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 8280,
+          "end": 8291,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/EntityRailCarBase.java": {
+      "before_sha256": "92fa10260998d2d61c5483f29ebf7e0b28c660979bf7b401522661b1417ec752",
+      "after_sha256": "dc53712f695a8b4e957340bf7c0671e2da75a4bfcb3be1d8139ab53d491c3eb1",
+      "edits": [
+        {
+          "start": 5499,
+          "end": 5520,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 11051,
+          "end": 11072,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/EntityRailCarRidable.java": {
+      "before_sha256": "c137f5c425d0c2f7d9b89050618d55f148b2da830a70a6133b2f0ac52050bcfc",
+      "after_sha256": "8c8a314108414b32854c304f61afab01163a991f90c431c02fcb91b65b1f3b6a",
+      "edits": [
+        {
+          "start": 2513,
+          "end": 2525,
+          "before": "clamp_double",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionChaos.java": {
+      "before_sha256": "2221105a6f002b898eb4c1ef2ce94d2df0dc00afa92da704dd7d77d4107f6c53",
+      "after_sha256": "02c5b85f326976660b29129500b82de3cf44d618e31b58039a42688f08fc4dcb",
+      "edits": [
+        {
+          "start": 12283,
+          "end": 12295,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12330,
+          "end": 12342,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12377,
+          "end": 12389,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12429,
+          "end": 12441,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12480,
+          "end": 12492,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12532,
+          "end": 12544,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 13349,
+          "end": 13360,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNT.java": {
+      "before_sha256": "76969f46fd3c072c9470b0d86667fb44b51c8d1bd57746009782beb4d600fb1e",
+      "after_sha256": "228a487c27332fafa79e560556657247ea075f4a4791462cb4bfd40755aff2d3",
+      "edits": [
+        {
+          "start": 3289,
+          "end": 3301,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3343,
+          "end": 3355,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3397,
+          "end": 3409,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 5888,
+          "end": 5899,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        },
+        {
+          "start": 8510,
+          "end": 8521,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java": {
+      "before_sha256": "278d9c65b69dc5bcb50aadcc5ad77aeff8148f5be14a2ffc0656f2a439a2970a",
+      "after_sha256": "0345d4884db3d2def42740565bb5a20f3a4234e5da27b7e10f00978d40b818de",
+      "edits": [
+        {
+          "start": 8611,
+          "end": 8623,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8666,
+          "end": 8678,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8721,
+          "end": 8733,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8781,
+          "end": 8793,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8840,
+          "end": 8852,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 8900,
+          "end": 8912,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 9505,
+          "end": 9516,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": {
+      "before_sha256": "4028537de395b48bcd26b6a7fc7bbcd25e65d94dcf927c7b35b626a33ed36630",
+      "after_sha256": "da0bfd1e9267e24c1fe61f5ff3404fbbcdd9f1e7b895e980b6214d667f145468",
+      "edits": [
+        {
+          "start": 2842,
+          "end": 2853,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorBulkie.java": {
+      "before_sha256": "4311b8ead7241e32da47f6892415e7f9ab424fda18bd894110bdcdcf7fa6deae",
+      "after_sha256": "c0607be9a19108e38d06b94b986b30af87eb27e744fad03bddfc545da257a9f2",
+      "edits": [
+        {
+          "start": 2043,
+          "end": 2055,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2099,
+          "end": 2111,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2155,
+          "end": 2167,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorGlyphidDig.java": {
+      "before_sha256": "b1ea2f2f5d3ba2bd2d1900ee168825528bebeed4dc7777e01fff405b60a437a6",
+      "after_sha256": "2ba3a9dab464d4c3079734fa84de5f4f284990b3a99a78182a797e0cdfe6b3ce",
+      "edits": [
+        {
+          "start": 2086,
+          "end": 2098,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2142,
+          "end": 2154,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2198,
+          "end": 2210,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorStandard.java": {
+      "before_sha256": "1deb6a3bdff22f22e41e3fa2c071f42d6ff877fd6487442bbeaf44988c418cfd",
+      "after_sha256": "5f5fee783c7f38e8c07c4025a865bd2146ce5444e66ef1f0ca461963c3541278",
+      "edits": [
+        {
+          "start": 1839,
+          "end": 1851,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1895,
+          "end": 1907,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1951,
+          "end": 1963,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorWater.java": {
+      "before_sha256": "973c849579f3594adca45ea572f50f590b0b9713f11791c03e950c44c6caeff8",
+      "after_sha256": "7dc03eb4d5689114adbd593eb49d52ed1432a7b995bd9fbe0d9c6c446b8de8e2",
+      "edits": [
+        {
+          "start": 1715,
+          "end": 1727,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1771,
+          "end": 1783,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1827,
+          "end": 1839,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java": {
+      "before_sha256": "72229347de73fa4c48ed054f745b438df63ee4449d32928c113c8061393e8d44",
+      "after_sha256": "95a579852fd40e5367cf202f001a7169693811ea3ec97993f00dbdd5032e5e4c",
+      "edits": [
+        {
+          "start": 2016,
+          "end": 2027,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "098cd80771c021a84cc643fb824a80627c5d75c7c6caaf9d107e8e18dcbbbca5",
+      "after_sha256": "ade7cda3b0a3b689cdc5e8766fb0329681702272e34186603f2869a349eefafe",
+      "edits": [
+        {
+          "start": 12586,
+          "end": 12598,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12641,
+          "end": 12653,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 12696,
+          "end": 12708,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/Identity.java": {
+      "before_sha256": "7e5b8fda569edeb5ee57ff91d5c74c9630a586785bfc86a2d9194f4078704874",
+      "after_sha256": "b3c18dbcce3be4c620d5eea29b944c47d261438708b727b10693c5968752fc4c",
+      "edits": [
+        {
+          "start": 680,
+          "end": 689,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/RocketStruct.java": {
+      "before_sha256": "5c3285bab09da5ae8cfcb8d4b17fd2bb3fc3a8d2c9a9ab011b8447e3a158d21e",
+      "after_sha256": "97604233b57232ce19e7616e2887788ae0c2e8249a28d4c290cedbc1c79c1683",
+      "edits": [
+        {
+          "start": 9015,
+          "end": 9032,
+          "before": "ceiling_float_int",
+          "after": "ceil"
+        },
+        {
+          "start": 9033,
+          "end": 9033,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 9037,
+          "end": 9037,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java": {
+      "before_sha256": "8ce8a5680a8b3583a42423d37117ee760aeb3d01eb41f07e5f496642e022fe46",
+      "after_sha256": "09efb73612341964ef361b4a839e6da780bcb1cf06875aeb1d2cfdcf1d5fab2d",
+      "edits": [
+        {
+          "start": 2533,
+          "end": 2545,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2571,
+          "end": 2583,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2633,
+          "end": 2645,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/pollution/PollutionHandler.java": {
+      "before_sha256": "76494437080966b5e0211f638f85aaffb70dc45ce93730c6ffc1472640ce450b",
+      "after_sha256": "ddd6926b54d22a55f458229d528b11ee4ddb9c35d96ede662c64d341a231d6e7",
+      "edits": [
+        {
+          "start": 2749,
+          "end": 2760,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandler3D.java": {
+      "before_sha256": "9ff37318797fb9a20320eb41213bdb297335c22244cc38e4ab484652e5b40f7f",
+      "after_sha256": "f05e8a820330647c9d1f2b66670850810b13bec66c331d116f02512419478689",
+      "edits": [
+        {
+          "start": 1131,
+          "end": 1140,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 1644,
+          "end": 1653,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 3239,
+          "end": 3248,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java": {
+      "before_sha256": "f3e93e56a9059ae1149ff3a935124265a22ffe3badb6778c65e26363c789053d",
+      "after_sha256": "5bd01196b59cde04cee61afe52b42fe175280ced87d94da4ed5d8c28ae91de4c",
+      "edits": [
+        {
+          "start": 2894,
+          "end": 2903,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 3396,
+          "end": 3405,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 3727,
+          "end": 3738,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 3744,
+          "end": 3744,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3745,
+          "end": 3745,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8491,
+          "end": 8500,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 9529,
+          "end": 9540,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 9556,
+          "end": 9556,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 9557,
+          "end": 9557,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 12593,
+          "end": 12602,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 12807,
+          "end": 12816,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 12857,
+          "end": 12866,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 12907,
+          "end": 12916,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 13947,
+          "end": 13956,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 15031,
+          "end": 15040,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java": {
+      "before_sha256": "2d4d5d4292cd6d5e67398cbb81c3803f57ca639af2b2cb61bd603a0b929ae7a3",
+      "after_sha256": "dafb9a484cd0339f49130a78389cb04b40dadb692464af31c600676689d3b1ed",
+      "edits": [
+        {
+          "start": 1747,
+          "end": 1758,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 1764,
+          "end": 1764,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1765,
+          "end": 1765,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3110,
+          "end": 3121,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before_sha256": "ec2b34d3f72ade5732fabb71afb5402a3078e5bd945437e560c1010fc1aedb02",
+      "after_sha256": "6b5de13b7d140d4176c8ef757bd8adf520b04f3026f0b91c20241fee65f675a7",
+      "edits": [
+        {
+          "start": 3138,
+          "end": 3147,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 11457,
+          "end": 11466,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java": {
+      "before_sha256": "abf4667dbf80f409115475613a630a3f78ff3914eed6121894aa24ff79511dde",
+      "after_sha256": "29f824b9217fd79eb3a934b5f5840152682320891d7ac33d9ff19bcec782647c",
+      "edits": [
+        {
+          "start": 1952,
+          "end": 1961,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 2006,
+          "end": 2015,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 2970,
+          "end": 2979,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICoreEmitter.java": {
+      "before_sha256": "5ea92f34391398556fbe5c0c1b96e63d0e44ab8a4da8dcb51bca2685a2e23061",
+      "after_sha256": "4c7017108cd4982e69e464df9c737c7860b343a383415ff1f554555767c5fbe8",
+      "edits": [
+        {
+          "start": 2172,
+          "end": 2181,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICoreStabilizer.java": {
+      "before_sha256": "e726b169e16434e3b9052e6f50080bddab9acb4c867d406d6ad3186bdb133db6",
+      "after_sha256": "22acf0f6fd129ddb51c4ff145dbd8d81fe8eecd4b3dd91a61c18bab47ce4e54c",
+      "edits": [
+        {
+          "start": 2167,
+          "end": 2176,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java": {
+      "before_sha256": "59300b4c4793d65ece89a7943ecb7c482bc607a312c448efd5b32ab731aa5a63",
+      "after_sha256": "f9e4f35fbdffcc881b44ee60497b0df5c1d24c97fd4a3f5fec909e38f113a9b2",
+      "edits": [
+        {
+          "start": 4412,
+          "end": 4423,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 4431,
+          "end": 4431,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4441,
+          "end": 4441,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4443,
+          "end": 4443,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4446,
+          "end": 4446,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4471,
+          "end": 4482,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 4490,
+          "end": 4490,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4500,
+          "end": 4500,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4502,
+          "end": 4502,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4505,
+          "end": 4505,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUINukeAntimatter.java": {
+      "before_sha256": "074d615efa77598ec53141d94768cdc7afd8cbff8e0ca0b4081742f6bbe6edce",
+      "after_sha256": "867b1fa3d2a771e12e360864751729b69df9e22c1781317afb2157b0107835ee",
+      "edits": [
+        {
+          "start": 3531,
+          "end": 3540,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUINukeFstbmb.java": {
+      "before_sha256": "c0fa8687f031bf82bbb84ca80380f8c28c6bfbf36254d906a0edeb59861a4eba",
+      "after_sha256": "5df4846dadfe50a928de3202c220ff10ed290da973aef8f1d970ba189e707cac",
+      "edits": [
+        {
+          "start": 3675,
+          "end": 3684,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIPWR.java": {
+      "before_sha256": "dfa2dd0855d21ca935b62f235f2dc1deca38bdca8d6841b895b23837ed81e807",
+      "after_sha256": "879ae984e2a87668895f21ebd657d6bb7ccb8fd1988c30f76db095f795849322",
+      "edits": [
+        {
+          "start": 7776,
+          "end": 7788,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 7826,
+          "end": 7826,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 7827,
+          "end": 7827,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 7829,
+          "end": 7829,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 7832,
+          "end": 7832,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java": {
+      "before_sha256": "bbc09b700a585f63b1ad6895477e197f211a52317faa51447f49012761e3da0e",
+      "after_sha256": "91760c1b6b2455be1e09a4c3722e3fd059a2202e762ef565616528e995309588",
+      "edits": [
+        {
+          "start": 10423,
+          "end": 10435,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 10473,
+          "end": 10473,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 10474,
+          "end": 10474,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 10476,
+          "end": 10476,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 10479,
+          "end": 10479,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIRBMKControlAuto.java": {
+      "before_sha256": "6a7080da9137aae385119016890f14bfc299b96c66d62aca92f3728c35d85397",
+      "after_sha256": "84a9b7432f2481f034cc277859b3b3005015b964ad03c7950bd828343c6c819a",
+      "edits": [
+        {
+          "start": 4737,
+          "end": 4749,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 4791,
+          "end": 4791,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4792,
+          "end": 4792,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIReactorControl.java": {
+      "before_sha256": "3e8885e1bb556dd9b5fe0f7cda795d882793f036d66cac93e6d78e5020145653",
+      "after_sha256": "39b68f3eabe1c27c403e399a476636dfd9bc79e7aa4b8eb9916db666dd2fe1dc",
+      "edits": [
+        {
+          "start": 3484,
+          "end": 3496,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 3538,
+          "end": 3538,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3539,
+          "end": 3539,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5439,
+          "end": 5451,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 5515,
+          "end": 5515,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5516,
+          "end": 5516,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5518,
+          "end": 5518,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5520,
+          "end": 5520,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java": {
+      "before_sha256": "63504b496d9d3f53884f3162a013e4fd99b0b392edd556ddc30a1ef080bf7abb",
+      "after_sha256": "0c1466dd7bc4487a68dd8514195660dd3f951ca92c0152f03fa542a8bb860857",
+      "edits": [
+        {
+          "start": 3957,
+          "end": 3969,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 4007,
+          "end": 4007,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4008,
+          "end": 4008,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4010,
+          "end": 4010,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 4013,
+          "end": 4013,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5364,
+          "end": 5376,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 5414,
+          "end": 5414,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5415,
+          "end": 5415,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5417,
+          "end": 5417,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5420,
+          "end": 5420,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before_sha256": "97ad478b9b11e791cd9beeb45345601d5825097d938658f5a5208c656a10e1b2",
+      "after_sha256": "2d846f85669a3c643f884ae1dd098c0f73f6a4b889ea292b1cefbb7e3a3a0cad",
+      "edits": [
+        {
+          "start": 11624,
+          "end": 11633,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java": {
+      "before_sha256": "60a31bc7007dc006002887321b124af8d65c38d3d8ebf70207b3432d4ab30fe2",
+      "after_sha256": "04f580d2162fc8eff26b7c2d9904a7b9f36824d362ca6a789543dac2dcf55374",
+      "edits": [
+        {
+          "start": 5535,
+          "end": 5546,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 6510,
+          "end": 6521,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 6622,
+          "end": 6631,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUITransporterRocket.java": {
+      "before_sha256": "95f444385f175fa40ea5f8b0e882c8cc7f3d05a8288ebfdd2edca50f076dc71a",
+      "after_sha256": "db784bbaa2ca6b2331b231bdeb84fecdd647d0e721e420cb019cca8da7cb33c8",
+      "edits": [
+        {
+          "start": 3958,
+          "end": 3967,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIWatz.java": {
+      "before_sha256": "25835a61e025f5740864e2ebb14c201e8af47b65f5554e1800d2a004cbdf3648",
+      "after_sha256": "f24cf792abefd64ed41e39900072c3082d852416eb1bb2866a72eb9799279425",
+      "edits": [
+        {
+          "start": 2985,
+          "end": 2996,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java": {
+      "before_sha256": "2fcd59d49e5841b25b9742cff1f890408dbc5c399deca7dc0640fb701504ad0f",
+      "after_sha256": "3cfc34bb6cf9dfa45036949bec96b396fb699e7448014388b73deea754cd3ee7",
+      "edits": [
+        {
+          "start": 7210,
+          "end": 7222,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 10556,
+          "end": 10565,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAsbestos.java": {
+      "before_sha256": "25034ff51fa42a6613d92619db6571706993f09a59abbe7753f701a1151a06c2",
+      "after_sha256": "62cc3bde807be1e6eaa2ecac9f276458124b54a1086f76099ea6c207f8054e77",
+      "edits": [
+        {
+          "start": 1827,
+          "end": 1839,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1840,
+          "end": 1840,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1849,
+          "end": 1849,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "5e62ef27c27f3b5dde993ef6cd1ae623a3f6d312f4e69cf85c02c1007016807f",
+      "after_sha256": "f372d2a1654c82e7ac9d3fa78cfc5d13f11728c0bf411edce264b251c0af8ad7",
+      "edits": [
+        {
+          "start": 10407,
+          "end": 10419,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 10457,
+          "end": 10469,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 10540,
+          "end": 10552,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModGasmask.java": {
+      "before_sha256": "aafc3dddfed9e874d6d59d7f8bd34e06af4f8198f7c0cc15f89401e0920ad262",
+      "after_sha256": "8f39add764b8f58276ae5e93f5005c78d96a25f2196645c953673dea26427faa",
+      "edits": [
+        {
+          "start": 2947,
+          "end": 2967,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java": {
+      "before_sha256": "18513a2163f775b4b78c3e03e1f68ef7478187997d59f6f1eb18d4a7b294ea72",
+      "after_sha256": "15b4b57f3e90066daec9f04681d8b14348bde3d1725535b8bdd4bf3ac5623c14",
+      "edits": [
+        {
+          "start": 4418,
+          "end": 4438,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModTesla.java": {
+      "before_sha256": "d11e4f092ebd10027c042c15b6c4ed689a2d85589e9c15f3b7b74b45a5eab655",
+      "after_sha256": "840eddccc39e479ebfbc4d03167a1e61127538268a160c414743102f4015a49f",
+      "edits": [
+        {
+          "start": 2680,
+          "end": 2700,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBase.java": {
+      "before_sha256": "64cec6f41406fe16c7af5d36f2478d9f7c60ed64fd658f53744b35c53bc267f4",
+      "after_sha256": "e57ceee6c17bf17e79d8358c9b61c7222cfb0a5e54fdc29d313a690025123057",
+      "edits": [
+        {
+          "start": 2493,
+          "end": 2513,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "before_sha256": "3d42a0f516e3cb7dc6f258cd8b4f06fca161ddba74925043762547162da0bec2",
+      "after_sha256": "6a22a33bd8f52a7ad4aa2b24c30cb97a2246b3f8fa83609d805eb9b4dcb2230c",
+      "edits": [
+        {
+          "start": 3502,
+          "end": 3514,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3557,
+          "end": 3569,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 3612,
+          "end": 3624,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSoyuz.java": {
+      "before_sha256": "e8e5fe1a312894bb97d7f14ba4314f510e541c2270fbe5864990a96336ac2d97",
+      "after_sha256": "3bc65cc7cd8f667d0320a4a4b5feff5ed3e710cac895d960c7573ec6c6aae08f",
+      "edits": [
+        {
+          "start": 1908,
+          "end": 1917,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBoatRubber.java": {
+      "before_sha256": "5eab760d6d1b9dee6ccb43180d8b14a43d38f2df9367ad7f401e784e5601b14b",
+      "after_sha256": "dc12627210b8e83b9ea1ace95f630f546c1cbd8f82f0558f039b37e269fa91ea",
+      "edits": [
+        {
+          "start": 2990,
+          "end": 3002,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModDoor.java": {
+      "before_sha256": "9f3a857923cf4f2479c952750d74ab5fb5314bb5daf17385abd3c1a329f8b8a1",
+      "after_sha256": "2aff9941af5daf12bed2dca51ca24490233f54dc2be844897d2f42f2396d523f",
+      "edits": [
+        {
+          "start": 1313,
+          "end": 1325,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemOilDetector.java": {
+      "before_sha256": "138f8aef61707be3a510c53ed2563dca11da0857b1300ab8ed45333529684615",
+      "after_sha256": "478695b1d861d058cda84d2ab311ad86b2d57c39ca7215f5cdfe5297836feff9",
+      "edits": [
+        {
+          "start": 1116,
+          "end": 1128,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1165,
+          "end": 1177,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1214,
+          "end": 1226,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandD.java": {
+      "before_sha256": "c522394489e0481a0432f8bca2e868734612484903f9ec0acacc2f41d2d0804e",
+      "after_sha256": "47dedf14c265ca999d4fd0f8d091a6185f81658ec5983595b9400313d9b665fc",
+      "edits": [
+        {
+          "start": 4169,
+          "end": 4181,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4207,
+          "end": 4219,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4249,
+          "end": 4261,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/ItemGunBaseNT.java": {
+      "before_sha256": "7a2cca5f0b3776c2ab777878c541da2253b2eef00501f9b807461b3512df99ac",
+      "after_sha256": "bb3c6cef687bbf53fa6e5e89c03395db05d8a1933c2a0dd8ba30cd48bcb15d1a",
+      "edits": [
+        {
+          "start": 7975,
+          "end": 7984,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 14233,
+          "end": 14244,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java": {
+      "before_sha256": "7c58eca2965dba8e8f03346cbafc140b5af7c40ecbec832c441d3a44dcbe31a7",
+      "after_sha256": "84b23045173a52a9b45866044444b9a76dcd184b8bee48ac98b71d31af470b80",
+      "edits": [
+        {
+          "start": 1581,
+          "end": 1590,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 2032,
+          "end": 2041,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java": {
+      "before_sha256": "fda38f69f5083466008622add0071a4c0156d78bdeb46f9c5bc51cb331a78135",
+      "after_sha256": "08a310990da38f37f5ffb314c9614e87968124f59e5d08dd1188f70161ef4cfe",
+      "edits": [
+        {
+          "start": 13308,
+          "end": 13320,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 13415,
+          "end": 13415,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 13416,
+          "end": 13416,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 13418,
+          "end": 13418,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 13419,
+          "end": 13419,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 14655,
+          "end": 14667,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 14762,
+          "end": 14762,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 14763,
+          "end": 14763,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 14765,
+          "end": 14765,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 14766,
+          "end": 14766,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 15809,
+          "end": 15821,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 15916,
+          "end": 15916,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 15917,
+          "end": 15917,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 15919,
+          "end": 15919,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 15920,
+          "end": 15920,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 16978,
+          "end": 16990,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 17085,
+          "end": 17085,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 17086,
+          "end": 17086,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 17088,
+          "end": 17088,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 17089,
+          "end": 17089,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 18144,
+          "end": 18156,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 18251,
+          "end": 18251,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 18252,
+          "end": 18252,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 18254,
+          "end": 18254,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 18255,
+          "end": 18255,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 18866,
+          "end": 18878,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 18973,
+          "end": 18973,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 18974,
+          "end": 18974,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 18976,
+          "end": 18976,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 18977,
+          "end": 18977,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 19583,
+          "end": 19595,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 19690,
+          "end": 19690,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 19691,
+          "end": 19691,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 19693,
+          "end": 19693,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 19694,
+          "end": 19694,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 21290,
+          "end": 21302,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 21397,
+          "end": 21397,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 21398,
+          "end": 21398,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 21400,
+          "end": 21400,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 21401,
+          "end": 21401,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 21894,
+          "end": 21906,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 22001,
+          "end": 22001,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 22002,
+          "end": 22002,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 22004,
+          "end": 22004,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 22005,
+          "end": 22005,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 27934,
+          "end": 27946,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 27963,
+          "end": 27975,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 27992,
+          "end": 28004,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/mods/XWeaponModManager.java": {
+      "before_sha256": "935a9c28287a12d9f2705332754c7833cf8ebb5dd802504bc63d52a31c4218e3",
+      "after_sha256": "dcda4e876fc588700069a5dd9a3528f82600804720e5bd37c2f3bcd0b0e39f8b",
+      "edits": [
+        {
+          "start": 19713,
+          "end": 19722,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/lib/Library.java": {
+      "before_sha256": "c06802c6368e5cadad3cf6dc064e84d218d4c6cf7c8d9d89a0d83ddc2569fc67",
+      "after_sha256": "40be2d7b8191b0cec5dbab570420e9494044a81d57b0dd7108f7df34684d2745",
+      "edits": [
+        {
+          "start": 10117,
+          "end": 10129,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 10294,
+          "end": 10305,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerRenderer.java": {
+      "before_sha256": "5b6dfcbbe716ff0b7cc929270178a769df49f39442e616c75758473e3fea3a4a",
+      "after_sha256": "bf4b833c90f73f6b9e7074660d6d0665ecbd23b661d0b5d1c8faf48f3d867f09",
+      "edits": [
+        {
+          "start": 7918,
+          "end": 7930,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8025,
+          "end": 8037,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8718,
+          "end": 8736,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 8803,
+          "end": 8821,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        },
+        {
+          "start": 12241,
+          "end": 12252,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/module/NumberDisplay.java": {
+      "before_sha256": "9096ca792d170155dc529c1d14c14f321acf7274fe8adfebe554ec7643632ef2",
+      "after_sha256": "dcbdd6802f6b02581ee5068343300768ef9344a95601a3cb05b8c9e72cf1ac24",
+      "edits": [
+        {
+          "start": 8036,
+          "end": 8048,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8068,
+          "end": 8068,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8074,
+          "end": 8074,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8076,
+          "end": 8076,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8082,
+          "end": 8082,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/qmaw/GuiQMAW.java": {
+      "before_sha256": "b10b3dca9c5531faf4b81ec3e37b6d81adb17f0fbf540a26d8a3616f7f7f3478",
+      "after_sha256": "4c2f5ec5151c52fdf962949dea80e1973fb57d1d965b884d5f35c7e24738de31",
+      "edits": [
+        {
+          "start": 7431,
+          "end": 7443,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 7521,
+          "end": 7530,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderFallout.java": {
+      "before_sha256": "08276472e20185fd3433d0dc414ea5df354a22106d25b04c2237c6120f2aad15",
+      "after_sha256": "175e1b8366176221681b184d8febd43fa4fbc3f63c8078257e80c1e992dcc034",
+      "edits": [
+        {
+          "start": 2252,
+          "end": 2262,
+          "before": "sqrt_float",
+          "after": "sqrt"
+        },
+        {
+          "start": 2516,
+          "end": 2528,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2571,
+          "end": 2583,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2626,
+          "end": 2638,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 2936,
+          "end": 2948,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4854,
+          "end": 4865,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderBoatRubber.java": {
+      "before_sha256": "bf686a7b9a525b81b64c243144a5d38569d08d1991364da141bbe6d83a6818ae",
+      "after_sha256": "1aeb931f399be80981d0044cad8ee4e86e27f9bba2c8aa96f582b6f76172b12b",
+      "edits": [
+        {
+          "start": 1454,
+          "end": 1474,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderBehemoth.java": {
+      "before_sha256": "ce6f946c0bc5e2724b34d88462ebe0ec5c01511451d5cf42c3b007c551a73106",
+      "after_sha256": "b0e141df5e385f9abca57c4b8e0115d1d2d999efd3b6508fdf3d4b37b8dc07c7",
+      "edits": [
+        {
+          "start": 2589,
+          "end": 2610,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderGlyphid.java": {
+      "before_sha256": "03879b40393cabb6c8019a0c4f18dc0c469e852cb5a6856167ced00cf75b533e",
+      "after_sha256": "db510d2a4a293cce2f91425f5cd788660de79b33afea625e4686e9e4e627645e",
+      "edits": [
+        {
+          "start": 2659,
+          "end": 2671,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 2723,
+          "end": 2723,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2724,
+          "end": 2724,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2726,
+          "end": 2726,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2727,
+          "end": 2727,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderGlyphidNuclear.java": {
+      "before_sha256": "b3294678b96424e413b583a1a884c3fb1ecd09b4b65f0d216d9a12e6c99ff3dd",
+      "after_sha256": "09d399a8fdda887b8ee0b9354f56f8248405b1f88c22020f7bbf61fd2577b0bd",
+      "edits": [
+        {
+          "start": 3262,
+          "end": 3274,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 3326,
+          "end": 3326,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3327,
+          "end": 3327,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3329,
+          "end": 3329,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 3330,
+          "end": 3330,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderTankbot.java": {
+      "before_sha256": "50aac77c2532e1ac5ef90ea43ec462c30602220956670c74015dcf5c3703f75a",
+      "after_sha256": "d0d2c334f208087e2747a95ee40e1417420c457eabcda6cbffca09943ad20a16",
+      "edits": [
+        {
+          "start": 2165,
+          "end": 2186,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/part/RenderDropPod.java": {
+      "before_sha256": "556de13e1841390a8a7c29a1fdd6aefb05594cb602734f8c2849a5dc5e50b2bf",
+      "after_sha256": "069780b1ae1ec6c1db167c6b0e9c772b99bb4a5f9240c42c4ac217c2590a74f9",
+      "edits": [
+        {
+          "start": 1040,
+          "end": 1051,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 1067,
+          "end": 1067,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1068,
+          "end": 1068,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1070,
+          "end": 1070,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1072,
+          "end": 1072,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1151,
+          "end": 1162,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 1183,
+          "end": 1183,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1184,
+          "end": 1184,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1186,
+          "end": 1186,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1188,
+          "end": 1188,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1732,
+          "end": 1743,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 1801,
+          "end": 1801,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1802,
+          "end": 1802,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1804,
+          "end": 1804,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1805,
+          "end": 1805,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java": {
+      "before_sha256": "701cd5dbe74f909be81eca12f210ba17915bf3d1425c6f0b8ab2c1ce7d7c0014",
+      "after_sha256": "c99632931beb3c3bd52c9570065ac1d91439f9c74bb983abeacb5e405dfbc638",
+      "edits": [
+        {
+          "start": 4765,
+          "end": 4776,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 4837,
+          "end": 4837,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4838,
+          "end": 4838,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 4840,
+          "end": 4840,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 4843,
+          "end": 4843,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java": {
+      "before_sha256": "22aeb2540a9061e873cbdfdc98dc30bb76b3420de1da7cdfabd93410f28d855b",
+      "after_sha256": "2c2f13c5594b57c2a2cad151374d29800acb78e403535e1e4288717feb14cbf6",
+      "edits": [
+        {
+          "start": 3060,
+          "end": 3071,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 3072,
+          "end": 3072,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3133,
+          "end": 3133,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3135,
+          "end": 3135,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3136,
+          "end": 3136,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3138,
+          "end": 3138,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3158,
+          "end": 3158,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLaserMiner.java": {
+      "before_sha256": "0dfdbce8958d36ebdf8b4c42f7bc0df8028cc9f621b7c1a991c937e616af313a",
+      "after_sha256": "bac228f47caa7938b434c91acbdb69c68e88cace389613aa6755b4459101f699",
+      "edits": [
+        {
+          "start": 1503,
+          "end": 1514,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java": {
+      "before_sha256": "1b6a497e9da6f9c3eccd7d708e23b0d4dc185cd8cf8fb8f960141e7f323be223",
+      "after_sha256": "720cb500cfd6b3a63260db4f9c5d54de70cf8cda08ec23425ee5be26d96e7f88",
+      "edits": [
+        {
+          "start": 4769,
+          "end": 4781,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4798,
+          "end": 4810,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4827,
+          "end": 4839,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKGauge.java": {
+      "before_sha256": "2a855fd4bb391967c8ab69eb6c37a0427e38aedbaa89cbbddd1796dc7d1633f5",
+      "after_sha256": "0ffc70a1aa51186c652a0e19ea27893d0883acddd861ca81cc6690c1ced7f6f7",
+      "edits": [
+        {
+          "start": 1970,
+          "end": 1982,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1990,
+          "end": 1990,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1991,
+          "end": 1991,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1993,
+          "end": 1993,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1995,
+          "end": 1995,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java": {
+      "before_sha256": "e6897f79a1a788e4ea556c3a0debbb72a6cfed0fa57a046676a7a0910e92dec5",
+      "after_sha256": "032c2af8eb43fdf7f558244b1cdebed1f0213a31b4df292e1a57a3dea6efcb65",
+      "edits": [
+        {
+          "start": 1355,
+          "end": 1366,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 1395,
+          "end": 1395,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1396,
+          "end": 1396,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1398,
+          "end": 1398,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1399,
+          "end": 1399,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1732,
+          "end": 1743,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 1798,
+          "end": 1798,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1799,
+          "end": 1799,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1801,
+          "end": 1801,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 1804,
+          "end": 1804,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderAirlockDoor.java": {
+      "before_sha256": "d4feef0a530aae8c0e8feba34e9a61d741178a32c4b16399c7a9407ffa77663c",
+      "after_sha256": "a827f29d06b9c181f01bf6698597eb11fc9623594b0f91ed96e16a74fd637d4b",
+      "edits": [
+        {
+          "start": 1379,
+          "end": 1391,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1398,
+          "end": 1398,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1399,
+          "end": 1399,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1554,
+          "end": 1566,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1573,
+          "end": 1573,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1574,
+          "end": 1574,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderContainmentDoor.java": {
+      "before_sha256": "3e2ef7a527792e61181f5053b0c5ecf4f910b6d16ffa9c9a5be6194b277803ef",
+      "after_sha256": "75b1a5910a611cd8d2a90f0f8937c141b8f4ff05bea49f07ac3ec0f89de74202",
+      "edits": [
+        {
+          "start": 1181,
+          "end": 1193,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1201,
+          "end": 1201,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1202,
+          "end": 1202,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderFireDoor.java": {
+      "before_sha256": "84413f61eb03c9378f4390ae4658584b97199337d520abbf6481abb27cbf7076",
+      "after_sha256": "6c95149299a01e9ddcfe2a2ba0092d64d594244361641e4ae1519265bfcf33cc",
+      "edits": [
+        {
+          "start": 1032,
+          "end": 1044,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1052,
+          "end": 1052,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1053,
+          "end": 1053,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderSealDoor.java": {
+      "before_sha256": "c60ff08aa32edd5d181a322eda1de4c57a05bb246ed6f30f844db352eb422064",
+      "after_sha256": "3ba3f39bd06270156843fe862e25d05289d8ef118bceb4d739ad2910eebe5e49",
+      "edits": [
+        {
+          "start": 1139,
+          "end": 1151,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1159,
+          "end": 1159,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1160,
+          "end": 1160,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderSecureDoor.java": {
+      "before_sha256": "0be30abb0164803079791445091d0eb9cdb0f6034cc3534f8331a7d3fd38270c",
+      "after_sha256": "13ca2b0bffb09e422b2327725c083200831861a831c1caa7f28bc285a780d38d",
+      "edits": [
+        {
+          "start": 1014,
+          "end": 1026,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1034,
+          "end": 1034,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1035,
+          "end": 1035,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderSlidingBlastDoor.java": {
+      "before_sha256": "8d4319c516e1cbc718af28cc34a7ce36822946749f3b5f49d2ea31610b99b9d1",
+      "after_sha256": "536c364faced70c9460b6145a686010c919213075c9a823ebd912687d976d512",
+      "edits": [
+        {
+          "start": 1423,
+          "end": 1435,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1442,
+          "end": 1442,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1443,
+          "end": 1443,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1813,
+          "end": 1825,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1832,
+          "end": 1832,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1833,
+          "end": 1833,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderSlidingDoor.java": {
+      "before_sha256": "d0befb6ee035786070d0b89a43bd50f5ddbda03f30b2fcde9219683553a4e7b5",
+      "after_sha256": "fd327ee2d414f8e1dc61ad9114410261cc0673abfcdc672de39bef0b5abf34a4",
+      "edits": [
+        {
+          "start": 1027,
+          "end": 1039,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1046,
+          "end": 1046,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1047,
+          "end": 1047,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1202,
+          "end": 1214,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1221,
+          "end": 1221,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1222,
+          "end": 1222,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/door/RenderVehicleDoor.java": {
+      "before_sha256": "21901eb48c8cf9ed5485b5c0ba852c37571f25bc89066ffdaa14a43a848b853a",
+      "after_sha256": "b4ba1d5f7dc53693dd15fb88c79c6705d0e9d9cdc79eff9ba8c31b13bf4cfbae",
+      "edits": [
+        {
+          "start": 1301,
+          "end": 1313,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1320,
+          "end": 1320,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1321,
+          "end": 1321,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1475,
+          "end": 1487,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 1494,
+          "end": 1494,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 1495,
+          "end": 1495,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/GaugeUtil.java": {
+      "before_sha256": "77bc70415f896ab9b27b65b8bea5093b766df892b805781df3695ed5616c23fb",
+      "after_sha256": "e4f31ebd7ba0754c1f78a6e6d01a4a17bb2a5b67604d6cedeb0bf60af42019e1",
+      "edits": [
+        {
+          "start": 2812,
+          "end": 2824,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 2835,
+          "end": 2835,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2836,
+          "end": 2836,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2838,
+          "end": 2838,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2839,
+          "end": 2839,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java": {
+      "before_sha256": "4efd18ecfcb86a8ab58aaafccb3e5f04520ca8bf367b4baff666598b4e8e02f8",
+      "after_sha256": "925d7b3924036c6693af3de6361895d240e921e907743c34efd38c4185461a14",
+      "edits": [
+        {
+          "start": 7671,
+          "end": 7691,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 8542,
+          "end": 8562,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 9395,
+          "end": 9415,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": {
+      "before_sha256": "86bd7c354eeb5d4a9b432755c3a18987d605500b1d39ad32f6d0110a33efcc4a",
+      "after_sha256": "d88735324577fd5fd5a7a90eeea49268540cdb4a10cc64a1f6ff86365bcc9d29",
+      "edits": [
+        {
+          "start": 13145,
+          "end": 13154,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java": {
+      "before_sha256": "b634430c52fafbc8a7b6e0ef72451b2dd53d1ac2ce4889225ead5e0f288cfe02",
+      "after_sha256": "ffc400662b0b488363dbec907f4f4e90a0b753c672be97e5b0d735a7b8616fb5",
+      "edits": [
+        {
+          "start": 4259,
+          "end": 4271,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java": {
+      "before_sha256": "c4ff0012c7b6a96d5262c97ed8a7f21c67e1f2fe79d890a82f933f7345018d03",
+      "after_sha256": "beed3f88d81996a26e88d4300f920d81550157a5c493905354c9d7b2e1e13071",
+      "edits": [
+        {
+          "start": 893,
+          "end": 905,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 960,
+          "end": 972,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1027,
+          "end": 1039,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1099,
+          "end": 1111,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1170,
+          "end": 1182,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1242,
+          "end": 1254,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1952,
+          "end": 1963,
+          "before": "sqrt_double",
+          "after": "sqrt"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java": {
+      "before_sha256": "b9c338a6acd7eefeac8175a6fe0b8975572a1bc4af68d753225c9d3d1b16332b",
+      "after_sha256": "ae65719b252c61b6152b76f222ff2e25883ddbbcef6b9d06f2fcf15d3e8c4ed9",
+      "edits": [
+        {
+          "start": 4176,
+          "end": 4185,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 5103,
+          "end": 5112,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 9067,
+          "end": 9076,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java": {
+      "before_sha256": "c9a9169c611ba0031af2d1e4a05a8ba6e56b58953ab243edcda53b736c15ef9d",
+      "after_sha256": "f12542b4181b5c47ec1e404287d8430cdb3c70108ac48ea684ed232b2de265ec",
+      "edits": [
+        {
+          "start": 3680,
+          "end": 3691,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "2584a967bdd2ee1c2f9d05c45ae479e7be7de242c5111854fa2f1a18b48ad0eb",
+      "after_sha256": "02ffb2d6391ae0600e1dced6799c8596f767014e2925abb841ad46a3475f2af8",
+      "edits": [
+        {
+          "start": 2542,
+          "end": 2551,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 8946,
+          "end": 8955,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java": {
+      "before_sha256": "9a41291047fe8a8c7c82b89ddad02398ccc9bb6cff41c800cefc1fd3e0db13f3",
+      "after_sha256": "c4aec53089edc2f8fcf7cca8188f84697df93a0da9f0a2c866e13684aa553f90",
+      "edits": [
+        {
+          "start": 1987,
+          "end": 1996,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 6247,
+          "end": 6256,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+      "before_sha256": "f9dc1c0f691da451e40d460ab4cfb2e545e4ddc110b7e2de27968cdcbb4fe6e4",
+      "after_sha256": "77eae3cd35d17ad1eb4235b176b07af298ebf8998222df2e8f2608eea31c2036",
+      "edits": [
+        {
+          "start": 7037,
+          "end": 7046,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java": {
+      "before_sha256": "bdc9e0120a9a0a8337ba428886b642acd20a75ca94d69ddb55ca0b9e0994644c",
+      "after_sha256": "ab43db3183b703135327b37dbaa0d5e1ca31252d4eb7bfb283a5ea969991b678",
+      "edits": [
+        {
+          "start": 4481,
+          "end": 4492,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java": {
+      "before_sha256": "c17570db9b40089a1cc0e6b4345e045ac28327363365bfec2fe8b8da1ad7c113",
+      "after_sha256": "1a1d219de07290423c546ce82a1ab0663b5f03019ba15b72090b1076d506c288",
+      "edits": [
+        {
+          "start": 7180,
+          "end": 7189,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": {
+      "before_sha256": "33e0ee04876530268de6bfbc89906dee7aecc41b738dc27b18537ad09b637d36",
+      "after_sha256": "7ec052e173438058efd765958d37139a60762da1bcc95170ae4b105f5b27c414",
+      "edits": [
+        {
+          "start": 7976,
+          "end": 7997,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 8068,
+          "end": 8089,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java": {
+      "before_sha256": "25823d4cb1543983b70c8ebdfff5dd1176dff0faa7769fb1e6eda8eafe0d8a00",
+      "after_sha256": "51d5c917cb46deeddeb8f476beaa4fc1d8e7db45b5ab2a937d2295d221fbe56d",
+      "edits": [
+        {
+          "start": 6708,
+          "end": 6717,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java": {
+      "before_sha256": "40a19523542081a76875d28a4a44d5999d8f1d7cf56646ead6a8a6d4ef5a552a",
+      "after_sha256": "ca5e8e9973226dfb4c02b36cf04bd2a30fff9714eab9ab094068a9a53a1f8a7b",
+      "edits": [
+        {
+          "start": 4531,
+          "end": 4542,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressor.java": {
+      "before_sha256": "30a7f42b3783c752c1886d06c63007ac91cf7006becb186e2c3941bc9e2e2d0b",
+      "after_sha256": "7726d350f818379f14cf63bd92894a10ece94fe5fa377eb06b5a671253cdd639",
+      "edits": [
+        {
+          "start": 1307,
+          "end": 1318,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": {
+      "before_sha256": "6f7eaf53c07b0f57209a7b0dc6bff4ebae88a178972c384c5623d76db5e8e4e2",
+      "after_sha256": "308b4770d7c3d296c44aa1842abf7ef7a7061ee75e8274638a7195b32ab2e6b9",
+      "edits": [
+        {
+          "start": 5660,
+          "end": 5671,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 5710,
+          "end": 5710,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 5711,
+          "end": 5711,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5713,
+          "end": 5713,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 5714,
+          "end": 5714,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java": {
+      "before_sha256": "bcc6f705b4d10bc9debc9cf8330abbfd077fc579e7921373165acef268978397",
+      "after_sha256": "7c443245c3e0aa40ca40e92151ceb5734539d753a414cda4cf85e08c5e439ff2",
+      "edits": [
+        {
+          "start": 7530,
+          "end": 7539,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java": {
+      "before_sha256": "341197644fbcefd3f18db300a19cc4cdedf2588d8f0e493fd765b7d69aeb1721",
+      "after_sha256": "caff6ade696090931d0e69523d93a2047259d4915de8f5164540e6ffeb04b43e",
+      "edits": [
+        {
+          "start": 2051,
+          "end": 2060,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 2415,
+          "end": 2424,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java": {
+      "before_sha256": "b631d35be3010d52f34a8b698880ed5aea86d1721ebc47ebcfd52252f5bdc027",
+      "after_sha256": "d9d1437b9ad7b72c840bd367eb0c7571fe821342a897bc82554eb7ca82c1ca03",
+      "edits": [
+        {
+          "start": 4457,
+          "end": 4468,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java": {
+      "before_sha256": "67a550d943e390412ba0a5a79b57de9fb49a72083d2c6e0cfa1af727a017c42c",
+      "after_sha256": "84414e085be43fa8a85ce4290b3b0f5d4f551b033c64d055af5b4c204883a688",
+      "edits": [
+        {
+          "start": 5614,
+          "end": 5626,
+          "before": "clamp_double",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": {
+      "before_sha256": "255a9e107b1964f8645859be1dbd7d43256c8056533f67add569b7b95aff529b",
+      "after_sha256": "808b8a54f9de7fea0a1c3fe0aa107ed60a2bb1fe9bcf2e23fde0737449ac04e3",
+      "edits": [
+        {
+          "start": 6490,
+          "end": 6501,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 6540,
+          "end": 6540,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 6541,
+          "end": 6541,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 6543,
+          "end": 6543,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 6544,
+          "end": 6544,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolarPanel.java": {
+      "before_sha256": "0dba062979e1b4c59471f3e4f78242eafef621c1d94d2ffe6f4b7cc6f94be1b9",
+      "after_sha256": "58155460cd28064168e077cde87e96cb0955f125f7c4fabf31af29d02fc886a4",
+      "edits": [
+        {
+          "start": 1596,
+          "end": 1613,
+          "before": "ceiling_float_int",
+          "after": "ceil"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java": {
+      "before_sha256": "94894a08c9c00fa604880c4caa555b7d95c84b6c03717d6ae69ce4c989f2373e",
+      "after_sha256": "4c168f24c8ca8f77b60b17f718e1fb6ec1e27323dc4681012c21432a624d55de",
+      "edits": [
+        {
+          "start": 2416,
+          "end": 2436,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 3575,
+          "end": 3595,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        },
+        {
+          "start": 3648,
+          "end": 3659,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 3849,
+          "end": 3860,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 7099,
+          "end": 7110,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 7177,
+          "end": 7188,
+          "before": "floor_float",
+          "after": "floor"
+        },
+        {
+          "start": 7678,
+          "end": 7698,
+          "before": "wrapAngleTo180_float",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java": {
+      "before_sha256": "a9993d1c25733ace2c35cc92f48e845c107e50d1036fea4f3090d5168d4b9eb5",
+      "after_sha256": "5f5b6d209d4bb91730c0213290858436ce0de89a4483dca6478f8e9b42a77613",
+      "edits": [
+        {
+          "start": 6962,
+          "end": 6971,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java": {
+      "before_sha256": "9d90ee67f61117bd73d24cc2fa9640dac8b73edb9a7909a3df8ac8e48354c3b6",
+      "after_sha256": "db4382334ea36e022b1351dcdf5ab0ca0345d578d753286f29e0480fb7dfe806",
+      "edits": [
+        {
+          "start": 18377,
+          "end": 18386,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 20149,
+          "end": 20161,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 20183,
+          "end": 20183,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 20184,
+          "end": 20184,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 20186,
+          "end": 20186,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 20189,
+          "end": 20189,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java": {
+      "before_sha256": "abfaf962d5868f3f2477733d251d29a541067885f44ebf91851349f9d03512d4",
+      "after_sha256": "5b9dbda039ab0f15c4c1a8c7e6d0c193c009b48b2c4a7baeae73b57d9f047032",
+      "edits": [
+        {
+          "start": 3802,
+          "end": 3814,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8165,
+          "end": 8174,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 8221,
+          "end": 8233,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8246,
+          "end": 8246,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8247,
+          "end": 8247,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8249,
+          "end": 8249,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8253,
+          "end": 8253,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8281,
+          "end": 8293,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8306,
+          "end": 8306,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8307,
+          "end": 8307,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8309,
+          "end": 8309,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8313,
+          "end": 8313,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8342,
+          "end": 8354,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8368,
+          "end": 8368,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8369,
+          "end": 8369,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8371,
+          "end": 8371,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8372,
+          "end": 8372,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8401,
+          "end": 8413,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 8427,
+          "end": 8427,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8428,
+          "end": 8428,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 8430,
+          "end": 8430,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 8431,
+          "end": 8431,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before_sha256": "a17a6d85ee2ddf43d9bdbc42cd08d38a84e298106e388093133206dd6b9d4be3",
+      "after_sha256": "60e061d240a7e73f736fef9964e854eda8d55cc29d5faa15919df72fc326087d",
+      "edits": [
+        {
+          "start": 16369,
+          "end": 16381,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 16392,
+          "end": 16392,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 16393,
+          "end": 16393,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java": {
+      "before_sha256": "7bb3335126abadcdfdb63998b97b0a7787121def7276b04a4ce34fcd6c058339",
+      "after_sha256": "c7b2b133a84a30637ccf57b32876077c9cc9bf820e50cf145680b8fcfd24eaf4",
+      "edits": [
+        {
+          "start": 18264,
+          "end": 18273,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java": {
+      "before_sha256": "ea8ca98cf19f3b8d139a5a0af6884bdfa8e06fbb6d9843810c96f0f6c64e9e62",
+      "after_sha256": "9f099f9c2d901b1ebf8110107811c6763b3123e23cd93ad8ec79a1629e14e852",
+      "edits": [
+        {
+          "start": 3307,
+          "end": 3318,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 4175,
+          "end": 4196,
+          "before": "wrapAngleTo180_double",
+          "after": "wrapDegrees"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java": {
+      "before_sha256": "eef222f78b87a11f970b40d1659c504ae1d8694194d87131f139b26ed7c6e394",
+      "after_sha256": "de234faca15b0bb47ab6fe6a22459c9bd9984cb9e707229402bd778efff989d8",
+      "edits": [
+        {
+          "start": 3645,
+          "end": 3656,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 3682,
+          "end": 3682,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3683,
+          "end": 3683,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3685,
+          "end": 3685,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3687,
+          "end": 3687,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java": {
+      "before_sha256": "22dba0e6b377a63b14e03f4983e0114f21fb48cd699b339a2833c834b3ab6d09",
+      "after_sha256": "4f28b9c5a3db2dc514673a3d1798260bb43334584079cba51cf3ddea9f8a4b9c",
+      "edits": [
+        {
+          "start": 9740,
+          "end": 9757,
+          "before": "ceiling_float_int",
+          "after": "ceil"
+        },
+        {
+          "start": 9807,
+          "end": 9819,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 9820,
+          "end": 9820,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 9839,
+          "end": 9839,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java": {
+      "before_sha256": "0b72ae5647cde0276cedfd3bf4fc1036b394e5987e3e0d680d1d552b862edd70",
+      "after_sha256": "d497fd9efb98589e9b1a905faa7691106900b1ca75efbabbeef1dc81924feeed",
+      "edits": [
+        {
+          "start": 1677,
+          "end": 1686,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java": {
+      "before_sha256": "e98893cd32e8eb4b1d534c633b6c7ef3dbc312c316d39604546a21272ae54712",
+      "after_sha256": "18bc178b4afc1669794accf86f963da58c00f004c1b86521d42ca4fd953e40b1",
+      "edits": [
+        {
+          "start": 7261,
+          "end": 7270,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 10042,
+          "end": 10051,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java": {
+      "before_sha256": "5f9997ab8f07b09ce6fa6c8d6e0b7604da475d9fa0ec7a4dc7707e19318f27fc",
+      "after_sha256": "365e649b3afecb421812f24cf3cf8657726a2301dc5abb9f5e05a702fa9ffbfa",
+      "edits": [
+        {
+          "start": 3121,
+          "end": 3130,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": {
+      "before_sha256": "4112040e0a609dceee995b0f250bda1c6b3fd96148f02fa60ec32e0d4a343068",
+      "after_sha256": "1f8a610ac8c73e310929c46f9846a228d78dcd7aeb87a906332cb5b1d8a270ff",
+      "edits": [
+        {
+          "start": 3872,
+          "end": 3883,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 10941,
+          "end": 10953,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 10980,
+          "end": 10980,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 10990,
+          "end": 10990,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystronCreative.java": {
+      "before_sha256": "2b1b1277161e7a3f0c7095fab73cf75abd0c11687190818621c1cd7421090a17",
+      "after_sha256": "112b693b172a4c90e3bd09d09c3a4fcd44903fcfe62c4b16fe00f0b123217002",
+      "edits": [
+        {
+          "start": 1270,
+          "end": 1281,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java": {
+      "before_sha256": "d5e31ee5a9765bbf7da7e86e9444fd957ae7242d600a5069fb08d5ec2236244d",
+      "after_sha256": "9057024700290650336b4c09b29cc56d0b3daec5481cd5b3b1ff6743a0b4f10b",
+      "edits": [
+        {
+          "start": 4434,
+          "end": 4445,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java": {
+      "before_sha256": "fa99c6275e101800cbe522d6f5471f9fbd931a024406ba1c23ad41c53e0b2ebc",
+      "after_sha256": "359ff4c866a485a8d709b5ad31679ef7d1c804bceb61e229cd46903dbfea8ff4",
+      "edits": [
+        {
+          "start": 8913,
+          "end": 8924,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java": {
+      "before_sha256": "24bba01fb9d6a672b662b84c041f9de86ec41e870228a512b0602f3a9a33cb0b",
+      "after_sha256": "fc6bb6687d27278cde426d5bf0dd3e539a084538804ab3d50cd1ebfe027c6e92",
+      "edits": [
+        {
+          "start": 2708,
+          "end": 2717,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 2789,
+          "end": 2798,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java": {
+      "before_sha256": "1c1f87c0deb41cc2b0bf7b3bffe0834c77c33bf9a557d5efe4fb3caa3c4a5116",
+      "after_sha256": "7a24356c09a69d13494407caf649b010d1a41cdf526a67d066ff886750c42306",
+      "edits": [
+        {
+          "start": 5442,
+          "end": 5454,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 5465,
+          "end": 5465,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5471,
+          "end": 5471,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5473,
+          "end": 5473,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5478,
+          "end": 5478,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5504,
+          "end": 5516,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 5526,
+          "end": 5526,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5532,
+          "end": 5532,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 5534,
+          "end": 5534,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 5539,
+          "end": 5539,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java": {
+      "before_sha256": "3be8eec713dee56da91387467ca99cb762306bfe3450cf7b732adcf61eddff02",
+      "after_sha256": "25ea829b38ca525ade6573286216b4ad50aaf3969bec75c16554ba6ce1b6c431",
+      "edits": [
+        {
+          "start": 8410,
+          "end": 8419,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 9187,
+          "end": 9196,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before_sha256": "8435bac34166a443606262c13f83e186a57361562620d4072b134ccf481fcaa9",
+      "after_sha256": "cedc6785b1cbf601aa0694e631d1e57a5a550a5fc76c1747df997b9fa1023b42",
+      "edits": [
+        {
+          "start": 3059,
+          "end": 3068,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 4209,
+          "end": 4221,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 10952,
+          "end": 10961,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControl.java": {
+      "before_sha256": "c1a549a4fe0d06a0ec9bd8e01f7a0b89111b910d7276cd4bba322b8ae559a82a",
+      "after_sha256": "341b38609fabf42aa874f9e901ee111c57d4d3a0bbdf3729fba55f0dfe247072",
+      "edits": [
+        {
+          "start": 6139,
+          "end": 6151,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 6162,
+          "end": 6162,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 6163,
+          "end": 6163,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 6165,
+          "end": 6165,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 6166,
+          "end": 6166,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlAuto.java": {
+      "before_sha256": "97e5db08c08fdbe763bbcadbc2954920ad4ed4a24f9523c080083b8a0926715b",
+      "after_sha256": "16fb9fe60b29ab497dee257db3de8c3469ce67b917b59e66a727e19f4eefb561",
+      "edits": [
+        {
+          "start": 2556,
+          "end": 2568,
+          "before": "clamp_double",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlManual.java": {
+      "before_sha256": "f3e38c07b24785c755ec3ed6ae7be545b7db3dfd7a9ee6c0622583cb503a0d33",
+      "after_sha256": "4246d6a00213e6ccd0cf05111d2eb959c054e160f9f3b46a18a26859794d262f",
+      "edits": [
+        {
+          "start": 3518,
+          "end": 3527,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 4396,
+          "end": 4405,
+          "before": "clamp_int",
+          "after": "clamp"
+        },
+        {
+          "start": 5947,
+          "end": 5959,
+          "before": "clamp_double",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java": {
+      "before_sha256": "61407eb5ed45d6073ca7ef8879771b80e6e1b9d10b13b91bea6c0364597f096e",
+      "after_sha256": "adc672091bcad05eba35708686f64bb6f57b8814974ad1e718078de8a7a9007f",
+      "edits": [
+        {
+          "start": 6294,
+          "end": 6303,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java": {
+      "before_sha256": "e70631468cb510b7229736dc057d35d1c57c8d472735cb4bd5d4db8aa30109d1",
+      "after_sha256": "7d2ea674f3cec7131c6dbd1ba1a2e3de7a174df3b5c890006ce7581ef7487375",
+      "edits": [
+        {
+          "start": 6074,
+          "end": 6083,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java": {
+      "before_sha256": "9c49edf95068501daf154815273469dd8b560bc2b6b8e28b7f6818dc74b63899",
+      "after_sha256": "d877e452cb5db385bbac4efa508961557841222eb53c227bc8e26ac6f662b89a",
+      "edits": [
+        {
+          "start": 9755,
+          "end": 9764,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java": {
+      "before_sha256": "af9cf7fe169fde7caee2cf2e010d480fea580c02319797bd1274d7af155abfd5",
+      "after_sha256": "34ccf6ba9e12216b5be402b5953e8a71057e2e2d23f10e1520d56090c6b9b36b",
+      "edits": [
+        {
+          "start": 3580,
+          "end": 3589,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java": {
+      "before_sha256": "a23d0beed32fc1876dfc1f4b3207f6a836fb296ba1a98f65701217c3ea07adde",
+      "after_sha256": "1b316b225c55f4f81a1d0770d855f066e3b4de2b5b5a5ec451d4db88b8deef59",
+      "edits": [
+        {
+          "start": 3629,
+          "end": 3638,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java": {
+      "before_sha256": "21e71daf3f6a55e24304a8af712946e71be8cabb4630a46346d81273c432c210",
+      "after_sha256": "1e70ebaf7f6e81397bd5ee121b1d75a4d823ecb61f3800c72fb98b19c676f84f",
+      "edits": [
+        {
+          "start": 3360,
+          "end": 3371,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 3433,
+          "end": 3444,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java": {
+      "before_sha256": "941cc91b13ebf210a7b8bfa5054b2f1b80991686d87f78c08360e7ae1835b5a2",
+      "after_sha256": "03b1046eef4061b6ac7fbd8a0440909e98321ef5708d4934725f3c52dbf24118",
+      "edits": [
+        {
+          "start": 5388,
+          "end": 5397,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java": {
+      "before_sha256": "5a3584def556210e9a2bf1fd71941f7d7bf2bc2d3d15ef66554283485f116750",
+      "after_sha256": "52cfccf53535e0c32a4ce673045a003b9a7e851b7ce542c25730a192c587fb5c",
+      "edits": [
+        {
+          "start": 3331,
+          "end": 3340,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java": {
+      "before_sha256": "6588d8cabcd4035396d7354d85269c443f2cc7b1eb63b203897f6e8fd80a1e9d",
+      "after_sha256": "93a50dcdf8f7f68ea14754831718ada665a87a1e1d68b572a54d52e9001bf105",
+      "edits": [
+        {
+          "start": 2680,
+          "end": 2689,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java": {
+      "before_sha256": "439fc2bbc0d6f2582d6ccbfd2f25f185966128b387b33dc716fe2d02c232f48d",
+      "after_sha256": "56e2035a410e98fdd2f989289db3a538d5811be03450fd85ef80fe2910cc5048",
+      "edits": [
+        {
+          "start": 706,
+          "end": 715,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java": {
+      "before_sha256": "9579d0360cc0544b25c582c80d9783d886f5dce1c160c3ba172a7c105435772f",
+      "after_sha256": "ff304dfa140acd91666a6b84cd87aef52f0a9f811b2e4793f378e2134262ad2e",
+      "edits": [
+        {
+          "start": 6286,
+          "end": 6295,
+          "before": "clamp_int",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java": {
+      "before_sha256": "4b51cf6e7410cde9ab110c5edebcacf91c53517ed8d5951978f890a4034e0c75",
+      "after_sha256": "30f0d0a6f6c4d9c24f027b48c7859a0f15dfeb91b351d840ac5577ba5a150706",
+      "edits": [
+        {
+          "start": 4758,
+          "end": 4769,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/BobMathUtil.java": {
+      "before_sha256": "bb5e3bcc48fa9a0dd48eacd47a89c5c92fad00fc3bb1205077ffe08b0faa6d08",
+      "after_sha256": "a1f3cc2e47068aa407afa5482ab6a9bb3f7cd02e79ca5394f91c7db2ccaefc6c",
+      "edits": [
+        {
+          "start": 1796,
+          "end": 1808,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 3789,
+          "end": 3800,
+          "before": "clamp_float",
+          "after": "clamp"
+        },
+        {
+          "start": 3831,
+          "end": 3831,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3832,
+          "end": 3832,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 3834,
+          "end": 3834,
+          "before": "",
+          "after": "(float) ("
+        },
+        {
+          "start": 3835,
+          "end": 3835,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/DamageResistanceHandler.java": {
+      "before_sha256": "85502a9ee7422e21023da02b4a7d93aed5ec3d9e15b43ef5b3cd49864aea21b6",
+      "after_sha256": "195b4028d8f95a30f6ecb9e9d1c35c075555b4a38186f99479b9a3ae819f59ef",
+      "edits": [
+        {
+          "start": 21515,
+          "end": 21526,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/wiaj/cannery/CanneryFirebox.java": {
+      "before_sha256": "75b4fc4a735569464c5e3a050488b82bfb91da45f0f10ee4adba4299cf914845",
+      "after_sha256": "068026f8a44e3fc4b2e2abb586df605718a1115d4ac28c5891706dec03e966f0",
+      "edits": [
+        {
+          "start": 8732,
+          "end": 8743,
+          "before": "clamp_float",
+          "after": "clamp"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/WorldUtil.java": {
+      "before_sha256": "4564d4782b87d014bc3426ba153997d265b25b41135b65e92048b2db4b376914",
+      "after_sha256": "41e9839d0f1035cfc6b41573504a76c389e947c506871da0dc4149ae68e5e129",
+      "edits": [
+        {
+          "start": 4782,
+          "end": 4794,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 4843,
+          "end": 4855,
+          "before": "floor_double",
+          "after": "floor"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/terrain/MapGenBubble.java": {
+      "before_sha256": "29095cfd4272be73bb8397a12e593f66ee27e037242bf98ae575b64df59d37e0",
+      "after_sha256": "f73b287a196953d2317f97a6e45a3c521e2302351b04da32c5ef4c3de4cf31d4",
+      "edits": [
+        {
+          "start": 1820,
+          "end": 1832,
+          "before": "floor_double",
+          "after": "floor"
+        },
+        {
+          "start": 1891,
+          "end": 1909,
+          "before": "ceiling_double_int",
+          "after": "ceil"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/terrain/MapGenCrater.java": {
+      "before_sha256": "e5e04951a3a61f797f27d06f0e4078d444b67758eaf46d8c371795daaa7eb10c",
+      "after_sha256": "7085d524b02802fb49e023d3c562993dd51c6a96e79d407e22d298f9f518c772",
+      "edits": [
+        {
+          "start": 2067,
+          "end": 2079,
+          "before": "clamp_double",
+          "after": "clamp"
+        },
+        {
+          "start": 2109,
+          "end": 2109,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2110,
+          "end": 2110,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 2112,
+          "end": 2112,
+          "before": "",
+          "after": "(double) ("
+        },
+        {
+          "start": 2117,
+          "end": 2117,
+          "before": "",
+          "after": ")"
+        }
+      ]
+    }
+  }
+}

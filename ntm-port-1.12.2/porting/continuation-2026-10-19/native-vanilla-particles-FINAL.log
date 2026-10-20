@@ -1,0 +1,15 @@
+PASS frozen native vanilla helper/creator and 15 exact ClientProxy branch hashes; no active removed vanilla particle imports repository-wide
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS complete native vanilla helper/ExplosionSmallCreator plus 15 unchanged extracted ClientProxy branches compile
+[19:44:25] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[19:44:25] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[19:44:25] [main/INFO]: Replaced 1036 ore ingredients
+[19:44:25] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[19:44:25] [main/INFO]: Processing ObjectHolder annotations
+[19:44:25] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[19:44:25] [main/INFO]: Setting user: AtlasProbe
+PASS 246 actual native vanilla particle caller/admission/motion/collision checks; whole ClientProxy outside the extracted branches remains unproven.

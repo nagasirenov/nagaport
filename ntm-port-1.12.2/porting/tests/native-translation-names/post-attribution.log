@@ -1,0 +1,1 @@
+PASS 239 exact-position native method attributions; ['com.hbm.items.ItemEnumMulti', 'net.minecraft.block.Block', 'net.minecraft.item.Item', 'net.minecraft.item.ItemBlock'] ; no NTM Item/Block zero-argument legacy overrides

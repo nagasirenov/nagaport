@@ -26,7 +26,7 @@ import com.hbm.lib.ForgeDirection;
 public class FluidPipeAnchor extends FluidDuctBase implements ITooltipProvider, ILookOverlay {
 
 	public FluidPipeAnchor() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class FluidPipeAnchor extends FluidDuctBase implements ITooltipProvider, 
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBounds(world.getBlockMetadata(x, y, z));
+		setBlockBounds(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
 	}
 
@@ -81,7 +81,7 @@ public class FluidPipeAnchor extends FluidDuctBase implements ITooltipProvider, 
 	@Override // didn't think this was overridable, that makes everything so much easier. good job martin
 	public void changeTypeRecursively(World world, int x, int y, int z, FluidType prevType, FluidType type, int loopsRemaining) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityPipeAnchor) {
 			TileEntityPipeAnchor pipe = (TileEntityPipeAnchor) te;
@@ -91,12 +91,12 @@ public class FluidPipeAnchor extends FluidDuctBase implements ITooltipProvider, 
 
 				if(loopsRemaining > 0) {
 					ForgeDirection dir = ForgeDirection.getOrientation(pipe.getBlockMetadata()).getOpposite();
-					Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+					Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 
 					if(b instanceof IBlockFluidDuct) ((IBlockFluidDuct) b).changeTypeRecursively(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, prevType, type, loopsRemaining - 1);
 					
 					for(int[] pos : pipe.getConnected()) {
-						Block c = world.getBlock(pos[0], pos[1], pos[2]);
+						Block c = com.hbm.world.WorldBlockState.read(world, pos[0], pos[1], pos[2]).getBlock();
 						if(c instanceof IBlockFluidDuct) ((IBlockFluidDuct) c).changeTypeRecursively(world, pos[0], pos[1], pos[2], prevType, type, loopsRemaining - 1);
 					}
 				}
@@ -107,7 +107,7 @@ public class FluidPipeAnchor extends FluidDuctBase implements ITooltipProvider, 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityPipeBaseNT))
 			return;
@@ -116,6 +116,6 @@ public class FluidPipeAnchor extends FluidDuctBase implements ITooltipProvider, 
 
 		List<String> text = new ArrayList();
 		text.add("&[" + duct.getType().getColor() + "&]" + duct.getType().getLocalizedName());
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

@@ -73,7 +73,7 @@ public class MachineCondenserPowered extends BlockDummyable implements ILookOver
 		if(pos == null)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityCondenserPowered)) return;
 
@@ -90,7 +90,7 @@ public class MachineCondenserPowered extends BlockDummyable implements ILookOver
 		for(int i = 0; i < tower.tanks.length; i++)
 			text.add((i < 1 ? (TextFormatting.GREEN + "-> ") : (TextFormatting.RED + "<- ")) + TextFormatting.RESET + tower.tanks[i].getTankType().getLocalizedName() + ": " + String.format(Locale.US, "%,d", tower.tanks[i].getFill()) + "/" + String.format(Locale.US, "%,d", tower.tanks[i].getMaxFill()) + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class MachineCondenserPowered extends BlockDummyable implements ILookOver
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityCondenserPowered)) return;
 
 		TileEntityCondenserPowered tank = (TileEntityCondenserPowered) core;
@@ -125,7 +125,7 @@ public class MachineCondenserPowered extends BlockDummyable implements ILookOver
 			tank.damaged = true;
 			tank.markDirty();
 		} else {
-			world.setBlock(pos[0], pos[1], pos[2], Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = pos[0]; int nativePlacementY = pos[1]; int nativePlacementZ = pos[2]; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 

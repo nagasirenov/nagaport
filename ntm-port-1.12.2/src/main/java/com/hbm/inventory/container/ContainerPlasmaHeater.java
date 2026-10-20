@@ -63,6 +63,6 @@ public class ContainerPlasmaHeater extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return microwave.isUseableByPlayer(player);
+		return microwave.isUsableByPlayer(player);
 	}
 }

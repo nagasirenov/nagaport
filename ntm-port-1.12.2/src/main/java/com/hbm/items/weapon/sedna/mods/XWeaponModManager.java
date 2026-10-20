@@ -235,7 +235,7 @@ public class XWeaponModManager {
 	
 	public static ItemStack[] getUpgradeItems(ItemStack stack, int cfg) {
 		if(!stack.hasTagCompound()) return new ItemStack[0];
-		int[] modIds = stack.stackTagCompound.getIntArray(KEY_MOD_LIST + cfg);
+		int[] modIds = stack.getTagCompound().getIntArray(KEY_MOD_LIST + cfg);
 		if(modIds.length == 0) return new ItemStack[0];
 		ItemStack[] mods = new ItemStack[modIds.length];
 		for(int i = 0; i < mods.length; i++) {
@@ -250,7 +250,7 @@ public class XWeaponModManager {
 	
 	public static boolean hasUpgrade(ItemStack stack, int cfg, int id) {
 		if(!stack.hasTagCompound()) return false;
-		int[] modIds = stack.stackTagCompound.getIntArray(KEY_MOD_LIST + cfg);
+		int[] modIds = stack.getTagCompound().getIntArray(KEY_MOD_LIST + cfg);
 		for(int i = 0; i < modIds.length; i++) {
 			if(modIds[i] == id) return true;
 		}
@@ -288,7 +288,7 @@ public class XWeaponModManager {
 		IMagazine mag = ((ItemGunBaseNT) stack.getItem()).getConfig(stack, cfg).getReceivers(stack)[0].getMagazine(stack);
 		if(mag == null) return;
 		if(mag.getType(stack, null) == prevMagType) {
-			mag.setAmount(stack, MathHelper.clamp_int(prevMagCount, 0, mag.getCapacity(stack)));
+			mag.setAmount(stack, MathHelper.clamp(prevMagCount, 0, mag.getCapacity(stack)));
 		} else {
 			mag.setAmount(stack, 0);
 		}
@@ -323,14 +323,14 @@ public class XWeaponModManager {
 		}
 		if(toInstall.isEmpty()) return;
 		toInstall.sort(modSorter);
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		int[] modIds = new int[toInstall.size()];
 		for(int i = 0; i < modIds.length; i++) {
 			IWeaponMod mod = toInstall.get(i);
 			modIds[i] = idToMod.inverse().get(mod);
 			onInstallStack(stack, modToStack.get(mod), cfg);
 		}
-		stack.stackTagCompound.setIntArray(KEY_MOD_LIST + cfg, modIds);
+		stack.getTagCompound().setIntArray(KEY_MOD_LIST + cfg, modIds);
 		restoreMagState(stack, cfg);
 	}
 	
@@ -340,7 +340,7 @@ public class XWeaponModManager {
 			for(ItemStack mod : getUpgradeItems(stack, cfg)) {
 				XWeaponModManager.onUninstallStack(stack, mod, cfg);
 			}
-			stack.stackTagCompound.removeTag(KEY_MOD_LIST + cfg);
+			stack.getTagCompound().removeTag(KEY_MOD_LIST + cfg);
 			//no need to clean up empty stackTagCompound because gun NBT is never empty anyway
 		}
 	}
@@ -370,7 +370,7 @@ public class XWeaponModManager {
 		IWeaponMod newMod = modFromStack(gun, mod, cfg);
 		if(newMod == null) return false; //if there's just no mod applicable
 		
-		if(checkMutex) for(int i : gun.stackTagCompound.getIntArray(KEY_MOD_LIST + cfg)) {
+		if(checkMutex) for(int i : gun.getTagCompound().getIntArray(KEY_MOD_LIST + cfg)) {
 			IWeaponMod iMod = idToMod.get(i);
 			if(iMod != null) for(String mutex0 : newMod.getSlots()) for(String mutex1 : iMod.getSlots()) {
 				if(mutex0.equals(mutex1)) return false; //if any of the mod's slots are already taken
@@ -395,7 +395,7 @@ public class XWeaponModManager {
 		if(stack == null) return base;
 		if(!stack.hasTagCompound()) return base;
 		
-		for(int i : stack.stackTagCompound.getIntArray(KEY_MOD_LIST + cfg)) {
+		for(int i : stack.getTagCompound().getIntArray(KEY_MOD_LIST + cfg)) {
 			IWeaponMod mod = idToMod.get(i);
 			if(mod != null) base = mod.eval(base, stack, key, parent);
 		}

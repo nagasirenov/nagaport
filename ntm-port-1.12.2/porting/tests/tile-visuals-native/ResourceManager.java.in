@@ -1,0 +1,15 @@
+package com.hbm.main;
+import com.hbm.render.mesh.*;
+import net.minecraft.util.ResourceLocation;
+/** NTM registry holder fixture, not a Minecraft/Forge replacement. Real HFR VBO delegate installed in GL phase. */
+public class ResourceManager {
+ public static final ResourceLocation magma_drill_tex=new ResourceLocation("hbm","textures/models/machines/magma_drill.png");
+ public static Draw magma_drill=new Draw();
+ public static class Draw implements MeshModel {
+  public MeshModel delegate;public boolean fail;
+  public final java.util.List<String> calls=new java.util.ArrayList<>();public final java.util.List<float[]> matrices=new java.util.ArrayList<>();
+  private void capture(String name){calls.add(name);java.nio.FloatBuffer b=org.lwjgl.BufferUtils.createFloatBuffer(16);org.lwjgl.opengl.GL11.glGetFloat(org.lwjgl.opengl.GL11.GL_MODELVIEW_MATRIX,b);float[] a=new float[16];b.get(a);matrices.add(a);if(fail)throw new IllegalStateException("controlled NTM model boundary failure");}
+  public ObjMesh getMesh(){return delegate==null?ObjMesh.empty():delegate.getMesh();}public java.util.List<String> getPartNames(){return delegate==null?java.util.Collections.emptyList():delegate.getPartNames();}
+  public void renderAll(){capture("all");if(delegate!=null)delegate.renderAll();}public void renderPart(String n){capture(n);if(delegate!=null)delegate.renderPart(n);}public void renderOnly(String...n){capture("only"+java.util.Arrays.toString(n));if(delegate!=null)delegate.renderOnly(n);}public void renderAllExcept(String...n){capture("except"+java.util.Arrays.toString(n));if(delegate!=null)delegate.renderAllExcept(n);}
+ }
+}

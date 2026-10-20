@@ -105,18 +105,18 @@ public class ItemICFPellet extends Item {
 	public static long getFusingDifficulty(ItemStack stack) {
 		long base = 10_000_000L;
 		base *= getType(stack, true).fusingDifficulty * getType(stack, false).fusingDifficulty;
-		if(stack.hasTagCompound() && stack.stackTagCompound.getBoolean("muon")) base /= 4;
+		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("muon")) base /= 4;
 		return base;
 	}
 	
 	public static long getDepletion(ItemStack stack) {
 		if(!stack.hasTagCompound()) return 0L;
-		return stack.stackTagCompound.getLong("depletion");
+		return stack.getTagCompound().getLong("depletion");
 	}
 	
 	public static long react(ItemStack stack, long heat) {
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setLong("depletion", stack.stackTagCompound.getLong("depletion") + heat);
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setLong("depletion", stack.getTagCompound().getLong("depletion") + heat);
 		return (long) (heat * getType(stack, true).reactionMult * getType(stack, false).reactionMult);
 	}
 	
@@ -125,16 +125,16 @@ public class ItemICFPellet extends Item {
 	}
 	
 	public static ItemStack setup(ItemStack stack, EnumICFFuel type1, EnumICFFuel type2, boolean muon) {
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setByte("type1", (byte) type1.ordinal());
-		stack.stackTagCompound.setByte("type2", (byte) type2.ordinal());
-		stack.stackTagCompound.setBoolean("muon", muon);
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setByte("type1", (byte) type1.ordinal());
+		stack.getTagCompound().setByte("type2", (byte) type2.ordinal());
+		stack.getTagCompound().setBoolean("muon", muon);
 		return stack;
 	}
 	
 	public static EnumICFFuel getType(ItemStack stack, boolean first) {
 		if(!stack.hasTagCompound()) return first ? EnumICFFuel.DEUTERIUM : EnumICFFuel.TRITIUM;
-		return EnumUtil.grabEnumSafely(EnumICFFuel.class, stack.stackTagCompound.getByte("type" + (first ? 1 : 2)));
+		return EnumUtil.grabEnumSafely(EnumICFFuel.class, stack.getTagCompound().getByte("type" + (first ? 1 : 2)));
 	}
 
 	@Override
@@ -182,7 +182,7 @@ public class ItemICFPellet extends Item {
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		boolean muon = stack.hasTagCompound() && stack.stackTagCompound.getBoolean("muon");
+		boolean muon = stack.hasTagCompound() && stack.getTagCompound().getBoolean("muon");
 		list.add(TextFormatting.GREEN + "Depletion: " + String.format(Locale.US, "%.1f", getDurabilityForDisplay(stack) * 100D) + "%");
 		list.add(TextFormatting.YELLOW + "Fuel: " + I18nUtil.resolveKey("icffuel." + getType(stack, true).name().toLowerCase(Locale.US)) + " / " + I18nUtil.resolveKey("icffuel." + getType(stack, false).name().toLowerCase(Locale.US)));
 		list.add(TextFormatting.YELLOW + "Heat required: " + BobMathUtil.getShortNumber(this.getFusingDifficulty(stack)) + "TU");

@@ -1,15 +1,11 @@
 package com.hbm.handler.nei;
 
-import static codechicken.lib.gui.GuiDraw.drawTexturedModalRect;
-
-import java.awt.Rectangle;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 import com.hbm.config.ClientConfig;
-import com.hbm.handler.imc.ICompatNHNEI;
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
 import com.hbm.interfaces.NotableComments;
 import com.hbm.inventory.FluidStack;
 import com.hbm.inventory.RecipesCommon.AStack;
@@ -21,119 +17,176 @@ import com.hbm.items.machine.ItemBlueprints;
 import com.hbm.items.machine.ItemFluidIcon;
 import com.hbm.lib.RefStrings;
 
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.recipe.IFocus;
 import net.minecraft.block.Block;
-import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
+/** Native JEI categories for the ordered, configurable generic recipe sets. */
 @NotableComments
-public abstract class NEIGenericRecipeHandler extends TemplateRecipeHandler implements ICompatNHNEI {
+public abstract class NEIGenericRecipeHandler extends MachineRecipeCategory {
 
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<RecipeTransferRect> transferRectsGui = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-	public LinkedList<Class<? extends GuiContainer>> guiGui = new LinkedList<Class<? extends GuiContainer>>();
+    private static final ResourceLocation TEXTURE = new ResourceLocation(RefStrings.MODID, "textures/gui/nei/gui_nei.png");
 
-	public final String displayName;
-	public final GenericRecipes recipeSet;
-	public final ItemStack[] machines;
-	
-	public NEIGenericRecipeHandler(String displayName, GenericRecipes recipeSet, Block... machines) {
-		ItemStack[] machineStacks = new ItemStack[machines.length];
-		for(int i = 0; i < machines.length; i++) machineStacks[i] = new ItemStack(machines[i]);
-		this.displayName = displayName;
-		this.recipeSet = recipeSet;
-		this.machines = machineStacks;
-	}
-	
-	public NEIGenericRecipeHandler(String displayName, GenericRecipes recipeSet, ItemStack... machines) {
-		this.displayName = displayName;
-		this.recipeSet = recipeSet;
-		this.machines = machines;
-	}
-	
-	public class RecipeSet extends TemplateRecipeHandler.CachedRecipe {
+    public final String displayName;
+    public final GenericRecipes<?> recipeSet;
+    public final ItemStack[] machines;
 
-		protected GenericRecipe recipe;
-		protected PositionedStack[] input;
-		protected PositionedStack[] output;
-		protected PositionedStack machine;
-		protected PositionedStack template;
-		
-		public RecipeSet(GenericRecipe recipe) {
-			this.recipe = recipe;
-			int inputSize = 0;
-			int outputSize = 0;
+    public NEIGenericRecipeHandler(String displayName, GenericRecipes<?> recipeSet, Block... machines) {
+        ItemStack[] machineStacks = new ItemStack[machines.length];
+        for (int i = 0; i < machines.length; i++) machineStacks[i] = new ItemStack(machines[i]);
+        this.displayName = displayName;
+        this.recipeSet = recipeSet;
+        this.machines = machineStacks;
+    }
 
-			if(recipe.inputItem != null) inputSize += recipe.inputItem.length; // sure a ternary is "less code" but is it more readable? no? thought so
-			if(recipe.inputFluid != null) inputSize += recipe.inputFluid.length;
-			if(recipe.outputItem != null) outputSize += recipe.outputItem.length;
-			if(recipe.outputFluid != null) outputSize += recipe.outputFluid.length;
+    public NEIGenericRecipeHandler(String displayName, GenericRecipes<?> recipeSet, ItemStack... machines) {
+        this.displayName = displayName;
+        this.recipeSet = recipeSet;
+        this.machines = machines;
+    }
 
-			int inputOffset = getInputXOffset(recipe, inputSize);
-			int outputOffset = getOutputXOffset(recipe, outputSize);
-			int machineOffset = getMachineXOffset(recipe);
+    @Override public String getTitle() { return this.displayName; }
+    @Override public ItemStack[] getMachines() { return this.machines; }
 
-			this.input = new PositionedStack[inputSize];
-			int[][] inPos = getInputSlotPositions(inputSize);
-			inputSize = 0; // just gonna reuse this because fuck it why not
-			
-			if(recipe.inputItem != null) for(int i = 0; i < recipe.inputItem.length; i++) {
-				this.input[i] = new PositionedStack(recipe.inputItem[i].extractForNEI(), inPos[i][0] + inputOffset, inPos[i][1]);
-				inputSize = i + 1;
-			}
-			if(recipe.inputFluid != null) for(int i = 0; i < recipe.inputFluid.length; i++) {
-				this.input[inputSize + i] = new PositionedStack(ItemFluidIcon.make(recipe.inputFluid[i]), inPos[inputSize + i][0] + inputOffset, inPos[inputSize + i][1]);
-			}
+    public int getInputXOffset(GenericRecipe recipe, int inputCount) { return 0; }
+    public int getOutputXOffset(GenericRecipe recipe, int outputCount) { return 0; }
+    public int getMachineXOffset(GenericRecipe recipe) { return 0; }
+    public ItemStack[] getMachines(GenericRecipe recipe) { return this.machines; }
 
-			int[][] outPos = getOutputSlotPositions(outputSize);
-			this.output = new PositionedStack[outputSize];
-			outputSize = 0;
-			
-			if(recipe.outputItem != null) for(int i = 0; i < recipe.outputItem.length; i++) {
-				this.output[i] = new PositionedStack(recipe.outputItem[i].getAllPossibilities(), outPos[i][0] + outputOffset, outPos[i][1]);
-				outputSize = i + 1;
-			}
-			if(recipe.outputFluid != null) for(int i = 0; i < recipe.outputFluid.length; i++) {
-				this.output[outputSize + i] = new PositionedStack(ItemFluidIcon.make(recipe.outputFluid[i]), outPos[outputSize + i][0] + outputOffset, outPos[outputSize + i][1]);
-			}
-			
-			if(recipe.isPooled()) {
-				String[] pools = recipe.getPools();
-				ItemStack[] blueprints = new ItemStack[pools.length];
-				for(int i = 0; i < pools.length; i++) blueprints[i] = ItemBlueprints.make(pools[i]);
-				this.template = new PositionedStack(blueprints, 75 + machineOffset, 10);
-			}
-			
-			ItemStack[] machineStacks = getMachines(recipe);
-			this.machine = new PositionedStack(machineStacks, 75 + machineOffset, template == null ? 31 : 38);
-		}
+    /** Resolve every query against the current ordered set and current secret-visibility setting. */
+    @Override
+    public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> result = new ArrayList<>();
+        boolean hideSecrets = ClientConfig.NEI_HIDE_SECRETS.get();
+        for (GenericRecipe recipe : this.recipeSet.recipeOrderedList) {
+            if (hideSecrets && isSecret(recipe)) continue;
+            if (focus == null || matchesFocus(recipe, focus)) result.add(createView(recipe));
+        }
+        return result;
+    }
 
-		@Override public List<PositionedStack> getIngredients() { return getCycledIngredients(cycleticks / 20, Arrays.asList(this.input)); }
-		@Override public PositionedStack getResult() { return null; }
+    private boolean isSecret(GenericRecipe recipe) {
+        if (recipe.isPooled()) {
+            for (String pool : recipe.getPools()) {
+                if (pool.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) return true;
+            }
+        }
+        if (recipe.inputItem != null) {
+            for (AStack input : recipe.inputItem) {
+                for (ItemStack stack : input.extractForNEI()) {
+                    if (ModItems.excludeNEI.contains(stack.getItem())) return true;
+                }
+            }
+        }
+        if (recipe.outputItem != null) {
+            for (IOutput output : recipe.outputItem) {
+                for (ItemStack stack : output.getAllPossibilities()) {
+                    if (ModItems.excludeNEI.contains(stack.getItem())) return true;
+                }
+            }
+        }
+        return false;
+    }
 
-		@Override
-		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> other = new ArrayList();
-			for(int i = 0; i < this.output.length; i++) other.add(this.output[i]);
-			other.add(this.machine);
-			if(this.template != null) other.add(this.template);
-			return getCycledIngredients(cycleticks / 20, other);
-		}
-	}
+    private boolean matchesFocus(GenericRecipe recipe, IFocus<ItemStack> focus) {
+        ItemStack ingredient = focus.getValue();
+        if (ingredient == null || ingredient.isEmpty()) return false;
+        if (focus.getMode() == IFocus.Mode.OUTPUT) {
+            if (recipe.outputItem != null) {
+                for (IOutput output : recipe.outputItem) {
+                    for (ItemStack stack : output.getAllPossibilities()) {
+                        if (RecipeStackMatcher.matchesCrafting(stack, ingredient)) return true;
+                    }
+                }
+            }
+            if (recipe.outputFluid != null) {
+                for (FluidStack fluid : recipe.outputFluid) {
+                    if (areItemsAndMetaEqual(ItemFluidIcon.make(fluid), ingredient)) return true;
+                }
+            }
+        } else {
+            if (recipe.inputItem != null) {
+                for (AStack input : recipe.inputItem) {
+                    for (ItemStack stack : input.extractForNEI()) {
+                        if (RecipeStackMatcher.matchesCrafting(stack, ingredient)) return true;
+                    }
+                }
+            }
+            if (recipe.inputFluid != null) {
+                for (FluidStack fluid : recipe.inputFluid) {
+                    if (areItemsAndMetaEqual(ItemFluidIcon.make(fluid), ingredient)) return true;
+                }
+            }
+        }
+        return false;
+    }
 
-	@Override public String getRecipeName() { return this.displayName; }
-	@Override public ItemStack[] getMachinesForRecipe() { return machines; }
-	@Override public String getGuiTexture() { return RefStrings.MODID + ":textures/gui/nei/gui_nei.png"; }
+    protected MachineRecipeView createView(GenericRecipe recipe) {
+        List<ItemStack[]> inputs = new ArrayList<>();
+        List<ItemStack[]> outputs = new ArrayList<>();
+        if (recipe.inputItem != null) {
+            for (AStack input : recipe.inputItem) inputs.add(input.extractForNEI().toArray(new ItemStack[0]));
+        }
+        if (recipe.inputFluid != null) {
+            for (FluidStack fluid : recipe.inputFluid) inputs.add(new ItemStack[] {ItemFluidIcon.make(fluid)});
+        }
+        if (recipe.outputItem != null) {
+            for (IOutput output : recipe.outputItem) outputs.add(output.getAllPossibilities());
+        }
+        if (recipe.outputFluid != null) {
+            for (FluidStack fluid : recipe.outputFluid) outputs.add(new ItemStack[] {ItemFluidIcon.make(fluid)});
+        }
 
-	public int getInputXOffset(GenericRecipe recipe, int inputCount) { return 0; }
-	public int getOutputXOffset(GenericRecipe recipe, int outputCount) { return 0; }
-	public int getMachineXOffset(GenericRecipe recipe) { return 0; }
-	public ItemStack[] getMachines(GenericRecipe recipe) { return this.machines; }
-	
-	// ✨ magic number vomit land ✨
+        MachineRecipeView view = new MachineRecipeView(this, recipe, inputs.toArray(new ItemStack[0][]), outputs.toArray(new ItemStack[0][]));
+        int inputOffset = getInputXOffset(recipe, inputs.size());
+        int outputOffset = getOutputXOffset(recipe, outputs.size());
+        int machineOffset = getMachineXOffset(recipe);
+        int[][] inputPositions = getInputSlotPositions(inputs.size());
+        int[][] outputPositions = getOutputSlotPositions(outputs.size());
+        for (int i = 0; i < inputs.size(); i++) view.addInputSlot(i, inputPositions[i][0] + inputOffset, inputPositions[i][1]);
+        for (int i = 0; i < outputs.size(); i++) view.addOutputSlot(i, outputPositions[i][0] + outputOffset, outputPositions[i][1]);
+
+        if (recipe.isPooled()) {
+            String[] pools = recipe.getPools();
+            ItemStack[] blueprints = new ItemStack[pools.length];
+            for (int i = 0; i < pools.length; i++) blueprints[i] = ItemBlueprints.make(pools[i]);
+            view.addDecoration(blueprints, 75 + machineOffset, 10);
+        }
+        view.addDecoration(getMachines(recipe), 75 + machineOffset, recipe.isPooled() ? 38 : 31);
+        return view;
+    }
+
+    /** Fluid searches intentionally ignore quantity/pressure NBT, matching the fluid identity only. */
+    public static boolean areItemsAndMetaEqual(ItemStack first, ItemStack second) {
+        return first != null && second != null && !first.isEmpty() && !second.isEmpty()
+                && first.getItem() == second.getItem() && first.getItemDamage() == second.getItemDamage();
+    }
+
+    @Override
+    public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        GenericRecipe recipe = (GenericRecipe) view.source;
+        minecraft.getTextureManager().bindTexture(TEXTURE);
+        Gui.drawModalRectWithCustomSizedTexture(0, 0, 5, 11, 166, 65, 256, 256);
+        int inputOffset = getInputXOffset(recipe, view.inputs.length);
+        int outputOffset = getOutputXOffset(recipe, view.outputs.length);
+        for (int[] position : getInputSlotPositions(view.inputs.length)) {
+            Gui.drawModalRectWithCustomSizedTexture(position[0] + inputOffset - 1, position[1] - 1, 5, 87, 18, 18, 256, 256);
+        }
+        for (int[] position : getOutputSlotPositions(view.outputs.length)) {
+            Gui.drawModalRectWithCustomSizedTexture(position[0] + outputOffset - 1, position[1] - 1, 5, 87, 18, 18, 256, 256);
+        }
+        int machineX = 74 + getMachineXOffset(recipe);
+        if (recipe.isPooled()) {
+            Gui.drawModalRectWithCustomSizedTexture(machineX, 7, 77, 87, 18, 50, 256, 256);
+        } else {
+            Gui.drawModalRectWithCustomSizedTexture(machineX, 14, 59, 87, 18, 36, 256, 256);
+        }
+    }
+
 	public int[][] getInputSlotPositions(int count) {
 
 		if(count == 1) return new int[][] { {48, 24} };
@@ -200,124 +253,4 @@ public abstract class NEIGenericRecipeHandler extends TemplateRecipeHandler impl
 		return new int[count][2];
 	}
 
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
-
-		outer: for(Object o : this.recipeSet.recipeOrderedList) {
-			GenericRecipe recipe = (GenericRecipe) o;
-			boolean hasMatch = false;
-			boolean hide = ClientConfig.NEI_HIDE_SECRETS.get();
-			
-			if(hide && recipe.isPooled()) {
-				String[] pools = recipe.getPools();
-				for(String pool : pools) if(pool.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) continue outer;
-			}
-			
-			if(hide && recipe.inputItem != null) for(AStack astack : recipe.inputItem) for(ItemStack stack : astack.extractForNEI()) {
-				if(ModItems.excludeNEI.contains(stack.getItem())) continue outer;
-			}
-			if(recipe.outputItem != null) for(IOutput output : recipe.outputItem) for(ItemStack stack : output.getAllPossibilities()) {
-				if(hide && ModItems.excludeNEI.contains(stack.getItem())) continue outer;
-				if(NEIServerUtils.areStacksSameTypeCrafting(stack, result)) hasMatch = true;
-			}
-			if(recipe.outputFluid != null) for(FluidStack fluid : recipe.outputFluid) {
-				if(areItemsAndMetaEqual(ItemFluidIcon.make(fluid), result)) hasMatch = true;
-			}
-			
-			if(hasMatch) this.arecipes.add(new RecipeSet(recipe));
-		}
-	}
-	
-	/** load all */
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-		
-		if(outputId.equals(getRecipeID())) {
-			
-			outer: for(Object o : this.recipeSet.recipeOrderedList) {
-				GenericRecipe recipe = (GenericRecipe) o;
-				boolean hide = ClientConfig.NEI_HIDE_SECRETS.get();
-				
-				if(hide && recipe.isPooled()) {
-					String[] pools = recipe.getPools();
-					for(String pool : pools) if(pool.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) continue outer;
-				}
-				
-				if(hide && recipe.inputItem != null) for(AStack astack : recipe.inputItem) for(ItemStack stack : astack.extractForNEI())
-					if(ModItems.excludeNEI.contains(stack.getItem())) continue outer;
-				if(hide && recipe.outputItem != null) for(IOutput output : recipe.outputItem) for(ItemStack stack : output.getAllPossibilities())
-					if(ModItems.excludeNEI.contains(stack.getItem())) continue outer;
-				
-				this.arecipes.add(new RecipeSet(recipe));
-			}
-			
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
-
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		if(inputId.equals(getRecipeID())) {
-			loadCraftingRecipes(getRecipeID(), new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
-
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
-
-		outer: for(Object o : this.recipeSet.recipeOrderedList) {
-			GenericRecipe recipe = (GenericRecipe) o;
-			boolean hasMatch = false;
-			boolean hide = ClientConfig.NEI_HIDE_SECRETS.get();
-			
-			if(hide && recipe.isPooled()) {
-				String[] pools = recipe.getPools();
-				for(String pool : pools) if(pool.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) continue outer;
-			}
-			
-			if(recipe.inputItem != null) for(AStack astack : recipe.inputItem) for(ItemStack stack : astack.extractForNEI()) {
-				if(hide && ModItems.excludeNEI.contains(stack.getItem())) continue outer;
-				if(NEIServerUtils.areStacksSameTypeCrafting(stack, ingredient)) hasMatch = true;
-			}
-			if(recipe.inputFluid != null) for(FluidStack fluid : recipe.inputFluid) {
-				if(areItemsAndMetaEqual(ItemFluidIcon.make(fluid), ingredient)) hasMatch = true;
-			}
-			if(hide && recipe.outputItem != null) for(IOutput output : recipe.outputItem) for(ItemStack stack : output.getAllPossibilities()) {
-				if(ModItems.excludeNEI.contains(stack.getItem())) continue outer;
-			}
-			
-			if(hasMatch) this.arecipes.add(new RecipeSet(recipe));
-		}
-	}
-
-	public static boolean areItemsAndMetaEqual(ItemStack sta1, ItemStack sta2) {
-		return sta1.getItem() == sta2.getItem() && sta1.getItemDamage() == sta2.getItemDamage();
-	}
-	
-	@Override
-	public void loadTransferRects() {
-		transferRectsGui = new LinkedList<RecipeTransferRect>();
-		guiGui = new LinkedList<Class<? extends GuiContainer>>();
-		transferRects.add(new RecipeTransferRect(new Rectangle(147, 1, 18, 18), getRecipeID()));
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-	}
-
-	@Override
-	public void drawBackground(int recipe) {
-		super.drawBackground(recipe);
-		
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
-
-		for(PositionedStack pos : rec.input) drawTexturedModalRect(pos.relx - 1, pos.rely - 1, 5, 87, 18, 18);
-		for(PositionedStack pos : rec.output) drawTexturedModalRect(pos.relx - 1, pos.rely - 1, 5, 87, 18, 18);
-		
-		if(rec.template == null) {
-			drawTexturedModalRect(74 + this.getMachineXOffset(rec.recipe), 14, 59, 87, 18, 36);
-		} else {
-			drawTexturedModalRect(74 + this.getMachineXOffset(rec.recipe), 7, 77, 87, 18, 50);
-		}
-	}
 }

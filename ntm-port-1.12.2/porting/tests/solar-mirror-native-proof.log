@@ -1,0 +1,47 @@
+/workspace/shared/nagaport-steel-next/porting/tests/solar-mirror-native/NativeSolarMirrorTest.java:116: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());resources.reloadResources(Collections.singletonList(new FolderResourcePack(new File(root))));set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+          ^
+/workspace/shared/nagaport-steel-next/porting/tests/solar-mirror-native/NativeSolarMirrorTest.java:116: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());resources.reloadResources(Collections.singletonList(new FolderResourcePack(new File(root))));set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+                                  ^
+/workspace/shared/nagaport-steel-next/porting/tests/solar-mirror-native/NativeSolarMirrorTest.java:116: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());resources.reloadResources(Collections.singletonList(new FolderResourcePack(new File(root))));set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-steel-next/porting/tests/solar-mirror-native/NativeSolarMirrorTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS 13 complete actual production classes; exactly two explicit outside-owner NTM fixtures; unchanged pristine renderer method bodies and named-part helper compiled; legacy owner bytecode references absent
+PASS pristine RenderMirror + ObjUtil oracle: 1058 geometry cases, 43132 native vertices; real asset, triangles, quads, duplicate/missing/case-sensitive groups, absent tiles and immutable state
+PASS actual owner/tile lifecycle, sunlight gates, heat, packets, byte/NBT targets, native client beam collection and redraw; explicit base/boiler collaborators only
+[21:11:33] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[21:11:33] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[21:11:34] [main/INFO]: Replaced 1036 ore ingredients
+[21:11:34] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[21:11:34] [main/INFO]: Processing ObjectHolder annotations
+[21:11:34] [main/INFO]: Found 1167 ObjectHolder annotations
+[21:11:34] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.solar_mirror`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[21:11:34] [main/INFO]: Reloading ResourceManager: resources
+PASS actual Forge registry/event/state mapper, all 16 flat inventory routes, exact loader negatives, native ItemLayerModel and resource reload
+PASS SolarMirror native evidence: 415088 assertions; no live-game visual, networking integration or full boiler-closure claim
+[21:11:36] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[21:11:36] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[21:11:36] [main/INFO]: Replaced 1036 ore ingredients
+[21:11:36] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[21:11:36] [main/INFO]: Processing ObjectHolder annotations
+[21:11:36] [main/INFO]: Found 1167 ObjectHolder annotations
+[21:11:36] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.solar_mirror`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[21:11:36] [main/INFO]: Reloading ResourceManager: resources
+PASS exact owner registry negative: subclass class left untouched
+PASS SolarMirror native evidence: 5 assertions; no live-game visual, networking integration or full boiler-closure claim
+[21:11:37] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[21:11:37] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[21:11:38] [main/INFO]: Replaced 1036 ore ingredients
+[21:11:38] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[21:11:38] [main/INFO]: Processing ObjectHolder annotations
+[21:11:38] [main/INFO]: Found 1167 ObjectHolder annotations
+[21:11:38] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.solar_mirror`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[21:11:38] [main/INFO]: Reloading ResourceManager: resources
+PASS exact owner registry negative: unrelated class left untouched
+PASS SolarMirror native evidence: 5 assertions; no live-game visual, networking integration or full boiler-closure claim

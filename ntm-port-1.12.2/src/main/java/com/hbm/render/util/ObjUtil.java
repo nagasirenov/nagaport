@@ -1,14 +1,11 @@
 package com.hbm.render.util;
 
 import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.loader.S_Face;
-import com.hbm.render.loader.S_GroupObject;
+import com.hbm.render.mesh.ObjMesh;
 
 import net.minecraft.client.renderer.Tessellator;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.model.obj.TextureCoordinate;
-import net.minecraftforge.client.model.obj.Vertex;
 import com.hbm.lib.ForgeDirection;
 
 public class ObjUtil {
@@ -22,11 +19,11 @@ public class ObjUtil {
 	}
 
 	public static void renderWithIcon(HFRWavefrontObject model, IIcon icon, Tessellator tes, float rot, float pitch, float roll, boolean shadow) {
-		for(S_GroupObject go : model.groupObjects) {
+		for(ObjMesh.Part go : model.getMesh().parts) {
 			
-			for(S_Face f : go.faces) {
+			for(ObjMesh.Face f : go.faces) {
 
-				Vertex n = f.faceNormal;
+				ObjMesh.Vec n = f.normal;
 
 				com.hbm.util.Vec3NT normal = new com.hbm.util.Vec3NT(n.x, n.y, n.z);
 				normal.rotateAroundZRad(pitch);
@@ -42,9 +39,9 @@ public class ObjUtil {
 					tes.setColorOpaque_F(brightness, brightness, brightness);
 				}
 
-				for(int i = 0; i < f.vertices.length; i++) {
+				for(int i = 0; i < f.corners.size(); i++) {
 
-					Vertex v = f.vertices[i];
+					ObjMesh.Vec v = f.corners.get(i).position;
 
 					com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(v.x, v.y, v.z);
 					vec.rotateAroundXRad(roll);
@@ -55,13 +52,13 @@ public class ObjUtil {
 					float y = (float) vec.y;
 					float z = (float) vec.z;
 
-					TextureCoordinate t = f.textureCoordinates[i];
-					tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.u * 16), icon.getInterpolatedV(t.v * 16));
+					ObjMesh.Vec t = f.corners.get(i).uv;
+					tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16));
 
 					// The shoddy way of rendering a tringulated model with a
 					// quad tessellator
 					if(i % 3 == 2)
-						tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.u * 16), icon.getInterpolatedV(t.v * 16));
+						tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16));
 				}
 			}
 		}
@@ -77,9 +74,9 @@ public class ObjUtil {
 
 	public static void renderPartWithIcon(HFRWavefrontObject model, String name, IIcon icon, Tessellator tes, float rot, float pitch, float roll, boolean shadow) {
 
-		S_GroupObject go = null;
+		ObjMesh.Part go = null;
 
-		for(S_GroupObject obj : model.groupObjects) {
+		for(ObjMesh.Part obj : model.getMesh().parts) {
 			if(obj.name.equals(name))
 				go = obj;
 		}
@@ -87,9 +84,9 @@ public class ObjUtil {
 		if(go == null)
 			return;
 
-		for(S_Face f : go.faces) {
+		for(ObjMesh.Face f : go.faces) {
 
-			Vertex n = f.faceNormal;
+			ObjMesh.Vec n = f.normal;
 
 			com.hbm.util.Vec3NT normal = new com.hbm.util.Vec3NT(n.x, n.y, n.z);
 			normal.rotateAroundZRad(pitch);
@@ -114,9 +111,9 @@ public class ObjUtil {
 				}
 			}
 
-			for(int i = 0; i < f.vertices.length; i++) {
+			for(int i = 0; i < f.corners.size(); i++) {
 
-				Vertex v = f.vertices[i];
+				ObjMesh.Vec v = f.corners.get(i).position;
 
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(v.x, v.y, v.z);
 				vec.rotateAroundXRad(roll);
@@ -127,13 +124,13 @@ public class ObjUtil {
 				float y = (float) vec.y;
 				float z = (float) vec.z;
 
-				TextureCoordinate t = f.textureCoordinates[i];
-				tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.u * 16D), icon.getInterpolatedV(t.v * 16D));
+				ObjMesh.Vec t = f.corners.get(i).uv;
+				tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16D), icon.getInterpolatedV(t.y * 16D));
 
 				// The shoddy way of rendering a tringulated model with a quad
 				// tessellator
-				if(f.vertices.length == 3 && i % 3 == 2)
-					tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.u * 16D), icon.getInterpolatedV(t.v * 16D));
+				if(f.corners.size() == 3 && i % 3 == 2)
+					tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16D), icon.getInterpolatedV(t.y * 16D));
 			}
 		}
 	}

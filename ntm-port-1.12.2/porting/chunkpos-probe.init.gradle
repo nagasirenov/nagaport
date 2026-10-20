@@ -1,0 +1,20 @@
+// Diagnostic production helper + native API probe. Does not change sourceSets or compileJava.
+allprojects {
+    afterEvaluate {
+        def probe = tasks.create('compilePortChunkPosProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            source project.file('src/main/java/com/hbm/util/SubChunkKey.java')
+            source project.file('porting/tests/ChunkPosMigrationTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portChunkPosProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('testPortChunkPos', JavaExec) {
+            dependsOn probe
+            classpath = files(probe.destinationDir) + probe.classpath
+            main = 'ChunkPosMigrationTest'
+            if (project.hasProperty('legacyMinecraftServerJar')) args project.property('legacyMinecraftServerJar')
+        }
+    }
+}

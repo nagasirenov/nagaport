@@ -1,0 +1,32 @@
+COMPLETE INPUT 316adf8700f5a786afedef180bbc73854c1088062a416e20a4b3711327f4aced com/hbm/inventory/gui/GUIFurnaceBrick.java
+COMPLETE INPUT 8fb12aa27f5a2362377dfab5f613798eb5a938081ee72cb9e2288326a8e03dab com/hbm/inventory/gui/GUIFurnaceIron.java
+COMPLETE INPUT 9d59eb24367d553f2245320a85eaafad8c5e0f69875537853509b6cb3d5f1454 com/hbm/inventory/gui/GUIFurnaceSteel.java
+COMPLETE INPUT 10b5abee7d67f9f528cc24dbf5ef8c8278ad20669bd31163eddde2027d3386b2 com/hbm/inventory/gui/GuiInfoContainer.java
+COMPLETE INPUT fa609729a077bf5f7a415d58afb7ce8d691a56cdd51465859bdb3f9b4884710d com/hbm/inventory/SlotPattern.java
+COMPLETE INPUT d4c172d400c55901bb86298ef6052d178dea4147cb509cdd98a9454c885e350f com/hbm/tileentity/IUpgradeInfoProvider.java
+COMPLETE INPUT 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 com/hbm/lib/RefStrings.java
+COMPLETE INPUT e8a4eb329f99c8a9582ccb7db958323f83d88207a6d340ecdaab433447588e04 com/hbm/items/machine/ItemMachineUpgrade.java
+Controlled NTM collaborators: com/hbm/inventory/container/ContainerBase.java, com/hbm/inventory/container/ContainerFurnaceBrick.java, com/hbm/inventory/container/ContainerFurnaceIron.java, com/hbm/inventory/container/ContainerFurnaceSteel.java, com/hbm/items/ModItems.java, com/hbm/module/ModuleBurnTime.java, com/hbm/packet/PacketDispatcher.java, com/hbm/packet/toserver/NBTControlPacket.java, com/hbm/tileentity/machine/TileEntityFurnaceBrick.java, com/hbm/tileentity/machine/TileEntityFurnaceIron.java, com/hbm/tileentity/machine/TileEntityFurnaceSteel.java, com/hbm/util/BobMathUtil.java, com/hbm/util/i18n/I18nUtil.java
+/tmp/hbm-thermal-gui-gp8fi4jg/ThermalGuiNativeTest.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;
+                ^
+/tmp/hbm-thermal-gui-gp8fi4jg/ThermalGuiNativeTest.java:230: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);Bootstrap.register();
+                  ^
+/tmp/hbm-thermal-gui-gp8fi4jg/ThermalGuiNativeTest.java:230: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);Bootstrap.register();
+                                                                                                    ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+NATIVE ORIGIN net.minecraft.client.Minecraft file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.client.entity.EntityPlayerSP file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.entity.player.InventoryPlayer file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.item.ItemStack file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.inventory.Slot file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.client.gui.FontRenderer file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.tileentity.TileEntity file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraft.client.gui.inventory.GuiContainer file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN net.minecraftforge.fml.common.Optional file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+NATIVE ORIGIN codechicken.nei.api.INEIGuiHandler file:/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/codechicken/NotEnoughItems/1.12.2-2.4.3.245/NotEnoughItems-1.12.2-2.4.3.245.jar
+PASS 6735 native thermal GUI checks. Full production GUI classes compile; actual constructors/foreground/native hover execute; verbatim non-GL background/overlay suffixes execute. No GL client, tile tick, network or playable-machine claim.

@@ -1,0 +1,8 @@
+MATCH c5e4990221abd8d88bd0b9b4daec28052f2d02cc17a6097961b3f3f62e528d4c src/main/java/api/hbm/energymk2/IBatteryItem.java
+MATCH c0e7626ef492b694543ff355a6b5e096361eeb8df91f12b238a03474257ab897 src/main/java/api/hbm/tile/ILoadedTile.java
+MATCH b3409e0a7903c2ad62fd8cebb4449806e34f8c406600501e6d09cd8aee1316af src/main/java/com/hbm/items/machine/ItemBattery.java
+MATCH 092aa19285fd7b501365bf2295122e04eb64c3887ef30935e72c544aefbc5bfe src/main/java/com/hbm/items/tool/ItemAnchorRemote.java
+MATCH 6cb8793a810acacd51a4b24e0d53b5b72a36f70c2e3f8149a316118d943f2b33 src/main/java/com/hbm/tileentity/TileEntityInventoryBase.java
+MATCH 8d7a54a208c5c9e482ec467497259a75d5a6b19530a395f4db8885c5022bfb9a src/main/java/com/hbm/tileentity/machine/storage/TileEntitySoyuzCapsule.java
+MATCH 389c40912225ec5a83690aeba41f61874b9bc0a7f5ecc4210fd107f559437fe4 src/main/java/com/hbm/util/Compat.java
+PASS: all 7 modified production files match actual compiler copies; 3861 Java sources included.

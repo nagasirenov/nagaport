@@ -1,0 +1,54 @@
+{
+  "scope": "Bounded conveyor gameplay owner and real moving-item engine evidence",
+  "artifact_files": [
+    "porting/native-conveyor-workflow-acceptance.md",
+    "porting/tests/conveyor-workflow-production-scope.json",
+    "porting/tests/probe-native-moving-item-engine.py",
+    "porting/tests/MovingItemEngineNativeTest.java",
+    "porting/tests/native-moving-item-engine-proof.log",
+    "porting/tests/native-moving-item-engine-notes.md",
+    "porting/tests/native-moving-item-engine-scope.json",
+    "porting/tests/conveyor-wand-workflow-probe.py",
+    "porting/tests/conveyor-wand-workflow-test.java.in",
+    "porting/tests/conveyor-wand-workflow-oracle.java.in",
+    "porting/tests/conveyor-wand-workflow-proof.log",
+    "porting/tests/conveyor-wand-workflow-source-manifest.json",
+    "porting/tests/conveyor-wand-workflow-notes.md",
+    "porting/tests/conveyor-workflow-artifact-scope.json"
+  ],
+  "sha256_excluding_this_manifest": {
+    "porting/native-conveyor-workflow-acceptance.md": "a1ddbb6a6596644d5c39d7696daaa1faf6b3d3866802491a70814eeb6a0ae9a8",
+    "porting/tests/conveyor-workflow-production-scope.json": "bcc299f7b04d8000a5934d0de7958ead110f9a0e63a079a98e87a401b8368f04",
+    "porting/tests/probe-native-moving-item-engine.py": "939ff1ce1c2e6c927fee03cf027cdf4491cebb7cbf4c04f7eea62d76e789d916",
+    "porting/tests/MovingItemEngineNativeTest.java": "5ee098179e813d2e8f9947bd81e314ef69bac0144d4e7ae072cf385af4ebe7b1",
+    "porting/tests/native-moving-item-engine-proof.log": "65ebaaebe09347f44742f51a258cfb8ccccb024e7ee41303a1c8485947b4a794",
+    "porting/tests/native-moving-item-engine-notes.md": "edd248954bb01eb17c502c097fbcea5623b35ae905e705a3bcdec5fbf71b2994",
+    "porting/tests/native-moving-item-engine-scope.json": "185f0a64df5e47a21e4fa7fb503355fa701f74ad0051d78aed4abaed0f9659c2",
+    "porting/tests/conveyor-wand-workflow-probe.py": "435d73cf182d3a4240e214674a19be071d1b9de983ad9deb2efd5d2a93cac916",
+    "porting/tests/conveyor-wand-workflow-test.java.in": "99ace24cce49c7b0725e246d345a65ec652b113fc0585e4d07ac41dd60eecd16",
+    "porting/tests/conveyor-wand-workflow-oracle.java.in": "13eb74b2f24c29952a438d981ce32c876804d57332f7d2b9b336e345991bfbbd",
+    "porting/tests/conveyor-wand-workflow-proof.log": "f69d25c06ccc1c1721c9f7c997a9761d38aa8ef87ab4123c1309a73f67bf0b86",
+    "porting/tests/conveyor-wand-workflow-source-manifest.json": "f608b7965ffb17cf41824505cfce10a92b703f2775da7d9c8f2badb936617a0d",
+    "porting/tests/conveyor-wand-workflow-notes.md": "7d1480fc870f0bc63286dc1ee284653e3b2b60fd877680e77d8948209c2723a7"
+  },
+  "unchanged_existing_test_dependency": {
+    "path": "porting/tests/ForgeEventNativeLauncher.java",
+    "sha256": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3"
+  },
+  "terminal_results": {
+    "engine_assertions": 20859,
+    "engine_direct_callbacks": 3854,
+    "engine_world_dispatched_updates": 6,
+    "wand_combined_assertions": 244865,
+    "pristine_routing_scenarios": 49176
+  },
+  "not_claimed": [
+    "RenderOverhead on-screen preview",
+    "EntityMovingPackage",
+    "RenderMovingItem",
+    "all crane gameplay",
+    "entity registration",
+    "full-mod compilation",
+    "live server or graphical acceptance"
+  ]
+}

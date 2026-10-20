@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.world.World;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.Constants;
 import com.hbm.lib.ForgeDirection;
 
@@ -29,10 +31,11 @@ public abstract class TileEntityCraneBase extends TileEntityMachineBase implemen
 	private ForgeDirection cachedOutputOverride = ForgeDirection.UNKNOWN;
 
 	@Override
-	public void updateEntity() {
-		if(hasWorldObj() && worldObj.isRemote) {
+	public void update() {
+		if(hasWorld() && this.world.isRemote) {
 			if(cachedOutputOverride != outputOverride) {
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+				IBlockState state = this.world.getBlockState(this.pos);
+				this.world.notifyBlockUpdate(this.pos, state, state, 3);
 				cachedOutputOverride = outputOverride;
 			}
 		}
@@ -70,17 +73,31 @@ public abstract class TileEntityCraneBase extends TileEntityMachineBase implemen
 		if(oldSide == direction) direction = direction.getOpposite();
 
 		boolean needSwapOutput = direction == getOutputSide();
-		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, direction.ordinal(), needSwapOutput ? 4 : 3);
+		IBlockState state = this.world.getBlockState(this.pos);
+		this.world.setBlockState(this.pos, state.getBlock().getStateFromMeta(direction.ordinal()), needSwapOutput ? 4 : 3);
 
 		if(needSwapOutput)
 			setOutputOverride(oldSide);
 	}
 
 	protected void onBlockChanged() {
-		if(!hasWorldObj()) return;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		worldObj.notifyBlockChange(xCoord, yCoord, zCoord, getBlockType());
+		if(!hasWorld()) return;
+		IBlockState state = this.world.getBlockState(this.pos);
+		this.world.notifyBlockUpdate(this.pos, state, state, 3);
+		this.world.notifyNeighborsOfStateChange(this.pos, getBlockType(), true);
 		markDirty();
+	}
+
+	/** Direction metadata changes do not replace the crane inventory or output override. */
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
+	}
+
+	/** Initial chunk sync must carry the same crane data as subsequent tile updates. */
+	@Override
+	public NBTTagCompound getUpdateTag() {
+		return writeToNBT(new NBTTagCompound());
 	}
 
 	@Override
@@ -103,9 +120,10 @@ public abstract class TileEntityCraneBase extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setByte("CraneOutputOverride", (byte) outputOverride.ordinal());
+		return nbt;
 	}
 
 	@Override
@@ -122,7 +140,7 @@ public abstract class TileEntityCraneBase extends TileEntityMachineBase implemen
 
 			for (int i = filter.getFilterSlots()[0]; i <  filter.getFilterSlots()[1]; i++) {
 				NBTTagCompound slotNBT = new NBTTagCompound();
-				if(inv.getStackInSlot(i) != null) {
+				if(inv.getStackInSlot(i) != null && !inv.getStackInSlot(i).isEmpty()) {
 					slotNBT.setByte("slot", (byte) count);
 					inv.getStackInSlot(i).writeToNBT(slotNBT);
 					tags.appendTag(slotNBT);
@@ -143,7 +161,8 @@ public abstract class TileEntityCraneBase extends TileEntityMachineBase implemen
 				onBlockChanged();
 			}
 			if (nbt.hasKey("inputSide")) {
-				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, nbt.getInteger("inputSide"), 3);
+				IBlockState state = this.world.getBlockState(this.pos);
+				this.world.setBlockState(this.pos, state.getBlock().getStateFromMeta(nbt.getInteger("inputSide")), 3);
 			}
 		} else {
 			if (this instanceof IControlReceiverFilter) {
@@ -158,13 +177,13 @@ public abstract class TileEntityCraneBase extends TileEntityMachineBase implemen
 						if (i < listSize) {
 							NBTTagCompound slotNBT = items.getCompoundTagAt(count);
 							byte slot = slotNBT.getByte("slot");
-							ItemStack loadedStack = ItemStack.loadItemStackFromNBT(slotNBT);
+							ItemStack loadedStack = new ItemStack(slotNBT);
 							//whether the filter info came from a router
 							boolean router = nbt.hasKey("modes") && slot > index * 5 && slot < index * + 5;
-							if (loadedStack != null && (slot < filter.getFilterSlots()[1] || router)) {
-								inv.setInventorySlotContents(slot + filter.getFilterSlots()[0], ItemStack.loadItemStackFromNBT(slotNBT));
+							if (!loadedStack.isEmpty() && (slot < filter.getFilterSlots()[1] || router)) {
+								inv.setInventorySlotContents(slot + filter.getFilterSlots()[0], new ItemStack(slotNBT));
 								filter.nextMode(slot);
-								this.getWorldObj().markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+								this.world.markChunkDirty(this.pos, this);
 							}
 						}
 						count++;

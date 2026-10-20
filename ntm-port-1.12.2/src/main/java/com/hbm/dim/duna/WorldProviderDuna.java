@@ -144,7 +144,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 		//  HIM
 		// HOMIE
 		if(worldObj.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian)
-			return dimensionId;
+			return this.getDimension();
 
 		return super.getRespawnDimension(player);
 	}

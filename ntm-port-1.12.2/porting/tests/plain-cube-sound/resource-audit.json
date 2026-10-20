@@ -1,0 +1,38 @@
+[
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_asbestos.png",
+    "sha256": "e9d0173fd69d1da742b45a21c64ed3d15e472d75c72b62bf18af9efd7ca3c02f"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/tile_lab.png",
+    "sha256": "f1176e35a64e9603f70088ec2e64ab45ccd82203b0a9bbf195be2f170b173c1c"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/tile_lab_cracked.png",
+    "sha256": "499e2ca0dde4fa4d070a984cbe62f2238ce7dbe1a21b2b98b6503841ea1603ce"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/tile_lab_broken.png",
+    "sha256": "6bf31bba4629682b5b4791fd543ce2cda8065a7c32ac7667a6b5ad93eac0e909"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/waste_trinitite.png",
+    "sha256": "ff7cfa4dfe780dd208b7c02afdc518d1c70bf8c2057b63e783b0dcb4620b1392"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/waste_trinitite_red.png",
+    "sha256": "cedbcfc846c1eca09dc1735c9983618e332ee9479b55cc0d1ea481c2350b9b6d"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/waste_planks.png",
+    "sha256": "a97a897d762d6fc7039eb8718c5c7d0796b575538f66df91817bc70deb577304"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/frozen_dirt.png",
+    "sha256": "a8da92fc9c4a9ff702480df31fa8464085960090c28e3a008dee8f89892d4928"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/frozen_planks.png",
+    "sha256": "798833f9e793590b6b67d407ef09f81b775cfe8f18a9faebad4f252c7a6ad1d6"
+  }
+]

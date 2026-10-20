@@ -29,8 +29,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -47,10 +47,10 @@ public class ItemCrucible extends ItemSwordAbility implements IEquipReceiver, IA
 		if(!(player instanceof EntityPlayerMP))
 			return;
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItemDamage() < player.getHeldItem().getMaxDamage()) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage() < com.hbm.util.NativeHeldItem.getMainHandNullable(player).getMaxDamage()) {
 
-			World world = player.worldObj;
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:weapon.cDeploy", 1.0F, 1.0F);
+			World world = player.world;
+			com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "hbm:weapon.cDeploy", 1.0F, 1.0F);
 
 			playAnimation(player, ToolAnimation.EQUIP);
 		}
@@ -81,9 +81,9 @@ public class ItemCrucible extends ItemSwordAbility implements IEquipReceiver, IA
 
 		if(active) {
 
-			attacker.worldObj.playSoundEffect(victim.posX, victim.posY, victim.posZ, "mob.zombie.woodbreak", 1.0F, 0.75F + victim.getRNG().nextFloat() * 0.2F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(attacker.world, victim.posX, victim.posY, victim.posZ, "mob.zombie.woodbreak", 1.0F, 0.75F + victim.getRNG().nextFloat() * 0.2F);
 
-			if(!attacker.worldObj.isRemote && !victim.isEntityAlive()) {
+			if(!attacker.world.isRemote && !victim.isEntityAlive()) {
 				int count = Math.min((int)Math.ceil(victim.getMaxHealth() / 3D), 250);
 
 				NBTTagCompound data = new NBTTagCompound();
@@ -101,8 +101,8 @@ public class ItemCrucible extends ItemSwordAbility implements IEquipReceiver, IA
 			return super.hitEntity(stack, victim, attacker);
 		} else {
 
-			if(!attacker.worldObj.isRemote && attacker instanceof EntityPlayer)
-				((EntityPlayer)attacker).addChatComponentMessage(new ChatComponentText("Not enough energy.").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+			if(!attacker.world.isRemote && attacker instanceof EntityPlayer)
+				((EntityPlayer)attacker).sendMessage(new TextComponentString("Not enough energy.").setStyle(new Style().setColor(TextFormatting.RED)));
 			return false;
 		}
 	}
@@ -175,7 +175,7 @@ public class ItemCrucible extends ItemSwordAbility implements IEquipReceiver, IA
 	// of effort, without crashing servers (I'm learning my lesson :o_ )
 	@SideOnly(Side.CLIENT)
 	private void playSwing(float pitchProbablyIDontFuckingCare) {
-		Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:weapon.cSwing"), pitchProbablyIDontFuckingCare));
+		Minecraft.getMinecraft().getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:weapon.cSwing"), pitchProbablyIDontFuckingCare));
 	}
 
 	@Override

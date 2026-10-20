@@ -1,20 +1,11 @@
 package com.hbm.render.block.ct;
 
 import net.minecraft.block.Block;
-import com.hbm.render.icon.IIconRegister;
-import com.hbm.render.icon.IIcon;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.IBlockAccess;
 
+/** Connectivity belongs to the owner; models receive only an immutable result. */
 public interface IBlockCT {
-
-	public IIcon[] getFragments(IBlockAccess world, int x, int y, int z);
-	
-	public default boolean canConnect(IBlockAccess world, int x, int y, int z, Block block) {
-		return this == block;
-	}
-	
-	public static CTStitchReceiver primeReceiver(IIconRegister reg, String textureName, IIcon blockIcon) {
-		IIcon ct = reg.registerIcon(textureName + "_ct");
-		return new CTStitchReceiver(blockIcon, ct);
-	}
+    default boolean canConnect(IBlockAccess world, int x, int y, int z, Block neighbor) { return this == neighbor; }
+    default int getCTMaterial(IBlockState state) { return 0; }
 }

@@ -1,0 +1,70 @@
+{
+  "baseline_commit": "641d2641bf196265e34e3f6968dba795f1dd061b",
+  "basis": "Complete genuine production AST after full JavacTask.parse + analyze; all remaining member invocations playSoundEffect scanned, no regex receiver/argument selection. Java offsets are UTF-16 code units.",
+  "universe_call_count": 243,
+  "selected_call_count": 16,
+  "selected_file_count": 14,
+  "selected_sound_count": 6,
+  "allowlist_size": 45,
+  "argument_shapes": {
+    "int,int,int,java.lang.String,float,float": 14,
+    "double,int,double,java.lang.String,float,float": 2
+  },
+  "sounds": {
+    "hbm:player.vomit": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:player/vomit",
+          "stream": false
+        }
+      ]
+    },
+    "hbm:weapon.fstbmbPing": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/fstbmbPing",
+          "stream": false
+        }
+      ]
+    },
+    "hbm:weapon.missileTakeOff": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/missileTakeOff",
+          "stream": false
+        }
+      ]
+    },
+    "hbm:weapon.flamethrowerShoot": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/flamethrowerShoot",
+          "stream": false
+        }
+      ]
+    },
+    "hbm:turret.jeremy_fire": {
+      "category": "block",
+      "sounds": [
+        "hbm:turret/jeremy_fire1",
+        "hbm:turret/jeremy_fire2",
+        "hbm:turret/jeremy_fire3",
+        "hbm:turret/jeremy_fire4",
+        "hbm:turret/jeremy_fire5"
+      ]
+    },
+    "hbm:turret.jeremy_reload": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:turret/jeremy_reload",
+          "stream": false
+        }
+      ]
+    }
+  }
+}

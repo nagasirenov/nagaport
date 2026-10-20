@@ -105,14 +105,14 @@ public class BulletConfigFactory {
 			@Override
 			public void behaveUpdate(EntityBulletBaseNT bullet) {
 
-				if(bullet.worldObj.isRemote)
+				if(bullet.world.isRemote)
 					return;
 
-				if(bullet.worldObj.getEntityByID(bullet.getEntityData().getInteger("homingTarget")) == null) {
+				if(bullet.world.getEntityByID(bullet.getEntityData().getInteger("homingTarget")) == null) {
 					chooseTarget(bullet);
 				}
 
-				Entity target = bullet.worldObj.getEntityByID(bullet.getEntityData().getInteger("homingTarget"));
+				Entity target = bullet.world.getEntityByID(bullet.getEntityData().getInteger("homingTarget"));
 
 				if(target != null) {
 
@@ -128,7 +128,7 @@ public class BulletConfigFactory {
 
 			private void chooseTarget(EntityBulletBaseNT bullet) {
 
-				List<EntityLivingBase> entities = bullet.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bullet.boundingBox.expand(range, range, range));
+				List<EntityLivingBase> entities = bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().expand(range, range, range));
 
 				Vec3d mot = new Vec3d(bullet.motionX, bullet.motionY, bullet.motionZ);
 
@@ -142,7 +142,7 @@ public class BulletConfigFactory {
 
 					Vec3d delta = new Vec3d(e.posX - bullet.posX, e.posY + e.height / 2 - bullet.posY, e.posZ - bullet.posZ);
 
-					if(bullet.worldObj.rayTraceBlocks(new Vec3d(bullet.posX, bullet.posY, bullet.posZ), new Vec3d(e.posX, e.posY + e.height / 2, e.posZ), false, true, false) != null)
+					if(bullet.world.rayTraceBlocks(new Vec3d(bullet.posX, bullet.posY, bullet.posZ), new Vec3d(e.posX, e.posY + e.height / 2, e.posZ), false, true, false) != null)
 						continue;
 
 					double dist = e.getDistanceSqToEntity(bullet);
@@ -153,7 +153,7 @@ public class BulletConfigFactory {
 
 						if(deltaAngle < targetAngle) {
 							//Checks if the bullet is not already inside the entity's bounding box, so it doesn't pick the same target
-							if(bullet.getConfig().doesPenetrate && bullet.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bullet.boundingBox.expand(2, 2, 2)) == null) {
+							if(bullet.getConfig().doesPenetrate && bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().grow(2, 2, 2)) == null) {
 								continue;
 							}
 							target = e;

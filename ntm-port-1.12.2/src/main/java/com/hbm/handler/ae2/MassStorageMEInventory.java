@@ -7,9 +7,10 @@ import net.minecraftforge.fml.common.Optional;
 
 import appeng.api.AEApi;
 import appeng.api.config.Actionable;
-import appeng.api.networking.security.BaseActionSource;
+import appeng.api.networking.security.IActionSource;
 import appeng.api.storage.IMEInventory;
-import appeng.api.storage.StorageChannel;
+import appeng.api.storage.IStorageChannel;
+import appeng.api.storage.channels.IItemStorageChannel;
 import appeng.api.storage.data.IAEItemStack;
 import appeng.api.storage.data.IItemList;
 import net.minecraft.item.ItemStack;
@@ -24,10 +25,10 @@ public class MassStorageMEInventory implements IMEInventory<IAEItemStack> {
     }
 
     @Override
-    public IAEItemStack injectItems(IAEItemStack input, Actionable type, BaseActionSource src) {
+    public IAEItemStack injectItems(IAEItemStack input, Actionable type, IActionSource src) {
         ItemStack typeStack = tile.getType();
 
-        if (typeStack == null || !ItemStackUtil.areStacksCompatible(input.getItemStack(), typeStack))
+        if (typeStack == null || !ItemStackUtil.areStacksCompatible(input.createItemStack(), typeStack))
             return input;
         
         // If you're working with amounts greater than MAX_INT, you shouldn't use MSUs in the first place
@@ -37,16 +38,16 @@ public class MassStorageMEInventory implements IMEInventory<IAEItemStack> {
             return null;
         }
         
-        return AEApi.instance().storage()
-            .createItemStack(typeStack)
+        return getChannel()
+            .createStack(typeStack)
             .setStackSize(remaining);
     }
 
     @Override
-    public IAEItemStack extractItems(IAEItemStack request, Actionable mode, BaseActionSource src) {
+    public IAEItemStack extractItems(IAEItemStack request, Actionable mode, IActionSource src) {
         ItemStack typeStack = tile.getType();
 
-        if (typeStack == null || !ItemStackUtil.areStacksCompatible(request.getItemStack(), typeStack))
+        if (typeStack == null || !ItemStackUtil.areStacksCompatible(request.createItemStack(), typeStack))
             return null;
 
         // If you're working with amounts greater than MAX_INT, you shouldn't use MSUs in the first place
@@ -57,8 +58,8 @@ public class MassStorageMEInventory implements IMEInventory<IAEItemStack> {
             return null;
         }
 
-        return AEApi.instance().storage()
-            .createItemStack(typeStack)
+        return getChannel()
+            .createStack(typeStack)
             .setStackSize(fulfilled);
     }
 
@@ -68,8 +69,8 @@ public class MassStorageMEInventory implements IMEInventory<IAEItemStack> {
 
         if (typeStack != null) {
             out.add(
-                AEApi.instance().storage()
-                .createItemStack(typeStack)
+                getChannel()
+                .createStack(typeStack)
                 .setStackSize(tile.getTotalStockpile())
             );
         }
@@ -78,8 +79,8 @@ public class MassStorageMEInventory implements IMEInventory<IAEItemStack> {
     }
 
     @Override
-    public StorageChannel getChannel() {
-        return StorageChannel.ITEMS;
+    public IStorageChannel<IAEItemStack> getChannel() {
+        return AEApi.instance().storage().getStorageChannel(IItemStorageChannel.class);
     }
     
 }

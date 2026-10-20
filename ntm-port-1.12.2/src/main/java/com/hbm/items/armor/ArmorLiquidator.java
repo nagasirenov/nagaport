@@ -52,7 +52,7 @@ public class ArmorLiquidator extends ArmorFSB {
 	public Multimap getItemAttributeModifiers() {
 
 		Multimap multimap = HashMultimap.create();
-		multimap.put(SharedMonsterAttributes.knockbackResistance.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", 100D, 0));
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", 100D, 0));
 		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", -0.1D, 1));
 		return multimap;
 	}

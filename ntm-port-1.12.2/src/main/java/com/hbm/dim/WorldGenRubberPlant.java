@@ -26,7 +26,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 
 
 
-			if ((!world.provider.hasNoSky || py < 254) && world.getBlock(px, py - 1, pz) == ModBlocks.rubber_grass) {
+			if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.rubber_grass) {
 
 				int plantType = rand.nextInt(3);  // 0, 1, or 2
 
@@ -45,7 +45,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 				world.setBlock(px, py, pz, ModBlocks.rubber_plant, plantType, 2);
 				flag = true;
 
-			} else if ((!world.provider.hasNoSky || py < 254) && world.getBlock(px, py - 1, pz) == ModBlocks.vinyl_sand) {
+			} else if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.vinyl_sand) {
 				if(rand.nextInt(64) == 0) {
 
 					world.setBlock(px, world.getTopSolidOrLiquidBlock(px, pz), pz, ModBlocks.spike_cacti, EnumBushType.CACT.ordinal(), 2);
@@ -54,7 +54,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 
 			}
 			if (currentBiome == BiomeGenBaseTekto.forest) {
-				if ((!world.provider.hasNoSky || py < 254) && world.getBlock(px, py - 1, pz) == ModBlocks.rubber_grass) {
+				if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.rubber_grass) {
 					int plantType = rand.nextInt(2);
 
 					switch (plantType) {

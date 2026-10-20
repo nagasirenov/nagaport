@@ -56,7 +56,7 @@ public class BlockGasClorine extends BlockGasBase {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		if(!world.isRemote && rand.nextInt(10) == 0) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return;
 		}
 		

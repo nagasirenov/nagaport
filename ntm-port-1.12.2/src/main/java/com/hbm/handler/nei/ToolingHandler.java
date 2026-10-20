@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class ToolingHandler extends NEIUniversalHandler {
 	@Override
-	public ItemStack[] getMachinesForRecipe() {
+	public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModItems.boltgun),
 				new ItemStack(ModItems.blowtorch),
@@ -17,7 +17,7 @@ public class ToolingHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmTooling";
 	}
 }

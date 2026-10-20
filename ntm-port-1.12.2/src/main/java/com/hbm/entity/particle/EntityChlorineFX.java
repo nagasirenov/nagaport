@@ -51,7 +51,7 @@ public class EntityChlorineFX extends EntityModFX {
 		}
 
 		if (rand.nextInt(50) == 0)
-			ExplosionChaos.poison(worldObj, (int) posX, (int) posY, (int) posZ, 2);
+			ExplosionChaos.poison(this.world, (int) posX, (int) posY, (int) posZ, 2);
 
 		this.particleAge++;
 
@@ -68,7 +68,7 @@ public class EntityChlorineFX extends EntityModFX {
 			this.motionZ *= 0.699999988079071D;
 		}
 		
-		if(worldObj.isRaining() && worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))) {
+		if(this.world.isRaining() && this.world.canBlockSeeTheSky(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ))) {
 			this.motionY -= 0.01;
 		}
 		
@@ -80,7 +80,7 @@ public class EntityChlorineFX extends EntityModFX {
 			this.posY += this.motionY/subdivisions;
 			this.posZ += this.motionZ/subdivisions;
 			
-			if (worldObj.getBlock((int) posX, (int) posY, (int) posZ).isNormalCube()) {
+			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {
 	
 				if(rand.nextInt(5) != 0)
 					this.setDead();

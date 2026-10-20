@@ -49,6 +49,6 @@ public class ContainerRBMKAutoloader extends ContainerBase {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return loader.isUseableByPlayer(player);
+		return loader.isUsableByPlayer(player);
 	}
 }

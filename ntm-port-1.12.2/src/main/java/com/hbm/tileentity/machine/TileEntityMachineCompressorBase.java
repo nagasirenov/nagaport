@@ -56,16 +56,16 @@ public abstract class TileEntityMachineCompressorBase extends TileEntityMachineB
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineCompressor";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				this.updateConnections();
 			}
 
@@ -110,7 +110,7 @@ public abstract class TileEntityMachineCompressorBase extends TileEntityMachineB
 			}
 
 			for(DirPos pos : getConPos()) {
-				this.tryProvide(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			this.networkPackNT(100);
@@ -144,8 +144,8 @@ public abstract class TileEntityMachineCompressorBase extends TileEntityMachineB
 
 	protected void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -198,12 +198,13 @@ public abstract class TileEntityMachineCompressorBase extends TileEntityMachineB
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setInteger("progress", progress);
 		tanks[0].writeToNBT(nbt, "0");
 		tanks[1].writeToNBT(nbt, "1");
+		return nbt;
 	}
 
 	@Override
@@ -219,7 +220,7 @@ public abstract class TileEntityMachineCompressorBase extends TileEntityMachineB
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

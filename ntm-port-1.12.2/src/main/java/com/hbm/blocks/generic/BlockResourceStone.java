@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class BlockResourceStone extends BlockEnumMulti {
 
 	public BlockResourceStone() {
-		super(Material.rock, BlockEnums.EnumStoneType.class, true, true);
+		super(Material.ROCK, BlockEnums.EnumStoneType.class, true, true);
 	}
 
 	@Override

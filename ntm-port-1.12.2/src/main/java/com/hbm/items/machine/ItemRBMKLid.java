@@ -21,7 +21,7 @@ public class ItemRBMKLid extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof RBMKBase) {
 			RBMKBase rbmk = (RBMKBase) b;
@@ -31,7 +31,7 @@ public class ItemRBMKLid extends Item {
 			if(pos == null)
 				return false;
 
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(!(te instanceof TileEntityRBMKBase))
 				return false;

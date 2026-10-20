@@ -13,8 +13,8 @@ public class TileEntityFoundryBasin extends TileEntityFoundryCastingBase impleme
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 	}
 
 	@Override

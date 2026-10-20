@@ -21,19 +21,19 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyReceiverMK2, IGUIProvider {
+public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyReceiverMK2, IGUIProvider, net.minecraft.util.ITickable {
 	
 	long power;
 	public static long maxPower = 500000;
 	public boolean infinite = false;
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote)
+		if(!this.world.isRemote)
 			this.updateConnections();
 
-		if(!worldObj.isRemote && this.getBlockMetadata() > 5 && (power >= 25000 || infinite)) {
+		if(!this.world.isRemote && this.getBlockMetadata() > 5 && (power >= 25000 || infinite)) {
 			
 			if(!infinite) {
 				power -= 25000;
@@ -42,7 +42,7 @@ public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyR
 			
 			int range = 15;
 			
-			List<IMob> entities = worldObj.getEntitiesWithinAABB(IMob.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + range, yCoord + range, zCoord + range));
+			List<IMob> entities = this.world.getEntitiesWithinAABB(IMob.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - range, this.pos.getY() - range, this.pos.getZ() - range, this.pos.getX() + range, this.pos.getY() + range, this.pos.getZ() + range));
 			
 			for(IMob entity : entities) {
 				
@@ -56,7 +56,7 @@ public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyR
 	private void updateConnections() {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 	
 	@Override
@@ -68,11 +68,12 @@ public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyR
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
 		nbt.setBoolean("infinite", infinite);
+		return nbt;
 	}
 
 	@Override

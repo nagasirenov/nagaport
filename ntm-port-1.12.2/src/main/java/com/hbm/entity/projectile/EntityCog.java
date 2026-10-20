@@ -17,8 +17,14 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 public class EntityCog extends EntityThrowableInterp {
+
+	private static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> META = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);
 
 	public EntityCog(World world) {
 		super(world);
@@ -33,32 +39,32 @@ public class EntityCog extends EntityThrowableInterp {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(10, new Integer(0));
-		this.dataWatcher.addObject(11, new Integer(0));
+		this.dataManager.register(ORIENTATION, new Integer(0));
+		this.dataManager.register(META, new Integer(0));
 	}
 
 	public EntityCog setOrientation(int rot) {
-		this.dataWatcher.updateObject(10, rot);
+		this.dataManager.set(ORIENTATION, rot);
 		return this;
 	}
 
 	public EntityCog setMeta(int meta) {
-		this.dataWatcher.updateObject(11, meta);
+		this.dataManager.set(META, meta);
 		return this;
 	}
 
 	public int getOrientation() {
-		return this.dataWatcher.getWatchableObjectInt(10);
+		return this.dataManager.get(ORIENTATION);
 	}
 
 	public int getMeta() {
-		return this.dataWatcher.getWatchableObjectInt(11);
+		return this.dataManager.get(META);
 	}
 
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(player.inventory.addItemStackToInventory(new ItemStack(ModItems.gear_large, 1, this.getMeta())))
 				this.setDead();
@@ -77,7 +83,7 @@ public class EntityCog extends EntityThrowableInterp {
 	@Override
 	protected void onImpact(RayTraceResult mop) {
 
-		if(worldObj != null && mop != null && mop.typeOfHit == Type.ENTITY && mop.entityHit.isEntityAlive()) {
+		if(this.world != null && mop != null && mop.typeOfHit == Type.ENTITY && mop.entityHit.isEntityAlive()) {
 			Entity e = mop.entityHit;
 			e.attackEntityFrom(ModDamageSource.rubble, 1000);
 			if(!e.isEntityAlive() && e instanceof EntityLivingBase) {
@@ -87,28 +93,28 @@ public class EntityCog extends EntityThrowableInterp {
 				vdat.setInteger("cDiv", 5);
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(vdat, e.posX, e.posY + e.height * 0.5, e.posZ), new TargetPoint(e.dimension, e.posX, e.posY + e.height * 0.5, e.posZ, 150));
 
-				worldObj.playSoundEffect(e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 			}
 		}
 
-		if(this.ticksExisted > 1 && worldObj != null && mop != null && mop.typeOfHit == Type.BLOCK) {
+		if(this.ticksExisted > 1 && this.world != null && mop != null && mop.typeOfHit == Type.BLOCK) {
 
-			int orientation = this.dataWatcher.getWatchableObjectInt(10);
+			int orientation = this.dataManager.get(ORIENTATION);
 
 			if(orientation < 6) {
 
 				if(new Vec3d(motionX, motionY, motionZ).length() < 0.75) {
-					this.dataWatcher.updateObject(10, orientation + 6);
+					this.dataManager.set(ORIENTATION, orientation + 6);
 					orientation += 6;
 				} else {
 					net.minecraft.util.EnumFacing side = mop.sideHit;
 					this.motionX *= 1 - (Math.abs(side.getFrontOffsetX()) * 2);
 					this.motionY *= 1 - (Math.abs(side.getFrontOffsetY()) * 2);
 					this.motionZ *= 1 - (Math.abs(side.getFrontOffsetZ()) * 2);
-					worldObj.createExplosion(this, posX, posY, posZ, 3F, false);
+					this.world.createExplosion(this, posX, posY, posZ, 3F, false);
 
-					if(worldObj.getBlockState(mop.getBlockPos()).getBlock().getExplosionResistance(this) < 50) {
-						worldObj.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+					if(this.world.getBlockState(mop.getBlockPos()).getBlock().getExplosionResistance(this) < 50) {
+						this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 					}
 				}
 			}
@@ -125,10 +131,10 @@ public class EntityCog extends EntityThrowableInterp {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote) {
-			int orientation = this.dataWatcher.getWatchableObjectInt(10);
+		if(!this.world.isRemote) {
+			int orientation = this.dataManager.get(ORIENTATION);
 			if(orientation >= 6 && !this.inGround) {
-				this.dataWatcher.updateObject(10, orientation - 6);
+				this.dataManager.set(ORIENTATION, orientation - 6);
 			}
 		}
 

@@ -1,0 +1,949 @@
+{
+  "schema": 1,
+  "direct_families": [
+    "BlockBedrockOreTE",
+    "BlockFissure",
+    "BlockOre",
+    "BlockSellafieldOre",
+    "BlockCableGauge",
+    "BlockCablePaintable",
+    "BlockOpenComputersCablePaintable",
+    "CraneRouter",
+    "FluidDuctGauge",
+    "FluidDuctPaintable",
+    "FluidDuctPaintableBlockExhaust",
+    "PneumoTubePaintableBlock"
+  ],
+  "inherited_classes": [
+    "BlockCluster",
+    "BlockOreFluid",
+    "BlockOreOutgas"
+  ],
+  "owners": [
+    {
+      "owner": "ore_iron",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_iron",
+      "construction": "ore_iron = new BlockOre(Material.rock, Blocks.iron_ore).setBlockName(\"ore_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_iron\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_iron, ItemBlockBase.class, ore_iron.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_gold",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_gold",
+      "construction": "ore_gold = new BlockOre(Material.rock, Blocks.gold_ore).setBlockName(\"ore_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_gold\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_gold, ItemBlockBase.class, ore_gold.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_redstone",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_redstone",
+      "construction": "ore_redstone = new BlockOre(Material.rock, Blocks.redstone_ore).setBlockName(\"ore_redstone\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_redstone\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_redstone, ItemBlockBase.class, ore_redstone.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_lapis",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_lapis",
+      "construction": "ore_lapis = new BlockOre(Material.rock, Blocks.lapis_ore).setBlockName(\"ore_lapis\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_lapis\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_lapis, ItemBlockBase.class, ore_lapis.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_emerald",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_emerald",
+      "construction": "ore_emerald = new BlockOre(Material.rock, Blocks.emerald_ore).setBlockName(\"ore_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_emerald\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_emerald, ItemBlockBase.class, ore_emerald.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_quartz",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_quartz",
+      "construction": "ore_quartz = new BlockOre(Material.rock, Blocks.quartz_ore).setBlockName(\"ore_quartz\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_quartz\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_quartz, ItemBlockBase.class, ore_quartz.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_diamond",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_diamond",
+      "construction": "ore_diamond = new BlockOre(Material.rock, Blocks.diamond_ore).setBlockName(\"ore_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_diamond\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_diamond, ItemBlockBase.class, ore_diamond.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_uranium",
+      "class": "BlockOreOutgas",
+      "family": "BlockOre",
+      "texture": "hbm:ore_uranium",
+      "construction": "ore_uranium = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_uranium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_uranium, ItemBlockBase.class, ore_uranium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_plutonium",
+      "class": "BlockOreOutgas",
+      "family": "BlockOre",
+      "texture": "hbm:ore_plutonium",
+      "construction": "ore_plutonium = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_plutonium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_plutonium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_plutonium, ItemBlockBase.class, ore_plutonium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_titanium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_titanium",
+      "construction": "ore_titanium = new BlockOre(Material.rock).setBlockName(\"ore_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_titanium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_titanium, ItemBlockBase.class, ore_titanium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_sulfur",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_sulfur",
+      "construction": "ore_sulfur = new BlockOre(Material.rock).setBlockName(\"ore_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_sulfur\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_sulfur, ItemBlockBase.class, ore_sulfur.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_glowstone",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_glowstone",
+      "construction": "ore_glowstone = new BlockOre(Material.rock).setLightLevel(4F/15F).setBlockName(\"ore_glowstone\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_glowstone\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_glowstone, ItemBlockBase.class, ore_glowstone.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_thorium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_thorium",
+      "construction": "ore_thorium = new BlockOre(Material.rock).setBlockName(\"ore_thorium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_thorium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_thorium, ItemBlockBase.class, ore_thorium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_morkite",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_morkite",
+      "construction": "ore_morkite = new BlockOre(Material.rock).setBlockName(\"ore_morkite\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.mork).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_morkite\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_morkite, ItemBlockBase.class, ore_morkite.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_niter",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_niter",
+      "construction": "ore_niter = new BlockOre(Material.rock).setBlockName(\"ore_niter\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_niter\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_niter, ItemBlockBase.class, ore_niter.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_copper",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_copper",
+      "construction": "ore_copper = new BlockOre(Material.rock).setBlockName(\"ore_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_copper\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_copper, ItemBlockBase.class, ore_copper.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_nickel",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_nickel",
+      "construction": "ore_nickel = new BlockOre(Material.rock).setBlockName(\"ore_nickel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nickel\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_nickel, ItemBlockBase.class, ore_nickel.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_mineral",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_mineral",
+      "construction": "ore_mineral = new BlockOre(Material.rock).setBlockName(\"ore_mineral\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_mineral\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_mineral, ItemBlockBase.class, ore_mineral.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_zinc",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_zinc",
+      "construction": "ore_zinc = new BlockOre(Material.rock).setBlockName(\"ore_zinc\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_zinc\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_zinc, ItemBlockBase.class, ore_zinc.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_lithium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_lithium",
+      "construction": "ore_lithium = new BlockOre(Material.rock).setBlockName(\"ore_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lithium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_lithium, ItemBlockBase.class, ore_lithium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_niobium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_niobium",
+      "construction": "ore_niobium = new BlockOre(Material.rock).setBlockName(\"ore_niobium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_niobium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_niobium, ItemBlockBase.class, ore_niobium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_palladium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_palladium",
+      "construction": "ore_palladium = new BlockOre(Material.rock).setBlockName(\"ore_palladium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_palladium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_palladium, ItemBlockBase.class, ore_palladium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_iodine",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_iodine",
+      "construction": "ore_iodine = new BlockOre(Material.rock).setBlockName(\"ore_iodine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_iodine\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_iodine, ItemBlockBase.class, ore_iodine.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_arsenic",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_arsenic",
+      "construction": "ore_arsenic = new BlockOre(Material.rock).setBlockName(\"ore_arsenic\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_arsenic\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_arsenic, ItemBlockBase.class, ore_arsenic.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_cadmium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_cadmium",
+      "construction": "ore_cadmium = new BlockOre(Material.rock).setBlockName(\"ore_cadmium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cadmium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_cadmium, ItemBlockBase.class, ore_cadmium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_tungsten",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_tungsten",
+      "construction": "ore_tungsten = new BlockOre(Material.rock).setBlockName(\"ore_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_tungsten\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_tungsten, ItemBlockBase.class, ore_tungsten.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_aluminium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_aluminium",
+      "construction": "ore_aluminium = new BlockOre(Material.rock).setBlockName(\"ore_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_aluminium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_aluminium, ItemBlockBase.class, ore_aluminium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_fluorite",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_fluorite",
+      "construction": "ore_fluorite = new BlockOre(Material.rock).setBlockName(\"ore_fluorite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_fluorite\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_fluorite, ItemBlockBase.class, ore_fluorite.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_lead",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_lead",
+      "construction": "ore_lead = new BlockOre(Material.rock).setBlockName(\"ore_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lead\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_lead, ItemBlockBase.class, ore_lead.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_schrabidium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_schrabidium",
+      "construction": "ore_schrabidium = new BlockOre(Material.rock).setBlockName(\"ore_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":ore_schrabidium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_schrabidium, ItemBlockBase.class, ore_schrabidium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_beryllium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_beryllium",
+      "construction": "ore_beryllium = new BlockOre(Material.rock).setBlockName(\"ore_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_beryllium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_beryllium, ItemBlockBase.class, ore_beryllium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_lignite",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_lignite",
+      "construction": "ore_lignite = new BlockOre(Material.rock).setBlockName(\"ore_lignite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_lignite\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_lignite, ItemBlockBase.class, ore_lignite.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_asbestos",
+      "class": "BlockOreOutgas",
+      "family": "BlockOre",
+      "texture": "hbm:ore_asbestos",
+      "construction": "ore_asbestos = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_asbestos\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_asbestos, ItemBlockBase.class, ore_asbestos.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_silicon",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_silicon",
+      "construction": "ore_silicon = new BlockOre(Material.rock).setBlockName(\"ore_silicon\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_silicon\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_silicon, ItemBlockBase.class, ore_silicon.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_fire",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_fire",
+      "construction": "ore_fire = new BlockOre(Material.rock).setBlockName(\"ore_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_fire\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_fire, ItemBlockBase.class, ore_fire.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_shale",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_shale",
+      "construction": "ore_shale = new BlockOre(Material.rock).setBlockName(\"ore_shale\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_shale\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_shale, ItemBlockBase.class, ore_shale.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "cluster_iron",
+      "class": "BlockCluster",
+      "family": "BlockOre",
+      "texture": "hbm:cluster_iron",
+      "construction": "cluster_iron = new BlockCluster(Material.rock).setBlockName(\"cluster_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_iron\");",
+      "registration": [
+        "GameRegistry.registerBlock(cluster_iron, ItemBlockBase.class, cluster_iron.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "cluster_titanium",
+      "class": "BlockCluster",
+      "family": "BlockOre",
+      "texture": "hbm:cluster_titanium",
+      "construction": "cluster_titanium = new BlockCluster(Material.rock).setBlockName(\"cluster_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_titanium\");",
+      "registration": [
+        "GameRegistry.registerBlock(cluster_titanium, ItemBlockBase.class, cluster_titanium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "cluster_aluminium",
+      "class": "BlockCluster",
+      "family": "BlockOre",
+      "texture": "hbm:cluster_aluminium",
+      "construction": "cluster_aluminium = new BlockCluster(Material.rock).setBlockName(\"cluster_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_aluminium\");",
+      "registration": [
+        "GameRegistry.registerBlock(cluster_aluminium, ItemBlockBase.class, cluster_aluminium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "cluster_copper",
+      "class": "BlockCluster",
+      "family": "BlockOre",
+      "texture": "hbm:cluster_copper",
+      "construction": "cluster_copper = new BlockCluster(Material.rock).setBlockName(\"cluster_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_copper\");",
+      "registration": [
+        "GameRegistry.registerBlock(cluster_copper, ItemBlockBase.class, cluster_copper.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_bedrock",
+      "class": "BlockBedrockOreTE",
+      "family": "BlockBedrockOreTE",
+      "texture": null,
+      "construction": "ore_bedrock = new BlockBedrockOreTE().setBlockName(\"ore_bedrock\").setCreativeTab(null);",
+      "registration": [
+        "register(ore_bedrock);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_volcano",
+      "class": "BlockFissure",
+      "family": "BlockFissure",
+      "texture": null,
+      "construction": "ore_volcano = new BlockFissure().setBlockName(\"ore_volcano\").setLightLevel(1F).setCreativeTab(MainRegistry.blockTab);",
+      "registration": [
+        "register(ore_volcano);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_australium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_australium",
+      "construction": "ore_australium = new BlockOre(Material.rock).setBlockName(\"ore_australium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_australium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_australium, ItemBlockBase.class, ore_australium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_rare",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_rare",
+      "construction": "ore_rare = new BlockOre(Material.rock).setBlockName(\"ore_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_rare\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_rare, ItemBlockBase.class, ore_rare.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_cobalt",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_cobalt",
+      "construction": "ore_cobalt = new BlockOre(Material.rock).setBlockName(\"ore_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cobalt\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_cobalt, ItemBlockBase.class, ore_cobalt.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_cinnebar",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_cinnebar",
+      "construction": "ore_cinnebar = new BlockOre(Material.rock).setBlockName(\"ore_cinnebar\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cinnebar\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_cinnebar, ItemBlockBase.class, ore_cinnebar.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_coltan",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_coltan",
+      "construction": "ore_coltan = new BlockOre(Material.rock).setBlockName(\"ore_coltan\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_coltan\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_coltan, ItemBlockBase.class, ore_coltan.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_lanthanium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_lanthanium",
+      "construction": "ore_lanthanium = new BlockOre(Material.rock).setBlockName(\"ore_lanthanium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lanthanium\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_lanthanium, ItemBlockBase.class, ore_lanthanium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_oil_empty",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_oil_empty",
+      "construction": "ore_oil_empty = new BlockOre(Material.rock).setBlockName(\"ore_oil_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_oil_empty, ItemBlockBase.class, ore_oil_empty.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_oil",
+      "class": "BlockOreFluid",
+      "family": "BlockOre",
+      "texture": "hbm:ore_oil",
+      "construction": "ore_oil = new BlockOreFluid(Material.rock, ore_oil_empty, ReserveType.OIL).setBlockName(\"ore_oil\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_oil, ItemBlockLore.class, ore_oil.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_bedrock_oil",
+      "class": "BlockOreFluid",
+      "family": "BlockOre",
+      "texture": "hbm:ore_bedrock_oil",
+      "construction": "ore_bedrock_oil = new BlockOreFluid(Material.rock, null, ReserveType.OIL).setBlockName(\"ore_bedrock_oil\").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000).setBlockTextureName(RefStrings.MODID + \":ore_bedrock_oil\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_bedrock_oil, ItemBlockBase.class, ore_bedrock_oil.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_gas_empty",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_oil_empty",
+      "construction": "ore_gas_empty = new BlockOre(Material.rock).setBlockName(\"ore_gas_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_gas_empty, ItemBlockBase.class, ore_gas_empty.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_gas",
+      "class": "BlockOreFluid",
+      "family": "BlockOre",
+      "texture": "hbm:ore_gas",
+      "construction": "ore_gas = new BlockOreFluid(Material.rock, ore_gas_empty, ReserveType.GAS).setBlockName(\"ore_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gas\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_gas, ItemBlockLore.class, ore_gas.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_brine_empty",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_oil_empty",
+      "construction": "ore_brine_empty = new BlockOre(Material.rock).setBlockName(\"ore_brine_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_brine_empty, ItemBlockLore.class, ore_brine_empty.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_brine",
+      "class": "BlockOreFluid",
+      "family": "BlockOre",
+      "texture": "hbm:ore_brine",
+      "construction": "ore_brine = new BlockOreFluid(Material.rock, ore_brine_empty, ReserveType.BRINE).setBlockName(\"ore_brine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_brine\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_brine, ItemBlockLore.class, ore_brine.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_tekto_empty",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:ore_oil_empty",
+      "construction": "ore_tekto_empty = new BlockOre(Material.rock).setBlockName(\"ore_tekto_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_tekto_empty, ItemBlockLore.class, ore_tekto_empty.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_tekto",
+      "class": "BlockOreFluid",
+      "family": "BlockOre",
+      "texture": "hbm:ore_tekto",
+      "construction": "ore_tekto = new BlockOreFluid(Material.rock, ore_tekto_empty, ReserveType.OIL).setBlockName(\"ore_tekto\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_tekto\");",
+      "registration": [
+        "GameRegistry.registerBlock(ore_tekto, ItemBlockLore.class, ore_tekto.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "deco_titanium",
+      "class": "BlockOre",
+      "family": "BlockOre",
+      "texture": "hbm:deco_titanium",
+      "construction": "deco_titanium = new BlockOre(Material.iron).noFortune().setBlockName(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_titanium\");",
+      "registration": [
+        "GameRegistry.registerBlock(deco_titanium, deco_titanium.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_sellafield_diamond",
+      "class": "BlockSellafieldOre",
+      "family": "BlockSellafieldOre",
+      "texture": "hbm:ore_overlay_diamond",
+      "construction": "ore_sellafield_diamond = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_diamond\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_diamond\");",
+      "registration": [
+        "register(ore_sellafield_diamond);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_sellafield_emerald",
+      "class": "BlockSellafieldOre",
+      "family": "BlockSellafieldOre",
+      "texture": "hbm:ore_overlay_emerald",
+      "construction": "ore_sellafield_emerald = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_emerald\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_emerald\");",
+      "registration": [
+        "register(ore_sellafield_emerald);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_sellafield_uranium_scorched",
+      "class": "BlockSellafieldOre",
+      "family": "BlockSellafieldOre",
+      "texture": "hbm:ore_overlay_uranium_scorched",
+      "construction": "ore_sellafield_uranium_scorched = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_uranium_scorched\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_uranium_scorched\");",
+      "registration": [
+        "register(ore_sellafield_uranium_scorched);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_sellafield_schrabidium",
+      "class": "BlockSellafieldOre",
+      "family": "BlockSellafieldOre",
+      "texture": "hbm:ore_overlay_schrabidium",
+      "construction": "ore_sellafield_schrabidium = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_schrabidium\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_schrabidium\");",
+      "registration": [
+        "register(ore_sellafield_schrabidium);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "ore_sellafield_radgem",
+      "class": "BlockSellafieldOre",
+      "family": "BlockSellafieldOre",
+      "texture": "hbm:ore_overlay_radgem",
+      "construction": "ore_sellafield_radgem = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_radgem\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_radgem\");",
+      "registration": [
+        "register(ore_sellafield_radgem);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "red_cable_paintable",
+      "class": "BlockCablePaintable",
+      "family": "BlockCablePaintable",
+      "texture": null,
+      "construction": "red_cable_paintable = new BlockCablePaintable().setBlockName(\"red_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "GameRegistry.registerBlock(red_cable_paintable, red_cable_paintable.getUnlocalizedName());"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "red_cable_gauge",
+      "class": "BlockCableGauge",
+      "family": "BlockCableGauge",
+      "texture": null,
+      "construction": "red_cable_gauge = new BlockCableGauge().setBlockName(\"red_cable_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(red_cable_gauge);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "fluid_duct_paintable_block_exhaust",
+      "class": "FluidDuctPaintableBlockExhaust",
+      "family": "FluidDuctPaintableBlockExhaust",
+      "texture": null,
+      "construction": "fluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setBlockName(\"fluid_duct_paintable_block_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(fluid_duct_paintable_block_exhaust);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "fluid_duct_paintable",
+      "class": "FluidDuctPaintable",
+      "family": "FluidDuctPaintable",
+      "texture": null,
+      "construction": "fluid_duct_paintable = new FluidDuctPaintable().setBlockName(\"fluid_duct_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(fluid_duct_paintable);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "fluid_duct_gauge",
+      "class": "FluidDuctGauge",
+      "family": "FluidDuctGauge",
+      "texture": null,
+      "construction": "fluid_duct_gauge = new FluidDuctGauge().setBlockName(\"fluid_duct_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(fluid_duct_gauge);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "crane_router",
+      "class": "CraneRouter",
+      "family": "CraneRouter",
+      "texture": null,
+      "construction": "crane_router = new CraneRouter().setBlockName(\"crane_router\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(crane_router);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "pneumatic_tube_paintable",
+      "class": "PneumoTubePaintableBlock",
+      "family": "PneumoTubePaintableBlock",
+      "texture": null,
+      "construction": "pneumatic_tube_paintable = new PneumoTubePaintableBlock().setBlockName(\"pneumatic_tube_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(pneumatic_tube_paintable);"
+      ],
+      "optional": null
+    },
+    {
+      "owner": "oc_cable_paintable",
+      "class": "BlockOpenComputersCablePaintable",
+      "family": "BlockOpenComputersCablePaintable",
+      "texture": null,
+      "construction": "oc_cable_paintable = new BlockOpenComputersCablePaintable().setBlockName(\"oc_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+      "registration": [
+        "register(oc_cable_paintable);"
+      ],
+      "optional": "OpenComputers"
+    }
+  ],
+  "original_sources": {
+    "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java": "7e6863c6c9763121f058b20c2192bae4b579d333c5f3712e4055f98f2da620d5",
+    "src/main/java/com/hbm/blocks/network/BlockCableGauge.java": "db55ebfe466f021a9c488d6041e70772d043dab5b2f2ce6b520f9c931109bd97",
+    "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": "209c7b4e25bdc986eadd0f2dde38bde2eb33daab56eea8a540896fc70e4a4767",
+    "src/main/java/com/hbm/blocks/generic/BlockCluster.java": "cf7f2c757f41d58649218032e6fa3b5a22dafeb457d67273fbdb9806de65e6e2",
+    "src/main/java/com/hbm/blocks/generic/BlockFissure.java": "3a4f5679f2b60fa48b63076a309f2ca7be89ce9bb1a884281cf310b612e730ea",
+    "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": "1b0847552fa740cadf71aa2ae779d413cba985e27cce763b267525365e20b837",
+    "src/main/java/com/hbm/blocks/generic/BlockOre.java": "a7240f37d34bd15ea303428795b63f20d3f57104da27119a20d4b6e1e3e46277",
+    "src/main/java/com/hbm/blocks/generic/BlockOreFluid.java": "57af5a8fee747cafd3aeecede2f464c12e261dcf19bb5e4343da84b255f80eeb",
+    "src/main/java/com/hbm/blocks/generic/BlockOreOutgas.java": "8a702ae8619e8c04a0c90613ef7bdcb1337bc150c4770a060410ea0a43fc31df",
+    "src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java": "92bfbb33489498f3e125a74438c9c54e8cb7e07e7a697a2d2bfadc7fa7a2fa35",
+    "src/main/java/com/hbm/blocks/generic/BlockSellafieldSlaked.java": "d09f8f973379794ba267771bd82442e5b313b8ee76bf210e09b2dab7093f6cda",
+    "src/main/java/com/hbm/blocks/network/CraneRouter.java": "9be903abe52fedf4a1d1775ba42066ae55b992d48ffb0395f885ab6f581f746f",
+    "src/main/java/com/hbm/blocks/network/FluidDuctBase.java": "c7933747b3c3ffecc9fe1c04fce0b3cfe279d9b43a0c4b98b5bf4106896f2734",
+    "src/main/java/com/hbm/blocks/network/FluidDuctGauge.java": "b2dedff4b89dc8b6bcfcdb1eb54dc9d67a330a332cd91758dac17e2d72826afa",
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": "2b7438a11c432e1b5745498a717b81db22b1f7b96bbcff8f72fa9269d75a606f",
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": "5a04bce5097d382e50a429bdd5c3b3bc3968724e448f65970db8ace3c788af42",
+    "src/main/java/com/hbm/blocks/IBlockMultiPass.java": "f0996418048d293b93a701df0d739a84b7adcc2f84a1d57f1f7789a4037824c0",
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": "0c130f83a99cfce4def10a897b51ebb93c3b9f5d8a47fa75b79a0b9ff31ad824",
+    "src/main/java/com/hbm/render/block/RenderBlockMultipass.java": "101fb7db202dbc950f8ae3dc0b4de6e3365ede01038c89a1e21ecac76ea4eecc",
+    "src/main/java/com/hbm/dim/SolarSystem.java": "097bda54f2b06e864445e041543daf8652c94a0b212ef2c157b65997f0fafe33",
+    "src/main/java/com/hbm/dim/CelestialBody.java": "8567dc264b6ed8ecf57bbee0a020e6f86601b7e43a43bdd0d72fcfdad4e4a7b4"
+  },
+  "legacy_artifacts": {
+    "client": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "srg": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+    "forge_patches": "5cb7f1cd1c4faf0c435548c610c3322c15ae3524cbb4926f272ec057dce83bd4"
+  },
+  "resources": {
+    "src/main/resources/assets/hbm/textures/blocks/basalt.png": "b5fa11bc2847618786dd98ba60cd11132073c59b212d7769df3061f7d0bc2412",
+    "src/main/resources/assets/hbm/textures/blocks/cable_gauge.png": "3320a339a84c8f9a0c700f2eb7697f471763be72638268efab08486cad482d81",
+    "src/main/resources/assets/hbm/textures/blocks/cluster_aluminium.png": "fc65bb299aa0502a85301edc0295ccbcd2dc67b7bc3e550572a746f4e46bdcbf",
+    "src/main/resources/assets/hbm/textures/blocks/cluster_copper.png": "4e03279bae4bd84ed65c3665efcb0ed4fc8b1bc40ba8568f9499b0322d4ab9bb",
+    "src/main/resources/assets/hbm/textures/blocks/cluster_iron.png": "a920abf486b15830825f000f41bc0ff30ecacfb4eab4c45618b16ac2d09a2d3d",
+    "src/main/resources/assets/hbm/textures/blocks/cluster_titanium.png": "248f868a82d2c293ad5eea606c97bf992b3bee2493eab9f5cb57fb8c474d15be",
+    "src/main/resources/assets/hbm/textures/blocks/crane_in.png": "ed2674bf62ef2a59f81f4396a066a5f07a757aa212f8f24d7237e0a624646060",
+    "src/main/resources/assets/hbm/textures/blocks/crane_router_overlay.png": "0559195105f4215deb455c2347f2d88444b5637130c1d61e4fec07e950e0636a",
+    "src/main/resources/assets/hbm/textures/blocks/deco_red_copper.png": "3d6a87c99a36f18772acf9ee8e5c5207d3589584948ac03d8167fbd1af47fed5",
+    "src/main/resources/assets/hbm/textures/blocks/deco_steel.png": "05bf58ec365b7217209f3a25903c77a6d7b9035af8dca29f781fcc6381ca6b47",
+    "src/main/resources/assets/hbm/textures/blocks/deco_titanium.png": "6ae6dafac8910653d6a9afcf0d94087bcc7de923276c3a2ca4e6d4cf930cf8eb",
+    "src/main/resources/assets/hbm/textures/blocks/dresbase.png": "c02633e68c5ed2669a82f2e39f890deb4a369e91b57eeff0aa66954f00762e5d",
+    "src/main/resources/assets/hbm/textures/blocks/duna_rock.png": "6d478af61366a6654fa4166372bb2d8c8441751968f06d7d76c73d77d0ffae34",
+    "src/main/resources/assets/hbm/textures/blocks/eve_stone_2.png": "87b2b3f90ef023b5a52a40d600ad94ce27547221d48982a851a16292a2c485f7",
+    "src/main/resources/assets/hbm/textures/blocks/fluid_duct_paintable.png": "8998c95e9bf428e27457795fdf0b6431eab1d17becfea76096d7e8daa4da6dc3",
+    "src/main/resources/assets/hbm/textures/blocks/fluid_duct_paintable_block_exhaust.png": "2937901ac75b9b65981b5cf1eb5bf357c9e64f196acdd7ccaaea384f6c19f67e",
+    "src/main/resources/assets/hbm/textures/blocks/fluid_duct_paintable_color.png": "0559195105f4215deb455c2347f2d88444b5637130c1d61e4fec07e950e0636a",
+    "src/main/resources/assets/hbm/textures/blocks/fluid_duct_paintable_overlay.png": "57a2e6f240933e95f07db5d6a01725ef376fd51790b3473b32f5608e71350d03",
+    "src/main/resources/assets/hbm/textures/blocks/ike_stone.png": "52a06b655a32506f9a0736d39bff4986c9c5e0d871ea38dd8e47e30858c0ca9b",
+    "src/main/resources/assets/hbm/textures/blocks/minmus_stone.png": "4057acbd595b3982d333adf9d2c7f8315471c3603cccfd64e23179777404a591",
+    "src/main/resources/assets/hbm/textures/blocks/moho_stone.png": "f09f7232fda88df90ca3c5008a8fd0cd55be8f3ffc6c853239a810ab15b5065f",
+    "src/main/resources/assets/hbm/textures/blocks/molten_overlay.png": "80be04649e59e8addc9b9441ebd5921836dae667163bbdf36ecaf5cb19d87d5a",
+    "src/main/resources/assets/hbm/textures/blocks/moon_rock.png": "4e94bb3f30389dca05c2895204b8525d45cbec7c7f394d0107e46bba4a378884",
+    "src/main/resources/assets/hbm/textures/blocks/oc_cable_base.png": "c5c2737a01658d3f40b75c6e2ee6e171ceafc35ab7309311f6f73f13a79b2536",
+    "src/main/resources/assets/hbm/textures/blocks/oc_cable_color.png": "b66455d5a4280343887d36e0bf5b017a16cfe04ea8107ba4f204490b1c30ed91",
+    "src/main/resources/assets/hbm/textures/blocks/oc_cable_overlay.png": "3a28345cb3a935f288fdb21ceca71d7208cb21134c975cc8eba8b8bac04b798c",
+    "src/main/resources/assets/hbm/textures/blocks/ore_aluminium.png": "2fec5a0274501f07694a64ebd06f96c20571e2f2902ceb588005b3333ded4b23",
+    "src/main/resources/assets/hbm/textures/blocks/ore_arsenic.png": "9c25ebbd9ade3265bf096ab0e54547c8c0979dddf82ca25eb12fc3e48d93b5ef",
+    "src/main/resources/assets/hbm/textures/blocks/ore_asbestos.png": "1b2b22dd8ec70474a4f4ece4fc34a6f993f03f0c8ad578ce5ef7839f0acc1817",
+    "src/main/resources/assets/hbm/textures/blocks/ore_australium.png": "1a36855b38e33cceb6f12cc54d73b6baa45a5ba81a8450e89158f493d4fa9e33",
+    "src/main/resources/assets/hbm/textures/blocks/ore_bedrock_oil.png": "193dacfe5c56800bb2f607c041ad3758e4d76af9e75d972106c0ba9fb5347961",
+    "src/main/resources/assets/hbm/textures/blocks/ore_beryllium.png": "64cdb6b8ecfb2c8d3f85cffd7db42647480905439b7fd8c761c18edf9ad6a478",
+    "src/main/resources/assets/hbm/textures/blocks/ore_brine.png": "dd4c14a16b26e61bf2434db1a26788e72e1533dbcecb6bc2cf12320545aa0f74",
+    "src/main/resources/assets/hbm/textures/blocks/ore_cadmium.png": "ba151b83c30065946caa95b30f30368647dd908b0161b7526d674c0ce9d09e43",
+    "src/main/resources/assets/hbm/textures/blocks/ore_cinnebar.png": "664220bb647549159d71b6c61435457fa756606870326de93b9e61a637b9f386",
+    "src/main/resources/assets/hbm/textures/blocks/ore_cobalt.png": "bd474433e3717d5314e69205f3a1ad0a8041f53e154d2a7143df4e7ba7298522",
+    "src/main/resources/assets/hbm/textures/blocks/ore_coltan.png": "6e114ac11c1f9c5b30d948c6ea8375b9faaf444efa6ad70f938ad5210333af53",
+    "src/main/resources/assets/hbm/textures/blocks/ore_copper.png": "fdc089d03a5d94cb2ca5a967b9731208785436e5f758b9ed603ad5c468ca36bc",
+    "src/main/resources/assets/hbm/textures/blocks/ore_diamond.png": "4c3d6ff4388217b0569926a40302fb6718d5d18855aa11744daab2f306b70c6c",
+    "src/main/resources/assets/hbm/textures/blocks/ore_emerald.png": "e81b2d384aa084fa52b262c214efb44a1b170d7bcc238d0ba8a98b5183170638",
+    "src/main/resources/assets/hbm/textures/blocks/ore_fire.png": "7d08587a82c6d276be02faec4bce09e83c8a9720d382bb3be745eb09dd351f59",
+    "src/main/resources/assets/hbm/textures/blocks/ore_fluorite.png": "b842658185d4b272e826bb602b7dfac80efb2124074b09201711b227a9bb76fa",
+    "src/main/resources/assets/hbm/textures/blocks/ore_gas.png": "66cd399ee87fc5045a9db9330d5c58d16e0c00bb0dcf060e83c49c54477fdfe4",
+    "src/main/resources/assets/hbm/textures/blocks/ore_glowstone.png": "92db344d359ab34c03c69e26f92ca13f7e316a892cb5b01544d1f9e35f426f86",
+    "src/main/resources/assets/hbm/textures/blocks/ore_gold.png": "c9ba2c9728ff4c1b6de0a51973606bc42f7a821b1edede6c88d6b15faa948339",
+    "src/main/resources/assets/hbm/textures/blocks/ore_iodine.png": "131f5c4bc41aa8e93516c986539873d5d06f42bebc32da22aab884e3823e569f",
+    "src/main/resources/assets/hbm/textures/blocks/ore_iron.png": "46856c1eb565d0b7b5a4dd54d5d514c47969e76ea4e23cfc412c32a8c0d89119",
+    "src/main/resources/assets/hbm/textures/blocks/ore_lanthanium.png": "ba1953b92f656506f74a6d79a0eb7325e4e2dbaff5c6c93b24f170eeca4801ef",
+    "src/main/resources/assets/hbm/textures/blocks/ore_lapis.png": "683e37cc7e80f27e734b3b9045401ae56b0dcb6c3350bfcac73ff21f58ef4088",
+    "src/main/resources/assets/hbm/textures/blocks/ore_lead.png": "cec7d4cff63b5d35b57ba31cb7a023abc4f00cbc112c702308084af0c832204e",
+    "src/main/resources/assets/hbm/textures/blocks/ore_lignite.png": "c1bb75b05abe71698a005a3f104c8c64c184002da7e4f93ce27771627a2fbfca",
+    "src/main/resources/assets/hbm/textures/blocks/ore_lithium.png": "746de872dd90ce4de2c167ddb340de8eeb37b42eb5ed3d3e1c366a9bc7563e8a",
+    "src/main/resources/assets/hbm/textures/blocks/ore_mineral.png": "bec0a54d0895347ee04c45df280f02be8104a140a3e4bd26f637d66b25432563",
+    "src/main/resources/assets/hbm/textures/blocks/ore_morkite.png": "ef269948dce7e5e751197054db4acb08dc69d89ba82751d8ce7cee687de2a665",
+    "src/main/resources/assets/hbm/textures/blocks/ore_nickel.png": "c138b8da2e01a847b4ed90e3a9d9a76c203659e10d9b208ea3642e5cc37a6aa9",
+    "src/main/resources/assets/hbm/textures/blocks/ore_niobium.png": "07876b636e4d6c3685880bfeee8b4a3dbf337a0bd0da907cc486e0b08d9021ad",
+    "src/main/resources/assets/hbm/textures/blocks/ore_niter.png": "4312bbe621c1fb12f856fc012ef301d1f14e65364be39793db6e7b55440b924d",
+    "src/main/resources/assets/hbm/textures/blocks/ore_oil.png": "7d753586758dc59f1cf091eee5fc8a91e8f8ea80255113b17d2691e7b1eb2347",
+    "src/main/resources/assets/hbm/textures/blocks/ore_oil_empty.png": "878ccb2ca4298cb3932d78621475abc17a638ddf359b214f794afd4131b11db2",
+    "src/main/resources/assets/hbm/textures/blocks/ore_overlay_diamond.png": "c4ec7acc58b759ec78d66808cd28ca787b1c652c82144fd4ed161df25813fb61",
+    "src/main/resources/assets/hbm/textures/blocks/ore_overlay_emerald.png": "e81b2d384aa084fa52b262c214efb44a1b170d7bcc238d0ba8a98b5183170638",
+    "src/main/resources/assets/hbm/textures/blocks/ore_overlay_radgem.png": "6ba218e84a584288620b5de3644fe3e032c1275ec7d9003cbbbee0c15ccd86ed",
+    "src/main/resources/assets/hbm/textures/blocks/ore_overlay_schrabidium.png": "514e3803e4834fc9601291e394c2f96bed7bf74f5a288ca5db334d3cc14f826f",
+    "src/main/resources/assets/hbm/textures/blocks/ore_overlay_uranium_scorched.png": "9fb9bce095e7b5c07e979386a4d4bddf364b8639267974684538e1776a53b75e",
+    "src/main/resources/assets/hbm/textures/blocks/ore_palladium.png": "e427bf0e6014ca6feec059021799672d6cc7446222adbde78a7833f559ce3e3b",
+    "src/main/resources/assets/hbm/textures/blocks/ore_plutonium.png": "375cb12b31d9891662b475b6760da9d4ae7221f391daba630e464a0cdeb23573",
+    "src/main/resources/assets/hbm/textures/blocks/ore_quartz.png": "376868c35e9f6546aaaa9279d7f4fa15620c370b6661116f57aaf153761b9619",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_1.png": "384406d142025af86452ac77dbf8c6a053083b19ef75de6bb7a781f1aadd3275",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_10.png": "02fd4532271818c6b9476f55785d4d58f6c572ccd6f91dab2d40a426b49b7069",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_2.png": "28bcce9a04f8cad45a4a98f326e283993cb48231aa15099230d7741ba547074f",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_3.png": "c98ccf32960d63ca605d82c3d613157cd0139103079ce68b72e65c73518f1083",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_4.png": "18c25fb2c3a907549ec43d5c216b3079c08938530f8191952db8704da382ee5a",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_5.png": "82d8cf9be2e28eb9cf14fd0551e4d9b39c76178772a6c0576c13ae30bca8a163",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_6.png": "ba0d9e5ce1c59733d69a66b44e4069b2b4a826367351b2cd32cc73803a310dca",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_7.png": "5a0c54a7d5f3dd47668cc462829a70fb1e331e20040a9c7ab090f792dd309856",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_8.png": "d34ab861d165b71d839b0ecad147c6808e1bd4cc481a009f2cca86b256b8ffd5",
+    "src/main/resources/assets/hbm/textures/blocks/ore_random_9.png": "ee5ca91b58f776a38ca948967ea4ebe0e907e22d2d84c47a524b228f77fec0de",
+    "src/main/resources/assets/hbm/textures/blocks/ore_rare.png": "81d49f0fa3ab6153117a51edce69a83e77b45adcb2737ae367dace43c2305ff0",
+    "src/main/resources/assets/hbm/textures/blocks/ore_redstone.png": "d9e4e3a3841e9ef634e9cced257e479170d2de464f6728cdb410ab41d42827df",
+    "src/main/resources/assets/hbm/textures/blocks/ore_schrabidium.png": "f126f53661256f1f70e5e27e4666c228fdcdf323a55dd28f513e67a8feeb4a23",
+    "src/main/resources/assets/hbm/textures/blocks/ore_shale.png": "fbb3e2ec337ff78c5aae4daa688bedab3543af3b53442a1e891c91183aea5172",
+    "src/main/resources/assets/hbm/textures/blocks/ore_silicon.png": "1630441dd873fd28abe7edf9433a036ecf94acec48038295ef99345e1963ccb3",
+    "src/main/resources/assets/hbm/textures/blocks/ore_sulfur.png": "4f82fde9f7275cb609118e53b79a4ac5f9a47fc2e1ee5f7ce0f63c4b51a210fa",
+    "src/main/resources/assets/hbm/textures/blocks/ore_tekto.png": "690742b91c2f0656691c9be0cbe818de998eff1cef9c154836026e60b97fad55",
+    "src/main/resources/assets/hbm/textures/blocks/ore_thorium.png": "2cede68fa4941b4d0a3ec22728c059b2a30fe7203b9dfe711b26d884db3ab85a",
+    "src/main/resources/assets/hbm/textures/blocks/ore_titanium.png": "514e51db02e6eed341da4ac3ce53e707a0b43e59c5bdcc4ffaea9e32b0109b00",
+    "src/main/resources/assets/hbm/textures/blocks/ore_tungsten.png": "22b98b418667bcc354971be0d766b4028e99025428f647fbd65169718b2fa0d4",
+    "src/main/resources/assets/hbm/textures/blocks/ore_uranium.png": "eca1535c3c72df6a6d844b3e9056b956488f458ce7c0676b1ac2e3a974f5698e",
+    "src/main/resources/assets/hbm/textures/blocks/ore_zinc.png": "18f4c3cbbc0e45ae0d641b52f08e93d04f38a63098757314fe80814651e3949e",
+    "src/main/resources/assets/hbm/textures/blocks/pipe_gauge.png": "88f6188c37bb54bc7b8d082da5813427887e924f782c6587c6ad6e98e39e03b4",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_paintable.png": "349d4010183995b5b5cb9fd1db8ddb9a9985bdcfa04a8e722d9b36ec0029643b",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_paintable_overlay.png": "1b94439b3b09c3ea0b41757e51f4acc348c1594d10d599a59e08dbeb522f958c",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_paintable_overlay_in.png": "f725dd8424e705332038b94b3c025e687040e016a1c7268dcd47cd563cc4b813",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_paintable_overlay_out.png": "0ec9b5f565a2c80471415c24ab9e30a5566384a2af3a13a4f7b8a5415ecbeb3a",
+    "src/main/resources/assets/hbm/textures/blocks/red_cable_base.png": "2b4535b0626d571c17e4b13a3320cb740c982ad865aeca39f7b6d934b253518c",
+    "src/main/resources/assets/hbm/textures/blocks/red_cable_overlay.png": "f30fb548a8d7295136c333e66660e85a8613b755203e6c9fb92c4335dd0e72d1",
+    "src/main/resources/assets/hbm/textures/blocks/sellafield_slaked.png": "d7dabaa57e1933f9a01d81cab8badac5f64d870efc8b2977dc01bd1144dabfad",
+    "src/main/resources/assets/hbm/textures/blocks/sellafield_slaked_1.png": "8fd0e1361d4df1e1eee0cadf4f37c6dabc28e2ca3674dee88016aed8aabcca22",
+    "src/main/resources/assets/hbm/textures/blocks/sellafield_slaked_2.png": "5cd167651e0fc49dc0065effd8103eb0c45df344345cc1f99fef3ec81673b788",
+    "src/main/resources/assets/hbm/textures/blocks/sellafield_slaked_3.png": "2e68f731924b3cce06d326bbf47cae6d6074d8dde5b31f9dc6d32c7e55d476e3"
+  },
+  "planet_base_order": [
+    "minecraft:stone",
+    "minecraft:stone",
+    "hbm:moon_rock",
+    "hbm:minmus_stone",
+    "hbm:duna_rock",
+    "hbm:moho_stone",
+    "hbm:dresbase",
+    "hbm:eve_stone_2",
+    "hbm:ike_stone",
+    "minecraft:stone",
+    "hbm:basalt"
+  ]
+}

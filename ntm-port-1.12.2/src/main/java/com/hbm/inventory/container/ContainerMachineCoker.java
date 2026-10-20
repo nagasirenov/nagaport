@@ -68,6 +68,6 @@ public class ContainerMachineCoker extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return coker.isUseableByPlayer(player);
+		return coker.isUsableByPlayer(player);
 	}
 }

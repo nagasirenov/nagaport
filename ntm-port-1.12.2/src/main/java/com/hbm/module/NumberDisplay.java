@@ -330,7 +330,7 @@ public class NumberDisplay {
 	{
 		numIn = num;
 		if (customBounds)
-			numIn = MathHelper.clamp_double(num.doubleValue(), minNum, maxNum);
+			numIn = MathHelper.clamp(num.doubleValue(), (double) (minNum), (double) (maxNum));
 		if (isFloat)
 			formatForFloat();
 		else

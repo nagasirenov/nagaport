@@ -10,25 +10,33 @@ import com.hbm.render.loader.HFRWavefrontObject;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 @SideOnly(Side.CLIENT)
-public class ParticleSkeleton extends EntityFX {
+public class ParticleSkeleton extends Particle {
+	public void setMotion(double x, double y, double z) { this.motionX = x; this.motionY = y; this.motionZ = z; }
+
+	// Local mesh orientation, independent of native particle billboard angle.
+	public float rotationYaw, rotationPitch, prevRotationYaw, prevRotationPitch;
 
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/particle/skeleton.png");
 	public static final ResourceLocation texture_ext = new ResourceLocation(RefStrings.MODID + ":textures/particle/skoilet.png");
 	public static final ResourceLocation texture_blood = new ResourceLocation(RefStrings.MODID + ":textures/particle/skeleton_blood.png");
 	public static final ResourceLocation texture_blood_ext = new ResourceLocation(RefStrings.MODID + ":textures/particle/skoilet_blood.png");
-	public static final IModelCustom skeleton = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/effect/skeleton.obj"), false).asVBO();
+	public static final MeshModel skeleton = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/effect/skeleton.obj"), false).asVBO();
 	protected EnumSkeletonType type;
 
 	public ResourceLocation useTexture;
@@ -86,12 +94,12 @@ public class ParticleSkeleton extends EntityFX {
 		}
 
 		if(this.particleAge++ >= this.particleMaxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 		boolean wasOnGround = this.onGround;
 		
 		this.motionY -= this.particleGravity;
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 		this.motionX *= 0.98D;
 		this.motionY *= 0.98D;
 		this.motionZ *= 0.98D;
@@ -105,7 +113,7 @@ public class ParticleSkeleton extends EntityFX {
 			this.motionZ = 0;
 			
 			if(!wasOnGround) {
-				MainRegistry.proxy.playSoundClient(posX, posY, posZ, "mob.skeleton.hurt", 0.25F, 0.8F + rand.nextFloat() * 0.4F);
+				world.playSound(posX, posY, posZ, net.minecraft.init.SoundEvents.ENTITY_SKELETON_HURT, net.minecraft.util.SoundCategory.HOSTILE, 0.25F, 0.8F + rand.nextFloat() * 0.4F, false);
 			}
 		}
 	}
@@ -116,20 +124,21 @@ public class ParticleSkeleton extends EntityFX {
 	}
 	
 	@Override
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
 
 		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+		GlStateManager.enableLighting();
+		GlStateManager.enableCull();
+		GlStateManager.enableBlend();
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
 		RenderHelper.enableStandardItemLighting();
 
 		double pX = prevPosX + (posX - prevPosX) * interp;
 		double pY = prevPosY + (posY - prevPosY) * interp;
 		double pZ = prevPosZ + (posZ - prevPosZ) * interp;
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		Entity player = camera != null ? camera : Minecraft.getMinecraft().player;
+		if(player == null) return;
 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;
 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;
 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
@@ -146,12 +155,12 @@ public class ParticleSkeleton extends EntityFX {
 			this.particleAlpha = 1F;
 		}
 		
-		int brightness = worldObj.getLightBrightnessForSkyBlocks(MathHelper.floor_double(pX), MathHelper.floor_double(pY), MathHelper.floor_double(pZ), 0);
+		int brightness = world.getCombinedLight(new BlockPos(pX, pY, pZ), 0);
 		int lX = brightness % 65536;
 		int lY = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);
 		
-		GL11.glColor4f(particleRed, particleGreen, particleBlue, particleAlpha);
+		GlStateManager.color(particleRed, particleGreen, particleBlue, particleAlpha);
 		GL11.glRotated(-90, 0, 1, 0); 
 		
 		switch(type) {
@@ -169,9 +178,9 @@ public class ParticleSkeleton extends EntityFX {
 			skeleton.renderPart("SkullVillager"); break;
 		}
 		
-		GL11.glColor4f(1F, 1F, 1F, 1F);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
-		GL11.glDisable(GL11.GL_CULL_FACE);
+		GlStateManager.color(1F, 1F, 1F, 1F);
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);
+		GlStateManager.disableCull();
 		
 		GL11.glPopMatrix();
 	}

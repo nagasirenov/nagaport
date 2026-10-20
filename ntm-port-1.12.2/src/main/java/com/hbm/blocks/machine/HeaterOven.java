@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class HeaterOven extends BlockDummyable implements ITooltipProvider {
 
 	public HeaterOven() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	@Override

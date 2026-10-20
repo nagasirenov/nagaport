@@ -1,0 +1,187 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_rod = new RBMKRod(false).setBlockName(\"rbmk_rod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element\");",
+    "new": "\t\trbmk_rod = new RBMKRod(false).setTranslationKey(\"rbmk_rod\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_rod, rbmk_rod.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_rod);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_rod_mod = new RBMKRod(true).setBlockName(\"rbmk_rod_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_mod\");",
+    "new": "\t\trbmk_rod_mod = new RBMKRod(true).setTranslationKey(\"rbmk_rod_mod\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_rod_mod, rbmk_rod_mod.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_rod_mod);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_rod_reasim = new RBMKRodReaSim(false).setBlockName(\"rbmk_rod_reasim\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_reasim\");",
+    "new": "\t\trbmk_rod_reasim = new RBMKRodReaSim(false).setTranslationKey(\"rbmk_rod_reasim\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_rod_reasim, rbmk_rod_reasim.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_rod_reasim);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_rod_reasim_mod = new RBMKRodReaSim(true).setBlockName(\"rbmk_rod_reasim_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_element_reasim_mod\");",
+    "new": "\t\trbmk_rod_reasim_mod = new RBMKRodReaSim(true).setTranslationKey(\"rbmk_rod_reasim_mod\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_rod_reasim_mod, rbmk_rod_reasim_mod.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_rod_reasim_mod);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_control = new RBMKControl(false).setBlockName(\"rbmk_control\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control\");",
+    "new": "\t\trbmk_control = new RBMKControl(false).setTranslationKey(\"rbmk_control\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_control, rbmk_control.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_control);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_control_mod = new RBMKControl(true).setBlockName(\"rbmk_control_mod\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_mod\");",
+    "new": "\t\trbmk_control_mod = new RBMKControl(true).setTranslationKey(\"rbmk_control_mod\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_control_mod, rbmk_control_mod.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_control_mod);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_control_auto = new RBMKControlAuto().setBlockName(\"rbmk_control_auto\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_auto\");",
+    "new": "\t\trbmk_control_auto = new RBMKControlAuto().setTranslationKey(\"rbmk_control_auto\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_control_auto, rbmk_control_auto.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_control_auto);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_control_reasim = new RBMKControl(false).setBlockName(\"rbmk_control_reasim\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_reasim\");",
+    "new": "\t\trbmk_control_reasim = new RBMKControl(false).setTranslationKey(\"rbmk_control_reasim\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_control_reasim, rbmk_control_reasim.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_control_reasim);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_control_reasim_auto = new RBMKControlAuto().setBlockName(\"rbmk_control_reasim_auto\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_control_reasim_auto\");",
+    "new": "\t\trbmk_control_reasim_auto = new RBMKControlAuto().setTranslationKey(\"rbmk_control_reasim_auto\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_control_reasim_auto, rbmk_control_reasim_auto.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_control_reasim_auto);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_blank = new RBMKBlank().setBlockName(\"rbmk_blank\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_blank\");",
+    "new": "\t\trbmk_blank = new RBMKBlank().setTranslationKey(\"rbmk_blank\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_blank, rbmk_blank.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_blank);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_boiler = new RBMKBoiler().setBlockName(\"rbmk_boiler\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_boiler\");",
+    "new": "\t\trbmk_boiler = new RBMKBoiler().setTranslationKey(\"rbmk_boiler\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_boiler, rbmk_boiler.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_boiler);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_reflector = new RBMKReflector().setBlockName(\"rbmk_reflector\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_reflector\");",
+    "new": "\t\trbmk_reflector = new RBMKReflector().setTranslationKey(\"rbmk_reflector\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_reflector, rbmk_reflector.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_reflector);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_absorber = new RBMKAbsorber().setBlockName(\"rbmk_absorber\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_absorber\");",
+    "new": "\t\trbmk_absorber = new RBMKAbsorber().setTranslationKey(\"rbmk_absorber\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_absorber, rbmk_absorber.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_absorber);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_moderator = new RBMKModerator().setBlockName(\"rbmk_moderator\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_moderator\");",
+    "new": "\t\trbmk_moderator = new RBMKModerator().setTranslationKey(\"rbmk_moderator\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_moderator, rbmk_moderator.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_moderator);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_outgasser = new RBMKOutgasser().setBlockName(\"rbmk_outgasser\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_outgasser\");",
+    "new": "\t\trbmk_outgasser = new RBMKOutgasser().setTranslationKey(\"rbmk_outgasser\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_outgasser, rbmk_outgasser.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_outgasser);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_storage = new RBMKStorage().setBlockName(\"rbmk_storage\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_storage\");",
+    "new": "\t\trbmk_storage = new RBMKStorage().setTranslationKey(\"rbmk_storage\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_storage, rbmk_storage.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_storage);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_cooler = new RBMKCooler().setBlockName(\"rbmk_cooler\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_cooler\");",
+    "new": "\t\trbmk_cooler = new RBMKCooler().setTranslationKey(\"rbmk_cooler\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_cooler, rbmk_cooler.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_cooler);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\trbmk_heater = new RBMKHeater().setBlockName(\"rbmk_heater\").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rbmk/rbmk_heater\");",
+    "new": "\t\trbmk_heater = new RBMKHeater().setTranslationKey(\"rbmk_heater\").setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "old": "\t\tGameRegistry.registerBlock(rbmk_heater, rbmk_heater.getUnlocalizedName());",
+    "new": "\t\tregister(rbmk_heater);"
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKRod());\n\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKReflector());\n\t\tRenderingRegistry.registerBlockHandler(new RenderRBMKControl());",
+    "new": "\t\t// RBMKModelHandler owns the eighteen native column block/item models."
+  }
+]

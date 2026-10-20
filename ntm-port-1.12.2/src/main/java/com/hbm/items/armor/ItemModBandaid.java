@@ -31,9 +31,9 @@ public class ItemModBandaid extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(event.entity.worldObj.rand.nextInt(100) < 3) {
+		if(event.getEntity().world.rand.nextInt(100) < 3) {
 			event.ammount = 0;
-			event.entityLiving.heal(event.entityLiving.getMaxHealth());
+			event.getEntityLiving().heal(event.getEntityLiving().getMaxHealth());
 		}
 	}
 }

@@ -1,0 +1,13 @@
+FULL PRODUCTION GameRegistry.java fed01b4eeeec1e0b44bc754a06da858d079cfe9a39596eb59926d633364d4456
+FULL PRODUCTION RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+FULL PRODUCTION NativeItemTextureRegistry.java c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412
+EXTRACTED PRODUCTION 615 exact initialization statements and 613 exact registration statements; five native-tab fixtures only
+Note: /workspace/shared/nagaport-item-registry/ntm-port-1.12.2/porting/tests/item-registry-native/ModItemsNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[00:24:04] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[00:24:04] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[00:24:04] [main/INFO]: Replaced 1036 ore ingredients
+[00:24:04] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[00:24:05] [main/INFO]: Processing ObjectHolder annotations
+[00:24:05] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 12273 assertions across 613 exact native construction and registry chains; full queue and texture service, actual Forge event bus. Not whole-ModItems compilation or full client launch.

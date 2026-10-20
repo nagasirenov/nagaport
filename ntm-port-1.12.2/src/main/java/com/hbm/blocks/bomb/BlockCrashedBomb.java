@@ -50,9 +50,9 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
 		if(world.isRemote) return true;
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.defuser) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.defuser) {
 			
-			EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, world.getBlockMetadata(x, y, z));
+			EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 
 			if(type == type.BALEFIRE) {
 				dropItems(world, x, y, z,
@@ -82,7 +82,7 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 	}
 	
 	public static void dropItems(World world, int x, int y, int z, ItemStack... drops) {
-		for(ItemStack drop : drops) world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
+		for(ItemStack drop : drops) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
 	}
 
 	@Override
@@ -90,8 +90,8 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 
 		if(!world.isRemote) {
 
-			EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, world.getBlockMetadata(x, y, z));
-			world.setBlockToAir(x, y, z);
+			EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 
 			if(type == type.BALEFIRE) {
 				EntityBalefire bf = new EntityBalefire(world);
@@ -126,10 +126,10 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 	}
 	
 	public static void spawnMush(World world, int x, int y, int z, boolean balefire) {
-		world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "muke");
 		data.setBoolean("balefire", balefire);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.5, y + 0.5, z + 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 0.5, z + 0.5, 250));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.5, y + 0.5, z + 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 0.5, z + 0.5, 250));
 	}
 }

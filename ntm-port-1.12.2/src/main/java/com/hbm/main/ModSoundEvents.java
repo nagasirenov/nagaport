@@ -2,8 +2,12 @@ package com.hbm.main;
 
 import com.hbm.lib.RefStrings;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -11,14 +15,176 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = RefStrings.MODID)
 public final class ModSoundEvents {
 
-	public static final SoundEvent SLICER = new SoundEvent(
-			new ResourceLocation(RefStrings.MODID, "entity.slicer"))
-				.setRegistryName(RefStrings.MODID, "entity.slicer");
+	private static final Map<ResourceLocation, SoundEvent> SOUNDS = new LinkedHashMap<>();
+
+	public static final SoundEvent SLICER = create("entity.slicer");
+	public static final SoundEvent BLOCK_OPENC = create("block.openc");
+	public static final SoundEvent BLOCK_CLOSEC = create("block.closec");
+	public static final SoundEvent STEP_METAL_BLOCK = create("step.metalBlock");
+	public static final SoundEvent BLOCK_PIPE_PLACED = create("block.pipePlaced");
+	public static final SoundEvent STEP_MORKITE = create("step.morkite");
+	public static final SoundEvent ITEM_BATTERY = create("item.battery");
+	public static final SoundEvent ITEM_UPGRADE_PLUG = create("item.upgradePlug");
+	public static final SoundEvent BLOCK_CRATE_BREAK = create("block.crateBreak");
+
+	public static final SoundEvent WEAPON_EXPLOSION_LARGE_NEAR = create("weapon.explosionLargeNear");
+	public static final SoundEvent WEAPON_EXPLOSION_LARGE_FAR = create("weapon.explosionLargeFar");
+	public static final SoundEvent WEAPON_CASING_SMALL = create("weapon.casing.small");
+	public static final SoundEvent WEAPON_CASING_MEDIUM = create("weapon.casing.medium");
+	public static final SoundEvent WEAPON_CASING_LARGE = create("weapon.casing.large");
+	public static final SoundEvent WEAPON_CASING_SHELL = create("weapon.casing.shell");
+
+	public static final SoundEvent WEAPON_EXPLOSION_SMALL_NEAR = create("weapon.explosionSmallNear");
+	public static final SoundEvent WEAPON_EXPLOSION_SMALL_FAR = create("weapon.explosionSmallFar");
+
+	// Only compiler-proven coordinate effects; existing approved paths stay separate.
+	private static final Map<ResourceLocation, SoundEvent> WORLD_EFFECTS = new LinkedHashMap<>();
+	private static final Map<ResourceLocation, SoundCategory> WORLD_CATEGORIES = new LinkedHashMap<>();
+	static {
+		worldEffect("alarm.gambit", SoundCategory.RECORDS);
+		worldEffect("alarm.trainHorn", SoundCategory.RECORDS);
+		worldEffect("block.chungusLever", SoundCategory.BLOCKS);
+		worldEffect("block.crateClose", SoundCategory.BLOCKS);
+		worldEffect("block.crateOpen", SoundCategory.BLOCKS);
+		worldEffect("block.damage", SoundCategory.BLOCKS);
+		worldEffect("block.hatchImpact", SoundCategory.BLOCKS);
+		worldEffect("block.screm", SoundCategory.BLOCKS);
+		worldEffect("block.shutdown", SoundCategory.BLOCKS);
+		worldEffect("block.storageClose", SoundCategory.BLOCKS);
+		worldEffect("block.storageOpen", SoundCategory.BLOCKS);
+		worldEffect("entity.bombWhistle", SoundCategory.PLAYERS);
+		worldEffect("entity.oldExplosion", SoundCategory.AMBIENT);
+		worldEffect("entity.planeCrash", SoundCategory.HOSTILE);
+		worldEffect("entity.planeShotDown", SoundCategory.HOSTILE);
+		worldEffect("entity.ufoBlast", SoundCategory.HOSTILE);
+		worldEffect("item.pinBreak", SoundCategory.PLAYERS);
+		worldEffect("item.techBleep", SoundCategory.PLAYERS);
+		worldEffect("item.unpack", SoundCategory.PLAYERS);
+		worldEffect("player.cough", SoundCategory.PLAYERS);
+		worldEffect("player.vomit", SoundCategory.PLAYERS);
+		worldEffect("turret.jeremy_fire", SoundCategory.BLOCKS);
+		worldEffect("turret.jeremy_reload", SoundCategory.BLOCKS);
+		worldEffect("turret.mortarWhistle", SoundCategory.BLOCKS);
+		worldEffect("weapon.boat", SoundCategory.PLAYERS);
+		worldEffect("weapon.cDeploy", SoundCategory.PLAYERS);
+		worldEffect("weapon.chainsaw", SoundCategory.PLAYERS);
+		worldEffect("weapon.dFlash", SoundCategory.PLAYERS);
+		worldEffect("weapon.explosionMedium", SoundCategory.BLOCKS);
+		worldEffect("weapon.explosionTiny", SoundCategory.BLOCKS);
+		worldEffect("weapon.fire.disintegration", SoundCategory.PLAYERS);
+		worldEffect("weapon.fire.tauRelease", SoundCategory.PLAYERS);
+		worldEffect("weapon.flamethrowerShoot", SoundCategory.PLAYERS);
+		worldEffect("weapon.fstbmbPing", SoundCategory.PLAYERS);
+		worldEffect("weapon.immolatorShoot", SoundCategory.PLAYERS);
+		worldEffect("weapon.kapeng", SoundCategory.PLAYERS);
+		worldEffect("weapon.laserBang", SoundCategory.PLAYERS);
+		worldEffect("weapon.missileTakeOff", SoundCategory.PLAYERS);
+		worldEffect("weapon.mukeExplosion", SoundCategory.BLOCKS);
+		worldEffect("weapon.reload.tubeFwoomp", SoundCategory.PLAYERS);
+		worldEffect("weapon.robin_explosion", SoundCategory.PLAYERS);
+		worldEffect("weapon.stingerLockOn", SoundCategory.PLAYERS);
+		worldEffect("weapon.switchmode1", SoundCategory.PLAYERS);
+		worldEffect("weapon.switchmode2", SoundCategory.PLAYERS);
+		worldEffect("weapon.trainImpact", SoundCategory.PLAYERS);
+		// Additional compiler-attributed literal coordinate effects with original bundled resources.
+		worldEffect("alarm.chime", SoundCategory.RECORDS);
+		worldEffect("alarm.hatch", SoundCategory.RECORDS);
+		worldEffect("alarm.soyuzed", SoundCategory.RECORDS);
+		worldEffect("block.boilerGroan", SoundCategory.BLOCKS);
+		worldEffect("block.hatchOpen", SoundCategory.BLOCKS);
+		worldEffect("block.hornFarDual", SoundCategory.BLOCKS);
+		worldEffect("block.hornFarSingle", SoundCategory.BLOCKS);
+		worldEffect("block.hornNearDual", SoundCategory.BLOCKS);
+		worldEffect("block.hornNearSingle", SoundCategory.BLOCKS);
+		worldEffect("block.missileAssembly2", SoundCategory.BLOCKS);
+		worldEffect("block.pressOperate", SoundCategory.BLOCKS);
+		worldEffect("block.rbmk_explosion", SoundCategory.BLOCKS);
+		worldEffect("block.reactorStart", SoundCategory.BLOCKS);
+		worldEffect("block.reactorStop", SoundCategory.BLOCKS);
+		worldEffect("block.sonarPing", SoundCategory.BLOCKS);
+		worldEffect("block.steamEngineOperate", SoundCategory.BLOCKS);
+		worldEffect("block.turbinegasShutdown", SoundCategory.BLOCKS);
+		worldEffect("block.turbinegasStartup", SoundCategory.BLOCKS);
+		worldEffect("block.vaultScrapeNew", SoundCategory.BLOCKS);
+		worldEffect("block.vaultThudNew", SoundCategory.BLOCKS);
+		worldEffect("block.warnOverspeed", SoundCategory.BLOCKS);
+		worldEffect("door.garage_stop", SoundCategory.BLOCKS);
+		worldEffect("door.wgh_stop", SoundCategory.BLOCKS);
+		worldEffect("entity.soyuzTakeoff", SoundCategory.PLAYERS);
+		worldEffect("item.techBoop", SoundCategory.PLAYERS);
+		worldEffect("misc.htrfstart", SoundCategory.BLOCKS);
+		worldEffect("misc.htrstart", SoundCategory.BLOCKS);
+		worldEffect("misc.htrstop", SoundCategory.BLOCKS);
+		worldEffect("misc.lpwstart", SoundCategory.BLOCKS);
+		worldEffect("misc.lpwstop", SoundCategory.BLOCKS);
+		worldEffect("misc.spincharge", SoundCategory.BLOCKS);
+		worldEffect("misc.spinshot", SoundCategory.BLOCKS);
+		worldEffect("player.oil", SoundCategory.PLAYERS);
+		worldEffect("turret.chekhov_fire", SoundCategory.BLOCKS);
+		worldEffect("turret.howard_fire", SoundCategory.BLOCKS);
+		worldEffect("turret.howard_reload", SoundCategory.BLOCKS);
+		worldEffect("turret.richard_fire", SoundCategory.BLOCKS);
+		worldEffect("turret.sentry_fire", SoundCategory.BLOCKS);
+		worldEffect("weapon.fstbmbStart", SoundCategory.PLAYERS);
+		worldEffect("weapon.rocketFlame", SoundCategory.BLOCKS);
+		worldEffect("weapon.sparkShoot", SoundCategory.PLAYERS);
+		worldEffect("weapon.tauShoot", SoundCategory.PLAYERS);
+
+	}
+
+	private static void worldEffect(String path, SoundCategory category) {
+		SoundEvent sound = create(path);
+		WORLD_EFFECTS.put(sound.getSoundName(), sound);
+		WORLD_CATEGORIES.put(sound.getSoundName(), category);
+	}
+
+	public static boolean isWorldEffect(ResourceLocation name) { return WORLD_EFFECTS.containsKey(name); }
+
+	public static SoundEvent worldEffect(ResourceLocation name) {
+		SoundEvent sound = WORLD_EFFECTS.get(name);
+		if(sound == null) throw new IllegalArgumentException("Unsupported world sound effect: " + name);
+		return sound;
+	}
+
+	public static SoundCategory worldEffectCategory(ResourceLocation name) {
+		worldEffect(name); // Reject unknown names rather than guessing MASTER.
+		return WORLD_CATEGORIES.get(name);
+	}
+
+	private static SoundEvent create(String path) {
+		// Native ResourceLocation normalizes the original sound-event keys to lowercase,
+		// just as SoundHandler does while loading sounds.json.
+		ResourceLocation name = new ResourceLocation(RefStrings.MODID, path);
+		SoundEvent existing = SOUNDS.get(name);
+		if(existing != null) return existing;
+		SoundEvent sound = new SoundEvent(name).setRegistryName(name);
+		SOUNDS.put(name, sound);
+		return sound;
+	}
+
+	/** Resolve factory strings without creating unregistered events or a fallback sound. */
+	public static SoundEvent resolve(String name) {
+		ResourceLocation location = new ResourceLocation(name);
+		// Blocks are constructed in preInit, before the native sound registry event.
+		// Keep the exact object that registerSounds will register later.
+		SoundEvent sound = SOUNDS.get(location);
+		if(sound == null) sound = SoundEvent.REGISTRY.getObject(location);
+		if(sound == null) throw new IllegalArgumentException("Unregistered sound event: " + name);
+		return sound;
+	}
 
 	private ModSoundEvents() { }
 
 	@SubscribeEvent
 	public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-		event.getRegistry().register(SLICER);
+		for(SoundEvent sound : SOUNDS.values()) {
+            ResourceLocation name = sound.getRegistryName();
+            if(event.getRegistry().containsKey(name)) {
+                if(event.getRegistry().getValue(name) != sound)
+                    throw new IllegalStateException("Conflicting sound event registration: " + name);
+                continue;
+            }
+            event.getRegistry().register(sound);
+        }
 	}
 }

@@ -1,0 +1,2 @@
+PASS all 4050 tracked source files; sole actual mutable static owner, exact constructor and ItemBlockBase registration, no subclasses; three rejected closure mutations.
+PASS original corrected structural owner/model/resource manifest unchanged; prior 208475 structural assertions and eight replacement-owner assertions reused, not rerun. No new lighting or pixel acceptance.

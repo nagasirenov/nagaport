@@ -1,0 +1,14 @@
+[
+  {
+    "mutation": "return this; => return null;",
+    "rejected": true
+  },
+  {
+    "mutation": "return setDefaultAmmo(ammo, amount); => return null;",
+    "rejected": true
+  },
+  {
+    "mutation": "this.LAMBDA_NAME_MUTATOR = lambda; => this.LAMBDA_NAME_MUTATOR = null;",
+    "rejected": true
+  }
+]

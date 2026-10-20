@@ -40,14 +40,15 @@ public class RadioTorchLogic extends RadioTorchRWBase {
 	}
 
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {
+	public int getWeakPower(net.minecraft.block.state.IBlockState blockState, IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) {
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile instanceof TileEntityRadioTorchLogic) {
 			int state = ((TileEntityRadioTorchLogic) tile).lastState;
@@ -60,21 +61,21 @@ public class RadioTorchLogic extends RadioTorchRWBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityRadioTorchLogic) {
 			TileEntityRadioTorchLogic radio = (TileEntityRadioTorchLogic) te;
 			List<String> text = new ArrayList();
 			if(radio.channel != null && !radio.channel.isEmpty()) text.add(TextFormatting.AQUA + "Freq: " + radio.channel);
 			text.add(TextFormatting.RED + "Signal: " + radio.lastState);
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityRadioTorchLogic)
 			return new GUIScreenRadioTorchLogic((TileEntityRadioTorchLogic) te);

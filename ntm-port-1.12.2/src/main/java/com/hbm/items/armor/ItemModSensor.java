@@ -43,7 +43,7 @@ public class ItemModSensor extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(entity.worldObj.isRemote || entity.worldObj.getTotalWorldTime() % 20 != 0) return;
+		if(entity.world.isRemote || entity.world.getTotalWorldTime() % 20 != 0) return;
 
 		int x = (int) Math.floor(entity.posX);
 		int y = (int) Math.floor(entity.posY + entity.getEyeHeight() - entity.getYOffset());
@@ -55,7 +55,7 @@ public class ItemModSensor extends ItemArmorMod {
 		for(int i = -3; i <= 3; i++) {
 			for(int j = -1; j <= 1; j++) {
 				for(int k = -3; k <= 3; k++) {
-					Block b = entity.worldObj.getBlock(x + i * 2, y + j * 2, z + k * 2);
+					Block b = com.hbm.world.WorldBlockState.read(entity.world, x + i * 2, y + j * 2, z + k * 2).getBlock();
 					if(b == ModBlocks.gas_asbestos || b == ModBlocks.gas_coal || b == ModBlocks.gas_radon || b == ModBlocks.gas_monoxide || b == ModBlocks.gas_radon_dense || b == ModBlocks.chlorine_gas) {
 						poison = true;
 					}
@@ -67,9 +67,9 @@ public class ItemModSensor extends ItemArmorMod {
 		}
 		
 		if(explosive) {
-			entity.worldObj.playSoundAtEntity(entity, "hbm:weapon.follyAquired", 0.5F, 1.0F);
+			entity.world.playSoundAtEntity(entity, "hbm:weapon.follyAquired", 0.5F, 1.0F);
 		} else if(poison) {
-			entity.worldObj.playSoundAtEntity(entity, "hbm:item.techBoop", 2F, 1.5F);
+			entity.world.playSoundAtEntity(entity, "hbm:item.techBoop", 2F, 1.5F);
 		}
 	}
 }

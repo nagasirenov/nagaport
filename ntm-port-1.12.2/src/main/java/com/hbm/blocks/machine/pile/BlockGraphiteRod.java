@@ -50,7 +50,7 @@ public class BlockGraphiteRod extends BlockGraphiteDrilledBase implements IToola
 		if(player.isSneaking())
 			return false;
 		
-		int oldMeta = world.getBlockMetadata(x, y, z);
+		int oldMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		int newMeta = oldMeta ^ 8; //toggle bit #4
 		int pureMeta = oldMeta & 3; //in case the bit was set
 
@@ -61,7 +61,7 @@ public class BlockGraphiteRod extends BlockGraphiteDrilledBase implements IToola
 			
 			world.setBlockMetadataWithNotify(x, y, z, newMeta, 3);
 			
-			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, pureMeta == (oldMeta & 11) ? 0.75F : 0.65F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, pureMeta == (oldMeta & 11) ? 0.75F : 0.65F);
 			
 			ForgeDirection dir = ForgeDirection.getOrientation(side);
 			
@@ -77,7 +77,7 @@ public class BlockGraphiteRod extends BlockGraphiteDrilledBase implements IToola
 				int iy = y + dir.offsetY * i;
 				int iz = z + dir.offsetZ * i;
 				
-				while(world.getBlock(ix, iy, iz) == this && world.getBlockMetadata(ix, iy, iz) == oldMeta) {
+				while(com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock() == this && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) ) == oldMeta) {
 					
 					world.setBlockMetadataWithNotify(ix, iy, iz, newMeta, 3);
 					

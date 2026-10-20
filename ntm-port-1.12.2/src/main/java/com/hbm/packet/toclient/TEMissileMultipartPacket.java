@@ -53,7 +53,7 @@ public class TEMissileMultipartPacket implements IMessage {
 		@Override
 		public IMessage onMessage(TEMissileMultipartPacket m, MessageContext ctx) {
 
-			TileEntity te = Minecraft.getMinecraft().theWorld.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(m.x, m.y, m.z);
 
 			if (te != null && te instanceof TileEntityCompactLauncher) {
 				

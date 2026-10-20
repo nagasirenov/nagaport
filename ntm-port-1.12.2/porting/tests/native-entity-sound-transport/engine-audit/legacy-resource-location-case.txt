@@ -1,0 +1,39 @@
+  public bqx(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokespecial #10                 // Method java/lang/Object."<init>":()V
+       4: ldc           #2                  // String minecraft
+       6: astore_2
+       7: aload_1
+       8: astore_3
+       9: aload_1
+      10: bipush        58
+      12: invokevirtual #13                 // Method java/lang/String.indexOf:(I)I
+      15: istore        4
+      17: iload         4
+      19: iflt          49
+      22: aload_1
+      23: iload         4
+      25: iconst_1
+      26: iadd
+      27: aload_1
+      28: invokevirtual #14                 // Method java/lang/String.length:()I
+      31: invokevirtual #15                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+      34: astore_3
+      35: iload         4
+      37: iconst_1
+      38: if_icmple     49
+      41: aload_1
+      42: iconst_0
+      43: iload         4
+      45: invokevirtual #15                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+      48: astore_2
+      49: aload_0
+      50: aload_2
+      51: invokevirtual #16                 // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+      54: putfield      #8                  // Field a:Ljava/lang/String;
+      57: aload_0
+      58: aload_3
+      59: putfield      #9                  // Field b:Ljava/lang/String;
+      62: return
+

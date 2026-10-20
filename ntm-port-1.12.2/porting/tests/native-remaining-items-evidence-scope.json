@@ -1,0 +1,57 @@
+{
+  "scope": "Changed/new evidence and exact final native runs for remaining item family, existing baseline dependencies retained",
+  "evidence": {
+    "porting/continuation-2026-10-19/native-remaining-items-FINAL.log": "47669fd57bba2d0cfe57a7f150901ce1b3b95c575ba62293905d8246d96d8c7b",
+    "porting/continuation-2026-10-19/native-remaining-items-source-FINAL.log": "ccf848f3c9c605fd74db688f5bb850b2f78447c055a4365db636c38fd511c1ef",
+    "porting/continuation-2026-10-19/remaining-items-context-items-regression.log": "cc18dc3625f1fcb7ffbf84827e76c0a947c7e5f4de8a501f898a08680a550c61",
+    "porting/continuation-2026-10-19/remaining-items-machine-items-regression.log": "ebb6d6d7d49128159760c8e5f5a527eb82df05204db755026bc129518947ac4b",
+    "porting/continuation-2026-10-19/remaining-items-sedna-items-regression.log": "785b6f26e8247981ff5a211071af6ff97da9ae621a2e7738c42f402c7f540132",
+    "porting/continuation-2026-10-19/remaining-items-sedna-player-regression.log": "3297d154ddbaf7db0f261aab1fbd099d5f1ce7618395daeedf2eff08587daca5",
+    "porting/continuation-2026-10-19/remaining-items-selective-items-regression.log": "5fbba6696f7731ca7767adb0154279e39a37e7c105adb6a04a192bb1a04bb98f",
+    "porting/tests/RemainingItemNativeTest.java": "003d5b1efac1a00f3c347bb6f68220599fe6cdf5f42a3163235d9e59971e876a",
+    "porting/tests/check-native-remaining-items.py": "0be2f2c1d22f98041ebd15e7eea46528abad06d87d0b82dbc64696f388920156",
+    "porting/tests/native-machine-item-scope.json": "059171ba4e680bb77fb9fd8bf967bd9efbda4b3f24e2b836d4c38e62389b0cfd",
+    "porting/tests/native-remaining-items-notes.md": "db0a45f96260fb2b60b5fa520c882ef844af5cc7c74591a48b6e50b3d3ba642c",
+    "porting/tests/native-remaining-items-production-scope.json": "5d2c88ad2801243257c2cfe5c8d1aa0250bd8f01865b9a0dbab806172e70f532",
+    "porting/tests/probe-native-context-items.py": "e135abd171abae1aa4e2b9e3d843912d58a189047d9919e5cb0c9942b403780d",
+    "porting/tests/probe-native-remaining-items.py": "3926f7af280b31d7320b7986ca4d4ac4a6c0ecac8b1dabd4af46a96bae7a080d",
+    "porting/tests/probe-native-sedna-items.py": "70cb6e48bb99091a58987dfe7cc63fc00c5ccc351194aa9f7481989cf3af3038"
+  },
+  "existing_test_dependencies": {
+    "porting/tests/ContextItemNativeTest.java": "de291bd09e7c911a822826a77aa7a89b6a7bee0bf9d276f17884c0ff6e7cc4fd",
+    "porting/tests/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "porting/tests/MaterialTextureAtlasSpriteNativeTest.java": "2c5dfcebee1a45f08371273e503a47e6f4f55daf5fe63adccd648a21b0f011bd",
+    "porting/tests/NativeBaseModelOwnershipTest.java": "0cd6328e5cef97349111a453e62b0c5e721bb50fe90efe82e07c25151851ba9c",
+    "porting/tests/NativeMachineConsumerTest.java": "7649536c03bc3c493df401ed3b50472f1b9aa00fc6a52a118868013ce499db7f",
+    "porting/tests/NativeMachineDrawTest.java": "c921ac893f5baac4e783c55bb92abd9732a26cc2fd0f5fd31684bfd368622b8f",
+    "porting/tests/NativeMachineItemTest.java": "848894e83014da8fcd92bfbffb20702cbda1608a10e061dd6ebdcf59959f196d",
+    "porting/tests/SednaItemNativeTest.java": "57006fd08f89d94d0734d2d1b39db1cafae1d1c9d8659a1c0c3c34661277e9fe",
+    "porting/tests/SednaPlayerNativeTest.java": "f1e022974f092ba8c68e6b2ec8556b021d6bc535c667612241fac34e41f3de67",
+    "porting/tests/SelectiveItemNativeTest.java": "a6005a7bb3565d00c0f920089cd123f757db1c7fb51aec650a016af82f7616ef",
+    "porting/tests/machine-renderer-fixtures.py": "48fb762121aea4967b5c4456a700e5dd9e809ebf7d0fcc74b9d833eb552a6cb4",
+    "porting/tests/probe-native-machine-items.py": "fba6b6dde056f6087c4b449679899113f7588cd399f5dee9fbc3d39d7b808693",
+    "porting/tests/probe-native-sedna-player.py": "ace9b10a998396ac19bc1923cc73011a20b159bc38d1b334b66142ab0273cef3",
+    "porting/tests/probe-native-selective-items.py": "6742532b526b552f54e7f1cb8dbed51b14407b93b8107191359fcef965490293"
+  },
+  "production_manifest": "porting/tests/native-remaining-items-production-scope.json",
+  "final_results": {
+    "family_each_resource_pack": 19897,
+    "actual_geometry_draws_each_resource_pack": 5744,
+    "context": 163,
+    "sedna_hand": 171,
+    "sedna_player": 145,
+    "selective_each_resource_pack": 269,
+    "machine_complete_consumers": 14,
+    "machine_checks": [
+      26,
+      111,
+      192,
+      41
+    ],
+    "material_cache_combinations": 30,
+    "final_material_repair_rerun": [
+      "family_each_resource_pack",
+      "context"
+    ]
+  }
+}

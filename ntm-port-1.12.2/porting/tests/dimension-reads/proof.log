@@ -1,0 +1,77 @@
+PROVIDER_OWNER	T5
+PROVIDER_OWNER	T6
+PROVIDER_OWNER	T7
+PROVIDER_OWNER	T8
+PROVIDER_OWNER	T9
+PROVIDER_OWNER	T15
+PROVIDER_OWNER	T16
+PROVIDER_OWNER	T17
+PROVIDER_OWNER	T20
+Attribution diagnostics (unfinished source, not compile success): 17
+PROVIDER_OWNER	Override
+Exception in thread "main" java.lang.AssertionError: Source getDimension override: Override
+	at DimensionReadScanner$1.visitClass(DimensionReadScanner.java:23)
+	at DimensionReadScanner$1.visitClass(DimensionReadScanner.java:20)
+	at com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:720)
+	at com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:68)
+	at com.sun.source.util.TreeScanner.scan(TreeScanner.java:91)
+	at com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:99)
+	at com.sun.source.util.TreeScanner.visitCompilationUnit(TreeScanner.java:120)
+	at com.sun.tools.javac.tree.JCTree$JCCompilationUnit.accept(JCTree.java:550)
+	at com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:68)
+	at DimensionReadScanner.main(DimensionReadScanner.java:25)
+/workspace/shared/nagaport-dimension-reads/ntm-port-1.12.2/porting/tests/dimension-reads/NativeDimensionTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-dimension-reads/ntm-port-1.12.2/porting/tests/dimension-reads/NativeDimensionTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-dimension-reads/ntm-port-1.12.2/porting/tests/dimension-reads/NativeDimensionTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-dimension-reads/ntm-port-1.12.2/porting/tests/dimension-reads/NativeDimensionTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe unsafe=(Unsafe)uf.get(null);
+           ^
+/workspace/shared/nagaport-dimension-reads/ntm-port-1.12.2/porting/tests/dimension-reads/NativeDimensionTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe unsafe=(Unsafe)uf.get(null);
+                                                                             ^
+/workspace/shared/nagaport-dimension-reads/ntm-port-1.12.2/porting/tests/dimension-reads/NativeDimensionTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe unsafe=(Unsafe)uf.get(null);
+                                                                                            ^
+6 warnings
+PASS 221 actual original/native provider constructor, signed int, setter/getter, alias, evaluation/null, override counterexample and complete extracted inOrbit checks
+PROVIDER_OWNER	com.hbm.dim.Ike.WorldProviderIke
+PROVIDER_OWNER	com.hbm.dim.WorldProviderCelestial
+PROVIDER_OWNER	com.hbm.dim.WorldProviderEarth
+PROVIDER_OWNER	com.hbm.dim.dres.WorldProviderDres
+PROVIDER_OWNER	com.hbm.dim.duna.WorldProviderDuna
+PROVIDER_OWNER	com.hbm.dim.eve.WorldProviderEve
+PROVIDER_OWNER	com.hbm.dim.laythe.WorldProviderLaythe
+PROVIDER_OWNER	com.hbm.dim.minmus.WorldProviderMinmus
+PROVIDER_OWNER	com.hbm.dim.moho.WorldProviderMoho
+PROVIDER_OWNER	com.hbm.dim.moon.WorldProviderMoon
+PROVIDER_OWNER	com.hbm.dim.orbit.WorldProviderOrbit
+PROVIDER_OWNER	com.hbm.dim.tekto.WorldProviderTekto
+PROVIDER_OWNER	com.hbm.dim.thatmo.WorldProviderThatmo
+PROVIDER_OWNER	com.hbm.world.WorldProviderTom
+Attribution diagnostics (unfinished source, not compile success): 26162
+PROVIDER_OWNER	com.hbm.dim.Ike.WorldProviderIke
+PROVIDER_OWNER	com.hbm.dim.WorldProviderCelestial
+PROVIDER_OWNER	com.hbm.dim.WorldProviderEarth
+PROVIDER_OWNER	com.hbm.dim.dres.WorldProviderDres
+PROVIDER_OWNER	com.hbm.dim.duna.WorldProviderDuna
+PROVIDER_OWNER	com.hbm.dim.eve.WorldProviderEve
+PROVIDER_OWNER	com.hbm.dim.laythe.WorldProviderLaythe
+PROVIDER_OWNER	com.hbm.dim.minmus.WorldProviderMinmus
+PROVIDER_OWNER	com.hbm.dim.moho.WorldProviderMoho
+PROVIDER_OWNER	com.hbm.dim.moon.WorldProviderMoon
+PROVIDER_OWNER	com.hbm.dim.orbit.WorldProviderOrbit
+PROVIDER_OWNER	com.hbm.dim.tekto.WorldProviderTekto
+PROVIDER_OWNER	com.hbm.dim.thatmo.WorldProviderThatmo
+PROVIDER_OWNER	com.hbm.world.WorldProviderTom
+Attribution diagnostics (unfinished source, not compile success): 25931
+PASS original SRG identity and actual Forge1614 setter patch; native getter bytecode direct field (old patched setter not runtime-tested)
+PASS 231 dimension token mutation negatives, 119 exact inverses and whole-file drift negatives
+PASS 23 javac attribution/write/shadow/unqualified/override controls
+PASS full reconstructed CP54 attribution: 231 exact positions
+PASS all 231 replacement calls bind to actual native WorldProvider.getDimension()

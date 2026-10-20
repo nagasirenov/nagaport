@@ -16,15 +16,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityLandmine extends TileEntity {
+public class TileEntityLandmine extends TileEntity implements net.minecraft.util.ITickable {
 	
 	private boolean isPrimed = false;
 	public boolean waitingForPlayer = false;
 
-	public void updateEntity() {
-		if(worldObj.isRemote) return;
+	public void update() {
+		if(this.world.isRemote) return;
 		
-		Block block = worldObj.getBlock(xCoord, yCoord, zCoord);
+		Block block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock();
 
 		if(!(block instanceof Landmine)) return;
 		Landmine landmine = (Landmine) block;
@@ -40,9 +40,9 @@ public class TileEntityLandmine extends TileEntity {
 			height *= 2;
 		}
 
-		if(!worldObj.getBlock(xCoord, yCoord + 1, zCoord).isAir(worldObj, xCoord, yCoord + 1, zCoord)) return;
+		if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).getBlock().isAir(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())) return;
 		
-		List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - height, zCoord - range, xCoord + range + 1, yCoord + height, zCoord + range + 1));
+		List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - range, this.pos.getY() - height, this.pos.getZ() - range, this.pos.getX() + range + 1, this.pos.getY() + height, this.pos.getZ() + range + 1));
 
 		for(Entity entity : list) {
 			
@@ -62,7 +62,7 @@ public class TileEntityLandmine extends TileEntity {
 					
 					if(isPrimed) {
 						//the explosion is part of the mine block so that the IBomb interface works, i remember now
-						landmine.explode(worldObj, xCoord, yCoord, zCoord);
+						landmine.explode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 						if(entity instanceof EntityPlayer) ((EntityPlayer) entity).addStat(MainRegistry.statMines, 1);
 					}
 	
@@ -75,7 +75,7 @@ public class TileEntityLandmine extends TileEntity {
 		// The mine will prime itself only after all entities have left its trigger radius * 2
 		// I'm leaving this note because I made a dumb assumption on what this was meant to do
 		if(!isPrimed && !waitingForPlayer) {
-			this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:weapon.fstbmbStart", 3.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbStart", 3.0F, 1.0F);
 			isPrimed = true;
 		}
 	}
@@ -87,11 +87,12 @@ public class TileEntityLandmine extends TileEntity {
 		waitingForPlayer = nbt.getBoolean("waiting");
 	}
 
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setBoolean("primed", isPrimed);
 		nbt.setBoolean("waiting", waitingForPlayer);
+		return nbt;
 	}
 	
 	@Override

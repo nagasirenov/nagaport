@@ -41,12 +41,12 @@ public class EntityBurningFOEQ extends EntityThrowable {
 		
         this.rotation();
         
-        if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.air)
+        if(com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getBlock() != Blocks.AIR)
         {
-    		if(!this.worldObj.isRemote) {
+    		if(!this.world.isRemote) {
     			for(int i = 0; i < 25; i++)
-    				ExplosionLarge.explode(worldObj, this.posX + 0.5F + rand.nextGaussian() * 5, this.posY + 0.5F + rand.nextGaussian() * 5, this.posZ + 0.5F + rand.nextGaussian() * 5, 10.0F, rand.nextBoolean(), false, false);
-    			ExplosionNukeGeneric.waste(worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 35);
+    				ExplosionLarge.explode(this.world, this.posX + 0.5F + rand.nextGaussian() * 5, this.posY + 0.5F + rand.nextGaussian() * 5, this.posZ + 0.5F + rand.nextGaussian() * 5, 10.0F, rand.nextBoolean(), false, false);
+    			ExplosionNukeGeneric.waste(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 35);
     		}
     		this.setDead();
         }
@@ -59,7 +59,7 @@ public class EntityBurningFOEQ extends EntityThrowable {
 	}
 	
 	public void rotation() {
-        float f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
         for (this.rotationPitch = (float)(Math.atan2(this.motionY, f2) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)

@@ -45,8 +45,8 @@ public class CanneryWillow extends CanneryBase {
 		
 		for(int x = world.sizeX - 1; x >= 0 ; x--) {
 			for(int z = 0; z < world.sizeZ; z++) {
-				scene0.add(new ActionSetBlock(x, 1, z, Blocks.grass));
-				scene0.add(new ActionSetBlock(x, 0, z, Blocks.dirt));
+				scene0.add(new ActionSetBlock(x, 1, z, Blocks.GRASS));
+				scene0.add(new ActionSetBlock(x, 0, z, Blocks.DIRT));
 			}
 			scene0.add(new ActionWait(2));
 		}
@@ -68,9 +68,9 @@ public class CanneryWillow extends CanneryBase {
 		scene0.add(new ActionRemoveActor(0));
 
 		scene0.add(new ActionWait(10));
-		scene0.add(new ActionSetBlock(2, 1, 1, Blocks.air));
+		scene0.add(new ActionSetBlock(2, 1, 1, Blocks.AIR));
 		scene0.add(new ActionWait(10));
-		scene0.add(new ActionSetBlock(2, 1, 1, Blocks.water));
+		scene0.add(new ActionSetBlock(2, 1, 1, Blocks.WATER));
 		
 		scene0.add(new ActionWait(20));
 
@@ -112,7 +112,7 @@ public class CanneryWillow extends CanneryBase {
 		scene0.add(new ActionWait(20));
 		scene0.add(new ActionSetBlock(2, 2, 2, ModBlocks.plant_tall, EnumTallFlower.CD4.ordinal()));
 		scene0.add(new ActionSetBlock(2, 3, 2, ModBlocks.plant_tall, EnumTallFlower.CD4.ordinal() + 8));
-		scene0.add(new ActionSetBlock(2, 1, 2, Blocks.dirt));
+		scene0.add(new ActionSetBlock(2, 1, 2, Blocks.DIRT));
 		scene0.add(new ActionWait(20));
 
 		scene0.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -35, new Object[][] {{I18nUtil.resolveKey("cannery.willow.6")}}, 150)
@@ -129,7 +129,7 @@ public class CanneryWillow extends CanneryBase {
 		scene1.add(new ActionWait(20));
 		scene1.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 10, -25, new Object[][] {{"=", DictFrame.fromOne(ModBlocks.plant_flower, EnumFlowerType.CD0), "x1 + ", DictFrame.fromOne(ModItems.plant_item, EnumPlantType.MUSTARDWILLOW), "x3-6"}}, 0)
 				.setColors(colorCopper).setOrientation(Orientation.LEFT)));
-		scene1.add(new ActionSetBlock(2, 3, 2, Blocks.air));
+		scene1.add(new ActionSetBlock(2, 3, 2, Blocks.AIR));
 		scene1.add(new ActionSetBlock(2, 2, 2, ModBlocks.plant_flower, EnumFlowerType.CD0.ordinal()));
 		scene1.add(new ActionWait(60));
 		

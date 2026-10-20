@@ -1,0 +1,44 @@
+{
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/pipePlaced.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/pipeplaced.ogg",
+      "sha256": "d49a668a10040046a8507eb780ce82be00571fd8712bb40954d5064fd452c2fa"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/footsteps/metalStep1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/footsteps/metalstep1.ogg",
+      "sha256": "068d803f835d01813d44d88f5de6f6d27760799b0bf2be69dac2314a70350c62"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/footsteps/metalStep2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/footsteps/metalstep2.ogg",
+      "sha256": "833f2e8db5f0c1849a948556f445ef67bc48ec655c2f6c2ba2baa78b6807b922"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/footsteps/metalStep3.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/footsteps/metalstep3.ogg",
+      "sha256": "19e9ec5d2c4f0970b41908dff50b26fd3c8593b1dc79625da9e2183a2b2c6284"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/footsteps/metalStep4.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/footsteps/metalstep4.ogg",
+      "sha256": "c34100d8eebfa393f5c044e740250c24ea854264a1d2065d66c91645128f3b9c"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/mining/MorkiteMiningB_1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/mining/morkiteminingb_1.ogg",
+      "sha256": "9539aaefada61e5bd786802cf769b876a5cc2e17f21d27ab0b4bdb3487716ed6"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/mining/MorkiteMiningB_2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/mining/morkiteminingb_2.ogg",
+      "sha256": "b4ab2d649a7c2b410472b3e59a32c84d928b45e0793f87f6165761e47507a845"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/mining/MorkiteMiningB_3.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/mining/morkiteminingb_3.ogg",
+      "sha256": "60c13e8725699b5996d64b22e6acfae1a19018dca3e29201094f05899b1341ca"
+    }
+  ]
+}

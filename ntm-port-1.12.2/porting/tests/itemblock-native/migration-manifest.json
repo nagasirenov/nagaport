@@ -1,0 +1,97 @@
+{
+  "status": "isolated native root/selected-owner proof; not integrated; not whole-mod or all ItemBlockBase owners parity",
+  "changes": {
+    "src/main/java/com/hbm/main/NativeItemBlockColorHandler.java": {
+      "staged_sha256": "b19aa7cd9100e30ac2d228f67bce0d6996b43668a901434b8f2e9c9961b28586",
+      "base_sha256": null,
+      "validated": true
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockBlastInfo.java": {
+      "staged_sha256": "8dfda67b4a2d525778f8b5fe16ec60076ca5e651a7d40305432ab67ec7a01568",
+      "base_sha256": "8dfda67b4a2d525778f8b5fe16ec60076ca5e651a7d40305432ab67ec7a01568",
+      "validated": true
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockBase.java": {
+      "staged_sha256": "117146a96fc87357c114469f851d935f1911b87aa11d8d84e16b5a7d4e4e9203",
+      "base_sha256": "165a9a37bcbb3ca6aeb0005a2417b556c24c47bf322d7fef48c5661d65625f13",
+      "validated": true
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockRemap.java": {
+      "staged_sha256": "c36982e469cd808a68901d892d6a6846c1d1706195c637e30740bf81ae0d5a96",
+      "base_sha256": "dd79a60775ed7a1468ab9c7eb08dde8f46ff499ee793fa5e36e75a6d0213561f",
+      "validated": true
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockLore.java": {
+      "staged_sha256": "b69f0cb06ea60e56ee99934302850678d5c020342a7d80720ddf6feb062a5394",
+      "base_sha256": "3d5ad5b6d96bab5bf183a076a87ec1e98dc5796550ae6ddcc81706f4e523c048",
+      "validated": true
+    }
+  },
+  "original": {
+    "src/main/java/com/hbm/items/block/ItemBlockBase.java": "c3e74659bd54c6a26135ef8360c7d182fda039fa471187492aae14817c662b4a",
+    "src/main/java/com/hbm/blocks/generic/BlockScaffold.java": "8f2873ff76415074c9a8411bbf53f6c85e5858f2b8364d7f9752c17ecdbc5b4a",
+    "src/main/java/com/hbm/blocks/generic/BlockMetalFence.java": "d4c000624b51d38503ed44f1e36ca9436d3668f7c227dbbb7410d06a9a69813f",
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": "c44d0b37b2dd7d0f579c3fd4e5fd3465d8b2d73a578a43b470135d3bb88e566b",
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": "2762c3762f7cf9e41abbe8f9e9c8172e2e398f0dd16e57eaaafdf0cae7d3c9da",
+    "src/main/java/com/hbm/blocks/BlockRubberLeaves.java": "a4a33c9680e4dd4e8137fa6e54ddb2d8df1aab4d66fc18755b28907226abacb1",
+    "src/main/java/com/hbm/blocks/BlockVinylVine.java": "3078c326dfc94ed48cebb0bb2aca6b74238899f56e40dc78c0e9613761b0ffba"
+  },
+  "dependencies": {
+    "src/main/java/com/hbm/blocks/IBlockMulti.java": "f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9",
+    "src/main/java/com/hbm/blocks/ITooltipProvider.java": "8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5",
+    "src/main/java/com/hbm/blocks/IPersistentInfoProvider.java": "6b9f18bf71bbd87e0eb2889331b2cf1afc5f8712bf640fecf6d07a22a5b490ad",
+    "src/main/java/com/hbm/blocks/generic/BlockScaffold.java": "2b8b964df94193d83c6bbdb2cc22c14e114a0ca34e850c1c346ab8ee5416a48e",
+    "src/main/java/com/hbm/blocks/generic/BlockMetalFence.java": "706ee563fa21bd6bf3a05cce2fae94fa8e55ec83f68e59e97e2801209e97ab8c",
+    "src/main/java/com/hbm/tileentity/IPersistentNBT.java": "351d6d5004ad1e2ede9a95d7ac2d095e8f8ad779873619e5da8af178a797d7ce",
+    "src/main/java/com/hbm/util/i18n/I18nUtil.java": "6424de426ed248d0679e4e9d4e6a4025be284fef9e1a382145f1a4ac930169d7",
+    "src/main/java/com/hbm/util/i18n/I18nClient.java": "5f84bb658d5701ad6dcd04a557611396a5fd5999865e924bec9a4f8906acaa8b",
+    "src/main/java/com/hbm/util/i18n/ITranslate.java": "791239ab525259c1519f208bc56928c9d421e5b4b0057713aa45838bd99af410"
+  },
+  "tests": {
+    "native-root": 149,
+    "scaffold": 338907,
+    "scaffold_native_vertices": 56832,
+    "structural": 208475,
+    "structural_replacement_owners": 8,
+    "legacy_route_source_checks": 19
+  },
+  "test_boundaries": [
+    "No Minecraft or Forge API classes replaced. ItemBlockBase, ItemBlockLore, ItemBlockRemap and ItemBlockBlastInfo compiled in full.",
+    "Registry fixture ModBlocks supplies fence_gate only; proxy fixture MainRegistry selects complete production I18nClient; CompatExternal fixture performs native getTileEntity. These are explicit NTM unrelated dependency boundaries, not ItemBlock stand-ins.",
+    "Headless Minecraft/EntityPlayerSP allocated without client boot; native instance player field exercised; Locale initialized with empty map. No GL/full-game proof.",
+    "Nonwhite sentinel test callback is test-only and proves metadata/index plumbing, not production plant color parity.",
+    "Scaffold and structural reused pinned original oracle suites with ONLY ItemBlock allocation replaced by complete staged production ItemBlockBase; test fixtures from root on classpath. Existing suite generic collaborator claims must be read with this boundary.",
+    "Lore/Remap unrelated collaborator fixtures: BlockRemap exposes target fields; RedBarrel/BlockOreFluid provide subtype identity only; expanded ModBlocks supplies relevant registry identities. Their mechanics are not claimed compiled. Descendant source is exact pristine source after enumerated native symbol replacements; all Lore literal strings checked against pristine and all special branches invoked.",
+    "LegacyBaseModelHandler reachability source proof confirms no new color/icon fallback regression: non-BlockBase ItemBlockBase never enters itemModels; root method was already skipped for BlockBase and block icon route is direct. Nonwhite flowers/tall plants were already excluded by legacy renderType 1."
+  ],
+  "remaining_gates": [
+    "BlockNTMFlower metadata 1/3 and BlockTallPlant metadata 0/8 original ColorizerGrass render colors require native owner callbacks and correctly tinted baked quads before broader tint enrollment.",
+    "BlockRubberLeaves and BlockVinylVine original render-color overrides return white; no blanket claim about all inherited vanilla owners.",
+    "LegacyBaseModelHandler still owns other legacy cube registrations and reflective color fallback. This isolated handler does not replace it or claim all 122 ItemBlockBase registration lines migrated.",
+    "ItemBlockStorageCrate remains legacy right-click/inventory/GUI APIs. Lore, Remap and BlastInfo now compile in full and are invoked through native tooltip entry; Remap inventory count/meta/NBT replacement behavior tested.",
+    "Native tooltip provides current client player, possibly null outside a world; World argument is not a player. Direct block callback body scan found no direct player member uses, but arbitrary transitive provider/helper semantics not certified.",
+    "Current production GameRegistry bridge/full ModBlocks registration remains separate gate: tests register actual production root through native ForgeRegistries rather than compiling the entire legacy registry root.",
+    "Root old getIconFromDamage removed; only selected scaffold/fence native model routes have replacement ItemBlock identity proof here. Other legacy icon/model owners remain explicit.",
+    "Exact arbitrary-item removed-callback consumers: BrokenItem:35, ItemRemap:28, ColorUtil:24, MultiCloudRenderer:79, RenderLoot:204; plus reflective LegacyBaseModelHandler:162. See portable probe REMOVED_METHOD_CALLERS.md.",
+    "Indirect descendant ItemBlockColoredConcrete (via ItemBlockBlastInfo), registered for concrete_colored at ModBlocks:3065, retains legacy metadata/dye naming API. No icon/color overrides. Direct descendant count four; transitive count five."
+  ],
+  "portable_probes": {
+    "location": "porting/tests/itemblock-native",
+    "required_arguments": [
+      "--module",
+      "--java-home",
+      "--classpath"
+    ],
+    "optional_overlay": "--source-root; defaults to module after integration",
+    "temporary_classes": "private TemporaryDirectory by default; model probes compile root themselves with --classes-dir, no staging classpath assumptions"
+  },
+  "probe_sha256": {
+    "porting/tests/itemblock-native/removed-method-references.json": "b868e47f319175efa0e4f6ba03d89b455e697f865d804735ac4df86db54ddff2",
+    "porting/tests/itemblock-native/NativeItemBlockTest.java": "a44e285a56f554b6aa9cb58ed35c9217ba1424f02047a01096c8549a21624da3",
+    "porting/tests/itemblock-native/structural-with-production-item.py": "400b53202f24925f656960734f352d4fe9012ad7b21bc84e9e2a42194bf231a9",
+    "porting/tests/itemblock-native/run.py": "f9e3333cb1ef99ef90299de953531b45b95744f2aa7b6869a56c0c2fa730b78c",
+    "porting/tests/itemblock-native/scaffold-with-production-item.py": "f0155d96b0a448cb0eb4105ed3c835e5b8148044aceb739b1a74cfbc5a83f76a",
+    "porting/tests/itemblock-native/check-legacy-route.py": "c6d568ef969c18416fbed9fc3bde9ef37d51368a2253c49568c93f9f582fefeb",
+    "porting/tests/itemblock-native/REMOVED_METHOD_CALLERS.md": "bc171947da8cceb6b145271e5f725e7172b271a6b50e946aeb3838aea36fc580"
+  }
+}

@@ -93,22 +93,22 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 			smoke_poison.changeTankSize(config.maxPollutionCap);
 
 		} else {
-			worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		}
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return config != null ? config.localizedName : "INVALID";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 
 			if (config == null) {
-				worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+				this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 				return;
 			}
 
@@ -121,23 +121,23 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 			this.structureCheckDelay--;
 			if (this.structureCheckDelay <= 0) this.checkStructure();
 
-			if (this.worldObj.getTotalWorldTime() % 20 == 0) {
+			if (this.world.getTotalWorldTime() % 20 == 0) {
 				for (DirPos pos : this.connectionPos) {
 					for (FluidTank tank : this.inputTanks) {
-						this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 					}
 					if (!config.generatorMode)
-						this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 				for (byte d = 2; d < 6; d++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(d);
 					for (DirPos pos : this.fluxPos) {
-						Block b = worldObj.getBlock(pos.getX() + dir.offsetX, pos.getY(), pos.getZ() + dir.offsetZ);
+						Block b = com.hbm.world.WorldBlockState.read(this.world, pos.getX() + dir.offsetX, pos.getY(), pos.getZ() + dir.offsetZ).getBlock();
 						if (b == ModBlocks.reactor_research) {
-							int[] source = ((ReactorResearch) ModBlocks.reactor_research).findCore(worldObj, pos.getX() + dir.offsetX, pos.getY(), pos.getZ() + dir.offsetZ);
+							int[] source = ((ReactorResearch) ModBlocks.reactor_research).findCore(this.world, pos.getX() + dir.offsetX, pos.getY(), pos.getZ() + dir.offsetZ);
 							if (source != null) {
 
-								TileEntity tile = worldObj.getTileEntity(source[0], source[1], source[2]);
+								TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(source[0], source[1], source[2]));
 
 								if (tile instanceof TileEntityReactorResearch) {
 
@@ -157,10 +157,10 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 
 			for (DirPos pos : this.connectionPos) {
 				if (config.generatorMode && power > 0)
-					this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				for (FluidTank tank : this.outputTanks)
 					if (tank.getFill() > 0)
-						this.sendFluid(tank, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						this.sendFluid(tank, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				this.sendSmoke(pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
@@ -183,7 +183,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 						this.power += powerReq;
 						this.heat -= cachedRecipe.heat;
 						if (power > config.maxPower) power = config.maxPower;
-						if (worldObj.getTotalWorldTime() % 20 == 0) {
+						if (this.world.getTotalWorldTime() % 20 == 0) {
 							pollution(cachedRecipe);
 							radiation(cachedRecipe);
 						}
@@ -205,7 +205,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 							this.progress++;
 							this.power -= powerReq;
 							this.heat -= recipe.heat;
-							if (worldObj.getTotalWorldTime() % 20 == 0) {
+							if (this.world.getTotalWorldTime() % 20 == 0) {
 								pollution(recipe);
 								radiation(recipe);
 							}
@@ -286,19 +286,19 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 	public void pollution(CustomMachineRecipe recipe) {
 		if(recipe.pollutionAmount > 0) {
 			this.pollute(PollutionHandler.PollutionType.valueOf(recipe.pollutionType), recipe.pollutionAmount);
-		} else if(recipe.pollutionAmount < 0 && PollutionHandler.getPollution(worldObj, xCoord, yCoord, zCoord, PollutionHandler.PollutionType.valueOf(recipe.pollutionType)) >= -recipe.pollutionAmount) {
-			PollutionHandler.decrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionHandler.PollutionType.valueOf(recipe.pollutionType), -recipe.pollutionAmount);
+		} else if(recipe.pollutionAmount < 0 && PollutionHandler.getPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionHandler.PollutionType.valueOf(recipe.pollutionType)) >= -recipe.pollutionAmount) {
+			PollutionHandler.decrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionHandler.PollutionType.valueOf(recipe.pollutionType), -recipe.pollutionAmount);
 		}
 	}
 	public void radiation(CustomMachineRecipe recipe){
 		if(recipe.radiationAmount > 0) {
-			ChunkRadiationManager.proxy.incrementRad(worldObj, xCoord, yCoord, zCoord, recipe.radiationAmount);
+			ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), recipe.radiationAmount);
 		} else if (recipe.radiationAmount < 0) {
-			ChunkRadiationManager.proxy.decrementRad(worldObj, xCoord, yCoord, zCoord, -recipe.radiationAmount);
+			ChunkRadiationManager.proxy.decrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), -recipe.radiationAmount);
 		}
 	}
 	protected void tryPullHeat(int x, int y, int z) {
-		TileEntity con = worldObj.getTileEntity(x, y, z);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -364,7 +364,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 
 		for(int i = 0; i < recipe.outputItems.length; i++) {
 
-			if(worldObj.rand.nextFloat() < recipe.outputItems[i].value) {
+			if(this.world.rand.nextFloat() < recipe.outputItems[i].value) {
 				if(slots[i + 16] == null) {
 					slots[i + 16] = recipe.outputItems[i].key.copy();
 				} else {
@@ -386,39 +386,39 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 		for(ComponentDefinition comp : config.components) {
 
 			/* vvv precisely the same method used for defining ports vvv */
-			int x = xCoord - dir.offsetX * comp.x + rot.offsetX * comp.x;
-			int y = yCoord + comp.y;
-			int z = zCoord - dir.offsetZ * comp.z + rot.offsetZ * comp.z;
+			int x = this.pos.getX() - dir.offsetX * comp.x + rot.offsetX * comp.x;
+			int y = this.pos.getY() + comp.y;
+			int z = this.pos.getZ() - dir.offsetZ * comp.z + rot.offsetZ * comp.z;
 			/* but for EW directions it just stops working entirely */
 			/* there is absolutely zero reason why this should be required */
 			if(dir == ForgeDirection.EAST || dir == ForgeDirection.WEST) {
-				x = xCoord + dir.offsetZ * comp.z - rot.offsetZ * comp.z;
-				z = zCoord + dir.offsetX * comp.x - rot.offsetX * comp.x;
+				x = this.pos.getX() + dir.offsetZ * comp.z - rot.offsetZ * comp.z;
+				z = this.pos.getZ() + dir.offsetX * comp.x - rot.offsetX * comp.x;
 			}
 			/* i wholeheartedly believe it is the computer who is wrong here */
 
-			Block b = worldObj.getBlock(x, y, z);
+			Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 			if(b != comp.block) return false;
 
-			int meta = worldObj.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) );
 			if(!comp.allowedMetas.contains(meta)) return false;
 
-			TileEntity tile = Compat.getTileStandard(worldObj, x, y, z);
+			TileEntity tile = Compat.getTileStandard(this.world, x, y, z);
 			if(tile instanceof TileEntityProxyBase) {
 				TileEntityProxyBase proxy = (TileEntityProxyBase) tile;
-				proxy.cachedPosition = new BlockPos(xCoord, yCoord, zCoord);
+				proxy.cachedPosition = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				proxy.markDirty();
 
 				for(ForgeDirection facing : ForgeDirection.VALID_DIRECTIONS) {
 					this.connectionPos.add(new DirPos(x + facing.offsetX, y + facing.offsetY, z + facing.offsetZ, facing));
 				}
 			}
-			if(worldObj.getBlock(x,y,z) == ModBlocks.cm_flux){
+			if(com.hbm.world.WorldBlockState.read(this.world, x,y,z).getBlock() == ModBlocks.cm_flux){
 				for(ForgeDirection facing : ForgeDirection.VALID_DIRECTIONS) {
 					this.fluxPos.add(new DirPos(x + facing.offsetX, y + facing.offsetY, z + facing.offsetZ, facing));
 				}
 			}
-			else if(worldObj.getBlock(x,y,z) == ModBlocks.cm_heat){
+			else if(com.hbm.world.WorldBlockState.read(this.world, x,y,z).getBlock() == ModBlocks.cm_heat){
 				for(ForgeDirection facing : ForgeDirection.VALID_DIRECTIONS) {
 					this.heatPos.add(new DirPos(x + facing.offsetX, y + facing.offsetY, z + facing.offsetZ, facing));
 				}
@@ -426,7 +426,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 
 		}
 		for(ForgeDirection facing : ForgeDirection.VALID_DIRECTIONS) {
-			this.connectionPos.add(new DirPos(xCoord + facing.offsetX, yCoord + facing.offsetY, zCoord + facing.offsetZ, facing));
+			this.connectionPos.add(new DirPos(this.pos.getX() + facing.offsetX, this.pos.getY() + facing.offsetY, this.pos.getZ() + facing.offsetZ, facing));
 		}
 
 		this.structureOK = true;
@@ -442,20 +442,21 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 
 		for(ComponentDefinition comp : config.components) {
 
-			int x = xCoord - dir.offsetX * comp.x + rot.offsetX * comp.x;
-			int y = yCoord + comp.y;
-			int z = zCoord - dir.offsetZ * comp.z + rot.offsetZ * comp.z;
+			int x = this.pos.getX() - dir.offsetX * comp.x + rot.offsetX * comp.x;
+			int y = this.pos.getY() + comp.y;
+			int z = this.pos.getZ() - dir.offsetZ * comp.z + rot.offsetZ * comp.z;
 			if(dir == ForgeDirection.EAST || dir == ForgeDirection.WEST) {
-				x = xCoord + dir.offsetZ * comp.z - rot.offsetZ * comp.z;
-				z = zCoord + dir.offsetX * comp.x - rot.offsetX * comp.x;
+				x = this.pos.getX() + dir.offsetZ * comp.z - rot.offsetZ * comp.z;
+				z = this.pos.getZ() + dir.offsetX * comp.x - rot.offsetX * comp.x;
 			}
 
-			worldObj.setBlock(x, y, z, comp.block, (int) comp.allowedMetas.toArray()[0], 3);
+			this.world.setBlock(x, y, z, comp.block, (int) comp.allowedMetas.toArray()[0], 3);
 		}
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(this.config == null) return new int[] { };
 		if(this.config.itemInCount > 5) return new int[] { 4, 5, 6, 7, 8, 9, 16, 17, 18, 19, 20, 21 };
 		if(this.config.itemInCount > 4) return new int[] { 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21 };
@@ -467,7 +468,8 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= 16 && i <= 21;
 	}
 
@@ -506,11 +508,11 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 
 		if(machineType == null || this.config == null) {
 			super.writeToNBT(nbt);
-			return;
+			return nbt;
 		}
 
 		nbt.setString("machineType", machineType);
@@ -528,6 +530,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 		} else {
 			nbt.setInteger("cachedIndex", -1);
 		}
+		return nbt;
 	}
 
 	@Override

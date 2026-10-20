@@ -65,7 +65,7 @@ public abstract class ItemInventory implements IInventory {
 							}
 
 							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(player.worldObj, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							EntityItem entityitem = new EntityItem(player.world, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 							if (itemstack.hasTagCompound()) {
 								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
@@ -75,7 +75,7 @@ public abstract class ItemInventory implements IInventory {
 							entityitem.motionX = (float) random.nextGaussian() * f3 + player.motionX;
 							entityitem.motionY = (float) random.nextGaussian() * f3 + 0.2F + player.motionY;
 							entityitem.motionZ = (float) random.nextGaussian() * f3 + player.motionZ;
-							player.worldObj.spawnEntityInWorld(entityitem);
+							player.world.spawnEntityInWorld(entityitem);
 						}
 					}
 				}
@@ -95,7 +95,7 @@ public abstract class ItemInventory implements IInventory {
 				stack = stack.splitStack(amount);
 				markDirty();
 			} else {
-				setInventorySlotContents(slot, null);
+				setInventorySlotContents(slot, ItemStack.EMPTY);
 			}
 		}
 		return stack;
@@ -103,8 +103,9 @@ public abstract class ItemInventory implements IInventory {
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
+		stack = stack == null || stack.isEmpty() ? null : stack;
 		if(stack != null) {
-			stack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());
+			stack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));
 		}
 
 		slots[slot] = stack;
@@ -112,10 +113,10 @@ public abstract class ItemInventory implements IInventory {
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int slot) {
+	public ItemStack removeStackFromSlot(int slot) {
 		ItemStack stack = getStackInSlot(slot);
-		setInventorySlotContents(slot, null);
-		return stack;
+		setInventorySlotContents(slot, ItemStack.EMPTY);
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 	}
 
 	@Override public ItemStack getStackInSlot(int slot) { return slots[slot]; }
@@ -124,6 +125,6 @@ public abstract class ItemInventory implements IInventory {
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return true; }
 	@Override public int getInventoryStackLimit() { return 64; }
 
-	@Override public void openInventory() { player.worldObj.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:block.crateOpen", 1.0F, 0.8F); }
-	@Override public void closeInventory() { player.worldObj.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:block.crateClose", 1.0F, 0.8F); }
+	@Override public void openInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, "hbm:block.crateOpen", 1.0F, 0.8F); }
+	@Override public void closeInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, "hbm:block.crateClose", 1.0F, 0.8F); }
 }

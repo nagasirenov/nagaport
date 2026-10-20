@@ -42,7 +42,7 @@ public class RenderDecoBlock extends TileEntitySpecialRenderer {
 
 		GL11.glEnable(GL11.GL_LIGHTING);
 
-		Block b = tileentity.getWorldObj().getBlock(tileentity.xCoord, tileentity.yCoord, tileentity.zCoord);
+		Block b = tileentity.getWorld().getBlock(tileentity.getPos().getX(), tileentity.getPos().getY(), tileentity.getPos().getZ());
 
 		if(b == ModBlocks.steel_roof) {
 			this.bindTexture(texture3);
@@ -134,7 +134,7 @@ public class RenderDecoBlock extends TileEntitySpecialRenderer {
 					GL11.glPushMatrix();
 					{
 
-						GL11.glTranslatef(0.0F, 0.75F + MathHelper.clamp_float(transporter.launchTicks + (transporter.hasRocket ? -f : f), 0, 200), 0.0F);
+						GL11.glTranslatef(0.0F, 0.75F + MathHelper.clamp(transporter.launchTicks + (transporter.hasRocket ? -f : f), (float) (0), (float) (200)), 0.0F);
 						GL11.glDisable(GL11.GL_CULL_FACE);
 
 						bindTexture(ResourceManager.minerRocket_tex);

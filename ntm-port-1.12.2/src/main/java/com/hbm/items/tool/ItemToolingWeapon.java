@@ -23,7 +23,7 @@ public class ItemToolingWeapon extends ItemTooling {
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase player) {
 		
-		World world = player.worldObj;
+		World world = player.world;
 
 		if(this == ModItems.wrench) {
 

@@ -49,14 +49,14 @@ public class BombMulti extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return Item.getItemFromBlock(ModBlocks.bomb_multi);
 	}
 
 	@Override
 	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
 		if(!keepInventory) {
-			TileEntityBombMulti tileentityfurnace = (TileEntityBombMulti) p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+			TileEntityBombMulti tileentityfurnace = (TileEntityBombMulti) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
 			if(tileentityfurnace != null) {
 				for(int i1 = 0; i1 < tileentityfurnace.getSizeInventory(); ++i1) {
@@ -102,7 +102,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntityBombMulti entity = (TileEntityBombMulti) world.getTileEntity(x, y, z);
+			TileEntityBombMulti entity = (TileEntityBombMulti) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
@@ -114,7 +114,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 
 	@Override
 	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
-		TileEntityBombMulti entity = (TileEntityBombMulti) p_149695_1_.getTileEntity(x, y, z);
+		TileEntityBombMulti entity = (TileEntityBombMulti) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {
 			if(/* entity.getExplosionType() != 0 */entity.isLoaded()) {
 				this.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);
@@ -124,7 +124,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 	}
 
 	public BombReturnCode igniteTestBomb(World world, int x, int y, int z) {
-		TileEntityBombMulti entity = (TileEntityBombMulti) world.getTileEntity(x, y, z);
+		TileEntityBombMulti entity = (TileEntityBombMulti) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!world.isRemote) {
 
 			if(entity.isLoaded()) {
@@ -155,7 +155,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 				}
 
 				entity.clearSlots();
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				// world.createExplosion(null, x , y , z , this.explosionValue,
 				// true);
 				ExplosionLarge.explode(world, x, y, z, explosionValue, true, true, true);
@@ -204,7 +204,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -243,7 +243,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 	public BombReturnCode explode(World world, int x, int y, int z) {
 
 		if(!world.isRemote) {
-			TileEntityBombMulti entity = (TileEntityBombMulti) world.getTileEntity(x, y, z);
+			TileEntityBombMulti entity = (TileEntityBombMulti) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(entity.isLoaded()) {
 				return igniteTestBomb(world, x, y, z);

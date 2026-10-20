@@ -71,6 +71,6 @@ public class ContainerMachineRadarNT extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return radar.isUseableByPlayer(player);
+		return radar.isUsableByPlayer(player);
 	}
 }

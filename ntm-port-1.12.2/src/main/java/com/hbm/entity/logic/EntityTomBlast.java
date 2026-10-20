@@ -28,7 +28,7 @@ public class EntityTomBlast extends EntityExplosionChunkloading {
 		speed = nbt.getInteger("speed");
 		did = nbt.getBoolean("did");
 
-		exp = new ExplosionTom((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, this.destructionRange);
+		exp = new ExplosionTom((int) this.posX, (int) this.posY, (int) this.posZ, this.world, this.destructionRange);
 		exp.readFromNbt(nbt, "exp_");
 
 		this.did = true;
@@ -55,18 +55,18 @@ public class EntityTomBlast extends EntityExplosionChunkloading {
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(!worldObj.isRemote) loadChunk((int) Math.floor(posX / 16D), (int) Math.floor(posZ / 16D));
+		if(!this.world.isRemote) loadChunk((int) Math.floor(posX / 16D), (int) Math.floor(posZ / 16D));
 
 		if(!this.did) {
 
-			if(GeneralConfig.enableExtendedLogging && !worldObj.isRemote)
+			if(GeneralConfig.enableExtendedLogging && !this.world.isRemote)
 				MainRegistry.logger.log(Level.INFO, "[NUKE] Initialized TOM explosion at " + posX + " / " + posY + " / " + posZ + " with strength " + destructionRange + "!");
 
-			exp = new ExplosionTom((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, this.destructionRange);
+			exp = new ExplosionTom((int) this.posX, (int) this.posY, (int) this.posZ, this.world, this.destructionRange);
 
-			if(!worldObj.isRemote) {
-				CelestialBody body = CelestialBody.getBody(worldObj);
-				body.modifyTraits(new CBT_Impact(worldObj.getTotalWorldTime()));
+			if(!this.world.isRemote) {
+				CelestialBody body = CelestialBody.getBody(this.world);
+				body.modifyTraits(new CBT_Impact(this.world.getTotalWorldTime()));
 			}
 
 			this.did = true;
@@ -80,7 +80,7 @@ public class EntityTomBlast extends EntityExplosionChunkloading {
 
 			if(flag) {
 				this.setDead();
-				TomSaveData data = TomSaveData.forWorld(worldObj);
+				TomSaveData data = TomSaveData.forWorld(this.world);
 				data.impact = true;
 				data.fire = 1F;
 				data.markDirty();
@@ -88,11 +88,11 @@ public class EntityTomBlast extends EntityExplosionChunkloading {
 		}
 
 		if(rand.nextInt(5) == 0)
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "random.explode", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "random.explode", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
 
 		if(!flag) {
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
-			ExplosionNukeGeneric.dealDamage(this.worldObj, this.posX, this.posY, this.posZ, this.destructionRange * 2);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
+			ExplosionNukeGeneric.dealDamage(this.world, this.posX, this.posY, this.posZ, this.destructionRange * 2);
 		}
 
 		age++;

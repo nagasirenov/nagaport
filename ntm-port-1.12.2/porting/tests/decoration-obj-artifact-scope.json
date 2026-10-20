@@ -1,0 +1,24 @@
+{
+  "files": [
+    "porting/native-decoration-obj-acceptance.md",
+    "porting/native-decoration-obj-model-test.log",
+    "porting/native-decoration-sound-test.log",
+    "porting/tests/decoration-obj-production-scope.json",
+    "porting/tests/decoration-crate-sound-renames.json",
+    "porting/tests/decoration-obj-model-native-original-manifest.json",
+    "porting/tests/decoration-obj-model-native-probe.py",
+    "porting/tests/decoration-obj-model-native-test.java.in",
+    "porting/tests/BlockSoundNativeTest.java",
+    "porting/tests/block-sound-native-probe.py",
+    "porting/tests/crate-blocks-native-probe.py",
+    "porting/tests/crate-blocks-native-test.java.in",
+    "porting/tests/crate-blocks-native-proof.log",
+    "porting/tests/crate-blocks-native-notes.md",
+    "porting/rbmk-debris-native-probe.log",
+    "porting/rbmk-debris-native-initial-compile.log",
+    "porting/rbmk-debris-native-owner-closure.md",
+    "porting/tests/rbmk-debris-native-probe.py",
+    "porting/tests/rbmk-debris-native-test.java.in",
+    "porting/tests/decoration-obj-artifact-scope.json"
+  ]
+}

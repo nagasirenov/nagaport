@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderOrrery extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -26,7 +26,7 @@ public class RenderOrrery extends TileEntitySpecialRenderer implements IItemRend
 			GL11.glEnable(GL11.GL_CULL_FACE);
 
 			GL11.glTranslated(x + 0.5, y + 0.5, z + 0.5);
-			OrreryPronter.render(Minecraft.getMinecraft(), tile.getWorldObj(), interp);
+			OrreryPronter.render(Minecraft.getMinecraft(), tile.getWorld(), interp);
 
 		}
 		GL11.glPopMatrix();
@@ -38,7 +38,7 @@ public class RenderOrrery extends TileEntitySpecialRenderer implements IItemRend
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, 3, 0);

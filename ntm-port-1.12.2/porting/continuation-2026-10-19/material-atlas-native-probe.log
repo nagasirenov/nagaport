@@ -1,0 +1,18 @@
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[15:27:57] [main/INFO]: Setting user: AtlasProbe
+[15:27:58] [main/INFO]: Max texture size: 16384
+[15:27:59] [main/INFO]: Created: 512x512 textures-atlas
+PASS native material atlas at mip level 0: 8 actual PNGs
+[15:27:59] [main/INFO]: Max texture size: 16384
+[15:27:59] [main/INFO]: Created: 512x512 textures-atlas
+PASS native material atlas at mip level 1: 8 actual PNGs
+[15:27:59] [main/INFO]: Max texture size: 16384
+[15:27:59] [main/INFO]: Created: 512x512 textures-atlas
+PASS native material atlas at mip level 2: 8 actual PNGs
+[15:27:59] [main/INFO]: Max texture size: 16384
+[15:27:59] [main/INFO]: Created: 512x512 textures-atlas
+PASS native material atlas at mip level 3: 8 actual PNGs
+[15:27:59] [main/INFO]: Max texture size: 16384
+[15:27:59] [main/INFO]: Created: 512x512 textures-atlas
+PASS native material atlas at mip level 4: 8 actual PNGs
+PASS 1661476 actual native material pixel/mipmap/stitch/upload assertions; isolated offscreen atlas only, no whole-client or visual parity claim.

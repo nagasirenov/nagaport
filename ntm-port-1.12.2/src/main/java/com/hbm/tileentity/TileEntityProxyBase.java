@@ -12,16 +12,13 @@ public class TileEntityProxyBase extends TileEntityLoadedBase {
 	
 	public BlockPos cachedPosition;
 
-	public boolean canUpdate() {
-		return false;
-	}
 
 	public TileEntity getTE() {
 		
-		if(worldObj == null) return null;
+		if(this.world == null) return null;
 		
 		if(cachedPosition != null) {
-			TileEntity te = Compat.getTileStandard(worldObj, cachedPosition.getX(), cachedPosition.getY(), cachedPosition.getZ());
+			TileEntity te = Compat.getTileStandard(this.world, cachedPosition.getX(), cachedPosition.getY(), cachedPosition.getZ());
 			if(te != null && !(te instanceof TileEntityProxyBase)) return te;
 			cachedPosition = null;
 			this.markDirty();
@@ -31,18 +28,18 @@ public class TileEntityProxyBase extends TileEntityLoadedBase {
 
 			BlockDummyable dummy = (BlockDummyable) this.getBlockType();
 
-			int[] pos = dummy.findCore(worldObj, xCoord, yCoord, zCoord);
+			int[] pos = dummy.findCore(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 			if(pos != null) {
 
-				TileEntity te = Compat.getTileStandard(worldObj, pos[0], pos[1], pos[2]);
+				TileEntity te = Compat.getTileStandard(this.world, pos[0], pos[1], pos[2]);
 				if(te != null && !(te instanceof TileEntityProxyBase)) return te;
 			}
 		}
 
 		if(this.getBlockType() instanceof IProxyController) {
 			IProxyController controller = (IProxyController) this.getBlockType();
-			TileEntity tile = controller.getCore(worldObj, xCoord, yCoord, zCoord);
+			TileEntity tile = controller.getCore(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			
 			if(tile != null && !(tile instanceof TileEntityProxyBase)) return tile;
 		}
@@ -58,7 +55,7 @@ public class TileEntityProxyBase extends TileEntityLoadedBase {
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		if(this.cachedPosition != null) {
@@ -67,5 +64,6 @@ public class TileEntityProxyBase extends TileEntityLoadedBase {
 			nbt.setInteger("pY", this.cachedPosition.getY());
 			nbt.setInteger("pZ", this.cachedPosition.getZ());
 		}
+		return nbt;
 	}
 }

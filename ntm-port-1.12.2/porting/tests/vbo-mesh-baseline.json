@@ -1,0 +1,1483 @@
+{
+  "checkpoint": "a60fe7806f90257b5dbfbe9a62f46b887946bf93",
+  "vbo_sha256": "1889b66d7c3945b9acc8c7006b3965a23e4bc65d89627ba94eb74010c31c8148",
+  "upload_hash": "263c3f293e86f864449314d038e7ce2a58a450b684aeecb7f78dc54d3df2920f",
+  "method_hashes": {
+    "destroy": "10398073c267f5089132f49fb76e465ca41aaeb86382f2b36a3f652c602f7358",
+    "renderVBO": "e3db9f7adf4e3243cdbb37a8d368b01fb2b4226079e61608b4502a80dadad350",
+    "renderAll": "3f56f618105fc388f3a5621aca498ea64284ca8980da1932822f4b121e5f7f9f",
+    "renderOnly": "95b3a51cbc3b14a1aa834f36272212186ba3c32a685536366208cfb8d7e664b6",
+    "renderPart": "1b91e5c0e44edd0d9dc4b5442303a25eec3d2438b6f86d4a09018090b800754e",
+    "renderAllExcept": "74702a8bf207f3ae192c79de394f4a6993bc8bb64fdb9c258b2702202d890a3c",
+    "getPartNames": "18fdf547c91abeb55f9a8e3b1636a8f98382da0d652e928245e79d96b2911fb0"
+  },
+  "calls": [
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/AJR.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/BJ.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/bismuth.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/bnuuy.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/dnt.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/envsuit.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/fau.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/goggles.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/hat.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/hev.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/mod_tesla.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/murk.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/ncrpa.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/no9.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/player_fem.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/remnant.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/steamsuit.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/t51.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/tail_peep.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/taurun.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/trenchmaster.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/armor/wings_pheo.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/blocks/geiger_counter.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/blocks/skeleton_holder.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/Prototype.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/ap_mine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/dud_balefire.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/dud_conventional.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/dud_nuke.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/dud_salted.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/fat_man.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/fleija.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/fstbmb.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/gadget.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/marelet.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/n2.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/naval_mine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/tsar.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/bombs/ufp.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/combat_drop_pod.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/doors/silo_hatch.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/doors/silo_hatch_large.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/effect/casings.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fluidtank.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fluidtank_exploded.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/boiler.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/breeder.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/collector.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/coupler.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/htrf4.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/klystron.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/mhdt.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/fusion/torus.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/launch_table/soyuz_launcher_legs.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/launch_table/soyuz_launcher_support.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/launch_table/soyuz_launcher_support_base.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/launch_table/soyuz_launcher_table.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/launch_table/soyuz_launcher_tower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/launch_table/soyuz_launcher_tower_base.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/acidizer.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/alkylation_unit.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/ammo_press.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/annihilator.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/arc_furnace.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/arc_welder.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/assembly_factory.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/assembly_machine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/atmo_tower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/atmo_vent.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/autosaw.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/bat9000.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/battery.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/boiler.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/boiler_burst.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/catalytic_cracker.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/catalytic_reformer.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/centrifuge.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/chemical_factory.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/chemical_plant.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/chimney_brick.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/chimney_industrial.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/chungus.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/chungus_destroyed.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/coker.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/combustion_engine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/compressor.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/condenser.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/condenser_damaged.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/cyclotron.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/derrick.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dieselgen.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dish_controller.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/docking_port.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/drive_processor.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dyson_anatmogenesis.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dyson_he_converter.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dyson_receiver.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dyson_spinlaunch.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/dyson_tu_converter.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/electric_heater.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/electrolyser.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/exposure_chamber.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/fel.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/fensu.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/fensu2.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/firebox.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/flare_stack.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/fracking_tower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/gascent.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/heatex.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/heating_oven.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/hephaestus.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/htr3.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/htrf4.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/hydroponic.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/hydrotreater.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/industrial_boiler.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/industrial_turbine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/intake.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/liquefactor.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/lpw2.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/machine_deuterium_tower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/magma_drill.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/mining_drill.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/mining_laser.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/mixer.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/oilburner.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/orbus.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/ore_slopper.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/outtake.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/pump.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/pumpjack.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/purex.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/pyrooven.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/radar.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/radar_large.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/radar_screen.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/radiator.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/rocket_assembly.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/rocket_pad.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/rotary_furnace.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/silex.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/solar_boiler.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/solar_panel.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/soldering_station.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/solidifier.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/spaceship_computer.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/stardar.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/steam_engine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/tower_large.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/tower_small.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/transporter_pad.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/turbine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/turbinegas.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/turbofan.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/vacuum_distill.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/vacuum_solderer.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/watz_pump.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/machines/wood_burner.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_abm.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_atlas.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_huge.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_micro.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_parts/rp_drop_pod.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_parts/rp_landing_capsule.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_stealth.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_strong.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/missile_v2.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/mobs/b2.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/mobs/depthsquid.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/mobs/scrapfish.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/mobs/scutterfish.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/mobs/scuttlecrab.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/mobs/siftereel.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/connector.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/connector_super.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/fluid_diode.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/pipe_anchor.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/pylon_large.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/pylon_medium.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/network/substation.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/particleaccelerator/beamline.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/particleaccelerator/detector.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/particleaccelerator/dipole.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/particleaccelerator/quadrupole.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/particleaccelerator/rfc.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/particleaccelerator/source.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/airlock_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/blast_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/containment_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/fire_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/seal_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/secure_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/sliding_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/vault_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/vehicle_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/pheodoors/water_door.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/radar_base.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/autoloader.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/button.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/crane.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/crane_console.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/gauge.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/rbmk_console.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/rbmk_element_rods.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/rbmk/rbmk_rods.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/reactors/icf.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/reactors/iter.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/reactors/watz.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/refinery.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/refinery_exploded.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/soyuz.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/soyuz_lander.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/soyuz_module.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_arty.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_brandon.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_chekhov.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_fritz.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_himars.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_howard.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_howard_damaged.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_jeremy.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_microwave.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_richard.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_sentry.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/turrets/turret_tauon.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/aberrator.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/am180.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/amat.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/bio_revolver.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/bolter.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/boltgun.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/c130.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/carbine.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/chainsaw.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/charge_thrower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/chemthrower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/coilgun.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/congolake.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/crucible.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/cryo_cannon.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/detonator_laser.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/drill.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/fatman.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/fireext.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/flamethrower.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/flaregun.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/folly.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/g3.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/gavel.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/greasegun.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/hangman.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/henry.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/laser_pistol.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/lasrifle.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/lasrifle_mods.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/launch_pad_erector.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/liberator.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/lilmac.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/m2_browning.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/maresleg.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/mas36.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/mike_hawk.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/minigun.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/missile_launcher.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/n_i_4_n_i.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/panzerschreck.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/pepperbox.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/quadro.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/sacred_dragon.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/sexy.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/shredder.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/spas-12.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/star_f.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/stg77.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/stinger.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/tau.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/tesla_cannon.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/uzi.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/weapons/whiskey.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/xenon_thruster.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/zirnox.obj"
+    },
+    {
+      "source": "com/hbm/main/ResourceManager.java",
+      "asset": "models/zirnox_destroyed.obj"
+    },
+    {
+      "source": "com/hbm/particle/ParticleSkeleton.java",
+      "asset": "models/effect/skeleton.obj"
+    },
+    {
+      "source": "com/hbm/render/entity/projectile/RenderCoin.java",
+      "asset": "models/trinkets/chip.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderPlushie.java",
+      "asset": "models/trinkets/derg.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderPlushie.java",
+      "asset": "models/trinkets/hundun.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderPlushie.java",
+      "asset": "models/trinkets/miku.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderPlushie.java",
+      "asset": "models/trinkets/neru.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderPlushie.java",
+      "asset": "models/trinkets/teto.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderPlushie.java",
+      "asset": "models/trinkets/yomi.obj"
+    },
+    {
+      "source": "com/hbm/render/tileentity/RenderSnowglobe.java",
+      "asset": "models/trinkets/snowglobe.obj"
+    },
+    {
+      "source": "com/hbm/render/util/HorsePronter.java",
+      "asset": "models/mobs/horse.obj"
+    }
+  ],
+  "assets": {
+    "models/armor/AJR.obj": "c55b032abb9ab5bcc0b9cd62ccc287ec755d427df653201f77c1b142e1fe8c13",
+    "models/armor/BJ.obj": "c48efe91702b3bece74a01163faa0560d68f114088ed17d736559f41f867fb9b",
+    "models/armor/bismuth.obj": "7a8e7d0948ff333f1130889d73a4f6fd9562abc72ac26494a91228ccbf4b77a8",
+    "models/armor/bnuuy.obj": "4ce247d73c514f3689fb667ca130ba8f09bdc94b753187f0bfbc4e47d4b3fcb5",
+    "models/armor/dnt.obj": "2f9255029b57756a77c13af237394b2d49f67505a97176793f1a42a01aaa255d",
+    "models/armor/envsuit.obj": "e4650b84493998742cb16616a44815b056960f06314eb376184976c08a35e312",
+    "models/armor/fau.obj": "55430c237a5cf10b8e2ec56683d2c1d75d5d1a956f3d5d5cc62c83323e983207",
+    "models/armor/goggles.obj": "aaa2242c41b0c334092e74b1c1db19a84be92cd5c5b176e69fea740aa52a330e",
+    "models/armor/hat.obj": "b3bbc90c9485f0c702c230672cae61ade1c2f9ce19d4f8e9553e57fa524111e6",
+    "models/armor/hev.obj": "1375ebcf5b93412ec57022f87a2660122b6a3e2aaa5ef166f4da26764e495af7",
+    "models/armor/mod_tesla.obj": "04fe910c4118e37a1a869da1e21bca722f520b28ca4fcc4253c86bbeff9ba7e9",
+    "models/armor/murk.obj": "6a5fb2473df56f2ac472766dbe05e641426d7b59e50ad5dd2a2e76cf5ea8b5f8",
+    "models/armor/ncrpa.obj": "95730d86a52d3c151c2cae7d872feb83e856425a8ae99e67925dfcee3d99b36a",
+    "models/armor/no9.obj": "3d151e21ace4446200e55a2b7ce15b033b72f415d438a9a86ac0a62ccbd7d34f",
+    "models/armor/player_fem.obj": "355961c00fd1e441d14581f58a9e0a16b4b2194b9a6536f00fe021bf7b71c569",
+    "models/armor/remnant.obj": "2f6973106fe90ec0636efe073d6f165c2577c3f21fa26b811e46df1ea7b1b6c1",
+    "models/armor/steamsuit.obj": "35be623891667a15a60a49a5e8a85fc3117b1cc7ed12488e0470c314d8064018",
+    "models/armor/t51.obj": "8e5ed66b890a15470b907ccf4ed6d3f90a6621de204a954b19170a2562818483",
+    "models/armor/tail_peep.obj": "e808d0a091beb1e5d369e1af0b6eaa5f4229c7ff6f2a6f86624df7cef3450dc4",
+    "models/armor/taurun.obj": "a81e3b6666e9cf01b798eed18067f3d8d3f487f33642fa4d531ad311c5c98ed5",
+    "models/armor/trenchmaster.obj": "e19bbf2d6316830573bfd2dba106c32c5d796f03225c7b1ec79cee17ab1f75a5",
+    "models/armor/wings_pheo.obj": "43120e1bdff32e879f1f51afed612b26e22ab38e4febd9b2d7a211b79388fbf4",
+    "models/blocks/geiger_counter.obj": "575912600fa0f486c192d9eb9196877100a50b1264ed9c937db6a2932bd83d37",
+    "models/blocks/skeleton_holder.obj": "ca62809476c587b75af02e075e2e657383040b8e97042432594b534c04969195",
+    "models/bombs/Prototype.obj": "54af5b53b58e743319a6b94f76ac9103bebe1a50b2bc13200c1f7231a68ffe97",
+    "models/bombs/ap_mine.obj": "cd80d852f9dc8b5c16c6880413893907150e92865ac6dc43ac94135a80078f5d",
+    "models/bombs/dud_balefire.obj": "e40f3a209ac3ae9cbd06784c0589cdbbef2404b6df9cc115ec460c032fdd77d6",
+    "models/bombs/dud_conventional.obj": "7f76e7b64a9aadcc85e2108124a2bedc7d2bef46cb6d9bcc84132afabe27c865",
+    "models/bombs/dud_nuke.obj": "54cd401c26f7767d306200597f0b04f8ea734f3d968279b269f37b472c413b2d",
+    "models/bombs/dud_salted.obj": "31b6e3c6dc8564c39652b69176b38d2d21e8c1cdb6077f9c65d6df0fb00553a8",
+    "models/bombs/fat_man.obj": "911e3390f4cf5a3b84dc7ddcd37d4ce89aec64027727b69d700dc58e33ba7a75",
+    "models/bombs/fleija.obj": "65274fa5fa113198e9aabc57397d5ce11cd7c94ee335337f933e9abc387829ab",
+    "models/bombs/fstbmb.obj": "3dec11f0ea2fb11bc14b3b52a7f21aaf9be90ab5ce1c4899d83780c2ae10e96c",
+    "models/bombs/gadget.obj": "b5fd783ab0defe5bafe7ccdeb1ca3cc5bf15206587686540bcd953f2378dc98f",
+    "models/bombs/marelet.obj": "4221592cd1824f8266864ad107efab61a9ec3f1a71b885fe579b50cf1805abf6",
+    "models/bombs/n2.obj": "236a41da83f04bab2d582e387f91fdbe457ce5d0d2ebcce0b4082a8c9d329f06",
+    "models/bombs/naval_mine.obj": "dac18fa8bae5732d88b9a03f9cc82fb3871ef80f08d2e79c499ed9d6385e16fb",
+    "models/bombs/tsar.obj": "38fd6d46629c0e65a3b2d8957f588abfa86a786f852ead1e8dbb0d3375ac95a6",
+    "models/bombs/ufp.obj": "4965bac2eac044f9ac1e592afc4f2a0d9ce976cea81513d6a36dd74e0b47f91b",
+    "models/combat_drop_pod.obj": "9e822f743c2eae1d80e72171493596b83d4c7bf9fa8ff4baf9d79984edde7e64",
+    "models/doors/silo_hatch.obj": "dbbc21b9bc070e5ef377d4981511a090c4533b653c9d770409b688f9cbb11fa8",
+    "models/doors/silo_hatch_large.obj": "bcaa35d72ad6767232312321dc70ed5bb67773e0d9537ef4aca747627a784b27",
+    "models/effect/casings.obj": "6024f3072fc816315837785a034d0152f26abf74b1fb3f4661ef566a6a31afdb",
+    "models/effect/skeleton.obj": "7c1a49afe136eec6234f3499d7aada75711d8936792884335ba79f48435a9230",
+    "models/fluidtank.obj": "9f2b0a2830f5dfe027871cc2b4387dbe0469d6384da9aa042d395607a95a54cc",
+    "models/fluidtank_exploded.obj": "979382ae36fba331e95d88b1b4476dc4e4240d0aa9ab6ba86f1ba8611b1621e0",
+    "models/fusion/boiler.obj": "befdf98d6b442a04bc9122b1d4357e909a55e06eaeb656b91cce4a67dc359864",
+    "models/fusion/breeder.obj": "d4e6d5813b19da4288c56c2a99adb27fde99dc77b1e516a8c87f5111b512910c",
+    "models/fusion/collector.obj": "415efe0bcca2aa94889efeef36279d4fc2870f6115f62a7d4e49014436a7b394",
+    "models/fusion/coupler.obj": "46097fcc7bf65ad18e5328fe0313db269eb72cee2b365828576d577a56e0955f",
+    "models/fusion/htrf4.obj": "d372df73f8b635db4ad332dd0c1127f9a33a74648846528fe74d89574777c291",
+    "models/fusion/klystron.obj": "278f03a681a167de38efa56faf5f96e2962d949ee1f1aa8ec59bbf80e91d2426",
+    "models/fusion/mhdt.obj": "c3282a4420ac1bdfe66928b319b3dfeda8f52fea265c9088cc6c7dd760b9ba00",
+    "models/fusion/torus.obj": "e56ad07d50876fbdfb77ea64e81a300e300ab6d451ebd56396b98e703aacdfb8",
+    "models/launch_table/soyuz_launcher_legs.obj": "e9ab01a48b88810a229a7a14136b6cf5a0c54e4544e3a0e90fc4303e16fb9724",
+    "models/launch_table/soyuz_launcher_support.obj": "455d90c172b02bca5a255861845942e19062347716a6bc79e63f19499b0674a0",
+    "models/launch_table/soyuz_launcher_support_base.obj": "d58a7103afd6d7dd952bd5b0bf62c4d10ffab460e4cdaf754e2c62a066ba4c38",
+    "models/launch_table/soyuz_launcher_table.obj": "f31fb36e64cecde4f317ba8a034cf5b29df45c6508ce7bd6636f2e22f3bc9590",
+    "models/launch_table/soyuz_launcher_tower.obj": "29052f02d76694a6401a3ff6ba9ce8e02a1d0a2bf9cc86c50a3d288d4184b84c",
+    "models/launch_table/soyuz_launcher_tower_base.obj": "8c8bdd56f9fdff4bb54eb6e995bcf693e97ba8df52f71b6a0e8405d2c1481672",
+    "models/machines/acidizer.obj": "f74b0a4da4a5956e4a3d9b98410ac4a4223dcc2c579a9d29710b8feb5b5048f4",
+    "models/machines/alkylation_unit.obj": "541ece1c011db57176fe5126f71f8030cc80ef71a15b565361c2e72259eb8796",
+    "models/machines/ammo_press.obj": "72371849469292e26bcefd3f23ba01137be212ecbc8e52e99d27d4f3cfc81cef",
+    "models/machines/annihilator.obj": "7fae5aa132954532c61a73bfc8b970333d5691081464f0c807df7f17f462e712",
+    "models/machines/arc_furnace.obj": "2bcf762dce22dacdd532974a68017a6a2ef8bcdeb9e1eb53cd598681c353d2ae",
+    "models/machines/arc_welder.obj": "a9b915b712d3a6f568b99df01ed196e1c2183f38e44e2c213c3e937c2d4f1e15",
+    "models/machines/assembly_factory.obj": "678040520e1d3165c32a6df488999b12fc6bb68cdf34ebe20dd1bd02f74cde6b",
+    "models/machines/assembly_machine.obj": "18f1e9ce05f61fea2ad041175f92466a7544e74dfb66b6a01e496942453c8768",
+    "models/machines/atmo_tower.obj": "a8900c31986abf6455c68b03e231bda6e6f3703a99526d3dd021de2b2de5ee7a",
+    "models/machines/atmo_vent.obj": "8570db760b841eafed97fb79a344f7d31645302b435da5cf5d362f79405e1766",
+    "models/machines/autosaw.obj": "536704b40afcec211c8882c932d2edfd22611e86ee8fdd1293ef1fb1951040a3",
+    "models/machines/bat9000.obj": "1f5ee4dcb3a72060c6e976c96c077a9dcd2ae2de36056666aff360ea81874536",
+    "models/machines/battery.obj": "64255ab076fc29c3fbf0e6304338badd7af38d793c0f73e83f785947d9bbe36b",
+    "models/machines/boiler.obj": "0b4ddeed8c444f7ab2bd1563e265990110321878e1713ad92fa02760eeac33b7",
+    "models/machines/boiler_burst.obj": "0d30177019f1a11d25d479dd900a1c2343e99f7e669bc66bdd2cd908af45b865",
+    "models/machines/catalytic_cracker.obj": "79710a2663fdd9a4bcdb5bdf5290099be5e166475f66158420afd19714ebe7e5",
+    "models/machines/catalytic_reformer.obj": "1e0c16d5da1633fc1fd6dc98b12abe77dd5cfbe614ca1e09055c5948ae0bfc5c",
+    "models/machines/centrifuge.obj": "42300bdf7d15b5a95ddd80ba822a6e1b82748b6e937d7fe0bc90b26e732eaa7b",
+    "models/machines/chemical_factory.obj": "691a8855030ada3101b07cd119e751b93002fa06d673274ee688bfc124d15a37",
+    "models/machines/chemical_plant.obj": "15ec034ea819da321c96881d641ff4dfbc3fc79078b14bcdf948fc16ee09da65",
+    "models/machines/chimney_brick.obj": "968b97fbf5b005b2901f5b211067e11f4c68e46cd6607e371e1d0554c746cfad",
+    "models/machines/chimney_industrial.obj": "1ed53eb232e6aa3f1cdd5cf76fd49688e97a51b1af2eec9d46733a27786a5043",
+    "models/machines/chungus.obj": "89f4246efa2e7ca3419c225c095caafd3289b652bfdc8f51cf15dd69bcd53221",
+    "models/machines/chungus_destroyed.obj": "92aa7769a8d792dd8155979ee5a641eee99d72333e92429993f055a8e88e93ad",
+    "models/machines/coker.obj": "baf4d484bfe24266c5d53508ff264faf1d03ce4137ca2762a528e526d8a8ccfa",
+    "models/machines/combustion_engine.obj": "8f12df24b3f140e24b7b220bd466301d4d3c6bab1c52e215d91a96d474591c39",
+    "models/machines/compressor.obj": "d1ed2fbcf350f6c96b09ab63783ad4e51b4684e04bb0b7b47728009635288342",
+    "models/machines/condenser.obj": "d39720ddcfb91dac9965453882e7e4adc659c52987bf336e3be79d7c57ba68e3",
+    "models/machines/condenser_damaged.obj": "ab644e0fc889a3076b19bb3de991e8032f6cb8c3cbddb2dcb711afc5d56437b1",
+    "models/machines/cyclotron.obj": "07135fc6773e58c2b6aefd6e60be40194c812629cd6fe7fe44eb85bf7dc15654",
+    "models/machines/derrick.obj": "ae7731a5b5d6e7ca0189ecbbdb11b43d66a9fc7878c028e988a7830478972d08",
+    "models/machines/dieselgen.obj": "6099e2a19b06ca4cad706d0af761e8200de4d0c770a0294f48be50a94a36c0b2",
+    "models/machines/dish_controller.obj": "09a4f16ac8d11e33c3130eb96b9545c8578470b4c4be5bebb285847e8eaea260",
+    "models/machines/docking_port.obj": "e52d5bce5d2ec4c00cc93913ca41b7415f8b410ac87e487dec385b250945ca70",
+    "models/machines/drive_processor.obj": "8e0aac7b8983e21d6320d8be5a53d324d5cb939367ee6aec0f2f0d7862436c89",
+    "models/machines/dyson_anatmogenesis.obj": "8f4cce8761d0ef9a29adafad95bb9c1b380fda88df4d74bbeb5db4944bd21369",
+    "models/machines/dyson_he_converter.obj": "58fe4f9131033094a909b7d36d02962f22d517ae4b20ba2ec11c7f09b2e277b1",
+    "models/machines/dyson_receiver.obj": "3262f43bb59b63b8a503379c76ceacc432974472c8ecbefa8399ba4b9f431f82",
+    "models/machines/dyson_spinlaunch.obj": "2e6a87a1d6e91e2b66ea6a832043403b0945fda37a75b4e1987792a9c9f47b32",
+    "models/machines/dyson_tu_converter.obj": "d926a51ee0578d9960c815cbdb4887c378597767ae0ccceca590d80d694304b5",
+    "models/machines/electric_heater.obj": "3a5e943abbcc4398be35aa9adad6a8df4c6501e178a00c1621c69242b455aa7f",
+    "models/machines/electrolyser.obj": "59a6e0f8a8bc0c7228e6408a0d11a171f8888a66fafff1d6cf3daceafd443a57",
+    "models/machines/exposure_chamber.obj": "1b9e3f085edf54459de34fd979962f78c2216341fdc1a35ad24636ba5a1b3d8a",
+    "models/machines/fel.obj": "8bc20cbdefe963c7affb524f847a61f680fa060ee0932099299a0883e5668a6c",
+    "models/machines/fensu.obj": "4e9a11c15fbd803db681af45d73133123c4c694a665f546dc6cf4988d385f84b",
+    "models/machines/fensu2.obj": "8a7985533e829f57285269d269bd81023b064b9bd4d0cf579227704b7526ed33",
+    "models/machines/firebox.obj": "52267df832720c988ca1bf059986a57d07c4e13a30f0cc42689d05409aa8ec39",
+    "models/machines/flare_stack.obj": "1034e20dc69460a9c913d1fa007b2fe4f4c824892383c0cd2018494708575738",
+    "models/machines/fracking_tower.obj": "26c29352a95c0906ab1583660c0d5b9db3eb90c00ab88e0a465f7f5fd82fe0f6",
+    "models/machines/gascent.obj": "c8d1a2e24c5a1a0fa1c11135455198c0167b32f77cea7c0b98350546446b0c11",
+    "models/machines/heatex.obj": "4fb2f2187c917a19aef8b850f4067e010a091c7f225efc4a1dac251afc9cfcdd",
+    "models/machines/heating_oven.obj": "9c961aceef9c6f29e0bff4cdbd62195939afde45e67b183907377abe162e9d3f",
+    "models/machines/hephaestus.obj": "f3182fa10f042f96adcda89d9bc29244161562fa8011f413a412b027a8c4e5ad",
+    "models/machines/htr3.obj": "277af7b679b3c135bb854dd5ac742bd0725403df6838ba1ca48d16d547311db7",
+    "models/machines/htrf4.obj": "829967a166fa088473289718ab3bb257ec62e09692c77438bec9e40a819a9cf2",
+    "models/machines/hydroponic.obj": "86988d5398ad471da60937323bc1a955a73b0fb3fd6608d6ea199498f8787597",
+    "models/machines/hydrotreater.obj": "c77bf4e66a07a14e751520293b4593a93272353f9ff0b33517e6064d0fe0518d",
+    "models/machines/industrial_boiler.obj": "44c792ef1a1f321afd941b875a777ba3a43a74a3bac4f55a1fc141bb541c898d",
+    "models/machines/industrial_turbine.obj": "0ac62ceba911ca83cec889d1c8ae776e5b0c0f1d2e64444556b15312dfca028d",
+    "models/machines/intake.obj": "c65e68457f3e5f050eb23c2d838f94b0306ce42575e210dcb1f0434b2cda1861",
+    "models/machines/liquefactor.obj": "b6b9bff2c0708028c29501569ad0b3908e46ac1f7cdb934926c2693c5071a267",
+    "models/machines/lpw2.obj": "9df27d663257d35f92213e2dbcb37b66305795ef5616184b77d39d4fecde5647",
+    "models/machines/machine_deuterium_tower.obj": "95ae4e5eaee76f8ecf76e1aeceacd2cefa539679109d03c515a21b22fe065c87",
+    "models/machines/magma_drill.obj": "64f4e21eb7dab786371ea2d4a7ffcdbdddcd5ba51177fe00281e11f621d229d9",
+    "models/machines/mining_drill.obj": "fe187510db078b1d5b193ff13d8dadd7c83b664112d2ef890850a06598d3ac7e",
+    "models/machines/mining_laser.obj": "36dad70215dcb20c9bc204bf6299b04fa8659081bc58eb6f2cd86574ae35f4de",
+    "models/machines/mixer.obj": "b17215a3873e89308604c918eb830701d6cae0c6267b0b8705d9a8d7c30a16e7",
+    "models/machines/oilburner.obj": "eec98b778719e98b026db9b0b80a7557ed260a31967eda156c6caac496bb4d0f",
+    "models/machines/orbus.obj": "9c3ecd764c96e0929f88a2d46121878b7c07cbc0b5223605f201b0a4a8dbf24e",
+    "models/machines/ore_slopper.obj": "653346fea6ba4d7bb73528d92fe05ed9e26401650357115fb5f58b5d585a1d22",
+    "models/machines/outtake.obj": "b69ee0c8d94a32cfddaa8269d277ded737451a6e2c9bc7f6dbd652de491a3ab6",
+    "models/machines/pump.obj": "99c807f8685292608c3d937a7bb1cffee406d97870cd5a82769cc89e1b3eb8cf",
+    "models/machines/pumpjack.obj": "d408f20d56d263fcba67fc428ca979313878f5926696102fa309b540c0f52da8",
+    "models/machines/purex.obj": "fcfe792440315c074ebb136fb1089bd7945e5fefb6148b630d57ddfa1c33ec83",
+    "models/machines/pyrooven.obj": "08aaa2a2ebe79c4fd14a4d992267178eff90564a93f90bfbcd36d85b2d2d8acf",
+    "models/machines/radar.obj": "7b0d53f9803868c8c44ca43758edc2f376b07bfa54284617ef199cf42c5e5a76",
+    "models/machines/radar_large.obj": "a82bf19406f8a159edf9dcfb2e6abd9fd6ee716dc81c595175fed02ee93dacc6",
+    "models/machines/radar_screen.obj": "b1ddf07258a293c96da1293304192046ae9872253dc874198e7a9d854d7864cb",
+    "models/machines/radiator.obj": "b99d73e9954a8ac41ec4366eb6b87001d77627569aed8fda6e7c947d89232c8d",
+    "models/machines/rocket_assembly.obj": "66e577f72f5d1ddcffad4b2cd1815a4e764de243baa433726e1b66d60e2a1124",
+    "models/machines/rocket_pad.obj": "39933386a4ae79802a06474864ca7833e9b7e307bdaeda7174ac46174dd2a866",
+    "models/machines/rotary_furnace.obj": "8ceb70df574fd3d2722eb74b9c33e40023684f61b3169b724fa68f7003d2a84c",
+    "models/machines/silex.obj": "e662c363a95c8eeca13c901d62b97d4aa55bf67eeb8298560336395789b4c8f7",
+    "models/machines/solar_boiler.obj": "29781da4e27e6ccafc9a6dc69e3f28fc6058fa920158ad4a68e22207b2a71925",
+    "models/machines/solar_panel.obj": "2510df427f4ed05adf113cc0034f0ecefd5014a8db5bb0b8391e7e07822b7ace",
+    "models/machines/soldering_station.obj": "fa91b46d226de1c01926a1ad041da07ac85ebd086e5bc2a6d2810e052a666574",
+    "models/machines/solidifier.obj": "46f69d5e3de18c890b483e712d7ca945f89f4924aa75bd793abb79f90fde668c",
+    "models/machines/spaceship_computer.obj": "804bc3049406563ebf203b558b0ab16edf42121d019a6690d822c689feb74e1d",
+    "models/machines/stardar.obj": "15ab0f933edb115cb6bf4c9d7942aa3ab5bd95bc526a52786001bcc5fddbd173",
+    "models/machines/steam_engine.obj": "958fab0fe618c25cbd9099061a685a13eb5363add378faf63e6d3d13b5964a5a",
+    "models/machines/tower_large.obj": "4bd697c8aaee33cc8caa9b2b690b7f03c610d54ee01b3cd37b34679fea782a47",
+    "models/machines/tower_small.obj": "1d2f2ff3d2634e574fa08c45dfce18acc5bf36524f928a4c611a9e20862f849f",
+    "models/machines/transporter_pad.obj": "92af8323a3786684a671016cf4ccb0a338a95439714577cd8d9c4f5f14e23525",
+    "models/machines/turbine.obj": "a1a7690c10c9223f50009354437290ea4675e6c289b9c2a6e8ca3dada0b14078",
+    "models/machines/turbinegas.obj": "be5e3ef2846e9b87d45f2b890d14ede2ec136b65fc2a809c3214198e24f05daf",
+    "models/machines/turbofan.obj": "0ec0b1cbbe4ba72d4354c8fb9de9984e718d39225a578d48de1ab65437a07466",
+    "models/machines/vacuum_distill.obj": "6b0f4afc30942eb83773eb77367b9e5e8f1d5c181c99c2f5901693ad7384bffc",
+    "models/machines/vacuum_solderer.obj": "5fd74478411193e98fde7b341f15129591aac79a7ee2e19ebdb87f2f9677841a",
+    "models/machines/watz_pump.obj": "fbfe289446bf51c14bc104accb932afc360536ec0c3c2341195d405aeefafd10",
+    "models/machines/wood_burner.obj": "38d8cdfde9fb1fee5c533d1490ab58b99dbd6c705b391a1c58a75d0aaaa6e3cc",
+    "models/missile_abm.obj": "185a4ecbe19dbd43c5acda5cc0c3ee9f3afdcaae2f70395d2a7d7beb60dee969",
+    "models/missile_atlas.obj": "5829de6fe1d64be678cac92b7fe2f8b99c917e53a47436ea30e0f763890ba11a",
+    "models/missile_huge.obj": "b0a9d23b8ae07208732ea167709b47169541106792b3e4811d549ebe8eeb454e",
+    "models/missile_micro.obj": "305bafe9ee9b57278c13e8bc2444d2417fc30fc369abd0cbcecdeca2d8e18f83",
+    "models/missile_parts/rp_drop_pod.obj": "5e7adfed8fea359edcbbaa0aa31299f0f4f3a8ec24a0b886feb77fe4c743bb5c",
+    "models/missile_parts/rp_landing_capsule.obj": "f03539c05f7806a76fa4620252ddadbccb9f874c81e84e6e9f7913e7f9fe5357",
+    "models/missile_stealth.obj": "8660943b1c580d2be4df1334f230d6bdab81e5ed003f2a433a010f8e3b4e96db",
+    "models/missile_strong.obj": "c55e0a3ef541e27186d19c2d0c7d429d02e867e86ecf31591a0369c03b79bfe8",
+    "models/missile_v2.obj": "a3482bcb5eec0bf4f060a61089576e3fd6a46afee800e508611e2f7f616e7e5d",
+    "models/mobs/b2.obj": "b886e3657b5958c472306cc96201720b9ba43ce068178f0385239c094be5bb13",
+    "models/mobs/depthsquid.obj": "9b3d848674eb607dc9cee08e929405be63159908372c0de7560a3b32f7fb3b21",
+    "models/mobs/horse.obj": "852db76c442ba667cb43e01b55aabd71b1802427e554d2be38c7310b0e152fbf",
+    "models/mobs/scrapfish.obj": "6890c54a987ddcb2624fb9caa3f6e1c44e22c560dd0fef33b44eab18a96727ae",
+    "models/mobs/scutterfish.obj": "19b57e1fa348c623140d50dac9badcc534934497c3399dd297366ca7aae51fd6",
+    "models/mobs/scuttlecrab.obj": "e474df1341a649781942ee1ccf81642254a776403c8d2d0c660cda964a29f301",
+    "models/mobs/siftereel.obj": "af7d714b5eb5876fe9f809d6e2ae433d2fec2beb26694f5ad8f0c005fef5030b",
+    "models/network/connector.obj": "346e69fd2badcf5a74a2bc00eefc32bf7c72e0358dd3312ddd552a5f1acbd1d4",
+    "models/network/connector_super.obj": "58156a23def8564aa9181cffc7aeb1196af2ba4acad156200e214bd1e5ee4653",
+    "models/network/fluid_diode.obj": "7789729dbfed04c7942cd4e953acb2e57864c65d2c61145d6d3a5a7239bbec01",
+    "models/network/pipe_anchor.obj": "91a1da12b43f0369f365d89ea70d4e825e445a3fd7a9edb6e3de8a9acc2f4158",
+    "models/network/pylon_large.obj": "1158977610a81a4878cbc1686fcfc5ff964c5cd87cbb4d86865fbf6e1d3666c8",
+    "models/network/pylon_medium.obj": "c6464085d7b1649a83c88a765fbd2e77104477ecb0312fdd63e2147eb28bfc56",
+    "models/network/substation.obj": "d1095f776207706e46207a10f6eb30cccde4aeeee4ac2889ecb4827573e6f364",
+    "models/particleaccelerator/beamline.obj": "2097b22b508ce40173b39a83845f20fa73dddc3ce841387a0fc9305c9178d878",
+    "models/particleaccelerator/detector.obj": "1d448d488fec4b9797b2b92f2e33d5c6a96cf4bae01b6691bebfcd16b22b9874",
+    "models/particleaccelerator/dipole.obj": "2dfd3c2f4a2b85083cfda39d39ec919d1b851e4149fc1903c61fa4d899bcd2e8",
+    "models/particleaccelerator/quadrupole.obj": "1a9e4c1c7ac07cf595fac3ebb37ef37280a50e3070515cf38567382ab1753966",
+    "models/particleaccelerator/rfc.obj": "b736e7044dd3a5132dd5082461f46132e7cd80e6b9051aeb89d50401aee23bdf",
+    "models/particleaccelerator/source.obj": "728d437076eadca135ac5c24aa91aaa19c23d9b0350aa1110c2eed3a4460bf05",
+    "models/pheodoors/airlock_door.obj": "b0f0d883fdbfec7ee2bfdcb87425a47bd0de690789885d49cfb14ca21bb695cc",
+    "models/pheodoors/blast_door.obj": "fcecef51d21759d6a1f666b9940b470a55281558c1fb93b778e49d4a468d83f7",
+    "models/pheodoors/containment_door.obj": "1a148dcdda12907c3c2381f59262ba295555fbf3cd8cfa7a1b10026bf90e22df",
+    "models/pheodoors/fire_door.obj": "cabed77ae66de57686d99a212ba8e2d991bd12eb3ed8f7900aa57ba2961366b9",
+    "models/pheodoors/seal_door.obj": "13d2820a3a4a7d2044fee8ca2e65b0bee1f6527b3a060e02941f58884ab17780",
+    "models/pheodoors/secure_door.obj": "a65a5881fc052dcca73b9b1ead90641e0b5aac2198c19b54a706657b2b89c4df",
+    "models/pheodoors/sliding_door.obj": "6ae2c2b2ac706a6f6cfeca92cf51e3b7960c53f56ebf5cf930b1017f936b10cb",
+    "models/pheodoors/vault_door.obj": "c41bc36fd8d0b28e6627e7631033d810c8bcbe765e0b1dd6510570de4dfcc3c8",
+    "models/pheodoors/vehicle_door.obj": "cb2c7fd62d4c0c1c23d0d834876f5acd6eb9ba7b057f89af80e856ea149ce2c1",
+    "models/pheodoors/water_door.obj": "82db911ae32ed1d70dadc19bde79a676c96e214a934b36eddd58dbac81382e6d",
+    "models/radar_base.obj": "e523dd18e69c9b0b5e7268252b40b9af63f64489e92424d115e50e9c9d708637",
+    "models/rbmk/autoloader.obj": "2bf4aae30144394efb57853b7255e5c48043744c9a20c8ebf8c260c5b608601d",
+    "models/rbmk/button.obj": "294ddbcba37ec2288abf8afdd511f895d52c9032efa7668d23e1498e44f3d87d",
+    "models/rbmk/crane.obj": "a67219f5692f9880c86accb989d15c26611e3bbcc9d282a3a8382a19e415bce6",
+    "models/rbmk/crane_console.obj": "7b40f82681ced9ca69cf9a3e6d14b3de8d433fd72f1b5984d08d1921eebea890",
+    "models/rbmk/gauge.obj": "3f1a0ee35a0906f2e37c4ea4423b2230124c927582387f6caa8804e99aafe6f9",
+    "models/rbmk/rbmk_console.obj": "6c319094affca777e48d069092da8fd3e72b0c9f0c1ee1f251dee1f5c1b497eb",
+    "models/rbmk/rbmk_element_rods.obj": "5702f774da7e88eb1185ba64c32668e9417dd3e5c6838e764faa3d8a4eb8258c",
+    "models/rbmk/rbmk_rods.obj": "873a5f93e5a3471d0bc57a2f61082866aca5905507cac2cbb0eecd9913b2e98b",
+    "models/reactors/icf.obj": "7c33e9a8c4f9feb032cb3769b60725ff271d680f2f2b22b94df6fbc5c266cf36",
+    "models/reactors/iter.obj": "50849d7ac5bc689638b9bfa4c1a908ff145be1f3f2085b84a125ad27a61f2903",
+    "models/reactors/watz.obj": "62236143cab7e6674dfe5a73f5ae1d5bdd95ddd462291b1c28da2a1d0b739a96",
+    "models/refinery.obj": "a7d9b194001fd2940cf2d89e184d8d9111679b07006d4e9143a15147c90fd216",
+    "models/refinery_exploded.obj": "f758c4805cbb3f9878920a810a30139cbb5f16fddccc025b584e47b17da9e1b4",
+    "models/soyuz.obj": "6fdaa7fa5c3aa37e951ee28e3f0e50e5a29cfca29952912aa5c02448f32f5b36",
+    "models/soyuz_lander.obj": "2b39b1e435eec949f9d8b45fcaf2b74cbd2dd3cb62b6e1055239d37d8b110b41",
+    "models/soyuz_module.obj": "119b769cf918de38cf0872291b8914b6b2760d7f20e46a39c0de9f5f0813f495",
+    "models/trinkets/chip.obj": "9b5cdd87c73f293c1b6e920270c3621ad50745f9490ff301c4ce8a09fb90a974",
+    "models/trinkets/derg.obj": "8e4f38ba67df0fbbdf92ea8f28236028230562b3caf979c0c883baeeb00f0447",
+    "models/trinkets/hundun.obj": "c66661431d369dd9af560fb7659165578a4b4bcb82658433c08742e868a69147",
+    "models/trinkets/miku.obj": "59d24f858a9bd742bffbe5bb9ad75adcac1c4c4c1612d424eb0dd58cff82390d",
+    "models/trinkets/neru.obj": "9c4212135a8956f4feed2501a98ea6a004b2d2566ce7694ca5b34df2908720ba",
+    "models/trinkets/snowglobe.obj": "1a1394b88f6a1df48aac5d67d60f51d42f21e71326876a9b1413798976dda591",
+    "models/trinkets/teto.obj": "b13dd2a6cb58aed8ef4a408e6e5f0eeefd892bf437dbd4771f159dbf6f47d33e",
+    "models/trinkets/yomi.obj": "54c8732d4c4e69b9644dd5248965ceaae8abcb6b71837b491c144d4d298a85ad",
+    "models/turrets/turret_arty.obj": "83b71d2589ede2e979b835164944f41b89071ca0a27dde9f24a51ada3707e39b",
+    "models/turrets/turret_brandon.obj": "daf46f9bcbccda09ee32fdeca3f79e443219f56aab244d3dc04c7afea0eebeb3",
+    "models/turrets/turret_chekhov.obj": "b219ba3cfe1f46663f263f532df6bfbe852948bca9dd87c42ceaee3c9c051cd4",
+    "models/turrets/turret_fritz.obj": "794ec37767ab7983686b33646abf9cb898bb9a104a11894203e67e633fb55946",
+    "models/turrets/turret_himars.obj": "cfc96785086b06f17f1e4fe2490a912166bb510f2e4fc05e5e2c0e208d25bad1",
+    "models/turrets/turret_howard.obj": "5c6453e61cc105fbb69f0b93dc1a3d6009571b2d41fdecda57784ce57d29a718",
+    "models/turrets/turret_howard_damaged.obj": "95c0f360ea1b8b29df7e4ee5db373c7649cba92ba78df65725925a89b2d99793",
+    "models/turrets/turret_jeremy.obj": "c306d76a9415c300f8cde15824ed075366bff22764fc8698c16d1f81feb05a90",
+    "models/turrets/turret_microwave.obj": "d1065414160056cc29baae05018fb161f13173351e10bac6e8ae60b4eee0e8dc",
+    "models/turrets/turret_richard.obj": "e8adb7960325a8815e6a32e0f09787263fd9a1361a3335dd4af428490f028c75",
+    "models/turrets/turret_sentry.obj": "736ab2a8b13899b5780a4bbc37e28cbeea8bc0be4280a7319c85807808d608a7",
+    "models/turrets/turret_tauon.obj": "3dc807d191d99cce1cd726ebb08989895ba7498d7630dfd4b399277eeba7f0c6",
+    "models/weapons/aberrator.obj": "f6d689a46fdaba3e4ba415b8474ba3f97b3fc3852c1048ee3fcbd9b1a80ac7c5",
+    "models/weapons/am180.obj": "2975b5c88f7d92d30b45b254753b6b34caf7ae7f63f12d27693e5cf6a9d3ecbd",
+    "models/weapons/amat.obj": "059f78e5671bbfe89f1d6ca2369ee481d143bddba0b522f4488a62d72b094179",
+    "models/weapons/bio_revolver.obj": "570a2c0930ff279b3604f8834f0a9b1ee5ba6c38ecb7d2d883a0b2046f33841f",
+    "models/weapons/bolter.obj": "17f14de879bcc2d38ddb518d0b40eae7caa1f0ffdf6204c0d1716cc6307098c5",
+    "models/weapons/boltgun.obj": "b3f79637c0f8248399e0930e20193018f71e5a7f72444bc7213cb5b54bb646d1",
+    "models/weapons/c130.obj": "0121c5d34a809f98433abc90fb88e4ceaa1576abddcc76cec84ae194e0475a12",
+    "models/weapons/carbine.obj": "e29f5b64752e3c3d989ea63a49f60bb2f3a7151b71ceeb1b965be2b4780c0e9a",
+    "models/weapons/chainsaw.obj": "1238b80c1f6371ed0c352efd6ecde8f9e72b879cd30ae89269fadad7358e6ef4",
+    "models/weapons/charge_thrower.obj": "74413077b204ce042ddddf5984d9805b5278d958a6ab3d9702b357a0b6f5f177",
+    "models/weapons/chemthrower.obj": "a6eef14058b579e979c5daaf561cd767e7ed8b796d57a8dba9c68645b88385c5",
+    "models/weapons/coilgun.obj": "18acd8a0fd160a5e0fbf5dcdf707d3df03fe7e23fb374358b3602c5af365a1d8",
+    "models/weapons/congolake.obj": "9bf96cfc1e903a2a5d7100f10f1ec999f0b7dac21f91f0f117ed9baddefaac4a",
+    "models/weapons/crucible.obj": "c8ae66752549bc1635e5aa463ff662f2369460977345de140e11a985688fe474",
+    "models/weapons/cryo_cannon.obj": "37755a238c0b54666e46029c4a4a3e37607a29682a6d06788dafadf80b9a7e2e",
+    "models/weapons/detonator_laser.obj": "39146aa48a2f1e6893f8b8b39cc783b527330dfa471a05ae12c8cb60852c9be1",
+    "models/weapons/drill.obj": "ee50b4c7f4210952f112fba8b0ee4c2c17ecb52d21a916f85ee5fe0ee0a230ab",
+    "models/weapons/fatman.obj": "748d27e1e3e989e21a516fd871cadf79a47aa470537811ee1f7122d043809795",
+    "models/weapons/fireext.obj": "c60429ee51190df83b8c004793d854eba7e16e7b372f9a3da072edb97a9a3d85",
+    "models/weapons/flamethrower.obj": "549330a201cd30b057e3279919955c3982ce10692b097e70ec11c52e1d3fef62",
+    "models/weapons/flaregun.obj": "9bd30432f996e0b7cf9f307f9c04b29792b648359446bd1436c36cbf81a977bf",
+    "models/weapons/folly.obj": "24e4661704de70b16fdd981112ecc157f29967712157383fdc663bdc49581d43",
+    "models/weapons/g3.obj": "19ff313c0d782c7de2c0ce547a328db0cb2a9a2a8cca2a71a62cf2a3d21c03d2",
+    "models/weapons/gavel.obj": "44ce4dd258e547974cd778dc31f62e42ce1d96ddcfe32d03c8c66274010e7032",
+    "models/weapons/greasegun.obj": "b042b8775476d64060eae4a50b9138a8e9017d79b2426c7d9d2dbfcb07421c6a",
+    "models/weapons/hangman.obj": "f2ae254cd06676c408f0d32f99ff93f65ab0899194da5263b38bc510cd58c7ad",
+    "models/weapons/henry.obj": "134248bb34f463e39645938d19f715abc9f97f8def0fe54f5215de80990441c3",
+    "models/weapons/laser_pistol.obj": "4b93094700bf7348ed7566320a52002c32fd4f4024c7b8518525bf47b7f827c1",
+    "models/weapons/lasrifle.obj": "bf383757690075d9a5a0641dbebd00c6a9c0ced86ecc432859ceedc9be1eb494",
+    "models/weapons/lasrifle_mods.obj": "99340e2b822dc6975bbb43db172138538c03082925976f934aa7512333747b7c",
+    "models/weapons/launch_pad_erector.obj": "8fc00684f12edb9b9c40d335a66c62bb0314b8194c079d7e0d0eb6eb6ee45f74",
+    "models/weapons/liberator.obj": "67212586952907ada1b8f7f36bb16d73086d920259794196d98f6309a08ef5e1",
+    "models/weapons/lilmac.obj": "74d30ff21604d27b03a4e5774c659977d4a947a49820eea349587fd17478ca8a",
+    "models/weapons/m2_browning.obj": "869c64cdcdb62ba536d2f151ffca0bfc05db687a480eca5c4c842b08b354a089",
+    "models/weapons/maresleg.obj": "b5dbe835ee20fd3e4582d93cccf011a3ea7665fc24ec7d347701584b8bb860b7",
+    "models/weapons/mas36.obj": "f24aa33e31b3e623795e0fa11254a2765e66fe79f831d569d5e4d0d4a75224be",
+    "models/weapons/mike_hawk.obj": "08fc90e99f6fa8f87861e1c38c877cab2495c6e139d7c1e2eab64b77d34bffc5",
+    "models/weapons/minigun.obj": "b9131b68e998a4a1dd939969136529395016f967bc1031931b6056d90a5068da",
+    "models/weapons/missile_launcher.obj": "6e99ac4ae108e98090651f537dc2e892ea77c12db03428dad72893e13a8b863e",
+    "models/weapons/n_i_4_n_i.obj": "a22851edead4401c7c581e09f5e6aa0a00b81f03b5c39c730e9173f4c94cbc73",
+    "models/weapons/panzerschreck.obj": "3959c14400fab2ec7c89b64c745d5bd162be28acb67456a1ac6e5ad0db66052f",
+    "models/weapons/pepperbox.obj": "1243d2e8aeb5038c543bdcadb827ae738fc2186b3f53ad2c20fc936f209c3f8d",
+    "models/weapons/quadro.obj": "fb50234a2d28bdc3dc40e1454046db7fc78ee4af624b0df7ccd6addfc825f52c",
+    "models/weapons/sacred_dragon.obj": "42742c6c23911e8390ae58dda78ff72563c01322d1d609be2d93cbd1fc755ffe",
+    "models/weapons/sexy.obj": "b92aff4b20652d0d7703e6ac72ddbdb9152e8e01a27db277d3230473979a92e4",
+    "models/weapons/shredder.obj": "db3b0fed561d4b98d8c1d8116bce971f6f0fb9a33720c8819095bdae4a7d0c21",
+    "models/weapons/spas-12.obj": "5e25cf9c59e0c689dc64d1479f889723b469e050786e9313d9c597e0ead109a7",
+    "models/weapons/star_f.obj": "7cfa1c24eed126ecb7706e8efa3b0c1ac16d91abf1d86d97f1033f18f57099b8",
+    "models/weapons/stg77.obj": "6dcc51092557f102d2e38eabcfaf00155096b1c1807f3d5b5892ad4e665c58d4",
+    "models/weapons/stinger.obj": "285ab16d6fd1f119f5483a57edef081c7792487aaa227e560ef12e2f12296267",
+    "models/weapons/tau.obj": "37a2131862971b4f73ff601a7dc7b719cd6820a53d27be831e7f5c8e8b15954c",
+    "models/weapons/tesla_cannon.obj": "092f215c3d9316b28b4b560499c7cbdbd089c00a5b9e396939d1aa714b6f8f98",
+    "models/weapons/uzi.obj": "aeb21f7fec91fabb74ea2415e07bf2c70f7b532eb3d3fb73f0753b749eab05f4",
+    "models/weapons/whiskey.obj": "f2490d178ffa25383e69aef5e78f7633cf1e4db6354d7cc3bc57798a22f823d6",
+    "models/xenon_thruster.obj": "b4896ff999d411e62f9c2d0f5e01f22376aaf8935ee5ecaec77a95d9d5244530",
+    "models/zirnox.obj": "ebc43abe44a68389416e1d65bbcba55943885732c9f9a162878f204fab6b7fff",
+    "models/zirnox_destroyed.obj": "121fe3814a64a9005d571375e85c30e18c70d878645d86afc26eb82c6c52492b"
+  }
+}

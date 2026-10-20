@@ -1,0 +1,31 @@
+{
+  "assets": {
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube.png": "bf74506fb1dbff73535ad4b2da868555a9df304f2c17012082cc40d886940b8f",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_connector.png": "80d099daed34dd0f03aecb3fc011fcb0199c5a11d390cf2da7d832abb55dc621",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_in.png": "f576debb0c3a7f24f970fff36b0cc0ccaa7a7dd7485cb3d0c49fb3d2aacbe680",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_out.png": "2880f6dce2463908fdfe844d217a181c0b622c22e1037f28117440bdda370e14",
+    "src/main/resources/assets/hbm/textures/blocks/pneumatic_tube_straight.png": "5de932c3e814c3a93347963415d83db7e3d9082bb13b1b10b2e19dbcba409c2e"
+  },
+  "pristine": {
+    "src/main/java/com/hbm/blocks/network/PneumoTube.java": "698c226567cc8d1f6a15bc94e394e5f01e848d3ea24dd8e7a8661592a0e61934",
+    "src/main/java/com/hbm/render/block/RenderPneumoTube.java": "3eba2fe3f9a913a1c7f3582b1fd03323a0ec20c0f9e8f23090ca2dd989fbb07c",
+    "src/main/java/com/hbm/render/util/RenderBlocksNT.java": "2931117a09e84e88aa7a933e07ccb87952b0923e38817e541065339e87240aac",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java": "8b2adf04b3bbf04e8e48c445f9ed4862d8b887472c556e486dd4eb068feb4fab",
+    "src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java": "353b6956a7058e09878bf0585a588f9425df65d9d66ef80bfe5141ae39098fea"
+  },
+  "production": {
+    "base/src/main/java/api/hbm/block/IToolable.java": "c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62",
+    "base/src/main/java/com/hbm/blocks/ITooltipProvider.java": "8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5",
+    "base/src/main/java/com/hbm/items/machine/IItemFluidIdentifier.java": "8c761e7839680fe688ae349aa4446551a879b1273534f5933a21ed4e86762e67",
+    "base/src/main/java/com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+    "base/src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "base/src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java": "9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc",
+    "src/main/java/com/hbm/blocks/network/PneumaticModelState.java": "406a70c3d2e2caf73b7b1fc2fc68dd34c5e8f4cef356f0efc48758b9f38657e7",
+    "src/main/java/com/hbm/blocks/network/PneumoTube.java": "43a24cc253c3a62332a0101c593b74092f5480b4c49620199294660ffc311b30",
+    "src/main/java/com/hbm/main/PneumaticModelHandler.java": "16b3d38381be0b4822e065f588d879e04a6253b0cf469d2b109159ec52729995",
+    "src/main/java/com/hbm/render/block/RenderPneumoTube.java": "cba8e7cc7b401ba2a96f74c670f80871d0e4f233b63f0a6ea0d6af49d320be54",
+    "src/main/java/com/hbm/render/block/nativeblock/PneumaticBakedModel.java": "7b26d5ad37cd9c43509bb02ef3bfd66665dea1010ca991e8840781db8889ee72",
+    "src/main/java/com/hbm/render/block/nativeblock/PneumaticCuboidGeometry.java": "6d1f1f5649dc94ceb714f0d97f0c8614e5779f7b986aa8b5308a91ed26a5756d"
+  },
+  "scope": "Exposed model and complete block owner boundary only; NTM mechanical collaborators are test doubles. No functional network, paintable, GL or whole-mod claim."
+}

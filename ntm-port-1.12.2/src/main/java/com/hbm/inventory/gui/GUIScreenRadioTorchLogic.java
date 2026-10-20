@@ -48,7 +48,7 @@ public class GUIScreenRadioTorchLogic extends GuiScreen {
 		int oX = 4;
 		int oY = 4;
 		
-		this.frequency = new GuiTextField(this.fontRendererObj, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);
+		this.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);
 		this.frequency.setTextColor(0x00ff00);
 		this.frequency.setDisabledTextColour(0x00ff00);
 		this.frequency.setEnableBackgroundDrawing(false);
@@ -59,7 +59,7 @@ public class GUIScreenRadioTorchLogic extends GuiScreen {
 		this.conditions = new int[16];
 		
 		for(int i = 0; i < 16; i++) {
-			this.map[i] = new GuiTextField(this.fontRendererObj, guiLeft + 7 + (130 * (i / 8)) + oX + 18, guiTop + 53 + (18 * (i % 8)) + oY, 54 - oX * 2, 14);
+			this.map[i] = new GuiTextField(i + 1, this.fontRenderer, guiLeft + 7 + (130 * (i / 8)) + oX + 18, guiTop + 53 + (18 * (i % 8)) + oY, 54 - oX * 2, 14);
 			this.map[i].setTextColor(0x00ff00);
 			this.map[i].setDisabledTextColour(0x00ff00);
 			this.map[i].setEnableBackgroundDrawing(false);
@@ -95,20 +95,20 @@ public class GUIScreenRadioTorchLogic extends GuiScreen {
 	
 	private void drawGuiContainerForegroundLayer(int x, int y) {
 		String name = I18nUtil.resolveKey("container.rttyLogic");
-		this.fontRendererObj.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
+		this.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
 		//TODO add localization for *every* RTTY
 		if(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { logic.descending ? "Descending Order" : "Ascending Order" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { logic.descending ? "Descending Order" : "Ascending Order" }), x, y);
 		}
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { logic.polling ? "Polling" : "State Change" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { logic.polling ? "Polling" : "State Change" }), x, y);
 		}
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Save Settings" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Save Settings" }), x, y);
 		}
 		for(int j = 0; j < 16; j++) {
 			if(guiLeft + 7 + (130 * (j / 8)) <= x && guiLeft + 7 + 18 + (130 * (j / 8)) > x && guiTop + 53 + (18 * (j % 8)) <= y && guiTop + 53 + 18 + (18 * (j % 8)) > y) {
-				func_146283_a(Arrays.asList(new String[] { I18nUtil.resolveKey("desc.gui.rttyLogic.cond" + this.conditions[j]) }), x, y);
+				drawHoveringText(Arrays.asList(new String[] { I18nUtil.resolveKey("desc.gui.rttyLogic.cond" + this.conditions[j]) }), x, y);
 				break;
 			}
 		}
@@ -143,31 +143,31 @@ public class GUIScreenRadioTorchLogic extends GuiScreen {
 		for(int j = 0; j < 16; j++) this.map[j].mouseClicked(x, y, i);
 		
 		if(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("d", !logic.descending);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, logic.xCoord, logic.yCoord, logic.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, logic.getPos().getX(), logic.getPos().getY(), logic.getPos().getZ()));
 		}
 		
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("p", !logic.polling);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, logic.xCoord, logic.yCoord, logic.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, logic.getPos().getX(), logic.getPos().getY(), logic.getPos().getZ()));
 		}
 		
 		if(guiLeft + 209 <= x && guiLeft + 209 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("c", this.frequency.getText());
 			for(int j = 0; j < 16; j++) data.setString("m" + j, this.map[j].getText().isEmpty() ? "" : this.map[j].getText());
 			for(int j = 0; j < 16; j++) data.setInteger("c" + j, this.conditions[j]);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, logic.xCoord, logic.yCoord, logic.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, logic.getPos().getX(), logic.getPos().getY(), logic.getPos().getZ()));
 		}
 		
 		for(int j = 0; j < 16; j++) {
 			if(guiLeft + 7 + (130 * (j / 8)) <= x && guiLeft + 7 + 18 + (130 * (j / 8)) > x && guiTop + 53 + (18 * (j % 8)) <= y && guiTop + 53 + 18 + (18 * (j % 8)) > y) {
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 				this.conditions[j] = (this.conditions[j] + 1) % 10;
 			}
 		}
@@ -182,7 +182,7 @@ public class GUIScreenRadioTorchLogic extends GuiScreen {
 		for(int j = 0; j < 16; j++) if(this.map[j].textboxKeyTyped(c, i)) return;
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}

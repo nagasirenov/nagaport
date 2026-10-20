@@ -101,17 +101,17 @@ public class ExplosionNT extends Explosion {
 						currentZ = this.explosionZ;
 
 						for(float step = 0.3F; remainingPower > 0.0F; remainingPower -= step * 0.75F) {
-							int xPos = MathHelper.floor_double(currentX);
-							int yPos = MathHelper.floor_double(currentY);
-							int zPos = MathHelper.floor_double(currentZ);
-							Block block = this.worldObj.getBlock(xPos, yPos, zPos);
+							int xPos = MathHelper.floor(currentX);
+							int yPos = MathHelper.floor(currentY);
+							int zPos = MathHelper.floor(currentZ);
+							Block block = com.hbm.world.WorldBlockState.read(this.worldObj, xPos, yPos, zPos).getBlock();
 
-							if(block.getMaterial() != Material.air) {
+							if(block.getDefaultState().getMaterial() != Material.AIR) {
 								float resistance = this.exploder != null ? this.exploder.func_145772_a(this, this.worldObj, xPos, yPos, zPos, block) : block.getExplosionResistance(this.exploder, worldObj, xPos, yPos, zPos, explosionX, explosionY, explosionZ);
 								remainingPower -= (resistance + 0.3F) * step;
 							}
 
-							if(block != Blocks.air && remainingPower > 0.0F && (this.exploder == null || this.exploder.func_145774_a(this, this.worldObj, xPos, yPos, zPos, block, remainingPower))) {
+							if(block != Blocks.AIR && remainingPower > 0.0F && (this.exploder == null || this.exploder.func_145774_a(this, this.worldObj, xPos, yPos, zPos, block, remainingPower))) {
 								hashset.add(new LegacyHashBlockPos(xPos, yPos, zPos));
 								
 							} else if(this.has(ExAttrib.ERRODE) && errosion.containsKey(block)) {
@@ -150,13 +150,13 @@ public class ExplosionNT extends Explosion {
 					currentX = entity.posX - this.explosionX;
 					currentY = entity.posY + (double) entity.getEyeHeight() - this.explosionY;
 					currentZ = entity.posZ - this.explosionZ;
-					double d9 = (double) MathHelper.sqrt_double(currentX * currentX + currentY * currentY + currentZ * currentZ);
+					double d9 = (double) MathHelper.sqrt(currentX * currentX + currentY * currentY + currentZ * currentZ);
 
 					if(d9 != 0.0D) {
 						currentX /= d9;
 						currentY /= d9;
 						currentZ /= d9;
-						double d10 = (double) this.worldObj.getBlockDensity(vec3, entity.boundingBox);
+						double d10 = (double) this.worldObj.getBlockDensity(vec3, entity.getEntityBoundingBox());
 						double d11 = (1.0D - d4) * d10;
 						entity.attackEntityFrom(setExplosionSource(this), (float) ((int) ((d11 * d11 + d11) / 2.0D * 8.0D * (double) this.explosionSize + 1.0D)));
 						double d8 = EnchantmentProtection.func_92092_a(entity, d11);
@@ -209,7 +209,7 @@ public class ExplosionNT extends Explosion {
 				i = chunkposition.getX();
 				j = chunkposition.getY();
 				k = chunkposition.getZ();
-				block = this.worldObj.getBlock(i, j, k);
+				block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k).getBlock();
 
 				if(!has(ExAttrib.NOPARTICLE)) {
 					double d0 = (double) ((float) i + this.worldObj.rand.nextFloat());
@@ -218,7 +218,7 @@ public class ExplosionNT extends Explosion {
 					double d3 = d0 - this.explosionX;
 					double d4 = d1 - this.explosionY;
 					double d5 = d2 - this.explosionZ;
-					double d6 = (double) MathHelper.sqrt_double(d3 * d3 + d4 * d4 + d5 * d5);
+					double d6 = (double) MathHelper.sqrt(d3 * d3 + d4 * d4 + d5 * d5);
 					d3 /= d6;
 					d4 /= d6;
 					d5 /= d6;
@@ -231,10 +231,10 @@ public class ExplosionNT extends Explosion {
 					this.worldObj.spawnParticle("smoke", d0, d1, d2, d3, d4, d5);
 				}
 
-				if(block.getMaterial() != Material.air) {
+				if(block.getDefaultState().getMaterial() != Material.AIR) {
 					
 					boolean doesErrode = false;
-					Block errodesInto = Blocks.air;
+					Block errodesInto = Blocks.AIR;
 					
 					if(this.has(ExAttrib.ERRODE) && this.explosionRNG.nextFloat() < 0.6F) { //errosion has a 60% chance to occour
 						
@@ -250,7 +250,7 @@ public class ExplosionNT extends Explosion {
 						if(!has(ExAttrib.ALLDROP))
 							chance = 1.0F / this.explosionSize;
 
-						block.dropBlockAsItemWithChance(this.worldObj, i, j, k, this.worldObj.getBlockMetadata(i, j, k), chance, 0);
+						block.dropBlockAsItemWithChance(this.worldObj, i, j, k, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k) ), chance, 0);
 					}
 
 					block.onBlockExploded(this.worldObj, i, j, k, this);
@@ -264,7 +264,7 @@ public class ExplosionNT extends Explosion {
 						if(has(ExAttrib.DIGAMMA)) {
 							this.worldObj.setBlock(i, j, k, ModBlocks.ash_digamma);
 							
-							if(this.explosionRNG.nextInt(5) == 0 && this.worldObj.getBlock(i, j + 1, k) == Blocks.air)
+							if(this.explosionRNG.nextInt(5) == 0 && com.hbm.world.WorldBlockState.read(this.worldObj, i, j + 1, k).getBlock() == Blocks.AIR)
 								this.worldObj.setBlock(i, j + 1, k, ModBlocks.fire_digamma);
 							
 						} else if(has(ExAttrib.DIGAMMA_CIRCUIT)) {
@@ -276,7 +276,7 @@ public class ExplosionNT extends Explosion {
 							} else {
 								this.worldObj.setBlock(i, j, k, ModBlocks.ash_digamma);
 								
-								if(this.explosionRNG.nextInt(5) == 0 && this.worldObj.getBlock(i, j + 1, k) == Blocks.air)
+								if(this.explosionRNG.nextInt(5) == 0 && com.hbm.world.WorldBlockState.read(this.worldObj, i, j + 1, k).getBlock() == Blocks.AIR)
 									this.worldObj.setBlock(i, j + 1, k, ModBlocks.fire_digamma);
 							}
 						} else if(has(ExAttrib.LAVA_V)) {
@@ -297,21 +297,21 @@ public class ExplosionNT extends Explosion {
 				i = chunkposition.getX();
 				j = chunkposition.getY();
 				k = chunkposition.getZ();
-				block = this.worldObj.getBlock(i, j, k);
-				Block block1 = this.worldObj.getBlock(i, j - 1, k);
+				block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k).getBlock();
+				Block block1 = com.hbm.world.WorldBlockState.read(this.worldObj, i, j - 1, k).getBlock();
 
 				boolean shouldReplace = true;
 
 				if(!has(ExAttrib.ALLMOD) && !has(ExAttrib.DIGAMMA))
 					shouldReplace = this.explosionRNG.nextInt(3) == 0;
 
-				if(block.getMaterial() == Material.air && block1.func_149730_j() && shouldReplace) {
+				if(block.getDefaultState().getMaterial() == Material.AIR && block1.func_149730_j() && shouldReplace) {
 					if(has(ExAttrib.FIRE))
-						this.worldObj.setBlock(i, j, k, Blocks.fire);
+						{ net.minecraft.world.World nativePlacementWorld = this.worldObj; int nativePlacementX = i; int nativePlacementY = j; int nativePlacementZ = k; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					else if(has(ExAttrib.BALEFIRE))
 						this.worldObj.setBlock(i, j, k, ModBlocks.balefire);
 					else if(has(ExAttrib.LAVA))
-						this.worldObj.setBlock(i, j, k, Blocks.flowing_lava);
+						{ net.minecraft.world.World nativePlacementWorld = this.worldObj; int nativePlacementX = i; int nativePlacementY = j; int nativePlacementZ = k; net.minecraft.block.Block nativePlacementBlock = Blocks.FLOWING_LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
 		}
@@ -351,10 +351,10 @@ public class ExplosionNT extends Explosion {
 	public static final HashMap<Block, Block> errosion = new HashMap();
 	
 	static {
-		errosion.put(ModBlocks.concrete, Blocks.gravel);
-		errosion.put(ModBlocks.concrete_smooth, Blocks.gravel);
+		errosion.put(ModBlocks.concrete, Blocks.GRAVEL);
+		errosion.put(ModBlocks.concrete_smooth, Blocks.GRAVEL);
 		errosion.put(ModBlocks.brick_concrete, ModBlocks.brick_concrete_broken);
-		errosion.put(ModBlocks.brick_concrete_broken, Blocks.gravel);
+		errosion.put(ModBlocks.brick_concrete_broken, Blocks.GRAVEL);
 	}
 
 }

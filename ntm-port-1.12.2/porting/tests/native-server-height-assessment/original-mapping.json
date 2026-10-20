@@ -1,0 +1,44 @@
+[
+  {
+    "searge": "func_72916_c",
+    "name": "chunkExists",
+    "side": "2",
+    "desc": "Returns whether a chunk exists at chunk coordinates x, y"
+  },
+  {
+    "searge": "func_72964_e",
+    "name": "getChunkFromChunkCoords",
+    "side": "2",
+    "desc": "Returns back a chunk looked up by chunk coordinates Args: x, y"
+  },
+  {
+    "searge": "func_72976_f",
+    "name": "getHeightValue",
+    "side": "2",
+    "desc": "Returns the y coordinate with a block in it at this x, z coordinate"
+  },
+  {
+    "searge": "func_73149_a",
+    "name": "chunkExists",
+    "side": "2",
+    "desc": "Checks to see if a chunk exists at x, y"
+  },
+  {
+    "searge": "func_73154_d",
+    "name": "provideChunk",
+    "side": "2",
+    "desc": "Will return back a chunk, if it doesn't exist and its not a MP client it will generates all the blocks for the specified chunk from the map seed and chunk seed"
+  },
+  {
+    "searge": "func_73158_c",
+    "name": "loadChunk",
+    "side": "2",
+    "desc": "loads or generates the chunk at the chunk location specified"
+  },
+  {
+    "searge": "func_76611_b",
+    "name": "getHeightValue",
+    "side": "2",
+    "desc": "Returns the value in the height map at this x, z coordinate in the chunk"
+  }
+]

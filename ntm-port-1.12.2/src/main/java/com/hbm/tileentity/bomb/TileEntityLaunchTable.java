@@ -50,7 +50,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IFluidStandardReceiver, IGUIProvider, IBufPacketReceiver, IRadarCommandReceiver, CompatHandler.OCComponent {
+public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IFluidStandardReceiver, IGUIProvider, IBufPacketReceiver, IRadarCommandReceiver, CompatHandler.OCComponent, net.minecraft.util.ITickable {
 
 	private ItemStack slots[];
 
@@ -88,21 +88,22 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if (slots[i] != null) {
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
-			itemStack.stackSize = getInventoryStackLimit();
+		if (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -128,10 +129,10 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+		if (this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
 
@@ -177,13 +178,13 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 
 			updateTypes();
 
-			if(worldObj.getTotalWorldTime() % 20 == 0)
+			if(this.world.getTotalWorldTime() % 20 == 0)
 				this.updateConnections();
 
 			tanks[0].loadTank(2, 6, slots);
@@ -202,15 +203,15 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 			MissileStruct multipart = getStruct(slots[0]);
 
 			if(multipart != null)
-				PacketDispatcher.wrapper.sendToAllAround(new TEMissileMultipartPacket(xCoord, yCoord, zCoord, multipart), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 250));
+				PacketDispatcher.wrapper.sendToAllAround(new TEMissileMultipartPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), multipart), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 250));
 			else
-				PacketDispatcher.wrapper.sendToAllAround(new TEMissileMultipartPacket(xCoord, yCoord, zCoord, new MissileStruct()), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 250));
+				PacketDispatcher.wrapper.sendToAllAround(new TEMissileMultipartPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), new MissileStruct()), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 250));
 
 			outer:
 			for(int x = -4; x <= 4; x++) {
 				for(int z = -4; z <= 4; z++) {
 
-					if(worldObj.isBlockIndirectlyGettingPowered(xCoord + x, yCoord, zCoord + z) && canLaunch()) {
+					if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX() + x, this.pos.getY(), this.pos.getZ() + z) && canLaunch()) {
 						launchFromDesignator();
 						break outer;
 					}
@@ -218,19 +219,19 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 			}
 		} else {
 
-			List<EntityMissileCustom> entities = worldObj.getEntitiesWithinAABB(EntityMissileCustom.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord, zCoord - 0.5, xCoord + 1.5, yCoord + 10, zCoord + 1.5));
+			List<EntityMissileCustom> entities = this.world.getEntitiesWithinAABB(EntityMissileCustom.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
 
-					boolean dir = worldObj.rand.nextBoolean();
-					float moX = (float) (dir ? 0 : worldObj.rand.nextGaussian() * 0.65F);
-					float moZ = (float) (!dir ? 0 : worldObj.rand.nextGaussian() * 0.65F);
+					boolean dir = this.world.rand.nextBoolean();
+					float moX = (float) (dir ? 0 : this.world.rand.nextGaussian() * 0.65F);
+					float moZ = (float) (!dir ? 0 : this.world.rand.nextGaussian() * 0.65F);
 
 					NBTTagCompound data = new NBTTagCompound();
-					data.setDouble("posX", xCoord + 0.5);
-					data.setDouble("posY", yCoord + 0.25);
-					data.setDouble("posZ", zCoord + 0.5);
+					data.setDouble("posX", this.pos.getX() + 0.5);
+					data.setDouble("posY", this.pos.getY() + 0.25);
+					data.setDouble("posZ", this.pos.getZ() + 0.5);
 					data.setString("type", "launchSmoke");
 					data.setDouble("moX", moX);
 					data.setDouble("moY", 0);
@@ -260,16 +261,16 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	private void updateConnections() {
 
 		for(int i = -4; i <= 4; i++) {
-			this.trySubscribe(worldObj, xCoord + i, yCoord, zCoord + 5, Library.POS_Z);
-			this.trySubscribe(worldObj, xCoord + i, yCoord, zCoord - 5, Library.NEG_Z);
-			this.trySubscribe(worldObj, xCoord + 5, yCoord, zCoord + i, Library.POS_X);
-			this.trySubscribe(worldObj, xCoord - 5, yCoord, zCoord + i, Library.NEG_X);
+			this.trySubscribe(this.world, this.pos.getX() + i, this.pos.getY(), this.pos.getZ() + 5, Library.POS_Z);
+			this.trySubscribe(this.world, this.pos.getX() + i, this.pos.getY(), this.pos.getZ() - 5, Library.NEG_Z);
+			this.trySubscribe(this.world, this.pos.getX() + 5, this.pos.getY(), this.pos.getZ() + i, Library.POS_X);
+			this.trySubscribe(this.world, this.pos.getX() - 5, this.pos.getY(), this.pos.getZ() + i, Library.NEG_X);
 
 			for(int j = 0; j < 2; j++) {
-				this.trySubscribe(tanks[j].getTankType(), worldObj, xCoord + i, yCoord, zCoord + 5, Library.POS_Z);
-				this.trySubscribe(tanks[j].getTankType(), worldObj, xCoord + i, yCoord, zCoord - 5, Library.NEG_Z);
-				this.trySubscribe(tanks[j].getTankType(), worldObj, xCoord + 5, yCoord, zCoord + i, Library.POS_X);
-				this.trySubscribe(tanks[j].getTankType(), worldObj, xCoord - 5, yCoord, zCoord + i, Library.NEG_X);
+				this.trySubscribe(tanks[j].getTankType(), this.world, this.pos.getX() + i, this.pos.getY(), this.pos.getZ() + 5, Library.POS_Z);
+				this.trySubscribe(tanks[j].getTankType(), this.world, this.pos.getX() + i, this.pos.getY(), this.pos.getZ() - 5, Library.NEG_Z);
+				this.trySubscribe(tanks[j].getTankType(), this.world, this.pos.getX() + 5, this.pos.getY(), this.pos.getZ() + i, Library.POS_X);
+				this.trySubscribe(tanks[j].getTankType(), this.world, this.pos.getX() - 5, this.pos.getY(), this.pos.getZ() + i, Library.NEG_X);
 			}
 		}
 	}
@@ -284,7 +285,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 
 	@Override
 	public boolean sendCommandEntity(Entity target) {
-		return sendCommandPosition((int) Math.floor(target.posX), yCoord, (int) Math.floor(target.posX));
+		return sendCommandPosition((int) Math.floor(target.posX), this.pos.getY(), (int) Math.floor(target.posX));
 	}
 
 	@Override
@@ -299,8 +300,8 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem) {
 			IDesignatorItem designator = (IDesignatorItem) slots[1].getItem();
 
-			if(designator.isReady(worldObj, slots[1], xCoord, yCoord, zCoord)) {
-				Vec3d coords = designator.getCoords(worldObj, slots[1], xCoord, yCoord, zCoord);
+			if(designator.isReady(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
+				Vec3d coords = designator.getCoords(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				int tX = (int) Math.floor(coords.x);
 				int tZ = (int) Math.floor(coords.z);
 
@@ -311,7 +312,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 
 	public void launchTo(int tX, int tZ) {
 
-		worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.missileTakeOff", 10.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.missileTakeOff", 10.0F, 1.0F);
 
 		ItemCustomMissilePart chip = (ItemCustomMissilePart) Item.getItemById(ItemCustomMissile.readFromNBT(slots[0], "chip"));
 		float c = (Float)chip.attributes[0];
@@ -322,13 +323,13 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 			f = (Float) fins.attributes[0];
 		}
 
-		Vec3d target = new Vec3d(xCoord - tX, 0, zCoord - tZ);
+		Vec3d target = new Vec3d(this.pos.getX() - tX, 0, this.pos.getZ() - tZ);
 		target = new Vec3d(target.x * c * f, target.y, target.z * c * f);
 
-		target = target.rotateYaw(worldObj.rand.nextFloat() * 360);
+		target = target.rotateYaw(this.world.rand.nextFloat() * 360);
 
-		EntityMissileCustom missile = new EntityMissileCustom(worldObj, xCoord + 0.5F, yCoord + 2.5F, zCoord + 0.5F, tX + (int)target.x, tZ + (int)target.z, getStruct(slots[0]));
-		worldObj.spawnEntityInWorld(missile);
+		EntityMissileCustom missile = new EntityMissileCustom(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, tX + (int)target.x, tZ + (int)target.z, getStruct(slots[0]));
+		this.world.spawnEntityInWorld(missile);
 
 		subtractFuel();
 
@@ -394,7 +395,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 
 	public boolean hasDesignator() {
 
-		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem && ((IDesignatorItem)slots[1].getItem()).isReady(worldObj, slots[1], xCoord, yCoord, zCoord)) {
+		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem && ((IDesignatorItem)slots[1].getItem()).isReady(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
 			return true;
 		}
 
@@ -524,7 +525,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
@@ -548,20 +549,24 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return access;
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
@@ -662,9 +667,9 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 		if (slots[1] != null && slots[1].getItem() instanceof IDesignatorItem) {
 			int xCoord2;
 			int zCoord2;
-			if (slots[1].stackTagCompound != null) {
-				xCoord2 = slots[1].stackTagCompound.getInteger("xCoord");
-				zCoord2 = slots[1].stackTagCompound.getInteger("zCoord");
+			if (slots[1].getTagCompound() != null) {
+				xCoord2 = slots[1].getTagCompound().getInteger("xCoord");
+				zCoord2 = slots[1].getTagCompound().getInteger("zCoord");
 			} else
 				return new Object[] {false};
 
@@ -676,9 +681,9 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setCoords(Context context, Arguments args) {
 		if (slots[1] != null && slots[1].getItem() instanceof IDesignatorItem) {
-			slots[1].stackTagCompound = new NBTTagCompound();
-			slots[1].stackTagCompound.setInteger("xCoord", args.checkInteger(0));
-			slots[1].stackTagCompound.setInteger("zCoord", args.checkInteger(1));
+			slots[1].setTagCompound(new NBTTagCompound());
+			slots[1].getTagCompound().setInteger("xCoord", args.checkInteger(0));
+			slots[1].getTagCompound().setInteger("zCoord", args.checkInteger(1));
 
 			return new Object[] {true};
 		}

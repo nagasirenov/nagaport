@@ -54,9 +54,9 @@ public class ItemMatch extends Item {
             }
             else
             {
-                if (p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_).getMaterial() == Material.air)
+                if (com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_).getBlock().getDefaultState().getMaterial() == Material.AIR)
                 {
-                    p_77648_3_.playSoundEffect(p_77648_4_ + 0.5D, p_77648_5_ + 0.5D, p_77648_6_ + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+                    com.hbm.sound.VanillaWorldSoundEffects.play(p_77648_3_, p_77648_4_ + 0.5D, p_77648_5_ + 0.5D, p_77648_6_ + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
                     p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, Blocks.fire);
                 }
 

@@ -19,7 +19,6 @@ import com.hbm.util.ChatBuilder;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -30,10 +29,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
-import net.minecraftforge.common.IExtendedEntityProperties;
 
-public class HbmLivingProps implements IExtendedEntityProperties {
+public class HbmLivingProps {
 
 	public static final String key = "NTM_EXT_LIVING";
 	public static final UUID digamma_UUID = UUID.fromString("2a3d8aec-5ab9-4218-9b8b-ca812bdf378b");
@@ -66,16 +63,13 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 	}
 
 	/// DATA ///
+	/** Capabilities are attached by Forge during construction, never lazily or off-entity. */
 	public static HbmLivingProps registerData(EntityLivingBase entity) {
-
-		entity.registerExtendedProperties(key, new HbmLivingProps(entity));
-		return (HbmLivingProps) entity.getExtendedProperties(key);
+		return getData(entity);
 	}
 
 	public static HbmLivingProps getData(EntityLivingBase entity) {
-
-		HbmLivingProps props = (HbmLivingProps) entity.getExtendedProperties(key);
-		return props != null ? props : registerData(entity);
+		return HbmEntityProps.getLiving(entity);
 	}
 
 	/// RADIATION ///
@@ -166,7 +160,7 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 
 	public static void setDigamma(EntityLivingBase entity, float digamma) {
 
-		if(entity.worldObj.isRemote)
+		if(entity.world.isRemote)
 			return;
 
 		if(entity instanceof EntityDuck)
@@ -176,7 +170,7 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 
 		float healthMod = (float)Math.pow(0.5, digamma) - 1F;
 
-		IAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth);
+		IAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MAX_HEALTH);
 
 		try {
 			attributeinstance.removeModifier(attributeinstance.getModifier(digamma_UUID));
@@ -197,7 +191,7 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "sweat");
 			data.setInteger("count", 50);
-			data.setInteger("block", Block.getIdFromBlock(Blocks.soul_sand));
+			data.setInteger("block", Block.getIdFromBlock(Blocks.SOUL_SAND));
 			data.setInteger("entity", entity.getEntityId());
 			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 50));
 		}
@@ -207,11 +201,11 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 			float di = getData(entity).digamma;
 
 			if(di > 0F)
-				((EntityPlayer) entity).triggerAchievement(MainRegistry.digammaSee);
+				com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.digammaSee);
 			if(di >= 2F)
-				((EntityPlayer) entity).triggerAchievement(MainRegistry.digammaFeel);
+				com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.digammaFeel);
 			if(di >= 10F)
-				((EntityPlayer) entity).triggerAchievement(MainRegistry.digammaKnow);
+				com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.digammaKnow);
 		}
 	}
 
@@ -266,8 +260,8 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 		if(oxygen <= 0) {
 			if(entity.ticksExisted < 20) oxygen = 0; // limit overdamage effects when relogging
 
-			int damageInterval = MathHelper.clamp_int(oxygen / 60 + 8, 1, 8);
-			int damageAmount = MathHelper.clamp_int(-oxygen / 40 - 10, 1, Integer.MAX_VALUE);
+			int damageInterval = MathHelper.clamp(oxygen / 60 + 8, 1, 8);
+			int damageAmount = MathHelper.clamp(-oxygen / 40 - 10, 1, Integer.MAX_VALUE);
 
 			// Only damage every 4 ticks, giving the player more time to react
 			if(entity.ticksExisted % damageInterval == 0) {
@@ -342,9 +336,6 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 		return getData(entity).gravity;
 	}
 
-	@Override
-	public void init(Entity entity, World world) { }
-
 	public void serialize(ByteBuf buf) {
 		buf.writeFloat(radiation);
 		buf.writeFloat(digamma);
@@ -387,8 +378,6 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 		}
 	}
 
-	@Deprecated
-	@Override
 	public void saveNBTData(NBTTagCompound nbt) {
 
 		NBTTagCompound props = new NBTTagCompound();
@@ -417,8 +406,6 @@ public class HbmLivingProps implements IExtendedEntityProperties {
 		nbt.setTag("HbmLivingProps", props);
 	}
 
-	@Deprecated
-	@Override
 	public void loadNBTData(NBTTagCompound nbt) {
 
 		NBTTagCompound props = (NBTTagCompound) nbt.getTag("HbmLivingProps");

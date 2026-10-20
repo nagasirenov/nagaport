@@ -38,7 +38,7 @@ public class GUIPump extends GuiScreen {
 	public void initGui() {
 		Keyboard.enableRepeatEvents(true);
 
-		textPlacementPriority = new GuiTextField(fontRendererObj, this.width / 2 - 150, 100, 90, 20);
+		textPlacementPriority = new GuiTextField(0, fontRenderer, this.width / 2 - 150, 100, 90, 20);
 		textPlacementPriority.setText("" + pump.bufferSize);
 		textPlacementPriority.setMaxStringLength(5);
 
@@ -51,14 +51,14 @@ public class GUIPump extends GuiScreen {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		drawDefaultBackground();
 
-		drawString(fontRendererObj, "Throughput:", this.width / 2 - 150, 80, 0xA0A0A0);
-		drawString(fontRendererObj, "(max. 10,000mB)", this.width / 2 - 150, 90, 0xA0A0A0);
+		drawString(fontRenderer, "Throughput:", this.width / 2 - 150, 80, 0xA0A0A0);
+		drawString(fontRenderer, "(max. 10,000mB)", this.width / 2 - 150, 90, 0xA0A0A0);
 		textPlacementPriority.drawTextBox();
 
-		drawString(fontRendererObj, "Pressure:", this.width / 2 - 50, 80, 0xA0A0A0);
+		drawString(fontRenderer, "Pressure:", this.width / 2 - 50, 80, 0xA0A0A0);
 		buttonPressure.drawButton(mc, mouseX, mouseY);
 
-		drawString(fontRendererObj, "Priority:", this.width / 2 + 50, 80, 0xA0A0A0);
+		drawString(fontRenderer, "Priority:", this.width / 2 + 50, 80, 0xA0A0A0);
 		buttonPriority.drawButton(mc, mouseX, mouseY);
 
 		super.drawScreen(mouseX, mouseY, partialTicks);
@@ -75,7 +75,7 @@ public class GUIPump extends GuiScreen {
 
 		try { data.setInteger("capacity", Integer.parseInt(textPlacementPriority.getText())); } catch(Exception ex) {}
 
-		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, pump.xCoord, pump.yCoord, pump.zCoord));
+		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, pump.getPos().getX(), pump.getPos().getY(), pump.getPos().getZ()));
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class GUIPump extends GuiScreen {
 		if(textPlacementPriority.textboxKeyTyped(typedChar, keyCode)) return;
 
 		if(keyCode == 1 || keyCode == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 
@@ -97,14 +97,14 @@ public class GUIPump extends GuiScreen {
 			this.pressure++;
 			if(pressure > 5) pressure = 0;
 			buttonPressure.displayString = pressure + " PU";
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 
 		if(buttonPriority.mousePressed(mc, mouseX, mouseY)) {
 			this.priority++;
 			if(priority >= ConnectionPriority.values().length) priority = 0;
 			buttonPriority.displayString = EnumUtil.grabEnumSafely(ConnectionPriority.class, priority).name();
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 	}
 

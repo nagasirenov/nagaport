@@ -35,7 +35,7 @@ public class GUIBookLore extends GuiScreen {
 	protected int maxPage;
 	
 	public GUIBookLore(EntityPlayer player) {
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		if(!stack.hasTagCompound()) return;
 		this.tag = stack.getTagCompound();
 		this.key = tag.getString("k");
@@ -49,7 +49,7 @@ public class GUIBookLore extends GuiScreen {
 	
 	@Override
 	public void initGui() {
-		if(key == null || key.isEmpty()) this.mc.thePlayer.closeScreen();
+		if(key == null || key.isEmpty()) this.mc.player.closeScreen();
 		this.guiLeft = (this.width - this.sizeX) / 2;
 		this.guiTop = (this.height - this.sizeY) / 2;
 	}
@@ -124,27 +124,27 @@ public class GUIBookLore extends GuiScreen {
 				String[] words = text.split(" ");
 				
 				lines.add(words[0]);
-				int indent = this.fontRendererObj.getStringWidth(words[0]);
+				int indent = this.fontRenderer.getStringWidth(words[0]);
 				
 				for(int w = 1; w < words.length; w++) {
 					if(words[w].equals("$")) {
 						if(w + 1 < words.length && !words[w + 1].equals("$")) {
 							lines.add(words[++w]);
-							indent = this.fontRendererObj.getStringWidth(words[w]);
+							indent = this.fontRenderer.getStringWidth(words[w]);
 						} else
 							lines.add("");
 						
 						continue;
 					}
 					
-					indent += this.fontRendererObj.getStringWidth(" " + words[w]);
+					indent += this.fontRenderer.getStringWidth(" " + words[w]);
 					
 					if(indent <= widthScaled) {
 						String last = lines.get(lines.size() - 1);
 						lines.set(lines.size() - 1, last += (" " + words[w]));
 					} else {
 						lines.add(words[w]);
-						indent = this.fontRendererObj.getStringWidth(words[w]);
+						indent = this.fontRenderer.getStringWidth(words[w]);
 					}
 				}
 				
@@ -152,7 +152,7 @@ public class GUIBookLore extends GuiScreen {
 				GL11.glScalef(1F/scale, 1F/scale, 1F);
 				
 				for(int l = 0; l < lines.size(); l++) {
-					this.fontRendererObj.drawString(lines.get(l),
+					this.fontRenderer.drawString(lines.get(l),
 							(int)((guiLeft + 20 + i * 130) * scale),
 							(int)((guiTop + 20) * scale + (9 * l)),
 							0x0F0F0F);
@@ -170,19 +170,19 @@ public class GUIBookLore extends GuiScreen {
 		
 		if(page > 0 && i >= guiLeft + 24 && i <= guiLeft + 42) {
 			page--;
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 		
 		if(page < maxPage && i >= guiLeft + 230 && i <= guiLeft + 248) {
 			page++;
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 	}
 	
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 }

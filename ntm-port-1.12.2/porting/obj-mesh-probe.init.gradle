@@ -1,0 +1,15 @@
+// Full native mesh core + ModelWormHead compile, real BufferBuilder tests; no production source exclusions.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortObjMesh', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-obj-mesh.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

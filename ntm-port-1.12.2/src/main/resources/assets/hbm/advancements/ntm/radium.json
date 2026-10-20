@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/centrifuge",
+  "display": {
+    "icon": {
+      "item": "hbm:item.coffee_radium",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.radium"
+    },
+    "description": {
+      "translate": "achievement.radium.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

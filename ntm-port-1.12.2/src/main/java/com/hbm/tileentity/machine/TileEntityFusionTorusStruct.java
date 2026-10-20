@@ -11,13 +11,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityFusionTorusStruct extends TileEntity {
+public class TileEntityFusionTorusStruct extends TileEntity implements net.minecraft.util.ITickable {
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(worldObj.isRemote) return;
-		if(worldObj.getTotalWorldTime() % 20 != 0) return;
+		if(this.world.isRemote) return;
+		if(this.world.getTotalWorldTime() % 20 != 0) return;
 		
 		for(int y = 0; y < 5; y++) {
 			for(int x = 0; x < MachineFusionTorus.layout[0].length; x++) {
@@ -35,19 +35,19 @@ public class TileEntityFusionTorusStruct extends TileEntity {
 		
 		MachineFusionTorus block = (MachineFusionTorus) ModBlocks.fusion_torus;
 		BlockDummyable.safeRem = true;
-		worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.fusion_torus, 12, 3);
-		block.fillSpace(worldObj, xCoord, yCoord, zCoord, ForgeDirection.NORTH, 0);
+		this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.fusion_torus, 12, 3);
+		block.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.NORTH, 0);
 		BlockDummyable.safeRem = false;
 	}
 	
 	/** [G]et [B]lock at [R]elative position */
 	private Block gbr(int x, int y, int z) {
-		return worldObj.getBlock(xCoord + x, yCoord + y, zCoord + z);
+		return com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z).getBlock();
 	}
 	
 	/** [G]et [M]eta at [R]elative position */
 	private int gmr(int x, int y, int z) {
-		return worldObj.getBlockMetadata(xCoord + x, yCoord + y, zCoord + z);
+		return com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z) );
 	}
 	
 	/** [C]heck [B]lock at [R]elative position */
@@ -62,12 +62,12 @@ public class TileEntityFusionTorusStruct extends TileEntity {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 7,
-					yCoord,
-					zCoord - 7,
-					xCoord + 8,
-					yCoord + 5,
-					zCoord + 8
+					this.pos.getX() - 7,
+					this.pos.getY(),
+					this.pos.getZ() - 7,
+					this.pos.getX() + 8,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 8
 					);
 		}
 		

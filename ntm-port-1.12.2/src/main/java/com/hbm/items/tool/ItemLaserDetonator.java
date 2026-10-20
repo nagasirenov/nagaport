@@ -40,8 +40,8 @@ public class ItemLaserDetonator extends Item implements IHoldableWeapon {
 		int z = pos.getBlockPos().getZ();
 
 		if(!world.isRemote) {
-			if(world.getBlock(x, y, z) instanceof IBomb) {
-				BombReturnCode ret = ((IBomb) world.getBlock(x, y, z)).explode(world, x, y, z);
+			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {
+				BombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);
 
 				if(GeneralConfig.enableExtendedLogging)
 					MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / " + y + " / " + z + " by " + player.getDisplayName() + "!");

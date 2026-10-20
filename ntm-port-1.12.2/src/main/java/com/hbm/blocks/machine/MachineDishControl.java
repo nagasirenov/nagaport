@@ -45,15 +45,15 @@ public class MachineDishControl extends BlockDummyable implements ITooltipProvid
 			// Find the controller TileEntity
 			int[] pos = findCore(world, x, y, z);
 
-			TileEntity e = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity e = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(e instanceof TileEntityDishControl) {
 				TileEntityDishControl entityDishControl = (TileEntityDishControl) e;
 
 				// Check if a dish was not assigned
 				if(!entityDishControl.isLinked) {
 					// No StarDar linked
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Dish not linked!").color(TextFormatting.RED).flush());
 
@@ -61,12 +61,12 @@ public class MachineDishControl extends BlockDummyable implements ITooltipProvid
 				}
 
 				// also check that you're still pointing at a stardar...
-				Block block = world.getBlock(entityDishControl.linkPosition[0], entityDishControl.linkPosition[1], entityDishControl.linkPosition[2]);
+				Block block = com.hbm.world.WorldBlockState.read(world, entityDishControl.linkPosition[0], entityDishControl.linkPosition[1], entityDishControl.linkPosition[2]).getBlock();
 
 				if(!(block instanceof MachineStardar)) {
 					// Invalid link
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Missing control target!").color(TextFormatting.RED).flush());
 
@@ -74,10 +74,9 @@ public class MachineDishControl extends BlockDummyable implements ITooltipProvid
 				}
 
 				// Get StarDar
-				MachineStardar stardarBlock = (MachineStardar) world.getBlock(
-					entityDishControl.linkPosition[0],
+				MachineStardar stardarBlock = (MachineStardar) com.hbm.world.WorldBlockState.read(world, entityDishControl.linkPosition[0],
 					entityDishControl.linkPosition[1],
-					entityDishControl.linkPosition[2]);
+					entityDishControl.linkPosition[2]).getBlock();
 
 				// Trigger the StarDar UI to open
 				return stardarBlock.onBlockActivated(

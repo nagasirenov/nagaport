@@ -1,6 +1,5 @@
 package com.hbm.render.block.ct;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class CT {
 	
@@ -74,7 +73,7 @@ public class CT {
 		return i >= v && i < v + 4;
 	}
 	
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
+
 	
 	/*  _____________________
 	 * / I am in great pain. \

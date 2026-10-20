@@ -34,7 +34,7 @@ public class ItemModIron extends ItemArmorMod {
 	public Multimap getModifiers(ItemStack armor) {
 		Multimap multimap = super.getAttributeModifiers(armor);
 		
-		multimap.put(SharedMonsterAttributes.knockbackResistance.getAttributeUnlocalizedName(),
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(),
 				new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Knockback", 0.5, 0));
 		
 		return multimap;

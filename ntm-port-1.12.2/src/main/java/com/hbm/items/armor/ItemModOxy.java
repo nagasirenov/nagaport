@@ -54,7 +54,7 @@ public class ItemModOxy extends ItemArmorMod implements IFillableItem {
 
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		if(entity.worldObj.isRemote) {
+		if(entity.world.isRemote) {
 			// only play breathing audio for self
 			EntityPlayer player = MainRegistry.proxy.me();
 			if(entity != player) return;
@@ -128,41 +128,41 @@ public class ItemModOxy extends ItemArmorMod implements IFillableItem {
 	}
 
 	public static boolean getInUse(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return false;
 		}
 
-		return stack.stackTagCompound.getInteger("ticks") > 20;
+		return stack.getTagCompound().getInteger("ticks") > 20;
 	}
 
 	public static void setInUse(ItemStack stack, boolean inUse) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		if(inUse) {
-			stack.stackTagCompound.setInteger("ticks", stack.stackTagCompound.getInteger("ticks") + 1);
+			stack.getTagCompound().setInteger("ticks", stack.getTagCompound().getInteger("ticks") + 1);
 		} else {
-			stack.stackTagCompound.setInteger("ticks", 0);
+			stack.getTagCompound().setInteger("ticks", 0);
 		}
 	}
 
 	public static int getFuel(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 
-		return stack.stackTagCompound.getInteger("fuel");
+		return stack.getTagCompound().getInteger("fuel");
 	}
 
 	public static void setFuel(ItemStack stack, int i) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("fuel", i);
+		stack.getTagCompound().setInteger("fuel", i);
 	}
 
 	public int getMaxFuel() {

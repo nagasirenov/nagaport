@@ -26,8 +26,11 @@ import java.util.List;
 
 public class RadioTorchCounter extends RadioTorchBase {
 
+    public RadioTorchCounter() { super("rtty_counter"); }
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityPlayer player, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing side, float hitX, float hitY, float hitZ) {
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(!world.isRemote && !player.isSneaking()) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			return true;
@@ -43,25 +46,25 @@ public class RadioTorchCounter extends RadioTorchBase {
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z, ForgeDirection dir, Block b) {
-		if(com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z))) return true;
+		if(com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (world.getBlockState(new net.minecraft.util.math.BlockPos(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)).isFullCube() && !b.isAir(world.getBlockState(new net.minecraft.util.math.BlockPos(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)), world, new net.minecraft.util.math.BlockPos(x, y, z)))) return true;
 		TileEntity te = Compat.getTileStandard(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);
 		return te instanceof IInventory;
 	}
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerCounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(x, y, z));
+		return new ContainerCounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUICounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(x, y, z));
+		return new GUICounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityRadioTorchCounter) {
 			TileEntityRadioTorchCounter radio = (TileEntityRadioTorchCounter) te;
@@ -74,7 +77,7 @@ public class RadioTorchCounter extends RadioTorchBase {
 				}
 			}
 
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 }

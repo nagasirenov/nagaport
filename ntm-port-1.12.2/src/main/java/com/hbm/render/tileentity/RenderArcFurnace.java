@@ -5,16 +5,14 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityMachineArcFurnaceLarge;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderArcFurnace extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderArcFurnace extends TileEntitySpecialRenderer {
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
@@ -47,7 +45,7 @@ public class RenderArcFurnace extends TileEntitySpecialRenderer implements IItem
 		}
 		
 		GL11.glTranslated(0, 2 * lift, 0);
-		if(arc.isProgressing) GL11.glTranslated(0, 0, Math.sin((arc.getWorldObj().getTotalWorldTime() + interp)) * 0.005);
+		if(arc.isProgressing) GL11.glTranslated(0, 0, Math.sin((arc.getWorld().getTotalWorldTime() + interp)) * 0.005);
 		ResourceManager.arc_furnace.renderPart("Lid");
 		if(arc.electrodes[0] != arc.ELECTRODE_NONE) ResourceManager.arc_furnace.renderPart("Ring1");
 		if(arc.electrodes[1] != arc.ELECTRODE_NONE) ResourceManager.arc_furnace.renderPart("Ring2");
@@ -67,7 +65,7 @@ public class RenderArcFurnace extends TileEntitySpecialRenderer implements IItem
 		if(arc.electrodes[0] != arc.ELECTRODE_NONE) {
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 5.5, 0.5);
-			if(arc.isProgressing) GL11.glRotated(Math.sin((arc.getWorldObj().getTotalWorldTime() + interp) / 2) * 30, 1, 0, 0);
+			if(arc.isProgressing) GL11.glRotated(Math.sin((arc.getWorld().getTotalWorldTime() + interp) / 2) * 30, 1, 0, 0);
 			GL11.glTranslated(0, -5.5, -0.5);
 			ResourceManager.arc_furnace.renderPart("Cable1");
 			GL11.glPopMatrix();
@@ -75,7 +73,7 @@ public class RenderArcFurnace extends TileEntitySpecialRenderer implements IItem
 		if(arc.electrodes[1] != arc.ELECTRODE_NONE) {
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 5.5, 0);
-			if(arc.isProgressing) GL11.glRotated(Math.sin((arc.getWorldObj().getTotalWorldTime() + interp) / 2) * 30, 1, 0, 0);
+			if(arc.isProgressing) GL11.glRotated(Math.sin((arc.getWorld().getTotalWorldTime() + interp) / 2) * 30, 1, 0, 0);
 			GL11.glTranslated(0, -5.5, 0);
 			ResourceManager.arc_furnace.renderPart("Cable2");
 			GL11.glPopMatrix();
@@ -83,7 +81,7 @@ public class RenderArcFurnace extends TileEntitySpecialRenderer implements IItem
 		if(arc.electrodes[2] != arc.ELECTRODE_NONE) {
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 5.5, -0.5);
-			if(arc.isProgressing) GL11.glRotated(Math.sin((arc.getWorldObj().getTotalWorldTime() + interp) / 2) * 30, 1, 0, 0);
+			if(arc.isProgressing) GL11.glRotated(Math.sin((arc.getWorld().getTotalWorldTime() + interp) / 2) * 30, 1, 0, 0);
 			GL11.glTranslated(0, -5.5, 0.5);
 			ResourceManager.arc_furnace.renderPart("Cable3");
 			GL11.glPopMatrix();
@@ -115,34 +113,5 @@ public class RenderArcFurnace extends TileEntitySpecialRenderer implements IItem
 		}
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_arc_furnace);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -3, 0);
-				GL11.glScaled(3.5, 3.5, 3.5);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.5, 0.5, 0.5);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.arc_furnace_tex);
-				ResourceManager.arc_furnace.renderPart("Furnace");
-				ResourceManager.arc_furnace.renderPart("Lid");
-				ResourceManager.arc_furnace.renderPart("Ring1");
-				ResourceManager.arc_furnace.renderPart("Ring2");
-				ResourceManager.arc_furnace.renderPart("Ring3");
-				ResourceManager.arc_furnace.renderPart("Electrode1");
-				ResourceManager.arc_furnace.renderPart("Electrode2");
-				ResourceManager.arc_furnace.renderPart("Electrode3");
-				ResourceManager.arc_furnace.renderPart("Cable1");
-				ResourceManager.arc_furnace.renderPart("Cable2");
-				ResourceManager.arc_furnace.renderPart("Cable3");
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 }

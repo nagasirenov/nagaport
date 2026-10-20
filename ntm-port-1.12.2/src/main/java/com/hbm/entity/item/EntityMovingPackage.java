@@ -39,11 +39,11 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 
-		if(!worldObj.isRemote && !this.isDead) {
+		if(!this.world.isRemote && !this.isDead) {
 			
 			for(ItemStack stack : contents) {
 				if(!player.inventory.addItemStackToInventory(stack.copy())) {
-					worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX, posY + 0.125, posZ, stack));
+					this.world.spawnEntity(new EntityItem(this.world, posX, posY + 0.125, posZ, stack));
 				}
 			}
 			
@@ -56,11 +56,11 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 	@Override
 	public boolean hitByEntity(Entity attacker) {
 
-		if(!worldObj.isRemote && !this.isDead) {
+		if(!this.world.isRemote && !this.isDead) {
 			this.setDead();
 			
 			for(ItemStack stack : contents) {
-				worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX, posY + 0.125, posZ, stack));
+				this.world.spawnEntity(new EntityItem(this.world, posX, posY + 0.125, posZ, stack));
 			}
 		}
 		return false;
@@ -76,8 +76,8 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 	public void enterBlock(IEnterableBlock enterable, BlockPos pos, ForgeDirection dir) {
 		if(this.isDead) return;
 		
-		if(enterable.canPackageEnter(worldObj, pos.getX(), pos.getY(), pos.getZ(), dir, this)) {
-			enterable.onPackageEnter(worldObj, pos.getX(), pos.getY(), pos.getZ(), dir, this);
+		if(enterable.canPackageEnter(this.world, pos.getX(), pos.getY(), pos.getZ(), dir, this)) {
+			enterable.onPackageEnter(this.world, pos.getX(), pos.getY(), pos.getZ(), dir, this);
 			this.setDead();
 		}
 	}
@@ -88,12 +88,12 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 		this.setDead();
 		
 		for(ItemStack stack : contents) {
-			EntityItem item = new EntityItem(worldObj, posX + motionX * 2, posY + motionY * 2, posZ + motionZ * 2, stack);
+			EntityItem item = new EntityItem(this.world, posX + motionX * 2, posY + motionY * 2, posZ + motionZ * 2, stack);
 			item.motionX = this.motionX * 2;
 			item.motionY = 0.1;
 			item.motionZ = this.motionZ * 2;
 			item.velocityChanged = true;
-			worldObj.spawnEntityInWorld(item);
+			this.world.spawnEntity(item);
 		}
 		
 		return true;

@@ -8,16 +8,14 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.inventory.fluid.Fluids;
 import com.hbm.inventory.fluid.tank.FluidTank;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityMachineMixer;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderMixer extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderMixer extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
@@ -75,27 +73,5 @@ public class RenderMixer extends TileEntitySpecialRenderer implements IItemRende
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_mixer);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -5, 0);
-				GL11.glScaled(5, 5, 5);
-			}
-			public void renderCommon() {
-				GL11.glRotated(180, 0, 1, 0);
-				GL11.glDisable(GL11.GL_CULL_FACE);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.mixer_tex);
-				ResourceManager.mixer.renderPart("Main");
-				ResourceManager.mixer.renderPart("Mixer");
-				GL11.glShadeModel(GL11.GL_FLAT);
-				GL11.glEnable(GL11.GL_CULL_FACE);
-			}};
-	}
 }

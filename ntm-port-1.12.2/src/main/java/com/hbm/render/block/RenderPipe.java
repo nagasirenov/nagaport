@@ -1,128 +1,28 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.render.block.nativeblock.AtlasObjGeometry;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-import com.hbm.blocks.generic.BlockPipe;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderPipe implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-		
-		if(!(block instanceof BlockPipe))
-			return;
-
-		BlockPipe pipe = (BlockPipe) block;
-		
-		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iiconTop = block.getIcon(0, 0);
-		IIcon iiconSide = block.getIcon(4, 0);
-		tessellator.setColorOpaque_F(1, 1, 1);
-		
-		tessellator.startDrawingQuads();
-		
-		if(pipe.rType == 0) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, "Top", iiconTop, tessellator, 0, false);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, "Side", iiconSide, tessellator, 0, false);
-		}
-
-		if(pipe.rType == 1) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Top", iiconTop, tessellator, 0, false);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Side", iiconSide, tessellator, 0, false);
-		}
-
-		if(pipe.rType == 2) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, "Top", iiconTop, tessellator, 0, false);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, "Side", iiconSide, tessellator, 0, false);
-		}
-		
-		if(pipe.rType == 3) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Top", iiconTop, tessellator, 0, false);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Side", iiconSide, tessellator, 0, false);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, "Frame", pipe.frameIcon, tessellator, 0, false);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, "Mesh", pipe.meshIcon, tessellator, 0, false);
-		}
-		
-		tessellator.draw();
-
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		
-		if(!(block instanceof BlockPipe))
-			return true;
-
-		BlockPipe pipe = (BlockPipe) block;
-
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iiconTop = block.getIcon(0, world.getBlockMetadata(x, y, z));
-		IIcon iiconSide = block.getIcon(4, world.getBlockMetadata(x, y, z));
-		int meta = world.getBlockMetadata(x, y, z);
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		tessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);
-		
-		float rot = 0;
-		float pitch = 0;
-		
-		if(meta == 8) {
-			rot = (float)(Math.PI * 0.5);
-			pitch = (float)(Math.PI * 0.5);
-		}
-		
-		if(meta == 4) {
-			pitch = (float)(Math.PI * 0.5);
-		}
-
-		if(pipe.rType == 0) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, "Top", iiconTop, tessellator, rot, pitch, true);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, "Side", iiconSide, tessellator, rot, pitch, true);
-		}
-
-		if(pipe.rType == 1) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Top", iiconTop, tessellator, rot, pitch, true);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Side", iiconSide, tessellator, rot, pitch, true);
-		}
-
-		if(pipe.rType == 2) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, "Top", iiconTop, tessellator, rot, pitch, true);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, "Side", iiconSide, tessellator, rot, pitch, true);
-		}
-
-		if(pipe.rType == 3) {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Top", iiconTop, tessellator, rot, pitch, true);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, "Side", iiconSide, tessellator, rot, pitch, true);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, "Frame", pipe.frameIcon, tessellator, rot, pitch, true);
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, "Mesh", pipe.meshIcon, tessellator, rot, pitch, true);
-		}
-		
-		tessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockPipe.renderID;
-	}
+/** Native geometry successor for all four original decorative pipe shapes. */
+public final class RenderPipe {
+    private RenderPipe() { }
+    public static List<BakedQuad> bake(ObjMesh body, ObjMesh frame, int renderType, int metadata, boolean inventory,
+            TextureAtlasSprite top, TextureAtlasSprite side, TextureAtlasSprite frameSprite, TextureAtlasSprite meshSprite) {
+        if(renderType < 0 || renderType > 3) throw new IllegalArgumentException("Invalid decorative pipe shape " + renderType);
+        float yaw = !inventory && metadata == 8 ? (float)(Math.PI * .5) : 0;
+        float pitch = !inventory && (metadata == 8 || metadata == 4) ? (float)(Math.PI * .5) : 0;
+        List<BakedQuad> quads = new ArrayList<>();
+        AtlasObjGeometry.appendPart(quads, body, "Top", top, inventory, yaw, pitch, 1, .5, .5, .5);
+        AtlasObjGeometry.appendPart(quads, body, "Side", side, inventory, yaw, pitch, 1, .5, .5, .5);
+        if(renderType == 3) {
+            AtlasObjGeometry.appendPart(quads, frame, "Frame", frameSprite, inventory, yaw, pitch, 1, .5, .5, .5);
+            AtlasObjGeometry.appendPart(quads, frame, "Mesh", meshSprite, inventory, yaw, pitch, 1, .5, .5, .5);
+        }
+        return Collections.unmodifiableList(quads);
+    }
 }

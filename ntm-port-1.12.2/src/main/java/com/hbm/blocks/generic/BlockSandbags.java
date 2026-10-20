@@ -1,84 +1,39 @@
 package com.hbm.blocks.generic;
 
-import org.lwjgl.opengl.GL11;
-
+import java.util.*;
 import com.hbm.render.block.ISBRHUniversal;
-import com.hbm.render.util.RenderBlocksNT;
-
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
 public class BlockSandbags extends Block implements ISBRHUniversal {
-
-	public BlockSandbags(Material mat) {
-		super(mat);
-	}
-
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		
-		float min = 0.25F;
-		float max = 0.75F;
-
-		Block nx = world.getBlock(x - 1, y, z);
-		Block px = world.getBlock(x + 1, y, z);
-		Block nz = world.getBlock(x, y, z - 1);
-		Block pz = world.getBlock(x, y, z + 1);
-
-		float minX = (nx.isOpaqueCube() || nx.isNormalCube() || nx == this) ? 0F : min;
-		float minZ = (nz.isOpaqueCube() || nz.isNormalCube() || nz == this) ? 0F : min;
-		float maxX = (px.isOpaqueCube() || px.isNormalCube() || px == this) ? 1F : max;
-		float maxZ = (pz.isOpaqueCube() || pz.isNormalCube() || pz == this) ? 1F : max;
-		
-		this.setBlockBounds(minX, 0, minZ, maxX, 1, maxZ);
-	}
-
-	@Override
-	public void renderInventoryBlock(Block block, int meta, int modelId, Object renderBlocks) {
-
-		GL11.glPushMatrix();
-		RenderBlocks renderer = (RenderBlocks) renderBlocks;
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-		renderer.setRenderBounds(0.125D, 0D, 0.125D, 0.875D, 1D, 0.875D);
-		RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, Object renderBlocks) {
-
-		RenderBlocksNT renderer = RenderBlocksNT.INSTANCE.setWorld(world);
-		renderer.setRenderBoundsFromBlock(block);
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-		renderer.renderStandardBlock(block, x, y, z);
-		
-		return true;
-	}
+    public BlockSandbags(Material material) { super(material); }
+    @Override protected BlockStateContainer createBlockState() { return UniversalBlockState.create(this); }
+    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(UniversalBlockState.META, meta & 15); }
+    @Override public int getMetaFromState(IBlockState state) { return UniversalBlockState.metadata(state); }
+    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+    @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+    @Override public boolean isFullCube(IBlockState state) { return false; }
+    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }
+    @Override public boolean renderAllFaces() { return false; }
+    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+        int mask = UniversalBlockState.solidNeighbors(world, pos);
+        for(EnumFacing side : EnumFacing.HORIZONTALS) if(world.getBlockState(pos.offset(side)).getBlock() == this) mask |= 1 << side.getIndex();
+        return UniversalBlockState.withConnections(state, mask);
+    }
+    private AxisAlignedBB bounds(int mask) {
+        return new AxisAlignedBB(UniversalBlockState.connected(mask,EnumFacing.WEST)?0:.25, 0,
+            UniversalBlockState.connected(mask,EnumFacing.NORTH)?0:.25,
+            UniversalBlockState.connected(mask,EnumFacing.EAST)?1:.75, 1,
+            UniversalBlockState.connected(mask,EnumFacing.SOUTH)?1:.75);
+    }
+    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return bounds(UniversalBlockState.connections(getExtendedState(state,world,pos)));
+    }
+    @Override public List<AxisAlignedBB> getRenderBoxes(IBlockState state, boolean inventory) {
+        return Collections.singletonList(inventory ? new AxisAlignedBB(.125,0,.125,.875,1,.875) : bounds(UniversalBlockState.connections(state)));
+    }
 }

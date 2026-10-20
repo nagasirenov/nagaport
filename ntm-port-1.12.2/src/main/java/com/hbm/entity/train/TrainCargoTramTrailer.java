@@ -62,7 +62,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if(!this.worldObj.isRemote && !this.isDead) {
+		if(!this.world.isRemote && !this.isDead) {
 			this.setDead();
 		}
 		
@@ -73,8 +73,8 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 	public boolean interactFirst(EntityPlayer player) {
 		if(super.interactFirst(player)) return false;
 		
-		if(!this.worldObj.isRemote) {
-			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, worldObj, this.getEntityId(), 0, 0);
+		if(!this.world.isRemote) {
+			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, this.world, this.getEntityId(), 0, 0);
 		}
 		
 		return true;
@@ -119,21 +119,21 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 		
 		@Override
 		public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
-			ItemStack stackCopy = null;
+			ItemStack stackCopy = ItemStack.EMPTY;
 			Slot slot = (Slot) this.inventorySlots.get(slotIndex);
 			if(slot != null && slot.getHasStack()) {
 				ItemStack stack = slot.getStack();
 				stackCopy = stack.copy();
 				if(slotIndex < train.getSizeInventory()) {
 					if(!this.mergeItemStack(stack, train.getSizeInventory(), this.inventorySlots.size(), true)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else 
 					if(!this.mergeItemStack(stack, 0, 45, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
-				if(stack.stackSize == 0) {
-					slot.putStack((ItemStack) null);
+				if(stack.isEmpty()) {
+					slot.putStack(ItemStack.EMPTY);
 				} else {
 					slot.onSlotChanged();
 				}
@@ -143,7 +143,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 
 		@Override
 		public boolean canInteractWith(EntityPlayer player) {
-			return train.isUseableByPlayer(player);
+			return train.isUsableByPlayer(player);
 		}
 	}
 	
@@ -168,8 +168,8 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 		@Override
 		protected void drawGuiContainerForegroundLayer(int i, int j) {
 			String name = this.train.hasCustomInventoryName() ? this.train.getInventoryName() : I18n.format(this.train.getInventoryName());
-			this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-			this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+			this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+			this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		}
 
 		@Override

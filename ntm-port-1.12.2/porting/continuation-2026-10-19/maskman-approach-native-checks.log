@@ -1,0 +1,11 @@
+PASS: exact whole-class reverse-source SHA-256 parity, including ordering and disabled attack comment.
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/MaskmanApproachMinecraftTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);
+                            ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/MaskmanApproachMinecraftTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return (FixtureWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(FixtureWorld.class);
+                                           ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIMaskmanCasualApproach.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+PASS: 128 assertions; complete production Maskman approach AI against native World/EntityCreature/Path/PathNavigateGround and look/home APIs. Timers, RNG order/state, visibility, home floors, path penalties, bounding boxes, approach math and disabled attacks. Controlled navigation/visibility outcomes, not live path search or gameplay.

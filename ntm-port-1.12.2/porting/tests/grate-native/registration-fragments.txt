@@ -1,0 +1,13 @@
+ModBlocks.initializeBlock: replace exactly the two original grate initializer lines with:
+		steel_grate = new BlockGrate(Material.IRON, false).setTranslationKey("steel_grate").setSoundType(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
+		steel_grate_wide = new BlockGrate(Material.IRON, true).setTranslationKey("steel_grate_wide").setSoundType(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
+
+ModBlocks registration: replace exactly:
+		GameRegistry.registerBlock(steel_grate, steel_grate.getUnlocalizedName());
+with:
+		register(steel_grate, ItemBlock.class);
+Keep existing register(steel_grate_wide) unchanged. This preserves plain ItemBlock versus ItemBlockBase and uses existing deferred registration; do not create an ItemBlock during block construction.
+
+ClientProxy: delete exactly:
+		RenderingRegistry.registerBlockHandler(new RenderGrate());
+No manual native handler call: GrateModelHandler is an exact-owned ModelRegistryEvent subscriber.

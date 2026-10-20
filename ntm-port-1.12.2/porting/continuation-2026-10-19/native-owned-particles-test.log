@@ -1,0 +1,15 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAtlasParticlesTest.java:33: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);
+                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAtlasParticlesTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+  LightWorld w=(LightWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(LightWorld.class);
+                                     ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeOwnedParticlesTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field unsafeField=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);
+                                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeOwnedParticlesTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+        HazeWorld hazeWorld=(HazeWorld)((sun.misc.Unsafe)unsafeField.get(null)).allocateInstance(HazeWorld.class);
+                                                 ^
+4 warnings
+PASS 105 native owned particle lifecycle/line-buffer assertions; full ten production classes compile. No owned GL/font rendering or game acceptance.
+PASS complete ten newly migrated particles + actual shared production support; resource paths exist. No GL/font draw/fullmod acceptance.

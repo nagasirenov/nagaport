@@ -45,7 +45,7 @@ public class ItemBlueprints extends Item {
 	public IIcon getIcon(ItemStack stack, int pass) {
 		
 		if(stack.hasTagCompound()) {
-			String poolName = stack.stackTagCompound.getString("pool");
+			String poolName = stack.getTagCompound().getString("pool");
 			if(poolName == null) return this.itemIcon;
 			if(poolName.startsWith(GenericRecipes.POOL_PREFIX_DISCOVER)) return this.iconDiscover; // beige
 			if(poolName.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) return this.iconSecret; // black
@@ -69,7 +69,7 @@ public class ItemBlueprints extends Item {
 		if(world.isRemote) return stack;
 		if(!stack.hasTagCompound()) return stack;
 		
-		String poolName = stack.stackTagCompound.getString("pool");
+		String poolName = stack.getTagCompound().getString("pool");
 		
 		if(poolName.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) return stack;
 		if(!player.inventory.hasItem(Items.paper)) return stack;
@@ -78,7 +78,7 @@ public class ItemBlueprints extends Item {
 		player.swingItem();
 		
 		ItemStack copy = stack.copy();
-		copy.stackSize = 1;
+		copy.setCount(1);
 		
 		if(!player.capabilities.isCreativeMode) {
 			if(stack.stackSize < stack.getMaxStackSize()) {
@@ -88,7 +88,7 @@ public class ItemBlueprints extends Item {
 			
 			if(!player.inventory.addItemStackToInventory(copy)) {
 				copy = stack.copy();
-				copy.stackSize = 1;
+				copy.setCount(1);
 				player.dropPlayerItemWithRandomChoice(copy, false);
 			}
 			
@@ -108,7 +108,7 @@ public class ItemBlueprints extends Item {
 			return;
 		}
 		
-		String poolName = stack.stackTagCompound.getString("pool");
+		String poolName = stack.getTagCompound().getString("pool");
 		List<String> pool = GenericRecipes.blueprintPools.get(poolName);
 		
 		if(pool == null || pool.isEmpty()) {
@@ -132,14 +132,14 @@ public class ItemBlueprints extends Item {
 		if(stack == null) return null;
 		if(stack.getItem() != ModItems.blueprints) return null;
 		if(!stack.hasTagCompound()) return null;
-		if(!stack.stackTagCompound.hasKey("pool")) return null;
-		return stack.stackTagCompound.getString("pool");
+		if(!stack.getTagCompound().hasKey("pool")) return null;
+		return stack.getTagCompound().getString("pool");
 	}
 	
 	public static ItemStack make(String pool) {
 		ItemStack stack = new ItemStack(ModItems.blueprints);
-		stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setString("pool", pool);
+		stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setString("pool", pool);
 		return stack;
 	}
 }

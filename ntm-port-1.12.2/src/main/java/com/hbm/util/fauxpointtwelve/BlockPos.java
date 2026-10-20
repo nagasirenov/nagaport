@@ -20,11 +20,11 @@ public class BlockPos implements Cloneable {
 	}
 
 	public BlockPos(TileEntity te) {
-		this(te.xCoord, te.yCoord, te.zCoord);
+		this(te.getPos().getX(), te.getPos().getY(), te.getPos().getZ());
 	}
 	
 	public BlockPos(double x, double y, double z) {
-		this((int)MathHelper.floor_double(x), (int)MathHelper.floor_double(y), (int)MathHelper.floor_double(z));
+		this((int)MathHelper.floor(x), (int)MathHelper.floor(y), (int)MathHelper.floor(z));
 	}
 	
 	/** Basically a setter for the coords. Violates the "muh unmutability" horseshit I don't care about and

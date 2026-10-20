@@ -138,20 +138,20 @@ public class StatHelper {
 	}
 
 	private static void replaceAllSimilarBlocks(StatBase[] stats) {
-		func_151180_a(stats, Blocks.water, Blocks.flowing_water);
-		func_151180_a(stats, Blocks.lava, Blocks.flowing_lava);
-		func_151180_a(stats, Blocks.lit_pumpkin, Blocks.pumpkin);
-		func_151180_a(stats, Blocks.lit_furnace, Blocks.furnace);
-		func_151180_a(stats, Blocks.lit_redstone_ore, Blocks.redstone_ore);
-		func_151180_a(stats, Blocks.powered_repeater, Blocks.unpowered_repeater);
-		func_151180_a(stats, Blocks.powered_comparator, Blocks.unpowered_comparator);
-		func_151180_a(stats, Blocks.redstone_torch, Blocks.unlit_redstone_torch);
-		func_151180_a(stats, Blocks.lit_redstone_lamp, Blocks.redstone_lamp);
-		func_151180_a(stats, Blocks.red_mushroom, Blocks.brown_mushroom);
-		func_151180_a(stats, Blocks.double_stone_slab, Blocks.stone_slab);
-		func_151180_a(stats, Blocks.double_wooden_slab, Blocks.wooden_slab);
-		func_151180_a(stats, Blocks.grass, Blocks.dirt);
-		func_151180_a(stats, Blocks.farmland, Blocks.dirt);
+		func_151180_a(stats, Blocks.WATER, Blocks.FLOWING_WATER);
+		func_151180_a(stats, Blocks.LAVA, Blocks.FLOWING_LAVA);
+		func_151180_a(stats, Blocks.LIT_PUMPKIN, Blocks.PUMPKIN);
+		func_151180_a(stats, Blocks.LIT_FURNACE, Blocks.FURNACE);
+		func_151180_a(stats, Blocks.LIT_REDSTONE_ORE, Blocks.REDSTONE_ORE);
+		func_151180_a(stats, Blocks.POWERED_REPEATER, Blocks.UNPOWERED_REPEATER);
+		func_151180_a(stats, Blocks.POWERED_COMPARATOR, Blocks.UNPOWERED_COMPARATOR);
+		func_151180_a(stats, Blocks.REDSTONE_TORCH, Blocks.UNLIT_REDSTONE_TORCH);
+		func_151180_a(stats, Blocks.LIT_REDSTONE_LAMP, Blocks.REDSTONE_LAMP);
+		func_151180_a(stats, Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM);
+		func_151180_a(stats, Blocks.DOUBLE_STONE_SLAB, Blocks.STONE_SLAB);
+		func_151180_a(stats, Blocks.DOUBLE_WOODEN_SLAB, Blocks.WOODEN_SLAB);
+		func_151180_a(stats, Blocks.GRASS, Blocks.DIRT);
+		func_151180_a(stats, Blocks.FARMLAND, Blocks.DIRT);
 	}
 
 	private static void func_151180_a(StatBase[] stats, Block block, Block similarBlock) {

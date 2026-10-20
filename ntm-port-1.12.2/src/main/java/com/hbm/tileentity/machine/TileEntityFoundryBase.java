@@ -12,6 +12,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.world.World;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 /**
@@ -20,7 +22,7 @@ import com.hbm.lib.ForgeDirection;
  * @author hbm
  *
  */
-public abstract class TileEntityFoundryBase extends TileEntityLoadedBase implements ICrucibleAcceptor, ICopiable {
+public abstract class TileEntityFoundryBase extends TileEntityLoadedBase implements ICrucibleAcceptor, ICopiable, net.minecraft.util.ITickable {
 
 	public NTMMaterial type;
 	protected NTMMaterial lastType;
@@ -28,19 +30,19 @@ public abstract class TileEntityFoundryBase extends TileEntityLoadedBase impleme
 	protected int lastAmount;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			if(shouldClientReRender() && this.lastType != this.type || this.lastAmount != this.amount) {
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+				this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
 				this.lastType = this.type;
 				this.lastAmount = this.amount;
 			}
 		} else {
 
 			if(this.lastType != this.type || this.lastAmount != this.amount) {
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+				this.notifyFoundryUpdate();
 				this.lastType = this.type;
 				this.lastAmount = this.amount;
 			}
@@ -50,6 +52,24 @@ public abstract class TileEntityFoundryBase extends TileEntityLoadedBase impleme
 	/** Recommended FALSE for things that update a whole lot. TRUE if updates only happen once every few ticks. */
 	protected boolean shouldClientReRender() {
 		return true;
+	}
+
+	/** Native equivalent of the old same-block update notification; no neighbor mutation. */
+	protected final void notifyFoundryUpdate() {
+		IBlockState state = this.world.getBlockState(this.pos);
+		this.world.notifyBlockUpdate(this.pos, state, state, 3);
+	}
+
+	/** Initial chunk sync includes the same complete payload as incremental tile packets. */
+	@Override
+	public NBTTagCompound getUpdateTag() {
+		return this.writeToNBT(new NBTTagCompound());
+	}
+
+	/** Metadata/property changes must not destroy a still-identical foundry tile. */
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
 	}
 
 	@Override
@@ -72,7 +92,7 @@ public abstract class TileEntityFoundryBase extends TileEntityLoadedBase impleme
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		if(this.type == null) {
@@ -82,6 +102,7 @@ public abstract class TileEntityFoundryBase extends TileEntityLoadedBase impleme
 		}
 
 		nbt.setInteger("amount", this.amount);
+		return nbt;
 	}
 
 	public abstract int getCapacity();

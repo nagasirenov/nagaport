@@ -15,12 +15,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class EntitySoyuz extends Entity {
+
+	private static final DataParameter<Integer> SKIN = EntityDataManager.createKey(EntitySoyuz.class, DataSerializers.VARINT);
 
 	double acceleration = 0.00D;
 	public int mode;
@@ -47,9 +52,9 @@ public class EntitySoyuz extends Entity {
 		
 		this.setLocationAndAngles(posX + this.motionX, posY + this.motionY, posZ + this.motionZ, 0, 0);
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			List<Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(posX - 5, posY - 15, posZ - 5, posX + 5, posY, posZ + 5));
+			List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(posX - 5, posY - 15, posZ - 5, posX + 5, posY, posZ + 5));
 			
 			for(Entity e : list) {
 				e.setFire(15);
@@ -58,15 +63,15 @@ public class EntitySoyuz extends Entity {
 				if(e instanceof EntityPlayer) {
 					if(!memed) {
 						memed = true;
-						worldObj.playSoundEffect(posX, posY, posZ, "hbm:alarm.soyuzed", 100, 1.0F);
+						com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:alarm.soyuzed", 100, 1.0F);
 					}
 					
-					((EntityPlayer)e).triggerAchievement(MainRegistry.achSoyuz);
+					com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)e), MainRegistry.achSoyuz);
 				}
 			}
 		}
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			spawnExhaust(posX, posY, posZ);
 			spawnExhaust(posX + 2.75, posY, posZ);
 			spawnExhaust(posX - 2.75, posY, posZ);
@@ -85,7 +90,7 @@ public class EntitySoyuz extends Entity {
 		data.setString("type", "exhaust");
 		data.setString("mode", "soyuz");
 		data.setInteger("count", 1);
-		data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.5);
+		data.setDouble("width", this.world.rand.nextDouble() * 0.25 - 0.5);
 		data.setDouble("posX", x);
 		data.setDouble("posY", y);
 		data.setDouble("posZ", z);
@@ -102,36 +107,36 @@ public class EntitySoyuz extends Entity {
 				ItemStack load = payload[0];
 				
 				if(load.getItem() == ModItems.flame_pony) {
-					ExplosionLarge.spawnTracers(worldObj, posX, posY, posZ, 25);
-					for(Object p : worldObj.playerEntities)
-						((EntityPlayer)p).triggerAchievement(MainRegistry.achSpace);
+					ExplosionLarge.spawnTracers(this.world, posX, posY, posZ, 25);
+					for(Object p : this.world.playerEntities)
+						com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.achSpace);
 				}
 				
 				if(load.getItem() == ModItems.sat_foeq) {
-					for(Object p : worldObj.playerEntities)
-						((EntityPlayer)p).triggerAchievement(MainRegistry.achFOEQ);
+					for(Object p : this.world.playerEntities)
+						com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.achFOEQ);
 				}
 				
 				if(load.getItem() instanceof ISatChip) {
 					
 				    int freq = ISatChip.getFreqS(load);
 			    	
-			    	Satellite.orbit(worldObj, Satellite.getIDFromItem(load.getItem()), freq, posX, posY, posZ);
+			    	Satellite.orbit(this.world, Satellite.getIDFromItem(load.getItem()), freq, posX, posY, posZ);
 				}
 			}
 		}
 		
 		if(mode == 1) {
 			
-			EntitySoyuzCapsule capsule = new EntitySoyuzCapsule(worldObj);
+			EntitySoyuzCapsule capsule = new EntitySoyuzCapsule(this.world);
 			capsule.payload = this.payload;
 			capsule.soyuz = this.getSkin();
 			capsule.setPosition(targetX + 0.5, 600, targetZ + 0.5);
 			
-			IChunkProvider provider = worldObj.getChunkProvider();
+			IChunkProvider provider = this.world.getChunkProvider();
 			provider.loadChunk(targetX >> 4, targetZ >> 4);
 			
-			worldObj.spawnEntityInWorld(capsule);
+			this.world.spawnEntityInWorld(capsule);
 		}
 		
 		this.setDead();
@@ -139,7 +144,7 @@ public class EntitySoyuz extends Entity {
 
 	@Override
 	protected void entityInit() {
-        this.dataWatcher.addObject(8, 0);
+        this.dataManager.register(SKIN, 0);
 	}
 	
 	public void setSat(ItemStack stack) {
@@ -154,11 +159,11 @@ public class EntitySoyuz extends Entity {
 	}
 	
 	public void setSkin(int i) {
-		this.dataWatcher.updateObject(8, i);
+		this.dataManager.set(SKIN, i);
 	}
 	
 	public int getSkin() {
-		return this.dataWatcher.getWatchableObjectInt(8);
+		return this.dataManager.get(SKIN);
 	}
 	
     @Override

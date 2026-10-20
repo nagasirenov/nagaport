@@ -1,0 +1,50 @@
+{
+  "scope": "six complete crane blocks plus crane-only base tile orientation/synchronization/lifecycle",
+  "result": "15477 native assertions; whole seven production classes and actual state/interface compile; initial native full/partial chunk sync regression passes",
+  "owned_production": [
+    {
+      "path": "src/main/java/com/hbm/blocks/network/BlockCraneBase.java",
+      "sha256": "836177005773e3e657578a155e1f8cbf9e3d6844f2fe341cd10b282c03df2943"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneBoxer.java",
+      "sha256": "fc58f26f7a91e6c61ae15c51bcf33270c1c9e3c7789db2f472ceeaf9e79a1e4a"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneExtractor.java",
+      "sha256": "f9d47e961046504d75437d6af906cb3aec313790e36e7da37a64e7e55202e7f7"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneGrabber.java",
+      "sha256": "00945b5f4fddfa72e1b48fcda8626e9c3f5c4c08539e1fea5e57f5d4c37ad751"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneInserter.java",
+      "sha256": "b471c05ef087813855b58b7a254eb9b346a2ea7288889f0226c4477767a1a800"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CraneUnboxer.java",
+      "sha256": "ea2a626b8b3e3def33d6db75874c059a5eb018be67aca93a63be667adce7a5ff"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java",
+      "sha256": "95aeabd7638417c5a90e2ea7441dd82ca1415d5f85f0b5b38c6085604ac5cc34"
+    }
+  ],
+  "proof_artifacts": [
+    "porting/tests/NativeCraneOwnersTest.java",
+    "porting/tests/probe-native-crane-owners.py",
+    "porting/tests/native-crane-owners-proof.log",
+    "porting/tests/native-crane-owners-notes.md"
+  ],
+  "excluded": [
+    "shared tile bases",
+    "concrete crane engines",
+    "ModBlocks",
+    "ModItems",
+    "ClientProxy",
+    "spotlight",
+    "conveyor",
+    "GL/live server/full-mod acceptance"
+  ]
+}

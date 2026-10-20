@@ -19,7 +19,7 @@ public class SubChunkSnapshot {
 	/**
 	 * A sub-chunk that contains only air.
 	 */
-	public static final SubChunkSnapshot EMPTY = new SubChunkSnapshot(new Block[]{Blocks.air}, null);
+	public static final SubChunkSnapshot EMPTY = new SubChunkSnapshot(new Block[]{Blocks.AIR}, null);
 	private final Block[] palette;
 	private final short[] data;
 
@@ -51,9 +51,9 @@ public class SubChunkSnapshot {
 
 		short[] data = new short[16 * 16 * 16];
 		List<Block> palette = new ArrayList<>();
-		palette.add(Blocks.air);
+		palette.add(Blocks.AIR);
 		Map<Block, Short> idxMap = new HashMap<>();
-		idxMap.put(Blocks.air, (short) 0);
+		idxMap.put(Blocks.AIR, (short) 0);
 		boolean allAir = true;
 
 		for (int ly = 0; ly < 16; ly++) {
@@ -61,7 +61,7 @@ public class SubChunkSnapshot {
 				for (int lx = 0; lx < 16; lx++) {
 					Block block = ebs.getBlockByExtId(lx, ly, lz);
 					int idx;
-					if (block == Blocks.air) {
+					if (block == Blocks.AIR) {
 						idx = 0;
 					} else {
 						allAir = false;
@@ -95,8 +95,8 @@ public class SubChunkSnapshot {
 	 *        The Block instance at the given position.
 	 */
 	public Block getBlock(int x, int y, int z) {
-		if (this == EMPTY || data == null) return Blocks.air;
+		if (this == EMPTY || data == null) return Blocks.AIR;
 		short idx = data[(y << 8) | (z << 4) | x];
-		return (idx >= 0 && idx < palette.length) ? palette[idx] : Blocks.air;
+		return (idx >= 0 && idx < palette.length) ? palette[idx] : Blocks.AIR;
 	}
 }

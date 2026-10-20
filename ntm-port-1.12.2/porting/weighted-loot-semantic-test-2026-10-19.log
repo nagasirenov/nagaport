@@ -1,0 +1,9 @@
+$ /workspace/scratch/b84e64989957/toolchains/jdk8u504-b01/bin/java -version
+openjdk version "1.8.0_504"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_504-b01)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.504-b01, mixed mode)
+exit_code=0
+
+$ bash porting/tests/run-weighted-loot-test.sh
+PASS: weighted boundaries, inclusive/fixed/zero counts, stack splitting, overwrite collisions, absent items, invalid inputs, 1000 seeded inventories (20000 rolls)
+exit_code=0

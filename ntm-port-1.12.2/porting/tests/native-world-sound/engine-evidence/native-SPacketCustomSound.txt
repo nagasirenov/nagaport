@@ -1,0 +1,213 @@
+Compiled from "SourceFile"
+public class net.minecraft.network.play.server.SPacketCustomSound implements net.minecraft.network.Packet<net.minecraft.network.play.INetHandlerPlayClient> {
+  private java.lang.String soundName;
+
+  private net.minecraft.util.SoundCategory category;
+
+  private int x;
+
+  private int y;
+
+  private int z;
+
+  private float volume;
+
+  private float pitch;
+
+  public net.minecraft.network.play.server.SPacketCustomSound();
+    Code:
+       0: aload_0
+       1: invokespecial #23                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: ldc           #24                 // int 2147483647
+       7: putfield      #26                 // Field y:I
+      10: return
+
+  public net.minecraft.network.play.server.SPacketCustomSound(java.lang.String, net.minecraft.util.SoundCategory, double, double, double, float, float);
+    Code:
+       0: aload_0
+       1: invokespecial #23                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: ldc           #24                 // int 2147483647
+       7: putfield      #26                 // Field y:I
+      10: aload_1
+      11: ldc           #31                 // String name
+      13: iconst_0
+      14: anewarray     #5                  // class java/lang/Object
+      17: invokestatic  #37                 // Method org/apache/commons/lang3/Validate.notNull:(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+      20: pop
+      21: aload_0
+      22: aload_1
+      23: putfield      #39                 // Field soundName:Ljava/lang/String;
+      26: aload_0
+      27: aload_2
+      28: putfield      #41                 // Field category:Lnet/minecraft/util/SoundCategory;
+      31: aload_0
+      32: dload_3
+      33: ldc2_w        #42                 // double 8.0d
+      36: dmul
+      37: d2i
+      38: putfield      #45                 // Field x:I
+      41: aload_0
+      42: dload         5
+      44: ldc2_w        #42                 // double 8.0d
+      47: dmul
+      48: d2i
+      49: putfield      #26                 // Field y:I
+      52: aload_0
+      53: dload         7
+      55: ldc2_w        #42                 // double 8.0d
+      58: dmul
+      59: d2i
+      60: putfield      #47                 // Field z:I
+      63: aload_0
+      64: fload         9
+      66: putfield      #49                 // Field volume:F
+      69: aload_0
+      70: fload         10
+      72: putfield      #51                 // Field pitch:F
+      75: return
+
+  public void readPacketData(net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: sipush        256
+       5: invokevirtual #69                 // Method net/minecraft/network/PacketBuffer.readString:(I)Ljava/lang/String;
+       8: putfield      #39                 // Field soundName:Ljava/lang/String;
+      11: aload_0
+      12: aload_1
+      13: ldc           #71                 // class net/minecraft/util/SoundCategory
+      15: invokevirtual #75                 // Method net/minecraft/network/PacketBuffer.readEnumValue:(Ljava/lang/Class;)Ljava/lang/Enum;
+      18: checkcast     #71                 // class net/minecraft/util/SoundCategory
+      21: putfield      #41                 // Field category:Lnet/minecraft/util/SoundCategory;
+      24: aload_0
+      25: aload_1
+      26: invokevirtual #79                 // Method net/minecraft/network/PacketBuffer.readInt:()I
+      29: putfield      #45                 // Field x:I
+      32: aload_0
+      33: aload_1
+      34: invokevirtual #79                 // Method net/minecraft/network/PacketBuffer.readInt:()I
+      37: putfield      #26                 // Field y:I
+      40: aload_0
+      41: aload_1
+      42: invokevirtual #79                 // Method net/minecraft/network/PacketBuffer.readInt:()I
+      45: putfield      #47                 // Field z:I
+      48: aload_0
+      49: aload_1
+      50: invokevirtual #83                 // Method net/minecraft/network/PacketBuffer.readFloat:()F
+      53: putfield      #49                 // Field volume:F
+      56: aload_0
+      57: aload_1
+      58: invokevirtual #83                 // Method net/minecraft/network/PacketBuffer.readFloat:()F
+      61: putfield      #51                 // Field pitch:F
+      64: return
+
+  public void writePacketData(net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #39                 // Field soundName:Ljava/lang/String;
+       5: invokevirtual #90                 // Method net/minecraft/network/PacketBuffer.writeString:(Ljava/lang/String;)Lnet/minecraft/network/PacketBuffer;
+       8: pop
+       9: aload_1
+      10: aload_0
+      11: getfield      #41                 // Field category:Lnet/minecraft/util/SoundCategory;
+      14: invokevirtual #94                 // Method net/minecraft/network/PacketBuffer.writeEnumValue:(Ljava/lang/Enum;)Lnet/minecraft/network/PacketBuffer;
+      17: pop
+      18: aload_1
+      19: aload_0
+      20: getfield      #45                 // Field x:I
+      23: invokevirtual #98                 // Method net/minecraft/network/PacketBuffer.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      26: pop
+      27: aload_1
+      28: aload_0
+      29: getfield      #26                 // Field y:I
+      32: invokevirtual #98                 // Method net/minecraft/network/PacketBuffer.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      35: pop
+      36: aload_1
+      37: aload_0
+      38: getfield      #47                 // Field z:I
+      41: invokevirtual #98                 // Method net/minecraft/network/PacketBuffer.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      44: pop
+      45: aload_1
+      46: aload_0
+      47: getfield      #49                 // Field volume:F
+      50: invokevirtual #102                // Method net/minecraft/network/PacketBuffer.writeFloat:(F)Lio/netty/buffer/ByteBuf;
+      53: pop
+      54: aload_1
+      55: aload_0
+      56: getfield      #51                 // Field pitch:F
+      59: invokevirtual #102                // Method net/minecraft/network/PacketBuffer.writeFloat:(F)Lio/netty/buffer/ByteBuf;
+      62: pop
+      63: return
+
+  public java.lang.String getSoundName();
+    Code:
+       0: aload_0
+       1: getfield      #39                 // Field soundName:Ljava/lang/String;
+       4: areturn
+
+  public void processPacket(net.minecraft.network.play.INetHandlerPlayClient);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #117,  2          // InterfaceMethod net/minecraft/network/play/INetHandlerPlayClient.handleCustomSound:(Lnet/minecraft/network/play/server/SPacketCustomSound;)V
+       7: return
+
+  public void processPacket(net.minecraft.network.INetHandler);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #113                // class net/minecraft/network/play/INetHandlerPlayClient
+       5: invokevirtual #122                // Method processPacket:(Lnet/minecraft/network/play/INetHandlerPlayClient;)V
+       8: return
+
+  public net.minecraft.util.SoundCategory getCategory();
+    Code:
+       0: aload_0
+       1: getfield      #41                 // Field category:Lnet/minecraft/util/SoundCategory;
+       4: areturn
+
+  public double getX();
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field x:I
+       4: i2f
+       5: ldc           #128                // float 8.0f
+       7: fdiv
+       8: f2d
+       9: dreturn
+
+  public double getY();
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field y:I
+       4: i2f
+       5: ldc           #128                // float 8.0f
+       7: fdiv
+       8: f2d
+       9: dreturn
+
+  public double getZ();
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field z:I
+       4: i2f
+       5: ldc           #128                // float 8.0f
+       7: fdiv
+       8: f2d
+       9: dreturn
+
+  public float getVolume();
+    Code:
+       0: aload_0
+       1: getfield      #49                 // Field volume:F
+       4: freturn
+
+  public float getPitch();
+    Code:
+       0: aload_0
+       1: getfield      #51                 // Field pitch:F
+       4: freturn
+}

@@ -21,8 +21,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.ResourceLocation;
 
@@ -66,7 +66,7 @@ public class GUIWarController extends GuiInfoContainer {
 			float scale = 0.5F;
 			GL11.glPushMatrix();
 			GL11.glScalef(scale, scale, scale);
-			fontRendererObj.drawString(text, (int) (78 / scale), (int) (yOffset / scale), 0x00FF00);
+			fontRenderer.drawString(text, (int) (78 / scale), (int) (yOffset / scale), 0x00FF00);
 			GL11.glPopMatrix();
 
 			yOffset += 12 * scale;
@@ -77,7 +77,7 @@ public class GUIWarController extends GuiInfoContainer {
 
 		GL11.glPushMatrix();
 		GL11.glScalef(textScale, textScale, textScale);
-		fontRendererObj.drawString("> " + typedText + (textField.isFocused() && (mc.theWorld.getTotalWorldTime() % 20 < 10) ? "_" : ""), (int) (78 / textScale), (int) (57 / textScale), 0x00FF00);
+		fontRenderer.drawString("> " + typedText + (textField.isFocused() && (mc.world.getTotalWorldTime() % 20 < 10) ? "_" : ""), (int) (78 / textScale), (int) (57 / textScale), 0x00FF00);
 		GL11.glPopMatrix();
 	}
 
@@ -134,7 +134,7 @@ public class GUIWarController extends GuiInfoContainer {
 			data.setInteger("xcoord", xValue);
 			data.setInteger("zcoord", zValue);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, sucker.xCoord, sucker.yCoord, sucker.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, sucker.getPos().getX(), sucker.getPos().getY(), sucker.getPos().getZ()));
 			break;
 
 		case "health":
@@ -198,8 +198,8 @@ public class GUIWarController extends GuiInfoContainer {
 
 	private void addToHistory(String text, TextFormatting color) {
 		if(color != null) {
-			ChatComponentText chatComponent = new ChatComponentText(text);
-			chatComponent.setChatStyle(new ChatStyle().setColor(color));
+			TextComponentString chatComponent = new TextComponentString(text);
+			chatComponent.setStyle(new Style().setColor(color));
 			commandHistory.add(chatComponent.getFormattedText());
 		} else {
 			commandHistory.add(text);
@@ -222,7 +222,7 @@ public class GUIWarController extends GuiInfoContainer {
 	public void initGui() {
 		super.initGui();
 		Keyboard.enableRepeatEvents(true);
-		textField = new GuiTextField(fontRendererObj, guiLeft - 74, guiTop + 28, 100, 20);
+		textField = new GuiTextField(0, fontRenderer, guiLeft - 74, guiTop + 28, 100, 20);
 		textField.setMaxStringLength(100);
 		textField.setFocused(true);
 		textField.setEnableBackgroundDrawing(false);

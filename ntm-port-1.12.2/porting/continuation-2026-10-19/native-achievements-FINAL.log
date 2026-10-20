@@ -1,0 +1,60 @@
+FULL PRODUCTION src/main/java/com/hbm/advancement/AchievementDefinitions.java 355a0e6b40bd0fc06bee26c5fec73704c0d9d1357a06a2e89c06c3be2d8addff
+FULL PRODUCTION src/main/java/com/hbm/advancement/NtmAdvancements.java 8d555bb6de80e77062f6c19b0e8951e8f8ec15471e7fe60f4927d47cb6b9db91
+FULL PRODUCTION src/main/java/com/hbm/advancement/LegacyAchievementEvents.java 7cc47f9a8d688085915faefcc7fd6ad0f97bdfbb879a5fcba20bd5edbad6fa65
+FULL PRODUCTION src/main/java/com/hbm/advancement/LegacyCraftingCallbacks.java 3af28a4ff9bd911caca605c6108e2e0d9abc5cef6cda49a0f093b9d4c008e79e
+FULL PRODUCTION src/main/java/com/hbm/util/AchievementHandler.java e4cb4bef1354ebbb0d90b172c64b78ae082cc94e6e89efea38e4d2b6399649df
+FULL PRODUCTION src/main/java/com/hbm/inventory/RecipesCommon.java d10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2
+FULL PRODUCTION src/main/java/com/hbm/inventory/SlotSmelting.java fb670124ad09f9ab0b8361012fbf8dfa3f2e7c636f37c440870eef5aed223adb
+FULL PRODUCTION src/main/java/com/hbm/packet/toserver/LegacyInventoryActionPacket.java 697763a26b305224c7c3aca93360c77d52e5f5f54c814a28e99c6826ab4e76d7
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAchievementsTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionPacketNativeTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAchievementsTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionPacketNativeTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAchievementsTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionPacketNativeTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAchievementsTest.java:50: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe UNSAFE;
+                         ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAchievementsTest.java:51: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); UNSAFE=(Unsafe)f.get(null); } catch(Exception e) { throw new ExceptionInInitializerError(e); } }
+                           ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAchievementsTest.java:51: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); UNSAFE=(Unsafe)f.get(null); } catch(Exception e) { throw new ExceptionInInitializerError(e); } }
+                                                                                                      ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionPacketNativeTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field unsafeField=Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);Unsafe unsafe=(Unsafe)unsafeField.get(null);
+                          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionPacketNativeTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field unsafeField=Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);Unsafe unsafe=(Unsafe)unsafeField.get(null);
+                                                                                                     ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionPacketNativeTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field unsafeField=Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);Unsafe unsafe=(Unsafe)unsafeField.get(null);
+                                                                                                                    ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+12 warnings
+[17:40:33] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[17:40:33] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[17:40:33] [main/INFO]: Replaced 1036 ore ingredients
+[17:40:33] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[17:40:33] [main/INFO]: Processing ObjectHolder annotations
+[17:40:33] [main/INFO]: Found 1167 ObjectHolder annotations
+[17:40:33] [main/INFO]: Loaded 559 advancements
+[17:40:34] [main/INFO]: Loaded 559 advancements
+PASS 13 native empty-action packet/queue/authenticated-recipient checks; not live network transport
+PASS 960 native advancement definition/gate/counter/persistence/dispatch assertions
+[17:40:35] [main/INFO]: Reloading ResourceManager: FMLFileResourcePack:Language fixture
+[17:40:35] [main/INFO]: Reloading ResourceManager: FMLFileResourcePack:Language fixture
+PASS 44 genuine Forge language/legacy-adapter assertions (folder and archive)

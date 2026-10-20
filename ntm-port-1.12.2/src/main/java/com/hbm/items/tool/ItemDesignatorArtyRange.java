@@ -28,14 +28,14 @@ public class ItemDesignatorArtyRange extends Item {
 		if(itemstack.getTagCompound() == null) {
 			list.add(TextFormatting.RED + "No turret linked!");
 		} else {
-			list.add(TextFormatting.YELLOW + "Linked to " + itemstack.stackTagCompound.getInteger("x") + ", " + itemstack.stackTagCompound.getInteger("y") + ", " + itemstack.stackTagCompound.getInteger("z"));
+			list.add(TextFormatting.YELLOW + "Linked to " + itemstack.getTagCompound().getInteger("x") + ", " + itemstack.getTagCompound().getInteger("y") + ", " + itemstack.getTagCompound().getInteger("z"));
 		}
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
 		if(b instanceof BlockDummyable) {
 			int pos[] = ((BlockDummyable) b).findCore(world, x, y, z);
@@ -43,7 +43,7 @@ public class ItemDesignatorArtyRange extends Item {
 			if(pos == null)
 				return false;
 			
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
 			if(te instanceof TileEntityTurretBaseArtillery) {
 				
@@ -51,11 +51,11 @@ public class ItemDesignatorArtyRange extends Item {
 					return true;
 				
 				if(!stack.hasTagCompound())
-					stack.stackTagCompound = new NBTTagCompound();
+					stack.setTagCompound(new NBTTagCompound());
 
-				stack.stackTagCompound.setInteger("x", pos[0]);
-				stack.stackTagCompound.setInteger("y", pos[1]);
-				stack.stackTagCompound.setInteger("z", pos[2]);
+				stack.getTagCompound().setInteger("x", pos[0]);
+				stack.getTagCompound().setInteger("y", pos[1]);
+				stack.getTagCompound().setInteger("z", pos[2]);
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
 				return true;
 			}
@@ -76,7 +76,7 @@ public class ItemDesignatorArtyRange extends Item {
 		int z = pos.getBlockPos().getZ();
 
 		if(!world.isRemote) {
-			TileEntity te = world.getTileEntity(stack.stackTagCompound.getInteger("x"), stack.stackTagCompound.getInteger("y"), stack.stackTagCompound.getInteger("z"));
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(stack.getTagCompound().getInteger("x"), stack.getTagCompound().getInteger("y"), stack.getTagCompound().getInteger("z")));
 			
 			if(te instanceof TileEntityTurretBaseArtillery) {
 				TileEntityTurretBaseArtillery arty = (TileEntityTurretBaseArtillery) te;

@@ -1,0 +1,15 @@
+{
+  "src/main/java/com/hbm/render/block/RenderCRT.java": "18e6f2b8d78dc2e95b78d9117da7085e18ff9594b759e8e2e2097072efba8288",
+  "src/main/java/com/hbm/blocks/generic/BlockDecoCRT.java": "8e0c7b741a4fc02a128a47b0c27d39a659e236733789fe9567ed99193312d543",
+  "src/main/java/com/hbm/blocks/BlockMulti.java": "000df74792326d212ca15bebb5fa3bb20274fdf2b6d03559f94e83ba4796cb34",
+  "src/main/java/com/hbm/world/gen/nbt/INBTBlockTransformable.java": "6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b",
+  "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+  "src/main/java/com/hbm/main/ClientProxy.java": "493673afb0ca5ed090478ea8622b4683104618e5c1d4d1b361c12305fa2387c7",
+  "src/main/resources/assets/hbm/models/blocks/crt.obj": "29598392f904ef62a8b02329039e1fe977c3846f8f28702d45f060e163b11be2",
+  "src/main/resources/assets/hbm/textures/blocks/crt_clean.png": "5a02f3a1ce9ae4677f9e77748f209dfb10701a481e083b0ca7f9c563f3e14366",
+  "src/main/resources/assets/hbm/textures/blocks/crt_broken.png": "d74da398dc030cb5318768b39143ecf84e04f3fba7edf5bbbdf5e60cd3c2876d",
+  "src/main/resources/assets/hbm/textures/blocks/crt_blinking.png": "652f95e47a58b702df67793831c940b6dcc241135db505855d9da4afd6159a6c",
+  "src/main/resources/assets/hbm/textures/blocks/crt_blinking.png.mcmeta": "d1e77f71dc0860d72b053363c7fefc41f2ea8ee6be779921d44f4fd8cba1faf3",
+  "src/main/resources/assets/hbm/textures/blocks/crt_bsod.png": "bffa8865151ee4da76421675c8886598b82a3820f2e33324e9ade1ad079a8cef"
+}

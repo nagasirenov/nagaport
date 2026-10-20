@@ -37,10 +37,10 @@ public class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
 		};
 	}
 	
@@ -49,12 +49,12 @@ public class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 5,
-					yCoord,
-					zCoord - 5,
-					xCoord + 6,
-					yCoord + 10,
-					zCoord + 6
+					this.pos.getX() - 5,
+					this.pos.getY(),
+					this.pos.getZ() - 5,
+					this.pos.getX() + 6,
+					this.pos.getY() + 10,
+					this.pos.getZ() + 6
 					);
 		}
 		

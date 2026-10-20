@@ -5,6 +5,7 @@ import java.util.Random;
 import com.hbm.items.ModItems;
 
 import net.minecraft.item.Item;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -16,12 +17,12 @@ public class BlockConveyorExpress extends BlockConveyorBendable {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return ModItems.conveyor_wand;
 	}
 
 	@Override
-	public int damageDropped(int meta) {
+	public int damageDropped(IBlockState state) {
 		return 1;
 	}
 

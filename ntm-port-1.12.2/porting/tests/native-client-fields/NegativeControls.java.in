@@ -1,0 +1,17 @@
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
+class NegativeControls extends GuiScreen {
+ Object fontRendererObj;
+ Object own() { return fontRendererObj; }
+ Object explicit() { return this.fontRendererObj; }
+ static class Other { Object thePlayer; Object theWorld; Object fontRendererObj; }
+ Object others(Other o) { Object thePlayer = o.thePlayer; return o.theWorld; }
+ Object local(Object fontRendererObj) { return fontRendererObj; }
+ Object player(Minecraft mc) { return mc.thePlayer; }
+}
+class PositiveControls extends GuiScreen {
+ Object inherited() { return fontRendererObj; }
+ Object explicit() { return this.fontRendererObj; }
+ class Inner { Object outer() { return PositiveControls.this.fontRendererObj; } Object captured() { return fontRendererObj; } }
+ Object world(Minecraft mc) { return mc.theWorld; }
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/watz",
+  "display": {
+    "icon": {
+      "item": "hbm:item.bucket_mud",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.watzBoom"
+    },
+    "description": {
+      "translate": "achievement.watzBoom.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

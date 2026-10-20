@@ -1,0 +1,11 @@
+{
+  "porting/tests/generic-metadata-native/run-native.py": "42396c5d1bea8c094cf02f1ba3c271a6da75af33bb7adf51dbaaa31ab6a4672b",
+  "porting/tests/generic-metadata-native/source-manifest.json": "37b4b9784a0c7584a99da1321909d52e5bb9e5daa1a134c3ccc79716bb28ec60",
+  "porting/tests/generic-metadata-native/native-test.log": "670fe5edc07cc5df8db39ce36dbb361606b536c775b91fde6d8d3ec33cc472fb",
+  "porting/tests/vanilla-placement-expanded/migrate.py": "7be8175dc3ad2d5c29e074d55373cb641fb274e2fb15f63d223e46772a9474d0",
+  "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+  "src/main/java/com/hbm/blocks/generic/BlockGeneric.java": "aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106",
+  "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+  "src/main/java/com/hbm/render/icon/IIcon.java": "5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205",
+  "src/main/java/com/hbm/render/icon/IIconRegister.java": "071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752"
+}

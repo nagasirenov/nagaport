@@ -1,0 +1,33 @@
+{
+  "baseline": "c22f7048a82784fe0e8246d38aef102c43f1df70",
+  "legacy_float16_getters": [
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityBlackHole.java:49:\t\tfloat size = this.dataWatcher.getWatchableObjectFloat(16);",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityBlackHole.java:176:\t\tnbt.setFloat(\"size\", this.dataWatcher.getWatchableObjectFloat(16));",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityRagingVortex.java:38:\t\tthis.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - pulse - dec);",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityRagingVortex.java:39:\t\tif(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityVortex.java:29:\t\tthis.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - shrinkRate);",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityVortex.java:30:\t\tif(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java:41:\t\tfloat size = entity.getDataWatcher().getWatchableObjectFloat(16);",
+    "c22f7048a82784fe0e8246d38aef102c43f1df70:ntm-port-1.12.2/src/main/java/com/hbm/render/entity/effect/RenderQuasar.java:23:\t\tfloat size = entity.getDataWatcher().getWatchableObjectFloat(16);"
+  ],
+  "renderer_registration_evidence": [
+    {
+      "line": 850,
+      "text": "RenderingRegistry.registerEntityRenderingHandler(EntityBlackHole.class, new RenderBlackHole());"
+    },
+    {
+      "line": 851,
+      "text": "RenderingRegistry.registerEntityRenderingHandler(EntityVortex.class, new RenderBlackHole());"
+    },
+    {
+      "line": 852,
+      "text": "RenderingRegistry.registerEntityRenderingHandler(EntityRagingVortex.class, new RenderBlackHole());"
+    },
+    {
+      "line": 853,
+      "text": "RenderingRegistry.registerEntityRenderingHandler(EntityQuasar.class, new RenderQuasar());"
+    }
+  ],
+  "declared_DataWatcher_type_aliases": [],
+  "nonnumeric_float_slot_arguments": []
+}

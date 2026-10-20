@@ -1,0 +1,1730 @@
+{
+  "baseline": "fd079268bae61fd41f20585956a43cd6f7f3132d",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockBase.java": {
+      "before_sha256": "de145113ff5dcd6c2d69fe505f7de201b591a68c54737d3cf9188f74e0d6650a",
+      "after_sha256": "c39027a1e7a2d1cc5df0dc2a5a52aacf28cf5b90b90e5654e5f58487ee52dbfe",
+      "edits": [
+        {
+          "before_offset": 864,
+          "after_offset": 864,
+          "old": "\t\tsuper(Material.rock);\r\n",
+          "new": "\t\tsuper(Material.ROCK);\r\n"
+        },
+        {
+          "before_offset": 1101,
+          "after_offset": 1101,
+          "old": "\t\tthis.setUnlocalizedName(name);\n\t\tthis.setRegistryName(new ResourceLocation(RefStrings.MODID, this.getUnlocalizedName()));\n",
+          "new": "\t\tthis.setTranslationKey(name);\n\t\tthis.setRegistryName(new ResourceLocation(RefStrings.MODID, this.getTranslationKey()));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ITooltipProvider.java": {
+      "before_sha256": "37bd851767f51dfe20e57f1fa1e85c163709a3cb1fb42ccc1c074bd34343ad5c",
+      "after_sha256": "8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5",
+      "edits": [
+        {
+          "before_offset": 603,
+          "after_offset": 603,
+          "old": "\t\t\tfor(String s : I18nUtil.resolveKeyArray(((Block)this).getUnlocalizedName() + \".desc\")) list.add(TextFormatting.YELLOW + s);\n",
+          "new": "\t\t\tfor(String s : I18nUtil.resolveKeyArray(((Block)this).getTranslationKey() + \".desc\")) list.add(TextFormatting.YELLOW + s);\n"
+        },
+        {
+          "before_offset": 1040,
+          "after_offset": 1039,
+          "old": "\t\treturn EnumRarity.common;\n",
+          "new": "\t\treturn EnumRarity.COMMON;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "0342888bd68c99bc80cb9c1f4c9f295619bc03d95a1624da394149b8b73af50a",
+      "after_sha256": "1885e0c8c66db11ffd707798327ee27c80495ad39afd6a73213fae4562cd7b5f",
+      "edits": [
+        {
+          "before_offset": 131878,
+          "after_offset": 131878,
+          "old": "\t\tpole_top = new DecoPoleTop(Material.iron).setBlockName(\"pole_top\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":deco_pole_top\");\r\n",
+          "new": "\t\tpole_top = new DecoPoleTop(Material.IRON).setTranslationKey(\"pole_top\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+        },
+        {
+          "before_offset": 133775,
+          "after_offset": 133723,
+          "old": "\t\tdeco_pipe = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side\", 0).setBlockName(\"deco_pipe\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top\");\r\n\t\tdeco_pipe_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_rusty\", 0).setBlockName(\"deco_pipe_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_rusty\");\r\n\t\tdeco_pipe_green = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green\", 0).setBlockName(\"deco_pipe_green\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green\");\r\n\t\tdeco_pipe_green_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green_rusty\", 0).setBlockName(\"deco_pipe_green_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green_rusty\");\r\n\t\tdeco_pipe_red = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_red\", 0).setBlockName(\"deco_pipe_red\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_red\");\r\n\t\tdeco_pipe_marked = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_marked\", 0).setBlockName(\"deco_pipe_marked\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_marked\");\r\n\t\tdeco_pipe_rim = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side\", 1).setBlockName(\"deco_pipe_rim\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top\");\r\n\t\tdeco_pipe_rim_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_rusty\", 1).setBlockName(\"deco_pipe_rim_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_rusty\");\r\n\t\tdeco_pipe_rim_green = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green\", 1).setBlockName(\"deco_pipe_rim_green\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green\");\r\n\t\tdeco_pipe_rim_green_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green_rusty\", 1).setBlockName(\"deco_pipe_rim_green_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green_rusty\");\r\n\t\tdeco_pipe_rim_red = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_red\", 1).setBlockName(\"deco_pipe_rim_red\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_red\");\r\n\t\tdeco_pipe_rim_marked = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_marked\", 1).setBlockName(\"deco_pipe_rim_marked\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_marked\");\r\n\t\tdeco_pipe_framed = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side\", 3).setBlockName(\"deco_pipe_framed\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top\");\r\n\t\tdeco_pipe_framed_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_rusty\", 3).setBlockName(\"deco_pipe_framed_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_rusty\");\r\n\t\tdeco_pipe_framed_green = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green\", 3).setBlockName(\"deco_pipe_framed_green\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green\");\r\n\t\tdeco_pipe_framed_green_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green_rusty\", 3).setBlockName(\"deco_pipe_framed_green_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green_rusty\");\r\n\t\tdeco_pipe_framed_red = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_red\", 3).setBlockName(\"deco_pipe_framed_red\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_red\");\r\n\t\tdeco_pipe_framed_marked = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_marked\", 3).setBlockName(\"deco_pipe_framed_marked\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_marked\");\r\n\t\tdeco_pipe_quad = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side\", 2).setBlockName(\"deco_pipe_quad\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top\");\r\n\t\tdeco_pipe_quad_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_rusty\", 2).setBlockName(\"deco_pipe_quad_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_rusty\");\r\n\t\tdeco_pipe_quad_green = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green\", 2).setBlockName(\"deco_pipe_quad_green\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green\");\r\n\t\tdeco_pipe_quad_green_rusted = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_green_rusty\", 2).setBlockName(\"deco_pipe_quad_green_rusted\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_green_rusty\");\r\n\t\tdeco_pipe_quad_red = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_red\", 2).setBlockName(\"deco_pipe_quad_red\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_red\");\r\n\t\tdeco_pipe_quad_marked = new BlockPipe(Material.iron, RefStrings.MODID + \":pipe_side_marked\", 2).setBlockName(\"deco_pipe_quad_marked\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":pipe_top_marked\");\r\n",
+          "new": "\t\tdeco_pipe = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side\", 0).setTranslationKey(\"deco_pipe\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_rusty\", 0).setTranslationKey(\"deco_pipe_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_green = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green\", 0).setTranslationKey(\"deco_pipe_green\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_green_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green_rusty\", 0).setTranslationKey(\"deco_pipe_green_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_red = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_red\", 0).setTranslationKey(\"deco_pipe_red\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_marked = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_marked\", 0).setTranslationKey(\"deco_pipe_marked\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rim = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side\", 1).setTranslationKey(\"deco_pipe_rim\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rim_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_rusty\", 1).setTranslationKey(\"deco_pipe_rim_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rim_green = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green\", 1).setTranslationKey(\"deco_pipe_rim_green\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rim_green_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green_rusty\", 1).setTranslationKey(\"deco_pipe_rim_green_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rim_red = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_red\", 1).setTranslationKey(\"deco_pipe_rim_red\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_rim_marked = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_marked\", 1).setTranslationKey(\"deco_pipe_rim_marked\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_framed = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side\", 3).setTranslationKey(\"deco_pipe_framed\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_framed_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_rusty\", 3).setTranslationKey(\"deco_pipe_framed_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_framed_green = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green\", 3).setTranslationKey(\"deco_pipe_framed_green\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_framed_green_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green_rusty\", 3).setTranslationKey(\"deco_pipe_framed_green_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_framed_red = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_red\", 3).setTranslationKey(\"deco_pipe_framed_red\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_framed_marked = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_marked\", 3).setTranslationKey(\"deco_pipe_framed_marked\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_quad = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side\", 2).setTranslationKey(\"deco_pipe_quad\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_quad_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_rusty\", 2).setTranslationKey(\"deco_pipe_quad_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_quad_green = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green\", 2).setTranslationKey(\"deco_pipe_quad_green\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_quad_green_rusted = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_green_rusty\", 2).setTranslationKey(\"deco_pipe_quad_green_rusted\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_quad_red = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_red\", 2).setTranslationKey(\"deco_pipe_quad_red\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tdeco_pipe_quad_marked = new BlockPipe(Material.IRON, RefStrings.MODID + \":pipe_side_marked\", 2).setTranslationKey(\"deco_pipe_quad_marked\").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n"
+        },
+        {
+          "before_offset": 141429,
+          "after_offset": 139293,
+          "old": "\t\thev_battery = new HEVBattery(Material.iron).setBlockName(\"hev_battery\").setCreativeTab(MainRegistry.machineTab).setLightLevel(10F/15F).setHardness(0.5F).setResistance(0.25F).setBlockTextureName(RefStrings.MODID + \":hev_battery\");\r\n",
+          "new": "\t\thev_battery = new HEVBattery(Material.IRON).setTranslationKey(\"hev_battery\").setCreativeTab(MainRegistry.machineTab).setLightLevel(10F/15F).setHardness(0.5F).setResistance(0.25F);\r\n"
+        },
+        {
+          "before_offset": 162901,
+          "after_offset": 160715,
+          "old": "\t\tred_barrel = new RedBarrel(Material.iron, true).setBlockName(\"red_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_red\");\r\n\t\tpink_barrel = new RedBarrel(Material.iron, true).setBlockName(\"pink_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_pink\");\r\n\t\tyellow_barrel = new YellowBarrel(Material.iron).setBlockName(\"yellow_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_yellow\");\r\n\t\toil_barrel = new BrownBarrel(Material.iron).setBlockName(\"oil_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_oily\");\r\n\t\tvitrified_barrel = new YellowBarrel(Material.iron).setBlockName(\"vitrified_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_vitrified\");\r\n\t\tlox_barrel = new RedBarrel(Material.iron, false).setBlockName(\"lox_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_lox\");\r\n\t\ttaint_barrel = new RedBarrel(Material.iron, false).setBlockName(\"taint_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":barrel_taint\");\r\n",
+          "new": "\t\tred_barrel = new RedBarrel(Material.IRON, true).setTranslationKey(\"red_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tpink_barrel = new RedBarrel(Material.IRON, true).setTranslationKey(\"pink_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tyellow_barrel = new YellowBarrel(Material.IRON).setTranslationKey(\"yellow_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\toil_barrel = new BrownBarrel(Material.IRON).setTranslationKey(\"oil_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tvitrified_barrel = new YellowBarrel(Material.IRON).setTranslationKey(\"vitrified_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tlox_barrel = new RedBarrel(Material.IRON, false).setTranslationKey(\"lox_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\ttaint_barrel = new RedBarrel(Material.IRON, false).setTranslationKey(\"taint_barrel\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);\r\n"
+        },
+        {
+          "before_offset": 183149,
+          "after_offset": 180607,
+          "old": "\t\tcapacitor_copper = new MachineCapacitor(Material.iron, 1_000_000L, \"copper\").setBlockName(\"capacitor_copper\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":block_copper\");\r\n\t\tcapacitor_gold = new MachineCapacitor(Material.iron, 5_000_000L, \"gold\").setBlockName(\"capacitor_gold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(\"gold_block\");\r\n\t\tcapacitor_niobium = new MachineCapacitor(Material.iron, 25_000_000L, \"niobium\").setBlockName(\"capacitor_niobium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":block_niobium\");\r\n\t\tcapacitor_complex = new MachineCapacitor(Material.iron, 100_000_000_000_000_000L, \"complex\").setBlockName(\"capacitor_complex\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":block_cadmium\");\r\n",
+          "new": "\t\tcapacitor_copper = new MachineCapacitor(Material.IRON, 1_000_000L, \"copper\").setTranslationKey(\"capacitor_copper\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcapacitor_gold = new MachineCapacitor(Material.IRON, 5_000_000L, \"gold\").setTranslationKey(\"capacitor_gold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n\t\tcapacitor_niobium = new MachineCapacitor(Material.IRON, 25_000_000L, \"niobium\").setTranslationKey(\"capacitor_niobium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n\t\tcapacitor_complex = new MachineCapacitor(Material.IRON, 100_000_000_000_000_000L, \"complex\").setTranslationKey(\"capacitor_complex\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 184104,
+          "after_offset": 181378,
+          "old": "\t\tcapacitor_tantalium = new MachineCapacitor(Material.iron, 150_000_000L, \"tantalium\").setBlockName(\"capacitor_tantalium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":block_tantalium\");\r\n\t\tcapacitor_schrabidate = new MachineCapacitor(Material.iron, 50_000_000_000L, \"schrabidate\").setBlockName(\"capacitor_schrabidate\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":block_schrabidate\");\r\n",
+          "new": "\t\tcapacitor_tantalium = new MachineCapacitor(Material.IRON, 150_000_000L, \"tantalium\").setTranslationKey(\"capacitor_tantalium\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n\t\tcapacitor_schrabidate = new MachineCapacitor(Material.IRON, 50_000_000_000L, \"schrabidate\").setTranslationKey(\"capacitor_schrabidate\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);\r\n"
+        },
+        {
+          "before_offset": 202951,
+          "after_offset": 200115,
+          "old": "\t\tbarrel_plastic = new BlockFluidBarrel(Material.iron, 12000).setBlockName(\"barrel_plastic\").setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":barrel_plastic\");\r\n\t\tbarrel_corroded = new BlockFluidBarrel(Material.iron, 6000).setBlockName(\"barrel_corroded\").setStepSound(Block.soundTypeMetal).setHardness(2.0F).setResistance(5.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":barrel_corroded\");\r\n\t\tbarrel_iron = new BlockFluidBarrel(Material.iron, 8000).setBlockName(\"barrel_iron\").setStepSound(Block.soundTypeMetal).setHardness(2.0F).setResistance(5.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":barrel_iron\");\r\n\t\tbarrel_steel = new BlockFluidBarrel(Material.iron, 16000).setBlockName(\"barrel_steel\").setStepSound(Block.soundTypeMetal).setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":barrel_steel\");\r\n\t\tbarrel_tcalloy = new BlockFluidBarrel(Material.iron, 24000).setBlockName(\"barrel_tcalloy\").setStepSound(Block.soundTypeMetal).setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":barrel_tcalloy\");\r\n\t\tbarrel_antimatter = new BlockFluidBarrel(Material.iron, 16000).setBlockName(\"barrel_antimatter\").setStepSound(Block.soundTypeMetal).setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":barrel_antimatter\");\r\n",
+          "new": "\t\tbarrel_plastic = new BlockFluidBarrel(Material.IRON, 12000, net.minecraft.block.SoundType.STONE).setTranslationKey(\"barrel_plastic\").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tbarrel_corroded = new BlockFluidBarrel(Material.IRON, 6000, ModSoundTypes.legacyMetal).setTranslationKey(\"barrel_corroded\").setHardness(2.0F).setResistance(5.0F).setCreativeTab(null);\r\n\t\tbarrel_iron = new BlockFluidBarrel(Material.IRON, 8000, ModSoundTypes.legacyMetal).setTranslationKey(\"barrel_iron\").setHardness(2.0F).setResistance(5.0F).setCreativeTab(null);\r\n\t\tbarrel_steel = new BlockFluidBarrel(Material.IRON, 16000, ModSoundTypes.legacyMetal).setTranslationKey(\"barrel_steel\").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tbarrel_tcalloy = new BlockFluidBarrel(Material.IRON, 24000, ModSoundTypes.legacyMetal).setTranslationKey(\"barrel_tcalloy\").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tbarrel_antimatter = new BlockFluidBarrel(Material.IRON, 16000, ModSoundTypes.legacyMetal).setTranslationKey(\"barrel_antimatter\").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModSoundTypes.java": {
+      "before_sha256": "e16f97c79917f9047c4daade6803a020a24b9285462b068daaa71d26dcd7f607",
+      "after_sha256": "822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c",
+      "edits": [
+        {
+          "before_offset": 127,
+          "after_offset": 127,
+          "old": "",
+          "new": "\t/** Original 1.7 metal type used stone samples and a 1.5 base pitch. */\n\tpublic static final ModSoundType legacyMetal = new ModSoundType(SoundType.STONE.getPlaceSound(),\n\t\t\tSoundType.STONE.getBreakSound(), SoundType.STONE.getStepSound(), 1F, 1.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockDetonatable.java": {
+      "before_sha256": "32b7b1e200bc8c699645a6990abacd3f998aa875f6a67b88abd84fd47445b069",
+      "after_sha256": "1ddce481a507dd1e6ba5c2c5afaf000e22cbef79a78a38346ad303777ff07e14",
+      "edits": [
+        {
+          "before_offset": 197,
+          "after_offset": 197,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 851,
+          "after_offset": 938,
+          "old": "\tpublic void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion) {\n",
+          "new": "\tpublic void onExplosionDestroy(World world, BlockPos pos, Explosion explosion) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1275,
+          "after_offset": 1400,
+          "old": "\t\t\tworld.spawnEntityInWorld(tntPrimed);\n",
+          "new": "\t\t\tworld.spawnEntity(tntPrimed);\n"
+        },
+        {
+          "before_offset": 1425,
+          "after_offset": 1543,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n",
+          "new": "\tpublic void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1565,
+          "after_offset": 1761,
+          "old": "\t\t\tworld.setBlockToAir(x, y, z);\n\t\t\tonBlockDestroyedByExplosion(world, x, y, z, null);\n",
+          "new": "\t\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n\t\t\tonExplosionDestroy(world, pos, null);\n"
+        },
+        {
+          "before_offset": 1748,
+          "after_offset": 1945,
+          "old": "\t\tworld.setBlockToAir(x, y, z);\n",
+          "new": "\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFlammable.java": {
+      "before_sha256": "b2d6a808d267f3c16d6ae02d9fbc8bf83be2151bf74a3d4ecf2567d1f647b689",
+      "after_sha256": "9aaf14ca2f962f5bca4c5017e16bd6b9fa6a180c0b45013ee1184887a2e9e227",
+      "edits": [
+        {
+          "before_offset": 981,
+          "after_offset": 981,
+          "old": "\t\t\tif(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.fire) {\n",
+          "new": "\t\t\tif(world.getBlockState(new BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)).getBlock() == Blocks.FIRE) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPipe.java": {
+      "before_sha256": "7be7a4d1cb1abe6ecf5390077df301b4933d47c4a0cd90f5a3482b35c817bbde",
+      "after_sha256": "f77152040f080649167d0794038ecba94b2897e111b976bf12f1ac8c447fbf02",
+      "edits": [
+        {
+          "before_offset": 56,
+          "after_offset": 56,
+          "old": "\n",
+          "new": ""
+        },
+        {
+          "before_offset": 97,
+          "after_offset": 96,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": "import com.hbm.blocks.ModSoundTypes;\n"
+        },
+        {
+          "before_offset": 181,
+          "after_offset": 186,
+          "old": "\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": "import net.minecraft.entity.EntityLivingBase;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.world.World;\n"
+        },
+        {
+          "before_offset": 425,
+          "after_offset": 468,
+          "old": "import com.hbm.render.icon.IIconRegister;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.World;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 622,
+          "after_offset": 884,
+          "old": "",
+          "new": "/** Decorative pipe metadata retains the original low two bits and pillar-axis bits. */\n"
+        },
+        {
+          "before_offset": 713,
+          "after_offset": 1063,
+          "old": "\n\t@SideOnly(Side.CLIENT)\n\tprivate IIcon sideIcon;\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon frameIcon;\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon meshIcon;\n\n\tprivate String sideString;\n\tpublic int rType = 0; //because registering either new renderer classes or making new block classes is a pain in the ass\n\n\tpublic BlockPipe(Material mat, String tex, int rType) {\n\t\tsuper(mat);\n\t\tthis.sideString = tex;\n\t\tthis.rType = rType;\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.sideIcon = iconRegister.registerIcon(sideString);\n\t\tthis.frameIcon = iconRegister.registerIcon(RefStrings.MODID + \":pipe_frame\");\n\t\tthis.meshIcon = iconRegister.registerIcon(RefStrings.MODID + \":pipe_mesh\");\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn side == 1 ? this.blockIcon : (side == 0 ? this.blockIcon : this.sideIcon);\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int onBlockPlaced(World world, int x, int y, int z, int side, float fX, float fY, float fZ, int meta) {\n\t\tint j1 = meta & 3;\n\t\tbyte b0 = 0;\n\n\t\tswitch(side) {\n\t\tcase 0:\n\t\tcase 1:\n\t\t\tb0 = 0;\n\t\t\tbreak;\n\t\tcase 2:\n\t\tcase 3:\n\t\t\tb0 = 8;\n\t\t\tbreak;\n\t\tcase 4:\n\t\tcase 5:\n\t\t\tb0 = 4;\n\t\t}\n\n\t\treturn j1 | b0;\n\t}\n\n\t@Override\n\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\tlist.add(\"Purely decorative\");\n\t}\n\n\t@Override\n\tpublic int transformMeta(int meta, int coordBaseMode) {\n\t\treturn INBTBlockTransformable.transformMetaPillar(meta, coordBaseMode);\n\t}\n\n",
+          "new": "    private final String sideString;\n    public int rType;\n    public BlockPipe(Material material, String texture, int renderType) {\n        super(material);\n        sideString = texture;\n        rType = renderType;\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n        setSoundType(ModSoundTypes.grate);\n    }\n    public String getSideTexture() { return sideString; }\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    @Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side,\n            float hitX, float hitY, float hitZ, int metadata, EntityLivingBase placer, EnumHand hand) {\n        int axis = side.getAxis() == EnumFacing.Axis.Y ? 0 : side.getAxis() == EnumFacing.Axis.Z ? 8 : 4;\n        return getStateFromMeta((metadata & 3) | axis);\n    }\n    @Override public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean extended) {\n        list.add(\"Purely decorative\");\n    }\n    @Override public int transformMeta(int metadata, int coordBaseMode) {\n        return INBTBlockTransformable.transformMetaPillar(metadata, coordBaseMode);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BrownBarrel.java": {
+      "before_sha256": "fa2be38b1badc11507aaf955bee2d9869bd3c36245458163ae2a2216248009eb",
+      "after_sha256": "8717cc85ec6a348988fbc2c8ca80e812e220da1e5383e765c8ee7ff752385025",
+      "edits": [
+        {
+          "before_offset": 92,
+          "after_offset": 92,
+          "old": "import com.hbm.blocks.machine.BlockFluidBarrel;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 460,
+          "after_offset": 413,
+          "old": "import net.minecraft.client.audio.SoundCategory;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 738,
+          "after_offset": 643,
+          "old": "import net.minecraftforge.client.event.sound.SoundEvent;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumParticleTypes;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\n\n\n"
+        },
+        {
+          "before_offset": 935,
+          "after_offset": 1204,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 950,
+          "after_offset": 1291,
+          "old": "\tpublic void onBlockDestroyedByExplosion(World p_149723_1_, int p_149723_2_, int p_149723_3_, int p_149723_4_, Explosion p_149723_5_) {\n",
+          "new": "\tpublic void onExplosionDestroy(World p_149723_1_, BlockPos pos, Explosion p_149723_5_) {\n\t\tint p_149723_2_ = pos.getX(), p_149723_3_ = pos.getY(), p_149723_4_ = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1420,
+          "after_offset": 1799,
+          "old": "    public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {\n        super.breakBlock(world, x, y, z, block, metadata);\n",
+          "new": "    public void breakBlock(World world, BlockPos pos, IBlockState state) {\n        super.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 1683,
+          "after_offset": 2033,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn BlockFluidBarrel.renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(.125, 0, .125, .875, 1, .875);\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n"
+        },
+        {
+          "before_offset": 2567,
+          "after_offset": 3478,
+          "old": "\tpublic void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_) {\n\t\tsuper.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);\n",
+          "new": "\tpublic void randomDisplayTick(IBlockState state, World p_149734_1_, BlockPos pos, Random p_149734_5_) {\n\t\tsuper.randomDisplayTick(state, p_149734_1_, pos, p_149734_5_);\n"
+        },
+        {
+          "before_offset": 2797,
+          "after_offset": 3663,
+          "old": "\tpublic void updateTick(World world, int x, int y, int z, Random rand) {\n\t\tsuper.updateTick(world, x, y, z, rand);\n",
+          "new": "\tpublic void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tsuper.updateTick(world, pos, state, rand);\n"
+        },
+        {
+          "before_offset": 3004,
+          "after_offset": 3939,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 3138,
+          "after_offset": 4064,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoPoleTop.java": {
+      "before_sha256": "6a7f8c3a3536fc0d82d16389197368bb85d426a9df6fb50ac370105068d0cf78",
+      "after_sha256": "1c8996569b86637f3aac9f159ad6481817f23aac7e145fd616305b64879c3eb5",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 178,
+          "after_offset": 113,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 220,
+          "after_offset": 570,
+          "old": "\n\tpublic DecoPoleTop(Material p_i45386_1_) {\n\t\tsuper(p_i45386_1_);\n\t}\n    \n    public static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\t\n\t@Override\n\tpublic int getRenderType(){\n\t\treturn renderID;\n\t}\n\t\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n",
+          "new": "    public DecoPoleTop(Material material) {\n        super(material);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/HEVBattery.java": {
+      "before_sha256": "19322c75176c270bdbf0d6e6d5fc4fbf0c7b78ef59b4b076b1ebca026e0f1772",
+      "after_sha256": "8f85a87687384474ad0419aed6eda46ce4b0e87e6f70c72c0985e725a6a3486f",
+      "edits": [
+        {
+          "before_offset": 114,
+          "after_offset": 114,
+          "old": "\n",
+          "new": "import com.hbm.main.ModSoundEvents;\n"
+        },
+        {
+          "before_offset": 154,
+          "after_offset": 189,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "import net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.SoundCategory;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport net.minecraft.world.World;\n"
+        },
+        {
+          "before_offset": 299,
+          "after_offset": 512,
+          "old": "import net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.init.Blocks;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.math.AxisAlignedBB;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 506,
+          "after_offset": 927,
+          "old": "import net.minecraft.world.World;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 581,
+          "after_offset": 968,
+          "old": "\n\tpublic HEVBattery(Material mat) {\n\t\tsuper(mat);\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(6 * f, 0.0F, 6 * f, 10 * f, 6 * f, 10 * f);\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(6 * f, 0.0F, 6 * f, 10 * f, 6 * f, 10 * f);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n\n\t\tif(world.isRemote) {\n\t\t\treturn true;\n\t\t\t\n\t\t} else if(!player.isSneaking()) {\n\n\t\t\tif(ArmorFSB.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[3].getItem() instanceof ArmorFSBPowered) {\n\n\t\t\t\tfor(ItemStack st : player.inventory.armorInventory) {\n\n\t\t\t\t\tif(st == null)\n\t\t\t\t\t\tcontinue;\n\n\t\t\t\t\tif(st.getItem() instanceof IBatteryItem) {\n\n\t\t\t\t\t\tlong maxcharge = ((IBatteryItem) st.getItem()).getMaxCharge(st);\n\t\t\t\t\t\tlong charge = ((IBatteryItem) st.getItem()).getCharge(st);\n\t\t\t\t\t\tlong newcharge = Math.min(charge + 150000, maxcharge);\n\n\t\t\t\t\t\t((IBatteryItem) st.getItem()).setCharge(st, newcharge);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.battery\", 1.0F, 1.0F);\n\t\t\t\tworld.setBlock(x, y, z, Blocks.air, 0, 3);\n\t\t\t}\n\n\t\t\treturn true;\n\t\t} else {\n\t\t\treturn false;\n\t\t}\n\t}\n",
+          "new": "    private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(6D / 16D, 0, 6D / 16D, 10D / 16D, 6D / 16D, 10D / 16D);\n    public HEVBattery(Material material) {\n        super(material);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n    @Override public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,\n            EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n        if(world.isRemote) return true;\n        if(player.isSneaking()) return false;\n        if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory.get(3).getItem() instanceof ArmorFSBPowered) {\n            for(ItemStack stack : player.inventory.armorInventory) {\n                if(stack.isEmpty()) continue;\n                if(stack.getItem() instanceof IBatteryItem) {\n                    IBatteryItem battery = (IBatteryItem)stack.getItem();\n                    long maxcharge = battery.getMaxCharge(stack);\n                    long charge = battery.getCharge(stack);\n                    long newcharge = Math.min(charge + 150000, maxcharge);\n                    battery.setCharge(stack, newcharge);\n                }\n            }\n            world.playSound(null, player.posX, player.posY, player.posZ, ModSoundEvents.ITEM_BATTERY, SoundCategory.PLAYERS, 1F, 1F);\n            world.setBlockToAir(pos);\n        }\n        return true;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/RedBarrel.java": {
+      "before_sha256": "8345faf8aabb44f95bbecc6f90d92bfd31b4c96c6a5eeca8e2bec7bfd247c13b",
+      "after_sha256": "2992c56ecb4a0b9a30f07d0a375e1c9980c6d0e5e84c17702fee262c3bcfd35e",
+      "edits": [
+        {
+          "before_offset": 137,
+          "after_offset": 137,
+          "old": "import com.hbm.blocks.machine.BlockFluidBarrel;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 520,
+          "after_offset": 473,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumParticleTypes;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\n\n"
+        },
+        {
+          "before_offset": 756,
+          "after_offset": 1129,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 760,
+          "after_offset": 1205,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn BlockFluidBarrel.renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess access, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(.125, 0, .125, .875, 1, .875);\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n"
+        },
+        {
+          "before_offset": 1592,
+          "after_offset": 2633,
+          "old": "\t\tint ix = MathHelper.floor_double(x), iy = MathHelper.floor_double(y), iz = MathHelper.floor_double(z);\n",
+          "new": "\t\tint ix = MathHelper.floor(x), iy = MathHelper.floor(y), iz = MathHelper.floor(z);\n"
+        },
+        {
+          "before_offset": 2260,
+          "after_offset": 3280,
+          "old": "\t\t\t\tBlock block = world.getBlock(a, b, c);\n\t\t\t\tif(block.isNormalCube() && !block.isAir(world, a, b, c)) {\n\t\t\t\t\tworld.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);\n",
+          "new": "\t\t\t\tBlockPos pos = new BlockPos(a, b, c);\n\t\t\t\tIBlockState state = world.getBlockState(pos);\n\t\t\t\tBlock block = state.getBlock();\n\t\t\t\tif(block.isNormalCube(state) && !block.isAir(state, world, pos)) {\n\t\t\t\t\tworld.setBlockState(pos, ModBlocks.taint.getStateFromMeta(rand.nextInt(3) + 4), 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/YellowBarrel.java": {
+      "before_sha256": "a4152e2030c21ac0e2d35f4bd56c2a1f5883dddf239b3674a02afdaf18241112",
+      "after_sha256": "46954392f4156e3b7ac651179c07b0fbf5d03dccb6547df6989bb461a30db587",
+      "edits": [
+        {
+          "before_offset": 137,
+          "after_offset": 137,
+          "old": "import com.hbm.blocks.machine.BlockFluidBarrel;\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 717,
+          "after_offset": 670,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumParticleTypes;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\n\n"
+        },
+        {
+          "before_offset": 887,
+          "after_offset": 1260,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 902,
+          "after_offset": 1347,
+          "old": "\tpublic void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion) {\n",
+          "new": "\tpublic void onExplosionDestroy(World world, BlockPos pos, Explosion explosion) {\n"
+        },
+        {
+          "before_offset": 1047,
+          "after_offset": 1476,
+          "old": "\t\tsuper.onBlockDestroyedByExplosion(world, x, y, z, explosion);\n",
+          "new": "\t\tsuper.onExplosionDestroy(world, pos, explosion);\n\t}\n\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(.125, 0, .125, .875, 1, .875);\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tsuper.randomDisplayTick(state, world, pos, rand);\n\n\t\tworld.spawnParticle(EnumParticleTypes.TOWN_AURA, x + rand.nextFloat() * 0.5F + 0.25F, y + 1.1F, z + rand.nextFloat() * 0.5F + 0.25F, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 1126,
+          "after_offset": 3251,
+          "old": "\tpublic int getRenderType() {\n\t\treturn BlockFluidBarrel.renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void randomDisplayTick(World world, int x, int y, int z, Random rand) {\n\t\tsuper.randomDisplayTick(world, x, y, z, rand);\n\n\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat() * 0.5F + 0.25F, y + 1.1F, z + rand.nextFloat() * 0.5F + 0.25F, 0.0D, 0.0D, 0.0D);\n\t}\n\n\t@Override\n\tpublic void updateTick(World world, int x, int y, int z, Random rand) {\n\t\tsuper.updateTick(world, x, y, z, rand);\n",
+          "new": "\tpublic void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tsuper.updateTick(world, pos, state, rand);\n"
+        },
+        {
+          "before_offset": 2484,
+          "after_offset": 3616,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 2618,
+          "after_offset": 3741,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tworld.scheduleUpdate(pos, this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 2899,
+          "after_offset": 4028,
+          "old": "\t\tint ix = MathHelper.floor_double(x), iy = MathHelper.floor_double(y), iz = MathHelper.floor_double(z);\n",
+          "new": "\t\tint ix = MathHelper.floor(x), iy = MathHelper.floor(y), iz = MathHelper.floor(z);\n"
+        },
+        {
+          "before_offset": 3034,
+          "after_offset": 4142,
+          "old": "\t\t\tworld.setBlock(ix, iy, iz, ModBlocks.toxic_block);\n",
+          "new": "\t\t\tworld.setBlockState(new BlockPos(ix, iy, iz), ModBlocks.toxic_block.getDefaultState());\n"
+        },
+        {
+          "before_offset": 3321,
+          "after_offset": 4466,
+          "old": "\t\t\t\t\tif(world.rand.nextInt(5) == 0 && world.getBlock(ix + i, iy + j, iz + k) == Blocks.air)\n\t\t\t\t\t\tworld.setBlock(ix + i, iy + j, iz + k, ModBlocks.gas_radon_dense);\n",
+          "new": "\t\t\t\t\tif(world.rand.nextInt(5) == 0 && world.getBlockState(new BlockPos(ix + i, iy + j, iz + k)).getBlock() == Blocks.AIR)\n\t\t\t\t\t\tworld.setBlockState(new BlockPos(ix + i, iy + j, iz + k), ModBlocks.gas_radon_dense.getDefaultState());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java": {
+      "before_sha256": "5033bfc32e6d0398237e58f96c8148a991e264a559c71fe7f64832e05a49aa98",
+      "after_sha256": "ed4b9553094996c0d3eb80a08138d9cd34ca38b6e6d835afe2d7d5ef73618f49",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import java.util.ArrayList;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 546,
+          "after_offset": 518,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 807,
+          "after_offset": 714,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.NonNullList;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 1578,
+          "after_offset": 1934,
+          "old": "\t\n",
+          "new": "\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n\n"
+        },
+        {
+          "before_offset": 1659,
+          "after_offset": 2941,
+          "old": "",
+          "new": "\t\tthis(p_i45386_1_, capacity, net.minecraft.block.SoundType.STONE);\n\t}\n\n\tpublic BlockFluidBarrel(Material p_i45386_1_, int capacity, net.minecraft.block.SoundType sound) {\n"
+        },
+        {
+          "before_offset": 1681,
+          "after_offset": 3135,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n\t\tsetSoundType(sound);\n"
+        },
+        {
+          "before_offset": 1845,
+          "after_offset": 3394,
+          "old": "    \n    public static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1942,
+          "after_offset": 3406,
+          "old": "\tpublic int getRenderType(){\n\t\treturn renderID;\n\t}\n\t\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tItemStack held = player.getHeldItem(hand);\n"
+        },
+        {
+          "before_offset": 2492,
+          "after_offset": 3888,
+          "old": "\t\t\tTileEntityBarrel mileEntity = (TileEntityBarrel) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityBarrel mileEntity = (TileEntityBarrel) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 2575,
+          "after_offset": 3967,
+          "old": "\t\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {\n\t\t\t\tFluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, x, y, z, player.getHeldItem());\n",
+          "new": "\t\t\tif(!held.isEmpty() && held.getItem() instanceof IItemFluidIdentifier) {\n\t\t\t\tFluidType type = ((IItemFluidIdentifier) held.getItem()).getType(world, x, y, z, held);\n"
+        },
+        {
+          "before_offset": 3167,
+          "after_offset": 4498,
+          "old": "\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t}\n",
+          "new": "\tprivate static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.125D, 0D, 0.125D, 0.875D, 1D, 0.875D);\n"
+        },
+        {
+          "before_offset": 3398,
+          "after_offset": 4614,
+          "old": "\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tfloat f = 0.0625F;\n\t\tthis.setBlockBounds(2 * f, 0.0F, 2 * f, 14 * f, 1.0F, 14 * f);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": "\tpublic AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n"
+        },
+        {
+          "before_offset": 3810,
+          "after_offset": 4957,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state) {\n\t\tint p_149749_2_ = pos.getX(), p_149749_3_ = pos.getY(), p_149749_4_ = pos.getZ();\n"
+        },
+        {
+          "before_offset": 3965,
+          "after_offset": 5142,
+          "old": "\t\t\tISidedInventory tileentityfurnace = (ISidedInventory) p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);\n",
+          "new": "\t\t\tISidedInventory tileentityfurnace = (ISidedInventory) p_149749_1_.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 5541,
+          "after_offset": 6684,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(pos, state.getBlock());\n"
+        },
+        {
+          "before_offset": 5634,
+          "after_offset": 6762,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, pos, state);\n"
+        },
+        {
+          "before_offset": 5747,
+          "after_offset": 6822,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n\t\tsuper.onBlockPlacedBy(world, x, y, z, player, stack);\n\t\tIPersistentNBT.restoreData(world, x, y, z, stack);\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n\t\tsuper.onBlockPlacedBy(world, pos, state, player, stack);\n\t\tIPersistentNBT.restoreData(world, pos.getX(), pos.getY(), pos.getZ(), stack);\n"
+        },
+        {
+          "before_offset": 5979,
+          "after_offset": 7096,
+          "old": "\tpublic ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {\n\t\treturn IPersistentNBT.getDrops(world, x, y, z, this);\n",
+          "new": "\tpublic void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {\n\t\tif(world instanceof World) drops.addAll(IPersistentNBT.getDrops((World) world, pos.getX(), pos.getY(), pos.getZ(), this));\n"
+        },
+        {
+          "before_offset": 6151,
+          "after_offset": 7356,
+          "old": "\tpublic void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {\n",
+          "new": "\tpublic void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {\n"
+        },
+        {
+          "before_offset": 6322,
+          "after_offset": 7529,
+          "old": "\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n",
+          "new": "\t\t\tthis.dropBlockAsItem(world, pos, state, 0);\n"
+        },
+        {
+          "before_offset": 6417,
+          "after_offset": 7621,
+          "old": "\tpublic void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {\n\t\tplayer.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);\n",
+          "new": "\tpublic void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {\n\t\tplayer.addStat(StatList.getBlockStats(this), 1);\n"
+        },
+        {
+          "before_offset": 6629,
+          "after_offset": 7847,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(IBlockState state) {\n"
+        },
+        {
+          "before_offset": 6706,
+          "after_offset": 7941,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(IBlockState state, World world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 6792,
+          "after_offset": 8029,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(pos);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java": {
+      "before_sha256": "ae2b2f7e300db05d93bb965fdbb7c641b3899d889977e44f947b90caa9b19204",
+      "after_sha256": "802b7fb0b711b0920c9b0a04c25845ae913eea1c249756b5ce14dd900022deda",
+      "edits": [
+        {
+          "before_offset": 523,
+          "after_offset": 523,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 677,
+          "after_offset": 646,
+          "old": "import com.hbm.util.fauxpointtwelve.BlockPos;\n",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 901,
+          "after_offset": 865,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1185,
+          "after_offset": 986,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.NonNullList;\n"
+        },
+        {
+          "before_offset": 1528,
+          "after_offset": 1695,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1596,
+          "after_offset": 1729,
+          "old": "",
+          "new": "import net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 1822,
+          "after_offset": 1996,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconSide;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) public IIcon iconInnerTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconInnerSide;\n",
+          "new": "\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n\n"
+        },
+        {
+          "before_offset": 2186,
+          "after_offset": 3042,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 2232,
+          "after_offset": 3160,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":capacitor_\" + name + \"_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":capacitor_\" + name + \"_side\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":capacitor_\" + name + \"_bottom\");\n\t\tthis.iconInnerTop = iconRegister.registerIcon(RefStrings.MODID + \":capacitor_\" + name + \"_inner_top\");\n\t\tthis.iconInnerSide = iconRegister.registerIcon(RefStrings.MODID + \":capacitor_\" + name + \"_inner_side\");\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override public int getRenderType() { return renderID; }\n\t@Override public boolean isOpaqueCube() { return false; }\n\t@Override public boolean renderAsNormalBlock() { return false; }\n",
+          "new": "\tpublic String getModelMaterial() { return name; }\n"
+        },
+        {
+          "before_offset": 3150,
+          "after_offset": 3223,
+          "old": "\tpublic int onBlockPlaced(World world, int x, int y, int z, int side, float fX, float fY, float fZ, int meta) {\n\t\treturn side;\n",
+          "new": "\tpublic IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float fX, float fY, float fZ, int meta, EntityLivingBase placer, EnumHand hand) {\n\t\treturn getStateFromMeta(side.getIndex());\n"
+        },
+        {
+          "before_offset": 3488,
+          "after_offset": 3645,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4350,
+          "after_offset": 4521,
+          "old": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        },
+        {
+          "before_offset": 5913,
+          "after_offset": 6083,
+          "old": "\tpublic ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {\n\t\treturn IPersistentNBT.getDrops(world, x, y, z, this);\n",
+          "new": "\tpublic void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {\n\t\tif(world instanceof World) drops.addAll(IPersistentNBT.getDrops((World) world, pos.getX(), pos.getY(), pos.getZ(), this));\n"
+        },
+        {
+          "before_offset": 6085,
+          "after_offset": 6343,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tIPersistentNBT.restoreData(world, x, y, z, itemStack);\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tIPersistentNBT.restoreData(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);\n"
+        },
+        {
+          "before_offset": 6268,
+          "after_offset": 6565,
+          "old": "\tpublic void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {\n",
+          "new": "\tpublic void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {\n"
+        },
+        {
+          "before_offset": 6437,
+          "after_offset": 6736,
+          "old": "\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n",
+          "new": "\t\t\tthis.dropBlockAsItem(world, pos, state, 0);\n"
+        },
+        {
+          "before_offset": 6531,
+          "after_offset": 6827,
+          "old": "\tpublic void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {\n\t\tplayer.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);\n",
+          "new": "\tpublic void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {\n\t\tplayer.addStat(StatList.getBlockStats(this), 1);\n"
+        },
+        {
+          "before_offset": 7084,
+          "after_offset": 7394,
+          "old": "",
+          "new": "\n\t\t/** Placement metadata does not change the stored energy tile's identity. */\n\t\t@Override\n\t\tpublic boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {\n\t\t\treturn oldState.getBlock() != newState.getBlock();\n\t\t}\n"
+        },
+        {
+          "before_offset": 7750,
+          "after_offset": 8314,
+          "old": "\t\t\t\twhile(this.world.getBlock(pos.getX(), pos.getY(), pos.getZ()) == ModBlocks.capacitor_bus) {\n\t\t\t\t\tForgeDirection current = ForgeDirection.getOrientation(this.world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));\n",
+          "new": "\t\t\t\twhile(this.world.getBlockState(pos).getBlock() == ModBlocks.capacitor_bus) {\n\t\t\t\t\tForgeDirection current = ForgeDirection.getOrientation(this.world.getBlockState(pos).getBlock().getMetaFromState(this.world.getBlockState(pos)));\n"
+        },
+        {
+          "before_offset": 8094,
+          "after_offset": 8668,
+          "old": "\t\t\t\t\tpos = pos.offset(current);\n",
+          "new": "\t\t\t\t\tpos = pos.add(current.offsetX, current.offsetY, current.offsetZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "872d544db9cb6413c6d1af20150ca2d2151271b3be68feab2eec48fdb3845f50",
+      "after_sha256": "5d23831b3bde8c5eab0938c4a5b1e2a27f6c555fd37a7a4d79ef25cd7def294f",
+      "edits": [
+        {
+          "before_offset": 76910,
+          "after_offset": 76910,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderBarrel());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 77033,
+          "after_offset": 76971,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderAntennaTop());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 77612,
+          "after_offset": 77484,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderPipe());\n\t\tRenderingRegistry.registerBlockHandler(new RenderBattery());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 78581,
+          "after_offset": 78330,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderCapacitor());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 88942,
+          "after_offset": 88626,
+          "old": "\t\t\t\t\tfx.motionY = rand.nextGaussian() * (1 + (count / 100));\n\t\t\t\t\tfx.motionX = rand.nextGaussian() * (1 + (count / 150));\n\t\t\t\t\tfx.motionZ = rand.nextGaussian() * (1 + (count / 150));\n\t\t\t\t\tif(rand.nextBoolean()) fx.motionY = Math.abs(fx.motionY);\n",
+          "new": "\t\t\t\t\tdouble motionY = rand.nextGaussian() * (1 + (count / 100));\n\t\t\t\t\tdouble motionX = rand.nextGaussian() * (1 + (count / 150));\n\t\t\t\t\tdouble motionZ = rand.nextGaussian() * (1 + (count / 150));\n\t\t\t\t\tif(rand.nextBoolean()) motionY = Math.abs(motionY);\n\t\t\t\t\tfx.setMotion(motionX, motionY, motionZ);\n"
+        },
+        {
+          "before_offset": 89397,
+          "after_offset": 89133,
+          "old": "\t\t\t\t\tfx.motionY = rand.nextGaussian() * (1 + (count / 50));\n\t\t\t\t\tfx.motionX = rand.nextGaussian() * (1 + (count / 50));\n\t\t\t\t\tfx.motionZ = rand.nextGaussian() * (1 + (count / 50));\n",
+          "new": "\t\t\t\t\tdouble motionY = rand.nextGaussian() * (1 + (count / 50));\n\t\t\t\t\tdouble motionX = rand.nextGaussian() * (1 + (count / 50));\n\t\t\t\t\tdouble motionZ = rand.nextGaussian() * (1 + (count / 50));\n\t\t\t\t\tfx.setMotion(motionX, motionY, motionZ);\n"
+        },
+        {
+          "before_offset": 90351,
+          "after_offset": 90145,
+          "old": "\t\t\t\t\tfx.motionY = 0;\n\t\t\t\t\tfx.motionX = vec.x;\n\t\t\t\t\tfx.motionZ = vec.z;\n",
+          "new": "\t\t\t\t\tfx.setMotion(vec.x, 0, vec.z);\n"
+        },
+        {
+          "before_offset": 90878,
+          "after_offset": 90637,
+          "old": "\t\t\t\t\tfx.motionY = 0;\n\t\t\t\t\tfx.motionX = vec.x * r;\n\t\t\t\t\tfx.motionZ = vec.z * r;\n",
+          "new": "\t\t\t\t\tfx.setMotion(vec.x * r, 0, vec.z * r);\n"
+        },
+        {
+          "before_offset": 91410,
+          "after_offset": 91134,
+          "old": "\t\t\t\t\tfx.motionY = 0;\n\t\t\t\t\tfx.motionX = 0;\n\t\t\t\t\tfx.motionZ = 0;\n",
+          "new": "\t\t\t\t\tfx.setMotion(0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModSoundEvents.java": {
+      "before_sha256": "350fa2e1be0cf1d77c771eec8cf018ab50d6e300f0c16026a588913751fa4703",
+      "after_sha256": "4c473be88e9e510470ef3b3a26d80e20db1b52e959831ab917aad3cd336066d5",
+      "edits": [
+        {
+          "before_offset": 959,
+          "after_offset": 959,
+          "old": "",
+          "new": "\tpublic static final SoundEvent ITEM_BATTERY = create(\"item.battery\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/EntityFXRotating.java": {
+      "before_sha256": "c6f2fd0b9d328a2c94a94f929eaeffba1584644338d03b2c1cfa5af18951f277",
+      "after_sha256": "62ba2ee2ba35229a49cb0f418d04717134bd38eb586410119c1a5dbd0c5a080e",
+      "edits": [
+        {
+          "before_offset": 125,
+          "after_offset": 125,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 318,
+          "after_offset": 356,
+          "old": "public class EntityFXRotating extends EntityFX {\n",
+          "new": "/** Native atlas particle with the original degree-based billboard rotation. */\npublic class EntityFXRotating extends Particle {\n\n\tprotected float spinDegrees, previousSpinDegrees;\n\t// Purely visual variation, no longer consumes the shared Entity ID counter.\n\tprotected final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;\n\n\tpublic void setMotion(double x, double y, double z) {\n\t\tthis.motionX = x;\n\t\tthis.motionY = y;\n\t\tthis.motionZ = z;\n\t}\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n"
+        },
+        {
+          "before_offset": 524,
+          "after_offset": 1042,
+          "old": "\tpublic void renderParticleRotated(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ, double scale) {\n",
+          "new": "\tpublic void renderParticleRotated(BufferBuilder tess, float interp, float sX, float sY, float sZ, float dX, float dZ, double scale, float red, float green, float blue, float alpha, int brightness) {\n"
+        },
+        {
+          "before_offset": 955,
+          "after_offset": 1540,
+          "old": "\t\tfloat rotation = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * interp;\n",
+          "new": "\t\tfloat rotation = this.previousSpinDegrees + (this.spinDegrees - this.previousSpinDegrees) * interp;\n"
+        },
+        {
+          "before_offset": 2607,
+          "after_offset": 3194,
+          "old": "\t\ttess.addVertexWithUV(pX + x01, pY + y01, pZ + z01, particleIcon.getMaxU(), particleIcon.getMaxV());\n\t\ttess.addVertexWithUV(pX + x02, pY + y02, pZ + z02, particleIcon.getMaxU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV(pX + x03, pY + y03, pZ + z03, particleIcon.getMinU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV(pX + x04, pY + y04, pZ + z04, particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\t\tParticleAtlasVertex.append(tess, pX + x01, pY + y01, pZ + z01, particleTexture.getMaxU(), particleTexture.getMaxV(), red, green, blue, alpha, brightness);\n\t\tParticleAtlasVertex.append(tess, pX + x02, pY + y02, pZ + z02, particleTexture.getMaxU(), particleTexture.getMinV(), red, green, blue, alpha, brightness);\n\t\tParticleAtlasVertex.append(tess, pX + x03, pY + y03, pZ + z03, particleTexture.getMinU(), particleTexture.getMinV(), red, green, blue, alpha, brightness);\n\t\tParticleAtlasVertex.append(tess, pX + x04, pY + y04, pZ + z04, particleTexture.getMinU(), particleTexture.getMaxV(), red, green, blue, alpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleAshes.java": {
+      "before_sha256": "ad63b6b08d275568bd9ff2c110d9d4920e4346c3e1d6e06ad533d4b02a49fe39",
+      "after_sha256": "d8d0b65b975325b2ff959fcd5c7be62c80039dccec464454ca9aaa63d2607d16",
+      "edits": [
+        {
+          "before_offset": 27,
+          "after_offset": 27,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 197,
+          "after_offset": 154,
+          "old": "import net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 465,
+          "after_offset": 460,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 967,
+          "after_offset": 951,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1028,
+          "after_offset": 1015,
+          "old": "\t\tthis.prevRotationPitch = this.rotationPitch;\n",
+          "new": "\t\tthis.previousSpinDegrees = this.spinDegrees;\n"
+        },
+        {
+          "before_offset": 1078,
+          "after_offset": 1065,
+          "old": "\t\tif(!this.onGround) this.rotationPitch += 2 * ((this.getEntityId() % 2) - 0.5);\n",
+          "new": "\t\tif(!this.onGround) this.spinDegrees += 2 * ((this.visualSeed % 2) - 0.5);\n"
+        },
+        {
+          "before_offset": 1277,
+          "after_offset": 1259,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n\t\tif(!wasOnGround && this.onGround) this.rotationPitch = rand.nextFloat() * 360F;\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n\t\tif(!wasOnGround && this.onGround) this.spinDegrees = rand.nextFloat() * 360F;\n"
+        },
+        {
+          "before_offset": 1423,
+          "after_offset": 1397,
+          "old": "\t\tif(this.getEntityId() % 5 == 0 && this.onGround && rand.nextInt(15) == 0) {\n\t\t\tworldObj.spawnParticle(\"smoke\", posX, posY + 0.125, posZ, 0, 0.05, 0);\n",
+          "new": "\t\tif(this.visualSeed % 5 == 0 && this.onGround && rand.nextInt(15) == 0) {\n\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.125, posZ, 0, 0.05, 0);\n"
+        },
+        {
+          "before_offset": 1594,
+          "after_offset": 1604,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n\t\tint brightness = getBrightnessForRender(interp);\n"
+        },
+        {
+          "before_offset": 1888,
+          "after_offset": 1966,
+          "old": "\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2353,
+          "after_offset": 2292,
+          "old": "\t\t\tVec3NT vec = new Vec3NT(particleScale, 0, particleScale).rotateAroundYDeg(this.rotationPitch);\n",
+          "new": "\t\t\tVec3NT vec = new Vec3NT(particleScale, 0, particleScale).rotateAroundYDeg(this.spinDegrees);\n"
+        },
+        {
+          "before_offset": 2452,
+          "after_offset": 2389,
+          "old": "\t\t\ttess.addVertexWithUV(pX + vec.x, pY + 0.05, pZ + vec.z, particleIcon.getMaxU(), particleIcon.getMaxV());\n",
+          "new": "\t\t\tParticleAtlasVertex.append(tess, pX + vec.x, pY + 0.05, pZ + vec.z, particleTexture.getMaxU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2589,
+          "after_offset": 2633,
+          "old": "\t\t\ttess.addVertexWithUV(pX + vec.x, pY + 0.05, pZ + vec.z, particleIcon.getMaxU(), particleIcon.getMinV());\n",
+          "new": "\t\t\tParticleAtlasVertex.append(tess, pX + vec.x, pY + 0.05, pZ + vec.z, particleTexture.getMaxU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2726,
+          "after_offset": 2877,
+          "old": "\t\t\ttess.addVertexWithUV(pX + vec.x, pY + 0.05, pZ + vec.z, particleIcon.getMinU(), particleIcon.getMinV());\n",
+          "new": "\t\t\tParticleAtlasVertex.append(tess, pX + vec.x, pY + 0.05, pZ + vec.z, particleTexture.getMinU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2863,
+          "after_offset": 3121,
+          "old": "\t\t\ttess.addVertexWithUV(pX + vec.x, pY + 0.05, pZ + vec.z, particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\t\t\tParticleAtlasVertex.append(tess, pX + vec.x, pY + 0.05, pZ + vec.z, particleTexture.getMinU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2982,
+          "after_offset": 3347,
+          "old": "\t\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, this.particleScale);\n",
+          "new": "\t\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, this.particleScale, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleBlackPowderSmoke.java": {
+      "before_sha256": "ccae05dccb62d29ca5276f40aac39680413aaed4d0e7f0feabb2c32b3cb10ce4",
+      "after_sha256": "bd811def9a77af9394f53d4f4cb5160973445ae6b2c045fc784f979fbf1a61d4",
+      "edits": [
+        {
+          "before_offset": 51,
+          "after_offset": 51,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 193,
+          "after_offset": 150,
+          "old": "import net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 547,
+          "after_offset": 542,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 982,
+          "after_offset": 966,
+          "old": "\t\tthis.noClip = true;\n",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1206,
+          "after_offset": 1195,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1267,
+          "after_offset": 1259,
+          "old": "\t\tthis.prevRotationPitch = this.rotationPitch;\n",
+          "new": "\t\tthis.previousSpinDegrees = this.spinDegrees;\n"
+        },
+        {
+          "before_offset": 1393,
+          "after_offset": 1385,
+          "old": "\t\tthis.rotationPitch += (1 - ageScaled) * 2 * ((this.getEntityId() % 2) - 0.5);\n",
+          "new": "\t\tthis.spinDegrees += (1 - ageScaled) * 2 * ((this.visualSeed % 2) - 0.5);\n"
+        },
+        {
+          "before_offset": 1552,
+          "after_offset": 1539,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 1628,
+          "after_offset": 1609,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n"
+        },
+        {
+          "before_offset": 1836,
+          "after_offset": 1834,
+          "old": "\t\tColor color = Color.getHSBColor(hue / 255F, Math.max(1F - (float) ageScaled * 4F, 0), MathHelper.clamp_float(1.25F - (float) ageScaled * 2F, 0.7F, 1F));\n",
+          "new": "\t\tColor color = Color.getHSBColor(hue / 255F, Math.max(1F - (float) ageScaled * 4F, 0), MathHelper.clamp(1.25F - (float) ageScaled * 2F, 0.7F, 1F));\n"
+        },
+        {
+          "before_offset": 2206,
+          "after_offset": 2198,
+          "old": "\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.25F);\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2447,
+          "after_offset": 2294,
+          "old": "\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale);\n",
+          "new": "\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.25F, getBrightnessForRender(interp));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleBlackPowderSpark.java": {
+      "before_sha256": "083f55a0883a55c00e67c196e08181bacf102ae545d4a5e41785f746ea650fde",
+      "after_sha256": "8455170e15ea373f5e6f4e50017c6e93d786086ab851ce307b4b769ddc64251b",
+      "edits": [
+        {
+          "before_offset": 125,
+          "after_offset": 125,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\n"
+        },
+        {
+          "before_offset": 230,
+          "after_offset": 230,
+          "old": "public class ParticleBlackPowderSpark extends EntityFX {\n",
+          "new": "public class ParticleBlackPowderSpark extends Particle {\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n\n"
+        },
+        {
+          "before_offset": 1016,
+          "after_offset": 1083,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 1188,
+          "after_offset": 1249,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDeadLeaf.java": {
+      "before_sha256": "c138a9ea2363c3eeb806369526c227cccf9c1367e6e2f8b2a8b18f21886f1a40",
+      "after_sha256": "09ce950d0d1d3bb3ad21f549371ba5565960bf71675e348f166082e118a7f2cf",
+      "edits": [
+        {
+          "before_offset": 27,
+          "after_offset": 27,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 126,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 385,
+          "after_offset": 380,
+          "old": "public class ParticleDeadLeaf extends EntityFX {\n",
+          "new": "public class ParticleDeadLeaf extends Particle {\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n\n\n\tprivate final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;\n"
+        },
+        {
+          "before_offset": 553,
+          "after_offset": 699,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleLeaf;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.leaf;\n"
+        },
+        {
+          "before_offset": 1115,
+          "after_offset": 1250,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\n\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tint brightness = getBrightnessForRender(interp);\n"
+        },
+        {
+          "before_offset": 1700,
+          "after_offset": 1765,
+          "old": "\t\tboolean flipU = this.getEntityId() % 2 == 0;\n\t\tboolean flipV = this.getEntityId() % 4 < 2;\n",
+          "new": "\t\tboolean flipU = this.visualSeed % 2 == 0;\n\t\tboolean flipV = this.visualSeed % 4 < 2;\n"
+        },
+        {
+          "before_offset": 1794,
+          "after_offset": 1853,
+          "old": "\t\tdouble minU = flipU ? particleIcon.getMaxU() : particleIcon.getMinU();\n\t\tdouble maxU = flipU ? particleIcon.getMinU() : particleIcon.getMaxU();\n\t\tdouble minV = flipV ? particleIcon.getMaxV() : particleIcon.getMinV();\n\t\tdouble maxV = flipV ? particleIcon.getMinV() : particleIcon.getMaxV();\n",
+          "new": "\t\tdouble minU = flipU ? particleTexture.getMaxU() : particleTexture.getMinU();\n\t\tdouble maxU = flipU ? particleTexture.getMinU() : particleTexture.getMaxU();\n\t\tdouble minV = flipV ? particleTexture.getMaxV() : particleTexture.getMinV();\n\t\tdouble maxV = flipV ? particleTexture.getMinV() : particleTexture.getMaxV();\n"
+        },
+        {
+          "before_offset": 2087,
+          "after_offset": 2170,
+          "old": "\t\ttess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), maxU, maxV);\n\t\ttess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), maxU, minV);\n\t\ttess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), minU, minV);\n\t\ttess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), minU, maxV);\n",
+          "new": "\t\tParticleAtlasVertex.append(tess, (double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), maxU, maxV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\tParticleAtlasVertex.append(tess, (double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), maxU, minV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\tParticleAtlasVertex.append(tess, (double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), minU, minV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\tParticleAtlasVertex.append(tess, (double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), minU, maxV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDuoDec.java": {
+      "before_sha256": "214476e10501372365ab0bbe642f97a1746e0c8598f70669d9091f4c1e55da55",
+      "after_sha256": "9549289a2e4ce7e8df0ee014d6cd76b7c9ad2a5d3f58fb843bd6b235cd554323",
+      "edits": [
+        {
+          "before_offset": 27,
+          "after_offset": 27,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 126,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 385,
+          "after_offset": 380,
+          "old": "public class ParticleDuoDec extends EntityFX {\n",
+          "new": "public class ParticleDuoDec extends Particle {\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n\n"
+        },
+        {
+          "before_offset": 549,
+          "after_offset": 611,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleSwen;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.swen;\n"
+        },
+        {
+          "before_offset": 1110,
+          "after_offset": 1161,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t    tess.setNormal(0.0F, 1.0F, 0.0F);\n\t    tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tint brightness = getBrightnessForRender(interp);\n"
+        },
+        {
+          "before_offset": 1728,
+          "after_offset": 1705,
+          "old": "\t    tess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleTexture.getMaxU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 1931,
+          "after_offset": 2015,
+          "old": "\t    tess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleTexture.getMaxU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2134,
+          "after_offset": 2325,
+          "old": "\t    tess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleIcon.getMinU(), particleIcon.getMinV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleTexture.getMinU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2337,
+          "after_offset": 2635,
+          "old": "\t    tess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleTexture.getMinU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDuoDec2.java": {
+      "before_sha256": "78744c8611aaa92e0aa5261ea7c9775ef97a3338d6aed7a10022ec151b2797bf",
+      "after_sha256": "9535f5ddf6142ce019ab4d3b127db0df9e10ab4de1e17a911be20cb5a5d90d80",
+      "edits": [
+        {
+          "before_offset": 27,
+          "after_offset": 27,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 126,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 385,
+          "after_offset": 380,
+          "old": "public class ParticleDuoDec2 extends EntityFX {\n",
+          "new": "public class ParticleDuoDec2 extends Particle {\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n\n"
+        },
+        {
+          "before_offset": 551,
+          "after_offset": 613,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleLen;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.len;\n"
+        },
+        {
+          "before_offset": 1111,
+          "after_offset": 1162,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t    tess.setNormal(0.0F, 1.0F, 0.0F);\n\t    tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tint brightness = getBrightnessForRender(interp);\n"
+        },
+        {
+          "before_offset": 1729,
+          "after_offset": 1706,
+          "old": "\t    tess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleTexture.getMaxU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 1932,
+          "after_offset": 2016,
+          "old": "\t    tess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleTexture.getMaxU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2135,
+          "after_offset": 2326,
+          "old": "\t    tess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleIcon.getMinU(), particleIcon.getMinV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleTexture.getMinU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        },
+        {
+          "before_offset": 2338,
+          "after_offset": 2636,
+          "old": "\t    tess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\t    ParticleAtlasVertex.append(tess, (double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleTexture.getMinU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleExSmoke.java": {
+      "before_sha256": "5c576148dc06b9c20a4d989b6a8bf300571e14424308c43e83d2bd965af03792",
+      "after_sha256": "67f8d3a55da82c074e1b5215fb99da57dccc466c9a90f7406ad2c6ff53f59603",
+      "edits": [
+        {
+          "before_offset": 53,
+          "after_offset": 53,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 195,
+          "after_offset": 152,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 411,
+          "after_offset": 406,
+          "old": "public class ParticleExSmoke extends EntityFX {\n",
+          "new": "public class ParticleExSmoke extends Particle {\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n\n\n\tprivate final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;\n"
+        },
+        {
+          "before_offset": 685,
+          "after_offset": 831,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 773,
+          "after_offset": 908,
+          "old": "",
+          "new": "\t}\n\n\tpublic void setMotion(double x, double y, double z) {\n\t\tthis.motionX = x;\n\t\tthis.motionY = y;\n\t\tthis.motionZ = z;\n"
+        },
+        {
+          "before_offset": 998,
+          "after_offset": 1252,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1142,
+          "after_offset": 1399,
+          "old": "        this.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "        this.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 1256,
+          "after_offset": 1507,
+          "old": "\tpublic void renderParticle(Tessellator p_70539_1_, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_) {\n",
+          "new": "\tpublic void renderParticle(BufferBuilder p_70539_1_, Entity camera, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_) {\n\t\tint brightness = getBrightnessForRender(p_70539_2_);\n"
+        },
+        {
+          "before_offset": 1421,
+          "after_offset": 1744,
+          "old": "\t\tRandom urandom = new Random(this.getEntityId());\n",
+          "new": "\t\tRandom urandom = new Random(this.visualSeed);\n"
+        },
+        {
+          "before_offset": 1616,
+          "after_offset": 1936,
+          "old": "\t        \n\t\t\tp_70539_1_.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n\t\t\tp_70539_1_.setNormal(0.0F, 1.0F, 0.0F);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2288,
+          "after_offset": 2448,
+          "old": "\t\t\tp_70539_1_.addVertexWithUV((double)(pX - p_70539_3_ * scale - p_70539_6_ * scale), (double)(pY - p_70539_4_ * scale), (double)(pZ - p_70539_5_ * scale - p_70539_7_ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());\n\t\t\tp_70539_1_.addVertexWithUV((double)(pX - p_70539_3_ * scale + p_70539_6_ * scale), (double)(pY + p_70539_4_ * scale), (double)(pZ - p_70539_5_ * scale + p_70539_7_ * scale), particleIcon.getMaxU(), particleIcon.getMinV());\n\t\t\tp_70539_1_.addVertexWithUV((double)(pX + p_70539_3_ * scale + p_70539_6_ * scale), (double)(pY + p_70539_4_ * scale), (double)(pZ + p_70539_5_ * scale + p_70539_7_ * scale), particleIcon.getMinU(), particleIcon.getMinV());\n\t\t\tp_70539_1_.addVertexWithUV((double)(pX + p_70539_3_ * scale - p_70539_6_ * scale), (double)(pY - p_70539_4_ * scale), (double)(pZ + p_70539_5_ * scale - p_70539_7_ * scale), particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\t\t\tParticleAtlasVertex.append(p_70539_1_, (double)(pX - p_70539_3_ * scale - p_70539_6_ * scale), (double)(pY - p_70539_4_ * scale), (double)(pZ - p_70539_5_ * scale - p_70539_7_ * scale), particleTexture.getMaxU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\t\tParticleAtlasVertex.append(p_70539_1_, (double)(pX - p_70539_3_ * scale + p_70539_6_ * scale), (double)(pY + p_70539_4_ * scale), (double)(pZ - p_70539_5_ * scale + p_70539_7_ * scale), particleTexture.getMaxU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\t\tParticleAtlasVertex.append(p_70539_1_, (double)(pX + p_70539_3_ * scale + p_70539_6_ * scale), (double)(pY + p_70539_4_ * scale), (double)(pZ + p_70539_5_ * scale + p_70539_7_ * scale), particleTexture.getMinU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\t\tParticleAtlasVertex.append(p_70539_1_, (double)(pX + p_70539_3_ * scale - p_70539_6_ * scale), (double)(pY - p_70539_4_ * scale), (double)(pZ + p_70539_5_ * scale - p_70539_7_ * scale), particleTexture.getMinU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleExplosionSmall.java": {
+      "before_sha256": "caf6337ff8cb203c0ad5b328504e421532738d9390d9df036291a6cccba94e14",
+      "after_sha256": "af213b08ac128c419352e0fdb4621c2838d31ed0bd0cbf1fcc84dc7167cf5411",
+      "edits": [
+        {
+          "before_offset": 51,
+          "after_offset": 51,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 193,
+          "after_offset": 150,
+          "old": "import net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 560,
+          "after_offset": 555,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 1131,
+          "after_offset": 1115,
+          "old": "\t\tthis.noClip = true;\n",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1355,
+          "after_offset": 1344,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1416,
+          "after_offset": 1408,
+          "old": "\t\tthis.prevRotationPitch = this.rotationPitch;\n",
+          "new": "\t\tthis.previousSpinDegrees = this.spinDegrees;\n"
+        },
+        {
+          "before_offset": 1542,
+          "after_offset": 1534,
+          "old": "\t\tthis.rotationPitch += (1 - ageScaled) * 5 * ((this.getEntityId() % 2) - 0.5);\n",
+          "new": "\t\tthis.spinDegrees += (1 - ageScaled) * 5 * ((this.visualSeed % 2) - 0.5);\n"
+        },
+        {
+          "before_offset": 1676,
+          "after_offset": 1663,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 1752,
+          "after_offset": 1733,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n"
+        },
+        {
+          "before_offset": 1960,
+          "after_offset": 1958,
+          "old": "\t\tColor color = Color.getHSBColor(hue / 255F, Math.max(1F - (float) ageScaled * 2F, 0), MathHelper.clamp_float(1.25F - (float) ageScaled * 2F, hue * 0.01F - 0.1F, 1F));\n",
+          "new": "\t\tColor color = Color.getHSBColor(hue / 255F, Math.max(1F - (float) ageScaled * 2F, 0), MathHelper.clamp(1.25F - (float) ageScaled * 2F, hue * 0.01F - 0.1F, 1F));\n"
+        },
+        {
+          "before_offset": 2344,
+          "after_offset": 2336,
+          "old": "\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.5F);\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2604,
+          "after_offset": 2452,
+          "old": "\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale);\n",
+          "new": "\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.5F, getBrightnessForRender(interp));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleFlamethrower.java": {
+      "before_sha256": "7aaf42b1cbf6c713e870a5b677416aa14d120e02ec49c21f3bf9977c81776aea",
+      "after_sha256": "31db0ce8b85eaee3b6b007a0ab8564159113b52ad07ebcd8ab304d71947de19b",
+      "edits": [
+        {
+          "before_offset": 51,
+          "after_offset": 51,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 238,
+          "after_offset": 195,
+          "old": "import net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 537,
+          "after_offset": 532,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 1624,
+          "after_offset": 1608,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1751,
+          "after_offset": 1738,
+          "old": "\t\tthis.prevRotationPitch = this.rotationPitch;\n\t\tthis.rotationPitch += 30 * ((this.getEntityId() % 2) - 0.5);\n",
+          "new": "\t\tthis.previousSpinDegrees = this.spinDegrees;\n\t\tthis.spinDegrees += 30 * ((this.visualSeed % 2) - 0.5);\n"
+        },
+        {
+          "before_offset": 1864,
+          "after_offset": 1846,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 1940,
+          "after_offset": 1916,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {\n"
+        },
+        {
+          "before_offset": 2053,
+          "after_offset": 2046,
+          "old": "",
+          "new": "\t\tfloat red, green, blue, alpha;\n"
+        },
+        {
+          "before_offset": 2272,
+          "after_offset": 2298,
+          "old": "\t\t\ttess.setColorRGBA_F(this.particleRed - add, this.particleGreen - add * 0.75F, this.particleBlue, this.particleAlpha);\n",
+          "new": "\t\t\tred = this.particleRed - add; green = this.particleGreen - add * 0.75F; blue = this.particleBlue; alpha = this.particleAlpha;\n"
+        },
+        {
+          "before_offset": 2536,
+          "after_offset": 2570,
+          "old": "\t\t\ttess.setColorRGBA_F(this.particleRed - add * 0.75F, this.particleGreen - add, this.particleBlue - add * 0.5F, this.particleAlpha);\n",
+          "new": "\t\t\tred = this.particleRed - add * 0.75F; green = this.particleGreen - add; blue = this.particleBlue - add * 0.5F; alpha = this.particleAlpha;\n"
+        },
+        {
+          "before_offset": 2798,
+          "after_offset": 2840,
+          "old": "\t\t\ttess.setColorRGBA_F(this.particleRed + add, this.particleGreen + add, this.particleBlue + add, this.particleAlpha * 0.5F);\n",
+          "new": "\t\t\tred = this.particleRed + add; green = this.particleGreen + add; blue = this.particleBlue + add; alpha = this.particleAlpha * 0.5F;\n"
+        },
+        {
+          "before_offset": 2931,
+          "after_offset": 2981,
+          "old": "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setBrightness(240);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3055,
+          "after_offset": 3042,
+          "old": "\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale);\n",
+          "new": "\t\trenderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale, red, green, blue, alpha, 240);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleSplash.java": {
+      "before_sha256": "c4b5ed94f9c10de0a0c7334299401bec1fa15fd0e10edafc1dcc9745ce53d79d",
+      "after_sha256": "cb5971bc6e182382b87122ef7d6ed886fe604afea45d56fcc358aacec16530cd",
+      "edits": [
+        {
+          "before_offset": 27,
+          "after_offset": 27,
+          "old": "import com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 126,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 385,
+          "after_offset": 380,
+          "old": "public class ParticleSplash extends EntityFX {\n",
+          "new": "public class ParticleSplash extends Particle {\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; }\n\n\n\tprivate final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;\n"
+        },
+        {
+          "before_offset": 549,
+          "after_offset": 695,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleSplash;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.splash;\n"
+        },
+        {
+          "before_offset": 1130,
+          "after_offset": 1265,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1168,
+          "after_offset": 1306,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\n\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n",
+          "new": "\tpublic void renderParticle(BufferBuilder tess, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tint brightness = getBrightnessForRender(interp);\n"
+        },
+        {
+          "before_offset": 1753,
+          "after_offset": 1821,
+          "old": "\t\tboolean flipU = this.getEntityId() % 2 == 0;\n\t\tboolean flipV = this.getEntityId() % 4 < 2;\n",
+          "new": "\t\tboolean flipU = this.visualSeed % 2 == 0;\n\t\tboolean flipV = this.visualSeed % 4 < 2;\n"
+        },
+        {
+          "before_offset": 1847,
+          "after_offset": 1909,
+          "old": "\t\tdouble minU = flipU ? particleIcon.getMaxU() : particleIcon.getMinU();\n\t\tdouble maxU = flipU ? particleIcon.getMinU() : particleIcon.getMaxU();\n\t\tdouble minV = flipV ? particleIcon.getMaxV() : particleIcon.getMinV();\n\t\tdouble maxV = flipV ? particleIcon.getMinV() : particleIcon.getMaxV();\n",
+          "new": "\t\tdouble minU = flipU ? particleTexture.getMaxU() : particleTexture.getMinU();\n\t\tdouble maxU = flipU ? particleTexture.getMinU() : particleTexture.getMaxU();\n\t\tdouble minV = flipV ? particleTexture.getMaxV() : particleTexture.getMinV();\n\t\tdouble maxV = flipV ? particleTexture.getMinV() : particleTexture.getMaxV();\n"
+        },
+        {
+          "before_offset": 2140,
+          "after_offset": 2226,
+          "old": "\t\ttess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), maxU, maxV);\n\t\ttess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), maxU, minV);\n\t\ttess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), minU, minV);\n\t\ttess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), minU, maxV);\n",
+          "new": "\t\tParticleAtlasVertex.append(tess, (double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), maxU, maxV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\tParticleAtlasVertex.append(tess, (double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), maxU, minV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\tParticleAtlasVertex.append(tess, (double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), minU, minV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n\t\tParticleAtlasVertex.append(tess, (double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), minU, maxV, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha, brightness);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/helper/AshesCreator.java": {
+      "before_sha256": "0e7af00156078cffab8c1dcd07de44c12d1b1fe2a62962ebaaa2d9671023caab",
+      "after_sha256": "78df0f43e3e06a0d59e7b5ced0b0dbd52551c6fcb967c205a946ffcd28292181",
+      "edits": [
+        {
+          "before_offset": 270,
+          "after_offset": 270,
+          "old": "import net.minecraft.client.particle.EntityFlameFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.particle.ParticleFlame;\n"
+        },
+        {
+          "before_offset": 1521,
+          "after_offset": 1568,
+          "old": "\t\t\tParticleAshes particle = new ParticleAshes(world,\n\t\t\t\t\tentity.posX + (entity.width + scale * 2) * (rand.nextDouble() - 0.5),\n\t\t\t\t\tentity.posY + entity.height * rand.nextDouble(),\n\t\t\t\t\tentity.posZ + (entity.width + scale * 2) * (rand.nextDouble() - 0.5),\n\t\t\t\t\tscale);\n",
+          "new": "\t\t\tdouble ashX = entity.posX + (entity.width + scale * 2) * (rand.nextDouble() - 0.5);\n\t\t\tdouble ashY = entity.posY + entity.height * rand.nextDouble();\n\t\t\tdouble ashZ = entity.posZ + (entity.width + scale * 2) * (rand.nextDouble() - 0.5);\n\t\t\tParticleAshes particle = new ParticleAshes(world, ashX, ashY, ashZ, scale);\n"
+        },
+        {
+          "before_offset": 1855,
+          "after_offset": 1951,
+          "old": "\t\t\tEntityFlameFX flame = new EntityFlameFX(world, particle.posX, particle.posY, particle.posZ, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tParticle flame = new ParticleFlame.Factory().createParticle(0, world, ashX, ashY, ashZ, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/helper/BlackPowderCreator.java": {
+      "before_sha256": "16bfd297e883b03a697854710549d032e78c491850b3f01c639044d86cf65428",
+      "after_sha256": "2d24fd33d1f26b8694ee2a6b262119a10e30b08fab64944e716d21b7013cfe9d",
+      "edits": [
+        {
+          "before_offset": 2138,
+          "after_offset": 2138,
+          "old": "\t\t\tparticle.motionX = heading.x * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05;\n\t\t\tparticle.motionY = heading.y * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05;\n\t\t\tparticle.motionZ = heading.z * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05;\n",
+          "new": "\t\t\tparticle.setMotion(heading.x * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05,\n\t\t\t\t\theading.y * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05,\n\t\t\t\t\theading.z * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderAntennaTop.java": {
+      "before_sha256": "ef3ff86b0252ea2bc1ffcb14246440290c88c6f133dd0da307a041f53d6f68c1",
+      "after_sha256": "587ded1d55adac14f7412f727b6f89816de495385aea992b66042f4547465830",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.generic.DecoPoleTop;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderAntennaTop implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\tGL11.glScalef(0.75F, 0.75F, 0.75F);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.antenna_top, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.antenna_top, iicon, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn DecoPoleTop.renderID;\n\t}\n",
+          "new": "/** Native whole-OBJ successor retaining the original antenna top world and item transforms. */\npublic final class RenderAntennaTop {\n    private RenderAntennaTop() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, 0, 0, inventory ? 0.75D : 1D,\n                .5D, inventory ? 0D : 0D, .5D);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderBarrel.java": {
+      "before_sha256": "8451163a995f200f1768983615c7f63f1d84402d609b130bf60a4f58854d695f",
+      "after_sha256": "25a8008c82a3b4df8c581d4e89b9ca5fdfe4aa20f46fb8f9b3098f23e3878ef0",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.machine.BlockFluidBarrel;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderBarrel implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.barrel, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.barrel, iicon, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockFluidBarrel.renderID;\n\t}\n",
+          "new": "/** Native whole-OBJ successor retaining the original fluid barrel world and item transforms. */\npublic final class RenderBarrel {\n    private RenderBarrel() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, 0, 0, inventory ? 1D : 1D,\n                .5D, inventory ? 0D : 0D, .5D);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderBattery.java": {
+      "before_sha256": "edc74b3724c95714e811a5cb5a44e9372eaafba199e5f8f213ffc4ccec1e2c6f",
+      "after_sha256": "2ccdb227a68c6850df98b092d3b2f584dbb833a14cb52266646ad02f3c18903a",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.generic.HEVBattery;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderBattery implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.625, 0);\n\t\tGL11.glScaled(3.0D, 3.0D, 3.0D);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.hev_battery, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.hev_battery, iicon, tessellator, 0, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn HEVBattery.renderID;\n\t}\n",
+          "new": "/** Native whole-OBJ successor retaining the original HEV battery world and item transforms. */\npublic final class RenderBattery {\n    private RenderBattery() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, 0, 0, inventory ? 3D : 1D,\n                .5D, inventory ? -0.125D : 0D, .5D);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderCapacitor.java": {
+      "before_sha256": "2e73413d67685b0a78c6532ff4a46d2f61de7f12dda0ba84d92c39a746fae9e1",
+      "after_sha256": "c2b0b0a2fb2ef1d05fe1b72eb2d1e579463f265de5427a398eda94f090a8f633",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.machine.MachineCapacitor;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderCapacitor implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tMachineCapacitor capacitor = (MachineCapacitor) block;\n\t\t\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"Top\", capacitor.iconTop, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"Side\", capacitor.iconSide, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"Bottom\", capacitor.iconBottom, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"InnerTop\", capacitor.iconInnerTop, tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"InnerSide\", capacitor.iconInnerSide, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tMachineCapacitor capacitor = (MachineCapacitor) block;\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tfloat flip = 0;\n\t\tfloat rotation = 0;\n\t\t\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\tif(meta == 0)\n\t\t\tflip = (float)Math.PI;\n\n\t\tif(meta == 2)\n\t\t\trotation = 90F / 180F * (float) Math.PI;\n\n\t\tif(meta == 3)\n\t\t\trotation = 270F / 180F * (float) Math.PI;\n\n\t\tif(meta == 4)\n\t\t\trotation = 180F / 180F * (float)Math.PI;\n\t\t\n\t\tif(rotation != 0F || meta == 5)\n\t\t\tflip = (float)Math.PI * 0.5F;\n\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"Top\", capacitor.iconTop, tessellator, rotation, flip, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"Side\", capacitor.iconSide, tessellator, rotation, flip, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"Bottom\", capacitor.iconBottom, tessellator, rotation, flip, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"InnerTop\", capacitor.iconInnerTop, tessellator, rotation, flip, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, \"InnerSide\", capacitor.iconInnerSide, tessellator, rotation, flip, true);\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn MachineCapacitor.renderID;\n\t}\n",
+          "new": "/** Five original material groups, with the original six-direction Z-then-Y orientation. */\npublic final class RenderCapacitor {\n    private RenderCapacitor() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite[] sprites) {\n        if(sprites.length != 5) throw new IllegalArgumentException(\"Capacitor requires five material sprites\");\n        float pitch = 0, yaw = 0;\n        if(!inventory) {\n            if(metadata == 0) pitch = (float)Math.PI;\n            if(metadata == 2) yaw = 90F / 180F * (float)Math.PI;\n            if(metadata == 3) yaw = 270F / 180F * (float)Math.PI;\n            if(metadata == 4) yaw = 180F / 180F * (float)Math.PI;\n            if(yaw != 0F || metadata == 5) pitch = (float)Math.PI * .5F;\n        }\n        String[] names = {\"Top\", \"Side\", \"Bottom\", \"InnerTop\", \"InnerSide\"};\n        List<BakedQuad> quads = new ArrayList<>();\n        for(int i = 0; i < names.length; i++) AtlasObjGeometry.appendPart(quads, mesh, names[i], sprites[i], inventory, yaw, pitch, 1, .5, .5, .5);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderPipe.java": {
+      "before_sha256": "8d45f2af1ebbaf4347f2d98e8f7d712596353cfab09ad75d5d13c67da2f9b502",
+      "after_sha256": "ed93334575c2561cf552e374ffbf0bfe3f64415a33f46c8e89c11fbf0fb26cbb",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.generic.BlockPipe;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderPipe implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tif(!(block instanceof BlockPipe))\n\t\t\treturn;\n\n\t\tBlockPipe pipe = (BlockPipe) block;\n\t\t\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iiconTop = block.getIcon(0, 0);\n\t\tIIcon iiconSide = block.getIcon(4, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\ttessellator.startDrawingQuads();\n\t\t\n\t\tif(pipe.rType == 0) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, \"Top\", iiconTop, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, \"Side\", iiconSide, tessellator, 0, false);\n\t\t}\n\n\t\tif(pipe.rType == 1) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Top\", iiconTop, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Side\", iiconSide, tessellator, 0, false);\n\t\t}\n\n\t\tif(pipe.rType == 2) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, \"Top\", iiconTop, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, \"Side\", iiconSide, tessellator, 0, false);\n\t\t}\n\t\t\n\t\tif(pipe.rType == 3) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Top\", iiconTop, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Side\", iiconSide, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, \"Frame\", pipe.frameIcon, tessellator, 0, false);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, \"Mesh\", pipe.meshIcon, tessellator, 0, false);\n\t\t}\n\t\t\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tif(!(block instanceof BlockPipe))\n\t\t\treturn true;\n\n\t\tBlockPipe pipe = (BlockPipe) block;\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iiconTop = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\t\tIIcon iiconSide = block.getIcon(4, world.getBlockMetadata(x, y, z));\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\t\t\n\t\tfloat rot = 0;\n\t\tfloat pitch = 0;\n\t\t\n\t\tif(meta == 8) {\n\t\t\trot = (float)(Math.PI * 0.5);\n\t\t\tpitch = (float)(Math.PI * 0.5);\n\t\t}\n\t\t\n\t\tif(meta == 4) {\n\t\t\tpitch = (float)(Math.PI * 0.5);\n\t\t}\n\n\t\tif(pipe.rType == 0) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, \"Top\", iiconTop, tessellator, rot, pitch, true);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe, \"Side\", iiconSide, tessellator, rot, pitch, true);\n\t\t}\n\n\t\tif(pipe.rType == 1) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Top\", iiconTop, tessellator, rot, pitch, true);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Side\", iiconSide, tessellator, rot, pitch, true);\n\t\t}\n\n\t\tif(pipe.rType == 2) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, \"Top\", iiconTop, tessellator, rot, pitch, true);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_quad, \"Side\", iiconSide, tessellator, rot, pitch, true);\n\t\t}\n\n\t\tif(pipe.rType == 3) {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Top\", iiconTop, tessellator, rot, pitch, true);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_rim, \"Side\", iiconSide, tessellator, rot, pitch, true);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, \"Frame\", pipe.frameIcon, tessellator, rot, pitch, true);\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.pipe_frame, \"Mesh\", pipe.meshIcon, tessellator, rot, pitch, true);\n\t\t}\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockPipe.renderID;\n\t}\n",
+          "new": "/** Native geometry successor for all four original decorative pipe shapes. */\npublic final class RenderPipe {\n    private RenderPipe() { }\n    public static List<BakedQuad> bake(ObjMesh body, ObjMesh frame, int renderType, int metadata, boolean inventory,\n            TextureAtlasSprite top, TextureAtlasSprite side, TextureAtlasSprite frameSprite, TextureAtlasSprite meshSprite) {\n        if(renderType < 0 || renderType > 3) throw new IllegalArgumentException(\"Invalid decorative pipe shape \" + renderType);\n        float yaw = !inventory && metadata == 8 ? (float)(Math.PI * .5) : 0;\n        float pitch = !inventory && (metadata == 8 || metadata == 4) ? (float)(Math.PI * .5) : 0;\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendPart(quads, body, \"Top\", top, inventory, yaw, pitch, 1, .5, .5, .5);\n        AtlasObjGeometry.appendPart(quads, body, \"Side\", side, inventory, yaw, pitch, 1, .5, .5, .5);\n        if(renderType == 3) {\n            AtlasObjGeometry.appendPart(quads, frame, \"Frame\", frameSprite, inventory, yaw, pitch, 1, .5, .5, .5);\n            AtlasObjGeometry.appendPart(quads, frame, \"Mesh\", meshSprite, inventory, yaw, pitch, 1, .5, .5, .5);\n        }\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/IPersistentNBT.java": {
+      "before_sha256": "4dd7b0ca460350f90b5d57913235e5bb8f435d92221097edd4bdb7fe9bdf9216",
+      "after_sha256": "351d6d5004ad1e2ede9a95d7ac2d095e8f8ad779873619e5da8af178a797d7ce",
+      "edits": [
+        {
+          "before_offset": 679,
+          "after_offset": 679,
+          "old": "\t\tif(!data.hasNoTags())\n\t\t\tstack.stackTagCompound = data;\n",
+          "new": "\t\tif(!data.isEmpty())\n\t\t\tstack.setTagCompound(data);\n"
+        },
+        {
+          "before_offset": 1195,
+          "after_offset": 1190,
+          "old": "\t\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1349,
+          "after_offset": 1382,
+          "old": "\t\t\tpersistent.readNBT(stack.stackTagCompound);\n",
+          "new": "\t\t\tpersistent.readNBT(stack.getTagCompound());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java": {
+      "before_sha256": "2ff5e4b96b4955909b7007a68a21030942d7be33e754df07d73287204e246be2",
+      "after_sha256": "af9cf7fe169fde7caee2cf2e010d480fea580c02319797bd1274d7af155abfd5",
+      "edits": [
+        {
+          "before_offset": 2548,
+          "after_offset": 2548,
+          "old": "",
+          "new": "\n\t/** Placement metadata does not replace a barrel; corrosion block changes do. */\n\t@Override\n\tpublic boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,\n\t\t\tnet.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {\n\t\treturn oldState.getBlock() != newState.getBlock();\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/resources/assets/hbm/sounds.json": {
+      "before_sha256": "2cbc6c6b1c7067ad1e74bd55d308d32c99d75fc38546d32439c4d99052c455f4",
+      "after_sha256": "fa246c0126dc060a7bb5539674296059adaddeba62ac85bdc865b9a756e497b1",
+      "edits": [
+        {
+          "before_offset": 14667,
+          "after_offset": 14667,
+          "old": "\t\"item.battery\": {\"category\": \"player\", \"sounds\": [{\"name\": \"tool/battery\", \"stream\": false}]},\n",
+          "new": "\t\"item.battery\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:tool/battery\", \"stream\": false}]},\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/main/AtlasObjBlockModelHandler.java": "d9d3290ffc769a1539100430ed164ad6025639563ca859ef567cbe5715edf0c7",
+    "src/main/java/com/hbm/particle/ParticleAtlasVertex.java": "e48019900168f60fc371ed8cdd22f473dd77550fb73ddf823ee5c061dded76af",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjBakedModel.java": "e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java": "236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e",
+    "src/main/resources/assets/hbm/blockstates/tile.barrel_antimatter.json": "1673f3d24600816cb45eac91396a8e0ae5ee03454b78cd1bf6b7edbe7e087060",
+    "src/main/resources/assets/hbm/blockstates/tile.barrel_corroded.json": "d8f0cf4ed3b48f405de0deea80e0f9f8a808fb6470067a3380b3466086c4b9cb",
+    "src/main/resources/assets/hbm/blockstates/tile.barrel_iron.json": "892920776af39210b1204cc90e128badef541e444bcc1111e852047d4900cbd5",
+    "src/main/resources/assets/hbm/blockstates/tile.barrel_plastic.json": "2427255612e70ea9e1c12cc7984ab23da6df3660b474111dec85e6a09b6f2151",
+    "src/main/resources/assets/hbm/blockstates/tile.barrel_steel.json": "98da6fa24324cc7dc3e35ee0129fc20814ee4fae69fdca96435e054ba372c5cf",
+    "src/main/resources/assets/hbm/blockstates/tile.barrel_tcalloy.json": "a1015ba0119afe64347f0cc44cd26ac59b4b409af835e46ca46d50a0f7e46670",
+    "src/main/resources/assets/hbm/blockstates/tile.capacitor_complex.json": "1feb8e621213672c51000dcbeb84b215eb13238531443fd5f2369196d0d324d1",
+    "src/main/resources/assets/hbm/blockstates/tile.capacitor_copper.json": "65c7e9009a0a47081f193f54163412de5bbd004e80c50211b63b5d4b4ed43976",
+    "src/main/resources/assets/hbm/blockstates/tile.capacitor_gold.json": "404e5f3b8ea0ad9d2abecb04ce39bd457f4f2ad645e14089ee0ecdf8c585eae3",
+    "src/main/resources/assets/hbm/blockstates/tile.capacitor_niobium.json": "da319a7ee5187a2b067da4dbc411a915fc21c90078a07f8e4ae053dbec30a39a",
+    "src/main/resources/assets/hbm/blockstates/tile.capacitor_schrabidate.json": "25f19bbc20ed13a54eb6bf3b09e01068d3d4c2714567da0300fcf2f11534c3cb",
+    "src/main/resources/assets/hbm/blockstates/tile.capacitor_tantalium.json": "8276d1673740b5327aeceaba91c0198cfa3b4bf0822a31b1b298449543424c72",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe.json": "1b0dd5a29ffc9263df7f2383acc788940d529b10d5fd62bf9456fd18d4bd51a6",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_framed.json": "503a3a50858564332be2950040a63b398fb2b9ba3bbec0cfc6d1b2303fc3832b",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_framed_green.json": "93b548e7df7605473f2d4854d66986880a0d10c9f506cc10258eaace7b07b6cc",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_framed_green_rusted.json": "a77c88235e710b2ae124dfc84370847c8749c11c7c4e56a34592722e820ef890",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_framed_marked.json": "b171ef48f16e8936f43813cc9813f05c2c18f90180d8c67f7635c397f4284f20",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_framed_red.json": "043ef280008d1fd66439f34eaee53d7379fba469c4540d8e205ed6f2e8d51824",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_framed_rusted.json": "f6c773217b94c561e6ccf76f2474cd3a695cb140180743962b0b7a9180a4412d",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_green.json": "710bef47bd79543c0c4fa58b58dc3842fa9549327fd22b2ab9ca3e70798a87d0",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_green_rusted.json": "cc1a1d2fee2ca01ca134da4f57b4457da95f354f2bbb39a87b622e2838d306a0",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_marked.json": "dd574d7084bb2cfdd43ba8bafc3d43a585abef60a9a3c111bbc43a48cee6708a",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_quad.json": "0f3151916eeecbb5c8938df88e3e83016dbb2ce68acb15b5803731dd5f8bfe81",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_quad_green.json": "d95ee8700b681c16e71ad38fc0f85c0e0301c2d8ff69e3d17b0cea83cac221bf",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_quad_green_rusted.json": "23102c72cf1dd65c3302eb0521b2b67fed6b5acfaeaeb894e31f8ceed8ebba00",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_quad_marked.json": "11fa24c2cfddbd9bb3ce2fa313b978868a0c87c0bae8b2a5e76731aa60bc21c6",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_quad_red.json": "630869f6118ce7e45cad2f53e2b88f4d81c3c0c42dbcab8cceb55d13acdae21d",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_quad_rusted.json": "90a79436eb4cb0dd308a3fc5541016b5cdd8cb81e3156a6d1fa9ff7d6f3478c6",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_red.json": "9d916427a1fe64e8c3798c03ef78408a294c053db18e2b37ca51018fedf93f90",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rim.json": "3ddafd955d7ac852900c77199252ce4915e21c8712da01ba707e9cfc1d85819b",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rim_green.json": "0a0a263ef1ca15ae31b7809ef7efd40ee249be3311294d9552f1ad7ad99dada6",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rim_green_rusted.json": "2eece0bdfed0089c7722ef18e08b9f25b1682918ff1b6af1f8812b451be55f25",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rim_marked.json": "6b6bd989141a011b2d4eaf8cba283b4584c4e307d4e913bc0a39f9d1e2a946d9",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rim_red.json": "2bc23107dc19e462eb6452cb0cfdfad61120c8e2c51c388dbb9152b6f93ca64c",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rim_rusted.json": "d93348e293018ae07a16de37455f89217dc8ccd6c8c825f15fa79f113881caa3",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_pipe_rusted.json": "892c5c82dd6d28ba0d6de67394bc28394bf41068cad507023ac92fc21fdafcf5",
+    "src/main/resources/assets/hbm/blockstates/tile.hev_battery.json": "5b0f96b47e13e41835916b8ca03c3d29ce70868e1558260c099f478a8c5eeeed",
+    "src/main/resources/assets/hbm/blockstates/tile.lox_barrel.json": "46e12c233fcf278a7caafcfb1f0e1863ff3058d22bbff3d6c67bc493092ff7a2",
+    "src/main/resources/assets/hbm/blockstates/tile.oil_barrel.json": "73708d40213b1f528a565b7046e518d230b39e373740f0ebbc764631da49169e",
+    "src/main/resources/assets/hbm/blockstates/tile.pink_barrel.json": "2b5b0d935ea7df22ef73e4cb68ccc30f7854137a264dbed0c05be05ad121725c",
+    "src/main/resources/assets/hbm/blockstates/tile.pole_top.json": "3d4d51d12eabe0ee19c022da463f7cbdac29e3b4831ae1486518158508ccaf0c",
+    "src/main/resources/assets/hbm/blockstates/tile.red_barrel.json": "dfe8f9a21f98307140db6d98e399280b517d5913cab43c4f95ff783ced28eb8c",
+    "src/main/resources/assets/hbm/blockstates/tile.taint_barrel.json": "9be8ecfeda1746c4f86c6a4e62663483229a5a7546f97f7c1c634d795a6f5e09",
+    "src/main/resources/assets/hbm/blockstates/tile.vitrified_barrel.json": "2e420400c30dd1346774a7d75127582a4384279f0eec8ed8cb8e0c5104772bf3",
+    "src/main/resources/assets/hbm/blockstates/tile.yellow_barrel.json": "d76fc27dae448f9344dc1c0d4d6ca9d67e0d8ffde83bc6bfcb6f8d60921f783b"
+  }
+}

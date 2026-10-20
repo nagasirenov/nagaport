@@ -20,19 +20,19 @@ public class TileEntityDysonConverterTU extends TileEntityMachineBase implements
     }
 
     @Override
-    public String getName() {
+    public String getDefaultName() {
 		return "container.machineDysonConverterTU";
     }
 
     @Override
-    public void updateEntity() { }
+    public void update() { }
 
     @Override
     public boolean provideEnergy(int x, int y, int z, long energy) {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-		int rx = xCoord + dir.offsetX * 6;
-		int ry = yCoord + 1;
-		int rz = zCoord + dir.offsetZ * 6;
+		int rx = this.pos.getX() + dir.offsetX * 6;
+		int ry = this.pos.getY() + 1;
+		int rz = this.pos.getZ() + dir.offsetZ * 6;
 
 		if(x != rx || y != ry || z != rz) return false;
 
@@ -68,9 +68,10 @@ public class TileEntityDysonConverterTU extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("heatEnergy", heatEnergy);
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -80,12 +81,12 @@ public class TileEntityDysonConverterTU extends TileEntityMachineBase implements
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 6,
-				yCoord,
-				zCoord - 6,
-				xCoord + 7,
-				yCoord + 6,
-				zCoord + 7
+				this.pos.getX() - 6,
+				this.pos.getY(),
+				this.pos.getZ() - 6,
+				this.pos.getX() + 7,
+				this.pos.getY() + 6,
+				this.pos.getZ() + 7
 			);
 		}
 

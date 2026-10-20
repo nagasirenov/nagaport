@@ -1,0 +1,41 @@
+EXACT METHOD onPlayMusic 85b4c63d9036df0073cf67fb99dbb7b9275fdc741a37c622c83c5e163f8779b1
+EXACT METHOD onPlaySound 53f675354d25a1b851d1378c2459ae5746de242b7038560561af9f368742fade
+EXACT METHOD worldTick 17319d862d027fc8b10ec15603568a44915da3447898a49df505a6b9e7a62e42
+PASS CP36 exact resource/helper source boundaries
+NTM FIXTURE com/hbm/main/MainRegistry.java
+NTM FIXTURE com/hbm/blocks/ModBlocks.java
+NTM FIXTURE com/hbm/items/ItemCustomLore.java
+NTM FIXTURE com/hbm/dim/WorldProviderCelestial.java
+NTM FIXTURE com/hbm/dim/orbit/WorldProviderOrbit.java
+NTM FIXTURE com/hbm/entity/mob/EntityHunterChopper.java
+NTM FIXTURE com/hbm/entity/projectile/EntityChopperMine.java
+NTM FIXTURE com/hbm/entity/train/EntityRailCarRidable.java
+NTM FIXTURE com/hbm/util/Library.java
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ClientSoundTrainNativeTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ClientSoundTrainNativeTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ClientSoundTrainNativeTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ClientSoundTrainNativeTest.java:38: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final Unsafe U;static int checks;static Minecraft mc;static RecordingHandler handler;static TestWorld world;static EntityPlayerSP player;static RecordingConnection connection;
+              ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ClientSoundTrainNativeTest.java:39: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                     ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ClientSoundTrainNativeTest.java:39: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                                                                                         ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+[20:37:57] [main/INFO]: Processing ObjectHolder annotations
+[20:37:57] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:37:57] [main/INFO]: Reloading ResourceManager: music-category-6122686478362325879
+[20:37:57] [main/INFO]: Reloading ResourceManager: 
+[20:37:57] [main/INFO]: Reloading ResourceManager: resources
+PASS native client sound/train: 926 checks; genuine Forge dispatch/hook, actual production moving sounds, native serialized packets; extracted methods only, no launched client/audio/server
+PASS original-method mapping, original Forge result semantics, exact extracted native methods; NOT whole event class or launched gameplay

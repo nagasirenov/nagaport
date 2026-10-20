@@ -40,19 +40,19 @@ public class TileEntityICFPress extends TileEntityMachineBase implements IFluidS
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineICFPress";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.tanks[0].setType(6, slots);
 			this.tanks[1].setType(7, slots);
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				this.subscribeToAllAround(tanks[0].getTankType(), this);
 				this.subscribeToAllAround(tanks[1].getTankType(), this);
 			}
@@ -150,12 +150,14 @@ public class TileEntityICFPress extends TileEntityMachineBase implements IFluidS
 	public static final int[] sides = new int[] {0, 1, 2, 3, 5};
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return side == 0 || side == 1 ? topBottom : sides;
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot == 1 || slot == 3;
 	}
 	
@@ -168,11 +170,12 @@ public class TileEntityICFPress extends TileEntityMachineBase implements IFluidS
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tanks[0].writeToNBT(nbt, "t0");
 		tanks[1].writeToNBT(nbt, "t1");
 		nbt.setByte("muon", (byte) muon);
+		return nbt;
 	}
 
 	@Override

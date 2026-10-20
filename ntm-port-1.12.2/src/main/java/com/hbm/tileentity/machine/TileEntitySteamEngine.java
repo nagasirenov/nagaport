@@ -27,7 +27,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiver, IBufPacketReceiver, IConfigurableMachine, IFluidCopiable {
+public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiver, IBufPacketReceiver, IConfigurableMachine, IFluidCopiable, net.minecraft.util.ITickable {
 
 	public long powerBuffer;
 
@@ -73,9 +73,9 @@ public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEner
 	protected ByteBuf buf;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.buf != null)
 				this.buf.release();
@@ -104,13 +104,13 @@ public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEner
 				this.acceleration -= 0.1F;
 			}
 
-			this.acceleration = MathHelper.clamp_float(this.acceleration, 0F, 40F);
+			this.acceleration = MathHelper.clamp(this.acceleration, 0F, 40F);
 			this.rotor += this.acceleration;
 
 			if(this.rotor >= 360D) {
 				this.rotor -= 360D;
 
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.steamEngineOperate", getVolume(1.0F), 0.5F + (acceleration / 80F));
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.steamEngineOperate", getVolume(1.0F), 0.5F + (acceleration / 80F));
 			}
 
 			buf.writeLong(this.powerBuffer);
@@ -118,9 +118,9 @@ public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEner
 			tanks[1].serialize(buf);
 
 			for(DirPos pos : getConPos()) {
-				if(this.powerBuffer > 0) this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.powerBuffer > 0) this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			networkPackNT(150);
@@ -128,7 +128,7 @@ public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEner
 			this.lastRotor = this.rotor;
 
 			if(this.turnProgress > 0) {
-				double d = MathHelper.wrapAngleTo180_double(this.syncRotor - (double) this.rotor);
+				double d = MathHelper.wrapDegrees(this.syncRotor - (double) this.rotor);
 				this.rotor = (float) ((double) this.rotor + d / (double) this.turnProgress);
 				--this.turnProgress;
 			} else {
@@ -142,9 +142,9 @@ public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEner
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + rot.offsetX * 2, yCoord + 1, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + rot.offsetX * 2 + dir.offsetX, yCoord + 1, zCoord + rot.offsetZ * 2 + dir.offsetZ, rot),
-				new DirPos(xCoord + rot.offsetX * 2 - dir.offsetX, yCoord + 1, zCoord + rot.offsetZ * 2 - dir.offsetZ, rot)
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2 + dir.offsetX, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 2 + dir.offsetZ, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2 - dir.offsetX, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ, rot)
 		};
 	}
 
@@ -159,13 +159,14 @@ public class TileEntitySteamEngine extends TileEntityLoadedBase implements IEner
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("powerBuffer", powerBuffer);
 		nbt.setFloat("acceleration", acceleration);
 		tanks[0].writeToNBT(nbt, "s");
 		tanks[1].writeToNBT(nbt, "w");
+		return nbt;
 	}
 
 	@Override

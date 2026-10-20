@@ -34,15 +34,15 @@ public class ItemModMorningGlory extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(!event.entity.worldObj.isRemote && event.entity.worldObj.rand.nextInt(20) == 0) {
-			event.entityLiving.addPotionEffect(new PotionEffect(Potion.resistance.id, 100, 4));
+		if(!event.getEntity().world.isRemote && event.getEntity().world.rand.nextInt(20) == 0) {
+			event.getEntityLiving().addPotionEffect(new PotionEffect(Potion.resistance.id, 100, 4));
 		}
 	}
 	
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote && entity.isPotionActive(Potion.wither.id)) {
+		if(!entity.world.isRemote && entity.isPotionActive(Potion.wither.id)) {
 			entity.removePotionEffect(Potion.wither.id);
 		}
 	}

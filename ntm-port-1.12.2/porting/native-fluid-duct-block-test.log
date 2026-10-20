@@ -1,0 +1,36 @@
+PINNED ORIGINAL FluidDuctBase c7933747b3c3ffecc9fe1c04fce0b3cfe279d9b43a0c4b98b5bf4106896f2734
+PINNED ORIGINAL FluidDuctStandard b4a840a39fb3f0d530da6e7781790ae919dcce70b5b64c0cfb4dcaa2f10629ca
+EXACT PRISTINE CONTROL FLOW onBlockActivated
+EXACT PRISTINE CONTROL FLOW changeTypeRecursively
+EXACT PRISTINE CONTROL FLOW getDebugInfo
+EXTRACTED production Library.canConnectFluid SHA256 1da57c242757eb2cb89a5b1bd139343ba488ba62e57a4a9a3d5214bff5b59d71
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctBase.java d50672257e8be7dc36e834e2a600930fe970c2824f8526893aa0316223f51111
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctStandard.java 6e6bab9d84b4817d5cc9d28ea134f26024c5cc72f512599534109e9be6a908a1
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/ConnectionState.java 9c0c0ddabdbac2063ac71ec9c2fe95ae4acc7c2e3e3d7af83e34a2fdfd8c1f7d
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidConnectionState.java 8fd0d2c712b0128f8b7a41163880f857b80f0111f977d15505d78b0a411d41ad
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/IBlockFluidDuct.java b7f204de5e2f750b13da3fb664fcad1b89705ffbc36d5217a9fe413e6bff7091
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/IAnalyzable.java dbee805aa27e052268e7d0fa31b3715b046ab3ad2e0d376144bdc505b2bc6ed8
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/IBlockMulti.java f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/IItemFluidIdentifier.java 8c761e7839680fe688ae349aa4446551a879b1273534f5933a21ed4e86762e67
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/api/hbm/energymk2/IEnergyConnectorBlock.java 042026c508d6be73504318f99e242621fab5af47c525bcba63b58a9a6ac257a3
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/api/hbm/energymk2/IEnergyConnectorMK2.java ef60540477fc62d1b40599d4213ae2fec8f5103b6a860ef7b51fa2b7948790a5
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/api/hbm/fluidmk2/IFluidConnectorMK2.java de93c4094e066aee67e0f3864b5df304c9905104dff2d19e2930c71903fd435c
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/api/hbm/fluidmk2/IFluidConnectorBlockMK2.java 360a4f1240c8e728a3c92e3fb07d4033e4f1be1b60fdec98bdab9bc122440df2
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModSoundType.java ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModSoundTypes.java e16f97c79917f9047c4daade6803a020a24b9285462b068daaa71d26dcd7f607
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/main/ModSoundEvents.java 350fa2e1be0cf1d77c771eec8cf018ab50d6e300f0c16026a588913751fa4703
+PRODUCTION /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.metalblock`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.pipeplaced`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.morkite`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.fluid_duct`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.fluid_duct`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:32:12] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `fluid_duct`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native fluid duct blocks: 293282 assertions. Complete production Base/Standard classes; all64 masks x16 metadata x3 fluids; pristine-source compound collisions and merged selection, native clipping, directional typed connectivity, activation modifier and hand matrix, recursive depth/source dispatch, debug, pick, overlay, real World/Chunk tile creation and neighbor updates.
+Boundary: controlled NTM type/tile/identifier/player-properties/network/overlay collaborators, original production connection methods extracted unchanged. Real Minecraft/Forge throughout; CPU-headless, not graphical acceptance.

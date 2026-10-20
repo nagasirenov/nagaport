@@ -48,22 +48,22 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			
-			if(ClientConfig.COOLING_TOWER_PARTICLES.get() && (this.waterTimer > 0 && this.worldObj.getTotalWorldTime() % 2 == 0)) {
+			if(ClientConfig.COOLING_TOWER_PARTICLES.get() && (this.waterTimer > 0 && this.world.getTotalWorldTime() % 2 == 0)) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "tower");
 				data.setFloat("lift", 1F);
 				data.setFloat("base", 0.5F);
 				data.setFloat("max", 4F);
-				data.setInteger("life", 250 + worldObj.rand.nextInt(250));
+				data.setInteger("life", 250 + this.world.rand.nextInt(250));
 	
-				data.setDouble("posX", xCoord + 0.5);
-				data.setDouble("posZ", zCoord + 0.5);
-				data.setDouble("posY", yCoord + 18);
+				data.setDouble("posX", this.pos.getX() + 0.5);
+				data.setDouble("posZ", this.pos.getZ() + 0.5);
+				data.setDouble("posY", this.pos.getY() + 18);
 				
 				MainRegistry.proxy.effectNT(data);
 			}
@@ -72,18 +72,18 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 
 	@Override
 	public void subscribeToAllAround(FluidType type, TileEntity te) {
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord + 3, yCoord, zCoord, Library.POS_X);
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord - 3, yCoord, zCoord, Library.NEG_X);
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord, yCoord, zCoord + 3, Library.POS_Z);
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord, yCoord, zCoord - 3, Library.NEG_Z);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() + 3, this.pos.getY(), this.pos.getZ(), Library.POS_X);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() - 3, this.pos.getY(), this.pos.getZ(), Library.NEG_X);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z);
 	}
 
 	@Override
 	public void sendFluidToAll(FluidTank tank, TileEntity te) {
-		this.sendFluid(this.tanks[1], worldObj, xCoord + 3, yCoord, zCoord, Library.POS_X);
-		this.sendFluid(this.tanks[1], worldObj, xCoord - 3, yCoord, zCoord, Library.NEG_X);
-		this.sendFluid(this.tanks[1], worldObj, xCoord, yCoord, zCoord + 3, Library.POS_Z);
-		this.sendFluid(this.tanks[1], worldObj, xCoord, yCoord, zCoord - 3, Library.NEG_Z);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX() + 3, this.pos.getY(), this.pos.getZ(), Library.POS_X);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - 3, this.pos.getY(), this.pos.getZ(), Library.NEG_X);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z);
 	}
 	
 	AxisAlignedBB bb = null;
@@ -93,12 +93,12 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 20,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 20,
+					this.pos.getZ() + 3
 					);
 		}
 		

@@ -15,7 +15,7 @@ import java.util.List;
 public class FurnaceCombination extends BlockDummyable implements ITooltipProvider {
 
 	public FurnaceCombination() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	@Override

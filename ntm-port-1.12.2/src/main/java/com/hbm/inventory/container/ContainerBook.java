@@ -48,7 +48,7 @@ public class ContainerBook extends Container {
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 
-		if(!player.worldObj.isRemote) {
+		if(!player.world.isRemote) {
 
 			for(int i = 0; i < 4; ++i) {
 				ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);

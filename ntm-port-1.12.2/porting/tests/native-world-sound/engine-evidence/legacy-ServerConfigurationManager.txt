@@ -1,0 +1,78 @@
+# Exact javap method excerpts; source legacy-ServerConfigurationManager.javap
+
+  public void a(double, double, double, double, int, ft);
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: dload_1
+       3: dload_3
+       4: dload         5
+       6: dload         7
+       8: iload         9
+      10: aload         10
+      12: invokevirtual #356                // Method a:(Lyz;DDDDILft;)V
+      15: return
+
+  public void a(yz, double, double, double, double, int, ft);
+    Code:
+       0: iconst_0
+       1: istore        12
+       3: iload         12
+       5: aload_0
+       6: getfield      #164                // Field e:Ljava/util/List;
+       9: invokeinterface #417,  1          // InterfaceMethod java/util/List.size:()I
+      14: if_icmpge     126
+      17: aload_0
+      18: getfield      #164                // Field e:Ljava/util/List;
+      21: iload         12
+      23: invokeinterface #413,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      28: checkcast     #103                // class mw
+      31: astore        13
+      33: aload         13
+      35: aload_1
+      36: if_acmpne     42
+      39: goto          120
+      42: aload         13
+      44: getfield      #143                // Field mw.ap:I
+      47: iload         10
+      49: if_icmpeq     55
+      52: goto          120
+      55: dload_2
+      56: aload         13
+      58: getfield      #154                // Field mw.s:D
+      61: dsub
+      62: dstore        14
+      64: dload         4
+      66: aload         13
+      68: getfield      #155                // Field mw.t:D
+      71: dsub
+      72: dstore        16
+      74: dload         6
+      76: aload         13
+      78: getfield      #156                // Field mw.u:D
+      81: dsub
+      82: dstore        18
+      84: dload         14
+      86: dload         14
+      88: dmul
+      89: dload         16
+      91: dload         16
+      93: dmul
+      94: dadd
+      95: dload         18
+      97: dload         18
+      99: dmul
+     100: dadd
+     101: dload         8
+     103: dload         8
+     105: dmul
+     106: dcmpg
+     107: ifge          120
+     110: aload         13
+     112: getfield      #142                // Field mw.a:Lnh;
+     115: aload         11
+     117: invokevirtual #338                // Method nh.a:(Lft;)V
+     120: iinc          12, 1
+     123: goto          3
+     126: return
+

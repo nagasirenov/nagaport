@@ -1,99 +1,52 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.blocks.network.ConnectionState;
+import com.hbm.render.block.nativeblock.ConnectionQuadFactory;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-import com.hbm.blocks.network.BlockCable;
-import com.hbm.lib.Library;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderCable implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iicon = block.getIcon(0, 0);
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		if(renderer.hasOverrideBlockTexture()) {
-			iicon = renderer.overrideBlockTexture;
-		}
-		
-		GL11.glRotated(180, 0, 1, 0);
-		GL11.glScaled(1.25D, 1.25D, 1.25D);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "Core", iicon, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "posX", iicon, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "negX", iicon, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "posZ", iicon, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "negZ", iicon, tessellator, 0, false);
-		tessellator.draw();
-
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iicon = block.getIcon(0, 0);
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		if(renderer.hasOverrideBlockTexture()) {
-			iicon = renderer.overrideBlockTexture;
-		}
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		boolean pX = Library.canConnect(world, x + 1, y, z, Library.POS_X);
-		boolean nX = Library.canConnect(world, x - 1, y, z, Library.NEG_X);
-		boolean pY = Library.canConnect(world, x, y + 1, z, Library.POS_Y);
-		boolean nY = Library.canConnect(world, x, y - 1, z, Library.NEG_Y);
-		boolean pZ = Library.canConnect(world, x, y, z + 1, Library.POS_Z);
-		boolean nZ = Library.canConnect(world, x, y, z - 1, Library.NEG_Z);
-		
-		tessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);
-
-		if(pX && nX && !pY && !nY && !pZ && !nZ)
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "CX", iicon, tessellator, 0, true);
-		else if(!pX && !nX && pY && nY && !pZ && !nZ)
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "CY", iicon, tessellator, 0, true);
-		else if(!pX && !nX && !pY && !nY && pZ && nZ)
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "CZ", iicon, tessellator, 0, true);
-		
-		else {
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "Core", iicon, tessellator, 0, true);
-			if(pX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "posX", iicon, tessellator, 0, true);
-			if(nX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "negX", iicon, tessellator, 0, true);
-			if(pY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "posY", iicon, tessellator, 0, true);
-			if(nY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "negY", iicon, tessellator, 0, true);
-			if(nZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "posZ", iicon, tessellator, 0, true);
-			if(pZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, "negZ", iicon, tessellator, 0, true);
-		}
-		
-		tessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockCable.renderID;
-	}
+/** Native successor of the original cable renderer, using its original OBJ groups. */
+public final class RenderCable {
+    private RenderCable() { }
+    public static List<BakedQuad> bake(ObjMesh mesh, int connections, boolean inventory, TextureAtlasSprite sprite) {
+        if(connections < 0 || connections > 63) throw new IllegalArgumentException("Invalid connection mask " + connections);
+        List<String> groups = new ArrayList<>();
+        if(inventory) Collections.addAll(groups, "Core", "posX", "negX", "posZ", "negZ");
+        else if(connections == (ConnectionState.POS_X | ConnectionState.NEG_X)) groups.add("CX");
+        else if(connections == (ConnectionState.POS_Y | ConnectionState.NEG_Y)) groups.add("CY");
+        else if(connections == (ConnectionState.POS_Z | ConnectionState.NEG_Z)) groups.add("CZ");
+        else {
+            groups.add("Core");
+            int[] bits = {32, 16, 8, 4, 1, 2};
+            String[] arms = {"posX", "negX", "posY", "negY", "posZ", "negZ"};
+            // The original mesh reverses the world Z-arm names.
+            for(int i = 0; i < bits.length; i++) if((connections & bits[i]) != 0) groups.add(arms[i]);
+        }
+        List<BakedQuad> result = new ArrayList<>();
+        for(String name : groups) {
+            ObjMesh.Part selected = null;
+            for(ObjMesh.Part part : mesh.parts) if(name.equals(part.name)) selected = part;
+            if(selected == null) throw new IllegalArgumentException("Missing cable OBJ part " + name);
+            for(ObjMesh.Face face : selected.faces) {
+                float nx = face.normal.x, ny = face.normal.y, nz = face.normal.z;
+                float shade = inventory ? 1 : Math.max(.45F, ny * .3F + .7F - Math.abs(nx) * .1F + Math.abs(nz) * .1F);
+                double[] vertices = new double[20];
+                for(int v = 0; v < 4; v++) {
+                    ObjMesh.Corner corner = face.corners.get(Math.min(v, face.corners.size() - 1));
+                    if(corner.uv == null) throw new IllegalArgumentException("Cable OBJ requires UVs");
+                    vertices[v * 5] = .5D + corner.position.x * (inventory ? -1.25D : 1D);
+                    vertices[v * 5 + 1] = .5D + corner.position.y * (inventory ? 1.25D : 1D);
+                    vertices[v * 5 + 2] = .5D + corner.position.z * (inventory ? -1.25D : 1D);
+                    vertices[v * 5 + 3] = corner.uv.x * 16D;
+                    vertices[v * 5 + 4] = corner.uv.y * 16D;
+                }
+                result.add(ConnectionQuadFactory.quad(sprite, inventory, shade, inventory ? -nx : nx, ny, inventory ? -nz : nz, vertices));
+            }
+        }
+        return Collections.unmodifiableList(result);
+    }
 }

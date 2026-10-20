@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -37,7 +40,7 @@ public class ItemRenderAm180 extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.am180_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.am180_tex);
 		double scale = 0.1875D;
 		GL11.glScaled(scale, scale, scale);
 		
@@ -148,11 +151,11 @@ public class ItemRenderAm180 extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.am180_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.am180_tex);
 		ResourceManager.am180.renderPart("Gun");
 		if(this.hasSilencer(stack)) ResourceManager.am180.renderPart("Silencer");
 		ResourceManager.am180.renderPart("Trigger");
@@ -161,11 +164,11 @@ public class ItemRenderAm180 extends ItemRenderWeaponBase {
 		ResourceManager.am180.renderPart("MagPlate");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

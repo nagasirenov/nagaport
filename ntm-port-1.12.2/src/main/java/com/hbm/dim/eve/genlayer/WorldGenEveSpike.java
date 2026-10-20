@@ -17,7 +17,7 @@ public class WorldGenEveSpike extends WorldGenerator {
 			--p_76484_4_;
 		}
 
-		if(p_76484_1_.getBlock(p_76484_3_, p_76484_4_, p_76484_5_) != ModBlocks.eve_silt) {
+		if(com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_, p_76484_4_, p_76484_5_).getBlock() != ModBlocks.eve_silt) {
 			return false;
 		} else {
 			p_76484_4_ += p_76484_2_.nextInt(4);
@@ -34,7 +34,7 @@ public class WorldGenEveSpike extends WorldGenerator {
 
 			for(j1 = 0; j1 < l; ++j1) {
 				float f = (1.0F - (float) j1 / (float) l) * (float) i1;
-				k1 = MathHelper.ceiling_float_int(f);
+				k1 = MathHelper.ceil(f);
 
 				for(l1 = -k1; l1 <= k1; ++l1) {
 					float f1 = (float) MathHelper.abs_int(l1) - 0.25F;
@@ -43,16 +43,16 @@ public class WorldGenEveSpike extends WorldGenerator {
 						float f2 = (float) MathHelper.abs_int(i2) - 0.25F;
 
 						if((l1 == 0 && i2 == 0 || f1 * f1 + f2 * f2 <= f * f) && (l1 != -k1 && l1 != k1 && i2 != -k1 && i2 != k1 || p_76484_2_.nextFloat() <= 0.75F)) {
-							Block block = p_76484_1_.getBlock(p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2);
+							Block block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2).getBlock();
 
-							if(block.getMaterial() == Material.air || block == ModBlocks.eve_silt || block == ModBlocks.eve_rock) {
+							if(block.getDefaultState().getMaterial() == Material.AIR || block == ModBlocks.eve_silt || block == ModBlocks.eve_rock) {
 								this.func_150515_a(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2, ModBlocks.eve_rock);
 							}
 
 							if(j1 != 0 && k1 > 1) {
-								block = p_76484_1_.getBlock(p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2);
+								block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2).getBlock();
 
-								if (block.getMaterial() == Material.air || block == ModBlocks.eve_silt || block == ModBlocks.eve_rock) {
+								if (block.getDefaultState().getMaterial() == Material.AIR || block == ModBlocks.eve_silt || block == ModBlocks.eve_rock) {
 									this.func_150515_a(p_76484_1_, p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2, ModBlocks.eve_rock);
 								}
 							}
@@ -82,9 +82,9 @@ public class WorldGenEveSpike extends WorldGenerator {
 
 					while(true) {
 						if (l1 > 50) {
-							Block block1 = p_76484_1_.getBlock(p_76484_3_ + j2, l1, p_76484_5_ + k1);
+							Block block1 = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + j2, l1, p_76484_5_ + k1).getBlock();
 
-							if(block1.getMaterial() == Material.air || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_rock) {
+							if(block1.getDefaultState().getMaterial() == Material.AIR || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_rock) {
 								this.func_150515_a(p_76484_1_, p_76484_3_ + j2, l1, p_76484_5_ + k1, ModBlocks.eve_rock);
 								--l1;
 								--k2;

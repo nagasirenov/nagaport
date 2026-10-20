@@ -38,17 +38,17 @@ public class GUIRBMKAutoloader extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 74 <= x && guiLeft + 74 + 12 > x && guiTop + 36 < y && guiTop + 36 + 12 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("minus", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, loader.xCoord, loader.yCoord, loader.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, loader.getPos().getX(), loader.getPos().getY(), loader.getPos().getZ()));
 		}
 
 		if(guiLeft + 90 <= x && guiLeft + 90 + 12 > x && guiTop + 36 < y && guiTop + 36 + 12 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("plus", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, loader.xCoord, loader.yCoord, loader.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, loader.getPos().getX(), loader.getPos().getY(), loader.getPos().getZ()));
 		}
 	}
 	
@@ -56,11 +56,11 @@ public class GUIRBMKAutoloader extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.loader.hasCustomInventoryName() ? this.loader.getInventoryName() : I18n.format(this.loader.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xFFFFFF);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xFFFFFF);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		String percent = loader.cycle + "%";
-		this.fontRendererObj.drawString(percent, this.xSize / 2 - this.fontRendererObj.getStringWidth(percent) / 2, 23, 0x00FF00);
+		this.fontRenderer.drawString(percent, this.xSize / 2 - this.fontRenderer.getStringWidth(percent) / 2, 23, 0x00FF00);
 	}
 
 	@Override

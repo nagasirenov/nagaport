@@ -1,0 +1,76 @@
+{
+  "base": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "complete_compiled_sources": {
+    "src/main/java/com/hbm/render/tileentity/RenderMagma.java": "39fbb210b91c31e5ecbe3eadaaab998585c6cb802a0ea4abc0158e5c07de4047",
+    "src/main/java/com/hbm/render/tileentity/RenderMultiblock.java": "2bc7ac82b41e22b2bc76873e6d5b20d47c38660827238b39f94c530038ee3365",
+    "src/main/java/com/hbm/render/tileentity/RenderSoyuzMultiblock.java": "3d14296a1ffab4943cbb34bb6540c79d9d0c621067edfb85b93631d739080db7",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java": "54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeProjectionScope.java": "1e64d8f0f97240b7bbc5c468788b87b3c832e821a6734b80d49b201d86805691",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFailureScope.java": "552b7c8dab6413e49890435fbad2abb48b1882daf92794057b7158f737673dc8",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFields.java": "37283fbe744fce6729dbde308c3683ac86d6c1db9758dd5293a38760a43ddec4",
+    "src/main/java/com/hbm/render/mesh/MeshModel.java": "50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2",
+    "src/main/java/com/hbm/render/mesh/ObjMesh.java": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736",
+    "src/main/java/com/hbm/render/mesh/ObjMeshParser.java": "e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c",
+    "src/main/java/com/hbm/render/mesh/ObjMeshRenderer.java": "db63437bf921357dc8beaf411f7172340bab1360e81f1bbdc364c73604186118",
+    "src/main/java/com/hbm/render/mesh/ObjMeshVboPayload.java": "51fd5693d954262280a5865dccbf12ff22742e76d1225552f1ff47709af07715",
+    "src/main/java/com/hbm/render/mesh/ReloadableObjMesh.java": "e74ff45598e981a6d5d342188cb5d8797c60ed537364abd1ca3a8af71fc44ba6",
+    "src/main/java/com/hbm/render/mesh/ObjMeshModel.java": "1d0ccf4a2b32102a2929664bbc277fe96ee856abec1d7eeee5881219040d1766",
+    "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java": "9cbcefffc89c46fe37ebc1cf06cfcfb2a4d7fff61a61aa6d04a69a105c21ca89",
+    "src/main/java/com/hbm/render/loader/HFRWavefrontObjectVBO.java": "3ec6a5d694f4204ecead59ecfaa630e4568576ab9b2226bcbe54f4e9a056e885"
+  },
+  "original_sources": {
+    "src/main/java/com/hbm/render/tileentity/RenderMagma.java": "b3cd9bd797edefb4c0faeb3e7dbc15f32bd85fcfb7e1d3d227d429fb4aab1e67",
+    "src/main/java/com/hbm/render/tileentity/RenderMultiblock.java": "14e65939ec33ffeba9e7e33dfd0ce9b43584c70f88ea75e7444cd24b293d9347",
+    "src/main/java/com/hbm/render/tileentity/RenderSoyuzMultiblock.java": "2358274d825de418088f547d942dd945de603f3fe85ff99768411d31c3ba03ca",
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/blocks/machine/MachineMagma.java": "e26578438f7efda434f40d2c22a594c2ab38a36e041c88e6c31a5eff988617de",
+    "src/main/java/com/hbm/main/ResourceManager.java": "dd86786c08d235f29318f1775afc5d8b34d17829307f93ea13114875596ba0d9",
+    "src/main/java/com/hbm/blocks/BlockBase.java": "413c8a97619e3b2945712bfc92d41e3438fccfee6c237f4ed7f26b9cafc46a38",
+    "src/main/java/com/hbm/blocks/generic/BlockGeneric.java": "aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106",
+    "src/main/java/com/hbm/blocks/generic/BlockRadResistant.java": "f17def6d9e420f586049b3d7442ce560f15c7b2d3bfd1b94d1a4089ec9cb26cf"
+  },
+  "assets": {
+    "models/machines/magma_drill.obj": "64f4e21eb7dab786371ea2d4a7ffcdbdddcd5ba51177fe00281e11f621d229d9",
+    "textures/models/machines/magma_drill.png": "aa9c837e43be8737288d5178e0e324f7b6c0aae8edac6ced6d124d801013b84e",
+    "textures/blocks/struct_launcher.png": "b079534800be1bfc377490d3fa40f30757a9a75eba86171c5d7554c74d4f87c8",
+    "textures/blocks/struct_scaffold.png": "308ebb240b268a744dfb1ce57563925504515ebb3b52464179af05eafa607071",
+    "textures/blocks/concrete.png": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f"
+  },
+  "binding_fragments": [
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMachineMagma.class, new RenderMagma());",
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMultiblock.class, new RenderMultiblock());",
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySoyuzStruct.class, new RenderSoyuzMultiblock());"
+  ],
+  "original_materials": {
+    "struct_launcher": "struct_launcher",
+    "struct_scaffold": "struct_scaffold",
+    "concrete_smooth": "concrete"
+  },
+  "fixtures": [
+    "fixtures/com/hbm/blocks/BlockDummyable.java",
+    "fixtures/com/hbm/blocks/ModBlocks.java",
+    "fixtures/com/hbm/tileentity/machine/TileEntityMachineMagma.java",
+    "fixtures/com/hbm/tileentity/machine/TileEntityMultiblock.java",
+    "fixtures/com/hbm/tileentity/machine/TileEntitySoyuzStruct.java",
+    "fixtures/com/hbm/main/ResourceManager.java",
+    "fixtures/tileoracle/Bindings.java",
+    "fixtures/tileoracle/OriginalRenderMagma.java",
+    "fixtures/tileoracle/OriginalRenderMultiblock.java",
+    "fixtures/tileoracle/OriginalRenderSoyuzMultiblock.java",
+    "fixtures/tileoracle/LegacyTess.java",
+    "fixtures/tileoracle/LegacyBlocksRenderer.java",
+    "fixtures/tileoracle/LegacyBlocks.java"
+  ],
+  "test_inputs": {
+    "porting/tests/MaterialTextureAtlasSpriteNativeTest.java": "2c5dfcebee1a45f08371273e503a47e6f4f55daf5fe63adccd648a21b0f011bd",
+    "porting/tests/tile-visuals-native/TileVisualsNativeTest.java": "1ebd6b5bd44ab77ea7c647540bfa30df9f96a95b8b3dcc09cba1197aaf0acf12"
+  },
+  "test_templates": {
+    "run.py": "993b1237473127e4b50d7a5734f7bf9626823b413e16d722b19647b73e6ee484",
+    "LegacyBlocks.java.in": "1f4609641b7171b7aea7956cfc6dcb1f4057bbbd8d219002c2c30c9b27d5271e",
+    "LegacyBlocksRenderer.java.in": "a8b0293d7c0df15b67ddfbf01ff20cddc03494ec195449d0abc3bbfba2c76722",
+    "LegacyTess.java.in": "f8bd2fd71f13fe0842eadad9311f6b66d2583a64da14025b883ee86003ebb7d5",
+    "ResourceManager.java.in": "8c7c5b92a4725a23927b1ad8fb64dfc8fc426175f3a7b3096b4b056d7ca0e249"
+  }
+}

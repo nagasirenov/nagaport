@@ -11,7 +11,7 @@ import com.hbm.render.entity.rocket.part.RenderRocketPart;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class MissilePart {
 
@@ -21,14 +21,14 @@ public class MissilePart {
 	public PartType type;
 	public double height;
 	public double guiheight;
-	public IModelCustom model;
-	public IModelCustom deployedModel;
-	public IModelCustom shroudModel;
+	public MeshModel model;
+	public MeshModel deployedModel;
+	public MeshModel shroudModel;
 	public ResourceLocation texture;
 	public boolean renderInventoryModel = true;
 	public RenderRocketPart renderer;
 
-	private MissilePart(Item item, PartType type, double height, double guiheight, IModelCustom model, ResourceLocation texture) {
+	private MissilePart(Item item, PartType type, double height, double guiheight, MeshModel model, ResourceLocation texture) {
 		this.part = (ItemCustomMissilePart)item;
 		this.type = type;
 		this.height = height;
@@ -37,12 +37,12 @@ public class MissilePart {
 		this.texture = texture;
 	}
 
-	private MissilePart withDeployed(IModelCustom deployedModel) {
+	private MissilePart withDeployed(MeshModel deployedModel) {
 		this.deployedModel = deployedModel;
 		return this;
 	}
 
-	private MissilePart withShroud(IModelCustom shroudModel) {
+	private MissilePart withShroud(MeshModel shroudModel) {
 		this.shroudModel = shroudModel;
 		return this;
 	}
@@ -57,12 +57,12 @@ public class MissilePart {
 		return this;
 	}
 
-	public IModelCustom getModel(boolean deployed) {
+	public MeshModel getModel(boolean deployed) {
 		if(deployed && deployedModel != null) return deployedModel;
 		return model;
 	}
 
-	public IModelCustom getShroud() {
+	public MeshModel getShroud() {
 		if(shroudModel != null) return shroudModel;
 		return model;
 	}
@@ -433,7 +433,7 @@ public class MissilePart {
 		return part;
 	}
 
-	public static MissilePart registerPart(Item item, PartType type, double height, double guiheight, IModelCustom model, ResourceLocation texture) {
+	public static MissilePart registerPart(Item item, PartType type, double height, double guiheight, MeshModel model, ResourceLocation texture) {
 		MissilePart part = new MissilePart(item, type, height, guiheight, model, texture);
 		parts.put(item.hashCode(), part);
 		return part;

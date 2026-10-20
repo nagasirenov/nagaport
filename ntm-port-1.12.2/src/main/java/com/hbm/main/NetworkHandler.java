@@ -63,7 +63,7 @@ public class NetworkHandler {
 			else
 				throw new CodecException("Unknown packet codec requested during encoding, expected IMessage/PrecompiledPacket, got " + msg.getClass().getName());
 
-			FMLProxyPacket proxy = new FMLProxyPacket(Unpooled.buffer().writeBytes(outboundBuf), ctx.channel().attr(NetworkRegistry.FML_CHANNEL).get());
+			FMLProxyPacket proxy = new FMLProxyPacket(new net.minecraft.network.PacketBuffer(Unpooled.buffer().writeBytes(outboundBuf)), ctx.channel().attr(NetworkRegistry.FML_CHANNEL).get());
 			outboundBuf.release();
 			WeakReference<FMLProxyPacket> ref = ctx.attr(INBOUNDPACKETTRACKER).get().get();
 			FMLProxyPacket old = ref == null ? null : ref.get();
@@ -85,12 +85,21 @@ public class NetworkHandler {
 			Object newMsg = originalMsgClass.newInstance();
 			ctx.attr(INBOUNDPACKETTRACKER).get().set(new WeakReference<>(msg));
 
-			if(newMsg instanceof IMessage) // pretty much always the case
-				((IMessage) newMsg).fromBytes(inboundBuf.slice());
-			else
-				throw new CodecException("Unknown packet codec requested during decoding, expected IMessage/PrecompiledPacket, got " + msg.getClass().getName());
+			try {
+				if(newMsg instanceof IMessage) // pretty much always the case
+					((IMessage) newMsg).fromBytes(inboundBuf.slice());
+				else
+					throw new CodecException("Unknown packet codec requested during decoding, expected IMessage/PrecompiledPacket, got " + msg.getClass().getName());
 
-			out.add(newMsg);
+				out.add(newMsg);
+			} finally {
+				// This final packet copies only String/primitives; it never retains the slice.
+				// FMLProxyPacket is not ReferenceCounted and this custom codec owns its
+				// payload. Balance successful and malformed new-packet decoding only.
+				// Existing handlers have different buffer ownership and remain untouched.
+				if(originalMsgClass == com.hbm.packet.toclient.LegacyEntitySoundPacket.class)
+					inboundBuf.release();
+			}
 		}
 	}
 
@@ -119,6 +128,16 @@ public class NetworkHandler {
 		SimpleChannelHandlerWrapper<REQ, REPLY> handler;
 		handler = new SimpleChannelHandlerWrapper<>(messageHandler, side, requestMessageType);
 		channel.pipeline().addAfter(type, messageHandler.getName(), handler);
+	}
+
+	/** Build a vanilla-sendable packet through the existing registered FML codec. */
+	public net.minecraft.network.Packet<?> getPacketFrom(IMessage message) {
+		PacketThreading.lock.lock();
+		try {
+			return serverChannel.generatePacketFrom(message);
+		} finally {
+			PacketThreading.lock.unlock();
+		}
 	}
 
 	public static void flush() {

@@ -29,12 +29,17 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public abstract class EntityMissileBaseNT extends EntityThrowableInterp implements IChunkLoader, IRadarDetectableNT {
+
+	protected static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityMissileBaseNT.class, DataSerializers.BYTE);
 	
 	public int startX;
 	public int startZ;
@@ -46,6 +51,14 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	public boolean isCluster = false;
 	private Ticket loaderTicket;
 	public int health = 50;
+
+	public byte getDirection() {
+		return this.dataManager.get(DIRECTION);
+	}
+
+	public void setDirection(byte direction) {
+		this.dataManager.set(DIRECTION, direction);
+	}
 
 	public EntityMissileBaseNT(World world) {
 		super(world);
@@ -99,8 +112,8 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
-		this.dataWatcher.addObject(3, new Byte((byte) 5));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
+		this.dataManager.register(DIRECTION, new Byte((byte) 5));
 	}
 
 	@Override
@@ -120,9 +133,9 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 		this.lastTickPosZ = this.posZ;
 		super.onUpdate();
 		
-		if(velocity < 4) velocity += MathHelper.clamp_double(this.ticksExisted / 60D * 0.05D, 0, 0.05);
+		if(velocity < 4) velocity += MathHelper.clamp(this.ticksExisted / 60D * 0.05D, (double) (0), 0.05);
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(hasPropulsion()) {
 				this.motionY -= decelY * velocity;
@@ -155,9 +168,9 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 			}
 			
 			this.rotationYaw = (float) (Math.atan2(targetX - posX, targetZ - posZ) * 180.0D / Math.PI);
-			float f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+			float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 			for(this.rotationPitch = (float) (Math.atan2(this.motionY, f2) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
-			EntityTrackerEntry tracker = TrackerUtil.getTrackerEntry((WorldServer) worldObj, this.getEntityId());
+			EntityTrackerEntry tracker = TrackerUtil.getTrackerEntry((WorldServer) this.world, this.getEntityId());
 			if(tracker != null) tracker.lastYaw += 100; //coax the tracker into sending smother updates
 			
 			loadNeighboringChunks((int) Math.floor(posX / 16), (int) Math.floor(posZ / 16));
@@ -250,7 +263,7 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 		if(this.isEntityInvulnerable()) {
 			return false;
 		} else {
-			if(this.health > 0 && !this.worldObj.isRemote) {
+			if(this.health > 0 && !this.world.isRemote) {
 				health -= amount;
 
 				if(this.health <= 0) {
@@ -265,9 +278,9 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	protected void killMissile() {
 		if(!this.isDead) {
 			this.setDead();
-			ExplosionLarge.explode(worldObj, posX, posY, posZ, 5, true, false, true);
-			ExplosionLarge.spawnShrapnelShower(worldObj, posX, posY, posZ, motionX, motionY, motionZ, 15, 0.075);
-			ExplosionLarge.spawnMissileDebris(worldObj, posX, posY, posZ, motionX, motionY, motionZ, 0.25, getDebris(), getDebrisRareDrop());
+			ExplosionLarge.explode(this.world, posX, posY, posZ, 5, true, false, true);
+			ExplosionLarge.spawnShrapnelShower(this.world, posX, posY, posZ, motionX, motionY, motionZ, 15, 0.075);
+			ExplosionLarge.spawnMissileDebris(this.world, posX, posY, posZ, motionX, motionY, motionZ, 0.25, getDebris(), getDebrisRareDrop());
 		}
 	}
 	
@@ -307,7 +320,7 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(ticket != null) {
 
@@ -326,7 +339,7 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
@@ -349,14 +362,14 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	}
 	
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}
 	}
 	
 	public void explodeStandard(float strength, int resolution, boolean fire) {
-		ExplosionVNT xnt = new ExplosionVNT(worldObj, posX, posY, posZ, strength);
+		ExplosionVNT xnt = new ExplosionVNT(this.world, posX, posY, posZ, strength);
 		xnt.setBlockAllocator(new BlockAllocatorStandard(resolution));
 		xnt.setBlockProcessor(new BlockProcessorStandard().setNoDrop().withBlockEffect(fire ? new BlockMutatorFire() : null));
 		xnt.setEntityProcessor(new EntityProcessorCross(7.5D).withRangeMod(2));

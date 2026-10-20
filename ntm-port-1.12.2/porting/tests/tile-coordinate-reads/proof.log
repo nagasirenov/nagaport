@@ -1,0 +1,16 @@
+PASS 943 coordinate token mutation negatives, 136 exact inverses and whole-file drift negatives
+PASS 20 native-owner, write, shadow, nested, override, Unicode and negative attribution fixtures
+PASS complete original-source re-attribution 943
+EXACT PRODUCTION METHOD public DirPos[] getConPos() a99d650b07f3c21c87d6aabdf23ecae41ef7cb9c916a0e088ef24b8bef69f213
+EXACT PRODUCTION METHOD public boolean hasPermission(EntityPlayer player) 6b9c2887b9a4ef9acf3ed65ef3ed40bf050f3c629c9203af7fb6782beb9e24fc
+/tmp/tile-coordinate-proof-81m6qhe9/NativeTileTest.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/tmp/tile-coordinate-proof-81m6qhe9/NativeTileTest.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/tmp/tile-coordinate-proof-81m6qhe9/NativeTileTest.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                      ^
+3 warnings
+PASS 7380 actual legacy/native field, NBT, lifecycle, shadow, single-evaluation and exact-production assertions; 27 native tile getter owners

@@ -1,0 +1,7 @@
+c9089b50ca34973228f7908eb7ccec4c76518db9c9f96f39d4e9142d0ea732ac  src/main/java/com/hbm/blocks/generic/BlockGrate.java
+402b071ddd0b0840e6e9fdc2c49b624d92bc40fdd26231514ed29771ce5d80f1  src/main/java/com/hbm/render/block/RenderGrate.java
+4c8d1230370a970924cd7159e652831e30c0724b8508050794fee9cd18d6e236  src/main/java/com/hbm/main/GrateModelHandler.java
+3dd252d70e97c313ccce91f9cc1558d7d8034afefbb13ea85072c10641cccf13  src/main/java/com/hbm/render/block/nativeblock/GrateBakedModel.java
+80283f76b52bb6b7cc60b9d7f00737967af38f4d38c99b652ce972e928bcb5a8  src/main/java/com/hbm/render/block/nativeblock/GrateShiftedLightQuad.java
+d2cae07f48b7384ffe6ef5ac7b8e5190abc1548ade1ddff08ddc24141c74b424  src/main/resources/assets/hbm/blockstates/tile.steel_grate.json
+8a13953da1603e6ae7853886bd493eae1254077e8d9bc75539997bd0683c6d0f  src/main/resources/assets/hbm/blockstates/tile.steel_grate_wide.json

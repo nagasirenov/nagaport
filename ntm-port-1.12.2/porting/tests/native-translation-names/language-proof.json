@@ -1,0 +1,23 @@
+{
+  "baseline": "0732d318302d807ce8579878a0cdde6b18bbba86",
+  "assets_changed": false,
+  "files": {
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/de_DE.lang": "2441e1e82f32ee0cdf1a0605e519a4325d5c022e414f3aaa5b4b51f86494c041",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/en_AU.lang": "5a43742c7e85297b1a74e3b98b6aaa5ac4c59ac2ed293e2e366acee7106d5cd9",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/en_US.lang": "4e46921ea0a48f2cff7c03de67dfbb57c1b3d97202a8f7da3f76116003a0d39e",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/fr_FR.lang": "4abc9479975dfb2eb8d5ac46f1a46c6e59d057151ba429f2d4bcd7a48ab5201f",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/it_IT.lang": "e527f52ce936a1a9845c085053f3866ac891e355915d167d7d43de50510789b1",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/pl_PL.lang": "773adb6499099b8dabab221e80b80379a042a6ab9b3e18e77b6c3ff6516f0e2f",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/ru_RU.lang": "5334053e9aea7900ba725e00c7a359aa998b030fdf06c4f183e160c829178ce3",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/test.lang": "37633fbef3d96aa67755863608a8e18e2cac7f5af32953ff05bdc7b83d0b36d4",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/uk_UA.lang": "76ced300faabcc9a6afc879e167b4c8c3b59ee1c73772820da9d21a8b6166b67",
+    "ntm-port-1.12.2/src/main/resources/assets/hbm/lang/zh_CN.lang": "74bdb5042a57d12ddf1c11dc877803bc39c12e925a892998914a357e8cbe94cd"
+  },
+  "examples": {
+    "tile.ore_basalt_asbestos.name": "Asbestos-Rich Basalt",
+    "tile.ore_basalt_fluorite.name": "Fluorite-Rich Basalt",
+    "tile.ore_basalt_gem.name": "Gem-Rich Basalt",
+    "tile.ore_basalt_molysite.name": "Molysite-Rich Basalt",
+    "tile.ore_basalt_sulfur.name": "Sulfur-Rich Basalt"
+  }
+}

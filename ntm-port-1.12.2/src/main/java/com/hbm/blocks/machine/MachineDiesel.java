@@ -21,7 +21,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineDiesel extends BlockMachineBase implements ITooltipProvider, IBlockSealable {
 
 	public MachineDiesel() {
-		super(Material.iron, 0);
+		super(Material.IRON, 0);
 		this.rotatable = true;
 	}
 
@@ -37,7 +37,7 @@ public class MachineDiesel extends BlockMachineBase implements ITooltipProvider,
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile instanceof TileEntityMachineDiesel) {
 			TileEntityMachineDiesel diesel = (TileEntityMachineDiesel) tile;

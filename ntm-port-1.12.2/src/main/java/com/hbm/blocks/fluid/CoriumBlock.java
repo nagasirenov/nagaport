@@ -62,13 +62,13 @@ public class CoriumBlock extends BlockFluidClassic {
 			return true;
 		Random rand = new Random();
 		
-		return b.getMaterial().isLiquid() || rand.nextInt((int) (res * res)) == 0;
+		return b.getDefaultState().getMaterial().isLiquid() || rand.nextInt((int) (res * res)) == 0;
 	}
 
 	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
-		if(world.getBlock(x, y, z).getMaterial().isLiquid()) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
 			return false;
 		}
 		return canDisplace(world, x, y, z);

@@ -1,0 +1,106 @@
+import java.util.*;
+import java.util.function.Function;
+import java.lang.reflect.Field;
+import java.net.URLClassLoader;
+import java.io.File;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import sun.misc.Unsafe;
+/** Test-only recorder executes pinned pristine callbacks and texture methods verbatim. */
+final class OriginalBoxDuctOracle {
+ static final class Face {
+  final double[] bounds;final int side,rotation;final IIcon icon;
+  Face(RenderBlocks r,int side,IIcon icon){this.bounds=r.bounds.clone();this.side=side;this.rotation=new int[]{r.uvRotateBottom,r.uvRotateTop,r.uvRotateEast,r.uvRotateWest,r.uvRotateNorth,r.uvRotateSouth}[side];this.icon=icon;}
+ }
+ static final class Layout {final List<Face> faces;final int color;final boolean item;Layout(List<Face> faces,int color,boolean item){this.faces=faces;this.color=color;this.item=item;}}
+ static Function<String,TextureAtlasSprite> sprites;
+ static final class IIcon {
+  final String name;final TextureAtlasSprite sprite;
+  IIcon(String n){name=n.replace("hbm:","hbm:blocks/");sprite=sprites.apply(name);}
+  float getInterpolatedU(double u){return sprite.getInterpolatedU(u);}float getInterpolatedV(double v){return sprite.getInterpolatedV(v);}
+  float getMinU(){return sprite.getMinU();}float getMaxU(){return sprite.getMaxU();}float getMinV(){return sprite.getMinV();}float getMaxV(){return sprite.getMaxV();}
+ }
+ static final class IIconRegister {IIcon registerIcon(String n){return new IIcon(n);}}
+ static final class RefStrings {static final String MODID="hbm";}
+ static class TileEntity {}
+ static final class TileEntityPipeBaseNT extends TileEntity {FluidType type=new FluidType(0x123456);FluidType getType(){return type;}}
+ static final class FluidType {final int color;FluidType(int c){color=c;}int getColor(){return color;}}
+ static final class Fluids {static final FluidType NONE=new FluidType(0xffffff);}
+ static final class ColorUtil {/* LIGHTEN */}
+ static final class IBlockAccess {final int meta,mask;final TileEntity tile;IBlockAccess(int m,int c,TileEntity t){meta=m;mask=c;tile=t;}int getBlockMetadata(int x,int y,int z){return meta;}TileEntity getTileEntity(int x,int y,int z){return tile;}}
+ static final class Library {static final int POS_X=32,NEG_X=16,POS_Y=8,NEG_Y=4,POS_Z=2,NEG_Z=1;}
+ static class Block {void registerBlockIcons(IIconRegister r){}IIcon getIcon(IBlockAccess w,int x,int y,int z,int side){throw new AssertionError();}int getMixedBrightnessForBlock(IBlockAccess w,int x,int y,int z){return 0;} }
+ static class FluidDuctBox extends Block {
+  IIcon[] iconStraight,iconEnd,iconCurveTL,iconCurveTR,iconCurveBL,iconCurveBR;IIcon[][] iconJunction;
+  static int cachedColor=0xffffff;private static final String[] materials={"silver","copper","white"};
+  int getSubCount(){return 3;}int rectify(int meta){return Math.abs(meta%getSubCount());}
+  boolean canConnectTo(IBlockAccess w,int x,int y,int z,int direction,TileEntity tile){return (w.mask&direction)!=0;}
+  /* FLUID_ICONS */
+  /* FLUID_REGISTER */
+ }
+ static final class FluidDuctBoxExhaust extends FluidDuctBox {int getSubCount(){return 1;}/* EXHAUST_REGISTER */}
+ static final class PowerCableBox extends Block {
+  IIcon iconStraight,iconCurveTL,iconCurveTR,iconCurveBL,iconCurveBR,iconJunction;IIcon[] iconEnd;
+  boolean canConnectTo(IBlockAccess w,int x,int y,int z,int direction,TileEntity tile){return (w.mask&direction)!=0;}
+  /* CABLE_ICONS */
+  /* CABLE_REGISTER */
+ }
+ static final class GL11 {static void glTranslatef(float x,float y,float z){if(x!=-.5F||y!=-.5F||z!=-.5F)throw new AssertionError("Unexpected item transform");}}
+ static final class Tessellator {
+  static final Tessellator instance=new Tessellator();final List<double[]> vertices=new ArrayList<>();int starts,draws;boolean normal;
+  void setNormal(float x,float y,float z){normal=true;}void startDrawingQuads(){starts++;}void draw(){draws++;}void setBrightness(int i){}void setColorOpaque_F(float r,float g,float b){}
+  void addVertexWithUV(double x,double y,double z,double u,double v){vertices.add(new double[]{(float)x,(float)y,(float)z,(float)u,(float)v});}
+ }
+ static class RenderBlocks {
+  final List<Face> faces=new ArrayList<>();double[] bounds={0,0,0,1,1,1};IBlockAccess world;
+  int uvRotateTop,uvRotateBottom,uvRotateNorth,uvRotateSouth,uvRotateEast,uvRotateWest;
+  void setRenderBounds(double x0,double y0,double z0,double x1,double y1,double z1){bounds=new double[]{x0,y0,z0,x1,y1,z1};}
+  void face(int side,IIcon icon){faces.add(new Face(this,side,icon));}
+  void renderStandardBlock(Block b,int x,int y,int z){for(int side=0;side<6;side++)face(side,b.getIcon(world,x,y,z,side));}
+  public void renderFaceYNeg(Block b,double x,double y,double z,IIcon i){face(0,i);}public void renderFaceYPos(Block b,double x,double y,double z,IIcon i){face(1,i);}
+  public void renderFaceZNeg(Block b,double x,double y,double z,IIcon i){face(2,i);}public void renderFaceZPos(Block b,double x,double y,double z,IIcon i){face(3,i);}
+  public void renderFaceXNeg(Block b,double x,double y,double z,IIcon i){face(4,i);}public void renderFaceXPos(Block b,double x,double y,double z,IIcon i){face(5,i);}
+ }
+ static final class RenderBlocksNT extends RenderBlocks {static RenderBlocksNT INSTANCE=new RenderBlocksNT();RenderBlocksNT setWorld(IBlockAccess w){world=w;return this;}}
+ static final class Renderer {/* RENDER */}
+ static Layout layout(int kind,int meta,int mask,boolean item,Function<String,TextureAtlasSprite> lookup){
+  sprites=lookup;Block owner=kind==0?new FluidDuctBox():kind==1?new FluidDuctBoxExhaust():new PowerCableBox();owner.registerBlockIcons(new IIconRegister());
+  RenderBlocksNT.INSTANCE=new RenderBlocksNT();RenderBlocks renderer=item?new RenderBlocks():RenderBlocksNT.INSTANCE;
+  IBlockAccess world=new IBlockAccess(meta,mask,kind==0?new TileEntityPipeBaseNT():new TileEntity());
+  Tessellator.instance.starts=Tessellator.instance.draws=0;Tessellator.instance.normal=false;
+  if(item)new Renderer().renderInventoryBlock(owner,meta,0,renderer);else new Renderer().renderWorldBlock(world,0,0,0,owner,0,renderer);
+  if(renderer.uvRotateBottom!=0||renderer.uvRotateTop!=0||renderer.uvRotateEast!=0||renderer.uvRotateWest!=0||renderer.uvRotateNorth!=0||renderer.uvRotateSouth!=0)throw new AssertionError("Original renderer failed rotation reset");
+  if(item&&(Tessellator.instance.starts!=1||Tessellator.instance.draws!=1||!Tessellator.instance.normal))throw new AssertionError("Original item batch changed");
+  return new Layout(renderer.faces,item||kind==2?0xffffff:FluidDuctBox.cachedColor,item);
+ }
+ /** Verbatim original two RenderBlocksNT face overrides, without light-solver claims. */
+ static final class FixedFaces {
+  double renderMinX,renderMinY,renderMinZ,renderMaxX,renderMaxY,renderMaxZ;
+  int uvRotateEast,uvRotateSouth;boolean field_152631_f,flipTexture,renderFromInside,enableAO;
+  IIcon overrideBlockTexture;boolean hasOverrideBlockTexture(){return overrideBlockTexture!=null;}
+  float colorRedTopLeft,colorGreenTopLeft,colorBlueTopLeft,colorRedBottomLeft,colorGreenBottomLeft,colorBlueBottomLeft,colorRedBottomRight,colorGreenBottomRight,colorBlueBottomRight,colorRedTopRight,colorGreenTopRight,colorBlueTopRight;
+  int brightnessTopLeft,brightnessBottomLeft,brightnessBottomRight,brightnessTopRight;
+  /* NT_FACES */
+  double[][] face(Face f){renderMinX=f.bounds[0];renderMinY=f.bounds[1];renderMinZ=f.bounds[2];renderMaxX=f.bounds[3];renderMaxY=f.bounds[4];renderMaxZ=f.bounds[5];uvRotateEast=uvRotateSouth=f.rotation;Tessellator.instance.vertices.clear();if(f.side==2)renderFaceZNeg(null,0,0,0,f.icon);else renderFaceXPos(null,0,0,0,f.icon);return Tessellator.instance.vertices.toArray(new double[0][]);}
+ }
+ /** Actual original client RenderBlocks bytecode executes all item faces and four unchanged world faces. */
+ static final class LegacyFaces implements AutoCloseable {
+  final URLClassLoader loader;final Class<?> renderer,block,iconType,tessType;final Object render,tess;final Field raw,count,ptr;final FixedFaces fixed=new FixedFaces();
+  static Field field(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}
+  LegacyFaces(File jar)throws Exception{
+   loader=new URLClassLoader(new java.net.URL[]{jar.toURI().toURL()},OriginalBoxDuctOracle.class.getClassLoader());
+   renderer=Class.forName("blm",true,loader);block=Class.forName("aji",true,loader);iconType=Class.forName("rf",true,loader);tessType=Class.forName("bmh",true,loader);
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+  }
+  double[][] face(Face f,boolean item)throws Exception{
+   if(!item&&(f.side==2||f.side==5))return fixed.face(f);
+   String[] names={"i","k","m","j","l","n"},rotations={"w","v","r","s","u","t"};for(int i=0;i<6;i++){field(renderer,names[i]).setDouble(render,f.bounds[i]);field(renderer,rotations[i]).setInt(render,f.rotation);}
+   final TextureAtlasSprite sprite=f.icon.sprite;Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(p,m,a)->{
+    if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);
+    switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}
+   });
+   count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(f.side,f.side+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);
+   if(count.getInt(tess)!=4)throw new AssertionError("Legacy face vertex count");int[] data=(int[])raw.get(tess);double[][] vertices=new double[4][5];for(int i=0;i<4;i++)for(int j=0;j<5;j++)vertices[i][j]=Float.intBitsToFloat(data[i*8+j]);return vertices;
+  }
+  public void close()throws Exception{loader.close();}
+ }
+}

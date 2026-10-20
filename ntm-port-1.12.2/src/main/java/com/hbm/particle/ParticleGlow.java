@@ -1,20 +1,18 @@
 package com.hbm.particle;
 
-import com.hbm.main.ModEventHandlerClient;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleGlow extends EntityFX {
+public class ParticleGlow extends Particle {
 
 	private float peakScale;
 	
 	public ParticleGlow(World world, double x, double y, double z, double mX, double mY, double mZ, float scale) {
 		super(world, x, y, z, mX, mY, mZ);
-		this.particleIcon = ModEventHandlerClient.particleFlare;
+		this.particleTexture = ParticleSprites.flare;
 		this.particleRed = 1.0F;
 		this.particleGreen = 1.0F;
 		this.particleBlue = 1.0F;
@@ -25,7 +23,7 @@ public class ParticleGlow extends EntityFX {
 		this.particleAge = 1;
 		this.particleMaxAge = 50 + world.rand.nextInt(50);
 		this.particleAlpha = 0.8F;
-		this.noClip = true;
+		this.canCollide = false;
 	}
 	
 	@Override
@@ -37,6 +35,11 @@ public class ParticleGlow extends EntityFX {
 		t = Math.abs(0.5F - (t - 0.5F)) * 2;
 
 		particleScale = peakScale * (float)Math.sin(t * Math.PI / 2);
+	}
+
+	@Override
+	public boolean shouldDisableDepth() {
+		return true;
 	}
 
 	@Override

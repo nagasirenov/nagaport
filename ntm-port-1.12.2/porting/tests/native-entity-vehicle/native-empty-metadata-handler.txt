@@ -1,0 +1,26 @@
+  public void handleEntityMetadata(net.minecraft.network.play.server.SPacketEntityMetadata);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: aload_0
+       3: getfield      #175                // Field client:Lnet/minecraft/client/Minecraft;
+       6: invokestatic  #205                // Method net/minecraft/network/PacketThreadUtil.checkThreadAndEnqueue:(Lnet/minecraft/network/Packet;Lnet/minecraft/network/INetHandler;Lnet/minecraft/util/IThreadListener;)V
+       9: aload_0
+      10: getfield      #197                // Field world:Lnet/minecraft/client/multiplayer/WorldClient;
+      13: aload_1
+      14: invokevirtual #687                // Method net/minecraft/network/play/server/SPacketEntityMetadata.getEntityId:()I
+      17: invokevirtual #390                // Method net/minecraft/client/multiplayer/WorldClient.getEntityByID:(I)Lnet/minecraft/entity/Entity;
+      20: astore_2
+      21: aload_2
+      22: ifnull        43
+      25: aload_1
+      26: invokevirtual #691                // Method net/minecraft/network/play/server/SPacketEntityMetadata.getDataManagerEntries:()Ljava/util/List;
+      29: ifnull        43
+      32: aload_2
+      33: invokevirtual #695                // Method net/minecraft/entity/Entity.getDataManager:()Lnet/minecraft/network/datasync/EntityDataManager;
+      36: aload_1
+      37: invokevirtual #691                // Method net/minecraft/network/play/server/SPacketEntityMetadata.getDataManagerEntries:()Ljava/util/List;
+      40: invokevirtual #699                // Method net/minecraft/network/datasync/EntityDataManager.setEntryValues:(Ljava/util/List;)V
+      43: return
+
+  public void handleSpawnPlayer(net.minecraft.network.play.server.SPacketSpawnPlayer);

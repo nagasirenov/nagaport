@@ -30,19 +30,19 @@ public class TileEntityMachineFENSU extends TileEntityMachineBattery {
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			int mode = this.getRelevantMode(false);
 			
 			if(this.node == null || this.node.expired) {
 				
-				this.node = Nodespace.getNode(worldObj, xCoord, yCoord, zCoord);
+				this.node = Nodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				
 				if(this.node == null || this.node.expired) {
 					this.node = this.createNode();
-					Nodespace.createNode(worldObj, this.node);
+					Nodespace.createNode(this.world, this.node);
 				}
 			}
 			
@@ -51,7 +51,7 @@ public class TileEntityMachineFENSU extends TileEntityMachineBattery {
 			power = Library.chargeItemsFromTE(slots, 1, power, getMaxPower());
 			
 			if(mode == mode_output || mode == mode_buffer) {
-				this.tryProvide(worldObj, xCoord, yCoord - 1, zCoord, ForgeDirection.DOWN);
+				this.tryProvide(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), ForgeDirection.DOWN);
 			} else {
 				if(node != null && node.hasValidNet()) node.net.removeProvider(this);
 			}
@@ -81,7 +81,7 @@ public class TileEntityMachineFENSU extends TileEntityMachineBattery {
 			this.networkPackNT(20);
 		}
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.prevRotation = this.rotation;
 			this.rotation += this.getSpeed();
 			
@@ -94,7 +94,7 @@ public class TileEntityMachineFENSU extends TileEntityMachineBattery {
 
 	@Override
 	public PowerNode createNode() {
-		return new PowerNode(new BlockPos(xCoord, yCoord, zCoord)).setConnections(new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y));
+		return new PowerNode(new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())).setConnections(new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y));
 	}
 
 	@Override

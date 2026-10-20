@@ -32,7 +32,7 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretRichard";
 	}
 
@@ -71,10 +71,10 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT {
 	int reload;
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(reload > 0) {
 				reload--;
@@ -134,7 +134,7 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT {
 			if(conf != null) {
 				this.spawnBullet(conf, 30F);
 				this.conusmeAmmo(conf.ammo);
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.richard_fire", 2.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.richard_fire", 2.0F, 1.0F);
 				this.loaded--;
 
 				//if(conf.ammo.equals(new ComparableStack(ModItems.ammo_standard, EnumAmmo.ROCKET_DEMO))) timer = -50;
@@ -153,10 +153,10 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT {
 		vec.rotateAroundZRad((float) -this.rotationPitch);
 		vec.rotateAroundYRad((float) -(this.rotationYaw + Math.PI * 0.5));
 
-		EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(worldObj, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);
+		EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, proj.rotationYaw, proj.rotationPitch);
 		proj.lockonTarget = this.target;
-		worldObj.spawnEntityInWorld(proj);
+		this.world.spawnEntityInWorld(proj);
 	}
 
 	@Override
@@ -166,9 +166,10 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("loaded", this.loaded);
+		return nbt;
 	}
 
 	@Override

@@ -10,13 +10,13 @@ import com.hbm.util.HashedSet;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
 public class RequestNetwork {
 	
 	private static int timer = 0;
-	public static HashMap<World, HashMap<ChunkCoordIntPair, HashedSet<PathNode>>> activeWaypoints = new HashMap();
+	public static HashMap<World, HashMap<ChunkPos, HashedSet<PathNode>>> activeWaypoints = new HashMap();
 	public static final int maxAge = 2_000;
 
 	/*
@@ -51,13 +51,13 @@ public class RequestNetwork {
 		
 		// iterate over each dim
 		while(worldIt.hasNext()) {
-			Entry<World, HashMap<ChunkCoordIntPair, HashedSet<PathNode>>> worldEntry = (Entry) worldIt.next();
+			Entry<World, HashMap<ChunkPos, HashedSet<PathNode>>> worldEntry = (Entry) worldIt.next();
 			Iterator chunkIt = worldEntry.getValue().entrySet().iterator();
 			
 			// iterate over each chunk
 			while(chunkIt.hasNext()) {
 				
-				Entry<ChunkCoordIntPair, HashedSet<PathNode>> chunkEntry = (Entry) chunkIt.next();
+				Entry<ChunkPos, HashedSet<PathNode>> chunkEntry = (Entry) chunkIt.next();
 				Iterator<PathNode> pathIt = chunkEntry.getValue().iterator();
 				
 				// iterate over each path node

@@ -12,7 +12,7 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
 /**
@@ -26,30 +26,30 @@ import net.minecraft.world.World;
  *
  */
 @NotableComments
-public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
+public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 	public HashedSet<PathNode> reachableNodes = new HashedSet();
 	public HashedSet<PathNode> knownNodes = new HashedSet();
 	public static final int maxRange = 24;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				BlockPos pos = getCoord();
 
 				PathNode newNode = createNode(pos);
-				if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) newNode.active = false;
+				if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) newNode.active = false;
 				else newNode.active = true;
 				// push new node
-				push(worldObj, newNode);
+				push(this.world, newNode);
 
 				// remove known nodes that no longer exist
 				// since we can assume a sane number of nodes to exist at any given time, we can run this check in full every second
 				Iterator<PathNode> it = knownNodes.iterator();
-				HashedSet<PathNode> localNodes = this.getAllLocalNodes(worldObj, xCoord, zCoord, 2); // this bit may spiral into multiple nested hashtable lookups but it's limited to only a few chunks so it shouldn't be an issue
+				HashedSet<PathNode> localNodes = this.getAllLocalNodes(this.world, this.pos.getX(), this.pos.getZ(), 2); // this bit may spiral into multiple nested hashtable lookups but it's limited to only a few chunks so it shouldn't be an issue
 				localNodes.remove(pos);
 
 				while(it.hasNext()) {
@@ -62,7 +62,7 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
 
 				// draw debug crap
 				for(PathNode known : knownNodes) {
-					if(reachableNodes.contains(known)) ParticleUtil.spawnDroneLine(worldObj,
+					if(reachableNodes.contains(known)) ParticleUtil.spawnDroneLine(this.world,
 							pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
 							(known.pos.getX()  - pos.getX()) / 2D, (known.pos.getY() - pos.getY()) / 2D, (known.pos.getZ() - pos.getZ()) / 2D,
 							reachableNodes.contains(known) ? 0x00ff00 : 0xff0000);
@@ -81,7 +81,7 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
 				//rescan known nodes
 				for(PathNode known : knownNodes) {
 
-					if(!hasPath(worldObj, pos, known.pos)) {
+					if(!hasPath(this.world, pos, known.pos)) {
 						reachableNodes.remove(known);
 					} else {
 						reachableNodes.add(known);
@@ -96,7 +96,7 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
 					if(!knownNodes.contains(node) && !node.equals(pos)) {
 						newNodeLimit--;
 						knownNodes.add(node);
-						if(hasPath(worldObj, pos, node.pos)) reachableNodes.add(node);
+						if(hasPath(this.world, pos, node.pos)) reachableNodes.add(node);
 					}
 
 					if(newNodeLimit <= 0) break;
@@ -112,7 +112,7 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
 	public abstract PathNode createNode(BlockPos pos);
 
 	public BlockPos getCoord() {
-		return new BlockPos(xCoord, yCoord + 1, zCoord);
+		return new BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ());
 	}
 
 	/**
@@ -141,14 +141,14 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
 	 */
 	public static void push(World world, PathNode node) {
 
-		HashMap<ChunkCoordIntPair, HashedSet<PathNode>> coordMap = RequestNetwork.activeWaypoints.get(world);
+		HashMap<ChunkPos, HashedSet<PathNode>> coordMap = RequestNetwork.activeWaypoints.get(world);
 
 		if(coordMap == null) {
 			coordMap = new HashMap();
 			RequestNetwork.activeWaypoints.put(world, coordMap);
 		}
 
-		ChunkCoordIntPair chunkPos = new ChunkCoordIntPair(node.pos.getX() >> 4, node.pos.getZ() >> 4);
+		ChunkPos chunkPos = new ChunkPos(node.pos.getX() >> 4, node.pos.getZ() >> 4);
 		HashedSet<PathNode> posList = coordMap.get(chunkPos);
 
 		if(posList == null) {
@@ -175,14 +175,14 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase {
 		x >>= 4;
 		z >>= 4;
 
-		HashMap<ChunkCoordIntPair, HashedSet<PathNode>> coordMap = RequestNetwork.activeWaypoints.get(world);
+		HashMap<ChunkPos, HashedSet<PathNode>> coordMap = RequestNetwork.activeWaypoints.get(world);
 
 		if(coordMap == null) return nodes;
 
 		for(int i = -range; i <= range; i++) {
 			for(int j = -range; j <= range; j++) {
 
-				HashedSet<PathNode> nodeList = coordMap.get(new ChunkCoordIntPair(x + i, z + j));
+				HashedSet<PathNode> nodeList = coordMap.get(new ChunkPos(x + i, z + j));
 
 				if(nodeList != null) for(PathNode node : nodeList) {
 					if(!pos.contains(node.pos)) {

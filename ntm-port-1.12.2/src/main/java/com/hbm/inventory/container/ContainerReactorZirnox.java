@@ -110,6 +110,6 @@ public class ContainerReactorZirnox extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return zirnox.isUseableByPlayer(player);
+		return zirnox.isUsableByPlayer(player);
 	}
 }

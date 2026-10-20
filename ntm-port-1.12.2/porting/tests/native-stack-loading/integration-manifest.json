@@ -1,0 +1,23 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+    "before_sha256": "961bed346383fdcc63ddbfd08c7cb2210b10272fa20c7d2171d297153dea28ae",
+    "after_sha256": "235b68896f9c8a463951d38a65dd6cfb98ba7938672e69f18fc7adea0fcae5bd",
+    "offset": 8248,
+    "old": "setInventorySlotContents(i, ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot\" + i)));",
+    "new": "setInventorySlotContents(i, new ItemStack(stack.getTagCompound().getCompoundTag(\"slot\" + i)));"
+  },
+  "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+    "before_sha256": "4f781df764ad073bea861734d1faa98df9735a0b732365e7d901fadf9345af51",
+    "after_sha256": "9968cb784efa39f89cf9d74572b36802f36233e575b77ded584f14dda28e931c",
+    "offset": 6580,
+    "old": "setInventorySlotContents(i, ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot\" + i)));",
+    "new": "setInventorySlotContents(i, new ItemStack(stack.getTagCompound().getCompoundTag(\"slot\" + i)));"
+  },
+  "src/main/java/com/hbm/entity/cart/EntityMinecartCrate.java": {
+    "before_sha256": "306a73570f7f3da032f13ef64a7394c5e8a737009416c120ee1a13d4405ee72e",
+    "after_sha256": "cea976cf944fce6a57f29278d413bea15202879a22ed60a0d5970bbe5ef12f6c",
+    "offset": 1302,
+    "old": "setInventorySlotContents(i, ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot\" + i)));",
+    "new": "setInventorySlotContents(i, new ItemStack(stack.getTagCompound().getCompoundTag(\"slot\" + i)));"
+  }
+}

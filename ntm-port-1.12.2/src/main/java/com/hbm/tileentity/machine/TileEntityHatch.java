@@ -8,22 +8,22 @@ import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityHatch extends TileEntity {
+public class TileEntityHatch extends TileEntity implements net.minecraft.util.ITickable {
 
 	public int x;
 	public int y;
 	public int z;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 		
-		if(b != ModBlocks.seal_controller && !worldObj.isRemote) {
-			this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, Blocks.air);
+		if(b != ModBlocks.seal_controller && !this.world.isRemote) {
+			{ net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = this.pos.getX(); int nativePlacementY = this.pos.getY(); int nativePlacementZ = this.pos.getZ(); net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		} else {
-			if(BlockSeal.getFrameSize(worldObj, x, y, z) == 0 && !worldObj.isRemote)
-				this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, Blocks.air);
+			if(BlockSeal.getFrameSize(this.world, x, y, z) == 0 && !this.world.isRemote)
+				{ net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = this.pos.getX(); int nativePlacementY = this.pos.getY(); int nativePlacementZ = this.pos.getZ(); net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 
@@ -35,10 +35,11 @@ public class TileEntityHatch extends TileEntity {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound p_145841_1_) {
+	public NBTTagCompound writeToNBT(NBTTagCompound p_145841_1_) {
 		p_145841_1_.setInteger("x1", this.x);
 		p_145841_1_.setInteger("y1", this.y);
 		p_145841_1_.setInteger("z1", this.z);
+		return p_145841_1_;
 	}
 	
 	public void setControllerPos(int x, int y, int z) {

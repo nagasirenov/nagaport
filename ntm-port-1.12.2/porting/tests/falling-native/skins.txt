@@ -1,0 +1,12 @@
+iron anvil_iron anvil_iron
+lead anvil_lead anvil_lead
+steel anvil_steel anvil_steel
+desh anvil_desh anvil_desh
+ferrouranium anvil_ferrouranium anvil_ferrouranium
+saturnite anvil_saturnite anvil_saturnite
+bismuth_bronze anvil_bismuth_bronze anvil_bismuth_bronze
+arsenic_bronze anvil_arsenic_bronze anvil_arsenic_bronze
+schrabidate anvil_schrabidate anvil_schrabidate
+dnt anvil_dnt anvil_dnt
+osmiridium anvil_osmiridium anvil_osmiridium
+murky anvil_murky anvil_steel

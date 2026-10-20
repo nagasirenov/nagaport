@@ -1,0 +1,2 @@
+PASS: exact reviewed two-file inventory source; sole descendant/name hook; actual legacy wrapper callers; distance 128; audit-only reversal
+PASS: 62 full production InventoryBase/native Slot/ItemStack/NBT checks; no furnace gameplay claim

@@ -9,7 +9,7 @@ import com.hbm.util.SubChunkSnapshot;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
@@ -44,15 +44,15 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 	private final int radius;
 
 	private final CompletableFuture<List<Vec3d>> directionsFuture;
-	private final ConcurrentMap<ChunkCoordIntPair, ConcurrentBitSet> destructionMap;
-	private final ConcurrentMap<ChunkCoordIntPair, ConcurrentMap<Integer, DoubleAdder>> damageMap;
+	private final ConcurrentMap<ChunkPos, ConcurrentBitSet> destructionMap;
+	private final ConcurrentMap<ChunkPos, ConcurrentMap<Integer, DoubleAdder>> damageMap;
 	private final ConcurrentMap<SubChunkKey, SubChunkSnapshot> snapshots;
 	private final ConcurrentMap<SubChunkKey, ConcurrentLinkedQueue<RayTask>> waitingRoom;
 	private final BlockingQueue<RayTask> rayQueue;
 	private final ExecutorService pool;
 	private final CountDownLatch latch;
 	private final Thread latchWatcherThread;
-	private final List<ChunkCoordIntPair> orderedChunks;
+	private final List<ChunkPos> orderedChunks;
 	private final BlockingQueue<SubChunkKey> highPriorityReactiveQueue; // cache queue for rays
 	private final Iterator<SubChunkKey> lowPriorityProactiveIterator;
 	private volatile List<Vec3d> directions;
@@ -115,9 +115,9 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 	}
 
 	private static float getNukeResistance(Block b) {
-		if (b.getMaterial().isLiquid()) return 0.1F;
-		if (b == Blocks.sandstone) return Blocks.stone.getExplosionResistance(null);
-		if (b == Blocks.obsidian) return Blocks.stone.getExplosionResistance(null) * 3.0F;
+		if (b.getDefaultState().getMaterial().isLiquid()) return 0.1F;
+		if (b == Blocks.SANDSTONE) return Blocks.STONE.getExplosionResistance(null);
+		if (b == Blocks.OBSIDIAN) return Blocks.STONE.getExplosionResistance(null) * 3.0F;
 		return b.getExplosionResistance(null);
 	}
 
@@ -148,8 +148,8 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 			}
 		}
 		keys.sort(Comparator.comparingInt(key -> {
-			int distCX = key.getPos().chunkXPos - (originX >> 4);
-			int distCZ = key.getPos().chunkZPos - (originZ >> 4);
+			int distCX = key.getPos().x - (originX >> 4);
+			int distCZ = key.getPos().z - (originZ >> 4);
 			int distSubY = key.getSubY() - originSubY;
 			return distCX * distCX + distCZ * distCZ + distSubY * distSubY;
 		}));
@@ -186,19 +186,19 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 
 		if (orderedChunks.isEmpty() && !destructionMap.isEmpty()) {
 			orderedChunks.addAll(destructionMap.keySet());
-			orderedChunks.sort(Comparator.comparingInt(c -> Math.abs((originX >> 4) - c.chunkXPos) + Math.abs((originZ >> 4) - c.chunkZPos)));
+			orderedChunks.sort(Comparator.comparingInt(c -> Math.abs((originX >> 4) - c.x) + Math.abs((originZ >> 4) - c.z)));
 		}
 
-		Iterator<ChunkCoordIntPair> it = orderedChunks.iterator();
+		Iterator<ChunkPos> it = orderedChunks.iterator();
 		while (it.hasNext() && System.nanoTime() < deadline) {
-			ChunkCoordIntPair cp = it.next();
+			ChunkPos cp = it.next();
 			ConcurrentBitSet bs = destructionMap.get(cp);
 			if (bs == null) {
 				it.remove();
 				continue;
 			}
 
-			Chunk chunk = world.getChunkFromChunkCoords(cp.chunkXPos, cp.chunkZPos);
+			Chunk chunk = world.getChunkFromChunkCoords(cp.x, cp.z);
 			ExtendedBlockStorage[] storages = chunk.getBlockStorageArray();
 			boolean chunkModified = false;
 
@@ -213,21 +213,21 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 
 				while (bit >= 0 && bit <= endBit && System.nanoTime() < deadline) {
 					int yGlobal = WORLD_HEIGHT - 1 - (bit >>> 8);
-					int xGlobal = (cp.chunkXPos << 4) | ((bit >>> 4) & 0xF);
-					int zGlobal = (cp.chunkZPos << 4) | (bit & 0xF);
+					int xGlobal = (cp.x << 4) | ((bit >>> 4) & 0xF);
+					int zGlobal = (cp.z << 4) | (bit & 0xF);
 					int xLocal = xGlobal & 0xF;
 					int yLocal = yGlobal & 0xF;
 					int zLocal = zGlobal & 0xF;
-					if (storage.getBlockByExtId(xLocal, yLocal, zLocal) != Blocks.air) {
-						if (world.getTileEntity(xGlobal, yGlobal, zGlobal) != null) {
+					if (storage.getBlockByExtId(xLocal, yLocal, zLocal) != Blocks.AIR) {
+						if (world.getTileEntity(new net.minecraft.util.math.BlockPos(xGlobal, yGlobal, zGlobal)) != null) {
 							world.removeTileEntity(xGlobal, yGlobal, zGlobal);
 						}
 
-						storage.func_150818_a(xLocal, yLocal, zLocal, Blocks.air);
+						storage.func_150818_a(xLocal, yLocal, zLocal, Blocks.AIR);
 						storage.setExtBlockMetadata(xLocal, yLocal, zLocal, 0);
 						chunkModified = true;
 
-						world.notifyBlocksOfNeighborChange(xGlobal, yGlobal, zGlobal, Blocks.air);
+						world.notifyBlocksOfNeighborChange(xGlobal, yGlobal, zGlobal, Blocks.AIR);
 						world.markBlockForUpdate(xGlobal, yGlobal, zGlobal);
 
 						world.updateLightByType(EnumSkyBlock.Sky, xGlobal, yGlobal, zGlobal);
@@ -240,7 +240,7 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 
 			if (chunkModified) {
 				chunk.setChunkModified();
-				world.markBlockRangeForRenderUpdate(cp.chunkXPos << 4, 0, cp.chunkZPos << 4, (cp.chunkXPos << 4) | 15, WORLD_HEIGHT - 1, (cp.chunkZPos << 4) | 15);
+				world.markBlockRangeForRenderUpdate(cp.x << 4, 0, cp.z << 4, (cp.x << 4) | 15, WORLD_HEIGHT - 1, (cp.z << 4) | 15);
 			}
 			if (bs.isEmpty()) {
 				destructionMap.remove(cp);
@@ -332,7 +332,7 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 				int xLocal = (bitIndex >>> 4) & 0xF;
 				int zLocal = bitIndex & 0xF;
 				Block originalBlock = snap.getBlock(xLocal, yGlobal & 0xF, zLocal);
-				if (originalBlock == Blocks.air) {
+				if (originalBlock == Blocks.AIR) {
 					innerDamageMap.remove(bitIndex);
 					return;
 				}
@@ -459,7 +459,7 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 
 				if (snap != SubChunkSnapshot.EMPTY && segmentLenForProcessing > PROCESSING_EPSILON) {
 					Block block = snap.getBlock(x & 0xF, y & 0xF, z & 0xF);
-					if (block != Blocks.air) {
+					if (block != Blocks.AIR) {
 						float resistance = getNukeResistance(block);
 						if (resistance >= NUKE_RESISTANCE_CUTOFF) {
 							energy = 0;
@@ -469,7 +469,7 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 							energy -= damageDealt;
 							if (damageDealt > 0) {
 								int bitIndex = ((WORLD_HEIGHT - 1 - y) << 8) | ((x & 0xF) << 4) | (z & 0xF);
-								ChunkCoordIntPair chunkPos = currentSubChunkKey.getPos();
+								ChunkPos chunkPos = currentSubChunkKey.getPos();
 								if (BombConfig.explosionAlgorithm == 2) {
 									damageMap.computeIfAbsent(chunkPos, cp -> new ConcurrentHashMap<>(256)).computeIfAbsent(bitIndex, k -> new DoubleAdder()).add(damageDealt);
 								} else if (energy > 0) destructionMap.computeIfAbsent(chunkPos, posKey -> new ConcurrentBitSet(BITSET_SIZE)).set(bitIndex);

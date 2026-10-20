@@ -9,7 +9,7 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -44,8 +44,8 @@ public class ContainerMachineCryoDistill extends Container {
 	}
 	
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
 	}
 	
 	@Override
@@ -93,6 +93,6 @@ public class ContainerMachineCryoDistill extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return cryo.isUseableByPlayer(player);
+		return cryo.isUsableByPlayer(player);
 	}
 }

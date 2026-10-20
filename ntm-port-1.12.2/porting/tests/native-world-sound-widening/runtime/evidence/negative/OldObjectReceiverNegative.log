@@ -1,0 +1,6 @@
+/workspace/shared/world-sound-widening-replay.qcPMl4/negative/OldObjectReceiverNegative.java:1: error: cannot find symbol
+class OldObjectReceiverNegative { static void test(Object w) { w.a(1, 2, 3, "hbm:player.vomit", 1F, 1F); } }
+                                                                ^
+  symbol:   method a(int,int,int,String,float,float)
+  location: variable w of type Object
+1 error

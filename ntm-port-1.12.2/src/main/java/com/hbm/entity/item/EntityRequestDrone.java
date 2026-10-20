@@ -45,7 +45,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 
 		if(this.isDead) return false;
 
-		if(attacker instanceof EntityPlayer && !worldObj.isRemote) {
+		if(attacker instanceof EntityPlayer && !this.world.isRemote) {
 			this.setDead();
 			if(heldItem != null)
 				this.entityDropItem(heldItem, 1F);
@@ -62,7 +62,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(new Vec3d(motionX, motionY, motionZ).length() < 0.01) {
 				
@@ -88,11 +88,11 @@ public class EntityRequestDrone extends EntityDroneBase {
 						//to make DAMN sure this fuckin idiot doesnt miss the dock
 						Vec3d pos = new Vec3d(this.posX, this.posY, this.posZ);
 						Vec3d nextPos = new Vec3d(this.posX, this.posY - 4, this.posZ);
-						RayTraceResult mop = this.worldObj.rayTraceBlocks(pos, nextPos);
+						RayTraceResult mop = this.world.rayTraceBlocks(pos, nextPos);
 
 						if (mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-							TileEntity tile = worldObj.getTileEntity(mop.getBlockPos());
+							TileEntity tile = this.world.getTileEntity(mop.getBlockPos());
 							if (tile instanceof TileEntityDroneProvider) {
 								TileEntityDroneProvider provider = (TileEntityDroneProvider) tile;
 
@@ -102,7 +102,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 									if (stack != null && aStack.matchesRecipe(stack, true)) {
 										this.heldItem = stack.copy();
 										this.setAppearance(1);
-										worldObj.playSoundEffect(posX, posY, posZ, "hbm:item.unpack", 0.5F, 0.75F);
+										com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:item.unpack", 0.5F, 0.75F);
 										provider.slots[i] = null;
 										provider.markDirty();
 										break;
@@ -114,11 +114,11 @@ public class EntityRequestDrone extends EntityDroneBase {
 					} else if(next == DroneProgram.UNLOAD && this.heldItem != null) {
 						Vec3d pos = new Vec3d(this.posX, this.posY, this.posZ);
 						Vec3d nextPos = new Vec3d(this.posX, this.posY - 4, this.posZ);
-						RayTraceResult mop = this.worldObj.rayTraceBlocks(pos, nextPos);
+						RayTraceResult mop = this.world.rayTraceBlocks(pos, nextPos);
 
 						if (mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-							TileEntity tile = worldObj.getTileEntity(mop.getBlockPos());
+							TileEntity tile = this.world.getTileEntity(mop.getBlockPos());
 							if (tile instanceof TileEntityDroneRequester) {
 								TileEntityDroneRequester requester = (TileEntityDroneRequester) tile;
 
@@ -143,7 +143,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 
 								if (this.heldItem == null) {
 									this.setAppearance(0);
-									worldObj.playSoundEffect(posX, posY, posZ, "hbm:item.unpack", 0.5F, 0.75F);
+									com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:item.unpack", 0.5F, 0.75F);
 								}
 
 								requester.markDirty();
@@ -153,11 +153,11 @@ public class EntityRequestDrone extends EntityDroneBase {
 					} else if(next == DroneProgram.DOCK) {
 						Vec3d pos = new Vec3d(this.posX, this.posY, this.posZ);
 						Vec3d nextPos = new Vec3d(this.posX, this.posY - 4, this.posZ);
-						RayTraceResult mop = this.worldObj.rayTraceBlocks(pos, nextPos);
+						RayTraceResult mop = this.world.rayTraceBlocks(pos, nextPos);
 
 						if (mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-							TileEntity tile = worldObj.getTileEntity(mop.getBlockPos());
+							TileEntity tile = this.world.getTileEntity(mop.getBlockPos());
 							if (tile instanceof TileEntityDroneDock) {
 								TileEntityDroneDock dock = (TileEntityDroneDock) tile;
 								ItemStack drone = new ItemStack(ModItems.drone, 1, EnumDroneType.REQUEST.ordinal());
@@ -170,7 +170,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 											}
 										}
 										dock.slots[i] = drone.copy();
-										this.worldObj.playSoundEffect(dock.xCoord + 0.5, dock.yCoord + 0.5, dock.zCoord + 0.5, "hbm:block.storageClose", 2.0F, 1.0F);
+										com.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, "hbm:block.storageClose", 2.0F, 1.0F);
 										break;
 									} else if (dock.slots[i].isItemEqual(drone) && dock.slots[i].stackSize < 64){
 										this.setDead();
@@ -180,7 +180,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 											}
 										}
 										dock.slots[i].stackSize++;
-										this.worldObj.playSoundEffect(dock.xCoord + 0.5, dock.yCoord + 0.5, dock.zCoord + 0.5, "hbm:block.storageClose", 2.0F, 1.0F);
+										com.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, "hbm:block.storageClose", 2.0F, 1.0F);
 										break;
 									}
 								}
@@ -215,7 +215,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 		
 		nextActionTimer = 5;
 
-		this.dataWatcher.updateObject(10, nbt.getByte("app"));
+		this.dataManager.set(APPEARANCE, nbt.getByte("app"));
 		
 		int size = nbt.getInteger("programSize");
 		
@@ -250,7 +250,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 			nbt.setTag("held", stack);
 		}
 
-		nbt.setByte("app", this.dataWatcher.getWatchableObjectByte(10));
+		nbt.setByte("app", this.dataManager.get(APPEARANCE));
 		
 		int size = this.program.size();
 		nbt.setInteger("programSize", size);

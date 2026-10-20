@@ -49,7 +49,7 @@ public class GUICombustionEngine extends GuiInfoContainer {
 		}
 		
 		if(isMouseLocked || (guiLeft + 80 <= x && guiLeft + 80 + 34 > x && guiTop + 38 < y && guiTop + 38 + 8 >= y)) {
-			drawCreativeTabHoveringText(((setting * 2) / 10D) + "mB/t", MathHelper.clamp_int(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp_int(y, guiTop + 38, guiTop + 46));
+			drawHoveringText(((setting * 2) / 10D) + "mB/t", MathHelper.clamp(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp(y, guiTop + 38, guiTop + 46));
 		}
 		
 		if(engine.slots[2] != null && engine.slots[2].getItem() == ModItems.piston_set) {
@@ -69,13 +69,13 @@ public class GUICombustionEngine extends GuiInfoContainer {
 		if(isMouseLocked) {
 			
 			int setting = (x - guiLeft - 81) * 30 / 32;
-			setting = MathHelper.clamp_int(setting, 0, 30);
+			setting = MathHelper.clamp(setting, 0, 30);
 			
 			if(this.setting != setting) {
 				this.setting = setting;
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("setting", setting);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, engine.xCoord, engine.yCoord, engine.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, engine.getPos().getX(), engine.getPos().getY(), engine.getPos().getZ()));
 			}
 		}
 	}
@@ -85,14 +85,14 @@ public class GUICombustionEngine extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 89 <= x && guiLeft + 89 + 16 > x && guiTop + 13 < y && guiTop + 13 + 14 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("turnOn", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, engine.xCoord, engine.yCoord, engine.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, engine.getPos().getX(), engine.getPos().getY(), engine.getPos().getZ()));
 		}
 
 		if(guiLeft + 79 <= x && guiLeft + 79 + 36 > x && guiTop + 38 < y && guiTop + 38 + 8 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			isMouseLocked = true;
 		}
 	}
@@ -111,7 +111,7 @@ public class GUICombustionEngine extends GuiInfoContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

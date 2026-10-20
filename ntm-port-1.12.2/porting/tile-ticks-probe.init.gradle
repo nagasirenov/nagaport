@@ -1,0 +1,28 @@
+// Native World scheduler fixtures only. Production sourceSets/compileJava are unchanged.
+// Usage: ./gradlew -I porting/tile-ticks-probe.init.gradle testPortTileTicks
+allprojects {
+    afterEvaluate {
+        def javaHome = new File(System.getProperty('java.home'))
+        if (javaHome.name == 'jre') javaHome = javaHome.parentFile
+        def sourceCheck = tasks.create('checkPortTileTickSources', Exec) {
+            commandLine([project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-tile-tick-migration.py').absolutePath])
+        }
+        def probe = tasks.create('compilePortTileTicksProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            dependsOn sourceCheck, project.tasks.getByName('compileJava').classpath
+            source project.file('porting/tests/TileTickSchedulerTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portTileTicksProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+            options.fork = true
+            options.forkOptions.javaHome = javaHome
+        }
+        tasks.create('testPortTileTicks', JavaExec) {
+            dependsOn probe
+            classpath = files(probe.destinationDir) + probe.classpath
+            executable = new File(javaHome, 'bin/java').absolutePath
+            main = 'TileTickSchedulerTest'
+        }
+    }
+}

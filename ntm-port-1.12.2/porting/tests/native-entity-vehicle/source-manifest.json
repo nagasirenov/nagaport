@@ -1,0 +1,553 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+    "original_sha256": "66d930a1955f4df86cfa5cc891ed8374d9cd0cd7d48c5ce0795ba9b8fd937aa0",
+    "before_sha256": "f1f697ab9a66591239f4c9f2dcc3b0e460a61791565b7bceddb05f4fbf913a06",
+    "after_sha256": "e62fb6d9b74f6015e15587291a696e57feca754f4bdcf7bb2de8187919365f6f",
+    "class_name": "EntityBoatRubber",
+    "superclass": "Entity",
+    "keys": [
+      {
+        "legacy_slot": 17,
+        "key": "TIME_SINCE_HIT",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "registration_default": 0
+      },
+      {
+        "legacy_slot": 18,
+        "key": "FORWARD_DIRECTION",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "registration_default": 1
+      },
+      {
+        "legacy_slot": 19,
+        "key": "DAMAGE_TAKEN",
+        "java_type": "Float",
+        "serializer": "FLOAT",
+        "registration_default": 0
+      }
+    ],
+    "original_watcher_statements": [
+      "this.dataWatcher.addObject(17, new Integer(0));",
+      "this.dataWatcher.addObject(18, new Integer(1));",
+      "this.dataWatcher.addObject(19, new Float(0.0F));",
+      "this.dataWatcher.updateObject(19, Float.valueOf(amount));",
+      "return this.dataWatcher.getWatchableObjectFloat(19);",
+      "this.dataWatcher.updateObject(17, Integer.valueOf(time));",
+      "return this.dataWatcher.getWatchableObjectInt(17);",
+      "this.dataWatcher.updateObject(18, Integer.valueOf(dir));",
+      "return this.dataWatcher.getWatchableObjectInt(18);"
+    ],
+    "transformations": [
+      {
+        "before_line": 62,
+        "before": "this.dataWatcher.addObject(17, new Integer(0));",
+        "after": "this.dataManager.register(TIME_SINCE_HIT, new Integer(0));",
+        "operation_count": 1,
+        "after_line": 69,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 63,
+        "before": "this.dataWatcher.addObject(18, new Integer(1));",
+        "after": "this.dataManager.register(FORWARD_DIRECTION, new Integer(1));",
+        "operation_count": 1,
+        "after_line": 70,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 64,
+        "before": "this.dataWatcher.addObject(19, new Float(0.0F));",
+        "after": "this.dataManager.register(DAMAGE_TAKEN, new Float(0.0F));",
+        "operation_count": 1,
+        "after_line": 71,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 464,
+        "before": "this.dataWatcher.updateObject(19, Float.valueOf(amount));",
+        "after": "this.dataManager.set(DAMAGE_TAKEN, Float.valueOf(amount));",
+        "operation_count": 1,
+        "after_line": 471,
+        "source_method": "public void setDamageTaken(float amount) {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 468,
+        "before": "return this.dataWatcher.getWatchableObjectFloat(19);",
+        "after": "return this.dataManager.get(DAMAGE_TAKEN);",
+        "operation_count": 1,
+        "after_line": 475,
+        "source_method": "public float getDamageTaken() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 472,
+        "before": "this.dataWatcher.updateObject(17, Integer.valueOf(time));",
+        "after": "this.dataManager.set(TIME_SINCE_HIT, Integer.valueOf(time));",
+        "operation_count": 1,
+        "after_line": 479,
+        "source_method": "public void setTimeSinceHit(int time) {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 476,
+        "before": "return this.dataWatcher.getWatchableObjectInt(17);",
+        "after": "return this.dataManager.get(TIME_SINCE_HIT);",
+        "operation_count": 1,
+        "after_line": 483,
+        "source_method": "public int getTimeSinceHit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 480,
+        "before": "this.dataWatcher.updateObject(18, Integer.valueOf(dir));",
+        "after": "this.dataManager.set(FORWARD_DIRECTION, Integer.valueOf(dir));",
+        "operation_count": 1,
+        "after_line": 487,
+        "source_method": "public void setForwardDirection(int dir) {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      },
+      {
+        "before_line": 484,
+        "before": "return this.dataWatcher.getWatchableObjectInt(18);",
+        "after": "return this.dataManager.get(FORWARD_DIRECTION);",
+        "operation_count": 1,
+        "after_line": 491,
+        "source_method": "public int getForwardDirection() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityBoatRubber",
+        "declaring_owner": "EntityBoatRubber"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMinerRocket.java",
+    "original_sha256": "01b4ba574323183d5ffacb2a65650303393c3c0916b7395f08693d6a94fb4572",
+    "before_sha256": "0d44578a457c2e605a751ebed12f92614e9e2b08586b8eb02fc5b5cc931605f2",
+    "after_sha256": "6321a2f7f4df5a73827db2a729e8bb7805b4d5c1d781a1acb9a17198d08c0b60",
+    "class_name": "EntityMinerRocket",
+    "superclass": "Entity",
+    "keys": [
+      {
+        "legacy_slot": 16,
+        "key": "FLIGHT_MODE",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "registration_default": 0
+      },
+      {
+        "legacy_slot": 17,
+        "key": "SATELLITE_FREQUENCY",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "registration_default": 0
+      }
+    ],
+    "original_watcher_statements": [
+      "this.dataWatcher.addObject(16, 0);",
+      "this.dataWatcher.addObject(17, 0);",
+      "if(dataWatcher.getWatchableObjectInt(16) == 0)",
+      "if(dataWatcher.getWatchableObjectInt(16) == 1)",
+      "if(dataWatcher.getWatchableObjectInt(16) == 2)",
+      "if(dataWatcher.getWatchableObjectInt(16) == 0 && worldObj.getBlock((int)(posX - 0.5), (int)(posY - 0.5), (int)(posZ - 0.5)) == ModBlocks.sat_dock) {",
+      "dataWatcher.updateObject(16, 1);",
+      "} else if(worldObj.getBlock((int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getMaterial() != Material.air && !worldObj.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {",
+      "if(dataWatcher.getWatchableObjectInt(16) == 1) {",
+      "dataWatcher.updateObject(16, 2);",
+      "if(dataWatcher.getWatchableObjectInt(16) != 1 && !worldObj.isRemote && ticksExisted % 2 == 0) {",
+      "if(dataWatcher.getWatchableObjectInt(16) == 2 && posY > 300)",
+      "dataWatcher.updateObject(16, nbt.getInteger(\"mode\"));",
+      "dataWatcher.updateObject(17, nbt.getInteger(\"sat\"));",
+      "nbt.setInteger(\"mode\", dataWatcher.getWatchableObjectInt(16));",
+      "nbt.setInteger(\"sat\", dataWatcher.getWatchableObjectInt(17));"
+    ],
+    "transformations": [
+      {
+        "before_line": 24,
+        "before": "this.dataWatcher.addObject(16, 0);",
+        "after": "this.dataManager.register(FLIGHT_MODE, 0);",
+        "operation_count": 1,
+        "after_line": 42,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 25,
+        "before": "this.dataWatcher.addObject(17, 0);",
+        "after": "this.dataManager.register(SATELLITE_FREQUENCY, 0);",
+        "operation_count": 1,
+        "after_line": 43,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 30,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) == 0)",
+        "after": "if(dataManager.get(FLIGHT_MODE) == 0)",
+        "operation_count": 1,
+        "after_line": 48,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 32,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) == 1)",
+        "after": "if(dataManager.get(FLIGHT_MODE) == 1)",
+        "operation_count": 1,
+        "after_line": 50,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 34,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) == 2)",
+        "after": "if(dataManager.get(FLIGHT_MODE) == 2)",
+        "operation_count": 1,
+        "after_line": 52,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 42,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY - 0.5), (int)(posZ - 0.5)).getBlock() == ModBlocks.sat_dock) {",
+        "after": "if(dataManager.get(FLIGHT_MODE) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY - 0.5), (int)(posZ - 0.5)).getBlock() == ModBlocks.sat_dock) {",
+        "operation_count": 1,
+        "after_line": 60,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 43,
+        "before": "dataWatcher.updateObject(16, 1);",
+        "after": "dataManager.set(FLIGHT_MODE, 1);",
+        "operation_count": 1,
+        "after_line": 61,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 46,
+        "before": "} else if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {",
+        "after": "} else if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataManager.get(FLIGHT_MODE) != 1) {",
+        "operation_count": 1,
+        "after_line": 64,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 52,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) == 1) {",
+        "after": "if(dataManager.get(FLIGHT_MODE) == 1) {",
+        "operation_count": 1,
+        "after_line": 70,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 59,
+        "before": "dataWatcher.updateObject(16, 2);",
+        "after": "dataManager.set(FLIGHT_MODE, 2);",
+        "operation_count": 1,
+        "after_line": 77,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 63,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) != 1 && !this.world.isRemote && ticksExisted % 2 == 0) {",
+        "after": "if(dataManager.get(FLIGHT_MODE) != 1 && !this.world.isRemote && ticksExisted % 2 == 0) {",
+        "operation_count": 1,
+        "after_line": 81,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 67,
+        "before": "if(dataWatcher.getWatchableObjectInt(16) == 2 && posY > 300)",
+        "after": "if(dataManager.get(FLIGHT_MODE) == 2 && posY > 300)",
+        "operation_count": 1,
+        "after_line": 85,
+        "source_method": "public void onUpdate() {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 73,
+        "before": "dataWatcher.updateObject(16, nbt.getInteger(\"mode\"));",
+        "after": "dataManager.set(FLIGHT_MODE, nbt.getInteger(\"mode\"));",
+        "operation_count": 1,
+        "after_line": 91,
+        "source_method": "protected void readEntityFromNBT(NBTTagCompound nbt) {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 74,
+        "before": "dataWatcher.updateObject(17, nbt.getInteger(\"sat\"));",
+        "after": "dataManager.set(SATELLITE_FREQUENCY, nbt.getInteger(\"sat\"));",
+        "operation_count": 1,
+        "after_line": 92,
+        "source_method": "protected void readEntityFromNBT(NBTTagCompound nbt) {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 80,
+        "before": "nbt.setInteger(\"mode\", dataWatcher.getWatchableObjectInt(16));",
+        "after": "nbt.setInteger(\"mode\", dataManager.get(FLIGHT_MODE));",
+        "operation_count": 1,
+        "after_line": 98,
+        "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 81,
+        "before": "nbt.setInteger(\"sat\", dataWatcher.getWatchableObjectInt(17));",
+        "after": "nbt.setInteger(\"sat\", dataManager.get(SATELLITE_FREQUENCY));",
+        "operation_count": 1,
+        "after_line": 99,
+        "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {",
+        "receiver": "implicit this",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuz.java",
+    "original_sha256": "69d05f50930ce0a5f958e72adfd273e08bfb0cb5f25746646f584630f1307ac6",
+    "before_sha256": "df464322712a9a12ad7cfd686d83abebf88916518160aa2f96b423eca030caba",
+    "after_sha256": "6a494d4de1688b095b526631fb95053cd5d89ee109c6aae71c645b5e5b78a47e",
+    "class_name": "EntitySoyuz",
+    "superclass": "Entity",
+    "keys": [
+      {
+        "legacy_slot": 8,
+        "key": "SKIN",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "registration_default": 0
+      }
+    ],
+    "original_watcher_statements": [
+      "this.dataWatcher.addObject(8, 0);",
+      "this.dataWatcher.updateObject(8, i);",
+      "return this.dataWatcher.getWatchableObjectInt(8);"
+    ],
+    "transformations": [
+      {
+        "before_line": 142,
+        "before": "this.dataWatcher.addObject(8, 0);",
+        "after": "this.dataManager.register(SKIN, 0);",
+        "operation_count": 1,
+        "after_line": 147,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntitySoyuz",
+        "declaring_owner": "EntitySoyuz"
+      },
+      {
+        "before_line": 157,
+        "before": "this.dataWatcher.updateObject(8, i);",
+        "after": "this.dataManager.set(SKIN, i);",
+        "operation_count": 1,
+        "after_line": 162,
+        "source_method": "public void setSkin(int i) {",
+        "receiver": "this",
+        "receiver_static_type": "EntitySoyuz",
+        "declaring_owner": "EntitySoyuz"
+      },
+      {
+        "before_line": 161,
+        "before": "return this.dataWatcher.getWatchableObjectInt(8);",
+        "after": "return this.dataManager.get(SKIN);",
+        "operation_count": 1,
+        "after_line": 166,
+        "source_method": "public int getSkin() {",
+        "receiver": "this",
+        "receiver_static_type": "EntitySoyuz",
+        "declaring_owner": "EntitySoyuz"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+    "original_sha256": "084a2bd37e3a1c7821378c38f90ab67c84d76dc9d9eb4033d8b587b4d5c6b364",
+    "before_sha256": "50569d438d3f1edde60e6192e188ff79260a6c31777c7dad1a1465da68d7f6ce",
+    "after_sha256": "781dd073b9f557a67776d57d3609c5287950d00ea47155542325c02cdf3b3872",
+    "class_name": "EntityCombatDropPod",
+    "superclass": "EntityThrowable",
+    "keys": [
+      {
+        "legacy_slot": 20,
+        "key": "COLOR",
+        "java_type": "Integer",
+        "serializer": "VARINT",
+        "registration_default": 0
+      }
+    ],
+    "original_watcher_statements": [
+      "this.dataWatcher.updateObject(20, color);",
+      "return this.dataWatcher.getWatchableObjectInt(20);",
+      "this.dataWatcher.addObject(20, (int) 0);"
+    ],
+    "transformations": [
+      {
+        "before_line": 49,
+        "before": "this.dataWatcher.updateObject(20, color);",
+        "after": "this.dataManager.set(COLOR, color);",
+        "operation_count": 1,
+        "after_line": 54,
+        "source_method": "public void setColor(int color) {",
+        "receiver": "this",
+        "receiver_static_type": "EntityCombatDropPod",
+        "declaring_owner": "EntityCombatDropPod"
+      },
+      {
+        "before_line": 53,
+        "before": "return this.dataWatcher.getWatchableObjectInt(20);",
+        "after": "return this.dataManager.get(COLOR);",
+        "operation_count": 1,
+        "after_line": 58,
+        "source_method": "public int getColor() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityCombatDropPod",
+        "declaring_owner": "EntityCombatDropPod"
+      },
+      {
+        "before_line": 58,
+        "before": "this.dataWatcher.addObject(20, (int) 0);",
+        "after": "this.dataManager.register(COLOR, (int) 0);",
+        "operation_count": 1,
+        "after_line": 63,
+        "source_method": "protected void entityInit() {",
+        "receiver": "this",
+        "receiver_static_type": "EntityCombatDropPod",
+        "declaring_owner": "EntityCombatDropPod"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java",
+    "original_sha256": "93b460f0a1e43505021e8877261a5899fb1a740e5e3381c959389f93b3a77abf",
+    "before_sha256": "4da848474a0607aac609ae9e12ec114fc0a2583f43def54d9a4a7e91ec30050d",
+    "after_sha256": "88cbb6761ed12dea210de8aed8be29e18da163413be9fc2c19b545ca44f1c5e2",
+    "class_name": "TileEntityMachineSatDock",
+    "superclass": "TileEntity",
+    "keys": [],
+    "original_watcher_statements": [
+      "rocket.getDataWatcher().updateObject(17, freq);",
+      "if(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getDataWatcher().getWatchableObjectInt(17)) {",
+      "if(rocket.getDataWatcher().getWatchableObjectInt(16) == 1 && rocket.timer == 50) {"
+    ],
+    "transformations": [
+      {
+        "before_line": 164,
+        "before": "rocket.getDataWatcher().updateObject(17, freq);",
+        "after": "rocket.setSatelliteFrequency(freq);",
+        "operation_count": 1,
+        "after_line": 164,
+        "source_method": "public void update() {",
+        "receiver": "rocket",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 178,
+        "before": "if(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getDataWatcher().getWatchableObjectInt(17)) {",
+        "after": "if(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getSatelliteFrequency()) {",
+        "operation_count": 1,
+        "after_line": 178,
+        "source_method": "public void update() {",
+        "receiver": "rocket",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      },
+      {
+        "before_line": 184,
+        "before": "if(rocket.getDataWatcher().getWatchableObjectInt(16) == 1 && rocket.timer == 50) {",
+        "after": "if(rocket.getFlightMode() == 1 && rocket.timer == 50) {",
+        "operation_count": 1,
+        "after_line": 184,
+        "source_method": "public void update() {",
+        "receiver": "rocket",
+        "receiver_static_type": "EntityMinerRocket",
+        "declaring_owner": "EntityMinerRocket"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderSoyuz.java",
+    "original_sha256": "c834ce9cff247e13b65a02aee0c9c5067a3aeae534150cc8d7ce0f7bef7aae5e",
+    "before_sha256": "5daa2b081f064e42dbbf0db4665099dc35398082c81e0f462dbf65b2c5cc26a7",
+    "after_sha256": "2add829131b4c29afdb76ceaec250f5d50082fe748531d5f8da61a109ed1a567",
+    "class_name": "RenderSoyuz",
+    "superclass": "Render",
+    "keys": [],
+    "original_watcher_statements": [
+      "int type = entity.getDataWatcher().getWatchableObjectInt(8);"
+    ],
+    "transformations": [
+      {
+        "before_line": 26,
+        "before": "int type = entity.getDataWatcher().getWatchableObjectInt(8);",
+        "after": "int type = ((EntitySoyuz) entity).getSkin();",
+        "operation_count": 1,
+        "after_line": 27,
+        "source_method": "public void doRender(Entity entity, double x, double y, double z, float i, float j) {",
+        "receiver": "entity",
+        "receiver_static_type": "Entity",
+        "declaring_owner": "EntitySoyuz"
+      }
+    ]
+  }
+]

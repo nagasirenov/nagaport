@@ -1,0 +1,2887 @@
+{
+  "baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+  "selection": "manifest path and line; javac AST invocation selection and full expression source ranges; full-source JavacTask.analyze type attribution",
+  "count": 96,
+  "calls": [
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+      "line": 129,
+      "invocation_start_utf16": 4864,
+      "invocation_end_utf16": 4953,
+      "receiver_start_utf16": 4864,
+      "receiver_end_utf16": 4869,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x + 0.5",
+        "y + 0.5",
+        "z + 0.5",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "line": 212,
+      "invocation_start_utf16": 8325,
+      "invocation_end_utf16": 8414,
+      "receiver_start_utf16": 8325,
+      "receiver_end_utf16": 8330,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x + 0.5",
+        "y + 0.5",
+        "z + 0.5",
+        "\"hbm:weapon.mukeExplosion\"",
+        "25.0F",
+        "0.9F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F",
+      "before_invocation": "world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      "line": 69,
+      "invocation_start_utf16": 2519,
+      "invocation_end_utf16": 2605,
+      "receiver_start_utf16": 2519,
+      "receiver_end_utf16": 2524,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x + 0.5",
+        "y + 0.5",
+        "z + 0.5",
+        "\"hbm:block.chungusLever\"",
+        "1.5F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+      "line": 59,
+      "invocation_start_utf16": 2197,
+      "invocation_end_utf16": 2283,
+      "receiver_start_utf16": 2197,
+      "receiver_end_utf16": 2202,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x + 0.5",
+        "y + 0.5",
+        "z + 0.5",
+        "\"hbm:block.chungusLever\"",
+        "1.5F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteNeutronDetector.java",
+      "line": 65,
+      "invocation_start_utf16": 2207,
+      "invocation_end_utf16": 2293,
+      "receiver_start_utf16": 2207,
+      "receiver_end_utf16": 2212,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x + 0.5D",
+        "y + 0.5D",
+        "z + 0.5D",
+        "\"hbm:item.techBleep\"",
+        "0.02F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x + 0.5D, y + 0.5D, z + 0.5D, \"hbm:item.techBleep\", 0.02F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, \"hbm:item.techBleep\", 0.02F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, \"hbm:item.techBleep\", 0.02F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/effect/EntitySpear.java",
+      "line": 108,
+      "invocation_start_utf16": 3291,
+      "invocation_end_utf16": 3372,
+      "receiver_start_utf16": 3291,
+      "receiver_end_utf16": 3301,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.dFlash\"",
+        "25000.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.dFlash\", 25000.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.dFlash\", 25000.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.dFlash\", 25000.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "line": 105,
+      "invocation_start_utf16": 3234,
+      "invocation_end_utf16": 3310,
+      "receiver_start_utf16": 3234,
+      "receiver_end_utf16": 3244,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:item.unpack\"",
+        "0.5F",
+        "0.75F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "line": 146,
+      "invocation_start_utf16": 4821,
+      "invocation_end_utf16": 4897,
+      "receiver_start_utf16": 4821,
+      "receiver_end_utf16": 4831,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:item.unpack\"",
+        "0.5F",
+        "0.75F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "line": 173,
+      "invocation_start_utf16": 5904,
+      "invocation_end_utf16": 6052,
+      "receiver_start_utf16": 5904,
+      "receiver_end_utf16": 5914,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "dock.getPos().getX() + 0.5",
+        "dock.getPos().getY() + 0.5",
+        "dock.getPos().getZ() + 0.5",
+        "\"hbm:block.storageClose\"",
+        "2.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "line": 183,
+      "invocation_start_utf16": 6389,
+      "invocation_end_utf16": 6537,
+      "receiver_start_utf16": 6389,
+      "receiver_end_utf16": 6399,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "dock.getPos().getX() + 0.5",
+        "dock.getPos().getY() + 0.5",
+        "dock.getPos().getZ() + 0.5",
+        "\"hbm:block.storageClose\"",
+        "2.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 74,
+      "invocation_start_utf16": 2446,
+      "invocation_end_utf16": 2612,
+      "receiver_start_utf16": 2446,
+      "receiver_end_utf16": 2456,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "(double) (posX + 0.5F)",
+        "(double) (posY + 0.5F)",
+        "(double) (posZ + 0.5F)",
+        "\"hbm:weapon.missileTakeOff\"",
+        "10.0F",
+        "0.9F + rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "(double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:weapon.missileTakeOff\", 10.0F, 0.9F + rand.nextFloat() * 0.2F",
+      "before_invocation": "this.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:weapon.missileTakeOff\", 10.0F, 0.9F + rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:weapon.missileTakeOff\", 10.0F, 0.9F + rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 86,
+      "invocation_start_utf16": 3228,
+      "invocation_end_utf16": 3391,
+      "receiver_start_utf16": 3228,
+      "receiver_end_utf16": 3238,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "(double) (posX + 0.5F)",
+        "(double) (posY + 0.5F)",
+        "(double) (posZ + 0.5F)",
+        "\"hbm:entity.bombWhistle\"",
+        "10.0F",
+        "0.9F + rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "(double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:entity.bombWhistle\", 10.0F, 0.9F + rand.nextFloat() * 0.2F",
+      "before_invocation": "this.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:entity.bombWhistle\", 10.0F, 0.9F + rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:entity.bombWhistle\", 10.0F, 0.9F + rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityDeathBlast.java",
+      "line": 59,
+      "invocation_start_utf16": 1863,
+      "invocation_end_utf16": 1948,
+      "receiver_start_utf16": 1863,
+      "receiver_end_utf16": 1873,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "25.0F",
+        "0.9F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK3.java",
+      "line": 247,
+      "invocation_start_utf16": 8041,
+      "invocation_end_utf16": 8142,
+      "receiver_start_utf16": 8041,
+      "receiver_end_utf16": 8046,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "ix",
+        "iy",
+        "iz",
+        "\"hbm:entity.ufoBlast\"",
+        "15.0F",
+        "0.7F + world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "ix, iy, iz, \"hbm:entity.ufoBlast\", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F",
+      "before_invocation": "world.playSoundEffect(ix, iy, iz, \"hbm:entity.ufoBlast\", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, \"hbm:entity.ufoBlast\", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 67,
+      "invocation_start_utf16": 2205,
+      "invocation_end_utf16": 2290,
+      "receiver_start_utf16": 2205,
+      "receiver_end_utf16": 2215,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:entity.planeShotDown\"",
+        "25.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:entity.planeShotDown\", 25.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:entity.planeShotDown\", 25.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:entity.planeShotDown\", 25.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 132,
+      "invocation_start_utf16": 4814,
+      "invocation_end_utf16": 4896,
+      "receiver_start_utf16": 4814,
+      "receiver_end_utf16": 4824,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:entity.planeCrash\"",
+        "25.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:entity.planeCrash\", 25.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:entity.planeCrash\", 25.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:entity.planeCrash\", 25.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+      "line": 46,
+      "invocation_start_utf16": 1300,
+      "invocation_end_utf16": 1430,
+      "receiver_start_utf16": 1300,
+      "receiver_end_utf16": 1310,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:entity.oldExplosion\"",
+        "10.0F",
+        "0.5F + this.rand.nextFloat() * 0.1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+      "line": 81,
+      "invocation_start_utf16": 2505,
+      "invocation_end_utf16": 2633,
+      "receiver_start_utf16": 2505,
+      "receiver_end_utf16": 2515,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:block.hatchImpact\"",
+        "10.0F",
+        "0.5F + this.rand.nextFloat() * 0.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:block.hatchImpact\", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:block.hatchImpact\", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:block.hatchImpact\", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityMissileShuttle.java",
+      "line": 43,
+      "invocation_start_utf16": 1582,
+      "invocation_end_utf16": 1761,
+      "receiver_start_utf16": 1582,
+      "receiver_end_utf16": 1592,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:weapon.robin_explosion\"",
+        "4.0F",
+        "(1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:weapon.robin_explosion\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:weapon.robin_explosion\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:weapon.robin_explosion\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 352,
+      "invocation_start_utf16": 10019,
+      "invocation_end_utf16": 10104,
+      "receiver_start_utf16": 10019,
+      "receiver_end_utf16": 10029,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "pos.x",
+        "pos.y",
+        "pos.z",
+        "\"hbm:weapon.stingerLockOn\"",
+        "1.0F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "pos.x, pos.y, pos.z, \"hbm:weapon.stingerLockOn\", 1.0F, 1F",
+      "before_invocation": "this.world.playSoundEffect(pos.x, pos.y, pos.z, \"hbm:weapon.stingerLockOn\", 1.0F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, pos.x, pos.y, pos.z, \"hbm:weapon.stingerLockOn\", 1.0F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 454,
+      "invocation_start_utf16": 13141,
+      "invocation_end_utf16": 13226,
+      "receiver_start_utf16": 13141,
+      "receiver_end_utf16": 13151,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java",
+      "line": 120,
+      "invocation_start_utf16": 4012,
+      "invocation_end_utf16": 4103,
+      "receiver_start_utf16": 4012,
+      "receiver_end_utf16": 4022,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY + 0.5",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY + 0.5, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY + 0.5, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY + 0.5, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java",
+      "line": 110,
+      "invocation_start_utf16": 3832,
+      "invocation_end_utf16": 3934,
+      "receiver_start_utf16": 3832,
+      "receiver_end_utf16": 3843,
+      "receiver": "owner.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "owner.posX",
+        "owner.posY",
+        "owner.posZ",
+        "\"hbm:turret.jeremy_fire\"",
+        "25.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F",
+      "before_invocation": "owner.world.playSoundEffect(owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/ai/EntityAITankshell.java",
+      "line": 153,
+      "invocation_start_utf16": 5225,
+      "invocation_end_utf16": 5327,
+      "receiver_start_utf16": 5225,
+      "receiver_end_utf16": 5236,
+      "receiver": "owner.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "owner.posX",
+        "owner.posY",
+        "owner.posZ",
+        "\"hbm:turret.jeremy_fire\"",
+        "25.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F",
+      "before_invocation": "owner.world.playSoundEffect(owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/ai/EntityAITankshell.java",
+      "line": 160,
+      "invocation_start_utf16": 5422,
+      "invocation_end_utf16": 5525,
+      "receiver_start_utf16": 5422,
+      "receiver_end_utf16": 5433,
+      "receiver": "owner.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "owner.posX",
+        "owner.posY",
+        "owner.posZ",
+        "\"hbm:turret.jeremy_reload\"",
+        "3.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_reload\", 3.0F, 1.0F",
+      "before_invocation": "owner.world.playSoundEffect(owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_reload\", 3.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_reload\", 3.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java",
+      "line": 162,
+      "invocation_start_utf16": 5385,
+      "invocation_end_utf16": 5470,
+      "receiver_start_utf16": 5385,
+      "receiver_end_utf16": 5395,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java",
+      "line": 176,
+      "invocation_start_utf16": 5981,
+      "invocation_end_utf16": 6062,
+      "receiver_start_utf16": 5981,
+      "receiver_end_utf16": 5991,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.fstbmbPing\"",
+        "5.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 87,
+      "invocation_start_utf16": 2598,
+      "invocation_end_utf16": 2683,
+      "receiver_start_utf16": 2598,
+      "receiver_end_utf16": 2608,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 230,
+      "invocation_start_utf16": 6673,
+      "invocation_end_utf16": 6801,
+      "receiver_start_utf16": 6673,
+      "receiver_end_utf16": 6683,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "lockon.x",
+        "lockon.y",
+        "lockon.z",
+        "\"hbm:entity.ufoBlast\"",
+        "5.0F",
+        "0.9F + this.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "lockon.x, lockon.y, lockon.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "this.world.playSoundEffect(lockon.x, lockon.y, lockon.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, lockon.x, lockon.y, lockon.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "line": 123,
+      "invocation_start_utf16": 3365,
+      "invocation_end_utf16": 3500,
+      "receiver_start_utf16": 3365,
+      "receiver_end_utf16": 3375,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.targetX",
+        "this.targetY",
+        "this.targetZ",
+        "\"hbm:turret.mortarWhistle\"",
+        "15.0F",
+        "0.9F + rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.targetX, this.targetY, this.targetZ, \"hbm:turret.mortarWhistle\", 15.0F, 0.9F + rand.nextFloat() * 0.2F",
+      "before_invocation": "this.world.playSoundEffect(this.targetX, this.targetY, this.targetZ, \"hbm:turret.mortarWhistle\", 15.0F, 0.9F + rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.targetX, this.targetY, this.targetZ, \"hbm:turret.mortarWhistle\", 15.0F, 0.9F + rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBombletZeta.java",
+      "line": 88,
+      "invocation_start_utf16": 3742,
+      "invocation_end_utf16": 3827,
+      "receiver_start_utf16": 3742,
+      "receiver_end_utf16": 3752,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBoxcar.java",
+      "line": 55,
+      "invocation_start_utf16": 1790,
+      "invocation_end_utf16": 1889,
+      "receiver_start_utf16": 1790,
+      "receiver_end_utf16": 1800,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:weapon.trainImpact\"",
+        "100.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:weapon.trainImpact\", 100.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:weapon.trainImpact\", 100.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:weapon.trainImpact\", 100.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBuilding.java",
+      "line": 54,
+      "invocation_start_utf16": 1799,
+      "invocation_end_utf16": 1932,
+      "receiver_start_utf16": 1799,
+      "receiver_end_utf16": 1809,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:entity.oldExplosion\"",
+        "10000.0F",
+        "0.5F + this.rand.nextFloat() * 0.1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "line": 463,
+      "invocation_start_utf16": 18217,
+      "invocation_end_utf16": 18302,
+      "receiver_start_utf16": 18217,
+      "receiver_end_utf16": 18227,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityDuchessGambit.java",
+      "line": 56,
+      "invocation_start_utf16": 1805,
+      "invocation_end_utf16": 1898,
+      "receiver_start_utf16": 1805,
+      "receiver_end_utf16": 1815,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:alarm.gambit\"",
+        "10000.0F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:alarm.gambit\", 10000.0F, 1F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:alarm.gambit\", 10000.0F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:alarm.gambit\", 10000.0F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityMeteor.java",
+      "line": 132,
+      "invocation_start_utf16": 6537,
+      "invocation_end_utf16": 6670,
+      "receiver_start_utf16": 6537,
+      "receiver_end_utf16": 6547,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.posX",
+        "this.posY",
+        "this.posZ",
+        "\"hbm:entity.oldExplosion\"",
+        "10000.0F",
+        "0.5F + this.rand.nextFloat() * 0.1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F",
+      "before_invocation": "this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/explosion/ExplosionNukeSmall.java",
+      "line": 32,
+      "invocation_start_utf16": 1262,
+      "invocation_end_utf16": 1342,
+      "receiver_start_utf16": 1262,
+      "receiver_end_utf16": 1267,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "posX",
+        "posY",
+        "posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectAmat.java",
+      "line": 20,
+      "invocation_start_utf16": 745,
+      "invocation_end_utf16": 816,
+      "receiver_start_utf16": 745,
+      "receiver_end_utf16": 750,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x",
+        "y",
+        "z",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x, y, z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x, y, z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectTiny.java",
+      "line": 18,
+      "invocation_start_utf16": 607,
+      "invocation_end_utf16": 678,
+      "receiver_start_utf16": 607,
+      "receiver_end_utf16": 612,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x",
+        "y",
+        "z",
+        "\"hbm:weapon.explosionTiny\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x, y, z, \"hbm:weapon.explosionTiny\", 15.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x, y, z, \"hbm:weapon.explosionTiny\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.explosionTiny\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "line": 557,
+      "invocation_start_utf16": 22265,
+      "invocation_end_utf16": 22357,
+      "receiver_start_utf16": 22265,
+      "receiver_end_utf16": 22270,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:player.vomit\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:player.vomit\", 1.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:player.vomit\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, \"hbm:player.vomit\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "line": 622,
+      "invocation_start_utf16": 24644,
+      "invocation_end_utf16": 24736,
+      "receiver_start_utf16": 24644,
+      "receiver_end_utf16": 24649,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:player.cough\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:player.cough\", 1.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:player.cough\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, \"hbm:player.cough\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/ability/IWeaponAbility.java",
+      "line": 264,
+      "invocation_start_utf16": 6936,
+      "invocation_end_utf16": 7053,
+      "receiver_start_utf16": 6936,
+      "receiver_end_utf16": 6941,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "living.posX",
+        "living.posY + living.height * 0.5",
+        "living.posZ",
+        "\"hbm:weapon.chainsaw\"",
+        "0.5F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "living.posX, living.posY + living.height * 0.5, living.posZ, \"hbm:weapon.chainsaw\", 0.5F, 1.0F",
+      "before_invocation": "world.playSoundEffect(living.posX, living.posY + living.height * 0.5, living.posZ, \"hbm:weapon.chainsaw\", 0.5F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, living.posX, living.posY + living.height * 0.5, living.posZ, \"hbm:weapon.chainsaw\", 0.5F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java",
+      "line": 327,
+      "invocation_start_utf16": 9439,
+      "invocation_end_utf16": 9590,
+      "receiver_start_utf16": 9439,
+      "receiver_end_utf16": 9453,
+      "receiver": "bulletnt.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "bulletnt.posX",
+        "bulletnt.posY",
+        "bulletnt.posZ",
+        "\"hbm:entity.ufoBlast\"",
+        "5.0F",
+        "0.9F + bulletnt.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + bulletnt.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "bulletnt.world.playSoundEffect(bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + bulletnt.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(bulletnt.world, bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + bulletnt.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemInventory.java",
+      "line": 128,
+      "invocation_start_utf16": 4070,
+      "invocation_end_utf16": 4172,
+      "receiver_start_utf16": 4070,
+      "receiver_end_utf16": 4082,
+      "receiver": "player.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:block.crateOpen\"",
+        "1.0F",
+        "0.8F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F",
+      "before_invocation": "player.world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemInventory.java",
+      "line": 129,
+      "invocation_start_utf16": 4219,
+      "invocation_end_utf16": 4322,
+      "receiver_start_utf16": 4219,
+      "receiver_end_utf16": 4231,
+      "receiver": "player.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:block.crateClose\"",
+        "1.0F",
+        "0.8F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F",
+      "before_invocation": "player.world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBJJetpack.java",
+      "line": 72,
+      "invocation_start_utf16": 2177,
+      "invocation_end_utf16": 2280,
+      "receiver_start_utf16": 2177,
+      "receiver_end_utf16": 2182,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.immolatorShoot\"",
+        "0.125F",
+        "1.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "line": 147,
+      "invocation_start_utf16": 4726,
+      "invocation_end_utf16": 4829,
+      "receiver_start_utf16": 4726,
+      "receiver_end_utf16": 4731,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.immolatorShoot\"",
+        "0.125F",
+        "1.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModDefuser.java",
+      "line": 67,
+      "invocation_start_utf16": 2117,
+      "invocation_end_utf16": 2221,
+      "receiver_start_utf16": 2117,
+      "receiver_end_utf16": 2130,
+      "receiver": "creeper.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "creeper.posX",
+        "creeper.posY",
+        "creeper.posZ",
+        "\"hbm:item.pinBreak\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "creeper.posX, creeper.posY, creeper.posZ, \"hbm:item.pinBreak\", 1.0F, 1.0F",
+      "before_invocation": "creeper.world.playSoundEffect(creeper.posX, creeper.posY, creeper.posZ, \"hbm:item.pinBreak\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(creeper.world, creeper.posX, creeper.posY, creeper.posZ, \"hbm:item.pinBreak\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBooster.java",
+      "line": 68,
+      "invocation_start_utf16": 2156,
+      "invocation_end_utf16": 2261,
+      "receiver_start_utf16": 2156,
+      "receiver_end_utf16": 2161,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.flamethrowerShoot\"",
+        "0.25F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.0F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBreak.java",
+      "line": 69,
+      "invocation_start_utf16": 2369,
+      "invocation_end_utf16": 2474,
+      "receiver_start_utf16": 2369,
+      "receiver_end_utf16": 2374,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.flamethrowerShoot\"",
+        "0.25F",
+        "1.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBreak.java",
+      "line": 88,
+      "invocation_start_utf16": 3082,
+      "invocation_end_utf16": 3187,
+      "receiver_start_utf16": 3082,
+      "receiver_end_utf16": 3087,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.flamethrowerShoot\"",
+        "0.25F",
+        "1.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackRegular.java",
+      "line": 64,
+      "invocation_start_utf16": 2056,
+      "invocation_end_utf16": 2161,
+      "receiver_start_utf16": 2056,
+      "receiver_end_utf16": 2061,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.flamethrowerShoot\"",
+        "0.25F",
+        "1.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackVectorized.java",
+      "line": 67,
+      "invocation_start_utf16": 2163,
+      "invocation_end_utf16": 2268,
+      "receiver_start_utf16": 2163,
+      "receiver_end_utf16": 2168,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.flamethrowerShoot\"",
+        "0.25F",
+        "1.5F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/special/ItemCigarette.java",
+      "line": 65,
+      "invocation_start_utf16": 1925,
+      "invocation_end_utf16": 2017,
+      "receiver_start_utf16": 1925,
+      "receiver_end_utf16": 1930,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:player.cough\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:player.cough\", 1.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:player.cough\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:player.cough\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "line": 199,
+      "invocation_start_utf16": 6164,
+      "invocation_end_utf16": 6245,
+      "receiver_start_utf16": 6164,
+      "receiver_end_utf16": 6169,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "x + 0.5",
+        "y + 0.5",
+        "z + 0.5",
+        "\"hbm:weapon.kapeng\"",
+        "3.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.kapeng\", 3.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.kapeng\", 3.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.kapeng\", 3.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+      "line": 273,
+      "invocation_start_utf16": 11121,
+      "invocation_end_utf16": 11253,
+      "receiver_start_utf16": 11121,
+      "receiver_end_utf16": 11132,
+      "receiver": "shell.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "shell.posX",
+        "shell.posY",
+        "shell.posZ",
+        "\"hbm:weapon.explosionMedium\"",
+        "20.0F",
+        "0.9F + rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "shell.posX, shell.posY, shell.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rand.nextFloat() * 0.2F",
+      "before_invocation": "shell.world.playSoundEffect(shell.posX, shell.posY, shell.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(shell.world, shell.posX, shell.posY, shell.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java",
+      "line": 187,
+      "invocation_start_utf16": 8376,
+      "invocation_end_utf16": 8525,
+      "receiver_start_utf16": 8376,
+      "receiver_end_utf16": 8388,
+      "receiver": "rocket.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "rocket.posX",
+        "rocket.posY",
+        "rocket.posZ",
+        "\"hbm:weapon.explosionMedium\"",
+        "20.0F",
+        "0.9F + rocket.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "rocket.world.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java",
+      "line": 211,
+      "invocation_start_utf16": 9979,
+      "invocation_end_utf16": 10128,
+      "receiver_start_utf16": 9979,
+      "receiver_end_utf16": 9991,
+      "receiver": "rocket.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "rocket.posX",
+        "rocket.posY",
+        "rocket.posZ",
+        "\"hbm:weapon.explosionMedium\"",
+        "20.0F",
+        "0.9F + rocket.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "rocket.world.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java",
+      "line": 219,
+      "invocation_start_utf16": 10527,
+      "invocation_end_utf16": 10676,
+      "receiver_start_utf16": 10527,
+      "receiver_end_utf16": 10539,
+      "receiver": "rocket.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "rocket.posX",
+        "rocket.posY",
+        "rocket.posZ",
+        "\"hbm:weapon.explosionMedium\"",
+        "20.0F",
+        "0.9F + rocket.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "rocket.world.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+      "line": 53,
+      "invocation_start_utf16": 2085,
+      "invocation_end_utf16": 2179,
+      "receiver_start_utf16": 2085,
+      "receiver_end_utf16": 2090,
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "player.posX",
+        "player.posY",
+        "player.posZ",
+        "\"hbm:weapon.cDeploy\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "player.posX, player.posY, player.posZ, \"hbm:weapon.cDeploy\", 1.0F, 1.0F",
+      "before_invocation": "world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.cDeploy\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.cDeploy\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java",
+      "line": 41,
+      "invocation_start_utf16": 1782,
+      "invocation_end_utf16": 1932,
+      "receiver_start_utf16": 1782,
+      "receiver_end_utf16": 1794,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:weapon.fire.disintegration\"",
+        "2.0F",
+        "0.9F + entity.getRNG().nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java",
+      "line": 48,
+      "invocation_start_utf16": 2223,
+      "invocation_end_utf16": 2373,
+      "receiver_start_utf16": 2223,
+      "receiver_end_utf16": 2235,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:weapon.fire.disintegration\"",
+        "2.0F",
+        "0.9F + entity.getRNG().nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Lego.java",
+      "line": 130,
+      "invocation_start_utf16": 5259,
+      "invocation_end_utf16": 5360,
+      "receiver_start_utf16": 5259,
+      "receiver_end_utf16": 5271,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:weapon.switchmode1\"",
+        "1F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode1\", 1F, 1F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode1\", 1F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode1\", 1F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Lego.java",
+      "line": 132,
+      "invocation_start_utf16": 5374,
+      "invocation_end_utf16": 5475,
+      "receiver_start_utf16": 5374,
+      "receiver_end_utf16": 5386,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:weapon.switchmode2\"",
+        "1F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode2\", 1F, 1F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode2\", 1F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode2\", 1F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "line": 1359,
+      "invocation_start_utf16": 78904,
+      "invocation_end_utf16": 79030,
+      "receiver_start_utf16": 78904,
+      "receiver_end_utf16": 78916,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY + entity.getEyeHeight()",
+        "entity.posZ",
+        "\"hbm:entity.ufoBlast\"",
+        "5.0F",
+        "0.9F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+      "line": 100,
+      "invocation_start_utf16": 4110,
+      "invocation_end_utf16": 4208,
+      "receiver_start_utf16": 4110,
+      "receiver_end_utf16": 4122,
+      "receiver": "bullet.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "pippo.posX",
+        "pippo.posY + 50",
+        "pippo.posZ",
+        "\"hbm:weapon.boat\"",
+        "100F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:weapon.boat\", 100F, 1F",
+      "before_invocation": "bullet.world.playSoundEffect(pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:weapon.boat\", 100F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:weapon.boat\", 100F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory44.java",
+      "line": 56,
+      "invocation_start_utf16": 2318,
+      "invocation_end_utf16": 2420,
+      "receiver_start_utf16": 2318,
+      "receiver_end_utf16": 2330,
+      "receiver": "bullet.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "pippo.posX",
+        "pippo.posY + 50",
+        "pippo.posZ",
+        "\"hbm:alarm.trainHorn\"",
+        "100F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:alarm.trainHorn\", 100F, 1F",
+      "before_invocation": "bullet.world.playSoundEffect(pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:alarm.trainHorn\", 100F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:alarm.trainHorn\", 100F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "line": 147,
+      "invocation_start_utf16": 6789,
+      "invocation_end_utf16": 6930,
+      "receiver_start_utf16": 6789,
+      "receiver_end_utf16": 6810,
+      "receiver": "ctx.getPlayer().world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "ctx.getPlayer().posX",
+        "ctx.getPlayer().posY",
+        "ctx.getPlayer().posZ",
+        "\"hbm:weapon.fire.tauRelease\"",
+        "1F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F",
+      "before_invocation": "ctx.getPlayer().world.playSoundEffect(ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(ctx.getPlayer().world, ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java",
+      "line": 103,
+      "invocation_start_utf16": 4867,
+      "invocation_end_utf16": 4984,
+      "receiver_start_utf16": 4867,
+      "receiver_end_utf16": 4879,
+      "receiver": "bullet.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "mop.hitVec.x",
+        "mop.hitVec.y + 0.5",
+        "mop.hitVec.z",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "bullet.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java",
+      "line": 120,
+      "invocation_start_utf16": 5812,
+      "invocation_end_utf16": 5929,
+      "receiver_start_utf16": 5812,
+      "receiver_end_utf16": 5824,
+      "receiver": "bullet.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "mop.hitVec.x",
+        "mop.hitVec.y + 0.5",
+        "mop.hitVec.z",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "bullet.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java",
+      "line": 138,
+      "invocation_start_utf16": 6953,
+      "invocation_end_utf16": 7070,
+      "receiver_start_utf16": 6953,
+      "receiver_end_utf16": 6965,
+      "receiver": "bullet.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "mop.hitVec.x",
+        "mop.hitVec.y + 0.5",
+        "mop.hitVec.z",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "bullet.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java",
+      "line": 78,
+      "invocation_start_utf16": 3367,
+      "invocation_end_utf16": 3495,
+      "receiver_start_utf16": 3367,
+      "receiver_end_utf16": 3377,
+      "receiver": "beam.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "hitVec.x",
+        "hitVec.y",
+        "hitVec.z",
+        "\"hbm:entity.ufoBlast\"",
+        "5.0F",
+        "0.9F + beam.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "hitVec.x, hitVec.y, hitVec.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + beam.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "beam.world.playSoundEffect(hitVec.x, hitVec.y, hitVec.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + beam.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(beam.world, hitVec.x, hitVec.y, hitVec.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + beam.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/potion/HbmPotion.java",
+      "line": 159,
+      "invocation_start_utf16": 5789,
+      "invocation_end_utf16": 5894,
+      "receiver_start_utf16": 5789,
+      "receiver_end_utf16": 5801,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:weapon.laserBang\"",
+        "100.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:weapon.laserBang\", 100.0F, 1.0F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.laserBang\", 100.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.laserBang\", 100.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/potion/HbmPotion.java",
+      "line": 175,
+      "invocation_start_utf16": 6445,
+      "invocation_end_utf16": 6554,
+      "receiver_start_utf16": 6445,
+      "receiver_end_utf16": 6457,
+      "receiver": "entity.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "entity.posX",
+        "entity.posY",
+        "entity.posZ",
+        "\"hbm:weapon.mukeExplosion\"",
+        "100.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "entity.posX, entity.posY, entity.posZ, \"hbm:weapon.mukeExplosion\", 100.0F, 1.0F",
+      "before_invocation": "entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.mukeExplosion\", 100.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.mukeExplosion\", 100.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java",
+      "line": 134,
+      "invocation_start_utf16": 4615,
+      "invocation_end_utf16": 4740,
+      "receiver_start_utf16": 4615,
+      "receiver_end_utf16": 4625,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.shutdown\"",
+        "5F",
+        "1F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.shutdown\", 5F, 1F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.shutdown\", 5F, 1F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.shutdown\", 5F, 1F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java",
+      "line": 266,
+      "invocation_start_utf16": 8744,
+      "invocation_end_utf16": 8880,
+      "receiver_start_utf16": 8744,
+      "receiver_end_utf16": 8754,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:weapon.mukeExplosion\"",
+        "15.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      "line": 94,
+      "invocation_start_utf16": 3420,
+      "invocation_end_utf16": 3643,
+      "receiver_start_utf16": 3420,
+      "receiver_end_utf16": 3430,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5 - dir.offsetX * 3",
+        "this.pos.getY() + 8.75",
+        "this.pos.getZ() + 0.5 - dir.offsetZ * 3",
+        "\"hbm:weapon.flamethrowerShoot\"",
+        "getVolume(1F)",
+        "0.5F + this.world.rand.nextFloat() * 0.25F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, \"hbm:weapon.flamethrowerShoot\", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, \"hbm:weapon.flamethrowerShoot\", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, \"hbm:weapon.flamethrowerShoot\", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "line": 343,
+      "invocation_start_utf16": 10885,
+      "invocation_end_utf16": 10990,
+      "receiver_start_utf16": 10885,
+      "receiver_end_utf16": 10895,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "targetX + 0.5",
+        "targetY + 0.5",
+        "targetZ + 0.5",
+        "\"hbm:block.screm\"",
+        "2000.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "targetX + 0.5, targetY + 0.5, targetZ + 0.5, \"hbm:block.screm\", 2000.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(targetX + 0.5, targetY + 0.5, targetZ + 0.5, \"hbm:block.screm\", 2000.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, targetX + 0.5, targetY + 0.5, targetZ + 0.5, \"hbm:block.screm\", 2000.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      "line": 230,
+      "invocation_start_utf16": 9316,
+      "invocation_end_utf16": 9481,
+      "receiver_start_utf16": 9316,
+      "receiver_end_utf16": 9326,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 1.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.damage\"",
+        "3.0F",
+        "0.95F + this.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:block.damage\", 3.0F, 0.95F + this.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:block.damage\", 3.0F, 0.95F + this.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:block.damage\", 3.0F, 0.95F + this.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java",
+      "line": 797,
+      "invocation_start_utf16": 23532,
+      "invocation_end_utf16": 23659,
+      "receiver_start_utf16": 23532,
+      "receiver_end_utf16": 23542,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.shutdown\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5,\"hbm:block.shutdown\",1.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5,\"hbm:block.shutdown\",1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5,\"hbm:block.shutdown\",1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "line": 86,
+      "invocation_start_utf16": 2262,
+      "invocation_end_utf16": 2392,
+      "receiver_start_utf16": 2262,
+      "receiver_end_utf16": 2272,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateOpen\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 1.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "line": 91,
+      "invocation_start_utf16": 2448,
+      "invocation_end_utf16": 2579,
+      "receiver_start_utf16": 2448,
+      "receiver_end_utf16": 2458,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateClose\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 1.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 1.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 1.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "line": 80,
+      "invocation_start_utf16": 2029,
+      "invocation_end_utf16": 2159,
+      "receiver_start_utf16": 2029,
+      "receiver_end_utf16": 2039,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateOpen\"",
+        "0.8F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.8F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.8F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.8F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "line": 83,
+      "invocation_start_utf16": 2248,
+      "invocation_end_utf16": 2415,
+      "receiver_start_utf16": 2248,
+      "receiver_end_utf16": 2258,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateOpen\"",
+        "0.5F",
+        "this.world.rand.nextFloat() * 0.1F + 0.7F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "line": 86,
+      "invocation_start_utf16": 2495,
+      "invocation_end_utf16": 2662,
+      "receiver_start_utf16": 2495,
+      "receiver_end_utf16": 2505,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateOpen\"",
+        "0.5F",
+        "this.world.rand.nextFloat() * 0.1F + 0.7F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "line": 96,
+      "invocation_start_utf16": 2904,
+      "invocation_end_utf16": 3035,
+      "receiver_start_utf16": 2904,
+      "receiver_end_utf16": 2914,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateClose\"",
+        "0.8F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "line": 99,
+      "invocation_start_utf16": 3121,
+      "invocation_end_utf16": 3252,
+      "receiver_start_utf16": 3121,
+      "receiver_end_utf16": 3131,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.crateClose\"",
+        "0.8F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "line": 267,
+      "invocation_start_utf16": 7390,
+      "invocation_end_utf16": 7522,
+      "receiver_start_utf16": 7390,
+      "receiver_end_utf16": 7400,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.storageOpen\"",
+        "0.5F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 0.5F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 0.5F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 0.5F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "line": 272,
+      "invocation_start_utf16": 7573,
+      "invocation_end_utf16": 7706,
+      "receiver_start_utf16": 7573,
+      "receiver_end_utf16": 7583,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.storageClose\"",
+        "0.5F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageClose\", 0.5F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageClose\", 0.5F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageClose\", 0.5F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "line": 130,
+      "invocation_start_utf16": 3819,
+      "invocation_end_utf16": 3946,
+      "receiver_start_utf16": 3819,
+      "receiver_end_utf16": 3829,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:item.unpack\"",
+        "0.5F",
+        "0.75F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "line": 155,
+      "invocation_start_utf16": 4483,
+      "invocation_end_utf16": 4610,
+      "receiver_start_utf16": 4483,
+      "receiver_end_utf16": 4493,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:item.unpack\"",
+        "0.5F",
+        "0.75F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "line": 167,
+      "invocation_start_utf16": 4879,
+      "invocation_end_utf16": 5006,
+      "receiver_start_utf16": 4879,
+      "receiver_end_utf16": 4889,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:item.unpack\"",
+        "0.5F",
+        "0.75F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "line": 188,
+      "invocation_start_utf16": 5555,
+      "invocation_end_utf16": 5682,
+      "receiver_start_utf16": 5555,
+      "receiver_end_utf16": 5565,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:item.unpack\"",
+        "0.5F",
+        "0.75F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneDock.java",
+      "line": 124,
+      "invocation_start_utf16": 4327,
+      "invocation_end_utf16": 4459,
+      "receiver_start_utf16": 4327,
+      "receiver_end_utf16": 4337,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:block.storageOpen\"",
+        "2.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 2.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 2.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 2.0F, 1.0F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java",
+      "line": 120,
+      "invocation_start_utf16": 5026,
+      "invocation_end_utf16": 5203,
+      "receiver_start_utf16": 5026,
+      "receiver_end_utf16": 5036,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.pos.getX() + 0.5",
+        "this.pos.getY() + 0.5",
+        "this.pos.getZ() + 0.5",
+        "\"hbm:weapon.reload.tubeFwoomp\"",
+        "0.25F",
+        "0.9F + this.world.rand.nextFloat() * 0.2F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.reload.tubeFwoomp\", 0.25F, 0.9F + this.world.rand.nextFloat() * 0.2F",
+      "before_invocation": "this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.reload.tubeFwoomp\", 0.25F, 0.9F + this.world.rand.nextFloat() * 0.2F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.reload.tubeFwoomp\", 0.25F, 0.9F + this.world.rand.nextFloat() * 0.2F)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java",
+      "line": 260,
+      "invocation_start_utf16": 7815,
+      "invocation_end_utf16": 7927,
+      "receiver_start_utf16": 7815,
+      "receiver_end_utf16": 7825,
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "arguments": [
+        "this.target.posX",
+        "this.target.posY",
+        "this.target.posZ",
+        "\"hbm:block.screm\"",
+        "20.0F",
+        "1.0F"
+      ],
+      "argument_types": [
+        "double",
+        "double",
+        "double",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_source": "this.target.posX, this.target.posY, this.target.posZ, \"hbm:block.screm\", 20.0F, 1.0F",
+      "before_invocation": "this.world.playSoundEffect(this.target.posX, this.target.posY, this.target.posZ, \"hbm:block.screm\", 20.0F, 1.0F)",
+      "expected_after_invocation": "com.hbm.sound.WorldSoundEffects.play(this.world, this.target.posX, this.target.posY, this.target.posZ, \"hbm:block.screm\", 20.0F, 1.0F)"
+    }
+  ]
+}

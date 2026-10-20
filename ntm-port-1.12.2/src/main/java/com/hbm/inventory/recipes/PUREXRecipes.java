@@ -456,7 +456,7 @@ public class PUREXRecipes extends GenericRecipes<GenericRecipe> {
 		if(naquadriaNuggets.size() != 0) {
 			ItemStack nuggetNQR = naquadriaNuggets.get(0);
 			ItemStack copy = nuggetNQR.copy();
-			copy.stackSize = 12;
+			copy.setCount(12);
 
 			this.register(new GenericRecipe("purex.watznaqadah").setup(60, watzPower).setNameWrapper("purex.recycle").setGroup(autoWatz, this)
 					.inputItems(new ComparableStack(ModItems.watz_pellet_depleted, 1, EnumWatzType.NQD))

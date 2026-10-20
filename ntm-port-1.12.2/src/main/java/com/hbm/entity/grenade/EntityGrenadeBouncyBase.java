@@ -62,7 +62,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
     @SideOnly(Side.CLIENT)
     public boolean isInRangeToRenderDist(double p_70112_1_)
     {
-        double d1 = this.boundingBox.getAverageEdgeLength() * 4.0D;
+        double d1 = this.getEntityBoundingBox().getAverageEdgeLength() * 4.0D;
         d1 *= 64.0D;
         return p_70112_1_ < d1 * d1;
     }
@@ -84,7 +84,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
     
     public void setThrowableHeading(double motionX, double motionY, double motionZ, float f0, float f1)
     {
-        float f2 = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+        float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
         motionX /= (double)f2;
         motionY /= (double)f2;
         motionZ /= (double)f2;
@@ -129,7 +129,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
         boolean bounce = false;
         Vec3d vec3 = new Vec3d(this.posX, this.posY, this.posZ);
         Vec3d vec31 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-        RayTraceResult movingobjectposition = this.worldObj.rayTraceBlocks(vec3, vec31, false, true, false);
+        RayTraceResult movingobjectposition = this.world.rayTraceBlocks(vec3, vec31, false, true, false);
 
         if (movingobjectposition != null)
         {
@@ -157,7 +157,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
             Vec3d mot = new Vec3d(motionX, motionY, motionZ);
         	
             if(mot.length() > 0.05)
-        		worldObj.playSoundAtEntity(this, "hbm:weapon.gBounce", 2.0F, 1.0F);
+        		this.world.playSoundAtEntity(this, "hbm:weapon.gBounce", 2.0F, 1.0F);
 
         	motionX *= getBounceMod();
         	motionY *= getBounceMod();
@@ -193,7 +193,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
             for (int i = 0; i < 4; ++i)
             {
                 float f4 = 0.25F;
-                this.worldObj.spawnParticle("bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
+                this.world.spawnParticle("bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
@@ -207,7 +207,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
         
         timer++;
         
-        if(timer >= getMaxTimer() && !worldObj.isRemote) {
+        if(timer >= getMaxTimer() && !this.world.isRemote) {
         	explode();
         	
         	String s = "null";
@@ -240,7 +240,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
     {
         if (this.thrower == null && this.throwerName != null && this.throwerName.length() > 0)
         {
-            this.thrower = this.worldObj.getPlayerEntityByName(this.throwerName);
+            this.thrower = this.world.getPlayerEntityByName(this.throwerName);
         }
 
         return this.thrower;

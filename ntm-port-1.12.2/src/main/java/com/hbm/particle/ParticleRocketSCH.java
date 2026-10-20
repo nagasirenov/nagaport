@@ -5,6 +5,10 @@ import java.util.Random;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.World;
 
@@ -16,9 +20,9 @@ public class ParticleRocketSCH extends ParticleRocketFlame {
 	}
 
 	@Override
-	public void renderParticle(Tessellator p_70539_1_, float interp, float sX, float sY, float sZ, float dX, float dZ) {
+	public void renderParticle(BufferBuilder p_70539_1_, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {
 
-		Random urandom = new Random(this.getEntityId());
+		Random urandom = new Random(this.visualSeed);
 
 		for(int i = 0; i < 10; i++) {
 
@@ -31,9 +35,9 @@ public class ParticleRocketSCH extends ParticleRocketFlame {
 
 			this.particleAlpha = (float) Math.pow(1 - Math.min(((float) (age) / (float) (maxAge)), 1), 0.5);
 
-			p_70539_1_.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F);
-			p_70539_1_.setNormal(0.0F, 0.5F, 0.5F);
-			p_70539_1_.setBrightness(240);
+
+
+
 
 			float spread = (float) Math.pow(((float) (age) / (float) maxAge) * 4F, 1.5) + 1F;
 			spread *= this.particleScale;
@@ -43,10 +47,10 @@ public class ParticleRocketSCH extends ParticleRocketFlame {
 			float pY = (float) ((this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY) + (urandom.nextGaussian() - 1D) * 0.5F * spread);
 			float pZ = (float) ((this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ) + (urandom.nextGaussian() - 1D) * 0.2F * spread);
 
-			p_70539_1_.addVertexWithUV((double) (pX - sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ - sZ * scale - dZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());
-			p_70539_1_.addVertexWithUV((double) (pX - sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ - sZ * scale + dZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());
-			p_70539_1_.addVertexWithUV((double) (pX + sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ + sZ * scale + dZ * scale), particleIcon.getMinU(), particleIcon.getMinV());
-			p_70539_1_.addVertexWithUV((double) (pX + sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ + sZ * scale - dZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX - sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ - sZ * scale - dZ * scale), particleTexture.getMaxU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX - sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ - sZ * scale + dZ * scale), particleTexture.getMaxU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX + sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ + sZ * scale + dZ * scale), particleTexture.getMinU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX + sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ + sZ * scale - dZ * scale), particleTexture.getMinU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
 		}
 	}
 }

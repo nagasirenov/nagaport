@@ -24,7 +24,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineHTRFNeo extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public MachineHTRFNeo() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class MachineHTRFNeo extends BlockDummyable implements ILookOverlay, IToo
 
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityMachineHTRNeo))
 			return;
@@ -103,14 +103,14 @@ public class MachineHTRFNeo extends BlockDummyable implements ILookOverlay, IToo
 
 			if(!thruster.isCool()) text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! INSUFFICIENT COOLING ! ! !");
 
-			if(world.getTileEntity(x, y, z) instanceof TileEntityProxyCombo) {
+			if(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)) instanceof TileEntityProxyCombo) {
 				if(pos[0] == x || pos[2] == z) {
 					text.add("Connect to Fusion Reactor from here");
 				}
 			}
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

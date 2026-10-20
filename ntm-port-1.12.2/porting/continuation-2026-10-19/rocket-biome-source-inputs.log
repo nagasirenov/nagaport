@@ -1,0 +1,11 @@
+MATCH 4678c4702a34234c5bbf8046da07256c5ef78d62f17a4afea3d97144650b0922 src/main/java/com/hbm/world/gen/NTMWorldGenerator.java
+MATCH 2cfa589ea49fbdd22b007f1de28921c17e9bbc2cd088d164c3fc8b93372170f7 src/main/java/com/hbm/world/gen/MapGenNTMFeatures.java
+MATCH 589f0818114cc9bc1af286ba9f9d320a25600558160d69199b0ce76fab8f8d03 src/main/java/com/hbm/lib/HbmWorld.java
+MATCH a8c130280224b69f0cecc27878abdb58dda6fc123a43206b363f25ab8530d433 src/main/java/com/hbm/world/feature/BiomeCave.java
+MATCH 1542d88dfa057da79b14add8f6f1ed655a55072ba866b32693401c196aa17097 src/main/java/com/hbm/world/dungeon/ArcticVault.java
+MATCH 6cb424e08249fdce49e5e5bde6199a2b7d06c9a69f122e8e3e5b11362a505f85 src/main/java/com/hbm/wiaj/WorldInAJar.java
+MATCH 9367db39e259f40076dd2ef79a5223524372d0c65c2ee79e730ce33bfacd4e8a src/main/java/com/hbm/render/tileentity/RenderLandmine.java
+MATCH 5c3285bab09da5ae8cfcb8d4b17fd2bb3fc3a8d2c9a9ab011b8447e3a158d21e src/main/java/com/hbm/handler/RocketStruct.java
+MATCH 07c2d11b0d4fad2a280004398a322d4723e1fe5e579dd9ae9f6e0afc51ac4d2d src/main/java/com/hbm/entity/missile/EntityRideableRocket.java
+MATCH a496fd091811e6fa0f0663ea60866867841d6e9078324c39ab7162ec3b0a6eb5 src/main/java/com/hbm/handler/RocketMetadata.java
+PASS: final nine modified consumers + one new metadata boundary match compiler copies; 3861 production sources included.

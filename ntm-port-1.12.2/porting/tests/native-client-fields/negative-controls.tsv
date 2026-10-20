@@ -1,0 +1,11 @@
+NO	/tmp/NegativeControls.java	173	188	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	resolved-original:NegativeControls
+NO	/tmp/NegativeControls.java	225	240	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	resolved-original:NegativeControls
+NO	/tmp/NegativeControls.java	374	383	thePlayer	player	net.minecraft.client.Minecraft	resolved-original:NegativeControls.Other
+NO	/tmp/NegativeControls.java	394	402	theWorld	world	net.minecraft.client.Minecraft	resolved-original:NegativeControls.Other
+NO	/tmp/NegativeControls.java	453	468	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	resolved-original:local(java.lang.Object)
+YES	/tmp/NegativeControls.java	513	522	thePlayer	player	net.minecraft.client.Minecraft	receiver:net.minecraft.client.Minecraft
+YES	/tmp/NegativeControls.java	600	615	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	enclosing:PositiveControls
+YES	/tmp/NegativeControls.java	652	667	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	receiver:PositiveControls
+YES	/tmp/NegativeControls.java	732	747	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	receiver:PositiveControls
+YES	/tmp/NegativeControls.java	778	793	fontRendererObj	fontRenderer	net.minecraft.client.gui.GuiScreen	enclosing:PositiveControls
+YES	/tmp/NegativeControls.java	839	847	theWorld	world	net.minecraft.client.Minecraft	receiver:net.minecraft.client.Minecraft

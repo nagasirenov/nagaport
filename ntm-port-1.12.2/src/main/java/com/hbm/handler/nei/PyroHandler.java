@@ -13,15 +13,12 @@ public class PyroHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmPyrolysis";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(50, 35, 28, 14), "ntmPyrolysis"));
-		guiGui.add(GUIPyroOven.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIPyroOven.class, (50) + 5, (35) + 11, 28, 14, "ntmPyrolysis");
 	}
 }

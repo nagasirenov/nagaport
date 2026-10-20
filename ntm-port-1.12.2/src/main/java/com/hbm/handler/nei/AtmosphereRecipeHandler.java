@@ -10,7 +10,7 @@ public class AtmosphereRecipeHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmAtmoChem";
 	}
 	

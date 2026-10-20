@@ -24,7 +24,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class TileEntityCombatDropPod extends TileEntity implements IBufPacketReceiver{
+public class TileEntityCombatDropPod extends TileEntity implements IBufPacketReceiver, net.minecraft.util.ITickable{
 
 	public NBTTagCompound entityType;
 	public int amount;
@@ -56,7 +56,7 @@ public class TileEntityCombatDropPod extends TileEntity implements IBufPacketRec
 	}
 
 	@Override
-	public void updateEntity() {	
+	public void update() {
 		prevHatchopen = hatchopen;
 		prevHatchopen2 = hatchopen2;
 		
@@ -69,28 +69,28 @@ public class TileEntityCombatDropPod extends TileEntity implements IBufPacketRec
 			hatchopen2 += (-90 - hatchopen2) * 0.2;
 		}
 		
-		if (entityType != null && amount > 0 && !worldObj.isRemote) {
+		if (entityType != null && amount > 0 && !this.world.isRemote) {
 			
 			for (int i = 0; i < amount; i++) {
 
-				Entity entity = EntityList.createEntityFromNBT(entityType, worldObj);
+				Entity entity = EntityList.createEntityFromNBT(entityType, this.world);
 
 				if (entity != null) {
-					entity.setPosition(xCoord + 0.5, yCoord + 1, zCoord + 0.5);
+					entity.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5);
 
-					worldObj.spawnEntityInWorld(entity);
+					this.world.spawnEntityInWorld(entity);
 				}
 			}
 
 			amount = 0;	           
-			this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:block.hatchOpen", 10.0F, 0.9F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.hatchOpen", 10.0F, 0.9F);
 			return;
 
 		}
 		
 		if(SpaceConfig.combatPodDespawn == true) {
-			if(this.worldObj.getTotalWorldTime() % 1000 == 0) {
-				worldObj.setBlockToAir(xCoord, yCoord, zCoord);
+			if(this.world.getTotalWorldTime() % 1000 == 0) {
+				com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 		}
 	}
@@ -111,8 +111,8 @@ public class TileEntityCombatDropPod extends TileEntity implements IBufPacketRec
 	
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord - 1, zCoord - 1, xCoord + 2, yCoord + 3,
-				zCoord + 2);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3,
+				this.pos.getZ() + 2);
 	}
 
 
@@ -131,7 +131,7 @@ public class TileEntityCombatDropPod extends TileEntity implements IBufPacketRec
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 	    super.writeToNBT(nbt);
 
 	    if(entityType != null)
@@ -142,6 +142,7 @@ public class TileEntityCombatDropPod extends TileEntity implements IBufPacketRec
 	    nbt.setInteger("delay", delay);
 	    nbt.setDouble("hatchopen", hatchopen);
 	    nbt.setDouble("hatchopen2", hatchopen2);
+		return nbt;
 	}
 
 	@Override

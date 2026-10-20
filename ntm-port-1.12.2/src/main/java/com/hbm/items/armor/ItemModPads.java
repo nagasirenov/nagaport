@@ -53,7 +53,7 @@ public class ItemModPads extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote && this == ModItems.pads_static && entity instanceof EntityPlayer) {
+		if(!entity.world.isRemote && this == ModItems.pads_static && entity instanceof EntityPlayer) {
 			
 			EntityPlayer player = (EntityPlayer) entity;
 			

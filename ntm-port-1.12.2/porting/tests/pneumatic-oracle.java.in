@@ -1,0 +1,31 @@
+import java.util.*;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.lib.Library;
+/** Test-only descriptor recording for verbatim pristine renderer methods. */
+final class LegacyPneumaticOracle {
+ static class OracleBlock {int getMixedBrightnessForBlock(OracleWorld w,int x,int y,int z){return 0;}}
+ static class OracleTile {ForgeDirection insertionDir,ejectionDir;OracleTile(int in,int out){insertionDir=ForgeDirection.getOrientation(in);ejectionDir=ForgeDirection.getOrientation(out);}boolean isCompressor(){return insertionDir!=ForgeDirection.UNKNOWN;}boolean isEndpoint(){return ejectionDir!=ForgeDirection.UNKNOWN;}}
+ static class OracleWorld {final OracleTile tile;final int tubes,air;OracleWorld(int tubes,int air,int in,int out){this.tubes=tubes;this.air=air;tile=new OracleTile(in,out);}Object getTileEntity(int x,int y,int z){return tile;}}
+ static class OracleTube extends OracleBlock {
+  String baseIcon="hbm:blocks/pneumatic_tube",iconIn=baseIcon+"_in",iconOut=baseIcon+"_out",iconConnector=baseIcon+"_connector",iconStraight=baseIcon+"_straight",activeIcon=baseIcon;
+  boolean[] renderSides={true,true,true,true,true,true};void resetRenderSides(){Arrays.fill(renderSides,true);}
+  int bit(ForgeDirection d){return new int[]{4,8,1,2,16,32}[d.ordinal()];}
+  boolean canConnectTo(OracleWorld w,int x,int y,int z,ForgeDirection d){return (w.tubes&bit(d))!=0;}
+  boolean canConnectToAir(OracleWorld w,int x,int y,int z,ForgeDirection d){return (w.air&bit(d))!=0;}
+ }
+ static final class Face {final double[] bounds;final int side,rotation;final String texture;Face(Recorder r,int side,String texture){bounds=r.bounds.clone();this.side=side;this.texture=texture;rotation=new int[]{r.uvRotateBottom,r.uvRotateTop,r.uvRotateEast,r.uvRotateWest,r.uvRotateNorth,r.uvRotateSouth}[side];}}
+ static final class RecorderFactory {static Recorder INSTANCE;}
+ static final class Recorder {
+  final List<Face> faces=new ArrayList<>();double[] bounds;int uvRotateTop,uvRotateBottom,uvRotateNorth,uvRotateSouth,uvRotateEast,uvRotateWest;
+  Recorder setWorld(OracleWorld w){return this;}
+  void setRenderBounds(double a,double b,double c,double d,double e,double f){bounds=new double[]{a,b,c,d,e,f};}
+  void renderStandardBlock(OracleBlock b,int x,int y,int z){OracleTube tube=(OracleTube)b;for(int side=0;side<6;side++)if(tube.renderSides[side])faces.add(new Face(this,side,tube.activeIcon));}
+  void renderFaceYNeg(OracleBlock b,double x,double y,double z,String t){faces.add(new Face(this,0,t));}void renderFaceYPos(OracleBlock b,double x,double y,double z,String t){faces.add(new Face(this,1,t));}
+  void renderFaceZNeg(OracleBlock b,double x,double y,double z,String t){faces.add(new Face(this,2,t));}void renderFaceZPos(OracleBlock b,double x,double y,double z,String t){faces.add(new Face(this,3,t));}
+  void renderFaceXNeg(OracleBlock b,double x,double y,double z,String t){faces.add(new Face(this,4,t));}void renderFaceXPos(OracleBlock b,double x,double y,double z,String t){faces.add(new Face(this,5,t));}
+ }
+ static final class SilentTessellator {static final SilentTessellator instance=new SilentTessellator();void setBrightness(int b){}void startDrawingQuads(){}void setNormal(float x,float y,float z){}void draw(){}}
+ static final class SilentGL {static void glTranslatef(float x,float y,float z){}}
+ /* METHODS */
+ static List<Face> faces(int tubes,int air,int in,int out,boolean item){Recorder recorder=new Recorder();RecorderFactory.INSTANCE=recorder;LegacyPneumaticOracle oracle=new LegacyPneumaticOracle();OracleWorld world=new OracleWorld(tubes,air,in,out);if(item)oracle.renderInventoryBlock(new OracleTube(),0,0,recorder);else oracle.renderWorldBlock(world,0,0,0,new OracleTube(),0,recorder);return recorder.faces;}
+}

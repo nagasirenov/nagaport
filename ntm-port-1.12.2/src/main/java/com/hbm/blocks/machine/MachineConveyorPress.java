@@ -58,17 +58,17 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 			if(pos == null)
 				return false;
 
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(!(te instanceof TileEntityConveyorPress))
 				return false;
 
 			TileEntityConveyorPress press = (TileEntityConveyorPress) te;
 
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemStamp && press.slots[0] == null) {
-				press.slots[0] = player.getHeldItem().copy();
-				press.slots[0].stackSize = 1;
-				player.getHeldItem().stackSize--;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemStamp && press.slots[0] == null) {
+				press.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
+				press.slots[0].setCount(1);
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 				press.markChanged();
 				world.markBlockForUpdate(x, y, z);
@@ -89,7 +89,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 		if(pos == null)
 			return false;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityConveyorPress))
 			return false;
@@ -100,7 +100,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 
 		if(!player.inventory.addItemStackToInventory(press.slots[0].copy())) {
 			EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, press.slots[0].copy());
-			world.spawnEntityInWorld(item);
+			world.spawnEntity(item);
 		} else {
 			player.inventoryContainer.detectAndSendChanges();
 		}
@@ -115,7 +115,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 	public Vec3d getTravelLocation(World world, int x, int y, int z, Vec3d itemPos, double speed) {
 		ForgeDirection dir = this.getTravelDirection(world, x, y, z, itemPos);
 		Vec3d snap = this.getClosestSnappingPosition(world, x, y, z, itemPos);
-		itemPos = new Vec3d(MathHelper.clamp_double(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp_double(itemPos.z, z, z + 1));
+		itemPos = new Vec3d(MathHelper.clamp(itemPos.x, (double) (x), (double) (x + 1)), itemPos.y, MathHelper.clamp(itemPos.z, (double) (z), (double) (z + 1)));
 		Vec3d dest = new Vec3d(snap.x - dir.offsetX * speed, snap.y - dir.offsetY * speed, snap.z - dir.offsetZ * speed);
 		Vec3d motion = new Vec3d((dest.x - itemPos.x), (dest.y - itemPos.y), (dest.z - itemPos.z));
 		double len = motion.length();
@@ -124,7 +124,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 	}
 
 	public ForgeDirection getTravelDirection(World world, int x, int y, int z, Vec3d itemPos) {
-		int meta = world.getBlockMetadata(x, y - 1, z) - offset;
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) - offset;
 		return ForgeDirection.getOrientation(meta).getRotation(ForgeDirection.UP);
 	}
 
@@ -132,8 +132,8 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 	public Vec3d getClosestSnappingPosition(World world, int x, int y, int z, Vec3d itemPos) {
 
 		ForgeDirection dir = this.getTravelDirection(world, x, y, z, itemPos);
-		double itemX = MathHelper.clamp_double(itemPos.x, x, x + 1);
-		double itemZ = MathHelper.clamp_double(itemPos.z, z, z + 1);
+		double itemX = MathHelper.clamp(itemPos.x, (double) (x), (double) (x + 1));
+		double itemZ = MathHelper.clamp(itemPos.z, (double) (z), (double) (z + 1));
 		double posX = x + 0.5;
 		double posZ = z + 0.5;
 		if(dir.offsetX != 0) posX = itemX;
@@ -143,7 +143,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 
 	@Override
 	public boolean canItemStay(World world, int x, int y, int z, Vec3d itemPos) {
-		return world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) >= 12;
+		return com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == this && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) >= 12;
 	}
 
 	@Override
@@ -153,7 +153,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 		if(pos == null)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityConveyorPress))
 			return;
@@ -164,7 +164,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 		text.add(BobMathUtil.getShortNumber(press.power) + "HE / " + BobMathUtil.getShortNumber(press.maxPower) + "HE");
 		text.add("Installed stamp: " + ((press.syncStack == null || press.syncStack.getItem() == null) ? (TextFormatting.RED + "NONE") : press.syncStack.getDisplayName()));
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

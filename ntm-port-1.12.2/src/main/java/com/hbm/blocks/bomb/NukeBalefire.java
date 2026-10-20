@@ -63,7 +63,7 @@ public class NukeBalefire extends BlockMachineBase implements IBomb {
 	public BombReturnCode explode(World world, int x, int y, int z) {
 		
 		if(!world.isRemote) {
-			TileEntityNukeBalefire bomb = (TileEntityNukeBalefire) world.getTileEntity(x, y, z);
+			TileEntityNukeBalefire bomb = (TileEntityNukeBalefire) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				
 			if(bomb.isLoaded()) {
 				bomb.explode();

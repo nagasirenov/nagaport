@@ -41,7 +41,7 @@ public class ItemSatInterface extends ItemSatChip implements IGUIProvider {
     	if(world.isRemote || !(entity instanceof EntityPlayerMP))
     		return;
 
-    	if(((EntityPlayerMP)entity).getHeldItem() != stack)
+    	if(com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayerMP)entity)) != stack)
     		return;
 
     	Satellite sat = SatelliteSavedData.getData(world, (int)entity.posX, (int)entity.posZ).getSatFromFreq(this.getFreq(stack));

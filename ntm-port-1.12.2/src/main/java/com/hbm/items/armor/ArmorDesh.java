@@ -17,7 +17,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class ArmorDesh extends ArmorFSBFueled implements IItemRendererProvider {
 
@@ -53,7 +53,8 @@ public class ArmorDesh extends ArmorFSBFueled implements IItemRendererProvider {
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }

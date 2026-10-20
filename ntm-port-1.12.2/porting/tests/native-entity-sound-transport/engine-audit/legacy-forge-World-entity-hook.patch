@@ -1,0 +1,28 @@
+@@ -1158,6 +1247,12 @@
+ 
+     public void func_72956_a(Entity p_72956_1_, String p_72956_2_, float p_72956_3_, float p_72956_4_)
+     {
++        PlaySoundAtEntityEvent event = new PlaySoundAtEntityEvent(p_72956_1_, p_72956_2_, p_72956_3_, p_72956_4_);
++        if (MinecraftForge.EVENT_BUS.post(event))
++        {
++            return;
++        }
++        p_72956_2_ = event.name;
+         for (int i = 0; i < this.field_73021_x.size(); ++i)
+         {
+             ((IWorldAccess)this.field_73021_x.get(i)).func_72704_a(p_72956_2_, p_72956_1_.field_70165_t, p_72956_1_.field_70163_u - (double)p_72956_1_.field_70129_M, p_72956_1_.field_70161_v, p_72956_3_, p_72956_4_);
+@@ -1166,6 +1261,12 @@
+ 
+     public void func_85173_a(EntityPlayer p_85173_1_, String p_85173_2_, float p_85173_3_, float p_85173_4_)
+     {
++        PlaySoundAtEntityEvent event = new PlaySoundAtEntityEvent(p_85173_1_, p_85173_2_, p_85173_3_, p_85173_4_);
++        if (MinecraftForge.EVENT_BUS.post(event))
++        {
++            return;
++        }
++        p_85173_2_ = event.name;
+         for (int i = 0; i < this.field_73021_x.size(); ++i)
+         {
+             ((IWorldAccess)this.field_73021_x.get(i)).func_85102_a(p_85173_1_, p_85173_2_, p_85173_1_.field_70165_t, p_85173_1_.field_70163_u - (double)p_85173_1_.field_70129_M, p_85173_1_.field_70161_v, p_85173_3_, p_85173_4_);
+@@ -1206,6 +1307,9 @@
+ 

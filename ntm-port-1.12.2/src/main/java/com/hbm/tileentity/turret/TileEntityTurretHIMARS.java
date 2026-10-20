@@ -62,7 +62,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretHIMARS";
 	}
 
@@ -137,9 +137,9 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.lastRotationPitch = this.rotationPitch;
 			this.lastRotationYaw = this.rotationYaw;
 			this.lastCrane = this.crane;
@@ -147,7 +147,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 			this.rotationYaw = this.syncRotationYaw;
 		}
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.mode == this.MODE_MANUAL) {
 				if(!this.targetQueue.isEmpty()) {
@@ -206,7 +206,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 						}
 					}
 					
-					this.crane = MathHelper.clamp_float(this.crane, 0F, 1F);
+					this.crane = MathHelper.clamp(this.crane, 0F, 1F);
 					
 				} else {
 					
@@ -301,7 +301,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 			if(this.hasAmmo() && this.tPos != null) {
 				this.spawnShell(this.typeLoaded);
 				this.ammo--;
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.rocketFlame", 25.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.rocketFlame", 25.0F, 1.0F);
 			}
 			
 			if(this.mode == this.MODE_MANUAL && !this.targetQueue.isEmpty()) {
@@ -318,7 +318,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 		vec.rotateAroundZRad((float) -this.rotationPitch);
 		vec.rotateAroundYRad((float) -(this.rotationYaw + Math.PI * 0.5));
 		
-		EntityArtilleryRocket proj = new EntityArtilleryRocket(worldObj);
+		EntityArtilleryRocket proj = new EntityArtilleryRocket(this.world);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, 0.0F, 0.0F);
 		proj.setThrowableHeading(vec.x, vec.y, vec.z, 25F, 0.0F);
 		
@@ -329,7 +329,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 		
 		proj.setType(type);
 		
-		worldObj.spawnEntityInWorld(proj);
+		this.world.spawnEntityInWorld(proj);
 	}
 
 	@Override
@@ -357,12 +357,13 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setShort("mode", this.mode);
 		nbt.setInteger("type", this.typeLoaded);
 		nbt.setInteger("ammo", this.ammo);
+		return nbt;
 	}
 
 	@Override

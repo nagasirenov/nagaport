@@ -35,17 +35,17 @@ public class ConfettiUtil {
 	}
 
 	public static void pulverize(EntityLivingBase entity) {
-		int amount = MathHelper.clamp_int((int) (entity.width * entity.height * entity.width * 25), 5, 50);
-		AshesCreator.composeEffect(entity.worldObj, entity, amount, 0.125F);
-		SkeletonCreator.composeEffect(entity.worldObj, entity, 1F);
-		entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:weapon.fire.disintegration", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+		int amount = MathHelper.clamp((int) (entity.width * entity.height * entity.width * 25), 5, 50);
+		AshesCreator.composeEffect(entity.world, entity, amount, 0.125F);
+		SkeletonCreator.composeEffect(entity.world, entity, 1F);
+		com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "hbm:weapon.fire.disintegration", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 	}
 
 	public static void cremate(EntityLivingBase entity) {
-		int amount = MathHelper.clamp_int((int) (entity.width * entity.height * entity.width * 25), 5, 50);
-		AshesCreator.composeEffect(entity.worldObj, entity, amount, 0.125F);
-		SkeletonCreator.composeEffect(entity.worldObj, entity, 0.25F);
-		entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:weapon.fire.disintegration", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+		int amount = MathHelper.clamp((int) (entity.width * entity.height * entity.width * 25), 5, 50);
+		AshesCreator.composeEffect(entity.world, entity, amount, 0.125F);
+		SkeletonCreator.composeEffect(entity.world, entity, 0.25F);
+		com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "hbm:weapon.fire.disintegration", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 	}
 
 	public static void gib(EntityLivingBase entity) {
@@ -66,7 +66,7 @@ public class ConfettiUtil {
 		if(entity instanceof EntityUFO) type = 2;
 		if(entity instanceof EntityBOTPrimeBase) type = 2;
 
-		SkeletonCreator.composeEffectGib(entity.worldObj, entity, 0.25F);
+		SkeletonCreator.composeEffectGib(entity.world, entity, 0.25F);
 		
 		if(entity instanceof EntitySkeleton) return;
 
@@ -75,6 +75,6 @@ public class ConfettiUtil {
 		vdat.setInteger("ent", entity.getEntityId());
 		vdat.setInteger("gibType", type);
 		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(vdat, entity.posX, entity.posY + entity.height * 0.5, entity.posZ), new TargetPoint(entity.dimension, entity.posX, entity.posY + entity.height * 0.5, entity.posZ, 150));
-		entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + entity.getRNG().nextFloat() * 0.2F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + entity.getRNG().nextFloat() * 0.2F);
 	}
 }

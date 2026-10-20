@@ -1,0 +1,100 @@
+{
+  "baseline": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "deleted_files": {
+    "src/main/java/com/hbm/render/block/RenderBlocksFixed.java": {
+      "before_sha256": "c6a72969791a4832b0b1f2ac82ad2cab46f733565a1e65b21d2ee32bea6dc2ce",
+      "pristine_sha256": "c6a72969791a4832b0b1f2ac82ad2cab46f733565a1e65b21d2ee32bea6dc2ce",
+      "bytes": 293,
+      "lines": 15,
+      "original_binary_entry": "com/hbm/render/block/RenderBlocksFixed.class"
+    },
+    "src/main/java/com/hbm/render/util/RenderBlocksNT.java": {
+      "before_sha256": "5c35da7bb39b53abcd73cc11333431cd370a422b5a94564e207063de295d1b1e",
+      "pristine_sha256": "2931117a09e84e88aa7a933e07ccb87952b0923e38817e541065339e87240aac",
+      "bytes": 9953,
+      "lines": 270,
+      "original_binary_entry": "com/hbm/render/util/RenderBlocksNT.class"
+    },
+    "src/main/java/com/hbm/render/util/RenderBlocksWrapper.java": {
+      "before_sha256": "c1d8217c0e8b6557dc83cc4c50a3eebaca648e775deb63d7d91faf25359abdda",
+      "pristine_sha256": "d75b63f9137ac078e6104538060e924f5231dd7ab9781acda13ae15ec9b2bfe2",
+      "bytes": 21388,
+      "lines": 150,
+      "original_binary_entry": "com/hbm/render/util/RenderBlocksWrapper.class"
+    },
+    "src/main/java/com/hbm/render/util/IconUtil.java": {
+      "before_sha256": "4047275be603edc357e986e85fcc9008206f70116709a37c8583960092c1780d",
+      "pristine_sha256": "39bdd64c3e3ebee9cbed5666ba1d0d5ad636f465fc9c4260867aa1dc4fffcfca",
+      "bytes": 733,
+      "lines": 27,
+      "original_binary_entry": "com/hbm/render/util/IconUtil.class"
+    }
+  },
+  "pristine_consumers": {
+    "RenderBlocksFixed": [],
+    "RenderBlocksWrapper": [],
+    "RenderBlocksNT": [
+      "src/main/java/com/hbm/blocks/generic/BlockBarrier.java",
+      "src/main/java/com/hbm/blocks/generic/BlockRebar.java",
+      "src/main/java/com/hbm/blocks/generic/BlockSandbags.java",
+      "src/main/java/com/hbm/blocks/generic/BlockWoodStructure.java",
+      "src/main/java/com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase.java",
+      "src/main/java/com/hbm/render/block/RenderBoxDuct.java",
+      "src/main/java/com/hbm/render/block/RenderPneumoTube.java",
+      "src/main/java/com/hbm/render/block/RenderSteelCorner.java"
+    ],
+    "IconUtil": []
+  },
+  "pristine_consumer_sha256": {
+    "src/main/java/com/hbm/blocks/generic/BlockBarrier.java": "7d8b71ae57b816ae62fde3653b93d2e1e6dcbdf03010666e4e6aae40a3d404f0",
+    "src/main/java/com/hbm/blocks/generic/BlockRebar.java": "0ce00dd4a37e0aaf3fbaa39524b4b455463babd9573bfa2fa9f1e597cf81c7bc",
+    "src/main/java/com/hbm/blocks/generic/BlockSandbags.java": "4269496d41122c1717ce8944735fc0856a8fb0f09d02bf6847a47d12dfc4bdad",
+    "src/main/java/com/hbm/blocks/generic/BlockWoodStructure.java": "7b101c63e0ce9c56b4cc9fa1f78ff4c35188b6fee0eeb33874a08864d7cc7abf",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase.java": "0f282ce8ca540d3b6458643f9f37b46a7766999054d2b7ea7ebd05d0f48a31bf",
+    "src/main/java/com/hbm/render/block/RenderBoxDuct.java": "e4363ff146f647dbb37ddad2582229aab4cb9309de94e56d666b9d66c8b92760",
+    "src/main/java/com/hbm/render/block/RenderPneumoTube.java": "3eba2fe3f9a913a1c7f3582b1fd03323a0ec20c0f9e8f23090ca2dd989fbb07c",
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java": "252038c8b3e038ac3bce253e96e6d39c8fb5aa741c8fb364326666e00c2afc99"
+  },
+  "native_successor_sha256": {
+    "src/main/java/com/hbm/blocks/generic/BlockBarrier.java": "0db3083375f682c87b759344fa1e70eb8c651d9d77c0c029ec0ca7d3a0022ed5",
+    "src/main/java/com/hbm/blocks/generic/BlockRebar.java": "5fa6ef936af8d9ad82612ef97a59ea5b31edee8006a428b33250ae00171474dd",
+    "src/main/java/com/hbm/blocks/generic/BlockSandbags.java": "4bae51970677270e5f11e85e779a19c29be0cb1c85edc27c0280e79e478223ad",
+    "src/main/java/com/hbm/blocks/generic/BlockSteelDecoration.java": "5bd5c41aa0da3f57f6d5d11e3ea21463728f15a1f75e6def311f6444e362aa74",
+    "src/main/java/com/hbm/blocks/generic/BlockWoodStructure.java": "a0e33e396c57138fcb431ac228ffa3e3aaf44d73534b37146c0d7860d89c2691",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase.java": "00d36c8f495a16901a706c174559e2eaf578d09e99c7d2f463ff238d2b03b2c2",
+    "src/main/java/com/hbm/blocks/network/FluidDuctBox.java": "e831f99c7e9453b8648f735612b1750c763cd0ed89d929382ac8172208a33800",
+    "src/main/java/com/hbm/blocks/network/FluidDuctBoxExhaust.java": "8bd53b49fc505ed70fcf11cbd90a033b2fcee2b08d6937f846438777d03fe8cb",
+    "src/main/java/com/hbm/blocks/network/PneumoTube.java": "43a24cc253c3a62332a0101c593b74092f5480b4c49620199294660ffc311b30",
+    "src/main/java/com/hbm/blocks/network/PowerCableBox.java": "b0caff26a08ab51f02e90bf3fd0c97a48081ab495da21a4690930b24f5f4ea71",
+    "src/main/java/com/hbm/main/BoxDuctModelHandler.java": "e5a913dbd1b8ae224702b25aaf542885119058a2bfc28bd44f22516497b3d31d",
+    "src/main/java/com/hbm/main/PneumaticModelHandler.java": "16b3d38381be0b4822e065f588d879e04a6253b0cf469d2b109159ec52729995",
+    "src/main/java/com/hbm/main/SteelDecorationModelHandler.java": "842eb2173884070954a9f445d72531c6d5f0bbac474053af0b9ef766b840f69a",
+    "src/main/java/com/hbm/main/UniversalBlockModelHandler.java": "6344b107f0541380da93e2f3765ababe5fa4459df83aa87fd7b920238bae122b",
+    "src/main/java/com/hbm/render/block/ISBRHUniversal.java": "162b2b4a144529945a888caef72959737c87ca91b085391be521494d3bf47a43",
+    "src/main/java/com/hbm/render/block/RenderBoxDuct.java": "e96831e334fdbcc5f67b328c64d9daa0a158d5ffa6b9f2158caa8fc1eb549869",
+    "src/main/java/com/hbm/render/block/RenderISBRHUniversal.java": "3b2138e280c04e807086689b99883a72383724cc6fd0f351bb586e413a6dcdd1",
+    "src/main/java/com/hbm/render/block/RenderPneumoTube.java": "cba8e7cc7b401ba2a96f74c670f80871d0e4f233b63f0a6ea0d6af49d320be54",
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java": "35a3e6938eab2f1293f1bd5412c1a786d287e05db323ec6ef7aa0db25d2fb6ad",
+    "src/main/java/com/hbm/render/block/nativeblock/BoxDuctBakedModel.java": "90aa8fbd93f532bd8bbbd4b2b4378d917eb3880ff508fee4fa0631c463c776d6",
+    "src/main/java/com/hbm/render/block/nativeblock/BoxDuctMaterials.java": "6645cfab011ca8df615839a10c8a5c379bbe9c4d03000fc46379f38f6b9fcca2",
+    "src/main/java/com/hbm/render/block/nativeblock/PneumaticBakedModel.java": "7b26d5ad37cd9c43509bb02ef3bfd66665dea1010ca991e8840781db8889ee72",
+    "src/main/java/com/hbm/render/block/nativeblock/PneumaticCuboidGeometry.java": "6d1f1f5649dc94ceb714f0d97f0c8614e5779f7b986aa8b5308a91ed26a5756d",
+    "src/main/java/com/hbm/render/block/nativeblock/SteelDecorationBakedModel.java": "84d6ef290b1954f50080a530d41b44c4917e3fbbb3c80ab977e7a6bb96ca75d3",
+    "src/main/java/com/hbm/render/block/nativeblock/UniversalCuboidGeometry.java": "511860977b1bd9ff9819923b65efab60500f5385973f0ed099ede0a16070a4de",
+    "src/main/java/com/hbm/render/block/nativeblock/UniversalModelFactory.java": "f484f7257a1bcfe3d2d95951a615f825be7e62f309b85e543d1b772a72e34c04",
+    "src/main/java/com/hbm/render/tileentity/BoxDuctBreakingRenderer.java": "aab32c8a06c2c689c310c6c43e198ed70f9bd4139363c41000b3bf629b2237da"
+  },
+  "comment_only_references": {
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java": 1,
+    "src/main/java/com/hbm/render/block/nativeblock/UniversalCuboidGeometry.java": 1
+  },
+  "runtime_config_files": [
+    "build.gradle",
+    "gradle.properties",
+    "curseforge.properties.example"
+  ],
+  "original_binary_archive": {
+    "path": "../mods1710/HBM-NTM-.1.0.27_X5645_H261.jar",
+    "sha256": "3f5629077628b5956ff7ff4e254c25ef0e1bc51f5b6668fde77badd5f784f67b"
+  }
+}

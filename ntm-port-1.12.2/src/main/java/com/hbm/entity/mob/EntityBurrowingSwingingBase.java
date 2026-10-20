@@ -10,7 +10,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
@@ -32,7 +32,7 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 	public double waypointX;
 	public double waypointY;
 	public double waypointZ;
-	protected ChunkCoordinates spawnPoint = new ChunkCoordinates();
+	protected BlockPos.MutableBlockPos spawnPoint = new BlockPos.MutableBlockPos();
 	public boolean lastInGround = false;
 
 	public EntityBurrowingSwingingBase(World world) {
@@ -51,14 +51,14 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		double dx = motionX;
 		double dy = motionY;
 		double dz = motionZ;
-		float f3 = MathHelper.sqrt_double(dx * dx + dz * dz);
+		float f3 = MathHelper.sqrt(dx * dx + dz * dz);
 		this.rotationYaw = (float) (Math.atan2(dx, dz) * 180.0D / Math.PI);
 		this.rotationPitch = (float) (Math.atan2(dy, f3) * 180.0D / Math.PI);
 		
 		boolean inGround = isEntityInsideOpaqueBlock();
 		
 		if(this.lastInGround != inGround) {
-			worldObj.playSoundAtEntity(this, "hbm:block.debris", 1.0F, 1.0F);
+			this.world.playSoundAtEntity(this, "hbm:block.debris", 1.0F, 1.0F);
 			
 			double mod = 0.25D;
 			
@@ -67,7 +67,7 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 			
 			for(int i = 0; i < 10; i++) {
 				double dev = 0.05D;
-				worldObj.spawnParticle("cloud", posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);
+				this.world.spawnParticle("cloud", posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);
 			}
 		}
 		
@@ -86,7 +86,7 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 	@Override
 	protected void updateEntityActionState() {
 		
-		if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+		if(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
 			setDead();
 		}
 		if((this.targetedEntity != null) && (this.targetedEntity.isDead)) {
@@ -99,7 +99,7 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		}
 		
 		if(this.ticksExisted % 2 == 0) {
-			attackEntitiesInList(this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(0.5D, 0.5D, 0.5D)));
+			attackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.5D, 0.5D, 0.5D)));
 		}
 	}
 
@@ -119,9 +119,9 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		
 		if(hit) {
 			this.entityAge = 0;
-			double tx = (this.boundingBox.minX + this.boundingBox.maxX) / 2.0D;
-			double tz = (this.boundingBox.minZ + this.boundingBox.maxZ) / 2.0D;
-			double ty = (this.boundingBox.minY + this.boundingBox.maxY) / 2.0D;
+			double tx = (this.getEntityBoundingBox().minX + this.getEntityBoundingBox().maxX) / 2.0D;
+			double tz = (this.getEntityBoundingBox().minZ + this.getEntityBoundingBox().maxZ) / 2.0D;
+			double ty = (this.getEntityBoundingBox().minY + this.getEntityBoundingBox().maxY) / 2.0D;
 			double deltaX = target.posX - tx;
 			double deltaZ = target.posZ - tz;
 			double deltaY = target.posY - ty;
@@ -168,13 +168,13 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 			}
 			
 		} else if(this.targetedEntity == null) {
-			this.waypointX = this.spawnPoint.posX - 50 + this.getRNG().nextInt(100);
-			this.waypointY = this.spawnPoint.posY - 30 + this.getRNG().nextInt(60);
-			this.waypointZ = this.spawnPoint.posZ - 50 + this.getRNG().nextInt(100);
+			this.waypointX = this.spawnPoint.getX() - 50 + this.getRNG().nextInt(100);
+			this.waypointY = this.spawnPoint.getY() - 30 + this.getRNG().nextInt(60);
+			this.waypointZ = this.spawnPoint.getZ() - 50 + this.getRNG().nextInt(100);
 		}
 		
 		this.rotationYaw = -(float) -(Math.atan2(this.motionX, this.motionZ) * 180.0F / Math.PI);
-		this.rotationPitch = (float) -(Math.atan2(this.motionY, MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ)) * 180.0D / Math.PI);
+		this.rotationPitch = (float) -(Math.atan2(this.motionY, MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ)) * 180.0D / Math.PI);
 		
 		double range = 100;
 		if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < range * range) {
@@ -185,7 +185,7 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 				this.waypointY = this.targetedEntity.posY + this.targetedEntity.height * 0.5;
 				this.waypointZ = this.targetedEntity.posZ;
 				
-				int surface = worldObj.getHeightValue(MathHelper.floor_double(this.waypointX), MathHelper.floor_double(this.waypointZ));
+				int surface = this.world.getHeightValue(MathHelper.floor(this.waypointX), MathHelper.floor(this.waypointZ));
 				
 				if(this.getRNG().nextInt(80) == 0 && this.posY > surface && !this.canSupportMovement()) {
 					this.wasNearGround = false;
@@ -202,9 +202,9 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 				}
 			}
 		} else {
-			this.waypointX = this.spawnPoint.posX - 20 + this.getRNG().nextInt(40);
-			this.waypointY = this.spawnPoint.posY - 5 + this.getRNG().nextInt(100);
-			this.waypointZ = this.spawnPoint.posZ - 20 + this.getRNG().nextInt(40);
+			this.waypointX = this.spawnPoint.getX() - 20 + this.getRNG().nextInt(40);
+			this.waypointY = this.spawnPoint.getY() - 5 + this.getRNG().nextInt(100);
+			this.waypointZ = this.spawnPoint.getZ() - 20 + this.getRNG().nextInt(40);
 		}
 	}
 
@@ -222,24 +222,24 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("spawnX", this.spawnPoint.posX);
-		nbt.setInteger("spawnY", this.spawnPoint.posY);
-		nbt.setInteger("spawnZ", this.spawnPoint.posZ);
+		nbt.setInteger("spawnX", this.spawnPoint.getX());
+		nbt.setInteger("spawnY", this.spawnPoint.getY());
+		nbt.setInteger("spawnZ", this.spawnPoint.getZ());
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.spawnPoint.set(nbt.getInteger("spawnX"), nbt.getInteger("spawnY"), nbt.getInteger("spawnZ"));
+		this.spawnPoint.setPos(nbt.getInteger("spawnX"), nbt.getInteger("spawnY"), nbt.getInteger("spawnZ"));
 	}
 
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 
-		int x = MathHelper.floor_double(this.posX);
-		int y = MathHelper.floor_double(this.posY);
-		int z = MathHelper.floor_double(this.posZ);
+		int x = MathHelper.floor(this.posX);
+		int y = MathHelper.floor(this.posY);
+		int z = MathHelper.floor(this.posZ);
 		
-		this.spawnPoint.set(x, y, z);
+		this.spawnPoint.setPos(x, y, z);
 		
 		return super.onSpawnWithEgg(data);
 	}

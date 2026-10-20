@@ -1,0 +1,60 @@
+{
+  "base": "f0e992aa2317e5e06d4919d7acb1dd3a3c5a12a4",
+  "files": {
+    "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": {
+      "before_sha256": "c30fabdaf56fc5c3e69c76d7eb3a9714db79f04e956842c03bf477b52fbfb445",
+      "after_sha256": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+      "edits": [
+        {
+          "start": 2173,
+          "end": 2246,
+          "a": 2199,
+          "b": 2245,
+          "before": "this.world.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) Math.floor(posX), (int) Math.floor(posZ))",
+          "receiver": "this.world",
+          "arguments": "(int) Math.floor(posX), (int) Math.floor(posZ)",
+          "left_context": "SpawnY == -1) {\n\t\t\t\tlastSpawnY = posY - 3;\n\t\t\t}\n\n\t\t\tif(ticksExisted < 100) this.world.lastLightningBolt = 2;\n\n\t\t\tint spawnTarget = Math.max(",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        },
+        {
+          "start": 4916,
+          "end": 4989,
+          "a": 4942,
+          "b": 4988,
+          "before": "this.world.getHeightValue((int) (vec.x + posX) + 1, (int) (vec.z + posZ))",
+          "after": "com.hbm.world.WorldHeight.read(this.world, (int) (vec.x + posX) + 1, (int) (vec.z + posZ))",
+          "receiver": "this.world",
+          "arguments": "(int) (vec.x + posX) + 1, (int) (vec.z + posZ)",
+          "left_context": "\t\t\tfloat rot = (float) (Math.PI * 2 * rand.nextDouble());\n\t\t\t\t\tvec = vec.rotateYaw(rot);\n\t\t\t\t\tthis.cloudlets.add(new Cloudlet(vec.x + posX, ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "before_sha256": "7b7d684cef8809b18c23867634b86825a24ae852eb5e136a61087b6bce94c770",
+      "after_sha256": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+      "edits": [
+        {
+          "start": 4575,
+          "end": 4601,
+          "a": 4596,
+          "b": 4600,
+          "before": "world.getHeightValue(x, z)",
+          "after": "com.hbm.world.WorldHeight.read(world, x, z)",
+          "receiver": "world",
+          "arguments": "x, z",
+          "left_context": "\t\n\t\tWorld world = player.world;\n\t\t\n\t\tfor(int i = -100; i < 100; i++) {\n\t\t\tint x = this.x + i;\n\t\t\tint z = this.z + scanPos - 100;\n\t\t\tint y = ",
+          "invocation_total": 1,
+          "invocation_ordinal": 0
+        }
+      ]
+    }
+  },
+  "new_helper": {
+    "path": "src/main/java/com/hbm/world/WorldHeight.java",
+    "sha256": "bafa5e61be56e33953eb5c029384d0453fc7bdf0a8313c82b6b467fb45a55f29"
+  }
+}

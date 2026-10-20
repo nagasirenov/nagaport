@@ -65,7 +65,7 @@ public class ToxicBlock extends BlockFluidClassic {
 	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
-		if (world.getBlock(x, y, z).getMaterial().isLiquid()) {
+		if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
 			return false;
 		}
 		return super.displaceIfPossible(world, x, y, z);
@@ -99,8 +99,8 @@ public class ToxicBlock extends BlockFluidClassic {
     }
 	
 	public boolean reactToBlocks(World world, int x, int y, int z) {
-		if(world.getBlock(x, y, z).getMaterial() != ModBlocks.fluidtoxic) {
-			if(world.getBlock(x, y, z).getMaterial().isLiquid()) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial() != ModBlocks.fluidtoxic) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
 				return true;
 			}
 		}

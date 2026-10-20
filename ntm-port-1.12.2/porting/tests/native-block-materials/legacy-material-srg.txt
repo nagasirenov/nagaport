@@ -1,0 +1,60 @@
+FD: awt/A net/minecraft/block/material/Material/field_151570_A
+FD: awt/B net/minecraft/block/material/Material/field_151571_B
+FD: awt/C net/minecraft/block/material/Material/field_151572_C
+FD: awt/D net/minecraft/block/material/Material/field_151566_D
+FD: awt/E net/minecraft/block/material/Material/field_151567_E
+FD: awt/F net/minecraft/block/material/Material/field_151568_F
+FD: awt/G net/minecraft/block/material/Material/field_151569_G
+FD: awt/H net/minecraft/block/material/Material/field_76233_E
+FD: awt/I net/minecraft/block/material/Material/field_76235_G
+FD: awt/J net/minecraft/block/material/Material/field_76239_H
+FD: awt/K net/minecraft/block/material/Material/field_76240_I
+FD: awt/L net/minecraft/block/material/Material/field_76234_F
+FD: awt/M net/minecraft/block/material/Material/field_76241_J
+FD: awt/N net/minecraft/block/material/Material/field_76242_K
+FD: awt/O net/minecraft/block/material/Material/field_85159_M
+FD: awt/a net/minecraft/block/material/Material/field_151579_a
+FD: awt/b net/minecraft/block/material/Material/field_151577_b
+FD: awt/c net/minecraft/block/material/Material/field_151578_c
+FD: awt/d net/minecraft/block/material/Material/field_151575_d
+FD: awt/e net/minecraft/block/material/Material/field_151576_e
+FD: awt/f net/minecraft/block/material/Material/field_151573_f
+FD: awt/g net/minecraft/block/material/Material/field_151574_g
+FD: awt/h net/minecraft/block/material/Material/field_151586_h
+FD: awt/i net/minecraft/block/material/Material/field_151587_i
+FD: awt/j net/minecraft/block/material/Material/field_151584_j
+FD: awt/k net/minecraft/block/material/Material/field_151585_k
+FD: awt/l net/minecraft/block/material/Material/field_151582_l
+FD: awt/m net/minecraft/block/material/Material/field_151583_m
+FD: awt/n net/minecraft/block/material/Material/field_151580_n
+FD: awt/o net/minecraft/block/material/Material/field_151581_o
+FD: awt/p net/minecraft/block/material/Material/field_151595_p
+FD: awt/q net/minecraft/block/material/Material/field_151594_q
+FD: awt/r net/minecraft/block/material/Material/field_151593_r
+FD: awt/s net/minecraft/block/material/Material/field_151592_s
+FD: awt/t net/minecraft/block/material/Material/field_151591_t
+FD: awt/u net/minecraft/block/material/Material/field_151590_u
+FD: awt/v net/minecraft/block/material/Material/field_151589_v
+FD: awt/w net/minecraft/block/material/Material/field_151588_w
+FD: awt/x net/minecraft/block/material/Material/field_151598_x
+FD: awt/y net/minecraft/block/material/Material/field_151597_y
+FD: awt/z net/minecraft/block/material/Material/field_151596_z
+MD: aji/o ()Lawt; net/minecraft/block/Block/func_149688_o ()Lnet/minecraft/block/material/Material;
+MD: awt/a ()Z net/minecraft/block/material/Material/func_76220_a ()Z
+MD: awt/b ()Z net/minecraft/block/material/Material/func_76228_b ()Z
+MD: awt/c ()Z net/minecraft/block/material/Material/func_76230_c ()Z
+MD: awt/d ()Z net/minecraft/block/material/Material/func_76224_d ()Z
+MD: awt/f ()Lawt; net/minecraft/block/material/Material/func_76221_f ()Lnet/minecraft/block/material/Material;
+MD: awt/g ()Lawt; net/minecraft/block/material/Material/func_76226_g ()Lnet/minecraft/block/material/Material;
+MD: awt/h ()Z net/minecraft/block/material/Material/func_76217_h ()Z
+MD: awt/i ()Lawt; net/minecraft/block/material/Material/func_76231_i ()Lnet/minecraft/block/material/Material;
+MD: awt/j ()Z net/minecraft/block/material/Material/func_76222_j ()Z
+MD: awt/k ()Z net/minecraft/block/material/Material/func_76218_k ()Z
+MD: awt/l ()Z net/minecraft/block/material/Material/func_76229_l ()Z
+MD: awt/m ()I net/minecraft/block/material/Material/func_76227_m ()I
+MD: awt/n ()Lawt; net/minecraft/block/material/Material/func_76219_n ()Lnet/minecraft/block/material/Material;
+MD: awt/o ()Lawt; net/minecraft/block/material/Material/func_76225_o ()Lnet/minecraft/block/material/Material;
+MD: awt/p ()Lawt; net/minecraft/block/material/Material/func_85158_p ()Lnet/minecraft/block/material/Material;
+MD: awt/q ()Z net/minecraft/block/material/Material/func_85157_q ()Z
+MD: awt/r ()Lawv; net/minecraft/block/material/Material/func_151565_r ()Lnet/minecraft/block/material/MapColor;
+MD: awt/s ()Lawt; net/minecraft/block/material/Material/func_76223_p ()Lnet/minecraft/block/material/Material;

@@ -3,14 +3,17 @@ package com.hbm.particle;
 import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import com.hbm.lib.RefStrings;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +21,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 @SideOnly(Side.CLIENT)
-public class ParticleFoundry extends EntityFX {
+public class ParticleFoundry extends Particle {
 
 	protected int color;
 	protected ForgeDirection dir;
@@ -52,7 +55,7 @@ public class ParticleFoundry extends EntityFX {
 		this.prevPosZ = this.posZ;
 
 		if(this.particleAge++ >= this.particleMaxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 	}
 
@@ -62,9 +65,10 @@ public class ParticleFoundry extends EntityFX {
 	}
 
 	@Override
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float oX, float oZ) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float oX, float oZ) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		Entity player = camera != null ? camera : Minecraft.getMinecraft().player;
+		if(player == null) return;
 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;
 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;
 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
@@ -83,17 +87,17 @@ public class ParticleFoundry extends EntityFX {
 		int g = (int) (255D - (255D - color.getGreen()) * brightener);
 		int b = (int) (255D - (255D - color.getBlue()) * brightener);
 
-		GL11.glColor3f(r / 255F, g / 255F, b / 255F);
+		GlStateManager.color(r / 255F, g / 255F, b / 255F);
 
-		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_CULL_FACE);
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glTranslatef(pX, pY, pZ);
+		GlStateManager.pushMatrix();
+		GlStateManager.disableCull();
+		GlStateManager.disableBlend();
+		GlStateManager.translate(pX, pY, pZ);
 		this.theRenderEngine.bindTexture(lava);
 		
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setBrightness(240);
+		tess.begin(GL11.GL_QUADS, ParticleVertexFormats.LIT_TEXTURED);
+
+
 
 		double dirXG = dir.offsetX * girth;
 		double dirZG = dir.offsetZ * girth;
@@ -108,31 +112,31 @@ public class ParticleFoundry extends EntityFX {
 		double add = (int)(System.currentTimeMillis() / 100 % 16) / 16D;
 
 		//lower back
-		tess.addVertexWithUV(rotXW,		girth,		rotZW,	uMax,	vMax + add + girth);
-		tess.addVertexWithUV(-rotXW,	girth,		-rotZW,	uMin,	vMax + add + girth);
-		tess.addVertexWithUV(-rotXW,	-length,	-rotZW,	uMin,	vMin + add);
-		tess.addVertexWithUV(rotXW,		-length,	rotZW,	uMax,	vMin + add);
+		tess.pos(rotXW, girth, rotZW).tex(uMax, vMax + add + girth).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, girth, -rotZW).tex(uMin, vMax + add + girth).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, -length, -rotZW).tex(uMin, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW, -length, rotZW).tex(uMax, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 
 		//lower front
-		tess.addVertexWithUV(dirXG + rotXW,	0,			dirZG + rotZW,	uMax,	vMax + add);
-		tess.addVertexWithUV(dirXG - rotXW,	0,			dirZG - rotZW,	uMin,	vMax + add);
-		tess.addVertexWithUV(dirXG - rotXW,	-length,	dirZG - rotZW,	uMin,	vMin + add);
-		tess.addVertexWithUV(dirXG + rotXW,	-length,	dirZG + rotZW,	uMax,	vMin + add);
+		tess.pos(dirXG + rotXW, 0, dirZG + rotZW).tex(uMax, vMax + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG - rotXW, 0, dirZG - rotZW).tex(uMin, vMax + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG - rotXW, -length, dirZG - rotZW).tex(uMin, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG + rotXW, -length, dirZG + rotZW).tex(uMax, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 		
 		double wMin = 0;
 		double wMax = girth;
 		
 		//lower left
-		tess.addVertexWithUV(rotXW,			girth,		rotZW,			wMin, vMax + add + girth);
-		tess.addVertexWithUV(dirXG + rotXW,	0,			dirZG + rotZW,	wMax, vMax + add);
-		tess.addVertexWithUV(dirXG + rotXW,	-length,	dirZG + rotZW,	wMax, vMin + add);
-		tess.addVertexWithUV(rotXW,			-length,	rotZW,			wMin, vMin + add);
+		tess.pos(rotXW, girth, rotZW).tex(wMin, vMax + add + girth).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG + rotXW, 0, dirZG + rotZW).tex(wMax, vMax + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG + rotXW, -length, dirZG + rotZW).tex(wMax, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW, -length, rotZW).tex(wMin, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 		
 		//lower right
-		tess.addVertexWithUV(-rotXW,		girth,		-rotZW,			wMin, vMax + add + girth);
-		tess.addVertexWithUV(dirXG - rotXW,	0,			dirZG - rotZW,	wMax, vMax + add);
-		tess.addVertexWithUV(dirXG - rotXW,	-length,	dirZG - rotZW,	wMax, vMin + add);
-		tess.addVertexWithUV(-rotXW,		-length,	-rotZW,			wMin, vMin + add);
+		tess.pos(-rotXW, girth, -rotZW).tex(wMin, vMax + add + girth).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG - rotXW, 0, dirZG - rotZW).tex(wMax, vMax + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG - rotXW, -length, dirZG - rotZW).tex(wMax, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, -length, -rotZW).tex(wMin, vMin + add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 
 		double dirOX = dir.offsetX * offset;
 		double dirOZ = dir.offsetZ * offset;
@@ -140,41 +144,41 @@ public class ParticleFoundry extends EntityFX {
 		vMax = offset;
 
 		//upper back
-		tess.addVertexWithUV(rotXW,				0,		rotZW,			uMax, vMax - add);
-		tess.addVertexWithUV(-rotXW,			0,		-rotZW,			uMin, vMax - add);
-		tess.addVertexWithUV(-rotXW - dirOX,	base,	-rotZW - dirOZ,	uMin, vMin - add);
-		tess.addVertexWithUV(rotXW - dirOX,		base,	rotZW - dirOZ,	uMax, vMin - add);
+		tess.pos(rotXW, 0, rotZW).tex(uMax, vMax - add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, 0, -rotZW).tex(uMin, vMax - add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW - dirOX, base, -rotZW - dirOZ).tex(uMin, vMin - add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW - dirOX, base, rotZW - dirOZ).tex(uMax, vMin - add).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 		
 		//upper front
-		tess.addVertexWithUV(rotXW,				girth,			rotZW,			uMax, vMax - add + 0.25);
-		tess.addVertexWithUV(-rotXW,			girth,			-rotZW,			uMin, vMax - add + 0.25);
-		tess.addVertexWithUV(-rotXW - dirOX,	base + girth,	-rotZW - dirOZ,	uMin, vMin - add + 0.25);
-		tess.addVertexWithUV(rotXW - dirOX,		base + girth,	rotZW - dirOZ,	uMax, vMin - add + 0.25);
+		tess.pos(rotXW, girth, rotZW).tex(uMax, vMax - add + 0.25).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, girth, -rotZW).tex(uMin, vMax - add + 0.25).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW - dirOX, base + girth, -rotZW - dirOZ).tex(uMin, vMin - add + 0.25).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW - dirOX, base + girth, rotZW - dirOZ).tex(uMax, vMin - add + 0.25).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 		
 		//upper left
-		tess.addVertexWithUV(rotXW,			0,				rotZW,			wMax, vMax - add + 0.75);
-		tess.addVertexWithUV(rotXW,			girth,			rotZW,			wMin, vMax - add + 0.75);
-		tess.addVertexWithUV(rotXW - dirOX,	base + girth,	rotZW - dirOZ,	wMin, vMin - add + 0.75);
-		tess.addVertexWithUV(rotXW - dirOX,	base,			rotZW - dirOZ,	wMax, vMin - add + 0.75);
+		tess.pos(rotXW, 0, rotZW).tex(wMax, vMax - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW, girth, rotZW).tex(wMin, vMax - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW - dirOX, base + girth, rotZW - dirOZ).tex(wMin, vMin - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW - dirOX, base, rotZW - dirOZ).tex(wMax, vMin - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 		
 		//upper right
-		tess.addVertexWithUV(-rotXW,			0,				-rotZW,			wMax, vMax - add + 0.75);
-		tess.addVertexWithUV(-rotXW,			girth,			-rotZW,			wMin, vMax - add + 0.75);
-		tess.addVertexWithUV(-rotXW - dirOX,	base + girth,	-rotZW - dirOZ,	wMin, vMin - add + 0.75);
-		tess.addVertexWithUV(-rotXW - dirOX,	base,			-rotZW - dirOZ, wMax, vMin - add + 0.75);
+		tess.pos(-rotXW, 0, -rotZW).tex(wMax, vMax - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, girth, -rotZW).tex(wMin, vMax - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW - dirOX, base + girth, -rotZW - dirOZ).tex(wMin, vMin - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW - dirOX, base, -rotZW - dirOZ).tex(wMax, vMin - add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 		
 		vMax = 0.125F;
 		
 		//bend
-		tess.addVertexWithUV(dirXG + rotXW,	0,		dirZG + rotZW,	uMax,	vMin + add + 0.75);
-		tess.addVertexWithUV(dirXG - rotXW,	0,		dirZG - rotZW,	uMin,	vMin + add + 0.75);
-		tess.addVertexWithUV(-rotXW,		girth,	-rotZW,			uMin,	vMax + add + 0.75);
-		tess.addVertexWithUV(rotXW,			girth,	rotZW,			uMax,	vMax + add + 0.75);
+		tess.pos(dirXG + rotXW, 0, dirZG + rotZW).tex(uMax, vMin + add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(dirXG - rotXW, 0, dirZG - rotZW).tex(uMin, vMin + add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(-rotXW, girth, -rotZW).tex(uMin, vMax + add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
+		tess.pos(rotXW, girth, rotZW).tex(uMax, vMax + add + 0.75).color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex();
 
-		tess.draw();
+		Tessellator.getInstance().draw();
 		
-		GL11.glColor3f(1F, 1F, 1F);
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		GL11.glPopMatrix();
+		GlStateManager.color(1F, 1F, 1F);
+		GlStateManager.enableCull();
+		GlStateManager.popMatrix();
 	}
 }

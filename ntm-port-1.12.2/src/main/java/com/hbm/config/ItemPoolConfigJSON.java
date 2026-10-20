@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPoolConfigJSON {
 
@@ -118,7 +118,7 @@ public class ItemPoolConfigJSON {
 		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));
 		if(stack.stackSize != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.stackSize);
 		if(stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getItemDamage());
-		if(stack.hasTagCompound()) writer.value(stack.stackTagCompound.toString());
+		if(stack.hasTagCompound()) writer.value(stack.getTagCompound().toString());
 		writer.endArray();
 		writer.setIndent("  ");
 	}
@@ -134,7 +134,7 @@ public class ItemPoolConfigJSON {
 					String tag = array.get(3).getAsString();
 					NBTBase nbt = JsonToNBT.func_150315_a(tag);
 					if(nbt instanceof NBTTagCompound) {
-						stack.stackTagCompound = (NBTTagCompound) nbt;
+						stack.setTagCompound((NBTTagCompound) nbt);
 					}
 				}
 				return stack;

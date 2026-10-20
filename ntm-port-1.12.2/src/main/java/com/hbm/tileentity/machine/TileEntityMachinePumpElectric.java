@@ -17,16 +17,16 @@ public class TileEntityMachinePumpElectric extends TileEntityMachinePumpBase imp
 		water = new FluidTank(Fluids.WATER, electricSpeed * 100);
 	}
 	
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			if(this.world.getTotalWorldTime() % 20 == 0) for(DirPos pos : getConPos()) {
+				this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override

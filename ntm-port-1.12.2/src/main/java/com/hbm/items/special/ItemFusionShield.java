@@ -21,11 +21,11 @@ public class ItemFusionShield extends Item {
 	public static long getShieldDamage(ItemStack stack) {
 		
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 		
-		return stack.stackTagCompound.getLong("damage");
+		return stack.getTagCompound().getLong("damage");
 	}
 
 	
@@ -43,10 +43,10 @@ public class ItemFusionShield extends Item {
 	public static void setShieldDamage(ItemStack stack, long damage) {
 		
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
-		stack.stackTagCompound.setLong("damage", damage);
+		stack.getTagCompound().setLong("damage", damage);
 	}
 	
     public double getDurabilityForDisplay(ItemStack stack)

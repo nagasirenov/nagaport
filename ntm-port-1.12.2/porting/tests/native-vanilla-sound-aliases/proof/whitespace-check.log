@@ -1,0 +1,14 @@
+ntm-port-1.12.2/porting/tests/native-vanilla-sound-aliases/proof/probe.log:17: trailing whitespace.
++[03:16:35] [main/INFO]: Reloading ResourceManager: 
+ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeFrag.java:41: space before tab in indent.
++        		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
+ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeFrag.java:45: space before tab in indent.
++        		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
+ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadePulse.java:34: space before tab in indent.
++    		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
+ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK3.java:182: space before tab in indent.
++        	com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
+ntm-port-1.12.2/src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java:23: trailing whitespace.
++		com.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, "random.explode", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemDrop.java:104: trailing whitespace.
++							com.hbm.sound.VanillaWorldSoundEffects.play(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, "random.explode", 100.0F, entityItem.world.rand.nextFloat() * 0.1F + 0.9F);

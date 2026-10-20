@@ -20,6 +20,6 @@ public class ConsumableTab extends CreativeTabs {
 			return ModItems.bottle_nuka;
 		}
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 }

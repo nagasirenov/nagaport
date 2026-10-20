@@ -1,0 +1,22 @@
+{
+  "Silo": {
+    "Block5": "reinforced_glass"
+  },
+  "DesertAtom002": {
+    "Block11": "reinforced_glass"
+  },
+  "Barrel": {
+    "Block1": "reinforced_brick",
+    "Block11": "reinforced_glass"
+  },
+  "Spaceship2": {
+    "Block10": "reinforced_glass"
+  },
+  "Spaceship": {
+    "Block10": "reinforced_glass"
+  },
+  "DesertAtom003": {
+    "Block11": "reinforced_glass",
+    "Block22": "reinforced_brick"
+  }
+}

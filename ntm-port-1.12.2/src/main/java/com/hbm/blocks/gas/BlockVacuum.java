@@ -20,7 +20,7 @@ import com.hbm.lib.ForgeDirection;
 public class BlockVacuum extends Block {
 
 	public BlockVacuum() {
-		super(Material.air);
+		super(Material.AIR);
 		this.setHardness(0.0F);
 		this.setResistance(0.0F);
 	}
@@ -41,7 +41,7 @@ public class BlockVacuum extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;
 	}
 
@@ -80,7 +80,7 @@ public class BlockVacuum extends Block {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			
-			Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 			
 			if(b == this)
 				continue;
@@ -94,7 +94,7 @@ public class BlockVacuum extends Block {
 					}
 				}
 				
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				return;
 			}
 		}
@@ -105,7 +105,7 @@ public class BlockVacuum extends Block {
 		if(b == this)
 			return false;
 		
-		return b.getMaterial() == Material.air || 
+		return b.getDefaultState().getMaterial() == Material.AIR || 
 				b.getBlockBoundsMinX() > 0 || b.getBlockBoundsMinY() > 0 || b.getBlockBoundsMinZ() > 0 ||
 				b.getBlockBoundsMaxX() < 1 || b.getBlockBoundsMaxY() < 1 || b.getBlockBoundsMaxZ() < 1;
 	}
@@ -116,7 +116,7 @@ public class BlockVacuum extends Block {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			
-			Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 			
 			if(isAirBlock(b))
 				air++;

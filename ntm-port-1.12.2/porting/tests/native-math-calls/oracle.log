@@ -1,0 +1,12 @@
+PASS floor_double (D)I 25029 bit-exact results
+PASS floor_float (F)I 25029 bit-exact results
+PASS sqrt_double (D)F 25029 bit-exact results
+PASS sqrt_float (F)F 25029 bit-exact results
+PASS clamp_int (III)I 49389 bit-exact results
+PASS clamp_float (FFF)F 49389 bit-exact results
+PASS clamp_double (DDD)D 49389 bit-exact results
+PASS wrapAngleTo180_double (D)D 25029 bit-exact results
+PASS wrapAngleTo180_float (F)F 25029 bit-exact results
+PASS ceiling_double_int (D)I 25029 bit-exact results
+PASS ceiling_float_int (F)I 25029 bit-exact results
+PASS overload negative control; total 348399

@@ -61,7 +61,7 @@ public class RenderFallout extends Render {
 	protected void renderRainSnow(float interp) {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		int timer = mc.thePlayer.ticksExisted;
+		int timer = mc.player.ticksExisted;
 
 		float intensity = 1F;
 
@@ -75,24 +75,24 @@ public class RenderFallout extends Render {
 					for(int j = 0; j < 32; ++j) {
 						float f2 = j - 16;
 						float f3 = i - 16;
-						float f4 = MathHelper.sqrt_float(f2 * f2 + f3 * f3);
+						float f4 = MathHelper.sqrt(f2 * f2 + f3 * f3);
 						this.rainXCoords[i << 5 | j] = -f3 / f4;
 						this.rainYCoords[i << 5 | j] = f2 / f4;
 					}
 				}
 			}
 
-			WorldClient worldclient = mc.theWorld;
+			WorldClient worldclient = mc.world;
 			EntityLivingBase camera = mc.renderViewEntity;
 
-			int playerX = MathHelper.floor_double(camera.posX);
-			int playerY = MathHelper.floor_double(camera.posY);
-			int playerZ = MathHelper.floor_double(camera.posZ);
+			int playerX = MathHelper.floor(camera.posX);
+			int playerY = MathHelper.floor(camera.posY);
+			int playerZ = MathHelper.floor(camera.posZ);
 			double dX = camera.lastTickPosX + (camera.posX - camera.lastTickPosX) * interp;
 			double dY = camera.lastTickPosY + (camera.posY - camera.lastTickPosY) * interp;
 			double dZ = camera.lastTickPosZ + (camera.posZ - camera.lastTickPosZ) * interp;
 
-			int playerHeight = MathHelper.floor_double(dY);
+			int playerHeight = MathHelper.floor(dY);
 			byte renderLayerCount = 5;
 			byte layer = -1;
 
@@ -142,7 +142,7 @@ public class RenderFallout extends Render {
 						float swayVariation = this.random.nextFloat();
 						double distX = layerX + 0.5F - camera.posX;
 						double distZ = layerZ + 0.5F - camera.posZ;
-						float intensityMod = MathHelper.sqrt_double(distX * distX + distZ * distZ) / renderLayerCount;
+						float intensityMod = MathHelper.sqrt(distX * distX + distZ * distZ) / renderLayerCount;
 						float colorMod = 1.0F;
 						
 						tessellator.setBrightness((worldclient.getLightBrightnessForSkyBlocks(layerX, layerY, layerZ, 0) * 3 + 15728880) / 4);

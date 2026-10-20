@@ -25,11 +25,11 @@ public class LogicBlockConditions {
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> EMPTY = (tile) -> false;
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> ABERRATOR = (tile) -> {
-		World world = tile.getWorldObj();
+		World world = tile.getWorld();
 		if(world.difficultySetting.ordinal() == 0) return false;
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		boolean aoeCheck = !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(10, 10, 10)).isEmpty();
 		if(tile.phase == 0) {
@@ -44,43 +44,43 @@ public class LogicBlockConditions {
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PLAYER_CUBE_3 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(3, 3, 3)).isEmpty();
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PLAYER_CUBE_5 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(5, 5, 5)).isEmpty();
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PLAYER_CUBE_25 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(25, 25, 25)).isEmpty();
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> REDSTONE = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		return world.isBlockIndirectlyGettingPowered(x,y,z);
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PUZZLE_TEST = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		if(tile.phase == 0 &&  world.isBlockIndirectlyGettingPowered(x,y,z)){
 			world.getClosestPlayer(x,y,z, 25).sendMessage(new TextComponentString("Find a " + TextFormatting.GOLD + "great" + TextFormatting.RESET + " ancient weapon, of questionable use in the modern age"));
@@ -88,7 +88,7 @@ public class LogicBlockConditions {
 			return true;
 		}
 
-		TileEntity pedestal = world.getTileEntity(x,y + 1,z);
+		TileEntity pedestal = world.getTileEntity(new net.minecraft.util.math.BlockPos(x,y + 1,z));
 
 		return tile.phase == 1
 			&& pedestal instanceof BlockPedestal.TileEntityPedestal

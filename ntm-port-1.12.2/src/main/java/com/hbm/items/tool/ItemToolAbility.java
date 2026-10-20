@@ -87,19 +87,19 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	public static enum EnumToolType {
 
 		PICKAXE(
-				Sets.newHashSet(new Material[] { Material.iron, Material.anvil, Material.rock, Material.glass }),
+				Sets.newHashSet(new Material[] { Material.IRON, Material.ANVIL, Material.ROCK, Material.GLASS }),
 				Sets.newHashSet(new Block[] { Blocks.cobblestone, Blocks.double_stone_slab, Blocks.stone_slab, Blocks.stone, Blocks.sandstone, Blocks.mossy_cobblestone, Blocks.iron_ore, Blocks.iron_block, Blocks.coal_ore, Blocks.gold_block, Blocks.gold_ore, Blocks.diamond_ore, Blocks.diamond_block, Blocks.ice, Blocks.netherrack, Blocks.lapis_ore, Blocks.lapis_block, Blocks.redstone_ore, Blocks.lit_redstone_ore, Blocks.rail, Blocks.detector_rail, Blocks.golden_rail, Blocks.activator_rail })
 		),
 		AXE(
-				Sets.newHashSet(new Material[] { Material.wood, Material.plants, Material.vine }),
+				Sets.newHashSet(new Material[] { Material.wood, Material.PLANTS, Material.VINE }),
 				Sets.newHashSet(new Block[] { Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.log2, Blocks.chest, Blocks.pumpkin, Blocks.lit_pumpkin })
 		),
 		SHOVEL(
-				Sets.newHashSet(new Material[] { Material.clay, Material.sand, Material.ground, Material.snow, Material.craftedSnow }),
+				Sets.newHashSet(new Material[] { Material.CLAY, Material.SAND, Material.ground, Material.SNOW, Material.CRAFTED_SNOW }),
 				Sets.newHashSet(new Block[] { Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.gravel, Blocks.snow_layer, Blocks.snow, Blocks.clay, Blocks.farmland, Blocks.soul_sand, Blocks.mycelium })
 		),
 		MINER(
-				Sets.newHashSet(new Material[] { Material.grass, Material.iron, Material.anvil, Material.glass, Material.rock, Material.clay, Material.sand, Material.ground, Material.snow, Material.craftedSnow })
+				Sets.newHashSet(new Material[] { Material.GRASS, Material.IRON, Material.ANVIL, Material.GLASS, Material.ROCK, Material.CLAY, Material.SAND, Material.ground, Material.SNOW, Material.CRAFTED_SNOW })
 		);
 
 		private EnumToolType(Set<Material> materials) {
@@ -158,10 +158,10 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 	public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase attacker) {
 
-		if(!attacker.worldObj.isRemote && attacker instanceof EntityPlayer && canOperate(stack)) {
+		if(!attacker.world.isRemote && attacker instanceof EntityPlayer && canOperate(stack)) {
 
 			this.availableAbilities.getWeaponAbilities().forEach((ability, level) -> {
-				ability.onHit(level, attacker.worldObj, (EntityPlayer) attacker, victim, this);
+				ability.onHit(level, attacker.world, (EntityPlayer) attacker, victim, this);
 			});
 		}
 
@@ -177,8 +177,8 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	@Override
 	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
 
-		World world = player.worldObj;
-		Block block = world.getBlock(x, y, z);
+		World world = player.world;
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		/*
 		 * The original implementation of this always returned FALSE which uses the vanilla block break code.
@@ -230,7 +230,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		if(toolType == null)
 			return super.getDigSpeed(stack, block, meta);
 
-		if(toolType.blocks.contains(block) || toolType.materials.contains(block.getMaterial()))
+		if(toolType.blocks.contains(block) || toolType.materials.contains(block.getDefaultState().getMaterial()))
 			return this.efficiencyOnProperMaterial;
 
 		return super.getDigSpeed(stack, block, meta);
@@ -299,21 +299,21 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 			return;
 
 		EntityPlayerMP player = (EntityPlayerMP) playerEntity;
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		if(stack == null) {
 			return;
 		}
 
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		if(!(canHarvestBlock(block, stack) ||
 				canShearBlock(block, stack, world, x, y, z)) ||
 				(block.getBlockHardness(world, x, y, z) == -1.0F && block.getPlayerRelativeBlockHardness(player, world, x, y, z) == 0.0F) ||
 				block == ModBlocks.stone_keyhole) return;
 
-		Block refBlock = world.getBlock(refX, refY, refZ);
+		Block refBlock = com.hbm.world.WorldBlockState.read(world, refX, refY, refZ).getBlock();
 		float refStrength = ForgeHooks.blockStrength(refBlock, player, world, refX, refY, refZ);
 		float strength = ForgeHooks.blockStrength(block, player, world, x, y, z);
 
@@ -337,11 +337,11 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	/** Assumes a canShearBlock check has passed, will most likely crash otherwise! */
 	public static void shearBlock(World world, int x, int y, int z, Block block, EntityPlayer player) {
 
-		ItemStack held = player.getHeldItem();
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		IShearable target = (IShearable) block;
-		if(target.isShearable(held, player.worldObj, x, y, z)) {
-			ArrayList<ItemStack> drops = target.onSheared(held, player.worldObj, x, y, z, EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, held));
+		if(target.isShearable(held, player.world, x, y, z)) {
+			ArrayList<ItemStack> drops = target.onSheared(held, player.world, x, y, z, EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, held));
 			Random rand = new Random();
 
 			for(ItemStack stack : drops) {
@@ -349,9 +349,9 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 				double d = (double) (rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
 				double d1 = (double) (rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
 				double d2 = (double) (rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
-				EntityItem entityitem = new EntityItem(player.worldObj, (double) dropX + d, (double) dropY + d1, (double) dropZ + d2, stack);
+				EntityItem entityitem = new EntityItem(player.world, (double) dropX + d, (double) dropY + d1, (double) dropZ + d2, stack);
 				entityitem.delayBeforeCanPickup = 10;
-				player.worldObj.spawnEntityInWorld(entityitem);
+				player.world.spawnEntityInWorld(entityitem);
 			}
 
 			held.damageItem(1, player);
@@ -364,9 +364,9 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 	public static void standardDigPost(World world, int x, int y, int z, EntityPlayerMP player) {
 
-		Block block = world.getBlock(x, y, z);
-		int l = world.getBlockMetadata(x, y, z);
-		world.playAuxSFXAtEntity(player, 2001, x, y, z, Block.getIdFromBlock(block) + (world.getBlockMetadata(x, y, z) << 12));
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		world.playAuxSFXAtEntity(player, 2001, x, y, z, Block.getIdFromBlock(block) + (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) << 12));
 		boolean removedByPlayer = false;
 
 		if(player.capabilities.isCreativeMode) {
@@ -413,8 +413,8 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	public static boolean removeBlock(World world, int x, int y, int z, boolean canHarvest, EntityPlayerMP player) {
-		Block block = world.getBlock(x, y, z);
-		int l = world.getBlockMetadata(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		block.onBlockHarvested(world, x, y, z, l, player);
 		boolean flag = block.removedByPlayer(world, player, x, y, z, canHarvest);
 
@@ -512,12 +512,12 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	public Configuration getConfiguration(ItemStack stack) {
 		Configuration config = new Configuration();
 
-		if(stack == null || !stack.hasTagCompound() || !stack.stackTagCompound.hasKey("ability") || !stack.stackTagCompound.hasKey("abilityPresets")) {
+		if(stack == null || !stack.hasTagCompound() || !stack.getTagCompound().hasKey("ability") || !stack.getTagCompound().hasKey("abilityPresets")) {
 			config.reset(availableAbilities);
 			return config;
 		}
 
-		config.readFromNBT(stack.stackTagCompound);
+		config.readFromNBT(stack.getTagCompound());
 		config.restrictTo(availableAbilities);
 		return config;
 	}
@@ -528,10 +528,10 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		}
 
 		if (!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		config.writeToNBT(stack.stackTagCompound);
+		config.writeToNBT(stack.getTagCompound());
 	}
 
 	@Override
@@ -555,7 +555,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 	@Override
 	public boolean canHandleKeybind(EntityPlayer player, ItemStack stack, EnumKeybind keybind) {
-		if(player.worldObj.isRemote) return keybind == EnumKeybind.ABILITY_ALT;
+		if(player.world.isRemote) return keybind == EnumKeybind.ABILITY_ALT;
 		return keybind == EnumKeybind.ABILITY_CYCLE;
 	}
 
@@ -564,7 +564,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 		if(keybind == EnumKeybind.ABILITY_CYCLE && state) {
 
-			World world = player.worldObj;
+			World world = player.world;
 			if(!canOperate(stack)) return;
 			
 			EntityPlayerMP playerMP = (EntityPlayerMP) player;
@@ -607,7 +607,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 	@Override
 	public void handleKeybindClient(EntityPlayer player, ItemStack stack, EnumKeybind keybind, boolean state) {
-		if(state) player.openGui(MainRegistry.instance, 0, player.worldObj, 0, 0, 0);
+		if(state) player.openGui(MainRegistry.instance, 0, player.world, 0, 0, 0);
 	}
 
 	private static final Map<IBaseAbility, Pair<Integer, Integer>> abilityGui = new HashMap<>();

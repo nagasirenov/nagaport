@@ -63,18 +63,18 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.epress";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			// Triggers the legacy monoblock fix
-			if (worldObj.getBlockMetadata(xCoord, yCoord, zCoord) < 12) {
-				worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, worldObj.getBlock(xCoord, yCoord, zCoord), 1);
+			if (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) < 12) {
+				this.world.scheduleBlockUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);
 			}
 
 			this.updateConnections();
@@ -106,21 +106,21 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 
 						if(this.press >= maxPress) {
 							String squish = "hbm:block.pressOperate";
-							TileEntity tile = worldObj.getTileEntity(xCoord, yCoord + 1, zCoord);
+							TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()));
 							if(tile instanceof TileEntityPlushie) {
 								TileEntityPlushie plushie = (TileEntityPlushie) tile;
 								squish = "hbm:block.squeakyPain";
 
 								if(plushie.type == PlushieType.HUNDUN) {
-									worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-									ExplosionVNT vnt = new ExplosionVNT(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 5);
+									this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+									ExplosionVNT vnt = new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5);
 									vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 50));
 									vnt.setPlayerProcessor(new PlayerProcessorStandard());
 									vnt.setSFX(new ExplosionEffectWeapon(10, 2.5F, 1F));
 									vnt.explode();
 								}
 							}
-							this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, squish, getVolume(1.5F), 1.0F);
+							this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), squish, getVolume(1.5F), 1.0F);
 							ItemStack output = PressRecipes.getOutput(slots[2], slots[1]);
 							if(slots[3] == null) {
 								slots[3] = output.copy();
@@ -163,10 +163,10 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 				this.renderPress = this.syncPress;
 			}
 
-			TileEntity te = worldObj.getTileEntity(xCoord, yCoord + 1, zCoord);
+			TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()));
 			if(te instanceof TileEntityPlushie) {
 				TileEntityPlushie abuseTarget = (TileEntityPlushie) te;
-				abuseTarget.miseryFactor = MathHelper.clamp_float(((float)syncPress - 100.0F) / 100.0F, 0, 1);
+				abuseTarget.miseryFactor = MathHelper.clamp(((float)syncPress - 100.0F) / 100.0F, (float) (0), (float) (1));
 			}
 		}
 	}
@@ -179,7 +179,7 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 		if (slots[2] == null)
 			buf.writeShort(-1); // indicate that the NBT doesn't actually exist to avoid null pointer errors.
 		else
-			BufferUtil.writeNBT(buf, slots[2].stackTagCompound);
+			BufferUtil.writeNBT(buf, slots[2].getTagCompound());
 	}
 
 	@Override
@@ -210,7 +210,7 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 	private void updateConnections() {
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 
 	@Override
@@ -223,17 +223,20 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1, 2, 3 };
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 3;
 	}
 
@@ -247,12 +250,13 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("press", press);
 		nbt.setLong("power", power);
 		nbt.setBoolean("ret", isRetracting);
+		return nbt;
 	}
 
 	@Override
@@ -279,7 +283,7 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 		if(aabb != null)
 			return aabb;
 
-		aabb = AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 3, zCoord + 1);
+		aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 3, this.pos.getZ() + 1);
 		return aabb;
 	}
 

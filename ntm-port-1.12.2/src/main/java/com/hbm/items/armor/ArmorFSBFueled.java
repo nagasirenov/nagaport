@@ -32,21 +32,21 @@ public class ArmorFSBFueled extends ArmorFSB implements IFillableItem {
 
 	@Override
 	public int getFill(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			setFill(stack, maxFuel);
 			return maxFuel;
 		}
 		
-		return stack.stackTagCompound.getInteger("fuel");
+		return stack.getTagCompound().getInteger("fuel");
 	}
 
 	public void setFill(ItemStack stack, int fill) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
-		stack.stackTagCompound.setInteger("fuel", fill);
+		stack.getTagCompound().setInteger("fuel", fill);
 	}
 
 	public int getMaxFill(ItemStack stack) {

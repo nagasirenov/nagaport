@@ -54,7 +54,7 @@ public class RenderRBMKGauge extends TileEntitySpecialRenderer {
 			double angle = (double) (value - lower) / (double) range * 50D;
 			if(unit.min > unit.max) angle = 50 - angle;
 			
-			angle = MathHelper.clamp_double(angle, 0, 80);
+			angle = MathHelper.clamp(angle, (double) (0), (double) (80));
 			
 			GL11.glTranslated(0, 0.4375, -0.125);
 			GL11.glRotated(angle - 85, -1, 0, 0);

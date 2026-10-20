@@ -1,0 +1,63 @@
+# Exact javap method excerpts; source native-PlayerList.javap
+
+  public void sendToAllNearExcept(net.minecraft.entity.player.EntityPlayer, double, double, double, double, int, net.minecraft.network.Packet<?>);
+    Code:
+       0: iconst_0
+       1: istore        12
+       3: iload         12
+       5: aload_0
+       6: getfield      #69                 // Field playerEntityList:Ljava/util/List;
+       9: invokeinterface #858,  1          // InterfaceMethod java/util/List.size:()I
+      14: if_icmpge     120
+      17: aload_0
+      18: getfield      #69                 // Field playerEntityList:Ljava/util/List;
+      21: iload         12
+      23: invokeinterface #861,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      28: checkcast     #127                // class net/minecraft/entity/player/EntityPlayerMP
+      31: astore        13
+      33: aload         13
+      35: aload_1
+      36: if_acmpeq     114
+      39: aload         13
+      41: getfield      #166                // Field net/minecraft/entity/player/EntityPlayerMP.dimension:I
+      44: iload         10
+      46: if_icmpne     114
+      49: dload_2
+      50: aload         13
+      52: getfield      #248                // Field net/minecraft/entity/player/EntityPlayerMP.posX:D
+      55: dsub
+      56: dstore        14
+      58: dload         4
+      60: aload         13
+      62: getfield      #256                // Field net/minecraft/entity/player/EntityPlayerMP.posY:D
+      65: dsub
+      66: dstore        16
+      68: dload         6
+      70: aload         13
+      72: getfield      #259                // Field net/minecraft/entity/player/EntityPlayerMP.posZ:D
+      75: dsub
+      76: dstore        18
+      78: dload         14
+      80: dload         14
+      82: dmul
+      83: dload         16
+      85: dload         16
+      87: dmul
+      88: dadd
+      89: dload         18
+      91: dload         18
+      93: dmul
+      94: dadd
+      95: dload         8
+      97: dload         8
+      99: dmul
+     100: dcmpg
+     101: ifge          114
+     104: aload         13
+     106: getfield      #277                // Field net/minecraft/entity/player/EntityPlayerMP.connection:Lnet/minecraft/network/NetHandlerPlayServer;
+     109: aload         11
+     111: invokevirtual #335                // Method net/minecraft/network/NetHandlerPlayServer.sendPacket:(Lnet/minecraft/network/Packet;)V
+     114: iinc          12, 1
+     117: goto          3
+     120: return
+

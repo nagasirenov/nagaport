@@ -30,7 +30,7 @@ public class EntityBuilding extends EntityThrowable {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote && this.ticksExisted == 1) {
+		if(!this.world.isRemote && this.ticksExisted == 1) {
 			for(int i = 0; i < 100; i++) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "bf");
@@ -50,17 +50,17 @@ public class EntityBuilding extends EntityThrowable {
 		this.motionY -= 0.03;
 		if(motionY < -1.5) motionY = -1.5;
 
-		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air) {
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) this.posX, (int) this.posY, (int) this.posZ).getBlock() != Blocks.AIR) {
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);
 			this.setDead();
-			ExplosionLarge.spawnParticles(worldObj, posX, posY + 3, posZ, 150);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 6);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 5);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 4);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 3);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 3);
+			ExplosionLarge.spawnParticles(this.world, posX, posY + 3, posZ, 150);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 6);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 5);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 4);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
 
-			List<Entity> list = (List<Entity>) worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 8, posY - 8, posZ - 8, posX + 8, posY + 8, posZ + 8));
+			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 8, posY - 8, posZ - 8, posX + 8, posY + 8, posZ + 8));
 
 			for(Entity e : list) e.attackEntityFrom(ModDamageSource.building, 1000);
 
@@ -70,12 +70,12 @@ public class EntityBuilding extends EntityThrowable {
 						.rotateAroundZRad((float) (-rand.nextFloat() * Math.PI / 2))
 						.rotateAroundYRad((float) (rand.nextFloat() * Math.PI * 2));
 
-				EntityRubble rubble = new EntityRubble(worldObj, posX, posY + 3, posZ);
-				rubble.setMetaBasedOnBlock(Blocks.brick_block, 0);
+				EntityRubble rubble = new EntityRubble(this.world, posX, posY + 3, posZ);
+				rubble.setMetaBasedOnBlock(Blocks.BRICK_BLOCK, 0);
 				rubble.motionX = vec.x;
 				rubble.motionY = vec.y;
 				rubble.motionZ = vec.z;
-				worldObj.spawnEntityInWorld(rubble);
+				this.world.spawnEntityInWorld(rubble);
 			}
 		}
 	}

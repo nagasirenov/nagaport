@@ -25,7 +25,7 @@ public class SchistStratum {
 
 		World world = event.world;
 		
-		if(world.provider == null || world.provider.dimensionId != 0)
+		if(world.provider == null || world.provider.getDimension() != 0)
 			return;
 		
 		int cX = event.chunkX;
@@ -50,9 +50,9 @@ public class SchistStratum {
 					
 					for(int y = 30 - range; y <= 30 + range; y++) {
 						
-						Block target = world.getBlock(x, y, z);
+						Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 						
-						if(target.isNormalCube() && target.getMaterial() == Material.rock && target.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
+						if(target.isNormalCube() && target.getDefaultState().getMaterial() == Material.ROCK && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {
 							world.setBlock(x, y, z, ModBlocks.stone_gneiss, 0, 2);
 						}
 					}

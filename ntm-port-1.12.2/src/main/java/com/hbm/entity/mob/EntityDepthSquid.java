@@ -38,7 +38,7 @@ public class EntityDepthSquid extends EntitySquid implements IEntityEnumMulti {
         this.prevLimbSwingAmount = this.limbSwingAmount;
         double d0 = this.posX - this.prevPosX;
         double d1 = this.posZ - this.prevPosZ;
-        float f6 = MathHelper.sqrt_double(d0 * d0 + d1 * d1) * 4.0F;
+        float f6 = MathHelper.sqrt(d0 * d0 + d1 * d1) * 4.0F;
 
         if(f6 > 1.0F) {
             f6 = 1.0F;

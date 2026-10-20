@@ -45,7 +45,7 @@ public class GUILaunchPadLarge extends GuiInfoContainer {
 		launchpad.tanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 125, guiTop + 88 - 52, 16, 52);
 		launchpad.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 88 - 52, 16, 52);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null && this.isMouseOverSlot(this.inventorySlots.getSlot(1), mouseX, mouseY) && !this.inventorySlots.getSlot(1).getHasStack()) {
+		if(this.mc.player.inventory.getItemStack() == null && this.isMouseOverSlot(this.inventorySlots.getSlot(1), mouseX, mouseY) && !this.inventorySlots.getSlot(1).getHasStack()) {
 			ItemStack[] list = new ItemStack[] { new ItemStack(ModItems.designator), new ItemStack(ModItems.designator_range), new ItemStack(ModItems.designator_manual) };
 			List<Object[]> lines = new ArrayList();
 			ItemStack selected = list[(int) ((System.currentTimeMillis() % (1000 * list.length)) / 1000)];
@@ -53,15 +53,15 @@ public class GUILaunchPadLarge extends GuiInfoContainer {
 			lines.add(list);
 			
 			lines.add(new Object[] {I18nUtil.resolveKey(selected.getDisplayName())});
-			this.drawStackText(lines, mouseX, mouseY, this.fontRendererObj);
+			this.drawStackText(lines, mouseX, mouseY, this.fontRenderer);
 		}
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.launchpad.hasCustomInventoryName() ? this.launchpad.getInventoryName() : I18n.format(this.launchpad.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 4, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 4, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -145,7 +145,7 @@ public class GUILaunchPadLarge extends GuiInfoContainer {
 			text = "Ready";
 			color = 0x00ff000;
 		}
-		this.fontRendererObj.drawString(text, -this.fontRendererObj.getStringWidth(text) / 2, -this.fontRendererObj.FONT_HEIGHT / 2, color);
+		this.fontRenderer.drawString(text, -this.fontRenderer.getStringWidth(text) / 2, -this.fontRenderer.FONT_HEIGHT / 2, color);
 		GL11.glPopMatrix();
 	}
 }

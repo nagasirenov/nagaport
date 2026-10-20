@@ -19,14 +19,14 @@ public class TileEntitySoyuzCapsule extends TileEntityInventoryBase implements I
 	}
 
 	@Override
-	public String getName() {
+	protected String getDefaultName() {
 		return "container.soyuzCapsule";
 	}
 	
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
     	
-        return AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord - 1, zCoord - 1, xCoord + 2, yCoord + 3, zCoord + 2);
+        return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
     }
 
 	@Override

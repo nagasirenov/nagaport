@@ -1,0 +1,37 @@
+WHOLE INPUT BiomeGenNoMansLand.java cd2fb6eb709ac22431b13accdbe88006741d272f7e6ac78c5cbc7460145f3ed9
+WHOLE INPUT BiomeDecoratorNoMansLand.java eda9fcd2724d20769026f01d42e012f05d267110a5df752197724eaa3eea0257
+WHOLE INPUT WorldGenSurfaceSpot.java 9b27fc7ca56ab2bc79a057704764f9739e769c57d7725256dded2f4f6987b2f6
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/no-mans-land-native/NoMansLandNativeTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/no-mans-land-native/NoMansLandNativeTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/no-mans-land-native/NoMansLandNativeTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                                                                                                   ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[23:32:54] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `no_mans_land`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:32:54] [main/ERROR]: Unable to determine registrant mod for NoMansLandNativeTest$Events@48dff674. This is a critical error and should be impossible
+java.lang.Throwable: null
+	at net.minecraftforge.fml.common.eventhandler.EventBus.register(EventBus.java:75) [EventBus.class:?]
+	at NoMansLandNativeTest.main(NoMansLandNativeTest.java:21) [NoMansLandNativeTest.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_504]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_504]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_504]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_504]
+	at ForgeEventNativeLauncher.main(ForgeEventNativeLauncher.java:44) [no-mans-land-native-1tnhr1mg/:?]
+[23:32:54] [main/ERROR]: Unable to determine registrant mod for NoMansLandNativeTest$Events@48dff674. This is a critical error and should be impossible
+java.lang.Throwable: null
+	at net.minecraftforge.fml.common.eventhandler.EventBus.register(EventBus.java:75) [EventBus.class:?]
+	at NoMansLandNativeTest.main(NoMansLandNativeTest.java:21) [NoMansLandNativeTest.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_504]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_504]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_504]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_504]
+	at ForgeEventNativeLauncher.main(ForgeEventNativeLauncher.java:44) [no-mans-land-native-1tnhr1mg/:?]
+PASS 18199 whole native dormant-biome/decorator/surface-spot checks; generic vanilla ore/worldgen internals and full world generation are not original-parity certified.

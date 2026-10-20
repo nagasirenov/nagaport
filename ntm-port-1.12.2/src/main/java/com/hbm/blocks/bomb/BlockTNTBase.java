@@ -28,7 +28,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	private IIcon bottomIcon;
 
 	public BlockTNTBase() {
-		super(Material.tnt, 15, 100, 20, false, false);
+		super(Material.TNT, 15, 100, 20, false, false);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 
 		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		} else {
 			checkAndIgnite(world, x, y, z);
 		}
@@ -53,7 +53,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		} else {
 			checkAndIgnite(world, x, y, z);
 		}
@@ -62,7 +62,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	public void checkAndIgnite(World world, int x, int y, int z) {
 		if (shouldIgnite(world, x, y, z)) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
 
@@ -88,9 +88,9 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == Items.flint_and_steel) {
+		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == Items.FLINT_AND_STEEL) {
 			this.prime(world, x, y, z, 1, player);
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			player.getCurrentEquippedItem().damageItem(1, player);
 			return true;
 		} else {
@@ -105,7 +105,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 
 			if(entityarrow.isBurning()) {
 				this.prime(world, x, y, z, 1, entityarrow.shootingEntity instanceof EntityLivingBase ? (EntityLivingBase) entityarrow.shootingEntity : null);
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			}
 		}
 	}
@@ -133,14 +133,14 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 			return false;
 
 		if(!world.isRemote) {
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			
 			if(meta == 0) {
 				world.setBlockMetadataWithNotify(x, y, z, 1, 3);
-				player.addChatComponentMessage(ChatBuilder.start("[ Ignite On Break: Enabled ]").color(TextFormatting.RED).flush());
+				player.sendMessage(ChatBuilder.start("[ Ignite On Break: Enabled ]").color(TextFormatting.RED).flush());
 			} else {
 				world.setBlockMetadataWithNotify(x, y, z, 0, 3);
-				player.addChatComponentMessage(ChatBuilder.start("[ Ignite On Break: Disabled ]").color(TextFormatting.GOLD).flush());
+				player.sendMessage(ChatBuilder.start("[ Ignite On Break: Disabled ]").color(TextFormatting.GOLD).flush());
 			}
 		}
 		

@@ -1,0 +1,43 @@
+# Native boxed duct/cable family
+
+Pinned baseline: `4117777482629b159d6cfa5dcc20c1f4ec5aa311` (CP48). Isolated worktree `/workspace/shared/nagaport-box-duct`. No main-worktree edits, full Gradle run, source exclusions, platform substitutes, dependency download, commit or push.
+
+## Closed implementation scope
+
+- Complete `FluidDuctBox`, `FluidDuctBoxExhaust`, `PowerCableBox` owners use genuine metadata/extended states, native placement/drop/creative/collision/selection APIs and the original routing predicates. The already-native complete `FluidDuctBase` compiles in the focused probes unchanged. No transfer, network lifecycle, inventory, recipe or balance rewrite.
+- Complete `RenderBoxDuct` is native baked geometry, with all original straight/curve/junction branch order, bounds, UV rotations, fluid/cable/exhaust material rules, and item normals/order. Existing `PneumaticCuboidGeometry` supplies independently tested native atlas faces. No new RenderBlocks facade.
+- `BoxDuctMaterials`, `BoxDuctBakedModel`, `BoxDuctModelHandler`, `BoxDuctRenderState`, three blockstate JSONs and three exact constructor-line changes bind the original registry/class pairs. The existing deferred `register(...)` calls and original ItemBlockBase remain unchanged. Full16-nibble state/item routing is retained. Original invalid texture-array domains still fail rather than silently normalize.
+- Original colored-fluid world tint is white except metadata%3==2 with a real pipe type, using original `lightenColor(...,.25)`. Item faces remain untinted. Snapshots/caches contain only scalar values, not worlds or tiles.
+- Original textures are byte-identical. Their binary alpha requires native `CUTOUT_MIPPED`, retaining original pass-0 alpha testing and terrain mipmaps, not opaque SOLID or new blending. Native fixed-item-frame transform and correction reuse the previously established standard-block frame mapping; ordinary contexts reuse native block transforms.
+- Original world callback replaces the incoming renderer with its own RenderBlocksNT instance, ignoring destroy-stage override. `BoxDuctBreakingRenderer` is connected to the actual native damage route, not merely callable preparation. Exact block+registry+tile-class guards prevent capturing other blocks sharing pipe/cable base tiles. Two owner `hasCustomBreakingProgress` callbacks and three extracted tile `canRenderBreaking` hooks select custom rendering and suppress default crack retexturing. Damage evaluates native standard-cube flat/AO light then drops COLOR, preserving the old noColor upload and inherited original blend/alpha/polygon-offset draw boundary.
+
+## Focused results
+
+- Owner proof: **1,230,245 assertions**, complete three owners + FluidDuctBase and19 native production dependency/helper files. All64 masks×16 metadata, eight fluid/owner cases; SHA-pinned original ordered collision/selection bodies, clipped collision results, directional source-tile/type guards, exhaust short circuit, immutable tint, drops/creative/placement, overlay payloads and actual World/Chunk tile creation/removal.
+- Independent original geometry proof: **3,387,630 assertions**, **3,120 complete original callback cases**, including **790 identical invalid-metadata failures**. Original callback/icon bodies and two actual original RenderBlocksNT overrides execute inside a recording fixture; other faces execute the SHA-pinned official1.7.10 client bytecode. Exact face order, cyclic native canonical vertex order, XYZ/UV float bits, atlas identity, rotations, normals and color-before-world-lighting match. Additional invalid/negative material-index tests preserve selected-domain failures.
+- Native model/registry/damage proof: **1,425,258 assertions**. Complete model/helper/loader/renderer/owners compile together against actual1.12.2 Forge. Real ModelRegistryEvent registrations,48 item+48 blockstate routes, actual ModelLoaderRegistry, ItemModelMesher, BlockModelShapes, directory/JAR texture decoding and reload descriptor replacement. Actual TileEntityRendererDispatcher invokes custom damage for3 exact owners×all valid creative metadata×10 topology masks×2AO×2light pipelines×3destroy stages; exact native ordinary/damage position, original UV/material and lightmap bytes agree while damage has no color channel. Ordinary/invalid/unowned stages perform no draw; no crack sprite lookup occurs. Immutable bounded cache and defensive fixed transforms checked.
+
+Assertions count checks, not bugs or completion percentage. The shared network tiles are **not completely compiled in these probes**: exact new canRenderBreaking bodies are extracted verbatim into explicitly controlled NTM tile collaborators. Complete shared tile ticking/network/persistence and entire ModBlocks/ClientProxy compilation are not claimed. Owner tests also control unrelated NTM fluid descriptors, player-key state, node registry, overlay/UI and translation collaborators; actual Library connection method bodies and ColorUtil.lightenColor are extracted unchanged. No Minecraft/Forge class substitutes exist.
+
+## Explicit open acceptance gates
+
+1. **Known original/native Forge diffuse quantization mismatch:** original flat-white RenderBlocks setColorOpaque_F truncates the DOWN channel to127; the native Forge light pipeline produces128. The focused test reports **4/24 differing vertices**, versus **0/24** in the native vanilla fallback. This is not accepted visual simplification, and no global lighter replacement or CP37 approval is inferred. Full original-vs-native smooth-AO/light-solver equality remains unproven.
+2. Damage material/UV/noColor semantics and preservation of each configured native light pipeline are established. This does **not** prove the entire original1.7-vs-native light solver or actual GPU alpha/blend/depth/framebuffer equivalence. Existing inherited NetworkBreakingRenderer.draw is reused unchanged; its actual GL path is not executed here.
+3. Native world/item geometry and frame matrices are covered, but no launched client, actual OpenGL/framebuffer, shader-pack, networked server, transfer/inventory/energy behavior, world-save or Windows runtime certification is claimed. Original inventory single batch relied on caller GL current color after clearing Tessellator color; native neutral white does not certify arbitrary stale caller state.
+
+Keep this finite implementation separate from policy approval. Parent owns the combined full compile and checkpoint integration.
+
+## Reproduction from module
+
+Use Java8 and the actual resolved native project classpath. Supply the repository's pristine original root and original client binary (SHA256 `a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce`); no binary dependency is redistributed.
+
+    python3 porting/tests/box-duct-owner-native-probe.py --root . --java-home JAVA8 --classpath CLASSPATH --original-root ../ntm-original-pristine
+    python3 porting/tests/box-duct-native-geometry/probe.py --java-home JAVA8 --classpath CLASSPATH --pristine ../ntm-original-pristine --legacy-client ORIGINAL_CLIENT
+    python3 porting/tests/box-duct-model-native-probe.py --module . --java-home JAVA8 --classpath CLASSPATH
+    python3 porting/tests/verify-box-duct-native-scope.py --module .
+
+Logs: `porting/native-box-duct-owner-test.log`, `porting/native-box-duct-geometry-test.log`, `porting/box-duct-model-native.log`. More detailed fixture boundaries accompany the owner/geometry tests. Shared ModBlocks remains CRLF, and TileEntityPipeBaseNT retains its existing mixed line endings; raw git diff --check calls these CR bytes trailing whitespace. Exact reverse checks, not normalization, preserve their baseline bytes. No broad whitespace-cleanliness claim.
+
+## Shared-source guard composition
+
+The twelve wholly owned production paths remain full-file SHA256 checked. Five shared paths use seven exact byte-preserving owned fragments, allowing unrelated approved CT or other family edits. Each fragment must occur exactly once; its obsolete form must be absent. Reversal and forward replay preserve every unowned byte. Immutable CP48 before/after hashes remain historical audit evidence, not shared-file locks. `box-duct-native-shared-baseline.patch`, `box-duct-native-shared-fragments.json` and `box-duct-native-shared-audit.log` record that only these fragments transform CP48 into this frozen baseline. Run the scope guard with `--self-test` to test fourteen rejected drift/duplication mutations and preservation of unrelated content. Verified on both the isolated source and the coordinator’s combined box+CT source. No production bytes changed for this guard correction.

@@ -19,12 +19,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityDecon extends TileEntity {
+public class TileEntityDecon extends TileEntity implements net.minecraft.util.ITickable {
 
 	@Override
-	public void updateEntity() {
-		if(!this.worldObj.isRemote) {
-			List<EntityLivingBase> entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.xCoord - 0.5, this.yCoord, this.zCoord - 0.5, this.xCoord + 1.5, this.yCoord + 2, this.zCoord + 1.5));
+	public void update() {
+		if(!this.world.isRemote) {
+			List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 2, this.pos.getZ() + 1.5));
 			if(!entities.isEmpty()) {
 				for(EntityLivingBase e : entities) {
 					HbmLivingProps.incrementRadiation(e, -0.5F);
@@ -35,14 +35,14 @@ public class TileEntityDecon extends TileEntity {
 				deconNeutron(entities);
 			}
 		} else {
-			Random rand = worldObj.rand;
+			Random rand = this.world.rand;
 
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("type", "vanillaExt");
 			nbt.setString("mode", "townaura");
-			nbt.setDouble("posX", xCoord + 0.125 + rand.nextDouble() * 0.75);
-			nbt.setDouble("posY", yCoord + 1.1);
-			nbt.setDouble("posZ", zCoord + 0.125 + rand.nextDouble() * 0.75);
+			nbt.setDouble("posX", this.pos.getX() + 0.125 + rand.nextDouble() * 0.75);
+			nbt.setDouble("posY", this.pos.getY() + 1.1);
+			nbt.setDouble("posZ", this.pos.getZ() + 0.125 + rand.nextDouble() * 0.75);
 			nbt.setDouble("mX", 0.0);
 			nbt.setDouble("mY", 0.04);
 			nbt.setDouble("mZ", 0.0);

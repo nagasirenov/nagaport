@@ -1,0 +1,15 @@
+Compiled from "SourceFile"
+public interface net.minecraft.client.audio.ISound {
+  public abstract net.minecraft.util.ResourceLocation getSoundLocation();
+  public abstract net.minecraft.client.audio.SoundEventAccessor createAccessor(net.minecraft.client.audio.SoundHandler);
+  public abstract net.minecraft.client.audio.Sound getSound();
+  public abstract net.minecraft.util.SoundCategory getCategory();
+  public abstract boolean canRepeat();
+  public abstract int getRepeatDelay();
+  public abstract float getVolume();
+  public abstract float getPitch();
+  public abstract float getXPosF();
+  public abstract float getYPosF();
+  public abstract float getZPosF();
+  public abstract net.minecraft.client.audio.ISound$AttenuationType getAttenuationType();
+}

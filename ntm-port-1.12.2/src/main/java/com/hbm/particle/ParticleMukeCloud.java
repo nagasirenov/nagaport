@@ -6,16 +6,20 @@ import com.hbm.lib.RefStrings;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleMukeCloud extends EntityFX {
+public class ParticleMukeCloud extends Particle {
 
 	private static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/particle/explosion.png");
 	private TextureManager theRenderEngine;
@@ -56,18 +60,18 @@ public class ParticleMukeCloud extends EntityFX {
 	
 	public void onUpdate() {
 		
-		this.noClip = this.particleAge <= 2;
+		this.canCollide = this.particleAge > 2;
 
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
 
 		if(this.particleAge++ >= this.particleMaxAge - 2) {
-			this.setDead();
+			this.setExpired();
 		}
 
 		this.motionY -= 0.04D * (double) this.particleGravity;
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 		this.motionX *= friction;
 		this.motionY *= friction;
 		this.motionZ *= friction;
@@ -78,16 +82,16 @@ public class ParticleMukeCloud extends EntityFX {
 		}
 	}
 
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
 
 		this.theRenderEngine.bindTexture(getTexture());
 		
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0);
-		GL11.glDepthMask(false);
-        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableLighting();
+		GlStateManager.enableBlend();
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
+		GlStateManager.depthMask(false);
+        GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
 		RenderHelper.disableStandardItemLighting();
 		
 		if(this.particleAge > this.particleMaxAge)
@@ -101,30 +105,30 @@ public class ParticleMukeCloud extends EntityFX {
 		float vMin = texIndex / 5 * f0;
 		float vMax = vMin + f0;
 			
-		tess.startDrawingQuads();
+		tess.begin(7, ParticleVertexFormats.LIT_TEXTURED);
+
+
 		
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setBrightness(240);
 
 		this.particleAlpha = 1F;
 		this.particleScale = 3;
 		
-		tess.setColorRGBA_F(1.0F, 1.0F, 1.0F, this.particleAlpha);
+
 
 		float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
 		float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
 		float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
 
-		tess.addVertexWithUV((double) (pX - x * this.particleScale - tx * this.particleScale), (double) (pY - 1 * this.particleScale), (double) (pZ - z * this.particleScale - tz * this.particleScale), uMax, vMax);
-		tess.addVertexWithUV((double) (pX - x * this.particleScale + tx * this.particleScale), (double) (pY + 1 * this.particleScale), (double) (pZ - z * this.particleScale + tz * this.particleScale), uMax, vMin);
-		tess.addVertexWithUV((double) (pX + x * this.particleScale + tx * this.particleScale), (double) (pY + 1 * this.particleScale), (double) (pZ + z * this.particleScale + tz * this.particleScale), uMin, vMin);
-		tess.addVertexWithUV((double) (pX + x * this.particleScale - tx * this.particleScale), (double) (pY - 1 * this.particleScale), (double) (pZ + z * this.particleScale - tz * this.particleScale), uMin, vMax);
+		tess.pos((double) (pX - x * this.particleScale - tx * this.particleScale), (double) (pY - 1 * this.particleScale), (double) (pZ - z * this.particleScale - tz * this.particleScale)).tex(uMax, vMax).color(1.0F, 1.0F, 1.0F, this.particleAlpha).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
+		tess.pos((double) (pX - x * this.particleScale + tx * this.particleScale), (double) (pY + 1 * this.particleScale), (double) (pZ - z * this.particleScale + tz * this.particleScale)).tex(uMax, vMin).color(1.0F, 1.0F, 1.0F, this.particleAlpha).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
+		tess.pos((double) (pX + x * this.particleScale + tx * this.particleScale), (double) (pY + 1 * this.particleScale), (double) (pZ + z * this.particleScale + tz * this.particleScale)).tex(uMin, vMin).color(1.0F, 1.0F, 1.0F, this.particleAlpha).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
+		tess.pos((double) (pX + x * this.particleScale - tx * this.particleScale), (double) (pY - 1 * this.particleScale), (double) (pZ + z * this.particleScale - tz * this.particleScale)).tex(uMin, vMax).color(1.0F, 1.0F, 1.0F, this.particleAlpha).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
 		
-		tess.draw();
+		Tessellator.getInstance().draw();
 		
-		GL11.glPolygonOffset(0.0F, 0.0F);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
-		GL11.glEnable(GL11.GL_LIGHTING);
+		GlStateManager.doPolygonOffset(0.0F, 0.0F);
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);
+		GlStateManager.enableLighting();
 	}
 	
 	protected ResourceLocation getTexture() {

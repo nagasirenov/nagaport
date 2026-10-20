@@ -1,0 +1,24 @@
+import java.lang.reflect.*;
+import java.nio.ByteOrder;
+
+/** Executed separately: the original client never joins the native model classpath. */
+public final class LegacyFluidColorOracleTest {
+ public static void main(String[] args)throws Exception {
+  java.net.URLClassLoader loader=new java.net.URLClassLoader(new java.net.URL[]{new java.io.File(args[0]).toURI().toURL()},LegacyFluidColorOracleTest.class.getClassLoader());
+  Class<?> legacy=Class.forName("bmh",true,loader);Object tessellator=legacy.getField("a").get(null);
+  Method integer=legacy.getMethod("a",int.class,int.class,int.class),floating=legacy.getMethod("b",float.class,float.class,float.class);
+  Field packed=legacy.getDeclaredField("k");packed.setAccessible(true);int checks=0;
+  OriginalFluidOracle.Color oracle=new OriginalFluidOracle.Color();
+  int[] values={-1000,-1,0,1,2,17,127,254,255,256,258,511,1000};
+  for(int r:values)for(int g:values)for(int b:values){
+   integer.invoke(tessellator,r,g,b);oracle.setColorOpaque(r,g,b);int actual=packed.getInt(tessellator);if(ByteOrder.nativeOrder()!=ByteOrder.LITTLE_ENDIAN)actual=Integer.reverseBytes(actual);
+   if(actual!=oracle.value)throw new AssertionError("Original integer color disagrees with recorder: "+r+","+g+","+b);checks++;
+  }
+  float[] shades={-.1F,0F,.001F,.45F,.7F,.99F,1F,1.0154319F,1.0154322F,1.5F};
+  for(float r:shades)for(float g:shades)for(float b:shades){
+   floating.invoke(tessellator,r,g,b);oracle.setColorOpaque_F(r,g,b);int actual=packed.getInt(tessellator);if(ByteOrder.nativeOrder()!=ByteOrder.LITTLE_ENDIAN)actual=Integer.reverseBytes(actual);
+   if(actual!=oracle.value)throw new AssertionError("Original float color disagrees with recorder: "+r+","+g+","+b);checks++;
+  }
+  System.out.println("PASS original 1.7.10 Tessellator color adapter: "+checks+" checks; actual cached client integer/float setters verify float*255 truncation and per-channel saturation, including pipe shade above one; isolated from native model runtime.");
+ }
+}

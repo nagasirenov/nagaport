@@ -16,6 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
+import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.gen.structure.StructureComponent;
 
 public class BunkerComponents {
@@ -52,13 +53,13 @@ public class BunkerComponents {
 	}
 	
 	public static void registerComponents() {
-		MapGenStructureIO.func_143031_a(StartingHub.class, "NTMBStartingHub");
-		MapGenStructureIO.func_143031_a(Corridor.class, "NTMBCorridor");
-		MapGenStructureIO.func_143031_a(BedroomL.class, "NTMBBedroomL");
-		MapGenStructureIO.func_143031_a(FunJunction.class, "NTMBFunJunction");
-		MapGenStructureIO.func_143031_a(BathroomL.class, "NTMBBathroomL");
-		MapGenStructureIO.func_143031_a(Laboratory.class, "NTMBLaboratory");
-		MapGenStructureIO.func_143031_a(PowerRoom.class, "NTMBPowerRoom");
+		MapGenStructureIO.registerStructureComponent(StartingHub.class, "NTMBStartingHub");
+		MapGenStructureIO.registerStructureComponent(Corridor.class, "NTMBCorridor");
+		MapGenStructureIO.registerStructureComponent(BedroomL.class, "NTMBBedroomL");
+		MapGenStructureIO.registerStructureComponent(FunJunction.class, "NTMBFunJunction");
+		MapGenStructureIO.registerStructureComponent(BathroomL.class, "NTMBBathroomL");
+		MapGenStructureIO.registerStructureComponent(Laboratory.class, "NTMBLaboratory");
+		MapGenStructureIO.registerStructureComponent(PowerRoom.class, "NTMBPowerRoom");
 		//TODO more rooms for more variety
 	}
 	
@@ -78,30 +79,30 @@ public class BunkerComponents {
 		public StartingHub(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 		}
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			for(int i = 0; i < paths.length; i++)
 				nbt.setBoolean("p" + i, paths[i]);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			for(int i = 0; i < paths.length; i++)
 				paths[i] = nbt.getBoolean("p" + i);
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			paths[0] = this.getNextComponentEast(start, this, coordBaseMode, rand, 5, 1) != null;
-			paths[1] = this.getNextComponentAntiNormal(start, this, coordBaseMode, rand, 4, 1) != null;
-			paths[2] = this.getNextComponentWest(start, this, coordBaseMode, rand, 3, 1) != null;
+			paths[0] = this.getNextComponentEast(start, this, getCoordMode(), rand, 5, 1) != null;
+			paths[1] = this.getNextComponentAntiNormal(start, this, getCoordMode(), rand, 4, 1) != null;
+			paths[2] = this.getNextComponentWest(start, this, getCoordMode(), rand, 3, 1) != null;
 		}
 		
 		@Override
@@ -149,7 +150,7 @@ public class BunkerComponents {
 			placeBlockAtCurrentPosition(world, ModBlocks.fan, 0, 5, 4, 5, box);
 			//machine
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_tungsten, 0, 3, 1, 6, box);
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(3), 4, 1, 6, ItemPool.getPool(ItemPoolsLegacy.POOL_ANTENNA)/*TODO change */, 5);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(3), 4, 1, 6, ItemPool.getPool(ItemPoolsLegacy.POOL_ANTENNA)/*TODO change */, 5);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_tungsten, 0, 5, 1, 6, box);
 			fillWithMetadataBlocks(world, box, 3, 2, 6, 5, 2, 6, ModBlocks.concrete_smooth_stairs, getStairMeta(2) | 4);
 			fillWithMetadataBlocks(world, box, 3, 3, 6, 5, 3, 6, ModBlocks.tape_recorder, getDecoMeta(2));
@@ -177,7 +178,7 @@ public class BunkerComponents {
 		public Corridor(int componentType, StructureBoundingBox box, int coordMode, Random rand) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 			
 			decorations[0] = rand.nextInt(6);
 			decorations[1] = rand.nextInt(6);
@@ -185,23 +186,23 @@ public class BunkerComponents {
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 			nbt.setIntArray("d", decorations);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 			decorations = nbt.getIntArray("d");
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			path = this.getNextComponentNormal(start, this, coordBaseMode, rand, 3, 1) != null;
+			path = this.getNextComponentNormal(start, this, getCoordMode(), rand, 3, 1) != null;
 		}
 		
 		@Override
@@ -238,26 +239,26 @@ public class BunkerComponents {
 				final int x = 1 + i * 3;
 				switch (decorations[i]) {
 					default: //table w/ chairs
-						placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, x, 1, 2, box);
-						placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaN, x, 1, 4, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, x, 1, 2, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaN, x, 1, 4, box);
 						placeBlockAtCurrentPosition(world, Blocks.fence, 0, x, 1, 3, box);
-						placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 1, x, 2, 3, box);
+						placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 1, x, 2, 3, box);
 						break;
 					case 1://desk w/ computer
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, x, 1, 2, box);
-						placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaN, x, 1, 4, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaN, x, 1, 4, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(1), x, 2, 2, box);
 						break;
 					case 2: //couch
-						placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, x, 1, 2, box);
-						placeBlockAtCurrentPosition(world, Blocks.oak_stairs, i < 1 ? stairMetaE : stairMetaW, x, 1, 3, box);
-						placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaN, x, 1, 4, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, x, 1, 2, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, i < 1 ? stairMetaE : stairMetaW, x, 1, 3, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaN, x, 1, 4, box);
 						break;
 					case 3:
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, x, 1, 2, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, (i < 1 ? stairMetaE : stairMetaW) | 4, x, 1, 3, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaN | 4, x, 1, 4, box);
-						placeBlockAtCurrentPosition(world, Blocks.flower_pot, 0, x, 2, 2, box);
+						placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, x, 2, 2, box);
 						break;
 					case 4:
 						fillWithBlocks(world, box, x, 1, 1, x, 3, 1, ModBlocks.deco_tungsten);
@@ -270,7 +271,7 @@ public class BunkerComponents {
 						break;
 					case 5:
 						placeBlockAtCurrentPosition(world, Blocks.fence, 0, x, 1, 1, box);
-						placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 0, x, 2, 1, box);
+						placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, x, 2, 1, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, x, 1, 3, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaN | 4, x, 1, 4, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.radiorec, i < 1 ? decoMetaE : decoMetaW, x, 2, 3, box);
@@ -300,26 +301,26 @@ public class BunkerComponents {
 		public BedroomL(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 		}
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			path = this.getNextComponentWest(start, this, coordBaseMode, rand, 9, 1) != null;
+			path = this.getNextComponentWest(start, this, getCoordMode(), rand, 9, 1) != null;
 		}
 		
 		@Override
@@ -369,22 +370,22 @@ public class BunkerComponents {
 			//table w/ microwave
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, 8, 1, 3, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaN | 4, 8, 1, 4, box);
-			placeBlockAtCurrentPosition(world, Blocks.noteblock, 0, 8, 1, 5, box);
+			placeBlockAtCurrentPosition(world, Blocks.NOTEBLOCK, 0, 8, 1, 5, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.machine_microwave, getDecoMeta(4), 8, 2, 4, box);
 			//desk w/ computer
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaW | 4, 6, 1, 9, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaN | 4, 5, 1, 9, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaE | 4, 4, 1, 9, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, 5, 1, 8, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, 5, 1, 8, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(0), 5, 2, 9, box);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 3, 1, 9, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 5);
 			//lockers
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(4), 8, 1, 7, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 3);
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(4), 8, 2, 7, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 5);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 8, 1, 7, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 3);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 8, 2, 7, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 5);
 			fillWithBlocks(world, box, 8, 1, 8, 8, 2, 8, ModBlocks.deco_tungsten);
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(4), 8, 1, 9, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 4);
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(4), 8, 2, 9, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 5);
-			fillWithMetadataBlocks(world, box, 8, 3, 7, 8, 3, 9, Blocks.trapdoor, getDecoModelMeta(2) >> 2);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 8, 1, 9, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 4);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 8, 2, 9, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 5);
+			fillWithMetadataBlocks(world, box, 8, 3, 7, 8, 3, 9, Blocks.TRAPDOOR, getDecoModelMeta(2) >> 2);
 			//doors
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 7, 1, 0);
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 8, 1, 0);
@@ -408,29 +409,29 @@ public class BunkerComponents {
 		public FunJunction(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 		}
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			for(int i = 0; i < paths.length; i++)
 				nbt.setBoolean("p" + i, paths[i]);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			for(int i = 0; i < paths.length; i++)
 				paths[i] = nbt.getBoolean("p" + i);
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			paths[0] = this.getNextComponentEast(start, this, coordBaseMode, rand, 6, 1) != null;
-			paths[1] = this.getNextComponentNormal(start, this, coordBaseMode, rand, 5, 1) != null;
+			paths[0] = this.getNextComponentEast(start, this, getCoordMode(), rand, 6, 1) != null;
+			paths[1] = this.getNextComponentNormal(start, this, getCoordMode(), rand, 5, 1) != null;
 		}
 		
 		@Override
@@ -462,30 +463,30 @@ public class BunkerComponents {
 			final int stairMetaE = getStairMeta(1);
 			final int stairMetaN = getStairMeta(2);
 			final int stairMetaS = getStairMeta(3);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaE, 1, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, 2, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaW, 3, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, 1, 1, 4, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaE, 1, 1, 5, box);
-			fillWithMetadataBlocks(world, box, 1, 1, 6, 2, 1, 6, Blocks.oak_stairs, stairMetaN);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaW, 3, 1, 6, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaE, 1, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, 2, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaW, 3, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, 1, 1, 4, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaE, 1, 1, 5, box);
+			fillWithMetadataBlocks(world, box, 1, 1, 6, 2, 1, 6, Blocks.OAK_STAIRS, stairMetaN);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaW, 3, 1, 6, box);
 			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 1, 1, 3, box);
-			placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 0, 1, 2, 3, box);
+			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 1, 2, 3, box);
 			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 3, 1, 4, box);
-			placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 0, 3, 2, 4, box);
+			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 3, 2, 4, box);
 			//table & chest
 			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 6, 1, 2, box);
-			placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 0, 6, 2, 2, box);
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(4), 6, 1, 3, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 8);
+			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 6, 2, 2, box);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 6, 1, 3, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 8);
 			//desk w/ computer + bobblehead
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, 1, 1, 8, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaE | 4, 1, 1, 9, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaN | 4, 1, 1, 10, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, 2, 1, 8, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, 2, 1, 8, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(3), 1, 2, 9, box);
 			if(rand.nextBoolean()) placeRandomBobble(world, box, rand, 1, 2, 8);
 			//jukebox
-			fillWithBlocks(world, box, 6, 1, 8, 6, 2, 8, Blocks.noteblock);
+			fillWithBlocks(world, box, 6, 1, 8, 6, 2, 8, Blocks.NOTEBLOCK);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_tungsten, 0, 6, 1, 9, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.tape_recorder, getDecoMeta(4), 6, 2, 9, box);
 			fillWithBlocks(world, box, 6, 3, 8, 6, 3, 9, ModBlocks.concrete_slab);
@@ -514,26 +515,26 @@ public class BunkerComponents {
 		public BathroomL(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 		}
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			path = this.getNextComponentEast(start, this, coordBaseMode, rand, 3, 1) != null;
+			path = this.getNextComponentEast(start, this, getCoordMode(), rand, 3, 1) != null;
 		}
 		
 		@Override
@@ -564,24 +565,24 @@ public class BunkerComponents {
 			placeBlockAtCurrentPosition(world, ModBlocks.fan, 0, 5, 4, 3, box);
 			//sinks
 			for(int i = 2; i <= 8; i += 2) {
-				placeBlockAtCurrentPosition(world, Blocks.cauldron, rand.nextInt(4), 1, 1, i, box);
+				placeBlockAtCurrentPosition(world, Blocks.CAULDRON, rand.nextInt(4), 1, 1, i, box);
 				placeBlockAtCurrentPosition(world, ModBlocks.concrete_slab, 8, 1, 1, i + 1, box);
-				placeBlockAtCurrentPosition(world, Blocks.tripwire_hook, getTripwireMeta(3), 1, 2, i, box);
+				placeBlockAtCurrentPosition(world, Blocks.TRIPWIRE_HOOK, getTripwireMeta(3), 1, 2, i, box);
 			}
 			//hand-dryers (industrial-strength)
 			placeBlockAtCurrentPosition(world, ModBlocks.steel_beam, 3, 4, 1, 9, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.fan, getDecoMeta(2), 4, 2, 9, box);
-			placeBlockAtCurrentPosition(world, Blocks.stone_button, getButtonMeta(2), 3, 2, 9, box); //TODO button meta
+			placeBlockAtCurrentPosition(world, Blocks.STONE_BUTTON, getButtonMeta(2), 3, 2, 9, box); //TODO button meta
 			placeBlockAtCurrentPosition(world, ModBlocks.steel_beam, 3, 6, 1, 9, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.fan, getDecoMeta(2), 6, 2, 9, box);
-			placeBlockAtCurrentPosition(world, Blocks.stone_button, getButtonMeta(1), 7, 2, 9, box);
+			placeBlockAtCurrentPosition(world, Blocks.STONE_BUTTON, getButtonMeta(1), 7, 2, 9, box);
 			//stalls w/ toilets
 			for(int i = 1; i <= 5; i += 2) {
 				placeDoor(world, box, ModBlocks.door_metal, 0, false, rand.nextBoolean(), 5, 1, i);
 				fillWithMetadataBlocks(world, box, 5, 1, i + 1, 5, 2, i + 1, ModBlocks.steel_corner, getDecoMeta(2));
 				fillWithMetadataBlocks(world, box, 6, 1, i + 1, 7, 2, i + 1, ModBlocks.steel_wall, getDecoMeta(2));
 				placeBlockAtCurrentPosition(world, ModBlocks.deco_pipe_rim, 0, 7, 1, i, box);
-				placeBlockAtCurrentPosition(world, Blocks.trapdoor, getDecoModelMeta(2) >> 2, 7, 2, i, box);
+				placeBlockAtCurrentPosition(world, Blocks.TRAPDOOR, getDecoModelMeta(2) >> 2, 7, 2, i, box);
 			}
 			//doors
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 2, 1, 0);
@@ -606,29 +607,29 @@ public class BunkerComponents {
 		public Laboratory(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 		}
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			for(int i = 0; i < paths.length; i++)
 				nbt.setBoolean("p" + i, paths[i]);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			for(int i = 0; i < paths.length; i++)
 				paths[i] = nbt.getBoolean("p" + i);
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			paths[0] = this.getNextComponentWest(start, this, coordBaseMode, rand, 3, 1) != null;
-			paths[1] = this.getNextComponentNormal(start, this, coordBaseMode, rand, 6, 1) != null;
+			paths[0] = this.getNextComponentWest(start, this, getCoordMode(), rand, 3, 1) != null;
+			paths[1] = this.getNextComponentNormal(start, this, getCoordMode(), rand, 6, 1) != null;
 		}
 		
 		@Override
@@ -660,11 +661,11 @@ public class BunkerComponents {
 			final int stairMetaE = getStairMeta(1);
 			final int stairMetaN = getStairMeta(2);
 			final int stairMetaS = getStairMeta(3);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaE, 1, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaS, 2, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaW, 3, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaE, 1, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, 2, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaW, 3, 1, 1, box);
 			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 4, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 0, 4, 2, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 4, 2, 1, box);
 			//big ole wall machine
 			final int decoMetaE = getDecoMeta(4);
 			final int decoMetaW = getDecoMeta(5);
@@ -681,14 +682,14 @@ public class BunkerComponents {
 			fillWithMetadataBlocks(world, box, 1, 3, 9, 1, 3, 10, ModBlocks.tape_recorder, decoMetaW);
 			fillWithBlocks(world, box, 1, 1, 11, 1, 3, 11, ModBlocks.deco_tungsten);
 			//desks w/ computers
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(2), 3, 1, 4, ItemPool.getPool(ItemPoolsComponent.POOL_MACHINE_PARTS), 6);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(2), 3, 1, 4, ItemPool.getPool(ItemPoolsComponent.POOL_MACHINE_PARTS), 6);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, 3, 1, 5, box);
 			fillWithMetadataBlocks(world, box, 4, 1, 5, 4, 1, 7, ModBlocks.concrete_smooth_stairs, stairMetaW | 4);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaN, 3, 1, 7, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaN, 3, 1, 7, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, 3, 1, 9, box);
 			fillWithMetadataBlocks(world, box, 4, 1, 9, 4, 1, 11, ModBlocks.concrete_smooth_stairs, stairMetaW | 4);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairMetaN, 3, 1, 11, box);
-			placeBlockAtCurrentPosition(world, Blocks.flower_pot, 0, 3, 2, 5, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaN, 3, 1, 11, box);
+			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 3, 2, 5, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, decoModelMetaW, 4, 2, 6, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, decoModelMetaW, 4, 2, 10, box);
 			//lever wall machine
@@ -705,8 +706,8 @@ public class BunkerComponents {
 			fillWithMetadataBlocks(world, box, 7, 3, 5, 7, 3, 7, ModBlocks.tape_recorder, decoMetaE);
 			//table w/ chest
 			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 7, 1, 9, box);
-			placeBlockAtCurrentPosition(world, Blocks.wooden_pressure_plate, 0, 7, 2, 9, box);
-			generateInvContents(world, box, rand, Blocks.chest, getDecoMeta(4), 7, 1, 10, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LAB), 8);
+			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 7, 2, 9, box);
+			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 7, 1, 10, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LAB), 8);
 			//doors
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 5, 1, 0);
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 6, 1, 0);
@@ -733,7 +734,7 @@ public class BunkerComponents {
 		public PowerRoom(int componentType, StructureBoundingBox box, int coordMode, Random rand) {
 			super(componentType);
 			this.boundingBox = box;
-			this.coordBaseMode = coordMode;
+			this.setCoordMode(coordMode);
 			
 			float chance = rand.nextFloat();
 			powerType = chance < 0.2 ? 2 : chance < 0.6 ? 1 : 0;
@@ -741,21 +742,21 @@ public class BunkerComponents {
 		
 		/** write to nbt */
 		@Override
-		protected void func_143012_a(NBTTagCompound nbt) {
-			super.func_143012_a(nbt);
+		protected void writeStructureToNBT(NBTTagCompound nbt) {
+			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 		}
 		
 		/** read from nbt */
 		@Override
-		protected void func_143011_b(NBTTagCompound nbt) {
-			super.func_143011_b(nbt);
+		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 		}
 		
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
-			path = this.getNextComponentEast(start, this, coordBaseMode, rand, 4, 1) != null;
+			path = this.getNextComponentEast(start, this, getCoordMode(), rand, 4, 1) != null;
 		}
 		
 		@Override
@@ -821,8 +822,8 @@ public class BunkerComponents {
 				placeBlockAtCurrentPosition(world, ModBlocks.fluid_duct_gauge, decoMetaW, 10, 2, 5, box);
 				placeBlockAtCurrentPosition(world, ModBlocks.barrel_plastic, 0, 6, 1, 5, box);
 				//chests
-				generateInvContents(world, box, rand, Blocks.chest, decoMetaS, 7, 1, 5, ItemPool.getPool(ItemPoolsComponent.POOL_SOLID_FUEL), 5);
-				generateInvContents(world, box, rand, Blocks.chest, decoMetaS, 9, 1, 5, ItemPool.getPool(ItemPoolsComponent.POOL_SOLID_FUEL), 6);
+				generateInvContents(world, box, rand, Blocks.CHEST, decoMetaS, 7, 1, 5, ItemPool.getPool(ItemPoolsComponent.POOL_SOLID_FUEL), 5);
+				generateInvContents(world, box, rand, Blocks.CHEST, decoMetaS, 9, 1, 5, ItemPool.getPool(ItemPoolsComponent.POOL_SOLID_FUEL), 6);
 				break;
 			case 1:
 				placeBlockAtCurrentPosition(world, ModBlocks.concrete_colored_ext, 5, 6, 1, 1, box);
@@ -855,7 +856,7 @@ public class BunkerComponents {
 					fillWithBlocks(world, box, i, 3, 2, i, 3, 4, ModBlocks.deco_lead);
 				}
 				placeBlockAtCurrentPosition(world, ModBlocks.concrete_colored_ext, 5, 8, 1, 4, box);
-				placeBlockAtCurrentPosition(world, Blocks.redstone_lamp, 0, 8, 2, 4, box);
+				placeBlockAtCurrentPosition(world, Blocks.REDSTONE_LAMP, 0, 8, 2, 4, box);
 				placeBlockAtCurrentPosition(world, ModBlocks.concrete_colored_ext, 5, 8, 3, 4, box);
 				placeLever(world, box, 3, rand.nextBoolean(), 8, 2, 5);
 				placeBlockAtCurrentPosition(world, ModBlocks.pwr_fuel, 0, 8, 1, 3, box);
@@ -875,7 +876,7 @@ public class BunkerComponents {
 				placeBlockAtCurrentPosition(world, ModBlocks.deco_pipe_quad_rusted, getPillarMeta(4), 7, 3, 1, box);
 				placeBlockAtCurrentPosition(world, ModBlocks.fluid_duct_gauge, decoMetaN, 6, 3, 1, box);
 				//chest
-				generateInvContents(world, box, rand, Blocks.chest, decoMetaN, 6, 1, 2, ItemPool.getPool(ItemPoolsComponent.POOL_NUKE_FUEL), 8);
+				generateInvContents(world, box, rand, Blocks.CHEST, decoMetaN, 6, 1, 2, ItemPool.getPool(ItemPoolsComponent.POOL_NUKE_FUEL), 8);
 				break;
 			}
 			//transformer
@@ -903,11 +904,11 @@ public class BunkerComponents {
 			//desk
 			fillWithMetadataBlocks(world, box, 8, 1, 10, 10, 1, 10, ModBlocks.concrete_smooth_stairs, stairMetaN | 4);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaE | 4, 10, 1, 9, box);
-			placeBlockAtCurrentPosition(world, Blocks.oak_stairs,stairMetaS, 9, 1, 9, box);
-			placeBlockAtCurrentPosition(world, Blocks.flower_pot, 0, 8, 2, 10, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS,stairMetaS, 9, 1, 9, box);
+			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 8, 2, 10, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(0), 9, 2, 10, box);
 			//loot
-			generateInvContents(world, box, rand, Blocks.chest, decoMetaE, 1, 1, 7, ItemPool.getPool(ItemPoolsComponent.POOL_MACHINE_PARTS), 6);
+			generateInvContents(world, box, rand, Blocks.CHEST, decoMetaE, 1, 1, 7, ItemPool.getPool(ItemPoolsComponent.POOL_MACHINE_PARTS), 6);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 7, 1, 10, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			//doors
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 3, 1, 0);

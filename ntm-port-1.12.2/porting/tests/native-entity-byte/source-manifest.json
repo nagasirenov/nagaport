@@ -1,0 +1,452 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+    "original_sha256": "7631c500f7877dafa2a8bfbe2a461662ad4935de12e4d06fcc4734e33c5aa5fa",
+    "before_sha256": "23a6ef1510803d5b0de66ca16c5814aaef19d409a3d02d1eac26f7146a35f217",
+    "after_sha256": "baf914e3397ed36e8c197560d5bc75928f2bf51ef7bd600f3707eaf0edcacbb5",
+    "class_name": "EntityBullet",
+    "superclass": "Entity",
+    "declaring_owner": "EntityBullet",
+    "receiver": "this",
+    "receiver_static_type": "EntityBullet",
+    "keys": [
+      {
+        "legacy_slot": 16,
+        "key": "CRITICAL_FLAGS",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      },
+      {
+        "legacy_slot": 17,
+        "key": "TAU_FLAGS",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      },
+      {
+        "legacy_slot": 18,
+        "key": "CHOPPER_FLAGS",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 234,
+        "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));",
+        "after": "this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte) 0));",
+        "operation_count": 1,
+        "after_line": 241,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 235,
+        "before": "this.dataWatcher.addObject(17, Byte.valueOf((byte) 0));",
+        "after": "this.dataManager.register(TAU_FLAGS, Byte.valueOf((byte) 0));",
+        "operation_count": 1,
+        "after_line": 242,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 236,
+        "before": "this.dataWatcher.addObject(18, Byte.valueOf((byte) 0));",
+        "after": "this.dataManager.register(CHOPPER_FLAGS, Byte.valueOf((byte) 0));",
+        "operation_count": 1,
+        "after_line": 243,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 787,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 794,
+        "source_method": "public void setIsCritical(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 790,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 | 1)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte) (b0 | 1)));",
+        "operation_count": 1,
+        "after_line": 797,
+        "source_method": "public void setIsCritical(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 792,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -2)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte) (b0 & -2)));",
+        "operation_count": 1,
+        "after_line": 799,
+        "source_method": "public void setIsCritical(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 797,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(17);",
+        "after": "byte b0 = this.dataManager.get(TAU_FLAGS);",
+        "operation_count": 1,
+        "after_line": 804,
+        "source_method": "public void setTau(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 800,
+        "before": "this.dataWatcher.updateObject(17, Byte.valueOf((byte) (b0 | 1)));",
+        "after": "this.dataManager.set(TAU_FLAGS, Byte.valueOf((byte) (b0 | 1)));",
+        "operation_count": 1,
+        "after_line": 807,
+        "source_method": "public void setTau(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 802,
+        "before": "this.dataWatcher.updateObject(17, Byte.valueOf((byte) (b0 & -2)));",
+        "after": "this.dataManager.set(TAU_FLAGS, Byte.valueOf((byte) (b0 & -2)));",
+        "operation_count": 1,
+        "after_line": 809,
+        "source_method": "public void setTau(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 807,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(18);",
+        "after": "byte b0 = this.dataManager.get(CHOPPER_FLAGS);",
+        "operation_count": 1,
+        "after_line": 814,
+        "source_method": "public void setChopper(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 810,
+        "before": "this.dataWatcher.updateObject(18, Byte.valueOf((byte) (b0 | 1)));",
+        "after": "this.dataManager.set(CHOPPER_FLAGS, Byte.valueOf((byte) (b0 | 1)));",
+        "operation_count": 1,
+        "after_line": 817,
+        "source_method": "public void setChopper(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 812,
+        "before": "this.dataWatcher.updateObject(18, Byte.valueOf((byte) (b0 & -2)));",
+        "after": "this.dataManager.set(CHOPPER_FLAGS, Byte.valueOf((byte) (b0 & -2)));",
+        "operation_count": 1,
+        "after_line": 819,
+        "source_method": "public void setChopper(boolean p_70243_1_) {"
+      },
+      {
+        "before_line": 821,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 828,
+        "source_method": "public boolean getIsCritical() {"
+      },
+      {
+        "before_line": 826,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(17);",
+        "after": "byte b0 = this.dataManager.get(TAU_FLAGS);",
+        "operation_count": 1,
+        "after_line": 833,
+        "source_method": "public boolean getIsTau() {"
+      },
+      {
+        "before_line": 831,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(18);",
+        "after": "byte b0 = this.dataManager.get(CHOPPER_FLAGS);",
+        "operation_count": 1,
+        "after_line": 838,
+        "source_method": "public boolean getIsChopper() {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+    "original_sha256": "a512d2a6b4870072d2aead0c3b70d30709e5dd9c89db254328df943e5e16225c",
+    "before_sha256": "506819df671d964758f9bb97b7f4af9548b85b13d4a6ce33159257274bb8da69",
+    "after_sha256": "c6e8c10bfdf5b80eac6151ef9680776ed7f4e8300eac999a3049820c8177ab8f",
+    "class_name": "EntityRocket",
+    "superclass": "Entity",
+    "declaring_owner": "EntityRocket",
+    "receiver": "this",
+    "receiver_static_type": "EntityRocket",
+    "keys": [
+      {
+        "legacy_slot": 16,
+        "key": "CRITICAL_FLAGS",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 134,
+        "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte)0));",
+        "after": "this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));",
+        "operation_count": 1,
+        "after_line": 139,
+        "source_method": "protected void entityInit()"
+      },
+      {
+        "before_line": 614,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 619,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 618,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));",
+        "operation_count": 1,
+        "after_line": 623,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 622,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));",
+        "operation_count": 1,
+        "after_line": 627,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 631,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 636,
+        "source_method": "public boolean getIsCritical()"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+    "original_sha256": "b2068fde042bf06871115b9a4ae9e7f7485dff0e90ee968f3d993659618851d8",
+    "before_sha256": "3dccaa75449a4745760b996d998d25f14fe267ade7d581806378a5003df502f0",
+    "after_sha256": "a3b9bf0f783561218b5feb4eabcb7ec2ab4c88ccfa33e8682631c00ddaf6c2fe",
+    "class_name": "EntitySchrab",
+    "superclass": "Entity",
+    "declaring_owner": "EntitySchrab",
+    "receiver": "this",
+    "receiver_static_type": "EntitySchrab",
+    "keys": [
+      {
+        "legacy_slot": 16,
+        "key": "CRITICAL_FLAGS",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 135,
+        "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte)0));",
+        "after": "this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));",
+        "operation_count": 1,
+        "after_line": 140,
+        "source_method": "protected void entityInit()"
+      },
+      {
+        "before_line": 612,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 617,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 616,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));",
+        "operation_count": 1,
+        "after_line": 621,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 620,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));",
+        "operation_count": 1,
+        "after_line": 625,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 629,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 634,
+        "source_method": "public boolean getIsCritical()"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+    "original_sha256": "34251071d37af3dc9e0b7dc17771c0cc45752bbc4c8e959a445c52d331c0ea57",
+    "before_sha256": "61886dfdcc131707dad92eb466cbc0d647aaf067068eec30ba1c341d84b8407b",
+    "after_sha256": "ec52f718d4e509e8eb7bcba163e2e05bab899e3eb19fd64bfd0d7f9872298955",
+    "class_name": "EntityExplosiveBeam",
+    "superclass": "Entity",
+    "declaring_owner": "EntityExplosiveBeam",
+    "receiver": "this",
+    "receiver_static_type": "EntityExplosiveBeam",
+    "keys": [
+      {
+        "legacy_slot": 16,
+        "key": "CRITICAL_FLAGS",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 144,
+        "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte)0));",
+        "after": "this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));",
+        "operation_count": 1,
+        "after_line": 149,
+        "source_method": "protected void entityInit()"
+      },
+      {
+        "before_line": 442,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 447,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 446,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));",
+        "operation_count": 1,
+        "after_line": 451,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 450,
+        "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));",
+        "after": "this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));",
+        "operation_count": 1,
+        "after_line": 455,
+        "source_method": "public void setIsCritical(boolean p_70243_1_)"
+      },
+      {
+        "before_line": 459,
+        "before": "byte b0 = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "byte b0 = this.dataManager.get(CRITICAL_FLAGS);",
+        "operation_count": 1,
+        "after_line": 464,
+        "source_method": "public boolean getIsCritical()"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityShrapnel.java",
+    "original_sha256": "01ab5f68e580d72da750e0263c0659f3d1c73f1d6678d4544b045621e3cb06d1",
+    "before_sha256": "a501eaeca09afa436456306181c47b31031317d9fa0c39f01cd6b0dec4e61ee6",
+    "after_sha256": "e71ecb8d8c8cfb3d7b1480a74c548db2f5974924b4ec4893365feead8f327595",
+    "class_name": "EntityShrapnel",
+    "superclass": "EntityThrowable",
+    "declaring_owner": "EntityShrapnel",
+    "receiver": "this",
+    "receiver_static_type": "EntityShrapnel",
+    "keys": [
+      {
+        "legacy_slot": 16,
+        "key": "SHRAPNEL_TYPE",
+        "java_type": "Byte",
+        "serializer": "BYTE",
+        "registration_default": 0
+      }
+    ],
+    "transformations": [
+      {
+        "before_line": 27,
+        "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));",
+        "after": "this.dataManager.register(SHRAPNEL_TYPE, Byte.valueOf((byte) 0));",
+        "operation_count": 1,
+        "after_line": 32,
+        "source_method": "public void entityInit() {"
+      },
+      {
+        "before_line": 38,
+        "before": "if(this.world.isRemote && this.dataWatcher.getWatchableObjectByte(16) == 1)",
+        "after": "if(this.world.isRemote && this.dataManager.get(SHRAPNEL_TYPE) == 1)",
+        "operation_count": 1,
+        "after_line": 43,
+        "source_method": "public void onUpdate() {"
+      },
+      {
+        "before_line": 58,
+        "before": "int b = this.dataWatcher.getWatchableObjectByte(16);",
+        "after": "int b = this.dataManager.get(SHRAPNEL_TYPE);",
+        "operation_count": 1,
+        "after_line": 63,
+        "source_method": "protected void onImpact(RayTraceResult mop) {"
+      },
+      {
+        "before_line": 88,
+        "before": "} else if(this.dataWatcher.getWatchableObjectByte(16) == 3) {",
+        "after": "} else if(this.dataManager.get(SHRAPNEL_TYPE) == 3) {",
+        "operation_count": 1,
+        "after_line": 93,
+        "source_method": "protected void onImpact(RayTraceResult mop) {"
+      },
+      {
+        "before_line": 104,
+        "before": "this.dataWatcher.updateObject(16, (byte) (b ? 1 : 0));",
+        "after": "this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 1 : 0));",
+        "operation_count": 1,
+        "after_line": 113,
+        "source_method": "public void setTrail(boolean b) {"
+      },
+      {
+        "before_line": 108,
+        "before": "this.dataWatcher.updateObject(16, (byte) (b ? 2 : 0));",
+        "after": "this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 2 : 0));",
+        "operation_count": 1,
+        "after_line": 117,
+        "source_method": "public void setVolcano(boolean b) {"
+      },
+      {
+        "before_line": 112,
+        "before": "this.dataWatcher.updateObject(16, (byte) (b ? 3 : 0));",
+        "after": "this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 3 : 0));",
+        "operation_count": 1,
+        "after_line": 121,
+        "source_method": "public void setWatz(boolean b) {"
+      },
+      {
+        "before_line": 116,
+        "before": "this.dataWatcher.updateObject(16, (byte) (b ? 4 : 0));",
+        "after": "this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 4 : 0));",
+        "operation_count": 1,
+        "after_line": 125,
+        "source_method": "public void setRadVolcano(boolean b) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderShrapnel.java",
+    "original_sha256": "8b82a192151dac6554f312e0de3c97689926d6d4eccfca0320dad0df4d801b30",
+    "before_sha256": "8b82a192151dac6554f312e0de3c97689926d6d4eccfca0320dad0df4d801b30",
+    "after_sha256": "b31522fc4881a51281abbb8c0fd812ed7dd13487e2975fd38dcee128ef588697",
+    "class_name": "RenderShrapnel",
+    "superclass": "Render",
+    "declaring_owner": "EntityShrapnel",
+    "receiver": "rocket",
+    "receiver_static_type": "Entity",
+    "keys": [],
+    "transformations": [
+      {
+        "before_line": 32,
+        "before": "if(rocket.getDataWatcher().getWatchableObjectByte(16) >= 2) { //scale up lava blobs",
+        "after": "if(((EntityShrapnel) rocket).getShrapnelType() >= 2) { //scale up lava blobs",
+        "operation_count": 1,
+        "after_line": 32,
+        "source_method": "public void doRender(Entity rocket, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {"
+      }
+    ]
+  }
+]

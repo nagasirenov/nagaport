@@ -14,7 +14,7 @@ public class DigammaMatter extends Block {
 	private static Random rand = new Random(); 
 
 	public DigammaMatter() {
-		super(Material.portal);
+		super(Material.PORTAL);
 	}
 
 	@Override
@@ -50,13 +50,13 @@ public class DigammaMatter extends Block {
 
 		if(!world.isRemote) {
 			
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			
 			if(meta >= 7) {
-				world.setBlock(x, y, z, Blocks.air);
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			} else {
 
-				world.setBlock(x, y, z, Blocks.air);
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				//world.setBlock(x, y, z, this, meta + 1, 3);
 				
 				for(int i = -1; i <= 1; i++) {
@@ -66,7 +66,7 @@ public class DigammaMatter extends Block {
 							int dist = Math.abs(i) + Math.abs(j) + Math.abs(k);
 							
 							if(dist > 0 && dist < 3) {
-								if(world.getBlock(x + i, y + j, z + k) != this)
+								if(com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock() != this)
 									world.setBlock(x + i, y + j, z + k, this, meta + 1, 3);
 							}
 						}

@@ -17,7 +17,7 @@ public class TileEntityFluidValve extends TileEntityPipeBaseNT {
 		this.blockMetadata = -1; // delete cache
 
 		if(this.getBlockMetadata() == 0 && this.node != null) {
-			UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, this.getType().getNetworkProvider());
+			UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getType().getNetworkProvider());
 			this.node = null;
 		}
 	}

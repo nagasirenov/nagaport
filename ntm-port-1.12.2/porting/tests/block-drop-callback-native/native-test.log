@@ -1,0 +1,14 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[03:06:51] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[03:06:51] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[03:06:52] [main/INFO]: Replaced 1036 ore ingredients
+[03:06:52] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[03:06:52] [main/INFO]: Processing ObjectHolder annotations
+[03:06:52] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 1600490 original/native callback, identity, fortune, RNG, registry and lifecycle assertions; 83 complete method fixtures; 268 identity/field cases; seven complete production files including NoDrop and GenericDrop. Full mod and other owner lifecycle methods not compiled.
+PASS runtime mutant rejected: changed random bound Exception in thread "main" java.lang.AssertionError: BlockStepEffect direct original/native item identity
+PASS runtime mutant rejected: bypassed virtual dispatch Exception in thread "main" java.lang.AssertionError: BlockNetherCoal actual quantity/fortune/RNG dispatch
+PASS runtime mutant rejected: duplicate virtual dispatch Exception in thread "main" java.lang.AssertionError: Outgas native internal fortune dispatch reaches derived override once
+PASS runtime mutant rejected: lost null return Exception in thread "main" java.lang.AssertionError: BlockNoDrop direct original/native item identity
+PASS attribution mutant rejected: legacy scalar callback is not a native override

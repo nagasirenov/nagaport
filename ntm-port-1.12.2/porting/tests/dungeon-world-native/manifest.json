@@ -1,0 +1,140 @@
+{
+  "baseline_commit": "077492a6c31c910f34697783f1aa0cfabd8ff88e",
+  "scope": "src/main/java/com/hbm/world/dungeon/",
+  "legacy_client_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "active_setBlock_calls": 12054,
+  "placements": 4762,
+  "coordinate_calls": 70,
+  "constant_references": 5260,
+  "exclusion_reasons": {
+    "method outside bounded rule": 12,
+    "non-parameter coordinate expression": 19,
+    "custom or dynamic block state owner": 4311,
+    "metadata invalid or non-round-tripping": 7,
+    "effectful or unproven argument": 2961
+  },
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": {
+      "before_sha256": "c19cb42593fb3a410ac469699e2d4cdc6c4c31ffc9eab936c8f5c843a3610c2e",
+      "after_sha256": "6ce511e7552ebdcdf47bd04d6f44420dfa17160b2028c04f5ba921a3aeeaae7f",
+      "edits": {
+        "constant": 3
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Antenna.java": {
+      "before_sha256": "fdcbf1be1d319d20e5216c1de2ac6a5e0ace7b2b3fada2c4a3f05e0f55b17300",
+      "after_sha256": "6920c4a07d5b60fd999f0149266ee719ac8b2fc45639981a59b299ae46c25c7c",
+      "edits": {
+        "import": 1,
+        "constant": 7,
+        "coordinate": 4,
+        "placement": 155
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/ArcticVault.java": {
+      "before_sha256": "1542d88dfa057da79b14add8f6f1ed655a55072ba866b32693401c196aa17097",
+      "after_sha256": "2fb020fe95bdfb0382c77c5bab5139d3c1b35bf2d300ce7493ddfc1d5c1bfa54",
+      "edits": {
+        "coordinate": 1,
+        "constant": 11
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Barrel.java": {
+      "before_sha256": "78db159dcbde8869e46d8cebfa37592e75211b809e8c1b24ed8edae1f5d6f44c",
+      "after_sha256": "e8597d13ff20622266c2e2651e5ef289abe9c8e8943eb1e8efddb732bd0911d5",
+      "edits": {
+        "import": 1,
+        "constant": 8,
+        "coordinate": 7,
+        "placement": 11
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": {
+      "before_sha256": "b4606eaedf64b2f53c7ccdfba947a20c07384cadeb6fca5df495e259b1844381",
+      "after_sha256": "7bfab6ca6cf6afb9568260075d26cb95788ba053ad2e7462eff9b4caa3bac556",
+      "edits": {
+        "import": 1,
+        "constant": 10,
+        "coordinate": 5,
+        "placement": 204
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before_sha256": "e994ff7cfcebf3898b69b492b5498a0a881d2daad28d81f3fe3070b2dda25984",
+      "after_sha256": "a81a4866372bd70f351abe1c3677b6c1e185479c73f32f0eaa2e03aa99d8b566",
+      "edits": {
+        "import": 1,
+        "placement": 483,
+        "constant": 8,
+        "coordinate": 8
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before_sha256": "12d14ed96f249871289444fc7a6b8eb0c0c96b73f41fadafdf87119f0dda7e55",
+      "after_sha256": "37bb57c579e52512290d3f50d15d55c6a2437748510bb4edf9a77660d388fe5d",
+      "edits": {
+        "import": 1,
+        "placement": 202,
+        "coordinate": 6,
+        "constant": 5
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java": {
+      "before_sha256": "272105f4fb147ef1e1777a435110cf64415df0de5f12a3cc9d751a5d109c6d3d",
+      "after_sha256": "8e8623f0c48c7624975a323350211bbd0a0390b9f7d1433aade43dcf62b1b02c",
+      "edits": {
+        "import": 1,
+        "coordinate": 14,
+        "placement": 446,
+        "constant": 416
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": {
+      "before_sha256": "83acc767c1556bab05ee8368afc90450f3d8556d65acc9f3b21dbefad8751d32",
+      "after_sha256": "0948b9c5cfeb02c8753938fcc3f81ec1cabc49d4781f21fab165fa1c3815952f",
+      "edits": {
+        "import": 1,
+        "constant": 5,
+        "coordinate": 3,
+        "placement": 183
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin002.java": {
+      "before_sha256": "3a9da8a029b04d6c660ac2c37deb6803bb4c06b87d7ebc78c0d3c38b0397aa94",
+      "after_sha256": "8d3635f7ed0f232dc52209e275e419a8b12b4de996e6ecec917fd12e65d1177a",
+      "edits": {
+        "import": 1,
+        "placement": 1044,
+        "constant": 4
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Silo.java": {
+      "before_sha256": "1597757b9d3bd6aa8114a1d14756fc500675c22a6d1e019c8d6845ff05521276",
+      "after_sha256": "793fee2188ffb8c43b97554565de717c4fd23ae50632262cf9ddf9b28813aa68",
+      "edits": {
+        "import": 1,
+        "constant": 10,
+        "coordinate": 9,
+        "placement": 1017
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship.java": {
+      "before_sha256": "4096b22b413253429cbe9e88ded256aebfd6625b3110527ef13b35ac21b57cee",
+      "after_sha256": "33ef1597f79485abef1a1e78f148d51fcfd4278713ff3d5925b9a1bb5445299a",
+      "edits": {
+        "import": 1,
+        "constant": 11,
+        "coordinate": 13,
+        "placement": 672
+      }
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship2.java": {
+      "before_sha256": "706035698fc1cd9a1d54e5e4be40f3d3a5085662729bc8db787ae4a55ddf7d74",
+      "after_sha256": "b6423f33c957d98cbfc313ccf3149d09f2e6de403bd2e08309f727d0bf0784cf",
+      "edits": {
+        "import": 1,
+        "placement": 345
+      }
+    }
+  }
+}

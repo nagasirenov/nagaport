@@ -37,7 +37,7 @@ import java.util.Random;
 public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlockTransformable {
 
 	public BlockBobble() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -66,7 +66,7 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 		int y = pos.getY();
 		int z = pos.getZ();
 
-		TileEntityBobble entity = (TileEntityBobble) world.getTileEntity(x, y, z);
+		TileEntityBobble entity = (TileEntityBobble) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(entity != null) {
 			return new ItemStack(this, 1, entity.type.ordinal());
@@ -81,13 +81,13 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
 			if(!world.isRemote) {
-				TileEntityBobble entity = (TileEntityBobble) world.getTileEntity(x, y, z);
+				TileEntityBobble entity = (TileEntityBobble) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				if(entity != null) {
 					EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, new ItemStack(this, 1, entity.type.ordinal()));
 					item.motionX = 0;
 					item.motionY = 0;
 					item.motionZ = 0;
-					world.spawnEntityInWorld(item);
+					world.spawnEntity(item);
 				}
 			}
 			harvesters.set(null);
@@ -122,10 +122,10 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int meta = MathHelper.floor_double((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
+		int meta = MathHelper.floor((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
 		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 
-		TileEntityBobble bobble = (TileEntityBobble) world.getTileEntity(x, y, z);
+		TileEntityBobble bobble = (TileEntityBobble) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		bobble.type = BobbleType.values()[Math.abs(stack.getItemDamage()) % BobbleType.values().length];
 		bobble.markDirty();
 	}
@@ -156,10 +156,6 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 
 		public BobbleType type = BobbleType.NONE;
 
-		@Override
-		public boolean canUpdate() {
-			return false;
-		}
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -180,9 +176,10 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setByte("type", (byte) type.ordinal());
+			return nbt;
 		}
 
 		@Override
@@ -248,6 +245,6 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUIScreenBobble((TileEntityBobble) world.getTileEntity(x, y, z));
+		return new GUIScreenBobble((TileEntityBobble) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 }

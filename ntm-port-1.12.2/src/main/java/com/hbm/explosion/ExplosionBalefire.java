@@ -107,24 +107,24 @@ public class ExplosionBalefire
 			
 			while(y > depth) {
 
-				if(worldObj.getBlock(pX, y, pZ) == ModBlocks.block_schrabidium_cluster && !antimatter) {
+				if(com.hbm.world.WorldBlockState.read(worldObj, pX, y, pZ).getBlock() == ModBlocks.block_schrabidium_cluster && !antimatter) {
 					
 					if(worldObj.rand.nextInt(10) == 0) {
 						worldObj.setBlock(pX, y + 1, pZ, ModBlocks.balefire);
-						worldObj.setBlock(pX, y, pZ, ModBlocks.block_euphemium_cluster, worldObj.getBlockMetadata(pX, y, pZ), 3);
+						worldObj.setBlock(pX, y, pZ, ModBlocks.block_euphemium_cluster, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(worldObj, pX, y, pZ) ), 3);
 					}
 					return;
 				}
-				Material m = worldObj.getBlock(pX, y, pZ).getMaterial();
-				if((m==Material.craftedSnow || m==Material.snow || m==Material.ice || m==Material.packedIce) && antimatter)
+				Material m = com.hbm.world.WorldBlockState.read(worldObj, pX, y, pZ).getBlock().getDefaultState().getMaterial();
+				if((m==Material.CRAFTED_SNOW || m==Material.SNOW || m==Material.ICE || m==Material.PACKED_ICE) && antimatter)
 				{
 					//ExplosionChaos.plasma(worldObj, pX, y, pZ, 4);
 					ParticleUtil.spawnGasFlame(worldObj, pX, y, pZ, x, y, z);
 					continue;
 				}
-				if(worldObj.getBlock(pX, y, pZ)!=ModBlocks.plasma)
+				if(com.hbm.world.WorldBlockState.read(worldObj, pX, y, pZ).getBlock()!=ModBlocks.plasma)
 				{
-					worldObj.setBlockToAir(pX, y, pZ);
+					com.hbm.world.WorldAirRemoval.remove(worldObj, pX, y, pZ);
 				}
 				
 				y--;
@@ -132,8 +132,8 @@ public class ExplosionBalefire
 			if(worldObj.rand.nextInt(10) == 0 && !antimatter) {
 				worldObj.setBlock(pX, depth + 1, pZ, ModBlocks.balefire);
 				
-				if(worldObj.getBlock(pX, y, pZ) == ModBlocks.block_schrabidium_cluster && !antimatter)
-					worldObj.setBlock(pX, y, pZ, ModBlocks.block_euphemium_cluster, worldObj.getBlockMetadata(pX, y, pZ), 3);
+				if(com.hbm.world.WorldBlockState.read(worldObj, pX, y, pZ).getBlock() == ModBlocks.block_schrabidium_cluster && !antimatter)
+					worldObj.setBlock(pX, y, pZ, ModBlocks.block_euphemium_cluster, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(worldObj, pX, y, pZ) ), 3);
 			}
 
 			for(int i = depth; i > depth - 5; i--) {
@@ -144,7 +144,7 @@ public class ExplosionBalefire
 					worldObj.setBlock(pX, depth, pZ, ModBlocks.volcanic_lava_block);
 				}
 				
-				if(worldObj.getBlock(pX, i, pZ) == Blocks.stone)
+				if(com.hbm.world.WorldBlockState.read(worldObj, pX, i, pZ).getBlock() == Blocks.STONE)
 					worldObj.setBlock(pX, i, pZ, ModBlocks.sellafield_slaked);
 			}
 		}

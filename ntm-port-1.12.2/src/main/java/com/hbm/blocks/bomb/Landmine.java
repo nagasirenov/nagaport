@@ -58,7 +58,7 @@ public class Landmine extends BlockContainer implements IBomb {
 	@Override public boolean renderAsNormalBlock() { return false; }
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -77,7 +77,7 @@ public class Landmine extends BlockContainer implements IBomb {
 	}
 
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) || BlockFence.func_149825_a(world.getBlock(x, y - 1, z));
+		return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) || BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());
 	}
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
@@ -86,11 +86,11 @@ public class Landmine extends BlockContainer implements IBomb {
 			explode(world, x, y, z);
 		}
 
-		if(!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !BlockFence.func_149825_a(world.getBlock(x, y - 1, z))) {
+		if(!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock())) {
 			if(!safeMode) {
 				explode(world, x, y, z);
 			} else {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			}
 		}
 	}
@@ -106,10 +106,10 @@ public class Landmine extends BlockContainer implements IBomb {
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.defuser) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.defuser) {
 
 			safeMode = true;
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 
 			ItemStack itemstack = new ItemStack(this, 1);
 			float f = world.rand.nextFloat() * 0.6F + 0.2F;
@@ -124,7 +124,7 @@ public class Landmine extends BlockContainer implements IBomb {
 			entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
 
 			if(!world.isRemote)
-				world.spawnEntityInWorld(entityitem);
+				world.spawnEntity(entityitem);
 
 			safeMode = false;
 			return true;
@@ -136,8 +136,8 @@ public class Landmine extends BlockContainer implements IBomb {
 	public boolean isWaterAbove(World world, int x, int y, int z) {
 		for(int xo = -1; xo <= 1; xo++) {
 			for(int zo = -1; zo <= 1; zo++) {
-				Block blockAbove = world.getBlock(x + xo, y + 1, z + zo);
-				if(blockAbove == Blocks.water || blockAbove == Blocks.flowing_water) {
+				Block blockAbove = com.hbm.world.WorldBlockState.read(world, x + xo, y + 1, z + zo).getBlock();
+				if(blockAbove == Blocks.WATER || blockAbove == Blocks.FLOWING_WATER) {
 					return true;
 				}
 			}
@@ -207,9 +207,9 @@ public class Landmine extends BlockContainer implements IBomb {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "muke");
 				data.setBoolean("balefire", MainRegistry.polaroidID == 11 || world.rand.nextInt(100) == 0);
-				PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x + 0.5, y + 0.5, z + 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 0.5, z + 0.5, 250));
+				PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x + 0.5, y + 0.5, z + 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 0.5, z + 0.5, 250));
 
-				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.mukeExplosion", 25.0F, 0.9F); // this has to be the single worst solution ever
+				com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.mukeExplosion", 25.0F, 0.9F); // this has to be the single worst solution ever
 			}
 		}
 

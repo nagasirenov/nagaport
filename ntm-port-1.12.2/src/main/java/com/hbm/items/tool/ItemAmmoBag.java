@@ -36,13 +36,13 @@ public class ItemAmmoBag extends Item implements IGUIProvider {
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerAmmoBag(player.inventory, new InventoryAmmoBag(player.getHeldItem()));
+		return new ContainerAmmoBag(player.inventory, new InventoryAmmoBag(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUIAmmoBag(player.inventory, new InventoryAmmoBag(player.getHeldItem()));
+		return new GUIAmmoBag(player.inventory, new InventoryAmmoBag(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	@Override
@@ -102,24 +102,25 @@ public class ItemAmmoBag extends Item implements IGUIProvider {
 					stack = stack.splitStack(amount);
 					markDirty();
 				} else {
-					setInventorySlotContents(slot, null);
+					setInventorySlotContents(slot, ItemStack.EMPTY);
 				}
 			}
 			return stack;
 		}
 
 		@Override
-		public ItemStack getStackInSlotOnClosing(int slot) {
+		public ItemStack removeStackFromSlot(int slot) {
 			ItemStack stack = getStackInSlot(slot);
-			setInventorySlotContents(slot, null);
-			return stack;
+			setInventorySlotContents(slot, ItemStack.EMPTY);
+			return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 		}
 
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {
+			stack = stack == null || stack.isEmpty() ? null : stack;
 			
 			if(stack != null) {
-				stack.stackSize = Math.min(stack.stackSize, this.getInventoryStackLimit());
+				stack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));
 			}
 			
 			slots[slot] = stack;

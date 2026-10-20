@@ -1,0 +1,15 @@
+package com.hbm.items;
+import com.hbm.items.armor.ArmorFSB;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+class Controls {
+ static class Child extends ArmorFSB {Child(){super(ArmorMaterial.IRON,1,"x");} public ArmorFSB cloneStats(ArmorFSB a){return a;}}
+ static ArmorFSB factory(){return new ArmorFSB(ArmorMaterial.IRON,1,"x");}
+ void test(ArmorFSB dynamic) {
+ new ArmorFSB(ArmorMaterial.IRON,1,"x").cloneStats(dynamic).setUnlocalizedName("yes");
+ dynamic.cloneStats(dynamic).setUnlocalizedName("no-dynamic");
+ factory().cloneStats(dynamic).setUnlocalizedName("no-factory");
+ new ArmorFSB(ArmorMaterial.IRON,1,"x"){}.cloneStats(dynamic).setUnlocalizedName("no-anonymous");
+ new Child().cloneStats(dynamic).setUnlocalizedName("no-subclass-override");
+ new ArmorFSB(ArmorMaterial.IRON,1,"x").cloneStats(dynamic).setUnlocalizedName(7);
+ }
+}

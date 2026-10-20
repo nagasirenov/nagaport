@@ -45,14 +45,14 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.rbmkAutoloader";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(delay > 0) delay--;
 			
@@ -65,11 +65,11 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 			}
 			
 			// check for connected fuel rod and decide whether to begin working
-			if(isRetracting && worldObj.getTotalWorldTime() % 20 == 0 && this.hasFuel() && this.hasSpace()) {
-				Block below = worldObj.getBlock(xCoord, yCoord - 1, zCoord);
+			if(isRetracting && this.world.getTotalWorldTime() % 20 == 0 && this.hasFuel() && this.hasSpace()) {
+				Block below = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock();
 				if(below instanceof RBMKBase) {
-					int[] pos = ((RBMKBase) below).findCore(worldObj, xCoord, yCoord - 1, zCoord);
-					TileEntity tile = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+					int[] pos = ((RBMKBase) below).findCore(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ());
+					TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 					if(tile instanceof TileEntityRBMKRod) {
 						TileEntityRBMKRod rod = (TileEntityRBMKRod) tile;
 						if(rod.coldEnoughForAutoloader()) {
@@ -93,10 +93,10 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 			if(!isRetracting && this.piston >= 1D) {
 				this.piston = 1D;
 				
-				Block below = worldObj.getBlock(xCoord, yCoord - 1, zCoord);
+				Block below = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock();
 				if(below instanceof RBMKBase) {
-					int[] pos = ((RBMKBase) below).findCore(worldObj, xCoord, yCoord - 1, zCoord);
-					TileEntity tile = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+					int[] pos = ((RBMKBase) below).findCore(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ());
+					TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 					if(tile instanceof TileEntityRBMKRod) {
 						TileEntityRBMKRod rod = (TileEntityRBMKRod) tile;
 						// try to take out the old fuel rod
@@ -141,7 +141,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 			
 			if(this.renderPiston > 0.01 && this.renderPiston < 0.99) {
 				if(this.audioLift == null || !this.audioLift.isPlaying()) {
-					this.audioLift = MainRegistry.proxy.getLoopedSound("hbm:door.wgh_start", xCoord, yCoord, zCoord, this.getVolume(0.75F), 25F, 1.0F, 5);
+					this.audioLift = MainRegistry.proxy.getLoopedSound("hbm:door.wgh_start", this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getVolume(0.75F), 25F, 1.0F, 5);
 					this.audioLift.startSound();
 				}
 				this.audioLift.updateVolume(this.getVolume(0.75F));
@@ -150,7 +150,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 				if(this.audioLift != null) {
 					this.audioLift.stopSound();
 					this.audioLift = null;
-					MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:door.wgh_stop", this.getVolume(2F), 1F);
+					MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:door.wgh_stop", this.getVolume(2F), 1F);
 				}
 			}
 			
@@ -160,10 +160,10 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 				data.setFloat("lift", 0F);
 				data.setFloat("base", 0.25F);
 				data.setFloat("max", 1.5F);
-				data.setInteger("life", 70 + worldObj.rand.nextInt(30));
-				data.setDouble("posX", xCoord + 0.5 + worldObj.rand.nextGaussian() * 0.125);
-				data.setDouble("posZ", zCoord + 0.5 + worldObj.rand.nextGaussian() * 0.125);
-				data.setDouble("posY", yCoord + 0.25);
+				data.setInteger("life", 70 + this.world.rand.nextInt(30));
+				data.setDouble("posX", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.125);
+				data.setDouble("posZ", this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.125);
+				data.setDouble("posY", this.pos.getY() + 0.25);
 				data.setBoolean("noWind", true);
 				data.setFloat("alphaMod", 2F);
 				data.setFloat("strafe", 0.05F);
@@ -210,12 +210,14 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.piston <= 0 ? new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 } : new int[0];
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= 9;
 	}
 
@@ -229,12 +231,13 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setDouble("piston", piston);
 		nbt.setBoolean("ret", isRetracting);
 		nbt.setInteger("delay", delay);
 		nbt.setInteger("cycle", cycle);
+		return nbt;
 	}
 
 	protected AxisAlignedBB aabb;
@@ -242,7 +245,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(aabb != null) return aabb;
-		aabb = AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 9, zCoord + 1);
+		aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 9, this.pos.getZ() + 1);
 		return aabb;
 	}
 
@@ -254,14 +257,14 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
 		if(data.hasKey("minus") && this.cycle > 5) this.cycle -= 5;
 		if(data.hasKey("plus") && this.cycle < 95) this.cycle += 5;
-		this.cycle = MathHelper.clamp_int(cycle, 5, 95);
+		this.cycle = MathHelper.clamp(cycle, 5, 95);
 		this.markChanged();
 	}
 
@@ -286,7 +289,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	@Override
 	public void pasteSettings(NBTTagCompound nbt, int index, World world, EntityPlayer player, int x, int y, int z) {
 		if(nbt.hasKey("cycle")) {
-			this.cycle = MathHelper.clamp_int(nbt.getInteger("cycle"), 5, 95);
+			this.cycle = MathHelper.clamp(nbt.getInteger("cycle"), 5, 95);
 		}
 	}
 }

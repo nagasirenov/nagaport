@@ -1,0 +1,1970 @@
+{
+  "baseline": "e8970b85e0c8fe46f17348330b3853bb32ffaa0b",
+  "files": {
+    "src/main/java/com/hbm/blocks/machine/Spotlight.java": {
+      "before_sha256": "ab74ad5a481c91b7bb2612407dc5dc7d95209ae7b9fd433b1b5c97f196515171",
+      "after_sha256": "d72a0e7ffa4657e600183ec1ef56426e4cb13203b479580a9356bbfd6349dc2c",
+      "edits": [
+        {
+          "before_offset": 242,
+          "after_offset": 242,
+          "old": "import com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\n",
+          "new": "import com.hbm.lib.RefStrings;\n"
+        },
+        {
+          "before_offset": 382,
+          "after_offset": 327,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 617,
+          "after_offset": 497,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.entity.EntityLivingBase;\n"
+        },
+        {
+          "before_offset": 907,
+          "after_offset": 1037,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.ResourceLocation;\n"
+        },
+        {
+          "before_offset": 1103,
+          "after_offset": 1439,
+          "old": "",
+          "new": "\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "before_offset": 1745,
+          "after_offset": 2173,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 1882,
+          "after_offset": 2382,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\t@Override\n\tprotected BlockStateContainer createBlockState() {\n\t\treturn SpotlightModelState.create(this, METADATA);\n\t}\n"
+        },
+        {
+          "before_offset": 1970,
+          "after_offset": 2513,
+          "old": "\tpublic int getRenderType() {\n\t\treturn renderID;\n",
+          "new": "\tpublic IBlockState getStateFromMeta(int meta) {\n\t\treturn getDefaultState().withProperty(METADATA, meta & 15);\n"
+        },
+        {
+          "before_offset": 2023,
+          "after_offset": 2628,
+          "old": "\tpublic HFRWavefrontObject getModel() {\n",
+          "new": "\t@Override\n\tpublic int getMetaFromState(IBlockState state) {\n\t\treturn state.getValue(METADATA);\n\t}\n\n\t@Override\n\tpublic IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n\t\treturn SpotlightModelState.extend(state, world, pos);\n\t}\n\n\t@Override\n\tpublic EnumBlockRenderType getRenderType(IBlockState state) {\n\t\treturn EnumBlockRenderType.MODEL;\n\t}\n\n\tpublic ResourceLocation getModelResource() {\n"
+        },
+        {
+          "before_offset": 2080,
+          "after_offset": 3068,
+          "old": "\t\tcase FLUORESCENT: return (HFRWavefrontObject) ResourceManager.fluorescent_lamp;\n\t\tcase HALOGEN: return (HFRWavefrontObject) ResourceManager.flood_lamp;\n\t\tdefault: return (HFRWavefrontObject) ResourceManager.cage_lamp;\n",
+          "new": "\t\tcase FLUORESCENT: return new ResourceLocation(RefStrings.MODID, \"models/lights/fluorescent_lamp.obj\");\n\t\tcase HALOGEN: return new ResourceLocation(RefStrings.MODID, \"models/lights/flood_lamp.obj\");\n\t\tdefault: return new ResourceLocation(RefStrings.MODID, \"models/lights/cage_lamp.obj\");\n"
+        },
+        {
+          "before_offset": 2304,
+          "after_offset": 3361,
+          "old": "",
+          "new": "\t}\n\n\t/** Atlas identifiers formerly assigned by the six registration texture setters. */\n\tpublic ResourceLocation getModelTexture() {\n\t\tString texture;\n\t\tswitch(type) {\n\t\tcase FLUORESCENT: texture = \"fluorescent_lamp\"; break;\n\t\tcase HALOGEN: texture = \"flood_lamp\"; break;\n\t\tdefault: texture = \"cage_lamp\"; break;\n\t\t}\n\t\treturn new ResourceLocation(RefStrings.MODID, \"blocks/\" + texture + (isOn ? \"\" : \"_off\"));\n"
+        },
+        {
+          "before_offset": 2460,
+          "after_offset": 3928,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(IBlockState state) {\n"
+        },
+        {
+          "before_offset": 2524,
+          "after_offset": 4009,
+          "old": "\tpublic boolean renderAsNormalBlock() {\n",
+          "new": "\tpublic boolean isFullCube(IBlockState state) {\n"
+        },
+        {
+          "before_offset": 2665,
+          "after_offset": 4158,
+          "old": "\tpublic boolean getBlocksMovement(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isPassable(IBlockAccess world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 2772,
+          "after_offset": 4251,
+          "old": "\tpublic MapColor getMapColor(int meta) {\n        return MapColor.airColor;\n",
+          "new": "\tpublic MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return MapColor.AIR;\n"
+        },
+        {
+          "before_offset": 2865,
+          "after_offset": 4382,
+          "old": "\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {\n",
+          "new": "\tpublic AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 3021,
+          "after_offset": 4513,
+          "old": "\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tForgeDirection dir = getDirection(world, x, y, z);\n",
+          "new": "\tpublic AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n\t\tForgeDirection dir = getDirection(world, pos.getX(), pos.getY(), pos.getZ());\n"
+        },
+        {
+          "before_offset": 3355,
+          "after_offset": 4883,
+          "old": "\t\tsetBlockBounds(offset[0] - bounds[0], offset[1] - bounds[1], offset[2] - bounds[2], offset[0] + bounds[0], offset[1] + bounds[1], offset[2] + bounds[2]);\n",
+          "new": "\t\treturn new AxisAlignedBB(offset[0] - bounds[0], offset[1] - bounds[1], offset[2] - bounds[2], offset[0] + bounds[0], offset[1] + bounds[1], offset[2] + bounds[2]);\n\t}\n\n\t@Override\n\tpublic BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {\n\t\treturn BlockFaceShape.UNDEFINED;\n"
+        },
+        {
+          "before_offset": 4108,
+          "after_offset": 5809,
+          "old": "\tpublic int onBlockPlaced(World world, int x, int y, int z, int side, float hx, float hy, float hz, int initData) {\n\t\treturn side << 1;\n",
+          "new": "\tpublic IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hx, float hy, float hz, int initData, EntityLivingBase placer) {\n\t\treturn getStateFromMeta(side.getIndex() << 1);\n"
+        },
+        {
+          "before_offset": 4259,
+          "after_offset": 6029,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 4491,
+          "after_offset": 6327,
+          "old": "\t\tif(isBroken(world.getBlockMetadata(x, y, z))) return false;\n",
+          "new": "\t\tif(isBroken(metadata(world, x, y, z))) return false;\n"
+        },
+        {
+          "before_offset": 4554,
+          "after_offset": 6383,
+          "old": "\t\tboolean isPowered = world.isBlockIndirectlyGettingPowered(x, y, z);\n",
+          "new": "\t\tboolean isPowered = world.isBlockPowered(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4650,
+          "after_offset": 6476,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n",
+          "new": "\t\t\tworld.scheduleUpdate(new BlockPos(x, y, z), this, 4);\n"
+        },
+        {
+          "before_offset": 4749,
+          "after_offset": 6584,
+          "old": "\t\t\tworld.setBlock(x, y, z, getOn(), world.getBlockMetadata(x, y, z), 2);\n",
+          "new": "\t\t\tworld.setBlockState(new BlockPos(x, y, z), getOn().getStateFromMeta(metadata(world, x, y, z)), 2);\n"
+        },
+        {
+          "before_offset": 4874,
+          "after_offset": 6738,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block block, int metadata) {\n\t\tForgeDirection dir = getDirection(metadata);\n\t\tsuper.breakBlock(world, x, y, z, block, metadata);\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tForgeDirection dir = getDirection(getMetaFromState(state));\n\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 5147,
+          "after_offset": 7051,
+          "old": "\tpublic void updateTick(World world, int x, int y, int z, Random p_149674_5_) {\n",
+          "new": "\tpublic void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 5258,
+          "after_offset": 7221,
+          "old": "\t\tif (isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tworld.setBlock(x, y, z, getOff(), world.getBlockMetadata(x, y, z), 2);\n",
+          "new": "\t\tif (isOn && world.isBlockPowered(new BlockPos(x, y, z))) {\n\t\t\tworld.setBlockState(new BlockPos(x, y, z), getOff().getStateFromMeta(metadata(world, x, y, z)), 2);\n"
+        },
+        {
+          "before_offset": 5466,
+          "after_offset": 7455,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock) {\n",
+          "new": "\tpublic void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock, BlockPos fromPos) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 5640,
+          "after_offset": 7707,
+          "old": "\t\tif(neighborBlock == Blocks.air) return;\n",
+          "new": "\t\tif(neighborBlock == Blocks.AIR) return;\n"
+        },
+        {
+          "before_offset": 5776,
+          "after_offset": 7843,
+          "old": "\t\t\tdropBlockAsItem(world, x, y, z, 0, 0);\n\t\t\tworld.setBlockToAir(x, y, z);\n",
+          "new": "\t\t\tdropBlockAsItem(world, pos, getStateFromMeta(0), 0);\n\t\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5955,
+          "after_offset": 8050,
+          "old": "\tpublic boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {\n\t\tif(!super.canPlaceBlockOnSide(world, x, y, z, side)) return false;\n",
+          "new": "\tpublic boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tif(!super.canPlaceBlockOnSide(world, pos, side)) return false;\n"
+        },
+        {
+          "before_offset": 6107,
+          "after_offset": 8252,
+          "old": "\t\tForgeDirection dir = ForgeDirection.getOrientation(side);\n",
+          "new": "\t\tForgeDirection dir = ForgeDirection.fromEnumFacing(side);\n"
+        },
+        {
+          "before_offset": 6534,
+          "after_offset": 8679,
+          "old": "\t\tBlock block = world.getBlock(x, y, z);\n",
+          "new": "\t\tBlock block = world.getBlockState(new BlockPos(x, y, z)).getBlock();\n"
+        },
+        {
+          "before_offset": 6610,
+          "after_offset": 8785,
+          "old": "\t\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\treturn dir == ((meta & 8) == 8 ? ForgeDirection.UP : ForgeDirection.DOWN) || block.func_149730_j();\n",
+          "new": "\t\t\tint meta = metadata(world, x, y, z);\n\t\t\treturn dir == ((meta & 8) == 8 ? ForgeDirection.UP : ForgeDirection.DOWN) || block.getDefaultState().isFullBlock();\n"
+        },
+        {
+          "before_offset": 7044,
+          "after_offset": 9228,
+          "old": "",
+          "new": "\tprivate static int metadata(IBlockAccess world, int x, int y, int z) {\n\t\tIBlockState state = world.getBlockState(new BlockPos(x, y, z));\n\t\treturn state.getBlock().getMetaFromState(state);\n\t}\n\n"
+        },
+        {
+          "before_offset": 7123,
+          "after_offset": 9500,
+          "old": "\t\tint metadata = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint metadata = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 7380,
+          "after_offset": 9750,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tint meta = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 7701,
+          "after_offset": 10152,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint meta = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 7778,
+          "after_offset": 10222,
+          "old": "\t\tworld.setBlock(x, y, z, getOn(), meta - 1, 2);\n",
+          "new": "\t\tworld.setBlockState(new BlockPos(x, y, z), getOn().getStateFromMeta(meta - 1), 2);\n"
+        },
+        {
+          "before_offset": 8249,
+          "after_offset": 10729,
+          "old": "\t\t\tBlock block = world.getBlock(ox, oy, oz);\n",
+          "new": "\t\t\tBlock block = world.getBlockState(new BlockPos(ox, oy, oz)).getBlock();\n"
+        },
+        {
+          "before_offset": 8436,
+          "after_offset": 10946,
+          "old": "\tpublic Item getItemDropped(int i, Random r, int j) {\n",
+          "new": "\tpublic Item getItemDropped(IBlockState state, Random r, int fortune) {\n"
+        },
+        {
+          "before_offset": 8570,
+          "after_offset": 11098,
+          "old": "\tpublic Item getItem(World world, int x, int y, int z) {\n\t\treturn Item.getItemFromBlock(getOn());\n",
+          "new": "\tpublic ItemStack getItem(World world, BlockPos pos, IBlockState state) {\n\t\treturn new ItemStack(getOn());\n"
+        },
+        {
+          "before_offset": 8683,
+          "after_offset": 11220,
+          "old": "\tprotected ItemStack createStackedBlock(int e) {\n",
+          "new": "\tprotected ItemStack getSilkTouchDrop(IBlockState state) {\n"
+        },
+        {
+          "before_offset": 9090,
+          "after_offset": 11637,
+          "old": "\t\tBlock block = world.getBlock(x, y, z);\n\t\tif(!block.isAir(world, x, y, z))\n",
+          "new": "\t\tBlock block = world.getBlockState(new BlockPos(x, y, z)).getBlock();\n\t\tif(!block.isAir(world.getBlockState(new BlockPos(x, y, z)), world, new BlockPos(x, y, z)))\n"
+        },
+        {
+          "before_offset": 9220,
+          "after_offset": 11855,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.spotlight_beam, meta, 3);\n",
+          "new": "\t\t\tworld.setBlockState(new BlockPos(x, y, z), ModBlocks.spotlight_beam.getStateFromMeta(meta), 3);\n"
+        },
+        {
+          "before_offset": 9810,
+          "after_offset": 12481,
+          "old": "\t\tBlock block = world.getBlock(x, y, z);\n",
+          "new": "\t\tBlock block = world.getBlockState(new BlockPos(x, y, z)).getBlock();\n"
+        },
+        {
+          "before_offset": 10083,
+          "after_offset": 12784,
+          "old": "\t\t\tworld.setBlockToAir(x, y, z);\n",
+          "new": "\t\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 10409,
+          "after_offset": 13124,
+          "old": "\t\tBlock block = world.getBlock(x, y, z);\n",
+          "new": "\t\tBlock block = world.getBlockState(new BlockPos(x, y, z)).getBlock();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SpotlightModular.java": {
+      "before_sha256": "6291c8b7336855887da5a874c7b3f2cf9e6db570a1b80b0d80e8e69d8f94fdd7",
+      "after_sha256": "b635f1838701c1074a9dc6429351836079293772442ac7dc0363b403d994be61",
+      "edits": [
+        {
+          "before_offset": 165,
+          "after_offset": 165,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 641,
+          "after_offset": 682,
+          "old": "        return world.getBlock(x, y, z) == this;\n",
+          "new": "        return world.getBlockState(new BlockPos(x, y, z)).getBlock() == this;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SpotlightBeam.java": {
+      "before_sha256": "5351bb26af788921d38e55ae2d024ffa94d15c8eb23de083af2adcc9d5d0e7f6",
+      "after_sha256": "2020e0413c855a248b7f05e705c66e46acc91857cae41dfaede8251c2059ac43",
+      "edits": [
+        {
+          "before_offset": 162,
+          "after_offset": 162,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 401,
+          "after_offset": 488,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block block, int metadata) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 636,
+          "after_offset": 762,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, block, metadata);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 765,
+          "after_offset": 877,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock) {\n",
+          "new": "\tpublic void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock, BlockPos fromPos) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1002,
+          "after_offset": 1192,
+          "old": "\t\t\tSpotlight.backPropagate(world, x, y, z, dir, world.getBlockMetadata(x, y, z));\n",
+          "new": "\t\t\tSpotlight.backPropagate(world, x, y, z, dir, getMetaFromState(world.getBlockState(pos)));\n"
+        },
+        {
+          "before_offset": 1463,
+          "after_offset": 1664,
+          "old": "\t\tTileEntityData te = (TileEntityData) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityData te = (TileEntityData) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 2102,
+          "after_offset": 2317,
+          "old": "\t\tTileEntityData te = (TileEntityData) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityData te = (TileEntityData) world.getTileEntity(new BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockBeamBase.java": {
+      "before_sha256": "5f8cefdd995a9aa49618a787d96b9ddc6062d9b9ce436589c684501d06893841",
+      "after_sha256": "f4a79c6aae1c89a54fad2d2f936fac96edc8c5db91efe71de3d6e35f71758cb9",
+      "edits": [
+        {
+          "before_offset": 148,
+          "after_offset": 148,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.init.Items;\n"
+        },
+        {
+          "before_offset": 180,
+          "after_offset": 417,
+          "old": "",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 226,
+          "after_offset": 548,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 267,
+          "after_offset": 630,
+          "old": "import net.minecraft.world.World;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 364,
+          "after_offset": 693,
+          "old": "",
+          "new": "\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\tprivate static final AxisAlignedBB EMPTY_BOUNDS = new AxisAlignedBB(0, 0, 0, 0, 0, 0);\n\n"
+        },
+        {
+          "before_offset": 390,
+          "after_offset": 899,
+          "old": "\t\tsuper(Material.air);\n",
+          "new": "\t\tsuper(Material.AIR);\n\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 505,
+          "after_offset": 1086,
+          "old": "\t\tsetBlockBounds(0, 0, 0, 0, 0, 0);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 545,
+          "after_offset": 1090,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n\t@Override public boolean renderAsNormalBlock() { return false; }\n\t@Override public int getRenderType() { return -1; }\n",
+          "new": "\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.INVISIBLE; }\n\t@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n\t@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return EMPTY_BOUNDS; }\n"
+        },
+        {
+          "before_offset": 724,
+          "after_offset": 1965,
+          "old": "\t@Override public Item getItemDropped(int i, Random rand, int j) { return null; }\n",
+          "new": "\t@Override public Item getItemDropped(IBlockState state, Random rand, int fortune) { return Items.AIR; }\n"
+        },
+        {
+          "before_offset": 871,
+          "after_offset": 2135,
+          "old": "\t\n\t@Override public boolean isAir(IBlockAccess world, int x, int y, int z)  { return true; }\n\t@Override public boolean canBeReplacedByLeaves(IBlockAccess world, int x, int y, int z) { return true; }\n\t@Override public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z) { return null; }\n",
+          "new": "\n\t@Override public boolean isAir(IBlockState state, IBlockAccess world, BlockPos pos) { return true; }\n\t@Override public boolean canBeReplacedByLeaves(IBlockState state, IBlockAccess world, BlockPos pos) { return true; }\n\t@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return NULL_AABB; }\n"
+        },
+        {
+          "before_offset": 1366,
+          "after_offset": 2664,
+          "old": "\t@Override public boolean isLeaves(IBlockAccess world, int x, int y, int z) { return true; }\n",
+          "new": "\t@Override public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos) { return true; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderLight.java": {
+      "before_sha256": "330d94c439693414f02da436a4e574e7205a124e0c434b94f10f8f506a867466",
+      "after_sha256": "c66316a5afd16ee5ae39419f4a7c8dd6a5af801a39860fd1bb787f3059459220",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.List;\nimport com.hbm.blocks.BlockEnums.LightType;\nimport com.hbm.lib.ForgeDirection;\nimport com.hbm.render.block.nativeblock.SpotlightGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 354,
+          "old": "import com.hbm.blocks.machine.Spotlight;\nimport com.hbm.blocks.machine.SpotlightModular;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport com.hbm.lib.ForgeDirection;\n\npublic class RenderLight implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\tif (!(block instanceof Spotlight)) return;\n\t\tSpotlight spot = (Spotlight) block;\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\tGL11.glRotated(-90, 0, 1, 0);\n\t\tGL11.glScaled(1.5D, 1.5D, 1.5D);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon(spot.getModel(), spot.getPartName(0), iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n",
+          "new": "/** Original spotlight part/connection/rotation rules expressed as native immutable geometry. */\npublic final class RenderLight {\n    private RenderLight() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, LightType type, boolean modular, int metadata,\n            int connections, boolean inventory, TextureAtlasSprite sprite) {\n        ForgeDirection dir = ForgeDirection.getOrientation(metadata >> 1);\n        float yaw = dir == ForgeDirection.NORTH ? (float)Math.PI * .5F\n                : dir == ForgeDirection.SOUTH ? (float)Math.PI * -.5F\n                : dir == ForgeDirection.WEST ? (float)Math.PI : 0;\n        float pitch = dir == ForgeDirection.UP ? (float)Math.PI * -.5F\n                : dir == ForgeDirection.DOWN ? (float)Math.PI * .5F : 0;\n        float roll = 0;\n        int count = 0;\n        if(modular && !inventory) {\n            ForgeDirection connection = null;\n            for(ForgeDirection available : ForgeDirection.VALID_DIRECTIONS) {\n                if(available == dir || available == dir.getOpposite()) continue;\n                if((connections & available.flag) != 0) { count++; connection = available; break; }\n            }\n            if(connection != null) {\n                if((connections & connection.getOpposite().flag) != 0) count++;\n                roll = rotation(connection, dir);\n            }\n        }\n        String part = modular ? count == 0 ? \"FluoroSingle\" : count == 1 ? \"FluoroCap\" : \"FluoroMid\"\n                : type == LightType.HALOGEN ? \"FloodLamp\" : \"CageLamp\";\n        return SpotlightGeometry.bake(mesh, part, sprite, inventory, yaw, pitch, roll,\n                .5F - dir.offsetX * .5F, .5F - dir.offsetY * .5F, .5F - dir.offsetZ * .5F);\n"
+        },
+        {
+          "before_offset": 1267,
+          "after_offset": 2069,
+          "old": "\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\tif (!(block instanceof Spotlight)) return true;\n\t\tSpotlight spot = (Spotlight) block;\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tForgeDirection dir = spot.getDirection(world, x, y, z);\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tfloat ox = 0.5F - dir.offsetX * 0.5F, oy = 0.5F - dir.offsetY * 0.5F, oz = 0.5F - dir.offsetZ * 0.5F;\n\t\tfloat rot = ObjUtil.getYaw(dir);\n\t\tfloat pitch = ObjUtil.getPitch(dir);\n\t\tfloat roll = 0;\n\n\t\tint connectionCount = 0;\n\t\tif (spot instanceof SpotlightModular) {\n\t\t\tForgeDirection connectionDirection = null;\n\t\t\tSpotlightModular modular = (SpotlightModular) spot;\n\n\t\t\t// Searching through only adjacent blocks is simple, iterate through all directions ignoring the root and its opposite\n\t\t\t// Once we have found any valid connection, we'll only connect in that one axis\n\t\t\tfor (ForgeDirection availableDir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\t\tif (availableDir == dir || availableDir == dir.getOpposite()) continue;\n\t\t\t\tif (modular.canConnectTo(world, x + availableDir.offsetX, y + availableDir.offsetY, z + availableDir.offsetZ)) {\n\t\t\t\t\tconnectionCount++;\n\t\t\t\t\tconnectionDirection = availableDir;\n\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (connectionDirection != null) {\n\t\t\t\t// Check if we're sandwiched between two lights\n\t\t\t\tif (modular.canConnectTo(world, x - connectionDirection.offsetX, y - connectionDirection.offsetY, z - connectionDirection.offsetZ)) {\n\t\t\t\t\tconnectionCount++;\n\t\t\t\t}\n\n\t\t\t\troll = getRotation(connectionDirection, dir);\n\t\t\t}\n\t\t}\n\n\t\ttessellator.addTranslation(x + ox, y + oy, z + oz);\n\t\tObjUtil.renderPartWithIcon(spot.getModel(), spot.getPartName(connectionCount), block.getIcon(0, 0), tessellator, rot, pitch, roll, false);\n\t\ttessellator.addTranslation(-x - ox, -y - oy, -z - oz);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn Spotlight.renderID;\n\t}\n\n\t// This is very ad-hoc, which isn't ideal\n\tprivate float getRotation(ForgeDirection dir, ForgeDirection axis) {\n\t\tfloat flipX = axis == ForgeDirection.DOWN || axis == ForgeDirection.NORTH || axis == ForgeDirection.WEST ? -0.5F : 0.5F;\n\t\tfloat addX = axis == ForgeDirection.NORTH || axis == ForgeDirection.SOUTH ? -0.5F : 0;\n\t\tboolean flipNS = axis == ForgeDirection.WEST;\n\t\tswitch (dir) {\n\t\t\tcase NORTH: return flipNS ? (float)Math.PI : 0;\n\t\t\tcase SOUTH: return !flipNS ? (float)Math.PI : 0;\n\t\t\tcase EAST: return (float)Math.PI * (flipX + addX);\n\t\t\tcase WEST: return (float)Math.PI * (-flipX + addX);\n\t\t\tcase UP: return (float)Math.PI * -0.5F;\n\t\t\tcase DOWN: return (float)Math.PI * 0.5F;\n\t\t\tdefault: return 0;\n\t\t}\n\t}\n\n",
+          "new": "    private static float rotation(ForgeDirection dir, ForgeDirection axis) {\n        float flipX = axis == ForgeDirection.DOWN || axis == ForgeDirection.NORTH || axis == ForgeDirection.WEST ? -.5F : .5F;\n        float addX = axis == ForgeDirection.NORTH || axis == ForgeDirection.SOUTH ? -.5F : 0;\n        boolean flipNS = axis == ForgeDirection.WEST;\n        switch(dir) {\n            case NORTH: return flipNS ? (float)Math.PI : 0;\n            case SOUTH: return !flipNS ? (float)Math.PI : 0;\n            case EAST: return (float)Math.PI * (flipX + addX);\n            case WEST: return (float)Math.PI * (-flipX + addX);\n            case UP: return (float)Math.PI * -.5F;\n            case DOWN: return (float)Math.PI * .5F;\n            default: return 0;\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryBase.java": {
+      "before_sha256": "db0b5083d92249b8a36cb79db8393d04475feed7bb98d4ce981ccdd9135963d4",
+      "after_sha256": "ceca20c4a2e6e3893df35f912821d73f9dcbbc9ee0a7edec0665bcd28ac1585b",
+      "edits": [
+        {
+          "before_offset": 451,
+          "after_offset": 451,
+          "old": "import net.minecraft.network.play.server.SPacketUpdateTileEntity;\n",
+          "new": "import net.minecraft.network.play.server.SPacketUpdateTileEntity;\r\n"
+        },
+        {
+          "before_offset": 552,
+          "after_offset": 553,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\r\nimport net.minecraft.util.math.BlockPos;\r\n"
+        },
+        {
+          "before_offset": 1238,
+          "after_offset": 1328,
+          "old": "\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n",
+          "new": "\t\t\t\tthis.world.markBlockRangeForRenderUpdate(this.pos, this.pos);\r\n"
+        },
+        {
+          "before_offset": 1484,
+          "after_offset": 1554,
+          "old": "\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n",
+          "new": "\t\t\t\tthis.notifyFoundryUpdate();\r\n"
+        },
+        {
+          "before_offset": 1836,
+          "after_offset": 1852,
+          "old": "",
+          "new": "\t/** Native equivalent of the old same-block update notification; no neighbor mutation. */\r\n\tprotected final void notifyFoundryUpdate() {\r\n\t\tIBlockState state = this.world.getBlockState(this.pos);\r\n\t\tthis.world.notifyBlockUpdate(this.pos, state, state, 3);\r\n\t}\r\n\r\n\t/** Initial chunk sync includes the same complete payload as incremental tile packets. */\r\n"
+        },
+        {
+          "before_offset": 1848,
+          "after_offset": 2220,
+          "old": "\tpublic SPacketUpdateTileEntity getUpdatePacket() {\n\t\tNBTTagCompound nbt = new NBTTagCompound();\r\n\t\tthis.writeToNBT(nbt);\r\n\t\treturn new SPacketUpdateTileEntity(this.getPos(), 0, nbt);\n",
+          "new": "\tpublic NBTTagCompound getUpdateTag() {\r\n\t\treturn this.writeToNBT(new NBTTagCompound());\r\n\t}\r\n\r\n\t/** Metadata/property changes must not destroy a still-identical foundry tile. */\r\n\t@Override\r\n\tpublic boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {\r\n\t\treturn oldState.getBlock() != newState.getBlock();\r\n"
+        },
+        {
+          "before_offset": 2050,
+          "after_offset": 2588,
+          "old": "\tpublic void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {\n\t\tthis.readFromNBT(pkt.getNbtCompound());\n",
+          "new": "\tpublic SPacketUpdateTileEntity getUpdatePacket() {\r\n\t\tNBTTagCompound nbt = new NBTTagCompound();\r\n\t\tthis.writeToNBT(nbt);\r\n\t\treturn new SPacketUpdateTileEntity(this.getPos(), 0, nbt);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {\r\n\t\tthis.readFromNBT(pkt.getNbtCompound());\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryChannel.java": {
+      "before_sha256": "e21fb59c3c40e4e6518261112efb1fc8b3ed1c707db4b5293e09d8ec70bc2d80",
+      "after_sha256": "0d99fca15897d41b5accc70e665ce97f22fb24dd782f18597f82509c49723f8d",
+      "edits": [
+        {
+          "before_offset": 912,
+          "after_offset": 912,
+          "old": "",
+          "new": "\n    /** The paired native block/TESR also draws housing during the damage stage. */\n    @Override public boolean canRenderBreaking() { return true; }\n"
+        },
+        {
+          "before_offset": 1596,
+          "after_offset": 1747,
+          "old": "\t\t\t\t\tBlock b = this.world.getBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);\n",
+          "new": "\t\t\t\t\tBlock b = this.world.getBlockState(this.pos.add(dir.offsetX, 0, dir.offsetZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 2556,
+          "after_offset": 2687,
+          "old": "\t\t\t\t\t\tTileEntity b = this.world.getTileEntity(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);\n",
+          "new": "\t\t\t\t\t\tTileEntity b = this.world.getTileEntity(this.pos.add(dir.offsetX, 0, dir.offsetZ));\n"
+        },
+        {
+          "before_offset": 4857,
+          "after_offset": 4952,
+          "old": "\t\treturn new FoundryNode(FoundryNetworkProvider.THE_PROVIDER, new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(\n\t\t\tnew DirPos(tile.xCoord + 1, tile.yCoord, tile.zCoord, Library.POS_X),\n\t\t\tnew DirPos(tile.xCoord - 1, tile.yCoord, tile.zCoord, Library.NEG_X),\n\t\t\tnew DirPos(tile.xCoord, tile.yCoord, tile.zCoord + 1, Library.POS_Z),\n\t\t\tnew DirPos(tile.xCoord, tile.yCoord, tile.zCoord - 1, Library.NEG_Z)\n",
+          "new": "\t\treturn new FoundryNode(FoundryNetworkProvider.THE_PROVIDER, new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(\n\t\t\tnew DirPos(tile.getPos().getX() + 1, tile.getPos().getY(), tile.getPos().getZ(), Library.POS_X),\n\t\t\tnew DirPos(tile.getPos().getX() - 1, tile.getPos().getY(), tile.getPos().getZ(), Library.NEG_X),\n\t\t\tnew DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() + 1, Library.POS_Z),\n\t\t\tnew DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() - 1, Library.NEG_Z)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryTank.java": {
+      "before_sha256": "5912a89a55ef7424f6c03e4bee89e2d6e585571302c0eddc1a2c8f4b9ddb50ac",
+      "after_sha256": "4119eb0290dcbf11329b95217c0b4bd95b797df7d3c9c689e252e9d5cd3f210f",
+      "edits": [
+        {
+          "before_offset": 506,
+          "after_offset": 506,
+          "old": "",
+          "new": "    /** The paired native block/TESR also draws housing during the damage stage. */\n    @Override public boolean canRenderBreaking() { return true; }\n\n"
+        },
+        {
+          "before_offset": 826,
+          "after_offset": 977,
+          "old": "\t\t\t\tTileEntity te = this.world.getTileEntity(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ());\n",
+          "new": "\t\t\t\tTileEntity te = this.world.getTileEntity(this.pos.down());\n"
+        },
+        {
+          "before_offset": 1569,
+          "after_offset": 1682,
+          "old": "\t\t\t\t\t\tBlock b = this.world.getBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);\n",
+          "new": "\t\t\t\t\t\tBlock b = this.world.getBlockState(this.pos.add(dir.offsetX, 0, dir.offsetZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 2536,
+          "after_offset": 2629,
+          "old": "\t\t\t\t\t\tTileEntity b = this.world.getTileEntity(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);\n",
+          "new": "\t\t\t\t\t\tTileEntity b = this.world.getTileEntity(this.pos.add(dir.offsetX, 0, dir.offsetZ));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java": {
+      "before_sha256": "bc7aa0b84d38ef8e741d45193585e181e336f2297470b4055fc1239fd0dc60e8",
+      "after_sha256": "1508670dbae5404faa03a748e3d56503ff03be3af0ba454f88cbe01d49f760fc",
+      "edits": [
+        {
+          "before_offset": 1285,
+          "after_offset": 1285,
+          "old": "\t\treturn invertRedstone ^ this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n",
+          "new": "\t\treturn invertRedstone ^ this.world.isBlockPowered(this.pos);\n"
+        },
+        {
+          "before_offset": 1664,
+          "after_offset": 1606,
+          "old": "\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n",
+          "new": "\t\t\t\tthis.world.markBlockRangeForRenderUpdate(this.pos, this.pos);\n"
+        },
+        {
+          "before_offset": 4003,
+          "after_offset": 3925,
+          "old": "\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D - dir.offsetX * 0.125, this.pos.getY() + 0.125, this.pos.getZ() + 0.5D - dir.offsetZ * 0.125), new TargetPoint(this.world.provider.dimensionId, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 50));\n",
+          "new": "\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D - dir.offsetX * 0.125, this.pos.getY() + 0.125, this.pos.getZ() + 0.5D - dir.offsetZ * 0.125), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java": {
+      "before_sha256": "531573bccfce8da73a55fc634689c2ff8ae64730b9e13cbab31f3303ce4d9d98",
+      "after_sha256": "73534891612b24a7a8186000d1eb126b5079fde61a545d8a3f24b8e7938aaace",
+      "edits": [
+        {
+          "before_offset": 626,
+          "after_offset": 626,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 2001,
+          "after_offset": 2088,
+          "old": "\t\tBlock hit = world.getBlock(hitX, hitY, hitZ);\n\t\tBlock above = world.getBlock(hitX, hitY + 1, hitZ);\n",
+          "new": "\t\tBlock hit = world.getBlockState(new BlockPos(hitX, hitY, hitZ)).getBlock();\n\t\tBlock above = world.getBlockState(new BlockPos(hitX, hitY + 1, hitZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 2460,
+          "after_offset": 2607,
+          "old": "\t\t\t\tworld.markBlockForUpdate(hitX, hitY, hitZ);\n\t\t\t\tworld.scheduleBlockUpdate(hitX, hitY, hitZ, ModBlocks.slag, 1);\n",
+          "new": "\t\t\t\tIBlockState changed = world.getBlockState(new BlockPos(hitX, hitY, hitZ));\n\t\t\t\tworld.notifyBlockUpdate(new BlockPos(hitX, hitY, hitZ), changed, changed, 3);\n\t\t\t\tworld.scheduleUpdate(new BlockPos(hitX, hitY, hitZ), ModBlocks.slag, 1);\n"
+        },
+        {
+          "before_offset": 2581,
+          "after_offset": 2850,
+          "old": "\t\t} else if(hit.isReplaceable(world, hitX, hitY, hitZ)) {\n\t\t\tworld.setBlock(hitX, hitY, hitZ, ModBlocks.slag);\n",
+          "new": "\t\t} else if(hit.isReplaceable(world, new BlockPos(hitX, hitY, hitZ))) {\n\t\t\tworld.setBlockState(new BlockPos(hitX, hitY, hitZ), ModBlocks.slag.getDefaultState(), 3);\n"
+        },
+        {
+          "before_offset": 2966,
+          "after_offset": 3289,
+          "old": "\t\t\tworld.markBlockForUpdate(hitX, hitY, hitZ);\n\t\t\tworld.scheduleBlockUpdate(hitX, hitY, hitZ, ModBlocks.slag, 1);\n",
+          "new": "\t\t\tIBlockState changed = world.getBlockState(new BlockPos(hitX, hitY, hitZ));\n\t\t\tworld.notifyBlockUpdate(new BlockPos(hitX, hitY, hitZ), changed, changed, 3);\n\t\t\tworld.scheduleUpdate(new BlockPos(hitX, hitY, hitZ), ModBlocks.slag, 1);\n"
+        },
+        {
+          "before_offset": 3085,
+          "after_offset": 3529,
+          "old": "\t\tif(stack.amount > 0 && above.isReplaceable(world, hitX, hitY + 1, hitZ)) {\n\t\t\tworld.setBlock(hitX, hitY + 1, hitZ, ModBlocks.slag);\n",
+          "new": "\t\tif(stack.amount > 0 && above.isReplaceable(world, new BlockPos(hitX, hitY + 1, hitZ))) {\n\t\t\tworld.setBlockState(new BlockPos(hitX, hitY + 1, hitZ), ModBlocks.slag.getDefaultState(), 3);\n"
+        },
+        {
+          "before_offset": 3497,
+          "after_offset": 3995,
+          "old": "\t\t\tworld.markBlockForUpdate(hitX, hitY + 1, hitZ);\n\t\t\tworld.scheduleBlockUpdate(hitX, hitY + 1, hitZ, ModBlocks.slag, 1);\n",
+          "new": "\t\t\tIBlockState changed = world.getBlockState(new BlockPos(hitX, hitY + 1, hitZ));\n\t\t\tworld.notifyBlockUpdate(new BlockPos(hitX, hitY + 1, hitZ), changed, changed, 3);\n\t\t\tworld.scheduleUpdate(new BlockPos(hitX, hitY + 1, hitZ), ModBlocks.slag, 1);\n"
+        },
+        {
+          "before_offset": 4020,
+          "after_offset": 4643,
+          "old": "\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D - dir.offsetX * 0.125, this.pos.getY() + 0.125, this.pos.getZ() + 0.5D - dir.offsetZ * 0.125), new TargetPoint(this.world.provider.dimensionId, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 50));\n",
+          "new": "\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D - dir.offsetX * 0.125, this.pos.getY() + 0.125, this.pos.getZ() + 0.5D - dir.offsetZ * 0.125), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java": {
+      "before_sha256": "1e3259c2ae484a9a54ffed0d854eab5b40d6b5485ade30dd0d065823c80c8dab",
+      "after_sha256": "2e2867e81af690c810bce58b59783dc4cc1c2daff9f1fd2813c1b79816308160",
+      "edits": [
+        {
+          "before_offset": 452,
+          "after_offset": 452,
+          "old": "",
+          "new": "import java.util.Arrays;\nimport net.minecraft.util.text.ITextComponent;\nimport net.minecraft.util.text.TextComponentTranslation;\n"
+        },
+        {
+          "before_offset": 896,
+          "after_offset": 1025,
+          "old": "",
+          "new": "\tprivate static ItemStack nativeStack(ItemStack stack) {\n\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\n\t}\n\n\t@Override public boolean isEmpty() {\n\t\tfor(ItemStack stack : slots) if(!nativeStack(stack).isEmpty()) return false;\n\t\treturn true;\n\t}\n\t@Override public ITextComponent getDisplayName() { return new TextComponentTranslation(getName()); }\n\t@Override public int getField(int id) { return 0; }\n\t@Override public void setField(int id, int value) { }\n\t@Override public int getFieldCount() { return 0; }\n\t@Override public void clear() { Arrays.fill(slots, null); }\n\n"
+        },
+        {
+          "before_offset": 3238,
+          "after_offset": 3956,
+          "old": "\t\t\treturn itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;\n",
+          "new": "\t\t\treturn nativeStack(itemStack);\n"
+        },
+        {
+          "before_offset": 3674,
+          "after_offset": 4344,
+          "old": "\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n",
+          "new": "\t\tthis.notifyFoundryUpdate();\n"
+        },
+        {
+          "before_offset": 3830,
+          "after_offset": 4446,
+          "old": "\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n",
+          "new": "\t\tthis.notifyFoundryUpdate();\n"
+        },
+        {
+          "before_offset": 3942,
+          "after_offset": 4504,
+          "old": "\t\t\tif(slots[slot].stackSize <= amount) {\n",
+          "new": "\t\t\tif(slots[slot].getCount() <= amount) {\n"
+        },
+        {
+          "before_offset": 4046,
+          "after_offset": 4609,
+          "old": "\t\t\t\treturn itemStack;\n",
+          "new": "\t\t\t\treturn nativeStack(itemStack);\n"
+        },
+        {
+          "before_offset": 4131,
+          "after_offset": 4707,
+          "old": "\t\t\tif(slots[slot].stackSize == 0) {\n",
+          "new": "\t\t\tif(slots[slot].getCount() == 0) {\n"
+        },
+        {
+          "before_offset": 4196,
+          "after_offset": 4773,
+          "old": "\t\t\treturn itemStack1;\n",
+          "new": "\t\t\treturn nativeStack(itemStack1);\n"
+        },
+        {
+          "before_offset": 4229,
+          "after_offset": 4819,
+          "old": "\t\t\treturn null;\n",
+          "new": "\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 4377,
+          "after_offset": 4978,
+          "old": "\t\treturn slots[i];\n",
+          "new": "\t\treturn nativeStack(slots[i]);\n"
+        },
+        {
+          "before_offset": 4411,
+          "after_offset": 5025,
+          "old": "\tpublic String getInventoryName() {\n",
+          "new": "\tpublic String getName() {\n"
+        },
+        {
+          "before_offset": 4541,
+          "after_offset": 5146,
+          "old": "\t@Override public boolean hasCustomInventoryName() { return false; }\n\t@Override public boolean isUseableByPlayer(EntityPlayer player) { return false; }\n",
+          "new": "\t@Override public boolean hasCustomName() { return false; }\n\t@Override public boolean isUsableByPlayer(EntityPlayer player) { return false; }\n"
+        },
+        {
+          "before_offset": 4781,
+          "after_offset": 5376,
+          "old": "\t@Override public void openInventory() { }\n\t@Override public void closeInventory() { }\n",
+          "new": "\t@Override public void openInventory(EntityPlayer player) { }\n\t@Override public void closeInventory(EntityPlayer player) { }\n"
+        },
+        {
+          "before_offset": 5220,
+          "after_offset": 5853,
+          "old": "\t\t\t\tslots[b0] = ItemStack.loadItemStackFromNBT(nbt1);\n",
+          "new": "\t\t\t\tItemStack stack = new ItemStack(nbt1);\n\t\t\t\tslots[b0] = stack.isEmpty() ? null : stack;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/uninos/UniNodespace.java": {
+      "before_sha256": "9d103c5358e799ee452ce54ed973a46f20a1dc5999f219e1f7981fa66c2b21c8",
+      "after_sha256": "f3493a61f364467dd7137e00c8f717bbdf7e7b1ef23d2a50a396a5d2da90b6df",
+      "edits": [
+        {
+          "before_offset": 305,
+          "after_offset": 305,
+          "old": "import net.minecraft.server.MinecraftServer;\n",
+          "new": "import net.minecraftforge.fml.common.FMLCommonHandler;\n"
+        },
+        {
+          "before_offset": 2008,
+          "after_offset": 2018,
+          "old": "\t\tfor(World world : MinecraftServer.getServer().worldServers) {\n",
+          "new": "\t\tfor(World world : FMLCommonHandler.instance().getMinecraftServerInstance().worlds) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "e5edac31e78a92d4be0e635f843be90737d2c851080d25633837d2c531cea7be",
+      "after_sha256": "18c97848828ba81983934314cd6fb9e750b486cb43f223a2e9d442cc1da19fb7",
+      "edits": [
+        {
+          "before_offset": 29604,
+          "after_offset": 29604,
+          "old": "",
+          "new": "\t\tClientRegistry.bindTileEntitySpecialRenderer(TileEntityFoundryChannel.class, new RenderFoundryFluid());\n\t\tClientRegistry.bindTileEntitySpecialRenderer(TileEntityFoundryTank.class, new RenderFoundryFluid());\n"
+        },
+        {
+          "before_offset": 80978,
+          "after_offset": 81187,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderLight());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 81421,
+          "after_offset": 81569,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderFoundryBasin());\n\t\tRenderingRegistry.registerBlockHandler(new RenderFoundryMold());\n\t\tRenderingRegistry.registerBlockHandler(new RenderFoundryChannel());\n\t\tRenderingRegistry.registerBlockHandler(new RenderFoundryTank());\n\t\tRenderingRegistry.registerBlockHandler(new RenderFoundryOutlet());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "d0fa1d6ad182f4425f65e10052174136b5b9daefc72578cff3999bfc5a2f096c",
+      "after_sha256": "f1e3244e71039e67dcc05bdf5b68aea5ac307972077f0a571d080d7439c54ba6",
+      "edits": [
+        {
+          "before_offset": 106083,
+          "after_offset": 106083,
+          "old": "\t\tspotlight_incandescent = new Spotlight(Material.iron, 2, LightType.INCANDESCENT, true).setBlockName(\"spotlight_incandescent\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cage_lamp\");\r\n\t\tspotlight_incandescent_off = new Spotlight(Material.iron, 2, LightType.INCANDESCENT, false).setBlockName(\"spotlight_incandescent_off\").setBlockTextureName(RefStrings.MODID + \":cage_lamp_off\");\r\n\t\tspotlight_fluoro = new SpotlightModular(Material.iron, 8, LightType.FLUORESCENT, true).setBlockName(\"spotlight_fluoro\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":fluorescent_lamp\");\r\n\t\tspotlight_fluoro_off = new SpotlightModular(Material.iron, 8, LightType.FLUORESCENT, false).setBlockName(\"spotlight_fluoro_off\").setBlockTextureName(RefStrings.MODID + \":fluorescent_lamp_off\");\r\n\t\tspotlight_halogen = new Spotlight(Material.iron, 32, LightType.HALOGEN, true).setBlockName(\"spotlight_halogen\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":flood_lamp\");\r\n\t\tspotlight_halogen_off = new Spotlight(Material.iron, 32, LightType.HALOGEN, false).setBlockName(\"spotlight_halogen_off\").setBlockTextureName(RefStrings.MODID + \":flood_lamp_off\");\r\n\t\tspotlight_beam = new SpotlightBeam().setBlockName(\"spotlight_beam\");\r\n",
+          "new": "\t\tspotlight_incandescent = new Spotlight(Material.IRON, 2, LightType.INCANDESCENT, true).setTranslationKey(\"spotlight_incandescent\").setCreativeTab(MainRegistry.blockTab);\r\n\t\tspotlight_incandescent_off = new Spotlight(Material.IRON, 2, LightType.INCANDESCENT, false).setTranslationKey(\"spotlight_incandescent_off\");\r\n\t\tspotlight_fluoro = new SpotlightModular(Material.IRON, 8, LightType.FLUORESCENT, true).setTranslationKey(\"spotlight_fluoro\").setCreativeTab(MainRegistry.blockTab);\r\n\t\tspotlight_fluoro_off = new SpotlightModular(Material.IRON, 8, LightType.FLUORESCENT, false).setTranslationKey(\"spotlight_fluoro_off\");\r\n\t\tspotlight_halogen = new Spotlight(Material.IRON, 32, LightType.HALOGEN, true).setTranslationKey(\"spotlight_halogen\").setCreativeTab(MainRegistry.blockTab);\r\n\t\tspotlight_halogen_off = new Spotlight(Material.IRON, 32, LightType.HALOGEN, false).setTranslationKey(\"spotlight_halogen_off\");\r\n\t\tspotlight_beam = new SpotlightBeam().setTranslationKey(\"spotlight_beam\");\r\n"
+        },
+        {
+          "before_offset": 168865,
+          "after_offset": 168554,
+          "old": "\t\tfoundry_mold = new FoundryMold().setBlockName(\"foundry_mold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":brick_fire\");\r\n\t\tfoundry_basin = new FoundryBasin().setBlockName(\"foundry_basin\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":brick_fire\");\r\n\t\tfoundry_channel = new FoundryChannel().setBlockName(\"foundry_channel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":brick_fire\");\r\n\t\tfoundry_tank = new FoundryTank().setBlockName(\"foundry_tank\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":brick_fire\");\r\n\t\tfoundry_outlet = new FoundryOutlet().setBlockName(\"foundry_outlet\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":brick_fire\");\r\n\t\tfoundry_slagtap = new FoundrySlagtap().setBlockName(\"foundry_slagtap\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":brick_fire\");\r\n",
+          "new": "\t\tfoundry_mold = new FoundryMold().setTranslationKey(\"foundry_mold\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfoundry_basin = new FoundryBasin().setTranslationKey(\"foundry_basin\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfoundry_channel = new FoundryChannel().setTranslationKey(\"foundry_channel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfoundry_tank = new FoundryTank().setTranslationKey(\"foundry_tank\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfoundry_outlet = new FoundryOutlet().setTranslationKey(\"foundry_outlet\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfoundry_slagtap = new FoundrySlagtap().setTranslationKey(\"foundry_slagtap\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModSoundEvents.java": {
+      "before_sha256": "f11734453407566473aaf618b0e8ffee0a70e16e920955473b8b3b8fdf05957e",
+      "after_sha256": "a9b5f0de51649ac9812d5b2f156a53361343b6cd03d1ecba1a03fc75dfcb2051",
+      "edits": [
+        {
+          "before_offset": 1030,
+          "after_offset": 1030,
+          "old": "",
+          "new": "\tpublic static final SoundEvent ITEM_UPGRADE_PLUG = create(\"item.upgradePlug\");\n"
+        }
+      ]
+    },
+    "src/main/resources/assets/hbm/sounds.json": {
+      "before_sha256": "5b4ebcaf6a1c1e797907e6d9fa0d1f4cf4eb12e497a865413c8e9f9d7d3631c5",
+      "after_sha256": "5ed9c2b904bc273001e8ace48ab7604113c801e3b461ce269dac964ca3013e40",
+      "edits": [
+        {
+          "before_offset": 14583,
+          "after_offset": 14583,
+          "old": "\t\"item.upgradePlug\": {\"category\": \"player\", \"sounds\": [{\"name\": \"tool/upgradePlug\", \"stream\": false}]},\n",
+          "new": "\t\"item.upgradePlug\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:tool/upgradePlug\", \"stream\": false}]},\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundryCastingBase.java": {
+      "before_sha256": "29960d56d7df66811503b6fed65cc310565f684246873e5cc8088ee4a6a67217",
+      "after_sha256": "da8cdcd819c7901a9fa46d9203d482c6ec05738c7daa1eda82ef2ecf17ed9604",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 582,
+          "after_offset": 743,
+          "old": "import net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1140,
+          "after_offset": 1212,
+          "old": "public abstract class FoundryCastingBase extends BlockContainer implements ICrucibleAcceptor, IToolable, ILookOverlay {\n",
+          "new": "public abstract class FoundryCastingBase extends FoundryBlock implements ICrucibleAcceptor, IToolable, ILookOverlay {\n"
+        },
+        {
+          "before_offset": 1295,
+          "after_offset": 1365,
+          "old": "\t\tsuper(Material.rock);\n",
+          "new": "\t\tsuper();\n"
+        },
+        {
+          "before_offset": 1323,
+          "after_offset": 1380,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\treturn true;\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1615,
+          "after_offset": 1541,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialPour(world, x, y, z, dX, dY, dZ, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialPour(world, x, y, z, dX, dY, dZ, side, stack);\n"
+        },
+        {
+          "before_offset": 1891,
+          "after_offset": 1831,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).pour(world, x, y, z, dX, dY, dZ, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).pour(world, x, y, z, dX, dY, dZ, side, stack);\n"
+        },
+        {
+          "before_offset": 2128,
+          "after_offset": 2082,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialFlow(world, x, y, z, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialFlow(world, x, y, z, side, stack);\n"
+        },
+        {
+          "before_offset": 2359,
+          "after_offset": 2327,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).flow(world, x, y, z, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).flow(world, x, y, z, side, stack);\n"
+        },
+        {
+          "before_offset": 2458,
+          "after_offset": 2440,
+          "old": "\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n",
+          "new": "\n\n\n"
+        },
+        {
+          "before_offset": 2533,
+          "after_offset": 2455,
+          "old": "\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 2784,
+          "after_offset": 2717,
+          "old": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 3010,
+          "after_offset": 2957,
+          "old": "\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, cast.slots[1].copy());\n\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, cast.slots[1].copy());\n\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 3264,
+          "after_offset": 3282,
+          "old": "\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 3339,
+          "after_offset": 3366,
+          "old": "\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.mold && cast.slots[0] == null) {\n\t\t\tMold mold = ((ItemMold) player.getHeldItem().getItem()).getMold(player.getHeldItem());\n",
+          "new": "\t\tif(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() == ModItems.mold && cast.slots[0] == null) {\n\t\t\tMold mold = ((ItemMold) player.getHeldItem(hand).getItem()).getMold(player.getHeldItem(hand));\n"
+        },
+        {
+          "before_offset": 3584,
+          "after_offset": 3630,
+          "old": "\t\t\t\tcast.slots[0] = player.getHeldItem().copy();\n\t\t\t\tcast.slots[0].stackSize = 1;\n\t\t\t\tplayer.getHeldItem().stackSize--;\n\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcast.slots[0] = player.getHeldItem(hand).copy();\n\t\t\t\tcast.slots[0].setCount(1);\n\t\t\t\tplayer.getHeldItem(hand).shrink(1);\n\t\t\t\tworld.playSound(null, x + 0.5, y + 0.5, z + 0.5, com.hbm.main.ModSoundEvents.ITEM_UPGRADE_PLUG, net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 3816,
+          "after_offset": 3931,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 3882,
+          "after_offset": 4006,
+          "old": "\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem().getItem()).getToolClasses(player.getHeldItem()).contains(\"shovel\")) {\n",
+          "new": "\t\tif(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem(hand).getItem()).getToolClasses(player.getHeldItem(hand)).contains(\"shovel\")) {\n"
+        },
+        {
+          "before_offset": 4244,
+          "after_offset": 4387,
+          "old": "\t\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, scrap);\n\t\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 4506,
+          "after_offset": 4720,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4602,
+          "after_offset": 4825,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block b, int i) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 4679,
+          "after_offset": 4946,
+          "old": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4885,
+          "after_offset": 5166,
+          "old": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, scrap);\n\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 5108,
+          "after_offset": 5460,
+          "old": "\t\t\t\tEntityItem drop = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, stack.copy());\n\t\t\t\tworld.spawnEntityInWorld(drop);\n",
+          "new": "\t\t\t\tEntityItem drop = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, stack.copy());\n\t\t\t\tworld.spawnEntity(drop);\n"
+        },
+        {
+          "before_offset": 5246,
+          "after_offset": 5669,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, b, i);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 5327,
+          "after_offset": 5747,
+          "old": "\tpublic void randomDisplayTick(World world, int x, int y, int z, Random rand) {\n\t\tsuper.randomDisplayTick(world, x, y, z, rand);\n",
+          "new": "\tpublic void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n\t\tsuper.randomDisplayTick(state, world, pos, rand);\n"
+        },
+        {
+          "before_offset": 5457,
+          "after_offset": 5940,
+          "old": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5618,
+          "after_offset": 6115,
+          "old": "\t\t\tworld.spawnParticle(\"smoke\", x + 0.25 + rand.nextDouble() * 0.5, y + this.maxY, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + 0.25 + rand.nextDouble() * 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 5962,
+          "after_offset": 6579,
+          "old": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6213,
+          "after_offset": 6844,
+          "old": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, cast.slots[0].copy());\n\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, cast.slots[0].copy());\n\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 6436,
+          "after_offset": 7138,
+          "old": "\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6619,
+          "after_offset": 7330,
+          "old": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryCastingBase cast = (TileEntityFoundryCastingBase) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 7206,
+          "after_offset": 7931,
+          "old": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getUnlocalizedName() + \".name\"), 0xFF4000, 0x401000, text);\n",
+          "new": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getTranslationKey() + \".name\"), 0xFF4000, 0x401000, text);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundryBasin.java": {
+      "before_sha256": "9444b90adbdbd8e6f593afca709144bf5fe305e140cc29003ccc4b17fbb7b779",
+      "after_sha256": "bdb2f4731f73528b8bab09eaaed5381019aa6a7d99f6dad9873ff28ce795efff",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.util.EnumHand;\n"
+        },
+        {
+          "before_offset": 111,
+          "after_offset": 147,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 201,
+          "after_offset": 206,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 364,
+          "after_offset": 304,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 657,
+          "after_offset": 555,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 858,
+          "after_offset": 722,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconSide;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1090,
+          "after_offset": 764,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":foundry_basin_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":foundry_basin_side\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":foundry_basin_bottom\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":foundry_basin_inner\");\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1714,
+          "after_offset": 895,
+          "old": "\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n",
+          "new": "\tpublic void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBounding, List<AxisAlignedBB> list, Entity entity, boolean actualState) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 1892,
+          "after_offset": 1167,
+          "old": "\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.125D, z + 1D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 1D, z + 0.125D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z, x + 0.125D, y + 1D, z + 1D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x + 0.875D, y, z, x + 1D, y + 1D, z + 1D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z + 0.875, x + 1D, y + 1D, z + 1D),\n",
+          "new": "\t\t\t\tnew AxisAlignedBB(x, y, z, x + 1D, y + 0.125D, z + 1D),\n\t\t\t\tnew AxisAlignedBB(x, y, z, x + 1D, y + 1D, z + 0.125D),\n\t\t\t\tnew AxisAlignedBB(x, y, z, x + 0.125D, y + 1D, z + 1D),\n\t\t\t\tnew AxisAlignedBB(x + 0.875D, y, z, x + 1D, y + 1D, z + 1D),\n\t\t\t\tnew AxisAlignedBB(x, y, z + 0.875, x + 1D, y + 1D, z + 1D),\n"
+        },
+        {
+          "before_offset": 2296,
+          "after_offset": 1516,
+          "old": "\t\t\tif(entityBounding.intersectsWith(bb)) {\n",
+          "new": "\t\t\tif(entityBounding.intersects(bb)) {\n"
+        },
+        {
+          "before_offset": 2370,
+          "after_offset": 1586,
+          "old": "\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.999F, 1.0F); //for some fucking reason setting maxY to something that isn't 1 magically fixes item collisions\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2626,
+          "after_offset": 1587,
+          "old": "\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2906,
+          "after_offset": 1588,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": "\n\n\n"
+        },
+        {
+          "before_offset": 3482,
+          "after_offset": 1865,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3559,
+          "after_offset": 1866,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 3770,
+          "after_offset": 2015,
+          "old": "",
+          "new": "\n\t@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return new AxisAlignedBB(0,0,0,1,0.999F,1); }\n\t@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundryMold.java": {
+      "before_sha256": "1c822d2ddbb970daae5054ba4345f6668b2da0c496bfbe8acf9a5ec55d6339da",
+      "after_sha256": "cd2b97b722f29bc007d00e501ee5ec4e9275e115360c28d1c439b08342e9e58b",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.util.EnumHand;\n"
+        },
+        {
+          "before_offset": 57,
+          "after_offset": 93,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 146,
+          "after_offset": 151,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 309,
+          "after_offset": 249,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 602,
+          "after_offset": 500,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 802,
+          "after_offset": 666,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconSide;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1033,
+          "after_offset": 707,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":foundry_mold_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":foundry_mold_side\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":foundry_mold_bottom\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":foundry_mold_inner\");\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1652,
+          "after_offset": 837,
+          "old": "\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n",
+          "new": "\tpublic void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBounding, List<AxisAlignedBB> list, Entity entity, boolean actualState) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 1830,
+          "after_offset": 1109,
+          "old": "\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.125D, z + 1D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.5D, z + 0.125D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z, x + 0.125D, y + 0.5D, z + 1D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x + 0.875D, y, z, x + 1D, y + 0.5D, z + 1D),\n\t\t\t\tAxisAlignedBB.getBoundingBox(x, y, z + 0.875, x + 1D, y + 0.5D, z + 1D),\n",
+          "new": "\t\t\t\tnew AxisAlignedBB(x, y, z, x + 1D, y + 0.125D, z + 1D),\n\t\t\t\tnew AxisAlignedBB(x, y, z, x + 1D, y + 0.5D, z + 0.125D),\n\t\t\t\tnew AxisAlignedBB(x, y, z, x + 0.125D, y + 0.5D, z + 1D),\n\t\t\t\tnew AxisAlignedBB(x + 0.875D, y, z, x + 1D, y + 0.5D, z + 1D),\n\t\t\t\tnew AxisAlignedBB(x, y, z + 0.875, x + 1D, y + 0.5D, z + 1D),\n"
+        },
+        {
+          "before_offset": 2242,
+          "after_offset": 1466,
+          "old": "\t\t\tif(entityBounding.intersectsWith(bb)) {\n",
+          "new": "\t\t\tif(entityBounding.intersects(bb)) {\n"
+        },
+        {
+          "before_offset": 2316,
+          "after_offset": 1536,
+          "old": "\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2473,
+          "after_offset": 1537,
+          "old": "\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.5D, z + 1D);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2652,
+          "after_offset": 1538,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.5D, z + 1D);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2854,
+          "after_offset": 1539,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2931,
+          "after_offset": 1540,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "\n\n\n\n"
+        },
+        {
+          "before_offset": 3144,
+          "after_offset": 1694,
+          "old": "",
+          "new": "\n\t@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return new AxisAlignedBB(0,0,0,1,0.5D,1); }\n\t@Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundryChannel.java": {
+      "before_sha256": "f189edfcbf7fa9241038adf6f1e9b4f9b06c49234f0ac948ad4d96efdc7a2faf",
+      "after_sha256": "730564092964bf2fa733f0bc5d457aaf85d731b4b60993d76004238011d22a7d",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 288,
+          "after_offset": 408,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 505,
+          "after_offset": 594,
+          "old": "import com.hbm.util.fauxpointtwelve.BlockPos;\n",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 636,
+          "after_offset": 720,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 833,
+          "after_offset": 852,
+          "old": "import net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\nimport com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1257,
+          "after_offset": 1145,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1402,
+          "after_offset": 1256,
+          "old": "public class FoundryChannel extends BlockContainer implements ICrucibleAcceptor {\n",
+          "new": "public class FoundryChannel extends FoundryBlock implements ICrucibleAcceptor {\n"
+        },
+        {
+          "before_offset": 1485,
+          "after_offset": 1337,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconSide;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n\t@SideOnly(Side.CLIENT) public IIcon iconLava;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1750,
+          "after_offset": 1365,
+          "old": "\t\tsuper(Material.rock);\n",
+          "new": "\t\tsuper();\n"
+        },
+        {
+          "before_offset": 1778,
+          "after_offset": 1380,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":foundry_channel_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":foundry_channel_side\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":foundry_channel_bottom\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":foundry_channel_inner\");\n\t\tthis.iconLava = iconRegister.registerIcon(RefStrings.MODID + \":lava_gray\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2359,
+          "after_offset": 1381,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\treturn true;\n\t}\n",
+          "new": "\n\n\n    /** The native damage TESR owns housing and molten faces together. */\n    @Override public boolean hasCustomBreakingProgress(IBlockState state) { return true; }\n"
+        },
+        {
+          "before_offset": 2623,
+          "after_offset": 1681,
+          "old": "\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n",
+          "new": "\tpublic void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBounding, List<AxisAlignedBB> list, Entity entity, boolean actualState) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 2799,
+          "after_offset": 1951,
+          "old": "\t\tbbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z + 0.3125D, x + 0.6875D, y + 0.5D, z + 0.6875D));\n",
+          "new": "\t\tbbs.add(new AxisAlignedBB(x + 0.3125D, y, z + 0.3125D, x + 0.6875D, y + 0.5D, z + 0.6875D));\n"
+        },
+        {
+          "before_offset": 2906,
+          "after_offset": 2047,
+          "old": "\t\tif(canConnectTo(world, x, y, z, Library.POS_X)) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.6875D, y, z + 0.3125D, x + 1D, y + 0.5D, z + 0.6875D));\n\t\tif(canConnectTo(world, x, y, z, Library.NEG_X)) bbs.add(AxisAlignedBB.getBoundingBox(x, y, z + 0.3125D, x + 0.3125D, y + 0.5D, z + 0.6875D));\n\t\tif(canConnectTo(world, x, y, z, Library.POS_Z)) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z + 0.6875D, x + 0.6875D, y + 0.5D, z + 1D));\n\t\tif(canConnectTo(world, x, y, z, Library.NEG_Z)) bbs.add(AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z, x + 0.6875D, y + 0.5D, z + 0.3125D));\n",
+          "new": "\t\tif(canConnectTo(world, x, y, z, Library.POS_X)) bbs.add(new AxisAlignedBB(x + 0.6875D, y, z + 0.3125D, x + 1D, y + 0.5D, z + 0.6875D));\n\t\tif(canConnectTo(world, x, y, z, Library.NEG_X)) bbs.add(new AxisAlignedBB(x, y, z + 0.3125D, x + 0.3125D, y + 0.5D, z + 0.6875D));\n\t\tif(canConnectTo(world, x, y, z, Library.POS_Z)) bbs.add(new AxisAlignedBB(x + 0.3125D, y, z + 0.6875D, x + 0.6875D, y + 0.5D, z + 1D));\n\t\tif(canConnectTo(world, x, y, z, Library.NEG_Z)) bbs.add(new AxisAlignedBB(x + 0.3125D, y, z, x + 0.6875D, y + 0.5D, z + 0.3125D));\n"
+        },
+        {
+          "before_offset": 3525,
+          "after_offset": 2622,
+          "old": "\t\t\tif(entityBounding.intersectsWith(bb)) {\n",
+          "new": "\t\t\tif(entityBounding.intersects(bb)) {\n"
+        },
+        {
+          "before_offset": 3599,
+          "after_offset": 2692,
+          "old": "\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3879,
+          "after_offset": 2693,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4182,
+          "after_offset": 2694,
+          "old": "\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tthis.setBlockBounds(\n\t\t\t\tcanConnectTo(world, x, y, z, Library.NEG_X) ? 0F : 0.3125F,\n\t\t\t\t0F,\n\t\t\t\tcanConnectTo(world, x, y, z, Library.NEG_Z) ? 0F : 0.3125F,\n\t\t\t\tcanConnectTo(world, x, y, z, Library.POS_X) ? 1F : 0.6875F,\n\t\t\t\t0.5F,\n\t\t\t\tcanConnectTo(world, x, y, z, Library.POS_Z) ? 1F : 0.6875F);\n\t}\n",
+          "new": "\n\n\n"
+        },
+        {
+          "before_offset": 4737,
+          "after_offset": 2857,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialPour(world, x, y, z, dX, dY, dZ, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialPour(world, x, y, z, dX, dY, dZ, side, stack);\n"
+        },
+        {
+          "before_offset": 5013,
+          "after_offset": 3147,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).pour(world, x, y, z, dX, dY, dZ, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).pour(world, x, y, z, dX, dY, dZ, side, stack);\n"
+        },
+        {
+          "before_offset": 5250,
+          "after_offset": 3398,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialFlow(world, x, y, z, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialFlow(world, x, y, z, side, stack);\n"
+        },
+        {
+          "before_offset": 5481,
+          "after_offset": 3643,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).flow(world, x, y, z, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).flow(world, x, y, z, side, stack);\n"
+        },
+        {
+          "before_offset": 5785,
+          "after_offset": 3961,
+          "old": "\t\tBlock b = world.getBlock(x + dir.offsetX, y, z + dir.offsetZ);\n\t\tint meta = world.getBlockMetadata(x + dir.offsetX, y, z + dir.offsetZ);\n",
+          "new": "\t\tBlock b = world.getBlockState(new BlockPos(x + dir.offsetX, y, z + dir.offsetZ)).getBlock();\n\t\tint meta = world.getBlockState(new BlockPos(x + dir.offsetX, y, z + dir.offsetZ)).getBlock().getMetaFromState(world.getBlockState(new BlockPos(x + dir.offsetX, y, z + dir.offsetZ)));\n"
+        },
+        {
+          "before_offset": 6115,
+          "after_offset": 4432,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\n\n\n\n\n\n"
+        },
+        {
+          "before_offset": 6203,
+          "after_offset": 4450,
+          "old": "\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 6582,
+          "after_offset": 4712,
+          "old": "\t\tTileEntityFoundryChannel cast = (TileEntityFoundryChannel) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryChannel cast = (TileEntityFoundryChannel) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6674,
+          "after_offset": 4818,
+          "old": "\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem().getItem()).getToolClasses(player.getHeldItem()).contains(\"shovel\")) {\n",
+          "new": "\t\tif(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem(hand).getItem()).getToolClasses(player.getHeldItem(hand)).contains(\"shovel\")) {\n"
+        },
+        {
+          "before_offset": 7036,
+          "after_offset": 5199,
+          "old": "\t\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, scrap);\n\t\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 7298,
+          "after_offset": 5532,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 7394,
+          "after_offset": 5637,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block b, int i) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 7471,
+          "after_offset": 5758,
+          "old": "\t\tTileEntityFoundryChannel channel = (TileEntityFoundryChannel) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryChannel channel = (TileEntityFoundryChannel) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 7681,
+          "after_offset": 5982,
+          "old": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, scrap);\n\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 7828,
+          "after_offset": 6200,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, b, i);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 7970,
+          "after_offset": 6339,
+          "old": "\t\tpublic FoundryNode(INetworkProvider<FoundryNetwork> provider, BlockPos... positions) {\n",
+          "new": "\t\tpublic FoundryNode(INetworkProvider<FoundryNetwork> provider, com.hbm.util.fauxpointtwelve.BlockPos... positions) {\n"
+        },
+        {
+          "before_offset": 8231,
+          "after_offset": 6629,
+          "old": "",
+          "new": "\n\t@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        int x=pos.getX(), y=pos.getY(), z=pos.getZ();\n        return new AxisAlignedBB(canConnectTo(world,x,y,z,Library.NEG_X)?0:.3125,0,canConnectTo(world,x,y,z,Library.NEG_Z)?0:.3125,canConnectTo(world,x,y,z,Library.POS_X)?1:.6875,.5,canConnectTo(world,x,y,z,Library.POS_Z)?1:.6875);\n    }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundryTank.java": {
+      "before_sha256": "72a85468d01a847240b2363fc64bbc480bdf0b223435be3886a23ceeae69026f",
+      "after_sha256": "31a6754568874cc5249d64dc46a58b8d9a54dcd04458c0950b35771e9fbe1548",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.util.EnumHand;\n"
+        },
+        {
+          "before_offset": 128,
+          "after_offset": 164,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 257,
+          "after_offset": 262,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 454,
+          "after_offset": 394,
+          "old": "import net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 589,
+          "after_offset": 440,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 921,
+          "after_offset": 730,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1066,
+          "after_offset": 841,
+          "old": "public class FoundryTank extends BlockContainer implements ICrucibleAcceptor {\n",
+          "new": "public class FoundryTank extends FoundryBlock implements ICrucibleAcceptor {\n"
+        },
+        {
+          "before_offset": 1146,
+          "after_offset": 919,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconSide;\n\t@SideOnly(Side.CLIENT) public IIcon iconSideOutlet;\n\t@SideOnly(Side.CLIENT) public IIcon iconSideUpper;\n\t@SideOnly(Side.CLIENT) public IIcon iconSideUpperOutlet;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n\t@SideOnly(Side.CLIENT) public IIcon iconLava;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1571,
+          "after_offset": 944,
+          "old": "\t\tsuper(Material.rock);\n",
+          "new": "\t\tsuper();\n"
+        },
+        {
+          "before_offset": 1600,
+          "after_offset": 960,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_side\");\n\t\tthis.iconSideOutlet = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_side_outlet\");\n\t\tthis.iconSideUpper = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_upper\");\n\t\tthis.iconSideUpperOutlet = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_upper_outlet\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_bottom\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":foundry_tank_inner\");\n\t\tthis.iconLava = iconRegister.registerIcon(RefStrings.MODID + \":lava_gray\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2465,
+          "after_offset": 961,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\treturn true;\n\t}\n",
+          "new": "\n\n\n    /** The native damage TESR owns housing and molten faces together. */\n    @Override public boolean hasCustomBreakingProgress(IBlockState state) { return true; }\n"
+        },
+        {
+          "before_offset": 2874,
+          "after_offset": 1406,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialPour(world, x, y, z, dX, dY, dZ, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialPour(world, x, y, z, dX, dY, dZ, side, stack);\n"
+        },
+        {
+          "before_offset": 3150,
+          "after_offset": 1696,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).pour(world, x, y, z, dX, dY, dZ, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).pour(world, x, y, z, dX, dY, dZ, side, stack);\n"
+        },
+        {
+          "before_offset": 3534,
+          "after_offset": 2094,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3611,
+          "after_offset": 2095,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "\n\t\n\n\t\n\n"
+        },
+        {
+          "before_offset": 3687,
+          "after_offset": 2115,
+          "old": "\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 4006,
+          "after_offset": 2379,
+          "old": "\t\tTileEntityFoundryTank cast = (TileEntityFoundryTank) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryTank cast = (TileEntityFoundryTank) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4094,
+          "after_offset": 2481,
+          "old": "\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem().getItem()).getToolClasses(player.getHeldItem()).contains(\"shovel\")) {\n",
+          "new": "\t\tif(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem(hand).getItem()).getToolClasses(player.getHeldItem(hand)).contains(\"shovel\")) {\n"
+        },
+        {
+          "before_offset": 4456,
+          "after_offset": 2862,
+          "old": "\t\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, scrap);\n\t\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 4718,
+          "after_offset": 3195,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4816,
+          "after_offset": 3302,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block b, int i) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 4895,
+          "after_offset": 3425,
+          "old": "\t\tTileEntityFoundryTank tank = (TileEntityFoundryTank) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryTank tank = (TileEntityFoundryTank) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5087,
+          "after_offset": 3631,
+          "old": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y + getBoundingBox(world.getBlockState(new BlockPos(x,y,z)),world,new BlockPos(x,y,z)).maxY, z + 0.5, scrap);\n\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 5233,
+          "after_offset": 3848,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, b, i);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundryOutlet.java": {
+      "before_sha256": "3b73b06e855083d1705feb7da5c753fb789fc25a849a2e4b90b0fc334ebeeaed",
+      "after_sha256": "c14cfcea40ff08dc0133e133158e82b9af8a01d1b2cd8331b437263e5e6d45a3",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 247,
+          "after_offset": 408,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 445,
+          "after_offset": 575,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 608,
+          "after_offset": 673,
+          "old": "import net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\nimport com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1044,
+          "after_offset": 978,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1299,
+          "after_offset": 1199,
+          "old": "public class FoundryOutlet extends BlockContainer implements ICrucibleAcceptor, ILookOverlay, IToolable {\n",
+          "new": "public class FoundryOutlet extends FoundryBlock implements ICrucibleAcceptor, ILookOverlay, IToolable {\n"
+        },
+        {
+          "before_offset": 1406,
+          "after_offset": 1304,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTop;\n\t@SideOnly(Side.CLIENT) public IIcon iconSide;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n\t@SideOnly(Side.CLIENT) public IIcon iconFront;\n\t@SideOnly(Side.CLIENT) public IIcon iconLock;\n\t@SideOnly(Side.CLIENT) public IIcon iconFilter;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1767,
+          "after_offset": 1331,
+          "old": "\t\tsuper(Material.rock);\n",
+          "new": "\t\tsuper();\n"
+        },
+        {
+          "before_offset": 1796,
+          "after_offset": 1347,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_side\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_bottom\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_inner\");\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_front\");\n\t\tthis.iconLock = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_lock\");\n\t\tthis.iconFilter = iconRegister.registerIcon(RefStrings.MODID + \":foundry_outlet_filter\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2565,
+          "after_offset": 1348,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\treturn true;\n\t}\n",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 2710,
+          "after_offset": 1363,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n"
+        },
+        {
+          "before_offset": 2904,
+          "after_offset": 1610,
+          "old": "\t\tif(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\tif(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\tif(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\tif(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\t\tif(i == 0) world.setBlockState(pos, getStateFromMeta(2), 2);\n\t\tif(i == 1) world.setBlockState(pos, getStateFromMeta(5), 2);\n\t\tif(i == 2) world.setBlockState(pos, getStateFromMeta(3), 2);\n\t\tif(i == 3) world.setBlockState(pos, getStateFromMeta(4), 2);\n"
+        },
+        {
+          "before_offset": 3286,
+          "after_offset": 1996,
+          "old": "\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n",
+          "new": "\tpublic void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBounding, List<AxisAlignedBB> list, Entity entity, boolean actualState) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 3447,
+          "after_offset": 2251,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));\n"
+        },
+        {
+          "before_offset": 3494,
+          "after_offset": 2327,
+          "old": "\t\tif(meta == 4) aabb = AxisAlignedBB.getBoundingBox(x + 0.625D, y, z + 0.3125D, x + 1D, y + 0.5D, z + 0.6875D);\n\t\tif(meta == 5) aabb = AxisAlignedBB.getBoundingBox(x + 0D, y, z + 0.3125D, x + 0.375D, y + 0.5D, z + 0.6875D);\n\t\tif(meta == 2) aabb = AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z + 0.625D, x + 0.6875D, y + 0.5D, z + 1D);\n\t\tif(meta == 3) aabb = AxisAlignedBB.getBoundingBox(x + 0.3125D, y, z + 0D, x + 0.6875D, y + 0.5D, z + 0.375D);\n",
+          "new": "\t\tif(meta == 4) aabb = new AxisAlignedBB(x + 0.625D, y, z + 0.3125D, x + 1D, y + 0.5D, z + 0.6875D);\n\t\tif(meta == 5) aabb = new AxisAlignedBB(x + 0D, y, z + 0.3125D, x + 0.375D, y + 0.5D, z + 0.6875D);\n\t\tif(meta == 2) aabb = new AxisAlignedBB(x + 0.3125D, y, z + 0.625D, x + 0.6875D, y + 0.5D, z + 1D);\n\t\tif(meta == 3) aabb = new AxisAlignedBB(x + 0.3125D, y, z + 0D, x + 0.6875D, y + 0.5D, z + 0.375D);\n"
+        },
+        {
+          "before_offset": 3945,
+          "after_offset": 2734,
+          "old": "\t\tif(aabb != null && entityBounding.intersectsWith(aabb)) {\n",
+          "new": "\t\tif(aabb != null && entityBounding.intersects(aabb)) {\n"
+        },
+        {
+          "before_offset": 4032,
+          "after_offset": 2817,
+          "old": "\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4312,
+          "after_offset": 2818,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4615,
+          "after_offset": 2819,
+          "old": "\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4710,
+          "after_offset": 2820,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tif(meta == 4) this.setBlockBounds(0.625F, 0F, 0.3125F, 1F, 0.5F, 0.6875F);\n\t\tif(meta == 5) this.setBlockBounds(0F, 0F, 0.3125F, 0.375F, 0.5F, 0.6875F);\n\t\tif(meta == 2) this.setBlockBounds(0.3125F, 0F, 0.625F, 0.6875F, 0.5F, 1F);\n\t\tif(meta == 3) this.setBlockBounds(0.3125F, 0F, 0F, 0.6875F, 0.5F, 0.375F);\n\t}\n",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 5080,
+          "after_offset": 2835,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tint x=pos.getX(), y=pos.getY(), z=pos.getZ();\n"
+        },
+        {
+          "before_offset": 5291,
+          "after_offset": 3128,
+          "old": "\t\t\tTileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5385,
+          "after_offset": 3236,
+          "old": "\t\t\tif(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.scraps) {\n\t\t\t\tMaterialStack mat = ItemScraps.getMats(player.getHeldItem());\n",
+          "new": "\t\t\tif(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() == ModItems.scraps) {\n\t\t\t\tMaterialStack mat = ItemScraps.getMats(player.getHeldItem(hand));\n"
+        },
+        {
+          "before_offset": 5689,
+          "after_offset": 3555,
+          "old": "\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5976,
+          "after_offset": 3851,
+          "old": "\t\t\tTileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6140,
+          "after_offset": 4029,
+          "old": "\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6257,
+          "after_offset": 4155,
+          "old": "\t\t\tTileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityFoundryOutlet tile = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6411,
+          "after_offset": 4323,
+          "old": "\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\tnotifyChange(world, new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6941,
+          "after_offset": 4862,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).canAcceptPartialFlow(world, x, y, z, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).canAcceptPartialFlow(world, x, y, z, side, stack);\n"
+        },
+        {
+          "before_offset": 7173,
+          "after_offset": 5108,
+          "old": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(x, y, z)).flow(world, x, y, z, side, stack);\n",
+          "new": "\t\treturn ((ICrucibleAcceptor) world.getTileEntity(new BlockPos(x, y, z))).flow(world, x, y, z, side, stack);\n"
+        },
+        {
+          "before_offset": 7272,
+          "after_offset": 5221,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 7349,
+          "after_offset": 5222,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 7414,
+          "after_offset": 5225,
+          "old": "\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 7479,
+          "after_offset": 5228,
+          "old": "\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 7631,
+          "after_offset": 5311,
+          "old": "\t\tTileEntityFoundryOutlet outlet = (TileEntityFoundryOutlet) world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntityFoundryOutlet outlet = (TileEntityFoundryOutlet) world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 8129,
+          "after_offset": 5823,
+          "old": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getUnlocalizedName() + \".name\"), 0xFF4000, 0x401000, text);\n",
+          "new": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getTranslationKey() + \".name\"), 0xFF4000, 0x401000, text);\n"
+        },
+        {
+          "before_offset": 8252,
+          "after_offset": 5945,
+          "old": "",
+          "new": "\n\t@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        switch(getMetaFromState(state)) {\n        case 4:return new AxisAlignedBB(.625,0,.3125,1,.5,.6875);\n        case 5:return new AxisAlignedBB(0,0,.3125,.375,.5,.6875);\n        case 2:return new AxisAlignedBB(.3125,0,.625,.6875,.5,1);\n        case 3:return new AxisAlignedBB(.3125,0,0,.6875,.5,.375);\n        default:return FULL_BLOCK_AABB;\n        }\n    }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return getBoundingBox(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FoundrySlagtap.java": {
+      "before_sha256": "42462872a43b8ad8062a4693031854a46e3dfca407893a1e94fed47f4f5c6dea",
+      "after_sha256": "8cdeec71794abc62d0306b68d000c68be50e0b3996a18cf51ebd9583749b8552",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": "import net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 223,
+          "after_offset": 353,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 398,
+          "after_offset": 486,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":foundry_slagtap_top\");\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":foundry_slagtap_side\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":foundry_slagtap_bottom\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":foundry_slagtap_inner\");\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + \":foundry_slagtap_front\");\n\t}\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFoundry.java": {
+      "before_sha256": "5b6373a6f100815d60497024583aa5204437ce6cdf196be9c0739023ab3ae6d5",
+      "after_sha256": "06d8765f1ae05f093a0dac69e66b3fa81768b8ffaf9e4b7393a005bbe0130c3c",
+      "edits": [
+        {
+          "before_offset": 59,
+          "after_offset": 59,
+          "old": "\nimport org.lwjgl.opengl.GL11;\n\n",
+          "new": "import java.util.List;\n"
+        },
+        {
+          "before_offset": 122,
+          "after_offset": 113,
+          "old": "",
+          "new": "import com.hbm.render.item.nativeitem.context.NativeProjectionScope;\nimport com.hbm.render.util.RenderDecoItem;\n"
+        },
+        {
+          "before_offset": 252,
+          "after_offset": 355,
+          "old": "\n",
+          "new": ""
+        },
+        {
+          "before_offset": 287,
+          "after_offset": 389,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 326,
+          "after_offset": 474,
+          "old": "import net.minecraft.client.renderer.OpenGlHelper;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.RenderHelper;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": "import net.minecraft.client.renderer.*;\nimport net.minecraft.client.renderer.block.model.*;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 717,
+          "after_offset": 763,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 919,
+          "after_offset": 1031,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 997,
+          "after_offset": 1113,
+          "old": "import net.minecraftforge.client.ForgeHooksClient;\n",
+          "new": "import org.lwjgl.opengl.GL11;\n"
+        },
+        {
+          "before_offset": 1049,
+          "after_offset": 1144,
+          "old": "public class RenderFoundry extends TileEntitySpecialRenderer implements ITileActorRenderer {\n\t\n\tpublic static final ResourceLocation lava = new ResourceLocation(RefStrings.MODID, \"textures/models/machines/lava_gray.png\");\n\t\n\tprivate void drawItem(ItemStack stack, double height) {\n\t\tGL11.glPushMatrix();\n\t\tRenderItem render = new RenderItem();\n\t\tGL11.glTranslated(0.125D, height, 0.125D);\n\t\t\n\t\tdouble scale = 0.0625D * 12D / 16D;\n\t\tGL11.glScaled(scale, scale, scale);\n\t\t\n\t\tGL11.glRotated(90, 1, 0, 0);\n\t\tRenderHelper.enableGUIStandardItemLighting();\n\t\tif(!ForgeHooksClient.renderInventoryItem(RenderBlocks.getInstance(), Minecraft.getMinecraft().getTextureManager(), stack, true, 0.0F, 1.0F, 0.0F)) {\n\t\t\trender.renderItemIntoGUI(Minecraft.getMinecraft().fontRenderer, Minecraft.getMinecraft().getTextureManager(), stack, 0, 0);\n\t\t}\n\t\tGL11.glPopMatrix();\n\t\tRenderHelper.enableStandardItemLighting();\n\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\t}\n\t\n\tprivate void drawBlock(ItemStack stack, IRenderFoundry foundry) {\n\t\tTessellator tess = Tessellator.instance;\n\t\tBlock b = ((ItemBlock)stack.getItem()).field_150939_a;\n\t\tIIcon icon = b.getIcon(1, stack.getItemDamage());\n\t\tITileActorRenderer.bindTexture(TextureMap.locationBlocksTexture);\n\t\t\n\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0F, 1F, 0F);\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.3F);\n\t\tdouble h = foundry.outHeight();\n\t\ttess.addVertexWithUV(foundry.minX(), h, foundry.minZ(), icon.getMinU(), icon.getMaxV());\n\t\ttess.addVertexWithUV(foundry.minX(), h, foundry.maxZ(), icon.getMaxU(), icon.getMaxV());\n\t\ttess.addVertexWithUV(foundry.maxX(), h, foundry.maxZ(), icon.getMaxU(), icon.getMinV());\n\t\ttess.addVertexWithUV(foundry.maxX(), h, foundry.minZ(), icon.getMinU(), icon.getMinV());\n\t\ttess.draw();\n\t}\n\n\t@Override\n\tpublic void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {\n\t\tIRenderFoundry foundry = (IRenderFoundry) tile;\n\t\tTessellator tess = Tessellator.instance;\n\t\t\n\t\tGL11.glPushMatrix();\n\t\tGL11.glTranslated(x, y, z);\n\t\t\n\t\tif(foundry instanceof IInventory) {\n\t\t\tIInventory inv = (IInventory) foundry;\n\t\t\tItemStack mold = inv.getStackInSlot(0);\n\t\t\t\n\t\t\tif(mold != null) {\n\t\t\t\tdrawItem(mold, foundry.moldHeight());\n\t\t\t}\n\t\t\tItemStack out = inv.getStackInSlot(1);\n\t\t\t\n\t\t\tif(out != null) {\n\t\t\t\tif(out.getItem() instanceof ItemBlock) {\n\t\t\t\t\tdrawBlock(out, foundry);\n\t\t\t\t} else {\n\t\t\t\t\tdrawItem(out, foundry.outHeight());\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(foundry.shouldRender()) {\n\t\t\t\n\t\t\tITileActorRenderer.bindTexture(lava);\n\t\t\t\n\t\t\tint hex = foundry.getMat().moltenColor;\n\t\t\tColor color = new Color(hex);\n\t\n\t\t\tGL11.glPushMatrix();\n\t\t\tGL11.glPushAttrib(GL11.GL_LIGHTING_BIT);\n\t\n\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n\t\t\tOpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240F, 240F);\n\t\n\t\t\ttess.startDrawingQuads();\n\t\t\ttess.setNormal(0F, 1F, 0F);\n\t\t\ttess.setColorRGBA_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, 1F);\n\t\t\ttess.addVertexWithUV(foundry.minX(), foundry.getLevel(), foundry.minZ(), foundry.minZ(), foundry.maxX());\n\t\t\ttess.addVertexWithUV(foundry.minX(), foundry.getLevel(), foundry.maxZ(), foundry.maxZ(), foundry.maxX());\n\t\t\ttess.addVertexWithUV(foundry.maxX(), foundry.getLevel(), foundry.maxZ(), foundry.maxZ(), foundry.minX());\n\t\t\ttess.addVertexWithUV(foundry.maxX(), foundry.getLevel(), foundry.minZ(), foundry.minZ(), foundry.minX());\n\t\t\ttess.draw();\n\t\t\t\n\t\t\tGL11.glDepthMask(false);\n\t\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);\n\t\t\ttess.startDrawingQuads();\n\t\t\ttess.setNormal(0F, 1F, 0F);\n\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.3F);\n\t\t\ttess.addVertexWithUV(foundry.minX(), foundry.getLevel(), foundry.minZ(), foundry.minZ(), foundry.maxX());\n\t\t\ttess.addVertexWithUV(foundry.minX(), foundry.getLevel(), foundry.maxZ(), foundry.maxZ(), foundry.maxX());\n\t\t\ttess.addVertexWithUV(foundry.maxX(), foundry.getLevel(), foundry.maxZ(), foundry.maxZ(), foundry.minX());\n\t\t\ttess.addVertexWithUV(foundry.maxX(), foundry.getLevel(), foundry.minZ(), foundry.minZ(), foundry.minX());\n\t\t\ttess.draw();\n\t\t\t\n\t\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\t\tGL11.glPopAttrib();\n\t\t\tGL11.glPopMatrix();\n\t\t\t\n\t\t\tGL11.glDepthMask(true);\n\t\t}\n\t\t\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic void renderActor(WorldInAJar world, int ticks, float interp, NBTTagCompound data) {\n\t\tint x = data.getInteger(\"x\");\n\t\tint y = data.getInteger(\"y\");\n\t\tint z = data.getInteger(\"z\");\n\t\trenderTileEntityAt(world.getTileEntity(x, y, z), x, y, z, interp);\n\t}\n\n\t@Override\n\tpublic void updateActor(int ticks, NBTTagCompound data) { }\n",
+          "new": "/** Native basin/mold TESR. Original item, output-top and two molten passes remain distinct. */\npublic class RenderFoundry extends TileEntitySpecialRenderer<TileEntity> implements ITileActorRenderer {\n    private final RenderDecoItem itemRenderer=new RenderDecoItem();\n    private static final java.util.Set<Block> NO_TOP_WARNED=java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Block,Boolean>());\n    public static final ResourceLocation lava=new ResourceLocation(RefStrings.MODID,\"textures/models/machines/lava_gray.png\");\n    private void drawItem(ItemStack stack,double height) {\n        try(NativeProjectionScope scope=new NativeProjectionScope()) {\n            GlStateManager.translate(.125D,height,.125D);\n            double scale=.0625D*12D/16D;GlStateManager.scale(scale,scale,scale);GlStateManager.rotate(90,1,0,0);\n            RenderHelper.enableGUIStandardItemLighting();\n            Minecraft mc=Minecraft.getMinecraft();RenderItem renderer=mc.getRenderItem();\n            IBakedModel selected=renderer.getItemModelWithOverrides(stack,null,null);\n            AtlasFilterState filters=new AtlasFilterState(mc.getTextureManager());\n            float previous=renderer.zLevel;renderer.zLevel=0;\n            try {\n                // Original Forge custom callback won; the ordinary fallback was the no-effect GUI entry.\n                if(selected.isBuiltInRenderer())renderer.renderItemIntoGUI(stack,1,0);\n                else itemRenderer.renderGui(stack,0,0,false,false);\n            } finally { renderer.zLevel=previous;filters.restore(); }\n        }\n        RenderHelper.enableStandardItemLighting();GlStateManager.enableAlpha();\n    }\n    /** Vanilla GUI methods do not restore these native object caches when a custom draw throws. */\n    private static final class AtlasFilterState {\n        private static final java.lang.reflect.Field[] FIELDS={\n            net.minecraftforge.fml.relauncher.ReflectionHelper.findField(net.minecraft.client.renderer.texture.AbstractTexture.class,\"blur\",\"field_174940_b\"),\n            net.minecraftforge.fml.relauncher.ReflectionHelper.findField(net.minecraft.client.renderer.texture.AbstractTexture.class,\"mipmap\",\"field_174941_c\"),\n            net.minecraftforge.fml.relauncher.ReflectionHelper.findField(net.minecraft.client.renderer.texture.AbstractTexture.class,\"blurLast\",\"field_174938_d\"),\n            net.minecraftforge.fml.relauncher.ReflectionHelper.findField(net.minecraft.client.renderer.texture.AbstractTexture.class,\"mipmapLast\",\"field_174939_e\")};\n        private final net.minecraft.client.renderer.texture.AbstractTexture texture;\n        private final boolean[] values=new boolean[4];\n        AtlasFilterState(net.minecraft.client.renderer.texture.TextureManager manager) {\n            net.minecraft.client.renderer.texture.ITextureObject atlas=manager.getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n            texture=atlas instanceof net.minecraft.client.renderer.texture.AbstractTexture?(net.minecraft.client.renderer.texture.AbstractTexture)atlas:null;\n            try { if(texture!=null)for(int i=0;i<4;i++)values[i]=FIELDS[i].getBoolean(texture); }\n            catch(IllegalAccessException e){throw new AssertionError(e);}\n        }\n        void restore() {\n            if(texture==null)return;\n            int previous=GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);\n            GlStateManager.bindTexture(texture.getGlTextureId());texture.setBlurMipmapDirect(values[0],values[1]);\n            try { for(int i=2;i<4;i++)FIELDS[i].setBoolean(texture,values[i]); }\n            catch(IllegalAccessException e){throw new AssertionError(e);}\n            finally { GlStateManager.bindTexture(previous); }\n        }\n    }\n    /** Select an actual upward native model surface, never a particle-icon replacement. */\n    static TextureAtlasSprite topSprite(ItemStack stack) {\n        Block block=((ItemBlock)stack.getItem()).getBlock();IBlockState state=block.getStateFromMeta(stack.getMetadata());\n        IBakedModel model=Minecraft.getMinecraft().getBlockRendererDispatcher().getModelForState(state);\n        List<BakedQuad> top=model.getQuads(state,EnumFacing.UP,0);\n        if(!top.isEmpty())return top.get(0).getSprite();\n        double highest=-Double.MAX_VALUE;TextureAtlasSprite sprite=null;\n        for(BakedQuad quad:model.getQuads(state,null,0)) {\n            int[] data=quad.getVertexData();int stride=quad.getFormat().getIntegerSize();\n            float y=Float.intBitsToFloat(data[1]);boolean plane=true;for(int v=1;v<4;v++)plane&=Float.intBitsToFloat(data[v*stride+1])==y;\n            double ax=Float.intBitsToFloat(data[stride])-Float.intBitsToFloat(data[0]),az=Float.intBitsToFloat(data[stride+2])-Float.intBitsToFloat(data[2]);\n            double bx=Float.intBitsToFloat(data[2*stride])-Float.intBitsToFloat(data[0]),bz=Float.intBitsToFloat(data[2*stride+2])-Float.intBitsToFloat(data[2]);\n            if(plane&&az*bx-ax*bz>0&&y>highest){highest=y;sprite=quad.getSprite();}\n        }\n        return sprite;\n    }\n    private void drawBlock(ItemStack stack,IRenderFoundry foundry) {\n        TextureAtlasSprite icon=topSprite(stack);\n        if(icon==null) {\n            Block block=((ItemBlock)stack.getItem()).getBlock();\n            if(NO_TOP_WARNED.add(block))org.apache.logging.log4j.LogManager.getLogger(\"hbm-foundry\").warn(\n                    \"Foundry output {} has no upward native surface; rendering its actual item instead of the legacy flat top. Recipes and stack contents are unchanged.\",block.getRegistryName());\n            drawItem(stack,foundry.outHeight());return;\n        }\n        Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n        BufferBuilder b=Tessellator.getInstance().getBuffer();b.begin(GL11.GL_QUADS,DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n        double h=foundry.outHeight();\n        vertex(b,foundry.minX(),h,foundry.minZ(),icon.getMinU(),icon.getMaxV(),1,1,1,.3F);\n        vertex(b,foundry.minX(),h,foundry.maxZ(),icon.getMaxU(),icon.getMaxV(),1,1,1,.3F);\n        vertex(b,foundry.maxX(),h,foundry.maxZ(),icon.getMaxU(),icon.getMinV(),1,1,1,.3F);\n        vertex(b,foundry.maxX(),h,foundry.minZ(),icon.getMinU(),icon.getMinV(),1,1,1,.3F);\n        Tessellator.getInstance().draw();\n    }\n    private static void vertex(BufferBuilder b,double x,double y,double z,double u,double v,float r,float g,float blue,float alpha) {\n        b.pos(x,y,z).tex(u,v).color((int)(r*255),(int)(g*255),(int)(blue*255),(int)(alpha*255)).normal(0,1,0).endVertex();\n    }\n    private static void molten(IRenderFoundry foundry,float r,float g,float blue,float alpha) {\n        BufferBuilder b=Tessellator.getInstance().getBuffer();b.begin(GL11.GL_QUADS,DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n        vertex(b,foundry.minX(),foundry.getLevel(),foundry.minZ(),foundry.minZ(),foundry.maxX(),r,g,blue,alpha);\n        vertex(b,foundry.minX(),foundry.getLevel(),foundry.maxZ(),foundry.maxZ(),foundry.maxX(),r,g,blue,alpha);\n        vertex(b,foundry.maxX(),foundry.getLevel(),foundry.maxZ(),foundry.maxZ(),foundry.minX(),r,g,blue,alpha);\n        vertex(b,foundry.maxX(),foundry.getLevel(),foundry.minZ(),foundry.minZ(),foundry.minX(),r,g,blue,alpha);\n        Tessellator.getInstance().draw();\n    }\n    @Override public void render(TileEntity tile,double x,double y,double z,float partial,int destroyStage,float alpha) {\n        IRenderFoundry foundry=(IRenderFoundry)tile;\n        try(NativeProjectionScope scope=new NativeProjectionScope()) {\n            GlStateManager.translate(x,y,z);\n            if(foundry instanceof IInventory) {\n                IInventory inventory=(IInventory)foundry;ItemStack mold=inventory.getStackInSlot(0);\n                if(!mold.isEmpty())drawItem(mold,foundry.moldHeight());\n                ItemStack output=inventory.getStackInSlot(1);\n                if(!output.isEmpty()) { if(output.getItem() instanceof ItemBlock)drawBlock(output,foundry);else drawItem(output,foundry.outHeight()); }\n            }\n            if(foundry.shouldRender()) {\n                Minecraft.getMinecraft().getTextureManager().bindTexture(lava);Color color=new Color(foundry.getMat().moltenColor);\n                GlStateManager.disableLighting();GlStateManager.disableCull();OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit,240,240);\n                molten(foundry,color.getRed()/255F,color.getGreen()/255F,color.getBlue()/255F,1);\n                GlStateManager.depthMask(false);GlStateManager.enableBlend();GlStateManager.blendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE);\n                molten(foundry,1,1,1,.3F);\n                GlStateManager.disableBlend();GlStateManager.enableLighting();GlStateManager.depthMask(true);\n            }\n        }\n    }\n    @Override public void renderActor(WorldInAJar world,int ticks,float partial,NBTTagCompound data) {\n        int x=data.getInteger(\"x\"),y=data.getInteger(\"y\"),z=data.getInteger(\"z\");render(world.getTileEntity(x,y,z),x,y,z,partial,-1,1);\n    }\n    @Override public void updateActor(int ticks,NBTTagCompound data) { }\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/machine/SpotlightModelState.java": "db071e8235b77d0ea29a2454e9b53680a04d4f23ca2f8e027d04431a1896d37e",
+    "src/main/java/com/hbm/render/block/nativeblock/SpotlightGeometry.java": "9e08e8db19560aa0fb35c08e01c1ac993e730e31996aa0433425c5f94a4c04b6",
+    "src/main/java/com/hbm/render/block/nativeblock/SpotlightBakedModel.java": "e283a2242fe3d914848a819a1fa3cb3ac3fc5e08e548073bb2a9f1512c82696f",
+    "src/main/java/com/hbm/main/SpotlightBlockModelHandler.java": "3928fbb025023c11b796f20ef03e5e8fe3fd831d142ed7cbf0717412aeff5935",
+    "src/main/resources/assets/hbm/blockstates/tile.spotlight_incandescent.json": "4ab1a6cc74e1ea2f7ec7b3f527a083bafa07773aa725da8c0e052c9eb18d31d9",
+    "src/main/resources/assets/hbm/blockstates/tile.spotlight_incandescent_off.json": "38121d899f60c98dd301643dbfe40bc49f4fab0b47432e60dea7d41a8b5a8c2e",
+    "src/main/resources/assets/hbm/blockstates/tile.spotlight_fluoro.json": "c08e4c36610b8c26a7cb0f2f4cadf8825f2e20203a09ff35497e1dcc5123bb33",
+    "src/main/resources/assets/hbm/blockstates/tile.spotlight_fluoro_off.json": "63d57a4b8d0d1fa5ab399502135b9ca5a21bd02d9421d0038852f34c72ffc104",
+    "src/main/resources/assets/hbm/blockstates/tile.spotlight_halogen.json": "a4fd6b0d7b1bc08aa79b4f4bd96b3fd5e41e0e508b15ee42900b763159993321",
+    "src/main/resources/assets/hbm/blockstates/tile.spotlight_halogen_off.json": "ca15c1b7c380c4cf6aa64c79172f922cbcf738fa1420fa44f0ebd9afee2b92ff",
+    "src/main/java/com/hbm/blocks/machine/FoundryBlock.java": "c934f636a7a742b85ba41d0b529d8f792bfebe518aa019a313a75276e3f031be",
+    "src/main/java/com/hbm/blocks/machine/FoundryModelState.java": "61dce1fab1a16e2dcaeb89d3bd332e6b775d457435fb732612b3925ca1856792",
+    "src/main/java/com/hbm/render/block/nativeblock/FoundryGeometry.java": "2ded98a4fa009e6fd91bfea4ecc2d333ff710ff49e9c5bab7f89eead7d878754",
+    "src/main/java/com/hbm/render/block/nativeblock/FoundryMaterials.java": "ca5f8d4092dc5737ee1a8d9f7176de246c01492db4e9f5033972fc1c7c3a6fe3",
+    "src/main/java/com/hbm/render/block/nativeblock/FoundryBakedModel.java": "0f15022e4b8311a3698b79c451d3c8aa9b5fd33086631710b89aa3555582ffbd",
+    "src/main/java/com/hbm/main/FoundryBlockModelHandler.java": "5172a169227e8c591b4dda6daf9f60a7b46fff6f6fbfba3e8c1e6000a843a32a",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_basin.json": "3902482376641626df56b5719be7d70506d9d4f91db4060600ab42322b15fe01",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_mold.json": "8e37e15cd46d874610f9963b2468429379cf1c5cf71dd1cc972043b805ed8176",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_channel.json": "a94ef917d5dcb93752eb80f6e7ee063b2197f57e194bbd4d450de834bf58aa70",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_tank.json": "e745bab833348d00232f5aab2043a06c1ac3e4a53d14ea2ec3539fc65d3ea421",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_outlet.json": "e06a6f51697997ab17c7dad56ba7c68ebdcf5d86c7c6d50e4749ab974b4dcd5e",
+    "src/main/resources/assets/hbm/blockstates/tile.foundry_slagtap.json": "edd39777368c6b3c5d805ee88534e509dc56de3d657ec40de1acb9712f99e5c3",
+    "src/main/java/com/hbm/render/tileentity/RenderFoundryFluid.java": "6342d1bf8f6138cd7a862a6c4f813de3e731cb41a0afc8a2a7e9886d70e93d11"
+  },
+  "deleted_files": {
+    "src/main/java/com/hbm/render/block/RenderFoundryBasin.java": {
+      "before_sha256": "0cd02338ecb2a83027a39491b715895cb02ffb29ccdf268e3309e0923aa3bd9b",
+      "original": "package com.hbm.render.block;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.machine.FoundryBasin;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.EntityRenderer;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderFoundryBasin implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tFoundryBasin basin = (FoundryBasin) block;\n\t\tdouble x = 0;\n\t\tdouble y = 0;\n\t\tdouble z = 0;\n\t\t\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, basin.iconTop);\n\t\trenderer.renderFaceYPos(block, x, y - 0.875D, z, basin.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, basin.iconBottom);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXPos(block, x - 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXNeg(block, x + 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZPos(block, x, y, z - 0.875D, basin.iconInner);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZNeg(block, x, y, z + 0.875D, basin.iconInner);\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\tfloat mulBottom = 0.5F;\n\t\tfloat mulTop = 1.0F;\n\t\tfloat mulZ = 0.8F;\n\t\tfloat mulX = 0.6F;\n\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttessellator.setBrightness(brightness);\n\n\t\tif(EntityRenderer.anaglyphEnable) {\n\t\t\tfloat aR = (r * 30.0F + g * 59.0F + b * 11.0F) / 100.0F;\n\t\t\tfloat aG = (r * 30.0F + g * 70.0F) / 100.0F;\n\t\t\tfloat aB = (r * 30.0F + b * 70.0F) / 100.0F;\n\t\t\tr = aR;\n\t\t\tg = aG;\n\t\t\tb = aB;\n\t\t}\n\t\t\n\t\tFoundryBasin basin = (FoundryBasin) block;\n\n\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\trenderer.renderFaceYPos(block, x, y, z, basin.iconTop);\n\t\trenderer.renderFaceYPos(block, x, y - 0.875D, z, basin.iconBottom);\n\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\trenderer.renderFaceYNeg(block, x, y, z, basin.iconBottom);\n\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\trenderer.renderFaceXPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXPos(block, x - 0.875D, y, z, basin.iconInner);\n\t\trenderer.renderFaceXNeg(block, x + 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\trenderer.renderFaceZPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZPos(block, x, y, z - 0.875D, basin.iconInner);\n\t\trenderer.renderFaceZNeg(block, x, y, z + 0.875D, basin.iconInner);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FoundryBasin.renderID;\n\t}\n}\n"
+    },
+    "src/main/java/com/hbm/render/block/RenderFoundryMold.java": {
+      "before_sha256": "9af2ddb81837f6691f4717f3c1dbae5414aaa9bdb69f24b5aa8178fdf51e98a3",
+      "original": "package com.hbm.render.block;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.machine.FoundryMold;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.EntityRenderer;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderFoundryMold implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tFoundryMold basin = (FoundryMold) block;\n\t\tdouble x = 0;\n\t\tdouble y = 0;\n\t\tdouble z = 0;\n\t\t\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\t\t\n\t\trenderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);\n\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, basin.iconTop);\n\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, basin.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, basin.iconBottom);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXPos(block, x - 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXNeg(block, x + 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZPos(block, x, y, z - 0.875D, basin.iconInner);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZNeg(block, x, y, z + 0.875D, basin.iconInner);\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\tfloat mulBottom = 0.5F;\n\t\tfloat mulTop = 1.0F;\n\t\tfloat mulZ = 0.8F;\n\t\tfloat mulX = 0.6F;\n\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttessellator.setBrightness(brightness);\n\n\t\tif(EntityRenderer.anaglyphEnable) {\n\t\t\tfloat aR = (r * 30.0F + g * 59.0F + b * 11.0F) / 100.0F;\n\t\t\tfloat aG = (r * 30.0F + g * 70.0F) / 100.0F;\n\t\t\tfloat aB = (r * 30.0F + b * 70.0F) / 100.0F;\n\t\t\tr = aR;\n\t\t\tg = aG;\n\t\t\tb = aB;\n\t\t}\n\t\t\n\t\tFoundryMold mold = (FoundryMold) block;\n\n\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\trenderer.renderFaceYPos(block, x, y, z, mold.iconTop);\n\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, mold.iconBottom);\n\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\trenderer.renderFaceYNeg(block, x, y, z, mold.iconBottom);\n\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\trenderer.renderFaceXPos(block, x, y, z, mold.iconSide);\n\t\trenderer.renderFaceXNeg(block, x, y, z, mold.iconSide);\n\t\trenderer.renderFaceXPos(block, x - 0.875D, y, z, mold.iconInner);\n\t\trenderer.renderFaceXNeg(block, x + 0.875D, y, z, mold.iconInner);\n\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\trenderer.renderFaceZPos(block, x, y, z, mold.iconSide);\n\t\trenderer.renderFaceZNeg(block, x, y, z, mold.iconSide);\n\t\trenderer.renderFaceZPos(block, x, y, z - 0.875D, mold.iconInner);\n\t\trenderer.renderFaceZNeg(block, x, y, z + 0.875D, mold.iconInner);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FoundryMold.renderID;\n\t}\n}\n"
+    },
+    "src/main/java/com/hbm/render/block/RenderFoundryChannel.java": {
+      "before_sha256": "14377914eaee6ab55af57fe3eb01191c2c87a150f009b3ed317768dae1ab5dc7",
+      "original": "package com.hbm.render.block;\n\nimport java.awt.Color;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.machine.FoundryChannel;\nimport com.hbm.lib.Library;\nimport com.hbm.tileentity.machine.TileEntityFoundryChannel;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.EntityRenderer;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderFoundryChannel implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tdouble height = 0.5D;\n\t\tdouble x = 0;\n\t\tdouble y = 0;\n\t\tdouble z = 0;\n\t\t\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\t\tFoundryChannel channel = (FoundryChannel) block;\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\t\n\t\t//center\n\t\trenderer.setRenderBounds(0.375D, 0D, 0.375D, 0.625D, 0.125D, 0.625D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\trenderer.setRenderBounds(0.3125D, 0D, 0.3125D, 0.6875D, 0.125D, 0.6875D);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\t\n\t\t//pos X bottom\n\t\trenderer.setRenderBounds(0.625D, 0D, 0.3125D, 1D, 0.125D, 0.6875D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\n\t\t//pos X\n\t\trenderer.setRenderBounds(0.625D, 0D, 0.3125D, 1D, height, 0.375D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\n\t\trenderer.setRenderBounds(0.625D, 0D, 0.625D, 1D, height, 0.6875D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\n\t\t//neg x bottom\n\t\trenderer.setRenderBounds(0D, 0D, 0.3125D, 0.375D, 0.125D, 0.6875D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\n\t\t//neg x\n\t\trenderer.setRenderBounds(0D, 0D, 0.3125D, 0.375D, height, 0.375D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\n\t\trenderer.setRenderBounds(0D, 0D, 0.625D, 0.375D, height, 0.6875D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\n\t\t//pos Z bottom\n\t\trenderer.setRenderBounds(0.3125D, 0D, 0.625D, 0.6875D, 0.125D, 1D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\n\t\t//pos z\n\t\trenderer.setRenderBounds(0.3125D, 0D, 0.625D, 0.375D, height, 1D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\n\t\trenderer.setRenderBounds(0.625D, 0D, 0.625D, 0.6875D, height, 1D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\n\t\t//neg z bottom\n\t\trenderer.setRenderBounds(0.3125D, 0D, 0D, 0.6875D, 0.125D, 0.375D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\n\t\t//neg z\n\t\trenderer.setRenderBounds(0.3125D, 0D, 0D, 0.375D, height, 0.375D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\n\t\trenderer.setRenderBounds(0.625D, 0D, 0D, 0.6875D, height, 0.375D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconInner);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\tfloat mulBottom = 0.5F;\n\t\tfloat mulTop = 1.0F;\n\t\tfloat mulZ = 0.8F;\n\t\tfloat mulX = 0.6F;\n\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\tint fullBright = 240;\n\t\ttessellator.setBrightness(brightness);\n\n\t\tif(EntityRenderer.anaglyphEnable) {\n\t\t\tfloat aR = (r * 30.0F + g * 59.0F + b * 11.0F) / 100.0F;\n\t\t\tfloat aG = (r * 30.0F + g * 70.0F) / 100.0F;\n\t\t\tfloat aB = (r * 30.0F + b * 70.0F) / 100.0F;\n\t\t\tr = aR;\n\t\t\tg = aG;\n\t\t\tb = aB;\n\t\t}\n\t\t\n\t\tFoundryChannel channel = (FoundryChannel) block;\n\t\t\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\tTileEntityFoundryChannel tile = null;\n\t\t\n\t\tif(te instanceof TileEntityFoundryChannel) {\n\t\t\ttile = (TileEntityFoundryChannel) te;\n\t\t}\n\t\t\n\t\tboolean doRender = tile != null ? (tile.amount > 0 && tile.type != null) : false;\n\t\tdouble level = doRender ? tile.amount * 0.25D / tile.getCapacity() : 0;\n\t\tColor color = doRender ? new Color(tile.type.moltenColor).brighter() : null;\n\t\t\n\t\tif(color != null) {\n\t\t\tdouble brightener = 0.7D;\n\t\t\tint nr = (int) (255D - (255D - color.getRed()) * brightener);\n\t\t\tint ng = (int) (255D - (255D - color.getGreen()) * brightener);\n\t\t\tint nb = (int) (255D - (255D - color.getBlue()) * brightener);\n\t\t\t\n\t\t\tcolor = new Color(nr, ng, nb);\n\t\t}\n\n\t\tboolean posX = channel.canConnectTo(world, x, y, z, Library.POS_X);\n\t\tboolean negX = channel.canConnectTo(world, x, y, z, Library.NEG_X);\n\t\tboolean posZ = channel.canConnectTo(world, x, y, z, Library.POS_Z);\n\t\tboolean negZ = channel.canConnectTo(world, x, y, z, Library.NEG_Z);\n\t\t\n\t\tdouble height = 0.5D;\n\t\t\n\t\trenderer.setRenderBounds(0.375D, 0D, 0.375D, 0.625D, 0.125D, 0.625D);\n\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\trenderer.setRenderBounds(0.3125D, 0D, 0.3125D, 0.6875D, 0.125D, 0.6875D);\n\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\t\n\t\tif(doRender) {\n\t\t\trenderer.setRenderBounds(0.375D, 0.125D, 0.375D, 0.625D, 0.125D + level, 0.625D);\n\t\t\ttessellator.setColorOpaque_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);\n\t\t\ttessellator.setBrightness(fullBright);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconLava);\n\t\t\ttessellator.setBrightness(brightness);\n\t\t}\n\t\t\n\t\tif(posX) {\n\t\t\trenderer.setRenderBounds(0.625D, 0D, 0.3125D, 1D, 0.125D, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0.625D, 0D, 0.3125D, 1D, height, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconInner);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0.625D, 0D, 0.625D, 1D, height, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconInner);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\t\t\t\n\t\t\tif(doRender) {\n\t\t\t\trenderer.setRenderBounds(0.625D, 0.125D, 0.3125D, 1D, 0.125D + level, 0.6875D);\n\t\t\t\ttessellator.setColorOpaque_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);\n\t\t\t\ttessellator.setBrightness(fullBright);\n\t\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconLava);\n\t\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconLava);\n\t\t\t\ttessellator.setBrightness(brightness);\n\t\t\t}\n\t\t\t\n\t\t} else {\n\t\t\trenderer.setRenderBounds(0.625, 0D, 0.3125D, 0.6875D, height, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconInner);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\t\t}\n\t\t\n\t\tif(negX) {\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.3125D, 0.375D, 0.125D, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.3125D, 0.375D, height, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconInner);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.625D, 0.375D, height, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconInner);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\t\t\t\n\t\t\tif(doRender) {\n\t\t\t\trenderer.setRenderBounds(0D, 0.125D, 0.3125D, 0.375D, 0.125D + level, 0.6875D);\n\t\t\t\ttessellator.setColorOpaque_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);\n\t\t\t\ttessellator.setBrightness(fullBright);\n\t\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconLava);\n\t\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconLava);\n\t\t\t\ttessellator.setBrightness(brightness);\n\t\t\t}\n\t\t\t\n\t\t} else {\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0.3125D, 0.375D, height, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconInner);\n\t\t}\n\t\t\n\t\tif(posZ) {\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0.625D, 0.6875D, 0.125D, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0.625D, 0.375D, height, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconInner);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0.625D, 0D, 0.625D, 0.6875D, height, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconInner);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\t\t\t\n\t\t\tif(doRender) {\n\t\t\t\trenderer.setRenderBounds(0.3125D, 0.125D, 0.625D, 0.6875D, 0.125D + level, 1D);\n\t\t\t\ttessellator.setColorOpaque_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);\n\t\t\t\ttessellator.setBrightness(fullBright);\n\t\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconLava);\n\t\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconLava);\n\t\t\t\ttessellator.setBrightness(brightness);\n\t\t\t}\n\t\t\t\n\t\t} else {\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0.625D, 0.6875D, height, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconInner);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconSide);\n\t\t}\n\t\t\n\t\tif(negZ) {\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0D, 0.6875D, 0.125D, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, channel.iconBottom);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0D, 0.375D, height, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconSide);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconInner);\n\t\t\t\n\t\t\trenderer.setRenderBounds(0.625D, 0D, 0D, 0.6875D, height, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, channel.iconInner);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, channel.iconSide);\n\t\t\t\n\t\t\tif(doRender) {\n\t\t\t\trenderer.setRenderBounds(0.3125D, 0.125D, 0D, 0.6875D, 0.125D + level, 0.375D);\n\t\t\t\ttessellator.setColorOpaque_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);\n\t\t\t\ttessellator.setBrightness(fullBright);\n\t\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconLava);\n\t\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconLava);\n\t\t\t\ttessellator.setBrightness(brightness);\n\t\t\t}\n\t\t\t\n\t\t} else {\n\t\t\trenderer.setRenderBounds(0.3125D, 0D, 0.3125D, 0.6875D, height, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, channel.iconTop);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, channel.iconSide);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, channel.iconInner);\n\t\t}\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FoundryChannel.renderID;\n\t}\n}\n"
+    },
+    "src/main/java/com/hbm/render/block/RenderFoundryTank.java": {
+      "before_sha256": "7853b1e75fe47997f04cde98b7e41ba29592eda202444d70bdec9cd0c0f240d1",
+      "original": "package com.hbm.render.block;\n\nimport java.awt.Color;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.ModBlocks;\nimport com.hbm.blocks.machine.FoundryTank;\nimport com.hbm.lib.Library;\nimport com.hbm.tileentity.machine.TileEntityFoundryTank;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.EntityRenderer;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderFoundryTank implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tFoundryTank basin = (FoundryTank) block;\n\t\tdouble x = 0;\n\t\tdouble y = 0;\n\t\tdouble z = 0;\n\t\t\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, basin.iconTop);\n\t\trenderer.renderFaceYPos(block, x, y - 0.875D, z, basin.iconBottom);\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, basin.iconBottom);\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.renderFaceXPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXPos(block, x - 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceXNeg(block, x + 0.875D, y, z, basin.iconInner);\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZPos(block, x, y, z - 0.875D, basin.iconInner);\n\t\ttessellator.setNormal(0F, 0F, -1F);\n\t\trenderer.renderFaceZNeg(block, x, y, z, basin.iconSide);\n\t\trenderer.renderFaceZNeg(block, x, y, z + 0.875D, basin.iconInner);\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\tfloat mulBottom = 0.5F;\n\t\tfloat mulTop = 1.0F;\n\t\tfloat mulZ = 0.8F;\n\t\tfloat mulX = 0.6F;\n\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\tint fullBright = 240;\n\t\ttessellator.setBrightness(brightness);\n\n\t\tif(EntityRenderer.anaglyphEnable) {\n\t\t\tfloat aR = (r * 30.0F + g * 59.0F + b * 11.0F) / 100.0F;\n\t\t\tfloat aG = (r * 30.0F + g * 70.0F) / 100.0F;\n\t\t\tfloat aB = (r * 30.0F + b * 70.0F) / 100.0F;\n\t\t\tr = aR;\n\t\t\tg = aG;\n\t\t\tb = aB;\n\t\t}\n\t\t\n\t\tFoundryTank tank = (FoundryTank) block;\n\t\t\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\tTileEntityFoundryTank tile = null;\n\t\t\n\t\tif(te instanceof TileEntityFoundryTank) {\n\t\t\ttile = (TileEntityFoundryTank) te;\n\t\t}\n\n\t\tboolean conPosX = world.getBlock(x + 1, y, z) == ModBlocks.foundry_tank;\n\t\tboolean conNegX = world.getBlock(x - 1, y, z) == ModBlocks.foundry_tank;\n\t\tboolean conPosZ = world.getBlock(x, y, z + 1) == ModBlocks.foundry_tank;\n\t\tboolean conNegZ = world.getBlock(x, y, z - 1) == ModBlocks.foundry_tank;\n\t\tboolean conPosY = world.getBlock(x, y + 1, z) == ModBlocks.foundry_tank;\n\t\tboolean conNegY = world.getBlock(x, y - 1, z) == ModBlocks.foundry_tank;\n\n\t\tboolean outPosX = world.getBlock(x + 1, y, z) == ModBlocks.foundry_outlet && world.getBlockMetadata(x + 1, y, z) == Library.POS_X.ordinal();\n\t\tboolean outNegX = world.getBlock(x - 1, y, z) == ModBlocks.foundry_outlet && world.getBlockMetadata(x - 1, y, z) == Library.NEG_X.ordinal();\n\t\tboolean outPosZ = world.getBlock(x, y, z + 1) == ModBlocks.foundry_outlet && world.getBlockMetadata(x, y, z + 1) == Library.POS_Z.ordinal();\n\t\tboolean outNegZ = world.getBlock(x, y, z - 1) == ModBlocks.foundry_outlet && world.getBlockMetadata(x, y, z - 1) == Library.NEG_Z.ordinal();\n\t\t\n\t\tboolean doRender = tile != null ? (tile.amount > 0 && tile.type != null) : false;\n\t\tdouble max = 0.75D + (conNegY ? 0.125D : 0) + (conPosY ? 0.125D : 0);\n\t\tdouble level = doRender ? tile.amount * max / tile.getCapacity() : 0;\n\t\tColor color = doRender ? new Color(tile.type.moltenColor).brighter() : null;\n\t\t\n\t\tif(color != null) {\n\t\t\tdouble brightener = 0.7D;\n\t\t\tint nr = (int) (255D - (255D - color.getRed()) * brightener);\n\t\t\tint ng = (int) (255D - (255D - color.getGreen()) * brightener);\n\t\t\tint nb = (int) (255D - (255D - color.getBlue()) * brightener);\n\t\t\t\n\t\t\tcolor = new Color(nr, ng, nb);\n\t\t}\n\t\t\n\t\trenderer.setRenderBounds(0D, 0D, 0D, 1D, 1D, 1D);\n\t\t\n\t\tif(!conNegY) {\n\t\t\trenderer.setRenderBounds(0D, 0D, 0D, 1D, 0.125D, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, tank.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, tank.iconBottom);\n\t\t}\n\t\t\n\t\tif(!conPosX) {\n\t\t\trenderer.setRenderBounds(0.875D, 0D, 0D, 1D, 1D, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, conNegY ? (outPosX ? tank.iconSideUpperOutlet : tank.iconSideUpper) : (outPosX ? tank.iconSideOutlet : tank.iconSide));\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\tif(conPosZ) renderer.renderFaceZPos(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\tif(conNegZ) renderer.renderFaceZNeg(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, tank.iconTop);\n\t\t}\n\t\t\n\t\tif(!conNegX) {\n\t\t\trenderer.setRenderBounds(0D, 0D, 0D, 0.125D, 1D, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, conNegY ? (outNegX ? tank.iconSideUpperOutlet : tank.iconSideUpper) : (outNegX ? tank.iconSideOutlet : tank.iconSide));\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\tif(conPosZ) renderer.renderFaceZPos(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\tif(conNegZ) renderer.renderFaceZNeg(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, tank.iconTop);\n\t\t}\n\t\t\n\t\tif(!conPosZ) {\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.875D, 1D, 1D, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, conNegY ? (outPosZ ? tank.iconSideUpperOutlet : tank.iconSideUpper) : (outPosZ ? tank.iconSideOutlet : tank.iconSide));\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\tif(conPosX) renderer.renderFaceXPos(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\tif(conNegX) renderer.renderFaceXNeg(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, tank.iconTop);\n\t\t}\n\t\t\n\t\tif(!conNegZ) {\n\t\t\trenderer.setRenderBounds(0D, 0D, 0D, 1D, 1D, 0.125D);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, conNegY ? (outNegZ ? tank.iconSideUpperOutlet : tank.iconSideUpper) : (outNegZ ? tank.iconSideOutlet : tank.iconSide));\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\tif(conPosX) renderer.renderFaceXPos(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\tif(conNegX) renderer.renderFaceXNeg(block, x, y, z, conPosY ? tank.iconBottom : tank.iconInner);\n\t\t\t\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, tank.iconTop);\n\t\t}\n\t\t\n\t\tif(doRender) {\n\t\t\tdouble height = conNegY ? 0D : 0.125D;\n\t\t\trenderer.setRenderBounds(0D, height, 0D, 1D, height + level, 1D);\n\t\t\ttessellator.setColorOpaque_F(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);\n\t\t\ttessellator.setBrightness(fullBright);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, tank.iconLava);\n\t\t\tif(conPosX) renderer.renderFaceXPos(block, x, y, z, tank.iconLava);\n\t\t\tif(conNegX) renderer.renderFaceXNeg(block, x, y, z, tank.iconLava);\n\t\t\tif(conPosZ) renderer.renderFaceZPos(block, x, y, z, tank.iconLava);\n\t\t\tif(conNegZ) renderer.renderFaceZNeg(block, x, y, z, tank.iconLava);\n\t\t\ttessellator.setBrightness(brightness);\n\t\t}\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FoundryTank.renderID;\n\t}\n}\n"
+    },
+    "src/main/java/com/hbm/render/block/RenderFoundryOutlet.java": {
+      "before_sha256": "c0bc434cb3cdf97b2c4b32919bb50c1caf5d9c5b7a7306588aa60eb8bc4dbeb9",
+      "original": "package com.hbm.render.block;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.machine.FoundryOutlet;\nimport com.hbm.tileentity.machine.TileEntityFoundryOutlet;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.EntityRenderer;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderFoundryOutlet implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tdouble bot = 0.0D;\n\t\tdouble top = 0.5D;\n\t\tdouble x = 0;\n\t\tdouble y = 0;\n\t\tdouble z = 0;\n\t\t\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\t\tFoundryOutlet outlet = (FoundryOutlet) block;\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\t\n\t\trenderer.setRenderBounds(0.3125D, bot, 0D, 0.6875D, top, 0.375D);\n\t\t\n\t\ttessellator.setNormal(0F, 1F, 0F);\n\t\trenderer.renderFaceYPos(block, x, y, z, outlet.iconTop);\n\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, outlet.iconBottom);\n\n\t\ttessellator.setNormal(0F, -1F, 0F);\n\t\trenderer.renderFaceYNeg(block, x, y, z, outlet.iconBottom);\n\n\t\ttessellator.setNormal(1F, 0F, 0F);\n\t\trenderer.field_152631_f = true;\n\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconSide);\n\t\trenderer.renderFaceXPos(block, x - 0.3125D, y, z, outlet.iconInner);\n\t\trenderer.field_152631_f = false;\n\n\t\ttessellator.setNormal(-1F, 0F, 0F);\n\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconSide);\n\t\trenderer.renderFaceXNeg(block, x + 0.3125D, y, z, outlet.iconInner);\n\n\t\ttessellator.setNormal(0F, 0F, 1F);\n\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconFront);\n\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\tfloat mulBottom = 0.5F;\n\t\tfloat mulTop = 1.0F;\n\t\tfloat mulZ = 0.8F;\n\t\tfloat mulX = 0.6F;\n\t\t\n\t\tdouble bot = 0.0D;\n\t\tdouble top = 0.5D;\n\n\t\tif(EntityRenderer.anaglyphEnable) {\n\t\t\tfloat aR = (r * 30.0F + g * 59.0F + b * 11.0F) / 100.0F;\n\t\t\tfloat aG = (r * 30.0F + g * 70.0F) / 100.0F;\n\t\t\tfloat aB = (r * 30.0F + b * 70.0F) / 100.0F;\n\t\t\tr = aR;\n\t\t\tg = aG;\n\t\t\tb = aB;\n\t\t}\n\t\t\n\t\tFoundryOutlet outlet = (FoundryOutlet) block;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\n\t\tTileEntityFoundryOutlet tileOutlet = tile instanceof TileEntityFoundryOutlet ? (TileEntityFoundryOutlet) tile : null;\n\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttessellator.setBrightness(brightness);\n\t\t\n\t\tif(meta == 4) {\n\t\t\trenderer.setRenderBounds(0.625D, bot, 0.3125D, 1D, top, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, outlet.iconTop);\n\t\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceZPos(block, x, y, z - 0.3125D, outlet.iconInner);\n\t\t\trenderer.field_152631_f = true;\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z + 0.3125D, outlet.iconInner);\n\t\t\trenderer.field_152631_f = false;\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconFront);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconFront);\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.filter != null) {\n\t\t\t\trenderer.setRenderBounds(0.96875D, 0.0625, 0.375D, 0.96875D, top, 0.625D);\n\t\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconFilter);\n\t\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconFilter);\n\t\t\t}\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.isClosed()) {\n\t\t\t\trenderer.setRenderBounds(0.9375D, 0.0625, 0.375D, 0.9375D, top, 0.625D);\n\t\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconLock);\n\t\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconLock);\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(meta == 5) {\n\t\t\trenderer.setRenderBounds(0D, bot, 0.3125D, 0.375D, top, 0.6875D);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, outlet.iconTop);\n\t\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceZPos(block, x, y, z - 0.3125D, outlet.iconInner);\n\t\t\trenderer.field_152631_f = true;\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z + 0.3125D, outlet.iconInner);\n\t\t\trenderer.field_152631_f = false;\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconFront);\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconFront);\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.filter != null) {\n\t\t\t\trenderer.setRenderBounds(0.03125D, 0.0625, 0.375D, 0.03125D, top, 0.625D);\n\t\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconFilter);\n\t\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconFilter);\n\t\t\t}\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.isClosed()) {\n\t\t\t\trenderer.setRenderBounds(0.0625D, 0.0625, 0.375D, 0.0625D, top, 0.625D);\n\t\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconLock);\n\t\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconLock);\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(meta == 2) {\n\t\t\trenderer.setRenderBounds(0.3125D, bot, 0.625D, 0.6875D, top, 1D);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, outlet.iconTop);\n\t\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.field_152631_f = true;\n\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceXPos(block, x - 0.3125D, y, z, outlet.iconInner);\n\t\t\trenderer.field_152631_f = false;\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceXNeg(block, x + 0.3125D, y, z, outlet.iconInner);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconFront);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconFront);\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.filter != null) {\n\t\t\t\trenderer.setRenderBounds(0.375D, 0.0625, 0.96875D, 0.625D, top, 0.96875D);\n\t\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconFilter);\n\t\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconFilter);\n\t\t\t}\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.isClosed()) {\n\t\t\t\trenderer.setRenderBounds(0.375D, 0.0625, 0.9375D, 0.625D, top, 0.9375D);\n\t\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconLock);\n\t\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconLock);\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(meta == 3) {\n\t\t\trenderer.setRenderBounds(0.3125D, bot, 0D, 0.6875D, top, 0.375D);\n\t\t\ttessellator.setColorOpaque_F(r * mulBottom, g * mulBottom, b * mulBottom);\n\t\t\trenderer.renderFaceYNeg(block, x, y, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulTop, g * mulTop, b * mulTop);\n\t\t\trenderer.renderFaceYPos(block, x, y, z, outlet.iconTop);\n\t\t\trenderer.renderFaceYPos(block, x, y - 0.375D, z, outlet.iconBottom);\n\t\t\ttessellator.setColorOpaque_F(r * mulX, g * mulX, b * mulX);\n\t\t\trenderer.field_152631_f = true;\n\t\t\trenderer.renderFaceXPos(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceXPos(block, x - 0.3125D, y, z, outlet.iconInner);\n\t\t\trenderer.field_152631_f = false;\n\t\t\trenderer.renderFaceXNeg(block, x, y, z, outlet.iconSide);\n\t\t\trenderer.renderFaceXNeg(block, x + 0.3125D, y, z, outlet.iconInner);\n\t\t\ttessellator.setColorOpaque_F(r * mulZ, g * mulZ, b * mulZ);\n\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconFront);\n\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconFront);\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.filter != null) {\n\t\t\t\trenderer.setRenderBounds(0.375D, 0.0625D, 0.03125, 0.625D, top, 0.03125D);\n\t\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconFilter);\n\t\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconFilter);\n\t\t\t}\n\t\t\t\n\t\t\tif(tileOutlet != null && tileOutlet.isClosed()) {\n\t\t\t\trenderer.setRenderBounds(0.375D, 0.0625, 0.0625D, 0.625D, top, 0.0625D);\n\t\t\t\trenderer.renderFaceZPos(block, x, y, z, outlet.iconLock);\n\t\t\t\trenderer.renderFaceZNeg(block, x, y, z, outlet.iconLock);\n\t\t\t}\n\t\t}\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn FoundryOutlet.renderID;\n\t}\n}\n"
+    }
+  },
+  "binary_files": {
+    "src/main/resources/assets/hbm/sounds/tool/upgradePlug.ogg": {
+      "before_sha256": "178c665506261be8737749c01642baf397a5f4d8de56e0123abca56fd85aa33b",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/tool/upgradeplug.ogg": {
+      "before_sha256": null,
+      "after_sha256": "178c665506261be8737749c01642baf397a5f4d8de56e0123abca56fd85aa33b"
+    }
+  }
+}

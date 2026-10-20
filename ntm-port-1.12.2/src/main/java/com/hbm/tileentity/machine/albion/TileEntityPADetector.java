@@ -40,18 +40,18 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.paDetector";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.power = Library.chargeTEFromItems(slots, 0, power, this.getMaxPower());
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -59,11 +59,11 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord - rot.offsetX * 5, yCoord, zCoord - rot.offsetZ * 5, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX * 5, yCoord + 1, zCoord - rot.offsetZ * 5, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX * 5, yCoord - 1, zCoord - rot.offsetZ * 5, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX * 5 + dir.offsetX, yCoord, zCoord - rot.offsetZ * 5 + dir.offsetZ, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX * 5 - dir.offsetX, yCoord, zCoord - rot.offsetZ * 5 - dir.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX * 5, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 5, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX * 5, this.pos.getY() + 1, this.pos.getZ() - rot.offsetZ * 5, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX * 5, this.pos.getY() - 1, this.pos.getZ() - rot.offsetZ * 5, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX * 5 + dir.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 5 + dir.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX * 5 - dir.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 5 - dir.offsetZ, rot.getOpposite()),
 		};
 	}
 
@@ -73,8 +73,10 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 	}
 
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return slot == 1 || slot == 2; }
-	@Override public boolean canExtractItem(int slot, ItemStack stack, int side) { return slot == 3 || slot == 4; }
-	@Override public int[] getAccessibleSlotsFromSide(int side) { return new int[] { 1, 2, 3, 4 }; }
+	@Override public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return slot == 3 || slot == 4; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] { 1, 2, 3, 4 }; }
 
 	AxisAlignedBB bb = null;
 
@@ -83,12 +85,12 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord - 2,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 3,
-					zCoord + 5
+					this.pos.getX() - 4,
+					this.pos.getY() - 2,
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 5
 					);
 		}
 
@@ -114,7 +116,7 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 	@Override
 	public boolean canParticleEnter(Particle particle, ForgeDirection dir, int x, int y, int z) {
 		ForgeDirection detectorDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
-		BlockPos input = new BlockPos(xCoord, yCoord, zCoord).offset(detectorDir, -4);
+		BlockPos input = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(detectorDir, -4);
 		return input.compare(x, y, z) && detectorDir == dir;
 	}
 
@@ -155,8 +157,8 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 			}
 
 			if((recipe.output1 != null && recipe.output1.getItem() == ModItems.particle_digamma) || (recipe.output2 != null && recipe.output2.getItem() == ModItems.particle_digamma)) {
-				List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(100, 50, 100));
-				for(EntityPlayer player : players) player.triggerAchievement(MainRegistry.achOmega12);
+				List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 50, 100));
+				for(EntityPlayer player : players) com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achOmega12);
 			}
 
 			particle.crash(PAState.SUCCESS);

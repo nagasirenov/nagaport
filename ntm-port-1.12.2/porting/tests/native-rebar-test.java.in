@@ -1,0 +1,150 @@
+import java.io.File;
+import java.lang.reflect.*;
+import java.nio.*;
+import java.util.*;
+import api.hbm.fluidmk2.IFluidReceiverMK2;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.generic.BlockRebar;
+import com.hbm.blocks.generic.BlockRebar.*;
+import com.hbm.config.ClientConfig;
+import com.hbm.handler.threading.PacketThreading;
+import com.hbm.inventory.fluid.*;
+import com.hbm.items.ModItems;
+import com.hbm.items.tool.ItemRebarPlacer;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.tileentity.network.TileEntityPipeBaseNT;
+import com.hbm.uninos.*;
+import com.hbm.uninos.networkproviders.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.client.resources.data.MetadataSerializer;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.*;
+import net.minecraft.network.*;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.stats.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import org.lwjgl.opengl.GL11;
+
+/** Complete production owner invocation. Minecraft/Forge classes are untouched native jars.
+ * Registry/config/fluid service/recipe/packet/HUD collaborators are listed in native-rebar-probe.py.
+ */
+public final class NativeRebarTest {
+ static int checks;static BlockRebar block;static final BlockPos P=new BlockPos(4,20,4);
+ static void check(boolean value,String label){checks++;if(!value)throw new AssertionError(label);}
+ static void close(double a,double b,String label){check(Math.abs(a-b)<.00001,label+" "+a+" != "+b);}
+ static Object get(Object target,Class<?> type,String name)throws Exception{Field f=type.getDeclaredField(name);f.setAccessible(true);return f.get(target);}
+ static void set(Object target,Class<?> type,String name,Object value)throws Exception{Field f=type.getDeclaredField(name);f.setAccessible(true);f.set(target,value);}
+ static class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();int dirty;final List<Integer> flags=new ArrayList<>();
+  NativeWorld(boolean client){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),client);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  @Override protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "native rebar chunks, no generation";}public boolean isChunkGeneratedAt(int x,int z){return chunks.containsKey(key(x,z));}};}
+  @Override protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}
+  @Override public boolean checkLight(BlockPos p){return true;}
+  @Override public void markChunkDirty(BlockPos p,TileEntity tile){dirty++;super.markChunkDirty(p,tile);}
+  @Override public boolean setBlockState(BlockPos p,IBlockState state,int flag){flags.add(flag);return super.setBlockState(p,state,flag);}
+  TileEntityRebar put(BlockPos p){setBlockState(p,block.getDefaultState(),3);return (TileEntityRebar)getTileEntity(p);}
+  void clear(){dirty=0;flags.clear();PacketThreading.packets.clear();PacketThreading.points.clear();IFluidReceiverMK2.subscriptions.clear();}
+ }
+ static class PipeOwner extends BlockContainer {
+  PipeOwner(){super(Material.IRON);}
+  @Override public TileEntity createNewTileEntity(World world,int metadata){return new TileEntityPipeBaseNT();}
+ }
+ static void setup(){
+  block=new BlockRebar();block.setRegistryName("hbm","rebar");ForgeRegistries.BLOCKS.register(block);ItemBlock item=new ItemBlock(block);item.setRegistryName("hbm","rebar");ForgeRegistries.ITEMS.register(item);ModBlocks.rebar=block;ModBlocks.concrete_rebar=Blocks.CONCRETE;TileEntity.register("hbm:tileentity_rebar",TileEntityRebar.class);
+  ModItems.rebar_placer=new Item().setRegistryName("hbm","probe_rebar_placer");ForgeRegistries.ITEMS.register(ModItems.rebar_placer);
+ }
+ static void ownersAndGeometry()throws Exception{
+  NativeWorld w=new NativeWorld(false);TileEntityRebar rebar=w.put(P);rebar.progress=37;
+  for(int meta=0;meta<16;meta++){
+   IBlockState state=block.getStateFromMeta(meta);check(block.getMetaFromState(state)==meta,"all sixteen metadata states round trip");check(block.getRenderType(state)==EnumBlockRenderType.MODEL&&!block.isOpaqueCube(state)&&!block.isFullCube(state),"native model and original nonnormal cube");
+   check(block.getCollisionBoundingBox(state,w,P).equals(Block.FULL_BLOCK_AABB),"original full collision volume remains");
+   for(EnumFacing face:EnumFacing.values())check(block.shouldSideBeRendered(state,w,P,face)&&block.getBlockFaceShape(w,state,P,face)==BlockFaceShape.UNDEFINED,"all faces drawn without solid-face attachment");
+   w.setBlockState(P,state,3);check(w.getTileEntity(P)==rebar&&rebar.progress==37,"native chunk metadata retains rebar tile");
+   for(boolean simple:new boolean[]{false,true})for(boolean inventory:new boolean[]{false,true}){
+    ClientConfig.RENDER_REBAR_SIMPLE.value=simple;List<AxisAlignedBB> boxes=block.getRenderBoxes(state,inventory);check(boxes.size()==(!inventory&&simple?3:12),"exact original inventory/world config box count");double min=inventory?0:-.001,max=inventory?1:1.001;int axis=0;
+    for(AxisAlignedBB box:boxes){int group=(!inventory&&simple)?axis:axis/4;check((group==0?box.minY:group==1?box.minX:box.minZ)==min&&(group==0?box.maxY:group==1?box.maxX:box.maxZ)==max,"original longitudinal overdraw only in world");double first=group==0?box.minX:group==1?box.minY:box.minX,second=group==0?box.minZ:group==1?box.minZ:box.minY;double wantFirst=!inventory&&simple?.4375:axis%4<2?.1875:.6875;double wantSecond=!inventory&&simple?.4375:axis%2==0?.1875:.6875;close(first,wantFirst,"original ordered first offset");close(second,wantSecond,"original ordered second offset");axis++;}
+   }
+  }
+  PipeOwner pipe=new PipeOwner();pipe.setRegistryName("hbm","probe_rebar_pipe");ForgeRegistries.BLOCKS.register(pipe);TileEntity.register("hbm:probe_rebar_pipe",TileEntityPipeBaseNT.class);
+  for(EnumFacing dir:EnumFacing.values()){w.setBlockState(P.offset(dir),pipe.getDefaultState(),3);block.neighborChanged(block.getDefaultState(),w,P,pipe,P.offset(dir));check(rebar.hasConnection,"every native neighbor callback sees pipe");w.setBlockToAir(P.offset(dir));block.neighborChanged(block.getDefaultState(),w,P,pipe,P.offset(dir));check(!rebar.hasConnection,"removed pipe clears original connection flag");}
+  block.neighborChanged(block.getDefaultState(),w,P.up(4),pipe,P);check(!rebar.hasConnection,"missing host tile returns without mutation");
+ }
+ static void tileLifecycle()throws Exception {
+  UniNodespace.worlds.clear();UniNodespace.activeNodeNets.clear();NativeWorld w=new NativeWorld(false);TileEntityRebar a=w.put(P);w.setTotalWorldTime(59);w.clear();a.progress=41;a.update();check(w.dirty==1&&a.prevProgress==41,"changed progress marks exact native chunk dirty");check(IFluidReceiverMK2.subscriptions.isEmpty(),"no off-cycle subscription");check(PacketThreading.packets.size()==1&&PacketThreading.points.get(0).range==100,"original range100 buffer publication");
+  RebarNode node=(RebarNode)UniNodespace.getNode(w,4,20,4,RebarNetworkProvider.THE_PROVIDER);check(node!=null&&node.positions.length==1&&node.positions[0].compare(4,20,4)&&node.connections.length==6,"actual native coordinate node identity and six links");
+  ForgeDirection[] order={ForgeDirection.EAST,ForgeDirection.WEST,ForgeDirection.UP,ForgeDirection.DOWN,ForgeDirection.SOUTH,ForgeDirection.NORTH};for(int i=0;i<6;i++){check(node.connections[i].getDir()==order[i],"original connection order");check(node.connections[i].compare(4+order[i].offsetX,20+order[i].offsetY,4+order[i].offsetZ),"exact original connection coordinates");}
+  a.update();check(w.dirty==1&&PacketThreading.packets.size()==1,"unchanged payload suppressed outside heartbeat");w.setTotalWorldTime(60);a.update();check(PacketThreading.packets.size()==2&&IFluidReceiverMK2.subscriptions.size()==6,"60-tick resubscribe and20-tick duplicate resync preserved");
+  com.hbm.packet.toclient.BufPacket packet=(com.hbm.packet.toclient.BufPacket)PacketThreading.packets.get(0);io.netty.buffer.ByteBuf buf=packet.getCompiledBuffer();check(buf.readInt()==4&&buf.readInt()==20&&buf.readInt()==4&&buf.readInt()==41&&!buf.isReadable(),"bounded transport fixture carries unchanged coordinate and one-int production serialization");
+  TileEntityRebar client=new NativeWorld(true).put(P);client.deserialize(io.netty.buffer.Unpooled.buffer().writeInt(725));check(client.progress==725,"complete production client receiver consumes exact int");client.muffled=true;check(client.getAllTanks()[0].fill==725&&client.getAllTanks()[0].capacity==1000&&client.getAllTanks()[0].type==Fluids.CONCRETE,"fluid snapshot exact original type/fill/capacity");
+  NativeWorld cw=(NativeWorld)client.getWorld();cw.clear();client.progress=1500;client.update();check(cw.getBlockState(P).getBlock()==block&&client.prevProgress==0&&cw.dirty==0&&PacketThreading.packets.isEmpty(),"client never solidifies, marks dirty, subscribes or sends packets");
+  a.setup(Blocks.STAINED_HARDENED_CLAY,7);a.hasConnection=true;a.muffled=true;NBTTagCompound nbt=a.writeToNBT(new NBTTagCompound());TileEntity restored=TileEntity.create(w,nbt);check(restored instanceof TileEntityRebar,"actual native registered tile construction");TileEntityRebar b=(TileEntityRebar)restored;check(b.progress==41&&b.hasConnection&&b.concrete==Blocks.STAINED_HARDENED_CLAY&&b.concreteMeta==7&&b.muffled&&b.prevProgress==0,"original NBT fields and transient previous-progress");
+  b.readFromNBT(new NBTTagCompound());check(b.progress==0&&!b.hasConnection&&b.concrete==Blocks.STAINED_HARDENED_CLAY&&b.concreteMeta==7,"original absent-block NBT overlays rather than resets concrete");
+  RebarNetwork network=new RebarNetwork();network.joinLink(node);a.onChunkUnload();check(!a.isLoaded&&!node.expired&&node.hasValidNet(),"original unload keeps network soul");a.invalidate();check(node.expired&&!network.isValid()&&UniNodespace.getNode(w,4,20,4,RebarNetworkProvider.THE_PROVIDER)==null,"actual invalidate destroys original network");
+  for(boolean custom:new boolean[]{false,true}){
+   NativeWorld solid=new NativeWorld(false);TileEntityRebar fill=solid.put(P);fill.setup(Blocks.STAINED_HARDENED_CLAY,7);fill.progress=1000;ItemRebarPlacer.valid=custom;solid.clear();fill.update();check(solid.getBlockState(P).equals(custom?Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(7):Blocks.CONCRETE.getDefaultState()),"exact solidification target and metadata selection");check(PacketThreading.packets.isEmpty()&&IFluidReceiverMK2.subscriptions.isEmpty()&&fill.isInvalid(),"solidification returns before subscriptions/network packet and invalidates tile");check(solid.flags.equals(Collections.singletonList(3)),"native replacement retains flag3");
+  }
+  NativeWorld ticking=new NativeWorld(false);TileEntityRebar tick=ticking.put(P);tick.progress=13;ticking.updateEntities();check(ticking.tickableTileEntities.contains(tick)&&UniNodespace.getNode(ticking,4,20,4,RebarNetworkProvider.THE_PROVIDER)!=null&&tick.prevProgress==13,"actual native World tick dispatch enters complete production tile");
+ }
+ static void transfers()throws Exception {
+  Random random=new Random(0x5245424152L);NativeWorld actualWorld=new NativeWorld(false),oracleWorld=new NativeWorld(false);TileEntityRebar[] actual=new TileEntityRebar[6],oracle=new TileEntityRebar[6];
+  for(int i=0;i<6;i++){BlockPos p=P.add(i, i%2, 0);actual[i]=actualWorld.put(p);oracleWorld.put(p);oracle[i]=i==0?new LegacyRebarOracle():new TileEntityRebar();oracleWorld.setTileEntity(p,oracle[i]);}
+  for(int trial=0;trial<1600;trial++){
+   RebarNetwork an=new RebarNetwork(),on=new RebarNetwork();for(int i=0;i<6;i++){int amount=trial<100?random.nextInt(1001):random.nextInt(1201)-100;actual[i].progress=oracle[i].progress=amount;RebarNode a=actual[i].createNode(),o=oracle[i].createNode();an.joinLink(a);on.joinLink(o);set(actual[i],TileEntityRebar.class,"node",a);set(oracle[i],TileEntityRebar.class,"node",o);}
+   if(trial%17==0){RebarNode a=new RebarNode(RebarNetworkProvider.THE_PROVIDER,new com.hbm.util.fauxpointtwelve.BlockPos(15,1,15));RebarNode o=new RebarNode(RebarNetworkProvider.THE_PROVIDER,new com.hbm.util.fauxpointtwelve.BlockPos(15,1,15));an.joinLink(a);on.joinLink(o);}
+   FluidType type=trial%11==0?new FluidType():Fluids.CONCRETE;long input=trial%31==0?Long.MAX_VALUE:random.nextInt(6000)-50;int pressure=random.nextInt(8);long a=actual[0].transferFluid(type,pressure,input),o=oracle[0].transferFluid(type,pressure,input);check(a==o,"complete pristine distribution method oracle remainder");for(int i=0;i<6;i++)check(actual[i].progress==oracle[i].progress,"complete pristine distribution method oracle exact tile accounting");check(actual[0].getDemand(type,pressure)==10000,"original unqualified demand10000");an.destroy();on.destroy();
+  }
+  TileEntityRebar a=actual[0];set(a,TileEntityRebar.class,"node",null);check(a.transferFluid(Fluids.CONCRETE,0,83)==83,"no node accepts no fluid");RebarNode node=a.createNode();set(a,TileEntityRebar.class,"node",node);check(a.transferFluid(Fluids.CONCRETE,0,83)==83,"no network accepts no fluid");RebarNetwork net=new RebarNetwork();net.joinLink(node);node.expired=true;check(a.transferFluid(Fluids.CONCRETE,0,83)==83,"expired node rejects fluid");node.expired=false;net.invalidate();check(a.transferFluid(Fluids.CONCRETE,0,83)==83,"invalid network rejects fluid");
+ }
+ static TextureAtlasSprite sprite(){TextureAtlasSprite s=new TextureAtlasSprite("hbm:blocks/concrete_liquid"){};s.setIconWidth(16);s.setIconHeight(16);s.initSprite(128,128,32,48,false);return s;}
+ static void buffers()throws Exception {
+  Method concrete=BlockRebar.class.getDeclaredMethod("concreteModel",TextureAtlasSprite.class,int.class);concrete.setAccessible(true);TextureAtlasSprite sprite=sprite();
+  for(int progress:new int[]{1,50,250,500,999,1000,1750}){
+   IBakedModel model=(IBakedModel)concrete.invoke(null,sprite,progress);check(model.isAmbientOcclusion()&&!model.isBuiltInRenderer()&&model.getParticleTexture()==sprite,"native concrete model preserves normal AO and exact atlas material");check(model.getQuads(null,null,0).size()==6,"one dynamic concrete cuboid with six unculled faces");for(EnumFacing face:EnumFacing.values())check(model.getQuads(null,face,0).isEmpty(),"no duplicate culled concrete face");
+   for(BakedQuad quad:model.getQuads(null,null,0)){int[] data=quad.getVertexData();int stride=quad.getFormat().getIntegerSize();for(int v=0;v<4;v++){float x=Float.intBitsToFloat(data[v*stride]),y=Float.intBitsToFloat(data[v*stride+1]),z=Float.intBitsToFloat(data[v*stride+2]);check((x==0||x==1)&&(z==0||z==1),"concrete original unit horizontal bounds");check(y==0||Math.abs(y-progress/1000D)<.000001,"concrete exact progress/1000 height, no clamping");}}
+  }
+  Method outline=BlockRebar.class.getDeclaredMethod("appendSelectionBox",BufferBuilder.class,double.class,double.class,double.class,double.class,double.class,double.class);outline.setAccessible(true);
+  double[][] expected={{1,5,3},{1,5,6},{1,5,6},{4,5,6},{4,5,6},{4,5,3},{4,5,3},{1,5,3},{1,2,3},{1,2,6},{1,2,6},{4,2,6},{4,2,6},{4,2,3},{4,2,3},{1,2,3},{1,2,3},{1,5,3},{4,2,3},{4,5,3},{4,2,6},{4,5,6},{1,2,6},{1,5,6}};
+  BufferBuilder buffer=new BufferBuilder(4096);buffer.setTranslation(-.25,-.5,-.75);buffer.begin(GL11.GL_LINES,DefaultVertexFormats.BLOCK);outline.invoke(null,buffer,1D,2D,3D,4D,5D,6D);check(buffer.getVertexCount()==24,"exact twelve original selection edges");buffer.finishDrawing();ByteBuffer bytes=buffer.getByteBuffer().order(ByteOrder.nativeOrder());for(int v=0;v<24;v++){int off=v*28;for(int i=0;i<3;i++)close(bytes.getFloat(off+i*4),expected[v][i]-(i+1)*.25,"original ordered selection edge translated position");check(bytes.getInt(off+12)==-1&&bytes.getInt(off+24)==240,"original opaque white and packed block240 sky0 overlay");}buffer.reset();
+ }
+ static void renderer(File resources)throws Exception {
+  Class<?> contextType=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context");Constructor<?> ctor=contextType.getDeclaredConstructor();ctor.setAccessible(true);
+  try(AutoCloseable context=(AutoCloseable)ctor.newInstance()){
+   Method init=MaterialTextureAtlasSpriteNativeTest.class.getDeclaredMethod("initializeNativeClientSettings");init.setAccessible(true);init.invoke(null);Minecraft mc=Minecraft.getMinecraft();OpenGlHelper.initializeTextures();
+   SimpleReloadableResourceManager manager=new SimpleReloadableResourceManager(new MetadataSerializer());manager.reloadResourcePack(new FolderResourcePack(resources));TextureManager textures=new TextureManager(manager);set(mc,Minecraft.class,"renderEngine",textures);set(mc,Minecraft.class,"resourceManager",manager);
+   for(String path:System.getProperty("java.class.path").split(File.pathSeparator))if(path.contains("forgeBin-")&&path.endsWith(".jar"))net.minecraftforge.fml.common.asm.FMLSanityChecker.fmlLocation=new File(path);
+   TextureMap atlas=new TextureMap("textures");atlas.setMipmapLevels(0);atlas.registerSprite(new ResourceLocation("hbm","blocks/rebar"));atlas.registerSprite(new ResourceLocation("hbm","blocks/concrete_liquid"));Method missing=TextureMap.class.getDeclaredMethod("initMissingImage");missing.setAccessible(true);missing.invoke(atlas);atlas.loadTextureAtlas(manager);((Map<ResourceLocation,ITextureObject>)get(textures,TextureManager.class,"mapTextureObjects")).put(TextureMap.LOCATION_BLOCKS_TEXTURE,atlas);set(mc,Minecraft.class,"textureMapBlocks",atlas);check(atlas.getAtlasSprite("hbm:blocks/concrete_liquid")!=atlas.getMissingSprite(),"actual original concrete resource stitches");
+   ModelManager models=new ModelManager(atlas);set(mc,Minecraft.class,"blockRenderDispatcher",new BlockRendererDispatcher(models.getBlockModelShapes(),new BlockColors()));mc.entityRenderer=new EntityRenderer(mc,manager);
+   NetHandlerPlayClient connection=new NetHandlerPlayClient(mc,null,new NetworkManager(EnumPacketDirection.CLIENTBOUND),new com.mojang.authlib.GameProfile(UUID.fromString("00000000-0000-0000-0000-000000000001"),"RebarProbe"));WorldClient world=new WorldClient(connection,new WorldSettings(0,GameType.SURVIVAL,false,false,WorldType.DEFAULT),0,EnumDifficulty.NORMAL,new Profiler());mc.world=world;world.doPreChunk(0,0,true);mc.player=new EntityPlayerSP(mc,world,connection,new StatisticsManager(),new RecipeBook());mc.player.setPosition(2,18,2);mc.player.prevPosX=1;mc.player.prevPosY=17;mc.player.prevPosZ=1;
+   TileEntityRebar rebar=new TileEntityRebar();rebar.setWorld(world);rebar.setPos(P);rebar.progress=475;world.setBlockState(P,block.getDefaultState(),3);world.setTileEntity(P,rebar);
+   GlStateManager.matrixMode(GL11.GL_MODELVIEW);GlStateManager.loadIdentity();int depth=GL11.glGetInteger(GL11.GL_MODELVIEW_STACK_DEPTH);BlockRebar.renderRebar(Arrays.asList(new Object(),rebar),.5F);check(GL11.glGetInteger(GL11.GL_MODELVIEW_STACK_DEPTH)==depth&&GL11.glGetInteger(GL11.GL_SHADE_MODEL)==GL11.GL_FLAT,"actual native concrete render-last restores original matrix and flat shade");
+   ItemStack held=new ItemStack(ModItems.rebar_placer);NBTTagCompound tag=new NBTTagCompound();tag.setIntArray("pos",new int[]{1,2,3});held.setTagCompound(tag);mc.player.inventory.mainInventory.set(mc.player.inventory.currentItem,held);mc.objectMouseOver=new RayTraceResult(new Vec3d(4,5,6),EnumFacing.EAST,new BlockPos(4,5,6));
+   BlockRebar.renderRebar(Collections.emptyList(),.25F);String expected=TextFormatting.RED+"19 / 80";check(com.hbm.main.MainRegistry.proxy.text.equals(expected)&&com.hbm.main.MainRegistry.proxy.duration==1000&&com.hbm.main.MainRegistry.proxy.id==com.hbm.main.ServerProxy.ID_CABLE,"actual selection branch computes adjacent target, exact volume and red inventory tooltip");check(GL11.glGetInteger(GL11.GL_MODELVIEW_STACK_DEPTH)==depth&&GL11.glIsEnabled(GL11.GL_TEXTURE_2D)&&!GL11.glIsEnabled(GL11.GL_LIGHTING),"actual selection branch original matrix/enables exit state");
+   ClientConfig.RENDER_REBAR_LIMIT.value=0;BlockRebar.renderRebar(Arrays.asList(rebar),0);check(GL11.glGetError()==GL11.GL_NO_ERROR,"actual native render-last concrete and line draws complete without GL error");
+  }
+ }
+ public static void main(String[] args)throws Exception{
+  Bootstrap.register();FMLCommonHandler.instance().beginLoading(net.minecraftforge.fml.server.FMLServerHandler.instance());ModMetadata metadata=new ModMetadata();metadata.modId="hbm";metadata.name="Native rebar proof";metadata.version="1";Loader.instance().setupTestHarness(new DummyModContainer(metadata));setup();ownersAndGeometry();tileLifecycle();transfers();buffers();renderer(new File(args[0]));System.out.println("PASS "+checks+" native rebar owner/state/callback/full tile/1600 pristine transfer oracle/BufferBuilder/concrete+overlay EGL checks. Explicit fluid connector, registry/config/recipe/packet/HUD external boundaries; no launched game or screenshot acceptance.");
+ }
+}

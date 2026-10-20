@@ -177,7 +177,7 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 			GL11.glColor4d(1, 1, 1, rain);
 			f10 = 20.0F;
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(RenderNTMSkyboxImpact.moonTexture);
-			float sinphi = FMLClientHandler.instance().getClient().theWorld.getMoonPhase();
+			float sinphi = FMLClientHandler.instance().getClient().world.getMoonPhase();
 			final int cosphi = (int) (sinphi % 4);
 			final int var29 = (int) (sinphi / 4 % 2);
 			final float yy = (cosphi + 0) / 4.0F;
@@ -206,7 +206,7 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(digammaStar);
 
-			float digamma = HbmLivingProps.getDigamma(Minecraft.getMinecraft().thePlayer);
+			float digamma = HbmLivingProps.getDigamma(Minecraft.getMinecraft().player);
 			float var12 = 1F * (1 + digamma * 0.25F);
 			double dist = 100D - digamma * 2.5;
 
@@ -246,7 +246,7 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		GL11.glPopMatrix();
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glColor3f(0.0F, 0.0F, 0.0F);
-		double d0 = mc.thePlayer.getPosition(partialTicks).y - world.getHorizon();
+		double d0 = mc.player.getPosition(partialTicks).y - world.getHorizon();
 
 		if(d0 < 0.0D) {
 			GL11.glPushMatrix();

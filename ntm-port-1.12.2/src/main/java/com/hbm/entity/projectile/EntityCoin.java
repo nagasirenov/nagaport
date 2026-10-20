@@ -21,7 +21,7 @@ public class EntityCoin extends EntityThrowableInterp {
 		this.posY = y;
 		this.posZ = z;
 		float f = this.width / 2.0F;
-		this.boundingBox.setBounds(x - f, y - this.yOffset + this.ySize, z - f, x + f, y - this.yOffset + this.ySize + this.height, z + f);
+		this.getEntityBoundingBox().setBounds(x - f, y - this.yOffset + this.ySize, z - f, x + f, y - this.yOffset + this.ySize + this.height, z + f);
 	}
 
 	@Override

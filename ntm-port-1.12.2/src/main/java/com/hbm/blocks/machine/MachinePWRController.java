@@ -61,7 +61,7 @@ public class MachinePWRController extends BlockContainer implements ITooltipProv
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -76,12 +76,12 @@ public class MachinePWRController extends BlockContainer implements ITooltipProv
 			return true;
 		} else if(!player.isSneaking()) {
 
-			TileEntityPWRController controller = (TileEntityPWRController) world.getTileEntity(x, y, z);
+			TileEntityPWRController controller = (TileEntityPWRController) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(!controller.assembled) {
 				assemble(world, x, y, z, player);
 			} else {
-				if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.pwr_printer) return false;
+				if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.pwr_printer) return false;
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
 
@@ -103,7 +103,7 @@ public class MachinePWRController extends BlockContainer implements ITooltipProv
 		sources.clear();
 		assembly.put(new BlockPos(x, y, z), this);
 
-		ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z)).getOpposite();
+		ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) )).getOpposite();
 
 		errored = false;
 		floodFill(world, x + dir.offsetX, y, z + dir.offsetZ, player);
@@ -118,7 +118,7 @@ public class MachinePWRController extends BlockContainer implements ITooltipProv
 			errored = true;
 		}
 
-		TileEntityPWRController controller = (TileEntityPWRController) world.getTileEntity(x, y, z);
+		TileEntityPWRController controller = (TileEntityPWRController) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!errored) {
 			for(Entry<BlockPos, Block> entry : assembly.entrySet()) {
@@ -134,7 +134,7 @@ public class MachinePWRController extends BlockContainer implements ITooltipProv
 						world.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.pwr_block, 0, 3);
 					}
 
-					TileEntityBlockPWR pwr = (TileEntityBlockPWR) world.getTileEntity(pos.getX(), pos.getY(), pos.getZ());
+					TileEntityBlockPWR pwr = (TileEntityBlockPWR) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()));
 					pwr.block = block;
 					pwr.coreX = x;
 					pwr.coreY = y;
@@ -163,7 +163,7 @@ public class MachinePWRController extends BlockContainer implements ITooltipProv
 			return;
 		}
 
-		Block block = world.getBlock(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(isValidCasing(block)) {
 			assembly.put(pos, block);

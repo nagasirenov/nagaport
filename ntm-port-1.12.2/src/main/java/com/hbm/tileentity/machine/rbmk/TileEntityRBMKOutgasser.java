@@ -49,41 +49,41 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(!canProcess()) this.progress = 0;
-			for(DirPos pos : getOutputPos()) if(this.gas.getFill() > 0) this.tryProvide(gas, worldObj, pos);
+			for(DirPos pos : getOutputPos()) if(this.gas.getFill() > 0) this.tryProvide(gas, this.world, pos);
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	protected DirPos[] getOutputPos() {
 
-		if(worldObj.getBlock(xCoord, yCoord - 1, zCoord) == ModBlocks.rbmk_loader) {
+		if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock() == ModBlocks.rbmk_loader) {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord + 1, this.yCoord - 1, this.zCoord, Library.POS_X),
-					new DirPos(this.xCoord - 1, this.yCoord - 1, this.zCoord, Library.NEG_X),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord + 1, Library.POS_Z),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord - 1, Library.NEG_Z),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX() + 1, this.pos.getY() - 1, this.pos.getZ(), Library.POS_X),
+					new DirPos(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ(), Library.NEG_X),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() + 1, Library.POS_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() - 1, Library.NEG_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ(), Library.NEG_Y)
 			};
-		} else if(worldObj.getBlock(xCoord, yCoord - 2, zCoord) == ModBlocks.rbmk_loader) {
+		} else if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 2, this.pos.getZ()).getBlock() == ModBlocks.rbmk_loader) {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord + 1, this.yCoord - 2, this.zCoord, Library.POS_X),
-					new DirPos(this.xCoord - 1, this.yCoord - 2, this.zCoord, Library.NEG_X),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord + 1, Library.POS_Z),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord - 1, Library.NEG_Z),
-					new DirPos(this.xCoord, this.yCoord - 3, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX() + 1, this.pos.getY() - 2, this.pos.getZ(), Library.POS_X),
+					new DirPos(this.pos.getX() - 1, this.pos.getY() - 2, this.pos.getZ(), Library.NEG_X),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() + 1, Library.POS_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() - 1, Library.NEG_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 3, this.pos.getZ(), Library.NEG_Y)
 			};
 		} else {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y)
 			};
 		}
 	}
@@ -95,7 +95,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 
 			double efficiency = Math.min(1 - stream.fluxRatio * 0.8, 1);
 
-			progress += stream.fluxQuantity * efficiency * RBMKDials.getOutgasserMod(worldObj);
+			progress += stream.fluxQuantity * efficiency * RBMKDials.getOutgasserMod(this.world);
 
 			if(progress > duration) {
 				process();
@@ -154,7 +154,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	@Override
 	public void onMelt(int reduce) {
 
-		int count = 4 + worldObj.rand.nextInt(2);
+		int count = 4 + this.world.rand.nextInt(2);
 
 		for(int i = 0; i < count; i++) {
 			spawnDebris(DebrisType.BLANK);
@@ -192,11 +192,12 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setDouble("progress", this.progress);
 		this.gas.writeToNBT(nbt, "gas");
+		return nbt;
 	}
 
 	@Override
@@ -219,12 +220,14 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 1;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 1};
 	}
 
@@ -281,7 +284,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getCoordinates(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Callback(direct = true)
@@ -289,9 +292,9 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	public Object[] getInfo(Context context, Arguments args) {
 		ItemStack input = slots[0];
 		if (input != null)
-			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), xCoord, yCoord, zCoord, input.getUnlocalizedName(), input.stackSize };
+			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), input.getUnlocalizedName(), input.stackSize };
 		else
-			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), xCoord, yCoord, zCoord, "", 0 };
+			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), "", 0 };
 	}
 
 	@Override

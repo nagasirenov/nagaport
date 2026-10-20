@@ -1,0 +1,1 @@
+PASS frozen RBMK scope: 14 owned paths; 5 exact owner reversals; 37 concurrent-safe shared fragments. Source guard is not behavior proof.

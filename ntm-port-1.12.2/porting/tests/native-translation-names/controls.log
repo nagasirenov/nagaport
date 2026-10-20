@@ -1,0 +1,6 @@
+DECL	AttributionControls.Domain	getUnlocalizedName	0	false
+DECL	AttributionControls.Domain	setUnlocalizedName	1	false
+DECL	AttributionControls.LegacySetter	setUnlocalizedName	1	true
+DECL	AttributionControls.LegacyGetter	getUnlocalizedName	0	true
+DECL	AttributionControls.CustomBlock	getUnlocalizedName	1	true
+Attribution diagnostics, not compile success: 12

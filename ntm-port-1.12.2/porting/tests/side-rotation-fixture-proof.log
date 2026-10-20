@@ -1,0 +1,5 @@
+PASS pinned portable fixture archive: 101 exact pristine entries; SHA256 b952912575e58616f142e8fc30aaa3ad3009c2aa0560ee714d6c7f523bbb46aa
+PASS generated crane oracle byte-identical between archive and explicit original tree: 2453bb18970d367e735f7c1371ddb77a62bb0adfede1366fa54a927442e4ad1b (15978 bytes)
+PASS editor54 complete-body source proof output byte-identical between archive and explicit original tree.
+No Git subprocess or unpublished Git object is used by these probes.
+PASS generated combined model oracle identical through --generate-only with fixture and explicit original tree: e67566516da748929e334322d514136068ffafd207516123efb48e146d8b1228.

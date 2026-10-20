@@ -1,0 +1,19 @@
+import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
+class HeightControls {
+ World owned;
+ void test(World world,IBlockAccess access,Foreign foreign,Sub sub,int x,int z,double d) {
+  world.getHeightValue(x,z); // accepted
+  this.owned.getHeightValue(x+1,z-1); // accepted
+  access.getHeightValue(x,z); // excluded interface
+  foreign.getHeightValue(x,z); // excluded custom owner
+  sub.getHeightValue(x,z); // excluded subclass declaration
+  world.getHeightValue(d,z); // excluded non-int
+  world.getHeightValue(unknown+1,z); // excluded ERROR descendant
+  world.getHeightValue(x); // excluded arity
+  world.getHeightValue(x,z,1); // excluded arity
+  missing.world.getHeightValue(x,z); // excluded ERROR receiver
+ }
+}
+class Foreign {int getHeightValue(int x,int z){return 0;}}
+abstract class Sub extends World {Sub(){super(null,null,null,null,false);}}

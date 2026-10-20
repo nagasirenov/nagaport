@@ -1,0 +1,21 @@
+PASS exact original living/player NBT + wire + contamination quirks, property formulas/toggles, unchanged death method and unresolved achievement calls; native registration/source guard
+FULL PRODUCTION com/hbm/extprop/HbmEntityProps.java 89768c8a5a0cc2545848c64020baee49e18673a49efec68c65038a4ccfc6dcf7
+FULL PRODUCTION com/hbm/extprop/HbmPlayerProps.java de88e683c5b33b4311b40248f8f0c33b9381bcd17e07a479c44bee88b31ec211
+FULL PRODUCTION com/hbm/tileentity/IGUIProvider.java 43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47
+EXTRACTED living properties: exact production class except setDigamma excluded; no whole-class achievement/gameplay acceptance
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/EntityPropertiesNativeTest.java:156: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field unsafeField=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafeField.setAccessible(true);
+                            ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/EntityPropertiesNativeTest.java:157: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Object server=((sun.misc.Unsafe)unsafeField.get(null)).allocateInstance(net.minecraft.server.dedicated.DedicatedServer.class);
+                          ^
+Note: /tmp/hbm-entity-properties-_u8ur9bw/fixture-src/com/hbm/extprop/HbmLivingProps.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+[15:55:10] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[15:55:10] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[15:55:10] [main/INFO]: Replaced 1036 ore ingredients
+[15:55:10] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[15:55:10] [main/INFO]: Processing ObjectHolder annotations
+[15:55:10] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 96 native property lifecycle checks: real transformed Forge event dispatch/Entity constructor attachment; exact native ForgeCaps save/compressed reload; original NBT quirks and wire; death/nondeath clone omissions; selected radiation formulas; full production player class. Living setDigamma, production death handler, radiation ticks/network/achievements and loaded-game acceptance remain OPEN.

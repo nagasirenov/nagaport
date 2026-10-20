@@ -1,0 +1,76 @@
+BOUNDED COLLABORATOR com/hbm/blocks/ModBlocks.java
+BOUNDED COLLABORATOR com/hbm/items/ModItems.java
+BOUNDED COLLABORATOR com/hbm/main/MainRegistry.java
+BOUNDED COLLABORATOR com/hbm/tileentity/TileEntityLoadedBase.java
+BOUNDED COLLABORATOR com/hbm/interfaces/ICopiable.java
+BOUNDED COLLABORATOR com/hbm/inventory/RecipesCommon.java
+BOUNDED COLLABORATOR com/hbm/util/i18n/I18nUtil.java
+BOUNDED COLLABORATOR com/hbm/config/StructureConfig.java
+BOUNDED COLLABORATOR com/hbm/packet/toserver/NBTControlPacket.java
+BOUNDED COLLABORATOR com/hbm/packet/PacketDispatcher.java
+BOUNDED COLLABORATOR com/hbm/main/NetworkHandler.java
+BOUNDED COLLABORATOR com/hbm/blocks/generic/LogicBlock.java
+BOUNDED COLLABORATOR com/hbm/blocks/generic/BlockLoot.java
+BOUNDED COLLABORATOR com/hbm/itempool/ItemPool.java
+BOUNDED COLLABORATOR com/hbm/util/LootGenerator.java
+BOUNDED COLLABORATOR com/hbm/world/gen/nbt/SpawnCondition.java
+BOUNDED COLLABORATOR com/hbm/world/gen/nbt/NBTStructure.java
+BOUNDED COLLABORATOR com/hbm/world/gen/util/LogicBlockActions.java
+BOUNDED COLLABORATOR com/hbm/world/gen/util/LogicBlockConditions.java
+BOUNDED COLLABORATOR com/hbm/world/gen/util/LogicBlockInteractions.java
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandJigsaw.java 5a586d2ba2fbd903edff8ed8fa293544a641efe705a37bee9b3b9a67c56bed6f
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandTandem.java 93a1803afd66427ff7a9cc3b4535a04365a5a33e322a4e9af16764ba92a7e4c4
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandLogic.java 83a1ddcbd11a8a329648e3611381b70092b22f480cf0ebd442984193f349ca73
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandLoot.java 30b2b8d35325aec818634325d904aa9644496af3a9959a002ec5cdf7933e72ed
+COMPLETE PRODUCTION com/hbm/blocks/IBlockSideRotation.java 59785176dea684180f3e8f48600a9e9aba13c1c0f108b47b9328becff1ac7879
+COMPLETE PRODUCTION com/hbm/blocks/SideRotationModelState.java dc4731f61ac3223a9170c0c2b22bae5d4c547ee23c9b4d8eee1566afe707d5bf
+COMPLETE PRODUCTION com/hbm/blocks/ILookOverlay.java 6d887a13694c777446377a3f732bded7760902583a0970da56dd1cb7ec56bbf3
+COMPLETE PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+COMPLETE PRODUCTION api/hbm/block/IToolable.java c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62
+COMPLETE PRODUCTION com/hbm/interfaces/IControlReceiver.java 43db6ffa8098f92cc9e116333099e47bb12926727fd344db9d2a2af216d3735d
+COMPLETE PRODUCTION com/hbm/interfaces/IBomb.java 418789fdbdc0611105f2a5efaf412fe7a7aca8013af6f7f2ad5339adf02edb06
+COMPLETE PRODUCTION com/hbm/tileentity/IGUIProvider.java 43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47
+COMPLETE PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+COMPLETE PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+COMPLETE PRODUCTION com/hbm/lib/WeightedRandomChestContent.java 5d4051784c05bbd069258f45c284fad480066f3cd866932852a2076315c4b94c
+COMPLETE PRODUCTION com/hbm/lib/LegacyWeightedLoot.java 5ac929f59bf7c8d93a7dd8b3385483d7e1ac50b137a4dcb6d1cf19e56f5cb336
+COMPLETE PRODUCTION com/hbm/util/BufferUtil.java ed5747a3be9db9ccdb3a09bcd097b7e90b48ae5761066f42dd27737a71be049d
+COMPLETE PRODUCTION com/hbm/handler/ThreeInts.java c5b412aa821e92e552776ec38042855a6a6d64a6f25613d4bc00addf6d1721ce
+COMPLETE PRODUCTION com/hbm/util/Tuple.java 068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41
+COMPLETE PRODUCTION com/hbm/interfaces/Spaghetti.java f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/INBTTileEntityTransformable.java 0856307458a09405a1b4d6f88836576eff845db8d4448516c3c2b72b5ba1d551
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/JigsawPiece.java 5b00d720cc37c1e1dd9daaff64c98643871320142ac71a8c841fc23f12e811f8
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/JigsawPool.java 28e34006dd01f63b1cb1bba5d2a4128bf442236938dd18fcf95feddb37756f80
+/tmp/editor-cube-native-ywgwe_p7/EditorCubeNativeTest.java:45: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U;
+                      ^
+/tmp/editor-cube-native-ywgwe_p7/EditorCubeNativeTest.java:46: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static{try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                            ^
+/tmp/editor-cube-native-ywgwe_p7/EditorCubeNativeTest.java:46: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static{try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                         ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_jigsaw`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_jigsaw`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_tandem`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_tandem`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_logic`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_logic`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_loot`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_loot`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_air`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_air`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `logic_block`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `logic_block`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `deco_loot`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `deco_loot`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `wand_s`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:25:05] [main/WARN]: TE for logic block set incorrectly at: 8, 64, 8. If you're using some sort of world generation mod, report it to the author!
+PASS editor cubes: 2439 assertions; four complete owners/nested tiles/GUI compiled; genuine World/Chunk metadata retention and replacement, exact wire/NBT, activation, controls, placement, generation dispatch order, native GUI save.
+BOUNDS: LoadedBase sync transport, ModBlocks registry/helper, NBT structure build catalogue, packet delivery and loot/action catalogues are explicit NTM collaborators; no live GL, GUI opening, real structure generation, server FakePlayer factory or full-mod launch claim.

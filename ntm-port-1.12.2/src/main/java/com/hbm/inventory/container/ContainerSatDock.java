@@ -6,7 +6,7 @@ import com.hbm.tileentity.machine.TileEntityMachineSatDock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -53,8 +53,8 @@ public class ContainerSatDock extends Container {
 	}
 	
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
 	}
 	
 	@Override
@@ -75,7 +75,7 @@ public class ContainerSatDock extends Container {
 			}
 			
 			if (var5.stackSize == 0) {
-				var4.putStack(null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

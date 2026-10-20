@@ -6,7 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
@@ -43,15 +42,15 @@ public class ModelArmorBase extends ModelBiped {
 
 		boolean calculateRotations = true;
 
-		Render render = RenderManager.instance.getEntityRenderObject(entity);
+		Render<?> render = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject(entity);
 		if(render instanceof RenderPlayer) {
 			RenderPlayer renderPlayer = (RenderPlayer) render;
-			this.copyPropertiesFromBiped(renderPlayer.modelBipedMain);
+			this.copyPropertiesFromBiped(renderPlayer.getMainModel());
 			calculateRotations = false;
 			
 		} else if(render instanceof RenderBiped) {
-			RenderBiped renderBiped = (RenderBiped) render;
-			this.copyPropertiesFromBiped(renderBiped.modelBipedMain);
+			RenderBiped<?> renderBiped = (RenderBiped<?>) render;
+			this.copyPropertiesFromBiped((ModelBiped) renderBiped.getMainModel());
 			calculateRotations = false;
 		}
 
@@ -85,12 +84,12 @@ public class ModelArmorBase extends ModelBiped {
 				this.leftArm.rotateAngleX -= (float) Math.PI / 5F;
 			}
 
-			if(this.heldItemLeft != 0) {
-				this.leftArm.rotateAngleX = this.leftArm.rotateAngleX * 0.5F - ((float) Math.PI / 10F) * (float) this.heldItemLeft;
+			if(heldItemWeight(this.leftArmPose) != 0) {
+				this.leftArm.rotateAngleX = this.leftArm.rotateAngleX * 0.5F - ((float) Math.PI / 10F) * (float) heldItemWeight(this.leftArmPose);
 			}
 
-			if(this.heldItemRight != 0) {
-				this.rightArm.rotateAngleX = this.rightArm.rotateAngleX * 0.5F - ((float) Math.PI / 10F) * (float) this.heldItemRight;
+			if(heldItemWeight(this.rightArmPose) != 0) {
+				this.rightArm.rotateAngleX = this.rightArm.rotateAngleX * 0.5F - ((float) Math.PI / 10F) * (float) heldItemWeight(this.rightArmPose);
 			}
 
 			this.rightArm.rotateAngleY = 0.0F;
@@ -98,9 +97,9 @@ public class ModelArmorBase extends ModelBiped {
 			float f6;
 			float f7;
 
-			if(this.onGround > -9990.0F) {
-				f6 = this.onGround;
-				this.body.rotateAngleY = MathHelper.sin(MathHelper.sqrt_float(f6) * (float) Math.PI * 2.0F) * 0.2F;
+			if(this.swingProgress > -9990.0F) {
+				f6 = this.swingProgress;
+				this.body.rotateAngleY = MathHelper.sin(MathHelper.sqrt(f6) * (float) Math.PI * 2.0F) * 0.2F;
 				this.rightArm.rotationPointZ = MathHelper.sin(this.body.rotateAngleY) * 5.0F;
 				this.rightArm.rotationPointX = -MathHelper.cos(this.body.rotateAngleY) * 5.0F;
 				this.leftArm.rotationPointZ = -MathHelper.sin(this.body.rotateAngleY) * 5.0F;
@@ -108,15 +107,15 @@ public class ModelArmorBase extends ModelBiped {
 				this.rightArm.rotateAngleY += this.body.rotateAngleY;
 				this.leftArm.rotateAngleY += this.body.rotateAngleY;
 				this.leftArm.rotateAngleX += this.body.rotateAngleY;
-				f6 = 1.0F - this.onGround;
+				f6 = 1.0F - this.swingProgress;
 				f6 *= f6;
 				f6 *= f6;
 				f6 = 1.0F - f6;
 				f7 = MathHelper.sin(f6 * (float) Math.PI);
-				float f8 = MathHelper.sin(this.onGround * (float) Math.PI) * -(this.head.rotateAngleX - 0.7F) * 0.75F;
+				float f8 = MathHelper.sin(this.swingProgress * (float) Math.PI) * -(this.head.rotateAngleX - 0.7F) * 0.75F;
 				this.rightArm.rotateAngleX = (float) ((double) this.rightArm.rotateAngleX - ((double) f7 * 1.2D + (double) f8));
 				this.rightArm.rotateAngleY += this.body.rotateAngleY * 2.0F;
-				this.rightArm.rotateAngleZ = MathHelper.sin(this.onGround * (float) Math.PI) * -0.4F;
+				this.rightArm.rotateAngleZ = MathHelper.sin(this.swingProgress * (float) Math.PI) * -0.4F;
 			}
 
 			if(this.isSneak) {
@@ -134,7 +133,7 @@ public class ModelArmorBase extends ModelBiped {
 			this.rightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 			this.leftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 
-			if(this.aimedBow) {
+			if(this.rightArmPose == ArmPose.BOW_AND_ARROW || this.leftArmPose == ArmPose.BOW_AND_ARROW) {
 				f6 = 0.0F;
 				f7 = 0.0F;
 				this.rightArm.rotateAngleZ = 0.0F;
@@ -153,6 +152,11 @@ public class ModelArmorBase extends ModelBiped {
 		}
 	}
 
+	/** Original fallback weights: holding = 1, blocking = 3; bow aiming is applied below. */
+	private static int heldItemWeight(ArmPose pose) {
+		return pose == ArmPose.EMPTY ? 0 : pose == ArmPose.BLOCK ? 3 : 1;
+	}
+
 	protected static void bindTexture(ResourceLocation location) {
 		Minecraft.getMinecraft().renderEngine.bindTexture(location);
 	}
@@ -168,7 +172,8 @@ public class ModelArmorBase extends ModelBiped {
 		this.leftFoot.copyRotationFrom(modelBiped.bipedLeftLeg);
 		this.rightFoot.copyRotationFrom(modelBiped.bipedRightLeg);
 		// compat crap
-		this.aimedBow = modelBiped.aimedBow;
+		this.leftArmPose = modelBiped.leftArmPose;
+		this.rightArmPose = modelBiped.rightArmPose;
 		this.isSneak = modelBiped.isSneak;
 		this.isRiding = modelBiped.isRiding;
 	}

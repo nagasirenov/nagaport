@@ -1,0 +1,58 @@
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :extractMcpMappings SKIPPED
+> Task :deobfCompileDeobfDepTask0 SKIPPED
+> Task :deobfCompileDeobfDepTask1 SKIPPED
+> Task :deobfCompileDeobfDepTask2 SKIPPED
+> Task :deobfCompileDeobfDepTask3 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask4 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask5 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask6 SKIPPED
+> Task :deobfCompileDummyTask
+> Task :getVersionJson
+> Task :extractUserdev UP-TO-DATE
+> Task :downloadClient SKIPPED
+> Task :downloadServer SKIPPED
+> Task :splitServerJar SKIPPED
+> Task :mergeJars SKIPPED
+> Task :applyBinaryPatches SKIPPED
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData SKIPPED
+> Task :genSrgs SKIPPED
+> Task :deobfMcMCP SKIPPED
+> Task :sourceApiJava UP-TO-DATE
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+
+> Task :testPortEntityTargets
+PASS: all six production predicate decisions match pristine after method rename.
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/EntityTargetMinecraftTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true);
+                            ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/EntityTargetMinecraftTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+            FixtureWorld w=(FixtureWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(FixtureWorld.class);
+                                                   ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAINearestAttackableTargetNT.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+PASS: complete production EntityAINearestAttackableTargetNT; real World/Chunk query and EntityCreature suitability; predicates, nearest sorting, six range directions across positive/negative chunks, dead/self/nonliving rejection, null/empty cases, 1000 RNG decisions, and original resetTask behavior. Not live-world lifecycle or full six-mob compilation.
+
+BUILD SUCCESSFUL in 19s
+6 actionable tasks: 4 executed, 2 up-to-date

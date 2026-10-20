@@ -29,15 +29,15 @@ public class GUIMachineSiren extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.siren.hasCustomInventoryName() ? this.siren.getInventoryName() : I18n.format(this.siren.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		//Draw record meta here//
 		if(!siren.getCurrentType().name().equals(TrackType.NULL.name())) {
 			int color = siren.getCurrentType().getColor();
-			this.fontRendererObj.drawString(siren.getCurrentType().getTrackTitle(), 46, 28, color);
-			this.fontRendererObj.drawString("Type: " + siren.getCurrentType().getType().name(), 46, 40, color);
-			this.fontRendererObj.drawString("Volume: " + siren.getCurrentType().getVolume(), 46, 52, color);
+			this.fontRenderer.drawString(siren.getCurrentType().getTrackTitle(), 46, 28, color);
+			this.fontRenderer.drawString("Type: " + siren.getCurrentType().getType().name(), 46, 40, color);
+			this.fontRenderer.drawString("Volume: " + siren.getCurrentType().getVolume(), 46, 52, color);
 		}
 	}
 

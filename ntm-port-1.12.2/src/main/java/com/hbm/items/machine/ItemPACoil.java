@@ -1,12 +1,15 @@
 package com.hbm.items.machine;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 import java.util.Locale;
 
 import com.hbm.items.ItemEnumMulti;
 import com.hbm.util.EnumUtil;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
@@ -39,7 +42,8 @@ public class ItemPACoil extends ItemEnumMulti {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		EnumCoilType type = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
 		list.add(TextFormatting.BLUE + "Quadrupole operational range: " + TextFormatting.RESET + String.format(Locale.US, "%,d", type.quadMin) + " - " + String.format(Locale.US, "%,d", type.quadMax));
 		list.add(TextFormatting.BLUE + "Dipole operational range: " + TextFormatting.RESET + String.format(Locale.US, "%,d", type.diMin) + " - " + String.format(Locale.US, "%,d", type.diMax));

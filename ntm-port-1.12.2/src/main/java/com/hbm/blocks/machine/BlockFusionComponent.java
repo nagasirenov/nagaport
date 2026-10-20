@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class BlockFusionComponent extends BlockToolConversion {
 
 	public BlockFusionComponent() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.addVariant(".bscco_welded", ".blanket", ".motor");
 	}
 }

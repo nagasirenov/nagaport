@@ -1,0 +1,36 @@
+import java.util.*;import java.io.*;import java.net.*;import java.lang.reflect.*;
+import net.minecraft.block.state.IBlockState;import net.minecraft.util.math.BlockPos;import net.minecraft.util.*;import net.minecraft.world.*;import net.minecraft.world.chunk.*;import net.minecraft.world.storage.*;import net.minecraft.nbt.*;import net.minecraft.profiler.Profiler;import net.minecraft.creativetab.CreativeTabs;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import com.hbm.blocks.ModBlocks;
+
+import com.hbm.blocks.generic.*;
+public class BarbedNativeTest extends NativeProof {
+static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<ItemStack> spawned=new ArrayList<>();int notifications,lastFlags;
+  NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "real preloaded chunks";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}protected boolean isChunkLoaded(int x,int z,boolean empty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+  @Override public void notifyBlockUpdate(BlockPos p,IBlockState old,IBlockState next,int flags){lastFlags=flags;notifications++;super.notifyBlockUpdate(p,old,next,flags);}
+  @Override public boolean spawnEntity(Entity e){if(e instanceof EntityItem){spawned.add(((EntityItem)e).getItem().copy());return true;}return super.spawnEntity(e);}
+ }
+ static Field field(Class<?>cls,String name)throws Exception {Field f=cls.getDeclaredField(name);f.setAccessible(true);return f;}
+ public static void main(String[] args)throws Exception{Bootstrap.register();FMLCommonHandler.instance().beginLoading(net.minecraftforge.fml.server.FMLServerHandler.instance());ModMetadata md=new ModMetadata();md.modId="hbm";md.name="Ore native callback probe";md.version="1";DummyModContainer c=new DummyModContainer(md);Loader.instance().setupTestHarness(c);Loader.instance().setActiveModContainer(c);
+
+ BarbedConstruction.initialize();Block b=ModBlocks.barbed_wire;ForgeRegistries.BLOCKS.register(b);ForgeRegistries.ITEMS.register(new ItemBlock(b).setRegistryName(b.getRegistryName()));runOwner(b);System.out.println("PASS "+checks+" native barbed-wire owner/WorldChunk/drop/save checks");}
+ static void runOwner(Block b)throws Exception {
+  check(b.getClass()==BarbedWire.class,"actual exact constructor owner");check(b.getBlockState().getValidStates().size()==6,"six orientation states");check(b.getMetaFromState(b.getDefaultState())==0,"default zero");NativeWorld w=new NativeWorld();
+  check(b.getDefaultState().getMaterial()==Material.IRON&&b.getBlockHardness(b.getDefaultState(),w,BlockPos.ORIGIN)==5&&b.getExplosionResistance(null)==6,"exact owner material/hardness/resistance");
+  for(int meta=0;meta<6;meta++){IBlockState s=b.getStateFromMeta(meta);BlockPos p=new BlockPos(8,96+meta,8);check(b.getMetaFromState(s)==meta&&Block.getStateById(Block.getStateId(s))==s,"native metadata/state IDs");check(w.setBlockState(p,s,3)&&w.getBlockState(p)==s,"actual native placement");check(!b.hasTileEntity(s)&&b.createTileEntity(w,s)==null&&w.getTileEntity(p)==null,"no tile lifecycle");NonNullList<ItemStack> drops=NonNullList.create();b.getDrops(drops,w,p,s,3);check(drops.size()==1&&drops.get(0).getItem()==Item.getItemFromBlock(b)&&drops.get(0).getCount()==1&&drops.get(0).getItemDamage()==0,"actual native drop damage0");}
+  net.minecraft.world.chunk.storage.AnvilChunkLoader loader=new net.minecraft.world.chunk.storage.AnvilChunkLoader(new File("chunk-storage"),new net.minecraft.util.datafix.DataFixer(1343));Method write=loader.getClass().getDeclaredMethod("writeChunkToNBT",Chunk.class,World.class,NBTTagCompound.class),read=loader.getClass().getDeclaredMethod("readChunkFromNBT",World.class,NBTTagCompound.class);write.setAccessible(true);read.setAccessible(true);NBTTagCompound saved=new NBTTagCompound();write.invoke(loader,w.getChunk(0,0),w,saved);ByteArrayOutputStream bytes=new ByteArrayOutputStream();CompressedStreamTools.writeCompressed(saved,bytes);NBTTagCompound restored=CompressedStreamTools.readCompressed(new ByteArrayInputStream(bytes.toByteArray()));NativeWorld fresh=new NativeWorld();Chunk loaded=(Chunk)read.invoke(loader,fresh,restored);fresh.chunks.put(NativeWorld.key(0,0),loaded);loaded.markLoaded(true);
+  for(int m=0;m<6;m++){BlockPos p=new BlockPos(8,96+m,8);check(fresh.getBlockState(p)==b.getStateFromMeta(m)&&fresh.getTileEntity(p)==null,"compressed native Anvil state/tile roundtrip");fresh.spawned.clear();check(fresh.destroyBlock(p,true)&&fresh.isAirBlock(p),"actual native destruction");check(fresh.spawned.size()==1&&fresh.spawned.get(0).getItem()==Item.getItemFromBlock(b)&&fresh.spawned.get(0).getItemDamage()==0,"actual native EntityItem drop");}
+  final String[] requested={null};((BarbedWire)b).registerBlockIcons(name->{requested[0]=name;return null;});check("hbm:blocks/tile.barbed_wire_model".equals(requested[0]),"inherited missing texture request reproduced, not certified loaded");
+  BarbedWire wire=(BarbedWire)b;BlockPos p=new BlockPos(4,75,4);check(wire.getCollisionBoundingBox(b.getDefaultState(),w,p)==null&&!wire.isOpaqueCube(b.getDefaultState())&&!wire.isFullCube(b.getDefaultState()),"original non-solid collision policy");
+  net.minecraft.entity.passive.EntityPig placer=new net.minecraft.entity.passive.EntityPig(w);int[] expected={5,3,4,2};for(int q=0;q<4;q++){placer.rotationYaw=q*90;w.setBlockState(p,b.getDefaultState(),3);wire.onBlockPlacedBy(w,p,b.getDefaultState(),placer,new ItemStack(b));check(b.getMetaFromState(w.getBlockState(p))==expected[q],"native placed-by orientation callback");}
+  CollisionEntity victim=new CollisionEntity(w);victim.motionX=10;victim.motionY=10;victim.motionZ=10;wire.onEntityCollision(w,p,b.getDefaultState(),victim);check(victim.web&&victim.damage==2&&victim.source==net.minecraft.util.DamageSource.CACTUS&&victim.motionX==1.5&&victim.motionY==1&&victim.motionZ==1.5,"actual standard-wire collision hook damage/web/motion");
+ }
+ static class CollisionEntity extends Entity {boolean web;float damage;net.minecraft.util.DamageSource source;CollisionEntity(World w){super(w);}protected void entityInit(){}protected void readEntityFromNBT(NBTTagCompound n){}protected void writeEntityToNBT(NBTTagCompound n){}public void setInWeb(){web=true;super.setInWeb();}public boolean attackEntityFrom(net.minecraft.util.DamageSource s,float n){source=s;damage=n;return true;}}
+}

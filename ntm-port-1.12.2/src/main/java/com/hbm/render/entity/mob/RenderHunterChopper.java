@@ -8,7 +8,7 @@ import com.hbm.render.model.ModelHunterChopper;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.BossStatus;
+import com.hbm.render.util.ClientBossDisplay;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderHunterChopper extends Render {
@@ -19,7 +19,7 @@ public class RenderHunterChopper extends Render {
     @Override
     public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-        BossStatus.setBossStatus((EntityHunterChopper) entity, true);
+        ClientBossDisplay.capture((EntityHunterChopper) entity, true);
         GL11.glPushMatrix();
         GL11.glTranslated(x, y, z);
         GL11.glTranslatef(0.0625F * 0, 0.0625F * 32, 0.0625F * 0);

@@ -41,7 +41,7 @@ public class ItemModLodestone extends ItemArmorMod {
 		// No magnet if keybind toggled
 		if (entity instanceof EntityPlayer && !HbmPlayerProps.getData((EntityPlayer) entity).isMagnetActive()) return;
 
-		List<EntityItem> items = entity.worldObj.getEntitiesWithinAABB(EntityItem.class, entity.boundingBox.expand(range, range, range));
+		List<EntityItem> items = entity.world.getEntitiesWithinAABB(EntityItem.class, entity.getEntityBoundingBox().expand(range, range, range));
 		
 		for(EntityItem item : items) {
 			

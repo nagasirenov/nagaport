@@ -8,33 +8,18 @@ import com.hbm.main.ResourceManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
+import com.hbm.render.item.nativeitem.context.*;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 
-public class ItemRenderGavel implements IItemRenderer {
+public class ItemRenderGavel extends NativeOriginalItemRenderer {
 	
-	public ItemRenderGavel() { }
+	public ItemRenderGavel() { super(false, true); }
 
 	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		switch(type) {
-		case EQUIPPED:
-		case EQUIPPED_FIRST_PERSON:
-		case ENTITY:
-			return true;
-		default: return false;
-		}
-	}
-
-	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return type == ItemRenderType.ENTITY && (helper == ItemRendererHelper.ENTITY_BOBBING || helper == ItemRendererHelper.ENTITY_ROTATION);
-	}
-
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+	protected void drawModel(ItemStack item, NativeItemContext context) {
 		GL11.glPushMatrix();
 		
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		net.minecraft.entity.EntityLivingBase player = context.holder;
 
 		if(item.getItem() == ModItems.wood_gavel)
 			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.gavel_wood);
@@ -45,12 +30,13 @@ public class ItemRenderGavel implements IItemRenderer {
 		if(item.getItem() == ModItems.mese_gavel)
 			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.gavel_mese);
 		
-		switch(type) {
-		case EQUIPPED_FIRST_PERSON:
+		switch(context.transform) {
+		case FIRST_PERSON_LEFT_HAND:
+		case FIRST_PERSON_RIGHT_HAND:
 
 			GL11.glTranslated(1, 0.5, 0);
 			
-			if(player.isBlocking()) {
+			if(NativeToolItemPerspectives.isBlocking(item, context)) {
 				GL11.glTranslated(-0.5, 0, 0);
 			}
 			
@@ -62,9 +48,13 @@ public class ItemRenderGavel implements IItemRenderer {
 			
 			break;
 
-		case ENTITY:
+		case NONE:
+		case HEAD:
+		case FIXED:
+		case GROUND:
 			GL11.glTranslated(-0.5, 0, 0);
-		case EQUIPPED:
+		case THIRD_PERSON_LEFT_HAND:
+		case THIRD_PERSON_RIGHT_HAND:
 
 			GL11.glScaled(0.5, 0.5, 0.5);
 			GL11.glRotated(45, 0, 0, 1);

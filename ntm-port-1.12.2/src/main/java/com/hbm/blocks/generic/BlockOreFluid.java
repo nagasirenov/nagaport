@@ -131,9 +131,9 @@ public class BlockOreFluid extends BlockOre {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(empty == null) return;
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
-		if(world.getBlock(x, y - 1, z) == empty) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == empty) {
 			world.setBlock(x, y, z, empty, meta, 3);
 			world.setBlock(x, y - 1, z, this, meta, 3);
 		}

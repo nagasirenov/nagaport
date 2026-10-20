@@ -7,51 +7,41 @@ import com.hbm.render.util.MissilePart;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
+import com.hbm.render.item.nativeitem.context.*;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 
-public class ItemRenderMissilePart implements IItemRenderer {
+public class ItemRenderMissilePart extends NativeOriginalItemRenderer {
 	
 	MissilePart part;
 
-	public ItemRenderMissilePart() { }
+	public ItemRenderMissilePart() { super(true, false); }
 	
-	public ItemRenderMissilePart(MissilePart part) { 
+	public ItemRenderMissilePart(MissilePart part) {
+        super(true, false);
 		this.part = part;
 	}
 	
-	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		if(part == null || !part.renderInventoryModel) return false;
-
-		switch(type) {
-		case EQUIPPED:
-		case EQUIPPED_FIRST_PERSON:
-		case ENTITY:
-		case INVENTORY:
-			return true;
-		default: return false;
-		}
-	}
+    @Override public boolean handlesPerspective(ItemStack item, TransformType type) { return part != null && part.renderInventoryModel && part.model != null && part.texture != null; }
 
 	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return false;
-	}
-
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+	protected void drawModel(ItemStack item, NativeItemContext context) {
 		
 		if(part == null)
 			return;
 
 		GL11.glPushMatrix();
 		
-		switch(type) {
-		case EQUIPPED:
-		case EQUIPPED_FIRST_PERSON:
+		switch(context.transform) {
+		case THIRD_PERSON_LEFT_HAND:
+		case THIRD_PERSON_RIGHT_HAND:
+		case FIRST_PERSON_LEFT_HAND:
+		case FIRST_PERSON_RIGHT_HAND:
 			GL11.glTranslated(0.5, 0, 0);
 			
-		case ENTITY:
+		case NONE:
+		case HEAD:
+		case FIXED:
+		case GROUND:
 			double s = 0.4;
 			GL11.glScaled(s, s, s);
 			
@@ -60,7 +50,7 @@ public class ItemRenderMissilePart implements IItemRenderer {
 			
 			break;
 			
-		case INVENTORY:
+		case GUI:
 			
 			double height = part.guiheight;
 			
@@ -85,7 +75,7 @@ public class ItemRenderMissilePart implements IItemRenderer {
 			GL11.glTranslated(3.5, 14, 0);
 			GL11.glScaled(-scale, -scale, -scale);
 
-			GL11.glRotatef(System.currentTimeMillis() / 25 % 360, 0, -1, 0);
+			GL11.glRotatef(animationTimeMillis() / 25 % 360, 0, -1, 0);
 			Minecraft.getMinecraft().renderEngine.bindTexture(part.texture);
 			part.model.renderAll();
 			

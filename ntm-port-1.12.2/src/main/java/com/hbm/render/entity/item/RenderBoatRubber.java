@@ -39,10 +39,10 @@ public class RenderBoatRubber extends Render {
 			GL11.glRotatef(MathHelper.sin(f2) * f2 * f3 / 10.0F * (float) entity.getForwardDirection(), 1.0F, 0.0F, 0.0F);
 		}
 		
-		EntityPlayer me = Minecraft.getMinecraft().getMinecraft().thePlayer;
+		EntityPlayer me = Minecraft.getMinecraft().getMinecraft().player;
 		
 		if(entity.riddenByEntity == me) {
-			float diff = MathHelper.wrapAngleTo180_float(entity.rotationYaw - entity.prevRenderYaw);
+			float diff = MathHelper.wrapDegrees(entity.rotationYaw - entity.prevRenderYaw);
 			me.rotationYaw += diff;
 			me.rotationYawHead += diff;
 		}

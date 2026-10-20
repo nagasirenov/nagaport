@@ -1,0 +1,4 @@
+PASS: exact complete RocketStruct and EntityRideableRocket/dummy reversal to checkpoint10/11; source-only, not whole entity compilation.
+PASS: complete caller/struct body source parity against pristine + enumerated historical type renames; native key allocation, null boundary, packing/defaults/order and existing NBT anomalies unchanged.
+PASS: 7588 checks; whole production RocketMetadata, native EntityDataManager and SPacketEntityMetadata full/dirty signed-int/stack roundtrips, capacity/partial-write/stale-slot behavior; explicitly extracted state/drive/dummy declarations and packing expressions.
+LIMIT: no complete RocketStruct, EntityRideableRocket, dummy update lifecycle, MissilePart resolution, chunk ticket, NBT execution, renderer, live entity tracking, gameplay or runnable-mod claim. NBT and other unchanged behavior source-audited only.

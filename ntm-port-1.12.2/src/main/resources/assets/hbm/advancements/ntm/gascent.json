@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/desh",
+  "display": {
+    "icon": {
+      "item": "hbm:item.ingot_uranium_fuel",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.gasCent"
+    },
+    "description": {
+      "translate": "achievement.gasCent.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

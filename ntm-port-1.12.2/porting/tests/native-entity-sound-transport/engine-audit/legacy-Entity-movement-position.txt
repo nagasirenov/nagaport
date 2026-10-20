@@ -1,0 +1,39 @@
+    1285: aload_0
+    1286: getfield      #254                // Field o:Lahb;
+    1289: getfield      #183                // Field ahb.C:Lqi;
+    1292: ldc           #68                 // String rest
+    1294: invokevirtual #387                // Method qi.a:(Ljava/lang/String;)V
+    1297: aload_0
+    1298: aload_0
+    1299: getfield      #207                // Field C:Lazt;
+    1302: getfield      #193                // Field azt.a:D
+    1305: aload_0
+    1306: getfield      #207                // Field C:Lazt;
+    1309: getfield      #196                // Field azt.d:D
+    1312: dadd
+    1313: ldc2_w        #168                // double 2.0d
+    1316: ddiv
+    1317: putfield      #258                // Field s:D
+    1320: aload_0
+    1321: aload_0
+    1322: getfield      #207                // Field C:Lazt;
+    1325: getfield      #194                // Field azt.b:D
+    1328: aload_0
+    1329: getfield      #216                // Field L:F
+    1332: f2d
+    1333: dadd
+    1334: aload_0
+    1335: getfield      #226                // Field V:F
+    1338: f2d
+    1339: dsub
+    1340: putfield      #259                // Field t:D
+    1343: aload_0
+    1344: aload_0
+    1345: getfield      #207                // Field C:Lazt;
+    1348: getfield      #195                // Field azt.c:D
+    1351: aload_0
+    1352: getfield      #207                // Field C:Lazt;
+    1355: getfield      #198                // Field azt.f:D
+    1358: dadd
+    1359: ldc2_w        #168                // double 2.0d
+    1362: ddiv

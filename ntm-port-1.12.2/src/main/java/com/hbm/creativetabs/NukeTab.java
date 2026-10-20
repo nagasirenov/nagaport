@@ -16,7 +16,7 @@ public class NukeTab extends CreativeTabs {
 	public Item getTabIconItem() {
 		
 		if(ModBlocks.nuke_man != null) return Item.getItemFromBlock(ModBlocks.nuke_man);
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 
 }

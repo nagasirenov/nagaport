@@ -1,0 +1,10 @@
+{
+  "src/main/java/com/hbm/render/block/RenderMirror.java": "2bab5931b318705c5e9c4ebe7ef3ba0007162a43e81b0bf76f38c141376f1ad9",
+  "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+  "src/main/java/com/hbm/blocks/machine/SolarMirror.java": "e375a80654e2c93b502003141804e49a198518673d0ad507ab7aefd7433617a2",
+  "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java": "0351d414c46c8a71cf82cf72399649f9ac15ba5d0e1e3668f55153cebda26379",
+  "src/main/resources/assets/hbm/models/machines/solar_mirror.obj": "e2c47d9d957ad10410dca5b16bb609b4190fee6a83f06051e75713a37a6e520c",
+  "src/main/resources/assets/hbm/textures/blocks/solar_mirror.png": "c84b9de85728fe5e9777d4bc937584dce9444326355a03c7ab204b301aa02aeb",
+  "src/main/java/com/hbm/render/loader/S_Face.java": "8c486959d24a0306f974860ec212c246a44dbbc680d33d69a3eedbf2d761f7a9",
+  "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java": "4786f0d79b35f68b2cc91e71e98044d19902e1331e5a150d013b02a710b74fda"
+}

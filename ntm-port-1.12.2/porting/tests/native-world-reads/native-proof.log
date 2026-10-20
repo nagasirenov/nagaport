@@ -1,0 +1,29 @@
+/workspace/shared/nagaport-world-reads/ntm-port-1.12.2/porting/tests/native-world-reads/WorldReadNativeTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport-world-reads/ntm-port-1.12.2/porting/tests/native-world-reads/WorldReadNativeTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-world-reads/ntm-port-1.12.2/porting/tests/native-world-reads/WorldReadNativeTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS: 4721 actual original/native World/Chunk bounds, metadata, null and evaluation assertions
+PASS: 82 assertions executing five complete actual production methods
+/workspace/shared/nagaport-world-reads/ntm-port-1.12.2/porting/tests/native-world-reads/OriginalWorldEvaluation.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-world-reads/ntm-port-1.12.2/porting/tests/native-world-reads/OriginalWorldEvaluation.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-world-reads/ntm-port-1.12.2/porting/tests/native-world-reads/OriginalWorldEvaluation.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 6 direct original World invocation null/argument exception/evaluation assertions
+Attribution diagnostics, not compile success: 9
+PASS: 1030 reversible exact call boundaries preserve every unrelated byte and argument interior
+PASS: two exact World/int controls accepted; eight interface/subclass/custom/unresolved/non-int/arity controls excluded
+PASS: six runtime bounds/null/coordinate/metadata mutants rejected

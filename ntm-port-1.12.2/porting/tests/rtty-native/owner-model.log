@@ -1,0 +1,59 @@
+/workspace/shared/nagaport-rtty-next/ntm-port-1.12.2/porting/tests/rtty-native/RadioTorchOwnerModelTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);Field instance=net.minecraft.client.Minecraft.class.getDeclaredField("instance");instance.setAccessible(true);instance.set(null,mc);Field resources=net.minecraft.client.Minecraft.class.getDeclaredField("resourceManager");resources.setAccessible(true);resources.set(mc,new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer()));
+                  ^
+/workspace/shared/nagaport-rtty-next/ntm-port-1.12.2/porting/tests/rtty-native/RadioTorchOwnerModelTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);Field instance=net.minecraft.client.Minecraft.class.getDeclaredField("instance");instance.setAccessible(true);instance.set(null,mc);Field resources=net.minecraft.client.Minecraft.class.getDeclaredField("resourceManager");resources.setAccessible(true);resources.set(mc,new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer()));
+                                                                                            ^
+/workspace/shared/nagaport-rtty-next/ntm-port-1.12.2/porting/tests/rtty-native/RadioTorchOwnerModelTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);Field instance=net.minecraft.client.Minecraft.class.getDeclaredField("instance");instance.setAccessible(true);instance.set(null,mc);Field resources=net.minecraft.client.Minecraft.class.getDeclaredField("resourceManager");resources.setAccessible(true);resources.set(mc,new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer()));
+                                                                                                                    ^
+/workspace/shared/nagaport-rtty-next/ntm-port-1.12.2/porting/tests/rtty-native/RadioTorchOwnerModelTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=net.minecraft.client.Minecraft.getMinecraft();
+          ^
+/workspace/shared/nagaport-rtty-next/ntm-port-1.12.2/porting/tests/rtty-native/RadioTorchOwnerModelTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=net.minecraft.client.Minecraft.getMinecraft();
+                                  ^
+/workspace/shared/nagaport-rtty-next/ntm-port-1.12.2/porting/tests/rtty-native/RadioTorchOwnerModelTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=net.minecraft.client.Minecraft.getMinecraft();
+                                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_receiver`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_receiver`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_counter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_counter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_logic`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_logic`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_reader`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_reader`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_controller`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.radio_torch_controller`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native all16 metadata, six side placement/support/loss, real Chunk tile creation/removal, power callbacks and immutable dynamic state.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender_name`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender_name`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender_name`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender_name`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender_name`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.radio_torch_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:11:43] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sender_name`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS original non-retextured breaking: actual handler and native dispatcher, six exact block/tile owners x16 metadata x2 states x2 AO x3 damage stages; exact original-icon UV/geometry/light, colorless output, ordinary/invalid/unowned no-op.
+[23:11:43] [main/INFO]: Reloading ResourceManager: resources
+PASS independent pinned RenderRTTY/OBJ oracle: six owners x16 metadata x2 signal states; native Forge and vanilla flat packed light/white; exact loader/JSON/flat item registrations.
+PASS radio owner/model 285026 assertions. No live GL/full-game claim.
+PASS genuine native owner/model/loader compile and tests. Complete family owners and tiles/bases are compiled together; only external NTM domain collaborators are bounded.

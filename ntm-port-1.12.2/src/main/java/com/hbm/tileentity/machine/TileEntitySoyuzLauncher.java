@@ -61,20 +61,20 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.soyuzLauncher";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
-					this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					this.trySubscribe(tanks[1].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 			
@@ -90,7 +90,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 				countdown--;
 				
 				if(countdown % 100 == 0 && countdown > 0)
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:alarm.hatch", 100F, 1.1F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:alarm.hatch", 100F, 1.1F);
 				
 			} else {
 				liftOff();
@@ -99,7 +99,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 			networkPackNT(250);
 		}
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			if(!starting || !canLaunch()) {
 				
 				if(audio != null) {
@@ -122,7 +122,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 				countdown--;
 			}
 			
-			List<EntitySoyuz> entities = worldObj.getEntitiesWithinAABB(EntitySoyuz.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord, zCoord - 0.5, xCoord + 1.5, yCoord + 10, zCoord + 1.5));
+			List<EntitySoyuz> entities = this.world.getEntitiesWithinAABB(EntitySoyuz.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 			
 			if(!entities.isEmpty()) {
 				
@@ -130,10 +130,10 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 				data.setString("type", "smoke");
 				data.setString("mode", "shockRand");
 				data.setInteger("count", 50);
-				data.setDouble("strength", worldObj.rand.nextGaussian() * 3 + 6);
-				data.setDouble("posX", xCoord + 0.5);
-				data.setDouble("posY", yCoord - 3);
-				data.setDouble("posZ", zCoord + 0.5);
+				data.setDouble("strength", this.world.rand.nextGaussian() * 3 + 6);
+				data.setDouble("posX", this.pos.getX() + 0.5);
+				data.setDouble("posY", this.pos.getY() - 3);
+				data.setDouble("posZ", this.pos.getZ() + 0.5);
 				
 				MainRegistry.proxy.effectNT(data);
 			}
@@ -152,8 +152,8 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 			ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 			
 			for(int i = -6; i <= 6; i++) {
-				conPos.add(new DirPos(xCoord + dir.offsetX * 7 + rot.offsetX * i, yCoord + 0, zCoord + dir.offsetZ * 7 + rot.offsetZ * i, dir));
-				conPos.add(new DirPos(xCoord + dir.offsetX * 7 + rot.offsetX * i, yCoord - 1, zCoord + dir.offsetZ * 7 + rot.offsetZ * i, dir));
+				conPos.add(new DirPos(this.pos.getX() + dir.offsetX * 7 + rot.offsetX * i, this.pos.getY() + 0, this.pos.getZ() + dir.offsetZ * 7 + rot.offsetZ * i, dir));
+				conPos.add(new DirPos(this.pos.getX() + dir.offsetX * 7 + rot.offsetX * i, this.pos.getY() - 1, this.pos.getZ() + dir.offsetZ * 7 + rot.offsetZ * i, dir));
 			}
 		}
 		
@@ -162,7 +162,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.soyuzReady", xCoord, yCoord, zCoord, 2.0F, 100F, 1.0F);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.soyuzReady", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 2.0F, 100F, 1.0F);
 	}
 
 	@Override
@@ -219,13 +219,13 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 		int req = this.getFuelRequired();
 		int pow = this.getPowerRequired();
 		
-		EntitySoyuz soyuz = new EntitySoyuz(worldObj);
+		EntitySoyuz soyuz = new EntitySoyuz(this.world);
 		soyuz.setSkin(this.getType());
 		soyuz.mode = this.mode;
-		soyuz.setLocationAndAngles(xCoord + 0.5, yCoord + 1, zCoord + 0.5, 0, 0);
-		worldObj.spawnEntityInWorld(soyuz);
+		soyuz.setLocationAndAngles(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 0, 0);
+		this.world.spawnEntityInWorld(soyuz);
 
-		worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:entity.soyuzTakeoff", 100F, 1.1F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:entity.soyuzTakeoff", 100F, 1.1F);
 
 		tanks[0].setFill(tanks[0].getFill() - req);
 		tanks[1].setFill(tanks[1].getFill() - req);
@@ -248,8 +248,8 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 				slots[i] = null;
 			}
 
-			soyuz.targetX = slots[1].stackTagCompound.getInteger("xCoord");
-			soyuz.targetZ = slots[1].stackTagCompound.getInteger("zCoord");
+			soyuz.targetX = slots[1].getTagCompound().getInteger("xCoord");
+			soyuz.targetZ = slots[1].getTagCompound().getInteger("zCoord");
 			soyuz.setPayload(payload);
 		}
 		
@@ -282,10 +282,10 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	public int getDist() {
 		
 		if(designator() == 2) {
-			int x = slots[1].stackTagCompound.getInteger("xCoord");
-			int z = slots[1].stackTagCompound.getInteger("zCoord");
+			int x = slots[1].getTagCompound().getInteger("xCoord");
+			int z = slots[1].getTagCompound().getInteger("zCoord");
 			
-			return (int) new Vec3d(xCoord - x, 0, zCoord - z).length();
+			return (int) new Vec3d(this.pos.getX() - x, 0, this.pos.getZ() - z).length();
 		}
 			
 		return 0;
@@ -325,7 +325,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 		if(mode == 0) {
 			return 0;
 		}
-		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem && ((IDesignatorItem)slots[1].getItem()).isReady(worldObj, slots[1], xCoord, yCoord, zCoord)) {
+		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem && ((IDesignatorItem)slots[1].getItem()).isReady(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
 			return 2;
 		}
 		
@@ -384,7 +384,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		NBTTagList list = new NBTTagList();
@@ -403,6 +403,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 			}
 		}
 		nbt.setTag("items", list);
+		return nbt;
 	}
 
 	@Override

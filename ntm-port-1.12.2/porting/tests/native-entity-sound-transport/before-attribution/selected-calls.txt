@@ -1,0 +1,179 @@
+com/hbm/items/tool/ItemAmmoContainer.java:80
+  receiver: world [World]
+  args: player, "hbm:item.unpack", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.unpack", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemBoltgun.java:96
+  receiver: world [World]
+  args: player, "hbm:item.boltgun", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.boltgun", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemBombCaller.java:76
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemBombCaller.java:80
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDesignatorArtyRange.java:59
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDesignatorArtyRange.java:84
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDesingator.java:44
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDesingatorRange.java:50
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDetonator.java:51
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 2.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F)
+
+com/hbm/items/tool/ItemDetonator.java:75
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDigammaDiagnostic.java:16
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemDosimeter.java:60
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemFilter.java:68
+  receiver: world [World]
+  args: player, "hbm:item.gasmaskScrew", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.gasmaskScrew", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemGeigerCounter.java:79
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemLaserDetonator.java:49
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemLaserDetonator.java:53
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemLock.java:35
+  receiver: world [World]
+  args: player, "hbm:block.lockHang", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:block.lockHang", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemMeteorRemote.java:38
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemMultiDetonator.java:58
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 2.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F)
+
+com/hbm/items/tool/ItemMultiDetonator.java:105
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemMultiDetonator.java:120
+  receiver: world [World]
+  args: player, "hbm:item.techBoop", 2.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F)
+
+com/hbm/items/tool/ItemOilDetector.java:60
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemRadarLinker.java:28
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemRepairKit.java:46
+  receiver: world [World]
+  args: player, "hbm:item.spray", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.spray", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemRepairKit.java:47
+  receiver: world [World]
+  args: player, "hbm:item.repair", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.repair", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemTurretControl.java:114
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/items/tool/ItemTurretControl.java:145
+  receiver: world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityLockableBase.java:84
+  receiver: this.world [World]
+  args: player, "hbm:block.lockOpen", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityLockableBase.java:89
+  receiver: this.world [World]
+  args: player, "hbm:block.lockOpen", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityLockableBase.java:124
+  receiver: this.world [World]
+  args: player, "hbm:item.pinUnlock", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.pinUnlock", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityLockableBase.java:128
+  receiver: this.world [World]
+  args: player, "hbm:item.pinBreak", 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.pinBreak", 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F)
+
+com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:455
+  receiver: this.world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:464
+  receiver: this.world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:473
+  receiver: this.world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:490
+  receiver: this.world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:497
+  receiver: this.world [World]
+  args: player, "hbm:item.techBleep", 1.0F, 1.0F [EntityPlayer, String, float, float]
+  invocation: this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F)

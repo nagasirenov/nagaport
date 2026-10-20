@@ -53,11 +53,11 @@ public class RenderRADBeast extends RenderLiving {
 			double tY = victim.posY + victim.height / 2;
 			double tZ = victim.posZ;
 
-			if(victim == Minecraft.getMinecraft().thePlayer)
+			if(victim == Minecraft.getMinecraft().player)
 				tY -= 1.5;
 
 			double length = Math.sqrt(Math.pow(tX - sx, 2) + Math.pow(tY - sy, 2) + Math.pow(tZ - sz, 2));
-			if(length < 200) BeamPronter.prontBeam(new Vec3d(tX - sx, tY - sy, tZ - sz), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x004000, 0x004000, (int) (entity.worldObj.getTotalWorldTime() % 1000 + 1), (int) (length * 5), 0.125F, 2, 0.03125F, 256);
+			if(length < 200) BeamPronter.prontBeam(new Vec3d(tX - sx, tY - sy, tZ - sz), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x004000, 0x004000, (int) (entity.world.getTotalWorldTime() % 1000 + 1), (int) (length * 5), 0.125F, 2, 0.03125F, 256);
 
 			GL11.glPopMatrix();
 		}

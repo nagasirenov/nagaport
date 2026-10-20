@@ -1,0 +1,26 @@
+{
+  "base": "c986d3f35683a7b81fe0e2caf928f6a47a7a6b5f",
+  "classes": {
+    "original bdw.class": {
+      "archive": "/tmp/nagaport-legacy-client.jar",
+      "sha256": "70761126a8f9b6d0298e3205afb55caf01b8a0682b92dd82cb0b7ca807cb07cf"
+    },
+    "net/minecraft/client/gui/GuiScreen.class": {
+      "archive": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "dfe39c4bb21563c267febe0b08a71c05eaace058dea16e7436ebc6dca91b2ecf"
+    },
+    "net/minecraftforge/fml/client/config/GuiUtils.class": {
+      "archive": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "053616fd7cfffc21ef1356da7f59f6c38be8691714ba1666c45e7c3d62f03581"
+    },
+    "net/minecraft/entity/player/InventoryPlayer.class": {
+      "archive": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "4d6547fba58d1e98fb8c28eda28f38c4d0c325e143cafa258b114d35d1a75d17"
+    }
+  },
+  "mapping": {
+    "exact-method-mapping.txt": "14394e6628177d8ec9c1ba78bcd5dda906121eba54fdd7e3079aebeb7d177e32",
+    "original-Forge1614-GuiScreen.patch.txt": "6ccba76e5b28a497c7d7569c0912409543b834019da1bcc897f786ce3dc51936"
+  },
+  "normalized_wrapper_instructions_sha256": "46e62b29b7079e5c687cb5a14bb40b60b368cb45579033076e03c43b7c580fce"
+}

@@ -1,0 +1,11 @@
+{
+  "baseline": "2fa015374be0e330d2541e5bfe9d4b96e380aa05",
+  "mineral_original_nonimports_sha256": "b2dee2386cc89c39418c7e900fa08ccffcba14b27e944dd96e893172edbbfdb8",
+  "site_counts": {
+    "normal_shaped": 184,
+    "ore_shaped": 2,
+    "normal_shapeless": 23,
+    "ore_shapeless": 60
+  },
+  "crafting_manager_original_nonimports_sha256": "998482018c197f52df4936f40842bf9a8d933f93f94f4afd6c539cf8e57108bb"
+}

@@ -14,7 +14,7 @@ public class MachineTeleanchor extends BlockBase {
 	@SideOnly(Side.CLIENT) private IIcon iconTop;
 	
 	public MachineTeleanchor() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

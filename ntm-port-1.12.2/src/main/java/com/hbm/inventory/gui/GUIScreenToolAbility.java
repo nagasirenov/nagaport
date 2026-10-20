@@ -87,7 +87,7 @@ public class GUIScreenToolAbility extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		this.toolStack = this.mc.thePlayer.getHeldItem();
+		this.toolStack = com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player);
 
 		if(this.toolStack == null) {
 			doClose();
@@ -157,11 +157,11 @@ public class GUIScreenToolAbility extends GuiScreen {
 		}
 
 		if(!tooltipValue.isEmpty()) {
-			int tooltipWidth = Math.max(6, fontRendererObj.getStringWidth(tooltipValue));
+			int tooltipWidth = Math.max(6, fontRenderer.getStringWidth(tooltipValue));
 			int tooltipX = guiLeft + xSize / 2 - tooltipWidth / 2;
 			int tooltipY = guiTop + ySize + 1 + 4;
 			drawStretchedRect(tooltipX - 5, tooltipY - 4, 0, 76, tooltipWidth + 10, 186, 15, 3, 3);
-			fontRendererObj.drawString(tooltipValue, tooltipX, tooltipY, 0xffffffff);
+			fontRenderer.drawString(tooltipValue, tooltipX, tooltipY, 0xffffffff);
 		}
 	}
 
@@ -295,7 +295,7 @@ public class GUIScreenToolAbility extends GuiScreen {
 			case 6: doClose(); break;
 			}
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.5F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.5F));
 		}
 
 		// Allow quick-closing
@@ -313,7 +313,7 @@ public class GUIScreenToolAbility extends GuiScreen {
 				int availableLevels = availableAbilities.maxLevel(hoveredAbility) + 1;
 
 				if(hoveredAbility != selectedAbility || availableLevels > 1) {
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:item.techBoop"), 2F));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:item.techBoop"), 2F));
 				}
 
 				if(hoveredAbility == selectedAbility) {
@@ -394,10 +394,10 @@ public class GUIScreenToolAbility extends GuiScreen {
 		((ItemToolAbility) this.toolStack.getItem()).setConfiguration(toolStack, config);
 		PacketDispatcher.wrapper.sendToServer(new NBTItemControlPacket(this.toolStack.getTagCompound()));
 
-		this.mc.thePlayer.closeScreen();
+		this.mc.player.closeScreen();
 
 		MainRegistry.proxy.displayTooltip(config.getActivePreset().getMessage().getFormattedText(), MainRegistry.proxy.ID_TOOLABILITY);
 
-		this.mc.theWorld.playSoundAtEntity(this.mc.thePlayer, "random.orb", 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F);
+		this.mc.world.playSoundAtEntity(this.mc.player, "random.orb", 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F);
 	}
 }

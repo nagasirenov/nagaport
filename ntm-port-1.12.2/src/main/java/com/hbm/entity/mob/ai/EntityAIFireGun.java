@@ -46,10 +46,10 @@ public class EntityAIFireGun extends EntityAIBase {
 	@Override
 	public void updateTask() {
 		EntityLivingBase target = host.getAttackTarget();
-		ItemStack stack = host.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(host);
 		ItemGunBaseNT gun = getYerGun();
 
-		gun.onUpdate(stack, host.worldObj, host, 0, true);
+		gun.onUpdate(stack, host.world, host, 0, true);
 
 		double distanceToTargetSquared = host.getDistanceSq(target.posX, target.posY, target.posZ);
 		boolean canSeeTarget = host.getEntitySenses().canSee(target);
@@ -75,7 +75,7 @@ public class EntityAIFireGun extends EntityAIBase {
 			if(state == FireState.WAIT) {
 				updateState(FireState.IDLE, 0, gun, stack);
 			} else if(state != FireState.IDLE) {
-				updateState(FireState.WAIT, host.worldObj.rand.nextInt(maxWait - minWait) + minWait, gun, stack);
+				updateState(FireState.WAIT, host.world.rand.nextInt(maxWait - minWait) + minWait, gun, stack);
 			}
 		} else if(state == FireState.FIRING) {
 			// Keep the trigger held throughout the duration of firing
@@ -89,7 +89,7 @@ public class EntityAIFireGun extends EntityAIBase {
 				if(rec.getMagazine(stack).getAmount(stack, null) <= 0) {
 					updateState(FireState.RELOADING, 20, gun, stack);
 				} else if(ItemGunBaseNT.getState(stack, 0) == GunState.IDLE) {
-					updateState(FireState.FIRING, host.worldObj.rand.nextInt(burstTime), gun, stack);
+					updateState(FireState.FIRING, host.world.rand.nextInt(burstTime), gun, stack);
 				}
 			}
 		}
@@ -114,8 +114,8 @@ public class EntityAIFireGun extends EntityAIBase {
 		// Turn body to face firing direction, since the gun is attached to that, not the head
 		// Also apply accuracy debuff just before firing
 		if(bind != null && bind != EnumKeybind.RELOAD) {
-			host.rotationYawHead += (host.worldObj.rand.nextFloat() - 0.5F) * inaccuracy;
-			host.rotationPitch += (host.worldObj.rand.nextFloat() - 0.5F) * inaccuracy;
+			host.rotationYawHead += (host.world.rand.nextFloat() - 0.5F) * inaccuracy;
+			host.rotationPitch += (host.world.rand.nextFloat() - 0.5F) * inaccuracy;
 			host.rotationYaw = host.rotationYawHead;
 		}
 
@@ -126,7 +126,7 @@ public class EntityAIFireGun extends EntityAIBase {
 	}
 
 	public ItemGunBaseNT getYerGun() {
-		ItemStack stack = host.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(host);
 
 		if(stack == null || !(stack.getItem() instanceof ItemGunBaseNT)) return null;
 

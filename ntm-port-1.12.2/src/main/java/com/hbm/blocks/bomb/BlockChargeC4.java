@@ -26,7 +26,7 @@ public class BlockChargeC4 extends BlockChargeBase {
 
 		if(!world.isRemote) {
 			safe = true;
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			safe = false;
 
 			ExplosionVNT xnt = new ExplosionVNT(world, x + 0.5, y + 0.5, z + 0.5, 15F);

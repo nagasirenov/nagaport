@@ -70,6 +70,6 @@ public class ContainerMachineRotaryFurnace extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return furnace.isUseableByPlayer(player);
+		return furnace.isUsableByPlayer(player);
 	}
 }

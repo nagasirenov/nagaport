@@ -31,7 +31,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.ChunkProviderServer;
@@ -61,13 +61,13 @@ public class PollutionHandler {
 		
 		PollutionPerWorld ppw = perWorld.get(world);
 		if(ppw == null) return;
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(x >> 6, z >> 6);
+		ChunkPos pos = new ChunkPos(x >> 6, z >> 6);
 		PollutionData data = ppw.pollution.get(pos);
 		if(data == null) {
 			data = new PollutionData();
 			ppw.pollution.put(pos, data);
 		}
-		data.pollution[type.ordinal()] = MathHelper.clamp_float((float) (data.pollution[type.ordinal()] + amount * MobConfig.pollutionMult), 0F, 10_000F);
+		data.pollution[type.ordinal()] = MathHelper.clamp((float) (data.pollution[type.ordinal()] + amount * MobConfig.pollutionMult), 0F, 10_000F);
 	}
 	
 	public static void decrementPollution(World world, int x, int y, int z, PollutionType type, float amount) {
@@ -80,7 +80,7 @@ public class PollutionHandler {
 		
 		PollutionPerWorld ppw = perWorld.get(world);
 		if(ppw == null) return;
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(x >> 6, z >> 6);
+		ChunkPos pos = new ChunkPos(x >> 6, z >> 6);
 		PollutionData data = ppw.pollution.get(pos);
 		if(data == null) {
 			data = new PollutionData();
@@ -95,7 +95,7 @@ public class PollutionHandler {
 		
 		PollutionPerWorld ppw = perWorld.get(world);
 		if(ppw == null) return 0F;
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(x >> 6, z >> 6);
+		ChunkPos pos = new ChunkPos(x >> 6, z >> 6);
 		PollutionData data = ppw.pollution.get(pos);
 		if(data == null) return 0F;
 		return data.pollution[type.ordinal()];
@@ -107,7 +107,7 @@ public class PollutionHandler {
 		
 		PollutionPerWorld ppw = perWorld.get(world);
 		if(ppw == null) return null;
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(x >> 6, z >> 6);
+		ChunkPos pos = new ChunkPos(x >> 6, z >> 6);
 		PollutionData data = ppw.pollution.get(pos);
 		return data;
 	}
@@ -117,8 +117,8 @@ public class PollutionHandler {
 	//////////////////////
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
-		if(!event.world.isRemote && RadiationConfig.enablePollution) {
-			WorldServer world = (WorldServer) event.world;
+		if(!event.getWorld().isRemote && RadiationConfig.enablePollution) {
+			WorldServer world = (WorldServer) event.getWorld();
 			String dirPath = getDataDir(world);
 
 			try {
@@ -130,9 +130,9 @@ public class PollutionHandler {
 						FileInputStream io = new FileInputStream(pollutionFile);
 						NBTTagCompound data = CompressedStreamTools.readCompressed(io);
 						io.close();
-						perWorld.put(event.world, new PollutionPerWorld(data));
+						perWorld.put(event.getWorld(), new PollutionPerWorld(data));
 					} else {
-						perWorld.put(event.world, new PollutionPerWorld());
+						perWorld.put(event.getWorld(), new PollutionPerWorld());
 					}
 				}
 			} catch(Exception ex) {
@@ -143,13 +143,13 @@ public class PollutionHandler {
 	
 	@SubscribeEvent
 	public void onWorldUnload(WorldEvent.Unload event) {
-		if(!event.world.isRemote) perWorld.remove(event.world);
+		if(!event.getWorld().isRemote) perWorld.remove(event.getWorld());
 	}
 
 	@SubscribeEvent
 	public void onWorldSave(WorldEvent.Save event) {
-		if(!event.world.isRemote) {
-			WorldServer world = (WorldServer) event.world;
+		if(!event.getWorld().isRemote) {
+			WorldServer world = (WorldServer) event.getWorld();
 			String dirPath = getDataDir(world);
 			File pollutionFile = new File(dirPath, fileName);
 
@@ -171,8 +171,8 @@ public class PollutionHandler {
 	public String getDataDir(WorldServer world) {
 		String dir = world.getSaveHandler().getWorldDirectory().getAbsolutePath();
 		// Crucible and probably Thermos provide dimId by themselves
-		String dimId = File.separator + "DIM" + world.provider.dimensionId;
-		if(world.provider.dimensionId != 0 && !dir.endsWith(dimId)) {
+		String dimId = File.separator + "DIM" + world.provider.getDimension();
+		if(world.provider.getDimension() != 0 && !dir.endsWith(dimId)) {
 			dir += dimId;
 		}
 		dir += File.separator + "data";
@@ -195,11 +195,11 @@ public class PollutionHandler {
 			eggTimer = 0;
 			
 			for(Entry<World, PollutionPerWorld> entry : perWorld.entrySet()) {
-				HashMap<ChunkCoordIntPair, PollutionData> newPollution = new HashMap();
+				HashMap<ChunkPos, PollutionData> newPollution = new HashMap();
 				
-				for(Entry<ChunkCoordIntPair, PollutionData> chunk : entry.getValue().pollution.entrySet()) {
-					int x = chunk.getKey().chunkXPos;
-					int z = chunk.getKey().chunkZPos;
+				for(Entry<ChunkPos, PollutionData> chunk : entry.getValue().pollution.entrySet()) {
+					int x = chunk.getKey().x;
+					int z = chunk.getKey().z;
 					PollutionData data = chunk.getValue();
 					
 					float[] pollutionForNeightbors = new float[PollutionType.values().length];
@@ -238,7 +238,7 @@ public class PollutionHandler {
 					//apply neighbor data to neighboring chunks
 					int[][] offsets = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 					for(int[] offset : offsets) {
-						ChunkCoordIntPair offPos = new ChunkCoordIntPair(x + offset[0], z + offset[1]);
+						ChunkPos offPos = new ChunkPos(x + offset[0], z + offset[1]);
 						PollutionData offsetData = newPollution.get(offPos);
 						if(offsetData == null) offsetData = new PollutionData();
 						
@@ -268,25 +268,25 @@ public class PollutionHandler {
 			WorldServer serv = (WorldServer) world;
 			ChunkProviderServer provider = (ChunkProviderServer) serv.getChunkProvider();
 			
-			for(Entry<ChunkCoordIntPair, PollutionData> pollution : entry.getValue().pollution.entrySet()) {
+			for(Entry<ChunkPos, PollutionData> pollution : entry.getValue().pollution.entrySet()) {
 				
 				float poison = pollution.getValue().pollution[PollutionType.POISON.ordinal()];
 				if(poison < DESTRUCTION_THRESHOLD) continue;
 				
-				ChunkCoordIntPair entryPos = pollution.getKey();
+				ChunkPos entryPos = pollution.getKey();
 				
 				for(int i = 0; i < DESTRUCTION_COUNT; i++) {
-					int x = (entryPos.chunkXPos << 6) + world.rand.nextInt(64);
-					int z = (entryPos.chunkZPos << 6) + world.rand.nextInt(64);
+					int x = (entryPos.x << 6) + world.rand.nextInt(64);
+					int z = (entryPos.z << 6) + world.rand.nextInt(64);
 					
 					if(provider.chunkExists(x >> 4, z >> 4)) {
 						int y = world.getHeightValue(x, z) - world.rand.nextInt(3) + 1;
-						Block b = world.getBlock(x, y, z);
+						Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 						
-						if(b == Blocks.grass || (b == Blocks.dirt && world.getBlockMetadata(x, y, z) == 0)) {
-							world.setBlock(x, y, z, Blocks.dirt, 1, 3);
-						} else if(b == Blocks.tallgrass || b.getMaterial() == Material.leaves || b.getMaterial() == Material.plants) {
-							world.setBlock(x, y, z, Blocks.air);
+						if(b == Blocks.GRASS || (b == Blocks.DIRT && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 0)) {
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+						} else if(b == Blocks.TALLGRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS) {
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					}
 				}
@@ -298,7 +298,7 @@ public class PollutionHandler {
 	/// DATA STRUCTURE ///
 	//////////////////////
 	public static class PollutionPerWorld {
-		public HashMap<ChunkCoordIntPair, PollutionData> pollution = new HashMap();
+		public HashMap<ChunkPos, PollutionData> pollution = new HashMap();
 		
 		public PollutionPerWorld() { }
 		
@@ -310,7 +310,7 @@ public class PollutionHandler {
 				NBTTagCompound nbt = list.getCompoundTagAt(i);
 				int chunkX = nbt.getInteger("chunkX");
 				int chunkZ = nbt.getInteger("chunkZ");
-				pollution.put(new ChunkCoordIntPair(chunkX, chunkZ), PollutionData.fromNBT(nbt));
+				pollution.put(new ChunkPos(chunkX, chunkZ), PollutionData.fromNBT(nbt));
 			}
 		}
 		
@@ -320,10 +320,10 @@ public class PollutionHandler {
 			
 			NBTTagList list = new NBTTagList();
 			
-			for(Entry<ChunkCoordIntPair, PollutionData> entry : pollution.entrySet()) {
+			for(Entry<ChunkPos, PollutionData> entry : pollution.entrySet()) {
 				NBTTagCompound nbt = new NBTTagCompound();
-				nbt.setInteger("chunkX", entry.getKey().chunkXPos);
-				nbt.setInteger("chunkZ", entry.getKey().chunkZPos);
+				nbt.setInteger("chunkX", entry.getKey().x);
+				nbt.setInteger("chunkZ", entry.getKey().z);
 				entry.getValue().toNBT(nbt);
 				list.appendTag(nbt);
 			}
@@ -372,7 +372,7 @@ public class PollutionHandler {
 		
 		World world = event.world;
 		if(world.isRemote) return;
-		EntityLivingBase living = event.entityLiving;
+		EntityLivingBase living = event.getEntityLiving();
 		
 		PollutionData data = getPollutionData(world, (int) Math.floor(event.x), (int) Math.floor(event.y), (int) Math.floor(event.z));
 		if(data == null) return;
@@ -396,22 +396,22 @@ public class PollutionHandler {
 	@SubscribeEvent
 	public void rampantScoutPopulator(WorldEvent.PotentialSpawns event){
 		
-		if(MobConfig.rampantNaturalScoutSpawn && !event.world.isRemote && event.world.provider.dimensionId == 0 && event.world.canBlockSeeTheSky(event.x, event.y, event.z) && !event.isCanceled()) {
+		if(MobConfig.rampantNaturalScoutSpawn && !event.getWorld().isRemote && event.getWorld().provider.getDimension() == 0 && event.getWorld().canBlockSeeTheSky(event.x, event.y, event.z) && !event.isCanceled()) {
 
-					if (event.world.rand.nextInt(MobConfig.rampantScoutSpawnChance) == 0) {
+					if (event.getWorld().rand.nextInt(MobConfig.rampantScoutSpawnChance) == 0) {
 
-						float soot = PollutionHandler.getPollution(event.world, event.x, event.y, event.z, PollutionType.SOOT);
+						float soot = PollutionHandler.getPollution(event.getWorld(), event.x, event.y, event.z, PollutionType.SOOT);
 
 						if (soot >= MobConfig.rampantScoutSpawnThresh) {
-							EntityGlyphidScout scout = new EntityGlyphidScout(event.world);
-							scout.setLocationAndAngles(event.x, event.y, event.z, event.world.rand.nextFloat() * 360.0F, 0.0F);
+							EntityGlyphidScout scout = new EntityGlyphidScout(event.getWorld());
+							scout.setLocationAndAngles(event.x, event.y, event.z, event.getWorld().rand.nextFloat() * 360.0F, 0.0F);
 							if(scout.isValidLightLevel()) {
 								//escort for the scout, which can also deal with obstacles
-								EntityGlyphidDigger digger = new EntityGlyphidDigger(event.world);
-								scout.setLocationAndAngles(event.x, event.y, event.z, event.world.rand.nextFloat() * 360.0F, 0.0F);
-								digger.setLocationAndAngles(event.x, event.y, event.z, event.world.rand.nextFloat() * 360.0F, 0.0F);
-								if(scout.getCanSpawnHere()) event.world.spawnEntityInWorld(scout);
-								if(digger.getCanSpawnHere()) event.world.spawnEntityInWorld(digger);
+								EntityGlyphidDigger digger = new EntityGlyphidDigger(event.getWorld());
+								scout.setLocationAndAngles(event.x, event.y, event.z, event.getWorld().rand.nextFloat() * 360.0F, 0.0F);
+								digger.setLocationAndAngles(event.x, event.y, event.z, event.getWorld().rand.nextFloat() * 360.0F, 0.0F);
+								if(scout.getCanSpawnHere()) event.getWorld().spawnEntityInWorld(scout);
+								if(digger.getCanSpawnHere()) event.getWorld().spawnEntityInWorld(digger);
 							}
 						}
 					}

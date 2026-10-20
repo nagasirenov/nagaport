@@ -24,7 +24,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class TileEntityMachineMissileAssembly extends TileEntity implements ISidedInventory, IGUIProvider {
+public class TileEntityMachineMissileAssembly extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
 	private ItemStack slots[];
 
@@ -49,21 +49,22 @@ public class TileEntityMachineMissileAssembly extends TileEntity implements ISid
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if (slots[i] != null) {
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
-			itemStack.stackSize = getInventoryStackLimit();
+		if (itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -89,10 +90,10 @@ public class TileEntityMachineMissileAssembly extends TileEntity implements ISid
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+		if (this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
 
@@ -148,7 +149,7 @@ public class TileEntityMachineMissileAssembly extends TileEntity implements ISid
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
@@ -166,31 +167,35 @@ public class TileEntityMachineMissileAssembly extends TileEntity implements ISid
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return access;
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			MissileStruct multipart = new MissileStruct(slots[1], slots[2], slots[3], slots[4]);
 
-			PacketDispatcher.wrapper.sendToAllAround(new TEMissileMultipartPacket(xCoord, yCoord, zCoord, multipart), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 250));
+			PacketDispatcher.wrapper.sendToAllAround(new TEMissileMultipartPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), multipart), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 250));
 		}
 	}
 
@@ -301,7 +306,7 @@ public class TileEntityMachineMissileAssembly extends TileEntity implements ISid
 		slots[2] = null;
 		slots[4] = null;
 
-		this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:block.missileAssembly2", 1F, 1F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.missileAssembly2", 1F, 1F);
 	}
 
 	@Override

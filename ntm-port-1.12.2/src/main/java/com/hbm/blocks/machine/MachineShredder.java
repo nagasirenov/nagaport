@@ -58,7 +58,7 @@ public class MachineShredder extends BlockContainer {
 	}
 	
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
         return Item.getItemFromBlock(ModBlocks.machine_shredder);
     }
@@ -79,7 +79,7 @@ public class MachineShredder extends BlockContainer {
 			return true;
 		} else if(!player.isSneaking())
 		{
-			TileEntityMachineShredder entity = (TileEntityMachineShredder) world.getTileEntity(x, y, z);
+			TileEntityMachineShredder entity = (TileEntityMachineShredder) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
@@ -95,7 +95,7 @@ public class MachineShredder extends BlockContainer {
     {
         if (!keepInventory)
         {
-        	TileEntityMachineShredder tileentityfurnace = (TileEntityMachineShredder)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+        	TileEntityMachineShredder tileentityfurnace = (TileEntityMachineShredder)p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
             if (tileentityfurnace != null)
             {

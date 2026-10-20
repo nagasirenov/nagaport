@@ -63,7 +63,7 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.gasFlare";
 	}
 
@@ -77,12 +77,13 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("powerTime", power);
 		tank.writeToNBT(nbt, "gas");
 		nbt.setBoolean("isOn", isOn);
 		nbt.setBoolean("doesBurn", doesBurn);
+		return nbt;
 	}
 
 	public long getPowerScaled(long i) {
@@ -91,27 +92,27 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistanceSq(xCoord, yCoord, zCoord) <= 256;
+		return player.getDistanceSq(this.pos.getX(), this.pos.getY(), this.pos.getZ()) <= 256;
 	}
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
 		if(data.hasKey("valve")) this.isOn = !this.isOn;
 		if(data.hasKey("dial")) this.doesBurn = !this.doesBurn;
-		this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+		this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.fluidUsed = 0;
 			this.output = 0;
 
 			for(DirPos pos : getConPos()) {
-				this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			tank.setType(3, slots);
@@ -137,14 +138,14 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 						tank.setFill(tank.getFill() - eject);
 						tank.getTankType().onFluidRelease(this, tank, eject);
 
-						if(worldObj.getTotalWorldTime() % 7 == 0)
-							this.worldObj.playSoundEffect(this.xCoord, this.yCoord + 11, this.zCoord, "random.fizz", getVolume(1.5F), 0.5F);
+						if(this.world.getTotalWorldTime() % 7 == 0)
+							com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), "random.fizz", getVolume(1.5F), 0.5F);
 
-						if(worldObj.getTotalWorldTime() % 5 == 0 && eject > 0) {
-							FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.SPILL, eject * 5);
+						if(this.world.getTotalWorldTime() % 5 == 0 && eject > 0) {
+							FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.SPILL, eject * 5);
 						}
 
-						CelestialBody.emitGas(worldObj, tank.getTankType(), eject);
+						CelestialBody.emitGas(this.world, tank.getTankType(), eject);
 					}
 				} else {
 
@@ -167,19 +168,19 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 						if(power > maxPower)
 							power = maxPower;
 
-						ParticleUtil.spawnGasFlame(worldObj, this.xCoord + 0.5F, this.yCoord + 11.75F, this.zCoord + 0.5F, worldObj.rand.nextGaussian() * 0.15, 0.2, worldObj.rand.nextGaussian() * 0.15);
+						ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 11.75F, this.pos.getZ() + 0.5F, this.world.rand.nextGaussian() * 0.15, 0.2, this.world.rand.nextGaussian() * 0.15);
 
-						List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord + 12, zCoord - 2, xCoord + 2, yCoord + 17, zCoord + 2));
+						List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY() + 12, this.pos.getZ() - 2, this.pos.getX() + 2, this.pos.getY() + 17, this.pos.getZ() + 2));
 						for(Entity e : list) {
 							e.setFire(5);
 							e.attackEntityFrom(DamageSource.onFire, 5F);
 						}
 
-						if(worldObj.getTotalWorldTime() % 3 == 0)
-							this.worldObj.playSoundEffect(this.xCoord, this.yCoord + 11, this.zCoord, "hbm:weapon.flamethrowerShoot", getVolume(1.5F), 0.75F);
+						if(this.world.getTotalWorldTime() % 3 == 0)
+							com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), "hbm:weapon.flamethrowerShoot", getVolume(1.5F), 0.75F);
 
-						if(worldObj.getTotalWorldTime() % 5 == 0 && eject > 0) {
-							FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.BURN, eject * 5);
+						if(this.world.getTotalWorldTime() % 5 == 0 && eject > 0) {
+							FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.BURN, eject * 5);
 						}
 					}
 				}
@@ -200,18 +201,18 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 					data.setFloat("lift", 1F);
 					data.setFloat("base", 0.25F);
 					data.setFloat("max", 3F);
-					data.setInteger("life", 150 + worldObj.rand.nextInt(20));
+					data.setInteger("life", 150 + this.world.rand.nextInt(20));
 					data.setInteger("color", tank.getTankType().getColor());
 
-					data.setDouble("posX", xCoord + 0.5);
-					data.setDouble("posZ", zCoord + 0.5);
-					data.setDouble("posY", yCoord + 11);
+					data.setDouble("posX", this.pos.getX() + 0.5);
+					data.setDouble("posZ", this.pos.getZ() + 0.5);
+					data.setDouble("posY", this.pos.getY() + 11);
 
 					MainRegistry.proxy.effectNT(data);
 
 				}
 
-				if(doesBurn && tank.getTankType().hasTrait(FT_Flammable.class) && MainRegistry.proxy.me().getDistanceSq(xCoord, yCoord + 10, zCoord) <= 1024) {
+				if(doesBurn && tank.getTankType().hasTrait(FT_Flammable.class) && MainRegistry.proxy.me().getDistanceSq(this.pos.getX(), this.pos.getY() + 10, this.pos.getZ()) <= 1024) {
 
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "vanillaExt");
@@ -219,14 +220,14 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 					data.setBoolean("noclip", true);
 					data.setInteger("overrideAge", 50);
 
-					if(worldObj.getTotalWorldTime() % 2 == 0) {
-						data.setDouble("posX", xCoord + 1.5);
-						data.setDouble("posZ", zCoord + 1.5);
-						data.setDouble("posY", yCoord + 10.75);
+					if(this.world.getTotalWorldTime() % 2 == 0) {
+						data.setDouble("posX", this.pos.getX() + 1.5);
+						data.setDouble("posZ", this.pos.getZ() + 1.5);
+						data.setDouble("posY", this.pos.getY() + 10.75);
 					} else {
-						data.setDouble("posX", xCoord + 1.125);
-						data.setDouble("posZ", zCoord - 0.5);
-						data.setDouble("posY", yCoord + 11.75);
+						data.setDouble("posX", this.pos.getX() + 1.125);
+						data.setDouble("posZ", this.pos.getZ() - 0.5);
+						data.setDouble("posY", this.pos.getY() + 11.75);
 					}
 
 					MainRegistry.proxy.effectNT(data);
@@ -237,10 +238,10 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 

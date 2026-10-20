@@ -43,7 +43,7 @@ public class ContainerLemegeton extends Container {
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 
-		if(!player.worldObj.isRemote) {
+		if(!player.world.isRemote) {
 			ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(0);
 			if(itemstack != null) player.dropPlayerItemWithRandomChoice(itemstack, false);
 		}

@@ -35,7 +35,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.client.IItemRenderer;
+
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
@@ -141,10 +141,10 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "jetpack_dns");
 					data.setInteger("player", player.getEntityId());
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.dimensionId, player.posX, player.posY, player.posZ, 100));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.getDimension(), player.posX, player.posY, player.posZ, 100));
 				}
 
-				world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:weapon.immolatorShoot", 0.125F, 1.5F);
+				com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "hbm:weapon.immolatorShoot", 0.125F, 1.5F);
 			}
 		}
 	}
@@ -152,7 +152,7 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 	@Override
 	public void handleAttack(LivingAttackEvent event) {
 
-		EntityLivingBase e = event.entityLiving;
+		EntityLivingBase e = event.getEntityLiving();
 
 		if(e instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) e;
@@ -175,7 +175,7 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 	@Override
 	public void handleHurt(LivingHurtEvent event) {
 
-		EntityLivingBase e = event.entityLiving;
+		EntityLivingBase e = event.getEntityLiving();
 
 		if(e instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) e;
@@ -220,7 +220,8 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				if(armorType == 0) {

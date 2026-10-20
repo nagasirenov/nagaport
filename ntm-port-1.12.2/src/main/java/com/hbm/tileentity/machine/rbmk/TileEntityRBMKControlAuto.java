@@ -33,13 +33,13 @@ public class TileEntityRBMKControlAuto extends TileEntityRBMKControl implements 
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			double fauxLevel = 0;
 
@@ -73,10 +73,10 @@ public class TileEntityRBMKControlAuto extends TileEntityRBMKControl implements 
 			}
 			
 			this.targetLevel = fauxLevel * 0.01D;
-			this.targetLevel = MathHelper.clamp_double(this.targetLevel, 0D, 1D);
+			this.targetLevel = MathHelper.clamp(this.targetLevel, 0D, 1D);
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 	
 	@Override
@@ -95,7 +95,7 @@ public class TileEntityRBMKControlAuto extends TileEntityRBMKControl implements 
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setDouble("levelLower", levelLower);
@@ -105,6 +105,7 @@ public class TileEntityRBMKControlAuto extends TileEntityRBMKControl implements 
 		
 		if(function != null)
 			nbt.setInteger("function", function.ordinal());
+		return nbt;
 	}
 
 	@Override

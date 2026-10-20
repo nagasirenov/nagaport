@@ -1,0 +1,279 @@
+{
+  "description": "Literal null to ItemStack.EMPTY at reviewed native Slot/IInventory calls only. All other bytes preserved; no getter/domain storage changes.",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "before_sha256": "a872e5de8ddc04a567361c21aa204bf40b44534fbc5cdd212919011048ef4666",
+      "after_sha256": "7b0be22c693f7ef913ae31e69d512cceb242b7968def422915a7a8420fa7ec08",
+      "edits": [
+        {
+          "offset": 4289,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 157,
+          "call": "setInventorySlotContents(0, null"
+        },
+        {
+          "offset": 4578,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 169,
+          "call": "setInventorySlotContents(0, null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "before_sha256": "c8928152ae4bb7ad45035d33da09a2076bc495d3067c6ec3e09493c7d0f63278",
+      "after_sha256": "a786c7c07bb21b6b4cd903a05dcfe23142336f0cbfacc9701e90793d1ba44817",
+      "edits": [
+        {
+          "offset": 3115,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 75,
+          "call": "setInventorySlotContents(i, null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java",
+      "before_sha256": "ca5ae4846f56c215fbf79282f2245c86be277514b899342b0bc79cbffe13a283",
+      "after_sha256": "c9e8600ed986c4a01c14d10e8251869d8d001657c75d18310841fa41a2e880a8",
+      "edits": [
+        {
+          "offset": 2054,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 59,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java",
+      "before_sha256": "b0fa96c93640c827cdd5786cfc37d8983ce43776ecc54df9461cf6f9d078385e",
+      "after_sha256": "f8e2bd02e003079a1881a93c99009225ff23bbc8fea2e2cf21049248d6ccbeb9",
+      "edits": [
+        {
+          "offset": 3128,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 76,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java",
+      "before_sha256": "dd6d00693fc8788260889fe950a6a73b07c9267bdf37870db676d47ed9b8b7ff",
+      "after_sha256": "7ecc1e3e3b43e09e001007c390284b998826f9e11af76dc69d80a2b8eee7bb35",
+      "edits": [
+        {
+          "offset": 2288,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 63,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java",
+      "before_sha256": "eeb24df34371c054cf2a5d8938283a435069d33fefb9fff3edc3bbede99763ad",
+      "after_sha256": "4aa76fc42b4e4ce1b7ef27bb18776ab89768bce29a642345a173d1c7a4f47160",
+      "edits": [
+        {
+          "offset": 3101,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 76,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java",
+      "before_sha256": "f8f6f124d87013ca68c459860a9163245c379dc43aef554b340b8b0d745509f1",
+      "after_sha256": "c2075f7c982c382bb0fb82f9e87fc5b312abfb266dde05e5772c7d2113c66cf7",
+      "edits": [
+        {
+          "offset": 2605,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 70,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java",
+      "before_sha256": "a1a9a05fc282a4bd223e795d6545f2b6c7551464eab39211419fa5de239799e7",
+      "after_sha256": "0fb92ee4ef3618ecddfa617b495935f9fb566949e9030390e7020df632e25d1c",
+      "edits": [
+        {
+          "offset": 2332,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 64,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java",
+      "before_sha256": "bb116c9a6b69b961ceaa3e01e8263c64fc4b5c1480adc9910ed8b1bb47d49b41",
+      "after_sha256": "f7e67ea75261c0bd1ffe4c3ee9f0e8748074f7b145c83c64a46a3aac4ef5bdda",
+      "edits": [
+        {
+          "offset": 2250,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 63,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineStrandCaster.java",
+      "before_sha256": "9c952a31c8533d2c7f80b3bf130ab5e485e21f759d66650a5b2fdaeaadf6e0ef",
+      "after_sha256": "50dfd135a73d19296411610a194ceedc61fe8bebe7156d904542b32f9fc7e6e0",
+      "edits": [
+        {
+          "offset": 2228,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 63,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineWarController.java",
+      "before_sha256": "62226fdcd13d95b885647cb0fba8cb6b3b6f3f6c3fa4fbc717591214d8954a6c",
+      "after_sha256": "4e52a489c36fa7a16212c5b837ca6303c2476a4d2a42a65c1941f22e3a9dd04d",
+      "edits": [
+        {
+          "offset": 1698,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 51,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSatDock.java",
+      "before_sha256": "53aafec81fd73ade7f0fb7fbd594596d3b67a4cac12c01e669e0d7742b2dc6e9",
+      "after_sha256": "be0869eff2c7e7b9475d2df64a2e93539b413eebc600946fa28bc7bf0492f739",
+      "edits": [
+        {
+          "offset": 2731,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 78,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+      "before_sha256": "653333cffa0f3ef63562b31ce94462cdf6cce5fcf5ff6417b85af81b981733d9",
+      "after_sha256": "558519274bf175ccaeebc9e0b9f06d716ad7f8e533814b8512dddd6d823b55ca",
+      "edits": [
+        {
+          "offset": 1669,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 56,
+          "call": "putStack(null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "before_sha256": "454ce4c86fda24948c8e9ddf32825fb4ac8d6493ed424725faaca06e25f734a6",
+      "after_sha256": "4e63adf5602de30c33a6a643bde46d791898b62853273ae0a9989fdcf6df9935",
+      "edits": [
+        {
+          "offset": 2142,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 65,
+          "call": "setInventorySlotContents(i, null"
+        },
+        {
+          "offset": 3424,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 107,
+          "call": "setInventorySlotContents(i, null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+      "before_sha256": "508e0ea068488380ce3da70991deb925eedeae1efcd24b8f1fe7566c3fcaf95a",
+      "after_sha256": "f58e44d511e1859b449c2518a4b3a1b5e77917b618226a8f8f0e8025225c6fe1",
+      "edits": [
+        {
+          "offset": 3569,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 109,
+          "call": "setInventorySlotContents(i, null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "before_sha256": "59650e718f8d66c1099c6de5a2814bae3caaa6b8cb7a1350f5cc946342b515a5",
+      "after_sha256": "3a38f5d28064949b99c80fd11c53323a21e1685bd40ea253dd99f865cdad1b5e",
+      "edits": [
+        {
+          "offset": 21336,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 530,
+          "call": "setInventorySlotContents(i, null"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "before_sha256": "172dc7a911ea51f3b4632071e6ec53a498278488373bed6191ae578b44b07e82",
+      "after_sha256": "1af15f72d4d64141f38f49f5d3106c10cc9b0f48b24050421092f05dc6149c23",
+      "edits": [
+        {
+          "offset": 4211,
+          "old": "null",
+          "new": "ItemStack.EMPTY",
+          "line": 145,
+          "call": "setInventorySlotContents(i, null"
+        }
+      ]
+    }
+  ],
+  "excluded_owned_sites_at_capture": [
+    {
+      "path": "src/main/java/com/hbm/items/ItemInventory.java",
+      "line": 98,
+      "call": "setInventorySlotContents(slot, null"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemAmmoBag.java",
+      "line": 105,
+      "call": "setInventorySlotContents(slot, null"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemCasingBag.java",
+      "line": 136,
+      "call": "setInventorySlotContents(slot, null"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemPlasticBag.java",
+      "line": 79,
+      "call": "setInventorySlotContents(slot, null"
+    }
+  ]
+}

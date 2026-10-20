@@ -16,6 +16,9 @@ import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
@@ -24,6 +27,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 public class EntityBoatRubber extends Entity {
+
+	private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.VARINT);
+	private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.FLOAT);
 
 	private boolean isBoatEmpty;
 	private double speedMultiplier;
@@ -59,9 +66,9 @@ public class EntityBoatRubber extends Entity {
 	}
 
 	protected void entityInit() {
-		this.dataWatcher.addObject(17, new Integer(0));
-		this.dataWatcher.addObject(18, new Integer(1));
-		this.dataWatcher.addObject(19, new Float(0.0F));
+		this.dataManager.register(TIME_SINCE_HIT, new Integer(0));
+		this.dataManager.register(FORWARD_DIRECTION, new Integer(1));
+		this.dataManager.register(DAMAGE_TAKEN, new Float(0.0F));
 	}
 
 	@Override
@@ -71,11 +78,11 @@ public class EntityBoatRubber extends Entity {
 
 	@Override
 	public AxisAlignedBB getCollisionBox(Entity entity) {
-		return entity.boundingBox;
+		return entity.getEntityBoundingBox();
 	}
 	@Override
 	public AxisAlignedBB getBoundingBox() {
-		return this.boundingBox;
+		return this.getEntityBoundingBox();
 	}
 	@Override
 	public boolean canBePushed() {
@@ -90,7 +97,7 @@ public class EntityBoatRubber extends Entity {
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if(this.isEntityInvulnerable()) {
 			return false;
-		} else if(!this.worldObj.isRemote && !this.isDead) {
+		} else if(!this.world.isRemote && !this.isDead) {
 			this.setForwardDirection(-this.getForwardDirection());
 			this.setTimeSinceHit(10);
 			this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
@@ -184,21 +191,21 @@ public class EntityBoatRubber extends Entity {
 		double d0 = 0.0D;
 
 		for(int i = 0; i < b0; ++i) {
-			double d1 = this.boundingBox.minY + (this.boundingBox.maxY - this.boundingBox.minY) * (double) (i + 0) / (double) b0 - 0.125D;
-			double d3 = this.boundingBox.minY + (this.boundingBox.maxY - this.boundingBox.minY) * (double) (i + 1) / (double) b0 - 0.125D;
-			AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox(this.boundingBox.minX, d1, this.boundingBox.minZ, this.boundingBox.maxX, d3, this.boundingBox.maxZ);
+			double d1 = this.getEntityBoundingBox().minY + (this.getEntityBoundingBox().maxY - this.getEntityBoundingBox().minY) * (double) (i + 0) / (double) b0 - 0.125D;
+			double d3 = this.getEntityBoundingBox().minY + (this.getEntityBoundingBox().maxY - this.getEntityBoundingBox().minY) * (double) (i + 1) / (double) b0 - 0.125D;
+			AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox(this.getEntityBoundingBox().minX, d1, this.getEntityBoundingBox().minZ, this.getEntityBoundingBox().maxX, d3, this.getEntityBoundingBox().maxZ);
 
-			if(this.worldObj.isAABBInMaterial(axisalignedbb, Material.water)) {
+			if(this.world.isAABBInMaterial(axisalignedbb, Material.WATER)) {
 				d0 += 1.0D / (double) b0;
 			}
 		}
 
-		if(this.worldObj.isRemote && this.isBoatEmpty) {
+		if(this.world.isRemote && this.isBoatEmpty) {
 			if(this.boatPosRotationIncrements > 0) {
 				double x = this.posX + (this.boatX - this.posX) / (double) this.boatPosRotationIncrements;
 				double y = this.posY + (this.boatY - this.posY) / (double) this.boatPosRotationIncrements;
 				double z = this.posZ + (this.boatZ - this.posZ) / (double) this.boatPosRotationIncrements;
-				double yaw = MathHelper.wrapAngleTo180_double(this.boatYaw - (double) this.rotationYaw);
+				double yaw = MathHelper.wrapDegrees(this.boatYaw - (double) this.rotationYaw);
 				this.rotationYaw = (float) ((double) this.rotationYaw + yaw / (double) this.boatPosRotationIncrements);
 				this.rotationPitch = (float) ((double) this.rotationPitch + (this.boatPitch - (double) this.rotationPitch) / (double) this.boatPosRotationIncrements);
 				--this.boatPosRotationIncrements;
@@ -253,8 +260,8 @@ public class EntityBoatRubber extends Entity {
 					this.motionZ = newMotion.z;
 					
 					//HOLY HELL! if we don't shit ourselves over packets and send them at proper intervals, entities are suddenly smooth! who would have thought! mojang certainly didn't!
-					EntityTrackerEntry entry = TrackerUtil.getTrackerEntry((WorldServer) worldObj, this.getEntityId());
-					entry.lastYaw = MathHelper.floor_float(this.rotationYaw * 256.0F / 360.0F) + 10; //force-trigger rotation update
+					EntityTrackerEntry entry = TrackerUtil.getTrackerEntry((WorldServer) this.world, this.getEntityId());
+					entry.lastYaw = MathHelper.floor(this.rotationYaw * 256.0F / 360.0F) + 10; //force-trigger rotation update
 				}
 			} else {
 				this.motionX *= 0.95D;
@@ -286,18 +293,18 @@ public class EntityBoatRubber extends Entity {
 			}
 
 			for(int index = 0; index < 4; ++index) {
-				int x = MathHelper.floor_double(this.posX + ((double) (index % 2) - 0.5D) * 0.8D);
-				int z = MathHelper.floor_double(this.posZ + ((double) (index / 2) - 0.5D) * 0.8D);
+				int x = MathHelper.floor(this.posX + ((double) (index % 2) - 0.5D) * 0.8D);
+				int z = MathHelper.floor(this.posZ + ((double) (index / 2) - 0.5D) * 0.8D);
 
 				for(int yOff = 0; yOff < 2; ++yOff) {
-					int y = MathHelper.floor_double(this.posY) + yOff;
-					Block block = this.worldObj.getBlock(x, y, z);
+					int y = MathHelper.floor(this.posY) + yOff;
+					Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-					if(block == Blocks.snow_layer) {
-						this.worldObj.setBlockToAir(x, y, z);
+					if(block == Blocks.SNOW_LAYER) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 						this.isCollidedHorizontally = false;
-					} else if(block == Blocks.waterlily) {
-						this.worldObj.func_147480_a(x, y, z, true);
+					} else if(block == Blocks.WATERLILY) {
+						this.world.func_147480_a(x, y, z, true);
 						this.isCollidedHorizontally = false;
 					}
 				}
@@ -331,7 +338,7 @@ public class EntityBoatRubber extends Entity {
 					yaw = (double) ((float) (Math.atan2(deltaZ, deltaX) * 180.0D / Math.PI));
 				}
 	
-				double rotationSpeed = MathHelper.wrapAngleTo180_double(yaw - (double) this.rotationYaw);
+				double rotationSpeed = MathHelper.wrapDegrees(yaw - (double) this.rotationYaw);
 	
 				if(rotationSpeed > 20.0D) {
 					rotationSpeed = 20.0D;
@@ -346,8 +353,8 @@ public class EntityBoatRubber extends Entity {
 			
 			this.setRotation(this.rotationYaw, this.rotationPitch);
 
-			if(!this.worldObj.isRemote) {
-				List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(0.2D, 0.0D, 0.2D));
+			if(!this.world.isRemote) {
+				List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.2D, 0.0D, 0.2D));
 
 				if(list != null && !list.isEmpty()) {
 					for(int k1 = 0; k1 < list.size(); ++k1) {
@@ -382,11 +389,11 @@ public class EntityBoatRubber extends Entity {
 				if(this.rand.nextBoolean()) {
 					magX = this.posX - cosYaw * offset * 0.8D + sinYaw * side;
 					magZ = this.posZ - sinYaw * offset * 0.8D - cosYaw * side;
-					this.worldObj.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
+					this.world.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
 				} else {
 					magX = this.posX + cosYaw + sinYaw * offset * 0.7D;
 					magZ = this.posZ + sinYaw - cosYaw * offset * 0.7D;
-					this.worldObj.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
+					this.world.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
 				}
 			}
 		}
@@ -407,7 +414,7 @@ public class EntityBoatRubber extends Entity {
 			
 			if(this.riddenByEntity instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) this.riddenByEntity;
-				player.renderYawOffset = MathHelper.wrapAngleTo180_float(this.rotationYaw + 90F);
+				player.renderYawOffset = MathHelper.wrapDegrees(this.rotationYaw + 90F);
 			}
 		}
 	}
@@ -426,7 +433,7 @@ public class EntityBoatRubber extends Entity {
 		if(this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayer && this.riddenByEntity != player) {
 			return true;
 		} else {
-			if(!this.worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				player.mountEntity(this);
 			}
 
@@ -436,22 +443,22 @@ public class EntityBoatRubber extends Entity {
 	
 	@Override
 	protected void updateFallState(double fall, boolean onGround) {
-		int x = MathHelper.floor_double(this.posX);
-		int y = MathHelper.floor_double(this.posY);
-		int z = MathHelper.floor_double(this.posZ);
+		int x = MathHelper.floor(this.posX);
+		int y = MathHelper.floor(this.posY);
+		int z = MathHelper.floor(this.posZ);
 
 		if(onGround) {
 			if(this.fallDistance > 5.0F) {
 				this.fall(this.fallDistance);
 
-				if(!this.worldObj.isRemote && !this.isDead) {
+				if(!this.world.isRemote && !this.isDead) {
 					this.setDead();
 					this.dropBoat();
 				}
 
 				this.fallDistance = 0.0F;
 			}
-		} else if(this.worldObj.getBlock(x, y - 1, z).getMaterial() != Material.water && fall < 0.0D) {
+		} else if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock().getMaterial() != Material.WATER && fall < 0.0D) {
 			this.fallDistance = (float) ((double) this.fallDistance - fall);
 		}
 	}
@@ -461,27 +468,27 @@ public class EntityBoatRubber extends Entity {
 	}
 	
 	public void setDamageTaken(float amount) {
-		this.dataWatcher.updateObject(19, Float.valueOf(amount));
+		this.dataManager.set(DAMAGE_TAKEN, Float.valueOf(amount));
 	}
 
 	public float getDamageTaken() {
-		return this.dataWatcher.getWatchableObjectFloat(19);
+		return this.dataManager.get(DAMAGE_TAKEN);
 	}
 
 	public void setTimeSinceHit(int time) {
-		this.dataWatcher.updateObject(17, Integer.valueOf(time));
+		this.dataManager.set(TIME_SINCE_HIT, Integer.valueOf(time));
 	}
 
 	public int getTimeSinceHit() {
-		return this.dataWatcher.getWatchableObjectInt(17);
+		return this.dataManager.get(TIME_SINCE_HIT);
 	}
 
 	public void setForwardDirection(int dir) {
-		this.dataWatcher.updateObject(18, Integer.valueOf(dir));
+		this.dataManager.set(FORWARD_DIRECTION, Integer.valueOf(dir));
 	}
 
 	public int getForwardDirection() {
-		return this.dataWatcher.getWatchableObjectInt(18);
+		return this.dataManager.get(FORWARD_DIRECTION);
 	}
 
 	@SideOnly(Side.CLIENT)

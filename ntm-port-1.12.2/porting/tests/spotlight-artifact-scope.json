@@ -1,0 +1,60 @@
+{
+  "base": "e8970b85e0c8fe46f17348330b3853bb32ffaa0b",
+  "status": "final; no production source edits after freeze",
+  "artifacts": [
+    {
+      "path": "porting/native-spotlight-acceptance.md",
+      "sha256": "bcd55ea9e65027bb1ddc50ff671acddd2c6ec4255d13adf74786a4d1e0512510"
+    },
+    {
+      "path": "porting/tests/spotlight-production-scope.json",
+      "sha256": "4130fc9a75dd0fbf29d8b2f3168b02cb9aa40a6525ee4bf550457456372a818b"
+    },
+    {
+      "path": "porting/tests/NativeSpotlightOwnersTest.java",
+      "sha256": "9e021d23393aa173a1aa176afc40e49b29dfe8b43323d0c763d41b8fea1ea38b"
+    },
+    {
+      "path": "porting/tests/probe-native-spotlight-owners.py",
+      "sha256": "98fe9d5adcf7ddf46bd4f553f1266a4dbbc9aa7b5f8aa1ded6e262960837a453"
+    },
+    {
+      "path": "porting/tests/native-spotlight-owners-FINAL.log",
+      "sha256": "cc8af25f1f2881b63d1f57180130b46bc18be8fb59cf80ce4b924f99f5a938d4"
+    },
+    {
+      "path": "porting/tests/spotlight-owner-proof.md",
+      "sha256": "6888b1cff9b2d121016c73ac7a480cf3981fadf38946dc47d05606d5936453cf"
+    },
+    {
+      "path": "porting/tests/spotlight-model-native-probe.py",
+      "sha256": "ac55b0e0d09df7906a8cbf748f3b7406248f3f6a3c7975e1fc226434164ad823"
+    },
+    {
+      "path": "porting/tests/spotlight-model-native-test.java.in",
+      "sha256": "b79590f0a552dcb075635f22f5f9cf2864964c497fa4c9a5fcb0dd448f8c3620"
+    },
+    {
+      "path": "porting/tests/spotlight-model-oracle.java.in",
+      "sha256": "159f26be9c591dc003f21a6a3a1c44fa0f8d9832903a049ab668780bf0bec7b3"
+    },
+    {
+      "path": "porting/tests/spotlight-model-native-source-manifest.json",
+      "sha256": "d052065636e114fb98d4c09ae56e97fcb914d672de6a94a226ff8eebb75d0e79"
+    },
+    {
+      "path": "porting/tests/spotlight-model-native-proof.log",
+      "sha256": "7b46e7db08b12b8499413da495c045eedb456e806fa126004ebd606d6d1f1ad2"
+    },
+    {
+      "path": "porting/tests/spotlight-model-native-notes.md",
+      "sha256": "521485c70e1d98cba4ce7816c2f0205fbe17d6faa4216911a989935b59fb8ec1"
+    }
+  ],
+  "unchanged_test_dependencies": [
+    {
+      "path": "porting/tests/ForgeEventNativeLauncher.java",
+      "sha256": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3"
+    }
+  ]
+}

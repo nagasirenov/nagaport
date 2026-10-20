@@ -1,18 +1,19 @@
 package com.hbm.util;
 
+import com.hbm.advancement.NtmAdvancements;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.inventory.RecipesCommon.ComparableStack;
 import com.hbm.items.ModItems;
 import com.hbm.main.MainRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Achievement;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;
 
 public class AchievementHandler {
 
-	public static HashMap<ComparableStack, Achievement> craftingAchievements = new HashMap();
+	public static HashMap<ComparableStack, ResourceLocation> craftingAchievements = new HashMap();
 
 	public static void register() {
 		craftingAchievements.put(new ComparableStack(ModItems.piston_selenium), MainRegistry.achSelenium);
@@ -53,11 +54,18 @@ public class AchievementHandler {
 	}
 
 	public static void fire(EntityPlayer player, ItemStack stack) {
-		if(player.worldObj.isRemote) return;
-		ComparableStack comp = new ComparableStack(stack).makeSingular();
-		Achievement achievement = craftingAchievements.get(comp);
+		if(player.world.isRemote) return;
+		// Legacy lookup ignored size, even on the zero-count stack left by shift-click.
+		// Native getItem hides that identity as AIR; normalize a copy, never the inventory.
+		ItemStack identity = stack;
+		if(stack != null && stack.isEmpty()) {
+			identity = stack.copy();
+			identity.setCount(1);
+		}
+		ComparableStack comp = new ComparableStack(identity).makeSingular();
+		ResourceLocation achievement = craftingAchievements.get(comp);
 		if(achievement != null) {
-			player.triggerAchievement(achievement);
+			NtmAdvancements.award(player, achievement);
 		}
 	}
 }

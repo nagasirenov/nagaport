@@ -13,6 +13,6 @@ public class EntityCombineBallNT extends EntityBulletBaseNT {
 	@Override
 	public void setDead() {
 		super.setDead();
-		worldObj.createExplosion(this.getThrower(), posX, posY, posZ, 2, false);
+		this.world.createExplosion(this.getThrower(), posX, posY, posZ, 2, false);
 	}
 }

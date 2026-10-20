@@ -16,17 +16,17 @@ public class ItemArcElectrode extends ItemEnumMulti {
 	
 	public static int getDurability(ItemStack stack) {
 		if(!stack.hasTagCompound()) return 0;
-		return stack.stackTagCompound.getInteger("durability");
+		return stack.getTagCompound().getInteger("durability");
 	}
 	
 	public static boolean damage(ItemStack stack) {
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		}
 		
-		int durability = stack.stackTagCompound.getInteger("durability");
+		int durability = stack.getTagCompound().getInteger("durability");
 		durability++;
-		stack.stackTagCompound.setInteger("durability", durability);
+		stack.getTagCompound().setInteger("durability", durability);
 		return durability >= getMaxDurability(stack);
 	}
 	

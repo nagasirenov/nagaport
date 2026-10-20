@@ -9,5 +9,5 @@ public class ChemicalPlantRecipeHandler extends NEIGenericRecipeHandler {
 		super(ModBlocks.machine_chemical_plant.getLocalizedName(), ChemicalPlantRecipes.INSTANCE, ModBlocks.machine_chemical_plant, ModBlocks.machine_chemical_factory);
 	}
 
-	@Override public String getRecipeID() { return "ntmChemicalPlant"; }
+	@Override public String getUid() { return "ntmChemicalPlant"; }
 }

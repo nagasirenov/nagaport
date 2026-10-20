@@ -1,119 +1,60 @@
 package com.hbm.blocks.generic;
 
-import com.hbm.blocks.BlockMulti;
-import com.hbm.blocks.ModBlocks;
-import com.hbm.lib.RefStrings;
-
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import com.hbm.blocks.IBlockMulti;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.AxisAlignedBB;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
-import com.hbm.lib.ForgeDirection;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
-public class BlockScaffold extends BlockMulti {
-	
-	protected String[] variants = new String[] {"scaffold_steel", "scaffold_red", "scaffold_white", "scaffold_yellow"};
-	@SideOnly(Side.CLIENT) protected IIcon[] icons;
-
-	public BlockScaffold() {
-		super(Material.iron);
-	}
-
-	public static int renderIDScaffold = RenderingRegistry.getNextAvailableRenderId();
-	
-	@Override
-	public int getRenderType(){
-		return renderIDScaffold;
-	}
-	
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = ModBlocks.deco_steel.getIcon(0, 0);
-		this.icons = new IIcon[variants.length];
-		
-		for(int i = 0; i < variants.length; i++) {
-			this.icons[i] = reg.registerIcon(RefStrings.MODID + ":" + variants[i]);
-		}
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return this.icons[this.damageDropped(meta)];
-	}
-
-	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float fx, float fy, float fz, int meta) {
-		return side;
-	}
-	
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		ForgeDirection placed = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
-		int meta = stack.getItemDamage();
-		
-		if(placed == ForgeDirection.UP || placed == ForgeDirection.DOWN) {
-			int rot = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-			if(rot % 2 == 0) {
-				world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-			} else {
-				world.setBlockMetadataWithNotify(x, y, z, meta + 8, 2);
-			}
-		} else if(placed == ForgeDirection.NORTH || placed == ForgeDirection.SOUTH) {
-			world.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);
-		} else {
-			world.setBlockMetadataWithNotify(x, y, z, meta + 12, 2);
-		}
-	}
-
-	@Override
-	public int damageDropped(int meta) {
-		return rectify(meta);
-	}
-
-	@Override
-	public int getSubCount() {
-		return variants.length;
-	}
-	
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		float f = 0.0625F;
-		
-		if(meta >= 12) {
-			this.setBlockBounds(0.0F, 2 * f, 0.0F, 1.0F, 14 * f, 1.0F);
-		} else if(meta >= 8) {
-			this.setBlockBounds(2 * f, 0.0F, 0.0F, 14 * f, 1.0F, 1.0F);
-		} else if(meta >= 4) {
-			this.setBlockBounds(0.0F, 2 * f, 0.0F, 1.0F, 14 * f, 1.0F);
-		} else {
-			this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);
-		}
-	}
-	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
+/** Original four scaffold materials and four mounting orientations, stored in metadata. */
+public class BlockScaffold extends Block implements IBlockMulti {
+    public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
+    public BlockScaffold() {
+        super(Material.IRON);
+        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));
+    }
+    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }
+    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }
+    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }
+    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+    @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+    @Override public boolean isFullCube(IBlockState state) { return false; }
+    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }
+    @Override public int damageDropped(IBlockState state) { return rectify(getMetaFromState(state)); }
+    @Override public int getSubCount() { return 4; }
+    @Override public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
+        for(int i = 0; i < getSubCount(); i++) items.add(new ItemStack(this, 1, i));
+    }
+    @Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side,
+            float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+        // Retain the original two-stage placement: face first, then item color + orientation.
+        return getStateFromMeta(side.getIndex());
+    }
+    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        EnumFacing placed = EnumFacing.byIndex(getMetaFromState(world.getBlockState(pos)));
+        int meta = stack.getItemDamage();
+        if(placed.getAxis() == EnumFacing.Axis.Y) {
+            int rot = MathHelper.floor(placer.rotationYaw * 4F / 360F + .5D) & 3;
+            meta += rot % 2 == 0 ? 0 : 8;
+        } else if(placed.getAxis() == EnumFacing.Axis.Z) meta += 4;
+        else meta += 12;
+        world.setBlockState(pos, getStateFromMeta(meta), 2);
+    }
+    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        int meta = getMetaFromState(state);
+        if(meta >= 12 || meta >= 4 && meta < 8) return new AxisAlignedBB(0, .125, 0, 1, .875, 1);
+        if(meta >= 8) return new AxisAlignedBB(.125, 0, 0, .875, 1, 1);
+        return new AxisAlignedBB(0, 0, .125, 1, 1, .875);
+    }
+    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return getBoundingBox(state, world, pos);
+    }
 }

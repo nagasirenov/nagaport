@@ -48,7 +48,7 @@ public class RadioRec extends BlockContainer implements IGUIProvider {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
@@ -73,7 +73,7 @@ public class RadioRec extends BlockContainer implements IGUIProvider {
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 
-		int te = world.getBlockMetadata(x, y, z);
+		int te = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		float f = 0.0625F;
 
 		this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);
@@ -102,7 +102,7 @@ public class RadioRec extends BlockContainer implements IGUIProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(te instanceof TileEntityRadioRec)
 			return new GUIRadioRec((TileEntityRadioRec) te);

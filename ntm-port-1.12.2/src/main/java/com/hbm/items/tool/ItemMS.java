@@ -24,7 +24,7 @@ public class ItemMS extends Item {
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float a, float b, float c)
     {
     	if(!world.isRemote) {
-    		if(world.getBlock(x, y, z) == ModBlocks.ntm_dirt) {
+    		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.ntm_dirt) {
     			
 				world.func_147480_a(x, y, z, false);
 
@@ -46,7 +46,7 @@ public class ItemMS extends Item {
     	            entityitem.motionY = (float)rand.nextGaussian() * f3 + 0.2F;
     	            entityitem.motionZ = (float)rand.nextGaussian() * f3;
     	            if(!world.isRemote)
-    	            	world.spawnEntityInWorld(entityitem);
+    	            	world.spawnEntity(entityitem);
     	    	}
     			return true;
     		}

@@ -18,7 +18,7 @@ public class ItemDyatlov extends Item {
 		
 		if(!world.isRemote) {
 			
-			Block block = world.getBlock(x, y, z);
+			Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 			
 			if(block instanceof RBMKBase) {
 				
@@ -28,7 +28,7 @@ public class ItemDyatlov extends Item {
 				
 				if(pos != null) {
 					
-					TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 					
 					if(te instanceof TileEntityRBMKBase) {
 
@@ -46,7 +46,7 @@ public class ItemDyatlov extends Item {
 				
 				if(pos != null) {
 					
-					TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 					
 					if(te instanceof TileEntityReactorZirnox) {
 						((TileEntityReactorZirnox)te).heat = 200000;

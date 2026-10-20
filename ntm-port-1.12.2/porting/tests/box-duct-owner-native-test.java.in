@@ -1,0 +1,135 @@
+import java.util.*;
+import com.hbm.blocks.*;
+import com.hbm.blocks.network.*;
+import com.hbm.inventory.fluid.*;
+import com.hbm.lib.*;
+import com.hbm.tileentity.network.*;
+import api.hbm.fluidmk2.*;
+import api.hbm.energymk2.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+public final class BoxDuctOwnerNativeTest {
+ static int checks;
+ static final BlockPos POS=new BlockPos(-7,64,9);
+ static final FluidType WATER=new FluidType(13,0x123456,"Water"),OTHER=new FluidType(47,0xa0b0c0,"Other"),BLACK=new FluidType(48,0,"Black");
+ static FluidDuctBox fluid;static PowerCableBox cable;static FluidDuctBoxExhaust exhaust;
+ static final EnumFacing[] DIRECTIONS={EnumFacing.EAST,EnumFacing.WEST,EnumFacing.UP,EnumFacing.DOWN,EnumFacing.SOUTH,EnumFacing.NORTH};
+ static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ static void setup(){
+  fluid=new FluidDuctBox(Material.IRON);cable=new PowerCableBox(Material.IRON);exhaust=new FluidDuctBoxExhaust(Material.IRON);
+  check(!fluid.hasCustomBreakingProgress(fluid.getDefaultState())&&!cable.hasCustomBreakingProgress(cable.getDefaultState())&&!exhaust.hasCustomBreakingProgress(exhaust.getDefaultState()),"unregistered owners never claim TESR breaking");
+  String[] names={"fluid_duct_box","red_cable_box","fluid_duct_exhaust"};int i=0;
+  for(Block owner:new Block[]{fluid,cable,exhaust}){String name=names[i++];owner.setTranslationKey(name);ForgeRegistries.BLOCKS.register(owner.setRegistryName("hbm","tile."+name));ForgeRegistries.ITEMS.register(new ItemBlock(owner).setHasSubtypes(true).setRegistryName(owner.getRegistryName()));}
+  for(Block owner:new Block[]{fluid,cable,exhaust})check(owner.hasCustomBreakingProgress(owner.getDefaultState()),"exact registered owner uses native original-texture custom breaking");
+  check(!new FluidDuctBox(Material.IRON){}.hasCustomBreakingProgress(fluid.getDefaultState()),"foreign subclass cannot claim owner damage");
+  check(fluid.getSoundType()==ModSoundTypes.pipe&&exhaust.getSoundType()==ModSoundTypes.pipe,"original custom pipe sound");
+ }
+ static class MapWorld extends World {
+  final Map<BlockPos,IBlockState> blocks=new HashMap<>();final Map<BlockPos,TileEntity> tiles=new HashMap<>();final List<String> calls=new ArrayList<>();int reads;
+  MapWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);}
+  protected IChunkProvider createChunkProvider(){return null;}protected boolean isChunkLoaded(int x,int z,boolean empty){return true;}
+  public IBlockState getBlockState(BlockPos p){reads++;return blocks.getOrDefault(p,Blocks.AIR.getDefaultState());}
+  public TileEntity getTileEntity(BlockPos p){reads++;return tiles.get(p);}
+  public boolean checkLight(BlockPos p){return true;}
+  TileEntity install(Block owner,BlockPos p,FluidType type){blocks.put(p,owner.getDefaultState());TileEntity tile=((BlockContainer)owner).createNewTileEntity(this,0);if(tile instanceof TileEntityPipeBaseNT)((TileEntityPipeBaseNT)tile).type=type;tiles.put(p,tile);tile.setWorld(this);tile.setPos(p);return tile;}
+ }
+ static final class ConnectorBlock extends Block implements IFluidConnectorBlockMK2,IEnergyConnectorBlock {
+  FluidType type;ForgeDirection side;boolean allow;int calls;String label;
+  ConnectorBlock(){super(Material.IRON);}
+  public boolean canConnect(FluidType type,IBlockAccess w,int x,int y,int z,ForgeDirection side){calls++;((MapWorld)w).calls.add(label+":"+type.getID());check(this.side==side,"correct opposite fluid target-block face");return allow&&this.type==type;}
+  public boolean canConnect(IBlockAccess w,int x,int y,int z,ForgeDirection side){calls++;((MapWorld)w).calls.add(label+":energy");check(this.side==side,"correct opposite energy target-block face");return allow;}
+ }
+ static final class ConnectorTile extends TileEntity implements IFluidConnectorMK2,IEnergyConnectorMK2 {
+  FluidType type;ForgeDirection side;boolean allow;int calls;
+  public boolean canConnect(FluidType type,ForgeDirection side){calls++;check(this.side==side,"correct opposite fluid target-tile face");return allow&&this.type==type;}
+  public boolean canConnect(ForgeDirection side){calls++;check(this.side==side,"correct opposite energy target-tile face");return allow;}
+ }
+ static MapWorld connected(Block owner,int mask,FluidType type){
+  MapWorld world=new MapWorld();world.install(owner,POS,type);
+  for(int i=0;i<DIRECTIONS.length;i++){
+   EnumFacing face=DIRECTIONS[i];BlockPos p=POS.offset(face);ConnectorBlock block=new ConnectorBlock();block.type=type;block.side=ForgeDirection.fromEnumFacing(face.getOpposite());block.allow=(mask&(32>>i))!=0&&i%2==0;block.label=face.getName();world.blocks.put(p,block.getDefaultState());
+   ConnectorTile tile=new ConnectorTile();tile.type=type;tile.side=block.side;tile.allow=(mask&(32>>i))!=0&&i%2!=0;world.tiles.put(p,tile);
+  }
+  return world;
+ }
+ static List<AxisAlignedBB> collisions(Block owner,World world,IBlockState state,AxisAlignedBB query){List<AxisAlignedBB> actual=new ArrayList<>();owner.addCollisionBoxToList(state,world,POS,query,actual,null,false);return actual;}
+ static AxisAlignedBB expectedBounds(Block owner,int meta,int mask){return owner==cable?OriginalBoxDuctOracle.cableBounds(meta,mask):OriginalBoxDuctOracle.fluidBounds(meta,mask);}
+ static List<AxisAlignedBB> expectedCollisions(Block owner,int meta,int mask,BlockPos pos){return owner==cable?OriginalBoxDuctOracle.cableCollisions(meta,mask,pos):OriginalBoxDuctOracle.fluidCollisions(meta,mask,pos);}
+ static int expectedColor(int rgb){int r=(rgb>>16)&255,g=(rgb>>8)&255,b=rgb&255;return 0xff000000|((int)(r+(255-r)*.25)<<16)|((int)(g+(255-g)*.25)<<8)|(int)(b+(255-b)*.25);}
+ static void geometryAndState(){
+  Random random=new Random(55123L);
+  for(Block owner:new Block[]{fluid,cable,exhaust}){
+   check(owner.getBlockState().getValidStates().size()==16,"all sixteen native persisted states");
+   int[] variants=owner==fluid?new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14}:owner==cable?new int[]{0,1,2,3,4}:new int[]{0,3,6,9,12};
+   NonNullList<ItemStack> creative=NonNullList.create();owner.getSubBlocks(null,creative);check(creative.size()==variants.length,"original creative variant count");for(int i=0;i<variants.length;i++)check(creative.get(i).getItem()==Item.getItemFromBlock(owner)&&creative.get(i).getMetadata()==variants[i]&&creative.get(i).getCount()==1,"exact original creative variant");
+   check(((IBlockMulti)owner).getSubCount()==(owner==fluid?3:1),"original material subcount distinct from size variants");
+   for(int meta=0;meta<16;meta++){
+    IBlockState state=owner.getStateFromMeta(meta);check(owner.getMetaFromState(state)==meta,"all metadata including invalid creative domains roundtrip unchanged");check(owner.damageDropped(state)==meta%(owner==cable?5:15),"exact original drops, not material rectify");check(owner.getMetaFromState(owner.getStateForPlacement(null,POS,EnumFacing.UP,0,0,0,meta,null))==meta,"native placement metadata");
+    check(owner.getRenderType(state)==EnumBlockRenderType.MODEL&&owner.getRenderLayer()==BlockRenderLayer.CUTOUT_MIPPED,"native original alpha-tested mipmapped pass MODEL");check(!owner.isOpaqueCube(state)&&!owner.isFullCube(state),"non-full non-opaque owners");
+    for(EnumFacing side:DIRECTIONS){check(owner.shouldSideBeRendered(state,null,POS,side),"all original sides visible");check(owner.getBlockFaceShape(null,state,POS,side)==BlockFaceShape.UNDEFINED,"non-solid attachment face");}
+    FluidType[] types=owner==exhaust?new FluidType[]{Fluids.SMOKE,Fluids.SMOKE_LEADED,Fluids.SMOKE_POISON}:owner==cable?new FluidType[]{WATER}:new FluidType[]{Fluids.NONE,WATER,OTHER,BLACK};
+    for(FluidType type:types)for(int mask=0;mask<64;mask++){
+     MapWorld world=connected(owner,mask,type);world.blocks.put(POS,state);String label=owner.getRegistryName()+" meta="+meta+" mask="+mask+" fluid="+type.getID();
+     IExtendedBlockState extended=(IExtendedBlockState)owner.getExtendedState(state,world,POS);check(extended.getValue(ConnectionState.CONNECTIONS)==mask,label+" six exact routed connections");check(extended.getClean()==state&&owner.getMetaFromState(extended)==meta,label+" extended render data never persists");
+     if(owner!=cable)check(extended.getValue(FluidConnectionState.FLUID_COLOR)==(owner==fluid&&meta%3==2?expectedColor(type.getColor()):0xffffff),label+" exact white-skin-only lightened color, exhaust stays white");
+     AxisAlignedBB expected=expectedBounds(owner,meta,mask);check(owner.getBoundingBox(state,world,POS).equals(expected),label+" pristine merged selection");check(owner.getCollisionBoundingBox(state,world,POS).equals(expected),label+" pristine merged collision");check(owner.getSelectedBoundingBox(state,world,POS).equals(expected.offset(POS)),label+" selected bounds offset once");
+     check((owner==cable?PowerCableBox.bounds(meta,mask):FluidDuctBox.bounds(meta,mask)).equals(expected),label+" pure local bound helper");
+     List<AxisAlignedBB> boxes=expectedCollisions(owner,meta,mask,POS);check(collisions(owner,world,state,new AxisAlignedBB(POS).grow(2)).equals(boxes),label+" exact ordered pristine compound collisions");check((owner==cable?PowerCableBox.collisionBoxes(meta,mask):FluidDuctBox.collisionBoxes(meta,mask)).equals(expectedCollisions(owner,meta,mask,BlockPos.ORIGIN)),label+" local compound box helper");
+     for(int trial=0;trial<3;trial++){double x=POS.getX()-.5+random.nextDouble()*2,y=POS.getY()-.5+random.nextDouble()*2,z=POS.getZ()-.5+random.nextDouble()*2;AxisAlignedBB query=new AxisAlignedBB(x,y,z,x+.25,y+.25,z+.25);List<AxisAlignedBB> filtered=new ArrayList<>();for(AxisAlignedBB box:boxes)if(query.intersects(box))filtered.add(box);check(collisions(owner,world,state,query).equals(filtered),label+" exact clipping against native entity query");}
+    }
+   }
+   for(int meta:new int[]{-1,16,31,255})check(owner.getMetaFromState(owner.getStateFromMeta(meta))==(meta&15),"native persisted nibble");
+  }
+ }
+ static void routingAndMissingTiles(){
+  for(Block owner:new Block[]{fluid,cable,exhaust}){
+   FluidType type=owner==exhaust?Fluids.SMOKE:WATER;MapWorld world=connected(owner,63,type);
+   owner.getExtendedState(owner.getDefaultState(),world,POS);
+   List<String> expected=new ArrayList<>();for(String side:new String[]{"west","east","down","up","north","south"})expected.add(side+":"+(owner==cable?"energy":type.getID()));
+   check(world.calls.equals(expected),"original owner nX,pX,nY,pY,nZ,pZ predicate order");
+   for(int meta=0;meta<16;meta++)for(boolean wrong:new boolean[]{false,true}){
+    world=connected(owner,63,type);if(wrong)world.tiles.put(POS,new TileEntity(){});else world.tiles.remove(POS);IBlockState state=owner.getStateFromMeta(meta);int mask=owner==exhaust?63:0;
+    IExtendedBlockState extended=(IExtendedBlockState)owner.getExtendedState(state,world,POS);check(extended.getValue(ConnectionState.CONNECTIONS)==mask,"missing/wrong source tile rejects regular connections, exhaust ignores tile");if(owner!=cable)check(extended.getValue(FluidConnectionState.FLUID_COLOR)==0xffffff,"missing/wrong tile white tint, never standard magenta");
+    check(owner.getBoundingBox(state,world,POS).equals(expectedBounds(owner,meta,mask)),"missing/wrong tile original centered bounds");check(collisions(owner,world,state,new AxisAlignedBB(POS).grow(2)).equals(expectedCollisions(owner,meta,mask,POS)),"missing/wrong tile original centered compound collision");
+   }
+  }
+  for(FluidType smoke:new FluidType[]{Fluids.SMOKE,Fluids.SMOKE_LEADED,Fluids.SMOKE_POISON}){
+   MapWorld world=connected(exhaust,63,smoke);exhaust.getExtendedState(exhaust.getDefaultState(),world,POS);List<String> expected=new ArrayList<>();for(String side:new String[]{"west","east","down","up","north","south"}){expected.add(side+":1");if(smoke!=Fluids.SMOKE)expected.add(side+":2");if(smoke==Fluids.SMOKE_POISON)expected.add(side+":3");}check(world.calls.equals(expected),"exhaust SMOKE || LEADED || POISON exact short circuit");
+  }
+  MapWorld world=connected(exhaust,63,WATER);check(((IExtendedBlockState)exhaust.getExtendedState(exhaust.getDefaultState(),world,POS)).getValue(ConnectionState.CONNECTIONS)==0,"exhaust rejects non-smoke");
+  world=connected(fluid,63,WATER);((TileEntityPipeBaseNT)world.tiles.get(POS)).type=OTHER;check(((IExtendedBlockState)fluid.getExtendedState(fluid.getDefaultState(),world,POS)).getValue(ConnectionState.CONNECTIONS)==0,"fluid rejects different fluid");
+  for(int y:new int[]{-1,256,Integer.MIN_VALUE,Integer.MAX_VALUE}){MapWorld w=new MapWorld();check(!Library.canConnectFluid(w,0,y,0,ForgeDirection.UP,WATER)&&w.reads==0,"fluid y boundary before world read");check(!Library.canConnect(w,0,y,0,ForgeDirection.UP)&&w.reads==0,"energy y boundary before world read");}
+  for(Block owner:new Block[]{fluid,cable,exhaust})for(EnumFacing face:DIRECTIONS){world=connected(owner,63,owner==exhaust?Fluids.SMOKE:WATER);BlockPos p=POS.offset(face);ConnectorBlock b=(ConnectorBlock)world.blocks.get(p).getBlock();ConnectorTile t=(ConnectorTile)world.tiles.get(p);b.allow=true;t.allow=true;world.calls.clear();boolean result=owner==cable?cable.canConnectTo(world,POS.getX(),POS.getY(),POS.getZ(),ForgeDirection.fromEnumFacing(face),world.tiles.get(POS)):((FluidDuctBox)owner).canConnectTo(world,POS.getX(),POS.getY(),POS.getZ(),ForgeDirection.fromEnumFacing(face),world.tiles.get(POS));check(result&&b.calls==1&&t.calls==0,"accepting block short circuits tile fallback");}
+ }
+ static void overlays(){
+  MapWorld world=connected(fluid,0,WATER);fluid.printHook(null,world,POS.getX(),POS.getY(),POS.getZ());check(ILookOverlay.Capture.title.equals("tile.fluid_duct_box.name")&&ILookOverlay.Capture.titleColor==0xffff00&&ILookOverlay.Capture.backgroundColor==0x404000&&ILookOverlay.Capture.text.equals(Collections.singletonList("&[1193046&]Water")),"original fluid overlay name, fluid, colors");int calls=ILookOverlay.Capture.calls;world.tiles.remove(POS);fluid.printHook(null,world,POS.getX(),POS.getY(),POS.getZ());check(ILookOverlay.Capture.calls==calls,"missing tile omits fluid overlay");exhaust.printHook(null,world,POS.getX(),POS.getY(),POS.getZ());check(ILookOverlay.Capture.title.equals("tile.fluid_duct_exhaust.name")&&ILookOverlay.Capture.titleColor==0xffff00&&ILookOverlay.Capture.backgroundColor==0x404000&&ILookOverlay.Capture.text.equals(Arrays.asList("Smoke","Leaded smoke","Poison smoke")),"exhaust unconditional three-smoke overlay");
+ }
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "native boxed duct fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+ }
+ static void lifecycle(){
+  for(Block owner:new Block[]{fluid,cable,exhaust})for(int meta=0;meta<16;meta++){
+   NativeWorld world=new NativeWorld();world.setBlockState(POS,owner.getStateFromMeta(meta),3);TileEntity tile=world.getTileEntity(POS);check((owner==fluid?tile instanceof TileEntityPipeBaseNT:owner==cable?tile instanceof TileEntityCableBaseNT:tile instanceof TileEntityPipeExhaust)&&tile.getPos().equals(POS),"real chunk native tile creation");if(tile instanceof TileEntityPipeBaseNT)((TileEntityPipeBaseNT)tile).type=WATER;
+   for(EnumFacing face:DIRECTIONS){world.setBlockState(POS.offset(face),owner.getDefaultState(),3);TileEntity neighbor=world.getTileEntity(POS.offset(face));if(neighbor instanceof TileEntityPipeBaseNT)((TileEntityPipeBaseNT)neighbor).type=WATER;}
+   IBlockState state=world.getBlockState(POS);IExtendedBlockState render=(IExtendedBlockState)owner.getExtendedState(state,world,POS);check(owner.getMetaFromState(state)==meta&&render.getValue(ConnectionState.CONNECTIONS)==63,"real chunk original metadata and six connections");world.setBlockState(POS.east(),Blocks.AIR.getDefaultState(),3);render=(IExtendedBlockState)owner.getExtendedState(state,world,POS);check(render.getValue(ConnectionState.CONNECTIONS)==31&&world.getTileEntity(POS)==tile,"native neighbor removal recalculates without replacing source tile");check(collisions(owner,world,state,new AxisAlignedBB(POS).grow(2)).equals(expectedCollisions(owner,meta,31,POS)),"real chunk exact collision hook");
+  }
+ }
+ public static void main(String[] args){Bootstrap.register();setup();geometryAndState();routingAndMissingTiles();overlays();lifecycle();System.out.println("PASS native boxed duct/cable owners: "+checks+" assertions. Complete production FluidDuctBox, PowerCableBox, FluidDuctBoxExhaust and FluidDuctBase against real Minecraft/Forge 1.12.2; all64 masks x16 persisted metadata, eight fluid/owner cases, pristine ordered collision and selection oracle, clipping, directional typed routing and order, exhaust OR short circuit, tint, overlays, creative/drop/placement, real World/Chunk tile creation and neighbor removal.");System.out.println("Boundary: controlled NTM fluid/tile/player/network/overlay collaborators; original production connection and lightenColor bodies extracted unchanged. No Minecraft/Forge facades. CPU-headless native proof, not graphical acceptance or whole-repository Gradle success.");}
+}

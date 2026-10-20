@@ -16,7 +16,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public abstract class BlockRailWaypointSystem extends BlockDummyable implements IRailNTM {
+public abstract class BlockRailWaypointSystem extends BlockRailNTM implements IRailNTM {
 	
 	public List<RailDef> railDefs = new ArrayList();
 	
@@ -37,7 +37,7 @@ public abstract class BlockRailWaypointSystem extends BlockDummyable implements 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		this.setBlockBounds(0F, 0F, 0F, 1F, 0.125F, 1F);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+		return new AxisAlignedBB(x, y, z, x + 1, y + 0.125, z + 1);
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public abstract class BlockRailWaypointSystem extends BlockDummyable implements 
 		int cX = pos[0];
 		int cY = pos[1];
 		int cZ = pos[2];
-		int meta = world.getBlockMetadata(cX, cY, cZ);
+		int meta = metadata(world, cX, cY, cZ);
 		double moveAngle = Math.atan2(motionX, motionZ) * 180D / Math.PI + 90;
 		Vec3d trainPos = new Vec3d(trainX, trainY, trainZ);
 		
@@ -94,7 +94,7 @@ public abstract class BlockRailWaypointSystem extends BlockDummyable implements 
 				Vec3d point = getClosestPointOnLink(array[0], array[1], train);
 				
 				if(point != null) {
-					Vec3d delta = point.subtract(train);
+					Vec3d delta = point.subtractReverse(train);
 					double length = delta.length();
 					
 					if(!canCross(world, cX, cY, cZ, trainPos, point, link.getValue())) continue;
@@ -135,7 +135,7 @@ public abstract class BlockRailWaypointSystem extends BlockDummyable implements 
 			}
 			
 			Vec3d nextNode = array[d?1:0];
-			Vec3d delta = nextNode.subtract(currentPos);
+			Vec3d delta = nextNode.subtractReverse(currentPos);
 			
 			if(!canCross(world, cX, cY, cZ, currentPos, nextNode, link.getValue())) break;
 			
@@ -182,7 +182,7 @@ public abstract class BlockRailWaypointSystem extends BlockDummyable implements 
 		if(meta == 13) rotation = 270F / 180F * (float) Math.PI;
 		Vec3d copy = new Vec3d(node.x, node.y, node.z);
 		copy = copy.rotateYaw(rotation);
-		return core.addVector(copy.x, copy.y, copy.z);
+		return core.add(copy.x, copy.y, copy.z);
 	}
 	
 	public class RailDef {

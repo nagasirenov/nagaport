@@ -6,11 +6,12 @@ import api.hbm.conveyor.IEnterableBlock;
 import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.network.TileEntityCraneBase;
 import com.hbm.tileentity.network.TileEntityCraneUnboxer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
@@ -21,7 +22,8 @@ import com.hbm.lib.ForgeDirection;
 public class CraneUnboxer extends BlockCraneBase implements IEnterableBlock {
 
 	public CraneUnboxer() {
-		super(Material.iron);
+		super(Material.IRON);
+		initModelTextures();
 	}
 
 	@Override
@@ -30,29 +32,28 @@ public class CraneUnboxer extends BlockCraneBase implements IEnterableBlock {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconOut = iconRegister.registerIcon(RefStrings.MODID + ":crane_box");
-		this.iconSideOut = iconRegister.registerIcon(RefStrings.MODID + ":crane_side_box");
-		this.iconDirectional = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_top");
-		this.iconDirectionalUp = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_down");
-		this.iconDirectionalDown = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_up");
-		this.iconDirectionalTurnLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_top_right");
-		this.iconDirectionalTurnRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_top_left");
-		this.iconDirectionalSideLeftTurnUp = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_up_turn_left");
-		this.iconDirectionalSideRightTurnUp = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_up_turn_right");
-		this.iconDirectionalSideLeftTurnDown = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_down_turn_left");
-		this.iconDirectionalSideRightTurnDown = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_down_turn_right");
-		this.iconDirectionalSideUpTurnLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_left_turn_up");
-		this.iconDirectionalSideUpTurnRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_right_turn_up");
-		this.iconDirectionalSideDownTurnLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_left_turn_down");
-		this.iconDirectionalSideDownTurnRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_unboxer_side_right_turn_down");
+	protected void initModelTextures() {
+		super.initModelTextures();
+		this.iconOut = new ResourceLocation(RefStrings.MODID, "blocks/crane_box");
+		this.iconSideOut = new ResourceLocation(RefStrings.MODID, "blocks/crane_side_box");
+		this.iconDirectional = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_top");
+		this.iconDirectionalUp = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_down");
+		this.iconDirectionalDown = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_up");
+		this.iconDirectionalTurnLeft = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_top_right");
+		this.iconDirectionalTurnRight = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_top_left");
+		this.iconDirectionalSideLeftTurnUp = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_up_turn_left");
+		this.iconDirectionalSideRightTurnUp = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_up_turn_right");
+		this.iconDirectionalSideLeftTurnDown = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_down_turn_left");
+		this.iconDirectionalSideRightTurnDown = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_down_turn_right");
+		this.iconDirectionalSideUpTurnLeft = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_left_turn_up");
+		this.iconDirectionalSideUpTurnRight = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_right_turn_up");
+		this.iconDirectionalSideDownTurnLeft = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_left_turn_down");
+		this.iconDirectionalSideDownTurnRight = new ResourceLocation(RefStrings.MODID, "blocks/crane_unboxer_side_right_turn_down");
 	}
 
 	@Override
 	public int getRotationFromSide(IBlockAccess world, int x, int y, int z, int side) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 
 		if(meta > 1 && side == 1) {
 			// ok so i've been sitting around for 4-5 hours trying to come up with a
@@ -84,9 +85,12 @@ public class CraneUnboxer extends BlockCraneBase implements IEnterableBlock {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = getMetaFromState(state);
 		this.dropContents(world, x, y, z, block, meta, 0, 23);
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
@@ -104,26 +108,27 @@ public class CraneUnboxer extends BlockCraneBase implements IEnterableBlock {
 
 	@Override
 	public void onPackageEnter(World world, int x, int y, int z, ForgeDirection dir, IConveyorPackage entity) {
-		TileEntityCraneUnboxer unboxer = (TileEntityCraneUnboxer) world.getTileEntity(x, y, z);
+		TileEntityCraneUnboxer unboxer = (TileEntityCraneUnboxer) world.getTileEntity(new BlockPos(x, y, z));
 		ForgeDirection accessedSide = getOutputSide(world, x, y, z).getOpposite();
 
 		for(ItemStack stack : entity.getItemStacks()) {
-			ItemStack remainder = CraneInserter.addToInventory(unboxer, unboxer.getAccessibleSlotsFromSide(accessedSide.ordinal()), stack, accessedSide.ordinal());
+			ItemStack remainder = CraneInserter.addToInventory(unboxer, unboxer.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(accessedSide.ordinal()).toEnumFacing()), stack, accessedSide.ordinal());
 			
-			if(remainder != null && remainder.stackSize > 0) {
+			if(remainder != null && remainder.getCount() > 0) {
 				EntityItem drop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, remainder.copy());
-				world.spawnEntityInWorld(drop);
+				world.spawnEntity(drop);
 			}
 		}
 	}
 	
 	@Override
-	public boolean hasComparatorInputOverride() {
+	public boolean hasComparatorInputOverride(IBlockState state) {
 		return true;
 	}
 	
 	@Override
-	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		return Container.calcRedstoneFromInventory((TileEntityCraneUnboxer)world.getTileEntity(x, y, z));
+	public int getComparatorInputOverride(IBlockState state, World world, BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		return Container.calcRedstoneFromInventory((TileEntityCraneUnboxer)world.getTileEntity(new BlockPos(x, y, z)));
 	}
 }

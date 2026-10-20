@@ -41,7 +41,7 @@ import net.minecraft.client.gui.GuiTextField;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.event.ClickEvent;
+import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
@@ -49,7 +49,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
@@ -61,7 +61,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 	private IIcon loadIcon;
 
 	public BlockWandStructure() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -84,16 +84,16 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandStructure)) return false;
 
 		TileEntityWandStructure structure = (TileEntityWandStructure) te;
 
 		if(!player.isSneaking()) {
-			Block block = ModBlocks.getBlockFromStack(player.getHeldItem());
+			Block block = ModBlocks.getBlockFromStack(com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 			if(block != null && !ModBlocks.isStructureBlock(block, true)) {
-				Pair<Block, Integer> bm = new Pair<Block, Integer>(block, player.getHeldItem().getItemDamage());
+				Pair<Block, Integer> bm = new Pair<Block, Integer>(block, com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage());
 
 				if(structure.blacklist.contains(bm)) {
 					structure.blacklist.remove(bm);
@@ -128,8 +128,8 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		int meta = stack.getItemDamage();
-		if(meta == 1) return getUnlocalizedName() + ".load";
-		return getUnlocalizedName() + ".save";
+		if(meta == 1) return getTranslationKey() + ".load";
+		return getTranslationKey() + ".save";
 	}
 
 	@Override
@@ -144,17 +144,17 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 	@Override
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		TileEntityWandStructure structure = (TileEntityWandStructure) world.getTileEntity(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		TileEntityWandStructure structure = (TileEntityWandStructure) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(meta == 1) return new GuiStructureLoad(structure);
 		return new GuiStructureSave(structure);
 	}
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		if(world.getBlockMetadata(x, y, z) != 0) return;
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 0) return;
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(te instanceof TileEntityWandStructure)) return;
 		TileEntityWandStructure structure = (TileEntityWandStructure) te;
 
@@ -164,13 +164,13 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 		text.add(TextFormatting.GRAY + "Blacklist:");
 		for (Pair<Block, Integer> bm : structure.blacklist) {
-			text.add(TextFormatting.RED + "- " + bm.getKey().getUnlocalizedName() + " : " + bm.getValue());
+			text.add(TextFormatting.RED + "- " + bm.getKey().getTranslationKey() + " : " + bm.getValue());
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".save.name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".save.name"), 0xffff00, 0x404000, text);
 	}
 
-	public static class TileEntityWandStructure extends TileEntityLoadedBase implements IControlReceiver {
+	public static class TileEntityWandStructure extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {
 
 		public String name = "";
 
@@ -181,45 +181,45 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		public Set<Pair<Block, Integer>> blacklist = new HashSet<>();
 
 		@Override
-		public void updateEntity() {
-			if(!worldObj.isRemote) {
+		public void update() {
+			if(!this.world.isRemote) {
 				networkPackNT(256);
 			}
 		}
 
 		public void saveStructure(EntityPlayer player) {
 			if(name.isEmpty()) {
-				player.addChatMessage(new ChatComponentText(TextFormatting.RED + "Could not save: invalid name"));
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "Could not save: invalid name"));
 				return;
 			}
 
 			if(sizeX <= 0 || sizeY <= 0 || sizeZ <= 0) {
-				player.addChatMessage(new ChatComponentText(TextFormatting.RED + "Could not save: invalid dimensions"));
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "Could not save: invalid dimensions"));
 				return;
 			}
 
-			Pair<Block, Integer> air = new Pair<Block, Integer>(Blocks.air, 0);
+			Pair<Block, Integer> air = new Pair<Block, Integer>(Blocks.AIR, 0);
 			blacklist.add(air);
 
-			File file = NBTStructure.quickSaveArea(name + ".nbt", worldObj, xCoord, yCoord + 1, zCoord, xCoord + sizeX - 1, yCoord + sizeY, zCoord + sizeZ - 1, blacklist);
+			File file = NBTStructure.quickSaveArea(name + ".nbt", this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + sizeX - 1, this.pos.getY() + sizeY, this.pos.getZ() + sizeZ - 1, blacklist);
 
 			blacklist.remove(air);
 
 			if(file == null) {
-				player.addChatMessage(new ChatComponentText(TextFormatting.RED + "Failed to save structure"));
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "Failed to save structure"));
 				return;
 			}
 
-			ChatComponentText fileText = new ChatComponentText(file.getName());
-			fileText.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, file.getParentFile().getAbsolutePath()));
-			fileText.getChatStyle().setUnderlined(true);
+			TextComponentString fileText = new TextComponentString(file.getName());
+			fileText.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, file.getParentFile().getAbsolutePath()));
+			fileText.getStyle().setUnderlined(true);
 
-			player.addChatMessage(new ChatComponentText("Saved structure as ").appendSibling(fileText));
+			player.sendMessage(new TextComponentString("Saved structure as ").appendSibling(fileText));
 		}
 
 		public void loadStructure(EntityPlayer player) {
 			if(name.isEmpty()) {
-				player.addChatMessage(new ChatComponentText(TextFormatting.RED + "Could not load: no filename specified"));
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "Could not load: no filename specified"));
 				return;
 			}
 
@@ -238,14 +238,14 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 				sizeY = structure.getSizeY();
 				sizeZ = structure.getSizeZ();
 
-				structure.build(worldObj, xCoord, yCoord + 1, zCoord, 0, false, true);
+				structure.build(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), 0, false, true);
 
-				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 0, 3);
+				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 3);
 
-				player.addChatMessage(new ChatComponentText("Structure loaded"));
+				player.sendMessage(new TextComponentString("Structure loaded"));
 
 			} catch (FileNotFoundException ex) {
-				player.addChatMessage(new ChatComponentText(TextFormatting.RED + "Could not load: file not found"));
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "Could not load: file not found"));
 			} finally {
 				StructureConfig.debugStructures = previousDebug;
 			}
@@ -303,7 +303,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 
 			nbt.setString("name", name);
@@ -314,6 +314,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 			nbt.setIntArray("blocks", blacklist.stream().mapToInt(b -> Block.getIdFromBlock(b.getKey())).toArray());
 			nbt.setIntArray("metas", blacklist.stream().mapToInt(b -> b.getValue()).toArray());
+			return nbt;
 		}
 
 		@Override
@@ -374,14 +375,14 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		public void initGui() {
 			Keyboard.enableRepeatEvents(true);
 
-			textName = new GuiTextField(fontRendererObj, width / 2 - 150, 50, 300, 20);
+			textName = new GuiTextField(0, fontRenderer, width / 2 - 150, 50, 300, 20);
 			textName.setText(tile.name);
 
-			textSizeX = new GuiTextField(fontRendererObj, width / 2 - 150, 100, 50, 20);
+			textSizeX = new GuiTextField(1, fontRenderer, width / 2 - 150, 100, 50, 20);
 			textSizeX.setText("" + tile.sizeX);
-			textSizeY = new GuiTextField(fontRendererObj, width / 2 - 100, 100, 50, 20);
+			textSizeY = new GuiTextField(2, fontRenderer, width / 2 - 100, 100, 50, 20);
 			textSizeY.setText("" + tile.sizeY);
-			textSizeZ = new GuiTextField(fontRendererObj, width / 2 - 50, 100, 50, 20);
+			textSizeZ = new GuiTextField(3, fontRenderer, width / 2 - 50, 100, 50, 20);
 			textSizeZ.setText("" + tile.sizeZ);
 
 			performAction = new GuiButton(0, width / 2 - 150, 150, 300, 20, "SAVE");
@@ -417,7 +418,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 			if(saveOnClose) data.setBoolean("save", true);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, tile.xCoord, tile.yCoord, tile.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ()));
 		}
 
 		@Override
@@ -487,7 +488,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		public void initGui() {
 			Keyboard.enableRepeatEvents(true);
 
-			textName = new GuiTextField(fontRendererObj, width / 2 - 150, 50, 300, 20);
+			textName = new GuiTextField(0, fontRenderer, width / 2 - 150, 50, 300, 20);
 			textName.setText(tile.name);
 			nameFilter = tile.name;
 
@@ -525,7 +526,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 			if(loadOnClose) data.setBoolean("load", true);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, tile.xCoord, tile.yCoord, tile.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ()));
 		}
 
 		@Override

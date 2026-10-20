@@ -68,6 +68,6 @@ public class ContainerCraneUnboxer extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return unboxer.isUseableByPlayer(player);
+		return unboxer.isUsableByPlayer(player);
 	}
 }

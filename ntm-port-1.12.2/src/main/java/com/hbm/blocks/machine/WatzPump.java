@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class WatzPump extends BlockDummyable {
 
 	public WatzPump() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -43,11 +43,10 @@ public class WatzPump extends BlockDummyable {
 	}
 	
 	public static class TileEntityWatzPump extends TileEntity {
-		@Override public boolean canUpdate() { return false; }
 		@Override @SideOnly(Side.CLIENT) public double getMaxRenderDistanceSquared() { return 65536.0D; }
 		AxisAlignedBB bb = null;
 		@Override public AxisAlignedBB getRenderBoundingBox() {
-			if(bb == null) bb = AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord, zCoord - 1, xCoord + 2, yCoord + 2, zCoord + 2);
+			if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 2, this.pos.getZ() + 2);
 			return bb;
 		}
 	}

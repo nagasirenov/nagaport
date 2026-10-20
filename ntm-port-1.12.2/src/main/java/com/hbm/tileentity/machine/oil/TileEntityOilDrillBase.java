@@ -56,12 +56,13 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
 		for(int i = 0; i < this.tanks.length; i++)
 			this.tanks[i].writeToNBT(nbt, "t" + i);
+		return nbt;
 	}
 
 	@Override
@@ -90,9 +91,9 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 	public int overLevel;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 
 			this.updateConnections();
 
@@ -119,21 +120,21 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 
 			for (DirPos pos : getConPos()) {
 				if (tanks[0].getFill() > 0)
-					this.sendFluid(tanks[0], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[0], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				if (tanks[1].getFill() > 0)
-					this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			if (this.power >= this.getPowerReqEff() && this.tanks[0].getFill() < this.tanks[0].getMaxFill() && this.tanks[1].getFill() < this.tanks[1].getMaxFill()) {
 
 				this.power -= this.getPowerReqEff();
 
-				if (worldObj.getTotalWorldTime() % getDelayEff() == 0) {
+				if (this.world.getTotalWorldTime() % getDelayEff() == 0) {
 					this.indicator = 0;
 
-					for (int y = yCoord - 1; y >= getDrillDepth(); y--) {
+					for (int y = this.pos.getY() - 1; y >= getDrillDepth(); y--) {
 
-						if (worldObj.getBlock(xCoord, y, zCoord) != ModBlocks.oil_pipe) {
+						if (com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock() != ModBlocks.oil_pipe) {
 
 							if (trySuck(y)) {
 								break;
@@ -183,7 +184,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && i >= 5 && i <= 7 && stack.getItem() instanceof ItemMachineUpgrade)
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 	}
 
 	public int getPowerReqEff() {
@@ -200,11 +201,11 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 	public abstract int getDelay();
 
 	public void tryDrill(int y) {
-		Block b = worldObj.getBlock(xCoord, y, zCoord);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock();
 
 		if(b.getExplosionResistance(null) < 1000) {
 			onDrill(y);
-			worldObj.setBlock(xCoord, y, zCoord, ModBlocks.oil_pipe);
+			this.world.setBlock(this.pos.getX(), y, this.pos.getZ(), ModBlocks.oil_pipe);
 		} else {
 			this.indicator = 2;
 		}
@@ -218,7 +219,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 
 	public boolean trySuck(int y) {
 
-		Block b = worldObj.getBlock(xCoord, y, zCoord);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock();
 
 		if(!canSuckBlock(b))
 			return false;
@@ -228,7 +229,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 
 		trace.clear();
 
-		return suckRec(xCoord, y, zCoord, 0);
+		return suckRec(this.pos.getX(), y, this.pos.getZ(), 0);
 	}
 
 	public boolean canSuckBlock(Block b) {
@@ -249,7 +250,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 		if(layer > 64)
 			return false;
 
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 		if(b instanceof BlockOreFluid) {
 			onSuck((BlockOreFluid) b, x, y, z);
@@ -269,7 +270,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 	}
 
 	public void onSuck(BlockOreFluid block, int x, int y, int z) {
-		int meta = worldObj.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) );
 
 		tanks[0].setTankType(block.getPrimaryFluid(meta));
 		tanks[1].setTankType(block.getSecondaryFluid(meta));
@@ -290,7 +291,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 	}
 
 	protected void attemptDrain(BlockOreFluid block, int x, int y, int z, int meta) {
-		block.drain(worldObj, x, y, z, meta, 1);
+		block.drain(this.world, x, y, z, meta, 1);
 	}
 
 	@Override
@@ -333,7 +334,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 
 	protected void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 

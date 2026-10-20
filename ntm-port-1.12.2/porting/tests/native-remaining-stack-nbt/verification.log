@@ -1,0 +1,4 @@
+PASS exact inverse: 93 attributed accesses, 93 fragments, 13 files; manifest owns no unrelated source edits; all live migrated fragments verified
+PASS attribution controls: accepted native read/write/array/method/field receiver; rejected unrelated/shadowed type and used assignment; comments/strings untouched
+PASS native ItemStack/NBT + actual production ItemEnergyContainer + ISatChip: 59 assertions
+PASS native getter/setter bytecode: exact raw getfield/putfield, no copy or normalization

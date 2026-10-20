@@ -7,7 +7,7 @@ import com.hbm.items.ModItems;
 import com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo;
 
 import net.minecraft.init.Items;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPoolsPile {
 
@@ -29,7 +29,7 @@ public class ItemPoolsPile {
 		new ItemPool(POOL_PILE_HIVE) {{
 			this.pool = new WeightedRandomChestContent[] {
 					//Materials
-					weighted(Items.iron_ingot, 0, 1, 3, 10),
+					weighted(Items.IRON_INGOT, 0, 1, 3, 10),
 					weighted(ModItems.ingot_steel, 0, 1, 2, 10),
 					weighted(ModItems.ingot_aluminium, 0, 1, 2, 10),
 					weighted(ModItems.scrap, 0, 3, 6, 10),
@@ -54,15 +54,15 @@ public class ItemPoolsPile {
 					weighted(ModItems.egg_glyphid, 0, 1, 3, 30),
 					weighted(ModItems.syringe_metal_stimpak, 0, 1, 1, 5),
 					weighted(ModItems.iv_blood, 0, 1, 1, 10),
-					weighted(Items.experience_bottle, 0, 1, 3, 5),
+					weighted(Items.EXPERIENCE_BOTTLE, 0, 1, 3, 5),
 			};
 		}};
 
 		//items found in glyphid bone piles
 		new ItemPool(POOL_PILE_BONES) {{
 			this.pool = new WeightedRandomChestContent[] {
-					weighted(Items.bone, 0, 1, 1, 10),
-					weighted(Items.rotten_flesh, 0, 1, 1, 5),
+					weighted(Items.BONE, 0, 1, 1, 10),
+					weighted(Items.ROTTEN_FLESH, 0, 1, 1, 5),
 					weighted(ModItems.biomass, 0, 1, 1, 2)
 			};
 		}};
@@ -119,7 +119,7 @@ public class ItemPoolsPile {
 				weighted(ModItems.wire_fine, Mats.MAT_LEAD.id, 1, 2, 20),
 				weighted(ModItems.powder_ash, 0, 0, 1, 15),
 				weighted(ModItems.plate_lead, 0, 0, 1, 15),
-				weighted(Items.string, 0, 0, 1, 15),
+				weighted(Items.STRING, 0, 0, 1, 15),
 				weighted(ModItems.bolt, 8200, 0, 2, 15),
 				weighted(ModItems.pin, 0, 0, 2, 15),
 				weighted(ModItems.cap_nuka, 0, 0, 8, 15),

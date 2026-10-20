@@ -55,19 +55,19 @@ public class EntityDepress extends Entity {
 		ForgeDirection dir = getDir();
 
 		NBTTagCompound data = new NBTTagCompound();
-		data.setDouble("posX", posX + worldObj.rand.nextGaussian() * 0.25);
-		data.setDouble("posY", posY + worldObj.rand.nextGaussian() * 0.25);
-		data.setDouble("posZ", posZ + worldObj.rand.nextGaussian() * 0.25);
+		data.setDouble("posX", posX + this.world.rand.nextGaussian() * 0.25);
+		data.setDouble("posY", posY + this.world.rand.nextGaussian() * 0.25);
+		data.setDouble("posZ", posZ + this.world.rand.nextGaussian() * 0.25);
 		data.setString("type", "depress");
 		data.setFloat("scale", 0.5f);
-		data.setDouble("moX", dir.offsetX * 0.5 + worldObj.rand.nextGaussian() * 0.25);
-		data.setDouble("moY", dir.offsetY * 0.5 + worldObj.rand.nextGaussian() * 0.25);
-		data.setDouble("moZ", dir.offsetZ * 0.5 + worldObj.rand.nextGaussian() * 0.25);
-		data.setInteger("maxAge", 100 + worldObj.rand.nextInt(20));
+		data.setDouble("moX", dir.offsetX * 0.5 + this.world.rand.nextGaussian() * 0.25);
+		data.setDouble("moY", dir.offsetY * 0.5 + this.world.rand.nextGaussian() * 0.25);
+		data.setDouble("moZ", dir.offsetZ * 0.5 + this.world.rand.nextGaussian() * 0.25);
+		data.setInteger("maxAge", 100 + this.world.rand.nextInt(20));
 		data.setInteger("color", 0xFFFFFF);
 		MainRegistry.proxy.effectNT(data);
 
-		List<Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(
+		List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(
 			posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range));
 
 		for(Entity entity : entities) {

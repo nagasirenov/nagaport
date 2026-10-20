@@ -83,7 +83,7 @@ public class TritiumLamp extends Block implements ISpotlight {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random r, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random r, int j) {
 		return Item.getItemFromBlock(getOff());
 	}
 

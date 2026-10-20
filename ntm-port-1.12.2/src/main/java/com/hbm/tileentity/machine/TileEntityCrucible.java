@@ -93,7 +93,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineCrucible";
 	}
 
@@ -103,14 +103,14 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			tryPullHeat();
 
 			/* collect items */
-			if(worldObj.getTotalWorldTime() % 5 == 0) {
-				List<EntityItem> list = worldObj.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord + 0.5, zCoord - 0.5, xCoord + 1.5, yCoord + 1, zCoord + 1.5));
+			if(this.world.getTotalWorldTime() % 5 == 0) {
+				List<EntityItem> list = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 1, this.pos.getZ() + 1.5));
 
 				for(EntityItem item : list) {
 					if(item.isDead) continue;
@@ -127,7 +127,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 									break;
 								} else {
 									slots[i] = stack.copy();
-									slots[i].stackSize = 1;
+									slots[i].setCount(1);
 									stack.stackSize--;
 								}
 
@@ -146,7 +146,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 
 			double level = ((double) totalMass / (double) totalCap) * 0.875D;
 
-			List<EntityLivingBase> living = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5 + level, zCoord + 0.5).expand(1, 0, 1));
+			List<EntityLivingBase> living = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + level, this.pos.getZ() + 0.5).expand(1, 0, 1));
 			for(EntityLivingBase entity : living) {
 				entity.attackEntityFrom(DamageSource.lava, 5F);
 				entity.setFire(5);
@@ -164,7 +164,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
 				Vec3NT impact = new Vec3NT(0, 0, 0);
-				MaterialStack didPour = CrucibleUtil.pourFullStack(worldObj, xCoord + 0.5D + dir.offsetX * 1.875D, yCoord + 0.25D, zCoord + 0.5D + dir.offsetZ * 1.875D, 6, true, this.wasteStack, MaterialShapes.NUGGET.q(3), impact);
+				MaterialStack didPour = CrucibleUtil.pourFullStack(this.world, this.pos.getX() + 0.5D + dir.offsetX * 1.875D, this.pos.getY() + 0.25D, this.pos.getZ() + 0.5D + dir.offsetZ * 1.875D, 6, true, this.wasteStack, MaterialShapes.NUGGET.q(3), impact);
 
 				if(didPour != null) {
 					NBTTagCompound data = new NBTTagCompound();
@@ -173,12 +173,12 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 					data.setByte("dir", (byte) dir.ordinal());
 					data.setFloat("off", 0.625F);
 					data.setFloat("base", 0.625F);
-					data.setFloat("len", Math.max(1F, yCoord - (float) (Math.ceil(impact.y) - 0.875)));
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5D + dir.offsetX * 1.875D, yCoord, zCoord + 0.5D + dir.offsetZ * 1.875D), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 50));
+					data.setFloat("len", Math.max(1F, this.pos.getY() - (float) (Math.ceil(impact.y) - 0.875)));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D + dir.offsetX * 1.875D, this.pos.getY(), this.pos.getZ() + 0.5D + dir.offsetZ * 1.875D), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 50));
 
 				}
 
-				PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND / 20F);
+				PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND / 20F);
 			}
 
 			/* pour recipe stack */
@@ -204,7 +204,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 				}
 
 				Vec3NT impact = new Vec3NT(0, 0, 0);
-				MaterialStack didPour = CrucibleUtil.pourFullStack(worldObj, xCoord + 0.5D + dir.offsetX * 1.875D, yCoord + 0.25D, zCoord + 0.5D + dir.offsetZ * 1.875D, 6, true, toCast, MaterialShapes.NUGGET.q(3), impact);
+				MaterialStack didPour = CrucibleUtil.pourFullStack(this.world, this.pos.getX() + 0.5D + dir.offsetX * 1.875D, this.pos.getY() + 0.25D, this.pos.getZ() + 0.5D + dir.offsetZ * 1.875D, 6, true, toCast, MaterialShapes.NUGGET.q(3), impact);
 
 				if(didPour != null) {
 					NBTTagCompound data = new NBTTagCompound();
@@ -213,12 +213,12 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 					data.setByte("dir", (byte) dir.ordinal());
 					data.setFloat("off", 0.625F);
 					data.setFloat("base", 0.625F);
-					data.setFloat("len", Math.max(1F, yCoord - (float) (Math.ceil(impact.y) - 0.875)));
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5D + dir.offsetX * 1.875D, yCoord, zCoord + 0.5D + dir.offsetZ * 1.875D), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 50));
+					data.setFloat("len", Math.max(1F, this.pos.getY() - (float) (Math.ceil(impact.y) - 0.875)));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D + dir.offsetX * 1.875D, this.pos.getY(), this.pos.getZ() + 0.5D + dir.offsetZ * 1.875D), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 50));
 
 				}
 
-				PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND / 20F);
+				PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND / 20F);
 			}
 
 			/* clean up stacks */
@@ -231,17 +231,17 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 			
 			if(!this.recipeStack.isEmpty() || !this.wasteStack.isEmpty()) {
 
-				if(worldObj.getTotalWorldTime() % 10 == 0) {
+				if(this.world.getTotalWorldTime() % 10 == 0) {
 					NBTTagCompound fx = new NBTTagCompound();
 					fx.setString("type", "tower");
 					fx.setFloat("lift", 10F);
 					fx.setFloat("base", 0.75F);
 					fx.setFloat("max", 3.5F);
-					fx.setInteger("life", 100 + worldObj.rand.nextInt(20));
+					fx.setInteger("life", 100 + this.world.rand.nextInt(20));
 					fx.setInteger("color",0x202020);
-					fx.setDouble("posX", xCoord + 0.5);
-					fx.setDouble("posY", yCoord + 1);
-					fx.setDouble("posZ", zCoord + 0.5);
+					fx.setDouble("posX", this.pos.getX() + 0.5);
+					fx.setDouble("posY", this.pos.getY() + 1);
+					fx.setDouble("posZ", this.pos.getZ() + 0.5);
 					MainRegistry.proxy.effectNT(fx);
 				}
 			}
@@ -322,7 +322,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		int[] rec = new int[recipeStack.size() * 2];
@@ -333,13 +333,14 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 		nbt.setIntArray("was", was);
 		nbt.setInteger("progress", progress);
 		nbt.setInteger("heat", heat);
+		return nbt;
 	}
 
 	protected void tryPullHeat() {
 
 		if(this.heat >= this.maxHeat) return;
 
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -403,7 +404,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 		CrucibleRecipe recipe = this.getLoadedRecipe();
 
 		if(recipe == null) return;
-		if(worldObj.getTotalWorldTime() % recipe.frequency > 0) return;
+		if(this.world.getTotalWorldTime() % recipe.frequency > 0) return;
 
 		for(MaterialStack stack : recipe.input) {
 			if(getQuantaFromType(this.recipeStack, stack.material) < stack.amount) return;
@@ -551,7 +552,8 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	}
 
@@ -573,12 +575,12 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 

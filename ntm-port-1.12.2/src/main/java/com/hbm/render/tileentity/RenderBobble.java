@@ -1,5 +1,6 @@
 package com.hbm.render.tileentity;
 
+import com.hbm.render.util.NativeIconExtrusion;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -12,7 +13,6 @@ import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -21,14 +21,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderBobble extends TileEntitySpecialRenderer {
 
 	public static RenderBobble instance = new RenderBobble();
 
-	public static final IModelCustom bobble = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/trinkets/bobble.obj"));
+	public static final MeshModel bobble = new ObjMeshModel(new ResourceLocation(RefStrings.MODID, "models/trinkets/bobble.obj"));
 	public static final ResourceLocation socket = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/socket.png");
 	public static final ResourceLocation glow = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/glow.png");
 	public static final ResourceLocation lamp = new ResourceLocation(RefStrings.MODID, "textures/blocks/fluorescent_lamp.png");
@@ -525,7 +525,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 		float f15 = icon.getMaxU();
 		float f4 = icon.getMinV();
 		float f5 = icon.getMaxV();
-		ItemRenderer.renderItemIn2D(Tessellator.instance, f15, f4, f14, f5, icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
+		NativeIconExtrusion.draw(f15, f4, f14, f5, icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 	}
 
 	/*

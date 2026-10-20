@@ -7,8 +7,8 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 import org.lwjgl.opengl.GL11;
 
@@ -19,10 +19,10 @@ public class RenderMinecartTest extends RenderMinecart
 {
 	
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(/*"/assets/" + */RefStrings.MODID, "models/LilBoy1.obj");
-	private IModelCustom boyModel;
+	private MeshModel boyModel;
     private ResourceLocation boyTexture;
     public RenderMinecartTest() {
-		boyModel = AdvancedModelLoader.loadModel(objTesterModelRL);
+		boyModel = new ObjMeshModel(objTesterModelRL);
 		boyTexture = new ResourceLocation(RefStrings.MODID, "textures/models/LilBoy2.png");
     }
     @Override

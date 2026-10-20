@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 
-public class TileEntityFF extends TileEntity {
+public class TileEntityFF extends TileEntity implements net.minecraft.util.ITickable {
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
@@ -29,7 +29,7 @@ public class TileEntityFF extends TileEntity {
 	List<Entity> inside = new ArrayList();
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		//if(!worldObj.isRemote)
 			prototype(10F);
@@ -43,14 +43,14 @@ public class TileEntityFF extends TileEntity {
 		outside.clear();
 		inside.clear();
 		
-		List<Object> list = worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(xCoord + 0.5 - (rad + 25), yCoord + 0.5 - (rad + 25), zCoord + 0.5 - (rad + 25), xCoord + 0.5 + (rad + 25), yCoord + 0.5 + (rad + 25), zCoord + 0.5 + (rad + 25)));
+		List<Object> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 - (rad + 25), this.pos.getY() + 0.5 - (rad + 25), this.pos.getZ() + 0.5 - (rad + 25), this.pos.getX() + 0.5 + (rad + 25), this.pos.getY() + 0.5 + (rad + 25), this.pos.getZ() + 0.5 + (rad + 25)));
 		
 		for(Object o : list) {
 			
 			if(o instanceof Entity && !(o instanceof EntityPlayer)) {
 				Entity entity = (Entity)o;
 				
-				double dist = Math.sqrt(Math.pow(xCoord + 0.5 - entity.posX, 2) + Math.pow(yCoord + 0.5 - entity.posY, 2) + Math.pow(zCoord + 0.5 - entity.posZ, 2));
+				double dist = Math.sqrt(Math.pow(this.pos.getX() + 0.5 - entity.posX, 2) + Math.pow(this.pos.getY() + 0.5 - entity.posY, 2) + Math.pow(this.pos.getZ() + 0.5 - entity.posZ, 2));
 				
 				boolean out = dist > rad;
 				
@@ -67,14 +67,14 @@ public class TileEntityFF extends TileEntity {
 					
 					//if the entity has crossed inwards
 					if(oLegacy.contains(entity) && !out) {
-						Vec3d vec = new Vec3d(xCoord + 0.5 - entity.posX, yCoord + 0.5 - entity.posY, zCoord + 0.5 - entity.posZ);
+						Vec3d vec = new Vec3d(this.pos.getX() + 0.5 - entity.posX, this.pos.getY() + 0.5 - entity.posY, this.pos.getZ() + 0.5 - entity.posZ);
 						vec = vec.normalize();
 						
 						double mx = -vec.x * (rad + 1);
 						double my = -vec.y * (rad + 1);
 						double mz = -vec.z * (rad + 1);
 						
-						entity.setLocationAndAngles(xCoord + 0.5 + mx, yCoord + 0.5 + my, zCoord + 0.5 + mz, 0, 0);
+						entity.setLocationAndAngles(this.pos.getX() + 0.5 + mx, this.pos.getY() + 0.5 + my, this.pos.getZ() + 0.5 + mz, 0, 0);
 						
 						double mo = Math.sqrt(Math.pow(entity.motionX, 2) + Math.pow(entity.motionY, 2) + Math.pow(entity.motionZ, 2));
 
@@ -86,20 +86,20 @@ public class TileEntityFF extends TileEntity {
 						entity.posY -= entity.motionY;
 						entity.posZ -= entity.motionZ;
 
-			    		worldObj.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
+			    		this.world.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
 						outside.add(entity);
 					} else
 					
 					//if the entity has crossed outwards
 					if(iLegacy.contains(entity) && out) {
-						Vec3d vec = new Vec3d(xCoord + 0.5 - entity.posX, yCoord + 0.5 - entity.posY, zCoord + 0.5 - entity.posZ);
+						Vec3d vec = new Vec3d(this.pos.getX() + 0.5 - entity.posX, this.pos.getY() + 0.5 - entity.posY, this.pos.getZ() + 0.5 - entity.posZ);
 						vec = vec.normalize();
 						
 						double mx = -vec.x * (rad - 1);
 						double my = -vec.y * (rad - 1);
 						double mz = -vec.z * (rad - 1);
 
-						entity.setLocationAndAngles(xCoord + 0.5 + mx, yCoord + 0.5 + my, zCoord + 0.5 + mz, 0, 0);
+						entity.setLocationAndAngles(this.pos.getX() + 0.5 + mx, this.pos.getY() + 0.5 + my, this.pos.getZ() + 0.5 + mz, 0, 0);
 						
 						double mo = Math.sqrt(Math.pow(entity.motionX, 2) + Math.pow(entity.motionY, 2) + Math.pow(entity.motionZ, 2));
 
@@ -111,7 +111,7 @@ public class TileEntityFF extends TileEntity {
 						entity.posY -= entity.motionY;
 						entity.posZ -= entity.motionZ;
 
-			    		worldObj.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
+			    		this.world.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
 						inside.add(entity);
 					} else {
 						

@@ -13,25 +13,19 @@ public class FuelPoolHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmSpentDrum";
 	}
 
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
-		if(ingredient != null && ingredient.getItem() != null && ingredient.getItem() instanceof ItemRBMKRod) {
-			if(ItemRBMKRod.getCoreHeat(ingredient) < 50 && ItemRBMKRod.getHullHeat(ingredient) < 50) return;
-		}
-
-		super.loadUsageRecipes(ingredient);
-	}
-
-	@Override
-	public void loadCraftingRecipes(ItemStack ingredient) {
-		if(ingredient != null && ingredient.getItem() != null && ingredient.getItem() instanceof ItemRBMKRod) {
-			if(ItemRBMKRod.getCoreHeat(ingredient) >= 50 || ItemRBMKRod.getHullHeat(ingredient) >= 50) return;
-		}
-
-		super.loadCraftingRecipes(ingredient);
-	}
+    @Override
+    protected boolean acceptsFocus(mezz.jei.api.recipe.IFocus<ItemStack> focus) {
+        if(focus == null) return true;
+        ItemStack ingredient = focus.getValue();
+        if(ingredient != null && ingredient.getItem() instanceof ItemRBMKRod) {
+            if(focus.getMode() == mezz.jei.api.recipe.IFocus.Mode.INPUT)
+                return !(ItemRBMKRod.getCoreHeat(ingredient) < 50 && ItemRBMKRod.getHullHeat(ingredient) < 50);
+            return !(ItemRBMKRod.getCoreHeat(ingredient) >= 50 || ItemRBMKRod.getHullHeat(ingredient) >= 50);
+        }
+        return true;
+    }
 }

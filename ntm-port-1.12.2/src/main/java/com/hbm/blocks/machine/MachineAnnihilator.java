@@ -14,7 +14,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineAnnihilator extends BlockDummyable {
 
 	public MachineAnnihilator() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

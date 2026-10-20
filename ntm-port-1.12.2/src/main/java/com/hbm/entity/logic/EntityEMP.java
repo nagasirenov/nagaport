@@ -29,7 +29,7 @@ public class EntityEMP extends Entity {
 	@Override
 	public void onUpdate() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(machines == null) {
 				allocate();
 			} else {
@@ -75,7 +75,7 @@ public class EntityEMP extends Entity {
 	}
 	
 	private void add(int x, int y, int z) {
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(x, y, z);
 		
 		if (te != null && te instanceof IEnergyHandlerMK2) {
 			machines.add(new int[] { x, y, z });
@@ -86,7 +86,7 @@ public class EntityEMP extends Entity {
 	
 	private void emp(int x, int y, int z) {
 		
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(x, y, z);
 		
 		boolean flag = false;
 		
@@ -108,7 +108,7 @@ public class EntityEMP extends Entity {
 		
 		if(flag && rand.nextInt(20) == 0) {
 			
-			PacketDispatcher.wrapper.sendToAllAround(new ParticleBurstPacket(x, y, z, Block.getIdFromBlock(Blocks.stained_glass), 3), new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 50));
+			PacketDispatcher.wrapper.sendToAllAround(new ParticleBurstPacket(x, y, z, Block.getIdFromBlock(Blocks.STAINED_GLASS), 3), new TargetPoint(this.world.provider.getDimension(), posX, posY, posZ, 50));
 	        
 		}
 		

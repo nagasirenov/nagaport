@@ -1,0 +1,23 @@
+{
+  "scope": "Only native ModelArmorBase and ModelMan; no handler, installer, layer or descendant changes",
+  "oracle_checkpoint": "0ea420fc",
+  "production": {
+    "src/main/java/com/hbm/render/model/ModelArmorBase.java": "ed5bf943483621ae7db63f3db8fd46858ac3958371a24c4a9382bae3b1eab62e",
+    "src/main/java/com/hbm/render/model/ModelMan.java": "39fa204f6ac48e7e115fca62acfba69b369c5f468263c8e708c236afcb88581d"
+  },
+  "original_fixtures": {
+    "porting/tests/fixtures/ModelArmorBase-cp30.java.txt": "7d1d5f0e87956b558c4f48af1f338c07398df181f69b0828483d9e4644d61bfa",
+    "porting/tests/fixtures/ModelMan-cp30.java.txt": "ad1a76a27c0a27c023437dd0ca6e030b5e712784e096c9b0d865adc81fd10914"
+  },
+  "tests": [
+    "porting/tests/NativeArmorModelsTest.java",
+    "porting/tests/probe-native-armor-models.py",
+    "porting/tests/native-armor-models-notes.md",
+    "porting/tests/native-armor-models-scope.json",
+    "porting/tests/fixtures/ModelArmorBase-cp30.java.txt",
+    "porting/tests/fixtures/ModelMan-cp30.java.txt"
+  ],
+  "evidence": [
+    "porting/continuation-2026-10-19/native-armor-models-FINAL.log"
+  ]
+}

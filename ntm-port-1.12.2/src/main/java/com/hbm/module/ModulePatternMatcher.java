@@ -31,7 +31,7 @@ public class ModulePatternMatcher {
 		
 		if(world.isRemote) return;
 		
-		if(stack == null) {
+		if(stack == null || stack.isEmpty()) {
 			modes[i] = null;
 			return;
 		}
@@ -69,7 +69,7 @@ public class ModulePatternMatcher {
 		
 		if(world.isRemote) return;
 		
-		if(stack == null) {
+		if(stack == null || stack.isEmpty()) {
 			modes[i] = null;
 			return;
 		}

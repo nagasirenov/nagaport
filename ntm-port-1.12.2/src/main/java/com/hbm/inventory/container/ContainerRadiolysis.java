@@ -47,7 +47,7 @@ public class ContainerRadiolysis extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return radiolysis.isUseableByPlayer(player);
+		return radiolysis.isUsableByPlayer(player);
 	}
 	
 	/** my eye, my eye, coctor coctor coctor **/

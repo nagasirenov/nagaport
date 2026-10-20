@@ -61,14 +61,14 @@ public class GuiScreenRadioTelex extends GuiScreen {
 
 		Keyboard.enableRepeatEvents(true);
 
-		this.txFrequency = new GuiTextField(this.fontRendererObj, guiLeft + 29, guiTop + 110, 90, 14);
+		this.txFrequency = new GuiTextField(0, this.fontRenderer, guiLeft + 29, guiTop + 110, 90, 14);
 		this.txFrequency.setTextColor(0x00ff00);
 		this.txFrequency.setDisabledTextColour(0x00ff00);
 		this.txFrequency.setEnableBackgroundDrawing(false);
 		this.txFrequency.setMaxStringLength(10);
 		this.txFrequency.setText(telex.txChannel == null ? "" : telex.txChannel);
 
-		this.rxFrequency = new GuiTextField(this.fontRendererObj, guiLeft + 29, guiTop + 224, 90, 14);
+		this.rxFrequency = new GuiTextField(1, this.fontRenderer, guiLeft + 29, guiTop + 224, 90, 14);
 		this.rxFrequency.setTextColor(0x00ff00);
 		this.rxFrequency.setDisabledTextColour(0x00ff00);
 		this.rxFrequency.setEnableBackgroundDrawing(false);
@@ -87,19 +87,19 @@ public class GuiScreenRadioTelex extends GuiScreen {
 
 	private void drawGuiContainerForegroundLayer(int x, int y) {
 
-		if(checkClick(x, y, 7, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + "BELL", "Plays a bell when this character is received"}), x, y);
-		if(checkClick(x, y, 27, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + "PRINT", "Forces recipient to print message after transmission ends"}), x, y);
-		if(checkClick(x, y, 47, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + "CLEAR SCREEN", "Wipes message buffer when this character is received"}), x, y);
-		if(checkClick(x, y, 67, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + "FORMAT", "Inserts format character for message formatting"}), x, y);
-		if(checkClick(x, y, 87, 85, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GOLD + "PAUSE", "Pauses message transmission for one second"}), x, y);
+		if(checkClick(x, y, 7, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + "BELL", "Plays a bell when this character is received"}), x, y);
+		if(checkClick(x, y, 27, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + "PRINT", "Forces recipient to print message after transmission ends"}), x, y);
+		if(checkClick(x, y, 47, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + "CLEAR SCREEN", "Wipes message buffer when this character is received"}), x, y);
+		if(checkClick(x, y, 67, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + "FORMAT", "Inserts format character for message formatting"}), x, y);
+		if(checkClick(x, y, 87, 85, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GOLD + "PAUSE", "Pauses message transmission for one second"}), x, y);
 
-		if(checkClick(x, y, 127, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + "SAVE ID"}), x, y);
-		if(checkClick(x, y, 147, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.YELLOW + "SEND MESSAGE"}), x, y);
-		if(checkClick(x, y, 167, 105, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + "DELETE MESSAGE BUFFER"}), x, y);
+		if(checkClick(x, y, 127, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GREEN + "SAVE ID"}), x, y);
+		if(checkClick(x, y, 147, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.YELLOW + "SEND MESSAGE"}), x, y);
+		if(checkClick(x, y, 167, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.RED + "DELETE MESSAGE BUFFER"}), x, y);
 		
-		if(checkClick(x, y, 127, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.GREEN + "SAVE ID"}), x, y);
-		if(checkClick(x, y, 147, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.AQUA + "PRINT MESSAGE"}), x, y);
-		if(checkClick(x, y, 167, 219, 18, 18)) this.func_146283_a(Arrays.asList(new String[] {TextFormatting.RED + "CLEAR SCREEN"}), x, y);
+		if(checkClick(x, y, 127, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GREEN + "SAVE ID"}), x, y);
+		if(checkClick(x, y, 147, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.AQUA + "PRINT MESSAGE"}), x, y);
+		if(checkClick(x, y, 167, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.RED + "CLEAR SCREEN"}), x, y);
 	}
 
 	private void drawGuiContainerBackgroundLayer(float f, int mouseX, int mouseY) {
@@ -119,7 +119,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 			for(int index = 0; index < text.length(); index++) {
 				int x = 11 + 7 * index;
 				char c = text.charAt(index);
-				x += (7 - this.fontRendererObj.getCharWidth(c)) / 2;
+				x += (7 - this.fontRenderer.getCharWidth(c)) / 2;
 				if(c == '§' && text.length() > index + 1) {
 					format = "\u00a7" + text.charAt(index + 1);
 					x -= 3;
@@ -129,13 +129,13 @@ public class GuiScreenRadioTelex extends GuiScreen {
 				if(c == '\u000c') glyph = TextFormatting.RED + "P";
 				if(c == '\u007f') glyph = TextFormatting.RED + "<";
 				if(c == '\u0016') glyph = TextFormatting.RED + "W";
-				this.fontRendererObj.drawString(glyph, guiLeft + x, guiTop + y, 0x00ff00);
+				this.fontRenderer.drawString(glyph, guiLeft + x, guiTop + y, 0x00ff00);
 			}
 
 			if(System.currentTimeMillis() % 1000 < 500 && this.textFocus) {
 				int x = Math.max(11 + 7 * (text.length() - 1) + 7, 11);
 				if(this.cursorPos == line) {
-					this.fontRendererObj.drawString("|", guiLeft + x, guiTop + y, 0x00ff00);
+					this.fontRenderer.drawString("|", guiLeft + x, guiTop + y, 0x00ff00);
 				}
 			}
 		}
@@ -151,7 +151,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 			for(int index = 0; index < text.length(); index++) {
 				
 				char c = text.charAt(index);
-				x += (7 - this.fontRendererObj.getCharWidth(c)) / 2;
+				x += (7 - this.fontRenderer.getCharWidth(c)) / 2;
 				if(c == '§' && text.length() > index + 1) {
 					format = "\u00a7" + text.charAt(index + 1);
 					c = ' ';
@@ -162,7 +162,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 					x -= 14;
 				}
 				String glyph = format + c;
-				this.fontRendererObj.drawString(glyph, guiLeft + x, guiTop + y, 0x00ff00);
+				this.fontRenderer.drawString(glyph, guiLeft + x, guiTop + y, 0x00ff00);
 				x += 7;
 			}
 		}
@@ -178,7 +178,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		for(int i = 0; i < 48; i++) {
 			tess.addVertex(guiLeft + 199 + i, guiTop + 93.5 + offset, this.zLevel + 10);
 			if(telex.sendingChar != ' ' && i > 4 && i < 43) offset = rand.nextGaussian() * 7; else offset = 0;
-			offset = MathHelper.clamp_double(offset, -7D, 7D);
+			offset = MathHelper.clamp(offset, -7D, 7D);
 			tess.addVertex(guiLeft + 199 + i + 1, guiTop + 93.5 + offset, this.zLevel + 10);
 		}
 		tess.draw();
@@ -223,7 +223,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 			for(int j = 0; j < 5; j++) this.txBuffer[j] = "";
 			NBTTagCompound data = new NBTTagCompound();
 			for(int j = 0; j < 5; j++) data.setString("tx" + j, this.txBuffer[j]);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.xCoord, telex.yCoord, telex.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.getPos().getX(), telex.getPos().getY(), telex.getPos().getZ()));
 		}
 		// PRT
 		if(checkClick(x, y, 147, 219, 18, 18)) cmd = "rxprt"; // print message in RX buffer
@@ -231,7 +231,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		if(checkClick(x, y, 167, 219, 18, 18)) cmd = "rxcls"; // delete message in RX buffer
 		
 		if(cmd != null) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("cmd", cmd);
 			
@@ -244,11 +244,11 @@ public class GuiScreenRadioTelex extends GuiScreen {
 				data.setString("rxChan", this.rxFrequency.getText());
 			}
 			
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.xCoord, telex.yCoord, telex.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.getPos().getX(), telex.getPos().getY(), telex.getPos().getZ()));
 		}
 		
 		if(character != '\0') {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			setTextFocus();
 			submitChar(character);
 		}
@@ -280,7 +280,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 			if(i == Keyboard.KEY_UP) this.cursorPos--;
 			if(i == Keyboard.KEY_DOWN) this.cursorPos++;
 			
-			this.cursorPos = MathHelper.clamp_int(cursorPos, 0, 4);
+			this.cursorPos = MathHelper.clamp(cursorPos, 0, 4);
 			
 			if(ChatAllowedCharacters.isAllowedCharacter(c)) {
 				submitChar(c);
@@ -293,7 +293,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		}
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}
@@ -311,7 +311,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		Keyboard.enableRepeatEvents(false);
 		NBTTagCompound data = new NBTTagCompound();
 		for(int j = 0; j < 5; j++) data.setString("tx" + j, this.txBuffer[j]);
-		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.xCoord, telex.yCoord, telex.zCoord));
+		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.getPos().getX(), telex.getPos().getY(), telex.getPos().getZ()));
 	}
 	
 	@Override

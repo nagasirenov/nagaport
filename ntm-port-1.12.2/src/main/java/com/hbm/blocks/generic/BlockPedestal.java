@@ -9,15 +9,19 @@ import com.hbm.inventory.recipes.PedestalRecipes.PedestalRecipe;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.particle.helper.ExplosionSmallCreator;
-import com.hbm.util.Compat;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
+
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -26,17 +30,16 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import com.hbm.render.icon.IIcon;
+
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockPedestal extends BlockContainer {
 
-	protected IIcon iconSide;
 
 	public BlockPedestal() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	@Override
@@ -44,45 +47,31 @@ public class BlockPedestal extends BlockContainer {
 		return new TileEntityPedestal();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconSide = iconRegister.registerIcon(RefStrings.MODID + ":pedestal_side");
-	}
+	@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+	@Override public boolean isOpaqueCube(IBlockState state) { return false; }
+	@Override public boolean isFullCube(IBlockState state) { return false; }
+	@Override public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return net.minecraft.block.state.BlockFaceShape.UNDEFINED; }
+	@Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) { return true; }
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return side == 0 || side == 1 ? this.blockIcon : this.iconSide;
-	}
-
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
-	@Override @SideOnly(Side.CLIENT) public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) { return true; }
-
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if(player.isSneaking()) return false;
 
-		TileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(x, y, z);
+		TileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(pos);
 
-		if(pedestal.item == null && player.getHeldItem() != null) {
+		if(pedestal.item == null && !player.getHeldItem(hand).isEmpty()) {
 			if(world.isRemote) return true;
-			pedestal.item = player.getHeldItem().copy();
-			player.inventory.mainInventory[player.inventory.currentItem] = null;
+			pedestal.item = player.getHeldItem(hand).copy();
+			player.setHeldItem(hand, ItemStack.EMPTY);
 			pedestal.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			sync(world, pos);
 			return true;
-		} else if(pedestal.item != null && player.getHeldItem() == null) {
+		} else if(pedestal.item != null && player.getHeldItem(hand).isEmpty()) {
 			if(world.isRemote) return true;
-			player.inventory.mainInventory[player.inventory.currentItem] = pedestal.item.copy();
+			player.setHeldItem(hand, pedestal.item.copy());
 			pedestal.item = null;
 			pedestal.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			sync(world, pos);
 			return true;
 		}
 
@@ -90,36 +79,38 @@ public class BlockPedestal extends BlockContainer {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!world.isRemote) {
-			TileEntityPedestal entity = (TileEntityPedestal) world.getTileEntity(x, y, z);
+			TileEntityPedestal entity = (TileEntityPedestal) world.getTileEntity(pos);
 			if(entity != null && entity.item != null) {
 				EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, entity.item.copy());
-				world.spawnEntityInWorld(item);
+				world.spawnEntity(item);
 			}
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block b, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(!world.isRemote) {
-			if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			if(world.isBlockPowered(pos)) {
 
-				TileEntityPedestal nw = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2));
-				TileEntityPedestal n = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.NORTH.offsetX * 3, y, z + ForgeDirection.NORTH.offsetZ * 3));
-				TileEntityPedestal ne = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2));
-				TileEntityPedestal w = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.WEST.offsetX * 3, y, z + ForgeDirection.WEST.offsetZ * 3));
-				TileEntityPedestal center = (TileEntityPedestal) world.getTileEntity(x, y, z);
-				TileEntityPedestal e = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.EAST.offsetX * 3, y, z + ForgeDirection.EAST.offsetZ * 3));
-				TileEntityPedestal sw = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2));
-				TileEntityPedestal s = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.SOUTH.offsetX * 3, y, z + ForgeDirection.SOUTH.offsetZ * 3));
-				TileEntityPedestal se = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2));
+				TileEntityPedestal nw = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2)));
+				TileEntityPedestal n = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.NORTH.offsetX * 3, y, z + ForgeDirection.NORTH.offsetZ * 3)));
+				TileEntityPedestal ne = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2)));
+				TileEntityPedestal w = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.WEST.offsetX * 3, y, z + ForgeDirection.WEST.offsetZ * 3)));
+				TileEntityPedestal center = (TileEntityPedestal) world.getTileEntity(pos);
+				TileEntityPedestal e = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.EAST.offsetX * 3, y, z + ForgeDirection.EAST.offsetZ * 3)));
+				TileEntityPedestal sw = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2)));
+				TileEntityPedestal s = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.SOUTH.offsetX * 3, y, z + ForgeDirection.SOUTH.offsetZ * 3)));
+				TileEntityPedestal se = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2)));
 
 				TileEntityPedestal[] tileArray = new TileEntityPedestal[] {nw, n, ne, w, center, e, sw, s, se};
-				List<EntityPlayer> nearbyPlayers = world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1).expand(20, 20, 20));
+				List<EntityPlayer> nearbyPlayers = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1).grow(20, 20, 20));
 
 				outer: for(PedestalRecipe recipe : PedestalRecipes.recipes) {
 
@@ -163,7 +154,7 @@ public class BlockPedestal extends BlockContainer {
 						if(pedestal != null && recipe.input[i] == null) continue outer;
 						if(pedestal == null && recipe.input[i] == null) continue;
 
-						if(!recipe.input[i].matchesRecipe(pedestal, true) || recipe.input[i].stacksize != pedestal.stackSize) continue outer;
+						if(!recipe.input[i].matchesRecipe(pedestal, true) || recipe.input[i].stacksize != pedestal.getCount()) continue outer;
 					}
 
 					/// REMOVE ITEMS ///
@@ -173,22 +164,31 @@ public class BlockPedestal extends BlockContainer {
 						if(pedestal == null && recipe.input[i] == null) continue;
 						tileArray[i].item = null;
 						tileArray[i].markDirty();
-						world.markBlockForUpdate(tileArray[i].xCoord, tileArray[i].yCoord, tileArray[i].zCoord);
+						sync(world, tileArray[i].getPos());
 					}
 
 					/// PRODUCE RESULT ///
 					center.item = recipe.output.copy();
 					center.markDirty();
-					world.markBlockForUpdate(x, y, z);
+					sync(world, pos);
 					ExplosionSmallCreator.composeEffect(world, x + 0.5, y + 1.5, z + 0.5, 10, 2.5F, 1F);
 
-					List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x + 0.5, y, z + 0.5, x + 0.5, y, z + 0.5).expand(50, 50, 50));
+					List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x + 0.5, y, z + 0.5, x + 0.5, y, z + 0.5).grow(50, 50, 50));
 					for(EntityPlayer player : players) player.addStat(MainRegistry.statLegendary, 1);
 
 					return;
 				}
 			}
 		}
+	}
+
+	private static TileEntity loadedTile(World world, BlockPos pos) {
+		return world.isBlockLoaded(pos, false) ? world.getTileEntity(pos) : null;
+	}
+
+	private static void sync(World world, BlockPos pos) {
+		IBlockState state = world.getBlockState(pos);
+		world.notifyBlockUpdate(pos, state, state, 3);
 	}
 
 	public static TileEntityPedestal castOrNull(TileEntity tile) {
@@ -200,7 +200,8 @@ public class BlockPedestal extends BlockContainer {
 
 		public ItemStack item;
 
-		@Override public boolean canUpdate() { return false; }
+
+		@Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -217,17 +218,19 @@ public class BlockPedestal extends BlockContainer {
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			this.item = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("item"));
+			ItemStack loaded = new ItemStack(nbt.getCompoundTag("item"));
+			this.item = loaded.isEmpty() ? null : loaded;
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			if(this.item != null) {
 				NBTTagCompound stack = new NBTTagCompound();
 				this.item.writeToNBT(stack);
 				nbt.setTag("item", stack);
-			}
+			} else { nbt.removeTag("item"); }
+			return nbt;
 		}
 	}
 }

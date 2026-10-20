@@ -34,25 +34,25 @@ public class TileEntityAirScrubber extends TileEntityMachineBase implements IFlu
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.airScrubber";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 
 			if(canOperate()) {
 				// Fetch a new pump to scrub CO2 from
-				if(worldObj.getTotalWorldTime() % 5 == 0 && (pump == null || pump.getFluidPressure() == 0 || !pump.registerScrubber(this))) {
+				if(this.world.getTotalWorldTime() % 5 == 0 && (pump == null || pump.getFluidPressure() == 0 || !pump.registerScrubber(this))) {
 					pump = null;
 
-					List<AtmosphereBlob> blobs = ChunkAtmosphereManager.proxy.getBlobs(worldObj, xCoord, yCoord, zCoord);
+					List<AtmosphereBlob> blobs = ChunkAtmosphereManager.proxy.getBlobs(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 					for(AtmosphereBlob blob : blobs) {
 						if(blob != null) {
 							ThreeInts pos = blob.getRootPosition();
-							TileEntity te = worldObj.getTileEntity(pos.x, pos.y, pos.z);
+							TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos.x, pos.y, pos.z));
 							if(te != null && te instanceof TileEntityAirPump) {
 								pump = (TileEntityAirPump) te;
 								if(!pump.registerScrubber(this)) {
@@ -67,8 +67,8 @@ public class TileEntityAirScrubber extends TileEntityMachineBase implements IFlu
 			}
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
-				if(tank.getFill() > 0) sendFluid(tank, worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
+				if(tank.getFill() > 0) sendFluid(tank, this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 
 			networkPackNT(20);
@@ -121,10 +121,11 @@ public class TileEntityAirScrubber extends TileEntityMachineBase implements IFlu
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override
@@ -165,12 +166,12 @@ public class TileEntityAirScrubber extends TileEntityMachineBase implements IFlu
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord,
-				yCoord,
-				zCoord,
-				xCoord + 1,
-				yCoord + 2,
-				zCoord + 1
+				this.pos.getX(),
+				this.pos.getY(),
+				this.pos.getZ(),
+				this.pos.getX() + 1,
+				this.pos.getY() + 2,
+				this.pos.getZ() + 1
 			);
 		}
 

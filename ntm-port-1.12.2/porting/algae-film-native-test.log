@@ -1,0 +1,40 @@
+PASS pinned original renderer, owner, shader and unchanged OBJ/texture
+PRODUCTION com/hbm/blocks/generic/BlockAlgaeFilm.java 59acee7204c4f15d5b48fc3f1c07495f7289e75f6764532ad9761d1e7fb9c1d7
+PRODUCTION com/hbm/render/block/RenderAlgaeFilm.java 74a980d048e42cf8b64d9399f764ace44f0e20d8d279a6848675b758eec24f1f
+PRODUCTION com/hbm/main/AlgaeFilmModelHandler.java 6405aa06a4bb3aae9ec48ab325653ab10681e45b8f3e0525f4557643854e9688
+PRODUCTION com/hbm/blocks/ILookOverlay.java 6d887a13694c777446377a3f732bded7760902583a0970da56dd1cb7ec56bbf3
+PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjBakedModel.java e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+/tmp/algae-native-lr1s2ool/AlgaeFilmNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/tmp/algae-native-lr1s2ool/AlgaeFilmNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/tmp/algae-native-lr1s2ool/AlgaeFilmNativeTest.java:108: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                      ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ITooltipProvider.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.algae_film`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.algae_film`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `addon` for name `tile.algae_film`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_algae`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `addon` for name `subclass_algae`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `addon` for name `tile.algae_film`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_algae`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `addon` for name `subclass_algae`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.algae_film`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.algae_film`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:38:50] [main/INFO]: Reloading ResourceManager: resources
+[20:38:50] [main/INFO]: Reloading ResourceManager: algae-resources.jar
+PASS algae: 13527 assertions, 1840 exact vertices, 92 original triangles; real 1.12 block/model/loader/Forge+vanilla light, 4 world rotations, inventory and reload. NTM gameplay collaborators controlled; no live GL acceptance claimed.

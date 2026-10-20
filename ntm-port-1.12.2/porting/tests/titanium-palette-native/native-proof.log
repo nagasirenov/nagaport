@@ -1,0 +1,13 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS actual unsplit selected-expression Code sizes: [982, 4825, 2887]
+[02:07:39] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:07:39] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:07:39] [main/INFO]: Replaced 1036 ore ingredients
+[02:07:39] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:07:39] [main/INFO]: Processing ObjectHolder annotations
+[02:07:39] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 176575 native callback/domain checks; complete BlockOre and BlockCluster; 22 predicate identities. Full Outgas/Fluid behaviors and full game remain outside scope.
+PASS 1318 checks and 22110 exact ordered titanium native/original-expression placement events.

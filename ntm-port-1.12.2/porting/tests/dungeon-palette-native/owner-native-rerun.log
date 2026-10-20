@@ -1,0 +1,47 @@
+PASS pinned source-manifest comparison; evidence was not regenerated.
+PASS source boundaries: actual Generic/Base inherit native no-property state, no TE/drop/pick overrides; concrete ItemBlockBlastInfo non-subtype route audited, not compiled.
+PASS four concrete PNGs byte-identical to archived original HBM JAR.
+COMPILE BlockBase.java 771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a
+COMPILE BlockGeneric.java aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106
+COMPILE RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+COMPILE IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+COMPILE IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+COMPILE LegacyIconRegister.java 020b31fa967e929352e5af5fa71dfc0934c699299d037142924a6e8b94ec508d
+COMPILE LegacyTextureAtlasSprite.java 2345b038dee3508bd3ddf6b87bb12d38f888cc76f033eed28a5324d48e70ad0e
+COMPILE NativeItemTextureRegistry.java c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412
+COMPILE LegacyIconRegistrationHandler.java 57b06be6b30eb4b5e4e653ece86f9c3a660c18facf3e2953d64ac8018fdfb8cf
+COMPILE LegacyBaseBakedModel.java af137d82bc3ecd05d50e86be818e9fe31af6e5d0368a280f164bfbdadde8d377
+COMPILE ItemEnumMulti.java 911a049fb452c91eb67eb5dc29070eec6ae05bd103f531f23bb18b5a84e14a75
+COMPILE IOrderedEnum.java 6b679d0b15d75dcd0d450f332b1e553c452c77c430e8545e3adc78618bbc6f9f
+COMPILE EnumUtil.java 7fd70aab941e36a7d79eb369f88c12da0e95afafa597875eb97d8e776698d107
+COMPILE ConcreteConstructionSlice.java 4c27924f8ffac991751ff5ced144925dc7e72c1e1df6e3224b750a41d9a8a821
+COMPILE ConcreteRandomSlice.java 2cd2a6692cef47e0466f669417f4c949981dd6a8cd36ba3449e0154b75e9e286
+COMPILE MainRegistry.java 409df97f4b9c2cbfd4f79a44cfbe8423bdc0f5d515f165f6f98f7064e64866de
+COMPILE GenericMetadataNativeTest.java 9318d193908917c75d3f381834772959a7bc930c57b1e09322b5505654fb13ab
+COMPILE ForgeEventNativeLauncher.java e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3
+COMPILE NativeAtlasEnvironment.java 7961b085f7af51c201cb00375cdd193667524c115aa35a882c0de2a76e4ddd9a
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-dungeon-palette/ntm-port-1.12.2/src/main/java/com/hbm/util/EnumUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[01:31:36] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:31:36] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:31:36] [main/INFO]: Replaced 1036 ore ingredients
+[01:31:36] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:31:36] [main/INFO]: Processing ObjectHolder annotations
+[01:31:36] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS all 16 inputs per actual concrete block: zero roundtrip; inputs1..15 collapse to0 and are NOT selected for migration.
+PASS native World/Chunk writes and actual Anvil write/read + compressed NBT persistence for64 concrete positions; no tile entity lifecycle invented.
+PASS pinned original1.7.10 bytecode oracle: quantity1/dropdamage0 all16; original pick damage delegates metadata to same damageDropped.
+PASS archived HBM bytecode: original Generic/Base inheritance and entire original RNG instruction stream match, only explicit slice-owner names normalized.
+PASS exact Library method slice20000 selections, all20 branches, post-state equality200 seeds; only static field-owner qualifier changes.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[01:31:37] [main/INFO]: Setting user: AtlasProbe
+[01:31:37] [main/INFO]: Max texture size: 16384
+[01:31:37] [main/INFO]: Created: 64x32 textures-atlas
+PASS concrete atlas reload0: real production stitch callback, PNG/mipmap/GL pixel readback and actual LegacyBaseBakedModel cube faces.
+[01:31:37] [main/INFO]: Max texture size: 16384
+[01:31:37] [main/INFO]: Created: 64x32 textures-atlas
+PASS concrete atlas reload1: real production stitch callback, PNG/mipmap/GL pixel readback and actual LegacyBaseBakedModel cube faces.
+PASS 24754 native assertions: exact four concrete constructions; metadata-zero state/storage/drop/pick; inherited nonzero collapse EXPLICIT; original RNG; actual atlas/GL and actual baked cubes.
+NOT_RUN full ModBlocks/Library, production ItemBlockBlastInfo construction/tooltip, LegacyBaseModelHandler event integration, live gameplay/client/server/network, nonzero metadata parity.

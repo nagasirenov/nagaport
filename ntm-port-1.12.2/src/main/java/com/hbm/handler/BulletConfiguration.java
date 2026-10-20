@@ -217,7 +217,7 @@ public class BulletConfiguration implements Cloneable {
 		String unloc = damageType;
 		
 		if(unloc.equals(ModDamageSource.s_zomg_prefix))
-			unloc += (bullet.worldObj.rand.nextInt(5) + 1); //pain
+			unloc += (bullet.world.rand.nextInt(5) + 1); //pain
 		
 		if(shooter != null)
 			dmg = new EntityDamageSourceIndirect(unloc, bullet, shooter);

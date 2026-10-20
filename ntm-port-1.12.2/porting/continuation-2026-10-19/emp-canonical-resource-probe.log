@@ -1,0 +1,8 @@
+PASS: pristine EMP constructors/update/NBT, EMP/plastic bag transform/GL/texture order; native VARINT, eager per-instance/static mesh lifetime, and factory source audits.
+PASS: 2026 checks; complete production EntityEMPBlast construction/update/death, native EntityDataManager and SPacketEntityMetadata full/dirty roundtrips, native compressed NBT and Entity callbacks, constructor/overflow/truncation edge cases.
+LIMIT: bounded native-World headless entity fixture; renderer and extracted native factory registration compile only. No client startup, GL state execution, GPU, live tracking, gameplay or runnable-mod claim.
+PASS native canonical resource hbm:models/ring.obj: original SHA-256 preserved.
+PASS native canonical resource hbm:textures/models/empblast.png: original SHA-256 preserved.
+PASS resource hbm:models/ring.obj: 256 triangles, one fully attributed part; independent exact native vertex-byte comparison.
+PASS resource hbm:models/mobs/plasticbag.obj: 26 triangles, one fully attributed part; independent exact native vertex-byte comparison.
+PASS: 8760 mesh/resource checks. No renderer initialization, client GL state, texture sampling, resource reload, or GPU acceptance claimed.

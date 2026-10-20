@@ -1,0 +1,1 @@
+PASS 12 actual Java8 immutable-owner, selector-owner, receiver/type/statement controls; no unproved metadata provider selected.

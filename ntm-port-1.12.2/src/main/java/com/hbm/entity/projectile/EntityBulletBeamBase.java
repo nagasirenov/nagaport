@@ -44,7 +44,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 	public EntityLivingBase getThrower() { return this.thrower; }
 	
 	public EntityBulletBeamBase(EntityLivingBase entity, BulletConfig config, float baseDamage) {
-		this(entity.worldObj);
+		this(entity.world);
 		
 		this.thrower = entity;
 		this.setBulletConfig(config);
@@ -53,7 +53,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 	}
 	
 	public EntityBulletBeamBase(EntityLivingBase entity, BulletConfig config, float baseDamage, float angularInaccuracy, double sideOffset, double heightOffset, double frontOffset) {
-		this(entity.worldObj);
+		this(entity.world);
 		
 		this.thrower = entity;
 		this.setBulletConfig(config);
@@ -130,7 +130,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 		
 		super.onUpdate();
 		
-		if(!worldObj.isRemote && this.ticksExisted > config.expires) this.setDead();
+		if(!this.world.isRemote && this.ticksExisted > config.expires) this.setDead();
 	}
 	
 	protected void performHitscan() {
@@ -138,7 +138,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 		Vec3d pos = new Vec3d(this.posX, this.posY, this.posZ);
 		Vec3d nextPos = new Vec3d(this.posX + this.headingX, this.posY + this.headingY, this.posZ + this.headingZ);
 		RayTraceResult mop = null;
-		if(!this.isSpectral()) mop = this.worldObj.rayTraceBlocks(pos, nextPos, false, true, false);
+		if(!this.isSpectral()) mop = this.world.rayTraceBlocks(pos, nextPos, false, true, false);
 		pos = new Vec3d(this.posX, this.posY, this.posZ);
 		nextPos = new Vec3d(this.posX + this.headingX, this.posY + this.headingY, this.posZ + this.headingZ);
 
@@ -146,10 +146,10 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 			nextPos = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 		}
 		
-		if(!this.worldObj.isRemote && this.doesImpactEntities()) {
+		if(!this.world.isRemote && this.doesImpactEntities()) {
 			
 			Entity hitEntity = null;
-			List<Entity> list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.headingX, this.headingY, this.headingZ).expand(1.0D, 1.0D, 1.0D));
+			List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().addCoord(this.headingX, this.headingY, this.headingZ).expand(1.0D, 1.0D, 1.0D));
 			double nearest = 0.0D;
 			RayTraceResult nonPenImpact = null;
 			RayTraceResult coinHit = null;
@@ -161,7 +161,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 				if(entity.isDead) continue;
 				if(entity instanceof EntityCoin) {
 					double hitbox = 0.3F;
-					AxisAlignedBB aabb = entity.boundingBox.expand(hitbox, hitbox, hitbox);
+					AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(hitbox, hitbox, hitbox);
 					RayTraceResult hitMop = aabb.calculateIntercept(pos, nextPos);
 					if(hitMop != null) {
 						double dist = pos.distanceTo(hitMop.hitVec);
@@ -179,7 +179,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 				
 				if(entity.canBeCollidedWith() && entity != thrower && entity.isEntityAlive()) {
 					double hitbox = 0.3F;
-					AxisAlignedBB aabb = entity.boundingBox.expand(hitbox, hitbox, hitbox);
+					AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(hitbox, hitbox, hitbox);
 					RayTraceResult hitMop = aabb.calculateIntercept(pos, nextPos);
 
 					if(hitMop != null) {
@@ -212,7 +212,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 				this.beamLength = vec.length();
 				
 				double range = 50;
-				List<Entity> targets = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z).expand(range, range, range));
+				List<Entity> targets = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z).expand(range, range, range));
 				Entity nearestCoin = null;
 				Entity nearestPlayer = null;
 				Entity nearestMob = null;
@@ -267,13 +267,13 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 					Vec3d delta = new Vec3d(target.posX - newBeam.posX, (target.posY + target.height / 2D) - newBeam.posY, target.posZ - newBeam.posZ);
 					newBeam.setRotationsFromVector(delta);
 					newBeam.performHitscanExternal(250D);
-					worldObj.spawnEntityInWorld(newBeam);
+					this.world.spawnEntityInWorld(newBeam);
 				} else {
 					EntityBulletBeamBase newBeam = new EntityBulletBeamBase(hitCoin.getThrower() != null ? hitCoin.getThrower() : this.thrower, this.config, this.damage * 1.25F);
 					newBeam.setPosition(coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z);
 					newBeam.setRotationsFromVector(new Vec3d(rand.nextGaussian() * 0.5, -1, rand.nextGaussian() * 0.5));
 					newBeam.performHitscanExternal(250D);
-					worldObj.spawnEntityInWorld(newBeam);
+					this.world.spawnEntityInWorld(newBeam);
 				}
 				
 				NBTTagCompound data = new NBTTagCompound();
@@ -281,7 +281,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 1.5F);
 				data.setByte("count", (byte)1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z), new TargetPoint(worldObj.provider.dimensionId, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z, 100));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z), new TargetPoint(this.world.provider.getDimension(), coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z, 100));
 			
 				
 				return;
@@ -289,7 +289,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 		}
 
 		if(mop != null) {
-			if(mop.typeOfHit == RayTraceResult.Type.BLOCK && this.worldObj.getBlockState(mop.getBlockPos()).getBlock() == Blocks.portal) {
+			if(mop.typeOfHit == RayTraceResult.Type.BLOCK && this.world.getBlockState(mop.getBlockPos()).getBlock() == Blocks.PORTAL) {
 				this.setInPortal();
 			} else {
 				this.onImpact(mop);
@@ -306,7 +306,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 
 	
 	protected void onImpact(RayTraceResult mop) {
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.config.onImpactBeam != null) this.config.onImpactBeam.accept(this, mop);
 		}
 	}

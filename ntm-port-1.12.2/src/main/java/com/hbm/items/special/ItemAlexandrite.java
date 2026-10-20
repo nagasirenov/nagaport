@@ -39,7 +39,7 @@ public class ItemAlexandrite extends Item {
 		@Override
 		public void updateAnimation() {
 			
-			if(Minecraft.getMinecraft().theWorld == null)
+			if(Minecraft.getMinecraft().world == null)
 				return;
 			
 			EntityPlayer player = MainRegistry.proxy.me();
@@ -51,7 +51,7 @@ public class ItemAlexandrite extends Item {
 			int y = (int) Math.floor(player.posY);
 			int z = (int) Math.floor(player.posZ);
 			
-			int light = player.worldObj.getSavedLightValue(EnumSkyBlock.Block, x, y, z);
+			int light = player.world.getSavedLightValue(EnumSkyBlock.Block, x, y, z);
 
 			if(light != lastLight) {
 				lastLight = light;

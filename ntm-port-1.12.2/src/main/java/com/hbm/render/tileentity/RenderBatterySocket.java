@@ -9,7 +9,6 @@ import com.hbm.items.ModItems;
 import com.hbm.items.machine.ItemBatteryPack.EnumBatteryPack;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.render.util.BeamPronter;
 import com.hbm.render.util.HorsePronter;
 import com.hbm.render.util.BeamPronter.EnumBeamType;
@@ -23,9 +22,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderBatterySocket extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderBatterySocket extends TileEntitySpecialRenderer {
 
 	private static ResourceLocation blorbo = new ResourceLocation(RefStrings.MODID, "textures/models/horse/sunburst.png");
 
@@ -64,14 +62,14 @@ public class RenderBatterySocket extends TileEntitySpecialRenderer implements II
 			} else if(render.getItem() == ModItems.battery_creative) {
 				GL11.glPushMatrix();
 				GL11.glScaled(0.75, 0.75, 0.75);
-				GL11.glRotated((socket.getWorldObj().getTotalWorldTime() % 360 + interp) * 25D, 0, -1, 0);
+				GL11.glRotated((socket.getWorld().getTotalWorldTime() % 360 + interp) * 25D, 0, -1, 0);
 				this.bindTexture(blorbo);
 				HorsePronter.reset();
 				HorsePronter.enableHorn();
 				HorsePronter.pront();
 				GL11.glPopMatrix();
 				
-				Random rand = new Random(tile.getWorldObj().getTotalWorldTime() / 5);
+				Random rand = new Random(tile.getWorld().getTotalWorldTime() / 5);
 				rand.nextBoolean();
 
 				for(int i = -1; i <= 1; i += 2) for(int j = -1; j <= 1; j += 2) if(rand.nextInt(4) == 0) {
@@ -84,12 +82,12 @@ public class RenderBatterySocket extends TileEntitySpecialRenderer implements II
 			} else if(render.getItem() == ModItems.core_angel) {
 				GL11.glPushMatrix();
 				GL11.glScaled(2, 2, 2);
-				GL11.glRotated((socket.getWorldObj().getTotalWorldTime() % 360 + interp) * 5D, 0, -1, 0);
+				GL11.glRotated((socket.getWorld().getTotalWorldTime() % 360 + interp) * 5D, 0, -1, 0);
 				this.bindTexture(ResourceManager.bfangel_tex);
 				ResourceManager.bfangel.renderOnly("body");
 				GL11.glPopMatrix();
 				
-				Random rand = new Random(tile.getWorldObj().getTotalWorldTime() / 5);
+				Random rand = new Random(tile.getWorld().getTotalWorldTime() / 5);
 				rand.nextBoolean();
 
 				for(int i = -1; i <= 1; i += 2) for(int j = -1; j <= 1; j += 2) if(rand.nextInt(4) == 0) {
@@ -108,23 +106,5 @@ public class RenderBatterySocket extends TileEntitySpecialRenderer implements II
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_battery_socket);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -2, 0);
-				GL11.glScaled(5, 5, 5);
-			}
-			public void renderCommon() {
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.battery_socket_tex);
-				ResourceManager.battery_socket.renderPart("Socket");
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 }

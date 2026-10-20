@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/** Test-only recording environment for verbatim, hash-pinned original callbacks.
+ * Only native GrateMechanicsTest's world/entities are actual 1.12.2 APIs. This
+ * separate original callback recorder is deliberately not called native proof.
+ */
+final class OriginalGrateMechanicsOracle {
+ static final int X=8,Y=64,Z=8;
+ static class IBlockAccess {int meta; int getBlockMetadata(int x,int y,int z){return meta;}}
+ static final class World extends IBlockAccess {
+  boolean isRemote,removed;int writes,flags=-1,drops,dropMeta=-1,fortune=-1;
+  final Block below=new Block(),above=new Block();
+  Block getBlock(int x,int y,int z){return y<Y?below:above;}
+  boolean setBlockMetadataWithNotify(int x,int y,int z,int m,int f){meta=m;flags=f;writes++;return true;}
+  boolean setBlockToAir(int x,int y,int z){removed=true;writes++;return true;}
+ }
+ static final class AxisAlignedBB {
+  final double minX,minY,minZ,maxX,maxY,maxZ;
+  AxisAlignedBB(double a,double b,double c,double d,double e,double f){minX=a;minY=b;minZ=c;maxX=d;maxY=e;maxZ=f;}
+  static AxisAlignedBB getBoundingBox(double a,double b,double c,double d,double e,double f){return new AxisAlignedBB(a,b,c,d,e,f);}
+  boolean intersectsWith(AxisAlignedBB b){return b.maxX>minX&&b.minX<maxX&&b.maxY>minY&&b.minY<maxY&&b.maxZ>minZ&&b.minZ<maxZ;}
+  double[] bounds(){return new double[]{minX,minY,minZ,maxX,maxY,maxZ};}
+ }
+ static class Entity {double posX,posY,posZ,motionX,motionY,motionZ;int moves;void setPosition(double x,double y,double z){posX=x;posY=y;posZ=z;moves++;}}
+ static class EntityLivingBase extends Entity {boolean sneaking;boolean isSneaking(){return sneaking;}}
+ static final class EntityPlayer extends EntityLivingBase {}
+ static final class EntityItem extends Entity {}
+ static final class EntityXPOrb extends Entity {}
+ static final class ItemStack {}
+ enum ForgeDirection {DOWN,UP,NORTH,SOUTH,WEST,EAST,UNKNOWN}
+ static final class I18nUtil {static String resolveKey(String key){return "resolved:"+key;}}
+ static class Block {
+  double minX,minY,minZ,maxX=1,maxY=1,maxZ=1;boolean nullBox,air;int airCalls,airX,airY,airZ;
+  String name="tile.steel_grate";
+  void setBlockBounds(double a,double b,double c,double d,double e,double f){minX=a;minY=b;minZ=c;maxX=d;maxY=e;maxZ=f;}
+  void shape(double[] b){nullBox=b==null;if(b!=null)setBlockBounds(b[0],b[1],b[2],b[3],b[4],b[5]);}
+  double[] bounds(){return new double[]{minX,minY,minZ,maxX,maxY,maxZ};}
+  AxisAlignedBB getCollisionBoundingBoxFromPool(World w,int x,int y,int z){return nullBox?null:AxisAlignedBB.getBoundingBox(x+minX,y+minY,z+minZ,x+maxX,y+maxY,z+maxZ);}
+  boolean isAir(World w,int x,int y,int z){airCalls++;airX=x;airY=y;airZ=z;return air;}
+  void dropBlockAsItem(World w,int x,int y,int z,int meta,int fortune){w.drops++;w.dropMeta=meta;w.fortune=fortune;}
+  void addCollisionBoxesToList(World w,int x,int y,int z,AxisAlignedBB query,List list,Entity entity){AxisAlignedBB b=getCollisionBoundingBoxFromPool(w,x,y,z);if(b!=null&&b.intersectsWith(query))list.add(b);}
+  String getUnlocalizedName(){return name;}
+ }
+ static final class ModBlocks {static final Owner steel_grate=new Owner(),steel_grate_wide=new Owner();}
+ static final class Owner extends Block {
+  /* OWNER_METHODS */
+ }
+ static Owner owner(boolean wide){return wide?ModBlocks.steel_grate_wide:ModBlocks.steel_grate;}
+ static World world(int meta,boolean remote,double[] below,double[] above,boolean air){World w=new World();w.meta=meta;w.isRemote=remote;w.below.shape(below);w.above.shape(above);w.below.air=w.above.air=air;return w;}
+ static double[] bounds(boolean wide,int meta){World w=new World();w.meta=meta;Owner b=owner(wide);b.setBlockBoundsBasedOnState(w,X,Y,Z);return b.bounds();}
+ static int placement(int side,float hitY,int meta){return owner(false).onBlockPlaced(new World(),X,Y,Z,side,.2F,hitY,.8F,meta);}
+ static World placed(boolean wide,int meta,boolean sneak,double[] below,double[] above,boolean air){World w=world(meta,false,below,above,air);EntityPlayer p=new EntityPlayer();p.sneaking=sneak;owner(wide).onBlockPlacedBy(w,X,Y,Z,p,new ItemStack());return w;}
+ static World neighbor(boolean wide,int meta,boolean remote,double[] below,double[] above){World w=world(meta,remote,below,above,false);owner(wide).onNeighborBlockChange(w,X,Y,Z,w.below);return w;}
+ static final class Collision {
+  final Entity entity;final List<AxisAlignedBB> boxes=new ArrayList<>();
+  Collision(Entity e){entity=e;}
+ }
+ static Collision collision(boolean wide,int meta,int kind,double y,double[] query){World w=world(meta,false,null,null,false);Entity e=kind==0?null:kind==1?new EntityItem():kind==2?new EntityXPOrb():new Entity();if(e!=null){e.posX=X+.25;e.posY=y;e.posZ=Z+.75;e.motionX=.75;e.motionY=.5;e.motionZ=-.625;}Collision c=new Collision(e);owner(wide).addCollisionBoxesToList(w,X,Y,Z,new AxisAlignedBB(query[0],query[1],query[2],query[3],query[4],query[5]),c.boxes,e);return c;}
+}

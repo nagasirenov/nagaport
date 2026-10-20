@@ -3,12 +3,17 @@ package com.hbm.sound;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.client.audio.MovingSound;
+import net.minecraft.client.audio.ITickableSound;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 @Deprecated //wtf is this horseshit
-public abstract class MovingSoundPlayerLoop extends MovingSound {
+public abstract class MovingSoundPlayerLoop extends ResourceLoopSound implements ITickableSound {
+
+	protected boolean donePlaying;
+
+	@Override
+	public boolean isDonePlaying() { return donePlaying; }
 
 	public static List<MovingSoundPlayerLoop> globalSoundList = new ArrayList<MovingSoundPlayerLoop>();
 	public List<Entity> playerForSound = new ArrayList<Entity>();
@@ -60,7 +65,7 @@ public abstract class MovingSoundPlayerLoop extends MovingSound {
 	}
 	
 	public void setPitch(float f) {
-		this.field_147663_c = f;
+		this.pitch = f;
 	}
 	
 	public void setVolume(float f) {

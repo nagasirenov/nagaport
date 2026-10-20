@@ -1,0 +1,45 @@
+PRISTINE MATRIX ORACLE c1a839c538ac126d1cdf6962284dcaaed78402260240b4ac4d3eb5455352f820 com/hbm/wiaj/GuiWorldInAJar.java
+PRISTINE MATRIX ORACLE 597d3b8a38d4b9325c16c3bfd1343af433757e6caff8f4a67e19205cb691106b com/hbm/inventory/gui/GUIScreenSlicePrinter.java
+PRISTINE GEOMETRY ORACLE 9785b4b14333a709b36ffad67ed29ad360f323e4645bf6043c68baca7ab103fd 72 thermal/marker and 12 tag coordinates, expressions unchanged
+NTM COLLABORATOR FIXTURE com/hbm/util/BobMathUtil.java
+NTM COLLABORATOR FIXTURE com/hbm/util/i18n/I18nUtil.java
+NTM COLLABORATOR FIXTURE com/hbm/blocks/machine/BlockPWR.java
+NTM COLLABORATOR FIXTURE com/hbm/inventory/gui/GUIScreenWikiRender.java
+WHOLE INPUT f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70 com/hbm/interfaces/Spaghetti.java
+WHOLE INPUT d95c6ae97f551becf9cdc25c0c1c20680f744390880044d1a21f831c95b2a999 com/hbm/wiaj/GuiWorldInAJar.java
+WHOLE INPUT 47c9e99a45f6d4bfd922df92985e3d02c39713988fe617dfddad06a6d9d26864 com/hbm/inventory/gui/GUIScreenSlicePrinter.java
+WHOLE INPUT 00c3ddec04864b3385b93deec5dc2560840a753220835db40b7fb2bdfe929b16 com/hbm/render/util/RenderOverhead.java
+WHOLE INPUT 7bf81fbebd1f3f30a68dac74c93f3b63f124d719f60384a9d1d5c1248347f07d com/hbm/render/util/NativeSceneBlockDraw.java
+WHOLE INPUT ae6776b28cf36178cfe91809dc366ad63e8c1f227d3f05c4b4576a44d479011e com/hbm/wiaj/WorldInAJar.java
+WHOLE INPUT a53fa8babb06167bda4352c607116c88e022ed5f6a1a05c28138bc2cbf99d1b3 com/hbm/wiaj/JarScript.java
+WHOLE INPUT 788c82e7501aa09b4ff06bbbc0db6b6a73c1ce358ee6af2ae56ff950c02b9e66 com/hbm/wiaj/JarScene.java
+WHOLE INPUT fdb4cb3a39e48aba05a15a07b7e26adb9c28d058d1d7d6e6dfec8a48bc015cd9 com/hbm/wiaj/actions/IJarAction.java
+WHOLE INPUT f5c3c9d8e7bcffc5226036314b91150d9691037d77b5b57d44bac31e105cb2dc com/hbm/wiaj/actors/ISpecialActor.java
+WHOLE INPUT a73d51a53519a7ffed3a6a2e96f098b0aaca833749cf14f2a38e640010893e37 com/hbm/wiaj/actors/ActorFancyPanel.java
+WHOLE INPUT a0e9ae30fdef666a6919fff95d8e557a9bf01370c27f18e518359730584825a6 com/hbm/wiaj/cannery/CanneryBase.java
+WHOLE INPUT 35e6400fe9849107a006b74f3f268138bb740327129e635a6e394b4174cdb229 com/hbm/entity/boss/INtmBossDisplay.java
+WHOLE INPUT 0480a35b0591b1bf65812fb86e3b2be8449498f819f8bb0ac348e8c70bbf4d47 com/hbm/util/Clock.java
+WHOLE INPUT 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 com/hbm/lib/RefStrings.java
+WHOLE INPUT 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b com/hbm/lib/ForgeDirection.java
+WHOLE INPUT ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d com/hbm/util/fauxpointtwelve/BlockPos.java
+WHOLE INPUT 03dd92b41e1a535480faebea6bf0ed171d909465c782cdb4e6cd534fbeb28f4f com/hbm/util/fauxpointtwelve/Rotation.java
+WHOLE INPUT 77a08cf17c72d3d7f88016e15944e5a73ee2bc7ec754abb4f611300bf1e9809c com/hbm/render/util/NativeGuiItemDraw.java
+WHOLE INPUT bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 com/hbm/render/util/NativeItemBaseModel.java
+WHOLE INPUT 525487a52e2d75eaf246b55faae9f3501dc25702f8c38ce090bfc947a8fdd662 com/hbm/render/util/NativeItemQuadRenderer.java
+WHOLE INPUT 54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[00:06:18] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[00:06:18] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[00:06:18] [main/INFO]: Replaced 1036 ore ingredients
+[00:06:18] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[00:06:18] [main/INFO]: Processing ObjectHolder annotations
+[00:06:18] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[00:06:18] [main/INFO]: Setting user: AtlasProbe
+[00:06:18] [main/INFO]: Max texture size: 16384
+[00:06:18] [main/INFO]: Created: 32x16 textures-atlas
+PASS 8806 native scene/GUI/preview/tag/thermal/marker callback assertions including representative actual EGL pixels. Global translation, exact interpolation helper, PWR data holder and screenshot writer are explicit NTM boundaries; font glyph/item meshes recorded. Not whole-game/old-vs-native lighting/foreign-model acceptance.
+PASS complete native scene callback compile; explicitly bounded NTM collaborators, no Minecraft/Forge replacements.

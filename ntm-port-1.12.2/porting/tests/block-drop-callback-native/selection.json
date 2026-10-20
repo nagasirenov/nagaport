@@ -1,0 +1,1492 @@
+{
+  "selected": [
+    {
+      "path": "com/hbm/blocks/BlockKelp.java",
+      "class": "BlockKelp",
+      "meta": "parMetadata",
+      "random": "parRand",
+      "fortune": "parFortune",
+      "method": "public Item getItemDropped(int parMetadata, Random parRand, int parFortune) {\n\t   return ModItems.saltleaf;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/BlockRubberLeaves.java",
+      "class": "BlockRubberLeaves",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\tif(this == ModBlocks.pet_leaves) {\n\t\t\treturn ModItems.leaf_pet;\n\t\t}\n\t\treturn ModItems.leaf_rubber;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/BlockWaterPlant.java",
+      "class": "BlockWaterPlant",
+      "meta": "parMetadata",
+      "random": "parRand",
+      "fortune": "parFortune",
+      "method": "public Item getItemDropped(int parMetadata, Random parRand, int parFortune)   {\n\t   return (ModItems.saltleaf);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/RubberGrass.java",
+      "class": "RubberGrass",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "class": "BlockChargeBase",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockTaint.java",
+      "class": "BlockTaint",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) { return null; }"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "class": "BombMulti",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.bomb_multi);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombThermo.java",
+      "class": "BombThermo",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\tif(this == ModBlocks.therm_endo) {\n\t\t\treturn Item.getItemFromBlock(ModBlocks.therm_endo);\n\t\t}\n\n\t\treturn Item.getItemFromBlock(ModBlocks.therm_exo);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CompactLauncher.java",
+      "class": "CompactLauncher",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.struct_launcher_core);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DetMiner.java",
+      "class": "DetMiner",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DigammaFlame.java",
+      "class": "DigammaFlame",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/Landmine.java",
+      "class": "Landmine",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPadRusted.java",
+      "class": "LaunchPadRusted",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchTable.java",
+      "class": "LaunchTable",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.struct_launcher_core_large);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "class": "NukeBoy",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_boy);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "class": "NukeCustom",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_custom);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "class": "NukeFleija",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_fleija);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "class": "NukeGadget",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_gadget);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "class": "NukeMan",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_man);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "class": "NukeMike",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_mike);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "class": "NukeN2",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_n2);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "class": "NukePrototype",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_prototype);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "class": "NukeSolinium",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_solinium);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "class": "NukeTsar",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.nuke_tsar);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/fluid/MeltedFlesh.java",
+      "class": "MeltedFlesh",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\tif(this == ModBlocks.flesh_block) {\n\t\t\treturn ModItems.flesh;\t\n\t\t} else if(this == ModBlocks.charred_flesh_block) {\n\t\t\treturn ModItems.grilled_flesh;\t\n\t\t}\n\n\t\treturn ModItems.powder_coal_tiny;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockGasBase.java",
+      "class": "BlockGasBase",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockVacuum.java",
+      "class": "BlockVacuum",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockBedrockOreTE.java",
+      "class": "BlockBedrockOreTE",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockBobble.java",
+      "class": "BlockBobble",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDeadPlant.java",
+      "class": "BlockDeadPlant",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDirt.java",
+      "class": "BlockDirt",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn Item.getItemFromBlock(Blocks.DIRT);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockFallout.java",
+      "class": "BlockFallout",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn ModItems.fallout;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGenericDrop.java",
+      "class": "BlockGenericDrop",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn Item.getItemFromBlock(drops);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGeysir.java",
+      "class": "BlockGeysir",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGlyphid.java",
+      "class": "BlockGlyphid",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+      "class": "BlockGlyphidSpawner",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn ModItems.egg_glyphid;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLanternBehemoth.java",
+      "class": "BlockLanternBehemoth",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLayering.java",
+      "class": "BlockLayering",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLoot.java",
+      "class": "BlockLoot",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockMultiSlab.java",
+      "class": "BlockMultiSlab",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn Item.getItemFromBlock(single != null ? single : this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockMushHuge.java",
+      "class": "BlockMushHuge",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n        return Item.getItemFromBlock(ModBlocks.mush);\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNTMDirt.java",
+      "class": "BlockNTMDirt",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n        return Item.getItemFromBlock(Blocks.DIRT);\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNetherCoal.java",
+      "class": "BlockNetherCoal",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn ModItems.coal_infernal;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNoDrop.java",
+      "class": "BlockNoDrop",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n\t\treturn null;\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPinkSlab.java",
+      "class": "BlockPinkSlab",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn Item.getItemFromBlock(ModBlocks.pink_slab);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPlasma.java",
+      "class": "BlockPlasma",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) { return null; }"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPlushie.java",
+      "class": "BlockPlushie",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) { return null; }"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRedBrick.java",
+      "class": "BlockRedBrick",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+      "class": "BlockRedBrickKeyhole",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRubberPlant.java",
+      "class": "BlockRubberPlant",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSellafieldOre.java",
+      "class": "BlockSellafieldOre",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\tif(this == ModBlocks.ore_sellafield_diamond) return Items.DIAMOND;\n\t\tif(this == ModBlocks.ore_sellafield_emerald) return Items.EMERALD;\n\t\tif(this == ModBlocks.ore_sellafield_radgem) return ModItems.gem_rad;\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSmolder.java",
+      "class": "BlockSmolder",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn ModItems.powder_fire;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSnowglobe.java",
+      "class": "BlockSnowglobe",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStepEffect.java",
+      "class": "BlockStepEffect",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\tif(this == ModBlocks.waste_trinitite || this == ModBlocks.waste_trinitite_red) {\n\t\t\treturn ModItems.trinitite;\n\t\t}\n\t\tif(this == ModBlocks.waste_planks) {\n\t\t\treturn Items.COAL;\n\t\t}\n\t\tif(this == ModBlocks.frozen_dirt) {\n\t\t\treturn Items.SNOWBALL;\n\t\t}\n\t\tif(this == ModBlocks.frozen_planks) {\n\t\t\treturn Items.SNOWBALL;\n\t\t}\n\t\tif(this == ModBlocks.ore_nether_fire) {\n\t\t\treturn rand.nextInt(10) == 0 ? ModItems.ingot_phosphorus : ModItems.powder_fire;\n\t\t}\n\t\tif(this == ModBlocks.block_meteor_cobble) {\n\t\t\treturn ModItems.fragment_meteorite;\n\t\t}\n\t\tif(this == ModBlocks.block_meteor_broken) {\n\t\t\treturn ModItems.fragment_meteorite;\n\t\t}\n\t\tif(this == ModBlocks.block_meteor_molten) {\n\t\t\treturn null;\n\t\t}\n\t\tif(this == ModBlocks.ore_nether_cobalt) {\n\t\t\treturn ModItems.fragment_cobalt;\n\t\t}\n\t\tif(this == ModBlocks.ore_nether_sulfur) {\n\t\t\treturn ModItems.sulfur;\n\t\t}\n\t\tif(this == ModBlocks.ore_gneiss_rare) {\n\t\t\treturn ModItems.chunk_ore;\n\t\t}\n\t\tif(this == ModBlocks.ore_gneiss_asbestos) {\n\t\t\treturn ModItems.ingot_asbestos;\n\t\t}\n\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStorageCrate.java",
+      "class": "BlockStorageCrate",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockTallPlant.java",
+      "class": "BlockTallPlant",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\t\n\t\t/*if(meta == EnumTallFlower.WEED.ordinal()) {\n\t\t\treturn Item.getItemFromBlock(ModBlocks.plant_flower);\n\t\t}\n\t\t\n\t\treturn Item.getItemFromBlock(this);*/\n\t\t\n\t\treturn Item.getItemFromBlock(ModBlocks.plant_flower);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "class": "BlockTallPlantWater",
+      "meta": "parMetadata",
+      "random": "parRand",
+      "fortune": "parFortune",
+      "method": "public Item getItemDropped(int parMetadata, Random parRand, int parFortune) {\n\t   return (ModItems.saltleaf);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockVent.java",
+      "class": "BlockVent",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n        return null;\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/generic/DecoBlock.java",
+      "class": "DecoBlock",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/FragileBrick.java",
+      "class": "FragileBrick",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "class": "ReinforcedLamp",
+      "meta": "i",
+      "random": "r",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random r, int j) {\n\t\treturn Item.getItemFromBlock(getOff());\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "class": "TritiumLamp",
+      "meta": "i",
+      "random": "r",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random r, int j) {\n\t\treturn Item.getItemFromBlock(getOff());\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteEarth.java",
+      "class": "WasteEarth",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\t\n\t\tif(this == ModBlocks.waste_earth || this == ModBlocks.waste_mycelium || this == ModBlocks.burning_earth) {\n\t\t\treturn Item.getItemFromBlock(Blocks.DIRT);\n\t\t}\n\n\t\tif(this == ModBlocks.frozen_grass) {\n\t\t\treturn Items.SNOWBALL;\n\t\t}\n\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteLeaves.java",
+      "class": "WasteLeaves",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteLog.java",
+      "class": "WasteLog",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j)\n    {\n\t\tif(this == ModBlocks.waste_log)\n\t\t{\n\t\t\treturn Items.COAL;\n\t\t}\n\t\tif(this == ModBlocks.frozen_log)\n\t\t{\n\t\t\treturn Items.SNOWBALL;\n\t\t}\n\t\t\n\t\treturn null;\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockCybercrab.java",
+      "class": "BlockCybercrab",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockICF.java",
+      "class": "BlockICF",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j)  {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMassStorage.java",
+      "class": "BlockMassStorage",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockPWR.java",
+      "class": "BlockPWR",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j)  {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockSeal.java",
+      "class": "BlockSeal",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/DummyBlockBlast.java",
+      "class": "DummyBlockBlast",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n        return null;\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/machine/DummyOldBase.java",
+      "class": "DummyOldBase",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "class": "MachineBattery",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn Item.getItemFromBlock(this);\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePuF6Tank.java",
+      "class": "MachinePuF6Tank",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "class": "MachineReactorControl",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n        return Item.getItemFromBlock(this);\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineShredder.java",
+      "class": "MachineShredder",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n    {\n        return Item.getItemFromBlock(ModBlocks.machine_shredder);\n    }"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineUF6Tank.java",
+      "class": "MachineUF6Tank",
+      "meta": "p_149650_1_",
+      "random": "p_149650_2_",
+      "fortune": "p_149650_3_",
+      "method": "public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzLauncher.java",
+      "class": "SoyuzLauncher",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Watz.java",
+      "class": "Watz",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "class": "ZirnoxDestroyed",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+      "class": "BlockGraphiteDrilledBase",
+      "meta": "meta",
+      "random": "rand",
+      "fortune": "fortune",
+      "method": "public Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretHowardDamaged.java",
+      "class": "TurretHowardDamaged",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretSentryDamaged.java",
+      "class": "TurretSentryDamaged",
+      "meta": "i",
+      "random": "rand",
+      "fortune": "j",
+      "method": "public Item getItemDropped(int i, Random rand, int j) {\n\t\treturn null;\n\t}"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "com/hbm/blocks/BlockCrop.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/BlockRemap.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/BlockRubberFarm.java",
+      "reason": "delegates to separately unported target"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockCap.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockCluster.java",
+      "reason": "existing native scalar bridge"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDepthOre.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockModDoor.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNTMFlower.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOre.java",
+      "reason": "existing native scalar bridge"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOreBasalt.java",
+      "reason": "metadata-dependent"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStalagmite.java",
+      "reason": "metadata-dependent"
+    }
+  ],
+  "baseline": "5e6ba284ef32b46ad5f81cd1e1570c08b53cb24f",
+  "operations": [
+    {
+      "path": "com/hbm/blocks/BlockKelp.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int parMetadata",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/BlockRubberLeaves.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/BlockWaterPlant.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int parMetadata",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/RubberGrass.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockTaint.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombThermo.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CompactLauncher.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DetMiner.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DigammaFlame.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/Landmine.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPadRusted.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchTable.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/fluid/MeltedFlesh.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockGasBase.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockVacuum.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockBedrockOreTE.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockBobble.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDeadPlant.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDirt.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockFallout.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGenericDrop.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ],
+        [
+          "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState",
+          "\t@Override\n\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGeysir.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGlyphid.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLanternBehemoth.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLayering.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLoot.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockMultiSlab.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockMushHuge.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNTMDirt.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNetherCoal.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNoDrop.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPinkSlab.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPlasma.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPlushie.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRedBrick.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRubberPlant.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSellafieldOre.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ],
+        [
+          "this.getItemDropped(0, rand, fortune)",
+          "this.getItemDropped(getStateFromMeta(0), rand, fortune)"
+        ],
+        [
+          "this.getItemDropped(meta, rand, fortune)",
+          "this.getItemDropped(getStateFromMeta(meta), rand, fortune)"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSmolder.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSnowglobe.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStepEffect.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ],
+        [
+          "this.getItemDropped(0, rand, fortune)",
+          "this.getItemDropped(getStateFromMeta(0), rand, fortune)"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStorageCrate.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockTallPlant.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int parMetadata",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockVent.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/DecoBlock.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/FragileBrick.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteEarth.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteLeaves.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteLog.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockCybercrab.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockICF.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMassStorage.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockPWR.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockSeal.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/DummyBlockBlast.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/DummyOldBase.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePuF6Tank.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineShredder.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineUF6Tank.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int p_149650_1_",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzLauncher.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/Watz.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int meta",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState meta"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretHowardDamaged.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretSentryDamaged.java",
+      "replacements": [
+        [
+          "public Item getItemDropped(int i",
+          "public Item getItemDropped(net.minecraft.block.state.IBlockState i"
+        ]
+      ]
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOutgas.java",
+      "replacements": [
+        [
+          "this.getItemDropped(0, rand, fortune)",
+          "this.getItemDropped(getStateFromMeta(0), rand, fortune)"
+        ]
+      ]
+    }
+  ],
+  "baseline_zip_sha256": "07451e9311a748f67a9d49425de84d58a9e1dac63072e6f9bc694ad6e8f81fad",
+  "original_methods_sha256": "4fccc86dafab8b1fc9d00fd33f8743ae911e89498030d585753ec21181aafb04",
+  "original_collaborators_sha256": "aa06974f74b740f215d5ab2ecbb2b2739411f09655c41e842de34d426822f2fe"
+}

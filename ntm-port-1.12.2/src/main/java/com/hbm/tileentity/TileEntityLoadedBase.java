@@ -42,9 +42,10 @@ public class TileEntityLoadedBase extends TileEntity implements ILoadedTile, IBu
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("muffled", muffled);
+		return nbt;
 	}
 
 	public float getVolume(float baseVolume) {
@@ -65,9 +66,9 @@ public class TileEntityLoadedBase extends TileEntity implements ILoadedTile, IBu
 
 	/** Sends a sync packet that uses ByteBuf for efficient information-cramming */
 	public void networkPackNT(int range) {
-		if(worldObj.isRemote) return;
+		if(world.isRemote) return;
 
-		BufPacket packet = new BufPacket(xCoord, yCoord, zCoord, this);
+		BufPacket packet = new BufPacket(pos.getX(), pos.getY(), pos.getZ(), this);
 
 		ByteBuf preBuf = packet.getCompiledBuffer();
 
@@ -78,11 +79,11 @@ public class TileEntityLoadedBase extends TileEntity implements ILoadedTile, IBu
 		// In my testing, this can be reliably reproduced with a full fluid barrel, for instance.
 		// I think it might be fixable by doing something with getDescriptionPacket() and onDataPacket(),
 		// but this sidesteps the problem for the mean time.
-		if(preBuf.equals(lastPackedBuf) && this.worldObj.getTotalWorldTime() % 20 != 0) return;
+		if(preBuf.equals(lastPackedBuf) && this.world.getTotalWorldTime() % 20 != 0) return;
 
 		this.lastPackedBuf = preBuf.copy();
 
-		PacketThreading.createAllAroundThreadedPacket(packet, new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, xCoord, yCoord, zCoord, range));
+		PacketThreading.createAllAroundThreadedPacket(packet, new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), range));
 	}
 
 }

@@ -7,8 +7,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 public abstract class EntityDroneBase extends Entity {
+
+	protected static final DataParameter<Byte> APPEARANCE = EntityDataManager.createKey(EntityDroneBase.class, DataSerializers.BYTE);
 
 	protected int turnProgress;
 	protected double syncPosX;
@@ -60,7 +65,7 @@ public abstract class EntityDroneBase extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(10, new Byte((byte) 0));
+		this.dataManager.register(APPEARANCE, new Byte((byte) 0));
 	}
 
 	/**
@@ -69,17 +74,17 @@ public abstract class EntityDroneBase extends Entity {
 	 * 2: Barrel<br>
 	 */
 	public void setAppearance(int style) {
-		this.dataWatcher.updateObject(10, (byte) style);
+		this.dataManager.set(APPEARANCE, (byte) style);
 	}
 
 	public int getAppearance() {
-		return this.dataWatcher.getWatchableObjectByte(10);
+		return this.dataManager.get(APPEARANCE);
 	}
 
 	@Override
 	public void onUpdate() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			if(this.turnProgress > 0) {
 				double interpX = this.posX + (this.syncPosX - this.posX) / (double) this.turnProgress;
 				double interpY = this.posY + (this.syncPosY - this.posY) / (double) this.turnProgress;
@@ -90,10 +95,10 @@ public abstract class EntityDroneBase extends Entity {
 				this.setPosition(this.posX, this.posY, this.posZ);
 			}
 
-			worldObj.spawnParticle("smoke", posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);
-			worldObj.spawnParticle("smoke", posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);
-			worldObj.spawnParticle("smoke", posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);
-			worldObj.spawnParticle("smoke", posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);
+			this.world.spawnParticle("smoke", posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);
+			this.world.spawnParticle("smoke", posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);
+			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);
+			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);
 		} else {
 
 			this.motionX = 0;
@@ -151,7 +156,7 @@ public abstract class EntityDroneBase extends Entity {
 		nbt.setDouble("tY", targetY);
 		nbt.setDouble("tZ", targetZ);
 
-		nbt.setByte("app", this.dataWatcher.getWatchableObjectByte(10));
+		nbt.setByte("app", this.dataManager.get(APPEARANCE));
 	}
 
 	@Override
@@ -163,6 +168,6 @@ public abstract class EntityDroneBase extends Entity {
 			this.targetZ = nbt.getDouble("tZ");
 		}
 
-		this.dataWatcher.updateObject(10, nbt.getByte("app"));
+		this.dataManager.set(APPEARANCE, nbt.getByte("app"));
 	}
 }

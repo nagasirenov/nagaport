@@ -1,0 +1,11 @@
+PASS exact two-model source adaptation; original public mesh fields/render overloads/draw bodies retained
+PASS complete production ModelArmorBase, ModelMan, ModelArmorHEV and ModelRendererObj compile against genuine native Forge
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[18:29:39] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[18:29:39] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[18:29:39] [main/INFO]: Replaced 1036 ore ingredients
+[18:29:39] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[18:29:39] [main/INFO]: Processing ObjectHolder annotations
+[18:29:39] [main/INFO]: Found 1167 ObjectHolder annotations
+[18:29:39] [main/INFO]: Setting user: AtlasProbe
+PASS 373 native armor/man pose, original fallback, public API and complete model-render checks. NTM mesh/world services are declared fixtures; layer/event/game acceptance is separate.

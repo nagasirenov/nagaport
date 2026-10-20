@@ -1,0 +1,11 @@
+floor_double	floor	c	(D)I	func_76128_c
+floor_float	floor	d	(F)I	func_76141_d
+sqrt_double	sqrt	a	(D)F	func_76133_a
+sqrt_float	sqrt	c	(F)F	func_76129_c
+clamp_int	clamp	a	(III)I	func_76125_a
+clamp_float	clamp	a	(FFF)F	func_76131_a
+clamp_double	clamp	a	(DDD)D	func_151237_a
+wrapAngleTo180_double	wrapDegrees	g	(D)D	func_76138_g
+wrapAngleTo180_float	wrapDegrees	g	(F)F	func_76142_g
+ceiling_double_int	ceil	f	(D)I	func_76143_f
+ceiling_float_int	ceil	f	(F)I	func_76123_f

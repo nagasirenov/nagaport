@@ -1,0 +1,3194 @@
+[
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 266830,
+    "end": 266895,
+    "old": "world.setBlock(x + 1, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 266898,
+    "end": 266963,
+    "old": "world.setBlock(x + 2, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 266966,
+    "end": 267031,
+    "old": "world.setBlock(x + 3, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267034,
+    "end": 267099,
+    "old": "world.setBlock(x + 4, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267102,
+    "end": 267167,
+    "old": "world.setBlock(x + 5, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267170,
+    "end": 267235,
+    "old": "world.setBlock(x + 6, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267238,
+    "end": 267303,
+    "old": "world.setBlock(x + 7, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267306,
+    "end": 267371,
+    "old": "world.setBlock(x + 8, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267374,
+    "end": 267439,
+    "old": "world.setBlock(x + 9, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267442,
+    "end": 267508,
+    "old": "world.setBlock(x + 10, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267511,
+    "end": 267577,
+    "old": "world.setBlock(x + 11, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267580,
+    "end": 267646,
+    "old": "world.setBlock(x + 12, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267649,
+    "end": 267715,
+    "old": "world.setBlock(x + 13, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267718,
+    "end": 267784,
+    "old": "world.setBlock(x + 14, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267787,
+    "end": 267853,
+    "old": "world.setBlock(x + 15, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267856,
+    "end": 267922,
+    "old": "world.setBlock(x + 16, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267925,
+    "end": 267991,
+    "old": "world.setBlock(x + 17, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 267994,
+    "end": 268060,
+    "old": "world.setBlock(x + 18, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268063,
+    "end": 268129,
+    "old": "world.setBlock(x + 19, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268132,
+    "end": 268198,
+    "old": "world.setBlock(x + 20, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268201,
+    "end": 268267,
+    "old": "world.setBlock(x + 21, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268270,
+    "end": 268336,
+    "old": "world.setBlock(x + 22, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268339,
+    "end": 268405,
+    "old": "world.setBlock(x + 23, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268408,
+    "end": 268474,
+    "old": "world.setBlock(x + 24, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268477,
+    "end": 268543,
+    "old": "world.setBlock(x + 25, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268546,
+    "end": 268612,
+    "old": "world.setBlock(x + 26, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268615,
+    "end": 268681,
+    "old": "world.setBlock(x + 27, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268684,
+    "end": 268750,
+    "old": "world.setBlock(x + 28, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268753,
+    "end": 268819,
+    "old": "world.setBlock(x + 29, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268822,
+    "end": 268888,
+    "old": "world.setBlock(x + 30, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268891,
+    "end": 268957,
+    "old": "world.setBlock(x + 31, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 268960,
+    "end": 269026,
+    "old": "world.setBlock(x + 32, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269029,
+    "end": 269095,
+    "old": "world.setBlock(x + 33, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269098,
+    "end": 269164,
+    "old": "world.setBlock(x + 34, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269167,
+    "end": 269233,
+    "old": "world.setBlock(x + 35, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269236,
+    "end": 269302,
+    "old": "world.setBlock(x + 36, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269305,
+    "end": 269371,
+    "old": "world.setBlock(x + 37, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269374,
+    "end": 269440,
+    "old": "world.setBlock(x + 38, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269443,
+    "end": 269509,
+    "old": "world.setBlock(x + 39, y + 0, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 0, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269621,
+    "end": 269686,
+    "old": "world.setBlock(x + 0, y + 0, z + 1, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 1, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269689,
+    "end": 269755,
+    "old": "world.setBlock(x + 40, y + 0, z + 1, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 1, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269758,
+    "end": 269823,
+    "old": "world.setBlock(x + 0, y + 0, z + 2, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 2, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269826,
+    "end": 269892,
+    "old": "world.setBlock(x + 40, y + 0, z + 2, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 2, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269895,
+    "end": 269960,
+    "old": "world.setBlock(x + 0, y + 0, z + 3, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 3, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 269963,
+    "end": 270029,
+    "old": "world.setBlock(x + 40, y + 0, z + 3, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 3, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 270032,
+    "end": 270097,
+    "old": "world.setBlock(x + 0, y + 0, z + 4, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 4, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 270100,
+    "end": 270166,
+    "old": "world.setBlock(x + 40, y + 0, z + 4, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 4, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 270169,
+    "end": 270234,
+    "old": "world.setBlock(x + 0, y + 0, z + 5, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 5, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 270237,
+    "end": 270303,
+    "old": "world.setBlock(x + 40, y + 0, z + 5, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 5, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 270306,
+    "end": 270371,
+    "old": "world.setBlock(x + 0, y + 0, z + 6, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 6, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 287502,
+    "end": 287567,
+    "old": "world.setBlock(x + 0, y + 0, z + 7, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 7, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 291414,
+    "end": 291479,
+    "old": "world.setBlock(x + 0, y + 0, z + 8, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 8, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 293253,
+    "end": 293318,
+    "old": "world.setBlock(x + 0, y + 0, z + 9, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 9, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 295145,
+    "end": 295211,
+    "old": "world.setBlock(x + 0, y + 0, z + 10, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 10, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 299579,
+    "end": 299645,
+    "old": "world.setBlock(x + 0, y + 0, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 314117,
+    "end": 314183,
+    "old": "world.setBlock(x + 0, y + 0, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 321497,
+    "end": 321564,
+    "old": "world.setBlock(x + 40, y + 0, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 321567,
+    "end": 321633,
+    "old": "world.setBlock(x + 0, y + 0, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 328776,
+    "end": 328843,
+    "old": "world.setBlock(x + 40, y + 0, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 328846,
+    "end": 328912,
+    "old": "world.setBlock(x + 0, y + 0, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 336335,
+    "end": 336402,
+    "old": "world.setBlock(x + 40, y + 0, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 336405,
+    "end": 336471,
+    "old": "world.setBlock(x + 0, y + 0, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 343787,
+    "end": 343854,
+    "old": "world.setBlock(x + 40, y + 0, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 343857,
+    "end": 343923,
+    "old": "world.setBlock(x + 0, y + 0, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 350739,
+    "end": 350806,
+    "old": "world.setBlock(x + 40, y + 0, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 350809,
+    "end": 350875,
+    "old": "world.setBlock(x + 0, y + 0, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 353878,
+    "end": 353945,
+    "old": "world.setBlock(x + 20, y + 0, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 0, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 353948,
+    "end": 354015,
+    "old": "world.setBlock(x + 21, y + 0, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 0, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 354018,
+    "end": 354085,
+    "old": "world.setBlock(x + 22, y + 0, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 0, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 357477,
+    "end": 357544,
+    "old": "world.setBlock(x + 40, y + 0, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 357547,
+    "end": 357613,
+    "old": "world.setBlock(x + 0, y + 0, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 374116,
+    "end": 374183,
+    "old": "world.setBlock(x + 40, y + 0, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 374186,
+    "end": 374252,
+    "old": "world.setBlock(x + 0, y + 0, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 374255,
+    "end": 374322,
+    "old": "world.setBlock(x + 40, y + 0, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 374325,
+    "end": 374391,
+    "old": "world.setBlock(x + 0, y + 0, z + 20, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 20, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 374665,
+    "end": 374732,
+    "old": "world.setBlock(x + 40, y + 0, z + 20, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 20, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 374735,
+    "end": 374801,
+    "old": "world.setBlock(x + 0, y + 0, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 375187,
+    "end": 375254,
+    "old": "world.setBlock(x + 40, y + 0, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 375257,
+    "end": 375323,
+    "old": "world.setBlock(x + 0, y + 0, z + 22, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 22, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 375930,
+    "end": 375997,
+    "old": "world.setBlock(x + 40, y + 0, z + 22, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 22, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 376000,
+    "end": 376066,
+    "old": "world.setBlock(x + 0, y + 0, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 376728,
+    "end": 376795,
+    "old": "world.setBlock(x + 40, y + 0, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 376798,
+    "end": 376864,
+    "old": "world.setBlock(x + 0, y + 0, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 377361,
+    "end": 377428,
+    "old": "world.setBlock(x + 40, y + 0, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 377431,
+    "end": 377497,
+    "old": "world.setBlock(x + 0, y + 0, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 377835,
+    "end": 377902,
+    "old": "world.setBlock(x + 40, y + 0, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 377905,
+    "end": 377971,
+    "old": "world.setBlock(x + 0, y + 0, z + 26, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 26, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 378933,
+    "end": 379000,
+    "old": "world.setBlock(x + 40, y + 0, z + 26, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 26, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 379003,
+    "end": 379069,
+    "old": "world.setBlock(x + 0, y + 0, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 379896,
+    "end": 379963,
+    "old": "world.setBlock(x + 40, y + 0, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 379966,
+    "end": 380032,
+    "old": "world.setBlock(x + 0, y + 0, z + 28, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 28, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 380419,
+    "end": 380486,
+    "old": "world.setBlock(x + 40, y + 0, z + 28, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 28, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 380489,
+    "end": 380555,
+    "old": "world.setBlock(x + 0, y + 0, z + 29, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 29, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 380886,
+    "end": 380953,
+    "old": "world.setBlock(x + 40, y + 0, z + 29, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 29, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 380956,
+    "end": 381022,
+    "old": "world.setBlock(x + 0, y + 0, z + 30, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 30, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381296,
+    "end": 381363,
+    "old": "world.setBlock(x + 40, y + 0, z + 30, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 0, z + 30, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381366,
+    "end": 381432,
+    "old": "world.setBlock(x + 0, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381545,
+    "end": 381612,
+    "old": "world.setBlock(x + 17, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381615,
+    "end": 381682,
+    "old": "world.setBlock(x + 18, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381685,
+    "end": 381752,
+    "old": "world.setBlock(x + 19, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381755,
+    "end": 381822,
+    "old": "world.setBlock(x + 20, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381825,
+    "end": 381892,
+    "old": "world.setBlock(x + 21, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381895,
+    "end": 381962,
+    "old": "world.setBlock(x + 22, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 381965,
+    "end": 382032,
+    "old": "world.setBlock(x + 23, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382035,
+    "end": 382102,
+    "old": "world.setBlock(x + 24, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382105,
+    "end": 382172,
+    "old": "world.setBlock(x + 25, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382175,
+    "end": 382242,
+    "old": "world.setBlock(x + 26, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382245,
+    "end": 382312,
+    "old": "world.setBlock(x + 27, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382315,
+    "end": 382382,
+    "old": "world.setBlock(x + 28, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382385,
+    "end": 382452,
+    "old": "world.setBlock(x + 29, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382455,
+    "end": 382522,
+    "old": "world.setBlock(x + 30, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382525,
+    "end": 382592,
+    "old": "world.setBlock(x + 31, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382595,
+    "end": 382662,
+    "old": "world.setBlock(x + 32, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382665,
+    "end": 382732,
+    "old": "world.setBlock(x + 33, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382735,
+    "end": 382802,
+    "old": "world.setBlock(x + 34, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382805,
+    "end": 382872,
+    "old": "world.setBlock(x + 35, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382875,
+    "end": 382942,
+    "old": "world.setBlock(x + 36, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 382945,
+    "end": 383012,
+    "old": "world.setBlock(x + 37, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383015,
+    "end": 383082,
+    "old": "world.setBlock(x + 38, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383085,
+    "end": 383152,
+    "old": "world.setBlock(x + 39, y + 0, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 0, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383265,
+    "end": 383331,
+    "old": "world.setBlock(x + 0, y + 0, z + 32, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 0, z + 32, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383334,
+    "end": 383401,
+    "old": "world.setBlock(x + 16, y + 0, z + 32, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 0, z + 32, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383513,
+    "end": 383579,
+    "old": "world.setBlock(x + 1, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383582,
+    "end": 383648,
+    "old": "world.setBlock(x + 2, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383651,
+    "end": 383717,
+    "old": "world.setBlock(x + 3, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383720,
+    "end": 383786,
+    "old": "world.setBlock(x + 4, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383789,
+    "end": 383855,
+    "old": "world.setBlock(x + 5, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383858,
+    "end": 383924,
+    "old": "world.setBlock(x + 6, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383927,
+    "end": 383993,
+    "old": "world.setBlock(x + 7, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 383996,
+    "end": 384062,
+    "old": "world.setBlock(x + 8, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384065,
+    "end": 384131,
+    "old": "world.setBlock(x + 9, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384134,
+    "end": 384201,
+    "old": "world.setBlock(x + 10, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384204,
+    "end": 384271,
+    "old": "world.setBlock(x + 11, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384274,
+    "end": 384341,
+    "old": "world.setBlock(x + 12, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384344,
+    "end": 384411,
+    "old": "world.setBlock(x + 13, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384414,
+    "end": 384481,
+    "old": "world.setBlock(x + 14, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384484,
+    "end": 384551,
+    "old": "world.setBlock(x + 15, y + 0, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 0, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384772,
+    "end": 384837,
+    "old": "world.setBlock(x + 1, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384840,
+    "end": 384905,
+    "old": "world.setBlock(x + 2, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384908,
+    "end": 384973,
+    "old": "world.setBlock(x + 3, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 384976,
+    "end": 385041,
+    "old": "world.setBlock(x + 4, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385044,
+    "end": 385109,
+    "old": "world.setBlock(x + 5, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385112,
+    "end": 385177,
+    "old": "world.setBlock(x + 6, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385180,
+    "end": 385245,
+    "old": "world.setBlock(x + 7, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385248,
+    "end": 385313,
+    "old": "world.setBlock(x + 8, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385316,
+    "end": 385381,
+    "old": "world.setBlock(x + 9, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385384,
+    "end": 385450,
+    "old": "world.setBlock(x + 10, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385453,
+    "end": 385519,
+    "old": "world.setBlock(x + 11, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385522,
+    "end": 385588,
+    "old": "world.setBlock(x + 12, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385591,
+    "end": 385657,
+    "old": "world.setBlock(x + 13, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385660,
+    "end": 385726,
+    "old": "world.setBlock(x + 14, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385729,
+    "end": 385795,
+    "old": "world.setBlock(x + 15, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385798,
+    "end": 385864,
+    "old": "world.setBlock(x + 16, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385867,
+    "end": 385933,
+    "old": "world.setBlock(x + 17, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 385936,
+    "end": 386002,
+    "old": "world.setBlock(x + 18, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386005,
+    "end": 386071,
+    "old": "world.setBlock(x + 19, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386074,
+    "end": 386140,
+    "old": "world.setBlock(x + 20, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386143,
+    "end": 386209,
+    "old": "world.setBlock(x + 21, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386212,
+    "end": 386278,
+    "old": "world.setBlock(x + 22, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386281,
+    "end": 386347,
+    "old": "world.setBlock(x + 23, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386350,
+    "end": 386416,
+    "old": "world.setBlock(x + 24, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386419,
+    "end": 386485,
+    "old": "world.setBlock(x + 25, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386488,
+    "end": 386554,
+    "old": "world.setBlock(x + 26, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386557,
+    "end": 386623,
+    "old": "world.setBlock(x + 27, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386626,
+    "end": 386692,
+    "old": "world.setBlock(x + 28, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386695,
+    "end": 386761,
+    "old": "world.setBlock(x + 29, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386764,
+    "end": 386830,
+    "old": "world.setBlock(x + 30, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386833,
+    "end": 386899,
+    "old": "world.setBlock(x + 31, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386902,
+    "end": 386968,
+    "old": "world.setBlock(x + 32, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 386971,
+    "end": 387037,
+    "old": "world.setBlock(x + 33, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387040,
+    "end": 387106,
+    "old": "world.setBlock(x + 34, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387109,
+    "end": 387175,
+    "old": "world.setBlock(x + 35, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387178,
+    "end": 387244,
+    "old": "world.setBlock(x + 36, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387247,
+    "end": 387313,
+    "old": "world.setBlock(x + 37, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387316,
+    "end": 387382,
+    "old": "world.setBlock(x + 38, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387385,
+    "end": 387451,
+    "old": "world.setBlock(x + 39, y + 1, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 1, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387563,
+    "end": 387628,
+    "old": "world.setBlock(x + 0, y + 1, z + 1, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 1, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387631,
+    "end": 387697,
+    "old": "world.setBlock(x + 40, y + 1, z + 1, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 1, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387700,
+    "end": 387765,
+    "old": "world.setBlock(x + 0, y + 1, z + 2, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 2, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387768,
+    "end": 387834,
+    "old": "world.setBlock(x + 40, y + 1, z + 2, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 2, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387837,
+    "end": 387902,
+    "old": "world.setBlock(x + 0, y + 1, z + 3, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 3, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387905,
+    "end": 387971,
+    "old": "world.setBlock(x + 40, y + 1, z + 3, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 3, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 387974,
+    "end": 388039,
+    "old": "world.setBlock(x + 0, y + 1, z + 4, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 4, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 388042,
+    "end": 388108,
+    "old": "world.setBlock(x + 40, y + 1, z + 4, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 4, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 388111,
+    "end": 388176,
+    "old": "world.setBlock(x + 0, y + 1, z + 5, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 5, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 388179,
+    "end": 388245,
+    "old": "world.setBlock(x + 40, y + 1, z + 5, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 5, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 388248,
+    "end": 388313,
+    "old": "world.setBlock(x + 0, y + 1, z + 6, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 6, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 398070,
+    "end": 398135,
+    "old": "world.setBlock(x + 0, y + 1, z + 7, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 7, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 401221,
+    "end": 401286,
+    "old": "world.setBlock(x + 0, y + 1, z + 8, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 8, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 402899,
+    "end": 402964,
+    "old": "world.setBlock(x + 0, y + 1, z + 9, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 9, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 405212,
+    "end": 405278,
+    "old": "world.setBlock(x + 0, y + 1, z + 10, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 10, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 409316,
+    "end": 409382,
+    "old": "world.setBlock(x + 0, y + 1, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 424088,
+    "end": 424154,
+    "old": "world.setBlock(x + 0, y + 1, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 430781,
+    "end": 430848,
+    "old": "world.setBlock(x + 40, y + 1, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 430851,
+    "end": 430917,
+    "old": "world.setBlock(x + 0, y + 1, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 436955,
+    "end": 437022,
+    "old": "world.setBlock(x + 40, y + 1, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 437025,
+    "end": 437091,
+    "old": "world.setBlock(x + 0, y + 1, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 444558,
+    "end": 444625,
+    "old": "world.setBlock(x + 40, y + 1, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 444628,
+    "end": 444694,
+    "old": "world.setBlock(x + 0, y + 1, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 452099,
+    "end": 452166,
+    "old": "world.setBlock(x + 40, y + 1, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 452169,
+    "end": 452235,
+    "old": "world.setBlock(x + 0, y + 1, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 458646,
+    "end": 458713,
+    "old": "world.setBlock(x + 40, y + 1, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 458716,
+    "end": 458782,
+    "old": "world.setBlock(x + 0, y + 1, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 461785,
+    "end": 461852,
+    "old": "world.setBlock(x + 20, y + 1, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 1, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 461855,
+    "end": 461922,
+    "old": "world.setBlock(x + 21, y + 1, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 1, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 461925,
+    "end": 461992,
+    "old": "world.setBlock(x + 22, y + 1, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 1, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 464910,
+    "end": 464977,
+    "old": "world.setBlock(x + 40, y + 1, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 464980,
+    "end": 465046,
+    "old": "world.setBlock(x + 0, y + 1, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 474723,
+    "end": 474790,
+    "old": "world.setBlock(x + 40, y + 1, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 474793,
+    "end": 474859,
+    "old": "world.setBlock(x + 0, y + 1, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 474862,
+    "end": 474929,
+    "old": "world.setBlock(x + 40, y + 1, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 474932,
+    "end": 474998,
+    "old": "world.setBlock(x + 0, y + 1, z + 20, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 20, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 475547,
+    "end": 475614,
+    "old": "world.setBlock(x + 40, y + 1, z + 20, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 20, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 475617,
+    "end": 475683,
+    "old": "world.setBlock(x + 0, y + 1, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 476124,
+    "end": 476191,
+    "old": "world.setBlock(x + 40, y + 1, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 476194,
+    "end": 476260,
+    "old": "world.setBlock(x + 0, y + 1, z + 22, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 22, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 476537,
+    "end": 476604,
+    "old": "world.setBlock(x + 40, y + 1, z + 22, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 22, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 476607,
+    "end": 476673,
+    "old": "world.setBlock(x + 0, y + 1, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 477060,
+    "end": 477127,
+    "old": "world.setBlock(x + 40, y + 1, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 477130,
+    "end": 477196,
+    "old": "world.setBlock(x + 0, y + 1, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 477473,
+    "end": 477540,
+    "old": "world.setBlock(x + 40, y + 1, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 477543,
+    "end": 477609,
+    "old": "world.setBlock(x + 0, y + 1, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 477831,
+    "end": 477898,
+    "old": "world.setBlock(x + 40, y + 1, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 477901,
+    "end": 477967,
+    "old": "world.setBlock(x + 0, y + 1, z + 26, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 26, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 478189,
+    "end": 478256,
+    "old": "world.setBlock(x + 40, y + 1, z + 26, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 26, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 478259,
+    "end": 478325,
+    "old": "world.setBlock(x + 0, y + 1, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 478932,
+    "end": 478999,
+    "old": "world.setBlock(x + 40, y + 1, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 479002,
+    "end": 479068,
+    "old": "world.setBlock(x + 0, y + 1, z + 28, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 28, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 479345,
+    "end": 479412,
+    "old": "world.setBlock(x + 40, y + 1, z + 28, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 28, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 479415,
+    "end": 479481,
+    "old": "world.setBlock(x + 0, y + 1, z + 29, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 29, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 479922,
+    "end": 479989,
+    "old": "world.setBlock(x + 40, y + 1, z + 29, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 29, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 479992,
+    "end": 480058,
+    "old": "world.setBlock(x + 0, y + 1, z + 30, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 30, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 480607,
+    "end": 480674,
+    "old": "world.setBlock(x + 40, y + 1, z + 30, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 1, z + 30, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 480677,
+    "end": 480743,
+    "old": "world.setBlock(x + 0, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 480856,
+    "end": 480923,
+    "old": "world.setBlock(x + 17, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 480926,
+    "end": 480993,
+    "old": "world.setBlock(x + 18, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 480996,
+    "end": 481063,
+    "old": "world.setBlock(x + 19, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481066,
+    "end": 481133,
+    "old": "world.setBlock(x + 20, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481136,
+    "end": 481203,
+    "old": "world.setBlock(x + 21, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481206,
+    "end": 481273,
+    "old": "world.setBlock(x + 22, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481276,
+    "end": 481343,
+    "old": "world.setBlock(x + 23, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481346,
+    "end": 481413,
+    "old": "world.setBlock(x + 24, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481416,
+    "end": 481483,
+    "old": "world.setBlock(x + 25, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481486,
+    "end": 481553,
+    "old": "world.setBlock(x + 26, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481556,
+    "end": 481623,
+    "old": "world.setBlock(x + 27, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481626,
+    "end": 481693,
+    "old": "world.setBlock(x + 28, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481696,
+    "end": 481763,
+    "old": "world.setBlock(x + 29, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481766,
+    "end": 481833,
+    "old": "world.setBlock(x + 30, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481836,
+    "end": 481903,
+    "old": "world.setBlock(x + 31, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481906,
+    "end": 481973,
+    "old": "world.setBlock(x + 32, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 481976,
+    "end": 482043,
+    "old": "world.setBlock(x + 33, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482046,
+    "end": 482113,
+    "old": "world.setBlock(x + 34, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482116,
+    "end": 482183,
+    "old": "world.setBlock(x + 35, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482186,
+    "end": 482253,
+    "old": "world.setBlock(x + 36, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482256,
+    "end": 482323,
+    "old": "world.setBlock(x + 37, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482326,
+    "end": 482393,
+    "old": "world.setBlock(x + 38, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482396,
+    "end": 482463,
+    "old": "world.setBlock(x + 39, y + 1, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 1, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482576,
+    "end": 482642,
+    "old": "world.setBlock(x + 0, y + 1, z + 32, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 1, z + 32, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482645,
+    "end": 482712,
+    "old": "world.setBlock(x + 16, y + 1, z + 32, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 1, z + 32, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482824,
+    "end": 482890,
+    "old": "world.setBlock(x + 1, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482893,
+    "end": 482959,
+    "old": "world.setBlock(x + 2, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 482962,
+    "end": 483028,
+    "old": "world.setBlock(x + 3, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483031,
+    "end": 483097,
+    "old": "world.setBlock(x + 4, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483100,
+    "end": 483166,
+    "old": "world.setBlock(x + 5, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483169,
+    "end": 483235,
+    "old": "world.setBlock(x + 6, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483238,
+    "end": 483304,
+    "old": "world.setBlock(x + 7, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483307,
+    "end": 483373,
+    "old": "world.setBlock(x + 8, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483376,
+    "end": 483442,
+    "old": "world.setBlock(x + 9, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483445,
+    "end": 483512,
+    "old": "world.setBlock(x + 10, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483515,
+    "end": 483582,
+    "old": "world.setBlock(x + 11, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483585,
+    "end": 483652,
+    "old": "world.setBlock(x + 12, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483655,
+    "end": 483722,
+    "old": "world.setBlock(x + 13, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483725,
+    "end": 483792,
+    "old": "world.setBlock(x + 14, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 483795,
+    "end": 483862,
+    "old": "world.setBlock(x + 15, y + 1, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 1, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484083,
+    "end": 484148,
+    "old": "world.setBlock(x + 1, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484151,
+    "end": 484216,
+    "old": "world.setBlock(x + 2, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484219,
+    "end": 484284,
+    "old": "world.setBlock(x + 3, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484287,
+    "end": 484352,
+    "old": "world.setBlock(x + 4, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484355,
+    "end": 484420,
+    "old": "world.setBlock(x + 5, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484423,
+    "end": 484488,
+    "old": "world.setBlock(x + 6, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484491,
+    "end": 484556,
+    "old": "world.setBlock(x + 7, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484559,
+    "end": 484624,
+    "old": "world.setBlock(x + 8, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484627,
+    "end": 484692,
+    "old": "world.setBlock(x + 9, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484695,
+    "end": 484761,
+    "old": "world.setBlock(x + 10, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484764,
+    "end": 484830,
+    "old": "world.setBlock(x + 11, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484833,
+    "end": 484899,
+    "old": "world.setBlock(x + 12, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484902,
+    "end": 484968,
+    "old": "world.setBlock(x + 13, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 484971,
+    "end": 485037,
+    "old": "world.setBlock(x + 14, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485040,
+    "end": 485106,
+    "old": "world.setBlock(x + 15, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485109,
+    "end": 485175,
+    "old": "world.setBlock(x + 16, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485178,
+    "end": 485244,
+    "old": "world.setBlock(x + 17, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485247,
+    "end": 485313,
+    "old": "world.setBlock(x + 18, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485316,
+    "end": 485382,
+    "old": "world.setBlock(x + 19, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485385,
+    "end": 485451,
+    "old": "world.setBlock(x + 20, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485454,
+    "end": 485520,
+    "old": "world.setBlock(x + 21, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485523,
+    "end": 485589,
+    "old": "world.setBlock(x + 22, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485592,
+    "end": 485658,
+    "old": "world.setBlock(x + 23, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485661,
+    "end": 485727,
+    "old": "world.setBlock(x + 24, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485730,
+    "end": 485796,
+    "old": "world.setBlock(x + 25, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485799,
+    "end": 485865,
+    "old": "world.setBlock(x + 26, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485868,
+    "end": 485934,
+    "old": "world.setBlock(x + 27, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 485937,
+    "end": 486003,
+    "old": "world.setBlock(x + 28, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486006,
+    "end": 486072,
+    "old": "world.setBlock(x + 29, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486075,
+    "end": 486141,
+    "old": "world.setBlock(x + 30, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486144,
+    "end": 486210,
+    "old": "world.setBlock(x + 31, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486213,
+    "end": 486279,
+    "old": "world.setBlock(x + 32, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486282,
+    "end": 486348,
+    "old": "world.setBlock(x + 33, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486351,
+    "end": 486417,
+    "old": "world.setBlock(x + 34, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486420,
+    "end": 486486,
+    "old": "world.setBlock(x + 35, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486489,
+    "end": 486555,
+    "old": "world.setBlock(x + 36, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486558,
+    "end": 486624,
+    "old": "world.setBlock(x + 37, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486627,
+    "end": 486693,
+    "old": "world.setBlock(x + 38, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486696,
+    "end": 486762,
+    "old": "world.setBlock(x + 39, y + 2, z + 0, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 2, z + 0, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486874,
+    "end": 486939,
+    "old": "world.setBlock(x + 0, y + 2, z + 1, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 1, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 486942,
+    "end": 487008,
+    "old": "world.setBlock(x + 40, y + 2, z + 1, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 1, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487011,
+    "end": 487076,
+    "old": "world.setBlock(x + 0, y + 2, z + 2, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 2, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487079,
+    "end": 487145,
+    "old": "world.setBlock(x + 40, y + 2, z + 2, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 2, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487148,
+    "end": 487213,
+    "old": "world.setBlock(x + 0, y + 2, z + 3, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 3, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487216,
+    "end": 487282,
+    "old": "world.setBlock(x + 40, y + 2, z + 3, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 3, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487285,
+    "end": 487350,
+    "old": "world.setBlock(x + 0, y + 2, z + 4, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 4, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487353,
+    "end": 487419,
+    "old": "world.setBlock(x + 40, y + 2, z + 4, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 4, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487422,
+    "end": 487487,
+    "old": "world.setBlock(x + 0, y + 2, z + 5, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 5, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487490,
+    "end": 487556,
+    "old": "world.setBlock(x + 40, y + 2, z + 5, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 5, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 487559,
+    "end": 487624,
+    "old": "world.setBlock(x + 0, y + 2, z + 6, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 6, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 504214,
+    "end": 504279,
+    "old": "world.setBlock(x + 0, y + 2, z + 7, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 7, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 507793,
+    "end": 507858,
+    "old": "world.setBlock(x + 0, y + 2, z + 8, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 8, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 510558,
+    "end": 510623,
+    "old": "world.setBlock(x + 0, y + 2, z + 9, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 9, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 513820,
+    "end": 513886,
+    "old": "world.setBlock(x + 0, y + 2, z + 10, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 10, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 518355,
+    "end": 518421,
+    "old": "world.setBlock(x + 0, y + 2, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 534910,
+    "end": 534976,
+    "old": "world.setBlock(x + 0, y + 2, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 541698,
+    "end": 541765,
+    "old": "world.setBlock(x + 40, y + 2, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 541768,
+    "end": 541834,
+    "old": "world.setBlock(x + 0, y + 2, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 547949,
+    "end": 548016,
+    "old": "world.setBlock(x + 40, y + 2, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 548019,
+    "end": 548085,
+    "old": "world.setBlock(x + 0, y + 2, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 554014,
+    "end": 554081,
+    "old": "world.setBlock(x + 40, y + 2, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 554084,
+    "end": 554150,
+    "old": "world.setBlock(x + 0, y + 2, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 561614,
+    "end": 561681,
+    "old": "world.setBlock(x + 40, y + 2, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 561684,
+    "end": 561750,
+    "old": "world.setBlock(x + 0, y + 2, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 568878,
+    "end": 568945,
+    "old": "world.setBlock(x + 40, y + 2, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 568948,
+    "end": 569014,
+    "old": "world.setBlock(x + 0, y + 2, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 572017,
+    "end": 572084,
+    "old": "world.setBlock(x + 20, y + 2, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 2, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 572087,
+    "end": 572154,
+    "old": "world.setBlock(x + 21, y + 2, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 2, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 572157,
+    "end": 572224,
+    "old": "world.setBlock(x + 22, y + 2, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 2, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 575423,
+    "end": 575490,
+    "old": "world.setBlock(x + 40, y + 2, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 575493,
+    "end": 575559,
+    "old": "world.setBlock(x + 0, y + 2, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 585176,
+    "end": 585243,
+    "old": "world.setBlock(x + 40, y + 2, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 585246,
+    "end": 585312,
+    "old": "world.setBlock(x + 0, y + 2, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 585315,
+    "end": 585382,
+    "old": "world.setBlock(x + 40, y + 2, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 585385,
+    "end": 585451,
+    "old": "world.setBlock(x + 0, y + 2, z + 20, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 20, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 586005,
+    "end": 586072,
+    "old": "world.setBlock(x + 40, y + 2, z + 20, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 20, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 586075,
+    "end": 586141,
+    "old": "world.setBlock(x + 0, y + 2, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 586586,
+    "end": 586653,
+    "old": "world.setBlock(x + 40, y + 2, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 586656,
+    "end": 586722,
+    "old": "world.setBlock(x + 0, y + 2, z + 22, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 22, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 586946,
+    "end": 587013,
+    "old": "world.setBlock(x + 40, y + 2, z + 22, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 22, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 587016,
+    "end": 587082,
+    "old": "world.setBlock(x + 0, y + 2, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 587306,
+    "end": 587373,
+    "old": "world.setBlock(x + 40, y + 2, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 587376,
+    "end": 587442,
+    "old": "world.setBlock(x + 0, y + 2, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 587666,
+    "end": 587733,
+    "old": "world.setBlock(x + 40, y + 2, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 587736,
+    "end": 587802,
+    "old": "world.setBlock(x + 0, y + 2, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 588026,
+    "end": 588093,
+    "old": "world.setBlock(x + 40, y + 2, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 588096,
+    "end": 588162,
+    "old": "world.setBlock(x + 0, y + 2, z + 26, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 26, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 588386,
+    "end": 588453,
+    "old": "world.setBlock(x + 40, y + 2, z + 26, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 26, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 588456,
+    "end": 588522,
+    "old": "world.setBlock(x + 0, y + 2, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 588801,
+    "end": 588868,
+    "old": "world.setBlock(x + 40, y + 2, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 588871,
+    "end": 588937,
+    "old": "world.setBlock(x + 0, y + 2, z + 28, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 28, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 589161,
+    "end": 589228,
+    "old": "world.setBlock(x + 40, y + 2, z + 28, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 28, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 589231,
+    "end": 589297,
+    "old": "world.setBlock(x + 0, y + 2, z + 29, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 29, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 589742,
+    "end": 589809,
+    "old": "world.setBlock(x + 40, y + 2, z + 29, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 29, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 589812,
+    "end": 589878,
+    "old": "world.setBlock(x + 0, y + 2, z + 30, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 30, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590432,
+    "end": 590499,
+    "old": "world.setBlock(x + 40, y + 2, z + 30, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 2, z + 30, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590502,
+    "end": 590568,
+    "old": "world.setBlock(x + 0, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590681,
+    "end": 590748,
+    "old": "world.setBlock(x + 17, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590751,
+    "end": 590818,
+    "old": "world.setBlock(x + 18, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590821,
+    "end": 590888,
+    "old": "world.setBlock(x + 19, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590891,
+    "end": 590958,
+    "old": "world.setBlock(x + 20, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 590961,
+    "end": 591028,
+    "old": "world.setBlock(x + 21, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591031,
+    "end": 591098,
+    "old": "world.setBlock(x + 22, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591101,
+    "end": 591168,
+    "old": "world.setBlock(x + 23, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591171,
+    "end": 591238,
+    "old": "world.setBlock(x + 24, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591241,
+    "end": 591308,
+    "old": "world.setBlock(x + 25, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591311,
+    "end": 591378,
+    "old": "world.setBlock(x + 26, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591381,
+    "end": 591448,
+    "old": "world.setBlock(x + 27, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591451,
+    "end": 591518,
+    "old": "world.setBlock(x + 28, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591521,
+    "end": 591588,
+    "old": "world.setBlock(x + 29, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591591,
+    "end": 591658,
+    "old": "world.setBlock(x + 30, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591661,
+    "end": 591728,
+    "old": "world.setBlock(x + 31, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591731,
+    "end": 591798,
+    "old": "world.setBlock(x + 32, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591801,
+    "end": 591868,
+    "old": "world.setBlock(x + 33, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591871,
+    "end": 591938,
+    "old": "world.setBlock(x + 34, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 591941,
+    "end": 592008,
+    "old": "world.setBlock(x + 35, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592011,
+    "end": 592078,
+    "old": "world.setBlock(x + 36, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592081,
+    "end": 592148,
+    "old": "world.setBlock(x + 37, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592151,
+    "end": 592218,
+    "old": "world.setBlock(x + 38, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592221,
+    "end": 592288,
+    "old": "world.setBlock(x + 39, y + 2, z + 31, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 2, z + 31, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592401,
+    "end": 592467,
+    "old": "world.setBlock(x + 0, y + 2, z + 32, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 32, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592470,
+    "end": 592537,
+    "old": "world.setBlock(x + 16, y + 2, z + 32, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 2, z + 32, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592649,
+    "end": 592715,
+    "old": "world.setBlock(x + 1, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592718,
+    "end": 592784,
+    "old": "world.setBlock(x + 2, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592787,
+    "end": 592853,
+    "old": "world.setBlock(x + 3, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592856,
+    "end": 592922,
+    "old": "world.setBlock(x + 4, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592925,
+    "end": 592991,
+    "old": "world.setBlock(x + 5, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 592994,
+    "end": 593060,
+    "old": "world.setBlock(x + 6, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593063,
+    "end": 593129,
+    "old": "world.setBlock(x + 7, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593132,
+    "end": 593198,
+    "old": "world.setBlock(x + 8, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593201,
+    "end": 593267,
+    "old": "world.setBlock(x + 9, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593270,
+    "end": 593337,
+    "old": "world.setBlock(x + 10, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593340,
+    "end": 593407,
+    "old": "world.setBlock(x + 11, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593410,
+    "end": 593477,
+    "old": "world.setBlock(x + 12, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593480,
+    "end": 593547,
+    "old": "world.setBlock(x + 13, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593550,
+    "end": 593617,
+    "old": "world.setBlock(x + 14, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+    "start": 593620,
+    "end": 593687,
+    "old": "world.setBlock(x + 15, y + 2, z + 33, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 2, z + 33, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 70221,
+    "end": 70287,
+    "old": "world.setBlock(x + 19, y + 4, z + 8, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 8, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 74230,
+    "end": 74296,
+    "old": "world.setBlock(x + 19, y + 4, z + 9, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 9, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 79533,
+    "end": 79600,
+    "old": "world.setBlock(x + 19, y + 4, z + 10, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 10, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 87272,
+    "end": 87339,
+    "old": "world.setBlock(x + 19, y + 4, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 91371,
+    "end": 91438,
+    "old": "world.setBlock(x + 19, y + 4, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 95424,
+    "end": 95491,
+    "old": "world.setBlock(x + 19, y + 4, z + 14, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 14, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 99098,
+    "end": 99165,
+    "old": "world.setBlock(x + 19, y + 4, z + 15, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 15, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 146054,
+    "end": 146120,
+    "old": "world.setBlock(x + 19, y + 5, z + 9, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 9, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 148406,
+    "end": 148473,
+    "old": "world.setBlock(x + 19, y + 5, z + 10, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 10, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 150705,
+    "end": 150772,
+    "old": "world.setBlock(x + 19, y + 5, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 153266,
+    "end": 153333,
+    "old": "world.setBlock(x + 19, y + 5, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 156213,
+    "end": 156280,
+    "old": "world.setBlock(x + 19, y + 5, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 211432,
+    "end": 211499,
+    "old": "world.setBlock(x + 19, y + 6, z + 10, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 6, z + 10, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 215028,
+    "end": 215095,
+    "old": "world.setBlock(x + 19, y + 6, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 6, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 219013,
+    "end": 219080,
+    "old": "world.setBlock(x + 19, y + 6, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 6, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 317711,
+    "end": 317777,
+    "old": "world.setBlock(x + 7, y + 7, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 7, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 318438,
+    "end": 318504,
+    "old": "world.setBlock(x + 9, y + 7, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 7, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 318947,
+    "end": 319013,
+    "old": "world.setBlock(x + 7, y + 7, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 7, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 319125,
+    "end": 319191,
+    "old": "world.setBlock(x + 9, y + 7, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 7, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 320183,
+    "end": 320249,
+    "old": "world.setBlock(x + 7, y + 7, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 7, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 320361,
+    "end": 320427,
+    "old": "world.setBlock(x + 9, y + 7, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 7, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 336949,
+    "end": 337015,
+    "old": "world.setBlock(x + 19, y + 8, z + 7, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 8, z + 7, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 337767,
+    "end": 337833,
+    "old": "world.setBlock(x + 19, y + 8, z + 8, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 8, z + 8, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 339875,
+    "end": 339941,
+    "old": "world.setBlock(x + 19, y + 8, z + 9, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 8, z + 9, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 343675,
+    "end": 343742,
+    "old": "world.setBlock(x + 12, y + 8, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 8, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 343745,
+    "end": 343812,
+    "old": "world.setBlock(x + 14, y + 8, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 8, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 343815,
+    "end": 343882,
+    "old": "world.setBlock(x + 15, y + 8, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 8, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 344635,
+    "end": 344702,
+    "old": "world.setBlock(x + 19, y + 8, z + 11, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 8, z + 11, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 346115,
+    "end": 346182,
+    "old": "world.setBlock(x + 19, y + 8, z + 12, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 8, z + 12, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 346515,
+    "end": 346582,
+    "old": "world.setBlock(x + 12, y + 8, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 8, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 346585,
+    "end": 346652,
+    "old": "world.setBlock(x + 13, y + 8, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 8, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 346655,
+    "end": 346722,
+    "old": "world.setBlock(x + 14, y + 8, z + 13, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 8, z + 13, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 351501,
+    "end": 351567,
+    "old": "world.setBlock(x + 7, y + 8, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 351570,
+    "end": 351636,
+    "old": "world.setBlock(x + 9, y + 8, z + 16, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 16, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 353049,
+    "end": 353115,
+    "old": "world.setBlock(x + 7, y + 8, z + 17, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 17, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 353868,
+    "end": 353934,
+    "old": "world.setBlock(x + 7, y + 8, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 353937,
+    "end": 354003,
+    "old": "world.setBlock(x + 9, y + 8, z + 18, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 18, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 366923,
+    "end": 366989,
+    "old": "world.setBlock(x + 9, y + 8, z + 19, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 19, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 366992,
+    "end": 367058,
+    "old": "world.setBlock(x + 7, y + 8, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 367061,
+    "end": 367127,
+    "old": "world.setBlock(x + 9, y + 8, z + 21, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 21, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 367933,
+    "end": 367999,
+    "old": "world.setBlock(x + 7, y + 8, z + 23, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 23, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 368223,
+    "end": 368289,
+    "old": "world.setBlock(x + 9, y + 8, z + 24, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 24, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 368513,
+    "end": 368579,
+    "old": "world.setBlock(x + 9, y + 8, z + 25, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 25, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 369024,
+    "end": 369090,
+    "old": "world.setBlock(x + 7, y + 8, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 27, ModBlocks.fence_metal);"
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+    "start": 369093,
+    "end": 369159,
+    "old": "world.setBlock(x + 9, y + 8, z + 27, ModBlocks.fence_metal, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 27, ModBlocks.fence_metal);"
+  }
+]

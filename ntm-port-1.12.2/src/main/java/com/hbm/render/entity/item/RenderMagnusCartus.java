@@ -7,16 +7,21 @@ import com.hbm.entity.item.EntityMagnusCartus;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderMagnusCartus extends Render {
 
+	public RenderMagnusCartus(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
 		EntityMagnusCartus cart = (EntityMagnusCartus) entity;
-		Entity e = entity.worldObj.getEntityByID(cart.getBogieID());
+		Entity e = entity.world.getEntityByID(cart.getBogieID());
 		EntityMinecartBogie bogie = null;
 		
 		if(e instanceof EntityMinecartBogie) {

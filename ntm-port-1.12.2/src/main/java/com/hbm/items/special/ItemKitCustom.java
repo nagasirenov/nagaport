@@ -58,7 +58,7 @@ public class ItemKitCustom extends ItemKitNBT {
 	public static ItemStack create(String name, String lore, int color1, int color2, ItemStack... contents) {
 		ItemStack stack = new ItemStack(ModItems.kit_custom);
 		
-		stack.stackTagCompound = new NBTTagCompound();
+		stack.setTagCompound(new NBTTagCompound());
 
 		setColor(stack, color1, 1);
 		setColor(stack, color2, 2);
@@ -72,12 +72,12 @@ public class ItemKitCustom extends ItemKitNBT {
 	
 	public static void setColor(ItemStack stack, int color, int index) {
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setInteger("color" + index, color);
+			stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setInteger("color" + index, color);
 	}
 	
 	public static int getColor(ItemStack stack, int index) {
 		if(!stack.hasTagCompound()) return 0;
-		return stack.stackTagCompound.getInteger("color" + index);
+		return stack.getTagCompound().getInteger("color" + index);
 	}
 }

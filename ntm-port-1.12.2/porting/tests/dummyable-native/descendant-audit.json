@@ -1,0 +1,1361 @@
+{
+  "method": "bounded class/extends token audit, not a Java type checker",
+  "descendants": 200,
+  "classes": [
+    {
+      "class": "AtmoTower",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/AtmoTower.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockAirScrubber",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockAirScrubber.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockAtmosphericCompressor",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockAtmosphericCompressor.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockDoorGeneric",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDoorGeneric.java",
+      "hooks": [
+        "addCollisionBoxesToList",
+        "getCollisionBoundingBoxFromPool",
+        "collisionRayTrace",
+        "onNeighborBlockChange"
+      ]
+    },
+    {
+      "class": "BlockDummyable",
+      "parent": "BlockContainer",
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "hooks": [
+        "updateTick",
+        "onBlockPlacedBy",
+        "breakBlock",
+        "onNeighborBlockChange",
+        "updateTick",
+        "onBlockPlacedBy",
+        "breakBlock",
+        "getRenderType",
+        "addCollisionBoxesToList",
+        "getCollisionBoundingBoxFromPool",
+        "collisionRayTrace",
+        "setBlockBoundsBasedOnState"
+      ]
+    },
+    {
+      "class": "BlockDummyableBeam",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/BlockDummyableBeam.java",
+      "hooks": [
+        "getRenderType",
+        "breakBlock",
+        "onNeighborBlockChange",
+        "updateTick"
+      ]
+    },
+    {
+      "class": "BlockLantern",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockLantern.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockLanternBehemoth",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockLanternBehemoth.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockOrbitalStation",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockOrbitalStationComputer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStationComputer.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockOrbitalStationLauncher",
+      "parent": "BlockOrbitalStation",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStationLauncher.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "BlockPABeamline",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPABeamline.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockPADetector",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPADetector.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockPADipole",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPADipole.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockPAQuadrupole",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPAQuadrupole.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockPARFC",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPARFC.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockPASource",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPASource.java",
+      "hooks": []
+    },
+    {
+      "class": "BlockRailWaypointSystem",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/BlockRailWaypointSystem.java",
+      "hooks": [
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "BlockTransporterRocket",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockTransporterRocket.java",
+      "hooks": [
+        "onBlockPlacedBy",
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "CraneSplitter",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/CraneSplitter.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "DeuteriumTower",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/DeuteriumTower.java",
+      "hooks": []
+    },
+    {
+      "class": "FractionSpacer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/FractionSpacer.java",
+      "hooks": []
+    },
+    {
+      "class": "FurnaceCombination",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/FurnaceCombination.java",
+      "hooks": []
+    },
+    {
+      "class": "FurnaceIron",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/FurnaceIron.java",
+      "hooks": []
+    },
+    {
+      "class": "FurnaceSteel",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/FurnaceSteel.java",
+      "hooks": []
+    },
+    {
+      "class": "HeaterElectric",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/HeaterElectric.java",
+      "hooks": []
+    },
+    {
+      "class": "HeaterFirebox",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/HeaterFirebox.java",
+      "hooks": []
+    },
+    {
+      "class": "HeaterHeatex",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/HeaterHeatex.java",
+      "hooks": []
+    },
+    {
+      "class": "HeaterOilburner",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/HeaterOilburner.java",
+      "hooks": []
+    },
+    {
+      "class": "HeaterOven",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/HeaterOven.java",
+      "hooks": []
+    },
+    {
+      "class": "LaunchPad",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+      "hooks": [
+        "onNeighborBlockChange"
+      ]
+    },
+    {
+      "class": "LaunchPadLarge",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadLarge.java",
+      "hooks": [
+        "onNeighborBlockChange"
+      ]
+    },
+    {
+      "class": "LaunchPadRocket",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRocket.java",
+      "hooks": []
+    },
+    {
+      "class": "LaunchPadRusted",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+      "hooks": [
+        "onNeighborBlockChange"
+      ]
+    },
+    {
+      "class": "MachineAlkylation",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAlkylation.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineAmmoPress",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAmmoPress.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineAnnihilator",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAnnihilator.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineArcFurnaceLarge",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineArcWelder",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineArcWelder.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineAshpit",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAshpit.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineAssemblyFactory",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAssemblyFactory.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineAssemblyMachine",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAssemblyMachine.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineAtmosphericEmitter",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAtmosphericEmitter.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineBatteryREDD",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/MachineBatteryREDD.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineBatterySocket",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/MachineBatterySocket.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineBigAssTank9000",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineBigAssTank9000.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCatalyticCracker",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCatalyticCracker.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCatalyticReformer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCatalyticReformer.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCentrifuge",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCentrifuge.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineChemicalFactory",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChemicalFactory.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineChemicalPlant",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChemicalPlant.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineChimneyBrick",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChimneyBrick.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineChimneyIndustrial",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChimneyIndustrial.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineChungus",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCoker",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCoker.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCombustionEngine",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCombustionEngine.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCompressor",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCompressor.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCompressorCompact",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCompressorCompact.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCondenserPowered",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCondenserPowered.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineConveyorPress",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCrucible",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "MachineCryoDistill",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCrystallizer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCrystallizer.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineCyclotron",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "MachineDishControl",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDishControl.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDrain",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDrain.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDriveProcessor",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDriveProcessor.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDysonConverterAnatmogenesis",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterAnatmogenesis.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDysonConverterHE",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterHE.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDysonConverterTU",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterTU.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDysonLauncher",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonLauncher.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineDysonReceiver",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDysonReceiver.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineEPress",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineEPress.java",
+      "hooks": [
+        "onBlockPlacedBy"
+      ]
+    },
+    {
+      "class": "MachineElectrolyser",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineElectrolyser.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineExcavator",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineExcavator.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineExposureChamber",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineExposureChamber.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFEL",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFEL.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFENSU",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFENSU.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFluidTank",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFluidTank.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFrackingTower",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFrackingTower.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFractionTower",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFractionTower.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionBoiler",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBoiler.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionBreeder",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBreeder.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionCollector",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCollector.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionCoupler",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCoupler.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionKlystron",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystron.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionKlystronCreative",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystronCreative.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionMHDT",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionMHDT.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineFusionTorus",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineGasCent",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineGasCent.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineGasDock",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "MachineGasFlare",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineGasFlare.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHTR3",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHTR3.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHTRF4",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHTRF4.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHTRFNeo",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHTRFNeo.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHeatBoiler",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java",
+      "hooks": [
+        "onBlockPlacedBy"
+      ]
+    },
+    {
+      "class": "MachineHeatBoilerIndustrial",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoilerIndustrial.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHephaestus",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHephaestus.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHydroponic",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineHydrotreater",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHydrotreater.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineICF",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineICF.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineIGenerator",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "MachineITER",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "hooks": [
+        "onBlockPlacedBy"
+      ]
+    },
+    {
+      "class": "MachineIndustrialTurbine",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineIntake",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIntake.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineLPW2",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineLPW2.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineLargeTurbine",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineLargeTurbine.java",
+      "hooks": [
+        "onBlockPlacedBy"
+      ]
+    },
+    {
+      "class": "MachineLiquefactor",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineLiquefactor.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineMagma",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMagma.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineMilkReformer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMilkReformer.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineMiningLaser",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMiningLaser.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineMixer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMixer.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineOilWell",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineOilWell.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineOrbus",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineOrbus.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineOreSlopper",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+      "hooks": []
+    },
+    {
+      "class": "MachinePUREX",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePUREX.java",
+      "hooks": []
+    },
+    {
+      "class": "MachinePlasmaHeater",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePlasmaHeater.java",
+      "hooks": [
+        "getCollisionBoundingBoxFromPool",
+        "setBlockBoundsBasedOnState"
+      ]
+    },
+    {
+      "class": "MachinePrecAss",
+      "parent": "MachineAssemblyMachine",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePrecAss.java",
+      "hooks": []
+    },
+    {
+      "class": "MachinePress",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePress.java",
+      "hooks": []
+    },
+    {
+      "class": "MachinePump",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePump.java",
+      "hooks": []
+    },
+    {
+      "class": "MachinePumpjack",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePumpjack.java",
+      "hooks": []
+    },
+    {
+      "class": "MachinePyroOven",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePyroOven.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRadGen",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRadGen.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRadarLarge",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRadarLarge.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRadarScreen",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRadarScreen.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRadiator",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRadiator.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRadiolysis",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRadiolysis.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineReactorBreeding",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineReactorBreeding.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRefinery",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRefinery.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineRocketAssembly",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+      "hooks": [
+        "getRenderType",
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "MachineRotaryFurnace",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineSILEX",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSILEX.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineSawmill",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+      "hooks": [
+        "onBlockPlacedBy"
+      ]
+    },
+    {
+      "class": "MachineSolar",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSolar.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineSolarBoiler",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSolarBoiler.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineSolderingStation",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSolderingStation.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineSolidifier",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSolidifier.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineStardar",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineStardar.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineSteamEngine",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSteamEngine.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineStirling",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineStirling.java",
+      "hooks": [
+        "onBlockPlacedBy"
+      ]
+    },
+    {
+      "class": "MachineStrandCaster",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "MachineTowerLarge",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTowerLarge.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineTowerSmall",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTowerSmall.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineTurbineGas",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTurbineGas.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineTurbofan",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTurbofan.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineVacuumCircuit",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineVacuumCircuit.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineVacuumDistill",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineVacuumDistill.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineWoodBurner",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineWoodBurner.java",
+      "hooks": []
+    },
+    {
+      "class": "MachineXenonThruster",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineXenonThruster.java",
+      "hooks": []
+    },
+    {
+      "class": "PylonLarge",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/PylonLarge.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "PylonMedium",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/PylonMedium.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "RBMKAbsorber",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAbsorber.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKAutoloader",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java",
+      "hooks": []
+    },
+    {
+      "class": "RBMKBase",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+      "hooks": [
+        "getCollisionBoundingBoxFromPool",
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "RBMKBlank",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBlank.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKBoiler",
+      "parent": "RBMKPipedBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBoiler.java",
+      "hooks": []
+    },
+    {
+      "class": "RBMKConsole",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKControl",
+      "parent": "RBMKPipedBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControl.java",
+      "hooks": [
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RBMKControlAuto",
+      "parent": "RBMKPipedBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControlAuto.java",
+      "hooks": [
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RBMKCooler",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKCooler.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKCraneConsole",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKCraneConsole.java",
+      "hooks": [
+        "getCollisionBoundingBoxFromPool",
+        "setBlockBoundsBasedOnState"
+      ]
+    },
+    {
+      "class": "RBMKHeater",
+      "parent": "RBMKPipedBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKHeater.java",
+      "hooks": []
+    },
+    {
+      "class": "RBMKModerator",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKModerator.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKOutgasser",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKOutgasser.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKPipedBase",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKPipedBase.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKReflector",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKReflector.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKRod",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+      "hooks": [
+        "breakBlock",
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RBMKRodReaSim",
+      "parent": "RBMKRod",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRodReaSim.java",
+      "hooks": []
+    },
+    {
+      "class": "RBMKStorage",
+      "parent": "RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKStorage.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RadioTelex",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/RadioTelex.java",
+      "hooks": []
+    },
+    {
+      "class": "RailNarrowCurve",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailNarrowCurve.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RailNarrowStraight",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailNarrowStraight.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RailStandardBuffer",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardBuffer.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState"
+      ]
+    },
+    {
+      "class": "RailStandardCurveBase",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardCurveBase.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RailStandardCurveWide7",
+      "parent": "RailStandardCurveBase",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide7.java",
+      "hooks": []
+    },
+    {
+      "class": "RailStandardCurveWide9",
+      "parent": "RailStandardCurveBase",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardCurveWide9.java",
+      "hooks": []
+    },
+    {
+      "class": "RailStandardRamp",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardRamp.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RailStandardStraight",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardStraight.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RailStandardStraightShort",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardStraightShort.java",
+      "hooks": [
+        "getRenderType",
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "RailStandardSwitch",
+      "parent": "BlockRailWaypointSystem",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "RailStandardSwitchFlipped",
+      "parent": "BlockRailWaypointSystem",
+      "path": "src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java",
+      "hooks": [
+        "getRenderType"
+      ]
+    },
+    {
+      "class": "ReactorResearch",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/ReactorResearch.java",
+      "hooks": []
+    },
+    {
+      "class": "ReactorZirnox",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/ReactorZirnox.java",
+      "hooks": [
+        "onNeighborBlockChange"
+      ]
+    },
+    {
+      "class": "SoyuzLauncher",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "hooks": [
+        "onBlockPlacedBy",
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "Substation",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/network/Substation.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "TurretArty",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretArty.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretBaseNT",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretBaseNT.java",
+      "hooks": [
+        "setBlockBoundsBasedOnState",
+        "getCollisionBoundingBoxFromPool"
+      ]
+    },
+    {
+      "class": "TurretBrandon",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretBrandon.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretChekhov",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretChekhov.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretFriendly",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretFriendly.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretFritz",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretFritz.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretHIMARS",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretHIMARS.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretHoward",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretHoward.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretHowardDamaged",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretHowardDamaged.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretJeremy",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretJeremy.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretMaxwell",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretMaxwell.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretRichard",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretRichard.java",
+      "hooks": []
+    },
+    {
+      "class": "TurretTauon",
+      "parent": "TurretBaseNT",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretTauon.java",
+      "hooks": []
+    },
+    {
+      "class": "Watz",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/Watz.java",
+      "hooks": [
+        "breakBlock"
+      ]
+    },
+    {
+      "class": "WatzPump",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/WatzPump.java",
+      "hooks": []
+    },
+    {
+      "class": "ZirnoxDestroyed",
+      "parent": "BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "hooks": [
+        "updateTick"
+      ]
+    }
+  ]
+}

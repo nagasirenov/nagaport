@@ -1,5 +1,8 @@
 package com.hbm.items.tool;
 
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import com.hbm.inventory.container.ContainerToolBox;
 import com.hbm.inventory.gui.GUIToolBox;
 import com.hbm.items.ItemInventory;
@@ -103,7 +106,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 
 				extraToolboxes++;
 				player.dropPlayerItemWithRandomChoice(slot, true);
-				player.inventory.setInventorySlotContents(i, null);
+				player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
 
 			} else if(i == player.inventory.currentItem) {
 				hasToolbox = true;
@@ -115,9 +118,9 @@ public class ItemToolBox extends Item implements IGUIProvider {
 
 		if(extraToolboxes > 0) {
 			if(extraToolboxes == 1)
-				player.addChatComponentMessage(new ChatComponentText("You can't toolbox a toolbox... ").setChatStyle(new ChatStyle().setColor(TextFormatting.RED))); // TODO: tell someone else to do i18n stuff; i don't want to
+				player.sendMessage(new TextComponentString("You can't toolbox a toolbox... ").setStyle(new Style().setColor(TextFormatting.RED))); // TODO: tell someone else to do i18n stuff; i don't want to
 			else
-				player.addChatComponentMessage(new ChatComponentText("You can't toolbox a toolbox... (x" + extraToolboxes + ")").setChatStyle(new ChatStyle().setColor(TextFormatting.RED))); // TODO: this too :ayo:
+				player.sendMessage(new TextComponentString("You can't toolbox a toolbox... (x" + extraToolboxes + ")").setStyle(new Style().setColor(TextFormatting.RED))); // TODO: this too :ayo:
 		}
 
 		// Move stacks around inside the box, mostly shifts rows to other rows and shifts the top row to the hotbar.
@@ -189,7 +192,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 				byte[] abyte = CompressedStreamTools.compress(nbt);
 
 				if (abyte.length > 6000) {
-					player.addChatComponentMessage(new ChatComponentText(TextFormatting.RED + "Warning: Container NBT exceeds 6kB, contents will be ejected!"));
+					player.sendMessage(new TextComponentString(TextFormatting.RED + "Warning: Container NBT exceeds 6kB, contents will be ejected!"));
 					ItemStack[] stacks1 = ItemStackUtil.readStacksFromNBT(box, 24 /* Toolbox inv size. */);
 					if(stacks1 == null)
 						return;
@@ -208,7 +211,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 								}
 
 								itemstack.stackSize -= j1;
-								EntityItem entityitem = new EntityItem(player.worldObj, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+								EntityItem entityitem = new EntityItem(player.world, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 								if (itemstack.hasTagCompound()) {
 									entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
@@ -218,7 +221,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 								entityitem.motionX = (float) random.nextGaussian() * f3 + player.motionX;
 								entityitem.motionY = (float) random.nextGaussian() * f3 + 0.2F + player.motionY;
 								entityitem.motionZ = (float) random.nextGaussian() * f3 + player.motionZ;
-								player.worldObj.spawnEntityInWorld(entityitem);
+								player.world.spawnEntityInWorld(entityitem);
 							}
 						}
 					}
@@ -248,13 +251,13 @@ public class ItemToolBox extends Item implements IGUIProvider {
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerToolBox(player.inventory, new InventoryToolBox(player, player.getHeldItem()));
+		return new ContainerToolBox(player.inventory, new InventoryToolBox(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUIToolBox(player.inventory, new InventoryToolBox(player, player.getHeldItem()));
+		return new GUIToolBox(player.inventory, new InventoryToolBox(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	public static class InventoryToolBox extends ItemInventory {
@@ -294,7 +297,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 			super.closeInventory();
 
 			this.target.getTagCompound().removeTag("isOpen");
-			this.target.getTagCompound().setInteger("rand", player.worldObj.rand.nextInt()); // a boolean changing isn't sufficient to detect the change
+			this.target.getTagCompound().setInteger("rand", player.world.rand.nextInt()); // a boolean changing isn't sufficient to detect the change
 			player.inventoryContainer.detectAndSendChanges();
 		}
 

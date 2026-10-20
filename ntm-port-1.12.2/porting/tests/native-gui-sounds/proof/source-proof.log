@@ -1,0 +1,2 @@
+PASS 157 exact selectors across 83 whole files; full inverse, untouched comment, fixed native helper/resolver sources.
+PASS full genuine-source binding: 157 unchanged complete argument pairs/receiver/method bodies; 157 genuine native helper and handler destinations. 15952 -> 15795 diagnostics, no other diagnostic changes. Not a successful whole-mod build.

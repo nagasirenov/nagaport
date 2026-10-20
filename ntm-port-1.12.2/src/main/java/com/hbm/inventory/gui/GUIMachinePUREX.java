@@ -45,9 +45,9 @@ public class GUIMachinePUREX extends GuiInfoContainer {
 		if(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {
 			if(this.purex.purexModule.recipe != null && PUREXRecipes.INSTANCE.recipeNameMap.containsKey(this.purex.purexModule.recipe)) {
 				GenericRecipe recipe = (GenericRecipe) PUREXRecipes.INSTANCE.recipeNameMap.get(this.purex.purexModule.recipe);
-				this.func_146283_a(recipe.print(), mouseX, mouseY);
+				this.drawHoveringText(recipe.print(), mouseX, mouseY);
 			} else {
-				this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey("gui.recipe.setRecipe"), mouseX, mouseY);
+				this.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey("gui.recipe.setRecipe"), mouseX, mouseY);
 			}
 		}
 	}
@@ -63,8 +63,8 @@ public class GUIMachinePUREX extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.purex.hasCustomInventoryName() ? this.purex.getInventoryName() : I18n.format(this.purex.getInventoryName());
 
-		this.fontRendererObj.drawString(name, 70 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 70 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

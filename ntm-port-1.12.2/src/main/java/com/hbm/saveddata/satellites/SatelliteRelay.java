@@ -14,7 +14,7 @@ public class SatelliteRelay extends Satellite {
 	public void onOrbit(World world, double x, double y, double z) {
 
 		for(Object p : world.playerEntities)
-			((EntityPlayer)p).triggerAchievement(MainRegistry.achFOEQ);
+			com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.achFOEQ);
 	}
 
 	@Override

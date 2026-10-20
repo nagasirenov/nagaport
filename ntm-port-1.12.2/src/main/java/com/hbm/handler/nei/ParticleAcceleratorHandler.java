@@ -16,16 +16,16 @@ public class ParticleAcceleratorHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmParticleAccelerator";
 	}
 
 	@Override
-	public void drawExtras(int recipe) {
+	public void drawRecipe(com.hbm.handler.jei.MachineRecipeView rec, Minecraft minecraft, int mouseX, int mouseY) {
 
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
+		super.drawRecipe(rec, minecraft, mouseX, mouseY);
 		
-		ParticleAcceleratorRecipe paRecipe = ParticleAcceleratorRecipes.getOutput(rec.input[0].item, rec.input[1].item);
+		ParticleAcceleratorRecipe paRecipe = ParticleAcceleratorRecipes.getOutput(rec.displayedInput(0), rec.displayedInput(1));
 		
 		if(paRecipe != null) {
 			FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;

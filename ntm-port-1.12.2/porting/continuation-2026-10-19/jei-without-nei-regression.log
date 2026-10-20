@@ -1,0 +1,28 @@
+=== core WITHOUT NEI ===
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS native JEI core: 58 assertions; actual MC/JEI ingredients and helpers, observed GUI APIs, no GL/gameplay test.
+=== handlers WITHOUT NEI ===
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[15:23:58] [main/WARN]: Potentially Dangerous alternative prefix `jei_fixture` for name `rod`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS migrated production JEI handlers: 272 assertions. Real MC/JEI dependencies; scoped NTM-only registry/domain fixtures; no gameplay/full-mod claim.
+=== custom WITHOUT NEI ===
+PASS custom annotations: 13 source-only contracts; not GL rendering evidence.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS complete CustomMachineHandler: 78 executable assertions; actual MC/Forge/JEI, scoped NTM fixtures and exact production tooltip method; no GL/gameplay/full-mod claim.
+=== satellite WITHOUT NEI ===
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS Satellite whole-class native probe: 407 assertions; actual MC/JEI and weighted loot; NTM registry fixtures/exact extracted tooltip method. No full-mod/gameplay claim.
+=== anvil WITHOUT NEI ===
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: 159 native AnvilRecipeHandler/AnvilOverlayHandler assertions (NTM-only domain/GUI fixtures; no full gameplay proof)
+SOURCE-ONLY GUI lifecycle guards passed; no full GUI/gameplay compilation claimed.
+PASS: 540 scoped source/overflow assertions
+Baseline: 5f720e0f82340aa29f2613ff71fc706689d7c3aa
+SatelliteHandler SHA-256: 55e2c5ce20b39e1d71e6477cd8bc42c32dc86c4d362826b39363192ff4c878e7
+Scope: source-contract and mathematical slot grouping only; no complete-class compilation, OpenGL, or full-game claim.
+PASS: 29 optional-browser source contracts; exact 20-file comparator-only delta, unchanged visibility and optional GUI.

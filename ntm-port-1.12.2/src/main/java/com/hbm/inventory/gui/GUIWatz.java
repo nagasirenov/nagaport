@@ -47,12 +47,12 @@ public class GUIWatz extends GuiInfoContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 93, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 93, 4210752);
 		
 		double scale = 1.25;
 		String flux = String.format(Locale.US, "%,.1f", watz.fluxDisplay);
 		GL11.glScaled(1 / scale, 1 / scale, 1);
-		this.fontRendererObj.drawString(flux, (int) (161 * scale - this.fontRendererObj.getStringWidth(flux)), (int)(107 * scale), 0x00ff00);
+		this.fontRenderer.drawString(flux, (int) (161 * scale - this.fontRenderer.getStringWidth(flux)), (int)(107 * scale), 0x00ff00);
 		GL11.glScaled(scale, scale, 1);
 	}
 
@@ -63,8 +63,8 @@ public class GUIWatz extends GuiInfoContainer {
 		if(guiLeft + 142 <= x && guiLeft + 142 + 18 > x && guiTop + 70 < y && guiTop + 70 + 18 >= y) {
 			NBTTagCompound control = new NBTTagCompound();
 			control.setBoolean("lock", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, watz.xCoord, watz.yCoord, watz.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, watz.getPos().getX(), watz.getPos().getY(), watz.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1F));
 		}
 	}
 
@@ -72,7 +72,7 @@ public class GUIWatz extends GuiInfoContainer {
 	protected void drawGuiContainerBackgroundLayer(float interp, int x, int y) {
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		float col = MathHelper.clamp_float(1 - (float) Math.log(watz.heat / 100_000D + 1) * 0.4F, 0F, 1F);
+		float col = MathHelper.clamp(1 - (float) Math.log(watz.heat / 100_000D + 1) * 0.4F, 0F, 1F);
 		GL11.glColor4f(1.0F, col, col, 1.0F);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, 131, 122);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

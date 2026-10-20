@@ -189,8 +189,8 @@ public class BossSpawnHandler {
 
 	public static void markFBI(EntityPlayer player) {
 
-		if(!player.worldObj.isRemote)
-			player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).setLong("fbiMark", player.worldObj.getTotalWorldTime() + 20 * 60 * 20);
+		if(!player.world.isRemote)
+			player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).setLong("fbiMark", player.world.getTotalWorldTime() + 20 * 60 * 20);
 	}
 
 	public static int meteorShower = 0;
@@ -202,7 +202,7 @@ public class BossSpawnHandler {
 
 				EntityPlayer p = (EntityPlayer)world.playerEntities.get(meteorRand.nextInt(world.playerEntities.size()));
 
-				if(p != null && p.worldObj.provider instanceof WorldProviderSurface) {
+				if(p != null && p.world.provider instanceof WorldProviderSurface) {
 
 					boolean repell = false;
 					boolean strike = true;
@@ -244,7 +244,7 @@ public class BossSpawnHandler {
 
 	public static void spawnMeteorAtPlayer(EntityPlayer player, boolean repell) {
 
-		EntityMeteor meteor = new EntityMeteor(player.worldObj);
+		EntityMeteor meteor = new EntityMeteor(player.world);
 		meteor.setPositionAndRotation(player.posX + meteorRand.nextInt(201) - 100, 384, player.posZ + meteorRand.nextInt(201) - 100, 0, 0);
 
 		Vec3d vec;
@@ -261,6 +261,6 @@ public class BossSpawnHandler {
 		meteor.motionX = vec.x;
 		meteor.motionY = -2.5;
 		meteor.motionZ = vec.z;
-		player.worldObj.spawnEntityInWorld(meteor);
+		player.world.spawnEntityInWorld(meteor);
 	}
 }

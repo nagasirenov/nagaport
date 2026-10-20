@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:tile.machine_electric_furnace_off_0"
+    },
+    "metadata=1": {
+      "model": "hbm:tile.machine_electric_furnace_off_1"
+    },
+    "metadata=2": {
+      "model": "hbm:tile.machine_electric_furnace_off_2"
+    },
+    "metadata=3": {
+      "model": "hbm:tile.machine_electric_furnace_off_3"
+    },
+    "metadata=4": {
+      "model": "hbm:tile.machine_electric_furnace_off_4"
+    },
+    "metadata=5": {
+      "model": "hbm:tile.machine_electric_furnace_off_5"
+    },
+    "metadata=6": {
+      "model": "hbm:tile.machine_electric_furnace_off_6"
+    },
+    "metadata=7": {
+      "model": "hbm:tile.machine_electric_furnace_off_7"
+    },
+    "metadata=8": {
+      "model": "hbm:tile.machine_electric_furnace_off_8"
+    },
+    "metadata=9": {
+      "model": "hbm:tile.machine_electric_furnace_off_9"
+    },
+    "metadata=10": {
+      "model": "hbm:tile.machine_electric_furnace_off_10"
+    },
+    "metadata=11": {
+      "model": "hbm:tile.machine_electric_furnace_off_11"
+    },
+    "metadata=12": {
+      "model": "hbm:tile.machine_electric_furnace_off_12"
+    },
+    "metadata=13": {
+      "model": "hbm:tile.machine_electric_furnace_off_13"
+    },
+    "metadata=14": {
+      "model": "hbm:tile.machine_electric_furnace_off_14"
+    },
+    "metadata=15": {
+      "model": "hbm:tile.machine_electric_furnace_off_15"
+    }
+  }
+}

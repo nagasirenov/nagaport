@@ -16,8 +16,8 @@ public abstract class RBMKPipedBase extends RBMKBase {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		super.registerBlockIcons(reg);
-		this.pipeTextureTop = reg.registerIcon(this.getTextureName() + "_pipe_top");
-		this.pipeTextureSide = reg.registerIcon(this.getTextureName() + "_pipe_side");
+		this.pipeTextureTop = reg.registerIcon(this.getRBMKTexture() + "_pipe_top");
+		this.pipeTextureSide = reg.registerIcon(this.getRBMKTexture() + "_pipe_side");
 	}
 
 	@Override

@@ -1,0 +1,56 @@
+{
+  "base": "3875114d4e1f0e9b0ceb67c2d84840e66ba1b20c",
+  "changes": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before": "b22404a43463078894ad7762b3fb7c7c9e7925bc2a6b773b95ce78c91ea9efeb",
+      "after": "7470991b8d7f5aa06bf8612a55d21bd5cbccd98a54de5a3673a2974c5d4cca4f"
+    },
+    "src/main/java/com/hbm/blocks/generic/BarbedWire.java": {
+      "before": "24fb3939ec5d189e3b21064da3c263e85570aa6b161e7d3011fe13b194535c6c",
+      "after": "9039af91f9ff43a89eb8bf1a727f84b592139589b89308c603c787d37eda3ee8"
+    },
+    "src/main/java/com/hbm/main/BarbedWireObjModelHandler.java": {
+      "before": "fc22eef4ba554970cc2589b3a0f43639c88cbc2166e512d634d780e9c7adb7bb",
+      "after": "ca549f417ff3ece9b68d0d903344bdd9702e8eaff88e9908d521cd8100711276"
+    },
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire.json": {
+      "before": null,
+      "after": "095eebc518eb682aacb0d060414bf7b14974ff4fa7b112f759bc394ada7f5dda"
+    },
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_acid.json": {
+      "before": null,
+      "after": "465370f440d7f31dfb51c2a8327b3ab4201ffdc9cebe25f5c9816c6ee7da24d3"
+    },
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_fire.json": {
+      "before": null,
+      "after": "74268ee3ec7de987df29915b924f398b0171dea2815eb50aa5475f8ae7160cb1"
+    },
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_poison.json": {
+      "before": null,
+      "after": "13dee5b92b4bb024b2f1bea324428c288a8c1a61a8c2b75cb4d61aad6a11085f"
+    },
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_ultradeath.json": {
+      "before": null,
+      "after": "95ebb2d027337a00af284714abbb748ebd4f270afd5d8b97b4649dedf6967256"
+    },
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_wither.json": {
+      "before": null,
+      "after": "f23d0057f5f5c65def5279b9f7c89f579d89295208b335d4f8917b2aacf4a6f7"
+    }
+  },
+  "unchanged_assets": {
+    "src/main/resources/assets/hbm/models/blocks/barbed_wire.obj": "00bf767f7daca0a07545799b4106d9360bba123a1703bf40a0f80e9134748f63",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire.png": "98fdb40e1d39b2567701005f546ebbbaf2a705b09f83a74dd0cb9640c64a19f2",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_acid.png": "52eea9382460602b53ff1eac343c16a67d18df740b11be54f761d3ca614c5e9b",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_acid_model.png": "645a68a084e845b1cd6882d36715f8b206a62cd7f559243ae3eb7ce9079724bd",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_fire.png": "b8ff2b6215ee82e4029e686af823a169c825a00403af7f4812bf6c3db9d513f9",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_fire_model.png": "3edff64f2eadcf761d40e3932dec670f59e57d17436e03fe44eb8cc7f5823d5c",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_model.png": "07e5eddd80b446e5923396469e2317acbd93de22b7a3577affcbe2f70626daa0",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_poison.png": "9f3453bd02bf1b7093fc55a441e3e23ea2592149048fea70861c782721c215b2",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_poison_model.png": "b7972d9d8fb6fde7528b9779fe13b18dc57fd6ee76fb96b1140aec2efae5af01",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_ultradeath.png": "d88c1d036e024b4639ea335e4750c8cae80de306673c3d109a4c31c5fb116b49",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_ultradeath_model.png": "5ddfbb6d5c6903d7462c098f5cddbabebdd230e4124f8d48933970236e738c6f",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_wither.png": "217991ad0de764ecdeee22344fbe544e73aaf82e9fee6b874b55633b2ce4af2c",
+    "src/main/resources/assets/hbm/textures/blocks/barbed_wire_wither_model.png": "b660b97e86213f6ba9f9d60f3656bf85bf2440f53c02fedfe75ddd320dc1a902"
+  }
+}

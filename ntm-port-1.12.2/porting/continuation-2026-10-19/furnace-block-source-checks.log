@@ -1,0 +1,2 @@
+PASS: two native furnace block whole-file reversals and 6 drift rejections; exact checkpoint17 bytes preserved.
+PASS: new furnace reversal composes into unchanged checkpoint17 exact drop reversal

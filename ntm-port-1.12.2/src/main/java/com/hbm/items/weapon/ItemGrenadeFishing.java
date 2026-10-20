@@ -31,7 +31,7 @@ public class ItemGrenadeFishing extends ItemGenericGrenade {
 			int rY = iY + world.rand.nextInt(15) - 7;
 			int rZ = iZ + world.rand.nextInt(15) - 7;
 			
-			if(world.getBlock(rX, rY, rZ).getMaterial() == Material.water) {
+			if(com.hbm.world.WorldBlockState.read(world, rX, rY, rZ).getBlock().getDefaultState().getMaterial() == Material.WATER) {
 				ItemStack loot = getRandomLoot(world.rand, world);
 				if(!loot.isEmpty()) {
 					EntityItemBuoyant item = new EntityItemBuoyant(world, rX + 0.5, rY + 0.5, rZ + 0.5, loot.copy());

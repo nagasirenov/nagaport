@@ -19,7 +19,7 @@ public class RenderDropPod extends RenderRocketPart {
 	public void render(TextureManager tex, EntityRideableRocket rocket, float interp) {
 		tex.bindTexture(ResourceManager.drop_pod_tex);
 
-		if(CelestialBody.inOrbit(rocket.worldObj)) {
+		if(CelestialBody.inOrbit(rocket.world)) {
 			ResourceManager.drop_pod.renderAll();
 			return;
 		}
@@ -36,9 +36,9 @@ public class RenderDropPod extends RenderRocketPart {
 
 			float doorRotation = 0;
 			if(state == RocketState.LANDED) {
-				doorRotation = MathHelper.clamp_float(lerpTimer * 2, 0, 90);
+				doorRotation = MathHelper.clamp(lerpTimer * 2, (float) (0), (float) (90));
 			} else if(state == RocketState.AWAITING) {
-				doorRotation = MathHelper.clamp_float(90 - lerpTimer * 2, 0, 90);
+				doorRotation = MathHelper.clamp(90 - lerpTimer * 2, (float) (0), (float) (90));
 			}
 
 			GL11.glTranslatef(0.69291F, 2.8333F, 0);
@@ -65,7 +65,7 @@ public class RenderDropPod extends RenderRocketPart {
 				}
 
 				if(!brakes) {
-					float t = MathHelper.clamp_float((float)(System.currentTimeMillis() - brakeStart) / 1000, 0, 1);
+					float t = MathHelper.clamp((float)(System.currentTimeMillis() - brakeStart) / 1000, (float) (0), (float) (1));
 					brakeRotation = (1 - t) * 65;
 				} else {
 					brakeRotation = 65;

@@ -1,0 +1,8 @@
+{
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java": "557e4eb2602975d472fb18eef3fd3c0252dc94c2fb3908c3516b3fa54f042120",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-sound/PacketParityProbe.java": "20e708ff9978536366f408d1833a0881efc56f2b48de71553c865250dd8ae841",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-sound/WorldSoundRegistryCategoryTest.java": "19c24f6e74bfbf77df754ade8d02450734e80a82b2a656423fcf877ba7bfff3f",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/NumericWideningProbe.java": "6016dd132e7a3a673d35587cdb7cdcb32433329018080958cc46a0931972705c",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/generate-fixtures.py": "00f27394b0189baa1b224ae51059bcd6678c2e74c44e9fb7da5a0f2ad7e03d10",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3"
+}

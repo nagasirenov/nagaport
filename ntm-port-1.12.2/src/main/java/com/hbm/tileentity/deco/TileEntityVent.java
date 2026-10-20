@@ -10,14 +10,14 @@ import com.hbm.entity.particle.EntityPinkCloudFX;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityVent extends TileEntity {
+public class TileEntityVent extends TileEntity implements net.minecraft.util.ITickable {
 	
 	Random rand = new Random();
 
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote && worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {
-			Block b = worldObj.getBlock(xCoord, yCoord, zCoord);
+		if(!this.world.isRemote && this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
+			Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock();
 
 			if(b == ModBlocks.vent_chlorine) {
 				//if(rand.nextInt(1) == 0) {
@@ -25,8 +25,8 @@ public class TileEntityVent extends TileEntity {
 					double y = rand.nextGaussian() * 1.5;
 					double z = rand.nextGaussian() * 1.5;
 					
-					if(!worldObj.getBlock(xCoord + (int)x, yCoord + (int)y, zCoord + (int)z).isNormalCube()) {
-						worldObj.spawnEntityInWorld(new EntityChlorineFX(worldObj, xCoord + (int)x, yCoord + (int)y, zCoord + (int)z, x/2, y/2, z/2));
+					if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {
+						this.world.spawnEntityInWorld(new EntityChlorineFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
 			}
@@ -36,8 +36,8 @@ public class TileEntityVent extends TileEntity {
 				double y = rand.nextGaussian() * 1.75;
 				double z = rand.nextGaussian() * 1.75;
 				
-				if(!worldObj.getBlock(xCoord + (int)x, yCoord + (int)y, zCoord + (int)z).isNormalCube()) {
-					worldObj.spawnEntityInWorld(new EntityCloudFX(worldObj, xCoord + (int)x, yCoord + (int)y, zCoord + (int)z, x/2, y/2, z/2));
+				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {
+					this.world.spawnEntityInWorld(new EntityCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
 			}
@@ -47,8 +47,8 @@ public class TileEntityVent extends TileEntity {
 				double y = rand.nextGaussian() * 2;
 				double z = rand.nextGaussian() * 2;
 				
-				if(!worldObj.getBlock(xCoord + (int)x, yCoord + (int)y, zCoord + (int)z).isNormalCube()) {
-					worldObj.spawnEntityInWorld(new EntityPinkCloudFX(worldObj, xCoord + (int)x, yCoord + (int)y, zCoord + (int)z, x/2, y/2, z/2));
+				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {
+					this.world.spawnEntityInWorld(new EntityPinkCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
 			}

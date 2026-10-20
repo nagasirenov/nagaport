@@ -82,7 +82,7 @@ public class XFactory40mm {
 	};
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_DEMO = (bullet, mop) -> {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3) return;
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5F, bullet.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5F, bullet.getThrower());
 		vnt.setBlockAllocator(new BlockAllocatorStandard());
 		vnt.setBlockProcessor(new BlockProcessorStandard());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage));
@@ -100,7 +100,7 @@ public class XFactory40mm {
 
 	public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, boolean phosphorus, int duration) {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3) return;
-		World world = bullet.worldObj;
+		World world = bullet.world;
 		Lego.standardExplode(bullet, mop, 3F);
 		EntityFireLingering fire = new EntityFireLingering(world).setArea(5, 2).setDuration(duration).setType(phosphorus ? EntityFireLingering.TYPE_PHOSPHORUS : EntityFireLingering.TYPE_DIESEL);
 		fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
@@ -112,8 +112,8 @@ public class XFactory40mm {
 					int x = (int) Math.floor(mop.hitVec.x) + dx;
 					int y = (int) Math.floor(mop.hitVec.y) + dy;
 					int z = (int) Math.floor(mop.hitVec.z) + dz;
-					if(world.getBlock(x, y, z).isAir(bullet.worldObj, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-						if(com.hbm.lib.FacingCompat.isFlammable(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.getOpposite())) {
+					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(bullet.world, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+						if(com.hbm.lib.FacingCompat.isFlammable(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock(), world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.getOpposite())) {
 							world.setBlock(x, y, z, Blocks.fire);
 							break;
 						}
@@ -127,16 +127,16 @@ public class XFactory40mm {
 	public static Consumer<Entity> LAMBDA_SPAWN_C130_WEAPONS = (entity) -> { spawnPlane(entity, C130PayloadType.WEAPONS); };
 
 	public static void spawnPlane(Entity entity, C130PayloadType payload) {
-		if(!entity.worldObj.isRemote && entity.ticksExisted == 40) {
+		if(!entity.world.isRemote && entity.ticksExisted == 40) {
 			EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;
-			if(bullet.getThrower() != null) bullet.worldObj.playSoundAtEntity(bullet.getThrower(), "hbm:item.techBleep", 1.0F, 1.0F);
-			EntityC130 c130 = new EntityC130(bullet.worldObj);
+			if(bullet.getThrower() != null) bullet.world.playSoundAtEntity(bullet.getThrower(), "hbm:item.techBleep", 1.0F, 1.0F);
+			EntityC130 c130 = new EntityC130(bullet.world);
 			int x = (int) Math.floor(bullet.posX);
 			int z = (int) Math.floor(bullet.posZ);
-			int y = bullet.worldObj.getHeightValue(x, z);
-			c130.fac(bullet.worldObj, x, y, z, payload);
+			int y = bullet.world.getHeightValue(x, z);
+			c130.fac(bullet.world, x, y, z, payload);
 			WorldUtil.loadAndSpawnEntityInWorld(c130);
-			TrackerUtil.setTrackingRange(bullet.worldObj, c130, 250);
+			TrackerUtil.setTrackingRange(bullet.world, c130, 250);
 		}
 	}
 
@@ -162,7 +162,7 @@ public class XFactory40mm {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_GL))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_FLAREGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAREGUN)
-				).setDefaultAmmo(EnumAmmo.G26_FLARE, 3).setUnlocalizedName("gun_flaregun");
+				).setDefaultAmmo(EnumAmmo.G26_FLARE, 3).setTranslationKey("gun_flaregun");
 
 		ModItems.gun_congolake = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(400).draw(7).inspect(39).reloadSequential(true).reloadChangeType(true).crosshair(Crosshair.L_CIRCUMFLEX).smoke(LAMBDA_SMOKE)
@@ -173,7 +173,7 @@ public class XFactory40mm {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_GL))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_CONGOLAKE_ANIMS).orchestra(Orchestras.ORCHESTRA_CONGOLAKE)
-				).setDefaultAmmo(EnumAmmo.G40_HE, 8).setUnlocalizedName("gun_congolake");
+				).setDefaultAmmo(EnumAmmo.G40_HE, 8).setTranslationKey("gun_congolake");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_SMOKE = (stack, ctx) -> {

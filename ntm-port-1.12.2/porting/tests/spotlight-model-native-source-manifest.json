@@ -1,0 +1,22 @@
+{
+  "assets": {
+    "assets/hbm/models/lights/cage_lamp.obj": "548cc1a51643bbae70c51da324ac899873a69e73faca46ae44bbe3803c3b7d3d",
+    "assets/hbm/models/lights/flood_lamp.obj": "b53518c91b81c7271fb6be8cd94b036b0545f1f24b08a987f6760f8db0073cde",
+    "assets/hbm/models/lights/fluorescent_lamp.obj": "8c931c590f5d61cdf0230dd04e8bdebf1bcbf0d0028d179df07ad276db25af74",
+    "assets/hbm/textures/blocks/cage_lamp.png": "913c98b24d1be02be25d0dc5020d80dcb2eaf5337c46ff8750df93f2bd61f993",
+    "assets/hbm/textures/blocks/cage_lamp_off.png": "34fcb247ca0e7535427211c02fba9dc3a01f37d90c82d31249dd197b5e172fc0",
+    "assets/hbm/textures/blocks/flood_lamp.png": "328f0ac64374f55668f7fd0a3d2dc26b5f5ee67575f5a50f6a10f4ac945a1095",
+    "assets/hbm/textures/blocks/flood_lamp_off.png": "2b4e56fbc1e2cf1ec82a6057005e2d2157f8d8c5452558195bc11975059ce29f",
+    "assets/hbm/textures/blocks/fluorescent_lamp.png": "c8d071e208ec9223a111a2ce0c832d31c53d7f236d228949b54508a1f3198cb5",
+    "assets/hbm/textures/blocks/fluorescent_lamp_off.png": "ebd99ba57dac19cf29e63a515d553d84004b48442583b944dbe01115d2f97d84"
+  },
+  "purpose": "Pinned pristine Spotlight selectors/OBJ/texture evidence for native model tests, separate from actual-owner behavior and graphical acceptance.",
+  "sources": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/blocks/machine/Spotlight.java": "f10673997d70eec0a836e68e50b4375aee4229207a0b85d1a7739a85175c54c2",
+    "src/main/java/com/hbm/blocks/machine/SpotlightModular.java": "6291c8b7336855887da5a874c7b3f2cf9e6db570a1b80b0d80e8e69d8f94fdd7",
+    "src/main/java/com/hbm/main/ResourceManager.java": "dd86786c08d235f29318f1775afc5d8b34d17829307f93ea13114875596ba0d9",
+    "src/main/java/com/hbm/render/block/RenderLight.java": "06c63d2473469969930bed80c13511f4a5de1dcb44b760f38a0b087316689abc",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608"
+  }
+}

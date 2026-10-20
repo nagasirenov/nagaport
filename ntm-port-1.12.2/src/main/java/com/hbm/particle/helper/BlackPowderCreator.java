@@ -49,9 +49,9 @@ public class BlackPowderCreator implements IParticleCreator {
 		for(int i = 0; i < cloudCount; i++) {
 			ParticleBlackPowderSmoke particle = new ParticleBlackPowderSmoke(world, x, y, z, cloudScale);
 			double speedMult = 0.85 + rand.nextDouble() * 0.3;
-			particle.motionX = heading.x * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05;
-			particle.motionY = heading.y * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05;
-			particle.motionZ = heading.z * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05;
+			particle.setMotion(heading.x * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05,
+					heading.y * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05,
+					heading.z * cloudSpeedMult * speedMult + rand.nextGaussian() * 0.05);
 			Minecraft.getMinecraft().effectRenderer.addEffect(particle);
 		}
 

@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenSurfaceSpot extends WorldGenerator {
@@ -19,7 +20,9 @@ public class WorldGenSurfaceSpot extends WorldGenerator {
 		this.chance = chance;
 	}
 
-	public boolean generate(World world, Random rand, int x, int y, int z) {
+	@Override
+	public boolean generate(World world, Random rand, BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		int r = rand.nextInt(this.radius - 2) + 2;
 		byte depth = 2;
 
@@ -30,10 +33,10 @@ public class WorldGenSurfaceSpot extends WorldGenerator {
 
 				if(k1 * k1 + l1 * l1 <= r * r) {
 					for(int iY = y - depth; iY <= y + depth; ++iY) {
-						Block block = world.getBlock(iX, iY, iZ);
+						Block block = world.getBlockState(new BlockPos(iX, iY, iZ)).getBlock();
 
-						if(block == Blocks.dirt || block == Blocks.grass) {
-							if(rand.nextFloat() < this.chance) world.setBlock(iX, iY, iZ, this.block, 0, 2);
+						if(block == Blocks.DIRT || block == Blocks.GRASS) {
+							if(rand.nextFloat() < this.chance) world.setBlockState(new BlockPos(iX, iY, iZ), this.block.getStateFromMeta(0), 2);
 						}
 					}
 				}

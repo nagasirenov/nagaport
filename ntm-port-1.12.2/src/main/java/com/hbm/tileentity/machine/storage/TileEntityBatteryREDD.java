@@ -39,15 +39,15 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 		super(2);
 	}
 
-	@Override public String getName() { return "container.batteryREDD"; }
+	@Override public String getDefaultName() { return "container.batteryREDD"; }
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		BigInteger prevPower = new BigInteger(power.toByteArray());
 
-		super.updateEntity();
+		super.update();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			long toAdd = Library.chargeTEFromItems(slots, 0, 0, this.getMaxPower());
 			if(toAdd > 0) this.power = this.power.add(BigInteger.valueOf(toAdd));
@@ -76,9 +76,9 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 
 			float pitch = 0.5F + this.getSpeed() / 15F * 1.5F;
 
-			if(this.prevRotation != this.rotation && MainRegistry.proxy.me().getDistanceSq(xCoord + 0.5, yCoord + 5.5, zCoord + 0.5) < 30 * 30) {
+			if(this.prevRotation != this.rotation && MainRegistry.proxy.me().getDistanceSq(this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5) < 30 * 30) {
 				if(this.audio == null || !this.audio.isPlaying()) {
-					this.audio = MainRegistry.proxy.getLoopedSound("hbm:block.fensuHum", xCoord, yCoord, zCoord, this.getVolume(1.5F), 25F, pitch, 5);
+					this.audio = MainRegistry.proxy.getLoopedSound("hbm:block.fensuHum", this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getVolume(1.5F), 25F, pitch, 5);
 					this.audio.startSound();
 				}
 
@@ -152,10 +152,11 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setByteArray("power", this.power.toByteArray());
+		return nbt;
 	}
 
 	@Override
@@ -163,12 +164,12 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new BlockPos[] {
-				new BlockPos(xCoord + dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 2),
-				new BlockPos(xCoord + dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ * 2),
-				new BlockPos(xCoord - dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ * 2),
-				new BlockPos(xCoord - dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ * 2),
-				new BlockPos(xCoord + rot.offsetX * 4, yCoord, zCoord + rot.offsetZ * 4),
-				new BlockPos(xCoord - rot.offsetX * 4, yCoord, zCoord - rot.offsetZ * 4),
+				new BlockPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 2),
+				new BlockPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ * 2),
+				new BlockPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ * 2),
+				new BlockPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 2),
+				new BlockPos(this.pos.getX() + rot.offsetX * 4, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 4),
+				new BlockPos(this.pos.getX() - rot.offsetX * 4, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 4),
 		};
 	}
 
@@ -177,12 +178,12 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 3 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 3 + rot.offsetZ * 2, dir),
-				new DirPos(xCoord + dir.offsetX * 3 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 3 - rot.offsetZ * 2, dir),
-				new DirPos(xCoord - dir.offsetX * 3 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 3 + rot.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 3 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 3 - rot.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 5, yCoord, zCoord + rot.offsetZ * 5, rot),
-				new DirPos(xCoord - rot.offsetX * 5, yCoord, zCoord - rot.offsetZ * 5, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 + rot.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 - rot.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 3 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 3 + rot.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 3 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 3 - rot.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 5, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 5, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 5, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 5, rot.getOpposite()),
 		};
 	}
 
@@ -211,12 +212,12 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 10,
-					zCoord + 5
+					this.pos.getX() - 4,
+					this.pos.getY(),
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 10,
+					this.pos.getZ() + 5
 					);
 		}
 

@@ -1,0 +1,4844 @@
+{
+  "baseline": "1d8a9f74f3f0191269bc39d350e892c46304562c",
+  "files": {
+    "src/main/java/com/hbm/particle/ParticleGasFlame.java": {
+      "before_sha256": "f2809b95f92575446b6fe67671796684f97bde7af0eb0daf8c03e440a286fa90",
+      "after_sha256": "9811727b478680b8fae5f6516d43824aeb13f0038d07e745f588c945e97012b9",
+      "edits": [
+        {
+          "before_offset": 186,
+          "after_offset": 186,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 190,
+          "after_offset": 191,
+          "old": "ty",
+          "new": "cle"
+        },
+        {
+          "before_offset": 197,
+          "after_offset": 199,
+          "old": "FX",
+          "new": "Normal"
+        },
+        {
+          "before_offset": 274,
+          "after_offset": 280,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 278,
+          "after_offset": 285,
+          "old": "ty",
+          "new": "cle"
+        },
+        {
+          "before_offset": 285,
+          "after_offset": 293,
+          "old": "FX",
+          "new": "Normal"
+        },
+        {
+          "before_offset": 587,
+          "after_offset": 599,
+          "old": "",
+          "new": "ca"
+        },
+        {
+          "before_offset": 588,
+          "after_offset": 602,
+          "old": "",
+          "new": "C"
+        },
+        {
+          "before_offset": 589,
+          "after_offset": 604,
+          "old": "C",
+          "new": "l"
+        },
+        {
+          "before_offset": 592,
+          "after_offset": 607,
+          "old": "p",
+          "new": "de"
+        },
+        {
+          "before_offset": 596,
+          "after_offset": 612,
+          "old": "tru",
+          "new": "fals"
+        },
+        {
+          "before_offset": 650,
+          "after_offset": 667,
+          "old": "",
+          "new": "}\n\n\t@Override\n\tpublic boolean shouldDisableDepth() { return true; "
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDebug.java": {
+      "before_sha256": "2ef6d6bca13dfd8275f5eca1770c21c2a8a777c8f1883db228f0fe480d705aa1",
+      "after_sha256": "246fed2d0e3a5fd39905c508a2518ac9de6fd74fe83be9c368c63f428a6f7bd5",
+      "edits": [
+        {
+          "before_offset": 55,
+          "after_offset": 55,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 225,
+          "after_offset": 278,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 229,
+          "after_offset": 283,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 272,
+          "after_offset": 325,
+          "old": "R",
+          "new": "vertex.DefaultVertexFormats;\nimport net.minecraft.client.r"
+        },
+        {
+          "before_offset": 278,
+          "after_offset": 388,
+          "old": "Help",
+          "new": ""
+        },
+        {
+          "before_offset": 284,
+          "after_offset": 390,
+          "old": "",
+          "new": ".BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 534,
+          "after_offset": 690,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 538,
+          "after_offset": 695,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 1185,
+          "after_offset": 1341,
+          "old": "",
+          "new": "ca"
+        },
+        {
+          "before_offset": 1186,
+          "after_offset": 1344,
+          "old": "",
+          "new": "C"
+        },
+        {
+          "before_offset": 1187,
+          "after_offset": 1346,
+          "old": "C",
+          "new": "l"
+        },
+        {
+          "before_offset": 1190,
+          "after_offset": 1349,
+          "old": "p",
+          "new": "de"
+        },
+        {
+          "before_offset": 1194,
+          "after_offset": 1354,
+          "old": "tru",
+          "new": "fals"
+        },
+        {
+          "before_offset": 1666,
+          "after_offset": 1827,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 1668,
+          "after_offset": 1832,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 1671,
+          "after_offset": 1839,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 1678,
+          "after_offset": 1841,
+          "old": "",
+          "new": "buffer, En"
+        },
+        {
+          "before_offset": 1679,
+          "after_offset": 1852,
+          "old": "",
+          "new": "ity cam"
+        },
+        {
+          "before_offset": 1680,
+          "after_offset": 1860,
+          "old": "ss",
+          "new": "ra"
+        },
+        {
+          "before_offset": 1821,
+          "after_offset": 2001,
+          "old": "",
+          "new": "PushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);\n\t\tGL11.gl"
+        },
+        {
+          "before_offset": 1856,
+          "after_offset": 2099,
+          "old": "RenderHe",
+          "new": "GL11.g"
+        },
+        {
+          "before_offset": 1865,
+          "after_offset": 2106,
+          "old": "per.d",
+          "new": "D"
+        },
+        {
+          "before_offset": 1876,
+          "after_offset": 2113,
+          "old": "Standard",
+          "new": "(GL11.GL_L"
+        },
+        {
+          "before_offset": 1885,
+          "after_offset": 2124,
+          "old": "temLighting(",
+          "new": "GHTING"
+        },
+        {
+          "before_offset": 1903,
+          "after_offset": 2136,
+          "old": "",
+          "new": "buffer.begin(GL11.GL_QUADS, DefaultVer"
+        },
+        {
+          "before_offset": 1905,
+          "after_offset": 2176,
+          "old": "ss.startDrawingQuads();\n\t\ttess.setN",
+          "new": "xF"
+        },
+        {
+          "before_offset": 1944,
+          "after_offset": 2182,
+          "old": "l(0.0F, 1.0F, 0.0F);\n\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 1968,
+          "after_offset": 2183,
+          "old": "es",
+          "new": ""
+        },
+        {
+          "before_offset": 1972,
+          "after_offset": 2185,
+          "old": "setBrightness(240",
+          "new": "PARTICLE_POSITION_TEX_COLOR_LMAP"
+        },
+        {
+          "before_offset": 2018,
+          "after_offset": 2246,
+          "old": "\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);",
+          "new": ""
+        },
+        {
+          "before_offset": 2419,
+          "after_offset": 2548,
+          "old": "tess.addV",
+          "new": "buff"
+        },
+        {
+          "before_offset": 2430,
+          "after_offset": 2554,
+          "old": "texWithUV",
+          "new": ".pos"
+        },
+        {
+          "before_offset": 2545,
+          "after_offset": 2664,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 2552,
+          "after_offset": 2675,
+          "old": ";\n\t\t",
+          "new": ".color(par"
+        },
+        {
+          "before_offset": 2557,
+          "after_offset": 2686,
+          "old": "",
+          "new": "icl"
+        },
+        {
+          "before_offset": 2558,
+          "after_offset": 2690,
+          "old": "ss",
+          "new": "Red, particleGreen, particleBlue, particleAlpha)"
+        },
+        {
+          "before_offset": 2561,
+          "after_offset": 2739,
+          "old": "",
+          "new": "lightm"
+        },
+        {
+          "before_offset": 2562,
+          "after_offset": 2746,
+          "old": "d",
+          "new": "p(0, 240).en"
+        },
+        {
+          "before_offset": 2570,
+          "after_offset": 2765,
+          "old": "WithUV",
+          "new": "();\n\t\tbuffer.pos"
+        },
+        {
+          "before_offset": 2682,
+          "after_offset": 2887,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 2689,
+          "after_offset": 2898,
+          "old": ";\n\t\t",
+          "new": ".color(par"
+        },
+        {
+          "before_offset": 2694,
+          "after_offset": 2909,
+          "old": "",
+          "new": "icl"
+        },
+        {
+          "before_offset": 2695,
+          "after_offset": 2913,
+          "old": "ss",
+          "new": "Red, particleGreen, particleBlue, particleAlpha)"
+        },
+        {
+          "before_offset": 2698,
+          "after_offset": 2962,
+          "old": "",
+          "new": "lightm"
+        },
+        {
+          "before_offset": 2699,
+          "after_offset": 2969,
+          "old": "d",
+          "new": "p(0, 240).en"
+        },
+        {
+          "before_offset": 2707,
+          "after_offset": 2988,
+          "old": "WithUV",
+          "new": "();\n\t\tbuffer.pos"
+        },
+        {
+          "before_offset": 2819,
+          "after_offset": 3110,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 2826,
+          "after_offset": 3121,
+          "old": ";\n\t\t",
+          "new": ".color(par"
+        },
+        {
+          "before_offset": 2831,
+          "after_offset": 3132,
+          "old": "",
+          "new": "icl"
+        },
+        {
+          "before_offset": 2832,
+          "after_offset": 3136,
+          "old": "ss",
+          "new": "Red, particleGreen, particleBlue, particleAlpha)"
+        },
+        {
+          "before_offset": 2835,
+          "after_offset": 3185,
+          "old": "",
+          "new": "lightm"
+        },
+        {
+          "before_offset": 2836,
+          "after_offset": 3192,
+          "old": "d",
+          "new": "p(0, 240).en"
+        },
+        {
+          "before_offset": 2844,
+          "after_offset": 3211,
+          "old": "WithUV",
+          "new": "();\n\t\tbuffer.pos"
+        },
+        {
+          "before_offset": 2956,
+          "after_offset": 3333,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 2963,
+          "after_offset": 3344,
+          "old": "",
+          "new": ".color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(0, 240).endVertex()"
+        },
+        {
+          "before_offset": 2967,
+          "after_offset": 3440,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 2971,
+          "after_offset": 3444,
+          "old": "",
+          "new": "ellator.getInstance()"
+        },
+        {
+          "before_offset": 2984,
+          "after_offset": 3478,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2988,
+          "after_offset": 3492,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 3018,
+          "after_offset": 3522,
+          "old": "",
+          "new": "\tGL11.glPopAttrib();\n\t"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDebugLine.java": {
+      "before_sha256": "4f60be21d8efc105a2c0a517fe08d03cf4442a360ef3f5160e454cbcd0c27da3",
+      "after_sha256": "76ee10856b7bc3cc169c6823dbc93608eaefc65fe13b66d79d0ac1a885b02a28",
+      "edits": [
+        {
+          "before_offset": 95,
+          "after_offset": 95,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 99,
+          "after_offset": 100,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 153,
+          "after_offset": 153,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft.client.renderer.vertex.VertexFormat;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 229,
+          "after_offset": 441,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 233,
+          "after_offset": 446,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 239,
+          "after_offset": 451,
+          "old": "",
+          "new": "\n\tstatic final VertexFormat LINE_FORMAT = DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP;"
+        },
+        {
+          "before_offset": 711,
+          "after_offset": 1019,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 713,
+          "after_offset": 1025,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 820,
+          "after_offset": 1131,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 822,
+          "after_offset": 1136,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 825,
+          "after_offset": 1143,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 832,
+          "after_offset": 1145,
+          "old": "",
+          "new": "buffer, En"
+        },
+        {
+          "before_offset": 833,
+          "after_offset": 1156,
+          "old": "",
+          "new": "ity cam"
+        },
+        {
+          "before_offset": 834,
+          "after_offset": 1164,
+          "old": "ss",
+          "new": "ra"
+        },
+        {
+          "before_offset": 1273,
+          "after_offset": 1603,
+          "old": "",
+          "new": "Attrib(GL11.GL_ENABLE_BIT | GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT | GL11.GL_CURRENT_BIT);\n\t\tGL11.glPush"
+        },
+        {
+          "before_offset": 1578,
+          "after_offset": 2025,
+          "old": "\t\tt",
+          "new": "        buff"
+        },
+        {
+          "before_offset": 1582,
+          "after_offset": 2038,
+          "old": "ss",
+          "new": "r"
+        },
+        {
+          "before_offset": 1585,
+          "after_offset": 2040,
+          "old": "startDraw",
+          "new": "beg"
+        },
+        {
+          "before_offset": 1596,
+          "after_offset": 2045,
+          "old": "g",
+          "new": ""
+        },
+        {
+          "before_offset": 1611,
+          "after_offset": 2059,
+          "old": "",
+          "new": ", LINE_FORMAT"
+        },
+        {
+          "before_offset": 1614,
+          "after_offset": 2075,
+          "old": "\t\tt",
+          "new": "        app"
+        },
+        {
+          "before_offset": 1618,
+          "after_offset": 2087,
+          "old": "ss.setBr",
+          "new": "ndL"
+        },
+        {
+          "before_offset": 1627,
+          "after_offset": 2091,
+          "old": "ght",
+          "new": ""
+        },
+        {
+          "before_offset": 1632,
+          "after_offset": 2093,
+          "old": "ss",
+          "new": ""
+        },
+        {
+          "before_offset": 1635,
+          "after_offset": 2094,
+          "old": "",
+          "new": "buffer, pX, pY, pZ, mX, mY, mZ, color,\n                "
+        },
+        {
+          "before_offset": 1709,
+          "after_offset": 2223,
+          "old": "\t\tt",
+          "new": "        T"
+        },
+        {
+          "before_offset": 1715,
+          "after_offset": 2235,
+          "old": "",
+          "new": "ellator"
+        },
+        {
+          "before_offset": 1716,
+          "after_offset": 2243,
+          "old": "s",
+          "new": "g"
+        },
+        {
+          "before_offset": 1719,
+          "after_offset": 2246,
+          "old": "ColorOp",
+          "new": "Inst"
+        },
+        {
+          "before_offset": 1727,
+          "after_offset": 2251,
+          "old": "qu",
+          "new": "nc"
+        },
+        {
+          "before_offset": 1730,
+          "after_offset": 2254,
+          "old": "_I",
+          "new": ""
+        },
+        {
+          "before_offset": 1733,
+          "after_offset": 2255,
+          "old": "color",
+          "new": ""
+        },
+        {
+          "before_offset": 1739,
+          "after_offset": 2256,
+          "old": ";\n\t\ttess.addVertex(pX, pY, pZ);\n\t\ttess.addVertex(mX, mY, mZ);\n\t\ttess",
+          "new": ""
+        },
+        {
+          "before_offset": 1816,
+          "after_offset": 2265,
+          "old": "\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 2030,
+          "after_offset": 2477,
+          "old": "",
+          "new": "\tGL11.glPopAttrib();\n\t}\n\n    static void appendLine(BufferBuilder buffer, double x, double y, double z,\n            double endX, double endY, double endZ, int color, int brightness) {\n        int red = color >> 16 & 255, green = color >> 8 & 255, blue = color & 255;\n        int sky = brightness >> 16 & 65535, block = brightness & 65535;\n        buffer.pos(x, y, z).tex(0, 0).color(red, green, blue, 255).lightmap(sky, block).endVertex();\n        buffer.pos(endX, endY, endZ).tex(0, 0).color(red, green, blue, 255).lightmap(sky, block).endVertex();\n    "
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleText.java": {
+      "before_sha256": "62a90eaa723eb012cfb313bf5a44576b19eba7d13bc1876ad6f21a76b2ec17ef",
+      "after_sha256": "7961e2f23cf9b54a84a9a2937372a36496d1705b55eda5da7e06a88e86112338",
+      "edits": [
+        {
+          "before_offset": 34,
+          "after_offset": 34,
+          "old": "o",
+          "new": "net.minec"
+        },
+        {
+          "before_offset": 36,
+          "after_offset": 44,
+          "old": "g",
+          "new": "aft"
+        },
+        {
+          "before_offset": 38,
+          "after_offset": 48,
+          "old": "",
+          "new": "c"
+        },
+        {
+          "before_offset": 39,
+          "after_offset": 50,
+          "old": "wjgl.op",
+          "new": "i"
+        },
+        {
+          "before_offset": 48,
+          "after_offset": 53,
+          "old": "gl",
+          "new": "t.renderer"
+        },
+        {
+          "before_offset": 52,
+          "after_offset": 65,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 180,
+          "after_offset": 203,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 184,
+          "after_offset": 208,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 329,
+          "after_offset": 352,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 331,
+          "after_offset": 357,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 334,
+          "after_offset": 364,
+          "old": "llat",
+          "new": "r;\nimp"
+        },
+        {
+          "before_offset": 340,
+          "after_offset": 372,
+          "old": "",
+          "new": "t net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 411,
+          "after_offset": 472,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 415,
+          "after_offset": 477,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 670,
+          "after_offset": 731,
+          "old": "",
+          "new": "ca"
+        },
+        {
+          "before_offset": 671,
+          "after_offset": 734,
+          "old": "",
+          "new": "C"
+        },
+        {
+          "before_offset": 672,
+          "after_offset": 736,
+          "old": "C",
+          "new": "l"
+        },
+        {
+          "before_offset": 675,
+          "after_offset": 739,
+          "old": "p",
+          "new": "de"
+        },
+        {
+          "before_offset": 679,
+          "after_offset": 744,
+          "old": "tru",
+          "new": "fals"
+        },
+        {
+          "before_offset": 760,
+          "after_offset": 826,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 762,
+          "after_offset": 831,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 765,
+          "after_offset": 838,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 772,
+          "after_offset": 840,
+          "old": "",
+          "new": "buffer, En"
+        },
+        {
+          "before_offset": 773,
+          "after_offset": 851,
+          "old": "",
+          "new": "ity cam"
+        },
+        {
+          "before_offset": 774,
+          "after_offset": 859,
+          "old": "ss",
+          "new": "ra"
+        },
+        {
+          "before_offset": 845,
+          "after_offset": 930,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 849,
+          "after_offset": 944,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 869,
+          "after_offset": 962,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 873,
+          "after_offset": 976,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 882,
+          "after_offset": 983,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 883,
+          "after_offset": 992,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 1119,
+          "after_offset": 1212,
+          "old": "",
+          "new": "En"
+        },
+        {
+          "before_offset": 1120,
+          "after_offset": 1215,
+          "old": "h",
+          "new": ""
+        },
+        {
+          "before_offset": 1122,
+          "after_offset": 1216,
+          "old": "s",
+          "new": "ty viewer = camera != null ? camera : mc"
+        },
+        {
+          "before_offset": 1124,
+          "after_offset": 1257,
+          "old": "",
+          "new": "playe"
+        },
+        {
+          "before_offset": 1125,
+          "after_offset": 1263,
+          "old": "o",
+          "new": ";\n\t\tif(viewer == null) { GlS"
+        },
+        {
+          "before_offset": 1129,
+          "after_offset": 1294,
+          "old": "",
+          "new": "eManager.enableL"
+        },
+        {
+          "before_offset": 1130,
+          "after_offset": 1311,
+          "old": "",
+          "new": "ghting(); GlStateManager.p"
+        },
+        {
+          "before_offset": 1131,
+          "after_offset": 1338,
+          "old": "",
+          "new": "pMatrix(); retur"
+        },
+        {
+          "before_offset": 1132,
+          "after_offset": 1355,
+          "old": "Y",
+          "new": "; }\n\t\tfloat y"
+        },
+        {
+          "before_offset": 1139,
+          "after_offset": 1374,
+          "old": "mc.th",
+          "new": "vi"
+        },
+        {
+          "before_offset": 1145,
+          "after_offset": 1377,
+          "old": "Play",
+          "new": "w"
+        },
+        {
+          "before_offset": 1167,
+          "after_offset": 1396,
+          "old": "this.r",
+          "new": "fl"
+        },
+        {
+          "before_offset": 1174,
+          "after_offset": 1399,
+          "old": "t",
+          "new": ""
+        },
+        {
+          "before_offset": 1177,
+          "after_offset": 1401,
+          "old": "ionP",
+          "new": " p"
+        },
+        {
+          "before_offset": 1188,
+          "after_offset": 1410,
+          "old": "mc.th",
+          "new": "vi"
+        },
+        {
+          "before_offset": 1194,
+          "after_offset": 1413,
+          "old": "Play",
+          "new": "w"
+        },
+        {
+          "before_offset": 1518,
+          "after_offset": 1734,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1522,
+          "after_offset": 1748,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 1533,
+          "after_offset": 1757,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 1551,
+          "after_offset": 1774,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1557,
+          "after_offset": 1775,
+          "old": "Ro",
+          "new": "S"
+        },
+        {
+          "before_offset": 1563,
+          "after_offset": 1780,
+          "old": "f(this",
+          "new": "Manager"
+        },
+        {
+          "before_offset": 1575,
+          "after_offset": 1793,
+          "old": "ionY",
+          "new": "e(y"
+        },
+        {
+          "before_offset": 1605,
+          "after_offset": 1822,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1611,
+          "after_offset": 1823,
+          "old": "Ro",
+          "new": "S"
+        },
+        {
+          "before_offset": 1617,
+          "after_offset": 1828,
+          "old": "f(this",
+          "new": "Manager"
+        },
+        {
+          "before_offset": 1629,
+          "after_offset": 1841,
+          "old": "ionP",
+          "new": "e(p"
+        },
+        {
+          "before_offset": 1661,
+          "after_offset": 1872,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1668,
+          "after_offset": 1874,
+          "old": "",
+          "new": "tateManager.s"
+        },
+        {
+          "before_offset": 1672,
+          "after_offset": 1891,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 1699,
+          "after_offset": 1917,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1706,
+          "after_offset": 1919,
+          "old": "",
+          "new": "tateManager.s"
+        },
+        {
+          "before_offset": 1710,
+          "after_offset": 1936,
+          "old": "d",
+          "new": ""
+        },
+        {
+          "before_offset": 1902,
+          "after_offset": 2127,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1906,
+          "after_offset": 2141,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 1913,
+          "after_offset": 2146,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 1945,
+          "after_offset": 2176,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1949,
+          "after_offset": 2190,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 1981,
+          "after_offset": 2222,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1985,
+          "after_offset": 2236,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 1993,
+          "after_offset": 2242,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 1994,
+          "after_offset": 2251,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 2017,
+          "after_offset": 2258,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2021,
+          "after_offset": 2272,
+          "old": "glP",
+          "new": "p"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleFoundry.java": {
+      "before_sha256": "9be82aaf8c13864e53a11bb5017d651b31143b336dda222468fb8cb49ebfb821",
+      "after_sha256": "4e12baf28077f6cb352b74153373ccbc7648e90150c0efaa08afd2ca3756f78c",
+      "edits": [
+        {
+          "before_offset": 79,
+          "after_offset": 79,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 288,
+          "after_offset": 341,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 292,
+          "after_offset": 346,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 346,
+          "after_offset": 399,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 632,
+          "after_offset": 773,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 636,
+          "after_offset": 778,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 1785,
+          "after_offset": 1926,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 1787,
+          "after_offset": 1932,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 1894,
+          "after_offset": 2038,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 1896,
+          "after_offset": 2043,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 1899,
+          "after_offset": 2050,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 1910,
+          "after_offset": 2056,
+          "old": "",
+          "new": ", Entity camera"
+        },
+        {
+          "before_offset": 1984,
+          "after_offset": 2145,
+          "old": "Player",
+          "new": ""
+        },
+        {
+          "before_offset": 1999,
+          "after_offset": 2154,
+          "old": "",
+          "new": " camera != null ? camera :"
+        },
+        {
+          "before_offset": 2025,
+          "after_offset": 2206,
+          "old": "theP",
+          "new": "p"
+        },
+        {
+          "before_offset": 2034,
+          "after_offset": 2212,
+          "old": "",
+          "new": ";\n\t\tif(player == null) return"
+        },
+        {
+          "before_offset": 3104,
+          "after_offset": 3311,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3108,
+          "after_offset": 3325,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 3115,
+          "after_offset": 3330,
+          "old": "3f",
+          "new": ""
+        },
+        {
+          "before_offset": 3153,
+          "after_offset": 3366,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3157,
+          "after_offset": 3380,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 3176,
+          "after_offset": 3397,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3180,
+          "after_offset": 3411,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 3189,
+          "after_offset": 3418,
+          "old": "",
+          "new": "Cull"
+        },
+        {
+          "before_offset": 3190,
+          "after_offset": 3423,
+          "old": "GL11.GL_CULL_FACE",
+          "new": ""
+        },
+        {
+          "before_offset": 3213,
+          "after_offset": 3429,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3217,
+          "after_offset": 3443,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 3226,
+          "after_offset": 3450,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 3227,
+          "after_offset": 3456,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 3246,
+          "after_offset": 3462,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3250,
+          "after_offset": 3476,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 3261,
+          "after_offset": 3485,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 3328,
+          "after_offset": 3551,
+          "old": "st",
+          "new": "begin(GL11.GL_QUADS, P"
+        },
+        {
+          "before_offset": 3333,
+          "after_offset": 3576,
+          "old": "D",
+          "new": "icleVe"
+        },
+        {
+          "before_offset": 3335,
+          "after_offset": 3583,
+          "old": "awingQuads();\n\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 3353,
+          "after_offset": 3585,
+          "old": "ss.setN",
+          "new": "xF"
+        },
+        {
+          "before_offset": 3364,
+          "after_offset": 3591,
+          "old": "l(0",
+          "new": "ts"
+        },
+        {
+          "before_offset": 3368,
+          "after_offset": 3594,
+          "old": "0F, 1.0F, 0.0F",
+          "new": "LIT_TEXTURED"
+        },
+        {
+          "before_offset": 3385,
+          "after_offset": 3609,
+          "old": "\t\ttess.setBrightness(240);",
+          "new": "\n"
+        },
+        {
+          "before_offset": 3762,
+          "after_offset": 3961,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3784,
+          "after_offset": 3971,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3792,
+          "after_offset": 3978,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3799,
+          "after_offset": 3984,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3806,
+          "after_offset": 3995,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3826,
+          "after_offset": 4015,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 3835,
+          "after_offset": 4109,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3858,
+          "after_offset": 4120,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3865,
+          "after_offset": 4127,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3873,
+          "after_offset": 4134,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3880,
+          "after_offset": 4145,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3900,
+          "after_offset": 4165,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 3909,
+          "after_offset": 4259,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3932,
+          "after_offset": 4270,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3941,
+          "after_offset": 4279,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3948,
+          "after_offset": 4286,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3955,
+          "after_offset": 4297,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 3967,
+          "after_offset": 4309,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 3976,
+          "after_offset": 4403,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3998,
+          "after_offset": 4413,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4008,
+          "after_offset": 4422,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4014,
+          "after_offset": 4428,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4021,
+          "after_offset": 4439,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4032,
+          "after_offset": 4450,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4059,
+          "after_offset": 4562,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4089,
+          "after_offset": 4580,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4092,
+          "after_offset": 4583,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4108,
+          "after_offset": 4597,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4115,
+          "after_offset": 4608,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4127,
+          "after_offset": 4620,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4136,
+          "after_offset": 4714,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4166,
+          "after_offset": 4732,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4169,
+          "after_offset": 4735,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4185,
+          "after_offset": 4749,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4192,
+          "after_offset": 4760,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4204,
+          "after_offset": 4772,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4213,
+          "after_offset": 4866,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4243,
+          "after_offset": 4884,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4252,
+          "after_offset": 4893,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4266,
+          "after_offset": 4907,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4273,
+          "after_offset": 4918,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4285,
+          "after_offset": 4930,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4294,
+          "after_offset": 5024,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4324,
+          "after_offset": 5042,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4333,
+          "after_offset": 5051,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4347,
+          "after_offset": 5065,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4354,
+          "after_offset": 5076,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4365,
+          "after_offset": 5087,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4438,
+          "after_offset": 5245,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4460,
+          "after_offset": 5255,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4469,
+          "after_offset": 5262,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4476,
+          "after_offset": 5268,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4505,
+          "after_offset": 5299,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4514,
+          "after_offset": 5393,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4544,
+          "after_offset": 5411,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4547,
+          "after_offset": 5414,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4563,
+          "after_offset": 5428,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4582,
+          "after_offset": 5451,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4591,
+          "after_offset": 5545,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4621,
+          "after_offset": 5563,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4630,
+          "after_offset": 5572,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4644,
+          "after_offset": 5586,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4663,
+          "after_offset": 5609,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4672,
+          "after_offset": 5703,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4694,
+          "after_offset": 5713,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4705,
+          "after_offset": 5722,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4711,
+          "after_offset": 5728,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4731,
+          "after_offset": 5750,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4760,
+          "after_offset": 5864,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4783,
+          "after_offset": 5875,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4791,
+          "after_offset": 5882,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4799,
+          "after_offset": 5889,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4828,
+          "after_offset": 5920,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4837,
+          "after_offset": 6014,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4867,
+          "after_offset": 6032,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4870,
+          "after_offset": 6035,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4886,
+          "after_offset": 6049,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4905,
+          "after_offset": 6072,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4914,
+          "after_offset": 6166,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4944,
+          "after_offset": 6184,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4953,
+          "after_offset": 6193,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 4967,
+          "after_offset": 6207,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4986,
+          "after_offset": 6230,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 4995,
+          "after_offset": 6324,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5018,
+          "after_offset": 6335,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5028,
+          "after_offset": 6344,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5035,
+          "after_offset": 6351,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5055,
+          "after_offset": 6373,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 5180,
+          "after_offset": 6583,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5202,
+          "after_offset": 6593,
+          "old": "\t\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5208,
+          "after_offset": 6596,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5215,
+          "after_offset": 6602,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5236,
+          "after_offset": 6625,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5245,
+          "after_offset": 6719,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5268,
+          "after_offset": 6730,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5273,
+          "after_offset": 6733,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5281,
+          "after_offset": 6740,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5302,
+          "after_offset": 6763,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5311,
+          "after_offset": 6857,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5342,
+          "after_offset": 6876,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5348,
+          "after_offset": 6882,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5363,
+          "after_offset": 6897,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5382,
+          "after_offset": 6920,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5391,
+          "after_offset": 7014,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5421,
+          "after_offset": 7032,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5428,
+          "after_offset": 7038,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5442,
+          "after_offset": 7052,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5460,
+          "after_offset": 7074,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 5489,
+          "after_offset": 7188,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5511,
+          "after_offset": 7198,
+          "old": "\t\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5521,
+          "after_offset": 7205,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5529,
+          "after_offset": 7211,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5557,
+          "after_offset": 7241,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5566,
+          "after_offset": 7335,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5589,
+          "after_offset": 7346,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5598,
+          "after_offset": 7353,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5607,
+          "after_offset": 7360,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5635,
+          "after_offset": 7390,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5644,
+          "after_offset": 7484,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5675,
+          "after_offset": 7503,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5689,
+          "after_offset": 7517,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5704,
+          "after_offset": 7532,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5730,
+          "after_offset": 7562,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5739,
+          "after_offset": 7656,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5769,
+          "after_offset": 7674,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5784,
+          "after_offset": 7688,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5798,
+          "after_offset": 7702,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5823,
+          "after_offset": 7731,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 5851,
+          "after_offset": 7844,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5873,
+          "after_offset": 7854,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5878,
+          "after_offset": 7857,
+          "old": "\t\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5887,
+          "after_offset": 7863,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5915,
+          "after_offset": 7893,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 5924,
+          "after_offset": 7987,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 5946,
+          "after_offset": 7997,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5955,
+          "after_offset": 8004,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 5963,
+          "after_offset": 8010,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 5991,
+          "after_offset": 8040,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6000,
+          "after_offset": 8134,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6030,
+          "after_offset": 8152,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6044,
+          "after_offset": 8166,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6058,
+          "after_offset": 8180,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6084,
+          "after_offset": 8210,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6093,
+          "after_offset": 8304,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6123,
+          "after_offset": 8322,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6129,
+          "after_offset": 8328,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6145,
+          "after_offset": 8342,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6170,
+          "after_offset": 8371,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 6199,
+          "after_offset": 8485,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6222,
+          "after_offset": 8496,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6227,
+          "after_offset": 8499,
+          "old": "\t\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6237,
+          "after_offset": 8506,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6265,
+          "after_offset": 8536,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6274,
+          "after_offset": 8630,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6297,
+          "after_offset": 8641,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6306,
+          "after_offset": 8648,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6315,
+          "after_offset": 8655,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6343,
+          "after_offset": 8685,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6352,
+          "after_offset": 8779,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6383,
+          "after_offset": 8798,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6397,
+          "after_offset": 8812,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6412,
+          "after_offset": 8827,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6438,
+          "after_offset": 8857,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6447,
+          "after_offset": 8951,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6478,
+          "after_offset": 8970,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6484,
+          "after_offset": 8976,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6501,
+          "after_offset": 8991,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6526,
+          "after_offset": 9020,
+          "old": "",
+          "new": ").color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 6568,
+          "after_offset": 9147,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6598,
+          "after_offset": 9165,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6601,
+          "after_offset": 9168,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6616,
+          "after_offset": 9182,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6623,
+          "after_offset": 9193,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6642,
+          "after_offset": 9212,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6651,
+          "after_offset": 9306,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6681,
+          "after_offset": 9324,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6684,
+          "after_offset": 9327,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6699,
+          "after_offset": 9341,
+          "old": ",\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6706,
+          "after_offset": 9352,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6725,
+          "after_offset": 9371,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6734,
+          "after_offset": 9465,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6757,
+          "after_offset": 9476,
+          "old": "\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6765,
+          "after_offset": 9483,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6772,
+          "after_offset": 9490,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6781,
+          "after_offset": 9501,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6800,
+          "after_offset": 9520,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6809,
+          "after_offset": 9614,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 6831,
+          "after_offset": 9624,
+          "old": "\t\t\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6840,
+          "after_offset": 9631,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6846,
+          "after_offset": 9637,
+          "old": ",\t\t\t",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 6855,
+          "after_offset": 9648,
+          "old": "\t",
+          "new": " "
+        },
+        {
+          "before_offset": 6874,
+          "after_offset": 9667,
+          "old": "",
+          "new": ".color(r / 255F, g / 255F, b / 255F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 6879,
+          "after_offset": 9757,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 6883,
+          "after_offset": 9761,
+          "old": "",
+          "new": "ellator.getInstance()"
+        },
+        {
+          "before_offset": 6898,
+          "after_offset": 9797,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 6902,
+          "after_offset": 9811,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 6909,
+          "after_offset": 9816,
+          "old": "3f",
+          "new": ""
+        },
+        {
+          "before_offset": 6928,
+          "after_offset": 9833,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 6932,
+          "after_offset": 9847,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 6940,
+          "after_offset": 9853,
+          "old": "",
+          "new": "Cull"
+        },
+        {
+          "before_offset": 6941,
+          "after_offset": 9858,
+          "old": "GL11.GL_CULL_FACE",
+          "new": ""
+        },
+        {
+          "before_offset": 6964,
+          "after_offset": 9864,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 6968,
+          "after_offset": 9878,
+          "old": "glP",
+          "new": "p"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleRadiationFog.java": {
+      "before_sha256": "1b2c041f0d7b167565d12d13d5769b9aaf648caa148716aabd6ff7f7e9c76490",
+      "after_sha256": "a8314f9be99f3d13d3d2238985218cad582e2e423782d2fb3904bb5e3c037788",
+      "edits": [
+        {
+          "before_offset": 81,
+          "after_offset": 81,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 281,
+          "after_offset": 334,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 285,
+          "after_offset": 339,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 441,
+          "after_offset": 494,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 648,
+          "after_offset": 789,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 652,
+          "after_offset": 794,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 1967,
+          "after_offset": 2108,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 1969,
+          "after_offset": 2114,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 2340,
+          "after_offset": 2484,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 2342,
+          "after_offset": 2489,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 2345,
+          "after_offset": 2496,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 2356,
+          "after_offset": 2502,
+          "old": "",
+          "new": ", Entity camera"
+        },
+        {
+          "before_offset": 2614,
+          "after_offset": 2775,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2618,
+          "after_offset": 2789,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 2625,
+          "after_offset": 2794,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 2658,
+          "after_offset": 2825,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2662,
+          "after_offset": 2839,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2671,
+          "after_offset": 2846,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 2672,
+          "after_offset": 2855,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 2694,
+          "after_offset": 2861,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2698,
+          "after_offset": 2875,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2706,
+          "after_offset": 2881,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 2707,
+          "after_offset": 2887,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 2726,
+          "after_offset": 2893,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2730,
+          "after_offset": 2907,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2738,
+          "after_offset": 2913,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 2739,
+          "after_offset": 2927,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 2767,
+          "after_offset": 2933,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2771,
+          "after_offset": 2947,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2799,
+          "after_offset": 2973,
+          "old": "Open",
+          "new": ""
+        },
+        {
+          "before_offset": 2805,
+          "after_offset": 2975,
+          "old": "H",
+          "new": "Stat"
+        },
+        {
+          "before_offset": 2807,
+          "after_offset": 2980,
+          "old": "lp",
+          "new": "Manag"
+        },
+        {
+          "before_offset": 2812,
+          "after_offset": 2988,
+          "old": "gl",
+          "new": "try"
+        },
+        {
+          "before_offset": 2823,
+          "after_offset": 3000,
+          "old": "",
+          "new": "Separate"
+        },
+        {
+          "before_offset": 2924,
+          "after_offset": 3109,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2928,
+          "after_offset": 3123,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 3185,
+          "after_offset": 3378,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3189,
+          "after_offset": 3392,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 3200,
+          "after_offset": 3401,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 3666,
+          "after_offset": 3866,
+          "old": "st",
+          "new": "begin(GL11.GL_QUADS, P"
+        },
+        {
+          "before_offset": 3671,
+          "after_offset": 3891,
+          "old": "",
+          "new": "icleVertexFormats.LIT_TEXTURE"
+        },
+        {
+          "before_offset": 3672,
+          "after_offset": 3921,
+          "old": "rawingQuads(",
+          "new": ""
+        },
+        {
+          "before_offset": 3686,
+          "after_offset": 3923,
+          "old": "",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 3695,
+          "after_offset": 3934,
+          "old": "",
+          "new": "po"
+        },
+        {
+          "before_offset": 3696,
+          "after_offset": 3937,
+          "old": "etNormal(0.0F, 1.0F, 0.0F);\n\t\t\ttess.setBrightness(240);\n\t\t\ttess.addVertexWithUV",
+          "new": ""
+        },
+        {
+          "before_offset": 3916,
+          "after_offset": 4078,
+          "old": "",
+          "new": ").tex(1, 1).color(.85F, .9F, .5F, alpha).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 3921,
+          "after_offset": 4149,
+          "old": "1",
+          "new": "0).endVertex("
+        },
+        {
+          "before_offset": 3933,
+          "after_offset": 4173,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4089,
+          "after_offset": 4317,
+          "old": "",
+          "new": ").tex(1, 0).color(.85F, .9F, .5F, alpha).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 4095,
+          "after_offset": 4389,
+          "old": "",
+          "new": ").endVertex("
+        },
+        {
+          "before_offset": 4106,
+          "after_offset": 4412,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4262,
+          "after_offset": 4556,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4268,
+          "after_offset": 4566,
+          "old": "",
+          "new": ").color(.85F, .9F, .5F, alpha).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4279,
+          "after_offset": 4651,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4435,
+          "after_offset": 4795,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4441,
+          "after_offset": 4805,
+          "old": "",
+          "new": ").color(.85F, .9F, .5F, alpha).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4447,
+          "after_offset": 4885,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 4451,
+          "after_offset": 4889,
+          "old": "",
+          "new": "ellator.getInstance()"
+        },
+        {
+          "before_offset": 4467,
+          "after_offset": 4926,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4471,
+          "after_offset": 4940,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 4490,
+          "after_offset": 4957,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4494,
+          "after_offset": 4971,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 4503,
+          "after_offset": 4978,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 4504,
+          "after_offset": 4992,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 4532,
+          "after_offset": 4998,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4536,
+          "after_offset": 5012,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4544,
+          "after_offset": 5018,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4545,
+          "after_offset": 5027,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 4573,
+          "after_offset": 5039,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4577,
+          "after_offset": 5053,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 4600,
+          "after_offset": 5074,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4604,
+          "after_offset": 5088,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 4636,
+          "after_offset": 5120,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4640,
+          "after_offset": 5134,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4648,
+          "after_offset": 5140,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4649,
+          "after_offset": 5149,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleProblem.java": {
+      "before_sha256": "826e474542e5418c55982d6a5338c2529c2a41b182262dfdb9bd5807b360c551",
+      "after_sha256": "71a9f5525e6e22bdef105366408f52ee434932c4a33a9b7d72a7cbc79720a66d",
+      "edits": [
+        {
+          "before_offset": 104,
+          "after_offset": 104,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 304,
+          "after_offset": 357,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 308,
+          "after_offset": 362,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 464,
+          "after_offset": 517,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 717,
+          "after_offset": 858,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 721,
+          "after_offset": 863,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 829,
+          "after_offset": 970,
+          "old": "en",
+          "new": "par"
+        },
+        {
+          "before_offset": 833,
+          "after_offset": 975,
+          "old": "ty",
+          "new": "cle"
+        },
+        {
+          "before_offset": 2069,
+          "after_offset": 2212,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 2071,
+          "after_offset": 2218,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 2443,
+          "after_offset": 2589,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 2445,
+          "after_offset": 2594,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 2448,
+          "after_offset": 2601,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 2459,
+          "after_offset": 2607,
+          "old": "",
+          "new": ", Entity camera"
+        },
+        {
+          "before_offset": 2632,
+          "after_offset": 2795,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2636,
+          "after_offset": 2809,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 2643,
+          "after_offset": 2814,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 2672,
+          "after_offset": 2841,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2676,
+          "after_offset": 2855,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2685,
+          "after_offset": 2862,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 2686,
+          "after_offset": 2871,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 2708,
+          "after_offset": 2877,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2712,
+          "after_offset": 2891,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2720,
+          "after_offset": 2897,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 2721,
+          "after_offset": 2903,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 2740,
+          "after_offset": 2909,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2744,
+          "after_offset": 2923,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2752,
+          "after_offset": 2929,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 2753,
+          "after_offset": 2943,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 2781,
+          "after_offset": 2949,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2785,
+          "after_offset": 2963,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2813,
+          "after_offset": 2989,
+          "old": "Open",
+          "new": ""
+        },
+        {
+          "before_offset": 2819,
+          "after_offset": 2991,
+          "old": "H",
+          "new": "Stat"
+        },
+        {
+          "before_offset": 2821,
+          "after_offset": 2996,
+          "old": "lp",
+          "new": "Manag"
+        },
+        {
+          "before_offset": 2826,
+          "after_offset": 3004,
+          "old": "gl",
+          "new": "try"
+        },
+        {
+          "before_offset": 2837,
+          "after_offset": 3016,
+          "old": "",
+          "new": "Separate"
+        },
+        {
+          "before_offset": 3188,
+          "after_offset": 3375,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3192,
+          "after_offset": 3389,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 3203,
+          "after_offset": 3398,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 3675,
+          "after_offset": 3869,
+          "old": "st",
+          "new": "begin(GL11.GL_QUADS, P"
+        },
+        {
+          "before_offset": 3680,
+          "after_offset": 3894,
+          "old": "",
+          "new": "icleVertexFormats.LIT_TEXTURE"
+        },
+        {
+          "before_offset": 3681,
+          "after_offset": 3924,
+          "old": "rawingQuads(",
+          "new": ""
+        },
+        {
+          "before_offset": 3695,
+          "after_offset": 3926,
+          "old": "",
+          "new": "\n\t\t\t\n"
+        },
+        {
+          "before_offset": 3704,
+          "after_offset": 3940,
+          "old": "",
+          "new": "po"
+        },
+        {
+          "before_offset": 3705,
+          "after_offset": 3943,
+          "old": "etNormal(0.0F, 1.0F, 0.0F);\n\t\t\ttess.setBrightness(240);\n\t\t\ttess.addVertexWithUV",
+          "new": ""
+        },
+        {
+          "before_offset": 3925,
+          "after_offset": 4084,
+          "old": "",
+          "new": ").tex(1, 1).color(.85F, .9F, .5F, 1F).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 3930,
+          "after_offset": 4152,
+          "old": "1",
+          "new": "0).endVertex("
+        },
+        {
+          "before_offset": 3942,
+          "after_offset": 4176,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4098,
+          "after_offset": 4320,
+          "old": "",
+          "new": ").tex(1, 0).color(.85F, .9F, .5F, 1F).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 4104,
+          "after_offset": 4389,
+          "old": "",
+          "new": ").endVertex("
+        },
+        {
+          "before_offset": 4115,
+          "after_offset": 4412,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4271,
+          "after_offset": 4556,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4277,
+          "after_offset": 4566,
+          "old": "",
+          "new": ").color(.85F, .9F, .5F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4288,
+          "after_offset": 4648,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4444,
+          "after_offset": 4792,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4450,
+          "after_offset": 4802,
+          "old": "",
+          "new": ").color(.85F, .9F, .5F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4456,
+          "after_offset": 4879,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 4460,
+          "after_offset": 4883,
+          "old": "",
+          "new": "ellator.getInstance()"
+        },
+        {
+          "before_offset": 4469,
+          "after_offset": 4913,
+          "old": "\t\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 4477,
+          "after_offset": 4918,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4481,
+          "after_offset": 4932,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 4492,
+          "after_offset": 4941,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 4544,
+          "after_offset": 4992,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4548,
+          "after_offset": 5006,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 4557,
+          "after_offset": 5013,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 4558,
+          "after_offset": 5027,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 4586,
+          "after_offset": 5033,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4590,
+          "after_offset": 5047,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4598,
+          "after_offset": 5053,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4599,
+          "after_offset": 5062,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 4627,
+          "after_offset": 5074,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4631,
+          "after_offset": 5088,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 4656,
+          "after_offset": 5111,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4660,
+          "after_offset": 5125,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 4692,
+          "after_offset": 5157,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4696,
+          "after_offset": 5171,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4704,
+          "after_offset": 5177,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4705,
+          "after_offset": 5186,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleHaze.java": {
+      "before_sha256": "4794ea7faa971b44437296f080add208d9ac5e480e0ff25dadcb2cdc2e3b3bb7",
+      "after_sha256": "df5437a172679fe1926d93bccb0673161380d0cae62cad3ad98d313a3c5c0e59",
+      "edits": [
+        {
+          "before_offset": 81,
+          "after_offset": 81,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 281,
+          "after_offset": 334,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 285,
+          "after_offset": 339,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 441,
+          "after_offset": 494,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 640,
+          "after_offset": 781,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 644,
+          "after_offset": 786,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 1797,
+          "after_offset": 1938,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 1799,
+          "after_offset": 1944,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 2160,
+          "after_offset": 2304,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2173,
+          "after_offset": 2314,
+          "old": "V",
+          "new": "(new net.minecr"
+        },
+        {
+          "before_offset": 2175,
+          "after_offset": 2330,
+          "old": "",
+          "new": "ft.uti"
+        },
+        {
+          "before_offset": 2176,
+          "after_offset": 2337,
+          "old": "ue",
+          "new": ".math.BlockPos"
+        },
+        {
+          "before_offset": 2182,
+          "after_offset": 2355,
+          "old": "",
+          "new": "0, "
+        },
+        {
+          "before_offset": 2183,
+          "after_offset": 2359,
+          "old": "",
+          "new": ")).getY("
+        },
+        {
+          "before_offset": 2193,
+          "after_offset": 2377,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2211,
+          "after_offset": 2392,
+          "old": "\"",
+          "new": "net.minecraft.uti"
+        },
+        {
+          "before_offset": 2213,
+          "after_offset": 2410,
+          "old": "",
+          "new": ".EnumP"
+        },
+        {
+          "before_offset": 2214,
+          "after_offset": 2417,
+          "old": "va\"",
+          "new": "rticleTypes.LAVA"
+        },
+        {
+          "before_offset": 2365,
+          "after_offset": 2581,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 2367,
+          "after_offset": 2586,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 2370,
+          "after_offset": 2593,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 2381,
+          "after_offset": 2599,
+          "old": "",
+          "new": ", Entity camera"
+        },
+        {
+          "before_offset": 2632,
+          "after_offset": 2865,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2636,
+          "after_offset": 2879,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 2643,
+          "after_offset": 2884,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 2682,
+          "after_offset": 2921,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2686,
+          "after_offset": 2935,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2695,
+          "after_offset": 2942,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 2696,
+          "after_offset": 2951,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 2718,
+          "after_offset": 2957,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2722,
+          "after_offset": 2971,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2730,
+          "after_offset": 2977,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 2731,
+          "after_offset": 2983,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 2750,
+          "after_offset": 2989,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2754,
+          "after_offset": 3003,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2762,
+          "after_offset": 3009,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 2763,
+          "after_offset": 3023,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 2791,
+          "after_offset": 3029,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2795,
+          "after_offset": 3043,
+          "old": "glA",
+          "new": "a"
+        },
+        {
+          "before_offset": 2831,
+          "after_offset": 3077,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2835,
+          "after_offset": 3091,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2857,
+          "after_offset": 3111,
+          "old": "Open",
+          "new": ""
+        },
+        {
+          "before_offset": 2863,
+          "after_offset": 3113,
+          "old": "H",
+          "new": "Stat"
+        },
+        {
+          "before_offset": 2865,
+          "after_offset": 3118,
+          "old": "lp",
+          "new": "Manag"
+        },
+        {
+          "before_offset": 2870,
+          "after_offset": 3126,
+          "old": "gl",
+          "new": "try"
+        },
+        {
+          "before_offset": 2881,
+          "after_offset": 3138,
+          "old": "",
+          "new": "Separate"
+        },
+        {
+          "before_offset": 2982,
+          "after_offset": 3247,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2986,
+          "after_offset": 3261,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 3238,
+          "after_offset": 3511,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3242,
+          "after_offset": 3525,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 3253,
+          "after_offset": 3534,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 3704,
+          "after_offset": 3984,
+          "old": "st",
+          "new": "begin(GL11.GL_QUADS, P"
+        },
+        {
+          "before_offset": 3709,
+          "after_offset": 4009,
+          "old": "",
+          "new": "icleVertexFormats.LIT_TEXTURE"
+        },
+        {
+          "before_offset": 3710,
+          "after_offset": 4039,
+          "old": "rawingQuads(",
+          "new": ""
+        },
+        {
+          "before_offset": 3724,
+          "after_offset": 4041,
+          "old": "",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 3733,
+          "after_offset": 4052,
+          "old": "",
+          "new": "po"
+        },
+        {
+          "before_offset": 3734,
+          "after_offset": 4055,
+          "old": "etNormal(0.0F, 1.0F, 0.0F);\n\t\t\ttess.setBrightness(240);\n\t\t\ttess.addVertexWithUV",
+          "new": ""
+        },
+        {
+          "before_offset": 3957,
+          "after_offset": 4199,
+          "old": "",
+          "new": ").tex(1, 1).color(1F, 1F, 1F, alpha * .1F).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 3962,
+          "after_offset": 4272,
+          "old": "1",
+          "new": "0).endVertex("
+        },
+        {
+          "before_offset": 3974,
+          "after_offset": 4296,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4133,
+          "after_offset": 4443,
+          "old": "",
+          "new": ").tex(1, 0).color(1F, 1F, 1F, alpha * .1F).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 4139,
+          "after_offset": 4517,
+          "old": "",
+          "new": ").endVertex("
+        },
+        {
+          "before_offset": 4150,
+          "after_offset": 4540,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4309,
+          "after_offset": 4687,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4315,
+          "after_offset": 4697,
+          "old": "",
+          "new": ").color(1F, 1F, 1F, alpha * .1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4326,
+          "after_offset": 4784,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4485,
+          "after_offset": 4931,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4491,
+          "after_offset": 4941,
+          "old": "",
+          "new": ").color(1F, 1F, 1F, alpha * .1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4497,
+          "after_offset": 5023,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 4501,
+          "after_offset": 5027,
+          "old": "",
+          "new": "ellator.getInstance()"
+        },
+        {
+          "before_offset": 4517,
+          "after_offset": 5064,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4521,
+          "after_offset": 5078,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 4540,
+          "after_offset": 5095,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4544,
+          "after_offset": 5109,
+          "old": "glA",
+          "new": "a"
+        },
+        {
+          "before_offset": 4583,
+          "after_offset": 5146,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4587,
+          "after_offset": 5160,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 4596,
+          "after_offset": 5167,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 4597,
+          "after_offset": 5181,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 4625,
+          "after_offset": 5187,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4629,
+          "after_offset": 5201,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4637,
+          "after_offset": 5207,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4638,
+          "after_offset": 5216,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 4660,
+          "after_offset": 5222,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4664,
+          "after_offset": 5236,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 4687,
+          "after_offset": 5257,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4691,
+          "after_offset": 5271,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 4723,
+          "after_offset": 5303,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4727,
+          "after_offset": 5317,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4735,
+          "after_offset": 5323,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4736,
+          "after_offset": 5332,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleRBMKMush.java": {
+      "before_sha256": "6673d8f58ad017a069d38df259d1d94d1a0b7186fbb771fd188ccabbb5363d09",
+      "after_sha256": "3fa4b80bec9c8c29a5457042e2182857bc0cd4798b5bbf19e4397b1ca55f0876",
+      "edits": [
+        {
+          "before_offset": 55,
+          "after_offset": 55,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 193,
+          "after_offset": 246,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 197,
+          "after_offset": 251,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 302,
+          "after_offset": 355,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 538,
+          "after_offset": 679,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 542,
+          "after_offset": 684,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 1692,
+          "after_offset": 1833,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 1694,
+          "after_offset": 1839,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 1779,
+          "after_offset": 1923,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 1781,
+          "after_offset": 1928,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 1784,
+          "after_offset": 1935,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 1802,
+          "after_offset": 1948,
+          "old": "",
+          "new": ", Entity camera"
+        },
+        {
+          "before_offset": 2068,
+          "after_offset": 2229,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2072,
+          "after_offset": 2243,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 2079,
+          "after_offset": 2248,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 2110,
+          "after_offset": 2277,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2114,
+          "after_offset": 2291,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2123,
+          "after_offset": 2298,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 2124,
+          "after_offset": 2307,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 2146,
+          "after_offset": 2313,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2150,
+          "after_offset": 2327,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2158,
+          "after_offset": 2333,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 2159,
+          "after_offset": 2339,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 2178,
+          "after_offset": 2345,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2182,
+          "after_offset": 2359,
+          "old": "glB",
+          "new": "b"
+        },
+        {
+          "before_offset": 2230,
+          "after_offset": 2405,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2234,
+          "after_offset": 2419,
+          "old": "glA",
+          "new": "a"
+        },
+        {
+          "before_offset": 2270,
+          "after_offset": 2453,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2274,
+          "after_offset": 2467,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2401,
+          "after_offset": 2592,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2405,
+          "after_offset": 2606,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2414,
+          "after_offset": 2613,
+          "old": "(GL11.GL_",
+          "new": ""
+        },
+        {
+          "before_offset": 2424,
+          "after_offset": 2614,
+          "old": "OG);\n\n\t\ttessellat",
+          "new": ""
+        },
+        {
+          "before_offset": 2442,
+          "after_offset": 2615,
+          "old": "r.startDrawin",
+          "new": ""
+        },
+        {
+          "before_offset": 2456,
+          "after_offset": 2616,
+          "old": "Quads",
+          "new": ""
+        },
+        {
+          "before_offset": 2480,
+          "after_offset": 2635,
+          "old": "s",
+          "new": "b"
+        },
+        {
+          "before_offset": 2482,
+          "after_offset": 2637,
+          "old": "",
+          "new": "gin(GL11.GL_QUADS, Par"
+        },
+        {
+          "before_offset": 2483,
+          "after_offset": 2660,
+          "old": "N",
+          "new": "icleVertexF"
+        },
+        {
+          "before_offset": 2488,
+          "after_offset": 2675,
+          "old": "l(0",
+          "new": "ts"
+        },
+        {
+          "before_offset": 2492,
+          "after_offset": 2678,
+          "old": "0F, 1.0F, 0.0F",
+          "new": "LIT_TEXTURED"
+        },
+        {
+          "before_offset": 2509,
+          "after_offset": 2693,
+          "old": "\t\ttessellator.setBrightness(240);",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 2926,
+          "after_offset": 3079,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3047,
+          "after_offset": 3188,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3071,
+          "after_offset": 3216,
+          "old": "",
+          "new": ".color(1F, 1F, 1F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 3087,
+          "after_offset": 3299,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3208,
+          "after_offset": 3408,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3225,
+          "after_offset": 3429,
+          "old": "",
+          "new": ").color(1F, 1F, 1F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 3242,
+          "after_offset": 3513,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3363,
+          "after_offset": 3622,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3380,
+          "after_offset": 3643,
+          "old": "",
+          "new": ").color(1F, 1F, 1F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 3397,
+          "after_offset": 3727,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3518,
+          "after_offset": 3836,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 3542,
+          "after_offset": 3864,
+          "old": "",
+          "new": ".color(1F, 1F, 1F, 1F).lightmap(0, 240).normal(0, 1, 0).endVertex()"
+        },
+        {
+          "before_offset": 3546,
+          "after_offset": 3935,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 3557,
+          "after_offset": 3946,
+          "old": "",
+          "new": ".getInstance()"
+        },
+        {
+          "before_offset": 3578,
+          "after_offset": 3981,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3582,
+          "after_offset": 3995,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 3590,
+          "after_offset": 4001,
+          "old": "",
+          "new": "Fog"
+        },
+        {
+          "before_offset": 3591,
+          "after_offset": 4005,
+          "old": "GL11.GL_FOG",
+          "new": ""
+        },
+        {
+          "before_offset": 3608,
+          "after_offset": 4011,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3612,
+          "after_offset": 4025,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 3644,
+          "after_offset": 4057,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 3648,
+          "after_offset": 4071,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 3656,
+          "after_offset": 4077,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 3657,
+          "after_offset": 4086,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleContrail.java": {
+      "before_sha256": "8996683660d265c3a196e7f140606696ca8ad671d50ba75aa9fc4d71ddf7aca5",
+      "after_sha256": "18c6cc940f9720d91c107a67f35e8bf57e05ede25f0f3706d819e129be4d34dd",
+      "edits": [
+        {
+          "before_offset": 81,
+          "after_offset": 81,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.GlStateManager"
+        },
+        {
+          "before_offset": 290,
+          "after_offset": 343,
+          "old": "En",
+          "new": "Par"
+        },
+        {
+          "before_offset": 294,
+          "after_offset": 348,
+          "old": "tyFX",
+          "new": "cle"
+        },
+        {
+          "before_offset": 450,
+          "after_offset": 503,
+          "old": "",
+          "new": ";\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity"
+        },
+        {
+          "before_offset": 702,
+          "after_offset": 843,
+          "old": "",
+          "new": "Particle {\n\t// Visual-only seed: native particles no longer allocate shared "
+        },
+        {
+          "before_offset": 708,
+          "after_offset": 925,
+          "old": "FX",
+          "new": ""
+        },
+        {
+          "before_offset": 711,
+          "after_offset": 926,
+          "old": "{",
+          "new": "IDs.\n\tprivate final int visualSeed = System.identityHashCode(this);"
+        },
+        {
+          "before_offset": 1919,
+          "after_offset": 2200,
+          "old": "D",
+          "new": "Expir"
+        },
+        {
+          "before_offset": 1921,
+          "after_offset": 2206,
+          "old": "a",
+          "new": ""
+        },
+        {
+          "before_offset": 2006,
+          "after_offset": 2290,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 2008,
+          "after_offset": 2295,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 2011,
+          "after_offset": 2302,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 2028,
+          "after_offset": 2314,
+          "old": "",
+          "new": ", Entity camera"
+        },
+        {
+          "before_offset": 2190,
+          "after_offset": 2491,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2194,
+          "after_offset": 2505,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 2201,
+          "after_offset": 2510,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 2232,
+          "after_offset": 2539,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2236,
+          "after_offset": 2553,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2245,
+          "after_offset": 2560,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 2246,
+          "after_offset": 2569,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 2268,
+          "after_offset": 2575,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2272,
+          "after_offset": 2589,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 2280,
+          "after_offset": 2595,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 2281,
+          "after_offset": 2601,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 2300,
+          "after_offset": 2607,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 2304,
+          "after_offset": 2621,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 2326,
+          "after_offset": 2641,
+          "old": "Open",
+          "new": ""
+        },
+        {
+          "before_offset": 2332,
+          "after_offset": 2643,
+          "old": "H",
+          "new": "Stat"
+        },
+        {
+          "before_offset": 2334,
+          "after_offset": 2648,
+          "old": "lp",
+          "new": "Manag"
+        },
+        {
+          "before_offset": 2339,
+          "after_offset": 2656,
+          "old": "gl",
+          "new": "try"
+        },
+        {
+          "before_offset": 2350,
+          "after_offset": 2668,
+          "old": "",
+          "new": "Separate"
+        },
+        {
+          "before_offset": 2450,
+          "after_offset": 2776,
+          "old": "g",
+          "new": "visualS"
+        },
+        {
+          "before_offset": 2452,
+          "after_offset": 2784,
+          "old": "tEntityI",
+          "new": "e"
+        },
+        {
+          "before_offset": 2461,
+          "after_offset": 2786,
+          "old": "()",
+          "new": ""
+        },
+        {
+          "before_offset": 2477,
+          "after_offset": 2800,
+          "old": "Player",
+          "new": ""
+        },
+        {
+          "before_offset": 2492,
+          "after_offset": 2809,
+          "old": "",
+          "new": " camera != null ? camera :"
+        },
+        {
+          "before_offset": 2518,
+          "after_offset": 2861,
+          "old": "theP",
+          "new": "p"
+        },
+        {
+          "before_offset": 2527,
+          "after_offset": 2867,
+          "old": "",
+          "new": ";\n\t\tif(player == null) return"
+        },
+        {
+          "before_offset": 2858,
+          "after_offset": 3227,
+          "old": "st",
+          "new": "begin(GL11.GL_QUADS, P"
+        },
+        {
+          "before_offset": 2863,
+          "after_offset": 3252,
+          "old": "",
+          "new": "icleVertexFormats.LIT_TEXTURE"
+        },
+        {
+          "before_offset": 2864,
+          "after_offset": 3282,
+          "old": "rawingQuads(",
+          "new": ""
+        },
+        {
+          "before_offset": 2930,
+          "after_offset": 3336,
+          "old": "\t\t\tp_70539_1_.setColorRGBA_F(this.particleRed + mod, this.particleGreen + mod, this.particleBlue + mod, this.particleAlpha);",
+          "new": ""
+        },
+        {
+          "before_offset": 3055,
+          "after_offset": 3337,
+          "old": "\t\t\tp_70539_1_.setNormal(0.0F, 1.0F, 0.0F);",
+          "new": ""
+        },
+        {
+          "before_offset": 3098,
+          "after_offset": 3338,
+          "old": "\t\t\tp_70539_1_.setBrightness(240);",
+          "new": ""
+        },
+        {
+          "before_offset": 3660,
+          "after_offset": 3867,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 3824,
+          "after_offset": 4019,
+          "old": "",
+          "new": ").tex(1, 1).color(this.particleRed + mod, this.particleGreen + mod, this.particleBlue + mod, this.particleAlpha).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 3829,
+          "after_offset": 4162,
+          "old": "1",
+          "new": "0).endVertex("
+        },
+        {
+          "before_offset": 3847,
+          "after_offset": 4192,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4011,
+          "after_offset": 4344,
+          "old": "",
+          "new": ").tex(1, 0).color(this.particleRed + mod, this.particleGreen + mod, this.particleBlue + mod, this.particleAlpha).lightmap(0, 240).normal(0"
+        },
+        {
+          "before_offset": 4017,
+          "after_offset": 4488,
+          "old": "",
+          "new": ").endVertex("
+        },
+        {
+          "before_offset": 4034,
+          "after_offset": 4517,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4198,
+          "after_offset": 4669,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4204,
+          "after_offset": 4679,
+          "old": "",
+          "new": ").color(this.particleRed + mod, this.particleGreen + mod, this.particleBlue + mod, this.particleAlpha).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4221,
+          "after_offset": 4842,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 4385,
+          "after_offset": 4994,
+          "old": ", ",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 4391,
+          "after_offset": 5004,
+          "old": "",
+          "new": ").color(this.particleRed + mod, this.particleGreen + mod, this.particleBlue + mod, this.particleAlpha).lightmap(0, 240).normal(0, 1, 0).endVertex("
+        },
+        {
+          "before_offset": 4397,
+          "after_offset": 5156,
+          "old": "p_70539_1_",
+          "new": "Tessellator.getInstance()"
+        },
+        {
+          "before_offset": 4424,
+          "after_offset": 5198,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4428,
+          "after_offset": 5212,
+          "old": "gl",
+          "new": "do"
+        },
+        {
+          "before_offset": 4460,
+          "after_offset": 5244,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 4464,
+          "after_offset": 5258,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 4472,
+          "after_offset": 5264,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 4473,
+          "after_offset": 5273,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/particle/ParticleVertexFormats.java": "93025c764c2c3277def244439b913458435443cb8c0422dfe963d83f6b376afa"
+  }
+}

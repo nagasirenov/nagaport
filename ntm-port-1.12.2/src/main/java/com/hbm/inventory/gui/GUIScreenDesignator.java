@@ -54,11 +54,11 @@ public class GUIScreenDesignator extends GuiScreen {
 
 		shownX = 0;
 		shownZ = 0;
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		
 		if(stack != null && stack.getItem() == ModItems.designator_manual && stack.hasTagCompound()) {
-			shownX = stack.stackTagCompound.getInteger("xCoord");
-			shownZ = stack.stackTagCompound.getInteger("zCoord");
+			shownX = stack.getTagCompound().getInteger("xCoord");
+			shownZ = stack.getTagCompound().getInteger("zCoord");
 		}
 		
 		updateButtons();
@@ -115,10 +115,10 @@ public class GUIScreenDesignator extends GuiScreen {
 
 		String x = String.valueOf(shownX);
 		String z = String.valueOf(shownZ);
-		this.fontRendererObj.drawString("X: " + x, 
-				guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth("X: " + x) / 2, guiTop + 50, 4210752);
-		this.fontRendererObj.drawString("Z: " + z, 
-				guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth("Z: " + z) / 2, guiTop + 50 + 18 * 4, 4210752);
+		this.fontRenderer.drawString("X: " + x, 
+				guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth("X: " + x) / 2, guiTop + 50, 4210752);
+		this.fontRenderer.drawString("Z: " + z, 
+				guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth("Z: " + z) / 2, guiTop + 50 + 18 * 4, 4210752);
 	}
 
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
@@ -134,13 +134,13 @@ public class GUIScreenDesignator extends GuiScreen {
     {
         if (p_73869_2_ == 1 || p_73869_2_ == this.mc.gameSettings.keyBindInventory.getKeyCode())
         {
-            this.mc.thePlayer.closeScreen();
+            this.mc.player.closeScreen();
         }
         
     }
     
     public void updateScreen() {
-    	if(player.getHeldItem() == null || player.getHeldItem().getItem() != ModItems.designator_manual)
+    	if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.designator_manual)
     		player.closeScreen();
     }
 	
@@ -182,11 +182,11 @@ public class GUIScreenDesignator extends GuiScreen {
 			
 			String s = info;
 
-			func_146283_a(Arrays.asList(new String[] { s }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { s }), x, y);
 		}
 		
 		public void executeAction() {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			PacketDispatcher.wrapper.sendToServer(new ItemDesignatorPacket(this.operator, this.value, this.reference));
 			
 			int result = 0;

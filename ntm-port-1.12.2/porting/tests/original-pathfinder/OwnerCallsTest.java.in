@@ -1,0 +1,39 @@
+import com.hbm.entity.pathfinder.PathFinderUtils;
+import net.minecraft.entity.*;
+import net.minecraft.pathfinding.*;
+import net.minecraft.world.World;
+
+/** Exact five helper expressions only. Glyphid's removed path sink/lifecycle is
+ * NOT replaced here or in production. The FBI statement uses a native navigator. */
+public final class OwnerCallsTest {
+    static class RecordingNavigator extends PathNavigateGround {
+        Path assigned;double speed;int sets;
+        RecordingNavigator(EntityLiving e,World w) { super(e,w); }
+        public boolean setPath(Path p,double speed) { this.assigned=p;this.speed=speed;sets++;return p!=null; }
+    }
+    static class Calls extends EntityCreature {
+        RecordingNavigator nav;Entity entityToAttack;int taskX,taskY,taskZ;
+        Calls(World w) { super(null);world=w;setPosition(.5,64,.5);nav=new RecordingNavigator(this,w); }
+        public PathNavigate getNavigator() { return nav==null?super.getNavigator():nav; }
+        void fbi() { @FBI_STATEMENT@ }
+        Path glyphidTarget() { return @GLYPHID_TARGET@; }
+        Path glyphidDigRoute(int maxDist) { return @GLYPHID_COORD_0@; }
+        Path glyphidWaypoint(int maxDist) { return @GLYPHID_COORD_1@; }
+        Path glyphidObstacle(int maxDist) { return @GLYPHID_COORD_2@; }
+    }
+    public static void run() throws Exception {
+        NativePathFinderTest.Pair pair=new NativePathFinderTest.Pair(new NativePathFinderTest.Grid(),.5,64,.5,.6F,1);
+        Calls source=new Calls(pair.nw),target=new Calls(pair.nw);target.setPosition(4,64,.5);
+        source.setAttackTarget(target);source.fbi();
+        NativePathFinderTest.same(source.nav.sets,1,"exact FBI statement sets path once");
+        NativePathFinderTest.same(source.nav.speed,1D,"exact FBI speed");
+        NativePathFinderTest.check(source.nav.assigned.isSamePath(PathFinderUtils.getPathEntityToEntityPartial(pair.nw,source,target,16,true,false,false,true)),"exact FBI flags and route");
+        source.entityToAttack=target;source.taskX=7;source.taskY=64;source.taskZ=2;
+        NativePathFinderTest.check(source.glyphidTarget().isSamePath(PathFinderUtils.getPathEntityToEntityPartial(pair.nw,source,target,16,true,false,true,true)),"exact Glyphid target flags");
+        Path expected=PathFinderUtils.getPathEntityToCoordPartial(pair.nw,source,7,64,2,12,true,false,true,true);
+        NativePathFinderTest.check(source.glyphidDigRoute(12).isSamePath(expected),"exact Glyphid dig expression");
+        NativePathFinderTest.check(source.glyphidWaypoint(12).isSamePath(expected),"exact Glyphid waypoint expression");
+        NativePathFinderTest.check(source.glyphidObstacle(12).isSamePath(expected),"exact Glyphid obstacle expression");
+        System.out.println("PASS exact FBI statement and four Glyphid helper expressions compile/run on native entities; Glyphid path sink/lifecycle not claimed");
+    }
+}

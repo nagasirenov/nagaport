@@ -1,0 +1,200 @@
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.math.MathHelper;
+
+/** Independent recording oracle: renderer and ObjUtil methods are extracted verbatim
+ * from hashed pristine sources. No production rail definition, transform, mesh parser,
+ * or AtlasObjGeometry method is used to obtain expected geometry. */
+public final class OracleRailOriginal {
+    public static final class VertexRecord {
+        public float x,y,z,u,v,nx,ny,nz;
+        public int color,packedNormal,brightness;
+        public String texture;
+        public float rawX,rawY,rawZ;
+    }
+    public static final class Result {
+        public final List<VertexRecord> vertices;
+        public final List<Invocation> calls;
+        public final double[] matrix;
+        public final double[] finalTranslation;
+        Result(Tessellator t,double[] m){vertices=t.vertices;calls=t.calls;matrix=m;finalTranslation=new double[]{t.tx,t.ty,t.tz};}
+    }
+    public static final class Invocation {
+        public final String asset,group;
+        public final TextureAtlasSprite sprite;
+        public final float yaw,pitch;
+        public final boolean shadow;
+        public final double x,y,z;
+        Invocation(HFRWavefrontObject m,String g,IIcon i,Tessellator t,float r,float p,boolean s){asset=m.asset;group=g;sprite=i.sprite;yaw=r;pitch=p;shadow=s;x=t.tx;y=t.ty;z=t.tz;}
+    }
+    public static void load(File originalResources)throws Exception {
+        /* RESOURCE_LOAD */
+    }
+    /** tileKind: -1 missing, 0 straight switch, 1 turned switch, 2 wrong tile type.
+     * Output inventory coordinates include +0.5 on each axis for native item models.
+     * World output is block-relative. Packed normals are BEFORE inventory GL matrix.
+     * nx/ny/nz rotate the original packed GL normal, preserving its byte-quantized magnitude. */
+    public static Result render(String owner,int metadata,boolean inventory,int tileKind,
+            Map<String,TextureAtlasSprite> textures) {
+        Block block;
+        switch(owner) {
+            /* OWNER_SELECT */
+            default:throw new IllegalArgumentException(owner);
+        }
+        block.textures=textures;
+        block.blockIcon=new IIcon(block.texture,textures);
+        block.iconSign=new IIcon(block.sign,textures);
+        GL11.reset();
+        Tessellator.instance=new Tessellator(inventory);
+        IBlockAccess world=new IBlockAccess(metadata,tileKind);
+        RenderRail renderer=new RenderRail();
+        if(inventory) renderer.renderInventoryBlock(block,metadata,0,null);
+        else renderer.renderWorldBlock(world,0,0,0,block,0,null);
+        return new Result(Tessellator.instance,GL11.last.clone());
+    }
+    private interface IRenderBlock {
+        void renderInventory(Tessellator t,Block b,int m);
+        void renderWorld(Tessellator t,Block b,int m,IBlockAccess w,int x,int y,int z);
+    }
+    private static class Block {
+        String texture,sign;
+        Map<String,TextureAtlasSprite> textures;
+        IIcon blockIcon,iconSign;
+        Block(String texture,String sign){this.texture=texture;this.sign=sign;}
+        IIcon getIcon(int side,int meta){return new IIcon(texture.equals("hbm:blocks/machine_funnel_side")?
+            "hbm:blocks/machine_funnel_"+(side==1?"top":side==0?"bottom":"side"):texture,textures);}
+        int getMixedBrightnessForBlock(IBlockAccess world,int x,int y,int z){return 0x00A00070;}
+    }
+    private static class TileEntity { }
+    private static class TileEntityRailSwitch extends TileEntity {
+        boolean isSwitched;
+        TileEntityRailSwitch(boolean value){isSwitched=value;}
+    }
+    private static class IBlockAccess {
+        int metadata,tileKind;
+        IBlockAccess(int m,int k){metadata=m;tileKind=k;}
+        int getBlockMetadata(int x,int y,int z){return metadata;}
+        TileEntity getTileEntity(int x,int y,int z){return tileKind<0?null:tileKind==2?new TileEntity():new TileEntityRailSwitch(tileKind==1);}
+    }
+    private static class RenderBlocks { }
+    private static class RenderRail {
+        /* RENDERER_METHODS */
+    }
+    /* OWNER_CLASSES */
+    private static class ResourceManager {
+        /* RESOURCE_FIELDS */
+    }
+    private static class IIcon {
+        final String name;
+        final TextureAtlasSprite sprite;
+        IIcon(String n,Map<String,TextureAtlasSprite> s){name=n;sprite=n==null?null:s.get(n);if(n!=null&&sprite==null)throw new IllegalArgumentException("Missing oracle sprite "+n);}
+        float getInterpolatedU(double u){Tessellator.instance.texture=name;return sprite.getInterpolatedU(u);}
+        float getInterpolatedV(double v){return sprite.getInterpolatedV(v);}
+    }
+    private static class Tessellator {
+        static Tessellator instance;
+        final List<VertexRecord> vertices=new ArrayList<>();
+        final List<Invocation> calls=new ArrayList<>();
+        final boolean inventory;
+        double tx,ty,tz;
+        float nx,ny,nz;
+        int color=0xffffffff,brightness;
+        String texture;
+        Tessellator(boolean i){inventory=i;}
+        void startDrawingQuads(){ }
+        void draw(){while(vertices.size()%4!=0)vertices.remove(vertices.size()-1);}
+        void setBrightness(int b){brightness=b;}
+        void setColorOpaque_F(float r,float g,float b){setColorOpaque((int)(r*255F),(int)(g*255F),(int)(b*255F));}
+        void setColorOpaque(int r,int g,int b){r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));color=0xff000000|(b<<16)|(g<<8)|r;}
+        void setNormal(float x,float y,float z){nx=x;ny=y;nz=z;}
+        void addTranslation(float x,float y,float z){tx+=x;ty+=y;tz+=z;}
+        void addVertexWithUV(double x,double y,double z,double u,double v){
+            VertexRecord q=new VertexRecord();
+            // Original tessellator stores translated positions and normals in float/byte buffers.
+            q.rawX=(float)(x+tx);q.rawY=(float)(y+ty);q.rawZ=(float)(z+tz);
+            double[] p=GL11.transform(q.rawX,q.rawY,q.rawZ);
+            q.x=(float)(p[0]+(inventory?.5:0));q.y=(float)(p[1]+(inventory?.5:0));q.z=(float)(p[2]+(inventory?.5:0));
+            q.packedNormal=((byte)(nx*127F)&255)|(((byte)(ny*127F)&255)<<8)|(((byte)(nz*127F)&255)<<16);
+            double[] n=GL11.normal((byte)(q.packedNormal)/127D,(byte)(q.packedNormal>>8)/127D,(byte)(q.packedNormal>>16)/127D);
+            q.nx=(float)n[0];q.ny=(float)n[1];q.nz=(float)n[2];
+            q.u=(float)u;q.v=(float)v;q.color=color;q.texture=texture;q.brightness=brightness;vertices.add(q);
+        }
+    }
+    /** Records OpenGL's postmultiplication order. Source transforms use only a
+     * uniform positive scale and axial rotations, so rotation-only M*n / uniformScale preserves the original packed normal magnitude.
+     * GPU/driver float rounding or normalization state is not claimed. */
+    private static class GL11 {
+        static double[] matrix,last;
+        static final Deque<double[]> stack=new ArrayDeque<>();
+        static double[] identity(){return new double[]{1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1};}
+        static void reset(){matrix=identity();last=matrix;stack.clear();}
+        static void glPushMatrix(){stack.push(matrix.clone());}
+        static void glPopMatrix(){last=matrix.clone();matrix=stack.pop();}
+        static void multiply(double[] rhs){double[] out=new double[16];for(int r=0;r<4;r++)for(int c=0;c<4;c++)for(int k=0;k<4;k++)out[r*4+c]+=matrix[r*4+k]*rhs[k*4+c];matrix=out;last=out;}
+        static void glTranslated(double x,double y,double z){double[] t=identity();t[3]=x;t[7]=y;t[11]=z;multiply(t);}
+        static void glTranslatef(float x,float y,float z){glTranslated(x,y,z);}
+        static void glScaled(double x,double y,double z){double[] s=identity();s[0]=x;s[5]=y;s[10]=z;multiply(s);}
+        static void glRotated(double a,double x,double y,double z){double rad=Math.toRadians(a),c=Math.cos(rad),s=Math.sin(rad),d=1-c;
+            multiply(new double[]{x*x*d+c,x*y*d-z*s,x*z*d+y*s,0,y*x*d+z*s,y*y*d+c,y*z*d-x*s,0,z*x*d-y*s,z*y*d+x*s,z*z*d+c,0,0,0,0,1});}
+        static double[] transform(double x,double y,double z){return new double[]{matrix[0]*x+matrix[1]*y+matrix[2]*z+matrix[3],matrix[4]*x+matrix[5]*y+matrix[6]*z+matrix[7],matrix[8]*x+matrix[9]*y+matrix[10]*z+matrix[11]};}
+        static double[] normal(double x,double y,double z){double nx=matrix[0]*x+matrix[1]*y+matrix[2]*z,ny=matrix[4]*x+matrix[5]*y+matrix[6]*z,nz=matrix[8]*x+matrix[9]*y+matrix[10]*z;double scale=Math.sqrt(matrix[0]*matrix[0]+matrix[1]*matrix[1]+matrix[2]*matrix[2]);return new double[]{nx/scale,ny/scale,nz/scale};}
+    }
+    private static class Vertex {final float x,y,z;Vertex(float x,float y,float z){this.x=x;this.y=y;this.z=z;}}
+    private static class TextureCoordinate {final float u,v;TextureCoordinate(float u,float v){this.u=u;this.v=v;}}
+    private static class S_GroupObject {String name;List<S_Face> faces=new ArrayList<>();S_GroupObject(String n){name=n;}}
+    private static class S_Face {
+        Vertex[] vertices;
+        TextureCoordinate[] textureCoordinates;
+        Vertex faceNormal;
+        /* ORIGINAL_FACE_NORMAL */
+    }
+    private static class HFRWavefrontObject {
+        final String asset;
+        List<S_GroupObject> groupObjects=new ArrayList<>();
+        /** Independent source-order reader, preserving source floats, V flip, and
+         * original S_Face normal code. Does not call the production ObjMeshParser. */
+        HFRWavefrontObject(File file)throws Exception {
+            asset=file.getName();
+            List<Vertex> points=new ArrayList<>();List<TextureCoordinate> uvs=new ArrayList<>();S_GroupObject group=null;
+            try(BufferedReader in=new BufferedReader(new InputStreamReader(new FileInputStream(file),StandardCharsets.UTF_8))){String line;
+                while((line=in.readLine())!=null){String[] p=line.trim().split("\\s+");
+                    if(p[0].equals("v")){if(p.length==4)points.add(new Vertex(Float.parseFloat(p[1]),Float.parseFloat(p[2]),Float.parseFloat(p[3])));}
+                    else if(p[0].equals("vt"))uvs.add(new TextureCoordinate(Float.parseFloat(p[1]),1-Float.parseFloat(p[2])));
+                    else if(p[0].equals("o")||p[0].equals("g")){group=new S_GroupObject(p[1]);groupObjects.add(group);}
+                    else if(p[0].equals("f")){if(p.length!=4&&p.length!=5)throw new IllegalArgumentException("Unexpected original face "+line);if(group==null){group=new S_GroupObject("Default");groupObjects.add(group);}S_Face f=new S_Face();f.vertices=new Vertex[p.length-1];f.textureCoordinates=new TextureCoordinate[p.length-1];
+                        for(int i=1;i<p.length;i++){String[] indices=p[i].split("/");f.vertices[i-1]=points.get(Integer.parseInt(indices[0])-1);f.textureCoordinates[i-1]=uvs.get(Integer.parseInt(indices[1])-1);}f.faceNormal=f.calculateFaceNormal();group.faces.add(f);
+                    }
+                }
+            }
+        }
+    }
+    /** Compatibility of legacy Vec3 rotations is checked independently against the
+     * cached original client by the existing atlas proof. Retains float table values
+     * promoted to double and legacy normalize's float square root. */
+    private static class Vec3 {
+        double xCoord,yCoord,zCoord;
+        Vec3(double x,double y,double z){xCoord=x;yCoord=y;zCoord=z;}
+        static Vec3 createVectorHelper(double x,double y,double z){return new Vec3(x,y,z);}
+        void rotateAroundX(float a){double c=MathHelper.cos(a),s=MathHelper.sin(a),y=yCoord*c+zCoord*s,z=zCoord*c-yCoord*s;yCoord=y;zCoord=z;}
+        void rotateAroundY(float a){double c=MathHelper.cos(a),s=MathHelper.sin(a),x=xCoord*c+zCoord*s,z=zCoord*c-xCoord*s;xCoord=x;zCoord=z;}
+        void rotateAroundZ(float a){double c=MathHelper.cos(a),s=MathHelper.sin(a),x=xCoord*c+yCoord*s,y=yCoord*c-xCoord*s;xCoord=x;yCoord=y;}
+        Vec3 crossProduct(Vec3 q){return new Vec3(yCoord*q.zCoord-zCoord*q.yCoord,zCoord*q.xCoord-xCoord*q.zCoord,xCoord*q.yCoord-yCoord*q.xCoord);}
+        Vec3 normalize(){double l=(float)Math.sqrt(xCoord*xCoord+yCoord*yCoord+zCoord*zCoord);return l<1e-4?new Vec3(0,0,0):new Vec3(xCoord/l,yCoord/l,zCoord/l);}
+    }
+    /** Boundary recorder delegates to the verbatim original overloads below. */
+    private static class ObjUtil {
+        static void renderWithIcon(HFRWavefrontObject m,IIcon i,Tessellator t,float r,boolean s){
+            t.calls.add(new Invocation(m,null,i,t,r,0,s));OriginalObjUtil.renderWithIcon(m,i,t,r,s);
+        }
+        static void renderPartWithIcon(HFRWavefrontObject m,String g,IIcon i,Tessellator t,float r,boolean s){
+            t.calls.add(new Invocation(m,g,i,t,r,0,s));OriginalObjUtil.renderPartWithIcon(m,g,i,t,r,s);
+        }
+    }
+    private static class OriginalObjUtil {
+        private static int red,green,blue;
+        private static boolean hasColor=false;
+        /* ORIGINAL_OBJUTIL */
+    }
+}

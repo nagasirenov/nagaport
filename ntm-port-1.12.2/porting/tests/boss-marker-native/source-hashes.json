@@ -1,0 +1,66 @@
+{
+  "baseline": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "files": {
+    "src/main/java/com/hbm/entity/mob/EntityMaskMan.java": {
+      "before_sha256": "a105462f2aad709e14292513ece0aed2c8e047b77bc9d2ac0d967e260e45a91f",
+      "after_sha256": "9e72411bb41913fb2e4c8f74906aa0c91a82c9345169d935c5f35c5b5df257ef"
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "before_sha256": "52865e557f0214fc4f2b349158b7d26e2761ef432ee97028a389715e84be4b32",
+      "after_sha256": "7ce6f4875c3a3ff5000faa598b29df94f8a491505976a879bd2328daf302a8b4"
+    },
+    "src/main/java/com/hbm/entity/mob/EntityQuackos.java": {
+      "before_sha256": "921ddd9619d79fd8632ba7cf4bda5f9c46eace33fde9b2ff50e01a9e66cd7d6e",
+      "after_sha256": "e2be42390889665227bb6741a36d483cab91c6ca514ee4d581b2a8aa3ad98fda"
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "2d09a129bd6112858d67631aa9f8f07896ad6180a7e1b26318909c79bf9f0809",
+      "after_sha256": "6c3b7b564c26c4dde1756768f7b2b898f78074702992b2898b1ef66ec7bb0561"
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "b37c391caed1fe13552b2b6ad443c85990e964da5e1333c9762d84c8910b7f7f",
+      "after_sha256": "59054df02472c05551a5192336b13cfd76c61792b4622e29549ac118eebe867e"
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": {
+      "before_sha256": "42e11197f0114cdf7a83a89c476d7b3dfd2492f937f1d5ceb132b8ec701346d2",
+      "after_sha256": "6666d771a2bc10e6c2d58b7f1980ec3745406c8e757afe50b2da396965572f16"
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java": {
+      "before_sha256": "fb754c5dcb298daf2cf736d397ecb420839242252a3f98b91a1bc71ef9f314fe",
+      "after_sha256": "8729b6d4b3e412d48b97089de5f54d9c862806436abab5c6da841c8e2b883ebb"
+    },
+    "src/main/java/com/hbm/render/util/RenderOverhead.java": {
+      "before_sha256": "1cc0b4b118639d7463951fffa7e9b186ad45107b42680d978af302db0eb00819",
+      "after_sha256": "059adc59e40a882f14efd42393d598391f383e8d4dcf0608302a00e68a396acd"
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderQuacc.java": {
+      "before_sha256": "664939d9b1ffbb462e986a9dd8f6f5c6c3d8c6da58fe7cc2c88c26c7b16a6829",
+      "after_sha256": "b52129791fddba3975fd4909e93881e77a06f97ea367cc05696488603bb79fb9"
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderUFO.java": {
+      "before_sha256": "afe7413c509f2b4b76e5236e92f7318ef32cc8f155585b9f6a67f1caddb5a493",
+      "after_sha256": "b75397bd57c3f48607b94fdf9b95e69f47a0d9c5afb4a88dd2aad43aef750d47"
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderBFA.java": {
+      "before_sha256": "0d55f1741cd1cd4b17008a02ac906729f44cb33d33f5c099dee2b66d189ebb48",
+      "after_sha256": "e96da15b7634af7d4638c0f3374fd27419586015b97823aeb677d4fceba199a7"
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderHunterChopper.java": {
+      "before_sha256": "68c09b468b19e9f8c990095c37b71b83436ed934887eec0911ec86d51bf54b4f",
+      "after_sha256": "f7db1d2f3b7da06ecaf0007d0405a28874501b23057299f505e8dc25406b78d8"
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderMaskMan.java": {
+      "before_sha256": "6ec1fef610454675831d5e11c6ce34dec13b63f8e32fa14051e2625da710a869",
+      "after_sha256": "296198ce085981dac738152f2c38e9d5564d5487a228f017f61a2443a3bbad1d"
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderWormHead.java": {
+      "before_sha256": "71f9c3f2a4a1e2519e214bd8555f17346d0e5e2473f5934cfce75d858669a6d6",
+      "after_sha256": "d4afdebdc47377a3b2e896bdb79dc463ba82739dfbc07b90d623c667e5d2c0c4"
+    }
+  },
+  "scope": "Seven entity marker declarations, six renderer collector calls/imports (three also marker casts), one thermal classifier. No isNonBoss changes or active HUD.",
+  "new_files": {
+    "src/main/java/com/hbm/entity/boss/INtmBossDisplay.java": "35e6400fe9849107a006b74f3f268138bb740327129e635a6e394b4174cdb229",
+    "src/main/java/com/hbm/render/util/ClientBossDisplay.java": "643baa8d41e8e387abb10bd9247398bf40e950f6d4a786d90eccabb9672668af"
+  }
+}

@@ -43,7 +43,7 @@ public class ItemBookLore extends Item implements IGUIProvider {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 		if(!stack.hasTagCompound()) return;
-		String key = stack.stackTagCompound.getString("k");
+		String key = stack.getTagCompound().getString("k");
 		if(key.isEmpty()) return;
 		
 		key = "book_lore." + key + ".author";
@@ -55,7 +55,7 @@ public class ItemBookLore extends Item implements IGUIProvider {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		if(!stack.hasTagCompound()) return "book_lore.test";
-		String key = stack.stackTagCompound.getString("k");
+		String key = stack.getTagCompound().getString("k");
 		
 		return "book_lore." + (key.isEmpty() ? "test" : key);
 	}
@@ -95,13 +95,13 @@ public class ItemBookLore extends Item implements IGUIProvider {
 			default: return 0xFFFFFF;
 			case 1: //book cover
 				if(stack.hasTagCompound()) {
-					int color = stack.stackTagCompound.getInteger("cov_col");
+					int color = stack.getTagCompound().getInteger("cov_col");
 					if(color > 0) return color;
 				}
 				return 0x303030;
 			case 2: //title color
 				if(stack.hasTagCompound()) {
-					int color = stack.stackTagCompound.getInteger("tit_col");
+					int color = stack.getTagCompound().getInteger("tit_col");
 					if(color > 0) return color;
 				}
 				return 0xFFFFFF;
@@ -127,7 +127,7 @@ public class ItemBookLore extends Item implements IGUIProvider {
 		tag.setInteger("cov_col", colorCov);
 		tag.setInteger("tit_col", colorTit);
 		
-		book.stackTagCompound = tag;
+		book.setTagCompound(tag);
 		return book;
 	}
 	
@@ -138,6 +138,6 @@ public class ItemBookLore extends Item implements IGUIProvider {
 			data.setString("a" + (i + 1), args[i]);
 		}
 		
-		book.stackTagCompound.setTag("p" + page, data);
+		book.getTagCompound().setTag("p" + page, data);
 	}
 }

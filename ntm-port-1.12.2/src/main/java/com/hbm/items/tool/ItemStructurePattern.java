@@ -31,9 +31,9 @@ public class ItemStructurePattern extends ItemStructureTool {
 		if(pos == null) return;
 		
 		String message = "";
-		int savedX = stack.stackTagCompound.getInteger("x");
-		int savedY = stack.stackTagCompound.getInteger("y");
-		int savedZ = stack.stackTagCompound.getInteger("z");
+		int savedX = stack.getTagCompound().getInteger("x");
+		int savedY = stack.getTagCompound().getInteger("y");
+		int savedZ = stack.getTagCompound().getInteger("z");
 
 		int minX = Math.min(savedX, x) - pos.getX();
 		int minY = Math.min(savedY, y) - pos.getY();
@@ -46,12 +46,12 @@ public class ItemStructurePattern extends ItemStructureTool {
 			for(int iy = minY; iy <= maxY; iy++) {
 				for(int iz = minZ; iz <= maxZ; iz++) {
 					
-					Block b = world.getBlock(ix + pos.getX(), iy + pos.getY(), iz + pos.getZ());
+					Block b = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()).getBlock();
 					if(b.isAir(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ())) continue;
 					
-					int meta = world.getBlockMetadata(ix + pos.getX(), iy + pos.getY(), iz + pos.getZ());
+					int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()) );
 					
-					message += "placeBlockAtCurrentPosition(world, " + b.getUnlocalizedName() + ", " + meta + ", " + ix + ", " + iy + ", " + iz + ", box);\n";
+					message += "placeBlockAtCurrentPosition(world, " + b.getTranslationKey() + ", " + meta + ", " + ix + ", " + iy + ", " + iz + ", box);\n";
 				}
 			}
 		}

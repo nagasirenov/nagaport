@@ -4,6 +4,7 @@ import com.hbm.blocks.BlockDummyable;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class MultiblockHandlerXR {
@@ -24,7 +25,7 @@ public class MultiblockHandlerXR {
 		for(int a = x - rot[4]; a <= x + rot[5]; a++) {
 			for(int b = y - rot[1]; b <= y + rot[0]; b++) {
 				for(int c = z - rot[2]; c <= z + rot[3]; c++) {
-					if(!world.getBlock(a, b, c).isReplaceable(world, a, b, c)) {
+					if(!world.getBlockState(new BlockPos(a, b, c)).getBlock().isReplaceable(world, new BlockPos(a, b, c))) {
 						return false;
 					}
 
@@ -74,7 +75,7 @@ public class MultiblockHandlerXR {
 						continue;
 					}
 
-					world.setBlock(a, b, c, block, meta, 3);
+					world.setBlockState(new BlockPos(a, b, c), block.getStateFromMeta(meta), 3);
 
 					count++;
 
@@ -107,8 +108,8 @@ public class MultiblockHandlerXR {
 			for(int b = y - rot[1]; b <= y + rot[0]; b++) {
 				for(int c = z - rot[2]; c <= z + rot[3]; c++) {
 
-					if(world.getBlock(a, b, c) == block)
-						world.setBlockToAir(a, b, c);
+					if(world.getBlockState(new BlockPos(a, b, c)).getBlock() == block)
+						world.setBlockToAir(new BlockPos(a, b, c));
 
 					count++;
 

@@ -47,30 +47,31 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.getBoolean("hasRocker");
 
 		tanks[0].writeToNBT(nbt, "gas");
 		tanks[1].writeToNBT(nbt, "f1");
 		tanks[2].writeToNBT(nbt, "f2");
+		return nbt;
 	}
 
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			updateConnections();
 
 			for(DirPos pos : getConPos()) {
 				if(tanks[0].getFill() > 0) {
-					this.sendFluid(tanks[0], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[0], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 
-			CelestialBody planet = CelestialBody.getPlanet(worldObj);
+			CelestialBody planet = CelestialBody.getPlanet(this.world);
 
-			launchTicks = MathHelper.clamp_int(launchTicks + (hasRocket ? -1 : 1), hasRocket ? -20 : 0, 100);
+			launchTicks = MathHelper.clamp(launchTicks + (hasRocket ? -1 : 1), hasRocket ? -20 : 0, 100);
 
 			if(planet.gas != null) {
 				tanks[0].setTankType(planet.gas);
@@ -85,12 +86,12 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 
 			this.networkPackNT(150);
 		} else {
-			launchTicks = MathHelper.clamp_int(launchTicks + (hasRocket ? -1 : 1), hasRocket ? -20 : 0, 100);
+			launchTicks = MathHelper.clamp(launchTicks + (hasRocket ? -1 : 1), hasRocket ? -20 : 0, 100);
 			if(launchTicks > 0 && launchTicks < 100) {
-				ParticleUtil.spawnGasFlame(worldObj, xCoord + 0.5, yCoord + 0.5 + launchTicks, zCoord + 0.5, 0.0, -1.0, 0.0);
+				ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + launchTicks, this.pos.getZ() + 0.5, 0.0, -1.0, 0.0);
 
 				if(launchTicks < 10) {
-					ExplosionLarge.spawnShock(worldObj, xCoord + 0.5, yCoord, zCoord + 0.5, 1 + worldObj.rand.nextInt(3), 1 + worldObj.rand.nextGaussian());
+					ExplosionLarge.spawnShock(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 1 + this.world.rand.nextInt(3), 1 + this.world.rand.nextGaussian());
 				}
 			}
 		}
@@ -114,7 +115,7 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 		for(DirPos pos : getConPos()) {
 			for(int i = 1; i < tanks.length; i++) {
 				if(tanks[i].getTankType() != Fluids.NONE) {
-					trySubscribe(tanks[i].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					trySubscribe(tanks[i].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 		}
@@ -138,12 +139,12 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 		if (renderBoundingBox == null) {
 			renderBoundingBox = AxisAlignedBB.getBoundingBox(
-				xCoord - 1,
-				yCoord,
-				zCoord - 1,
-				xCoord + 2,
-				yCoord + 1,
-				zCoord + 2
+				this.pos.getX() - 1,
+				this.pos.getY(),
+				this.pos.getZ() - 1,
+				this.pos.getX() + 2,
+				this.pos.getY() + 1,
+				this.pos.getZ() + 2
 			);
 		}
 
@@ -182,16 +183,16 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 			// Below
 			for(int x = -1; x <= 1; x++) {
 				for(int z = -1; z <= 1; z++) {
-					list.add(new DirPos(xCoord + x, yCoord - 1, zCoord + z, Library.NEG_Y));
+					list.add(new DirPos(this.pos.getX() + x, this.pos.getY() - 1, this.pos.getZ() + z, Library.NEG_Y));
 				}
 			}
 
 			// Sides
 			for(int i = -1; i <= 1; i++) {
-				list.add(new DirPos(xCoord + i, yCoord, zCoord + 2, Library.POS_Z));
-				list.add(new DirPos(xCoord + i, yCoord, zCoord - 2, Library.NEG_Z));
-				list.add(new DirPos(xCoord + 2, yCoord, zCoord + i, Library.POS_X));
-				list.add(new DirPos(xCoord - 2, yCoord, zCoord + i, Library.NEG_X));
+				list.add(new DirPos(this.pos.getX() + i, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z));
+				list.add(new DirPos(this.pos.getX() + i, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z));
+				list.add(new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + i, Library.POS_X));
+				list.add(new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + i, Library.NEG_X));
 			}
 
 			conPos = list.toArray(new DirPos[0]);
@@ -201,7 +202,7 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.gasDock";
 	}
 

@@ -27,12 +27,12 @@ public class EntityGrenadeIFHE extends EntityGrenadeBouncyBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
     		
-    		ExplosionLarge.jolt(worldObj, posX, posY, posZ, 7.5, 300, 0.25);
-    		ExplosionLarge.explode(worldObj, posX, posY, posZ, 7, true, true, true);
+    		ExplosionLarge.jolt(this.world, posX, posY, posZ, 7.5, 300, 0.25);
+    		ExplosionLarge.explode(this.world, posX, posY, posZ, 7, true, true, true);
         }
     }
 

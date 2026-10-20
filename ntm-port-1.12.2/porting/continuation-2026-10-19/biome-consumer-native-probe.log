@@ -1,0 +1,4 @@
+Note: /tmp/hbm-biome-native-cy481cxv/BiomeConsumerNativeProbe.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: extracted production methods/expressions against native Forge 2768: 150 climate/height cases, all spawning lambdas, identity/dictionary exclusions, rain/snow, altitude, actual World+Chunk versus BiomeProvider routes. No whole-class/game claim.
+PASS: seven complete source files byte-reverse to 24dab0cd snapshots; only enumerated biome edits, RNG/threshold/control flow unchanged.

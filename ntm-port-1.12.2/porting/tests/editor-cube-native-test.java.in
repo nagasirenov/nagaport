@@ -1,0 +1,130 @@
+import java.lang.reflect.*;
+import java.util.*;
+import com.mojang.authlib.GameProfile;
+import com.hbm.blocks.*;
+import com.hbm.blocks.generic.*;
+import com.hbm.blocks.generic.BlockWandJigsaw.*;
+import com.hbm.blocks.generic.BlockWandTandem.*;
+import com.hbm.blocks.generic.BlockWandLogic.*;
+import com.hbm.blocks.generic.BlockWandLoot.*;
+import com.hbm.config.StructureConfig;
+import com.hbm.interfaces.IControlReceiver;
+import com.hbm.itempool.ItemPool;
+import com.hbm.items.ModItems;
+import com.hbm.lib.*;
+import com.hbm.packet.*;
+import com.hbm.packet.toserver.NBTControlPacket;
+import com.hbm.tileentity.TileEntityLoadedBase;
+import com.hbm.util.*;
+import com.hbm.world.gen.nbt.*;
+import com.hbm.handler.ThreeInts;
+import api.hbm.block.IToolable;
+import io.netty.buffer.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.gui.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.*;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.network.simpleimpl.*;
+
+/** Native World.setBlockState and native Chunk lifecycle, complete actual nested tile bodies. */
+public final class EditorCubeNativeTest {
+ static int checks;static final BlockPos POS=new BlockPos(8,64,8);static final Block[] owners=new Block[4];
+ static final sun.misc.Unsafe U;
+ static{try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+ static void check(boolean b,String m){checks++;if(!b)throw new AssertionError(m);}
+ static Object field(Object o,String n)throws Exception{Field f=o.getClass().getDeclaredField(n);f.setAccessible(true);return f.get(o);}
+ static void field(Object o,String n,Object v)throws Exception{Field f=o.getClass().getDeclaredField(n);f.setAccessible(true);f.set(o,v);}
+ static NBTTagCompound save(TileEntity te){return te.writeToNBT(new NBTTagCompound());}
+ static class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<String> events=new ArrayList<>();boolean wrongLogicTile,insideSet;int lastFlags;
+  NativeWorld(boolean client){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),client);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  @Override protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "native editor fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  @Override protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}
+  @Override public boolean checkLight(BlockPos p){return true;}
+  @Override public boolean setBlockState(BlockPos p,IBlockState s,int flags){lastFlags=flags;events.add("set:"+s.getBlock().getRegistryName()+":"+s.getBlock().getMetaFromState(s)+":"+flags);NBTStructure.events.add("set");insideSet=true;try{return super.setBlockState(p,s,flags);}finally{insideSet=false;}}
+  @Override public TileEntity getTileEntity(BlockPos p){if(wrongLogicTile&&!insideSet&&getBlockState(p).getBlock()==ModBlocks.logic_block){wrongLogicTile=false;return new TileEntityWandLoot();}return super.getTileEntity(p);}
+ }
+ static final class Player extends EntityPlayer {Player(World w){super(w,new GameProfile(new UUID(9,12),"editor-probe"));}public boolean isSpectator(){return false;}public boolean isCreative(){return false;}}
+ static void register(Block b,String n){b.setTranslationKey(n);ForgeRegistries.BLOCKS.register(b.setRegistryName("hbm",n));ForgeRegistries.ITEMS.register(new ItemBlock(b).setRegistryName(b.getRegistryName()));}
+ static void setup()throws Exception{
+  owners[0]=new BlockWandJigsaw();owners[1]=new BlockWandTandem();owners[2]=new BlockWandLogic();owners[3]=new BlockWandLoot();
+  String[] names={"wand_jigsaw","wand_tandem","wand_logic","wand_loot"};
+  for(int i=0;i<4;i++){register(owners[i],names[i]);Class<? extends TileEntity> type=owners[i].createTileEntity(null,owners[i].getDefaultState()).getClass();TileEntity.register("hbm:"+names[i],type);}
+  ModBlocks.wand_jigsaw=owners[0];ModBlocks.wand_tandem=owners[1];ModBlocks.wand_logic=owners[2];ModBlocks.wand_loot=owners[3];ModBlocks.wand_air=new Block(Material.AIR);register(ModBlocks.wand_air,"wand_air");
+  ModBlocks.logic_block=new LogicBlock();register(ModBlocks.logic_block,"logic_block");ModBlocks.deco_loot=new BlockLoot();register(ModBlocks.deco_loot,"deco_loot");
+  TileEntity.register("hbm:logic_fixture",LogicBlock.TileEntityLogicBlock.class);TileEntity.register("hbm:loot_fixture",BlockLoot.TileEntityLoot.class);
+  ModItems.wand_s=new Item().setRegistryName("hbm","wand_s");ForgeRegistries.ITEMS.register(ModItems.wand_s);
+  ItemPool a=new ItemPool();a.entries=new WeightedRandomChestContent[]{new WeightedRandomChestContent(new ItemStack(Items.APPLE),1,1,1)};ItemPool.pools.put("POOL_A",a);ItemPool.pools.put("POOL_B",a);
+ }
+ static NativeWorld world(int owner,boolean client){NativeWorld w=new NativeWorld(client);w.setBlockState(POS,owners[owner].getDefaultState());return w;}
+ static NBTTagCompound settings(int owner){NBTTagCompound n=new NBTTagCompound();n.setInteger("x",8);n.setInteger("y",64);n.setInteger("z",8);n.setString("block","minecraft:stone");n.setInteger("meta",3);n.setString("pool",owner==3?"POOL_A":"pool-λ");n.setString("target","target-ß");n.setString("name","name-α");n.setInteger("selection",-7);n.setInteger("placement",41);n.setBoolean("roll",false);n.setString("actionID","A2");n.setString("conditionID","C2");n.setString("interactionID","I2");n.setInteger("rotation",5);n.setString("disguise","minecraft:stone");n.setInteger("disguiseMeta",7);n.setInteger("min",2);n.setInteger("max",5);n.setFloat("rot",137.5F);return n;}
+ static void statesRetentionAndWire()throws Exception{
+  for(int owner=0;owner<4;owner++)for(boolean client:new boolean[]{false,true}){
+   Block b=owners[owner];NativeWorld w=world(owner,client);TileEntityLoadedBase te=(TileEntityLoadedBase)w.getTileEntity(POS);te.readFromNBT(settings(owner));NBTTagCompound original=save(te);
+   for(int meta=0;meta<16;meta++){
+    IBlockState s=b.getStateFromMeta(meta);check(b.getMetaFromState(s)==meta,"metadata roundtrip "+owner+":"+meta);
+    check(s.getMaterial()==Material.IRON&&s.getRenderType()==EnumBlockRenderType.MODEL&&s.isOpaqueCube()&&s.isFullCube(),"original full iron MODEL cube");
+    check(b.getSoundType(s,w,POS,null)==SoundType.STONE,"default STONE sound preserved");
+    w.setBlockState(POS,s,2);check(w.getTileEntity(POS)==te&&!te.isInvalid(),"genuine Chunk retains actual data tile across orientation "+owner+":"+meta+":"+client);
+    NBTTagCompound now=save(te);original.setInteger("direction",meta);if(owner>=2)original.removeTag("direction");check(now.equals(original),"actual stored fields survive orientation "+owner+":"+meta);
+    IBlockSideRotation provider=(IBlockSideRotation)b;SideRotationModelState.Snapshot snap=SideRotationModelState.appearance(b.getExtendedState(s,w,POS));
+    for(int face=0;face<6;face++){check(snap.texture(face).equals(provider.getModelTexture(face,meta)),"editor world uses item texture selector");check(snap.rotation(face)==provider.getRotationFromSide(w,8,64,8,face),"owner rotation survives snapshot");}
+   }
+   ByteBuf wire=Unpooled.buffer(),expected=Unpooled.buffer();te.serialize(wire);NBTTagCompound n=save(te);
+   if(owner==0){expected.writeInt(-7).writeInt(41);BufferUtil.writeString(expected,"pool-λ");BufferUtil.writeString(expected,"name-α");BufferUtil.writeString(expected,"target-ß");expected.writeInt(Block.getIdFromBlock(Blocks.STONE)).writeInt(3).writeBoolean(false);}
+   if(owner==1){BufferUtil.writeString(expected,"pool-λ");BufferUtil.writeString(expected,"target-ß");expected.writeInt(Block.getIdFromBlock(Blocks.STONE)).writeInt(3).writeBoolean(false);}
+   if(owner==2){expected.writeInt(5);BufferUtil.writeString(expected,"A2");BufferUtil.writeString(expected,"C2");BufferUtil.writeString(expected,"I2");expected.writeInt(Block.getIdFromBlock(Blocks.STONE)).writeInt(7);}
+   if(owner==3){expected.writeInt(Block.getIdFromBlock(Blocks.STONE)).writeInt(3).writeInt(2).writeInt(5);BufferUtil.writeString(expected,"POOL_A");}
+   check(wire.equals(expected),"exact wire byte order, unicode/null encoding and omitted fields "+owner);
+   TileEntityLoadedBase copy=(TileEntityLoadedBase)b.createTileEntity(w,b.getDefaultState());copy.deserialize(wire.copy());ByteBuf round=Unpooled.buffer();copy.serialize(round);check(round.equals(expected),"wire deserialize actual nested class "+owner);
+   TileEntityLoadedBase restored=(TileEntityLoadedBase)b.createTileEntity(w,b.getDefaultState());restored.setWorld(w);restored.readFromNBT(n);check(save(restored).equals(n),"actual NBT roundtrip "+owner);
+   ((ITickable)te).update();check(te.syncs==(client?0:1)&&te.lastRange==(client?0:15),"original tick client guard and range "+owner);
+   w.setBlockState(POS,Blocks.STONE.getDefaultState());check(te.isInvalid()&&w.getTileEntity(POS)==null,"native replacement invalidates removes tile "+owner);
+   wire.release();expected.release();round.release();
+  }
+  NativeWorld w=world(3,false);TileEntityWandLoot loot=(TileEntityWandLoot)w.getTileEntity(POS);NBTTagCompound bad=settings(3);bad.setString("block","absent:block");loot.readFromNBT(bad);check(save(loot).getString("block").equals(ModBlocks.deco_loot.getRegistryName().toString()),"loot unknown block fallback unchanged");
+  for(int i=0;i<2;i++){w=world(i,false);IControlReceiver c=(IControlReceiver)w.getTileEntity(POS);check(c.hasPermission(null),"unconditional original permission");c.receiveControl(settings(i));check(((TileEntityLoadedBase)c).dirtyCalls==1,"control marks dirty once");}
+ }
+ static void placement()throws Exception{
+  int[] yawMeta={2,5,3,4};float[] yaws={0,90,180,270,-90,360,44.99F,45F};
+  for(int owner=0;owner<4;owner++)for(float yaw:yaws){NativeWorld w=world(owner,false);Player p=new Player(w);p.rotationYaw=yaw;p.setPosition(20,64,20);TileEntity tile=w.getTileEntity(POS);owners[owner].onBlockPlacedBy(w,POS,w.getBlockState(POS),p,ItemStack.EMPTY);int i=net.minecraft.util.math.MathHelper.floor(yaw*4F/360F+0.5D)&3;check(owners[owner].getMetaFromState(w.getBlockState(POS))==(owner<2?yawMeta[i]:new int[]{3,2,0,1}[i]),"placement horizontal exact yaw "+owner+":"+yaw);check(tile==w.getTileEntity(POS),"placement preserves existing data tile");check(w.lastFlags==2,"placement notify flags");if(owner==2)check(((TileEntityWandLogic)tile).placedRotation==new int[]{3,4,2,5}[i],"logic separate direction ordinal");if(owner==3)check((Float)field(tile,"placedRotation")==yaw,"loot stores unnormalized yaw");}
+  for(int owner=0;owner<2;owner++)for(double[] c:new double[][]{{8,64.19,8,1},{8,62.17,8,0},{8,64.18,8,2},{8,62.18,8,2},{10,67,8,2},{9.99,67,8,1},{6,67,8,2},{6.01,67,8,1},{8,67,10,2},{8,67,9.99,1}}){NativeWorld w=world(owner,false);Player p=new Player(w);p.setPosition(c[0],c[1],c[2]);p.rotationYaw=0;owners[owner].onBlockPlacedBy(w,POS,w.getBlockState(POS),p,ItemStack.EMPTY);check(owners[owner].getMetaFromState(w.getBlockState(POS))==(int)c[3],"legacy piston strict corner/1.82 height "+owner+Arrays.toString(c));}
+ }
+ static boolean activate(Block b,NativeWorld w,Player p,EnumHand hand){return b.onBlockActivated(w,POS,w.getBlockState(POS),p,hand,EnumFacing.UP,.2F,.3F,.4F);}
+ static void activationControlsAndCopy()throws Exception{
+  for(int owner=0;owner<4;owner++)for(boolean client:new boolean[]{false,true}){NativeWorld w=world(owner,client);Player p=new Player(w);Block b=owners[owner];p.setHeldItem(EnumHand.OFF_HAND,new ItemStack(owner==3?Blocks.CHEST:Blocks.STONE,1,3));check(activate(b,w,p,EnumHand.OFF_HAND),"native held-hand activation valid block both sides "+owner);NBTTagCompound n=save(w.getTileEntity(POS));check(n.getInteger(owner==2?"disguiseMeta":"meta")==3,"selection metadata retained");p.setSneaking(true);check(!activate(b,w,p,EnumHand.OFF_HAND),"sneaking block selection declines "+owner);}
+  for(int owner=0;owner<2;owner++){NativeWorld w=world(owner,false);Player p=new Player(w);p.setHeldItem(EnumHand.MAIN_HAND,new ItemStack(ModItems.wand_s));check(!activate(owners[owner],w,p,EnumHand.MAIN_HAND),"structure wand activation pass-through");p.setHeldItem(EnumHand.MAIN_HAND,ItemStack.EMPTY);check(activate(owners[owner],w,p,EnumHand.MAIN_HAND),"server empty hand consumed without opening GUI");p.setHeldItem(EnumHand.MAIN_HAND,new ItemStack(ModBlocks.wand_air));check(activate(owners[owner],w,p,EnumHand.MAIN_HAND)&&save(w.getTileEntity(POS)).getString("block").equals("minecraft:air"),"wand_air maps to real AIR");}
+  NativeWorld w=world(1,false);TileEntityWandTandem t=(TileEntityWandTandem)w.getTileEntity(POS);t.readFromNBT(settings(1));SpawnCondition condition=new SpawnCondition("structure-a");NBTStructure.registry.put(condition.name,condition);t.arm(condition);Player p=new Player(w);p.setSneaking(true);p.setHeldItem(EnumHand.MAIN_HAND,new ItemStack(Items.PAPER));check(activate(owners[1],w,p,EnumHand.MAIN_HAND),"tandem paper copy precedes sneaking");NBTTagCompound paper=p.getHeldItemMainhand().getTagCompound();check(!paper.hasKey("x")&&!paper.hasKey("isArmed")&&!paper.hasKey("structure")&&!paper.hasKey("direction")&&!paper.hasKey("muffled"),"paper copy omits base/location/armed/direction");paper.setString("pool","copied");check(activate(owners[1],w,p,EnumHand.MAIN_HAND),"paper paste");NBTTagCompound after=save(t);check(after.getString("pool").equals("copied")&&after.getBoolean("isArmed")&&after.getString("structure").equals("structure-a")&&!TileEntityWandTandem.copyMode,"paste preserves arm and resets global copyMode");
+  w=world(2,false);p=new Player(w);TileEntityWandLogic logic=(TileEntityWandLogic)w.getTileEntity(POS);
+  for(IToolable.ToolType tool:new IToolable.ToolType[]{IToolable.ToolType.SCREWDRIVER,IToolable.ToolType.DEFUSER,IToolable.ToolType.HAND_DRILL}){for(int i=0;i<5;i++)check(((IToolable)owners[2]).onScrew(w,p,8,64,8,0,0,0,0,tool),"logic forward tool");}check(logic.actionID.equals("A3")&&logic.conditionID.equals("C3")&&logic.interactionID.equals("I3"),"logic clamps upper catalogue bounds");p.setSneaking(true);for(int i=0;i<5;i++)for(IToolable.ToolType tool:new IToolable.ToolType[]{IToolable.ToolType.SCREWDRIVER,IToolable.ToolType.DEFUSER,IToolable.ToolType.HAND_DRILL})((IToolable)owners[2]).onScrew(w,p,8,64,8,0,0,0,0,tool);check(logic.actionID.equals("FODDER_WAVE")&&logic.conditionID.equals("PLAYER_CUBE_5")&&logic.interactionID.equals("I1"),"logic clamps lower bounds, null not inserted");check(!((IToolable)owners[2]).onScrew(w,p,8,64,8,0,0,0,0,IToolable.ToolType.BOLT),"unsupported logic tool");
+  logic.readFromNBT(settings(2));NBTTagCompound copy=logic.getSettings(w,8,64,8);check(!copy.hasKey("rotation")&&!copy.hasKey("x")&&copy.getString("disguise").equals("minecraft:stone"),"logic copy includes settings but excludes rotation");logic.placedRotation=2;logic.pasteSettings(copy,0,w,p,8,64,8);check(logic.placedRotation==2&&logic.actionID.equals("A2"),"logic paste preserves orientation");
+  w=world(3,false);p=new Player(w);TileEntityWandLoot loot=(TileEntityWandLoot)w.getTileEntity(POS);IToolable tools=(IToolable)owners[3];for(int i=0;i<4;i++)tools.onScrew(w,p,8,64,8,0,0,0,0,IToolable.ToolType.SCREWDRIVER);check(save(loot).getInteger("min")==4&&save(loot).getInteger("max")==4,"min raises max");p.setSneaking(true);for(int i=0;i<9;i++)tools.onScrew(w,p,8,64,8,0,0,0,0,IToolable.ToolType.HAND_DRILL);check(save(loot).getInteger("min")==0&&save(loot).getInteger("max")==0,"max decrease lowers min floors zero");p.setSneaking(false);p.setHeldItem(EnumHand.MAIN_HAND,new ItemStack(Blocks.CHEST));activate(owners[3],w,p,EnumHand.MAIN_HAND);check(save(loot).getString("pool").equals("POOL_A"),"incompatible decorative pool resets to first inventory pool");for(int i=0;i<5;i++)tools.onScrew(w,p,8,64,8,0,0,0,0,IToolable.ToolType.DEFUSER);check(save(loot).getString("pool").equals("POOL_B"),"loot pool upper clamp");
+ }
+ static void generation()throws Exception{
+  NativeWorld w=world(1,false);TileEntityWandTandem tandem=(TileEntityWandTandem)w.getTileEntity(POS);tandem.readFromNBT(settings(1));tandem.update();check(w.getBlockState(POS).getBlock()==owners[1],"unarmed tandem no generation");
+  NBTStructure structure=new NBTStructure();Constructor<NBTStructure.JigsawConnection> ctor=NBTStructure.JigsawConnection.class.getDeclaredConstructor(ThreeInts.class,ForgeDirection.class,String.class,String.class,boolean.class,int.class,int.class);ctor.setAccessible(true);structure.connections=Arrays.asList(ctor.newInstance(new ThreeInts(2,3,4),ForgeDirection.WEST,"unused","target-ß",true,0,0));JigsawPiece piece=new JigsawPiece("piece-a",structure);JigsawPool pool=new JigsawPool();pool.add(piece,1);SpawnCondition spawn=new SpawnCondition("spawn-a");spawn.pools.put("pool-λ",pool);tandem.arm(spawn);w.setBlockState(POS,owners[1].getStateFromMeta(3),2);NBTStructure.events.clear();tandem.update();
+  check(structure.requestedDir==ForgeDirection.SOUTH&&structure.requestedTarget.equals("target-ß"),"tandem connection requested original facing and target");check(NBTStructure.events.equals(Arrays.asList("rotateX:2:4:1","rotateZ:2:4:1","build:-94:61:-195:1:spawn-a","set")),"tandem rotate/build/replace ordering and offsets "+NBTStructure.events);check(w.getBlockState(POS).getBlock()==Blocks.STONE&&Blocks.STONE.getMetaFromState(w.getBlockState(POS))==3&&tandem.isInvalid()&&tandem.syncs==2,"tandem replaces then syncs original tile");
+  for(boolean debug:new boolean[]{true,false}){w=world(2,false);TileEntityWandLogic l=(TileEntityWandLogic)w.getTileEntity(POS);l.readFromNBT(settings(2));StructureConfig.debugStructures=debug;l.transformTE(w,3);l.update();if(debug)check(w.getBlockState(POS).getBlock()==owners[2]&&l.syncs==1,"logic debug suppresses generation");else{TileEntity result=w.getTileEntity(POS);check(result instanceof LogicBlock.TileEntityLogicBlock,"logic replacement actual tile");LogicBlock.TileEntityLogicBlock r=(LogicBlock.TileEntityLogicBlock)result;check(r.actionID.equals("A2")&&r.conditionID.equals("C2")&&r.interactionID.equals("I2")&&r.direction==ForgeDirection.EAST&&r.disguise==Blocks.STONE&&r.disguiseMeta==7,"logic generation settings and untransformed stored rotation");check(l.syncs==0&&l.isInvalid(),"logic no network on generation tick");}}
+  w=world(2,false);TileEntityWandLogic l=(TileEntityWandLogic)w.getTileEntity(POS);w.wrongLogicTile=true;check(((BlockWandLogic)owners[2]).explode(w,8,64,8)==com.hbm.interfaces.IBomb.BombReturnCode.TRIGGERED,"logic bomb trigger return");l.update();check(w.getBlockState(POS).getBlock()==ModBlocks.logic_block&&w.getTileEntity(POS) instanceof TileEntityWandLogic,"original peculiar fallback creates wand_logic tile not LogicBlock tile");
+  StructureConfig.debugStructures=false;for(boolean inventory:new boolean[]{false,true}){w=world(3,false);TileEntityWandLoot loot=(TileEntityWandLoot)w.getTileEntity(POS);NBTTagCompound n=settings(3);n.setString("block",inventory?"minecraft:chest":ModBlocks.deco_loot.getRegistryName().toString());n.setInteger("meta",0);n.setInteger("min",3);n.setInteger("max",3);n.setString("pool",inventory?"POOL_A":"LOOT_BOOKLET");loot.readFromNBT(n);loot.transformTE(w,3);check(save(loot).getFloat("rot")==47.5F,"loot transform wraps stored placement yaw");int applied=LootGenerator.applies;loot.update();check(loot.isInvalid()&&loot.syncs==0&&w.events.contains("set:"+(inventory?"minecraft:chest:2":"hbm:deco_loot:0")+":2"),"loot native replacement and no sync on generation: "+inventory+":"+loot.isInvalid()+":"+loot.syncs+":"+w.events);if(inventory){IInventory inv=(IInventory)w.getTileEntity(POS);int found=0;for(int i=0;i<inv.getSizeInventory();i++)if(!inv.getStackInSlot(i).isEmpty()){found++;check(inv.getStackInSlot(i).getItem()==Items.APPLE,"real weighted inventory contents");}check(found>=1&&found<=3,"real weighted generator fixed min/max rolls");}else check(LootGenerator.applies==applied+1&&LootGenerator.last.equals("LOOT_BOOKLET"),"decorative loot dispatch");}
+ }
+ static GuiTextField text(String s)throws Exception{GuiTextField f=(GuiTextField)U.allocateInstance(GuiTextField.class);field(f,"text",s);return f;}
+ static void guiSaves()throws Exception{
+  for(int owner=0;owner<2;owner++){NativeWorld w=world(owner,false);TileEntity te=w.getTileEntity(POS);te.readFromNBT(settings(owner));GuiScreen gui=owner==0?new GuiWandJigsaw((TileEntityWandJigsaw)te):new GuiWandTandem((TileEntityWandTandem)te);field(gui,"textPool",text("edited-pool"));field(gui,"textTarget",text("edited-target"));if(owner==0){field(gui,"textName",text("edited-name"));field(gui,"textSelectionPriority",text("not-an-integer"));field(gui,"textPlacementPriority",text("-123"));}field(gui,"jointToggle",new GuiButton(0,0,0,"Rollable"));gui.onGuiClosed();NBTControlPacket sent=com.hbm.main.NetworkHandler.last;check(sent!=null&&sent.x==8&&sent.y==64&&sent.z==8,"GUI native position save packet");check(sent.nbt.getString("pool").equals("edited-pool")&&sent.nbt.getString("target").equals("edited-target")&&sent.nbt.getBoolean("roll"),"GUI text/toggle save");if(owner==0)check(sent.nbt.getString("name").equals("edited-name")&&sent.nbt.getInteger("selection")==-7&&sent.nbt.getInteger("placement")==-123,"GUI invalid integer preserves saved value, valid negative preserved");check(gui.doesGuiPauseGame()==(owner==0),"original GUI pause distinction");field(gui,"jointToggle",new GuiButton(0,0,0,new String("Rollable")));gui.onGuiClosed();check(!com.hbm.main.NetworkHandler.last.nbt.getBoolean("roll"),"original reference-equality toggle save peculiarity preserved");}
+ }
+ public static void main(String[] args)throws Exception{Bootstrap.register();setup();statesRetentionAndWire();placement();activationControlsAndCopy();generation();guiSaves();System.out.println("PASS editor cubes: "+checks+" assertions; four complete owners/nested tiles/GUI compiled; genuine World/Chunk metadata retention and replacement, exact wire/NBT, activation, controls, placement, generation dispatch order, native GUI save.");System.out.println("BOUNDS: LoadedBase sync transport, ModBlocks registry/helper, NBT structure build catalogue, packet delivery and loot/action catalogues are explicit NTM collaborators; no live GL, GUI opening, real structure generation, server FakePlayer factory or full-mod launch claim.");}
+}

@@ -47,16 +47,16 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.plasmaHeater";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			if(this.worldObj.getTotalWorldTime() % 20 == 0)
+			if(this.world.getTotalWorldTime() % 20 == 0)
 				this.updateConnections();
 
 			/// START Managing all the internal stuff ///
@@ -92,11 +92,11 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
 			int dist = 11;
 			
-			if(worldObj.getBlock(xCoord + dir.offsetX * dist, yCoord + 1, zCoord + dir.offsetZ * dist) == ModBlocks.machine_htrf4) {
-				int[] pos = ((MachineHTRF4)ModBlocks.machine_htrf4).findCore(worldObj, xCoord + dir.offsetX * dist, yCoord + 1, zCoord + dir.offsetZ * dist);
+			if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * dist, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * dist).getBlock() == ModBlocks.machine_htrf4) {
+				int[] pos = ((MachineHTRF4)ModBlocks.machine_htrf4).findCore(this.world, this.pos.getX() + dir.offsetX * dist, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * dist);
 				
 				if(pos != null) {
-					TileEntity te = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 					
 					if(te instanceof TileEntityMachineHTRF4) {
 						TileEntityMachineHTRF4 htrf = (TileEntityMachineHTRF4)te;
@@ -117,11 +117,11 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 				}
 			}
 			
-			if(worldObj.getBlock(xCoord + dir.offsetX * dist, yCoord + 2, zCoord + dir.offsetZ * dist) == ModBlocks.iter) {
-				int[] pos = ((MachineITER)ModBlocks.iter).findCore(worldObj, xCoord + dir.offsetX * dist, yCoord + 2, zCoord + dir.offsetZ * dist);
+			if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * dist, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * dist).getBlock() == ModBlocks.iter) {
+				int[] pos = ((MachineITER)ModBlocks.iter).findCore(this.world, this.pos.getX() + dir.offsetX * dist, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * dist);
 				
 				if(pos != null) {
-					TileEntity te = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 					
 					if(te instanceof TileEntityITER) {
 						TileEntityITER iter = (TileEntityITER)te;
@@ -163,9 +163,9 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 		
 		for(int i = 1; i < 4; i++) {
 			for(int j = -1; j < 2; j++) {
-				this.trySubscribe(worldObj, xCoord + side.offsetX * j + dir.offsetX * 2, yCoord + i, zCoord + side.offsetZ * j + dir.offsetZ * 2, j < 0 ? ForgeDirection.DOWN : ForgeDirection.UP);
-				this.trySubscribe(tanks[0].getTankType(), worldObj, xCoord + side.offsetX * j + dir.offsetX * 2, yCoord + i, zCoord + side.offsetZ * j + dir.offsetZ * 2, j < 0 ? ForgeDirection.DOWN : ForgeDirection.UP);
-				this.trySubscribe(tanks[1].getTankType(), worldObj, xCoord + side.offsetX * j + dir.offsetX * 2, yCoord + i, zCoord + side.offsetZ * j + dir.offsetZ * 2, j < 0 ? ForgeDirection.DOWN : ForgeDirection.UP);
+				this.trySubscribe(this.world, this.pos.getX() + side.offsetX * j + dir.offsetX * 2, this.pos.getY() + i, this.pos.getZ() + side.offsetZ * j + dir.offsetZ * 2, j < 0 ? ForgeDirection.DOWN : ForgeDirection.UP);
+				this.trySubscribe(tanks[0].getTankType(), this.world, this.pos.getX() + side.offsetX * j + dir.offsetX * 2, this.pos.getY() + i, this.pos.getZ() + side.offsetZ * j + dir.offsetZ * 2, j < 0 ? ForgeDirection.DOWN : ForgeDirection.UP);
+				this.trySubscribe(tanks[1].getTankType(), this.world, this.pos.getX() + side.offsetX * j + dir.offsetX * 2, this.pos.getY() + i, this.pos.getZ() + side.offsetZ * j + dir.offsetZ * 2, j < 0 ? ForgeDirection.DOWN : ForgeDirection.UP);
 			}
 		}
 	}
@@ -235,13 +235,14 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "fuel_1");
 		tanks[1].writeToNBT(nbt, "fuel_2");
 		plasma.writeToNBT(nbt, "plasma");
+		return nbt;
 	}
 
 	@Override

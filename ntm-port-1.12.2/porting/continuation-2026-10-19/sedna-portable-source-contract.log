@@ -1,0 +1,2 @@
+PASS source: 51 exact type-only consumer migrations, 67 exact renderer entries, projectile bytes unchanged, all 44 shared effect vertices/UVs/order and alpha preserved
+PASS all53 original source inputs identical between CP29 and CP30; portable pinned reversal works without local Git history.

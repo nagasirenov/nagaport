@@ -29,7 +29,7 @@ public class TileEntityTurretBrandon extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		// TODO Auto-generated method stub
 		return null;
 	}

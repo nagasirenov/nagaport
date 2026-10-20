@@ -23,7 +23,7 @@ import java.util.Locale;
 public class MachineSteamEngine extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public MachineSteamEngine() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class MachineSteamEngine extends BlockDummyable implements ILookOverlay, 
 		if(pos == null)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntitySteamEngine))
 			return;
@@ -76,7 +76,7 @@ public class MachineSteamEngine extends BlockDummyable implements ILookOverlay, 
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + engine.tanks[0].getTankType().getLocalizedName() + ": " + String.format(Locale.US, "%,d", engine.tanks[0].getFill()) + " / " + String.format(Locale.US, "%,d", engine.tanks[0].getMaxFill()) + "mB");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + engine.tanks[1].getTankType().getLocalizedName() + ": " + String.format(Locale.US, "%,d", engine.tanks[1].getFill()) + " / " + String.format(Locale.US, "%,d", engine.tanks[1].getMaxFill()) + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

@@ -1,0 +1,8 @@
+CL: bao net/minecraft/client/Minecraft
+CL: bbu net/minecraft/client/gui/FontRenderer
+CL: bdw net/minecraft/client/gui/GuiScreen
+CL: bjf net/minecraft/client/multiplayer/WorldClient
+CL: bjk net/minecraft/client/entity/EntityClientPlayerMP
+FD: bao/f net/minecraft/client/Minecraft/field_71441_e
+FD: bao/h net/minecraft/client/Minecraft/field_71439_g
+FD: bdw/q net/minecraft/client/gui/GuiScreen/field_146289_q

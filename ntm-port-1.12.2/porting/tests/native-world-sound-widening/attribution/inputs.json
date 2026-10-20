@@ -1,0 +1,9 @@
+{
+  "commit": "641d2641bf196265e34e3f6968dba795f1dd061b",
+  "repository": "/workspace/shared/nagaport-player-sound-cp59",
+  "archive": "/tmp/world-sound-widening-attribution/baseline-sources.zip",
+  "archive_sha256": "829e3c2d6fa742f3c3159e0a7d951a32f28e2482e129816e10e2e7f6e53624b3",
+  "archive_bytes": 6217734,
+  "java_units": 4058,
+  "selection": "All production AST member invocations named playSoundEffect; filter AFTER full javac attribution by exact World receiver, primitive widening-only arguments, direct literal hbm name in existing45 registry."
+}

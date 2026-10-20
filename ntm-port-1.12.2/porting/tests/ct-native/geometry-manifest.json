@@ -1,0 +1,18 @@
+{
+  "production": {
+    "src/main/java/com/hbm/render/block/ct/CT.java": "bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76",
+    "src/main/java/com/hbm/render/block/ct/CTContext.java": "8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70",
+    "src/main/java/com/hbm/render/block/ct/CTLightQuad.java": "23d55234bbf3555cd4aab306becde225ab229c83e1ad4935acee91ff26c23531",
+    "src/main/java/com/hbm/render/block/ct/IBlockCT.java": "d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34",
+    "src/main/java/com/hbm/render/block/ct/RenderBlocksCT.java": "d06b051704a26c9a8f2c550ca2b844ca2b3f494c0ead2cb1d593c341d8ac4ea3",
+    "src/main/java/com/hbm/render/block/RenderBlockCT.java": "7333353045dee00b9194315e0222cdfe4a0855b97568d9f628bd3f789294ee67",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java": "741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925"
+  },
+  "evidence": {
+    "porting/tests/ct-native/probe.py": "cd2d211fd7abed8e18643a5de784eda3f3f9d9e7805bc50282fe01a18fc55d08",
+    "porting/tests/ct-native/CTNativeTest.java.in": "2ac8388bcf129674d658327bfca0480e1f71a714880ea9aea5e148a2cb326344",
+    "porting/tests/ct-native/original-manifest.json": "4d8bc561a8012286c135a62de0a522155b6ba592c6c221e4814882f2b9d07846",
+    "porting/tests/ct-native/README.md": "3e2e20949d5e0ac808f561e5c88537e6d79d2523a5022066f73c25e475826d0c",
+    "porting/tests/ct-native/geometry-proof.log": "4f2f9168be73afeedae662cf8a00d79730e043b4b4437da39ab02e9f288e74c0"
+  }
+}

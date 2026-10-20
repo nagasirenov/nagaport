@@ -41,9 +41,9 @@ public class XFactory35800 {
 			}
 		}
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			EntityFireLingering fire = new EntityFireLingering(bullet.worldObj).setArea(7.5F, 2F).setDuration(200).setType(EntityFireLingering.TYPE_BLACK);
+			EntityFireLingering fire = new EntityFireLingering(bullet.world).setArea(7.5F, 2F).setDuration(200).setType(EntityFireLingering.TYPE_BLACK);
 			fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-			bullet.worldObj.spawnEntityInWorld(fire);
+			bullet.world.spawnEntityInWorld(fire);
 		}
 
 		BulletConfig.LAMBDA_STANDARD_BEAM_HIT.accept(bullet, mop);
@@ -65,7 +65,7 @@ public class XFactory35800 {
 						.canFire(Lego.LAMBDA_STANDARD_CAN_FIRE).fire(Lego.LAMBDA_NOWEAR_FIRE).recoil(LAMBDA_RECOIL_ABERRATOR))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_ABERRATOR).orchestra(Orchestras.ORCHESTRA_ABERRATOR)
-				).setUnlocalizedName("gun_aberrator");
+				).setTranslationKey("gun_aberrator");
 
 		ModItems.gun_aberrator_eott = new ItemGunBaseNT(WeaponQuality.SECRET,
 				new GunConfig().dura(2_000).draw(10).inspect(26).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -86,7 +86,7 @@ public class XFactory35800 {
 				.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)
 				.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				.anim(LAMBDA_ABERRATOR).orchestra(Orchestras.ORCHESTRA_ABERRATOR)
-				).setUnlocalizedName("gun_aberrator_eott");
+				).setTranslationKey("gun_aberrator_eott");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_RECOIL_ABERRATOR = (stack, ctx) -> {

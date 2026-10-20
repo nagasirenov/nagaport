@@ -40,17 +40,17 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!ServerConfig.CRATE_OPEN_HELD.get()) return stack;
 
-		Block block = Block.getBlockFromItem(player.getHeldItem().getItem());
+		Block block = Block.getBlockFromItem(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem());
 		if(block == ModBlocks.mass_storage) return stack; // Genuinely can't figure out how to make this part work, so I'm just not gonna mess with it.
 
 		if(!world.isRemote && stack.stackSize == 1) {
-			if(stack.stackTagCompound != null && stack.stackTagCompound.hasKey("lock")) {
+			if(stack.getTagCompound() != null && stack.getTagCompound().hasKey("lock")) {
 				for(ItemStack item : player.inventory.mainInventory) {
 
 					if(item == null) continue; // Skip if no item.
 					if(!(item.getItem() instanceof ItemKey)) continue; // Skip if item isn't a key.
-					if(item.stackTagCompound == null) continue; // Skip if there is no NBT (wouldn't open it anyway).
-					if(item.stackTagCompound.getInteger("pins") == stack.stackTagCompound.getInteger("lock")) { // Check if pins are equal (if it can open it)
+					if(item.getTagCompound() == null) continue; // Skip if there is no NBT (wouldn't open it anyway).
+					if(item.getTagCompound().getInteger("pins") == stack.getTagCompound().getInteger("lock")) { // Check if pins are equal (if it can open it)
 						TileEntityCrateBase.spawnSpiders(player, world, stack);
 						player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 						break;
@@ -67,26 +67,26 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		Block block = Block.getBlockFromItem(player.getHeldItem().getItem());
-		if(block == ModBlocks.crate_iron) return new ContainerCrateIron(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_steel) return new ContainerCrateSteel(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_desh) return new ContainerCrateDesh(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_tungsten) return new ContainerCrateTungsten(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_template) return new ContainerCrateTemplate(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.safe) return new ContainerSafe(player.inventory, new InventoryCrate(player, player.getHeldItem()));
+		Block block = Block.getBlockFromItem(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem());
+		if(block == ModBlocks.crate_iron) return new ContainerCrateIron(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_steel) return new ContainerCrateSteel(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_desh) return new ContainerCrateDesh(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_tungsten) return new ContainerCrateTungsten(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_template) return new ContainerCrateTemplate(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.safe) return new ContainerSafe(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 		throw new NullPointerException();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		Block block = Block.getBlockFromItem(player.getHeldItem().getItem());
-		if(block == ModBlocks.crate_iron) return new GUICrateIron(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_steel) return new GUICrateSteel(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_desh) return new GUICrateDesh(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_tungsten) return new GUICrateTungsten(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.crate_template) return new GUICrateTemplate(player.inventory, new InventoryCrate(player, player.getHeldItem()));
-		if(block == ModBlocks.safe) return new GUISafe(player.inventory, new InventoryCrate(player, player.getHeldItem()));
+		Block block = Block.getBlockFromItem(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem());
+		if(block == ModBlocks.crate_iron) return new GUICrateIron(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_steel) return new GUICrateSteel(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_desh) return new GUICrateDesh(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_tungsten) return new GUICrateTungsten(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.crate_template) return new GUICrateTemplate(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
+		if(block == ModBlocks.safe) return new GUISafe(player.inventory, new InventoryCrate(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 		throw new NullPointerException();
 	}
 
@@ -99,13 +99,13 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 			this.target = crate;
 
 			this.slots = new ItemStack[this.getSizeInventory()];
-			if(target.stackTagCompound == null) {
-				target.stackTagCompound = new NBTTagCompound();
-				target.stackTagCompound.setLong("stacklock", rand.nextLong());
+			if(target.getTagCompound() == null) {
+				target.setTagCompound(new NBTTagCompound());
+				target.getTagCompound().setLong("stacklock", rand.nextLong());
 			}
 
 			for(int i = 0; i < slots.length; i++)
-				this.slots[i] = ItemStack.loadItemStackFromNBT(target.stackTagCompound.getCompoundTag("slot" + i));
+				this.slots[i] = ItemStack.loadItemStackFromNBT(target.getTagCompound().getCompoundTag("slot" + i));
 		}
 
 		@Nonnull
@@ -141,14 +141,14 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 		
 		@Override
 		public boolean isUseableByPlayer(EntityPlayer player) {
-			return player.getHeldItem() == this.target;
+			return com.hbm.util.NativeHeldItem.getMainHandNullable(player) == this.target;
 		}
 
 		@Override
 		public void markDirty() { // You have been blessed by the unfuck
 
 			// Preserve existing NBT so we keep lock data and piders
-			NBTTagCompound nbt = target.stackTagCompound != null ? target.stackTagCompound : new NBTTagCompound();
+			NBTTagCompound nbt = target.getTagCompound() != null ? target.getTagCompound() : new NBTTagCompound();
 			int invSize = this.getSizeInventory();
 			
 			nbt.removeTag("stacklock");
@@ -180,13 +180,13 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 			target.setTagCompound(checkNBT(target.getTagCompound()));
 			player.inventoryContainer.detectAndSendChanges();
 			
-			if(target.stackTagCompound != null) {
-				target.stackTagCompound.removeTag("stacklock");
+			if(target.getTagCompound() != null) {
+				target.getTagCompound().removeTag("stacklock");
 				
-				if(target.stackTagCompound.hasNoTags()) {
+				if(target.getTagCompound().hasNoTags()) {
 					target.setTagCompound(null); // if there's no tags left, clear compound to make the crate stackable again
 				} else {
-					target.stackTagCompound.setLong("stacklock", rand.nextLong()); // add shit that prevents crates from stacking
+					target.getTagCompound().setLong("stacklock", rand.nextLong()); // add shit that prevents crates from stacking
 				}
 			}
 		}

@@ -1,0 +1,22 @@
+/workspace/shared/nagaport-pneumatic-next/porting/tests/PneumaticNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+          ^
+/workspace/shared/nagaport-pneumatic-next/porting/tests/PneumaticNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+                                  ^
+/workspace/shared/nagaport-pneumatic-next/porting/tests/PneumaticNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);
+                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS complete native PneumoTube, RenderPneumoTube, immutable snapshot, model, cuboid geometry and loader compiled.
+[20:57:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pneumatic_tube`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pneumatic_tube`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:21] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.pneumatic_tube`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `external_pneumatic_subclass`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `unrelated_tube`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 139742 native assertions; 2752 verbatim-pristine topology/port cases; owner neighbor/extended-state and loader bake invoked. Mechanical collaborators are explicit doubles.
+PASS bounded native owner/model boundary; no functional pneumatic network acceptance.

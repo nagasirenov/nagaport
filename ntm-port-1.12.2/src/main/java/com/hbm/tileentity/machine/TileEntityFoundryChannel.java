@@ -28,10 +28,13 @@ public class TileEntityFoundryChannel extends TileEntityFoundryBase {
 
 	protected FoundryNode node;
 
-	@Override
-	public void updateEntity() {
+    /** The paired native block/TESR also draws housing during the damage stage. */
+    @Override public boolean canRenderBreaking() { return true; }
 
-		if(!worldObj.isRemote) {
+	@Override
+	public void update() {
+
+		if(!this.world.isRemote) {
 			initNode();
 
 			if(this.node.type != null && this.amount == 0) {
@@ -58,13 +61,13 @@ public class TileEntityFoundryChannel extends TileEntityFoundryBase {
 
 				for(Integer i : ints) {
 					ForgeDirection dir = ForgeDirection.getOrientation(i);
-					Block b = worldObj.getBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+					Block b = this.world.getBlockState(this.pos.add(dir.offsetX, 0, dir.offsetZ)).getBlock();
 
 					if(b instanceof ICrucibleAcceptor && b != ModBlocks.foundry_channel) {
 						ICrucibleAcceptor acc = (ICrucibleAcceptor) b;
 
-						if(acc.canAcceptPartialFlow(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir.getOpposite(), new MaterialStack(this.type, this.amount))) {
-							MaterialStack left = acc.flow(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir.getOpposite(), new MaterialStack(this.type, this.amount));
+						if(acc.canAcceptPartialFlow(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir.getOpposite(), new MaterialStack(this.type, this.amount))) {
+							MaterialStack left = acc.flow(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir.getOpposite(), new MaterialStack(this.type, this.amount));
 							if(left == null) {
 								this.type = null;
 								this.amount = 0;
@@ -82,7 +85,7 @@ public class TileEntityFoundryChannel extends TileEntityFoundryBase {
 				if(!hasOp) {
 					for(Integer i : ints) {
 						ForgeDirection dir = ForgeDirection.getOrientation(i);
-						TileEntity b = worldObj.getTileEntity(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
+						TileEntity b = this.world.getTileEntity(this.pos.add(dir.offsetX, 0, dir.offsetZ));
 
 						if(b instanceof TileEntityFoundryChannel) {
 							TileEntityFoundryChannel acc = (TileEntityFoundryChannel) b;
@@ -94,7 +97,7 @@ public class TileEntityFoundryChannel extends TileEntityFoundryBase {
 
 								acc.lastFlow = dir.getOpposite().ordinal();
 
-								if(worldObj.rand.nextInt(5) == 0 || this.amount == 1) { //force swap operations with single quanta to keep them moving
+								if(this.world.rand.nextInt(5) == 0 || this.amount == 1) { //force swap operations with single quanta to keep them moving
 									//1:4 chance that the fill states are simply swapped
 									//this promotes faster spreading and prevents spread limits
 									int buf = this.amount;
@@ -123,18 +126,18 @@ public class TileEntityFoundryChannel extends TileEntityFoundryBase {
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	protected void initNode() {
 		if(this.node == null || this.node.expired) {
 
-			this.node = (FoundryNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, FoundryNetworkProvider.THE_PROVIDER);
+			this.node = (FoundryNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), FoundryNetworkProvider.THE_PROVIDER);
 
 			if(this.node == null || this.node.expired) {
 				this.node = this.createNode();
 				this.node.type = this.type;
-				UniNodespace.createNode(worldObj, this.node);
+				UniNodespace.createNode(this.world, this.node);
 			}
 		}
 	}
@@ -151,29 +154,30 @@ public class TileEntityFoundryChannel extends TileEntityFoundryBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setByte("flow", (byte) this.lastFlow);
+		return nbt;
 	}
 
 	@Override
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, FoundryNetworkProvider.THE_PROVIDER);
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), FoundryNetworkProvider.THE_PROVIDER);
 			}
 		}
 	}
 
 	public FoundryNode createNode() {
 		TileEntity tile = (TileEntity) this;
-		return new FoundryNode(FoundryNetworkProvider.THE_PROVIDER, new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(
-			new DirPos(tile.xCoord + 1, tile.yCoord, tile.zCoord, Library.POS_X),
-			new DirPos(tile.xCoord - 1, tile.yCoord, tile.zCoord, Library.NEG_X),
-			new DirPos(tile.xCoord, tile.yCoord, tile.zCoord + 1, Library.POS_Z),
-			new DirPos(tile.xCoord, tile.yCoord, tile.zCoord - 1, Library.NEG_Z)
+		return new FoundryNode(FoundryNetworkProvider.THE_PROVIDER, new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(
+			new DirPos(tile.getPos().getX() + 1, tile.getPos().getY(), tile.getPos().getZ(), Library.POS_X),
+			new DirPos(tile.getPos().getX() - 1, tile.getPos().getY(), tile.getPos().getZ(), Library.NEG_X),
+			new DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() + 1, Library.POS_Z),
+			new DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() - 1, Library.NEG_Z)
 		);
 	}
 

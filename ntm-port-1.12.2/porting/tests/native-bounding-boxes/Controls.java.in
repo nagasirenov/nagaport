@@ -1,0 +1,31 @@
+package controls;
+import net.minecraft.util.math.AxisAlignedBB;
+class Positive {
+ Object point(int x,int y,int z) { return AxisAlignedBB.getBoundingBox(x,y,z,x,y,z); }
+ Object floatingPoint(double x,double y,double z) { return AxisAlignedBB.getBoundingBox(x,y,z,x,y,z); }
+ Object promoted(int x,int y,int z) { return AxisAlignedBB.getBoundingBox(x-0.5,y,z,x+0.5,y,z); }
+ Object fullyQualified(int x,int y,int z) { return net.minecraft.util.math.AxisAlignedBB.getBoundingBox(x,y,z,x,y,z); }
+}
+class Negative {
+ double x;
+ Object overflow(int x,int y,int z) { return AxisAlignedBB.getBoundingBox(x,y,z,x+1,y+1,z+1); }
+ Object reverse(int x,int y,int z) { return AxisAlignedBB.getBoundingBox(x+1.0,y,z,x-1.0,y,z); }
+ Object fields() { return AxisAlignedBB.getBoundingBox(x,x,x,x,x,x); }
+ Object floatingRange(double x) { return AxisAlignedBB.getBoundingBox(x,0,0,x+1,0,0); }
+ Object wrongArity(int x) { return AxisAlignedBB.getBoundingBox(x,x,x); }
+ Object nonnumeric(Object x) { return AxisAlignedBB.getBoundingBox(x,x,x,x,x,x); }
+ Object sideEffects(int x) { return AxisAlignedBB.getBoundingBox(x++,0,0,x++,0,0); }
+ Object calls() { return AxisAlignedBB.getBoundingBox(value(),0,0,value(),0,0); }
+ double value(){return 0;}
+ Object instance(AxisAlignedBB b,int x) { return b.getBoundingBox(x,x,x,x,x,x); }
+ Object parameterShadow(AxisAlignedBB AxisAlignedBB,int x) { return AxisAlignedBB.getBoundingBox(x,x,x,x,x,x); }
+ Object domain(int x) { return Domain.getBoundingBox(x,x,x,x,x,x); }
+ Object unknown(int x) { return Missing.getBoundingBox(x,x,x,x,x,x); }
+ Object subclass(int x) { return Child.getBoundingBox(x,x,x,x,x,x); }
+ static class Child extends AxisAlignedBB { Child(){super(0,0,0,1,1,1);} }
+ static class Domain { static Object getBoundingBox(double a,double b,double c,double d,double e,double f){return null;} }
+}
+class Shadow {
+ static class AxisAlignedBB { static Object getBoundingBox(double a,double b,double c,double d,double e,double f){return null;} }
+ Object nested(int x) { return AxisAlignedBB.getBoundingBox(x,x,x,x,x,x); }
+}

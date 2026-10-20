@@ -1,0 +1,29 @@
+{
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak1.ogg",
+      "sha256": "630ec2121f2779f6ffdab78195701274e3f0319c5e16a20dea397afaea0f1fae"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak2.ogg",
+      "sha256": "f32b5b78471c7fa0f5ec0e4ccac4265f59bbd8c86132d4772c8de1565451c8d2"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak3.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak3.ogg",
+      "sha256": "b1769c655c7d52d6b39177d4d3fcc45029f01c6abceba2e34604225ecb445f66"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak4.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak4.ogg",
+      "sha256": "f5ccf8c5e132158bf6a63538fe34ffc341930d5fe9c9bd4e32335c6573058f76"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak5.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak5.ogg",
+      "sha256": "40f04f42c86754ae6f9f9ccfd15470cb7c2d60bc58e51ef7129867ef2ed83553"
+    }
+  ]
+}

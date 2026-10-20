@@ -31,12 +31,12 @@ public class BlockOrrery extends BlockContainer {
 		public AxisAlignedBB getRenderBoundingBox() {
 			if(bb == null) {
 				bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 49,
-					yCoord - 19,
-					zCoord - 49,
-					xCoord + 50,
-					yCoord + 20,
-					zCoord + 50
+					this.pos.getX() - 49,
+					this.pos.getY() - 19,
+					this.pos.getZ() - 49,
+					this.pos.getX() + 50,
+					this.pos.getY() + 20,
+					this.pos.getZ() + 50
 				);
 			}
 

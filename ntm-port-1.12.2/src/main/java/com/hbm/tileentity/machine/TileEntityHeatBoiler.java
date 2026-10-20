@@ -36,7 +36,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.EnumSkyBlock;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardTransceiverMK2, IConfigurableMachine, IFluidCopiable {
+public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardTransceiverMK2, IConfigurableMachine, IFluidCopiable, net.minecraft.util.ITickable {
 
 	public int heat;
 	public FluidTank[] tanks;
@@ -61,9 +61,9 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 	ByteBuf buf;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.buf != null)
 				this.buf.release();
@@ -77,8 +77,8 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 				this.tryPullHeat();
 				int lastHeat = this.heat;
 
-				int light = this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, this.xCoord, this.yCoord, this.zCoord);
-				if(light > 7 && TomSaveData.forWorld(worldObj).fire > 1e-5) {
+				int light = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				if(light > 7 && TomSaveData.forWorld(this.world).fire > 1e-5) {
 					this.heat += ((maxHeat - heat) * 0.000005D); //constantly heat up 0.0005% of the remaining heat buffer for rampant but diminishing heating
 				}
 
@@ -127,7 +127,7 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.boiler", xCoord, yCoord, zCoord, 0.125F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.boiler", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.125F, 10F, 1.0F, 20);
 	}
 
 	@Override
@@ -168,7 +168,7 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 	}
 
 	protected void tryPullHeat() {
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -226,8 +226,8 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 				this.tanks[1].setFill(this.tanks[1].getFill() + entry.amountProduced * ops);
 				this.heat -= heatReq * ops;
 
-				if(ops > 0 && worldObj.rand.nextInt(400) == 0) {
-					worldObj.playSoundEffect(xCoord + 0.5, yCoord + 2, zCoord + 0.5, "hbm:block.boilerGroan", 0.5F, 1.0F);
+				if(ops > 0 && this.world.rand.nextInt(400) == 0) {
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, "hbm:block.boilerGroan", 0.5F, 1.0F);
 				}
 
 				if(ops > 0) {
@@ -237,16 +237,16 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 				if(outputOps == 0 && canExplode) {
 					this.hasExploded = true;
 					BlockDummyable.safeRem = true;
-					for(int x = xCoord - 1; x <= xCoord + 1; x++) {
-						for(int y = yCoord + 2; y <= yCoord + 3; y++) {
-							for(int z = zCoord - 1; z <= zCoord + 1; z++) {
-								worldObj.setBlockToAir(x, y, z);
+					for(int x = this.pos.getX() - 1; x <= this.pos.getX() + 1; x++) {
+						for(int y = this.pos.getY() + 2; y <= this.pos.getY() + 3; y++) {
+							for(int z = this.pos.getZ() - 1; z <= this.pos.getZ() + 1; z++) {
+								com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 							}
 						}
 					}
-					worldObj.setBlockToAir(xCoord, yCoord + 1, zCoord);
+					com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ());
 
-					ExplosionVNT xnt = new ExplosionVNT(worldObj, xCoord + 0.5, yCoord + 2, zCoord + 0.5, 5F);
+					ExplosionVNT xnt = new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, 5F);
 					xnt.setEntityProcessor(new EntityProcessorStandard().withRangeMod(3F));
 					xnt.setPlayerProcessor(new PlayerProcessorStandard());
 					xnt.setSFX(new ExplosionEffectStandard());
@@ -261,23 +261,23 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 	private void updateConnections() {
 
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
 	private void sendFluid() {
 
 		for(DirPos pos : getConPos()) {
-			this.tryProvide(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.tryProvide(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
 	private DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2, dir),
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord, yCoord + 4, zCoord, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX(), this.pos.getY() + 4, this.pos.getZ(), Library.POS_Y),
 		};
 	}
 
@@ -291,12 +291,13 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tanks[0].writeToNBT(nbt, "water");
 		tanks[1].writeToNBT(nbt, "steam");
 		nbt.setInteger("heat", heat);
 		nbt.setBoolean("exploded", hasExploded);
+		return nbt;
 	}
 
 	@Override
@@ -321,12 +322,12 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 4,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 2
 					);
 		}
 

@@ -24,7 +24,7 @@ public class EntityAISwimAway extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		List players = fish.worldObj.getEntitiesWithinAABB(EntityPlayer.class, fish.boundingBox.expand(5.0D, 3.0D, 5.0D));
+		List players = fish.world.getEntitiesWithinAABB(EntityPlayer.class, fish.getEntityBoundingBox().grow(5.0D, 3.0D, 5.0D));
 		if(!players.isEmpty()) {
 			closestPlayer = (EntityPlayer) players.get(0);
 			Vec3d vec3 = RandomPositionGenerator.findRandomTarget(this.fish, 5, 4);

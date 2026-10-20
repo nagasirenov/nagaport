@@ -1,0 +1,13 @@
+import net.minecraft.world.*;
+class Controls {
+ World world; IBlockAccess cache; WorldServer server; Custom custom;
+ int x; long wide;
+ void test() {
+  world.getBlock(x, 2, 3); world.getBlockMetadata(1, 2, x);
+  cache.getBlock(1,2,3); cache.getBlockMetadata(1,2,3);
+  server.getBlock(1,2,3); custom.getBlock(1,2,3);
+  world.getBlock(wide,2,3); world.getBlock(unknown+1,2,3);
+  world.getBlock(1,2); world.getBlock("x",2,3);
+ }
+ static class Custom {Object getBlock(int a,int b,int c){return null;}}
+}

@@ -1,0 +1,73 @@
+# Exact javap method excerpts; source native-WorldClient.javap
+
+  public void playSound(net.minecraft.entity.player.EntityPlayer, double, double, double, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, float, float);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #88                 // Field mc:Lnet/minecraft/client/Minecraft;
+       5: getfield      #321                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+       8: if_acmpne     29
+      11: aload_0
+      12: dload_2
+      13: dload         4
+      15: dload         6
+      17: aload         8
+      19: aload         9
+      21: fload         10
+      23: fload         11
+      25: iconst_0
+      26: invokevirtual #576                // Method playSound:(DDDLnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FFZ)V
+      29: return
+
+  public void playSound(double, double, double, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, float, float, boolean);
+    Code:
+       0: aload_0
+       1: getfield      #88                 // Field mc:Lnet/minecraft/client/Minecraft;
+       4: invokevirtual #757                // Method net/minecraft/client/Minecraft.getRenderViewEntity:()Lnet/minecraft/entity/Entity;
+       7: dload_1
+       8: dload_3
+       9: dload         5
+      11: invokevirtual #758                // Method net/minecraft/entity/Entity.getDistanceSq:(DDD)D
+      14: dstore        12
+      16: new           #760                // class net/minecraft/client/audio/PositionedSoundRecord
+      19: dup
+      20: aload         7
+      22: aload         8
+      24: fload         9
+      26: fload         10
+      28: dload_1
+      29: d2f
+      30: dload_3
+      31: d2f
+      32: dload         5
+      34: d2f
+      35: invokespecial #763                // Method net/minecraft/client/audio/PositionedSoundRecord."<init>":(Lnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FFFFF)V
+      38: astore        14
+      40: iload         11
+      42: ifeq          87
+      45: dload         12
+      47: ldc2_w        #764                // double 100.0d
+      50: dcmpl
+      51: ifle          87
+      54: dload         12
+      56: invokestatic  #771                // Method java/lang/Math.sqrt:(D)D
+      59: ldc2_w        #772                // double 40.0d
+      62: ddiv
+      63: dstore        15
+      65: aload_0
+      66: getfield      #88                 // Field mc:Lnet/minecraft/client/Minecraft;
+      69: invokevirtual #403                // Method net/minecraft/client/Minecraft.getSoundHandler:()Lnet/minecraft/client/audio/SoundHandler;
+      72: aload         14
+      74: dload         15
+      76: ldc2_w        #774                // double 20.0d
+      79: dmul
+      80: d2i
+      81: invokevirtual #779                // Method net/minecraft/client/audio/SoundHandler.playDelayedSound:(Lnet/minecraft/client/audio/ISound;I)V
+      84: goto          99
+      87: aload_0
+      88: getfield      #88                 // Field mc:Lnet/minecraft/client/Minecraft;
+      91: invokevirtual #403                // Method net/minecraft/client/Minecraft.getSoundHandler:()Lnet/minecraft/client/audio/SoundHandler;
+      94: aload         14
+      96: invokevirtual #414                // Method net/minecraft/client/audio/SoundHandler.playSound:(Lnet/minecraft/client/audio/ISound;)V
+      99: return
+

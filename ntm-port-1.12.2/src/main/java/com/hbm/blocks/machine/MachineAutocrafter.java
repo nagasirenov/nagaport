@@ -27,7 +27,7 @@ public class MachineAutocrafter extends BlockContainer {
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
 	public MachineAutocrafter() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class MachineAutocrafter extends BlockContainer {
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntity entity = world.getTileEntity(x, y, z);
+			TileEntity entity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity instanceof TileEntityMachineAutocrafter) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
@@ -68,37 +68,41 @@ public class MachineAutocrafter extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		ISidedInventory tile = (ISidedInventory) world.getTileEntity(x, y, z);
+		ISidedInventory tile = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile != null) {
 
 			for(int i1 = 10; i1 < tile.getSizeInventory(); ++i1) {
 				ItemStack itemstack = tile.getStackInSlot(i1);
 
-				if(itemstack != null) {
+				if(itemstack != null && !itemstack.isEmpty()) {
 					float f = this.rand.nextFloat() * 0.8F + 0.1F;
 					float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
 
-					while(itemstack.stackSize > 0) {
+					while(itemstack.getCount() > 0) {
 						int j1 = this.rand.nextInt(21) + 10;
 
-						if(j1 > itemstack.stackSize) {
-							j1 = itemstack.stackSize;
+						if(j1 > itemstack.getCount()) {
+							j1 = itemstack.getCount();
 						}
 
-						itemstack.stackSize -= j1;
-						EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+						// Capture before depletion: native empty stacks hide their item.
+						net.minecraft.item.Item dropItem = itemstack.getItem();
+						int dropMeta = itemstack.getItemDamage();
+						NBTTagCompound dropTag = itemstack.getTagCompound();
+						itemstack.shrink(j1);
+						EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-						if(itemstack.hasTagCompound()) {
-							entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+						if(dropTag != null) {
+							entityitem.getItem().setTagCompound(dropTag.copy());
 						}
 
 						float f3 = 0.05F;
 						entityitem.motionX = (float) this.rand.nextGaussian() * f3;
 						entityitem.motionY = (float) this.rand.nextGaussian() * f3 + 0.2F;
 						entityitem.motionZ = (float) this.rand.nextGaussian() * f3;
-						world.spawnEntityInWorld(entityitem);
+						world.spawnEntity(entityitem);
 					}
 				}
 			}

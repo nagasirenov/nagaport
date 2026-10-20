@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:native_rail/tile.rail_large_straight/0/world"
+    },
+    "metadata=1": {
+      "model": "hbm:native_rail/tile.rail_large_straight/1/world"
+    },
+    "metadata=2": {
+      "model": "hbm:native_rail/tile.rail_large_straight/2/world"
+    },
+    "metadata=3": {
+      "model": "hbm:native_rail/tile.rail_large_straight/3/world"
+    },
+    "metadata=4": {
+      "model": "hbm:native_rail/tile.rail_large_straight/4/world"
+    },
+    "metadata=5": {
+      "model": "hbm:native_rail/tile.rail_large_straight/5/world"
+    },
+    "metadata=6": {
+      "model": "hbm:native_rail/tile.rail_large_straight/6/world"
+    },
+    "metadata=7": {
+      "model": "hbm:native_rail/tile.rail_large_straight/7/world"
+    },
+    "metadata=8": {
+      "model": "hbm:native_rail/tile.rail_large_straight/8/world"
+    },
+    "metadata=9": {
+      "model": "hbm:native_rail/tile.rail_large_straight/9/world"
+    },
+    "metadata=10": {
+      "model": "hbm:native_rail/tile.rail_large_straight/10/world"
+    },
+    "metadata=11": {
+      "model": "hbm:native_rail/tile.rail_large_straight/11/world"
+    },
+    "metadata=12": {
+      "model": "hbm:native_rail/tile.rail_large_straight/12/world"
+    },
+    "metadata=13": {
+      "model": "hbm:native_rail/tile.rail_large_straight/13/world"
+    },
+    "metadata=14": {
+      "model": "hbm:native_rail/tile.rail_large_straight/14/world"
+    },
+    "metadata=15": {
+      "model": "hbm:native_rail/tile.rail_large_straight/15/world"
+    }
+  }
+}

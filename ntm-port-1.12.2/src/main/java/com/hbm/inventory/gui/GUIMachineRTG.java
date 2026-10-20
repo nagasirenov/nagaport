@@ -42,7 +42,7 @@ public class GUIMachineRTG extends GuiInfoContainer {
 
 		for(int i = 0; i < pellets.size(); i++) {
 			ItemRTGPellet pellet = pellets.get(i);
-			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletPower", I18nUtil.resolveKey(pellet.getUnlocalizedName() + ".name"), pellet.getHeat() * 5);
+			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletPower", I18nUtil.resolveKey(pellet.getTranslationKey() + ".name"), pellet.getHeat() * 5);
 		}
 
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 12, guiTop + 25, 16, 16, guiLeft - 8, guiTop + 36 + 16, pelletText);
@@ -52,8 +52,8 @@ public class GUIMachineRTG extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		String name = this.rtg.hasCustomInventoryName() ? this.rtg.getInventoryName() : I18n.format(this.rtg.getInventoryName());
 
-		this.fontRendererObj.drawString(name, 13 ,7, 10925486);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 13 ,7, 10925486);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

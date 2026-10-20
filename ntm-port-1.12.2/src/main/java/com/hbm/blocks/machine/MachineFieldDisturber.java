@@ -11,7 +11,7 @@ import java.util.Random;
 public class MachineFieldDisturber extends Block {
 
 	public MachineFieldDisturber() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class MachineFieldDisturber extends Block {
 
 		if(!world.isRemote) {
 			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
-			EntityNukeExplosionMK3.at.put(new ATEntry(world.provider.dimensionId, x, y, z),  world.getTotalWorldTime() + 100);
+			EntityNukeExplosionMK3.at.put(new ATEntry(world.provider.getDimension(), x, y, z),  world.getTotalWorldTime() + 100);
 		}
 	}
 }

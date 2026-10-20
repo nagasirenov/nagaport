@@ -1,0 +1,4 @@
+FD: op/a net/minecraft/world/ServerWorldEventHandler/field_72783_a
+FD: op/b net/minecraft/world/ServerWorldEventHandler/field_72782_b
+field_72782_b,world,2,The WorldServer object.
+field_72783_a,server,2,Reference to the MinecraftServer object.

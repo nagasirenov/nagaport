@@ -46,7 +46,7 @@ public class AmmoPressRecipes extends SerializableRecipe {
 		OreDictStack wp = new OreDictStack(P_WHITE.ingot());
 		OreDictStack rp = new OreDictStack(P_RED.dust());
 		OreDictStack pipe = new OreDictStack(STEEL.pipe());
-		ComparableStack smokeful = new ComparableStack(Items.gunpowder);
+		ComparableStack smokeful = new ComparableStack(Items.GUNPOWDER);
 		ComparableStack rocket = new ComparableStack(ModItems.rocket_fuel);
 		ComparableStack cSmall = new ComparableStack(ModItems.casing, 1, EnumCasingType.SMALL);
 		ComparableStack cBig = new ComparableStack(ModItems.casing, 1, EnumCasingType.LARGE);

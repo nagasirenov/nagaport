@@ -1,0 +1,2616 @@
+{
+  "baseline": "d860257bb1f4bc6043d5cb80bd752ede1ebc53bd",
+  "method": "javac native receiver + native field symbol attribution",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/inventory/gui/GUIScreenClayTablet.java",
+      "before_sha256": "912759dc95bf4055151c392f1dc3cfa246c85aa299a3f838d452beda884f2f54",
+      "after_sha256": "552c5e755270f0686c2394cccfd3b51a983eaf62e1711e656ca622a638804af6",
+      "edits": [
+        {
+          "start": 2511,
+          "end": 2527,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/inventory/gui/GUIScreenClayTablet.java",
+              "kind": "read",
+              "reason": "",
+              "start": 2455,
+              "end": 2527,
+              "receiverStart": 2455,
+              "receiverEnd": 2510,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 66
+            }
+          ],
+          "line_before": "\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).hasTagCompound() && com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackTagCompound.hasKey(\"tabletSeed\") && !recipeSet.isEmpty()) {",
+          "line": 66
+        },
+        {
+          "start": 2660,
+          "end": 2676,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/inventory/gui/GUIScreenClayTablet.java",
+              "kind": "read",
+              "reason": "",
+              "start": 2604,
+              "end": 2676,
+              "receiverStart": 2604,
+              "receiverEnd": 2659,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 67
+            }
+          ],
+          "line_before": "\t\t\tRandom rand = new Random(com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackTagCompound.getLong(\"tabletSeed\"));",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/recipes/anvil/AnvilSmithingCyanideRecipe.java",
+      "before_sha256": "fdd905df03704b74833b4a395a3af446332bc6bfabe67211dd6b3cd92398d67d",
+      "after_sha256": "1029d66aa96cd899c301516e58d5bbe17e4ae091db61cd27657d713749cb5e68",
+      "edits": [
+        {
+          "start": 543,
+          "end": 594,
+          "before": "this.output.stackTagCompound = new NBTTagCompound()",
+          "after": "this.output.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/inventory/recipes/anvil/AnvilSmithingCyanideRecipe.java",
+              "kind": "write",
+              "reason": "",
+              "start": 543,
+              "end": 571,
+              "receiverStart": 543,
+              "receiverEnd": 554,
+              "assignmentStart": 543,
+              "assignmentEnd": 594,
+              "rhsStart": 574,
+              "rhsEnd": 594,
+              "receiver": "this.output",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 17
+            }
+          ],
+          "line_before": "\t\t\tthis.output.stackTagCompound = new NBTTagCompound();",
+          "line": 17
+        },
+        {
+          "start": 613,
+          "end": 629,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/inventory/recipes/anvil/AnvilSmithingCyanideRecipe.java",
+              "kind": "read",
+              "reason": "",
+              "start": 601,
+              "end": 629,
+              "receiverStart": 601,
+              "receiverEnd": 612,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "this.output",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 19
+            }
+          ],
+          "line_before": "\t\tthis.output.stackTagCompound.setBoolean(\"ntmCyanide\", true);",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+      "before_sha256": "1daf26c82f832f921c2ae3b52204a4bc53ab58aaea78556469a31704e3231ce4",
+      "after_sha256": "9ccd9b2d04166eb678c2997ffc7e2e154da82aa2820eee8f1613d28e40f019cb",
+      "edits": [
+        {
+          "start": 15651,
+          "end": 15667,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+              "kind": "read",
+              "reason": "",
+              "start": 15636,
+              "end": 15667,
+              "receiverStart": 15636,
+              "receiverEnd": 15650,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack.getKey()",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 392
+            }
+          ],
+          "line_before": "\t\tif(stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackTagCompound.toString());\t\t\t\t\t\t\t\t\t\t\t\t\t\t//nbt",
+          "line": 392
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+      "before_sha256": "89714bb758d1103de8df9a40a6186ae38312436f00840cfe67a21421cfd07e9b",
+      "after_sha256": "ba9c222b3765ec08591854a01e57807a49641e8b9f1beb787aae48e3b78fb1ae",
+      "edits": [
+        {
+          "start": 4851,
+          "end": 4896,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 4851,
+              "end": 4873,
+              "receiverStart": 4851,
+              "receiverEnd": 4856,
+              "assignmentStart": 4851,
+              "assignmentEnd": 4896,
+              "rhsStart": 4876,
+              "rhsEnd": 4896,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 144
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 144
+        },
+        {
+          "start": 4957,
+          "end": 4973,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 4951,
+              "end": 4973,
+              "receiverStart": 4951,
+              "receiverEnd": 4956,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 147
+            }
+          ],
+          "line_before": "\t\tint x = stack.stackTagCompound.getInteger(\"x\");",
+          "line": 147
+        },
+        {
+          "start": 5007,
+          "end": 5023,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5001,
+              "end": 5023,
+              "receiverStart": 5001,
+              "receiverEnd": 5006,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 148
+            }
+          ],
+          "line_before": "\t\tint z = stack.stackTagCompound.getInteger(\"z\");",
+          "line": 148
+        },
+        {
+          "start": 5249,
+          "end": 5294,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 5249,
+              "end": 5271,
+              "receiverStart": 5249,
+              "receiverEnd": 5254,
+              "assignmentStart": 5249,
+              "assignmentEnd": 5294,
+              "rhsStart": 5274,
+              "rhsEnd": 5294,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 158
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 158
+        },
+        {
+          "start": 5477,
+          "end": 5493,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5471,
+              "end": 5493,
+              "receiverStart": 5471,
+              "receiverEnd": 5476,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 164
+            }
+          ],
+          "line_before": "\t\t\t\tCelestialBody body = CelestialBody.getBody(stack.stackTagCompound.getInteger(\"sDim\"));",
+          "line": 164
+        },
+        {
+          "start": 5546,
+          "end": 5562,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5540,
+              "end": 5562,
+              "receiverStart": 5540,
+              "receiverEnd": 5545,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 165
+            }
+          ],
+          "line_before": "\t\t\t\tboolean hasStation = stack.stackTagCompound.getBoolean(\"sHas\");",
+          "line": 165
+        },
+        {
+          "start": 5916,
+          "end": 5932,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5910,
+              "end": 5932,
+              "receiverStart": 5910,
+              "receiverEnd": 5915,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 174
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setString(\"stationName\", station.name);",
+          "line": 174
+        },
+        {
+          "start": 5982,
+          "end": 5998,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5976,
+              "end": 5998,
+              "receiverStart": 5976,
+              "receiverEnd": 5981,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 175
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setInteger(\"sDim\", station.orbiting.dimensionId);",
+          "line": 175
+        },
+        {
+          "start": 6058,
+          "end": 6074,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6052,
+              "end": 6074,
+              "receiverStart": 6052,
+              "receiverEnd": 6057,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 176
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setBoolean(\"sHas\", station.hasStation);",
+          "line": 176
+        },
+        {
+          "start": 6365,
+          "end": 6410,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 6365,
+              "end": 6387,
+              "receiverStart": 6365,
+              "receiverEnd": 6370,
+              "assignmentStart": 6365,
+              "assignmentEnd": 6410,
+              "rhsStart": 6390,
+              "rhsEnd": 6410,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 186
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 186
+        },
+        {
+          "start": 6421,
+          "end": 6437,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6415,
+              "end": 6437,
+              "receiverStart": 6415,
+              "receiverEnd": 6420,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 188
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setInteger(\"x\", x);",
+          "line": 188
+        },
+        {
+          "start": 6466,
+          "end": 6482,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6460,
+              "end": 6482,
+              "receiverStart": 6460,
+              "receiverEnd": 6465,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 189
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setInteger(\"z\", z);",
+          "line": 189
+        },
+        {
+          "start": 6757,
+          "end": 6802,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 6757,
+              "end": 6779,
+              "receiverStart": 6757,
+              "receiverEnd": 6762,
+              "assignmentStart": 6757,
+              "assignmentEnd": 6802,
+              "rhsStart": 6782,
+              "rhsEnd": 6802,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 199
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 199
+        },
+        {
+          "start": 6820,
+          "end": 6836,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6814,
+              "end": 6836,
+              "receiverStart": 6814,
+              "receiverEnd": 6819,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 201
+            }
+          ],
+          "line_before": "\t\treturn stack.stackTagCompound.getBoolean(\"Processed\");",
+          "line": 201
+        },
+        {
+          "start": 6970,
+          "end": 7015,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 6970,
+              "end": 6992,
+              "receiverStart": 6970,
+              "receiverEnd": 6975,
+              "assignmentStart": 6970,
+              "assignmentEnd": 7015,
+              "rhsStart": 6995,
+              "rhsEnd": 7015,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 206
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 206
+        },
+        {
+          "start": 7026,
+          "end": 7042,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7020,
+              "end": 7042,
+              "receiverStart": 7020,
+              "receiverEnd": 7025,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 208
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setBoolean(\"Processed\", processed);",
+          "line": 208
+        },
+        {
+          "start": 7276,
+          "end": 7321,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 7276,
+              "end": 7298,
+              "receiverStart": 7276,
+              "receiverEnd": 7281,
+              "assignmentStart": 7276,
+              "assignmentEnd": 7321,
+              "rhsStart": 7301,
+              "rhsEnd": 7321,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 214
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 214
+        },
+        {
+          "start": 7378,
+          "end": 7394,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7372,
+              "end": 7394,
+              "receiverStart": 7372,
+              "receiverEnd": 7377,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 217
+            }
+          ],
+          "line_before": "\t\tif(!stack.stackTagCompound.hasKey(\"ax\") || !stack.stackTagCompound.hasKey(\"az\")) {",
+          "line": 217
+        },
+        {
+          "start": 7418,
+          "end": 7434,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7412,
+              "end": 7434,
+              "receiverStart": 7412,
+              "receiverEnd": 7417,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 217
+            }
+          ],
+          "line_before": "\t\tif(!stack.stackTagCompound.hasKey(\"ax\") || !stack.stackTagCompound.hasKey(\"az\")) {",
+          "line": 217
+        },
+        {
+          "start": 7460,
+          "end": 7476,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7454,
+              "end": 7476,
+              "receiverStart": 7454,
+              "receiverEnd": 7459,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 218
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setInteger(\"ax\", itemRand.nextInt(SpaceConfig.maxProbeDistance * 2) - SpaceConfig.maxProbeDistance);",
+          "line": 218
+        },
+        {
+          "start": 7587,
+          "end": 7603,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7581,
+              "end": 7603,
+              "receiverStart": 7581,
+              "receiverEnd": 7586,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 219
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setInteger(\"az\", itemRand.nextInt(SpaceConfig.maxProbeDistance * 2) - SpaceConfig.maxProbeDistance);",
+          "line": 219
+        },
+        {
+          "start": 7726,
+          "end": 7742,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7720,
+              "end": 7742,
+              "receiverStart": 7720,
+              "receiverEnd": 7725,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 221
+            }
+          ],
+          "line_before": "\t\tint ax = stack.stackTagCompound.getInteger(\"ax\");",
+          "line": 221
+        },
+        {
+          "start": 7778,
+          "end": 7794,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7772,
+              "end": 7794,
+              "receiverStart": 7772,
+              "receiverEnd": 7777,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 222
+            }
+          ],
+          "line_before": "\t\tint az = stack.stackTagCompound.getInteger(\"az\");",
+          "line": 222
+        },
+        {
+          "start": 7940,
+          "end": 7985,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "write",
+              "reason": "",
+              "start": 7940,
+              "end": 7962,
+              "receiverStart": 7940,
+              "receiverEnd": 7945,
+              "assignmentStart": 7940,
+              "assignmentEnd": 7985,
+              "rhsStart": 7965,
+              "rhsEnd": 7985,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 228
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 228
+        },
+        {
+          "start": 7996,
+          "end": 8012,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7990,
+              "end": 8012,
+              "receiverStart": 7990,
+              "receiverEnd": 7995,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 230
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setBoolean(\"copied\", true);",
+          "line": 230
+        },
+        {
+          "start": 8156,
+          "end": 8172,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+              "kind": "read",
+              "reason": "",
+              "start": 8150,
+              "end": 8172,
+              "receiverStart": 8150,
+              "receiverEnd": 8155,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 235
+            }
+          ],
+          "line_before": "\t\treturn stack.stackTagCompound.getBoolean(\"copied\");",
+          "line": 235
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "before_sha256": "6007278860afb999bf607d9ff790877d6abe330974eb37ef70c1c30559f2bc20",
+      "after_sha256": "53ffa382ce52112d8424e72b06a1148518dd732c4277152e3b6751a70cdae50e",
+      "edits": [
+        {
+          "start": 5332,
+          "end": 5348,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5325,
+              "end": 5348,
+              "receiverStart": 5325,
+              "receiverEnd": 5331,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 102
+            }
+          ],
+          "line_before": "\t\t\tif(target.stackTagCompound == null) {",
+          "line": 102
+        },
+        {
+          "start": 5364,
+          "end": 5410,
+          "before": "target.stackTagCompound = new NBTTagCompound()",
+          "after": "target.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "write",
+              "reason": "",
+              "start": 5364,
+              "end": 5387,
+              "receiverStart": 5364,
+              "receiverEnd": 5370,
+              "assignmentStart": 5364,
+              "assignmentEnd": 5410,
+              "rhsStart": 5390,
+              "rhsEnd": 5410,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 103
+            }
+          ],
+          "line_before": "\t\t\t\ttarget.stackTagCompound = new NBTTagCompound();",
+          "line": 103
+        },
+        {
+          "start": 5423,
+          "end": 5439,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5416,
+              "end": 5439,
+              "receiverStart": 5416,
+              "receiverEnd": 5422,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 104
+            }
+          ],
+          "line_before": "\t\t\t\ttarget.stackTagCompound.setLong(\"stacklock\", rand.nextLong());",
+          "line": 104
+        },
+        {
+          "start": 5584,
+          "end": 5600,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5577,
+              "end": 5600,
+              "receiverStart": 5577,
+              "receiverEnd": 5583,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 108
+            }
+          ],
+          "line_before": "\t\t\t\tthis.slots[i] = ItemStack.loadItemStackFromNBT(target.stackTagCompound.getCompoundTag(\"slot\" + i));",
+          "line": 108
+        },
+        {
+          "start": 7013,
+          "end": 7029,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7006,
+              "end": 7029,
+              "receiverStart": 7006,
+              "receiverEnd": 7012,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 151
+            }
+          ],
+          "line_before": "\t\t\tNBTTagCompound nbt = target.stackTagCompound != null ? target.stackTagCompound : new NBTTagCompound();",
+          "line": 151
+        },
+        {
+          "start": 7047,
+          "end": 7063,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7040,
+              "end": 7063,
+              "receiverStart": 7040,
+              "receiverEnd": 7046,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 151
+            }
+          ],
+          "line_before": "\t\t\tNBTTagCompound nbt = target.stackTagCompound != null ? target.stackTagCompound : new NBTTagCompound();",
+          "line": 151
+        },
+        {
+          "start": 7922,
+          "end": 7938,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7915,
+              "end": 7938,
+              "receiverStart": 7915,
+              "receiverEnd": 7921,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 183
+            }
+          ],
+          "line_before": "\t\t\tif(target.stackTagCompound != null) {",
+          "line": 183
+        },
+        {
+          "start": 7961,
+          "end": 7977,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7954,
+              "end": 7977,
+              "receiverStart": 7954,
+              "receiverEnd": 7960,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 184
+            }
+          ],
+          "line_before": "\t\t\t\ttarget.stackTagCompound.removeTag(\"stacklock\");",
+          "line": 184
+        },
+        {
+          "start": 8021,
+          "end": 8037,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 8014,
+              "end": 8037,
+              "receiverStart": 8014,
+              "receiverEnd": 8020,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 186
+            }
+          ],
+          "line_before": "\t\t\t\tif(target.stackTagCompound.hasNoTags()) {",
+          "line": 186
+        },
+        {
+          "start": 8189,
+          "end": 8205,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+              "kind": "read",
+              "reason": "",
+              "start": 8182,
+              "end": 8205,
+              "receiverStart": 8182,
+              "receiverEnd": 8188,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "target",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 189
+            }
+          ],
+          "line_before": "\t\t\t\t\ttarget.stackTagCompound.setLong(\"stacklock\", rand.nextLong()); // add shit that prevents crates from stacking",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+      "before_sha256": "7868aaac664cfd9151f06904b8acf507436d9ce1448ca4d70c08eaffc335d15c",
+      "after_sha256": "6047340c38f27e5825267503406a1acf8797c0c01aeea6fa3f9077809ca529cb",
+      "edits": [
+        {
+          "start": 2918,
+          "end": 2934,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 2912,
+              "end": 2934,
+              "receiverStart": 2912,
+              "receiverEnd": 2917,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 79
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", stack.stackTagCompound.getLong(\"charge\") + i);",
+          "line": 79
+        },
+        {
+          "start": 2959,
+          "end": 2975,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 2953,
+              "end": 2975,
+              "receiverStart": 2953,
+              "receiverEnd": 2958,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 79
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", stack.stackTagCompound.getLong(\"charge\") + i);",
+          "line": 79
+        },
+        {
+          "start": 3014,
+          "end": 3059,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "write",
+              "reason": "",
+              "start": 3014,
+              "end": 3036,
+              "receiverStart": 3014,
+              "receiverEnd": 3019,
+              "assignmentStart": 3014,
+              "assignmentEnd": 3059,
+              "rhsStart": 3039,
+              "rhsEnd": 3059,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 81
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 81
+        },
+        {
+          "start": 3070,
+          "end": 3086,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3064,
+              "end": 3086,
+              "receiverStart": 3064,
+              "receiverEnd": 3069,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 82
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", i);",
+          "line": 82
+        },
+        {
+          "start": 3218,
+          "end": 3234,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3212,
+              "end": 3234,
+              "receiverStart": 3212,
+              "receiverEnd": 3217,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 89
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", i);",
+          "line": 89
+        },
+        {
+          "start": 3271,
+          "end": 3316,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "write",
+              "reason": "",
+              "start": 3271,
+              "end": 3293,
+              "receiverStart": 3271,
+              "receiverEnd": 3276,
+              "assignmentStart": 3271,
+              "assignmentEnd": 3316,
+              "rhsStart": 3296,
+              "rhsEnd": 3316,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 91
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 91
+        },
+        {
+          "start": 3327,
+          "end": 3343,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3321,
+              "end": 3343,
+              "receiverStart": 3321,
+              "receiverEnd": 3326,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 92
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", i);",
+          "line": 92
+        },
+        {
+          "start": 3482,
+          "end": 3498,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3476,
+              "end": 3498,
+              "receiverStart": 3476,
+              "receiverEnd": 3481,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 99
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", stack.stackTagCompound.getLong(\"charge\") - i);",
+          "line": 99
+        },
+        {
+          "start": 3523,
+          "end": 3539,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3517,
+              "end": 3539,
+              "receiverStart": 3517,
+              "receiverEnd": 3522,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 99
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", stack.stackTagCompound.getLong(\"charge\") - i);",
+          "line": 99
+        },
+        {
+          "start": 3578,
+          "end": 3623,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "write",
+              "reason": "",
+              "start": 3578,
+              "end": 3600,
+              "receiverStart": 3578,
+              "receiverEnd": 3583,
+              "assignmentStart": 3578,
+              "assignmentEnd": 3623,
+              "rhsStart": 3603,
+              "rhsEnd": 3623,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 101
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 101
+        },
+        {
+          "start": 3634,
+          "end": 3650,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3628,
+              "end": 3650,
+              "receiverStart": 3628,
+              "receiverEnd": 3633,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 102
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", 0);",
+          "line": 102
+        },
+        {
+          "start": 3781,
+          "end": 3797,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3775,
+              "end": 3797,
+              "receiverStart": 3775,
+              "receiverEnd": 3780,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 109
+            }
+          ],
+          "line_before": "\t\t\treturn stack.stackTagCompound.getLong(\"charge\");",
+          "line": 109
+        },
+        {
+          "start": 3831,
+          "end": 3876,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "write",
+              "reason": "",
+              "start": 3831,
+              "end": 3853,
+              "receiverStart": 3831,
+              "receiverEnd": 3836,
+              "assignmentStart": 3831,
+              "assignmentEnd": 3876,
+              "rhsStart": 3856,
+              "rhsEnd": 3876,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 111
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 111
+        },
+        {
+          "start": 3887,
+          "end": 3903,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3881,
+              "end": 3903,
+              "receiverStart": 3881,
+              "receiverEnd": 3886,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 112
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound.setLong(\"charge\", 0);",
+          "line": 112
+        },
+        {
+          "start": 3942,
+          "end": 3958,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 3936,
+              "end": 3958,
+              "receiverStart": 3936,
+              "receiverEnd": 3941,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 113
+            }
+          ],
+          "line_before": "\t\t\treturn stack.stackTagCompound.getLong(\"charge\");",
+          "line": 113
+        },
+        {
+          "start": 5856,
+          "end": 5901,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "write",
+              "reason": "",
+              "start": 5856,
+              "end": 5878,
+              "receiverStart": 5856,
+              "receiverEnd": 5861,
+              "assignmentStart": 5856,
+              "assignmentEnd": 5901,
+              "rhsStart": 5881,
+              "rhsEnd": 5901,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 156
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 156
+        },
+        {
+          "start": 5911,
+          "end": 5927,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 5905,
+              "end": 5927,
+              "receiverStart": 5905,
+              "receiverEnd": 5910,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 157
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setLong(\"charge\", 0);",
+          "line": 157
+        },
+        {
+          "start": 6032,
+          "end": 6077,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "write",
+              "reason": "",
+              "start": 6032,
+              "end": 6054,
+              "receiverStart": 6032,
+              "receiverEnd": 6037,
+              "assignmentStart": 6032,
+              "assignmentEnd": 6077,
+              "rhsStart": 6057,
+              "rhsEnd": 6077,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 162
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 162
+        },
+        {
+          "start": 6087,
+          "end": 6103,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemBatteryPack.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6081,
+              "end": 6103,
+              "receiverStart": 6081,
+              "receiverEnd": 6086,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 163
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setLong(\"charge\", ((ItemBatteryPack) stack.getItem()).getMaxCharge(stack));",
+          "line": 163
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+      "before_sha256": "78a2b2441322f8c271c87f22030fc8b1e79fef0a1dcee9d811058be368bcf805",
+      "after_sha256": "edf5fc3490bdfc1e2abb6e6d72e77edd055b390a8c49dd0755162641fc29d307",
+      "edits": [
+        {
+          "start": 8647,
+          "end": 8663,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+              "kind": "read",
+              "reason": "",
+              "start": 8641,
+              "end": 8663,
+              "receiverStart": 8641,
+              "receiverEnd": 8646,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 188
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setDouble(key, yield);",
+          "line": 188
+        },
+        {
+          "start": 8823,
+          "end": 8839,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+              "kind": "read",
+              "reason": "",
+              "start": 8817,
+              "end": 8839,
+              "receiverStart": 8817,
+              "receiverEnd": 8822,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 193
+            }
+          ],
+          "line_before": "\t\treturn stack.stackTagCompound.getDouble(key);",
+          "line": 193
+        },
+        {
+          "start": 9007,
+          "end": 9052,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemWatzPellet.java",
+              "kind": "write",
+              "reason": "",
+              "start": 9007,
+              "end": 9029,
+              "receiverStart": 9007,
+              "receiverEnd": 9012,
+              "assignmentStart": 9007,
+              "assignmentEnd": 9052,
+              "rhsStart": 9032,
+              "rhsEnd": 9052,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 198
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 198
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+      "before_sha256": "db23b0995e2886243c58885398aa8213986f7f8dbe3fb5efa5483060f44a74b6",
+      "after_sha256": "594ea957402a8c9a9cda6ec4dc8a3bfdeac1f22bea8e75d992cd6600a6a2f12b",
+      "edits": [
+        {
+          "start": 869,
+          "end": 914,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "write",
+              "reason": "",
+              "start": 869,
+              "end": 891,
+              "receiverStart": 869,
+              "receiverEnd": 874,
+              "assignmentStart": 869,
+              "assignmentEnd": 914,
+              "rhsStart": 894,
+              "rhsEnd": 914,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 32
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 32
+        },
+        {
+          "start": 938,
+          "end": 954,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "read",
+              "reason": "",
+              "start": 932,
+              "end": 954,
+              "receiverStart": 932,
+              "receiverEnd": 937,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 34
+            }
+          ],
+          "line_before": "\t\tint time = stack.stackTagCompound.getInteger(\"life\");",
+          "line": 34
+        },
+        {
+          "start": 986,
+          "end": 1002,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "read",
+              "reason": "",
+              "start": 980,
+              "end": 1002,
+              "receiverStart": 980,
+              "receiverEnd": 985,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 36
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setInteger(\"life\", time + 1);",
+          "line": 36
+        },
+        {
+          "start": 1135,
+          "end": 1180,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "write",
+              "reason": "",
+              "start": 1135,
+              "end": 1157,
+              "receiverStart": 1135,
+              "receiverEnd": 1140,
+              "assignmentStart": 1135,
+              "assignmentEnd": 1180,
+              "rhsStart": 1160,
+              "rhsEnd": 1180,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 42
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 42
+        },
+        {
+          "start": 1193,
+          "end": 1209,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "read",
+              "reason": "",
+              "start": 1187,
+              "end": 1209,
+              "receiverStart": 1187,
+              "receiverEnd": 1192,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 44
+            }
+          ],
+          "line_before": "\t\tstack.stackTagCompound.setInteger(\"life\", time);",
+          "line": 44
+        },
+        {
+          "start": 1329,
+          "end": 1374,
+          "before": "stack.stackTagCompound = new NBTTagCompound()",
+          "after": "stack.setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "write",
+              "reason": "",
+              "start": 1329,
+              "end": 1351,
+              "receiverStart": 1329,
+              "receiverEnd": 1334,
+              "assignmentStart": 1329,
+              "assignmentEnd": 1374,
+              "rhsStart": 1354,
+              "rhsEnd": 1374,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 50
+            }
+          ],
+          "line_before": "\t\t\tstack.stackTagCompound = new NBTTagCompound();",
+          "line": 50
+        },
+        {
+          "start": 1411,
+          "end": 1427,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java",
+              "kind": "read",
+              "reason": "",
+              "start": 1405,
+              "end": 1427,
+              "receiverStart": 1405,
+              "receiverEnd": 1410,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "stack",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 54
+            }
+          ],
+          "line_before": "\t\treturn stack.stackTagCompound.getInteger(\"life\");",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "before_sha256": "9ec2ee8b3aba74ec41db0ea249fbd31e4297b9b6b1ffdae20ad5abaf909923ab",
+      "after_sha256": "1646752b7ffad771c13ce7e9b6bf9c6dcf569cc742f2d4aef6518c863acf7241",
+      "edits": [
+        {
+          "start": 6207,
+          "end": 6223,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6198,
+              "end": 6223,
+              "receiverStart": 6198,
+              "receiverEnd": 6206,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[2]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 182
+            }
+          ],
+          "line_before": "\t\t\tBufferUtil.writeNBT(buf, slots[2].stackTagCompound);",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+      "before_sha256": "82e5b5ea5a2c34bab859bdcc787bb8ef5d83320b748226267fcf44d00822ad80",
+      "after_sha256": "01ad4be6bd6034609bbc97eebe6d43707414c1e2b28a56bd2399dd4993c3bf66",
+      "edits": [
+        {
+          "start": 6799,
+          "end": 6815,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6789,
+              "end": 6815,
+              "receiverStart": 6789,
+              "receiverEnd": 6798,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[13]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 222
+            }
+          ],
+          "line_before": "\t\t\t\tslots[13].stackTagCompound.removeTag(\"ntmContagion\");",
+          "line": 222
+        },
+        {
+          "start": 6860,
+          "end": 6876,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6850,
+              "end": 6876,
+              "receiverStart": 6850,
+              "receiverEnd": 6859,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[13]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 223
+            }
+          ],
+          "line_before": "\t\t\t\tif(slots[13].stackTagCompound.hasNoTags()) {",
+          "line": 223
+        },
+        {
+          "start": 6897,
+          "end": 6930,
+          "before": "slots[13].stackTagCompound = null",
+          "after": "slots[13].setTagCompound(null)",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+              "kind": "write",
+              "reason": "",
+              "start": 6897,
+              "end": 6923,
+              "receiverStart": 6897,
+              "receiverEnd": 6906,
+              "assignmentStart": 6897,
+              "assignmentEnd": 6930,
+              "rhsStart": 6926,
+              "rhsEnd": 6930,
+              "receiver": "slots[13]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 224
+            }
+          ],
+          "line_before": "\t\t\t\t\tslots[13].stackTagCompound = null;",
+          "line": 224
+        },
+        {
+          "start": 7233,
+          "end": 7249,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7223,
+              "end": 7249,
+              "receiverStart": 7223,
+              "receiverEnd": 7232,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[13]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 230
+            }
+          ],
+          "line_before": "\t\t\t\t\tslots[13].stackTagCompound.removeTag(\"ntmContagion\");",
+          "line": 230
+        },
+        {
+          "start": 7295,
+          "end": 7311,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7285,
+              "end": 7311,
+              "receiverStart": 7285,
+              "receiverEnd": 7294,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[13]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 231
+            }
+          ],
+          "line_before": "\t\t\t\t\tif(slots[13].stackTagCompound.hasNoTags()) {",
+          "line": 231
+        },
+        {
+          "start": 7333,
+          "end": 7366,
+          "before": "slots[13].stackTagCompound = null",
+          "after": "slots[13].setTagCompound(null)",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+              "kind": "write",
+              "reason": "",
+              "start": 7333,
+              "end": 7359,
+              "receiverStart": 7333,
+              "receiverEnd": 7342,
+              "assignmentStart": 7333,
+              "assignmentEnd": 7366,
+              "rhsStart": 7362,
+              "rhsEnd": 7366,
+              "receiver": "slots[13]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 232
+            }
+          ],
+          "line_before": "\t\t\t\t\t\tslots[13].stackTagCompound = null;",
+          "line": 232
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+      "before_sha256": "de29369693c2191d4f420da6385dbe29b509ac3b2f2da711a2f7713ab4e6b641",
+      "after_sha256": "6885a0821c09300ee13d9bc315b131dd45ead5cf564212c6986ada875828aa33",
+      "edits": [
+        {
+          "start": 6607,
+          "end": 6655,
+          "before": "slots[0].stackTagCompound = new NBTTagCompound()",
+          "after": "slots[0].setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "write",
+              "reason": "",
+              "start": 6607,
+              "end": 6632,
+              "receiverStart": 6607,
+              "receiverEnd": 6615,
+              "assignmentStart": 6607,
+              "assignmentEnd": 6655,
+              "rhsStart": 6635,
+              "rhsEnd": 6655,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 227
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound = new NBTTagCompound();",
+          "line": 227
+        },
+        {
+          "start": 6669,
+          "end": 6685,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6660,
+              "end": 6685,
+              "receiverStart": 6660,
+              "receiverEnd": 6668,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 228
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound.setInteger(\"ax\", ix);",
+          "line": 228
+        },
+        {
+          "start": 6720,
+          "end": 6736,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6711,
+              "end": 6736,
+              "receiverStart": 6711,
+              "receiverEnd": 6719,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 229
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound.setInteger(\"az\", iz);",
+          "line": 229
+        },
+        {
+          "start": 6771,
+          "end": 6787,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6762,
+              "end": 6787,
+              "receiverStart": 6762,
+              "receiverEnd": 6770,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 230
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound.setBoolean(\"Processed\", true);",
+          "line": 230
+        },
+        {
+          "start": 7299,
+          "end": 7347,
+          "before": "slots[0].stackTagCompound = new NBTTagCompound()",
+          "after": "slots[0].setTagCompound(new NBTTagCompound())",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "write",
+              "reason": "",
+              "start": 7299,
+              "end": 7324,
+              "receiverStart": 7299,
+              "receiverEnd": 7307,
+              "assignmentStart": 7299,
+              "assignmentEnd": 7347,
+              "rhsStart": 7327,
+              "rhsEnd": 7347,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 241
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound = new NBTTagCompound();",
+          "line": 241
+        },
+        {
+          "start": 7361,
+          "end": 7377,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7352,
+              "end": 7377,
+              "receiverStart": 7352,
+              "receiverEnd": 7360,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 242
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound.setInteger(\"x\", pos.x);",
+          "line": 242
+        },
+        {
+          "start": 7414,
+          "end": 7430,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7405,
+              "end": 7430,
+              "receiverStart": 7405,
+              "receiverEnd": 7413,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 243
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound.setInteger(\"z\", pos.z);",
+          "line": 243
+        },
+        {
+          "start": 7467,
+          "end": 7483,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7458,
+              "end": 7483,
+              "receiverStart": 7458,
+              "receiverEnd": 7466,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 244
+            }
+          ],
+          "line_before": "\t\t\tslots[0].stackTagCompound.setBoolean(\"Processed\", true);",
+          "line": 244
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+      "before_sha256": "af3d5e9b7ce00be2d68aeb52c7dc06fdc261e27461098249b8ed257f5a853286",
+      "after_sha256": "3ba549001dc9b55bdac806c1572391e47cd3fd0280ec8e2aa083110f8a1376c7",
+      "edits": [
+        {
+          "start": 4792,
+          "end": 4808,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+              "kind": "read",
+              "reason": "",
+              "start": 4783,
+              "end": 4808,
+              "receiverStart": 4783,
+              "receiverEnd": 4791,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 174
+            }
+          ],
+          "line_before": "\t\tif(slots[0] != null && slots[0].getItem() == ModItems.reactor_sensor && slots[0].stackTagCompound != null) {",
+          "line": 174
+        },
+        {
+          "start": 4845,
+          "end": 4861,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+              "kind": "read",
+              "reason": "",
+              "start": 4836,
+              "end": 4861,
+              "receiverStart": 4836,
+              "receiverEnd": 4844,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 175
+            }
+          ],
+          "line_before": "\t\t\tint xCoord = slots[0].stackTagCompound.getInteger(\"x\");",
+          "line": 175
+        },
+        {
+          "start": 4907,
+          "end": 4923,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+              "kind": "read",
+              "reason": "",
+              "start": 4898,
+              "end": 4923,
+              "receiverStart": 4898,
+              "receiverEnd": 4906,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 176
+            }
+          ],
+          "line_before": "    \t\tint yCoord = slots[0].stackTagCompound.getInteger(\"y\");",
+          "line": 176
+        },
+        {
+          "start": 4969,
+          "end": 4985,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+              "kind": "read",
+              "reason": "",
+              "start": 4960,
+              "end": 4985,
+              "receiverStart": 4960,
+              "receiverEnd": 4968,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[0]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 177
+            }
+          ],
+          "line_before": "    \t\tint zCoord = slots[0].stackTagCompound.getInteger(\"z\");",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+      "before_sha256": "1858c9dfbf74859b98a797bf7f4b7e64762b88b0be0676db8c53a8685f1c76d8",
+      "after_sha256": "eff0206a37bffec9af148f96ff66b2bd0978b54a16b7d3326f8f0d71590bb64f",
+      "edits": [
+        {
+          "start": 7004,
+          "end": 7020,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+              "kind": "read",
+              "reason": "",
+              "start": 6995,
+              "end": 7020,
+              "receiverStart": 6995,
+              "receiverEnd": 7003,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[1]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 251
+            }
+          ],
+          "line_before": "\t\t\tsoyuz.targetX = slots[1].stackTagCompound.getInteger(\"xCoord\");",
+          "line": 251
+        },
+        {
+          "start": 7071,
+          "end": 7087,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7062,
+              "end": 7087,
+              "receiverStart": 7062,
+              "receiverEnd": 7070,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[1]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 252
+            }
+          ],
+          "line_before": "\t\t\tsoyuz.targetZ = slots[1].stackTagCompound.getInteger(\"zCoord\");",
+          "line": 252
+        },
+        {
+          "start": 7698,
+          "end": 7714,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7689,
+              "end": 7714,
+              "receiverStart": 7689,
+              "receiverEnd": 7697,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[1]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 285
+            }
+          ],
+          "line_before": "\t\t\tint x = slots[1].stackTagCompound.getInteger(\"xCoord\");",
+          "line": 285
+        },
+        {
+          "start": 7757,
+          "end": 7773,
+          "before": "stackTagCompound",
+          "after": "getTagCompound()",
+          "proof": [
+            {
+              "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+              "kind": "read",
+              "reason": "",
+              "start": 7748,
+              "end": 7773,
+              "receiverStart": 7748,
+              "receiverEnd": 7756,
+              "assignmentStart": -1,
+              "assignmentEnd": -1,
+              "rhsStart": -1,
+              "rhsEnd": -1,
+              "receiver": "slots[1]",
+              "receiverType": "net.minecraft.item.ItemStack",
+              "fieldOwner": "net.minecraft.item.ItemStack",
+              "line": 286
+            }
+          ],
+          "line_before": "\t\t\tint z = slots[1].stackTagCompound.getInteger(\"zCoord\");",
+          "line": 286
+        }
+      ]
+    }
+  ],
+  "rejected": [],
+  "summary": {
+    "files": 13,
+    "reads": 70,
+    "writes": 23,
+    "rejected": 0,
+    "fragments": 93
+  }
+}

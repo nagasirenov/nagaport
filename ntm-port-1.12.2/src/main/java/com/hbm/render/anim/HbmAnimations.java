@@ -48,11 +48,12 @@ public class HbmAnimations {
 	public static Animation getRelevantAnim() { return getRelevantAnim(0); }
 	public static Animation getRelevantAnim(int index) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		if(player == null) return null;
 		int slot = player.inventory.currentItem;
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = player.getHeldItemMainhand();
 
-		if(stack == null)
+		if(stack.isEmpty())
 			return null;
 
 		if(slot < 0 || slot > 8) { //for freak of nature hotbars, probably won't work right but at least it doesn't crash
@@ -62,7 +63,7 @@ public class HbmAnimations {
 		if(hotbar[slot][index] == null)
 			return null;
 
-		if(hotbar[slot][index].key.equals(stack.getItem().getUnlocalizedName())) {
+		if(hotbar[slot][index].key.equals(stack.getItem().getTranslationKey())) {
 			return hotbar[slot][index];
 		}
 
@@ -97,6 +98,14 @@ public class HbmAnimations {
 			0, 1, 2, // XYZ order
 		};
 	}
+
+    /** Original rail belongs to the local selected main-hand stack. New offhand
+     * rendering must not borrow a different item's in-flight animation. */
+    public static double[] getRelevantTransformation(ItemStack stack, net.minecraft.entity.EntityLivingBase holder, String bus) {
+        if(holder == Minecraft.getMinecraft().player && holder != null && holder.getHeldItemMainhand() == stack)
+            return getRelevantTransformation(bus);
+        return new double[]{0,0,0,0,0,0,1,1,1,0,0,0,0,1,2};
+    }
 
 	public static void applyRelevantTransformation(String bus) { applyRelevantTransformation(bus, 0); }
 	public static void applyRelevantTransformation(String bus, int index) {

@@ -24,7 +24,7 @@ public class EntityDuck extends EntityChicken {
 	}
 
 	public EntityDuck createChild(EntityAgeable entity) {
-		return new EntityDuck(this.worldObj);
+		return new EntityDuck(this.world);
 	}
 	
 	protected void damageEntity(DamageSource p_70665_1_, float p_70665_2_) {
@@ -32,7 +32,7 @@ public class EntityDuck extends EntityChicken {
 	}
 
 	public void onDeath(DamageSource p_70645_1_) {
-		if(!worldObj.isRemote) worldObj.getMinecraftServer().getPlayerList().sendMessage(this.getCombatTracker().getDeathMessage());
+		if(!this.world.isRemote) this.world.getMinecraftServer().getPlayerList().sendMessage(this.getCombatTracker().getDeathMessage());
 		super.onDeath(p_70645_1_);
 	}
 }

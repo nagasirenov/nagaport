@@ -32,14 +32,14 @@ public abstract class TileEntityCooledBase extends TileEntityMachineBase impleme
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			for(DirPos pos : this.getConPos()) {
-				this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(coolantTanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.tryProvide(coolantTanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(coolantTanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(coolantTanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 			
 			this.temperature += this.temp_passive_heating;
@@ -95,13 +95,14 @@ public abstract class TileEntityCooledBase extends TileEntityMachineBase impleme
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		coolantTanks[0].writeToNBT(nbt, "t0");
 		coolantTanks[1].writeToNBT(nbt, "t1");
 		nbt.setFloat("temperature", temperature);
 		nbt.setLong("power", power);
+		return nbt;
 	}
 	
 	@Override public long getPower() { return this.power; }

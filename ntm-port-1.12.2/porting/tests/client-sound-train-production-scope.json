@@ -1,0 +1,91 @@
+{
+  "scope": "Exact extracted onPlayMusic, onPlaySound and worldTick methods only; not a whole ModEventHandlerClient compile",
+  "baseline": "e146f1df78ba6ce7ebf3198217a67d132e1e7dff",
+  "production": [
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "members": [
+        "onPlayMusic",
+        "onPlaySound",
+        "worldTick"
+      ],
+      "imports": [
+        "EntityPlayerSP",
+        "CPacketPlayer",
+        "CPacketInput",
+        "PlaySoundEvent",
+        "SoundCategoryResolver"
+      ],
+      "unchanged_fields": [
+        "MUSIC_LOCATION",
+        "currentSong"
+      ]
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds.json",
+      "events": [
+        "misc.nullChopper",
+        "misc.nullCrashing",
+        "misc.nullMine",
+        "music.game.space"
+      ],
+      "change": "Only prefix nine sample names with hbm:; preserve event keys, category, order and streaming flags"
+    },
+    {
+      "path": "src/main/java/com/hbm/sound/SoundCategoryResolver.java",
+      "change": "get(ResourceLocation) visibility package-private to public only; allows music replacement to retain metadata/reload category behavior"
+    }
+  ],
+  "asset_renames": [
+    {
+      "retired": "src/main/resources/assets/hbm/sounds/music/spaceBeat.ogg",
+      "current": "src/main/resources/assets/hbm/sounds/music/spacebeat.ogg",
+      "sha256": "30f9cc3a43c79cf60af720a2d4dfe4679da5ee732cdf0c1836a4a7bf2ab1db69"
+    },
+    {
+      "retired": "src/main/resources/assets/hbm/sounds/music/spaceBreak.ogg",
+      "current": "src/main/resources/assets/hbm/sounds/music/spacebreak.ogg",
+      "sha256": "3256be18e599592053734b283bd2ee58ee5923161f1d5acd98377f879889bfb0"
+    },
+    {
+      "retired": "src/main/resources/assets/hbm/sounds/music/spaceCalm.ogg",
+      "current": "src/main/resources/assets/hbm/sounds/music/spacecalm.ogg",
+      "sha256": "e88961da0d0673b22ce41921305f28b951133705b7fdc4e98f76a6760bd19015"
+    },
+    {
+      "retired": "src/main/resources/assets/hbm/sounds/music/spaceKoyaanis.ogg",
+      "current": "src/main/resources/assets/hbm/sounds/music/spacekoyaanis.ogg",
+      "sha256": "cdbbd7b4b5a1e8393a7f43dd63b5f767dce93586f41aa0ad9724efc9d77fd55c"
+    },
+    {
+      "retired": "src/main/resources/assets/hbm/sounds/music/spaceTranscend.ogg",
+      "current": "src/main/resources/assets/hbm/sounds/music/spacetranscend.ogg",
+      "sha256": "42e530fe0ac699687c0a3f9aff4222daa7eb2fc6172e94fb50d815da0ad2e002"
+    },
+    {
+      "retired": "src/main/resources/assets/hbm/sounds/music/spaceTrill.ogg",
+      "current": "src/main/resources/assets/hbm/sounds/music/spacetrill.ogg",
+      "sha256": "23c17463d16b4df979241b44bbfb8009042b1fe56f9c34f68e95be51e4dc8188"
+    }
+  ],
+  "excluded": "Every other method in ModEventHandlerClient; actual NTM collaborator bodies represented by declared fixtures; full launch, audible output, server train gameplay and network transport",
+  "sha256": {
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": "82e06f460236970ab41cad39ed9e1121fdb7f1b6a4eb3416519365f466820917",
+    "src/main/resources/assets/hbm/sounds.json": "30091d360ec72bac642f8c6313cd5a07b11e280498162cb5284ae688d59a37ed",
+    "src/main/java/com/hbm/sound/SoundCategoryResolver.java": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33",
+    "src/main/resources/assets/hbm/sounds/music/spacebeat.ogg": "30f9cc3a43c79cf60af720a2d4dfe4679da5ee732cdf0c1836a4a7bf2ab1db69",
+    "src/main/resources/assets/hbm/sounds/music/spacebreak.ogg": "3256be18e599592053734b283bd2ee58ee5923161f1d5acd98377f879889bfb0",
+    "src/main/resources/assets/hbm/sounds/music/spacecalm.ogg": "e88961da0d0673b22ce41921305f28b951133705b7fdc4e98f76a6760bd19015",
+    "src/main/resources/assets/hbm/sounds/music/spacekoyaanis.ogg": "cdbbd7b4b5a1e8393a7f43dd63b5f767dce93586f41aa0ad9724efc9d77fd55c",
+    "src/main/resources/assets/hbm/sounds/music/spacetranscend.ogg": "42e530fe0ac699687c0a3f9aff4222daa7eb2fc6172e94fb50d815da0ad2e002",
+    "src/main/resources/assets/hbm/sounds/music/spacetrill.ogg": "23c17463d16b4df979241b44bbfb8009042b1fe56f9c34f68e95be51e4dc8188"
+  },
+  "retired_paths": [
+    "src/main/resources/assets/hbm/sounds/music/spaceBeat.ogg",
+    "src/main/resources/assets/hbm/sounds/music/spaceBreak.ogg",
+    "src/main/resources/assets/hbm/sounds/music/spaceCalm.ogg",
+    "src/main/resources/assets/hbm/sounds/music/spaceKoyaanis.ogg",
+    "src/main/resources/assets/hbm/sounds/music/spaceTranscend.ogg",
+    "src/main/resources/assets/hbm/sounds/music/spaceTrill.ogg"
+  ]
+}

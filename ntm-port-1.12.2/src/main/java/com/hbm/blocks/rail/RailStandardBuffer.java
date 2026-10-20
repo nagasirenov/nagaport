@@ -1,19 +1,14 @@
 package com.hbm.blocks.rail;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.lib.Library;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -21,10 +16,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class RailStandardBuffer extends BlockDummyable implements IRailNTM, IRenderBlock {
+public class RailStandardBuffer extends BlockRailNTM implements IRailNTM, IRenderBlock {
 
 	public RailStandardBuffer() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -32,10 +27,6 @@ public class RailStandardBuffer extends BlockDummyable implements IRailNTM, IRen
 		return null;
 	}
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
 
 	@Override
 	public int[] getDimensions() {
@@ -69,7 +60,7 @@ public class RailStandardBuffer extends BlockDummyable implements IRailNTM, IRen
 		int cX = pos[0];
 		int cY = pos[1];
 		int cZ = pos[2];
-		int meta = world.getBlockMetadata(cX, cY, cZ) - this.offset;
+		int meta = metadata(world, cX, cY, cZ) - this.offset;
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
@@ -88,11 +79,11 @@ public class RailStandardBuffer extends BlockDummyable implements IRailNTM, IRen
 				targetX -= speed;
 				info.yaw(90F);
 			}
-			vec = new Vec3d(MathHelper.clamp_double(targetX, cX - 2, cX + 3), y + 0.1875, cZ + 0.5 + rot.offsetZ * 0.5);
+			vec = new Vec3d(MathHelper.clamp(targetX, cX - 2, cX + 3), y + 0.1875, cZ + 0.5 + rot.offsetZ * 0.5);
 
 			double nX = (dir == Library.POS_X ? -1 - context.collisionBogieDistance : 2);
 			double pX = (dir == Library.NEG_X ? 0 - context.collisionBogieDistance : 3);
-			double buffer = MathHelper.clamp_double(targetX, cX - nX, cX + pX);
+			double buffer = MathHelper.clamp(targetX, cX - nX, cX + pX);
 			
 			if(buffer != vec.x) {
 				context.collision = true;
@@ -112,11 +103,11 @@ public class RailStandardBuffer extends BlockDummyable implements IRailNTM, IRen
 				targetZ -= speed;
 				info.yaw(180F);
 			}
-			vec = new Vec3d(cX + 0.5 + rot.offsetX * 0.5, y + 0.1875, MathHelper.clamp_double(targetZ, cZ - 2,cZ + 3));
+			vec = new Vec3d(cX + 0.5 + rot.offsetX * 0.5, y + 0.1875, MathHelper.clamp(targetZ, cZ - 2,cZ + 3));
 
 			double nZ = (dir == Library.POS_Z ? -1 - context.collisionBogieDistance : 2);
 			double pZ = (dir == Library.NEG_Z ? 0 - context.collisionBogieDistance : 3);
-			double buffer = MathHelper.clamp_double(targetZ, cZ - nZ, cZ + pZ);
+			double buffer = MathHelper.clamp(targetZ, cZ - nZ, cZ + pZ);
 			
 			if(buffer != vec.x) {
 				context.collision = true;
@@ -137,35 +128,5 @@ public class RailStandardBuffer extends BlockDummyable implements IRailNTM, IRen
 		return TrackGauge.STANDARD;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glTranslated(0, -0.0625, 0);
-		GL11.glRotated(90, 0, 1, 0);
-		GL11.glScaled(0.3, 0.3, 0.3);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_buffer, block.getIcon(1, 0), tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		if(meta < 12) return;
-		float rotation = 0;
-		if(meta == 12) rotation = (float) Math.PI;
-		if(meta == 14) rotation = 270F / 180F * (float) Math.PI;
-		if(meta == 15) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 12) tessellator.addTranslation(0.5F, 0F, 0F);
-		if(meta == 13) tessellator.addTranslation(-0.5F, 0F, 0F);
-		if(meta == 14) tessellator.addTranslation(0F, 0F, -0.5F);
-		if(meta == 15) tessellator.addTranslation(0F, 0F, 0.5F);
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_buffer, block.getIcon(1, 0), tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-		if(meta == 12) tessellator.addTranslation(-0.5F, 0F, 0F);
-		if(meta == 13) tessellator.addTranslation(0.5F, 0F, 0F);
-		if(meta == 14) tessellator.addTranslation(0F, 0F, 0.5F);
-		if(meta == 15) tessellator.addTranslation(0F, 0F, -0.5F);
-	}
 }

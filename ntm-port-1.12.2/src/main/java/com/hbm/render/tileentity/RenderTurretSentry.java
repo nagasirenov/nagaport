@@ -4,7 +4,6 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.turret.TileEntityTurretSentry;
 import com.hbm.tileentity.turret.TileEntityTurretSentryDamaged;
 
@@ -12,9 +11,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderTurretSentry extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderTurretSentry extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -69,29 +67,5 @@ public class RenderTurretSentry extends TileEntitySpecialRenderer implements IIt
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.turret_sentry);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -4, 0);
-				GL11.glScaled(7, 7, 7);
-			}
-			public void renderCommon() {
-				GL11.glRotated(90, 0, 1, 0);
-				bindTexture(ResourceManager.turret_sentry_tex);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				ResourceManager.turret_sentry.renderPart("Base");
-				ResourceManager.turret_sentry.renderPart("Pivot");
-				ResourceManager.turret_sentry.renderPart("Body");
-				ResourceManager.turret_sentry.renderPart("Drum");
-				ResourceManager.turret_sentry.renderPart("BarrelL");
-				ResourceManager.turret_sentry.renderPart("BarrelR");
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 }

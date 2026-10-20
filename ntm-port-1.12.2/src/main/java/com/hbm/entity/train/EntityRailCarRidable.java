@@ -73,7 +73,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 		}
 		
 		double maxSpeed = this.getMaxPoweredSpeed();
-		engineSpeed = MathHelper.clamp_double(engineSpeed, -maxSpeed, maxSpeed);
+		engineSpeed = MathHelper.clamp(engineSpeed, -maxSpeed, maxSpeed);
 		
 		return engineSpeed + this.getGravitySpeed();
 	}
@@ -82,14 +82,14 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 	public boolean interactFirst(EntityPlayer player) {
 		
 		if(super.interactFirst(player)) return true;
-		if(worldObj.isRemote) return true;
+		if(this.world.isRemote) return true;
 		
 		int nearestSeat = this.getNearestSeat(player);
 		
 		if(nearestSeat == -1) {
 			player.mountEntity(this);
 		} else if(nearestSeat >= 0) {
-			SeatDummyEntity dummySeat = new SeatDummyEntity(worldObj, this, nearestSeat);
+			SeatDummyEntity dummySeat = new SeatDummyEntity(this.world, this, nearestSeat);
 			Vec3d passengerSeat = this.getPassengerSeats()[nearestSeat];
 			passengerSeat = passengerSeat.rotateYaw((float) (-this.rotationYaw * Math.PI / 180));
 			double x = renderX + passengerSeat.x;
@@ -97,7 +97,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			double z = renderZ + passengerSeat.z;
 			dummySeat.setPosition(x, y - 1, z);
 			passengerSeats[nearestSeat] = dummySeat;
-			worldObj.spawnEntityInWorld(dummySeat);
+			this.world.spawnEntityInWorld(dummySeat);
 			player.mountEntity(dummySeat);
 		}
 
@@ -157,7 +157,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			Vec3d[] seats = this.getPassengerSeats();
 			for(int i = 0; i < passengerSeats.length; i++) {
@@ -221,7 +221,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 		@Override public void readEntityFromNBT(NBTTagCompound nbt) { this.setDead(); }
 		
 		@Override public void onUpdate() {
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				if(this.train == null || this.train.isDead) {
 					this.setDead();
 				}
@@ -253,7 +253,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 				
 				if(train == null) {
 					int eid = this.dataWatcher.getWatchableObjectInt(3);
-					Entity entity = worldObj.getEntityByID(eid);
+					Entity entity = this.world.getEntityByID(eid);
 					if(entity instanceof EntityRailCarRidable) {
 						train = (EntityRailCarRidable) entity;
 					}

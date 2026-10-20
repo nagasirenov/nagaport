@@ -1,0 +1,9 @@
+// Portable reverse-source parity only; no extracted Java fixtures or production exclusions.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortMeshModelConsumers', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3',
+                'porting/tests/check-mesh-model-consumers.py'
+        }
+    }
+}

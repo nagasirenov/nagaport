@@ -26,7 +26,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
@@ -50,7 +50,7 @@ public class WorldGeneratorIke implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.ikeDimension) {
+		if(world.provider.getDimension() == SpaceConfig.ikeDimension) {
 			generateIke(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
@@ -76,11 +76,11 @@ public class WorldGeneratorIke implements IWorldGenerator {
 				int oz = j + z;
 
 				for (int y = 0; y < world.getHeight(); y++) {
-					Block b = world.getBlock(ox, y, oz);
+					Block b = com.hbm.world.WorldBlockState.read(world, ox, y, oz).getBlock();
 
 					if (b == ModBlocks.pedestal) {
 
-						TileEntity te = world.getTileEntity(ox, y, oz);
+						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ox, y, oz));
 
 						if (te instanceof TileEntityPedestal) {
 							TileEntityPedestal pedestal = (TileEntityPedestal) te;

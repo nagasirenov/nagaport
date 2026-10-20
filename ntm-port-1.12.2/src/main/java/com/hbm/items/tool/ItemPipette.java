@@ -37,9 +37,9 @@ public class ItemPipette extends Item implements IFillableItem {
 	}
 
 	public void initNBT(ItemStack stack) {
-		stack.stackTagCompound = new NBTTagCompound();
+		stack.setTagCompound(new NBTTagCompound());
 		this.setFill(stack, Fluids.NONE, (short) 0); // sets "type" and "fill" NBT
-		stack.stackTagCompound.setShort("capacity", this.getMaxFill()); // set "capacity"
+		stack.getTagCompound().setShort("capacity", this.getMaxFill()); // set "capacity"
 	}
 
 	public FluidType getType(ItemStack stack) {
@@ -47,7 +47,7 @@ public class ItemPipette extends Item implements IFillableItem {
 			initNBT(stack);
 		}
 
-		return Fluids.fromID(stack.stackTagCompound.getShort("type"));
+		return Fluids.fromID(stack.getTagCompound().getShort("type"));
 	}
 
 	public short getCapacity(ItemStack stack) {
@@ -55,7 +55,7 @@ public class ItemPipette extends Item implements IFillableItem {
 			initNBT(stack);
 		}
 
-		return stack.stackTagCompound.getShort("capacity");
+		return stack.getTagCompound().getShort("capacity");
 	}
 
 	public void setFill(ItemStack stack, FluidType type, short fill) {
@@ -63,8 +63,8 @@ public class ItemPipette extends Item implements IFillableItem {
 			initNBT(stack);
 		}
 
-		stack.stackTagCompound.setShort("type", (short) type.getID());
-		stack.stackTagCompound.setShort("fill", fill);
+		stack.getTagCompound().setShort("type", (short) type.getID());
+		stack.getTagCompound().setShort("fill", fill);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class ItemPipette extends Item implements IFillableItem {
 			initNBT(stack);
 		}
 
-		return stack.stackTagCompound.getShort("fill");
+		return stack.getTagCompound().getShort("fill");
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class ItemPipette extends Item implements IFillableItem {
 					a = !player.isSneaking() ? Math.min(this.getCapacity(stack) + 1, 50) : Math.max(this.getCapacity(stack) - 1, 1);
 				else 
 					a = !player.isSneaking() ? Math.min(this.getCapacity(stack) + 50, 1_000) : Math.max(this.getCapacity(stack) - 50, 50);
-				stack.stackTagCompound.setShort("capacity", (short) a);
+				stack.getTagCompound().setShort("capacity", (short) a);
 				player.sendMessage(new TextComponentString(a + "/" + this.getMaxFill() + "mB"));
 			} else {
 				player.sendMessage(new TextComponentTranslation("desc.item.pipette.noEmpty"));

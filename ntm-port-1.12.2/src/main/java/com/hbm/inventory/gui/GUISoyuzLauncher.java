@@ -48,20 +48,20 @@ public class GUISoyuzLauncher extends GuiInfoContainer {
 		
     	if(guiLeft + 88 <= x && guiLeft + 88 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
     		
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(launcher.xCoord, launcher.yCoord, launcher.zCoord, 0, 0));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(launcher.getPos().getX(), launcher.getPos().getY(), launcher.getPos().getZ(), 0, 0));
     	}
 		
     	if(guiLeft + 88 <= x && guiLeft + 88 + 18 > x && guiTop + 35 < y && guiTop + 35 + 18 >= y) {
     		
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(launcher.xCoord, launcher.yCoord, launcher.zCoord, 1, 0));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(launcher.getPos().getX(), launcher.getPos().getY(), launcher.getPos().getZ(), 1, 0));
     	}
 		
     	if(guiLeft + 151 <= x && guiLeft + 151 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
     		
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(launcher.xCoord, launcher.yCoord, launcher.zCoord, 0, 1));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+    		PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(launcher.getPos().getX(), launcher.getPos().getY(), launcher.getPos().getZ(), 0, 1));
     	}
     }
 
@@ -69,8 +69,8 @@ public class GUISoyuzLauncher extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		String name = this.launcher.hasCustomInventoryName() ? this.launcher.getInventoryName() : I18n.format(this.launcher.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		String secs = "" + launcher.countdown / 20;
 		String cents = "" + (launcher.countdown % 20) * 5;
@@ -81,7 +81,7 @@ public class GUISoyuzLauncher extends GuiInfoContainer {
 		
 		float scale = 0.5F;
 		GL11.glScalef(scale, scale, 1);
-		this.fontRendererObj.drawString(secs + ":" + cents, (int)(153.5F / scale), (int)(37.5F / scale), 0xff0000);
+		this.fontRenderer.drawString(secs + ":" + cents, (int)(153.5F / scale), (int)(37.5F / scale), 0xff0000);
 		GL11.glScalef(1/scale, 1/scale, 1);
 	}
 	

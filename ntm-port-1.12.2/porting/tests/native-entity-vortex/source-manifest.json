@@ -1,0 +1,222 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityBlackHole.java",
+    "original_sha256": "a039c3aedc21a9c167dfe3b2690a834aac41ec086324a0e8772611dcfddb1d65",
+    "before_sha256": "02945136c9ccb06beae2a8e5f2d2e06562c41538e8ce1dc628c1bae1e8ea558c",
+    "after_sha256": "d22fcd64095587bbc1130880c6349420c77e65f402533acaf51b2d853e85d4f3",
+    "class_name": "EntityBlackHole",
+    "superclass": "Entity",
+    "declaring_owner": "EntityBlackHole",
+    "receiver": "this",
+    "receiver_static_type": "EntityBlackHole",
+    "legacy_slot": 16,
+    "key": "BLACK_HOLE_SIZE",
+    "java_type": "Float",
+    "serializer": "FLOAT",
+    "registration_default": "0.5F",
+    "transformations": [
+      {
+        "before_line": 37,
+        "before": "this.dataWatcher.updateObject(16, size);",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, size);",
+        "operation_count": 1,
+        "after_line": 42,
+        "source_method": "public EntityBlackHole(World world, float size) {"
+      },
+      {
+        "before_line": 49,
+        "before": "float size = this.dataWatcher.getWatchableObjectFloat(16);",
+        "after": "float size = this.dataManager.get(BLACK_HOLE_SIZE);",
+        "operation_count": 1,
+        "after_line": 58,
+        "source_method": "public void onUpdate() {"
+      },
+      {
+        "before_line": 165,
+        "before": "this.dataWatcher.addObject(16, 0.5F);",
+        "after": "this.dataManager.register(BLACK_HOLE_SIZE, 0.5F);",
+        "operation_count": 1,
+        "after_line": 174,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 170,
+        "before": "this.dataWatcher.updateObject(16, nbt.getFloat(\"size\"));",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, nbt.getFloat(\"size\"));",
+        "operation_count": 1,
+        "after_line": 179,
+        "source_method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+      },
+      {
+        "before_line": 176,
+        "before": "nbt.setFloat(\"size\", this.dataWatcher.getWatchableObjectFloat(16));",
+        "after": "nbt.setFloat(\"size\", this.dataManager.get(BLACK_HOLE_SIZE));",
+        "operation_count": 1,
+        "after_line": 185,
+        "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityVortex.java",
+    "original_sha256": "4b06191bfde9fac4ea3251b5f9d4f288ad54b0cf18b22ddf445fbf1ae16495d6",
+    "before_sha256": "4b06191bfde9fac4ea3251b5f9d4f288ad54b0cf18b22ddf445fbf1ae16495d6",
+    "after_sha256": "610438d5a93cb6ce2cd1760a3c9e64574d4902067245694806430afadb0529ec",
+    "class_name": "EntityVortex",
+    "superclass": "EntityBlackHole",
+    "declaring_owner": "EntityBlackHole",
+    "receiver": "this",
+    "receiver_static_type": "EntityVortex",
+    "legacy_slot": 16,
+    "key": "BLACK_HOLE_SIZE",
+    "java_type": "Float",
+    "serializer": "FLOAT",
+    "registration_default": "0.5F",
+    "transformations": [
+      {
+        "before_line": 18,
+        "before": "this.dataWatcher.updateObject(16, size);",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, size);",
+        "operation_count": 1,
+        "after_line": 18,
+        "source_method": "public EntityVortex(World world, float size) {"
+      },
+      {
+        "before_line": 29,
+        "before": "this.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - shrinkRate);",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, this.dataManager.get(BLACK_HOLE_SIZE) - shrinkRate);",
+        "operation_count": 2,
+        "after_line": 29,
+        "source_method": "public void onUpdate() {"
+      },
+      {
+        "before_line": 30,
+        "before": "if(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {",
+        "after": "if(this.dataManager.get(BLACK_HOLE_SIZE) <= 0) {",
+        "operation_count": 1,
+        "after_line": 30,
+        "source_method": "public void onUpdate() {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityRagingVortex.java",
+    "original_sha256": "b31a99de6763aab8a40583ba2139d9e7dfa47fd7cb96b198d34176992c322073",
+    "before_sha256": "934c565ee26eb175418b709396dabe17019ce5af531239f82d9d1397f88d4558",
+    "after_sha256": "28fc7da11b8f8bc5ddd23b68560f33f104fa218dde44e0c6a44cd20176045be0",
+    "class_name": "EntityRagingVortex",
+    "superclass": "EntityBlackHole",
+    "declaring_owner": "EntityBlackHole",
+    "receiver": "this",
+    "receiver_static_type": "EntityRagingVortex",
+    "legacy_slot": 16,
+    "key": "BLACK_HOLE_SIZE",
+    "java_type": "Float",
+    "serializer": "FLOAT",
+    "registration_default": "0.5F",
+    "transformations": [
+      {
+        "before_line": 18,
+        "before": "this.dataWatcher.updateObject(16, size);",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, size);",
+        "operation_count": 1,
+        "after_line": 18,
+        "source_method": "public EntityRagingVortex(World world, float size) {"
+      },
+      {
+        "before_line": 38,
+        "before": "this.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - pulse - dec);",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, this.dataManager.get(BLACK_HOLE_SIZE) - pulse - dec);",
+        "operation_count": 2,
+        "after_line": 38,
+        "source_method": "public void onUpdate() {"
+      },
+      {
+        "before_line": 39,
+        "before": "if(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {",
+        "after": "if(this.dataManager.get(BLACK_HOLE_SIZE) <= 0) {",
+        "operation_count": 1,
+        "after_line": 39,
+        "source_method": "public void onUpdate() {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityQuasar.java",
+    "original_sha256": "8bb48d127c19679b20933eaa5ff7ff69a0bbaa9d0df699f1fa19a2a2ff9e4aa9",
+    "before_sha256": "8bb48d127c19679b20933eaa5ff7ff69a0bbaa9d0df699f1fa19a2a2ff9e4aa9",
+    "after_sha256": "27a07cfb3be1478d748647ddd8c681baf2b0d96906737a8616d92c79f20bc762",
+    "class_name": "EntityQuasar",
+    "superclass": "EntityBlackHole",
+    "declaring_owner": "EntityBlackHole",
+    "receiver": "this",
+    "receiver_static_type": "EntityQuasar",
+    "legacy_slot": 16,
+    "key": "BLACK_HOLE_SIZE",
+    "java_type": "Float",
+    "serializer": "FLOAT",
+    "registration_default": "0.5F",
+    "transformations": [
+      {
+        "before_line": 15,
+        "before": "this.dataWatcher.updateObject(16, size);",
+        "after": "this.dataManager.set(BLACK_HOLE_SIZE, size);",
+        "operation_count": 1,
+        "after_line": 15,
+        "source_method": "public EntityQuasar(World world, float size) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java",
+    "original_sha256": "10474a7ffbb73d53333d53b06c26ff1e1ab2714d00e6b4d72c3f8c1a786c5e50",
+    "before_sha256": "edfb3ab30abc8c58b86e9019903830be1f75713c67a1a76468e56b80db49f7ca",
+    "after_sha256": "51aee53a661aace503ea564e99452009c8861a6b534f7b51bee83890cc516ff7",
+    "class_name": "RenderBlackHole",
+    "superclass": "Render",
+    "declaring_owner": "EntityBlackHole",
+    "receiver": "entity",
+    "receiver_static_type": "Entity",
+    "legacy_slot": 16,
+    "key": "BLACK_HOLE_SIZE",
+    "java_type": "Float",
+    "serializer": "FLOAT",
+    "registration_default": "0.5F",
+    "transformations": [
+      {
+        "before_line": 41,
+        "before": "float size = entity.getDataWatcher().getWatchableObjectFloat(16);",
+        "after": "float size = ((EntityBlackHole) entity).getBlackHoleSize();",
+        "operation_count": 1,
+        "after_line": 42,
+        "source_method": "public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float interp) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/effect/RenderQuasar.java",
+    "original_sha256": "d94d9d939951f3ea9488097b9622a76461b9b89540cec54072a6e1c46ecae794",
+    "before_sha256": "d94d9d939951f3ea9488097b9622a76461b9b89540cec54072a6e1c46ecae794",
+    "after_sha256": "8be233cb55a949d9f9bc9d649540da92b368485da0f9de22321cc8d1a4114b90",
+    "class_name": "RenderQuasar",
+    "superclass": "RenderBlackHole",
+    "declaring_owner": "EntityBlackHole",
+    "receiver": "entity",
+    "receiver_static_type": "Entity",
+    "legacy_slot": 16,
+    "key": "BLACK_HOLE_SIZE",
+    "java_type": "Float",
+    "serializer": "FLOAT",
+    "registration_default": "0.5F",
+    "transformations": [
+      {
+        "before_line": 23,
+        "before": "float size = entity.getDataWatcher().getWatchableObjectFloat(16);",
+        "after": "float size = ((EntityBlackHole) entity).getBlackHoleSize();",
+        "operation_count": 1,
+        "after_line": 24,
+        "source_method": "public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float interp) {"
+      }
+    ]
+  }
+]

@@ -2,7 +2,6 @@ package com.hbm.blocks.machine;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.handler.atmosphere.IBlockSealable;
-import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.tileentity.machine.TileEntityFurnaceBrick;
 import com.hbm.util.ItemStackUtil;
@@ -10,49 +9,31 @@ import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import java.util.Random;
 
-public class MachineBrickFurnace extends BlockContainer implements IBlockSealable {
+public class MachineBrickFurnace extends BlockThermalFurnace implements IBlockSealable {
 
 	private final Random rand = new Random();
-	private final boolean isActive;
 	private static boolean keepInventory;
 
-	@SideOnly(Side.CLIENT) private IIcon iconTop;
-	@SideOnly(Side.CLIENT) private IIcon iconBottom;
-	@SideOnly(Side.CLIENT) private IIcon iconFront;
-
 	public MachineBrickFurnace(boolean blockState) {
-		super(Material.iron);
-		isActive = blockState;
+		super(Material.IRON, blockState);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":machine_furnace_brick_top");
-		this.iconBottom = iconRegister.registerIcon(RefStrings.MODID + ":machine_furnace_brick_bottom");
-		this.iconFront = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? ":machine_furnace_brick_front_on" : ":machine_furnace_brick_front_off"));
-		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_furnace_brick_side");
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int metadata) {
-		return metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : (side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon)));
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
@@ -61,53 +42,53 @@ public class MachineBrickFurnace extends BlockContainer implements IBlockSealabl
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Item getItem(World world, int x, int y, int z) {
-		return Item.getItemFromBlock(ModBlocks.machine_furnace_brick_off);
+	public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
+		return new ItemStack(ModBlocks.machine_furnace_brick_off);
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
-		this.setDefaultDirection(world, x, y, z);
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		this.setDefaultDirection(world, pos);
 	}
 
-	private void setDefaultDirection(World world, int x, int y, int z) {
+	private void setDefaultDirection(World world, BlockPos pos) {
 		if(!world.isRemote) {
-			Block nZ = world.getBlock(x, y, z - 1);
-			Block pZ = world.getBlock(x, y, z + 1);
-			Block nX = world.getBlock(x - 1, y, z);
-			Block pX = world.getBlock(x + 1, y, z);
+			IBlockState nZ = world.getBlockState(pos.north());
+			IBlockState pZ = world.getBlockState(pos.south());
+			IBlockState nX = world.getBlockState(pos.west());
+			IBlockState pX = world.getBlockState(pos.east());
 
 			byte meta = 3;
 
-			if(nZ.func_149730_j() && !pZ.func_149730_j()) meta = 3;
-			if(pZ.func_149730_j() && !nZ.func_149730_j()) meta = 2;
-			if(nX.func_149730_j() && !pX.func_149730_j()) meta = 5;
-			if(pX.func_149730_j() && !nX.func_149730_j()) meta = 4;
+			if(nZ.isFullBlock() && !pZ.isFullBlock()) meta = 3;
+			if(pZ.isFullBlock() && !nZ.isFullBlock()) meta = 2;
+			if(nX.isFullBlock() && !pX.isFullBlock()) meta = 5;
+			if(pX.isFullBlock() && !nX.isFullBlock()) meta = 4;
 
-			world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+			world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, (int) (meta)), 2);
 		}
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		if(i == 0) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 2), 2);
+		if(i == 1) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 5), 2);
+		if(i == 2) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 3), 2);
+		if(i == 3) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 4), 2);
 
-		if(itemStack.hasDisplayName()) ((TileEntityFurnaceBrick)world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
+		if(itemStack.hasDisplayName()) ((TileEntityFurnaceBrick)world.getTileEntity(pos)).setCustomName(itemStack.getDisplayName());
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntityFurnaceBrick entity = (TileEntityFurnaceBrick) world.getTileEntity(x, y, z);
+			TileEntityFurnaceBrick entity = (TileEntityFurnaceBrick) world.getTileEntity(pos);
 			if(entity != null) {
-				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
+				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
 			}
 			return true;
 		} else {
@@ -116,36 +97,40 @@ public class MachineBrickFurnace extends BlockContainer implements IBlockSealabl
 	}
 
 	public static void updateBlockState(boolean isProcessing, World world, int x, int y, int z) {
-		int i = world.getBlockMetadata(x, y, z);
-		TileEntity entity = world.getTileEntity(x, y, z);
+        BlockPos pos = new BlockPos(x, y, z);
+		int i = world.getBlockState(pos).getValue(METADATA);
+		TileEntity entity = world.getTileEntity(pos);
 		keepInventory = true;
 
 		if(isProcessing) {
-			world.setBlock(x, y, z, ModBlocks.machine_furnace_brick_on);
+			world.setBlockState(pos, ModBlocks.machine_furnace_brick_on.getDefaultState());
 		} else {
-			world.setBlock(x, y, z, ModBlocks.machine_furnace_brick_off);
+			world.setBlockState(pos, ModBlocks.machine_furnace_brick_off.getDefaultState());
 		}
 
 		keepInventory = false;
-		world.setBlockMetadataWithNotify(x, y, z, i, 2);
+		world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, i), 2);
 
 		if(entity != null) {
 			entity.validate();
-			world.setTileEntity(x, y, z, entity);
+			world.setTileEntity(pos, entity);
 		}
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+        Block block = state.getBlock();
 		if(!keepInventory) ItemStackUtil.spillItems(world, x, y, z, block, rand);
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(isActive) {
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = world.getBlockState(pos).getValue(METADATA);
 			float cX = x + 0.5F;
 			float cY = y + rand.nextFloat() * 0.375F;
 			float cZ = z + 0.5F;
@@ -155,17 +140,17 @@ public class MachineBrickFurnace extends BlockContainer implements IBlockSealabl
 			rand.nextFloat();
 
 			if(meta == 4) {
-				world.spawnParticle("smoke", cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle("flame", cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.FLAME, cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
 			} else if(meta == 5) {
-				world.spawnParticle("smoke", cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle("flame", cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.FLAME, cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);
 			} else if(meta == 2) {
-				world.spawnParticle("smoke", cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle("flame", cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.FLAME, cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);
 			} else if(meta == 3) {
-				world.spawnParticle("smoke", cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle("flame", cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(EnumParticleTypes.FLAME, cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}

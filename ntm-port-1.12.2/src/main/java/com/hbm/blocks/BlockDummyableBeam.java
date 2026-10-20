@@ -38,7 +38,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 	}
 
 	public int[] findCore(World world, int x, int y, int z) {
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
 		if(metadata >= extra) metadata -= extra;
@@ -49,7 +49,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 		y += dir.offsetY;
 		z += dir.offsetZ;
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof BlockDummyable && !(b instanceof BlockDummyableBeam)) {
 			return ((BlockDummyable) b).findCore(world, x, y, z);
@@ -60,7 +60,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int i) {
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
 		if(metadata >= extra) metadata -= extra;
@@ -71,7 +71,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 		y += dir.offsetY;
 		z += dir.offsetZ;
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof BlockDummyable) {
 			((BlockDummyable) b).breakBlock(world, x, y, z, b, i);
@@ -82,16 +82,16 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(world.isRemote || safeRem) return;
 
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
 		if(metadata >= extra) metadata -= extra;
 
 		ForgeDirection dir = ForgeDirection.getOrientation(metadata).getOpposite();
-		Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+		Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 
 		if(!(b instanceof BlockDummyable)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
 
@@ -99,22 +99,22 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		if(world.isRemote) return;
 
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
 		if(metadata >= extra) metadata -= extra;
 
 		ForgeDirection dir = ForgeDirection.getOrientation(metadata).getOpposite();
-		Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+		Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 
 		if(!(b instanceof BlockDummyable)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
 		if(metadata >= extra) metadata -= extra;
@@ -125,7 +125,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 		y += dir.offsetY;
 		z += dir.offsetZ;
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof BlockDummyable && !(b instanceof BlockDummyableBeam)) {
 			return ((BlockDummyable) b).onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
@@ -136,7 +136,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
 		if(metadata >= extra) metadata -= extra;
@@ -147,7 +147,7 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 		y += dir.offsetY;
 		z += dir.offsetZ;
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof BlockDummyable && !(b instanceof BlockDummyableBeam) && b instanceof ILookOverlay) {
 			((ILookOverlay) b).printHook(event, world, x, y, z);

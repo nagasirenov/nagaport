@@ -62,15 +62,15 @@ public class CanneryFoundryChannel extends CanneryBase {
 		
 		for(int x = world.sizeX - 1; x >= 0 ; x--) {
 			for(int z = 0; z < world.sizeZ; z++) {
-				scene0.add(new ActionSetBlock(x, 0, z, Blocks.brick_block));
+				scene0.add(new ActionSetBlock(x, 0, z, Blocks.BRICK_BLOCK));
 			}
 		}
 		
 		scene0.add(new ActionWait(5));
-		scene0.add(new ActionSetBlock(1, 1, 2, Blocks.brick_block));
-		scene0.add(new ActionSetBlock(2, 1, 2, Blocks.brick_block));
-		scene0.add(new ActionSetBlock(3, 1, 2, Blocks.brick_block));
-		scene0.add(new ActionSetBlock(3, 1, 3, Blocks.brick_block));
+		scene0.add(new ActionSetBlock(1, 1, 2, Blocks.BRICK_BLOCK));
+		scene0.add(new ActionSetBlock(2, 1, 2, Blocks.BRICK_BLOCK));
+		scene0.add(new ActionSetBlock(3, 1, 2, Blocks.BRICK_BLOCK));
+		scene0.add(new ActionSetBlock(3, 1, 3, Blocks.BRICK_BLOCK));
 
 		scene0.add(new ActionSetTile(3, 1, 1, new TileEntityFoundryBasin() {{ slots[0] = new ItemStack(ModItems.mold, 0, 12); }}));
 		scene0.add(new ActionCreateActor(1, new ActorTileEntity(new RenderFoundry(), new NBTTagCompound() {{ setInteger("x", 3); setInteger("y", 1); setInteger("z", 1); }})));
@@ -80,7 +80,7 @@ public class CanneryFoundryChannel extends CanneryBase {
 		scene0.add(new ActionSetBlock(2, 1, 1, ModBlocks.foundry_mold));
 		
 		scene0.add(new ActionWait(5));
-		scene0.add(new ActionSetBlock(3, 2, 3, Blocks.brick_block));
+		scene0.add(new ActionSetBlock(3, 2, 3, Blocks.BRICK_BLOCK));
 		scene0.add(new ActionSetTile(1, 2, 2, new TileEntityFoundryMold() {{ slots[0] = new ItemStack(ModItems.mold, 0, 2); }}));
 		scene0.add(new ActionCreateActor(3, new ActorTileEntity(new RenderFoundry(), new NBTTagCompound() {{ setInteger("x", 1); setInteger("y", 2); setInteger("z", 2); }})));
 		scene0.add(new ActionSetBlock(1, 2, 2, ModBlocks.foundry_mold));
@@ -159,15 +159,15 @@ public class CanneryFoundryChannel extends CanneryBase {
 
 		scene1.add(new ActionSetTile(2, 2, 2, new TileEntityFoundryChannel()));
 		scene1.add(new ActionSetTile(3, 2, 2, new TileEntityFoundryChannel()));
-		scene1.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -25, new Object[][] {{new ItemStack(Items.iron_shovel), " -> ", ItemScraps.create(new MaterialStack(Mats.MAT_GOLD, 1))}}, 200)
+		scene1.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -25, new Object[][] {{new ItemStack(Items.IRON_SHOVEL), " -> ", ItemScraps.create(new MaterialStack(Mats.MAT_GOLD, 1))}}, 200)
 				.setColors(colorCopper).setOrientation(Orientation.LEFT)));
 		scene1.add(new ActionWait(40));
 		scene1.add(new ActionRemoveActor(0));
 		
 		scene1.add(new ActionWait(60));
-		scene1.add(new ActionSetTile(2, 1, 1, new TileEntityFoundryMold() {{ slots[1] = new ItemStack(Items.gold_ingot); }}));
-		scene1.add(new ActionSetTile(1, 2, 2, new TileEntityFoundryMold() {{ slots[1] = new ItemStack(Items.gold_ingot); }}));
-		scene1.add(new ActionSetTile(3, 1, 1, new TileEntityFoundryBasin() {{ slots[1] = new ItemStack(Blocks.gold_block); }}));
+		scene1.add(new ActionSetTile(2, 1, 1, new TileEntityFoundryMold() {{ slots[1] = new ItemStack(Items.GOLD_INGOT); }}));
+		scene1.add(new ActionSetTile(1, 2, 2, new TileEntityFoundryMold() {{ slots[1] = new ItemStack(Items.GOLD_INGOT); }}));
+		scene1.add(new ActionSetTile(3, 1, 1, new TileEntityFoundryBasin() {{ slots[1] = new ItemStack(Blocks.GOLD_BLOCK); }}));
 
 		script.addScene(scene0);
 		script.addScene(scene1);

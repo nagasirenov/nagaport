@@ -100,7 +100,7 @@ public class RenderNTMSkyboxChainloader extends IRenderHandler { //why an abstra
 		
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(digammaStar);
 		
-		float digamma = HbmLivingProps.getDigamma(Minecraft.getMinecraft().thePlayer);
+		float digamma = HbmLivingProps.getDigamma(Minecraft.getMinecraft().player);
 		var12 = 1F * (1 + digamma * 0.25F);
 		dist = 100D - digamma * 2.5;
 		

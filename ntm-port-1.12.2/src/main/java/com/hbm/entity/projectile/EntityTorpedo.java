@@ -25,7 +25,7 @@ public class EntityTorpedo extends EntityThrowable {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote && this.ticksExisted == 1) {
+		if(!this.world.isRemote && this.ticksExisted == 1) {
 			for(int i = 0; i < 15; i++) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "bf");
@@ -46,11 +46,11 @@ public class EntityTorpedo extends EntityThrowable {
 		this.motionY -= 0.04;
 		if(motionY < -2.5) motionY = -2.5;
 
-		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air) {
-			if(!worldObj.isRemote) {
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) this.posX, (int) this.posY, (int) this.posZ).getBlock() != Blocks.AIR) {
+			if(!this.world.isRemote) {
 				this.setDead();
-				ExplosionCreator.composeEffectStandard(worldObj, posX, posY + 1, posZ);
-				ExplosionVNT vnt = new ExplosionVNT(worldObj, posX, posY, posZ, 20F);
+				ExplosionCreator.composeEffectStandard(this.world, posX, posY + 1, posZ);
+				ExplosionVNT vnt = new ExplosionVNT(this.world, posX, posY, posZ, 20F);
 				vnt.makeStandard();
 				vnt.explode();
 			}

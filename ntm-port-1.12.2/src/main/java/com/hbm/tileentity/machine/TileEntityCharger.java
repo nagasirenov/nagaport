@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyReceiverMK2, IBufPacketReceiver {
+public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyReceiverMK2, IBufPacketReceiver, net.minecraft.util.ITickable {
 
 	private List<EntityPlayer> players = new ArrayList();
 	private long charge = 0;
@@ -27,14 +27,14 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 	public static final int delay = 20;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
 
-		if(!worldObj.isRemote) {
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir);
+		if(!this.world.isRemote) {
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir);
 
-			players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(0.5, 0.0, 0.5));
+			players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));
 
 			charge = 0;
 
@@ -57,8 +57,8 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 
 				lastOp--;
 
-				if(worldObj.getTotalWorldTime() % 20 == 0)
-					worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.fizz", 0.2F, 0.5F);
+				if(this.world.getTotalWorldTime() % 20 == 0)
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "random.fizz", 0.2F, 0.5F);
 			}
 
 			networkPackNT(50);
@@ -69,20 +69,20 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 		if((charge > 0 || particles) && usingTicks < delay) {
 			usingTicks++;
 			if(usingTicks == 2)
-				worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "tile.piston.out", 0.5F, 0.5F);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "tile.piston.out", 0.5F, 0.5F);
 		}
 		if((charge <= 0 && !particles) && usingTicks > 0) {
 			usingTicks--;
 			if(usingTicks == 4)
-				worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "tile.piston.in", 0.5F, 0.5F);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "tile.piston.in", 0.5F, 0.5F);
 		}
 
 		if(particles) {
-			Random rand = worldObj.rand;
-			worldObj.spawnParticle("magicCrit",
-					xCoord + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetX * 0.75,
-					yCoord + 0.1,
-					zCoord + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetZ * 0.75,
+			Random rand = this.world.rand;
+			this.world.spawnParticle("magicCrit",
+					this.pos.getX() + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetX * 0.75,
+					this.pos.getY() + 0.1,
+					this.pos.getZ() + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetZ * 0.75,
 					-dir.offsetX + rand.nextGaussian() * 0.1,
 					0,
 					-dir.offsetZ + rand.nextGaussian() * 0.1);

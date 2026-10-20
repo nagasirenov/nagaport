@@ -6,40 +6,30 @@ import com.hbm.items.ModItems;
 import com.hbm.main.ResourceManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
+import com.hbm.render.item.nativeitem.context.*;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 
-public class ItemRenderShim implements IItemRenderer {
+public class ItemRenderShim extends NativeOriginalItemRenderer {
 	
-	public ItemRenderShim() { }
+	public ItemRenderShim() { super(false, true); }
 
 	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		switch(type) {
-		case EQUIPPED:
-		case EQUIPPED_FIRST_PERSON:
-		case ENTITY:
-			return true;
-		default: return false;
-		}
-	}
-
-	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return type == ItemRenderType.ENTITY && (helper == ItemRendererHelper.ENTITY_BOBBING || helper == ItemRendererHelper.ENTITY_ROTATION);
-	}
-
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+	protected void drawModel(ItemStack item, NativeItemContext context) {
 		GL11.glPushMatrix();
-		switch(type) {
-		case EQUIPPED_FIRST_PERSON:
+		switch(context.transform) {
+		case FIRST_PERSON_LEFT_HAND:
+		case FIRST_PERSON_RIGHT_HAND:
 			if(item.getItem() == ModItems.stopsign || item.getItem() == ModItems.sopsign || item.getItem() == ModItems.chernobylsign) {
 				GL11.glRotatef(180, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
 				GL11.glTranslatef(-1.0F, -1.5F, 0.0F);
 			}
-		case EQUIPPED:
-		case ENTITY:
+		case THIRD_PERSON_LEFT_HAND:
+		case THIRD_PERSON_RIGHT_HAND:
+		case NONE:
+		case HEAD:
+		case FIXED:
+		case GROUND:
 				if(item.getItem() == ModItems.shimmer_sledge)
 					Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.shimmer_sledge_tex);
 				if(item.getItem() == ModItems.shimmer_axe)

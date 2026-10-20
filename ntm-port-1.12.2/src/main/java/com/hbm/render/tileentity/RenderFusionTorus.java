@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderFusionTorus extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -83,7 +83,7 @@ public class RenderFusionTorus extends TileEntitySpecialRenderer implements IIte
 			GL11.glMatrixMode(GL11.GL_MODELVIEW);
 			
 			// cost-cutting measure, don't render extra layers from more than 100m away
-			if(MainRegistry.proxy.me().getDistanceSq(torus.xCoord + 0.5, torus.yCoord + 2.5, torus.zCoord + 0.5) < 100 * 100) {
+			if(MainRegistry.proxy.me().getDistanceSq(torus.getPos().getX() + 0.5, torus.getPos().getY() + 2.5, torus.getPos().getZ() + 0.5) < 100 * 100) {
 	
 				GL11.glColor4f(r * 2, g * 2, b * 2, alpha * 2);
 				
@@ -128,7 +128,7 @@ public class RenderFusionTorus extends TileEntitySpecialRenderer implements IIte
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glScaled(2, 2, 2);

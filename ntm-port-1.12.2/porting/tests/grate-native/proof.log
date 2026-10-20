@@ -1,0 +1,68 @@
+PRODUCTION com/hbm/blocks/generic/BlockGrate.java c9089b50ca34973228f7908eb7ccec4c76518db9c9f96f39d4e9142d0ea732ac
+PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+PRODUCTION com/hbm/util/i18n/I18nUtil.java 6424de426ed248d0679e4e9d4e6a4025be284fef9e1a382145f1a4ac930169d7
+PRODUCTION com/hbm/util/i18n/ITranslate.java 791239ab525259c1519f208bc56928c9d421e5b4b0057713aa45838bd99af410
+PRODUCTION com/hbm/util/i18n/I18nServer.java 22470beb4c5ae9800cff57cd65b9e12c3c7c32ffa47d8734d8189586076fa09a
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/render/block/RenderGrate.java 402b071ddd0b0840e6e9fdc2c49b624d92bc40fdd26231514ed29771ce5d80f1
+PRODUCTION com/hbm/render/block/nativeblock/GrateBakedModel.java 3dd252d70e97c313ccce91f9cc1558d7d8034afefbb13ea85072c10641cccf13
+PRODUCTION com/hbm/render/block/nativeblock/GrateShiftedLightQuad.java 80283f76b52bb6b7cc60b9d7f00737967af38f4d38c99b652ce972e928bcb5a8
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+PRODUCTION com/hbm/main/GrateModelHandler.java 4c8d1230370a970924cd7159e652831e30c0724b8508050794fee9cd18d6e236
+/tmp/grate-native-2_06_xo6/OriginalGrateRenderOracle.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/grate-native-2_06_xo6/OriginalGrateRenderOracle.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/grate-native-2_06_xo6/OriginalGrateRenderOracle.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/grate-native-2_06_xo6/OriginalGrateRenderOracle.java:53: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/tmp/grate-native-2_06_xo6/OriginalGrateRenderOracle.java:53: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/tmp/grate-native-2_06_xo6/OriginalGrateRenderOracle.java:53: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+/workspace/shared/nagaport-grate-next/ntm-port-1.12.2/porting/tests/grate-native/GrateRenderTest.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager resources;static File resourceRoot;
+                ^
+/workspace/shared/nagaport-grate-next/ntm-port-1.12.2/porting/tests/grate-native/GrateRenderTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                  ^
+/workspace/shared/nagaport-grate-next/ntm-port-1.12.2/porting/tests/grate-native/GrateRenderTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 warnings
+PASS complete grate production bytecode contains no removed rendering/world APIs
+[22:52:45] [main/INFO]: Processing ObjectHolder annotations
+[22:52:45] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS native grate all 32 states: exact float bounds, getY(9), actual chunk/no-tile, own item drops and every side/face support.
+PASS original placement oracle: six sides, every eighth-height boundary, both hands/input metadata, sneak null/air/threshold branches and odd below-owner ABOVE isAir query.
+PASS actual server/client neighbor callbacks: every metadata, null and .05 threshold cases, stale-argument protection, native final drop dispatch meta=0/fortune=0 and drop-before-air ordering.
+PASS actual native EntityItem/EntityXPOrb/Player collisions, all metadata and strict height thresholds, negative getY(9) distinction, motion/position/AABB updates and ordinary query intersections.
+PASS tooltip through actual production ITooltipProvider/I18nUtil, exact narrow/wide description keys, input-line preservation and original callback oracle.
+PASS grate mechanics: 35079 assertions. Actual native Minecraft/Forge owner, World/Chunk and entities; separately hash-pinned original callback recorder. Sole NTM collaborator: MainRegistry translation-service holder. Not full game/mod acceptance.
+[22:52:47] [main/INFO]: Processing ObjectHolder annotations
+[22:52:47] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS original pristine RenderGrate/getY callbacks + actual original 1.7 RenderBlocks face bytecode: two owners, all 16 metadata, six faces, exact XYZ/UV/material/winding and flat item decision.
+PASS all 2048 owner/metadata/neighbor masks, normalized-origin culling with original unnormalized owner bounds, including wide epsilon and meta 8/9 behavior.
+PASS exact native Forge Flat/SmoothAo shifted-origin reference in 128 scenarios. OPEN GATES: vanilla fallback differs at 540 vertices; native damage wrapper loss differs at 560 vertices. Counts are test comparisons, not unique bugs.
+PASS exact native Flat/SmoothAo parent/world/state/position restoration on normal output and intentional sink failure; unknown mod subclasses are not certified.
+[22:52:48] [main/INFO]: Reloading ResourceManager: resources
+[22:52:48] [main/INFO]: Reloading ResourceManager: resources
+[22:52:48] [main/INFO]: Reloading ResourceManager: resources
+PASS native 32 world/32 item routes, actual model mesher/block model shapes, original three PNG resources and reload: resources
+[22:52:48] [main/INFO]: Reloading ResourceManager: grate-resources.jar
+[22:52:48] [main/INFO]: Reloading ResourceManager: grate-resources.jar
+[22:52:48] [main/INFO]: Reloading ResourceManager: grate-resources.jar
+PASS native 32 world/32 item routes, actual model mesher/block model shapes, original three PNG resources and reload: grate-resources.jar
+[22:52:48] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.steel_grate`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS grate native render: 37514 assertions and 768 original/native face vertices. No live client/GL/save acceptance; lighting gates above remain unapproved.

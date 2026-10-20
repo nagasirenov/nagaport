@@ -1,0 +1,5 @@
+appeng/spatial/StorageWorldProvider
+net/minecraft/world/WorldProviderEnd
+net/minecraft/world/WorldProviderHell
+net/minecraft/world/WorldProviderSurface
+PASS 4 actual dependency WorldProvider descendants; no getDimension override among 48243 class files

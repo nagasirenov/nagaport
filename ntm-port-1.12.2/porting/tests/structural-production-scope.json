@@ -1,0 +1,34 @@
+{
+  "baseline": "39837aa",
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/BlockChain.java": "d4ab00fab827271d3bb70967612c124540d07eb2c68c9fb8ef8d722fb07bb835",
+    "src/main/java/com/hbm/blocks/generic/BlockMetalFence.java": "706ee563fa21bd6bf3a05cce2fae94fa8e55ec83f68e59e97e2801209e97ab8c",
+    "src/main/java/com/hbm/render/block/RenderChain.java": "97f80c482a2a61738007aa560ee219b78ca3c58083e625282f9003ca7bd05bdf",
+    "src/main/java/com/hbm/render/block/RenderFence.java": "d20b297d3afc3162fcd2d82f0124e083b1781c86d6a4252d9c2e84fe4ff5633f",
+    "src/main/java/com/hbm/render/block/nativeblock/StructuralGeometry.java": "212c7315388576f3a847ce064825bf197007f6d8d08b1ad425700c650f4544c7",
+    "src/main/java/com/hbm/render/block/nativeblock/StructuralBakedModel.java": "73be02df5f60df7bf09d7cf279fa40a0d91eec2e4f0185308078c6a2897c9f38",
+    "src/main/java/com/hbm/main/StructuralBlockModelHandler.java": "c87d1ab73f169b703713d483a4a55e13fe149b89ea2c3f282ebb77cd8044a1bd",
+    "src/main/resources/assets/hbm/blockstates/tile.dungeon_chain.json": "795e9db11d571f7ddc5efe482ae3b67a9f04c7448f428249d38f6f94256c6732",
+    "src/main/resources/assets/hbm/blockstates/tile.fence_metal.json": "c9dbbea7d506a439c41cf3b1e3b275d574385fcbced259a9ae2f31758aaba2b9"
+  },
+  "original_inputs": {
+    "src/main/java/com/hbm/render/block/RenderFence.java": "5735e8a9f3018e854f2272d091b5f5efe9c8adc121cd5f02312c2cd5294cf7ce",
+    "src/main/java/com/hbm/render/block/RenderChain.java": "5c9e5a2ae291e0aacbf983adda8a2b6b7184f5c7959107ba9be814f84901c5db",
+    "src/main/java/com/hbm/blocks/generic/BlockMetalFence.java": "d4c000624b51d38503ed44f1e36ca9436d3668f7c227dbbb7410d06a9a69813f",
+    "src/main/java/com/hbm/blocks/generic/BlockChain.java": "c97bc353603f6a6c2691c622ecc500ba176d63652bbfbd061145acfd9ea96f40"
+  },
+  "unchanged_materials": {
+    "src/main/resources/assets/hbm/textures/blocks/chain.png": "3dc79367a547f5c0ac0a4ba8ac66971fb0676998bd20b861b7bba2fd0b28d22a",
+    "src/main/resources/assets/hbm/textures/blocks/chain_end.png": "45d6a975530561f4e956665274d35c09d89e4b772f3827e070d316f21826f548",
+    "src/main/resources/assets/hbm/textures/blocks/fence_metal.png": "7fc00c427f574498043498b57e4f194e7195f1438e5a834de8beb5e492401c14",
+    "src/main/resources/assets/hbm/textures/blocks/fence_metal_post.png": "74ba54abbced59028c3d228e9887a90524a6ecb531a27de1e1a44cee33ac5e00"
+  },
+  "unchanged_grate": {
+    "src/main/java/com/hbm/blocks/generic/BlockGrate.java": "724ad1b928248eb337bac90be5e0195f5078e080354fa45c15bd5508c775de48",
+    "src/main/java/com/hbm/render/block/RenderGrate.java": "09dc66738eb65e020983f778363c55a2bf32343b3304aa4175526742b32cd7b9"
+  },
+  "parent_constructor_lines": [
+    "fence_metal = new BlockMetalFence(Material.IRON).setTranslationKey(\"fence_metal\").setCreativeTab(MainRegistry.machineTab).setHardness(15.0F).setResistance(0.25F);",
+    "chain = new BlockChain(Material.IRON).setTranslationKey(\"dungeon_chain\").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab);"
+  ]
+}

@@ -31,8 +31,8 @@ public class HazardTypeRadiation extends HazardTypeBase {
 		
 		level *= stack.stackSize;
 		
-		if(stack.hasTagCompound() && stack.stackTagCompound.hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
-			level += stack.stackTagCompound.getFloat(HazardTypeNeutron.NEUTRON_KEY);
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
+			level += stack.getTagCompound().getFloat(HazardTypeNeutron.NEUTRON_KEY);
 		}
 		
 		if(level > 0) {
@@ -57,8 +57,8 @@ public class HazardTypeRadiation extends HazardTypeBase {
 		
 		level = HazardModifier.evalAllModifiers(stack, player, level, modifiers);
 		
-		if(stack.hasTagCompound() && stack.stackTagCompound.hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
-			level += stack.stackTagCompound.getFloat(HazardTypeNeutron.NEUTRON_KEY);
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
+			level += stack.getTagCompound().getFloat(HazardTypeNeutron.NEUTRON_KEY);
 		}
 		
 		if(level < 1e-5)

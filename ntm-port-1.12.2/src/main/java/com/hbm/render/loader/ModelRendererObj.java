@@ -5,7 +5,7 @@ import org.lwjgl.opengl.GL11;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class ModelRendererObj {
 
@@ -25,9 +25,9 @@ public class ModelRendererObj {
 	public boolean doRender = true;
 
 	String[] parts;
-	IModelCustom model;
+	MeshModel model;
 
-	public ModelRendererObj(IModelCustom model, String... parts) {
+	public ModelRendererObj(MeshModel model, String... parts) {
 		this.model = model;
 		this.parts = parts;
 	}

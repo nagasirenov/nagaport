@@ -1,0 +1,140 @@
+// Appended inside the generated test class. All Minecraft classes are real.
+static int checks;
+static void check(boolean ok, String message) {
+    checks++;
+    if (!ok) throw new AssertionError(message);
+}
+static void array(int[] actual, int... expected) {
+    check(Arrays.equals(actual, expected), "array content/order " + Arrays.toString(actual));
+}
+// Controlled charge source implements the actual production battery interface.
+static class Battery extends Item implements IBatteryItem {
+    long charge;
+    public void chargeBattery(ItemStack s, long n) { charge += n; }
+    public void dischargeBattery(ItemStack s, long n) { charge -= n; }
+    public void setCharge(ItemStack s, long n) { charge = n; }
+    public long getCharge(ItemStack s) { return charge; }
+    public long getMaxCharge(ItemStack s) { return 100; }
+    public long getChargeRate(ItemStack s) { return 10; }
+    public long getDischargeRate(ItemStack s) { return 10; }
+}
+// Explicit target spy for extracted proxy callbacks; not a replacement Minecraft API.
+static class TargetSpy extends TileEntityInventoryBase {
+    EnumFacing seenFace; ItemStack seenStack; int seenSlot; int[] exposed = {7, 2};
+    TargetSpy(){super(8);}
+    protected String getDefaultName(){return "spy";}
+    public int[] getSlotsForFace(EnumFacing face){seenFace=face; return exposed;}
+    public boolean canInsertItem(int slot, ItemStack stack, EnumFacing face){seenSlot=slot; seenStack=stack; seenFace=face; return true;}
+    public boolean canExtractItem(int slot, ItemStack stack, EnumFacing face){seenSlot=slot; seenStack=stack; seenFace=face; return true;}
+}
+static class ConditionalSpy extends TargetSpy implements IConditionalInvAccess {
+    int x, y, z, side; boolean allow = true; int calls;
+    void record(int x, int y, int z, int side){this.x=x;this.y=y;this.z=z;this.side=side;calls++;}
+    public boolean isItemValidForSlot(int x,int y,int z,int slot,ItemStack stack){return allow;}
+    public int[] getAccessibleSlotsFromSide(int x,int y,int z,int side){record(x,y,z,side);return exposed;}
+    public boolean canInsertItem(int x,int y,int z,int slot,ItemStack stack,int side){record(x,y,z,side);seenSlot=slot;seenStack=stack;return allow;}
+    public boolean canExtractItem(int x,int y,int z,int slot,ItemStack stack,int side){record(x,y,z,side);seenSlot=slot;seenStack=stack;return allow;}
+}
+public static void main(String[] args) {
+    Bootstrap.register();
+    EnumFacing[] faces = {EnumFacing.DOWN, EnumFacing.UP, EnumFacing.NORTH,
+        EnumFacing.SOUTH, EnumFacing.WEST, EnumFacing.EAST, null};
+    Electric electric = new Electric(); Press press = new Press(); Drum drum = new Drum();
+    ICFPress icf = new ICFPress(); Funnel funnel = new Funnel();
+    // Calls through the real native interface, so accidental old overloads fail.
+    ISidedInventory e = electric, p = press, d = drum, i = icf, f = funnel;
+    Battery battery = new Battery(); ItemStack charge = new ItemStack(battery);
+    ItemStack stick = new ItemStack(Items.STICK), stamp = new ItemStack(new ItemStamp());
+    ItemStack coal = new ItemStack(Items.COAL);
+    Item[] waste = {ModItems.nuclear_waste_long, ModItems.nuclear_waste_long_tiny,
+        ModItems.nuclear_waste_short, ModItems.nuclear_waste_short_tiny, ModItems.ingot_au198};
+    Item[] depleted = {ModItems.nuclear_waste_long_depleted, ModItems.nuclear_waste_long_depleted_tiny,
+        ModItems.nuclear_waste_short_depleted, ModItems.nuclear_waste_short_depleted_tiny, ModItems.ingot_mercury};
+    BatteryMachine batteryMachine = new BatteryMachine(); ISidedInventory b = batteryMachine;
+    Proxy proxy = new Proxy(); ISidedInventory proxyView = proxy; TargetSpy spy = new TargetSpy();
+    Combo combo = new Combo(); ISidedInventory comboView = combo; ConditionalSpy conditional = new ConditionalSpy();
+    for (EnumFacing face : faces) {
+        combo.inventory = true;
+        for(Object absent : new Object[]{null, new Object()}) {
+            combo.core = absent;
+            check(comboView.getSlotsForFace(face).length == 0, "combo missing/noninventory core slots");
+            check(!comboView.canInsertItem(2, stick, face) && !comboView.canExtractItem(2, stick, face), "combo missing/noninventory rejects");
+        }
+        combo.core = conditional; combo.inventory = false; int oldCalls = conditional.calls;
+        check(comboView.getSlotsForFace(face).length == 0 && !comboView.canInsertItem(2, stick, face) && !comboView.canExtractItem(2, stick, face), "disabled combo rejects");
+        check(conditional.calls == oldCalls, "disabled combo does not invoke target");
+        combo.inventory = true; combo.core = spy;
+        check(comboView.getSlotsForFace(face) == spy.exposed && spy.seenFace == face, "combo ordinary native array forwarding");
+        check(comboView.canInsertItem(6, stick, face) && spy.seenSlot == 6 && spy.seenStack == stick && spy.seenFace == face, "combo ordinary insert forwarding");
+        check(comboView.canExtractItem(4, charge, face) && spy.seenSlot == 4 && spy.seenStack == charge && spy.seenFace == face, "combo ordinary extract forwarding");
+        combo.core = conditional;
+        check(comboView.getSlotsForFace(face) == conditional.exposed, "combo conditional array alias");
+        check(conditional.x == 17 && conditional.y == -3 && conditional.z == 209 && conditional.side == (face == null ? 6 : face.getIndex()), "combo conditional slot coordinates and side");
+        for(boolean allow : new boolean[]{false, true}) {
+            conditional.allow = allow;
+            check(comboView.canInsertItem(7, stick, face) == allow && conditional.seenSlot == 7 && conditional.seenStack == stick, "combo conditional insert return/arguments");
+            check(conditional.x == 17 && conditional.y == -3 && conditional.z == 209 && conditional.side == (face == null ? 6 : face.getIndex()), "combo conditional insertion coordinates and side");
+            check(comboView.canExtractItem(8, charge, face) == allow && conditional.seenSlot == 8 && conditional.seenStack == charge, "combo conditional extraction return/arguments");
+            check(conditional.x == 17 && conditional.y == -3 && conditional.z == 209 && conditional.side == (face == null ? 6 : face.getIndex()), "combo conditional extraction coordinates and side");
+        }
+        proxy.target = null;
+        check(proxyView.getSlotsForFace(face).length == 0, "missing proxy inventory slots");
+        check(!proxyView.canInsertItem(2, stick, face) && !proxyView.canExtractItem(2, stick, face), "missing proxy rejects");
+        proxy.target = spy;
+        check(proxyView.getSlotsForFace(face) == spy.exposed && spy.seenFace == face, "proxy exact face and array forwarding");
+        check(proxyView.canInsertItem(3, stick, face) && spy.seenFace == face && spy.seenSlot == 3 && spy.seenStack == stick, "proxy insert forwarding");
+        check(proxyView.canExtractItem(5, charge, face) && spy.seenFace == face && spy.seenSlot == 5 && spy.seenStack == charge, "proxy extract forwarding");
+        check(b.getSlotsForFace(face) == (face == EnumFacing.DOWN ? batteryMachine.slots_bottom : face == EnumFacing.UP ? batteryMachine.slots_top : batteryMachine.slots_side), "battery direction array identity");
+        if(face == EnumFacing.DOWN) array(b.getSlotsForFace(face), 0, 1);
+        else if(face == EnumFacing.UP) array(b.getSlotsForFace(face), 0);
+        else array(b.getSlotsForFace(face), 1);
+        for (int slot = 0; slot < 3; slot++) {
+            for (long level : new long[]{0, 1, 100, 101}) {
+                battery.charge = level;
+                check(b.canExtractItem(slot, charge, face) == (slot == 0 && level == 0 || slot == 1 && level == 100), "battery empty/full strict extraction");
+            }
+            check(!b.canExtractItem(slot, stick, face), "battery non-battery extraction rejection");
+            check(b.canInsertItem(slot, charge, face) && b.canInsertItem(slot, stick, face), "battery preserves permissive legacy insertion");
+        }
+        int ordinal = ForgeDirection.fromEnumFacing(face).ordinal();
+        check(ordinal == (face == null ? 6 : face.getIndex()), "native to legacy mapping");
+        array(e.getSlotsForFace(face), 0, 1, 2);
+        check(e.getSlotsForFace(face) == electric.slots_io, "electric array identity");
+        array(p.getSlotsForFace(face), 0, 1, 2, 3);
+        check(p.getSlotsForFace(face) != p.getSlotsForFace(face), "press allocates arrays");
+        check(d.getSlotsForFace(face) == drum.slots_arr, "drum array identity");
+        for (int slot = 0; slot < 24; slot++) check(d.getSlotsForFace(face)[slot] == slot, "drum order");
+        check(i.getSlotsForFace(face) == (ordinal < 2 ? icf.topBottom : icf.sides), "directional ICF array identity");
+        if (ordinal < 2) array(i.getSlotsForFace(face), 0, 1, 2, 3, 4);
+        else array(i.getSlotsForFace(face), 0, 1, 2, 3, 5);
+        check(f.getSlotsForFace(face) == (ordinal == 0 ? funnel.bottomAccess : funnel.topAccess), "directional funnel identity");
+        for(int slot = 0; slot < 18; slot++) {
+            check(f.canExtractItem(slot, stick, face) == (ordinal == 0 ? slot > 8 : ordinal != 1 && slot < 9), "funnel extraction direction");
+        }
+        for(int slot = 0; slot < 4; slot++) {
+            battery.charge = 0;
+            check(e.canExtractItem(slot, charge, face) == (slot == 0 || slot == 2), "empty battery extraction");
+            battery.charge = 1;
+            check(e.canExtractItem(slot, charge, face) == (slot == 2), "charged battery extraction");
+            check(e.canExtractItem(slot, stick, face) == (slot == 2), "non-battery extraction");
+            check(e.canExtractItem(slot, ItemStack.EMPTY, face) == (slot == 2), "native EMPTY extraction");
+            check(p.canExtractItem(slot, stick, face) == (slot == 3), "press output extraction");
+            check(i.canExtractItem(slot, stick, face) == (slot == 1 || slot == 3), "ICF output extraction");
+            check(p.canInsertItem(slot, stamp, face) == (slot == 1), "press stamp insert");
+            check(p.canInsertItem(slot, coal, face) == (slot == 0 || slot == 2), "press fuel insert");
+            check(p.canInsertItem(slot, stick, face) == (slot == 0 || slot == 2), "press burnable ingredient insert");
+            for(Item item : waste) {
+                ItemStack stack = new ItemStack(item);
+                check(d.canInsertItem(slot, stack, face), "drum waste insertion");
+                check(!d.canExtractItem(slot, stack, face), "drum unspent rejection");
+            }
+            for(Item item : depleted) {
+                ItemStack stack = new ItemStack(item);
+                check(!d.canInsertItem(slot, stack, face), "drum depleted insertion rejection");
+                check(d.canExtractItem(slot, stack, face), "drum depleted extraction");
+            }
+            check(!d.canInsertItem(slot, stick, face) && !d.canExtractItem(slot, stick, face), "drum unrelated rejection");
+        }
+    }
+    System.out.println("PASS: " + checks + " real ISidedInventory dispatch assertions; six faces + null, array alias/order, battery/press/drum predicates and directional battery/ICF/funnel and proxy callbacks");
+}

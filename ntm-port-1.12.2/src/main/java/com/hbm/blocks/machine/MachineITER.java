@@ -22,7 +22,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineITER extends BlockDummyable {
 
 	public MachineITER() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class MachineITER extends BlockDummyable {
 			if(pos == null)
 				return false;
 			
-			TileEntityITER entity = (TileEntityITER) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityITER entity = (TileEntityITER) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
@@ -74,7 +74,7 @@ public class MachineITER extends BlockDummyable {
 		if(!(player instanceof EntityPlayer))
 			return;
 
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		EntityPlayer pl = (EntityPlayer) player;
 		
 		int o = getOffset();
@@ -100,7 +100,7 @@ public class MachineITER extends BlockDummyable {
 		
 		dir = dir.getOpposite();
 		
-		world.setBlockToAir(x, y, z);
+		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		
 		if(!checkRequirement(world, x, y, z, dir, o)) {
 			
@@ -114,7 +114,7 @@ public class MachineITER extends BlockDummyable {
 					if(stack.getItem() != item || stack.stackSize == stack.getMaxStackSize()) {
 						pl.inventory.addItemStackToInventory(new ItemStack(this));
 					} else {
-						pl.getHeldItem().stackSize++;
+						com.hbm.util.NativeHeldItem.getMainHandNullable(pl).stackSize++;
 					}
 				}
 			}
@@ -122,7 +122,7 @@ public class MachineITER extends BlockDummyable {
 			return;
 		}
 		
-		pl.getHeldItem().stackSize--;
+		com.hbm.util.NativeHeldItem.getMainHandNullable(pl).stackSize--;
 		
 		world.setBlock(x + dir.offsetX * o , y + dir.offsetY * o + height, z + dir.offsetZ * o, this, dir.ordinal() + offset, 3);
 		this.safeRem = true;
@@ -157,7 +157,7 @@ public class MachineITER extends BlockDummyable {
 					if(ex == 0 && y == 2 && ez == 0)
 						continue;
 					
-					if(!world.getBlock(x + ex, y + iy, z + ez).canPlaceBlockAt(world, x + ex, y + iy, z + ez)) {
+					if(!com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock().canPlaceBlockAt(world, x + ex, y + iy, z + ez)) {
 						return false;
 					}
 				}

@@ -18,7 +18,7 @@ public class ContainerMachineWoodBurner extends Container {
 	
 	public ContainerMachineWoodBurner(InventoryPlayer invPlayer, TileEntityMachineWoodBurner burner) {
 		this.burner = burner;
-		this.burner.openInventory();
+		this.burner.openInventory(invPlayer.player);
 
 		//Fuel
 		this.addSlotToContainer(new Slot(burner, 0, 26, 18));
@@ -92,12 +92,12 @@ public class ContainerMachineWoodBurner extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return burner.isUseableByPlayer(player);
+		return burner.isUsableByPlayer(player);
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.burner.closeInventory();
+		this.burner.closeInventory(player);
 	}
 }

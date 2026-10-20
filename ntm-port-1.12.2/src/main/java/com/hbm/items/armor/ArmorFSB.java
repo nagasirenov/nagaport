@@ -45,7 +45,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
@@ -283,7 +283,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 		if(player.getUniqueID().equals(ShadyUtil.the_NCR) || player.getUniqueID().equals(ShadyUtil.Barnaby99_x)) {
 			step = false;
 
-			if(player.worldObj.isRemote && player.onGround) {
+			if(player.world.isRemote && player.onGround) {
 				steppy(player, "hbm:step.powered");
 			}
 		}
@@ -299,7 +299,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 				}
 			}
 
-			if(step == true && chestplate.step != null && player.worldObj.isRemote && player.onGround) {
+			if(step == true && chestplate.step != null && player.world.isRemote && player.onGround) {
 				steppy(player, chestplate.step);
 			}
 			/*
@@ -354,12 +354,12 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 				player.getEntityData().setFloat("hfr_nextStepDistance", nextStepDistance.getFloat(player));
 			}
 
-			int px = MathHelper.floor_double(player.posX);
-			int py = MathHelper.floor_double(player.posY - 0.2D - (double) player.yOffset);
-			int pz = MathHelper.floor_double(player.posZ);
-			Block block = player.worldObj.getBlock(px, py, pz);
+			int px = MathHelper.floor(player.posX);
+			int py = MathHelper.floor(player.posY - 0.2D - (double) player.yOffset);
+			int pz = MathHelper.floor(player.posZ);
+			Block block = com.hbm.world.WorldBlockState.read(player.world, px, py, pz).getBlock();
 
-			if(block.getMaterial() != Material.air && player.getEntityData().getFloat("hfr_nextStepDistance") <= distanceWalkedOnStepModified.getFloat(player))
+			if(block.getDefaultState().getMaterial() != Material.AIR && player.getEntityData().getFloat("hfr_nextStepDistance") <= distanceWalkedOnStepModified.getFloat(player))
 				player.playSound(sound, 0.25F, 1.0F);
 
 			player.getEntityData().setFloat("hfr_nextStepDistance", nextStepDistance.getFloat(player));
@@ -387,7 +387,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 			if(chestplate.hardLanding && fallDistance > 10) {
 
-				List<Entity> entities = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, player.boundingBox.expand(3, 0, 3));
+				List<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().grow(3, 0, 3));
 
 				for(Entity e : entities) {
 
@@ -519,7 +519,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 	}
 	
 	// if it's the same vomit every time, why not make a method that does it for us?
-	public static void renderStandard(IModelCustom model, int armorType,
+	public static void renderStandard(MeshModel model, int armorType,
 			ResourceLocation helmetTex, ResourceLocation chestTex, ResourceLocation armTex, ResourceLocation legTex,
 			String helmet, String chest, String leftArm, String rightArm, String leftLeg, String rightLeg, String leftBoot, String rightBoot) {
 		

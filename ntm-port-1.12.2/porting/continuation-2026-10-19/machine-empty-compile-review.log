@@ -1,0 +1,8 @@
+Final source freeze after creative-drag parity correction.
+Command: /workspace/shared/nagaport-toolchain/run-gradle.sh --offline clean -I porting/compile-diagnostics.init.gradle compileJava --console=plain
+Result: FAIL, exit1,25s;1458 diagnostics.
+Comparison with checkpoint16 normalized path/line diagnostics: added0 removed0.
+All111 changed production Java files exactly equal build/sources/main/java copies; total3861Java compiler inputs.
+Final log SHA256 b01762468a11f851c5b698eb582327c0c2e25f37252fa508b7769214f1aed3f3
+Complete mod compilation not reached; no runClient/runServer/game/save acceptance.
+Independent core/consumer and click/storage source reviews pass after mode2 correction.

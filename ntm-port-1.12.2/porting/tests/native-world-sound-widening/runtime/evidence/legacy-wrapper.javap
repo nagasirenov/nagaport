@@ -1,0 +1,947 @@
+Compiled from "LegacyNumericFixture.java"
+public final class LegacyNumericFixture {
+  static final sun.misc.Unsafe U;
+
+  public LegacyNumericFixture();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  static void call0_0(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: getfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      25: iconst_0
+      26: iaload
+      27: i2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      40: iconst_1
+      41: iaload
+      42: i2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      82: iconst_0
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      90: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      93: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      96: iconst_1
+      97: faload
+      98: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call0_1(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: invokevirtual #17                 // Method LegacyNumericFixture$Context.getWorld:()Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      25: iconst_0
+      26: iaload
+      27: i2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      40: iconst_1
+      41: iaload
+      42: i2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      82: iconst_0
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      90: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      93: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      96: iconst_1
+      97: faload
+      98: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call1_0(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: getfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      33: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      36: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      39: iconst_1
+      40: iaload
+      41: i2d
+      42: aload_0
+      43: ldc           #10                 // String z
+      45: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      48: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      51: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      54: iconst_2
+      55: daload
+      56: aload_0
+      57: ldc           #11                 // String name
+      59: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      62: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      65: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      68: aload_0
+      69: ldc           #13                 // String volume
+      71: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      74: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      77: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      80: iconst_0
+      81: faload
+      82: aload_0
+      83: ldc           #15                 // String pitch
+      85: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      88: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      91: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      94: iconst_1
+      95: faload
+      96: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+      99: return
+
+  static void call1_1(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: invokevirtual #17                 // Method LegacyNumericFixture$Context.getWorld:()Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      33: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      36: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      39: iconst_1
+      40: iaload
+      41: i2d
+      42: aload_0
+      43: ldc           #10                 // String z
+      45: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      48: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      51: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      54: iconst_2
+      55: daload
+      56: aload_0
+      57: ldc           #11                 // String name
+      59: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      62: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      65: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      68: aload_0
+      69: ldc           #13                 // String volume
+      71: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      74: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      77: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      80: iconst_0
+      81: faload
+      82: aload_0
+      83: ldc           #15                 // String pitch
+      85: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      88: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      91: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      94: iconst_1
+      95: faload
+      96: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+      99: return
+
+  static void call2_0(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: getfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      40: iconst_2
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      82: iconst_0
+      83: iaload
+      84: i2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      91: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      94: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      97: iconst_1
+      98: laload
+      99: l2f
+     100: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call2_1(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: invokevirtual #17                 // Method LegacyNumericFixture$Context.getWorld:()Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      40: iconst_2
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      82: iconst_0
+      83: iaload
+      84: i2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      91: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      94: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      97: iconst_1
+      98: laload
+      99: l2f
+     100: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call3_0(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: getfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      25: iconst_0
+      26: faload
+      27: f2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      40: iconst_1
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      55: iconst_2
+      56: faload
+      57: f2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      82: iconst_3
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      90: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      93: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      96: iconst_4
+      97: faload
+      98: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call3_1(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: invokevirtual #17                 // Method LegacyNumericFixture$Context.getWorld:()Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      25: iconst_0
+      26: faload
+      27: f2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      40: iconst_1
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      55: iconst_2
+      56: faload
+      57: f2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      82: iconst_3
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      90: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      93: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      96: iconst_4
+      97: faload
+      98: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call4_0(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: getfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      40: iconst_1
+      41: laload
+      42: l2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      55: iconst_2
+      56: laload
+      57: l2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      82: iconst_3
+      83: laload
+      84: l2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      91: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      94: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      97: iconst_4
+      98: laload
+      99: l2f
+     100: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call4_1(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: invokevirtual #17                 // Method LegacyNumericFixture$Context.getWorld:()Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      34: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      37: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      40: iconst_1
+      41: laload
+      42: l2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      49: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      52: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      55: iconst_2
+      56: laload
+      57: l2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      64: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      67: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      76: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      79: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      82: iconst_3
+      83: laload
+      84: l2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      91: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      94: getfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      97: iconst_4
+      98: laload
+      99: l2f
+     100: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call5_0(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: getfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      33: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      36: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      39: iconst_1
+      40: daload
+      41: aload_0
+      42: ldc           #10                 // String z
+      44: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      47: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      50: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      53: iconst_2
+      54: daload
+      55: aload_0
+      56: ldc           #11                 // String name
+      58: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      61: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      64: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      67: aload_0
+      68: ldc           #13                 // String volume
+      70: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      73: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      76: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      79: iconst_0
+      80: faload
+      81: aload_0
+      82: ldc           #15                 // String pitch
+      84: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      87: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      90: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      93: iconst_1
+      94: faload
+      95: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+      98: return
+
+  static void call5_1(LegacyNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LegacyNumericFixture$Context.outer:()LLegacyNumericFixture$Context;
+       4: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+       7: invokevirtual #4                  // Method LegacyNumericFixture$Context.nested:()LLegacyNumericFixture$Context;
+      10: invokevirtual #17                 // Method LegacyNumericFixture$Context.getWorld:()Lahb;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      19: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      22: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      33: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      36: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      39: iconst_1
+      40: daload
+      41: aload_0
+      42: ldc           #10                 // String z
+      44: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      47: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      50: getfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      53: iconst_2
+      54: daload
+      55: aload_0
+      56: ldc           #11                 // String name
+      58: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      61: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      64: getfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      67: aload_0
+      68: ldc           #13                 // String volume
+      70: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      73: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      76: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      79: iconst_0
+      80: faload
+      81: aload_0
+      82: ldc           #15                 // String pitch
+      84: invokevirtual #7                  // Method LegacyNumericFixture$Context.arg:(Ljava/lang/String;)LLegacyNumericFixture$Context;
+      87: getfield      #3                  // Field LegacyNumericFixture$Context.member:LLegacyNumericFixture$Context;
+      90: getfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      93: iconst_1
+      94: faload
+      95: invokevirtual #16                 // Method ahb.a:(DDDLjava/lang/String;FF)V
+      98: return
+
+  public static java.lang.Object[] run(int, int, int, java.lang.String, java.lang.String, int[], long[], float[], double[]) throws java.lang.Exception;
+    Code:
+       0: new           #20                 // class LegacyNumericFixture$Context
+       3: dup
+       4: invokespecial #21                 // Method LegacyNumericFixture$Context."<init>":()V
+       7: astore        9
+       9: aload         9
+      11: aload         5
+      13: putfield      #8                  // Field LegacyNumericFixture$Context.ints:[I
+      16: aload         9
+      18: aload         6
+      20: putfield      #19                 // Field LegacyNumericFixture$Context.longs:[J
+      23: aload         9
+      25: aload         7
+      27: putfield      #14                 // Field LegacyNumericFixture$Context.floats:[F
+      30: aload         9
+      32: aload         8
+      34: putfield      #18                 // Field LegacyNumericFixture$Context.doubles:[D
+      37: aload         9
+      39: aload         4
+      41: putfield      #12                 // Field LegacyNumericFixture$Context.name:Ljava/lang/String;
+      44: aload         9
+      46: aload_3
+      47: putfield      #22                 // Field LegacyNumericFixture$Context.fail:Ljava/lang/String;
+      50: aload         9
+      52: iload_2
+      53: putfield      #23                 // Field LegacyNumericFixture$Context.nullMode:I
+      56: new           #24                 // class java/util/ArrayList
+      59: dup
+      60: invokespecial #25                 // Method java/util/ArrayList."<init>":()V
+      63: astore        10
+      65: getstatic     #26                 // Field U:Lsun/misc/Unsafe;
+      68: ldc           #27                 // class bjf
+      70: invokevirtual #28                 // Method sun/misc/Unsafe.allocateInstance:(Ljava/lang/Class;)Ljava/lang/Object;
+      73: checkcast     #29                 // class ahb
+      76: astore        11
+      78: aload         11
+      80: invokevirtual #30                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      83: ldc           #31                 // String a
+      85: bipush        6
+      87: anewarray     #32                 // class java/lang/Class
+      90: dup
+      91: iconst_0
+      92: getstatic     #33                 // Field java/lang/Double.TYPE:Ljava/lang/Class;
+      95: aastore
+      96: dup
+      97: iconst_1
+      98: getstatic     #33                 // Field java/lang/Double.TYPE:Ljava/lang/Class;
+     101: aastore
+     102: dup
+     103: iconst_2
+     104: getstatic     #33                 // Field java/lang/Double.TYPE:Ljava/lang/Class;
+     107: aastore
+     108: dup
+     109: iconst_3
+     110: ldc           #34                 // class java/lang/String
+     112: aastore
+     113: dup
+     114: iconst_4
+     115: getstatic     #35                 // Field java/lang/Float.TYPE:Ljava/lang/Class;
+     118: aastore
+     119: dup
+     120: iconst_5
+     121: getstatic     #35                 // Field java/lang/Float.TYPE:Ljava/lang/Class;
+     124: aastore
+     125: invokevirtual #36                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+     128: invokevirtual #37                 // Method java/lang/reflect/Method.getDeclaringClass:()Ljava/lang/Class;
+     131: ldc           #29                 // class ahb
+     133: if_acmpeq     146
+     136: new           #38                 // class java/lang/AssertionError
+     139: dup
+     140: ldc           #39                 // String not genuine inherited World coordinate method
+     142: invokespecial #40                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+     145: athrow
+     146: ldc           #41                 // class ahh
+     148: invokevirtual #42                 // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+     151: iconst_1
+     152: anewarray     #32                 // class java/lang/Class
+     155: dup
+     156: iconst_0
+     157: ldc           #41                 // class ahh
+     159: aastore
+     160: aload         10
+     162: invokedynamic #43,  0             // InvokeDynamic #0:invoke:(Ljava/util/List;)Ljava/lang/reflect/InvocationHandler;
+     167: invokestatic  #44                 // Method java/lang/reflect/Proxy.newProxyInstance:(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+     170: checkcast     #41                 // class ahh
+     173: astore        12
+     175: ldc           #29                 // class ahb
+     177: ldc           #45                 // String u
+     179: invokevirtual #46                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     182: astore        13
+     184: aload         13
+     186: iconst_1
+     187: invokevirtual #47                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     190: aload         13
+     192: aload         11
+     194: new           #24                 // class java/util/ArrayList
+     197: dup
+     198: iconst_1
+     199: anewarray     #41                 // class ahh
+     202: dup
+     203: iconst_0
+     204: aload         12
+     206: aastore
+     207: invokestatic  #48                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     210: invokespecial #49                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+     213: invokevirtual #50                 // Method java/lang/reflect/Field.set:(Ljava/lang/Object;Ljava/lang/Object;)V
+     216: aload         9
+     218: iload_2
+     219: iconst_1
+     220: if_icmpne     227
+     223: aconst_null
+     224: goto          229
+     227: aload         11
+     229: putfield      #5                  // Field LegacyNumericFixture$Context.world:Lahb;
+     232: aconst_null
+     233: astore        14
+     235: iload_0
+     236: iconst_2
+     237: imul
+     238: iload_1
+     239: iadd
+     240: tableswitch   { // 0 to 11
+                     0: 304
+                     1: 312
+                     2: 320
+                     3: 328
+                     4: 336
+                     5: 344
+                     6: 352
+                     7: 360
+                     8: 368
+                     9: 376
+                    10: 384
+                    11: 392
+               default: 400
+          }
+     304: aload         9
+     306: invokestatic  #51                 // Method call0_0:(LLegacyNumericFixture$Context;)V
+     309: goto          410
+     312: aload         9
+     314: invokestatic  #52                 // Method call0_1:(LLegacyNumericFixture$Context;)V
+     317: goto          410
+     320: aload         9
+     322: invokestatic  #53                 // Method call1_0:(LLegacyNumericFixture$Context;)V
+     325: goto          410
+     328: aload         9
+     330: invokestatic  #54                 // Method call1_1:(LLegacyNumericFixture$Context;)V
+     333: goto          410
+     336: aload         9
+     338: invokestatic  #55                 // Method call2_0:(LLegacyNumericFixture$Context;)V
+     341: goto          410
+     344: aload         9
+     346: invokestatic  #56                 // Method call2_1:(LLegacyNumericFixture$Context;)V
+     349: goto          410
+     352: aload         9
+     354: invokestatic  #57                 // Method call3_0:(LLegacyNumericFixture$Context;)V
+     357: goto          410
+     360: aload         9
+     362: invokestatic  #58                 // Method call3_1:(LLegacyNumericFixture$Context;)V
+     365: goto          410
+     368: aload         9
+     370: invokestatic  #59                 // Method call4_0:(LLegacyNumericFixture$Context;)V
+     373: goto          410
+     376: aload         9
+     378: invokestatic  #60                 // Method call4_1:(LLegacyNumericFixture$Context;)V
+     381: goto          410
+     384: aload         9
+     386: invokestatic  #61                 // Method call5_0:(LLegacyNumericFixture$Context;)V
+     389: goto          410
+     392: aload         9
+     394: invokestatic  #62                 // Method call5_1:(LLegacyNumericFixture$Context;)V
+     397: goto          410
+     400: new           #38                 // class java/lang/AssertionError
+     403: dup
+     404: ldc           #63                 // String bad shape
+     406: invokespecial #40                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+     409: athrow
+     410: goto          419
+     413: astore        15
+     415: aload         15
+     417: astore        14
+     419: aload         14
+     421: ifnonnull     428
+     424: aconst_null
+     425: goto          488
+     428: new           #65                 // class java/lang/StringBuilder
+     431: dup
+     432: invokespecial #66                 // Method java/lang/StringBuilder."<init>":()V
+     435: aload         14
+     437: invokevirtual #30                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+     440: invokevirtual #67                 // Method java/lang/Class.getName:()Ljava/lang/String;
+     443: invokevirtual #68                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     446: aload         14
+     448: instanceof    #69                 // class java/lang/IllegalStateException
+     451: ifeq          480
+     454: new           #65                 // class java/lang/StringBuilder
+     457: dup
+     458: invokespecial #66                 // Method java/lang/StringBuilder."<init>":()V
+     461: ldc           #70                 // String :
+     463: invokevirtual #68                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     466: aload         14
+     468: invokevirtual #71                 // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+     471: invokevirtual #68                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     474: invokevirtual #72                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     477: goto          482
+     480: ldc           #73                 // String
+     482: invokevirtual #68                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     485: invokevirtual #72                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     488: astore        15
+     490: iconst_3
+     491: anewarray     #74                 // class java/lang/Object
+     494: dup
+     495: iconst_0
+     496: aload         9
+     498: getfield      #75                 // Field LegacyNumericFixture$Context.trace:Ljava/util/List;
+     501: aastore
+     502: dup
+     503: iconst_1
+     504: aload         10
+     506: aastore
+     507: dup
+     508: iconst_2
+     509: aload         15
+     511: aastore
+     512: areturn
+    Exception table:
+       from    to  target type
+         235   410   413   Class java/lang/Throwable
+
+  public static java.lang.String origin();
+    Code:
+       0: ldc           #29                 // class ahb
+       2: invokevirtual #76                 // Method java/lang/Class.getProtectionDomain:()Ljava/security/ProtectionDomain;
+       5: invokevirtual #77                 // Method java/security/ProtectionDomain.getCodeSource:()Ljava/security/CodeSource;
+       8: invokevirtual #78                 // Method java/security/CodeSource.getLocation:()Ljava/net/URL;
+      11: invokevirtual #79                 // Method java/net/URL.toString:()Ljava/lang/String;
+      14: areturn
+
+  private static java.lang.Object lambda$run$0(java.util.List, java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable;
+    Code:
+       0: aload_2
+       1: invokevirtual #80                 // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+       4: ldc           #31                 // String a
+       6: invokevirtual #81                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       9: ifeq          45
+      12: aload_3
+      13: ifnull        45
+      16: aload_3
+      17: arraylength
+      18: bipush        6
+      20: if_icmpne     45
+      23: aload_3
+      24: iconst_0
+      25: aaload
+      26: instanceof    #34                 // class java/lang/String
+      29: ifeq          45
+      32: aload_0
+      33: aload_3
+      34: invokevirtual #82                 // Method "[Ljava/lang/Object;".clone:()Ljava/lang/Object;
+      37: invokeinterface #83,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      42: pop
+      43: aconst_null
+      44: areturn
+      45: new           #38                 // class java/lang/AssertionError
+      48: dup
+      49: new           #65                 // class java/lang/StringBuilder
+      52: dup
+      53: invokespecial #66                 // Method java/lang/StringBuilder."<init>":()V
+      56: ldc           #84                 // String unexpected original callback:
+      58: invokevirtual #68                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      61: aload_2
+      62: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      65: invokevirtual #72                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      68: invokespecial #40                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+      71: athrow
+
+  static {};
+    Code:
+       0: ldc           #86                 // class sun/misc/Unsafe
+       2: ldc           #87                 // String theUnsafe
+       4: invokevirtual #46                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+       7: astore_0
+       8: aload_0
+       9: iconst_1
+      10: invokevirtual #47                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+      13: aload_0
+      14: aconst_null
+      15: invokevirtual #88                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      18: checkcast     #86                 // class sun/misc/Unsafe
+      21: putstatic     #26                 // Field U:Lsun/misc/Unsafe;
+      24: goto          37
+      27: astore_0
+      28: new           #90                 // class java/lang/ExceptionInInitializerError
+      31: dup
+      32: aload_0
+      33: invokespecial #91                 // Method java/lang/ExceptionInInitializerError."<init>":(Ljava/lang/Throwable;)V
+      36: athrow
+      37: return
+    Exception table:
+       from    to  target type
+           0    24    27   Class java/lang/Exception
+}

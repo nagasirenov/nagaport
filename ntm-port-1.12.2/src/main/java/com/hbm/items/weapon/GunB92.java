@@ -111,7 +111,7 @@ public class GunB92 extends Item {
 					if(!world.isRemote) {
 						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(world, entity.posX, entity.posY, entity.posZ, 50);
 						if(!ex.isDead) {
-							world.playSoundEffect(entity.posX, entity.posY, entity.posZ, "random.explode", 100.0f, world.rand.nextFloat() * 0.1F + 0.9F);
+							com.hbm.sound.VanillaWorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, "random.explode", 100.0f, world.rand.nextFloat() * 0.1F + 0.9F);
 							world.spawnEntityInWorld(ex);
 	
 							EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(world, 50);
@@ -213,40 +213,40 @@ public class GunB92 extends Item {
 	}
 
 	private static int getAnim(ItemStack stack) {
-		if (stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 
-		return stack.stackTagCompound.getInteger("animation");
+		return stack.getTagCompound().getInteger("animation");
 
 	}
 
 	private static void setAnim(ItemStack stack, int i) {
-		if (stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("animation", i);
+		stack.getTagCompound().setInteger("animation", i);
 
 	}
 
 	private static int getPower(ItemStack stack) {
-		if (stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 
-		return stack.stackTagCompound.getInteger("energy");
+		return stack.getTagCompound().getInteger("energy");
 
 	}
 
 	private static void setPower(ItemStack stack, int i) {
-		if (stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("energy", i);
+		stack.getTagCompound().setInteger("energy", i);
 
 	}
 

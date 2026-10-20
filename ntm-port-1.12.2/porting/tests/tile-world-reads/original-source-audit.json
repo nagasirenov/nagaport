@@ -1,0 +1,21 @@
+{
+  "com/hbm/tileentity/machine/TileEntityAirPump.java": {
+    "sha256": "6caecd905bafe057575f6f6203b7b7ec664a2c0603c045490ee416c9ff0705a7",
+    "superclass": "TileEntityMachineBase",
+    "worldObj_declaration": false
+  },
+  "com/hbm/tileentity/TileEntityMachineBase.java": {
+    "sha256": "39eb347ddfd040eb9f3958968cbc075ee0e687ff30a0b702bb20f482139aa80e",
+    "superclass": "TileEntityLoadedBase",
+    "worldObj_declaration": false
+  },
+  "com/hbm/tileentity/TileEntityLoadedBase.java": {
+    "sha256": "6b3a557ff34f931b36e20169bff2463fe4c4c81d1e1d85ee653dddac0ec1cc0b",
+    "superclass": "TileEntity",
+    "worldObj_declaration": false
+  },
+  "original_getWorld_body": "public World getWorld() {\n\t\treturn worldObj;\n\t}",
+  "source_getter_declarations": [
+    "com/hbm/tileentity/machine/TileEntityAirPump.java"
+  ]
+}

@@ -5,7 +5,6 @@ import java.util.List;
 import com.hbm.blocks.IBlockMulti;
 import com.hbm.blocks.IPersistentInfoProvider;
 import com.hbm.blocks.ITooltipProvider;
-import com.hbm.blocks.generic.BlockMetalFence;
 import com.hbm.tileentity.IPersistentNBT;
 import com.hbm.util.i18n.I18nUtil;
 
@@ -17,7 +16,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import com.hbm.render.icon.IIcon;
+import net.minecraft.world.World;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.util.ITooltipFlag;
 
 public class ItemBlockBase extends ItemBlock {
 	
@@ -32,66 +33,64 @@ public class ItemBlockBase extends ItemBlock {
 	
 	@Override
 	public int getMetadata(int meta) {
-		if(field_150939_a instanceof IBlockMulti)
+		if(block instanceof IBlockMulti)
 			return meta;
 		else
 			return super.getMetadata(meta);
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		
-		if(field_150939_a instanceof IBlockMulti) {
-			return ((IBlockMulti) field_150939_a).getUnlocalizedName(stack);
-		} else if(field_150939_a instanceof BlockMetalFence) {
-			return ((BlockMetalFence) field_150939_a).getUnlocalizedName(stack); // I considered reworking IBlockMulti instead but there are like a bajillion implementers
+		if(block instanceof IBlockMulti) {
+			return ((IBlockMulti) block).getUnlocalizedName(stack);
+
 		} else {
-			return super.getUnlocalizedName(stack);
+			return super.getTranslationKey(stack);
 		}
 	}
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-		if(field_150939_a instanceof IBlockMulti) {
-			String override = ((IBlockMulti) field_150939_a).getOverrideDisplayName(stack);
+		if(block instanceof IBlockMulti) {
+			String override = ((IBlockMulti) block).getOverrideDisplayName(stack);
 			if(override != null) {
 				return override;
 			}
 		}
-		return ("" + I18nUtil.resolveKey(this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
+		return ("" + I18nUtil.resolveKey(this.getTranslationKey(stack) + ".name")).trim();
 	}
 	
+	/** Native tooltip entry; the existing NTM callbacks still require the viewing player.
+	 * World may be null in recipe browsers; no player can be inferred from it.
+	 * Preserve virtual dispatch to ItemBlockLore/Remap/BlastInfo's internal overload.
+	 */
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		
-		if(field_150939_a instanceof ITooltipProvider) {
-			((ITooltipProvider) field_150939_a).addInformation(stack, player, list, bool);
-		}
-		
-		if(field_150939_a instanceof IPersistentInfoProvider && stack.hasTagCompound() && stack.getTagCompound().hasKey(IPersistentNBT.NBT_PERSISTENT_KEY)) {
-			NBTTagCompound data = stack.getTagCompound().getCompoundTag(IPersistentNBT.NBT_PERSISTENT_KEY);
-			((IPersistentInfoProvider) field_150939_a).addInformation(stack, data, player, list, bool);
-		}
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
+		addInformation(stack, Minecraft.getMinecraft().player, list, flag.isAdvanced());
 	}
 
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int meta) {
-		return this.field_150939_a.getIcon(1, meta); //fuck you mojang
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+		
+		if(block instanceof ITooltipProvider) {
+			((ITooltipProvider) block).addInformation(stack, player, list, bool);
+		}
+		
+		if(block instanceof IPersistentInfoProvider && stack.hasTagCompound() && stack.getTagCompound().hasKey(IPersistentNBT.NBT_PERSISTENT_KEY)) {
+			NBTTagCompound data = stack.getTagCompound().getCompoundTag(IPersistentNBT.NBT_PERSISTENT_KEY);
+			((IPersistentInfoProvider) block).addInformation(stack, data, player, list, bool);
+		}
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 		
-		if(field_150939_a instanceof ITooltipProvider) {
-			return ((ITooltipProvider) field_150939_a).getRarity(stack);
+		if(block instanceof ITooltipProvider) {
+			return ((ITooltipProvider) block).getRarity(stack);
 		}
 		
-		return EnumRarity.common;
+		return EnumRarity.COMMON;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int pass) {
-		return this.field_150939_a.getRenderColor(stack.getItemDamage());
-	}
 }

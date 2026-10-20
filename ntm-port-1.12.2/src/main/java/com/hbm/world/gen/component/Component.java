@@ -2,6 +2,8 @@ package com.hbm.world.gen.component;
 
 import java.util.Random;
 
+import com.hbm.world.gen.LegacyStructureOrientation;
+
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.generic.BlockBobble.BobbleType;
@@ -11,6 +13,9 @@ import com.hbm.handler.MultiblockHandlerXR;
 import com.hbm.tileentity.machine.TileEntityLockableBase;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -18,9 +23,10 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
+import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.gen.structure.StructureComponent;
 import com.hbm.lib.ForgeDirection;
 
@@ -39,9 +45,9 @@ abstract public class Component extends StructureComponent {
 
 	protected Component(Random rand, int minX, int minY, int minZ, int maxX, int maxY, int maxZ ) {
 		super(0);
-		this.coordBaseMode = rand.nextInt(4);
+		this.setCoordMode(rand.nextInt(4));
 
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		case 0:
 			this.boundingBox = new StructureBoundingBox(minX, minY, minZ, minX + maxX, minY + maxY, minZ + maxZ);
 			break;
@@ -61,12 +67,14 @@ abstract public class Component extends StructureComponent {
 	}
 
 	/** Set to NBT */
-	protected void func_143012_a(NBTTagCompound nbt) {
+	@Override
+	protected void writeStructureToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("HPos", this.hpos);
 	}
 
 	/** Get from NBT */
-	protected void func_143011_b(NBTTagCompound nbt) {
+	@Override
+	protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
 		this.hpos = nbt.getInteger("HPos");
 	}
 
@@ -77,8 +85,8 @@ abstract public class Component extends StructureComponent {
 
 		for(int z = this.boundingBox.minZ; z <= this.boundingBox.maxZ; z++) {
 			for(int x = this.boundingBox.minX; x <= this.boundingBox.maxX; x++) {
-				if(box.isVecInside(x, y, z)) {
-					total += Math.max(world.getTopSolidOrLiquidBlock(x, z), world.provider.getAverageGroundLevel());
+				if(box.isVecInside(new BlockPos(x, y, z))) {
+					total += Math.max(world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY(), world.provider.getAverageGroundLevel());
 					iterations++;
 				}
 			}
@@ -99,8 +107,8 @@ abstract public class Component extends StructureComponent {
 
 		for(int z = area.minZ; z <= area.maxZ; z++) {
 			for(int x = area.minX; x <= area.maxX; x++) {
-				if(box.isVecInside(x, y, z)) {
-					total += Math.max(world.getTopSolidOrLiquidBlock(x, z), world.provider.getAverageGroundLevel());
+				if(box.isVecInside(new BlockPos(x, y, z))) {
+					total += Math.max(world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY(), world.provider.getAverageGroundLevel());
 					iterations++;
 				}
 			}
@@ -113,7 +121,12 @@ abstract public class Component extends StructureComponent {
 	}
 
 	public int getCoordMode() {
-		return this.coordBaseMode;
+		return LegacyStructureOrientation.toLegacy(this.getCoordBaseMode());
+	}
+
+	/** Keep the target StructureComponent facing as the only orientation state. */
+	protected void setCoordMode(int mode) {
+		this.setCoordBaseMode(LegacyStructureOrientation.fromLegacy(mode));
 	}
 
 	/** Metadata for Decoration Methods **/
@@ -124,7 +137,7 @@ abstract public class Component extends StructureComponent {
 	 * @return metadata adjusted for random orientation
 	 */
 	protected int getPillarMeta(int metadata) {
-		if(this.coordBaseMode % 2 != 0 && this.coordBaseMode != -1)
+		if(this.getCoordMode() % 2 != 0 && this.getCoordMode() != -1)
 			metadata = metadata ^ 12;
 
 		return metadata;
@@ -137,7 +150,7 @@ abstract public class Component extends StructureComponent {
 	 * @param metadata (2 for facing South, 3 for facing North, 4 for facing East, 5 for facing West
 	 */
 	protected int getDecoMeta(int metadata) {
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		case 0: //South
 			switch(metadata) {
 			case 2: return 2;
@@ -177,7 +190,7 @@ abstract public class Component extends StructureComponent {
 	protected int getDecoModelMeta(int metadata) {
 		//N: 0b00, S: 0b01, W: 0b10, E: 0b11
 
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		default: //South
 			break;
 		case 1: //West
@@ -202,7 +215,7 @@ abstract public class Component extends StructureComponent {
 
 	//works for crts, toasters, and anything that follows mc's cardinal dirs. S: 0, W: 1, N: 2, E: 3
 	protected int getCRTMeta(int meta) {
-		return (meta + this.coordBaseMode) % 4;
+		return (meta + this.getCoordMode()) % 4;
 	}
 
 	/**
@@ -210,7 +223,7 @@ abstract public class Component extends StructureComponent {
 	 * 0 = West, 1 = East, 2 = North, 3 = South
 	 */
 	protected int getStairMeta(int metadata) {
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		default: //South
 			break;
 		case 1: //West
@@ -247,9 +260,9 @@ abstract public class Component extends StructureComponent {
 		int posY = this.getYWithOffset(featureY);
 		int posZ = this.getZWithOffset(featureX, featureZ);
 
-		if(!box.isVecInside(posX, posY, posZ)) return;
+		if(!box.isVecInside(new BlockPos(posX, posY, posZ))) return;
 
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		default: //South
 			break;
 		case 1: //West
@@ -264,9 +277,9 @@ abstract public class Component extends StructureComponent {
 		int metaTop = opensRight ? 0b1001 : 0b1000;
 		int metaBottom = dirMeta | (isOpen ? 0b100 : 0);
 
-		if(world.doesBlockHaveSolidTopSurface(world, posX, posY - 1, posZ)) {
-			world.setBlock(posX, posY, posZ, door, metaBottom, 2);
-			world.setBlock(posX, posY + 1, posZ, door, metaTop, 2);
+		if(world.getBlockState(new BlockPos(posX, posY - 1, posZ)).isSideSolid(world, new BlockPos(posX, posY - 1, posZ), EnumFacing.UP)) {
+			world.setBlockState(new BlockPos(posX, posY, posZ), door.getStateFromMeta(metaBottom), 2);
+			world.setBlockState(new BlockPos(posX, posY + 1, posZ), door.getStateFromMeta(metaTop), 2);
 		}
 	}
 	/** 1 for west face, 2 for east face, 3 for north, 4 for south*/
@@ -275,15 +288,15 @@ abstract public class Component extends StructureComponent {
 		int posY = this.getYWithOffset(featureY);
 		int posZ = this.getZWithOffset(featureX, featureZ);
 
-		if(!box.isVecInside(posX, posY, posZ)) return;
+		if(!box.isVecInside(new BlockPos(posX, posY, posZ))) return;
 
 		if(dirMeta <= 0 || dirMeta >= 7) { //levers suck ass
-			switch(this.coordBaseMode) {
+			switch(this.getCoordMode()) {
 			case 1: case 3: //west / east
 				dirMeta ^= 0b111;
 			}
 		} else if(dirMeta >= 5) {
-			switch(this.coordBaseMode) {
+			switch(this.getCoordMode()) {
 			case 1: case 3: //west / east
 				dirMeta = (dirMeta + 1) % 2 + 5;
 			}
@@ -291,12 +304,12 @@ abstract public class Component extends StructureComponent {
 			dirMeta = getButtonMeta(dirMeta);
 		}
 
-		world.setBlock(posX, posY, posZ, Blocks.lever, on ? dirMeta | 8 : dirMeta, 2);
+		world.setBlockState(new BlockPos(posX, posY, posZ), Blocks.LEVER.getStateFromMeta(on ? dirMeta | 8 : dirMeta), 2);
 	}
 
 	/** pain. works for side-facing levers as well */
 	protected int getButtonMeta(int dirMeta) {
-		switch(this.coordBaseMode) { //are you ready for the pain?
+		switch(this.getCoordMode()) { //are you ready for the pain?
 		case 1: //West
 			if(dirMeta <= 2) return dirMeta + 2;
 			else if(dirMeta < 4) return dirMeta - 1;
@@ -328,7 +341,7 @@ abstract public class Component extends StructureComponent {
 			xOffset = 1; break;
 		}
 
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		default: //S
 			break;
 		case 1: //W
@@ -339,13 +352,13 @@ abstract public class Component extends StructureComponent {
 			meta = (meta - 1) % 4; break;
 		}
 
-		placeBlockAtCurrentPosition(world, Blocks.bed, meta, featureX, featureY, featureZ, box);
-		placeBlockAtCurrentPosition(world, Blocks.bed, meta + 8, featureX + xOffset, featureY, featureZ + zOffset, box);
+		placeBlockAtCurrentPosition(world, Blocks.BED, meta, featureX, featureY, featureZ, box);
+		placeBlockAtCurrentPosition(world, Blocks.BED, meta + 8, featureX + xOffset, featureY, featureZ + zOffset, box);
 	}
 
 	/**Tripwire Hook: S:0 W:1 N:2 E:3 */
 	protected int getTripwireMeta(int metadata) {
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		default:
 			return metadata;
 		case 1:
@@ -374,11 +387,11 @@ abstract public class Component extends StructureComponent {
 		int posY = this.getYWithOffset(featureY);
 		int posZ = this.getZWithOffset(featureX, featureZ);
 
-		if(!box.isVecInside(posX, posY, posZ) || world.getBlock(posX, posY, posZ) == block) //replacement for hasPlacedLoot checks
+		if(!box.isVecInside(new BlockPos(posX, posY, posZ)) || world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == block) //replacement for hasPlacedLoot checks
 			return true;
 
 		this.placeBlockAtCurrentPosition(world, block, meta, featureX, featureY, featureZ, box);
-		IInventory inventory = (IInventory)world.getTileEntity(posX, posY, posZ);
+		IInventory inventory = (IInventory)world.getTileEntity(new BlockPos(posX, posY, posZ));
 
 		if(inventory != null) {
 			amount = (int)Math.floor(amount * StructureConfig.lootAmountFactor);
@@ -405,11 +418,11 @@ abstract public class Component extends StructureComponent {
 		int posY = this.getYWithOffset(featureY);
 		int posZ = this.getZWithOffset(featureX, featureZ);
 
-		if(!box.isVecInside(posX, posY, posZ) || world.getBlock(posX, posY, posZ) == block) //replacement for hasPlacedLoot checks
+		if(!box.isVecInside(new BlockPos(posX, posY, posZ)) || world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == block) //replacement for hasPlacedLoot checks
 			return false;
 
 		this.placeBlockAtCurrentPosition(world, block, meta, featureX, featureY, featureZ, box);
-		TileEntity tile = world.getTileEntity(posX, posY, posZ);
+		TileEntity tile = world.getTileEntity(new BlockPos(posX, posY, posZ));
 		TileEntityLockableBase lock = (TileEntityLockableBase) tile;
 		IInventory inventory = (IInventory) tile;
 
@@ -431,9 +444,9 @@ abstract public class Component extends StructureComponent {
 		int posY = this.getYWithOffset(featureY);
 		int posZ = this.getZWithOffset(featureX, featureZ);
 
-		if(!box.isVecInside(posX, posY, posZ)) return;
+		if(!box.isVecInside(new BlockPos(posX, posY, posZ))) return;
 
-		IInventory inventory = (IInventory) world.getTileEntity(posX, posY, posZ);
+		IInventory inventory = (IInventory) world.getTileEntity(new BlockPos(posX, posY, posZ));
 
 		if(inventory != null) {
 			inventory.setInventorySlotContents(slot, stack);
@@ -449,12 +462,22 @@ abstract public class Component extends StructureComponent {
 		int posZ = this.getZWithOffset(featureX, featureZ);
 
 		placeBlockAtCurrentPosition(world, ModBlocks.bobblehead, rand.nextInt(16), featureX, featureY, featureZ, box);
-		TileEntityBobble bobble = (TileEntityBobble) world.getTileEntity(posX, posY, posZ);
+		TileEntityBobble bobble = (TileEntityBobble) world.getTileEntity(new BlockPos(posX, posY, posZ));
 
 		if(bobble != null) {
 			bobble.type = BobbleType.values()[rand.nextInt(BobbleType.values().length - 1) + 1];
 			bobble.markDirty();
 		}
+	}
+
+	/** Legacy callers already rotate metadata; do not apply vanilla state rotation again. */
+	protected void placeBlockAtCurrentPosition(World world, Block block, int meta, int x, int y, int z, StructureBoundingBox box) {
+		BlockPos pos = new BlockPos(getXWithOffset(x, z), getYWithOffset(y), getZWithOffset(x, z));
+		if(box.isVecInside(pos)) world.setBlockState(pos, block.getStateFromMeta(meta), 2);
+	}
+
+	protected Block getBlockAtCurrentPosition(World world, int x, int y, int z, StructureBoundingBox box) {
+		return getBlockStateFromPos(world, x, y, z, box).getBlock();
 	}
 
 	/** Block Placement Utility Methods **/
@@ -470,16 +493,16 @@ abstract public class Component extends StructureComponent {
 				int posY = this.getYWithOffset(featureY);
 				int posZ = this.getZWithOffset(featureX, featureZ);
 
-				if(box.isVecInside(posX, posY, posZ)) {
-					Block block = world.getBlock(posX, posY, posZ);
+				if(box.isVecInside(new BlockPos(posX, posY, posZ))) {
+					IBlockState state = world.getBlockState(new BlockPos(posX, posY, posZ));
 					int brake = 0;
 
-					while ((world.isAirBlock(posX, posY, posZ) ||
-							!block.getMaterial().isSolid() ||
-							(block.isFoliage(world, posX, posY, posZ) || block.getMaterial() == Material.leaves)) &&
+					while ((world.isAirBlock(new BlockPos(posX, posY, posZ)) ||
+							!state.getMaterial().isSolid() ||
+							(state.getBlock().isFoliage(world, new BlockPos(posX, posY, posZ)) || state.getMaterial() == Material.LEAVES)) &&
 							posY > 1 && brake <= 15) {
-						world.setBlock(posX, posY, posZ, placeBlock, meta, 2);
-						block = world.getBlock(posX, --posY, posZ);
+						world.setBlockState(new BlockPos(posX, posY, posZ), placeBlock.getStateFromMeta(meta), 2);
+						state = world.getBlockState(new BlockPos(posX, --posY, posZ));
 
 						brake++;
 					}
@@ -498,14 +521,14 @@ abstract public class Component extends StructureComponent {
 			for(int z = minZ; z <= maxZ; z++) {
 				int posX = this.getXWithOffset(x, z);
 				int posZ = this.getZWithOffset(x, z);
-				int topHeight = world.getTopSolidOrLiquidBlock(posX, posZ);
+				int topHeight = world.getTopSolidOrLiquidBlock(new BlockPos(posX, 0, posZ)).getY();
 
-				if(!world.getBlock(posX, topHeight, posZ).getMaterial().isLiquid()) {
+				if(!world.getBlockState(new BlockPos(posX, topHeight, posZ)).getMaterial().isLiquid()) {
 
 					for(int i = 0; i < height; i++) {
 						int posY = topHeight + i;
 
-						world.setBlock(posX, posY, posZ, block, 0, 2);
+						world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(0), 2);
 					}
 				}
 			}
@@ -517,34 +540,12 @@ abstract public class Component extends StructureComponent {
 	//Also turns out, it's a scarily easy fix that they somehow didn't see *entirely*
 	@Override
 	public int getXWithOffset(int x, int z) {
-		switch(this.coordBaseMode) {
-		case 0:
-			return this.boundingBox.minX + x;
-		case 1:
-			return this.boundingBox.maxX - z;
-		case 2:
-			return this.boundingBox.maxX - x;
-		case 3:
-			return this.boundingBox.minX + z;
-		default:
-			return x;
-		}
+		return LegacyStructureOrientation.offsetX(this.boundingBox, this.getCoordMode(), x, z);
 	}
 
 	@Override
 	public int getZWithOffset(int x, int z) {
-		switch(this.coordBaseMode) {
-		case 0:
-			return this.boundingBox.minZ + z;
-		case 1:
-			return this.boundingBox.minZ + x;
-		case 2:
-			return this.boundingBox.maxZ - z;
-		case 3:
-			return this.boundingBox.maxZ - x;
-		default:
-			return z;
-		}
+		return LegacyStructureOrientation.offsetZ(this.boundingBox, this.getCoordMode(), x, z);
 	}
 
 	/** Methods that are actually optimized, including ones that cut out replaceBlock and onlyReplace functionality when it's redundant. */
@@ -563,14 +564,13 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						world.setBlock(posX, posY, posZ, Blocks.air, 0, 2);
+						world.setBlockState(new BlockPos(posX, posY, posZ), Blocks.AIR.getStateFromMeta(0), 2);
 					}
 				}
 			}
 		}
 	}
 
-	@Override
 	protected void fillWithBlocks(World world, StructureBoundingBox box, int minX, int minY, int minZ, int maxX, int maxY, int maxZ, Block block, Block replaceBlock, boolean onlyReplace) {
 
 		if(getYWithOffset(minY) < box.minY || getYWithOffset(maxY) > box.maxY)
@@ -586,11 +586,11 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						if(!onlyReplace || world.getBlock(posX, posY, posZ).getMaterial() != Material.air) {
+						if(!onlyReplace || world.getBlockState(new BlockPos(posX, posY, posZ)).getMaterial() != Material.AIR) {
 							if(x != minX && x != maxX && y != minY && y != maxY && z != minZ && z != maxZ)
-								world.setBlock(posX, posY, posZ, replaceBlock, 0, 2);
+								world.setBlockState(new BlockPos(posX, posY, posZ), replaceBlock.getStateFromMeta(0), 2);
 							else
-								world.setBlock(posX, posY, posZ, block, 0, 2);
+								world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(0), 2);
 						}
 					}
 				}
@@ -613,14 +613,13 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						world.setBlock(posX, posY, posZ, block, 0, 2);
+						world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(0), 2);
 					}
 				}
 			}
 		}
 	}
 
-	@Override
 	protected void fillWithMetadataBlocks(World world, StructureBoundingBox box, int minX, int minY, int minZ, int maxX, int maxY, int maxZ, Block block, int meta, Block replaceBlock, int replaceMeta, boolean onlyReplace) {
 
 		if(getYWithOffset(minY) < box.minY || getYWithOffset(maxY) > box.maxY)
@@ -636,11 +635,11 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						if(!onlyReplace || world.getBlock(posX, posY, posZ).getMaterial() != Material.air) {
+						if(!onlyReplace || world.getBlockState(new BlockPos(posX, posY, posZ)).getMaterial() != Material.AIR) {
 							if(x != minX && x != maxX && y != minY && y != maxY && z != minZ && z != maxZ)
-								world.setBlock(posX, posY, posZ, replaceBlock, replaceMeta, 2);
+								world.setBlockState(new BlockPos(posX, posY, posZ), replaceBlock.getStateFromMeta(replaceMeta), 2);
 							else
-								world.setBlock(posX, posY, posZ, block, meta, 2);
+								world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(meta), 2);
 						}
 					}
 				}
@@ -663,7 +662,7 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						world.setBlock(posX, posY, posZ, block, meta, 2);
+						world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(meta), 2);
 					}
 				}
 			}
@@ -686,9 +685,9 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						if(!onlyReplace || world.getBlock(posX, posY, posZ).getMaterial() != Material.air) {
+						if(!onlyReplace || world.getBlockState(new BlockPos(posX, posY, posZ)).getMaterial() != Material.AIR) {
 							selector.selectBlocks(rand, posX, posY, posZ, x == minX || x == maxX || y == minY || y == maxY || z == minZ || z == maxZ);
-							world.setBlock(posX, posY, posZ, selector.func_151561_a(), selector.getSelectedBlockMetaData(), 2);
+							world.setBlockState(new BlockPos(posX, posY, posZ), selector.getBlockState(), 2);
 						}
 					}
 				}
@@ -712,7 +711,7 @@ abstract public class Component extends StructureComponent {
 						int posY = getYWithOffset(y);
 						//keep this functionality in mind!
 						selector.selectBlocks(rand, posX, posY, posZ, false); //for most structures it's redundant since nothing is just hollow cubes, but vanilla structures rely on this. use the method above in that case.
-						world.setBlock(posX, posY, posZ, selector.func_151561_a(), selector.getSelectedBlockMetaData(), 2);
+						world.setBlockState(new BlockPos(posX, posY, posZ), selector.getBlockState(), 2);
 					}
 				}
 			}
@@ -736,14 +735,14 @@ abstract public class Component extends StructureComponent {
 						int posY = getYWithOffset(y);
 						//keep this functionality in mind!
 						selector.selectBlocks(rand, posX, posY, posZ, false); //for most structures it's redundant since nothing is just hollow cubes, but vanilla structures rely on this. use the method above in that case.
-						world.setBlock(posX, posY, posZ, selector.func_151561_a(), meta | selector.getSelectedBlockMetaData(), 2); //Make sure the metadata is initialized in the ctor!
+						IBlockState selected = selector.getBlockState();
+						world.setBlockState(new BlockPos(posX, posY, posZ), selected.getBlock().getStateFromMeta(meta | selected.getBlock().getMetaFromState(selected)), 2); //Make sure the metadata is initialized in the ctor!
 					}
 				}
 			}
 		}
 	}
 
-	@Override
 	protected void randomlyFillWithBlocks(World world, StructureBoundingBox box, Random rand, float randLimit, int minX, int minY, int minZ, int maxX, int maxY, int maxZ, Block block, Block replaceBlock, boolean onlyReplace) {
 
 		if(getYWithOffset(minY) < box.minY || getYWithOffset(maxY) > box.maxY)
@@ -759,11 +758,11 @@ abstract public class Component extends StructureComponent {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 
-						if(rand.nextFloat() <= randLimit && (!onlyReplace || world.getBlock(posX, posY, posZ).getMaterial() != Material.air)) {
+						if(rand.nextFloat() <= randLimit && (!onlyReplace || world.getBlockState(new BlockPos(posX, posY, posZ)).getMaterial() != Material.AIR)) {
 							if(x != minX && x != maxX && y != minY && y != maxY && z != minZ && z != maxZ)
-								world.setBlock(posX, posY, posZ, replaceBlock, 0, 2);
+								world.setBlockState(new BlockPos(posX, posY, posZ), replaceBlock.getStateFromMeta(0), 2);
 							else
-								world.setBlock(posX, posY, posZ, block, 0, 2);
+								world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(0), 2);
 						}
 					}
 				}
@@ -787,7 +786,7 @@ abstract public class Component extends StructureComponent {
 						int posY = getYWithOffset(y);
 
 						if(rand.nextFloat() <= randLimit)
-							world.setBlock(posX, posY, posZ, block, 0, 2);
+							world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(0), 2);
 					}
 				}
 			}
@@ -810,7 +809,7 @@ abstract public class Component extends StructureComponent {
 						int posY = getYWithOffset(y);
 
 						if(rand.nextFloat() <= randLimit)
-							world.setBlock(posX, posY, posZ, block, meta, 2);
+							world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(meta), 2);
 					}
 				}
 			}
@@ -818,7 +817,7 @@ abstract public class Component extends StructureComponent {
 	}
 
 	protected ForgeDirection getDirection(ForgeDirection dir) {
-		switch(coordBaseMode) {
+		switch(getCoordMode()) {
 		default: //South
 			return dir;
 		case 1: //West
@@ -838,13 +837,13 @@ abstract public class Component extends StructureComponent {
 		int posZ = getZWithOffset(x, z);
 		int posY = getYWithOffset(y);
 
-		if(!box.isVecInside(posX, posY, posZ)) return;
+		if(!box.isVecInside(new BlockPos(posX, posY, posZ))) return;
 
 		if(dir == null)
 			dir = ForgeDirection.NORTH;
 
 		dir = getDirection(dir.getOpposite());
-		world.setBlock(posX, posY, posZ, block, dir.ordinal() + BlockDummyable.offset, 2);
+		world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(dir.ordinal() + BlockDummyable.offset), 2);
 	}
 
 	//always set the core block first
@@ -894,7 +893,7 @@ abstract public class Component extends StructureComponent {
 							continue;
 						}
 
-						world.setBlock(a, b, c, block, meta, 2);
+						world.setBlockState(new BlockPos(a, b, c), block.getStateFromMeta(meta), 2);
 
 						count++;
 
@@ -918,19 +917,19 @@ abstract public class Component extends StructureComponent {
 			int posZ = getZWithOffset(x, z);
 			int posY = getYWithOffset(y);
 
-			if(!box.isVecInside(posX, posY, posZ))
+			if(!box.isVecInside(new BlockPos(posX, posY, posZ)))
 				return;
 
-			if(world.getBlock(posX, posY, posZ) != block)
+			if(world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() != block)
 				return;
 
-			int meta = world.getBlockMetadata(posX, posY, posZ);
+			int meta = block.getMetaFromState(world.getBlockState(new BlockPos(posX, posY, posZ)));
 
 			if(meta > 5)
 				return;
 
 			BlockDummyable.safeRem = true;
-			world.setBlock(posX, posY, posZ, block, meta + BlockDummyable.extra, 3);
+			world.setBlockState(new BlockPos(posX, posY, posZ), block.getStateFromMeta(meta + BlockDummyable.extra), 3);
 			BlockDummyable.safeRem = false;
 		}
 
@@ -943,15 +942,17 @@ abstract public class Component extends StructureComponent {
 		/** Selects blocks */
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance > 0.6F) {
-				this.field_151562_a = Blocks.sandstone;
+				selectedBlock = Blocks.SANDSTONE;
 			} else if (chance < 0.5F ) {
-				this.field_151562_a = ModBlocks.reinforced_sand;
+				selectedBlock = ModBlocks.reinforced_sand;
 			} else {
-				this.field_151562_a = Blocks.sand;
+				selectedBlock = Blocks.SAND;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 	}
 
@@ -962,48 +963,55 @@ abstract public class Component extends StructureComponent {
 		/** Selects blocks */
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < 0.4F) {
-				this.field_151562_a = ModBlocks.brick_concrete;
+				selectedBlock = ModBlocks.brick_concrete;
 			} else if (chance < 0.7F) {
-				this.field_151562_a = ModBlocks.brick_concrete_mossy;
+				selectedBlock = ModBlocks.brick_concrete_mossy;
 			} else if (chance < 0.9F) {
-				this.field_151562_a = ModBlocks.brick_concrete_cracked;
+				selectedBlock = ModBlocks.brick_concrete_cracked;
 			} else {
-				this.field_151562_a = ModBlocks.brick_concrete_broken;
+				selectedBlock = ModBlocks.brick_concrete_broken;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 	}
 
 	static class ConcreteBricksStairs extends StructureComponent.BlockSelector {
+		private int selectedMetadata;
 
 		ConcreteBricksStairs() {
-			this.selectedBlockMetaData = 0;
+			selectedMetadata = 0;
 		}
 
 		/** Selects blocks */
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < 0.4F) {
-				this.field_151562_a = ModBlocks.brick_concrete_stairs;
+				selectedBlock = ModBlocks.brick_concrete_stairs;
 			} else if (chance < 0.7F) {
-				this.field_151562_a = ModBlocks.brick_concrete_mossy_stairs;
+				selectedBlock = ModBlocks.brick_concrete_mossy_stairs;
 			} else if (chance < 0.9F) {
-				this.field_151562_a = ModBlocks.brick_concrete_cracked_stairs;
+				selectedBlock = ModBlocks.brick_concrete_cracked_stairs;
 			} else {
-				this.field_151562_a = ModBlocks.brick_concrete_broken_stairs;
+				selectedBlock = ModBlocks.brick_concrete_broken_stairs;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(selectedMetadata);
 		}
 	}
 
 	static class ConcreteBricksSlabs extends StructureComponent.BlockSelector {
+		private net.minecraft.block.Block selectedBlock;
+		private int selectedMetadata;
 
 		ConcreteBricksSlabs() {
-			this.field_151562_a = ModBlocks.concrete_brick_slab;
-			this.selectedBlockMetaData = 0;
+			selectedBlock = ModBlocks.concrete_brick_slab;
+			selectedMetadata = 0;
 		}
 
 		/** Selects blocks */
@@ -1012,12 +1020,13 @@ abstract public class Component extends StructureComponent {
 			float chance = rand.nextFloat();
 
 			if (chance >= 0.4F && chance < 0.7F) {
-				this.selectedBlockMetaData |= 1;
+				selectedMetadata |= 1;
 			} else if (chance < 0.9F) {
-				this.selectedBlockMetaData |= 2;
+				selectedMetadata |= 2;
 			} else {
-				this.selectedBlockMetaData |= 3;
+				selectedMetadata |= 3;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(selectedMetadata);
 		}
 	}
 
@@ -1037,28 +1046,33 @@ abstract public class Component extends StructureComponent {
 		/** Selects blocks */
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < crackFrequency) {
-				this.field_151562_a = ModBlocks.tile_lab;
+				selectedBlock = ModBlocks.tile_lab;
 			} else if (chance < 0.9F) {
-				this.field_151562_a = ModBlocks.tile_lab_cracked;
+				selectedBlock = ModBlocks.tile_lab_cracked;
 			} else {
-				this.field_151562_a = ModBlocks.tile_lab_broken;
+				selectedBlock = ModBlocks.tile_lab_broken;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 	}
 
 	static class SuperConcrete extends StructureComponent.BlockSelector {
+		private net.minecraft.block.Block selectedBlock;
+		private int selectedMetadata;
 
 		SuperConcrete() {
-			this.field_151562_a = ModBlocks.concrete_super;
+			selectedBlock = ModBlocks.concrete_super;
 		}
 
 		/** Selects blocks */
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
-			this.selectedBlockMetaData = rand.nextInt(6) + 10;
+			selectedMetadata = rand.nextInt(6) + 10;
+			this.blockstate = selectedBlock.getStateFromMeta(selectedMetadata);
 		}
 	}
 
@@ -1066,15 +1080,17 @@ abstract public class Component extends StructureComponent {
 
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < 0.4F) {
-				this.field_151562_a = ModBlocks.meteor_brick;
+				selectedBlock = ModBlocks.meteor_brick;
 			} else if (chance < 0.7F) {
-				this.field_151562_a = ModBlocks.meteor_brick_mossy;
+				selectedBlock = ModBlocks.meteor_brick_mossy;
 			} else {
-				this.field_151562_a = ModBlocks.meteor_brick_cracked;
+				selectedBlock = ModBlocks.meteor_brick_cracked;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 
 	}
@@ -1083,17 +1099,19 @@ abstract public class Component extends StructureComponent {
 
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < 0.6F) {
-				this.field_151562_a = Blocks.air;
+				selectedBlock = Blocks.AIR;
 			} else if(chance < 0.8F) {
-				this.field_151562_a = ModBlocks.crate_ammo;
+				selectedBlock = ModBlocks.crate_ammo;
 			} else if(chance < 0.9F) {
-				this.field_151562_a = ModBlocks.crate_can;
+				selectedBlock = ModBlocks.crate_can;
 			} else {
-				this.field_151562_a = ModBlocks.crate;
+				selectedBlock = ModBlocks.crate;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 
 	}
@@ -1102,13 +1120,15 @@ abstract public class Component extends StructureComponent {
 
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < 0.8F) {
-				this.field_151562_a = ModBlocks.meteor_brick;
+				selectedBlock = ModBlocks.meteor_brick;
 			} else {
-				this.field_151562_a = ModBlocks.meteor_spawner;
+				selectedBlock = ModBlocks.meteor_spawner;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 
 	}
@@ -1117,13 +1137,15 @@ abstract public class Component extends StructureComponent {
 
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 
 			if(chance < 0.8F) {
-				this.field_151562_a = ModBlocks.toxic_block;
+				selectedBlock = ModBlocks.toxic_block;
 			} else {
-				this.field_151562_a = ModBlocks.meteor_polished;
+				selectedBlock = ModBlocks.meteor_polished;
 			}
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 
 	}

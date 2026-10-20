@@ -48,22 +48,22 @@ public class TileEntityTowerLarge extends TileEntityCondenser {
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			
-			if(ClientConfig.COOLING_TOWER_PARTICLES.get() && (this.waterTimer > 0 && this.worldObj.getTotalWorldTime() % 4 == 0)) {
+			if(ClientConfig.COOLING_TOWER_PARTICLES.get() && (this.waterTimer > 0 && this.world.getTotalWorldTime() % 4 == 0)) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "tower");
 				data.setFloat("lift", 0.5F);
 				data.setFloat("base", 1F);
 				data.setFloat("max", 10F);
-				data.setInteger("life", 750 + worldObj.rand.nextInt(250));
+				data.setInteger("life", 750 + this.world.rand.nextInt(250));
 	
-				data.setDouble("posX", xCoord + 0.5 + worldObj.rand.nextDouble() * 3 - 1.5);
-				data.setDouble("posZ", zCoord + 0.5 + worldObj.rand.nextDouble() * 3 - 1.5);
-				data.setDouble("posY", yCoord + 1);
+				data.setDouble("posX", this.pos.getX() + 0.5 + this.world.rand.nextDouble() * 3 - 1.5);
+				data.setDouble("posZ", this.pos.getZ() + 0.5 + this.world.rand.nextDouble() * 3 - 1.5);
+				data.setDouble("posY", this.pos.getY() + 1);
 				
 				MainRegistry.proxy.effectNT(data);
 			}
@@ -76,9 +76,9 @@ public class TileEntityTowerLarge extends TileEntityCondenser {
 		for(int i = 2; i < 6; i++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(i);
 			ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-			this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord + dir.offsetX * 5, yCoord, zCoord + dir.offsetZ * 5, dir);
-			this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord + dir.offsetX * 5 + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ * 5 + rot.offsetZ * 3, dir);
-			this.trySubscribe(this.tanks[0].getTankType(),worldObj,  xCoord + dir.offsetX * 5 + rot.offsetX * -3, yCoord, zCoord + dir.offsetZ * 5 + rot.offsetZ * -3, dir);
+			this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() + dir.offsetX * 5, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5, dir);
+			this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() + dir.offsetX * 5 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5 + rot.offsetZ * 3, dir);
+			this.trySubscribe(this.tanks[0].getTankType(),this.world,  this.pos.getX() + dir.offsetX * 5 + rot.offsetX * -3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5 + rot.offsetZ * -3, dir);
 		}
 	}
 
@@ -88,9 +88,9 @@ public class TileEntityTowerLarge extends TileEntityCondenser {
 		for(int i = 2; i < 6; i++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(i);
 			ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-			this.sendFluid(this.tanks[1], worldObj, xCoord + dir.offsetX * 5, yCoord, zCoord + dir.offsetZ * 5, dir);
-			this.sendFluid(this.tanks[1], worldObj, xCoord + dir.offsetX * 5 + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ * 5 + rot.offsetZ * 3, dir);
-			this.sendFluid(this.tanks[1], worldObj,  xCoord + dir.offsetX * 5 + rot.offsetX * -3, yCoord, zCoord + dir.offsetZ * 5 + rot.offsetZ * -3, dir);
+			this.sendFluid(this.tanks[1], this.world, this.pos.getX() + dir.offsetX * 5, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5, dir);
+			this.sendFluid(this.tanks[1], this.world, this.pos.getX() + dir.offsetX * 5 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5 + rot.offsetZ * 3, dir);
+			this.sendFluid(this.tanks[1], this.world,  this.pos.getX() + dir.offsetX * 5 + rot.offsetX * -3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5 + rot.offsetZ * -3, dir);
 		}
 	}
 	
@@ -101,12 +101,12 @@ public class TileEntityTowerLarge extends TileEntityCondenser {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 13,
-					zCoord + 5
+					this.pos.getX() - 4,
+					this.pos.getY(),
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 13,
+					this.pos.getZ() + 5
 					);
 		}
 		

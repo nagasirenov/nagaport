@@ -49,14 +49,14 @@ public class ItemSwordAbility extends ItemSword {
 
 	public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase attacker) {
 
-		if(!attacker.worldObj.isRemote && attacker instanceof EntityPlayer && canOperate(stack)) {
+		if(!attacker.world.isRemote && attacker instanceof EntityPlayer && canOperate(stack)) {
 
 			// hacky hacky hack
 			if(this == ModItems.mese_gavel)
-				attacker.worldObj.playSoundAtEntity(victim, "hbm:weapon.whack", 3.0F, 1.F);
+				attacker.world.playSoundAtEntity(victim, "hbm:weapon.whack", 3.0F, 1.F);
 
 			this.abilities.getWeaponAbilities().forEach((ability, level) -> {
-				ability.onHit(level, attacker.worldObj, (EntityPlayer) attacker, victim, this);
+				ability.onHit(level, attacker.world, (EntityPlayer) attacker, victim, this);
 			});
 		}
 

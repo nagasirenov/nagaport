@@ -83,21 +83,21 @@ public class BlockGasRadonTomb extends BlockGasBase {
 		if(!world.isRemote) {
 	
 			if(rand.nextInt(10) == 0) {
-				Block b = world.getBlock(x, y - 1, z);
+				Block b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 				
-				if(b == Blocks.grass) {
+				if(b == Blocks.GRASS) {
 					if(rand.nextInt(5) == 0)
-						world.setBlock(x, y - 1, z, Blocks.dirt, 1, 3);
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y - 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					else
 						world.setBlock(x, y - 1, z, ModBlocks.waste_earth);
 				}
 				
-				if((b.getMaterial() == Material.grass || b.getMaterial() == Material.leaves || b.getMaterial() == Material.plants || b.getMaterial() == Material.vine) && !b.isNormalCube())
-					world.setBlock(x, y - 1, z, Blocks.air);
+				if((b.getDefaultState().getMaterial() == Material.GRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS || b.getDefaultState().getMaterial() == Material.VINE) && !b.isNormalCube())
+					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y - 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 	
 			if(rand.nextInt(600) == 0) {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				return;
 			}
 		}

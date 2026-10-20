@@ -49,8 +49,8 @@ public class EntityAIMaskmanMinigun extends EntityAIBase {
 		if(timer <= 0) {
 			timer = delay;
 
-			EntityBulletBaseNT bullet = new EntityBulletBaseNT(owner.worldObj, BulletConfigSyncingUtil.MASKMAN_BULLET, owner, target, 1.0F, 0);
-			owner.worldObj.spawnEntityInWorld(bullet);
+			EntityBulletBaseNT bullet = new EntityBulletBaseNT(owner.world, BulletConfigSyncingUtil.MASKMAN_BULLET, owner, target, 1.0F, 0);
+			owner.world.spawnEntityInWorld(bullet);
 			owner.playSound("hbm:weapon.calShoot", 1.0F, 1.0F);
 		}
 		

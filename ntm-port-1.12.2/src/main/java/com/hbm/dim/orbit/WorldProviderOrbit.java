@@ -153,11 +153,11 @@ public class WorldProviderOrbit extends WorldProvider {
 			semiMajorAxisKm = (float)BobMathUtil.lerp(progress, semiMajorAxisKm, OrbitalStation.clientStation.target.getPlanet().semiMajorAxisKm);
 		}
 
-		float distanceFactor = MathHelper.clamp_float((semiMajorAxisKm - distanceStart) / (distanceEnd - distanceStart), 0F, 1F);
+		float distanceFactor = MathHelper.clamp((semiMajorAxisKm - distanceStart) / (distanceEnd - distanceStart), 0F, 1F);
 
 		float starBrightness = (float)eclipseAmount;
 
-		return MathHelper.clamp_float(starBrightness, distanceFactor, 1F);
+		return MathHelper.clamp(starBrightness, distanceFactor, 1F);
 	}
 
 	@Override
@@ -200,7 +200,7 @@ public class WorldProviderOrbit extends WorldProvider {
 	// Same shit as in Celestial
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		BlockPos coords = player.getBedLocation(dimensionId);
+		BlockPos coords = player.getBedLocation(this.getDimension());
 
 		// If no bed, respawn in overworld
 		if(coords == null)
@@ -211,7 +211,7 @@ public class WorldProviderOrbit extends WorldProvider {
 		if(!ChunkAtmosphereManager.proxy.canBreathe(atmosphere))
 			return 0;
 
-		return dimensionId;
+		return this.getDimension();
 	}
 
 	@Override

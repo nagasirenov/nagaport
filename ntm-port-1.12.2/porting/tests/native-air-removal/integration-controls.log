@@ -1,0 +1,5 @@
+PASS: 150 exact selected edits, original-byte reversal and target regeneration in 82 files
+PASS: preflight 150 invocation-only edits across 82 files plus one domain helper; inverse preserves unrelated source bytes
+Applied; exact integration receipt: /tmp/tmpg1nap3v9/receipt.json
+PASS: integrated files exactly reverse to pre-integration bytes under receipt
+PASS: receipt rejects unreceipted source mutation; independent pre-integration edits preserved

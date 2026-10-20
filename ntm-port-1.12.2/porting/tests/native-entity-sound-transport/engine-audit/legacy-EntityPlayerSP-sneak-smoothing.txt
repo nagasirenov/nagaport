@@ -1,0 +1,19 @@
+     400: iconst_0
+     401: putfield      #133                // Field e:I
+     404: aload_0
+     405: getfield      #131                // Field c:Lbli;
+     408: getfield      #96                 // Field bli.d:Z
+     411: ifeq          430
+     414: aload_0
+     415: getfield      #102                // Field V:F
+     418: ldc           #7                  // float 0.2f
+     420: fcmpg
+     421: ifge          430
+     424: aload_0
+     425: ldc           #7                  // float 0.2f
+     427: putfield      #102                // Field V:F
+     430: aload_0
+     431: aload_0
+     432: getfield      #140                // Field s:D
+     435: aload_0
+     436: getfield      #101                // Field M:F

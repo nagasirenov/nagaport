@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class DigammaFlame extends Block {
 
 	public DigammaFlame() {
-		super(Material.fire);
+		super(Material.FIRE);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class DigammaFlame extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;
 	}
 
@@ -66,7 +66,7 @@ public class DigammaFlame extends Block {
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(!canPlaceBlockAt(world, x, y, z)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
 }

@@ -50,7 +50,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretSentry";
 	}
 
@@ -110,9 +110,9 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.lastBarrelLeftPos = this.barrelLeftPos;
 			this.lastBarrelRightPos = this.barrelRightPos;
 
@@ -148,7 +148,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	boolean shotSide = false;
@@ -167,7 +167,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 				this.cachedCasingConfig = conf.casing;
 				this.spawnBullet(conf, 5F);
 				this.conusmeAmmo(conf.ammo);
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.sentry_fire", 2.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.sentry_fire", 2.0F, 1.0F);
 
 				Vec3d pos = this.getTurretPos();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
@@ -182,7 +182,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 1F);
 				data.setByte("count", (byte)1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + side.x, pos.y + vec.y, pos.z + vec.z + side.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + side.x, pos.y + vec.y, pos.z + vec.z + side.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 
 				if(shotSide) {
 					this.didJustShootLeft = true;
@@ -223,7 +223,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 		super.seekNewTarget();
 
 		if(lastTarget != this.target && this.target != null) {
-			worldObj.playSoundAtEntity(target, "hbm:turret.sentry_lockon", 2.0F, 1.5F);
+			this.world.playSoundAtEntity(target, "hbm:turret.sentry_lockon", 2.0F, 1.5F);
 		}
 	}
 
@@ -244,7 +244,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 	}
 
 	protected void updateConnections() {
-		this.trySubscribe(worldObj, xCoord, yCoord - 1, zCoord, ForgeDirection.DOWN);
+		this.trySubscribe(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), ForgeDirection.DOWN);
 	}
 
 	@Override

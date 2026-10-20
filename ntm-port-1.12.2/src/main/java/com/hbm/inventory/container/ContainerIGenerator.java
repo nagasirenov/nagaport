@@ -80,6 +80,6 @@ public class ContainerIGenerator extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return igen.isUseableByPlayer(player);
+		return igen.isUsableByPlayer(player);
 	}
 }

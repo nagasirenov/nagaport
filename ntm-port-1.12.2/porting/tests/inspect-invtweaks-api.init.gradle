@@ -1,0 +1,12 @@
+allprojects { afterEvaluate {
+ task inspectInventoryTweaksApi {
+  dependsOn compileApiJava
+  doLast {
+   println 'API_SOURCE_DIRS=' + sourceSets.api.java.srcDirs
+   println 'MAIN_CP_HAS_API=' + sourceSets.main.compileClasspath.files.any { it.toString().contains('classes/java/api') }
+   println 'JAR_API_CLASSES=' + tasks.jar.source.files.findAll { it.name.startsWith('ChestContainer') }
+   assert sourceSets.main.compileClasspath.files.any { it.toString().contains('classes/java/api') }
+   assert tasks.jar.source.files.findAll { it.name.startsWith('ChestContainer') }.isEmpty()
+  }
+ }
+} }

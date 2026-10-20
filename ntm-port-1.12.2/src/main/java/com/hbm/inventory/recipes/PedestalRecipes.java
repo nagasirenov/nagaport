@@ -50,7 +50,7 @@ public class PedestalRecipes extends SerializableRecipe {
 		register(new PedestalRecipe(new ItemStack(ModItems.gun_heavy_revolver_lilmac),
 				null,										new ComparableStack(ModItems.weapon_mod_special, 1, EnumModSpecial.SCOPE),	null,
 				new ComparableStack(ModItems.powder_magic),	new ComparableStack(ModItems.gun_heavy_revolver),							new OreDictStack(WEAPONSTEEL.plate()),
-				null,										new OreDictStack(BONE.grip()),												new ComparableStack(Items.apple, 3)));
+				null,										new OreDictStack(BONE.grip()),												new ComparableStack(Items.APPLE, 3)));
 
 		register(new PedestalRecipe(new ItemStack(ModItems.gun_heavy_revolver_protege),
 				new ComparableStack(ModBlocks.chain, 16),		new OreDictStack(CINNABAR.gem()),					new ComparableStack(ModBlocks.chain, 16),

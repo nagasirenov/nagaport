@@ -1,0 +1,584 @@
+src/main/java/com/hbm/animloader/AnimatedModel.java	1980	1991	clamp_float	clamp	1992:2063:FLOAT:F	2065:2066:INT:F	2068:2084:INT:F
+src/main/java/com/hbm/blocks/BlockGeysierDCM.java	2379	2390	clamp_float	clamp	2391:2435:FLOAT:F	2437:2438:INT:F	2440:2442:INT:F
+src/main/java/com/hbm/blocks/BlockVolcanoV2.java	4384	4395	clamp_float	clamp	4396:4438:FLOAT:F	4440:4441:INT:F	4443:4445:INT:F
+src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java	6179	6191	floor_double	floor	6192:6193:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java	6207	6219	floor_double	floor	6220:6221:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java	6235	6247	floor_double	floor	6248:6249:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java	2198	2210	floor_double	floor	2211:2263:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java	2972	2984	floor_double	floor	2985:2986:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java	3000	3012	floor_double	floor	3013:3014:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java	3028	3040	floor_double	floor	3041:3042:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/BombMulti.java	6557	6569	floor_double	floor	6570:6611:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/DetMiner.java	2059	2071	floor_double	floor	2072:2073:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/DetMiner.java	2087	2099	floor_double	floor	2100:2101:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/DetMiner.java	2115	2127	floor_double	floor	2128:2129:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java	3583	3595	floor_double	floor	3596:3597:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java	3611	3623	floor_double	floor	3624:3625:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java	3639	3651	floor_double	floor	3652:3653:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/LaunchTable.java	2226	2238	floor_double	floor	2239:2280:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeBoy.java	5372	5384	floor_double	floor	5385:5426:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeCustom.java	7942	7954	floor_double	floor	7955:7996:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeFleija.java	5211	5223	floor_double	floor	5224:5265:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeGadget.java	5145	5157	floor_double	floor	5158:5199:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeMan.java	5043	5055	floor_double	floor	5056:5097:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeMike.java	5393	5405	floor_double	floor	5406:5447:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeN2.java	4945	4957	floor_double	floor	4958:4999:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukePrototype.java	5766	5778	floor_double	floor	5779:5820:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeSolinium.java	5186	5198	floor_double	floor	5199:5240:DOUBLE:D
+src/main/java/com/hbm/blocks/bomb/NukeTsar.java	5290	5302	floor_double	floor	5303:5344:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockBobble.java	3800	3812	floor_double	floor	3813:3876:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockPlushie.java	3178	3190	floor_double	floor	3191:3254:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java	1200	1212	floor_double	floor	1213:1254:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java	3616	3628	floor_double	floor	3629:3692:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockSpeedy.java	1055	1067	floor_double	floor	1068:1085:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockSpeedyStairs.java	1045	1057	floor_double	floor	1058:1075:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java	8929	8941	floor_double	floor	8942:8983:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/DecoBlock.java	3387	3399	floor_double	floor	3400:3441:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java	1576	1588	floor_double	floor	1589:1630:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java	1111	1123	floor_double	floor	1124:1165:DOUBLE:D
+src/main/java/com/hbm/blocks/generic/Guide.java	3045	3057	floor_double	floor	3058:3099:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlastDoor.java	2382	2394	floor_double	floor	2395:2436:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java	1244	1256	floor_double	floor	1257:1298:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java	2892	2904	floor_double	floor	2905:2946:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockICFStruct.java	804	816	floor_double	floor	817:858:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockMachineBase.java	3282	3294	floor_double	floor	3295:3336:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockMassStorage.java	7064	7076	floor_double	floor	7077:7118:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockRefueler.java	2350	2362	floor_double	floor	2363:2404:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/BlockSeal.java	1834	1846	floor_double	floor	1847:1888:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/Charger.java	1101	1113	floor_double	floor	1114:1155:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/Floodlight.java	2453	2465	floor_double	floor	2466:2507:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/FusionHatch.java	1421	1433	floor_double	floor	1434:1475:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/GeigerCounter.java	1140	1152	floor_double	floor	1153:1194:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineBattery.java	4940	4952	floor_double	floor	4953:4994:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineBoiler.java	2853	2865	floor_double	floor	2866:2907:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java	3476	3488	clamp_double	clamp	3489:3498:DOUBLE:D	3500:3501:INT:D	3503:3508:INT:D
+src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java	3533	3545	clamp_double	clamp	3546:3555:DOUBLE:D	3557:3558:INT:D	3560:3565:INT:D
+src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java	4400	4412	clamp_double	clamp	4413:4422:DOUBLE:D	4424:4425:INT:D	4427:4432:INT:D
+src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java	4463	4475	clamp_double	clamp	4476:4485:DOUBLE:D	4487:4488:INT:D	4490:4495:INT:D
+src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java	3152	3164	floor_double	floor	3165:3206:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineICFController.java	2292	2304	floor_double	floor	2305:2346:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineITER.java	2043	2055	floor_double	floor	2056:2097:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineLargeTurbine.java	1919	1931	floor_double	floor	1932:1973:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java	3905	3917	floor_double	floor	3918:3959:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachinePWRController.java	2184	2196	floor_double	floor	2197:2238:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java	1527	1539	floor_double	floor	1540:1581:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineReactorControl.java	2362	2374	floor_double	floor	2375:2416:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineSawmill.java	3932	3944	floor_double	floor	3945:3986:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineStirling.java	2885	2897	floor_double	floor	2898:2939:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java	1522	1534	floor_double	floor	1535:1576:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java	1075	1087	floor_double	floor	1088:1129:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/RadioRec.java	1420	1432	floor_double	floor	1433:1474:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/Radiobox.java	1175	1187	floor_double	floor	1188:1229:DOUBLE:D
+src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteFuel.java	1670	1679	clamp_int	clamp	1680:1728:INT:I	1730:1731:INT:I	1733:1735:INT:I
+src/main/java/com/hbm/blocks/network/FluidPump.java	2549	2561	floor_double	floor	2562:2603:DOUBLE:D
+src/main/java/com/hbm/blocks/network/FluidPump.java	8475	8484	clamp_int	clamp	8485:8512:INT:I	8514:8515:INT:I	8517:8523:INT:I
+src/main/java/com/hbm/blocks/network/FluidPump.java	8605	8614	clamp_int	clamp	8615:8639:BYTE:I	8641:8642:INT:I	8644:8645:INT:I
+src/main/java/com/hbm/blocks/network/PylonLarge.java	1807	1819	floor_double	floor	1820:1861:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	16393	16405	floor_double	floor	16406:16420:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	16447	16459	floor_double	floor	16460:16474:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	16501	16513	floor_double	floor	16514:16528:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	16560	16572	floor_double	floor	16573:16587:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	16618	16630	floor_double	floor	16631:16645:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	16677	16689	floor_double	floor	16690:16704:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestEventTester.java	17288	17299	sqrt_double	sqrt	17300:17327:DOUBLE:D
+src/main/java/com/hbm/blocks/test/TestObjTester.java	1536	1548	floor_double	floor	1549:1590:DOUBLE:D
+src/main/java/com/hbm/commands/CommandLocate.java	1888	1900	floor_double	floor	1901:1912:DOUBLE:D
+src/main/java/com/hbm/commands/CommandLocate.java	1948	1960	floor_double	floor	1961:1972:DOUBLE:D
+src/main/java/com/hbm/crafting/handlers/RBMKFuelCraftingHandler.java	1493	1502	clamp_int	clamp	1503:1559:INT:I	1561:1562:INT:I	1564:1565:INT:I
+src/main/java/com/hbm/dim/CelestialTeleporter.java	1639	1648	clamp_int	clamp	1649:1651:INT:I	1653:1654:INT:I	1656:1659:INT:I
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	6837	6848	clamp_float	clamp	6849:6864:FLOAT:F	6866:6870:FLOAT:F	6872:6876:FLOAT:F
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	7230	7241	clamp_float	clamp	7242:7293:FLOAT:F	7295:7299:FLOAT:F	7301:7305:FLOAT:F
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	9880	9891	clamp_float	clamp	9892:9900:FLOAT:F	9902:9906:FLOAT:F	9908:9912:FLOAT:F
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	10055	10066	clamp_float	clamp	10067:10113:FLOAT:F	10115:10120:FLOAT:F	10122:10124:FLOAT:F
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	26410	26421	clamp_float	clamp	26422:26430:FLOAT:F	26432:26436:FLOAT:F	26438:26442:FLOAT:F
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	28321	28332	clamp_float	clamp	28333:28348:FLOAT:F	28350:28351:INT:F	28353:28354:INT:F
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	30660	30672	clamp_double	clamp	30673:30692:DOUBLE:D	30694:30695:INT:D	30697:30704:FLOAT:D
+src/main/java/com/hbm/dim/SkyProviderCelestial.java	42293	42304	clamp_float	clamp	42305:42325:FLOAT:F	42327:42331:FLOAT:F	42333:42337:FLOAT:F
+src/main/java/com/hbm/dim/SolarSystem.java	18744	18756	clamp_double	clamp	18757:18775:FLOAT:D	18777:18794:DOUBLE:D	18796:18813:DOUBLE:D
+src/main/java/com/hbm/dim/SolarSystem.java	18945	18957	clamp_double	clamp	18958:18972:FLOAT:D	18974:18991:DOUBLE:D	18993:19010:DOUBLE:D
+src/main/java/com/hbm/dim/SolarSystem.java	24764	24785	wrapAngleTo180_double	wrapDegrees	24786:24831:DOUBLE:D
+src/main/java/com/hbm/dim/SolarSystem.java	25084	25105	wrapAngleTo180_double	wrapDegrees	25106:25163:DOUBLE:D
+src/main/java/com/hbm/dim/SolarSystem.java	29572	29590	ceiling_double_int	ceil	29591:29615:DOUBLE:D
+src/main/java/com/hbm/dim/SolarSystemWorldSavedData.java	6310	6321	floor_float	floor	6322:6360:FLOAT:F
+src/main/java/com/hbm/dim/SolarSystemWorldSavedData.java	6374	6385	floor_float	floor	6386:6424:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	6486	6498	clamp_double	clamp	6499:6518:DOUBLE:D	6520:6521:INT:D	6523:6530:DOUBLE:D
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	7454	7465	clamp_float	clamp	7466:7530:FLOAT:F	7532:7536:FLOAT:F	7538:7542:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	8930	8941	clamp_float	clamp	8942:8955:FLOAT:F	8957:8961:FLOAT:F	8963:8967:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	9213	9224	clamp_float	clamp	9225:9246:FLOAT:F	9248:9252:FLOAT:F	9254:9258:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	9443	9454	clamp_float	clamp	9455:9529:FLOAT:F	9531:9535:FLOAT:F	9537:9541:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	9890	9902	clamp_double	clamp	9903:9934:DOUBLE:D	9936:9939:DOUBLE:D	9941:9944:DOUBLE:D
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	13476	13487	clamp_float	clamp	13488:13501:FLOAT:F	13503:13507:FLOAT:F	13509:13513:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	17383	17394	clamp_float	clamp	17395:17460:FLOAT:F	17462:17464:FLOAT:F	17466:17468:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	17612	17623	clamp_float	clamp	17624:17638:FLOAT:F	17640:17654:FLOAT:F	17656:17658:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	19071	19082	clamp_float	clamp	19083:19138:FLOAT:F	19140:19145:FLOAT:F	19147:19151:FLOAT:F
+src/main/java/com/hbm/dim/WorldProviderCelestial.java	19802	19813	clamp_float	clamp	19814:19849:FLOAT:F	19851:19855:FLOAT:F	19857:19861:FLOAT:F
+src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java	1597	1614	ceiling_float_int	ceil	1615:1616:FLOAT:F
+src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java	1066	1083	ceiling_float_int	ceil	1084:1085:FLOAT:F
+src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java	4678	4690	floor_double	floor	4691:4697:DOUBLE:D
+src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java	4743	4755	floor_double	floor	4756:4762:DOUBLE:D
+src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java	4808	4820	floor_double	floor	4821:4827:DOUBLE:D
+src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java	4859	4871	floor_double	floor	4872:4878:DOUBLE:D
+src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java	4910	4922	floor_double	floor	4923:4929:DOUBLE:D
+src/main/java/com/hbm/dim/mapgen/ExperimentalCaveGenerator.java	4975	4987	floor_double	floor	4988:4994:DOUBLE:D
+src/main/java/com/hbm/dim/mapgen/MapGenCrater.java	2154	2166	clamp_double	clamp	2167:2194:DOUBLE:D	2196:2197:INT:D	2199:2204:INT:D
+src/main/java/com/hbm/dim/mapgen/MapGenGreg.java	1646	1656	sqrt_float	sqrt	1657:1687:FLOAT:F
+src/main/java/com/hbm/dim/mapgen/MapGenVolcano.java	2297	2309	clamp_double	clamp	2310:2338:DOUBLE:D	2340:2341:INT:D	2343:2348:INT:D
+src/main/java/com/hbm/dim/orbit/OrbitalStation.java	9541	9553	clamp_double	clamp	9554:9613:DOUBLE:D	9615:9616:INT:D	9618:9619:INT:D
+src/main/java/com/hbm/dim/orbit/OrbitalStation.java	10371	10382	floor_float	floor	10383:10406:FLOAT:F
+src/main/java/com/hbm/dim/orbit/OrbitalStation.java	10420	10431	floor_float	floor	10432:10455:FLOAT:F
+src/main/java/com/hbm/dim/orbit/SkyProviderOrbit.java	3760	3780	wrapAngleTo180_float	wrapDegrees	3781:3800:FLOAT:F
+src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java	5726	5737	clamp_float	clamp	5738:5803:FLOAT:F	5805:5807:FLOAT:F	5809:5811:FLOAT:F
+src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java	5887	5898	clamp_float	clamp	5899:5913:FLOAT:F	5915:5929:FLOAT:F	5931:5933:FLOAT:F
+src/main/java/com/hbm/dim/trait/CBT_Invasion.java	9373	9393	wrapAngleTo180_float	wrapDegrees	9394:9425:FLOAT:F
+src/main/java/com/hbm/entity/effect/EntityMist.java	9828	9840	floor_double	floor	9841:9847:DOUBLE:D
+src/main/java/com/hbm/entity/effect/EntityMist.java	9871	9883	floor_double	floor	9884:9890:DOUBLE:D
+src/main/java/com/hbm/entity/effect/EntityMist.java	9914	9926	floor_double	floor	9927:9933:DOUBLE:D
+src/main/java/com/hbm/entity/effect/EntityNukeTorex.java	10945	10957	clamp_double	clamp	10958:11031:DOUBLE:D	11033:11034:INT:D	11036:11037:INT:D
+src/main/java/com/hbm/entity/effect/EntityNukeTorex.java	11317	11329	clamp_double	clamp	11330:11403:DOUBLE:D	11405:11406:INT:D	11408:11409:INT:D
+src/main/java/com/hbm/entity/effect/EntityNukeTorex.java	12053	12065	clamp_double	clamp	12066:12139:DOUBLE:D	12141:12142:INT:D	12144:12145:INT:D
+src/main/java/com/hbm/entity/effect/EntityNukeTorex.java	16179	16191	clamp_double	clamp	16192:16249:DOUBLE:D	16251:16252:INT:D	16254:16255:INT:D
+src/main/java/com/hbm/entity/effect/EntityNukeTorex.java	20697	20708	clamp_float	clamp	20709:20756:FLOAT:F	20758:20762:FLOAT:F	20764:20766:FLOAT:F
+src/main/java/com/hbm/entity/effect/EntityNukeTorex.java	21104	21115	clamp_float	clamp	21116:21129:FLOAT:F	21131:21135:FLOAT:F	21137:21139:FLOAT:F
+src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java	3064	3075	sqrt_double	sqrt	3076:3133:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	5676	5697	wrapAngleTo180_double	wrapDegrees	5698:5738:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	7948	7959	floor_float	floor	7960:7994:FLOAT:F
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	8802	8814	floor_double	floor	8815:8863:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	8889	8901	floor_double	floor	8902:8950:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	9020	9032	floor_double	floor	9033:9042:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	10162	10183	wrapAngleTo180_double	wrapDegrees	10184:10215:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	12800	12820	wrapAngleTo180_float	wrapDegrees	12821:12843:FLOAT:F
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	13496	13508	floor_double	floor	13509:13518:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	13542	13554	floor_double	floor	13555:13564:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityBoatRubber.java	13588	13600	floor_double	floor	13601:13610:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	9937	9958	wrapAngleTo180_double	wrapDegrees	9959:10003:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	10671	10683	floor_double	floor	10684:10693:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	10722	10734	floor_double	floor	10735:10744:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	10773	10785	floor_double	floor	10786:10795:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	12251	12271	wrapAngleTo180_float	wrapDegrees	12272:12311:FLOAT:F
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	17620	17632	floor_double	floor	17633:17642:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	17685	17697	floor_double	floor	17698:17707:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	17867	17879	floor_double	floor	17880:17889:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	17932	17944	floor_double	floor	17945:17954:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	18540	18552	floor_double	floor	18553:18562:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	18587	18599	floor_double	floor	18600:18609:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	20145	20157	floor_double	floor	20158:20165:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	20189	20201	floor_double	floor	20202:20209:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	20234	20246	floor_double	floor	20247:20254:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	20989	21001	floor_double	floor	21002:21009:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	21048	21060	floor_double	floor	21061:21068:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	21185	21197	floor_double	floor	21198:21205:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	21244	21256	floor_double	floor	21257:21264:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	21511	21523	floor_double	floor	21524:21525:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	21553	21565	floor_double	floor	21566:21567:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	21595	21607	floor_double	floor	21608:21609:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java	25350	25361	sqrt_double	sqrt	25362:25367:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	12576	12597	wrapAngleTo180_double	wrapDegrees	12598:12633:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	13437	13449	floor_double	floor	13450:13459:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	13489	13501	floor_double	floor	13502:13511:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	13546	13558	floor_double	floor	13559:13568:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	15038	15058	wrapAngleTo180_float	wrapDegrees	15059:15098:FLOAT:F
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	22000	22012	floor_double	floor	22013:22022:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	22066	22078	floor_double	floor	22079:22088:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	22262	22274	floor_double	floor	22275:22284:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	22328	22340	floor_double	floor	22341:22350:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	23055	23067	floor_double	floor	23068:23077:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	23108	23120	floor_double	floor	23121:23130:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	25477	25489	floor_double	floor	25490:25500:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	25530	25542	floor_double	floor	25543:25553:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	25583	25595	floor_double	floor	25596:25606:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	26477	26489	floor_double	floor	26490:26500:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	26534	26546	floor_double	floor	26547:26557:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	26699	26711	floor_double	floor	26712:26722:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	26756	26768	floor_double	floor	26769:26779:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	27093	27105	floor_double	floor	27106:27116:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	27146	27158	floor_double	floor	27159:27169:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	27199	27211	floor_double	floor	27212:27222:DOUBLE:D
+src/main/java/com/hbm/entity/item/EntityMinecartModBase.java	31815	31826	sqrt_double	sqrt	31827:31829:DOUBLE:D
+src/main/java/com/hbm/entity/logic/EntityPlaneBase.java	3480	3501	wrapAngleTo180_double	wrapDegrees	3502:3542:DOUBLE:D
+src/main/java/com/hbm/entity/logic/EntityPlaneBase.java	5177	5188	sqrt_double	sqrt	5189:5246:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityMissileAntiBallistic.java	2947	2958	sqrt_double	sqrt	2959:3016:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java	3716	3728	clamp_double	clamp	3729:3760:DOUBLE:D	3762:3763:INT:D	3765:3769:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java	4615	4626	sqrt_double	sqrt	4627:4684:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityMissileTier0.java	2563	2575	clamp_double	clamp	2576:2617:DOUBLE:D	2619:2620:INT:D	2622:2624:INT:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	11472	11484	floor_double	floor	11485:11489:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	11503	11515	floor_double	floor	11516:11536:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	11550	11562	floor_double	floor	11563:11567:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	12566	12577	clamp_float	clamp	12578:12602:FLOAT:F	12604:12608:FLOAT:F	12610:12615:FLOAT:F
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	12675	12687	clamp_double	clamp	12688:12713:DOUBLE:D	12715:12716:INT:D	12718:12722:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	12816	12827	clamp_float	clamp	12828:12852:FLOAT:F	12854:12858:FLOAT:F	12860:12865:FLOAT:F
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	12925	12937	clamp_double	clamp	12938:12973:DOUBLE:D	12975:12976:INT:D	12978:12982:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	13357	13369	clamp_double	clamp	13370:13398:DOUBLE:D	13400:13404:DOUBLE:D	13406:13412:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	13461	13473	clamp_double	clamp	13474:13503:DOUBLE:D	13505:13509:DOUBLE:D	13511:13517:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	17314	17326	floor_double	floor	17327:17331:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	17345	17357	floor_double	floor	17358:17362:DOUBLE:D
+src/main/java/com/hbm/entity/missile/EntityRideableRocket.java	17376	17388	floor_double	floor	17389:17393:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBFAngel.java	12301	12321	wrapAngleTo180_float	wrapDegrees	12322:12350:FLOAT:F
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	1894	1905	sqrt_double	sqrt	1906:1923:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	5720	5731	sqrt_double	sqrt	5732:5789:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	6241	6253	floor_double	floor	6254:6268:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	6282	6294	floor_double	floor	6295:6309:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	7644	7656	floor_double	floor	7657:7666:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	7690	7702	floor_double	floor	7703:7712:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java	7736	7748	floor_double	floor	7749:7758:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityDepthSquid.java	989	1000	sqrt_double	sqrt	1001:1018:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityFish.java	2595	2606	sqrt_double	sqrt	2607:2658:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityFish.java	3475	3486	sqrt_double	sqrt	3487:3504:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityFish.java	4358	4378	wrapAngleTo180_float	wrapDegrees	4379:4411:FLOAT:F
+src/main/java/com/hbm/entity/mob/EntityHunterChopper.java	5047	5058	sqrt_double	sqrt	5059:5061:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityHunterChopper.java	10332	10343	sqrt_double	sqrt	10344:10401:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityHunterChopper.java	11160	11171	sqrt_double	sqrt	11172:11229:DOUBLE:D
+src/main/java/com/hbm/entity/mob/EntityPlasticBag.java	3014	3025	sqrt_double	sqrt	3026:3083:DOUBLE:D
+src/main/java/com/hbm/entity/mob/ai/EntityAIBreaking.java	4595	4613	ceiling_double_int	ceil	4614:4632:FLOAT:D
+src/main/java/com/hbm/entity/mob/ai/EntityAIBreaking.java	4670	4688	ceiling_double_int	ceil	4689:4708:FLOAT:D
+src/main/java/com/hbm/entity/mob/ai/EntityAIStepTowardsTarget.java	2239	2251	floor_double	floor	2252:2268:DOUBLE:D
+src/main/java/com/hbm/entity/mob/ai/EntityAIStepTowardsTarget.java	2337	2349	floor_double	floor	2350:2366:DOUBLE:D
+src/main/java/com/hbm/entity/mob/ai/EntityAIStepTowardsTarget.java	2435	2447	floor_double	floor	2448:2464:DOUBLE:D
+src/main/java/com/hbm/entity/mob/ai/EntityMoonWalkHelper.java	505	517	floor_double	floor	518:553:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBody.java	2321	2332	sqrt_double	sqrt	2333:2350:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBody.java	2802	2813	sqrt_double	sqrt	2814:2831:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java	2339	2351	floor_double	floor	2352:2361:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java	2391	2403	floor_double	floor	2404:2413:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java	2443	2455	floor_double	floor	2456:2465:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java	3848	3859	sqrt_double	sqrt	3860:3877:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java	5400	5411	sqrt_double	sqrt	5412:5419:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java	6661	6672	sqrt_double	sqrt	6673:6730:DOUBLE:D
+src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java	5869	5880	sqrt_double	sqrt	5881:5932:DOUBLE:D
+src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrawler.java	2658	2669	sqrt_double	sqrt	2670:2727:DOUBLE:D
+src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrawler.java	3238	3249	sqrt_double	sqrt	3250:3287:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityChlorineFX.java	2152	2164	floor_double	floor	2165:2174:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityChlorineFX.java	2188	2200	floor_double	floor	2201:2210:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityChlorineFX.java	2224	2236	floor_double	floor	2237:2246:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityCloudFX.java	2034	2046	floor_double	floor	2047:2056:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityCloudFX.java	2070	2082	floor_double	floor	2083:2092:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityCloudFX.java	2106	2118	floor_double	floor	2119:2128:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityModFX.java	2876	2887	sqrt_double	sqrt	2888:2975:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java	2084	2096	floor_double	floor	2097:2106:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java	2120	2132	floor_double	floor	2133:2142:DOUBLE:D
+src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java	2156	2168	floor_double	floor	2169:2178:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java	4013	4034	wrapAngleTo180_double	wrapDegrees	4035:4075:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBombletZeta.java	4260	4271	sqrt_double	sqrt	4272:4329:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	3426	3437	sqrt_double	sqrt	3438:3455:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	9974	9985	sqrt_double	sqrt	9986:10061:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	10679	10690	sqrt_double	sqrt	10691:10740:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	11144	11155	sqrt_double	sqrt	11156:11231:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	11849	11860	sqrt_double	sqrt	11861:11910:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	12961	12972	sqrt_double	sqrt	12973:13022:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	13672	13683	sqrt_double	sqrt	13684:13741:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	17747	17758	sqrt_double	sqrt	17759:17854:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	17882	17900	ceiling_double_int	ceil	17901:17917:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	21269	21280	sqrt_double	sqrt	21281:21338:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	24422	24433	sqrt_double	sqrt	24442:24529:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBullet.java	25679	25690	sqrt_double	sqrt	25691:25748:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java	5767	5778	floor_float	floor	5779:5813:FLOAT:F
+src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java	6125	6136	sqrt_double	sqrt	6137:6154:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java	6693	6704	sqrt_double	sqrt	6705:6722:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityBurningFOEQ.java	2135	2146	sqrt_double	sqrt	2147:2204:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityChemical.java	11618	11630	floor_double	floor	11631:11637:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityChemical.java	11661	11673	floor_double	floor	11674:11680:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityChemical.java	11704	11716	floor_double	floor	11717:11723:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	2622	2633	sqrt_double	sqrt	2634:2651:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	6299	6310	sqrt_double	sqrt	6311:6386:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	7070	7081	sqrt_double	sqrt	7082:7131:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	8295	8306	sqrt_double	sqrt	8307:8356:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	9198	9209	sqrt_double	sqrt	9210:9267:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	12708	12719	sqrt_double	sqrt	12720:12807:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	12849	12867	ceiling_double_int	ceil	12868:12884:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java	13837	13848	sqrt_double	sqrt	13849:13906:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	2930	2941	sqrt_double	sqrt	2942:2959:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	5528	5539	sqrt_double	sqrt	5540:5615:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	6299	6310	sqrt_double	sqrt	6311:6360:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	7524	7535	sqrt_double	sqrt	7536:7585:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	13589	13600	sqrt_double	sqrt	13601:13688:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	13730	13748	ceiling_double_int	ceil	13749:13765:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	15017	15028	sqrt_double	sqrt	15029:15086:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	18124	18135	sqrt_double	sqrt	18136:18223:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityRocket.java	19611	19622	sqrt_double	sqrt	19623:19680:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	2949	2960	sqrt_double	sqrt	2961:2978:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	5547	5558	sqrt_double	sqrt	5559:5634:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	6318	6329	sqrt_double	sqrt	6330:6379:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	7543	7554	sqrt_double	sqrt	7555:7604:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	8376	8387	sqrt_double	sqrt	8388:8445:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	13726	13737	sqrt_double	sqrt	13738:13825:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	13867	13885	ceiling_double_int	ceil	13886:13902:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	15154	15165	sqrt_double	sqrt	15166:15223:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	18148	18159	sqrt_double	sqrt	18160:18247:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntitySchrab.java	19580	19591	sqrt_double	sqrt	19592:19649:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java	1316	1337	wrapAngleTo180_double	wrapDegrees	1338:1378:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java	3770	3781	sqrt_double	sqrt	3782:3839:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java	4383	4394	sqrt_double	sqrt	4395:4432:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java	4930	4941	sqrt_double	sqrt	4942:4955:DOUBLE:D
+src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java	8280	8291	sqrt_double	sqrt	8292:8349:DOUBLE:D
+src/main/java/com/hbm/entity/train/EntityRailCarBase.java	5499	5520	wrapAngleTo180_double	wrapDegrees	5521:5562:DOUBLE:D
+src/main/java/com/hbm/entity/train/EntityRailCarBase.java	11051	11072	wrapAngleTo180_double	wrapDegrees	11073:11097:DOUBLE:D
+src/main/java/com/hbm/entity/train/EntityRailCarRidable.java	2513	2525	clamp_double	clamp	2526:2537:DOUBLE:D	2539:2548:DOUBLE:D	2550:2558:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	12283	12295	floor_double	floor	12296:12310:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	12330	12342	floor_double	floor	12343:12357:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	12377	12389	floor_double	floor	12390:12404:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	12429	12441	floor_double	floor	12442:12456:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	12480	12492	floor_double	floor	12493:12507:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	12532	12544	floor_double	floor	12545:12559:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionChaos.java	13349	13360	sqrt_double	sqrt	13361:13388:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionNT.java	3289	3301	floor_double	floor	3302:3310:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionNT.java	3343	3355	floor_double	floor	3356:3364:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionNT.java	3397	3409	floor_double	floor	3410:3418:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionNT.java	5888	5899	sqrt_double	sqrt	5900:5963:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionNT.java	8510	8521	sqrt_double	sqrt	8522:8549:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	8611	8623	floor_double	floor	8624:8638:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	8666	8678	floor_double	floor	8679:8693:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	8721	8733	floor_double	floor	8734:8748:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	8781	8793	floor_double	floor	8794:8808:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	8840	8852	floor_double	floor	8853:8867:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	8900	8912	floor_double	floor	8913:8927:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionThermo.java	9505	9516	sqrt_double	sqrt	9517:9544:DOUBLE:D
+src/main/java/com/hbm/explosion/ExplosionTom.java	2842	2853	sqrt_double	sqrt	2854:2859:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorBulkie.java	2043	2055	floor_double	floor	2056:2064:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorBulkie.java	2099	2111	floor_double	floor	2112:2120:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorBulkie.java	2155	2167	floor_double	floor	2168:2176:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorGlyphidDig.java	2086	2098	floor_double	floor	2099:2107:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorGlyphidDig.java	2142	2154	floor_double	floor	2155:2163:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorGlyphidDig.java	2198	2210	floor_double	floor	2211:2219:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorStandard.java	1839	1851	floor_double	floor	1852:1860:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorStandard.java	1895	1907	floor_double	floor	1908:1916:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorStandard.java	1951	1963	floor_double	floor	1964:1972:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorWater.java	1715	1727	floor_double	floor	1728:1736:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorWater.java	1771	1783	floor_double	floor	1784:1792:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorWater.java	1827	1839	floor_double	floor	1840:1848:DOUBLE:D
+src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java	2016	2027	sqrt_double	sqrt	2028:2055:DOUBLE:D
+src/main/java/com/hbm/handler/EntityEffectHandler.java	12586	12598	floor_double	floor	12599:12610:DOUBLE:D
+src/main/java/com/hbm/handler/EntityEffectHandler.java	12641	12653	floor_double	floor	12654:12665:DOUBLE:D
+src/main/java/com/hbm/handler/EntityEffectHandler.java	12696	12708	floor_double	floor	12709:12720:DOUBLE:D
+src/main/java/com/hbm/handler/Identity.java	680	689	clamp_int	clamp	690:712:INT:I	714:717:INT:I	719:722:INT:I
+src/main/java/com/hbm/handler/RocketStruct.java	9015	9032	ceiling_float_int	ceil	9033:9037:INT:F
+src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java	2533	2545	floor_double	floor	2546:2557:DOUBLE:D
+src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java	2571	2583	floor_double	floor	2584:2619:DOUBLE:D
+src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java	2633	2645	floor_double	floor	2646:2657:DOUBLE:D
+src/main/java/com/hbm/handler/pollution/PollutionHandler.java	2749	2760	clamp_float	clamp	2761:2836:FLOAT:F	2838:2840:FLOAT:F	2842:2849:FLOAT:F
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandler3D.java	1131	1140	clamp_int	clamp	1141:1147:INT:I	1149:1150:INT:I	1152:1154:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandler3D.java	1644	1653	clamp_int	clamp	1654:1660:INT:I	1662:1663:INT:I	1665:1667:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandler3D.java	3239	3248	clamp_int	clamp	3249:3254:INT:I	3256:3257:INT:I	3259:3261:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	2894	2903	clamp_int	clamp	2904:2910:INT:I	2912:2913:INT:I	2915:2917:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	3396	3405	clamp_int	clamp	3406:3412:INT:I	3414:3415:INT:I	3417:3419:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	3727	3738	clamp_float	clamp	3739:3742:FLOAT:F	3744:3745:INT:F	3747:3760:FLOAT:F
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	8491	8500	clamp_int	clamp	8501:8523:INT:I	8525:8526:INT:I	8528:8532:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	9529	9540	clamp_float	clamp	9541:9554:FLOAT:F	9556:9557:INT:F	9559:9572:FLOAT:F
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	12593	12602	clamp_int	clamp	12603:12609:INT:I	12611:12612:INT:I	12614:12616:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	12807	12816	clamp_int	clamp	12817:12823:INT:I	12825:12826:INT:I	12828:12830:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	12857	12866	clamp_int	clamp	12867:12873:INT:I	12875:12876:INT:I	12878:12880:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	12907	12916	clamp_int	clamp	12917:12923:INT:I	12925:12926:INT:I	12928:12930:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	13947	13956	clamp_int	clamp	13957:13963:INT:I	13965:13966:INT:I	13968:13970:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java	15031	15040	clamp_int	clamp	15041:15063:INT:I	15065:15066:INT:I	15068:15072:INT:I
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java	1747	1758	clamp_float	clamp	1759:1762:FLOAT:F	1764:1765:INT:F	1767:1773:FLOAT:F
+src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java	3110	3121	clamp_float	clamp	3122:3124:FLOAT:F	3126:3148:FLOAT:F	3150:3156:FLOAT:F
+src/main/java/com/hbm/inventory/gui/GUIAnvil.java	3138	3147	clamp_int	clamp	3148:3155:INT:I	3157:3158:INT:I	3160:3169:INT:I
+src/main/java/com/hbm/inventory/gui/GUIAnvil.java	11457	11466	clamp_int	clamp	11467:11485:INT:I	11487:11488:INT:I	11490:11494:INT:I
+src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java	1952	1961	clamp_int	clamp	1962:1963:INT:I	1965:1977:INT:I	1979:1992:INT:I
+src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java	2006	2015	clamp_int	clamp	2016:2017:INT:I	2019:2030:INT:I	2032:2043:INT:I
+src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java	2970	2979	clamp_int	clamp	2980:2987:INT:I	2989:2990:INT:I	2992:2994:INT:I
+src/main/java/com/hbm/inventory/gui/GUICoreEmitter.java	2172	2181	clamp_int	clamp	2182:2223:INT:I	2225:2226:INT:I	2228:2231:INT:I
+src/main/java/com/hbm/inventory/gui/GUICoreStabilizer.java	2167	2176	clamp_int	clamp	2177:2210:INT:I	2212:2213:INT:I	2215:2218:INT:I
+src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java	4412	4423	clamp_float	clamp	4424:4429:FLOAT:F	4431:4441:INT:F	4443:4446:INT:F
+src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java	4471	4482	clamp_float	clamp	4483:4488:FLOAT:F	4490:4500:INT:F	4502:4505:INT:F
+src/main/java/com/hbm/inventory/gui/GUINukeAntimatter.java	3531	3540	clamp_int	clamp	3541:3582:INT:I	3584:3585:INT:I	3587:3590:INT:I
+src/main/java/com/hbm/inventory/gui/GUINukeFstbmb.java	3675	3684	clamp_int	clamp	3685:3726:INT:I	3728:3729:INT:I	3731:3734:INT:I
+src/main/java/com/hbm/inventory/gui/GUIPWR.java	7776	7788	clamp_double	clamp	7789:7824:DOUBLE:D	7826:7827:INT:D	7829:7832:INT:D
+src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java	10423	10435	clamp_double	clamp	10436:10471:DOUBLE:D	10473:10474:INT:D	10476:10479:INT:D
+src/main/java/com/hbm/inventory/gui/GUIRBMKControlAuto.java	4737	4749	clamp_double	clamp	4750:4789:DOUBLE:D	4791:4792:INT:D	4794:4799:DOUBLE:D
+src/main/java/com/hbm/inventory/gui/GUIReactorControl.java	3484	3496	clamp_double	clamp	3497:3536:DOUBLE:D	3538:3539:INT:D	3541:3546:DOUBLE:D
+src/main/java/com/hbm/inventory/gui/GUIReactorControl.java	5439	5451	clamp_double	clamp	5452:5513:DOUBLE:D	5515:5516:INT:D	5518:5520:INT:D
+src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java	3957	3969	clamp_double	clamp	3970:4005:DOUBLE:D	4007:4008:INT:D	4010:4013:INT:D
+src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java	5364	5376	clamp_double	clamp	5377:5412:DOUBLE:D	5414:5415:INT:D	5417:5420:INT:D
+src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java	11624	11633	clamp_int	clamp	11634:11643:INT:I	11645:11646:INT:I	11648:11652:INT:I
+src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java	5535	5546	floor_float	floor	5547:5610:FLOAT:F
+src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java	6510	6521	floor_float	floor	6522:6597:FLOAT:F
+src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java	6622	6631	clamp_int	clamp	6632:6637:INT:I	6639:6640:INT:I	6642:6672:INT:I
+src/main/java/com/hbm/inventory/gui/GUITransporterRocket.java	3958	3967	clamp_int	clamp	3968:3975:INT:I	3977:3978:INT:I	3980:3982:INT:I
+src/main/java/com/hbm/inventory/gui/GUIWatz.java	2985	2996	clamp_float	clamp	2997:3050:FLOAT:F	3052:3054:FLOAT:F	3056:3058:FLOAT:F
+src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java	7210	7222	clamp_double	clamp	7223:7229:DOUBLE:D	7231:7234:DOUBLE:D	7236:7238:DOUBLE:D
+src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java	10556	10565	clamp_int	clamp	10566:10575:INT:I	10577:10578:INT:I	10580:10581:INT:I
+src/main/java/com/hbm/items/armor/ArmorAsbestos.java	1827	1839	floor_double	floor	1840:1849:INT:D
+src/main/java/com/hbm/items/armor/ArmorFSB.java	10407	10419	floor_double	floor	10420:10431:DOUBLE:D
+src/main/java/com/hbm/items/armor/ArmorFSB.java	10457	10469	floor_double	floor	10470:10514:DOUBLE:D
+src/main/java/com/hbm/items/armor/ArmorFSB.java	10540	10552	floor_double	floor	10553:10564:DOUBLE:D
+src/main/java/com/hbm/items/armor/ItemModGasmask.java	2947	2967	wrapAngleTo180_float	wrapDegrees	2968:2987:FLOAT:F
+src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java	4418	4438	wrapAngleTo180_float	wrapDegrees	4439:4458:FLOAT:F
+src/main/java/com/hbm/items/armor/ItemModTesla.java	2680	2700	wrapAngleTo180_float	wrapDegrees	2701:2720:FLOAT:F
+src/main/java/com/hbm/items/armor/JetpackBase.java	2493	2513	wrapAngleTo180_float	wrapDegrees	2514:2533:FLOAT:F
+src/main/java/com/hbm/items/food/ItemPill.java	3502	3514	floor_double	floor	3515:3526:DOUBLE:D
+src/main/java/com/hbm/items/food/ItemPill.java	3557	3569	floor_double	floor	3570:3581:DOUBLE:D
+src/main/java/com/hbm/items/food/ItemPill.java	3612	3624	floor_double	floor	3625:3636:DOUBLE:D
+src/main/java/com/hbm/items/special/ItemSoyuz.java	1908	1917	clamp_int	clamp	1918:1922:INT:I	1924:1925:INT:I	1927:1943:INT:I
+src/main/java/com/hbm/items/tool/ItemBoatRubber.java	2990	3002	floor_double	floor	3003:3055:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemModDoor.java	1313	1325	floor_double	floor	1326:1389:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemOilDetector.java	1116	1128	floor_double	floor	1129:1140:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemOilDetector.java	1165	1177	floor_double	floor	1178:1189:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemOilDetector.java	1214	1226	floor_double	floor	1227:1238:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemWandD.java	4169	4181	floor_double	floor	4182:4193:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemWandD.java	4207	4219	floor_double	floor	4220:4231:DOUBLE:D
+src/main/java/com/hbm/items/tool/ItemWandD.java	4249	4261	floor_double	floor	4262:4273:DOUBLE:D
+src/main/java/com/hbm/items/weapon/sedna/ItemGunBaseNT.java	7975	7984	clamp_int	clamp	7985:8042:INT:I	8044:8045:INT:I	8047:8050:INT:I
+src/main/java/com/hbm/items/weapon/sedna/ItemGunBaseNT.java	14233	14244	clamp_float	clamp	14245:14259:FLOAT:F	14261:14263:FLOAT:F	14265:14267:FLOAT:F
+src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java	1581	1590	clamp_int	clamp	1591:1647:INT:I	1649:1650:INT:I	1652:1654:INT:I
+src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java	2032	2041	clamp_int	clamp	2042:2098:INT:I	2100:2101:INT:I	2103:2105:INT:I
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	13308	13320	clamp_double	clamp	13321:13413:DOUBLE:D	13415:13416:INT:D	13418:13419:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	14655	14667	clamp_double	clamp	14668:14760:DOUBLE:D	14762:14763:INT:D	14765:14766:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	15809	15821	clamp_double	clamp	15822:15914:DOUBLE:D	15916:15917:INT:D	15919:15920:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	16978	16990	clamp_double	clamp	16991:17083:DOUBLE:D	17085:17086:INT:D	17088:17089:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	18144	18156	clamp_double	clamp	18157:18249:DOUBLE:D	18251:18252:INT:D	18254:18255:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	18866	18878	clamp_double	clamp	18879:18971:DOUBLE:D	18973:18974:INT:D	18976:18977:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	19583	19595	clamp_double	clamp	19596:19688:DOUBLE:D	19690:19691:INT:D	19693:19694:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	21290	21302	clamp_double	clamp	21303:21395:DOUBLE:D	21397:21398:INT:D	21400:21401:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	21894	21906	clamp_double	clamp	21907:21999:DOUBLE:D	22001:22002:INT:D	22004:22005:INT:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	27934	27946	floor_double	floor	27947:27949:DOUBLE:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	27963	27975	floor_double	floor	27976:27978:DOUBLE:D
+src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java	27992	28004	floor_double	floor	28005:28007:DOUBLE:D
+src/main/java/com/hbm/items/weapon/sedna/mods/XWeaponModManager.java	19713	19722	clamp_int	clamp	19723:19735:INT:I	19737:19738:INT:I	19740:19762:INT:I
+src/main/java/com/hbm/lib/Library.java	10117	10129	clamp_double	clamp	10130:10159:DOUBLE:D	10161:10164:DOUBLE:D	10166:10169:DOUBLE:D
+src/main/java/com/hbm/lib/Library.java	10294	10305	clamp_float	clamp	10306:10335:FLOAT:F	10337:10341:FLOAT:F	10343:10347:FLOAT:F
+src/main/java/com/hbm/main/ModEventHandlerRenderer.java	7918	7930	clamp_double	clamp	7931:7974:DOUBLE:D	7976:7980:DOUBLE:D	7982:7985:DOUBLE:D
+src/main/java/com/hbm/main/ModEventHandlerRenderer.java	8025	8037	clamp_double	clamp	8038:8085:DOUBLE:D	8087:8091:DOUBLE:D	8093:8096:DOUBLE:D
+src/main/java/com/hbm/main/ModEventHandlerRenderer.java	8718	8736	ceiling_double_int	ceil	8737:8771:DOUBLE:D
+src/main/java/com/hbm/main/ModEventHandlerRenderer.java	8803	8821	ceiling_double_int	ceil	8822:8850:DOUBLE:D
+src/main/java/com/hbm/main/ModEventHandlerRenderer.java	12241	12252	clamp_float	clamp	12253:12322:FLOAT:F	12324:12326:FLOAT:F	12328:12330:FLOAT:F
+src/main/java/com/hbm/module/NumberDisplay.java	8036	8048	clamp_double	clamp	8049:8066:DOUBLE:D	8068:8074:FLOAT:D	8076:8082:FLOAT:D
+src/main/java/com/hbm/qmaw/GuiQMAW.java	7431	7443	clamp_double	clamp	7444:7474:DOUBLE:D	7476:7478:DOUBLE:D	7480:7482:DOUBLE:D
+src/main/java/com/hbm/qmaw/GuiQMAW.java	7521	7530	clamp_int	clamp	7531:7578:INT:I	7580:7581:INT:I	7583:7599:INT:I
+src/main/java/com/hbm/render/entity/effect/RenderFallout.java	2252	2262	sqrt_float	sqrt	2263:2280:FLOAT:F
+src/main/java/com/hbm/render/entity/effect/RenderFallout.java	2516	2528	floor_double	floor	2529:2540:DOUBLE:D
+src/main/java/com/hbm/render/entity/effect/RenderFallout.java	2571	2583	floor_double	floor	2584:2595:DOUBLE:D
+src/main/java/com/hbm/render/entity/effect/RenderFallout.java	2626	2638	floor_double	floor	2639:2650:DOUBLE:D
+src/main/java/com/hbm/render/entity/effect/RenderFallout.java	2936	2948	floor_double	floor	2949:2951:DOUBLE:D
+src/main/java/com/hbm/render/entity/effect/RenderFallout.java	4854	4865	sqrt_double	sqrt	4866:4895:DOUBLE:D
+src/main/java/com/hbm/render/entity/item/RenderBoatRubber.java	1454	1474	wrapAngleTo180_float	wrapDegrees	1475:1516:FLOAT:F
+src/main/java/com/hbm/render/entity/mob/RenderBehemoth.java	2589	2610	wrapAngleTo180_double	wrapDegrees	2611:2647:DOUBLE:D
+src/main/java/com/hbm/render/entity/mob/RenderGlyphid.java	2659	2671	clamp_double	clamp	2672:2721:DOUBLE:D	2723:2724:INT:D	2726:2727:INT:D
+src/main/java/com/hbm/render/entity/mob/RenderGlyphidNuclear.java	3262	3274	clamp_double	clamp	3275:3324:DOUBLE:D	3326:3327:INT:D	3329:3330:INT:D
+src/main/java/com/hbm/render/entity/mob/RenderTankbot.java	2165	2186	wrapAngleTo180_double	wrapDegrees	2187:2220:DOUBLE:D
+src/main/java/com/hbm/render/entity/rocket/part/RenderDropPod.java	1040	1051	clamp_float	clamp	1052:1065:FLOAT:F	1067:1068:INT:F	1070:1072:INT:F
+src/main/java/com/hbm/render/entity/rocket/part/RenderDropPod.java	1151	1162	clamp_float	clamp	1163:1181:FLOAT:F	1183:1184:INT:F	1186:1188:INT:F
+src/main/java/com/hbm/render/entity/rocket/part/RenderDropPod.java	1732	1743	clamp_float	clamp	1744:1799:FLOAT:F	1801:1802:INT:F	1804:1805:INT:F
+src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java	4765	4776	clamp_float	clamp	4777:4835:FLOAT:F	4837:4838:INT:F	4840:4843:INT:F
+src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java	3060	3071	clamp_float	clamp	3072:3133:LONG:F	3135:3136:INT:F	3138:3158:INT:F
+src/main/java/com/hbm/render/tileentity/RenderLaserMiner.java	1503	1514	sqrt_double	sqrt	1515:1544:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	4769	4781	floor_double	floor	4782:4784:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	4798	4810	floor_double	floor	4811:4813:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	4827	4839	floor_double	floor	4840:4842:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/RenderRBMKGauge.java	1970	1982	clamp_double	clamp	1983:1988:DOUBLE:D	1990:1991:INT:D	1993:1995:INT:D
+src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java	1355	1366	clamp_float	clamp	1367:1393:FLOAT:F	1395:1396:INT:F	1398:1399:INT:F
+src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java	1732	1743	clamp_float	clamp	1744:1796:FLOAT:F	1798:1799:INT:F	1801:1804:INT:F
+src/main/java/com/hbm/render/tileentity/door/RenderAirlockDoor.java	1379	1391	clamp_double	clamp	1392:1396:DOUBLE:D	1398:1399:INT:D	1401:1408:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderAirlockDoor.java	1554	1566	clamp_double	clamp	1567:1571:DOUBLE:D	1573:1574:INT:D	1576:1583:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderContainmentDoor.java	1181	1193	clamp_double	clamp	1194:1199:DOUBLE:D	1201:1202:INT:D	1204:1212:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderFireDoor.java	1032	1044	clamp_double	clamp	1045:1050:DOUBLE:D	1052:1053:INT:D	1055:1063:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderSealDoor.java	1139	1151	clamp_double	clamp	1152:1157:DOUBLE:D	1159:1160:INT:D	1162:1170:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderSecureDoor.java	1014	1026	clamp_double	clamp	1027:1032:DOUBLE:D	1034:1035:INT:D	1037:1045:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderSlidingBlastDoor.java	1423	1435	clamp_double	clamp	1436:1440:DOUBLE:D	1442:1443:INT:D	1445:1452:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderSlidingBlastDoor.java	1813	1825	clamp_double	clamp	1826:1830:DOUBLE:D	1832:1833:INT:D	1835:1842:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderSlidingDoor.java	1027	1039	clamp_double	clamp	1040:1044:DOUBLE:D	1046:1047:INT:D	1049:1056:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderSlidingDoor.java	1202	1214	clamp_double	clamp	1215:1219:DOUBLE:D	1221:1222:INT:D	1224:1231:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderVehicleDoor.java	1301	1313	clamp_double	clamp	1314:1318:DOUBLE:D	1320:1321:INT:D	1323:1330:DOUBLE:D
+src/main/java/com/hbm/render/tileentity/door/RenderVehicleDoor.java	1475	1487	clamp_double	clamp	1488:1492:DOUBLE:D	1494:1495:INT:D	1497:1504:DOUBLE:D
+src/main/java/com/hbm/render/util/GaugeUtil.java	2812	2824	clamp_double	clamp	2825:2833:DOUBLE:D	2835:2836:INT:D	2838:2839:INT:D
+src/main/java/com/hbm/render/util/RenderAccessoryUtility.java	7671	7691	wrapAngleTo180_float	wrapDegrees	7692:7711:FLOAT:F
+src/main/java/com/hbm/render/util/RenderAccessoryUtility.java	8542	8562	wrapAngleTo180_float	wrapDegrees	8563:8582:FLOAT:F
+src/main/java/com/hbm/render/util/RenderAccessoryUtility.java	9395	9415	wrapAngleTo180_float	wrapDegrees	9416:9435:FLOAT:F
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java	13145	13154	clamp_int	clamp	13155:13183:INT:I	13185:13186:INT:I	13188:13189:INT:I
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java	4259	4271	floor_double	floor	4272:4318:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	893	905	floor_double	floor	906:934:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	960	972	floor_double	floor	973:1001:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	1027	1039	floor_double	floor	1040:1068:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	1099	1111	floor_double	floor	1112:1140:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	1170	1182	floor_double	floor	1183:1211:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	1242	1254	floor_double	floor	1255:1283:DOUBLE:D
+src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java	1952	1963	sqrt_double	sqrt	1964:1991:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java	4176	4185	clamp_int	clamp	4186:4195:INT:I	4197:4198:INT:I	4200:4202:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java	5103	5112	clamp_int	clamp	5113:5119:INT:I	5121:5122:INT:I	5124:5133:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java	9067	9076	clamp_int	clamp	9077:9083:INT:I	9085:9086:INT:I	9088:9097:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java	3680	3691	clamp_float	clamp	3692:3706:FLOAT:F	3708:3710:FLOAT:F	3712:3716:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java	2542	2551	clamp_int	clamp	2552:2557:INT:I	2559:2560:INT:I	2562:2565:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java	8946	8955	clamp_int	clamp	8956:8965:INT:I	8967:8968:INT:I	8970:8973:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java	1987	1996	clamp_int	clamp	1997:2002:INT:I	2004:2005:INT:I	2007:2010:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java	6247	6256	clamp_int	clamp	6257:6266:INT:I	6268:6269:INT:I	6271:6274:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java	7037	7046	clamp_int	clamp	7047:7060:INT:I	7062:7063:INT:I	7065:7067:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java	4481	4492	clamp_float	clamp	4493:4507:FLOAT:F	4509:4511:FLOAT:F	4513:4517:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java	7180	7189	clamp_int	clamp	7190:7215:INT:I	7217:7218:INT:I	7220:7241:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java	7976	7997	wrapAngleTo180_double	wrapDegrees	7998:8038:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java	8068	8089	wrapAngleTo180_double	wrapDegrees	8090:8134:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java	6708	6717	clamp_int	clamp	6718:6731:INT:I	6733:6734:INT:I	6736:6738:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java	4531	4542	clamp_float	clamp	4543:4557:FLOAT:F	4559:4561:FLOAT:F	4563:4567:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressor.java	1307	1318	clamp_float	clamp	1319:1330:FLOAT:F	1332:1334:FLOAT:F	1336:1338:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java	5660	5671	clamp_float	clamp	5672:5708:FLOAT:F	5710:5711:INT:F	5713:5714:INT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java	7530	7539	clamp_int	clamp	7540:7553:INT:I	7555:7556:INT:I	7558:7560:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java	2051	2060	clamp_int	clamp	2061:2095:INT:I	2097:2116:INT:I	2118:2121:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java	2415	2424	clamp_int	clamp	2425:2459:INT:I	2461:2480:INT:I	2482:2485:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java	4457	4468	clamp_float	clamp	4469:4484:FLOAT:F	4486:4488:FLOAT:F	4490:4493:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java	5614	5626	clamp_double	clamp	5627:5650:DOUBLE:D	5652:5658:DOUBLE:D	5660:5662:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java	6490	6501	clamp_float	clamp	6502:6538:FLOAT:F	6540:6541:INT:F	6543:6544:INT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolarPanel.java	1596	1613	ceiling_float_int	ceil	1614:1633:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	2416	2436	wrapAngleTo180_float	wrapDegrees	2437:2470:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	3575	3595	wrapAngleTo180_float	wrapDegrees	3596:3615:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	3648	3659	clamp_float	clamp	3660:3669:FLOAT:F	3671:3683:FLOAT:F	3685:3696:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	3849	3860	clamp_float	clamp	3861:3872:FLOAT:F	3874:3885:FLOAT:F	3887:3897:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	7099	7110	floor_float	floor	7111:7163:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	7177	7188	floor_float	floor	7189:7241:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java	7678	7698	wrapAngleTo180_float	wrapDegrees	7699:7732:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java	6962	6971	clamp_int	clamp	6972:6992:INT:I	6994:6995:INT:I	6997:6998:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java	18377	18386	clamp_int	clamp	18387:18413:INT:I	18415:18416:INT:I	18418:18421:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java	20149	20161	clamp_double	clamp	20162:20181:DOUBLE:D	20183:20184:INT:D	20186:20189:INT:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java	3802	3814	clamp_double	clamp	3815:3834:DOUBLE:D	3836:3838:DOUBLE:D	3840:3842:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java	8165	8174	clamp_int	clamp	8175:8186:INT:I	8188:8189:INT:I	8191:8192:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java	8221	8233	clamp_double	clamp	8234:8244:DOUBLE:D	8246:8247:INT:D	8249:8253:INT:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java	8281	8293	clamp_double	clamp	8294:8304:DOUBLE:D	8306:8307:INT:D	8309:8313:INT:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java	8342	8354	clamp_double	clamp	8355:8366:DOUBLE:D	8368:8369:INT:D	8371:8372:INT:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java	8401	8413	clamp_double	clamp	8414:8425:DOUBLE:D	8427:8428:INT:D	8430:8431:INT:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java	16369	16381	clamp_double	clamp	16382:16390:DOUBLE:D	16392:16393:INT:D	16395:16398:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java	18264	18273	clamp_int	clamp	18274:18298:INT:I	18300:18301:INT:I	18303:18329:INT:I
+src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java	3307	3318	clamp_float	clamp	3319:3336:FLOAT:F	3338:3340:FLOAT:F	3342:3345:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java	4175	4196	wrapAngleTo180_double	wrapDegrees	4197:4233:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java	3645	3656	clamp_float	clamp	3657:3680:FLOAT:F	3682:3683:INT:F	3685:3687:INT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java	9740	9757	ceiling_float_int	ceil	9758:9777:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java	9807	9819	floor_double	floor	9820:9839:FLOAT:D
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java	1677	1686	clamp_int	clamp	1687:1721:INT:I	1723:1742:INT:I	1744:1747:INT:I
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java	7261	7270	clamp_int	clamp	7271:7280:INT:I	7282:7283:INT:I	7285:7296:INT:I
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java	10042	10051	clamp_int	clamp	10052:10072:INT:I	10074:10075:INT:I	10077:10088:INT:I
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java	3121	3130	clamp_int	clamp	3131:3161:INT:I	3163:3164:INT:I	3166:3167:INT:I
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java	3872	3883	clamp_float	clamp	3884:3897:FLOAT:F	3899:3901:FLOAT:F	3903:3920:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java	10941	10953	clamp_double	clamp	10954:10973:DOUBLE:D	10975:10978:DOUBLE:D	10980:10990:LONG:D
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystronCreative.java	1270	1281	clamp_float	clamp	1282:1295:FLOAT:F	1297:1299:FLOAT:F	1301:1303:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java	4434	4445	clamp_float	clamp	4446:4461:FLOAT:F	4463:4465:FLOAT:F	4467:4497:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java	8913	8924	clamp_float	clamp	8925:8941:FLOAT:F	8943:8945:FLOAT:F	8947:8972:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java	2708	2717	clamp_int	clamp	2718:2751:INT:I	2753:2754:INT:I	2756:2758:INT:I
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java	2789	2798	clamp_int	clamp	2799:2828:INT:I	2830:2831:INT:I	2833:2835:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	5442	5454	clamp_double	clamp	5455:5463:DOUBLE:D	5465:5471:INT:D	5473:5478:INT:D
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	5504	5516	clamp_double	clamp	5517:5524:DOUBLE:D	5526:5532:INT:D	5534:5539:INT:D
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java	8410	8419	clamp_int	clamp	8420:8425:INT:I	8427:8428:INT:I	8430:8432:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java	9187	9196	clamp_int	clamp	9197:9220:INT:I	9222:9223:INT:I	9225:9227:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java	3059	3068	clamp_int	clamp	3069:3078:INT:I	3080:3081:INT:I	3083:3084:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java	4209	4221	clamp_double	clamp	4222:4264:DOUBLE:D	4266:4268:DOUBLE:D	4270:4272:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java	10952	10961	clamp_int	clamp	10962:10968:INT:I	10970:10971:INT:I	10973:10974:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControl.java	6139	6151	clamp_double	clamp	6152:6160:DOUBLE:D	6162:6163:INT:D	6165:6166:INT:D
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlAuto.java	2556	2568	clamp_double	clamp	2569:2585:DOUBLE:D	2587:2589:DOUBLE:D	2591:2593:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlManual.java	3518	3527	clamp_int	clamp	3528:3533:INT:I	3535:3536:INT:I	3538:3563:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlManual.java	4396	4405	clamp_int	clamp	4406:4412:INT:I	4414:4415:INT:I	4417:4418:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlManual.java	5947	5959	clamp_double	clamp	5960:5993:DOUBLE:D	5995:5997:DOUBLE:D	5999:6001:DOUBLE:D
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java	6294	6303	clamp_int	clamp	6304:6332:INT:I	6334:6335:INT:I	6337:6345:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java	6074	6083	clamp_int	clamp	6084:6112:INT:I	6114:6115:INT:I	6117:6125:INT:I
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java	9755	9764	clamp_int	clamp	9765:9771:INT:I	9773:9774:INT:I	9776:9777:INT:I
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java	3580	3589	clamp_int	clamp	3590:3604:INT:I	3606:3607:INT:I	3609:3611:INT:I
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java	3629	3638	clamp_int	clamp	3639:3661:INT:I	3663:3664:INT:I	3666:3668:INT:I
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java	3360	3371	clamp_float	clamp	3372:3383:FLOAT:F	3385:3387:FLOAT:F	3389:3398:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java	3433	3444	clamp_float	clamp	3445:3456:FLOAT:F	3458:3460:FLOAT:F	3462:3471:FLOAT:F
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java	5388	5397	clamp_int	clamp	5398:5412:INT:I	5414:5415:INT:I	5417:5419:INT:I
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java	3331	3340	clamp_int	clamp	3341:3355:INT:I	3357:3358:INT:I	3360:3362:INT:I
+src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java	2680	2689	clamp_int	clamp	2690:2696:INT:I	2698:2699:INT:I	2701:2703:INT:I
+src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java	706	715	clamp_int	clamp	716:722:INT:I	724:725:INT:I	727:729:INT:I
+src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java	6286	6295	clamp_int	clamp	6296:6353:INT:I	6355:6356:INT:I	6358:6361:INT:I
+src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java	4758	4769	clamp_float	clamp	4770:4780:FLOAT:F	4782:4784:FLOAT:F	4786:4788:FLOAT:F
+src/main/java/com/hbm/util/BobMathUtil.java	1796	1808	clamp_double	clamp	1809:1812:DOUBLE:D	1814:1817:DOUBLE:D	1819:1822:DOUBLE:D
+src/main/java/com/hbm/util/BobMathUtil.java	3789	3800	clamp_float	clamp	3801:3829:FLOAT:F	3831:3832:INT:F	3834:3835:INT:F
+src/main/java/com/hbm/util/DamageResistanceHandler.java	21515	21526	clamp_float	clamp	21527:21538:FLOAT:F	21540:21542:FLOAT:F	21544:21546:FLOAT:F
+src/main/java/com/hbm/wiaj/cannery/CanneryFirebox.java	8732	8743	clamp_float	clamp	8744:8753:FLOAT:F	8755:8757:FLOAT:F	8759:8763:FLOAT:F
+src/main/java/com/hbm/world/WorldUtil.java	4782	4794	floor_double	floor	4795:4814:DOUBLE:D
+src/main/java/com/hbm/world/WorldUtil.java	4843	4855	floor_double	floor	4856:4875:DOUBLE:D
+src/main/java/com/hbm/world/gen/terrain/MapGenBubble.java	1820	1832	floor_double	floor	1833:1848:DOUBLE:D
+src/main/java/com/hbm/world/gen/terrain/MapGenBubble.java	1891	1909	ceiling_double_int	ceil	1910:1925:DOUBLE:D
+src/main/java/com/hbm/world/gen/terrain/MapGenCrater.java	2067	2079	clamp_double	clamp	2080:2107:DOUBLE:D	2109:2110:INT:D	2112:2117:INT:D

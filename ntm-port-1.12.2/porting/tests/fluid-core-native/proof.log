@@ -1,0 +1,27 @@
+/workspace/shared/nagaport-fluid-core-next/porting/tests/fluid-core-native/FluidRenderNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);minecraft=(Minecraft)unsafe.allocateInstance(Minecraft.class);minecraft.renderEngine=new CaptureTextures();tess=new CaptureTessellator();
+                                                          ^
+/workspace/shared/nagaport-fluid-core-next/porting/tests/fluid-core-native/FluidRenderNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);minecraft=(Minecraft)unsafe.allocateInstance(Minecraft.class);minecraft.renderEngine=new CaptureTextures();tess=new CaptureTessellator();
+                                                                                                                                    ^
+/workspace/shared/nagaport-fluid-core-next/porting/tests/fluid-core-native/FluidRenderNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)u.get(null);minecraft=(Minecraft)unsafe.allocateInstance(Minecraft.class);minecraft.renderEngine=new CaptureTextures();tess=new CaptureTessellator();
+                                                                                                                                                            ^
+Note: /workspace/shared/nagaport-fluid-core-next/porting/tests/fluid-core-native/FluidCoreNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `empty`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `full`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `other`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `ore`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[21:33:38] [main/INFO]: Replaced 1036 ore ingredients
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `native_empty_container`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `id`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `fillable`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:33:38] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `infinite`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 2300 native fluid-core assertions: complete tanks/loaders/registry/endpoints with explicit external NTM collaborators; no running game/full network claim.
+PASS 5347 fluid GUI native BufferBuilder assertions. Only six GPU/holder boundary calls redirected; no live GL/game acceptance.
+Compiled 10 complete migrated owners and 17 unchanged production sources; 19 explicit NTM-only fixture collaborators, no Minecraft/Forge replacements.

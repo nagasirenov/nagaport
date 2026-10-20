@@ -1,0 +1,191 @@
+import com.hbm.inventory.gui.*;
+import com.hbm.inventory.container.*;
+import com.hbm.tileentity.machine.*;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.inventory.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.init.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.storage.*;
+import java.util.*;
+import java.util.Locale;
+import java.io.*;
+import java.lang.reflect.*;
+import java.security.MessageDigest;
+
+/** Real native classes, controlled NTM dependencies and recording rendering sinks. No GL. */
+public final class ThermalGuiNativeTest {
+ static int checks;
+ static sun.misc.Unsafe unsafe;
+ static void check(boolean value,String label){checks++;if(!value)throw new AssertionError(label);}
+ static <T>T allocate(Class<T> type)throws Exception{return type.cast(unsafe.allocateInstance(type));}
+ static void field(Object object,Class<?> type,String name,Object value)throws Exception{Field f=type.getDeclaredField(name);f.setAccessible(true);f.set(object,value);}
+ static Object field(Object object,Class<?> type,String name)throws Exception{Field f=type.getDeclaredField(name);f.setAccessible(true);return f.get(object);}
+ static class TestWorld extends World {
+  TileEntity tile;int reads;BlockPos expected;
+  TestWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);}
+  protected IChunkProvider createChunkProvider(){return null;}
+  protected boolean isChunkLoaded(int x,int z,boolean allow){return false;}
+  public TileEntity getTileEntity(BlockPos p){reads++;check(expected.equals(p),"brick uses exact native position");return tile;}
+ }
+ static class RecordingFont extends FontRenderer {
+  List<String> draws;
+  RecordingFont(){super(null,null,null,false);}
+  public int getStringWidth(String s){return 6*s.length();}
+  public int drawString(String s,int x,int y,int color){draws.add(s+":"+x+":"+y+":"+color);return 0;}
+ }
+ static class Draws {
+  int guiLeft=10,guiTop=20;List<String> draws=new ArrayList<>();
+  void drawTexturedModalRect(int x,int y,int u,int v,int w,int h){draws.add(x+","+y+","+u+","+v+","+w+","+h);}
+ }
+ // Complete classes compile unchanged. Only the non-GL suffixes execute here.
+ static class BrickBackground extends Draws {
+  TileEntityFurnaceBrick furnace;
+  void draw(){
+// @BRICK_BACKGROUND_TAIL@
+  }
+ }
+ static class IronBackground extends Draws {
+  TileEntityFurnaceIron furnace;
+  void draw(){
+// @IRON_BACKGROUND_TAIL@
+  }
+ }
+ static class SteelBackground extends Draws {
+  TileEntityFurnaceSteel furnace;
+  void draw(){
+// @STEEL_BACKGROUND_TAIL@
+  }
+ }
+ static abstract class Overlay extends GuiInfoContainer {
+  List<List<String>> tooltips=new ArrayList<>();List<String> targets=new ArrayList<>();int hovered;ItemStack hoveredStack;
+  Overlay(Container c){super(c);guiLeft=10;guiTop=20;}
+  protected void drawGuiContainerBackgroundLayer(float partial,int x,int y){}
+  public void drawHoveringText(List<String> lines,int x,int y){tooltips.add(lines);targets.add(x+","+y);}
+  protected void renderToolTip(ItemStack stack,int x,int y){hovered++;hoveredStack=stack;targets.add(x+","+y);}
+  void hover(int x,int y){renderHoveredToolTip(x,y);}
+  void reset(){tooltips.clear();targets.clear();}
+ }
+ static class IronOverlay extends Overlay {
+  TileEntityFurnaceIron furnace;
+  IronOverlay(TileEntityFurnaceIron tile,InventoryPlayer player){super(new ContainerFurnaceIron(player,tile));furnace=tile;}
+  void overlay(int x,int y){
+// @IRON_OVERLAY_TAIL@
+  }
+ }
+ static class SteelOverlay extends Overlay {
+  TileEntityFurnaceSteel furnace;
+  SteelOverlay(TileEntityFurnaceSteel tile,InventoryPlayer player){super(new ContainerFurnaceSteel(player,tile));furnace=tile;}
+  void overlay(int x,int y){
+// @STEEL_OVERLAY_TAIL@
+  }
+ }
+ static void foreground(GuiInfoContainer gui,Object tile,int color,InventoryPlayer player)throws Exception {
+  check(gui.getXSize()==176&&gui.getYSize()==166,"complete production constructor dimensions");
+  check(field(gui,gui.getClass(),"furnace")==tile,"complete production constructor tile alias");
+  check(((ContainerBase)gui.inventorySlots).tile==tile,"complete production constructor container tile alias");
+  check(field(gui.inventorySlots,gui.inventorySlots.getClass(),"player")==player,"constructor inventory alias");
+  RecordingFont font=allocate(RecordingFont.class);font.draws=new ArrayList<>();field(gui,GuiScreen.class,"fontRenderer",font);
+  Method method=gui.getClass().getDeclaredMethod("drawGuiContainerForegroundLayer",int.class,int.class);method.setAccessible(true);
+  for(boolean custom:new boolean[]{true,false}){
+   field(tile,tile.getClass(),"name","container.fixture");field(tile,tile.getClass(),"custom",custom);font.draws.clear();method.invoke(gui,0,0);
+   String text=custom?"container.fixture":"Localized furnace";
+   check(font.draws.equals(Arrays.asList(text+":"+(88-text.length()*3)+":6:"+color,"Inventory:8:72:"+color)),"native font, exact custom/localized branch, centered name, inventory label/color");
+   check(gui.getFontRenderer()==font,"native inherited font identity");
+  }
+ }
+ static void brick()throws Exception {
+  TestWorld world=new TestWorld();world.expected=new BlockPos(-13,74,901);
+  TileEntityFurnaceBrick old=new TileEntityFurnaceBrick(),fresh=new TileEntityFurnaceBrick();old.setWorld(world);old.setPos(world.expected);fresh.setWorld(world);fresh.setPos(world.expected);world.tile=fresh;old.invalidate();
+  fresh.maxBurnTime=200;fresh.burnTime=100;fresh.progress=100;BrickBackground view=new BrickBackground();view.furnace=old;view.draw();
+  check(view.furnace==fresh&&world.reads==2,"invalid brick replaced with same type, exact two lookups");
+  check(view.draws.equals(Arrays.asList("72,80,176,6,14,7","95,54,176,14,13,16")),"brick half burn/progress coordinates and rounding");
+  for(int burn:new int[]{0,1,199,200,300})for(int progress:new int[]{0,1,199,200,300}){
+   fresh.burnTime=burn;fresh.progress=progress;view.draws.clear();view.draw();int b=burn*13/200,p=progress*24/200;
+   check(view.draws.equals(burn==0?Collections.emptyList():Arrays.asList("72,"+(86-b)+",176,"+(12-b)+",14,"+(b+1),"95,54,176,14,"+(p+1)+",16")),"brick burn gate, plus-one pixels and un-clamped scale");
+  }
+  check(world.reads==2,"valid brick skips world lookups");fresh.invalidate();world.tile=new TileEntity(){};view.draws.clear();view.draw();check(view.furnace==fresh&&world.reads==3,"incompatible replacement retained after one lookup");
+  world.tile=null;view.draw();check(view.furnace==fresh&&world.reads==4,"missing replacement retained");
+ }
+ static void iron(Minecraft mc)throws Exception {
+  TileEntityFurnaceIron tile=new TileEntityFurnaceIron();IronBackground background=new IronBackground();background.furnace=tile;
+  for(int time:new int[]{-1,0,1,160})for(int progress:new int[]{0,1,80,160})for(boolean can:new boolean[]{false,true}){
+   tile.processingTime=time;tile.progress=progress;tile.maxBurnTime=time;tile.burnTime=progress;tile.smelt=can;background.draws.clear();background.draw();int scaled=progress*70/Math.max(time,1);
+   List<String> expected=new ArrayList<>(Arrays.asList("63,56,176,18,"+scaled+",5","63,65,176,23,"+scaled+",5"));if(can)expected.add("80,36,176,0,18,18");
+   check(background.draws.equals(expected),"iron progress/fuel denominator guard, coordinates and canSmelt icon");
+  }
+  IronOverlay view=new IronOverlay(tile,mc.player.inventory);view.mc=mc;tile.burnModule.lines=Arrays.asList("Coal: 125%","Coke: 150%");
+  for(ItemStack cursor:new ItemStack[]{ItemStack.EMPTY,new ItemStack(Items.STICK,0),new ItemStack(Items.STICK,-2),new ItemStack(Items.STICK,1)}){
+   mc.player.inventory.setItemStack(cursor);
+   for(int x=61;x<=99;x++)for(int y=71;y<=91;y++){
+    view.reset();view.overlay(x,y);boolean hit=cursor.isEmpty()&&x>=62&&x<98&&y>=72&&y<90;
+    check(view.tooltips.contains(tile.burnModule.lines)==hit,"native cursor EMPTY and native expanded fuel slot hover bounds: "+x+","+y);
+    if(hit)check(view.tooltips.get(0)==tile.burnModule.lines&&view.targets.equals(Arrays.asList(x+","+y)),"fuel tooltip original list alias and cursor coordinates");
+   }
+  }
+  mc.player.inventory.setItemStack(ItemStack.EMPTY);tile.setInventorySlotContents(1,new ItemStack(Items.COAL));view.reset();view.overlay(63,73);check(view.tooltips.isEmpty(),"occupied fuel slot suppresses fuel bonus");
+  view.reset();view.overlay(81,73);check(view.tooltips.size()==1,"second empty fuel slot retains tooltip");
+  tile.burnModule.lines=Collections.emptyList();view.reset();view.overlay(81,73);check(view.tooltips.isEmpty(),"empty bonus list is not rendered");
+  tile.progress=80;tile.processingTime=160;tile.burnTime=199;view.reset();view.overlay(62,56);check(view.tooltips.equals(Arrays.asList(Arrays.asList("50%"))),"iron progress tooltip percentage and position");
+  view.reset();view.overlay(62,65);check(view.tooltips.equals(Arrays.asList(Arrays.asList("9s"))),"iron burn tooltip seconds integer truncation");
+  tile.processingTime=0;view.reset();view.overlay(62,56);check(view.tooltips.equals(Arrays.asList(Arrays.asList("8000%"))),"iron tooltip denominator guard");
+  for(int x=61;x<=134;x++)for(int y=54;y<=63;y++){
+   view.reset();view.overlay(x,y);check((view.tooltips.size()==1)==(x>=62&&x<133&&y>55&&y<=62),"iron custom progress tooltip exact asymmetric rectangle");
+  }
+  Slot hovered=new Slot(new InventoryBasic("hover",false,1),0,0,0);hovered.putStack(new ItemStack(Items.DIAMOND));field(view,GuiContainer.class,"hoveredSlot",hovered);view.hover(12,34);check(view.hovered==1&&view.hoveredStack==hovered.getStack(),"actual inherited native hovered-slot tooltip alias");
+  mc.player.inventory.setItemStack(new ItemStack(Items.STICK));view.hover(12,34);check(view.hovered==1,"native carried cursor suppresses inherited hover");mc.player.inventory.setItemStack(ItemStack.EMPTY);hovered.putStack(ItemStack.EMPTY);view.hover(12,34);check(view.hovered==1,"native EMPTY hovered slot suppresses inherited hover");
+ }
+ static void steel(Minecraft mc)throws Exception {
+  TileEntityFurnaceSteel tile=new TileEntityFurnaceSteel();SteelBackground background=new SteelBackground();background.furnace=tile;
+  tile.progress=new int[]{0,19999,40000};tile.bonus=new int[]{0,99,150};
+  for(int heat:new int[]{0,1,50000,100000})for(boolean on:new boolean[]{false,true}){
+   tile.heat=heat;tile.wasOn=on;background.draws.clear();background.draw();int h=heat*48/100000;List<String> expected=new ArrayList<>();expected.add("162,"+(87-h)+",176,"+(76-h)+",7,"+h);
+   for(int i=0;i<3;i++){expected.add("64,"+(38+18*i)+",176,18,"+(tile.progress[i]*69/40000)+",5");expected.add("64,"+(47+18*i)+",176,23,"+(tile.bonus[i]*69/100)+",5");if(on)expected.add("26,"+(36+18*i)+",176,0,18,18");}
+   check(background.draws.equals(expected),"steel all three lines, heat scale, bonus scale, unclamped bonus, wasOn icon");
+  }
+  SteelOverlay view=new SteelOverlay(tile,mc.player.inventory);view.mc=mc;tile.progress=new int[]{1000,20000,39999};tile.bonus=new int[]{0,25,150};tile.heat=12345;
+  java.util.Locale prior=java.util.Locale.getDefault();java.util.Locale.setDefault(java.util.Locale.FRANCE);
+  try{
+   for(int i=0;i<3;i++){
+    view.reset();view.overlay(63,38+18*i);check(view.tooltips.equals(Arrays.asList(Arrays.asList(String.format(java.util.Locale.US,"%,d",tile.progress[i])+" / 40,000TU"))),"steel locale-US TU progress text and row");
+    view.reset();view.overlay(63,47+18*i);check(view.tooltips.equals(Arrays.asList(Arrays.asList("Bonus: "+tile.bonus[i]+"%"))),"steel exact bonus label and row");
+   }
+   view.reset();view.overlay(161,39);check(view.tooltips.equals(Arrays.asList(Arrays.asList("12,345 / 100,000TU"))),"steel exact locale-US heat label");
+   for(int x=160;x<=171;x++)for(int y=37;y<=89;y++){
+    view.reset();view.overlay(x,y);check((view.tooltips.size()==1)==(x>=161&&x<170&&y>38&&y<=88),"steel heat tooltip exact asymmetric rectangle");
+   }
+  }finally{java.util.Locale.setDefault(prior);}
+ }
+ static String hash(InputStream input)throws Exception{try(InputStream in=input){MessageDigest hash=MessageDigest.getInstance("SHA-256");byte[] bytes=new byte[4096];for(int n;(n=in.read(bytes))!=-1;)hash.update(bytes,0,n);StringBuilder out=new StringBuilder();for(byte b:hash.digest())out.append(String.format("%02x",b&255));return out.toString();}}
+ public static void main(String[] args)throws Exception {
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);Bootstrap.register();
+  for(Class<?> nativeType:new Class<?>[]{Minecraft.class,net.minecraft.client.entity.EntityPlayerSP.class,InventoryPlayer.class,ItemStack.class,Slot.class,FontRenderer.class,TileEntity.class,GuiContainer.class,net.minecraftforge.fml.common.Optional.class,codechicken.nei.api.INEIGuiHandler.class}){
+   java.net.URL origin=nativeType.getProtectionDomain().getCodeSource().getLocation();check(origin.toString().endsWith(".jar"),"native class loaded from dependency JAR, not test sources: "+nativeType.getName());System.out.println("NATIVE ORIGIN "+nativeType.getName()+" "+origin);
+  }
+  net.minecraft.client.resources.Locale locale=new net.minecraft.client.resources.Locale();Map<String,String> translations=(Map<String,String>)field(locale,net.minecraft.client.resources.Locale.class,"properties");translations.put("container.fixture","Localized furnace");translations.put("container.inventory","Inventory");field(null,I18n.class,"i18nLocale",locale);
+  Minecraft mc=allocate(Minecraft.class);mc.player=allocate(net.minecraft.client.entity.EntityPlayerSP.class);field(mc.player,EntityPlayer.class,"inventory",new InventoryPlayer(mc.player));field(null,Minecraft.class,"instance",mc);
+  TileEntityFurnaceBrick brick=new TileEntityFurnaceBrick();TileEntityFurnaceIron iron=new TileEntityFurnaceIron();TileEntityFurnaceSteel steel=new TileEntityFurnaceSteel();
+  foreground(new GUIFurnaceBrick(mc.player.inventory,brick),brick,0xffffff,mc.player.inventory);foreground(new GUIFurnaceIron(mc.player.inventory,iron),iron,4210752,mc.player.inventory);foreground(new GUIFurnaceSteel(mc.player.inventory,steel),steel,4210752,mc.player.inventory);
+  brick();iron(mc);steel(mc);
+  int index=2;
+  for(String kind:new String[]{"brick","iron","steel"}){
+   ResourceLocation location=new ResourceLocation("hbm:textures/gui/processing/gui_furnace_"+kind+".png");
+   for(IResourcePack pack:new IResourcePack[]{new FolderResourcePack(new File(args[0])),new FileResourcePack(new File(args[1]))}){
+    check(pack.resourceExists(location),"actual native folder/ZIP texture lookup");check(hash(pack.getInputStream(location)).equals(args[index]),"native texture pack exact bytes");
+   }
+   java.awt.image.BufferedImage png=javax.imageio.ImageIO.read(new File(args[0],"assets/hbm/"+location.getPath()));check(png.getWidth()==256&&png.getHeight()==256,"original 256x256 texture atlas");index++;
+  }
+  System.out.println("PASS "+checks+" native thermal GUI checks. Full production GUI classes compile; actual constructors/foreground/native hover execute; verbatim non-GL background/overlay suffixes execute. No GL client, tile tick, network or playable-machine claim.");
+ }
+}

@@ -169,7 +169,7 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 		if(!(world.provider instanceof WorldProviderCelestial))
 			return;
 
-		if(world.provider.dimensionId == 0)
+		if(world.provider.getDimension() == 0)
 			return;
 
 		WorldProviderCelestial celestialProvider = (WorldProviderCelestial)world.provider;
@@ -181,7 +181,7 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 		generateStructures(world, rand, chunkX * 16, chunkZ * 16);
 
 		// Generate vanilla ores too
-		if(blockToReplace != Blocks.stone) {
+		if(blockToReplace != Blocks.STONE) {
 			generateVanillaOres(world, rand, chunkX * 16, chunkZ * 16, blockToReplace, meta);
 		}
 
@@ -238,7 +238,7 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 			int ry = 6 + rand.nextInt(13);
 			int rz = z + rand.nextInt(16) + 8;
 
-			if(world.getBlock(rx, ry, rz).isReplaceableOreGen(world, rx, ry, rz, planetStone)) {
+			if(com.hbm.world.WorldBlockState.read(world, rx, ry, rz).getBlock().isReplaceableOreGen(world, rx, ry, rz, planetStone)) {
 				world.setBlock(rx, ry, rz, ModBlocks.stone_keyhole);
 			}
 		}
@@ -256,7 +256,7 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 				int randPosX = x + rand.nextInt(2) + 8;
 				int randPosZ = z + rand.nextInt(2) + 8;
 
-				BedrockOre.generate(world, randPosX, randPosZ, new ItemStack(Blocks.packed_ice, 8 * 4), null, 0xAAFFFF, 1);
+				BedrockOre.generate(world, randPosX, randPosZ, new ItemStack(Blocks.PACKED_ICE, 8 * 4), null, 0xAAFFFF, 1);
 			}
 
 		} else {

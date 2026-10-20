@@ -6,166 +6,96 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 import com.hbm.blocks.ModBlocks;
-import com.hbm.handler.imc.ICompatNHNEI;
 import com.hbm.inventory.gui.GUIMachineRefinery;
 import com.hbm.inventory.recipes.RefineryRecipes;
 import com.hbm.lib.RefStrings;
-
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
-
-public class RefineryRecipeHandler extends TemplateRecipeHandler implements ICompatNHNEI {
-
-	@Override
-	public ItemStack[] getMachinesForRecipe() {
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.recipe.IFocus;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.ResourceLocation;
+/** Native JEI category for the original RefineryRecipeHandler recipe source. */
+public class RefineryRecipeHandler extends MachineRecipeCategory {
+    private final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/nei/gui_nei_refinery.png");
+    private IDrawable background;
+    @Override public String getUid() { return "refinery"; }
+    @Override public String getTitle() {
+		return "Refinery";
+	 }
+    @Override public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModBlocks.machine_refinery)};
-	}
-	@Override
-	public String getRecipeID() {
-		return "refinery";
-	}
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<RecipeTransferRect> transferRectsGui = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-	public LinkedList<Class<? extends GuiContainer>> guiGui = new LinkedList<Class<? extends GuiContainer>>();
-
-	public class SmeltingSet extends TemplateRecipeHandler.CachedRecipe {
-		PositionedStack input;
-		PositionedStack result1;
-		PositionedStack result2;
-		PositionedStack result3;
-		PositionedStack result4;
-		PositionedStack result5;
-
-		public SmeltingSet(ItemStack input, ItemStack result1, ItemStack result2, ItemStack result3, ItemStack result4, ItemStack result5) {
-			input.stackSize = 1;
-			this.input = new PositionedStack(input, 21 + 27, 6 + 18);
-			this.result1 = new PositionedStack(result1, 129 - 18, 6);
-			this.result2 = new PositionedStack(result2, 147 - 18, 6 + 9);
-			this.result3 = new PositionedStack(result3, 129 - 18, 42 - 18);
-			this.result4 = new PositionedStack(result4, 147 - 18, 42 - 9);
-			this.result5 = new PositionedStack(result5, 147 - 36, 42);
-		}
-
-		@Override
-		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(cycleticks / 48, Arrays.asList(new PositionedStack[] { input }));
-		}
-
-		@Override
-		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> stacks = new ArrayList<PositionedStack>();
-			stacks.add(result2);
-			stacks.add(result3);
-			stacks.add(result4);
-			stacks.add(result5);
-			return stacks;
-		}
-
-		@Override
-		public PositionedStack getResult() {
-			return result1;
-		}
-	}
-    
-	@Override
-	public String getRecipeName() {
-		return "Refinery";
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei_refinery.png";
-	}
-
-	@Override
-	public Class<? extends GuiContainer> getGuiClass() {
-		return null;
-	}
-
-	@Override
-	public TemplateRecipeHandler newInstance() {
-		return super.newInstance();
-	}
-	
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-		if ((outputId.equals("refinery")) && getClass() == RefineryRecipeHandler.class) {
+	 }
+    @Override public IDrawable getBackground() { return background; }
+    @Override public void initialize(IGuiHelper helper) {
+        super.initialize(helper);
+        background = helper.createDrawable(texture, 5, 11, 166, 65);
+        energy = helper.createAnimatedDrawable(helper.createDrawable(texture, 0, 86, 16, 52), 480, IDrawableAnimated.StartDirection.TOP, true);
+        progress = helper.createAnimatedDrawable(helper.createDrawable(texture, 16, 86, 24, 17), 48, IDrawableAnimated.StartDirection.LEFT, false);
+    }
+    @Override public void registerGuiAreas(IModRegistry registry) { registry.addRecipeClickArea(GUIMachineRefinery.class, (48) + 5, (5) + 11, 31, 101, getUid()); }
+    @Override public boolean isNavigationArea(int x, int y) {
+        return (new java.awt.Rectangle(138 - 1 - 36 - 27, 23, 36, 18).contains(x, y));
+    }
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> views = new ArrayList<>();
+        if(focus == null) {
 			Map<Object, Object[]> recipes = RefineryRecipes.getRefineryRecipe();
 			for (Map.Entry<Object, Object[]> recipe : recipes.entrySet()) {
-				this.arecipes.add(new SmeltingSet((ItemStack)recipe.getKey(), 
-						(ItemStack)recipe.getValue()[0], (ItemStack)recipe.getValue()[1], 
-						(ItemStack)recipe.getValue()[2], (ItemStack)recipe.getValue()[3], 
+				views.add(createView((ItemStack)recipe.getKey(),
+						(ItemStack)recipe.getValue()[0], (ItemStack)recipe.getValue()[1],
+						(ItemStack)recipe.getValue()[2], (ItemStack)recipe.getValue()[3],
 						(ItemStack)recipe.getValue()[4]));
 			}
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
+		 }
+        else if(focus.getMode() == IFocus.Mode.OUTPUT) {
+            ItemStack result = focus.getValue();
 
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
 		Map<Object, Object[]> recipes = RefineryRecipes.getRefineryRecipe();
 		for (Map.Entry<Object, Object[]> recipe : recipes.entrySet()) {
-			if (compareFluidStacks((ItemStack)recipe.getValue()[0], result) || 
-					compareFluidStacks((ItemStack)recipe.getValue()[1], result) || 
-					compareFluidStacks((ItemStack)recipe.getValue()[2], result) || 
-					compareFluidStacks((ItemStack)recipe.getValue()[3], result) || 
+			if (compareFluidStacks((ItemStack)recipe.getValue()[0], result) ||
+					compareFluidStacks((ItemStack)recipe.getValue()[1], result) ||
+					compareFluidStacks((ItemStack)recipe.getValue()[2], result) ||
+					compareFluidStacks((ItemStack)recipe.getValue()[3], result) ||
 					compareFluidStacks((ItemStack)recipe.getValue()[4], result))
-				this.arecipes.add(new SmeltingSet((ItemStack)recipe.getKey(), 
-						(ItemStack)recipe.getValue()[0], (ItemStack)recipe.getValue()[1], 
-						(ItemStack)recipe.getValue()[2], (ItemStack)recipe.getValue()[3], 
+				views.add(createView((ItemStack)recipe.getKey(),
+						(ItemStack)recipe.getValue()[0], (ItemStack)recipe.getValue()[1],
+						(ItemStack)recipe.getValue()[2], (ItemStack)recipe.getValue()[3],
 						(ItemStack)recipe.getValue()[4]));
 		}
-	}
 
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		if ((inputId.equals("refinery")) && getClass() == RefineryRecipeHandler.class) {
-			loadCraftingRecipes("refinery", new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
+        } else {
+            ItemStack ingredient = focus.getValue();
 
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
 		Map<Object, Object[]> recipes = RefineryRecipes.getRefineryRecipe();
 		for (Map.Entry<Object, Object[]> recipe : recipes.entrySet()) {
 			if (compareFluidStacks(ingredient, (ItemStack)recipe.getKey()))
-				this.arecipes.add(new SmeltingSet((ItemStack)recipe.getKey(), 
-						(ItemStack)recipe.getValue()[0], (ItemStack)recipe.getValue()[1], 
-						(ItemStack)recipe.getValue()[2], (ItemStack)recipe.getValue()[3], 
-						(ItemStack)recipe.getValue()[4]));				
+				views.add(createView((ItemStack)recipe.getKey(),
+						(ItemStack)recipe.getValue()[0], (ItemStack)recipe.getValue()[1],
+						(ItemStack)recipe.getValue()[2], (ItemStack)recipe.getValue()[3],
+						(ItemStack)recipe.getValue()[4]));
 		}
-	}
-	
-	private boolean compareFluidStacks(ItemStack sta1, ItemStack sta2) {
-		return sta1.getItem() == sta2.getItem() && sta1.getItemDamage() == sta2.getItemDamage();
-	}
 
-	@Override
-	public void drawExtras(int recipe) {
-		drawProgressBar(83 - (18 * 4) - 9 + 1, 6, 0, 86, 16, 18 * 3 - 2, 480, 7);
-
-		drawProgressBar(56 + 22, 5 + 19, 16, 86, 24, 17, 48, 0);
-	}
-
-	@Override
-	public void loadTransferRects() {
-		transferRectsGui = new LinkedList<RecipeTransferRect>();
-		guiGui = new LinkedList<Class<? extends GuiContainer>>();
-
-		transferRects.add(new RecipeTransferRect(new Rectangle(138 - 1 - 36 - 27, 23, 36, 18), "refinery"));
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(48, 5, 31, 101), "refinery"));
-		guiGui.add(GUIMachineRefinery.class);
-		RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
-	}
-
+        }
+        return views;
+    }
+    private MachineRecipeView createView(ItemStack input, ItemStack a, ItemStack b, ItemStack c, ItemStack d, ItemStack e) {
+        ItemStack shown = input.copy(); shown.setCount(1);
+        return new MachineRecipeView(this, input, new ItemStack[][]{{shown}}, new ItemStack[][]{{a}, {b}, {c}, {d}, {e}})
+            .addInputSlot(0, 48, 24).addOutputSlot(0, 111, 6).addOutputSlot(1, 129, 15)
+            .addOutputSlot(2, 111, 24).addOutputSlot(3, 129, 33).addOutputSlot(4, 111, 42);
+    }
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        energy.draw(minecraft, 3, 6); progress.draw(minecraft, 78, 24);
+    }
+    private IDrawableAnimated energy, progress;
+    private boolean compareFluidStacks(ItemStack a, ItemStack b) { return a.getItem() == b.getItem() && a.getItemDamage() == b.getItemDamage(); }
 }

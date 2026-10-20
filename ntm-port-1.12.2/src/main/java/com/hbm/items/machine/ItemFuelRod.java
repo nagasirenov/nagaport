@@ -16,19 +16,19 @@ public class ItemFuelRod extends Item {
 	public static void setLifeTime(ItemStack stack, int time) {
 		
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		
-		stack.stackTagCompound.setInteger("life", time);
+		stack.getTagCompound().setInteger("life", time);
 	}
 	
 	public static int getLifeTime(ItemStack stack) {
 		
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 		
-		return stack.stackTagCompound.getInteger("life");
+		return stack.getTagCompound().getInteger("life");
 	}
     
     public boolean showDurabilityBar(ItemStack stack) {

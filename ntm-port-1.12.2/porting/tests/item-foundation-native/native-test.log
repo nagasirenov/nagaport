@@ -1,0 +1,44 @@
+/workspace/shared/nagaport-item-foundation/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;
+                ^
+/workspace/shared/nagaport-item-foundation/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                  ^
+/workspace/shared/nagaport-item-foundation/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-item-foundation/ntm-port-1.12.2/src/main/java/com/hbm/util/EnumUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[00:29:19] [main/INFO]: Processing ObjectHolder annotations
+[00:29:19] [main/INFO]: Found 1167 ObjectHolder annotations
+[00:29:19] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `item.foreign`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[00:29:19] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[00:29:19] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, items-resources.jar
+PASS native item foundation: 184 assertions; actual Forge event bus, registry, generated model, atlas sprite/PNG, mesher, native tooltip override, actual server-side stripping and reload. Complete listed production classes, no NTM collaborator stubs. Controlled headless atlas population, not live texture upload or full ModItems initialization.
+911a049fb452c91eb67eb5dc29070eec6ae05bd103f531f23bb18b5a84e14a75 src/main/java/com/hbm/items/ItemEnumMulti.java
+931b8add84837266665ffa7b5a5ad6b47859950043fa382ca16d0e2a5cdd7ffa src/main/java/com/hbm/items/ItemEnums.java
+c473280c07b22a81d1297c855bd219f177d0e78d2f851cf838c1d1ca91d176fc src/main/java/com/hbm/items/ItemGenericPart.java
+506565b4a0bb28143b2306f40693111ca8b0096abea194da34f82d8fe54b3377 src/main/java/com/hbm/items/machine/ItemDrillbit.java
+df3b807bb7b90894daeef59bfba23c5f11b14fdc6183dd240b27c7ef9c98e932 src/main/java/com/hbm/items/machine/ItemCircuit.java
+6b679d0b15d75dcd0d450f332b1e553c452c77c430e8545e3adc78618bbc6f9f src/main/java/com/hbm/interfaces/IOrderedEnum.java
+55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 src/main/java/com/hbm/lib/RefStrings.java
+7fd70aab941e36a7d79eb369f88c12da0e95afafa597875eb97d8e776698d107 src/main/java/com/hbm/util/EnumUtil.java
+c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412 src/main/java/com/hbm/render/item/NativeItemTextureRegistry.java
+eda9237a3df2c6d55d7758c852e007b3534db8aa77f3cb9c2e83b15c85344ac7 src/main/java/com/hbm/render/item/NativeItemTextureModelHandler.java
+5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205 src/main/java/com/hbm/render/icon/IIcon.java
+071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752 src/main/java/com/hbm/render/icon/IIconRegister.java
+020b31fa967e929352e5af5fa71dfc0934c699299d037142924a6e8b94ec508d src/main/java/com/hbm/render/icon/LegacyIconRegister.java
+2345b038dee3508bd3ddf6b87bb12d38f888cc76f033eed28a5324d48e70ad0e src/main/java/com/hbm/render/icon/LegacyTextureAtlasSprite.java
+6425a7c3e7e548acab57145843b4089e773cd3aefdf7412b0b17669c0c9a7026 src/main/java/com/hbm/render/item/ItemRenderBase.java
+304f27f65dc0b7923549dfd2ee501b961f46c802afa580ec30925c3de8253c84 src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemRegistration.java
+2cbf2a0a80ba19c90a51386e70ef49b9da5aae05c16b7362923b3694bd35626f src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemModel.java
+cbcd29d86a0131c3538d1dadc20bc33e825629bc0358ce40392ae470119f78ad src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemRegistration.java
+20b32bc9dac6481f09a97bcdb7702b69da38de17fd676897905585373413fe32 src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java
+02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e src/main/java/com/hbm/render/item/nativeitem/ItemTransformMatrix.java
+c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3 src/main/java/com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java
+0d715a62af62c8305f7c89d0963e4b8155775d4ce60dbff765d6186d71ed5c4e src/main/java/com/hbm/render/item/nativeitem/staticfamily/OrdinaryMeshItemModel.java
+07ddfbd4942ae311f3c2ef0f9cbcb8cdbaa471f29e666a064d75464e49744e04 src/main/java/com/hbm/render/item/nativeitem/staticfamily/StaticItemPerspectives.java
+bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 src/main/java/com/hbm/render/util/NativeItemBaseModel.java

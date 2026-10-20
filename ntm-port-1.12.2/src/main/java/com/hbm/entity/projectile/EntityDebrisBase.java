@@ -9,11 +9,17 @@ import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.ReportedException;
 import net.minecraft.world.World;
 
 abstract public class EntityDebrisBase extends Entity {
+
+	protected static final DataParameter<Integer> DEBRIS_TYPE = EntityDataManager.createKey(EntityDebrisBase.class, DataSerializers.VARINT);
 
 	public float rot;
 	public float lastRot;
@@ -25,7 +31,7 @@ abstract public class EntityDebrisBase extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(20, 0);
+		this.dataManager.register(DEBRIS_TYPE, 0);
 		this.rot = this.lastRot = this.rand.nextFloat() * 360;
 	}
 
@@ -40,18 +46,18 @@ abstract public class EntityDebrisBase extends Entity {
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
-		this.dataWatcher.updateObject(20, nbt.getInteger("debtype"));
+		this.dataManager.set(DEBRIS_TYPE, nbt.getInteger("debtype"));
 	}
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
-		nbt.setInteger("debtype", this.dataWatcher.getWatchableObjectInt(20));
+		nbt.setInteger("debtype", this.dataManager.get(DEBRIS_TYPE));
 	}
 
 	@Override
 	public void moveEntity(double moX, double moY, double moZ) {
 
-		this.worldObj.theProfiler.startSection("move");
+		this.world.theProfiler.startSection("move");
 		this.ySize *= 0.4F;
 
 		if(this.isInWeb) {
@@ -61,15 +67,15 @@ abstract public class EntityDebrisBase extends Entity {
 		double initMoX = moX;
 		double initMoY = moY;
 		double initMoZ = moZ;
-		AxisAlignedBB axisalignedbb = this.boundingBox.copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
 
-		List list = this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox.addCoord(moX, moY, moZ));
+		List list = this.world.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().addCoord(moX, moY, moZ));
 
 		for(int i = 0; i < list.size(); ++i) {
-			moY = ((AxisAlignedBB) list.get(i)).calculateYOffset(this.boundingBox, moY);
+			moY = ((AxisAlignedBB) list.get(i)).calculateYOffset(this.getEntityBoundingBox(), moY);
 		}
 
-		this.boundingBox.offset(0.0D, moY, 0.0D);
+		this.getEntityBoundingBox().offset(0.0D, moY, 0.0D);
 
 		if(!this.field_70135_K && initMoY != moY) {
 			moZ = 0.0D;
@@ -81,10 +87,10 @@ abstract public class EntityDebrisBase extends Entity {
 		int j;
 
 		for(j = 0; j < list.size(); ++j) {
-			moX = ((AxisAlignedBB) list.get(j)).calculateXOffset(this.boundingBox, moX);
+			moX = ((AxisAlignedBB) list.get(j)).calculateXOffset(this.getEntityBoundingBox(), moX);
 		}
 
-		this.boundingBox.offset(moX, 0.0D, 0.0D);
+		this.getEntityBoundingBox().offset(moX, 0.0D, 0.0D);
 
 		if(!this.field_70135_K && initMoX != moX) {
 			moZ = 0.0D;
@@ -93,10 +99,10 @@ abstract public class EntityDebrisBase extends Entity {
 		}
 
 		for(j = 0; j < list.size(); ++j) {
-			moZ = ((AxisAlignedBB) list.get(j)).calculateZOffset(this.boundingBox, moZ);
+			moZ = ((AxisAlignedBB) list.get(j)).calculateZOffset(this.getEntityBoundingBox(), moZ);
 		}
 
-		this.boundingBox.offset(0.0D, 0.0D, moZ);
+		this.getEntityBoundingBox().offset(0.0D, 0.0D, moZ);
 
 		if(!this.field_70135_K && initMoZ != moZ) {
 			moZ = 0.0D;
@@ -116,15 +122,15 @@ abstract public class EntityDebrisBase extends Entity {
 			moX = initMoX;
 			moY = (double) this.stepHeight;
 			moZ = initMoZ;
-			AxisAlignedBB axisalignedbb1 = this.boundingBox.copy();
-			this.boundingBox.setBB(axisalignedbb);
-			list = this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox.addCoord(initMoX, moY, initMoZ));
+			AxisAlignedBB axisalignedbb1 = this.getEntityBoundingBox().copy();
+			this.getEntityBoundingBox().setBB(axisalignedbb);
+			list = this.world.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().addCoord(initMoX, moY, initMoZ));
 
 			for(k = 0; k < list.size(); ++k) {
-				moY = ((AxisAlignedBB) list.get(k)).calculateYOffset(this.boundingBox, moY);
+				moY = ((AxisAlignedBB) list.get(k)).calculateYOffset(this.getEntityBoundingBox(), moY);
 			}
 
-			this.boundingBox.offset(0.0D, moY, 0.0D);
+			this.getEntityBoundingBox().offset(0.0D, moY, 0.0D);
 
 			if(!this.field_70135_K && initMoY != moY) {
 				moZ = 0.0D;
@@ -133,10 +139,10 @@ abstract public class EntityDebrisBase extends Entity {
 			}
 
 			for(k = 0; k < list.size(); ++k) {
-				moX = ((AxisAlignedBB) list.get(k)).calculateXOffset(this.boundingBox, moX);
+				moX = ((AxisAlignedBB) list.get(k)).calculateXOffset(this.getEntityBoundingBox(), moX);
 			}
 
-			this.boundingBox.offset(moX, 0.0D, 0.0D);
+			this.getEntityBoundingBox().offset(moX, 0.0D, 0.0D);
 
 			if(!this.field_70135_K && initMoX != moX) {
 				moZ = 0.0D;
@@ -145,10 +151,10 @@ abstract public class EntityDebrisBase extends Entity {
 			}
 
 			for(k = 0; k < list.size(); ++k) {
-				moZ = ((AxisAlignedBB) list.get(k)).calculateZOffset(this.boundingBox, moZ);
+				moZ = ((AxisAlignedBB) list.get(k)).calculateZOffset(this.getEntityBoundingBox(), moZ);
 			}
 
-			this.boundingBox.offset(0.0D, 0.0D, moZ);
+			this.getEntityBoundingBox().offset(0.0D, 0.0D, moZ);
 
 			if(!this.field_70135_K && initMoZ != moZ) {
 				moZ = 0.0D;
@@ -164,25 +170,25 @@ abstract public class EntityDebrisBase extends Entity {
 				moY = (double) (-this.stepHeight);
 
 				for(k = 0; k < list.size(); ++k) {
-					moY = ((AxisAlignedBB) list.get(k)).calculateYOffset(this.boundingBox, moY);
+					moY = ((AxisAlignedBB) list.get(k)).calculateYOffset(this.getEntityBoundingBox(), moY);
 				}
 
-				this.boundingBox.offset(0.0D, moY, 0.0D);
+				this.getEntityBoundingBox().offset(0.0D, moY, 0.0D);
 			}
 
 			if(d12 * d12 + d11 * d11 >= moX * moX + moZ * moZ) {
 				moX = d12;
 				moY = d10;
 				moZ = d11;
-				this.boundingBox.setBB(axisalignedbb1);
+				this.getEntityBoundingBox().setBB(axisalignedbb1);
 			}
 		}
 
-		this.worldObj.theProfiler.endSection();
-		this.worldObj.theProfiler.startSection("rest");
-		this.posX = (this.boundingBox.minX + this.boundingBox.maxX) / 2.0D;
-		this.posY = this.boundingBox.minY + (double) this.yOffset - (double) this.ySize;
-		this.posZ = (this.boundingBox.minZ + this.boundingBox.maxZ) / 2.0D;
+		this.world.theProfiler.endSection();
+		this.world.theProfiler.startSection("rest");
+		this.posX = (this.getEntityBoundingBox().minX + this.getEntityBoundingBox().maxX) / 2.0D;
+		this.posY = this.getEntityBoundingBox().minY + (double) this.yOffset - (double) this.ySize;
+		this.posZ = (this.getEntityBoundingBox().minZ + this.getEntityBoundingBox().maxZ) / 2.0D;
 		this.isCollidedHorizontally = initMoX != moX || initMoZ != moZ;
 		this.isCollidedVertically = initMoY != moY;
 		this.onGround = initMoY != moY && initMoY < 0.0D;
@@ -213,7 +219,7 @@ abstract public class EntityDebrisBase extends Entity {
 			throw new ReportedException(crashreport);
 		}
 
-		this.worldObj.theProfiler.endSection();
+		this.world.theProfiler.endSection();
 	}
 
 	@Override

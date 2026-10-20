@@ -3,14 +3,20 @@ package com.hbm.render.entity.item;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.entity.item.EntityDroneBase;
+import com.hbm.entity.item.EntityDeliveryDrone;
 import com.hbm.entity.item.EntityRequestDrone;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDeliveryDrone extends Render {
+
+	public RenderDeliveryDrone(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
@@ -23,7 +29,7 @@ public class RenderDeliveryDrone extends Render {
 		
 		if(entity instanceof EntityRequestDrone) {
 			bindTexture(ResourceManager.delivery_drone_request_tex);
-		} else if(entity.getDataWatcher().getWatchableObjectByte(11) == 1)
+		} else if(((EntityDeliveryDrone) entity).getLoad() == 1)
 			bindTexture(ResourceManager.delivery_drone_express_tex);
 		else
 			bindTexture(ResourceManager.delivery_drone_tex);

@@ -1,0 +1,3941 @@
+{
+  "summary": {
+    "candidate_bodies": 162,
+    "effective_unique_items": 161,
+    "shadowed_bodies": 1,
+    "block3d_branches": 0,
+    "full3d_branches": 0,
+    "plain_non3d_branches": 162,
+    "unresolved": 0,
+    "item_classes": {
+      "ItemBlock": 78,
+      "ItemBlockBase": 83,
+      "ItemPrototypeBlock": 1
+    },
+    "single_dropped_mesh": 162
+  },
+  "shared_evidence": {
+    "provider_default_single_item": "src/main/java/com/hbm/render/tileentity/IItemRendererProvider.java:10-11",
+    "registration_order": [
+      "src/main/java/com/hbm/main/ClientProxy.java:171-174",
+      "src/main/java/com/hbm/main/ClientProxy.java:502-530"
+    ],
+    "modblocks_register_default": "src/main/java/com/hbm/blocks/ModBlocks.java:4040-4042",
+    "forge_registerblock_default": "/tmp/nagaport-tile-GameRegistry1614.java:175-177",
+    "vanilla_itemblock_constructor": "/tmp/nagaport-tile-legacy-itemblock-javap.txt:7-14",
+    "vanilla_item_constructor": "/tmp/nagaport-tile-legacy-item-javap.txt:29-36",
+    "vanilla_item_full3d_setter_getter": "/tmp/nagaport-tile-legacy-item-javap.txt:2977-2989",
+    "vanilla_item_mapping": "/tmp/nagaport1710-srg.zip!joined.srg: adb/f()Z -> Item.func_77662_d()Z; adb/q()Ladb; -> Item.func_77664_n(); adb/i -> field_77789_bW",
+    "forge_full3d_not_modified": "Forge1614 fmlpatches.zip and forgepatches.zip Item/ItemBlock patches do not modify func_77662_d or func_77664_n or set field_77789_bW.",
+    "block_dummyable_minus1": "src/main/java/com/hbm/blocks/BlockDummyable.java:426-428",
+    "forge_renderblocks_fallback": "/tmp/nagaport-tile-RenderBlocks1614.patch:77-98",
+    "forge_render_fallback_lookup": "/tmp/nagaport-tile-FMLRenderAccessLibrary1614.java:63-65; /tmp/nagaport-tile-RenderingRegistry1614.java:128-131",
+    "no_minus1_handler": "All 60 registerBlockHandler calls in original ClientProxy.java:865-931 resolve to getNextAvailableRenderId-generated IDs; no other mod source registerBlockHandler calls. FML RenderingRegistry starts allocation at 42 (source :38) and increments (:92-94). No -1 handler in this mod.",
+    "mod_item_mutation_audit": "No candidate ItemBlock constructor/registration calls setFull3D; ItemBlockBase and ItemPrototypeBlock have no isFull3D override or setFull3D call. Whole-source setFull3D/bFull3D search found no candidate-item mutations.",
+    "collision_audit": "Compared every original IItemRendererProvider getItemForRenderer/getItemsForRenderer owner body, every explicit registerItemRenderer source, ItemRenderLibrary put owner, and effective TESR map bindings. No later overriding renderer for these 80 owners.",
+    "handler_ids_detail": "/tmp/nagaport-tile-handler-id-audit.txt; unresolved shorthand cases resolved by BlockConveyorBase.java:129, blocks/rail/IRenderBlock.java:13, render/block/ISBRHUniversal.java:9, IBlockMultiPass.java:9, IBlockSideRotation.java:10, BlockDecoModel.java:21-25, BlockChargeDynamite.java:29-33, BlockChargeC4.java:44-48. All call getNextAvailableRenderId."
+  },
+  "rows": [
+    {
+      "index": 0,
+      "item": "ModBlocks.sliding_blast_door",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:81",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:81",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3440",
+          "statement": "GameRegistry.registerBlock(sliding_blast_door, sliding_blast_door.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockDoorGeneric",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 1,
+      "item": "ModBlocks.large_vehicle_door",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:94",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:94",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3449",
+          "statement": "GameRegistry.registerBlock(large_vehicle_door, large_vehicle_door.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockDoorGeneric",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 2,
+      "item": "ModBlocks.silo_hatch",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:122",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:122",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3438",
+          "statement": "GameRegistry.registerBlock(silo_hatch, silo_hatch.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockDoorGeneric",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 3,
+      "item": "ModBlocks.silo_hatch_large",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:141",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:141",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3439",
+          "statement": "GameRegistry.registerBlock(silo_hatch_large, silo_hatch_large.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockDoorGeneric",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 4,
+      "item": "ModBlocks.qe_sliding_door",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:174",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:174",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3451",
+          "statement": "GameRegistry.registerBlock(qe_sliding_door, qe_sliding_door.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockDoorGeneric",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 5,
+      "item": "ModBlocks.sliding_seal_door",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:200",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:200",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3453",
+          "statement": "GameRegistry.registerBlock(sliding_seal_door, sliding_seal_door.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockDoorGeneric",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 6,
+      "item": "ModBlocks.blast_door",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:213",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibraryDoors.java:213",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3435",
+          "statement": "GameRegistry.registerBlock(blast_door, blast_door.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/BlastDoor.java:30",
+      "render_type_ancestry": [
+        "BlastDoor"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 7,
+      "item": "ModBlocks.obj_tester",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:30",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:30",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2742",
+          "statement": "GameRegistry.registerBlock(obj_tester, obj_tester.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/test/TestObjTester.java:24",
+      "render_type_ancestry": [
+        "TestObjTester"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 8,
+      "item": "ModBlocks.machine_cyclotron",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:44",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:44",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3548",
+          "statement": "GameRegistry.registerBlock(machine_cyclotron, machine_cyclotron.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java:68",
+      "render_type_ancestry": [
+        "MachineCyclotron"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 9,
+      "item": "ModBlocks.iter",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:58",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:58",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3853",
+          "statement": "GameRegistry.registerBlock(iter, iter.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineITER",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 10,
+      "item": "ModBlocks.machine_press",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:75",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:75",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3488",
+          "statement": "GameRegistry.registerBlock(machine_press, machine_press.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachinePress",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 11,
+      "item": "ModBlocks.machine_epress",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:87",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:87",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3489",
+          "statement": "GameRegistry.registerBlock(machine_epress, machine_epress.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineEPress",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 12,
+      "item": "ModBlocks.machine_reactor_breeding",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:99",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:99",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3535",
+          "statement": "GameRegistry.registerBlock(machine_reactor_breeding, machine_reactor_breeding.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineReactorBreeding",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 13,
+      "item": "ModBlocks.machine_large_turbine",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:112",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:112",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3732",
+          "statement": "register(machine_large_turbine);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineLargeTurbine",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 14,
+      "item": "ModBlocks.reactor_research",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:127",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:127",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3543",
+          "statement": "GameRegistry.registerBlock(reactor_research, reactor_research.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "ReactorResearch",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 15,
+      "item": "ModBlocks.machine_industrial_generator",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:137",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:137",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3546",
+          "statement": "GameRegistry.registerBlock(machine_industrial_generator, machine_industrial_generator.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java:37",
+      "render_type_ancestry": [
+        "MachineIGenerator"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 16,
+      "item": "ModBlocks.machine_radgen",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:155",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:155",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3547",
+          "statement": "GameRegistry.registerBlock(machine_radgen, machine_radgen.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineRadGen",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 17,
+      "item": "ModBlocks.machine_well",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:194",
+      "effective": false,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDerrick.java:48",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3754",
+          "statement": "register(machine_well);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineOilWell",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 18,
+      "item": "ModBlocks.machine_pumpjack",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:206",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:206",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3755",
+          "statement": "register(machine_pumpjack);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachinePumpjack",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 19,
+      "item": "ModBlocks.machine_flare",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:222",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:222",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3757",
+          "statement": "register(machine_flare);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineGasFlare",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 20,
+      "item": "ModBlocks.machine_refinery",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:236",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:236",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3760",
+          "statement": "register(machine_refinery);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineRefinery",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 21,
+      "item": "ModBlocks.machine_mining_laser",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:249",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:249",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3775",
+          "statement": "register(machine_mining_laser);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineMiningLaser",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 22,
+      "item": "ModBlocks.plasma_heater",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:262",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:262",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3854",
+          "statement": "GameRegistry.registerBlock(plasma_heater, plasma_heater.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachinePlasmaHeater",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 23,
+      "item": "ModBlocks.tesla",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:276",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:276",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3133",
+          "statement": "GameRegistry.registerBlock(tesla, tesla.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineTesla.java:22",
+      "render_type_ancestry": [
+        "MachineTesla"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 24,
+      "item": "ModBlocks.boxcar",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:287",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:287",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3466",
+          "statement": "GameRegistry.registerBlock(boxcar, boxcar.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/generic/DecoBlock.java:79",
+      "render_type_ancestry": [
+        "DecoBlock",
+        "BlockContainer"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 25,
+      "item": "ModBlocks.boat",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:298",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:298",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3467",
+          "statement": "GameRegistry.registerBlock(boat, boat.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/generic/DecoBlock.java:79",
+      "render_type_ancestry": [
+        "DecoBlock",
+        "BlockContainer"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 26,
+      "item": "ModBlocks.nuke_boy",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:310",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:310",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3331",
+          "statement": "GameRegistry.registerBlock(nuke_boy, nuke_boy.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java:143",
+      "render_type_ancestry": [
+        "NukeBoy"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 27,
+      "item": "ModBlocks.nuke_fstbmb",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:320",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:320",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3340",
+          "statement": "GameRegistry.registerBlock(nuke_fstbmb, nuke_fstbmb.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java:32",
+      "render_type_ancestry": [
+        "NukeBalefire"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 28,
+      "item": "ModBlocks.nuke_custom",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:334",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:334",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3341",
+          "statement": "GameRegistry.registerBlock(nuke_custom, nuke_custom.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java:225",
+      "render_type_ancestry": [
+        "NukeCustom"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 29,
+      "item": "ModBlocks.bomb_multi",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:344",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:344",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3344",
+          "statement": "GameRegistry.registerBlock(bomb_multi, bomb_multi.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/BombMulti.java:191",
+      "render_type_ancestry": [
+        "BombMulti"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 30,
+      "item": "ModBlocks.mine_ap",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:361",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:361",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3376",
+          "statement": "GameRegistry.registerBlock(mine_ap, mine_ap.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/Landmine.java:56",
+      "render_type_ancestry": [
+        "Landmine"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 31,
+      "item": "ModBlocks.mine_shrap",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:393",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:393",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3377",
+          "statement": "GameRegistry.registerBlock(mine_shrap, mine_shrap.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/Landmine.java:56",
+      "render_type_ancestry": [
+        "Landmine"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 32,
+      "item": "ModBlocks.mine_naval",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:406",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:406",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3380",
+          "statement": "GameRegistry.registerBlock(mine_naval, mine_naval.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/Landmine.java:56",
+      "render_type_ancestry": [
+        "Landmine"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 33,
+      "item": "ModBlocks.mine_fat",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:420",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:420",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3379",
+          "statement": "GameRegistry.registerBlock(mine_fat, mine_fat.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/Landmine.java:56",
+      "render_type_ancestry": [
+        "Landmine"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 34,
+      "item": "ModBlocks.machine_forcefield",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:434",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:434",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3794",
+          "statement": "GameRegistry.registerBlock(machine_forcefield, machine_forcefield.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineForceField.java:37",
+      "render_type_ancestry": [
+        "MachineForceField"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 35,
+      "item": "ModBlocks.machine_missile_assembly",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:445",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:445",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3894",
+          "statement": "GameRegistry.registerBlock(machine_missile_assembly, machine_missile_assembly.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java:34",
+      "render_type_ancestry": [
+        "MachineMissileAssembly"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 36,
+      "item": "ModBlocks.launch_pad",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:456",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:456",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3896",
+          "statement": "GameRegistry.registerBlock(launch_pad, launch_pad.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "LaunchPad",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 37,
+      "item": "ModBlocks.compact_launcher",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:465",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:465",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3900",
+          "statement": "GameRegistry.registerBlock(compact_launcher, compact_launcher.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java:40",
+      "render_type_ancestry": [
+        "CompactLauncher"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 38,
+      "item": "ModBlocks.soyuz_capsule",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:499",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:499",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3904",
+          "statement": "GameRegistry.registerBlock(soyuz_capsule, soyuz_capsule.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java:32",
+      "render_type_ancestry": [
+        "SoyuzCapsule"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 39,
+      "item": "ModBlocks.machine_radar",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:510",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:510",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3907",
+          "statement": "GameRegistry.registerBlock(machine_radar, machine_radar.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineRadar.java:29",
+      "render_type_ancestry": [
+        "MachineRadar"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 40,
+      "item": "ModBlocks.machine_uf6_tank",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:523",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:523",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3533",
+          "statement": "GameRegistry.registerBlock(machine_uf6_tank, machine_uf6_tank.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java:27",
+      "render_type_ancestry": [
+        "MachineUF6Tank"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 41,
+      "item": "ModBlocks.machine_puf6_tank",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:533",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:533",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3534",
+          "statement": "GameRegistry.registerBlock(machine_puf6_tank, machine_puf6_tank.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java:27",
+      "render_type_ancestry": [
+        "MachinePuF6Tank"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 42,
+      "item": "ModBlocks.sat_dock",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:543",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:543",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3903",
+          "statement": "GameRegistry.registerBlock(sat_dock, sat_dock.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java:39",
+      "render_type_ancestry": [
+        "MachineSatDock"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 43,
+      "item": "ModBlocks.gas_dock",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:552",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:552",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3910",
+          "statement": "GameRegistry.registerBlock(gas_dock, gas_dock.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java:33",
+      "render_type_ancestry": [
+        "MachineGasDock"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 44,
+      "item": "ModBlocks.machine_microwave",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:560",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:560",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3714",
+          "statement": "GameRegistry.registerBlock(machine_microwave, machine_microwave.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java:22",
+      "render_type_ancestry": [
+        "MachineMicrowave"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 45,
+      "item": "ModBlocks.machine_solar_boiler",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:573",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:573",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3817",
+          "statement": "GameRegistry.registerBlock(machine_solar_boiler, machine_solar_boiler.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineSolarBoiler",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 46,
+      "item": "ModBlocks.solar_mirror",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:585",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:585",
+      "item_class": "ItemBlock",
+      "render_type": "renderID",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3818",
+          "statement": "GameRegistry.registerBlock(solar_mirror, solar_mirror.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/SolarMirror.java:25",
+      "render_type_ancestry": [
+        "SolarMirror"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 47,
+      "item": "ModBlocks.turret_chekhov",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:599",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:599",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3354",
+          "statement": "GameRegistry.registerBlock(turret_chekhov, turret_chekhov.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretChekhov",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 48,
+      "item": "ModBlocks.turret_friendly",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:614",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:614",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3355",
+          "statement": "GameRegistry.registerBlock(turret_friendly, turret_friendly.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretFriendly",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 49,
+      "item": "ModBlocks.turret_jeremy",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:629",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:629",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3356",
+          "statement": "GameRegistry.registerBlock(turret_jeremy, turret_jeremy.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretJeremy",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 50,
+      "item": "ModBlocks.turret_tauon",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:643",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:643",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3357",
+          "statement": "GameRegistry.registerBlock(turret_tauon, turret_tauon.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretTauon",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 51,
+      "item": "ModBlocks.turret_richard",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:657",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:657",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3358",
+          "statement": "GameRegistry.registerBlock(turret_richard, turret_richard.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretRichard",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 52,
+      "item": "ModBlocks.turret_howard",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:670",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:670",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3359",
+          "statement": "GameRegistry.registerBlock(turret_howard, turret_howard.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretHoward",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 53,
+      "item": "ModBlocks.turret_howard_damaged",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:686",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:686",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3360",
+          "statement": "GameRegistry.registerBlock(turret_howard_damaged, turret_howard_damaged.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretHowardDamaged",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 54,
+      "item": "ModBlocks.machine_silex",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:702",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:702",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3530",
+          "statement": "GameRegistry.registerBlock(machine_silex, machine_silex.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineSILEX",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 55,
+      "item": "ModBlocks.machine_fel",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:713",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:713",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3529",
+          "statement": "GameRegistry.registerBlock(machine_fel, machine_fel.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineFEL",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 56,
+      "item": "ModBlocks.rbmk_console",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:726",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:726",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3595",
+          "statement": "GameRegistry.registerBlock(rbmk_console, rbmk_console.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java:39",
+      "render_type_ancestry": [
+        "RBMKConsole"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 57,
+      "item": "ModBlocks.rbmk_crane_console",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:738",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:738",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3596",
+          "statement": "GameRegistry.registerBlock(rbmk_crane_console, rbmk_crane_console.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "RBMKCraneConsole",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 58,
+      "item": "ModBlocks.machine_storage_drum",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:765",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:765",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3752",
+          "statement": "GameRegistry.registerBlock(machine_storage_drum, machine_storage_drum.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/StorageDrum.java:23",
+      "render_type_ancestry": [
+        "StorageDrum"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 59,
+      "item": "ModBlocks.turret_maxwell",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:776",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:776",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3361",
+          "statement": "GameRegistry.registerBlock(turret_maxwell, turret_maxwell.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretMaxwell",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 60,
+      "item": "ModBlocks.turret_fritz",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:789",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:789",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3362",
+          "statement": "GameRegistry.registerBlock(turret_fritz, turret_fritz.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretFritz",
+        "TurretBaseNT",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 61,
+      "item": "ModBlocks.machine_bat9000",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:802",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:802",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3727",
+          "statement": "register(machine_bat9000);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineBigAssTank9000",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 62,
+      "item": "ModBlocks.machine_orbus",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:813",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:813",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3728",
+          "statement": "register(machine_orbus);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineOrbus",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 63,
+      "item": "ModBlocks.nuke_antimatter",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:823",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:823",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3339",
+          "statement": "GameRegistry.registerBlock(nuke_antimatter, nuke_antimatter.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java:33",
+      "render_type_ancestry": [
+        "NukeAntimatter"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 64,
+      "item": "ModBlocks.watz",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:835",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:835",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3869",
+          "statement": "register(watz);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "Watz",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 65,
+      "item": "ModBlocks.machine_fraction_tower",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:846",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:846",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3762",
+          "statement": "register(machine_fraction_tower);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineFractionTower",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 66,
+      "item": "ModBlocks.fraction_spacer",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:856",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:856",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3763",
+          "statement": "register(fraction_spacer);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "FractionSpacer",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 67,
+      "item": "ModBlocks.machine_tower_small",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:865",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:865",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3736",
+          "statement": "GameRegistry.registerBlock(machine_tower_small, machine_tower_small.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineTowerSmall",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 68,
+      "item": "ModBlocks.machine_atmo_tower",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:888",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:888",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3742",
+          "statement": "GameRegistry.registerBlock(machine_atmo_tower, machine_atmo_tower.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "AtmoTower",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 69,
+      "item": "ModBlocks.machine_atmo_vent",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:901",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:901",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3743",
+          "statement": "GameRegistry.registerBlock(machine_atmo_vent, machine_atmo_vent.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "BlockAtmosphericCompressor",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 70,
+      "item": "ModBlocks.machine_fracking_tower",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:916",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:916",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3756",
+          "statement": "register(machine_fracking_tower);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineFrackingTower",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 71,
+      "item": "ModBlocks.machine_deuterium_tower",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:940",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:940",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3741",
+          "statement": "GameRegistry.registerBlock(machine_deuterium_tower, machine_deuterium_tower.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "DeuteriumTower",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 72,
+      "item": "ModBlocks.reactor_zirnox",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:955",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:955",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3544",
+          "statement": "GameRegistry.registerBlock(reactor_zirnox, reactor_zirnox.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "ReactorZirnox",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 73,
+      "item": "ModBlocks.machine_catalytic_cracker",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:967",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:967",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3764",
+          "statement": "register(machine_catalytic_cracker);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineCatalyticCracker",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 74,
+      "item": "ModBlocks.machine_liquefactor",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:979",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:979",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3744",
+          "statement": "register(machine_liquefactor);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineLiquefactor",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 75,
+      "item": "ModBlocks.machine_solidifier",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:990",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:990",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3745",
+          "statement": "register(machine_solidifier);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineSolidifier",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 76,
+      "item": "ModBlocks.machine_radiolysis",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1001",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1001",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3553",
+          "statement": "GameRegistry.registerBlock(machine_radiolysis, machine_radiolysis.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "MachineRadiolysis",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 77,
+      "item": "ModBlocks.red_pylon_large",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1012",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1012",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3622",
+          "statement": "GameRegistry.registerBlock(red_pylon_large, ItemBlockBase.class, red_pylon_large.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "PylonLarge",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 78,
+      "item": "ModBlocks.substation",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1022",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1022",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3623",
+          "statement": "GameRegistry.registerBlock(substation, ItemBlockBase.class, substation.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "Substation",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 79,
+      "item": "ModBlocks.charger",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1034",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1034",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3136",
+          "statement": "GameRegistry.registerBlock(charger, charger.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/Charger.java:28",
+      "render_type_ancestry": [
+        "Charger"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 80,
+      "item": "ModBlocks.furnace_iron",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1049",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1049",
+      "item_class": "ItemBlockBase",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3502",
+          "statement": "register(furnace_iron);"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "FurnaceIron",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 81,
+      "item": "ModBlocks.turret_arty",
+      "source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1061",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/item/ItemRenderLibrary.java:1061",
+      "item_class": "ItemBlock",
+      "render_type": "-1",
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": [
+        {
+          "source": "src/main/java/com/hbm/blocks/ModBlocks.java:3364",
+          "statement": "GameRegistry.registerBlock(turret_arty, turret_arty.getUnlocalizedName());"
+        }
+      ],
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        "TurretArty",
+        "BlockDummyable"
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 82,
+      "item": "ModBlocks.machine_soldering_station",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderSolderingStation.java:76",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderSolderingStation.java:76",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_soldering_station);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineSolderingStation",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineSolderingStation.java:11"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 83,
+      "item": "ModBlocks.heater_oilburner",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderOilburner.java:38",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderOilburner.java:38",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(heater_oilburner);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "HeaterOilburner",
+          "source": "src/main/java/com/hbm/blocks/machine/HeaterOilburner.java:26"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 84,
+      "item": "ModBlocks.machine_arc_furnace",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java:125",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java:125",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_arc_furnace);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineArcFurnaceLarge",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java:20"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 85,
+      "item": "ModBlocks.nuke_n2",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukeN2.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukeN2.java:46",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_n2, nuke_n2.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeN2.java:133",
+      "render_type_ancestry": [
+        {
+          "class": "NukeN2",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukeN2.java:30"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 86,
+      "item": "ModBlocks.machine_milk_reformer",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderMilkReformer.java:60",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderMilkReformer.java:60",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_milk_reformer);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineMilkReformer",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineMilkReformer.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 87,
+      "item": "ModBlocks.machine_htr3",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHTR3.java:133",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHTR3.java:133",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_htr3);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineHTR3",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineHTR3.java:29"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 88,
+      "item": "ModBlocks.machine_magma",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderMagma.java:100",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderMagma.java:100",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_magma);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineMagma",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineMagma.java:26"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 89,
+      "item": "ModBlocks.machine_crucible",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderCrucible.java:87",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderCrucible.java:87",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_crucible);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineCrucible",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java:31"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 90,
+      "item": "ModBlocks.machine_hydrotreater",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHydrotreater.java:39",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHydrotreater.java:39",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_hydrotreater);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineHydrotreater",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineHydrotreater.java:20"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 91,
+      "item": "ModBlocks.fusion_collector",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFusionCollector.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFusionCollector.java:46",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(fusion_collector);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineFusionCollector",
+          "source": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCollector.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 92,
+      "item": "ModBlocks.dyson_converter_tu",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDysonConverterTU.java:45",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDysonConverterTU.java:45",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(dyson_converter_tu);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDysonConverterTU",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterTU.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 93,
+      "item": "ModBlocks.furnace_steel",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java:72",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java:72",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(furnace_steel);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "FurnaceSteel",
+          "source": "src/main/java/com/hbm/blocks/machine/FurnaceSteel.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 94,
+      "item": "ModBlocks.machine_htrf4neo",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java:119",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java:119",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_htrf4neo);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineHTRFNeo",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineHTRFNeo.java:24"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 95,
+      "item": "ModBlocks.machine_combustion_engine",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderCombustionEngine.java:69",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderCombustionEngine.java:69",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_combustion_engine);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineCombustionEngine",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineCombustionEngine.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 96,
+      "item": "ModBlocks.geiger",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderGeiger.java:44",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderGeiger.java:44",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(geiger, geiger.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java:29",
+      "render_type_ancestry": [
+        {
+          "class": "GeigerCounter",
+          "source": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java:17"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 97,
+      "item": "ModBlocks.machine_htrf4",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHTRF4.java:45",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHTRF4.java:45",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_htrf4);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineHTRF4",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineHTRF4.java:22"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 98,
+      "item": "ModBlocks.machine_excavator",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java:153",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java:153",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_excavator);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineExcavator",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineExcavator.java:14"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 99,
+      "item": "ModBlocks.machine_mixer",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderMixer.java:85",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderMixer.java:85",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_mixer);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineMixer",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineMixer.java:11"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 100,
+      "item": "ModBlocks.nuke_fleija",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukeFleija.java:48",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukeFleija.java:48",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_fleija, nuke_fleija.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java:142",
+      "render_type_ancestry": [
+        {
+          "class": "NukeFleija",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java:30"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 101,
+      "item": "ModBlocks.machine_xenon_thruster",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java:89",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java:89",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_xenon_thruster);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineXenonThruster",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineXenonThruster.java:22"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 102,
+      "item": "ModBlocks.machine_catalytic_reformer",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java:95",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java:95",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_catalytic_reformer);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineCatalyticReformer",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineCatalyticReformer.java:21"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 103,
+      "item": "ModBlocks.fusion_coupler",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFusionCoupler.java:48",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFusionCoupler.java:48",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(fusion_coupler);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineFusionCoupler",
+          "source": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCoupler.java:15"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 104,
+      "item": "ModBlocks.orbital_station_computer",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderOrbitalComputer.java:54",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderOrbitalComputer.java:54",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(orbital_station_computer);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "BlockOrbitalStationComputer",
+          "source": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStationComputer.java:33"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 105,
+      "item": "ModBlocks.machine_turbofan",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderTurbofan.java:67",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderTurbofan.java:67",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_turbofan);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineTurbofan",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineTurbofan.java:21"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 106,
+      "item": "ModBlocks.dyson_launcher",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDysonLauncher.java:81",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDysonLauncher.java:81",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(dyson_launcher);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDysonLauncher",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDysonLauncher.java:26"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 107,
+      "item": "ModBlocks.nuke_solinium",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukeSolinium.java:56",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukeSolinium.java:56",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_solinium, nuke_solinium.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java:140",
+      "render_type_ancestry": [
+        {
+          "class": "NukeSolinium",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java:30"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 108,
+      "item": "ModBlocks.machine_stardar",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderStardar.java:69",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderStardar.java:69",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_stardar);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineStardar",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineStardar.java:18"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 109,
+      "item": "ModBlocks.chimney_industrial",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderChimneyIndustrial.java:41",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderChimneyIndustrial.java:41",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(chimney_industrial);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineChimneyIndustrial",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineChimneyIndustrial.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 110,
+      "item": "ModBlocks.hydrobay",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHydroponic.java:72",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHydroponic.java:72",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(hydrobay);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineHydroponic",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java:29"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 111,
+      "item": "ModBlocks.machine_vacuum_circuit",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderVacuumCircuit.java:80",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderVacuumCircuit.java:80",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_vacuum_circuit);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineVacuumCircuit",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineVacuumCircuit.java:19"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 112,
+      "item": "ModBlocks.machine_vacuum_distill",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderVacuumDistill.java:37",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderVacuumDistill.java:37",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_vacuum_distill);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineVacuumDistill",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineVacuumDistill.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 113,
+      "item": "ModBlocks.nuke_mike",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukeMike.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukeMike.java:46",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_mike, nuke_mike.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeMike.java:144",
+      "render_type_ancestry": [
+        {
+          "class": "NukeMike",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukeMike.java:30"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 114,
+      "item": "ModBlocks.machine_ashpit",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderAshpit.java:60",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderAshpit.java:60",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_ashpit);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineAshpit",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineAshpit.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 115,
+      "item": "ModBlocks.machine_arc_welder",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderArcWelder.java:76",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderArcWelder.java:76",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_arc_welder);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineArcWelder",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineArcWelder.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 116,
+      "item": "ModBlocks.machine_battery_socket",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java:118",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java:118",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_battery_socket);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineBatterySocket",
+          "source": "src/main/java/com/hbm/blocks/network/MachineBatterySocket.java:21"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 117,
+      "item": "ModBlocks.nuke_man",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukeMan.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukeMan.java:46",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_man, nuke_man.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeMan.java:137",
+      "render_type_ancestry": [
+        {
+          "class": "NukeMan",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukeMan.java:30"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 118,
+      "item": "ModBlocks.machine_compressor_compact",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderCompressorCompact.java:67",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderCompressorCompact.java:67",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_compressor_compact);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineCompressorCompact",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineCompressorCompact.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 119,
+      "item": "ModBlocks.nuke_prototype",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukePrototype.java:50",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukePrototype.java:50",
+      "item_class": "ItemPrototypeBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_prototype, ItemPrototypeBlock.class, nuke_prototype.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java:153",
+      "render_type_ancestry": [
+        {
+          "class": "NukePrototype",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java:31"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 120,
+      "item": "ModBlocks.machine_lpw2",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderLPW2.java:294",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderLPW2.java:294",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_lpw2);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineLPW2",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineLPW2.java:22"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 121,
+      "item": "ModBlocks.dyson_converter_anatmogenesis",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java:56",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java:56",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(dyson_converter_anatmogenesis);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDysonConverterAnatmogenesis",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterAnatmogenesis.java:30"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 122,
+      "item": "ModBlocks.machine_turbinegas",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderTurbineGas.java:50",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderTurbineGas.java:50",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_turbinegas);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineTurbineGas",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineTurbineGas.java:21"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 123,
+      "item": "ModBlocks.heater_firebox",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFirebox.java:73",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFirebox.java:73",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(heater_firebox);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "HeaterFirebox",
+          "source": "src/main/java/com/hbm/blocks/machine/HeaterFirebox.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 124,
+      "item": "ModBlocks.machine_drain",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDrain.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDrain.java:46",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_drain);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDrain",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDrain.java:23"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 125,
+      "item": "ModBlocks.machine_rotary_furnace",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderRotaryFurnace.java:57",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderRotaryFurnace.java:57",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_rotary_furnace);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineRotaryFurnace",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java:19"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 126,
+      "item": "ModBlocks.machine_rocket_assembly",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderRocketAssembly.java:90",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderRocketAssembly.java:90",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_rocket_assembly);",
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java:38",
+      "render_type_ancestry": [
+        {
+          "class": "MachineRocketAssembly",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java:25"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 127,
+      "item": "ModBlocks.machine_drive_processor",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDriveProcessor.java:53",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDriveProcessor.java:53",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_drive_processor);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDriveProcessor",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDriveProcessor.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 128,
+      "item": "ModBlocks.machine_battery_redd",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java:245",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java:245",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_battery_redd);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineBatteryREDD",
+          "source": "src/main/java/com/hbm/blocks/network/MachineBatteryREDD.java:24"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 129,
+      "item": "ModBlocks.fusion_boiler",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFusionBoiler.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFusionBoiler.java:46",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(fusion_boiler);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineFusionBoiler",
+          "source": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBoiler.java:24"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 130,
+      "item": "ModBlocks.rbmk_autoloader",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderRBMKAutoloader.java:45",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderRBMKAutoloader.java:45",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(rbmk_autoloader);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "RBMKAutoloader",
+          "source": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 131,
+      "item": "ModBlocks.fusion_breeder",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFusionBreeder.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFusionBreeder.java:46",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(fusion_breeder);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineFusionBreeder",
+          "source": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBreeder.java:17"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 132,
+      "item": "ModBlocks.machine_cryo_distill",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderCryoDistill.java:50",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderCryoDistill.java:50",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_cryo_distill);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineCryoDistill",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java:21"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 133,
+      "item": "ModBlocks.transporter_rocket",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java:89",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java:89",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(transporter_rocket);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "BlockTransporterRocket",
+          "source": "src/main/java/com/hbm/blocks/machine/BlockTransporterRocket.java:20"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 134,
+      "item": "ModBlocks.chimney_brick",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderChimneyBrick.java:41",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderChimneyBrick.java:41",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(chimney_brick);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineChimneyBrick",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineChimneyBrick.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 135,
+      "item": "ModBlocks.dyson_converter_he",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java:69",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java:69",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(dyson_converter_he);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDysonConverterHE",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterHE.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 136,
+      "item": "ModBlocks.air_scrubber",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderAirScrubber.java:56",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderAirScrubber.java:56",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(air_scrubber);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "BlockAirScrubber",
+          "source": "src/main/java/com/hbm/blocks/generic/BlockAirScrubber.java:22"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 137,
+      "item": "ModBlocks.machine_radiator",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderRadiator.java:51",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderRadiator.java:51",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_radiator);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineRadiator",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineRadiator.java:22"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 138,
+      "item": "ModBlocks.machine_atmo_emitter",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderAtmosphericEmitter.java:59",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderAtmosphericEmitter.java:59",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_atmo_emitter);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineAtmosphericEmitter",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineAtmosphericEmitter.java:28"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 139,
+      "item": "ModBlocks.machine_pyrooven",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderPyroOven.java:65",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderPyroOven.java:65",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_pyrooven);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachinePyroOven",
+          "source": "src/main/java/com/hbm/blocks/machine/MachinePyroOven.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 140,
+      "item": "ModBlocks.turret_sentry",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderTurretSentry.java:79",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderTurretSentry.java:79",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(turret_sentry, turret_sentry.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/turret/TurretSentry.java:44",
+      "render_type_ancestry": [
+        {
+          "class": "TurretSentry",
+          "source": "src/main/java/com/hbm/blocks/turret/TurretSentry.java:19"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 141,
+      "item": "ModBlocks.machine_alkylation",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderAlkylation.java:47",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderAlkylation.java:47",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(machine_alkylation, machine_alkylation.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineAlkylation",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineAlkylation.java:27"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 142,
+      "item": "ModBlocks.launch_pad_rusted",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRusted.java:63",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRusted.java:63",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(launch_pad_rusted, launch_pad_rusted.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "LaunchPadRusted",
+          "source": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java:17"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 143,
+      "item": "ModBlocks.machine_electrolyser",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderElectrolyser.java:51",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderElectrolyser.java:51",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(machine_electrolyser, machine_electrolyser.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineElectrolyser",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineElectrolyser.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 144,
+      "item": "ModBlocks.heater_heatex",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHeaterHeatex.java:45",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHeaterHeatex.java:45",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(heater_heatex);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "HeaterHeatex",
+          "source": "src/main/java/com/hbm/blocks/machine/HeaterHeatex.java:30"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 145,
+      "item": "ModBlocks.machine_ammo_press",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderAmmoPress.java:63",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderAmmoPress.java:63",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_ammo_press);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineAmmoPress",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineAmmoPress.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 146,
+      "item": "ModBlocks.refueler",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderRefueler.java:87",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderRefueler.java:87",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(refueler, refueler.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java:34",
+      "render_type_ancestry": [
+        {
+          "class": "BlockRefueler",
+          "source": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java:22"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 147,
+      "item": "ModBlocks.heater_oven",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderHeatingOven.java:71",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderHeatingOven.java:71",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(heater_oven);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "HeaterOven",
+          "source": "src/main/java/com/hbm/blocks/machine/HeaterOven.java:16"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 148,
+      "item": "ModBlocks.machine_dish_controller",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDishControl.java:57",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDishControl.java:57",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_dish_controller);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDishControl",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDishControl.java:18"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 149,
+      "item": "ModBlocks.machine_intake",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderIntake.java:59",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderIntake.java:59",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_intake);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineIntake",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineIntake.java:19"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 150,
+      "item": "ModBlocks.nuke_tsar",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderNukeTsar.java:46",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderNukeTsar.java:46",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(nuke_tsar, nuke_tsar.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java:142",
+      "render_type_ancestry": [
+        {
+          "class": "NukeTsar",
+          "source": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java:30"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 151,
+      "item": "ModBlocks.machine_solar",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java:77",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java:77",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(machine_solar, machine_solar.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineSolar",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineSolar.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 152,
+      "item": "ModBlocks.fluid_pump",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFluidPump.java:45",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFluidPump.java:45",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(fluid_pump);",
+      "render_type_source": "src/main/java/com/hbm/blocks/network/FluidPump.java:62",
+      "render_type_ancestry": [
+        {
+          "class": "FluidPump",
+          "source": "src/main/java/com/hbm/blocks/network/FluidPump.java:51"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 153,
+      "item": "ModBlocks.dyson_receiver",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java:90",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java:90",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(dyson_receiver);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineDysonReceiver",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineDysonReceiver.java:24"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 154,
+      "item": "ModBlocks.radio_telex",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderTelex.java:45",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderTelex.java:45",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(radio_telex);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "RadioTelex",
+          "source": "src/main/java/com/hbm/blocks/network/RadioTelex.java:12"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 155,
+      "item": "ModBlocks.machine_exposure_chamber",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java:120",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java:120",
+      "item_class": "ItemBlock",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "GameRegistry.registerBlock(machine_exposure_chamber, machine_exposure_chamber.getUnlocalizedName());",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineExposureChamber",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineExposureChamber.java:13"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 156,
+      "item": "ModBlocks.machine_wood_burner",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderWoodBurner.java:48",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderWoodBurner.java:48",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_wood_burner);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineWoodBurner",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineWoodBurner.java:17"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 157,
+      "item": "ModBlocks.machine_conveyor_press",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java:67",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java:67",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_conveyor_press);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineConveyorPress",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java:28"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 158,
+      "item": "ModBlocks.launch_pad_rocket",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRocket.java:84",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRocket.java:84",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(launch_pad_rocket);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "LaunchPadRocket",
+          "source": "src/main/java/com/hbm/blocks/bomb/LaunchPadRocket.java:28"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 159,
+      "item": "ModBlocks.machine_well",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderDerrick.java:48",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderDerrick.java:48",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_well);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineOilWell",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineOilWell.java:33"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 160,
+      "item": "ModBlocks.furnace_combination",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderFurnaceCombination.java:97",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderFurnaceCombination.java:97",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(furnace_combination);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "FurnaceCombination",
+          "source": "src/main/java/com/hbm/blocks/machine/FurnaceCombination.java:15"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    },
+    {
+      "index": 161,
+      "item": "ModBlocks.machine_coker",
+      "source": "src/main/java/com/hbm/render/tileentity/RenderCoker.java:39",
+      "effective": true,
+      "effective_source": "src/main/java/com/hbm/render/tileentity/RenderCoker.java:39",
+      "item_class": "ItemBlockBase",
+      "render_type": -1,
+      "block3d": false,
+      "full3d": false,
+      "original_dropped_mesh_count": 1,
+      "original_registration": "register(machine_coker);",
+      "render_type_source": "src/main/java/com/hbm/blocks/BlockDummyable.java:426",
+      "render_type_ancestry": [
+        {
+          "class": "MachineCoker",
+          "source": "src/main/java/com/hbm/blocks/machine/MachineCoker.java:18"
+        },
+        {
+          "class": "BlockDummyable",
+          "source": "src/main/java/com/hbm/blocks/BlockDummyable.java:40"
+        }
+      ],
+      "source_scope": "Original pristine NTM + pinned Forge1614; external renderer/registry mutations not assumed."
+    }
+  ]
+}

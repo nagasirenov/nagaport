@@ -1,0 +1,2596 @@
+# MachineBase inventory migration audit
+
+Read-only source audit, 2026-10-19. No production edits, compilation, Gradle, or runtime tests performed. Counts below exclude the root itself and distinguish nested classes and overload signatures. This is not furnace acceptance and does not claim that the production dependency closure compiles. Radiation-specific hazard behavior is deliberately left to its separate audit.
+
+## Recommended next production sub-root: sided callbacks only
+
+Freeze nullable storage, getStackInSlot/decr/removal returns, NBT, names, player/open-close callbacks, recipes, energy and packet behavior. Change only native ISidedInventory signature/dispatch shape and required caller conversions. Final scope refinement: migrate ALL actual legacy ordinary ISidedInventory declarations, not only MachineBase descendants, because generic calls also reach independent native inventories. The complete 120-file legacy group appears at the end; the 80-file group below is its MachineBase descendant subset. This is a native sided-contract milestone, not a complete IInventory implementation or full MachineBase compile milestone. The existing incomplete base may remain uncompilable until subsequent roots; report that honestly. No broad shim or placeholder implementation is needed.
+
+Required caller files (exact call lines appear in the complete call manifest below):
+
+- src/main/java/com/hbm/util/InventoryUtil.java: only masquerade's sided call here; its EMPTY consumer migration is separate.
+- src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java: native sided calls and getSlotAccess; freeze transfer/null-result semantics in this first batch.
+- src/main/java/com/hbm/blocks/network/CraneInserter.java, CraneBoxer.java, CraneUnboxer.java.
+- src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java: extraction and separate masquerade helper.
+- src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java and TileEntityDysonLauncher.java.
+- src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java and TileEntityProxyCombo.java: native wrapper declarations/calls; preserve conditional coordinate overload dispatch.
+- src/main/java/com/hbm/blocks/machine/BlockPWR.java: native wrapper declarations/calls; controller is a separate inventory implementation, so include its matching native callback declarations or explicitly mark that edge blocked rather than claiming root-only closure.
+- Conditional delegate bodies in TileEntityMachineChemicalFactory, TileEntityMachineAssemblyFactory and TileEntityPASource invoke ordinary sided methods. Keep their coordinate signatures intact; convert only delegation into the native ordinary method. Check the remaining conditional implementations as listed in the declaration manifest for the same distinction.
+
+UNKNOWN policy: ForgeDirection.getOrientation(invalid) yields UNKNOWN and UNKNOWN.toEnumFacing() yields null (ForgeDirection.java:40-64). Do not call EnumFacing.byIndex on legacy ordinal 6 because it can map the sentinel to a real direction. Within migrated callback bodies that still compare integer side values, explicitly reconstruct legacy UNKNOWN ordinal through ForgeDirection.fromEnumFacing(face).ordinal(), with tests for six real faces and null/UNKNOWN. At generic native-inventory calls, determine whether a helper can genuinely receive UNKNOWN; preserve an existing sentinel/default branch or fail explicitly rather than silently redirecting to DOWN. This audit does not establish permission to change sentinel behavior.
+
+Native test matrix: direct real callback dispatch for representative constant-access ElectricFurnace, directional Press/StorageDrum, Battery customized insert/extract, and conditional ProxyCombo. Check every face, mismatched item/slot, empty battery predicate, coordinate-aware port route, proxy missing core, UNKNOWN path, and unchanged returned slot array identity/order. Only after these pass should default-name migration (161 declarations plus two custom-state owners), then useability/open-close, and finally EMPTY boundary plus native consumers be opened as independent coherent roots.
+
+ItemStackUtil is independently assigned to another implementation worker (2026-10-19); its spillItems native inventory emptiness and nested nullable NBT-array work is not part of this audit's edit scope. InventoryUtil remains a distinct unported native/domain overload split. Do not wait for unrelated integrations to start the sided batch, but do not report the full machine as ported afterward.
+
+### Frozen descendant sided declaration file group
+
+The following union is exact for ordinary (non-coordinate) sided declarations in the MachineBase descendant closure. Add the root and caller/wrapper files above; do not blanket-edit all 182 descendants.
+
+80 descendant source files:
+
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java`
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java`
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java`
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java`
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java`
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java`
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java`
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java`
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java`
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java`
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java`
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java`
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java`
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java`
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java`
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java`
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java`
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java`
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java`
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java`
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java`
+
+## Findings and bounded migration order
+
+1. **Actual inheritance closure: 125 direct / 182 total named descendants (57 indirect).** There are 124 top-level direct subclasses plus `CranePartitioner.TileEntityCranePartitioner`; indirect nested descendants include `PneumoTubePaintableBlock.TileEntityPneumoTubePaintable` and `CanneryCrucible.TileEntityFauxCrucible`. Neither extending InventoryBase nor replacing LoadedBase is an appropriate shortcut: MachineBase currently extends LoadedBase, whose audio, loaded flag, muffling, ByteBuf serialization, and packet synchronization must survive.
+2. **Storage is a domain contract, not just an implementation detail.** Keep public nullable `ItemStack[] slots`, preserve live nonempty stack identity, setter count clamp, full-removal return identity, and partial-split semantics. Keep absent slots null. Do not fill storage with EMPTY, change to NonNullList, clone on reads, or hide/replace the field. Barrel's corrosion replacement (`TileEntityBarrel.java:259-267`) clones the array but preserves stack references and assigns that array to the replacement tile. Battery constructor reassigns its inherited array. Furnace and upgrade/charge helpers directly consume the array. Native IInventory reads/removals must return EMPTY, but nullable domain helper return values must remain nullable until their own contracts migrate.
+3. **First mechanical group: native names and callbacks, not silent default fallthrough.** There are 161 descendant default-name declarations. Rename those declarations to a default-name hook when installing native getName, and review callers of the old hook. Battery and DiFurnaceRTG additionally override getInventoryName, hasCustomInventoryName, and setCustomName with their own name fields: port their custom-state ownership explicitly, not by inheriting the root private field. Battery's old getInventoryName calls getName, so careless reciprocal bridging recurses. Preserve custom/default display components and NBT name overlay behavior.
+4. **Sided groups: 80 one-int access declarations, 11 three-argument insert declarations, 69 three-argument extract declarations.** These must reach native getSlotsForFace/EnumFacing insert/extract calls. Migrate these exact overrides and their typed callers together, preserving existing callback bodies and testing that native dispatch executes them. Do not add a broad legacy bridge and never install root defaults that bypass these overrides. Do not globally replace coordinate-aware IConditionalInvAccess overloads: there are 6 access, 4 insert, 6 extract declarations with position arguments, called by ProxyCombo using the proxy position. Their int domain side is intentional until that interface is separately ported. Native and ForgeDirection side order must be tested for all six faces, not inferred through UNKNOWN.
+5. **Native EMPTY boundary plus consumers must land together.** No descendant overrides root getStackInSlot, decrStackSize, closing removal, or native removal. This makes the root structurally straightforward, but exposes every polymorphic IInventory consumer to a changed empty value. Port native inventory call sites to isEmpty before relying on the root. Do not change unrelated nullable recipe/helper returns. In particular InventoryUtil's ItemStack[] overload remains null-based while its IInventory overload must consume native EMPTY. Its public remainder result can remain nullable. The same Java method cannot return null to a MachineBase caller and EMPTY to an IInventory caller; use an explicitly named domain accessor or direct slots only where a domain null contract is actually required.
+6. **Setter callbacks:** 12 overrides. DiFurnaceRTG assigns slots directly and must normalize native empties itself or delegate safely. Ten overrides delegate then emit upgrade insertion sounds (MiningLaser, Crystallizer, ArcFurnaceLarge, Cyclotron, VacuumCircuit, ArcWelder, SolderingStation, CraneExtractor, OilDrillBase, PyroOven). AmmoPress currently delegates only; its recipe side-effect block is commented out. Preserve these distinctions, including no new sound on removal/EMPTY. No `slots` field redeclaration was found in the descendant closure.
+7. **Open/close callbacks:** four old no-argument pairs. FireboxBase, Ashpit, and CombustionEngine increment/decrement server playersUsing; TurretBaseNT plays sounds. Migrate paired containers Firebox/Ashpit/CombustionEngine/TurretBase and callback signatures together in their own later batch. Empty native implementations lose behavior. Six isUseableByPlayer overrides must also retain their distance/access checks through native spelling.
+8. **Fields and clearing:** no descendant root overrides of clear/getField/setField/getFieldCount. Autocrafter's apparent clear belongs to its nested InventoryCrafting subclass, not the machine. Native field count zero is appropriate only as the inventory field contract, not a substitute for existing ByteBuf/GUI synchronization. clear should clear the complete physical array without resizing it. Two getSizeInventory overrides (OrbitalStationLauncher, RocketAssembly) intentionally hide drive slots while breaking; do not use their temporary visible size to decide physical NBT or clear coverage. Ten stack-limit overrides require virtual dispatch.
+
+## Native-call versus domain-call danger points
+
+- `util/InventoryUtil.java:120-170`: IInventory insertion overload currently checks getStackInSlot == null. An EMPTY root silently makes every empty slot look occupied. The array overload at 35-110 is a distinct null-based API; keep its remainder/aliasing semantics.
+- `uninos/networkproviders/PneumaticNetwork.java:56-210`: source/destination are IInventory, merge/insertion uses returned stacks and null checks (including assigned locals); consumes sided int callbacks and returns nullable domain work state. Empty-source checks, destination insertion, depleted stack clearing, per-face access, and exact transfer totals need one coordinated migration.
+- `tileentity/machine/TileEntityTransporterBase.java:183-253`: native adjacent IInventory + legacy nullable local slots. Its empty-target null check and source != null checks cannot survive unchanged. Retain direct slots null semantics while changing native checks.
+- `tileentity/machine/TileEntityDysonLauncher.java:191-213`: adjacent native inventory extraction stores returned removal into nullable local slots. Normalize any empty removal before assignment and retain item checks.
+- `tileentity/network/TileEntityCraneBase.java:126`, `TileEntityCraneRouter.java:158`, and `tileentity/IControlReceiverFilter.java:59`: native inventory serialization currently writes entries whenever returned stack != null. EMPTY would serialize empty entries. Migrate predicate, preserve actual keys/order.
+- `tileentity/network/TileEntityCraneExtractor.java:115`: assigned native inventory stack and subsequent branch logic, not merely direct null comparison.
+- `tileentity/network/TileEntityRadioTorchCounter.java:51-64`: copies native reads to a temporary ItemStack[] and applies null-based matcher checks. Either normalize at that boundary or update this temporary-array consumer; don't alter machine storage globally.
+- `tileentity/machine/TileEntityMachineAutocrafter.java:102-107`: this.getStackInSlot assigned to ingredient then != null controls decr/container-item behavior. Change the predicate or deliberately read the nullable domain slot. Test missing ingredient and container item after full depletion.
+- `tileentity/TileEntityProxyInventory.java:23-147` and `TileEntityProxyCombo.java:231-409`: native delegating wrappers, unavailable-core null returns, legacy closing/open/close and side callbacks all need native contracts. Conditional proxy calls must still receive proxy coordinates. Never assume only direct descendants can expose MachineBase to hoppers.
+- `blocks/machine/MachineElectricFurnace.java:185`: breaking uses a typed machine getter and null predicate. EMPTY migration must update this caller with the root; otherwise empty slots enter the drop path.
+- `tileentity/machine/TileEntityReactorZirnox.java:321`: domain getter under a documented rod precondition; preserve identity, do not blindly rewrite unrelated fuel-map behavior. Detailed reactor consequences belong to separate audit.
+- Many similarly named independent inventories (MissileAssembly, bomb inventories, InventoryBase family, crates, entities) are NOT MachineBase descendants. Their calls appear in the conservative manifests below to prevent overlooked generic consumers, not to authorize blanket migration.
+
+## Small representative batches and native tests
+
+A. Root inventory implementation with native Minecraft classes, plus callback fixture subclasses: assert fresh EMPTY/native versus null/storage, null/EMPTY setter normalization, identity of live reads and full removals, partial split/exhaustion, limit overrides, in-place clear, unchanged NBT keys items/slot/name/muffled, signed-byte bounds/duplicate overlay/stale-slot behavior, custom/default display text. Test six-side dispatch, unavailable proxy, open/close balance and useability override dispatch. Fixture tests are boundary evidence only, not production compile proof.
+
+B. Consumer batch InventoryUtil native overload + PneumaticNetwork + transport/proxy/filter callers above. Test a native inventory and real MachineBase-derived storage in both source/destination positions: merge, empty destination, full destination, side denied, partial transfer, depleted source, no duplicate/drop, and live reference mutation. Keep ItemStack[] overload parity tests to guard null-result and identity contracts. Then callback batches: default names first; custom Battery/DiFurnaceRTG separately; ordinary sided group separately from conditional-proxy group; playersUsing/sounds separately from setters.
+
+C. Real ElectricFurnace vertical slice, not a fake furnace using InventoryBase: use the actual TileEntityMachineElectricFurnace, actual root and LoadedBase, full energy/battery/upgrade/recipe dependencies, registered blocks, container/SlotSmelting/GUI, and actual packet path. Existing `electric-furnace-acceptance.md` remains authoritative for eventual in-game gates. Native tests can additionally verify input/output/upgrade slot exposure, discharged battery extraction, invalid vanilla furnace recipe returning EMPTY, full output/stack limit, 100 ticks x 50 energy, upgrade formulas, 20-tick cooldown/reset and save/reload. Do not claim runtime acceptance before the full production build and real client/server checks pass.
+
+## What still prevents compiling the real root / furnace
+
+Source-level API blockers, not a freshly measured javac error list:
+
+- MachineBase still uses worldObj/xCoord/yCoord/zCoord, old markTileEntityChunkModified coordinates, old getTileEntity coordinates, stackSize, loadItemStackFromNBT, old inventory signatures, missing native inventory methods/display name, and old block neighbor/redstone callbacks. getGaugeScaled already targets Forge FluidTank and should retain its arithmetic.
+- LoadedBase still uses worldObj/coordinates/dimensionId in networkPackNT; preserve duplicate payload comparison and 20-tick resend, packet layout, sound wrapper, unload state, and muffled NBT while porting. PacketThreading/BufPacket/AudioWrapper/IBufPacketReceiver remain real dependencies.
+- Root updateRedstoneConnection requires real World/BlockPos/IBlockState neighbor semantics, not deletion or dummy methods. Root breatheAir depends on CelestialBody, WorldProviderOrbit, atmosphere traits/blobs/manager and Fluids; an inventory-only extracted test does not compile this closure.
+- Furnace remains on slots null storage, stackSize, FurnaceRecipes.smelting (native instance API), and a null recipe-result check that native EMPTY invalidates. Port both isItemValidForSlot and canProcess; keep output identity/count logic. It still calls Library.chargeTEFromItems, UpgradeManagerNT, pollution, legacy energy connection coordinates, active/off state transitions, and networkPackNT. The furnace's own four-slot array and original balance must remain.
+- ContainerElectricFurnace, SlotSmelting/XP-event handling, GUI localized names, registered machine block/state/tile lifecycle, packet registration/client handling, real energy interfaces and item upgrade classes must compile together. Zero field callbacks do not replace serialize(muffled,power,maxProgress,progress).
+
+## Manifest methodology and limits
+
+Snapshot of src/main/java at audit time. Lexical Java scan masks comments and string/character literals, balances class bodies, and counts declarations only at their owning class depth; recursively resolves named inheritance. Complete named descendant/declaration manifests follow. Anonymous subclasses, reflection and dynamically bound external mods are not claimed exhaustively resolved. Caller candidates are intentionally conservative all-source lexical member calls, grouped with exact source lines, rather than falsely claiming Java type resolution from an uncompilable tree. Null checks on assigned locals require the focused manual review above; a grep-only direct-null count is not a safety proof. Paths below are repository-relative. No game logic modifications were made.
+
+## Complete inheritance manifest
+
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:141`: TileEntityCranePartitioner extends TileEntityMachineBase
+- `src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java:170`: TileEntityPneumoTubePaintable extends TileEntityPneumoTube
+- `src/main/java/com/hbm/tileentity/TileEntityMachinePolluting.java:19`: TileEntityMachinePolluting extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java:21`: TileEntityAntimatter extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java:17`: TileEntityLaunchPad extends TileEntityLaunchPadBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:59`: TileEntityLaunchPadBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java:21`: TileEntityLaunchPadLarge extends TileEntityLaunchPadBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java:53`: TileEntityLaunchPadRocket extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java:33`: TileEntityLaunchPadRusted extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java:21`: TileEntityNukeBalefire extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java:31`: TileEntityAirPump extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java:20`: TileEntityAirScrubber extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java:13`: TileEntityAlgaeFilm extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:27`: TileEntityAshpit extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAtmoTower.java:6`: TileEntityAtmoTower extends TileEntityDeuteriumTower
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java:25`: TileEntityAtmosphericCompressor extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:22`: TileEntityConveyorPress extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCore.java:38`: TileEntityCore extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java:42`: TileEntityCoreEmitter extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java:29`: TileEntityCoreInjector extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java:34`: TileEntityCoreReceiver extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java:34`: TileEntityCoreStabilizer extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:51`: TileEntityCrucible extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:45`: TileEntityCustomMachine extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java:14`: TileEntityDeuteriumExtractor extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumTower.java:16`: TileEntityDeuteriumTower extends TileEntityDeuteriumExtractor
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:31`: TileEntityDiFurnace extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:23`: TileEntityDiFurnaceRTG extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java:18`: TileEntityDishControl extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java:18`: TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java:19`: TileEntityDysonConverterHE extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java:14`: TileEntityDysonConverterTU extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:27`: TileEntityDysonLauncher extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java:36`: TileEntityDysonReceiver extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:52`: TileEntityElectrolyser extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java:45`: TileEntityFEL extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:28`: TileEntityFireboxBase extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java:29`: TileEntityFurnaceBrick extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:33`: TileEntityFurnaceCombination extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:32`: TileEntityFurnaceIron extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:29`: TileEntityFurnaceSteel extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterFirebox.java:20`: TileEntityHeaterFirebox extends TileEntityFireboxBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java:31`: TileEntityHeaterHeatex extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java:27`: TileEntityHeaterOilburner extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOven.java:26`: TileEntityHeaterOven extends TileEntityFireboxBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:39`: TileEntityHydroponic extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:42`: TileEntityICF extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:29`: TileEntityICFPress extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:53`: TileEntityITER extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:21`: TileEntityMachineAmmoPress extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:39`: TileEntityMachineAnnihilator extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:52`: TileEntityMachineArcFurnaceLarge extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:42`: TileEntityMachineArcWelder extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:49`: TileEntityMachineAssemblyFactory extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:43`: TileEntityMachineAssemblyMachine extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:31`: TileEntityMachineAutocrafter extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:41`: TileEntityMachineCentrifuge extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:45`: TileEntityMachineChemicalFactory extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:42`: TileEntityMachineChemicalPlant extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java:44`: TileEntityMachineCombustionEngine extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressor.java:11`: TileEntityMachineCompressor extends TileEntityMachineCompressorBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java:37`: TileEntityMachineCompressorBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorCompact.java:8`: TileEntityMachineCompressorCompact extends TileEntityMachineCompressorBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java:30`: TileEntityMachineCryoDistill extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:39`: TileEntityMachineCrystallizer extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:42`: TileEntityMachineCyclotron extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:43`: TileEntityMachineDiesel extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java:28`: TileEntityMachineDriveProcessor extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:43`: TileEntityMachineEPress extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:35`: TileEntityMachineElectricFurnace extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java:62`: TileEntityMachineExcavator extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:34`: TileEntityMachineExposureChamber extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:25`: TileEntityMachineFunnel extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:40`: TileEntityMachineGasCent extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java:23`: TileEntityMachineGasDock extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java:29`: TileEntityMachineHTR3 extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java:30`: TileEntityMachineHTRF4 extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java:30`: TileEntityMachineHTRNeo extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:28`: TileEntityMachineIGenerator extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java:28`: TileEntityMachineLPW2 extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java:43`: TileEntityMachineLargeTurbine extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java:32`: TileEntityMachineMagma extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java:27`: TileEntityMachineMilkReformer extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:63`: TileEntityMachineMiningLaser extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java:35`: TileEntityMachineMixer extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:52`: TileEntityMachineOreSlopper extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:40`: TileEntityMachinePUREX extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java:33`: TileEntityMachinePlasmaHeater extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:44`: TileEntityMachinePrecAss extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:32`: TileEntityMachinePress extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:34`: TileEntityMachineRadGen extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarLarge.java:13`: TileEntityMachineRadarLarge extends TileEntityMachineRadarNT
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:67`: TileEntityMachineRadarNT extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:37`: TileEntityMachineRadiolysis extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:34`: TileEntityMachineReactorBreeding extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java:35`: TileEntityMachineRocketAssembly extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:47`: TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:45`: TileEntityMachineSolderingStation extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java:39`: TileEntityMachineStardar extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java:47`: TileEntityMachineTurbineGas extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java:52`: TileEntityMachineTurbofan extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:41`: TileEntityMachineVacuumCircuit extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java:25`: TileEntityMachineWarController extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:37`: TileEntityMachineWoodBurner extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:37`: TileEntityMicrowave extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:31`: TileEntityOrbitalStation extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationComputer.java:22`: TileEntityOrbitalStationComputer extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java:41`: TileEntityOrbitalStationLauncher extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:50`: TileEntityPWRController extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java:33`: TileEntityReactorControl extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:52`: TileEntityReactorResearch extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:52`: TileEntityReactorZirnox extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:36`: TileEntitySILEX extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:40`: TileEntitySawmill extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java:40`: TileEntitySoyuzLauncher extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:38`: TileEntityStorageDrum extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java:31`: TileEntityTesla extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:34`: TileEntityTransporterBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java:26`: TileEntityTransporterRocket extends TileEntityTransporterBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:48`: TileEntityWatz extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java:28`: TileEntityXenonThruster extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityCooledBase.java:14`: TileEntityCooledBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:34`: TileEntityPADetector extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java:38`: TileEntityPADipole extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java:30`: TileEntityPAQuadrupole extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java:27`: TileEntityPARFC extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:35`: TileEntityPASource extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:41`: TileEntityFusionBreeder extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java:44`: TileEntityFusionKlystron extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:48`: TileEntityFusionTorus extends TileEntityCooledBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java:23`: TileEntityMachineAlkylation extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java:32`: TileEntityMachineCatalyticReformer extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:39`: TileEntityMachineCoker extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java:32`: TileEntityMachineFrackingTower extends TileEntityOilDrillBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java:48`: TileEntityMachineGasFlare extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java:31`: TileEntityMachineHydrotreater extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java:38`: TileEntityMachineLiquefactor extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java:31`: TileEntityMachineOilWell extends TileEntityOilDrillBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java:33`: TileEntityMachinePumpjack extends TileEntityOilDrillBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:43`: TileEntityMachinePyroOven extends TileEntityMachinePolluting
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:48`: TileEntityMachineRefinery extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:38`: TileEntityMachineSolidifier extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java:32`: TileEntityMachineVacuumDistill extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:32`: TileEntityOilDrillBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:27`: TileEntityRBMKAutoloader extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java:41`: TileEntityRBMKConsole extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:56`: TileEntityBarrel extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java:36`: TileEntityBatteryBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java:26`: TileEntityBatteryREDD extends TileEntityBatteryBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java:28`: TileEntityBatterySocket extends TileEntityBatteryBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java:10`: TileEntityMachineBAT9000 extends TileEntityBarrel
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:42`: TileEntityMachineBattery extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFENSU.java:15`: TileEntityMachineFENSU extends TileEntityMachineBattery
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java:59`: TileEntityMachineFluidTank extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java:20`: TileEntityMachineOrbus extends TileEntityBarrel
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java:17`: TileEntityCraneBase extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java:21`: TileEntityCraneBoxer extends TileEntityCraneBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:31`: TileEntityCraneExtractor extends TileEntityCraneBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java:33`: TileEntityCraneGrabber extends TileEntityCraneBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:25`: TileEntityCraneInserter extends TileEntityCraneBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java:23`: TileEntityCraneRouter extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:19`: TileEntityCraneUnboxer extends TileEntityCraneBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:31`: TileEntityDroneCrate extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java:38`: TileEntityPneumoTube extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java:17`: TileEntityRadioTorchCounter extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java:34`: TileEntityTurretArty extends TileEntityTurretBaseArtillery
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseArtillery.java:17`: TileEntityTurretBaseArtillery extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:69`: TileEntityTurretBaseNT extends TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBrandon.java:11`: TileEntityTurretBrandon extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java:21`: TileEntityTurretChekhov extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFriendly.java:15`: TileEntityTurretFriendly extends TileEntityTurretChekhov
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java:31`: TileEntityTurretFritz extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java:32`: TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java:26`: TileEntityTurretHoward extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHowardDamaged.java:21`: TileEntityTurretHowardDamaged extends TileEntityTurretHoward
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java:21`: TileEntityTurretJeremy extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java:34`: TileEntityTurretMaxwell extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java:21`: TileEntityTurretRichard extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java:27`: TileEntityTurretSentry extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentryDamaged.java:15`: TileEntityTurretSentryDamaged extends TileEntityTurretSentry
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java:22`: TileEntityTurretTauon extends TileEntityTurretBaseNT
+- `src/main/java/com/hbm/wiaj/cannery/CanneryCrucible.java:216`: TileEntityFauxCrucible extends TileEntityCrucible
+
+## Complete override/declaration groups
+
+
+### getName: 161 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java:293`: TileEntityAirPump.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java:37`: TileEntityAirScrubber.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java:26`: TileEntityAlgaeFilm.getName()
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java:33`: TileEntityAntimatter.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:85`: TileEntityAshpit.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java:40`: TileEntityAtmosphericCompressor.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:79`: TileEntityBarrel.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java:42`: TileEntityBatteryREDD.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java:41`: TileEntityBatterySocket.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:44`: TileEntityConveyorPress.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCore.java:57`: TileEntityCore.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java:61`: TileEntityCoreEmitter.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java:43`: TileEntityCoreInjector.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java:46`: TileEntityCoreReceiver.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java:48`: TileEntityCoreStabilizer.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java:37`: TileEntityCraneBoxer.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:43`: TileEntityCraneExtractor.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java:50`: TileEntityCraneGrabber.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:35`: TileEntityCraneInserter.getName()
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:152`: TileEntityCranePartitioner.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java:41`: TileEntityCraneRouter.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:26`: TileEntityCraneUnboxer.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:96`: TileEntityCrucible.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:101`: TileEntityCustomMachine.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java:27`: TileEntityDeuteriumExtractor.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:48`: TileEntityDiFurnace.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:218`: TileEntityDiFurnaceRTG.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java:30`: TileEntityDishControl.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:48`: TileEntityDroneCrate.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java:50`: TileEntityDysonConverterAnatmogenesis.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java:31`: TileEntityDysonConverterHE.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java:23`: TileEntityDysonConverterTU.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:57`: TileEntityDysonLauncher.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java:72`: TileEntityDysonReceiver.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:111`: TileEntityElectrolyser.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java:64`: TileEntityFEL.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java:71`: TileEntityFurnaceBrick.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:51`: TileEntityFurnaceCombination.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:59`: TileEntityFurnaceIron.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:48`: TileEntityFurnaceSteel.getName()
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:61`: TileEntityFusionBreeder.getName()
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java:70`: TileEntityFusionKlystron.getName()
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:92`: TileEntityFusionTorus.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterFirebox.java:45`: TileEntityHeaterFirebox.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java:46`: TileEntityHeaterHeatex.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java:42`: TileEntityHeaterOilburner.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOven.java:52`: TileEntityHeaterOven.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:70`: TileEntityHydroponic.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:63`: TileEntityICF.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:43`: TileEntityICFPress.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:88`: TileEntityITER.getName()
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:124`: TileEntityLaunchPadBase.getName()
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java:77`: TileEntityLaunchPadRocket.getName()
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java:46`: TileEntityLaunchPadRusted.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java:41`: TileEntityMachineAlkylation.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:42`: TileEntityMachineAmmoPress.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:54`: TileEntityMachineAnnihilator.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:91`: TileEntityMachineArcFurnaceLarge.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:62`: TileEntityMachineArcWelder.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:147`: TileEntityMachineAssemblyFactory.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:79`: TileEntityMachineAssemblyMachine.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:67`: TileEntityMachineAutocrafter.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java:17`: TileEntityMachineBAT9000.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:78`: TileEntityMachineBattery.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java:50`: TileEntityMachineCatalyticReformer.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:85`: TileEntityMachineCentrifuge.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:147`: TileEntityMachineChemicalFactory.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:77`: TileEntityMachineChemicalPlant.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:59`: TileEntityMachineCoker.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java:67`: TileEntityMachineCombustionEngine.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java:59`: TileEntityMachineCompressorBase.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java:49`: TileEntityMachineCryoDistill.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:61`: TileEntityMachineCrystallizer.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:67`: TileEntityMachineCyclotron.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:72`: TileEntityMachineDiesel.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java:210`: TileEntityMachineDriveProcessor.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:66`: TileEntityMachineEPress.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:55`: TileEntityMachineElectricFurnace.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java:100`: TileEntityMachineExcavator.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:83`: TileEntityMachineExposureChamber.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java:80`: TileEntityMachineFluidTank.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java:49`: TileEntityMachineFrackingTower.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:37`: TileEntityMachineFunnel.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:65`: TileEntityMachineGasCent.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java:205`: TileEntityMachineGasDock.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java:66`: TileEntityMachineGasFlare.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java:282`: TileEntityMachineHTR3.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java:292`: TileEntityMachineHTRF4.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java:357`: TileEntityMachineHTRNeo.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java:49`: TileEntityMachineHydrotreater.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:69`: TileEntityMachineIGenerator.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java:277`: TileEntityMachineLPW2.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java:76`: TileEntityMachineLargeTurbine.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java:59`: TileEntityMachineLiquefactor.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java:289`: TileEntityMachineMagma.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java:44`: TileEntityMachineMilkReformer.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:95`: TileEntityMachineMiningLaser.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java:62`: TileEntityMachineMixer.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java:38`: TileEntityMachineOilWell.getName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java:27`: TileEntityMachineOrbus.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:90`: TileEntityMachineOreSlopper.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:72`: TileEntityMachinePUREX.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java:50`: TileEntityMachinePlasmaHeater.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:85`: TileEntityMachinePrecAss.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:55`: TileEntityMachinePress.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java:48`: TileEntityMachinePumpjack.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:78`: TileEntityMachinePyroOven.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:52`: TileEntityMachineRadGen.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:131`: TileEntityMachineRadarNT.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:57`: TileEntityMachineRadiolysis.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:46`: TileEntityMachineReactorBreeding.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:77`: TileEntityMachineRefinery.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java:53`: TileEntityMachineRocketAssembly.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:85`: TileEntityMachineRotaryFurnace.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:66`: TileEntityMachineSolderingStation.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:58`: TileEntityMachineSolidifier.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java:150`: TileEntityMachineStardar.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java:555`: TileEntityMachineTurbineGas.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java:80`: TileEntityMachineTurbofan.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:63`: TileEntityMachineVacuumCircuit.getName()
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java:55`: TileEntityMachineVacuumDistill.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java:34`: TileEntityMachineWarController.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:61`: TileEntityMachineWoodBurner.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:52`: TileEntityMicrowave.getName()
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java:33`: TileEntityNukeBalefire.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:56`: TileEntityOrbitalStation.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationComputer.java:49`: TileEntityOrbitalStationComputer.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java:74`: TileEntityOrbitalStationLauncher.getName()
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:43`: TileEntityPADetector.getName()
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java:67`: TileEntityPADipole.getName()
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java:45`: TileEntityPAQuadrupole.getName()
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java:43`: TileEntityPARFC.getName()
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:73`: TileEntityPASource.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:162`: TileEntityPWRController.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java:61`: TileEntityPneumoTube.getName()
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:48`: TileEntityRBMKAutoloader.getName()
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java:66`: TileEntityRBMKConsole.getName()
+- `src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java:33`: TileEntityRadioTorchCounter.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java:40`: TileEntityReactorControl.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:83`: TileEntityReactorResearch.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:97`: TileEntityReactorZirnox.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:59`: TileEntitySILEX.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:58`: TileEntitySawmill.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java:64`: TileEntitySoyuzLauncher.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:53`: TileEntityStorageDrum.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java:46`: TileEntityTesla.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:73`: TileEntityTransporterBase.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java:67`: TileEntityTurretArty.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBrandon.java:32`: TileEntityTurretBrandon.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java:42`: TileEntityTurretChekhov.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFriendly.java:32`: TileEntityTurretFriendly.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java:41`: TileEntityTurretFritz.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java:65`: TileEntityTurretHIMARS.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java:40`: TileEntityTurretHoward.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java:39`: TileEntityTurretJeremy.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java:37`: TileEntityTurretMaxwell.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java:35`: TileEntityTurretRichard.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java:53`: TileEntityTurretSentry.getName()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java:36`: TileEntityTurretTauon.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:73`: TileEntityWatz.getName()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java:51`: TileEntityXenonThruster.getName()
+
+### getInventoryName: 2 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:173`: TileEntityDiFurnaceRTG.getInventoryName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:83`: TileEntityMachineBattery.getInventoryName()
+
+### hasCustomInventoryName: 2 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:178`: TileEntityDiFurnaceRTG.hasCustomInventoryName()
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:88`: TileEntityMachineBattery.hasCustomInventoryName()
+
+### setCustomName: 2 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:154`: TileEntityDiFurnaceRTG.setCustomName(String name)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:92`: TileEntityMachineBattery.setCustomName(String name)
+
+### getStackInSlot: 0 descendant declarations
+
+
+### decrStackSize: 0 descendant declarations
+
+
+### removeStackFromSlot: 0 descendant declarations
+
+
+### getStackInSlotOnClosing: 0 descendant declarations
+
+
+### setInventorySlotContents: 12 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:48`: TileEntityCraneExtractor.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:146`: TileEntityDiFurnaceRTG.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:90`: TileEntityMachineAmmoPress.setInventorySlotContents(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:96`: TileEntityMachineArcFurnaceLarge.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:67`: TileEntityMachineArcWelder.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:344`: TileEntityMachineCrystallizer.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:313`: TileEntityMachineCyclotron.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:598`: TileEntityMachineMiningLaser.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:69`: TileEntityMachinePyroOven.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:71`: TileEntityMachineSolderingStation.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:68`: TileEntityMachineVacuumCircuit.setInventorySlotContents(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:183`: TileEntityOilDrillBase.setInventorySlotContents(int i, ItemStack stack)
+
+### getAccessibleSlotsFromSide: 86 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:158`: TileEntityAshpit.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:235`: TileEntityBarrel.getAccessibleSlotsFromSide(int p_94128_1_)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java:96`: TileEntityBatterySocket.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:199`: TileEntityConveyorPress.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java:164`: TileEntityCraneBoxer.getAccessibleSlotsFromSide(int p_94128_1_)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:232`: TileEntityCraneExtractor.getAccessibleSlotsFromSide(int p_94128_1_)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:113`: TileEntityCraneInserter.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:205`: TileEntityCranePartitioner.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:96`: TileEntityCraneUnboxer.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:555`: TileEntityCrucible.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:458`: TileEntityCustomMachine.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:109`: TileEntityDiFurnace.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:203`: TileEntityDiFurnaceRTG.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:195`: TileEntityDroneCrate.getAccessibleSlotsFromSide(int p_94128_1_)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:271`: TileEntityDysonLauncher.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:95`: TileEntityElectrolyser.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:203`: TileEntityFireboxBase.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java:152`: TileEntityFurnaceBrick.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:211`: TileEntityFurnaceCombination.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:177`: TileEntityFurnaceIron.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:233`: TileEntityFurnaceSteel.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:207`: TileEntityFusionBreeder.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:409`: TileEntityFusionTorus.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:306`: TileEntityHydroponic.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:206`: TileEntityICF.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:153`: TileEntityICFPress.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:354`: TileEntityITER.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:134`: TileEntityLaunchPadBase.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:150`: TileEntityMachineAmmoPress.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:193`: TileEntityMachineAnnihilator.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:374`: TileEntityMachineArcFurnaceLarge.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:297`: TileEntityMachineArcWelder.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:317`: TileEntityMachineArcWelder.getAccessibleSlotsFromSide(int x, int y, int z, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:117`: TileEntityMachineAssemblyFactory.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:131`: TileEntityMachineAssemblyFactory.getAccessibleSlotsFromSide(int x, int y, int z, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:283`: TileEntityMachineAssemblyMachine.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:177`: TileEntityMachineAutocrafter.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:140`: TileEntityMachineBattery.getAccessibleSlotsFromSide(int p_94128_1_)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:95`: TileEntityMachineCentrifuge.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:116`: TileEntityMachineChemicalFactory.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:130`: TileEntityMachineChemicalFactory.getAccessibleSlotsFromSide(int x, int y, int z, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:258`: TileEntityMachineChemicalPlant.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:233`: TileEntityMachineCoker.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:314`: TileEntityMachineCrystallizer.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:389`: TileEntityMachineCyclotron.getAccessibleSlotsFromSide(int x, int y, int z, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:103`: TileEntityMachineDiesel.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:226`: TileEntityMachineEPress.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:89`: TileEntityMachineElectricFurnace.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:247`: TileEntityMachineExposureChamber.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:88`: TileEntityMachineFunnel.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:75`: TileEntityMachineGasCent.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:219`: TileEntityMachineIGenerator.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java:118`: TileEntityMachineLiquefactor.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:586`: TileEntityMachineMiningLaser.getAccessibleSlotsFromSide(int slot)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java:228`: TileEntityMachineMixer.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:291`: TileEntityMachineOreSlopper.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:216`: TileEntityMachinePUREX.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:333`: TileEntityMachinePrecAss.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:233`: TileEntityMachinePress.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:304`: TileEntityMachinePyroOven.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:214`: TileEntityMachineRadGen.getAccessibleSlotsFromSide(int i)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:68`: TileEntityMachineRadiolysis.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:163`: TileEntityMachineReactorBreeding.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:118`: TileEntityMachineRefinery.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:367`: TileEntityMachineRotaryFurnace.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:400`: TileEntityMachineRotaryFurnace.getAccessibleSlotsFromSide(int x, int y, int z, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:221`: TileEntityMachineSolderingStation.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:111`: TileEntityMachineSolidifier.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:194`: TileEntityMachineVacuumCircuit.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:244`: TileEntityMachineWoodBurner.getAccessibleSlotsFromSide(int meta)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:176`: TileEntityMicrowave.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:270`: TileEntityOrbitalStation.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:77`: TileEntityPADetector.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:173`: TileEntityPASource.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:184`: TileEntityPASource.getAccessibleSlotsFromSide(int x, int y, int z, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:466`: TileEntityPWRController.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:213`: TileEntityRBMKAutoloader.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:115`: TileEntityReactorResearch.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:102`: TileEntityReactorZirnox.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:290`: TileEntitySILEX.getAccessibleSlotsFromSide(int p_94128_1_)
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:238`: TileEntitySawmill.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:248`: TileEntityStorageDrum.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:420`: TileEntityTransporterBase.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:806`: TileEntityTurretBaseNT.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java:198`: TileEntityTurretFritz.getAccessibleSlotsFromSide(int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:432`: TileEntityWatz.getAccessibleSlotsFromSide(int side)
+
+### canInsertItem: 15 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:204`: TileEntityConveyorPress.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:114`: TileEntityDiFurnace.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:188`: TileEntityDiFurnaceRTG.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:382`: TileEntityMachineArcFurnaceLarge.canInsertItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:307`: TileEntityMachineArcWelder.canInsertItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:128`: TileEntityMachineAssemblyFactory.canInsertItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:145`: TileEntityMachineBattery.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:127`: TileEntityMachineChemicalFactory.canInsertItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:379`: TileEntityMachineCyclotron.canInsertItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:231`: TileEntityMachineEPress.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:576`: TileEntityMachineMiningLaser.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:238`: TileEntityMachinePress.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:123`: TileEntityMachineRefinery.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:166`: TileEntityMicrowave.canInsertItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:223`: TileEntityStorageDrum.canInsertItem(int i, ItemStack itemStack, int j)
+
+### canExtractItem: 75 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:163`: TileEntityAshpit.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:230`: TileEntityBarrel.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java:88`: TileEntityBatterySocket.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:242`: TileEntityCraneExtractor.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:123`: TileEntityCraneInserter.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:193`: TileEntityCranePartitioner.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:106`: TileEntityCraneUnboxer.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:470`: TileEntityCustomMachine.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:125`: TileEntityDiFurnace.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:208`: TileEntityDiFurnaceRTG.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:205`: TileEntityDroneCrate.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:106`: TileEntityElectrolyser.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:221`: TileEntityFurnaceCombination.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:194`: TileEntityFurnaceIron.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:247`: TileEntityFurnaceSteel.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:206`: TileEntityFusionBreeder.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:404`: TileEntityFusionTorus.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:311`: TileEntityHydroponic.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:199`: TileEntityICF.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:158`: TileEntityICFPress.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:349`: TileEntityITER.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:129`: TileEntityLaunchPadBase.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:155`: TileEntityMachineAmmoPress.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:188`: TileEntityMachineAnnihilator.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:408`: TileEntityMachineArcFurnaceLarge.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:292`: TileEntityMachineArcWelder.canExtractItem(int slot, ItemStack  stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:312`: TileEntityMachineArcWelder.canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:101`: TileEntityMachineAssemblyFactory.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:129`: TileEntityMachineAssemblyFactory.canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:278`: TileEntityMachineAssemblyMachine.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:182`: TileEntityMachineAutocrafter.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:150`: TileEntityMachineBattery.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:115`: TileEntityMachineCentrifuge.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:97`: TileEntityMachineChemicalFactory.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:128`: TileEntityMachineChemicalFactory.canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:253`: TileEntityMachineChemicalPlant.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:228`: TileEntityMachineCoker.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:309`: TileEntityMachineCrystallizer.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:384`: TileEntityMachineCyclotron.canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:108`: TileEntityMachineDiesel.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:236`: TileEntityMachineEPress.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:94`: TileEntityMachineElectricFurnace.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:242`: TileEntityMachineExposureChamber.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:93`: TileEntityMachineFunnel.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:70`: TileEntityMachineGasCent.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:581`: TileEntityMachineMiningLaser.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:284`: TileEntityMachineOreSlopper.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:211`: TileEntityMachinePUREX.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:328`: TileEntityMachinePrecAss.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:243`: TileEntityMachinePress.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:306`: TileEntityMachinePyroOven.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:220`: TileEntityMachineRadGen.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:73`: TileEntityMachineRadiolysis.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:173`: TileEntityMachineReactorBreeding.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:128`: TileEntityMachineRefinery.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:369`: TileEntityMachineRotaryFurnace.canExtractItem(int slot, ItemStack  stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:372`: TileEntityMachineRotaryFurnace.canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:216`: TileEntityMachineSolderingStation.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:106`: TileEntityMachineSolidifier.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:189`: TileEntityMachineVacuumCircuit.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:254`: TileEntityMachineWoodBurner.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:171`: TileEntityMicrowave.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:265`: TileEntityOrbitalStation.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:76`: TileEntityPADetector.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:172`: TileEntityPASource.canExtractItem(int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:177`: TileEntityPASource.canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:471`: TileEntityPWRController.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:218`: TileEntityRBMKAutoloader.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:120`: TileEntityReactorResearch.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:112`: TileEntityReactorZirnox.canExtractItem(int i, ItemStack stack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:304`: TileEntitySILEX.canExtractItem(int slot, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:233`: TileEntitySawmill.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:228`: TileEntityStorageDrum.canExtractItem(int i, ItemStack itemStack, int j)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:430`: TileEntityTransporterBase.canExtractItem(int i, ItemStack itemStack, int side)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:437`: TileEntityWatz.canExtractItem(int i, ItemStack stack, int j)
+
+### openInventory: 4 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:75`: TileEntityAshpit.openInventory()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:47`: TileEntityFireboxBase.openInventory()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java:251`: TileEntityMachineCombustionEngine.openInventory()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:853`: TileEntityTurretBaseNT.openInventory()
+
+### closeInventory: 4 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:80`: TileEntityAshpit.closeInventory()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:52`: TileEntityFireboxBase.closeInventory()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java:256`: TileEntityMachineCombustionEngine.closeInventory()
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:858`: TileEntityTurretBaseNT.closeInventory()
+
+### getField: 0 descendant declarations
+
+
+### setField: 0 descendant declarations
+
+
+### getFieldCount: 0 descendant declarations
+
+
+### clear: 0 descendant declarations
+
+
+### getSizeInventory: 2 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java:211`: TileEntityMachineRocketAssembly.getSizeInventory()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java:228`: TileEntityOrbitalStationLauncher.getSizeInventory()
+
+### isUseableByPlayer: 6 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:449`: TileEntityFusionTorus.isUseableByPlayer(EntityPlayer player)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:228`: TileEntityICF.isUseableByPlayer(EntityPlayer player)
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java:707`: TileEntityLaunchPadRocket.isUseableByPlayer(EntityPlayer player)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:532`: TileEntityMachineRadarNT.isUseableByPlayer(EntityPlayer player)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java:303`: TileEntityMachineRocketAssembly.isUseableByPlayer(EntityPlayer player)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java:348`: TileEntityMachineStardar.isUseableByPlayer(EntityPlayer player)
+
+### getInventoryStackLimit: 10 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:101`: TileEntityCrucible.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:183`: TileEntityDiFurnaceRTG.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:260`: TileEntityDysonLauncher.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java:215`: TileEntityMachineDriveProcessor.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java:323`: TileEntityMachineRocketAssembly.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java:343`: TileEntityMachineStardar.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java:382`: TileEntityOrbitalStationLauncher.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:74`: TileEntityPASource.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:243`: TileEntityStorageDrum.getInventoryStackLimit()
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:442`: TileEntityWatz.getInventoryStackLimit()
+
+### isItemValidForSlot: 82 descendant declarations
+
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:216`: TileEntityBarrel.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java:117`: TileEntityBatteryBase.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:194`: TileEntityConveyorPress.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java:169`: TileEntityCraneBoxer.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:237`: TileEntityCraneExtractor.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:118`: TileEntityCraneInserter.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:198`: TileEntityCranePartitioner.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:101`: TileEntityCraneUnboxer.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:446`: TileEntityCrucible.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:475`: TileEntityCustomMachine.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:53`: TileEntityDiFurnace.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:196`: TileEntityDiFurnaceRTG.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:200`: TileEntityDroneCrate.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:265`: TileEntityDysonLauncher.isItemValidForSlot(int slot, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:100`: TileEntityElectrolyser.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:208`: TileEntityFireboxBase.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java:147`: TileEntityFurnaceBrick.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:216`: TileEntityFurnaceCombination.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:182`: TileEntityFurnaceIron.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:238`: TileEntityFurnaceSteel.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:200`: TileEntityFusionBreeder.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java:279`: TileEntityFusionKlystron.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:397`: TileEntityFusionTorus.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:299`: TileEntityHydroponic.isItemValidForSlot(int slot, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:194`: TileEntityICF.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:143`: TileEntityICFPress.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:359`: TileEntityITER.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:139`: TileEntityLaunchPadBase.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java:471`: TileEntityLaunchPadRocket.isItemValidForSlot(int index, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:160`: TileEntityMachineAmmoPress.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:179`: TileEntityMachineAnnihilator.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:393`: TileEntityMachineArcFurnaceLarge.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:287`: TileEntityMachineArcWelder.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:302`: TileEntityMachineArcWelder.isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:108`: TileEntityMachineAssemblyFactory.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:127`: TileEntityMachineAssemblyFactory.isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:269`: TileEntityMachineAssemblyMachine.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:196`: TileEntityMachineAutocrafter.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:98`: TileEntityMachineBattery.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:90`: TileEntityMachineCentrifuge.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:107`: TileEntityMachineChemicalFactory.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:126`: TileEntityMachineChemicalFactory.isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:242`: TileEntityMachineChemicalPlant.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:301`: TileEntityMachineCrystallizer.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:362`: TileEntityMachineCyclotron.isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:77`: TileEntityMachineDiesel.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:217`: TileEntityMachineEPress.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:60`: TileEntityMachineElectricFurnace.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:206`: TileEntityMachineExposureChamber.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:99`: TileEntityMachineFunnel.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:214`: TileEntityMachineIGenerator.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java:113`: TileEntityMachineLiquefactor.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java:233`: TileEntityMachineMixer.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:279`: TileEntityMachineOreSlopper.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:202`: TileEntityMachinePUREX.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:319`: TileEntityMachinePrecAss.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:221`: TileEntityMachinePress.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:305`: TileEntityMachinePyroOven.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:192`: TileEntityMachineRadGen.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:63`: TileEntityMachineRadiolysis.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:168`: TileEntityMachineReactorBreeding.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:82`: TileEntityMachineRefinery.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:368`: TileEntityMachineRotaryFurnace.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:371`: TileEntityMachineRotaryFurnace.isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:201`: TileEntityMachineSolderingStation.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:177`: TileEntityMachineVacuumCircuit.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:249`: TileEntityMachineWoodBurner.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:161`: TileEntityMicrowave.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java:234`: TileEntityOrbitalStationLauncher.isItemValidForSlot(int index, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:75`: TileEntityPADetector.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:171`: TileEntityPASource.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:176`: TileEntityPASource.isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:460`: TileEntityPWRController.isItemValidForSlot(int slot, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:208`: TileEntityRBMKAutoloader.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:88`: TileEntityReactorResearch.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:107`: TileEntityReactorZirnox.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:295`: TileEntitySILEX.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:228`: TileEntitySawmill.isItemValidForSlot(int i, ItemStack stack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:208`: TileEntityStorageDrum.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:425`: TileEntityTransporterBase.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:811`: TileEntityTurretBaseNT.isItemValidForSlot(int i, ItemStack itemStack)
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:425`: TileEntityWatz.isItemValidForSlot(int i, ItemStack stack)
+
+## All-source explicit member-call candidates
+
+Includes independent inventories; excludes method declarations, comments and strings. Each line lists exact call-site lines for the named method. Unqualified internal calls are separately inventoried within the family below. General getName is limited to family files or files naming a family type to avoid unrelated names.
+
+
+### getName: 38 call-site lines in 22 files
+
+- `src/main/java/com/hbm/blocks/generic/BlockAirPump.java`: 75, 91
+- `src/main/java/com/hbm/blocks/machine/AtmoTower.java`: 80
+- `src/main/java/com/hbm/blocks/machine/BlockAtmosphericCompressor.java`: 86
+- `src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java`: 107, 117, 118, 119, 120
+- `src/main/java/com/hbm/blocks/machine/MachineGasDock.java`: 87
+- `src/main/java/com/hbm/inventory/gui/GUIMachineGasCent.java`: 34, 41
+- `src/main/java/com/hbm/main/ModEventHandler.java`: 259
+- `src/main/java/com/hbm/render/tileentity/RenderFluidTank.java`: 95
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java`: 581
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java`: 236
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java`: 180, 186
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java`: 371, 432
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java`: 604
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java`: 316, 334
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKHeater.java`: 235, 241, 247
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutgasser.java`: 264
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java`: 388, 394, 469
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java`: 519, 525, 563
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java`: 443
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java`: 881
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java`: 128
+- `src/main/java/com/hbm/util/CompatEnergyControl.java`: 89, 93
+
+### getInventoryName: 161 call-site lines in 160 files
+
+- `src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java`: 173, 394
+- `src/main/java/com/hbm/entity/train/TrainCargoTram.java`: 194
+- `src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java`: 170
+- `src/main/java/com/hbm/inventory/gui/GUIAmmoBag.java`: 35
+- `src/main/java/com/hbm/inventory/gui/GUIAshpit.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java`: 59
+- `src/main/java/com/hbm/inventory/gui/GUIBarrel.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIBatteryREDD.java`: 54
+- `src/main/java/com/hbm/inventory/gui/GUIBatterySocket.java`: 87
+- `src/main/java/com/hbm/inventory/gui/GUIBombMulti.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUICartDestroyer.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUICasingBag.java`: 35
+- `src/main/java/com/hbm/inventory/gui/GUICompressor.java`: 61
+- `src/main/java/com/hbm/inventory/gui/GUICore.java`: 43
+- `src/main/java/com/hbm/inventory/gui/GUICoreEmitter.java`: 80
+- `src/main/java/com/hbm/inventory/gui/GUICoreInjector.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUICoreReceiver.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUICoreStabilizer.java`: 72
+- `src/main/java/com/hbm/inventory/gui/GUICounterTorch.java`: 107
+- `src/main/java/com/hbm/inventory/gui/GUICraneBoxer.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUICraneExtractor.java`: 75
+- `src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java`: 66
+- `src/main/java/com/hbm/inventory/gui/GUICraneInserter.java`: 57
+- `src/main/java/com/hbm/inventory/gui/GUICraneRouter.java`: 94
+- `src/main/java/com/hbm/inventory/gui/GUICraneUnboxer.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUICrateDesh.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateIron.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateSteel.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateTemplate.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateTungsten.java`: 35
+- `src/main/java/com/hbm/inventory/gui/GUICrucible.java`: 52
+- `src/main/java/com/hbm/inventory/gui/GUICrystallizer.java`: 45
+- `src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java`: 61
+- `src/main/java/com/hbm/inventory/gui/GUIDroneCrate.java`: 59
+- `src/main/java/com/hbm/inventory/gui/GUIDroneDock.java`: 28
+- `src/main/java/com/hbm/inventory/gui/GUIDroneProvider.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUIDroneRequester.java`: 49
+- `src/main/java/com/hbm/inventory/gui/GUIElectrolyser.java`: 45
+- `src/main/java/com/hbm/inventory/gui/GUIElectrolyserFluid.java`: 55
+- `src/main/java/com/hbm/inventory/gui/GUIElectrolyserMetal.java`: 71
+- `src/main/java/com/hbm/inventory/gui/GUIFEL.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIFileCabinet.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUIFirebox.java`: 58
+- `src/main/java/com/hbm/inventory/gui/GUIForceField.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIFunnel.java`: 52
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceBrick.java`: 24
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceCombo.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceIron.java`: 56
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceSteel.java`: 43
+- `src/main/java/com/hbm/inventory/gui/GUIFusionBreeder.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIFusionKlystron.java`: 70
+- `src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java`: 78
+- `src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java`: 75
+- `src/main/java/com/hbm/inventory/gui/GUIHydroponic.java`: 56
+- `src/main/java/com/hbm/inventory/gui/GUIICF.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIICFPress.java`: 43
+- `src/main/java/com/hbm/inventory/gui/GUIITER.java`: 59
+- `src/main/java/com/hbm/inventory/gui/GUILaunchPadLarge.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUILaunchPadRusted.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUILeadBox.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUILiquefactor.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java`: 189
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java`: 76
+- `src/main/java/com/hbm/inventory/gui/GUIMachineArcFurnaceLarge.java`: 64
+- `src/main/java/com/hbm/inventory/gui/GUIMachineArcWelder.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java`: 67
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIMachineBattery.java`: 90
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCatalyticReformer.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java`: 67
+- `src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java`: 63
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCoker.java`: 42
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCompactLauncher.java`: 48
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCryoDistill.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCustom.java`: 64
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCyclotron.java`: 48
+- `src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java`: 75
+- `src/main/java/com/hbm/inventory/gui/GUIMachineDiesel.java`: 50
+- `src/main/java/com/hbm/inventory/gui/GUIMachineEPress.java`: 35
+- `src/main/java/com/hbm/inventory/gui/GUIMachineElectricFurnace.java`: 44
+- `src/main/java/com/hbm/inventory/gui/GUIMachineExposureChamber.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUIMachineFluidTank.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIMachineHydrotreater.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIMachineKeyForge.java`: 42
+- `src/main/java/com/hbm/inventory/gui/GUIMachineLargeTurbine.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineLaunchTable.java`: 80
+- `src/main/java/com/hbm/inventory/gui/GUIMachineMissileAssembly.java`: 50
+- `src/main/java/com/hbm/inventory/gui/GUIMachineOilWell.java`: 51
+- `src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java`: 64
+- `src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIMachinePress.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRTG.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRadGen.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java`: 54
+- `src/main/java/com/hbm/inventory/gui/GUIMachineReactorBreeding.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRefinery.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRotaryFurnace.java`: 60
+- `src/main/java/com/hbm/inventory/gui/GUIMachineSatLinker.java`: 42
+- `src/main/java/com/hbm/inventory/gui/GUIMachineShredder.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineSiren.java`: 31
+- `src/main/java/com/hbm/inventory/gui/GUIMachineSolderingStation.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIMachineStrandCaster.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUIMachineTurbine.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineTurbineGas.java`: 319
+- `src/main/java/com/hbm/inventory/gui/GUIMachineTurbofan.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUIMachineVacuumDistill.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java`: 84
+- `src/main/java/com/hbm/inventory/gui/GUIMassStorage.java`: 69
+- `src/main/java/com/hbm/inventory/gui/GUIMicrowave.java`: 49
+- `src/main/java/com/hbm/inventory/gui/GUIMiningLaser.java`: 63
+- `src/main/java/com/hbm/inventory/gui/GUIMixer.java`: 77
+- `src/main/java/com/hbm/inventory/gui/GUINukeAntimatter.java`: 69
+- `src/main/java/com/hbm/inventory/gui/GUINukeBoy.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUINukeCustom.java`: 82
+- `src/main/java/com/hbm/inventory/gui/GUINukeFleija.java`: 31
+- `src/main/java/com/hbm/inventory/gui/GUINukeFstbmb.java`: 67
+- `src/main/java/com/hbm/inventory/gui/GUINukeGadget.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUINukeMan.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUINukeMike.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUINukeN2.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUINukePrototype.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUINukeSolinium.java`: 31
+- `src/main/java/com/hbm/inventory/gui/GUINukeTsar.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIOilburner.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIOreSlopper.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIPADetector.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIPADipole.java`: 98
+- `src/main/java/com/hbm/inventory/gui/GUIPAQuadrupole.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIPASource.java`: 68
+- `src/main/java/com/hbm/inventory/gui/GUIPlasmaHeater.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java`: 91
+- `src/main/java/com/hbm/inventory/gui/GUIPyroOven.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKAutoloader.java`: 57
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKBoiler.java`: 56
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKControl.java`: 71
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKControlAuto.java`: 143
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKHeater.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKOutgasser.java`: 36
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKRod.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKStorage.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUIRadiolysis.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIReactorControl.java`: 129
+- `src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java`: 78
+- `src/main/java/com/hbm/inventory/gui/GUIReactorZirnox.java`: 83
+- `src/main/java/com/hbm/inventory/gui/GUIRtgFurnace.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUISILEX.java`: 66
+- `src/main/java/com/hbm/inventory/gui/GUISafe.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUISatDock.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUISolidifier.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUISoyuzCapsule.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUISoyuzLauncher.java`: 70
+- `src/main/java/com/hbm/inventory/gui/GUIStorageDrum.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUIToolBox.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUITurretBase.java`: 200
+- `src/main/java/com/hbm/inventory/gui/GUIVacuumCircuit.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIWasteDrum.java`: 39
+- `src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java`: 134
+- `src/main/java/com/hbm/items/tool/ItemRebarPlacer.java`: 324
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 284
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 70
+
+### hasCustomInventoryName: 196 call-site lines in 193 files
+
+- `src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java`: 172, 391
+- `src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java`: 80
+- `src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java`: 195
+- `src/main/java/com/hbm/entity/item/EntityMinecartModBase.java`: 215
+- `src/main/java/com/hbm/entity/train/TrainCargoTram.java`: 57, 194
+- `src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java`: 49, 170
+- `src/main/java/com/hbm/inventory/gui/GUIAmmoBag.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUIAshpit.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java`: 59
+- `src/main/java/com/hbm/inventory/gui/GUIBarrel.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIBatteryREDD.java`: 54
+- `src/main/java/com/hbm/inventory/gui/GUIBatterySocket.java`: 87
+- `src/main/java/com/hbm/inventory/gui/GUIBombMulti.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUICartDestroyer.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUICasingBag.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUICompressor.java`: 61
+- `src/main/java/com/hbm/inventory/gui/GUICore.java`: 43
+- `src/main/java/com/hbm/inventory/gui/GUICoreInjector.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUICoreReceiver.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUICoreStabilizer.java`: 72
+- `src/main/java/com/hbm/inventory/gui/GUICraneBoxer.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUICraneExtractor.java`: 75
+- `src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java`: 66
+- `src/main/java/com/hbm/inventory/gui/GUICraneInserter.java`: 57
+- `src/main/java/com/hbm/inventory/gui/GUICraneRouter.java`: 94
+- `src/main/java/com/hbm/inventory/gui/GUICraneUnboxer.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUICrateDesh.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateIron.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateSteel.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateTemplate.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUICrateTungsten.java`: 35
+- `src/main/java/com/hbm/inventory/gui/GUICrucible.java`: 52
+- `src/main/java/com/hbm/inventory/gui/GUICrystallizer.java`: 45
+- `src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java`: 61
+- `src/main/java/com/hbm/inventory/gui/GUIDroneCrate.java`: 59
+- `src/main/java/com/hbm/inventory/gui/GUIDroneDock.java`: 28
+- `src/main/java/com/hbm/inventory/gui/GUIDroneProvider.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUIDroneRequester.java`: 49
+- `src/main/java/com/hbm/inventory/gui/GUIElectrolyser.java`: 45
+- `src/main/java/com/hbm/inventory/gui/GUIElectrolyserFluid.java`: 55
+- `src/main/java/com/hbm/inventory/gui/GUIElectrolyserMetal.java`: 71
+- `src/main/java/com/hbm/inventory/gui/GUIFEL.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIFileCabinet.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUIFirebox.java`: 58
+- `src/main/java/com/hbm/inventory/gui/GUIForceField.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIFunnel.java`: 52
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceBrick.java`: 24
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceCombo.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceIron.java`: 56
+- `src/main/java/com/hbm/inventory/gui/GUIFurnaceSteel.java`: 43
+- `src/main/java/com/hbm/inventory/gui/GUIFusionBreeder.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIFusionKlystron.java`: 70
+- `src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java`: 78
+- `src/main/java/com/hbm/inventory/gui/GUIHydroponic.java`: 56
+- `src/main/java/com/hbm/inventory/gui/GUIICF.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIICFPress.java`: 43
+- `src/main/java/com/hbm/inventory/gui/GUIITER.java`: 59
+- `src/main/java/com/hbm/inventory/gui/GUILaunchPadLarge.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUILaunchPadRusted.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUILeadBox.java`: 49
+- `src/main/java/com/hbm/inventory/gui/GUILiquefactor.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java`: 189
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java`: 76
+- `src/main/java/com/hbm/inventory/gui/GUIMachineArcFurnaceLarge.java`: 64
+- `src/main/java/com/hbm/inventory/gui/GUIMachineArcWelder.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java`: 67
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIMachineBattery.java`: 90
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCatalyticReformer.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java`: 67
+- `src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java`: 63
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCoker.java`: 42
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCompactLauncher.java`: 48
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCryoDistill.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCyclotron.java`: 48
+- `src/main/java/com/hbm/inventory/gui/GUIMachineDiFurnaceRTG.java`: 75
+- `src/main/java/com/hbm/inventory/gui/GUIMachineDiesel.java`: 50
+- `src/main/java/com/hbm/inventory/gui/GUIMachineEPress.java`: 35
+- `src/main/java/com/hbm/inventory/gui/GUIMachineElectricFurnace.java`: 44
+- `src/main/java/com/hbm/inventory/gui/GUIMachineExposureChamber.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUIMachineFluidTank.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIMachineHydrotreater.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIMachineKeyForge.java`: 42
+- `src/main/java/com/hbm/inventory/gui/GUIMachineLargeTurbine.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineLaunchTable.java`: 80
+- `src/main/java/com/hbm/inventory/gui/GUIMachineMissileAssembly.java`: 50
+- `src/main/java/com/hbm/inventory/gui/GUIMachineOilWell.java`: 51
+- `src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java`: 64
+- `src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIMachinePress.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRTG.java`: 53
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRadGen.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java`: 54
+- `src/main/java/com/hbm/inventory/gui/GUIMachineReactorBreeding.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRefinery.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUIMachineRotaryFurnace.java`: 60
+- `src/main/java/com/hbm/inventory/gui/GUIMachineSatLinker.java`: 42
+- `src/main/java/com/hbm/inventory/gui/GUIMachineShredder.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineSiren.java`: 31
+- `src/main/java/com/hbm/inventory/gui/GUIMachineSolderingStation.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIMachineStrandCaster.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUIMachineTurbine.java`: 46
+- `src/main/java/com/hbm/inventory/gui/GUIMachineTurbineGas.java`: 319
+- `src/main/java/com/hbm/inventory/gui/GUIMachineTurbofan.java`: 47
+- `src/main/java/com/hbm/inventory/gui/GUIMachineVacuumDistill.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java`: 84
+- `src/main/java/com/hbm/inventory/gui/GUIMassStorage.java`: 69
+- `src/main/java/com/hbm/inventory/gui/GUIMicrowave.java`: 49
+- `src/main/java/com/hbm/inventory/gui/GUIMiningLaser.java`: 63
+- `src/main/java/com/hbm/inventory/gui/GUIMixer.java`: 77
+- `src/main/java/com/hbm/inventory/gui/GUINukeAntimatter.java`: 69
+- `src/main/java/com/hbm/inventory/gui/GUINukeBoy.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUINukeCustom.java`: 82
+- `src/main/java/com/hbm/inventory/gui/GUINukeFleija.java`: 31
+- `src/main/java/com/hbm/inventory/gui/GUINukeFstbmb.java`: 67
+- `src/main/java/com/hbm/inventory/gui/GUINukeGadget.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUINukeMan.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUINukeMike.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUINukeN2.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUINukePrototype.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUINukeSolinium.java`: 31
+- `src/main/java/com/hbm/inventory/gui/GUINukeTsar.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIOilburner.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIOreSlopper.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIPADetector.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIPADipole.java`: 98
+- `src/main/java/com/hbm/inventory/gui/GUIPAQuadrupole.java`: 41
+- `src/main/java/com/hbm/inventory/gui/GUIPASource.java`: 68
+- `src/main/java/com/hbm/inventory/gui/GUIPlasmaHeater.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java`: 91
+- `src/main/java/com/hbm/inventory/gui/GUIPyroOven.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKAutoloader.java`: 57
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKBoiler.java`: 56
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKControl.java`: 71
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKControlAuto.java`: 143
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKHeater.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKOutgasser.java`: 36
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKRod.java`: 40
+- `src/main/java/com/hbm/inventory/gui/GUIRBMKStorage.java`: 29
+- `src/main/java/com/hbm/inventory/gui/GUIRadiolysis.java`: 62
+- `src/main/java/com/hbm/inventory/gui/GUIReactorControl.java`: 129
+- `src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java`: 78
+- `src/main/java/com/hbm/inventory/gui/GUIReactorZirnox.java`: 83
+- `src/main/java/com/hbm/inventory/gui/GUIRtgFurnace.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUISILEX.java`: 66
+- `src/main/java/com/hbm/inventory/gui/GUISafe.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUISatDock.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUISolidifier.java`: 38
+- `src/main/java/com/hbm/inventory/gui/GUISoyuzCapsule.java`: 30
+- `src/main/java/com/hbm/inventory/gui/GUISoyuzLauncher.java`: 70
+- `src/main/java/com/hbm/inventory/gui/GUIStorageDrum.java`: 37
+- `src/main/java/com/hbm/inventory/gui/GUIToolBox.java`: 49
+- `src/main/java/com/hbm/inventory/gui/GUITurretBase.java`: 200
+- `src/main/java/com/hbm/inventory/gui/GUIVacuumCircuit.java`: 39
+- `src/main/java/com/hbm/inventory/gui/GUIWasteDrum.java`: 39
+- `src/main/java/com/hbm/items/tool/ItemRebarPlacer.java`: 325
+- `src/main/java/com/hbm/tileentity/TileEntityMachineBase.java`: 71
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 297
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 81
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java`: 87
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java`: 102
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java`: 111
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java`: 91
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java`: 86
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java`: 85
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java`: 85
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java`: 174
+- `src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java`: 136
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java`: 66
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java`: 72
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java`: 76
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java`: 61
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java`: 66
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java`: 80
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java`: 75
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java`: 129
+- `src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java`: 72
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java`: 68
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java`: 60
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateDesh.java`: 20
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateIron.java`: 20
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateSteel.java`: 20
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTemplate.java`: 20
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java`: 28
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java`: 84
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntitySafe.java`: 21
+- `src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java`: 70
+
+### setCustomName: 11 call-site lines in 11 files
+
+- `src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java`: 246
+- `src/main/java/com/hbm/blocks/machine/MachineBattery.java`: 150
+- `src/main/java/com/hbm/blocks/machine/MachineBrickFurnace.java`: 100
+- `src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java`: 95
+- `src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java`: 112
+- `src/main/java/com/hbm/blocks/machine/MachineEPress.java`: 53
+- `src/main/java/com/hbm/blocks/machine/MachineElectricFurnace.java`: 126
+- `src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java`: 137
+- `src/main/java/com/hbm/blocks/machine/MachineReactorControl.java`: 97
+- `src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java`: 126
+- `src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java`: 132
+
+### getStackInSlot: 189 call-site lines in 99 files
+
+- `src/main/java/com/hbm/blocks/BlockDummyable.java`: 390
+- `src/main/java/com/hbm/blocks/bomb/BombMulti.java`: 63
+- `src/main/java/com/hbm/blocks/bomb/CompactLauncher.java`: 141
+- `src/main/java/com/hbm/blocks/bomb/LaunchTable.java`: 186
+- `src/main/java/com/hbm/blocks/bomb/NukeBoy.java`: 59
+- `src/main/java/com/hbm/blocks/bomb/NukeCustom.java`: 64
+- `src/main/java/com/hbm/blocks/bomb/NukeFleija.java`: 58
+- `src/main/java/com/hbm/blocks/bomb/NukeGadget.java`: 61
+- `src/main/java/com/hbm/blocks/bomb/NukeMan.java`: 59
+- `src/main/java/com/hbm/blocks/bomb/NukeMike.java`: 58
+- `src/main/java/com/hbm/blocks/bomb/NukeN2.java`: 56
+- `src/main/java/com/hbm/blocks/bomb/NukePrototype.java`: 59
+- `src/main/java/com/hbm/blocks/bomb/NukeSolinium.java`: 56
+- `src/main/java/com/hbm/blocks/bomb/NukeTsar.java`: 58
+- `src/main/java/com/hbm/blocks/generic/BlockDecoContainer.java`: 83
+- `src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java`: 138, 271
+- `src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java`: 175
+- `src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java`: 119
+- `src/main/java/com/hbm/blocks/machine/BlockMachineBase.java`: 64
+- `src/main/java/com/hbm/blocks/machine/BlockMassStorage.java`: 142, 227
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 234
+- `src/main/java/com/hbm/blocks/machine/CoreCore.java`: 69
+- `src/main/java/com/hbm/blocks/machine/MachineAutocrafter.java`: 76
+- `src/main/java/com/hbm/blocks/machine/MachineBattery.java`: 185
+- `src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java`: 140
+- `src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java`: 166
+- `src/main/java/com/hbm/blocks/machine/MachineElectricFurnace.java`: 185
+- `src/main/java/com/hbm/blocks/machine/MachineForceField.java`: 101
+- `src/main/java/com/hbm/blocks/machine/MachineFunnel.java`: 89
+- `src/main/java/com/hbm/blocks/machine/MachineICFPress.java`: 75
+- `src/main/java/com/hbm/blocks/machine/MachineKeyForge.java`: 87
+- `src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java`: 76
+- `src/main/java/com/hbm/blocks/machine/MachineRTG.java`: 87
+- `src/main/java/com/hbm/blocks/machine/MachineReactorControl.java`: 123
+- `src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java`: 185
+- `src/main/java/com/hbm/blocks/machine/MachineSatDock.java`: 92
+- `src/main/java/com/hbm/blocks/machine/MachineSatLinker.java`: 85
+- `src/main/java/com/hbm/blocks/machine/MachineShredder.java`: 104
+- `src/main/java/com/hbm/blocks/machine/MachineSiren.java`: 85
+- `src/main/java/com/hbm/blocks/machine/MachineTurbine.java`: 89
+- `src/main/java/com/hbm/blocks/machine/PistonInserter.java`: 131
+- `src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java`: 70
+- `src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java`: 182
+- `src/main/java/com/hbm/blocks/machine/WasteDrum.java`: 114
+- `src/main/java/com/hbm/blocks/network/BlockCraneBase.java`: 277
+- `src/main/java/com/hbm/blocks/network/CraneInserter.java`: 107, 127
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java`: 229
+- `src/main/java/com/hbm/blocks/network/DroneCrate.java`: 82
+- `src/main/java/com/hbm/blocks/network/DroneDock.java`: 93
+- `src/main/java/com/hbm/blocks/turret/TurretSentry.java`: 67
+- `src/main/java/com/hbm/entity/train/EntityRailCarCargo.java`: 29
+- `src/main/java/com/hbm/entity/train/EntityRailCarElectric.java`: 50
+- `src/main/java/com/hbm/handler/EntityEffectHandler.java`: 470
+- `src/main/java/com/hbm/hazard/type/HazardTypeNeutron.java`: 50
+- `src/main/java/com/hbm/inventory/container/ContainerAnvil.java`: 34, 35, 153, 154
+- `src/main/java/com/hbm/inventory/container/ContainerArmorTable.java`: 71, 178, 198, 206, 207, 214
+- `src/main/java/com/hbm/inventory/container/ContainerCrateBase.java`: 38, 39
+- `src/main/java/com/hbm/inventory/container/ContainerLemegeton.java`: 40
+- `src/main/java/com/hbm/inventory/container/ContainerNT.java`: 258
+- `src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java`: 30, 55, 56, 57, 58, 59, 60, 61, 64, 90, 97, 98, 99, 100, 101, 102, 103, 106, 193, 209, 211, 212, 213, 214, 215, 216, 217, 218
+- `src/main/java/com/hbm/inventory/gui/GUIMachineCompactLauncher.java`: 99
+- `src/main/java/com/hbm/inventory/gui/GUIMachineLaunchTable.java`: 146
+- `src/main/java/com/hbm/inventory/gui/GUIMachineMissileAssembly.java`: 83, 84, 86, 87, 89, 90, 92, 93
+- `src/main/java/com/hbm/inventory/gui/GUINukeBoy.java`: 56, 58, 60, 62, 64
+- `src/main/java/com/hbm/inventory/gui/GUINukeMike.java`: 61, 64, 67, 71
+- `src/main/java/com/hbm/inventory/gui/GUINukeTsar.java`: 58, 66
+- `src/main/java/com/hbm/inventory/gui/GUIWeaponTable.java`: 59, 86
+- `src/main/java/com/hbm/inventory/recipes/MagicRecipes.java`: 29, 30
+- `src/main/java/com/hbm/items/ItemInventory.java`: 53
+- `src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java`: 158
+- `src/main/java/com/hbm/items/tool/ItemAmmoBag.java`: 62
+- `src/main/java/com/hbm/items/tool/ItemBoltgun.java`: 54
+- `src/main/java/com/hbm/items/tool/ItemCasingBag.java`: 73, 84
+- `src/main/java/com/hbm/items/tool/ItemToolBox.java`: 103
+- `src/main/java/com/hbm/items/weapon/sedna/mags/MagazineBelt.java`: 39, 54, 88, 97, 133, 143
+- `src/main/java/com/hbm/items/weapon/sedna/mags/MagazineSingleTypeBase.java`: 99, 139, 183, 200
+- `src/main/java/com/hbm/main/ModEventHandler.java`: 512, 1477
+- `src/main/java/com/hbm/packet/toserver/ItemBobmazonPacket.java`: 105, 132
+- `src/main/java/com/hbm/render/tileentity/RenderFoundry.java`: 79, 84
+- `src/main/java/com/hbm/render/tileentity/RenderMissileAssembly.java`: 50, 51, 53, 54, 56, 57, 59, 60
+- `src/main/java/com/hbm/tileentity/IControlReceiverFilter.java`: 59, 61
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 237
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 28
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDecon.java`: 65
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java`: 70
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java`: 203
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java`: 102
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java`: 240, 241, 248, 261
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java`: 192
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 194, 234, 249
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java`: 633, 651
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java`: 126, 128
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`: 115
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java`: 158, 160
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java`: 141
+- `src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java`: 51
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 75, 135, 151, 172
+- `src/main/java/com/hbm/util/InventoryUtil.java`: 142, 144, 147, 166
+- `src/main/java/com/hbm/util/ItemStackUtil.java`: 210
+
+### decrStackSize: 99 call-site lines in 63 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 245
+- `src/main/java/com/hbm/blocks/machine/PistonInserter.java`: 102, 253
+- `src/main/java/com/hbm/inventory/SlotCraftingOutput.java`: 35
+- `src/main/java/com/hbm/inventory/SlotSmelting.java`: 34
+- `src/main/java/com/hbm/inventory/container/ContainerAnvil.java`: 46, 47
+- `src/main/java/com/hbm/inventory/container/ContainerNT.java`: 202, 240, 274, 279, 300, 319
+- `src/main/java/com/hbm/items/tool/ItemBoltgun.java`: 60
+- `src/main/java/com/hbm/items/weapon/sedna/mags/MagazineBelt.java`: 45, 60
+- `src/main/java/com/hbm/items/weapon/sedna/mags/MagazineSingleTypeBase.java`: 114, 129, 152, 167
+- `src/main/java/com/hbm/packet/toserver/ItemBobmazonPacket.java`: 148
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 247
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 39
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java`: 184
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java`: 374
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java`: 119
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java`: 196
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java`: 397
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java`: 354
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java`: 163
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java`: 205
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java`: 394
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java`: 118
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java`: 112
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java`: 94
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java`: 77, 103, 104, 105
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java`: 135
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java`: 112
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java`: 278, 291, 335
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java`: 208
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java`: 105
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java`: 171
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java`: 190
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java`: 208, 209, 219, 220
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java`: 130
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java`: 135, 152
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java`: 59, 62
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java`: 209
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java`: 140
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java`: 130, 160
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java`: 78
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java`: 209, 218, 225
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java`: 140, 341
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java`: 177, 184, 191
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java`: 163, 170
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java`: 98
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java`: 133
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java`: 204, 208
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java`: 206, 273
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 198, 208, 237, 253
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java`: 286
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java`: 139, 140
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java`: 146, 153
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java`: 147
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java`: 245
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutgasser.java`: 136
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java`: 69
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`: 128, 134
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java`: 86
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneDock.java`: 104
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java`: 182
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java`: 371
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java`: 141
+- `src/main/java/com/hbm/util/InventoryUtil.java`: 351
+
+### removeStackFromSlot: 0 call-site lines in 0 files
+
+
+### getStackInSlotOnClosing: 10 call-site lines in 8 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 256
+- `src/main/java/com/hbm/inventory/container/ContainerAnvil.java`: 120
+- `src/main/java/com/hbm/inventory/container/ContainerArmorTable.java`: 174, 182
+- `src/main/java/com/hbm/inventory/container/ContainerBook.java`: 54
+- `src/main/java/com/hbm/inventory/container/ContainerLemegeton.java`: 47
+- `src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java`: 134, 141
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 260
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 50
+
+### setInventorySlotContents: 66 call-site lines in 45 files
+
+- `src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java`: 228
+- `src/main/java/com/hbm/blocks/machine/BlockMassStorage.java`: 188
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 267
+- `src/main/java/com/hbm/blocks/network/CraneInserter.java`: 135
+- `src/main/java/com/hbm/entity/missile/EntitySoyuzCapsule.java`: 53, 57
+- `src/main/java/com/hbm/inventory/container/ContainerAnvil.java`: 157, 164, 169
+- `src/main/java/com/hbm/inventory/container/ContainerArmorTable.java`: 55, 75
+- `src/main/java/com/hbm/inventory/container/ContainerBook.java`: 45
+- `src/main/java/com/hbm/inventory/container/ContainerLemegeton.java`: 40
+- `src/main/java/com/hbm/inventory/container/ContainerNT.java`: 269, 284
+- `src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java`: 42, 65, 107, 116
+- `src/main/java/com/hbm/items/ItemRemap.java`: 37
+- `src/main/java/com/hbm/items/block/ItemBlockRemap.java`: 27
+- `src/main/java/com/hbm/items/tool/ItemCasingBag.java`: 86
+- `src/main/java/com/hbm/items/tool/ItemCounterfitKeys.java`: 29
+- `src/main/java/com/hbm/items/tool/ItemToolBox.java`: 109, 180
+- `src/main/java/com/hbm/lib/HbmWorldGen.java`: 405
+- `src/main/java/com/hbm/lib/WeightedRandomChestContent.java`: 55
+- `src/main/java/com/hbm/main/ModEventHandler.java`: 530
+- `src/main/java/com/hbm/tileentity/IControlReceiverFilter.java`: 41, 89
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 273
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 61
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java`: 91
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java`: 97, 437
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java`: 68
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java`: 114, 276, 281, 358
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java`: 345
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java`: 314
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java`: 115, 116, 117, 118, 128
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java`: 599
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java`: 267
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java`: 72
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java`: 69
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java`: 260
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 252
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java`: 70
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java`: 184
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java`: 166
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`: 49
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java`: 185
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java`: 122, 145
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 163, 184, 185
+- `src/main/java/com/hbm/util/InventoryUtil.java`: 167
+- `src/main/java/com/hbm/world/gen/component/Component.java`: 452
+- `src/main/java/com/hbm/world/gen/util/LogicBlockActions.java`: 265
+
+### getAccessibleSlotsFromSide: 15 call-site lines in 12 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 304
+- `src/main/java/com/hbm/blocks/network/CraneBoxer.java`: 62, 97
+- `src/main/java/com/hbm/blocks/network/CraneUnboxer.java`: 111
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 375, 377
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 125
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java`: 199
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java`: 143
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java`: 143
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 190, 222
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`: 210
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 210
+- `src/main/java/com/hbm/util/InventoryUtil.java`: 25
+
+### canInsertItem: 11 call-site lines in 8 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 315
+- `src/main/java/com/hbm/blocks/network/CraneInserter.java`: 110, 129
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 391, 393
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 136
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java`: 128
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java`: 127
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 249
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 160, 179
+
+### canExtractItem: 11 call-site lines in 9 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 326
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 407, 409
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 147
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java`: 204
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java`: 129
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java`: 128
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 195
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`: 117
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 77, 137
+
+### openInventory: 14 call-site lines in 14 files
+
+- `src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java`: 19
+- `src/main/java/com/hbm/inventory/container/ContainerAshpit.java`: 18
+- `src/main/java/com/hbm/inventory/container/ContainerCasingBag.java`: 19
+- `src/main/java/com/hbm/inventory/container/ContainerCombustionEngine.java`: 21
+- `src/main/java/com/hbm/inventory/container/ContainerCrateBase.java`: 15
+- `src/main/java/com/hbm/inventory/container/ContainerFileCabinet.java`: 17
+- `src/main/java/com/hbm/inventory/container/ContainerFirebox.java`: 17
+- `src/main/java/com/hbm/inventory/container/ContainerLeadBox.java`: 19
+- `src/main/java/com/hbm/inventory/container/ContainerMachineWoodBurner.java`: 21
+- `src/main/java/com/hbm/inventory/container/ContainerMassStorage.java`: 20
+- `src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java`: 18
+- `src/main/java/com/hbm/inventory/container/ContainerToolBox.java`: 19
+- `src/main/java/com/hbm/inventory/container/ContainerTurretBase.java`: 18
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 336
+
+### closeInventory: 16 call-site lines in 16 files
+
+- `src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerAshpit.java`: 71
+- `src/main/java/com/hbm/inventory/container/ContainerCasingBag.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerCombustionEngine.java`: 91
+- `src/main/java/com/hbm/inventory/container/ContainerCrateBase.java`: 53
+- `src/main/java/com/hbm/inventory/container/ContainerFileCabinet.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerFirebox.java`: 71
+- `src/main/java/com/hbm/inventory/container/ContainerLeadBox.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerMachineWoodBurner.java`: 101
+- `src/main/java/com/hbm/inventory/container/ContainerMassStorage.java`: 103
+- `src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java`: 78
+- `src/main/java/com/hbm/inventory/container/ContainerToolBox.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerTurretBase.java`: 86
+- `src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java`: 177
+- `src/main/java/com/hbm/items/tool/ItemToolBox.java`: 297
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 347
+
+### getField: 0 call-site lines in 0 files
+
+
+### setField: 0 call-site lines in 0 files
+
+
+### getFieldCount: 0 call-site lines in 0 files
+
+
+### clear: 280 call-site lines in 150 files
+
+- `src/main/java/api/hbm/fluidmk2/FluidNetMK2.java`: 143, 148
+- `src/main/java/com/hbm/animloader/Transform.java`: 75
+- `src/main/java/com/hbm/blocks/BlockDummyable.java`: 104, 153
+- `src/main/java/com/hbm/blocks/generic/BlockCrate.java`: 166
+- `src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java`: 61
+- `src/main/java/com/hbm/blocks/generic/BlockRebar.java`: 239
+- `src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java`: 110
+- `src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java`: 89
+- `src/main/java/com/hbm/blocks/machine/MachineCrucible.java`: 76, 77, 117, 118
+- `src/main/java/com/hbm/blocks/machine/MachineICFController.java`: 106, 107, 108, 109, 110, 111, 112, 149, 150, 151, 152, 153, 154, 155
+- `src/main/java/com/hbm/blocks/machine/MachinePWRController.java`: 101, 102, 103, 150, 151, 152
+- `src/main/java/com/hbm/commands/CommandReapNetworks.java`: 31, 32, 33, 35, 36
+- `src/main/java/com/hbm/config/FalloutConfigJSON.java`: 48
+- `src/main/java/com/hbm/dim/orbit/BiomeGenOrbit.java`: 16, 17, 18, 19
+- `src/main/java/com/hbm/entity/item/EntityParachuteCrate.java`: 57
+- `src/main/java/com/hbm/entity/logic/EntityPlaneBase.java`: 203
+- `src/main/java/com/hbm/entity/missile/EntityMissileAntiBallistic.java`: 210
+- `src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java`: 335
+- `src/main/java/com/hbm/entity/mob/EntityBFAngel.java`: 142
+- `src/main/java/com/hbm/entity/mob/EntityUFO.java`: 114
+- `src/main/java/com/hbm/entity/projectile/EntityArtilleryRocket.java`: 169
+- `src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java`: 202
+- `src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4CL.java`: 76
+- `src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java`: 278, 279
+- `src/main/java/com/hbm/explosion/ExplosionNukeRayParallelized.java`: 236, 269, 270, 284, 285, 286, 287, 345
+- `src/main/java/com/hbm/explosion/vanillant/standard/BlockProcessorNoDamage.java`: 60
+- `src/main/java/com/hbm/handler/BobmazonOfferFactory.java`: 32, 33
+- `src/main/java/com/hbm/handler/HazmatRegistry.java`: 235
+- `src/main/java/com/hbm/handler/ability/IToolAreaAbility.java`: 115
+- `src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java`: 268
+- `src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java`: 394
+- `src/main/java/com/hbm/handler/nei/CustomMachineHandler.java`: 215
+- `src/main/java/com/hbm/handler/neutron/NeutronNodeWorld.java`: 36, 65
+- `src/main/java/com/hbm/handler/pollution/PollutionHandler.java`: 254
+- `src/main/java/com/hbm/handler/radiation/ChunkRadiationHandler3D.java`: 79, 119
+- `src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java`: 47, 48, 49, 50, 102, 103, 363, 365, 440, 493, 557, 574, 659
+- `src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java`: 254, 305
+- `src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java`: 77, 129
+- `src/main/java/com/hbm/handler/threading/PacketThreading.java`: 164, 186
+- `src/main/java/com/hbm/hazard/HazardSystem.java`: 153
+- `src/main/java/com/hbm/inventory/FluidContainerRegistry.java`: 28, 29
+- `src/main/java/com/hbm/inventory/UpgradeManagerNT.java`: 49
+- `src/main/java/com/hbm/inventory/container/ContainerNT.java`: 71
+- `src/main/java/com/hbm/inventory/fluid/Fluids.java`: 1083, 1118, 1127
+- `src/main/java/com/hbm/inventory/gui/GUIAnvil.java`: 108, 118
+- `src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java`: 72, 82
+- `src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java`: 80
+- `src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java`: 68
+- `src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java`: 88, 99
+- `src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java`: 84, 161
+- `src/main/java/com/hbm/inventory/gui/GUIScreenWikiRender.java`: 132
+- `src/main/java/com/hbm/inventory/material/MatDistribution.java`: 199, 200
+- `src/main/java/com/hbm/inventory/recipes/AlkylationRecipes.java`: 124
+- `src/main/java/com/hbm/inventory/recipes/AmmoPressRecipes.java`: 478
+- `src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java`: 86
+- `src/main/java/com/hbm/inventory/recipes/ArcFurnaceRecipes.java`: 235, 236, 237, 238, 239
+- `src/main/java/com/hbm/inventory/recipes/ArcWelderRecipes.java`: 216
+- `src/main/java/com/hbm/inventory/recipes/AtmosphereRecipes.java`: 77
+- `src/main/java/com/hbm/inventory/recipes/BlastFurnaceRecipes.java`: 73, 271, 272
+- `src/main/java/com/hbm/inventory/recipes/BreederRecipes.java`: 117
+- `src/main/java/com/hbm/inventory/recipes/CentrifugeRecipes.java`: 410, 481
+- `src/main/java/com/hbm/inventory/recipes/CokerRecipes.java`: 134
+- `src/main/java/com/hbm/inventory/recipes/CombinationRecipes.java`: 178
+- `src/main/java/com/hbm/inventory/recipes/CompressorRecipes.java`: 77
+- `src/main/java/com/hbm/inventory/recipes/CrackingRecipes.java`: 113
+- `src/main/java/com/hbm/inventory/recipes/CrucibleRecipes.java`: 258, 259, 260
+- `src/main/java/com/hbm/inventory/recipes/CryoRecipes.java`: 143
+- `src/main/java/com/hbm/inventory/recipes/CrystallizerRecipes.java`: 431, 432
+- `src/main/java/com/hbm/inventory/recipes/CustomMachineRecipes.java`: 60
+- `src/main/java/com/hbm/inventory/recipes/CyclotronRecipes.java`: 183
+- `src/main/java/com/hbm/inventory/recipes/ElectrolyserFluidRecipes.java`: 81
+- `src/main/java/com/hbm/inventory/recipes/ElectrolyserMetalRecipes.java`: 224
+- `src/main/java/com/hbm/inventory/recipes/ExposureChamberRecipes.java`: 78
+- `src/main/java/com/hbm/inventory/recipes/FluidBreederRecipes.java`: 71
+- `src/main/java/com/hbm/inventory/recipes/FractionRecipes.java`: 88
+- `src/main/java/com/hbm/inventory/recipes/FuelPoolRecipes.java`: 65
+- `src/main/java/com/hbm/inventory/recipes/HydrotreatingRecipes.java`: 138
+- `src/main/java/com/hbm/inventory/recipes/LiquefactionRecipes.java`: 142
+- `src/main/java/com/hbm/inventory/recipes/MixerRecipes.java`: 161
+- `src/main/java/com/hbm/inventory/recipes/OutgasserRecipes.java`: 164
+- `src/main/java/com/hbm/inventory/recipes/ParticleAcceleratorRecipes.java`: 169
+- `src/main/java/com/hbm/inventory/recipes/PedestalRecipes.java`: 146, 147
+- `src/main/java/com/hbm/inventory/recipes/PressRecipes.java`: 158
+- `src/main/java/com/hbm/inventory/recipes/PyroOvenRecipes.java`: 184
+- `src/main/java/com/hbm/inventory/recipes/RefineryRecipes.java`: 84
+- `src/main/java/com/hbm/inventory/recipes/ReformingRecipes.java`: 139
+- `src/main/java/com/hbm/inventory/recipes/RotaryFurnaceRecipes.java`: 127
+- `src/main/java/com/hbm/inventory/recipes/ShredderRecipes.java`: 507
+- `src/main/java/com/hbm/inventory/recipes/SolderingRecipes.java`: 315, 316, 317, 318
+- `src/main/java/com/hbm/inventory/recipes/SolidificationRecipes.java`: 180
+- `src/main/java/com/hbm/inventory/recipes/VacuumCircuitRecipes.java`: 94, 95, 96
+- `src/main/java/com/hbm/inventory/recipes/VacuumRefineryRecipes.java`: 57
+- `src/main/java/com/hbm/inventory/recipes/anvil/AnvilRecipes.java`: 50
+- `src/main/java/com/hbm/inventory/recipes/loader/GenericRecipes.java`: 83, 84, 94, 95, 96
+- `src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java`: 172
+- `src/main/java/com/hbm/itempool/ItemPool.java`: 56
+- `src/main/java/com/hbm/items/armor/ArmorNo9.java`: 121
+- `src/main/java/com/hbm/items/machine/ItemPWRPrinter.java`: 130
+- `src/main/java/com/hbm/items/special/ItemAutogen.java`: 59
+- `src/main/java/com/hbm/items/weapon/ItemAmmoArty.java`: 284
+- `src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java`: 197
+- `src/main/java/com/hbm/items/weapon/sedna/factory/Lego.java`: 147
+- `src/main/java/com/hbm/main/LegacyBaseModelHandler.java`: 59, 60
+- `src/main/java/com/hbm/main/MainRegistry.java`: 791, 792
+- `src/main/java/com/hbm/module/ModuleBurnTime.java`: 148, 168
+- `src/main/java/com/hbm/packet/PermaSyncHandler.java`: 164, 213
+- `src/main/java/com/hbm/particle/ParticleSpentCasing.java`: 112
+- `src/main/java/com/hbm/qmaw/QMAWLoader.java`: 67, 68
+- `src/main/java/com/hbm/render/loader/HFRWavefrontObjectVBO.java`: 81
+- `src/main/java/com/hbm/render/tileentity/RenderCore.java`: 366
+- `src/main/java/com/hbm/render/util/MissilePart.java`: 72, 252
+- `src/main/java/com/hbm/render/util/RenderInfoSystem.java`: 31
+- `src/main/java/com/hbm/render/util/RenderOverhead.java`: 210
+- `src/main/java/com/hbm/tileentity/TileEntityDoorGeneric.java`: 359
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java`: 223
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java`: 139
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java`: 282, 283
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java`: 379
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDecon.java`: 32
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFF.java`: 43, 44
+- `src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java`: 338, 339, 379, 380
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java`: 213
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java`: 592, 611
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java`: 426, 502, 527
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java`: 114, 127
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java`: 221
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java`: 208, 287, 333, 352, 565
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarScreen.java`: 29, 53
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java`: 102, 103, 503, 510
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySolarBoiler.java`: 67, 69
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java`: 57, 155
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java`: 230
+- `src/main/java/com/hbm/tileentity/machine/rbmk/RBMKDials.java`: 88
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java`: 442, 443, 571, 572
+- `src/main/java/com/hbm/tileentity/network/RTTYSystem.java`: 73
+- `src/main/java/com/hbm/tileentity/network/RequestNetwork.java`: 69
+- `src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java`: 148
+- `src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java`: 162
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java`: 255, 290, 394
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java`: 157, 224, 343
+- `src/main/java/com/hbm/uninos/NodeNet.java`: 46, 81, 82, 83
+- `src/main/java/com/hbm/util/AdjacencyGraph.java`: 201
+- `src/main/java/com/hbm/util/DamageResistanceHandler.java`: 82, 83, 84, 85
+- `src/main/java/com/hbm/util/HashedSet.java`: 78
+- `src/main/java/com/hbm/util/StatHelper.java`: 47, 48
+- `src/main/java/com/hbm/util/TimeAnalyzer.java`: 56
+- `src/main/java/com/hbm/wiaj/JarScript.java`: 152
+- `src/main/java/com/hbm/world/biome/BiomeGenCraterBase.java`: 21, 22, 23
+- `src/main/java/com/hbm/world/biome/BiomeGenNoMansLand.java`: 35, 36, 37, 42, 51, 56
+- `src/main/java/com/hbm/world/generator/CellularDungeon.java`: 100
+
+### getSizeInventory: 206 call-site lines in 120 files
+
+- `src/main/java/com/hbm/blocks/BlockDummyable.java`: 389
+- `src/main/java/com/hbm/blocks/bomb/BombMulti.java`: 62
+- `src/main/java/com/hbm/blocks/bomb/CompactLauncher.java`: 140
+- `src/main/java/com/hbm/blocks/bomb/LaunchTable.java`: 185
+- `src/main/java/com/hbm/blocks/bomb/NukeBoy.java`: 58
+- `src/main/java/com/hbm/blocks/bomb/NukeCustom.java`: 63
+- `src/main/java/com/hbm/blocks/bomb/NukeFleija.java`: 57
+- `src/main/java/com/hbm/blocks/bomb/NukeGadget.java`: 60
+- `src/main/java/com/hbm/blocks/bomb/NukeMan.java`: 58
+- `src/main/java/com/hbm/blocks/bomb/NukeMike.java`: 57
+- `src/main/java/com/hbm/blocks/bomb/NukeN2.java`: 55
+- `src/main/java/com/hbm/blocks/bomb/NukePrototype.java`: 58
+- `src/main/java/com/hbm/blocks/bomb/NukeSolinium.java`: 55
+- `src/main/java/com/hbm/blocks/bomb/NukeTsar.java`: 57
+- `src/main/java/com/hbm/blocks/generic/BlockDecoContainer.java`: 82
+- `src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java`: 136, 227, 270
+- `src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java`: 170
+- `src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java`: 118
+- `src/main/java/com/hbm/blocks/machine/BlockMachineBase.java`: 62
+- `src/main/java/com/hbm/blocks/machine/BlockMassStorage.java`: 140, 187, 223
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 223
+- `src/main/java/com/hbm/blocks/machine/CoreCore.java`: 68
+- `src/main/java/com/hbm/blocks/machine/MachineAutocrafter.java`: 75
+- `src/main/java/com/hbm/blocks/machine/MachineBattery.java`: 184
+- `src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java`: 139
+- `src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java`: 165
+- `src/main/java/com/hbm/blocks/machine/MachineElectricFurnace.java`: 183
+- `src/main/java/com/hbm/blocks/machine/MachineForceField.java`: 100
+- `src/main/java/com/hbm/blocks/machine/MachineFunnel.java`: 88
+- `src/main/java/com/hbm/blocks/machine/MachineICFPress.java`: 74
+- `src/main/java/com/hbm/blocks/machine/MachineKeyForge.java`: 85
+- `src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java`: 75
+- `src/main/java/com/hbm/blocks/machine/MachineRTG.java`: 86
+- `src/main/java/com/hbm/blocks/machine/MachineReactorControl.java`: 121
+- `src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java`: 183
+- `src/main/java/com/hbm/blocks/machine/MachineSatDock.java`: 91
+- `src/main/java/com/hbm/blocks/machine/MachineSatLinker.java`: 83
+- `src/main/java/com/hbm/blocks/machine/MachineShredder.java`: 102
+- `src/main/java/com/hbm/blocks/machine/MachineSiren.java`: 83
+- `src/main/java/com/hbm/blocks/machine/MachineTurbine.java`: 88
+- `src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java`: 69
+- `src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java`: 181
+- `src/main/java/com/hbm/blocks/machine/WasteDrum.java`: 113
+- `src/main/java/com/hbm/blocks/network/CraneInserter.java`: 103
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java`: 228
+- `src/main/java/com/hbm/blocks/network/DroneCrate.java`: 81
+- `src/main/java/com/hbm/blocks/turret/TurretSentry.java`: 66
+- `src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java`: 20, 128
+- `src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java`: 26, 110
+- `src/main/java/com/hbm/entity/train/EntityRailCarCargo.java`: 13, 28, 134
+- `src/main/java/com/hbm/entity/train/TrainCargoTram.java`: 137, 138
+- `src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java`: 127, 128
+- `src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java`: 47, 48, 51, 71
+- `src/main/java/com/hbm/inventory/container/ContainerAnvil.java`: 119
+- `src/main/java/com/hbm/inventory/container/ContainerArmorTable.java`: 84, 173
+- `src/main/java/com/hbm/inventory/container/ContainerBase.java`: 44, 45, 48
+- `src/main/java/com/hbm/inventory/container/ContainerCartDestroyer.java`: 57
+- `src/main/java/com/hbm/inventory/container/ContainerCasingBag.java`: 47, 48, 51, 71
+- `src/main/java/com/hbm/inventory/container/ContainerCore.java`: 48, 49, 54
+- `src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java`: 44, 45, 49
+- `src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java`: 52, 53, 64
+- `src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java`: 49, 50
+- `src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java`: 44, 45, 48
+- `src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java`: 49, 50, 53
+- `src/main/java/com/hbm/inventory/container/ContainerCrateBase.java`: 43
+- `src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java`: 47, 48
+- `src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java`: 42, 43, 46
+- `src/main/java/com/hbm/inventory/container/ContainerLeadBox.java`: 47, 48, 51
+- `src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java`: 44, 46
+- `src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java`: 48, 50
+- `src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java`: 44, 46
+- `src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java`: 48, 50
+- `src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java`: 51, 53
+- `src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java`: 45, 47
+- `src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java`: 44, 46
+- `src/main/java/com/hbm/inventory/container/ContainerMachineRocketAssembly.java`: 54, 58
+- `src/main/java/com/hbm/inventory/container/ContainerMassStorage.java`: 44
+- `src/main/java/com/hbm/inventory/container/ContainerMiningLaser.java`: 49, 50
+- `src/main/java/com/hbm/inventory/container/ContainerOrbitalStationLauncher.java`: 60, 64
+- `src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java`: 42, 43, 46
+- `src/main/java/com/hbm/inventory/container/ContainerRBMKHeater.java`: 40, 41, 44
+- `src/main/java/com/hbm/inventory/container/ContainerRBMKOutgasser.java`: 43
+- `src/main/java/com/hbm/inventory/container/ContainerRBMKRod.java`: 60, 62, 65
+- `src/main/java/com/hbm/inventory/container/ContainerRBMKStorage.java`: 45
+- `src/main/java/com/hbm/inventory/container/ContainerSoyuzCapsule.java`: 53, 54, 59
+- `src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java`: 50, 51, 54
+- `src/main/java/com/hbm/inventory/container/ContainerToolBox.java`: 47, 48, 51
+- `src/main/java/com/hbm/inventory/container/ContainerTransporterRocket.java`: 46, 47, 50
+- `src/main/java/com/hbm/inventory/container/ContainerTurretBase.java`: 53, 54, 62
+- `src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java`: 55, 56, 59
+- `src/main/java/com/hbm/inventory/container/ContainerWatz.java`: 51, 52, 55
+- `src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java`: 133
+- `src/main/java/com/hbm/items/ItemInventory.java`: 52
+- `src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java`: 101, 125, 152
+- `src/main/java/com/hbm/items/tool/ItemAmmoBag.java`: 61, 80
+- `src/main/java/com/hbm/items/tool/ItemBoltgun.java`: 53
+- `src/main/java/com/hbm/items/tool/ItemCasingBag.java`: 71, 82, 111
+- `src/main/java/com/hbm/items/tool/ItemLeadBox.java`: 53
+- `src/main/java/com/hbm/items/tool/ItemPlasticBag.java`: 57
+- `src/main/java/com/hbm/items/tool/ItemRebarPlacer.java`: 197
+- `src/main/java/com/hbm/items/tool/ItemToolBox.java`: 268
+- `src/main/java/com/hbm/items/weapon/sedna/mags/MagazineBelt.java`: 38, 53, 87, 96, 132, 142
+- `src/main/java/com/hbm/items/weapon/sedna/mags/MagazineSingleTypeBase.java`: 98, 138, 182, 199
+- `src/main/java/com/hbm/lib/HbmWorldGen.java`: 405
+- `src/main/java/com/hbm/lib/WeightedRandomChestContent.java`: 54
+- `src/main/java/com/hbm/main/ModEventHandler.java`: 510
+- `src/main/java/com/hbm/packet/toserver/ItemBobmazonPacket.java`: 103, 130
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 224
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 17
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java`: 201
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java`: 275, 281
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java`: 273
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java`: 212, 213
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java`: 236, 257
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java`: 229, 230
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 192, 228, 243
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java`: 111
+- `src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java`: 50
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 213, 214
+- `src/main/java/com/hbm/util/ItemStackUtil.java`: 209
+
+### isUseableByPlayer: 170 call-site lines in 170 files
+
+- `src/main/java/com/hbm/entity/train/TrainCargoTram.java`: 164
+- `src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java`: 146
+- `src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerAshpit.java`: 65
+- `src/main/java/com/hbm/inventory/container/ContainerBarrel.java`: 81
+- `src/main/java/com/hbm/inventory/container/ContainerBase.java`: 32
+- `src/main/java/com/hbm/inventory/container/ContainerBatteryREDD.java`: 35
+- `src/main/java/com/hbm/inventory/container/ContainerBatterySocket.java`: 34
+- `src/main/java/com/hbm/inventory/container/ContainerBombMulti.java`: 75
+- `src/main/java/com/hbm/inventory/container/ContainerCartDestroyer.java`: 44
+- `src/main/java/com/hbm/inventory/container/ContainerCasingBag.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerCentrifuge.java`: 86
+- `src/main/java/com/hbm/inventory/container/ContainerCombustionEngine.java`: 85
+- `src/main/java/com/hbm/inventory/container/ContainerCompactLauncher.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerCompressor.java`: 41
+- `src/main/java/com/hbm/inventory/container/ContainerCore.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerCoreEmitter.java`: 35
+- `src/main/java/com/hbm/inventory/container/ContainerCoreInjector.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerCoreReceiver.java`: 35
+- `src/main/java/com/hbm/inventory/container/ContainerCoreStabilizer.java`: 69
+- `src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java`: 70
+- `src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java`: 66
+- `src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java`: 71
+- `src/main/java/com/hbm/inventory/container/ContainerCrucible.java`: 79
+- `src/main/java/com/hbm/inventory/container/ContainerCrystallizer.java`: 95
+- `src/main/java/com/hbm/inventory/container/ContainerDiFurnace.java`: 85
+- `src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerElectricFurnace.java`: 88
+- `src/main/java/com/hbm/inventory/container/ContainerElectrolyser.java`: 79
+- `src/main/java/com/hbm/inventory/container/ContainerElectrolyserFluid.java`: 99
+- `src/main/java/com/hbm/inventory/container/ContainerElectrolyserMetal.java`: 90
+- `src/main/java/com/hbm/inventory/container/ContainerFEL.java`: 70
+- `src/main/java/com/hbm/inventory/container/ContainerFileCabinet.java`: 68
+- `src/main/java/com/hbm/inventory/container/ContainerFirebox.java`: 65
+- `src/main/java/com/hbm/inventory/container/ContainerForceField.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerFunnel.java`: 35
+- `src/main/java/com/hbm/inventory/container/ContainerFurnaceBrick.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerFurnaceCombo.java`: 70
+- `src/main/java/com/hbm/inventory/container/ContainerFurnaceIron.java`: 73
+- `src/main/java/com/hbm/inventory/container/ContainerFurnaceSteel.java`: 71
+- `src/main/java/com/hbm/inventory/container/ContainerFusionBreeder.java`: 68
+- `src/main/java/com/hbm/inventory/container/ContainerFusionKlystron.java`: 66
+- `src/main/java/com/hbm/inventory/container/ContainerFusionTorus.java`: 38
+- `src/main/java/com/hbm/inventory/container/ContainerHeaterHeatex.java`: 62
+- `src/main/java/com/hbm/inventory/container/ContainerICF.java`: 76
+- `src/main/java/com/hbm/inventory/container/ContainerICFPress.java`: 94
+- `src/main/java/com/hbm/inventory/container/ContainerIGenerator.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerITER.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerLaunchPadLarge.java`: 106
+- `src/main/java/com/hbm/inventory/container/ContainerLaunchPadRusted.java`: 81
+- `src/main/java/com/hbm/inventory/container/ContainerLaunchTable.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerLeadBox.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerLiquefactor.java`: 40
+- `src/main/java/com/hbm/inventory/container/ContainerMachineAmmoPress.java`: 82
+- `src/main/java/com/hbm/inventory/container/ContainerMachineArcFurnaceLarge.java`: 86
+- `src/main/java/com/hbm/inventory/container/ContainerMachineArcWelder.java`: 51
+- `src/main/java/com/hbm/inventory/container/ContainerMachineBattery.java`: 79
+- `src/main/java/com/hbm/inventory/container/ContainerMachineCatalyticReformer.java`: 105
+- `src/main/java/com/hbm/inventory/container/ContainerMachineCoker.java`: 71
+- `src/main/java/com/hbm/inventory/container/ContainerMachineCryoDistill.java`: 96
+- `src/main/java/com/hbm/inventory/container/ContainerMachineCustom.java`: 61
+- `src/main/java/com/hbm/inventory/container/ContainerMachineCyclotron.java`: 112
+- `src/main/java/com/hbm/inventory/container/ContainerMachineDiFurnaceRTG.java`: 45
+- `src/main/java/com/hbm/inventory/container/ContainerMachineDiesel.java`: 78
+- `src/main/java/com/hbm/inventory/container/ContainerMachineEPress.java`: 93
+- `src/main/java/com/hbm/inventory/container/ContainerMachineExcavator.java`: 90
+- `src/main/java/com/hbm/inventory/container/ContainerMachineExposureChamber.java`: 84
+- `src/main/java/com/hbm/inventory/container/ContainerMachineFluidTank.java`: 82
+- `src/main/java/com/hbm/inventory/container/ContainerMachineGasCent.java`: 93
+- `src/main/java/com/hbm/inventory/container/ContainerMachineGasFlare.java`: 100
+- `src/main/java/com/hbm/inventory/container/ContainerMachineHydrotreater.java`: 106
+- `src/main/java/com/hbm/inventory/container/ContainerMachineKeyForge.java`: 80
+- `src/main/java/com/hbm/inventory/container/ContainerMachineLargeTurbine.java`: 92
+- `src/main/java/com/hbm/inventory/container/ContainerMachineMilkReformer.java`: 92
+- `src/main/java/com/hbm/inventory/container/ContainerMachineMissileAssembly.java`: 76
+- `src/main/java/com/hbm/inventory/container/ContainerMachineOilWell.java`: 87
+- `src/main/java/com/hbm/inventory/container/ContainerMachinePress.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerMachineRTG.java`: 95
+- `src/main/java/com/hbm/inventory/container/ContainerMachineRadGen.java`: 75
+- `src/main/java/com/hbm/inventory/container/ContainerMachineRadarNT.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerMachineReactorBreeding.java`: 72
+- `src/main/java/com/hbm/inventory/container/ContainerMachineRefinery.java`: 98
+- `src/main/java/com/hbm/inventory/container/ContainerMachineRotaryFurnace.java`: 73
+- `src/main/java/com/hbm/inventory/container/ContainerMachineSatLinker.java`: 80
+- `src/main/java/com/hbm/inventory/container/ContainerMachineShredder.java`: 109
+- `src/main/java/com/hbm/inventory/container/ContainerMachineSiren.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerMachineSolderingStation.java`: 91
+- `src/main/java/com/hbm/inventory/container/ContainerMachineStrandCaster.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerMachineTurbine.java`: 92
+- `src/main/java/com/hbm/inventory/container/ContainerMachineTurbineGas.java`: 78
+- `src/main/java/com/hbm/inventory/container/ContainerMachineTurbofan.java`: 86
+- `src/main/java/com/hbm/inventory/container/ContainerMachineVacuumDistill.java`: 97
+- `src/main/java/com/hbm/inventory/container/ContainerMachineWarController.java`: 62
+- `src/main/java/com/hbm/inventory/container/ContainerMachineWoodBurner.java`: 95
+- `src/main/java/com/hbm/inventory/container/ContainerMassStorage.java`: 97
+- `src/main/java/com/hbm/inventory/container/ContainerMicrowave.java`: 69
+- `src/main/java/com/hbm/inventory/container/ContainerMiningLaser.java`: 75
+- `src/main/java/com/hbm/inventory/container/ContainerMixer.java`: 88
+- `src/main/java/com/hbm/inventory/container/ContainerNukeAntimatter.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerNukeBoy.java`: 74
+- `src/main/java/com/hbm/inventory/container/ContainerNukeCustom.java`: 97
+- `src/main/java/com/hbm/inventory/container/ContainerNukeFleija.java`: 80
+- `src/main/java/com/hbm/inventory/container/ContainerNukeFstbmb.java`: 71
+- `src/main/java/com/hbm/inventory/container/ContainerNukeGadget.java`: 75
+- `src/main/java/com/hbm/inventory/container/ContainerNukeMan.java`: 75
+- `src/main/java/com/hbm/inventory/container/ContainerNukeMike.java`: 68
+- `src/main/java/com/hbm/inventory/container/ContainerNukeN2.java`: 80
+- `src/main/java/com/hbm/inventory/container/ContainerNukePrototype.java`: 83
+- `src/main/java/com/hbm/inventory/container/ContainerNukeSolinium.java`: 78
+- `src/main/java/com/hbm/inventory/container/ContainerNukeTsar.java`: 66
+- `src/main/java/com/hbm/inventory/container/ContainerOilburner.java`: 79
+- `src/main/java/com/hbm/inventory/container/ContainerOreSlopper.java`: 99
+- `src/main/java/com/hbm/inventory/container/ContainerPADetector.java`: 43
+- `src/main/java/com/hbm/inventory/container/ContainerPADipole.java`: 38
+- `src/main/java/com/hbm/inventory/container/ContainerPAQuadrupole.java`: 38
+- `src/main/java/com/hbm/inventory/container/ContainerPARFC.java`: 34
+- `src/main/java/com/hbm/inventory/container/ContainerPASource.java`: 44
+- `src/main/java/com/hbm/inventory/container/ContainerPWR.java`: 73
+- `src/main/java/com/hbm/inventory/container/ContainerPlasmaHeater.java`: 66
+- `src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java`: 72
+- `src/main/java/com/hbm/inventory/container/ContainerPyroOven.java`: 84
+- `src/main/java/com/hbm/inventory/container/ContainerRBMKAutoloader.java`: 52
+- `src/main/java/com/hbm/inventory/container/ContainerRadiolysis.java`: 50
+- `src/main/java/com/hbm/inventory/container/ContainerReactorControl.java`: 70
+- `src/main/java/com/hbm/inventory/container/ContainerReactorResearch.java`: 80
+- `src/main/java/com/hbm/inventory/container/ContainerReactorZirnox.java`: 113
+- `src/main/java/com/hbm/inventory/container/ContainerRtgFurnace.java`: 84
+- `src/main/java/com/hbm/inventory/container/ContainerSILEX.java`: 97
+- `src/main/java/com/hbm/inventory/container/ContainerSatDock.java`: 89
+- `src/main/java/com/hbm/inventory/container/ContainerSolidifier.java`: 42
+- `src/main/java/com/hbm/inventory/container/ContainerSoyuzCapsule.java`: 79
+- `src/main/java/com/hbm/inventory/container/ContainerSoyuzLauncher.java`: 95
+- `src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java`: 72
+- `src/main/java/com/hbm/inventory/container/ContainerToolBox.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerTurretBase.java`: 80
+- `src/main/java/com/hbm/inventory/container/ContainerVacuumCircuit.java`: 86
+- `src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java`: 77
+- `src/main/java/com/hbm/inventory/container/ContainerWatz.java`: 73
+- `src/main/java/com/hbm/items/tool/ItemRebarPlacer.java`: 264
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 323
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java`: 546
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java`: 222
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java`: 539
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java`: 197
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java`: 239
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java`: 690
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java`: 369
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java`: 298
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java`: 395
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java`: 273
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java`: 223
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java`: 806
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java`: 171
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java`: 231
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java`: 348
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java`: 426
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java`: 402
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java`: 229
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java`: 563
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 506
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java`: 403
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java`: 226
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java`: 237
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java`: 456
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java`: 258
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java`: 176
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java`: 263
+- `src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java`: 296
+- `src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java`: 121
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java`: 73
+
+### getInventoryStackLimit: 21 call-site lines in 16 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 276
+- `src/main/java/com/hbm/blocks/machine/PistonInserter.java`: 376, 377
+- `src/main/java/com/hbm/blocks/network/CraneInserter.java`: 101
+- `src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java`: 73, 74
+- `src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java`: 178, 179
+- `src/main/java/com/hbm/entity/train/EntityRailCarCargo.java`: 78, 79
+- `src/main/java/com/hbm/inventory/SlotNonRetarded.java`: 34
+- `src/main/java/com/hbm/inventory/container/ContainerBase.java`: 137
+- `src/main/java/com/hbm/items/ItemInventory.java`: 107
+- `src/main/java/com/hbm/items/tool/ItemAmmoBag.java`: 122
+- `src/main/java/com/hbm/items/tool/ItemCasingBag.java`: 153
+- `src/main/java/com/hbm/items/tool/ItemPlasticBag.java`: 96
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 310
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 92
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 236
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 154, 173
+
+### isItemValidForSlot: 57 call-site lines in 50 files
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java`: 293
+- `src/main/java/com/hbm/blocks/network/CraneInserter.java`: 110, 129
+- `src/main/java/com/hbm/inventory/SlotNonRetarded.java`: 25
+- `src/main/java/com/hbm/tileentity/TileEntityInventoryBase.java`: 138
+- `src/main/java/com/hbm/tileentity/TileEntityMachineBase.java`: 133
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java`: 359, 361
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java`: 114
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java`: 137
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java`: 570
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java`: 561
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java`: 141
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java`: 136
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java`: 135
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java`: 135
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java`: 205
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java`: 121
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java`: 192
+- `src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java`: 271
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java`: 127
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java`: 126
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java`: 380
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java`: 232
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java`: 177
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java`: 577
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java`: 179
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java`: 239
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java`: 189
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java`: 140, 261
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java`: 168
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java`: 195
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java`: 189
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java`: 322, 327
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java`: 254
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java`: 167
+- `src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java`: 190
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java`: 224
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java`: 231, 246, 249
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java`: 180
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java`: 124
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java`: 121
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java`: 181
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java`: 146
+- `src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java`: 41
+- `src/main/java/com/hbm/uninos/networkproviders/PneumaticNetwork.java`: 159, 178
+
+### getSlotsForFace: 0 call-site lines in 0 files
+
+
+### hasCustomName: 1 call-site lines in 1 files
+
+- `src/main/java/com/hbm/tileentity/TileEntityInventoryBase.java`: 66
+
+### isUsableByPlayer: 0 call-site lines in 0 files
+
+
+## Family nullable storage and internal API use
+
+All source lines mentioning slots in each descendant body, followed by null-bearing slot lines and inventory method-use/declaration lines. Nested body lines may be included here and are not counted as overrides above. This inventory intentionally retains direct storage references, assignments, and arguments so aliasing consumers are not lost.
+
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java` (TileEntityCranePartitioner): slots=160,179; null-bearing=160,179; inventory API=152,193,198,205
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java` (TileEntityAntimatter): slots=93,107,108,117,118; null-bearing=93,107,118; inventory API=33
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java` (TileEntityLaunchPadBase): slots=164,165,166,169,170,188,190,191,314,324,325,337,339,350,368,369,380,385,386,389,391,459,461,462,509; null-bearing=188,314,324,337,368,385,459; inventory API=124,129,134,139,223,374
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java` (TileEntityLaunchPadLarge): slots=62,63,91; null-bearing=91; inventory API=none
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java` (TileEntityLaunchPadRocket): slots=88,108,109,110,116,271,280,281,285,289,300,304,309,311,327,330,331,448,459,463,632; null-bearing=110,280,281,285,289,632; inventory API=77,111,471,546,581,707
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java` (TileEntityLaunchPadRusted): slots=103,104,105,106,108,110,228,230; null-bearing=103,105,228; inventory API=46,119,139,222
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java` (TileEntityNukeBalefire): slots=97,106,107,113,114; null-bearing=97,106,107,114; inventory API=33
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java` (TileEntityAirPump): slots=none; null-bearing=none; inventory API=236,293
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java` (TileEntityAirScrubber): slots=none; null-bearing=none; inventory API=37
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java` (TileEntityAlgaeFilm): slots=none; null-bearing=none; inventory API=26
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java` (TileEntityAshpit): slots=104,127,128,131,132; null-bearing=104,127; inventory API=75,80,85,158,163
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java` (TileEntityAtmosphericCompressor): slots=none; null-bearing=none; inventory API=40
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java` (TileEntityConveyorPress): slots=120,127,148,161,162,163,164,179; null-bearing=120,127,164; inventory API=44,194,199,204,205
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCore.java` (TileEntityCore): slots=131,133,134,280,284,287,290,293; null-bearing=131,280; inventory API=57
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java` (TileEntityCoreEmitter): slots=none; null-bearing=none; inventory API=61
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java` (TileEntityCoreInjector): slots=55,56; null-bearing=none; inventory API=43,180,186
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java` (TileEntityCoreReceiver): slots=none; null-bearing=none; inventory API=46
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java` (TileEntityCoreStabilizer): slots=64,82,86,88,204,205,214,215,244,246,263,264; null-bearing=64,86,204,214,246,263,264; inventory API=48
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java` (TileEntityCrucible): slots=121,124,129,130,384,435,524,525; null-bearing=121,524; inventory API=96,101,282,283,397,446,555
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java` (TileEntityCustomMachine): slots=115,117,118,119,277,278,326,340,341,368,369,371,481,483; null-bearing=277,326,340,341,368,481; inventory API=101,354,379,458,470,475
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java` (TileEntityDeuteriumExtractor): slots=none; null-bearing=none; inventory API=27
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java` (TileEntityDiFurnace): slots=138,141,143,144,146,154,156,157,158,159,191,192,193,195,196,197; null-bearing=138,143,156,193; inventory API=48,53,109,114,121,125,163
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java` (TileEntityDiFurnaceRTG): slots=39,42,45,47,49,51,54,103,104,105,106,107,110,111,113,114,115,147,160; null-bearing=39,45,104,115; inventory API=49,51,146,148,149,154,173,174,178,183,188,192,196,203,208,218
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java` (TileEntityDishControl): slots=84; null-bearing=84; inventory API=30
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java` (TileEntityDysonConverterAnatmogenesis): slots=none; null-bearing=none; inventory API=50
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java` (TileEntityDysonConverterHE): slots=none; null-bearing=none; inventory API=31
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java` (TileEntityDysonConverterTU): slots=none; null-bearing=none; inventory API=23
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java` (TileEntityDysonLauncher): slots=67,70,89,120,121,192,206,207,209,225; null-bearing=70,121,192,206,225; inventory API=57,199,201,203,204,205,260,265,271
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java` (TileEntityDysonReceiver): slots=81; null-bearing=none; inventory API=72
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java` (TileEntityElectrolyser): slots=120,121,122,123,124,137,292,316,320,322,330,334,350,364,382,386,388,398; null-bearing=330; inventory API=95,100,106,111,394,539
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java` (TileEntityFEL): slots=77,79,81,83; null-bearing=79; inventory API=64
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java` (TileEntityFireboxBase): slots=77,79,88,95,96,98,99; null-bearing=77; inventory API=47,52,203,208
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java` (TileEntityFurnaceBrick): slots=88,90,95,96,98,107,108,141,174,175,177,178,187,190,193,195,197,198,204,206,207,208,209,212,214,215; null-bearing=88,95,174,187,193,206,215; inventory API=71,147,152,198
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java` (TileEntityFurnaceCombination): slots=84,98,103,104,106,160,161,169,170,171; null-bearing=103,160,169; inventory API=51,118,211,216,221
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java` (TileEntityFurnaceIron): slots=68,76,78,82,84,85,104,106,107,109,163,165,168,170,171; null-bearing=76,106,163,168; inventory API=59,112,177,182,194
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java` (TileEntityFurnaceSteel): slots=64,76,79,81,82,84,87,90,219,221,224,226,227; null-bearing=64,81,219,224; inventory API=48,94,233,238,247
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterFirebox.java` (TileEntityHeaterFirebox): slots=none; null-bearing=none; inventory API=45
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java` (TileEntityHeaterHeatex): slots=61; null-bearing=none; inventory API=46
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java` (TileEntityHeaterOilburner): slots=60,61; null-bearing=none; inventory API=42
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOven.java` (TileEntityHeaterOven): slots=none; null-bearing=none; inventory API=52
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java` (TileEntityHydroponic): slots=93,94,96,98,103,143,145,156,157,227,228,229,232,233,234,235; null-bearing=93,98,143,157,232; inventory API=70,299,306,311
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java` (TileEntityICF): slots=72,81,83,84,85,93,95,96,97,106,107,108,110,111,342,343,344,345,346; null-bearing=81,83,85,93,95,97,106; inventory API=63,194,199,206,228
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java` (TileEntityICFPress): slots=52,53,60,62,67,68,70,71,89,90,94,95,99; null-bearing=60,67,89,90; inventory API=43,77,103,104,105,143,153,158
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java` (TileEntityITER): slots=98,130,132,133,299,301,304,307,315,333,334,336,339,341,342,374,375,379,380,386,389,400,402,404,406,408,576,577; null-bearing=133,301,304,307,315,333,342,374,386,400,576,577; inventory API=88,349,354,359
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java` (TileEntityMachineAmmoPress): slots=107,108,109,110,122,123,124,125,138,139,141; null-bearing=107,122,123,124,138; inventory API=42,90,91,135,150,155,160,197
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java` (TileEntityMachineAnnihilator): slots=63,74,75,76,77,97,98,99,100,103,107,108,114,115,116,117,118,161,162,163,170,171; null-bearing=74,77,97,107,114,116,161,170; inventory API=54,112,179,188,193,239
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java` (TileEntityMachineArcFurnaceLarge): slots=107,112,265,266,269,274,275,276,279,282,286,287,288,289,290,293,303,304,305,306,318,319,323,324,325,330,347,348,356,357,368,435,453,456,458,461,462,463,464,466,483,484,485,486,487,488,489,492,502,503,504,505,506,507,508,511,525,526,527,529; null-bearing=265,274,282,286,287,293,303,318,330,356,368,435,453,483,487,492,502,506,511,525,526,527; inventory API=91,96,97,278,291,335,374,382,393,408,437,592,611,690
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java` (TileEntityMachineArcWelder): slots=80,81,90,93,112,113,115,156,192,193,194,195,206; null-bearing=112,192; inventory API=62,67,68,208,287,292,297,302,307,312,317
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java` (TileEntityMachineAssemblyFactory): slots=95,168,169,195; null-bearing=none; inventory API=101,108,117,127,128,129,131,143,147,369
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java` (TileEntityMachineAssemblyMachine): slots=73,96,97,115,120,121; null-bearing=120; inventory API=79,269,278,283,298
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java` (TileEntityMachineAutocrafter): slots=47,60,62,78,91,92,94,95,107,154,156,187,201,206,210,213,216,223,235,239,241,258,263,273,276,319,321; null-bearing=62,91,107,156,206,210,223,241,321; inventory API=67,102,105,114,177,182,196,275,276,280,281,358
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java` (TileEntityMachineCentrifuge): slots=76,129,132,141,147,157,164,165,167,190,195; null-bearing=129,141,164; inventory API=85,90,95,115,171
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java` (TileEntityMachineChemicalFactory): slots=89,168,169,195; null-bearing=none; inventory API=97,107,116,126,127,128,130,143,147,395
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java` (TileEntityMachineChemicalPlant): slots=69,94,95,97,98,99,101,102,103,121,126,127; null-bearing=126; inventory API=77,242,253,258,273
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java` (TileEntityMachineCombustionEngine): slots=75,76,83,84,114,395,429; null-bearing=83; inventory API=67,251,256,371,432
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java` (TileEntityMachineCompressorBase): slots=72,73,76; null-bearing=none; inventory API=59,223
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java` (TileEntityMachineCryoDistill): slots=57,58,70,71,72,73; null-bearing=none; inventory API=49
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java` (TileEntityMachineCrystallizer): slots=74,75,76,78,173,180,181,182,183,196,202,209,217,221,240; null-bearing=180,196,217,221; inventory API=61,190,301,309,314,344,345
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java` (TileEntityMachineCyclotron): slots=78,80,172,182,185,196,206,210,217,221; null-bearing=182,206; inventory API=67,208,209,219,220,313,314,362,379,380,384,389
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java` (TileEntityMachineDiesel): slots=132,133,144; null-bearing=none; inventory API=72,77,103,108
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java` (TileEntityMachineDriveProcessor): slots=50,57,60,78,86,145,147,164,165,168,175,176,181,182; null-bearing=57,86,145,164,175,176; inventory API=141,210,215
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java` (TileEntityMachineEPress): slots=81,91,124,125,126,128,132,133,134,135,179,182,199,201,205,206; null-bearing=125,135,179,199,205; inventory API=66,130,217,226,231,232,236
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java` (TileEntityMachineElectricFurnace): slots=122,125,131,135,139,142,148,150,151,152,153,157,158,160,162,163,179,186; null-bearing=122,131,150,163; inventory API=55,60,89,94,139
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java` (TileEntityMachineExcavator): slots=108,117,130,366,367,368,379,382,386,589,612,614,658,659,660,673,676,680,758,759; null-bearing=366,382,614,658,676,758; inventory API=100,426,502,527,806
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java` (TileEntityMachineExposureChamber): slots=93,99,113,114,118,124,125,127,128,133,134,141,142,144,154,155,157,169,210,211,212,215,218,219,224,225,230; null-bearing=113,124,141,144,154,169,211,212,215,218,224,230; inventory API=83,135,152,206,242,247
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java` (TileEntityMachineFunnel): slots=48,50,52,56,57,58,60,61,101; null-bearing=48,50,52,56,57,101; inventory API=37,59,62,88,93,99,114,115,116,117,118,127,128,171
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java` (TileEntityMachineGasCent): slots=115,124,139,183,195,221,224,344,352,353,354; null-bearing=115,195,344,352; inventory API=65,70,75
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java` (TileEntityMachineGasDock): slots=none; null-bearing=none; inventory API=205
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java` (TileEntityMachineHTR3): slots=none; null-bearing=none; inventory API=282
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java` (TileEntityMachineHTRF4): slots=none; null-bearing=none; inventory API=292
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java` (TileEntityMachineHTRNeo): slots=none; null-bearing=none; inventory API=357
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java` (TileEntityMachineIGenerator): slots=91,101,102,103,104,130,131,147,149,151,152,154,163,164; null-bearing=130,154; inventory API=69,214,219
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java` (TileEntityMachineLPW2): slots=none; null-bearing=none; inventory API=277
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java` (TileEntityMachineLargeTurbine): slots=94,95,96,124; null-bearing=none; inventory API=76
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java` (TileEntityMachineMagma): slots=none; null-bearing=none; inventory API=221,289
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java` (TileEntityMachineMilkReformer): slots=95,96,100,101,102; null-bearing=none; inventory API=44
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java` (TileEntityMachineMiningLaser): slots=88,89,131,155,271,272,273,275,420,483,484,485,486,494,495,503,504,512,513,521,522,530,531,539,540,588,591,594; null-bearing=271,275,483,494,495,503,512,521,530,539; inventory API=95,273,576,577,581,586,598,599
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java` (TileEntityMachineMixer): slots=71,72,74,193,195; null-bearing=193; inventory API=62,209,228,233
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java` (TileEntityMachineOreSlopper): slots=105,107,119,134,137,171,172,174,175,340; null-bearing=171,174,340; inventory API=90,140,279,284,291
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java` (TileEntityMachinePUREX): slots=66,89,90,108; null-bearing=none; inventory API=72,202,211,216,231
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java` (TileEntityMachinePlasmaHeater): slots=63,64,65; null-bearing=none; inventory API=50
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java` (TileEntityMachinePrecAss): slots=79,102,103,121; null-bearing=none; inventory API=85,319,328,333,348
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java` (TileEntityMachinePress): slots=124,125,126,128,132,133,134,135,154,155,157,158,193,209,211,215,216; null-bearing=125,135,154,209,215; inventory API=55,130,160,221,233,238,239,243
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java` (TileEntityMachineRadGen): slots=69,70,71,72,75,76,77,100,101,103,197,200,203,206; null-bearing=69,70,100,197,203; inventory API=52,78,192,214,220
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java` (TileEntityMachineRadarNT): slots=146,154,202,203,446; null-bearing=202; inventory API=131,208,287,333,352,426,532,565
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java` (TileEntityMachineRadiolysis): slots=49,107,109,115,207,208,214,217,219,220,221,222,224,226,227,228,229,230,238,239,240; null-bearing=207,217,222,230,238; inventory API=57,63,68,73,209,218,225
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java` (TileEntityMachineReactorBreeding): slots=59,112,115,123,126,129,139,146,147,148,149,152,154,155; null-bearing=112,123,146,155; inventory API=46,163,168,173
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java` (TileEntityMachineRocketAssembly): slots=60,61,67,68,69,72,74,75,76,77,78,79,80,85,243,245,246,251,253,254,262,263,265,266,267,272,273,274,277; null-bearing=68,72,74,78,79,80,246,254,273,277; inventory API=53,211,212,213,303,309,323
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java` (TileEntityMachineRotaryFurnace): slots=97,131,137,138,139,213,339; null-bearing=137; inventory API=85,140,341,367,368,369,371,372,400
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java` (TileEntityMachineSolderingStation): slots=86,87,96,99,118,119,121,163,164,165,166,176,183,190,203,206,209; null-bearing=118,163,203,206,209; inventory API=66,71,72,177,184,191,201,216,221,402
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java` (TileEntityMachineStardar): slots=75,76,77,79,221,224,227,228,229,230,241,242,243,244,256,258,259; null-bearing=75,76,221,256; inventory API=150,339,343,348
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java` (TileEntityMachineTurbineGas): slots=102,103,151; null-bearing=102; inventory API=555,604
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java` (TileEntityMachineTurbofan): slots=152,153,158,161,198; null-bearing=161; inventory API=80
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java` (TileEntityMachineVacuumCircuit): slots=83,85,90,107,108,110,145,146,147,148,162,169,179,182; null-bearing=107,145,179,182; inventory API=63,68,69,163,170,177,189,194
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java` (TileEntityMachineWarController): slots=76,77,81,102,104; null-bearing=77,102; inventory API=34,111
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java` (TileEntityMachineWoodBurner): slots=71,72,73,84,85,87,97,99,203,204,206,207; null-bearing=84,99,203; inventory API=61,98,229,244,249,254
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java` (TileEntityMicrowave): slots=63,125,127,128,130,146,148,150,151,152,154; null-bearing=127,146,151; inventory API=52,133,161,166,167,171,176
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java` (TileEntityOrbitalStation): slots=193,194,195,223,231,232,233,234,236,271,285,286,287,307,310,312; null-bearing=194,232,236,286,312; inventory API=56,265,270
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationComputer.java` (TileEntityOrbitalStationComputer): slots=36,56; null-bearing=56; inventory API=49
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java` (TileEntityOrbitalStationLauncher): slots=87,88,91,95,96,97,100,102,103,104,105,106,107,108,113,134,135,175,186,190,195,213,221,222,272,276; null-bearing=96,100,102,106,107,108,135,175,221,222; inventory API=74,136,228,229,230,234,343,382
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java` (TileEntityPWRController): slots=171,201,202,206,236,237,238,239; null-bearing=201,206,236; inventory API=102,103,162,204,208,460,466,471,503,510,563
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java` (TileEntityReactorControl): slots=56,62,64,82,84,88,174,175,176,177; null-bearing=84,174; inventory API=40,56
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java` (TileEntityReactorResearch): slots=318,323,324,326,333,334,343,344,352,353; null-bearing=318,353; inventory API=83,88,115,120,192
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java` (TileEntityReactorZirnox): slots=198,199,204,205,207,208,281,282,283,308,311,318,320,321,376,377; null-bearing=204,281,377; inventory API=97,102,107,112,321
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java` (TileEntitySILEX): slots=68,69,194,195,204,227,248,267,271,272,280,281,282; null-bearing=194,227,267,271,280,282; inventory API=59,206,273,290,295,304
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java` (TileEntitySawmill): slots=73,80,81,87,177,188,189,229; null-bearing=80,229; inventory API=58,228,233,238,260
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java` (TileEntitySoyuzLauncher): slots=81,82,84,235,238,240,247,248,251,252,256,285,286,309,317,328,343,357,358,375,380,381,397,398,401; null-bearing=238,240,248,256,317,328,343,357,358,398; inventory API=64,375
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java` (TileEntityStorageDrum): slots=69,71,74,77,83,90,97,104,108,111,115,118,121,124,128,129; null-bearing=69,128; inventory API=53,208,223,224,228,243,248
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java` (TileEntityTesla): slots=none; null-bearing=none; inventory API=46,57,155
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java` (TileEntityTransporterBase): slots=83,96,111,112,113,114,197,199,205,206,207,225,386; null-bearing=111,114,197,205,386; inventory API=73,190,192,194,195,198,208,222,228,231,234,236,237,243,246,249,252,253,420,425,430,506
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java` (TileEntityWatz): slots=64,213,269,273,280,281,285,292,293,363,412,414,415; null-bearing=none; inventory API=73,286,403,425,432,437,442
+- `src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java` (TileEntityXenonThruster): slots=none; null-bearing=none; inventory API=51
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java` (TileEntityPADetector): slots=51,142,143,145,149,150,152,175,177,182,220,234; null-bearing=142,149,175,182; inventory API=43,75,76,77,139,140
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java` (TileEntityPADipole): slots=82,83,130; null-bearing=82; inventory API=67,226
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java` (TileEntityPAQuadrupole): slots=61,62,88; null-bearing=61; inventory API=45
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java` (TileEntityPARFC): slots=78; null-bearing=none; inventory API=43
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java` (TileEntityPASource): slots=80,91,124,125,127,128,133,134,135,331,353; null-bearing=91,124,125,134,135; inventory API=73,74,171,172,173,176,177,184,199,237
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java` (TileEntityFusionBreeder): slots=70,107,109,111,123,125,145,147,152,163,164,166,342,350,367,375; null-bearing=107,109,123,163; inventory API=61,146,153,200,206,207
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java` (TileEntityFusionKlystron): slots=81; null-bearing=none; inventory API=70,279
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java` (TileEntityFusionTorus): slots=85,137,176; null-bearing=none; inventory API=92,397,404,409,449,456
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java` (TileEntityMachineAlkylation): slots=none; null-bearing=none; inventory API=41
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java` (TileEntityMachineCatalyticReformer): slots=60,61,62,66,67,68,112; null-bearing=112; inventory API=50
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java` (TileEntityMachineCoker): slots=69,97,98,100,171,172,173,174; null-bearing=97,171; inventory API=59,228,233,316,334
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java` (TileEntityMachineFrackingTower): slots=none; null-bearing=none; inventory API=49
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java` (TileEntityMachineGasFlare): slots=118,119,126,189; null-bearing=none; inventory API=66
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java` (TileEntityMachineHydrotreater): slots=59,60,62,63,67,68,112; null-bearing=112; inventory API=49
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java` (TileEntityMachineLiquefactor): slots=67,71,125,127,144; null-bearing=125; inventory API=59,113,118,147
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java` (TileEntityMachineOilWell): slots=none; null-bearing=none; inventory API=38
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java` (TileEntityMachinePumpjack): slots=none; null-bearing=none; inventory API=48
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java` (TileEntityMachinePyroOven): slots=87,88,100,206,207,209,223,225,226,227,234,235,237; null-bearing=206,209,223,225,226,227,234; inventory API=69,70,78,245,304,305,306
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java` (TileEntityMachineRefinery): slots=154,155,156,160,161,162,163,302,303,306,307; null-bearing=302; inventory API=77,82,118,123,124,128
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java` (TileEntityMachineSolidifier): slots=66,67,71,131,133,136,139,159,160,162; null-bearing=131,159; inventory API=58,106,111
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java` (TileEntityMachineVacuumDistill): slots=67,68,69,73,74,75,76; null-bearing=none; inventory API=55
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java` (TileEntityOilDrillBase): slots=100,101,103,119; null-bearing=none; inventory API=183,184,230
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java` (TileEntityRBMKAutoloader): slots=76,103,105,106,107,113,115,117,118,177,187; null-bearing=76,103,105,107,113,118,187; inventory API=48,208,213,218,258
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java` (TileEntityRBMKConsole): slots=none; null-bearing=none; inventory API=66,633,651
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java` (TileEntityBarrel): slots=109,110,111,259,260,267; null-bearing=none; inventory API=79,216,230,235,388,394,469
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java` (TileEntityBatteryBase): slots=none; null-bearing=none; inventory API=117,176
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java` (TileEntityBatteryREDD): slots=52,55; null-bearing=none; inventory API=42
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java` (TileEntityBatterySocket): slots=68,69,70,98,99,103,104,118,120,124,126,264,265,266; null-bearing=68,103,118,124,264; inventory API=41,88,96
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java` (TileEntityMachineBAT9000): slots=none; null-bearing=none; inventory API=17
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java` (TileEntityMachineBattery): slots=74,187,232; null-bearing=none; inventory API=78,83,84,88,92,98,140,145,146,150
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFENSU.java` (TileEntityMachineFENSU): slots=51,70; null-bearing=none; inventory API=none
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java` (TileEntityMachineFluidTank): slots=160,161,200; null-bearing=none; inventory API=80,519,525,563
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java` (TileEntityMachineOrbus): slots=none; null-bearing=none; inventory API=27
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java` (TileEntityCraneBase): slots=none; null-bearing=none; inventory API=126,128,166
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java` (TileEntityCraneBoxer): slots=60,61,70,72,74,75,104,105,106,110,112,129,131,133,134; null-bearing=61,72,75,105,112,131,134; inventory API=37,164,169
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java` (TileEntityCraneExtractor): slots=66,67,77,78,133,147,216,228; null-bearing=66,77; inventory API=43,48,49,95,111,115,117,128,134,156,210,232,237,242
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java` (TileEntityCraneGrabber): slots=46,61,62,72,73,199; null-bearing=61,72; inventory API=50
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java` (TileEntityCraneInserter): slots=57,59,65,75,77; null-bearing=none; inventory API=35,86,113,118,123
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java` (TileEntityCraneRouter): slots=91,133; null-bearing=none; inventory API=41,158,160,185
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java` (TileEntityCraneUnboxer): slots=37,38,57,58,73; null-bearing=37,57; inventory API=26,78,96,101,106
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java` (TileEntityDroneCrate): slots=57,120,122,123,143,144,146; null-bearing=120,123,143,146; inventory API=48,122,141,145,195,200,205,263
+- `src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java` (TileEntityPneumoTube): slots=68,201; null-bearing=none; inventory API=61,296
+- `src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java` (TileEntityRadioTorchCounter): slots=38,55,56,143; null-bearing=55; inventory API=33,50,51,121
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java` (TileEntityTurretArty): slots=168,169,170,181,317; null-bearing=168,181; inventory API=67,182,255,290,394,443
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java` (TileEntityTurretBaseNT): slots=128,232,328,332,337,369,385,387,392,404,405,415,417,423,428,929,930; null-bearing=332,337,369,385,404,415,929; inventory API=73,371,806,811,853,858,881
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBrandon.java` (TileEntityTurretBrandon): slots=none; null-bearing=none; inventory API=32
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java` (TileEntityTurretChekhov): slots=none; null-bearing=none; inventory API=42
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFriendly.java` (TileEntityTurretFriendly): slots=none; null-bearing=none; inventory API=32
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java` (TileEntityTurretFritz): slots=130,133,138; null-bearing=138; inventory API=41,141,198
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java` (TileEntityTurretHIMARS): slots=129,130,131,251; null-bearing=129; inventory API=65,157,224,343
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java` (TileEntityTurretHoward): slots=none; null-bearing=none; inventory API=40
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java` (TileEntityTurretJeremy): slots=none; null-bearing=none; inventory API=39,128
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java` (TileEntityTurretMaxwell): slots=196,197; null-bearing=196; inventory API=37
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java` (TileEntityTurretRichard): slots=none; null-bearing=none; inventory API=35
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java` (TileEntityTurretSentry): slots=none; null-bearing=none; inventory API=53
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java` (TileEntityTurretTauon): slots=none; null-bearing=none; inventory API=36
+
+## Final all-native-sided closure and sentinel evidence
+
+Final recommendation supersedes a MachineBase-only sided declaration scope: migrate all 118 legacy one-int access, 46 legacy three-argument insert, and 109 legacy three-argument extract declarations across 120 files, plus the previously listed call-site conversions. All declaration owners resolve to actual ISidedInventory ancestry. InventoryBase already has native EnumFacing methods and is excluded; coordinate-aware IConditionalInvAccess methods are excluded. This closes independent inventories and PWR/controller/proxy dispatch without changing nullable getter/storage contracts. It does not make the whole project compile by itself.
+
+No explicit -1, 6 or ForgeDirection.UNKNOWN argument was found at the ordinary callback or masquerade/addToInventory/getSlotAccess call sites in the source scan. This is not proof that all dynamic values are 0..5:
+
+- PneumoTube.java:99-132 gates network send behind isCompressor and registration behind isEndpoint; definitions at 175-176 exclude UNKNOWN. Therefore normal sourceSide/destSide are real faces. Public network entry points remain externally callable and should validate or preserve domain behavior explicitly.
+- TileEntityCraneBase.java:41-47 derives input/default output from getOrientation(metadata); invalid metadata produces UNKNOWN. BlockCraneBase.java:135-140 returns UNKNOWN when its tile is missing. CraneInserter/Boxer/Unboxer/Extractor helpers can therefore see 6 through runtime metadata/missing-tile paths, not literal arguments. Do not silently map it to a physical face.
+- TransporterRocket.getInsertPos/getExtractPos and DysonLauncher.getInvPos derive directions from metadata minus BlockDummyable.offset. Valid machine metadata gives real directions; malformed metadata can reach UNKNOWN. Preserve this distinction, rather than claiming these calls are statically guaranteed real faces.
+- Native/proxy coordinate calls retain int arguments. Their delegation into native ordinary methods is an explicit boundary; do not change the coordinate API or blindly wrap arbitrary negative/out-of-range ints. This audit found no existing negative sentinel caller; it does not prove external callers cannot provide one.
+
+Native inspection used javap on the resolved project forgeBin 1.12.2-14.23.5.2768 JAR (no compilation or Gradle). ISidedInventory exposes EnumFacing signatures without a bytecode nullability guarantee. TileEntityHopper.putStackInInventoryAllSlots checks face != null before getSlotsForFace; null instead iterates the entire inventory, but insertStack still delegates null to canInsertItem through canInsertItemInSlot. Thus null insertion callbacks are an actual native path. Null getSlotsForFace is NOT established as generally supported by arbitrary native inventories. Hopper extraction uses a real face. An owned callback may explicitly map null to legacy UNKNOWN ordinal 6 for its old body/default, but generic helper-to-external-inventory null access requires an explicit policy decision/test; do not call it universally valid. No generalized old-Forge interface shim is proposed.
+
+### Complete legacy ordinary native declaration file manifest
+
+Each line gives the actual owner, method and source line. Existing native InventoryBase declarations are excluded.
+
+
+### getAccessibleSlotsFromSide: 118 legacy declarations
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java:299`: TileEntityBlockPWR
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:205`: TileEntityCranePartitioner
+- `src/main/java/com/hbm/tileentity/TileEntityMachineBase.java:142`: TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java:368`: TileEntityProxyCombo
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java:120`: TileEntityProxyInventory
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java:131`: TileEntityBombMulti
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java:564`: TileEntityCompactLauncher
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:134`: TileEntityLaunchPadBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java:555`: TileEntityLaunchTable
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java:129`: TileEntityNukeBoy
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java:135`: TileEntityNukeCustom
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java:129`: TileEntityNukeFleija
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java:129`: TileEntityNukeGadget
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java:129`: TileEntityNukeMan
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java:129`: TileEntityNukeMike
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java:129`: TileEntityNukeN2
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java:130`: TileEntityNukePrototype
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java:129`: TileEntityNukeSolinium
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java:129`: TileEntityNukeTsar
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:158`: TileEntityAshpit
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:199`: TileEntityConveyorPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:555`: TileEntityCrucible
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:458`: TileEntityCustomMachine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:109`: TileEntityDiFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:203`: TileEntityDiFurnaceRTG
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:271`: TileEntityDysonLauncher
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:95`: TileEntityElectrolyser
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:203`: TileEntityFireboxBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java:264`: TileEntityForceField
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java:212`: TileEntityFoundryCastingBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java:152`: TileEntityFurnaceBrick
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:211`: TileEntityFurnaceCombination
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:177`: TileEntityFurnaceIron
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:233`: TileEntityFurnaceSteel
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:306`: TileEntityHydroponic
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:206`: TileEntityICF
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:153`: TileEntityICFPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:354`: TileEntityITER
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:150`: TileEntityMachineAmmoPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:193`: TileEntityMachineAnnihilator
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:374`: TileEntityMachineArcFurnaceLarge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:297`: TileEntityMachineArcWelder
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:117`: TileEntityMachineAssemblyFactory
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:283`: TileEntityMachineAssemblyMachine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:177`: TileEntityMachineAutocrafter
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:95`: TileEntityMachineCentrifuge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:116`: TileEntityMachineChemicalFactory
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:258`: TileEntityMachineChemicalPlant
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:314`: TileEntityMachineCrystallizer
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:103`: TileEntityMachineDiesel
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:226`: TileEntityMachineEPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:89`: TileEntityMachineElectricFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:247`: TileEntityMachineExposureChamber
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:88`: TileEntityMachineFunnel
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:75`: TileEntityMachineGasCent
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:219`: TileEntityMachineIGenerator
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java:170`: TileEntityMachineKeyForge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:586`: TileEntityMachineMiningLaser
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java:173`: TileEntityMachineMissileAssembly
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java:228`: TileEntityMachineMixer
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:291`: TileEntityMachineOreSlopper
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:216`: TileEntityMachinePUREX
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:333`: TileEntityMachinePrecAss
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:233`: TileEntityMachinePress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java:183`: TileEntityMachineRTG
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:214`: TileEntityMachineRadGen
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:68`: TileEntityMachineRadiolysis
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:163`: TileEntityMachineReactorBreeding
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:367`: TileEntityMachineRotaryFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java:139`: TileEntityMachineSatDock
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java:162`: TileEntityMachineSatLinker
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java:189`: TileEntityMachineShredder
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java:182`: TileEntityMachineSiren
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:221`: TileEntityMachineSolderingStation
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java:303`: TileEntityMachineStrandCaster
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java:247`: TileEntityMachineTurbine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:194`: TileEntityMachineVacuumCircuit
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:244`: TileEntityMachineWoodBurner
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:176`: TileEntityMicrowave
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:270`: TileEntityOrbitalStation
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:466`: TileEntityPWRController
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:115`: TileEntityReactorResearch
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:102`: TileEntityReactorZirnox
+- `src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java:183`: TileEntityRtgFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:290`: TileEntitySILEX
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:238`: TileEntitySawmill
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:248`: TileEntityStorageDrum
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:420`: TileEntityTransporterBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java:174`: TileEntityWasteDrum
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:432`: TileEntityWatz
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:77`: TileEntityPADetector
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:173`: TileEntityPASource
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:207`: TileEntityFusionBreeder
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:409`: TileEntityFusionTorus
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:233`: TileEntityMachineCoker
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java:118`: TileEntityMachineLiquefactor
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:304`: TileEntityMachinePyroOven
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:118`: TileEntityMachineRefinery
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:111`: TileEntityMachineSolidifier
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:213`: TileEntityRBMKAutoloader
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutgasser.java:228`: TileEntityRBMKOutgasser
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java:130`: TileEntityRBMKSlottedBase
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKStorage.java:64`: TileEntityRBMKStorage
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:235`: TileEntityBarrel
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java:96`: TileEntityBatterySocket
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java:173`: TileEntityCrateBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:140`: TileEntityMachineBattery
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java:354`: TileEntityMassStorage
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java:164`: TileEntityCraneBoxer
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:232`: TileEntityCraneExtractor
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:113`: TileEntityCraneInserter
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:96`: TileEntityCraneUnboxer
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:195`: TileEntityDroneCrate
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneProvider.java:32`: TileEntityDroneProvider
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneRequester.java:67`: TileEntityDroneRequester
+- `src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java:43`: TileEntityRequestNetworkContainer
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:806`: TileEntityTurretBaseNT
+- `src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java:198`: TileEntityTurretFritz
+
+### canInsertItem: 46 legacy declarations
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java:310`: TileEntityBlockPWR
+- `src/main/java/com/hbm/tileentity/TileEntityMachineBase.java:132`: TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java:384`: TileEntityProxyCombo
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java:131`: TileEntityProxyInventory
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java:136`: TileEntityBombMulti
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java:569`: TileEntityCompactLauncher
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java:560`: TileEntityLaunchTable
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java:134`: TileEntityNukeBoy
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java:140`: TileEntityNukeCustom
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java:134`: TileEntityNukeFleija
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java:134`: TileEntityNukeGadget
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java:134`: TileEntityNukeMan
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java:134`: TileEntityNukeMike
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java:134`: TileEntityNukeN2
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java:135`: TileEntityNukePrototype
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java:134`: TileEntityNukeSolinium
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java:134`: TileEntityNukeTsar
+- `src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:204`: TileEntityConveyorPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:114`: TileEntityDiFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:188`: TileEntityDiFurnaceRTG
+- `src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java:270`: TileEntityForceField
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java:217`: TileEntityFoundryCastingBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:382`: TileEntityMachineArcFurnaceLarge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:231`: TileEntityMachineEPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java:176`: TileEntityMachineKeyForge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:576`: TileEntityMachineMiningLaser
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java:178`: TileEntityMachineMissileAssembly
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:238`: TileEntityMachinePress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java:188`: TileEntityMachineRTG
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java:140`: TileEntityMachineSatDock
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java:167`: TileEntityMachineSatLinker
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java:194`: TileEntityMachineShredder
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java:188`: TileEntityMachineSiren
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java:321`: TileEntityMachineStrandCaster
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java:253`: TileEntityMachineTurbine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:166`: TileEntityMicrowave
+- `src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java:189`: TileEntityRtgFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:223`: TileEntityStorageDrum
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java:179`: TileEntityWasteDrum
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:123`: TileEntityMachineRefinery
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java:120`: TileEntityRBMKSlottedBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java:180`: TileEntityCrateBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java:127`: TileEntityFileCabinet
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:145`: TileEntityMachineBattery
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java:344`: TileEntityMassStorage
+- `src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java:41`: TileEntityRequestNetworkContainer
+
+### canExtractItem: 109 legacy declarations
+
+- `src/main/java/com/hbm/blocks/machine/BlockPWR.java:321`: TileEntityBlockPWR
+- `src/main/java/com/hbm/blocks/network/CranePartitioner.java:193`: TileEntityCranePartitioner
+- `src/main/java/com/hbm/tileentity/TileEntityMachineBase.java:137`: TileEntityMachineBase
+- `src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java:400`: TileEntityProxyCombo
+- `src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java:142`: TileEntityProxyInventory
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java:141`: TileEntityBombMulti
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java:574`: TileEntityCompactLauncher
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:129`: TileEntityLaunchPadBase
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java:565`: TileEntityLaunchTable
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java:139`: TileEntityNukeBoy
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java:145`: TileEntityNukeCustom
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java:139`: TileEntityNukeFleija
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java:139`: TileEntityNukeGadget
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java:139`: TileEntityNukeMan
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java:139`: TileEntityNukeMike
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java:139`: TileEntityNukeN2
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java:140`: TileEntityNukePrototype
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java:139`: TileEntityNukeSolinium
+- `src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java:139`: TileEntityNukeTsar
+- `src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:163`: TileEntityAshpit
+- `src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:470`: TileEntityCustomMachine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:125`: TileEntityDiFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:208`: TileEntityDiFurnaceRTG
+- `src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:106`: TileEntityElectrolyser
+- `src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java:275`: TileEntityForceField
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java:222`: TileEntityFoundryCastingBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:221`: TileEntityFurnaceCombination
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:194`: TileEntityFurnaceIron
+- `src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:247`: TileEntityFurnaceSteel
+- `src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:311`: TileEntityHydroponic
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:199`: TileEntityICF
+- `src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:158`: TileEntityICFPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:349`: TileEntityITER
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:155`: TileEntityMachineAmmoPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:188`: TileEntityMachineAnnihilator
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:408`: TileEntityMachineArcFurnaceLarge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:292`: TileEntityMachineArcWelder
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:101`: TileEntityMachineAssemblyFactory
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:278`: TileEntityMachineAssemblyMachine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:182`: TileEntityMachineAutocrafter
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:115`: TileEntityMachineCentrifuge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:97`: TileEntityMachineChemicalFactory
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:253`: TileEntityMachineChemicalPlant
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:309`: TileEntityMachineCrystallizer
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:108`: TileEntityMachineDiesel
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:236`: TileEntityMachineEPress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:94`: TileEntityMachineElectricFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:242`: TileEntityMachineExposureChamber
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:93`: TileEntityMachineFunnel
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:70`: TileEntityMachineGasCent
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java:181`: TileEntityMachineKeyForge
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:581`: TileEntityMachineMiningLaser
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java:183`: TileEntityMachineMissileAssembly
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:284`: TileEntityMachineOreSlopper
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:211`: TileEntityMachinePUREX
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:328`: TileEntityMachinePrecAss
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:243`: TileEntityMachinePress
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java:193`: TileEntityMachineRTG
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:220`: TileEntityMachineRadGen
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:73`: TileEntityMachineRadiolysis
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:173`: TileEntityMachineReactorBreeding
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:369`: TileEntityMachineRotaryFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java:141`: TileEntityMachineSatDock
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java:172`: TileEntityMachineSatLinker
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java:215`: TileEntityMachineShredder
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java:193`: TileEntityMachineSiren
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:216`: TileEntityMachineSolderingStation
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java:326`: TileEntityMachineStrandCaster
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java:258`: TileEntityMachineTurbine
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:189`: TileEntityMachineVacuumCircuit
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:254`: TileEntityMachineWoodBurner
+- `src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:171`: TileEntityMicrowave
+- `src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:265`: TileEntityOrbitalStation
+- `src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:471`: TileEntityPWRController
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:120`: TileEntityReactorResearch
+- `src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:112`: TileEntityReactorZirnox
+- `src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java:194`: TileEntityRtgFurnace
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:304`: TileEntitySILEX
+- `src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:233`: TileEntitySawmill
+- `src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:228`: TileEntityStorageDrum
+- `src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:430`: TileEntityTransporterBase
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java:184`: TileEntityWasteDrum
+- `src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:437`: TileEntityWatz
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:76`: TileEntityPADetector
+- `src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:172`: TileEntityPASource
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:206`: TileEntityFusionBreeder
+- `src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:404`: TileEntityFusionTorus
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:228`: TileEntityMachineCoker
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:306`: TileEntityMachinePyroOven
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:128`: TileEntityMachineRefinery
+- `src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:106`: TileEntityMachineSolidifier
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:218`: TileEntityRBMKAutoloader
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutgasser.java:223`: TileEntityRBMKOutgasser
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java:125`: TileEntityRBMKSlottedBase
+- `src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKStorage.java:59`: TileEntityRBMKStorage
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:230`: TileEntityBarrel
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java:88`: TileEntityBatterySocket
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java:185`: TileEntityCrateBase
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:64`: TileEntityCrateTungsten
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java:132`: TileEntityFileCabinet
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:150`: TileEntityMachineBattery
+- `src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java:349`: TileEntityMassStorage
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:242`: TileEntityCraneExtractor
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:123`: TileEntityCraneInserter
+- `src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java:106`: TileEntityCraneUnboxer
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:205`: TileEntityDroneCrate
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneProvider.java:42`: TileEntityDroneProvider
+- `src/main/java/com/hbm/tileentity/network/TileEntityDroneRequester.java:77`: TileEntityDroneRequester
+- `src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java:42`: TileEntityRequestNetworkContainer

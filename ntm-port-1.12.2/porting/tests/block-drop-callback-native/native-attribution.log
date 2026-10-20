@@ -1,0 +1,2316 @@
+Compiled from "NativeCase0.java"
+public class NativeCase0 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase0();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModItems.saltleaf:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase1.java"
+public class NativeCase1 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase1();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.pet_leaves:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #5                  // Field ModItems.leaf_pet:Lnet/minecraft/item/Item;
+      10: areturn
+      11: getstatic     #6                  // Field ModItems.leaf_rubber:Lnet/minecraft/item/Item;
+      14: areturn
+}
+Compiled from "NativeCase2.java"
+public class NativeCase2 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase2();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModItems.saltleaf:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase3.java"
+public class NativeCase3 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase3();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       4: areturn
+}
+Compiled from "NativeCase4.java"
+public class NativeCase4 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase4();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase5.java"
+public class NativeCase5 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase5();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase6.java"
+public class NativeCase6 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase6();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.bomb_multi:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase7.java"
+public class NativeCase7 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase7();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.therm_endo:Lnet/minecraft/block/Block;
+       4: if_acmpne     14
+       7: getstatic     #4                  // Field ModBlocks.therm_endo:Lnet/minecraft/block/Block;
+      10: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      13: areturn
+      14: getstatic     #6                  // Field ModBlocks.therm_exo:Lnet/minecraft/block/Block;
+      17: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      20: areturn
+}
+Compiled from "NativeCase8.java"
+public class NativeCase8 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase8();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.struct_launcher_core:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase9.java"
+public class NativeCase9 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase9();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase10.java"
+public class NativeCase10 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase10();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase11.java"
+public class NativeCase11 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase11();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase12.java"
+public class NativeCase12 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase12();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase13.java"
+public class NativeCase13 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase13();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.struct_launcher_core_large:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase14.java"
+public class NativeCase14 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase14();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_boy:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase15.java"
+public class NativeCase15 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase15();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_custom:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase16.java"
+public class NativeCase16 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase16();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_fleija:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase17.java"
+public class NativeCase17 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase17();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_gadget:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase18.java"
+public class NativeCase18 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase18();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_man:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase19.java"
+public class NativeCase19 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase19();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_mike:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase20.java"
+public class NativeCase20 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase20();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_n2:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase21.java"
+public class NativeCase21 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase21();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_prototype:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase22.java"
+public class NativeCase22 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase22();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_solinium:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase23.java"
+public class NativeCase23 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase23();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.nuke_tsar:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase24.java"
+public class NativeCase24 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase24();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.flesh_block:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #5                  // Field ModItems.flesh:Lnet/minecraft/item/Item;
+      10: areturn
+      11: aload_0
+      12: getstatic     #6                  // Field ModBlocks.charred_flesh_block:Lnet/minecraft/block/Block;
+      15: if_acmpne     22
+      18: getstatic     #7                  // Field ModItems.grilled_flesh:Lnet/minecraft/item/Item;
+      21: areturn
+      22: getstatic     #8                  // Field ModItems.powder_coal_tiny:Lnet/minecraft/item/Item;
+      25: areturn
+}
+Compiled from "NativeCase25.java"
+public class NativeCase25 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase25();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase26.java"
+public class NativeCase26 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase26();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase27.java"
+public class NativeCase27 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase27();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase28.java"
+public class NativeCase28 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase28();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase29.java"
+public class NativeCase29 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase29();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase30.java"
+public class NativeCase30 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase30();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field net/minecraft/init/Blocks.DIRT:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase31.java"
+public class NativeCase31 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase31();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModItems.fallout:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase32.java"
+public class NativeCase32 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase32();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field drops:Lnet/minecraft/block/Block;
+       4: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       7: areturn
+}
+Compiled from "NativeCase33.java"
+public class NativeCase33 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase33();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase34.java"
+public class NativeCase34 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase34();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase35.java"
+public class NativeCase35 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase35();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModItems.egg_glyphid:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase36.java"
+public class NativeCase36 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase36();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase37.java"
+public class NativeCase37 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase37();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase38.java"
+public class NativeCase38 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase38();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase39.java"
+public class NativeCase39 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase39();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field single:Lnet/minecraft/block/Block;
+       4: ifnull        14
+       7: aload_0
+       8: getfield      #4                  // Field single:Lnet/minecraft/block/Block;
+      11: goto          15
+      14: aload_0
+      15: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      18: areturn
+}
+Compiled from "NativeCase40.java"
+public class NativeCase40 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase40();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.mush:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase41.java"
+public class NativeCase41 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase41();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field net/minecraft/init/Blocks.DIRT:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase42.java"
+public class NativeCase42 extends NativeOutgasSlice {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase42();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NativeOutgasSlice."<init>":()V
+       4: aload_0
+       5: iconst_1
+       6: putfield      #2                  // Field allowFortune:Z
+       9: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #3                  // Field ModItems.coal_infernal:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase43.java"
+public class NativeCase43 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase43();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase44.java"
+public class NativeCase44 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase44();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.pink_slab:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase45.java"
+public class NativeCase45 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase45();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase46.java"
+public class NativeCase46 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase46();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase47.java"
+public class NativeCase47 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase47();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase48.java"
+public class NativeCase48 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase48();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase49.java"
+public class NativeCase49 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase49();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase50.java"
+public class NativeCase50 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase50();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.ore_sellafield_diamond:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #5                  // Field net/minecraft/init/Items.DIAMOND:Lnet/minecraft/item/Item;
+      10: areturn
+      11: aload_0
+      12: getstatic     #6                  // Field ModBlocks.ore_sellafield_emerald:Lnet/minecraft/block/Block;
+      15: if_acmpne     22
+      18: getstatic     #7                  // Field net/minecraft/init/Items.EMERALD:Lnet/minecraft/item/Item;
+      21: areturn
+      22: aload_0
+      23: getstatic     #8                  // Field ModBlocks.ore_sellafield_radgem:Lnet/minecraft/block/Block;
+      26: if_acmpne     33
+      29: getstatic     #9                  // Field ModItems.gem_rad:Lnet/minecraft/item/Item;
+      32: areturn
+      33: aload_0
+      34: invokestatic  #10                 // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      37: areturn
+
+  public int quantityDropped(java.util.Random);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public int quantityDroppedWithBonus(int, java.util.Random);
+    Code:
+       0: iload_1
+       1: ifle          48
+       4: aload_0
+       5: invokestatic  #10                 // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       8: aload_0
+       9: aload_0
+      10: iconst_0
+      11: invokevirtual #11                 // Method getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+      14: aload_2
+      15: iload_1
+      16: invokevirtual #12                 // Method getItemDropped:(Lnet/minecraft/block/state/IBlockState;Ljava/util/Random;I)Lnet/minecraft/item/Item;
+      19: if_acmpeq     48
+      22: aload_2
+      23: iload_1
+      24: iconst_2
+      25: iadd
+      26: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      29: iconst_1
+      30: isub
+      31: istore_3
+      32: iload_3
+      33: ifge          38
+      36: iconst_0
+      37: istore_3
+      38: aload_0
+      39: aload_2
+      40: invokevirtual #14                 // Method quantityDropped:(Ljava/util/Random;)I
+      43: iload_3
+      44: iconst_1
+      45: iadd
+      46: imul
+      47: ireturn
+      48: aload_0
+      49: aload_2
+      50: invokevirtual #14                 // Method quantityDropped:(Ljava/util/Random;)I
+      53: ireturn
+}
+Compiled from "NativeCase51.java"
+public class NativeCase51 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase51();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModItems.powder_fire:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase52.java"
+public class NativeCase52 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase52();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase53.java"
+public class NativeCase53 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase53();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.waste_trinitite:Lnet/minecraft/block/Block;
+       4: if_acmpeq     14
+       7: aload_0
+       8: getstatic     #5                  // Field ModBlocks.waste_trinitite_red:Lnet/minecraft/block/Block;
+      11: if_acmpne     18
+      14: getstatic     #6                  // Field ModItems.trinitite:Lnet/minecraft/item/Item;
+      17: areturn
+      18: aload_0
+      19: getstatic     #7                  // Field ModBlocks.waste_planks:Lnet/minecraft/block/Block;
+      22: if_acmpne     29
+      25: getstatic     #8                  // Field net/minecraft/init/Items.COAL:Lnet/minecraft/item/Item;
+      28: areturn
+      29: aload_0
+      30: getstatic     #9                  // Field ModBlocks.frozen_dirt:Lnet/minecraft/block/Block;
+      33: if_acmpne     40
+      36: getstatic     #10                 // Field net/minecraft/init/Items.SNOWBALL:Lnet/minecraft/item/Item;
+      39: areturn
+      40: aload_0
+      41: getstatic     #11                 // Field ModBlocks.frozen_planks:Lnet/minecraft/block/Block;
+      44: if_acmpne     51
+      47: getstatic     #10                 // Field net/minecraft/init/Items.SNOWBALL:Lnet/minecraft/item/Item;
+      50: areturn
+      51: aload_0
+      52: getstatic     #12                 // Field ModBlocks.ore_nether_fire:Lnet/minecraft/block/Block;
+      55: if_acmpne     77
+      58: aload_2
+      59: bipush        10
+      61: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      64: ifne          73
+      67: getstatic     #14                 // Field ModItems.ingot_phosphorus:Lnet/minecraft/item/Item;
+      70: goto          76
+      73: getstatic     #15                 // Field ModItems.powder_fire:Lnet/minecraft/item/Item;
+      76: areturn
+      77: aload_0
+      78: getstatic     #16                 // Field ModBlocks.block_meteor_cobble:Lnet/minecraft/block/Block;
+      81: if_acmpne     88
+      84: getstatic     #17                 // Field ModItems.fragment_meteorite:Lnet/minecraft/item/Item;
+      87: areturn
+      88: aload_0
+      89: getstatic     #18                 // Field ModBlocks.block_meteor_broken:Lnet/minecraft/block/Block;
+      92: if_acmpne     99
+      95: getstatic     #17                 // Field ModItems.fragment_meteorite:Lnet/minecraft/item/Item;
+      98: areturn
+      99: aload_0
+     100: getstatic     #19                 // Field ModBlocks.block_meteor_molten:Lnet/minecraft/block/Block;
+     103: if_acmpne     108
+     106: aconst_null
+     107: areturn
+     108: aload_0
+     109: getstatic     #20                 // Field ModBlocks.ore_nether_cobalt:Lnet/minecraft/block/Block;
+     112: if_acmpne     119
+     115: getstatic     #21                 // Field ModItems.fragment_cobalt:Lnet/minecraft/item/Item;
+     118: areturn
+     119: aload_0
+     120: getstatic     #22                 // Field ModBlocks.ore_nether_sulfur:Lnet/minecraft/block/Block;
+     123: if_acmpne     130
+     126: getstatic     #23                 // Field ModItems.sulfur:Lnet/minecraft/item/Item;
+     129: areturn
+     130: aload_0
+     131: getstatic     #24                 // Field ModBlocks.ore_gneiss_rare:Lnet/minecraft/block/Block;
+     134: if_acmpne     141
+     137: getstatic     #25                 // Field ModItems.chunk_ore:Lnet/minecraft/item/Item;
+     140: areturn
+     141: aload_0
+     142: getstatic     #26                 // Field ModBlocks.ore_gneiss_asbestos:Lnet/minecraft/block/Block;
+     145: if_acmpne     152
+     148: getstatic     #27                 // Field ModItems.ingot_asbestos:Lnet/minecraft/item/Item;
+     151: areturn
+     152: aload_0
+     153: invokestatic  #28                 // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+     156: areturn
+
+  public int quantityDropped(java.util.Random);
+    Code:
+       0: aload_0
+       1: getstatic     #22                 // Field ModBlocks.ore_nether_sulfur:Lnet/minecraft/block/Block;
+       4: if_acmpne     15
+       7: iconst_2
+       8: aload_1
+       9: iconst_3
+      10: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      13: iadd
+      14: ireturn
+      15: aload_0
+      16: getstatic     #18                 // Field ModBlocks.block_meteor_broken:Lnet/minecraft/block/Block;
+      19: if_acmpne     30
+      22: iconst_1
+      23: aload_1
+      24: iconst_3
+      25: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      28: iadd
+      29: ireturn
+      30: aload_0
+      31: getstatic     #29                 // Field ModBlocks.block_meteor_treasure:Lnet/minecraft/block/Block;
+      34: if_acmpne     45
+      37: iconst_1
+      38: aload_1
+      39: iconst_3
+      40: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      43: iadd
+      44: ireturn
+      45: aload_0
+      46: getstatic     #20                 // Field ModBlocks.ore_nether_cobalt:Lnet/minecraft/block/Block;
+      49: if_acmpne     61
+      52: iconst_5
+      53: aload_1
+      54: bipush        8
+      56: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      59: iadd
+      60: ireturn
+      61: iconst_1
+      62: ireturn
+
+  public int quantityDroppedWithBonus(int, java.util.Random);
+    Code:
+       0: iload_1
+       1: ifle          55
+       4: aload_0
+       5: invokestatic  #28                 // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       8: aload_0
+       9: aload_0
+      10: iconst_0
+      11: invokevirtual #30                 // Method getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+      14: aload_2
+      15: iload_1
+      16: invokevirtual #31                 // Method getItemDropped:(Lnet/minecraft/block/state/IBlockState;Ljava/util/Random;I)Lnet/minecraft/item/Item;
+      19: if_acmpeq     55
+      22: aload_0
+      23: getfield      #3                  // Field allowFortune:Z
+      26: ifeq          55
+      29: aload_2
+      30: iload_1
+      31: iconst_2
+      32: iadd
+      33: invokevirtual #13                 // Method java/util/Random.nextInt:(I)I
+      36: iconst_1
+      37: isub
+      38: istore_3
+      39: iload_3
+      40: ifge          45
+      43: iconst_0
+      44: istore_3
+      45: aload_0
+      46: aload_2
+      47: invokevirtual #32                 // Method quantityDropped:(Ljava/util/Random;)I
+      50: iload_3
+      51: iconst_1
+      52: iadd
+      53: imul
+      54: ireturn
+      55: aload_0
+      56: aload_2
+      57: invokevirtual #32                 // Method quantityDropped:(Ljava/util/Random;)I
+      60: ireturn
+}
+Compiled from "NativeCase54.java"
+public class NativeCase54 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase54();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase55.java"
+public class NativeCase55 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase55();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.plant_flower:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase56.java"
+public class NativeCase56 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase56();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModItems.saltleaf:Lnet/minecraft/item/Item;
+       3: areturn
+}
+Compiled from "NativeCase57.java"
+public class NativeCase57 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase57();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase58.java"
+public class NativeCase58 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase58();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       4: areturn
+}
+Compiled from "NativeCase59.java"
+public class NativeCase59 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase59();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase60.java"
+public class NativeCase60 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase60();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #4                  // Method getOff:()Lnet/minecraft/block/Block;
+       4: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       7: areturn
+
+  protected net.minecraft.block.Block getOff();
+    Code:
+       0: aload_0
+       1: getstatic     #6                  // Field ModBlocks.reinforced_lamp_on:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #7                  // Field ModBlocks.reinforced_lamp_off:Lnet/minecraft/block/Block;
+      10: areturn
+      11: aload_0
+      12: areturn
+}
+Compiled from "NativeCase61.java"
+public class NativeCase61 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase61();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #4                  // Method getOff:()Lnet/minecraft/block/Block;
+       4: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       7: areturn
+
+  protected net.minecraft.block.Block getOff();
+    Code:
+       0: aload_0
+       1: getstatic     #6                  // Field ModBlocks.lamp_tritium_green_on:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #7                  // Field ModBlocks.lamp_tritium_green_off:Lnet/minecraft/block/Block;
+      10: areturn
+      11: aload_0
+      12: getstatic     #8                  // Field ModBlocks.lamp_tritium_blue_on:Lnet/minecraft/block/Block;
+      15: if_acmpne     22
+      18: getstatic     #9                  // Field ModBlocks.lamp_tritium_blue_off:Lnet/minecraft/block/Block;
+      21: areturn
+      22: aload_0
+      23: areturn
+}
+Compiled from "NativeCase62.java"
+public class NativeCase62 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase62();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.waste_earth:Lnet/minecraft/block/Block;
+       4: if_acmpeq     21
+       7: aload_0
+       8: getstatic     #5                  // Field ModBlocks.waste_mycelium:Lnet/minecraft/block/Block;
+      11: if_acmpeq     21
+      14: aload_0
+      15: getstatic     #6                  // Field ModBlocks.burning_earth:Lnet/minecraft/block/Block;
+      18: if_acmpne     28
+      21: getstatic     #7                  // Field net/minecraft/init/Blocks.DIRT:Lnet/minecraft/block/Block;
+      24: invokestatic  #8                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      27: areturn
+      28: aload_0
+      29: getstatic     #9                  // Field ModBlocks.frozen_grass:Lnet/minecraft/block/Block;
+      32: if_acmpne     39
+      35: getstatic     #10                 // Field net/minecraft/init/Items.SNOWBALL:Lnet/minecraft/item/Item;
+      38: areturn
+      39: aload_0
+      40: invokestatic  #8                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      43: areturn
+}
+Compiled from "NativeCase63.java"
+public class NativeCase63 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase63();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase64.java"
+public class NativeCase64 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase64();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field ModBlocks.waste_log:Lnet/minecraft/block/Block;
+       4: if_acmpne     11
+       7: getstatic     #5                  // Field net/minecraft/init/Items.COAL:Lnet/minecraft/item/Item;
+      10: areturn
+      11: aload_0
+      12: getstatic     #6                  // Field ModBlocks.frozen_log:Lnet/minecraft/block/Block;
+      15: if_acmpne     22
+      18: getstatic     #7                  // Field net/minecraft/init/Items.SNOWBALL:Lnet/minecraft/item/Item;
+      21: areturn
+      22: aconst_null
+      23: areturn
+}
+Compiled from "NativeCase65.java"
+public class NativeCase65 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase65();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase66.java"
+public class NativeCase66 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase66();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase67.java"
+public class NativeCase67 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase67();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase68.java"
+public class NativeCase68 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase68();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase69.java"
+public class NativeCase69 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase69();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       4: areturn
+}
+Compiled from "NativeCase70.java"
+public class NativeCase70 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase70();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase71.java"
+public class NativeCase71 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase71();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase72.java"
+public class NativeCase72 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase72();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       4: areturn
+}
+Compiled from "NativeCase73.java"
+public class NativeCase73 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase73();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase74.java"
+public class NativeCase74 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase74();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: invokestatic  #4                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       4: areturn
+}
+Compiled from "NativeCase75.java"
+public class NativeCase75 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase75();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: getstatic     #4                  // Field ModBlocks.machine_shredder:Lnet/minecraft/block/Block;
+       3: invokestatic  #5                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       6: areturn
+}
+Compiled from "NativeCase76.java"
+public class NativeCase76 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase76();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase77.java"
+public class NativeCase77 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase77();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase78.java"
+public class NativeCase78 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase78();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase79.java"
+public class NativeCase79 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase79();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase80.java"
+public class NativeCase80 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase80();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase81.java"
+public class NativeCase81 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase81();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeCase82.java"
+public class NativeCase82 extends net.minecraft.block.Block {
+  public net.minecraft.block.Block single;
+
+  public net.minecraft.block.Block drops;
+
+  public boolean allowFortune;
+
+  public NativeCase82();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: iconst_1
+       9: putfield      #3                  // Field allowFortune:Z
+      12: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "NativeOutgasSlice.java"
+public class NativeOutgasSlice extends net.minecraft.block.Block {
+  public NativeOutgasSlice();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: return
+
+  public int quantityDroppedWithBonus(int, java.util.Random);
+    Code:
+       0: iload_1
+       1: ifle          48
+       4: aload_0
+       5: invokestatic  #3                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       8: aload_0
+       9: aload_0
+      10: iconst_0
+      11: invokevirtual #4                  // Method getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+      14: aload_2
+      15: iload_1
+      16: invokevirtual #5                  // Method getItemDropped:(Lnet/minecraft/block/state/IBlockState;Ljava/util/Random;I)Lnet/minecraft/item/Item;
+      19: if_acmpeq     48
+      22: aload_2
+      23: iload_1
+      24: iconst_2
+      25: iadd
+      26: invokevirtual #6                  // Method java/util/Random.nextInt:(I)I
+      29: iconst_1
+      30: isub
+      31: istore_3
+      32: iload_3
+      33: ifge          38
+      36: iconst_0
+      37: istore_3
+      38: aload_0
+      39: aload_2
+      40: invokevirtual #7                  // Method quantityDropped:(Ljava/util/Random;)I
+      43: iload_3
+      44: iconst_1
+      45: iadd
+      46: imul
+      47: ireturn
+      48: aload_0
+      49: aload_2
+      50: invokevirtual #7                  // Method quantityDropped:(Ljava/util/Random;)I
+      53: ireturn
+}
+Compiled from "BlockNoDrop.java"
+public class com.hbm.blocks.generic.BlockNoDrop extends net.minecraft.block.Block {
+  public com.hbm.blocks.generic.BlockNoDrop(net.minecraft.block.material.Material);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       5: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+}
+Compiled from "BlockGenericDrop.java"
+public class com.hbm.blocks.generic.BlockGenericDrop extends com.hbm.blocks.generic.BlockGeneric {
+  private net.minecraft.block.Block drops;
+
+  public com.hbm.blocks.generic.BlockGenericDrop(net.minecraft.block.material.Material, net.minecraft.block.Block);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method com/hbm/blocks/generic/BlockGeneric."<init>":(Lnet/minecraft/block/material/Material;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #2                  // Field drops:Lnet/minecraft/block/Block;
+      10: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field drops:Lnet/minecraft/block/Block;
+       4: invokestatic  #3                  // Method net/minecraft/item/Item.getItemFromBlock:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+       7: areturn
+}

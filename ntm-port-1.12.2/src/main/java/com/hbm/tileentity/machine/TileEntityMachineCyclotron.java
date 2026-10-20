@@ -64,14 +64,14 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.cyclotron";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.updateConnections();
 
@@ -126,8 +126,8 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 
 	private void updateConnections()  {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -135,7 +135,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 		for(int i = 1; i < 3; i++) {
 			if(tanks[i].getFill() > 0) {
 				for(DirPos pos : getConPos()) {
-					this.sendFluid(tanks[i], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[i], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 		}
@@ -143,14 +143,14 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 3, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord + 1, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 3, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z)
 		};
 	}
 
@@ -254,7 +254,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord, zCoord - 2, xCoord + 3, yCoord + 4, zCoord + 3);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 4, this.pos.getZ() + 3);
 	}
 
 	@Override
@@ -276,7 +276,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		for(int i = 0; i < 3; i++)
@@ -285,6 +285,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 		nbt.setInteger("progress", progress);
 		nbt.setLong("power", power);
 		nbt.setByte("plugs", plugs);
+		return nbt;
 	}
 
 	public void setPlug(int index) {
@@ -313,7 +314,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && i >= 14 && i <= 15 && stack.getItem() instanceof ItemMachineUpgrade)
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, "hbm:item.upgradePlug", 1.5F, 1.0F);
+			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.5F, 1.0F);
 	}
 
 	@Override
@@ -391,9 +392,9 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 			ForgeDirection dir = ForgeDirection.getOrientation(i);
 			ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-			if(x == xCoord + dir.offsetX * 2 + rot.offsetX && z == zCoord + dir.offsetZ * 2 + rot.offsetZ) return new int[] {0, 3, 6, 7, 8};
-			if(x == xCoord + dir.offsetX * 2 && z == zCoord + dir.offsetZ * 2) return new int[] {1, 4, 6, 7, 8};
-			if(x == xCoord + dir.offsetX * 2 - rot.offsetX && z == zCoord + dir.offsetZ * 2 - rot.offsetZ) return new int[] {2, 5, 6, 7, 8};
+			if(x == this.pos.getX() + dir.offsetX * 2 + rot.offsetX && z == this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ) return new int[] {0, 3, 6, 7, 8};
+			if(x == this.pos.getX() + dir.offsetX * 2 && z == this.pos.getZ() + dir.offsetZ * 2) return new int[] {1, 4, 6, 7, 8};
+			if(x == this.pos.getX() + dir.offsetX * 2 - rot.offsetX && z == this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ) return new int[] {2, 5, 6, 7, 8};
 		}
 
 		return new int[] {6, 7, 8};

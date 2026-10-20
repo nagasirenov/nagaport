@@ -43,16 +43,16 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.heaterHeatex";
 	}
 
 	ByteBuf buf;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.buf != null)
 				this.buf.release();
@@ -73,7 +73,7 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 			networkPackNT(25);
 
 			for(DirPos pos : getConPos()) {
-				if(this.tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.tanks[1].getFill() > 0) this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 		}
 	}
@@ -112,7 +112,7 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 	protected void updateConnections() {
 
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -120,7 +120,7 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 
 		if(!tanks[0].getTankType().hasTrait(FT_Coolable.class)) return;
 		if(tickDelay < 1) tickDelay = 1;
-		if(worldObj.getTotalWorldTime() % tickDelay != 0) return;
+		if(this.world.getTotalWorldTime() % tickDelay != 0) return;
 
 		FT_Coolable trait = tanks[0].getTankType().getTrait(FT_Coolable.class);
 
@@ -140,10 +140,10 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ, dir),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite())
 		};
 	}
 
@@ -159,7 +159,7 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		this.tanks[0].writeToNBT(nbt, "0");
@@ -167,6 +167,7 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 		nbt.setInteger("heatEnergy", heatEnergy);
 		nbt.setInteger("toCool", amountToCool);
 		nbt.setInteger("delay", tickDelay);
+		return nbt;
 	}
 
 	@Override
@@ -218,12 +219,12 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 1,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 2
 					);
 		}
 
@@ -238,12 +239,12 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 16;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16;
 	}
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
-		if(data.hasKey("toCool")) this.amountToCool = MathHelper.clamp_int(data.getInteger("toCool"), 1, tanks[0].getMaxFill());
+		if(data.hasKey("toCool")) this.amountToCool = MathHelper.clamp(data.getInteger("toCool"), 1, tanks[0].getMaxFill());
 		if(data.hasKey("delay")) this.tickDelay = Math.max(data.getInteger("delay"), 1);
 
 		this.markChanged();

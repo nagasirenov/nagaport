@@ -1,0 +1,25 @@
+{
+  "scope": "Frozen seven-file conveyor-wand rendering root; native model/event/ownership proof, not wand gameplay or complete game acceptance",
+  "production": {
+    "src/main/java/com/hbm/render/item/block/ItemRenderBlock.java": "72bef735cc18523d9584e5ad085a40a2b6d1037ff7738d97595b0959737eb03b",
+    "src/main/java/com/hbm/render/item/block/BlockItemModel.java": "b794e967ad2a0a28c3f4bfc21b1ea89ea89733eeea965cdb6e444b0e65cc99d2",
+    "src/main/java/com/hbm/render/item/block/BlockItemPerspectives.java": "c284d65ae3b3a299e60b845461caf71b1d07cfb27d0d3c0fff698a0a658aabfe",
+    "src/main/java/com/hbm/render/item/block/BlockItemRegistration.java": "710ca4c6cae87502be002475ab14d9d57891d2d7cb9d42ae32614ba621262ce6",
+    "src/main/java/com/hbm/render/item/nativeitem/staticfamily/SingleMeshEntityItemRenderer.java": "deb9a196e2932a42c35cf2a5edca1c237d00af6a498edf080e827661451484c6",
+    "src/main/java/com/hbm/render/item/nativeitem/staticfamily/StaticItemEntityOwnership.java": "3055d63556be224e17fec6da966025b78d296a471730dbe1850bb3f894e5c751",
+    "src/main/java/com/hbm/render/util/NativeMachineItemRenderer.java": "0b8c4a8053fc97b7cd931127bcd709c6ca5226979c1960d27c04a8d80b6701a0"
+  },
+  "artifacts": {
+    "porting/tests/NativeConveyorWandTest.java": "ab2255cd23599d6461d2dd659cf8c06128e095e8817f7ef7b43b466844d95fc4",
+    "porting/tests/probe-native-conveyor-wand.py": "ddf2580e9abae0f527d0bf3798c38a43d74003c989fd4b9337b7a72f1c73b7a8",
+    "porting/tests/StaticItemEntityOwnershipTest.java": "33dd53a4abf0b79ed532ed2cb9d5c032451d259f8a3c5d71899f526531339a12",
+    "porting/tests/NativeMachineDrawTest.java": "3df2b78b14f26d0a0ad9a056d6dc51edc994e2f4e8377acf8ed5aec38d694214",
+    "porting/tests/native-conveyor-wand-notes.md": "021a26ccf872865ba8861cb0b458aa57917237fff5463271fcaffd085e572296",
+    "porting/tests/fixtures/ItemRenderBlock-legacy.java.txt": "65147ceb9ed7ff78ca658186a80f4c4ac3f975e9f220b6828ae7567f92819ede",
+    "porting/continuation-2026-10-19/native-conveyor-wand-FINAL.log": "cc53d287773fa8541e7197576bb3c4b8a54e32c0bf4a517ef4447742f48881ef"
+  },
+  "assets": {
+    "src/main/resources/assets/hbm/models/item/item.conveyor_wand.json": "a8d8e033327619d906db3226e1642fee7bc1c65b832e1ac808507db1cf4e67b3",
+    "src/main/resources/assets/hbm/textures/items/wand_s.png": "f4dd1981359382d59e91be67aadcdd583c9aff40492282555810a5a47dfe7cba"
+  }
+}

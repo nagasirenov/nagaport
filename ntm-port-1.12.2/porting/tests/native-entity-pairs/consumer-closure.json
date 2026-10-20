@@ -1,0 +1,392 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "references": [
+      {
+        "line": 752,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityCog.class, renderManager -> new RenderCog(renderManager));"
+      },
+      {
+        "line": 753,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntitySawblade.class, renderManager -> new RenderSawblade(renderManager));"
+      },
+      {
+        "line": 756,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMist.class, renderManager -> new RenderMist(renderManager));"
+      },
+      {
+        "line": 806,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityDisperserCanister.class, renderManager -> new RenderGenericGrenade(renderManager));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "references": [
+      {
+        "line": 201,
+        "source": "addEntity(EntityCog.class, \"entity_stray_cog\", 1000);"
+      },
+      {
+        "line": 202,
+        "source": "addEntity(EntitySawblade.class, \"entity_stray_saw\", 1000);"
+      },
+      {
+        "line": 204,
+        "source": "addEntity(EntityMist.class, \"entity_mist\", 250, false);"
+      },
+      {
+        "line": 220,
+        "source": "addEntity(EntityDisperserCanister.class, \"entity_disperser\", 250);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemDisperser.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.grenade.EntityDisperserCanister;"
+      },
+      {
+        "line": 33,
+        "source": "EntityDisperserCanister canister = new EntityDisperserCanister(world, player);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 314,
+        "source": "EntityMist mist = new EntityMist(shell.world);"
+      },
+      {
+        "line": 328,
+        "source": "EntityMist mist = new EntityMist(shell.world);"
+      },
+      {
+        "line": 350,
+        "source": "EntityMist mist = new EntityMist(shell.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityMist.java",
+    "references": [
+      {
+        "line": 40,
+        "source": "public class EntityMist extends Entity {"
+      },
+      {
+        "line": 42,
+        "source": "private static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityMist.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 43,
+        "source": "private static final DataParameter<Float> AREA_WIDTH = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);"
+      },
+      {
+        "line": 44,
+        "source": "private static final DataParameter<Float> AREA_HEIGHT = EntityDataManager.createKey(EntityMist.class, DataSerializers.FLOAT);"
+      },
+      {
+        "line": 46,
+        "source": "public EntityMist(World world) {"
+      },
+      {
+        "line": 51,
+        "source": "public EntityMist setArea(float width, float height) {"
+      },
+      {
+        "line": 56,
+        "source": "public EntityMist setDuration(int duration){"
+      },
+      {
+        "line": 68,
+        "source": "public EntityMist setType(FluidType fluid) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityCreeperPhosgene.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 41,
+        "source": "EntityMist mist = new EntityMist(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeGas.java",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 35,
+        "source": "EntityMist mist = new EntityMist(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityDisperserCanister.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 14,
+        "source": "public class EntityDisperserCanister extends EntityGrenadeBase {"
+      },
+      {
+        "line": 16,
+        "source": "private static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 17,
+        "source": "private static final DataParameter<Integer> ITEM_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 19,
+        "source": "public EntityDisperserCanister(World world) {"
+      },
+      {
+        "line": 23,
+        "source": "public EntityDisperserCanister(World world, EntityLivingBase living) {"
+      },
+      {
+        "line": 27,
+        "source": "public EntityDisperserCanister(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 31,
+        "source": "public EntityDisperserCanister setFluid(int id) {"
+      },
+      {
+        "line": 42,
+        "source": "public EntityDisperserCanister setType(int id) {"
+      },
+      {
+        "line": 58,
+        "source": "EntityMist mist = new EntityMist(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBombletZeta.java",
+    "references": [
+      {
+        "line": 4,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 74,
+        "source": "EntityMist mist = new EntityMist(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityCog.java",
+    "references": [
+      {
+        "line": 24,
+        "source": "public class EntityCog extends EntityThrowableInterp {"
+      },
+      {
+        "line": 26,
+        "source": "private static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 27,
+        "source": "private static final DataParameter<Integer> META = EntityDataManager.createKey(EntityCog.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 29,
+        "source": "public EntityCog(World world) {"
+      },
+      {
+        "line": 34,
+        "source": "public EntityCog(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 46,
+        "source": "public EntityCog setOrientation(int rot) {"
+      },
+      {
+        "line": 51,
+        "source": "public EntityCog setMeta(int meta) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySawblade.java",
+    "references": [
+      {
+        "line": 23,
+        "source": "public class EntitySawblade extends EntityThrowableInterp {"
+      },
+      {
+        "line": 25,
+        "source": "private static final DataParameter<Integer> ORIENTATION = EntityDataManager.createKey(EntitySawblade.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 26,
+        "source": "private static final DataParameter<Integer> META = EntityDataManager.createKey(EntitySawblade.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 28,
+        "source": "public EntitySawblade(World world) {"
+      },
+      {
+        "line": 33,
+        "source": "public EntitySawblade(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 45,
+        "source": "public EntitySawblade setOrientation(int rot) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBehemoth.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 78,
+        "source": "EntityMist mist = new EntityMist(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrenda.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 55,
+        "source": "EntityMist mist = new EntityMist(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderCog.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityCog;"
+      },
+      {
+        "line": 25,
+        "source": "int orientation = ((EntityCog) cog).getOrientation();"
+      },
+      {
+        "line": 51,
+        "source": "int meta = ((EntityCog) entity).getMeta();"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderSawblade.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntitySawblade;"
+      },
+      {
+        "line": 25,
+        "source": "int orientation = ((EntitySawblade) cog).getOrientation();"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderGenericGrenade.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.grenade.EntityDisperserCanister;"
+      },
+      {
+        "line": 27,
+        "source": "boolean disperser = entity instanceof EntityDisperserCanister;"
+      },
+      {
+        "line": 33,
+        "source": "EntityDisperserCanister canister = (EntityDisperserCanister) entity;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.projectile.EntityCog;"
+      },
+      {
+        "line": 73,
+        "source": "EntityCog cog = new EntityCog(this.world, this.pos.getX() + 0.5 + dir.offsetX, this.pos.getY() + 1, this.pos.getZ() + 0.5 + dir.offsetZ).setOrientation(orientation).setMeta(this.getGeatMeta());"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntitySawblade;"
+      },
+      {
+        "line": 134,
+        "source": "EntitySawblade cog = new EntitySawblade(this.world, this.pos.getX() + 0.5 + dir.offsetX, this.pos.getY() + 1, this.pos.getZ() + 0.5 + dir.offsetZ).setOrientation(orientation);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "references": [
+      {
+        "line": 24,
+        "source": "import com.hbm.entity.effect.EntityMist;"
+      },
+      {
+        "line": 177,
+        "source": "EntityMist mist = new EntityMist(world);"
+      }
+    ],
+    "legacy_calls": []
+  }
+]

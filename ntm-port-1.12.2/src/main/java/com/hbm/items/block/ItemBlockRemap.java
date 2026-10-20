@@ -20,11 +20,11 @@ public class ItemBlockRemap extends ItemBlockBase {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
 
-		if(!(entity instanceof EntityPlayer) || !(this.field_150939_a instanceof BlockRemap)) return;
+		if(!(entity instanceof EntityPlayer) || !(this.block instanceof BlockRemap)) return;
 
 		EntityPlayer player = (EntityPlayer) entity;
-		BlockRemap remap = (BlockRemap) this.field_150939_a;
-		player.inventory.setInventorySlotContents(slot, new ItemStack(remap.remapBlock, stack.stackSize, remap.remapMeta));
+		BlockRemap remap = (BlockRemap) this.block;
+		player.inventory.setInventorySlotContents(slot, new ItemStack(remap.remapBlock, stack.getCount(), remap.remapMeta));
 	}
 	
 	@Override

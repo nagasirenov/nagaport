@@ -1,0 +1,5327 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockKelp.java",
+    "before_sha256": "bb078dbc54780b345f506b9e45ffe9ebd3127e24cee92a70e959c07743ab3f9a",
+    "after_sha256": "7c11cf71623b010f0977212f3ee7b64a20f0f483087d0f9221afe9c0f531bdba",
+    "codepoint_edits": [
+      {
+        "start": 537,
+        "end": 542,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockRemap.java",
+    "before_sha256": "0a214f6caf0b0ef3013fa9d95f3eb50cd92c8f2297821d66df42aa13b321f8ef",
+    "after_sha256": "576acf87c2e800476e4549fa3d4577c822a0b7043b5fa9b97d13a47cba3e037b",
+    "codepoint_edits": [
+      {
+        "start": 604,
+        "end": 607,
+        "old": "tnt",
+        "new": "TNT"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockRubberFarm.java",
+    "before_sha256": "f082b5c525d4803447c74ef419f5713662fcb3655650b152b37f1e9990e59927",
+    "after_sha256": "29451c64b74e7d5128b69ee144f45f64f410b97052559a468d6f36a48c4216cd",
+    "codepoint_edits": [
+      {
+        "start": 3122,
+        "end": 3136,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+    "before_sha256": "bde51ad2b5654b425c6bb1aa2d6951a620dac5b07a4ed6cdef1c486cf6adff31",
+    "after_sha256": "5efa6e0a423b4d5fc12fafe899a2f588c91e451642fc8aebd17ac7d96a287015",
+    "codepoint_edits": [
+      {
+        "start": 1281,
+        "end": 1295,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 473,
+        "end": 478,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/WarController.java",
+    "before_sha256": "35b0f4c1ccda4059d43872332ae956458d80e36e2c56534222eab4da53fb5d71",
+    "after_sha256": "2d5237c76c0c1e9e61bb21deaf62711459b84a922e7fe946eb76081f6e3312d5",
+    "codepoint_edits": [
+      {
+        "start": 422,
+        "end": 426,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+    "before_sha256": "d25abb4e4f490ca9e77e80a1bfe7ed027d6144487eccb4881f56d6db84cf69f3",
+    "after_sha256": "d7db5af63a4a4751c07871622f29fbbf15acead190575ed8272bfc77b2a8d749",
+    "codepoint_edits": [
+      {
+        "start": 1872,
+        "end": 1875,
+        "old": "tnt",
+        "new": "TNT"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java",
+    "before_sha256": "c12b68577d61438ff026faa396ac5ee6b217c5cf42be698899eefd2c57e4cbf6",
+    "after_sha256": "2a979a6c7cc8990379fdb89e19bf98b3c6ef97cfd71e6c6dec8a4604c63dbae1",
+    "codepoint_edits": [
+      {
+        "start": 948,
+        "end": 951,
+        "old": "tnt",
+        "new": "TNT"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+    "before_sha256": "35cfe130acc1747f8b90dd66ff5276240f153137d2b6d3250ebab85dc34613fe",
+    "after_sha256": "94e0b471a688c278f290855fd7d0c23f540c9c2f8f31e051b107c0e65693f901",
+    "codepoint_edits": [
+      {
+        "start": 1377,
+        "end": 1381,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "before_sha256": "38db20761b03ccfd6c97eb8768189799f99d8d78514ca0f766c29c4893d5241f",
+    "after_sha256": "76fd0c8551b571d8d488cd7d3177c8fb728aee2181699be682a59bfda4fa66c8",
+    "codepoint_edits": [
+      {
+        "start": 3036,
+        "end": 3050,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2937,
+        "end": 2951,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2834,
+        "end": 2848,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2735,
+        "end": 2749,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2632,
+        "end": 2646,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2533,
+        "end": 2547,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2430,
+        "end": 2444,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2331,
+        "end": 2345,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+    "before_sha256": "5d80029638c81c906cdaf8e8ba2cb92e2920687e90cb13530ad3bdfc01ac20b2",
+    "after_sha256": "66ed68295f9fcaeb8bf8a578cfc5fbb52dd64a8a6390a2f5d4852bf5ecc8afd5",
+    "codepoint_edits": [
+      {
+        "start": 563,
+        "end": 567,
+        "old": "fire",
+        "new": "FIRE"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+    "before_sha256": "013255047fa1fdd52e77985f7315762696798cc90041a3f40adc1d2634691ba9",
+    "after_sha256": "0393a015896302cb776cd5b7c0ec563b350b77a2f7a5d609040a051f82a0943c",
+    "codepoint_edits": [
+      {
+        "start": 426,
+        "end": 432,
+        "old": "portal",
+        "new": "PORTAL"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/AcidBlock.java",
+    "before_sha256": "1903442316dc232ab4e2aa86e4b0bbf57dd6bf34f4b6453eeed0f4bd43b2c65a",
+    "after_sha256": "6f9e8f547d9b6eaca7e7e74f968402483a43b2abef48524e892cf7cd311c9f78",
+    "codepoint_edits": [
+      {
+        "start": 1892,
+        "end": 1906,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/CoriumBlock.java",
+    "before_sha256": "93c8cb0c686500649112d8735f24ed4b92b9779f927bfdcfd6f64354b1ef8944",
+    "after_sha256": "19c63ef4d6ff11964d03554dbb21628da61eb6ab2daf3885ade6d2be3b994e69",
+    "codepoint_edits": [
+      {
+        "start": 2111,
+        "end": 2125,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1891,
+        "end": 1905,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java",
+    "before_sha256": "0b51eba178d08a96a9bf58fd8cec11e615557030ffbc87578970a42d7fb09901",
+    "after_sha256": "120c35b63f97f77acd28c6cc4e9af425af79381ff9e131a3c6befc1d33313fc4",
+    "codepoint_edits": [
+      {
+        "start": 1348,
+        "end": 1362,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1136,
+        "end": 1150,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+    "before_sha256": "67c192d8fa625c0eaaa5c6eb17f0c930c3ecea0d2664c8e51fa305b0586c8ca7",
+    "after_sha256": "e46c733f487c557ca13b01b256392c221d6901cc4b67e4a1286a8d4689d74e32",
+    "codepoint_edits": [
+      {
+        "start": 1520,
+        "end": 1534,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/MudBlock.java",
+    "before_sha256": "3f92fe1bee94c9c096d6412cdf7968bbf7a75a8c0186df95e7c97724b8b3d41d",
+    "after_sha256": "70b0529d40aac75689ac21615d58aa54bb17f425fa302350abd2adc1a5c20a25",
+    "codepoint_edits": [
+      {
+        "start": 22559,
+        "end": 22573,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 21811,
+        "end": 21815,
+        "old": "vine",
+        "new": "VINE"
+      },
+      {
+        "start": 21784,
+        "end": 21798,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 21007,
+        "end": 21021,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 20259,
+        "end": 20263,
+        "old": "snow",
+        "new": "SNOW"
+      },
+      {
+        "start": 20232,
+        "end": 20246,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 19475,
+        "end": 19488,
+        "old": "redstoneLight",
+        "new": "REDSTONE_LIGHT"
+      },
+      {
+        "start": 19448,
+        "end": 19462,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 18698,
+        "end": 18704,
+        "old": "portal",
+        "new": "PORTAL"
+      },
+      {
+        "start": 18671,
+        "end": 18685,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 17921,
+        "end": 17927,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 17894,
+        "end": 17908,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 17144,
+        "end": 17150,
+        "old": "piston",
+        "new": "PISTON"
+      },
+      {
+        "start": 17117,
+        "end": 17131,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 16364,
+        "end": 16373,
+        "old": "packedIce",
+        "new": "PACKED_ICE"
+      },
+      {
+        "start": 16337,
+        "end": 16351,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 15587,
+        "end": 15593,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 15560,
+        "end": 15574,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 14813,
+        "end": 14816,
+        "old": "ice",
+        "new": "ICE"
+      },
+      {
+        "start": 14786,
+        "end": 14800,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 14037,
+        "end": 14042,
+        "old": "gourd",
+        "new": "GOURD"
+      },
+      {
+        "start": 14010,
+        "end": 14024,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 13261,
+        "end": 13266,
+        "old": "glass",
+        "new": "GLASS"
+      },
+      {
+        "start": 13234,
+        "end": 13248,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 12479,
+        "end": 12490,
+        "old": "craftedSnow",
+        "new": "CRAFTED_SNOW"
+      },
+      {
+        "start": 12452,
+        "end": 12466,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 11703,
+        "end": 11708,
+        "old": "coral",
+        "new": "CORAL"
+      },
+      {
+        "start": 11676,
+        "end": 11690,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 10900,
+        "end": 10914,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 10148,
+        "end": 10156,
+        "old": "circuits",
+        "new": "CIRCUITS"
+      },
+      {
+        "start": 10121,
+        "end": 10135,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9373,
+        "end": 9377,
+        "old": "cake",
+        "new": "CAKE"
+      },
+      {
+        "start": 9346,
+        "end": 9360,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8596,
+        "end": 8602,
+        "old": "cactus",
+        "new": "CACTUS"
+      },
+      {
+        "start": 8569,
+        "end": 8583,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 7794,
+        "end": 7808,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4273,
+        "end": 4287,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3379,
+        "end": 3393,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3244,
+        "end": 3258,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1969,
+        "end": 1983,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/RadBlock.java",
+    "before_sha256": "8c30a34a9a196a8566445a106e375b90c5fe0e7d36903329528981c4a699a959",
+    "after_sha256": "b393c26bdce1afc252a7c2d080b901f04ae46cab6072a944368e47cd642cd36d",
+    "codepoint_edits": [
+      {
+        "start": 2655,
+        "end": 2660,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 2628,
+        "end": 2642,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java",
+    "before_sha256": "d707a1f2886fc827990c65b2e5e02632d0c8747d0be414d14d3beb3ed999b089",
+    "after_sha256": "de02622184bd21327fe79925ae95d4d888f27dd8474e9ead4acf8801e31f0856",
+    "codepoint_edits": [
+      {
+        "start": 4052,
+        "end": 4057,
+        "old": "glass",
+        "new": "GLASS"
+      },
+      {
+        "start": 4025,
+        "end": 4039,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4015,
+        "end": 4019,
+        "old": "iron",
+        "new": "IRON"
+      },
+      {
+        "start": 3988,
+        "end": 4002,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3436,
+        "end": 3441,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 3409,
+        "end": 3423,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2231,
+        "end": 2245,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/ToxicBlock.java",
+    "before_sha256": "6765058044b70577f3f005b1b325389339c12ec3c1519742a121930206d79493",
+    "after_sha256": "8b56d1deb45c78d3a395e1648ceb5739a98aab7adafd6c39c62d00b0fa8e8a00",
+    "codepoint_edits": [
+      {
+        "start": 3397,
+        "end": 3411,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3288,
+        "end": 3302,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2019,
+        "end": 2033,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java",
+    "before_sha256": "4f413e248f482f1e2e333266fad79d38d519291495ac52d4874c0c278a33c7cd",
+    "after_sha256": "a2923b073def6f39d7431a4af76338fa04151371ebbd167ea8e49c49329a0bad",
+    "codepoint_edits": [
+      {
+        "start": 5410,
+        "end": 5424,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4621,
+        "end": 4624,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 4594,
+        "end": 4608,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1942,
+        "end": 1947,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 1915,
+        "end": 1929,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java",
+    "before_sha256": "45709d57d9c377de7bc57cd4fe30b4061bfc6dbd8aa3a87d99c4f90189ad170e",
+    "after_sha256": "5f926bf87cb1d708af994af7ed7b7f00fc8232d4493ecaacaeeaaf4253260acf",
+    "codepoint_edits": [
+      {
+        "start": 3513,
+        "end": 3517,
+        "old": "vine",
+        "new": "VINE"
+      },
+      {
+        "start": 3486,
+        "end": 3500,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3475,
+        "end": 3481,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 3448,
+        "end": 3462,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3437,
+        "end": 3443,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 3410,
+        "end": 3424,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3400,
+        "end": 3405,
+        "old": "grass",
+        "new": "GRASS"
+      },
+      {
+        "start": 3373,
+        "end": 3387,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "before_sha256": "99cd75e2eb4a5168de2a2fc2005251d41495c33e5a7656c390d0a5700322f38e",
+    "after_sha256": "3057c0a176abf6c5d7e739f327c9fa63f9b09ac86bfda6875fef3b9fbb2af56e",
+    "codepoint_edits": [
+      {
+        "start": 2674,
+        "end": 2677,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2647,
+        "end": 2661,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 657,
+        "end": 660,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBiomeStone.java",
+    "before_sha256": "a4f2a04232ddbeb261dee945fb0d2dbda3737d49c7b22ab9fc4eb61557482e31",
+    "after_sha256": "ad119bb94f2d7646e2c1ee5837977d1dca9601a210f932bb945b07aa16fc94a3",
+    "codepoint_edits": [
+      {
+        "start": 508,
+        "end": 512,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "before_sha256": "815a663e078665292aae9d6217644f0594dd8afc4a10e5dc1bc9347e34c8702b",
+    "after_sha256": "0b64993dd823e750e75c9a5b66d8c9bbbfad4f300108a5ef9c98cc1131a45e92",
+    "codepoint_edits": [
+      {
+        "start": 1591,
+        "end": 1595,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockCap.java",
+    "before_sha256": "64225d4f8bb90b6c5aeea1f50cb089ef32258b4694f981f89b551d967260b8d8",
+    "after_sha256": "d01e2a4b06f785dc72824295f810a3fb8b2ccaddd47757947dee5531623a3b3f",
+    "codepoint_edits": [
+      {
+        "start": 554,
+        "end": 558,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockCoke.java",
+    "before_sha256": "cbe10899823e288cf442a3c8de963e0b2e729215dcc0b7197e48cf9e8e8557b7",
+    "after_sha256": "1aa7e0f7cae5626d092c2260f53393ad94577521b1452744e5088c522d495957",
+    "codepoint_edits": [
+      {
+        "start": 359,
+        "end": 363,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+    "before_sha256": "fabe46fa9f21c88081cd1bc34bfe69b98148e3f2fb5e157a6d0be557fea888b3",
+    "after_sha256": "b3534832dcbe8316d87af606c3d3fa4df68432e9031f6bce924e42733358e4a5",
+    "codepoint_edits": [
+      {
+        "start": 456,
+        "end": 462,
+        "old": "plants",
+        "new": "PLANTS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDepth.java",
+    "before_sha256": "d9f8109dacf4a409e6d07ea39acd6557f1cc60541ee506e2082a6d84cf535b0b",
+    "after_sha256": "ac7d28e0e6987eb369130bc976247de386e8a06b4c995e8aea66fddd293f3244",
+    "codepoint_edits": [
+      {
+        "start": 526,
+        "end": 530,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+    "before_sha256": "f9dfe2d1146835f4dfbd643f75d214dc9cccba2e4075d6da22b693a67d98252b",
+    "after_sha256": "607b60440c0c5c29828ce7376bf83ed2e72b2344eb74f1350067182566715bb9",
+    "codepoint_edits": [
+      {
+        "start": 1646,
+        "end": 1650,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+    "before_sha256": "7212d74019a0019614d86ee8a01aa36331526458986320fad22e572a58b9726a",
+    "after_sha256": "5379facc1ed5c594363df6dbf7642b987900da3b308c13feb1d937a6162dee1e",
+    "codepoint_edits": [
+      {
+        "start": 1367,
+        "end": 1371,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "before_sha256": "f750cc83ef7ad523440f131e9d9adfea2ced407a096698cb037ae73f4548ba9d",
+    "after_sha256": "9d05a4ae1456ec69c13c52376ed2a3920ac285fdaf5b48d6d6b5e92b65f085ac",
+    "codepoint_edits": [
+      {
+        "start": 1697,
+        "end": 1711,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockHazard.java",
+    "before_sha256": "cbee5d9f470b4b09a3efe268239f58d15560449e6c5e555dfa1d0e50fb676469",
+    "after_sha256": "1a2fa469d8739ead410527e5f4af15d718e1e58b3d929ceaf64cd871db0c91ed",
+    "codepoint_edits": [
+      {
+        "start": 2041,
+        "end": 2044,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2014,
+        "end": 2028,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 999,
+        "end": 1003,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+    "before_sha256": "3f39c68bcbb7f6aa1b917f209c5ea5602fd737081f8c6507189f59db635d7743",
+    "after_sha256": "bb79d3d6bb206ac6a80d62e713dc5e9a508af331a7a037d6410ba10253bb451d",
+    "codepoint_edits": [
+      {
+        "start": 561,
+        "end": 565,
+        "old": "sand",
+        "new": "SAND"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockHotHazard.java",
+    "before_sha256": "d1cb0f6acf10d36861eb0b4090dad4003baae96e25f4c1b30fd0fd4bf200dacd",
+    "after_sha256": "614575aec7878b9cfb9b0fcb8e6a4e48b81470948f7bbd7e330245d4711619c1",
+    "codepoint_edits": [
+      {
+        "start": 922,
+        "end": 927,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 895,
+        "end": 909,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLantern.java",
+    "before_sha256": "0242becee0f772b30983f21909070d9eb38b258564f31f15cc805505464df893",
+    "after_sha256": "96e76227c3a850cfe1059aeb610ef6ef8efd5a4c29d7b5f7ee10a77e1f4fba05",
+    "codepoint_edits": [
+      {
+        "start": 341,
+        "end": 345,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLanternBehemoth.java",
+    "before_sha256": "3eee662e93cb257bb5c24e002bab63d22b3dab2e6ff7f3671cac128bed6a77b5",
+    "after_sha256": "49ad465d3aee4e114f76b0841c68e472cc2c768990b128e135c16974dde1ccbf",
+    "codepoint_edits": [
+      {
+        "start": 818,
+        "end": 822,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+    "before_sha256": "9a31f907c6047abe95caded872bc62ecf723fba15648a442049d2726a08d0d64",
+    "after_sha256": "65dc0f77c27bc0376633149077c8407275a9403efa9de345e28ee88bd2e20c7b",
+    "codepoint_edits": [
+      {
+        "start": 2430,
+        "end": 2444,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLithium.java",
+    "before_sha256": "9827cb653a246b583664037fe0eb3d7f4c09480a2ced707571c012e90756ec7e",
+    "after_sha256": "8d2321e42630509e10102d8f6b0a9402d85ae8e09b6b06b57795b01b03947e9c",
+    "codepoint_edits": [
+      {
+        "start": 1123,
+        "end": 1128,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 1096,
+        "end": 1110,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1018,
+        "end": 1023,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 991,
+        "end": 1005,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 913,
+        "end": 918,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 886,
+        "end": 900,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 808,
+        "end": 813,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 781,
+        "end": 795,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 703,
+        "end": 708,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 676,
+        "end": 690,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 598,
+        "end": 603,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 571,
+        "end": 585,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "before_sha256": "eb8537db3bd48cddd87a2e31e7d4c87ed6557f6d9a917c25fe0e0069ee79b28a",
+    "after_sha256": "40cb0a8beeb76fc0d35f7c7caf6955ff811bfa3a8f159f0279c269041bb6f70c",
+    "codepoint_edits": [
+      {
+        "start": 863,
+        "end": 867,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockMeteorOre.java",
+    "before_sha256": "52c9b562ccd9400b93920c56b553396221136b60617c387dab78470b06926fbb",
+    "after_sha256": "0c585a7f7392b5c5c1c349184c11fa9fda02bbda1f78ffcb450447d223ab4d9f",
+    "codepoint_edits": [
+      {
+        "start": 251,
+        "end": 255,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+    "before_sha256": "06a5eb4314aca1aa86823d8e2b3821ef54b4844accbce7369afb28c22091e4a4",
+    "after_sha256": "c565040c4b50780dfdfbacdda99370e87a6d9d939afc7a979a620e16fbe126fd",
+    "codepoint_edits": [
+      {
+        "start": 5677,
+        "end": 5682,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5650,
+        "end": 5664,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5567,
+        "end": 5572,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5540,
+        "end": 5554,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5457,
+        "end": 5462,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5430,
+        "end": 5444,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5347,
+        "end": 5352,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5320,
+        "end": 5334,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockNetherCoal.java",
+    "before_sha256": "5cd6e4645b6fdd616be29fc30207edb937753e0afc62bc20d8f0a280b2a10ec1",
+    "after_sha256": "e5b2747d8396e51fb68a2b0a42d8fe66fcd42b742fe575bd4e0d8174c9d0e6f8",
+    "codepoint_edits": [
+      {
+        "start": 1191,
+        "end": 1194,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1164,
+        "end": 1178,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java",
+    "before_sha256": "ddf4c792bec4dfcca2942bc65eb75e000c1869c4fcdd21a00ad721da63e7bd77",
+    "after_sha256": "8ea535a639d4d2dd7226049b0b47ee2bc9aa88060a573f5b69e1e4f5a692a855",
+    "codepoint_edits": [
+      {
+        "start": 802,
+        "end": 806,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockResourceStone.java",
+    "before_sha256": "8f10d31ef28f0d1dc3d07c7dfc26a24be6956dac06866c6a9fdb72eff10f9b1c",
+    "after_sha256": "702264881a1021e76d746dd87207fb20d2fbdcaa18079afafef77451122a2fa6",
+    "codepoint_edits": [
+      {
+        "start": 520,
+        "end": 524,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRubberCacti.java",
+    "before_sha256": "9d92dfea20baed4cd5de76cb27097666b7f990ed4460e23dfa5d017a58a5ed4c",
+    "after_sha256": "34aa9e24a250fc6df19661dd8deb78411fb8f530101cff9c0c716e0a1d3fe344",
+    "codepoint_edits": [
+      {
+        "start": 1120,
+        "end": 1126,
+        "old": "plants",
+        "new": "PLANTS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+    "before_sha256": "6d8ef8f3dcd652933e0daf067b880bcb24c69d59805058e81b2a4352cca82e99",
+    "after_sha256": "014d97cf91c81fd22351c5fea2ad7fc4d58a8abbf9160bc5c080479dc83ba037",
+    "codepoint_edits": [
+      {
+        "start": 426,
+        "end": 430,
+        "old": "vine",
+        "new": "VINE"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "before_sha256": "6fb6f3194b1dcb216e174538f7fe971f982d7f99e0c6cce65b4a68fd3349b4a1",
+    "after_sha256": "e4989afbf1bf3c48ec45dce22ff44c92bcc8aa18df67ca30122f23fca5129194",
+    "codepoint_edits": [
+      {
+        "start": 733,
+        "end": 737,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSmolder.java",
+    "before_sha256": "c4cf98143629e180f2e22f63e5a13a377c8532930c5d3ab42fd72508435f986e",
+    "after_sha256": "7176d16f5a6ac7478a595cba87d5a4b8f422a011d0e16830ac28b2a8af20b7eb",
+    "codepoint_edits": [
+      {
+        "start": 732,
+        "end": 735,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 705,
+        "end": 719,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "before_sha256": "c2cf237eb669b6946b1f86a4edb8cbdecf209a49cad6a106553e3edb6ebbbaba",
+    "after_sha256": "74aa22ed2fcb714cc721bf786849f3be7d2596a0aae425c94abd960cd82506e1",
+    "codepoint_edits": [
+      {
+        "start": 1405,
+        "end": 1410,
+        "old": "glass",
+        "new": "GLASS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+    "before_sha256": "5321b0b249c12e6faf0e0da7b158a6d0e3c04028a0a4f5e492c61d077a20f25a",
+    "after_sha256": "e9cacad3deb46e4d4aaaa091f9ca07abfd21e4b5fc870861a4d1d85205bae463",
+    "codepoint_edits": [
+      {
+        "start": 589,
+        "end": 593,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+    "before_sha256": "1aedfe7af7750e9735f193a1b5831663733105a6f14ceec34b7c07eec7568a4c",
+    "after_sha256": "d24911031948b393ea210e7c956c9c45e59d2995212e1aca0e6603082b91fcdc",
+    "codepoint_edits": [
+      {
+        "start": 9372,
+        "end": 9377,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 9345,
+        "end": 9359,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9261,
+        "end": 9266,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 9234,
+        "end": 9248,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9150,
+        "end": 9155,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 9123,
+        "end": 9137,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9039,
+        "end": 9044,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 9012,
+        "end": 9026,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1271,
+        "end": 1277,
+        "old": "plants",
+        "new": "PLANTS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+    "before_sha256": "38ea2c5c8c162b7b30b99ec778bdb7107dc672534e0c80e3bca18eef236328af",
+    "after_sha256": "a2778ed850f2d0fbdb494560fb7fef127767acff64130da3d7e3fba332c56207",
+    "codepoint_edits": [
+      {
+        "start": 2972,
+        "end": 2986,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1273,
+        "end": 1278,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockWandStructure.java",
+    "before_sha256": "5edfe5614183f09d8f2d0e1412c87162af983f8750543a443dc74b6f123e060e",
+    "after_sha256": "12791ccfea84ac5fad94c92734add239b52d62faaa59d0518a664e0e6bb52fc4",
+    "codepoint_edits": [
+      {
+        "start": 2278,
+        "end": 2282,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DungeonSpawner.java",
+    "before_sha256": "3fcf3064cf76249381234228921b650554b2715bc46f5055f88b97fa9525baf7",
+    "after_sha256": "0d95fd8eb3f5878534649ea7b111aae1891fe3e031bbc9eca5a6063721e8e1bf",
+    "codepoint_edits": [
+      {
+        "start": 839,
+        "end": 843,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/LogicBlock.java",
+    "before_sha256": "58e0ad6e3832106929f8c4a534e3cfe34194697ee16f59fe554f06ad9ee8a50b",
+    "after_sha256": "99fd946f9fcdf7e2281ae515ba516146c81249911f5cbe2b8ad7b28a94c7e66e",
+    "codepoint_edits": [
+      {
+        "start": 1082,
+        "end": 1086,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/PartEmitter.java",
+    "before_sha256": "a56982b7f57dc6c7de3c05c0f2950d3071c3df23c57bd52d3ae615a6a0a5c995",
+    "after_sha256": "f1b895047cb6a58369404223aa4b0e6a83210a6156474ea2bd54a7c072fac16e",
+    "codepoint_edits": [
+      {
+        "start": 948,
+        "end": 952,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+    "before_sha256": "e38198f72a78fc2d906606ce15e6fa2d8f8755e8f3bdcfe8d57466811da27ee9",
+    "after_sha256": "cefb3ac72966f962119d63efdeab0b346413a9990dcdd5a7540f872bf9703154",
+    "codepoint_edits": [
+      {
+        "start": 1805,
+        "end": 1808,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1778,
+        "end": 1792,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1236,
+        "end": 1239,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1209,
+        "end": 1223,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java",
+    "before_sha256": "33e52d796fa2b7ba36210ac268490bd205644890c47611c3b51822d8d64c2675",
+    "after_sha256": "6199c6c582fb0f99bac5075f5c8a0bf2afb0cb83a3e743c4f6c86789920baea5",
+    "codepoint_edits": [
+      {
+        "start": 618,
+        "end": 622,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java",
+    "before_sha256": "9dba57bb29ad90912f62dfe487eecd47a3a7b83c369cf10af814eb4865f4705c",
+    "after_sha256": "8b688bbc56ebc67100a6092a2fe6bbc8d9bca8b0d74b6fb6a096a048c622878b",
+    "codepoint_edits": [
+      {
+        "start": 1431,
+        "end": 1435,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFusionComponent.java",
+    "before_sha256": "0e07982724d0cee36b007f6b4333b733028eeb73c6f7cc55be9bab0444af8bc0",
+    "after_sha256": "69524b141387cc134360919a07c862e586b3e3b17c36b57a75ea2ad108b19ffc",
+    "codepoint_edits": [
+      {
+        "start": 247,
+        "end": 251,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockICFComponent.java",
+    "before_sha256": "6ac73e1850a2d7e0955a686d7c13755014a4936ccf33f3b162048d13b1ad518d",
+    "after_sha256": "5b243b053d9c77dc21b8645cd09a077894a0178b1ad6a2ded26d7c1ce38be043",
+    "codepoint_edits": [
+      {
+        "start": 241,
+        "end": 245,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockICFLaserComponent.java",
+    "before_sha256": "b5bac2e20c5b4b71fb5541b16072840f497a7bf073bc118b382c7c99bb18739b",
+    "after_sha256": "411473e2c98fad8df1e2a4f7437d43eea19f8abf30d564b4af6ae7ad72424df4",
+    "codepoint_edits": [
+      {
+        "start": 467,
+        "end": 471,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+    "before_sha256": "ac59ea4d723ac937c87655be0a7d7b9caae12e16a9988b4a558169b51c528388",
+    "after_sha256": "0671964ffbe66f367b39574a049a5cc1996bdabce622f270e5c21a2077e4d36e",
+    "codepoint_edits": [
+      {
+        "start": 1761,
+        "end": 1765,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockWeaponTable.java",
+    "before_sha256": "9df3a5b6876f3376915df8c16fa754df8d3f050dc4f4aa04299fa2d7182c1320",
+    "after_sha256": "f9002c40a5e4ccee11b0c9527d66169a3639b1870ee73c65213d4ef9ed836ee3",
+    "codepoint_edits": [
+      {
+        "start": 909,
+        "end": 913,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "before_sha256": "d632b891d8f45c7ac9aead57ee09338f8f8bf3d45a67a782ce9ea1716dee9965",
+    "after_sha256": "e3123c98a43a9cd57a8b9408c23c31b063f077636d64c9dab4af89c2fb39783c",
+    "codepoint_edits": [
+      {
+        "start": 346,
+        "end": 350,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/FurnaceCombination.java",
+    "before_sha256": "a763b8caa09e80ab1a9a77d55485acaa864e7ea488b9f7db896574433388f44c",
+    "after_sha256": "e455f4918f641c79a82a9578cb2f68ca4b3fabb0671df5cf7f87cf21d4bddf5c",
+    "codepoint_edits": [
+      {
+        "start": 592,
+        "end": 596,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/FurnaceIron.java",
+    "before_sha256": "6cfce30bf95542209afd5ea093b32ee2230234b49402305acc55f4e8f6981176",
+    "after_sha256": "cf75fa5a8aac5ba4b7d2f86812fe8125e0d8796fada6afb4c8e95d8cf895d039",
+    "codepoint_edits": [
+      {
+        "start": 572,
+        "end": 576,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/FurnaceSteel.java",
+    "before_sha256": "c9b65bfa3c3e1af41e545f7ae01b7ecc3b82a3483f653679edae1992eaf7ba82",
+    "after_sha256": "7ee58a74d28d0c40fdd7eeb9c66a8b710cd6ca5cfd08f0476025ffc84af60b2f",
+    "codepoint_edits": [
+      {
+        "start": 575,
+        "end": 579,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/HeaterElectric.java",
+    "before_sha256": "c54f32ecf96a804e79d77b7f698600dc2a01bf09f23bdb39a0c88b5e47776728",
+    "after_sha256": "055072c75666fde0e521d5e31fbdf1a9b7ade9653cf867bc68bc9affd005559b",
+    "codepoint_edits": [
+      {
+        "start": 911,
+        "end": 915,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/HeaterFirebox.java",
+    "before_sha256": "789896cea44b1153101dca49af767546be5d43da6465ed81d3ca8517df0c243d",
+    "after_sha256": "cfa4036fc6f71fb5bc4384dc4f926e89ffc991faba95936067074f6054dd1043",
+    "codepoint_edits": [
+      {
+        "start": 578,
+        "end": 582,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/HeaterHeatex.java",
+    "before_sha256": "dae16ae58dc7c9cfd58983f6b7bc9b613292eac8595af2c1149903e98c71fbfd",
+    "after_sha256": "751f0349720a22f2e8f98bf07deda2802033a7023b6e48db25ddb548a5d2c925",
+    "codepoint_edits": [
+      {
+        "start": 1209,
+        "end": 1213,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/HeaterOilburner.java",
+    "before_sha256": "dba19c0a6c5105d0b678343c162b9ac1d40af94c2164ca47f6978f9a6550d64a",
+    "after_sha256": "4ac0ace48b1e9a55620943882b6915d1a18f2e2910a81d53d2bffe6b80f28e82",
+    "codepoint_edits": [
+      {
+        "start": 1007,
+        "end": 1011,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/HeaterOven.java",
+    "before_sha256": "a7c08cd2a1276332177e95baa5936a5af0fda390dad22a864259cbf3094b7247",
+    "after_sha256": "6a8b99ce049c702a562e1376cc2e83bf1f0f643bcc230ed5317ab85d8afb5e53",
+    "codepoint_edits": [
+      {
+        "start": 569,
+        "end": 573,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAmmoPress.java",
+    "before_sha256": "2fdacf62b2e48fd70abee1f32e974abe624bc2fc2d28362d5d7f0d2f186c6427",
+    "after_sha256": "7b99707eae02056668359afedd2b686ceb698f560c826809410775a68220b2a9",
+    "codepoint_edits": [
+      {
+        "start": 458,
+        "end": 462,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAnnihilator.java",
+    "before_sha256": "61fbad63738aebe9d28c5cb5d0b3f7427e7d26aa5fb3c08e5eb3cef38d2a8eb6",
+    "after_sha256": "3c62e575900d05c0d220a4aad93df77f88fc12af21fb3bd554b6bae0fe41c8c8",
+    "codepoint_edits": [
+      {
+        "start": 543,
+        "end": 547,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java",
+    "before_sha256": "eb3aa5c9c30d43081b67636462fc21a030c4ee2ced76b3371bf5d88404afa04e",
+    "after_sha256": "45299f2d263bab611379a98850b722ad11eae97b3ed1058c18121738cd89ab55",
+    "codepoint_edits": [
+      {
+        "start": 874,
+        "end": 878,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAshpit.java",
+    "before_sha256": "551a12e0bfae370135f40d5fe35b5ae4d3b00c70f1d2e25dd9401aee3a7c1498",
+    "after_sha256": "09f2209eaf7509bc76abc09a4edf078b78808bd067e1b2ec40e3698105c97116",
+    "codepoint_edits": [
+      {
+        "start": 571,
+        "end": 575,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAtmosphericEmitter.java",
+    "before_sha256": "1e2f1989b228991ebb7308b2978105e211150a5dfeeb73fc8fcb6d68fdd9f7c4",
+    "after_sha256": "da600f47cad7cc3c99faace00425d3ac4bb6cdcc5c4e24f47e0377b0f1bfe28b",
+    "codepoint_edits": [
+      {
+        "start": 1166,
+        "end": 1170,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutocrafter.java",
+    "before_sha256": "644b3de06fb17e402cc0ac77d598aa7cb480124ebd92df2b50b27f65606ad558",
+    "after_sha256": "a46a8446d346e2bfe01f9ae32bba013b645db001a40a05b9ea771c7dfb9c30d7",
+    "codepoint_edits": [
+      {
+        "start": 1061,
+        "end": 1065,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "before_sha256": "12c5bf1b5a2e18e803de2d076ce0360224179a6ff9310b6a73ee3b077e1db377",
+    "after_sha256": "9175f8f453238c34db82fbd9cb104b77f87d2d785c3ca6eb2fdd2ff82195cc30",
+    "codepoint_edits": [
+      {
+        "start": 1048,
+        "end": 1052,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineBoiler.java",
+    "before_sha256": "7d81b3afa02969f577e828a8e9efe98da8920d271987001be8f49c9dee28a07f",
+    "after_sha256": "4f4f70b69204131cf7adc9fd940af9de198d1ecdb9638969e33b048a4a9747c2",
+    "codepoint_edits": [
+      {
+        "start": 852,
+        "end": 856,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCombustionEngine.java",
+    "before_sha256": "b9918f518aaa648df7b694f4e5b0809529cf10a4aeff9d71a8d595141f69f5ad",
+    "after_sha256": "99e7431d8b0bb7165b89e77aa2cbec65a0789a3a2d642c8c9eabf43c04b86dd7",
+    "codepoint_edits": [
+      {
+        "start": 513,
+        "end": 517,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCompressor.java",
+    "before_sha256": "f48b86570f31a520399e049122ea86d546005d4ec548d021aa818103c819730c",
+    "after_sha256": "81d4a0f2ce9218ccb9e04104761955d78973e76ab2cd38f73640397b68186030",
+    "codepoint_edits": [
+      {
+        "start": 540,
+        "end": 544,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCompressorCompact.java",
+    "before_sha256": "c696818dab4b3d7b93f47aeee47ffb2d3f212b8fbc4b34bfa428db9f31ac3fff",
+    "after_sha256": "8e9fa4ec446d9a22091a452deedb73e410e9e165600b62c9d29b65c62e1a83c6",
+    "codepoint_edits": [
+      {
+        "start": 517,
+        "end": 521,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "before_sha256": "a181f829917de800fa35f4c231558b50a4ed93338d26bf62fde3734a07b28e5e",
+    "after_sha256": "395fd625ce6fbc521c35f4c167e49571ec7eb9fa52ba1183180b4808b6ed6798",
+    "codepoint_edits": [
+      {
+        "start": 1269,
+        "end": 1273,
+        "old": "rock",
+        "new": "ROCK"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "before_sha256": "bf7f5728de351790106bb7ec26e1119de10cb05067f9ccc53ebbf4891179318f",
+    "after_sha256": "a676a5ad8cad95226a1038762727b348e457d3e334f94abadc3894d5bbda94f6",
+    "codepoint_edits": [
+      {
+        "start": 828,
+        "end": 832,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineElectrolyser.java",
+    "before_sha256": "8e36cbb91e0c00b02ab59d17fbc6a905166d1523f72dc26b825ace8d9d717690",
+    "after_sha256": "64ed08991164a2c8c5b700c8dcefc07a8ef63da739a08055aac553776b9be1e3",
+    "codepoint_edits": [
+      {
+        "start": 538,
+        "end": 542,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineExcavator.java",
+    "before_sha256": "27e103cf6ab1895deeafbfecb602a89f31edefc78f0ee1894c42bdbc57c606de",
+    "after_sha256": "0bce9958a7a570219272df5f9da4afe18e3020c7fb1d940b7444773c22ca63d5",
+    "codepoint_edits": [
+      {
+        "start": 537,
+        "end": 541,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "before_sha256": "6bc265d56f398329f42206dfdee32f74b3160ca537c8806a1988d2d3ccee5288",
+    "after_sha256": "7d8ddeae873533572ceb8bcd899c36eaca9558da7ca8ed06c8205b812bd77dea",
+    "codepoint_edits": [
+      {
+        "start": 1794,
+        "end": 1798,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java",
+    "before_sha256": "1d6871c7c53ffad767e7581e600f7a385066964b43ab3fbf29e76ddb0af32322",
+    "after_sha256": "6b7e97237e0c3730a0edd1297c4282d2559b05bad17eae26827fcc29bfd2084d",
+    "codepoint_edits": [
+      {
+        "start": 389,
+        "end": 393,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFrackingTower.java",
+    "before_sha256": "5bc857814578d0d4973fca1989d686418134cfd7f3da327cf7c888e58ce17eed",
+    "after_sha256": "dc8cc1e5779223fdf90fd2a4b47c47e3db40efd3687f412b17a637f881f0d17d",
+    "codepoint_edits": [
+      {
+        "start": 1079,
+        "end": 1083,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHTR3.java",
+    "before_sha256": "4b2c5f8109540af3fcc31927a0bceb5f8d88cb0008d89d9104f5248d9dbdf1ed",
+    "after_sha256": "fed80fc5001fb705f5fc836c541df2004db886ad1c09b4ddb79437f0ca7ad4ab",
+    "codepoint_edits": [
+      {
+        "start": 1139,
+        "end": 1143,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHTRF4.java",
+    "before_sha256": "c1aae505aecd31dfadc93ff5dc519502f67bcdf8f93124dfbd17e41a1ae1d47b",
+    "after_sha256": "591767f8594b6e56547b8d5bfe8a4db7c128a92b1ea4e01aaa6dfd6902253de1",
+    "codepoint_edits": [
+      {
+        "start": 807,
+        "end": 811,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHTRFNeo.java",
+    "before_sha256": "31605b14b221f67f0ea83d354ff0108ab66fcad435716152b4e129b8c16d6b04",
+    "after_sha256": "ab60859a2085d2f41cd8f064e975ec30004402741a254a3556d09e7b3a625a19",
+    "codepoint_edits": [
+      {
+        "start": 909,
+        "end": 913,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java",
+    "before_sha256": "665283f3905d766ab35b549214dd08f61617cf379163c9aab4059ecdb42050e1",
+    "after_sha256": "5405ddaebab4548c733512cd8e91ac9e02efc1f3a76792ed790b9a6608a9f74f",
+    "codepoint_edits": [
+      {
+        "start": 1422,
+        "end": 1426,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoilerIndustrial.java",
+    "before_sha256": "bac9e9b8de25f380051bbdcfb1e116264100653129d460eacbfe09ff5d1c1ab5",
+    "after_sha256": "705704fbb98452ba1325e7a210b88a75ddf57b263ca03ce2b722061eb9ecc707",
+    "codepoint_edits": [
+      {
+        "start": 1252,
+        "end": 1256,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineICF.java",
+    "before_sha256": "c4ccfc52647eb243631b06a2f9d7137d0937b2b3a85945567498dd1c9b2415ad",
+    "after_sha256": "bdf599ddf49324e1cc87f4b3f80474e60d1b1110142050723a221e88d17ab5cc",
+    "codepoint_edits": [
+      {
+        "start": 512,
+        "end": 516,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineICFController.java",
+    "before_sha256": "eedb877ceb6670039f5a65fcd3754ac5b8fcb840aa136778c43f153443b7ad39",
+    "after_sha256": "ba827c1e5f40b1400845f59788515f4a52a3ab3661fb99e8dd6e3632fd7a4cd1",
+    "codepoint_edits": [
+      {
+        "start": 1596,
+        "end": 1600,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineICFPress.java",
+    "before_sha256": "8b0ea2d55bded3f76506ad1af22e07e03b68a837839f313eaa5c2cfab9b3cfc6",
+    "after_sha256": "d3021ee8da80deabf7ecb6be037f340422e72cfd89c24880ac03ba5424900782",
+    "codepoint_edits": [
+      {
+        "start": 1145,
+        "end": 1149,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+    "before_sha256": "1c11364981175f6fec20a92c979f62b965a943c1f9d5a6a148074df928da00fa",
+    "after_sha256": "55b65e68febcc7a4c55abe05e5bbc2c4daead9db1a2dfb81c39e8c1c1699babe",
+    "codepoint_edits": [
+      {
+        "start": 842,
+        "end": 846,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+    "before_sha256": "db2ab510dee6806f77e9b4bb520fa5218ce07a92931e833d0cd053f0a192709f",
+    "after_sha256": "15ce4957273cf3958367dbf9fabb8d132e4512bc590797c7340526333e514c54",
+    "codepoint_edits": [
+      {
+        "start": 1218,
+        "end": 1222,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineIntake.java",
+    "before_sha256": "9ff77ea72e7b24dae51ca878143a69b6d0a7051579900f0187adaaeef3849a2c",
+    "after_sha256": "cce9d07b5fabc560555f509c8cb1c35defb2731d98004d4cd2f4e4a4ecabd1c1",
+    "codepoint_edits": [
+      {
+        "start": 694,
+        "end": 698,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineLPW2.java",
+    "before_sha256": "4c01629695fa67fa976d36f721f1cedf2669c830e0e796296526d4a35fd9a2ee",
+    "after_sha256": "a06eb9944cde70ac2064691c665a772dbf2b9e63356fd4d0b4e09b2c735df51a",
+    "codepoint_edits": [
+      {
+        "start": 804,
+        "end": 808,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineLiquefactor.java",
+    "before_sha256": "00ac47fb9e8a209ff615e4cbf7a4288851a17d241755b5e3c5b0b5762f6f48af",
+    "after_sha256": "3ae9c7386e31543230758ed6ab11908a692af913e3e4a529fb989468cfaa41e4",
+    "codepoint_edits": [
+      {
+        "start": 631,
+        "end": 635,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMagma.java",
+    "before_sha256": "8b65d2dba61fc51b2e728b927ca67924ea9d463d0ccaa695a541e77b014fa6d5",
+    "after_sha256": "0ce0c3ec8dcbd297472bdd841bf5923ec9923bd40fcd6a463738b16004adea86",
+    "codepoint_edits": [
+      {
+        "start": 998,
+        "end": 1002,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOilWell.java",
+    "before_sha256": "efa2a3449dc83c2855b72a34fcf2cee920372c24c6a314b744e8848fa997a75c",
+    "after_sha256": "cde129d65dbb555a5b8323f0ee6b549a7b4b524c588d0bf4535bda49c139e36e",
+    "codepoint_edits": [
+      {
+        "start": 1424,
+        "end": 1428,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "before_sha256": "56e9472a77d91d85c4abc725640f400a3e75f3ce0713a3411caff7fe9f3cdc37",
+    "after_sha256": "0b962ea6b6e72fc86984a4cc1c1d6a2d88af207c9596713562f1dd95e633ec7a",
+    "codepoint_edits": [
+      {
+        "start": 542,
+        "end": 546,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePlasmaHeater.java",
+    "before_sha256": "e0442096622d289e64a2c8d3969a91370dc2d05d2313852c848179b20cf1d7e3",
+    "after_sha256": "efad1074e6d8fdf74f2105b6cb23bce99aebfda0942af7e3c9e64c58b43d36d8",
+    "codepoint_edits": [
+      {
+        "start": 739,
+        "end": 743,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePump.java",
+    "before_sha256": "494ce128f74557c33d8a8c63a076dcb3df53acc663a45c4c7572424e3cabd676",
+    "after_sha256": "c849dd171442ee37bb7942a0b202c2f2b7ee4ce1625bf54c3fadf9ab2b81cf6c",
+    "codepoint_edits": [
+      {
+        "start": 1056,
+        "end": 1060,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePumpjack.java",
+    "before_sha256": "af3620f8d124a7867486c9996b7c382d598245f32432797f7420015ea7ceb5ea",
+    "after_sha256": "367981828a155f408bf02eaa4b630c15cb746aada49fb32345b147c1581be532",
+    "codepoint_edits": [
+      {
+        "start": 1065,
+        "end": 1069,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+    "before_sha256": "1b3c9a7ae96ebf6852649921c9ba2ffc57658dfad052058bd8f52811a51032c5",
+    "after_sha256": "9fc0cd6cdc4457c2f4a67553d79240b82f5f348533a411be4de502585f1bd2fb",
+    "codepoint_edits": [
+      {
+        "start": 1067,
+        "end": 1071,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSolidifier.java",
+    "before_sha256": "480d71792af9b0bb1e0ad820d43d677b41ba59dd6561ec36189a19a18d1fc3d6",
+    "after_sha256": "c3d8671cdf10b74a1d3967e05376266165100039255fe1b3b2f521fd41ec6581",
+    "codepoint_edits": [
+      {
+        "start": 629,
+        "end": 633,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSteamEngine.java",
+    "before_sha256": "d74d2055a3aaa0925d036baa90156751ac2f733ed39c56bf54fad690a707589c",
+    "after_sha256": "3e820f6ca00c9595fb6103c55d06529b0476891e207ed230d45975e3cc27f95b",
+    "codepoint_edits": [
+      {
+        "start": 873,
+        "end": 877,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineStirling.java",
+    "before_sha256": "008b81f7b4268434e008e755fcf6b3615a4e2294aba977aaeeb9ce9a996d9c48",
+    "after_sha256": "c4aa7ddac83e009145a7dac3a4d2d39de3fe8ac3c6bea475a1a3e03aefb7bf4b",
+    "codepoint_edits": [
+      {
+        "start": 1058,
+        "end": 1062,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java",
+    "before_sha256": "a8de07107ab9f42804789ae6475e473152072ce4ab506bf971852b157bdff1a7",
+    "after_sha256": "82a8c63b71066115a817f1b976251cb4bcc105d541a88717b03e986ab8bb7566",
+    "codepoint_edits": [
+      {
+        "start": 1169,
+        "end": 1173,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTeleanchor.java",
+    "before_sha256": "963cb63fcb847f502b656d1dbfa82b67c96b016cc33f51e6018a68130ad06c97",
+    "after_sha256": "28d31dabc67d3707896cdd3b58b1c776b1c0d12bcadfa2bab398badab07735c5",
+    "codepoint_edits": [
+      {
+        "start": 467,
+        "end": 471,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java",
+    "before_sha256": "fa82f39acfd7fa459bb6cec1bb1f746ce4d970e8af55d4348d82a7b1b0c9ce2b",
+    "after_sha256": "b4ecf9937bf8deba0bf2a8df4c39e5d9825cf723facf9171ae1ea204b918dd7f",
+    "codepoint_edits": [
+      {
+        "start": 569,
+        "end": 573,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "before_sha256": "c0b00a54a86f20cce7d6bb26dd3853d632e98322db5b3183b2eac12349a0c05f",
+    "after_sha256": "720e96f86d64fb757b7d5f12c0a6106a03ba629299ae6e997610d687403df135",
+    "codepoint_edits": [
+      {
+        "start": 1225,
+        "end": 1229,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/ReactorResearch.java",
+    "before_sha256": "0e9eb4fdc7506cebf90be4a766b0ee239bdfad00832cd7410560df67edace727",
+    "after_sha256": "64b70a9545561b0c96e17c8b453dc2bb934e5ddc21ea583d761327aab917b562",
+    "codepoint_edits": [
+      {
+        "start": 1943,
+        "end": 1948,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 1916,
+        "end": 1930,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/WasteDrum.java",
+    "before_sha256": "d3b6ea48155d141dbbcce28c4abe172ce5cfe642db85f04e37b05205ead546f9",
+    "after_sha256": "acdccf4919ab5f7381585c519d053aee76583a6d6743e97f6ca7a1095e7143b3",
+    "codepoint_edits": [
+      {
+        "start": 2079,
+        "end": 2084,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 2052,
+        "end": 2066,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Watz.java",
+    "before_sha256": "13b6d401d449016db6861827b70f6fc14141c9cf127e4db4cff4143d3a30648a",
+    "after_sha256": "5542689f4fafef253f3a59bf678aa694033e1c46352e88d650513960055a3913",
+    "codepoint_edits": [
+      {
+        "start": 779,
+        "end": 783,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/WatzPump.java",
+    "before_sha256": "327bce29f7e9f6b50801996e326a9ea130ba45a3ecf11bbc9feb69e3d81a2337",
+    "after_sha256": "74e2c14c4152339a28348c3c59ec18e1b2da824794540d77dbd86aa95a75626b",
+    "codepoint_edits": [
+      {
+        "start": 593,
+        "end": 597,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPABeamline.java",
+    "before_sha256": "e11b86a3f7f94c972edc93f3cfaea50076412c768ae7d3f1cf8728dec49a9006",
+    "after_sha256": "eae0bd3c198cb43b0f3979058e8f060fc01216b97034df0fd18b2123f818e54b",
+    "codepoint_edits": [
+      {
+        "start": 653,
+        "end": 657,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPADetector.java",
+    "before_sha256": "ebde0a712f241f30e98fff3c4b80368dfb6068cff63c0c404daa064bc036296a",
+    "after_sha256": "dcd897934439b3351e756cf571607c7727efdd1b7787ea8a150f9ce8a0816864",
+    "codepoint_edits": [
+      {
+        "start": 693,
+        "end": 697,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPADipole.java",
+    "before_sha256": "d97d537bf546aec1af1d0541c6bba607238d4a2386c7beb55842d2982e0050e8",
+    "after_sha256": "6b30f1a3d0b6cd4af8fe4962dea8a8df06c2f8632295fd96ed0738d292676c51",
+    "codepoint_edits": [
+      {
+        "start": 687,
+        "end": 691,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPAQuadrupole.java",
+    "before_sha256": "4f74453cf35756d8c77a0fb76d538846154ec5789b9389a11a6f2057ab90302d",
+    "after_sha256": "adbecaee384b0fc00fc51b6ffb75902e0672c571e3a3f2be3ca2b2c88e1da78f",
+    "codepoint_edits": [
+      {
+        "start": 699,
+        "end": 703,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPARFC.java",
+    "before_sha256": "c642e7e49e19d715e20e5f0747d7a0f0d2b4ecc7c6add6233b88d7c17c08b3c9",
+    "after_sha256": "98d5e8d6005d8012400a70d941579328ae5fc64d53949baac89952736d07f65f",
+    "codepoint_edits": [
+      {
+        "start": 678,
+        "end": 682,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/albion/BlockPASource.java",
+    "before_sha256": "ede86dedea4d804f6da038de8f0bde749e4d2ed27d5752b42cefb1bcb81ec92e",
+    "after_sha256": "983787a1bf81f361883299e5b96f2756e14014a703f255292b7bafc7f49ccca2",
+    "codepoint_edits": [
+      {
+        "start": 687,
+        "end": 691,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBoiler.java",
+    "before_sha256": "dde5756cd190e8d611def6d3d04259b9dffacde48c4ca5aaefa36d879f02ef21",
+    "after_sha256": "7416da9c309a001268f0c8e0ac8f9fbe0ad1f80f9c7fa76cadb40e036ba99839",
+    "codepoint_edits": [
+      {
+        "start": 945,
+        "end": 949,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBreeder.java",
+    "before_sha256": "ff343bfcc0d21b33e69b49dd55e862b1b1304c051eedaea84f1de0d497264fb8",
+    "after_sha256": "3543a668a55abcf6d27e57c2ae5eea31dfb814b30104130f7a3643634450e6b2",
+    "codepoint_edits": [
+      {
+        "start": 641,
+        "end": 645,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCollector.java",
+    "before_sha256": "efb5b77e5ad20d0692aacf5a5816e11c29a7068f3a6ddf6826a5250aa5c3e7c3",
+    "after_sha256": "ce2da6b566d6c5d3ba42a31d81941fe4e04a1bf79cba775c3955aa3e0c53822a",
+    "codepoint_edits": [
+      {
+        "start": 599,
+        "end": 603,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionCoupler.java",
+    "before_sha256": "43c235b996e7935059567f8471ebf4675e28ca546799f98f0ee6c0f0c8187576",
+    "after_sha256": "52eb14fa57942a31ce678baedd852b16c1395488018ea8c1d5cd0f96b0fb094e",
+    "codepoint_edits": [
+      {
+        "start": 558,
+        "end": 562,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystron.java",
+    "before_sha256": "9711b550bcacca66c5f23285c2f1b6845c657c70dd10f5edbec264edc5d6e548",
+    "after_sha256": "00270f194f3fe8dd15935358bfc747f066bc39170387efed2ca201b5e713bc5d",
+    "codepoint_edits": [
+      {
+        "start": 688,
+        "end": 692,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystronCreative.java",
+    "before_sha256": "74c72f3dcaaf2c183042c0260f52f5692ecd1b44334357f84e56b7c80834809b",
+    "after_sha256": "7423656d4498e10924624b3640b622b4f335c3e95cfa2278f4811d37954c3a57",
+    "codepoint_edits": [
+      {
+        "start": 664,
+        "end": 668,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionMHDT.java",
+    "before_sha256": "c766f3afd44f27340ab477e94882584295914573083622c65153505dac3f3534",
+    "after_sha256": "02ce24f3969ed21ce17d8991af7078cc1ef80d38ed0bca485cb6b04a843e5823",
+    "codepoint_edits": [
+      {
+        "start": 983,
+        "end": 987,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java",
+    "before_sha256": "46651162ca8c6615099b2890f32dcb570c04993ff9558039130c32b8f52dcbaf",
+    "after_sha256": "5c05d27401f1c770230a833d6ab2376871bb27e3a9c331b343b4bc33d627cfa6",
+    "codepoint_edits": [
+      {
+        "start": 2830,
+        "end": 2834,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+    "before_sha256": "975e30c5f5e23d18eee60ba8a9ab23673f31c5aee8c3fd9b18be21aa78702bf5",
+    "after_sha256": "4eeac13ea4de591ec04c30d35f00df35c2575562a791f340ea8dbc0c7058959b",
+    "codepoint_edits": [
+      {
+        "start": 1227,
+        "end": 1241,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java",
+    "before_sha256": "e0f9765da6b822a60d9456937a77767597b9ae9d53be68d015b182f26a06900f",
+    "after_sha256": "ccabac153be7e2f11dd68e340f58b1015185386e3a89ad0f8ebcd1d3ae9580c9",
+    "codepoint_edits": [
+      {
+        "start": 508,
+        "end": 512,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+    "before_sha256": "1b678c65efe98e60abf51adcfec05d16b918d31be6b27b79d2bc3146b2d98d83",
+    "after_sha256": "a730a60eef7301dab1d0b6dad071a42d54bab3752e197417e2367981e2140eec",
+    "codepoint_edits": [
+      {
+        "start": 2339,
+        "end": 2343,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+    "before_sha256": "4e1d79d8436681153ee180878499845bf374f8c5f2d7c266ceef24a4c62d1114",
+    "after_sha256": "8760fb6554f4c94abe2763d43750dfb9e3d2b5fb96177fb2ed0f23a48c6bd74b",
+    "codepoint_edits": [
+      {
+        "start": 841,
+        "end": 845,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKCraneConsole.java",
+    "before_sha256": "c87f48615780e8583d58a890bdf30f4068b218c26d7cb6736ec856697ab3b99e",
+    "after_sha256": "ebf18a7a56f35c0c2c7df37c73589fa5bdd1ed27a6c7ee6f116d97a1fb6df3d2",
+    "codepoint_edits": [
+      {
+        "start": 635,
+        "end": 639,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneCrate.java",
+    "before_sha256": "274bead7ee5a50a996aa3f9fe1c57c17bb7a6fe5cda5a4928c9bc406d1b158f3",
+    "after_sha256": "babc9eabad5adcca8711ba120170cd40b55189bd4f46dee39707e98e12ed4e3c",
+    "codepoint_edits": [
+      {
+        "start": 1337,
+        "end": 1341,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneDock.java",
+    "before_sha256": "475436f78de276e2a083511ffea70b15e772f2e36e2692ff4d76134637b466d6",
+    "after_sha256": "06be95da0f38445312af50fd064b18a5f8e4957c7c5171d805e8123f3730e0cd",
+    "codepoint_edits": [
+      {
+        "start": 1246,
+        "end": 1250,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+    "before_sha256": "ed1d758c01d9576578a8197969066b7465264cfc208ee3c90a6a4c317bdcb061",
+    "after_sha256": "15f2d0ff77ff14f21929dc2e202e6dac98fac57106f8e06f06daa700a2c388ec",
+    "codepoint_edits": [
+      {
+        "start": 1172,
+        "end": 1180,
+        "old": "circuits",
+        "new": "CIRCUITS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+    "before_sha256": "c9b42d7b3f014c5fca145865763bd6866ba7cf16572e05144b27c1fab7cdcf77",
+    "after_sha256": "50f574aefea759f496891bb6748afa12056cafac6a99592a0a6296726c4ce16f",
+    "codepoint_edits": [
+      {
+        "start": 803,
+        "end": 811,
+        "old": "circuits",
+        "new": "CIRCUITS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "before_sha256": "9421909930b70065c4ba5a4bc04bfbf6990675a128cb274ea9fdd847ad0ba8d4",
+    "after_sha256": "bf1a01ba7d8254bbb518f1dbfa2b0b15288625598096126d84423b9c97321a1d",
+    "codepoint_edits": [
+      {
+        "start": 1001,
+        "end": 1005,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/MachineBatteryREDD.java",
+    "before_sha256": "0508fa727e44c08b7c05ca5f2f167664360deef1e9f95bdf605ec184a1b5fbc9",
+    "after_sha256": "90df561e53a2b31a87fa55e575efd0cbe2915e4b56b6f88665572635db7f576f",
+    "codepoint_edits": [
+      {
+        "start": 900,
+        "end": 904,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/MachineBatterySocket.java",
+    "before_sha256": "65efa6b10d4e94001746e8e08e90f6974545c0659d741e3974d8cc738ce55cd8",
+    "after_sha256": "6464c60432237d6306b19b3015a324acb501a8988b66387f21ec74e48654c9b5",
+    "codepoint_edits": [
+      {
+        "start": 813,
+        "end": 817,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "before_sha256": "c41d68fb9739b7ce1a943b245275d8c8270fa5aece5c4d15dcc371d6c33d5974",
+    "after_sha256": "663f5b0311aa8e57075841a1a4482b361fae07d24e329e5598a5cbe2c3ff15f1",
+    "codepoint_edits": [
+      {
+        "start": 691,
+        "end": 695,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "before_sha256": "510ba87a3ffeec3e768929048baf633cdff36ae9fe2e74aa40a6571fe5a1bf78",
+    "after_sha256": "2119304394bd9a4af34217eee10d550a21f88ffdee026e4bee81bc84714ed5a8",
+    "codepoint_edits": [
+      {
+        "start": 431,
+        "end": 435,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/config/FalloutConfigJSON.java",
+    "before_sha256": "1090fba82adb75e7d0c823ac334b3020d6b930a1e6af9aee512eb90e78f4069e",
+    "after_sha256": "182e4f0b095565e0230a0f608d01f365cce9e20967e889e54339e011b5cc8df3",
+    "codepoint_edits": [
+      {
+        "start": 17453,
+        "end": 17457,
+        "old": "cake",
+        "new": "CAKE"
+      },
+      {
+        "start": 17412,
+        "end": 17418,
+        "old": "portal",
+        "new": "PORTAL"
+      },
+      {
+        "start": 17366,
+        "end": 17375,
+        "old": "dragonEgg",
+        "new": "DRAGON_EGG"
+      },
+      {
+        "start": 17321,
+        "end": 17326,
+        "old": "gourd",
+        "new": "GOURD"
+      },
+      {
+        "start": 17281,
+        "end": 17285,
+        "old": "clay",
+        "new": "CLAY"
+      },
+      {
+        "start": 17240,
+        "end": 17246,
+        "old": "cactus",
+        "new": "CACTUS"
+      },
+      {
+        "start": 17192,
+        "end": 17203,
+        "old": "craftedSnow",
+        "new": "CRAFTED_SNOW"
+      },
+      {
+        "start": 17146,
+        "end": 17150,
+        "old": "snow",
+        "new": "SNOW"
+      },
+      {
+        "start": 17102,
+        "end": 17111,
+        "old": "packedIce",
+        "new": "PACKED_ICE"
+      },
+      {
+        "start": 17059,
+        "end": 17062,
+        "old": "ice",
+        "new": "ICE"
+      },
+      {
+        "start": 17020,
+        "end": 17025,
+        "old": "coral",
+        "new": "CORAL"
+      },
+      {
+        "start": 16981,
+        "end": 16984,
+        "old": "tnt",
+        "new": "TNT"
+      },
+      {
+        "start": 16934,
+        "end": 16947,
+        "old": "redstoneLight",
+        "new": "REDSTONE_LIGHT"
+      },
+      {
+        "start": 16839,
+        "end": 16847,
+        "old": "circuits",
+        "new": "CIRCUITS"
+      },
+      {
+        "start": 16796,
+        "end": 16800,
+        "old": "sand",
+        "new": "SAND"
+      },
+      {
+        "start": 16757,
+        "end": 16761,
+        "old": "fire",
+        "new": "FIRE"
+      },
+      {
+        "start": 16634,
+        "end": 16638,
+        "old": "vine",
+        "new": "VINE"
+      },
+      {
+        "start": 16593,
+        "end": 16599,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 16550,
+        "end": 16556,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 16509,
+        "end": 16513,
+        "old": "lava",
+        "new": "LAVA"
+      },
+      {
+        "start": 16469,
+        "end": 16474,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 16428,
+        "end": 16433,
+        "old": "anvil",
+        "new": "ANVIL"
+      },
+      {
+        "start": 16388,
+        "end": 16392,
+        "old": "iron",
+        "new": "IRON"
+      },
+      {
+        "start": 16349,
+        "end": 16353,
+        "old": "rock",
+        "new": "ROCK"
+      },
+      {
+        "start": 16227,
+        "end": 16232,
+        "old": "grass",
+        "new": "GRASS"
+      },
+      {
+        "start": 10851,
+        "end": 10865,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 6711,
+        "end": 6716,
+        "old": "grass",
+        "new": "GRASS"
+      },
+      {
+        "start": 6429,
+        "end": 6433,
+        "old": "sand",
+        "new": "SAND"
+      },
+      {
+        "start": 6293,
+        "end": 6297,
+        "old": "rock",
+        "new": "ROCK"
+      },
+      {
+        "start": 6157,
+        "end": 6161,
+        "old": "iron",
+        "new": "IRON"
+      },
+      {
+        "start": 3137,
+        "end": 3141,
+        "old": "vine",
+        "new": "VINE"
+      },
+      {
+        "start": 3017,
+        "end": 3023,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 2897,
+        "end": 2903,
+        "old": "leaves",
+        "new": "LEAVES"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/Ike/BiomeGenIke.java",
+    "before_sha256": "b7a8b6d7a19321b5b22a3aa3b0fcbbd444eb785e3939b2b8e56ab2dabc83638d",
+    "after_sha256": "a2765f68b6c130c2d432cabf31d9529b84263d8d076ccec4d258c383aad0354d",
+    "codepoint_edits": [
+      {
+        "start": 1602,
+        "end": 1616,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1236,
+        "end": 1250,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/dres/biome/BiomeGenDresCanyon.java",
+    "before_sha256": "2fe41eb67ecaf52fbc9551d38d1c00f3625f903f6e25c2f6703b011fff858ecd",
+    "after_sha256": "d85c0a54c6ada3d40004c9dd36df4584287878593c3ecce289391f8647eed2c9",
+    "codepoint_edits": [
+      {
+        "start": 1294,
+        "end": 1308,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 920,
+        "end": 934,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/dres/biome/BiomeGenDresPlains.java",
+    "before_sha256": "bc1fcebec45240f764eef31fc0d6f4ceed5fb17177a242052a7f79f6968780d0",
+    "after_sha256": "0ea101a8b0c3df1c62fb9d27bd524b292ce29b3132d5d6b00ecbaec8dfcfaf47",
+    "codepoint_edits": [
+      {
+        "start": 1292,
+        "end": 1306,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 918,
+        "end": 932,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaHills.java",
+    "before_sha256": "ab3e231ce67cf44f140219a9dbccea6c37533ddcaef2dcd18a48202b1802a6dc",
+    "after_sha256": "8595100e347c4df5413f31c1328bc3b0bf12b9a25abf6dc2b62bedf5ddda5f82",
+    "codepoint_edits": [
+      {
+        "start": 2871,
+        "end": 2885,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2481,
+        "end": 2495,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2240,
+        "end": 2254,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaLowlands.java",
+    "before_sha256": "7631276e6f4621cd367f579c4ac657828bd1ebd7079444763a045eb936a14834",
+    "after_sha256": "2feb3129203e0f99b0adb6b23029f093d2b3be090d4cdd328d0c500356c8166f",
+    "codepoint_edits": [
+      {
+        "start": 1303,
+        "end": 1317,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 932,
+        "end": 946,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaPlains.java",
+    "before_sha256": "9dac161e9c15ed049dd94be2ff03b7b1de649f334e517334588ff4d36bb164c2",
+    "after_sha256": "7dbae5256b743cb1818ada3e355550a9d655ce039797a5d72bbb00560acb2522",
+    "codepoint_edits": [
+      {
+        "start": 1376,
+        "end": 1390,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1005,
+        "end": 1019,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaPolar.java",
+    "before_sha256": "468a4c99d071cc7e48e48d8b52d95741a86ea802c84833ebb36a30aa53aa590b",
+    "after_sha256": "5c43c5fdb011983b9ff4e30407bc04cf64e5b30d22824473e09c778e032a336b",
+    "codepoint_edits": [
+      {
+        "start": 1359,
+        "end": 1373,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 988,
+        "end": 1002,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/duna/biome/BiomeGenDunaPolarHills.java",
+    "before_sha256": "cdaeed44472d0fb95eaf8c9d042b04ba664ab77683cd0af6e8317961d7e7436f",
+    "after_sha256": "5cf59505b0e205e1d8595730f415050e6786651dc38f3ef9141f03ea1162a075",
+    "codepoint_edits": [
+      {
+        "start": 1374,
+        "end": 1388,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1003,
+        "end": 1017,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveMountains.java",
+    "before_sha256": "82540bcadd5eebcc6af04263d9799abd7eefb507806e4aa80a8b9da18eb3db89",
+    "after_sha256": "acd44ed4d5f401d8524c685c18dafe2bee17eb668f06fccbdf17f84680c700e1",
+    "codepoint_edits": [
+      {
+        "start": 1292,
+        "end": 1306,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 928,
+        "end": 942,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveOcean.java",
+    "before_sha256": "1e699d9fc98f1d8d46ad1fccf9af21b2653ff53fc5b08046c84aed05152c5cbc",
+    "after_sha256": "124b23460342f98d8c1b437d526820df452a8a6ab02545a32e5b5b0d8d5c931b",
+    "codepoint_edits": [
+      {
+        "start": 1368,
+        "end": 1382,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1002,
+        "end": 1016,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/biome/BiomeGenEvePlains.java",
+    "before_sha256": "47309b01d69803f4342c2051273a845723fbc9bd49bf75bf829676ac3b30e6fc",
+    "after_sha256": "84ea756cccef295bde11985ab5da49c4c3d96bb67b870c8444c9e8809bddeb6b",
+    "codepoint_edits": [
+      {
+        "start": 1364,
+        "end": 1378,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1000,
+        "end": 1014,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveRiver.java",
+    "before_sha256": "1c76873ff994782b72d85d67527098e4f460d8dabce856ef59229f79120a451b",
+    "after_sha256": "884ee9555d3672d8b216f091ae6fcc0c4482f1aff14abe511c2846c0e051e3b3",
+    "codepoint_edits": [
+      {
+        "start": 1367,
+        "end": 1381,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1001,
+        "end": 1015,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/biome/BiomeGenEveSeismicPlains.java",
+    "before_sha256": "f1fda84ab334527183013e3dea0ed76ebddc8e1ee977984ea327a5a93267a5d5",
+    "after_sha256": "990b36b4373997fbe9df910f39312638b57201d70311f2f88250c3c710370f15",
+    "codepoint_edits": [
+      {
+        "start": 1385,
+        "end": 1399,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1021,
+        "end": 1035,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java",
+    "before_sha256": "34391d16860542b08396046010c809eaffb307d7765f1326d933626dc6a6d9ec",
+    "after_sha256": "890cc6ff7c474f722fce08373b404fc20bc643ea11fd787aa523068dea2d7f98",
+    "codepoint_edits": [
+      {
+        "start": 3374,
+        "end": 3377,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 3347,
+        "end": 3361,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2973,
+        "end": 2976,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2946,
+        "end": 2960,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2525,
+        "end": 2528,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2498,
+        "end": 2512,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2161,
+        "end": 2164,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2134,
+        "end": 2148,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java",
+    "before_sha256": "83f93d4aacc2e602655ff8838195587c116e11c8a1fbe9feb942ad878ee8141b",
+    "after_sha256": "f25c42f4136fc42a262f31d01cce79b21ec90bce0fb0d2c342a371c02b85960a",
+    "codepoint_edits": [
+      {
+        "start": 2751,
+        "end": 2754,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2724,
+        "end": 2738,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2022,
+        "end": 2025,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1995,
+        "end": 2009,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1630,
+        "end": 1633,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1603,
+        "end": 1617,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/laythe/WorldProviderLaythe.java",
+    "before_sha256": "aa8291a2e2a86fa343d0c29c1ebd3311bf5b06bd47b1152ea3cb1ab4ec9802fa",
+    "after_sha256": "5159109f6aed29e58153e8f8b929f34c89ca3f59e2322dad6168a44d49c05a88",
+    "codepoint_edits": [
+      {
+        "start": 1848,
+        "end": 1853,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/laythe/biome/BiomeGenBaseLaythe.java",
+    "before_sha256": "dde3a04249e6c20abd02c5488e1b6fb98a0f664d4d698ce266e800e65699e147",
+    "after_sha256": "c7ba97f2f47b6d81013c51bab6973ab97f72f5fa3f641bce00d7716a91e098ae",
+    "codepoint_edits": [
+      {
+        "start": 2678,
+        "end": 2692,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 2324,
+        "end": 2338,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/laythe/biome/BiomeGenLaythePolar.java",
+    "before_sha256": "d7cacb0b5a8c43950aadbf0ed9f52f9e06fdceb395f5b4091b3eab7baa206e55",
+    "after_sha256": "64ff1356dc23440631a2cc45ff3a735308ae70a6697e5590b72e36c1b85b114c",
+    "codepoint_edits": [
+      {
+        "start": 1326,
+        "end": 1340,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 967,
+        "end": 981,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/minmus/biome/BiomeGenMinmusHills.java",
+    "before_sha256": "f42fc5c7a93b524cf2e51c9ead4073a1b9183c2133c6410c3405cdb10d3ee7a0",
+    "after_sha256": "c0c5d3b907a8fa01bb12a0f458ace2f749be115ba337f9820b97a7bfa903fab5",
+    "codepoint_edits": [
+      {
+        "start": 1395,
+        "end": 1409,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1018,
+        "end": 1032,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/moho/biome/BiomeGenBaseMoho.java",
+    "before_sha256": "671c902e01447aad5ce9def9e7d43c630f2bdd580e2bc6aa856861361a24b0ca",
+    "after_sha256": "0c7ae1626aca89083168d5402a8f10d3858317dfba862da4412cc07919b52c9f",
+    "codepoint_edits": [
+      {
+        "start": 1818,
+        "end": 1832,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1450,
+        "end": 1464,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/moho/biome/BiomeGenMohoBasalt.java",
+    "before_sha256": "ad068b3574ef64cefaed7e5907c5c189805d9543b4a470b0ac7542d375a975e4",
+    "after_sha256": "24fbd6693618b135debb92bc6c12d029c58981091a49451edb0313b609afa3ce",
+    "codepoint_edits": [
+      {
+        "start": 1554,
+        "end": 1568,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1186,
+        "end": 1200,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/moon/BiomeGenMoon.java",
+    "before_sha256": "bd53f165056d8b66825ae77c7df90ea69b44a7eff72c3326aedf8b4ee132b604",
+    "after_sha256": "7d2f719174fccef12b6d4ce1cf66b70390ae9b9ab46999ad971abbca27dc30d3",
+    "codepoint_edits": [
+      {
+        "start": 1786,
+        "end": 1800,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1415,
+        "end": 1429,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/tekto/biome/BiomeGenForest.java",
+    "before_sha256": "dfc4c966808c39a18afcd192493e8427c61f84d8a7e5369d75af688acf7c4ca7",
+    "after_sha256": "7638692851e5910f624e084bad8fe1c65a9eaac086846127b11f604435ef5b66",
+    "codepoint_edits": [
+      {
+        "start": 1366,
+        "end": 1380,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1006,
+        "end": 1020,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/tekto/biome/BiomeGenHalogenHills.java",
+    "before_sha256": "231211cb4f495f7baa710c0c3965f34ab260d0aef1c26eba7d8563da7d6fb8a4",
+    "after_sha256": "6091a7d3d9eb0726641b0aa0c53c415dc5b92f113da746bc7699b6f12b536993",
+    "codepoint_edits": [
+      {
+        "start": 1378,
+        "end": 1392,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1018,
+        "end": 1032,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/tekto/biome/BiomeGenPolyvinylPlains.java",
+    "before_sha256": "c541de1b6b8e13f4b31adb042a5923cdb097fcc778910ec95c6abc7a7aaed42d",
+    "after_sha256": "b99cf592559f2b3170f190b9b919317d359b53fa077d2577efc9bd8f44448484",
+    "codepoint_edits": [
+      {
+        "start": 1389,
+        "end": 1403,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1029,
+        "end": 1043,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/tekto/biome/BiomeGenTetrachloricRiver.java",
+    "before_sha256": "6aa8e6685d630b492ddfc01942deb7417c1a64eaefeb9ff82548b6082be0b842",
+    "after_sha256": "835b0f7264c1735eef07595aeae187a3dc4188b1080ba63ad10a1d91d3abff63",
+    "codepoint_edits": [
+      {
+        "start": 1419,
+        "end": 1433,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1053,
+        "end": 1067,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/tekto/biome/BiomeGenVinylSands.java",
+    "before_sha256": "909dcbf301ca3ba1d4470ace98e40e24a8f0d86b8eabe99cbdd6d71d44ef86ff",
+    "after_sha256": "33c5dec7fd98ac5d3b6554b4468553963dfd43a539f733309af7c82ce2934c25",
+    "codepoint_edits": [
+      {
+        "start": 1370,
+        "end": 1384,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1010,
+        "end": 1024,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/dim/thatmo/BiomeGenThatmo.java",
+    "before_sha256": "483eef53e23a6f016d8d04743e9c86c97150b1741fa5d34518c7ab8f0a8bc3e3",
+    "after_sha256": "fe30eb1e9152091d96848ec2765a5bdb084fde7f40bce9904808c5d46b94412a",
+    "codepoint_edits": [
+      {
+        "start": 1903,
+        "end": 1917,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1538,
+        "end": 1552,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+    "before_sha256": "84b11afa548d1d301a09e6275ada7b77bbcf4459c5abd8764f17d23d61d8dadc",
+    "after_sha256": "47783f7134ee2a26a7ee4ece9ed783fe337245dca472ec86dcb91779693c119e",
+    "codepoint_edits": [
+      {
+        "start": 7069,
+        "end": 7083,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 6640,
+        "end": 6643,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 6613,
+        "end": 6627,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/effect/EntityMist.java",
+    "before_sha256": "cda323f829492ff67868e452b38f5c5733744508bc2720b6321510429fb0af79",
+    "after_sha256": "1afd8a0c9698f72d44b468607cdb7fc5482f2d2a052eb740492188c4ddcda56d",
+    "codepoint_edits": [
+      {
+        "start": 10190,
+        "end": 10204,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/effect/EntitySpear.java",
+    "before_sha256": "9c39742c001b8d4a933f0a72f0d6f96d820f011e1c8676bacc4b38fbf06ac069",
+    "after_sha256": "f792eac9b42348d5a423ad5878f325c430466c56ebec722a38ba05bfad4fedeb",
+    "codepoint_edits": [
+      {
+        "start": 2868,
+        "end": 2871,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1373,
+        "end": 1376,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+    "before_sha256": "3df2cf6cef3daa39159f6db7a1fa10c5ba62c970f03c058055d8f029a82181ae",
+    "after_sha256": "3bc4e2a1960d83bfec61716a3496d12ae75a17a5175027d68104a9ac0f7f7937",
+    "codepoint_edits": [
+      {
+        "start": 13962,
+        "end": 13967,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5344,
+        "end": 5349,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/item/EntityItemBuoyant.java",
+    "before_sha256": "63f19e6b25354efebea0ca30103727415b5461418eb666905a0bc93d5cb58479",
+    "after_sha256": "092ebd833127f238489b77e2c1310a1234b19f8b04ccee76eeaba206f63144a4",
+    "codepoint_edits": [
+      {
+        "start": 642,
+        "end": 647,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "before_sha256": "5fba362a0181cb8fa653aeaec6e39776dc7a6e28f7be71fd1bcaa308669b4dff",
+    "after_sha256": "0feb0fe51bf705232f05b8cee582e4359af8f9777d44f27cd173fd289631d690",
+    "codepoint_edits": [
+      {
+        "start": 23942,
+        "end": 23945,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 23915,
+        "end": 23929,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "before_sha256": "4a44c82bd6e27b342aa00bde0979c82b23196d66c2cc2872c55c53048881d678",
+    "after_sha256": "bc1b06fa5f56644ae17e3847ef9b3da15d506acfaa6899d1a689988a63e75d41",
+    "codepoint_edits": [
+      {
+        "start": 29959,
+        "end": 29962,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 29932,
+        "end": 29946,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+    "before_sha256": "ae5a136e7c2ccb1f611d49074af1c2b62e28e233b3996921c0ec2c794056f2aa",
+    "after_sha256": "253748bf090cc42559adc739f6e477ad2a66644b964887a831f912bdefddffcb",
+    "codepoint_edits": [
+      {
+        "start": 1136,
+        "end": 1139,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+    "before_sha256": "504251b67791747282f08a0383e6e8c23cc8ecef1031c5ae6d7ac8e749922488",
+    "after_sha256": "20cb76fa027e185ef2eaaf82e6c9f2ff4f4fa472a678a677e19cab3f6192f9ad",
+    "codepoint_edits": [
+      {
+        "start": 2387,
+        "end": 2390,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/missile/EntityMinerRocket.java",
+    "before_sha256": "05b25ab99e134e711c245ad7bb91f080f313ddeb6c764e6c8d2ac5ee754fce3b",
+    "after_sha256": "1c2ec5ef9263ae81feecbc36830a8c2ef585b58ffeebb68b437682958737e940",
+    "codepoint_edits": [
+      {
+        "start": 1368,
+        "end": 1371,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+    "before_sha256": "36c197c25c83e89a049acf46a8697871f64101212ec53ef318414a24fdb89140",
+    "after_sha256": "c665bca0be4371c3423a35f0b6853f90d6b2c023ac19fee809d340d94cb0b995",
+    "codepoint_edits": [
+      {
+        "start": 17536,
+        "end": 17540,
+        "old": "lava",
+        "new": "LAVA"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java",
+    "before_sha256": "654559457ab4c19dc833911d860015bd2077bdebf40e57f7f5b9da28873bfbe6",
+    "after_sha256": "268c43f9fc1e1477b411377e1d25550ead2f48438d605564daaa8a8618b71a1f",
+    "codepoint_edits": [
+      {
+        "start": 3412,
+        "end": 3426,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3351,
+        "end": 3365,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3290,
+        "end": 3304,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3229,
+        "end": 3243,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3168,
+        "end": 3182,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3107,
+        "end": 3121,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/mob/EntityPlasticBag.java",
+    "before_sha256": "979f33b308f3ca26352117e7a6e79a09c72d9c182a7561aef9ffe4c5828e6b9d",
+    "after_sha256": "1778070c748e974e3e6771f8a1c327b9bee724c2572e779e8ad01d42df93a695",
+    "codepoint_edits": [
+      {
+        "start": 2100,
+        "end": 2105,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java",
+    "before_sha256": "a1fa1f14ffa3dd8e062deb1758eb2fe50222739fd108733809a36f9cda882838",
+    "after_sha256": "972ef20e289349ef615fa9e770808f9d0b790033d24d3b40f6a6e6ff794c4d3c",
+    "codepoint_edits": [
+      {
+        "start": 7481,
+        "end": 7484,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 7454,
+        "end": 7468,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/particle/EntityOrangeFX.java",
+    "before_sha256": "4763b6a35bb24625555f46191798ddfe579524da2786866dde0fa8b61df02ef6",
+    "after_sha256": "4d562ce8eb63febc9b729ae0291947a806b33727876545c8731d9e25047f6011",
+    "codepoint_edits": [
+      {
+        "start": 2144,
+        "end": 2147,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+    "before_sha256": "a8c87dce2da39e34eb11f27171c189b5cb4d2e422c22a21195a4651fcde0d8ec",
+    "after_sha256": "3c7d9c8d2b76e95f2d244c3518a67a3f5f11248091585fed5a7f785e79970e5d",
+    "codepoint_edits": [
+      {
+        "start": 24734,
+        "end": 24737,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 24707,
+        "end": 24721,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 14065,
+        "end": 14068,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 14038,
+        "end": 14052,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+    "before_sha256": "6bc28d7953289101717200bb993df324dc021ecffae3e6e4f624d57dd83b101b",
+    "after_sha256": "437e5c3f713f44ae71d79e731bec75d453d3307c925294245320859a5b6ba154",
+    "codepoint_edits": [
+      {
+        "start": 11887,
+        "end": 11901,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/projectile/EntityChopperMine.java",
+    "before_sha256": "05d1790db5b0a3ae3fadbf764f6bc15d6ca040d5fa3ef53bab75c053d5bbadd1",
+    "after_sha256": "82756fa1406d72c0ac5ca0377f5924909ff831cd2e85bc817e41ca9ded6066df",
+    "codepoint_edits": [
+      {
+        "start": 3517,
+        "end": 3520,
+        "old": "air",
+        "new": "AIR"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+    "before_sha256": "0b1d65e8302a88d49d7c22e9312e3bf3224afd0c2fd94a639a76c150de3232af",
+    "after_sha256": "5f653274063b583bec2432b01f76e496185f324714f083af900245243028f5f3",
+    "codepoint_edits": [
+      {
+        "start": 9655,
+        "end": 9658,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 9628,
+        "end": 9642,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+    "before_sha256": "e5a020d485eabfa493bd985bd35e99afd8e188d43e91da902b38a9fac2ac16d5",
+    "after_sha256": "672469eed125e4599e79cd66a1408fbb09557e72f2864800c3825ace056921ab",
+    "codepoint_edits": [
+      {
+        "start": 18598,
+        "end": 18601,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 18571,
+        "end": 18585,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8726,
+        "end": 8729,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 8699,
+        "end": 8713,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+    "before_sha256": "b1ba05ece362246719daf53c35bb5cefb4df28d508e9ee11db05999af78e2c33",
+    "after_sha256": "dba80cfed8c625228b2eb95a34524ab510b55a4eb5fb334f657089c455dd8f4e",
+    "codepoint_edits": [
+      {
+        "start": 18693,
+        "end": 18696,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 18666,
+        "end": 18680,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8833,
+        "end": 8836,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 8806,
+        "end": 8820,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionBalefire.java",
+    "before_sha256": "67b0ffe9094d35ae5dc07fe07bde5c6636c762799a5058d33007d59333199fb9",
+    "after_sha256": "d9e7dfe88b89276f721ff17a3889bac6526703af8975c3c126da5567e04117b1",
+    "codepoint_edits": [
+      {
+        "start": 3945,
+        "end": 3954,
+        "old": "packedIce",
+        "new": "PACKED_ICE"
+      },
+      {
+        "start": 3926,
+        "end": 3929,
+        "old": "ice",
+        "new": "ICE"
+      },
+      {
+        "start": 3906,
+        "end": 3910,
+        "old": "snow",
+        "new": "SNOW"
+      },
+      {
+        "start": 3879,
+        "end": 3890,
+        "old": "craftedSnow",
+        "new": "CRAFTED_SNOW"
+      },
+      {
+        "start": 3843,
+        "end": 3857,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionLarge.java",
+    "before_sha256": "4ae44c63a36d6f33b1fe7e12e162022a9bbcdca6afa7c8b4c3dbb0e3f04f5862",
+    "after_sha256": "296712788071b2ac08d9b746a2267485b4028f5c3397487c6630fa60a8c64d9a",
+    "codepoint_edits": [
+      {
+        "start": 9067,
+        "end": 9081,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionNT.java",
+    "before_sha256": "24c20950bf189fce814814930a53386a9715f807191dd93140822eb32e992351",
+    "after_sha256": "00a8695dd0100c779acb87c1c90e794e0a67bdc4f0112d28dff1c4d9ea8d7f1c",
+    "codepoint_edits": [
+      {
+        "start": 11980,
+        "end": 11983,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 11953,
+        "end": 11967,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9152,
+        "end": 9155,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 9125,
+        "end": 9139,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 3547,
+        "end": 3550,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 3520,
+        "end": 3534,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java",
+    "before_sha256": "46c87708871879313edece96494dc2745b057666e330e0411f173db4cf9707f6",
+    "after_sha256": "7e5ffd0f10445b6923b869da09ddfc56f44a0dd14f2f4b075912ba7490170d31",
+    "codepoint_edits": [
+      {
+        "start": 30017,
+        "end": 30022,
+        "old": "gourd",
+        "new": "GOURD"
+      },
+      {
+        "start": 29995,
+        "end": 29999,
+        "old": "vine",
+        "new": "VINE"
+      },
+      {
+        "start": 29947,
+        "end": 29953,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 29923,
+        "end": 29929,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 29900,
+        "end": 29905,
+        "old": "coral",
+        "new": "CORAL"
+      },
+      {
+        "start": 29876,
+        "end": 29882,
+        "old": "cactus",
+        "new": "CACTUS"
+      },
+      {
+        "start": 28979,
+        "end": 28993,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 17778,
+        "end": 17792,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java",
+    "before_sha256": "1bb58781afcb5f729537f22e3e3ccdd4f038602c958b7f367a72d69a32122b4f",
+    "after_sha256": "64024193aca41d9b53ebfe3d443b05387727ff84020d75a7c47acd9215ae0de9",
+    "codepoint_edits": [
+      {
+        "start": 3017,
+        "end": 3031,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionNukeRayParallelized.java",
+    "before_sha256": "6379cb60ca5e681ed8be5a50ba39dac11fc07f087de6019ed6711dd93a988236",
+    "after_sha256": "8b3dd752953cd3a0de7f0641c2b0c85b9a826c839610256f67d3506e9ef18e75",
+    "codepoint_edits": [
+      {
+        "start": 4696,
+        "end": 4710,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/ExplosionTom.java",
+    "before_sha256": "c6e751f2b852f0cc403f7af3f9f7f6f2e67eb41433a00c2725dc9dd7b49d98b4",
+    "after_sha256": "65da46eebf79f9d311fb2910db00a7ce6e845fe04ca2b62d8da8b71f0722801b",
+    "codepoint_edits": [
+      {
+        "start": 6076,
+        "end": 6079,
+        "old": "ice",
+        "new": "ICE"
+      },
+      {
+        "start": 6049,
+        "end": 6063,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5962,
+        "end": 5967,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5935,
+        "end": 5949,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4720,
+        "end": 4734,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4634,
+        "end": 4638,
+        "old": "snow",
+        "new": "SNOW"
+      },
+      {
+        "start": 4607,
+        "end": 4621,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4522,
+        "end": 4525,
+        "old": "ice",
+        "new": "ICE"
+      },
+      {
+        "start": 4495,
+        "end": 4509,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4408,
+        "end": 4413,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 4381,
+        "end": 4395,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/NukeEnvironmentalEffect.java",
+    "before_sha256": "6bb1bbcc5129e996fa93d4e6a0b5bc7854c41d9a2d8437e68ff7e567eb1f2c66",
+    "after_sha256": "33af84c997dab8b9b6a6ab6acd95a42d5fa45b9b2763d9f9e0121da6c61256f7",
+    "codepoint_edits": [
+      {
+        "start": 2794,
+        "end": 2808,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorBulkie.java",
+    "before_sha256": "2e91015cc0ca0553d96bc42ea812a3907d532b3dc2f1b93d8bdcbd64900653fa",
+    "after_sha256": "ad03661776a82c956129fb50283f8ef045a746c5078f7ad165ee831ecc1260db",
+    "codepoint_edits": [
+      {
+        "start": 2312,
+        "end": 2315,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2285,
+        "end": 2299,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorGlyphidDig.java",
+    "before_sha256": "9e2f1ccb965b78efdd72233d9cd75698894c3960fa3ae23ee583ff8590901f57",
+    "after_sha256": "26b6e5106cf983539e31365d743fe92ccc9d34060d626aa9facae956a9f89b8e",
+    "codepoint_edits": [
+      {
+        "start": 2355,
+        "end": 2358,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2328,
+        "end": 2342,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorStandard.java",
+    "before_sha256": "460c2250c077981836522c39f6ae967bfb8f0034a334c5ac0a27f4d985997255",
+    "after_sha256": "f460c41c04c2b695d7a378665660b24f5ce64b5df355c836bf776dee6c45b37f",
+    "codepoint_edits": [
+      {
+        "start": 2108,
+        "end": 2111,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 2081,
+        "end": 2095,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockAllocatorWater.java",
+    "before_sha256": "49abdf71c81ea8e5f912fdb3b045ea54097694020f7d808e87d03b3450aef19a",
+    "after_sha256": "2cd95d4a73a15c5706ee9cbe7ddfe9f6220b5f1f13ec55ac4f5da428afc6756d",
+    "codepoint_edits": [
+      {
+        "start": 2059,
+        "end": 2062,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1965,
+        "end": 1979,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorBalefire.java",
+    "before_sha256": "84342ea1557c99f7d2f3246d53e1c96ca93eda2c485a7ab505636201b1bca0a9",
+    "after_sha256": "f8fec25bb634afc6123303321af5e78c8e77b0c55aa5a2616c64436f326d1269",
+    "codepoint_edits": [
+      {
+        "start": 743,
+        "end": 746,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 716,
+        "end": 730,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorFire.java",
+    "before_sha256": "adbcd12f07f017c8a718f3b24c989c65429b812225ac109d1f60b3e218099a4d",
+    "after_sha256": "02443e4edf5acc2bca9892845b703ae91288d18ac8909d4871e08039fd5c784d",
+    "codepoint_edits": [
+      {
+        "start": 740,
+        "end": 743,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 713,
+        "end": 727,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockProcessorNoDamage.java",
+    "before_sha256": "2dc147fb13bf231084efe86170f526b4fe03d1df498634eb81deb5053ee2335a",
+    "after_sha256": "e82fec623866084e096763c557a962dfb92c0ffee274b5d77ba40ad8eeb6cf80",
+    "codepoint_edits": [
+      {
+        "start": 1902,
+        "end": 1905,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1875,
+        "end": 1889,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1246,
+        "end": 1249,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1219,
+        "end": 1233,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/explosion/vanillant/standard/BlockProcessorStandard.java",
+    "before_sha256": "5393363f9eaad0d5873e1973d0a4d2edc932dc5b8cdf8f4aa84bc4771ddb58af",
+    "after_sha256": "75e04ca12f67e4ae2fc8ef1fd1d1af5a72def5c4575c9592a74e4d583b081c05",
+    "codepoint_edits": [
+      {
+        "start": 3035,
+        "end": 3038,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 3008,
+        "end": 3022,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1739,
+        "end": 1742,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1712,
+        "end": 1726,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java",
+    "before_sha256": "94439818c563c0ed3d9bbf8edd7ecbc875939c0c3e62c0771141457abe0adaf4",
+    "after_sha256": "a8ebf61e0fe70c2ff5e6460b282ef7544428a1731215fd5191b90e6e0816158b",
+    "codepoint_edits": [
+      {
+        "start": 3342,
+        "end": 3348,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 3149,
+        "end": 3163,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/pollution/PollutionHandler.java",
+    "before_sha256": "e6865a80e40fe46baea2a5ff579caa1633502f34972053729ce6f726ab9e270a",
+    "after_sha256": "e7244ee5cfa2d0a3f01cd8c7995ad11a373d655f4fe6e71bed80c24f455e42e4",
+    "codepoint_edits": [
+      {
+        "start": 10888,
+        "end": 10894,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 10861,
+        "end": 10875,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 10850,
+        "end": 10856,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 10823,
+        "end": 10837,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerPRISM.java",
+    "before_sha256": "2eddd8af9804b56ffa2e40fb3659a58d4f397b2b506810d5d995194899544dd7",
+    "after_sha256": "37a1a1ffcbf96fd9f0672d9833d51e78660c8dfc49c59aae6513adde06560e2a",
+    "codepoint_edits": [
+      {
+        "start": 14766,
+        "end": 14769,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 14739,
+        "end": 14753,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 13534,
+        "end": 13537,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 13507,
+        "end": 13521,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerSimple.java",
+    "before_sha256": "b8d4410a8a7b5fc6158ee02e08786e2b659677c6d74cf969e5d4977f303009c9",
+    "after_sha256": "55a069d821e8b9af4db39bd4547b9db79bf3e375244364551ba5342c5e41792f",
+    "codepoint_edits": [
+      {
+        "start": 8048,
+        "end": 8054,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 8021,
+        "end": 8035,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/hazard/type/HazardTypeHydroactive.java",
+    "before_sha256": "0f8a1b29c0f08bf1e2c92b02c18b04a5219a30b08950de0ccd90e1a62de8f2c9",
+    "after_sha256": "84df2b36b7e954569532dabb96fbd019fde829e4760ad1a0eb1035d876f222e1",
+    "codepoint_edits": [
+      {
+        "start": 1144,
+        "end": 1149,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java",
+    "before_sha256": "e425ad7ff5ade10643116ada7fc1e50a9d6fddabd4719809228a52d92a81e318",
+    "after_sha256": "7b7d684cef8809b18c23867634b86825a24ae852eb5e136a61087b6bce94c770",
+    "codepoint_edits": [
+      {
+        "start": 4695,
+        "end": 4709,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+    "before_sha256": "cbc7d78da2a3c9896d29ca72c69bd06055b1360e1e63b280183a5f79a0b54095",
+    "after_sha256": "7a777f6e351383059759f49c9d537240afbda39947ae2c192b3cd9c3ffd3b2b4",
+    "codepoint_edits": [
+      {
+        "start": 10631,
+        "end": 10634,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 10604,
+        "end": 10618,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemRag.java",
+    "before_sha256": "4da0c62347064fcc4595fa67c86b217536cf36c9fc3e2912609b79e80f8689fe",
+    "after_sha256": "58dbcb349896ea34d2fb658d999b7868011fdbf0f852d550259ebf62d733572e",
+    "codepoint_edits": [
+      {
+        "start": 741,
+        "end": 746,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemMatch.java",
+    "before_sha256": "107e07ab1649b0c998873e57283cc89cab7444c6cf05c131d7d28de4c9d42418",
+    "after_sha256": "bf91af52a514054a0cc409b0d92863545071aa7b1a3b8fb99e6acd3507604d3c",
+    "codepoint_edits": [
+      {
+        "start": 1517,
+        "end": 1520,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 1490,
+        "end": 1504,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemModMinecart.java",
+    "before_sha256": "26896a6db0d7d4ecbe5910e3cde96dc665197f1e9cbedb09028fdf15111bb4d4",
+    "after_sha256": "c8105f6866eb4a9ab57112319671f15ab13ed831b5d7a3bbefb93a139cdb389f",
+    "codepoint_edits": [
+      {
+        "start": 5800,
+        "end": 5803,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 5773,
+        "end": 5787,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+    "before_sha256": "03b7dbdc3abb1adeaedab026a083fa026f13348ce3578c3329d481e4b86bd0a2",
+    "after_sha256": "26caae0f7f7509f10c77da38aaff50fa7aa3c6652237ba6a6d073e9828e8c159",
+    "codepoint_edits": [
+      {
+        "start": 9346,
+        "end": 9360,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4919,
+        "end": 4930,
+        "old": "craftedSnow",
+        "new": "CRAFTED_SNOW"
+      },
+      {
+        "start": 4904,
+        "end": 4908,
+        "old": "snow",
+        "new": "SNOW"
+      },
+      {
+        "start": 4872,
+        "end": 4876,
+        "old": "sand",
+        "new": "SAND"
+      },
+      {
+        "start": 4857,
+        "end": 4861,
+        "old": "clay",
+        "new": "CLAY"
+      },
+      {
+        "start": 4842,
+        "end": 4846,
+        "old": "rock",
+        "new": "ROCK"
+      },
+      {
+        "start": 4826,
+        "end": 4831,
+        "old": "glass",
+        "new": "GLASS"
+      },
+      {
+        "start": 4810,
+        "end": 4815,
+        "old": "anvil",
+        "new": "ANVIL"
+      },
+      {
+        "start": 4795,
+        "end": 4799,
+        "old": "iron",
+        "new": "IRON"
+      },
+      {
+        "start": 4779,
+        "end": 4784,
+        "old": "grass",
+        "new": "GRASS"
+      },
+      {
+        "start": 4511,
+        "end": 4522,
+        "old": "craftedSnow",
+        "new": "CRAFTED_SNOW"
+      },
+      {
+        "start": 4496,
+        "end": 4500,
+        "old": "snow",
+        "new": "SNOW"
+      },
+      {
+        "start": 4464,
+        "end": 4468,
+        "old": "sand",
+        "new": "SAND"
+      },
+      {
+        "start": 4449,
+        "end": 4453,
+        "old": "clay",
+        "new": "CLAY"
+      },
+      {
+        "start": 4231,
+        "end": 4235,
+        "old": "vine",
+        "new": "VINE"
+      },
+      {
+        "start": 4214,
+        "end": 4220,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 3644,
+        "end": 3649,
+        "old": "glass",
+        "new": "GLASS"
+      },
+      {
+        "start": 3629,
+        "end": 3633,
+        "old": "rock",
+        "new": "ROCK"
+      },
+      {
+        "start": 3613,
+        "end": 3618,
+        "old": "anvil",
+        "new": "ANVIL"
+      },
+      {
+        "start": 3598,
+        "end": 3602,
+        "old": "iron",
+        "new": "IRON"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/ItemGrenadeFishing.java",
+    "before_sha256": "42c82a179f490627e8f7a4d09cb697670fa6ca888511ac3f7894db5a6142f1ab",
+    "after_sha256": "0a13a584d72a73c5f58f89e096ec462a92750e997a52b06b1bca7e2b78a96955",
+    "codepoint_edits": [
+      {
+        "start": 1018,
+        "end": 1023,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 991,
+        "end": 1005,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/BulletConfig.java",
+    "before_sha256": "073b3d1a9293b7223b7d2cf30cd77bd8fcad08cadb573288e32e4406b6d17d0b",
+    "after_sha256": "63d7ec349e5f8e2621d0968b7c859d47a23929d01dd53b261c8c29cfb5534add",
+    "codepoint_edits": [
+      {
+        "start": 9200,
+        "end": 9205,
+        "old": "glass",
+        "new": "GLASS"
+      },
+      {
+        "start": 9173,
+        "end": 9187,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+    "before_sha256": "0d978b9897a75b8b872f897724491db7d747275ba158da2bc779d44b9599156c",
+    "after_sha256": "c8f6a7f535fcfef0c2132f715d1d57873f8a937154072b8014275f3065be1aca",
+    "codepoint_edits": [
+      {
+        "start": 7295,
+        "end": 7300,
+        "old": "glass",
+        "new": "GLASS"
+      },
+      {
+        "start": 7268,
+        "end": 7282,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+    "before_sha256": "423d5f54ef6b2f54c38f2955a9a6cf5ed90e5baded1f5e84e8fa8db27542ec71",
+    "after_sha256": "53f3e9c02d6d5823d4bd67c3dc56edf8def7fea1b56d0ab3b779828cf077b598",
+    "codepoint_edits": [
+      {
+        "start": 3077,
+        "end": 3080,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 3050,
+        "end": 3064,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+    "before_sha256": "0d0463e628ba70dc20d006d1a362a410b573bb733fa446ba9b8922562bdbd33a",
+    "after_sha256": "7def27a3e56f4657593b30f3a38466e600661d784555e4b56b53d8010eb45f6c",
+    "codepoint_edits": [
+      {
+        "start": 8306,
+        "end": 8310,
+        "old": "fire",
+        "new": "FIRE"
+      },
+      {
+        "start": 8279,
+        "end": 8293,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5171,
+        "end": 5175,
+        "old": "fire",
+        "new": "FIRE"
+      },
+      {
+        "start": 5144,
+        "end": 5158,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "before_sha256": "af9f2d4d1f23b5e18c11caea34d5b5800fc67e3a7c75397c1178260b26491dac",
+    "after_sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "codepoint_edits": [
+      {
+        "start": 129382,
+        "end": 129396,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ModEventHandlerImpact.java",
+    "before_sha256": "4eeadec7da503d30b1bd3895ecc3cf1e46fd358851c6414cc1defec5f5260002",
+    "after_sha256": "cd5f632eea4440408fbb12256955c09328e78ad61f1dd68141c6806111f72b19",
+    "codepoint_edits": [
+      {
+        "start": 9298,
+        "end": 9304,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 9156,
+        "end": 9162,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 5929,
+        "end": 5934,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 5778,
+        "end": 5783,
+        "old": "glass",
+        "new": "GLASS"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+    "before_sha256": "2ca1c68d4b20c2f13127f921658ad719c3d8b7d383c2af0e2a4b5c97849ef8fc",
+    "after_sha256": "0b8b641895f0d4f67fdf8cf39095519a889d0406e36dfb63d8beb4b41a8ca388",
+    "codepoint_edits": [
+      {
+        "start": 6339,
+        "end": 6344,
+        "old": "water",
+        "new": "WATER"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+    "before_sha256": "d00e645c02e436df2253e27e019228ff844186593662e500ceb1d9c02e852d11",
+    "after_sha256": "63cfd2525a7704bbfe6efbce4bd805341c134182d4e981c08a3c601e1481a4d8",
+    "codepoint_edits": [
+      {
+        "start": 4106,
+        "end": 4120,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+    "before_sha256": "8438b552e6594802116b7c738a3e181a1fc8c79c56487e143c6551de180ce5f7",
+    "after_sha256": "86e0d07d8fb6019db6bc7c55fcd8c1973c96ee02dbb271a759501e32f0246b60",
+    "codepoint_edits": [
+      {
+        "start": 6139,
+        "end": 6153,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 6042,
+        "end": 6056,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4852,
+        "end": 4866,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java",
+    "before_sha256": "234e5b0efd22cbba3dbe3f07e21d9d071d1dcccff6382ea9c0779ef5d8ded99b",
+    "after_sha256": "4416b4d59a7423350e5e751bc2f2ab04238ee5c041e799541f5cdde3d74451f8",
+    "codepoint_edits": [
+      {
+        "start": 15810,
+        "end": 15824,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 14870,
+        "end": 14876,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 14807,
+        "end": 14821,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 12946,
+        "end": 12960,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 12486,
+        "end": 12500,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 12279,
+        "end": 12293,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9412,
+        "end": 9426,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9366,
+        "end": 9372,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 9339,
+        "end": 9353,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9328,
+        "end": 9334,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 9301,
+        "end": 9315,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 6495,
+        "end": 6501,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 6468,
+        "end": 6482,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 6457,
+        "end": 6463,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 6430,
+        "end": 6444,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 6394,
+        "end": 6408,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+    "before_sha256": "609b157b4523f33a4cdf0c101175652b24fade4c57c25f3fa8070156b388582d",
+    "after_sha256": "5fccb4d792e0da2b9bad5ebd59d1d5b46437cd4f0625695d45ae5d7a0d065877",
+    "codepoint_edits": [
+      {
+        "start": 3357,
+        "end": 3371,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+    "before_sha256": "76c1fe6fed4ee2dcb46fbcc5cde0bf4538342a74bb8b28e4f6b17b64338ed73f",
+    "after_sha256": "a58d804388ae1f34f49df4f666dee3458ccd4dca3ff7082a3e100e4832c24b32",
+    "codepoint_edits": [
+      {
+        "start": 22592,
+        "end": 22606,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 22493,
+        "end": 22507,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 16985,
+        "end": 16999,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 16868,
+        "end": 16882,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+    "before_sha256": "a145c39e49cf8cafef175f61bb2ffde8f4bf6672890f666f0f7c8cb2dc440ed5",
+    "after_sha256": "45a78eef92868b7602c56a191ae9c6524a8ae21095267907f5f3dbedbe28be97",
+    "codepoint_edits": [
+      {
+        "start": 14718,
+        "end": 14732,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 14617,
+        "end": 14631,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 14121,
+        "end": 14135,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 7897,
+        "end": 7911,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5805,
+        "end": 5819,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java",
+    "before_sha256": "50d83f3d46ccd6b103e5a0c6053119d635ae42531ff0f621b580409ded9faf2f",
+    "after_sha256": "1e5bf887bcf5c31a34c71784049452c24e735ea28eaf675488dc2452611bd510",
+    "codepoint_edits": [
+      {
+        "start": 12573,
+        "end": 12578,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 12546,
+        "end": 12560,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 12217,
+        "end": 12222,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 12190,
+        "end": 12204,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9273,
+        "end": 9278,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 9246,
+        "end": 9260,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 9117,
+        "end": 9122,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 9090,
+        "end": 9104,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8961,
+        "end": 8966,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 8934,
+        "end": 8948,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8805,
+        "end": 8810,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 8778,
+        "end": 8792,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8557,
+        "end": 8562,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 8530,
+        "end": 8544,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 8315,
+        "end": 8320,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 8288,
+        "end": 8302,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "before_sha256": "6920c4a07d5b60fd999f0149266ee719ac8b2fc45639981a59b299ae46c25c7c",
+    "after_sha256": "4cc0b5a733e13410778d3b56fa50fa410f0550ae049fc5e7d92cd96cfd4898f7",
+    "codepoint_edits": [
+      {
+        "start": 1614,
+        "end": 1620,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 1587,
+        "end": 1601,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/ArcticVault.java",
+    "before_sha256": "610d633de0406e59f301826beac5cd172578e855bd8d7756a1611167207d6521",
+    "after_sha256": "d747540e596849449d51ff5bff3e17093151c3f5e8ee9be3629ffdd777c877aa",
+    "codepoint_edits": [
+      {
+        "start": 960,
+        "end": 964,
+        "old": "rock",
+        "new": "ROCK"
+      },
+      {
+        "start": 933,
+        "end": 947,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/Barrel.java",
+    "before_sha256": "c066d53dfbe9f0c6f036a2561d4756ff1aacc08b58f3e5d2c9902c133d182428",
+    "after_sha256": "13946bd98c16073352ca7b9a9f8ed0c26b1250a9bf391dc839f4ab40bf6f2e71",
+    "codepoint_edits": [
+      {
+        "start": 1756,
+        "end": 1762,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 1729,
+        "end": 1743,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
+    "before_sha256": "ceab08c2979177c5bd4127d3958f67147a7c03f31d4754fe989c384ce4fa5cc2",
+    "after_sha256": "25af77c3ff14dd102da568d893da28eef87dcc2e7a7e9b310bf729aaaa7807fd",
+    "codepoint_edits": [
+      {
+        "start": 1862,
+        "end": 1868,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 1835,
+        "end": 1849,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java",
+    "before_sha256": "8e8623f0c48c7624975a323350211bbd0a0390b9f7d1433aade43dcf62b1b02c",
+    "after_sha256": "f61e28e76c3a0702e3e1e440a26139dba02f305971d28e86c0592075c7d52d39",
+    "codepoint_edits": [
+      {
+        "start": 1530,
+        "end": 1544,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 1492,
+        "end": 1506,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/Ruin001.java",
+    "before_sha256": "0948b9c5cfeb02c8753938fcc3f81ec1cabc49d4781f21fab165fa1c3815952f",
+    "after_sha256": "f9926fca90578ca15c4f79edf1bb32a72be4916f6fec6d871f6301e5c2a0e2a7",
+    "codepoint_edits": [
+      {
+        "start": 1490,
+        "end": 1496,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 1463,
+        "end": 1477,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "before_sha256": "33ef1597f79485abef1a1e78f148d51fcfd4278713ff3d5925b9a1bb5445299a",
+    "after_sha256": "1bcf48495c756f5cd775ec5e449a1406080d353babdce3c52c9d6a41b604bd6a",
+    "codepoint_edits": [
+      {
+        "start": 2263,
+        "end": 2269,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 2236,
+        "end": 2250,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/feature/Dud.java",
+    "before_sha256": "35bb11c46014052ffcd19f79e2e03c5b2820069713c11cc4b0eb5426842db339",
+    "after_sha256": "bb61cb4bd16916c17cc88e306bb9bfed28248965c557c88e2d4140910e4c1c77",
+    "codepoint_edits": [
+      {
+        "start": 1205,
+        "end": 1211,
+        "old": "plants",
+        "new": "PLANTS"
+      },
+      {
+        "start": 1178,
+        "end": 1192,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/feature/OilSpot.java",
+    "before_sha256": "cd508a67ab42721fa0353cd518e3ef4796b2487f5519f3e385505a91a6fe44e7",
+    "after_sha256": "cf448a60be951674dfd82be6c96fcfbf0dd76727477736843ab74ea8873d006d",
+    "codepoint_edits": [
+      {
+        "start": 4601,
+        "end": 4607,
+        "old": "leaves",
+        "new": "LEAVES"
+      },
+      {
+        "start": 4574,
+        "end": 4588,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/feature/OreCave.java",
+    "before_sha256": "a44a9bcf1d68aa1f63110ece9df4573982d66187b3d180e5558ffd16ce9cc470",
+    "after_sha256": "90c450afa813a3232ad7101f463a01b2f296f703cf8e914ebec642685bcf08ee",
+    "codepoint_edits": [
+      {
+        "start": 5994,
+        "end": 6008,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 5917,
+        "end": 5920,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 5890,
+        "end": 5904,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4816,
+        "end": 4819,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 4789,
+        "end": 4803,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 4532,
+        "end": 4537,
+        "old": "water",
+        "new": "WATER"
+      },
+      {
+        "start": 4488,
+        "end": 4491,
+        "old": "air",
+        "new": "AIR"
+      },
+      {
+        "start": 4440,
+        "end": 4454,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/feature/SchistStratum.java",
+    "before_sha256": "f446195d9e1ff2b01780d366341b44cc958d0aa9be5f87e11785f729a4da52ce",
+    "after_sha256": "44991a534332a4471c0c708d4d280dbff2cc0a1e4f3d6de1cf80193f991ef31c",
+    "codepoint_edits": [
+      {
+        "start": 1422,
+        "end": 1426,
+        "old": "rock",
+        "new": "ROCK"
+      },
+      {
+        "start": 1395,
+        "end": 1409,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/gen/component/CivilianFeatures.java",
+    "before_sha256": "4d017a2f0caa34f594f62e7b7ec9e338c862a6863c1ea2ce3a5f313fa7ec7ca0",
+    "after_sha256": "1504dbaaec79e626e122fa87c8d6ae686efb607dd97ac14d801292594d26ba4e",
+    "codepoint_edits": [
+      {
+        "start": 25709,
+        "end": 25723,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      },
+      {
+        "start": 18221,
+        "end": 18235,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java",
+    "before_sha256": "92e88e102adfd835fb4badea1edfc71315ac57033c0d22360e7104514bb208ff",
+    "after_sha256": "f7d0a071567f5d6f4cb46b2fb2f72f8bc391d1e3b92a8923cbee5648e15244ca",
+    "codepoint_edits": [
+      {
+        "start": 23138,
+        "end": 23152,
+        "old": ".getMaterial()",
+        "new": ".getDefaultState().getMaterial()"
+      }
+    ]
+  }
+]

@@ -22,9 +22,9 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 	public int delay = 0;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.delay > 0) delay--;
 
@@ -44,21 +44,21 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 
 		} else {
 
-			List<EntityMissileBaseNT> entities = worldObj.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord, zCoord - 0.5, xCoord + 1.5, yCoord + 10, zCoord + 1.5));
+			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
 
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-					if(worldObj.rand.nextBoolean()) dir = dir.getOpposite();
-					if(worldObj.rand.nextBoolean()) dir = dir.getRotation(ForgeDirection.UP);
-					float moX = (float) (worldObj.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetX;
-					float moZ = (float) (worldObj.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetZ;
+					if(this.world.rand.nextBoolean()) dir = dir.getOpposite();
+					if(this.world.rand.nextBoolean()) dir = dir.getRotation(ForgeDirection.UP);
+					float moX = (float) (this.world.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetX;
+					float moZ = (float) (this.world.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetZ;
 
 					NBTTagCompound data = new NBTTagCompound();
-					data.setDouble("posX", xCoord + 0.5);
-					data.setDouble("posY", yCoord + 0.25);
-					data.setDouble("posZ", zCoord + 0.5);
+					data.setDouble("posX", this.pos.getX() + 0.5);
+					data.setDouble("posY", this.pos.getY() + 0.25);
+					data.setDouble("posZ", this.pos.getZ() + 0.5);
 					data.setString("type", "launchSmoke");
 					data.setDouble("moX", moX);
 					data.setDouble("moY", 0);
@@ -68,7 +68,7 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -80,14 +80,14 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -98,9 +98,10 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("delay", delay);
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -110,12 +111,12 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 15,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 15,
+					this.pos.getZ() + 3
 					);
 		}
 

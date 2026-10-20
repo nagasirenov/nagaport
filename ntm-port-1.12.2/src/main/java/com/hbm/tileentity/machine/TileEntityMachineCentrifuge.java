@@ -82,7 +82,7 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 		super(8);
 	}
 
-	public String getName() {
+	public String getDefaultName() {
 		return "container.centrifuge";
 	}
 
@@ -92,7 +92,8 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot_io;
 	}
 
@@ -104,14 +105,16 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setShort("progress", (short) progress);
+		return nbt;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i > 1;
 	}
 
@@ -180,11 +183,11 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 
 			power = Library.chargeTEFromItems(slots, 1, power, maxPower);
 
@@ -234,9 +237,9 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 				audioDuration -= 3;
 			}
 
-			audioDuration = MathHelper.clamp_int(audioDuration, 0, 60);
+			audioDuration = MathHelper.clamp(audioDuration, 0, 60);
 
-			if(audioDuration > 10 && MainRegistry.proxy.me().getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 25) {
+			if(audioDuration > 10 && MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 25) {
 
 				if(audio == null) {
 					audio = createAudioLoop();
@@ -277,7 +280,7 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", xCoord, yCoord, zCoord, 1.0F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 10F, 1.0F, 20);
 	}
 
 	@Override
@@ -307,12 +310,12 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord,
-					yCoord,
-					zCoord,
-					xCoord + 1,
-					yCoord + 4,
-					zCoord + 1
+					this.pos.getX(),
+					this.pos.getY(),
+					this.pos.getZ(),
+					this.pos.getX() + 1,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 1
 					);
 		}
 

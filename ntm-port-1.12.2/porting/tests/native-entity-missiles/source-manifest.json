@@ -1,0 +1,755 @@
+{
+  "base": "5e6ba284ef32b46ad5f81cd1e1570c08b53cb24f",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java",
+      "class_name": "EntityMissileBaseNT",
+      "keys": [
+        {
+          "slot": 3,
+          "key": "DIRECTION",
+          "java_type": "Byte",
+          "serializer": "BYTE",
+          "owner": "EntityMissileBaseNT",
+          "original_default_expression": "new Byte((byte) 5)"
+        }
+      ],
+      "insertions": [
+        "\r\nimport net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\r\n\r\n\tprotected static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityMissileBaseNT.class, DataSerializers.BYTE);",
+        "\tpublic byte getDirection() {\r\n\t\treturn this.dataManager.get(DIRECTION);\r\n\t}\r\n\r\n\tpublic void setDirection(byte direction) {\r\n\t\tthis.dataManager.set(DIRECTION, direction);\r\n\t}\r\n\r\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(3, new Byte((byte) 5))",
+          "after": "this.dataManager.register(DIRECTION, new Byte((byte) 5))",
+          "before_offset": 3304,
+          "method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMissileBaseNT",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 3787
+        }
+      ],
+      "before_sha256": "e0f163258137c6cc1881320f20a4707ec8b5d55a5409db9bce194dd3f87b4ea2",
+      "after_sha256": "e1e92708ac826819b898b90e261771fbe843509a54bdab5207c7a393962e9892",
+      "original_sha256": "eb34cf85849ce4fa258d47e473ce8cce71139234c34d281fdf935a170ed1ba6b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+      "class_name": "EntityMissileCustom",
+      "keys": [
+        {
+          "slot": 8,
+          "key": "HEALTH_SNAPSHOT",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "owner": "EntityMissileCustom",
+          "original_default_expression": "Integer.valueOf(this.health)"
+        },
+        {
+          "slot": 9,
+          "key": "WARHEAD",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "owner": "EntityMissileCustom",
+          "original_default_expression": "Integer.valueOf(0)"
+        },
+        {
+          "slot": 10,
+          "key": "FUSELAGE",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "owner": "EntityMissileCustom",
+          "original_default_expression": "Integer.valueOf(0)"
+        },
+        {
+          "slot": 11,
+          "key": "FINS",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "owner": "EntityMissileCustom",
+          "original_default_expression": "Integer.valueOf(0)"
+        },
+        {
+          "slot": 12,
+          "key": "THRUSTER",
+          "java_type": "Integer",
+          "serializer": "VARINT",
+          "owner": "EntityMissileCustom",
+          "original_default_expression": "Integer.valueOf(0)"
+        }
+      ],
+      "insertions": [
+        "\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;",
+        "\n\n\tprivate static final DataParameter<Integer> HEALTH_SNAPSHOT = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WARHEAD = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> FUSELAGE = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> FINS = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> THRUSTER = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);",
+        "\tpublic int getWarheadId() {\n\t\treturn this.dataManager.get(WARHEAD);\n\t}\n\n\tpublic int getFuselageId() {\n\t\treturn this.dataManager.get(FUSELAGE);\n\t}\n\n\tpublic int getFinsId() {\n\t\treturn this.dataManager.get(FINS);\n\t}\n\n\tpublic int getThrusterId() {\n\t\treturn this.dataManager.get(THRUSTER);\n\t}\n\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(9, Item.getIdFromItem(template.warhead))",
+          "after": "this.dataManager.set(WARHEAD, Item.getIdFromItem(template.warhead))",
+          "before_offset": 1764,
+          "method": "public EntityMissileCustom(World world, float x, float y, float z, int a, int b, MissileStruct template) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 2902
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, Item.getIdFromItem(template.fuselage))",
+          "after": "this.dataManager.set(FUSELAGE, Item.getIdFromItem(template.fuselage))",
+          "before_offset": 1838,
+          "method": "public EntityMissileCustom(World world, float x, float y, float z, int a, int b, MissileStruct template) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 2973
+        },
+        {
+          "before": "this.dataWatcher.updateObject(12, Item.getIdFromItem(template.thruster))",
+          "after": "this.dataManager.set(THRUSTER, Item.getIdFromItem(template.thruster))",
+          "before_offset": 1914,
+          "method": "public EntityMissileCustom(World world, float x, float y, float z, int a, int b, MissileStruct template) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "THRUSTER",
+          "slot": 12,
+          "after_offset": 3046
+        },
+        {
+          "before": "this.dataWatcher.updateObject(11, Item.getIdFromItem(template.fins))",
+          "after": "this.dataManager.set(FINS, Item.getIdFromItem(template.fins))",
+          "before_offset": 2021,
+          "method": "public EntityMissileCustom(World world, float x, float y, float z, int a, int b, MissileStruct template) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FINS",
+          "slot": 11,
+          "after_offset": 3150
+        },
+        {
+          "before": "this.dataWatcher.updateObject(11, Integer.valueOf(0))",
+          "after": "this.dataManager.set(FINS, Integer.valueOf(0))",
+          "before_offset": 2105,
+          "method": "public EntityMissileCustom(World world, float x, float y, float z, int a, int b, MissileStruct template) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FINS",
+          "slot": 11,
+          "after_offset": 3227
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(9)",
+          "after": "this.dataManager.get(WARHEAD)",
+          "before_offset": 2841,
+          "method": "public void onUpdate() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 3956
+        },
+        {
+          "before": "this.dataWatcher.addObject(8, Integer.valueOf(this.health))",
+          "after": "this.dataManager.register(HEALTH_SNAPSHOT, Integer.valueOf(this.health))",
+          "before_offset": 3286,
+          "method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "HEALTH_SNAPSHOT",
+          "slot": 8,
+          "after_offset": 4389
+        },
+        {
+          "before": "this.dataWatcher.addObject(9, Integer.valueOf(0))",
+          "after": "this.dataManager.register(WARHEAD, Integer.valueOf(0))",
+          "before_offset": 3349,
+          "method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 4465
+        },
+        {
+          "before": "this.dataWatcher.addObject(10, Integer.valueOf(0))",
+          "after": "this.dataManager.register(FUSELAGE, Integer.valueOf(0))",
+          "before_offset": 3402,
+          "method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 4523
+        },
+        {
+          "before": "this.dataWatcher.addObject(11, Integer.valueOf(0))",
+          "after": "this.dataManager.register(FINS, Integer.valueOf(0))",
+          "before_offset": 3456,
+          "method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FINS",
+          "slot": 11,
+          "after_offset": 4582
+        },
+        {
+          "before": "this.dataWatcher.addObject(12, Integer.valueOf(0))",
+          "after": "this.dataManager.register(THRUSTER, Integer.valueOf(0))",
+          "before_offset": 3510,
+          "method": "protected void entityInit() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "THRUSTER",
+          "slot": 12,
+          "after_offset": 4637
+        },
+        {
+          "before": "this.dataWatcher.updateObject(9, nbt.getInteger(\"warhead\"))",
+          "after": "this.dataManager.set(WARHEAD, nbt.getInteger(\"warhead\"))",
+          "before_offset": 3740,
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 4872
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, nbt.getInteger(\"fuselage\"))",
+          "after": "this.dataManager.set(FUSELAGE, nbt.getInteger(\"fuselage\"))",
+          "before_offset": 3803,
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 4932
+        },
+        {
+          "before": "this.dataWatcher.updateObject(11, nbt.getInteger(\"fins\"))",
+          "after": "this.dataManager.set(FINS, nbt.getInteger(\"fins\"))",
+          "before_offset": 3868,
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FINS",
+          "slot": 11,
+          "after_offset": 4994
+        },
+        {
+          "before": "this.dataWatcher.updateObject(12, nbt.getInteger(\"thruster\"))",
+          "after": "this.dataManager.set(THRUSTER, nbt.getInteger(\"thruster\"))",
+          "before_offset": 3929,
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "THRUSTER",
+          "slot": 12,
+          "after_offset": 5048
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(9)",
+          "after": "this.dataManager.get(WARHEAD)",
+          "before_offset": 4192,
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 5308
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(FUSELAGE)",
+          "before_offset": 4265,
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 5369
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(11)",
+          "after": "this.dataManager.get(FINS)",
+          "before_offset": 4335,
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FINS",
+          "slot": 11,
+          "after_offset": 5427
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(12)",
+          "after": "this.dataManager.get(THRUSTER)",
+          "before_offset": 4409,
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "THRUSTER",
+          "slot": 12,
+          "after_offset": 5485
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(FUSELAGE)",
+          "before_offset": 4659,
+          "method": "protected void spawnContrail() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 5723
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(9)",
+          "after": "this.dataManager.get(WARHEAD)",
+          "before_offset": 5579,
+          "method": "public void onMissileImpact(RayTraceResult mop) { //TODO: demolish this steaming pile of shit",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 6631
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(FUSELAGE)",
+          "before_offset": 8675,
+          "method": "public String getUnlocalizedName() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 9715
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(FUSELAGE)",
+          "before_offset": 9395,
+          "method": "public int getBlipLevel() {",
+          "receiver_static_type": "EntityMissileCustom",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 10423
+        }
+      ],
+      "before_sha256": "7398249e97d2308c0998d6b708ba2fbcc1e353f0ea45ff28e553dab07cd8dc33",
+      "after_sha256": "a09c61f5f529c9e48fdfb6c9f95aea057e3051226c7c6a81e473b753b7b57332",
+      "original_sha256": "73a68f7499529eb170fdb426f6ee8e012b28479858973cb7df109712a6e6a19d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "class_name": "EntityMissileTier4",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(3)",
+          "after": "this.dataManager.get(DIRECTION)",
+          "before_offset": 1365,
+          "method": "protected void spawnContrail() {",
+          "receiver_static_type": "EntityMissileTier4",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 1365
+        }
+      ],
+      "before_sha256": "24d452adf6efe128489b970612c176b3c2185861b87f6ffe1a4619b862a589bb",
+      "after_sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34",
+      "original_sha256": "f7d02f4aa699fc01236c6f8f5f2cdb2a8aa55ed5bfc83ece9ae9fdc701e66463"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileCustom.java",
+      "class_name": "RenderMissileCustom",
+      "keys": [],
+      "insertions": [
+        "\nimport com.hbm.entity.missile.EntityMissileCustom;"
+      ],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectInt(9)",
+          "after": "((EntityMissileCustom) entity).getWarheadId()",
+          "before_offset": 1212,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "WARHEAD",
+          "slot": 9,
+          "after_offset": 1263
+        },
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectInt(10)",
+          "after": "((EntityMissileCustom) entity).getFuselageId()",
+          "before_offset": 1272,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FUSELAGE",
+          "slot": 10,
+          "after_offset": 1320
+        },
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectInt(11)",
+          "after": "((EntityMissileCustom) entity).getFinsId()",
+          "before_offset": 1333,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "FINS",
+          "slot": 11,
+          "after_offset": 1378
+        },
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectInt(12)",
+          "after": "((EntityMissileCustom) entity).getThrusterId()",
+          "before_offset": 1394,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileCustom",
+          "key": "THRUSTER",
+          "slot": 12,
+          "after_offset": 1432
+        }
+      ],
+      "before_sha256": "b612c2117cb639150459aa68048a1d9ac7b3379aff1f941aa49e864a9a96d647",
+      "after_sha256": "4783e3972a59a4e0de5448f36f67912f84531de5c6587fba7570998e61875914",
+      "original_sha256": "e887586997522f4cf30dd0882ccfeb3a799f886a227ec3970ad9840ad0f6429a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileGeneric.java",
+      "class_name": "RenderMissileGeneric",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(3)",
+          "after": "((EntityMissileBaseNT) entity).getDirection()",
+          "before_offset": 1269,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 1269
+        }
+      ],
+      "before_sha256": "d3aae0461eea26a30f6b484231625d3550da819ed4cd96c95780423df7eaaca8",
+      "after_sha256": "ba317d0a8a72649f1824691726892ca7294012e560f63868c5742b08daa1626b",
+      "original_sha256": "973f868c3a971176e28598669780b14a28b763998a0cb09a55210e9e242732df"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileHuge.java",
+      "class_name": "RenderMissileHuge",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(3)",
+          "after": "((EntityMissileBaseNT) entity).getDirection()",
+          "before_offset": 1153,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 1153
+        }
+      ],
+      "before_sha256": "fdd83ca386c2f0631c64dae06aa7bc12c7be6ee31d7002a5807dce6178ac1b23",
+      "after_sha256": "0afbd8a1a06ee01736c28986d17166bcef9900c792b9ea43ea35ebce8c5aedb8",
+      "original_sha256": "f14f1b39e8be284a35d8aa3ffa319b327de4be32aafc0b3a3da749efe5bfe06c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileNuclear.java",
+      "class_name": "RenderMissileNuclear",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(3)",
+          "after": "((EntityMissileBaseNT) entity).getDirection()",
+          "before_offset": 1159,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 1159
+        }
+      ],
+      "before_sha256": "b0abfb748de11edcc070d1f937c3c9d8d85ba49c705c1cfd0289664f5b2a9c7f",
+      "after_sha256": "41e9021002aaef92d75d580c1134c2078f3388b207126386a609c2b6e3fcb079",
+      "original_sha256": "094647a8e96fa53a12622518a6d97b424a35bece0f27e300cdf5a42d06ffcdb8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileStrong.java",
+      "class_name": "RenderMissileStrong",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(3)",
+          "after": "((EntityMissileBaseNT) entity).getDirection()",
+          "before_offset": 1192,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 1192
+        }
+      ],
+      "before_sha256": "f0ff7dd4ae4cf07f162625d43243b06fb178c4c058f0f1b08fc761849fd615e6",
+      "after_sha256": "e2fa4090e406ed565d16d47d0f9ac48bee5b4e4a82eb5e28e5e32cb49e4ab627",
+      "original_sha256": "a616a17d32aa6b47ff2bb4ca95613b94200bf8177c50322b2b01f12b19f5ce04"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileTaint.java",
+      "class_name": "RenderMissileTaint",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(3)",
+          "after": "((EntityMissileBaseNT) entity).getDirection()",
+          "before_offset": 1156,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {",
+          "receiver_static_type": "Entity",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 1156
+        }
+      ],
+      "before_sha256": "98269050267bd6cd9826344e39fa623ce3568c6af9ee9c33a5ae87c6e66000b3",
+      "after_sha256": "ea5613c580c5a51d6e8952caeb9cd06af2e8c6b5f97d14faeb8e08f34d0360a6",
+      "original_sha256": "2d58a844f18f939724b5b90e6ed4ad06db229e73a91b47dbb4113709b02c4c5a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+      "class_name": "TileEntityLaunchPadBase",
+      "keys": [],
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "missile.getDataWatcher().updateObject(3, (byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5))",
+          "after": "missile.setDirection((byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5))",
+          "before_offset": 13086,
+          "method": "public Entity instantiateMissile(int targetX, int targetZ) {",
+          "receiver_static_type": "EntityMissileBaseNT",
+          "declaring_owner": "EntityMissileBaseNT",
+          "key": "DIRECTION",
+          "slot": 3,
+          "after_offset": 13086
+        }
+      ],
+      "before_sha256": "d84fd6dc51e2f369f4be1d8b47799774659cd8957a964e83af0b02a2a34cdbca",
+      "after_sha256": "8194813d6f8af96720162a07f431e819c9d5c12a093329a7f9c505ca64f4ffd8",
+      "original_sha256": "fc79706bd7e96bc613b3e85f1e9c35dccbafc69d2cef0a85509e188dd35ae37a"
+    }
+  ],
+  "unchanged_dependencies": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "sha256": "51c5f47a37927ebf4784724a2773908b450100e2823b5ca0394b38f626c57c5c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java",
+      "sha256": "1727ed3a0643fbcbeaf22366ac1daad67ec69857672e99f5182a2632d6b61cf9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "sha256": "e76dd90efd0b7ebabfde8dbf1b5b80f2f379699bb30b9490453c766ca257a7ef"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/RocketMetadata.java",
+      "sha256": "a496fd091811e6fa0f0663ea60866867841d6e9078324c39ab7162ec3b0a6eb5"
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityMissileBHole",
+      "parent": "EntityMissileTier0",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileBaseNT",
+      "parent": "EntityThrowableInterp",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java"
+    },
+    {
+      "class_name": "EntityMissileBunkerBuster",
+      "parent": "EntityMissileTier1",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java"
+    },
+    {
+      "class_name": "EntityMissileBurst",
+      "parent": "EntityMissileTier3",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java"
+    },
+    {
+      "class_name": "EntityMissileBusterStrong",
+      "parent": "EntityMissileTier2",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java"
+    },
+    {
+      "class_name": "EntityMissileCluster",
+      "parent": "EntityMissileTier1",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java"
+    },
+    {
+      "class_name": "EntityMissileClusterStrong",
+      "parent": "EntityMissileTier2",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java"
+    },
+    {
+      "class_name": "EntityMissileCustom",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileCustom.java"
+    },
+    {
+      "class_name": "EntityMissileDecoy",
+      "parent": "EntityMissileTier1",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java"
+    },
+    {
+      "class_name": "EntityMissileDoomsday",
+      "parent": "EntityMissileTier4",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java"
+    },
+    {
+      "class_name": "EntityMissileDoomsdayRusted",
+      "parent": "EntityMissileDoomsday",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java"
+    },
+    {
+      "class_name": "EntityMissileDrill",
+      "parent": "EntityMissileTier3",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java"
+    },
+    {
+      "class_name": "EntityMissileEMP",
+      "parent": "EntityMissileTier0",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileEMPStrong",
+      "parent": "EntityMissileTier2",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java"
+    },
+    {
+      "class_name": "EntityMissileGeneric",
+      "parent": "EntityMissileTier1",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java"
+    },
+    {
+      "class_name": "EntityMissileIncendiary",
+      "parent": "EntityMissileTier1",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java"
+    },
+    {
+      "class_name": "EntityMissileIncendiaryStrong",
+      "parent": "EntityMissileTier2",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java"
+    },
+    {
+      "class_name": "EntityMissileInferno",
+      "parent": "EntityMissileTier3",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java"
+    },
+    {
+      "class_name": "EntityMissileMicro",
+      "parent": "EntityMissileTier0",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileMirv",
+      "parent": "EntityMissileTier4",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java"
+    },
+    {
+      "class_name": "EntityMissileNuclear",
+      "parent": "EntityMissileTier4",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java"
+    },
+    {
+      "class_name": "EntityMissileRain",
+      "parent": "EntityMissileTier3",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java"
+    },
+    {
+      "class_name": "EntityMissileSchrabidium",
+      "parent": "EntityMissileTier0",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileShuttle",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileShuttle.java"
+    },
+    {
+      "class_name": "EntityMissileStealth",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileStealth.java"
+    },
+    {
+      "class_name": "EntityMissileStrong",
+      "parent": "EntityMissileTier2",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java"
+    },
+    {
+      "class_name": "EntityMissileTaint",
+      "parent": "EntityMissileTier0",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileTest",
+      "parent": "EntityMissileTier0",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileTier0",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java"
+    },
+    {
+      "class_name": "EntityMissileTier1",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java"
+    },
+    {
+      "class_name": "EntityMissileTier2",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java"
+    },
+    {
+      "class_name": "EntityMissileTier3",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java"
+    },
+    {
+      "class_name": "EntityMissileTier4",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java"
+    },
+    {
+      "class_name": "EntityMissileVolcano",
+      "parent": "EntityMissileTier4",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java"
+    },
+    {
+      "class_name": "EntityRideableRocket",
+      "parent": "EntityMissileBaseNT",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java"
+    }
+  ]
+}

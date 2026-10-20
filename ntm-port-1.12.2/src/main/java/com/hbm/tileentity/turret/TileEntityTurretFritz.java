@@ -38,7 +38,7 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretFritz";
 	}
 
@@ -110,11 +110,11 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 			vec.rotateAroundYRad((float) -(this.rotationYaw + Math.PI * 0.5));
 
 			float damage = Math.min((float) (trait.getHeatEnergy() / 500_000F), 20F);
-			EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(worldObj, tank.getTankType() == Fluids.BALEFIRE ? XFactoryFlamer.flame_nograv_bf : XFactoryFlamer.flame_nograv, damage, 0.05F, (float) rotationYaw, (float) rotationPitch);
+			EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, tank.getTankType() == Fluids.BALEFIRE ? XFactoryFlamer.flame_nograv_bf : XFactoryFlamer.flame_nograv, damage, 0.05F, (float) rotationYaw, (float) rotationPitch);
 			proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, proj.rotationYaw, proj.rotationPitch);
-			worldObj.spawnEntityInWorld(proj);
+			this.world.spawnEntityInWorld(proj);
 
-			worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.flamethrowerShoot", 2F, 1F + worldObj.rand.nextFloat() * 0.5F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 2F, 1F + this.world.rand.nextFloat() * 0.5F);
 		}
 	}
 
@@ -123,10 +123,10 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			tank.setType(9, 9, slots);
 			
 			for(int i = 1; i < 9; i++) {
@@ -162,23 +162,23 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * -1 + rot.offsetX * 0, yCoord, zCoord + dir.offsetZ * -1 + rot.offsetZ * 0, dir.getOpposite());
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * -1 + rot.offsetX * -1, yCoord, zCoord + dir.offsetZ * -1 + rot.offsetZ * -1, dir.getOpposite());
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 0 + rot.offsetX * -2, yCoord, zCoord + dir.offsetZ * 0 + rot.offsetZ * -2, rot.getOpposite());
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 1 + rot.offsetX * -2, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * -2, rot.getOpposite());
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 0 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 0 + rot.offsetZ * 1, rot);
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 1 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * 1, rot);
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * 0, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 0, dir);
-		this.trySubscribe(worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * -1, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * -1, dir);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -1 + rot.offsetX * 0, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * 0, dir.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -1 + rot.offsetX * -1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * -1, dir.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 0 + rot.offsetX * -2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * -2, rot.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 1 + rot.offsetX * -2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * -2, rot.getOpposite());
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 0 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * 1, rot);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 1 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * 1, rot);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 0, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 0, dir);
+		this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * -1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * -1, dir);
 
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * -1 + rot.offsetX * 0, yCoord, zCoord + dir.offsetZ * -1 + rot.offsetZ * 0, dir.getOpposite());
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * -1 + rot.offsetX * -1, yCoord, zCoord + dir.offsetZ * -1 + rot.offsetZ * -1, dir.getOpposite());
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 0 + rot.offsetX * -2, yCoord, zCoord + dir.offsetZ * 0 + rot.offsetZ * -2, rot.getOpposite());
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 1 + rot.offsetX * -2, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * -2, rot.getOpposite());
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 0 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 0 + rot.offsetZ * 1, rot);
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 1 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ * 1, rot);
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * 0, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 0, dir);
-		this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * -1, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * -1, dir);
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * -1 + rot.offsetX * 0, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * 0, dir.getOpposite());
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * -1 + rot.offsetX * -1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * -1, dir.getOpposite());
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 0 + rot.offsetX * -2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * -2, rot.getOpposite());
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 1 + rot.offsetX * -2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * -2, rot.getOpposite());
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 0 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * 1, rot);
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 1 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * 1, rot);
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 0, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 0, dir);
+		this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * -1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * -1, dir);
 	}
 
 	@Override
@@ -188,13 +188,15 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tank.writeToNBT(nbt, "diesel");
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
 	}
 

@@ -40,7 +40,7 @@ public class TileEntitySubstation extends TileEntityPylonBase {
 
 	@Override
 	public Vec3d getConnectionPoint() {
-		return new Vec3d(xCoord + 0.5, yCoord + 5.25, zCoord + 0.5);
+		return new Vec3d(this.pos.getX() + 0.5, this.pos.getY() + 5.25, this.pos.getZ() + 0.5);
 	}
 
 	@Override
@@ -51,20 +51,20 @@ public class TileEntitySubstation extends TileEntityPylonBase {
 	@Override
 	public PowerNode createNode() {
 		TileEntity tile = (TileEntity) this;
-		PowerNode node = new PowerNode(new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord),
-				new BlockPos(tile.xCoord + 1, tile.yCoord, tile.zCoord + 1),
-				new BlockPos(tile.xCoord + 1, tile.yCoord, tile.zCoord - 1),
-				new BlockPos(tile.xCoord - 1, tile.yCoord, tile.zCoord + 1),
-				new BlockPos(tile.xCoord - 1, tile.yCoord, tile.zCoord - 1)).setConnections(
-				new DirPos(xCoord, yCoord, zCoord, ForgeDirection.UNKNOWN),
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z)
+		PowerNode node = new PowerNode(new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ()),
+				new BlockPos(tile.getPos().getX() + 1, tile.getPos().getY(), tile.getPos().getZ() + 1),
+				new BlockPos(tile.getPos().getX() + 1, tile.getPos().getY(), tile.getPos().getZ() - 1),
+				new BlockPos(tile.getPos().getX() - 1, tile.getPos().getY(), tile.getPos().getZ() + 1),
+				new BlockPos(tile.getPos().getX() - 1, tile.getPos().getY(), tile.getPos().getZ() - 1)).setConnections(
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.UNKNOWN),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 				);
 		for(int[] pos : this.connected) node.addConnection(new DirPos(pos[0], pos[1], pos[2], ForgeDirection.UNKNOWN));
 		return node;

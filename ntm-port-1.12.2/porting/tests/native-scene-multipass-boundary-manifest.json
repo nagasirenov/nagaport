@@ -1,0 +1,1783 @@
+{
+  "baseline": "7b725ffef2da46e4fec1371278a951ff18e3b163",
+  "files": {
+    "src/main/java/com/hbm/blocks/IBlockMultiPass.java": {
+      "before_sha256": "2b6833efb36ccf8b1a3b3088091d56103d32ed43ba1c8a385c8b230733f74fb4",
+      "after_sha256": "0f63a002a56ec7e1a2649d6038f061e89e10113538e9651e6c6db5712dc1a5b0",
+      "edits": [
+        {
+          "before_offset": 25,
+          "after_offset": 25,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 91,
+          "after_offset": 154,
+          "old": "",
+          "new": "/** Native layered-cube contract. Pass selection belongs to each model request, never static state. */\n"
+        },
+        {
+          "before_offset": 126,
+          "after_offset": 292,
+          "old": "\n\tpublic int getPasses();\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\tpublic static int getRenderType() {\n\t\treturn renderID;\n\t}\n\t\n\tpublic default boolean shouldRenderItemMulti() {\n\t\treturn false;\n\t}\n",
+          "new": "    int getPasses();\n    default boolean shouldRenderItemMulti() { return false; }\n    default MultipassContext getMultipassContext(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return MultipassContext.basic(state.getBlock().getMetaFromState(state));\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "b26687302f72355653fec533aab5ef58ff291e1c3b635a7bb4f18aeaa4610bfc",
+      "after_sha256": "031fd7048149da7d6c5ac62dad49ac0e9b7dcd53c50b009827a4960d611030e6",
+      "edits": [
+        {
+          "before_offset": 48839,
+          "after_offset": 48839,
+          "old": "\t\tore_iron = new BlockOre(Material.rock, Blocks.iron_ore).setBlockName(\"ore_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_iron\");\r\n\t\tore_gold = new BlockOre(Material.rock, Blocks.gold_ore).setBlockName(\"ore_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_gold\");\r\n\t\tore_redstone = new BlockOre(Material.rock, Blocks.redstone_ore).setBlockName(\"ore_redstone\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_redstone\");\r\n\t\tore_lapis = new BlockOre(Material.rock, Blocks.lapis_ore).setBlockName(\"ore_lapis\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_lapis\");\r\n\t\tore_emerald = new BlockOre(Material.rock, Blocks.emerald_ore).setBlockName(\"ore_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_emerald\");\r\n\t\tore_quartz = new BlockOre(Material.rock, Blocks.quartz_ore).setBlockName(\"ore_quartz\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_quartz\");\r\n\t\tore_diamond = new BlockOre(Material.rock, Blocks.diamond_ore).setBlockName(\"ore_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_diamond\");\r\n",
+          "new": "\t\tore_iron = new BlockOre(Material.ROCK, Blocks.IRON_ORE).setTranslationKey(\"ore_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n\t\tore_gold = new BlockOre(Material.ROCK, Blocks.GOLD_ORE).setTranslationKey(\"ore_gold\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n\t\tore_redstone = new BlockOre(Material.ROCK, Blocks.REDSTONE_ORE).setTranslationKey(\"ore_redstone\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n\t\tore_lapis = new BlockOre(Material.ROCK, Blocks.LAPIS_ORE).setTranslationKey(\"ore_lapis\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n\t\tore_emerald = new BlockOre(Material.ROCK, Blocks.EMERALD_ORE).setTranslationKey(\"ore_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n\t\tore_quartz = new BlockOre(Material.ROCK, Blocks.QUARTZ_ORE).setTranslationKey(\"ore_quartz\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n\t\tore_diamond = new BlockOre(Material.ROCK, Blocks.DIAMOND_ORE).setTranslationKey(\"ore_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setResistance(5.0F);\r\n"
+        },
+        {
+          "before_offset": 50384,
+          "after_offset": 50042,
+          "old": "\t\tore_uranium = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_uranium\");\r\n",
+          "new": "\t\tore_uranium = new BlockOreOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_uranium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 50862,
+          "after_offset": 50470,
+          "old": "\t\tore_plutonium = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_plutonium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_plutonium\");\r\n\t\tore_titanium = new BlockOre(Material.rock).setBlockName(\"ore_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_titanium\");\r\n\t\tore_sulfur = new BlockOre(Material.rock).setBlockName(\"ore_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_sulfur\");\r\n\t\tore_glowstone = new BlockOre(Material.rock).setLightLevel(4F/15F).setBlockName(\"ore_glowstone\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_glowstone\");\r\n\t\tore_thorium = new BlockOre(Material.rock).setBlockName(\"ore_thorium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_thorium\");\r\n\t\tore_morkite = new BlockOre(Material.rock).setBlockName(\"ore_morkite\").setCreativeTab(MainRegistry.blockTab).setStepSound(ModSoundTypes.mork).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_morkite\");\r\n\t\tore_niter = new BlockOre(Material.rock).setBlockName(\"ore_niter\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_niter\");\r\n\t\tore_copper = new BlockOre(Material.rock).setBlockName(\"ore_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_copper\");\r\n\t\tore_nickel = new BlockOre(Material.rock).setBlockName(\"ore_nickel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nickel\");\r\n\t\tore_mineral = new BlockOre(Material.rock).setBlockName(\"ore_mineral\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_mineral\");\r\n\t\tore_zinc = new BlockOre(Material.rock).setBlockName(\"ore_zinc\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_zinc\");\r\n\t\tore_lithium = new BlockOre(Material.rock).setBlockName(\"ore_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lithium\");\r\n\t\tore_niobium = new BlockOre(Material.rock).setBlockName(\"ore_niobium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_niobium\");\r\n\t\tore_palladium = new BlockOre(Material.rock).setBlockName(\"ore_palladium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_palladium\");\r\n\t\tore_iodine = new BlockOre(Material.rock).setBlockName(\"ore_iodine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_iodine\");\r\n\t\tore_arsenic = new BlockOre(Material.rock).setBlockName(\"ore_arsenic\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_arsenic\");\r\n\t\tore_cadmium = new BlockOre(Material.rock).setBlockName(\"ore_cadmium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cadmium\");\r\n\t\tore_tungsten = new BlockOre(Material.rock).setBlockName(\"ore_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_tungsten\");\r\n\t\tore_aluminium = new BlockOre(Material.rock).setBlockName(\"ore_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_aluminium\");\r\n\t\tore_fluorite = new BlockOre(Material.rock).setBlockName(\"ore_fluorite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_fluorite\");\r\n\t\tore_lead = new BlockOre(Material.rock).setBlockName(\"ore_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lead\");\r\n\t\tore_schrabidium = new BlockOre(Material.rock).setBlockName(\"ore_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":ore_schrabidium\");\r\n\t\tore_beryllium = new BlockOre(Material.rock).setBlockName(\"ore_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_beryllium\");\r\n\t\tore_lignite = new BlockOre(Material.rock).setBlockName(\"ore_lignite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_lignite\");\r\n\t\tore_asbestos = new BlockOreOutgas(Material.rock, true, 5, true).setBlockName(\"ore_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":ore_asbestos\");\r\n\t\tore_silicon = new BlockOre(Material.rock).setBlockName(\"ore_silicon\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_silicon\");\r\n\t\tore_fire = new BlockOre(Material.rock).setBlockName(\"ore_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_fire\");\r\n\t\tore_shale = new BlockOre(Material.rock).setBlockName(\"ore_shale\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_shale\");\r\n",
+          "new": "\t\tore_plutonium = new BlockOreOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_plutonium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_titanium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_sulfur = new BlockOre(Material.ROCK).setTranslationKey(\"ore_sulfur\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_glowstone = new BlockOre(Material.ROCK).setLightLevel(4F/15F).setTranslationKey(\"ore_glowstone\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_thorium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_thorium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_morkite = new BlockOre(Material.ROCK).withSoundType(ModSoundTypes.mork).setTranslationKey(\"ore_morkite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_niter = new BlockOre(Material.ROCK).setTranslationKey(\"ore_niter\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_copper = new BlockOre(Material.ROCK).setTranslationKey(\"ore_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_nickel = new BlockOre(Material.ROCK).setTranslationKey(\"ore_nickel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_mineral = new BlockOre(Material.ROCK).setTranslationKey(\"ore_mineral\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_zinc = new BlockOre(Material.ROCK).setTranslationKey(\"ore_zinc\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_lithium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lithium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_niobium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_niobium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_palladium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_palladium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_iodine = new BlockOre(Material.ROCK).setTranslationKey(\"ore_iodine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_arsenic = new BlockOre(Material.ROCK).setTranslationKey(\"ore_arsenic\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_cadmium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_cadmium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_tungsten = new BlockOre(Material.ROCK).setTranslationKey(\"ore_tungsten\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_aluminium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_fluorite = new BlockOre(Material.ROCK).setTranslationKey(\"ore_fluorite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_lead = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lead\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_schrabidium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F);\r\n\t\tore_beryllium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_beryllium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tore_lignite = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lignite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tore_asbestos = new BlockOreOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"ore_asbestos\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tore_silicon = new BlockOre(Material.ROCK).setTranslationKey(\"ore_silicon\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_fire = new BlockOre(Material.ROCK).setTranslationKey(\"ore_fire\").setCreativeTab(MainRegistry.blockTab).setHardness(0.4F).setResistance(10.0F);\r\n\t\tore_shale = new BlockOre(Material.ROCK).setTranslationKey(\"ore_shale\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 56734,
+          "after_offset": 54942,
+          "old": "\t\tcluster_iron = new BlockCluster(Material.rock).setBlockName(\"cluster_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_iron\");\r\n\t\tcluster_titanium = new BlockCluster(Material.rock).setBlockName(\"cluster_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_titanium\");\r\n\t\tcluster_aluminium = new BlockCluster(Material.rock).setBlockName(\"cluster_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_aluminium\");\r\n\t\tcluster_copper = new BlockCluster(Material.rock).setBlockName(\"cluster_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":cluster_copper\");\r\n",
+          "new": "\t\tcluster_iron = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_iron\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tcluster_titanium = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tcluster_aluminium = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_aluminium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tcluster_copper = new BlockCluster(Material.ROCK).setTranslationKey(\"cluster_copper\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+        },
+        {
+          "before_offset": 65201,
+          "after_offset": 63194,
+          "old": "\t\tore_bedrock = new BlockBedrockOreTE().setBlockName(\"ore_bedrock\").setCreativeTab(null);\r\n\t\tore_volcano = new BlockFissure().setBlockName(\"ore_volcano\").setLightLevel(1F).setCreativeTab(MainRegistry.blockTab);\r\n",
+          "new": "\t\tore_bedrock = new BlockBedrockOreTE().setTranslationKey(\"ore_bedrock\").setCreativeTab(null);\r\n\t\tore_volcano = new BlockFissure().setTranslationKey(\"ore_volcano\").setLightLevel(1F).setCreativeTab(MainRegistry.blockTab);\r\n"
+        },
+        {
+          "before_offset": 68675,
+          "after_offset": 66678,
+          "old": "\t\tore_australium = new BlockOre(Material.rock).setBlockName(\"ore_australium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_australium\");\r\n\t\tore_rare = new BlockOre(Material.rock).setBlockName(\"ore_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_rare\");\r\n\t\tore_cobalt = new BlockOre(Material.rock).setBlockName(\"ore_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cobalt\");\r\n\t\tore_cinnebar = new BlockOre(Material.rock).setBlockName(\"ore_cinnebar\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_cinnebar\");\r\n\t\tore_coltan = new BlockOre(Material.rock).setBlockName(\"ore_coltan\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_coltan\");\r\n\t\tore_lanthanium = new BlockOre(Material.rock).setBlockName(\"ore_lanthanium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_lanthanium\");\r\n",
+          "new": "\t\tore_australium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_australium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_rare = new BlockOre(Material.ROCK).setTranslationKey(\"ore_rare\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_cobalt = new BlockOre(Material.ROCK).setTranslationKey(\"ore_cobalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_cinnebar = new BlockOre(Material.ROCK).setTranslationKey(\"ore_cinnebar\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_coltan = new BlockOre(Material.ROCK).setTranslationKey(\"ore_coltan\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F);\r\n\t\tore_lanthanium = new BlockOre(Material.ROCK).setTranslationKey(\"ore_lanthanium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 69921,
+          "after_offset": 67622,
+          "old": "\t\tore_oil_empty = new BlockOre(Material.rock).setBlockName(\"ore_oil_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n\t\tore_oil = new BlockOreFluid(Material.rock, ore_oil_empty, ReserveType.OIL).setBlockName(\"ore_oil\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil\");\r\n",
+          "new": "\t\tore_oil_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_oil_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_oil = new BlockOreFluid(Material.ROCK, ore_oil_empty, ReserveType.OIL).setTranslationKey(\"ore_oil\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 70614,
+          "after_offset": 68217,
+          "old": "\t\tore_bedrock_oil = new BlockOreFluid(Material.rock, null, ReserveType.OIL).setBlockName(\"ore_bedrock_oil\").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000).setBlockTextureName(RefStrings.MODID + \":ore_bedrock_oil\");\r\n\t\tore_gas_empty = new BlockOre(Material.rock).setBlockName(\"ore_gas_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n\t\tore_gas = new BlockOreFluid(Material.rock, ore_gas_empty, ReserveType.GAS).setBlockName(\"ore_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_gas\");\r\n",
+          "new": "\t\tore_bedrock_oil = new BlockOreFluid(Material.ROCK, null, ReserveType.OIL).setTranslationKey(\"ore_bedrock_oil\").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000);\r\n\t\tore_gas_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_gas_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_gas = new BlockOreFluid(Material.ROCK, ore_gas_empty, ReserveType.GAS).setTranslationKey(\"ore_gas\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 71313,
+          "after_offset": 68764,
+          "old": "\t\tore_brine_empty = new BlockOre(Material.rock).setBlockName(\"ore_brine_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n\t\tore_brine = new BlockOreFluid(Material.rock, ore_brine_empty, ReserveType.BRINE).setBlockName(\"ore_brine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_brine\");\r\n",
+          "new": "\t\tore_brine_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_brine_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_brine = new BlockOreFluid(Material.ROCK, ore_brine_empty, ReserveType.BRINE).setTranslationKey(\"ore_brine\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 71772,
+          "after_offset": 69123,
+          "old": "\t\tore_tekto_empty = new BlockOre(Material.rock).setBlockName(\"ore_tekto_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_oil_empty\");\r\n\t\tore_tekto = new BlockOreFluid(Material.rock, ore_tekto_empty, ReserveType.OIL).setBlockName(\"ore_tekto\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_tekto\");\r\n",
+          "new": "\t\tore_tekto_empty = new BlockOre(Material.ROCK).setTranslationKey(\"ore_tekto_empty\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n\t\tore_tekto = new BlockOreFluid(Material.ROCK, ore_tekto_empty, ReserveType.OIL).setTranslationKey(\"ore_tekto\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 96092,
+          "after_offset": 93343,
+          "old": "\t\tdeco_titanium = new BlockOre(Material.iron).noFortune().setBlockName(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":deco_titanium\");\r\n",
+          "new": "\t\tdeco_titanium = new BlockOre(Material.IRON).noFortune().setTranslationKey(\"deco_titanium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 152322,
+          "after_offset": 149521,
+          "old": "\t\tore_sellafield_diamond = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_diamond\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_diamond\");\r\n\t\tore_sellafield_emerald = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_emerald\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_emerald\");\r\n\t\tore_sellafield_uranium_scorched = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_uranium_scorched\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_uranium_scorched\");\r\n\t\tore_sellafield_schrabidium = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_schrabidium\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_schrabidium\");\r\n\t\tore_sellafield_radgem = new BlockSellafieldOre(Material.rock).setBlockName(\"ore_sellafield_radgem\").setStepSound(Block.soundTypeStone).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + \":ore_overlay_radgem\");\r\n",
+          "new": "\t\tore_sellafield_diamond = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_diamond\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n\t\tore_sellafield_emerald = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_emerald\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n\t\tore_sellafield_uranium_scorched = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_uranium_scorched\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n\t\tore_sellafield_schrabidium = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n\t\tore_sellafield_radgem = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey(\"ore_sellafield_radgem\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);\r\n"
+        },
+        {
+          "before_offset": 183536,
+          "after_offset": 180513,
+          "old": "\t\tred_cable_paintable = new BlockCablePaintable().setBlockName(\"red_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tred_cable_gauge = new BlockCableGauge().setBlockName(\"red_cable_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\tred_cable_paintable = new BlockCablePaintable().setTranslationKey(\"red_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tred_cable_gauge = new BlockCableGauge().setTranslationKey(\"red_cable_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 187327,
+          "after_offset": 184314,
+          "old": "\t\tfluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setBlockName(\"fluid_duct_paintable_block_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\tfluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setTranslationKey(\"fluid_duct_paintable_block_exhaust\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 187770,
+          "after_offset": 184762,
+          "old": "\t\tfluid_duct_paintable = new FluidDuctPaintable().setBlockName(\"fluid_duct_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfluid_duct_gauge = new FluidDuctGauge().setBlockName(\"fluid_duct_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\tfluid_duct_paintable = new FluidDuctPaintable().setTranslationKey(\"fluid_duct_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tfluid_duct_gauge = new FluidDuctGauge().setTranslationKey(\"fluid_duct_gauge\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 191498,
+          "after_offset": 188500,
+          "old": "\t\tcrane_router = new CraneRouter().setBlockName(\"crane_router\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\tcrane_router = new CraneRouter().setTranslationKey(\"crane_router\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 194077,
+          "after_offset": 191084,
+          "old": "\t\tpneumatic_tube_paintable = new PneumoTubePaintableBlock().setBlockName(\"pneumatic_tube_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\tpneumatic_tube_paintable = new PneumoTubePaintableBlock().setTranslationKey(\"pneumatic_tube_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 264333,
+          "after_offset": 261345,
+          "old": "\t\t\toc_cable_paintable = new BlockOpenComputersCablePaintable().setBlockName(\"oc_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\t\toc_cable_paintable = new BlockOpenComputersCablePaintable().setTranslationKey(\"oc_cable_paintable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 280713,
+          "after_offset": 277730,
+          "old": "\t\tGameRegistry.registerBlock(ore_iron, ItemBlockBase.class, ore_iron.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_gold, ItemBlockBase.class, ore_gold.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_redstone, ItemBlockBase.class, ore_redstone.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_lapis, ItemBlockBase.class, ore_lapis.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_emerald, ItemBlockBase.class, ore_emerald.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_quartz, ItemBlockBase.class, ore_quartz.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_diamond, ItemBlockBase.class, ore_diamond.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(ore_iron);\r\n\t\tregister(ore_gold);\r\n\t\tregister(ore_redstone);\r\n\t\tregister(ore_lapis);\r\n\t\tregister(ore_emerald);\r\n\t\tregister(ore_quartz);\r\n\t\tregister(ore_diamond);\r\n"
+        },
+        {
+          "before_offset": 281402,
+          "after_offset": 277916,
+          "old": "\t\tGameRegistry.registerBlock(ore_uranium, ItemBlockBase.class, ore_uranium.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(ore_uranium);\r\n"
+        },
+        {
+          "before_offset": 281618,
+          "after_offset": 278059,
+          "old": "\t\tGameRegistry.registerBlock(ore_plutonium, ItemBlockBase.class, ore_plutonium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_thorium, ItemBlockBase.class, ore_thorium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_morkite, ItemBlockBase.class, ore_morkite.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_titanium, ItemBlockBase.class, ore_titanium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_sulfur, ItemBlockBase.class, ore_sulfur.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_glowstone, ItemBlockBase.class, ore_glowstone.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_niter, ItemBlockBase.class, ore_niter.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_copper, ItemBlockBase.class, ore_copper.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_nickel, ItemBlockBase.class, ore_nickel.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_mineral, ItemBlockBase.class, ore_mineral.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_zinc, ItemBlockBase.class, ore_zinc.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_tungsten, ItemBlockBase.class, ore_tungsten.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_aluminium, ItemBlockBase.class, ore_aluminium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_fluorite, ItemBlockBase.class, ore_fluorite.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_beryllium, ItemBlockBase.class, ore_beryllium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_lead, ItemBlockBase.class, ore_lead.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_oil, ItemBlockLore.class, ore_oil.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_oil_empty, ItemBlockBase.class, ore_oil_empty.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_gas, ItemBlockLore.class, ore_gas.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_gas_empty, ItemBlockBase.class, ore_gas_empty.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(ore_plutonium);\r\n\t\tregister(ore_thorium);\r\n\t\tregister(ore_morkite);\r\n\t\tregister(ore_titanium);\r\n\t\tregister(ore_sulfur);\r\n\t\tregister(ore_glowstone);\r\n\t\tregister(ore_niter);\r\n\t\tregister(ore_copper);\r\n\t\tregister(ore_nickel);\r\n\t\tregister(ore_mineral);\r\n\t\tregister(ore_zinc);\r\n\t\tregister(ore_tungsten);\r\n\t\tregister(ore_aluminium);\r\n\t\tregister(ore_fluorite);\r\n\t\tregister(ore_beryllium);\r\n\t\tregister(ore_lead);\r\n\t\tregister(ore_oil, ItemBlockLore.class);\r\n\t\tregister(ore_oil_empty);\r\n\t\tregister(ore_gas, ItemBlockLore.class);\r\n\t\tregister(ore_gas_empty);\r\n"
+        },
+        {
+          "before_offset": 283691,
+          "after_offset": 278718,
+          "old": "\t\tGameRegistry.registerBlock(ore_lignite, ItemBlockBase.class, ore_lignite.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_asbestos, ItemBlockBase.class, ore_asbestos.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_schrabidium, ItemBlockBase.class, ore_schrabidium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_lithium, ItemBlockBase.class, ore_lithium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_niobium, ItemBlockBase.class, ore_niobium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_cadmium, ItemBlockBase.class, ore_cadmium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_palladium, ItemBlockBase.class, ore_palladium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_iodine, ItemBlockBase.class, ore_iodine.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_arsenic, ItemBlockBase.class, ore_arsenic.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_silicon, ItemBlockBase.class, ore_silicon.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_fire, ItemBlockBase.class, ore_fire.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_shale, ItemBlockBase.class, ore_shale.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_brine, ItemBlockLore.class, ore_brine.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_brine_empty, ItemBlockLore.class, ore_brine_empty.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_tekto, ItemBlockLore.class, ore_tekto.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_tekto_empty, ItemBlockLore.class, ore_tekto_empty.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(ore_lignite);\r\n\t\tregister(ore_asbestos);\r\n\t\tregister(ore_schrabidium);\r\n\t\tregister(ore_lithium);\r\n\t\tregister(ore_niobium);\r\n\t\tregister(ore_cadmium);\r\n\t\tregister(ore_palladium);\r\n\t\tregister(ore_iodine);\r\n\t\tregister(ore_arsenic);\r\n\t\tregister(ore_silicon);\r\n\t\tregister(ore_fire);\r\n\t\tregister(ore_shale);\r\n\t\tregister(ore_brine, ItemBlockLore.class);\r\n\t\tregister(ore_brine_empty, ItemBlockLore.class);\r\n\t\tregister(ore_tekto, ItemBlockLore.class);\r\n\t\tregister(ore_tekto_empty, ItemBlockLore.class);\r\n"
+        },
+        {
+          "before_offset": 285306,
+          "after_offset": 279244,
+          "old": "\t\tGameRegistry.registerBlock(ore_australium, ItemBlockBase.class, ore_australium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_rare, ItemBlockBase.class, ore_rare.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_cobalt, ItemBlockBase.class, ore_cobalt.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_cinnebar, ItemBlockBase.class, ore_cinnebar.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_coltan, ItemBlockBase.class, ore_coltan.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(ore_lanthanium, ItemBlockBase.class, ore_lanthanium.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(ore_australium);\r\n\t\tregister(ore_rare);\r\n\t\tregister(ore_cobalt);\r\n\t\tregister(ore_cinnebar);\r\n\t\tregister(ore_coltan);\r\n\t\tregister(ore_lanthanium);\r\n"
+        },
+        {
+          "before_offset": 285926,
+          "after_offset": 279424,
+          "old": "\t\tGameRegistry.registerBlock(cluster_iron, ItemBlockBase.class, cluster_iron.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(cluster_titanium, ItemBlockBase.class, cluster_titanium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(cluster_aluminium, ItemBlockBase.class, cluster_aluminium.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(cluster_copper, ItemBlockBase.class, cluster_copper.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(cluster_iron);\r\n\t\tregister(cluster_titanium);\r\n\t\tregister(cluster_aluminium);\r\n\t\tregister(cluster_copper);\r\n"
+        },
+        {
+          "before_offset": 286372,
+          "after_offset": 279563,
+          "old": "\t\tGameRegistry.registerBlock(ore_bedrock_oil, ItemBlockBase.class, ore_bedrock_oil.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(ore_bedrock_oil);\r\n"
+        },
+        {
+          "before_offset": 299830,
+          "after_offset": 292944,
+          "old": "\t\tGameRegistry.registerBlock(deco_titanium, deco_titanium.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(deco_titanium, ItemBlock.class);\r\n"
+        },
+        {
+          "before_offset": 338610,
+          "after_offset": 331687,
+          "old": "\t\tGameRegistry.registerBlock(red_cable_paintable, red_cable_paintable.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(red_cable_paintable, ItemBlock.class);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java": {
+      "before_sha256": "54ae2215592894224fdf36fbbac676ab6ee368037dd33686aea1db62edd3451c",
+      "after_sha256": "b3d9c629e750482369d9dba89fd90737ca628729fdaabcae59fcdc8bf52d3097",
+      "edits": [
+        {
+          "before_offset": 156,
+          "after_offset": 156,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 521,
+          "after_offset": 561,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 872,
+          "after_offset": 861,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1363,
+          "after_offset": 1310,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1644,
+          "after_offset": 1557,
+          "old": "",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityBedrockOre) {\n            TileEntityBedrockOre ore = (TileEntityBedrockOre) tile;\n            return MultipassContext.of(metadata, null, true, ore.color, ore.shape, 6, 6, 0);\n        }\n        return MultipassContext.basic(metadata);\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1675,
+          "after_offset": 3285,
+          "old": "\t\tsuper(Material.rock);\r\n\t\tthis.setBlockTextureName(\"bedrock\");\r\n",
+          "new": "\t\tsuper(Material.ROCK);\n"
+        },
+        {
+          "before_offset": 3769,
+          "after_offset": 5338,
+          "old": "\t@Override\r\n\tpublic int getRenderType(){\r\n\t\treturn IBlockMultiPass.getRenderType();\r\n\t}\r\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 3918,
+          "after_offset": 5399,
+          "old": "\tprivate IIcon[] overlays = new IIcon[10];\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3964,
+          "after_offset": 5401,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic void registerBlockIcons(IIconRegister reg) {\r\n\t\t\r\n\t\tthis.blockIcon = reg.registerIcon(\"bedrock\");\r\n\t\tfor(int i = 0; i < overlays.length; i++) {\r\n\t\t\toverlays[i] = reg.registerIcon(RefStrings.MODID + \":ore_random_\" + (i + 1));\r\n\t\t}\r\n\t}\r\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 4247,
+          "after_offset": 5405,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\r\n\t\t\r\n\t\tif(RenderBlockMultipass.currentPass == 0)\r\n\t\t\treturn Blocks.bedrock.getIcon(0, 0);\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4452,
+          "after_offset": 5407,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\r\n\t\t\r\n\t\tif(te instanceof TileEntityBedrockOre) {\r\n\t\t\tTileEntityBedrockOre ore = (TileEntityBedrockOre) te;\r\n\t\t\tint index = ore.shape % overlays.length;\r\n\t\t\treturn overlays[index];\r\n\t\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4687,
+          "after_offset": 5409,
+          "old": "\t\treturn Blocks.bedrock.getIcon(0, 0);\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4733,
+          "after_offset": 5411,
+          "old": "\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(int side, int meta) {\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4805,
+          "after_offset": 5413,
+          "old": "\t\tif(RenderBlockMultipass.currentPass == 0)\r\n\t\t\treturn Blocks.bedrock.getIcon(0, 0);\r\n\t\t\r\n\t\tint index = meta % overlays.length;\r\n\t\treturn overlays[index];\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4967,
+          "after_offset": 5415,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic int colorMultiplier(IBlockAccess world, int x, int y, int z) {\r\n\t\t\r\n\t\tif(RenderBlockMultipass.currentPass == 0)\r\n\t\t\treturn 0xffffff;\r\n\r\n\t\tTileEntity te = world.getTileEntity(x, y, z);\r\n\t\t\r\n\t\tif(te instanceof TileEntityBedrockOre) {\r\n\t\t\tTileEntityBedrockOre ore = (TileEntityBedrockOre) te;\r\n\t\t\treturn ore.color;\r\n\t\t}\r\n\t\t\r\n\t\treturn super.colorMultiplier(world, x, y, z);\r\n\t}\r\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFissure.java": {
+      "before_sha256": "fbbafef5fc4b1b8876670ea377b68e04188ae0f223066107dc8358035692dd0d",
+      "after_sha256": "ea735255809091cb3cd6328e2bcb612272492b47a08b3a70d2fb9b76908c79f3",
+      "edits": [
+        {
+          "before_offset": 141,
+          "after_offset": 141,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 333,
+          "after_offset": 373,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 619,
+          "after_offset": 609,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 739,
+          "after_offset": 687,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 922,
+          "after_offset": 836,
+          "old": "\tprivate IIcon overlay;\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n\n\n"
+        },
+        {
+          "before_offset": 972,
+          "after_offset": 1999,
+          "old": "\t\tsuper(Material.rock);\n\t\tthis.setBlockTextureName(\"bedrock\");\n",
+          "new": "\t\tsuper(Material.ROCK);\n"
+        },
+        {
+          "before_offset": 1132,
+          "after_offset": 2120,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1221,
+          "after_offset": 2121,
+          "old": "\t\tthis.blockIcon = reg.registerIcon(\"bedrock\");\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":molten_overlay\");\n\t}\n",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 1357,
+          "after_offset": 2135,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\n\t\tif(RenderBlockMultipass.currentPass == 0)\n\t\t\treturn Blocks.bedrock.getIcon(0, 0);\n\n\t\treturn this.overlay;\n\t}\n\n\t@Override\n\tpublic void updateTick(World world, int x, int y, int z, Random rand) {\n\t\tboolean crater = world.getBlockMetadata(x, y, z) != 0;\n\t\tif(world.getBlock(x, y + 1, z).isReplaceable(world, x, y + 1, z)) world.setBlock(x, y + 1, z, crater ? ModBlocks.rad_lava_block : ModBlocks.volcanic_lava_block);\n",
+          "new": "\tpublic void updateTick(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, Random rand) {\n        boolean crater = world.getBlockState(pos).getBlock().getMetaFromState(world.getBlockState(pos)) != 0;\n        net.minecraft.util.math.BlockPos above = pos.up();\n        if(world.getBlockState(above).getBlock().isReplaceable(world, above)) world.setBlockState(above, (crater ? ModBlocks.rad_lava_block : ModBlocks.volcanic_lava_block).getDefaultState());\n"
+        },
+        {
+          "before_offset": 1972,
+          "after_offset": 2761,
+          "old": "\t@Override\n\tpublic int getRenderType(){\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOre.java": {
+      "before_sha256": "86e288e49c3856fa0fa3aae0c49f3ee481e8372370cfedca3586e20861188c77",
+      "after_sha256": "f7a68d5dbd3ec0a748190b442b561ac68fafc5af968758cf07189a6718a31666",
+      "edits": [
+        {
+          "before_offset": 252,
+          "after_offset": 252,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 469,
+          "after_offset": 509,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 733,
+          "after_offset": 723,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1104,
+          "after_offset": 1052,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1310,
+          "after_offset": 1224,
+          "old": "",
+          "new": "    public BlockOre withSoundType(net.minecraft.block.SoundType sound) { setSoundType(sound); return this; }\n\n\n    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n\n"
+        },
+        {
+          "before_offset": 1393,
+          "after_offset": 2554,
+          "old": "\tprotected IIcon[] stoneIcons;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4811,
+          "after_offset": 5941,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\t// blockIcon is the ore texture\n\t\tsuper.registerBlockIcons(reg);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4967,
+          "after_offset": 5942,
+          "old": "\t\tstoneIcons = new IIcon[SolarSystem.Body.values().length];\n\t\tstoneIcons[0] = reg.registerIcon(\"stone\");\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5073,
+          "after_offset": 5943,
+          "old": "\t\tfor(int i = 1; i < SolarSystem.Body.values().length; i++) {\n\t\t\tSolarSystem.Body body = SolarSystem.Body.values()[i];\n\t\t\tstoneIcons[i] = reg.registerIcon(body.getStoneTexture().toString().replaceAll(\"textures/blocks/\", \"\").replaceAll(\"\\\\.png\", \"\"));\n\t\t}\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5332,
+          "after_offset": 5944,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n\t\tif(RenderBlockMultipass.currentPass == 0) {\n\t\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\treturn stoneIcons[meta % stoneIcons.length];\n\t\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5588,
+          "after_offset": 5945,
+          "old": "\t\treturn blockIcon;\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5612,
+          "after_offset": 5946,
+          "old": "\t@Override\n    @SideOnly(Side.CLIENT)\n    public IIcon getIcon(int side, int meta) {\n\t\tif(RenderBlockMultipass.currentPass == 0) {\n\t\t\treturn stoneIcons[meta % stoneIcons.length];\n\t\t}\n\n\t\treturn blockIcon;\n    }\n",
+          "new": ""
+        },
+        {
+          "before_offset": 7768,
+          "after_offset": 7892,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java": {
+      "before_sha256": "7183ee78c849798cbf170c71a51d70746c191064c76ec13f500062605ce80158",
+      "after_sha256": "b280082803ef8f529a6aa08a09e310b3129c0096fb0b0e5063ee2b0a81c3eed4",
+      "edits": [
+        {
+          "before_offset": 98,
+          "after_offset": 98,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 162,
+          "after_offset": 202,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 357,
+          "after_offset": 347,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 464,
+          "after_offset": 412,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 674,
+          "after_offset": 588,
+          "old": "",
+          "new": "    public BlockSellafieldOre withSoundType(net.minecraft.block.SoundType sound) { setSoundType(sound); return this; }\n\n\n    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        long l = (long) (pos.getX() * 3129871) ^ (long) pos.getY() * 116129781L ^ (long) pos.getZ();\n        l = l * l * 42317861L + l * 11L;\n        return MultipassContext.of(metadata, null, false, java.awt.Color.HSBtoRGB(0F, 0F, 1F - metadata / 15F), 0, 6, 6, (int)(l >> 16 & 3L));\n    }\n\n"
+        },
+        {
+          "before_offset": 736,
+          "after_offset": 2429,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(this.getTextureName());\n\t\tsuper.registerBlockIcons(reg);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 921,
+          "after_offset": 2430,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1008,
+          "after_offset": 2431,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n\t\tif(RenderBlockMultipass.currentPass == 1) return this.blockIcon;\n\t\treturn super.getIcon(world, x, y, z, side);\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1235,
+          "after_offset": 2432,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\t\tif(RenderBlockMultipass.currentPass == 1) return this.blockIcon;\n\t\treturn icons[0];\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1404,
+          "after_offset": 2433,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic int colorMultiplier(IBlockAccess world, int x, int y, int z) {\n\t\tif(RenderBlockMultipass.currentPass == 1) return 0xffffff;\n\t\treturn super.colorMultiplier(world, x, y, z);\n\t}\n",
+          "new": "\n\n\n\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockCableGauge.java": {
+      "before_sha256": "ed8e58c8d6135e2281fb1c9e3c90bb07169022c527945698386f53ff0c481e57",
+      "after_sha256": "e9fea2c944998c61b39c44b25692d0414011a2cef82dd2be9d438e371d3bf870",
+      "edits": [
+        {
+          "before_offset": 163,
+          "after_offset": 163,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 308,
+          "after_offset": 348,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1010,
+          "after_offset": 1000,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1228,
+          "after_offset": 1176,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1595,
+          "after_offset": 1509,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon overlayGauge;\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1678,
+          "after_offset": 2675,
+          "old": "\t\tsuper(Material.iron);\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1822,
+          "after_offset": 2819,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":deco_red_copper\");\n\t\tthis.overlayGauge = reg.registerIcon(RefStrings.MODID + \":cable_gauge\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2065,
+          "after_offset": 2820,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2176,
+          "after_offset": 2821,
+          "old": "\t\tif(RenderBlockMultipass.currentPass == 0) {\n\t\t\treturn blockIcon;\n\t\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2248,
+          "after_offset": 2822,
+          "old": "\t\treturn side == world.getBlockMetadata(x, y, z) ? this.overlayGauge : this.blockIcon;\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3477,
+          "after_offset": 3961,
+          "old": "\t@Override\n\tpublic int getRenderType(){\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": {
+      "before_sha256": "864bf2d302db722aa95d5a5435ab0e4846aa5724cfa1a3701d4c9683a3bbd386",
+      "after_sha256": "4bdb18d325799a8f9f7da00b50cc0ff3983daed7152f605306a2e1e465b5de38",
+      "edits": [
+        {
+          "before_offset": 108,
+          "after_offset": 108,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 178,
+          "after_offset": 218,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 513,
+          "after_offset": 502,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 915,
+          "after_offset": 862,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1127,
+          "after_offset": 1040,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon overlay;\r\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityCablePaintable) {\n            TileEntityCablePaintable pipe = (TileEntityCablePaintable) tile;\n            return MultipassContext.of(metadata, pipe.block == null ? null : pipe.block.getStateFromMeta(pipe.meta), true, 0xffffff, 0, 6, 6, 0);\n        }\n        return MultipassContext.basic(metadata);\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1212,
+          "after_offset": 2838,
+          "old": "\t\tsuper(Material.iron);\r\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1368,
+          "after_offset": 2993,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic void registerBlockIcons(IIconRegister reg) {\r\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":red_cable_base\");\r\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":red_cable_overlay\");\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1618,
+          "after_offset": 2995,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\r\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1784,
+          "after_offset": 2997,
+          "old": "\t\tif(tile instanceof TileEntityCablePaintable) {\r\n\t\t\tTileEntityCablePaintable pipe = (TileEntityCablePaintable) tile;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1905,
+          "after_offset": 2999,
+          "old": "\t\t\tif(pipe.block != null) {\r\n\t\t\t\tif(RenderBlockMultipass.currentPass == 1) {\r\n\t\t\t\t\treturn this.overlay;\r\n\t\t\t\t} else {\r\n\t\t\t\t\treturn pipe.block.getIcon(side, pipe.meta);\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn RenderBlockMultipass.currentPass == 1 ? this.overlay : this.blockIcon;\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3816,
+          "after_offset": 4636,
+          "old": "\t@Override\r\n\tpublic int getRenderType(){\r\n\t\treturn IBlockMultiPass.getRenderType();\r\n\t}\r\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": {
+      "before_sha256": "065fa312d0410407c8c50d843d66baec669d4271095dff2ef7ad3d42f5d02851",
+      "after_sha256": "78ec23445142e4d7f2d3212ec9207ce84c9e54b358e7d4a4d23b25d5f8fb2047",
+      "edits": [
+        {
+          "before_offset": 108,
+          "after_offset": 108,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 178,
+          "after_offset": 218,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 547,
+          "after_offset": 536,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 914,
+          "after_offset": 861,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1559,
+          "after_offset": 1472,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon overlay;\r\n\t@SideOnly(Side.CLIENT) protected IIcon overlayColor;\r\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityOpenComputersCablePaintable) {\n            TileEntityOpenComputersCablePaintable pipe = (TileEntityOpenComputersCablePaintable) tile;\n            return MultipassContext.of(metadata, pipe.block == null ? null : pipe.block.getStateFromMeta(pipe.meta), true, pipe.getColor(), 0, 6, 6, 0);\n        }\n        return MultipassContext.basic(metadata);\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1712,
+          "after_offset": 3329,
+          "old": "\t\tsuper(Material.iron);\r\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1881,
+          "after_offset": 3497,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic void registerBlockIcons(IIconRegister reg) {\r\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":oc_cable_base\");\r\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":oc_cable_overlay\");\r\n\t\tthis.overlayColor = reg.registerIcon(RefStrings.MODID + \":oc_cable_color\");\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2208,
+          "after_offset": 3499,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\r\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2374,
+          "after_offset": 3501,
+          "old": "\t\tif(tile instanceof TileEntityOpenComputersCablePaintable) {\r\n\t\t\tTileEntityOpenComputersCablePaintable pipe = (TileEntityOpenComputersCablePaintable) tile;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2534,
+          "after_offset": 3503,
+          "old": "\t\t\tif(pipe.block != null) {\r\n\t\t\t\tif(RenderBlockMultipass.currentPass == 1) {\r\n\t\t\t\t\treturn this.overlay;\r\n\t\t\t\t} else if(RenderBlockMultipass.currentPass == 2) {\r\n\t\t\t\t\treturn this.overlayColor;\r\n\t\t\t\t} else {\r\n\t\t\t\t\treturn pipe.block.getIcon(side, pipe.meta);\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2811,
+          "after_offset": 3505,
+          "old": "\t\treturn RenderBlockMultipass.currentPass == 1 ? this.overlay : RenderBlockMultipass.currentPass == 2 ? this.overlayColor : this.blockIcon;\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2958,
+          "after_offset": 3507,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic int colorMultiplier(IBlockAccess world, int x, int y, int z) {\r\n\t\tif (RenderBlockMultipass.currentPass == 2) {\r\n\t\t\tTileEntityOpenComputersCablePaintable tile = (TileEntityOpenComputersCablePaintable) world.getTileEntity(x, y, z);\r\n\t\t\tif (tile == null)\r\n\t\t\t\treturn 0xffffff;\r\n\r\n\t\t\treturn tile.getColor();\r\n\t\t}\r\n\r\n\t\treturn 0xffffff;\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5484,
+          "after_offset": 5652,
+          "old": "\t@Override\r\n\tpublic int getRenderType(){\r\n\t\treturn IBlockMultiPass.getRenderType();\r\n\t}\r\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CraneRouter.java": {
+      "before_sha256": "67c438af445f9da9295de8d5009000ce425ccfc1ba688b2f65f83c0b26c6e2d2",
+      "after_sha256": "069c0c74cd1481e7934d78d566a0b5c61c1d79377cde57ea6f5c510f0a62d97f",
+      "edits": [
+        {
+          "before_offset": 233,
+          "after_offset": 233,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 519,
+          "after_offset": 559,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 920,
+          "after_offset": 910,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1137,
+          "after_offset": 1085,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1485,
+          "after_offset": 1399,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon iconOverlay;\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public boolean shouldSideBeRendered(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) { return true; }\n\n\n"
+        },
+        {
+          "before_offset": 1563,
+          "after_offset": 2787,
+          "old": "\t\tsuper(Material.iron);\n\t\tthis.setBlockTextureName(RefStrings.MODID + \":crane_in\");\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1768,
+          "after_offset": 2932,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconOverlay = iconRegister.registerIcon(RefStrings.MODID + \":crane_router_overlay\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2003,
+          "after_offset": 2933,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn RenderBlockMultipass.currentPass == 0 ? this.blockIcon : this.iconOverlay;\n\t}\n",
+          "new": "\n\n"
+        },
+        {
+          "before_offset": 2651,
+          "after_offset": 3413,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic int colorMultiplier(IBlockAccess world, int x, int y, int z) {\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2758,
+          "after_offset": 3414,
+          "old": "\t\tif(RenderBlockMultipass.currentPass == 0)\n\t\t\treturn 0xffffff;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2823,
+          "after_offset": 3415,
+          "old": "\t\tswitch(RenderBlockMultipass.currentPass - 1) {\n\t\tcase 0: return 0xff0000;\n\t\tcase 1: return 0xff8000;\n\t\tcase 2: return 0xffff00;\n\t\tcase 3: return 0x00ff00;\n\t\tcase 4: return 0x0080ff;\n\t\tcase 5: return 0x8000ff;\n\t\tdefault: return 0xffffff;\n\t\t}\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3070,
+          "after_offset": 3416,
+          "old": "\t@Override\n\tpublic int getRenderType(){\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3343,
+          "after_offset": 3604,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3469,
+          "after_offset": 3605,
+          "old": "\t\tif(RenderBlockMultipass.currentPass == 0)\n\t\t\treturn true;\n\n\t\treturn side == RenderBlockMultipass.currentPass - 1;\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctGauge.java": {
+      "before_sha256": "acd88b89f19f1a8628f211528b38bf4ec3e218cf815fb3db3941181f10c3203c",
+      "after_sha256": "b99b5fd5b91a169418241289f7d79adfc9d2bd5fb2429651cffa0db39b19439d",
+      "edits": [
+        {
+          "before_offset": 162,
+          "after_offset": 162,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 346,
+          "after_offset": 386,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 971,
+          "after_offset": 961,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1189,
+          "after_offset": 1137,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1579,
+          "after_offset": 1493,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon overlay;\n\t@SideOnly(Side.CLIENT) protected IIcon overlayGauge;\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1710,
+          "after_offset": 2658,
+          "old": "\t\tsuper(Material.iron);\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1853,
+          "after_offset": 2801,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":deco_steel\");\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":fluid_duct_paintable_overlay\");\n\t\tthis.overlayGauge = reg.registerIcon(RefStrings.MODID + \":pipe_gauge\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2177,
+          "after_offset": 2802,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2288,
+          "after_offset": 2803,
+          "old": "\t\tif(RenderBlockMultipass.currentPass == 0) {\n\t\t\treturn blockIcon;\n\t\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2360,
+          "after_offset": 2804,
+          "old": "\t\treturn side == world.getBlockMetadata(x, y, z) ? this.overlayGauge : this.overlay;\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3542,
+          "after_offset": 3898,
+          "old": "\t@Override\n\tpublic int getRenderType(){\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": {
+      "before_sha256": "49741d74e1f9b666f8e93dd14379a054bf1d89064fcb8e1bcc6d820b06eaffd2",
+      "after_sha256": "56533dc50aa2250ffcb34104efe92df5a47dc97e3f67625b72842a8088903b23",
+      "edits": [
+        {
+          "before_offset": 104,
+          "after_offset": 104,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 208,
+          "after_offset": 248,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 528,
+          "after_offset": 518,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 778,
+          "after_offset": 726,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1116,
+          "after_offset": 1030,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon overlay;\n\t@SideOnly(Side.CLIENT) protected IIcon overlayColor;\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityPipePaintable) {\n            TileEntityPipePaintable pipe = (TileEntityPipePaintable) tile;\n            return MultipassContext.of(metadata, pipe.block == null ? null : pipe.block.getStateFromMeta(pipe.meta), true, pipe.getType().getColor(), 0, 6, 6, 0);\n        }\n        return MultipassContext.basic(metadata);\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1251,
+          "after_offset": 2839,
+          "old": "\t\tsuper(Material.iron);\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1398,
+          "after_offset": 2986,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":fluid_duct_paintable\");\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":fluid_duct_paintable_overlay\");\n\t\tthis.overlayColor = reg.registerIcon(RefStrings.MODID + \":fluid_duct_paintable_color\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1748,
+          "after_offset": 2987,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1909,
+          "after_offset": 2988,
+          "old": "\t\tif(tile instanceof TileEntityPipePaintable) {\n\t\t\tTileEntityPipePaintable pipe = (TileEntityPipePaintable) tile;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2024,
+          "after_offset": 2989,
+          "old": "\t\t\tif(pipe.block != null) {\n\t\t\t\tif(RenderBlockMultipass.currentPass == 1) {\n\t\t\t\t\treturn this.overlay;\n\t\t\t\t} else {\n\t\t\t\t\treturn pipe.block.getIcon(side, pipe.meta);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2204,
+          "after_offset": 2990,
+          "old": "\t\treturn RenderBlockMultipass.currentPass == 1 ? this.overlayColor : this.blockIcon;\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2293,
+          "after_offset": 2991,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic int colorMultiplier(IBlockAccess world, int x, int y, int z) {\n\n\t\tif(RenderBlockMultipass.currentPass == 0)\n\t\t\treturn 0xffffff;\n\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\n\n\t\tif(tile instanceof TileEntityPipePaintable) {\n\t\t\tTileEntityPipePaintable pipe = (TileEntityPipePaintable) tile;\n\n\t\t\tif(pipe.block == null) {\n\t\t\t\treturn pipe.getType().getColor();\n\t\t\t}\n\t\t}\n\n\t\treturn 0xffffff;\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4153,
+          "after_offset": 4415,
+          "old": "\t@Override\n\tpublic int getRenderType(){\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": {
+      "before_sha256": "b771fed5444abababc36ef1e8fe5968a91b37a59fb6604caf33466e885b55d98",
+      "after_sha256": "402dd4e069119c6d09b62450f0f08dbfde1554be4f2921131b17b4d4b7c5e7f3",
+      "edits": [
+        {
+          "before_offset": 110,
+          "after_offset": 110,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 257,
+          "after_offset": 297,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 586,
+          "after_offset": 575,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 953,
+          "after_offset": 900,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1310,
+          "after_offset": 1223,
+          "old": "",
+          "new": "\n    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityPipeExhaustPaintable) {\n            TileEntityPipeExhaustPaintable pipe = (TileEntityPipeExhaustPaintable) tile;\n            return MultipassContext.of(metadata, pipe.block == null ? null : pipe.block.getStateFromMeta(pipe.meta), true, 0xffffff, 0, 6, 6, 0);\n        }\n        return MultipassContext.basic(metadata);\n    }\n\n"
+        },
+        {
+          "before_offset": 1313,
+          "after_offset": 3007,
+          "old": "\t@SideOnly(Side.CLIENT) protected IIcon overlay;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1410,
+          "after_offset": 3054,
+          "old": "        super(Material.iron);\r\n",
+          "new": "        super(Material.IRON);\n"
+        },
+        {
+          "before_offset": 1579,
+          "after_offset": 3222,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic void registerBlockIcons(IIconRegister reg) {\r\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":fluid_duct_paintable_block_exhaust\");\r\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":fluid_duct_paintable_overlay\");\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1860,
+          "after_offset": 3224,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\r\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2026,
+          "after_offset": 3226,
+          "old": "\t\tif(tile instanceof TileEntityPipeExhaustPaintable) {\r\n\t\t\tTileEntityPipeExhaustPaintable pipe = (TileEntityPipeExhaustPaintable) tile;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2165,
+          "after_offset": 3228,
+          "old": "\t\t\tif(pipe.block != null) {\r\n\t\t\t\tif(RenderBlockMultipass.currentPass == 1) {\r\n\t\t\t\t\treturn this.overlay;\r\n\t\t\t\t} else {\r\n\t\t\t\t\treturn pipe.block.getIcon(side, pipe.meta);\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn this.blockIcon;\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3910,
+          "after_offset": 4754,
+          "old": "\t@Override\r\n\tpublic int getRenderType(){\r\n\t\treturn IBlockMultiPass.getRenderType();\r\n\t}\r\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": {
+      "before_sha256": "cba0f187bd9235556d2441e16f272f26d63feb48d1255ab99e501cf77985fa6e",
+      "after_sha256": "7832a0822cf5a5541b1014773f590ad631e32a60f5a091e44713267dfe46aca1",
+      "edits": [
+        {
+          "before_offset": 108,
+          "after_offset": 108,
+          "old": "",
+          "new": "import com.hbm.blocks.MultipassContext;\n"
+        },
+        {
+          "before_offset": 213,
+          "after_offset": 253,
+          "old": "import com.hbm.render.block.RenderBlockMultipass;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 650,
+          "after_offset": 639,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1061,
+          "after_offset": 1008,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1355,
+          "after_offset": 1268,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon overlay;\r\n\t@SideOnly(Side.CLIENT) public IIcon overlayIn;\r\n\t@SideOnly(Side.CLIENT) public IIcon overlayOut;\r\n",
+          "new": "    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }\n    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }\n    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));\n    }\n    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n        int metadata = getMetaFromState(state);\n        TileEntity tile = world.getTileEntity(pos);\n        if(tile instanceof TileEntityPneumoTubePaintable) {\n            TileEntityPneumoTubePaintable tube = (TileEntityPneumoTubePaintable) tile;\n            return MultipassContext.of(metadata, tube.block == null ? null : tube.block.getStateFromMeta(tube.meta), true, 0xffffff, 0, tube.ejectionDir.ordinal(), tube.insertionDir.ordinal(), 0);\n        }\n        return MultipassContext.basic(metadata);\n    }\n"
+        },
+        {
+          "before_offset": 1503,
+          "after_offset": 3097,
+          "old": "\tpublic PneumoTubePaintableBlock() { super(Material.iron); }\r\n",
+          "new": "\n\n\tpublic PneumoTubePaintableBlock() { super(Material.IRON); }\n"
+        },
+        {
+          "before_offset": 1692,
+          "after_offset": 3287,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic void registerBlockIcons(IIconRegister reg) {\r\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":pneumatic_tube_paintable\");\r\n\t\tthis.overlay = reg.registerIcon(RefStrings.MODID + \":pneumatic_tube_paintable_overlay\");\r\n\t\tthis.overlayIn = reg.registerIcon(RefStrings.MODID + \":pneumatic_tube_paintable_overlay_in\");\r\n\t\tthis.overlayOut = reg.registerIcon(RefStrings.MODID + \":pneumatic_tube_paintable_overlay_out\");\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2163,
+          "after_offset": 3289,
+          "old": "\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\r\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2329,
+          "after_offset": 3291,
+          "old": "\t\tif(tile instanceof TileEntityPneumoTubePaintable) {\r\n\t\t\tTileEntityPneumoTubePaintable tube = (TileEntityPneumoTubePaintable) tile;\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2465,
+          "after_offset": 3293,
+          "old": "\t\t\tif(RenderBlockMultipass.currentPass == 0) {\r\n\t\t\t\tif(tube.block != null) {\r\n\t\t\t\t\treturn tube.block.getIcon(side, tube.meta);\r\n\t\t\t\t} else {\r\n\t\t\t\t\treturn this.blockIcon;\r\n\t\t\t\t}\r\n\t\t\t} else if(tube.ejectionDir.ordinal() == side) {\r\n\t\t\t\treturn this.overlayIn;\r\n\t\t\t} else if(tube.insertionDir.ordinal() == side) {\r\n\t\t\t\treturn this.overlayOut;\r\n\t\t\t} else {\r\n\t\t\t\treturn this.overlay;\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn this.blockIcon;\r\n\t}\r\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2939,
+          "after_offset": 3347,
+          "old": "\t@Override\r\n\tpublic int getRenderType() {return IBlockMultiPass.getRenderType();}\r\n",
+          "new": "\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSlicePrinter.java": {
+      "before_sha256": "32f559312ab4a73377e1dfda4663bc088d6ef77e563aa13fb9197876df48bed7",
+      "after_sha256": "47c9e99a45f6d4bfd922df92985e3d02c39713988fe617dfddad06a6d9d26864",
+      "edits": [
+        {
+          "before_offset": 375,
+          "after_offset": 375,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.block.state.IBlockState;\nimport com.hbm.render.util.NativeSceneBlockDraw;\n"
+        },
+        {
+          "before_offset": 917,
+          "after_offset": 1173,
+          "old": "\tprivate RenderBlocks renderer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1810,
+          "after_offset": 2034,
+          "old": "\t\tif(renderer == null) {\n\t\t\tthis.renderer = new RenderBlocks(mc.theWorld);\n\t\t}\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2124,
+          "after_offset": 2268,
+          "old": "\t\t\tmc.thePlayer.closeScreen();\n",
+          "new": "\t\t\tmc.player.closeScreen();\n"
+        },
+        {
+          "before_offset": 2220,
+          "after_offset": 2361,
+          "old": "\t\t\tmc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);\n\t\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\t\tTessellator.instance.startDrawingQuads();\n",
+          "new": "\t\t\tmc.getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n\t\t\tGlStateManager.shadeModel(GL11.GL_SMOOTH);\n\t\t\tBufferBuilder buffer = Tessellator.getInstance().getBuffer();\n\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);\n"
+        },
+        {
+          "before_offset": 2450,
+          "after_offset": 2681,
+          "old": "\t\t\t\t\tBlock block = mc.theWorld.getBlock(x1 + x, y1 + yIndex, z1 + z);\n",
+          "new": "\t\t\t\t\tBlockPos source = new BlockPos(x1 + x, y1 + yIndex, z1 + z);\n\t\t\t\t\tBlock block = mc.world.getBlockState(source).getBlock();\n"
+        },
+        {
+          "before_offset": 2684,
+          "after_offset": 2973,
+          "old": "\t\t\t\t\t\tTileEntity tile = mc.theWorld.getTileEntity(x1 + x, y1 + yIndex, z1 + z);\n",
+          "new": "\t\t\t\t\t\tTileEntity tile = mc.world.getTileEntity(source);\n"
+        },
+        {
+          "before_offset": 3343,
+          "after_offset": 3608,
+          "old": "\t\t\t\t\trenderer.renderBlockByRenderType(block, dx, 0, dz);\n",
+          "new": "\t\t\t\t\t// Original RenderBlocks read metadata at the destination, not source.\n\t\t\t\t\tBlockPos destination = new BlockPos(dx, 0, dz);\n\t\t\t\t\tIBlockState state = NativeSceneBlockDraw.sliceState(block, mc.world, destination);\n\t\t\t\t\tNativeSceneBlockDraw.append(mc.world, state, destination, buffer);\n"
+        },
+        {
+          "before_offset": 3412,
+          "after_offset": 3909,
+          "old": "\t\t\tTessellator.instance.draw();\n\t\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\t\tTessellator.getInstance().draw();\n\t\t\tGlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 3508,
+          "after_offset": 4018,
+          "old": "\t\tFile printerDir = new File(mc.mcDataDir, \"printer\");\n",
+          "new": "\t\tFile printerDir = new File(mc.gameDir, \"printer\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "309409b7a45e191567b55acfd6843b87306fad4fbdf4224bbfff60da8c53c2cb",
+      "after_sha256": "1fee6ae38ccc5edba5571c5c26fafe70067cc7158cd61e5914f736b502c3c21f",
+      "edits": [
+        {
+          "before_offset": 80232,
+          "after_offset": 80232,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderBlockMultipass());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderBlockMultipass.java": {
+      "before_sha256": "fc98e211efbe407f596bd434f068bb67aa8765d6f23fe15bb4cc4abb6921ed17",
+      "after_sha256": "b31f8bfa884a1d5a5ebb32ddc645f688b030b70b12df3a6cfde53c5711e02271",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport java.util.function.Function;\nimport com.hbm.blocks.MultipassContext;\nimport com.hbm.render.block.ct.RenderBlocksCT;\nimport com.hbm.render.block.multipass.MultipassMaterials;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport com.hbm.render.util.NativeBlockMaterial;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.client.renderer.block.model.*;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.ResourceLocation;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport org.lwjgl.util.vector.Vector3f;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 692,
+          "old": "import com.hbm.blocks.IBlockMultiPass;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderBlockMultipass implements ISimpleBlockRenderingHandler {\n\n\t/**\n\t * First I wanted to pass the current render pass in the methods for getting color and icon, but the later one would have to work with\n\t * texture overrides which would either break sided textures or force me to implement renderStandardBlock myself, so that's a big nono.\n\t * So I made a static variable for the current render pass so that Block.getIcon could use it while still minding sides. Great, I put it\n\t * into IBlockMultiPass because that's the only logical place I could put it since I intend to use IBlockMultiPass for more rendering\n\t * handlers than just this one and BOOM, primitive fields in interfaces are implicitly final. Why? Because \"functionality in interfaces\n\t * bad\", or so the HeckOverflow people are trying to tell me. Mh-hm, holding a single static value is \"functionality\" now, and functionality\n\t * in interfaces is very very bad in a language that allows interfaces to define a default behavior that is LITERALLY FULLY FUNCTIONAL\n\t * METHODS. Statistically speaking I, the individual, should be wrong and many people who - supposedly - know what they're talking about\n\t * should be right, but if you ask me there's something off about this whole ordeal. I don't know.\n\t */\n\tpublic static int currentPass = 0;\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tblock.setBlockBoundsForItemRender();\n\t\trenderer.setRenderBoundsFromBlock(block);\n\t\tGL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\t\tIBlockMultiPass multi = (IBlockMultiPass) block;\n\t\t\n\t\tfor(int i = 0; i < (multi.shouldRenderItemMulti() ? multi.getPasses() : 1); i++) {\n\t\t\tcurrentPass = i;\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, -1.0F, 0.0F);\n\t\t\trenderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\trenderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 0.0F, -1.0F);\n\t\t\trenderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 0.0F, 1.0F);\n\t\t\trenderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(-1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));\n\t\t\ttessellator.draw();\n\t\t}\n\t\t\n\t\t/** terrible hack to make this shit work */\n\t\t/*if(block == ModBlocks.ore_random) {\n\n\t\t\tcurrentPass = 1;\n\t\t\trenderer.setOverrideBlockTexture(block.getIcon(0, metadata));\n\t\t\tcurrentPass = 0;\n\t\t\tComparableStack stack = BlockMotherOfAllOres.itemMap.get(metadata);\n\t\t\tint color = ColorUtil.getAverageColorFromStack(stack != null ? stack.toStack() : new ItemStack(ModItems.nothing));\n\t\t\tcolor = ColorUtil.amplifyColor(color);\n\t\t\t\n\t\t\tColor col = new Color(color);\n\t\t\tint r = col.getRed();\n\t\t\tint g = col.getGreen();\n\t\t\tint b = col.getBlue();\n\t\t\t\n\t\t\tfloat[] hsb = new Color(color).RGBtoHSB(r, g, b, new float[3]);\n\t\t\t\n\t\t\tif(hsb[1] > 0F && hsb[1] < 0.75F)\n\t\t\t\thsb[1] = 0.75F;\n\t\t\t\n\t\t\tcolor = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);\n\t\t\tcol = new Color(color);\n\t\t\t\n\t\t\tGL11.glColor3f(col.getRed() / 255F, col.getGreen() / 255F, col.getBlue() / 255F);\n\t\t\t\n\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, -1.0F, 0.0F);\n\t\t\trenderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\trenderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 0.0F, -1.0F);\n\t\t\trenderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(0.0F, 0.0F, 1.0F);\n\t\t\trenderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(-1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));\n\t\t\t//yer welcome to PR an improvement\n\t\t\t//tessellator.draw();\n\t\t\t//tessellator.startDrawingQuads();\n\t\t\ttessellator.setNormal(1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));\n\t\t\ttessellator.draw();\n\t\t\t\n\t\t\trenderer.clearOverrideBlockTexture();\n\t\t\tGL11.glColor3f(1F, 1F, 1F);\n\t\t}*/\n\t\t\n\t\tGL11.glTranslatef(0.5F, 0.5F, 0.5F);\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\t\n\t\tif(!(block instanceof IBlockMultiPass)) {\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\treturn true;\n\t\t}\n\t\t\n\t\tIBlockMultiPass multi = (IBlockMultiPass) block;\n\t\trenderer.setRenderBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);\n\t\t\n\t\tint passes = multi.getPasses();\n\t\t\n\t\tfor(int i = 0; i < passes; i++) {\n\t\t\tcurrentPass = i;\n\t\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t}\n\t\t\n\t\tcurrentPass = 0;\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn IBlockMultiPass.getRenderType();\n\t}\n",
+          "new": "/** Native layered full-cube model. There is deliberately no mutable global render pass. */\npublic final class RenderBlockMultipass implements IBakedModel {\n    private final MultipassMaterials materials;\n    private final Function<ResourceLocation,TextureAtlasSprite> sprites;\n    private final Function<IBlockState,IBakedModel> camouflageModels;\n    private final boolean item;\n    private final int metadata;\n    public RenderBlockMultipass(MultipassMaterials materials,Function<ResourceLocation,TextureAtlasSprite> sprites,\n            Function<IBlockState,IBakedModel> camouflageModels,boolean item,int metadata) {\n        this.materials=Objects.requireNonNull(materials); this.sprites=Objects.requireNonNull(sprites);\n        this.camouflageModels=Objects.requireNonNull(camouflageModels); this.item=item; this.metadata=metadata;\n    }\n    @Override public List<BakedQuad> getQuads(IBlockState state,EnumFacing face,long seed) {\n        boolean unculled=materials.kind==MultipassMaterials.Kind.ROUTER;\n        if(item && face!=null || !item && unculled && face!=null || !item && !unculled && face==null) return Collections.emptyList();\n        MultipassContext context=state instanceof IExtendedBlockState?((IExtendedBlockState)state).getValue(MultipassContext.PROPERTY):null;\n        if(item || context==null) context=MultipassContext.basic(item?metadata:state==null?metadata:state.getBlock().getMetaFromState(state));\n        List<BakedQuad> result=new ArrayList<>();\n        for(int pass=0;pass<materials.passes(item);pass++) for(EnumFacing side:EnumFacing.values()) {\n            if(face!=null && face!=side || !materials.visible(pass,side.getIndex(),item)) continue;\n            TextureAtlasSprite sprite;\n            if(materials.camouflage(context,pass,item)) {\n                String material;\n                if(context.paint.getBlock() instanceof com.hbm.blocks.BlockBase) {\n                    com.hbm.render.icon.IIcon icon=((com.hbm.blocks.BlockBase)context.paint.getBlock()).getIcon(side.getIndex(),context.paint.getBlock().getMetaFromState(context.paint));\n                    material=icon==null?\"minecraft:missingno\":MultipassMaterials.texture(icon.getIconName()).toString();\n                } else {\n                    IBakedModel paintModel=camouflageModels.apply(context.paint);\n                    // An NTM multipass block's old metadata-only getIcon observed pass zero here.\n                    // Its other layers are not part of the camouflage material.\n                    if(paintModel instanceof RenderBlockMultipass) material=((RenderBlockMultipass)paintModel).baseSprite(context.paint.getBlock().getMetaFromState(context.paint),side).getIconName();\n                    else material=NativeBlockMaterial.faceSprite(paintModel,context.paint,side);\n                }\n                if(material==null) throw new IllegalStateException(\"Ambiguous camouflage face material: \"+context.paint+\" / \"+side+\". No particle-texture fallback is authorized.\");\n                sprite=sprites.apply(new ResourceLocation(material));\n            } else sprite=sprites.apply(materials.material(context,pass,side.getIndex(),item));\n            BakedQuad quad=item?RenderBlocksCT.bakeInventory(sprite).get(side.getIndex()):\n                ConveyorCuboidGeometry.face(sprite,false,side,0,0,0,0,1,1,1,0);\n            int tint=materials.color(context,pass,item);\n            if(tint!=0xffffff) {\n                int[] data=quad.getVertexData().clone(); int stride=quad.getFormat().getIntegerSize();\n                int color=quad.getFormat().getColorOffset()/4;\n                int packed=0xff000000|(tint>>16&255)|(tint&0xff00)|(tint&255)<<16;\n                for(int vertex=0;vertex<4;vertex++) data[vertex*stride+color]=packed;\n                quad=new BakedQuad(data,-1,quad.getFace(),sprite,true,quad.getFormat());\n            }\n            result.add(quad);\n        }\n        return Collections.unmodifiableList(result);\n    }\n    public TextureAtlasSprite baseSprite(int metadata,EnumFacing side) {\n        return sprites.apply(materials.material(MultipassContext.basic(metadata),0,side.getIndex(),true));\n    }\n    @Override public boolean isAmbientOcclusion() { return true; }\n    @Override public boolean isGui3d() { return true; }\n    @Override public boolean isBuiltInRenderer() { return false; }\n    @Override public TextureAtlasSprite getParticleTexture() { return sprites.apply(materials.material(MultipassContext.basic(metadata),0,0,true)); }\n    @Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }\n    private static ItemTransformVec3f transform(float x,float y,float z,float ty,float scale) {\n        return new ItemTransformVec3f(new Vector3f(x,y,z),new Vector3f(0,ty/16F,0),new Vector3f(scale,scale,scale));\n    }\n    private static final ItemCameraTransforms TRANSFORMS=new ItemCameraTransforms(\n        transform(75,45,0,2.5F,.375F),transform(75,45,0,2.5F,.375F),transform(0,225,0,0,.4F),transform(0,45,0,0,.4F),\n        ItemTransformVec3f.DEFAULT,transform(30,225,0,0,.625F),transform(0,0,0,3,.25F),transform(0,0,0,0,.5F));\n    @Override public ItemCameraTransforms getItemCameraTransforms() { return TRANSFORMS; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderOverhead.java": {
+      "before_sha256": "059adc59e40a882f14efd42393d598391f383e8d4dcf0608302a00e68a396acd",
+      "after_sha256": "00c3ddec04864b3385b93deec5dc2560840a753220835db40b7fb2bdfe929b16",
+      "edits": [
+        {
+          "before_offset": 437,
+          "after_offset": 437,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 589,
+          "after_offset": 709,
+          "old": "import net.minecraft.client.renderer.entity.RenderManager;\nimport net.minecraft.client.renderer.entity.RendererLivingEntity;\n",
+          "new": "import net.minecraft.client.renderer.entity.RenderLivingBase;\n"
+        },
+        {
+          "before_offset": 1237,
+          "after_offset": 1294,
+          "old": "\tpublic static void renderTag(EntityLivingBase living, double x, double y, double z, RendererLivingEntity renderer, String name, boolean depthTest) {\n",
+          "new": "\tpublic static void renderTag(EntityLivingBase living, double x, double y, double z, RenderLivingBase renderer, String name, boolean depthTest) {\n"
+        },
+        {
+          "before_offset": 1388,
+          "after_offset": 1441,
+          "old": "\t\tEntityPlayer thePlayer = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\tEntityPlayer thePlayer = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 1452,
+          "after_offset": 1502,
+          "old": "\t\tGL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);\n",
+          "new": "\t\tGlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);\n"
+        },
+        {
+          "before_offset": 1528,
+          "after_offset": 1586,
+          "old": "\t\t\tdouble distSq = living.getDistanceSqToEntity(thePlayer);\n",
+          "new": "\t\t\tdouble distSq = living.getDistanceSq(thePlayer);\n"
+        },
+        {
+          "before_offset": 1864,
+          "after_offset": 1914,
+          "old": "\t\treturn Minecraft.isGuiEnabled() && p_110813_1_ != RenderManager.instance.livingPlayer && !p_110813_1_.isInvisibleToPlayer(Minecraft.getMinecraft().thePlayer) && p_110813_1_.riddenByEntity == null;\n",
+          "new": "\t\treturn Minecraft.isGuiEnabled() && p_110813_1_ != Minecraft.getMinecraft().getRenderManager().renderViewEntity && !p_110813_1_.isInvisibleToPlayer(Minecraft.getMinecraft().player) && p_110813_1_.getPassengers().isEmpty();\n"
+        },
+        {
+          "before_offset": 2472,
+          "after_offset": 2547,
+          "old": "\t\tdrawTag(entity.height + 0.75F, entity.getDistanceSqToEntity(RenderManager.instance.livingPlayer), name, x, y, z, dist, depthTest, -1, 553648127);\n",
+          "new": "\t\tdrawTag(entity.height + 0.75F, entity.getDistanceSq(Minecraft.getMinecraft().getRenderManager().renderViewEntity), name, x, y, z, dist, depthTest, -1, 553648127);\n"
+        },
+        {
+          "before_offset": 3082,
+          "after_offset": 3174,
+          "old": "\t\t\tGL11.glRotatef(-RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);\n\t\t\tGL11.glRotatef(RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);\n",
+          "new": "\t\t\tGL11.glRotatef(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);\n\t\t\tGL11.glRotatef(Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);\n"
+        },
+        {
+          "before_offset": 3270,
+          "after_offset": 3404,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\t\tGL11.glDepthMask(false);\n",
+          "new": "\t\t\tGlStateManager.disableLighting();\n\t\t\tGlStateManager.depthMask(false);\n"
+        },
+        {
+          "before_offset": 3354,
+          "after_offset": 3496,
+          "old": "\t\t\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\t\t\tGlStateManager.disableDepth();\n"
+        },
+        {
+          "before_offset": 3399,
+          "after_offset": 3536,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\t\tOpenGlHelper.glBlendFunc(770, 771, 1, 0);\n\t\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\t\tGlStateManager.enableBlend();\n\t\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\t\tTessellator tessellator = Tessellator.getInstance();\n\t\t\tBufferBuilder buffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 3618,
+          "after_offset": 3822,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\tGlStateManager.disableTexture2D();\n\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 3748,
+          "after_offset": 3984,
+          "old": "\t\t\ttessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);\n\t\t\ttessellator.addVertex((double) (-center - 1), (double) (-1 + heightOffset), 0.0D);\n\t\t\ttessellator.addVertex((double) (-center - 1), (double) (8 + heightOffset), 0.0D);\n\t\t\ttessellator.addVertex((double) (center + 1), (double) (8 + heightOffset), 0.0D);\n\t\t\ttessellator.addVertex((double) (center + 1), (double) (-1 + heightOffset), 0.0D);\n",
+          "new": "\t\t\tbuffer.pos((double) (-center - 1), (double) (-1 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();\n\t\t\tbuffer.pos((double) (-center - 1), (double) (8 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();\n\t\t\tbuffer.pos((double) (center + 1), (double) (8 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();\n\t\t\tbuffer.pos((double) (center + 1), (double) (-1 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();\n"
+        },
+        {
+          "before_offset": 4167,
+          "after_offset": 4451,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\t\tGlStateManager.enableTexture2D();\n"
+        },
+        {
+          "before_offset": 4306,
+          "after_offset": 4589,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_DEPTH_TEST);\n\t\t\tGL11.glDepthMask(true);\n",
+          "new": "\t\t\tGlStateManager.enableDepth();\n\t\t\tGlStateManager.depthMask(true);\n"
+        },
+        {
+          "before_offset": 4466,
+          "after_offset": 4752,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n",
+          "new": "\t\t\tGlStateManager.enableLighting();\n\t\t\tGlStateManager.disableBlend();\n\t\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 4672,
+          "after_offset": 4964,
+          "old": "\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\tEntityPlayer player = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 4995,
+          "after_offset": 5284,
+          "old": "\t\tGL11.glDisable(GL11.GL_COLOR_MATERIAL);\n\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "\t\tGlStateManager.disableColorMaterial();\n\t\tGlStateManager.disableTexture2D();\n\t\tGlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 5150,
+          "after_offset": 5437,
+          "old": "\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);\n",
+          "new": "\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.disableDepth();\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);\n"
+        },
+        {
+          "before_offset": 5288,
+          "after_offset": 5578,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawing(GL11.GL_LINES);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tess.getBuffer();\n\t\tbuffer.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 5368,
+          "after_offset": 5738,
+          "old": "\t\tfor(Object o : player.worldObj.loadedEntityList) {\n",
+          "new": "\t\tfor(Object o : player.world.loadedEntityList) {\n"
+        },
+        {
+          "before_offset": 5487,
+          "after_offset": 5854,
+          "old": "\t\t\tif(ent.getDistanceSqToEntity(player) > 4096)\n",
+          "new": "\t\t\tif(ent.getDistanceSq(player) > 4096)\n"
+        },
+        {
+          "before_offset": 5550,
+          "after_offset": 5909,
+          "old": "",
+          "new": "\t\t\tfloat red, green, blue;\n"
+        },
+        {
+          "before_offset": 5592,
+          "after_offset": 5978,
+          "old": "\t\t\t\ttess.setColorOpaque_F(1F, 0.5F, 0F);\n",
+          "new": "\t\t\t\t{ red = 1F; green = 0.5F; blue = 0F; }\n"
+        },
+        {
+          "before_offset": 5665,
+          "after_offset": 6053,
+          "old": "\t\t\t\ttess.setColorOpaque_F(1F, 0F, 0F);\n",
+          "new": "\t\t\t\t{ red = 1F; green = 0F; blue = 0F; }\n"
+        },
+        {
+          "before_offset": 5744,
+          "after_offset": 6134,
+          "old": "\t\t\t\ttess.setColorOpaque_F(1F, 0F, 1F);\n",
+          "new": "\t\t\t\t{ red = 1F; green = 0F; blue = 1F; }\n"
+        },
+        {
+          "before_offset": 5823,
+          "after_offset": 6215,
+          "old": "\t\t\t\ttess.setColorOpaque_F(0F, 1F, 0F);\n",
+          "new": "\t\t\t\t{ red = 0F; green = 1F; blue = 0F; }\n"
+        },
+        {
+          "before_offset": 5900,
+          "after_offset": 6294,
+          "old": "\t\t\t\ttess.setColorOpaque_F(1F, 1F, 0.5F);\n",
+          "new": "\t\t\t\t{ red = 1F; green = 1F; blue = 0.5F; }\n"
+        },
+        {
+          "before_offset": 6019,
+          "after_offset": 6415,
+          "old": "\t\t\t\t\ttess.setColorOpaque_F(1F, 1F, 0.5F);\n",
+          "new": "\t\t\t\t\t{ red = 1F; green = 1F; blue = 0.5F; }\n"
+        },
+        {
+          "before_offset": 6070,
+          "after_offset": 6468,
+          "old": "\t\t\t\t\ttess.setColorOpaque_F(0.5F, 1F, 0.5F);\n",
+          "new": "\t\t\t\t\t{ red = 0.5F; green = 1F; blue = 0.5F; }\n"
+        },
+        {
+          "before_offset": 6142,
+          "after_offset": 6542,
+          "old": "\t\t\tif(ent instanceof EntityLivingBase && ((EntityLivingBase) ent).getHealth() <= 0) tess.setColorOpaque_F(0F, 0F, 0F);\n",
+          "new": "\t\t\tif(ent instanceof EntityLivingBase && ((EntityLivingBase) ent).getHealth() <= 0) { red = 0F; green = 0F; blue = 0F; }\n"
+        },
+        {
+          "before_offset": 6262,
+          "after_offset": 6664,
+          "old": "\t\t\tAxisAlignedBB bb = ent.boundingBox;\n\t\t\ttess.addVertex(bb.minX - x, bb.maxY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.minY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.maxY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.maxY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.maxY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.minY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.minY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.minY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.minY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.minY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.maxY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.maxY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.maxY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.minY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.maxY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.maxY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.maxY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.minY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.maxY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.maxY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.minY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.maxX - x, bb.minY - y, bb.maxZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.minY - y, bb.minZ - z);\n\t\t\ttess.addVertex(bb.minX - x, bb.minY - y, bb.maxZ - z);\n",
+          "new": "\t\t\tAxisAlignedBB bb = ent.getEntityBoundingBox();\n\t\t\tbuffer.pos(bb.minX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.maxX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();\n\t\t\tbuffer.pos(bb.minX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();\n"
+        },
+        {
+          "before_offset": 7714,
+          "after_offset": 8991,
+          "old": "\t\ttess.setColorOpaque_F(1F, 1F, 1F);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 7752,
+          "after_offset": 8992,
+          "old": "\t\tGL11.glEnable(GL11.GL_COLOR_MATERIAL);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\tGlStateManager.enableColorMaterial();\n\t\tGlStateManager.enableTexture2D();\n"
+        },
+        {
+          "before_offset": 7870,
+          "after_offset": 9108,
+          "old": "\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glEnable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableDepth();\n"
+        },
+        {
+          "before_offset": 8276,
+          "after_offset": 9509,
+          "old": "\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\tEntityPlayer player = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 8599,
+          "after_offset": 9829,
+          "old": "\t\tGL11.glDisable(GL11.GL_COLOR_MATERIAL);\n\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "\t\tGlStateManager.disableColorMaterial();\n\t\tGlStateManager.disableTexture2D();\n\t\tGlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 8754,
+          "after_offset": 9982,
+          "old": "\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n\t\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);\n",
+          "new": "\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.disableDepth();\n\t\tGlStateManager.blendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);\n"
+        },
+        {
+          "before_offset": 8892,
+          "after_offset": 10123,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawing(GL11.GL_LINES);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tess.getBuffer();\n\t\tbuffer.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 9499,
+          "after_offset": 10810,
+          "old": "\t\t\ttess.setColorOpaque_I(marker.color);\n\t\t\ttess.addVertex(pX + minX - x, pY + maxY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + minY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + maxY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + maxY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + maxY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + minY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + minY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + minY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + minY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + minY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + maxY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + maxY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + maxY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + minY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + maxY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + maxY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + maxY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + minY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + maxY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + maxY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + minY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + maxX - x, pY + minY - y, pZ + maxZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + minY - y, pZ + minZ - z);\n\t\t\ttess.addVertex(pX + minX - x, pY + minY - y, pZ + maxZ - z);\n",
+          "new": "\t\t\tint red = marker.color >> 16 & 255;\n\t\t\tint green = marker.color >> 8 & 255;\n\t\t\tint blue = marker.color & 255;\n\t\t\tbuffer.pos(pX + minX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + maxX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();\n\t\t\tbuffer.pos(pX + minX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 11477,
+          "after_offset": 13749,
+          "old": "\t\ttess.setColorOpaque_F(1F, 1F, 1F);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 11515,
+          "after_offset": 13750,
+          "old": "\t\tGL11.glEnable(GL11.GL_COLOR_MATERIAL);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\tGlStateManager.enableColorMaterial();\n\t\tGlStateManager.enableTexture2D();\n"
+        },
+        {
+          "before_offset": 11633,
+          "after_offset": 13866,
+          "old": "\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glEnable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableDepth();\n"
+        },
+        {
+          "before_offset": 14133,
+          "after_offset": 16361,
+          "old": "\t\tRenderBlocks renderer = new RenderBlocks(actionPreviewWorld);\n\n\t\trenderer.enableAO = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 14311,
+          "after_offset": 16446,
+          "old": "\t\tGL11.glDisable(GL11.GL_BLEND);\n",
+          "new": "\t\tGlStateManager.disableBlend();\n"
+        },
+        {
+          "before_offset": 14373,
+          "after_offset": 16508,
+          "old": "\t\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\t\tEntityPlayer player = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 14739,
+          "after_offset": 16871,
+          "old": "\t\t\tMinecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);\n\t\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\t\tTessellator.instance.startDrawingQuads();\n",
+          "new": "\t\t\tMinecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n\t\t\tGlStateManager.shadeModel(GL11.GL_SMOOTH);\n\t\t\tBufferBuilder buffer = new BufferBuilder(65536);\n\t\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);\n"
+        },
+        {
+          "before_offset": 14918,
+          "after_offset": 17127,
+          "old": "\t\t\tTessellator.instance.disableColor();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 14988,
+          "after_offset": 17157,
+          "old": "\t\t\t\tGL11.glColor3f(0, 1, 1);\n",
+          "new": "\t\t\t\tGlStateManager.color(0, 1, 1);\n"
+        },
+        {
+          "before_offset": 15029,
+          "after_offset": 17204,
+          "old": "\t\t\t\tGL11.glColor3f(1, 0, 0);\n",
+          "new": "\t\t\t\tGlStateManager.color(1, 0, 0);\n"
+        },
+        {
+          "before_offset": 15241,
+          "after_offset": 17422,
+          "old": "\t\t\t\t\t\ttry { renderer.renderBlockByRenderType(actionPreviewWorld.getBlock(ix, iy, iz), ix, iy, iz); } catch(Exception ex) { }\n",
+          "new": "\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tnet.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(ix, iy, iz);\n\t\t\t\t\t\t\tNativeSceneBlockDraw.append(actionPreviewWorld, actionPreviewWorld.getBlockState(pos), pos, buffer);\n\t\t\t\t\t\t} catch(Exception ex) { }\n"
+        },
+        {
+          "before_offset": 15385,
+          "after_offset": 17689,
+          "old": "\t\t\tTessellator.instance.draw();\n\t\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\t\tNativeSceneBlockDraw.drawColorless(buffer);\n\t\t\tGlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/wiaj/GuiWorldInAJar.java": {
+      "before_sha256": "16b67b7871647f86346506e308506296260770dae9c5ff2fe6cdbf507e0fa55d",
+      "after_sha256": "d95c6ae97f551becf9cdc25c0c1c20680f744390880044d1a21f831c95b2a999",
+      "edits": [
+        {
+          "before_offset": 464,
+          "after_offset": 464,
+          "old": "import net.minecraftforge.fml.common.FMLCommonHandler;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 755,
+          "after_offset": 700,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.GlStateManager;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.init.SoundEvents;\nimport com.hbm.render.util.NativeSceneBlockDraw;\nimport com.hbm.render.util.NativeGuiItemDraw;\n"
+        },
+        {
+          "before_offset": 1329,
+          "after_offset": 1569,
+          "old": "\tRenderBlocks renderer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1588,
+          "after_offset": 1804,
+          "old": "\t\tthis.fontRendererObj = Minecraft.getMinecraft().fontRenderer;\n",
+          "new": "\t\tthis.fontRenderer = Minecraft.getMinecraft().fontRenderer;\n"
+        },
+        {
+          "before_offset": 1728,
+          "after_offset": 1941,
+          "old": "\t\tthis.renderer = new RenderBlocks(jarScript.world);\n\t\tthis.renderer.enableAO = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1817,
+          "after_offset": 1944,
+          "old": "\t\tthis.titlePanel = new ActorFancyPanel(fontRendererObj, 40, 27, new Object[][] {{I18nUtil.resolveKey(title)}}, 0).setColors(CanneryBase.colorGold).setOrientation(Orientation.LEFT);\n",
+          "new": "\t\tthis.titlePanel = new ActorFancyPanel(fontRenderer, 40, 27, new Object[][] {{I18nUtil.resolveKey(title)}}, 0).setColors(CanneryBase.colorGold).setOrientation(Orientation.LEFT);\n"
+        },
+        {
+          "before_offset": 2106,
+          "after_offset": 2230,
+          "old": "\t\t\tthis.seeAlsoTitles[i] = new ActorFancyPanel(fontRendererObj, 40, 27 + 36 * (i + 1), new Object[][] {{I18nUtil.resolveKey(seeAlso[i].getName())}}, 0).setColors(CanneryBase.colorGrey).setOrientation(Orientation.LEFT);\n",
+          "new": "\t\t\tthis.seeAlsoTitles[i] = new ActorFancyPanel(fontRenderer, 40, 27 + 36 * (i + 1), new Object[][] {{I18nUtil.resolveKey(seeAlso[i].getName())}}, 0).setColors(CanneryBase.colorGrey).setOrientation(Orientation.LEFT);\n"
+        },
+        {
+          "before_offset": 5232,
+          "after_offset": 5353,
+          "old": "\t\tbrickScene.add(new ActionCreateActor(1, new ActorFancyPanel(this.fontRendererObj, 0, 30, new Object[][] {{\"I've come to make an announcement: Shadow the Hedgehog's a\"\n",
+          "new": "\t\tbrickScene.add(new ActionCreateActor(1, new ActorFancyPanel(this.fontRenderer, 0, 30, new Object[][] {{\"I've come to make an announcement: Shadow the Hedgehog's a\"\n"
+        },
+        {
+          "before_offset": 6895,
+          "after_offset": 7013,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "\t\t\tGlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 6989,
+          "after_offset": 7107,
+          "old": "\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n",
+          "new": "\t\t\tGlStateManager.enableLighting();\n"
+        },
+        {
+          "before_offset": 7306,
+          "after_offset": 7424,
+          "old": "\t\t\tTessellator.instance.draw(); //why, oh why is Tessellator.isDrawing private and without a getter?\n",
+          "new": "\t\t\tTessellator.getInstance().draw(); //why, oh why is Tessellator.isDrawing private and without a getter?\n"
+        },
+        {
+          "before_offset": 7638,
+          "after_offset": 7761,
+          "old": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));\n"
+        },
+        {
+          "before_offset": 8082,
+          "after_offset": 8194,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));\n"
+        },
+        {
+          "before_offset": 8446,
+          "after_offset": 8547,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));\n"
+        },
+        {
+          "before_offset": 8763,
+          "after_offset": 8853,
+          "old": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(\"gui.button.press\"), 1.0F));\n\t\t\t\tMinecraft.getMinecraft().thePlayer.closeScreen();\n\t\t\t\tFMLCommonHandler.instance().showGuiScreen(new GuiWorldInAJar(cannery.createScript(), cannery.getName(), cannery.getIcon(), cannery.seeAlso()));\n",
+          "new": "\t\t\t\tmc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));\n\t\t\t\tMinecraft.getMinecraft().player.closeScreen();\n\t\t\t\tMinecraft.getMinecraft().displayGuiScreen(new GuiWorldInAJar(cannery.createScript(), cannery.getName(), cannery.getIcon(), cannery.seeAlso()));\n"
+        },
+        {
+          "before_offset": 9613,
+          "after_offset": 9689,
+          "old": "\t\t\tthis.drawStackText(list, mouseX - width / 2, mouseY - height / 2, this.fontRendererObj);\n",
+          "new": "\t\t\tthis.drawStackText(list, mouseX - width / 2, mouseY - height / 2, this.fontRenderer);\n"
+        },
+        {
+          "before_offset": 9827,
+          "after_offset": 9900,
+          "old": "\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\tGlStateManager.disableDepth();\n"
+        },
+        {
+          "before_offset": 11097,
+          "after_offset": 11165,
+          "old": "\t\tGL11.glEnable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\tGlStateManager.enableDepth();\n"
+        },
+        {
+          "before_offset": 11237,
+          "after_offset": 11300,
+          "old": "\t\titemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, this.icon, 19, 19);\n\t\titemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.renderEngine, this.icon, 19, 19, null);\n",
+          "new": "\t\tNativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.fontRenderer, this.icon, 19, 19, this.zLevel, null);\n"
+        },
+        {
+          "before_offset": 11821,
+          "after_offset": 11782,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n",
+          "new": "\t\t\tGlStateManager.disableLighting();\n"
+        },
+        {
+          "before_offset": 11978,
+          "after_offset": 11939,
+          "old": "\t\t\titemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, also.getIcon(), 19, 19 + 36 * (i + 1));\n\t\t\titemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.renderEngine, also.getIcon(), 19, 19 + 36 * (i + 1), null);\n",
+          "new": "\t\t\tNativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.fontRenderer, also.getIcon(), 19, 19 + 36 * (i + 1), this.zLevel, null);\n"
+        },
+        {
+          "before_offset": 12627,
+          "after_offset": 12465,
+          "old": "\t\tMinecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\tTessellator.instance.startDrawingQuads();\n",
+          "new": "\t\tMinecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);\n\t\tGlStateManager.shadeModel(GL11.GL_SMOOTH);\n\t\tBufferBuilder buffer = Tessellator.getInstance().getBuffer();\n\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);\n"
+        },
+        {
+          "before_offset": 12961,
+          "after_offset": 12888,
+          "old": "\t\t\t\t\trenderer.renderBlockByRenderType(jarScript.world.getBlock(x, y, z), x, y, z);\n",
+          "new": "\t\t\t\t\tBlockPos pos = new BlockPos(x, y, z);\n\t\t\t\t\tNativeSceneBlockDraw.append(jarScript.world, jarScript.world.getBlockState(pos), pos, buffer);\n"
+        },
+        {
+          "before_offset": 13062,
+          "after_offset": 13049,
+          "old": "\t\tTessellator.instance.draw();\n\t\tGL11.glShadeModel(GL11.GL_FLAT);\n",
+          "new": "\t\tTessellator.getInstance().draw();\n\t\tGlStateManager.shadeModel(GL11.GL_FLAT);\n"
+        },
+        {
+          "before_offset": 13151,
+          "after_offset": 13151,
+          "old": "\t\tGL11.glEnable(GL12.GL_RESCALE_NORMAL);\n\t\tGL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);\n",
+          "new": "\t\tGlStateManager.enableRescaleNormal();\n\t\tGlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 14518,
+          "after_offset": 14523,
+          "old": "\t\t\tGL11.glDisable(GL12.GL_RESCALE_NORMAL);\n",
+          "new": "\t\t\tGlStateManager.disableRescaleNormal();\n"
+        },
+        {
+          "before_offset": 14608,
+          "after_offset": 14612,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\t\tGlStateManager.disableLighting();\n\t\t\tGlStateManager.disableDepth();\n"
+        },
+        {
+          "before_offset": 15490,
+          "after_offset": 15489,
+          "old": "\t\t\titemRender.zLevel = 300.0F;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 17254,
+          "after_offset": 17222,
+          "old": "\t\t\t\t\t\tGL11.glColor3f(1F, 1F, 1F);\n",
+          "new": "\t\t\t\t\t\tGlStateManager.color(1F, 1F, 1F);\n"
+        },
+        {
+          "before_offset": 17289,
+          "after_offset": 17263,
+          "old": "\t\t\t\t\t\tif(stack.stackSize == 0) {\n",
+          "new": "\t\t\t\t\t\tif(stack.getCount() == 0) {\n"
+        },
+        {
+          "before_offset": 17550,
+          "after_offset": 17525,
+          "old": "\t\t\t\t\t\titemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), stack, minX + indent, minY);\n\t\t\t\t\t\titemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), stack, minX + indent, minY, null);\n",
+          "new": "\t\t\t\t\t\tNativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.fontRenderer, stack, minX + indent, minY, this.zLevel, null);\n"
+        },
+        {
+          "before_offset": 17852,
+          "after_offset": 17698,
+          "old": "\t\t\t\t\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\t\t\t\t\tGlStateManager.disableDepth();\n"
+        },
+        {
+          "before_offset": 18033,
+          "after_offset": 17874,
+          "old": "\t\t\titemRender.zLevel = 0.0F;\n\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\t\tGL11.glEnable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\t\tGlStateManager.enableLighting();\n\t\t\tGlStateManager.enableDepth();\n"
+        },
+        {
+          "before_offset": 18182,
+          "after_offset": 17989,
+          "old": "\t\t\tGL11.glEnable(GL12.GL_RESCALE_NORMAL);\n",
+          "new": "\t\t\tGlStateManager.enableRescaleNormal();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/wiaj/JarScript.java": {
+      "before_sha256": "69d680c06866b28c0b1eaffa0edcc0d07bf562fbf3634843c0a3a38c6120424b",
+      "after_sha256": "a53fa8babb06167bda4352c607116c88e022ed5f6a1a05c28138bc2cbf99d1b3",
+      "edits": [
+        {
+          "before_offset": 1615,
+          "after_offset": 1615,
+          "old": "\t\t\tthis.interp = MathHelper.clamp_float((float) (now - this.lastTick) / 50F, 0F, 1F);\n",
+          "new": "\t\t\tthis.interp = MathHelper.clamp((float) (now - this.lastTick) / 50F, 0F, 1F);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/MultipassContext.java": "98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3",
+    "src/main/java/com/hbm/main/MultipassModelHandler.java": "848560f450be5835f97f0621b0f99ce1f900c8d1b9ab689658e26742d7ea19c1",
+    "src/main/java/com/hbm/render/block/multipass/MultipassMaterials.java": "4970e1fb8684157942a9d9043666d9033ce4b9cacd650ea5be91bd849246f6c7",
+    "src/main/java/com/hbm/render/util/NativeSceneBlockDraw.java": "7bf81fbebd1f3f30a68dac74c93f3b63f124d719f60384a9d1d5c1248347f07d"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

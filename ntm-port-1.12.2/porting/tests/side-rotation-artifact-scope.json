@@ -1,0 +1,107 @@
+{
+  "status": "terminal native proofs passed; immutable production and finite evidence package",
+  "artifacts": [
+    {
+      "path": "porting/native-side-rotation-acceptance.md",
+      "sha256": "21f6ac4e89f01941e1be46c51d67a68b89cd878325ed1c5df98d8e2839a85abc"
+    },
+    {
+      "path": "porting/tests/side-rotation-production-scope.json",
+      "sha256": "0bdc83880e19c41b30903a95aaff2c9ce9a4001005e22e8f939f53f3d853deb0"
+    },
+    {
+      "path": "porting/tests/NativeCraneOwnersTest.java",
+      "sha256": "0393878cf4309cd44be031d83d779b4701e69bedec951953cee7ad369f2405fd"
+    },
+    {
+      "path": "porting/tests/probe-native-crane-owners.py",
+      "sha256": "fd58fb9b8a2db4f2813d08ffb1998fa0152a1dd6015eb9beb62c5e44d3ef7940"
+    },
+    {
+      "path": "porting/tests/native-crane-owners-proof.log",
+      "sha256": "0d76098c49c8da92ccad1fd1cf35bbd09894e0720c0c1608a5210520f5291c4a"
+    },
+    {
+      "path": "porting/tests/native-crane-owners-notes.md",
+      "sha256": "a4d30c15d420c3ac26dacac604130b51d1e8dbd3c7a7a5b121f0acedf4b8ddd4"
+    },
+    {
+      "path": "porting/tests/native-crane-owners-source-manifest.json",
+      "sha256": "bd61d9b551c75224a05f63b7c2671f66b240c49f50bfc76ce515b30d5ae724ec"
+    },
+    {
+      "path": "porting/tests/editor-cube-native-probe.py",
+      "sha256": "2964cad74508b9544f6b3bf0b3795617aaf6470831af6f121b154d274d71f973"
+    },
+    {
+      "path": "porting/tests/editor-cube-native-test.java.in",
+      "sha256": "9fff292eaa8cbcaf2d376bbaf89de16742c3065f1206439821b1c6633ec02f9a"
+    },
+    {
+      "path": "porting/tests/editor-cube-source-test.py",
+      "sha256": "8c12710b5d20d63b650234f8ab44d3932c9070b3d9f475934e4105cd02efaaa1"
+    },
+    {
+      "path": "porting/tests/editor-cube-notes.md",
+      "sha256": "1a81d34224b0994e115ac210d5783f1878279b5515964c627b971ebf29987048"
+    },
+    {
+      "path": "porting/tests/editor-cube-source-manifest.json",
+      "sha256": "912e2d1da8ca71bf8b1125d70e18d308cc585e61eb63b9b5d0be43fefe7d4f27"
+    },
+    {
+      "path": "porting/editor-cube-native-test.log",
+      "sha256": "2fd9dd30e595a35fe1d669e017b6a5f683abc05d925b7c826fe96380c9e50bdb"
+    },
+    {
+      "path": "porting/editor-cube-source-test.log",
+      "sha256": "80c72b33f31de51a0e23c14f99d968404d11c24e1c59ac011ea69dc13c6d008e"
+    },
+    {
+      "path": "porting/tests/side-rotation-model-native-probe.py",
+      "sha256": "e09bc859e7ad209f7e8e707d040bcf66ba51837e60db491f321c6e91604d045a"
+    },
+    {
+      "path": "porting/tests/side-rotation-model-native-test.java.in",
+      "sha256": "d7f0e48e3663b4ab3b270d78409bc8642e97f345ad0e72c86d58ba7f15f080af"
+    },
+    {
+      "path": "porting/tests/side-rotation-model-native-proof.log",
+      "sha256": "0cec35c00383131dbbc797af7af3b1baf7f36d99826cf2bc1bad5ba1ab88af7f"
+    },
+    {
+      "path": "porting/tests/side-rotation-model-native-source-manifest.json",
+      "sha256": "8b37ea9fc42cdd4593a1724b7dcb1932c64eb3129bf312ef8eb11a111d06b261"
+    },
+    {
+      "path": "porting/tests/side-rotation-model-native-notes.md",
+      "sha256": "d898258bc167ae9f69ed154ffb691ecf1ec195a35509fc753aedcb35b077ada1"
+    },
+    {
+      "path": "porting/tests/side_rotation_fixtures.py",
+      "sha256": "b793325164edf5d319860ed50c99e035d18ef14fcde41ec90164c0f5d6260861"
+    },
+    {
+      "path": "porting/tests/fixtures/side-rotation-pristine.zip",
+      "sha256": "b952912575e58616f142e8fc30aaa3ad3009c2aa0560ee714d6c7f523bbb46aa"
+    },
+    {
+      "path": "porting/tests/fixtures/side-rotation-pristine-manifest.json",
+      "sha256": "b373a8a524ed692d9d6440bf439479fd3ec772954cbca0d4fc0aaa1cf91b64ed"
+    },
+    {
+      "path": "porting/tests/side-rotation-fixture-proof.log",
+      "sha256": "a0253a14876616e2bc85d98c069bf63672a3a91b77ad50ed0446b9f332878f8c"
+    }
+  ],
+  "include_this_manifest": "porting/tests/side-rotation-artifact-scope.json",
+  "unchanged_test_dependencies": [
+    "porting/tests/ForgeEventNativeLauncher.java"
+  ],
+  "external_cached_inputs": [
+    "JDK8",
+    "native Minecraft/Forge1.12.2 classpath",
+    "original1.7.10 client JAR with SHA256 pinned in probe"
+  ],
+  "no_git_objects_required": true
+}

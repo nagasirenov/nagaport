@@ -5,14 +5,12 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderRadiator extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderRadiator extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f) {
@@ -41,28 +39,6 @@ public class RenderRadiator extends TileEntitySpecialRenderer implements IItemRe
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_radiator);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -5, 0);
-				GL11.glScaled(1.2, 1.2, 1.2);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.75, 0.75, 0.75);
-				// GL11.glRotatef(-90, 0, 0, 1);
-				// GL11.glTranslated(0.5, 0, 0);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.radiator_tex);
-				ResourceManager.radiator.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 
 }

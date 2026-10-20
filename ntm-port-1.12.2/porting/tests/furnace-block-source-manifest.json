@@ -1,0 +1,319 @@
+{
+  "scope": "Complete native furnace block lifecycle; only four furnace registration/name calls in ModBlocks. Reversal returns exact checkpoint17 bytes before previous EMPTY/drop layer.",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineElectricFurnace.java",
+      "before_sha256": "402001ef5c5e5ca79c0261c1ef48ce3cbbfca6812d42678c03ef7e6ce8ccf7dd",
+      "after_sha256": "e511ff586c6bd9b5e33576aa170033906dc4fc098e79f1caf1cefed9cd33e39f",
+      "edits": [
+        {
+          "after_start": 3,
+          "after_end": 3,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "after_start": 8,
+          "after_end": 8,
+          "old": "import net.minecraft.block.Block;\n",
+          "new": ""
+        },
+        {
+          "after_start": 10,
+          "after_end": 13,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "after_start": 20,
+          "after_end": 20,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "after_start": 21,
+          "after_end": 26,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumParticleTypes;\n"
+        },
+        {
+          "after_start": 36,
+          "after_end": 38,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tprivate IIcon iconFront;\n\tprivate IIcon iconTop;\n\tprivate IIcon iconBottom;\n",
+          "new": "\t/** Retain every legacy metadata value, including the non-horizontal texture cases. */\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "after_start": 40,
+          "after_end": 41,
+          "old": "\t\tsuper(Material.iron);\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "after_start": 42,
+          "after_end": 43,
+          "old": "",
+          "new": "\t\tsetDefaultState(this.blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "after_start": 46,
+          "after_end": 48,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":machine_electric_furnace_front_on\" : \":machine_electric_furnace_front_off\"));\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + \":machine_electric_furnace_side\");\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":machine_electric_furnace_top\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":machine_electric_furnace_bottom\");\n",
+          "new": "\tprotected BlockStateContainer createBlockState() {\n\t\treturn new BlockStateContainer(this, METADATA);\n"
+        },
+        {
+          "after_start": 51,
+          "after_end": 53,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\t//Reactivate in case of emergency\n\t\t//return metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : this.iconTop);\n\t\treturn metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : side == 0 ? this.iconBottom : side == 1 ? this.iconTop : this.blockIcon);\n",
+          "new": "\tpublic IBlockState getStateFromMeta(int metadata) {\n\t\treturn getDefaultState().withProperty(METADATA, metadata);\n"
+        },
+        {
+          "after_start": 56,
+          "after_end": 68,
+          "old": "\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic int getMetaFromState(IBlockState state) {\n\t\treturn state.getValue(METADATA);\n\t}\n\n\t@Override\n\tpublic EnumBlockRenderType getRenderType(IBlockState state) {\n\t\treturn EnumBlockRenderType.MODEL;\n\t}\n\n\n\t@Override\n\tpublic Item getItemDropped(IBlockState state, Random p_149650_2_, int p_149650_3_)\n"
+        },
+        {
+          "after_start": 73,
+          "after_end": 76,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tthis.setDefaultDirection(world, x, y, z);\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tthis.setDefaultDirection(world, pos);\n"
+        },
+        {
+          "after_start": 78,
+          "after_end": 79,
+          "old": "\tprivate void setDefaultDirection(World world, int x, int y, int z) {\n",
+          "new": "\tprivate void setDefaultDirection(World world, BlockPos pos) {\n"
+        },
+        {
+          "after_start": 81,
+          "after_end": 86,
+          "old": "\t\t\tBlock block1 = world.getBlock(x, y, z - 1);\n\t\t\tBlock block2 = world.getBlock(x, y, z + 1);\n\t\t\tBlock block3 = world.getBlock(x - 1, y, z);\n\t\t\tBlock block4 = world.getBlock(x + 1, y, z);\n",
+          "new": "\t\t\t// func_149730_j used the cached opaque/full-block flag, not dynamic opacity.\n\t\t\tIBlockState block1 = world.getBlockState(pos.north());\n\t\t\tIBlockState block2 = world.getBlockState(pos.south());\n\t\t\tIBlockState block3 = world.getBlockState(pos.west());\n\t\t\tIBlockState block4 = world.getBlockState(pos.east());\n"
+        },
+        {
+          "after_start": 89,
+          "after_end": 90,
+          "old": "\t\t\tif(block1.func_149730_j() && !block2.func_149730_j())\n",
+          "new": "\t\t\tif(block1.isFullBlock() && !block2.isFullBlock())\n"
+        },
+        {
+          "after_start": 93,
+          "after_end": 94,
+          "old": "\t\t\tif(block2.func_149730_j() && !block1.func_149730_j())\n",
+          "new": "\t\t\tif(block2.isFullBlock() && !block1.isFullBlock())\n"
+        },
+        {
+          "after_start": 97,
+          "after_end": 98,
+          "old": "\t\t\tif(block3.func_149730_j() && !block4.func_149730_j())\n",
+          "new": "\t\t\tif(block3.isFullBlock() && !block4.isFullBlock())\n"
+        },
+        {
+          "after_start": 101,
+          "after_end": 102,
+          "old": "\t\t\tif(block4.func_149730_j() && !block3.func_149730_j())\n",
+          "new": "\t\t\tif(block4.isFullBlock() && !block3.isFullBlock())\n"
+        },
+        {
+          "after_start": 106,
+          "after_end": 107,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, b0, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, (int)b0), 2);\n"
+        },
+        {
+          "after_start": 111,
+          "after_end": 113,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n"
+        },
+        {
+          "after_start": 116,
+          "after_end": 117,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 2), 2);\n"
+        },
+        {
+          "after_start": 120,
+          "after_end": 121,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 5), 2);\n"
+        },
+        {
+          "after_start": 124,
+          "after_end": 125,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 3), 2);\n"
+        },
+        {
+          "after_start": 128,
+          "after_end": 129,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 4), 2);\n"
+        },
+        {
+          "after_start": 133,
+          "after_end": 134,
+          "old": "\t\t\t((TileEntityMachineElectricFurnace)world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());\n",
+          "new": "\t\t\t((TileEntityMachineElectricFurnace)world.getTileEntity(pos)).setCustomName(itemStack.getDisplayName());\n"
+        },
+        {
+          "after_start": 138,
+          "after_end": 139,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n"
+        },
+        {
+          "after_start": 144,
+          "after_end": 145,
+          "old": "\t\t\tTileEntityMachineElectricFurnace entity = (TileEntityMachineElectricFurnace) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityMachineElectricFurnace entity = (TileEntityMachineElectricFurnace) world.getTileEntity(pos);\n"
+        },
+        {
+          "after_start": 147,
+          "after_end": 148,
+          "old": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);\n",
+          "new": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());\n"
+        },
+        {
+          "after_start": 161,
+          "after_end": 164,
+          "old": "\t\tint i = world.getBlockMetadata(x, y, z);\n\t\tTileEntity entity = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tBlockPos pos = new BlockPos(x, y, z);\n\t\tint i = world.getBlockState(pos).getBlock().getMetaFromState(world.getBlockState(pos));\n\t\tTileEntity entity = world.getTileEntity(pos);\n"
+        },
+        {
+          "after_start": 168,
+          "after_end": 169,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_electric_furnace_on);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_electric_furnace_on.getDefaultState());\n"
+        },
+        {
+          "after_start": 170,
+          "after_end": 171,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_electric_furnace_off);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_electric_furnace_off.getDefaultState());\n"
+        },
+        {
+          "after_start": 174,
+          "after_end": 175,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, i, 2);\n",
+          "new": "\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, i), 2);\n"
+        },
+        {
+          "after_start": 178,
+          "after_end": 179,
+          "old": "\t\t\tworld.setTileEntity(x, y, z, entity);\n",
+          "new": "\t\t\tworld.setTileEntity(pos, entity);\n"
+        },
+        {
+          "after_start": 183,
+          "after_end": 184,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state)\n"
+        },
+        {
+          "after_start": 185,
+          "after_end": 188,
+          "old": "",
+          "new": "        int p_149749_2_ = pos.getX();\n        int p_149749_3_ = pos.getY();\n        int p_149749_4_ = pos.getZ();\n"
+        },
+        {
+          "after_start": 190,
+          "after_end": 191,
+          "old": "        \tTileEntityMachineElectricFurnace tileentityfurnace = (TileEntityMachineElectricFurnace)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);\n",
+          "new": "        \tTileEntityMachineElectricFurnace tileentityfurnace = (TileEntityMachineElectricFurnace)p_149749_1_.getTileEntity(pos);\n"
+        },
+        {
+          "after_start": 234,
+          "after_end": 235,
+          "old": "                p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "                p_149749_1_.updateComparatorOutputLevel(pos, state.getBlock());\n"
+        },
+        {
+          "after_start": 238,
+          "after_end": 239,
+          "old": "        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "        super.breakBlock(p_149749_1_, pos, state);\n"
+        },
+        {
+          "after_start": 243,
+          "after_end": 244,
+          "old": "    public void randomDisplayTick(World p_149734_1_, int x, int y, int z, Random rand)\n",
+          "new": "    public void randomDisplayTick(IBlockState state, World p_149734_1_, BlockPos pos, Random rand)\n"
+        },
+        {
+          "after_start": 245,
+          "after_end": 246,
+          "old": "",
+          "new": "        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "after_start": 248,
+          "after_end": 249,
+          "old": "            int l = p_149734_1_.getBlockMetadata(x, y, z);\n",
+          "new": "            int l = getMetaFromState(state);\n"
+        },
+        {
+          "after_start": 257,
+          "after_end": 259,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                p_149734_1_.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(EnumParticleTypes.FLAME, f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "after_start": 262,
+          "after_end": 264,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                p_149734_1_.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(EnumParticleTypes.FLAME, f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "after_start": 267,
+          "after_end": 269,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                p_149734_1_.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(EnumParticleTypes.FLAME, f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "after_start": 272,
+          "after_end": 274,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                p_149734_1_.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(EnumParticleTypes.FLAME, f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "after_start": 280,
+          "after_end": 281,
+          "old": "    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)\n",
+          "new": "    public ItemStack getItem(World world, BlockPos pos, IBlockState state)\n"
+        },
+        {
+          "after_start": 282,
+          "after_end": 283,
+          "old": "        return Item.getItemFromBlock(ModBlocks.machine_electric_furnace_off);}\n",
+          "new": "        return new ItemStack(ModBlocks.machine_electric_furnace_off);\n"
+        },
+        {
+          "after_start": 284,
+          "after_end": 285,
+          "old": "",
+          "new": "}\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+      "before_sha256": "71c68e532062a589d4aceaabb7138d6e27baa97b1912532b76900f24cd7bdfef",
+      "after_sha256": "1565c11a01f6d022a9c2967fe2e63be538d4d382f2abf7f39f9674a43a71173c",
+      "edits": [
+        {
+          "after_start": 2105,
+          "after_end": 2107,
+          "old": "\t\tmachine_electric_furnace_off = new MachineElectricFurnace(false).setBlockName(\"machine_electric_furnace_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_electric_furnace_on = new MachineElectricFurnace(true).setBlockName(\"machine_electric_furnace_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n",
+          "new": "\t\tmachine_electric_furnace_off = new MachineElectricFurnace(false).setTranslationKey(\"machine_electric_furnace_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_electric_furnace_on = new MachineElectricFurnace(true).setTranslationKey(\"machine_electric_furnace_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "after_start": 3722,
+          "after_end": 3724,
+          "old": "\t\tGameRegistry.registerBlock(machine_electric_furnace_off, machine_electric_furnace_off.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(machine_electric_furnace_on, machine_electric_furnace_on.getUnlocalizedName());\r\n",
+          "new": "\t\tGameRegistry.registerBlock(machine_electric_furnace_off, machine_electric_furnace_off.getTranslationKey());\r\n\t\tGameRegistry.registerBlock(machine_electric_furnace_on, machine_electric_furnace_on.getTranslationKey());\r\n"
+        }
+      ]
+    }
+  ]
+}

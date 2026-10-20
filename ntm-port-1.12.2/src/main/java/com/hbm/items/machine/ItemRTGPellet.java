@@ -96,10 +96,10 @@ public class ItemRTGPellet extends Item {
 			if (!((ItemRTGPellet) stack.getItem()).getDoesDecay())
 				return;
 			if (stack.hasTagCompound())
-				stack.stackTagCompound.setLong("PELLET_DEPLETION", getLifespan(stack) - 1);
+				stack.getTagCompound().setLong("PELLET_DEPLETION", getLifespan(stack) - 1);
 			else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("PELLET_DEPLETION", getMaxLifespan());
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("PELLET_DEPLETION", getMaxLifespan());
 			}
 		}
 	}
@@ -109,11 +109,11 @@ public class ItemRTGPellet extends Item {
 		if (stack != null && stack.getItem() instanceof ItemRTGPellet)
 		{
 			if (stack.hasTagCompound())
-				return stack.stackTagCompound.getLong("PELLET_DEPLETION");
+				return stack.getTagCompound().getLong("PELLET_DEPLETION");
 			else
 			{
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("PELLET_DEPLETION", getMaxLifespan());
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("PELLET_DEPLETION", getMaxLifespan());
 				return getMaxLifespan();
 			}
 		}
@@ -125,14 +125,15 @@ public class ItemRTGPellet extends Item {
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
 		
 		if(!world.isRemote && this == ModItems.pellet_rtg) {
 			player.sendMessage(new TextComponentString(facts[world.rand.nextInt(facts.length)]).setStyle(new Style().setColor(TextFormatting.YELLOW)));
-			world.playSoundAtEntity(player, "random.orb", 1.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, net.minecraft.init.SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 		}
 		
-		return stack;
+		return new net.minecraft.util.ActionResult<>(net.minecraft.util.EnumActionResult.PASS, stack);
 	}
 
 	@Override
@@ -147,15 +148,15 @@ public class ItemRTGPellet extends Item {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		super.addInformation(stack, player, list, bool);
-		list.add(I18nUtil.resolveKey(this.getUnlocalizedName().concat(".desc")));
+	public void addInformation(ItemStack stack, World world, List<String> list, net.minecraft.client.util.ITooltipFlag flag) {
+		super.addInformation(stack, world, list, flag);
+		list.add(I18nUtil.resolveKey(this.getTranslationKey().concat(".desc")));
 		final ItemRTGPellet instance = (ItemRTGPellet) stack.getItem();
 		list.add(I18nUtil.resolveKey("desc.item.rtgHeat", instance.getDoesDecay() && VersatileConfig.scaleRTGPower() ? getScaledPower(instance, stack) : instance.getHeat()));
 		if (instance.getDoesDecay()) {
-			list.add(I18nUtil.resolveKey("desc.item.rtgDecay", I18nUtil.resolveKey(instance.getDecayItem().getUnlocalizedName() + ".name"), instance.getDecayItem().stackSize));
+			list.add(I18nUtil.resolveKey("desc.item.rtgDecay", I18nUtil.resolveKey(instance.getDecayItem().getTranslationKey() + ".name"), instance.getDecayItem().getCount()));
 			list.add(BobMathUtil.toPercentage(instance.getLifespan(stack), instance.getMaxLifespan()));
-			if (bool) {
+			if (flag.isAdvanced()) {
 				list.add("EXTENDED INFO:");
 				list.add(String.format(Locale.US, "%s / %s ticks", instance.getLifespan(stack), instance.getMaxLifespan()));
 				final String[] timeLeft = BobMathUtil.ticksToDate(instance.getLifespan(stack));
@@ -167,7 +168,7 @@ public class ItemRTGPellet extends Item {
 	}
 
 	public String getData() {
-		return String.format(Locale.US, "%s (%s HE/t) %s", I18nUtil.resolveKey(getUnlocalizedName().concat(".name")), getHeat(), (getDoesDecay() ? " (decays)" : ""));
+		return String.format(Locale.US, "%s (%s HE/t) %s", I18nUtil.resolveKey(getTranslationKey().concat(".name")), getHeat(), (getDoesDecay() ? " (decays)" : ""));
 	}
 	
 	public static HashMap<ItemStack, ItemStack> getRecipeMap() {

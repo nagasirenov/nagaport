@@ -31,14 +31,14 @@ public class ItemTurretControl extends Item {
 			
 			EntityPlayer player = (EntityPlayer) entity;
 
-			if(player.getHeldItem() != null && stack != null && player.getHeldItem().equals(stack)) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && stack != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).equals(stack)) {
 				
 				if(stack.hasTagCompound()) {
 					int x = stack.getTagCompound().getInteger("xCoord");
 					int y = stack.getTagCompound().getInteger("yCoord");
 					int z = stack.getTagCompound().getInteger("zCoord");
 
-					TileEntity te = world.getTileEntity(x, y, z);
+					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 					if(te != null && te instanceof TileEntityTurretBaseNT) {
 						TileEntityTurretBaseNT turret = (TileEntityTurretBaseNT) te;
@@ -54,13 +54,13 @@ public class ItemTurretControl extends Item {
 							Vec3d vecDestination = new Vec3d(pos.getBlockPos().getX(), pos.getBlockPos().getY(), pos.getBlockPos().getZ());
 							
 							//List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.boundingBox.addCoord(pos.getBlockPos().getX(), pos.getBlockPos().getY(), pos.getBlockPos().getZ()).expand(1.0, 1.0, 1.0));
-							List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.boundingBox.expand(200, 200, 200));
+							List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().grow(200, 200, 200));
 							
 							for(Entity e : list) {
 
 								if (e.canBeCollidedWith() && e != player) {
 									
-									RayTraceResult mop = e.boundingBox.expand(0.2, 0.2, 0.2).calculateIntercept(vecOrigin, vecDestination);
+									RayTraceResult mop = e.getEntityBoundingBox().grow(0.2, 0.2, 0.2).calculateIntercept(vecOrigin, vecDestination);
 									
 									if(mop != null) {
 										
@@ -85,11 +85,11 @@ public class ItemTurretControl extends Item {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		if(itemstack.stackTagCompound != null) {
+		if(itemstack.getTagCompound() != null) {
 			list.add("Linked to:");
-			list.add("X: " + String.valueOf(itemstack.stackTagCompound.getInteger("xCoord")));
-			list.add("Y: " + String.valueOf(itemstack.stackTagCompound.getInteger("yCoord")));
-			list.add("Z: " + String.valueOf(itemstack.stackTagCompound.getInteger("zCoord")));
+			list.add("X: " + String.valueOf(itemstack.getTagCompound().getInteger("xCoord")));
+			list.add("Y: " + String.valueOf(itemstack.getTagCompound().getInteger("yCoord")));
+			list.add("Z: " + String.valueOf(itemstack.getTagCompound().getInteger("zCoord")));
 		} else {
 			list.add("Please select a turret.");
 		}
@@ -98,14 +98,14 @@ public class ItemTurretControl extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int fx, float fy, float fz, float f0) {
 		
-		if(world.getBlock(x, y, z) instanceof TurretBase) {
-			if(stack.stackTagCompound == null) {
-				stack.stackTagCompound = new NBTTagCompound();
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof TurretBase) {
+			if(stack.getTagCompound() == null) {
+				stack.setTagCompound(new NBTTagCompound());
 			}
 			
-			stack.stackTagCompound.setInteger("xCoord", x);
-			stack.stackTagCompound.setInteger("yCoord", y);
-			stack.stackTagCompound.setInteger("zCoord", z);
+			stack.getTagCompound().setInteger("xCoord", x);
+			stack.getTagCompound().setInteger("yCoord", y);
+			stack.getTagCompound().setInteger("zCoord", z);
 			
 			if(!world.isRemote) {
 				player.sendMessage(new TextComponentString("Turret Linked!"));
@@ -115,9 +115,9 @@ public class ItemTurretControl extends Item {
 			return true;
 		}
 		
-		if(world.getBlock(x, y, z) instanceof BlockDummyable) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof BlockDummyable) {
 			
-			int[] pos = ((BlockDummyable)world.getBlock(x, y, z)).findCore(world, x, y, z);
+			int[] pos = ((BlockDummyable)com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).findCore(world, x, y, z);
 			
 			if(pos == null)
 				return false;
@@ -126,17 +126,17 @@ public class ItemTurretControl extends Item {
 			int iy = pos[1];
 			int iz = pos[2];
 			
-			TileEntity te = world.getTileEntity(ix, iy, iz);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, iy, iz));
 			
 			if(te instanceof TileEntityTurretBaseNT) {
 				
-				if(stack.stackTagCompound == null) {
-					stack.stackTagCompound = new NBTTagCompound();
+				if(stack.getTagCompound() == null) {
+					stack.setTagCompound(new NBTTagCompound());
 				}
 				
-				stack.stackTagCompound.setInteger("xCoord", ix);
-				stack.stackTagCompound.setInteger("yCoord", iy);
-				stack.stackTagCompound.setInteger("zCoord", iz);
+				stack.getTagCompound().setInteger("xCoord", ix);
+				stack.getTagCompound().setInteger("yCoord", iy);
+				stack.getTagCompound().setInteger("zCoord", iz);
 				
 				if(!world.isRemote) {
 					player.sendMessage(new TextComponentString("Turret Linked!"));
@@ -187,7 +187,7 @@ public class ItemTurretControl extends Item {
 
 	@Override
 	public void onUsingTick(ItemStack stack, EntityPlayer player, int count) {
-		World world = player.worldObj;
+		World world = player.world;
 
 		if(stack.hasTagCompound()) {
 			
@@ -195,14 +195,14 @@ public class ItemTurretControl extends Item {
 			int y = stack.getTagCompound().getInteger("yCoord");
 			int z = stack.getTagCompound().getInteger("zCoord");
 
-			if(world.getBlock(x, y, z) instanceof TurretBase) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof TurretBase) {
 
 				/// ///
 			}
 
-			if(world.getTileEntity(x, y, z) instanceof TileEntityTurretBaseNT) {
+			if(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)) instanceof TileEntityTurretBaseNT) {
 				
-				TileEntityTurretBaseNT turret = (TileEntityTurretBaseNT) world.getTileEntity(x, y, z);
+				TileEntityTurretBaseNT turret = (TileEntityTurretBaseNT) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				
 				turret.manualSetup();
 				if(!world.isRemote)

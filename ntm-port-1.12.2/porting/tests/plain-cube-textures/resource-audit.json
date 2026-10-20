@@ -1,0 +1,122 @@
+[
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_uranium_scorched.png",
+    "sha256": "6962c986536552ce20388b189967608aa23672247c1366c10693cc220b9e4d7e"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_smoldering.png",
+    "sha256": "130cd7405f00f933f594f0c7a0102a685511cdab930ba1f01c1996575e7a9d91"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_uranium.png",
+    "sha256": "47713e21fd12db524c68987fdae2be07427352b45d382d6999b76e4d25c6a491"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_uranium_scorched.png",
+    "sha256": "5560b78a262be96d73b32b276ec128e98cf863678d87ab3d0c6bca8b1262361e"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_sulfur.png",
+    "sha256": "d458f7c64d7f4d6c455742073ae834af5b63256da08c60530f6d353eee4f2557"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_fire.png",
+    "sha256": "b82afe5cadc130bd690bbc0dc3d5684b594714e0fa12d7df77f6b370d293495b"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_cobalt.png",
+    "sha256": "35b0a5705a07c3045c3415f38fc02cb714a591b8fb4c1b603f075b3b0f56a308"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_iron.png",
+    "sha256": "a4947d8b18ed8d1fce06733697df6bd9f65fc4a0d07eacc8486daf2a07016741"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_gold.png",
+    "sha256": "eb81b4ff39f9ce73f999b56b8dbe9675919a746e049616a67d21854172f24a10"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_uranium.png",
+    "sha256": "212cff1259d43b6b9ea7bd9ea25e66952df35bcef4c00e168e113ffbf6ebcc5b"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_uranium_scorched.png",
+    "sha256": "7817aef27f77d5dbf1ebfd97f0d4134caa4d8317fc98c650de344c6a50cfe4cf"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_copper.png",
+    "sha256": "b3418348cf99ff4114cb4c00a9b02ae0397099be0c4547cfd68761edf32d7a3c"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_asbestos.png",
+    "sha256": "7e7d0e51c3be26c15db5918b7a29adcf88fd5fe43876071a5226fc84b184fc6b"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_lithium.png",
+    "sha256": "0ae0b75f037c3d7fc91c8418e43eb581bfd711bcae0aa1c7556b0a3e0204163a"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_schrabidium.png",
+    "sha256": "3a611eda980ea27587e9b2a55df438e0cf59c2dc0b36885d33129614b80d3fad"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_rare.png",
+    "sha256": "14ae7c6f469861ebb84216baea3fb4f6604b3f61b578321d746ee7aef803b811"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_gneiss_gas.png",
+    "sha256": "37304f3b80262046e1f48aa8fbf598cc70dd83aedd4b2ecd1542800bf5b41545"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ancient_scrap.png",
+    "sha256": "f73f38864af1e39575ac0957c7a6bed7242812409c5901bfe9846432a682fefd"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_corium_cobble.png",
+    "sha256": "726a485162a5545ae2c42d32854655013a5abf853d322566c65c1147b0b26d3c"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/deco_asbestos.png",
+    "sha256": "d493138a143820a819d8b6509cc14c8222e6ddc70110575b647bea3c02703192"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_asbestos.png",
+    "sha256": "b1b780223c5843ae373953331234f5a5e53a12d9ff6e05f6eb21cdb278cde3fe"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor.png",
+    "sha256": "2273c2bc0dcf642f483d030df172b169cf84dffe01a03a11f3e65670cb49f166"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_cobble.png",
+    "sha256": "da0454ccf1ac2415a92f958bb051d7de9db3643717c358a21143e8ea20141e1e"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_crushed.png",
+    "sha256": "85b1dce26a2a1041681e8c2c9e194d6918ffe8ce611f8925a690fc2b934ce9a8"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_cobble_molten.png",
+    "sha256": "8d3bd70f900959f9dba18318f13cea59025fd2577958eb013e6266141ad3c512"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_cobble_molten.png.mcmeta",
+    "sha256": "491ea51d46bc1f0c0ff11ed9293461cc67de293c7672abbc45f67563f8fe1f1a"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_jungle_ooze.png",
+    "sha256": "0071224830fe4b690d282cb1fcc2381fd5e389026729a2a50a69d32002380162"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_jungle_ooze.png.mcmeta",
+    "sha256": "491ea51d46bc1f0c0ff11ed9293461cc67de293c7672abbc45f67563f8fe1f1a"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_jungle_mystic.png",
+    "sha256": "4f3d7309233eaa7ca628418365ec3183007aee4ede83e9f7db8cc4c441dd0225"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_jungle_mystic.png.mcmeta",
+    "sha256": "491ea51d46bc1f0c0ff11ed9293461cc67de293c7672abbc45f67563f8fe1f1a"
+  }
+]

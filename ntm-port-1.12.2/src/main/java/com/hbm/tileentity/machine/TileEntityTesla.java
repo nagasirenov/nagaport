@@ -43,12 +43,12 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		if(!worldObj.isRemote) {
 			
@@ -56,15 +56,15 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 			
 			this.targets.clear();
 			
-			if(worldObj.getBlock(xCoord, yCoord - 1, zCoord) == ModBlocks.meteor_battery)
+			if(worldObj.getBlock(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()) == ModBlocks.meteor_battery)
 				power = maxPower;
 			
 			if(power >= 5000) {
 				power -= 5000;
 
-				double dx = xCoord + 0.5;
-				double dy = yCoord + offset;
-				double dz = zCoord + 0.5;
+				double dx = this.pos.getX() + 0.5;
+				double dy = this.pos.getY() + offset;
+				double dz = this.pos.getZ() + 0.5;
 				
 				this.targets = zap(worldObj, dx, dy, dz, range, null);
 			}
@@ -76,7 +76,7 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 	private void updateConnections() {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(worldObj, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 	
 	public static List<double[]> zap(World worldObj, double x, double y, double z, double radius, Entity source) {
@@ -122,7 +122,7 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 			}
 			
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForFaraday((EntityPlayer)e)))
-				if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp_float(e.getMaxHealth() * 0.5F, 3, 20) / (float)targets.size()))
+				if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp(e.getMaxHealth() * 0.5F, (float) (3), (float) (20)) / (float)targets.size()))
 					worldObj.playSoundAtEntity(e, "hbm:weapon.tesla", 1.0F, 1.0F);
 			
 			double offset = 0;

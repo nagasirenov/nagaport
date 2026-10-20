@@ -1,0 +1,25 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeTapeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 12 complete production classes; no Minecraft/Forge or NTM source substitutes
+[20:35:38] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:35:38] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:35:38] [main/INFO]: Replaced 1036 ore ingredients
+[20:35:38] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:35:38] [main/INFO]: Processing ObjectHolder annotations
+[20:35:38] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:35:38] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.tape_recorder`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:35:38] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.steel_poles`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:35:38] [main/INFO]: Setting user: StructuralProbe
+PASS 57664 native tape/pole checks
+[20:35:40] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:35:40] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:35:40] [main/INFO]: Replaced 1036 ore ingredients
+[20:35:40] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:35:40] [main/INFO]: Processing ObjectHolder annotations
+[20:35:40] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:35:40] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.tape_recorder`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:35:40] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.steel_poles`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:35:40] [main/INFO]: Setting user: StructuralProbe
+PASS 8 native tape replacement-owner checks

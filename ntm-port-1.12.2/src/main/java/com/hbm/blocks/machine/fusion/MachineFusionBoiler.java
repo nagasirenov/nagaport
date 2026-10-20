@@ -24,7 +24,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineFusionBoiler extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public MachineFusionBoiler() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class MachineFusionBoiler extends BlockDummyable implements ILookOverlay,
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityFusionBoiler)) return;
 		TileEntityFusionBoiler boiler = (TileEntityFusionBoiler) te;
@@ -83,7 +83,7 @@ public class MachineFusionBoiler extends BlockDummyable implements ILookOverlay,
 			text.add((i == 0 ? (TextFormatting.GREEN + "-> ") : (TextFormatting.RED + "<- ")) + TextFormatting.RESET + tank.getTankType().getLocalizedName() + ": " + tank.getFill() + "/" + tank.getMaxFill() + "mB");
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

@@ -64,14 +64,14 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.combustionEngine";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.tank.loadTank(0, 1, slots);
 			if(this.tank.setType(4, slots)) {
 				this.tenth = 0;
@@ -87,14 +87,14 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 				double eff = piston.eff[trait.getGrade().ordinal()];
 
 				if(eff > 0) {
-					if(breatheAir(worldObj.getTotalWorldTime() % 5 == 0 ? setting : 0)) {
+					if(breatheAir(this.world.getTotalWorldTime() % 5 == 0 ? setting : 0)) {
 						int speed = setting * 2;
 
 						int toBurn = Math.min(fill, speed);
 						this.power += toBurn * (trait.getCombustionEnergy() / 10_000D) * eff;
 						fill -= toBurn;
 
-						if(worldObj.getTotalWorldTime() % 5 == 0 && toBurn > 0) {
+						if(this.world.getTotalWorldTime() % 5 == 0 && toBurn > 0) {
 							super.pollute(tank.getTankType(), FluidReleaseType.BURN, toBurn * 0.5F);
 						}
 
@@ -114,8 +114,8 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 			this.power = Library.chargeItemsFromTE(slots, 3, power, power);
 
 			for(DirPos pos : getConPos()) {
-				this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				this.sendSmoke(pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
@@ -134,7 +134,7 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 				this.doorAngle -= swingSpeed;
 			}
 
-			this.doorAngle = MathHelper.clamp_float(this.doorAngle, 0F, 135F);
+			this.doorAngle = MathHelper.clamp(this.doorAngle, 0F, 135F);
 
 			if(wasOn) {
 
@@ -163,16 +163,16 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 1 + rot.offsetX, yCoord, zCoord + dir.offsetZ * 1 + rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 1 - rot.offsetX, yCoord, zCoord + dir.offsetZ * 1 - rot.offsetZ, dir),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 1 + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 1 - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 1 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite())
 		};
 	}
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.igeneratorOperate", xCoord, yCoord, zCoord, 1.0F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.igeneratorOperate", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 10F, 1.0F, 20);
 	}
 
 	@Override
@@ -237,23 +237,24 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("setting", setting);
 		nbt.setLong("power", power);
 		nbt.setBoolean("isOn", isOn);
 		tank.writeToNBT(nbt, "tank");
 		nbt.setInteger("tenth", tenth);
+		return nbt;
 	}
 
 	@Override
-	public void openInventory() {
-		if(!worldObj.isRemote) this.playersUsing++;
+	public void openInventory(EntityPlayer player) {
+		if(!world.isRemote) this.playersUsing++;
 	}
 
 	@Override
-	public void closeInventory() {
-		if(!worldObj.isRemote) this.playersUsing--;
+	public void closeInventory(EntityPlayer player) {
+		if(!world.isRemote) this.playersUsing--;
 	}
 
 	@Override
@@ -304,12 +305,12 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 2,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 4
 					);
 		}
 
@@ -324,7 +325,7 @@ public class TileEntityMachineCombustionEngine extends TileEntityMachinePollutin
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 25;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 25;
 	}
 
 	@Override

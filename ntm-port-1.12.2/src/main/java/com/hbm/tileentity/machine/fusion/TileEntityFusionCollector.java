@@ -12,25 +12,25 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityFusionCollector extends TileEntity {
+public class TileEntityFusionCollector extends TileEntity implements net.minecraft.util.ITickable {
 
 	protected GenNode plasmaNode;
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(plasmaNode == null || plasmaNode.expired) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
-				plasmaNode = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * 2, yCoord + 2, zCoord + dir.offsetZ * 2, PlasmaNetworkProvider.THE_PROVIDER);
+				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 2, PlasmaNetworkProvider.THE_PROVIDER);
 				
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
-							new BlockPos(xCoord + dir.offsetX * 2, yCoord + 2, zCoord + dir.offsetZ * 2))
-							.setConnections(new DirPos(xCoord + dir.offsetX * 3, yCoord + 2, zCoord + dir.offsetZ * 3, dir));
+							new BlockPos(this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 2))
+							.setConnections(new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 3, dir));
 					
-					UniNodespace.createNode(worldObj, plasmaNode);
+					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
 			
@@ -42,8 +42,8 @@ public class TileEntityFusionCollector extends TileEntity {
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
-			if(this.plasmaNode != null) UniNodespace.destroyNode(worldObj, plasmaNode);
+		if(!this.world.isRemote) {
+			if(this.plasmaNode != null) UniNodespace.destroyNode(this.world, plasmaNode);
 		}
 	}
 	
@@ -54,12 +54,12 @@ public class TileEntityFusionCollector extends TileEntity {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 4,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 3
 					);
 		}
 

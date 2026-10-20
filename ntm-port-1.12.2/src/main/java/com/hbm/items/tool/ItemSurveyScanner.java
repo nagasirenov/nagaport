@@ -38,7 +38,7 @@ public class ItemSurveyScanner extends Item {
 				for(int b = -5; b <= 5; b++) {
 					for(int i =  y + 15; i > 1; i -= 2) {
 
-						Block block = world.getBlock(x + a * 5, i, z + b * 5);
+						Block block = com.hbm.world.WorldBlockState.read(world, x + a * 5, i, z + b * 5).getBlock();
 
 						//wow, this sucks!
 						if(block == ModBlocks.ore_oil) hasOil = true;
@@ -52,10 +52,10 @@ public class ItemSurveyScanner extends Item {
 						else if(block == ModBlocks.ore_australium) hasAussie = true;
 					}
 
-					Block block = world.getBlock(x + a * 2, 0, z + b * 2);
+					Block block = com.hbm.world.WorldBlockState.read(world, x + a * 2, 0, z + b * 2).getBlock();
 
 					if(block == ModBlocks.ore_bedrock) {
-						tile = (TileEntityBedrockOre) world.getTileEntity(x + a * 2, 0, z + b * 2);
+						tile = (TileEntityBedrockOre) world.getTileEntity(new net.minecraft.util.math.BlockPos(x + a * 2, 0, z + b * 2));
 					}
 				}
 			}
@@ -79,7 +79,7 @@ public class ItemSurveyScanner extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
-		if(world.getBlock(x, y, z) == ModBlocks.block_beryllium && player.inventory.hasItem(ModItems.entanglement_kit)) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.block_beryllium && player.inventory.hasItem(ModItems.entanglement_kit)) {
 			player.travelToDimension(1);
 			return true;
 		}

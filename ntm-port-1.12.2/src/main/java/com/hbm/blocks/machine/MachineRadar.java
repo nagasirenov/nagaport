@@ -8,8 +8,8 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -45,7 +45,7 @@ public class MachineRadar extends BlockContainer {
 		
 		if(y < TileEntityMachineRadarNT.radarAltitude) {
 			if(world.isRemote)
-				player.addChatMessage(new ChatComponentText("[Radar] Error: Radar altitude not sufficient.").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+				player.sendMessage(new TextComponentString("[Radar] Error: Radar altitude not sufficient.").setStyle(new Style().setColor(TextFormatting.RED)));
 			return true;
 		}
 		

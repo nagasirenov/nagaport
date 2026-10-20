@@ -22,11 +22,11 @@ public class EntityGrenadeCloud extends EntityGrenadeBase {
 	@Override
 	public void explode() {
 
-		if (!this.worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			this.setDead();
 
-            this.worldObj.playAuxSFX(2002, (int)Math.round(this.posX), (int)Math.round(this.posY), (int)Math.round(this.posZ), 0);
-			ExplosionChaos.spawnPoisonCloud(worldObj, posX, posY, posZ, 250, 1.5, 1);
+            this.world.playAuxSFX(2002, (int)Math.round(this.posX), (int)Math.round(this.posY), (int)Math.round(this.posZ), 0);
+			ExplosionChaos.spawnPoisonCloud(this.world, posX, posY, posZ, 250, 1.5, 1);
 		}
 	}
 }

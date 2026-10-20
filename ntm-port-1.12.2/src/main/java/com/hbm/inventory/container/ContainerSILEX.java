@@ -94,6 +94,6 @@ public class ContainerSILEX extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return silex.isUseableByPlayer(player);
+		return silex.isUsableByPlayer(player);
 	}
 }

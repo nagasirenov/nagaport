@@ -28,7 +28,7 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 		this.bindTexture(pyl.color == 0 ? ResourceManager.wire_tex : ResourceManager.wire_greyscale_tex);
 
 		pyl.getConnected().forEach(wire -> {
-			TileEntity tile = pyl.getWorldObj().getTileEntity(wire[0], wire[1], wire[2]);
+			TileEntity tile = pyl.getWorld().getTileEntity(wire[0], wire[1], wire[2]);
 
 			if(tile instanceof TileEntityPylonBase) {
 				TileEntityPylonBase pylon = (TileEntityPylonBase) tile;
@@ -60,11 +60,11 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 
 					Vec3d second = m2[secondIndex];
 
-					double sX = second.x + pylon.xCoord - pyl.xCoord;
-					double sY = second.y + pylon.yCoord - pyl.yCoord;
-					double sZ = second.z + pylon.zCoord - pyl.zCoord;
+					double sX = second.x + pylon.getPos().getX() - pyl.getPos().getX();
+					double sY = second.y + pylon.getPos().getY() - pyl.getPos().getY();
+					double sZ = second.z + pylon.getPos().getZ() - pyl.getPos().getZ();
 
-					renderLine(pyl.getWorldObj(), pyl, x, y, z,
+					renderLine(pyl.getWorld(), pyl, x, y, z,
 							first.x,
 							first.y,
 							first.z,
@@ -138,11 +138,11 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 				double deltaZ = z1 - z0;
 
 				double ja = j + 0.5D;
-				double ix = pyl.xCoord + x0 + deltaX / (double)(count) * ja;
-				double iy = pyl.yCoord + y0 + deltaY / (double)(count) * ja - sagMean;
-				double iz = pyl.zCoord + z0 + deltaZ / (double)(count) * ja;
+				double ix = pyl.getPos().getX() + x0 + deltaX / (double)(count) * ja;
+				double iy = pyl.getPos().getY() + y0 + deltaY / (double)(count) * ja - sagMean;
+				double iz = pyl.getPos().getZ() + z0 + deltaZ / (double)(count) * ja;
 
-				int brightness = world.getLightBrightnessForSkyBlocks(MathHelper.floor_double(ix), MathHelper.floor_double(iy), MathHelper.floor_double(iz), 0);
+				int brightness = world.getLightBrightnessForSkyBlocks(MathHelper.floor(ix), MathHelper.floor(iy), MathHelper.floor(iz), 0);
 				tess.setBrightness(brightness);
 
 				tess.setColorOpaque_I(pyl.color == 0 ? 0xffffff : pyl.color);

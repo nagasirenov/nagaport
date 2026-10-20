@@ -20,9 +20,9 @@ public class HazardTypeExplosive extends HazardTypeBase {
 		if(RadiationConfig.disableExplosive)
 			return;
 
-		if(!target.worldObj.isRemote && target.isBurning() && stack.stackSize > 0) {
+		if(!target.world.isRemote && target.isBurning() && stack.stackSize > 0) {
 			stack.stackSize = 0;
-			target.worldObj.newExplosion(null, target.posX, target.posY + target.getEyeHeight() - target.getYOffset(), target.posZ, level, false, true);
+			target.world.newExplosion(null, target.posX, target.posY + target.getEyeHeight() - target.getYOffset(), target.posZ, level, false, true);
 		}
 	}
 
@@ -34,7 +34,7 @@ public class HazardTypeExplosive extends HazardTypeBase {
 		
 		if(item.isBurning()) {
 			item.setDead();
-			item.worldObj.newExplosion(null, item.posX, item.posY + item.height * 0.5, item.posZ, level, false, true);
+			item.world.newExplosion(null, item.posX, item.posY + item.height * 0.5, item.posZ, level, false, true);
 		}
 	}
 

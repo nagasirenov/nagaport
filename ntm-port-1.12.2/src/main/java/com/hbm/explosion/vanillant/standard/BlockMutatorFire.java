@@ -14,10 +14,10 @@ public class BlockMutatorFire implements IBlockMutator {
 	@Override
 	public void mutatePost(ExplosionVNT explosion, int x, int y, int z) {
 
-		Block block = explosion.world.getBlock(x, y, z);
-		Block block1 = explosion.world.getBlock(x, y - 1, z);
-		if(block.getMaterial() == Material.air && block1.func_149730_j() && explosion.world.rand.nextInt(3) == 0) {
-			explosion.world.setBlock(x, y, z, Blocks.fire);
+		Block block = com.hbm.world.WorldBlockState.read(explosion.world, x, y, z).getBlock();
+		Block block1 = com.hbm.world.WorldBlockState.read(explosion.world, x, y - 1, z).getBlock();
+		if(block.getDefaultState().getMaterial() == Material.AIR && block1.func_149730_j() && explosion.world.rand.nextInt(3) == 0) {
+			explosion.world.setBlock(x, y, z, Blocks.FIRE);
 		}
 	}
 }

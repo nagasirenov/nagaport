@@ -1,0 +1,10 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/EntityTargetMinecraftTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true);
+                            ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/EntityTargetMinecraftTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+            FixtureWorld w=(FixtureWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(FixtureWorld.class);
+                                                   ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAINearestAttackableTargetNT.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+PASS: complete production EntityAINearestAttackableTargetNT; real World/Chunk query and EntityCreature suitability; predicates, nearest sorting, six range directions across positive/negative chunks, dead/self/nonliving rejection, null/empty cases, 1000 RNG decisions, and original resetTask behavior. Not live-world lifecycle or full six-mob compilation.

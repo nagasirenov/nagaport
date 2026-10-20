@@ -1,0 +1,71 @@
+PRODUCTION com/hbm/blocks/generic/BlockWand.java 94a76044ae675cf9d37e406f770a0362d7092c096248b85aa41bb96cd954e898
+PRODUCTION com/hbm/render/block/RenderBlockWand.java 7322bf68e38b3206a5155104f190c70720a85a9a460516679c2c0c20b25456b2
+PRODUCTION com/hbm/render/block/nativeblock/WandBakedModel.java 219f985434d8d3aaa67de4e8b3be5abf6d6f2bac33358d79e738a417a78d435e
+PRODUCTION com/hbm/main/WandModelHandler.java 31c3efe07a5af02eec2fa4d4c7fcabacca9e2425469ca1554d5b55bd40eb486a
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/OriginalWandOracle.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/OriginalWandOracle.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/OriginalWandOracle.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/OriginalWandOracle.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/OriginalWandOracle.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/OriginalWandOracle.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/WandNativeTest.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static BlockWand block;static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager resources;static File root;
+                                       ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/WandNativeTest.java:50: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                  ^
+/workspace/shared/nagaport-wand-next/porting/tests/wand-native/WandNativeTest.java:50: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-wand-next/porting/tests/wand-native/WandNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 warnings
+PASS complete native owner, rendering, model handler and helper contain no legacy API references; zero NTM collaborator stubs
+[22:50:46] [main/INFO]: Processing ObjectHolder annotations
+[22:50:46] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS actual native owner and World/Chunk: export-as AIR, inset selection, no collision/tile, 16 metadata, defaults and every six-neighbor same-identity mask.
+PASS independent pinned original 1.7.10 RenderBlocks six face bytecodes: 16 metadata x six faces x two passes, exact position/UV/inside winding; no geometry oracle derived from production.
+OBSERVED vanilla flat uniform six-face RGBA ff7f7f7f,ffffffff,ffcccccc,ffcccccc,ff999999,ff999999
+OBSERVED vanilla smooth uniform six-face RGBA ff7f7f7f,ffffffff,ffcccccc,ffcccccc,ff999999,ff999999
+OBSERVED Forge flat uniform six-face RGBA ff808080,ffffffff,ffcccccc,ffcccccc,ff999999,ff999999
+OBSERVED Forge smooth uniform six-face RGBA ff808080,ffffffff,ffcccccc,ffcccccc,ff999999,ff999999
+PASS actual Forge and vanilla native flat/smooth lighting and culling, all 64 masks with air/opaque neighbors; nonconstant asymmetric native AO response. This is not original-vs-native nondefault-light parity.
+OBSERVED damage flat lighting differs from ordinary on 0/48 vertices under uniform light; damage retexturing remains a separate native-engine gate, not ordinary lighting proof.
+PASS exported 80 actual native renderer vertex streams for independent OpenGL draw-order framebuffer check
+[22:50:46] [main/INFO]: Reloading ResourceManager: resources
+[22:50:46] [main/INFO]: Reloading ResourceManager: resources
+[22:50:46] [main/INFO]: Reloading ResourceManager: resources
+PASS real ModelRegistryEvent, owner state map, world loader, flat ItemLayerModel, 16 item-mesher routes and original PNG/reload: resources
+[22:50:46] [main/INFO]: Reloading ResourceManager: wand-resources.jar
+[22:50:46] [main/INFO]: Reloading ResourceManager: wand-resources.jar
+[22:50:46] [main/INFO]: Reloading ResourceManager: wand-resources.jar
+PASS real ModelRegistryEvent, owner state map, world loader, flat ItemLayerModel, 16 item-mesher routes and original PNG/reload: wand-resources.jar
+[22:50:46] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.wand_air`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS wand native slice: 102010 assertions, 768 direct oracle vertices. Complete actual production owner/model/helper/handler and native Minecraft/Forge, zero collaborator stubs. Controlled atlas and Minecraft holder, not full-mod/live-game acceptance.
+[22:50:48] [main/INFO]: Processing ObjectHolder annotations
+[22:50:48] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS isolated wrong-owner route rejection: wrong-export
+[22:50:50] [main/INFO]: Processing ObjectHolder annotations
+[22:50:50] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS isolated wrong-owner route rejection: replacement
+[22:50:51] [main/INFO]: Processing ObjectHolder annotations
+[22:50:51] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS isolated wrong-owner route rejection: subclass
+OpenGL draw context: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1 llvmpipe (LLVM 19.1.7, 256 bits)
+PASS actual OpenGL RGBA8+depth framebuffer equality: 3360 comparisons; 2712 nonempty views; native Forge/vanilla flat/smooth, uniform/asymmetric light, ten masks, outside/inside/near cameras, nearest+linear+mipmapped filters. Original binary-alpha CUTOUT_MIPPED with depth/culling and no blending.

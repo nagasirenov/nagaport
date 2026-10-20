@@ -38,7 +38,7 @@ public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTra
 		if(tool != ToolType.SCREWDRIVER) return false;
 		if(this != ModBlocks.steel_wall && this != ModBlocks.steel_corner) return false;
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		if(!player.isSneaking()) {
 			if(meta == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 3);
@@ -86,13 +86,13 @@ public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTra
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return Item.getItemFromBlock(this);
 	}
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
@@ -147,29 +147,29 @@ public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTra
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity collider) {
 
 		if(this == ModBlocks.steel_corner) {
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			List<AxisAlignedBB> bbs = new ArrayList();
 
 			switch(meta) {
 			case 2:
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0.25D, y + 0D, z + 0.875D, x + 1D, y + 1D, z + 1D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0.75D, x + 0.25D, y + 1D, z + 1D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0D, x + 0.125D, y + 1D, z + 0.75D));
+				bbs.add(new AxisAlignedBB(x + 0.25D, y + 0D, z + 0.875D, x + 1D, y + 1D, z + 1D));
+				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.75D, x + 0.25D, y + 1D, z + 1D));
+				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.125D, y + 1D, z + 0.75D));
 				break;
 			case 3:
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0D, x + 0.75D, y + 1D, z + 0.125D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0.75D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.25D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0.875D, y + 0D, z + 0.25D, x + 1D, y + 1D, z + 1D));
+				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.75D, y + 1D, z + 0.125D));
+				bbs.add(new AxisAlignedBB(x + 0.75D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.25D));
+				bbs.add(new AxisAlignedBB(x + 0.875D, y + 0D, z + 0.25D, x + 1D, y + 1D, z + 1D));
 				break;
 			case 4:
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0.875D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.75D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0.75D, y + 0D, z + 0.75D, x + 1D, y + 1D, z + 1D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0.875D, x + 0.75D, y + 1D, z + 1D));
+				bbs.add(new AxisAlignedBB(x + 0.875D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.75D));
+				bbs.add(new AxisAlignedBB(x + 0.75D, y + 0D, z + 0.75D, x + 1D, y + 1D, z + 1D));
+				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.875D, x + 0.75D, y + 1D, z + 1D));
 				break;
 			case 5:
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0.25D, x + 0.125D, y + 1D, z + 1D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0D, y + 0D, z + 0D, x + 0.25D, y + 1D, z + 0.25D));
-				bbs.add(AxisAlignedBB.getBoundingBox(x + 0.25D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.125D));
+				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.25D, x + 0.125D, y + 1D, z + 1D));
+				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.25D, y + 1D, z + 0.25D));
+				bbs.add(new AxisAlignedBB(x + 0.25D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.125D));
 				break;
 			}
 

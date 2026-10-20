@@ -13,15 +13,12 @@ public class ElectrolyserMetalHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmElectrolysisMetal";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(2, 35, 22, 25), "ntmElectrolysisMetal"));
-		guiGui.add(GUIElectrolyserMetal.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIElectrolyserMetal.class, (2) + 5, (35) + 11, 22, 25, "ntmElectrolysisMetal");
 	}
 }

@@ -41,6 +41,7 @@ public class ItemEnumMulti extends Item {
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		
+		if(!this.isInCreativeTab(tab)) return;
 		Enum[] order = theEnum.getEnumConstants();
 		if(order[0] instanceof IOrderedEnum) order = ((IOrderedEnum) order[0]).getOrder();
 		
@@ -50,8 +51,8 @@ public class ItemEnumMulti extends Item {
 	}
 	
 	@Override
-	public Item setUnlocalizedName(String unlocalizedName) {
-		super.setUnlocalizedName(unlocalizedName);
+	public Item setTranslationKey(String unlocalizedName) {
+		super.setTranslationKey(unlocalizedName);
 		this.iconString = RefStrings.MODID + ":" + unlocalizedName;
 		return this;
 	}
@@ -104,13 +105,13 @@ public class ItemEnumMulti extends Item {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		
 		if(multiName) {
 			Enum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
-			return super.getUnlocalizedName() + "." + num.name().toLowerCase(Locale.US);
+			return super.getTranslationKey() + "." + num.name().toLowerCase(Locale.US);
 		} else {
-			return super.getUnlocalizedName(stack);
+			return super.getTranslationKey(stack);
 		}
 	}
 	

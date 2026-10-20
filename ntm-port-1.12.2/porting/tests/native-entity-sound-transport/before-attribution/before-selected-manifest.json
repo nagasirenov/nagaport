@@ -1,0 +1,3035 @@
+{
+  "baseline_commit": "e72ec3d2ae8db6653ebaad529a574ee32c99260b",
+  "basis": "Complete original production AST after full JavacTask.parse + analyze over 4056 real units; no fabricated fixtures or regex receivers. Java source offsets are UTF-16 code-unit offsets.",
+  "candidate_diagnostic_sites": 41,
+  "selected_call_count": 36,
+  "selected_file_count": 21,
+  "selected_sound_count": 11,
+  "files": {
+    "com/hbm/items/tool/ItemAmmoContainer.java": {
+      "sha256": "2733a2e6aaf0334e1cb42fc50802b437189954cad7ac4276b52cf8cd19057c55",
+      "bytes": 2917
+    },
+    "com/hbm/items/tool/ItemBoltgun.java": {
+      "sha256": "8e03ae655633d820177ff1b948d64a5e6c9dc5f2bc34f9f78fdb6120e52f2762",
+      "bytes": 4646
+    },
+    "com/hbm/items/tool/ItemBombCaller.java": {
+      "sha256": "402f784da7ec8a71437a1aa8225f1139f63beddde201f7ae485b394c92aaff04",
+      "bytes": 3553
+    },
+    "com/hbm/items/tool/ItemDesignatorArtyRange.java": {
+      "sha256": "19cf24a4930f4faed21b8be7a1b0c3a836104258d58814eb460af1e50b671307",
+      "bytes": 2892
+    },
+    "com/hbm/items/tool/ItemDesingator.java": {
+      "sha256": "5bf52e3aa13ecac0c045f78c177e13dac58071aab127b211e3d98aaeb9177ed3",
+      "bytes": 1919
+    },
+    "com/hbm/items/tool/ItemDesingatorRange.java": {
+      "sha256": "8542d188b3bd1c38c1e0b88f2beac7a088723cca83913e87ce679b69249d5deb",
+      "bytes": 2125
+    },
+    "com/hbm/items/tool/ItemDetonator.java": {
+      "sha256": "76ebefe738a217c98b65715464040c25bbc266b7574b9ffb17fb766bc9d90938",
+      "bytes": 3954
+    },
+    "com/hbm/items/tool/ItemDigammaDiagnostic.java": {
+      "sha256": "fa47a82099ce24ba476b0329b299e36aa7b4b7dc23ab795dc8c877e372350350",
+      "bytes": 542
+    },
+    "com/hbm/items/tool/ItemDosimeter.java": {
+      "sha256": "02eaf8d9dd81aa4550ab7562df688b3e77997edb4e0a18b3bc93c216bb588d32",
+      "bytes": 1640
+    },
+    "com/hbm/items/tool/ItemFilter.java": {
+      "sha256": "8c16d3c92b1c60ee00fe36f09f5aefc2870fbc8832952c7d9658756d538c8b71",
+      "bytes": 1810
+    },
+    "com/hbm/items/tool/ItemGeigerCounter.java": {
+      "sha256": "be799215022993c00099516e89a6c6d3467ba68b6b5debc87a7e5574ac8141bb",
+      "bytes": 2311
+    },
+    "com/hbm/items/tool/ItemLaserDetonator.java": {
+      "sha256": "e73a83423a5de6d657f8f4e51cea89ac1bff5003d86d108afb611ca0b3e57d11",
+      "bytes": 2936
+    },
+    "com/hbm/items/tool/ItemLock.java": {
+      "sha256": "4d86c9b5a3c8759a62ab4b57c0eeba8aeafb72f99313ad103a75b7139d9a394e",
+      "bytes": 1066
+    },
+    "com/hbm/items/tool/ItemMeteorRemote.java": {
+      "sha256": "297ac2ecdd050c45e4c95586691cf967f0d6ed738903b9c28694619542370298",
+      "bytes": 1085
+    },
+    "com/hbm/items/tool/ItemMultiDetonator.java": {
+      "sha256": "387b926201ccd23fcd70f4e82bfbbc2664248391c996bbba4dab17c5a9c20ae9",
+      "bytes": 5436
+    },
+    "com/hbm/items/tool/ItemOilDetector.java": {
+      "sha256": "6810e9f5b179d5672ba889c8f4fabda97ac02d9a56498d957f922254d5c80e2a",
+      "bytes": 3680
+    },
+    "com/hbm/items/tool/ItemRadarLinker.java": {
+      "sha256": "417c0f9a320d3a46cf498a1a29ec6e9d92b036125f6e12c8674b4eb8259402f8",
+      "bytes": 1072
+    },
+    "com/hbm/items/tool/ItemRepairKit.java": {
+      "sha256": "76951c10b1af5c18d4f3e50b37ba3a1eb9489515f145000e1267a2a62e5db8df",
+      "bytes": 1494
+    },
+    "com/hbm/items/tool/ItemTurretControl.java": {
+      "sha256": "f4b202d1453d6509584e6b44de4316babc3829524a9e96ffa3605744afc078fb",
+      "bytes": 7173
+    },
+    "com/hbm/tileentity/machine/TileEntityLockableBase.java": {
+      "sha256": "23936805106c457142526c5c62521d47ef619151c20a6ab72bb912ebdd676f17",
+      "bytes": 3593
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java": {
+      "sha256": "c294d1c12acdcf3b19251c6ad5785f3d4ad905fdee70e5ce4a0a6764772ece5d",
+      "bytes": 23672
+    }
+  },
+  "sounds": {
+    "hbm:item.unpack": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          "hbm:tool/extract1",
+          "hbm:tool/extract2"
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/extract1.ogg",
+          "bytes": 7029,
+          "sha256": "8b46a93a5253647bb71e064175a1636c1730b7a3f57247143fe326e1064c4951"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/extract2.ogg",
+          "bytes": 7302,
+          "sha256": "9c63d770972716d910eba4e9f0e706f1cb03cc615ebe1e2a773d4130b25d2458"
+        }
+      ]
+    },
+    "hbm:item.boltgun": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/boltgun",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/boltgun.ogg",
+          "bytes": 13695,
+          "sha256": "4b570bb5494869d6dc056f7c2cdad4c7aad20aff6188c6a55c4edd4ebc2e2e68"
+        }
+      ]
+    },
+    "hbm:item.techBleep": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/techBleep",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/techbleep.ogg",
+          "bytes": 3256,
+          "sha256": "9c8997077e0e252ce9e65c4b48a0b91f5dc58dd11e38d86d8ee51f4fba576740"
+        }
+      ]
+    },
+    "hbm:item.techBoop": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/techBoop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/techboop.ogg",
+          "bytes": 2877,
+          "sha256": "f52d0a4332819578e2f61af0c5b90a9761a472e756140e05bff3b2a1cec6cd3c"
+        }
+      ]
+    },
+    "hbm:item.gasmaskScrew": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/gasmaskScrew",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/gasmaskscrew.ogg",
+          "bytes": 15368,
+          "sha256": "4f367bc1e38a8fe994249332ff1b3cd132a7bf06778be486af78f0b724249845"
+        }
+      ]
+    },
+    "hbm:block.lockHang": {
+      "bundled_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/lockHang",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/block/lockhang.ogg",
+          "bytes": 8218,
+          "sha256": "d95dcad6bf5bfce27979c1d484fbefdc3d585e36a08f9d3e5a47f4e2d6dc94a2"
+        }
+      ]
+    },
+    "hbm:item.spray": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/spray",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/spray.ogg",
+          "bytes": 22551,
+          "sha256": "033eb4e92965c693fb9be9c34ced74e88402b773e4b82c76a00aa1ba98ed4edc"
+        }
+      ]
+    },
+    "hbm:item.repair": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          "hbm:tool/repair1",
+          "hbm:tool/repair2",
+          "hbm:tool/repair3",
+          "hbm:tool/repair4",
+          "hbm:tool/repair5",
+          "hbm:tool/repair6",
+          "hbm:tool/repair7"
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair1.ogg",
+          "bytes": 13288,
+          "sha256": "c5dfdf12eb9f44375f0d6c48f467f03a4b29ecfba01ba3db3259a14f558b721e"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair2.ogg",
+          "bytes": 14823,
+          "sha256": "3785ebf76851b11b09667a5813f265f2441289a6c596f1312c633e0ad8ee22de"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair3.ogg",
+          "bytes": 15473,
+          "sha256": "4658005a9ba95431611794a71579bfaad6c148a45c66c9631f8fcfee75fa9574"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair4.ogg",
+          "bytes": 15486,
+          "sha256": "b12ffda34c8b39a0551e73331b18e520d974f21e509c4590f300771dcb04012a"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair5.ogg",
+          "bytes": 15632,
+          "sha256": "055f74e49781d16a77ad80300b9442d89926f4d646fb344c0d6b1858d6f560e9"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair6.ogg",
+          "bytes": 18258,
+          "sha256": "26a83345297936c905781f2f396875ea06cd5b277b9bb4b7be910a8af3dc49ac"
+        },
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/repair7.ogg",
+          "bytes": 16213,
+          "sha256": "366ae62c3ad49a4a9acec29b7fb3ef4b74d10ab9d742d3eac58bae3adc0b5b78"
+        }
+      ]
+    },
+    "hbm:block.lockOpen": {
+      "bundled_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/lockOpen",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/block/lockopen.ogg",
+          "bytes": 11088,
+          "sha256": "14c5910471119f46e05d4ab1ad74382d49edd91aaa7373d1e05a54f10487f3d3"
+        }
+      ]
+    },
+    "hbm:item.pinUnlock": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/pinUnlock",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/pinunlock.ogg",
+          "bytes": 7233,
+          "sha256": "89076964c9f932411c57deabbf3d17566ac63bcf10eedb11fddcb0f6e1cf4fb8"
+        }
+      ]
+    },
+    "hbm:item.pinBreak": {
+      "bundled_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/pinBreak",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "path": "ntm-port-1.12.2/src/main/resources/assets/hbm/sounds/tool/pinbreak.ogg",
+          "bytes": 6914,
+          "sha256": "1b6e175b4fb805a6f92bae463af95592b71ffd6bc046503e474cb31496708d96"
+        }
+      ]
+    }
+  },
+  "calls": [
+    {
+      "path": "com/hbm/items/tool/ItemAmmoContainer.java",
+      "line": 80,
+      "start": 2456,
+      "end": 2518,
+      "select_start": 2456,
+      "select_end": 2479,
+      "receiver_start": 2456,
+      "receiver_end": 2461,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.unpack\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2480,
+        2488,
+        2507,
+        2513
+      ],
+      "arguments_end": [
+        2486,
+        2505,
+        2511,
+        2517
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.unpack",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.unpack\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1387,
+      "enclosing_method_end": 2614,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemAmmoContainer.java:1387",
+      "sound": "hbm:item.unpack"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemBoltgun.java",
+      "line": 96,
+      "start": 3519,
+      "end": 3582,
+      "select_start": 3519,
+      "select_end": 3542,
+      "receiver_start": 3519,
+      "receiver_end": 3524,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.boltgun\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        3543,
+        3551,
+        3571,
+        3577
+      ],
+      "arguments_end": [
+        3549,
+        3569,
+        3575,
+        3581
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.boltgun",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.boltgun\", 1.0F, 1.0F)",
+      "enclosing_method_start": 3147,
+      "enclosing_method_end": 4247,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemBoltgun.java:3147",
+      "sound": "hbm:item.boltgun"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemBombCaller.java",
+      "line": 76,
+      "start": 2650,
+      "end": 2715,
+      "select_start": 2650,
+      "select_end": 2673,
+      "receiver_start": 2650,
+      "receiver_end": 2655,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2674,
+        2682,
+        2704,
+        2710
+      ],
+      "arguments_end": [
+        2680,
+        2702,
+        2708,
+        2714
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1443,
+      "enclosing_method_end": 2950,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemBombCaller.java:1443",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemBombCaller.java",
+      "line": 80,
+      "start": 2821,
+      "end": 2886,
+      "select_start": 2821,
+      "select_end": 2844,
+      "receiver_start": 2821,
+      "receiver_end": 2826,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2845,
+        2853,
+        2875,
+        2881
+      ],
+      "arguments_end": [
+        2851,
+        2873,
+        2879,
+        2885
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1443,
+      "enclosing_method_end": 2950,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemBombCaller.java:1443",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDesignatorArtyRange.java",
+      "line": 59,
+      "start": 1948,
+      "end": 2013,
+      "select_start": 1948,
+      "select_end": 1971,
+      "receiver_start": 1948,
+      "receiver_end": 1953,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1972,
+        1980,
+        2002,
+        2008
+      ],
+      "arguments_end": [
+        1978,
+        2000,
+        2006,
+        2012
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1116,
+      "enclosing_method_end": 2062,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDesignatorArtyRange.java:1116",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDesignatorArtyRange.java",
+      "line": 84,
+      "start": 2793,
+      "end": 2857,
+      "select_start": 2793,
+      "select_end": 2816,
+      "receiver_start": 2793,
+      "receiver_end": 2798,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2817,
+        2825,
+        2846,
+        2852
+      ],
+      "arguments_end": [
+        2823,
+        2844,
+        2850,
+        2856
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F)",
+      "enclosing_method_start": 2065,
+      "enclosing_method_end": 2889,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDesignatorArtyRange.java:2065",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDesingator.java",
+      "line": 44,
+      "start": 1461,
+      "end": 1526,
+      "select_start": 1461,
+      "select_end": 1484,
+      "receiver_start": 1461,
+      "receiver_end": 1466,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1485,
+        1493,
+        1515,
+        1521
+      ],
+      "arguments_end": [
+        1491,
+        1513,
+        1519,
+        1525
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 898,
+      "enclosing_method_end": 1574,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDesingator.java:898",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDesingatorRange.java",
+      "line": 50,
+      "start": 1666,
+      "end": 1731,
+      "select_start": 1666,
+      "select_end": 1689,
+      "receiver_start": 1666,
+      "receiver_end": 1671,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1690,
+        1698,
+        1720,
+        1726
+      ],
+      "arguments_end": [
+        1696,
+        1718,
+        1724,
+        1730
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 979,
+      "enclosing_method_end": 1780,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDesingatorRange.java:979",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDetonator.java",
+      "line": 51,
+      "start": 1886,
+      "end": 1950,
+      "select_start": 1886,
+      "select_end": 1909,
+      "receiver_start": 1886,
+      "receiver_end": 1891,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "2.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1910,
+        1918,
+        1939,
+        1945
+      ],
+      "arguments_end": [
+        1916,
+        1937,
+        1943,
+        1949
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 2.0F, 1.0F)",
+      "enclosing_method_start": 1110,
+      "enclosing_method_end": 1998,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDetonator.java:1110",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDetonator.java",
+      "line": 75,
+      "start": 2730,
+      "end": 2795,
+      "select_start": 2730,
+      "select_end": 2753,
+      "receiver_start": 2730,
+      "receiver_end": 2735,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2754,
+        2762,
+        2784,
+        2790
+      ],
+      "arguments_end": [
+        2760,
+        2782,
+        2788,
+        2794
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 2003,
+      "enclosing_method_end": 3947,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDetonator.java:2003",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDigammaDiagnostic.java",
+      "line": 16,
+      "start": 400,
+      "end": 464,
+      "select_start": 400,
+      "select_end": 423,
+      "receiver_start": 400,
+      "receiver_end": 405,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        424,
+        432,
+        453,
+        459
+      ],
+      "arguments_end": [
+        430,
+        451,
+        457,
+        463
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F)",
+      "enclosing_method_start": 274,
+      "enclosing_method_end": 539,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDigammaDiagnostic.java:274",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemDosimeter.java",
+      "line": 60,
+      "start": 1499,
+      "end": 1563,
+      "select_start": 1499,
+      "select_end": 1522,
+      "receiver_start": 1499,
+      "receiver_end": 1504,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1523,
+        1531,
+        1552,
+        1558
+      ],
+      "arguments_end": [
+        1529,
+        1550,
+        1556,
+        1562
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1373,
+      "enclosing_method_end": 1637,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemDosimeter.java:1373",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemFilter.java",
+      "line": 68,
+      "start": 1715,
+      "end": 1783,
+      "select_start": 1715,
+      "select_end": 1738,
+      "receiver_start": 1715,
+      "receiver_end": 1720,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.gasmaskScrew\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1739,
+        1747,
+        1772,
+        1778
+      ],
+      "arguments_end": [
+        1745,
+        1770,
+        1776,
+        1782
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.gasmaskScrew",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.gasmaskScrew\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1174,
+      "enclosing_method_end": 1807,
+      "enclosing_method_signature": "installFilterOn(net.minecraft.item.ItemStack,net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemFilter.java:1174",
+      "sound": "hbm:item.gasmaskScrew"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemGeigerCounter.java",
+      "line": 79,
+      "start": 2173,
+      "end": 2237,
+      "select_start": 2173,
+      "select_end": 2196,
+      "receiver_start": 2173,
+      "receiver_end": 2178,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2197,
+        2205,
+        2226,
+        2232
+      ],
+      "arguments_end": [
+        2203,
+        2224,
+        2230,
+        2236
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F)",
+      "enclosing_method_start": 2047,
+      "enclosing_method_end": 2308,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemGeigerCounter.java:2047",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemLaserDetonator.java",
+      "line": 49,
+      "start": 1753,
+      "end": 1818,
+      "select_start": 1753,
+      "select_end": 1776,
+      "receiver_start": 1753,
+      "receiver_end": 1758,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1777,
+        1785,
+        1807,
+        1813
+      ],
+      "arguments_end": [
+        1783,
+        1805,
+        1811,
+        1817
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1050,
+      "enclosing_method_end": 2854,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemLaserDetonator.java:1050",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemLaserDetonator.java",
+      "line": 53,
+      "start": 2108,
+      "end": 2172,
+      "select_start": 2108,
+      "select_end": 2131,
+      "receiver_start": 2108,
+      "receiver_end": 2113,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2132,
+        2140,
+        2161,
+        2167
+      ],
+      "arguments_end": [
+        2138,
+        2159,
+        2165,
+        2171
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1050,
+      "enclosing_method_end": 2854,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemLaserDetonator.java:1050",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemLock.java",
+      "line": 35,
+      "start": 926,
+      "end": 991,
+      "select_start": 926,
+      "select_end": 949,
+      "receiver_start": 926,
+      "receiver_end": 931,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:block.lockHang\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        950,
+        958,
+        980,
+        986
+      ],
+      "arguments_end": [
+        956,
+        978,
+        984,
+        990
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:block.lockHang",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:block.lockHang\", 1.0F, 1.0F)",
+      "enclosing_method_start": 421,
+      "enclosing_method_end": 1062,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemLock.java:421",
+      "sound": "hbm:block.lockHang"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemMeteorRemote.java",
+      "line": 38,
+      "start": 968,
+      "end": 1033,
+      "select_start": 968,
+      "select_end": 991,
+      "receiver_start": 968,
+      "receiver_end": 973,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        992,
+        1000,
+        1022,
+        1028
+      ],
+      "arguments_end": [
+        998,
+        1020,
+        1026,
+        1032
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 673,
+      "enclosing_method_end": 1080,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemMeteorRemote.java:673",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+      "line": 58,
+      "start": 1937,
+      "end": 2001,
+      "select_start": 1937,
+      "select_end": 1960,
+      "receiver_start": 1937,
+      "receiver_end": 1942,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "2.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1961,
+        1969,
+        1990,
+        1996
+      ],
+      "arguments_end": [
+        1967,
+        1988,
+        1994,
+        2000
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 2.0F, 1.0F)",
+      "enclosing_method_start": 1267,
+      "enclosing_method_end": 2049,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemMultiDetonator.java:1267",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+      "line": 105,
+      "start": 3345,
+      "end": 3410,
+      "select_start": 3345,
+      "select_end": 3368,
+      "receiver_start": 3345,
+      "receiver_end": 3350,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        3369,
+        3377,
+        3399,
+        3405
+      ],
+      "arguments_end": [
+        3375,
+        3397,
+        3403,
+        3409
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 2054,
+      "enclosing_method_end": 4436,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemMultiDetonator.java:2054",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+      "line": 120,
+      "start": 3999,
+      "end": 4063,
+      "select_start": 3999,
+      "select_end": 4022,
+      "receiver_start": 3999,
+      "receiver_end": 4004,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBoop\"",
+        "2.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        4023,
+        4031,
+        4052,
+        4058
+      ],
+      "arguments_end": [
+        4029,
+        4050,
+        4056,
+        4062
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBoop",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBoop\", 2.0F, 1.0F)",
+      "enclosing_method_start": 2054,
+      "enclosing_method_end": 4436,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemMultiDetonator.java:2054",
+      "sound": "hbm:item.techBoop"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemOilDetector.java",
+      "line": 60,
+      "start": 2293,
+      "end": 2358,
+      "select_start": 2293,
+      "select_end": 2316,
+      "receiver_start": 2293,
+      "receiver_end": 2298,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2317,
+        2325,
+        2347,
+        2353
+      ],
+      "arguments_end": [
+        2323,
+        2345,
+        2351,
+        2357
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 942,
+      "enclosing_method_end": 2402,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemOilDetector.java:942",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemRadarLinker.java",
+      "line": 28,
+      "start": 1000,
+      "end": 1065,
+      "select_start": 1000,
+      "select_end": 1023,
+      "receiver_start": 1000,
+      "receiver_end": 1005,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1024,
+        1032,
+        1054,
+        1060
+      ],
+      "arguments_end": [
+        1030,
+        1052,
+        1058,
+        1064
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 906,
+      "enclosing_method_end": 1069,
+      "enclosing_method_signature": "onTargetSet(net.minecraft.world.World,int,int,int,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemRadarLinker.java:906",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemRepairKit.java",
+      "line": 46,
+      "start": 1269,
+      "end": 1330,
+      "select_start": 1269,
+      "select_end": 1292,
+      "receiver_start": 1269,
+      "receiver_end": 1274,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.spray\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1293,
+        1301,
+        1319,
+        1325
+      ],
+      "arguments_end": [
+        1299,
+        1317,
+        1323,
+        1329
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.spray",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.spray\", 1.0F, 1.0F)",
+      "enclosing_method_start": 448,
+      "enclosing_method_end": 1491,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemRepairKit.java:448",
+      "sound": "hbm:item.spray"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemRepairKit.java",
+      "line": 47,
+      "start": 1366,
+      "end": 1428,
+      "select_start": 1366,
+      "select_end": 1389,
+      "receiver_start": 1366,
+      "receiver_end": 1371,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.repair\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        1390,
+        1398,
+        1417,
+        1423
+      ],
+      "arguments_end": [
+        1396,
+        1415,
+        1421,
+        1427
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.repair",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.repair\", 1.0F, 1.0F)",
+      "enclosing_method_start": 448,
+      "enclosing_method_end": 1491,
+      "enclosing_method_signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemRepairKit.java:448",
+      "sound": "hbm:item.repair"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemTurretControl.java",
+      "line": 114,
+      "start": 4389,
+      "end": 4454,
+      "select_start": 4389,
+      "select_end": 4412,
+      "receiver_start": 4389,
+      "receiver_end": 4394,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        4413,
+        4421,
+        4443,
+        4449
+      ],
+      "arguments_end": [
+        4419,
+        4441,
+        4447,
+        4453
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 3776,
+      "enclosing_method_end": 5469,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemTurretControl.java:3776",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/items/tool/ItemTurretControl.java",
+      "line": 145,
+      "start": 5351,
+      "end": 5416,
+      "select_start": 5351,
+      "select_end": 5374,
+      "receiver_start": 5351,
+      "receiver_end": 5356,
+      "method": "playSoundAtEntity",
+      "receiver_source": "world",
+      "receiver_tree_kind": "IDENTIFIER",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "PARAMETER",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        5375,
+        5383,
+        5405,
+        5411
+      ],
+      "arguments_end": [
+        5381,
+        5403,
+        5409,
+        5415
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 3776,
+      "enclosing_method_end": 5469,
+      "enclosing_method_signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "enclosing_method_key": "com/hbm/items/tool/ItemTurretControl.java:3776",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "line": 84,
+      "start": 2108,
+      "end": 2178,
+      "select_start": 2108,
+      "select_end": 2136,
+      "receiver_start": 2108,
+      "receiver_end": 2118,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:block.lockOpen\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2137,
+        2145,
+        2167,
+        2173
+      ],
+      "arguments_end": [
+        2143,
+        2165,
+        2171,
+        2177
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:block.lockOpen",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:block.lockOpen\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1791,
+      "enclosing_method_end": 2397,
+      "enclosing_method_signature": "canAccess(net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityLockableBase.java:1791",
+      "sound": "hbm:block.lockOpen"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "line": 89,
+      "start": 2269,
+      "end": 2339,
+      "select_start": 2269,
+      "select_end": 2297,
+      "receiver_start": 2269,
+      "receiver_end": 2279,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:block.lockOpen\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        2298,
+        2306,
+        2328,
+        2334
+      ],
+      "arguments_end": [
+        2304,
+        2326,
+        2332,
+        2338
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:block.lockOpen",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:block.lockOpen\", 1.0F, 1.0F)",
+      "enclosing_method_start": 1791,
+      "enclosing_method_end": 2397,
+      "enclosing_method_signature": "canAccess(net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityLockableBase.java:1791",
+      "sound": "hbm:block.lockOpen"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "line": 124,
+      "start": 3358,
+      "end": 3428,
+      "select_start": 3358,
+      "select_end": 3386,
+      "receiver_start": 3358,
+      "receiver_end": 3368,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.pinUnlock\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        3387,
+        3395,
+        3417,
+        3423
+      ],
+      "arguments_end": [
+        3393,
+        3415,
+        3421,
+        3427
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.pinUnlock",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.pinUnlock\", 1.0F, 1.0F)",
+      "enclosing_method_start": 2400,
+      "enclosing_method_end": 3589,
+      "enclosing_method_signature": "tryPick(net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityLockableBase.java:2400",
+      "sound": "hbm:item.pinUnlock"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "line": 128,
+      "start": 3456,
+      "end": 3564,
+      "select_start": 3456,
+      "select_end": 3484,
+      "receiver_start": 3456,
+      "receiver_end": 3466,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.pinBreak\"",
+        "1.0F",
+        "0.8F + player.world.rand.nextFloat() * 0.2F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "PLUS"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        3485,
+        3493,
+        3514,
+        3520
+      ],
+      "arguments_end": [
+        3491,
+        3512,
+        3518,
+        3563
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.pinBreak",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.pinBreak\", 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F)",
+      "enclosing_method_start": 2400,
+      "enclosing_method_end": 3589,
+      "enclosing_method_signature": "tryPick(net.minecraft.entity.player.EntityPlayer)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityLockableBase.java:2400",
+      "sound": "hbm:item.pinBreak"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "line": 455,
+      "start": 14234,
+      "end": 14304,
+      "select_start": 14234,
+      "select_end": 14262,
+      "receiver_start": 14234,
+      "receiver_end": 14244,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        14263,
+        14271,
+        14293,
+        14299
+      ],
+      "arguments_end": [
+        14269,
+        14291,
+        14297,
+        14303
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 13073,
+      "enclosing_method_end": 16227,
+      "enclosing_method_signature": "receiveControl(net.minecraft.entity.player.EntityPlayer,net.minecraft.nbt.NBTTagCompound)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:13073",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "line": 464,
+      "start": 14642,
+      "end": 14712,
+      "select_start": 14642,
+      "select_end": 14670,
+      "receiver_start": 14642,
+      "receiver_end": 14652,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        14671,
+        14679,
+        14701,
+        14707
+      ],
+      "arguments_end": [
+        14677,
+        14699,
+        14705,
+        14711
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 13073,
+      "enclosing_method_end": 16227,
+      "enclosing_method_signature": "receiveControl(net.minecraft.entity.player.EntityPlayer,net.minecraft.nbt.NBTTagCompound)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:13073",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "line": 473,
+      "start": 15094,
+      "end": 15164,
+      "select_start": 15094,
+      "select_end": 15122,
+      "receiver_start": 15094,
+      "receiver_end": 15104,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        15123,
+        15131,
+        15153,
+        15159
+      ],
+      "arguments_end": [
+        15129,
+        15151,
+        15157,
+        15163
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 13073,
+      "enclosing_method_end": 16227,
+      "enclosing_method_signature": "receiveControl(net.minecraft.entity.player.EntityPlayer,net.minecraft.nbt.NBTTagCompound)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:13073",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "line": 490,
+      "start": 15818,
+      "end": 15888,
+      "select_start": 15818,
+      "select_end": 15846,
+      "receiver_start": 15818,
+      "receiver_end": 15828,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        15847,
+        15855,
+        15877,
+        15883
+      ],
+      "arguments_end": [
+        15853,
+        15875,
+        15881,
+        15887
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 13073,
+      "enclosing_method_end": 16227,
+      "enclosing_method_signature": "receiveControl(net.minecraft.entity.player.EntityPlayer,net.minecraft.nbt.NBTTagCompound)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:13073",
+      "sound": "hbm:item.techBleep"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "line": 497,
+      "start": 16114,
+      "end": 16184,
+      "select_start": 16114,
+      "select_end": 16142,
+      "receiver_start": 16114,
+      "receiver_end": 16124,
+      "method": "playSoundAtEntity",
+      "receiver_source": "this.world",
+      "receiver_tree_kind": "MEMBER_SELECT",
+      "receiver_kind": "DECLARED",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_element_kind": "FIELD",
+      "receiver_element": "world",
+      "method_element_kind": "CLASS",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "net.minecraft.world.World.playSoundAtEntity",
+      "argument_count": 4,
+      "arguments_source": [
+        "player",
+        "\"hbm:item.techBleep\"",
+        "1.0F",
+        "1.0F"
+      ],
+      "arguments_tree_kind": [
+        "IDENTIFIER",
+        "STRING_LITERAL",
+        "FLOAT_LITERAL",
+        "FLOAT_LITERAL"
+      ],
+      "arguments_kind": [
+        "DECLARED",
+        "DECLARED",
+        "FLOAT",
+        "FLOAT"
+      ],
+      "arguments_type": [
+        "net.minecraft.entity.player.EntityPlayer",
+        "java.lang.String",
+        "float",
+        "float"
+      ],
+      "arguments_start": [
+        16143,
+        16151,
+        16173,
+        16179
+      ],
+      "arguments_end": [
+        16149,
+        16171,
+        16177,
+        16183
+      ],
+      "string_literals": [
+        "<not-string-literal>",
+        "hbm:item.techBleep",
+        "<not-string-literal>",
+        "<not-string-literal>"
+      ],
+      "full_invocation": "this.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F)",
+      "enclosing_method_start": 13073,
+      "enclosing_method_end": 16227,
+      "enclosing_method_signature": "receiveControl(net.minecraft.entity.player.EntityPlayer,net.minecraft.nbt.NBTTagCompound)",
+      "enclosing_method_key": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:13073",
+      "sound": "hbm:item.techBleep"
+    }
+  ],
+  "methods": {
+    "com/hbm/items/tool/ItemAmmoContainer.java:1387": {
+      "path": "com/hbm/items/tool/ItemAmmoContainer.java",
+      "start": 1387,
+      "end": 2614,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\t\tboolean makeshift = stack.getItemDamage() == 1;\n\t\t\n\t\tList<ItemStack> stacks = new ArrayList();\n\t\t\n\t\tfor(ItemStack inv : player.inventory.mainInventory) {\n\t\t\tif(inv != null && inv.getItem() instanceof ItemGunBaseNT) {\n\t\t\t\tItemGunBaseNT gun = (ItemGunBaseNT) inv.getItem();\n\t\t\t\tif(gun.defaultAmmo != null && !(makeshift && gun.isDefaultExpensive)) stacks.add(inv);\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(stacks.size() <= 0) return stack;\n\t\t\n\t\tCollections.shuffle(stacks);\n\t\t\n\t\tint maxGunCount = 3;\n\t\t\n\t\tfor(int i = 0; i < maxGunCount && i < stacks.size(); i++) {\n\t\t\tItemStack gunStack = stacks.get(i);\n\t\t\tItemGunBaseNT gun = (ItemGunBaseNT) gunStack.getItem();\n\t\t\tItemStack ammo = gun.defaultAmmo.copy();\n\t\t\tif(makeshift) ammo.stackSize = (int) Math.ceil(ammo.stackSize / 2D);\n\t\t\tItemStack remainder = InventoryUtil.tryAddItemToInventory(player.inventory.mainInventory, ammo);\n\t\t\tif(remainder != null && remainder.stackSize > 0) player.dropPlayerItemWithRandomChoice(remainder, false);\n\t\t}\n\n\t\tworld.playSoundAtEntity(player, \"hbm:item.unpack\", 1.0F, 1.0F);\n\t\tplayer.inventoryContainer.detectAndSendChanges();\n\t\tstack.stackSize--;\n\t\t\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemBoltgun.java:3147": {
+      "path": "com/hbm/items/tool/ItemBoltgun.java",
+      "start": 3147,
+      "end": 4247,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {\n\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n\n\t\tif(b instanceof IToolable && ((IToolable)b).onScrew(world, player, x, y, z, side, fX, fY, fZ, ToolType.BOLT)) {\n\n\t\t\tif(!world.isRemote) {\n\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.boltgun\", 1.0F, 1.0F);\n\t\t\t\tplayer.inventoryContainer.detectAndSendChanges();\n\t\t\t\tForgeDirection dir = ForgeDirection.getOrientation(side);\n\t\t\t\tdouble off = 0.25;\n\n\t\t\t\tNBTTagCompound data = new NBTTagCompound();\n\t\t\t\tdata.setString(\"type\", \"vanillaExt\");\n\t\t\t\tdata.setString(\"mode\", \"largeexplode\");\n\t\t\t\tdata.setFloat(\"size\", 1F);\n\t\t\t\tdata.setByte(\"count\", (byte)1);\n\t\t\t\tPacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + fX + dir.offsetX * off, y + fY + dir.offsetY * off, z + fZ + dir.offsetZ * off), new TargetPoint(world.provider.getDimension(), x, y, z, 50));\n\n\t\t\t\tplayAnimation(player, ToolAnimation.SWING);\n\t\t\t}\n\n\t\t\treturn false;\n\t\t}\n\n\t\treturn false;\n\t}"
+    },
+    "com/hbm/items/tool/ItemBombCaller.java:1443": {
+      "path": "com/hbm/items/tool/ItemBombCaller.java",
+      "start": 1443,
+      "end": 2950,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\r\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)\r\n\t{\r\n\t\tRayTraceResult pos = Library.rayTrace(player, 500, 1);\n\t\tint x = pos.getBlockPos().getX();\n\t\tint y = pos.getBlockPos().getY();\n\t\tint z = pos.getBlockPos().getZ();\n\t\t\r\n\t\tboolean b = false;\r\n\t\tboolean b2 = false;\r\n\t\t\r\n\t    if(!world.isRemote)\r\n\t\t{\r\n\t\t\tEntityBomber bomber;\r\n\t\t\tswitch(stack.getItemDamage()) {\r\n\r\n\t\t\t\tcase 1: bomber = EntityBomber.statFacNapalm(world, x, y, z); break;\r\n\t\t\t\tcase 2: bomber = EntityBomber.statFacChlorine(world, x, y, z); break;\r\n\t\t\t\tcase 3: bomber = EntityBomber.statFacOrange(world, x, y, z); break;\r\n\t\t\t\tcase 4: bomber = EntityBomber.statFacABomb(world, x, y, z); break;\r\n\t\t\t\tcase 5: bomber = EntityBomber.statFacStinger(world, x, y, z); break;\r\n\t\t\t\tcase 6: bomber = EntityBomber.statFacBoxcar(world, x, y, z); break;\r\n\t\t\t\tcase 7: bomber = EntityBomber.statFacPC(world, x, y, z); break;\r\n\t\t\t\tcase 8: bomber = EntityBomber.statFacCV(world, x, y, z);\r\n\t\t\t\tb2 = true; break;\r\n\t\t\t\tdefault: bomber = EntityBomber.statFacCarpet(world, x, y, z);\r\n\r\n\t\t\t}\r\n\t\t\tWorldUtil.loadAndSpawnEntityInWorld(bomber);\r\n\t\t\tplayer.sendMessage(new TextComponentString(\"Called in airstrike!\"));\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\r\n\t\t\tif(b2){\r\n\t\t\t\tplayer.sendMessage(new TextComponentString(\"Rerouted Civilian Traffic!\"));\n\t\t        world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tstack.stackSize -= 1;\r\n\r\n\t\treturn stack;\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemDesignatorArtyRange.java:1116": {
+      "path": "com/hbm/items/tool/ItemDesignatorArtyRange.java",
+      "start": 1116,
+      "end": 2062,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {\n\t\t\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n\t\t\n\t\tif(b instanceof BlockDummyable) {\n\t\t\tint pos[] = ((BlockDummyable) b).findCore(world, x, y, z);\n\t\t\t\n\t\t\tif(pos == null)\n\t\t\t\treturn false;\n\t\t\t\n\t\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));\n\t\t\t\n\t\t\tif(te instanceof TileEntityTurretBaseArtillery) {\n\t\t\t\t\n\t\t\t\tif(world.isRemote)\n\t\t\t\t\treturn true;\n\t\t\t\t\n\t\t\t\tif(!stack.hasTagCompound())\n\t\t\t\t\tstack.setTagCompound(new NBTTagCompound());\n\n\t\t\t\tstack.getTagCompound().setInteger(\"x\", pos[0]);\n\t\t\t\tstack.getTagCompound().setInteger(\"y\", pos[1]);\n\t\t\t\tstack.getTagCompound().setInteger(\"z\", pos[2]);\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\t\t\n\t\treturn false;\n\t}"
+    },
+    "com/hbm/items/tool/ItemDesignatorArtyRange.java:2065": {
+      "path": "com/hbm/items/tool/ItemDesignatorArtyRange.java",
+      "start": 2065,
+      "end": 2889,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\t\t\n\t\tif(!stack.hasTagCompound())\n\t\t\treturn stack;\n\t\t\n\t\tRayTraceResult pos = Library.rayTrace(player, 500, 1);\n\t\tint x = pos.getBlockPos().getX();\n\t\tint y = pos.getBlockPos().getY();\n\t\tint z = pos.getBlockPos().getZ();\n\n\t\tif(!world.isRemote) {\n\t\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(stack.getTagCompound().getInteger(\"x\"), stack.getTagCompound().getInteger(\"y\"), stack.getTagCompound().getInteger(\"z\")));\n\t\t\t\n\t\t\tif(te instanceof TileEntityTurretBaseArtillery) {\n\t\t\t\tTileEntityTurretBaseArtillery arty = (TileEntityTurretBaseArtillery) te;\n\t\t\t\tarty.enqueueTarget(x + 0.5, y + 0.5, z + 0.5);\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F);\n\t\t\t}\n\t\t}\n\t\t\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemDesingator.java:898": {
+      "path": "com/hbm/items/tool/ItemDesingator.java",
+      "start": 898,
+      "end": 1574,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\r\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {\r\n\t\t\r\n\t\tif(!(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof LaunchPad)) {\r\n\r\n\t\t\tif(stack.getTagCompound() == null)\r\n\t\t\t\tstack.setTagCompound(new NBTTagCompound());\r\n\t\t\t\r\n\t\t\tstack.getTagCompound().setInteger(\"xCoord\", x);\r\n\t\t\tstack.getTagCompound().setInteger(\"zCoord\", z);\r\n\t\t\t\r\n\t\t\tif(world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(new TextComponentString(\"Position set!\"));\n\t\t\t}\r\n\r\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\treturn false;\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemDesingatorRange.java:979": {
+      "path": "com/hbm/items/tool/ItemDesingatorRange.java",
+      "start": 979,
+      "end": 1780,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\r\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\r\n\t\tRayTraceResult pos = Library.rayTrace(player, 300, 1);\n\t\tint x = pos.getBlockPos().getX();\n\t\tint y = pos.getBlockPos().getY();\n\t\tint z = pos.getBlockPos().getZ();\n\r\n\t\tif(!(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof LaunchPad)) {\r\n\t\t\t\r\n\t\t\tif(stack.getTagCompound() == null)\r\n\t\t\t\tstack.setTagCompound(new NBTTagCompound());\r\n\r\n\t\t\tstack.getTagCompound().setInteger(\"xCoord\", x);\r\n\t\t\tstack.getTagCompound().setInteger(\"zCoord\", z);\r\n\r\n\t\t\tif(world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(new TextComponentString(\"Position set to X:\" + x + \", Z:\" + z));\n\t\t\t}\r\n\r\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\r\n\t\t\treturn stack;\r\n\t\t}\r\n\r\n\t\treturn stack;\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemDetonator.java:1110": {
+      "path": "com/hbm/items/tool/ItemDetonator.java",
+      "start": 1110,
+      "end": 1998,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\r\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {\r\n\t\tif(stack.getTagCompound() == null) {\r\n\t\t\tstack.setTagCompound(new NBTTagCompound());\r\n\t\t}\r\n\r\n\t\tif(player.isSneaking()) {\r\n\t\t\tstack.getTagCompound().setInteger(\"x\", x);\r\n\t\t\tstack.getTagCompound().setInteger(\"y\", y);\r\n\t\t\tstack.getTagCompound().setInteger(\"z\", z);\r\n\r\n\t\t\tif(!world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"Position set!\").color(TextFormatting.GREEN).flush());\r\n\t\t\t}\r\n\r\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 2.0F, 1.0F);\r\n\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\treturn false;\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemDetonator.java:2003": {
+      "path": "com/hbm/items/tool/ItemDetonator.java",
+      "start": 2003,
+      "end": 3947,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\r\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\r\n\r\n\t\tif(stack.getTagCompound() == null) {\r\n\t\t\tif(!world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"No position set!\").color(TextFormatting.RED).flush());\r\n\t\t\t}\r\n\t\t} else {\r\n\t\t\tint x = stack.getTagCompound().getInteger(\"x\");\r\n\t\t\tint y = stack.getTagCompound().getInteger(\"y\");\r\n\t\t\tint z = stack.getTagCompound().getInteger(\"z\");\r\n\r\n\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {\r\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\t\t\t\tif(!world.isRemote) {\r\n\t\t\t\t\tBombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);\r\n\r\n\t\t\t\t\tif(GeneralConfig.enableExtendedLogging)\r\n\t\t\t\t\t\tMainRegistry.logger.log(Level.INFO, \"[DET] Tried to detonate block at \" + x + \" / \" + y + \" / \" + z + \" by \" + player.getDisplayName() + \"!\");\r\n\t\t\t\t\t\r\n\t\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.nextTranslation(ret.getUnlocalizedMessage()).color(ret.wasSuccessful() ? TextFormatting.YELLOW : TextFormatting.RED).flush());\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t} else {\r\n\t\t\t\tif(!world.isRemote) {\r\n\t\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.nextTranslation(BombReturnCode.ERROR_NO_BOMB.getUnlocalizedMessage()).color(TextFormatting.RED).flush());\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn stack;\r\n\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemDigammaDiagnostic.java:274": {
+      "path": "com/hbm/items/tool/ItemDigammaDiagnostic.java",
+      "start": 274,
+      "end": 539,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\n\t\tif(!world.isRemote) {\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F);\n\t\t\tContaminationUtil.printDiagnosticData(player);\n\t\t}\n\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemDosimeter.java:1373": {
+      "path": "com/hbm/items/tool/ItemDosimeter.java",
+      "start": 1373,
+      "end": 1637,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\n\t\tif(!world.isRemote) {\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F);\n\t\t\tContaminationUtil.printDosimeterData(player);\n\t\t}\n\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemFilter.java:1174": {
+      "path": "com/hbm/items/tool/ItemFilter.java",
+      "start": 1174,
+      "end": 1807,
+      "signature": "installFilterOn(net.minecraft.item.ItemStack,net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "private ItemStack installFilterOn(ItemStack helmet, ItemStack filter, World world, EntityPlayer player) {\n\t\t\n\t\tif(!(helmet.getItem() instanceof IGasMask)) {\n\t\t\treturn filter;\n\t\t}\n\t\t\n\t\tIGasMask mask = (IGasMask) helmet.getItem();\n\t\tif(!mask.isFilterApplicable(helmet, player, filter))\n\t\t\treturn filter;\n\t\t\n\t\tItemStack copy = filter.copy();\n\t\tItemStack current = ArmorUtil.getGasMaskFilter(helmet);\n\t\t\n\t\tif(current != null) {\n\t\t\tfilter = current;\n\t\t} else {\n\t\t\tfilter.stackSize = 0;\n\t\t}\n\t\t\n\t\tArmorUtil.installGasMaskFilter(helmet, copy);\n\t\t\n\t\tworld.playSoundAtEntity(player, \"hbm:item.gasmaskScrew\", 1.0F, 1.0F);\n\t\t\n\t\treturn filter;\n\t}"
+    },
+    "com/hbm/items/tool/ItemGeigerCounter.java:2047": {
+      "path": "com/hbm/items/tool/ItemGeigerCounter.java",
+      "start": 2047,
+      "end": 2308,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\n\t\tif(!world.isRemote) {\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F);\n\t\t\tContaminationUtil.printGeigerData(player);\n\t\t}\n\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemLaserDetonator.java:1050": {
+      "path": "com/hbm/items/tool/ItemLaserDetonator.java",
+      "start": 1050,
+      "end": 2854,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\t\t\n\t\tRayTraceResult pos = Library.rayTrace(player, 500, 1);\n\t\tint x = pos.getBlockPos().getX();\n\t\tint y = pos.getBlockPos().getY();\n\t\tint z = pos.getBlockPos().getZ();\n\n\t\tif(!world.isRemote) {\n\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {\n\t\t\t\tBombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);\n\n\t\t\t\tif(GeneralConfig.enableExtendedLogging)\n\t\t\t\t\tMainRegistry.logger.log(Level.INFO, \"[DET] Tried to detonate block at \" + x + \" / \" + y + \" / \" + z + \" by \" + player.getDisplayName() + \"!\");\n\t\t\t\t\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\tPacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start(\"\").nextTranslation(ret.getUnlocalizedMessage()).color(ret.wasSuccessful() ? TextFormatting.YELLOW : TextFormatting.RED).flush(), MainRegistry.proxy.ID_DETONATOR), (EntityPlayerMP) player);\n\t\t\t\t\n\t\t\t} else {\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 1.0F, 1.0F);\n\t\t\t\tPacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start(\"\").nextTranslation(BombReturnCode.ERROR_NO_BOMB.getUnlocalizedMessage()).color(TextFormatting.RED).flush(), MainRegistry.proxy.ID_DETONATOR), (EntityPlayerMP) player);\n\t\t\t}\n\t\t} else {\n\t\t\t\n\t\t\tVec3d vec = new Vec3d(x + 0.5 - player.posX, y + 0.5 - player.posY, z + 0.5 - player.posZ);\n\t\t\tdouble len = Math.min(vec.length(), 15D);\n\t\t\tvec = vec.normalize();\n\t\t\t\n\t\t\tfor(int i = 0; i < len; i++) {\n\t\t\t\tdouble rand = world.rand.nextDouble() * len + 3;\n\t\t\t\tworld.spawnParticle(\"reddust\", player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);\n\t\t\t}\n\t\t}\n\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemLock.java:421": {
+      "path": "com/hbm/items/tool/ItemLock.java",
+      "start": 421,
+      "end": 1062,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {\n\t\t\n\t\tif(this.getPins(stack) != 0) {\n\t\t\tTileEntity te = CompatExternal.getCoreFromPos(world, x, y, z);\n\n\t\t\tif(te != null && te instanceof TileEntityLockableBase) {\n\t\t\t\tTileEntityLockableBase tile = (TileEntityLockableBase) te;\n\n\t\t\t\tif(tile.isLocked())\n\t\t\t\t\treturn false;\n\n\t\t\t\ttile.setPins(this.getPins(stack));\n\t\t\t\ttile.lock();\n\t\t\t\ttile.setMod(lockMod);\n\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:block.lockHang\", 1.0F, 1.0F);\n\t\t\t\tstack.stackSize--;\n\n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\n\t\treturn false;\n\t}"
+    },
+    "com/hbm/items/tool/ItemMeteorRemote.java:673": {
+      "path": "com/hbm/items/tool/ItemMeteorRemote.java",
+      "start": 673,
+      "end": 1080,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\r\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\r\n\r\n\t\tstack.damageItem(1, player);\r\n\r\n\t\tif(!world.isRemote) {\r\n\t\t\tBossSpawnHandler.spawnMeteorAtPlayer(player, false);\r\n\t\t\tplayer.sendMessage(new TextComponentString(\"Watch your head!\"));\n\t\t}\r\n\r\n\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\t\tplayer.swingItem();\r\n\r\n\t\treturn stack;\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemMultiDetonator.java:1267": {
+      "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+      "start": 1267,
+      "end": 2049,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\r\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {\r\n\t\tif(stack.getTagCompound() == null) {\r\n\t\t\tstack.setTagCompound(new NBTTagCompound());\r\n\t\t}\r\n\r\n\t\tif(player.isSneaking()) {\r\n\t\t\taddLocation(stack, x, y, z);\r\n\r\n\t\t\tif(!world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"Position added!\").color(TextFormatting.GREEN).flush());\r\n\t\t\t}\r\n\r\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 2.0F, 1.0F);\r\n\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\treturn false;\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemMultiDetonator.java:2054": {
+      "path": "com/hbm/items/tool/ItemMultiDetonator.java",
+      "start": 2054,
+      "end": 4436,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\r\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\r\n\r\n\t\tif(stack.getTagCompound() == null || getLocations(stack) == null) {\r\n\t\t\t\r\n\t\t\tif(!world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t.next(\"No position set!\").color(TextFormatting.RED).flush());\r\n\t\t\t}\r\n\t\t\t\r\n\t\t} else {\r\n\r\n\t\t\tif(!player.isSneaking()) {\r\n\t\t\t\tint[][] locs = getLocations(stack);\r\n\r\n\t\t\t\tint succ = 0;\r\n\r\n\t\t\t\tfor(int i = 0; i < locs[0].length; i++) {\r\n\r\n\t\t\t\t\tint x = locs[0][i];\r\n\t\t\t\t\tint y = locs[1][i];\r\n\t\t\t\t\tint z = locs[2][i];\r\n\r\n\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\tif(!world.isRemote) {\r\n\t\t\t\t\t\t\tBombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\tif(ret.wasSuccessful())\r\n\t\t\t\t\t\t\t\tsucc++;\r\n\r\n\t\t\t\t\t\t\tif(GeneralConfig.enableExtendedLogging)\r\n\t\t\t\t\t\t\t\tMainRegistry.logger.log(Level.INFO, \"[DET] Tried to detonate block at \" + x + \" / \" + y + \" / \" + z + \" by \" + player.getDisplayName() + \"!\");\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\t\t\t\t\r\n\t\t\t\tif(!world.isRemote) {\r\n\t\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.next(\"Triggered \" + succ + \"/\" + locs[0].length + \"!\").color(TextFormatting.YELLOW).flush());\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t} else {\r\n\r\n\t\t\t\tstack.getTagCompound().setIntArray(\"xValues\", new int[0]);\r\n\t\t\t\tstack.getTagCompound().setIntArray(\"yValues\", new int[0]);\r\n\t\t\t\tstack.getTagCompound().setIntArray(\"zValues\", new int[0]);\r\n\r\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBoop\", 2.0F, 1.0F);\r\n\t\t\t\t\r\n\t\t\t\tif(!world.isRemote) {\r\n\t\t\t\t\tplayer.sendMessage(ChatBuilder.start(\"[\").color(TextFormatting.DARK_AQUA)\n\t\t\t\t\t\t\t.nextTranslation(this.getTranslationKey() + \".name\").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.next(\"] \").color(TextFormatting.DARK_AQUA)\r\n\t\t\t\t\t\t\t.next(\"Locations cleared!\").color(TextFormatting.RED).flush());\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn stack;\r\n\r\n\t}"
+    },
+    "com/hbm/items/tool/ItemOilDetector.java:942": {
+      "path": "com/hbm/items/tool/ItemOilDetector.java",
+      "start": 942,
+      "end": 2402,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\n\t\tif(!world.isRemote) {\n\t\t\tboolean direct = false;\n\t\t\tint x = MathHelper.floor(player.posX);\n\t\t\tint y = MathHelper.floor(player.posY);\n\t\t\tint z = MathHelper.floor(player.posZ);\n\n\t\t\tBlock reserve;\n\n\t\t\tif((reserve = searchDirect(world, x, y, z)) != null) {\n\t\t\t\tdirect = true;\n\t\t\t} else {\n\t\t\t\treserve = search(world, x, y, z);\n\t\t\t}\n\n\t\t\tString reserveType = \"\";\n\t\t\tif(reserve instanceof BlockOreFluid)\n\t\t\t\treserveType = ((BlockOreFluid) reserve).getUnlocalizedReserveType();\n\n\t\t\tif(direct) {\n\t\t\t\tPacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start(\"\").nextTranslation(this.getTranslationKey() + \".bullseye\" + reserveType).color(TextFormatting.DARK_GREEN).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);\n\t\t\t} else if(reserve != null) {\n\t\t\t\tPacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start(\"\").nextTranslation(this.getTranslationKey() + \".detected\" + reserveType).color(TextFormatting.GOLD).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);\n\t\t\t} else {\n\t\t\t\tPacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start(\"\").nextTranslation(this.getTranslationKey() + \".noOil\").color(TextFormatting.RED).flush(), ServerProxy.ID_DETONATOR), (EntityPlayerMP) player);\n\t\t\t}\n\t\t}\n\n\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\n\t\tplayer.swingItem();\n\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemRadarLinker.java:906": {
+      "path": "com/hbm/items/tool/ItemRadarLinker.java",
+      "start": 906,
+      "end": 1069,
+      "signature": "onTargetSet(net.minecraft.world.World,int,int,int,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic void onTargetSet(World world, int x, int y, int z, EntityPlayer player) {\n\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t}"
+    },
+    "com/hbm/items/tool/ItemRepairKit.java:448": {
+      "path": "com/hbm/items/tool/ItemRepairKit.java",
+      "start": 448,
+      "end": 1491,
+      "signature": "onItemRightClick(net.minecraft.item.ItemStack,net.minecraft.world.World,net.minecraft.entity.player.EntityPlayer)",
+      "source": "@Override\n\tpublic ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {\n\t\tif(world.isRemote) return stack;\n\n\t\tboolean didSomething = false;\n\t\t\n\t\tfor(int i = 0; i < 9; i++) {\n\n\t\t\tItemStack item = player.inventory.mainInventory[i];\n\n\t\t\tif(item != null && item.getItem() instanceof ItemGunBaseNT) {\n\t\t\t\tItemGunBaseNT gun = (ItemGunBaseNT) item.getItem();\n\t\t\t\tint configs = gun.getConfigCount();\n\t\t\t\t\n\t\t\t\tfor(int j = 0; j < configs; j++) {\n\t\t\t\t\tGunConfig cfg = gun.getConfig(item, j);\n\t\t\t\t\tfloat maxDura = cfg.getDurability(item);\n\t\t\t\t\tfloat wear = Math.min(gun.getWear(item, j), maxDura);\n\t\t\t\t\tif(wear > 0) {\n\t\t\t\t\t\tgun.setWear(item, j, Math.max(0F, gun.getWear(item, j) - maxDura * 0.25F));\n\t\t\t\t\t\tdidSomething = true;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(didSomething) {\n\t\t\tif(this == ModItems.gun_kit_1) world.playSoundAtEntity(player, \"hbm:item.spray\", 1.0F, 1.0F);\n\t\t\tif(this == ModItems.gun_kit_2) world.playSoundAtEntity(player, \"hbm:item.repair\", 1.0F, 1.0F);\n\t\t\t\n\t\t\tstack.damageItem(1, player);\n\t\t}\n\t\t\n\t\treturn stack;\n\t}"
+    },
+    "com/hbm/items/tool/ItemTurretControl.java:3776": {
+      "path": "com/hbm/items/tool/ItemTurretControl.java",
+      "start": 3776,
+      "end": 5469,
+      "signature": "onItemUse(net.minecraft.item.ItemStack,net.minecraft.entity.player.EntityPlayer,net.minecraft.world.World,int,int,int,int,float,float,float)",
+      "source": "@Override\r\n\tpublic boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int fx, float fy, float fz, float f0) {\r\n\t\t\r\n\t\tif(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof TurretBase) {\r\n\t\t\tif(stack.getTagCompound() == null) {\r\n\t\t\t\tstack.setTagCompound(new NBTTagCompound());\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tstack.getTagCompound().setInteger(\"xCoord\", x);\r\n\t\t\tstack.getTagCompound().setInteger(\"yCoord\", y);\r\n\t\t\tstack.getTagCompound().setInteger(\"zCoord\", z);\r\n\t\t\t\r\n\t\t\tif(!world.isRemote) {\r\n\t\t\t\tplayer.sendMessage(new TextComponentString(\"Turret Linked!\"));\n\t\t\t}\r\n\r\n\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\t\t\treturn true;\r\n\t\t}\r\n\t\t\r\n\t\tif(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof BlockDummyable) {\r\n\t\t\t\r\n\t\t\tint[] pos = ((BlockDummyable)com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).findCore(world, x, y, z);\r\n\t\t\t\r\n\t\t\tif(pos == null)\r\n\t\t\t\treturn false;\r\n\r\n\t\t\tint ix = pos[0];\r\n\t\t\tint iy = pos[1];\r\n\t\t\tint iz = pos[2];\r\n\t\t\t\r\n\t\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, iy, iz));\r\n\t\t\t\r\n\t\t\tif(te instanceof TileEntityTurretBaseNT) {\r\n\t\t\t\t\r\n\t\t\t\tif(stack.getTagCompound() == null) {\r\n\t\t\t\t\tstack.setTagCompound(new NBTTagCompound());\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t\tstack.getTagCompound().setInteger(\"xCoord\", ix);\r\n\t\t\t\tstack.getTagCompound().setInteger(\"yCoord\", iy);\r\n\t\t\t\tstack.getTagCompound().setInteger(\"zCoord\", iz);\r\n\t\t\t\t\r\n\t\t\t\tif(!world.isRemote) {\r\n\t\t\t\t\tplayer.sendMessage(new TextComponentString(\"Turret Linked!\"));\n\t\t\t\t}\r\n\r\n\t\t\t\tworld.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\r\n\t\t\t\treturn true;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn false;\r\n\t}"
+    },
+    "com/hbm/tileentity/machine/TileEntityLockableBase.java:1791": {
+      "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "start": 1791,
+      "end": 2397,
+      "signature": "canAccess(net.minecraft.entity.player.EntityPlayer)",
+      "source": "public boolean canAccess(EntityPlayer player) {\n\n\t\tif(!isLocked) {\n\t\t\treturn true;\n\t\t} else {\n\t\t\tif(player == null)\n\t\t\t\treturn false;\n\t\t\tItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);\n\n\t\t\tif(stack != null && stack.getItem() instanceof ItemKey && ItemKey.getPins(stack) == this.lock) {\n\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:block.lockOpen\", 1.0F, 1.0F);\n\t\t\t\treturn true;\n\t\t\t}\n\n\t\t\tif(stack != null && stack.getItem() == ModItems.key_red) {\n\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:block.lockOpen\", 1.0F, 1.0F);\n\t\t\t\treturn true;\n\t\t\t}\n\n\t\t\treturn tryPick(player);\n\t\t}\n\t}"
+    },
+    "com/hbm/tileentity/machine/TileEntityLockableBase.java:2400": {
+      "path": "com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "start": 2400,
+      "end": 3589,
+      "signature": "tryPick(net.minecraft.entity.player.EntityPlayer)",
+      "source": "private boolean tryPick(EntityPlayer player) {\n\n\t\tboolean canPick = false;\n\t\tItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);\n\t\tdouble chanceOfSuccess = this.lockMod * 100;\n\n\t\tif(stack != null && stack.getItem() == ModItems.pin && (player.inventory.hasItem(ModItems.screwdriver) || player.inventory.hasItem(ModItems.screwdriver_desh))) {\n\n\t\t\tstack.stackSize--;\n\t\t\tcanPick = true;\n\t\t}\n\n\t\tif(stack != null && (stack.getItem() == ModItems.screwdriver || stack.getItem() == ModItems.screwdriver_desh) && player.inventory.hasItem(ModItems.pin)) {\n\n\t\t\tplayer.inventory.consumeInventoryItem(ModItems.pin);\n\t\t\tplayer.inventoryContainer.detectAndSendChanges();\n\t\t\tcanPick = true;\n\t\t}\n\n\t\tif(canPick) {\n\n\t\t\tif(ArmorUtil.checkArmorPiece(player, ModItems.jackt, 2) || ArmorUtil.checkArmorPiece(player, ModItems.jackt2, 2))\n\t\t\t\tchanceOfSuccess *= 100D;\n\n\t\t\tdouble rand = player.world.rand.nextDouble() * 100;\n\n\t\t\tif(chanceOfSuccess > rand) {\n\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.pinUnlock\", 1.0F, 1.0F);\n\t\t\t\treturn true;\n\t\t\t}\n\n\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.pinBreak\", 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F);\n\t\t}\n\n\t\treturn false;\n\t}"
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:13073": {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "start": 13073,
+      "end": 16227,
+      "signature": "receiveControl(net.minecraft.entity.player.EntityPlayer,net.minecraft.nbt.NBTTagCompound)",
+      "source": "@Override\n\tpublic void receiveControl(EntityPlayer player, NBTTagCompound data) {\n\n\t\tif(data.hasKey(\"missiles\")) this.scanMissiles = !this.scanMissiles;\n\t\tif(data.hasKey(\"shells\")) this.scanShells = !this.scanShells;\n\t\tif(data.hasKey(\"players\")) this.scanPlayers = !this.scanPlayers;\n\t\tif(data.hasKey(\"smart\")) this.smartMode = !this.smartMode;\n\t\tif(data.hasKey(\"red\")) this.redMode = !this.redMode;\n\t\tif(data.hasKey(\"map\")) this.showMap = !this.showMap;\n\t\tif(data.hasKey(\"clear\")) this.clearFlag = true;\n\n\t\tif(data.hasKey(\"gui1\")) FMLNetworkHandler.openGui(player, MainRegistry.instance, 1, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());\n\n\t\tif(data.hasKey(\"link\")) {\n\t\t\tint id = data.getInteger(\"link\");\n\t\t\tItemStack link = slots[id];\n\n\t\t\tif(link != null && link.getItem() == ModItems.sat_relay) {\n\t\t\t\tWorld world = player.getEntityWorld();\n\t\t\t\tSatellite sat = SatelliteSavedData.getData(world, this.pos.getX(), this.pos.getZ()).getSatFromFreq(ISatChip.getFreqS(link));\n\t\t\t\tif(sat instanceof SatelliteLaser) {\n\t\t\t\t\tif(data.hasKey(\"launchPosX\")) {\n\t\t\t\t\t\tint x = data.getInteger(\"launchPosX\");\n\t\t\t\t\t\tint z = data.getInteger(\"launchPosZ\");\n\t\t\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\t\t\tsat.onClick(world, x, z);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif(sat instanceof SatelliteHorizons) {\n\t\t\t\t\tif(data.hasKey(\"launchPosX\")) {\n\t\t\t\t\t\tint x = data.getInteger(\"launchPosX\");\n\t\t\t\t\t\tint z = data.getInteger(\"launchPosZ\");\n\t\t\t\t\t\tint y = 60; //one day I will make radars transmit Y coordinate as well and you will be butchered alhamdulila\n\t\t\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\t\t\tsat.onCoordAction(world, player, x, y, z);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif(sat instanceof SatelliteResonator) {\n\t\t\t\t\tif(data.hasKey(\"launchPosX\")) {\n\t\t\t\t\t\tint x = data.getInteger(\"launchPosX\");\n\t\t\t\t\t\tint z = data.getInteger(\"launchPosZ\");\n\t\t\t\t\t\tint y = world.getTopSolidOrLiquidBlock(x, z); //the top fucking block because I will never make radars transmit Y coordinates as well!\n\t\t\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\t\t\tsat.onCoordAction(world, player, x, y, z);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif(link != null && link.getItem() == ModItems.radar_linker) {\n\t\t\t\tBlockPos pos = ItemCoordinateBase.getPosition(link);\n\n\t\t\t\tif(pos != null) {\n\t\t\t\t\tTileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()));\n\t\t\t\t\tif(tile instanceof IRadarCommandReceiver) {\n\t\t\t\t\t\tIRadarCommandReceiver rec = (IRadarCommandReceiver) tile;\n\n\t\t\t\t\t\tif(data.hasKey(\"launchEntity\")) {\n\t\t\t\t\t\t\tEntity entity = this.world.getEntityByID(data.getInteger(\"launchEntity\"));\n\t\t\t\t\t\t\tif(entity != null) {\n\t\t\t\t\t\t\t\tif(rec.sendCommandEntity(entity)) {\n\t\t\t\t\t\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} else if(data.hasKey(\"launchPosX\")) {\n\t\t\t\t\t\t\tint x = data.getInteger(\"launchPosX\");\n\t\t\t\t\t\t\tint z = data.getInteger(\"launchPosZ\");\n\t\t\t\t\t\t\tif(rec.sendCommandPosition(x, this.pos.getY(), z)) {\n\t\t\t\t\t\t\t\tthis.world.playSoundAtEntity(player, \"hbm:item.techBleep\", 1.0F, 1.0F);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}"
+    }
+  },
+  "excluded": [
+    {
+      "path": "com/hbm/items/tool/ItemAnchorRemote.java",
+      "line": 67,
+      "invocation": "world.playSoundAtEntity(player, \"random.orb\", 0.25F, 0.75F)",
+      "reasons": [
+        "non-hbm sound"
+      ]
+    },
+    {
+      "path": "com/hbm/items/tool/ItemAnchorRemote.java",
+      "line": 72,
+      "invocation": "world.playSoundAtEntity(player, \"random.orb\", 0.25F, 0.75F)",
+      "reasons": [
+        "non-hbm sound"
+      ]
+    },
+    {
+      "path": "com/hbm/items/tool/ItemAnchorRemote.java",
+      "line": 101,
+      "invocation": "world.playSoundAtEntity(player, \"random.orb\", 0.25F, 0.75F)",
+      "reasons": [
+        "non-hbm sound"
+      ]
+    },
+    {
+      "path": "com/hbm/items/tool/ItemFusionCore.java",
+      "line": 46,
+      "invocation": "world.playSoundAtEntity(player, \"hbm:item.battery\", 1.0F, 1.0F)",
+      "reasons": [
+        "approved existing shared-native item.battery path excluded"
+      ]
+    },
+    {
+      "path": "com/hbm/items/tool/ItemToolAbility.java",
+      "line": 604,
+      "invocation": "world.playSoundAtEntity(player, \"random.orb\", 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F)",
+      "reasons": [
+        "non-hbm sound"
+      ]
+    }
+  ]
+}

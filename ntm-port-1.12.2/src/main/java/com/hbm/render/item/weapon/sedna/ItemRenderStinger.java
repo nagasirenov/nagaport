@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -38,7 +41,7 @@ public class ItemRenderStinger extends ItemRenderWeaponBase {
 		if(ItemGunBaseNT.prevAimingProgress == 1 && ItemGunBaseNT.aimingProgress == 1) return;
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.stinger_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.stinger_tex);
 		double scale = 1.5D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -62,7 +65,7 @@ public class ItemRenderStinger extends ItemRenderWeaponBase {
 		GL11.glPopMatrix();
 		
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.panzerschreck_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.panzerschreck_tex);
 		GL11.glTranslated(rocket[0], rocket[1] + 3.5, rocket[2] - 3);
 		ResourceManager.panzerschreck.renderPart("Rocket");
 		GL11.glShadeModel(GL11.GL_FLAT);
@@ -128,20 +131,20 @@ public class ItemRenderStinger extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		GL11.glEnable(GL11.GL_CULL_FACE);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.stinger_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.stinger_tex);
 		ResourceManager.stinger.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

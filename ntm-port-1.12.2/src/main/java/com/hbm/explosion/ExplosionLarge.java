@@ -30,7 +30,7 @@ public class ExplosionLarge {
 		data.setString("type", "smoke");
 		data.setString("mode", "cloud");
 		data.setInteger("count", count);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),  new TargetPoint(world.provider.dimensionId, x, y, z, 250));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),  new TargetPoint(world.provider.getDimension(), x, y, z, 250));
 	}
 
 	public static void spawnParticlesRadial(World world, double x, double y, double z, int count) {
@@ -39,7 +39,7 @@ public class ExplosionLarge {
 		data.setString("type", "smoke");
 		data.setString("mode", "radial");
 		data.setInteger("count", count);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),  new TargetPoint(world.provider.dimensionId, x, y, z, 250));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),  new TargetPoint(world.provider.getDimension(), x, y, z, 250));
 	}
 
 	public static void spawnFoam(World world, double x, double y, double z, int count) {
@@ -48,7 +48,7 @@ public class ExplosionLarge {
 		data.setString("type", "smoke");
 		data.setString("mode", "foamSplash");
 		data.setInteger("count", count);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),  new TargetPoint(world.provider.dimensionId, x, y, z, 250));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),  new TargetPoint(world.provider.getDimension(), x, y, z, 250));
 	}
 
 	public static void spawnShock(World world, double x, double y, double z, int count, double strength) {
@@ -64,7 +64,7 @@ public class ExplosionLarge {
 			data.setDouble("posZ", z);
 			MainRegistry.proxy.effectNT(data);
 		} else {
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y + 0.5, z), new TargetPoint(world.provider.dimensionId, x, y, z, 250));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y + 0.5, z), new TargetPoint(world.provider.getDimension(), x, y, z, 250));
 		}
 	}
 
@@ -90,7 +90,7 @@ public class ExplosionLarge {
 			rubble.motionY = 0.75						* (1 + ((count + rand.nextInt(count * 5))) / 25);
 			rubble.motionX = rand.nextGaussian() * 0.75	* (1 + (count / 50));
 			rubble.motionZ = rand.nextGaussian() * 0.75	* (1 + (count / 50));
-			rubble.setMetaBasedOnBlock(Blocks.stone, 0);
+			rubble.setMetaBasedOnBlock(Blocks.STONE, 0);
 			world.spawnEntityInWorld(rubble);
 		}
 	}
@@ -155,7 +155,7 @@ public class ExplosionLarge {
 						item.posY = item.posY + item.motionY * 2;
 						item.posZ = item.posZ + item.motionZ * 2;
 
-						world.spawnEntityInWorld(item);
+						world.spawnEntity(item);
 					}
 				}
 			}
@@ -167,7 +167,7 @@ public class ExplosionLarge {
 			item.motionY = motionY + rand.nextGaussian() * deviation * 0.1;
 			item.motionZ = motionZ + rand.nextGaussian() * deviation * 0.1;
 
-			world.spawnEntityInWorld(item);
+			world.spawnEntity(item);
 		}
 	}
 
@@ -230,20 +230,20 @@ public class ExplosionLarge {
 				double z0 = posZ + (vec.z * i);
 
 				if(!world.isRemote) {
-					if(world.getBlock((int)x0, (int)y0, (int)z0).getMaterial().isLiquid()) {
-						world.setBlock((int)x0, (int)y0, (int)z0, Blocks.air);
+					if(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock().getDefaultState().getMaterial().isLiquid()) {
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = (int)x0; int nativePlacementY = (int)y0; int nativePlacementZ = (int)z0; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					}
 
-					if(world.getBlock((int)x0, (int)y0, (int)z0) != Blocks.air) {
+					if(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock() != Blocks.AIR) {
 
-						if(world.getBlock((int)x0, (int)y0, (int)z0).getExplosionResistance(null, world, (int)x0, (int)y0, (int)z0, posX, posY, posZ) > 70)
+						if(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock().getExplosionResistance(null, world, (int)x0, (int)y0, (int)z0, posX, posY, posZ) > 70)
 							continue;
 
 			            EntityRubble rubble = new EntityRubble(world);
 						rubble.posX = x0 + 0.5F;
 						rubble.posY = y0 + 0.5F;
 						rubble.posZ = z0 + 0.5F;
-						rubble.setMetaBasedOnBlock(world.getBlock((int)x0, (int)y0, (int)z0), world.getBlockMetadata((int)x0, (int)y0, (int)z0));
+						rubble.setMetaBasedOnBlock(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0) ));
 
 						Vec3d vec4 = new Vec3d(posX - rubble.posX, posY - rubble.posY, posZ - rubble.posZ);
 						vec4.normalize();
@@ -254,7 +254,7 @@ public class ExplosionLarge {
 
 						world.spawnEntityInWorld(rubble);
 
-						world.setBlock((int)x0, (int)y0, (int)z0, Blocks.air);
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = (int)x0; int nativePlacementY = (int)y0; int nativePlacementZ = (int)z0; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						break;
 					}
 				}

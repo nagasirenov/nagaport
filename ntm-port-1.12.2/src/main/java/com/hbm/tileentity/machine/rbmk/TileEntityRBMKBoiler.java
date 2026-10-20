@@ -58,9 +58,9 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.consumption = 0;
 			this.output = 0;
@@ -70,7 +70,7 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 			double heatProvided = this.heat - heatCap;
 			
 			if(heatProvided > 0) {
-				double HEAT_PER_MB_WATER = RBMKDials.getBoilerHeatConsumption(worldObj);
+				double HEAT_PER_MB_WATER = RBMKDials.getBoilerHeatConsumption(this.world);
 				double steamFactor = getFactorFromSteam(steam.getTankType());
 				int waterUsed;
 				int steamProduced;
@@ -101,23 +101,23 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 					if(ventDelay <= 0) {
 						NBTTagCompound data = new NBTTagCompound();
 						data.setString("type", "rbmksteam");
-						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.25 + worldObj.rand.nextInt(2) * 0.5, yCoord + RBMKDials.getColumnHeight(worldObj), zCoord + 0.25 + worldObj.rand.nextInt(2) * 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 100));
+						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.25 + this.world.rand.nextInt(2) * 0.5, this.pos.getY() + RBMKDials.getColumnHeight(this.world), this.pos.getZ() + 0.25 + this.world.rand.nextInt(2) * 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 100));
 						MainRegistry.proxy.effectNT(data);
-						this.ventDelay = 20 + worldObj.rand.nextInt(10);
-						this.worldObj.playSoundEffect(xCoord, yCoord + RBMKDials.getColumnHeight(worldObj), zCoord, "hbm:block.steamEngineOperate", 2F, 1F + worldObj.rand.nextFloat() * 0.25F);
+						this.ventDelay = 20 + this.world.rand.nextInt(10);
+						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world), this.pos.getZ(), "hbm:block.steamEngineOperate", 2F, 1F + this.world.rand.nextFloat() * 0.25F);
 					}
 				}
 				
 				this.heat -= waterUsed * HEAT_PER_MB_WATER;
 			}
 			
-			this.trySubscribe(feed.getTankType(), worldObj, xCoord, yCoord - 1, zCoord, Library.NEG_Y);
+			this.trySubscribe(feed.getTankType(), this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y);
 			for(DirPos pos : getOutputPos()) {
-				if(this.steam.getFill() > 0) this.tryProvide(steam, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.steam.getFill() > 0) this.tryProvide(steam, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 	
 	public static double getHeatFromSteam(FluidType type) {
@@ -138,27 +138,27 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 	
 	protected DirPos[] getOutputPos() {
 		
-		if(worldObj.getBlock(xCoord, yCoord - 1, zCoord) == ModBlocks.rbmk_loader) {
+		if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock() == ModBlocks.rbmk_loader) {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord + 1, this.yCoord - 1, this.zCoord, Library.POS_X),
-					new DirPos(this.xCoord - 1, this.yCoord - 1, this.zCoord, Library.NEG_X),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord + 1, Library.POS_Z),
-					new DirPos(this.xCoord, this.yCoord - 1, this.zCoord - 1, Library.NEG_Z),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX() + 1, this.pos.getY() - 1, this.pos.getZ(), Library.POS_X),
+					new DirPos(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ(), Library.NEG_X),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() + 1, Library.POS_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() - 1, Library.NEG_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ(), Library.NEG_Y)
 			};
-		} else if(worldObj.getBlock(xCoord, yCoord - 2, zCoord) == ModBlocks.rbmk_loader) {
+		} else if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 2, this.pos.getZ()).getBlock() == ModBlocks.rbmk_loader) {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y),
-					new DirPos(this.xCoord + 1, this.yCoord - 2, this.zCoord, Library.POS_X),
-					new DirPos(this.xCoord - 1, this.yCoord - 2, this.zCoord, Library.NEG_X),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord + 1, Library.POS_Z),
-					new DirPos(this.xCoord, this.yCoord - 2, this.zCoord - 1, Library.NEG_Z),
-					new DirPos(this.xCoord, this.yCoord - 3, this.zCoord, Library.NEG_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y),
+					new DirPos(this.pos.getX() + 1, this.pos.getY() - 2, this.pos.getZ(), Library.POS_X),
+					new DirPos(this.pos.getX() - 1, this.pos.getY() - 2, this.pos.getZ(), Library.NEG_X),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() + 1, Library.POS_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() - 1, Library.NEG_Z),
+					new DirPos(this.pos.getX(), this.pos.getY() - 3, this.pos.getZ(), Library.NEG_Y)
 			};
 		} else {
 			return new DirPos[] {
-					new DirPos(this.xCoord, this.yCoord + RBMKDials.getColumnHeight(worldObj) + 1, this.zCoord, Library.POS_Y)
+					new DirPos(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world) + 1, this.pos.getZ(), Library.POS_Y)
 			};
 		}
 	}
@@ -172,11 +172,12 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		feed.writeToNBT(nbt, "feed");
 		steam.writeToNBT(nbt, "steam");
+		return nbt;
 	}
 
 	@Override
@@ -195,7 +196,7 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override
@@ -220,15 +221,15 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 	@Override
 	public void onMelt(int reduce) {
 		
-		int count = 1 + worldObj.rand.nextInt(2);
+		int count = 1 + this.world.rand.nextInt(2);
 		
 		for(int i = 0; i < count; i++) {
 			spawnDebris(DebrisType.BLANK);
 		}
 		
-		if(RBMKDials.getOverpressure(worldObj)) {
+		if(RBMKDials.getOverpressure(this.world)) {
 			for(DirPos pos : getOutputPos()) {
-				FluidNode node = (FluidNode) UniNodespace.getNode(worldObj, pos.getX(), pos.getY(), pos.getZ(), steam.getTankType().getNetworkProvider());
+				FluidNode node = (FluidNode) UniNodespace.getNode(this.world, pos.getX(), pos.getY(), pos.getZ(), steam.getTankType().getNetworkProvider());
 				if(node != null && node.hasValidNet()) {
 					this.pipes.add(node.net);
 				}
@@ -307,14 +308,14 @@ public class TileEntityRBMKBoiler extends TileEntityRBMKSlottedBase implements I
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getCoordinates(Context context, Arguments args) {
-		return new Object[] {xCoord, yCoord, zCoord};
+		return new Object[] {this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getInfo(Context context, Arguments args) {
 		int type_1 = (int) CompatHandler.steamTypeToInt(steam.getTankType())[0];
-		return new Object[] {heat, steam.getFill(), steam.getMaxFill(), feed.getFill(), feed.getMaxFill(), type_1, xCoord, yCoord, zCoord};
+		return new Object[] {heat, steam.getFill(), steam.getMaxFill(), feed.getFill(), feed.getMaxFill(), type_1, this.pos.getX(), this.pos.getY(), this.pos.getZ()};
 	}
 
 	@Callback(direct = true)

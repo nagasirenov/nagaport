@@ -1,0 +1,59 @@
+{
+  "base": "7baaa1782f8e037a4a39c685622e0370c8def86d",
+  "existing": {
+    "src/main/java/com/hbm/entity/mob/EntityCyberCrab.java": {
+      "before_sha256": "b7d3fa9bd3ac5d7fea1b49dc6ae1c87bf55367484f45ae47520a52a4ec8d3ad3",
+      "after_sha256": "27fe28dcb647abc4bce555e2a8bb71c3212c3789ce2e293cf1a7601f5ec324a6",
+      "replacements": [
+        [
+          "EntityAIArrowAttack",
+          "EntityAIRangedAttackNT"
+        ],
+        [
+          "import net.minecraft.entity.ai.EntityAIRangedAttackNT;",
+          "import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTaintCrab.java": {
+      "before_sha256": "0b847036d72937a9fc3b11aa52f7da5ad60d16871c540be3c7304cb8e315a64e",
+      "after_sha256": "fa25fa296e8a0665594526e60fd1ee7b9eb1bb7c33e007ac72416a57d9528c8e",
+      "replacements": [
+        [
+          "EntityAIArrowAttack",
+          "EntityAIRangedAttackNT"
+        ],
+        [
+          "import net.minecraft.entity.ai.EntityAIRangedAttackNT;",
+          "import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "ba62aee4a3af3e31c187ed8980cabf31b07714f6ccabc535bfd7806f2661b2f5",
+      "after_sha256": "28e1c01aeb3f61933e7b1c5f06ea8432ddaebc6f430b77d640a770e3d1e96181",
+      "replacements": [
+        [
+          "EntityAIArrowAttack",
+          "EntityAIRangedAttackNT"
+        ],
+        [
+          "import net.minecraft.entity.ai.EntityAIRangedAttackNT;",
+          "import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;"
+        ],
+        [
+          "import net.minecraft.entity.ai.EntityAIAttackOnCollide;",
+          "import com.hbm.entity.mob.ai.EntityAIFBIMelee;"
+        ],
+        [
+          "new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true)",
+          "new EntityAIFBIMelee(this)"
+        ]
+      ]
+    }
+  },
+  "new": {
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIRangedAttackNT.java": "5c1ab5c2b3d78234d7c524daf59e5ea440ef507d15e7570f84309e9194068170",
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIFBIMelee.java": "e6630abcfc41ca359b527c6561be53dce5cbcdd99a60f9115a059dd3435c88f1"
+  }
+}

@@ -1,0 +1,6 @@
+WHOLE INPUT IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+WHOLE INPUT IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+WHOLE INPUT LegacyTextureAtlasSprite.java 2345b038dee3508bd3ddf6b87bb12d38f888cc76f033eed28a5324d48e70ad0e
+WHOLE INPUT HorizontallyFlippedIcon.java 56de66df45ab45c202f620b51014fdfca9d4fd48bf04a5bfabd11d634e2b885d
+EXACT DOOR HOOK 252bb5721c3051413aeb8b4ab870c92160c82000f68520dd5b1b904c1844e7d7
+PASS 2189 native atlas/actual original bytecode mirror checks and exact door registration hook; whole door lifecycle and in-game rendering not certified.

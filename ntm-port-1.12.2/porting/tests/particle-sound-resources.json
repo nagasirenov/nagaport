@@ -1,0 +1,80 @@
+{
+  "keys": {
+    "WEAPON_EXPLOSION_LARGE_NEAR": "weapon.explosionLargeNear",
+    "WEAPON_EXPLOSION_LARGE_FAR": "weapon.explosionLargeFar",
+    "WEAPON_CASING_SMALL": "weapon.casing.small",
+    "WEAPON_CASING_MEDIUM": "weapon.casing.medium",
+    "WEAPON_CASING_LARGE": "weapon.casing.large",
+    "WEAPON_CASING_SHELL": "weapon.casing.shell"
+  },
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionLargeNear.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionlargenear.ogg",
+      "sha256": "603d30d35d2127fa03ee5c949fe3e7517a06b9dcbefaa6cf2d5637cc140c831f"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionLargeFar.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionlargefar.ogg",
+      "sha256": "2e7a0b95bfa5be6f29535ae2158a96c75b87a549e11ce37f94453e033b38d9a0"
+    }
+  ],
+  "samples": [
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionlargenear.ogg",
+      "sha256": "603d30d35d2127fa03ee5c949fe3e7517a06b9dcbefaa6cf2d5637cc140c831f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionlargefar.ogg",
+      "sha256": "2e7a0b95bfa5be6f29535ae2158a96c75b87a549e11ce37f94453e033b38d9a0"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/small1.ogg",
+      "sha256": "2d06ef677a64ed3bfc9ac3b9225d2c5c5435b47c90185d59d2f6a143ba513bf6"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/small2.ogg",
+      "sha256": "46bc922293ea0e56036ff04605034acf8056801d75ec32f9de621799e6cd37f9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/small3.ogg",
+      "sha256": "0715a552325b908ef7364b9efa45dd9fc02782f2e85ed71c6687db46e8de0868"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/medium1.ogg",
+      "sha256": "9ac1f5998424ca8748de1ae781da6b6e190b8c7aa3e42ad0a99f6bb5f7690a1b"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/medium2.ogg",
+      "sha256": "973c969908cf07c08a67af78ef3c67e0a2c6988547488e3a83a08dd829ba3621"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/medium3.ogg",
+      "sha256": "b4c6869625e8191f6c3ef3d58c6ad3fc5d430bed76d98e025f0edea49fad691a"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/large1.ogg",
+      "sha256": "e4b6bfe16160c33da621ed6de2f9f4f07fa059dc4c8866a802a39f524dbdd8a0"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/large2.ogg",
+      "sha256": "6d4ea988bab47e9176c285cd2afc99b1e357eff879611e445ff70140d7c84ddb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/large3.ogg",
+      "sha256": "024f44a6241d187b7a2a32ed2e7f024725d3949900fa93de247b61667b40accb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/shell1.ogg",
+      "sha256": "6a99cca9d8613f363603dd4c85375b4a9e2002a1f663231eafcece575ee12e97"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/shell2.ogg",
+      "sha256": "f18cbde636692955ce655049f290026b0bd793230f94784c814304ac9862e177"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/casing/shell3.ogg",
+      "sha256": "9a09408b8ce966b1572cbf23b928b535efffed3e8bfcdc0a36cfc9bf33fcaf16"
+    }
+  ]
+}

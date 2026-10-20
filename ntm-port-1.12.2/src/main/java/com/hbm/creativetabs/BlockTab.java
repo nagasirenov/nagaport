@@ -20,7 +20,7 @@ public class BlockTab extends CreativeTabs {
 			return Item.getItemFromBlock(ModBlocks.ore_uranium);
 		}
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 
 }

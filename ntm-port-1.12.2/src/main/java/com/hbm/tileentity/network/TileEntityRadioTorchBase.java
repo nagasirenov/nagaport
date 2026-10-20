@@ -19,12 +19,17 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import java.util.Map;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IControlReceiver, SimpleComponent, CompatHandler.OCComponent {
+public class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IControlReceiver, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {
+
+    @Override public boolean canRenderBreaking() {
+        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
+    }
+
 
 	/** channel we're broadcasting on/listening to */
 	public String channel = "";
-	/** previous redstone state for input/output, needed for state change detection */
-	public int lastState = 0;
+	/** Previous redstone state; volatile for the concurrent native render snapshot. */
+	public volatile int lastState = 0;
 	/** last update tick, needed for receivers listening for changes */
 	public long lastUpdate;
 	/** switches state change mode to tick-based polling */
@@ -35,9 +40,9 @@ public class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IC
 	public String[] mapping = new String[16];
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			networkPackNT(50);
 		}
@@ -55,7 +60,7 @@ public class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IC
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("p", polling);
 		nbt.setBoolean("m", customMap);
@@ -63,6 +68,7 @@ public class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IC
 		nbt.setLong("u", lastUpdate);
 		if(channel != null) nbt.setString("c", channel);
 		for(int i = 0; i < 16; i++) if(mapping[i] != null) nbt.setString("m" + i, mapping[i]);
+		return nbt;
 	}
 
 	@Override
@@ -89,17 +95,35 @@ public class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IC
 	}
 
 	@Override
+	public NBTTagCompound getUpdateTag() {
+		NBTTagCompound nbt = super.getUpdateTag();
+		nbt.setByte("l", (byte) this.lastState);
+		return nbt;
+	}
+
+	@Override
+	public void handleUpdateTag(NBTTagCompound tag) {
+		// This is a render-state tag, not the full persisted configuration.
+		// Chunk loading already assigns the native tile position.
+		applySyncedState(tag);
+	}
+
+	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		applySyncedState(pkt.getNbtCompound());
+	}
+
+	private void applySyncedState(NBTTagCompound tag) {
 		int last = this.lastState;
-		this.lastState = pkt.getNbtCompound().getByte("l");
-		if(this.lastState != last) {
-			worldObj.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
+		this.lastState = tag.getByte("l");
+		if(this.world != null && this.lastState != last) {
+			this.world.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
 		}
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 16D;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;
 	}
 
 	@Override

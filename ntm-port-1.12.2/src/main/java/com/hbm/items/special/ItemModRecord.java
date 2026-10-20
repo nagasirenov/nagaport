@@ -34,7 +34,7 @@ public class ItemModRecord extends ItemRecord {
 	@Override
 	public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 
-		if(p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.jukebox && p_77648_3_.getBlockMetadata(p_77648_4_, p_77648_5_, p_77648_6_) == 0) {
+		if(com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_).getBlock() == Blocks.jukebox && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_) ) == 0) {
 			
 			if(p_77648_3_.isRemote) {
 				return true;

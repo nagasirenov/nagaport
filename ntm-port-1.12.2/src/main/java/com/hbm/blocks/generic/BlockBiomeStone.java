@@ -15,7 +15,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockBiomeStone extends BlockEnumMulti {
 
 	public BlockBiomeStone() {
-		super(Material.rock, EnumBiomeType.class, true, true);
+		super(Material.ROCK, EnumBiomeType.class, true, true);
 	}
 
 	protected IIcon[] iconsTop;

@@ -1,0 +1,9 @@
+[02:54:20] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:54:20] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:54:20] [main/INFO]: Replaced 1036 ore ingredients
+[02:54:20] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:54:20] [main/INFO]: Processing ObjectHolder annotations
+[02:54:20] [main/INFO]: Found 1167 ObjectHolder annotations
+LEGACY WORLD SOURCE file:/tmp/nagaport-legacy-client.jar
+NATIVE WORLD SOURCE jar:file:/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar!/net/minecraft/world/World.class
+PASS NumericWideningProbe: 62408 assertions; 5149 migration-shape callback comparisons; 1 separately labelled robustness/existing-shape comparisons; 120 null/exception order comparisons; 2817 observed raw-name normalization differences.

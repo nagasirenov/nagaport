@@ -20,7 +20,7 @@ public class ItemRadarLinker extends ItemCoordinateBase {
 	@Override
 	public BlockPos getCoordinates(World world, int x, int y, int z) {
 		TileEntity tile = CompatExternal.getCoreFromPos(world, x, y, z);
-		return new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord);
+		return new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
 	}
 	
 	@Override

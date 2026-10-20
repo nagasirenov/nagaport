@@ -1,0 +1,31 @@
+{
+  "scope": "Conveyor wand gameplay and moving-item native engine closure",
+  "status": "Frozen; complete native combined wand workflow and real moving-engine proofs pass.",
+  "production_files": [
+    "src/main/java/com/hbm/items/tool/ItemConveyorWand.java",
+    "src/main/java/com/hbm/entity/item/EntityMovingConveyorObject.java",
+    "src/main/java/com/hbm/entity/item/EntityMovingItem.java",
+    "src/main/java/com/hbm/wiaj/WorldInAJar.java",
+    "src/main/java/com/hbm/blocks/ILookOverlay.java",
+    "src/main/java/com/hbm/util/fauxpointtwelve/BlockPos.java"
+  ],
+  "parent_owned_integration": [
+    "src/main/java/com/hbm/items/ModItems.java"
+  ],
+  "unchanged_prior_batch": "porting/tests/conveyor-production-scope.json",
+  "explicit_unresolved_consumers": [
+    "com.hbm.entity.item.EntityMovingPackage",
+    "com.hbm.render.entity.item.RenderMovingItem",
+    "com.hbm.render.util.RenderOverhead",
+    "com.hbm.wiaj.GuiWorldInAJar",
+    "com.hbm.particle.ParticleDebris"
+  ],
+  "sha256": {
+    "src/main/java/com/hbm/items/tool/ItemConveyorWand.java": "2eb4d7033e809c3e9c385b83cf9179279670d64df2e9004459b938c7bdbda5b9",
+    "src/main/java/com/hbm/entity/item/EntityMovingConveyorObject.java": "30f1575f82c8717322e12fb2cf978546838ea44ad6eeae606b4ed8c56df86bde",
+    "src/main/java/com/hbm/entity/item/EntityMovingItem.java": "978c436c8d6beba7fdd3c4fbc08d71bf05272b53478621e8e338f85c07d81d68",
+    "src/main/java/com/hbm/wiaj/WorldInAJar.java": "ae6776b28cf36178cfe91809dc366ad63e8c1f227d3f05c4b4576a44d479011e",
+    "src/main/java/com/hbm/blocks/ILookOverlay.java": "6d887a13694c777446377a3f732bded7760902583a0970da56dd1cb7ec56bbf3",
+    "src/main/java/com/hbm/util/fauxpointtwelve/BlockPos.java": "ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d"
+  }
+}

@@ -1,0 +1,1836 @@
+{
+  "baseline": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "files": {
+    "src/main/java/com/hbm/entity/item/EntityTNTPrimedBase.java": {
+      "before_sha256": "1db580b8723b901764e0443c61b9d0144c5bf97d7719e897776ebc121b95281f",
+      "after_sha256": "1b2fb7b9e7589246edc86be1e2c1592cd8c2fec4d4b5def91fa183951e6699ec",
+      "edits": [
+        {
+          "before_offset": 221,
+          "after_offset": 221,
+          "old": "",
+          "new": "network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\nimport net.minecraft."
+        },
+        {
+          "before_offset": 407,
+          "after_offset": 572,
+          "old": "",
+          "new": "\n\n\tprivate static final DataParameter<Integer> BLOCK_ID = EntityDataManager.createKey(EntityTNTPrimedBase.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 1456,
+          "after_offset": 1759,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1458,
+          "after_offset": 1761,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1464,
+          "after_offset": 1767,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 1470,
+          "after_offset": 1769,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 1477,
+          "after_offset": 1771,
+          "old": "12",
+          "new": "BLOCK_ID"
+        },
+        {
+          "before_offset": 1567,
+          "after_offset": 1867,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1569,
+          "after_offset": 1869,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1575,
+          "after_offset": 1875,
+          "old": "add",
+          "new": "register(BL"
+        },
+        {
+          "before_offset": 1579,
+          "after_offset": 1887,
+          "old": "bject(12",
+          "new": "CK_ID"
+        },
+        {
+          "before_offset": 2732,
+          "after_offset": 3037,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 2734,
+          "after_offset": 3039,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 2743,
+          "after_offset": 3048,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 2753,
+          "after_offset": 3052,
+          "old": "bject",
+          "new": "CK_"
+        },
+        {
+          "before_offset": 2759,
+          "after_offset": 3056,
+          "old": "nt(12",
+          "new": "D"
+        },
+        {
+          "before_offset": 2913,
+          "after_offset": 3206,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 2915,
+          "after_offset": 3208,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 2924,
+          "after_offset": 3217,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 2934,
+          "after_offset": 3221,
+          "old": "bject",
+          "new": "CK_"
+        },
+        {
+          "before_offset": 2940,
+          "after_offset": 3225,
+          "old": "nt(12",
+          "new": "D"
+        },
+        {
+          "before_offset": 3066,
+          "after_offset": 3347,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 3068,
+          "after_offset": 3349,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 3074,
+          "after_offset": 3355,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 3080,
+          "after_offset": 3357,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 3087,
+          "after_offset": 3359,
+          "old": "12",
+          "new": "BLOCK_ID"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBlockSpider.java": {
+      "before_sha256": "d4db9ee657a0dd611ac906c4a63f5c8c2d3e7c8c74868af37829c7074eea8674",
+      "after_sha256": "1612a75da91f7ccb775f72501f7a46d9df3fbbb52fd7bd567d1f429a607e18ca",
+      "edits": [
+        {
+          "before_offset": 61,
+          "after_offset": 61,
+          "old": "",
+          "new": ";\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager"
+        },
+        {
+          "before_offset": 408,
+          "after_offset": 573,
+          "old": "",
+          "new": "\n\n\tprivate static final DataParameter<Integer> BLOCK_ID = EntityDataManager.createKey(EntityBlockSpider.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> BLOCK_META = EntityDataManager.createKey(EntityBlockSpider.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 1100,
+          "after_offset": 1537,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1102,
+          "after_offset": 1539,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1108,
+          "after_offset": 1545,
+          "old": "add",
+          "new": "register(BL"
+        },
+        {
+          "before_offset": 1112,
+          "after_offset": 1557,
+          "old": "bject(12",
+          "new": "CK_ID"
+        },
+        {
+          "before_offset": 1137,
+          "after_offset": 1579,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1139,
+          "after_offset": 1581,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1145,
+          "after_offset": 1587,
+          "old": "add",
+          "new": "register(BL"
+        },
+        {
+          "before_offset": 1149,
+          "after_offset": 1599,
+          "old": "bject(13",
+          "new": "CK_META"
+        },
+        {
+          "before_offset": 1272,
+          "after_offset": 1721,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1274,
+          "after_offset": 1723,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1280,
+          "after_offset": 1729,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 1286,
+          "after_offset": 1731,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 1293,
+          "after_offset": 1733,
+          "old": "12",
+          "new": "BLOCK_ID"
+        },
+        {
+          "before_offset": 1312,
+          "after_offset": 1758,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1314,
+          "after_offset": 1760,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1320,
+          "after_offset": 1766,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 1326,
+          "after_offset": 1768,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 1333,
+          "after_offset": 1770,
+          "old": "13",
+          "new": "BLOCK_META"
+        },
+        {
+          "before_offset": 1541,
+          "after_offset": 1986,
+          "old": "",
+          "new": "\n\tpublic int getBlockId() { return this.dataManager.get(BLOCK_ID); "
+        },
+        {
+          "before_offset": 1543,
+          "after_offset": 2055,
+          "old": "",
+          "new": "\tpublic int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRubble.java": {
+      "before_sha256": "bca37247307c5f7e9ffda707c21b5d0a620228fee32a26e877796d0cd42e1077",
+      "after_sha256": "3e6bb98ccd1d18c4a43e305297a8694e807baaaa921c1ca0362dee83dc22fb46",
+      "edits": [
+        {
+          "before_offset": 295,
+          "after_offset": 295,
+          "old": "",
+          "new": "etwork.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\nimport net.minecraft.n"
+        },
+        {
+          "before_offset": 451,
+          "after_offset": 616,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> BLOCK_ID = EntityDataManager.createKey(EntityRubble.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> BLOCK_META = EntityDataManager.createKey(EntityRubble.class, DataSerializers.VARINT);\n\n\n"
+        },
+        {
+          "before_offset": 582,
+          "after_offset": 1009,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 584,
+          "after_offset": 1011,
+          "old": "tcher.",
+          "new": "n"
+        },
+        {
+          "before_offset": 591,
+          "after_offset": 1013,
+          "old": "ddObject(16, (int)Inte",
+          "new": ""
+        },
+        {
+          "before_offset": 617,
+          "after_offset": 1017,
+          "old": "valu",
+          "new": "r"
+        },
+        {
+          "before_offset": 622,
+          "after_offset": 1019,
+          "old": "",
+          "new": "gister(BL"
+        },
+        {
+          "before_offset": 623,
+          "after_offset": 1029,
+          "old": "f(",
+          "new": "CK_ID, "
+        },
+        {
+          "before_offset": 626,
+          "after_offset": 1037,
+          "old": ")",
+          "new": ""
+        },
+        {
+          "before_offset": 647,
+          "after_offset": 1057,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 649,
+          "after_offset": 1059,
+          "old": "tcher.",
+          "new": "n"
+        },
+        {
+          "before_offset": 656,
+          "after_offset": 1061,
+          "old": "ddObject(17, (int)Inte",
+          "new": ""
+        },
+        {
+          "before_offset": 682,
+          "after_offset": 1065,
+          "old": "valu",
+          "new": "r"
+        },
+        {
+          "before_offset": 687,
+          "after_offset": 1067,
+          "old": "",
+          "new": "gister(BL"
+        },
+        {
+          "before_offset": 688,
+          "after_offset": 1077,
+          "old": "f(",
+          "new": "CK_META, "
+        },
+        {
+          "before_offset": 691,
+          "after_offset": 1087,
+          "old": ")",
+          "new": ""
+        },
+        {
+          "before_offset": 1254,
+          "after_offset": 1649,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1256,
+          "after_offset": 1651,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1265,
+          "after_offset": 1660,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 1275,
+          "after_offset": 1664,
+          "old": "bject",
+          "new": "CK_"
+        },
+        {
+          "before_offset": 1281,
+          "after_offset": 1668,
+          "old": "nt(16",
+          "new": "D"
+        },
+        {
+          "before_offset": 1300,
+          "after_offset": 1683,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1302,
+          "after_offset": 1685,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1311,
+          "after_offset": 1694,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 1321,
+          "after_offset": 1698,
+          "old": "bjectInt(17",
+          "new": "CK_META"
+        },
+        {
+          "before_offset": 1379,
+          "after_offset": 1752,
+          "old": "    ",
+          "new": ""
+        },
+        {
+          "before_offset": 1517,
+          "after_offset": 1886,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1519,
+          "after_offset": 1888,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1528,
+          "after_offset": 1897,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 1538,
+          "after_offset": 1901,
+          "old": "bject",
+          "new": "CK_"
+        },
+        {
+          "before_offset": 1544,
+          "after_offset": 1905,
+          "old": "nt(16",
+          "new": "D"
+        },
+        {
+          "before_offset": 1561,
+          "after_offset": 1918,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1563,
+          "after_offset": 1920,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1572,
+          "after_offset": 1929,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 1582,
+          "after_offset": 1933,
+          "old": "bjectInt(17",
+          "new": "CK_META"
+        },
+        {
+          "before_offset": 1815,
+          "after_offset": 2162,
+          "old": "    ",
+          "new": "\t"
+        },
+        {
+          "before_offset": 1829,
+          "after_offset": 2173,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1831,
+          "after_offset": 2175,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1837,
+          "after_offset": 2181,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 1843,
+          "after_offset": 2183,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 1850,
+          "after_offset": 2185,
+          "old": "16",
+          "new": "BLOCK_ID"
+        },
+        {
+          "before_offset": 1880,
+          "after_offset": 2221,
+          "old": "    ",
+          "new": "\t"
+        },
+        {
+          "before_offset": 1894,
+          "after_offset": 2232,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 1896,
+          "after_offset": 2234,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 1902,
+          "after_offset": 2240,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 1908,
+          "after_offset": 2242,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 1915,
+          "after_offset": 2244,
+          "old": "17",
+          "new": "BLOCK_META"
+        },
+        {
+          "before_offset": 2037,
+          "after_offset": 2374,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 2039,
+          "after_offset": 2376,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 2045,
+          "after_offset": 2382,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 2051,
+          "after_offset": 2384,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 2058,
+          "after_offset": 2386,
+          "old": "16",
+          "new": "BLOCK_ID"
+        },
+        {
+          "before_offset": 2099,
+          "after_offset": 2433,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 2101,
+          "after_offset": 2435,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 2107,
+          "after_offset": 2441,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "before_offset": 2113,
+          "after_offset": 2443,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "before_offset": 2120,
+          "after_offset": 2445,
+          "old": "17",
+          "new": "BLOCK_META"
+        },
+        {
+          "before_offset": 2282,
+          "after_offset": 2615,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 2284,
+          "after_offset": 2617,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 2293,
+          "after_offset": 2626,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 2303,
+          "after_offset": 2630,
+          "old": "bject",
+          "new": "CK_"
+        },
+        {
+          "before_offset": 2309,
+          "after_offset": 2634,
+          "old": "nt(16",
+          "new": "D"
+        },
+        {
+          "before_offset": 2352,
+          "after_offset": 2673,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "before_offset": 2354,
+          "after_offset": 2675,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "before_offset": 2363,
+          "after_offset": 2684,
+          "old": "Watchable",
+          "new": "(BL"
+        },
+        {
+          "before_offset": 2373,
+          "after_offset": 2688,
+          "old": "bjectInt(17",
+          "new": "CK_META"
+        },
+        {
+          "before_offset": 2391,
+          "after_offset": 2702,
+          "old": "",
+          "new": "\n\tpublic int getBlockId() { return this.dataManager.get(BLOCK_ID); "
+        },
+        {
+          "before_offset": 2393,
+          "after_offset": 2771,
+          "old": "",
+          "new": "\tpublic int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "2967e20ce6805ebff10dcc247d6d9e71a8b94e4c84011e068b9ba128664e5281",
+      "after_sha256": "bf44a8d81900820ef8172f8bb5e6abfd601fe89a86532b36c6178dc766ed18eb",
+      "edits": [
+        {
+          "before_offset": 56271,
+          "after_offset": 56271,
+          "old": "new ",
+          "new": ""
+        },
+        {
+          "before_offset": 56287,
+          "after_offset": 56283,
+          "old": "()",
+          "new": "::new"
+        },
+        {
+          "before_offset": 71886,
+          "after_offset": 71885,
+          "old": "new ",
+          "new": ""
+        },
+        {
+          "before_offset": 71909,
+          "after_offset": 71904,
+          "old": "()",
+          "new": "::new"
+        },
+        {
+          "before_offset": 74825,
+          "after_offset": 74823,
+          "old": "new ",
+          "new": ""
+        },
+        {
+          "before_offset": 74846,
+          "after_offset": 74840,
+          "old": "()",
+          "new": "::new"
+        }
+      ],
+      "ownership": "exact_factory_fragments",
+      "fragments": [
+        {
+          "old": "RenderingRegistry.registerEntityRenderingHandler(EntityTNTPrimedBase.class, new RenderTNTPrimedBase());",
+          "new": "RenderingRegistry.registerEntityRenderingHandler(EntityTNTPrimedBase.class, RenderTNTPrimedBase::new);"
+        },
+        {
+          "old": "RenderingRegistry.registerEntityRenderingHandler(EntityRubble.class, new RenderRubble());",
+          "new": "RenderingRegistry.registerEntityRenderingHandler(EntityRubble.class, RenderRubble::new);"
+        },
+        {
+          "old": "RenderingRegistry.registerEntityRenderingHandler(EntityBlockSpider.class, new RenderBlockSpider());",
+          "new": "RenderingRegistry.registerEntityRenderingHandler(EntityBlockSpider.class, RenderBlockSpider::new);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderTNTPrimedBase.java": {
+      "before_sha256": "118751cbad84c87055517375c7c2e018aa2560bea4eb782fa78c4f357e84e282",
+      "after_sha256": "3107e38e5e02484c2a860df940ae153f8c0b32da42eaa9e6cf1e955f391dee06",
+      "edits": [
+        {
+          "before_offset": 67,
+          "after_offset": 67,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.GlStateManager;\n"
+        },
+        {
+          "before_offset": 124,
+          "after_offset": 177,
+          "old": "",
+          "new": "com.hbm.render.entity.NativeBlockEntityDraw;\nimport "
+        },
+        {
+          "before_offset": 154,
+          "after_offset": 259,
+          "old": "",
+          "new": "entity."
+        },
+        {
+          "before_offset": 160,
+          "after_offset": 272,
+          "old": "Blocks",
+          "new": "Manager"
+        },
+        {
+          "before_offset": 298,
+          "after_offset": 411,
+          "old": "entity.Entity;\nimport net.minecraft.",
+          "new": ""
+        },
+        {
+          "before_offset": 405,
+          "after_offset": 482,
+          "old": "",
+          "new": "<EntityTNTPrimedBase>"
+        },
+        {
+          "before_offset": 407,
+          "after_offset": 505,
+          "old": "\n\n\tprivate RenderBlocks blockRenderer = new RenderBlocks();",
+          "new": ""
+        },
+        {
+          "before_offset": 496,
+          "after_offset": 535,
+          "old": "",
+          "new": "RenderManager manager"
+        },
+        {
+          "before_offset": 499,
+          "after_offset": 559,
+          "old": "",
+          "new": "\n\t\tsuper(manager);"
+        },
+        {
+          "before_offset": 529,
+          "after_offset": 607,
+          "old": "",
+          "new": "\n\t@Override"
+        },
+        {
+          "before_offset": 632,
+          "after_offset": 721,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 636,
+          "after_offset": 735,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 655,
+          "after_offset": 752,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 659,
+          "after_offset": 766,
+          "old": "glT",
+          "new": "t"
+        },
+        {
+          "before_offset": 670,
+          "after_offset": 775,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 709,
+          "after_offset": 813,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 713,
+          "after_offset": 827,
+          "old": "glR",
+          "new": "r"
+        },
+        {
+          "before_offset": 721,
+          "after_offset": 833,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 745,
+          "after_offset": 856,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 749,
+          "after_offset": 870,
+          "old": "glR",
+          "new": "r"
+        },
+        {
+          "before_offset": 757,
+          "after_offset": 876,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 789,
+          "after_offset": 907,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 793,
+          "after_offset": 921,
+          "old": "glR",
+          "new": "r"
+        },
+        {
+          "before_offset": 801,
+          "after_offset": 927,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 1092,
+          "after_offset": 1217,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1099,
+          "after_offset": 1219,
+          "old": "",
+          "new": "tateManager.s"
+        },
+        {
+          "before_offset": 1103,
+          "after_offset": 1236,
+          "old": "f",
+          "new": ""
+        },
+        {
+          "before_offset": 1229,
+          "after_offset": 1361,
+          "old": "",
+          "new": "Na"
+        },
+        {
+          "before_offset": 1230,
+          "after_offset": 1364,
+          "old": "h",
+          "new": ""
+        },
+        {
+          "before_offset": 1232,
+          "after_offset": 1365,
+          "old": "s.b",
+          "new": "veB"
+        },
+        {
+          "before_offset": 1239,
+          "after_offset": 1372,
+          "old": "Re",
+          "new": "E"
+        },
+        {
+          "before_offset": 1242,
+          "after_offset": 1374,
+          "old": "de",
+          "new": "tityD"
+        },
+        {
+          "before_offset": 1245,
+          "after_offset": 1380,
+          "old": "er",
+          "new": "aw"
+        },
+        {
+          "before_offset": 1254,
+          "after_offset": 1389,
+          "old": "BlockAsItem",
+          "new": ""
+        },
+        {
+          "before_offset": 1303,
+          "after_offset": 1427,
+          "old": "f1",
+          "new": ""
+        },
+        {
+          "before_offset": 1306,
+          "after_offset": 1428,
+          "old": "",
+          "new": ", true"
+        },
+        {
+          "before_offset": 1345,
+          "after_offset": 1473,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1352,
+          "after_offset": 1475,
+          "old": "",
+          "new": "tateManager.s"
+        },
+        {
+          "before_offset": 1356,
+          "after_offset": 1492,
+          "old": "d",
+          "new": ""
+        },
+        {
+          "before_offset": 1381,
+          "after_offset": 1516,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1385,
+          "after_offset": 1530,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 1394,
+          "after_offset": 1537,
+          "old": "(GL11.GL_",
+          "new": ""
+        },
+        {
+          "before_offset": 1404,
+          "after_offset": 1538,
+          "old": "EXTURE_",
+          "new": "exture"
+        },
+        {
+          "before_offset": 1413,
+          "after_offset": 1546,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 1420,
+          "after_offset": 1554,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1424,
+          "after_offset": 1568,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 1433,
+          "after_offset": 1575,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 1434,
+          "after_offset": 1584,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 1457,
+          "after_offset": 1591,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1461,
+          "after_offset": 1605,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 1469,
+          "after_offset": 1611,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 1470,
+          "after_offset": 1617,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 1490,
+          "after_offset": 1624,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1494,
+          "after_offset": 1638,
+          "old": "glB",
+          "new": "b"
+        },
+        {
+          "before_offset": 1549,
+          "after_offset": 1691,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1553,
+          "after_offset": 1705,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 1560,
+          "after_offset": 1710,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 1589,
+          "after_offset": 1737,
+          "old": "bool",
+          "new": "Nativ"
+        },
+        {
+          "before_offset": 1594,
+          "after_offset": 1743,
+          "old": "an prev = this.b",
+          "new": "B"
+        },
+        {
+          "before_offset": 1614,
+          "after_offset": 1748,
+          "old": "Renderer.useInve",
+          "new": "E"
+        },
+        {
+          "before_offset": 1632,
+          "after_offset": 1751,
+          "old": "o",
+          "new": "ityD"
+        },
+        {
+          "before_offset": 1634,
+          "after_offset": 1756,
+          "old": "yTint;\n\t\t\tthis.blockRenderer.useInventoryTint = f",
+          "new": ""
+        },
+        {
+          "before_offset": 1684,
+          "after_offset": 1757,
+          "old": "lse;\n\t\t\tthis.blockRenderer",
+          "new": "w"
+        },
+        {
+          "before_offset": 1717,
+          "after_offset": 1765,
+          "old": "BlockAsItem",
+          "new": ""
+        },
+        {
+          "before_offset": 1752,
+          "after_offset": 1789,
+          "old": "",
+          "new": ", false"
+        },
+        {
+          "before_offset": 1758,
+          "after_offset": 1802,
+          "old": "",
+          "new": "GlS"
+        },
+        {
+          "before_offset": 1759,
+          "after_offset": 1806,
+          "old": "his.blockR",
+          "new": "at"
+        },
+        {
+          "before_offset": 1770,
+          "after_offset": 1809,
+          "old": "",
+          "new": "Ma"
+        },
+        {
+          "before_offset": 1771,
+          "after_offset": 1812,
+          "old": "der",
+          "new": "ag"
+        },
+        {
+          "before_offset": 1777,
+          "after_offset": 1817,
+          "old": "useInventoryTint = prev;\n\t\t\tGL11.glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 1817,
+          "after_offset": 1822,
+          "old": "4f",
+          "new": ""
+        },
+        {
+          "before_offset": 1849,
+          "after_offset": 1852,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1853,
+          "after_offset": 1866,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 1862,
+          "after_offset": 1873,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 1863,
+          "after_offset": 1879,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 1883,
+          "after_offset": 1886,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1887,
+          "after_offset": 1900,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 1895,
+          "after_offset": 1906,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 1896,
+          "after_offset": 1915,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 1919,
+          "after_offset": 1922,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1923,
+          "after_offset": 1936,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 1931,
+          "after_offset": 1942,
+          "old": "(GL11.GL_",
+          "new": ""
+        },
+        {
+          "before_offset": 1941,
+          "after_offset": 1943,
+          "old": "EXTURE_",
+          "new": "exture"
+        },
+        {
+          "before_offset": 1950,
+          "after_offset": 1951,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 1961,
+          "after_offset": 1963,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 1965,
+          "after_offset": 1977,
+          "old": "glP",
+          "new": "p"
+        },
+        {
+          "before_offset": 1983,
+          "after_offset": 1993,
+          "old": "",
+          "new": "\n\t@Override"
+        },
+        {
+          "before_offset": 2076,
+          "after_offset": 2097,
+          "old": "location",
+          "new": "LOCATION_"
+        },
+        {
+          "before_offset": 2085,
+          "after_offset": 2107,
+          "old": "locks",
+          "new": "LOCKS_"
+        },
+        {
+          "before_offset": 2091,
+          "after_offset": 2114,
+          "old": "exture",
+          "new": "EXTURE"
+        },
+        {
+          "before_offset": 2103,
+          "after_offset": 2126,
+          "old": "\tprotected ResourceLocation getEntityTexture(Entity entity) {\n\t\treturn this.getEntityTexture((EntityTNTPrimedBase) entity);\n\t",
+          "new": ""
+        },
+        {
+          "before_offset": 2230,
+          "after_offset": 2128,
+          "old": "\n\tpublic void doRender(Entity entity, double x, double y, double z, float f0, float f1) {\n\t\tthis.doRender((EntityTNTPrimedBase) entity, x, y, z, f0, f1);\n\t}\n}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderBlockSpider.java": {
+      "before_sha256": "6467df621e048c1f2866070463b6280a5f60a766cd018ca8d97a9e30c496e63a",
+      "after_sha256": "d95c1265d1f45372147ae48adf3d34dcb4191687564f9beab1b7cb000baaecc9",
+      "edits": [
+        {
+          "before_offset": 185,
+          "after_offset": 185,
+          "old": "",
+          "new": "com.hbm.entity.mob.EntityBlockSpider;\nimport "
+        },
+        {
+          "before_offset": 199,
+          "after_offset": 244,
+          "old": "",
+          "new": "client.renderer."
+        },
+        {
+          "before_offset": 206,
+          "after_offset": 267,
+          "old": "E",
+          "new": "Re"
+        },
+        {
+          "before_offset": 208,
+          "after_offset": 270,
+          "old": "tity",
+          "new": "derManager"
+        },
+        {
+          "before_offset": 310,
+          "after_offset": 378,
+          "old": "",
+          "new": "<EntityBlockSpider>"
+        },
+        {
+          "before_offset": 340,
+          "after_offset": 427,
+          "old": "",
+          "new": "RenderManager manager"
+        },
+        {
+          "before_offset": 352,
+          "after_offset": 460,
+          "old": "",
+          "new": "manager, "
+        },
+        {
+          "before_offset": 449,
+          "after_offset": 566,
+          "old": "",
+          "new": "BlockSpider"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderRubble.java": {
+      "before_sha256": "fa8c419bbee1544f53919a315730acd14b35969cbe464b6a4b6a3d2088832aaf",
+      "after_sha256": "f5fed81ff4c74c870dee89bf5d1d15763473ec90fd9ccee65da887ee575b36cd",
+      "edits": [
+        {
+          "before_offset": 188,
+          "after_offset": 188,
+          "old": "net",
+          "new": "com"
+        },
+        {
+          "before_offset": 192,
+          "after_offset": 192,
+          "old": "",
+          "new": "hb"
+        },
+        {
+          "before_offset": 193,
+          "after_offset": 195,
+          "old": "inecraft",
+          "new": ""
+        },
+        {
+          "before_offset": 202,
+          "after_offset": 196,
+          "old": "cli",
+          "new": ""
+        },
+        {
+          "before_offset": 208,
+          "after_offset": 199,
+          "old": "",
+          "new": "ity.projectile.EntityRubble;\nimport com.hbm"
+        },
+        {
+          "before_offset": 215,
+          "after_offset": 249,
+          "old": "",
+          "new": ".util.Nativ"
+        },
+        {
+          "before_offset": 216,
+          "after_offset": 261,
+          "old": "r.Render",
+          "new": ""
+        },
+        {
+          "before_offset": 229,
+          "after_offset": 266,
+          "old": "s",
+          "new": "Material"
+        },
+        {
+          "before_offset": 282,
+          "after_offset": 326,
+          "old": "",
+          "new": "Manager"
+        },
+        {
+          "before_offset": 305,
+          "after_offset": 356,
+          "old": "",
+          "new": "client.renderer."
+        },
+        {
+          "before_offset": 312,
+          "after_offset": 379,
+          "old": "E",
+          "new": "Re"
+        },
+        {
+          "before_offset": 314,
+          "after_offset": 382,
+          "old": "tity",
+          "new": "der"
+        },
+        {
+          "before_offset": 405,
+          "after_offset": 472,
+          "old": "",
+          "new": "<EntityRubble>"
+        },
+        {
+          "before_offset": 451,
+          "after_offset": 532,
+          "old": "",
+          "new": "RenderManager manager"
+        },
+        {
+          "before_offset": 454,
+          "after_offset": 556,
+          "old": "",
+          "new": "\n\t\tsuper(manager);"
+        },
+        {
+          "before_offset": 526,
+          "after_offset": 646,
+          "old": "",
+          "new": "Rubble"
+        },
+        {
+          "before_offset": 889,
+          "after_offset": 1015,
+          "old": "int block = rocket.getDataWatcher().getWatchableObjectInt(16);\n\t\t\tint meta = rocket.getDataWatcher().getWatchableObjectInt(17);\n\t\t\t\n\t\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 1031,
+          "after_offset": 1022,
+          "old": "",
+          "new": "lock"
+        },
+        {
+          "before_offset": 1053,
+          "after_offset": 1048,
+          "old": "bl",
+          "new": "r"
+        },
+        {
+          "before_offset": 1058,
+          "after_offset": 1052,
+          "old": ");\n\t\n\t\t\tRenderBlocks rb = RenderBlocks.g",
+          "new": ""
+        },
+        {
+          "before_offset": 1100,
+          "after_offset": 1054,
+          "old": "Instance();\n\t\t\tString s = rb",
+          "new": ""
+        },
+        {
+          "before_offset": 1138,
+          "after_offset": 1064,
+          "old": "conFromSi",
+          "new": ""
+        },
+        {
+          "before_offset": 1148,
+          "after_offset": 1065,
+          "old": "eAndMetadata(b, 0, meta).getIconName();\n\t\t\t\n\t\t\tif(s == null || s.isEmpty",
+          "new": ""
+        },
+        {
+          "before_offset": 1223,
+          "after_offset": 1068,
+          "old": "\n\t\t\t\ts = \"minecraft:stone\"",
+          "new": ""
+        },
+        {
+          "before_offset": 1250,
+          "after_offset": 1069,
+          "old": "\n\t\n\t\t\tString[] split = s.split(\":\");\n\t\t\t\n\t\t\tString prefix = \"\";\n\t\t\tString suffix = \"\";\n\t\t\t\n\t\t\tif(split.length == 2) {\n\t\t\t\tprefix = split[0];\n\t\t\t\tsuffix = split[1];\n\t\t\t} else {\n\t\t\t\tprefix = \"minecraft\";\n\t\t\t\tsuffix = s;\n\t\t\t}\n\t\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 1492,
+          "after_offset": 1085,
+          "old": "new ResourceLoc",
+          "new": "N"
+        },
+        {
+          "before_offset": 1510,
+          "after_offset": 1089,
+          "old": "",
+          "new": "veBl"
+        },
+        {
+          "before_offset": 1511,
+          "after_offset": 1094,
+          "old": "n(p",
+          "new": "ckMate"
+        },
+        {
+          "before_offset": 1515,
+          "after_offset": 1101,
+          "old": "ef",
+          "new": ""
+        },
+        {
+          "before_offset": 1518,
+          "after_offset": 1102,
+          "old": "x + \":",
+          "new": "al."
+        },
+        {
+          "before_offset": 1531,
+          "after_offset": 1112,
+          "old": "s/",
+          "new": "("
+        },
+        {
+          "before_offset": 1538,
+          "after_offset": 1118,
+          "old": "s/\"",
+          "new": ","
+        },
+        {
+          "before_offset": 1542,
+          "after_offset": 1120,
+          "old": "+ suffix + \"",
+          "new": "rocket"
+        },
+        {
+          "before_offset": 1555,
+          "after_offset": 1127,
+          "old": "pn",
+          "new": ""
+        },
+        {
+          "before_offset": 1558,
+          "after_offset": 1128,
+          "old": "\"",
+          "new": "etBlockMetadata()"
+        },
+        {
+          "before_offset": 1563,
+          "after_offset": 1149,
+          "old": "\t\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 1715,
+          "after_offset": 1298,
+          "old": "",
+          "new": "Rubble"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/model/ModelBlockSpider.java": {
+      "before_sha256": "c8652234a5fa8e7e160ce6820fb9d9fd799b94791426c1c785939b1d65b16905",
+      "after_sha256": "d4eb36c878f7c5287cba6d8178c3d6f1eec2302dde09d66b8b38ecb65be0fcc9",
+      "edits": [
+        {
+          "before_offset": 225,
+          "after_offset": 225,
+          "old": "net",
+          "new": "com"
+        },
+        {
+          "before_offset": 229,
+          "after_offset": 229,
+          "old": "",
+          "new": "hb"
+        },
+        {
+          "before_offset": 230,
+          "after_offset": 232,
+          "old": "inecraft",
+          "new": ""
+        },
+        {
+          "before_offset": 239,
+          "after_offset": 233,
+          "old": "cli",
+          "new": ""
+        },
+        {
+          "before_offset": 245,
+          "after_offset": 236,
+          "old": "",
+          "new": "ity.mob.EntityBlockSpider;\nimport com.hbm"
+        },
+        {
+          "before_offset": 252,
+          "after_offset": 284,
+          "old": "er",
+          "new": ""
+        },
+        {
+          "before_offset": 255,
+          "after_offset": 285,
+          "old": "R",
+          "new": ""
+        },
+        {
+          "before_offset": 258,
+          "after_offset": 287,
+          "old": "d",
+          "new": "tity.Nativ"
+        },
+        {
+          "before_offset": 260,
+          "after_offset": 298,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "before_offset": 266,
+          "after_offset": 303,
+          "old": "s",
+          "new": "EntityDraw"
+        },
+        {
+          "before_offset": 634,
+          "after_offset": 680,
+          "old": "",
+          "new": "((EntityBlockSpider) "
+        },
+        {
+          "before_offset": 640,
+          "after_offset": 707,
+          "old": ".getDataWatcher(",
+          "new": ""
+        },
+        {
+          "before_offset": 661,
+          "after_offset": 712,
+          "old": "Wat",
+          "new": "Blo"
+        },
+        {
+          "before_offset": 665,
+          "after_offset": 716,
+          "old": "hableObject",
+          "new": "k"
+        },
+        {
+          "before_offset": 677,
+          "after_offset": 718,
+          "old": "nt",
+          "new": "d"
+        },
+        {
+          "before_offset": 680,
+          "after_offset": 720,
+          "old": "12",
+          "new": ""
+        },
+        {
+          "before_offset": 883,
+          "after_offset": 921,
+          "old": "",
+          "new": "((EntityBlockSpider) "
+        },
+        {
+          "before_offset": 889,
+          "after_offset": 948,
+          "old": ".getDataWatcher(",
+          "new": ""
+        },
+        {
+          "before_offset": 910,
+          "after_offset": 953,
+          "old": "W",
+          "new": "BlockMetad"
+        },
+        {
+          "before_offset": 913,
+          "after_offset": 965,
+          "old": "ch",
+          "new": ""
+        },
+        {
+          "before_offset": 916,
+          "after_offset": 966,
+          "old": "bleObjectInt",
+          "new": ""
+        },
+        {
+          "before_offset": 929,
+          "after_offset": 967,
+          "old": "13",
+          "new": ""
+        },
+        {
+          "before_offset": 1742,
+          "after_offset": 1778,
+          "old": "location",
+          "new": "LOCATION_"
+        },
+        {
+          "before_offset": 1751,
+          "after_offset": 1788,
+          "old": "locks",
+          "new": "LOCKS_"
+        },
+        {
+          "before_offset": 1757,
+          "after_offset": 1795,
+          "old": "exture",
+          "new": "EXTURE"
+        },
+        {
+          "before_offset": 1801,
+          "after_offset": 1839,
+          "old": "R",
+          "new": "Nativ"
+        },
+        {
+          "before_offset": 1803,
+          "after_offset": 1845,
+          "old": "nder",
+          "new": ""
+        },
+        {
+          "before_offset": 1812,
+          "after_offset": 1850,
+          "old": "s.ge",
+          "new": "En"
+        },
+        {
+          "before_offset": 1817,
+          "after_offset": 1853,
+          "old": "Ins",
+          "new": "i"
+        },
+        {
+          "before_offset": 1821,
+          "after_offset": 1855,
+          "old": "",
+          "new": "yDr"
+        },
+        {
+          "before_offset": 1822,
+          "after_offset": 1859,
+          "old": "nce()",
+          "new": "w"
+        },
+        {
+          "before_offset": 1834,
+          "after_offset": 1867,
+          "old": "BlockAsItem",
+          "new": ""
+        },
+        {
+          "before_offset": 1880,
+          "after_offset": 1902,
+          "old": "scal",
+          "new": "), tru"
+        },
+        {
+          "before_offset": 1885,
+          "after_offset": 1909,
+          "old": "Factor)",
+          "new": ""
+        },
+        {
+          "before_offset": 1914,
+          "after_offset": 1931,
+          "old": ");\n\t\t//this.field_147920_a.setRenderBoundsFromBlock(block);\n\t\t//this.field_147920_a.renderBlockSandFalling(block, entity.worldObj, (int)Math.floor(entity.posX), (int)Math.floor(entity.posY), (int)Math.floor(entity.posZ), blockid",
+          "new": ""
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/render/entity/NativeBlockEntityDraw.java": "bb726280d74bd42925896daf8e72435b9bc8a15b01269d7035b9fc1ee0773e6f",
+    "src/main/java/com/hbm/render/util/NativeBlockMaterial.java": "948cdeae5bb39ac0919e1f8fcf2fd415be1bf38a889a74442339f4a15b387a01"
+  }
+}

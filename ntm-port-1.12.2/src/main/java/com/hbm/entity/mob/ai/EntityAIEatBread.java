@@ -25,10 +25,10 @@ public class EntityAIEatBread extends EntityAIBase {
 	public boolean shouldExecute() {
 		if(pigeon.isFat() || pigeon.getFlyingState() != pigeon.STATE_WALKING) return false;
 		
-		List<EntityItem> items = pigeon.worldObj.getEntitiesWithinAABB(EntityItem.class, this.pigeon.boundingBox.expand(10, 10, 10));
+		List<EntityItem> items = pigeon.world.getEntitiesWithinAABB(EntityItem.class, this.pigeon.getEntityBoundingBox().grow(10, 10, 10));
 		
 		for(EntityItem item : items) {
-			if(item.getEntityItem().getItem() == Items.bread) {
+			if(item.getEntityItem().getItem() == Items.BREAD) {
 				this.item = item;
 				return true;
 			}
@@ -55,10 +55,10 @@ public class EntityAIEatBread extends EntityAIBase {
 				
 				if(stack.stackSize > 1) {
 					stack.stackSize--;
-					EntityItem newItem = new EntityItem(this.pigeon.worldObj);
+					EntityItem newItem = new EntityItem(this.pigeon.world);
 					newItem.setPosition(this.item.posX, this.item.posY, this.item.posZ);
 					newItem.setEntityItemStack(stack);
-					this.pigeon.worldObj.spawnEntityInWorld(newItem);
+					this.pigeon.world.spawnEntityInWorld(newItem);
 				}
 				
 				this.item.setDead();

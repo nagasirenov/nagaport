@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class BlockRubberPlant extends BlockEnumMulti {
 
 	public BlockRubberPlant() {
-		super(Material.vine, EnumRubberPlantType.class, false, true);
+		super(Material.VINE, EnumRubberPlantType.class, false, true);
 	}
 
 	public static enum EnumRubberPlantType {
@@ -40,14 +40,14 @@ public class BlockRubberPlant extends BlockEnumMulti {
 
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		if(!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
 			world.setBlock(x, y, z, getBlockById(0), 0, 2);
 		}
 	}
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z));
+		return canPlaceBlockOn(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class BlockRubberPlant extends BlockEnumMulti {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return null;
 	}
 }

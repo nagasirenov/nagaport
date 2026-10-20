@@ -1,6 +1,6 @@
 package com.hbm.util;
 
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 
 /**
  * Unique identifier for sub-chunks.
@@ -17,8 +17,8 @@ public class SubChunkKey {
 		this.update(cx, cz, sy);
 	}
 
-	public SubChunkKey(ChunkCoordIntPair pos, int sy) {
-		this.update(pos.chunkXPos, pos.chunkZPos, sy);
+	public SubChunkKey(ChunkPos pos, int sy) {
+		this.update(pos.x, pos.z, sy);
 	}
 
 	public SubChunkKey update(int cx, int cz, int sy) {
@@ -57,7 +57,7 @@ public class SubChunkKey {
 		return chunkZPos;
 	}
 
-	public ChunkCoordIntPair getPos() {
-		return new ChunkCoordIntPair(this.chunkXPos, this.chunkZPos);
+	public ChunkPos getPos() {
+		return new ChunkPos(this.chunkXPos, this.chunkZPos);
 	}
 }

@@ -37,8 +37,8 @@ public class GUILiquefactor extends GuiInfoContainer {
 		
 		String name = this.liquefactor.hasCustomInventoryName() ? this.liquefactor.getInventoryName() : I18n.format(this.liquefactor.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, 70 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xC7C1A3);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 70 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xC7C1A3);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

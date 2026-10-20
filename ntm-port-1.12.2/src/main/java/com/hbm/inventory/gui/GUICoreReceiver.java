@@ -35,14 +35,14 @@ public class GUICoreReceiver extends GuiInfoContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		String name = this.receiver.hasCustomInventoryName() ? this.receiver.getInventoryName() : I18n.format(this.receiver.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
 
-		this.fontRendererObj.drawString("Input:", 40, 25, 0xFF7F7F);
-		this.fontRendererObj.drawString(BobMathUtil.getShortNumber(receiver.joules) + "Spk", 50, 35, 0xFF7F7F);
-		this.fontRendererObj.drawString("Output:", 40, 45, 0xFF7F7F);
-		this.fontRendererObj.drawString(BobMathUtil.getShortNumber(receiver.joules * 5000) + "HE", 50, 55, 0xFF7F7F);
+		this.fontRenderer.drawString("Input:", 40, 25, 0xFF7F7F);
+		this.fontRenderer.drawString(BobMathUtil.getShortNumber(receiver.joules) + "Spk", 50, 35, 0xFF7F7F);
+		this.fontRenderer.drawString("Output:", 40, 45, 0xFF7F7F);
+		this.fontRenderer.drawString(BobMathUtil.getShortNumber(receiver.joules * 5000) + "HE", 50, 55, 0xFF7F7F);
 		
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override

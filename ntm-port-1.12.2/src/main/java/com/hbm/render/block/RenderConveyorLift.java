@@ -1,181 +1,71 @@
 package com.hbm.render.block;
 
-import com.hbm.blocks.ModBlocks;
-import com.hbm.blocks.network.BlockConveyorLift;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.blocks.network.ConveyorModelState;
+import com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;
+import com.hbm.render.block.nativeblock.ConveyorMaterials;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
 
-import api.hbm.conveyor.IConveyorBelt;
-import api.hbm.conveyor.IEnterableBlock;
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderConveyorLift implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		int meta = world.getBlockMetadata(x, y, z);
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		boolean isBottom = false;
-		boolean isTop = false;
-
-		IIcon iconConcrete = ModBlocks.concrete_smooth.getIcon(0, 0);
-		IIcon iconIron = Blocks.iron_block.getIcon(0, 0);
-		IIcon iconBelt = block.getIcon(0, 0);
-		
-		
-		if(y > 0) {
-			Block below = world.getBlock(x, y - 1, z);
-			if(!(below instanceof IConveyorBelt)) {
-				
-				renderer.setOverrideBlockTexture(iconBelt);
-
-				if(meta != 5) {
-					renderer.uvRotateTop = 1;
-					renderer.uvRotateBottom = 1;
-					renderer.setRenderBounds(0.0D, 0.0D, 0.25D, 0.25D, 0.25D, 0.75D); renderer.renderStandardBlock(block, x, y, z);
-				}
-				if(meta != 4) {
-					renderer.uvRotateTop = 2;
-					renderer.uvRotateBottom = 2;
-					renderer.setRenderBounds(0.75D, 0.0D, 0.25D, 1.0D, 0.25D, 0.75D); renderer.renderStandardBlock(block, x, y, z);
-				}
-				if(meta != 3) {
-					renderer.uvRotateTop = 3;
-					renderer.uvRotateBottom = 0;
-					renderer.setRenderBounds(0.25D, 0.0D, 0.0D, 0.75D, 0.25D, 0.25D); renderer.renderStandardBlock(block, x, y, z);
-				}
-				if(meta != 2) {
-					renderer.uvRotateTop = 0;
-					renderer.uvRotateBottom = 3;
-					renderer.setRenderBounds(0.25D, 0.0D, 0.75D, 0.75D, 0.25D, 1.0D); renderer.renderStandardBlock(block, x, y, z);
-				}
-
-				renderer.uvRotateTop = 0;
-				renderer.uvRotateBottom = 0;
-				
-				renderer.clearOverrideBlockTexture();
-				
-				isBottom = true;
-			}
-		}
-		
-		if(y < 255) {
-			Block above = world.getBlock(x, y + 1, z);
-			isTop = !(above instanceof IConveyorBelt) && !isBottom && !(world.getBlock(x, y + 1, z) instanceof IEnterableBlock);
-		}
-
-		double minOuter = 0.0;
-		double maxOuter = 1.0;
-		double minInner = 0.25;
-		double maxInner = 0.75;
-
-		renderer.setOverrideBlockTexture(iconConcrete);
-		
-		if(!isTop) {
-			if(meta == 2) {
-				renderer.setRenderBounds(minOuter, 0.0, minOuter, minInner, 1.0, minInner); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(maxInner, 0.0, minOuter, maxOuter, 1.0, minInner); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(minOuter, 0.0, maxInner, maxOuter, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setOverrideBlockTexture(iconBelt);
-				renderer.uvRotateTop = 3;
-				renderer.setRenderBounds(minInner, 0.0, maxInner - 0.125, maxInner, 1.0, maxInner); renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(meta == 3) {
-				renderer.setRenderBounds(minOuter, 0.0, minOuter, maxOuter, 1.0, minInner); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(minOuter, 0.0, maxInner, minInner, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(maxInner, 0.0, maxInner, maxOuter, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setOverrideBlockTexture(iconBelt);
-				renderer.uvRotateTop = 0;
-				renderer.setRenderBounds(minInner, 0.0, minInner, maxInner, 1.0, minInner + 0.125); renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(meta == 4) {
-				renderer.setRenderBounds(minOuter, 0.0, minOuter, minInner, 1.0, minInner); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(minOuter, 0.0, maxInner, minInner, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(maxInner, 0.0, minOuter, maxOuter, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setOverrideBlockTexture(iconBelt);
-				renderer.uvRotateTop = 1;
-				renderer.setRenderBounds(maxInner - 0.125, 0.0, minInner, maxInner, 1.0, maxInner); renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(meta == 5) {
-				renderer.setRenderBounds(maxInner, 0.0, minOuter, maxOuter, 1.0, minInner); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(maxInner, 0.0, maxInner, maxOuter, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(minOuter, 0.0, minOuter, minInner, 1.0, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setOverrideBlockTexture(iconBelt);
-				renderer.uvRotateTop = 2;
-				renderer.setRenderBounds(minInner, 0.0, minInner, minInner + 0.125, 1.0, maxInner); renderer.renderStandardBlock(block, x, y, z);
-			}
-		} else {
-			if(meta == 2 || meta == 3) {
-				renderer.setRenderBounds(minOuter, 0.0, minOuter, minInner, 0.5, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(maxInner, 0.0, minOuter, maxOuter, 0.5, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.clearOverrideBlockTexture();
-				
-				if(meta == 2) {
-					renderer.uvRotateTop = 3;
-					renderer.uvRotateWest = 3;
-					renderer.setRenderBounds(minInner, 0.0, maxInner - 0.125, maxInner, 0.25, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				} else {
-					renderer.uvRotateTop = 0;
-					renderer.uvRotateEast = 3;
-					renderer.setRenderBounds(minInner, 0.0, minOuter, maxInner, 0.25, minInner + 0.125); renderer.renderStandardBlock(block, x, y, z);
-				}
-			}
-			
-			if(meta == 4 || meta == 5) {
-				renderer.setRenderBounds(minOuter, 0.0, minOuter, maxOuter, 0.5, minInner); renderer.renderStandardBlock(block, x, y, z);
-				renderer.setRenderBounds(minOuter, 0.0, maxInner, maxOuter, 0.5, maxOuter); renderer.renderStandardBlock(block, x, y, z);
-				renderer.clearOverrideBlockTexture();
-				
-				if(meta == 4) {
-					renderer.uvRotateTop = 1;
-					renderer.uvRotateSouth = 3;
-					renderer.setRenderBounds(maxInner - 0.125, 0.0, minInner, maxOuter, 0.25, maxInner); renderer.renderStandardBlock(block, x, y, z);
-				} else {
-					renderer.uvRotateTop = 2;
-					renderer.uvRotateNorth = 3;
-					renderer.setRenderBounds(minOuter, 0.0, minInner, minInner + 0.125, 0.25, maxInner); renderer.renderStandardBlock(block, x, y, z);
-				}
-			}
-		}
-
-		renderer.uvRotateTop = 0;
-		renderer.uvRotateBottom = 0;
-		renderer.uvRotateNorth = 0;
-		renderer.uvRotateSouth = 0;
-		renderer.uvRotateEast = 0;
-		renderer.uvRotateWest = 0;
-
-		if(isBottom) {
-			renderer.setOverrideBlockTexture(iconIron);
-			renderer.setRenderBounds(0.25 + (meta == 5 ? 0.125 : 0), 0, 0.25 + (meta == 3 ? 0.125 : 0), 0.75 - (meta == 4 ? 0.125 : 0), 0.25, 0.75 - (meta == 2 ? 0.125 : 0)); renderer.renderStandardBlock(block, x, y, z);
-		}
-		
-		renderer.clearOverrideBlockTexture();
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return false;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockConveyorLift.renderID;
-	}
+/** Original lift boxes/materials, with native neighbor state rather than mutable render bounds. */
+public final class RenderConveyorLift {
+    private RenderConveyorLift() { }
+    public static List<BakedQuad> bake(int metadata, int neighbors, ConveyorMaterials materials) {
+        List<BakedQuad> quads = new ArrayList<>();
+        boolean bottom = (neighbors & ConveyorModelState.ABOVE_MIN_Y) != 0 && !ConveyorModelState.belt(neighbors, EnumFacing.DOWN);
+        boolean top = (neighbors & ConveyorModelState.BELOW_MAX_Y) != 0 && !ConveyorModelState.belt(neighbors, EnumFacing.UP)
+                && !bottom && (neighbors & ConveyorModelState.ABOVE_ENTERABLE) == 0;
+        TextureAtlasSprite[] belt = ConveyorMaterials.uniform(materials.belt);
+        TextureAtlasSprite[] concrete = ConveyorMaterials.uniform(materials.concrete);
+        int[] zero = new int[6];
+        if(bottom) {
+            if(metadata != 5) box(quads, belt, horizontal(1,1), 0,0,.25, .25,.25,.75);
+            if(metadata != 4) box(quads, belt, horizontal(2,2), .75,0,.25, 1,.25,.75);
+            if(metadata != 3) box(quads, belt, horizontal(0,3), .25,0,0, .75,.25,.25);
+            if(metadata != 2) box(quads, belt, horizontal(3,0), .25,0,.75, .75,.25,1);
+        }
+        if(!top) {
+            if(metadata == 2) {
+                box(quads,concrete,zero, 0,0,0, .25,1,.25); box(quads,concrete,zero, .75,0,0, 1,1,.25);
+                box(quads,concrete,zero, 0,0,.75, 1,1,1); box(quads,belt,horizontal(0,3), .25,0,.625, .75,1,.75);
+            }
+            if(metadata == 3) {
+                box(quads,concrete,zero, 0,0,0, 1,1,.25); box(quads,concrete,zero, 0,0,.75, .25,1,1);
+                box(quads,concrete,zero, .75,0,.75, 1,1,1); box(quads,belt,zero, .25,0,.25, .75,1,.375);
+            }
+            if(metadata == 4) {
+                box(quads,concrete,zero, 0,0,0, .25,1,.25); box(quads,concrete,zero, 0,0,.75, .25,1,1);
+                box(quads,concrete,zero, .75,0,0, 1,1,1); box(quads,belt,horizontal(0,1), .625,0,.25, .75,1,.75);
+            }
+            if(metadata == 5) {
+                box(quads,concrete,zero, .75,0,0, 1,1,.25); box(quads,concrete,zero, .75,0,.75, 1,1,1);
+                box(quads,concrete,zero, 0,0,0, .25,1,1); box(quads,belt,horizontal(0,2), .25,0,.25, .375,1,.75);
+            }
+        } else {
+            if(metadata == 2 || metadata == 3) {
+                box(quads,concrete,zero, 0,0,0, .25,.5,1); box(quads,concrete,zero, .75,0,0, 1,.5,1);
+                int[] turns = zero.clone(); turns[1] = metadata == 2 ? 3 : 0; turns[metadata == 2 ? 3 : 2] = 3;
+                if(metadata == 2) box(quads,materials.beltFaces(metadata,false),turns, .25,0,.625, .75,.25,1);
+                else box(quads,materials.beltFaces(metadata,false),turns, .25,0,0, .75,.25,.375);
+            }
+            if(metadata == 4 || metadata == 5) {
+                box(quads,concrete,zero, 0,0,0, 1,.5,.25); box(quads,concrete,zero, 0,0,.75, 1,.5,1);
+                int[] turns = zero.clone(); turns[1] = metadata == 4 ? 1 : 2; turns[metadata == 4 ? 5 : 4] = 3;
+                if(metadata == 4) box(quads,materials.beltFaces(metadata,false),turns, .625,0,.25, 1,.25,.75);
+                else box(quads,materials.beltFaces(metadata,false),turns, 0,0,.25, .375,.25,.75);
+            }
+        }
+        if(bottom) box(quads,ConveyorMaterials.uniform(materials.iron),zero,
+                .25 + (metadata == 5 ? .125 : 0), 0, .25 + (metadata == 3 ? .125 : 0),
+                .75 - (metadata == 4 ? .125 : 0), .25, .75 - (metadata == 2 ? .125 : 0));
+        return Collections.unmodifiableList(quads);
+    }
+    private static int[] horizontal(int bottom, int top) { return new int[] {bottom, top, 0, 0, 0, 0}; }
+    private static void box(List<BakedQuad> out, TextureAtlasSprite[] materials, int[] rotations,
+            double x0,double y0,double z0,double x1,double y1,double z1) {
+        ConveyorCuboidGeometry.append(out,false,materials,rotations,x0,y0,z0,x1,y1,z1);
+    }
 }

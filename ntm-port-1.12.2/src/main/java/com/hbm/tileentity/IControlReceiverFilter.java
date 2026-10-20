@@ -36,11 +36,11 @@ public interface IControlReceiverFilter extends IControlReceiver, ICopiable {
 		IInventory inv = (IInventory) this;
 		int slot = nbt.getInteger("slot");
 		NBTTagCompound stack = nbt.getCompoundTag("stack");
-		ItemStack item = ItemStack.loadItemStackFromNBT(stack);
-		item.stackSize = 1;
-		inv.setInventorySlotContents(slot, item);
+		ItemStack item = new ItemStack(stack);
+		if(!item.isEmpty()) item.setCount(1);
+		inv.setInventorySlotContents(slot, item.isEmpty() ? ItemStack.EMPTY : item);
 		nextMode(slot);
-		tile.getWorldObj().markTileEntityChunkModified(tile.xCoord, tile.yCoord, tile.zCoord, tile);
+		tile.getWorld().markChunkDirty(tile.getPos(), tile);
 	}
 	/**
 	 * Used for the copy tool
@@ -56,7 +56,7 @@ public interface IControlReceiverFilter extends IControlReceiver, ICopiable {
 		int count = 0;
 		for (int i = getFilterSlots()[0]; i < getFilterSlots()[1]; i++) {
 			NBTTagCompound slotNBT = new NBTTagCompound();
-			if(inv.getStackInSlot(i) != null) {
+			if(inv.getStackInSlot(i) != null && !inv.getStackInSlot(i).isEmpty()) {
 				slotNBT.setByte("slot", (byte) count);
 				inv.getStackInSlot(i).writeToNBT(slotNBT);
 				tags.appendTag(slotNBT);
@@ -81,14 +81,14 @@ public interface IControlReceiverFilter extends IControlReceiver, ICopiable {
 				if (i < listSize) {
 					NBTTagCompound slotNBT = items.getCompoundTagAt(count);
 					byte slot = slotNBT.getByte("slot");
-					ItemStack loadedStack = ItemStack.loadItemStackFromNBT(slotNBT);
+					ItemStack loadedStack = new ItemStack(slotNBT);
 					//whether the filter info came from a router
 					boolean router = nbt.hasKey("modes") && slot > index * 5 && slot < index * + 5;
 
-					if (loadedStack != null && index < listSize && (slot < getFilterSlots()[1] || router)) {
-						inv.setInventorySlotContents(slot + getFilterSlots()[0], ItemStack.loadItemStackFromNBT(slotNBT));
+					if (!loadedStack.isEmpty() && index < listSize && (slot < getFilterSlots()[1] || router)) {
+						inv.setInventorySlotContents(slot + getFilterSlots()[0], new ItemStack(slotNBT));
 						nextMode(slot);
-						tile.getWorldObj().markTileEntityChunkModified(tile.xCoord, tile.yCoord, tile.zCoord, tile);
+						tile.getWorld().markChunkDirty(tile.getPos(), tile);
 					}
 				}
 				count++;

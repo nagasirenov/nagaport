@@ -10,6 +10,14 @@ import com.hbm.entity.mob.botprime.EntityBOTPrimeHead;
 import com.hbm.items.ModItems;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
+import com.hbm.blocks.generic.BlockMetalFence;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -18,7 +26,6 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Facing;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -26,20 +33,22 @@ import net.minecraft.world.World;
 public class ItemChopper extends Item {
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing face, float hitX, float hitY, float hitZ) {
+		ItemStack stack = player.getHeldItem(hand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		
 		if(world.isRemote) {
-			return true;
+			return EnumActionResult.SUCCESS;
 		} else {
 			
-			Block block = world.getBlock(x, y, z);
+			Block block = world.getBlockState(pos).getBlock();
 			
-			x += Facing.offsetsXForSide[side];
-			y += Facing.offsetsYForSide[side];
-			z += Facing.offsetsZForSide[side];
+			x += face.getXOffset();
+			y += face.getYOffset();
+			z += face.getZOffset();
 			double offset = 0.0D;
 
-			if(side == 1 && block.getRenderType() == 11)
+			if(face == EnumFacing.UP && block instanceof BlockFence && !(block instanceof BlockMetalFence))
 				offset = 0.5D;
 
 			Entity entity = spawnCreature(world, stack.getItemDamage(), x + 0.5D, y + offset, z + 0.5D);
@@ -50,25 +59,26 @@ public class ItemChopper extends Item {
 				}
 
 				if(!player.capabilities.isCreativeMode) {
-					--stack.stackSize;
+					stack.shrink(1);
 				}
 			}
 
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
 		
 		if(world.isRemote) {
-			return stack;
+			return new ActionResult<>(EnumActionResult.PASS, stack);
 			
 		} else {
-			RayTraceResult movingobjectposition = player.rayTrace(5.0D, 1.0F, true);
+			RayTraceResult movingobjectposition = this.rayTrace(world, player, true);
 
 			if(movingobjectposition == null) {
-				return stack;
+				return new ActionResult<>(EnumActionResult.PASS, stack);
 			} else {
 				if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK) {
 					net.minecraft.util.math.BlockPos pos = movingobjectposition.getBlockPos();
@@ -77,11 +87,11 @@ public class ItemChopper extends Item {
 					int k = pos.getZ();
 
 					if(!world.isBlockModifiable(player, pos)) {
-						return stack;
+						return new ActionResult<>(EnumActionResult.PASS, stack);
 					}
 
 					if(!player.canPlayerEdit(pos, movingobjectposition.sideHit, stack)) {
-						return stack;
+						return new ActionResult<>(EnumActionResult.PASS, stack);
 					}
 
 					if(world.getBlockState(pos).getBlock() instanceof BlockLiquid) {
@@ -93,13 +103,14 @@ public class ItemChopper extends Item {
 							}
 
 							if(!player.capabilities.isCreativeMode) {
-								--stack.stackSize;
+								stack.shrink(1);
 							}
+							return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 						}
 					}
 				}
 
-				return stack;
+				return new ActionResult<>(EnumActionResult.PASS, stack);
 			}
 		}
 	}
@@ -128,18 +139,18 @@ public class ItemChopper extends Item {
 		if(entity != null) {
 
 			EntityLiving entityliving = (EntityLiving) entity;
-			entity.setLocationAndAngles(x, y, z, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);
+			entity.setLocationAndAngles(x, y, z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
 			entityliving.rotationYawHead = entityliving.rotationYaw;
 			entityliving.renderYawOffset = entityliving.rotationYaw;
-			entityliving.onSpawnWithEgg((IEntityLivingData) null);
-			world.spawnEntityInWorld(entity);
+			entityliving.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(entity)), (IEntityLivingData) null);
+			world.spawnEntity(entity);
 		}
 
 		return entity;
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 
 		if(this == ModItems.spawn_worm) {
 			list.add("Without a player in survival mode");

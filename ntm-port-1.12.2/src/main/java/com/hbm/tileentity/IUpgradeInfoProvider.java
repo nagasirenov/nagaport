@@ -17,7 +17,7 @@ public interface IUpgradeInfoProvider {
 	public HashMap<UpgradeType, Integer> getValidUpgrades();
 
 	public static String getStandardLabel(Block block) {
-		return TextFormatting.GREEN.YELLOW + ">>> " + I18nUtil.resolveKey(block.getUnlocalizedName() + ".name") + " <<<";
+		return TextFormatting.GREEN.YELLOW + ">>> " + I18nUtil.resolveKey(block.getTranslationKey() + ".name") + " <<<";
 	}
 
 	public static final String KEY_ACID = "upgrade.acid";

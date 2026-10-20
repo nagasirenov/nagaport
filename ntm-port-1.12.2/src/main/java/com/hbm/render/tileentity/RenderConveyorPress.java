@@ -5,15 +5,13 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityConveyorPress;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderConveyorPress extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderConveyorPress extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
@@ -46,7 +44,7 @@ public class RenderConveyorPress extends TileEntitySpecialRenderer implements II
 		
 		GL11.glMatrixMode(GL11.GL_TEXTURE);
 		GL11.glLoadIdentity();
-		int ticks = (int)(tile.getWorldObj().getTotalWorldTime() % 16) - 2;
+		int ticks = (int)(tile.getWorld().getTotalWorldTime() % 16) - 2;
 		GL11.glTranslated(0, ticks / 16D, 0);
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);
 		ResourceManager.conveyor_press.renderPart("Belt");
@@ -57,24 +55,5 @@ public class RenderConveyorPress extends TileEntitySpecialRenderer implements II
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_conveyor_press);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -4, 0);
-				GL11.glScaled(4.5, 4.5, 4.5);
-			}
-			public void renderCommon() {
-				bindTexture(ResourceManager.conveyor_press_tex);
-				ResourceManager.conveyor_press.renderPart("Press");
-				ResourceManager.conveyor_press.renderPart("Piston");
-				bindTexture(ResourceManager.conveyor_press_belt_tex);
-				ResourceManager.conveyor_press.renderPart("Belt");
-			}};
-	}
 }

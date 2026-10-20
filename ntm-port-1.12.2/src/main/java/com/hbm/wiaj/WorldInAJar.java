@@ -8,10 +8,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.WorldType;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.init.Biomes;
 
 /**
- * A hastily put together implementation of IBlockAccess in order to render things using ISBRH...
+ * Small virtual block access used by jar scenes and construction previews.
  * It can handle blocks, and not a whole lot else.
  * @author hbm
  */
@@ -44,14 +47,29 @@ public class WorldInAJar implements IBlockAccess {
 		this.tiles = new TileEntity[sizeX][sizeY][sizeZ];
 	}
 
-	@Override
 	public Block getBlock(int x, int y, int z) {
 		if(x < 0 || x >= sizeX || y < 0 || y >= sizeY || z < 0 || z >= sizeZ)
-			return Blocks.air;
+			return Blocks.AIR;
 		
-		return this.blocks[x][y][z] != null ? this.blocks[x][y][z] : Blocks.air;
+		return this.blocks[x][y][z] != null ? this.blocks[x][y][z] : Blocks.AIR;
 	}
 	
+	@Override
+	public IBlockState getBlockState(BlockPos pos) {
+		Block block = getBlock(pos.getX(), pos.getY(), pos.getZ());
+		return block.getStateFromMeta(getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));
+	}
+
+	@Override
+	public TileEntity getTileEntity(BlockPos pos) {
+		return getTileEntity(pos.getX(), pos.getY(), pos.getZ());
+	}
+
+	@Override
+	public WorldType getWorldType() {
+		return WorldType.DEFAULT;
+	}
+
 	public void setBlock(int x, int y, int z, Block b, int meta) {
 		if(x < 0 || x >= sizeX || y < 0 || y >= sizeY || z < 0 || z >= sizeZ)
 			return;
@@ -60,7 +78,6 @@ public class WorldInAJar implements IBlockAccess {
 		this.meta[x][y][z] = (short)meta;
 	}
 
-	@Override
 	public int getBlockMetadata(int x, int y, int z) {
 		if(x < 0 || x >= sizeX || y < 0 || y >= sizeY || z < 0 || z >= sizeZ)
 			return 0;
@@ -70,7 +87,6 @@ public class WorldInAJar implements IBlockAccess {
 
 	//shaky, we may kick tile entities entirely and rely on outside-the-world tile actors for rendering
 	//might still come in handy for manipulating things using dummy tiles, like cable connections
-	@Override
 	public TileEntity getTileEntity(int x, int y, int z) {
 		if(x < 0 || x >= sizeX || y < 0 || y >= sizeY || z < 0 || z >= sizeZ)
 			return null;
@@ -89,35 +105,34 @@ public class WorldInAJar implements IBlockAccess {
 	//darkens blocks if there is a solid one above
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getLightBrightnessForSkyBlocks(int x, int y, int z, int blockBrightness) {
+	public int getCombinedLight(BlockPos pos, int blockBrightness) {
 		return lightlevel;
 	}
 
 	//redstone could theoretically be implemented, but we will wait for now
 	@Override
-	public int isBlockProvidingPowerTo(int x, int y, int z, int dir) {
+	public int getStrongPower(BlockPos pos, EnumFacing side) {
 		return 0;
 	}
 
 	@Override
-	public boolean isAirBlock(int x, int y, int z) {
-		return this.getBlock(x, y, z).isAir(this, x, y, z);
+	public boolean isAirBlock(BlockPos pos) {
+		IBlockState state = getBlockState(pos);
+		return state.getBlock().isAir(state, this, pos);
 	}
 
 	//biomes don't matter to us, if the situation requires it we could implement a primitive biome mask
 	@Override
 	@SideOnly(Side.CLIENT)
-	public BiomeGenBase getBiomeGenForCoords(int x, int z) {
-		return BiomeGenBase.plains;
+	public Biome getBiome(BlockPos pos) {
+		return Biomes.PLAINS;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getHeight() {
 		return this.sizeY;
 	}
 
-	@Override
 	public boolean extendedLevelsInChunkCache() {
 		return false;
 	}
@@ -125,7 +140,7 @@ public class WorldInAJar implements IBlockAccess {
 	@Override
 	public boolean isSideSolid(BlockPos pos, EnumFacing side, boolean _default) {
 		if (side == null) return _default;
-		Block block = getBlock(pos.getX(), pos.getY(), pos.getZ());
-		return block.isSideSolid(block.getDefaultState(), this, pos, side);
+		IBlockState state = getBlockState(pos);
+		return state.getBlock().isSideSolid(state, this, pos, side);
 	}
 }

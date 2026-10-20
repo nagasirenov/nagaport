@@ -44,7 +44,7 @@ public class Radiobox extends BlockContainer {
 	
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -57,23 +57,23 @@ public class Radiobox extends BlockContainer {
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(x, y, z);
+			TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.battery_spark && !box.infinite) {
-				player.getHeldItem().stackSize--;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.battery_spark && !box.infinite) {
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.5F, 1.0F);
 				box.infinite = true;
 				box.markDirty();
 				return true;
 			}
 			
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta <= 5) {
 				world.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);
-				world.playSoundEffect(x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
 			} else {
 				world.setBlockMetadataWithNotify(x, y, z, meta - 4, 2);
-				world.playSoundEffect(x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
+				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
 			}
 			
 			return true;
@@ -103,7 +103,7 @@ public class Radiobox extends BlockContainer {
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 
-		int te = world.getBlockMetadata(x, y, z);
+		int te = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		float f = 0.0625F;
 
 		this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);
@@ -122,8 +122,8 @@ public class Radiobox extends BlockContainer {
 	}
 
 	public void breakBlock(World world, int x, int y, int z, Block b, int m) {
-		TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(x, y, z);
-		if(box.infinite) world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModItems.battery_spark)));
+		TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+		if(box.infinite) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModItems.battery_spark)));
 		
 		super.breakBlock(world, x, y, z, b, m);
 	}

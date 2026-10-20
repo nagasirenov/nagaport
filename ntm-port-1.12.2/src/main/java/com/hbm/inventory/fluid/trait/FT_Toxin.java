@@ -93,7 +93,7 @@ public class FT_Toxin extends FluidTrait {
 			
 			if(isProtected(entity)) return;
 			
-			if(delay == 0 || entity.worldObj.getTotalWorldTime() % delay == 0) {
+			if(delay == 0 || entity.world.getTotalWorldTime() % delay == 0) {
 				entity.attackEntityFrom(damage, (float) (amount * intensity));
 			}
 		}

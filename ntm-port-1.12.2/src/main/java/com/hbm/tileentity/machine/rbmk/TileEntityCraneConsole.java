@@ -26,7 +26,7 @@ import com.hbm.lib.ForgeDirection;
 import java.util.List;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityCraneConsole extends TileEntityLoadedBase implements SimpleComponent, CompatHandler.OCComponent {
+public class TileEntityCraneConsole extends TileEntityLoadedBase implements SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {
 
 	public int centerX;
 	public int centerY;
@@ -69,9 +69,9 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 	private int turnProgress;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			lastTiltFront = tiltFront;
 			lastTiltLeft = tiltLeft;
 			
@@ -91,7 +91,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 			}
 		}
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			TileEntityRBMKBase aboveColumn = this.getColumnAtPos();
 			if(aboveColumn != null) aboveColumn.craneIndicator = 10;
 	
@@ -131,17 +131,17 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection side = dir.getRotation(ForgeDirection.UP);
-		double minX = xCoord + 0.5 - side.offsetX * 1.5;
-		double maxX = xCoord + 0.5 + side.offsetX * 1.5 + dir.offsetX * 2;
-		double minZ = zCoord + 0.5 - side.offsetZ * 1.5;
-		double maxZ = zCoord + 0.5 + side.offsetZ * 1.5 + dir.offsetZ * 2;
+		double minX = this.pos.getX() + 0.5 - side.offsetX * 1.5;
+		double maxX = this.pos.getX() + 0.5 + side.offsetX * 1.5 + dir.offsetX * 2;
+		double minZ = this.pos.getZ() + 0.5 - side.offsetZ * 1.5;
+		double maxZ = this.pos.getZ() + 0.5 + side.offsetZ * 1.5 + dir.offsetZ * 2;
 
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(
 				Math.min(minX, maxX),
-				yCoord,
+				this.pos.getY(),
 				Math.min(minZ, maxZ),
 				Math.max(minX, maxX),
-				yCoord + 2,
+				this.pos.getY() + 2,
 				Math.max(minZ, maxZ)));
 		tiltFront = 0;
 		tiltLeft = 0;
@@ -156,19 +156,19 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 
 			if(up && !down) {
 				tiltFront = 30;
-				if(!worldObj.isRemote) posFront += speed;
+				if(!this.world.isRemote) posFront += speed;
 			}
 			if(!up && down) {
 				tiltFront = -30;
-				if(!worldObj.isRemote) posFront -= speed;
+				if(!this.world.isRemote) posFront -= speed;
 			}
 			if(left && !right) {
 				tiltLeft = 30;
-				if(!worldObj.isRemote) posLeft += speed;
+				if(!this.world.isRemote) posLeft += speed;
 			}
 			if(!left && right) {
 				tiltLeft = -30;
-				if(!worldObj.isRemote) posLeft -= speed;
+				if(!this.world.isRemote) posLeft -= speed;
 			}
 
 			if(props.getKeyPressed(EnumKeybind.CRANE_LOAD)) {
@@ -176,10 +176,10 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 			}
 		}
 
-		posFront = MathHelper.clamp_double(posFront, -spanB, spanF);
-		posLeft = MathHelper.clamp_double(posLeft, -spanR, spanL);
+		posFront = MathHelper.clamp(posFront, (double) (-spanB), (double) (spanF));
+		posLeft = MathHelper.clamp(posLeft, (double) (-spanR), (double) (spanL));
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(loadedItem != null && loadedItem.getItem() instanceof ItemRBMKRod) {
 				this.loadedHeat = ItemRBMKRod.getHullHeat(loadedItem);
@@ -195,7 +195,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 
 	public boolean hasItemLoaded() {
 
-		if(!worldObj.isRemote)
+		if(!this.world.isRemote)
 			return this.loadedItem != null;
 		else
 			return this.hasLoaded;
@@ -230,13 +230,13 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 		int y = this.centerY - 1;
 		int z = (int)Math.floor(this.centerZ - dir.offsetZ * this.posFront - left.offsetZ * this.posLeft + 0.5D);
 
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 		if(b instanceof RBMKBase) {
 
-			int[] pos = ((BlockDummyable)b).findCore(worldObj, x, y, z);
+			int[] pos = ((BlockDummyable)b).findCore(this.world, x, y, z);
 			if(pos != null) {
-				TileEntityRBMKBase column = (TileEntityRBMKBase)worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+				TileEntityRBMKBase column = (TileEntityRBMKBase)this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				return column;
 			}
 		}
@@ -297,7 +297,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 
 	public void setTarget(int x, int y, int z) {
 		this.centerX = x;
-		this.centerY = y + RBMKDials.getColumnHeight(worldObj) + 1;
+		this.centerY = y + RBMKDials.getColumnHeight(this.world) + 1;
 		this.centerZ = z;
 
 		int girderY = centerY + 6;
@@ -320,7 +320,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 
 	private int findRoomExtent(int x, int y, int z, ForgeDirection dir, int max) {
 		for (int i = 1; i < max; i++) {
-			if (!worldObj.isAirBlock(x + dir.offsetX * i, y, z + dir.offsetZ * i)) {
+			if (!this.world.isAirBlock(x + dir.offsetX * i, y, z + dir.offsetZ * i)) {
 				return i - 1;
 			}
 		}
@@ -354,7 +354,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("crane", setUpCrane);
@@ -375,6 +375,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 			this.loadedItem.writeToNBT(held);
 			nbt.setTag("held", held);
 		}
+		return nbt;
 	}
 
 	@Override
@@ -404,19 +405,19 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 			switch(direction) {
 				case "up":
 					tiltFront = 30;
-					if(!worldObj.isRemote) posFront += speed;
+					if(!this.world.isRemote) posFront += speed;
 					break;
 				case "down":
 					tiltFront = -30;
-					if(!worldObj.isRemote) posFront -= speed;
+					if(!this.world.isRemote) posFront -= speed;
 					break;
 				case "left":
 					tiltLeft = 30;
-					if(!worldObj.isRemote) posLeft += speed;
+					if(!this.world.isRemote) posLeft += speed;
 					break;
 				case "right":
 					tiltLeft = -30;
-					if(!worldObj.isRemote) posLeft -= speed;
+					if(!this.world.isRemote) posLeft -= speed;
 					break;
 			}
 

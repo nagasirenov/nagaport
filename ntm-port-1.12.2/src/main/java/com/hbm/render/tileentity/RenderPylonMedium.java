@@ -11,7 +11,7 @@ import com.hbm.tileentity.network.TileEntityPylonMedium;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderPylonMedium extends RenderPylonBase implements IItemRendererProvider {
 
@@ -61,7 +61,7 @@ public class RenderPylonMedium extends RenderPylonBase implements IItemRendererP
 	public Item getItemForRenderer() { return Item.getItemFromBlock(ModBlocks.red_pylon_medium_wood); }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(1, -5, 0);

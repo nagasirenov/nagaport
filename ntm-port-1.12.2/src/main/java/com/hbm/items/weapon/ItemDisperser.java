@@ -59,7 +59,7 @@ public class ItemDisperser extends ItemFluidTank {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 
-		String s = ("" + I18nUtil.resolveKey(this.getUnlocalizedName() + ".name")).trim();
+		String s = ("" + I18nUtil.resolveKey(this.getTranslationKey() + ".name")).trim();
 		String s1 = ("" + I18nUtil.resolveKey(Fluids.fromID(stack.getItemDamage()).getConditionalName())).trim();
 
 		s = this == ModItems.glyphid_gland ? s1 + " " + s : s + " " + s1;

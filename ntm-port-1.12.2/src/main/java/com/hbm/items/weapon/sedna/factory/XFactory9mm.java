@@ -60,7 +60,7 @@ public class XFactory9mm {
 				.setupStandardConfiguration()
 				.anim(LAMBDA_GREASEGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_GREASEGUN)
 				).setDefaultAmmo(EnumAmmo.P9_SP, 30).setNameMutator(LAMBDA_NAME_GREASEGUN)
-				.setUnlocalizedName("gun_greasegun");
+				.setTranslationKey("gun_greasegun");
 
 		ModItems.gun_lag = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(1_700).draw(7).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)
@@ -71,7 +71,7 @@ public class XFactory9mm {
 						.setupStandardFire().fire(LAMBDA_FIRE_LAG).recoil(LAMBDA_RECOIL_LAG))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_LAG_ANIMS).orchestra(Orchestras.ORCHESTRA_LAG)
-				).setDefaultAmmo(EnumAmmo.P9_JHP, 17).setUnlocalizedName("gun_lag");
+				).setDefaultAmmo(EnumAmmo.P9_JHP, 17).setTranslationKey("gun_lag");
 
 		ModItems.gun_uzi = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(3_000).draw(15).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)
@@ -83,7 +83,7 @@ public class XFactory9mm {
 				.setupStandardConfiguration()
 				.anim(LAMBDA_UZI_ANIMS).orchestra(Orchestras.ORCHESTRA_UZI)
 				).setDefaultAmmo(EnumAmmo.P9_SP, 30).setNameMutator(LAMBDA_NAME_UZI)
-				.setUnlocalizedName("gun_uzi");
+				.setTranslationKey("gun_uzi");
 		ModItems.gun_uzi_akimbo = new ItemGunBaseNT(WeaponQuality.B_SIDE,
 				new GunConfig().dura(3_000).draw(15).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)
 				.rec(new Receiver(0)
@@ -103,7 +103,7 @@ public class XFactory9mm {
 				.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)
 				.decider(LAMBDA_SECOND_UZI)
 				.anim(LAMBDA_UZI_ANIMS).orchestra(Orchestras.ORCHESTRA_UZI_AKIMBO)
-				).setDefaultAmmo(EnumAmmo.P9_SP, 60).setUnlocalizedName("gun_uzi_akimbo");
+				).setDefaultAmmo(EnumAmmo.P9_SP, 60).setTranslationKey("gun_uzi_akimbo");
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_GREASEGUN = (stack) -> {
@@ -149,7 +149,7 @@ public class XFactory9mm {
 			player.addStat(MainRegistry.statBullets, 1);
 			mag.useUpAmmo(stack, ctx.inventory, 1);
 			ItemGunBaseNT.setWear(stack, index, Math.min(ItemGunBaseNT.getWear(stack, index) + config.wear, ctx.config.getDurability(stack)));
-			player.worldObj.playSoundEffect(player.posX, player.posY, player.posZ, primary.getFireSound(stack), primary.getFireVolume(stack), primary.getFirePitch(stack));
+			player.world.playSoundEffect(player.posX, player.posY, player.posZ, primary.getFireSound(stack), primary.getFireVolume(stack), primary.getFirePitch(stack));
 			ItemGunBaseNT.setState(stack, index, GunState.COOLDOWN);
 			ItemGunBaseNT.setTimer(stack, index, primary.getDelayAfterFire(stack));
 			EntityDamageUtil.attackEntityFromNT(player, BulletConfig.getDamage(player, player, DamageClass.PHYSICAL), 1_000F, true, false, 1D, 5F, 0F);

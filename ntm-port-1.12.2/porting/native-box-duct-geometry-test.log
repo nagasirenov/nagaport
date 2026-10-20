@@ -1,0 +1,32 @@
+PRODUCTION com/hbm/render/block/RenderBoxDuct.java e96831e334fdbcc5f67b328c64d9daa0a158d5ffa6b9f2158caa8fc1eb549869
+PRODUCTION com/hbm/render/block/nativeblock/BoxDuctMaterials.java 6645cfab011ca8df615839a10c8a5c379bbe9c4d03000fc46379f38f6b9fcca2
+PRODUCTION com/hbm/render/block/nativeblock/BoxDuctBakedModel.java 90aa8fbd93f532bd8bbbd4b2b4378d917eb3880ff508fee4fa0631c463c776d6
+PRODUCTION com/hbm/render/block/nativeblock/PneumaticCuboidGeometry.java 6d1f1f5649dc94ceb714f0d97f0c8614e5779f7b986aa8b5308a91ed26a5756d
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/render/item/nativeitem/ItemTransformMatrix.java 02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e
+PRODUCTION com/hbm/blocks/network/FluidConnectionState.java 8fd0d2c712b0128f8b7a41163880f857b80f0111f977d15505d78b0a411d41ad
+PRODUCTION com/hbm/blocks/network/ConnectionState.java 9c0c0ddabdbac2063ac71ec9c2fe95ae4acc7c2e3e3d7af83e34a2fdfd8c1f7d
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+/tmp/box-duct-geometry-lglipceh/OriginalBoxDuctOracle.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/box-duct-geometry-lglipceh/OriginalBoxDuctOracle.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/box-duct-geometry-lglipceh/OriginalBoxDuctOracle.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/box-duct-geometry-lglipceh/OriginalBoxDuctOracle.java:711: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/tmp/box-duct-geometry-lglipceh/OriginalBoxDuctOracle.java:711: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/tmp/box-duct-geometry-lglipceh/OriginalBoxDuctOracle.java:711: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+PASS native boxed duct geometry: 3387630 assertions, 3120 complete original-renderer cases, 790 exactly preserved invalid-metadata failures. All64 masks x16 metadata x3 families plus item shapes; exact ordered faces, native XYZUV float bits, pristine icon routing, item/world rotation, custom negative-Z/positive-X original overrides, tint, model cache/cull buckets.
+Boundary: original callbacks/icons/RenderBlocksNT face overrides execute in a recording fixture; unchanged original vanilla faces execute actual pinned 1.7.10 client bytecode. Complete production native renderer/materials/model/helpers compile against real Minecraft/Forge 1.12.2. No original lighting solver, OpenGL/framebuffer, or whole-mod build claim.

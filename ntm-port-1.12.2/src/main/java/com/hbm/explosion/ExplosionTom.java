@@ -86,7 +86,7 @@ public class ExplosionTom {
 			int pZ = posZ + z;
 			double X = Math.pow((this.posX - pX), 2);
 			double Z = Math.pow((this.posZ - pZ), 2);
-			double distance = MathHelper.sqrt_double(X + Z); // Distance calculations used for crater rim stuff
+			double distance = MathHelper.sqrt(X + Z); // Distance calculations used for crater rim stuff
 
 			int y = 256;
 			int terrain = 63;
@@ -95,7 +95,7 @@ public class ExplosionTom {
 			double cB = cA + Math.pow(Math.E, -Math.pow(Math.sqrt(x * x + z * z) - 200, 2) / 400) * 13 ;// Crater peak ring
 			int craterFloor = (int) (cB + Math.pow(Math.E, -Math.pow(Math.sqrt(x * x + z * z) - 500, 2) / 2000) * 37); // Crater rim
 			for(int i = 256; i > 0; i--) {
-				if(i == craterFloor || worldObj.getBlock(pX, i, pZ) != Blocks.air) {
+				if(i == craterFloor || com.hbm.world.WorldBlockState.read(worldObj, pX, i, pZ).getBlock() != Blocks.AIR) {
 					y = i;
 					break;
 				}
@@ -123,14 +123,14 @@ public class ExplosionTom {
 							for(int i = -2; i < 3; i++) {
 								for(int j = -2; j < 3; j++) {
 									for(int k = -2; k < 3; k++) {
-										if(worldObj.getBlock(pX + i, y + j, pZ + k).getMaterial() == Material.water || worldObj.getBlock(pX + i, y + j, pZ + k).getMaterial() == Material.ice || worldObj.getBlock(pX + i, y + j, pZ + k).getMaterial() == Material.snow || worldObj.getBlock(pX + i, y + j, pZ + k).getMaterial().getCanBurn()) {
-											worldObj.setBlockToAir(pX + i, y + j, pZ + k);
-											worldObj.setBlockToAir(pX, y, pZ);
+										if(com.hbm.world.WorldBlockState.read(worldObj, pX + i, y + j, pZ + k).getBlock().getDefaultState().getMaterial() == Material.WATER || com.hbm.world.WorldBlockState.read(worldObj, pX + i, y + j, pZ + k).getBlock().getDefaultState().getMaterial() == Material.ICE || com.hbm.world.WorldBlockState.read(worldObj, pX + i, y + j, pZ + k).getBlock().getDefaultState().getMaterial() == Material.SNOW || com.hbm.world.WorldBlockState.read(worldObj, pX + i, y + j, pZ + k).getBlock().getDefaultState().getMaterial().getCanBurn()) {
+											com.hbm.world.WorldAirRemoval.remove(worldObj, pX + i, y + j, pZ + k);
+											com.hbm.world.WorldAirRemoval.remove(worldObj, pX, y, pZ);
 										}
 									}
 								}
 							}
-							worldObj.setBlock(pX, y, pZ, Blocks.air, 0, 2);
+							{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = pX; int nativePlacementY = y; int nativePlacementZ = pZ; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					} else {
 						if(distance < 500) 
@@ -138,14 +138,14 @@ public class ExplosionTom {
 							for(int i = -2; i < 3; i++) {
 								for(int j = -2; j < 3; j++) {
 									for(int k = -2; k < 3; k++) {
-										if(worldObj.getBlock(pX + i, y + j, pZ + k).getMaterial() == Material.water || worldObj.getBlock(pX + i, y + j, pZ + k).getMaterial() == Material.ice || worldObj.getBlock(pX + i, y, pZ + k) == Blocks.air) {
-											worldObj.setBlock(pX + i, y, pZ + k, Blocks.lava, 0, 2);
-											worldObj.setBlock(pX, y, pZ, Blocks.lava, 0, 2);
+										if(com.hbm.world.WorldBlockState.read(worldObj, pX + i, y + j, pZ + k).getBlock().getDefaultState().getMaterial() == Material.WATER || com.hbm.world.WorldBlockState.read(worldObj, pX + i, y + j, pZ + k).getBlock().getDefaultState().getMaterial() == Material.ICE || com.hbm.world.WorldBlockState.read(worldObj, pX + i, y, pZ + k).getBlock() == Blocks.AIR) {
+											{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = pX + i; int nativePlacementY = y; int nativePlacementZ = pZ + k; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+											{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = pX; int nativePlacementY = y; int nativePlacementZ = pZ; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 										}
 									}
 								}
 							}
-							worldObj.setBlock(pX, y, pZ, Blocks.lava, 0, 2);
+							{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = pX; int nativePlacementY = y; int nativePlacementZ = pZ; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					}
 

@@ -1,0 +1,39 @@
+  public void handleCustomSound(net.minecraft.network.play.server.SPacketCustomSound);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: aload_0
+       3: getfield      #175                // Field client:Lnet/minecraft/client/Minecraft;
+       6: invokestatic  #205                // Method net/minecraft/network/PacketThreadUtil.checkThreadAndEnqueue:(Lnet/minecraft/network/Packet;Lnet/minecraft/network/INetHandler;Lnet/minecraft/util/IThreadListener;)V
+       9: aload_0
+      10: getfield      #175                // Field client:Lnet/minecraft/client/Minecraft;
+      13: invokevirtual #1512               // Method net/minecraft/client/Minecraft.getSoundHandler:()Lnet/minecraft/client/audio/SoundHandler;
+      16: new           #2794               // class net/minecraft/client/audio/PositionedSoundRecord
+      19: dup
+      20: new           #2270               // class net/minecraft/util/ResourceLocation
+      23: dup
+      24: aload_1
+      25: invokevirtual #2799               // Method net/minecraft/network/play/server/SPacketCustomSound.getSoundName:()Ljava/lang/String;
+      28: invokespecial #2800               // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      31: aload_1
+      32: invokevirtual #2801               // Method net/minecraft/network/play/server/SPacketCustomSound.getCategory:()Lnet/minecraft/util/SoundCategory;
+      35: aload_1
+      36: invokevirtual #2802               // Method net/minecraft/network/play/server/SPacketCustomSound.getVolume:()F
+      39: aload_1
+      40: invokevirtual #2803               // Method net/minecraft/network/play/server/SPacketCustomSound.getPitch:()F
+      43: iconst_0
+      44: iconst_0
+      45: getstatic     #2807               // Field net/minecraft/client/audio/ISound$AttenuationType.LINEAR:Lnet/minecraft/client/audio/ISound$AttenuationType;
+      48: aload_1
+      49: invokevirtual #2808               // Method net/minecraft/network/play/server/SPacketCustomSound.getX:()D
+      52: d2f
+      53: aload_1
+      54: invokevirtual #2809               // Method net/minecraft/network/play/server/SPacketCustomSound.getY:()D
+      57: d2f
+      58: aload_1
+      59: invokevirtual #2810               // Method net/minecraft/network/play/server/SPacketCustomSound.getZ:()D
+      62: d2f
+      63: invokespecial #2813               // Method net/minecraft/client/audio/PositionedSoundRecord."<init>":(Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/util/SoundCategory;FFZILnet/minecraft/client/audio/ISound$AttenuationType;FFF)V
+      66: invokevirtual #1524               // Method net/minecraft/client/audio/SoundHandler.playSound:(Lnet/minecraft/client/audio/ISound;)V
+      69: return
+

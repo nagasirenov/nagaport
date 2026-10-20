@@ -1,0 +1,23 @@
+PASS 111 exact EMPTY-boundary source reversals and drift rejections across six disjoint groups
+PASS: eight exact coordinate consumer reversals to checkpoint9; no remaining ChunkCoordinates imports. Not full-class compilation/gameplay.
+PASS: exact whole-class reverse-source SHA-256 parity, including ordering and disabled attack comment.
+PASS: exact complete RocketStruct and EntityRideableRocket/dummy reversal to checkpoint10/11; source-only, not whole entity compilation.
+PASS: seven complete source files byte-reverse to 24dab0cd snapshots; only enumerated biome edits, RNG/threshold/control flow unchanged.
+PASS: exact reviewed two-file inventory source; sole descendant/name hook; actual legacy wrapper callers; distance 128; audit-only reversal
+PASS: 147 whole-file callback reversals/drift rejections; 183-class census; seven machine usability policies, five callback pairs, 101 typed + two independent callers, 35 self-calls and five paired containers. Not full machines/gameplay/audio.
+PASS: 182 descendants; 161 owned defaults; 162 whole-file naming reversals and drift rejections; NBT/storage/lifecycle unchanged. Not full-machine compilation.
+PASS: 273 native sided declaration mappings; 36 explicit call mappings; 125 whole-file reversals and 125 drift rejections; 19 coordinate-domain declarations retained. Not full machines/gameplay.
+PASS: 336 exact native update signatures; 133 first-declaring ITickable roots
+PASS: full 434-tile ownership; 379 native tick descendants; all 55 static descendants remain non-ITickable
+PASS: exact literal-preserving tick bodies, abstract/empty methods, early returns and 58 meaningful super calls; sole OC inherited no-op removed
+PASS: 14 obsolete constant-false suppressors absent; 12 hazard overloads and hazard dispatch unchanged
+Reusable tick-body regression: unrelated edits outside the frozen 162 naming/125 sided/two inventory/seven biome/two rocket/Maskman AI/eight coordinate consumers and validated receiver lines are allowed; --strict-snapshot remains historical
+SOURCE PARITY ONLY: not production class compilation or gameplay acceptance
+PASS: exact reviewed two-file inventory source; sole descendant/name hook; actual legacy wrapper callers; distance 128; audit-only reversal
+PASS: 147 whole-file callback reversals/drift rejections; 183-class census; seven machine usability policies, five callback pairs, 101 typed + two independent callers, 35 self-calls and five paired containers. Not full machines/gameplay/audio.
+PASS: 182 descendants; 161 owned defaults; 162 whole-file naming reversals and drift rejections; NBT/storage/lifecycle unchanged. Not full-machine compilation.
+PASS: 273 native sided declaration mappings; 36 explicit call mappings; 125 whole-file reversals and 125 drift rejections; 19 coordinate-domain declarations retained. Not full machines/gameplay.
+PASS: 434 named TileEntity descendants; 297 exact native return signatures in 297 files
+PASS: portable pre-change method payload fingerprints and sole early return
+Reusable method regression: 162 naming/125 sided and two inventory files are exact-snapshot validated then reversed for historical payload audit; unrelated file edits are not checked; use --strict-snapshot for migration audit
+SOURCE PARITY ONLY: not production class compilation or machine gameplay acceptance

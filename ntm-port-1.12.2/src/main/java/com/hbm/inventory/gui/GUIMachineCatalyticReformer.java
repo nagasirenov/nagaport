@@ -39,12 +39,12 @@ public class GUIMachineCatalyticReformer extends GuiInfoContainer {
 		refinery.tanks[3].renderTankInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 70 - 52, 16, 52);
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 17, guiTop + 70 - 52, 16, 52, refinery.power, refinery.maxPower);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null && this.isMouseOverSlot(this.inventorySlots.getSlot(10), mouseX, mouseY) && !this.inventorySlots.getSlot(10).getHasStack()) {
+		if(this.mc.player.inventory.getItemStack() == null && this.isMouseOverSlot(this.inventorySlots.getSlot(10), mouseX, mouseY) && !this.inventorySlots.getSlot(10).getHasStack()) {
 			List<Object[]> lines = new ArrayList();
 			ItemStack converter = new ItemStack(ModItems.catalytic_converter);
 			lines.add(new Object[] {converter});
 			lines.add(new Object[] {converter.getDisplayName()});
-			this.drawStackText(lines, mouseX, mouseY, this.fontRendererObj);
+			this.drawStackText(lines, mouseX, mouseY, this.fontRenderer);
 		}
 	}
 	
@@ -52,8 +52,8 @@ public class GUIMachineCatalyticReformer extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.refinery.hasCustomInventoryName() ? this.refinery.getInventoryName() : I18n.format(this.refinery.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 5, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 5, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

@@ -17,9 +17,9 @@ public class BlockGraphiteDrilled extends BlockGraphiteDrilledBase implements IT
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
-		if(player.getHeldItem() != null) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 			
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			int cfg = meta & 3;
 			
 			if(side == cfg * 2 || side == cfg * 2 + 1) {
@@ -43,11 +43,11 @@ public class BlockGraphiteDrilled extends BlockGraphiteDrilledBase implements IT
 	
 	private boolean checkInteraction(World world, int x, int y, int z, int meta, EntityPlayer player, Item item, Block block) {
 		
-		if(player.getHeldItem().getItem() == item) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == item) {
 			
-			if(item == ModItems.shell && player.getHeldItem().getItemDamage() != Mats.MAT_ALUMINIUM.id) return false; //shitty workaround
+			if(item == ModItems.shell && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage() != Mats.MAT_ALUMINIUM.id) return false; //shitty workaround
 			
-			player.getHeldItem().stackSize--;
+			com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 			world.setBlock(x, y, z, block, meta, 3);
 
 			world.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
@@ -61,7 +61,7 @@ public class BlockGraphiteDrilled extends BlockGraphiteDrilledBase implements IT
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		int cfg = meta & 3;
 		
 		if(tool != ToolType.SCREWDRIVER)

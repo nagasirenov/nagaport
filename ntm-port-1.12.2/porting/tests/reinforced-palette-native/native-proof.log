@@ -1,0 +1,13 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS actual unsplit selected-expression Code sizes: [1267, 187, 311, 1485, 161, 193, 307]
+[02:52:20] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:52:20] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:52:20] [main/INFO]: Replaced 1036 ore ingredients
+[02:52:20] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:52:20] [main/INFO]: Processing ObjectHolder annotations
+[02:52:20] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 45 native reinforced owner checks
+PASS 344 checks and 896 exact ordered reinforced native/original-expression placement events.
+PASS rejected actual owner mutant: return doesDrop ? 1 : 0; Exception in thread "main" java.lang.AssertionError: ordinary drop policy
+PASS rejected actual owner mutant: metadata & 15 Exception in thread "main" java.lang.AssertionError: zero state roundtrip

@@ -24,8 +24,8 @@ public class BlockJungleCrate extends Block {
 
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		ret.add(new ItemStack(Items.gold_ingot, 4 + rand.nextInt(4)));
-		ret.add(new ItemStack(Items.gold_nugget, 8 + rand.nextInt(10)));
+		ret.add(new ItemStack(Items.GOLD_INGOT, 4 + rand.nextInt(4)));
+		ret.add(new ItemStack(Items.GOLD_NUGGET, 8 + rand.nextInt(10)));
 		ret.add(new ItemStack(ModItems.powder_gold, 2 + rand.nextInt(3)));
 		ret.add(new ItemStack(ModItems.wire_fine, 4 + rand.nextInt(5), Mats.MAT_GOLD.id));
 		ret.add(new ItemStack(ModItems.wire_dense, 1 + rand.nextInt(2), Mats.MAT_GOLD.id));

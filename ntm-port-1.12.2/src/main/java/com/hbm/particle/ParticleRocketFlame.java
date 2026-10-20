@@ -2,17 +2,29 @@ package com.hbm.particle;
 
 import java.util.Random;
 
-import com.hbm.main.ModEventHandlerClient;
+
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleRocketFlame extends EntityFX {
+public class ParticleRocketFlame extends Particle {
+	public void setCollides(boolean value) { this.canCollide = value; }
+	public void setVerticalMotion(double value) { this.motionY = value; }
+	@Override public boolean shouldDisableDepth() { return true; }
+
+	public void setMotion(double x, double y, double z) { this.motionX = x; this.motionY = y; this.motionZ = z; }
+
+	// Purely cosmetic variation; native particles do not allocate Entity IDs.
+	protected final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;
 
 	protected int age;
 	protected int maxAge;
@@ -27,7 +39,7 @@ public class ParticleRocketFlame extends EntityFX {
 
 	public ParticleRocketFlame(TextureManager p_i1213_1_, World p_i1218_1_, double p_i1218_2_, double p_i1218_4_, double p_i1218_6_) {
 		super(p_i1218_1_, p_i1218_2_, p_i1218_4_, p_i1218_6_);
-		particleIcon = ModEventHandlerClient.particleBase;
+		particleTexture = ParticleSprites.base;
 		maxAge = 300 + rand.nextInt(50);
 		this.particleScale = 1F;
 	}
@@ -37,9 +49,9 @@ public class ParticleRocketFlame extends EntityFX {
 		return this;
 	}
 
-	public ParticleRocketFlame setMaxAge(int maxAge) {
+	@Override
+	public void setMaxAge(int maxAge) {
 		this.maxAge = maxAge;
-		return this;
 	}
 
 	public ParticleRocketFlame setCustomColor(float red, float green, float blue) {
@@ -77,14 +89,14 @@ public class ParticleRocketFlame extends EntityFX {
 		this.age++;
 
 		if(this.age == this.maxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 
 		this.motionX *= 0.91D;
 		this.motionY *= 0.91D;
 		this.motionZ *= 0.91D;
 
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 	}
 
 	@Override
@@ -93,10 +105,10 @@ public class ParticleRocketFlame extends EntityFX {
 	}
 
 	@Override
-	public void renderParticle(Tessellator p_70539_1_, float interp, float sX, float sY, float sZ, float dX, float dZ) {
+	public void renderParticle(BufferBuilder p_70539_1_, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {
 		if(age == 0) return;
 
-		Random urandom = new Random(this.getEntityId());
+		Random urandom = new Random(this.visualSeed);
 
 		for(int i = 0; i < 10; i++) {
 
@@ -109,9 +121,9 @@ public class ParticleRocketFlame extends EntityFX {
 
 			this.particleAlpha = (float) Math.pow(1 - Math.min(((float) (age) / (float) (maxAge)), 1), 0.5);
 
-			p_70539_1_.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F);
-			p_70539_1_.setNormal(0.0F, 1.0F, 0.0F);
-			p_70539_1_.setBrightness(240);
+
+
+
 
 			float spread = (float) Math.pow(((float) (age) / (float) maxAge) * 4F, 1.5) + 1F;
 			spread *= this.particleScale;
@@ -121,10 +133,10 @@ public class ParticleRocketFlame extends EntityFX {
 			float pY = (float) ((this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY) + (urandom.nextGaussian() - 1D) * 0.5F * spread);
 			float pZ = (float) ((this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ) + (urandom.nextGaussian() - 1D) * 0.2F * spread);
 
-			p_70539_1_.addVertexWithUV((double) (pX - sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ - sZ * scale - dZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());
-			p_70539_1_.addVertexWithUV((double) (pX - sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ - sZ * scale + dZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());
-			p_70539_1_.addVertexWithUV((double) (pX + sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ + sZ * scale + dZ * scale), particleIcon.getMinU(), particleIcon.getMinV());
-			p_70539_1_.addVertexWithUV((double) (pX + sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ + sZ * scale - dZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX - sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ - sZ * scale - dZ * scale), particleTexture.getMaxU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX - sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ - sZ * scale + dZ * scale), particleTexture.getMaxU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX + sX * scale + dX * scale), (double) (pY + sY * scale), (double) (pZ + sZ * scale + dZ * scale), particleTexture.getMinU(), particleTexture.getMinV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
+			ParticleAtlasVertex.append(p_70539_1_, (double) (pX + sX * scale - dX * scale), (double) (pY - sY * scale), (double) (pZ + sZ * scale - dZ * scale), particleTexture.getMinU(), particleTexture.getMaxV(), this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.75F, 240);
 		}
 	}
 }

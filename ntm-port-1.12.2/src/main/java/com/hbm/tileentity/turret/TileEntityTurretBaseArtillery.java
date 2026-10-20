@@ -54,7 +54,7 @@ public abstract class TileEntityTurretBaseArtillery extends TileEntityTurretBase
 			if(length < this.getDecetorGrace() || length > this.getDecetorRange() * 1.1) //the latter statement is only relevant for entities that have already been detected
 				return false;
 			
-			int height = worldObj.getHeightValue((int) Math.floor(e.posX), (int) Math.floor(e.posZ));
+			int height = this.world.getHeightValue((int) Math.floor(e.posX), (int) Math.floor(e.posZ));
 			return height < (e.posY + e.height);
 		}
 	}
@@ -66,10 +66,10 @@ public abstract class TileEntityTurretBaseArtillery extends TileEntityTurretBase
 
 		for(int i = 0; i < 2; i++) {
 			for(int j = 0; j < 4; j++) {
-				this.trySubscribe(worldObj, xCoord + dir.offsetX * (-1 + j) + rot.offsetX * -3, yCoord + i, zCoord + dir.offsetZ * (-1 + j) + rot.offsetZ * -3, ForgeDirection.SOUTH);
-				this.trySubscribe(worldObj, xCoord + dir.offsetX * (-1 + j) + rot.offsetX * 2, yCoord + i, zCoord + dir.offsetZ * (-1 + j) + rot.offsetZ * 2, ForgeDirection.NORTH);
-				this.trySubscribe(worldObj, xCoord + dir.offsetX * -2 + rot.offsetX * (1 - j), yCoord + i, zCoord + dir.offsetZ * -2 + rot.offsetZ * (1 - j), ForgeDirection.EAST);
-				this.trySubscribe(worldObj, xCoord + dir.offsetX * 3 + rot.offsetX * (1 - j), yCoord + i, zCoord + dir.offsetZ * 3 + rot.offsetZ * (1 - j), ForgeDirection.WEST);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * (-1 + j) + rot.offsetX * -3, this.pos.getY() + i, this.pos.getZ() + dir.offsetZ * (-1 + j) + rot.offsetZ * -3, ForgeDirection.SOUTH);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * (-1 + j) + rot.offsetX * 2, this.pos.getY() + i, this.pos.getZ() + dir.offsetZ * (-1 + j) + rot.offsetZ * 2, ForgeDirection.NORTH);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -2 + rot.offsetX * (1 - j), this.pos.getY() + i, this.pos.getZ() + dir.offsetZ * -2 + rot.offsetZ * (1 - j), ForgeDirection.EAST);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * 3 + rot.offsetX * (1 - j), this.pos.getY() + i, this.pos.getZ() + dir.offsetZ * 3 + rot.offsetZ * (1 - j), ForgeDirection.WEST);
 			}
 		}
 	}
@@ -89,6 +89,6 @@ public abstract class TileEntityTurretBaseArtillery extends TileEntityTurretBase
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] getTargetDistance(Context context, Arguments args) {
-		return new Object[] {Math.sqrt(Math.pow(xCoord - args.checkDouble(0), 2)+Math.pow(yCoord - args.checkDouble(1), 2)+Math.pow(zCoord - args.checkDouble(2), 2))};
+		return new Object[] {Math.sqrt(Math.pow(this.pos.getX() - args.checkDouble(0), 2)+Math.pow(this.pos.getY() - args.checkDouble(1), 2)+Math.pow(this.pos.getZ() - args.checkDouble(2), 2))};
 	}
 }

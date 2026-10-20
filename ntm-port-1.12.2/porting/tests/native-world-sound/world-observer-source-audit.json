@@ -1,0 +1,43 @@
+{
+  "patterns": [
+    "\\bextends\\s+World\\b",
+    "\\bextends\\s+WorldServer\\b",
+    "\\bextends\\s+WorldManager\\b",
+    "\\bextends\\s+ServerWorldEventHandler\\b",
+    "\\baddWorldAccess\\s*\\(",
+    "\\baddEventListener\\s*\\(",
+    "\\bimplements\\s+IWorldAccess\\b",
+    "\\bimplements\\s+IWorldEventListener\\b"
+  ],
+  "results": {
+    "ntm-original-pristine": {
+      "java_files_scanned": 3840,
+      "matches": [
+        {
+          "path": "src/main/java/com/hbm/wiaj/FauxWorld.java",
+          "line": 14,
+          "text": "public class FauxWorld extends World {",
+          "patterns": [
+            "\\bextends\\s+World\\b"
+          ],
+          "sha256": "f24c332c2dc3adcd50145e8dbff49d20a1e2a45518abbfbd410276fd4862d5c5"
+        }
+      ]
+    },
+    "ntm-port-1.12.2": {
+      "java_files_scanned": 4054,
+      "matches": [
+        {
+          "path": "src/main/java/com/hbm/wiaj/FauxWorld.java",
+          "line": 14,
+          "text": "public class FauxWorld extends World {",
+          "patterns": [
+            "\\bextends\\s+World\\b"
+          ],
+          "sha256": "8f5bf2d4ef997da88ed698d91ee5b9433142a4aeb3b123222cea0beb76ed4270"
+        }
+      ]
+    }
+  },
+  "inspected_repository_head": "324f35ad53f98e42045ad81c7ec4b45410d663df"
+}

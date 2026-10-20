@@ -1,0 +1,69 @@
+COMMAND=bash gradlew --offline --init-script porting/core-target-probe.init.gradle testPortLootAlgorithm testPortLootMinecraft --no-daemon --console=plain
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :extractMcpMappings SKIPPED
+> Task :deobfCompileDeobfDepTask0 SKIPPED
+> Task :deobfCompileDeobfDepTask1 SKIPPED
+> Task :deobfCompileDeobfDepTask2 SKIPPED
+> Task :deobfCompileDeobfDepTask3 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask4
+> Task :deobfCompileRemapDepSourcesTask5
+> Task :deobfCompileRemapDepSourcesTask6
+> Task :deobfCompileDummyTask
+
+> Task :getVersionJson
+piston-meta.mojang.com
+
+> Task :extractUserdev UP-TO-DATE
+> Task :downloadClient SKIPPED
+> Task :downloadServer SKIPPED
+> Task :splitServerJar SKIPPED
+> Task :mergeJars SKIPPED
+> Task :applyBinaryPatches SKIPPED
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData SKIPPED
+> Task :genSrgs SKIPPED
+> Task :deobfMcMCP SKIPPED
+> Task :sourceApiJava UP-TO-DATE
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+> Task :sourceMainJava UP-TO-DATE
+
+> Task :compilePortCoreProbe
+Note: /workspace/scratch/b84e64989957/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/world/gen/ProceduralStructureStart.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :testPortLootAlgorithm
+PASS: weighted boundaries, inclusive/fixed/zero counts, stack splitting, overwrite collisions, absent items, invalid inputs, 1000 seeded inventories (20000 rolls)
+
+> Task :testPortLootMinecraft
+PASS: zero-count templates retain raw item/metadata/NBT and slot RNG; zero-count tools split correctly; actual EMPTY skipped
+PASS: real bonus JSON parsed by Forge with native event callback keeps axe/pickaxe/food pools unchanged; representative no9 weight7 joins only pool3
+PASS: real ItemStack copy/count/metadata/NBT isolation/EMPTY; InventoryBasic insertion and unstackable splitting
+PASS: real LootTableLoadEvent injection/reload, weight/count, vanilla entries and rolls retained
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/4.10.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 12s
+12 actionable tasks: 9 executed, 3 up-to-date
+
+EXIT_CODE=0

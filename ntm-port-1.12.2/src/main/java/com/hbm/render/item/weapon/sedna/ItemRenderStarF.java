@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -36,7 +39,7 @@ public class ItemRenderStarF extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.star_f_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.star_f_tex);
 		double scale = 0.25D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -85,7 +88,7 @@ public class ItemRenderStarF extends ItemRenderWeaponBase {
 		if(hasSilencer(stack)) {
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 2.375, -0.25);
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.uzi_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.uzi_tex);
 			ResourceManager.uzi.renderPart("Silencer");
 			GL11.glPopMatrix();
 			
@@ -145,12 +148,12 @@ public class ItemRenderStarF extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		boolean silenced = hasSilencer(stack);
 		
-		if(silenced && type == ItemRenderType.INVENTORY) {
+		if(silenced && context.transform == TransformType.GUI) {
 			double scale = 0.625D;
 			GL11.glScaled(scale, scale, scale);
 			GL11.glTranslated(0, 0, -6);
@@ -158,11 +161,11 @@ public class ItemRenderStarF extends ItemRenderWeaponBase {
 		
 		renderStandardGun(stack);
 		
-		if(type == ItemRenderType.EQUIPPED && !silenced) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform) && !silenced) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;
@@ -188,7 +191,7 @@ public class ItemRenderStarF extends ItemRenderWeaponBase {
 	public void renderStandardGun(ItemStack stack) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.star_f_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.star_f_tex);
 		ResourceManager.star_f.renderPart("Gun");
 		ResourceManager.star_f.renderPart("Slide");
 		ResourceManager.star_f.renderPart("Mag");
@@ -196,7 +199,7 @@ public class ItemRenderStarF extends ItemRenderWeaponBase {
 		boolean silenced = hasSilencer(stack);
 		if(silenced) {
 			GL11.glTranslated(0, 2.375, -0.25);
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.uzi_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.uzi_tex);
 			ResourceManager.uzi.renderPart("Silencer");
 		}
 		GL11.glShadeModel(GL11.GL_FLAT);

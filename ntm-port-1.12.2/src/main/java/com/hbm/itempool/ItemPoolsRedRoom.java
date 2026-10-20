@@ -7,7 +7,7 @@ import com.hbm.items.ItemEnums.EnumSecretType;
 import com.hbm.items.weapon.sedna.factory.GunFactory.EnumModSpecial;
 import com.hbm.items.ModItems;
 
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPoolsRedRoom {
 

@@ -1,0 +1,54 @@
+BOUNDED_NTM_COLLABORATOR com/hbm/blocks/ModBlocks.java
+BOUNDED_NTM_COLLABORATOR com/hbm/items/ModItems.java
+BOUNDED_NTM_COLLABORATOR com/hbm/inventory/RecipesCommon.java
+BOUNDED_NTM_COLLABORATOR com/hbm/util/i18n/I18nUtil.java
+PRODUCTION com/hbm/entity/item/EntityMovingConveyorObject.java 30f1575f82c8717322e12fb2cf978546838ea44ad6eeae606b4ed8c56df86bde
+PRODUCTION com/hbm/entity/item/EntityMovingItem.java 978c436c8d6beba7fdd3c4fbc08d71bf05272b53478621e8e338f85c07d81d68
+PRODUCTION com/hbm/util/fauxpointtwelve/BlockPos.java ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d
+PRODUCTION com/hbm/util/fauxpointtwelve/Rotation.java 03dd92b41e1a535480faebea6bf0ed171d909465c782cdb4e6cd534fbeb28f4f
+PRODUCTION com/hbm/interfaces/Spaghetti.java f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION com/hbm/blocks/network/ConveyorModelState.java 5a0e7c239ecc62de17631e4479b2a2221d9af8c41b3019ba4b22a01a9044eb42
+PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+PRODUCTION api/hbm/block/IToolable.java c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62
+PRODUCTION com/hbm/blocks/network/BlockConveyorBase.java 4b53c5f01e96dc72325062443c305e619d9c233b50e4aa7414b45db50eab04d7
+PRODUCTION com/hbm/blocks/network/BlockConveyorBendable.java 0b87b336ea0fa294b1c5e6eb9fe4ba46bd68f1130d698a75092f072c8930e88b
+PRODUCTION com/hbm/blocks/network/BlockConveyor.java af2f60bfe3c752bee1f96ea15de05e33f9bddf5c1bf45e1e18f01cf65f8689c0
+PRODUCTION com/hbm/blocks/network/BlockConveyorDouble.java c41b2738fc2db0a60cba16bfd17b5d5814cf58e785ad0900088a145e8971ecad
+PRODUCTION com/hbm/blocks/network/BlockConveyorTriple.java 020791dd28c604654b503ef662a9959734a50acf43b5daa34ae7e057cbf1e503
+PRODUCTION com/hbm/blocks/network/BlockConveyorExpress.java 5987efdab208bd48013aeefd32521adbce7bd497e6528ecf0ba4f425262e89db
+PRODUCTION com/hbm/blocks/network/BlockConveyorLift.java 298b6b3b0d7f1484507349d7c618d0f37e6ed314efea7fdb66a20c194f8cfa6b
+PRODUCTION com/hbm/blocks/network/BlockConveyorChute.java 5ea261c6795651fd37f406184d9b9e9e1f611e97f21f382b511e16dfd4cd4860
+PRODUCTION com/hbm/blocks/network/BlockConveyorClassic.java cdc396cc20a2d0144991344dfad6e3b9c9044dcb62587f347e6ec622a611f63f
+PRODUCTION api/hbm/conveyor/IConveyorBelt.java ebd95ba78b68eef190e867d056bd8636db9dd6236560e44b0653cc58d0dc6cf4
+PRODUCTION api/hbm/conveyor/IEnterableBlock.java 66e60569c71ba196aa26b625ae7decfcbd9b117ee35cebb29e693d3b09a834ed
+PRODUCTION api/hbm/conveyor/IConveyorItem.java c07ead5d9ea14cc0965ed186ead974855e5a80bdd5029ed892e7b2241348e53c
+PRODUCTION api/hbm/conveyor/IConveyorPackage.java 13edae9ee3a50964220945f959047c6fd361f18374215250b3fe9a60a25f87de
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS complete production moving-item engine, coordinate helper, nine frozen conveyor owners and native APIs compiled.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner5`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner6`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner7`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `owner8`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `belt`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `entry`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:54:16] [main/WARN]: Potentially Dangerous alternative prefix `engine_probe` for name `lower`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS complete real faux BlockPos helper: floor, mutation, offsets, clone, and native tile constructor.
+PASS real native ITEM_STACK registration, aliasing, same-instance forced dirty, deep snapshot/packet synchronization, and valid/invalid NBT schema.
+PASS reachable transfer-to-zero accounting: aliased mutation, repeated getters, hit/leave/pickup, empty cache, full/dirty metadata and null-versus-empty distinction.
+PASS native callback dispatch for interpolation, cached velocity, ignored rotation/teleport, client-only item cache identity/equality updates.
+PASS exact <=5 direct-callback counter gate, leave/dead/spawn motion and failure order, base leave continuation and physical callbacks.
+PASS real World.updateEntityWithOptionalForce dispatch: original counter increment retained, <=5 gate reached on third server world update.
+PASS native tick travel, all six entry faces and diagonal UNKNOWN, negative coordinates, falling priority/material/cell gates, denial and exception ordering.
+PASS hit/damage server/alive guards, success/rejected/throwing drop order, both native interaction hands, full/partial/no inventory capacity and copy semantics.
+PASS all nine frozen native owners x 16 metadata x positive/negative coordinates: actual loose-item conversion, complete engine ticks, travel/snap/leave and conversion failure ordering.
+PASS 20859 assertions and 3854 actual engine ticks on genuine native 1.12.2 classes.
+PASS bounded real-World/Chunk/Entity/DataManager/ItemStack engine proof; no complete package/crane/render/full-mod or live-server acceptance.

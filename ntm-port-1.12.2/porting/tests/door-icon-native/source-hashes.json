@@ -1,0 +1,7 @@
+{
+  "baseline": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "before_door": "7171c56a55a5aa076b45b7ec8e458f76bb05c176bcb86e64ad0ae520d4e8f770",
+  "after_door": "9949f14b9528e8bbfbd236c8de568ae2109b69ff93dedba0539ca90407c447b2",
+  "helper": "56de66df45ab45c202f620b51014fdfca9d4fd48bf04a5bfabd11d634e2b885d",
+  "scope": "Exactly one import and two constructor expressions; byte-exact reverse to CP49 verified."
+}

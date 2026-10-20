@@ -58,7 +58,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.pneumoTube";
 	}
 
@@ -75,40 +75,40 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.soundDelay > 0) this.soundDelay--;
 
 			if(this.node == null || this.node.expired) {
-				this.node = (PneumaticNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, PneumaticNetworkProvider.THE_PROVIDER);
+				this.node = (PneumaticNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PneumaticNetworkProvider.THE_PROVIDER);
 
 				if(this.node == null || this.node.expired) {
-					this.node = (PneumaticNode) new PneumaticNode(new BlockPos(xCoord, yCoord, zCoord)).setConnections(
-							new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-							new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-							new DirPos(xCoord, yCoord + 1, zCoord, Library.POS_Y),
-							new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-							new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-							new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z)
+					this.node = (PneumaticNode) new PneumaticNode(new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())).setConnections(
+							new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+							new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+							new DirPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), Library.POS_Y),
+							new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+							new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+							new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z)
 							);
-					UniNodespace.createNode(worldObj, this.node);
+					UniNodespace.createNode(this.world, this.node);
 				}
 			}
 
-			if(this.isCompressor() && (!this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) ^ this.redstone)) {
+			if(this.isCompressor() && (!this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()) ^ this.redstone)) {
 
-				int randTime = Math.abs((int) (worldObj.getTotalWorldTime() + this.getIdentifier(xCoord, yCoord, zCoord)));
+				int randTime = Math.abs((int) (this.world.getTotalWorldTime() + this.getIdentifier(this.pos.getX(), this.pos.getY(), this.pos.getZ())));
 
-				if(worldObj.getTotalWorldTime() % 10 == 0) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+				if(this.world.getTotalWorldTime() % 10 == 0) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 					if(dir != this.insertionDir && dir != this.ejectionDir) {
-						this.trySubscribe(compair.getTankType(), worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+						this.trySubscribe(compair.getTankType(), this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 					}
 				}
 
 				if(randTime % 5 == 0 && this.node != null && !this.node.expired && this.node.net != null && this.compair.getFill() >= 50) {
-					TileEntity sendFrom = Compat.getTileStandard(worldObj, xCoord + insertionDir.offsetX, yCoord + insertionDir.offsetY, zCoord + insertionDir.offsetZ);
+					TileEntity sendFrom = Compat.getTileStandard(this.world, this.pos.getX() + insertionDir.offsetX, this.pos.getY() + insertionDir.offsetY, this.pos.getZ() + insertionDir.offsetZ);
 
 					if(sendFrom instanceof IInventory) {
 						PneumaticNetwork net = node.net;
@@ -117,7 +117,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 							this.compair.setFill(this.compair.getFill() - 50);
 
 							if(this.soundDelay <= 0 && !this.muffled) {
-								worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:weapon.reload.tubeFwoomp", 0.25F, 0.9F + worldObj.rand.nextFloat() * 0.2F);
+								com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:weapon.reload.tubeFwoomp", 0.25F, 0.9F + this.world.rand.nextFloat() * 0.2F);
 								this.soundDelay = 20;
 							}
 						}
@@ -127,8 +127,8 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 				}
 			}
 
-			if(this.isEndpoint() && this.node != null && this.node.net != null && worldObj.getTotalWorldTime() % 10 == 0) {
-				TileEntity tile = Compat.getTileStandard(worldObj, xCoord + this.ejectionDir.offsetX, yCoord + this.ejectionDir.offsetY, zCoord + this.ejectionDir.offsetZ);
+			if(this.isEndpoint() && this.node != null && this.node.net != null && this.world.getTotalWorldTime() % 10 == 0) {
+				TileEntity tile = Compat.getTileStandard(this.world, this.pos.getX() + this.ejectionDir.offsetX, this.pos.getY() + this.ejectionDir.offsetY, this.pos.getZ() + this.ejectionDir.offsetZ);
 				if(tile instanceof IInventory) this.node.net.addReceiver((IInventory) tile, this.ejectionDir, this);
 			}
 
@@ -153,7 +153,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 
 	@Override
 	public long getReceiverSpeed(FluidType type, int pressure) {
-		return MathHelper.clamp_int((this.compair.getMaxFill() - this.compair.getFill()) / 25, 1, 100);
+		return MathHelper.clamp((this.compair.getMaxFill() - this.compair.getFill()) / 25, 1, 100);
 	}
 
 	@Override
@@ -165,9 +165,9 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, PneumaticNetworkProvider.THE_PROVIDER);
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PneumaticNetworkProvider.THE_PROVIDER);
 			}
 		}
 	}
@@ -198,11 +198,11 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 	}
 
 	public void nextMode(int index) {
-		this.pattern.nextMode(worldObj, slots[index], index);
+		this.pattern.nextMode(this.world, slots[index], index);
 	}
 
 	public void initPattern(ItemStack stack, int index) {
-		this.pattern.initPatternSmart(worldObj, stack, index);
+		this.pattern.initPatternSmart(this.world, stack, index);
 	}
 
 	@Override
@@ -218,7 +218,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 		NBTTagCompound nbt = pkt.getNbtCompound();
 		this.insertionDir = EnumUtil.grabEnumSafely(ForgeDirection.class, nbt.getByte("insertionDir"));
 		this.ejectionDir = EnumUtil.grabEnumSafely(ForgeDirection.class, nbt.getByte("ejectionDir"));
-		worldObj.markBlockRangeForRenderUpdate(this.getPos(), this.getPos()); // that's right, we're gonna cheat
+		this.world.markBlockRangeForRenderUpdate(this.getPos(), this.getPos()); // that's right, we're gonna cheat
 	}
 
 	@Override
@@ -238,7 +238,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setByte("insertionDir", (byte) insertionDir.ordinal());
 		nbt.setByte("ejectionDir", (byte) ejectionDir.ordinal());
@@ -251,6 +251,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 
 		nbt.setBoolean("whitelist", whitelist);
 		nbt.setBoolean("redstone", redstone);
+		return nbt;
 	}
 
 	@Override
@@ -292,7 +293,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 		this.markDirty();
 	}
 
-	@Override public boolean hasPermission(EntityPlayer player) { return this.isUseableByPlayer(player); }
+	@Override public boolean hasPermission(EntityPlayer player) { return this.isUsableByPlayer(player); }
 	@Override public int[] getFilterSlots() { return new int[] {0, 15}; }
 
 	@Override public FluidTank[] getAllTanks() { return new FluidTank[] {compair}; }

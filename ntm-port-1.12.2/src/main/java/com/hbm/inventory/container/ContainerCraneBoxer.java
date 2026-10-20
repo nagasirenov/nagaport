@@ -67,6 +67,6 @@ public class ContainerCraneBoxer extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return boxer.isUseableByPlayer(player);
+		return boxer.isUsableByPlayer(player);
 	}
 }

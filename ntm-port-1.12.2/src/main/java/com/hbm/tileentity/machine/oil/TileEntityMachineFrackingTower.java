@@ -46,7 +46,7 @@ public class TileEntityMachineFrackingTower extends TileEntityOilDrillBase {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.frackingTower";
 	}
 
@@ -90,14 +90,14 @@ public class TileEntityMachineFrackingTower extends TileEntityOilDrillBase {
 	public void onSuck(BlockOreFluid block, int x, int y, int z) {
 		super.onSuck(block, x, y, z);
 
-		int meta = worldObj.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) );
 
 		tanks[2].setFill(tanks[2].getFill() - solutionRequired);
 
 		if(meta == SolarSystem.Body.TEKTO.ordinal()) {
-			OilSpot.generateCrack(worldObj, xCoord, zCoord, destructionRange, 10);
+			OilSpot.generateCrack(this.world, this.pos.getX(), this.pos.getZ(), destructionRange, 10);
 		} else {
-			OilSpot.generateOilSpot(worldObj, xCoord, zCoord, destructionRange, 10, false);
+			OilSpot.generateOilSpot(this.world, this.pos.getX(), this.pos.getZ(), destructionRange, 10, false);
 		}
 	}
 
@@ -119,18 +119,18 @@ public class TileEntityMachineFrackingTower extends TileEntityOilDrillBase {
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z)
 		};
 	}
 
 	@Override
 	protected void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[2].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[2].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 

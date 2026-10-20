@@ -1,83 +1,36 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.render.block.nativeblock.AtlasObjGeometry;
+import com.hbm.render.block.nativeblock.CRTPackedLightQuad;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-import com.hbm.blocks.generic.BlockDecoCRT;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderCRT implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iicon = block.getIcon(0, metadata * 4);
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		if(renderer.hasOverrideBlockTexture()) {
-			iicon = renderer.overrideBlockTexture;
-		}
-
-		GL11.glTranslated(0, -0.5, 0);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.crt, iicon, tessellator, (float) Math.PI * -0.5F, false);
-		tessellator.draw();
-
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		IIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));
-
-		int brightness = block.getMixedBrightnessForBlock(world, x, y, z);
-		tessellator.setBrightness(brightness);
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		if(renderer.hasOverrideBlockTexture()) {
-			iicon = renderer.overrideBlockTexture;
-		}
-		
-		float rotation = 0;
-		int metaOrig = world.getBlockMetadata(x, y, z);
-		int meta = metaOrig % 4;
-		
-		switch(meta) {
-		default: rotation = 0.5F * (float) Math.PI; break;
-		case 1: break;
-		case 2: rotation = 1.5F * (float) Math.PI; break;
-		case 3: rotation = (float) Math.PI; break;
-		}
-
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crt, "Monitor", iicon, tessellator, rotation, true);
-		if(metaOrig >= 8) tessellator.setBrightness(240);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crt, "Screen", iicon, tessellator, rotation, true);
-		tessellator.setBrightness(brightness);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockDecoCRT.renderID;
-	}
+/** Original CRT groups, atlas mapping, part shading and inventory whole-mesh stream. */
+public final class RenderCRT {
+    private RenderCRT() { }
+    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite sprite) {
+        List<BakedQuad> quads = new ArrayList<>();
+        if(inventory) {
+            // Native RenderItem and the existing frame helper supply T(-.5,-.5,-.5).
+            // The resulting original inventory transform is T(0,-.5,0), yaw -pi/2.
+            AtlasObjGeometry.appendWhole(quads, mesh, sprite, true, (float)Math.PI * -.5F, 0, 1, .5, 0, .5);
+        } else {
+            float yaw;
+            switch(metadata % 4) {
+                default: yaw = .5F * (float)Math.PI; break;
+                case 1: yaw = 0; break;
+                case 2: yaw = 1.5F * (float)Math.PI; break;
+                case 3: yaw = (float)Math.PI; break;
+            }
+            AtlasObjGeometry.appendPart(quads, mesh, "Monitor", sprite, false, yaw, 0, 1, .5, 0, .5);
+            List<BakedQuad> screen = new ArrayList<>();
+            AtlasObjGeometry.appendPart(screen, mesh, "Screen", sprite, false, yaw, 0, 1, .5, 0, .5);
+            for(BakedQuad quad : screen) quads.add(metadata >= 8 ? new CRTPackedLightQuad(quad, 240) : quad);
+        }
+        return Collections.unmodifiableList(quads);
+    }
 }

@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderPipeAnchor extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -42,7 +42,7 @@ public class RenderPipeAnchor extends TileEntitySpecialRenderer implements IItem
 		TileEntityPipeAnchor anchor = (TileEntityPipeAnchor) te;
 		
 		for(int[] pos : anchor.getConnected()) {
-			TileEntity tile = Compat.getTileStandard(te.getWorldObj(), pos[0], pos[1], pos[2]);
+			TileEntity tile = Compat.getTileStandard(te.getWorld(), pos[0], pos[1], pos[2]);
 			if(tile instanceof TileEntityPipeAnchor) {
 				TileEntityPipeAnchor other = (TileEntityPipeAnchor) tile;
 				if(anchor.getType() != other.getType()) continue;
@@ -103,7 +103,7 @@ public class RenderPipeAnchor extends TileEntitySpecialRenderer implements IItem
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, -3.5, 0);

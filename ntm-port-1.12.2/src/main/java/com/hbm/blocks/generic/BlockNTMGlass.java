@@ -17,7 +17,7 @@ public class BlockNTMGlass extends BlockBreakable {
 	}
 
 	public BlockNTMGlass(int layer, String name, Material material, boolean doesDrop) {
-		super(name, material, false);
+		super(material, false);
 		this.renderLayer = layer;
 		this.doesDrop = doesDrop;
 	}
@@ -29,12 +29,12 @@ public class BlockNTMGlass extends BlockBreakable {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getRenderBlockPass() {
-		return renderLayer;
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return renderLayer == 1 ? net.minecraft.util.BlockRenderLayer.TRANSLUCENT : net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED;
 	}
 
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 

@@ -12,7 +12,7 @@ import com.hbm.dim.trait.CelestialBodyTrait;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldSavedData;
 import net.minecraftforge.common.DimensionManager;
@@ -34,7 +34,7 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 	private Random rand = new Random();
 
 	private HashMap<String, HashMap<Class<? extends CelestialBodyTrait>, CelestialBodyTrait>> traitMap = new HashMap<String, HashMap<Class<? extends CelestialBodyTrait>, CelestialBodyTrait>>();
-	private HashMap<ChunkCoordIntPair, OrbitalStation> stations = new HashMap<>();
+	private HashMap<ChunkPos, OrbitalStation> stations = new HashMap<>();
 
 	public static SolarSystemWorldSavedData get() {
 		return get(DimensionManager.getWorlds()[0]);
@@ -86,7 +86,7 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 			String name = stationTag.getString("name");
 			float gravityMultiplier = stationTag.hasKey("gravity") ? stationTag.getFloat("gravity") : 1;
 
-			ChunkCoordIntPair pos = new ChunkCoordIntPair(x, z);
+			ChunkPos pos = new ChunkPos(x, z);
 			OrbitalStation station = new OrbitalStation(orbiting, x, z);
 			station.target = target;
 			station.state = state;
@@ -161,25 +161,25 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 		return traitMap.get(bodyName);
 	}
 
-	public HashMap<ChunkCoordIntPair, OrbitalStation> getStations() {
+	public HashMap<ChunkPos, OrbitalStation> getStations() {
 		return stations;
 	}
 
 	// Grabs an existing station
 	public OrbitalStation getStationFromPosition(int x, int z) {
 		// yeah they aren't exactly chunks but this is a nice little hashable that already exists
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(MathHelper.floor_float((float)x / OrbitalStation.STATION_SIZE), MathHelper.floor_float((float)z / OrbitalStation.STATION_SIZE));
+		ChunkPos pos = new ChunkPos(MathHelper.floor((float)x / OrbitalStation.STATION_SIZE), MathHelper.floor((float)z / OrbitalStation.STATION_SIZE));
 		return stations.get(pos);
 	}
 
-	public ChunkCoordIntPair findFreeSpace() {
+	public ChunkPos findFreeSpace() {
 		int size = SpaceConfig.maxStationDistance / OrbitalStation.STATION_SIZE;
 
 		// First half of the loop will attempt to find a completely empty station spot
 		// Second half will accept reserved but unlaunched station spots
-		ChunkCoordIntPair pos = null;
+		ChunkPos pos = null;
 		for(int i = 0; i < 512; i++) {
-			pos = new ChunkCoordIntPair(rand.nextInt(size * 2) - size, rand.nextInt(size * 2) - size);
+			pos = new ChunkPos(rand.nextInt(size * 2) - size, rand.nextInt(size * 2) - size);
 			if(!stations.containsKey(pos)) return pos;
 			if(i > 256 && !stations.get(pos).hasStation) return pos;
 		}
@@ -189,15 +189,15 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 
 	// Finds an unoccupied space and adds a new station
 	public OrbitalStation addStation(CelestialBody orbiting) {
-		ChunkCoordIntPair pos = findFreeSpace();
+		ChunkPos pos = findFreeSpace();
 
-		return addStation(pos.chunkXPos, pos.chunkZPos, orbiting);
+		return addStation(pos.x, pos.z, orbiting);
 	}
 
 	// Adds a station at a given set of coordinates (used for debug stations)
 	// Won't overwrite existing stations
 	public OrbitalStation addStation(int x, int z, CelestialBody orbiting) {
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(x, z);
+		ChunkPos pos = new ChunkPos(x, z);
 
 		OrbitalStation station = stations.get(pos);
 
@@ -216,7 +216,7 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 	}
 
 	public void removeStation(int x, int z) {
-		ChunkCoordIntPair pos = new ChunkCoordIntPair(x, z);
+		ChunkPos pos = new ChunkPos(x, z);
 
 		// Don't remove stations with launched cores, only temporary stations!
 		OrbitalStation station = stations.get(pos);

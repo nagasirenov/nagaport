@@ -42,7 +42,7 @@ public class TileEntityHeaterFirebox extends TileEntityFireboxBase implements IC
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.heaterFirebox";
 	}
 

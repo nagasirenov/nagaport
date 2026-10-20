@@ -39,7 +39,7 @@ public class ContainerSolidifier extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return solidifier.isUseableByPlayer(player);
+		return solidifier.isUsableByPlayer(player);
 	}
 
 	@Override

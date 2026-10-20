@@ -54,19 +54,19 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 
-		if(amount >= this.getMaxHealth() * 2 && !worldObj.isRemote) {
+		if(amount >= this.getMaxHealth() * 2 && !this.world.isRemote) {
 			this.setDead();
 
 			for(int i = 0; i < 10; i++) {
 				Vec3d vec = new Vec3d(rand.nextGaussian(), rand.nextGaussian(), rand.nextGaussian()).normalize();
 
-				EntityItem feather = new EntityItem(worldObj);
-				feather.setEntityItemStack(new ItemStack(Items.feather));
+				EntityItem feather = new EntityItem(this.world);
+				feather.setEntityItemStack(new ItemStack(Items.FEATHER));
 				feather.setPosition(posX + vec.x, posY + height / 2D + vec.y, posZ + vec.z);
 				feather.motionX = vec.x * 0.5;
 				feather.motionY = vec.y * 0.5;
 				feather.motionZ = vec.z * 0.5;
-				worldObj.spawnEntityInWorld(feather);
+				this.world.spawnEntityInWorld(feather);
 			}
 
 			return true;
@@ -89,7 +89,7 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 
 	@Override
 	protected Item getDropItem() {
-		return Items.feather;
+		return Items.FEATHER;
 	}
 
 	@Override
@@ -102,13 +102,13 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 		int j = this.rand.nextInt(3) + this.rand.nextInt(1 + looting);
 
 		for(int k = 0; k < j; ++k) {
-			this.dropItem(Items.feather, 1);
+			this.dropItem(Items.FEATHER, 1);
 		}
 
 		if(this.isBurning()) {
-			this.dropItem(Items.cooked_chicken, this.isFat() ? 3 : 1);
+			this.dropItem(Items.COOKED_CHICKEN, this.isFat() ? 3 : 1);
 		} else {
-			this.dropItem(Items.chicken, this.isFat() ? 3 : 1);
+			this.dropItem(Items.CHICKEN, this.isFat() ? 3 : 1);
 		}
 	}
 
@@ -147,7 +147,7 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 		super.updateAITasks();
 
 		if(this.getFlyingState() == this.STATE_FLYING) {
-			int height = worldObj.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ));
+			int height = this.world.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ));
 
 			boolean ceil = posY - height > 10;
 
@@ -163,19 +163,19 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setString("type", "sweat");
 				nbt.setInteger("count", 3);
-				nbt.setInteger("block", Block.getIdFromBlock(Blocks.wool));
+				nbt.setInteger("block", Block.getIdFromBlock(Blocks.WOOL));
 				nbt.setInteger("entity", getEntityId());
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(dimension, posX, posY, posZ, 50));
 
 				int x = (int) Math.floor(posX);
 				int y = (int) Math.floor(posY) - 1;
 				int z = (int) Math.floor(posZ);
-				EntityPlayer player = FakePlayerFactory.getMinecraft((WorldServer)worldObj);
+				EntityPlayer player = FakePlayerFactory.getMinecraft((WorldServer)this.world);
 
 				for(int i = 0; i < 25; i++) {
 
-					if(ItemFertilizer.fertilize(worldObj, x, y - i, z, player, true)) {
-						worldObj.playAuxSFX(2005, x, y - i, z, 0);
+					if(ItemFertilizer.fertilize(this.world, x, y - i, z, player, true)) {
+						this.world.playAuxSFX(2005, x, y - i, z, 0);
 						break;
 					}
 				}

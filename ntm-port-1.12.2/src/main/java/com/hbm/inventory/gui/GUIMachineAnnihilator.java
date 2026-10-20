@@ -42,7 +42,7 @@ public class GUIMachineAnnihilator extends GuiInfoContainer {
 
 		Keyboard.enableRepeatEvents(true);
 
-		this.pool = new GuiTextField(this.fontRendererObj, guiLeft + 31, guiTop + 85, 80, 8);
+		this.pool = new GuiTextField(0, this.fontRenderer, guiLeft + 31, guiTop + 85, 80, 8);
 		this.pool.setTextColor(0x00ff00);
 		this.pool.setDisabledTextColour(0x00ff00);
 		this.pool.setEnableBackgroundDrawing(false);
@@ -67,7 +67,7 @@ public class GUIMachineAnnihilator extends GuiInfoContainer {
 				FluidType type = id.getType(null, 0, 0, 0, annihilator.slots[8]);
 				name = type.getLocalizedName();
 			}
-			this.func_146283_a(Arrays.asList(new String[] { name + ":", String.format(Locale.US, "%,d", annihilator.monitorBigInt) }), x, y);
+			this.drawHoveringText(Arrays.asList(new String[] { name + ":", String.format(Locale.US, "%,d", annihilator.monitorBigInt) }), x, y);
 		}
 	}
 
@@ -75,8 +75,8 @@ public class GUIMachineAnnihilator extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.annihilator.hasCustomInventoryName() ? this.annihilator.getInventoryName() : I18n.format(this.annihilator.getInventoryName());
 
-		this.fontRendererObj.drawString(name, 70 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 70 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class GUIMachineAnnihilator extends GuiInfoContainer {
 			String text = this.pool.getText();
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("pool", text);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, annihilator.xCoord, annihilator.yCoord, annihilator.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, annihilator.getPos().getX(), annihilator.getPos().getY(), annihilator.getPos().getZ()));
 			return;
 		}
 		super.keyTyped(c, i);

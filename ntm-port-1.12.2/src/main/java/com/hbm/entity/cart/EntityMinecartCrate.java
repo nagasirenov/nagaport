@@ -33,7 +33,7 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 		super(world, x, y, z, type);
 		if(stack.hasTagCompound()) {
 			for(int i = 0; i < getSizeInventory(); i++) {
-				setInventorySlotContents(i, ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot" + i)));
+				setInventorySlotContents(i, new ItemStack(stack.getTagCompound().getCompoundTag("slot" + i)));
 			}
 		}
 	}
@@ -42,8 +42,8 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 	public boolean interactFirst(EntityPlayer player) {
 		if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player)))
 			return true;
-		if(!this.worldObj.isRemote) {
-			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, worldObj, this.getEntityId(), 0, 0);
+		if(!this.world.isRemote) {
+			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, this.world, this.getEntityId(), 0, 0);
 		}
 
 		return true;
@@ -78,7 +78,7 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 		}
 		
 		if(!nbt.hasNoTags()) {
-			itemstack.stackTagCompound = nbt;
+			itemstack.setTagCompound(nbt);
 		}
 
 		if(this.func_95999_t() != null) {
@@ -89,7 +89,7 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 			byte[] abyte = CompressedStreamTools.compress(nbt);
 			
 			if(abyte.length > 6000) {
-				worldObj.newExplosion(this, posX, posY, posZ, 2F, true, true);
+				this.world.newExplosion(this, posX, posY, posZ, 2F, true, true);
 				this.entityDropItem(ItemModMinecart.createCartItem(EnumCartBase.VANILLA, EnumMinecart.CRATE), 0.0F);
 			}
 			
@@ -105,12 +105,12 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerCrateSteel(player.inventory, (EntityMinecartCrate)player.worldObj.getEntityByID(x));
+		return new ContainerCrateSteel(player.inventory, (EntityMinecartCrate)player.world.getEntityByID(x));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUICrateSteel(player.inventory, (EntityMinecartCrate) player.worldObj.getEntityByID(x));
+		return new GUICrateSteel(player.inventory, (EntityMinecartCrate) player.world.getEntityByID(x));
 	}
 }

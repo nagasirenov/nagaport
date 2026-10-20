@@ -9,14 +9,14 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
 
 public class PlayerInformPacket implements IMessage {
 
 	boolean fancy;
 	private String dmesg = "";
 	private int id;
-	private IChatComponent component;
+	private ITextComponent component;
 	private int millis = 0;
 
 	public PlayerInformPacket() { }
@@ -27,7 +27,7 @@ public class PlayerInformPacket implements IMessage {
 		this.id = id;
 	}
 
-	public PlayerInformPacket(IChatComponent component, int id) {
+	public PlayerInformPacket(ITextComponent component, int id) {
 		this.fancy = true;
 		this.component = component;
 		this.id = id;
@@ -40,7 +40,7 @@ public class PlayerInformPacket implements IMessage {
 		this.id = id;
 	}
 
-	public PlayerInformPacket(IChatComponent component, int id, int millis) {
+	public PlayerInformPacket(ITextComponent component, int id, int millis) {
 		this.fancy = true;
 		this.component = component;
 		this.millis = millis;
@@ -56,7 +56,7 @@ public class PlayerInformPacket implements IMessage {
 		if(!fancy) {
 			dmesg = ByteBufUtils.readUTF8String(buf);
 		} else {
-			component = IChatComponent.Serializer.func_150699_a(ByteBufUtils.readUTF8String(buf));
+			component = ITextComponent.Serializer.jsonToComponent(ByteBufUtils.readUTF8String(buf));
 		}
 	}
 
@@ -68,7 +68,7 @@ public class PlayerInformPacket implements IMessage {
 		if(!fancy) {
 			ByteBufUtils.writeUTF8String(buf, dmesg);
 		} else {
-			ByteBufUtils.writeUTF8String(buf, IChatComponent.Serializer.func_150696_a(component));
+			ByteBufUtils.writeUTF8String(buf, ITextComponent.Serializer.componentToJson(component));
 		}
 	}
 

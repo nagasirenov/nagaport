@@ -1,10 +1,14 @@
 package com.hbm.particle;
 
-import com.hbm.main.ModEventHandlerClient;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.World;
 
@@ -13,7 +17,12 @@ import java.util.List;
 import java.util.Random;
 
 @SideOnly(Side.CLIENT)
-public class ParticleFoam extends EntityFX {
+public class ParticleFoam extends Particle {
+	@Override public boolean shouldDisableDepth() { return true; }
+	public void setMotion(double x, double y, double z) { this.motionX = x; this.motionY = y; this.motionZ = z; }
+
+	// Purely cosmetic variation; native particles do not allocate Entity IDs.
+	protected final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;
 
 	private int age;
 	public int maxAge;
@@ -41,7 +50,7 @@ public class ParticleFoam extends EntityFX {
 
 	public ParticleFoam(TextureManager p_i1213_1_, World p_i1218_1_, double p_i1218_2_, double p_i1218_4_, double p_i1218_6_) {
 		super(p_i1218_1_, p_i1218_2_, p_i1218_4_, p_i1218_6_);
-		particleIcon = ModEventHandlerClient.particleBase;
+		particleTexture = ParticleSprites.base;
 
 		maxAge = 60 + rand.nextInt(60);
 		particleGravity = 0.005F + rand.nextFloat() * 0.015F;
@@ -79,7 +88,7 @@ public class ParticleFoam extends EntityFX {
 		++this.age;
 
 		if (this.age == this.maxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 
 		float phaseRatio = (float) age / (float) maxAge;
@@ -115,11 +124,11 @@ public class ParticleFoam extends EntityFX {
 		motionY *= drag;
 		motionZ *= drag;
 
-		this.moveEntity(this.motionX, motionY, this.motionZ);
+		this.move(this.motionX, motionY, this.motionZ);
 
 		// Kill particle if it hits ground
-		if (this.onGround || this.isInWeb) {
-			this.setDead();
+		if (this.onGround || this.world.isMaterialInBB(this.getBoundingBox(), net.minecraft.block.material.Material.WEB)) {
+			this.setExpired();
 		}
 	}
 
@@ -129,7 +138,7 @@ public class ParticleFoam extends EntityFX {
 
 	// ty kercig cuz id kms lol
 
-	public void renderParticle(Tessellator p_70539_1_, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_) {
+	public void renderParticle(BufferBuilder p_70539_1_, Entity camera, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_) {
 		renderFoamBubbles(p_70539_1_, p_70539_2_, p_70539_3_, p_70539_4_, p_70539_5_, p_70539_6_, p_70539_7_,
 			posX, posY, posZ, particleScale, particleAlpha);
 
@@ -143,17 +152,17 @@ public class ParticleFoam extends EntityFX {
 		}
 	}
 
-	private void renderFoamBubbles(Tessellator tessellator, float p_70539_2_, float p_70539_3_, float p_70539_4_,
+	private void renderFoamBubbles(BufferBuilder tessellator, float p_70539_2_, float p_70539_3_, float p_70539_4_,
 								   float p_70539_5_, float p_70539_6_, float p_70539_7_, double x, double y, double z, float scale, float alpha) {
 
-		Random urandom = new Random(this.getEntityId() + (long)(x * 100) + (long)(y * 10) + (long)z);
+		Random urandom = new Random(this.visualSeed + (long)(x * 100) + (long)(y * 10) + (long)z);
 
 		int bubbleCount = explosionPhase == 0 ? 8 : (explosionPhase == 1 ? 6 : 4);
 
 		for (int i = 0; i < bubbleCount; i++) {
 			float whiteness = 0.9F + urandom.nextFloat() * 0.1F;
-			tessellator.setColorRGBA_F(whiteness, whiteness, whiteness, alpha);
-			tessellator.setNormal(0.0F, 1.0F, 0.0F);
+
+
 
 			float bubbleScale = scale * (urandom.nextFloat() * 0.5F + 0.75F);
 			float offset = explosionPhase == 0 ? 0.4F : (explosionPhase == 1 ? 0.6F : 0.9F);
@@ -162,26 +171,10 @@ public class ParticleFoam extends EntityFX {
 			float pY = (float) ((y - interpPosY) + (urandom.nextGaussian()) * offset * 0.7F);
 			float pZ = (float) ((z - interpPosZ) + (urandom.nextGaussian()) * offset);
 
-			tessellator.addVertexWithUV(
-				(double)(pX - p_70539_3_ * bubbleScale - p_70539_6_ * bubbleScale),
-				(double)(pY - p_70539_4_ * bubbleScale),
-				(double)(pZ - p_70539_5_ * bubbleScale - p_70539_7_ * bubbleScale),
-				particleIcon.getMaxU(), particleIcon.getMaxV());
-			tessellator.addVertexWithUV(
-				(double)(pX - p_70539_3_ * bubbleScale + p_70539_6_ * bubbleScale),
-				(double)(pY + p_70539_4_ * bubbleScale),
-				(double)(pZ - p_70539_5_ * bubbleScale + p_70539_7_ * bubbleScale),
-				particleIcon.getMaxU(), particleIcon.getMinV());
-			tessellator.addVertexWithUV(
-				(double)(pX + p_70539_3_ * bubbleScale + p_70539_6_ * bubbleScale),
-				(double)(pY + p_70539_4_ * bubbleScale),
-				(double)(pZ + p_70539_5_ * bubbleScale + p_70539_7_ * bubbleScale),
-				particleIcon.getMinU(), particleIcon.getMinV());
-			tessellator.addVertexWithUV(
-				(double)(pX + p_70539_3_ * bubbleScale - p_70539_6_ * bubbleScale),
-				(double)(pY - p_70539_4_ * bubbleScale),
-				(double)(pZ + p_70539_5_ * bubbleScale - p_70539_7_ * bubbleScale),
-				particleIcon.getMinU(), particleIcon.getMaxV());
+			ParticleAtlasVertex.append(tessellator, (double)(pX - p_70539_3_ * bubbleScale - p_70539_6_ * bubbleScale), (double)(pY - p_70539_4_ * bubbleScale), (double)(pZ - p_70539_5_ * bubbleScale - p_70539_7_ * bubbleScale), particleTexture.getMaxU(), particleTexture.getMaxV(), whiteness, whiteness, whiteness, alpha, getBrightnessForRender(0F));
+			ParticleAtlasVertex.append(tessellator, (double)(pX - p_70539_3_ * bubbleScale + p_70539_6_ * bubbleScale), (double)(pY + p_70539_4_ * bubbleScale), (double)(pZ - p_70539_5_ * bubbleScale + p_70539_7_ * bubbleScale), particleTexture.getMaxU(), particleTexture.getMinV(), whiteness, whiteness, whiteness, alpha, getBrightnessForRender(0F));
+			ParticleAtlasVertex.append(tessellator, (double)(pX + p_70539_3_ * bubbleScale + p_70539_6_ * bubbleScale), (double)(pY + p_70539_4_ * bubbleScale), (double)(pZ + p_70539_5_ * bubbleScale + p_70539_7_ * bubbleScale), particleTexture.getMinU(), particleTexture.getMinV(), whiteness, whiteness, whiteness, alpha, getBrightnessForRender(0F));
+			ParticleAtlasVertex.append(tessellator, (double)(pX + p_70539_3_ * bubbleScale - p_70539_6_ * bubbleScale), (double)(pY - p_70539_4_ * bubbleScale), (double)(pZ + p_70539_5_ * bubbleScale - p_70539_7_ * bubbleScale), particleTexture.getMinU(), particleTexture.getMaxV(), whiteness, whiteness, whiteness, alpha, getBrightnessForRender(0F));
 		}
 	}
 }

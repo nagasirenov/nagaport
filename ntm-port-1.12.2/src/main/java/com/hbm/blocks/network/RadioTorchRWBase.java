@@ -34,21 +34,21 @@ public abstract class RadioTorchRWBase extends RadioTorchBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityRadioTorchBase) {
 			TileEntityRadioTorchBase radio = (TileEntityRadioTorchBase) te;
 			List<String> text = new ArrayList();
 			if(radio.channel != null && !radio.channel.isEmpty()) text.add(TextFormatting.AQUA + "Freq: " + radio.channel);
 			text.add(TextFormatting.RED + "Signal: " + radio.lastState);
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof TileEntityRadioTorchBase) return new GUIScreenRadioTorch((TileEntityRadioTorchBase) te);
 		return null;
 	}

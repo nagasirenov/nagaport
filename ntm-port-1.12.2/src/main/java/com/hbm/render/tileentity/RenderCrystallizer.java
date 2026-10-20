@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderCrystallizer extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -62,7 +62,7 @@ public class RenderCrystallizer extends TileEntitySpecialRenderer implements IIt
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderNonInv() {
 				GL11.glScaled(0.5, 0.5, 0.5);

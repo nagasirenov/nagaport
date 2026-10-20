@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityMachineRadarScreen extends TileEntityLoadedBase implements IBufPacketReceiver {
+public class TileEntityMachineRadarScreen extends TileEntityLoadedBase implements IBufPacketReceiver, net.minecraft.util.ITickable {
 
 	public List<RadarEntry> entries = new ArrayList();
 	public int refX;
@@ -22,9 +22,9 @@ public class TileEntityMachineRadarScreen extends TileEntityLoadedBase implement
 	public boolean linked;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.networkPackNT(100);
 			entries.clear();
 			this.linked = false;
@@ -65,12 +65,12 @@ public class TileEntityMachineRadarScreen extends TileEntityLoadedBase implement
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 

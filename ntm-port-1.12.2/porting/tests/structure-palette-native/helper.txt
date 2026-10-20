@@ -1,0 +1,11 @@
+
+	/** Places the audited, unoriented reinforced-sand/light-brick structure palette.
+	 * The caller passes its current palette field, never a cached replacement.
+	 */
+	public static void placeUnorientedStructureBlock(World world, int x, int y, int z, Block block) {
+		if(world == null) throw new NullPointerException();
+		// Preserve the original pre-chunk bounds before resolving the native state.
+		if(x >= -30000000 && z >= -30000000 && x < 30000000 && z < 30000000 && y >= 0 && y < 256) {
+			world.setBlockState(new BlockPos(x, y, z), block.getStateFromMeta(0), 3);
+		}
+	}

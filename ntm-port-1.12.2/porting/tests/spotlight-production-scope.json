@@ -1,0 +1,73 @@
+{
+  "base": "e8970b85e0c8fe46f17348330b3853bb32ffaa0b",
+  "status": "production frozen; terminal native owner/model proofs passed",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/Spotlight.java",
+      "sha256": "d72a0e7ffa4657e600183ec1ef56426e4cb13203b479580a9356bbfd6349dc2c"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SpotlightModular.java",
+      "sha256": "b635f1838701c1074a9dc6429351836079293772442ac7dc0363b403d994be61"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SpotlightBeam.java",
+      "sha256": "2020e0413c855a248b7f05e705c66e46acc91857cae41dfaede8251c2059ac43"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockBeamBase.java",
+      "sha256": "f4a79c6aae1c89a54fad2d2f936fac96edc8c5db91efe71de3d6e35f71758cb9"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SpotlightModelState.java",
+      "sha256": "db071e8235b77d0ea29a2454e9b53680a04d4f23ca2f8e027d04431a1896d37e"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderLight.java",
+      "sha256": "c66316a5afd16ee5ae39419f4a7c8dd6a5af801a39860fd1bb787f3059459220"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/SpotlightGeometry.java",
+      "sha256": "9e08e8db19560aa0fb35c08e01c1ac993e730e31996aa0433425c5f94a4c04b6"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/nativeblock/SpotlightBakedModel.java",
+      "sha256": "e283a2242fe3d914848a819a1fa3cb3ac3fc5e08e548073bb2a9f1512c82696f"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/SpotlightBlockModelHandler.java",
+      "sha256": "3928fbb025023c11b796f20ef03e5e8fe3fd831d142ed7cbf0717412aeff5935"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.spotlight_incandescent.json",
+      "sha256": "4ab1a6cc74e1ea2f7ec7b3f527a083bafa07773aa725da8c0e052c9eb18d31d9"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.spotlight_incandescent_off.json",
+      "sha256": "38121d899f60c98dd301643dbfe40bc49f4fab0b47432e60dea7d41a8b5a8c2e"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.spotlight_fluoro.json",
+      "sha256": "c08e4c36610b8c26a7cb0f2f4cadf8825f2e20203a09ff35497e1dcc5123bb33"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.spotlight_fluoro_off.json",
+      "sha256": "63d57a4b8d0d1fa5ab399502135b9ca5a21bd02d9421d0038852f34c72ffc104"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.spotlight_halogen.json",
+      "sha256": "a4fd6b0d7b1bc08aa79b4f4bd96b3fd5e41e0e508b15ee42900b763159993321"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.spotlight_halogen_off.json",
+      "sha256": "ca15c1b7c380c4cf6aa64c79172f922cbcf738fa1420fa44f0ebd9afee2b92ff"
+    }
+  ],
+  "integration_owner": "Parent owns seven ModBlocks initializers and removal of the legacy ClientProxy RenderLight registration; excluded from this worker manifest.",
+  "evidence": {
+    "owner_checks": 11600,
+    "model_assertions": 3498230,
+    "complete_layouts": 2208,
+    "ordered_vertices": 837256
+  }
+}

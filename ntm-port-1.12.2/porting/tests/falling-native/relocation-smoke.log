@@ -1,0 +1,30 @@
+PASS immutable extracted source oracle, pinned module OBJ/textures, constructor asymmetry and byte Time; pristine source tree verified
+/tmp/falling-relocated-final-i4RAgM/falling-native/NativeAnvilTest.java:107: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe u=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)u.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);
+          ^
+/tmp/falling-relocated-final-i4RAgM/falling-native/NativeAnvilTest.java:107: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe u=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)u.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);
+                             ^
+/tmp/falling-relocated-final-i4RAgM/falling-native/NativeAnvilTest.java:107: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe u=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)u.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);
+                                                      ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS 18 complete real production classes plus all tests compiled; exactly four explicit NTM collaborator fixtures
+[20:57:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `falling_probe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `spot_probe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:42] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile_probe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native falling 109 assertions; native World collision/move, source removal, metadata, instant branch, damage, timeout drops, NBT/data manager, spotlight exemption, tint
+[20:57:44] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:57:44] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:57:44] [main/INFO]: Replaced 1036 ore ingredients
+[20:57:44] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:57:44] [main/INFO]: Processing ObjectHolder annotations
+[20:57:44] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:57:44] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.laythe_silt`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:57:44] [main/INFO]: Setting user: PedestalProbe
+PASS native falling model 41 assertions; native model registry/state/item/color callbacks, cube routes, renderer factory
+SMOKE: exhaustive anvil geometry intentionally not rerun; full equivalent prior evidence is bundled.

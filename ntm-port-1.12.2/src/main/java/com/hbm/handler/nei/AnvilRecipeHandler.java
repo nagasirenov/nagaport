@@ -1,15 +1,11 @@
 package com.hbm.handler.nei;
 
-import static codechicken.lib.gui.GuiDraw.drawTexturedModalRect;
-
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.machine.NTMAnvil;
-import com.hbm.handler.imc.ICompatNHNEI;
 import com.hbm.inventory.RecipesCommon.AStack;
 import com.hbm.inventory.gui.GUIAnvil;
 import com.hbm.inventory.recipes.anvil.AnvilRecipes;
@@ -18,18 +14,29 @@ import com.hbm.inventory.recipes.anvil.AnvilRecipes.AnvilOutput;
 import com.hbm.inventory.recipes.anvil.AnvilRecipes.OverlayType;
 import com.hbm.lib.RefStrings;
 import com.hbm.util.ItemStackUtil;
-
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-
-public class AnvilRecipeHandler extends TemplateRecipeHandler implements ICompatNHNEI {
-
-	@Override
-	public ItemStack[] getMachinesForRecipe() {
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.recipe.IFocus;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.ResourceLocation;
+/** Native JEI category for the original AnvilRecipeHandler recipe source. */
+public class AnvilRecipeHandler extends MachineRecipeCategory {
+    private final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/nei/gui_nei_anvil.png");
+    private IDrawable background;
+    @Override public String getUid() { return "ntmAnvil"; }
+    @Override public String getTitle() {
+		return "Anvil";
+	 }
+    @Override public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModBlocks.anvil_iron),
 				new ItemStack(ModBlocks.anvil_lead),
@@ -43,157 +50,45 @@ public class AnvilRecipeHandler extends TemplateRecipeHandler implements ICompat
 				new ItemStack(ModBlocks.anvil_dnt),
 				new ItemStack(ModBlocks.anvil_osmiridium),
 				new ItemStack(ModBlocks.anvil_murky)};
-	}
+	 }
+    @Override public IDrawable getBackground() { return background; }
+    @Override public void initialize(IGuiHelper helper) {
+        super.initialize(helper);
+        background = helper.createDrawable(texture, 5, 11, 166, 65);
 
-	@Override
-	public String getRecipeID() {
-		return "ntmAnvil";
-	}
-
-	@Override
-	public String getOverlayIdentifier() {
-		return "ntmAnvil";
-	}
-
-	public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-	public LinkedList<RecipeTransferRect> transferRectsGui = new LinkedList<RecipeTransferRect>();
-	public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-	public LinkedList<Class<? extends GuiContainer>> guiGui = new LinkedList<Class<? extends GuiContainer>>();
-
-	public class RecipeSet extends TemplateRecipeHandler.CachedRecipe {
-		List<PositionedStack> input = new ArrayList();
-		List<PositionedStack> output = new ArrayList();
-		PositionedStack anvil;
-		int tier;
-		final AnvilConstructionRecipe recipe;
-		OverlayType shape;
-
-		public RecipeSet(List<Object> in, List<Object> out, int tier, AnvilConstructionRecipe recipe) {
-
-			//not the prettiest of solutions but certainly the most pleasant to work with
-			int inLine = 1;
-			int outLine = 1;
-			int inOX = 0;
-			int inOY = 0;
-			int outOX = 0;
-			int outOY = 0;
-			int anvX = 0;
-			int anvY = 31;
-
-			if(in.size() == 1 && out.size() == 1) {
-				shape = OverlayType.SMITHING;
-				inOX = 48;
-				inOY = 24;
-				outOX = 102;
-				outOY = 24;
-				anvX = 75;
-			} else if(in.size() == 1 && out.size() > 1) {
-				shape = OverlayType.RECYCLING;
-				outLine = 6;
-				inOX = 12;
-				inOY = 24;
-				outOX = 48;
-				outOY = 6;
-				anvX = 30;
-			} else if(in.size() > 1 && out.size() == 1) {
-				shape = OverlayType.CONSTRUCTION;
-				inLine = 6;
-				inOX = 12;
-				inOY = 6;
-				outOX = 138;
-				outOY = 24;
-				anvX = 120;
-			} else {
-				shape = OverlayType.NONE;
-				inLine = 4;
-				outLine = 4;
-				inOX = 3;
-				inOY = 6;
-				outOX = 93;
-				outOY = 6;
-				anvX = 75;
-			}
-
-			for(int i = 0; i < in.size(); i++) {
-				this.input.add(new PositionedStack(in.get(i), inOX + 18 * (i % inLine), inOY + 18 * (i / inLine)));
-			}
-
-			for(int i = 0; i < out.size(); i++) {
-				this.output.add(new PositionedStack(out.get(i), outOX + 18 * (i % outLine), outOY + 18 * (i / outLine)));
-			}
-
-			this.anvil = new PositionedStack(NTMAnvil.getAnvilsFromTier(tier), anvX, anvY);
-
-			this.tier = tier;
-			this.recipe = recipe;
-		}
-
-		@Override
-		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(cycleticks / 20, input);
-		}
-
-		@Override
-		public PositionedStack getResult() {
-			return output.get(0);
-		}
-
-		@Override
-		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> other = new ArrayList();
-			other.addAll(output);
-			other.add(anvil);
-			return getCycledIngredients(cycleticks / 20, other);
-		}
-	}
-
-	@Override
-	public String getRecipeName() {
-		return "Anvil";
-	}
-
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-
-		if(outputId.equals("ntmAnvil")) {
+    }
+    @Override public void registerGuiAreas(IModRegistry registry) { registry.addRecipeClickArea(GUIAnvil.class, (11) + 5, (42) + 11, 36, 18, getUid()); registry.addRecipeClickArea(GUIAnvil.class, (65) + 5, (42) + 11, 36, 18, getUid()); }
+    @Override public boolean isNavigationArea(int x, int y) {
+        return (false);
+    }
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> views = new ArrayList<>();
+        if(focus == null) {
 			List<AnvilConstructionRecipe> recipes = AnvilRecipes.getConstruction();
 
 			for(AnvilConstructionRecipe recipe : recipes) {
-				this.addRecipeToList(recipe);
+				views.add(createView(recipe));
 			}
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
+		 }
+        else if(focus.getMode() == IFocus.Mode.OUTPUT) {
+            ItemStack result = focus.getValue();
 
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
 
 		List<AnvilConstructionRecipe> recipes = AnvilRecipes.getConstruction();
 
 		for(AnvilConstructionRecipe recipe : recipes) {
 
 			for(AnvilOutput out : recipe.output) {
-				if(NEIServerUtils.areStacksSameTypeCrafting(out.stack, result)) {
-					this.addRecipeToList(recipe);
+				if(RecipeStackMatcher.matchesCrafting(out.stack, result)) {
+					views.add(createView(recipe));
 					break;
 				}
 			}
 		}
-	}
 
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
+        } else {
+            ItemStack ingredient = focus.getValue();
 
-		if(inputId.equals("ntmAnvil")) {
-			loadCraftingRecipes("ntmAnvil", new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
-
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
 
 		List<AnvilConstructionRecipe> recipes = AnvilRecipes.getConstruction();
 
@@ -204,96 +99,62 @@ public class AnvilRecipeHandler extends TemplateRecipeHandler implements ICompat
 
 				List<ItemStack> stacks = in.extractForNEI();
 				for(ItemStack stack : stacks) {
-					if(NEIServerUtils.areStacksSameTypeCrafting(stack, ingredient)) {
-						this.addRecipeToList(recipe);
+					if(RecipeStackMatcher.matchesCrafting(stack, ingredient)) {
+						views.add(createView(recipe));
 						break outer;
 					}
 				}
 			}
 		}
-	}
 
-	private void addRecipeToList(AnvilConstructionRecipe recipe) {
-
-		List<Object> ins = new ArrayList();
-		for(AStack input : recipe.input) {
-			ins.add(input.extractForNEI());
-		}
-
-		List<Object> outs = new ArrayList();
-		for(AnvilOutput output : recipe.output) {
-
-			ItemStack stack = output.stack.copy();
-			if(output.chance != 1) {
-				ItemStackUtil.addTooltipToStack(stack, TextFormatting.RED + "" + (((int)(output.chance * 1000)) / 10D) + "%");
-			}
-
-			outs.add(stack);
-		}
-
-		this.arecipes.add(new RecipeSet(ins, outs, recipe.tierLower, recipe));
-	}
-
-	@Override
-	public void loadTransferRects() {
-
-		//hey asshole, stop nulling my fucking lists
-		transferRectsGui = new LinkedList<RecipeTransferRect>();
-		guiGui = new LinkedList<Class<? extends GuiContainer>>();
-
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(11, 42, 36, 18), "ntmAnvil"));
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(65, 42, 36, 18), "ntmAnvil"));
-
-		guiGui.add(GUIAnvil.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei_anvil.png";
-	}
-
-	/**
-	 * Resolves the underlying anvil recipe for the NEI recipe index.
-	 *
-	 * @param index recipe index supplied by NEI
-	 * @return the construction recipe or {@code null} if the index is out of bounds
-	 */
-	public AnvilConstructionRecipe getConstructionRecipe(int index) {
-		if(index < 0 || index >= this.arecipes.size()) {
-			return null;
-		}
-
-		return ((RecipeSet) this.arecipes.get(index)).recipe;
-	}
-
-	@Override
-	public void drawBackground(int recipe) {
-		super.drawBackground(recipe);
-
-		RecipeSet set = (RecipeSet) this.arecipes.get(recipe);
-
-		switch(set.shape) {
-		case NONE:
-			drawTexturedModalRect(2, 5, 5, 87, 72, 54);			//in
-			drawTexturedModalRect(92, 5, 5, 87, 72, 54);		//out
-			drawTexturedModalRect(74, 14, 131, 96, 18, 36);		//operation
-			break;
-		case SMITHING:
-			drawTexturedModalRect(47, 23, 113, 105, 18, 18);	//in
-			drawTexturedModalRect(101, 23, 113, 105, 18, 18);	//out
-			drawTexturedModalRect(74, 14, 149, 96, 18, 36);		//operation
-			break;
-		case CONSTRUCTION:
-			drawTexturedModalRect(11, 5, 5, 87, 108, 54);		//in
-			drawTexturedModalRect(137, 23, 113, 105, 18, 18);	//out
-			drawTexturedModalRect(119, 14, 167, 96, 18, 36);	//operation
-			break;
-		case RECYCLING:
-			drawTexturedModalRect(11, 23, 113, 105, 18, 18);	//in
-			drawTexturedModalRect(47, 5, 5, 87, 108, 54);		//out
-			drawTexturedModalRect(29, 14, 185, 96, 18, 36);		//operation
-			break;
-		}
-	}
+        }
+        return views;
+    }
+    private MachineRecipeView createView(AnvilConstructionRecipe recipe) {
+        ItemStack[][] inputs = new ItemStack[recipe.input.size()][];
+        ItemStack[][] outputs = new ItemStack[recipe.output.size()][];
+        for(int i = 0; i < inputs.length; i++) inputs[i] = recipe.input.get(i).extractForNEI().toArray(new ItemStack[0]);
+        for(int i = 0; i < outputs.length; i++) {
+            AnvilOutput output = recipe.output.get(i);
+            ItemStack stack = output.stack.copy();
+            if(output.chance != 1) ItemStackUtil.addTooltipToStack(stack, TextFormatting.RED + "" + (((int)(output.chance * 1000)) / 10D) + "%");
+            outputs[i] = new ItemStack[]{stack};
+        }
+        int inLine = 1, outLine = 1, inX, inY, outX, outY, anvilX;
+        if(inputs.length == 1 && outputs.length == 1) {
+            inX = 48; inY = 24; outX = 102; outY = 24; anvilX = 75;
+        } else if(inputs.length == 1 && outputs.length > 1) {
+            outLine = 6; inX = 12; inY = 24; outX = 48; outY = 6; anvilX = 30;
+        } else if(inputs.length > 1 && outputs.length == 1) {
+            inLine = 6; inX = 12; inY = 6; outX = 138; outY = 24; anvilX = 120;
+        } else {
+            inLine = 4; outLine = 4; inX = 3; inY = 6; outX = 93; outY = 6; anvilX = 75;
+        }
+        MachineRecipeView view = new MachineRecipeView(this, recipe, inputs, outputs);
+        for(int i = 0; i < inputs.length; i++) view.addInputSlot(i, inX + 18 * (i % inLine), inY + 18 * (i / inLine));
+        for(int i = 0; i < outputs.length; i++) view.addOutputSlot(i, outX + 18 * (i % outLine), outY + 18 * (i / outLine));
+        view.addDecoration(com.hbm.handler.jei.RecipeItemAlternatives.from(NTMAnvil.getAnvilsFromTier(recipe.tierLower)), anvilX, 31);
+        return view;
+    }
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        minecraft.getTextureManager().bindTexture(texture);
+        if(view.inputs.length == 1 && view.outputs.length == 1) {
+            drawPatch(47, 23, 113, 105, 18, 18); drawPatch(101, 23, 113, 105, 18, 18); drawPatch(74, 14, 149, 96, 18, 36);
+        } else if(view.inputs.length == 1 && view.outputs.length > 1) {
+            drawPatch(11, 23, 113, 105, 18, 18); drawPatch(47, 5, 5, 87, 108, 54); drawPatch(29, 14, 185, 96, 18, 36);
+        } else if(view.inputs.length > 1 && view.outputs.length == 1) {
+            drawPatch(11, 5, 5, 87, 108, 54); drawPatch(137, 23, 113, 105, 18, 18); drawPatch(119, 14, 167, 96, 18, 36);
+        } else {
+            drawPatch(2, 5, 5, 87, 72, 54); drawPatch(92, 5, 5, 87, 72, 54); drawPatch(74, 14, 131, 96, 18, 36);
+        }
+    }
+    private static void drawPatch(int x, int y, int u, int v, int width, int height) {
+        Gui.drawModalRectWithCustomSizedTexture(x, y, u, v, width, height, 256, 256);
+    }
+    private final java.util.Map<mezz.jei.api.gui.IRecipeLayout, AnvilConstructionRecipe> displayedRecipes = new java.util.WeakHashMap<>();
+    @Override public void setRecipe(mezz.jei.api.gui.IRecipeLayout layout, MachineRecipeView view, mezz.jei.api.ingredients.IIngredients ingredients) {
+        super.setRecipe(layout, view, ingredients);
+        displayedRecipes.put(layout, (AnvilConstructionRecipe) view.source);
+    }
+    public AnvilConstructionRecipe getConstructionRecipe(mezz.jei.api.gui.IRecipeLayout layout) { return displayedRecipes.get(layout); }
 }

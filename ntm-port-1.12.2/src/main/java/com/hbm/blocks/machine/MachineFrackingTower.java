@@ -26,7 +26,7 @@ import java.util.List;
 public class MachineFrackingTower extends BlockDummyable implements IPersistentInfoProvider {
 
 	public MachineFrackingTower() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

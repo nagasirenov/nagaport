@@ -23,6 +23,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
@@ -45,14 +46,14 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.furnaceSteel";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!world.isRemote) {
 			tryPullHeat();
 			
 			this.wasOn = false;
@@ -61,7 +62,7 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 			
 			for(int i = 0; i < 3; i++) {
 				
-				if(slots[i] == null || lastItems[i] == null || !slots[i].isItemEqual(lastItems[i])) {
+				if((slots[i] == null || slots[i].isEmpty()) || (lastItems[i] == null || lastItems[i].isEmpty()) || !slots[i].isItemEqual(lastItems[i])) {
 					progress[i] = 0;
 					bonus[i] = 0;
 				}
@@ -70,24 +71,24 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 					progress[i] += burn;
 					this.heat -= burn;
 					this.wasOn = true;
-					if(worldObj.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 2);
+					if(world.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(world, pos.getX(), pos.getY(), pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 2);
 				}
 				
 				lastItems[i] = slots[i];
 				
 				if(progress[i] >= processTime) {
-					ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(slots[i]);
+					ItemStack result = FurnaceRecipes.instance().getSmeltingResult(slots[i]);
 					
-					if(slots[i + 3] == null) {
+					if((slots[i + 3] == null || slots[i + 3].isEmpty())) {
 						slots[i + 3] = result.copy();
 					} else {
-						slots[i + 3].stackSize += result.stackSize;
+						slots[i + 3].grow(result.getCount());
 					}
 					
 					this.addBonus(slots[i], i);
 					
 					while(bonus[i] >= 100) {
-						slots[i + 3].stackSize =  Math.min(slots[i + 3].getMaxStackSize(), slots[i + 3].stackSize + result.stackSize);
+						slots[i + 3].setCount(Math.min(slots[i + 3].getMaxStackSize(), slots[i + 3].getCount() + result.getCount()));
 						bonus[i] -= 100;
 					}
 					
@@ -106,13 +107,13 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 				
-				worldObj.spawnParticle("smoke", xCoord + 0.5 - dir.offsetX * 1.125 - rot.offsetX * 0.75, yCoord + 2.625, zCoord + 0.5 - dir.offsetZ * 1.125 - rot.offsetZ * 0.75, 0.0, 0.05, 0.0);
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + 0.5 - dir.offsetX * 1.125 - rot.offsetX * 0.75, pos.getY() + 2.625, pos.getZ() + 0.5 - dir.offsetZ * 1.125 - rot.offsetZ * 0.75, 0.0, 0.05, 0.0);
 				
-				if(worldObj.rand.nextInt(20) == 0)
-					worldObj.spawnParticle("cloud", xCoord + 0.5 + dir.offsetX * 0.75, yCoord + 2, zCoord + 0.5 + dir.offsetZ * 0.75, 0.0, 0.05, 0.0);
+				if(world.rand.nextInt(20) == 0)
+					world.spawnParticle(EnumParticleTypes.CLOUD, pos.getX() + 0.5 + dir.offsetX * 0.75, pos.getY() + 2, pos.getZ() + 0.5 + dir.offsetZ * 0.75, 0.0, 0.05, 0.0);
 
-				if(worldObj.rand.nextInt(15) == 0)
-					worldObj.spawnParticle("lava", xCoord + 0.5 + dir.offsetX * 1.5 + rot.offsetX * (worldObj.rand.nextDouble() - 0.5), yCoord + 0.75, zCoord + 0.5 + dir.offsetZ * 1.5 + rot.offsetZ * (worldObj.rand.nextDouble() - 0.5), dir.offsetX * 0.5D, 0.05, dir.offsetZ * 0.5D);
+				if(world.rand.nextInt(15) == 0)
+					world.spawnParticle(EnumParticleTypes.LAVA, pos.getX() + 0.5 + dir.offsetX * 1.5 + rot.offsetX * (world.rand.nextDouble() - 0.5), pos.getY() + 0.75, pos.getZ() + 0.5 + dir.offsetZ * 1.5 + rot.offsetZ * (world.rand.nextDouble() - 0.5), dir.offsetX * 0.5D, 0.05, dir.offsetZ * 0.5D);
 
 			}
 		}
@@ -149,13 +150,14 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("lastItem");
 			if(b0 >= 0 && b0 < lastItems.length) {
-				lastItems[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				ItemStack loaded = new ItemStack(nbt1);
+				lastItems[b0] = loaded.isEmpty() ? null : loaded;
 			}
 		}
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setIntArray("progress", progress);
@@ -164,7 +166,7 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 		
 		NBTTagList list = new NBTTagList();
 		for(int i = 0; i < lastItems.length; i++) {
-			if(lastItems[i] != null) {
+			if(lastItems[i] != null && !lastItems[i].isEmpty()) {
 				NBTTagCompound nbt1 = new NBTTagCompound();
 				nbt1.setByte("lastItem", (byte) i);
 				lastItems[i].writeToNBT(nbt1);
@@ -172,6 +174,7 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 			}
 		}
 		nbt.setTag("lastItems", list);
+		return nbt;
 	}
 	
 	protected void addBonus(ItemStack stack, int index) {
@@ -189,7 +192,7 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 		
 		if(this.heat >= this.maxHeat) return;
 		
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = world.getTileEntity(pos.down());
 		
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -215,21 +218,22 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 	public boolean canSmelt(int index) {
 		
 		if(this.heat < this.maxHeat / 3) return false;
-		if(slots[index] == null) return false;
+		if((slots[index] == null || slots[index].isEmpty())) return false;
 		
-		ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(slots[index]);
+		ItemStack result = FurnaceRecipes.instance().getSmeltingResult(slots[index]);
 		
-		if(result == null) return false;
-		if(slots[index + 3] == null) return true;
+		if(result.isEmpty()) return false;
+		if((slots[index + 3] == null || slots[index + 3].isEmpty())) return true;
 		
 		if(!result.isItemEqual(slots[index + 3])) return false;
-		if(result.stackSize + slots[index + 3].stackSize > slots[index + 3].getMaxStackSize()) return false;
+		if(result.getCount() + slots[index + 3].getCount() > slots[index + 3].getMaxStackSize()) return false;
 		
 		return true;
 	}
 	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4, 5 };
 	}
 
@@ -237,13 +241,14 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
 		
 		if(i < 3)
-			return FurnaceRecipes.smelting().getSmeltingResult(itemStack) != null;
+			return !FurnaceRecipes.instance().getSmeltingResult(itemStack).isEmpty();
 		
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i > 2;
 	}
 
@@ -264,13 +269,13 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 	public AxisAlignedBB getRenderBoundingBox() {
 		
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 3,
-					zCoord + 2
+			bb = new AxisAlignedBB(
+					pos.getX() - 1,
+					pos.getY(),
+					pos.getZ() - 1,
+					pos.getX() + 2,
+					pos.getY() + 3,
+					pos.getZ() + 2
 					);
 		}
 		

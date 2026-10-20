@@ -1,0 +1,71 @@
+{
+  "baseline": "60264ff",
+  "normalization": "UTF-8 universal newlines",
+  "files": {
+    "src/main/java/api/hbm/energymk2/IEnergyHandlerMK2.java": {
+      "before_sha256": "7a4cda59a0cc8247076084b23e0e4e9483a0831b5f26f9640b6a5ab2156abbdf",
+      "replacements": [
+        {
+          "old": "te.xCoord",
+          "new": "te.getPos().getX()",
+          "count": 1
+        },
+        {
+          "old": "te.yCoord",
+          "new": "te.getPos().getY()",
+          "count": 1
+        },
+        {
+          "old": "te.zCoord",
+          "new": "te.getPos().getZ()",
+          "count": 1
+        }
+      ]
+    },
+    "src/main/java/api/hbm/energymk2/IEnergyProviderMK2.java": {
+      "before_sha256": "faedf60cc7bc1dec0ae7c2a833388f156576666f4f1375d027c5ed55274776ae",
+      "replacements": [
+        {
+          "old": "world.provider.dimensionId",
+          "new": "world.provider.getDimension()",
+          "count": 1
+        }
+      ]
+    },
+    "src/main/java/api/hbm/energymk2/IEnergyReceiverMK2.java": {
+      "before_sha256": "f9c80c79adee9a846889137592b48362d072a82975c8afb03af34e89cc120a75",
+      "replacements": [
+        {
+          "old": "world.provider.dimensionId",
+          "new": "world.provider.getDimension()",
+          "count": 1
+        },
+        {
+          "old": "world.getTileEntity(x, y, z)",
+          "new": "world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))",
+          "count": 1
+        }
+      ]
+    },
+    "src/main/java/api/hbm/energymk2/IEnergyConductorMK2.java": {
+      "before_sha256": "6e7ffda7d4ba7053ac208f1eff08995f68afb7f9434884314e0fc448188365f7",
+      "replacements": [
+        {
+          "old": "tile.xCoord",
+          "new": "tile.getPos().getX()",
+          "count": 7
+        },
+        {
+          "old": "tile.yCoord",
+          "new": "tile.getPos().getY()",
+          "count": 7
+        },
+        {
+          "old": "tile.zCoord",
+          "new": "tile.getPos().getZ()",
+          "count": 7
+        }
+      ]
+    }
+  }
+}

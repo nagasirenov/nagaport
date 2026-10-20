@@ -24,7 +24,7 @@ public class DetMiner extends BlockPillar implements IBomb, IFuckingExplode {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -65,6 +65,6 @@ public class DetMiner extends BlockPillar implements IBomb, IFuckingExplode {
 
 	@Override
 	public void explodeEntity(World world, double x, double y, double z, EntityTNTPrimedBase entity) {
-		explode(world, MathHelper.floor_double(x), MathHelper.floor_double(y), MathHelper.floor_double(z));
+		explode(world, MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));
 	}
 }

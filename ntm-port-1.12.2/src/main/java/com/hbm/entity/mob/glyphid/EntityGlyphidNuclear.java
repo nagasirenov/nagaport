@@ -90,7 +90,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 				this.posY + radius,
 				this.posZ + radius);
 
-		List<Entity> bugs = worldObj.getEntitiesWithinAABBExcludingEntity(this, bb);
+		List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 		for (Entity e: bugs){
 			if(e instanceof EntityGlyphidScout){
 				if(((EntityGlyphid) e).getCurrentTask() != task){
@@ -125,7 +125,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 			int radius = 8;
 			AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
 
-			List<Entity> bugs = worldObj.getEntitiesWithinAABBExcludingEntity(this, bb);
+			List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 			for (Entity e: bugs){
 				if(e instanceof EntityGlyphid){
 					addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 20, 6));
@@ -135,20 +135,20 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 		}
 		if(this.deathTicks == 100) {
 
-			if(!worldObj.isRemote) {
-				ExplosionVNT vnt = new ExplosionVNT(worldObj, posX, posY, posZ, 25, this);
+			if(!this.world.isRemote) {
+				ExplosionVNT vnt = new ExplosionVNT(this.world, posX, posY, posZ, 25, this);
 
 				if(this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {
 					int j = 15 + this.rand.nextInt(6);
 					for(int k = 0; k < j; ++k) {
 						float f = ((float) (k % 2) - 0.5F) * 0.5F;
 						float f1 = ((float) (k / 2) - 0.5F) * 0.5F;
-						EntityParasiteMaggot maggot = new EntityParasiteMaggot(worldObj);
+						EntityParasiteMaggot maggot = new EntityParasiteMaggot(this.world);
 						maggot.setLocationAndAngles(this.posX + (double) f, this.posY + 0.5D, this.posZ + (double) f1, this.rand.nextFloat() * 360.0F, 0.0F);
 						maggot.motionX = f;
 						maggot.motionZ = f1;
 						maggot.velocityChanged = true;
-						this.worldObj.spawnEntityInWorld(maggot);
+						this.world.spawnEntityInWorld(maggot);
 					}
 				} else {
 					vnt.setBlockAllocator(new BlockAllocatorStandard(24));
@@ -159,7 +159,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 				vnt.setPlayerProcessor(new PlayerProcessorStandard());
 				vnt.explode();
 
-				worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "muke");
@@ -172,8 +172,8 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 
 			this.setDead();
 		} else {
-			if(!worldObj.isRemote && this.deathTicks % 10 == 0) {
-				worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.fstbmbPing", 5.0F, 1.0F);
+			if(!this.world.isRemote && this.deathTicks % 10 == 0) {
+				com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.fstbmbPing", 5.0F, 1.0F);
 			}
 		}
 	}

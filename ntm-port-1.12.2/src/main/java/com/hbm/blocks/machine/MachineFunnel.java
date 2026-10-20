@@ -3,15 +3,11 @@ package com.hbm.blocks.machine;
 import java.util.List;
 import java.util.Random;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.blocks.rail.IRenderBlock;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 import com.hbm.tileentity.machine.TileEntityMachineFunnel;
 
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
@@ -20,44 +16,27 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class MachineFunnel extends BlockContainer implements ITooltipProvider, IRenderBlock {
 
-	@SideOnly(Side.CLIENT) private IIcon iconTop;
-	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
 	public MachineFunnel() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	@Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
+	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":machine_funnel_top");
-		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_funnel_side");
-		this.iconBottom = iconRegister.registerIcon(RefStrings.MODID + ":machine_funnel_bottom");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int metadata) {
-		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
@@ -65,11 +44,12 @@ public class MachineFunnel extends BlockContainer implements ITooltipProvider, I
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityPlayer player, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing side, float hitX, float hitY, float hitZ) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntity entity = world.getTileEntity(x, y, z);
+			TileEntity entity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity instanceof TileEntityMachineFunnel) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
@@ -82,32 +62,37 @@ public class MachineFunnel extends BlockContainer implements ITooltipProvider, I
 	private final Random rand = new Random();
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		ISidedInventory tile = (ISidedInventory) world.getTileEntity(x, y, z);
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		ISidedInventory tile = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(tile != null) {
 			for(int i1 = 0; i1 < tile.getSizeInventory(); ++i1) {
 				ItemStack itemstack = tile.getStackInSlot(i1);
-				if(itemstack != null) {
+				if(itemstack != null && !itemstack.isEmpty()) {
 					float f = this.rand.nextFloat() * 0.8F + 0.1F;
 					float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
 					float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
-					while(itemstack.stackSize > 0) {
+					while(itemstack.getCount() > 0) {
 						int j1 = this.rand.nextInt(21) + 10;
-						if(j1 > itemstack.stackSize) j1 = itemstack.stackSize;
-						itemstack.stackSize -= j1;
-						EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
-						if(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+						if(j1 > itemstack.getCount()) j1 = itemstack.getCount();
+						// Capture before depletion: native empty stacks hide their item.
+						net.minecraft.item.Item dropItem = itemstack.getItem();
+						int dropMeta = itemstack.getItemDamage();
+						NBTTagCompound dropTag = itemstack.getTagCompound();
+						itemstack.shrink(j1);
+						EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
+						if(dropTag != null) entityitem.getItem().setTagCompound(dropTag.copy());
 						float f3 = 0.05F;
 						entityitem.motionX = (float) this.rand.nextGaussian() * f3;
 						entityitem.motionY = (float) this.rand.nextGaussian() * f3 + 0.2F;
 						entityitem.motionZ = (float) this.rand.nextGaussian() * f3;
-						world.spawnEntityInWorld(entityitem);
+						world.spawnEntity(entityitem);
 					}
 				}
 			}
-			world.func_147453_f(x, y, z, block);
+			world.updateComparatorOutputLevel(pos, state.getBlock());
 		}
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
@@ -115,24 +100,5 @@ public class MachineFunnel extends BlockContainer implements ITooltipProvider, I
 		this.addStandardInfo(stack, player, list, ext);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glTranslatef(0F, -0.5F, 0F);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.funnel, "Top", block.getIcon(1, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.funnel, "Bottom", block.getIcon(0, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.funnel, "Side", block.getIcon(2, 0), tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.funnel, "Top", block.getIcon(1, 0), tessellator, 0, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.funnel, "Bottom", block.getIcon(0, 0), tessellator, 0, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.funnel, "Side", block.getIcon(2, 0), tessellator, 0, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-	}
 }

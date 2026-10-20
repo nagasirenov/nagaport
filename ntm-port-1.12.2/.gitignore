@@ -29,3 +29,6 @@
 
 # Changelog backup
 /changelog.bak
+
+# User-provided, checksum-pinned optional development dependencies
+/.local-dependencies/maven/

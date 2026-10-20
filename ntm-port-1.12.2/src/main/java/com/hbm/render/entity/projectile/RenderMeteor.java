@@ -5,12 +5,14 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMeteor extends Render {
 
-	public RenderMeteor() { }
+	public RenderMeteor(RenderManager renderManager) {
+		super(renderManager); }
 
 	@Override
 	public void doRender(Entity meteor, double x, double y, double z, float p_76986_8_, float interp) {

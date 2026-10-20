@@ -5,14 +5,12 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderDysonConverterTU extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderDysonConverterTU extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
@@ -40,26 +38,6 @@ public class RenderDysonConverterTU extends TileEntitySpecialRenderer implements
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(3, 1, 0);
-				GL11.glScaled(3.0D, 3.0D, 3.0D);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.55, 0.55, 0.55);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.dyson_tu_converter_tex);
-				ResourceManager.dyson_tu_converter.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.dyson_converter_tu);
-	}
 
 }

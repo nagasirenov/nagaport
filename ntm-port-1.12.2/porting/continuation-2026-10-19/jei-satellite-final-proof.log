@@ -1,0 +1,3 @@
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS Satellite whole-class native probe: 407 assertions; actual MC/JEI/NEI and weighted loot; NTM registry fixtures/exact extracted tooltip method. No full-mod/gameplay claim.

@@ -1,0 +1,16 @@
+/tmp/tile-visuals-native-5asou10_/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+          ^
+/tmp/tile-visuals-native-5asou10_/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                  ^
+/tmp/tile-visuals-native-5asou10_/fixtures/tileoracle/LegacyBlocksRenderer.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+                                                        ^
+Note: /workspace/shared/nagaport-native-tile-visuals-cp49/ntm-port-1.12.2/porting/tests/tile-visuals-native/TileVisualsNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS all three complete native TESRs, existing native mesh/state helpers and exact native registration statements compile.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[23:55:25] [main/INFO]: Setting user: AtlasProbe
+PASS 2496434 assertions, 100872 actual original Tessellator/native vertices, 1585152 genuine GL pixel-byte comparisons. Whole TESRs registered and called by real native dispatcher; original texture/animation pixels, lava face bytecode, original layouts, animations, actual magma VBO, and native state restoration verified. NTM tile/registry fixtures explicitly exclude gameplay and loaded-client acceptance.

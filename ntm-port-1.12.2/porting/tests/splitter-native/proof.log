@@ -1,0 +1,24 @@
+/workspace/shared/nagaport-splitter-next/ntm-port-1.12.2/porting/tests/splitter-native/SplitterNativeTest.java:151: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",manager);
+          ^
+/workspace/shared/nagaport-splitter-next/ntm-port-1.12.2/porting/tests/splitter-native/SplitterNativeTest.java:151: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",manager);
+                                  ^
+/workspace/shared/nagaport-splitter-next/ntm-port-1.12.2/porting/tests/splitter-native/SplitterNativeTest.java:151: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",manager);
+                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS whole splitter block/tile/model/loader/breaking renderer, actual BlockDummyable and moving entities compile against native APIs.
+[23:06:15] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tileentity_splitter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:06:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crane_splitter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:06:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crane_splitter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:06:16] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.crane_splitter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:06:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `foreign_splitter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:06:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_splitter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[23:06:16] [main/INFO]: Reloading ResourceManager: resources
+[23:06:16] [main/INFO]: Reloading ResourceManager: splitter-resources-5904730501522900726.jar
+PASS 70234 native assertions; 32 pristine renderer cases. Complete owner/entity/data/NBT/ratio/tool/multiblock/model/registry and folder/JAR loader paths executed. No live GL/game or unknown-mod visual acceptance.

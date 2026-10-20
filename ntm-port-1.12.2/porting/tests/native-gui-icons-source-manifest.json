@@ -1,0 +1,1510 @@
+{
+  "baseline": "13c8930411cbff2653a9f75e9818c8af2b900394",
+  "files": {
+    "src/main/java/com/hbm/qmaw/components/QComponentLink.java": {
+      "before_sha256": "b70477134b529854f662660cac678c96fab171fbe26e463401dc66f2e40ccc6e",
+      "after_sha256": "bed01b799b8aa7920b957cb08eb774ee5f8011c0f0e16adf272aee7134d9ec2e",
+      "edits": [
+        {
+          "before_offset": 487,
+          "after_offset": 487,
+          "old": "net",
+          "new": "com"
+        },
+        {
+          "before_offset": 491,
+          "after_offset": 491,
+          "old": "",
+          "new": "hb"
+        },
+        {
+          "before_offset": 492,
+          "after_offset": 494,
+          "old": "inecraft.client",
+          "new": ""
+        },
+        {
+          "before_offset": 514,
+          "after_offset": 501,
+          "old": "er",
+          "new": ""
+        },
+        {
+          "before_offset": 517,
+          "after_offset": 502,
+          "old": "en",
+          "new": "u"
+        },
+        {
+          "before_offset": 521,
+          "after_offset": 505,
+          "old": "",
+          "new": "l.Na"
+        },
+        {
+          "before_offset": 522,
+          "after_offset": 510,
+          "old": "y.R",
+          "new": "iv"
+        },
+        {
+          "before_offset": 526,
+          "after_offset": 513,
+          "old": "nder",
+          "new": "Gui"
+        },
+        {
+          "before_offset": 534,
+          "after_offset": 520,
+          "old": "",
+          "new": "Draw"
+        },
+        {
+          "before_offset": 849,
+          "after_offset": 839,
+          "old": "\tprotected static RenderItem itemRender = new RenderItem();",
+          "new": ""
+        },
+        {
+          "before_offset": 1953,
+          "after_offset": 1884,
+          "old": "",
+          "new": "Nat"
+        },
+        {
+          "before_offset": 1954,
+          "after_offset": 1888,
+          "old": "",
+          "new": "veGuiI"
+        },
+        {
+          "before_offset": 1957,
+          "after_offset": 1897,
+          "old": "Rend",
+          "new": "Draw.withOv"
+        },
+        {
+          "before_offset": 1963,
+          "after_offset": 1910,
+          "old": "",
+          "new": "lay(mc"
+        },
+        {
+          "before_offset": 1964,
+          "after_offset": 1917,
+          "old": "r",
+          "new": "getR"
+        },
+        {
+          "before_offset": 1974,
+          "after_offset": 1930,
+          "old": "AndEffectIntoGUI",
+          "new": ""
+        },
+        {
+          "before_offset": 1991,
+          "after_offset": 1931,
+          "old": "",
+          "new": "), "
+        },
+        {
+          "before_offset": 2000,
+          "after_offset": 1943,
+          "old": ", mc.renderEngine",
+          "new": ""
+        },
+        {
+          "before_offset": 2038,
+          "after_offset": 1964,
+          "old": ");\n\t\t\titemRender.renderItemOverlayIntoGUI(this.font",
+          "new": ""
+        },
+        {
+          "before_offset": 2091,
+          "after_offset": 1966,
+          "old": "mc",
+          "new": "0"
+        },
+        {
+          "before_offset": 2094,
+          "after_offset": 1968,
+          "old": "renderEngine, this.icon, x, y - 1",
+          "new": "0F"
+        },
+        {
+          "before_offset": 2617,
+          "after_offset": 2460,
+          "old": "fun",
+          "new": "getMasterRe"
+        },
+        {
+          "before_offset": 2621,
+          "after_offset": 2472,
+          "old": "_147674_a",
+          "new": "ord"
+        },
+        {
+          "before_offset": 2633,
+          "after_offset": 2478,
+          "old": "w R",
+          "new": "t.min"
+        },
+        {
+          "before_offset": 2637,
+          "after_offset": 2484,
+          "old": "s",
+          "new": "craft.init.S"
+        },
+        {
+          "before_offset": 2640,
+          "after_offset": 2498,
+          "old": "rc",
+          "new": "ndEv"
+        },
+        {
+          "before_offset": 2643,
+          "after_offset": 2503,
+          "old": "",
+          "new": "nts.UI_BUTTON_C"
+        },
+        {
+          "before_offset": 2644,
+          "after_offset": 2519,
+          "old": "ocation(\"gui.button.press\")",
+          "new": "ICK"
+        },
+        {
+          "before_offset": 2788,
+          "after_offset": 2639,
+          "old": "F",
+          "new": ""
+        },
+        {
+          "before_offset": 2790,
+          "after_offset": 2640,
+          "old": "LCommonHandler.",
+          "new": ""
+        },
+        {
+          "before_offset": 2807,
+          "after_offset": 2642,
+          "old": "s",
+          "new": "ecraf"
+        },
+        {
+          "before_offset": 2809,
+          "after_offset": 2648,
+          "old": "",
+          "new": ".getMinecr"
+        },
+        {
+          "before_offset": 2810,
+          "after_offset": 2659,
+          "old": "nce",
+          "new": "ft"
+        },
+        {
+          "before_offset": 2816,
+          "after_offset": 2664,
+          "old": "",
+          "new": "di"
+        },
+        {
+          "before_offset": 2817,
+          "after_offset": 2667,
+          "old": "how",
+          "new": "play"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/ItemRenderTransformer.java": {
+      "before_sha256": "a375d11e7652a58a3caee802903bdec0f8f53c599f8e7d05417a9ff97d547ccc",
+      "after_sha256": "6e83e498ff380c60d72664c61f9d2bdf568cbe33bade5cdb5ec1de276d956939",
+      "edits": [
+        {
+          "before_offset": 29,
+          "after_offset": 29,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeIconExtrusion;"
+        },
+        {
+          "before_offset": 189,
+          "after_offset": 237,
+          "old": ";\nimport net.minecraft.client.renderer.ItemRenderer",
+          "new": ""
+        },
+        {
+          "before_offset": 3011,
+          "after_offset": 3008,
+          "old": "ItemRenderer.renderItemIn2D(tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 3048,
+          "after_offset": 3011,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 3049,
+          "after_offset": 3017,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 3050,
+          "after_offset": 3022,
+          "old": ", ",
+          "new": "usion.draw("
+        },
+        {
+          "before_offset": 5704,
+          "after_offset": 5685,
+          "old": "ItemRenderer.renderItemIn2D(tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 5741,
+          "after_offset": 5688,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 5742,
+          "after_offset": 5694,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 5743,
+          "after_offset": 5699,
+          "old": ", ",
+          "new": "usion.draw("
+        },
+        {
+          "before_offset": 6030,
+          "after_offset": 5995,
+          "old": "ItemRenderer.renderItemIn2D(tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 6067,
+          "after_offset": 5998,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 6068,
+          "after_offset": 6004,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 6069,
+          "after_offset": 6009,
+          "old": ", ",
+          "new": "usion.draw("
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/ItemRendererMeteorSword.java": {
+      "before_sha256": "1fa3dec6bf377a3122eaf140c97eabfbcbc15993e8d6f9802ea149d4e3454c7e",
+      "after_sha256": "656c51df2789fd6485d65b5729c2b068d81644d6321d9e319b8845433ed09fc1",
+      "edits": [
+        {
+          "before_offset": 29,
+          "after_offset": 29,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeIconExtrusion;"
+        },
+        {
+          "before_offset": 189,
+          "after_offset": 237,
+          "old": ";\nimport net.minecraft.client.renderer.ItemRenderer",
+          "new": ""
+        },
+        {
+          "before_offset": 2418,
+          "after_offset": 2415,
+          "old": "ItemRenderer.renderItemIn2D(tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 2455,
+          "after_offset": 2418,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 2456,
+          "after_offset": 2424,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 2457,
+          "after_offset": 2429,
+          "old": ", ",
+          "new": "usion.draw("
+        },
+        {
+          "before_offset": 5072,
+          "after_offset": 5053,
+          "old": "ItemRenderer.renderItemIn2D(tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 5109,
+          "after_offset": 5056,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 5110,
+          "after_offset": 5062,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 5111,
+          "after_offset": 5067,
+          "old": ", ",
+          "new": "usion.draw("
+        },
+        {
+          "before_offset": 5398,
+          "after_offset": 5363,
+          "old": "ItemRenderer.renderItemIn2D(tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 5435,
+          "after_offset": 5366,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 5436,
+          "after_offset": 5372,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 5437,
+          "after_offset": 5377,
+          "old": ", ",
+          "new": "usion.draw("
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBobble.java": {
+      "before_sha256": "ae1192f8819f64aab4fd02ddf6d0545090432ef617b9919af4b0aa7998b744cc",
+      "after_sha256": "ce2ab29ed911a69f430991b067d5007cc6cdcedff46efc77692d215dc472aab0",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeIconExtrusion;"
+        },
+        {
+          "before_offset": 455,
+          "after_offset": 503,
+          "old": "Renderer;\nimport net.minecraft.client.renderer.Item",
+          "new": ""
+        },
+        {
+          "before_offset": 18551,
+          "after_offset": 18548,
+          "old": "ItemRenderer.renderItemIn2D(Tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 18588,
+          "after_offset": 18551,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 18589,
+          "after_offset": 18557,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 18590,
+          "after_offset": 18562,
+          "old": "",
+          "new": "usion"
+        },
+        {
+          "before_offset": 18591,
+          "after_offset": 18568,
+          "old": "inst",
+          "new": "dr"
+        },
+        {
+          "before_offset": 18596,
+          "after_offset": 18571,
+          "old": "nce, ",
+          "new": "w("
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java": {
+      "before_sha256": "5d7c4ce6a5701198dd35a6753421273d620173e972a849c7cf0c288089c66604",
+      "after_sha256": "3c0035141fd02c29043f904ed4624ed8fd2d17d949d9cd44ae3de9e340cbde84",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeIconExtrusion;"
+        },
+        {
+          "before_offset": 342,
+          "after_offset": 390,
+          "old": "\nimport net.minecraft.client.renderer.ItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2824,
+          "after_offset": 2821,
+          "old": "ItemRenderer.renderItemIn2D(Tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 2861,
+          "after_offset": 2824,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 2862,
+          "after_offset": 2830,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 2863,
+          "after_offset": 2835,
+          "old": "",
+          "new": "usion"
+        },
+        {
+          "before_offset": 2864,
+          "after_offset": 2841,
+          "old": "inst",
+          "new": "dr"
+        },
+        {
+          "before_offset": 2869,
+          "after_offset": 2844,
+          "old": "nce, ",
+          "new": "w("
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLoot.java": {
+      "before_sha256": "edf5206c78ac43e2732fdbc41ded12487009177d5193c0f2ace388b8ddc7b886",
+      "after_sha256": "8304334a4f5cb1d016348ec41757de41739484625f6e98afe25718298073b265",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeIconExtrusion;"
+        },
+        {
+          "before_offset": 442,
+          "after_offset": 490,
+          "old": ";\nimport net.minecraft.client.renderer.ItemRenderer",
+          "new": ""
+        },
+        {
+          "before_offset": 7511,
+          "after_offset": 7508,
+          "old": "ItemRenderer.renderItemIn2D(Tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 7548,
+          "after_offset": 7511,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 7549,
+          "after_offset": 7517,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 7550,
+          "after_offset": 7522,
+          "old": "",
+          "new": "usion"
+        },
+        {
+          "before_offset": 7551,
+          "after_offset": 7528,
+          "old": "inst",
+          "new": "dr"
+        },
+        {
+          "before_offset": 7556,
+          "after_offset": 7531,
+          "old": "nce, ",
+          "new": "w("
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPlushie.java": {
+      "before_sha256": "879f18912435915c3b00594807a58c8389869a37101a2c9ee90c553aaf96ab0e",
+      "after_sha256": "a01cca991108be5cdf882e758c4be0a52a300c6753228e73335e41d7301cdda1",
+      "edits": [
+        {
+          "before_offset": 35,
+          "after_offset": 35,
+          "old": "",
+          "new": "\nimport com.hbm.render.util.NativeIconExtrusion;"
+        },
+        {
+          "before_offset": 581,
+          "after_offset": 629,
+          "old": ";\nimport net.minecraft.client.renderer.ItemRenderer",
+          "new": ""
+        },
+        {
+          "before_offset": 6369,
+          "after_offset": 6366,
+          "old": "ItemRenderer.renderItemIn2D(Tessell",
+          "new": "N"
+        },
+        {
+          "before_offset": 6406,
+          "after_offset": 6369,
+          "old": "",
+          "new": "iveIc"
+        },
+        {
+          "before_offset": 6407,
+          "after_offset": 6375,
+          "old": "",
+          "new": "nExt"
+        },
+        {
+          "before_offset": 6408,
+          "after_offset": 6380,
+          "old": "",
+          "new": "usion"
+        },
+        {
+          "before_offset": 6409,
+          "after_offset": 6386,
+          "old": "inst",
+          "new": "dr"
+        },
+        {
+          "before_offset": 6414,
+          "after_offset": 6389,
+          "old": "nce, ",
+          "new": "w("
+        }
+      ]
+    },
+    "src/main/java/com/hbm/wiaj/actors/ActorFancyPanel.java": {
+      "before_sha256": "5d2ad7ce38f9d77531dab5ab3ffe8739266cb6ea61fba744c94d223bc45d3fbd",
+      "after_sha256": "a73d51a53519a7ffed3a6a2e96f098b0aaca833749cf14f2a38e640010893e37",
+      "edits": [
+        {
+          "before_offset": 547,
+          "after_offset": 547,
+          "old": "",
+          "new": "BufferBuilder;\nimport net.minecraft.cli"
+        },
+        {
+          "before_offset": 550,
+          "after_offset": 589,
+          "old": "ity",
+          "new": ""
+        },
+        {
+          "before_offset": 554,
+          "after_offset": 590,
+          "old": "R",
+          "new": "r"
+        },
+        {
+          "before_offset": 560,
+          "after_offset": 596,
+          "old": "",
+          "new": "er.vertex.DefaultVertexFormats;\nimport net.minecraft.client.renderer.GlStateManager;\nimport com.hbm.render.util.NativeGui"
+        },
+        {
+          "before_offset": 564,
+          "after_offset": 721,
+          "old": "",
+          "new": "Draw"
+        },
+        {
+          "before_offset": 966,
+          "after_offset": 1127,
+          "old": "\tRenderItem itemRender = new RenderItem();",
+          "new": ""
+        },
+        {
+          "before_offset": 5383,
+          "after_offset": 5502,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 5387,
+          "after_offset": 5516,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 5396,
+          "after_offset": 5523,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 5397,
+          "after_offset": 5537,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 5471,
+          "after_offset": 5589,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 5475,
+          "after_offset": 5603,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 5484,
+          "after_offset": 5610,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 5485,
+          "after_offset": 5619,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 5507,
+          "after_offset": 5625,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 5511,
+          "after_offset": 5639,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 5520,
+          "after_offset": 5646,
+          "old": "",
+          "new": "Depth"
+        },
+        {
+          "before_offset": 5521,
+          "after_offset": 5652,
+          "old": "GL11.GL_DEPTH_TEST",
+          "new": ""
+        },
+        {
+          "before_offset": 7414,
+          "after_offset": 7527,
+          "old": "\t\titemRender.zLevel = 0.0F;",
+          "new": ""
+        },
+        {
+          "before_offset": 7445,
+          "after_offset": 7531,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 7449,
+          "after_offset": 7545,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 7457,
+          "after_offset": 7551,
+          "old": "",
+          "new": "Lighting"
+        },
+        {
+          "before_offset": 7458,
+          "after_offset": 7560,
+          "old": "GL11.GL_LIGHTING",
+          "new": ""
+        },
+        {
+          "before_offset": 7480,
+          "after_offset": 7566,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 7484,
+          "after_offset": 7580,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 7492,
+          "after_offset": 7586,
+          "old": "",
+          "new": "Depth"
+        },
+        {
+          "before_offset": 7493,
+          "after_offset": 7592,
+          "old": "GL11.GL_DEPTH_TEST",
+          "new": ""
+        },
+        {
+          "before_offset": 7562,
+          "after_offset": 7643,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 7566,
+          "after_offset": 7657,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 7574,
+          "after_offset": 7663,
+          "old": "",
+          "new": "RescaleNormal"
+        },
+        {
+          "before_offset": 7575,
+          "after_offset": 7677,
+          "old": "GL12.GL_RESCALE_NORMAL",
+          "new": ""
+        },
+        {
+          "before_offset": 8408,
+          "after_offset": 8488,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 8412,
+          "after_offset": 8502,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 8419,
+          "after_offset": 8507,
+          "old": "3f",
+          "new": ""
+        },
+        {
+          "before_offset": 8422,
+          "after_offset": 8508,
+          "old": "",
+          "new": "1F, "
+        },
+        {
+          "before_offset": 8448,
+          "after_offset": 8538,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 8450,
+          "after_offset": 8541,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 8636,
+          "after_offset": 8727,
+          "old": "",
+          "new": "Nat"
+        },
+        {
+          "before_offset": 8637,
+          "after_offset": 8731,
+          "old": "",
+          "new": "veGuiI"
+        },
+        {
+          "before_offset": 8640,
+          "after_offset": 8740,
+          "old": "Rend",
+          "new": "Draw.withOv"
+        },
+        {
+          "before_offset": 8646,
+          "after_offset": 8753,
+          "old": "",
+          "new": "lay(Minecraft"
+        },
+        {
+          "before_offset": 8647,
+          "after_offset": 8767,
+          "old": "",
+          "new": "getMinec"
+        },
+        {
+          "before_offset": 8648,
+          "after_offset": 8776,
+          "old": "",
+          "new": "aft().getR"
+        },
+        {
+          "before_offset": 8657,
+          "after_offset": 8795,
+          "old": "AndEffectIntoGUI",
+          "new": ""
+        },
+        {
+          "before_offset": 8674,
+          "after_offset": 8796,
+          "old": "",
+          "new": "), "
+        },
+        {
+          "before_offset": 8683,
+          "after_offset": 8808,
+          "old": ", texman",
+          "new": ""
+        },
+        {
+          "before_offset": 8708,
+          "after_offset": 8825,
+          "old": ");\n\t\t\titemRender.renderItemOverlayIntoGUI(this.font",
+          "new": ""
+        },
+        {
+          "before_offset": 8761,
+          "after_offset": 8827,
+          "old": "texman, stack, x, y - 8",
+          "new": "0.0F"
+        },
+        {
+          "before_offset": 8844,
+          "after_offset": 8891,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 8848,
+          "after_offset": 8905,
+          "old": "glC",
+          "new": "c"
+        },
+        {
+          "before_offset": 8855,
+          "after_offset": 8910,
+          "old": "3f",
+          "new": ""
+        },
+        {
+          "before_offset": 8858,
+          "after_offset": 8911,
+          "old": "",
+          "new": "1F, "
+        },
+        {
+          "before_offset": 8875,
+          "after_offset": 8932,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 8879,
+          "after_offset": 8946,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 8888,
+          "after_offset": 8953,
+          "old": "",
+          "new": "Depth"
+        },
+        {
+          "before_offset": 8889,
+          "after_offset": 8959,
+          "old": "GL11.GL_DEPTH_TEST",
+          "new": ""
+        },
+        {
+          "before_offset": 9888,
+          "after_offset": 9940,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 9892,
+          "after_offset": 9954,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 9901,
+          "after_offset": 9961,
+          "old": "(GL11.GL_",
+          "new": ""
+        },
+        {
+          "before_offset": 9911,
+          "after_offset": 9962,
+          "old": "EXTURE_",
+          "new": "exture"
+        },
+        {
+          "before_offset": 9920,
+          "after_offset": 9970,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 9926,
+          "after_offset": 9977,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 9930,
+          "after_offset": 9991,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 9938,
+          "after_offset": 9997,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 9939,
+          "after_offset": 10003,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 9958,
+          "after_offset": 10009,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 9962,
+          "after_offset": 10023,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 9971,
+          "after_offset": 10030,
+          "old": "",
+          "new": "Alpha"
+        },
+        {
+          "before_offset": 9972,
+          "after_offset": 10036,
+          "old": "GL11.GL_ALPHA_TEST",
+          "new": ""
+        },
+        {
+          "before_offset": 9996,
+          "after_offset": 10042,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 10003,
+          "after_offset": 10044,
+          "old": "",
+          "new": "tateManager.s"
+        },
+        {
+          "before_offset": 10032,
+          "after_offset": 10086,
+          "old": "Open",
+          "new": ""
+        },
+        {
+          "before_offset": 10038,
+          "after_offset": 10088,
+          "old": "H",
+          "new": "Stat"
+        },
+        {
+          "before_offset": 10040,
+          "after_offset": 10093,
+          "old": "lp",
+          "new": "Manag"
+        },
+        {
+          "before_offset": 10045,
+          "after_offset": 10101,
+          "old": "gl",
+          "new": "try"
+        },
+        {
+          "before_offset": 10056,
+          "after_offset": 10113,
+          "old": "",
+          "new": "Separate"
+        },
+        {
+          "before_offset": 10074,
+          "after_offset": 10139,
+          "old": "\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 10079,
+          "after_offset": 10142,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 10081,
+          "after_offset": 10147,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 10084,
+          "after_offset": 10154,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 10117,
+          "after_offset": 10182,
+          "old": "i",
+          "new": "getI"
+        },
+        {
+          "before_offset": 10125,
+          "after_offset": 10193,
+          "old": ";\n\t\t",
+          "new": "().ge"
+        },
+        {
+          "before_offset": 10130,
+          "after_offset": 10199,
+          "old": "",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 10131,
+          "after_offset": 10204,
+          "old": "ssellato",
+          "new": ""
+        },
+        {
+          "before_offset": 10140,
+          "after_offset": 10205,
+          "old": ".startDrawingQuads",
+          "new": ""
+        },
+        {
+          "before_offset": 10176,
+          "after_offset": 10223,
+          "old": "s",
+          "new": "b"
+        },
+        {
+          "before_offset": 10178,
+          "after_offset": 10225,
+          "old": "",
+          "new": "gin(GL11.GL_QUADS, Defaul"
+        },
+        {
+          "before_offset": 10179,
+          "after_offset": 10251,
+          "old": "Col",
+          "new": "VertexF"
+        },
+        {
+          "before_offset": 10184,
+          "after_offset": 10260,
+          "old": "",
+          "new": "mats.POSITION_COLO"
+        },
+        {
+          "before_offset": 10185,
+          "after_offset": 10279,
+          "old": "GBA_F(r1, g1, b1, a1",
+          "new": ""
+        },
+        {
+          "before_offset": 10207,
+          "after_offset": 10281,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "before_offset": 10222,
+          "after_offset": 10297,
+          "old": "addVertex",
+          "new": "pos"
+        },
+        {
+          "before_offset": 10278,
+          "after_offset": 10347,
+          "old": "",
+          "new": ".color(r1, g1, b1, a1).endVertex()"
+        },
+        {
+          "before_offset": 10294,
+          "after_offset": 10397,
+          "old": "addVertex",
+          "new": "pos"
+        },
+        {
+          "before_offset": 10350,
+          "after_offset": 10447,
+          "old": "",
+          "new": ".color(r1, g1, b1, a1).endVertex()"
+        },
+        {
+          "before_offset": 10351,
+          "after_offset": 10482,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "before_offset": 10366,
+          "after_offset": 10498,
+          "old": "",
+          "new": "po"
+        },
+        {
+          "before_offset": 10367,
+          "after_offset": 10501,
+          "old": "etColorRGBA_F(r2, g2, b2, a2);\n\t\ttessellator.addVertex",
+          "new": ""
+        },
+        {
+          "before_offset": 10468,
+          "after_offset": 10548,
+          "old": "",
+          "new": ".color(r2, g2, b2, a2).endVertex()"
+        },
+        {
+          "before_offset": 10484,
+          "after_offset": 10598,
+          "old": "addVertex",
+          "new": "pos"
+        },
+        {
+          "before_offset": 10540,
+          "after_offset": 10648,
+          "old": "",
+          "new": ".color(r2, g2, b2, a2).endVertex()"
+        },
+        {
+          "before_offset": 10544,
+          "after_offset": 10686,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 10556,
+          "after_offset": 10698,
+          "old": "",
+          "new": "getInstance()."
+        },
+        {
+          "before_offset": 10564,
+          "after_offset": 10720,
+          "old": "\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 10570,
+          "after_offset": 10724,
+          "old": "L11.g",
+          "new": ""
+        },
+        {
+          "before_offset": 10577,
+          "after_offset": 10726,
+          "old": "",
+          "new": "tateManager.s"
+        },
+        {
+          "before_offset": 10605,
+          "after_offset": 10767,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 10609,
+          "after_offset": 10781,
+          "old": "glD",
+          "new": "d"
+        },
+        {
+          "before_offset": 10618,
+          "after_offset": 10788,
+          "old": "",
+          "new": "Blend"
+        },
+        {
+          "before_offset": 10619,
+          "after_offset": 10794,
+          "old": "GL11.GL_BLEND",
+          "new": ""
+        },
+        {
+          "before_offset": 10638,
+          "after_offset": 10800,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 10642,
+          "after_offset": 10814,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 10650,
+          "after_offset": 10820,
+          "old": "",
+          "new": "Alpha"
+        },
+        {
+          "before_offset": 10651,
+          "after_offset": 10826,
+          "old": "GL11.GL_ALPHA_TEST",
+          "new": ""
+        },
+        {
+          "before_offset": 10675,
+          "after_offset": 10832,
+          "old": "L11",
+          "new": "lStateManager"
+        },
+        {
+          "before_offset": 10679,
+          "after_offset": 10846,
+          "old": "glE",
+          "new": "e"
+        },
+        {
+          "before_offset": 10687,
+          "after_offset": 10852,
+          "old": "(GL11.GL_",
+          "new": ""
+        },
+        {
+          "before_offset": 10697,
+          "after_offset": 10853,
+          "old": "EXTURE_",
+          "new": "exture"
+        },
+        {
+          "before_offset": 10706,
+          "after_offset": 10861,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 11251,
+          "after_offset": 11407,
+          "old": "T",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 11253,
+          "after_offset": 11412,
+          "old": "ss",
+          "new": "rBuild"
+        },
+        {
+          "before_offset": 11256,
+          "after_offset": 11419,
+          "old": "llato",
+          "new": ""
+        },
+        {
+          "before_offset": 11289,
+          "after_offset": 11447,
+          "old": "i",
+          "new": "getI"
+        },
+        {
+          "before_offset": 11297,
+          "after_offset": 11458,
+          "old": ";\n\t\t",
+          "new": "().ge"
+        },
+        {
+          "before_offset": 11302,
+          "after_offset": 11464,
+          "old": "",
+          "new": "Buff"
+        },
+        {
+          "before_offset": 11303,
+          "after_offset": 11469,
+          "old": "ssellato",
+          "new": ""
+        },
+        {
+          "before_offset": 11312,
+          "after_offset": 11470,
+          "old": ".startDrawingQuads",
+          "new": ""
+        },
+        {
+          "before_offset": 11348,
+          "after_offset": 11488,
+          "old": "s",
+          "new": "b"
+        },
+        {
+          "before_offset": 11350,
+          "after_offset": 11490,
+          "old": "",
+          "new": "gin(GL11.GL_QUADS, Defaul"
+        },
+        {
+          "before_offset": 11351,
+          "after_offset": 11516,
+          "old": "Col",
+          "new": "VertexF"
+        },
+        {
+          "before_offset": 11356,
+          "after_offset": 11525,
+          "old": "",
+          "new": "mats.POSITION_TEX_COLO"
+        },
+        {
+          "before_offset": 11357,
+          "after_offset": 11548,
+          "old": "GBA_F(r, g, b, a",
+          "new": ""
+        },
+        {
+          "before_offset": 11375,
+          "after_offset": 11550,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "before_offset": 11390,
+          "after_offset": 11566,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 11436,
+          "after_offset": 11600,
+          "old": ",",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 11468,
+          "after_offset": 11637,
+          "old": "",
+          "new": ".color(r, g, b, a).endVertex()"
+        },
+        {
+          "before_offset": 11484,
+          "after_offset": 11683,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 11534,
+          "after_offset": 11721,
+          "old": ",",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 11570,
+          "after_offset": 11762,
+          "old": "",
+          "new": ".color(r, g, b, a).endVertex()"
+        },
+        {
+          "before_offset": 11586,
+          "after_offset": 11808,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 11632,
+          "after_offset": 11842,
+          "old": ",",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 11664,
+          "after_offset": 11879,
+          "old": "",
+          "new": ".color(r, g, b, a).endVertex()"
+        },
+        {
+          "before_offset": 11680,
+          "after_offset": 11925,
+          "old": "addVertexWithUV",
+          "new": "pos"
+        },
+        {
+          "before_offset": 11722,
+          "after_offset": 11955,
+          "old": ",",
+          "new": ").tex("
+        },
+        {
+          "before_offset": 11749,
+          "after_offset": 11987,
+          "old": "",
+          "new": ".color(r, g, b, a).endVertex()"
+        },
+        {
+          "before_offset": 11753,
+          "after_offset": 12021,
+          "old": "t",
+          "new": "T"
+        },
+        {
+          "before_offset": 11764,
+          "after_offset": 12032,
+          "old": "",
+          "new": ".getInstance()"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/render/util/NativeItemQuadRenderer.java": "525487a52e2d75eaf246b55faae9f3501dc25702f8c38ce090bfc947a8fdd662",
+    "src/main/java/com/hbm/render/util/NativeGuiItemDraw.java": "aff8148502cc9de591b2ba8a4f48c3d5c63aa9d3703ef06c5e4f987ff2988df1",
+    "src/main/java/com/hbm/render/util/NativeIconExtrusion.java": "a0dee5c4884261672c6e21343e3a1fe255deaa4389b4e4129f69d9e23fffb74a"
+  }
+}

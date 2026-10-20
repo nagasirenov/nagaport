@@ -42,7 +42,7 @@ public class JetpackRegular extends JetpackFueledBase {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "jetpack");
 				data.setInteger("player", player.getEntityId());
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.dimensionId, player.posX, player.posY, player.posZ, 100));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.getDimension(), player.posX, player.posY, player.posZ, 100));
 			}
 		}
 
@@ -61,7 +61,7 @@ public class JetpackRegular extends JetpackFueledBase {
 				player.motionY += 0.1D * Math.max(gravity / AstronomyUtil.STANDARD_GRAVITY, 1);
 			}
 
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:weapon.flamethrowerShoot", 0.25F, 1.5F);
+			com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "hbm:weapon.flamethrowerShoot", 0.25F, 1.5F);
 			this.useUpFuel(player, stack, 5);
 			ArmorUtil.resetFlightTime(player);
 		}

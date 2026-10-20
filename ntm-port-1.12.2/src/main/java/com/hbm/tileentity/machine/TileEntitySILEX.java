@@ -56,21 +56,21 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineSILEX";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			tank.setType(1, 1, slots);
 			tank.loadTank(2, 3, slots);
 			
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
-			this.trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX * 2, yCoord + 1, zCoord + dir.offsetZ * 2, dir);
-			this.trySubscribe(tank.getTankType(), worldObj, xCoord - dir.offsetX * 2, yCoord + 1, zCoord - dir.offsetZ * 2, dir.getOpposite());
+			this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 2, dir);
+			this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() - dir.offsetX * 2, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite());
 
 			loadFluid();
 
@@ -287,7 +287,8 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 5, 6, 7, 8, 9, 10 };
 	}
 
@@ -301,7 +302,8 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot >= 5;
 	}
 
@@ -319,7 +321,7 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tank.writeToNBT(nbt, "tank");
 		nbt.setInteger("fill", this.currentFill);
@@ -330,11 +332,12 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 			nbt.setInteger("item", Item.getIdFromItem(this.current.item));
 			nbt.setInteger("meta", this.current.meta);
 		}
+		return nbt;
 	}
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord, zCoord - 1, xCoord + 2, yCoord + 3, zCoord + 2);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
 	}
 
 	@Override

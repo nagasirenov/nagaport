@@ -45,7 +45,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 	public float speed = 0;
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.pumpjack";
 	}
 
@@ -66,7 +66,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 
 	@Override
 	public void onDrill(int y) {
-		Block b = worldObj.getBlock(xCoord, y, zCoord);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock();
 		ItemStack stack = new ItemStack(b);
 		int[] ids = OreDictionary.getOreIDs(stack);
 		for(Integer i : ids) {
@@ -75,8 +75,8 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 			if("oreUranium".equals(name)) {
 				for(int j = 2; j < 6; j++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(j);
-					if(worldObj.getBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ).isReplaceable(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ)) {
-						worldObj.setBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, ModBlocks.gas_radon_dense);
+					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)) {
+						this.world.setBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_radon_dense);
 					}
 				}
 			}
@@ -84,8 +84,8 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 			if("oreAsbestos".equals(name)) {
 				for(int j = 2; j < 6; j++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(j);
-					if(worldObj.getBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ).isReplaceable(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ)) {
-						worldObj.setBlock(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, ModBlocks.gas_asbestos);
+					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)) {
+						this.world.setBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_asbestos);
 					}
 				}
 			}
@@ -104,14 +104,14 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 
 	@Override
 	protected void attemptDrain(BlockOreFluid block, int x, int y, int z, int meta) {
-		block.drain(worldObj, x, y, z, meta, drainChanceMultiplier);
+		block.drain(this.world, x, y, z, meta, drainChanceMultiplier);
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			this.prevRot = rot;
 
@@ -147,12 +147,12 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 7,
-					yCoord,
-					zCoord - 7,
-					xCoord + 8,
-					yCoord + 6,
-					zCoord + 8
+					this.pos.getX() - 7,
+					this.pos.getY(),
+					this.pos.getZ() - 7,
+					this.pos.getX() + 8,
+					this.pos.getY() + 6,
+					this.pos.getZ() + 8
 					);
 		}
 
@@ -166,10 +166,10 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
-			new DirPos(xCoord + rot.offsetX * 2 + dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2 + dir.offsetZ * 2, dir),
-			new DirPos(xCoord + rot.offsetX * 2 + dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 4 - dir.offsetZ * 2, dir.getOpposite()),
-			new DirPos(xCoord + rot.offsetX * 4 - dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 4 + dir.offsetZ * 2, dir),
-			new DirPos(xCoord + rot.offsetX * 4 - dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2 - dir.offsetZ * 2, dir.getOpposite())
+			new DirPos(this.pos.getX() + rot.offsetX * 2 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 + dir.offsetZ * 2, dir),
+			new DirPos(this.pos.getX() + rot.offsetX * 2 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 4 - dir.offsetZ * 2, dir.getOpposite()),
+			new DirPos(this.pos.getX() + rot.offsetX * 4 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 4 + dir.offsetZ * 2, dir),
+			new DirPos(this.pos.getX() + rot.offsetX * 4 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ * 2, dir.getOpposite())
 		};
 	}
 

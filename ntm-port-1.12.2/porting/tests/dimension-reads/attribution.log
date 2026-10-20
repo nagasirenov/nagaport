@@ -1,0 +1,15 @@
+PROVIDER_OWNER	com.hbm.world.WorldProviderTom
+PROVIDER_OWNER	com.hbm.dim.WorldProviderEarth
+PROVIDER_OWNER	com.hbm.dim.Ike.WorldProviderIke
+PROVIDER_OWNER	com.hbm.dim.dres.WorldProviderDres
+PROVIDER_OWNER	com.hbm.dim.moon.WorldProviderMoon
+PROVIDER_OWNER	com.hbm.dim.laythe.WorldProviderLaythe
+PROVIDER_OWNER	com.hbm.dim.eve.WorldProviderEve
+PROVIDER_OWNER	com.hbm.dim.WorldProviderCelestial
+PROVIDER_OWNER	com.hbm.dim.duna.WorldProviderDuna
+PROVIDER_OWNER	com.hbm.dim.thatmo.WorldProviderThatmo
+PROVIDER_OWNER	com.hbm.dim.moho.WorldProviderMoho
+PROVIDER_OWNER	com.hbm.dim.minmus.WorldProviderMinmus
+PROVIDER_OWNER	com.hbm.dim.orbit.WorldProviderOrbit
+PROVIDER_OWNER	com.hbm.dim.tekto.WorldProviderTekto
+Attribution diagnostics (unfinished source, not compile success): 26162

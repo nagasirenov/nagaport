@@ -12,6 +12,7 @@ import com.hbm.packet.toserver.NBTControlPacket;
 
 import net.minecraftforge.fml.common.Optional;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.init.SoundEvents;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -36,13 +37,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-@Optional.Interface(iface = "codechicken.nei.api.INEIGuiHandler", modid = "NotEnoughItems")
+@Optional.Interface(iface = "codechicken.nei.api.INEIGuiHandler", modid = "nei")
 public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHandler {
 
 	static final ResourceLocation guiUtil =  new ResourceLocation(RefStrings.MODID + ":textures/gui/gui_utility.png");
 
 	public GuiInfoContainer(Container p_i1072_1_) {
 		super(p_i1072_1_);
+	}
+
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		// In 1.7.10 GuiContainer did this at the end of drawScreen itself.
+		this.renderHoveredToolTip(mouseX, mouseY);
 	}
 
 	public void drawElectricityInfo(GuiInfoContainer gui, int mouseX, int mouseY, int x, int y, int width, int height, long power, long maxPower) {
@@ -55,11 +63,11 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	public void drawCustomInfoStat(int mouseX, int mouseY, int x, int y, int width, int height, int tPosX, int tPosY, List text) {
 
 		if(x <= mouseX && x + width > mouseX && y < mouseY && y + height >= mouseY)
-			this.func_146283_a(text, tPosX, tPosY);
+			this.drawHoveringText(text, tPosX, tPosY);
 	}
 
 	public void drawInfo(String[] text, int x, int y) {
-		this.func_146283_a(Arrays.asList(text), x, y);
+		this.drawHoveringText(Arrays.asList(text), x, y);
 	}
 
 	/** Automatically grabs upgrade info out of the tile entity if it's a IUpgradeInfoProvider and crams the available info into a list for display. Automation, yeah! */
@@ -92,7 +100,7 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	@Deprecated
 	public void drawCustomInfo(GuiInfoContainer gui, int mouseX, int mouseY, int x, int y, int width, int height, String[] text) {
 		if(x <= mouseX && x + width > mouseX && y < mouseY && y + height >= mouseY)
-			this.func_146283_a(Arrays.asList(text), mouseX, mouseY);
+			this.drawHoveringText(Arrays.asList(text), mouseX, mouseY);
 	}
 
 	public void drawInfoPanel(int x, int y, int width, int height, int type) {
@@ -116,7 +124,7 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	}
 
 	protected boolean isMouseOverSlot(Slot slot, int x, int y) {
-		return this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y);
+		return this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);
 	}
 
 	//whoever made this private on the super deserves to eat a bowl of wasps
@@ -161,11 +169,11 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	}
 
 	public FontRenderer getFontRenderer() {
-		return this.fontRendererObj;
+		return this.fontRenderer;
 	}
 
 	public void pushScissor(int x, int y, int width, int height) {
-		ScaledResolution res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+		ScaledResolution res = new ScaledResolution(this.mc);
 		int scale = res.getScaleFactor();
 
 		// Note: Scissor is cut from the BOTTOM of the screen, so Y is inverted!
@@ -184,9 +192,10 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 		itemRender.zLevel = 200.0F;
 		FontRenderer font = null;
 		if(stack != null) font = stack.getItem().getFontRenderer(stack);
-		if(font == null) font = fontRendererObj;
-		itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), stack, x, y);
-		itemRender.renderItemOverlayIntoGUI(font, this.mc.getTextureManager(), stack, x, y, label);
+		if(font == null) font = fontRenderer;
+		if(stack == null) stack = ItemStack.EMPTY;
+		itemRender.renderItemAndEffectIntoGUI(stack, x, y);
+		itemRender.renderItemOverlayIntoGUI(font, stack, x, y, label);
 		this.zLevel = 0.0F;
 		itemRender.zLevel = 0.0F;
 	}
@@ -200,13 +209,13 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 
 	public void renderItem(ItemStack stack, int x, int y, float layer) {
 		FontRenderer font = stack.getItem().getFontRenderer(stack);
-		if(font == null) font = fontRendererObj;
+		if(font == null) font = fontRenderer;
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderHelper.enableGUIStandardItemLighting();
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) 240 / 1.0F, (float) 240 / 1.0F);
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		itemRender.zLevel = layer;
-		itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), stack, guiLeft + x, guiTop + y);
+		itemRender.renderItemAndEffectIntoGUI(stack, guiLeft + x, guiTop + y);
 		itemRender.zLevel = 0.0F;
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -301,15 +310,15 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 						ItemStack stack = (ItemStack) o;
 						GL11.glColor3f(1F, 1F, 1F);
 
-						if(stack.stackSize == 0) {
+						if(stack.getCount() == 0) {
 							this.drawGradientRect(minX + indent - 1, minY - 1, minX + indent + 17, minY + 17, 0xffff0000, 0xffff0000);
 							this.drawGradientRect(minX + indent, minY, minX + indent + 16, minY + 16, 0xffb0b0b0, 0xffb0b0b0);
 						}
 						GL11.glEnable(GL11.GL_DEPTH_TEST);
 						RenderHelper.enableGUIStandardItemLighting();
 						GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-						itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), stack, minX + indent, minY);
-						itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), stack, minX + indent, minY, null);
+						itemRender.renderItemAndEffectIntoGUI(stack, minX + indent, minY);
+						itemRender.renderItemOverlayIntoGUI(this.fontRenderer, stack, minX + indent, minY, null);
 						RenderHelper.disableStandardItemLighting();
 						GL11.glDisable(GL11.GL_DEPTH_TEST);
 						indent += 18;
@@ -333,14 +342,14 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	}
 
 	public void click() {
-		mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+		mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 	}
 
 	///NEI drag and drop support
 	@Override
-	@Optional.Method(modid = "NotEnoughItems")
+	@Optional.Method(modid = "nei")
 	public boolean handleDragNDrop(GuiContainer gui, int x, int y, ItemStack stack, int button) {
-		if(gui instanceof GuiInfoContainer && stack != null){
+		if(gui instanceof GuiInfoContainer && stack != null && !stack.isEmpty()){
 			Slot slot = getSlotAtPosition(x,y);
 			if(slot instanceof SlotPattern){
 				if(inventorySlots instanceof ContainerBase) {
@@ -352,7 +361,7 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 					tag.setTag("stack", item);
 
 					TileEntity te = (TileEntity) ((ContainerBase) inventorySlots).tile;
-					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(tag, te.xCoord, te.yCoord, te.zCoord));
+					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(tag, te.getPos().getX(), te.getPos().getY(), te.getPos().getZ()));
 					return true;
 				}
 			}
@@ -361,24 +370,24 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	}
 	//all credits for impl to GTNH's EnderCore fork
 	@Override
-	@Optional.Method(modid = "NotEnoughItems")
+	@Optional.Method(modid = "nei")
 	public boolean hideItemPanelSlot(GuiContainer gc, int x, int y, int w, int h) {
 		return false;
 	}
 	@Override
-	@Optional.Method(modid = "NotEnoughItems")
+	@Optional.Method(modid = "nei")
 	public VisibilityData modifyVisibility(GuiContainer gc, VisibilityData vd) {
 		return vd;
 	}
 
 	@Override
-	@Optional.Method(modid = "NotEnoughItems")
+	@Optional.Method(modid = "nei")
 	public Iterable<Integer> getItemSpawnSlots(GuiContainer gc, ItemStack is) {
 		return null;
 	}
 
 	@Override
-	@Optional.Method(modid = "NotEnoughItems")
+	@Optional.Method(modid = "nei")
 	public List<TaggedInventoryArea> getInventoryAreas(GuiContainer gc) {
 		return Collections.emptyList();
 	}

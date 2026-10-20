@@ -46,7 +46,7 @@ public class GUIRadioRec extends GuiScreen {
 		int oX = 4;
 		int oY = 4;
 
-		this.frequency = new GuiTextField(this.fontRendererObj, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);
+		this.frequency = new GuiTextField(0, this.fontRenderer, guiLeft + 25 + oX, guiTop + 17 + oY, 90 - oX * 2, 14);
 		this.frequency.setTextColor(0x00ff00);
 		this.frequency.setDisabledTextColour(0x00ff00);
 		this.frequency.setEnableBackgroundDrawing(false);
@@ -66,13 +66,13 @@ public class GUIRadioRec extends GuiScreen {
 
 	private void drawGuiContainerForegroundLayer(int x, int y) {
 		String name = I18nUtil.resolveKey("container.radio");
-		this.fontRendererObj.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
+		this.fontRenderer.drawString(name, this.guiLeft + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, this.guiTop + 6, 4210752);
 
 		if(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Save Settings" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Save Settings" }), x, y);
 		}
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Toggle" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Toggle" }), x, y);
 		}
 	}
 
@@ -95,17 +95,17 @@ public class GUIRadioRec extends GuiScreen {
 		this.frequency.mouseClicked(x, y, i);
 		
 		if(guiLeft + 137 <= x && guiLeft + 137 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("channel", this.frequency.getText());
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radio.xCoord, radio.yCoord, radio.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radio.getPos().getX(), radio.getPos().getY(), radio.getPos().getZ()));
 		}
 		
 		if(guiLeft + 173 <= x && guiLeft + 173 + 18 > x && guiTop + 17 < y && guiTop + 17 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("isOn", !radio.isOn);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radio.xCoord, radio.yCoord, radio.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radio.getPos().getX(), radio.getPos().getY(), radio.getPos().getZ()));
 		}
 	}
 
@@ -116,7 +116,7 @@ public class GUIRadioRec extends GuiScreen {
 			return;
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}

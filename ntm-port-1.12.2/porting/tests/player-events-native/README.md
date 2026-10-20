@@ -1,0 +1,12 @@
+# Native player interaction and item-use event declarations
+
+Exactly four original-derived methods: onClickBlock, onTrySleep, onPull, onFoodEaten. Complete large ModEventHandler remains uncompiled; this probe compiles/exercises those exact methods with genuine native Forge event transformation/event bus. Full production ShadyUtil compiles unchanged. Named NTM config/logger/providers/explosion/item identity/damage-source collaborators are explicit fixtures, not a simulated whole game.
+
+122 assertions cover actual RightClickBlock dispatch, both native hands, LeftClickBlock/RightClickItem exclusion, already-canceled suppression and receiveCanceled observer, server/client/config gates, exact explosion arguments/order, original namespace prefix predicate, original swapped Y/Z hidden-sign quirk, actual native sign text/reward EntityItem/pickup delay, native sleep provider/dimension/bed gate, exact ten food damage/RNG callbacks and original both-side behavior. New native nonplayer finish events are excluded to preserve old player-only scope. Finish result/input stack objects are untouched. Sign contents use native plain text; no altered hidden recipe/hash algorithm.
+
+Original Forge1614 EntityPlayer.getDisplayName() returns cached Forge displayname, not the team-decorated chat component. Native getDisplayNameString() is the correct replacement; test player supplies a different decorated getDisplayName component to catch accidental use. Original getDisplayName patch was inspected in the pinned original Forge userdev forgepatches.zip. No new censorship or username transformation.
+
+RightClickBlock is the actual native event type; no arbitrary hand suppression is introduced. Cancellation retains native default PASS, matching plain setCanceled(true), not silently changed to FAIL. This proves event callbacks, not the entire Minecraft right-click/offhand packet/activation pipeline. Original destroyed blocks/signs are removed before any subsequent native action. Live multiplayer and external event listeners remain integration acceptance, not claimed here.
+
+Run: python3 porting/tests/player-events-native/run.py --module MODULE --original ORIGINAL --java-home JDK8 --classpath NATIVE_CP
+Before integration add --source-root STAGING. Mapping compares every exact selected method to pristine, and production-scope.json pins full baseline/result plus unchanged real ShadyUtil. No net.minecraft/net.minecraftforge stubs, no dependency downloads, no source exclusion, no live client/server proof.

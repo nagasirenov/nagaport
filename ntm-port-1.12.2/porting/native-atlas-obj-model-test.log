@@ -1,0 +1,160 @@
+PINNED ORIGINAL SOURCE/ASSETS 87 UNCHANGED NATIVE ASSETS 72
+PRODUCTION com/hbm/render/block/RenderPipe.java ed93334575c2561cf552e374ffbf0bfe3f64415a33f46c8e89c11fbf0fb26cbb
+PRODUCTION com/hbm/render/block/RenderCapacitor.java c2b0b0a2fb2ef1d05fe1b72eb2d1e579463f265de5427a398eda94f090a8f633
+PRODUCTION com/hbm/render/block/RenderBarrel.java 25a8008c82a3b4df8c581d4e89b9ca5fdfe4aa20f46fb8f9b3098f23e3878ef0
+PRODUCTION com/hbm/render/block/RenderBattery.java 2ccdb227a68c6850df98b092d3b2f584dbb833a14cb52266646ad02f3c18903a
+PRODUCTION com/hbm/render/block/RenderAntennaTop.java 587ded1d55adac14f7412f727b6f89816de495385aea992b66042f4547465830
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjBakedModel.java e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa
+PRODUCTION com/hbm/render/block/nativeblock/ConnectionQuadFactory.java 81d2b3a95cef3980479d4cf15dc697c33fcac2972aab7fb533e214376d5e4d4a
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/main/AtlasObjBlockModelHandler.java d9d3290ffc769a1539100430ed164ad6025639563ca859ef567cbe5715edf0c7
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+/tmp/atlas-obj-model-native-viw9p45q/AtlasObjModelNativeTest.java:129: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+                ^
+/tmp/atlas-obj-model-native-viw9p45q/AtlasObjModelNativeTest.java:147: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+                                            ^
+/tmp/atlas-obj-model-native-viw9p45q/AtlasObjModelNativeTest.java:147: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+                                                                                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PINNED ORIGINAL CLIENT a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+PASS actual cached original 1.7.10 Vec3 Z-then-Y rotations: 7776 exact double comparisons; float MathHelper table inputs, native 1.12 helper matches original signs/precision.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pole_top`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pole_top`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_rim_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_framed_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_green`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_green_rusted`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_red`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_pipe_quad_marked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.hev_battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.hev_battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.red_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.red_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pink_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.pink_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.yellow_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.yellow_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.oil_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.oil_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.vitrified_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.vitrified_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.lox_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.lox_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.taint_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.taint_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_copper`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_copper`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_gold`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_gold`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_niobium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_niobium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_complex`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_complex`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_tantalium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_tantalium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_schrabidate`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.capacitor_schrabidate`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_plastic`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_plastic`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_corroded`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_corroded`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_iron`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_iron`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_steel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_steel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_tcalloy`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_tcalloy`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_antimatter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:54:26] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barrel_antimatter`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+ORIGINAL OBJ pipe: 2 ordered groups, 32 triangles
+ORIGINAL OBJ pipe_rim: 2 ordered groups, 80 triangles
+ORIGINAL OBJ pipe_quad: 2 ordered groups, 128 triangles
+ORIGINAL OBJ pipe_frame: 2 ordered groups, 64 triangles
+ORIGINAL OBJ capacitor: 5 ordered groups, 24 triangles
+ORIGINAL OBJ barrel: 1 ordered groups, 12 triangles
+ORIGINAL OBJ battery: 1 ordered groups, 88 triangles
+ORIGINAL OBJ antenna_top: 1 ordered groups, 70 triangles
+PASS controlled original quad resource: whole5-per-face stream across groups, part4-per-face, final remainder, duplicate last-case-sensitive lookup, original per-vertex normals/colors
+[17:54:26] [main/INFO]: Reloading ResourceManager: resources
+[17:54:26] [main/INFO]: Reloading ResourceManager: resources
+PASS resources: all45 owners x16 state/item routes, complete source-ordered vertices, real Forge+vanilla light, actual ItemModelMesher
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: resources
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:27] [main/INFO]: Reloading ResourceManager: resources
+PASS resources: changed/reloaded/restored/missing resources for all8 meshes, retained lists immutable
+[17:54:27] [main/INFO]: Reloading ResourceManager: atlas-family-resources.jar
+[17:54:27] [main/INFO]: Reloading ResourceManager: atlas-family-resources.jar
+PASS atlas-family-resources.jar: all45 owners x16 state/item routes, complete source-ordered vertices, real Forge+vanilla light, actual ItemModelMesher
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: atlas-family-resources.jar
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[17:54:28] [main/INFO]: Reloading ResourceManager: atlas-family-resources.jar
+PASS atlas-family-resources.jar: changed/reloaded/restored/missing resources for all8 meshes, retained lists immutable
+PASS native Atlas OBJ model parity: 3266948 assertions, 722136 complete native vertices; five complete production renderers/helpers/loader, independent pinned pristine selectors/shaders and ordered OBJ, all45 owners x16 state/item routes in directory and jar, all8 mesh resources, native flat light and ItemModelMesher, quad replacement stream semantics.
+Boundaries: only controlled NTM owner blocks expose metadata and material collaborators. No fake Minecraft/Forge classes. Complete actual owner behavior is verified separately. CPU-headless proof, not live graphical acceptance.

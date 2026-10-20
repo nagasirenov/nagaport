@@ -1,0 +1,3 @@
+Attribution errors (not a whole-mod compile): 15902
+PASS seven real-javac AST selection controls (two accepted, five rejected)
+PASS 62-site AST inventory, 50 native constructor resolutions, 35 exact source inverses, 128 collision-free per-screen IDs, 50 rejected ID mutants; 12 outside-scope constructors unchanged.

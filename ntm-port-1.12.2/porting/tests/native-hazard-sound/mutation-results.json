@@ -1,0 +1,20 @@
+[
+  {
+    "mutant": "drop-assignment",
+    "result": "runtime rejected",
+    "diagnostic": "Caused by: java.lang.AssertionError: exact original sound argument identity",
+    "full_log_sha256": "ed0bd89bb53c5dd92718d605cf746782526e8b42f080855687e20717cb0df6bc"
+  },
+  {
+    "mutant": "wrong-argument",
+    "result": "runtime rejected",
+    "diagnostic": "Caused by: java.lang.AssertionError: exact original sound argument identity",
+    "full_log_sha256": "321d766d5cd9f1b2d27a2af8c1741d888b326fbc13b42e9bdca3c2f74d7bd427"
+  },
+  {
+    "mutant": "null-return",
+    "result": "runtime rejected",
+    "diagnostic": "Caused by: java.lang.NullPointerException",
+    "full_log_sha256": "bf5a4fdef9555f3ea9df9604d353c1fdd97bcc68d6ce32733d8ee9b811998d37"
+  }
+]

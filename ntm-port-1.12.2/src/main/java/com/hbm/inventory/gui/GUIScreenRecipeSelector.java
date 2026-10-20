@@ -76,7 +76,7 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 		this.guiTop = (this.height - this.ySize) / 2;
 
 		Keyboard.enableRepeatEvents(true);
-		this.search = new GuiTextField(this.fontRendererObj, guiLeft + 28, guiTop + 111, 102, 12);
+		this.search = new GuiTextField(0, this.fontRenderer, guiLeft + 28, guiTop + 111, 102, 12);
 		this.search.setTextColor(-1);
 		this.search.setDisabledTextColour(-1);
 		this.search.setEnableBackgroundDrawing(false);
@@ -136,7 +136,7 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 				
 				if(guiLeft + ix <= mouseX && guiLeft + ix + 18 > mouseX && guiTop + iy < mouseY && guiTop + iy + 18 >= mouseY) {
 					GenericRecipe recipe = recipes.get(i);
-					this.func_146283_a(recipe.print(), 0, 900);
+					this.drawHoveringText(recipe.print(), 0, 900);
 				}
 			}
 		}
@@ -144,20 +144,20 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 		if(guiLeft + 151 <= mouseX && guiLeft + 151 + 18 > mouseX && guiTop + 71 < mouseY && guiTop + 71 + 18 >= mouseY) {
 			if(this.selection != null && this.recipeSet.recipeNameMap.containsKey(selection)) {
 				GenericRecipe recipe = (GenericRecipe) this.recipeSet.recipeNameMap.get(selection);
-				this.func_146283_a(recipe.print(), 0, 900);
+				this.drawHoveringText(recipe.print(), 0, 900);
 			}
 		}
 
 		if(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {
-			this.drawCreativeTabHoveringText(TextFormatting.YELLOW + "Close", mouseX, mouseY);
+			this.drawHoveringText(TextFormatting.YELLOW + "Close", mouseX, mouseY);
 		}
 
 		if(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {
-			this.drawCreativeTabHoveringText(TextFormatting.YELLOW + "Clear search", mouseX, mouseY);
+			this.drawHoveringText(TextFormatting.YELLOW + "Clear search", mouseX, mouseY);
 		}
 
 		if(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {
-			this.drawCreativeTabHoveringText(TextFormatting.ITALIC + "Press ENTER to toggle focus", mouseX, mouseY);
+			this.drawHoveringText(TextFormatting.ITALIC + "Press ENTER to toggle focus", mouseX, mouseY);
 		}
 	}
 	
@@ -229,7 +229,7 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 	public void renderItem(ItemStack stack, int x, int y) {
 		
 		FontRenderer font = stack.getItem().getFontRenderer(stack);
-		if(font == null) font = fontRendererObj;
+		if(font == null) font = fontRenderer;
 		
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderHelper.enableGUIStandardItemLighting();
@@ -311,7 +311,7 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 		data.setInteger("index", this.index);
 		data.setString("selection", this.selection);
 		TileEntity te = (TileEntity) tile;
-		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, te.xCoord, te.yCoord, te.zCoord));
+		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, te.getPos().getX(), te.getPos().getY(), te.getPos().getZ()));
 	}
 
 	@Override
@@ -334,7 +334,7 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 		if(keyCode == Keyboard.KEY_HOME) pageIndex = 0;
 		if(keyCode == Keyboard.KEY_END) pageIndex = size;
 		
-		pageIndex = MathHelper.clamp_int(pageIndex, 0, size);
+		pageIndex = MathHelper.clamp(pageIndex, 0, size);
 		
 		if(keyCode == 1 || keyCode == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
 			FMLCommonHandler.instance().showGuiScreen(previousScreen);
@@ -342,5 +342,5 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 	}
 	@Override public boolean doesGuiPauseGame() { return false; }
 	
-	public void click() { mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F)); }
+	public void click() { mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F)); }
 }

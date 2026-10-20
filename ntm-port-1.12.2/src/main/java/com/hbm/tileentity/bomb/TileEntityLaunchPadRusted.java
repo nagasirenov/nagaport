@@ -43,14 +43,14 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.launchPadRusted";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.redstonePower > 0 && this.prevRedstonePower <= 0) {
 				this.launch();
@@ -60,21 +60,21 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 			this.networkPackNT(250);
 		} else {
 
-			List<EntityMissileBaseNT> entities = worldObj.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord, zCoord - 0.5, xCoord + 1.5, yCoord + 10, zCoord + 1.5));
+			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
 
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-					if(worldObj.rand.nextBoolean()) dir = dir.getOpposite();
-					if(worldObj.rand.nextBoolean()) dir = dir.getRotation(ForgeDirection.UP);
-					float moX = (float) (worldObj.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetX;
-					float moZ = (float) (worldObj.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetZ;
+					if(this.world.rand.nextBoolean()) dir = dir.getOpposite();
+					if(this.world.rand.nextBoolean()) dir = dir.getRotation(ForgeDirection.UP);
+					float moX = (float) (this.world.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetX;
+					float moZ = (float) (this.world.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetZ;
 
 					NBTTagCompound data = new NBTTagCompound();
-					data.setDouble("posX", xCoord + 0.5);
-					data.setDouble("posY", yCoord + 0.25);
-					data.setDouble("posZ", zCoord + 0.5);
+					data.setDouble("posX", this.pos.getX() + 0.5);
+					data.setDouble("posY", this.pos.getY() + 0.25);
+					data.setDouble("posZ", this.pos.getZ() + 0.5);
 					data.setString("type", "launchSmoke");
 					data.setDouble("moX", moX);
 					data.setDouble("moY", 0);
@@ -105,16 +105,16 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 				if(slots[3] != null && slots[3].getItem() instanceof IDesignatorItem) {
 					IDesignatorItem designator = (IDesignatorItem) slots[3].getItem();
 
-					if(!designator.isReady(worldObj, slots[3], xCoord, yCoord, zCoord)) return BombReturnCode.ERROR_MISSING_COMPONENT;
+					if(!designator.isReady(this.world, slots[3], this.pos.getX(), this.pos.getY(), this.pos.getZ())) return BombReturnCode.ERROR_MISSING_COMPONENT;
 
-					Vec3d coords = designator.getCoords(worldObj, slots[3], xCoord, yCoord, zCoord);
+					Vec3d coords = designator.getCoords(this.world, slots[3], this.pos.getX(), this.pos.getY(), this.pos.getZ());
 					int targetX = (int) Math.floor(coords.x);
 					int targetZ = (int) Math.floor(coords.z);
 
-					EntityMissileDoomsdayRusted missile = new EntityMissileDoomsdayRusted(worldObj, xCoord + 0.5F, yCoord + 1F, zCoord + 0.5F, targetX, targetZ);
-					worldObj.spawnEntityInWorld(missile);
-					TrackerUtil.setTrackingRange(worldObj, missile, 500);
-					worldObj.playSoundEffect(xCoord + 0.5, yCoord, zCoord + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F);
+					EntityMissileDoomsdayRusted missile = new EntityMissileDoomsdayRusted(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1F, this.pos.getZ() + 0.5F, targetX, targetZ);
+					this.world.spawnEntityInWorld(missile);
+					TrackerUtil.setTrackingRange(this.world, missile, 500);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F);
 					this.missileLoaded = false;
 					this.decrStackSize(1, 1);
 					this.markDirty();
@@ -143,7 +143,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("missileLoaded", missileLoaded);
@@ -159,11 +159,12 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 			i++;
 		}
 		nbt.setTag("activatedBlocks", activatedBlocks);
+		return nbt;
 	}
 
 	public void updateRedstonePower(int x, int y, int z) {
 		BlockPos pos = new BlockPos(x, y, z);
-		boolean powered = worldObj.isBlockIndirectlyGettingPowered(x, y, z);
+		boolean powered = this.world.isBlockIndirectlyGettingPowered(x, y, z);
 		boolean contained = activatedBlocks.contains(pos);
 		if(!contained && powered){
 			activatedBlocks.add(pos);
@@ -187,12 +188,12 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 15,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 15,
+					this.pos.getZ() + 3
 					);
 		}
 
@@ -218,7 +219,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

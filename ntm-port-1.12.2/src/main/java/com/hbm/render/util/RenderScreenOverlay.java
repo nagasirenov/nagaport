@@ -1,6 +1,7 @@
 package com.hbm.render.util;
 
 import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.opengl.GL12;
 
 import com.hbm.config.ClientConfig;
@@ -22,7 +23,8 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -32,7 +34,6 @@ import net.minecraftforge.client.GuiIngameForge;
 public class RenderScreenOverlay {
 
 	public static final ResourceLocation misc = new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_misc.png");
-	public static final RenderItem itemRenderer = RenderItem.getInstance();
 	
 	private static long lastSurvey;
 	private static float prevResult;
@@ -43,10 +44,10 @@ public class RenderScreenOverlay {
 	public static void renderRadCounter(ScaledResolution resolution, float in, Gui gui) {
 		GL11.glPushMatrix();
 
-		GL11.glEnable(GL11.GL_BLEND);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
+		GlStateManager.enableBlend();
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableAlpha();
 
 		float radiation = 0;
 
@@ -78,10 +79,10 @@ public class RenderScreenOverlay {
 		else if(radiation >= 1) Minecraft.getMinecraft().fontRenderer.drawString(((int) Math.round(radiation)) + " RAD/s", posX, posY - 8, 0xFF0000);
 		else if(radiation > 0) Minecraft.getMinecraft().fontRenderer.drawString("<1 RAD/s", posX, posY - 8, 0xFF0000);
 
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		GL11.glDepthMask(true);
+		GlStateManager.enableDepth();
+		GlStateManager.depthMask(true);
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	private static int getScaled(double cur, double max, double scale) {
@@ -92,7 +93,7 @@ public class RenderScreenOverlay {
 	public static void renderCustomCrosshairs(ScaledResolution resolution, Gui gui, Crosshair cross) {
 
 		if(cross == Crosshair.NONE) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+			Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 			return;
 		}
 
@@ -100,13 +101,13 @@ public class RenderScreenOverlay {
 
 		GL11.glPushMatrix();
 		Minecraft.getMinecraft().renderEngine.bindTexture(misc);
-		GL11.glEnable(GL11.GL_BLEND);
-		OpenGlHelper.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_COLOR, 1, 0);
+		GlStateManager.enableBlend();
+		GlStateManager.tryBlendFuncSeparate(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_COLOR, 1, 0);
 		gui.drawTexturedModalRect(resolution.getScaledWidth() / 2 - (size / 2), resolution.getScaledHeight() / 2 - (size / 2), cross.x, cross.y, size, size);
-		OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
-		GL11.glDisable(GL11.GL_BLEND);
+		GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
+		GlStateManager.disableBlend();
         GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	public static void renderStingerLockon(ScaledResolution resolution, Gui gui) {
@@ -115,11 +116,11 @@ public class RenderScreenOverlay {
 		
 		GL11.glPushMatrix();
 		Minecraft.getMinecraft().renderEngine.bindTexture(misc);
-		GL11.glDisable(GL11.GL_BLEND);
+		GlStateManager.disableBlend();
 		gui.drawTexturedModalRect(resolution.getScaledWidth() / 2 - 15, resolution.getScaledHeight() / 2  + 18, 146, 18, 30, 10);
 		gui.drawTexturedModalRect(resolution.getScaledWidth() / 2 - 14, resolution.getScaledHeight() / 2  + 19, 147, 29, progress, 8);
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	public static void renderAmmo(ScaledResolution resolution, Gui gui, ItemStack ammo, int count, int max, int dura, boolean renderCount) {
@@ -140,15 +141,15 @@ public class RenderScreenOverlay {
 		if(renderCount)
 			Minecraft.getMinecraft().fontRenderer.drawString(count + " / " + cap, pX + 16, pZ + 6, 0xFFFFFF);
 		
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.disableBlend();
+		GlStateManager.enableRescaleNormal();
 		RenderHelper.enableGUIStandardItemLighting();
-		itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), ammo, pX, pZ);
+		mc.getRenderItem().renderItemAndEffectIntoGUI(ammo, pX, pZ);
 		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.disableRescaleNormal();
 		
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	public static void renderAmmoAlt(ScaledResolution resolution, Gui gui, ItemStack ammo, int count) {
@@ -164,15 +165,15 @@ public class RenderScreenOverlay {
 		
 		Minecraft.getMinecraft().fontRenderer.drawString(count + "x", pX + 16, pZ + 6, 0xFFFFFF);
 
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.disableBlend();
+		GlStateManager.enableRescaleNormal();
 		RenderHelper.enableGUIStandardItemLighting();
-			itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), ammo, pX, pZ);
+			mc.getRenderItem().renderItemAndEffectIntoGUI(ammo, pX, pZ);
 		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.disableRescaleNormal();
 		
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	@Spaghetti ("like a fella once said, aint that a kick in the head")
@@ -180,12 +181,12 @@ public class RenderScreenOverlay {
 
 		GL11.glPushMatrix();
 		
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		GL11.glDepthMask(false);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
+		GlStateManager.enableBlend();
+		GlStateManager.disableDepth();
+		GlStateManager.depthMask(false);
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableAlpha();
 		
 		Minecraft mc = Minecraft.getMinecraft();
 		
@@ -225,7 +226,7 @@ public class RenderScreenOverlay {
 					fadeOut = 1F;
 				}
 				if(fadeOut > 0 && staminaDiv-1 == barID) {
-					GL11.glColor4f(1F, 1F, 1F, fadeOut);
+					GlStateManager.color(1F, 1F, 1F, fadeOut);
 					int bar = barID;
 					if(stamina % 30 >= 25) bar++;
 					if(bar / 3 != y) y++;
@@ -233,22 +234,22 @@ public class RenderScreenOverlay {
 					bar = bar % 3;
 					gui.drawTexturedModalRect(posX + (width + 2) * bar, posY - 12 * y, 76, 58, width, 10);
 					fadeOut -= 0.04F;
-					GL11.glColor4f(1F, 1F, 1F, 1F);
+					GlStateManager.color(1F, 1F, 1F, 1F);
 				}
 			}
 		}
 		
 		
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		GL11.glDepthMask(true);
+		GlStateManager.enableDepth();
+		GlStateManager.depthMask(true);
 		GL11.glPopMatrix();
-		mc.renderEngine.bindTexture(Gui.icons);
+		mc.renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	//call in post health bar rendering event
 	public static void renderShieldBar(ScaledResolution resolution, Gui gui) {
 		
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		HbmPlayerProps props = HbmPlayerProps.getData(player);
 		FontRenderer font = Minecraft.getMinecraft().fontRenderer;
 
@@ -268,23 +269,24 @@ public class RenderScreenOverlay {
 		font.drawString(label, left + 40 - font.getStringWidth(label) / 2, top, 0x0000);
 		font.drawString(label, left + 40 - font.getStringWidth(label) / 2, top + 2, 0x0000);
 		font.drawString(label, left + 40 - font.getStringWidth(label) / 2, top + 1, 0xFFFF80);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		
 		GuiIngameForge.left_height += 10;
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 
 	
 	@Untested
 	public static void renderScope(ScaledResolution res, ResourceLocation tex) {
 
-		GL11.glEnable(GL11.GL_BLEND);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
+		GlStateManager.enableBlend();
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableAlpha();
 		
 		Minecraft.getMinecraft().renderEngine.bindTexture(tex);
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
 
 		double w = res.getScaledWidth();
 		double h = res.getScaledHeight();
@@ -301,18 +303,18 @@ public class RenderScreenOverlay {
 		
 		double depth = -300D;
 		
-		tess.startDrawingQuads();
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
 		
-		tess.addVertexWithUV(0, h, depth, wMin, hMax);
-		tess.addVertexWithUV(w, h, depth, wMax, hMax);
-		tess.addVertexWithUV(w, 0, depth, wMax, hMin);
-		tess.addVertexWithUV(0, 0, depth, wMin, hMin);
+		buffer.pos(0, h, depth).tex(wMin, hMax).endVertex();
+		buffer.pos(w, h, depth).tex(wMax, hMax).endVertex();
+		buffer.pos(w, 0, depth).tex(wMax, hMin).endVertex();
+		buffer.pos(0, 0, depth).tex(wMin, hMin).endVertex();
 		tess.draw();
 		
-		GL11.glDepthMask(true);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.depthMask(true);
+		GlStateManager.enableDepth();
+		GlStateManager.enableAlpha();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 	
 	public static void renderBadges(ScaledResolution res, Gui gui) {
@@ -321,12 +323,12 @@ public class RenderScreenOverlay {
 		
 		Minecraft.getMinecraft().entityRenderer.setupOverlayRendering();
 		
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		GL11.glDepthMask(false);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
+		GlStateManager.enableBlend();
+		GlStateManager.disableDepth();
+		GlStateManager.depthMask(false);
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableAlpha();
 
 		Minecraft.getMinecraft().renderEngine.bindTexture(misc);
 		
@@ -344,12 +346,12 @@ public class RenderScreenOverlay {
 		if(trueRam) { gui.drawTexturedModalRect(offsetX, offsetY, 0, 234, 24, 8); offsetX += width; }
 		if(true328) { gui.drawTexturedModalRect(offsetX, offsetY, 0, 242, 24, 8); offsetX += width; }
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 
-		GL11.glDepthMask(true);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.depthMask(true);
+		GlStateManager.enableDepth();
+		GlStateManager.enableAlpha();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GL11.glPopMatrix();
 	}
 	
@@ -357,8 +359,8 @@ public class RenderScreenOverlay {
 	public static void renderCountdown(ScaledResolution resolution, Gui gui, World world) {
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0, 0, 0.0F);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_BLEND);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableBlend();
 
 		int left = 5;
 		int top = 5;
@@ -402,8 +404,8 @@ public class RenderScreenOverlay {
 			}
 		}
 
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.enableBlend();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GL11.glPopMatrix();
 	}	
 	
@@ -417,7 +419,7 @@ public class RenderScreenOverlay {
 		gui.drawTexturedModalRect(left, top, 146, 18, 81, 12);
 		
 	
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 
 	public static void renderFlashbangOverlay(ScaledResolution resolution) {
@@ -425,24 +427,25 @@ public class RenderScreenOverlay {
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(tex);
 
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		GL11.glDepthMask(false);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
+		GlStateManager.enableBlend();
+		GlStateManager.disableDepth();
+		GlStateManager.depthMask(false);
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableAlpha();
 
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(0.0D, (double) resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);
-		tessellator.addVertexWithUV((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);
-		tessellator.addVertexWithUV((double) resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);
-		tessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder buffer = tessellator.getBuffer();
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+		buffer.pos(0.0D, (double) resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();
+		buffer.pos((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();
+		buffer.pos((double) resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();
+		buffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();
 		tessellator.draw();
-		GL11.glDepthMask(true);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.depthMask(true);
+		GlStateManager.enableDepth();
+		GlStateManager.enableAlpha();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 }

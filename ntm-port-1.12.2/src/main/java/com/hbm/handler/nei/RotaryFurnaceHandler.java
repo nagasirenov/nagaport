@@ -22,30 +22,27 @@ public class RotaryFurnaceHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmRotaryFurnace";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(58, 19, 32, 10), "ntmRotaryFurnace"));
-		guiGui.add(GUIMachineRotaryFurnace.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMachineRotaryFurnace.class, (58) + 5, (19) + 11, 32, 10, "ntmRotaryFurnace");
 	}
 
 	@Override
-	public void drawExtras(int recipe) {
+	public void drawRecipe(com.hbm.handler.jei.MachineRecipeView rec, Minecraft minecraft, int mouseX, int mouseY) {
 
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
-		Object[] original = (Object[]) rec.originalInputInstance;
-		ItemStack output = rec.output[0].item;
+		super.drawRecipe(rec, minecraft, mouseX, mouseY);
+		Object[] original = (Object[]) rec.source;
+		ItemStack output = rec.displayedOutput(0);
 		
 		outer: for(RotaryFurnaceRecipe arc : RotaryFurnaceRecipes.recipes) {
 			
 			if(ItemStack.areItemStacksEqual(ItemScraps.create(arc.output, true), output) && arc.ingredients.length == original.length - (arc.fluid == null ? 0 : 1)) {
 				
-				for(int i = 0; i < rec.input.length - (arc.fluid == null ? 0 : 1); i++) {
+				for(int i = 0; i < rec.inputs.length - (arc.fluid == null ? 0 : 1); i++) {
 					if(arc.ingredients[i] != original[i]) continue outer;
 				}
 

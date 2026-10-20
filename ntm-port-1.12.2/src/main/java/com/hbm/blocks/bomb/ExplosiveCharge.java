@@ -68,7 +68,7 @@ public class ExplosiveCharge extends BlockDetonatable implements IBomb, IDetConn
 	public BombReturnCode explode(World world, int x, int y, int z) {
 
 		if(!world.isRemote) {
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			if(this == ModBlocks.det_cord) {
 				world.createExplosion(null, x + 0.5, y + 0.5, z + 0.5, 1.5F, true);
 			}
@@ -101,7 +101,7 @@ public class ExplosiveCharge extends BlockDetonatable implements IBomb, IDetConn
 
 	@Override
 	public void explodeEntity(World world, double x, double y, double z, EntityTNTPrimedBase entity) {
-		explode(world, MathHelper.floor_double(x), MathHelper.floor_double(y), MathHelper.floor_double(z));
+		explode(world, MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));
 	}
 
 }

@@ -38,15 +38,15 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 
 	@Override
 	protected Item getDropItem() {
-		return Item.getItemFromBlock(Blocks.tnt);
+		return Item.getItemFromBlock(Blocks.TNT);
 	}
 
 	@Override
 	public void func_146077_cc() {
-		if(!this.worldObj.isRemote) {
-			boolean griefing = this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing");
+		if(!this.world.isRemote) {
+			boolean griefing = this.world.getGameRules().getGameRuleBooleanValue("mobGriefing");
 
-			worldObj.newExplosion(this, posX, posY, posZ, 5.0F, false, false);
+			this.world.newExplosion(this, posX, posY, posZ, 5.0F, false, false);
 
 			if(griefing) {
 				if(this.getPowered()) {
@@ -55,12 +55,12 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 						int a = rand.nextInt(15) + (int) posX - 7;
 						int b = rand.nextInt(15) + (int) posY - 7;
 						int c = rand.nextInt(15) + (int) posZ - 7;
-						Block block = worldObj.getBlock(a, b, c);
-						if(block.isNormalCube() && !block.isAir(worldObj, a, b, c)) {
+						Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
+						if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
 							if(!ServerConfig.TAINT_TRAILS.get()) {
-								worldObj.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 5, 2);
+								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 5, 2);
 							} else {
-								worldObj.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3), 2);
+								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3), 2);
 							}
 						}
 					}
@@ -71,12 +71,12 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 						int a = rand.nextInt(7) + (int) posX - 3;
 						int b = rand.nextInt(7) + (int) posY - 3;
 						int c = rand.nextInt(7) + (int) posZ - 3;
-						Block block = worldObj.getBlock(a, b, c);
-						if(block.isNormalCube() && !block.isAir(worldObj, a, b, c)) {
+						Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
+						if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
 							if(!ServerConfig.TAINT_TRAILS.get()) {
-								worldObj.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(6) + 10, 2);
+								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(6) + 10, 2);
 							} else {
-								worldObj.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
+								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
 							}
 						}
 					}
@@ -88,13 +88,13 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 	}
 
 	public static boolean hasPosNeightbour(World world, int x, int y, int z) {
-		Block b0 = world.getBlock(x + 1, y, z);
-		Block b1 = world.getBlock(x, y + 1, z);
-		Block b2 = world.getBlock(x, y, z + 1);
-		Block b3 = world.getBlock(x - 1, y, z);
-		Block b4 = world.getBlock(x, y - 1, z);
-		Block b5 = world.getBlock(x, y, z - 1);
-		boolean b = (b0.renderAsNormalBlock() && b0.getMaterial().isOpaque()) || (b1.renderAsNormalBlock() && b1.getMaterial().isOpaque()) || (b2.renderAsNormalBlock() && b2.getMaterial().isOpaque()) || (b3.renderAsNormalBlock() && b3.getMaterial().isOpaque()) || (b4.renderAsNormalBlock() && b4.getMaterial().isOpaque()) || (b5.renderAsNormalBlock() && b5.getMaterial().isOpaque());
+		Block b0 = com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock();
+		Block b1 = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
+		Block b2 = com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock();
+		Block b3 = com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock();
+		Block b4 = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
+		Block b5 = com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock();
+		boolean b = (b0.renderAsNormalBlock() && b0.getDefaultState().getMaterial().isOpaque()) || (b1.renderAsNormalBlock() && b1.getDefaultState().getMaterial().isOpaque()) || (b2.renderAsNormalBlock() && b2.getDefaultState().getMaterial().isOpaque()) || (b3.renderAsNormalBlock() && b3.getDefaultState().getMaterial().isOpaque()) || (b4.renderAsNormalBlock() && b4.getDefaultState().getMaterial().isOpaque()) || (b5.renderAsNormalBlock() && b5.getDefaultState().getMaterial().isOpaque());
 		return b;
 	}
 }

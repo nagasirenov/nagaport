@@ -32,7 +32,7 @@ public class ItemStarterKit extends Item {
 		for(int i = 0; i < 4; i++) {
 
 			if(p.inventory.armorInventory[i] != null && !world.isRemote) {
-				world.spawnEntityInWorld(new EntityItem(world, p.posX, p.posY + p.eyeHeight, p.posZ, p.inventory.armorInventory[i]));
+				world.spawnEntity(new EntityItem(world, p.posX, p.posY + p.eyeHeight, p.posZ, p.inventory.armorInventory[i]));
 			}
 		}
 

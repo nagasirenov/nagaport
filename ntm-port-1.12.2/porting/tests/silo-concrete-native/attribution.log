@@ -1,0 +1,41 @@
+net.minecraft.world.World, int, int, int);
+    Code:
+       0: invokestatic  #2                  // Method com/hbm/lib/Library.getRandomConcrete:()Lnet/minecraft/block/Block;
+       3: astore        4
+       5: aload_0
+       6: ifnonnull     17
+       9: new           #3                  // class java/lang/NullPointerException
+      12: dup
+      13: invokespecial #4                  // Method java/lang/NullPointerException."<init>":()V
+      16: athrow
+      17: iload_1
+      18: ldc           #5                  // int -30000000
+      20: if_icmplt     74
+      23: iload_3
+      24: ldc           #5                  // int -30000000
+      26: if_icmplt     74
+      29: iload_1
+      30: ldc           #6                  // int 30000000
+      32: if_icmpge     74
+      35: iload_3
+      36: ldc           #6                  // int 30000000
+      38: if_icmpge     74
+      41: iload_2
+      42: iflt          74
+      45: iload_2
+      46: sipush        256
+      49: if_icmpge     74
+      52: aload_0
+      53: new           #7                  // class net/minecraft/util/math/BlockPos
+      56: dup
+      57: iload_1
+      58: iload_2
+      59: iload_3
+      60: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      63: aload         4
+      65: iconst_0
+      66: invokevirtual #9                  // Method net/minecraft/block/Block.getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+      69: iconst_3
+      70: invokevirtual #10                 // Method net/minecraft/world/World.setBlockState:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z
+      73: pop
+      74: return

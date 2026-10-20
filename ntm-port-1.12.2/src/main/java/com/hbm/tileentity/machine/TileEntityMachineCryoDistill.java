@@ -46,24 +46,24 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.cryoDistillator";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[0].setType(7, slots);
 
 			DirPos[] con = getConPos();
 
 			// Subscribe to powernet
-			trySubscribe(worldObj, con[5].getX(), con[5].getY(), con[5].getZ(), con[5].getDir());
+			trySubscribe(this.world, con[5].getX(), con[5].getY(), con[5].getZ(), con[5].getDir());
 
 			// Subscribe input tank
-			trySubscribe(tanks[0].getTankType(), worldObj, con[0].getX(), con[0].getY(), con[0].getZ(), con[0].getDir());
+			trySubscribe(tanks[0].getTankType(), this.world, con[0].getX(), con[0].getY(), con[0].getZ(), con[0].getDir());
 
 			distill();
 
@@ -75,7 +75,7 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 			for(int i = 1; i < 5; i++) {
 				for(int o = 1; o < 5; o++) {
 					if(tanks[i].getFill() > 0) {
-						this.sendFluid(tanks[i], worldObj, con[o].getX(), con[o].getY(), con[o].getZ(), con[o].getDir());
+						this.sendFluid(tanks[i], this.world, con[o].getX(), con[o].getY(), con[o].getZ(), con[o].getDir());
 					}
 				}
 			}
@@ -137,16 +137,16 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 
 		return new DirPos[] {
 			// Input
-			new DirPos(xCoord + dir.offsetX * -1 + rot.offsetX * -3, yCoord - 2, zCoord + dir.offsetZ * -1 + rot.offsetZ * -3, rot.getOpposite()),
+			new DirPos(this.pos.getX() + dir.offsetX * -1 + rot.offsetX * -3, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * -1 + rot.offsetZ * -3, rot.getOpposite()),
 
 			// Outputs
-			new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX * -2, yCoord - 2, zCoord + dir.offsetZ * 4 + rot.offsetZ * -2, dir),
-			new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX * -1, yCoord - 2, zCoord + dir.offsetZ * 4 + rot.offsetZ * -1, dir),
-			new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX * 1, yCoord - 2, zCoord + dir.offsetZ * 4 + rot.offsetZ * 1, dir),
-			new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX * 2, yCoord - 2, zCoord + dir.offsetZ * 4 + rot.offsetZ * 2, dir),
+			new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX * -2, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ * -2, dir),
+			new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX * -1, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ * -1, dir),
+			new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX * 1, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ * 1, dir),
+			new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX * 2, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ * 2, dir),
 
 			// Power
-			new DirPos(xCoord + dir.offsetX * -2 + rot.offsetX * -3, yCoord - 2, zCoord + dir.offsetZ * -2 + rot.offsetZ * -3, rot.getOpposite()),
+			new DirPos(this.pos.getX() + dir.offsetX * -2 + rot.offsetX * -3, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * -2 + rot.offsetZ * -3, rot.getOpposite()),
 		};
 	}
 
@@ -163,7 +163,7 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -172,6 +172,7 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 		tanks[2].writeToNBT(nbt, "o2");
 		tanks[3].writeToNBT(nbt, "o3");
 		tanks[4].writeToNBT(nbt, "o4");
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -180,12 +181,12 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 4,
-				yCoord - 2,
-				zCoord - 4,
-				xCoord + 6,
-				yCoord + 5,
-				zCoord + 4
+				this.pos.getX() - 4,
+				this.pos.getY() - 2,
+				this.pos.getZ() - 4,
+				this.pos.getX() + 6,
+				this.pos.getY() + 5,
+				this.pos.getZ() + 4
 			);
 		}
 

@@ -1,0 +1,15 @@
+package com.hbm.items.weapon.sedna;
+import com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality;
+class Controls {
+ static class Child extends ItemGunBaseNT {Child(){super(WeaponQuality.DEBUG);} public ItemGunBaseNT setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,String> f){return null;}}
+ static ItemGunBaseNT factory(){return new ItemGunBaseNT(WeaponQuality.DEBUG);}
+ void test(ItemGunBaseNT dynamic) {
+ new ItemGunBaseNT(WeaponQuality.DEBUG).setNameMutator(null).setTranslationKey("yes");
+ dynamic.setNameMutator(null).setTranslationKey("no-dynamic");
+ factory().setNameMutator(null).setTranslationKey("no-factory");
+ new ItemGunBaseNT(WeaponQuality.DEBUG){}.setNameMutator(null).setTranslationKey("no-anonymous");
+ new Child().setNameMutator(null).setTranslationKey("no-subclass");
+ new ItemGunBaseNT(WeaponQuality.DEBUG).setNameMutator(null).setTranslationKey(7);
+ new ItemGunBaseNT(WeaponQuality.DEBUG).setMaxStackSize(2).setTranslationKey("no-other-builder");
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "placements": 431,
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": {
+      "before": "0948b9c5cfeb02c8753938fcc3f81ec1cabc49d4781f21fab165fa1c3815952f",
+      "after": "7daf87650715113f883ff9534844f89eca91c48502d4df37cf8b97ff08e45739",
+      "placements": 232
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin002.java": {
+      "before": "8d3635f7ed0f232dc52209e275e419a8b12b4de996e6ecec917fd12e65d1177a",
+      "after": "0fffe7fc709d95816abd4b74aa9fe68f47e603ea35a7a36d8e5ca76864d42374",
+      "placements": 199
+    }
+  }
+}

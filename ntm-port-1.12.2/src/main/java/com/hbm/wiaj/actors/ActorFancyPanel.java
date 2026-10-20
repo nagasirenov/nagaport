@@ -16,7 +16,10 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.GlStateManager;
+import com.hbm.render.util.NativeGuiItemDraw;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,7 +30,7 @@ public class ActorFancyPanel implements ISpecialActor {
 	static final ResourceLocation guiUtil =  new ResourceLocation(RefStrings.MODID + ":textures/gui/gui_utility.png");
 
 	List<Object[]> lines = new ArrayList();
-	RenderItem itemRender = new RenderItem();
+
 	TextureManager texman = Minecraft.getMinecraft().getTextureManager();
 	FontRenderer font;
 	
@@ -244,10 +247,10 @@ public class ActorFancyPanel implements ISpecialActor {
 		}
 
 		
-		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.disableRescaleNormal();
 		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
+		GlStateManager.disableLighting();
+		GlStateManager.disableDepth();
 		
 		this.drawRect(posX - 5, posY - 5, posX + width + 5, posY + height + 5, colorFrame);
 		
@@ -303,11 +306,11 @@ public class ActorFancyPanel implements ISpecialActor {
 			offsetY += lineHeight;
 		}
 
-		itemRender.zLevel = 0.0F;
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
+
+		GlStateManager.enableLighting();
+		GlStateManager.enableDepth();
 		RenderHelper.enableStandardItemLighting();
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.enableRescaleNormal();
 	}
 	
 	private void drawArrow(int posX, int posY, int sourceX, int sourceY, int sizeX, int sizeY) {
@@ -326,17 +329,16 @@ public class ActorFancyPanel implements ISpecialActor {
 		} else if(element instanceof ItemStack) {
 			
 			ItemStack stack = (ItemStack) element;
-			GL11.glColor3f(1F, 1F, 1F);
+			GlStateManager.color(1F, 1F, 1F, 1F);
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				this.drawGradientRect(x - 1, y - 1 - 8, x + 17, y + 17, 0xffff0000, 0xffff0000);
 				this.drawGradientRect(x, y - 8, x + 16, y + 16, 0xffb0b0b0, 0xffb0b0b0);
 			}
-			itemRender.renderItemAndEffectIntoGUI(this.font, texman, stack, x, y - 8);
-			itemRender.renderItemOverlayIntoGUI(this.font, texman, stack, x, y - 8, null);
+			NativeGuiItemDraw.withOverlay(Minecraft.getMinecraft().getRenderItem(), this.font, stack, x, y - 8, 0.0F, null);
 			RenderHelper.disableStandardItemLighting();
-			GL11.glColor3f(1F, 1F, 1F);
-			GL11.glDisable(GL11.GL_DEPTH_TEST);
+			GlStateManager.color(1F, 1F, 1F, 1F);
+			GlStateManager.disableDepth();
 		} //TODO: scaled stacks
 	}
 
@@ -361,26 +363,26 @@ public class ActorFancyPanel implements ISpecialActor {
 		float g2 = (float) (color2 >> 8 & 255) / 255.0F;
 		float b2 = (float) (color2 & 255) / 255.0F;
 		
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
-		GL11.glShadeModel(GL11.GL_SMOOTH);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.setColorRGBA_F(r1, g1, b1, a1);
-		tessellator.addVertex((double) maxX, (double) minY, (double) zLevel);
-		tessellator.addVertex((double) minX, (double) minY, (double) zLevel);
-		tessellator.setColorRGBA_F(r2, g2, b2, a2);
-		tessellator.addVertex((double) minX, (double) maxY, (double) zLevel);
-		tessellator.addVertex((double) maxX, (double) maxY, (double) zLevel);
-		tessellator.draw();
-		
-		GL11.glShadeModel(GL11.GL_FLAT);
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GlStateManager.disableTexture2D();
+		GlStateManager.enableBlend();
+		GlStateManager.disableAlpha();
+		GlStateManager.shadeModel(GL11.GL_SMOOTH);
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+
+		BufferBuilder tessellator = Tessellator.getInstance().getBuffer();
+		tessellator.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+
+		tessellator.pos((double) maxX, (double) minY, (double) zLevel).color(r1, g1, b1, a1).endVertex();
+		tessellator.pos((double) minX, (double) minY, (double) zLevel).color(r1, g1, b1, a1).endVertex();
+
+		tessellator.pos((double) minX, (double) maxY, (double) zLevel).color(r2, g2, b2, a2).endVertex();
+		tessellator.pos((double) maxX, (double) maxY, (double) zLevel).color(r2, g2, b2, a2).endVertex();
+		Tessellator.getInstance().draw();
+
+		GlStateManager.shadeModel(GL11.GL_FLAT);
+		GlStateManager.disableBlend();
+		GlStateManager.enableAlpha();
+		GlStateManager.enableTexture2D();
 	}
 
 	public void drawTexturedModalRect(int posX, int posY, int u, int v, int sizeX, int sizeY) {
@@ -395,14 +397,14 @@ public class ActorFancyPanel implements ISpecialActor {
 		float b = (float) (color & 255) / 255.0F;
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.setColorRGBA_F(r, g, b, a);
-		tessellator.addVertexWithUV(posX + 0, posY + sizeY, zLevel, (u + 0) * f, (v + sizeY) * f1);
-		tessellator.addVertexWithUV(posX + sizeX, posY + sizeY, zLevel, (u + sizeX) * f, (v + sizeY) * f1);
-		tessellator.addVertexWithUV(posX + sizeX, posY + 0, zLevel, (u + sizeX) * f, (v + 0) * f1);
-		tessellator.addVertexWithUV(posX + 0, posY + 0, zLevel, (u + 0) * f, (v + 0) * f);
-		tessellator.draw();
+		BufferBuilder tessellator = Tessellator.getInstance().getBuffer();
+		tessellator.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
+
+		tessellator.pos(posX + 0, posY + sizeY, zLevel).tex( (u + 0) * f, (v + sizeY) * f1).color(r, g, b, a).endVertex();
+		tessellator.pos(posX + sizeX, posY + sizeY, zLevel).tex( (u + sizeX) * f, (v + sizeY) * f1).color(r, g, b, a).endVertex();
+		tessellator.pos(posX + sizeX, posY + 0, zLevel).tex( (u + sizeX) * f, (v + 0) * f1).color(r, g, b, a).endVertex();
+		tessellator.pos(posX + 0, posY + 0, zLevel).tex( (u + 0) * f, (v + 0) * f).color(r, g, b, a).endVertex();
+		Tessellator.getInstance().draw();
 	}
 	
 	/** where the arrow should be or if the box should be centered around the home position */

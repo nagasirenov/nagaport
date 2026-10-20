@@ -1,0 +1,41 @@
+{
+  "baseline": "ac268a5807abdd17dfc801f753d7aad8e5a21e46",
+  "placements": 1054,
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/Barrel.java": {
+      "before": "c066d53dfbe9f0c6f036a2561d4756ff1aacc08b58f3e5d2c9902c133d182428",
+      "after": "f5cee4ff1c4b68f6c54fea5da414dc919d610af90d4575e366acfeaf2322fbd9",
+      "placements": 31
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before": "7ddfed809ffc2e7c298327c781d48135d7e28548d4e78b46ea91bcd094e1cdd3",
+      "after": "7b181ff5a2766f68ec7d1e962e2eb70d1e8cff10812b4f9d1574388f6494cd6d",
+      "placements": 322
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before": "1fc328205722d0ca4b864277f7391e91372f2066c0201f7535dd89556b82877b",
+      "after": "4a544eb4f197707f1d3afb5feb43d03291dbf6dacfd2eef65671611954f287ee",
+      "placements": 327
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin002.java": {
+      "before": "0fffe7fc709d95816abd4b74aa9fe68f47e603ea35a7a36d8e5ca76864d42374",
+      "after": "6fbc06a7fc97a2b4b2dbda14cef3e799719fb184a71231f585303fb8a80cf5f8",
+      "placements": 7
+    },
+    "src/main/java/com/hbm/world/dungeon/Silo.java": {
+      "before": "c630ab7baa1dcc9bf7b4a6941199aadb820888ebf0bdc3b9f789bff995c8c0ad",
+      "after": "816a1de163c5233f519d684f92343dadb69bb7f8ccd79e460c7fdafa0d44fcc5",
+      "placements": 23
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship.java": {
+      "before": "33ef1597f79485abef1a1e78f148d51fcfd4278713ff3d5925b9a1bb5445299a",
+      "after": "a37f48b51f3553e9b263a8b34fbad722dafc86a58a97e07e03e160f376bbaf61",
+      "placements": 270
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship2.java": {
+      "before": "b6423f33c957d98cbfc313ccf3149d09f2e6de403bd2e08309f727d0bf0784cf",
+      "after": "7fab2dc380984b39acff3efa2a0338626c43cef70a5984dd884cefc5a956d70d",
+      "placements": 74
+    }
+  }
+}

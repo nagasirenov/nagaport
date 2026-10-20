@@ -2,12 +2,12 @@ package com.hbm.handler.ae2;
 
 import com.hbm.tileentity.machine.storage.TileEntityMassStorage;
 import com.hbm.util.ItemStackUtil;
-import net.minecraftforge.fml.common.Optional;
 
-import appeng.api.networking.security.BaseActionSource;
-import appeng.api.storage.IExternalStorageHandler;
-import appeng.api.storage.IMEInventory;
-import appeng.api.storage.StorageChannel;
+import appeng.api.networking.security.IActionSource;
+import appeng.api.AEApi;
+import appeng.api.storage.IMEMonitor;
+import appeng.api.storage.IStorageChannel;
+import appeng.api.storage.channels.IItemStorageChannel;
 import appeng.api.storage.data.IAEItemStack;
 import appeng.me.storage.MEMonitorIInventory;
 import appeng.util.inv.IMEAdaptor;
@@ -15,18 +15,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 
-@Optional.InterfaceList({@Optional.Interface(iface = "appeng.api.storage.IExternalStorageHandler", modid = "appliedenergistics2")})
-public class MSUExternalStorageHandler implements IExternalStorageHandler {
+public class MSUExternalStorageHandler {
 
     public MSUExternalStorageHandler() {}
 
-    @Override
-    public boolean canHandle(TileEntity te, EnumFacing d, StorageChannel channel, BaseActionSource mySrc) {
-        return channel == StorageChannel.ITEMS && te instanceof TileEntityMassStorage;
+    public boolean canHandle(TileEntity te, EnumFacing d, IStorageChannel<?> channel, IActionSource mySrc) {
+        return channel == AEApi.instance().storage().getStorageChannel(IItemStorageChannel.class) && te instanceof TileEntityMassStorage;
     }
 
-    @Override
-    public IMEInventory getInventory(TileEntity te, EnumFacing d, StorageChannel channel, BaseActionSource src) {
+    public IMEMonitor<IAEItemStack> getInventory(TileEntity te, EnumFacing d, IStorageChannel<?> channel, IActionSource src) {
         if (!canHandle(te, d, channel, src))
             return null;
         
@@ -38,7 +35,7 @@ public class MSUExternalStorageHandler implements IExternalStorageHandler {
             public boolean isPrioritized(IAEItemStack stack) {
                 ItemStack type = ((TileEntityMassStorage)te).getType();
 
-                return type != null && ItemStackUtil.areStacksCompatible(stack.getItemStack(), type);
+                return type != null && ItemStackUtil.areStacksCompatible(stack.createItemStack(), type);
             }
         };
     }

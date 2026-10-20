@@ -47,7 +47,7 @@ public class RubberGrass extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return Item.getItemFromBlock(this);
 	}
 
@@ -59,7 +59,7 @@ public class RubberGrass extends Block {
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(this == ModBlocks.rubber_grass) {
-			Block b = world.getBlock(x, y + 1, z);
+			Block b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
 			if(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {
 				world.setBlock(x, y, z, ModBlocks.rubber_silt);
 			}

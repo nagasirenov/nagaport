@@ -1,0 +1,16 @@
+WHOLE INPUT ItemChopper SHA256 f8dfc4cf5d7c48d5a7f47f0a85608b75ce22464523069041d5e69132ca44c3c4
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/chopper-native/ChopperNativeTest.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/chopper-native/ChopperNativeTest.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/chopper-native/ChopperNativeTest.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe()throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (sun.misc.Unsafe)f.get(null);}
+                                                                                                                                                   ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockMetalFence.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS 3586 whole native ItemChopper callback/position/count/permissions/reach/hand checks; five mob implementations and World side effects are explicit domain recording boundaries, not combat/game acceptance.
+
+PASS negative control: exact CP48 broad-fence predicate is rejected by actual native MetalFence spawn-position regression.

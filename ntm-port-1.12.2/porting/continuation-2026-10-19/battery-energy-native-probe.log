@@ -1,0 +1,4 @@
+PASS: supplied-reference parity: whole IBatteryItem NBT-only; 12 ItemBattery energy methods; tooltip/rarity/creative callback contracts and ItemAnchorRemote override; complete subclass inventory; unchanged Library transfer operations
+[13:09:09] [main/WARN]: Potentially Dangerous alternative prefix `hbm_test` for name `battery_fixture`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS: 8046 native battery/transfer assertions; no simulation API exists; ItemStack persistence only, no world/network acceptance
+PASS: native battery API + extracted energy/transfer fixtures; NOT full ItemBattery/Library/furnace/network build

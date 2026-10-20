@@ -33,10 +33,10 @@ public class ItemDefuser extends ItemTooling {
 		if(entity instanceof EntityGlyphidNuclear) {
 			EntityGlyphidNuclear john = (EntityGlyphidNuclear) entity;
 			
-			if(!player.worldObj.isRemote && john.deathTicks > 0) {
+			if(!player.world.isRemote && john.deathTicks > 0) {
 				john.setDead();
 				
-				ExplosionVNT vnt = new ExplosionVNT(john.worldObj, john.posX, john.posY, john.posZ, 5F, john);
+				ExplosionVNT vnt = new ExplosionVNT(john.world, john.posX, john.posY, john.posZ, 5F, john);
 				vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 20).setupPiercing(10F, 0.2F));
 				vnt.setPlayerProcessor(new PlayerProcessorStandard());
 				vnt.setSFX(new ExplosionEffectWeapon(10, 2.5F, 1F));

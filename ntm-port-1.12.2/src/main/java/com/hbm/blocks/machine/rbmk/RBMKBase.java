@@ -14,11 +14,18 @@ import com.hbm.tileentity.machine.rbmk.TileEntityRBMKBase;
 
 import api.hbm.block.IToolable;
 import com.hbm.util.fauxpointtwelve.BlockPos;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraftforge.common.property.ExtendedBlockState;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
@@ -50,39 +57,54 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 	public IIcon textureTop;
 
 	protected RBMKBase() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setHardness(3F);
 		this.setResistance(30F);
 	}
 
+	/** Native rendering boundary only; core, inventory, lid installation and neutron mechanics remain unchanged. */
+	@Override protected BlockStateContainer createBlockState() {
+		return new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {RBMKRenderState.RENDER});
+	}
+	@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+	@Override @SideOnly(Side.CLIENT) public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }
+	@Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		int meta = getMetaFromState(state), lid = LID_NONE;
+		if(meta >= 6 && meta < 12 && !hasOwnLid()) {
+			int[] core = findCore(world, pos.getX(), pos.getY(), pos.getZ());
+			if(core != null) {
+				IBlockState coreState = world.getBlockState(new net.minecraft.util.math.BlockPos(core[0], core[1], core[2]));
+				lid = metaToLid(coreState.getBlock().getMetaFromState(coreState));
+			}
+		}
+		return ((IExtendedBlockState)state).withProperty(RBMKRenderState.RENDER, new RBMKRenderState.Snapshot(state, world, pos, meta, lid));
+	}
+	protected IIcon blockIcon;
+	protected String getRBMKTexture() {
+		RBMKRenderState.Profile profile = RBMKRenderState.profile(this);
+		if(profile == null) throw new IllegalStateException("Unspecified RBMK texture owner " + getRegistryName());
+		return profile.texture.replace(":blocks/", ":");
+	}
+
 	@Override public boolean isOpaqueCube() { return true; }
 	@Override public boolean renderAsNormalBlock() { return true; }
-	
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-		if(overrideOnlyRenderSides && side < 2) return false;
-		if(renderLid != LID_NONE && side > 1) return true;
-		return super.shouldSideBeRendered(world, x, y, z, side);
-	}
 	
 	public boolean hasOwnLid() {
 		return this == ModBlocks.rbmk_control || this == ModBlocks.rbmk_control_auto || this == ModBlocks.rbmk_control_mod ||
 				this == ModBlocks.rbmk_control_reasim || this == ModBlocks.rbmk_control_reasim_auto;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon(this.getTextureName() + "_side");
-		this.textureTop = reg.registerIcon(this.getTextureName() + "_top");
+		this.blockIcon = reg.registerIcon(this.getRBMKTexture() + "_side");
+		this.textureTop = reg.registerIcon(this.getRBMKTexture() + "_top");
 		if(hasOwnLid()) return;
-		this.coverTextureTop = reg.registerIcon(this.getTextureName() + "_cover_top");
-		this.coverTextureSide = reg.registerIcon(this.getTextureName() + "_cover_side");
-		this.glassTextureTop = reg.registerIcon(this.getTextureName() + "_glass_top");
-		this.glassTextureSide = reg.registerIcon(this.getTextureName() + "_glass_side");
+		this.coverTextureTop = reg.registerIcon(this.getRBMKTexture() + "_cover_top");
+		this.coverTextureSide = reg.registerIcon(this.getRBMKTexture() + "_cover_side");
+		this.glassTextureTop = reg.registerIcon(this.getRBMKTexture() + "_glass_top");
+		this.glassTextureSide = reg.registerIcon(this.getRBMKTexture() + "_glass_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		if(!hasOwnLid()) {
@@ -109,12 +131,12 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return false;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityRBMKBase)) return false;
 
 		TileEntityRBMKBase rbmk = (TileEntityRBMKBase) te;
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemRBMKLid) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemRBMKLid) {
 			if(!rbmk.hasLid()) return false;
 		}
 
@@ -132,7 +154,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 		int[] pos = this.findCore(world, x, y, z);
 
 		if(pos != null) {
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(te instanceof TileEntityRBMKBase) {
 
@@ -185,10 +207,10 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 		if(!world.isRemote && dropLids) {
 
 			if(i == DIR_NORMAL_LID.ordinal() + offset) {
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5 + RBMKDials.getColumnHeight(world), z + 0.5, new ItemStack(ModItems.rbmk_lid)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5 + RBMKDials.getColumnHeight(world), z + 0.5, new ItemStack(ModItems.rbmk_lid)));
 			}
 			if(i == DIR_GLASS_LID.ordinal() + offset) {
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5 + RBMKDials.getColumnHeight(world), z + 0.5, new ItemStack(ModItems.rbmk_lid_glass)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5 + RBMKDials.getColumnHeight(world), z + 0.5, new ItemStack(ModItems.rbmk_lid_glass)));
 			}
 		}
 
@@ -204,7 +226,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 		int[] pos = this.findCore(world, x, y, z);
 
 		if(pos != null) {
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(te instanceof TileEntityRBMKBase) {
 
@@ -219,10 +241,10 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 
 					if(!world.isRemote) {
 						if(i == DIR_NORMAL_LID.ordinal() + offset) {
-							world.spawnEntityInWorld(new EntityItem(world, pos[0] + 0.5, pos[1] + 0.5 + RBMKDials.getColumnHeight(world), pos[2] + 0.5, new ItemStack(ModItems.rbmk_lid)));
+							world.spawnEntity(new EntityItem(world, pos[0] + 0.5, pos[1] + 0.5 + RBMKDials.getColumnHeight(world), pos[2] + 0.5, new ItemStack(ModItems.rbmk_lid)));
 						}
 						if(i == DIR_GLASS_LID.ordinal() + offset) {
-							world.spawnEntityInWorld(new EntityItem(world, pos[0] + 0.5, pos[1] + 0.5 + RBMKDials.getColumnHeight(world), pos[2] + 0.5, new ItemStack(ModItems.rbmk_lid_glass)));
+							world.spawnEntity(new EntityItem(world, pos[0] + 0.5, pos[1] + 0.5 + RBMKDials.getColumnHeight(world), pos[2] + 0.5, new ItemStack(ModItems.rbmk_lid_glass)));
 						}
 
 						rbmk.explodeOnBroken = false;
@@ -244,9 +266,10 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 		TileEntityRBMKBase.diagnosticPrintHook(event, world, x, y, z);
 	}
 
-	public static int renderIDRods = RenderingRegistry.getNextAvailableRenderId();
-	public static int renderIDPassive = RenderingRegistry.getNextAvailableRenderId();
-	public static int renderIDControl = RenderingRegistry.getNextAvailableRenderId();
+	// Retained NTM family tags for existing descendant hooks, not native engine render IDs.
+	public static final int renderIDRods = 1;
+	public static final int renderIDPassive = 2;
+	public static final int renderIDControl = 3;
 
 	@Override
 	public int transformMeta(int meta, int coordBaseMode) {

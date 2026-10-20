@@ -15,16 +15,17 @@ import com.hbm.util.Clock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.IMob;
@@ -34,14 +35,14 @@ import net.minecraft.util.math.Vec3d;
 
 public class RenderOverhead {
 
-	public static void renderTag(EntityLivingBase living, double x, double y, double z, RendererLivingEntity renderer, String name, boolean depthTest) {
+	public static void renderTag(EntityLivingBase living, double x, double y, double z, RenderLivingBase renderer, String name, boolean depthTest) {
 
-		EntityPlayer thePlayer = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer thePlayer = Minecraft.getMinecraft().player;
 
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);
 
 		if(shouldRenderTag(living)) {
-			double distSq = living.getDistanceSqToEntity(thePlayer);
+			double distSq = living.getDistanceSq(thePlayer);
 			float range = living.isSneaking() ? renderer.NAME_TAG_RANGE_SNEAK : renderer.NAME_TAG_RANGE;
 
 			if(distSq < (double) (range * range)) {
@@ -51,7 +52,7 @@ public class RenderOverhead {
 	}
 
 	public static boolean shouldRenderTag(EntityLivingBase p_110813_1_) {
-		return Minecraft.isGuiEnabled() && p_110813_1_ != RenderManager.instance.livingPlayer && !p_110813_1_.isInvisibleToPlayer(Minecraft.getMinecraft().thePlayer) && p_110813_1_.riddenByEntity == null;
+		return Minecraft.isGuiEnabled() && p_110813_1_ != Minecraft.getMinecraft().getRenderManager().renderViewEntity && !p_110813_1_.isInvisibleToPlayer(Minecraft.getMinecraft().player) && p_110813_1_.getPassengers().isEmpty();
 	}
 
 	public static void drawTagAware(EntityLivingBase entity, double x, double y, double z, String string, boolean depthTest) {
@@ -63,7 +64,7 @@ public class RenderOverhead {
 	}
 
 	public static void drawTag(Entity entity, String name, double x, double y, double z, int dist, boolean depthTest) {
-		drawTag(entity.height + 0.75F, entity.getDistanceSqToEntity(RenderManager.instance.livingPlayer), name, x, y, z, dist, depthTest, -1, 553648127);
+		drawTag(entity.height + 0.75F, entity.getDistanceSq(Minecraft.getMinecraft().getRenderManager().renderViewEntity), name, x, y, z, dist, depthTest, -1, 553648127);
 	}
 
 	public static void drawTag(float offset, double distsq, String name, double x, double y, double z, int dist, boolean depthTest, int color, int shadowColor) {
@@ -75,129 +76,130 @@ public class RenderOverhead {
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.0F, (float) y + offset, (float) z);
 			GL11.glNormal3f(0.0F, 1.0F, 0.0F);
-			GL11.glRotatef(-RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
-			GL11.glRotatef(RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
+			GL11.glRotatef(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
+			GL11.glRotatef(Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
 			GL11.glScalef(-scale, -scale, scale);
-			GL11.glDisable(GL11.GL_LIGHTING);
-			GL11.glDepthMask(false);
+			GlStateManager.disableLighting();
+			GlStateManager.depthMask(false);
 			if(depthTest) {
-				GL11.glDisable(GL11.GL_DEPTH_TEST);
+				GlStateManager.disableDepth();
 			}
-			GL11.glEnable(GL11.GL_BLEND);
-			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			Tessellator tessellator = Tessellator.instance;
+			GlStateManager.enableBlend();
+			GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+			Tessellator tessellator = Tessellator.getInstance();
+			BufferBuilder buffer = tessellator.getBuffer();
 			byte heightOffset = 0;
 
 			if(name.equals("deadmau5")) {
 				heightOffset = -10;
 			}
 
-			GL11.glDisable(GL11.GL_TEXTURE_2D);
-			tessellator.startDrawingQuads();
+			GlStateManager.disableTexture2D();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 			int center = fontrenderer.getStringWidth(name) / 2;
-			tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);
-			tessellator.addVertex((double) (-center - 1), (double) (-1 + heightOffset), 0.0D);
-			tessellator.addVertex((double) (-center - 1), (double) (8 + heightOffset), 0.0D);
-			tessellator.addVertex((double) (center + 1), (double) (8 + heightOffset), 0.0D);
-			tessellator.addVertex((double) (center + 1), (double) (-1 + heightOffset), 0.0D);
+			buffer.pos((double) (-center - 1), (double) (-1 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();
+			buffer.pos((double) (-center - 1), (double) (8 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();
+			buffer.pos((double) (center + 1), (double) (8 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();
+			buffer.pos((double) (center + 1), (double) (-1 + heightOffset), 0.0D).color(0F, 0F, 0F, 0.25F).endVertex();
 			tessellator.draw();
-			GL11.glEnable(GL11.GL_TEXTURE_2D);
+			GlStateManager.enableTexture2D();
 			fontrenderer.drawString(name, -fontrenderer.getStringWidth(name) / 2, heightOffset, shadowColor);
-			GL11.glEnable(GL11.GL_DEPTH_TEST);
-			GL11.glDepthMask(true);
+			GlStateManager.enableDepth();
+			GlStateManager.depthMask(true);
 			fontrenderer.drawString(name, -fontrenderer.getStringWidth(name) / 2, heightOffset, color);
-			GL11.glEnable(GL11.GL_LIGHTING);
-			GL11.glDisable(GL11.GL_BLEND);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GlStateManager.enableLighting();
+			GlStateManager.disableBlend();
+			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glPopMatrix();
 		}
 	}
 
 	public static void renderThermalSight(float partialTicks) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		double x = player.prevPosX + (player.posX - player.prevPosX) * partialTicks;
 		double y =  player.prevPosY + (player.posY - player.prevPosY) * partialTicks;
 		double z =  player.prevPosZ + (player.posZ - player.prevPosZ) * partialTicks;
 
 		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_COLOR_MATERIAL);
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		GlStateManager.disableColorMaterial();
+		GlStateManager.disableTexture2D();
+		GlStateManager.disableLighting();
 		GL11.glEnable(GL11.GL_POINT_SMOOTH);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		GL11.glBlendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);
+		GlStateManager.enableBlend();
+		GlStateManager.disableDepth();
+		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawing(GL11.GL_LINES);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
+		buffer.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);
 
-		for(Object o : player.worldObj.loadedEntityList) {
+		for(Object o : player.world.loadedEntityList) {
 
 			Entity ent = (Entity) o;
 
 			if(ent == player)
 				continue;
 
-			if(ent.getDistanceSqToEntity(player) > 4096)
+			if(ent.getDistanceSq(player) > 4096)
 				continue;
 
-			if(ent instanceof IBossDisplayData)
-				tess.setColorOpaque_F(1F, 0.5F, 0F);
+			float red, green, blue;
+			if(INtmBossDisplay.isDisplayBoss(ent))
+				{ red = 1F; green = 0.5F; blue = 0F; }
 			else if(ent instanceof IMob)
-				tess.setColorOpaque_F(1F, 0F, 0F);
+				{ red = 1F; green = 0F; blue = 0F; }
 			else if(ent instanceof EntityPlayer)
-				tess.setColorOpaque_F(1F, 0F, 1F);
+				{ red = 1F; green = 0F; blue = 1F; }
 			else if(ent instanceof EntityLiving)
-				tess.setColorOpaque_F(0F, 1F, 0F);
+				{ red = 0F; green = 1F; blue = 0F; }
 			else if(ent instanceof EntityItem)
-				tess.setColorOpaque_F(1F, 1F, 0.5F);
+				{ red = 1F; green = 1F; blue = 0.5F; }
 			else if(ent instanceof EntityXPOrb) {
 				if(player.ticksExisted % 10 < 5)
-					tess.setColorOpaque_F(1F, 1F, 0.5F);
+					{ red = 1F; green = 1F; blue = 0.5F; }
 				else
-					tess.setColorOpaque_F(0.5F, 1F, 0.5F);
+					{ red = 0.5F; green = 1F; blue = 0.5F; }
 			} else
 				continue;
 			
-			if(ent instanceof EntityLivingBase && ((EntityLivingBase) ent).getHealth() <= 0) tess.setColorOpaque_F(0F, 0F, 0F);
+			if(ent instanceof EntityLivingBase && ((EntityLivingBase) ent).getHealth() <= 0) { red = 0F; green = 0F; blue = 0F; }
 
-			AxisAlignedBB bb = ent.boundingBox;
-			tess.addVertex(bb.minX - x, bb.maxY - y, bb.minZ - z);
-			tess.addVertex(bb.minX - x, bb.minY - y, bb.minZ - z);
-			tess.addVertex(bb.minX - x, bb.maxY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.maxY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.maxY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.minY - y, bb.minZ - z);
-			tess.addVertex(bb.minX - x, bb.minY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.minY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.minY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.minY - y, bb.maxZ - z);
-			tess.addVertex(bb.maxX - x, bb.maxY - y, bb.maxZ - z);
-			tess.addVertex(bb.maxX - x, bb.maxY - y, bb.minZ - z);
-			tess.addVertex(bb.maxX - x, bb.maxY - y, bb.maxZ - z);
-			tess.addVertex(bb.maxX - x, bb.minY - y, bb.maxZ - z);
-			tess.addVertex(bb.minX - x, bb.maxY - y, bb.minZ - z);
-			tess.addVertex(bb.minX - x, bb.maxY - y, bb.maxZ - z);
-			tess.addVertex(bb.minX - x, bb.maxY - y, bb.maxZ - z);
-			tess.addVertex(bb.minX - x, bb.minY - y, bb.maxZ - z);
-			tess.addVertex(bb.minX - x, bb.maxY - y, bb.maxZ - z);
-			tess.addVertex(bb.maxX - x, bb.maxY - y, bb.maxZ - z);
-			tess.addVertex(bb.minX - x, bb.minY - y, bb.maxZ - z);
-			tess.addVertex(bb.maxX - x, bb.minY - y, bb.maxZ - z);
-			tess.addVertex(bb.minX - x, bb.minY - y, bb.minZ - z);
-			tess.addVertex(bb.minX - x, bb.minY - y, bb.maxZ - z);
+			AxisAlignedBB bb = ent.getEntityBoundingBox();
+			buffer.pos(bb.minX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.maxY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.maxY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.maxX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.minY - y, bb.minZ - z).color(red, green, blue, 1F).endVertex();
+			buffer.pos(bb.minX - x, bb.minY - y, bb.maxZ - z).color(red, green, blue, 1F).endVertex();
 		}
 
 		tess.draw();
 
-		tess.setColorOpaque_F(1F, 1F, 1F);
 
-		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GlStateManager.enableColorMaterial();
+		GlStateManager.enableTexture2D();
 		GL11.glDisable(GL11.GL_POINT_SMOOTH);
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
+		GlStateManager.disableBlend();
+		GlStateManager.enableDepth();
         GL11.glPopMatrix();
 	}
 
@@ -212,22 +214,23 @@ public class RenderOverhead {
 		if(markers.isEmpty())
 			return;
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		double x = player.prevPosX + (player.posX - player.prevPosX) * partialTicks;
 		double y =  player.prevPosY + (player.posY - player.prevPosY) * partialTicks;
 		double z =  player.prevPosZ + (player.posZ - player.prevPosZ) * partialTicks;
 
 		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_COLOR_MATERIAL);
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		GlStateManager.disableColorMaterial();
+		GlStateManager.disableTexture2D();
+		GlStateManager.disableLighting();
 		GL11.glEnable(GL11.GL_POINT_SMOOTH);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		GL11.glBlendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);
+		GlStateManager.enableBlend();
+		GlStateManager.disableDepth();
+		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawing(GL11.GL_LINES);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
+		buffer.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);
 
 		Iterator<Entry<BlockPos, Marker>> it = markers.entrySet().iterator();
 		List<Entry<BlockPos, Marker>> tagList = new ArrayList();
@@ -247,31 +250,33 @@ public class RenderOverhead {
 			double maxY = marker.maxY;
 			double maxZ = marker.maxZ;
 
-			tess.setColorOpaque_I(marker.color);
-			tess.addVertex(pX + minX - x, pY + maxY - y, pZ + minZ - z);
-			tess.addVertex(pX + minX - x, pY + minY - y, pZ + minZ - z);
-			tess.addVertex(pX + minX - x, pY + maxY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + maxY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + maxY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + minY - y, pZ + minZ - z);
-			tess.addVertex(pX + minX - x, pY + minY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + minY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + minY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + minY - y, pZ + maxZ - z);
-			tess.addVertex(pX + maxX - x, pY + maxY - y, pZ + maxZ - z);
-			tess.addVertex(pX + maxX - x, pY + maxY - y, pZ + minZ - z);
-			tess.addVertex(pX + maxX - x, pY + maxY - y, pZ + maxZ - z);
-			tess.addVertex(pX + maxX - x, pY + minY - y, pZ + maxZ - z);
-			tess.addVertex(pX + minX - x, pY + maxY - y, pZ + minZ - z);
-			tess.addVertex(pX + minX - x, pY + maxY - y, pZ + maxZ - z);
-			tess.addVertex(pX + minX - x, pY + maxY - y, pZ + maxZ - z);
-			tess.addVertex(pX + minX - x, pY + minY - y, pZ + maxZ - z);
-			tess.addVertex(pX + minX - x, pY + maxY - y, pZ + maxZ - z);
-			tess.addVertex(pX + maxX - x, pY + maxY - y, pZ + maxZ - z);
-			tess.addVertex(pX + minX - x, pY + minY - y, pZ + maxZ - z);
-			tess.addVertex(pX + maxX - x, pY + minY - y, pZ + maxZ - z);
-			tess.addVertex(pX + minX - x, pY + minY - y, pZ + minZ - z);
-			tess.addVertex(pX + minX - x, pY + minY - y, pZ + maxZ - z);
+			int red = marker.color >> 16 & 255;
+			int green = marker.color >> 8 & 255;
+			int blue = marker.color & 255;
+			buffer.pos(pX + minX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + maxY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + maxY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + maxX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + minY - y, pZ + minZ - z).color(red, green, blue, 255).endVertex();
+			buffer.pos(pX + minX - x, pY + minY - y, pZ + maxZ - z).color(red, green, blue, 255).endVertex();
 
 			tagList.add(entry);
 
@@ -290,13 +295,12 @@ public class RenderOverhead {
 
 		tess.draw();
 
-		tess.setColorOpaque_F(1F, 1F, 1F);
 
-		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GlStateManager.enableColorMaterial();
+		GlStateManager.enableTexture2D();
 		GL11.glDisable(GL11.GL_POINT_SMOOTH);
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
+		GlStateManager.disableBlend();
+		GlStateManager.enableDepth();
 
 		for(Entry<BlockPos, Marker> entry : tagList) {
 
@@ -401,45 +405,45 @@ public class RenderOverhead {
 
 		if(actionPreviewWorld == null) return;
 
-		RenderBlocks renderer = new RenderBlocks(actionPreviewWorld);
-
-		renderer.enableAO = true;
 		actionPreviewWorld.lightlevel = 15;
 
 		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL11.GL_BLEND);
+		GlStateManager.disableBlend();
 
 		GL11.glPushMatrix();
 		{
 
-			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+			EntityPlayer player = Minecraft.getMinecraft().player;
 			double x = player.prevPosX + (player.posX - player.prevPosX) * partialTicks;
 			double y =  player.prevPosY + (player.posY - player.prevPosY) * partialTicks;
 			double z =  player.prevPosZ + (player.posZ - player.prevPosZ) * partialTicks;
 
 			GL11.glTranslated(offsetX - x, offsetY - y, offsetZ - z);
 
-			Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-			GL11.glShadeModel(GL11.GL_SMOOTH);
-			Tessellator.instance.startDrawingQuads();
+			Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+			GlStateManager.shadeModel(GL11.GL_SMOOTH);
+			BufferBuilder buffer = new BufferBuilder(65536);
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
 
-			Tessellator.instance.disableColor();
 			if(actionPreviewSuccess) {
-				GL11.glColor3f(0, 1, 1);
+				GlStateManager.color(0, 1, 1);
 			} else {
-				GL11.glColor3f(1, 0, 0);
+				GlStateManager.color(1, 0, 0);
 			}
 
 			for(int ix = 0; ix < actionPreviewWorld.sizeX; ix++) {
 				for(int iy = 0; iy < actionPreviewWorld.sizeY; iy++) {
 					for(int iz = 0; iz < actionPreviewWorld.sizeZ; iz++) {
-						try { renderer.renderBlockByRenderType(actionPreviewWorld.getBlock(ix, iy, iz), ix, iy, iz); } catch(Exception ex) { }
+						try {
+							net.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(ix, iy, iz);
+							NativeSceneBlockDraw.append(actionPreviewWorld, actionPreviewWorld.getBlockState(pos), pos, buffer);
+						} catch(Exception ex) { }
 					}
 				}
 			}
 
-			Tessellator.instance.draw();
-			GL11.glShadeModel(GL11.GL_FLAT);
+			NativeSceneBlockDraw.drawColorless(buffer);
+			GlStateManager.shadeModel(GL11.GL_FLAT);
 
 		}
 		GL11.glPopMatrix();

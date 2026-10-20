@@ -72,13 +72,13 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 
 	@Override
 	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {
-		Block soil = world.getBlock(x, y - 1, z);
+		Block soil = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return soil == ModBlocks.rubber_grass || soil == ModBlocks.rubber_silt || soil.canSustainPlant(soil.getDefaultState(), world, new BlockPos(x, y - 1, z), EnumFacing.UP, this);
 	}
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		Block soil = world.getBlock(x, y - 1, z);
+		Block soil = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && soil != null && soil.canSustainPlant(soil.getDefaultState(), world, new BlockPos(x, y - 1, z), EnumFacing.UP, this);
 	}
 
@@ -93,7 +93,7 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 
 	@Override
 	public void func_149878_d(World world, int x, int y, int z, Random rand) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		WorldGenAbstractTree treeGen = new TTree(true, 3, 4, 6, 3, 2, false, ModBlocks.vinyl_log, ModBlocks.pet_leaves);
 
 		switch(meta) {
@@ -106,7 +106,7 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 		}
 
 		if(treeGen != null) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			if (!treeGen.generate(world, rand, x, y, z)) {
 				world.setBlock(x, y, z, this, meta, 2);
 			}
@@ -120,7 +120,7 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 
 	@Override
 	public int getDamageValue(World world, int x, int y, int z) {
-		return world.getBlockMetadata(x, y, z);
+		return com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		EnumSapling sapling = EnumSapling.values()[stack.getItemDamage()];
-		return super.getUnlocalizedName() + "_" + sapling.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "_" + sapling.name().toLowerCase(Locale.US);
 	}
 
 }

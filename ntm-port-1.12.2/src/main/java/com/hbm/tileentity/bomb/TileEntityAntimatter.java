@@ -30,14 +30,14 @@ public class TileEntityAntimatter extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.nukeAntimatter";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(!this.isLoaded()) {
 				started = false;
@@ -47,7 +47,7 @@ public class TileEntityAntimatter extends TileEntityMachineBase implements IGUIP
 				timer--;
 				
 				if(timer % 20 == 0)
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.fstbmbPing", 5.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 5.0F, 1.0F);
 			}
 			
 			if(timer <= 0) {
@@ -75,7 +75,7 @@ public class TileEntityAntimatter extends TileEntityMachineBase implements IGUIP
 	public void handleButtonPacket(int value, int meta) {
 		
 		if(meta == 0 && this.isLoaded()) {
-			worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.fstbmbStart", 5.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbStart", 5.0F, 1.0F);
 			started = true;
 		}
 		
@@ -117,16 +117,16 @@ public class TileEntityAntimatter extends TileEntityMachineBase implements IGUIP
 		for(int i = 0; i < slots.length; i++)
 			slots[i] = null;
 		
-		worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		
-		EntityBalefire bf = new EntityBalefire(worldObj);
+		EntityBalefire bf = new EntityBalefire(this.world);
 		bf.antimatter();
-		bf.posX = xCoord + 0.5;
-		bf.posY = yCoord + 0.5;
-		bf.posZ = zCoord + 0.5;
+		bf.posX = this.pos.getX() + 0.5;
+		bf.posY = this.pos.getY() + 0.5;
+		bf.posZ = this.pos.getZ() + 0.5;
 		bf.destructionRange = (int) 150;
-		worldObj.spawnEntityInWorld(bf);
-		EntityNukeTorex.startFacAnti(worldObj, xCoord + 0.5, yCoord + 5, zCoord + 0.5, 1000);
+		this.world.spawnEntityInWorld(bf);
+		EntityNukeTorex.startFacAnti(this.world, this.pos.getX() + 0.5, this.pos.getY() + 5, this.pos.getZ() + 0.5, 1000);
 	}
 	
 	public String getMinutes() {
@@ -158,11 +158,12 @@ public class TileEntityAntimatter extends TileEntityMachineBase implements IGUIP
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setBoolean("started", started);
 		nbt.setInteger("timer", timer);
+		return nbt;
 	}
 	
 	@Override

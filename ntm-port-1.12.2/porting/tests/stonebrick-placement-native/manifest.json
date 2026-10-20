@@ -1,0 +1,16 @@
+{
+  "baseline": "f31798aac92b494bf4ee3123112a765e5f283e8a",
+  "placements": 415,
+  "files": {
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before": "6bc28d7953289101717200bb993df324dc021ecffae3e6e4f624d57dd83b101b",
+      "after": "38481271b60e6fb16f44c8af36c3be80e71835a86f5310c6c8313b8b13e19a6d",
+      "placements": 1
+    },
+    "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java": {
+      "before": "8e8623f0c48c7624975a323350211bbd0a0390b9f7d1433aade43dcf62b1b02c",
+      "after": "95b4d34d0d036786022b8b9cff0afd13bbf2f21419b0a7bf36997c01a0937420",
+      "placements": 414
+    }
+  }
+}

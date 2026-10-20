@@ -10,7 +10,7 @@ import com.hbm.animloader.AnimationWrapper;
 import com.hbm.animloader.AnimationWrapper.EndResult;
 import com.hbm.animloader.AnimationWrapper.EndType;
 import com.hbm.blocks.BlockDummyable;
-import com.hbm.render.loader.IModelCustomNamed;
+import com.hbm.render.mesh.MeshModel;
 import com.hbm.render.tileentity.door.IRenderDoors;
 import com.hbm.tileentity.DoorDecl;
 import com.hbm.tileentity.TileEntityDoorGeneric;
@@ -84,10 +84,10 @@ public class RenderDoorGeneric extends TileEntitySpecialRenderer {
 				animModel.controller.setAnim(w);
 				animModel.renderAnimated(System.currentTimeMillis());
 			} else {
-				IModelCustomNamed model = door.getModel();
+				MeshModel model = door.getModel();
 				
 				long ms = System.currentTimeMillis()-te.animStartTime;
-				float openTicks = MathHelper.clamp_float(te.state == 2 || te.state == 0 ? door.timeToOpen()*50-ms : ms, 0, door.timeToOpen()*50)*0.02F;
+				float openTicks = MathHelper.clamp((float) (te.state == 2 || te.state == 0 ? door.timeToOpen()*50-ms : ms), (float) (0), (float) (door.timeToOpen()*50))*0.02F;
 	
 				for(String partName : model.getPartNames()) {
 					if(!door.doesRender(partName, false))

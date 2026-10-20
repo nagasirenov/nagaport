@@ -39,7 +39,7 @@ public interface ILoadedTile {
 		
 		public static Quartet publicCumRag = new Quartet(0, 0, 0, 0);
 		public static TileEntity getTileOrCache(World world, int x, int y, int z) {
-			publicCumRag.mangle(x, y, z, world.provider.dimensionId);
+			publicCumRag.mangle(x, y, z, world.provider.getDimension());
 			TileAccessCache cache = TileAccessCache.cache.get(publicCumRag);
 			
 			if(cache == null || cache.hasExpired(world.getTotalWorldTime())) {

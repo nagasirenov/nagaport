@@ -13,15 +13,12 @@ public class CentrifugeRecipeHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmCentrifuge";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(56, 0, 80, 38), "ntmCentrifuge"));
-		guiGui.add(GUIMachineCentrifuge.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMachineCentrifuge.class, (56) + 5, (0) + 11, 80, 38, "ntmCentrifuge");
 	}
 }

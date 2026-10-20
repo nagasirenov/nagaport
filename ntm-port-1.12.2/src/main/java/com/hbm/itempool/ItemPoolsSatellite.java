@@ -6,7 +6,7 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.items.ModItems;
 
 import net.minecraft.init.Items;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPoolsSatellite {
 
@@ -27,7 +27,7 @@ public class ItemPoolsSatellite {
 					weighted(ModItems.powder_thorium, 0, 2, 2, 7),
 					weighted(ModItems.powder_desh_mix, 0, 3, 3, 5),
 					weighted(ModItems.powder_diamond, 0, 2, 2, 7),
-					weighted(Items.redstone, 0, 5, 5, 15),
+					weighted(Items.REDSTONE, 0, 5, 5, 15),
 					weighted(ModItems.powder_nitan_mix, 0, 2, 2, 5),
 					weighted(ModItems.powder_power, 0, 2, 2, 5),
 					weighted(ModItems.powder_copper, 0, 5, 5, 15),

@@ -1,0 +1,3 @@
+Final fresh clean compile: FAIL exit1,25s;966diagnostic headers vs1196checkpoint21.
+All126changed/newJava byte-identical to compiler copies;total3888Java inputs.
+Log SHA256 4a09aac7c4c579d19f591494152eac76ec1f0276bc656d494c3fdae2971d272a

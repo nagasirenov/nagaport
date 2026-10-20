@@ -43,7 +43,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(velocity < 6) velocity += 0.1;
 
@@ -73,7 +73,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 				if(this.tracking == null || this.tracking.isDead) this.targetMissile();
 
 				if(prevTracking == null && this.tracking != null) {
-					ExplosionLarge.spawnShock(worldObj, posX, posY, posZ, 24, 3F);
+					ExplosionLarge.spawnShock(this.world, posX, posY, posZ, 24, 3F);
 				}
 				if(this.tracking != null && !this.tracking.isDead) {
 					this.aimAtTarget();
@@ -97,7 +97,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 			MainRegistry.proxy.effectNT(data);
 		}
 
-		float f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+		float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 		this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 		for(this.rotationPitch = (float) (Math.atan2(this.motionY, f2) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
 		while(this.rotationPitch - this.prevRotationPitch >= 180.0F) this.prevRotationPitch += 360.0F;
@@ -136,7 +136,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 
 		if(delta.length() < 10 && activationTimer >= 40) {
 			this.setDead();
-			ExplosionLarge.explode(worldObj, posX, posY, posZ, 15F, true, false, false);
+			ExplosionLarge.explode(this.world, posX, posY, posZ, 15F, true, false, false);
 
 		}
 
@@ -149,7 +149,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 	protected void onImpact(RayTraceResult mop) {
 		if(this.activationTimer >= 40) {
 			this.setDead();
-			ExplosionLarge.explode(worldObj, posX, posY, posZ, 20F, true, false, false);
+			ExplosionLarge.explode(this.world, posX, posY, posZ, 20F, true, false, false);
 		}
 	}
 
@@ -182,7 +182,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(ticket != null) {
 
@@ -201,7 +201,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 	List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
@@ -223,7 +223,7 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 	}
 
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}

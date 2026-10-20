@@ -6,23 +6,28 @@ import api.hbm.energymk2.Nodespace.PowerNode;
 import com.hbm.tileentity.TileEntityLoadedBase;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityCableBaseNT extends TileEntityLoadedBase implements IEnergyConductorMK2 {
+public class TileEntityCableBaseNT extends TileEntityLoadedBase implements IEnergyConductorMK2, net.minecraft.util.ITickable {
+
+    @Override public boolean canRenderBreaking() {
+        return getWorld() != null && com.hbm.blocks.network.BoxDuctRenderState.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
+    }
+
 
 	protected PowerNode node;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.node == null || this.node.expired) {
 
 				if(this.shouldCreateNode()) {
-					this.node = Nodespace.getNode(worldObj, xCoord, yCoord, zCoord);
+					this.node = Nodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 					if(this.node == null || this.node.expired) {
 						this.node = this.createNode();
-						Nodespace.createNode(worldObj, this.node);
+						Nodespace.createNode(this.world, this.node);
 					}
 				}
 			}
@@ -37,9 +42,9 @@ public class TileEntityCableBaseNT extends TileEntityLoadedBase implements IEner
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				Nodespace.destroyNode(worldObj, xCoord, yCoord, zCoord);
+				Nodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 		}
 	}

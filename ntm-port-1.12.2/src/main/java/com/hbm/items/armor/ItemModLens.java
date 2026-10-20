@@ -43,7 +43,7 @@ public class ItemModLens extends ItemArmorMod implements ISatChip {
 
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		World world = entity.worldObj;
+		World world = entity.world;
 		if(world.isRemote) return;
 		if(!(entity instanceof EntityPlayerMP)) return;
 

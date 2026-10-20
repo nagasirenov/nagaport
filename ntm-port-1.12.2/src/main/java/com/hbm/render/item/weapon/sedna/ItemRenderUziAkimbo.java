@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -38,7 +41,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 		
 		for(int i = -1; i <= 1; i += 2) {
 			int index = i == -1 ? 0 : 1;
-			Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, index) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, index) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 
 			GL11.glPushMatrix();
 			standardAimingTransform(stack, -2.25F * offset * i, -1.5F * offset, 2.5F * offset, 0, -4.375 / 8D, 1);
@@ -154,10 +157,10 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderEquipped(ItemStack stack, Object... data) {
+	public void renderEquipped(ItemStack stack, NativeItemContext context) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, 1) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, 1) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart("Gun");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");
@@ -168,10 +171,10 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
 		if(!silenced) {
-			EntityLivingBase ent = (EntityLivingBase) data[1]; //Entity is second obj. passed 
+			EntityLivingBase ent = context.holder; //Entity is second obj. passed
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[1];
 				shotRand = gun.shotRand;
@@ -193,7 +196,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase ent) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, 0) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, 0) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart("GunMirror");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");
@@ -206,7 +209,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 		if(!silenced) {
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;
@@ -229,7 +232,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, index) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, index) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart(index == 0 ? "GunMirror" : "Gun");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");
@@ -254,7 +257,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslated(-1, 1, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, 1) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, 1) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart("Gun");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");
@@ -265,7 +268,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslated(1, 1, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, 0) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, 0) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart("GunMirror");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");
@@ -278,7 +281,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 
@@ -297,7 +300,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 			GL11.glScaled(scale, scale, scale);
 			GL11.glTranslated(0, 0, -4);
 		}
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, 1) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, 1) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart("Gun");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");
@@ -320,7 +323,7 @@ public class ItemRenderUziAkimbo extends ItemRenderWeaponBase {
 			GL11.glScaled(scale, scale, scale);
 			GL11.glTranslated(0, 0, -4);
 		}
-		Minecraft.getMinecraft().renderEngine.bindTexture(isSaturnite(stack, 0) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(isSaturnite(stack, 0) ? ResourceManager.uzi_saturnite_tex : ResourceManager.uzi_tex);
 		ResourceManager.uzi.renderPart("GunMirror");
 		ResourceManager.uzi.renderPart("StockBack");
 		ResourceManager.uzi.renderPart("StockFront");

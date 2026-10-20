@@ -30,16 +30,16 @@ public class RenderTesla extends TileEntitySpecialRenderer {
         
         TileEntityTesla tesla = (TileEntityTesla)tileEntity;
 
-        double sx = tesla.xCoord + 0.5D;
-        double sy = tesla.yCoord + tesla.offset;
-        double sz = tesla.zCoord + 0.5D;
+        double sx = tesla.getPos().getX() + 0.5D;
+        double sy = tesla.getPos().getY() + tesla.offset;
+        double sz = tesla.getPos().getZ() + 0.5D;
 
         GL11.glTranslated(0.0D, tesla.offset, 0.0D);
         for(double[] target : tesla.targets) {
         	
         	double length = Math.sqrt(Math.pow(target[0] - sx, 2) + Math.pow(target[1] - sy, 2) + Math.pow(target[2] - sz, 2));
         	
-	        BeamPronter.prontBeam(new Vec3d(-target[0] + sx, target[1] - sy, -target[2] + sz), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x404040, 0x404040, (int)tileEntity.getWorldObj().getTotalWorldTime() % 1000 + 1, (int) (length * 5), 0.125F, 2, 0.03125F, 0.5F);
+	        BeamPronter.prontBeam(new Vec3d(-target[0] + sx, target[1] - sy, -target[2] + sz), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x404040, 0x404040, (int)tileEntity.getWorld().getTotalWorldTime() % 1000 + 1, (int) (length * 5), 0.125F, 2, 0.03125F, 0.5F);
 
         }
 

@@ -42,7 +42,7 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 		Keyboard.enableRepeatEvents(true);
 		
 		for(int i = 0; i < 4; i++) {
-			this.fields[i] = new GuiTextField(this.fontRendererObj, guiLeft + 30, guiTop + 27 + 11 * i, 26, 6);
+			this.fields[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 30, guiTop + 27 + 11 * i, 26, 6);
 			this.fields[i].setTextColor(-1);
 			this.fields[i].setDisabledTextColour(-1);
 			this.fields[i].setEnableBackgroundDrawing(false);
@@ -99,7 +99,7 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 		
 		if(guiLeft + 28 <= x && guiLeft + 28 + 30 > x && guiTop + 70 < y && guiTop + 70 +10 >= y) {
 			
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			
 			double[] vals = new double[] {0D ,0D, 0D, 0D};
@@ -109,7 +109,7 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 				double clamp = k < 2 ? 100 : 9999;
 				
 				if(NumberUtils.isNumber(fields[k].getText())) {
-					int j = (int)MathHelper.clamp_double(Double.parseDouble(fields[k].getText()), 0, clamp);
+					int j = (int)MathHelper.clamp(Double.parseDouble(fields[k].getText()), (double) (0), clamp);
 					fields[k].setText(j + "");
 					vals[k] = j;
 				} else {
@@ -122,7 +122,7 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 			data.setDouble("heatUpper", vals[2]);
 			data.setDouble("heatLower", vals[3]);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rod.xCoord, rod.yCoord, rod.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rod.getPos().getX(), rod.getPos().getY(), rod.getPos().getZ()));
 		}
 		
 		for(int k = 0; k < 3; k++) {
@@ -130,10 +130,10 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 			//manual rod control
 			if(guiLeft + 61 <= x && guiLeft + 61 + 22 > x && guiTop + 48 + k * 11 < y && guiTop + 48 + 10 + k * 11 >= y) {
 	
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("function", k);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rod.xCoord, rod.yCoord, rod.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, rod.getPos().getX(), rod.getPos().getY(), rod.getPos().getZ()));
 			}
 		}
 	}
@@ -142,8 +142,8 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.rod.hasCustomInventoryName() ? this.rod.getInventoryName() : I18n.format(this.rod.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "com/hbm/blocks/generic/BlockOreBasalt.java",
+    "method": "public String getUnlocalizedMultiName(Enum num)",
+    "sha256": "a3611eebb83eb1bba0ef07f06da51878d886dcfd9f5eb78b585725b75ac2a3f0"
+  },
+  {
+    "path": "com/hbm/items/machine/ItemGear.java",
+    "method": "public String getUnlocalizedName(ItemStack stack)",
+    "sha256": "9c12445462a54dc29efc1de0d08ab153694d3bb5623ebf6f3a95dd7753256e21"
+  }
+]

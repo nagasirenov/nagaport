@@ -1,0 +1,1606 @@
+{
+  "scope": "Audited drop bodies, two serialization guards, PistonInserter nullable ingress/player removal adaptation and native no-op removal callback.",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "before_sha256": "2a73abfcddc8d53cbb14195f6130b6a0aa903daf07d2724b551cbc1fef518332",
+      "after_sha256": "eaa1925fe13d690148a0c46ec691a664c3dd853415fe4d5baf3d69c0f9051242",
+      "edits": [
+        {
+          "after_start": 391,
+          "after_end": 392,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 396,
+          "after_end": 397,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 399,
+          "after_end": 401,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 403,
+          "after_end": 409,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 410,
+          "after_end": 412,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 418,
+          "after_end": 419,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+      "before_sha256": "3558b3208b2ae5dab0bd1cdbd3253d6cf8c313cffd4e05d90de3020524e7b042",
+      "after_sha256": "c25e4e70770aa8a04bf473588c85500eca6f8bbee02089f82e01ee99c6b9c2e4",
+      "edits": [
+        {
+          "after_start": 142,
+          "after_end": 143,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 147,
+          "after_end": 148,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 150,
+          "after_end": 152,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 154,
+          "after_end": 160,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 161,
+          "after_end": 163,
+          "old": "\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 169,
+          "after_end": 170,
+          "old": "\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+      "before_sha256": "c66533ec83fbfa6a2e394cd557028058a06af2f70504398249912dda9e518245",
+      "after_sha256": "cd713fcc7851581053d8adde6847f1f9ea2a6dbf5ceb89c4a80c77eb3e79a457",
+      "edits": [
+        {
+          "after_start": 187,
+          "after_end": 188,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 192,
+          "after_end": 193,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 195,
+          "after_end": 197,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 199,
+          "after_end": 205,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 206,
+          "after_end": 208,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 214,
+          "after_end": 215,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDecoContainer.java",
+      "before_sha256": "89765e0c19738e866f0edcf1f0b83747ade94a89e7ff24150fe355abb1b681e9",
+      "after_sha256": "b48d3d3651e985f273091e45064bd4aa6a192e510333ae86c9d8cd2a50c19263",
+      "edits": [
+        {
+          "after_start": 84,
+          "after_end": 85,
+          "old": "\t\t\t\tif (itemstack != null) {\n",
+          "new": "\t\t\t\tif (itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 89,
+          "after_end": 90,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 92,
+          "after_end": 94,
+          "old": "\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 96,
+          "after_end": 102,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 103,
+          "after_end": 105,
+          "old": "\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 111,
+          "after_end": 112,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+      "before_sha256": "f861b1c86e3a924d2bcb84e04cf0b9a81742b8371feb490855f4c45ef30cf0b6",
+      "after_sha256": "89e3b8b674d3e76f9381bba6efeb7bc8b3c30f9d81ca8ef32b5377456c103132",
+      "edits": [
+        {
+          "after_start": 138,
+          "after_end": 139,
+          "old": "\t\t\t\t\tif(stack == null)\n",
+          "new": "\t\t\t\t\tif(stack == null || stack.isEmpty())\n"
+        },
+        {
+          "after_start": 272,
+          "after_end": 273,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 277,
+          "after_end": 278,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 280,
+          "after_end": 282,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 284,
+          "after_end": 290,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 291,
+          "after_end": 293,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 299,
+          "after_end": 300,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java",
+      "before_sha256": "cfb7e97d4f113d469595362585e99854293154ae94d281bbe47c3e2fb5d0c6b8",
+      "after_sha256": "7cd2a838860c04cdfe1ca8f5c865ebe86d057f0f44f170915a9e19df78331ece",
+      "edits": [
+        {
+          "after_start": 176,
+          "after_end": 177,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 181,
+          "after_end": 182,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 184,
+          "after_end": 186,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 188,
+          "after_end": 194,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 195,
+          "after_end": 197,
+          "old": "\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 203,
+          "after_end": 204,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java",
+      "before_sha256": "b65be08f697be641c0f07f65aac951a8949c4ba134801a02c120734a63c62558",
+      "after_sha256": "5033bfc32e6d0398237e58f96c8148a991e264a559c71fe7f64832e05a49aa98",
+      "edits": [
+        {
+          "after_start": 120,
+          "after_end": 121,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 125,
+          "after_end": 126,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 128,
+          "after_end": 130,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 132,
+          "after_end": 138,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 139,
+          "after_end": 141,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 147,
+          "after_end": 148,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockMachineBase.java",
+      "before_sha256": "0f11d31ba26208e016626348ea3bedb413bd516c2578536991d20653e8792e18",
+      "after_sha256": "160594eb265ee7a9c50988549155cf3d92ddea5d340740fafa03aaba93ad3688",
+      "edits": [
+        {
+          "after_start": 65,
+          "after_end": 66,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 71,
+          "after_end": 72,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 75,
+          "after_end": 77,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize)\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount())\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 78,
+          "after_end": 84,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 85,
+          "after_end": 87,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound())\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null)\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 92,
+          "after_end": 93,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+      "before_sha256": "8bca11296e261359fccc15f15627531f6fc13ddff119c8b7c3cf967005a4451b",
+      "after_sha256": "38a902f5c0f34b092eb2562be0bd7f5ae947426be7fe04bf138e4fd143c5333f",
+      "edits": [
+        {
+          "after_start": 142,
+          "after_end": 143,
+          "old": "\t\t\t\t\tif(stack == null)\n",
+          "new": "\t\t\t\t\tif(stack == null || stack.isEmpty())\n"
+        },
+        {
+          "after_start": 228,
+          "after_end": 229,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 233,
+          "after_end": 234,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 236,
+          "after_end": 238,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 240,
+          "after_end": 246,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 247,
+          "after_end": 249,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 255,
+          "after_end": 256,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+      "before_sha256": "f4ba9079a18354321d316bb65dd6ffd960c854d54365a44b5f7918954b5bcebc",
+      "after_sha256": "459df6e2903e0dbd6956c3f82ecfe114009eca73556e296cfe124ba1c79b1f17",
+      "edits": [
+        {
+          "after_start": 70,
+          "after_end": 71,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 75,
+          "after_end": 76,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 77,
+          "after_end": 78,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) j1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 79,
+          "after_end": 86,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n\t\t\t\t\t\tif(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n\t\t\t\t\t\tif(dropTag != null) entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 91,
+          "after_end": 92,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAutocrafter.java",
+      "before_sha256": "a8a1089708975cd111aa92a0cc2a6c37ab09ee3f623db37a9a17d132bcff06d0",
+      "after_sha256": "23f1aff949b522ea9fb3b204c7d7df925571e8687d678c6dac7513765160012c",
+      "edits": [
+        {
+          "after_start": 77,
+          "after_end": 78,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 82,
+          "after_end": 83,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 85,
+          "after_end": 87,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 89,
+          "after_end": 95,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 96,
+          "after_end": 98,
+          "old": "\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 104,
+          "after_end": 105,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineBattery.java",
+      "before_sha256": "c47445154f2accb3571de3f198a663af32a77f71dc75ab2d846291b709b8fdb7",
+      "after_sha256": "eb88da342860091b95c84ec0e24a6427f0aaf44bd0274984e66851d950c9227f",
+      "edits": [
+        {
+          "after_start": 186,
+          "after_end": 187,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 191,
+          "after_end": 192,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 194,
+          "after_end": 196,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 198,
+          "after_end": 204,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 205,
+          "after_end": 207,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 213,
+          "after_end": 214,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java",
+      "before_sha256": "8e91936c186fc09a4425a23967393bf1dc299a6542d315cd2025c4b777b3bff4",
+      "after_sha256": "d12772f657fedc34973a71067cdb65ff26877502ec58c5ee806135e0234c5e55",
+      "edits": [
+        {
+          "after_start": 141,
+          "after_end": 142,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 146,
+          "after_end": 147,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 149,
+          "after_end": 151,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 153,
+          "after_end": 159,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 160,
+          "after_end": 162,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 168,
+          "after_end": 169,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java",
+      "before_sha256": "c1ea842e63d23e7aa00b13dc81311dd4f0c5a5955329abb4d2c1735e84d2a09a",
+      "after_sha256": "7d2dff939214eb00d5fd5af2c39e0a35ba0c0b1fc45dcc48d8747198bb521031",
+      "edits": [
+        {
+          "after_start": 167,
+          "after_end": 168,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 172,
+          "after_end": 173,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 175,
+          "after_end": 177,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 179,
+          "after_end": 184,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "after_start": 186,
+          "after_end": 187,
+          "old": "\t\t\t\t\t\t\t\t\tnew ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\t\tnew ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 188,
+          "after_end": 191,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t\t.setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 197,
+          "after_end": 198,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineElectricFurnace.java",
+      "before_sha256": "62193bf62458b435ce4b9be5b2fd295187ba2d25081979fa5d1c249b673dcd50",
+      "after_sha256": "402001ef5c5e5ca79c0261c1ef48ce3cbbfca6812d42678c03ef7e6ce8ccf7dd",
+      "edits": [
+        {
+          "after_start": 186,
+          "after_end": 187,
+          "old": "                    if (itemstack != null)\n",
+          "new": "                    if (itemstack != null && !itemstack.isEmpty())\n"
+        },
+        {
+          "after_start": 192,
+          "after_end": 193,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "after_start": 196,
+          "after_end": 197,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "after_start": 198,
+          "after_end": 199,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 201,
+          "after_end": 207,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture before depletion: native empty stacks hide their item.\n                            net.minecraft.item.Item dropItem = itemstack.getItem();\n                            int dropMeta = itemstack.getItemDamage();\n                            NBTTagCompound dropTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 208,
+          "after_end": 209,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (dropTag != null)\n"
+        },
+        {
+          "after_start": 210,
+          "after_end": 211,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 217,
+          "after_end": 218,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+      "before_sha256": "de821e8794f5cb78a8f4d3ff74e402bdceb938e4e90850e35bccdde17d0f5eea",
+      "after_sha256": "4dbaabfaa9064e85b1263a342f15df229c5a1fb1dd67bce6644b98b75b429ca3",
+      "edits": [
+        {
+          "after_start": 102,
+          "after_end": 103,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 107,
+          "after_end": 108,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 110,
+          "after_end": 112,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 114,
+          "after_end": 120,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 121,
+          "after_end": 123,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 129,
+          "after_end": 130,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFunnel.java",
+      "before_sha256": "98b6f2ef13062b0b3ceb9541249be1bede0f994457a3804b6b8fa4ebe46e1da5",
+      "after_sha256": "8fd95343cfa6ddf1f885a718dcef0928637d4af51fa0bed0a8bb83ffd4df9d80",
+      "edits": [
+        {
+          "after_start": 89,
+          "after_end": 90,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 93,
+          "after_end": 94,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 95,
+          "after_end": 103,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) j1 = itemstack.stackSize;\n\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n\t\t\t\t\t\tif(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) j1 = itemstack.getCount();\n\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n\t\t\t\t\t\tif(dropTag != null) entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 107,
+          "after_end": 108,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineICFPress.java",
+      "before_sha256": "2df26b81eb150624f81e0c0bf297e2a1a0dd56f7b772342880889d6c80524615",
+      "after_sha256": "00367506946ceeb77da8191dd5db179a5c286ef691e631b6d7896cfc2f1b3b2e",
+      "edits": [
+        {
+          "after_start": 75,
+          "after_end": 76,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 79,
+          "after_end": 80,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 81,
+          "after_end": 89,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) j1 = itemstack.stackSize;\n\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n\t\t\t\t\t\tif(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) j1 = itemstack.getCount();\n\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n\t\t\t\t\t\tif(dropTag != null) entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 93,
+          "after_end": 94,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineKeyForge.java",
+      "before_sha256": "c1f03ff8d7e38c2668b20fd01d4a0d11178f3d51e9ebe6284f4cd32f0d689fbd",
+      "after_sha256": "23441129f82c3258aded3a8417c97de003a0ac7455bb5c5348db12617fe22d05",
+      "edits": [
+        {
+          "after_start": 88,
+          "after_end": 89,
+          "old": "                    if (itemstack != null)\n",
+          "new": "                    if (itemstack != null && !itemstack.isEmpty())\n"
+        },
+        {
+          "after_start": 94,
+          "after_end": 95,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "after_start": 98,
+          "after_end": 99,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "after_start": 100,
+          "after_end": 101,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 103,
+          "after_end": 109,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture before depletion: native empty stacks hide their item.\n                            net.minecraft.item.Item dropItem = itemstack.getItem();\n                            int dropMeta = itemstack.getItemDamage();\n                            NBTTagCompound dropTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 110,
+          "after_end": 111,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (dropTag != null)\n"
+        },
+        {
+          "after_start": 112,
+          "after_end": 113,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 119,
+          "after_end": 120,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+      "before_sha256": "3f71579d13e50e5d6ef6f2698c4dc9bc12791e6cada50fa8f34bf6f75552c0de",
+      "after_sha256": "3ae6ceff74a5f449a224f1dc55b67ece6f08fb596ed16c4221afca5ee1b8024c",
+      "edits": [
+        {
+          "after_start": 77,
+          "after_end": 78,
+          "old": "\t\t\t\tif (itemstack != null) {\n",
+          "new": "\t\t\t\tif (itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 82,
+          "after_end": 83,
+          "old": "\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 85,
+          "after_end": 87,
+          "old": "\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 89,
+          "after_end": 94,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "after_start": 95,
+          "after_end": 96,
+          "old": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 97,
+          "after_end": 100,
+          "old": "\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif (dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 106,
+          "after_end": 107,
+          "old": "\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineReactorControl.java",
+      "before_sha256": "521b163fe2761568ae873ab41265eb654a561659767950a43d0c1b4c44fd7b26",
+      "after_sha256": "3510663a26347f42731d3143277beca2fa23eb5c82be382b689f89a2200dc8fb",
+      "edits": [
+        {
+          "after_start": 124,
+          "after_end": 125,
+          "old": "                    if (itemstack != null)\n",
+          "new": "                    if (itemstack != null && !itemstack.isEmpty())\n"
+        },
+        {
+          "after_start": 130,
+          "after_end": 131,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "after_start": 134,
+          "after_end": 135,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "after_start": 136,
+          "after_end": 137,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 139,
+          "after_end": 145,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture before depletion: native empty stacks hide their item.\n                            net.minecraft.item.Item dropItem = itemstack.getItem();\n                            int dropMeta = itemstack.getItemDamage();\n                            NBTTagCompound dropTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 146,
+          "after_end": 147,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (dropTag != null)\n"
+        },
+        {
+          "after_start": 148,
+          "after_end": 149,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 155,
+          "after_end": 156,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java",
+      "before_sha256": "75ffc0afe38f1dc8c5a60dbcd7ded8c89270be77d049b2de354c804fc789ded4",
+      "after_sha256": "716d782766ffc9cf60fdd99e8385f618cef1947595efb60950026d01f8323057",
+      "edits": [
+        {
+          "after_start": 186,
+          "after_end": 187,
+          "old": "                    if (itemstack != null)\n",
+          "new": "                    if (itemstack != null && !itemstack.isEmpty())\n"
+        },
+        {
+          "after_start": 192,
+          "after_end": 193,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "after_start": 196,
+          "after_end": 197,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "after_start": 198,
+          "after_end": 199,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 201,
+          "after_end": 207,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture before depletion: native empty stacks hide their item.\n                            net.minecraft.item.Item dropItem = itemstack.getItem();\n                            int dropMeta = itemstack.getItemDamage();\n                            NBTTagCompound dropTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 208,
+          "after_end": 209,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (dropTag != null)\n"
+        },
+        {
+          "after_start": 210,
+          "after_end": 211,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 217,
+          "after_end": 218,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+      "before_sha256": "03c15fddc661ad1084dd1de561355d6233a2de6cdeedea85bfe66788b71b9385",
+      "after_sha256": "3b350da743f44ce9de60e056a0b42c0d798419ca20c91d5eeb2b24da65527260",
+      "edits": [
+        {
+          "after_start": 93,
+          "after_end": 94,
+          "old": "\t\t\t\tif (itemstack != null) {\n",
+          "new": "\t\t\t\tif (itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 98,
+          "after_end": 99,
+          "old": "\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 101,
+          "after_end": 103,
+          "old": "\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 105,
+          "after_end": 110,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "after_start": 111,
+          "after_end": 112,
+          "old": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 113,
+          "after_end": 116,
+          "old": "\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif (dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 122,
+          "after_end": 123,
+          "old": "\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSatLinker.java",
+      "before_sha256": "55588173ea3303ef440c8e1558f5193bd9a9c821b6af25a09aab73659cfdabbe",
+      "after_sha256": "8f544bf08b69cf15ac83458c0d1249355988043f8b07374b04c5f75186f43e70",
+      "edits": [
+        {
+          "after_start": 86,
+          "after_end": 87,
+          "old": "                    if (itemstack != null)\n",
+          "new": "                    if (itemstack != null && !itemstack.isEmpty())\n"
+        },
+        {
+          "after_start": 92,
+          "after_end": 93,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "after_start": 96,
+          "after_end": 97,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "after_start": 98,
+          "after_end": 99,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 101,
+          "after_end": 107,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture before depletion: native empty stacks hide their item.\n                            net.minecraft.item.Item dropItem = itemstack.getItem();\n                            int dropMeta = itemstack.getItemDamage();\n                            NBTTagCompound dropTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 108,
+          "after_end": 109,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (dropTag != null)\n"
+        },
+        {
+          "after_start": 110,
+          "after_end": 111,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 117,
+          "after_end": 118,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSiren.java",
+      "before_sha256": "a1087f18ef94f1e0c8a2eb681e55ec22e990f1031328a76767c9a860bf20cf93",
+      "after_sha256": "3b37a7b0051f0d6c6dd19f2ce66fab30415d14139aa2f4c6f5fe23fd28435521",
+      "edits": [
+        {
+          "after_start": 86,
+          "after_end": 87,
+          "old": "                    if (itemstack != null)\n",
+          "new": "                    if (itemstack != null && !itemstack.isEmpty())\n"
+        },
+        {
+          "after_start": 92,
+          "after_end": 93,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "after_start": 96,
+          "after_end": 97,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "after_start": 98,
+          "after_end": 99,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 101,
+          "after_end": 107,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture before depletion: native empty stacks hide their item.\n                            net.minecraft.item.Item dropItem = itemstack.getItem();\n                            int dropMeta = itemstack.getItemDamage();\n                            NBTTagCompound dropTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 108,
+          "after_end": 109,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (dropTag != null)\n"
+        },
+        {
+          "after_start": 110,
+          "after_end": 111,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 117,
+          "after_end": 118,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTurbine.java",
+      "before_sha256": "a033e42ef182bde4cd645d7150dbfd4bcb408b3b66e9f02eee8778a802e4e0fa",
+      "after_sha256": "70edf17e5e1b3140004d14e82f5e9f63b13d3e24f2a8517050880888034d7fd9",
+      "edits": [
+        {
+          "after_start": 90,
+          "after_end": 91,
+          "old": "\t\t\t\tif (itemstack != null) {\n",
+          "new": "\t\t\t\tif (itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 95,
+          "after_end": 96,
+          "old": "\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 98,
+          "after_end": 100,
+          "old": "\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 102,
+          "after_end": 107,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "after_start": 108,
+          "after_end": 109,
+          "old": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 110,
+          "after_end": 113,
+          "old": "\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif (dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 119,
+          "after_end": 120,
+          "old": "\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "before_sha256": "26f53efe85e3fe44cf685843c5ad62134da155ef1d869a367f6f8a8f43b5bd5e",
+      "after_sha256": "37f8606b096fee13f47132b16cb38b4ca8c15006b79ecd237cf46d547f10c2fd",
+      "edits": [
+        {
+          "after_start": 101,
+          "after_end": 103,
+          "old": "\t\t\t\t\tpiston.slot = player.inventory.decrStackSize(player.inventory.currentItem, 1);\n",
+          "new": "\t\t\t\t\tItemStack removed = player.inventory.decrStackSize(player.inventory.currentItem, 1);\n\t\t\t\t\tpiston.slot = removed == null || removed.isEmpty() ? null : removed;\n"
+        },
+        {
+          "after_start": 133,
+          "after_end": 134,
+          "old": "\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 138,
+          "after_end": 139,
+          "old": "\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 141,
+          "after_end": 143,
+          "old": "\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 145,
+          "after_end": 151,
+          "old": "\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 152,
+          "after_end": 154,
+          "old": "\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 160,
+          "after_end": 161,
+          "old": "\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        },
+        {
+          "after_start": 375,
+          "after_end": 376,
+          "old": "\t\tpublic ItemStack getStackInSlotOnClosing(int slot) { return null; }\n",
+          "new": "\t\tpublic ItemStack removeStackFromSlot(int slot) { return ItemStack.EMPTY; }\n"
+        },
+        {
+          "after_start": 379,
+          "after_end": 380,
+          "old": "",
+          "new": "\t\t\tif(stack != null && stack.isEmpty()) stack = null;\n"
+        },
+        {
+          "after_start": 381,
+          "after_end": 383,
+          "old": "\t\t\tif(stack != null && stack.stackSize > this.getInventoryStackLimit())\n\t\t\t\tstack.stackSize = this.getInventoryStackLimit();\n",
+          "new": "\t\t\tif(stack != null && stack.getCount() > this.getInventoryStackLimit())\n\t\t\t\tstack.setCount(this.getInventoryStackLimit());\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+      "before_sha256": "2e3c3acbb2fb42423737810ad8af02113d09aa6ca506f7f2b7f15f40d20b2c3c",
+      "after_sha256": "81701ef01f6d347645e0680393a2e65609570ac36934abb6ce3d595de73e3ef0",
+      "edits": [
+        {
+          "after_start": 71,
+          "after_end": 72,
+          "old": "\t\t\t\tif (itemstack != null) {\n",
+          "new": "\t\t\t\tif (itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 76,
+          "after_end": 77,
+          "old": "\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 79,
+          "after_end": 81,
+          "old": "\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 83,
+          "after_end": 89,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 90,
+          "after_end": 93,
+          "old": "\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif (dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 99,
+          "after_end": 100,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "before_sha256": "331ee986c13d64755bf04cd78bef299a15173e986a83a42ccd4af06295990378",
+      "after_sha256": "543117a6b8bee2292909f537cbece58355e12dde37ec81439087641e9892d3f1",
+      "edits": [
+        {
+          "after_start": 183,
+          "after_end": 184,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 188,
+          "after_end": 189,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 191,
+          "after_end": 193,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 195,
+          "after_end": 201,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 202,
+          "after_end": 204,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 210,
+          "after_end": 211,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/WasteDrum.java",
+      "before_sha256": "c06f327b1478b0beb66b4aff42796dda80b92611d65c83bb9d9622192714d46c",
+      "after_sha256": "beeb3c87ca2fb0bf662961df256fb38538df21e23d4c0642331851ef4143795d",
+      "edits": [
+        {
+          "after_start": 115,
+          "after_end": 116,
+          "old": "\t\t\t\tif (itemstack != null) {\n",
+          "new": "\t\t\t\tif (itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 120,
+          "after_end": 121,
+          "old": "\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 123,
+          "after_end": 125,
+          "old": "\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 127,
+          "after_end": 132,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "after_start": 133,
+          "after_end": 134,
+          "old": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\tp_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 135,
+          "after_end": 138,
+          "old": "\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif (dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t.setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 144,
+          "after_end": 145,
+          "old": "\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/BlockCraneBase.java",
+      "before_sha256": "5e75846b2a921a8745c3b3f50b52bc0c7e711c6880ee691d35c5c5768e2c8c6c",
+      "after_sha256": "2876374e292c73804c8afc20b1354fafdb46f107dee6b1a4bb9029d4d316a9fc",
+      "edits": [
+        {
+          "after_start": 278,
+          "after_end": 279,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 283,
+          "after_end": 284,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 286,
+          "after_end": 288,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 290,
+          "after_end": 296,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 297,
+          "after_end": 299,
+          "old": "\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 305,
+          "after_end": 306,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CranePartitioner.java",
+      "before_sha256": "26f522e5c3d7a9654007984f26412785c3cb2c63a33e4a173b0bd448d7044bce",
+      "after_sha256": "600a85c9d64812d84df5445a381ef9b423bf393a08ed4d0263ce5d444d118be2",
+      "edits": [
+        {
+          "after_start": 231,
+          "after_end": 232,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 235,
+          "after_end": 236,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 237,
+          "after_end": 245,
+          "old": "\t\t\t\t\t\tif(j1 > itemstack.stackSize) j1 = itemstack.stackSize;\n\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n\t\t\t\t\t\tif(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(j1 > itemstack.getCount()) j1 = itemstack.getCount();\n\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n\t\t\t\t\t\tif(dropTag != null) entityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 249,
+          "after_end": 250,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/DroneCrate.java",
+      "before_sha256": "33d624272a84e92e9cf8a1bfc6302f758d895394a50d6f4152f5d7489ad5546a",
+      "after_sha256": "b300c2fc0f70756909c46a471b369b1cfce28284d23422ea27a0fcfc967d391c",
+      "edits": [
+        {
+          "after_start": 83,
+          "after_end": 84,
+          "old": "\t\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 88,
+          "after_end": 89,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 91,
+          "after_end": 93,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 95,
+          "after_end": 101,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 102,
+          "after_end": 104,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 110,
+          "after_end": 111,
+          "old": "\t\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/DroneDock.java",
+      "before_sha256": "3fd626503cd4f0c08cccc07a3d122885feb9102fc818aa1136498fae744f8bd6",
+      "after_sha256": "b468a9ca92b46789625050e66865e196dd6b41b9c676fc66e131735ae60ae4c7",
+      "edits": [
+        {
+          "after_start": 94,
+          "after_end": 95,
+          "old": "\t\t\t\tif(stack != null) {\n",
+          "new": "\t\t\t\tif(stack != null && !stack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 99,
+          "after_end": 100,
+          "old": "\t\t\t\t\twhile(stack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(stack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 102,
+          "after_end": 104,
+          "old": "\t\t\t\t\t\tif(j1 > stack.stackSize) {\n\t\t\t\t\t\t\tj1 = stack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(j1 > stack.getCount()) {\n\t\t\t\t\t\t\tj1 = stack.getCount();\n"
+        },
+        {
+          "after_start": 106,
+          "after_end": 112,
+          "old": "\t\t\t\t\t\tstack.stackSize -= j1;\n\t\t\t\t\t\tEntityItem entity = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(stack.getItem(), j1, stack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = stack.getItem();\n\t\t\t\t\t\tint dropMeta = stack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = stack.getTagCompound();\n\t\t\t\t\t\tstack.shrink(j1);\n\t\t\t\t\t\tEntityItem entity = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "after_start": 113,
+          "after_end": 115,
+          "old": "\t\t\t\t\t\tif(stack.hasTagCompound()) {\n\t\t\t\t\t\t\tentity.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentity.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 121,
+          "after_end": 122,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entity);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entity);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+      "before_sha256": "6dd21cb79983f3521ca3a4b043037e6101ae19cb4ae4538a0bd623c316ad6561",
+      "after_sha256": "7537a4472d9f35bd394dbcc452c5f7bebc1b5d3e68d6e4f9574533f2ff2b045b",
+      "edits": [
+        {
+          "after_start": 68,
+          "after_end": 69,
+          "old": "\t\t\t\tif(itemstack != null) {\n",
+          "new": "\t\t\t\tif(itemstack != null && !itemstack.isEmpty()) {\n"
+        },
+        {
+          "after_start": 73,
+          "after_end": 74,
+          "old": "\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "after_start": 76,
+          "after_end": 78,
+          "old": "\t\t\t\t\t\tif(toDrop > itemstack.stackSize) {\n\t\t\t\t\t\t\ttoDrop = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\tif(toDrop > itemstack.getCount()) {\n\t\t\t\t\t\t\ttoDrop = itemstack.getCount();\n"
+        },
+        {
+          "after_start": 80,
+          "after_end": 86,
+          "old": "\t\t\t\t\t\titemstack.stackSize -= toDrop;\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + oX, y + oY, z + oZ, new ItemStack(itemstack.getItem(), toDrop, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t// Capture before depletion: native empty stacks hide their item.\n\t\t\t\t\t\tnet.minecraft.item.Item dropItem = itemstack.getItem();\n\t\t\t\t\t\tint dropMeta = itemstack.getItemDamage();\n\t\t\t\t\t\tNBTTagCompound dropTag = itemstack.getTagCompound();\n\t\t\t\t\t\titemstack.shrink(toDrop);\n\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + oX, y + oY, z + oZ, new ItemStack(dropItem, toDrop, dropMeta));\n"
+        },
+        {
+          "after_start": 87,
+          "after_end": 89,
+          "old": "\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\tif(dropTag != null) {\n\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(dropTag.copy());\n"
+        },
+        {
+          "after_start": 95,
+          "after_end": 96,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    }
+  ]
+}

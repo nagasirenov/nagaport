@@ -38,9 +38,9 @@ public class ItemModDefuser extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(entity.worldObj.isRemote || entity.worldObj.getTotalWorldTime() % 20 != 0) return;
+		if(entity.world.isRemote || entity.world.getTotalWorldTime() % 20 != 0) return;
 		
-		List<EntityCreeper> creepers = entity.worldObj.getEntitiesWithinAABB(EntityCreeper.class, entity.boundingBox.expand(5, 5, 5));
+		List<EntityCreeper> creepers = entity.world.getEntitiesWithinAABB(EntityCreeper.class, entity.getEntityBoundingBox().grow(5, 5, 5));
 		
 		for(EntityCreeper creeper : creepers) defuse(creeper, entity, true);
 	}
@@ -50,7 +50,7 @@ public class ItemModDefuser extends ItemArmorMod {
 		creeper.setCreeperState(-1);
 		creeper.getDataWatcher().updateObject(18, new Byte((byte) 0));
 
-		if(!creeper.worldObj.isRemote) {
+		if(!creeper.world.isRemote) {
 			EntityAICreeperSwell toRem = null;
 			for(Object o : creeper.tasks.taskEntries) {
 				EntityAITaskEntry entry = (EntityAITaskEntry) o;
@@ -64,7 +64,7 @@ public class ItemModDefuser extends ItemArmorMod {
 			if(toRem != null) {
 				creeper.tasks.removeTask(toRem);
 				if(dropItem) {
-					creeper.worldObj.playSoundEffect(creeper.posX, creeper.posY, creeper.posZ, "hbm:item.pinBreak", 1.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(creeper.world, creeper.posX, creeper.posY, creeper.posZ, "hbm:item.pinBreak", 1.0F, 1.0F);
 					creeper.dropItem(ModItems.safety_fuse, 1);
 					creeper.attackEntityFrom(DamageSource.causeMobDamage(entity), 1.0F);
 					creeper.addPotionEffect(new PotionEffect(Potion.weakness.id, 0, 200));

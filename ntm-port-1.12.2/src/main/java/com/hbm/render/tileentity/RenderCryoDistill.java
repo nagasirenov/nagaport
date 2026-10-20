@@ -5,14 +5,12 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderCryoDistill extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderCryoDistill extends TileEntitySpecialRenderer {
 	
 	
 	@Override
@@ -40,24 +38,5 @@ public class RenderCryoDistill extends TileEntitySpecialRenderer implements IIte
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_cryo_distill);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -3, 0);
-				GL11.glScaled(3.5, 3.5, 3.5);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.5, 0.5, 0.5);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.cryodistill_tex);
-				ResourceManager.cryo_distill.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}};
-	}
 }

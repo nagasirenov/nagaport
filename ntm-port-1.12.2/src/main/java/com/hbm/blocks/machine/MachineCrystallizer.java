@@ -40,7 +40,7 @@ public class MachineCrystallizer extends BlockDummyable {
 			if(pos == null)
 				return false;
 
-			TileEntityMachineCrystallizer entity = (TileEntityMachineCrystallizer) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineCrystallizer entity = (TileEntityMachineCrystallizer) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
 			}

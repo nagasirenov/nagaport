@@ -48,9 +48,9 @@ public class BlockProcessorStandard implements IBlockProcessor {
 			int blockX = chunkposition.getX();
 			int blockY = chunkposition.getY();
 			int blockZ = chunkposition.getZ();
-			Block block = world.getBlock(blockX, blockY, blockZ);
+			Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 			
-			if(block.getMaterial() != Material.air) {
+			if(block.getDefaultState().getMaterial() != Material.AIR) {
 				if(block.canDropFromExplosion(null)) {
 					
 					if(chance != null) {
@@ -59,11 +59,11 @@ public class BlockProcessorStandard implements IBlockProcessor {
 					
 					int dropFortune = fortune == null ? 0 : fortune.mutateFortune(explosion, block, blockX, blockY, blockZ);
 					
-					block.dropBlockAsItemWithChance(world, blockX, blockY, blockZ, world.getBlockMetadata(blockX, blockY, blockZ), dropChance, dropFortune);
+					block.dropBlockAsItemWithChance(world, blockX, blockY, blockZ, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ) ), dropChance, dropFortune);
 				}
 				
 				block.onBlockExploded(world, blockX, blockY, blockZ, explosion.compat);
-				if(this.convert != null) this.convert.mutatePre(explosion, block, world.getBlockMetadata(blockX, blockY, blockZ), blockX, blockY, blockZ);
+				if(this.convert != null) this.convert.mutatePre(explosion, block, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ) ), blockX, blockY, blockZ);
 			} else {
 				iterator.remove();
 			}
@@ -78,9 +78,9 @@ public class BlockProcessorStandard implements IBlockProcessor {
 				int blockX = chunkposition.getX();
 				int blockY = chunkposition.getY();
 				int blockZ = chunkposition.getZ();
-				Block block = world.getBlock(blockX, blockY, blockZ);
+				Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 				
-				if(block.getMaterial() == Material.air) {
+				if(block.getDefaultState().getMaterial() == Material.AIR) {
 					this.convert.mutatePost(explosion, blockX, blockY, blockZ);
 				}
 			}

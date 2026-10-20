@@ -1,0 +1,12 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[01:18:32] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:18:32] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:18:32] [main/INFO]: Replaced 1036 ore ingredients
+[01:18:32] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:18:32] [main/INFO]: Processing ObjectHolder annotations
+[01:18:32] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 632 checks; 3648 ordered native placement events; 917-site method compiled unsplit.
+PASS 917 exact original sites attributed to native World, int coordinates, static Library selector, statement-only metadata0/flags3.
+PASS actual complete DungeonToolbox native API attribution, no <clinit>; unsplit 917-sequence Code length 14274 bytes.
+Scope: complete DungeonToolbox + selected Silo sequence; Library selector/static fields and MetaBlock are explicit source slices. Full Silo/mod/client compilation NOT claimed.

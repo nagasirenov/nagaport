@@ -8,7 +8,7 @@ public interface IBlockMulti {
 	public int getSubCount();
 	
 	public default String getUnlocalizedName(ItemStack stack) {
-		return ((Block)this).getUnlocalizedName();
+		return ((Block)this).getTranslationKey();
 	}
 	
 	public default String getOverrideDisplayName(ItemStack stack) {

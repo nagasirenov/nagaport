@@ -1,0 +1,90 @@
+Compiled from "StructureComponent.java"
+public abstract class net.minecraft.world.gen.structure.StructureComponent {
+  protected net.minecraft.world.gen.structure.StructureBoundingBox boundingBox;
+  protected int componentType;
+  public net.minecraft.world.gen.structure.StructureComponent();
+  protected net.minecraft.world.gen.structure.StructureComponent(int);
+  public final net.minecraft.nbt.NBTTagCompound createStructureBaseNBT();
+  protected abstract void writeStructureToNBT(net.minecraft.nbt.NBTTagCompound);
+  public void readStructureBaseNBT(net.minecraft.world.World, net.minecraft.nbt.NBTTagCompound);
+  protected abstract void readStructureFromNBT(net.minecraft.nbt.NBTTagCompound, net.minecraft.world.gen.structure.template.TemplateManager);
+  public void buildComponent(net.minecraft.world.gen.structure.StructureComponent, java.util.List<net.minecraft.world.gen.structure.StructureComponent>, java.util.Random);
+  public abstract boolean addComponentParts(net.minecraft.world.World, java.util.Random, net.minecraft.world.gen.structure.StructureBoundingBox);
+  public net.minecraft.world.gen.structure.StructureBoundingBox getBoundingBox();
+  public int getComponentType();
+  public static net.minecraft.world.gen.structure.StructureComponent findIntersecting(java.util.List<net.minecraft.world.gen.structure.StructureComponent>, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected boolean isLiquidInStructureBoundingBox(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected int getXWithOffset(int, int);
+  protected int getYWithOffset(int);
+  protected int getZWithOffset(int, int);
+  protected void setBlockState(net.minecraft.world.World, net.minecraft.block.state.IBlockState, int, int, int, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected net.minecraft.block.state.IBlockState getBlockStateFromPos(net.minecraft.world.World, int, int, int, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected int getSkyBrightness(net.minecraft.world.World, int, int, int, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected void fillWithAir(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, int, int, int, int, int, int);
+  protected void fillWithBlocks(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, int, int, int, int, int, int, net.minecraft.block.state.IBlockState, net.minecraft.block.state.IBlockState, boolean);
+  protected void fillWithRandomizedBlocks(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, int, int, int, int, int, int, boolean, java.util.Random, net.minecraft.world.gen.structure.StructureComponent$BlockSelector);
+  protected void generateMaybeBox(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, java.util.Random, float, int, int, int, int, int, int, net.minecraft.block.state.IBlockState, net.minecraft.block.state.IBlockState, boolean, int);
+  protected void randomlyPlaceBlock(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, java.util.Random, float, int, int, int, net.minecraft.block.state.IBlockState);
+  protected void randomlyRareFillWithBlocks(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, int, int, int, int, int, int, net.minecraft.block.state.IBlockState, boolean);
+  protected void clearCurrentPositionBlocksUpwards(net.minecraft.world.World, int, int, int, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected void replaceAirAndLiquidDownwards(net.minecraft.world.World, net.minecraft.block.state.IBlockState, int, int, int, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected boolean generateChest(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, java.util.Random, int, int, int, net.minecraft.util.ResourceLocation);
+  protected boolean generateChest(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, java.util.Random, net.minecraft.util.math.BlockPos, net.minecraft.util.ResourceLocation, net.minecraft.block.state.IBlockState);
+  protected boolean createDispenser(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, java.util.Random, int, int, int, net.minecraft.util.EnumFacing, net.minecraft.util.ResourceLocation);
+  protected void generateDoor(net.minecraft.world.World, net.minecraft.world.gen.structure.StructureBoundingBox, java.util.Random, int, int, int, net.minecraft.util.EnumFacing, net.minecraft.block.BlockDoor);
+  public void offset(int, int, int);
+  public net.minecraft.util.EnumFacing getCoordBaseMode();
+  public void setCoordBaseMode(net.minecraft.util.EnumFacing);
+}
+Compiled from "StructureStart.java"
+public abstract class net.minecraft.world.gen.structure.StructureStart {
+  protected java.util.List<net.minecraft.world.gen.structure.StructureComponent> components;
+  protected net.minecraft.world.gen.structure.StructureBoundingBox boundingBox;
+  public net.minecraft.world.gen.structure.StructureStart();
+  public net.minecraft.world.gen.structure.StructureStart(int, int);
+  public net.minecraft.world.gen.structure.StructureBoundingBox getBoundingBox();
+  public java.util.List<net.minecraft.world.gen.structure.StructureComponent> getComponents();
+  public void generateStructure(net.minecraft.world.World, java.util.Random, net.minecraft.world.gen.structure.StructureBoundingBox);
+  protected void updateBoundingBox();
+  public net.minecraft.nbt.NBTTagCompound writeStructureComponentsToNBT(int, int);
+  public void writeToNBT(net.minecraft.nbt.NBTTagCompound);
+  public void readStructureComponentsFromNBT(net.minecraft.world.World, net.minecraft.nbt.NBTTagCompound);
+  public void readFromNBT(net.minecraft.nbt.NBTTagCompound);
+  protected void markAvailableHeight(net.minecraft.world.World, java.util.Random, int);
+  protected void setRandomHeight(net.minecraft.world.World, java.util.Random, int, int);
+  public boolean isSizeableStructure();
+  public boolean isValidForPostProcess(net.minecraft.util.math.ChunkPos);
+  public void notifyPostProcessAt(net.minecraft.util.math.ChunkPos);
+  public int getChunkPosX();
+  public int getChunkPosZ();
+}
+Compiled from "SourceFile"
+public class net.minecraft.world.gen.structure.MapGenStructureIO {
+  public static void registerStructure(java.lang.Class<? extends net.minecraft.world.gen.structure.StructureStart>, java.lang.String);
+  public static void registerStructureComponent(java.lang.Class<? extends net.minecraft.world.gen.structure.StructureComponent>, java.lang.String);
+  public static java.lang.String getStructureStartName(net.minecraft.world.gen.structure.StructureStart);
+  public static java.lang.String getStructureComponentName(net.minecraft.world.gen.structure.StructureComponent);
+  public static net.minecraft.world.gen.structure.StructureStart getStructureStart(net.minecraft.nbt.NBTTagCompound, net.minecraft.world.World);
+  public static net.minecraft.world.gen.structure.StructureComponent getStructureComponent(net.minecraft.nbt.NBTTagCompound, net.minecraft.world.World);
+}
+Compiled from "LootTable.java"
+public class net.minecraft.world.storage.loot.LootTable {
+  public static final net.minecraft.world.storage.loot.LootTable EMPTY_LOOT_TABLE;
+  public net.minecraft.world.storage.loot.LootTable(net.minecraft.world.storage.loot.LootPool[]);
+  public java.util.List<net.minecraft.item.ItemStack> generateLootForPools(java.util.Random, net.minecraft.world.storage.loot.LootContext);
+  public void fillInventory(net.minecraft.inventory.IInventory, java.util.Random, net.minecraft.world.storage.loot.LootContext);
+  public void freeze();
+  public boolean isFrozen();
+  public net.minecraft.world.storage.loot.LootPool getPool(java.lang.String);
+  public net.minecraft.world.storage.loot.LootPool removePool(java.lang.String);
+  public void addPool(net.minecraft.world.storage.loot.LootPool);
+}
+Compiled from "LootContext.java"
+public class net.minecraft.world.storage.loot.LootContext$Builder {
+  public net.minecraft.world.storage.loot.LootContext$Builder(net.minecraft.world.WorldServer);
+  public net.minecraft.world.storage.loot.LootContext$Builder withLuck(float);
+  public net.minecraft.world.storage.loot.LootContext$Builder withLootedEntity(net.minecraft.entity.Entity);
+  public net.minecraft.world.storage.loot.LootContext$Builder withPlayer(net.minecraft.entity.player.EntityPlayer);
+  public net.minecraft.world.storage.loot.LootContext$Builder withDamageSource(net.minecraft.util.DamageSource);
+  public net.minecraft.world.storage.loot.LootContext build();
+}

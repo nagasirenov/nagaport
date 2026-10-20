@@ -56,9 +56,9 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 		this.color = color;
 
 		this.markDirty();
-		if(worldObj instanceof WorldServer) {
-			WorldServer world = (WorldServer) worldObj;
-			world.getPlayerManager().markBlockForUpdate(xCoord, yCoord, zCoord);
+		if(this.world instanceof WorldServer) {
+			WorldServer world = (WorldServer) this.world;
+			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 
 		return true;
@@ -67,7 +67,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 	@Override
 	public PowerNode createNode() {
 		TileEntity tile = (TileEntity) this;
-		PowerNode node = new PowerNode(new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(new DirPos(xCoord, yCoord, zCoord, ForgeDirection.UNKNOWN));
+		PowerNode node = new PowerNode(new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.UNKNOWN));
 		for(int[] pos : this.connected) node.addConnection(new DirPos(pos[0], pos[1], pos[2], ForgeDirection.UNKNOWN));
 		return node;
 	}
@@ -76,15 +76,15 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 
 		connected.add(new int[] {x, y, z});
 
-		PowerNode node = Nodespace.getNode(worldObj, xCoord, yCoord, zCoord);
+		PowerNode node = Nodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		node.recentlyChanged = true;
 		node.addConnection(new DirPos(x, y, z, ForgeDirection.UNKNOWN));
 
 		this.markDirty();
 
-		if(worldObj instanceof WorldServer) {
-			WorldServer world = (WorldServer) worldObj;
-			world.getPlayerManager().markBlockForUpdate(xCoord, yCoord, zCoord);
+		if(this.world instanceof WorldServer) {
+			WorldServer world = (WorldServer) this.world;
+			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 	}
 
@@ -92,19 +92,19 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 
 		for(int[] pos : connected) {
 
-			TileEntity te = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(te == this)
 				continue;
 
 			if(te instanceof TileEntityPylonBase) {
 				TileEntityPylonBase pylon = (TileEntityPylonBase) te;
-				Nodespace.destroyNode(worldObj, pos[0], pos[1], pos[2]);
+				Nodespace.destroyNode(this.world, pos[0], pos[1], pos[2]);
 
 				for(int i = 0; i < pylon.connected.size(); i++) {
 					int[] conPos = pylon.connected.get(i);
 
-					if(conPos[0] == xCoord && conPos[1] == yCoord && conPos[2] == zCoord) {
+					if(conPos[0] == this.pos.getX() && conPos[1] == this.pos.getY() && conPos[2] == this.pos.getZ()) {
 						pylon.connected.remove(i);
 						i--;
 					}
@@ -112,14 +112,14 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 
 				pylon.markDirty();
 
-				if(worldObj instanceof WorldServer) {
-					WorldServer world = (WorldServer) worldObj;
-					world.getPlayerManager().markBlockForUpdate(pylon.xCoord, pylon.yCoord, pylon.zCoord);
+				if(this.world instanceof WorldServer) {
+					WorldServer world = (WorldServer) this.world;
+					world.getPlayerManager().markBlockForUpdate(pylon.getPos().getX(), pylon.getPos().getY(), pylon.getPos().getZ());
 				}
 			}
 		}
 
-		Nodespace.destroyNode(worldObj, xCoord, yCoord, zCoord);
+		Nodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 
 	public abstract ConnectionType getConnectionType();
@@ -130,9 +130,9 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 		Vec3d[] mounts = this.getMountPos();
 
 		if(mounts == null || mounts.length == 0)
-			return new Vec3d(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5);
+			return new Vec3d(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
 
-		return mounts[0].addVector(xCoord, yCoord, zCoord);
+		return mounts[0].addVector(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 
 	public List<int[]> getConnected() {
@@ -140,7 +140,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("conCount", connected.size());
@@ -149,6 +149,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 		for(int i = 0; i < connected.size(); i++) {
 			nbt.setIntArray("con" + i, connected.get(i));
 		}
+		return nbt;
 	}
 
 	@Override

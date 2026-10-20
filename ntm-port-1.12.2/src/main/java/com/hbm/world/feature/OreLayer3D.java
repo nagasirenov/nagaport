@@ -11,7 +11,7 @@ import com.hbm.dim.WorldProviderCelestial;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,7 +39,7 @@ public class OreLayer3D {
 	int dim = 0;
 	boolean allCelestials = false;
 
-	Map<Integer, Set<ChunkCoordIntPair>> alreadyDecorated = new HashMap<>();
+	Map<Integer, Set<ChunkPos>> alreadyDecorated = new HashMap<>();
 
 	public OreLayer3D(Block block, int meta) {
 		this.block = block;
@@ -89,19 +89,19 @@ public class OreLayer3D {
 
 		if(world.provider == null) return;
 
-		Block replace = Blocks.stone;
+		Block replace = Blocks.STONE;
 		if(world.provider instanceof WorldProviderCelestial) {
 			replace = ((WorldProviderCelestial)world.provider).getStone();
 		}
 
 		if(allCelestials) {
-			if(!(world.provider instanceof WorldProviderCelestial) && world.provider.dimensionId != 0) return;
+			if(!(world.provider instanceof WorldProviderCelestial) && world.provider.getDimension() != 0) return;
 		} else {
-			if(world.provider.dimensionId != this.dim) return;
+			if(world.provider.getDimension() != this.dim) return;
 		}
 
-		ChunkCoordIntPair chunkPos = new ChunkCoordIntPair(cx, cz);
-		Set<ChunkCoordIntPair> decoratedChunks = alreadyDecorated.computeIfAbsent(world.provider.dimensionId, n -> new HashSet<>());
+		ChunkPos chunkPos = new ChunkPos(cx, cz);
+		Set<ChunkPos> decoratedChunks = alreadyDecorated.computeIfAbsent(world.provider.getDimension(), n -> new HashSet<>());
 
 		// Stop early if we've already generated this chunk in this dimension
 		if(decoratedChunks.contains(chunkPos)) return;
@@ -137,7 +137,7 @@ public class OreLayer3D {
 					double nz = cacheX[ox][y];
 
 					if(nx * ny * nz > threshold) {
-						Block target = world.getBlock(x, y, z);
+						Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 						if(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, replace)) {
 							world.setBlock(x, y, z, block, meta, 2);
@@ -150,12 +150,12 @@ public class OreLayer3D {
 
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
-		alreadyDecorated.put(event.world.provider.dimensionId, new HashSet<>());
+		alreadyDecorated.put(event.getWorld().provider.getDimension(), new HashSet<>());
 	}
 
 	@SubscribeEvent
 	public void onWorldUnload(WorldEvent.Unload event) {
-		alreadyDecorated.remove(event.world.provider.dimensionId);
+		alreadyDecorated.remove(event.getWorld().provider.getDimension());
 	}
 
 }

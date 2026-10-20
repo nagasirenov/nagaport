@@ -1,0 +1,2 @@
+Full-source attribution diagnostics (not a successful mod compile): 15374
+PASS 12 String-only native targets, 10 exact Git-base whole-file inverses, all 96 calls and source branches compared, receiver/override/z-state closure, 12 selector mutants, 11 attributed controls (3 accepted, 8 rejected).

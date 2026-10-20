@@ -1,0 +1,78 @@
+PRODUCTION com/hbm/blocks/network/BlockConveyorBase.java 4b53c5f01e96dc72325062443c305e619d9c233b50e4aa7414b45db50eab04d7
+PRODUCTION com/hbm/blocks/network/BlockConveyorBendable.java 0b87b336ea0fa294b1c5e6eb9fe4ba46bd68f1130d698a75092f072c8930e88b
+PRODUCTION com/hbm/blocks/network/BlockConveyor.java af2f60bfe3c752bee1f96ea15de05e33f9bddf5c1bf45e1e18f01cf65f8689c0
+PRODUCTION com/hbm/blocks/network/BlockConveyorDouble.java c41b2738fc2db0a60cba16bfd17b5d5814cf58e785ad0900088a145e8971ecad
+PRODUCTION com/hbm/blocks/network/BlockConveyorTriple.java 020791dd28c604654b503ef662a9959734a50acf43b5daa34ae7e057cbf1e503
+PRODUCTION com/hbm/blocks/network/BlockConveyorExpress.java 5987efdab208bd48013aeefd32521adbce7bd497e6528ecf0ba4f425262e89db
+PRODUCTION com/hbm/blocks/network/BlockConveyorLift.java 298b6b3b0d7f1484507349d7c618d0f37e6ed314efea7fdb66a20c194f8cfa6b
+PRODUCTION com/hbm/blocks/network/BlockConveyorChute.java 5ea261c6795651fd37f406184d9b9e9e1f611e97f21f382b511e16dfd4cd4860
+PRODUCTION com/hbm/blocks/network/BlockConveyorClassic.java cdc396cc20a2d0144991344dfad6e3b9c9044dcb62587f347e6ec622a611f63f
+PRODUCTION com/hbm/blocks/network/ConveyorModelState.java 5a0e7c239ecc62de17631e4479b2a2221d9af8c41b3019ba4b22a01a9044eb42
+PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION api/hbm/block/IToolable.java c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62
+PRODUCTION api/hbm/conveyor/IConveyorBelt.java ebd95ba78b68eef190e867d056bd8636db9dd6236560e44b0653cc58d0dc6cf4
+PRODUCTION api/hbm/conveyor/IEnterableBlock.java 66e60569c71ba196aa26b625ae7decfcbd9b117ee35cebb29e693d3b09a834ed
+PRODUCTION api/hbm/conveyor/IConveyorItem.java c07ead5d9ea14cc0965ed186ead974855e5a80bdd5029ed892e7b2241348e53c
+PRODUCTION api/hbm/conveyor/IConveyorPackage.java 13edae9ee3a50964220945f959047c6fd361f18374215250b3fe9a60a25f87de
+PRODUCTION com/hbm/render/block/RenderConveyor.java 701866a695dafebddcf23be136ea105e74c3f2f569a500ec4a788f86777bb4ec
+PRODUCTION com/hbm/render/block/RenderConveyorLift.java 3faa6ea01cd2f05fd414eea67f366873687ae489f324f400babd894206dfc247
+PRODUCTION com/hbm/render/block/RenderConveyorChute.java fb46c8e6fa0e93658104c7969185fb8aa694958e35b0e2027596afe495dc4586
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorBakedModel.java b5fc88a459b9f7a37bfd9e683cefb11047538e31cfaf0a39b60af75470985072
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorMaterials.java bc90ea21a207fe1a5b55ae5b5ea777a71cca7078db7bcca0b531fe3b08234601
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/main/ConveyorBlockModelHandler.java d065515d51272bc202f5dbddb79b35d7273baf2fc7a084f4a8037ebd9e7a70e6
+/tmp/conveyor-model-native-5mq1p459/ConveyorModelNativeTest.java:37: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/conveyor-model-native-5mq1p459/ConveyorModelNativeTest.java:37: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/conveyor-model-native-5mq1p459/ConveyorModelNativeTest.java:37: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/conveyor-model-native-5mq1p459/ConveyorModelNativeTest.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static long checks,layouts,recordedFaces;static Unsafe unsafe;static SimpleReloadableResourceManager resources;
+                                                 ^
+/tmp/conveyor-model-native-5mq1p459/ConveyorModelNativeTest.java:75: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);
+                               ^
+/tmp/conveyor-model-native-5mq1p459/ConveyorModelNativeTest.java:75: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);
+                                                                                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+PASS complete production conveyor owners + model family + loader compiled against native MC/Forge.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_express`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_express`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_double`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_double`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_triple`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_triple`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_lift`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_lift`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_chute`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.conveyor_chute`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `conveyor_model_probe` for name `classic_fixture`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:41:19] [main/WARN]: Potentially Dangerous alternative prefix `conveyor_model_probe` for name `classic_fixture`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS independent pristine descriptor layout oracle: 24752 layouts, 741504 ordered faces; metadata 0..15, y=0/64/255, every relevant native neighbor snapshot; all 4^6 interface classifications.
+PASS actual ForgeHooksClient.getDamageModel: 768 lift/chute metadata/height/neighbor cases, native owner extended state and position-preserving breaking overlay.
+[18:41:22] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2.jar, resources
+[18:41:22] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2.jar, resources
+[18:41:23] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2.jar, resources
+PASS native registry/item/state/generated-icon/custom-loader closure: resources; original PNG sprites=16
+[18:41:23] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2.jar, conveyor-resources.jar
+[18:41:23] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2.jar, conveyor-resources.jar
+[18:41:24] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2.jar, conveyor-resources.jar
+PASS native registry/item/state/generated-icon/custom-loader closure: conveyor-resources.jar; original PNG sprites=16
+[18:41:24] [main/WARN]: Potentially Dangerous alternative prefix `conveyor_model_probe` for name `unknown_owner`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS conveyor native model family: 5942823 assertions, 30320 pristine descriptor layouts, 813600 ordered original faces; complete production owners/renderers/models/loader, directory and packaged assets, actual native state/item routing.
+Boundaries: independent original descriptor oracle reuses separately verified production cuboid encoder to compare output; native PNG dimensions/animation metadata and generated item bake; explicit CPU pixel-frame splitter, controlled atlas rectangles and Unsafe headless Minecraft holder, no GL/live graphical or full-mod acceptance.
+PASS unchanged pristine assets, real native registry/state/item/custom-loader closure in directory and JAR resources. No GL/live game/full-mod claim.

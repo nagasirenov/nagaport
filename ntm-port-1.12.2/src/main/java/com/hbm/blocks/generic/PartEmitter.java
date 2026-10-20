@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 public class PartEmitter extends BlockContainer implements IToolable, ITooltipProvider {
 
 	public PartEmitter() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class PartEmitter extends BlockContainer implements IToolable, ITooltipPr
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
 
 		if(tool == ToolType.HAND_DRILL) {
-			TileEntityPartEmitter te = (TileEntityPartEmitter) world.getTileEntity(x, y, z);
+			TileEntityPartEmitter te = (TileEntityPartEmitter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			te.effect = (te.effect + 1) % te.effectCount;
 			te.markDirty();
 			return true;
@@ -44,24 +44,24 @@ public class PartEmitter extends BlockContainer implements IToolable, ITooltipPr
 		return false;
 	}
 
-	public static class TileEntityPartEmitter extends TileEntity {
+	public static class TileEntityPartEmitter extends TileEntity implements net.minecraft.util.ITickable {
 
 		public static final int range = 150;
 		public int effect = 0;
 		public static final int effectCount = 4;
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
-				double x = xCoord + 0.5;
-				double y = yCoord + 0.5;
-				double z = zCoord + 0.5;
+				double x = this.pos.getX() + 0.5;
+				double y = this.pos.getY() + 0.5;
+				double z = this.pos.getZ() + 0.5;
 				NBTTagCompound data = new NBTTagCompound();
 
 				if(effect == 1) {
-					ParticleUtil.spawnGasFlame(worldObj, xCoord + worldObj.rand.nextDouble(), yCoord + 4.5 + worldObj.rand.nextDouble(), zCoord + worldObj.rand.nextDouble(), worldObj.rand.nextGaussian() * 0.2, 0.1, worldObj.rand.nextGaussian() * 0.2);
+					ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 4.5 + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), this.world.rand.nextGaussian() * 0.2, 0.1, this.world.rand.nextGaussian() * 0.2);
 				}
 
 				if(effect == 2) {
@@ -69,7 +69,7 @@ public class PartEmitter extends BlockContainer implements IToolable, ITooltipPr
 					data.setFloat("lift", 5F);
 					data.setFloat("base", 0.25F);
 					data.setFloat("max", 5F);
-					data.setInteger("life", 560 + worldObj.rand.nextInt(20));
+					data.setInteger("life", 560 + this.world.rand.nextInt(20));
 					data.setInteger("color",0x404040);
 				}
 				if(effect == 3) {
@@ -77,16 +77,16 @@ public class PartEmitter extends BlockContainer implements IToolable, ITooltipPr
 					data.setFloat("lift", 0.5F);
 					data.setFloat("base", 1F);
 					data.setFloat("max", 10F);
-					data.setInteger("life", 750 + worldObj.rand.nextInt(250));
+					data.setInteger("life", 750 + this.world.rand.nextInt(250));
 
-					x = xCoord + 0.5 + worldObj.rand.nextDouble() * 3 - 1.5;
-					y =  yCoord + 1;
-					z = zCoord + 0.5 + worldObj.rand.nextDouble() * 3 - 1.5;
+					x = this.pos.getX() + 0.5 + this.world.rand.nextDouble() * 3 - 1.5;
+					y =  this.pos.getY() + 1;
+					z = this.pos.getZ() + 0.5 + this.world.rand.nextDouble() * 3 - 1.5;
 
 				}
 
 				if(data.hasKey("type")) {
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(this.worldObj.provider.dimensionId, xCoord, yCoord, zCoord, range));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), range));
 				}
 			}
 		}
@@ -110,9 +110,10 @@ public class PartEmitter extends BlockContainer implements IToolable, ITooltipPr
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("effect", this.effect);
+			return nbt;
 		}
 	}
 

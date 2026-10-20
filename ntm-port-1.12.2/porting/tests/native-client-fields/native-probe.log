@@ -1,0 +1,22 @@
+/tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe; static int assertions;
+        ^
+/tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java:29: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);
+           ^
+/tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java:29: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);
+                                                                                     ^
+Note: /tmp/client-field-native-4k3b6w8a/ClientFieldNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+PASS 20 native assertions; complete production packet plus exact extracted GUI callback; no GL or gameplay acceptance

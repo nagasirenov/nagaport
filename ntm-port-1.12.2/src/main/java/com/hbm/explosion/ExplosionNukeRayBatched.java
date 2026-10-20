@@ -12,13 +12,13 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
 public class ExplosionNukeRayBatched implements IExplosionRay {
 
-	public HashMap<ChunkCoordIntPair, List<FloatTriplet>> perChunk = new HashMap(); //for future: optimize blockmap further by using sub-chunks instead of chunks
-	public List<ChunkCoordIntPair> orderedChunks = new ArrayList();
+	public HashMap<ChunkPos, List<FloatTriplet>> perChunk = new HashMap(); //for future: optimize blockmap further by using sub-chunks instead of chunks
+	public List<ChunkPos> orderedChunks = new ArrayList();
 	private CoordComparator comparator = new CoordComparator();
 	int posX;
 	int posY;
@@ -90,7 +90,7 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 			float res = strength;
 
 			FloatTriplet lastPos = null;
-			HashSet<ChunkCoordIntPair> chunkCoords = new HashSet();
+			HashSet<ChunkPos> chunkCoords = new HashSet();
 
 			for(int i = 0; i < length; i ++) {
 
@@ -108,17 +108,17 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 				double fac = 100 - ((double) i) / ((double) length) * 100;
 				fac *= 0.07D;
 
-				Block block = world.getBlock(iX, iY, iZ);
+				Block block = com.hbm.world.WorldBlockState.read(world, iX, iY, iZ).getBlock();
 
-				if(!block.getMaterial().isLiquid())
+				if(!block.getDefaultState().getMaterial().isLiquid())
 					res -= Math.pow(masqueradeResistance(block), 7.5D - fac);
 				//else
 				//	res -= Math.pow(Blocks.air.getExplosionResistance(null), 7.5D - fac); // air is 0, might want to raise that is necessary
 
-				if(res > 0 && block != Blocks.air) {
+				if(res > 0 && block != Blocks.AIR) {
 					lastPos = new FloatTriplet(x0, y0, z0);
 					//all-air chunks don't need to be buffered at all
-					ChunkCoordIntPair chunkPos = new ChunkCoordIntPair(iX >> 4, iZ >> 4);
+					ChunkPos chunkPos = new ChunkPos(iX >> 4, iZ >> 4);
 					chunkCoords.add(chunkPos);
 				}
 
@@ -127,7 +127,7 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 				}
 			}
 
-			for(ChunkCoordIntPair pos : chunkCoords) {
+			for(ChunkPos pos : chunkCoords) {
 				List<FloatTriplet> triplets = perChunk.get(pos);
 
 				if(triplets == null) {
@@ -155,22 +155,22 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 
 	public static float masqueradeResistance(Block block) {
 
-		if(block == Blocks.sandstone) return Blocks.stone.getExplosionResistance(null);
-		if(block == Blocks.obsidian) return Blocks.stone.getExplosionResistance(null) * 3;
+		if(block == Blocks.SANDSTONE) return Blocks.STONE.getExplosionResistance(null);
+		if(block == Blocks.OBSIDIAN) return Blocks.STONE.getExplosionResistance(null) * 3;
 		return block.getExplosionResistance(null);
 	}
 
 	/** little comparator for roughly sorting chunks by distance to the center */
-	public class CoordComparator implements Comparator<ChunkCoordIntPair> {
+	public class CoordComparator implements Comparator<ChunkPos> {
 
 		@Override
-		public int compare(ChunkCoordIntPair o1, ChunkCoordIntPair o2) {
+		public int compare(ChunkPos o1, ChunkPos o2) {
 
 			int chunkX = ExplosionNukeRayBatched.this.posX >> 4;
 			int chunkZ = ExplosionNukeRayBatched.this.posZ >> 4;
 
-			int diff1 = Math.abs((chunkX - o1.chunkXPos)) + Math.abs((chunkZ - o1.chunkZPos));
-			int diff2 = Math.abs((chunkX - o2.chunkXPos)) + Math.abs((chunkZ - o2.chunkZPos));
+			int diff1 = Math.abs((chunkX - o1.x)) + Math.abs((chunkZ - o1.z));
+			int diff2 = Math.abs((chunkX - o2.x)) + Math.abs((chunkZ - o2.z));
 
 			return diff1 - diff2;
 		}
@@ -180,13 +180,13 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 
 		if(this.perChunk.isEmpty()) return;
 
-		ChunkCoordIntPair coord = orderedChunks.get(0);
+		ChunkPos coord = orderedChunks.get(0);
 		List<FloatTriplet> list = perChunk.get(coord);
 		HashSet<BlockPos> toRem = new HashSet();
 		HashSet<BlockPos> toRemTips = new HashSet();
 		//List<BlockPos> toRem = new ArrayList();
-		int chunkX = coord.chunkXPos;
-		int chunkZ = coord.chunkZPos;
+		int chunkX = coord.x;
+		int chunkZ = coord.z;
 
 		int enter = (int) (Math.min(
 				Math.abs(posX - (chunkX << 4)),
@@ -239,7 +239,7 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 			if(toRemTips.contains(pos)) {
 				this.handleTip(pos.getX(), pos.getY(), pos.getZ());
 			} else {
-				world.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.air, 0, 2);
+				world.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR, 0, 2);
 			}
 		}
 
@@ -248,7 +248,7 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 	}
 
 	protected void handleTip(int x, int y, int z) {
-		world.setBlock(x, y, z, Blocks.air, 0, 3);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 	}
 
 	@Override

@@ -1,0 +1,11 @@
+  public net.minecraft.block.material.Material getMaterial(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: getfield      #285                // Field material:Lnet/minecraft/block/material/Material;
+       4: areturn
+
+  public final net.minecraft.block.state.IBlockState getDefaultState();
+    Code:
+       0: aload_0
+       1: getfield      #1227               // Field defaultBlockState:Lnet/minecraft/block/state/IBlockState;
+       4: areturn

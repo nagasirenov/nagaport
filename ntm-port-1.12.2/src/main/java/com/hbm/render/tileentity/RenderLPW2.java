@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityMachineLPW2;
 import com.hbm.util.BobMathUtil;
 
@@ -13,9 +12,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderLPW2 extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderLPW2 extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -36,7 +34,7 @@ public class RenderLPW2 extends TileEntitySpecialRenderer implements IItemRender
 		case 5: GL11.glRotatef(0, 0F, 1F, 0F); break;
 		}
 
-		long time = te.getWorldObj().getTotalWorldTime();
+		long time = te.getWorld().getTotalWorldTime();
 
 		double t = rocket.lastTime + (rocket.time - rocket.lastTime) * interp;
 		
@@ -284,26 +282,6 @@ public class RenderLPW2 extends TileEntitySpecialRenderer implements IItemRender
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_lpw2);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(1, -1, 0);
-				GL11.glScaled(1.6, 1.6, 1.6);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.5, 0.5, 0.5);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.lpw2_tex);
-				ResourceManager.lpw2.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 
 }

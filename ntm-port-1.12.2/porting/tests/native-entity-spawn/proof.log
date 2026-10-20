@@ -1,0 +1,38 @@
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/SpawnNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/SpawnNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                        ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/SpawnNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                                                                     ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/OriginalSpawnTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static Field f(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+                ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/OriginalSpawnTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=f(sun.misc.Unsafe.class,"theUnsafe");U=(sun.misc.Unsafe)uf.get(null);
+                     ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/OriginalSpawnTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=f(sun.misc.Unsafe.class,"theUnsafe");U=(sun.misc.Unsafe)uf.get(null);
+                                                           ^
+6 warnings
+[01:45:52] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:45:52] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:45:52] [main/INFO]: Replaced 1036 ore ingredients
+[01:45:52] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:45:52] [main/INFO]: Processing ObjectHolder annotations
+[01:45:52] [main/INFO]: Found 1167 ObjectHolder annotations
+[01:45:53] [main/WARN]: Keeping entity minecraft:item that already exists with UUID 45ab1d59-0cfa-40e0-947c-e531a5f57984
+[01:45:53] [main/WARN]: Tried to add entity minecraft:item but it was marked as removed already
+[01:45:53] [main/WARN]: Tried to add entity minecraft:item but it was marked as removed already
+PASS 127 native spawn checks: genuine server/client/chunk/callback/event paths; external constructor mutation explicitly excluded
+PASS 49 genuine original vanilla spawn checks; Forge1614 event/snapshot additions independently audited, not claimed executed here
+Attribution diagnostics, not full compilation: 7
+Attribution diagnostics, not full compilation: 20638
+PASS exact inverse: only 43 method-name tokens in 17 files; receivers, argument expressions, ordering, surrounding control flow and ignored returns unchanged
+PASS two typed World/vanilla-constructor positives; six non-World/subclass/reuse/anonymous/arity/shadow negatives
+PASS all 43 transformed invocations resolve to actual World.spawnEntity and vanilla EntityItem constructor
+PASS pinned original client/1614 patches/mappings and native2768 World/WorldServer/WorldClient/Entity/EntityItem classes; event/snapshot/constructor-hook additions verified
+PASS owned source World subclass audit: only FauxWorld, no spawn override
+PASS exact inverse: only 43 method-name tokens in 17 files; receivers, argument expressions, ordering, surrounding control flow and ignored returns unchanged

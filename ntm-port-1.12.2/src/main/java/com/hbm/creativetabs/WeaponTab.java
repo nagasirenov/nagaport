@@ -15,6 +15,6 @@ public class WeaponTab extends CreativeTabs {
 	@Override
 	public Item getTabIconItem() {
 		if(ModItems.gun_greasegun != null) return ModItems.gun_greasegun;
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 }

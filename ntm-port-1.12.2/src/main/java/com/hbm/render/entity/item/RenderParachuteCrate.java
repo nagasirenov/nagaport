@@ -5,10 +5,15 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderParachuteCrate extends Render {
+
+	public RenderParachuteCrate(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float i, float j) {
@@ -17,7 +22,7 @@ public class RenderParachuteCrate extends Render {
 
 		GL11.glTranslated(x, y, z);
 
-		double time = (entity.worldObj.getTotalWorldTime());
+		double time = (entity.world.getTotalWorldTime());
 		double sine = Math.sin(time * 0.05) * 5;
 		double sin3 = Math.sin(time * 0.05 + Math.PI * 0.5) * 5;
 		

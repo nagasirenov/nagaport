@@ -55,11 +55,11 @@ public class GUIMachineTurbineGas extends GuiInfoContainer {
 
 				int state = turbinegas.state - 1; //offline(0) to startup(-1), online(1) to offline(0)
 
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("state", state);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.xCoord, turbinegas.yCoord, turbinegas.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.getPos().getX(), turbinegas.getPos().getY(), turbinegas.getPos().getZ()));
 			}
 			else
 				return;
@@ -68,19 +68,19 @@ public class GUIMachineTurbineGas extends GuiInfoContainer {
 		if(turbinegas.state == 1 && x > guiLeft + 74 && x <= guiLeft + 74 + 29 && y >= guiTop + 86 && y < guiTop + 86 + 13) { //auto mode button
 
 			boolean automode = !turbinegas.autoMode;
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("autoMode", automode);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.xCoord, turbinegas.yCoord, turbinegas.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.getPos().getX(), turbinegas.getPos().getY(), turbinegas.getPos().getZ()));
 		}
 
 		if(turbinegas.state == 1 && (guiTop + 97 - slidStart) <= yStart && (guiTop + 103 - slidStart) > yStart && guiLeft + 36 < x && guiLeft + 52 >= x) { //power slider
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("autoMode", false); //if you click the slider with automode on, turns off automode
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.xCoord, turbinegas.yCoord, turbinegas.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.getPos().getX(), turbinegas.getPos().getY(), turbinegas.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 		}
 	}
 
@@ -103,7 +103,7 @@ public class GUIMachineTurbineGas extends GuiInfoContainer {
 
 				NBTTagCompound data = new NBTTagCompound();
 				data.setDouble("slidPos", slidPos);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.xCoord, turbinegas.yCoord, turbinegas.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, turbinegas.getPos().getX(), turbinegas.getPos().getY(), turbinegas.getPos().getZ()));
 			}
 		}
 	}
@@ -318,7 +318,7 @@ public class GUIMachineTurbineGas extends GuiInfoContainer {
 		//useless piece of shit, at least for now
 		String name = this.turbinegas.hasCustomInventoryName() ? this.turbinegas.getInventoryName() : I18n.format(this.turbinegas.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 94, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 94, 4210752);
 	}
 }

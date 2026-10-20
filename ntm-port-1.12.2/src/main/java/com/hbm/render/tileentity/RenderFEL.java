@@ -42,7 +42,7 @@ public class RenderFEL extends TileEntitySpecialRenderer {
 		int color = 0xffffff;
 		
 		if(fel.mode.renderedBeamColor == 0) {
-			color = Color.HSBtoRGB(fel.getWorldObj().getTotalWorldTime() / 50.0F, 0.5F, 0.1F) & 16777215;
+			color = Color.HSBtoRGB(fel.getWorld().getTotalWorldTime() / 50.0F, 0.5F, 0.1F) & 16777215;
 		} else {
 			color = fel.mode.renderedBeamColor;
 		}
@@ -50,7 +50,7 @@ public class RenderFEL extends TileEntitySpecialRenderer {
 		GL11.glTranslated(0, 1.5, -1.5);
 		if(fel.power > fel.powerReq * Math.pow(2, fel.mode.ordinal()) && fel.isOn && !(fel.mode == EnumWavelengths.NULL) && length > 0) {
 			BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, -length - 1), EnumWaveType.SPIRAL, EnumBeamType.SOLID, color, color, 0, 1, 0F, 2, 0.0625F, 0.5F);
-			BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, -length - 1), EnumWaveType.RANDOM, EnumBeamType.SOLID, color, color, (int)(tileEntity.getWorldObj().getTotalWorldTime() % 1000 / 2), (length / 2) + 1, 0.0625F, 2, 0.0625F, 0.5F);
+			BeamPronter.prontBeamwithDepth(new Vec3d(0, 0, -length - 1), EnumWaveType.RANDOM, EnumBeamType.SOLID, color, color, (int)(tileEntity.getWorld().getTotalWorldTime() % 1000 / 2), (length / 2) + 1, 0.0625F, 2, 0.0625F, 0.5F);
 		}
 		
 		GL11.glPopMatrix();

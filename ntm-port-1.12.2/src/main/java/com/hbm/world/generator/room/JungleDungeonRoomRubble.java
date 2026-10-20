@@ -23,7 +23,7 @@ public class JungleDungeonRoomRubble extends JungleDungeonRoom {
 			@Override
 			public void work() {
 				
-				Block bl = world.getBlock(x + 2, y + 4, z + 2);
+				Block bl = com.hbm.world.WorldBlockState.read(world, x + 2, y + 4, z + 2).getBlock();
 				if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 					world.setBlock(x + 2, y + 4, z + 2, ModBlocks.brick_jungle_trap, Trap.FALLING_ROCKS.ordinal(), 3);
 				}

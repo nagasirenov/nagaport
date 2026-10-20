@@ -59,10 +59,10 @@ public class XFactoryFlamer {
 	public static BulletConfig flame_daybreaker_balefire;
 
 	public static Consumer<Entity> LAMBDA_FIRE = (bullet) -> {
-		if(bullet.worldObj.isRemote && MainRegistry.proxy.me().getDistanceToEntity(bullet) < 100) FlameCreator.composeEffectClient(bullet.worldObj, bullet.posX, bullet.posY - 0.125, bullet.posZ, FlameCreator.META_FIRE);
+		if(bullet.world.isRemote && MainRegistry.proxy.me().getDistanceToEntity(bullet) < 100) FlameCreator.composeEffectClient(bullet.world, bullet.posX, bullet.posY - 0.125, bullet.posZ, FlameCreator.META_FIRE);
 	};
 	public static Consumer<Entity> LAMBDA_BALEFIRE = (bullet) -> {
-		if(bullet.worldObj.isRemote && MainRegistry.proxy.me().getDistanceToEntity(bullet) < 100) FlameCreator.composeEffectClient(bullet.worldObj, bullet.posX, bullet.posY - 0.125, bullet.posZ, FlameCreator.META_BALEFIRE);
+		if(bullet.world.isRemote && MainRegistry.proxy.me().getDistanceToEntity(bullet) < 100) FlameCreator.composeEffectClient(bullet.world, bullet.posX, bullet.posY - 0.125, bullet.posZ, FlameCreator.META_BALEFIRE);
 	};
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_IGNITE_FIRE = (bullet, mop) -> {
 		if(mop.entityHit instanceof EntityLivingBase) {
@@ -83,14 +83,14 @@ public class XFactoryFlamer {
 
 	public static boolean igniteIfPossible(EntityBulletBaseMK4 bullet, RayTraceResult mop) {
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			World world = bullet.worldObj;
+			World world = bullet.world;
 			Block b = world.getBlockState(mop.getBlockPos()).getBlock();
 			ForgeDirection dir = ForgeDirection.fromEnumFacing(mop.sideHit);
 			if(com.hbm.lib.FacingCompat.isFlammable(b, world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), dir.getOpposite())) {
 				int x = mop.getBlockPos().getX() + dir.offsetX;
 				int y = mop.getBlockPos().getY() + dir.offsetY;
 				int z = mop.getBlockPos().getZ() + dir.offsetZ;
-				if(world.getBlock(x, y, z).isAir(world, x, y, z)) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(world, x, y, z)) {
 					world.setBlock(x, y, z, Blocks.fire);
 					return true;
 				}
@@ -102,12 +102,12 @@ public class XFactoryFlamer {
 
 	public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, float width, float height, int duration, int type) {
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			List<EntityFireLingering> fires = bullet.worldObj.getEntitiesWithinAABB(EntityFireLingering.class,
+			List<EntityFireLingering> fires = bullet.world.getEntitiesWithinAABB(EntityFireLingering.class,
 					AxisAlignedBB.getBoundingBox(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(width / 2 + 0.5, height / 2 + 0.5, width / 2 + 0.5));
 			if(fires.isEmpty()) {
-				EntityFireLingering fire = new EntityFireLingering(bullet.worldObj).setArea(width, height).setDuration(duration).setType(type);
+				EntityFireLingering fire = new EntityFireLingering(bullet.world).setArea(width, height).setDuration(duration).setType(type);
 				fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-				bullet.worldObj.spawnEntityInWorld(fire);
+				bullet.world.spawnEntityInWorld(fire);
 			}
 			bullet.setDead();
 		}
@@ -149,7 +149,7 @@ public class XFactoryFlamer {
 						.setupStandardFire())
 				.setupStandardConfiguration()
 				.anim(LAMBDA_FLAMER_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAMER)
-				).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setUnlocalizedName("gun_flamer");
+				).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setTranslationKey("gun_flamer");
 		ModItems.gun_flamer_topaz = new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()
 				.dura(20_000).draw(10).inspect(17).crosshair(Crosshair.L_CIRCLE)
 				.rec(new Receiver(0)
@@ -159,7 +159,7 @@ public class XFactoryFlamer {
 						.setupStandardFire())
 				.setupStandardConfiguration()
 				.anim(LAMBDA_FLAMER_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAMER)
-				).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setUnlocalizedName("gun_flamer_topaz");
+				).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setTranslationKey("gun_flamer_topaz");
 		ModItems.gun_flamer_daybreaker = new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()
 				.dura(20_000).draw(10).inspect(17).crosshair(Crosshair.L_CIRCLE)
 				.rec(new Receiver(0)
@@ -169,7 +169,7 @@ public class XFactoryFlamer {
 						.setupStandardFire())
 				.setupStandardConfiguration()
 				.anim(LAMBDA_FLAMER_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAMER_DAYBREAKER)
-				).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setUnlocalizedName("gun_flamer_daybreaker");
+				).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setTranslationKey("gun_flamer_daybreaker");
 
 		ModItems.gun_chemthrower = new ItemGunChemthrower(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(90_000).draw(10).inspect(17).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)
@@ -180,7 +180,7 @@ public class XFactoryFlamer {
 						.canFire(ItemGunChemthrower.LAMBDA_CAN_FIRE).fire(ItemGunChemthrower.LAMBDA_FIRE))
 				.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				.anim(LAMBDA_CHEMTHROWER_ANIMS).orchestra(Orchestras.ORCHESTRA_CHEMTHROWER)
-				).setUnlocalizedName("gun_chemthrower");
+				).setTranslationKey("gun_chemthrower");
 	}
 
 	@SuppressWarnings("incomplete-switch") public static BiFunction<ItemStack, GunAnimation, BusAnimation> LAMBDA_FLAMER_ANIMS = (stack, type) -> {

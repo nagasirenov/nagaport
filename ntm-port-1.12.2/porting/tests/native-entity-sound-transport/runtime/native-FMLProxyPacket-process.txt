@@ -1,0 +1,174 @@
+Compiled from "FMLProxyPacket.java"
+public class net.minecraftforge.fml.common.network.internal.FMLProxyPacket implements net.minecraft.network.Packet<net.minecraft.network.INetHandler> {
+  final java.lang.String channel;
+
+  private net.minecraftforge.fml.relauncher.Side target;
+
+  private final net.minecraft.network.PacketBuffer payload;
+
+  private net.minecraft.network.INetHandler netHandler;
+
+  private net.minecraftforge.fml.common.network.handshake.NetworkDispatcher dispatcher;
+
+  private static com.google.common.collect.Multiset<java.lang.String> badPackets;
+
+  private static int packetCountWarning;
+
+  static final int PART_SIZE;
+
+  public static final int MAX_LENGTH;
+
+  public net.minecraftforge.fml.common.network.internal.FMLProxyPacket(net.minecraft.network.play.server.SPacketCustomPayload);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #40                 // Method net/minecraft/network/play/server/SPacketCustomPayload.getBufferData:()Lnet/minecraft/network/PacketBuffer;
+       5: aload_1
+       6: invokevirtual #44                 // Method net/minecraft/network/play/server/SPacketCustomPayload.getChannelName:()Ljava/lang/String;
+       9: invokespecial #47                 // Method "<init>":(Lnet/minecraft/network/PacketBuffer;Ljava/lang/String;)V
+      12: aload_0
+      13: getstatic     #52                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+      16: putfield      #54                 // Field target:Lnet/minecraftforge/fml/relauncher/Side;
+      19: return
+
+  public net.minecraftforge.fml.common.network.internal.FMLProxyPacket(net.minecraft.network.play.client.CPacketCustomPayload);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #62                 // Method net/minecraft/network/play/client/CPacketCustomPayload.getBufferData:()Lnet/minecraft/network/PacketBuffer;
+       5: aload_1
+       6: invokevirtual #63                 // Method net/minecraft/network/play/client/CPacketCustomPayload.getChannelName:()Ljava/lang/String;
+       9: invokespecial #47                 // Method "<init>":(Lnet/minecraft/network/PacketBuffer;Ljava/lang/String;)V
+      12: aload_0
+      13: getstatic     #66                 // Field net/minecraftforge/fml/relauncher/Side.SERVER:Lnet/minecraftforge/fml/relauncher/Side;
+      16: putfield      #54                 // Field target:Lnet/minecraftforge/fml/relauncher/Side;
+      19: return
+
+  public net.minecraftforge.fml.common.network.internal.FMLProxyPacket(net.minecraft.network.PacketBuffer, java.lang.String);
+    Code:
+       0: aload_0
+       1: invokespecial #70                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_2
+       6: putfield      #72                 // Field channel:Ljava/lang/String;
+       9: aload_0
+      10: aload_1
+      11: putfield      #74                 // Field payload:Lnet/minecraft/network/PacketBuffer;
+      14: return
+
+  public void readPacketData(net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: return
+
+  public void writePacketData(net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: return
+
+  public void processPacket(net.minecraft.network.INetHandler);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #88                 // Field netHandler:Lnet/minecraft/network/INetHandler;
+       5: getstatic     #94                 // Field net/minecraftforge/fml/common/network/NetworkRegistry.INSTANCE:Lnet/minecraftforge/fml/common/network/NetworkRegistry;
+       8: aload_0
+       9: getfield      #72                 // Field channel:Ljava/lang/String;
+      12: aload_0
+      13: getfield      #54                 // Field target:Lnet/minecraftforge/fml/relauncher/Side;
+      16: invokevirtual #98                 // Method net/minecraftforge/fml/common/network/NetworkRegistry.getChannel:(Ljava/lang/String;Lnet/minecraftforge/fml/relauncher/Side;)Lnet/minecraftforge/fml/common/network/FMLEmbeddedChannel;
+      19: astore_2
+      20: aload_2
+      21: ifnull        251
+      24: aload_2
+      25: getstatic     #102                // Field net/minecraftforge/fml/common/network/NetworkRegistry.NET_HANDLER:Lio/netty/util/AttributeKey;
+      28: invokevirtual #108                // Method io/netty/channel/embedded/EmbeddedChannel.attr:(Lio/netty/util/AttributeKey;)Lio/netty/util/Attribute;
+      31: aload_0
+      32: getfield      #88                 // Field netHandler:Lnet/minecraft/network/INetHandler;
+      35: invokeinterface #114,  2          // InterfaceMethod io/netty/util/Attribute.set:(Ljava/lang/Object;)V
+      40: aload_2
+      41: iconst_1
+      42: anewarray     #5                  // class java/lang/Object
+      45: dup
+      46: iconst_0
+      47: aload_0
+      48: aastore
+      49: invokevirtual #118                // Method io/netty/channel/embedded/EmbeddedChannel.writeInbound:([Ljava/lang/Object;)Z
+      52: ifeq          184
+      55: getstatic     #120                // Field badPackets:Lcom/google/common/collect/Multiset;
+      58: aload_0
+      59: getfield      #72                 // Field channel:Ljava/lang/String;
+      62: invokeinterface #124,  2          // InterfaceMethod com/google/common/collect/Multiset.add:(Ljava/lang/Object;)Z
+      67: pop
+      68: getstatic     #120                // Field badPackets:Lcom/google/common/collect/Multiset;
+      71: invokeinterface #128,  1          // InterfaceMethod com/google/common/collect/Multiset.size:()I
+      76: getstatic     #130                // Field packetCountWarning:I
+      79: irem
+      80: ifne          184
+      83: getstatic     #136                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+      86: ldc           #138                // String Detected ongoing potential memory leak. {} packets have leaked. Top offenders
+      88: getstatic     #120                // Field badPackets:Lcom/google/common/collect/Multiset;
+      91: invokeinterface #128,  1          // InterfaceMethod com/google/common/collect/Multiset.size:()I
+      96: invokestatic  #144                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      99: invokeinterface #150,  3          // InterfaceMethod org/apache/logging/log4j/Logger.fatal:(Ljava/lang/String;Ljava/lang/Object;)V
+     104: iconst_0
+     105: istore_3
+     106: getstatic     #120                // Field badPackets:Lcom/google/common/collect/Multiset;
+     109: invokestatic  #156                // Method com/google/common/collect/Multisets.copyHighestCountFirst:(Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/ImmutableMultiset;
+     112: invokevirtual #162                // Method com/google/common/collect/ImmutableMultiset.entrySet:()Lcom/google/common/collect/ImmutableSet;
+     115: invokevirtual #168                // Method com/google/common/collect/ImmutableSet.iterator:()Lcom/google/common/collect/UnmodifiableIterator;
+     118: astore        4
+     120: aload         4
+     122: invokeinterface #174,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     127: ifeq          184
+     130: aload         4
+     132: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     137: checkcast     #10                 // class com/google/common/collect/Multiset$Entry
+     140: astore        5
+     142: iload_3
+     143: iinc          3, 1
+     146: bipush        10
+     148: if_icmple     154
+     151: goto          184
+     154: getstatic     #136                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+     157: ldc           #180                // String \t {} : {}
+     159: aload         5
+     161: invokeinterface #183,  1          // InterfaceMethod com/google/common/collect/Multiset$Entry.getElement:()Ljava/lang/Object;
+     166: aload         5
+     168: invokeinterface #186,  1          // InterfaceMethod com/google/common/collect/Multiset$Entry.getCount:()I
+     173: invokestatic  #144                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     176: invokeinterface #189,  4          // InterfaceMethod org/apache/logging/log4j/Logger.fatal:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     181: goto          120
+     184: aload_2
+     185: invokevirtual #193                // Method io/netty/channel/embedded/EmbeddedChannel.inboundMessages:()Ljava/util/Queue;
+     188: invokeinterface #198,  1          // InterfaceMethod java/util/Queue.clear:()V
+     193: goto          251
+     196: astore_3
+     197: getstatic     #136                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+     200: ldc           #200                // String There was a network exception handling a packet on channel {}
+     202: aload_0
+     203: getfield      #72                 // Field channel:Ljava/lang/String;
+     206: aload_3
+     207: invokeinterface #203,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     212: aload_0
+     213: getfield      #205                // Field dispatcher:Lnet/minecraftforge/fml/common/network/handshake/NetworkDispatcher;
+     216: aload_3
+     217: invokevirtual #208                // Method net/minecraftforge/fml/common/network/FMLNetworkException.getMessage:()Ljava/lang/String;
+     220: invokevirtual #214                // Method net/minecraftforge/fml/common/network/handshake/NetworkDispatcher.rejectHandshake:(Ljava/lang/String;)V
+     223: goto          251
+     226: astore_3
+     227: getstatic     #136                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+     230: ldc           #216                // String There was a critical exception handling a packet on channel {}
+     232: aload_0
+     233: getfield      #72                 // Field channel:Ljava/lang/String;
+     236: aload_3
+     237: invokeinterface #203,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     242: aload_0
+     243: getfield      #205                // Field dispatcher:Lnet/minecraftforge/fml/common/network/handshake/NetworkDispatcher;
+     246: ldc           #218                // String A fatal error has occurred, this connection is terminated
+     248: invokevirtual #214                // Method net/minecraftforge/fml/common/network/handshake/NetworkDispatcher.rejectHandshake:(Ljava/lang/String;)V
+     251: return
+    Exception table:
+       from    to  target type
+          40   193   196   Class net/minecraftforge/fml/common/network/FMLNetworkException
+          40   193   226   Class java/lang/Throwable
+
+  public java.lang.String channel();

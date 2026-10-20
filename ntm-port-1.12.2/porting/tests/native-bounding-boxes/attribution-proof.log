@@ -1,0 +1,4 @@
+PASS 20 exact replacements / 9 whole-file inverses; 18 source mutations rejected; all 4062 production inputs preserved
+PASS all 20 selected exact-native receivers and actual native (DDDDDD)V constructor destinations; argument bytes unchanged
+Attribution only; production inputs=4062; unfinished-port errors=15952
+Attribution only; production inputs=4062; unfinished-port errors=15932

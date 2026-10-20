@@ -1,0 +1,2 @@
+[02:25:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `audit_world_sound`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS: 13332 actual legacy/custom/registered native packet encode-decode parity cases (names, all coordinates, volume, quantized pitch), including negative fractions, large coordinates, NaN and infinities.

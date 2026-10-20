@@ -1,20 +1,15 @@
 package com.hbm.blocks.rail;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.handler.MultiblockHandlerXR;
 import com.hbm.lib.Library;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -23,16 +18,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRenderBlock {
+public class RailStandardRamp extends BlockRailNTM implements IRailNTM, IRenderBlock {
 
 	public RailStandardRamp() {
-		super(Material.iron);
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-2.5, 0.0, -1.5, -1.5, 0.1, 0.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.5, 0.0, -1.5, -0.5, 0.3, 0.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.5, 0.0, -1.5, 0.5, 0.5, 0.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(0.5, 0.0, -1.5, 1.5, 0.7, 0.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(1.5, 0.0, -1.5, 2.5, 0.9, 0.5));
-		this.maxY = 0.999D; //item bounce prevention
+		super(Material.IRON);
+		this.bounding.add(new AxisAlignedBB(-2.5, 0.0, -1.5, -1.5, 0.1, 0.5));
+		this.bounding.add(new AxisAlignedBB(-1.5, 0.0, -1.5, -0.5, 0.3, 0.5));
+		this.bounding.add(new AxisAlignedBB(-0.5, 0.0, -1.5, 0.5, 0.5, 0.5));
+		this.bounding.add(new AxisAlignedBB(0.5, 0.0, -1.5, 1.5, 0.7, 0.5));
+		this.bounding.add(new AxisAlignedBB(1.5, 0.0, -1.5, 2.5, 0.9, 0.5));
+		this.setBlockBounds(0F, 0F, 0F, 1F, 0.999F, 1F); //item bounce prevention
 	}
 
 	@Override
@@ -40,10 +35,6 @@ public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRende
 		return null;
 	}
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
 
 	@Override
 	public int[] getDimensions() {
@@ -63,7 +54,7 @@ public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRende
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		this.setBlockBounds(0F, 0F, 0F, 1F, 0.125F, 1F);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+		return new AxisAlignedBB(x, y, z, x + 1, y + 0.125, z + 1);
 	}
 
 	@Override
@@ -83,7 +74,7 @@ public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRende
 		int cX = pos[0];
 		int cY = pos[1];
 		int cZ = pos[2];
-		int meta = world.getBlockMetadata(cX, cY, cZ) - this.offset;
+		int meta = metadata(world, cX, cY, cZ) - this.offset;
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
@@ -103,7 +94,7 @@ public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRende
 				info.yaw(90F);
 			}
 			double dist = (cX + 0.5 - targetX + 2.5) / 5;
-			vec = new Vec3d(MathHelper.clamp_double(targetX, cX - 2, cX + 3), MathHelper.clamp_double(dir == Library.POS_X ? cY + dist : cY + 1 - dist, cY, cY + 1) + 0.1875, cZ + 0.5 + rot.offsetZ * 0.5);
+			vec = new Vec3d(MathHelper.clamp(targetX, cX - 2, cX + 3), MathHelper.clamp(dir == Library.POS_X ? cY + dist : cY + 1 - dist, cY, cY + 1) + 0.1875, cZ + 0.5 + rot.offsetZ * 0.5);
 			info.dist(Math.abs(targetX - vec.x) * Math.signum(speed));
 			info.pos(new BlockPos(cX + (motionX * speed > 0 ? 3 : -3), cY + (motionX * speed > 0 ^ dir == Library.POS_X ? 1 : 0), cZ));
 		} else {
@@ -116,7 +107,7 @@ public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRende
 				info.yaw(180F);
 			}
 			double dist = (cZ + 0.5 - targetZ + 2.5) / 5;
-			vec = new Vec3d(cX + 0.5 + rot.offsetX * 0.5, MathHelper.clamp_double(dir == Library.POS_Z ? cY + dist : cY + 1 - dist, cY, cY + 1) + 0.1875, MathHelper.clamp_double(targetZ, cZ - 2,cZ + 3));
+			vec = new Vec3d(cX + 0.5 + rot.offsetX * 0.5, MathHelper.clamp(dir == Library.POS_Z ? cY + dist : cY + 1 - dist, cY, cY + 1) + 0.1875, MathHelper.clamp(targetZ, cZ - 2,cZ + 3));
 			info.dist(Math.abs(targetZ - vec.z) * Math.signum(speed));
 			info.pos(new BlockPos(cX, cY + (motionZ * speed > 0 ^ dir == Library.POS_Z ? 1 : 0), cZ + (motionZ * speed > 0 ? 3 : -3)));
 		}
@@ -139,35 +130,5 @@ public class RailStandardRamp extends BlockDummyable implements IRailNTM, IRende
 		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {1, -1, 2, 2, 1, 0}, this, dir);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glTranslated(0, -0.0625, 0);
-		GL11.glRotated(90, 0, 1, 0);
-		GL11.glScaled(0.3, 0.3, 0.3);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_ramp, block.getIcon(1, 0), tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		if(meta < 12) return;
-		float rotation = 0;
-		if(meta == 15) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 12) rotation = 180F / 180F * (float) Math.PI;
-		if(meta == 14) rotation = 270F / 180F * (float) Math.PI;
-		if(meta == 12) tessellator.addTranslation(0.5F, 0F, 0F);
-		if(meta == 13) tessellator.addTranslation(-0.5F, 0F, 0F);
-		if(meta == 14) tessellator.addTranslation(0F, 0F, -0.5F);
-		if(meta == 15) tessellator.addTranslation(0F, 0F, 0.5F);
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_ramp, block.getIcon(1, 0), tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-		if(meta == 12) tessellator.addTranslation(-0.5F, 0F, 0F);
-		if(meta == 13) tessellator.addTranslation(0.5F, 0F, 0F);
-		if(meta == 14) tessellator.addTranslation(0F, 0F, 0.5F);
-		if(meta == 15) tessellator.addTranslation(0F, 0F, -0.5F);
-	}
 }

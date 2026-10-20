@@ -1,0 +1,2231 @@
+{
+  "scope": "Only complete byte-for-byte ZIP-verified expanded own packaging duplicates, CP<64. All sealed ZIPs and unique source/evidence/logs retained; recover any member by extracting named ZIP. Latest package directories retained for ongoing helper use.",
+  "packages": [
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-10-2026-10-19.zip",
+      "zip_sha256": "cb5e9705f6e13efbd9c89a589699f2f2199ba932c5b5681dc2ed5b56875eb9c1",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/test_apply_checkpoint.py",
+          "zip_member": "test_apply_checkpoint.py",
+          "bytes": 6870,
+          "sha256": "e2bc114902a4c13b3e6c0902ebba819908093bc7fc50d5f257b82500ee4163d8"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 445,
+          "sha256": "91ddc3d54bac39178f26b63b154b581ef2a9353d77594febd287e7a6b66850a3"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2938,
+          "sha256": "66acc83da9b591fbd447c5bdd858c6918d1590b71a2db700756bd00094a38f68"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 7750,
+          "sha256": "a8c616a59d01b0d14a7025aef15c78c465a3c21a9b254e04079a50fb7577bb44"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 536477,
+          "sha256": "14e78cd6131b10efb28dcdf70e7120816e185430305ca693bdde471dca489669"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/APPLY_HELPER_README.txt",
+          "zip_member": "APPLY_HELPER_README.txt",
+          "bytes": 3180,
+          "sha256": "8d767cd7aad5028fe98538e3fe6065123f0353619da1e1852037e9f6bcd97955"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/test_real_checkpoint8.py",
+          "zip_member": "test_real_checkpoint8.py",
+          "bytes": 2495,
+          "sha256": "8d4e6262d51add85cc05f8d171a53ff4b7a55274b40874d3d9c1039e39af0afc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-10-2026-10-19/apply-helper-verification.txt",
+          "zip_member": "apply-helper-verification.txt",
+          "bytes": 337,
+          "sha256": "b0dfee30944d1b4940ba2c16f543634bdfaff9dc28ea1c6272cf983357cc884e"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-14-2026-10-19.zip",
+      "zip_sha256": "5d81de12ffe2b0e350128bac1660ad28b6b8dc5e1ba5b4920a7adaf831c4dd50",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-14-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 526,
+          "sha256": "67168592d0cc5fe9d066fb1cdebb2949946de55402cb40ede31f6247170ce0f6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-14-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2787,
+          "sha256": "0a845fa102cb00c3a67af4fa97bec73f47841c522e2846cd0c403184f90ec878"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-14-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 43277,
+          "sha256": "34c7183c28217d05fc80bcd3db9e3e5a23b748bd5c4c75c9e0647d0a8de2ba91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-14-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1191414,
+          "sha256": "dc83e985bdbf47d8e75e6f2df2fafbd15eaec539871d5516d631f8e5053c2c9a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-14-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-14-2026-10-19/APPLY_HELPER_README.txt",
+          "zip_member": "APPLY_HELPER_README.txt",
+          "bytes": 3894,
+          "sha256": "6f4249b1fcac8d1bab4cd4966b8ae7a071a10083b7bc1c5cec9b704c642b1830"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-15-2026-10-19.zip",
+      "zip_sha256": "e6397391f4964457981acbc4357d422688c11c107a5820e5e8a1cb0453fc8e0f",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-15-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 549,
+          "sha256": "62b4c1f838f1cfa21aec8671bf440d89e3d63fe155711a390a3b2fd76615147a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-15-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2722,
+          "sha256": "2a8638f9b1b47cdb0805c3b93ba7e7916e612d931826c603eb26464a05cdea19"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-15-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 55358,
+          "sha256": "4a29461707e2734cd31643d8c78ab0788e17c1057d050f7e8bc8f606ebf22618"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-15-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 766067,
+          "sha256": "96403c7f01b1ce26b8cf2614f6376cfb095e2ccd2f4bdb0e1c36f00fe0d70d9a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-15-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-15-2026-10-19/APPLY_HELPER_README.txt",
+          "zip_member": "APPLY_HELPER_README.txt",
+          "bytes": 4070,
+          "sha256": "367a0400dca237aff98347a02ebaa7ed652ed4c529e80a99d80ec6ddc7fedad3"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-16-2026-10-19.zip",
+      "zip_sha256": "4159aca88d681bdf5106c2f8c66962a865bfd9c0aba90f37c22f36299ae5fa16",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-16-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 624,
+          "sha256": "499e779fa9b50dbd5ff57afd174dfd157b3c0c4789b1211256134f8ade153721"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-16-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2877,
+          "sha256": "032b1fdf22ae2b8c97226c03f40bfa22b320da1510d70194f28ddb33d0185c26"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-16-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 51368,
+          "sha256": "846d38187e2a669b92dd5212e48e8fef0eda349db0e65917801bb09ae46634a0"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-16-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 765785,
+          "sha256": "48387582140e2747a633652d87a5e4523de9bdcf074b19c6a96c0e08873ef575"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-16-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-16-2026-10-19/APPLY_HELPER_README.txt",
+          "zip_member": "APPLY_HELPER_README.txt",
+          "bytes": 4284,
+          "sha256": "0d69a7739b74df566a36538a2e39cf26284f38175beea2d7aedbc03137b0c6ac"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-2-2026-10-19.zip",
+      "zip_sha256": "b35d5c65116060983baa5cce88155f3fca5509d4c0ff6237298e2dfb0e5571d7",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-2-2026-10-19/combined-from-github.patch",
+          "zip_member": "combined-from-github.patch",
+          "bytes": 6075223,
+          "sha256": "f8b42cb180e4930ce83b28b3d5ff2102266b6ba9a4920f8641e4a28fac48d8f6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-2-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 503,
+          "sha256": "f3e715069b312f82526bff16bede18581ca6f902de1ebc7609bb2f44c3c2d994"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-2-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2493,
+          "sha256": "c0c7a7aebdcd6b348b4bd8b6b4308d6fd237281addd9c44e0b94f700e1d84875"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-2-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 59116,
+          "sha256": "98930df7a579fb740a98a77c097d810add973d49b8775ad157516dc506ba4597"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-2-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 2608977,
+          "sha256": "508466640c8cffe4b3ead1882f7f3cd392999454526f4dbc2922dc0b1abab6cf"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-21-2026-10-19.zip",
+      "zip_sha256": "6ac108c06668eb7f9ee61ad489b7a6f435de00b0cd05ef851ffbe22de1e97798",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-21-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 766,
+          "sha256": "8a753e11c428f5b99da49e0321dc19aee06bef55c25c77761a13c2cb360670c8"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-21-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "07e3cdc2637ed268ef2d1640f4c7a4de5acf4c40c712f7f06b3c752ec5b5ccd3"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-21-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3126,
+          "sha256": "e6ed46c55fab1950404ce978b30c393c0e6d12ff3b2726dfda570875eb66a78f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-21-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 37373,
+          "sha256": "7edd197712153957f718b1104f766c6711adb2f49822ce82233a934254a6941c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-21-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1675436,
+          "sha256": "9669a43e2495478613f1187844afe8d0fef8999c9436fa4c6143bd76dc845b1a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-21-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-22-2026-10-19.zip",
+      "zip_sha256": "ca2820f0f6962086db89d881ee68168bd7de45aafdcae5f05ebe208a3416cdc0",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-22-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 879,
+          "sha256": "ea801b48f427a9781409ad5240d1d15d4a8e1332584b3a8d419f680057aadbab"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-22-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "e27cdd3a21ce6a77e0cc3cb0707b21ee6afa0a8ed47822359f24f853ae9b2054"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-22-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3477,
+          "sha256": "3fbd3e8d96e539b9b6d1da5141a7796e814d47483f9e06d085b105689b33f196"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-22-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 53088,
+          "sha256": "9a1d67d79fdbf27dcf99208c7023a95da285e7ba91f005bc2443f3a47acb3826"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-22-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 2363823,
+          "sha256": "aea509ec76161e60d471d1155f3d4fa9a81485f76d1f143f0a077d977c2cc037"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-22-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-23-2026-10-19.zip",
+      "zip_sha256": "a4e0fcf00176fb0dda4920996c28f599f57912421993c8af3a2e7fc6674cbb27",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-23-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 942,
+          "sha256": "82e845e5647b3bd98134680da40b1d3774a8b17265150c602d814de8fe10f6ca"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-23-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "01c675be5fc57451b2e761a24695f369469f8a7e6b98987a92264a295163ae05"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-23-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3100,
+          "sha256": "2424cfc11d040c7cba94b8d8707f6ce4b8fe3bc64deea3b8c0611820994fb905"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-23-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 18685,
+          "sha256": "c6e7abcfeac7db2117029adde8058b16a24b769aade7a8d42e0d27fd2b8fe65f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-23-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 866217,
+          "sha256": "1338a77c4301de8737761e3fd9ab2500163018357e865e14882334c13c99aa0f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-23-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-24-2026-10-19.zip",
+      "zip_sha256": "c2eab56b9f4c2c4d0032be6c11d0752e4f28f87737460c31f357f28ef73eed83",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-24-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 678,
+          "sha256": "74233ad52f270e25fa8b6f3150694913d570e184ce927c34deb46e67cd35e2df"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-24-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "673af6b0b311549ade6534d819ab5427310b6e7880d5bd096a4af204dc141fe9"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-24-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1740,
+          "sha256": "5fbf79aa8a40e43f57583d87f3c139f05e4a3e2e81ed1a8f8637a39be2073a53"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-24-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 6541,
+          "sha256": "2c343e09647290c1645d931098b4261141f926a37e4a391032f4e98785edd3fe"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-24-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 523213,
+          "sha256": "47c6b96880e3bbf19f8e0b2c6f5c8a0f75b108759a9d6424b2898550126ff3f3"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-24-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-25-2026-10-19.zip",
+      "zip_sha256": "02cf55987db6e787247e752fd0f682e0c68f531ba8148db70b1156af1846994d",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-25-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 449,
+          "sha256": "a429cecc45502dd658569696abed86a1e89134d30b9f27b8371573c2c0639da3"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-25-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "d52948793ffb79b39b4031c6e9a5875d58b7ac6b8709688cd019aec61ae99a96"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-25-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1890,
+          "sha256": "1e1214a173685fddce8358e1ebfe597f03ebf4f6a478c86e79d8534310050cdb"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-25-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 7318,
+          "sha256": "8ccf961f93413333afd48c6ff4403c3bfd52ca15134d7d699f3c86b637190c5e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-25-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 410054,
+          "sha256": "69980d0a1ee3ace9aef3af2bd0354a56ad3e43c0c0bcb74c689b9ac936cb57ca"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-25-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-26-2026-10-19.zip",
+      "zip_sha256": "352a036f33b8c6da28b5ba7f190ee24adbdf5a1cf02c17fd92450e9021b8e503",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-26-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 550,
+          "sha256": "c22476db96d33b868f86290545de7bfeee77f98793082294f47e74c0fdcdbfdc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-26-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "657fa6d0d653403abb9907b5ffe0dc08d5d6a807f6d8319ccf60d1bf96dcdcde"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-26-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2022,
+          "sha256": "88776c00c1514a3b75128eb0e603d2453b549d978f7e6e5b562ab8f328f254b5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-26-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 27407,
+          "sha256": "965aeb535055db049994748c1770055946d1bed5ce02b0edc7e06260c58e2dbf"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-26-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 531927,
+          "sha256": "fc8044c6643d3ca6c6866194c21727f02e1ac174832485b79830204f9cd5dfa9"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-26-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-27-2026-10-19.zip",
+      "zip_sha256": "480089f01aadc50efb9befdbf2480d023dc75efe95632369b1ec7d66b00d57b3",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-27-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 483,
+          "sha256": "4193a3604f10c2dbd87be6ea4659a0b588e5fdce3926f0c0b398724e62c95f00"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-27-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "0b46e29f2a36e93021635cd77548f89b5e50660b07a51b7fa6c63b0655e1729b"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-27-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2029,
+          "sha256": "01009fe89dd5c6bb9a5869d3e26b296989e439a540752c93db5c0fa1bf3f3fab"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-27-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 18017,
+          "sha256": "c07550c788abc7a8e7350fa4d519a9514feea171f0c54f3e59c086cfc5ed3e8d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-27-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 700482,
+          "sha256": "b9d1c624126155ffd33e18c7d8a88154f077255980e3d638b40b4c205f3eafd8"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-27-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-28-2026-10-19.zip",
+      "zip_sha256": "7e4161fea455c5ce2b15b67f8bc127c251e1fff87ee25df99d6afa8fee778d64",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-28-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 590,
+          "sha256": "3a539670c6d1abf4ecf1d7fa1fee05c25dfaf7bde92bb64a58dde2734535b499"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-28-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-28-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2818,
+          "sha256": "7986c2feaf3a7a01e3ecad72114d9cb756e4bfeabbe7b0b00a60416ce1c58502"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-28-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 44296,
+          "sha256": "edae3bdaf2fbcd08f229c9bcbced183d5ea0f4739d2314974418c44d206ca742"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-28-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 855966,
+          "sha256": "c2c93eef32b8d2b1840b8cea77f874f279f1d855f8d03a630fb357944407f9ad"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-28-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-29-2026-10-19.zip",
+      "zip_sha256": "f464c55de62aa677b93d18283f3cf2684f7fbdcdb69c4bfcb9c3a3a63884f192",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-29-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 698,
+          "sha256": "c5676331b4cda73a85253e9ecfd63f8ec7d5107e4fa2c429e5279df6dd2ab67f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-29-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-29-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2807,
+          "sha256": "5981bba603cbdb398a163db87afd8ad2ca6c97126c163806d0dd1992ac7942cc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-29-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 29342,
+          "sha256": "1f62d7c4a22563813239a153c583a85ca629136060fe039f58bb0dc459844d4a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-29-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 930470,
+          "sha256": "3dda2007b3c2797b7e39b42a5f94239efcd4ae12f0dc2aea8c3a38b80576b71d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-29-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-3-2026-10-19.zip",
+      "zip_sha256": "854731acf9fd9dcb63b85b283188eb3d0427fcb2f0fdbfeb3d4e6d383f89c66b",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-3-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 407,
+          "sha256": "eb17acf2a59df2428a0bce7c8a002214ef21563e2e30a703eb84e9701da3d500"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-3-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1883,
+          "sha256": "2af095353b2ff6a23bf574ebbc8c2307f26425f5dac5ab608ba52b5a8724cc13"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-3-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 7639,
+          "sha256": "cbc92b23117afee82d08aefe6bea037423d46893fdb6255251b681614fef3b08"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-3-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1505159,
+          "sha256": "003c4476ad5ab78f42957e139e6e563007ea29747bea991471cde8f0a7ab3bfa"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-30-2026-10-19.zip",
+      "zip_sha256": "ec5f49f227fdde32ffba8e937eef62fa6edacfe70f8bd9538e94b4df7576715f",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-30-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 806,
+          "sha256": "2818e0232c80f0b068507cfcf029f27ca5c37c0040bf41549c30d7c26529ccbe"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-30-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-30-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2989,
+          "sha256": "d81426365006d21e3e59dd550355f32a51a9948918ecd014f2764187feabb20c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-30-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 31067,
+          "sha256": "f72e38339e597e870e0fd2ad87c0997ec04c4e9e2bf25efd7214ac943eb468f7"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-30-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 892960,
+          "sha256": "c21d5836b6b5ac20274bc566dfeb39a72e71a6dbdc0646e205b5a484ec728a3d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-30-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-31-2026-10-19.zip",
+      "zip_sha256": "a68399e6920228fd3b47b3c954e32ea4f0ec2a0e0050c5d166ed94aa6ae33642",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-31-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 916,
+          "sha256": "a87f2402e1c381668e177d0e4149218e8e1e7af3414d3b8deb802351816f8832"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-31-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-31-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2756,
+          "sha256": "5bd7e4a362a535c876f52f0fafb447eebbf00c172eeb6596261d367783b897bd"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-31-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 25392,
+          "sha256": "69ce6a71fa961b1f660408553cfc284bbf1554aba96d9d5857d6da2b0f36d38a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-31-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 813389,
+          "sha256": "faff8cb989035c52e04f3d45e15af394a077fb19ab15673ec6e72509057d49f5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-31-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-32-2026-10-19.zip",
+      "zip_sha256": "5cfccde17ca8f68313882388237108dbd0c1754718220e1444aaf60ac2dffcc3",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-32-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 500,
+          "sha256": "ab2f78061386d843b7834be3d815ea64165546f220fb2687bf41cb86ed416340"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-32-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-32-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2594,
+          "sha256": "abcbe3352539af4cb98e6c972e3ad407e5f300f524593c532b9d777aff7a4a09"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-32-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 22200,
+          "sha256": "e95a187d21e7ae9d451e8d4359f39a542ed599979c49686038acede635ac6ce5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-32-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 856245,
+          "sha256": "16dd12a46e40758d48d035f62040a52b99acd97af96bd847a44a3a2f0b598d58"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-32-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-33-2026-10-19.zip",
+      "zip_sha256": "cbbb53fb3e2011d685916af9439806c115a1850095df9b89ba0819e067f8d9b4",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-33-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 711,
+          "sha256": "72b35ae4bf7c4d51f8ac3bf8343b72b79a3e7746b58b0bcc3c72d9e0e2060ddb"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-33-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-33-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2851,
+          "sha256": "9316a28fb78509c3ec7f5c1606f93b8f285529cc2fcfbc17f3c32429063dd066"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-33-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 25230,
+          "sha256": "5528c5403f72d3e97f96936c2610a9c285c050af16f19317e3480fd19deac60e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-33-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 994359,
+          "sha256": "72b9b4b412f67ac2956aea23a3a6ffd0e211a51375d213d4d755fa7bd7c41511"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-33-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-34-2026-10-19.zip",
+      "zip_sha256": "5f3eba41da41ecd62ac1e198d82b960efaa6f1374bfd59e709db915e5488913a",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-34-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 793,
+          "sha256": "5031839b9a09f6a48d0829da21988d4d6284069ab42cec01209f71c63dff588a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-34-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-34-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2957,
+          "sha256": "eb06a948202a03570aa8eb666a12d123209c7ad2d12231a7b52a55713dc00b8d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-34-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 25832,
+          "sha256": "b501f339ce3689dd77f720477bcaaf2db0a072a481168ebaecd58ccf5db5fa8b"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-34-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1307693,
+          "sha256": "2ebaf4d348ab466ca22ac1940dbc545af583d13cd3c2f1e41eaa2d021f4efa6a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-34-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-35-2026-10-19.zip",
+      "zip_sha256": "3ef281246a4bf4f15319c090e22380447ab1b3a31c66827d9d9784702321c593",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-35-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 954,
+          "sha256": "e14bf3f7d3ef932928b746e475fa73ecf35f851fd9b4b3eb4ffe5dc48087cd8d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-35-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-35-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2582,
+          "sha256": "d2c9e4067d32c827b5aae3816101cd46605bb26f9c9633aeacfa35a54dd53ffd"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-35-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 27291,
+          "sha256": "fa4b73ed8843796ee768c610bb8c1a247ec6b8c13c96d3e5c5c5db2c2098018d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-35-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 765540,
+          "sha256": "a5619635c7fafae8d0a4acf0a52cc8383111d9efad6168bc05c6a4df2ed90da7"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-35-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-36-2026-10-19.zip",
+      "zip_sha256": "59c34b541d5b327b7ce12d6b563673c7e03b443243c0353cb77d09d6c9dff11b",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-36-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 906,
+          "sha256": "d4a097563305851115b1ef30e6cfcad8e9602ec55ca47b5b5e0d6c69ae32e0e5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-36-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-36-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2148,
+          "sha256": "9bbdd0488a968b7aeef2d5d8685356e71587bedbe492176f8c4b210ffcef3b63"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-36-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 55282,
+          "sha256": "62205f1ea6cd09536ef34914866f94550df592963715ee55316f2ffa32684cb1"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-36-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1497246,
+          "sha256": "6fdb0090023805b827092ee3058298cc6097833c742a997577910d5a5e8eced0"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-36-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-38-2026-10-19.zip",
+      "zip_sha256": "eaaceed42c286b924540f9581290787b3435afb5fa5ca75f0231e00d7af7f390",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-38-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 1125,
+          "sha256": "596beffdf983f8e29725844efdfdc5dc0bddf48caaee72acf7e6c5bd07e5ffad"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-38-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-38-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2269,
+          "sha256": "0826cb2d1487920d4088b7d11307cfdbc04dafad3debefc8cfc8588ab3336c4d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-38-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 127236,
+          "sha256": "abf1d516aed078ad7a8e0232cfb7413a7184d0058f2acc496359be7ee8034f33"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-38-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1640164,
+          "sha256": "b0a99c9f3956a5e7e1822aee16a026e52fab672d5a64db9e8177f952a8fc91e4"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-38-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-39-2026-10-19.zip",
+      "zip_sha256": "fc66d0458ac20c5456e595bdccda3369faa6551105407f3ece41e6d42a1652e3",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-39-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 967,
+          "sha256": "d91429e3c24219952f9a3c4b8db3d1c42438c3c21b7fcce6fff51fa524f4f526"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-39-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-39-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2287,
+          "sha256": "36fe6ebfa416fcf2c9d761dfccc44f5e12af65c1e207e7075f1b29461893bf03"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-39-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 15337,
+          "sha256": "d169fd71f1b8be3d3d1e8e5fbcc8481e58a0fd05483733319b9490e2d4f3708a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-39-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 544531,
+          "sha256": "bfd4a87f263e997817e2dab19a033c73003776974a8abaf60c267e7a9a9e0d99"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-39-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-4-2026-10-19.zip",
+      "zip_sha256": "6c840ee06608415c427f4173326652c8b1659d671c6bef22b0ae7e4c87cb6360",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-4-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 414,
+          "sha256": "0a3d83c853e8cf13b14027ab22272ae771e16c5ddd361e5dbc48a2482275f858"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-4-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1961,
+          "sha256": "27de7b9fb78c0ef6c933443e507f804dbabc1ba8c5f3e82ca9ec011163a03ab6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-4-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 64081,
+          "sha256": "93c63955b047e949d513aefcd0fb3ed31905a31a8715f299ebafe4c1e7535f27"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-4-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1149541,
+          "sha256": "4d8fc65c21b973aa84a0c318ea3b695dacaba1ddb13e96424ccf4c1abee94582"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-40-2026-10-19.zip",
+      "zip_sha256": "bfe88f69cf2d16b889864196ab1ec8511a42d00b9d2a152eef616c375910837f",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-40-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 629,
+          "sha256": "61589951bbe3f8dc01f655769683d8597bb818e669a1fc49f27f91f88084648d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-40-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-40-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1566,
+          "sha256": "1ce274b9ee536204a6ff79d79e16b670875c9c7fe846c84c3e90a1b9a34912eb"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-40-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 6502,
+          "sha256": "50bc4d5a3e286d6a3b1684d5e919c9ae301b3f8384a08bb679a0d022f96595b9"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-40-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 317119,
+          "sha256": "cc161779973ff13cebc8e96468c976137e68a7afbc5cf1bd5b52f4a1b843f39d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-40-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-41-2026-10-19.zip",
+      "zip_sha256": "af3228f8e85c067ee38b05faac0078b6e426a72d5d4862e342261be5b25b95e2",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-41-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 616,
+          "sha256": "94107f1a891d77c01c49a9e0a70a643528e3102611177e9d8f92ebe4de91df3a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-41-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-41-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1587,
+          "sha256": "f62c762aefd1813b9250826ff3f5d6843659ce2f6edb7a7f84c21573940cba26"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-41-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 6818,
+          "sha256": "34b28850a39b5ac1b61553855e0afeb01ef1bbcb4afcd38c185ca20109409aef"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-41-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 221534,
+          "sha256": "9e7ef41538cb788a8f1597092e36fe5d1f1a607849dc8e89877b74d1d1499460"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-41-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-42-2026-10-19.zip",
+      "zip_sha256": "39d9b4dabad7a7b7a396ea06ad83b2d8866ccc2e9a74447420223d225b138dff",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-42-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 645,
+          "sha256": "2b0039df733900245fd2a5a2f27a19a089ba397559debf997efe87e77ca58493"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-42-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-42-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1559,
+          "sha256": "25c6f3cc0b6e3ea7a3085818a9d350b624991492519c280e07132837065b3e88"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-42-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 4222,
+          "sha256": "2c41c91e535278b1be68cb08f3de8dc55e0429eeaeb22b76670b61bb617f513f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-42-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 162175,
+          "sha256": "907ca8d281d8422ae450ad9eaa0e9cc9ea562b5e0d872c19cf9157e6f9e8f3a8"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-42-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-43-2026-10-19.zip",
+      "zip_sha256": "33241e5e3e6f57546c1342062bd380ec8a74631c8bcc3718be143c9de86636e5",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-43-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 989,
+          "sha256": "40d8d7587ad733552cd2b8fa1ed77b8f8a5e6b0419187aae24e6134615ba16ec"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-43-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-43-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1591,
+          "sha256": "b2f1e2429bf11b70cb6b527d5374ebb78f8ed2ecdf216bd6fc05433947a317fa"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-43-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 4090,
+          "sha256": "c25edb7e248be97b4d5544c55728c689ef488bb3bff8e566259bee7964798e3c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-43-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 192349,
+          "sha256": "8e04ce685c69b7abf0a8dae84833dcc22c779e281c1122ca2e5af81c63e5c4c6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-43-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-44-2026-10-19.zip",
+      "zip_sha256": "9e5738bd3bf49843cc0945cdadc18cf540b177061298b47402fb0db390d6a4e0",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-44-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 1066,
+          "sha256": "68e246aaf2a7cce65320d4e373d1b68dfc1d5512683bc020106dbb886924e3d6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-44-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-44-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2080,
+          "sha256": "203fe9611160f0a646779ba984ea8cdf3bf06de9f92316f56c11d38bb4286220"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-44-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 5084,
+          "sha256": "1f84e154fa971872110ca1962112ca0ae499e8ee5803d8962b2565d4d594a3c5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-44-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 167194,
+          "sha256": "c88d68a1032349fc6cc66af26f2037e3b84bb512ce18e032052c7b0d876bc6e4"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-44-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-45-2026-10-19.zip",
+      "zip_sha256": "aa80ed54af92a06e4285f59a5638e776285a6d50fa5785ab2b4b977a4e623a0b",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-45-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 1035,
+          "sha256": "4719f49ef9c4cc814cf52c89b326a2157d8e3d1110df4d097f61e63d78561c9e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-45-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-45-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2338,
+          "sha256": "63cc445d724992d6f5a4292e0b91002257a7adb32f761e4ba44ff363f115e0f8"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-45-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 5880,
+          "sha256": "c7538e56ff437d7051b3ef3e7d04a252fa1668b120a920e3fb7efae10c71e71d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-45-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 112623,
+          "sha256": "50ff750f42b6ba764e577e1b828d08b345045d9a0320b07e96ea14c2f4d8f313"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-45-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-46-2026-10-19.zip",
+      "zip_sha256": "225c500ebff4b7b9ced1ed967906ceddf7fad2bc6fb61174788ea35bce7f1184",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-46-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 1140,
+          "sha256": "ab223f6a41cd73b28ad7ef0a991e237f6b4b16e7ba5ace1bd34f5ebb2b8e111f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-46-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-46-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2408,
+          "sha256": "ef1c17e8b9369324e88d3c7c9a9470b9fa37d25e3be93a58cef80f6c35ebe91e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-46-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 16790,
+          "sha256": "e97e23a4bcb2c5b91d521d8eb7823e8914b1b9d0ded2348c6f9d3da8b671aa36"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-46-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 579827,
+          "sha256": "5280fdf36c2cbf69415d8a277b08266b79921a64ac8d74722266dbe6efcd3e0c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-46-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-47-2026-10-19.zip",
+      "zip_sha256": "661763e74ba67030cde0f49d9deb862c4f1b95b9da5ba145fe182efe26b45ead",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-47-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 4950,
+          "sha256": "dcc68008a07a60f101dfaaed742cad86b70655e8862026f14c8124886c31cbac"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-47-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-47-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2664,
+          "sha256": "95488da979eab82795a7805a7ba988b7b4a5f4a8c6182924c5426bd12a04eb22"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-47-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 25447,
+          "sha256": "1be05d45f9685d9b1eb2581ba499f19e1b92801dc70445ee3fd7ce7a35b56ab3"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-47-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 843842,
+          "sha256": "96669b383db723a09097d4f492d47b19780d49634b6a899e732061920cfe0fe6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-47-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-48-2026-10-19.zip",
+      "zip_sha256": "fd162e4056194a330b059ce78df5c05af7a7b081973d94748c0bd769ad592f5e",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-48-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6131,
+          "sha256": "1fe1871f9340cd4c72ffc05a7c42c7052d92eb238712ce2ee64abedf31aeadcb"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-48-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-48-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2702,
+          "sha256": "30ba797d58032245306f4a5c4627a8e98c2330dc6c382a31b073ee65556397e5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-48-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 17505,
+          "sha256": "a9160ad5764df42aade0aecbcc8fb16e2f49a693e3068de5d55ce972316c1038"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-48-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 878267,
+          "sha256": "4a8cf9f121afafedfd031e37e94bda6bc17bdbb193055b93103fda200e2c3c9d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-48-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-49-2026-10-19.zip",
+      "zip_sha256": "c8a460843c526610684814e9c331714627f71da661811e92c4f8ef1826f2c323",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-49-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 5570,
+          "sha256": "ac02f6f94911d5206fc332ee7cca1f470969e0b1ac26b1ac3a7658d7da0c2c32"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-49-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-49-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2424,
+          "sha256": "538345ff75979cd164e17c7949bca789b50e2c68ed99269b1430884a3dd37489"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-49-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 24500,
+          "sha256": "051dd7b767557a34fbf80e55ee4e26fb963fdcfdb776b8703b1810635d7a4e03"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-49-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 860071,
+          "sha256": "ecb80f061e478e83fbc1284f878dd7f9587dcbc349daa63d7084a50271c0e887"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-49-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-5-2026-10-19.zip",
+      "zip_sha256": "caee388c6b6ef6b389596575c2fa56987035a12a790047dc75259375e04a1683",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-5-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 425,
+          "sha256": "7e681222ce9facdcecb684d2b48e87ac65ac21ddf2ad0911c4ac861e6f50f682"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-5-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2043,
+          "sha256": "ec07688c09f87315956d114ecadf6689ea92dffbdfd7f70534503258a5af83ea"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-5-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 74726,
+          "sha256": "2747913e6d82b34f7df55e07195ab155e63c74e65ab53db4256350fadac15abc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-5-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1287216,
+          "sha256": "8b9b8d80737f8a50a064c24bd411e9ccda1c5b9caebe6356ba5c642161003c1e"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-50-2026-10-19.zip",
+      "zip_sha256": "10525dfa302b361189aaec3cfa05535d66226de2e18495cd583c115b734db210",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-50-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 5897,
+          "sha256": "e50fff96dc3736fa1193766689c3f272694fecb3a8523665f57c8fb3d4a980c5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-50-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-50-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2468,
+          "sha256": "ad555af822abfcb0cd56991d5b27aea3fd5a23fc1696eef2daa9cc176a7a49a9"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-50-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 34882,
+          "sha256": "7631c51c6e7ad1ad2c079f49f958439446dcd349cca8fa5164f869fa0632860d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-50-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1257297,
+          "sha256": "e9db667d8ef6defe79bdcb212a011eea2b6d75653d38fd0ee2fee571f8b216a9"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-50-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-51-2026-10-19.zip",
+      "zip_sha256": "5bb027592e7e3dfe24266ba7525f423e65b9ed9348f6d6641691e54888fd52f1",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-51-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 4043,
+          "sha256": "dcde1193b2e3444b9fa296df56475f8547f42483aeed7a10ffbd4697c71fd180"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-51-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-51-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2992,
+          "sha256": "de6929adc010917a12d8e114efbd9c78bb06c218bc59810118fb162b61c6e255"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-51-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 15482,
+          "sha256": "209d2242a197bcaf2754bb673624cade75cb024f8552bf930e4ee8ee5f0f749f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-51-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 3037865,
+          "sha256": "d72e4ea0dc9c4aae51486df2fc567a9a733a4efe1c2c674f238719de34914070"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-51-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-52-2026-10-19.zip",
+      "zip_sha256": "4ab9a665fbba930a97ac69fe230c881ab40eeec0e77db75247f86ddeee817044",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-52-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6502,
+          "sha256": "06c12c85505a60e7c3028c99985c908ba1c40cd19b86472a5ac6b6003a376543"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-52-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-52-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2898,
+          "sha256": "04337f477a749a80382f126dd1515303e698b59aae74cf5e129f3bc73d4fc29b"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-52-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 108914,
+          "sha256": "e62e66ead8b039e2313949f83228e8183d7c09737dbfd6b9342c524a3be50d09"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-52-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 41269719,
+          "sha256": "0c8f8c944f188698df9a69979dbce7391505d55a562ff874dcd3f4f78a441c5b"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-52-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-53-2026-10-19.zip",
+      "zip_sha256": "b4af954e2dd2e6be901aef78f7cae595e3ff8b5c6d9edaa179cc8528955dc3da",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-53-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6755,
+          "sha256": "cb7606181d13be8925b1fc9a6a02289df5ae95a23d935d3151e4be882e27ea92"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-53-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-53-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2825,
+          "sha256": "172a7ed82f237b2ac41b3f785488d7b08a0206614778c3e7cb30e033c81c34af"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-53-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 289582,
+          "sha256": "f9180cb697163f7de1d0e307f6fb37af054bff711225cd8a76c0c50cc832cbc7"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-53-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 21238705,
+          "sha256": "a21de731d9f9b3d5af2c70a09a87b75fc383a5018b841801115d0efc1c8c328e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-53-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-54-2026-10-19.zip",
+      "zip_sha256": "eb8cb6115472f5ee13999ce0da8347dfee62eb26717c95d2d9a8583a1932db2c",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-54-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6130,
+          "sha256": "beb8837701590f1cbd4d10b57aabb994dfe9c72226ea435414c2239cbb8a5e5e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-54-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-54-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2822,
+          "sha256": "6b84423a1455b70bcf7541b04c64fe90c29a1eb773085643a94b8664b08358d5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-54-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 195126,
+          "sha256": "4974b98da171de2034f8d8597fcfa166bfcce9918bb63aa559e47a0685972f77"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-54-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 14441877,
+          "sha256": "81360a825f7ce941151eb8721a182790f6d5293c46a505747ddba9cd5cba6b28"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-54-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-55-2026-10-19.zip",
+      "zip_sha256": "d2676b2593032ca425ebdaae8446e832e97bcafc79c5d709fcbf6f54dbc8f46b",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-55-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 4329,
+          "sha256": "35add98d340f3482f7295ada01069ae6169178883be1638ef8b72ae36b14d249"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-55-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-55-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2849,
+          "sha256": "d66fe2c4d57ffc87bfdea2cef104ebeaf545f3abe46845188b0bd077ce06c2c6"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-55-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 93311,
+          "sha256": "1b27b2c11471ce4c8561c473cff37501ad0be56e3adc218a2ff7276c4d203c66"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-55-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 10840921,
+          "sha256": "adaf93930a64eeb0bdb58c44d48ee9fd99bacddf8b6d801614ef4eb92773746d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-55-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-56-2026-10-19.zip",
+      "zip_sha256": "6b2358788e09802daf64e360f7c7621edd54f2c4bacaefa9b0119b3a9415142e",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-56-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 5759,
+          "sha256": "7b953dfd31cf422e8d590925d987511b7eac5def43899e0d9a24b5fd556d4844"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-56-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-56-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3140,
+          "sha256": "861cb62c7f7d1a381f27546ff0bcf1390516ae8b43d094ca19d6b009f769dbcc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-56-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 109449,
+          "sha256": "36a227ca8d5e7e45ccffda9f8c42d66a2651116eb0b2824af439bf210973b713"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-56-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 25392252,
+          "sha256": "168c8c4a7f23ec9c009cbfb113a8acddfc46fe242c8cf1e606b045811877f636"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-56-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-57-2026-10-19.zip",
+      "zip_sha256": "0becb4b795dd324d7ce6dc44c9aba2c4f7144ccc90bef5cd399518b84858db32",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-57-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 5225,
+          "sha256": "9c764733cb51a674f1e5e2cbef9faec4b8fbc813af3701d02f29f210941ffd33"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-57-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-57-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2829,
+          "sha256": "9207987bdd80222abdd2cda835575ef19b11886ef0afa712f40417c819a06721"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-57-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 133243,
+          "sha256": "cbce8c29ac8dc547500afc3ac04b862c8c1b819e1ea0690e8ecf5987f0b02043"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-57-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 9661754,
+          "sha256": "8accd9a8d21880cb2ce4d870ac56ebfea7881d5a06cf8bf8e89e49e5c41d2c41"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-57-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-58-2026-10-19.zip",
+      "zip_sha256": "ef98ea062ee60f94a32b2a34d9a4d6a6e5ffbce0a87a906ca491a8e7ca525f9c",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-58-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 7188,
+          "sha256": "50ce884777dbb76acc999e99c2f972f4bc0c01847e4bf3c4486d1ed46b41cbaf"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-58-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-58-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3258,
+          "sha256": "b93b1819f258474c987d700ab6c5eb1944a211a8d63b439c65c8157c458eb77e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-58-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 54375,
+          "sha256": "ef75023e378bbfcd02b38b21b908c208580b7c70adf630f244ad53cbe01b7c00"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-58-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 20350173,
+          "sha256": "0ac9ef39553e69b69b9513a20a543a56a1216c488612b110d47dc653fa742fec"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-58-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-59-2026-10-19.zip",
+      "zip_sha256": "e3f53ab3f54588d1be109cbd451a247f22046cb3675ab571cb6845b594021c37",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-59-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 5852,
+          "sha256": "85886795433207c7edeba2e05be02cafaa1eaadf3f32b84c8ffb80a0810295a3"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-59-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-59-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3225,
+          "sha256": "5a45a78ccf1a575ab3bf2e03701eec5be845d4e28374c1e69f2d6eaf28c91f27"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-59-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 32435,
+          "sha256": "b08e3fbb1f279fb6950835c8eba4a30384af3667efa38ce099b775a9e61a2170"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-59-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 10492255,
+          "sha256": "af9302331b125f74c7409dfdec3ab4704f8ea3948b03008c6e16cb4181c8a32c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-59-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-6-2026-10-19.zip",
+      "zip_sha256": "42f964d29f8190de709a51490f4bb794b51c079a4bd42fbb040a4d357df1cc58",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-6-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 415,
+          "sha256": "c212ee79333770f688fc7ae3dfc2f87eb176b058634d0d0521b3fed575d2cd85"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-6-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 1476,
+          "sha256": "537426dc27400d17ab9061a1e2ab9776b3d62bcabe2bf6af9fbf01e98b54f501"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-6-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 2751,
+          "sha256": "47d6ba41f94fe296386ad826a6a16e62b1e0fe9f9635ace9411be88922be0399"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-6-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 746369,
+          "sha256": "b56e7aa2e77fe57afa8e485666d2d0ca5afefa56f3a925b6616abbdeede778da"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-60-2026-10-19.zip",
+      "zip_sha256": "4482c00b9a9d84fbc4d33e8940193f2523201fbe204ef70f63ae57b7495b31d4",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-60-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6511,
+          "sha256": "2f4690730d81112f0827c69bac3070175cf6c2d21d867d919d65f9d77438a141"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-60-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-60-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3150,
+          "sha256": "06b502b5eb50dfdda67ddd543b1b3a10614b0cce93a141348e250bf82fc0abbc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-60-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 29884,
+          "sha256": "a54ca17afc61eb84d06217667e67e429e12bb934af53877d5ba7f36296c86ae1"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-60-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 12485253,
+          "sha256": "31a3cebbd9aac7eb8a976a04b0d32066e48b0c8f5b2f07fe5ae9f1855b052abc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-60-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-61-2026-10-19.zip",
+      "zip_sha256": "7641db822d0986cdb6825a93e6a02f9bb6343c1d12e64f5d9eabb45bb399ae37",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-61-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6663,
+          "sha256": "53bb8cda73732cb71ba183a4e98aa1923fa6cc90b190db4415cb6a9169c63542"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-61-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-61-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3254,
+          "sha256": "073752ab7c60d9ec4d189694744d74e966f6a1e4fba6238bf8a913e6ab757977"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-61-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 61364,
+          "sha256": "ccd9535b9b01b2f889dba8d58a0d01e9e85d20faa850ccbb290892e13d81500c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-61-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 9997998,
+          "sha256": "b644440459c67a66992c2a8da35e5abaacb8ffc627b57106651abef2d5d6279d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-61-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-62-2026-10-19.zip",
+      "zip_sha256": "00d890ff9e2be3a74f7af21f297c750fdaf7d8323d147145ed7e00e98d58db3e",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-62-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 6346,
+          "sha256": "07a66b4780005bb56a9c1138c6ed67de7acbce26a260c3c8c152d2624270adfa"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-62-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-62-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3221,
+          "sha256": "2ce40d24a1f9a573e69e081aec833dcec8e784ddbc7ff255cc1119a2f3ecb447"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-62-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 37503,
+          "sha256": "e98531de4fdf61a0b0dc0a7648ce96110d9ea1f803e3cd9ce7669c0295ac9ba5"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-62-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 10511392,
+          "sha256": "67099e7a4f7da2e2dccb46e04c36727ef68f112ec8028f3739873a80868b61b2"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-62-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-63-2026-10-19.zip",
+      "zip_sha256": "9a73408cd61f3cad092e0a0e99ce87a22cdb7ce495ddc66804f4985f67feff94",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-63-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 5119,
+          "sha256": "747dd89a9cd1b7deddf144b535087185ca99bdc936b1474dee828b6cb98c11f2"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-63-2026-10-19/README_HELPER.txt",
+          "zip_member": "README_HELPER.txt",
+          "bytes": 3181,
+          "sha256": "9061dcd753fb0d06425547650df44e5db743141cf0d9d1a9a90279f73748be91"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-63-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3031,
+          "sha256": "f3e9b1c08cef9c5545dde4b6ae5cf9d824e192570fe5f9f8b17876a0f21a8c94"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-63-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 26985,
+          "sha256": "a0e1476db514ed1fccd51c8d9489e5cb7ed1a797dcda408770b8d3bf3ce1c86a"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-63-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 14255413,
+          "sha256": "eda1a6b25be84c8f72d668376cc6fe5040d4c6eab9b0dc3f609451cae5c77f96"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-63-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-7-2026-10-19.zip",
+      "zip_sha256": "b943675809f47afab0553434a112ca40cd2e6c33379e26dd4d3d66641eda7b60",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-7-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 589,
+          "sha256": "3da7023489605ce78c3115d1d02b91923f4b824105665afccbd8d57a9082c384"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-7-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2272,
+          "sha256": "8be0df08175c69e231b4f8b9699175c6fd7d7092982d313f992e6e741a83498f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-7-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 15947,
+          "sha256": "8e64048caae0571071b303c641426f87a35880bc1a899769a739941a1efe6182"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-7-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1000676,
+          "sha256": "6a2172c0fe244f86ffb9b3d534ee97e46ad019c80967676130a674c96034ae67"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-8-2026-10-19.zip",
+      "zip_sha256": "6ded578fa1da00aa66434fa96a8eb1b8a28a1015aa1bfba0b4980cfb7500cc15",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-8-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 480,
+          "sha256": "aeff135aa7d5629157d6e6b4e3d6f39177e3b6fdce4d8f3380c96ecc18be5f9e"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-8-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 2779,
+          "sha256": "7be175b8d0d98b1a66b9ac5ab0188b53218ca5ac8a38a5fd622eeb5018ebcc4c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-8-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 18839,
+          "sha256": "b0c4b1ab0f8cd72c1e23ddd62ebb93be8c30005b0586df1cf125f13e829be009"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-8-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 993319,
+          "sha256": "ea555ce54da5d4dd237f88b3ddc60e823d1fcb6917f11f299dee36e898c5ac2a"
+        }
+      ]
+    },
+    {
+      "retained_zip": "/workspace/shared/nagaport-checkpoint-9-2026-10-19.zip",
+      "zip_sha256": "91c71d283ca483370bd33fdf418d3ebe0b6118a323074add75fb84eca1cf722d",
+      "files": [
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/test_apply_checkpoint.py",
+          "zip_member": "test_apply_checkpoint.py",
+          "bytes": 6870,
+          "sha256": "e2bc114902a4c13b3e6c0902ebba819908093bc7fc50d5f257b82500ee4163d8"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/verification.txt",
+          "zip_member": "verification.txt",
+          "bytes": 514,
+          "sha256": "8f73b755b442559a369a4e7d6a070dd0ccd23a308c6a6432f6615987b80b90d0"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/README_RU.txt",
+          "zip_member": "README_RU.txt",
+          "bytes": 3320,
+          "sha256": "fb200bfc452b9c62294913279926bcc378be22eabe8c60efdb4e1985e6692cec"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/manifest.json",
+          "zip_member": "manifest.json",
+          "bytes": 48755,
+          "sha256": "971e205e36bef9fdc093c8508172e8eb4458dc42d0e2a0edbcb7a33c07883178"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/changes.patch",
+          "zip_member": "changes.patch",
+          "bytes": 1623307,
+          "sha256": "cec9ed4dfbd5b658e164425acfd024502604c239e0e24d2a0559755d7ce4277d"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/apply-checkpoint.py",
+          "zip_member": "apply-checkpoint.py",
+          "bytes": 11089,
+          "sha256": "8575d8a824a6d522c6118005626424f7040f65e11a9a7c1c0016f7b79d29547c"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/APPLY_HELPER_README.txt",
+          "zip_member": "APPLY_HELPER_README.txt",
+          "bytes": 3179,
+          "sha256": "0f466afb804a43bc01271257f98de57934e816a24a60119d5a04a73007fb746f"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/test_real_checkpoint8.py",
+          "zip_member": "test_real_checkpoint8.py",
+          "bytes": 2495,
+          "sha256": "8d4e6262d51add85cc05f8d171a53ff4b7a55274b40874d3d9c1039e39af0afc"
+        },
+        {
+          "removed_expanded_duplicate": "/workspace/shared/nagaport-checkpoint-9-2026-10-19/apply-helper-verification.txt",
+          "zip_member": "apply-helper-verification.txt",
+          "bytes": 1848,
+          "sha256": "e696a5ba13fd7cc3181478dd684e043c836fafd52d84f4bfcf2482274d1819fa"
+        }
+      ]
+    }
+  ]
+}

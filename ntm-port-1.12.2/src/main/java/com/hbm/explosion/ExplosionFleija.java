@@ -92,8 +92,8 @@ public class ExplosionFleija {
 		if(dist > 0) {
 			dist = (int) Math.sqrt(dist);
 			for(int y = (int) (dist / this.explosionCoefficient2); y > -dist / this.explosionCoefficient; y--) {
-				if(this.posY + y > 0 && !(this.worldObj.getBlock(this.posX + x, this.posY + y, this.posZ + z) instanceof DecoBlockAlt))
-					this.worldObj.setBlock(this.posX + x, this.posY + y, this.posZ + z, Blocks.air);
+				if(this.posY + y > 0 && !(com.hbm.world.WorldBlockState.read(this.worldObj, this.posX + x, this.posY + y, this.posZ + z).getBlock() instanceof DecoBlockAlt))
+					{ net.minecraft.world.World nativePlacementWorld = this.worldObj; int nativePlacementX = this.posX + x; int nativePlacementY = this.posY + y; int nativePlacementZ = this.posZ + z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 		}
 	}

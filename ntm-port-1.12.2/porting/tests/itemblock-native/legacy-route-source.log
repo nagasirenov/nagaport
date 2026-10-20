@@ -1,0 +1,2 @@
+PASS legacy route source reachability: 19 checks; descendants=ItemBlockBlastInfo,ItemBlockColoredConcrete,ItemBlockLore,ItemBlockRemap,ItemBlockStorageCrate
+No runtime/model proof claimed: this checks actual production registration guards and unchanged fallback expressions.

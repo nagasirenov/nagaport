@@ -1,0 +1,12 @@
+Final recipe-key workstream freeze after nullable virtual toStack regression correction; source SHAd10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2.
+Complete native probe PASS1055; exact source reversal/drift audit PASS.
+d10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2  src/main/java/com/hbm/inventory/RecipesCommon.java
+0ca8ca7036043f8d199e347abaf70c23d31388c6318654cdeb1341fa2ad240dc  porting/tests/probe-recipe-key.py
+4651cb33291c95e831ab51f439d22e72051c320ecb8ae0e0441e23623cf90d6a  porting/tests/check-recipe-key-source.py
+94d41b317c6451897e20ca04fb47c949b11a7a49c78e607abf7ba643c18a60cb  porting/tests/RecipeKeyNativeTest.java
+b4b7a87a09a4955f7f22f8220eddb4609d01e483b886ebfffd69824076f4db43  porting/tests/recipe-key-source-manifest.json
+06e645d580bca01adaf002926c01479026d403a869d5280bcb48fb712b934620  porting/tests/recipe-key-notes.md
+a7c4d78bf5f61c96b4f0dbf6e702c7fc1e773f9fa74613253a98bf5393c64a60  porting/continuation-2026-10-19/recipe-key-native-checks.log
+61e3b159f78bd9b5adfd6ce1087e35f42c3015fb00329d28b46d734bccef11cc  porting/continuation-2026-10-19/recipe-key-source-checks.log
+8ddbc438bc5a86fbadec12136b8f3530a6c86cb7a6c580363cda4ccd4b1f86ed  porting/continuation-2026-10-19/recipe-key-original-ore-evidence.log
+52c2684f19824c884cbc4d005f7edb09e0c57a445f7d7140a32600b0b6350f58  porting/continuation-2026-10-19/recipe-key-registry-evidence.log

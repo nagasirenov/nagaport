@@ -34,13 +34,13 @@ public class SlotPattern extends Slot {
 	
 	@Override
 	public void putStack(ItemStack stack) {
-		if (stack != null) {
+		if (stack != null && !stack.isEmpty()) {
 			stack = stack.copy();
 			
 			if (!allowStackSize)
-				stack.stackSize = 1;
+				stack.setCount(1);
 		}
-		super.putStack(stack);
+		super.putStack(stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack);
 	}
 
 	public SlotPattern disableHover() {
@@ -50,7 +50,7 @@ public class SlotPattern extends Slot {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean func_111238_b() {
+	public boolean isEnabled() {
 		return canHover;
 	}
 }

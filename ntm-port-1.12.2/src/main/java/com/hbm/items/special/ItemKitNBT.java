@@ -69,7 +69,7 @@ public class ItemKitNBT extends Item {
 
 	public static ItemStack create(ItemStack... contents) {
 		ItemStack stack = new ItemStack(ModItems.kit_custom);
-		stack.stackTagCompound = new NBTTagCompound();
+		stack.setTagCompound(new NBTTagCompound());
 		ItemStackUtil.addStacksToNBT(stack, contents);
 
 		return stack;

@@ -1,0 +1,1754 @@
+{
+  "baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+  "diagnostics_sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+  "call_count": 96,
+  "names": {
+    "alarm.gambit": {
+      "category": "record",
+      "sounds": [
+        {
+          "name": "hbm:alarm/gambit",
+          "stream": true
+        }
+      ]
+    },
+    "alarm.trainHorn": {
+      "category": "record",
+      "sounds": [
+        {
+          "name": "hbm:alarm/trainHorn",
+          "stream": false
+        }
+      ]
+    },
+    "block.chungusLever": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/chungusLever",
+          "stream": false
+        }
+      ]
+    },
+    "block.crateClose": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/crateClose",
+          "stream": false
+        }
+      ]
+    },
+    "block.crateOpen": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/crateOpen",
+          "stream": false
+        }
+      ]
+    },
+    "block.damage": {
+      "category": "block",
+      "sounds": [
+        "hbm:block/dam1",
+        "hbm:block/dam2",
+        "hbm:block/dam3",
+        "hbm:block/dam4"
+      ]
+    },
+    "block.hatchImpact": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:misc/bombimpact",
+          "stream": false
+        }
+      ]
+    },
+    "block.screm": {
+      "category": "block",
+      "sounds": [
+        "hbm:screm/scream1",
+        "hbm:screm/scream01",
+        "hbm:screm/scream2",
+        "hbm:screm/scream02",
+        "hbm:screm/scream3",
+        "hbm:screm/scream03",
+        "hbm:screm/scream4",
+        "hbm:screm/scream04",
+        "hbm:screm/scream5",
+        "hbm:screm/scream05",
+        "hbm:screm/scream6",
+        "hbm:screm/scream06",
+        "hbm:screm/scream7",
+        "hbm:screm/scream07",
+        "hbm:screm/scream08",
+        "hbm:screm/scream09",
+        "hbm:screm/scream10",
+        "hbm:screm/scream11",
+        "hbm:screm/scream12",
+        "hbm:screm/scream13",
+        "hbm:screm/scream14",
+        "hbm:screm/scream15",
+        "hbm:screm/scream16",
+        "hbm:screm/scream17",
+        "hbm:screm/scream18",
+        "hbm:screm/scream19",
+        "hbm:screm/scream20",
+        "hbm:screm/scream21",
+        "hbm:screm/scream22",
+        "hbm:screm/scream23",
+        "hbm:screm/scream24",
+        "hbm:screm/scream25"
+      ]
+    },
+    "block.shutdown": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/shutdown",
+          "stream": true
+        }
+      ]
+    },
+    "block.storageClose": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/storageClose",
+          "stream": false
+        }
+      ]
+    },
+    "block.storageOpen": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/storageOpen",
+          "stream": false
+        }
+      ]
+    },
+    "entity.bombWhistle": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:entity/bombWhistle",
+          "stream": false
+        }
+      ]
+    },
+    "entity.oldExplosion": {
+      "category": "ambient",
+      "sounds": [
+        {
+          "name": "hbm:entity/oldExplosion",
+          "stream": false
+        }
+      ]
+    },
+    "entity.planeCrash": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "hbm:entity/planeCrash",
+          "stream": false
+        }
+      ]
+    },
+    "entity.planeShotDown": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "hbm:entity/planeShotDown",
+          "stream": false
+        }
+      ]
+    },
+    "entity.ufoBlast": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "hbm:entity/ufoBlast",
+          "stream": false
+        }
+      ]
+    },
+    "item.pinBreak": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:tool/pinBreak",
+          "stream": false
+        }
+      ]
+    },
+    "item.techBleep": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:tool/techBleep",
+          "stream": false
+        }
+      ]
+    },
+    "item.unpack": {
+      "category": "player",
+      "sounds": [
+        "hbm:tool/extract1",
+        "hbm:tool/extract2"
+      ]
+    },
+    "player.cough": {
+      "category": "player",
+      "sounds": [
+        "hbm:player/cough1",
+        "hbm:player/cough2",
+        "hbm:player/cough3",
+        "hbm:player/cough4"
+      ]
+    },
+    "player.vomit": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:player/vomit",
+          "stream": false
+        }
+      ]
+    },
+    "turret.jeremy_fire": {
+      "category": "block",
+      "sounds": [
+        "hbm:turret/jeremy_fire1",
+        "hbm:turret/jeremy_fire2",
+        "hbm:turret/jeremy_fire3",
+        "hbm:turret/jeremy_fire4",
+        "hbm:turret/jeremy_fire5"
+      ]
+    },
+    "turret.jeremy_reload": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:turret/jeremy_reload",
+          "stream": false
+        }
+      ]
+    },
+    "turret.mortarWhistle": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:weapon/mortarWhistle",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.boat": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/boat",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.cDeploy": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/cDeploy",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.chainsaw": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/chainsaw",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.dFlash": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/dFlash",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.explosionMedium": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:weapon/explosion_medium",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.explosionTiny": {
+      "category": "block",
+      "sounds": [
+        "hbm:weapon/explosionTiny1",
+        "hbm:weapon/explosionTiny2"
+      ]
+    },
+    "weapon.fire.disintegration": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/fire/disintegration"
+      ]
+    },
+    "weapon.fire.tauRelease": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/fire/tauRelease1",
+        "hbm:weapon/fire/tauRelease2",
+        "hbm:weapon/fire/tauRelease3"
+      ]
+    },
+    "weapon.flamethrowerShoot": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/flamethrowerShoot",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.fstbmbPing": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/fstbmbPing",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.immolatorShoot": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/immolatorShoot",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.kapeng": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/kapeng",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.laserBang": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/laserBang1",
+        "hbm:weapon/laserBang2",
+        "hbm:weapon/laserBang3",
+        "hbm:weapon/laserBang4"
+      ]
+    },
+    "weapon.missileTakeOff": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/missileTakeOff",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.mukeExplosion": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:weapon/mukeExplosion",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.reload.tubeFwoomp": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/reload/tubeFwoomp"
+      ]
+    },
+    "weapon.robin_explosion": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/robin_explosion",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.stingerLockOn": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/stingerLockOn",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.switchmode1": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/switchmode1",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.switchmode2": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/switchmode2",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.trainImpact": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/trainImpact",
+          "stream": false
+        }
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+      "before_sha256": "846f6b1fed8c84360b87081b6ccfd01ed7d29e16cbe8fc061a070dc6289fa374",
+      "after_sha256": "401b82950541b754c180dd4887b2b98c9a9ca38b99f443fe4381182787658f32",
+      "changes": [
+        {
+          "line": 129,
+          "before": "\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "before_sha256": "2f20e8202363ad73863520ca452aff33ad5b8fd26ea1aaf2d7367ea102bf58f1",
+      "after_sha256": "9ff2e2c0a00d3f6cb54b1f31b6b834e1247ec200484f22a39d573efbb2210f7e",
+      "changes": [
+        {
+          "line": 212,
+          "before": "\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F); // this has to be the single worst solution ever\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F); // this has to be the single worst solution ever\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      "before_sha256": "3fdfe504b8ff110dbba6ef4d4b4e6f145e1dc54efe15fe2ac1ca9234a8c92766",
+      "after_sha256": "1c9a57de26a843a24c887749e91d8a19ff196b94e282f262c45572f305df0a1d",
+      "changes": [
+        {
+          "line": 69,
+          "before": "\t\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F);\n",
+          "name": "hbm:block.chungusLever"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+      "before_sha256": "15ce4957273cf3958367dbf9fabb8d132e4512bc590797c7340526333e514c54",
+      "after_sha256": "2ac5fdd38c22c114f6c032161fb2adb7d8429da71592444206951ad5ee1ba0c1",
+      "changes": [
+        {
+          "line": 59,
+          "before": "\t\t\t\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F);\n",
+          "after": "\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:block.chungusLever\", 1.5F, 1.0F);\n",
+          "name": "hbm:block.chungusLever"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteNeutronDetector.java",
+      "before_sha256": "f5f1a58edd3f555d1c4def9018c3a348783c2eb1c53b37f610c8b650af6df04a",
+      "after_sha256": "6075a1b1d0de8798f6813d5f1f5122b29ebcc863ccc47ae420f28f5ed0348f9f",
+      "changes": [
+        {
+          "line": 65,
+          "before": "\t\tworld.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, \"hbm:item.techBleep\", 0.02F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, \"hbm:item.techBleep\", 0.02F, 1.0F);\n",
+          "name": "hbm:item.techBleep"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/effect/EntitySpear.java",
+      "before_sha256": "f792eac9b42348d5a423ad5878f325c430466c56ebec722a38ba05bfad4fedeb",
+      "after_sha256": "6974ca1f99509f6ce1071a42a0f19e89b0b1a251d0e1d6aa6cd5fb2ef77507a0",
+      "changes": [
+        {
+          "line": 108,
+          "before": "\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.dFlash\", 25000.0F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.dFlash\", 25000.0F, 1.0F);\n",
+          "name": "hbm:weapon.dFlash"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "before_sha256": "2d3ef25bb256f0e8d5dd3454c26a43eb6ead66adf9d70776790fb3970b0322f7",
+      "after_sha256": "13b529ae9dde8a6b3557745b1dfa68dfc033a438ad47b9c0fcd1c103005bdd4e",
+      "changes": [
+        {
+          "line": 105,
+          "before": "\t\t\t\t\t\t\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "after": "\t\t\t\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "name": "hbm:item.unpack"
+        },
+        {
+          "line": 146,
+          "before": "\t\t\t\t\t\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "after": "\t\t\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "name": "hbm:item.unpack"
+        },
+        {
+          "line": 173,
+          "before": "\t\t\t\t\t\t\t\t\t\tthis.world.playSoundEffect(dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F);\n",
+          "after": "\t\t\t\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F);\n",
+          "name": "hbm:block.storageClose"
+        },
+        {
+          "line": 183,
+          "before": "\t\t\t\t\t\t\t\t\t\tthis.world.playSoundEffect(dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F);\n",
+          "after": "\t\t\t\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, \"hbm:block.storageClose\", 2.0F, 1.0F);\n",
+          "name": "hbm:block.storageClose"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "before_sha256": "fd4d0c398444a772ee7628abd1d286b2beee047e5c297cfb51ec85b15d8357cc",
+      "after_sha256": "035d8c851ff2438511d544ef8b5bb5855349689bfd8b6e286def32859683ccde",
+      "changes": [
+        {
+          "line": 74,
+          "before": "\t\t\t\tthis.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:weapon.missileTakeOff\", 10.0F, 0.9F + rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:weapon.missileTakeOff\", 10.0F, 0.9F + rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.missileTakeOff"
+        },
+        {
+          "line": 86,
+          "before": "\t\t\t\tthis.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:entity.bombWhistle\", 10.0F, 0.9F + rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"hbm:entity.bombWhistle\", 10.0F, 0.9F + rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:entity.bombWhistle"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityDeathBlast.java",
+      "before_sha256": "ed7c3425636135fc44b57a64a0e52191cbc9316b7dc408acccfb98aa8bba181f",
+      "after_sha256": "76d1d35ba3cabdd5646e28dd0af8d3e04d3726bb404138905d52cbb539a3861f",
+      "changes": [
+        {
+          "line": 59,
+          "before": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 25.0F, 0.9F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK3.java",
+      "before_sha256": "6866e6a59dac45ab4e9c55dc1abfa7e381fbf1e4bcd77c56d46470fcb3787b9a",
+      "after_sha256": "d51ba0df958186caa0ae3572cba24c0da7d5b069a3b9a7219e5e3c55b6d87a42",
+      "changes": [
+        {
+          "line": 247,
+          "before": "\t\t\t\t\t\tworld.playSoundEffect(ix, iy, iz, \"hbm:entity.ufoBlast\", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, \"hbm:entity.ufoBlast\", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:entity.ufoBlast"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "before_sha256": "dc52ac07f19cfc91783f21238bbc8971af61a141d3e19f095af20f9aebe04a2d",
+      "after_sha256": "ae327c783345b779b37d1840f202824984c47ba29beaf049dcf84f48056a6149",
+      "changes": [
+        {
+          "line": 67,
+          "before": "\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:entity.planeShotDown\", 25.0F, 1.0F);\r\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:entity.planeShotDown\", 25.0F, 1.0F);\r\n",
+          "name": "hbm:entity.planeShotDown"
+        },
+        {
+          "line": 132,
+          "before": "\t\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:entity.planeCrash\", 25.0F, 1.0F);\r\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:entity.planeCrash\", 25.0F, 1.0F);\r\n",
+          "name": "hbm:entity.planeCrash"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+      "before_sha256": "253748bf090cc42559adc739f6e477ad2a66644b964887a831f912bdefddffcb",
+      "after_sha256": "3c3dbafda42aacb4bca242dcf62804abc5bd5e94ff60c929886939cc9b140185",
+      "changes": [
+        {
+          "line": 46,
+          "before": "\t            this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F);\n",
+          "after": "\t            com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F);\n",
+          "name": "hbm:entity.oldExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+      "before_sha256": "20cb76fa027e185ef2eaaf82e6c9f2ff4f4fa472a678a677e19cab3f6192f9ad",
+      "after_sha256": "9a84d0d3b78f6bff0bdd1831488d131de388314d36ff95aca3d7ab43360ea2b5",
+      "changes": [
+        {
+          "line": 81,
+          "before": "\t            this.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:block.hatchImpact\", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F);\n",
+          "after": "\t            com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:block.hatchImpact\", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F);\n",
+          "name": "hbm:block.hatchImpact"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityMissileShuttle.java",
+      "before_sha256": "c2abb92555f03d5c896cff47709a99ca3b02652e202dbf0a53fc295b769ade13",
+      "after_sha256": "5b058ce42a53274a6831962330153fcb54734712e6260f4be8dad40fb3b970bb",
+      "changes": [
+        {
+          "line": 43,
+          "before": "\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:weapon.robin_explosion\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:weapon.robin_explosion\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "name": "hbm:weapon.robin_explosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "before_sha256": "b749a7e1dbe6a4e047e7bcb391fa519bbeda887f6b5b96d824404cff1c1a0ce7",
+      "after_sha256": "98ca0f59742d6295f8533872daa84ebf3bc33770dd02c13a7baf07d2862c776c",
+      "changes": [
+        {
+          "line": 352,
+          "before": "\t\t\t\t\t  this.world.playSoundEffect(pos.x, pos.y, pos.z, \"hbm:weapon.stingerLockOn\", 1.0F, 1F);\n",
+          "after": "\t\t\t\t\t  com.hbm.sound.WorldSoundEffects.play(this.world, pos.x, pos.y, pos.z, \"hbm:weapon.stingerLockOn\", 1.0F, 1F);\n",
+          "name": "hbm:weapon.stingerLockOn"
+        },
+        {
+          "line": 454,
+          "before": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java",
+      "before_sha256": "388fd4f9b8d9b23b7f1c9d1bd8f1c6608f4cce204f0054fc5b26144b7d27e209",
+      "after_sha256": "c48cdaee90d8e749f68ca9e91ded4979d7c68b0ce690f686dba1dd0331044058",
+      "changes": [
+        {
+          "line": 120,
+          "before": "\t\t\t\tthis.world.playSoundEffect(posX, posY + 0.5, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY + 0.5, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java",
+      "before_sha256": "bbc8bcbffed09b0e4ad1251d95612e6899caab6f50223abb69f5b1930966c8db",
+      "after_sha256": "808ce7d8c33b5e26715cdfca58c0ea6fe2727a716b8ad00321cb7c85f833bc65",
+      "changes": [
+        {
+          "line": 110,
+          "before": "\t\t\towner.world.playSoundEffect(owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F);\n",
+          "name": "hbm:turret.jeremy_fire"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/ai/EntityAITankshell.java",
+      "before_sha256": "023a534a990a4048faa2e640b440af30f2d6abd8661c04dc28f581dd5569725d",
+      "after_sha256": "49a93501b79905bc25b722a539fb64b3e5ebb98fefd5b202ebbf6a3357e2fe4e",
+      "changes": [
+        {
+          "line": 153,
+          "before": "\t\t\towner.world.playSoundEffect(owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_fire\", 25.0F, 1.0F);\n",
+          "name": "hbm:turret.jeremy_fire"
+        },
+        {
+          "line": 160,
+          "before": "\t\t\towner.world.playSoundEffect(owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_reload\", 3.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, \"hbm:turret.jeremy_reload\", 3.0F, 1.0F);\n",
+          "name": "hbm:turret.jeremy_reload"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java",
+      "before_sha256": "23982a20fe2550d932315d01b150265e72af360aa22f3086ec39d6de00ca6006",
+      "after_sha256": "157b5e75729e4294d63e508c8ce7f206e73bc8204ad8f6317de321014cacffc7",
+      "changes": [
+        {
+          "line": 162,
+          "before": "\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        },
+        {
+          "line": 176,
+          "before": "\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.fstbmbPing\", 5.0F, 1.0F);\n",
+          "name": "hbm:weapon.fstbmbPing"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "before_sha256": "592e042cc3c8a0d8dbcaaed05b3b9a362496ed71b75f272a80667b969669ab0f",
+      "after_sha256": "7e0d4a664c33d128db4b8f77049e3335e0e2e7ddfb208f22edb58fb2e5ba0504",
+      "changes": [
+        {
+          "line": 87,
+          "before": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        },
+        {
+          "line": 230,
+          "before": "\t\t\t\t\t\tthis.world.playSoundEffect(lockon.x, lockon.y, lockon.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, lockon.x, lockon.y, lockon.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:entity.ufoBlast"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "before_sha256": "486f5090c2dedbe19c74e8df030eb29af725ae4042a5028a577d1960d536b8e8",
+      "after_sha256": "3c88644a3a544da06d2dadb02a3cd83f21490763f91e7549d3fd95a5b0041a5a",
+      "changes": [
+        {
+          "line": 123,
+          "before": "\t\t\t\t\tthis.world.playSoundEffect(this.targetX, this.targetY, this.targetZ, \"hbm:turret.mortarWhistle\", 15.0F, 0.9F + rand.nextFloat() * 0.2F);\r\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.targetX, this.targetY, this.targetZ, \"hbm:turret.mortarWhistle\", 15.0F, 0.9F + rand.nextFloat() * 0.2F);\r\n",
+          "name": "hbm:turret.mortarWhistle"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBombletZeta.java",
+      "before_sha256": "ec73d60c48f270224951f683f22be3cae2e9accb2e3abff01732fc857e799e37",
+      "after_sha256": "53f11cf6d00c1756c81da0f341596506900977e73fb853241f9a523769b883cd",
+      "changes": [
+        {
+          "line": 88,
+          "before": "\t\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBoxcar.java",
+      "before_sha256": "f92be9dfadf7a107381f096d6053e6979b62e353af264a13d8732a2046474241",
+      "after_sha256": "55feed8906c1627f5e25eca36c3e5b04f9e141b1e3fb45466cfc9b2cedab2165",
+      "changes": [
+        {
+          "line": 55,
+          "before": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:weapon.trainImpact\", 100.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:weapon.trainImpact\", 100.0F, 1.0F);\n",
+          "name": "hbm:weapon.trainImpact"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBuilding.java",
+      "before_sha256": "82111197de7d1ec0129866751ef062607f5f014a15f1cbd19318c10acdf6b50a",
+      "after_sha256": "8d56025d1607824335ad944b664f1ad6e8dd40185dc8a82fa70cf08bf327f552",
+      "changes": [
+        {
+          "line": 54,
+          "before": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);\n",
+          "name": "hbm:entity.oldExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "before_sha256": "8a25ce9fd09c045c0cd6dc4ba5731e7beb7e90ff947a785dad6298b952d5f382",
+      "after_sha256": "76b2d411135699e8a36f24d5592213949566978721297958fd6ff47cac93c58b",
+      "changes": [
+        {
+          "line": 463,
+          "before": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityDuchessGambit.java",
+      "before_sha256": "f967a106be165322ff7fad6187c191411d051061434fa4245648c167732da43c",
+      "after_sha256": "2739093acbcac01c5d7d449a8679fbb0f79287621ea0d23338ba02333275b4f0",
+      "changes": [
+        {
+          "line": 56,
+          "before": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:alarm.gambit\", 10000.0F, 1F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:alarm.gambit\", 10000.0F, 1F);\n",
+          "name": "hbm:alarm.gambit"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityMeteor.java",
+      "before_sha256": "f67be5a80e7fcd98f5df861f1924b590e3c41511bbb2b9a7a2f1f4ec1c26187a",
+      "after_sha256": "0fa5ed64678bc20b60403028c1581d32a3ada573431c3ca495b32a97509ec519",
+      "changes": [
+        {
+          "line": 132,
+          "before": "\t\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"hbm:entity.oldExplosion\", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);\n",
+          "name": "hbm:entity.oldExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/explosion/ExplosionNukeSmall.java",
+      "before_sha256": "171d42c0105165792ee2329e96e4ab53b1a3066d55f26532cf95a8c8b2f6d35b",
+      "after_sha256": "f31d5cfabb02994f67bb847c70c5ccd12b11c53dafdd957929de3b0de05db68a",
+      "changes": [
+        {
+          "line": 32,
+          "before": "\t\tworld.playSoundEffect(posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(world, posX, posY, posZ, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectAmat.java",
+      "before_sha256": "030187df5a808383117b49398cab88ef4b0034befffcf5b76925e058e6d6cbd8",
+      "after_sha256": "4ad89cbd2de88df856961cfae252883abbd97af23ddd528d7b1c71afa8c54fa4",
+      "changes": [
+        {
+          "line": 20,
+          "before": "\t\t\tworld.playSoundEffect(x, y, z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectTiny.java",
+      "before_sha256": "55984f4cba8940ad8f84d72efe95e105d000b2c12b943dda6f8728fc05266c49",
+      "after_sha256": "d9f71bcb6ef2cab581f8e838d091fc700377e7f43d44280252a5b7ae3b3255de",
+      "changes": [
+        {
+          "line": 18,
+          "before": "\t\tworld.playSoundEffect(x, y, z, \"hbm:weapon.explosionTiny\", 15.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.explosionTiny\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.explosionTiny"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "before_sha256": "16163dc5fc495a76171e481270c31586ec9ada2dc900988b273fa768d936e028",
+      "after_sha256": "8a90aa37954328b70e0202304279d74381f04dece5a3aa2764b5eaffa0939adb",
+      "changes": [
+        {
+          "line": 557,
+          "before": "\t\t\t\t\t\tworld.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:player.vomit\", 1.0F, 1.0F);\n",
+          "after": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, \"hbm:player.vomit\", 1.0F, 1.0F);\n",
+          "name": "hbm:player.vomit"
+        },
+        {
+          "line": 622,
+          "before": "\t\t\tworld.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:player.cough\", 1.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, \"hbm:player.cough\", 1.0F, 1.0F);\n",
+          "name": "hbm:player.cough"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/ability/IWeaponAbility.java",
+      "before_sha256": "842cae0cf39787fa10a95ad614d51ec874199348abe27be237486518500e7c99",
+      "after_sha256": "26bb39f1842a7b748e3c7a63338112764e0be141dce9d73791e863294e2b9e88",
+      "changes": [
+        {
+          "line": 264,
+          "before": "\t\t\t\t\tworld.playSoundEffect(living.posX, living.posY + living.height * 0.5, living.posZ, \"hbm:weapon.chainsaw\", 0.5F, 1.0F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, living.posX, living.posY + living.height * 0.5, living.posZ, \"hbm:weapon.chainsaw\", 0.5F, 1.0F);\n",
+          "name": "hbm:weapon.chainsaw"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java",
+      "before_sha256": "6e24f5c4abefdce0c27b877cdeabeb1ff58b40dcfbfba2827fd69d19d75805f9",
+      "after_sha256": "5f3e03627d7750e607d25b1c9579de39ec6c8184d185d119a3ffd81788b85331",
+      "changes": [
+        {
+          "line": 327,
+          "before": "\t\t\tbulletnt.world.playSoundEffect(bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + bulletnt.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(bulletnt.world, bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + bulletnt.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:entity.ufoBlast"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemInventory.java",
+      "before_sha256": "ed012e3c497e8a272abe1b480a7d2257d616d3f89f0702bfe94de6b495da0576",
+      "after_sha256": "0d3abb31adc6532d798def02fad85f94de5b5edf31928c4ea8d2ca808cfbee3e",
+      "changes": [
+        {
+          "line": 128,
+          "before": "\t@Override public void openInventory() { player.world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F); }\r\n",
+          "after": "\t@Override public void openInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F); }\r\n",
+          "name": "hbm:block.crateOpen"
+        },
+        {
+          "line": 129,
+          "before": "\t@Override public void closeInventory() { player.world.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F); }\r\n",
+          "after": "\t@Override public void closeInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F); }\r\n",
+          "name": "hbm:block.crateClose"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBJJetpack.java",
+      "before_sha256": "ef81d836b4d9dbc588a5183754678dbdc542463e5ff0999f231b9dd8141ca3ff",
+      "after_sha256": "87c1548b49138de8f6b09cdb9cef483cfa8db19b17412f1f9a5e4699ef0b9d3f",
+      "changes": [
+        {
+          "line": 72,
+          "before": "\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F);\n",
+          "name": "hbm:weapon.immolatorShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "before_sha256": "108ecaf8acb5f85f20c7aae11b51e8c394bc5e058d5aaf38f4f41608e705647c",
+      "after_sha256": "a5947f7b7de6934f3607cf527e934f24ed898cff7add99f46646f56f1a0df5e2",
+      "changes": [
+        {
+          "line": 147,
+          "before": "\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.immolatorShoot\", 0.125F, 1.5F);\n",
+          "name": "hbm:weapon.immolatorShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModDefuser.java",
+      "before_sha256": "d9a6eae73a4ee16b445b82b2b25821f9b6c83f983e064e79e6ccd96c686623b6",
+      "after_sha256": "ff44a2e558a829e8948aa5c4459dc416a1a6ad5dc0ac4707784518deb1e8ecce",
+      "changes": [
+        {
+          "line": 67,
+          "before": "\t\t\t\t\tcreeper.world.playSoundEffect(creeper.posX, creeper.posY, creeper.posZ, \"hbm:item.pinBreak\", 1.0F, 1.0F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(creeper.world, creeper.posX, creeper.posY, creeper.posZ, \"hbm:item.pinBreak\", 1.0F, 1.0F);\n",
+          "name": "hbm:item.pinBreak"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBooster.java",
+      "before_sha256": "dab71984065aaef1b0be6c016f73526914f080d20101115c91cabaaabbbf5b1c",
+      "after_sha256": "7429520f31fa0c499236f37cffb9520c3a71197cd4595f4f90125789fd0580df",
+      "changes": [
+        {
+          "line": 68,
+          "before": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.0F);\n",
+          "name": "hbm:weapon.flamethrowerShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBreak.java",
+      "before_sha256": "a726885a56ea0365100d99feb1264c60d5ec8594ae3e3984b7194e4b05956689",
+      "after_sha256": "4e0d1112c38abf713c95af4e43ee9c9361a1c6bec2bcf372d18aa570c240f658",
+      "changes": [
+        {
+          "line": 69,
+          "before": "\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "name": "hbm:weapon.flamethrowerShoot"
+        },
+        {
+          "line": 88,
+          "before": "\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "name": "hbm:weapon.flamethrowerShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackRegular.java",
+      "before_sha256": "11f142669d98593d25e9c4a16daf8da03aa0c42efcbf918b7c52a08ea2f10397",
+      "after_sha256": "9d5bf8231c112934cfcde21fd602c151ddb25076ca37c73df4a5e77e5916c95b",
+      "changes": [
+        {
+          "line": 64,
+          "before": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "name": "hbm:weapon.flamethrowerShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackVectorized.java",
+      "before_sha256": "d0ad9952f985f98733f66b7a83cf45b2414ce8638a35c2491d3a4a0a8da71db0",
+      "after_sha256": "d63ded63425c967ff74e28c0d47f2b27fbd4e5867d9985cfa39c1864576d74c0",
+      "changes": [
+        {
+          "line": 67,
+          "before": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.flamethrowerShoot\", 0.25F, 1.5F);\n",
+          "name": "hbm:weapon.flamethrowerShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/special/ItemCigarette.java",
+      "before_sha256": "35aed49da60fb5b2df64a622af1453eb0a9ee8478d482dba48f13fae39c4ed9b",
+      "after_sha256": "cc2dc9bd4a873d0c639cd184c7fe8e9cbf0f68638c99f48e2eb466e7d373a44d",
+      "changes": [
+        {
+          "line": 65,
+          "before": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:player.cough\", 1.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:player.cough\", 1.0F, 1.0F);\n",
+          "name": "hbm:player.cough"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "before_sha256": "914e6afe2d053c6f2871942d0d775cfc73e443fb9ea3c15959a104c2cdbb80b9",
+      "after_sha256": "705a5b704c29cdc92e49c98af8f80ea909f837da5379d92431a5eef980013baf",
+      "changes": [
+        {
+          "line": 199,
+          "before": "\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.kapeng\", 3.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"hbm:weapon.kapeng\", 3.0F, 1.0F);\n",
+          "name": "hbm:weapon.kapeng"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+      "before_sha256": "818d60a422ad09841f16eed62a2a70afaca8c1e3f9cf88b5659512e9bc812bdd",
+      "after_sha256": "ccfe1c2acccb4d0825927cfd9546d374355da094242253b432f15358fb8f5926",
+      "changes": [
+        {
+          "line": 273,
+          "before": "\t\t\t\tshell.world.playSoundEffect(shell.posX, shell.posY, shell.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(shell.world, shell.posX, shell.posY, shell.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.explosionMedium"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java",
+      "before_sha256": "2ad970089b91643b8ab4d6b7c2ddcf0c50ae39f344f29b82b46559912738ccba",
+      "after_sha256": "a2277924dfe89965534b9c4f3a92cb7e0d045ba8261a9ce15eca3655bde0d65e",
+      "changes": [
+        {
+          "line": 187,
+          "before": "\t\t\t\trocket.world.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.explosionMedium"
+        },
+        {
+          "line": 211,
+          "before": "\t\t\t\trocket.world.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.explosionMedium"
+        },
+        {
+          "line": 219,
+          "before": "\t\t\t\trocket.world.playSoundEffect(rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(rocket.world, rocket.posX, rocket.posY, rocket.posZ, \"hbm:weapon.explosionMedium\", 20.0F, 0.9F + rocket.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.explosionMedium"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+      "before_sha256": "6ca145df49ab8435f461a16d4c9d1d0c9674c56caef831bafd7e677f4f82fea5",
+      "after_sha256": "78537257d548b26a9011cfb885f0feb533918c1aa73a4ea2c32d0676f456d049",
+      "changes": [
+        {
+          "line": 53,
+          "before": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:weapon.cDeploy\", 1.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"hbm:weapon.cDeploy\", 1.0F, 1.0F);\n",
+          "name": "hbm:weapon.cDeploy"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java",
+      "before_sha256": "a4836798edc39ae1878a6653ec562c0944961d4beb7e6f49a76f8d2bf0e8b50d",
+      "after_sha256": "eeb194b1d92ddd1af98727bbefc2145e144dd81dbaa7f3d8a9b62c199b842fa4",
+      "changes": [
+        {
+          "line": 41,
+          "before": "\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.fire.disintegration"
+        },
+        {
+          "line": 48,
+          "before": "\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.fire.disintegration\", 2.0F, 0.9F + entity.getRNG().nextFloat() * 0.2F);\n",
+          "name": "hbm:weapon.fire.disintegration"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Lego.java",
+      "before_sha256": "b19ffd7bac883317f5aabfc3954cfe1a2070f955c520fca60c9b7c34f9591d04",
+      "after_sha256": "06f05b60df49378e63bcde2e1d3e4b9c69a8b1391175fa01c3908969f6732cf7",
+      "changes": [
+        {
+          "line": 130,
+          "before": "\t\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode1\", 1F, 1F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode1\", 1F, 1F);\n",
+          "name": "hbm:weapon.switchmode1"
+        },
+        {
+          "line": 132,
+          "before": "\t\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode2\", 1F, 1F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.switchmode2\", 1F, 1F);\n",
+          "name": "hbm:weapon.switchmode2"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "before_sha256": "8b23038d1582707b728a1598b5a7289095a1ae6e7df98b2d575e01fa105bd2d7",
+      "after_sha256": "50463596b5c12936de19d98b4d1e817a028e67d81e4bd7a481f35c1e92aec773",
+      "changes": [
+        {
+          "line": 1359,
+          "before": "\t\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"hbm:entity.ufoBlast\", 5.0F, 0.9F);\n",
+          "name": "hbm:entity.ufoBlast"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+      "before_sha256": "c8f6a7f535fcfef0c2132f715d1d57873f8a937154072b8014275f3065be1aca",
+      "after_sha256": "d7bc8ab998f1fc7c7cb722b69951c34ac0f17cf4772dfef6a9c3e4c0e826f5de",
+      "changes": [
+        {
+          "line": 100,
+          "before": "\t\tbullet.world.playSoundEffect(pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:weapon.boat\", 100F, 1F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:weapon.boat\", 100F, 1F);\n",
+          "name": "hbm:weapon.boat"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory44.java",
+      "before_sha256": "d756b4f1d341eecb6d5af018a8e96a14ee9a1d7258de6a2f299af66387a73cfc",
+      "after_sha256": "d90c4fd7226873875c194848775c63d01292cbcc9710693bb8a9b5ed29b6caf6",
+      "changes": [
+        {
+          "line": 56,
+          "before": "\t\tbullet.world.playSoundEffect(pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:alarm.trainHorn\", 100F, 1F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, \"hbm:alarm.trainHorn\", 100F, 1F);\n",
+          "name": "hbm:alarm.trainHorn"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "before_sha256": "53f3e9c02d6d5823d4bd67c3dc56edf8def7fea1b56d0ab3b779828cf077b598",
+      "after_sha256": "a543f91b3f0d129bfd89aa68a8a6883020d841acf61ddd081ec55f0f8e4ec956",
+      "changes": [
+        {
+          "line": 147,
+          "before": "\t\tctx.getPlayer().world.playSoundEffect(ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F);\n",
+          "after": "\t\tctx.getPlayer().com.hbm.sound.WorldSoundEffects.play(world, ctx.getPlayer().posX, ctx.getPlayer().posY, ctx.getPlayer().posZ, \"hbm:weapon.fire.tauRelease\", 1F, 1F);\n",
+          "name": "hbm:weapon.fire.tauRelease"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java",
+      "before_sha256": "afd28f7e936c0f1225b40d34e0f214b83492f75c9d2a1c575b31aba7f029cc2a",
+      "after_sha256": "2b5d87f34cefbf4a05dffd45f83af99bbb7f5d6736cfdc09dad73f9865d86871",
+      "changes": [
+        {
+          "line": 103,
+          "before": "\t\tbullet.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        },
+        {
+          "line": 120,
+          "before": "\t\tbullet.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        },
+        {
+          "line": 138,
+          "before": "\t\tbullet.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java",
+      "before_sha256": "2e99d1fe21ef0f7dfa4ba4cf6bd75202eab55977bea90b6e82118079798509f6",
+      "after_sha256": "b315b0581be2e9d273d25c801921d2590fc657a272d7f055ba42445d6f78b663",
+      "changes": [
+        {
+          "line": 78,
+          "before": "\t\tbeam.world.playSoundEffect(hitVec.x, hitVec.y, hitVec.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + beam.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(beam.world, hitVec.x, hitVec.y, hitVec.z, \"hbm:entity.ufoBlast\", 5.0F, 0.9F + beam.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:entity.ufoBlast"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/potion/HbmPotion.java",
+      "before_sha256": "d2cdec43cff0baea8902e9ee02d9152cfcc1e241378a879de74de670b06de326",
+      "after_sha256": "9aee8a92e04dc9facab24ff77566856c606edd0744cd3d7dae2b98949d98730d",
+      "changes": [
+        {
+          "line": 159,
+          "before": "\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.laserBang\", 100.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.laserBang\", 100.0F, 1.0F);\n",
+          "name": "hbm:weapon.laserBang"
+        },
+        {
+          "line": 175,
+          "before": "\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"hbm:weapon.mukeExplosion\", 100.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"hbm:weapon.mukeExplosion\", 100.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java",
+      "before_sha256": "b815a4abdd41000e033105e0749689c4ee7ffe97c5df9938d1f5fb2aa1b24f72",
+      "after_sha256": "2961f44caf5a43f79dfd0ba4763ee0119916213f51d56f2d2279aabfa6c07936",
+      "changes": [
+        {
+          "line": 134,
+          "before": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.shutdown\", 5F, 1F);\n",
+          "after": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.shutdown\", 5F, 1F);\n",
+          "name": "hbm:block.shutdown"
+        },
+        {
+          "line": 266,
+          "before": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.mukeExplosion\", 15.0F, 1.0F);\n",
+          "name": "hbm:weapon.mukeExplosion"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      "before_sha256": "9927be9e6cc8e5a639372d2980f9fdb396582fa9bf20d3df7050d14bbc5ffbbe",
+      "after_sha256": "ed4f388706b59489f1b155cfd7f3107778c8366998cabafad20dfd92225c3b99",
+      "changes": [
+        {
+          "line": 94,
+          "before": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, \"hbm:weapon.flamethrowerShoot\", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F);\n",
+          "after": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, \"hbm:weapon.flamethrowerShoot\", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F);\n",
+          "name": "hbm:weapon.flamethrowerShoot"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "before_sha256": "45a78eef92868b7602c56a191ae9c6524a8ae21095267907f5f3dbedbe28be97",
+      "after_sha256": "b5d7532f05925cda2221e861bc19d8c31c4d252a21b17594caab0cf3583d3789",
+      "changes": [
+        {
+          "line": 343,
+          "before": "\t\t\tthis.world.playSoundEffect(targetX + 0.5, targetY + 0.5, targetZ + 0.5, \"hbm:block.screm\", 2000.0F, 1.0F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, targetX + 0.5, targetY + 0.5, targetZ + 0.5, \"hbm:block.screm\", 2000.0F, 1.0F);\n",
+          "name": "hbm:block.screm"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      "before_sha256": "3f1e93c09a4f4ae4abcfd9287287e0e34927ac1127c4d78c6a4021c221ab2660",
+      "after_sha256": "784df18a1e7843e925f623805232fd9766a71b6b258e91492e6e020f64ea89e8",
+      "changes": [
+        {
+          "line": 230,
+          "before": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:block.damage\", 3.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "after": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:block.damage\", 3.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "name": "hbm:block.damage"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java",
+      "before_sha256": "88b0553fc9af75fc23fe11de69582112db832854a21cd02164aba5c997b014fe",
+      "after_sha256": "7f201e86df74eed5e202843838d8cd0a5a1749177c530f9d04185c30a35b9d06",
+      "changes": [
+        {
+          "line": 797,
+          "before": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5,\"hbm:block.shutdown\",1.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5,\"hbm:block.shutdown\",1.0F, 1.0F);\n",
+          "name": "hbm:block.shutdown"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "before_sha256": "9829cb8ad4552efbd4cc152688d6074999e600687d21c4812dac1a78f607a641",
+      "after_sha256": "c6342387ebbbf22049952fcac7a620755790c097cac8222b90b7164c311a9bd1",
+      "changes": [
+        {
+          "line": 86,
+          "before": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 1.0F, 1.0F);\r\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 1.0F, 1.0F);\r\n",
+          "name": "hbm:block.crateOpen"
+        },
+        {
+          "line": 91,
+          "before": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 1.0F, 1.0F);\r\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 1.0F, 1.0F);\r\n",
+          "name": "hbm:block.crateClose"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "before_sha256": "1e70ebaf7f6e81397bd5ee121b1d75a4d823ecb61f3800c72fb98b19c676f84f",
+      "after_sha256": "adb7b55d4529bfb9e4223226c1a7f6e9099edfa85765bee5f605205c4b8396ed",
+      "changes": [
+        {
+          "line": 80,
+          "before": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.8F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.8F, 1.0F);\n",
+          "name": "hbm:block.crateOpen"
+        },
+        {
+          "line": 83,
+          "before": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F);\n",
+          "name": "hbm:block.crateOpen"
+        },
+        {
+          "line": 86,
+          "before": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateOpen\", 0.5F, this.world.rand.nextFloat() * 0.1F + 0.7F);\n",
+          "name": "hbm:block.crateOpen"
+        },
+        {
+          "line": 96,
+          "before": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F);\n",
+          "name": "hbm:block.crateClose"
+        },
+        {
+          "line": 99,
+          "before": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F);\n",
+          "after": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.crateClose\", 0.8F, 1.0F);\n",
+          "name": "hbm:block.crateClose"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "before_sha256": "52cf916ff6371564fc35e0ab15a1bc7c7049052313dea1740c26fbf45014f29d",
+      "after_sha256": "118fb6838d4829e68bd2de01438965b5e0d4a26861ec5f003cf9695eacd1b2ba",
+      "changes": [
+        {
+          "line": 267,
+          "before": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 0.5F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 0.5F, 1.0F);\n",
+          "name": "hbm:block.storageOpen"
+        },
+        {
+          "line": 272,
+          "before": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageClose\", 0.5F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageClose\", 0.5F, 1.0F);\n",
+          "name": "hbm:block.storageClose"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "before_sha256": "0041ff249a2b16ccaa21115e816585aec354b06153431260b64de161559eb3bf",
+      "after_sha256": "fdfd4f4816b93aa156e72923f7b65806637c2cc0f49c8e36cfabb127608aa142",
+      "changes": [
+        {
+          "line": 130,
+          "before": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "name": "hbm:item.unpack"
+        },
+        {
+          "line": 155,
+          "before": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "name": "hbm:item.unpack"
+        },
+        {
+          "line": 167,
+          "before": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "name": "hbm:item.unpack"
+        },
+        {
+          "line": 188,
+          "before": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "after": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.unpack\", 0.5F, 0.75F);\n",
+          "name": "hbm:item.unpack"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneDock.java",
+      "before_sha256": "778adbda41a3d00e52d2ecb9bb96af4792bee340cf4b61da7cc1a97c26895b39",
+      "after_sha256": "dcb5707e4b2e1d1d209afdf825a993e988553be1c1c98e5c7bf3ed96020b30d0",
+      "changes": [
+        {
+          "line": 124,
+          "before": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 2.0F, 1.0F);\n",
+          "after": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:block.storageOpen\", 2.0F, 1.0F);\n",
+          "name": "hbm:block.storageOpen"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java",
+      "before_sha256": "ff304dfa140acd91666a6b84cd87aef52f0a9f811b2e4793f378e2134262ad2e",
+      "after_sha256": "d187a0c8cc10de7b345917f29f105c9808efda6da6393ff1cfa5487deae0bf7f",
+      "changes": [
+        {
+          "line": 120,
+          "before": "\t\t\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.reload.tubeFwoomp\", 0.25F, 0.9F + this.world.rand.nextFloat() * 0.2F);\r\n",
+          "after": "\t\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:weapon.reload.tubeFwoomp\", 0.25F, 0.9F + this.world.rand.nextFloat() * 0.2F);\r\n",
+          "name": "hbm:weapon.reload.tubeFwoomp"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java",
+      "before_sha256": "e92ecd27b5c84126011e31e68cb7069311f94a959adefef1cf7eefab88c0f855",
+      "after_sha256": "3080cb9e41bee24ab3ce21e1a4354260f40aeab14a67d723d46504f900125ebb",
+      "changes": [
+        {
+          "line": 260,
+          "before": "\t\t\t\t\tthis.world.playSoundEffect(this.target.posX, this.target.posY, this.target.posZ, \"hbm:block.screm\", 20.0F, 1.0F);\n",
+          "after": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.target.posX, this.target.posY, this.target.posZ, \"hbm:block.screm\", 20.0F, 1.0F);\n",
+          "name": "hbm:block.screm"
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "path": "src/main/java/com/hbm/items/ItemVOTVdrive.java",
+      "line": 270,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/food/ItemLemon.java",
+      "line": 114,
+      "name": "hbm:entity.vomit",
+      "source": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"hbm:entity.vomit\", 1.0F, 1.0F);",
+      "reason": "missing bundled sounds.json entry"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/TrappedBrick.java",
+      "line": 72,
+      "name": "hbm:entity.slicer",
+      "source": "\t\t\tworld.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, \"hbm:entity.slicer\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 117,
+      "name": "hbm:misc.nullChopper",
+      "source": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:misc.nullChopper\", 10.0F, 0.5F);",
+      "reason": "special existing loop trigger path"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 271,
+      "name": "hbm:misc.nullCrashing",
+      "source": "\t\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:misc.nullCrashing\", 10.0F, 0.5F);",
+      "reason": "special existing loop trigger path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      "line": 100,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "line": 605,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java",
+      "line": 350,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java",
+      "line": 317,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.5F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java",
+      "line": 72,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java",
+      "line": 187,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+      "line": 73,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java",
+      "line": 71,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+      "line": 75,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java",
+      "line": 54,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+      "line": 64,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.5F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+      "line": 54,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.5F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+      "line": 92,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.5F, 0.75F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+      "line": 86,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java",
+      "line": 135,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineStirling.java",
+      "line": 88,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.5F, 0.75F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java",
+      "line": 72,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+      "line": 223,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\t\t\tworld.playSoundEffect(ix + 0.5, iy + 0.5, iz + 0.5, \"hbm:item.upgradePlug\", 1.25F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilled.java",
+      "line": 53,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tworld.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, \"hbm:item.upgradePlug\", 1.0F, 1.0F);",
+      "reason": "already approved native event identity/path"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilled.java",
+      "line": 72,
+      "name": "hbm:item.upgradePlug",
+      "source": "\t\t\tworld.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, \"hbm:item.upgradePlug\", 1.0F, 0.85F);",
+      "reason": "already approved native event identity/path"
+    }
+  ],
+  "production_pins": {
+    "src/main/java/com/hbm/main/ModSoundEvents.java": "2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33",
+    "src/main/java/com/hbm/sound/WorldSoundEffects.java": "444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e",
+    "src/main/java/com/hbm/sound/WorldSoundCategories.java": "27f10f7689b907e30e2cddc0b8ce58fa02e325cbd3b60c18d4905a80bb33e164"
+  },
+  "unchanged_pins": {
+    "src/main/java/com/hbm/sound/SoundCategoryResolver.java": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33",
+    "src/main/java/com/hbm/sound/ResourceLoopSound.java": "71ba79594f86448814614125d645f6be58f78d816d03244001655504d2a1bcf4",
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": "a8ce9990955b9c24a962a448a84cc46178c742b89d220769ea1e1ca8f29cc6dd",
+    "src/main/java/com/hbm/main/ClientProxy.java": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "src/main/resources/assets/hbm/sounds.json": "1e890ebd69f0f16dd15a181e0c02f72e9e92f39a06987fe9d360ddbe544c2df6"
+  },
+  "original_development_baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "composition_receipt": {
+    "cp56_baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+    "integration_baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+    "shared_files": [
+      {
+        "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+        "cp56_before_sha256": "c10ab179fd25d51dcb641221ef17974be8007a7cbd0e5a8a9d75c7236a3ef962",
+        "cp56_after_sha256": "d4bdaddeee4113a8a966c7ec81db2fab647f82a4127aba571c6548a4e589bb6a",
+        "integration_before_sha256": "846f6b1fed8c84360b87081b6ccfd01ed7d29e16cbe8fc061a070dc6289fa374",
+        "integration_after_sha256": "401b82950541b754c180dd4887b2b98c9a9ca38b99f443fe4381182787658f32"
+      },
+      {
+        "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+        "cp56_before_sha256": "acb60e3a950d7816a01dc3ccb4016f712c2957078c000cdaca9e1f058770c9c6",
+        "cp56_after_sha256": "34298c7450fee35a089ca4285db68c310a578ccaa55542058f8768d2077d1afb",
+        "integration_before_sha256": "2f20e8202363ad73863520ca452aff33ad5b8fd26ea1aaf2d7367ea102bf58f1",
+        "integration_after_sha256": "9ff2e2c0a00d3f6cb54b1f31b6b834e1247ec200484f22a39d573efbb2210f7e"
+      },
+      {
+        "path": "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+        "cp56_before_sha256": "db2ab510dee6806f77e9b4bb520fa5218ce07a92931e833d0cd053f0a192709f",
+        "cp56_after_sha256": "a07a94dd2f1cf5402bebcc9cfa59b52f6da95fa44b008aa75331102df7d69d3e",
+        "integration_before_sha256": "15ce4957273cf3958367dbf9fabb8d132e4512bc590797c7340526333e514c54",
+        "integration_after_sha256": "2ac5fdd38c22c114f6c032161fb2adb7d8429da71592444206951ad5ee1ba0c1"
+      },
+      {
+        "path": "src/main/java/com/hbm/entity/effect/EntitySpear.java",
+        "cp56_before_sha256": "9c39742c001b8d4a933f0a72f0d6f96d820f011e1c8676bacc4b38fbf06ac069",
+        "cp56_after_sha256": "15e04f3c4029c4636b646feeda7d6c398f71c6662531851aa4768f43b5b83aac",
+        "integration_before_sha256": "f792eac9b42348d5a423ad5878f325c430466c56ebec722a38ba05bfad4fedeb",
+        "integration_after_sha256": "6974ca1f99509f6ce1071a42a0f19e89b0b1a251d0e1d6aa6cd5fb2ef77507a0"
+      },
+      {
+        "path": "src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+        "cp56_before_sha256": "ae5a136e7c2ccb1f611d49074af1c2b62e28e233b3996921c0ec2c794056f2aa",
+        "cp56_after_sha256": "aa461a403e1dd3250542374f66ca0e4e91804ebedd5bf7d2539e1b9d47a91b08",
+        "integration_before_sha256": "253748bf090cc42559adc739f6e477ad2a66644b964887a831f912bdefddffcb",
+        "integration_after_sha256": "3c3dbafda42aacb4bca242dcf62804abc5bd5e94ff60c929886939cc9b140185"
+      },
+      {
+        "path": "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+        "cp56_before_sha256": "504251b67791747282f08a0383e6e8c23cc8ecef1031c5ae6d7ac8e749922488",
+        "cp56_after_sha256": "fb42cac539a1635bbeb266df00a32603db9f36f31a6047d0a09c3c8af73b45f4",
+        "integration_before_sha256": "20cb76fa027e185ef2eaaf82e6c9f2ff4f4fa472a678a677e19cab3f6192f9ad",
+        "integration_after_sha256": "9a84d0d3b78f6bff0bdd1831488d131de388314d36ff95aca3d7ab43360ea2b5"
+      },
+      {
+        "path": "src/main/java/com/hbm/entity/projectile/EntityMeteor.java",
+        "cp56_before_sha256": "cd33699a551dd3bd9c74023b3a2c6db818cdc3af87aea7cb37773b853572be14",
+        "cp56_after_sha256": "fe43c499fde169b7f4fac3eea2cdc59a7dc31ff0c42dc603978d07932d9dc009",
+        "integration_before_sha256": "f67be5a80e7fcd98f5df861f1924b590e3c41511bbb2b9a7a2f1f4ec1c26187a",
+        "integration_after_sha256": "0fa5ed64678bc20b60403028c1581d32a3ada573431c3ca495b32a97509ec519"
+      },
+      {
+        "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+        "cp56_before_sha256": "0d978b9897a75b8b872f897724491db7d747275ba158da2bc779d44b9599156c",
+        "cp56_after_sha256": "caadfac1830388e06d33079079384bd3f14bc6f451554d1f55abad6273d32902",
+        "integration_before_sha256": "c8f6a7f535fcfef0c2132f715d1d57873f8a937154072b8014275f3065be1aca",
+        "integration_after_sha256": "d7bc8ab998f1fc7c7cb722b69951c34ac0f17cf4772dfef6a9c3e4c0e826f5de"
+      },
+      {
+        "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+        "cp56_before_sha256": "423d5f54ef6b2f54c38f2955a9a6cf5ed90e5baded1f5e84e8fa8db27542ec71",
+        "cp56_after_sha256": "6bbaa43f46f7053d2786489326fc8fa6e057ade5867c3715fe9923d96e60aa6a",
+        "integration_before_sha256": "53f3e9c02d6d5823d4bd67c3dc56edf8def7fea1b56d0ab3b779828cf077b598",
+        "integration_after_sha256": "a543f91b3f0d129bfd89aa68a8a6883020d841acf61ddd081ec55f0f8e4ec956"
+      },
+      {
+        "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+        "cp56_before_sha256": "5263e57e3414b9365e58327a0fc7021e9c260d28dbdb483ffe768c5eac6de15e",
+        "cp56_after_sha256": "8944391f34206e6f2e521ed390f83596aa652487345708b1258525ee00397bab",
+        "integration_before_sha256": "45a78eef92868b7602c56a191ae9c6524a8ae21095267907f5f3dbedbe28be97",
+        "integration_after_sha256": "b5d7532f05925cda2221e861bc19d8c31c4d252a21b17594caab0cf3583d3789"
+      }
+    ]
+  },
+  "unchanged_pin_composition_receipt": [
+    {
+      "path": "src/main/java/com/hbm/main/ClientProxy.java",
+      "cp56_sha256": "af9f2d4d1f23b5e18c11caea34d5b5800fc67e3a7c75397c1178260b26491dac",
+      "cp57_sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+      "prior_commits": [
+        "324f35ad53f98e42045ad81c7ec4b45410d663df Port native block materials, air removal and tile world access"
+      ],
+      "exact_prior_diff": "diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java b/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java\nindex f3ac9341..78951fe3 100644\n--- a/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java\n+++ b/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java\n@@ -2320,7 +2320,7 @@ public class ClientProxy extends ServerProxy {\n \t\tif(stack == null) return 0x000000;\n \t\tif(stack.getItem() instanceof ItemBlock) {\n \t\t\tBlock b = Block.getBlockFromItem(stack.getItem());\n-\t\t\treturn b.getMaterial().getMaterialMapColor().colorValue;\n+\t\t\treturn b.getDefaultState().getMaterial().getMaterialMapColor().colorValue;\n \t\t}\n \t\tint color = ColorUtil.getAverageColorFromStack(stack);\n \t\tif(amplify) color = ColorUtil.amplifyColor(color);\n"
+    }
+  ]
+}

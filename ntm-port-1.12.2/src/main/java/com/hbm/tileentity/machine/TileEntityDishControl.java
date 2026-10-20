@@ -27,7 +27,7 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dishControl";
 	}
 
@@ -41,7 +41,7 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("isLinked", isLinked);
@@ -51,11 +51,12 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 			nbt.setInteger("linkPosY", linkPosition[1]);
 			nbt.setInteger("linkPosZ", linkPosition[2]);
 		}
+		return nbt;
 	}
 
 	@Override
-	public void updateEntity() {
-		if(worldObj.isRemote) return;
+	public void update() {
+		if(this.world.isRemote) return;
 
 		if(!foundLink && isLinked)
 		{
@@ -69,7 +70,7 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 	@SideOnly(Side.CLIENT)
 	public TileEntityMachineStardar getLinkedDishClientSafe() {
 		if (dish == null && isLinked) {
-			TileEntity te = worldObj.getTileEntity(linkPosition[0], linkPosition[1], linkPosition[2]);
+			TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(linkPosition[0], linkPosition[1], linkPosition[2]));
 			if (te instanceof TileEntityMachineStardar) {
 				dish = (TileEntityMachineStardar) te;
 			}
@@ -120,11 +121,11 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 
 	private boolean linkWithSensor(ItemStack stack)
 	{
-		if(stack.getItem() != null && stack.stackTagCompound != null) {
+		if(stack.getItem() != null && stack.getTagCompound() != null) {
 			// Get the StarDar coordinates from the sensor
-			int x = stack.stackTagCompound.getInteger("x");
-			int y = stack.stackTagCompound.getInteger("y");
-			int z = stack.stackTagCompound.getInteger("z");
+			int x = stack.getTagCompound().getInteger("x");
+			int y = stack.getTagCompound().getInteger("y");
+			int z = stack.getTagCompound().getInteger("z");
 
 			return establishLink(x, y, z);
 		}
@@ -135,15 +136,15 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 	private boolean establishLink(int x, int y, int z) {
 
 		// Get the StarDar block
-		Block b = worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 		if(b == ModBlocks.machine_stardar) {
 
-			int[] pos = ((MachineStardar)ModBlocks.machine_stardar).findCore(worldObj, x, y, z);
+			int[] pos = ((MachineStardar)ModBlocks.machine_stardar).findCore(this.world, x, y, z);
 
 			if(pos != null) {
 
-				TileEntity tile = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+				TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 				if(tile instanceof TileEntityMachineStardar) {
 					// Dish linked successfully
@@ -162,12 +163,12 @@ public class TileEntityDishControl extends TileEntityMachineBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 1,
-				yCoord,
-				zCoord - 1,
-				xCoord + 2,
-				yCoord + 1,
-				zCoord + 2
+				this.pos.getX() - 1,
+				this.pos.getY(),
+				this.pos.getZ() - 1,
+				this.pos.getX() + 2,
+				this.pos.getY() + 1,
+				this.pos.getZ() + 2
 			);
 		}
 

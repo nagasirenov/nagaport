@@ -41,7 +41,7 @@ public class ItemCrucibleTemplate extends Item {
 			return super.getItemStackDisplayName(stack);
 		}
 		
-		String s = ("" + I18nUtil.resolveKey(this.getUnlocalizedName() + ".name")).trim();
+		String s = ("" + I18nUtil.resolveKey(this.getTranslationKey() + ".name")).trim();
 		String s1 = ("" + I18nUtil.resolveKey(recipe.getName())).trim();
 
 		if(s1 != null) {

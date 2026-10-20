@@ -1,0 +1,44 @@
+[
+  {
+    "start": 1224,
+    "end": 1224,
+    "old": "",
+    "new": "\n    @Override\n    public Item getItemDropped(net.minecraft.block.state.IBlockState state, Random rand, int fortune) {\n        return getItemDropped(getMetaFromState(state), rand, fortune);\n    }\n\n    @Override\n    public int damageDropped(net.minecraft.block.state.IBlockState state) {\n        return damageDropped(getMetaFromState(state));\n    }\n\n    @Override\n    @SideOnly(Side.CLIENT)\n    public void getSubBlocks(CreativeTabs tab, net.minecraft.util.NonNullList<ItemStack> list) {\n        getSubBlocks(Item.getItemFromBlock(this), tab, list);\n    }\n\n    @Override\n    public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos pos,\n            net.minecraft.block.state.IBlockState state, EntityLivingBase player, ItemStack stack) {\n        onBlockPlacedBy(world, pos.getX(), pos.getY(), pos.getZ(), player, stack);\n    }\n\n\n"
+  },
+  {
+    "start": 3538,
+    "end": 3549,
+    "old": "\t@Override\n",
+    "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+  },
+  {
+    "start": 5947,
+    "end": 5958,
+    "old": "\t@Override\n",
+    "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+  },
+  {
+    "start": 6260,
+    "end": 6271,
+    "old": "\t@Override\n",
+    "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+  },
+  {
+    "start": 7392,
+    "end": 7548,
+    "old": "\t\tif(this == ModBlocks.ore_australium) return EnumRarity.uncommon;\n\t\tif(this == ModBlocks.ore_rare) return EnumRarity.uncommon;\n\t\treturn EnumRarity.common;\n",
+    "new": "\t\tif(this == ModBlocks.ore_australium) return EnumRarity.UNCOMMON;\n\t\tif(this == ModBlocks.ore_rare) return EnumRarity.UNCOMMON;\n\t\treturn EnumRarity.COMMON;\n"
+  },
+  {
+    "start": 7552,
+    "end": 7563,
+    "old": "\t@Override\n",
+    "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+  },
+  {
+    "start": 7709,
+    "end": 7763,
+    "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, meta, 2);\n",
+    "new": "\t\t// Keep stack evaluation before the original receiver/bounds checks.\n        if(world == null) throw new NullPointerException();\n        if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {\n            net.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);\n            net.minecraft.block.state.IBlockState current = world.getBlockState(pos);\n            net.minecraft.block.state.IBlockState changed = current.getBlock().getStateFromMeta(meta);\n            if(changed == current && current.getBlock().getMetaFromState(current) != meta) {\n                // The original chunk compared raw damage before storing its low nibble.\n                net.minecraft.world.chunk.Chunk chunk = world.getChunk(pos);\n                if(chunk.getBlockStorageArray()[y >> 4] != net.minecraft.world.chunk.Chunk.NULL_BLOCK_STORAGE) {\n                    chunk.markDirty();\n                    if(chunk.isPopulated()) world.notifyBlockUpdate(pos, current, changed, 2);\n                }\n            } else {\n                world.setBlockState(pos, changed, 2);\n            }\n        }\n"
+  }
+]

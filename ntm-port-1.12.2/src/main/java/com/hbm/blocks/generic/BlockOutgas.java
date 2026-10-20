@@ -13,6 +13,13 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockOutgas extends Block {
+
+    /** Audited construction builder; native protected setter, unchanged receiver identity. */
+    public BlockOutgas withSoundType(net.minecraft.block.SoundType sound) {
+        setSoundType(sound);
+        return this;
+    }
+
 	
 	boolean randomTick;
 	int rate;
@@ -62,13 +69,13 @@ public class BlockOutgas extends Block {
 			return ModBlocks.gas_asbestos;
 		}
 		
-		return Blocks.air;
+		return Blocks.AIR;
 	}
 	
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random rand) {
 		
-		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune)) {
+		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune)) {
 			int mult = rand.nextInt(fortune + 2) - 1;
 
 			if(mult < 0) {
@@ -86,7 +93,7 @@ public class BlockOutgas extends Block {
 		
 		if(this.randomTick && getGas() == ModBlocks.gas_asbestos) {
 			
-			if(world.getBlock(x, y + 1, z) == Blocks.air) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR) {
 				
 				if(world.rand.nextInt(10) == 0)
 				world.setBlock(x, y + 1, z, ModBlocks.gas_asbestos);
@@ -102,7 +109,7 @@ public class BlockOutgas extends Block {
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
 		
-		if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
+		if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 			world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());
 		}
 	}
@@ -124,7 +131,7 @@ public class BlockOutgas extends Block {
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 				
-				if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == Blocks.air) {
+				if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 					world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());
 				}
 			}
@@ -140,7 +147,7 @@ public class BlockOutgas extends Block {
 				for(int iy = -2; iy <= 2; iy++) {
 					for(int iz = -2; iz <= 2; iz++) {
 						
-						if(Math.abs(ix + iy + iz) < 5 && Math.abs(ix + iy + iz) > 0 && world.getBlock(x + ix, y + iy, z + iz) == Blocks.air) {
+						if(Math.abs(ix + iy + iz) < 5 && Math.abs(ix + iy + iz) > 0 && com.hbm.world.WorldBlockState.read(world, x + ix, y + iy, z + iz).getBlock() == Blocks.AIR) {
 							world.setBlock(x + ix, y + iy, z + iz, this.getGas());
 						}
 					}

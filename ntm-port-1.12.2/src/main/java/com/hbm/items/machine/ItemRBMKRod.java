@@ -577,7 +577,7 @@ public class ItemRBMKRod extends Item {
 		if(!stack.hasTagCompound())
 			setNBTDefaults(stack);
 
-		stack.stackTagCompound.setDouble(key, yield);
+		stack.getTagCompound().setDouble(key, yield);
 	}
 
 	public static double getDouble(ItemStack stack, String key) {
@@ -585,7 +585,7 @@ public class ItemRBMKRod extends Item {
 		if(!stack.hasTagCompound())
 			setNBTDefaults(stack);
 
-		return stack.stackTagCompound.getDouble(key);
+		return stack.getTagCompound().getDouble(key);
 	}
 
 	/**
@@ -594,7 +594,7 @@ public class ItemRBMKRod extends Item {
 	 */
 	private static void setNBTDefaults(ItemStack stack) {
 
-		stack.stackTagCompound = new NBTTagCompound();
+		stack.setTagCompound(new NBTTagCompound());
 		setYield(stack, ((ItemRBMKRod)stack.getItem()).yield);
 		setCoreHeat(stack, 20.0D);
 		setHullHeat(stack, 20.0D);

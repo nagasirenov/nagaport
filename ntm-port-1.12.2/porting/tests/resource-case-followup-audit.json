@@ -1,0 +1,46 @@
+{
+  "scope": "Only the 32 prior direct-literal mismatches left after checkpoint 8; not an exhaustive dynamic/one-argument resource reference inventory.",
+  "pre_rename_asset_count": 8645,
+  "pre_rename_mixed_case_count": 801,
+  "post_rename_mixed_case_count": 769,
+  "lowercase_collisions": {},
+  "text_files_scanned": 4735,
+  "case_insensitive_full_path_reference_count": 36,
+  "non_java_full_path_references": [],
+  "raw_readers": [
+    {
+      "file": "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java",
+      "line": 94,
+      "finding": "Class.getResourceAsStream builds /assets/<namespace>/<path> from ResourceLocation, not original literal case. Ten ruins paths therefore need canonical lowercase filenames."
+    },
+    {
+      "file": "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java",
+      "line": 108,
+      "finding": "File overload reads externally supplied files; editor/save paths target mcDataDir/structures, not packaged assets."
+    },
+    {
+      "file": "src/main/java/com/hbm/qmaw/QMAWLoader.java",
+      "line": 131,
+      "finding": "ZIP entry loader restricts names to assets/hbm/manual/*.json; loose-file loader likewise uses manual directory. Not a reader of these candidates."
+    }
+  ],
+  "preserve_non_path_identifiers": [
+    "GLSL iChannel1 uniforms and shader uniform setters",
+    "MrKimkimora OBJ/renderPart names",
+    "NTMRuinsA-J jigsaw identifiers",
+    "Bobble attribution strings",
+    "NMine.mtl and Prototype.mtl OBJ declarations"
+  ],
+  "limitations": [
+    "Static scan cannot prove absence of arbitrary externally constructed paths.",
+    "Other raw readers audited were config/save/screenshot/HTTP owners, not these assets.",
+    "No GPU texture upload, shader compilation, resource-pack reload or generated-structure gameplay acceptance.",
+    "Production NBTStructure was not compiled or instantiated by this test."
+  ],
+  "windows_requirement": {
+    "executed_host": "Linux only; Windows not tested",
+    "directory_case_check": "Enumerate actual stored directory entry strings, not old-path Path.exists()",
+    "archive_probe": "43 actual target FileResourcePack historical-name failures plus canonical-name/hash successes; ten JAR classloader/native NBT decodes",
+    "final_log": "porting/continuation-2026-10-19/resource-case-followup-checks.log"
+  }
+}

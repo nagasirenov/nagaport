@@ -57,7 +57,7 @@ public class BlockRubberFarm extends BlockFarmland {
 		for (int i = x - 4; i <= x + 4; ++i) {
 			for (int j = y; j <= y + 1; ++j) {
 				for (int k = z - 4; k <= z + 4; ++k) {
-					if (world.getBlock(i, j, k) == ModBlocks.ccl_block) {
+					if (com.hbm.world.WorldBlockState.read(world, i, j, k).getBlock() == ModBlocks.ccl_block) {
 						return true;
 					}
 				}
@@ -99,7 +99,7 @@ public class BlockRubberFarm extends BlockFarmland {
 	 */
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block butt) {
 		super.onNeighborBlockChange(world, x, y, z, butt);
-		Material material = world.getBlock(x, y + 1, z).getMaterial();
+		Material material = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial();
 
 		if(material.isSolid()) {
 			world.setBlock(x, y, z, ModBlocks.rubber_silt);

@@ -32,7 +32,7 @@ public class GUICalculator extends GuiScreen {
 
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
-		inputField = new GuiTextField(fontRendererObj, x + 5, y + 8, 210, 13);
+		inputField = new GuiTextField(0, fontRenderer, x + 5, y + 8, 210, 13);
 		inputField.setTextColor(-1);
 		inputField.setCanLoseFocus(false);
 		inputField.setFocused(true);
@@ -96,23 +96,23 @@ public class GUICalculator extends GuiScreen {
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
-		int histHeight = (fontRendererObj.FONT_HEIGHT + 2) * maxHistory;
-		int histStart = y + 30 + fontRendererObj.FONT_HEIGHT + 8;
+		int histHeight = (fontRenderer.FONT_HEIGHT + 2) * maxHistory;
+		int histStart = y + 30 + fontRenderer.FONT_HEIGHT + 8;
 
 		drawRect(x, y, x+xSize, y+ySize+histHeight, 0xFF2d2d2d);
 		drawRect(x+borderWidth, y+borderWidth, x+xSize-borderWidth, y+ySize-borderWidth+histHeight, 0xFF3d3d3d);
 		drawRect(x, histStart - 5, x+xSize, histStart - 3, 0xFF2d2d2d);
 
 		inputField.drawTextBox();
-		fontRendererObj.drawString("=" + latestResult, x + 5, y + 30, -1);
+		fontRenderer.drawString("=" + latestResult, x + 5, y + 30, -1);
 
 		int i = 0;
 		for (Tuple.Pair<String, Double> prevInput : history) {
-			int hy = y + 50 + (fontRendererObj.FONT_HEIGHT+1)*i;
+			int hy = y + 50 + (fontRenderer.FONT_HEIGHT+1)*i;
 			if (i == selectedHist) {
-				drawRect(x + 4, hy - 1, x + 4 + xSize - 9, hy + fontRendererObj.FONT_HEIGHT, 0xFF111111);
+				drawRect(x + 4, hy - 1, x + 4 + xSize - 9, hy + fontRenderer.FONT_HEIGHT, 0xFF111111);
 			}
-			fontRendererObj.drawString(prevInput.key + " = " + prevInput.value, x + 5, hy, -1);
+			fontRenderer.drawString(prevInput.key + " = " + prevInput.value, x + 5, hy, -1);
 			i++;
 		}
 	}

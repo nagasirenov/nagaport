@@ -1,0 +1,13 @@
+EXTRACTED production furnace shouldRefresh SHA256 5dd500a10f9474914367bca7359b70c6e6e8fa335c644765e230d85327430556
+PRODUCTION com/hbm/blocks/machine/MachineElectricFurnace.java e511ff586c6bd9b5e33576aa170033906dc4fc098e79f1caf1cefed9cd33e39f
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[14:11:09] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:09] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:09] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:09] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_electric_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:09] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `cached_opaque`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:11:09] [main/WARN]: Potentially Dangerous alternative prefix `furnace_probe` for name `dynamic_opaque`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS: FurnaceBlockNativeTest 4290 checks; complete block, real World/Chunk lifecycle, controlled NTM tile/registry/GUI owner
+NOT PROVEN: GUI opening, production tile tick in this probe, networking, live game/server/chunk reload/save, GL/render acceptance

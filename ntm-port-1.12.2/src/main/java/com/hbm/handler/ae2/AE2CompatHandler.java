@@ -1,9 +1,10 @@
 package com.hbm.handler.ae2;
 
-import appeng.api.AEApi;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 
+/** Keep the ordinary mod entry point free of AE2-typed fields and interfaces. */
 public class AE2CompatHandler {
     public static void init() {
         if (Loader.isModLoaded("appliedenergistics2")) {
@@ -13,7 +14,6 @@ public class AE2CompatHandler {
 
     @Optional.Method(modid = "appliedenergistics2")
     private static void registerHandler() {
-        AEApi.instance().registries().externalStorage().addExternalStorageInterface(new MSUExternalStorageHandler());
-		AEApi.instance().registries().externalStorage().addExternalStorageInterface(new AFLExternalStorageHandler());
+        MinecraftForge.EVENT_BUS.register(new AE2StorageCapability.AttachHandler());
     }
 }

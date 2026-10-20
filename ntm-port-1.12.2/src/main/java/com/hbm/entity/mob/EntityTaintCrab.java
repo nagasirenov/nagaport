@@ -14,7 +14,7 @@ import com.hbm.tileentity.machine.TileEntityTesla;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
+import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
@@ -32,8 +32,8 @@ public class EntityTaintCrab extends EntityCyberCrab {
 		this.ignoreFrustumCheck = true;
 	}
 
-	protected EntityAIArrowAttack arrowAI() {
-		return new EntityAIArrowAttack(this, 0.5D, 5, 5, 50.0F);
+	protected EntityAIRangedAttackNT arrowAI() {
+		return new EntityAIRangedAttackNT(this, 0.5D, 5, 5, 50.0F);
 	}
 
 	@Override
@@ -45,9 +45,9 @@ public class EntityTaintCrab extends EntityCyberCrab {
 
 	public void onLivingUpdate() {
 
-		targets = TileEntityTesla.zap(worldObj, posX, posY + 1.25, posZ, 10, this);
+		targets = TileEntityTesla.zap(this.world, posX, posY + 1.25, posZ, 10, this);
 
-		List<EntityLivingBase> targets = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
+		List<EntityLivingBase> targets = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
 
 		for(EntityLivingBase e : targets) {
 			if(!(e instanceof EntityCyberCrab)) e.addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 10, 15));
@@ -78,7 +78,7 @@ public class EntityTaintCrab extends EntityCyberCrab {
 		data.setDouble("mY", bullet.motionY * 0.3);
 		data.setDouble("mZ", bullet.motionZ * 0.3);
 		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, bullet.posX, bullet.posY, bullet.posZ), new TargetPoint(this.dimension, posX, posY, posZ, 50));
-		this.worldObj.spawnEntityInWorld(bullet);
+		this.world.spawnEntityInWorld(bullet);
 		this.playSound("hbm:weapon.sawShoot", 1.0F, 0.5F);
 	}
 }

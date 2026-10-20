@@ -21,7 +21,7 @@ public class RBMKControlAuto extends RBMKPipedBase {
 	public void registerBlockIcons(IIconRegister reg) {
 		super.registerBlockIcons(reg);
 		if(this == ModBlocks.rbmk_control_reasim_auto)
-			this.textureBottom = reg.registerIcon(this.getTextureName() + "_bottom");
+			this.textureBottom = reg.registerIcon(this.getRBMKTexture() + "_bottom");
 	}
 
 	@Override

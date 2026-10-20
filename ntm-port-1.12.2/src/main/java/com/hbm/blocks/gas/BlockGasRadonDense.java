@@ -71,12 +71,12 @@ public class BlockGasRadonDense extends BlockGasBase {
 		if(!world.isRemote) {
 	
 			if(rand.nextInt(20) == 0) {
-				if(world.getBlock(x, y - 1, z) == Blocks.grass)
+				if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.GRASS)
 					world.setBlock(x, y - 1, z, ModBlocks.waste_earth);
 			}
 	
 			if(rand.nextInt(30) == 0) {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				
 				if(ModBlocks.fallout.canPlaceBlockAt(world, x, y, z)) {
 					world.setBlock(x, y, z, ModBlocks.fallout);

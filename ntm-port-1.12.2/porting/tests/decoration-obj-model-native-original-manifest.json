@@ -1,0 +1,103 @@
+{
+  "owners": [
+    {
+      "name": "tile.steel_beam",
+      "owner": "BlockSteelBeam",
+      "asset": "beam",
+      "particle": "hbm:steel_beam",
+      "textures": [
+        "hbm:steel_beam"
+      ]
+    },
+    {
+      "name": "tile.crate_can",
+      "owner": "BlockCanCrate",
+      "asset": "conservecrate",
+      "particle": "hbm:crate_can",
+      "textures": [
+        "hbm:crate_can"
+      ]
+    },
+    {
+      "name": "tile.crate_supply",
+      "owner": "BlockSupplyCrate",
+      "asset": "conservecrate",
+      "particle": "hbm:crate_can",
+      "textures": [
+        "hbm:crate_can"
+      ]
+    },
+    {
+      "name": "tile.pribris",
+      "owner": "RBMKDebris",
+      "asset": "debris",
+      "particle": "hbm:rbmk/rbmk_debris",
+      "textures": [
+        "hbm:rbmk/rbmk_debris"
+      ]
+    },
+    {
+      "name": "tile.pribris_burning",
+      "owner": "RBMKDebrisBurning",
+      "asset": "debris",
+      "particle": "hbm:rbmk/rbmk_debris_burning",
+      "textures": [
+        "hbm:rbmk/rbmk_debris_burning"
+      ]
+    },
+    {
+      "name": "tile.pribris_radiating",
+      "owner": "RBMKDebrisRadiating",
+      "asset": "debris",
+      "particle": "hbm:rbmk/rbmk_debris_radiating",
+      "textures": [
+        "hbm:rbmk/rbmk_debris_radiating"
+      ]
+    },
+    {
+      "name": "tile.pribris_digamma",
+      "owner": "RBMKDebrisDigamma",
+      "asset": "debris",
+      "particle": "hbm:rbmk/rbmk_debris_digamma",
+      "textures": [
+        "hbm:rbmk/rbmk_debris_digamma"
+      ]
+    }
+  ],
+  "assets": [
+    "models/blocks/beam.obj",
+    "models/blocks/conservecrate.obj",
+    "models/rbmk/debris.obj",
+    "textures/blocks/steel_beam.png",
+    "textures/blocks/crate_can.png",
+    "textures/blocks/rbmk/rbmk_debris.png",
+    "textures/blocks/rbmk/rbmk_debris_burning.png",
+    "textures/blocks/rbmk/rbmk_debris_radiating.png",
+    "textures/blocks/rbmk/rbmk_debris_digamma.png"
+  ],
+  "sha256": {
+    "src/main/java/com/hbm/render/block/RenderSteelBeam.java": "086b46920142525e75c1f89355fcbf292042dfd69758984c983edd9bd42b8b7a",
+    "src/main/java/com/hbm/render/block/RenderConserve.java": "de6bcdae7fa5be4b809dd1bc72e29a96dd76387a214f92039cfd95df01e86aef",
+    "src/main/java/com/hbm/render/block/RenderPribris.java": "ecc55543ddaa159a1604001603121a2bce2251f8249c000dec511fb1c6bba595",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": "cf68503a802e931e2bae0a49c0d57de9ca748cf19edcddaa0d957b34edbadf11",
+    "src/main/java/com/hbm/blocks/generic/BlockCanCrate.java": "5e919ea587ca86ecb5b034947e7e0110101651b5cfd4df66007904dd69d31911",
+    "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java": "03b9d45afa713e49b69a2c1b788ff7a81a22e065a00840aa0374d1d40a356e2c",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebris.java": "26dfadebbdd947cb185ef40ed47189168f9f24bab026f8ead9626ebb819a3900",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java": "57c5d35f44c65c709868ae13dac85b08e87d4d0cdfe801d4bbb72c0876a7c924",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java": "4c6710b976b983299ea6f96c0e40b11d35222698dcdb796db0c1b0e5b41165c4",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisDigamma.java": "8df07d76f65be384bb764b0bc52ada3f9b7347a0a236265730da95f587ef5cf8",
+    "src/main/java/com/hbm/main/ResourceManager.java": "dd86786c08d235f29318f1775afc5d8b34d17829307f93ea13114875596ba0d9",
+    "src/main/java/com/hbm/main/ClientProxy.java": "493673afb0ca5ed090478ea8622b4683104618e5c1d4d1b361c12305fa2387c7",
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/resources/assets/hbm/models/blocks/beam.obj": "c1a143779b18470112b6a3ceb5347df8bce8376c4fe18e34947df9c8a987ee77",
+    "src/main/resources/assets/hbm/models/blocks/conservecrate.obj": "ba66116eb9861bfc2ca6d4c14f9afbc97a2071825763e738514bf3b3e0097db8",
+    "src/main/resources/assets/hbm/models/rbmk/debris.obj": "4bb9015c2ab538abc82b425996c420dc249030ee10b2a7a9d8c74f900459730f",
+    "src/main/resources/assets/hbm/textures/blocks/steel_beam.png": "d7fc98d99d12bffb813fe4459530df512a1ff3bedad0e4a8ef61e83a95768615",
+    "src/main/resources/assets/hbm/textures/blocks/crate_can.png": "d97e75b4887c9d967385ca2182cb34cc4b46e42b184a1a2a00033f3904fc3d5b",
+    "src/main/resources/assets/hbm/textures/blocks/rbmk/rbmk_debris.png": "8bac48bab45bd025c95e505b8fdd5c4917fa65a23b316d7f34e40b84d72ef79f",
+    "src/main/resources/assets/hbm/textures/blocks/rbmk/rbmk_debris_burning.png": "9899ece862899009dba70269651cdcb0ea9c76851e7b44ed4093c1f14b9da765",
+    "src/main/resources/assets/hbm/textures/blocks/rbmk/rbmk_debris_radiating.png": "23e60af45700128feadbb3addfb422b1702ee786034c3dfe7ff159f56f92e863",
+    "src/main/resources/assets/hbm/textures/blocks/rbmk/rbmk_debris_digamma.png": "bc8ad29542ac828565d92a157b5b9e1848f2b84f41c94058cd3b27b964190814"
+  }
+}

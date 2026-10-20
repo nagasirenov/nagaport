@@ -19,7 +19,7 @@ public class BlockNetherCoal extends BlockOutgas {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return ModItems.coal_infernal;
 	}
 
@@ -38,7 +38,7 @@ public class BlockNetherCoal extends BlockOutgas {
 			if(dir == ForgeDirection.DOWN)
 				continue;
 
-			if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getMaterial() == Material.air) {
+			if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().getDefaultState().getMaterial() == Material.AIR) {
 
 				double ix = x + 0.5F + dir.offsetX + rand.nextDouble() - 0.5D;
 				double iy = y + 0.5F + dir.offsetY + rand.nextDouble() - 0.5D;

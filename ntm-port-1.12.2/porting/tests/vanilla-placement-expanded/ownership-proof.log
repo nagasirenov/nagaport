@@ -1,0 +1,1 @@
+PASS 10 actual native javac ownership fixtures: foreign/shadowed/unresolved/dynamic/used-return/comment exclusions; native/effectful/qualified inclusions.

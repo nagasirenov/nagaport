@@ -5,9 +5,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 import net.minecraft.world.World;
 
 public class EntityCloudFleija extends Entity {
+
+	private static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudFleija.class, DataSerializers.VARINT);
 	
 	public int maxAge = 100;
 	public int age;
@@ -24,7 +30,7 @@ public class EntityCloudFleija extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(16, Integer.valueOf(0));
+		this.dataManager.register(MAX_AGE, Integer.valueOf(0));
 	}
 
     @Override
@@ -50,7 +56,7 @@ public class EntityCloudFleija extends Entity {
     @Override
 	public void onUpdate() {
         this.age++;
-        this.worldObj.spawnEntityInWorld(new EntityLightningBolt(this.worldObj, this.posX, this.posY + 200, this.posZ));
+        this.world.spawnEntityInWorld(new EntityLightningBolt(this.world, this.posX, this.posY + 200, this.posZ));
         
         if(this.age >= this.getMaxAge())
         {
@@ -75,11 +81,11 @@ public class EntityCloudFleija extends Entity {
 	}
 	
 	public void setMaxAge(int i) {
-		this.dataWatcher.updateObject(16, Integer.valueOf(i));
+		this.dataManager.set(MAX_AGE, Integer.valueOf(i));
 	}
 	
 	public int getMaxAge() {
-		return this.dataWatcher.getWatchableObjectInt(16);
+		return this.dataManager.get(MAX_AGE);
 	}
 	
     @Override

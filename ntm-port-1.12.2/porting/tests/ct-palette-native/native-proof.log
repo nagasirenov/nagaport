@@ -1,0 +1,12 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[01:48:19] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:48:19] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:48:19] [main/INFO]: Replaced 1036 ore ingredients
+[01:48:19] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:48:19] [main/INFO]: Processing ObjectHolder annotations
+[01:48:19] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 727 native checks and 15804 exact ordered original-expression/native state events; actual original bounds bytecode, null timing, argument exceptions, RNG state, receiver mutation, original flags and ignored return values.
+PASS exact CT owner/native model source hashes and five exact constructor assignments; no new visual policy acceptance.
+PASS unsplit selected native method Code sizes: [931, 5740, 4147, 8605, 1685, 218, 707, 8466, 2273]
+Existing helper method body and placeRandomConcrete unchanged; direct-size justification belongs to preceding pinned structure-palette proof.

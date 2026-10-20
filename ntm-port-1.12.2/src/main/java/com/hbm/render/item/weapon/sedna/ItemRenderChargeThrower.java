@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -80,7 +83,7 @@ public class ItemRenderChargeThrower extends ItemRenderWeaponBase {
 		GL11.glTranslated(0, 1, 0);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_tex);
 		ResourceManager.charge_thrower.renderPart("Gun");
 		if(isScoped(stack) && !usingScope) ResourceManager.charge_thrower.renderPart("Scope");
 		
@@ -90,19 +93,19 @@ public class ItemRenderChargeThrower extends ItemRenderWeaponBase {
 			GL11.glRotated(twist[2], 0, 0, 1);
 			
 			if(mag.getType(stack, null) == XFactoryTool.ct_hook) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_hook_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_hook_tex);
 				ResourceManager.charge_thrower.renderPart("Hook");
 			}
 			if(mag.getType(stack, null) == XFactoryTool.ct_mortar) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_mortar_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_mortar_tex);
 				ResourceManager.charge_thrower.renderPart("Mortar");
 			}
 			if(mag.getType(stack, null) == XFactoryTool.ct_mortar_charge) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_mortar_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_mortar_tex);
 				ResourceManager.charge_thrower.renderPart("Mortar");
 				ResourceManager.charge_thrower.renderPart("Oomph");
 			}
-			//Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_rocket_tex);
+			//Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_rocket_tex);
 			//ResourceManager.charge_thrower.renderPart("Rocket");
 		}
 		
@@ -136,11 +139,11 @@ public class ItemRenderChargeThrower extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_tex);
 		ResourceManager.charge_thrower.renderPart("Gun");
 		if(isScoped(stack)) ResourceManager.charge_thrower.renderPart("Scope");
 
@@ -150,15 +153,15 @@ public class ItemRenderChargeThrower extends ItemRenderWeaponBase {
 		if(mag.getAmount(stack, null) > 0) {
 			
 			if(mag.getType(stack, null) == XFactoryTool.ct_hook) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_hook_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_hook_tex);
 				ResourceManager.charge_thrower.renderPart("Hook");
 			}
 			if(mag.getType(stack, null) == XFactoryTool.ct_mortar) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_mortar_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_mortar_tex);
 				ResourceManager.charge_thrower.renderPart("Mortar");
 			}
 			if(mag.getType(stack, null) == XFactoryTool.ct_mortar_charge) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.charge_thrower_mortar_tex);
+				Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.charge_thrower_mortar_tex);
 				ResourceManager.charge_thrower.renderPart("Mortar");
 				ResourceManager.charge_thrower.renderPart("Oomph");
 			}

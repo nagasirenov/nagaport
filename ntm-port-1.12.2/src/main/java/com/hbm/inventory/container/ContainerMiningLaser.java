@@ -72,6 +72,6 @@ public class ContainerMiningLaser extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return diFurnace.isUseableByPlayer(player);
+		return diFurnace.isUsableByPlayer(player);
 	}
 }

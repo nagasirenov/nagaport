@@ -1,0 +1,41 @@
+import java.io.File;
+import java.lang.reflect.Field;
+import java.net.URLClassLoader;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import sun.misc.Unsafe;
+/** Original callback methods inserted verbatim, original vanilla face bytecode executed separately. */
+final class OriginalGrateRenderOracle {
+ static final class IBlockAccess { final int meta; IBlockAccess(int m){meta=m;} int getBlockMetadata(int x,int y,int z){return meta;} }
+ static class Block { int getMixedBrightnessForBlock(IBlockAccess w,int x,int y,int z){return 0x00f000f0;} }
+ static final class BlockGrate extends Block { /* GET_Y */ }
+ static final class Tessellator { static final Tessellator instance=new Tessellator(); void setBrightness(int b){} void setColorOpaque_F(float a,float b,float c){} }
+ static final class RenderBlocks {
+  double[] bounds; int x,y,z,calls;
+  void setRenderBounds(double... values){bounds=values;}
+  void renderStandardBlock(Block block,int x,int y,int z){this.x=x;this.y=y;this.z=z;calls++;}
+ }
+ static final class RenderGrate { /* WORLD */ /* ITEM */ /* ITEM_3D */ }
+ static RenderBlocks layout(int metadata,boolean item){RenderBlocks recorder=new RenderBlocks();RenderGrate original=new RenderGrate();if(item)original.renderInventoryBlock(new BlockGrate(),metadata,0,recorder);else original.renderWorldBlock(new IBlockAccess(metadata),0,0,0,new BlockGrate(),0,recorder);return recorder;}
+ static final class LegacyFaces implements AutoCloseable {
+  final URLClassLoader loader;
+  final Class<?> renderer,block,iconType,tessType;
+  final Object render,tess;
+  final Field raw,count,ptr;
+  static Field field(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}
+  LegacyFaces(File jar)throws Exception{
+   loader=new URLClassLoader(new java.net.URL[]{jar.toURI().toURL()},OriginalGrateRenderOracle.class.getClassLoader());
+   renderer=Class.forName("blm",true,loader);block=Class.forName("aji",true,loader);iconType=Class.forName("rf",true,loader);tessType=Class.forName("bmh",true,loader);
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+  }
+  double[][] standardFace(double[] bounds,int side,final TextureAtlasSprite sprite)throws Exception{
+   String[] names={"i","k","m","j","l","n"};for(int i=0;i<6;i++)field(renderer,names[i]).setDouble(render,bounds[i]);
+   Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(p,m,a)->{
+    if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);
+    switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}
+   });
+   count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(side,side+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);
+   if(count.getInt(tess)!=4)throw new AssertionError("Legacy face vertex count");int[] data=(int[])raw.get(tess);double[][] v=new double[4][5];for(int i=0;i<4;i++)for(int j=0;j<5;j++)v[i][j]=Float.intBitsToFloat(data[i*8+j]);return v;
+  }
+  public void close()throws Exception{loader.close();}
+ }
+}

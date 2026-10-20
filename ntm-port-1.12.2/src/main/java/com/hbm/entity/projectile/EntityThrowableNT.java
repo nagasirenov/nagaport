@@ -13,6 +13,9 @@ import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -25,6 +28,8 @@ import net.minecraft.world.World;
  *
  */
 public abstract class EntityThrowableNT extends Entity implements IProjectile {
+
+	private static final DataParameter<Byte> STUCK_FACE = EntityDataManager.createKey(EntityThrowableNT.class, DataSerializers.BYTE);
 	
 	private int stuckBlockX = -1;
 	private int stuckBlockY = -1;
@@ -44,22 +49,22 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(2, Byte.valueOf((byte)0));
+		this.dataManager.register(STUCK_FACE, Byte.valueOf((byte)0));
 	}
 	
 	public void setStuckIn(int side) {
-		this.dataWatcher.updateObject(2, (byte) side);
+		this.dataManager.set(STUCK_FACE, (byte) side);
 	}
 	
 	public int getStuckIn() {
-		return this.dataWatcher.getWatchableObjectByte(2);
+		return this.dataManager.get(STUCK_FACE);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double dist) {
 		
-		double perimeter = this.boundingBox.getAverageEdgeLength() * 4.0D;
+		double perimeter = this.getEntityBoundingBox().getAverageEdgeLength() * 4.0D;
 		perimeter *= 64.0D;
 		return dist < perimeter * perimeter;
 	}
@@ -107,7 +112,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 
 	@Override
 	public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
-		float throwLen = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+		float throwLen = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
 		motionX /= (double) throwLen;
 		motionY /= (double) throwLen;
 		motionZ /= (double) throwLen;
@@ -120,7 +125,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 		this.motionX = motionX;
 		this.motionY = motionY;
 		this.motionZ = motionZ;
-		float hyp = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
+		float hyp = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
 		this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
 		this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, (double) hyp) * 180.0D / Math.PI);
 		this.ticksInGround = 0;
@@ -134,7 +139,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 		this.motionZ = z;
 
 		if(this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
-			float hyp = MathHelper.sqrt_double(x * x + z * z);
+			float hyp = MathHelper.sqrt(x * x + z * z);
 			this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(x, z) * 180.0D / Math.PI);
 			this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(y, (double) hyp) * 180.0D / Math.PI);
 		}
@@ -149,7 +154,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 		}
 
 		if(this.inGround) {
-			if(this.worldObj.getBlock(this.stuckBlockX, this.stuckBlockY, this.stuckBlockZ) == this.stuckBlock) {
+			if(com.hbm.world.WorldBlockState.read(this.world, this.stuckBlockX, this.stuckBlockY, this.stuckBlockZ).getBlock() == this.stuckBlock) {
 				++this.ticksInGround;
 
 				if(this.groundDespawn() > 0 && this.ticksInGround == this.groundDespawn()) {
@@ -174,7 +179,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 			Vec3d pos = new Vec3d(this.posX, this.posY, this.posZ);
 			Vec3d nextPos = new Vec3d(this.posX + this.motionX * motionMult(), this.posY + this.motionY * motionMult(), this.posZ + this.motionZ * motionMult());
 			RayTraceResult mop = null;
-			if(!this.isSpectral()) mop = this.worldObj.rayTraceBlocks(pos, nextPos, false, true, false);
+			if(!this.isSpectral()) mop = this.world.rayTraceBlocks(pos, nextPos, false, true, false);
 			pos = new Vec3d(this.posX, this.posY, this.posZ);
 			nextPos = new Vec3d(this.posX + this.motionX * motionMult(), this.posY + this.motionY * motionMult(), this.posZ + this.motionZ * motionMult());
 	
@@ -182,10 +187,10 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 				nextPos = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 			}
 			
-			if(!this.worldObj.isRemote && this.doesImpactEntities()) {
+			if(!this.world.isRemote && this.doesImpactEntities()) {
 				
 				Entity hitEntity = null;
-				List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.motionX * motionMult(), this.motionY * motionMult(), this.motionZ * motionMult()).expand(1.0D, 1.0D, 1.0D));
+				List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().addCoord(this.motionX * motionMult(), this.motionY * motionMult(), this.motionZ * motionMult()).expand(1.0D, 1.0D, 1.0D));
 				double nearest = 0.0D;
 				EntityLivingBase thrower = this.getThrower();
 				RayTraceResult nonPenImpact = null;
@@ -195,7 +200,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 					
 					if(entity.canBeCollidedWith() && (entity != thrower || this.ticksInAir >= this.selfDamageDelay()) && entity.isEntityAlive()) {
 						double hitbox = 0.3F;
-						AxisAlignedBB aabb = entity.boundingBox.expand(hitbox, hitbox, hitbox);
+						AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(hitbox, hitbox, hitbox);
 						RayTraceResult hitMop = aabb.calculateIntercept(pos, nextPos);
 	
 						if(hitMop != null) {
@@ -224,7 +229,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 			}
 	
 			if(mop != null) {
-				if(mop.typeOfHit == RayTraceResult.Type.BLOCK && this.worldObj.getBlockState(mop.getBlockPos()).getBlock() == Blocks.portal) {
+				if(mop.typeOfHit == RayTraceResult.Type.BLOCK && this.world.getBlockState(mop.getBlockPos()).getBlock() == Blocks.PORTAL) {
 					this.setInPortal();
 				} else {
 					this.onImpact(mop);
@@ -232,7 +237,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 			}
 			
 			if(!this.onGround) {
-				float hyp = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+				float hyp = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 				this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 		
 				for(this.rotationPitch = (float) (Math.atan2(this.motionY, (double) hyp) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
@@ -255,7 +260,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 			if(this.isInWater()) {
 				for(int i = 0; i < 4; ++i) {
 					float f = 0.25F;
-					this.worldObj.spawnParticle("bubble", this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);
+					this.world.spawnParticle("bubble", this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);
 				}
 	
 				drag = this.getWaterDrag();
@@ -289,13 +294,13 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 		this.stuckBlockX = x;
 		this.stuckBlockY = y;
 		this.stuckBlockZ = z;
-		this.stuckBlock = worldObj.getBlock(x, y, z);
+		this.stuckBlock = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 		this.inGround = true;
 		this.motionX = 0;
 		this.motionY = 0;
 		this.motionZ = 0;
 		this.setStuckIn(side);
-		TrackerUtil.sendTeleport(worldObj, this);
+		TrackerUtil.sendTeleport(this.world, this);
 	}
 	
 	public double getGravityVelocity() {
@@ -347,7 +352,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 
 	public EntityLivingBase getThrower() {
 		if(this.thrower == null && this.throwerName != null && this.throwerName.length() > 0) {
-			this.thrower = this.worldObj.getPlayerEntityByName(this.throwerName);
+			this.thrower = this.world.getPlayerEntityByName(this.throwerName);
 		}
 		return this.thrower;
 	}

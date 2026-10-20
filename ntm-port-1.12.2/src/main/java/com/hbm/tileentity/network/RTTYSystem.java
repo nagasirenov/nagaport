@@ -12,7 +12,7 @@ import com.hbm.util.NoteBuilder.Note;
 import com.hbm.util.NoteBuilder.Octave;
 import com.hbm.util.Tuple.Pair;
 
-import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraft.world.World;
 
 public class RTTYSystem {
@@ -62,7 +62,7 @@ public class RTTYSystem {
 		}
 		
 		HashMap<Pair<World, String>, RTTYChannel> toAdd = new HashMap();
-		for(World world : MinecraftServer.getServer().worldServers) {
+		for(World world : FMLCommonHandler.instance().getMinecraftServerInstance().worlds) {
 			RTTYChannel chan = new RTTYChannel();
 			chan.timeStamp = world.getTotalWorldTime();
 			chan.signal = getTestSender(chan.timeStamp);

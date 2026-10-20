@@ -1,16 +1,11 @@
 package com.hbm.blocks.rail;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
@@ -63,7 +58,7 @@ public class RailStandardCurveWide9 extends RailStandardCurveBase {
 		};
 		
 		for(int[] array : dim) {
-			if(!world.getBlock(x + dX * array[0] + rX * array[1], y, z + dZ * array[0] + rZ * array[1]).isReplaceable(world, x + dX * array[0] + rX * array[1], y, z + dZ * array[0] + rZ * array[1])) return false;
+			if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * array[0] + rX * array[1], y, z + dZ * array[0] + rZ * array[1])).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * array[0] + rX * array[1], y, z + dZ * array[0] + rZ * array[1]))) return false;
 		}
 		
 		return true;
@@ -115,34 +110,11 @@ public class RailStandardCurveWide9 extends RailStandardCurveBase {
 		};
 		
 		for(int[] array : dim) {
-			world.setBlock(x + dX * array[0] + rX * array[1], y, z + dZ * array[0] + rZ * array[1], this, array[2], 3);
+			world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * array[0] + rX * array[1], y, z + dZ * array[0] + rZ * array[1]), this.getStateFromMeta(array[2]), 3);
 		}
 		
 		BlockDummyable.safeRem = false;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glScaled(0.175, 0.175, 0.175);
-		GL11.glRotated(45, 0, 1, 0);
-		GL11.glRotated(60, 1, 0, 0);
-		GL11.glTranslated(4, 0, 4);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_curve_wide9, block.getIcon(1, 0), tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		if(meta < 12) return;
-		float rotation = 0;
-		if(meta == 15) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 12) rotation = 180F / 180F * (float) Math.PI;
-		if(meta == 14) rotation = 270F / 180F * (float) Math.PI;
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_curve_wide9, block.getIcon(1, 0), tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-	}
 }

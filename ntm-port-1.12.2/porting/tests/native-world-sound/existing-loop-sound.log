@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/shared/nagaport-world-sound-cp56/ntm-port-1.12.2/porting/tests/check-native-loop-sound-source.py", line 33, in <module>
+    scope,resources=audit();mutations=0
+                    ^^^^^^^
+  File "/workspace/shared/nagaport-world-sound-cp56/ntm-port-1.12.2/porting/tests/check-native-loop-sound-source.py", line 15, in audit
+    for path,want in scope['new_sources'].items():assert sha(read(path))==want,path
+                                                         ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: src/main/java/com/hbm/sound/SoundCategoryResolver.java
+Traceback (most recent call last):
+  File "/workspace/shared/nagaport-world-sound-cp56/ntm-port-1.12.2/porting/tests/probe-native-loop-sounds.py", line 7, in <module>
+    subprocess.run([os.sys.executable,str(t/'check-native-loop-sound-source.py')],check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/shared/nagaport-world-sound-cp56/ntm-port-1.12.2/porting/tests/check-native-loop-sound-source.py']' returned non-zero exit status 1.

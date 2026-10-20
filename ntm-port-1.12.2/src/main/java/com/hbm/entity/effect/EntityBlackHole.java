@@ -17,11 +17,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityBlackHole extends Entity {
+
+	protected static final DataParameter<Float> BLACK_HOLE_SIZE = EntityDataManager.createKey(EntityBlackHole.class, DataSerializers.FLOAT);
 	
 	public boolean breaksBlocks = true;
 	
@@ -34,9 +39,13 @@ public class EntityBlackHole extends Entity {
 
 	public EntityBlackHole(World world, float size) {
 		this(world);
-		this.dataWatcher.updateObject(16, size);
+		this.dataManager.set(BLACK_HOLE_SIZE, size);
 	}
 	
+	public float getBlackHoleSize() {
+		return this.dataManager.get(BLACK_HOLE_SIZE);
+	}
+
 	public EntityBlackHole noBreak() {
 		this.breaksBlocks = false;
 		return this;
@@ -46,9 +55,9 @@ public class EntityBlackHole extends Entity {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		float size = this.dataWatcher.getWatchableObjectFloat(16);
+		float size = this.dataManager.get(BLACK_HOLE_SIZE);
 		
-		if(!worldObj.isRemote && breaksBlocks) {
+		if(!this.world.isRemote && breaksBlocks) {
 			for(int k = 0; k < size * 2; k++) {
 				double phi = rand.nextDouble() * (Math.PI * 2);
 				double costheta = rand.nextDouble() * 2 - 1;
@@ -65,20 +74,20 @@ public class EntityBlackHole extends Entity {
 					int y0 = (int)(this.posY + (vec.y * i));
 					int z0 = (int)(this.posZ + (vec.z * i));
 					
-					if(worldObj.getBlock(x0, y0, z0).getMaterial().isLiquid()) {
-						worldObj.setBlock(x0, y0, z0, Blocks.air);
+					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock().getMaterial().isLiquid()) {
+						this.world.setBlock(x0, y0, z0, Blocks.AIR);
 					}
 					
-					if(worldObj.getBlock(x0, y0, z0) != Blocks.air) {
-						EntityRubble rubble = new EntityRubble(worldObj);
+					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock() != Blocks.AIR) {
+						EntityRubble rubble = new EntityRubble(this.world);
 						rubble.posX = x0 + 0.5F;
 						rubble.posY = y0;
 						rubble.posZ = z0 + 0.5F;
-						rubble.setMetaBasedOnBlock(worldObj.getBlock(x0, y0, z0), worldObj.getBlockMetadata(x0, y0, z0));
+						rubble.setMetaBasedOnBlock(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock(), this.world.getBlockMetadata(x0, y0, z0));
 						
-						worldObj.spawnEntityInWorld(rubble);
+						this.world.spawnEntityInWorld(rubble);
 					
-						worldObj.setBlock(x0, y0, z0, Blocks.air);
+						this.world.setBlock(x0, y0, z0, Blocks.AIR);
 						break;
 					}
 				}
@@ -87,7 +96,7 @@ public class EntityBlackHole extends Entity {
 		
 		double range = size * 15;
 		
-		List<Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(
+		List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(
 				posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range));
 		
 		for(Entity e : entities) {
@@ -95,7 +104,7 @@ public class EntityBlackHole extends Entity {
 			if(e instanceof EntityPlayer && ((EntityPlayer)e).capabilities.isCreativeMode)
 				continue;
 			
-			if(e instanceof EntityFallingBlock && !worldObj.isRemote && e.ticksExisted > 1) {
+			if(e instanceof EntityFallingBlock && !this.world.isRemote && e.ticksExisted > 1) {
 				
 				double x = e.posX;
 				double y = e.posY;
@@ -105,13 +114,13 @@ public class EntityBlackHole extends Entity {
 				
 				e.setDead();
 				
-				EntityRubble rubble = new EntityRubble(worldObj);
+				EntityRubble rubble = new EntityRubble(this.world);
 				rubble.setMetaBasedOnBlock(b, meta);
 				rubble.setPositionAndRotation(x, y, z, 0, 0);
 				rubble.motionX = e.motionX;
 				rubble.motionY = e.motionY;
 				rubble.motionZ = e.motionZ;
-				worldObj.spawnEntityInWorld(rubble);
+				this.world.spawnEntityInWorld(rubble);
 			}
 			
 			Vec3d vec = new Vec3d(posX - e.posX, posY - e.posY, posZ - e.posZ);
@@ -140,13 +149,13 @@ public class EntityBlackHole extends Entity {
 				if(!(e instanceof EntityLivingBase))
 					e.setDead();
 				
-				if(!worldObj.isRemote && e instanceof EntityItem) {
+				if(!this.world.isRemote && e instanceof EntityItem) {
 					EntityItem item = (EntityItem) e;
 					ItemStack stack = item.getEntityItem();
 					
 					if(stack.getItem() == ModItems.pellet_antimatter || stack.getItem() == ModItems.flame_pony) {
 						this.setDead();
-						worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 5.0F, true);
+						this.world.createExplosion(null, this.posX, this.posY, this.posZ, 5.0F, true);
 						return;
 					}
 				}
@@ -162,18 +171,18 @@ public class EntityBlackHole extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(16, 0.5F);
+		this.dataManager.register(BLACK_HOLE_SIZE, 0.5F);
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
-		this.dataWatcher.updateObject(16, nbt.getFloat("size"));
+		this.dataManager.set(BLACK_HOLE_SIZE, nbt.getFloat("size"));
 		this.breaksBlocks = nbt.getBoolean("breaksBlocks");
 	}
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
-		nbt.setFloat("size", this.dataWatcher.getWatchableObjectFloat(16));
+		nbt.setFloat("size", this.dataManager.get(BLACK_HOLE_SIZE));
 		nbt.setBoolean("breaksBlocks", breaksBlocks);
 	}
 	

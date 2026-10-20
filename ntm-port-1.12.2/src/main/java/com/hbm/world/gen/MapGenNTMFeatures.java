@@ -22,8 +22,10 @@ import com.hbm.world.gen.component.OfficeFeatures.LargeOfficeCorner;
 import com.hbm.world.gen.component.SiloComponent;
 
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenMesa;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.BiomeMesa;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraft.world.gen.structure.StructureComponent;
@@ -73,16 +75,16 @@ public class MapGenNTMFeatures extends MapGenStructure {
 		j1 += random.nextInt(this.maxDistanceBetweenScatteredFeatures - this.minDistanceBetweenScatteredFeatures);
 
 		if(k == i1 && l == j1) {
-			BiomeGenBase biomegenbase = this.worldObj.getWorldChunkManager().getBiomeGenAt(k * 16 + 8, l * 16 + 8);
+			Biome biomegenbase = this.world.getBiomeProvider().getBiome(new BlockPos(k * 16 + 8, 0, l * 16 + 8));
 
 			if(biomelist == null) {
-				biomelist = Arrays.asList(new BiomeGenBase[] {BiomeGenBase.ocean, BiomeGenBase.river, BiomeGenBase.frozenOcean, BiomeGenBase.frozenRiver, BiomeGenBase.deepOcean});
+				biomelist = Arrays.asList(new Biome[] {Biomes.OCEAN, Biomes.RIVER, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.DEEP_OCEAN});
 			}
 
 			Iterator iterator = biomelist.iterator();
 
 			while(iterator.hasNext()) {
-				BiomeGenBase biomegenbase1 = (BiomeGenBase)iterator.next();
+				Biome biomegenbase1 = (Biome)iterator.next();
 
 				if(biomegenbase == biomegenbase1)
 					return false;
@@ -115,7 +117,7 @@ public class MapGenNTMFeatures extends MapGenStructure {
 			int i = (chunkX << 4) + 8;
 			int j = (chunkZ << 4) + 8;
 
-			BiomeGenBase biome = world.getBiomeGenForCoords(i, j); //Only gets the biome in the corner of the chunk.
+			Biome biome = world.getBiome(new BlockPos(i, 0, j)); //Only gets the biome in the corner of the chunk.
 
 			/*
 			 * Probably want to use nextInt() to increase the structures of rarity here. As a fallback, you could have generic stone brick/useless block ruins that will always be chosen if the
@@ -143,10 +145,10 @@ public class MapGenNTMFeatures extends MapGenStructure {
 //					this.components.add(ruin4);
 //				}
 
-			if(biome.heightVariation <= 0.25F && rand.nextInt(10) == 0) { //for now our only restriction is kinda-flat biomes. that and chance might change idk
+			if(biome.getHeightVariation() <= 0.25F && rand.nextInt(10) == 0) { //for now our only restriction is kinda-flat biomes. that and chance might change idk
 				SiloComponent silo = new SiloComponent(rand, i, j);
 				this.components.add(silo);
-			} else if(biome.temperature >= 1.0 && biome.rainfall == 0 && !(biome instanceof BiomeGenMesa)) { //Desert & Savannah
+			} else if(biome.getDefaultTemperature() >= 1.0 && biome.getRainfall() == 0 && !(biome instanceof BiomeMesa)) { //Desert & Savannah
 				if(rand.nextBoolean()) {
 					NTMHouse1 house1 = new NTMHouse1(rand, i, j);
 					this.components.add(house1);

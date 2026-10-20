@@ -65,7 +65,7 @@ public class WorldProviderTom extends WorldProviderSurface {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public float getSunBrightness(float par1) {
-		float dust = ImpactWorldHandler.getDustForClient(MainRegistry.proxy.me().worldObj);
+		float dust = ImpactWorldHandler.getDustForClient(MainRegistry.proxy.me().world);
 		float sunBr = worldObj.getSunBrightnessFactor(par1);
 		return (sunBr * 0.8F + 0.2F) * (1 - dust);
 	}

@@ -34,10 +34,10 @@ public class EntityDeathBlast extends Entity {
 	@Override
 	public void onUpdate() {
 
-		if(this.ticksExisted >= maxAge && !worldObj.isRemote) {
+		if(this.ticksExisted >= maxAge && !this.world.isRemote) {
 			this.setDead();
 
-			worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(worldObj, 40, posX, posY, posZ));
+			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(this.world, 40, posX, posY, posZ));
 
 			int count = 100;
 			for(int i = 0; i < count; i++) {
@@ -45,18 +45,18 @@ public class EntityDeathBlast extends Entity {
 				Vec3d vec = new Vec3d(0.2, 0, 0);
 				vec = vec.rotateYaw((float)(2 * Math.PI * i / (float)count));
 
-				EntityBulletBaseNT laser = new EntityBulletBaseNT(worldObj, BulletConfigSyncingUtil.MASKMAN_BOLT);
+				EntityBulletBaseNT laser = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.MASKMAN_BOLT);
 				laser.setPosition(posX, posY + 2, posZ);
 				laser.motionX = vec.x;
 				laser.motionZ = vec.z;
 				laser.motionY = -0.01;
-				worldObj.spawnEntityInWorld(laser);
+				this.world.spawnEntityInWorld(laser);
 			}
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "muke");
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 250));
-			worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.mukeExplosion", 25.0F, 0.9F);
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(this.world.provider.getDimension(), posX, posY, posZ, 250));
+			com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 25.0F, 0.9F);
 		}
 	}
 

@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "porting/tests/audio-namespace/explicit-file-reference-audit.json": "9b8c26c00d58f86904daba57050a1c2299942a410b8e63a4ae300912d5a68ba9",
+    "porting/tests/audio-namespace/README.md": "d0341ce9a05269e81d2b6a9c3954ccc5031353a2aa609168ee7f89f8cee91655",
+    "porting/tests/audio-namespace/AudioNamespaceNativeTest.java": "518696ee0369a645ff45681422bdb94b488cfb9c93324a892cf53a8698f251f4",
+    "porting/tests/audio-namespace/manifest.json": "42e6b402c40b40ea1fcca63a03427002dbe387285d18b3709dda5860f0b6342f",
+    "porting/tests/audio-namespace/probe-audio-namespaces.py": "1e69a68b1ba50e725b3e79449bc4d2ad49481127698ded6d8624d66ac01e4433",
+    "porting/tests/audio-namespace-production.json": "20f06d6499ce584a1dff0537983f805624f05da250a8c022013eb8b546ccc33e",
+    "porting/continuation-2026-10-19/audio-namespace-native.log": "3686956896bc914d03c04f89c32471827169059f33680d036bf888e32af810f2",
+    "porting/continuation-2026-10-19/audio-namespace-decode.log": "f8d5dd4527437e9a3690af758e3aeef0857bc2196927dad6daedb5e030ce67e1",
+    "porting/continuation-2026-10-19/audio-namespace-decode-results.json": "c6b72ac7e6f8f7504844544ca41f003ec01f6db12d79c1d75fb9ccd3721a9511",
+    "porting/continuation-2026-10-19/audio-namespace-migration.log": "c23b6d45f2314d05656ceb75f7c497f11b068232526e40518bf5afb39d9b784b"
+  }
+}

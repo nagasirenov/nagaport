@@ -429,7 +429,7 @@ public class DamageResistanceHandler {
 	public void onEntityAttacked(LivingAttackEvent event) {
 		if(event.source.isDamageAbsolute()) return;
 
-		EntityLivingBase e = event.entityLiving;
+		EntityLivingBase e = event.getEntityLiving();
 		float amount = event.ammount;
 		
 		float[] vals = getDTDR(e, event.source, amount, currentPDT, currentPDR);
@@ -445,9 +445,9 @@ public class DamageResistanceHandler {
 	@SubscribeEvent
 	public void onEntityDamaged(LivingHurtEvent event) {
 		
-		event.ammount = calculateDamage(event.entityLiving, event.source, event.ammount, currentPDT, currentPDR);
-		if(event.entityLiving instanceof IResistanceProvider) {
-			IResistanceProvider irp = (IResistanceProvider) event.entityLiving;
+		event.ammount = calculateDamage(event.getEntityLiving(), event.source, event.ammount, currentPDT, currentPDR);
+		if(event.getEntityLiving() instanceof IResistanceProvider) {
+			IResistanceProvider irp = (IResistanceProvider) event.getEntityLiving();
 			irp.onDamageDealt(event.source, event.ammount);
 		}
 	}
@@ -475,7 +475,7 @@ public class DamageResistanceHandler {
 		dt = Math.max(0F, dt - pierceDT);
 		if(dt >= amount) return 0F;
 		amount -= dt;
-		dr *= MathHelper.clamp_float(1F - pierce, 0F, 2F /* we allow up to -1 armor piercing, which can double effective armor values */);
+		dr *= MathHelper.clamp(1F - pierce, 0F, 2F /* we allow up to -1 armor piercing, which can double effective armor values */);
 		
 		return amount *= (1F - dr);
 	}

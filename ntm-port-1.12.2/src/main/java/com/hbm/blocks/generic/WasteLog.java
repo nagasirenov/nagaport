@@ -41,15 +41,15 @@ public class WasteLog extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j)
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)
     {
 		if(this == ModBlocks.waste_log)
 		{
-			return Items.coal;
+			return Items.COAL;
 		}
 		if(this == ModBlocks.frozen_log)
 		{
-			return Items.snowball;
+			return Items.SNOWBALL;
 		}
 		
 		return null;

@@ -37,9 +37,9 @@ public class RenderRBMKFuelChannel extends TileEntitySpecialRenderer {
 
 		for(int o = 1; o < 16; o++) {
 
-			if(te.getWorldObj().getBlock(te.xCoord, te.yCoord + o, te.zCoord) == te.getBlockType()) {
+			if(te.getWorld().getBlock(te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ()) == te.getBlockType()) {
 				offset = o;
-				int meta = te.getWorldObj().getBlockMetadata(te.xCoord, te.yCoord + o, te.zCoord);
+				int meta = te.getWorld().getBlockMetadata(te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ());
 				if(meta > 5 && meta < 12) break;
 
 			} else {

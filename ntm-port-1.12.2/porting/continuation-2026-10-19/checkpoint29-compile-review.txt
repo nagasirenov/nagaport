@@ -1,0 +1,7 @@
+Frozen checkpoint29 clean compile FAIL612 vs653, exit1,22s.
+40 changed/new Java exactly match3924 generated compiler sources.
+Snapshot /workspace/shared/nagaport-cp29-compile-snapshot/ntm-port-1.12.2
+Log SHA2568708630d10976a773239379037318bbc76b38b8b4d1d2b8897b6186f24284778
+Repeated symbols: RenderBlocks189, ItemRenderType109, ISimpleBlockRenderingHandler92, IItemRenderer45, RenderItem38, EntityFX27, ItemRendererHelper19, IBossDisplayData18, BossStatus6, BiomeGenBase5.
+No source exclusions; not playable or full runtime proof. Later contextual-item and machine-item changes excluded from this frozen source tree.
+Final snapshot includes onExplosionDestroy native mapping correction in three barrel/base classes. Preliminary612 build was superseded: full declaration errors masked these method-level failures, which selected complete-class compilation caught.

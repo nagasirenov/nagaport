@@ -48,33 +48,33 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.furnaceCombination";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.tryPullHeat();
 			
-			if(this.worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(int i = 2; i < 6; i++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(i);
 					ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 					
-					for(int y = yCoord; y <= yCoord + 1; y++) {
+					for(int y = this.pos.getY(); y <= this.pos.getY() + 1; y++) {
 						for(int j = -1; j <= 1; j++) {
-							if(tank.getFill() > 0) this.sendFluid(tank, worldObj, xCoord + dir.offsetX * 2 + rot.offsetX * j, y, zCoord + dir.offsetZ * 2 + rot.offsetZ * j, dir);
-							this.sendSmoke(xCoord + dir.offsetX * 2 + rot.offsetX * j, y, zCoord + dir.offsetZ * 2 + rot.offsetZ * j, dir);
+							if(tank.getFill() > 0) this.sendFluid(tank, this.world, this.pos.getX() + dir.offsetX * 2 + rot.offsetX * j, y, this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * j, dir);
+							this.sendSmoke(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * j, y, this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * j, dir);
 						}
 					}
 				}
 	
-				for(int x = xCoord - 1; x <= xCoord + 1; x++) {
-					for(int z = zCoord - 1; z <= zCoord + 1; z++) {
-						if(tank.getFill() > 0) this.sendFluid(tank, worldObj, x, yCoord + 2, z, ForgeDirection.UP);
-						this.sendSmoke(x, yCoord + 2, z, ForgeDirection.UP);
+				for(int x = this.pos.getX() - 1; x <= this.pos.getX() + 1; x++) {
+					for(int z = this.pos.getZ() - 1; z <= this.pos.getZ() + 1; z++) {
+						if(tank.getFill() > 0) this.sendFluid(tank, this.world, x, this.pos.getY() + 2, z, ForgeDirection.UP);
+						this.sendSmoke(x, this.pos.getY() + 2, z, ForgeDirection.UP);
 					}
 				}
 			}
@@ -118,12 +118,12 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 						this.decrStackSize(0, 1);
 					}
 					
-					List<Entity> entities = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord + 2, zCoord - 0.5, xCoord + 1.5, yCoord + 4, zCoord + 1.5));
+					List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 2, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 4, this.pos.getZ() + 1.5));
 					
 					for(Entity e : entities) e.setFire(5);
 					
-					if(worldObj.getTotalWorldTime() % 10 == 0) this.worldObj.playSoundEffect(this.xCoord, this.yCoord + 1, this.zCoord, "hbm:weapon.flamethrowerShoot", 0.25F, 0.5F);
-					if(worldObj.getTotalWorldTime() % 20 == 0) this.pollute(PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 3);
+					if(this.world.getTotalWorldTime() % 10 == 0) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 0.25F, 0.5F);
+					if(this.world.getTotalWorldTime() % 20 == 0) this.pollute(PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 3);
 				}
 			} else {
 				this.progress = 0;
@@ -132,8 +132,8 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 			this.networkPackNT(50);
 		} else {
 			
-			if(this.wasOn && worldObj.rand.nextInt(15) == 0) {
-				worldObj.spawnParticle("lava", xCoord + 0.5 + worldObj.rand.nextGaussian() * 0.5, yCoord + 2, zCoord + 0.5 + worldObj.rand.nextGaussian() * 0.5, 0, 0, 0);
+			if(this.wasOn && this.world.rand.nextInt(15) == 0) {
+				this.world.spawnParticle("lava", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);
 			}
 		}
 	}
@@ -184,7 +184,7 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 		
 		if(this.heat >= this.maxHeat) return;
 		
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 		
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -208,7 +208,8 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 	}
 	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1 };
 	}
 
@@ -218,7 +219,8 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 1;
 	}
 	
@@ -231,11 +233,12 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tank.writeToNBT(nbt, "tank");
 		nbt.setInteger("prog", progress);
 		nbt.setInteger("heat", heat);
+		return nbt;
 	}
 
 	@Override
@@ -256,12 +259,12 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2.125,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2.125,
+					this.pos.getZ() + 2
 					);
 		}
 		

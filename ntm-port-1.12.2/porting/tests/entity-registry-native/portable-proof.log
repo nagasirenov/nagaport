@@ -1,0 +1,13 @@
+PASS full 212-entry original/native mapping manifest: local IDs/order/options preserved, unique classes/keys, legacy translation namespace; removed integer egg APIs have zero external callers
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityFallingBlockNT.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[20:57:02] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:57:02] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:57:02] [main/INFO]: Replaced 1036 ore ingredients
+[20:57:02] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:57:02] [main/INFO]: Processing ObjectHolder annotations
+[20:57:02] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 38 complete wrapper + genuine Forge registration/EntityList factory + actual EntityFallingBlockNT + native egg NBT/copy checks; no launched-game or complete EntityMappings startup claim.
+Proof output: /workspace/shared/nagaport-entityregistry-next/portable-proof

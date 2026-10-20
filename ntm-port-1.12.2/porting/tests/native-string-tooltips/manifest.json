@@ -1,0 +1,263 @@
+{
+  "base": "c986d3f35683a7b81fe0e2caf928f6a47a7a6b5f",
+  "records": [
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIArmorTable.java",
+      "start": 1689,
+      "end": 1716,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIArmorTable",
+      "arguments": [
+        "(i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i])",
+        "x",
+        "y"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\n\t\tif(this.mc.player.inventory.getItemStack() == null) {\n\t\t\t\n\t\t\tString[] unloc = new String[] {\n\t\t\t\t\t\"armorMod.type.helmet\",\n\t\t\t\t\t\"armorMod.type.chestplate\",\n\t\t\t\t\t\"armorMod.type.leggings\",\n\t\t\t\t\t\"armorMod.type.boots\",\n\t\t\t\t\t\"armorMod.type.servo\",\n\t\t\t\t\t\"armorMod.type.cladding\",\n\t\t\t\t\t\"armorMod.type.insert\",\n\t\t\t\t\t\"armorMod.type.special\",\n\t\t\t\t\t\"armorMod.type.battery\",\n\t\t\t\t\t\"armorMod.insertHere\"\n\t\t\t};\n\t\t\t\n\t\t\tfor(int i = 0; i < ArmorModHandler.MOD_SLOTS + 1; ++i) {\n\t\t\t\tSlot slot = (Slot) this.inventorySlots.inventorySlots.get(i);\n\t\t\t\t\n\t\t\t\tif(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {\n\t\t\t\t\t\n\t\t\t\t\tthis.drawCreativeTabHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y)",
+      "branch": "if(this.isMouseOverSlot(slot, x, y) && !slot.getHasStack()) {\n\t\t\t\t\t\n\t\t\t\t\tthis.drawCreativeTabHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y);\n\t\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java",
+      "start": 1881,
+      "end": 1908,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "<implicit>",
+      "receiver_type": "com.hbm.inventory.gui.GUICombustionEngine",
+      "arguments": [
+        "((setting * 2) / 10D) + \"mB/t\"",
+        "MathHelper.clamp(x, guiLeft + 80, guiLeft + 114)",
+        "MathHelper.clamp(y, guiTop + 38, guiTop + 46)"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int x, int y, float interp) {\n\t\tsuper.drawScreen(x, y, interp);\n\t\t\n\t\tif(!isMouseLocked) {\n\t\t\tthis.drawElectricityInfo(this, x, y, guiLeft + 143, guiTop + 17, 16, 52, engine.getPower(), engine.maxPower);\n\t\t\tengine.tank.renderTankInfo(this, x, y, guiLeft + 35, guiTop + 17, 16, 52);\n\t\t}\n\t\t\n\t\tif(isMouseLocked || (guiLeft + 80 <= x && guiLeft + 80 + 34 > x && guiTop + 38 < y && guiTop + 38 + 8 >= y)) {\n\t\t\tdrawCreativeTabHoveringText(((setting * 2) / 10D) + \"mB/t\", MathHelper.clamp(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp(y, guiTop + 38, guiTop + 46));\n\t\t}\n\t\t\n\t\tif(engine.slots[2] != null && engine.slots[2].getItem() == ModItems.piston_set) {\n\t\t\tdouble power = 0;\n\t\t\tif(engine.tank.getTankType().hasTrait(FT_Combustible.class)) {\n\t\t\t\tFT_Combustible trait = engine.tank.getTankType().getTrait(FT_Combustible.class);\n\t\t\t\tint i = engine.slots[2].getItemDamage();\n\t\t\t\tEnumPistonType piston = EnumUtil.grabEnumSafely(EnumPistonType.class, i);\n\t\t\t\tpower = setting * 0.2 * trait.getCombustionEnergy() / 1_000D * piston.eff[trait.getGrade().ordinal()];\n\t\t\t}\n\t\t\tString c = TextFormatting.YELLOW + \"\";\n\t\t\tdrawCustomInfoStat(x, y, guiLeft + 79, guiTop + 50, 35, 14, x, y, c + String.format(Locale.US, \"%,d\", (int)(power)) + \" HE/t\", c + String.format(Locale.US, \"%,d\", (int)(power * 20)) + \" HE/s\");\n\t\t}\n\t\t\n\t\tdrawCustomInfoStat(x, y, guiLeft + 79, guiTop + 13, 35, 15, x, y, \"Ignition\");\n\n\t\tif(isMouseLocked) {\n\t\t\t\n\t\t\tint setting = (x - guiLeft - 81) * 30 / 32;\n\t\t\tsetting = MathHelper.clamp(setting, 0, 30);\n\t\t\t\n\t\t\tif(this.setting != setting) {\n\t\t\t\tthis.setting = setting;\n\t\t\t\tNBTTagCompound data = new NBTTagCompound();\n\t\t\t\tdata.setInteger(\"setting\", setting);\n\t\t\t\tPacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, engine.getPos().getX(), engine.getPos().getY(), engine.getPos().getZ()));\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "drawCreativeTabHoveringText(((setting * 2) / 10D) + \"mB/t\", MathHelper.clamp(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp(y, guiTop + 38, guiTop + 46))",
+      "branch": "if(isMouseLocked || (guiLeft + 80 <= x && guiLeft + 80 + 34 > x && guiTop + 38 < y && guiTop + 38 + 8 >= y)) {\n\t\t\tdrawCreativeTabHoveringText(((setting * 2) / 10D) + \"mB/t\", MathHelper.clamp(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp(y, guiTop + 38, guiTop + 46));\n\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java",
+      "start": 3423,
+      "end": 3450,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIFusionTorus",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float interp) {\n\t\tsuper.drawScreen(mouseX, mouseY, interp);\n\t\t\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 18, 16, 62, torus.power, torus.getMaxPower());\n\t\ttorus.tanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 44, guiTop + 18, 16, 52);\n\t\ttorus.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 62, guiTop + 18, 16, 52);\n\t\ttorus.tanks[2].renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 18, 16, 52);\n\t\ttorus.tanks[3].renderTankInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 52);\n\t\ttorus.coolantTanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 188, guiTop + 46, 16, 52);\n\t\ttorus.coolantTanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 206, guiTop + 46, 16, 52);\n\t\t\n\t\tFusionRecipe recipe = (FusionRecipe) FusionRecipes.INSTANCE.recipeNameMap.get(this.torus.fusionModule.recipe);\n\t\t\n\t\tif(recipe != null) {\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 43, guiTop + 115, 18, 18, mouseX, mouseY, TextFormatting.GREEN + \"-> \" + TextFormatting.RESET + BobMathUtil.getShortNumber(torus.klystronEnergy) + \"KyU / \" + BobMathUtil.getShortNumber(recipe.ignitionTemp) + \"KyU\");\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 79, guiTop + 115, 18, 18, mouseX, mouseY, TextFormatting.RED + \"<- \" + TextFormatting.RESET + BobMathUtil.getShortNumber(torus.plasmaEnergy) + \"TU / \" + BobMathUtil.getShortNumber(recipe.outputTemp) + \"TU\");\n\t\t\tString[] lines = new String[recipe.inputFluid.length];\n\t\t\tfor(int i = 0; i < lines.length; i++) {\n\t\t\t\tint consumption = (int) Math.ceil(recipe.inputFluid[i].fill * torus.fuelConsumption);\n\t\t\t\tlines[i] = TextFormatting.GREEN + \"-> \" + TextFormatting.RESET + consumption + \"mB/t \" + recipe.inputFluid[i].type.getLocalizedName();\n\t\t\t}\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 115, guiTop + 115, 18, 18, mouseX, mouseY, lines);\n\t\t} else {\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 43, guiTop + 115, 18, 18, mouseX, mouseY, \"0KyU / 0KyU\");\n\t\t\tdrawCustomInfoStat(mouseX, mouseY, guiLeft + 79, guiTop + 115, 18, 18, mouseX, mouseY, \"0TU / 0TU\");\n\t\t}\n\n\t\tif(guiLeft + 43 <= mouseX && guiLeft + 43 + 18 > mouseX && guiTop + 80 < mouseY && guiTop + 80 + 18 >= mouseY) {\n\t\t\tif(recipe != null) {\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(recipe != null) {\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java",
+      "start": 2526,
+      "end": 2553,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineAssemblyFactory",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int j = 0; j < 4; j++) {\n\t\t\tassembler.inputTanks[j].renderTankInfo(this, mouseX, mouseY, guiLeft + 105 + (j % 2) * 109, guiTop + 20 + (j / 2) * 56, 5, 32);\n\t\t\tassembler.outputTanks[j].renderTankInfo(this, mouseX, mouseY, guiLeft + 105 + (j % 2) * 109, guiTop + 54 + (j / 2) * 56, 5, 16);\n\t\t}\n\t\t\n\t\tassembler.water.renderTankInfo(this, mouseX, mouseY, guiLeft + 232, guiTop + 149, 7, 52);\n\t\tassembler.lps.renderTankInfo(this, mouseX, mouseY, guiLeft + 241, guiTop + 149, 7, 52);\n\t\t\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 234, guiTop + 18, 16, 92, assembler.power, assembler.maxPower);\n\n\t\tfor(int i = 0; i < 4; i++) if(guiLeft + 6 + (i % 2) * 109 <= mouseX && guiLeft + 6 + (i % 2) * 109 + 18 > mouseX && guiTop + 53 + (i / 2) * 56 < mouseY && guiTop + 53 + (i / 2) * 56 + 18 >= mouseY) {\n\t\t\tif(this.assembler.assemblerModule[i].recipe != null && AssemblyMachineRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule[i].recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule[i].recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(this.assembler.assemblerModule[i].recipe != null && AssemblyMachineRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule[i].recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule[i].recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java",
+      "start": 2124,
+      "end": 2151,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineAssemblyMachine",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tassembler.inputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 99, 52, 16);\n\t\tassembler.outputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 99, 52, 16);\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, assembler.power, assembler.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.assembler.assemblerModule.recipe != null && AssemblyMachineRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(this.assembler.assemblerModule.recipe != null && AssemblyMachineRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java",
+      "start": 2492,
+      "end": 2519,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineChemicalFactory",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int i = 0; i < 3; i++) for(int j = 0; j < 4; j++) {\n\t\t\tchemplant.inputTanks[i + j * 3].renderTankInfo(this, mouseX, mouseY, guiLeft + 60 + i * 5, guiTop + 20 + j * 22, 3, 16);\n\t\t\tchemplant.outputTanks[i + j * 3].renderTankInfo(this, mouseX, mouseY, guiLeft + 189 + i * 5, guiTop + 20 + j * 22, 3, 16);\n\t\t}\n\t\t\n\t\tchemplant.water.renderTankInfo(this, mouseX, mouseY, guiLeft + 224, guiTop + 125, 7, 52);\n\t\tchemplant.lps.renderTankInfo(this, mouseX, mouseY, guiLeft + 233, guiTop + 125, 7, 52);\n\t\t\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 224, guiTop + 18, 16, 68, chemplant.power, chemplant.maxPower);\n\n\t\tfor(int i = 0; i < 4; i++) if(guiLeft + 74 <= mouseX && guiLeft + 74 + 18 > mouseX && guiTop + 19 + i * 22 < mouseY && guiTop + 19 + i * 22 + 18 >= mouseY) {\n\t\t\tif(this.chemplant.chemplantModule[i].recipe != null && ChemicalPlantRecipes.INSTANCE.recipeNameMap.containsKey(this.chemplant.chemplantModule[i].recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) ChemicalPlantRecipes.INSTANCE.recipeNameMap.get(this.chemplant.chemplantModule[i].recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(this.chemplant.chemplantModule[i].recipe != null && ChemicalPlantRecipes.INSTANCE.recipeNameMap.containsKey(this.chemplant.chemplantModule[i].recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) ChemicalPlantRecipes.INSTANCE.recipeNameMap.get(this.chemplant.chemplantModule[i].recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java",
+      "start": 2123,
+      "end": 2150,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachineChemicalPlant",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tchemplant.inputTanks[i].renderTankInfo(this, mouseX, mouseY, guiLeft + 8 + i * 18, guiTop + 18, 16, 34);\n\t\t\tchemplant.outputTanks[i].renderTankInfo(this, mouseX, mouseY, guiLeft + 80 + i * 18, guiTop + 18, 16, 34);\n\t\t}\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, chemplant.power, chemplant.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.chemplant.chemplantModule.recipe != null && ChemicalPlantRecipes.INSTANCE.recipeNameMap.containsKey(this.chemplant.chemplantModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) ChemicalPlantRecipes.INSTANCE.recipeNameMap.get(this.chemplant.chemplantModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(this.chemplant.chemplantModule.recipe != null && ChemicalPlantRecipes.INSTANCE.recipeNameMap.containsKey(this.chemplant.chemplantModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) ChemicalPlantRecipes.INSTANCE.recipeNameMap.get(this.chemplant.chemplantModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java",
+      "start": 2026,
+      "end": 2053,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachinePUREX",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tpurex.inputTanks[i].renderTankInfo(this, mouseX, mouseY, guiLeft + 8 + i * 18, guiTop + 18, 16, 52);\n\t\t}\n\t\tpurex.outputTanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 116, guiTop + 36, 16, 52);\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, purex.power, purex.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.purex.purexModule.recipe != null && PUREXRecipes.INSTANCE.recipeNameMap.containsKey(this.purex.purexModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) PUREXRecipes.INSTANCE.recipeNameMap.get(this.purex.purexModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(this.purex.purexModule.recipe != null && PUREXRecipes.INSTANCE.recipeNameMap.containsKey(this.purex.purexModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) PUREXRecipes.INSTANCE.recipeNameMap.get(this.purex.purexModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java",
+      "start": 2042,
+      "end": 2069,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIMachinePrecAss",
+      "arguments": [
+        "TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\")",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tsuper.drawScreen(mouseX, mouseY, f);\n\n\t\tassembler.inputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 99, 52, 16);\n\t\tassembler.outputTank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 99, 52, 16);\n\n\t\tthis.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 18, 16, 61, assembler.power, assembler.maxPower);\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 18 > mouseX && guiTop + 125 < mouseY && guiTop + 125 + 18 >= mouseY) {\n\t\t\tif(this.assembler.assemblerModule.recipe != null && PrecAssRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) PrecAssRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY)",
+      "branch": "if(this.assembler.assemblerModule.recipe != null && PrecAssRecipes.INSTANCE.recipeNameMap.containsKey(this.assembler.assemblerModule.recipe)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) PrecAssRecipes.INSTANCE.recipeNameMap.get(this.assembler.assemblerModule.recipe);\n\t\t\t\tthis.func_146283_a(recipe.print(), mouseX, mouseY);\n\t\t\t} else {\n\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n\t\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java",
+      "start": 5258,
+      "end": 5285,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRecipeSelector",
+      "arguments": [
+        "TextFormatting.YELLOW + \"Close\"",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tthis.drawDefaultBackground();\n\t\tthis.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tthis.drawGuiContainerForegroundLayer(mouseX, mouseY);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tthis.handleScroll();\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 144 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 90 >= mouseY) {\n\t\t\tfor(int i = pageIndex * 8; i < pageIndex * 8 + 40; i++) {\n\t\t\t\tif(i >= this.recipes.size()) break;\n\t\t\t\t\n\t\t\t\tint ind = i - pageIndex * 8;\n\t\t\t\tint ix = 7 + 18 * (ind % 8);\n\t\t\t\tint iy = 17 + 18 * (ind / 8);\n\t\t\t\t\n\t\t\t\tif(guiLeft + ix <= mouseX && guiLeft + ix + 18 > mouseX && guiTop + iy < mouseY && guiTop + iy + 18 >= mouseY) {\n\t\t\t\t\tGenericRecipe recipe = recipes.get(i);\n\t\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 151 <= mouseX && guiLeft + 151 + 18 > mouseX && guiTop + 71 < mouseY && guiTop + 71 + 18 >= mouseY) {\n\t\t\tif(this.selection != null && this.recipeSet.recipeNameMap.containsKey(selection)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) this.recipeSet.recipeNameMap.get(selection);\n\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY)",
+      "branch": "if(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java",
+      "start": 5468,
+      "end": 5495,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRecipeSelector",
+      "arguments": [
+        "TextFormatting.YELLOW + \"Clear search\"",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tthis.drawDefaultBackground();\n\t\tthis.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tthis.drawGuiContainerForegroundLayer(mouseX, mouseY);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tthis.handleScroll();\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 144 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 90 >= mouseY) {\n\t\t\tfor(int i = pageIndex * 8; i < pageIndex * 8 + 40; i++) {\n\t\t\t\tif(i >= this.recipes.size()) break;\n\t\t\t\t\n\t\t\t\tint ind = i - pageIndex * 8;\n\t\t\t\tint ix = 7 + 18 * (ind % 8);\n\t\t\t\tint iy = 17 + 18 * (ind / 8);\n\t\t\t\t\n\t\t\t\tif(guiLeft + ix <= mouseX && guiLeft + ix + 18 > mouseX && guiTop + iy < mouseY && guiTop + iy + 18 >= mouseY) {\n\t\t\t\t\tGenericRecipe recipe = recipes.get(i);\n\t\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 151 <= mouseX && guiLeft + 151 + 18 > mouseX && guiTop + 71 < mouseY && guiTop + 71 + 18 >= mouseY) {\n\t\t\tif(this.selection != null && this.recipeSet.recipeNameMap.containsKey(selection)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) this.recipeSet.recipeNameMap.get(selection);\n\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY)",
+      "branch": "if(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n\t\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java",
+      "start": 5681,
+      "end": 5708,
+      "old": "drawCreativeTabHoveringText",
+      "new": "drawHoveringText",
+      "receiver": "this",
+      "receiver_type": "com.hbm.inventory.gui.GUIScreenRecipeSelector",
+      "arguments": [
+        "TextFormatting.ITALIC + \"Press ENTER to toggle focus\"",
+        "mouseX",
+        "mouseY"
+      ],
+      "method": "@Override\n\tpublic void drawScreen(int mouseX, int mouseY, float f) {\n\t\tthis.drawDefaultBackground();\n\t\tthis.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);\n\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\tthis.drawGuiContainerForegroundLayer(mouseX, mouseY);\n\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\tthis.handleScroll();\n\n\t\tif(guiLeft + 7 <= mouseX && guiLeft + 7 + 144 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 90 >= mouseY) {\n\t\t\tfor(int i = pageIndex * 8; i < pageIndex * 8 + 40; i++) {\n\t\t\t\tif(i >= this.recipes.size()) break;\n\t\t\t\t\n\t\t\t\tint ind = i - pageIndex * 8;\n\t\t\t\tint ix = 7 + 18 * (ind % 8);\n\t\t\t\tint iy = 17 + 18 * (ind / 8);\n\t\t\t\t\n\t\t\t\tif(guiLeft + ix <= mouseX && guiLeft + ix + 18 > mouseX && guiTop + iy < mouseY && guiTop + iy + 18 >= mouseY) {\n\t\t\t\t\tGenericRecipe recipe = recipes.get(i);\n\t\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 151 <= mouseX && guiLeft + 151 + 18 > mouseX && guiTop + 71 < mouseY && guiTop + 71 + 18 >= mouseY) {\n\t\t\tif(this.selection != null && this.recipeSet.recipeNameMap.containsKey(selection)) {\n\t\t\t\tGenericRecipe recipe = (GenericRecipe) this.recipeSet.recipeNameMap.get(selection);\n\t\t\t\tthis.func_146283_a(recipe.print(), 0, 900);\n\t\t\t}\n\t\t}\n\n\t\tif(guiLeft + 152 <= mouseX && guiLeft + 152 + 16 > mouseX && guiTop + 90 < mouseY && guiTop + 90 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 134 <= mouseX && guiLeft + 134 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n\t\t}\n\n\t\tif(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n\t\t}\n\t}",
+      "members": "[net.minecraft.client.gui.GuiScreen:drawHoveringText(java.lang.String,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int), net.minecraft.client.gui.GuiScreen:drawHoveringText(java.util.List<java.lang.String>,int,int,net.minecraft.client.gui.FontRenderer)]",
+      "call": "this.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY)",
+      "branch": "if(guiLeft + 8 <= mouseX && guiLeft + 8 + 16 > mouseX && guiTop + 108 < mouseY && guiTop + 108 + 16 >= mouseY) {\n\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n\t\t}"
+    }
+  ],
+  "files": {
+    "src/main/java/com/hbm/inventory/gui/GUIArmorTable.java": {
+      "before_sha256": "7f3bd48d3e30314f0a902aae6495fa91d8727c04e111127f94a4ed92764763c9",
+      "after_sha256": "3de7b371d378e68dd737b405f92371a5baa08368cb7ea764a996bab379819505"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java": {
+      "before_sha256": "de0cae20a1db4dd48d0287a232a0f94c79dd702efa7a31fbce63274af7948660",
+      "after_sha256": "5b852c108da37d11dadc9a815247daab188a218878cf2b8a7e3d41bb906c6bd5"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java": {
+      "before_sha256": "476e70778248877ed4ae3dea7e431dafa3ee819a60df1440b13807c03e1765c9",
+      "after_sha256": "7c61b10dda371577ccb70bac16f3833c2c8e398f928f514bc668d3b46427783c"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java": {
+      "before_sha256": "f8b5291c289fd3bd3a75771d12e1f1d4b4b62164b4c17e42ff97a19c914e7caf",
+      "after_sha256": "a9c9dfe4313c5151056a0baaaa9f7fa3ca824a32394086bd395725c4b19b49fd"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java": {
+      "before_sha256": "778e2a9cb5c6b9e83ff8fad1037c696bbec16d86f923866ccd7d252661973654",
+      "after_sha256": "daeeda3935fab95a49bad5b2a5264df9ebc4a0277507dde68fd3111c6654f276"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java": {
+      "before_sha256": "c14187b2bdce1dbdf84bd631c1867d16487cd4f472b9c2eb815549e69438cb73",
+      "after_sha256": "ad4297490466ea494f4d504f0b230b22b70d35b4ec95b87c49e3e22cdb22f2e0"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java": {
+      "before_sha256": "14e46eab4829691bf8bec164975dc8d54a7aad348634c42bc484bd8a528ce9c2",
+      "after_sha256": "fbbe3f6c16883ab981d6d413ea1b911abd420c0abaca9e6ded6ba2e40ca17d2c"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java": {
+      "before_sha256": "c14bbb3d43c3a9ba941d50e8395e830b9f71e93c2e8cf26cb696ab73af51c6cc",
+      "after_sha256": "f050ecd429da2806a2c41af9d91689e916cdabdd4a708be3253eec3505b342a6"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java": {
+      "before_sha256": "87828b4831a9294c2f493b46d07ea416464e93036438d415ea9d81a67f165e9a",
+      "after_sha256": "cf156d78a43f90e161c654ce246d85be9451a67027d005a76507148b30108661"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before_sha256": "dc7201b1e7f66d0f34fb49da6d7816ca875763eda65d798ce3f273b5ed94d55c",
+      "after_sha256": "9e27b4e93c57e3ec4a9ac90e62bf1d5fcfc29e80dd25a7589f5de2ddaff76748"
+    }
+  }
+}

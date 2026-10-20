@@ -1,0 +1,19 @@
+public class net.minecraft.client.resources.Locale {
+  java.util.Map<java.lang.String, java.lang.String> properties;
+public abstract class net.minecraft.client.gui.GuiScreen extends net.minecraft.client.gui.Gui implements net.minecraft.client.gui.GuiYesNoCallback {
+  protected net.minecraft.client.gui.FontRenderer fontRenderer;
+  public void drawHoveringText(java.lang.String, int, int);
+  public void drawHoveringText(java.util.List<java.lang.String>, int, int);
+  protected void drawHoveringText(java.util.List<java.lang.String>, int, int, net.minecraft.client.gui.FontRenderer);
+public class net.minecraft.client.Minecraft implements net.minecraft.util.IThreadListener,net.minecraft.profiler.ISnooperInfo {
+  private final com.mojang.authlib.properties.PropertyMap twitchDetails;
+  private final com.mojang.authlib.properties.PropertyMap profileProperties;
+  public net.minecraft.client.entity.EntityPlayerSP player;
+  public net.minecraft.client.gui.FontRenderer fontRenderer;
+  public com.mojang.authlib.properties.PropertyMap getProfileProperties();
+public abstract class net.minecraft.tileentity.TileEntity implements net.minecraftforge.common.capabilities.ICapabilitySerializable<net.minecraft.nbt.NBTTagCompound> {
+  public net.minecraft.world.World getWorld();
+  public net.minecraft.util.math.BlockPos getPos();
+public class net.minecraft.entity.player.InventoryPlayer implements net.minecraft.inventory.IInventory {
+  public net.minecraft.entity.player.EntityPlayer player;
+  public net.minecraft.item.ItemStack getItemStack();

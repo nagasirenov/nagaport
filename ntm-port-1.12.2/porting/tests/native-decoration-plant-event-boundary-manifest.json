@@ -1,0 +1,740 @@
+{
+  "baseline": "e146f1df78ba6ce7ebf3198217a67d132e1e7dff",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockCoral.java": {
+      "before_sha256": "98d14bac8582ea3421b3cf2cc0446aa3ab1dc8a045f24cbd0fbf8b0cbeb5cb56",
+      "after_sha256": "3dd28f8670472677687885c0eefc32bdd1b3fac9ca3061418d60e8dc801f0445",
+      "edits": [
+        {
+          "before_offset": 24,
+          "after_offset": 24,
+          "old": "",
+          "new": "import net.minecraft.block.Block;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.block.state.*;\nimport net.minecraft.util.*;\nimport net.minecraft.util.math.*;\nimport net.minecraft.world.*;\nimport java.util.Random;\nimport com.hbm.blocks.generic.PlantBlockState;\nimport com.hbm.items.ModItems;\nimport net.minecraft.item.Item;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.creativetab.CreativeTabs;\nimport net.minecraft.block.properties.PropertyInteger;\npublic class BlockCoral extends Block implements IBlockMulti {\n public enum EnumCoral { TUBE,BRAIN,BUBBLE,FIRE,HORN }\n public static final PropertyInteger META=PropertyInteger.create(\"meta\",0,15);\n public BlockCoral() { super(Material.WATER);setDefaultState(blockState.getBaseState().withProperty(META,0)); }\n @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(META,meta&15); }\n @Override public int getMetaFromState(IBlockState state) { return state.getValue(META); }\n @Override public int getSubCount() { return 5; }\n @Override public void getSubBlocks(CreativeTabs tab,NonNullList<ItemStack> items) { for(int i=0;i<5;i++)items.add(new ItemStack(this,1,i)); }\n @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { return super.canPlaceBlockAt(world,pos) && world.getBlockState(pos.up()).getMaterial().isLiquid(); }\n @Override public Item getItemDropped(IBlockState state,Random random,int fortune) { return ModItems.powder_calcium; }\n @Override public int damageDropped(IBlockState state) { return 0; }\n"
+        },
+        {
+          "before_offset": 25,
+          "after_offset": 1574,
+          "old": "import java.util.Random;\n\nimport com.hbm.items.ModItems;\n\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.item.Item;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport net.minecraft.world.World;\n\npublic class BlockCoral extends BlockEnumMulti {\n\n\tpublic BlockCoral() {\n\t\tsuper(Material.water, EnumCoral.class, false, true);\n\t}\n\n\tpublic static enum EnumCoral {\n\t\tTUBE,\n\t\tBRAIN,\n\t\tBUBBLE,\n\t\tFIRE,\n\t\tHORN,\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn null;\n\t}\n\n\t@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.getBlock(x, y + 1, z).getMaterial().isLiquid();\n\t}\n\n\t@Override\n\tpublic Item getItemDropped(int parMetadata, Random parRand, int parFortune) {\n\t   return ModItems.powder_calcium;\n\t}\n\n\t@Override\n\tpublic int damageDropped(int meta) {\n\t\treturn 0;\n\t}\n\n",
+          "new": " @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n @Override public boolean isFullCube(IBlockState state) { return false; }\n @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) { return NULL_AABB; }\n @Override protected BlockStateContainer createBlockState() { return PlantBlockState.create(this,META); }\n @Override public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos) { return PlantBlockState.extend(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "3c798b9d980c66664bde96c2bb475f323abbe47f6a1a6ade3c7ec480d9728767",
+      "after_sha256": "2dbe65065557dae7e3e3707ec5458f8580f150a129b40727780d432d7e7bcdbe",
+      "edits": [
+        {
+          "before_offset": 99356,
+          "after_offset": 99356,
+          "old": "\t\tpedestal = new BlockPedestal().setBlockName(\"pedestal\").setCreativeTab(null).setHardness(2.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":pedestal_top\");\r\n",
+          "new": "\t\tpedestal = new BlockPedestal().setTranslationKey(\"pedestal\").setCreativeTab(null).setHardness(2.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 130801,
+          "after_offset": 130750,
+          "old": "\t\ttape_recorder = new DecoTapeRecorder(Material.iron).setBlockName(\"tape_recorder\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":deco_tape_recorder\");\r\n\t\tsteel_poles = new DecoSteelPoles(Material.iron).setBlockName(\"steel_poles\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":steel_beam\");\r\n",
+          "new": "\t\ttape_recorder = new DecoTapeRecorder(Material.IRON).setTranslationKey(\"tape_recorder\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tsteel_poles = new DecoSteelPoles(Material.IRON).setTranslationKey(\"steel_poles\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+        },
+        {
+          "before_offset": 132426,
+          "after_offset": 132269,
+          "old": "\t\tsteel_scaffold = new BlockScaffold().setBlockName(\"steel_scaffold\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":deco_steel_orig\");\r\n",
+          "new": "\t\tsteel_scaffold = new BlockScaffold().setTranslationKey(\"steel_scaffold\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n"
+        },
+        {
+          "before_offset": 143022,
+          "after_offset": 142811,
+          "old": "\t\treeds = new BlockReeds().setBlockName(\"plant_reeds\").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeGrass).setHardness(0.0F);\r\n",
+          "new": "\t\treeds = new BlockReeds().setTranslationKey(\"plant_reeds\").setCreativeTab(MainRegistry.blockTab).setSoundType(SoundType.PLANT).setHardness(0.0F);\r\n"
+        },
+        {
+          "before_offset": 145114,
+          "after_offset": 144903,
+          "old": "\t\tlaythe_coral = new BlockCoral().setBlockName(\"laythe_coral\").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeGrass).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + \":laythe_coral\");\r\n",
+          "new": "\t\tlaythe_coral = new BlockCoral().setTranslationKey(\"laythe_coral\").setCreativeTab(MainRegistry.blockTab).setSoundType(SoundType.PLANT).setHardness(0.0F);\r\n"
+        },
+        {
+          "before_offset": 145615,
+          "after_offset": 145348,
+          "old": "\t\tvine_phosphor = new BlockHangingVine(thick_foliage).setBlockName(\"vine_phosphor\").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeGrass).setHardness(0.5F);\r\n",
+          "new": "\t\tvine_phosphor = new BlockHangingVine(thick_foliage).setTranslationKey(\"vine_phosphor\").setCreativeTab(MainRegistry.blockTab).setSoundType(SoundType.PLANT).setHardness(0.5F);\r\n"
+        },
+        {
+          "before_offset": 265464,
+          "after_offset": 265197,
+          "old": "\t\talgae_film = new BlockAlgaeFilm(Material.iron).setBlockName(\"algae_film\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":algae_film\");\r\n",
+          "new": "\t\talgae_film = new BlockAlgaeFilm(Material.IRON).setTranslationKey(\"algae_film\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 305413,
+          "after_offset": 305097,
+          "old": "\t\tGameRegistry.registerBlock(pedestal, pedestal.getUnlocalizedName());\r\n",
+          "new": "\t\tGameRegistry.registerBlock(pedestal, pedestal.getTranslationKey());\r\n"
+        },
+        {
+          "before_offset": 318575,
+          "after_offset": 318258,
+          "old": "\t\tGameRegistry.registerBlock(tape_recorder, tape_recorder.getUnlocalizedName());\r\n\t\tGameRegistry.registerBlock(steel_poles, steel_poles.getUnlocalizedName());\r\n",
+          "new": "\t\tGameRegistry.registerBlock(tape_recorder, tape_recorder.getTranslationKey());\r\n\t\tGameRegistry.registerBlock(steel_poles, steel_poles.getTranslationKey());\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockAlgaeFilm.java": {
+      "before_sha256": "7203bbee9079a9957329916aa17bc518a158debb563bcc4e90e4c3673f8e6f55",
+      "after_sha256": "59acee7204c4f15d5b48fc3f1c07495f7289e75f6764532ad9761d1e7fb9c1d7",
+      "edits": [
+        {
+          "before_offset": 285,
+          "after_offset": 285,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "import net.minecraft.block.properties.PropertyDirection;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 662,
+          "after_offset": 924,
+          "old": "import net.minecraft.util.math.MathHelper;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 956,
+          "after_offset": 1175,
+          "old": "",
+          "new": "        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));\n"
+        },
+        {
+          "before_offset": 960,
+          "after_offset": 1270,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "    public static final PropertyDirection FACING = PropertyDirection.create(\"facing\", EnumFacing.Plane.HORIZONTAL);\n"
+        },
+        {
+          "before_offset": 1037,
+          "after_offset": 1387,
+          "old": "\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\n\t\tif(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\tif(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\tif(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\tif(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);\n\t}\n",
+          "new": "    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, FACING); }\n    @Override public IBlockState getStateFromMeta(int meta) {\n        EnumFacing facing = meta >= 2 && meta <= 5 ? EnumFacing.byIndex(meta) : EnumFacing.NORTH;\n        return getDefaultState().withProperty(FACING, facing.getAxis().isHorizontal() ? facing : EnumFacing.NORTH);\n    }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(FACING).getIndex(); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n        world.setBlockState(pos, state.withProperty(FACING, player.getHorizontalFacing().getOpposite()), 2);\n    }\n"
+        },
+        {
+          "before_offset": 1890,
+          "after_offset": 2693,
+          "old": "\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 2640,
+          "after_offset": 3457,
+          "old": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHangingVine.java": {
+      "before_sha256": "b4001ca687048c4102813afd59278f49d2bde39df1254a95d732a75db501aa5d",
+      "after_sha256": "889b3b77e6adfaf3caee7950915840c9212e987d069ba1344adae0574a12234a",
+      "edits": [
+        {
+          "before_offset": 32,
+          "after_offset": 32,
+          "old": "\nimport java.util.ArrayList;\n\nimport com.hbm.lib.RefStrings;\n\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 337,
+          "after_offset": 112,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.state.*;\nimport net.minecraft.util.*;\nimport net.minecraft.util.math.*;\nimport net.minecraft.world.*;\nimport java.util.List;\nimport java.util.Collections;\n"
+        },
+        {
+          "before_offset": 415,
+          "after_offset": 330,
+          "old": "import net.minecraft.init.Blocks;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 486,
+          "after_offset": 367,
+          "old": "import net.minecraft.util.math.AxisAlignedBB;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 686,
+          "after_offset": 412,
+          "old": "import com.hbm.lib.ForgeDirection;\n",
+          "new": "public class BlockHangingVine extends Block implements IShearable {\n public BlockHangingVine(Material material) { super(material); }\n @Override public void onEntityCollision(World world,BlockPos pos,IBlockState state,Entity entity) { entity.motionX*=.5;entity.motionY*=.5;entity.motionZ*=.5;entity.fallDistance=0; }\n @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { return world.isSideSolid(pos.up(),EnumFacing.UP,false) || world.getBlockState(pos.up()).getBlock()==this; }\n public boolean canBlockStay(World world,int x,int y,int z) { return canPlaceBlockAt(world,new BlockPos(x,y,z)); }\n @Override public void neighborChanged(IBlockState state,World world,BlockPos pos,Block block,BlockPos fromPos) { super.neighborChanged(state,world,pos,block,fromPos);if(!canPlaceBlockAt(world,pos))world.setBlockToAir(pos); }\n @Override protected boolean canSilkHarvest() { return true; }\n @Override public boolean isShearable(ItemStack item,IBlockAccess world,BlockPos pos) { return true; }\n @Override public List<ItemStack> onSheared(ItemStack item,IBlockAccess world,BlockPos pos,int fortune) { return Collections.singletonList(new ItemStack(this)); }\n"
+        },
+        {
+          "before_offset": 722,
+          "after_offset": 1577,
+          "old": "public class BlockHangingVine extends Block implements IShearable {\n\n\tpublic BlockHangingVine(Material mat) {\n\t\tsuper(mat);\n\t}\n\t\n\t@Override\n\tpublic void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {\n\t\tentity.motionX *= 0.5;\n\t\tentity.motionY *= 0.5;\n\t\tentity.motionZ *= 0.5;\n\t\tentity.fallDistance = 0F;\n\t}\n\t\n\t@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn this.canBlockStay(world, x, y, z);\n\t}\n\t\n\t@Override\n\tpublic boolean canBlockStay(World world, int x, int y, int z) {\n\t\tBlock b = world.getBlock(x, y + 1, z);\n\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x, y + 1, z, ForgeDirection.UP) || b == this;\n\t}\n\t\n\t@Override\n\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t}\n\n\tprotected void checkAndDropBlock(World world, int x, int y, int z) {\n\t\tif(!this.canBlockStay(world, x, y, z)) {\n\t\t\tworld.setBlock(x, y, z, Blocks.air);\n\t\t}\n\t}\n\t\n\t@Override protected boolean canSilkHarvest() { return true; }\n\t\n\t@Override\n\tpublic boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) {\n\t\treturn true;\n\t}\n\t\n\t@Override\n\tpublic ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {\n\t\tArrayList<ItemStack> ret = new ArrayList<ItemStack>();\n\t\tret.add(new ItemStack(this)); //placeholder\n\t\treturn ret;\n\t}\n\t\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn null;\n\t}\n\t\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@SideOnly(Side.CLIENT) public IIcon iconItem;\n\t@SideOnly(Side.CLIENT) public IIcon iconGround; //when touching a solid face below\n\t@SideOnly(Side.CLIENT) public IIcon iconHang; //when hanging mid-air\n\t@SideOnly(Side.CLIENT) public IIcon iconGlow; //regular phosphor\n\t@SideOnly(Side.CLIENT) public IIcon iconHangGlow; //phosphor in different position when hanging for variety\n\t\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.iconItem = reg.registerIcon(RefStrings.MODID + \":vine_phosphor_item\");\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":vine_phosphor\");\n\t\tthis.iconGround = reg.registerIcon(RefStrings.MODID + \":vine_phosphor_ground\");\n\t\tthis.iconHang = reg.registerIcon(RefStrings.MODID + \":vine_phosphor_hang\");\n\t\tthis.iconGlow = reg.registerIcon(RefStrings.MODID + \":vine_phosphor_spots\");\n\t\tthis.iconHangGlow = reg.registerIcon(RefStrings.MODID + \":vine_phosphor_spots_hang\");\n\t}\n\t\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, boolean pass) {\n\t\tBlock b = world.getBlock(x, y - 1, z);\n\t\t\n\t\tif(!pass)\n\t\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x, y, z, ForgeDirection.UP) ? iconGround : b == this ? blockIcon : iconHang;\n\t\telse\n\t\t\treturn b.isAir(world, x, y, z) ? iconHangGlow : iconGlow;\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\t\treturn this.iconItem;\n\t}\n\t\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\t\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": " @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n @Override public boolean isFullCube(IBlockState state) { return false; }\n @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) { return NULL_AABB; }\n @Override protected BlockStateContainer createBlockState() { return PlantBlockState.create(this); }\n @Override public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos) { return PlantBlockState.extend(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPedestal.java": {
+      "before_sha256": "975aee2243ba386276bb8b2e7ca7dfd56ebb41de5a9d6f5dd232b6cca8ec982e",
+      "after_sha256": "0a25583d09f124d849c5ae9ea9bab331fd1de0d0cedcaa37b07e69be6bef9f31",
+      "edits": [
+        {
+          "before_offset": 0,
+          "after_offset": 0,
+          "old": "package com.hbm.blocks.generic;\r\n\r\nimport java.util.List;\r\n\r\nimport com.hbm.dim.WorldProviderCelestial;\r\nimport com.hbm.extprop.HbmPlayerProps;\r\nimport com.hbm.inventory.recipes.PedestalRecipes;\r\nimport com.hbm.inventory.recipes.PedestalRecipes.PedestalRecipe;\r\nimport com.hbm.lib.RefStrings;\r\nimport com.hbm.main.MainRegistry;\r\nimport com.hbm.particle.helper.ExplosionSmallCreator;\r\nimport com.hbm.util.Compat;\r\n\r\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\r\nimport net.minecraftforge.fml.relauncher.Side;\r\nimport net.minecraftforge.fml.relauncher.SideOnly;\r\nimport net.minecraft.block.Block;\r\nimport net.minecraft.block.BlockContainer;\r\nimport net.minecraft.block.material.Material;\r\nimport com.hbm.render.icon.IIconRegister;\nimport net.minecraft.entity.item.EntityItem;\r\nimport net.minecraft.entity.player.EntityPlayer;\r\nimport net.minecraft.item.ItemStack;\r\nimport net.minecraft.nbt.NBTTagCompound;\r\nimport net.minecraft.network.NetworkManager;\r\n",
+          "new": "package com.hbm.blocks.generic;\n\nimport java.util.List;\n\nimport com.hbm.dim.WorldProviderCelestial;\nimport com.hbm.extprop.HbmPlayerProps;\nimport com.hbm.inventory.recipes.PedestalRecipes;\nimport com.hbm.inventory.recipes.PedestalRecipes.PedestalRecipe;\nimport com.hbm.lib.RefStrings;\nimport com.hbm.main.MainRegistry;\nimport com.hbm.particle.helper.ExplosionSmallCreator;\n\n\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\nimport net.minecraft.block.Block;\nimport net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\n\nimport net.minecraft.entity.item.EntityItem;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.nbt.NBTTagCompound;\nimport net.minecraft.network.NetworkManager;\n"
+        },
+        {
+          "before_offset": 1037,
+          "after_offset": 1088,
+          "old": "import net.minecraft.tileentity.TileEntity;\r\nimport net.minecraft.util.math.AxisAlignedBB;\r\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\r\nimport net.minecraft.world.World;\r\nimport com.hbm.lib.ForgeDirection;\r\n\r\npublic class BlockPedestal extends BlockContainer {\r\n\r\n\tprotected IIcon iconSide;\r\n\r\n\tpublic BlockPedestal() {\r\n\t\tsuper(Material.rock);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\r\n\t\treturn new TileEntityPedestal();\r\n\t}\r\n\r\n\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\r\n\t\tsuper.registerBlockIcons(iconRegister);\r\n\t\tthis.iconSide = iconRegister.registerIcon(RefStrings.MODID + \":pedestal_side\");\r\n\t}\r\n\r\n\t@Override\r\n\t@SideOnly(Side.CLIENT)\r\n\tpublic IIcon getIcon(int side, int meta) {\r\n\t\treturn side == 0 || side == 1 ? this.blockIcon : this.iconSide;\r\n\t}\r\n\r\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\r\n\r\n\t@Override public int getRenderType() { return renderID; }\r\n\t@Override public boolean isOpaqueCube() { return false; }\r\n\t@Override public boolean renderAsNormalBlock() { return false; }\r\n\t@Override @SideOnly(Side.CLIENT) public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) { return true; }\r\n\r\n\t@Override\r\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\r\n\t\tif(player.isSneaking()) return false;\r\n\r\n\t\tTileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(x, y, z);\r\n\r\n\t\tif(pedestal.item == null && player.getHeldItem() != null) {\r\n\t\t\tif(world.isRemote) return true;\r\n\t\t\tpedestal.item = player.getHeldItem().copy();\r\n\t\t\tplayer.inventory.mainInventory[player.inventory.currentItem] = null;\r\n\t\t\tpedestal.markDirty();\r\n\t\t\tworld.markBlockForUpdate(x, y, z);\r\n\t\t\treturn true;\r\n\t\t} else if(pedestal.item != null && player.getHeldItem() == null) {\r\n\t\t\tif(world.isRemote) return true;\r\n\t\t\tplayer.inventory.mainInventory[player.inventory.currentItem] = pedestal.item.copy();\r\n\t\t\tpedestal.item = null;\r\n\t\t\tpedestal.markDirty();\r\n\t\t\tworld.markBlockForUpdate(x, y, z);\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\treturn false;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void breakBlock(World world, int x, int y, int z, Block block, int meta) {\r\n\r\n\t\tif(!world.isRemote) {\r\n\t\t\tTileEntityPedestal entity = (TileEntityPedestal) world.getTileEntity(x, y, z);\r\n\t\t\tif(entity != null && entity.item != null) {\r\n\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, entity.item.copy());\r\n\t\t\t\tworld.spawnEntityInWorld(item);\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tsuper.breakBlock(world, x, y, z, block, meta);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\r\n\t\tif(!world.isRemote) {\r\n\t\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\r\n\r\n\t\t\t\tTileEntityPedestal nw = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2));\r\n\t\t\t\tTileEntityPedestal n = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.NORTH.offsetX * 3, y, z + ForgeDirection.NORTH.offsetZ * 3));\r\n\t\t\t\tTileEntityPedestal ne = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2));\r\n\t\t\t\tTileEntityPedestal w = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.WEST.offsetX * 3, y, z + ForgeDirection.WEST.offsetZ * 3));\r\n\t\t\t\tTileEntityPedestal center = (TileEntityPedestal) world.getTileEntity(x, y, z);\r\n\t\t\t\tTileEntityPedestal e = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.EAST.offsetX * 3, y, z + ForgeDirection.EAST.offsetZ * 3));\r\n\t\t\t\tTileEntityPedestal sw = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2));\r\n\t\t\t\tTileEntityPedestal s = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.SOUTH.offsetX * 3, y, z + ForgeDirection.SOUTH.offsetZ * 3));\r\n\t\t\t\tTileEntityPedestal se = castOrNull(Compat.getTileStandard(world, x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2));\r\n\r\n\t\t\t\tTileEntityPedestal[] tileArray = new TileEntityPedestal[] {nw, n, ne, w, center, e, sw, s, se};\r\n\t\t\t\tList<EntityPlayer> nearbyPlayers = world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1).expand(20, 20, 20));\r\n\r\n\t\t\t\touter: for(PedestalRecipe recipe : PedestalRecipes.recipes) {\r\n\r\n\t\t\t\t\t/// EXTRA CONDITIONS ///\r\n\t\t\t\t\tif(recipe.extra == recipe.extra.FULL_MOON) {\r\n\t\t\t\t\t\tif(world.getCelestialAngle(0) < 0.35 || world.getCelestialAngle(0) > 0.65) continue;\r\n\t\t\t\t\t\tif(world.provider.getMoonPhase(world.getWorldTime()) != 0) continue;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\t// Changed requirement to eclipse in spork\r\n\t\t\t\t\tif(recipe.extra == recipe.extra.NEW_MOON) {\r\n\t\t\t\t\t\tif(world.provider instanceof WorldProviderCelestial) {\r\n\t\t\t\t\t\t\tif(world.getCelestialAngle(0) > 0.15 && world.getCelestialAngle(0) < 0.85) continue;\r\n\t\t\t\t\t\t\tif(!((WorldProviderCelestial) world.provider).isEclipse()) continue;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(world.getCelestialAngle(0) < 0.35 || world.getCelestialAngle(0) > 0.65) continue;\r\n\t\t\t\t\t\t\tif(world.provider.getMoonPhase(world.getWorldTime()) != 4) continue;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif(recipe.extra == recipe.extra.SUN) {\r\n\t\t\t\t\t\tif(world.getCelestialAngle(0) > 0.15 && world.getCelestialAngle(0) < 0.85) continue;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif(recipe.extra == recipe.extra.BAD_KARMA) {\r\n\t\t\t\t\t\tboolean matches = false;\r\n\t\t\t\t\t\tfor(EntityPlayer player : nearbyPlayers) if(HbmPlayerProps.getData(player).reputation <= -10) { matches = true; break; }\r\n\t\t\t\t\t\tif(!matches) continue;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif(recipe.extra == recipe.extra.GOOD_KARMA) {\r\n\t\t\t\t\t\tboolean matches = false;\r\n\t\t\t\t\t\tfor(EntityPlayer player : nearbyPlayers) if(HbmPlayerProps.getData(player).reputation >= 10) { matches = true; break; }\r\n\t\t\t\t\t\tif(!matches) continue;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\t/// CHECK ITEMS ///\r\n\t\t\t\t\tfor(int i = 0; i < 9; i++) {\r\n\t\t\t\t\t\tItemStack pedestal = tileArray[i] != null ? tileArray[i].item : null;\r\n\t\t\t\t\t\tif(pedestal == null && recipe.input[i] != null) continue outer;\r\n\t\t\t\t\t\tif(pedestal != null && recipe.input[i] == null) continue outer;\r\n\t\t\t\t\t\tif(pedestal == null && recipe.input[i] == null) continue;\r\n\r\n\t\t\t\t\t\tif(!recipe.input[i].matchesRecipe(pedestal, true) || recipe.input[i].stacksize != pedestal.stackSize) continue outer;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\t/// REMOVE ITEMS ///\r\n\t\t\t\t\tfor(int i = 0; i < 9; i++) {\r\n\t\t\t\t\t\tif(i == 4) continue;\r\n\t\t\t\t\t\tItemStack pedestal = tileArray[i] != null ? tileArray[i].item : null;\r\n\t\t\t\t\t\tif(pedestal == null && recipe.input[i] == null) continue;\r\n\t\t\t\t\t\ttileArray[i].item = null;\r\n\t\t\t\t\t\ttileArray[i].markDirty();\r\n\t\t\t\t\t\tworld.markBlockForUpdate(tileArray[i].xCoord, tileArray[i].yCoord, tileArray[i].zCoord);\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\t/// PRODUCE RESULT ///\r\n\t\t\t\t\tcenter.item = recipe.output.copy();\r\n\t\t\t\t\tcenter.markDirty();\r\n\t\t\t\t\tworld.markBlockForUpdate(x, y, z);\r\n\t\t\t\t\tExplosionSmallCreator.composeEffect(world, x + 0.5, y + 1.5, z + 0.5, 10, 2.5F, 1F);\r\n\r\n\t\t\t\t\tList<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x + 0.5, y, z + 0.5, x + 0.5, y, z + 0.5).expand(50, 50, 50));\r\n\t\t\t\t\tfor(EntityPlayer player : players) player.addStat(MainRegistry.statLegendary, 1);\r\n\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\tpublic static TileEntityPedestal castOrNull(TileEntity tile) {\r\n\t\tif(tile instanceof TileEntityPedestal) return (TileEntityPedestal) tile;\r\n\t\treturn null;\r\n\t}\r\n\r\n\tpublic static class TileEntityPedestal extends TileEntity {\r\n\r\n\t\tpublic ItemStack item;\r\n\r\n\r\n\t\t@Override\r\n",
+          "new": "import net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.math.AxisAlignedBB;\n\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport com.hbm.lib.ForgeDirection;\n\npublic class BlockPedestal extends BlockContainer {\n\n\n\tpublic BlockPedestal() {\n\t\tsuper(Material.ROCK);\n\t}\n\n\t@Override\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\n\t\treturn new TileEntityPedestal();\n\t}\n\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n\t@Override public boolean isOpaqueCube(IBlockState state) { return false; }\n\t@Override public boolean isFullCube(IBlockState state) { return false; }\n\t@Override public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return net.minecraft.block.state.BlockFaceShape.UNDEFINED; }\n\t@Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) { return true; }\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n\t\tif(player.isSneaking()) return false;\n\n\t\tTileEntityPedestal pedestal = (TileEntityPedestal) world.getTileEntity(pos);\n\n\t\tif(pedestal.item == null && !player.getHeldItem(hand).isEmpty()) {\n\t\t\tif(world.isRemote) return true;\n\t\t\tpedestal.item = player.getHeldItem(hand).copy();\n\t\t\tplayer.setHeldItem(hand, ItemStack.EMPTY);\n\t\t\tpedestal.markDirty();\n\t\t\tsync(world, pos);\n\t\t\treturn true;\n\t\t} else if(pedestal.item != null && player.getHeldItem(hand).isEmpty()) {\n\t\t\tif(world.isRemote) return true;\n\t\t\tplayer.setHeldItem(hand, pedestal.item.copy());\n\t\t\tpedestal.item = null;\n\t\t\tpedestal.markDirty();\n\t\t\tsync(world, pos);\n\t\t\treturn true;\n\t\t}\n\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\n\t\tif(!world.isRemote) {\n\t\t\tTileEntityPedestal entity = (TileEntityPedestal) world.getTileEntity(pos);\n\t\t\tif(entity != null && entity.item != null) {\n\t\t\t\tEntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, entity.item.copy());\n\t\t\t\tworld.spawnEntity(item);\n\t\t\t}\n\t\t}\n\n\t\tsuper.breakBlock(world, pos, state);\n\t}\n\n\t@Override\n\tpublic void neighborChanged(IBlockState state, World world, BlockPos pos, Block b, BlockPos fromPos) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tif(!world.isRemote) {\n\t\t\tif(world.isBlockPowered(pos)) {\n\n\t\t\t\tTileEntityPedestal nw = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2)));\n\t\t\t\tTileEntityPedestal n = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.NORTH.offsetX * 3, y, z + ForgeDirection.NORTH.offsetZ * 3)));\n\t\t\t\tTileEntityPedestal ne = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.NORTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.NORTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2)));\n\t\t\t\tTileEntityPedestal w = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.WEST.offsetX * 3, y, z + ForgeDirection.WEST.offsetZ * 3)));\n\t\t\t\tTileEntityPedestal center = (TileEntityPedestal) world.getTileEntity(pos);\n\t\t\t\tTileEntityPedestal e = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.EAST.offsetX * 3, y, z + ForgeDirection.EAST.offsetZ * 3)));\n\t\t\t\tTileEntityPedestal sw = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.WEST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.WEST.offsetZ * 2)));\n\t\t\t\tTileEntityPedestal s = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.SOUTH.offsetX * 3, y, z + ForgeDirection.SOUTH.offsetZ * 3)));\n\t\t\t\tTileEntityPedestal se = castOrNull(loadedTile(world, new BlockPos(x + ForgeDirection.SOUTH.offsetX * 2 + ForgeDirection.EAST.offsetX * 2, y, z + ForgeDirection.SOUTH.offsetZ * 2 + ForgeDirection.EAST.offsetZ * 2)));\n\n\t\t\t\tTileEntityPedestal[] tileArray = new TileEntityPedestal[] {nw, n, ne, w, center, e, sw, s, se};\n\t\t\t\tList<EntityPlayer> nearbyPlayers = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1).grow(20, 20, 20));\n\n\t\t\t\touter: for(PedestalRecipe recipe : PedestalRecipes.recipes) {\n\n\t\t\t\t\t/// EXTRA CONDITIONS ///\n\t\t\t\t\tif(recipe.extra == recipe.extra.FULL_MOON) {\n\t\t\t\t\t\tif(world.getCelestialAngle(0) < 0.35 || world.getCelestialAngle(0) > 0.65) continue;\n\t\t\t\t\t\tif(world.provider.getMoonPhase(world.getWorldTime()) != 0) continue;\n\t\t\t\t\t}\n\n\t\t\t\t\t// Changed requirement to eclipse in spork\n\t\t\t\t\tif(recipe.extra == recipe.extra.NEW_MOON) {\n\t\t\t\t\t\tif(world.provider instanceof WorldProviderCelestial) {\n\t\t\t\t\t\t\tif(world.getCelestialAngle(0) > 0.15 && world.getCelestialAngle(0) < 0.85) continue;\n\t\t\t\t\t\t\tif(!((WorldProviderCelestial) world.provider).isEclipse()) continue;\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\tif(world.getCelestialAngle(0) < 0.35 || world.getCelestialAngle(0) > 0.65) continue;\n\t\t\t\t\t\t\tif(world.provider.getMoonPhase(world.getWorldTime()) != 4) continue;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\n\t\t\t\t\tif(recipe.extra == recipe.extra.SUN) {\n\t\t\t\t\t\tif(world.getCelestialAngle(0) > 0.15 && world.getCelestialAngle(0) < 0.85) continue;\n\t\t\t\t\t}\n\n\t\t\t\t\tif(recipe.extra == recipe.extra.BAD_KARMA) {\n\t\t\t\t\t\tboolean matches = false;\n\t\t\t\t\t\tfor(EntityPlayer player : nearbyPlayers) if(HbmPlayerProps.getData(player).reputation <= -10) { matches = true; break; }\n\t\t\t\t\t\tif(!matches) continue;\n\t\t\t\t\t}\n\n\t\t\t\t\tif(recipe.extra == recipe.extra.GOOD_KARMA) {\n\t\t\t\t\t\tboolean matches = false;\n\t\t\t\t\t\tfor(EntityPlayer player : nearbyPlayers) if(HbmPlayerProps.getData(player).reputation >= 10) { matches = true; break; }\n\t\t\t\t\t\tif(!matches) continue;\n\t\t\t\t\t}\n\n\t\t\t\t\t/// CHECK ITEMS ///\n\t\t\t\t\tfor(int i = 0; i < 9; i++) {\n\t\t\t\t\t\tItemStack pedestal = tileArray[i] != null ? tileArray[i].item : null;\n\t\t\t\t\t\tif(pedestal == null && recipe.input[i] != null) continue outer;\n\t\t\t\t\t\tif(pedestal != null && recipe.input[i] == null) continue outer;\n\t\t\t\t\t\tif(pedestal == null && recipe.input[i] == null) continue;\n\n\t\t\t\t\t\tif(!recipe.input[i].matchesRecipe(pedestal, true) || recipe.input[i].stacksize != pedestal.getCount()) continue outer;\n\t\t\t\t\t}\n\n\t\t\t\t\t/// REMOVE ITEMS ///\n\t\t\t\t\tfor(int i = 0; i < 9; i++) {\n\t\t\t\t\t\tif(i == 4) continue;\n\t\t\t\t\t\tItemStack pedestal = tileArray[i] != null ? tileArray[i].item : null;\n\t\t\t\t\t\tif(pedestal == null && recipe.input[i] == null) continue;\n\t\t\t\t\t\ttileArray[i].item = null;\n\t\t\t\t\t\ttileArray[i].markDirty();\n\t\t\t\t\t\tsync(world, tileArray[i].getPos());\n\t\t\t\t\t}\n\n\t\t\t\t\t/// PRODUCE RESULT ///\n\t\t\t\t\tcenter.item = recipe.output.copy();\n\t\t\t\t\tcenter.markDirty();\n\t\t\t\t\tsync(world, pos);\n\t\t\t\t\tExplosionSmallCreator.composeEffect(world, x + 0.5, y + 1.5, z + 0.5, 10, 2.5F, 1F);\n\n\t\t\t\t\tList<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x + 0.5, y, z + 0.5, x + 0.5, y, z + 0.5).grow(50, 50, 50));\n\t\t\t\t\tfor(EntityPlayer player : players) player.addStat(MainRegistry.statLegendary, 1);\n\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\tprivate static TileEntity loadedTile(World world, BlockPos pos) {\n\t\treturn world.isBlockLoaded(pos, false) ? world.getTileEntity(pos) : null;\n\t}\n\n\tprivate static void sync(World world, BlockPos pos) {\n\t\tIBlockState state = world.getBlockState(pos);\n\t\tworld.notifyBlockUpdate(pos, state, state, 3);\n\t}\n\n\tpublic static TileEntityPedestal castOrNull(TileEntity tile) {\n\t\tif(tile instanceof TileEntityPedestal) return (TileEntityPedestal) tile;\n\t\treturn null;\n\t}\n\n\tpublic static class TileEntityPedestal extends TileEntity {\n\n\t\tpublic ItemStack item;\n\n\n\t\t@Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }\n\n\t\t@Override\n"
+        },
+        {
+          "before_offset": 8958,
+          "after_offset": 8946,
+          "old": "\t\t\tNBTTagCompound nbt = new NBTTagCompound();\r\n\t\t\tthis.writeToNBT(nbt);\r\n",
+          "new": "\t\t\tNBTTagCompound nbt = new NBTTagCompound();\n\t\t\tthis.writeToNBT(nbt);\n"
+        },
+        {
+          "before_offset": 9093,
+          "after_offset": 9079,
+          "old": "\t\t}\r\n\r\n\t\t@Override\r\n",
+          "new": "\t\t}\n\n\t\t@Override\n"
+        },
+        {
+          "before_offset": 9234,
+          "after_offset": 9217,
+          "old": "\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic void readFromNBT(NBTTagCompound nbt) {\r\n\t\t\tsuper.readFromNBT(nbt);\r\n\t\t\tthis.item = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag(\"item\"));\r\n\t\t}\r\n\r\n\t\t@Override\r\n\t\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\r\n\t\t\tsuper.writeToNBT(nbt);\r\n\t\t\tif(this.item != null) {\r\n\t\t\t\tNBTTagCompound stack = new NBTTagCompound();\r\n\t\t\t\tthis.item.writeToNBT(stack);\r\n\t\t\t\tnbt.setTag(\"item\", stack);\r\n\t\t\t}\r\n\t\t\treturn nbt;\r\n\t\t}\r\n\t}\r\n}\r\n",
+          "new": "\t\t}\n\n\t\t@Override\n\t\tpublic void readFromNBT(NBTTagCompound nbt) {\n\t\t\tsuper.readFromNBT(nbt);\n\t\t\tItemStack loaded = new ItemStack(nbt.getCompoundTag(\"item\"));\n\t\t\tthis.item = loaded.isEmpty() ? null : loaded;\n\t\t}\n\n\t\t@Override\n\t\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\n\t\t\tsuper.writeToNBT(nbt);\n\t\t\tif(this.item != null) {\n\t\t\t\tNBTTagCompound stack = new NBTTagCompound();\n\t\t\t\tthis.item.writeToNBT(stack);\n\t\t\t\tnbt.setTag(\"item\", stack);\n\t\t\t} else { nbt.removeTag(\"item\"); }\n\t\t\treturn nbt;\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockReeds.java": {
+      "before_sha256": "0466b686c6c03f5c11431d6321af9030d34737d10beaefb3d29f5206d5760853",
+      "after_sha256": "2a0ebc26b350c5af3c2497cdc07db48e15a6c788ba82f2c21d3f16cef76d3c27",
+      "edits": [
+        {
+          "before_offset": 32,
+          "after_offset": 32,
+          "old": "\n",
+          "new": "import net.minecraft.block.Block;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.block.state.*;\nimport net.minecraft.util.*;\nimport net.minecraft.util.math.*;\nimport net.minecraft.world.*;\n"
+        },
+        {
+          "before_offset": 58,
+          "after_offset": 266,
+          "old": "\nimport com.hbm.lib.RefStrings;\n\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\nimport net.minecraft.block.Block;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.material.Material;\nimport com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 521,
+          "after_offset": 365,
+          "old": "import net.minecraft.util.math.AxisAlignedBB;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.World;\nimport net.minecraft.util.math.BlockPos;\n",
+          "new": "public class BlockReeds extends Block {\n public BlockReeds() { super(Material.PLANTS); }\n @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { Block below=world.getBlockState(pos.down()).getBlock(); return below==Blocks.WATER || below==Blocks.FLOWING_WATER; }\n public boolean canBlockStay(World world,int x,int y,int z) { return canPlaceBlockAt(world,new BlockPos(x,y,z)); }\n @Override public void neighborChanged(IBlockState state,World world,BlockPos pos,Block block,BlockPos fromPos) { super.neighborChanged(state,world,pos,block,fromPos); if(!canPlaceBlockAt(world,pos)) world.setBlockToAir(pos); }\n @Override public Item getItemDropped(IBlockState state,Random random,int fortune) { return Items.STICK; }\n"
+        },
+        {
+          "before_offset": 677,
+          "after_offset": 1092,
+          "old": "public class BlockReeds extends Block {\n\t\n\t@SideOnly(Side.CLIENT) public IIcon iconMid;\n\t@SideOnly(Side.CLIENT) public IIcon iconBottom;\n\n\tpublic BlockReeds() {\n\t\tsuper(Material.plants);\n\t}\n\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = reg.registerIcon(RefStrings.MODID + \":reeds_top\");\n\t\tthis.iconMid = reg.registerIcon(RefStrings.MODID + \":reeds_mid\");\n\t\tthis.iconBottom = reg.registerIcon(RefStrings.MODID + \":reeds_bottom\");\n\t}\n\t\n\tpublic IIcon getIcon(int height) {\n\t\treturn height == 0 ? this.blockIcon : height == 1 ? this.iconMid : this.iconBottom;\n\t}\n\n\t@Override\n\tpublic boolean canPlaceBlockAt(World world, BlockPos pos) {\n\t\tBlock block = world.getBlockState(pos.down()).getBlock();\n\t\treturn block == Blocks.WATER || block == Blocks.FLOWING_WATER;\n\t}\n\t\n\t// Retained for legacy neighbor/update callers while placement uses BlockPos.\n\tpublic boolean canBlockStay(World world, int x, int y, int z) {\n\t\treturn this.canPlaceBlockAt(world, new BlockPos(x, y, z));\n\t}\n\t\n\t@Override\n\tpublic void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {\n\t\tsuper.neighborChanged(state, world, pos, block, fromPos);\n\t\tthis.checkAndDropBlock(world, pos.getX(), pos.getY(), pos.getZ());\n\t}\n\n\tprotected void checkAndDropBlock(World world, int x, int y, int z) {\n\t\tif(!this.canBlockStay(world, x, y, z)) {\n\t\t\tworld.setBlockState(new BlockPos(x, y, z), Blocks.AIR.getDefaultState(), 3);\n\t\t}\n\t}\n\t\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn null;\n\t}\n\n\t@Override\n\tpublic Item getItemDropped(int meta, Random rand, int fortune) {\n\t\treturn Items.stick;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": " @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n @Override public boolean isFullCube(IBlockState state) { return false; }\n @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) { return NULL_AABB; }\n @Override protected BlockStateContainer createBlockState() { return PlantBlockState.create(this); }\n @Override public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos) { return PlantBlockState.extend(state,world,pos); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockScaffold.java": {
+      "before_sha256": "566d85dd1c93a3aa2ed4d6d00150db20aa2454549f970d7ad9668ea4c019b7f5",
+      "after_sha256": "2b8b964df94193d83c6bbdb2cc22c14e114a0ca34e850c1c346ab8ee5416a48e",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import com.hbm.blocks.BlockMulti;\nimport com.hbm.blocks.ModBlocks;\nimport com.hbm.lib.RefStrings;\n\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": "import com.hbm.blocks.IBlockMulti;\nimport net.minecraft.block.Block;\n"
+        },
+        {
+          "before_offset": 341,
+          "after_offset": 148,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.creativetab.CreativeTabs;\n"
+        },
+        {
+          "before_offset": 466,
+          "after_offset": 482,
+          "old": "import net.minecraft.util.math.AxisAlignedBB;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.util.math.MathHelper;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport com.hbm.lib.ForgeDirection;\n",
+          "new": "import net.minecraft.util.*;\nimport net.minecraft.util.math.*;\nimport net.minecraft.world.*;\n"
+        },
+        {
+          "before_offset": 700,
+          "after_offset": 576,
+          "old": "public class BlockScaffold extends BlockMulti {\n\t\n\tprotected String[] variants = new String[] {\"scaffold_steel\", \"scaffold_red\", \"scaffold_white\", \"scaffold_yellow\"};\n\t@SideOnly(Side.CLIENT) protected IIcon[] icons;\n\n\tpublic BlockScaffold() {\n\t\tsuper(Material.iron);\n\t}\n\n\tpublic static int renderIDScaffold = RenderingRegistry.getNextAvailableRenderId();\n\t\n\t@Override\n\tpublic int getRenderType(){\n\t\treturn renderIDScaffold;\n\t}\n\t\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tthis.blockIcon = ModBlocks.deco_steel.getIcon(0, 0);\n\t\tthis.icons = new IIcon[variants.length];\n\t\t\n\t\tfor(int i = 0; i < variants.length; i++) {\n\t\t\tthis.icons[i] = reg.registerIcon(RefStrings.MODID + \":\" + variants[i]);\n\t\t}\n\t}\n\t\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\t\treturn this.icons[this.damageDropped(meta)];\n\t}\n\n\t@Override\n\tpublic int onBlockPlaced(World world, int x, int y, int z, int side, float fx, float fy, float fz, int meta) {\n\t\treturn side;\n\t}\n\t\n\t@Override\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n\t\tForgeDirection placed = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));\n\t\tint meta = stack.getItemDamage();\n\t\t\n\t\tif(placed == ForgeDirection.UP || placed == ForgeDirection.DOWN) {\n\t\t\tint rot = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\t\tif(rot % 2 == 0) {\n\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta, 2);\n\t\t\t} else {\n\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta + 8, 2);\n\t\t\t}\n\t\t} else if(placed == ForgeDirection.NORTH || placed == ForgeDirection.SOUTH) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);\n\t\t} else {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta + 12, 2);\n\t\t}\n\t}\n\n\t@Override\n\tpublic int damageDropped(int meta) {\n\t\treturn rectify(meta);\n\t}\n\n\t@Override\n\tpublic int getSubCount() {\n\t\treturn variants.length;\n\t}\n\t\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tfloat f = 0.0625F;\n\t\t\n\t\tif(meta >= 12) {\n\t\t\tthis.setBlockBounds(0.0F, 2 * f, 0.0F, 1.0F, 14 * f, 1.0F);\n\t\t} else if(meta >= 8) {\n\t\t\tthis.setBlockBounds(2 * f, 0.0F, 0.0F, 14 * f, 1.0F, 1.0F);\n\t\t} else if(meta >= 4) {\n\t\t\tthis.setBlockBounds(0.0F, 2 * f, 0.0F, 1.0F, 14 * f, 1.0F);\n\t\t} else {\n\t\t\tthis.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);\n\t\t}\n\t}\n\t\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tsetBlockBoundsBasedOnState(world, x, y, z);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n",
+          "new": "/** Original four scaffold materials and four mounting orientations, stored in metadata. */\npublic class BlockScaffold extends Block implements IBlockMulti {\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    public BlockScaffold() {\n        super(Material.IRON);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    @Override public int damageDropped(IBlockState state) { return rectify(getMetaFromState(state)); }\n    @Override public int getSubCount() { return 4; }\n    @Override public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {\n        for(int i = 0; i < getSubCount(); i++) items.add(new ItemStack(this, 1, i));\n    }\n    @Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side,\n            float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {\n        // Retain the original two-stage placement: face first, then item color + orientation.\n        return getStateFromMeta(side.getIndex());\n    }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {\n        EnumFacing placed = EnumFacing.byIndex(getMetaFromState(world.getBlockState(pos)));\n        int meta = stack.getItemDamage();\n        if(placed.getAxis() == EnumFacing.Axis.Y) {\n            int rot = MathHelper.floor(placer.rotationYaw * 4F / 360F + .5D) & 3;\n            meta += rot % 2 == 0 ? 0 : 8;\n        } else if(placed.getAxis() == EnumFacing.Axis.Z) meta += 4;\n        else meta += 12;\n        world.setBlockState(pos, getStateFromMeta(meta), 2);\n    }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        int meta = getMetaFromState(state);\n        if(meta >= 12 || meta >= 4 && meta < 8) return new AxisAlignedBB(0, .125, 0, 1, .875, 1);\n        if(meta >= 8) return new AxisAlignedBB(.125, 0, 0, .875, 1, 1);\n        return new AxisAlignedBB(0, 0, .125, 1, 1, .875);\n    }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return getBoundingBox(state, world, pos);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoSteelPoles.java": {
+      "before_sha256": "71b2204c14c1e6b47df0c5c0040e026d4fe5adb860bf656a8910a08f16892f8a",
+      "after_sha256": "b42ad53576d01da80e6928f35dc8b6c84b6107a616476b37caf74e439b59c2a0",
+      "edits": [
+        {
+          "before_offset": 32,
+          "after_offset": 32,
+          "old": "\nimport net.minecraft.block.Block;\n",
+          "new": "import net.minecraft.block.*;\n"
+        },
+        {
+          "before_offset": 113,
+          "after_offset": 108,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.*;\n"
+        },
+        {
+          "before_offset": 196,
+          "after_offset": 282,
+          "old": "import net.minecraft.util.math.MathHelper;\nimport net.minecraft.world.World;\n",
+          "new": "import net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.*;\nimport net.minecraft.util.math.*;\nimport net.minecraft.world.*;\npublic class DecoSteelPoles extends Block {\n    public DecoSteelPoles(Material material) { super(material); setDefaultState(blockState.getBaseState().withProperty(METADATA, 0)); }\n"
+        },
+        {
+          "before_offset": 274,
+          "after_offset": 600,
+          "old": "public class DecoSteelPoles extends Block {\n\n\tpublic DecoSteelPoles(Material p_i45386_1_) {\n\t\tsuper(p_i45386_1_);\n\t}\n\t\n\t@Override\n\tpublic int getRenderType(){\n\t\treturn DecoTapeRecorder.renderID;\n\t}\n\t\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\t\n\t\tif(i == 0)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\t}\n\t\tif(i == 1)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\t}\n\t\tif(i == 2)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\t}\n\t\tif(i == 3)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n\t\t}\n\t}\n\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n        int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n        int[] orientation = {2, 5, 3, 4};\n        world.setBlockState(pos, getStateFromMeta(orientation[i]), 2);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoTapeRecorder.java": {
+      "before_sha256": "e451ea8c7b3fb3c3a4ed5933f06c55dff39b7c2237bd8f9ece5e4a6abcb2174f",
+      "after_sha256": "e11fea412a58192aac5b963d71726531b4ca8aab401d9009b579475a1c411ad3",
+      "edits": [
+        {
+          "before_offset": 32,
+          "after_offset": 32,
+          "old": "\nimport com.hbm.world.gen.nbt.INBTBlockTransformable;\n\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraft.block.BlockContainer;\n",
+          "new": "import net.minecraft.block.*;\n"
+        },
+        {
+          "before_offset": 241,
+          "after_offset": 108,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.*;\n"
+        },
+        {
+          "before_offset": 368,
+          "after_offset": 326,
+          "old": "import net.minecraft.util.math.MathHelper;\nimport net.minecraft.world.World;\n",
+          "new": "import net.minecraft.util.*;\nimport net.minecraft.util.math.*;\nimport net.minecraft.world.*;\nimport com.hbm.world.gen.nbt.INBTBlockTransformable;\npublic class DecoTapeRecorder extends BlockContainer implements INBTBlockTransformable {\n    public DecoTapeRecorder(Material material) { super(material); setDefaultState(blockState.getBaseState().withProperty(METADATA, 0)); }\n"
+        },
+        {
+          "before_offset": 446,
+          "after_offset": 700,
+          "old": "public class DecoTapeRecorder extends BlockContainer implements INBTBlockTransformable {\n\n\tpublic DecoTapeRecorder(Material p_i45386_1_) {\n\t\tsuper(p_i45386_1_);\n\t}\n\n\t@Override\n\tpublic TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {\n\t\treturn null;\n\t}\n\n    public static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType(){\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\n\t\tif(i == 0)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\t}\n\t\tif(i == 1)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\t}\n\t\tif(i == 2)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\t}\n\t\tif(i == 3)\n\t\t{\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n\t\t}\n\t}\n\n\t@Override\n\tpublic int transformMeta(int meta, int coordBaseMode) {\n\t\treturn INBTBlockTransformable.transformMetaDeco(meta, coordBaseMode);\n\t}\n\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n        int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n        int[] orientation = {2, 5, 3, 4};\n        world.setBlockState(pos, getStateFromMeta(orientation[i]), 2);\n    }\n    @Override public TileEntity createNewTileEntity(World world, int metadata) { return null; }\n    @Override public int transformMeta(int meta, int coordBaseMode) { return INBTBlockTransformable.transformMetaDeco(meta, coordBaseMode); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "8dc5e65b29a276248cb4299d4373bfa585709c49b9a6067ce6d6ab53f230f98c",
+      "after_sha256": "5d56389a41b92e51e061232a7764370dcec44aff44a7829bf36139a78e009c37",
+      "edits": [
+        {
+          "before_offset": 80174,
+          "after_offset": 80174,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderScaffoldBlock());\n\t\tRenderingRegistry.registerBlockHandler(new RenderTapeBlock());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 80944,
+          "after_offset": 80810,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderReeds());\n\t\tRenderingRegistry.registerBlockHandler(new RenderHangingVine());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 81196,
+          "after_offset": 80934,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderPedestal());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 81386,
+          "after_offset": 81060,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderAlgaeFilm());\n\t\tRenderingRegistry.registerBlockHandler(new RenderCoral());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "50b9dd052c94e96f732e164c54e585589b6cb316de75c110ba4b077e2594f388",
+      "after_sha256": "82e06f460236970ab41cad39ed9e1121fdb7f1b6a4eb3416519365f466820917",
+      "edits": [
+        {
+          "before_offset": 2716,
+          "after_offset": 2716,
+          "old": "",
+          "new": "import com.hbm.sound.SoundCategoryResolver;\n"
+        },
+        {
+          "before_offset": 4493,
+          "after_offset": 4537,
+          "old": "import net.minecraft.client.entity.EntityClientPlayerMP;\n",
+          "new": "import net.minecraft.client.entity.EntityPlayerSP;\n"
+        },
+        {
+          "before_offset": 5355,
+          "after_offset": 5393,
+          "old": "import net.minecraft.network.play.client.C03PacketPlayer;\nimport net.minecraft.network.play.client.C0CPacketInput;\n",
+          "new": "import net.minecraft.network.play.client.CPacketPlayer;\nimport net.minecraft.network.play.client.CPacketInput;\n"
+        },
+        {
+          "before_offset": 5907,
+          "after_offset": 5941,
+          "old": "import net.minecraftforge.client.event.sound.PlaySoundEvent17;\n",
+          "new": "import net.minecraftforge.client.event.sound.PlaySoundEvent;\n"
+        },
+        {
+          "before_offset": 24775,
+          "after_offset": 24807,
+          "old": "\tpublic void onPlayMusic(PlaySoundEvent17 event) {\n\t\tResourceLocation r = event.sound.getPositionedSoundLocation();\n\t\tif(Minecraft.getMinecraft().theWorld == null) return;\n\t\tif(!r.toString().equals(\"minecraft:music.game.creative\") && !r.toString().equals(\"minecraft:music.game\")) return;\n",
+          "new": "\tpublic void onPlayMusic(PlaySoundEvent event) {\n\t\tResourceLocation r = event.getSound().getSoundLocation();\n\t\tif(Minecraft.getMinecraft().world == null) return;\n\t\tif(!r.toString().equals(\"minecraft:music.creative\") && !r.toString().equals(\"minecraft:music.game\")) return;\n"
+        },
+        {
+          "before_offset": 25230,
+          "after_offset": 25247,
+          "old": "\t\t\tevent.result = null;\n",
+          "new": "\t\t\tevent.setResultSound(null);\n"
+        },
+        {
+          "before_offset": 25315,
+          "after_offset": 25339,
+          "old": "\t\tWorldProvider provider = Minecraft.getMinecraft().theWorld.provider;\n\t\tif((provider instanceof WorldProviderCelestial || provider instanceof WorldProviderOrbit) && provider.dimensionId != 0) {\n\t\t\tevent.result = currentSong = PositionedSoundRecord.func_147673_a(MUSIC_LOCATION);\n",
+          "new": "\t\tWorldProvider provider = Minecraft.getMinecraft().world.provider;\n\t\tif((provider instanceof WorldProviderCelestial || provider instanceof WorldProviderOrbit) && provider.getDimension() != 0) {\n\t\t\tcurrentSong = new PositionedSoundRecord(MUSIC_LOCATION, SoundCategory.MUSIC, 1.0F, 1.0F, false, 0, ISound.AttenuationType.NONE, 0.0F, 0.0F, 0.0F) {\n\t\t\t\t@Override\n\t\t\t\tpublic SoundCategory getCategory() { return SoundCategoryResolver.get(MUSIC_LOCATION); }\n\t\t\t};\n\t\t\tevent.setResultSound(currentSong);\n"
+        },
+        {
+          "before_offset": 25671,
+          "after_offset": 25912,
+          "old": "\tpublic void onPlaySound(PlaySoundEvent17 e) {\n",
+          "new": "\tpublic void onPlaySound(PlaySoundEvent e) {\n"
+        },
+        {
+          "before_offset": 25812,
+          "after_offset": 26051,
+          "old": "\t\tif(player != null && mc.theWorld != null) {\n\t\t\tint i = MathHelper.floor_double(player.posX);\n\t\t\tint j = MathHelper.floor_double(player.posY);\n\t\t\tint k = MathHelper.floor_double(player.posZ);\n\t\t\tBlock block = mc.theWorld.getBlock(i, j, k);\n",
+          "new": "\t\tif(player != null && mc.world != null) {\n\t\t\tint i = MathHelper.floor(player.posX);\n\t\t\tint j = MathHelper.floor(player.posY);\n\t\t\tint k = MathHelper.floor(player.posZ);\n\t\t\tBlock block = mc.world.getBlockState(new BlockPos(i, j, k)).getBlock();\n"
+        },
+        {
+          "before_offset": 26089,
+          "after_offset": 26331,
+          "old": "\t\t\t\te.result = null;\n",
+          "new": "\t\t\t\te.setResultSound(null);\n"
+        },
+        {
+          "before_offset": 26134,
+          "after_offset": 26383,
+          "old": "\t\tResourceLocation r = e.sound.getPositionedSoundLocation();\n",
+          "new": "\t\tResourceLocation r = e.getSound().getSoundLocation();\n"
+        },
+        {
+          "before_offset": 26196,
+          "after_offset": 26440,
+          "old": "\t\tWorldClient wc = mc.theWorld;\n",
+          "new": "\t\tWorldClient wc = mc.world;\n"
+        },
+        {
+          "before_offset": 26386,
+          "after_offset": 26627,
+          "old": "\t\tif(r.toString().equals(\"hbm:misc.nullChopper\") && Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)\n",
+          "new": "\t\tif(r.equals(new ResourceLocation(\"hbm:misc.nullChopper\")) && Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2) != null)\n"
+        },
+        {
+          "before_offset": 26552,
+          "after_offset": 26819,
+          "old": "\t\t\tEntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);\n",
+          "new": "\t\t\tEntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);\n"
+        },
+        {
+          "before_offset": 27044,
+          "after_offset": 27326,
+          "old": "\t\tif(r.toString().equals(\"hbm:misc.nullCrashing\") && Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)\n",
+          "new": "\t\tif(r.equals(new ResourceLocation(\"hbm:misc.nullCrashing\")) && Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2) != null)\n"
+        },
+        {
+          "before_offset": 27211,
+          "after_offset": 27519,
+          "old": "\t\t\tEntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);\n",
+          "new": "\t\t\tEntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);\n"
+        },
+        {
+          "before_offset": 27709,
+          "after_offset": 28032,
+          "old": "\t\tif(r.toString().equals(\"hbm:misc.nullMine\") && Library.getClosestMineForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)\n",
+          "new": "\t\tif(r.equals(new ResourceLocation(\"hbm:misc.nullMine\")) && Library.getClosestMineForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2) != null)\n"
+        },
+        {
+          "before_offset": 27869,
+          "after_offset": 28218,
+          "old": "\t\t\tEntityChopperMine ent = Library.getClosestMineForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);\n",
+          "new": "\t\t\tEntityChopperMine ent = Library.getClosestMineForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);\n"
+        },
+        {
+          "before_offset": 57980,
+          "after_offset": 58344,
+          "old": "\t\tEntityPlayer player = Minecraft.getMinecraft().thePlayer;\n",
+          "new": "\t\tEntityPlayer player = Minecraft.getMinecraft().player;\n"
+        },
+        {
+          "before_offset": 58041,
+          "after_offset": 58402,
+          "old": "\t\tif(player != null && player.ridingEntity instanceof EntityRailCarRidable && player instanceof EntityClientPlayerMP) {\n\t\t\tEntityRailCarRidable train = (EntityRailCarRidable) player.ridingEntity;\n\t\t\tEntityClientPlayerMP client = (EntityClientPlayerMP) player;\n",
+          "new": "\t\tif(player != null && player.getRidingEntity() instanceof EntityRailCarRidable && player instanceof EntityPlayerSP) {\n\t\t\tEntityRailCarRidable train = (EntityRailCarRidable) player.getRidingEntity();\n\t\t\tEntityPlayerSP client = (EntityPlayerSP) player;\n"
+        },
+        {
+          "before_offset": 58454,
+          "after_offset": 58807,
+          "old": "\t\t\t\tclient.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(client.rotationYaw, client.rotationPitch, client.onGround));\n\t\t\t\tclient.sendQueue.addToSendQueue(new C0CPacketInput(client.moveStrafing, client.moveForward, client.movementInput.jump, client.movementInput.sneak));\n",
+          "new": "\t\t\t\tclient.connection.sendPacket(new CPacketPlayer.Rotation(client.rotationYaw, client.rotationPitch, client.onGround));\n\t\t\t\tclient.connection.sendPacket(new CPacketInput(client.moveStrafing, client.moveForward, client.movementInput.jump, client.movementInput.sneak));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderAlgaeFilm.java": {
+      "before_sha256": "8d1e77f77e896ae41203c978f878b7e4c2574ea1eca4920287ff4d25d1b28c55",
+      "after_sha256": "74a980d048e42cf8b64d9399f764ace44f0e20d8d279a6848675b758eec24f1f",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.client.renderer.block.model.*;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 350,
+          "old": "import com.hbm.blocks.generic.BlockAlgaeFilm;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.util.ObjUtil;\n",
+          "new": "/** Native cached quads from the original algae OBJ, retaining ObjUtil's face shading. */\npublic final class RenderAlgaeFilm implements IBakedModel {\n    private final List<BakedQuad> quads;\n    private final TextureAtlasSprite sprite;\n    private final ItemCameraTransforms transforms;\n"
+        },
+        {
+          "before_offset": 182,
+          "after_offset": 638,
+          "old": "import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraftforge.client.model.obj.WavefrontObject;\n\npublic class RenderAlgaeFilm implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\t\tGL11.glPushMatrix();\n\t\t{\n\n\t\t\tTessellator tessellator = Tessellator.instance;\n\t\t\tIIcon iicon = block.getIcon(0, 0);\n\t\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\n\t\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t\t}\n\t\n\t\t\tGL11.glTranslated(0, -0.5, 0);\n\t\t\t// GL11.glScaled(3.0D, 3.0D, 3.0D);\n\t\t\ttessellator.startDrawingQuads();\n\t\t\tObjUtil.renderWithIcon(ResourceManager.algae_film, iicon, tessellator, 0, false);\n\t\t\ttessellator.draw();\n\t\t\t\n\t\t}\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tfloat rotation = 0;\n\t\tif(meta == 4) rotation = 90F / 180F * (float) Math.PI;\n\t\tif(meta == 5) rotation = 270F / 180F * (float) Math.PI;\n\t\tif(meta == 3) rotation = 180F / 180F * (float)Math.PI;\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderWithIcon(ResourceManager.algae_film, iicon, tessellator, rotation, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockAlgaeFilm.renderID;\n\t}\n\t\n",
+          "new": "    public RenderAlgaeFilm(ObjMesh mesh, TextureAtlasSprite sprite, int meta, boolean inventory, ItemCameraTransforms transforms) {\n        this.sprite = sprite;\n        this.transforms = transforms;\n        List<BakedQuad> result = new ArrayList<>();\n        com.hbm.render.block.nativeblock.AtlasObjGeometry.appendWhole(result, mesh, sprite,\n                inventory, rotation(meta), 0F, 1D, 0.5D, 0D, 0.5D);\n        quads = Collections.unmodifiableList(result);\n    }\n    public static float rotation(int meta) {\n        return meta == 4 ? 90F / 180F * (float)Math.PI : meta == 5 ? 270F / 180F * (float)Math.PI : meta == 3 ? (float)Math.PI : 0F;\n    }\n    @Override public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) { return side == null ? quads : Collections.<BakedQuad>emptyList(); }\n    @Override public boolean isAmbientOcclusion() { return false; }\n    @Override public boolean isGui3d() { return true; }\n    @Override public boolean isBuiltInRenderer() { return false; }\n    @Override public TextureAtlasSprite getParticleTexture() { return sprite; }\n    @Override public ItemCameraTransforms getItemCameraTransforms() { return transforms; }\n    @Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderCoral.java": {
+      "before_sha256": "e5de31271032d9cd24c4094655acb936655fcbda04c7fab96911a1153608202f",
+      "after_sha256": "a549ec78c4665968498891c31f13e6ee3a8089573671ff607546a499f8f47bff",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "\nimport com.hbm.blocks.BlockCoral;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\nimport com.hbm.lib.ForgeDirection;\n\npublic class RenderCoral implements ISimpleBlockRenderingHandler {\n\n\tprivate static final ForgeDirection[] directions = new ForgeDirection[] {\n\t\tForgeDirection.NORTH,\n\t\tForgeDirection.SOUTH,\n\t\tForgeDirection.WEST,\n\t\tForgeDirection.EAST,\n\t\tForgeDirection.UP,\n\t\tForgeDirection.DOWN,\n\t};\n\t\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\tTessellator tess = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\ttess.setColorOpaque_F(r, g, b);\n\t\t\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttess.setBrightness(brightness);\n\t\t\n\t\tIIcon icon = block.getIcon(world, x, y, z, 0);\n\t\trenderCrossedSquares(icon, x, y, z, 1.0D, getAttachment(world, x, y, z));\n\t\t\n\t\treturn true;\n\t}\n\n\t// find a block to connect to, biased towards sideways connections\n\tprivate ForgeDirection getAttachment(IBlockAccess world, int x, int y, int z) {\n\t\tfor(ForgeDirection dir : directions) {\n\t\t\tint ox = x + dir.offsetX;\n\t\t\tint oy = y + dir.offsetY;\n\t\t\tint oz = z + dir.offsetZ;\n\n\t\t\tif(world.getBlock(ox, oy, oz).isBlockSolid(world, ox, oy, oz, dir.ordinal())) {\n\t\t\t\treturn dir;\n\t\t\t}\n\t\t}\n\n\t\treturn ForgeDirection.DOWN;\n\t}\n\t\n\t// drawCrossedSquares but with a direction\n\tprivate void renderCrossedSquares(IIcon icon, double x, double y, double z, double height, ForgeDirection dir) {\n\t\tTessellator tess = Tessellator.instance;\n\t\t\n",
+          "new": "import java.util.*;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n/** Original coral coordinate, winding and UV equations, now native quad input. */\npublic final class RenderCoral {\n private RenderCoral() { }\n public static List<double[]> vertices(TextureAtlasSprite icon,double x,double y,double z,double height,EnumFacing dir) {\n  List<double[]> vertices=new ArrayList<>();\n"
+        },
+        {
+          "before_offset": 3805,
+          "after_offset": 2283,
+          "old": "\t\ttess.addVertexWithUV(x + x0, y + y0, z + z0, maxU, maxV); \n\t\ttess.addVertexWithUV(x + x1, y + y1, z + z1, maxU, minV);\n\t\ttess.addVertexWithUV(x + x2, y + y2, z + z2, minU, minV);\n\t\ttess.addVertexWithUV(x + x3, y + y3, z + z3, minU, maxV);\n",
+          "new": "\t\tvertices.add(new double[]{x + x0, y + y0, z + z0, maxU, maxV}); \n\t\tvertices.add(new double[]{x + x1, y + y1, z + z1, maxU, minV});\n\t\tvertices.add(new double[]{x + x2, y + y2, z + z2, minU, minV});\n\t\tvertices.add(new double[]{x + x3, y + y3, z + z3, minU, maxV});\n"
+        },
+        {
+          "before_offset": 4047,
+          "after_offset": 2549,
+          "old": "\t\ttess.addVertexWithUV(x + x3, y + y3, z + z3, maxU, maxV);\n\t\ttess.addVertexWithUV(x + x2, y + y2, z + z2, maxU, minV);\n\t\ttess.addVertexWithUV(x + x1, y + y1, z + z1, minU, minV);\n\t\ttess.addVertexWithUV(x + x0, y + y0, z + z0, minU, maxV); \n",
+          "new": "\t\tvertices.add(new double[]{x + x3, y + y3, z + z3, maxU, maxV});\n\t\tvertices.add(new double[]{x + x2, y + y2, z + z2, maxU, minV});\n\t\tvertices.add(new double[]{x + x1, y + y1, z + z1, minU, minV});\n\t\tvertices.add(new double[]{x + x0, y + y0, z + z0, minU, maxV}); \n"
+        },
+        {
+          "before_offset": 4289,
+          "after_offset": 2815,
+          "old": "\t\ttess.addVertexWithUV(x + x4, y + y4, z + z4, maxU, maxV); \n\t\ttess.addVertexWithUV(x + x5, y + y5, z + z5, maxU, minV);\n\t\ttess.addVertexWithUV(x + x6, y + y6, z + z6, minU, minV);\n\t\ttess.addVertexWithUV(x + x7, y + y7, z + z7, minU, maxV);\n",
+          "new": "\t\tvertices.add(new double[]{x + x4, y + y4, z + z4, maxU, maxV}); \n\t\tvertices.add(new double[]{x + x5, y + y5, z + z5, maxU, minV});\n\t\tvertices.add(new double[]{x + x6, y + y6, z + z6, minU, minV});\n\t\tvertices.add(new double[]{x + x7, y + y7, z + z7, minU, maxV});\n"
+        },
+        {
+          "before_offset": 4531,
+          "after_offset": 3081,
+          "old": "\t\ttess.addVertexWithUV(x + x7, y + y7, z + z7, maxU, maxV);\n\t\ttess.addVertexWithUV(x + x6, y + y6, z + z6, maxU, minV);\n\t\ttess.addVertexWithUV(x + x5, y + y5, z + z5, minU, minV);\n\t\ttess.addVertexWithUV(x + x4, y + y4, z + z4, minU, maxV); \n\t}\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockCoral.renderID;\n\t}\n\t\n",
+          "new": "\t\tvertices.add(new double[]{x + x7, y + y7, z + z7, maxU, maxV});\n\t\tvertices.add(new double[]{x + x6, y + y6, z + z6, maxU, minV});\n\t\tvertices.add(new double[]{x + x5, y + y5, z + z5, minU, minV});\n\t\tvertices.add(new double[]{x + x4, y + y4, z + z4, minU, maxV}); \n return vertices;\n }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderHangingVine.java": {
+      "before_sha256": "06a7ef33fbb2691b454c9c1ed9577a6b3be4eb0fadab4d3aba26ff526d03cfc1",
+      "after_sha256": "261af8690f4acc2df95be3b603d2befd5fe66831f7a52b679b2f451b7eec8120",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "\nimport com.hbm.blocks.generic.BlockHangingVine;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderHangingVine implements ISimpleBlockRenderingHandler {\n\t\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }\n\t\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tess = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\t\n\t\ttess.setColorOpaque_F(r, g, b);\n\t\t\n\t\tBlockHangingVine vine = (BlockHangingVine) block;\n\t\t\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttess.setBrightness(brightness);\n\t\t\n\t\tIIcon icon = vine.getIcon(world, x, y, z, false);\n\t\trenderCrossedSquares(icon, x, y, z, 1.0D);\n\t\t\n\t\ttess.setBrightness(240);\n\t\t\n\t\ticon = vine.getIcon(world, x, y, z, true); //glow pass\n\t\trenderCrossedSquares(icon, x, y, z, 1.0D);\n\t\t\n\t\treturn true;\n\t}\n\t\n\t//fixed implementation of drawCrossedSquares\n\tpublic void renderCrossedSquares(IIcon icon, double x, double y, double z, double height) {\n\t\tTessellator tess = Tessellator.instance;\n\t\t\n\t\tdouble minU = icon.getMinU();\n\t\tdouble minV = icon.getMinV();\n\t\tdouble maxU = icon.getMaxU();\n\t\tdouble maxV = icon.getMaxV();\n\t\t\n\t\tdouble factor = 0.45D * height;\n\t\tdouble minX = x + 0.5D - factor;\n\t\tdouble maxX = x + 0.5D + factor;\n\t\tdouble minZ = z + 0.5D - factor;\n\t\tdouble maxZ = z + 0.5D + factor;\n\t\t\n\t\ttess.addVertexWithUV(minX, y, minZ, maxU, maxV); \n\t\ttess.addVertexWithUV(minX, y + height, minZ, maxU, minV);\n\t\ttess.addVertexWithUV(maxX, y + height, maxZ, minU, minV);\n\t\ttess.addVertexWithUV(maxX, y, maxZ, minU, maxV);\n\t\t\n\t\ttess.addVertexWithUV(maxX, y, maxZ, maxU, maxV);\n\t\ttess.addVertexWithUV(maxX, y + height, maxZ, maxU, minV);\n\t\ttess.addVertexWithUV(minX, y + height, minZ, minU, minV);\n\t\ttess.addVertexWithUV(minX, y, minZ, minU, maxV);\n\t\t\n\t\ttess.addVertexWithUV(maxX, y, minZ, maxU, maxV);\n\t\ttess.addVertexWithUV(maxX, y + height, minZ, maxU, minV);\n\t\ttess.addVertexWithUV(minX, y + height, maxZ, minU, minV);\n\t\ttess.addVertexWithUV(minX, y, maxZ, minU, maxV);\n\t\t\n\t\ttess.addVertexWithUV(minX, y, maxZ, maxU, maxV);\n\t\ttess.addVertexWithUV(minX, y + height, maxZ, maxU, minV);\n\t\ttess.addVertexWithUV(maxX, y + height, minZ, minU, minV);\n\t\ttess.addVertexWithUV(maxX, y, minZ, minU, maxV);\n\t}\n\t\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockHangingVine.renderID;\n\t}\n",
+          "new": "import java.util.*;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n/** The fixed vine cross has the same DOWN coordinates and reversed back-face UVs as coral. */\npublic final class RenderHangingVine {\n private RenderHangingVine() { }\n public static List<double[]> vertices(TextureAtlasSprite icon) { return RenderCoral.vertices(icon,0,0,0,1,EnumFacing.DOWN); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderPedestal.java": {
+      "before_sha256": "09c8d86d433ad99c948bfa45d26ac13511a7a028321fcec225c4413019a76674",
+      "after_sha256": "b142ebd47ce3d993b17deede1eb00ea5ad80a23f2fc12440060a5bb70c31aeae",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 302,
+          "old": "import com.hbm.blocks.generic.BlockPedestal;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderPedestal implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\t\n\t\tfor(int i = 0; i < 3; i++) {\n\t\t\tif(i == 0) renderer.setRenderBounds(0.0, 0.0, 0.0, 1.0, 0.25, 1.0);\n\t\t\tif(i == 1) renderer.setRenderBounds(0.0, 0.75, 0.0, 1.0, 1.0, 1.0);\n\t\t\tif(i == 2) renderer.setRenderBounds(0.125, 0.25, 0.125, 0.875, 0.75, 0.875);\n\t\t\ttessellator.setNormal(0.0F, -1.0F, 0.0F);\n\t\t\trenderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 0, metadata));\n\t\t\ttessellator.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\trenderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 1, metadata));\n\t\t\ttessellator.setNormal(0.0F, 0.0F, -1.0F);\n\t\t\trenderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 2, metadata));\n\t\t\ttessellator.setNormal(0.0F, 0.0F, 1.0F);\n\t\t\trenderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 3, metadata));\n\t\t\ttessellator.setNormal(-1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 4, metadata));\n\t\t\ttessellator.setNormal(1.0F, 0.0F, 0.0F);\n\t\t\trenderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));\n\t\t}\n\t\t\n\t\ttessellator.draw();\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\trenderer.setRenderBounds(0.0, 0.0, 0.0, 1.0, 0.25, 1.0);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\trenderer.setRenderBounds(0.0, 0.75, 0.0, 1.0, 1.0, 1.0);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\trenderer.setRenderBounds(0.125, 0.25, 0.125, 0.875, 0.75, 0.875);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockPedestal.renderID;\n\t}\n",
+          "new": "/** Original three standard-renderer cuboids, in original order, with per-face atlas materials. */\npublic final class RenderPedestal {\n    private RenderPedestal() { }\n    public static List<BakedQuad> bake(TextureAtlasSprite top, TextureAtlasSprite side, boolean inventory) {\n        List<BakedQuad> result = new ArrayList<>();\n        TextureAtlasSprite[] sprites = {top, top, side, side, side, side};\n        int[] rotations = new int[6];\n        ConveyorCuboidGeometry.append(result, inventory, sprites, rotations, 0, 0, 0, 1, .25, 1);\n        ConveyorCuboidGeometry.append(result, inventory, sprites, rotations, 0, .75, 0, 1, 1, 1);\n        ConveyorCuboidGeometry.append(result, inventory, sprites, rotations, .125, .25, .125, .875, .75, .875);\n        return Collections.unmodifiableList(result);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderReeds.java": {
+      "before_sha256": "8d0c8c68ab21cc8df103fc5dcc7a7d7120f7a2b426437cb38115c56ce980b4c2",
+      "after_sha256": "d11f3fb7adfbfd1cda1a29f0b36049379bbaed02a683d7520c3957f128bc8804",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "\nimport com.hbm.blocks.generic.BlockReeds;\nimport com.hbm.config.ClientConfig;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\n",
+          "new": "import java.util.*;\n"
+        },
+        {
+          "before_offset": 220,
+          "after_offset": 84,
+          "old": "import net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 355,
+          "after_offset": 118,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 430,
+          "after_offset": 200,
+          "old": "\npublic class RenderReeds implements ISimpleBlockRenderingHandler {\n\n\t@Override public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint colorMult = block.colorMultiplier(world, x, y, z);\n\t\tfloat r = (float) (colorMult >> 16 & 255) / 255.0F;\n\t\tfloat g = (float) (colorMult >> 8 & 255) / 255.0F;\n\t\tfloat b = (float) (colorMult & 255) / 255.0F;\n\t\tfloat m = 0.75F;\n\t\t\n\t\ttessellator.setColorOpaque_F(r * m, g * m, b * m);\n\t\t\n\t\tint depth = 0;\n\t\t\n\t\tif(!ClientConfig.RENDER_REEDS.get()) {\n\t\t\tdepth = 1;\n\t\t} else {\n\t\t\tfor(int i = y - 1; i > 0 ; i--) {\n\t\t\t\tBlock water = world.getBlock(x, i, z);\n\t\t\t\tdepth = y - i;\n\t\t\t\tif(water != Blocks.water && water != Blocks.flowing_water) break;\n\t\t\t}\n\t\t}\n\t\t\n\t\tBlockReeds reeds = (BlockReeds) block;\n\t\t\n\t\tfor(int i = 0; i < depth; i++) {\n\n\t\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y - i, z);\n\t\t\ttessellator.setBrightness(brightness);\n\t\t\t\n\t\t\tIIcon icon = reeds.getIcon(i == 0 ? 0 : i == depth - 1 ? 2 : 1);\n\t\t\trenderer.drawCrossedSquares(icon, x, y - i, z, 1.0F);\n\t\t}\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockReeds.renderID;\n\t}\n",
+          "new": "import net.minecraft.client.renderer.texture.TextureAtlasSprite;\n/** Vanilla 1.7 drawCrossedSquares ordering, unlike the deliberately fixed vine/coral back UVs. */\npublic final class RenderReeds {\n private RenderReeds() { }\n public static int depth(IBlockAccess world,BlockPos pos,boolean enabled) {\n  if(!enabled)return 1;int depth=0;\n  for(int y=pos.getY()-1;y>0;y--){Block block=world.getBlockState(new BlockPos(pos.getX(),y,pos.getZ())).getBlock();depth=pos.getY()-y;if(block!=Blocks.WATER&&block!=Blocks.FLOWING_WATER)break;}\n  return depth;\n }\n public static List<double[]> vertices(TextureAtlasSprite s,int depth) {\n  double a=.5-.45,b=.5+.45,y=-depth,u=s.getMinU(),v=s.getMinV(),U=s.getMaxU(),V=s.getMaxV();\n  return Arrays.asList(new double[][]{\n   {a,y+1,a,u,v},{a,y,a,u,V},{b,y,b,U,V},{b,y+1,b,U,v},\n   {b,y+1,b,u,v},{b,y,b,u,V},{a,y,a,U,V},{a,y+1,a,U,v},\n   {a,y+1,b,u,v},{a,y,b,u,V},{b,y,a,U,V},{b,y+1,a,U,v},\n   {b,y+1,a,u,v},{b,y,a,u,V},{a,y,b,U,V},{a,y+1,b,U,v}});\n }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderScaffoldBlock.java": {
+      "before_sha256": "758d4d8d6320174d3c895e297225f49edc5927c2c95756e2617303ec2eee5c50",
+      "after_sha256": "09e036d7b98f02e64979042b5d69170063a89e6c22cf88776df4d0475a4e4e86",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 271,
+          "old": "import com.hbm.blocks.generic.BlockScaffold;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderScaffoldBlock implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, metadata);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.scaffold, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tfloat ox = x + 0.5F;\n\t\tfloat oy = y;\n\t\tfloat oz = z + 0.5F;\n\n\t\tfloat rotation = (float) Math.PI * -0.5F;\n\t\tfloat pitch = 0;\n\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tif(meta >= 12) {\n\t\t\tpitch = (float) Math.PI * 0.5F;\n\t\t\trotation = (float) -Math.PI;\n\t\t\tox = x + 1.0F;\n\t\t\toy = y + 0.5F;\n\t\t} else if(meta >= 8) {\n\t\t\trotation = (float) -Math.PI;\n\t\t} else if(meta >= 4) {\n\t\t\tpitch = (float) Math.PI * 0.5F;\n\t\t\toy = y + 0.5F;\n\t\t\toz = z;\n\t\t}\n\n\t\ttessellator.addTranslation(ox, oy, oz);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.scaffold, iicon, tessellator, rotation, pitch, true);\n\t\ttessellator.addTranslation(-ox, -oy, -oz);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockScaffold.renderIDScaffold;\n\t}\n\n",
+          "new": "/** Native baked successor retaining original whole-OBJ stream, rotation and shading. */\npublic final class RenderScaffoldBlock {\n    private RenderScaffoldBlock() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int meta, boolean inventory, TextureAtlasSprite sprite) {\n        float rotation = (float)Math.PI * -.5F, pitch = 0;\n        double ox = .5, oy = 0, oz = .5;\n        if(inventory) rotation = 0;\n        else if(meta >= 12) { pitch = (float)Math.PI * .5F; rotation = (float)-Math.PI; ox = 1; oy = .5; }\n        else if(meta >= 8) rotation = (float)-Math.PI;\n        else if(meta >= 4) { pitch = (float)Math.PI * .5F; oy = .5; oz = 0; }\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, rotation, pitch, 1, ox, oy, oz);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderTapeBlock.java": {
+      "before_sha256": "9099fb3677725c5a24a15ca3065f0c1fade400402aea2bd0d27545f61306d735",
+      "after_sha256": "798e37813cc63622e3bbe0d348bcc9f731cc6f79adfdf99fb4244fbe9e2669f3",
+      "edits": [
+        {
+          "before_offset": 30,
+          "after_offset": 30,
+          "old": "\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.ModBlocks;\nimport com.hbm.blocks.generic.DecoTapeRecorder;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderTapeBlock implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tif(block == ModBlocks.tape_recorder)\n\t\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.taperecorder, iicon, tessellator, 0, false);\n\t\tif(block == ModBlocks.steel_poles)\n\t\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.pole, iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tfloat rotation = 0;\n\n\t\tif(world.getBlockMetadata(x, y, z) == 2)\n\t\t\trotation = 90F / 180F * (float) Math.PI;\n\n\t\tif(world.getBlockMetadata(x, y, z) == 3)\n\t\t\trotation = 270F / 180F * (float) Math.PI;\n\n\t\tif(world.getBlockMetadata(x, y, z) == 4)\n\t\t\trotation = 180F / 180F * (float) Math.PI;\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tif(block == ModBlocks.tape_recorder)\n\t\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.taperecorder, iicon, tessellator, rotation, true);\n\t\tif(block == ModBlocks.steel_poles)\n\t\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.pole, iicon, tessellator, rotation - 90F / 180F * (float) Math.PI, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn DecoTapeRecorder.renderID;\n\t}\n",
+          "new": "import java.util.*;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n/** Native whole-OBJ tape/pole rendering. The original pole rotation differs only in world context. */\npublic final class RenderTapeBlock {\n    private RenderTapeBlock() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, boolean poles, int metadata, boolean inventory, TextureAtlasSprite sprite) {\n        float rotation = 0;\n        if(!inventory) {\n            if(metadata == 2) rotation = 90F / 180F * (float)Math.PI;\n            if(metadata == 3) rotation = 270F / 180F * (float)Math.PI;\n            if(metadata == 4) rotation = 180F / 180F * (float)Math.PI;\n            if(poles) rotation -= 90F / 180F * (float)Math.PI;\n        }\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendWhole(quads, mesh, sprite, inventory, rotation, 0, 1, .5, 0, .5);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/sound/SoundCategoryResolver.java": {
+      "before_sha256": "e37dc04cdb07af9b914619f515b5b8dcf152158e602ee94331c71848714b3189",
+      "after_sha256": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33",
+      "edits": [
+        {
+          "before_offset": 1347,
+          "after_offset": 1347,
+          "old": "\tstatic SoundCategory get(ResourceLocation sound) {\n",
+          "new": "\tpublic static SoundCategory get(ResourceLocation sound) {\n"
+        }
+      ]
+    },
+    "src/main/resources/assets/hbm/sounds.json": {
+      "before_sha256": "680a0f2787b0057cbbe4f1a02c9a8cc713fdb0c3664bf18b80978fc22536d4c4",
+      "after_sha256": "30091d360ec72bac642f8c6313cd5a07b11e280498162cb5284ae688d59a37ed",
+      "edits": [
+        {
+          "before_offset": 2,
+          "after_offset": 2,
+          "old": "\t\"misc.nullChopper\": {\"category\": \"player\", \"sounds\": [{\"name\": \"misc/null\", \"stream\": false}]},\n\t\"misc.nullCrashing\": {\"category\": \"player\", \"sounds\": [{\"name\": \"misc/null\", \"stream\": false}]},\n\t\"misc.nullMine\": {\"category\": \"player\", \"sounds\": [{\"name\": \"misc/null\", \"stream\": false}]},\n",
+          "new": "\t\"misc.nullChopper\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:misc/null\", \"stream\": false}]},\n\t\"misc.nullCrashing\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:misc/null\", \"stream\": false}]},\n\t\"misc.nullMine\": {\"category\": \"player\", \"sounds\": [{\"name\": \"hbm:misc/null\", \"stream\": false}]},\n"
+        },
+        {
+          "before_offset": 15854,
+          "after_offset": 15866,
+          "old": "\t\t{\"name\": \"music/spaceBreak\", \"stream\": true},\n\t\t{\"name\": \"music/spaceTrill\", \"stream\": true},\n\t\t{\"name\": \"music/spaceBeat\", \"stream\": true},\n\t\t{\"name\": \"music/spaceTranscend\", \"stream\": true},\n\t\t{\"name\": \"music/spaceCalm\", \"stream\": true},\n\t\t{\"name\": \"music/spaceKoyaanis\", \"stream\": true}\n",
+          "new": "\t\t{\"name\": \"hbm:music/spaceBreak\", \"stream\": true},\n\t\t{\"name\": \"hbm:music/spaceTrill\", \"stream\": true},\n\t\t{\"name\": \"hbm:music/spaceBeat\", \"stream\": true},\n\t\t{\"name\": \"hbm:music/spaceTranscend\", \"stream\": true},\n\t\t{\"name\": \"hbm:music/spaceCalm\", \"stream\": true},\n\t\t{\"name\": \"hbm:music/spaceKoyaanis\", \"stream\": true}\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/generic/PlantBlockState.java": "fa6d959da949129d2c7ec57de437d560bae4012747d8d896c251c8d88820add7",
+    "src/main/java/com/hbm/main/AlgaeFilmModelHandler.java": "6405aa06a4bb3aae9ec48ab325653ab10681e45b8f3e0525f4557643854e9688",
+    "src/main/java/com/hbm/main/PedestalModelHandler.java": "03cfcc59849455707b2442798e92a4270e606a317dc85bce8e9fa995bf1b6019",
+    "src/main/java/com/hbm/main/PlantBlockModelHandler.java": "32f3a9702901c53f0ab7fbed72f4b99959dd60c55b1220977120f4bc9d4beb33",
+    "src/main/java/com/hbm/main/ScaffoldBlockModelHandler.java": "168caa50a5a3da24f4bb1aa376daed13dded1b8bc7e185796b70d0e5753a3305",
+    "src/main/java/com/hbm/main/TapeBlockModelHandler.java": "b28e95f6e6ecdd4066a90812422516a0560a21d97401ce9ea3ec6fb2f6664140",
+    "src/main/java/com/hbm/render/block/nativeblock/PedestalBakedModel.java": "22581a9ba9471fcb480d44de9b13bfc6edc8195b64157a22c098af58a7004dab",
+    "src/main/java/com/hbm/render/block/nativeblock/PlantBakedModel.java": "e4b02c3b5ec03dfa275d9b903a4b10883dfce47f6120a8f506ea5a57bc6eb0bf",
+    "src/main/java/com/hbm/render/block/nativeblock/PlantGeometry.java": "a03a11542a347afb9978972ecd82a563eb52ebc2d5f7cabd96be473a4bcaabcc",
+    "src/main/resources/assets/hbm/blockstates/tile.algae_film.json": "140bda8af431ff6fa36a9833141428ae1aee4ac05df84e2de01702b0ec1a3ce3",
+    "src/main/resources/assets/hbm/blockstates/tile.laythe_coral.json": "646e87bdfac97da0bc2dcbc014f03b7053dc48e7937bb173d2cd4de08531fe63",
+    "src/main/resources/assets/hbm/blockstates/tile.plant_reeds.json": "6edae6faf8a12cae57bc3bf5b346fd604c24e95e6c78bbafe0a6619a8bc81390",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_poles.json": "e3d9b70797fd6c39b34725d7d2f3175e838c527ee6544b3e0e0cd022df34090d",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_scaffold.json": "5d2b93e4e8dba389bd157e56e4c209cbcb485bde777c9cea65c20a8d18b2a7e0",
+    "src/main/resources/assets/hbm/blockstates/tile.tape_recorder.json": "8eabd79954416b2af3283a40c7cb2feee32856023fc0fd6741f47fabb181929e",
+    "src/main/resources/assets/hbm/blockstates/tile.vine_phosphor.json": "880e513a4ed9fa46504c4162a093869bb8973e0061d7a1ced2ed5ff5a3880892"
+  },
+  "deleted_files": {},
+  "binary_files": {
+    "src/main/resources/assets/hbm/sounds/music/spaceBeat.ogg": {
+      "before_sha256": "30f9cc3a43c79cf60af720a2d4dfe4679da5ee732cdf0c1836a4a7bf2ab1db69",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/music/spaceBreak.ogg": {
+      "before_sha256": "3256be18e599592053734b283bd2ee58ee5923161f1d5acd98377f879889bfb0",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/music/spaceCalm.ogg": {
+      "before_sha256": "e88961da0d0673b22ce41921305f28b951133705b7fdc4e98f76a6760bd19015",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/music/spaceKoyaanis.ogg": {
+      "before_sha256": "cdbbd7b4b5a1e8393a7f43dd63b5f767dce93586f41aa0ad9724efc9d77fd55c",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/music/spaceTranscend.ogg": {
+      "before_sha256": "42e530fe0ac699687c0a3f9aff4222daa7eb2fc6172e94fb50d815da0ad2e002",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/music/spaceTrill.ogg": {
+      "before_sha256": "23c17463d16b4df979241b44bbfb8009042b1fe56f9c34f68e95be51e4dc8188",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/sounds/music/spacebeat.ogg": {
+      "before_sha256": null,
+      "after_sha256": "30f9cc3a43c79cf60af720a2d4dfe4679da5ee732cdf0c1836a4a7bf2ab1db69"
+    },
+    "src/main/resources/assets/hbm/sounds/music/spacebreak.ogg": {
+      "before_sha256": null,
+      "after_sha256": "3256be18e599592053734b283bd2ee58ee5923161f1d5acd98377f879889bfb0"
+    },
+    "src/main/resources/assets/hbm/sounds/music/spacecalm.ogg": {
+      "before_sha256": null,
+      "after_sha256": "e88961da0d0673b22ce41921305f28b951133705b7fdc4e98f76a6760bd19015"
+    },
+    "src/main/resources/assets/hbm/sounds/music/spacekoyaanis.ogg": {
+      "before_sha256": null,
+      "after_sha256": "cdbbd7b4b5a1e8393a7f43dd63b5f767dce93586f41aa0ad9724efc9d77fd55c"
+    },
+    "src/main/resources/assets/hbm/sounds/music/spacetranscend.ogg": {
+      "before_sha256": null,
+      "after_sha256": "42e530fe0ac699687c0a3f9aff4222daa7eb2fc6172e94fb50d815da0ad2e002"
+    },
+    "src/main/resources/assets/hbm/sounds/music/spacetrill.ogg": {
+      "before_sha256": null,
+      "after_sha256": "23c17463d16b4df979241b44bbfb8009042b1fe56f9c34f68e95be51e4dc8188"
+    }
+  }
+}

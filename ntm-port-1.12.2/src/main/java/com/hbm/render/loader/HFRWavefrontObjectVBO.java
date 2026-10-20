@@ -4,13 +4,13 @@ import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.*;
 
-import net.minecraftforge.client.model.obj.TextureCoordinate;
-import net.minecraftforge.client.model.obj.Vertex;
+import com.hbm.render.mesh.MeshModel;
+import com.hbm.render.mesh.ObjMesh;
+import com.hbm.render.mesh.ObjMeshVboPayload;
 
-public class HFRWavefrontObjectVBO implements IModelCustomNamed {
+public class HFRWavefrontObjectVBO implements MeshModel {
 
 	class VBOBufferData {
 
@@ -23,6 +23,7 @@ public class HFRWavefrontObjectVBO implements IModelCustomNamed {
 	}
 
 	List<VBOBufferData> groups = new ArrayList<VBOBufferData>();
+	private ObjMesh mesh = ObjMesh.empty();
 
 	static int VERTEX_SIZE = 3;
 	static int UV_SIZE = 3;
@@ -31,35 +32,22 @@ public class HFRWavefrontObjectVBO implements IModelCustomNamed {
 		load(obj);
 	}
 	
+	/**
+	 * Retains the original append-only upload behavior; normal reload destroys first.
+	 * Publishes the source snapshot only after all uploads complete. GL failures are
+	 * not atomic: previously appended groups and partial handles can remain.
+	 */
 	public void load(HFRWavefrontObject obj) {
-		for(S_GroupObject g : obj.groupObjects) {
+		ObjMesh loadedMesh = obj.getMesh();
+		for(ObjMesh.Part part : loadedMesh.parts) {
 			VBOBufferData data = new VBOBufferData();
-			data.name = g.name;
+			data.name = part.name;
+			ObjMeshVboPayload payload = ObjMeshVboPayload.pack(part);
+			data.vertices = payload.vertices;
+			FloatBuffer vertexData = payload.positions;
+			FloatBuffer uvData = payload.uvs;
+			FloatBuffer normalData = payload.normals;
 
-			FloatBuffer vertexData = BufferUtils.createFloatBuffer(g.faces.size() * 3 * VERTEX_SIZE);
-			FloatBuffer uvData = BufferUtils.createFloatBuffer(g.faces.size() * 3 * UV_SIZE);
-			FloatBuffer normalData = BufferUtils.createFloatBuffer(g.faces.size() * 3 * VERTEX_SIZE);
-
-			for(S_Face face : g.faces) {
-				for(int i = 0; i < face.vertices.length; i++) {
-					Vertex vert = face.vertices[i];
-					TextureCoordinate tex = new TextureCoordinate(0, 0);
-					Vertex normal = face.vertexNormals[i];
-
-					if(face.textureCoordinates != null && face.textureCoordinates.length > 0) {
-						tex = face.textureCoordinates[i];
-					}
-
-					data.vertices++;
-					vertexData.put(new float[] { vert.x, vert.y, vert.z });
-					uvData.put(new float[] { tex.u, tex.v, tex.w });
-					normalData.put(new float[] { normal.x, normal.y, normal.z });
-				}
-			}
-			vertexData.flip();
-			uvData.flip();
-			normalData.flip();
-	
 			data.vertexHandle = GL15.glGenBuffers();
 			GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, data.vertexHandle);
 			GL15.glBufferData(GL15.GL_ARRAY_BUFFER, vertexData, GL15.GL_STATIC_DRAW);
@@ -77,6 +65,7 @@ public class HFRWavefrontObjectVBO implements IModelCustomNamed {
 
 			groups.add(data);
 		}
+		mesh = loadedMesh;
 	}
 	
 	// truth be told, i have no fucking idea what i'm doing
@@ -90,11 +79,17 @@ public class HFRWavefrontObjectVBO implements IModelCustomNamed {
 			GL15.glDeleteBuffers(data.normalHandle);
 		}
 		groups.clear();
+		mesh = ObjMesh.empty();
 	}
 
+	/**
+	 * Source snapshot from the latest completed load, empty after destroy. If load is
+	 * called without destroy, this is not an aggregate of the appended GPU groups;
+	 * after a failed upload it can still describe the previous successful load.
+	 */
 	@Override
-	public String getType() {
-		return "obj_vbo";
+	public ObjMesh getMesh() {
+		return mesh;
 	}
 
 	private void renderVBO(VBOBufferData data) {

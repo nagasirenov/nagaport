@@ -50,10 +50,10 @@ public class TileEntityRadiator extends TileEntityCondenser {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord - dir.offsetX + rot.offsetX, yCoord + 1, zCoord - dir.offsetZ + rot.offsetZ, dir);
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord - dir.offsetX + rot.offsetX, yCoord - 1, zCoord - dir.offsetZ + rot.offsetZ, dir);
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord - dir.offsetX - rot.offsetX, yCoord + 1, zCoord - dir.offsetZ - rot.offsetZ, dir);
-		this.trySubscribe(this.tanks[0].getTankType(), worldObj, xCoord - dir.offsetX - rot.offsetX, yCoord - 1, zCoord - dir.offsetZ - rot.offsetZ, dir);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() - dir.offsetX + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ + rot.offsetZ, dir);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() - dir.offsetX + rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ + rot.offsetZ, dir);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, dir);
+		this.trySubscribe(this.tanks[0].getTankType(), this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, dir);
 	}
 
 	@Override
@@ -61,10 +61,10 @@ public class TileEntityRadiator extends TileEntityCondenser {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-		this.sendFluid(this.tanks[1], worldObj, xCoord - dir.offsetX + rot.offsetX, yCoord + 1, zCoord - dir.offsetZ + rot.offsetZ, dir);
-		this.sendFluid(this.tanks[1], worldObj, xCoord - dir.offsetX + rot.offsetX, yCoord - 1, zCoord - dir.offsetZ + rot.offsetZ, dir);
-		this.sendFluid(this.tanks[1], worldObj, xCoord - dir.offsetX - rot.offsetX, yCoord + 1, zCoord - dir.offsetZ - rot.offsetZ, dir);
-		this.sendFluid(this.tanks[1], worldObj, xCoord - dir.offsetX - rot.offsetX, yCoord - 1, zCoord - dir.offsetZ - rot.offsetZ, dir);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - dir.offsetX + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ + rot.offsetZ, dir);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - dir.offsetX + rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ + rot.offsetZ, dir);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, dir);
+		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, dir);
 	}
 	
 	AxisAlignedBB bb = null;
@@ -74,12 +74,12 @@ public class TileEntityRadiator extends TileEntityCondenser {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 20,
-				yCoord - 1,
-				zCoord - 20,
-				xCoord + 21,
-				yCoord + 1,
-				zCoord + 21
+				this.pos.getX() - 20,
+				this.pos.getY() - 1,
+				this.pos.getZ() - 20,
+				this.pos.getX() + 21,
+				this.pos.getY() + 1,
+				this.pos.getZ() + 21
 			);
 		}
 		

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/0/world"
+    },
+    "metadata=1": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/1/world"
+    },
+    "metadata=2": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/2/world"
+    },
+    "metadata=3": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/3/world"
+    },
+    "metadata=4": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/4/world"
+    },
+    "metadata=5": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/5/world"
+    },
+    "metadata=6": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/6/world"
+    },
+    "metadata=7": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/7/world"
+    },
+    "metadata=8": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/8/world"
+    },
+    "metadata=9": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/9/world"
+    },
+    "metadata=10": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/10/world"
+    },
+    "metadata=11": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/11/world"
+    },
+    "metadata=12": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/12/world"
+    },
+    "metadata=13": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/13/world"
+    },
+    "metadata=14": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/14/world"
+    },
+    "metadata=15": {
+      "model": "hbm:native_atlas_obj/tile.deco_pipe_green_rusted/15/world"
+    }
+  }
+}

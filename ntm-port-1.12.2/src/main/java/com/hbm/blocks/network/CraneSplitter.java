@@ -9,20 +9,15 @@ import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.entity.item.EntityMovingItem;
-import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.network.TileEntityCraneSplitter;
 import com.hbm.util.i18n.I18nUtil;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -33,20 +28,9 @@ import java.util.List;
 
 public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnterableBlock, ITooltipProvider, IToolable, ILookOverlay {
 
-	@SideOnly(Side.CLIENT) public IIcon iconTopLeft;
-	@SideOnly(Side.CLIENT) public IIcon iconTopRight;
-	@SideOnly(Side.CLIENT) public IIcon iconFrontLeft;
-	@SideOnly(Side.CLIENT) public IIcon iconFrontRight;
-	@SideOnly(Side.CLIENT) public IIcon iconBackLeft;
-	@SideOnly(Side.CLIENT) public IIcon iconBackRight;
-	@SideOnly(Side.CLIENT) public IIcon iconLeft;
-	@SideOnly(Side.CLIENT) public IIcon iconRight;
-	@SideOnly(Side.CLIENT) public IIcon iconBelt;
-	@SideOnly(Side.CLIENT) public IIcon iconInner;
-	@SideOnly(Side.CLIENT) public IIcon iconInnerSide;
 
 	public CraneSplitter() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -64,29 +48,16 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 		return 0;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconTopLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_top_left");
-		this.iconTopRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_top_right");
-		this.iconFrontLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_front_left");
-		this.iconFrontRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_front_right");
-		this.iconBackLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_back_left");
-		this.iconBackRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_back_right");
-		this.iconLeft = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_left");
-		this.iconRight = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_right");
-		this.iconBelt = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_belt");
-		this.iconInner = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_inner");
-		this.iconInnerSide = iconRegister.registerIcon(RefStrings.MODID + ":crane_splitter_inner_side");
-	}
-
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
+    /** Exact original registry owner, not a class-wide renderer override for foreign subclasses. */
+    public static boolean isNativeModelOwner(net.minecraft.block.Block block) {
+        return block != null && block.getClass() == CraneSplitter.class
+                && new net.minecraft.util.ResourceLocation("hbm", "tile.crane_splitter").equals(block.getRegistryName());
+    }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+        return net.minecraft.util.EnumBlockRenderType.MODEL;
+    }
+    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }
+    @Override public boolean hasCustomBreakingProgress(net.minecraft.block.state.IBlockState state) { return isNativeModelOwner(this); }
 
 	@Override public boolean canItemEnter(World world, int x, int y, int z, ForgeDirection dir, IConveyorItem entity) { return getTravelDirection(world, x, y, z, null) == dir; }
 	@Override public boolean canPackageEnter(World world, int x, int y, int z, ForgeDirection dir, IConveyorPackage entity) { return false; }
@@ -99,7 +70,7 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 		x = core[0];
 		y = core[1];
 		z = core[2];
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
 		if(!(tile instanceof TileEntityCraneSplitter)) return;
 		TileEntityCraneSplitter splitter = (TileEntityCraneSplitter) tile;
 		ForgeDirection rot = ForgeDirection.getOrientation(splitter.getBlockMetadata() - offset).getRotation(ForgeDirection.DOWN);
@@ -111,13 +82,13 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 	}
 
 	private void spawnMovingItem(World world, int x, int y, int z, ItemStack stack) {
-		if(stack == null || stack.stackSize <= 0) return;
+		if(stack == null || stack.isEmpty()) return;
 		EntityMovingItem moving = new EntityMovingItem(world);
 		Vec3d pos = new Vec3d(x + 0.5, y + 0.5, z + 0.5);
 		Vec3d snap = this.getClosestSnappingPosition(world, x, y, z, pos);
 		moving.setPosition(snap.x, snap.y, snap.z);
 		moving.setItemStack(stack);
-		world.spawnEntityInWorld(moving);
+		world.spawnEntity(moving);
 	}
 
 	@Override
@@ -129,7 +100,8 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 	public Vec3d getTravelLocation(World world, int x, int y, int z, Vec3d itemPos, double speed) {
 		ForgeDirection dir = this.getTravelDirection(world, x, y, z, itemPos);
 		Vec3d snap = this.getClosestSnappingPosition(world, x, y, z, itemPos);
-		itemPos = new Vec3d(MathHelper.clamp_double(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp_double(itemPos.z, z, z + 1));
+		// The original mutable Vec3 was clamped by getClosestSnappingPosition before this arithmetic.
+		itemPos = new Vec3d(MathHelper.clamp(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp(itemPos.z, z, z + 1));
 		Vec3d dest = new Vec3d(snap.x - dir.offsetX * speed, snap.y - dir.offsetY * speed, snap.z - dir.offsetZ * speed);
 		Vec3d motion = new Vec3d((dest.x - itemPos.x), (dest.y - itemPos.y), (dest.z - itemPos.z));
 		double len = motion.length();
@@ -140,8 +112,8 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 	@Override
 	public Vec3d getClosestSnappingPosition(World world, int x, int y, int z, Vec3d itemPos) {
 		ForgeDirection dir = this.getTravelDirection(world, x, y, z, itemPos);
-		double itemX = MathHelper.clamp_double(itemPos.x, x, x + 1);
-		double itemZ = MathHelper.clamp_double(itemPos.z, z, z + 1);
+		double itemX = MathHelper.clamp(itemPos.x, x, x + 1);
+		double itemZ = MathHelper.clamp(itemPos.z, z, z + 1);
 		double posX = x + 0.5;
 		double posZ = z + 0.5;
 		if(dir.offsetX != 0) posX = itemX;
@@ -150,7 +122,7 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 	}
 
 	public ForgeDirection getTravelDirection(World world, int x, int y, int z, Vec3d itemPos) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		if(meta >= 12) return ForgeDirection.getOrientation(meta - offset);
 		return ForgeDirection.getOrientation(meta).getRotation(ForgeDirection.UP);
 	}
@@ -169,7 +141,7 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return false;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityCraneSplitter)) return false;
 
 		TileEntityCraneSplitter crane = (TileEntityCraneSplitter) te;
@@ -179,9 +151,9 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 		int adjust = player.isSneaking() ? -1 : 1;
 
 		if(isLeft) {
-			crane.leftRatio = (byte)MathHelper.clamp_int(crane.leftRatio + adjust, 1, 16);
+			crane.leftRatio = (byte)MathHelper.clamp(crane.leftRatio + adjust, 1, 16);
 		} else {
-			crane.rightRatio = (byte)MathHelper.clamp_int(crane.rightRatio + adjust, 1, 16);
+			crane.rightRatio = (byte)MathHelper.clamp(crane.rightRatio + adjust, 1, 16);
 		}
 
 		return true;
@@ -192,7 +164,7 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityCraneSplitter)) return;
 
 		TileEntityCraneSplitter crane = (TileEntityCraneSplitter) te;
@@ -200,6 +172,6 @@ public class CraneSplitter extends BlockDummyable implements IConveyorBelt, IEnt
 		List<String> text = new ArrayList<>();
 		text.add("Splitter ratio: " + crane.leftRatio + ":" + crane.rightRatio);
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

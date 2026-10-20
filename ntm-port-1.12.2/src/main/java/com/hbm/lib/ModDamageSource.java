@@ -97,7 +97,7 @@ public class ModDamageSource extends DamageSource {
 	}
 
 	public static DamageSource causeSubatomicDamage(Entity ent, Entity hit) {
-		return (new EntityDamageSourceIndirect(s_zomg_prefix + (ent.worldObj.rand.nextInt(5) + 1), ent, hit)).setProjectile().setDamageBypassesArmor();
+		return (new EntityDamageSourceIndirect(s_zomg_prefix + (ent.world.rand.nextInt(5) + 1), ent, hit)).setProjectile().setDamageBypassesArmor();
 	}
 
 	public static DamageSource euthanized(Entity ent, Entity hit) {

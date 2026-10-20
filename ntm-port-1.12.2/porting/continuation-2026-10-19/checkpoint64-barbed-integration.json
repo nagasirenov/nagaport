@@ -1,0 +1,52 @@
+{
+  "base": "0bbba4f47800cea8dd60370f697450597f27c8a6",
+  "patch_sha256": "d77ddeca3e1112576929a3f5e6e8e892d6212177ca7744dfdc6e8035bdb8b794",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+      "main_before": "b5d385db491d5c1a1a8b51eabd3096e5e3e9c999465839004d358c871c0828be",
+      "main_after": "6b476d5d951faca8434e05825537d8833f402b185b9f4e9c1a398ebe996d2e17"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BarbedWire.java",
+      "main_before": "24fb3939ec5d189e3b21064da3c263e85570aa6b161e7d3011fe13b194535c6c",
+      "main_after": "9039af91f9ff43a89eb8bf1a727f84b592139589b89308c603c787d37eda3ee8"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/BarbedWireObjModelHandler.java",
+      "main_before": "fc22eef4ba554970cc2589b3a0f43639c88cbc2166e512d634d780e9c7adb7bb",
+      "main_after": "ca549f417ff3ece9b68d0d903344bdd9702e8eaff88e9908d521cd8100711276"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.barbed_wire.json",
+      "main_before": null,
+      "main_after": "095eebc518eb682aacb0d060414bf7b14974ff4fa7b112f759bc394ada7f5dda"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_acid.json",
+      "main_before": null,
+      "main_after": "465370f440d7f31dfb51c2a8327b3ab4201ffdc9cebe25f5c9816c6ee7da24d3"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_fire.json",
+      "main_before": null,
+      "main_after": "74268ee3ec7de987df29915b924f398b0171dea2815eb50aa5475f8ae7160cb1"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_poison.json",
+      "main_before": null,
+      "main_after": "13dee5b92b4bb024b2f1bea324428c288a8c1a61a8c2b75cb4d61aad6a11085f"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_ultradeath.json",
+      "main_before": null,
+      "main_after": "95ebb2d027337a00af284714abbb748ebd4f270afd5d8b97b4649dedf6967256"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_wither.json",
+      "main_before": null,
+      "main_after": "f23d0057f5f5c65def5279b9f7c89f579d89295208b335d4f8917b2aacf4a6f7"
+    }
+  ],
+  "result": "Exact native Git patch forward reproduces main; reverse recovers every CP63 byte and removes only six new own state assets. Isolated ModBlocks whole-file guard remains baseline-specific due prior plain-cube edits; all other source/runtime proof still as delivered, full layered guard covers composed main."
+}

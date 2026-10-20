@@ -1,0 +1,669 @@
+{
+  "format": 1,
+  "base_commit": "a60fe7806f90257b5dbfbe9a62f46b887946bf93",
+  "scope": "Exact reverse-source parity for 31 typed consumer files. Not full consumer compilation or runtime acceptance. C means IModelCustom, N means IModelCustomNamed; the sequence records non-import type occurrences in source order.",
+  "totals": {
+    "plain_factory_calls": 146,
+    "ordinary_type_uses": 499,
+    "named_type_uses": 17,
+    "hfr_constructions": 393,
+    "as_vbo_calls": 293,
+    "no_smooth_calls": 77
+  },
+  "resource_manager": {
+    "named_door_fields": [
+      "pheo_fire_door",
+      "pheo_airlock_door",
+      "pheo_blast_door",
+      "pheo_containment_door",
+      "pheo_seal_door",
+      "pheo_secure_door",
+      "pheo_sliding_door",
+      "pheo_vehicle_door",
+      "pheo_water_door",
+      "pheo_vault_door",
+      "silo_hatch",
+      "silo_hatch_large"
+    ],
+    "concrete_vbo_fields": [
+      "rbmk_element_rods_vbo",
+      "rbmk_rods_vbo",
+      "rbmk_crane_console",
+      "rbmk_crane",
+      "rbmk_autoloader",
+      "rbmk_console",
+      "rbmk_button",
+      "rbmk_gauge"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "baseline_sha256": "0a898b04149915bfc29947e181fbfc2ef90e5d44b8d5015ebb4ecedc067dcdfd",
+      "migrated_sha256": "5e62ef27c27f3b5dde993ef6cd1ae623a3f6d312f4e69cf85c02c1007016807f",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ResourceManager.java",
+      "baseline_sha256": "2ab96732ccc13dc087b4b84e953418b0af9e1ed29aec9aaf6ab97dd7e0ae3290",
+      "migrated_sha256": "bdc7588a08f530588581deedac5a5c1d455c9aaaf8df870b2c006125032016dc",
+      "imports": [
+        {
+          "old": "import com.hbm.render.loader.HFRWavefrontObjectVBO;\nimport com.hbm.render.loader.IModelCustomNamed;\n",
+          "new": "import com.hbm.render.loader.HFRWavefrontObjectVBO;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCNNNNNNNNNNNNCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      "plain_factory_calls": 135,
+      "invariants": {
+        "hfr_constructions": 378,
+        "as_vbo_calls": 283,
+        "no_smooth_calls": 77
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/particle/ParticleSkeleton.java",
+      "baseline_sha256": "c4a8772050287c067b625d5bc65aaf1f2a9add3133d2882a5eb4bea56760e4d7",
+      "migrated_sha256": "2812796068a94a284d61d43cfc4c18ac01f35559bfbdc4f8a34b1602d3913790",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 1,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderBlockDecoModel.java",
+      "baseline_sha256": "81e3c330da3a04bdac04109e7417286a2e004c3c7c841a14b87845df4cacfaf4",
+      "migrated_sha256": "3b2d7920da6387b59d37c8e56e7813b70518455231154e78019b53054f9bf072",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCCC",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java",
+      "baseline_sha256": "757c030170af7ea6f86b541fd4ed9f355c0486acefe57f812008aeaed15a69c4",
+      "migrated_sha256": "edfb3ab30abc8c58b86e9019903830be1f75713c67a1a76468e56b80db49f7ca",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudFleija.java",
+      "baseline_sha256": "131f4b37bd42b5a133b00edf9c438267d12dc75074d9fc802386eea3493c3a5b",
+      "migrated_sha256": "1975eb8a0bccd10fc66f25be89f54b1ff1759084493e79591e5aeae9335661af",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      },
+      "whitespace_normalizations": [
+        {
+          "old": "    \tblastModel = new ObjMeshModel(objTesterModelRL);\n",
+          "new": "\t\tblastModel = new ObjMeshModel(objTesterModelRL);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudRainbow.java",
+      "baseline_sha256": "eec8b625cea50a516e0462a4fedd668fc9d02729a242af4c91cd3d210b1c0304",
+      "migrated_sha256": "5c834ced0dd43381c9d0e1e1e9afc3cb5815824263a4f68cda253629d73b4913",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      },
+      "whitespace_normalizations": [
+        {
+          "old": "    \tblastModel = new ObjMeshModel(objTesterModelRL);\n",
+          "new": "\t\tblastModel = new ObjMeshModel(objTesterModelRL);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudSolinium.java",
+      "baseline_sha256": "5f527c6f8d98a5e3ebbf0398ce31300d8f43cf948915c2af98b941db8a17d162",
+      "migrated_sha256": "8aa07da0bfe102bf90ff5664849cde622b69c3f1c443812cd4599fce04eeb3e4",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      },
+      "whitespace_normalizations": [
+        {
+          "old": "    \tblastModel = new ObjMeshModel(objTesterModelRL);\n",
+          "new": "\t\tblastModel = new ObjMeshModel(objTesterModelRL);\n"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderDeathBlast.java",
+      "baseline_sha256": "ca87173d9d5e2405d1b494e47fbca8f346d40972e97b91a267442653d72a09e3",
+      "migrated_sha256": "469eae87bde920c5341115d1a78ef3928021ddbf7c4c96ab944bbd7b50b47ec2",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/item/RenderMinecartTest.java",
+      "baseline_sha256": "7340cb15b8fd5aa354a8f88440dee177cc65cba274a7765c52cf56ecd6bf207a",
+      "migrated_sha256": "c352fd3af558cf2565cf9ff8e528bcd93b2df4d7bbdb24da3ff46f6ca5076f38",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderBalls.java",
+      "baseline_sha256": "1145fe56475dc07377a75aa6660c28063f33a1ada5be42340d9d5422bc8a0416",
+      "migrated_sha256": "fd2a00172b761ef72870f7c26054664c2b208d23c2917136c732920ac082315c",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderSiegeTunneler.java",
+      "baseline_sha256": "e42e64607202d971dd6a3a61855455521ed2c18cf678152055e76b111eab6677",
+      "migrated_sha256": "fe16ff713b732237e83de11c52250c3d24756e047b8b271032fe49d3fcea4aa7",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderWormBody.java",
+      "baseline_sha256": "efc2547497ce9c80b9db9b2926ee4f027ee946666174a14f9889c330f4bc59b3",
+      "migrated_sha256": "1897e38802bc24d8772e30a239ff1efeeb5e88b8d55c337af219b4126b09039b",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderWormHead.java",
+      "baseline_sha256": "86b892be7d02a3d7f76e3d59011cacf6d6bff343d73edd1cfc076f6172a74437",
+      "migrated_sha256": "71f9c3f2a4a1e2519e214bd8555f17346d0e5e2473f5934cfce75d858669a6d6",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderBombletTheta.java",
+      "baseline_sha256": "7cf6f79a3013e06a313f3edab658e2e8ae1ef28a64721d93ceeb47e5391514f2",
+      "migrated_sha256": "1e6ac790e083a3c94f268826da89de0e0b7faadb9fc1e562bf69521b830d7c74",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderCoin.java",
+      "baseline_sha256": "ebc80c604e57787ef97c2d8624a2a5bad3969328115ff0554c32357d8375df6f",
+      "migrated_sha256": "5d3b2ad22ee2afb5e8f822e4c2d274458d0c3b3877e18754456134a224771883",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 1,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+      "baseline_sha256": "1e3120997890d84f56921fbc5f6d3ad89e64cfb8676b8b2c3c1080facd8fbc4e",
+      "migrated_sha256": "28cccae8270bd32e02fb92070a6d3625f3fd5f28055b029721c4110c02af8413",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/item/ItemRenderMissileGeneric.java",
+      "baseline_sha256": "f0dd2138034f060e04db8094a13ef924be09dd13d06494a080e2f16309ae5fb7",
+      "migrated_sha256": "a4f49ca8e807f4a266a47770a2bba7408f9284729d09ba5c1921f5e9ad0d341d",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCCC",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderBobble.java",
+      "baseline_sha256": "24e7d13907eadc933176b99d161d629e3f4f48abda4e5e3f6046905d26a4e9fd",
+      "migrated_sha256": "ae1192f8819f64aab4fd02ddf6d0545090432ef617b9919af4b0aa7998b744cc",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderBombMultiLarge.java",
+      "baseline_sha256": "f501e098e4dc30740d4a10ea304192390dd5ef199dfccb6013ba1dde6ca50d3c",
+      "migrated_sha256": "17b002478a12061cadc5a7bb5958f574990871c3bf15d501268fc40cf8272130",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        },
+        {
+          "old": "import net.minecraftforge.client.model.AdvancedModelLoader;\n",
+          "new": "import com.hbm.render.mesh.ObjMeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 1,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java",
+      "baseline_sha256": "3d90ffee086f9f69a618f65d561820f760e22bb7534cb8219f00d21430a1b438",
+      "migrated_sha256": "7fd331c012daa6576e57b06f5bf587a704c940ee090ecc130e1c2928a71822c8",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java",
+      "baseline_sha256": "461092d089fe3d2c04d7691aee17fba142c53e958bca13f8f55a30c2a171a790",
+      "migrated_sha256": "22aeb2540a9061e873cbdfdc98dc30bb76b3420de1da7cdfabd93410f28d855b",
+      "imports": [
+        {
+          "old": "import com.hbm.render.loader.IModelCustomNamed;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "N",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderFloodlight.java",
+      "baseline_sha256": "fef6df1e1c2a6e10388b4817445dccb703b065f97d590d72862c0f944026a30d",
+      "migrated_sha256": "665cd8e9f4ca683aacdc108c6a67443fc8bd4233c57a2dab6d5c7d17c137056b",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderLaunchTable.java",
+      "baseline_sha256": "c2bdd6aaaad0a0b3e902dd7d273b442125f9991245b467641bfff837f8125fb2",
+      "migrated_sha256": "ca3ffc1a8994f4e001da13a9ebd4f700da9bb8f9d015436e94bdfbe0df2e813d",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCC",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderPlushie.java",
+      "baseline_sha256": "06fd2c9d0f5ecb474bc63a4593c49da06db59a10ddfda7fc84b68c6e605e4d32",
+      "migrated_sha256": "879f18912435915c3b00594807a58c8389869a37101a2c9ee90c553aaf96ab0e",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCCCCC",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 6,
+        "as_vbo_calls": 6,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderSnowglobe.java",
+      "baseline_sha256": "2bebd7490af4267ccdfac5c8d07c8a6cc415fe56116bb68940210c9387af0eb0",
+      "migrated_sha256": "5a54acb1e1cd4534bf380ca271f7420ec59c177bc5cddbfbfc466b14acee33f9",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 1,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/util/HorsePronter.java",
+      "baseline_sha256": "b00a72e326ed9a992e5a369a79998d8317051a88a6f5571c05323ae37ddbea45",
+      "migrated_sha256": "3c3a702dedc767681870258f1020e44ee4044f10d7470ed451427d243705beba",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 1,
+        "as_vbo_calls": 1,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/util/MissilePart.java",
+      "baseline_sha256": "307600dca0a5ae8ad53c79ceb9713b7b7e987808de0cc6fb5172283ed81f6272",
+      "migrated_sha256": "677900108503ec5ec101efb324063db7feb4ccab5b7d9158d543f98adf26e0d5",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCCCCCCCC",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/render/util/RenderMiscEffects.java",
+      "baseline_sha256": "01dca625f86eddf5abf3ea2c1c6cfa3d0fea93cd470107c07c650dfc1795f16c",
+      "migrated_sha256": "531534c4cce6d7d8abbed61a5de235b47e8dd60bde8e47a5276315269edf8ec0",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "CCC",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/saveddata/satellites/SatelliteWar.java",
+      "baseline_sha256": "7ecc1dc7e1512e973c0bed80739d0f8b08400dedef87cf3df8c282ef98f58e1e",
+      "migrated_sha256": "6945193cbf2e9ca311be3469a007d21b088dfa1b0a0403ce7effdfb40c816e26",
+      "imports": [
+        {
+          "old": "import net.minecraftforge.client.model.IModelCustom;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "C",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "baseline_sha256": "4d0a81e68600ca4e9d935f251dde07321d2f86cbe44bcc0a320afc91f4e2ee3e",
+      "migrated_sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276",
+      "imports": [
+        {
+          "old": "import com.hbm.render.loader.IModelCustomNamed;\n",
+          "new": "import com.hbm.render.mesh.MeshModel;\n"
+        }
+      ],
+      "original_type_sequence": "NNNN",
+      "plain_factory_calls": 0,
+      "invariants": {
+        "hfr_constructions": 0,
+        "as_vbo_calls": 0,
+        "no_smooth_calls": 0
+      }
+    }
+  ]
+}

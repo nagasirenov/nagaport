@@ -47,10 +47,10 @@ public class EntityBombletZeta extends EntityThrowable {
 
 		this.rotation();
 
-		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air) {
-			if(!this.worldObj.isRemote) {
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) this.posX, (int) this.posY, (int) this.posZ).getBlock() != Blocks.AIR) {
+			if(!this.world.isRemote) {
 				if(type == 0) {
-					ExplosionVNT vnt = new ExplosionVNT(worldObj, this.posX + 0.5F, this.posY + 1.5F, this.posZ + 0.5F, 4F);
+					ExplosionVNT vnt = new ExplosionVNT(this.world, this.posX + 0.5F, this.posY + 1.5F, this.posZ + 0.5F, 4F);
 					vnt.setBlockAllocator(new BlockAllocatorStandard());
 					vnt.setBlockProcessor(new BlockProcessorStandard());
 					vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 100));
@@ -60,7 +60,7 @@ public class EntityBombletZeta extends EntityThrowable {
 				}
 				if(type == 1) {
 
-					ExplosionVNT vnt = new ExplosionVNT(worldObj, this.posX + 0.5F, this.posY + 1.5F, this.posZ + 0.5F, 4F);
+					ExplosionVNT vnt = new ExplosionVNT(this.world, this.posX + 0.5F, this.posY + 1.5F, this.posZ + 0.5F, 4F);
 					vnt.setBlockAllocator(new BlockAllocatorStandard());
 					vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorFire()));
 					vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 100));
@@ -70,25 +70,25 @@ public class EntityBombletZeta extends EntityThrowable {
 
 				}
 				if(type == 2) {
-					worldObj.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "random.fizz", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
-					EntityMist mist = new EntityMist(worldObj);
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "random.fizz", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
+					EntityMist mist = new EntityMist(this.world);
 					mist.setType(Fluids.CHLORINE);
 					mist.setPosition(this.posX - motionX, this.posY - motionY, this.posZ - motionZ);
 					mist.setArea(15, 7.5F);
-					worldObj.spawnEntityInWorld(mist);
+					this.world.spawnEntityInWorld(mist);
 				}
 				if(type == 4) {
-					worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, (int) (BombConfig.fatmanRadius * 1.5), posX, posY, posZ));
+					this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, (int) (BombConfig.fatmanRadius * 1.5), posX, posY, posZ));
 
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "muke");
 					if(rand.nextInt(100) == 0)
 						data.setBoolean("balefire", true);
 					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(dimension, posX, posY, posZ, 250));
-					worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 				}
 				if(type == 9) {
-					ExplosionVNT vnt = new ExplosionVNT(worldObj, this.posX + 0.5F, this.posY + 1.5F, this.posZ + 0.5F, 4F);
+					ExplosionVNT vnt = new ExplosionVNT(this.world, this.posX + 0.5F, this.posY + 1.5F, this.posZ + 0.5F, 4F);
 					vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 100));
 					vnt.setPlayerProcessor(new PlayerProcessorStandard());
 					vnt.setSFX(new ExplosionEffectWeapon(15, 3.5F, 1.25F));
@@ -100,7 +100,7 @@ public class EntityBombletZeta extends EntityThrowable {
 	}
 
 	public void rotation() {
-        float f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
         for (this.rotationPitch = (float)(Math.atan2(this.motionY, f2) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)

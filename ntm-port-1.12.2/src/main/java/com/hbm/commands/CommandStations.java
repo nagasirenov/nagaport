@@ -23,7 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 
@@ -58,20 +58,20 @@ public class CommandStations extends CommandBase {
 		}
 
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-		SolarSystemWorldSavedData data = SolarSystemWorldSavedData.get(player.worldObj);
+		SolarSystemWorldSavedData data = SolarSystemWorldSavedData.get(player.world);
 
 		switch (args[0]) {
 		case "launch":
-			Destination dest = getStationDestination(sender, player.getHeldItem());
+			Destination dest = getStationDestination(sender, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 			if(dest == null) return;
 
-			OrbitalStation.addStation(dest.x, dest.z, CelestialBody.getBody(player.worldObj));
+			OrbitalStation.addStation(dest.x, dest.z, CelestialBody.getBody(player.world));
 
 			showMessage(sender, "commands.station.launched", false);
 
 			break;
 		case "tp":
-			Destination destination = getStationDestination(sender, player.getHeldItem());
+			Destination destination = getStationDestination(sender, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 			if(destination == null) return;
 
 			int dimensionId = destination.body.getDimensionId();
@@ -96,7 +96,7 @@ public class CommandStations extends CommandBase {
 				if(dimensionId == SpaceConfig.orbitDimension) {
 					player.setPositionAndUpdate(x + 0.5D, 130.0D, z + 0.5D);
 				} else {
-					int y = player.worldObj.getHeightValue(x, z);
+					int y = player.world.getHeightValue(x, z);
 					player.setPositionAndUpdate(x + 0.5D, y + 1, z + 0.5D);
 				}
 			}
@@ -114,7 +114,7 @@ public class CommandStations extends CommandBase {
 			for(OrbitalStation station : data.getStations().values()) {
 				if(!station.hasStation) continue;
 
-				String messageText = "0x" + Integer.toHexString(new ChunkCoordIntPair(station.dX, station.dZ).hashCode()).toUpperCase();
+				String messageText = "0x" + Integer.toHexString(new ChunkPos(station.dX, station.dZ).hashCode()).toUpperCase();
 				if(station.name != "") messageText += " - " + station.name;
 
 				showMessage(sender, messageText, false);
@@ -140,15 +140,15 @@ public class CommandStations extends CommandBase {
 				toMatch = toMatch.trim();
 
 				for(OrbitalStation station : data.getStations().values()) {
-					String stationId = "0x" + Integer.toHexString(new ChunkCoordIntPair(station.dX, station.dZ).hashCode()).toUpperCase();
+					String stationId = "0x" + Integer.toHexString(new ChunkPos(station.dX, station.dZ).hashCode()).toUpperCase();
 					if(station.name.trim().equalsIgnoreCase(toMatch) || stationId.equalsIgnoreCase(toMatch)) {
 						ItemStack drive = new ItemStack(ModItems.full_drive, 1, SolarSystem.Body.ORBIT.ordinal());
 
-						drive.stackTagCompound = new NBTTagCompound();
-						drive.stackTagCompound.setInteger("x", station.dX);
-						drive.stackTagCompound.setInteger("z", station.dZ);
-						drive.stackTagCompound.setBoolean("Processed", true);
-						drive.stackTagCompound.setString("stationName", station.name);
+						drive.setTagCompound(new NBTTagCompound());
+						drive.getTagCompound().setInteger("x", station.dX);
+						drive.getTagCompound().setInteger("z", station.dZ);
+						drive.getTagCompound().setBoolean("Processed", true);
+						drive.getTagCompound().setString("stationName", station.name);
 
 						player.inventory.addItemStackToInventory(drive);
 

@@ -44,10 +44,10 @@ public class GUIRBMKBoiler extends GuiInfoContainer {
 
 		if(guiLeft + 33 <= x && guiLeft + 33 + 20 > x && guiTop + 21 < y && guiTop + 21 + 64 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("compression", true); //we only need to send on bit, so boolean it is
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, boiler.xCoord, boiler.yCoord, boiler.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, boiler.getPos().getX(), boiler.getPos().getY(), boiler.getPos().getZ()));
 		}
 	}
 	
@@ -55,8 +55,8 @@ public class GUIRBMKBoiler extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.boiler.hasCustomInventoryName() ? this.boiler.getInventoryName() : I18n.format(this.boiler.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

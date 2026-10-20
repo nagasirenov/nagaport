@@ -36,18 +36,18 @@ public class GUICraneExtractor extends GuiInfoContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 9; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	
 				if(this.isMouseOverSlot(slot, x, y) && ejector.matcher.modes[i] != null) {
-					this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30);
+					this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(ejector.matcher.modes[i]) }), x, y - 30);
 				}
 			}
 		}
 		
 		if(guiLeft + 187 <= x && guiLeft + 187 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {
-			this.func_146283_a(Arrays.asList(new String[] { "Only take maximum possible: " + (ejector.maxEject ? TextFormatting.GREEN + "ON" : TextFormatting.RED + "OFF") }), x, y);
+			this.drawHoveringText(Arrays.asList(new String[] { "Only take maximum possible: " + (ejector.maxEject ? TextFormatting.GREEN + "ON" : TextFormatting.RED + "OFF") }), x, y);
 		}
 	}
 
@@ -59,22 +59,22 @@ public class GUICraneExtractor extends GuiInfoContainer {
 			click();
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("maxEject", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, ejector.xCoord, ejector.yCoord, ejector.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, ejector.getPos().getX(), ejector.getPos().getY(), ejector.getPos().getZ()));
 		}
 
 		if(guiLeft + 128 <= x && guiLeft + 128 + 14 > x && guiTop + 30 < y && guiTop + 30 + 26 >= y) {
 			click();
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("whitelist", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, ejector.xCoord, ejector.yCoord, ejector.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, ejector.getPos().getX(), ejector.getPos().getY(), ejector.getPos().getZ()));
 		}
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.ejector.hasCustomInventoryName() ? this.ejector.getInventoryName() : I18n.format(this.ejector.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

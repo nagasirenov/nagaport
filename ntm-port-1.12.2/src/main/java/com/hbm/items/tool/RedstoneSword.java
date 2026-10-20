@@ -64,7 +64,7 @@ public class RedstoneSword extends ItemSword {
         {
             if (world.isAirBlock(x, y, z))
             {
-                world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.break", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+                com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "random.break", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
                 world.setBlock(x, y, z, Blocks.redstone_wire);
             }
 

@@ -10,7 +10,7 @@ public class SolidificationHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmSolidification";
 	}
 }

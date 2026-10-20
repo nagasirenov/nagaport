@@ -53,12 +53,12 @@ public class XFactoryCatapult {
 		if(bullet.isDead) return;
 		bullet.setDead();
 
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10);
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10);
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(2, bullet.damage).withRangeMod(1.5F));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.explode();
 
-		incrementRad(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 1F);
+		incrementRad(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 1F);
 		spawnMush(bullet, mop);
 	};
 
@@ -67,14 +67,14 @@ public class XFactoryCatapult {
 		if(bullet.isDead) return;
 		bullet.setDead();
 
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15);
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15);
 		vnt.setBlockAllocator(new BlockAllocatorStandard(64));
 		vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorFire()));
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(2, bullet.damage).withRangeMod(1.5F));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.explode();
 
-		incrementRad(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 1.5F);
+		incrementRad(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 1.5F);
 		spawnMush(bullet, mop);
 	};
 
@@ -82,7 +82,7 @@ public class XFactoryCatapult {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3 && mop.entityHit == bullet.getThrower()) return;
 		if(bullet.isDead) return;
 		bullet.setDead();
-		bullet.worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(bullet.worldObj, 35, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
+		bullet.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(bullet.world, 35, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
 		spawnMush(bullet, mop);
 	};
 
@@ -91,16 +91,16 @@ public class XFactoryCatapult {
 		if(bullet.isDead) return;
 		bullet.setDead();
 
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10);
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10);
 		vnt.setBlockAllocator(new BlockAllocatorStandard(64));
 		vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorBalefire()));
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(2, bullet.damage).withRangeMod(1.5F));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.explode();
 
-		incrementRad(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 1.5F);
+		incrementRad(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 1.5F);
 
-		bullet.worldObj.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "muke");
 		data.setBoolean("balefire", true);
@@ -117,10 +117,10 @@ public class XFactoryCatapult {
 	}
 
 	public static void spawnMush(EntityBulletBaseMK4 bullet, RayTraceResult mop) {
-		bullet.worldObj.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "muke");
-		data.setBoolean("balefire", MainRegistry.polaroidID == 11 || bullet.worldObj.rand.nextInt(100) == 0);
+		data.setBoolean("balefire", MainRegistry.polaroidID == 11 || bullet.world.rand.nextInt(100) == 0);
 		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z), new TargetPoint(bullet.dimension, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 250));
 	}
 
@@ -129,16 +129,16 @@ public class XFactoryCatapult {
 		if(bullet.isDead) return;
 		bullet.setDead();
 
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5);
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5);
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(2, bullet.damage).withRangeMod(1.5F));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.explode();
 
-		incrementRad(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 0.25F);
-		bullet.worldObj.playSoundEffect(mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+		incrementRad(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 0.25F);
+		com.hbm.sound.WorldSoundEffects.play(bullet.world, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "tinytot");
-		data.setBoolean("balefire", MainRegistry.polaroidID == 11 || bullet.worldObj.rand.nextInt(100) == 0);
+		data.setBoolean("balefire", MainRegistry.polaroidID == 11 || bullet.world.rand.nextInt(100) == 0);
 		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, mop.hitVec.x, mop.hitVec.y + 0.5, mop.hitVec.z), new TargetPoint(bullet.dimension, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 250));
 	};
 
@@ -146,7 +146,7 @@ public class XFactoryCatapult {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3 && mop.entityHit == bullet.getThrower()) return;
 		if(bullet.isDead) return;
 		bullet.setDead();
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5);
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5);
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage).withRangeMod(1.5F));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.setSFX(new ExplosionEffectWeapon(10, 2.5F, 1F));
@@ -171,7 +171,7 @@ public class XFactoryCatapult {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_FATMAN))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_FATMAN_ANIMS).orchestra(Orchestras.ORCHESTRA_FATMAN)
-				).setDefaultAmmoExpensive(EnumAmmo.NUKE_STANDARD, 1).setUnlocalizedName("gun_fatman");
+				).setDefaultAmmoExpensive(EnumAmmo.NUKE_STANDARD, 1).setTranslationKey("gun_fatman");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_RECOIL_FATMAN = (stack, ctx) -> { };

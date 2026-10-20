@@ -16,8 +16,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Achievement;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class ItemBobmazonPacket implements IMessage {
@@ -27,9 +27,9 @@ public class ItemBobmazonPacket implements IMessage {
 	public ItemBobmazonPacket() { }
 
 	public ItemBobmazonPacket(EntityPlayer player, Offer offer) {
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.bobmazon)
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.bobmazon)
 			this.offer = BobmazonOfferFactory.standard.indexOf(offer);
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.bobmazon_hidden)
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.bobmazon_hidden)
 			this.offer = BobmazonOfferFactory.special.indexOf(offer);
 	}
 
@@ -48,19 +48,19 @@ public class ItemBobmazonPacket implements IMessage {
 		@Override
 		public IMessage onMessage(ItemBobmazonPacket m, MessageContext ctx) {
 			EntityPlayerMP p = ctx.getServerHandler().playerEntity;
-			World world = p.worldObj;
-			if(world.provider.dimensionId != 0)
+			World world = p.world;
+			if(world.provider.getDimension() != 0)
 			{
-				p.addChatMessage(new ChatComponentText("[BOBMAZON] Out Of Range!"));
+				p.sendMessage(new TextComponentString("[BOBMAZON] Out Of Range!"));
 				return null;
 			}
 			Offer offer = null;
-			if(p.getHeldItem() != null && p.getHeldItem().getItem() == ModItems.bobmazon) offer = BobmazonOfferFactory.standard.get(m.offer);
-			if(p.getHeldItem() != null && p.getHeldItem().getItem() == ModItems.bobmazon_hidden) offer = BobmazonOfferFactory.special.get(m.offer);
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(p) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(p).getItem() == ModItems.bobmazon) offer = BobmazonOfferFactory.standard.get(m.offer);
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(p) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(p).getItem() == ModItems.bobmazon_hidden) offer = BobmazonOfferFactory.special.get(m.offer);
 			
 			if(offer == null) {
-				p.addChatMessage(new ChatComponentText("[BOBMAZON] There appears to be a mismatch between the offer you have requested and the offers that exist."));
-				p.addChatMessage(new ChatComponentText("[BOBMAZON] Engaging fail-safe..."));
+				p.sendMessage(new TextComponentString("[BOBMAZON] There appears to be a mismatch between the offer you have requested and the offers that exist."));
+				p.sendMessage(new TextComponentString("[BOBMAZON] Engaging fail-safe..."));
 				p.attackEntityFrom(ModDamageSource.nuclearBlast, 1000);
 				p.motionY = 2.0D;
 				return null;
@@ -69,8 +69,8 @@ public class ItemBobmazonPacket implements IMessage {
 			
 			ItemStack stack = offer.offer;
 			
-			Achievement req = offer.requirement.achievement;
-			if(req != null && p.func_147099_x().hasAchievementUnlocked(req) || p.capabilities.isCreativeMode) {
+			ResourceLocation req = offer.requirement.achievement;
+			if(req != null && com.hbm.advancement.NtmAdvancements.has(p, req) || p.capabilities.isCreativeMode) {
 				
 				if(countCaps(p) >= offer.cost || p.capabilities.isCreativeMode) {
 					
@@ -86,11 +86,11 @@ public class ItemBobmazonPacket implements IMessage {
 					
 					world.spawnEntityInWorld(bob);
 				} else {
-					p.addChatMessage(new ChatComponentText("[BOBMAZON] Not enough caps!"));
+					p.sendMessage(new TextComponentString("[BOBMAZON] Not enough caps!"));
 				}
 				
 			} else {
-				p.addChatMessage(new ChatComponentText("[BOBMAZON] Achievement requirement not met!"));
+				p.sendMessage(new TextComponentString("[BOBMAZON] Achievement requirement not met!"));
 			}
 			
 			return null;

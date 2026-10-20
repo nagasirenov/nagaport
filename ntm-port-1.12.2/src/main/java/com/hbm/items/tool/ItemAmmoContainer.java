@@ -86,7 +86,7 @@ public class ItemAmmoContainer extends Item {
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		String[] lines = I18nUtil.resolveKeyArray(this.getUnlocalizedName() + (stack.getItemDamage() == 1 ? ".1" : "") + ".desc");
+		String[] lines = I18nUtil.resolveKeyArray(this.getTranslationKey() + (stack.getItemDamage() == 1 ? ".1" : "") + ".desc");
 		for(String line : lines) list.add(TextFormatting.YELLOW + line);
 	}
 }

@@ -1,0 +1,5 @@
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[15:26:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `native_core_probe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+Actual body: 128 faces, 384 corners
+PASS 27060 independent matrix/native model/asset assertions; no GL or full-client parity claim.

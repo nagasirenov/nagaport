@@ -9,16 +9,17 @@ public class StoneBrickSelector extends BlockSelector {
 
 	@Override
 	public void selectBlocks(Random rand, int x, int y, int z, boolean notInterior) {
-		field_151562_a = Blocks.stonebrick;
+		int selectedMetadata;
 		float f = rand.nextFloat();
 
 		if (f < 0.2F) {
-			this.selectedBlockMetaData = 2;
+			selectedMetadata = 2;
 		} else if (f < 0.5F) {
-			this.selectedBlockMetaData = 1;
+			selectedMetadata = 1;
 		} else {
-			this.selectedBlockMetaData = 0;
+			selectedMetadata = 0;
 		}
+		this.blockstate = Blocks.STONEBRICK.getStateFromMeta(selectedMetadata);
 	}
 
 }

@@ -18,7 +18,7 @@ public class FluidLoaderFillableItem extends FluidLoadingHandler {
 		
 		if(tank.pressure != 0) return false;
 		
-		if(stack == null)
+		if(stack == null || stack.isEmpty())
 			return false;
 		
 		FluidType type = tank.getTankType();
@@ -26,7 +26,7 @@ public class FluidLoaderFillableItem extends FluidLoadingHandler {
 		if(stack.getItem() instanceof ItemArmor && ArmorModHandler.hasMods(stack)) {
 			for(ItemStack mod : ArmorModHandler.pryMods(stack)) {
 				
-				if(mod != null && mod.getItem() instanceof IFillableItem) {
+				if(mod != null && !mod.isEmpty() && mod.getItem() instanceof IFillableItem) {
 					fill(mod, tank);
 					ArmorModHandler.applyMod(stack, mod);
 				}
@@ -56,7 +56,7 @@ public class FluidLoaderFillableItem extends FluidLoadingHandler {
 		if(stack.getItem() instanceof ItemArmor && ArmorModHandler.hasMods(stack)) {
 			for(ItemStack mod : ArmorModHandler.pryMods(stack)) {
 				
-				if(mod != null && mod.getItem() instanceof IFillableItem) {
+				if(mod != null && !mod.isEmpty() && mod.getItem() instanceof IFillableItem) {
 					empty(mod, tank);
 				}
 			}

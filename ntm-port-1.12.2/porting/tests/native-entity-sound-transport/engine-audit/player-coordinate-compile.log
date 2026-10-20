@@ -1,0 +1,15 @@
+/workspace/shared/world-sound-engine-evidence/NativeWorldSoundCallbackProbe.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-engine-evidence/NativeWorldSoundCallbackProbe.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final Unsafe U;
+                 ^
+/workspace/shared/world-sound-engine-evidence/NativeWorldSoundCallbackProbe.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); U=(Unsafe)f.get(null); }catch(Exception e){throw new ExceptionInInitializerError(e);} }
+                           ^
+/workspace/shared/world-sound-engine-evidence/NativeWorldSoundCallbackProbe.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); U=(Unsafe)f.get(null); }catch(Exception e){throw new ExceptionInInitializerError(e);} }
+                                                                                                 ^
+warning: Implicitly compiled files were not subject to annotation processing.
+  Use -proc:none to disable annotation processing or -implicit to specify a policy for implicit compilation.
+5 warnings

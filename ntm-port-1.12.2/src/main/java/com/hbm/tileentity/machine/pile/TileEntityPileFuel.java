@@ -20,29 +20,29 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 	public static final int maxProgress = GeneralConfig.enable528 ? 75000 : 50000; //might double to reduce compact setup's effectiveness
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			dissipateHeat();
 			checkRedstone(react());
 			transmute();
 
 			if(this.heat >= this.maxHeat) {
-				worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 4, true, true);
-				worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.gas_radon_dense);
+				this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 4, true, true);
+				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.gas_radon_dense);
 			}
 
-			if(worldObj.rand.nextFloat() * 2F <= this.heat / (float)this.maxHeat) {
+			if(this.world.rand.nextFloat() * 2F <= this.heat / (float)this.maxHeat) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "vanillaExt");
 				data.setString("mode", "smoke");
 				data.setDouble("mY", 0.05);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.25 + worldObj.rand.nextDouble() * 0.5, yCoord + 1, zCoord + 0.25 + worldObj.rand.nextDouble() * 0.5),
-						new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 20));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.25 + this.world.rand.nextDouble() * 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.25 + this.world.rand.nextDouble() * 0.5),
+						new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 20));
 			}
 
 			if(this.progress >= this.maxProgress) {
-				worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.block_graphite_plutonium, this.getBlockMetadata() & 7, 3);
+				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_plutonium, this.getBlockMetadata() & 7, 3);
 			}
 		}
 
@@ -75,10 +75,10 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 	}
 
 	private void checkRedstone(int lastProgress) {
-		int lastLevel = MathHelper.clamp_int((lastProgress * 16) / maxProgress, 0, 15);
-		int newLevel = MathHelper.clamp_int((progress * 16) / maxProgress, 0, 15);
+		int lastLevel = MathHelper.clamp((lastProgress * 16) / maxProgress, 0, 15);
+		int newLevel = MathHelper.clamp((progress * 16) / maxProgress, 0, 15);
 		if(lastLevel != newLevel)
-			worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord, zCoord, this.getBlockType());
+			this.world.notifyBlocksOfNeighborChange(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType());
 	}
 
 	private void transmute() {
@@ -89,7 +89,7 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 
 			return;
 		} else if(this.progress >= maxProgress - 1000) {
-			worldObj.setBlockMetadataWithNotify(this.xCoord, this.yCoord, this.zCoord, this.getBlockMetadata() | 8, 3);
+			this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockMetadata() | 8, 3);
 			return;
 		}
 	}
@@ -108,10 +108,11 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("heat", this.heat);
 		nbt.setInteger("progress", this.progress);
 		nbt.setInteger("neutrons", this.neutrons);
+		return nbt;
 	}
 }

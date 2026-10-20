@@ -24,7 +24,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineBatteryREDD extends BlockDummyable implements IPersistentInfoProvider {
 
 	public MachineBatteryREDD() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

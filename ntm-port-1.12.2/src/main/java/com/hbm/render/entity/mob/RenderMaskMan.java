@@ -6,7 +6,7 @@ import com.hbm.render.model.ModelMaskMan;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.BossStatus;
+import com.hbm.render.util.ClientBossDisplay;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMaskMan extends RenderLiving {
@@ -19,7 +19,7 @@ public class RenderMaskMan extends RenderLiving {
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
 		
-        BossStatus.setBossStatus((EntityMaskMan)entity, true);
+        ClientBossDisplay.capture((EntityMaskMan)entity, true);
         super.doRender(entity, x, y, z, f0, f1);
 	}
 

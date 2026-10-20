@@ -17,8 +17,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;
+import com.hbm.entity.mob.ai.EntityAIFBIMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
@@ -47,8 +47,8 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		this.getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIBreaking(this));
-		this.tasks.addTask(2, new EntityAIArrowAttack(this, 1D, 20, 25, 15.0F));
-		this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
+		this.tasks.addTask(2, new EntityAIRangedAttackNT(this, 1D, 20, 25, 15.0F));
+		this.tasks.addTask(3, new EntityAIFBIMelee(this));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		//this.tasks.addTask(6, new EntityAI_MLPF(this, EntityPlayer.class, 100, 1D, 16));
 		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
@@ -63,7 +63,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.5D);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.5D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
 	}
 
@@ -73,7 +73,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 			return false;
 		}
 
-		if(this.getEquipmentInSlot(4) != null && this.getEquipmentInSlot(4).getItem() == Item.getItemFromBlock(Blocks.glass)) {
+		if(this.getEquipmentInSlot(4) != null && this.getEquipmentInSlot(4).getItem() == Item.getItemFromBlock(Blocks.GLASS)) {
 			if("oxygenSuffocation".equals(source.damageType))
 				return false;
 			if("thermal".equals(source.damageType))
@@ -109,7 +109,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		}
 
 		if(!ChunkAtmosphereManager.proxy.canBreathe(this)) {
-			this.setCurrentItemOrArmor(4, new ItemStack(Blocks.glass));
+			this.setCurrentItemOrArmor(4, new ItemStack(Blocks.GLASS));
 			this.setCurrentItemOrArmor(3, new ItemStack(ModItems.paa_plate));
 			this.setCurrentItemOrArmor(2, new ItemStack(ModItems.paa_legs));
 			this.setCurrentItemOrArmor(1, new ItemStack(ModItems.paa_boots));
@@ -125,12 +125,12 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		super.updateAITasks();
 
 		if(this.getAttackTarget() == null) {
-			this.setAttackTarget(this.worldObj.getClosestVulnerablePlayerToEntity(this, 128.0D));
+			this.setAttackTarget(this.world.getClosestVulnerablePlayerToEntity(this, 128.0D));
 		}
 
 		// hell yeah!!
 		if(this.getAttackTarget() != null) {
-			this.getNavigator().setPath(PathFinderUtils.getPathEntityToEntityPartial(worldObj, this, this.getAttackTarget(), 16F, true, false, false, true), 1);
+			this.getNavigator().setPath(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.getAttackTarget(), 16F, true, false, false, true), 1);
 		}
 	}
 
@@ -147,8 +147,8 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 	static {
 		canDestroy.add(Blocks.wooden_door);
-		canDestroy.add(Blocks.iron_door);
-		canDestroy.add(Blocks.trapdoor);
+		canDestroy.add(Blocks.IRON_DOOR);
+		canDestroy.add(Blocks.TRAPDOOR);
 		canDestroy.add(ModBlocks.machine_press);
 		canDestroy.add(ModBlocks.machine_epress);
 		canDestroy.add(ModBlocks.machine_chemical_plant);
@@ -165,8 +165,8 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		canDestroy.add(ModBlocks.machine_minirtg);
 		canDestroy.add(ModBlocks.machine_powerrtg);
 		canDestroy.add(ModBlocks.machine_cyclotron);
-		canDestroy.add(Blocks.chest);
-		canDestroy.add(Blocks.trapped_chest);
+		canDestroy.add(Blocks.CHEST);
+		canDestroy.add(Blocks.TRAPPED_CHEST);
 	}
 
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
@@ -184,7 +184,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 
-		if(worldObj.isRemote || this.getHealth() <= 0)
+		if(this.world.isRemote || this.getHealth() <= 0)
 			return;
 
 		if(this.ticksExisted % MobConfig.raidAttackDelay == 0) {
@@ -193,18 +193,18 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 			Vec3d vec3 = new Vec3d(this.posX, this.posY + 0.5 + rand.nextFloat(), this.posZ);
 			Vec3d vec31 = new Vec3d(vec3.x + vec.x, vec3.y + vec.y, vec3.z + vec.z);
-			RayTraceResult mop = this.worldObj.rayTraceBlocks(vec3, vec31, false, true, false);
+			RayTraceResult mop = this.world.rayTraceBlocks(vec3, vec31, false, true, false);
 
 			if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-				if(canDestroy.contains(worldObj.getBlockState(mop.getBlockPos()).getBlock()))
-					worldObj.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+				if(canDestroy.contains(this.world.getBlockState(mop.getBlockPos()).getBlock()))
+					this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 			}
 		}
 
 		double range = 1.5;
 
-		List<EntityItem> items = worldObj.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
 
 		for(EntityItem item : items)
 			item.setFire(10);

@@ -1,0 +1,2 @@
+MATCH 0da68893d3ceae1e6681ec262dba12f76c2640a9026bd227d236ff3ddf64d781 src/main/java/com/hbm/entity/mob/ai/EntityAIMaskmanCasualApproach.java
+PASS: complete modified production AI matches compiler input; 3860 production sources included.

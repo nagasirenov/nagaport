@@ -35,7 +35,7 @@ public class ContainerFusionTorus extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return torus.isUseableByPlayer(player);
+		return torus.isUsableByPlayer(player);
 	}
 	
 	@Override

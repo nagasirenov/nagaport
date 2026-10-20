@@ -109,14 +109,14 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 			this.rotor -= 360;
 		}
 		
-		if(this.spin > 0 && MainRegistry.proxy.me().getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 35) {
+		if(this.spin > 0 && MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) <= 35) {
 
 			float spinNum = (float) Math.min(1F, spin * 2);
 			float volume = this.getVolume(0.25F + spinNum * 0.75F);
 			float pitch = 0.5F + spinNum * 0.5F + this.audioDesync;
 
 			if(audio == null) {
-				audio = MainRegistry.proxy.getLoopedSound("hbm:block.largeTurbineRunning", xCoord + 0.5F, yCoord + 0.5F, zCoord + 0.5F, volume, 20F, pitch, 20);
+				audio = MainRegistry.proxy.getLoopedSound("hbm:block.largeTurbineRunning", this.pos.getX() + 0.5F, this.pos.getY() + 0.5F, this.pos.getZ() + 0.5F, volume, 20F, pitch, 20);
 				audio.startSound();
 			}
 			
@@ -189,10 +189,11 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("lastPowerTarget", lastPowerTarget);
 		nbt.setDouble("spin", spin);
+		return nbt;
 	}
 
 	@Override
@@ -200,12 +201,12 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 3 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 3 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + dir.offsetX * 3 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 3 - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 1 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 1 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - dir.offsetX * 1 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 1 - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 3, yCoord + 3, zCoord + dir.offsetZ * 3, ForgeDirection.UP),
-				new DirPos(xCoord - dir.offsetX * 1, yCoord + 3, zCoord - dir.offsetZ * 1, ForgeDirection.UP),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 1 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 1 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 1 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 1 - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 3, ForgeDirection.UP),
+				new DirPos(this.pos.getX() - dir.offsetX * 1, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 1, ForgeDirection.UP),
 		};
 	}
 
@@ -213,7 +214,7 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 	public DirPos[] getPowerPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		return new DirPos[] {
-				new DirPos(xCoord - dir.offsetX * 4, yCoord + 1, zCoord - dir.offsetZ * 4, dir.getOpposite())
+				new DirPos(this.pos.getX() - dir.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 4, dir.getOpposite())
 		};
 	}
 	
@@ -224,12 +225,12 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 3,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 4
 					);
 		}
 		

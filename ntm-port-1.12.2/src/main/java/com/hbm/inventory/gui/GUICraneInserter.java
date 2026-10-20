@@ -36,7 +36,7 @@ public class GUICraneInserter extends GuiInfoContainer {
 		super.drawScreen(x, y, interp);
 
 		if(guiLeft + 151 <= x && guiLeft + 151 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {
-			this.func_146283_a(Arrays.asList(new String[] { "Destroy overflow: " + (inserter.destroyer ? TextFormatting.GREEN + "ON" : TextFormatting.RED + "OFF") }), x, y);
+			this.drawHoveringText(Arrays.asList(new String[] { "Destroy overflow: " + (inserter.destroyer ? TextFormatting.GREEN + "ON" : TextFormatting.RED + "OFF") }), x, y);
 		}
 	}
 
@@ -45,18 +45,18 @@ public class GUICraneInserter extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 151 <= x && guiLeft + 151 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("destroyer", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, inserter.xCoord, inserter.yCoord, inserter.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, inserter.getPos().getX(), inserter.getPos().getY(), inserter.getPos().getZ()));
 		}
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.inserter.hasCustomInventoryName() ? this.inserter.getInventoryName() : I18n.format(this.inserter.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2 - 18, 5, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2 - 18, 5, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

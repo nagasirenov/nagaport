@@ -15,7 +15,7 @@ public interface ICopiable {
 
 	default String getSettingsSourceID(Either<TileEntity, Block> self) {
 		Block block = self.isLeft() ? self.left().getBlockType() : self.right();
-		return block.getUnlocalizedName();
+		return block.getTranslationKey();
 	}
 
 	default String getSettingsSourceDisplay(Either<TileEntity, Block> self) {

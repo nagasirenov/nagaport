@@ -48,7 +48,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 
 		// rod extraction fields
 		for(byte i = 0; i < 2; i++) {
-			this.fields[i] = new GuiTextField(this.fontRendererObj, guiLeft + 35 + 30 * i, guiTop + 38, 26, 7);
+			this.fields[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 35 + 30 * i, guiTop + 38, 26, 7);
 			this.fields[i].setTextColor(0x08FF00);
 			this.fields[i].setDisabledTextColour(-1);
 			this.fields[i].setEnableBackgroundDrawing(false);
@@ -58,7 +58,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 
 		// heat fields
 		for(byte i = 0; i < 2; i++) {
-			this.fields[i + 2] = new GuiTextField(this.fontRendererObj, guiLeft + 35 + 30 * i, guiTop + 49, 26, 7);
+			this.fields[i + 2] = new GuiTextField(i + 2, this.fontRenderer, guiLeft + 35 + 30 * i, guiTop + 49, 26, 7);
 			this.fields[i + 2].setTextColor(0x08FF00);
 			this.fields[i + 2].setDisabledTextColour(-1);
 			this.fields[i + 2].setEnableBackgroundDrawing(false);
@@ -86,7 +86,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 
 		if(guiLeft + 33 <= x && guiLeft + 33 + 58 > x && guiTop + 59 < y && guiTop + 59 + 10 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 
 			double[] vals = new double[] { 0D, 0D, 0D, 0D };
@@ -97,7 +97,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 				int mod = k < 2 ? 1 : 50;
 
 				if(NumberUtils.isDigits(fields[k].getText())) {
-					int j = (int) MathHelper.clamp_double(Double.parseDouble(fields[k].getText()), 0, clamp);
+					int j = (int) MathHelper.clamp(Double.parseDouble(fields[k].getText()), (double) (0), clamp);
 					fields[k].setText(j + "");
 					vals[k] = j * mod;
 				} else {
@@ -110,16 +110,16 @@ public class GUIReactorControl extends GuiInfoContainer {
 			data.setDouble("heatUpper", vals[2]);
 			data.setDouble("heatLower", vals[3]);
 
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, control.xCoord, control.yCoord, control.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, control.getPos().getX(), control.getPos().getY(), control.getPos().getZ()));
 		}
 
 		for(int k = 0; k < 3; k++) {
 			if(guiLeft + 7 <= x && guiLeft + 7 + 22 > x && guiTop + 37 + k * 11 < y && guiTop + 37 + 10 + k * 11 >= y) {
 
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("function", k);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, control.xCoord, control.yCoord, control.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, control.getPos().getX(), control.getPos().getY(), control.getPos().getZ()));
 			}
 		}
 	}
@@ -128,8 +128,8 @@ public class GUIReactorControl extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.control.hasCustomInventoryName() ? this.control.getInventoryName() : I18n.format(this.control.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 		tess.setColorOpaque_I(0x08FF00);
 
 		for(int i = 0; i < 40; i++) {
-			tess.addVertex(guiLeft + 128 + i, guiTop + 39 + MathHelper.clamp_double(control.getTargetLevel(control.function, i * 1250) / 100 * 28, 0, 28), this.zLevel);
+			tess.addVertex(guiLeft + 128 + i, guiTop + 39 + MathHelper.clamp(control.getTargetLevel(control.function, i * 1250) / 100 * 28, (double) (0), (double) (28)), this.zLevel);
 		}
 
 		tess.draw();
@@ -169,7 +169,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 		}
 
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			return;
 		}
 

@@ -1,0 +1,527 @@
+{
+  "baseline": "e03449f2b4042bd79cfe100acaac97743b0078a9",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "02583e607790e808e24478aedc674b6b00fd0845a01c8a00bdee4d9c668c4af6",
+      "after_sha256": "d8b62d1748ee02e40d903545f491dca484a3346e3c6aa60ef9cb1421ef3fa68f",
+      "edits": [
+        {
+          "before_offset": 132325,
+          "after_offset": 132325,
+          "old": "\t\tsteel_grate = new BlockGrate(Material.iron).setBlockName(\"steel_grate\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tsteel_grate_wide = new BlockGrate(Material.iron).setBlockName(\"steel_grate_wide\").setStepSound(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n",
+          "new": "\t\tsteel_grate = new BlockGrate(Material.IRON, false).setTranslationKey(\"steel_grate\").setSoundType(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n\t\tsteel_grate_wide = new BlockGrate(Material.IRON, true).setTranslationKey(\"steel_grate_wide\").setSoundType(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);\r\n"
+        },
+        {
+          "before_offset": 282941,
+          "after_offset": 282964,
+          "old": "\t\twand_air = new BlockWand(Blocks.air).setBlockName(\"wand_air\").setBlockTextureName(RefStrings.MODID + \":wand_air\");\r\n",
+          "new": "\t\twand_air = new BlockWand(Blocks.AIR).setTranslationKey(\"wand_air\");\r\n"
+        },
+        {
+          "before_offset": 317927,
+          "after_offset": 317903,
+          "old": "\t\tGameRegistry.registerBlock(steel_grate, steel_grate.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(steel_grate, ItemBlock.class);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockGrate.java": {
+      "before_sha256": "724ad1b928248eb337bac90be5e0195f5078e080354fa45c15bd5508c775de48",
+      "after_sha256": "c9089b50ca34973228f7908eb7ccec4c76518db9c9f96f39d4e9142d0ea732ac",
+      "edits": [
+        {
+          "before_offset": 56,
+          "after_offset": 56,
+          "old": "\n",
+          "new": "import javax.annotation.Nullable;\n"
+        },
+        {
+          "before_offset": 97,
+          "after_offset": 130,
+          "old": "import com.hbm.blocks.ModBlocks;\nimport com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 196,
+          "after_offset": 165,
+          "old": "\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 440,
+          "after_offset": 245,
+          "old": "",
+          "new": "import net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\n"
+        },
+        {
+          "before_offset": 486,
+          "after_offset": 498,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 787,
+          "after_offset": 757,
+          "old": "",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\n"
+        },
+        {
+          "before_offset": 874,
+          "after_offset": 965,
+          "old": "import net.minecraft.util.EnumFacing;\nimport com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1021,
+          "after_offset": 1040,
+          "old": "",
+          "new": "import net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\n"
+        },
+        {
+          "before_offset": 1022,
+          "after_offset": 1227,
+          "old": "",
+          "new": "/** Native owner for the original two height-adjustable steel grates. */\n"
+        },
+        {
+          "before_offset": 1090,
+          "after_offset": 1368,
+          "old": "\n\t@SideOnly(Side.CLIENT)\n\tprivate IIcon sideIcon;\n\t\n\tpublic BlockGrate(Material material) {\n\t\tsuper(material);\n\t}\n\t\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.steel_grate ? \":grate_top\" : \":grate_wide_top\"));\n\t\tthis.sideIcon = iconRegister.registerIcon(RefStrings.MODID + \":grate_side\");\n\t}\n\t\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn side == 1 ? this.blockIcon : (side == 0 ? this.blockIcon : this.sideIcon);\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\tpublic float getY(int meta) {\n\t\tif(meta == 9) return -0.125F;\n\t\treturn meta * 0.125F;\n\t}\n\n\t@Override\n\tpublic void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tfloat fy = getY(meta);\n\t\tthis.setBlockBounds(0F, fy, 0F, 1F, fy + 0.125F - (this == ModBlocks.steel_grate_wide ? 0.001F : 0), 1F);\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tfloat fy = getY(meta);\n\t\tthis.setBlockBounds(0F, fy, 0F, 1F, fy + 0.125F - (this == ModBlocks.steel_grate_wide ? 0.001F : 0), 1F);\n\t\treturn AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);\n\t}\n\n\t@Override\n\tpublic boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {\n\t\tint meta = world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ());\n\t\treturn (side == EnumFacing.UP && meta == 7) || (side == EnumFacing.DOWN && meta == 0);\n\t}\n\n\t@Override\n\tpublic int onBlockPlaced(World world, int x, int y, int z, int side, float hX, float hY, float hZ, int meta) {\n\n\t\tif(side == 0)\n\t\t\treturn 7;\n\t\t\n\t\tif(side == 1)\n\t\t\treturn 0;\n\t\t\n\t\treturn (int)Math.floor(hY * 8D);\n\t}\n\n\t@Override\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tif(player.isSneaking()) {\n\t\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\t\tif(meta == 0) {\n\t\t\t\t// Check that the block below can fit a grate above it\n\t\t\t\tBlock block = world.getBlock(x, y - 1, z);\n\t\t\t\tAxisAlignedBB otherBB = block.getCollisionBoundingBoxFromPool(world, x, y - 1, z);\n\t\t\t\tif(!block.isAir(world, x, y + 1, z) && (otherBB == null || otherBB.maxY - (double)y < -0.05)) {\n\t\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 9, 3);\n\t\t\t\t}\n\t\t\t} else if(meta == 7) {\n\t\t\t\tBlock block = world.getBlock(x, y + 1, z);\n\t\t\t\tAxisAlignedBB otherBB = block.getCollisionBoundingBoxFromPool(world, x, y + 1, z);\n\t\t\t\tif(!block.isAir(world, x, y + 1, z) && (otherBB == null || otherBB.minY - (double)(y + 1) > 0.05)) {\n\t\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 8, 3);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\t@Override\n\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock) {\n\t\tif(world.isRemote) return;\n\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\tboolean breakIt = false;\n\n\t\tif(meta == 9) {\n\t\t\tAxisAlignedBB otherBB = world.getBlock(x, y - 1, z).getCollisionBoundingBoxFromPool(world, x, y - 1, z);\n\t\t\tbreakIt = !(otherBB == null || otherBB.maxY - (double)y < -0.05);\n\t\t} else if(meta == 8) {\n\t\t\tAxisAlignedBB otherBB = world.getBlock(x, y + 1, z).getCollisionBoundingBoxFromPool(world, x, y + 1, z);\n\t\t\tbreakIt = !(otherBB == null || otherBB.minY - (double)(y + 1) > 0.05);\n\t\t}\n\n\t\tif(breakIt) {\n\t\t\tdropBlockAsItem(world, x, y, z, 0, 0);\n\t\t\tworld.setBlockToAir(x, y, z);\n\t\t}\n\t}\n\n\t@Override\n\tpublic void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {\n\t\tif(this != ModBlocks.steel_grate_wide || !(entity instanceof EntityItem || entity instanceof EntityXPOrb)) {\n\t\t\tsuper.addCollisionBoxesToList(world, x, y, z, entityBounding, list, entity);\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\tif((entity instanceof EntityItem || entity instanceof EntityXPOrb) && entity.posY < y + meta * 0.125D + 0.375) {\n\t\t\tentity.motionX = 0;\n\t\t\tentity.motionY = -0.25;\n\t\t\tentity.motionZ = 0;\n\t\t\t\n\t\t\tentity.setPosition(entity.posX, entity.posY - 0.125, entity.posZ);\n\t\t}\n\t}\n\n\t@Override\n\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\tlist.add(I18nUtil.resolveKey(this.getUnlocalizedName() + \".desc\"));\n\t}\n",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    public static final IUnlistedProperty<RenderSnapshot> RENDER = new IUnlistedProperty<RenderSnapshot>() {\n        @Override public String getName() { return \"grate_render\"; }\n        @Override public boolean isValid(RenderSnapshot value) { return value != null; }\n        @Override public Class<RenderSnapshot> getType() { return RenderSnapshot.class; }\n        @Override public String valueToString(RenderSnapshot value) { return value.pos.toString(); }\n    };\n    private final boolean wide;\n    public BlockGrate(Material material, boolean wide) {\n        super(material);\n        this.wide = wide;\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n    public boolean isWide() { return wide; }\n    @Override protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[] {METADATA}, new IUnlistedProperty<?>[] {RENDER});\n    }\n    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    public float getY(int meta) { return meta == 9 ? -.125F : meta * .125F; }\n    public static int renderShift(int meta) { return meta == 9 ? -1 : meta >= 8 ? 1 : 0; }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        float y = getY(getMetaFromState(state));\n        return new AxisAlignedBB(0, y, 0, 1, y + .125F - (wide ? .001F : 0), 1);\n    }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return getBoundingBox(state, world, pos);\n    }\n    @Override public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {\n        int meta = getMetaFromState(state);\n        return side == EnumFacing.UP && meta == 7 || side == EnumFacing.DOWN && meta == 0;\n    }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {\n        return isSideSolid(state, world, pos, side) ? BlockFaceShape.SOLID : BlockFaceShape.UNDEFINED;\n    }\n    @Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hitX,\n            float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {\n        return getStateFromMeta(side == EnumFacing.DOWN ? 7 : side == EnumFacing.UP ? 0 : (int)Math.floor(hitY * 8D));\n    }\n    private static AxisAlignedBB worldCollision(World world, BlockPos pos) {\n        AxisAlignedBB box = world.getBlockState(pos).getCollisionBoundingBox(world, pos);\n        return box == null ? null : box.offset(pos);\n    }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n        if(player.isSneaking()) {\n            int meta = getMetaFromState(world.getBlockState(pos));\n            if(meta == 0) {\n                BlockPos below = pos.down();\n                IBlockState other = world.getBlockState(below);\n                AxisAlignedBB box = worldCollision(world, below);\n                // Original intentionally asks the BELOW block's isAir at the ABOVE position.\n                if(!other.getBlock().isAir(other, world, pos.up()) && (box == null || box.maxY - (double)pos.getY() < -.05))\n                    world.setBlockState(pos, getStateFromMeta(9), 3);\n            } else if(meta == 7) {\n                BlockPos above = pos.up();\n                IBlockState other = world.getBlockState(above);\n                AxisAlignedBB box = worldCollision(world, above);\n                if(!other.getBlock().isAir(other, world, above) && (box == null || box.minY - (double)above.getY() > .05))\n                    world.setBlockState(pos, getStateFromMeta(8), 3);\n            }\n        }\n    }\n    @Override public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighbor, BlockPos fromPos) {\n        if(world.isRemote) return;\n        int meta = getMetaFromState(world.getBlockState(pos));\n        boolean breakIt = false;\n        if(meta == 9) {\n            AxisAlignedBB box = worldCollision(world, pos.down());\n            breakIt = !(box == null || box.maxY - (double)pos.getY() < -.05);\n        } else if(meta == 8) {\n            AxisAlignedBB box = worldCollision(world, pos.up());\n            breakIt = !(box == null || box.minY - (double)(pos.getY() + 1) > .05);\n        }\n        if(breakIt) {\n            dropBlockAsItem(world, pos, getStateFromMeta(0), 0);\n            world.setBlockToAir(pos);\n        }\n    }\n    @Override public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB query,\n            List<AxisAlignedBB> boxes, @Nullable Entity entity, boolean actualState) {\n        if(!wide || !(entity instanceof EntityItem || entity instanceof EntityXPOrb)) {\n            super.addCollisionBoxToList(state, world, pos, query, boxes, entity, actualState);\n            return;\n        }\n        int meta = getMetaFromState(world.getBlockState(pos));\n        // Deliberately uses meta*.125, NOT getY(meta), including special metadata 9.\n        if(entity.posY < pos.getY() + meta * .125D + .375) {\n            entity.motionX = 0;\n            entity.motionY = -.25;\n            entity.motionZ = 0;\n            entity.setPosition(entity.posX, entity.posY - .125, entity.posZ);\n        }\n    }\n    @Override public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean extended) {\n        list.add(I18nUtil.resolveKey(getTranslationKey() + \".desc\"));\n    }\n    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return ((IExtendedBlockState)state).withProperty(RENDER, new RenderSnapshot(this, state, world, pos));\n    }\n    public static RenderSnapshot renderSnapshot(IBlockState state) {\n        if(!(state instanceof IExtendedBlockState)) throw new IllegalArgumentException(\"Grate model requires its render snapshot\");\n        RenderSnapshot snapshot = ((IExtendedBlockState)state).getValue(RENDER);\n        if(snapshot == null) throw new IllegalArgumentException(\"Grate model requires its render snapshot\");\n        return snapshot;\n    }\n    public static final class RenderSnapshot {\n        public final IBlockAccess world;\n        public final BlockPos pos, renderPos;\n        public final IBlockState state;\n        public final int visible;\n        RenderSnapshot(BlockGrate block, IBlockState state, IBlockAccess world, BlockPos pos) {\n            this.world = world;\n            this.pos = pos.toImmutable();\n            this.state = ((IExtendedBlockState)state).getClean();\n            this.renderPos = pos.add(0, renderShift(block.getMetaFromState(state)), 0);\n            AxisAlignedBB ownerBounds = block.getBoundingBox(state, world, pos);\n            int faces = 0;\n            for(EnumFacing side : EnumFacing.values()) {\n                // Inherited 1.7 Block.shouldSideBeRendered used owner bounds, NOT the renderer's normalized bounds.\n                boolean recessed = side == EnumFacing.DOWN && ownerBounds.minY > 0 || side == EnumFacing.UP && ownerBounds.maxY < 1;\n                if(recessed || !world.getBlockState(renderPos.offset(side)).isOpaqueCube()) faces |= 1 << side.getIndex();\n            }\n            visible = faces;\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWand.java": {
+      "before_sha256": "5275a5605b8ee50b907fadb34167cb0a064a7e3ad8b57c11722bb3d26d62b0af",
+      "after_sha256": "94a76044ae675cf9d37e406f770a0362d7092c096248b85aa41bb96cd954e898",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": "import javax.annotation.Nullable;\n"
+        },
+        {
+          "before_offset": 276,
+          "after_offset": 147,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 322,
+          "after_offset": 526,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 363,
+          "after_offset": 608,
+          "old": "import net.minecraft.world.World;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 398,
+          "after_offset": 609,
+          "old": "",
+          "new": "/** Original non-colliding structure marker, with native state and model rendering. */\n"
+        },
+        {
+          "before_offset": 437,
+          "after_offset": 735,
+          "old": "",
+          "new": "    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n    public static final AxisAlignedBB BOUNDS = new AxisAlignedBB(1D/16D, 1D/16D, 1D/16D, 15D/16D, 15D/16D, 15D/16D);\n    public final Block exportAs;\n"
+        },
+        {
+          "before_offset": 438,
+          "after_offset": 980,
+          "old": "\tpublic final Block exportAs;\n\n\tpublic BlockWand(Block exportAs) {\n\t\tsuper(Material.glass);\n\t\tthis.exportAs = exportAs;\n\t\tsetBlockBounds(1F/16F, 1F/16F, 1F/16F, 15F/16F, 15F/16F, 15F/16F);\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn null;\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\tBlock block = world.getBlock(x, y, z);\n\n\t\treturn block != this;\n\t}\n\n}",
+          "new": "    public BlockWand(Block exportAs) {\n        super(Material.GLASS);\n        this.exportAs = exportAs;\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(METADATA, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    // Original pass 0 alpha-tested this binary-alpha texture. Native SOLID disables\n    // alpha testing; CUTOUT_MIPPED retains alpha testing and the legacy terrain atlas\n    // mipmap setting, with no blending and normal depth writes.\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }\n    @Nullable @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return NULL_AABB; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n    @Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {\n        // 1.7 supplied the neighbor position; native 1.12 supplies the owner's position.\n        return world.getBlockState(pos.offset(side)).getBlock() != this;\n    }\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTankbot.java": {
+      "before_sha256": "33f83c82d3a791094b9e4c04f4609735def3dc786adf12f5465cc3099328c3f1",
+      "after_sha256": "e368b385913c8684ed310bc03a59c1662e4387824a02328643373a070e09e268",
+      "edits": [
+        {
+          "before_offset": 800,
+          "after_offset": 800,
+          "old": "import net.minecraft.entity.ai.EntityAIAttackOnCollide;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "7c41fe29cfe3f876b183541d742dd1d8932ee8180b9fefba39c1eeb07d558d43",
+      "after_sha256": "51fe71271bb81bd67dfd2f39d1a452cf98244329ff84e0454804cdb4b2b3dd7a",
+      "edits": [
+        {
+          "before_offset": 80173,
+          "after_offset": 80173,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderGrate());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 80939,
+          "after_offset": 80878,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderBlockWand());\n",
+          "new": "\t\t// WandModelHandler owns the native wand_air block and flat item models.\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderBlockWand.java": {
+      "before_sha256": "ded75f88cd14348f3a223f2b34b2e502784d05652217ae946cadac9e5983ce9e",
+      "after_sha256": "7322bf68e38b3206a5155104f190c70720a85a9a460516679c2c0c20b25456b2",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import com.hbm.blocks.generic.BlockWand;\n",
+          "new": "import java.util.Arrays;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 73,
+          "after_offset": 337,
+          "old": "import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.world.IBlockAccess;\n",
+          "new": "/** Native faces of the original inside-first, outside-second standard-block render. */\npublic final class RenderBlockWand {\n    private RenderBlockWand() { }\n"
+        },
+        {
+          "before_offset": 276,
+          "after_offset": 497,
+          "old": "public class RenderBlockWand implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\trenderer.renderFromInside = true;\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\trenderer.renderFromInside = false;\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockWand.renderID;\n\t}\n\n",
+          "new": "    public static List<BakedQuad> bakeFace(TextureAtlasSprite sprite, EnumFacing side) {\n        BakedQuad outside = ConveyorCuboidGeometry.face(sprite, false, side, 0,\n                1D/16D, 1D/16D, 1D/16D, 15D/16D, 15D/16D, 15D/16D, 0);\n        int[] vertices = outside.getVertexData().clone();\n        int stride = outside.getFormat().getIntegerSize();\n        int axis = side.getAxis() == EnumFacing.Axis.X ? 2 : 0;\n        // RenderBlocks.renderFromInside swaps the in-plane X bounds (Y/Z faces)\n        // or Z bounds (X faces), not the UVs. Reversing a vertex list would change\n        // the original inside texture. Keep the outward normal/diffuse direction:\n        // the original two renderStandardBlock calls use the same face lighting.\n        for(int vertex = 0; vertex < 4; vertex++) {\n            int offset = vertex * stride + axis;\n            vertices[offset] = Float.floatToRawIntBits(1F - Float.intBitsToFloat(vertices[offset]));\n        }\n        BakedQuad inside = new BakedQuad(vertices, outside.getTintIndex(), side, sprite,\n                outside.shouldApplyDiffuseLighting(), outside.getFormat());\n        return Collections.unmodifiableList(Arrays.asList(inside, outside));\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderGrate.java": {
+      "before_sha256": "09dc66738eb65e020983f778363c55a2bf32343b3304aa4175526742b32cd7b9",
+      "after_sha256": "402b071ddd0b0840e6e9fdc2c49b624d92bc40fdd26231514ed29771ce5d80f1",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\n"
+        },
+        {
+          "before_offset": 73,
+          "after_offset": 154,
+          "old": "",
+          "new": "import com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 74,
+          "after_offset": 382,
+          "old": "import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderGrate implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tfloat fy = ((BlockGrate)block).getY(meta);\n\t\tif(fy < 0) {\n\t\t\tfy++;\n\t\t\ty--;\n\t\t} else if(fy >= 1) {\n\t\t\tfy--;\n\t\t\ty++;\n\t\t}\n\n\t\trenderer.setRenderBounds(0.0D, fy, 0D, 1D, fy + 0.125D, 1D);\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockGrate.renderID;\n\t}\n",
+          "new": "/** Original normalized standard-block faces; collision's wide-grate epsilon never altered the rendered thickness. */\npublic final class RenderGrate {\n    private RenderGrate() { }\n    public static List<BakedQuad> bake(int metadata, TextureAtlasSprite top, TextureAtlasSprite side) {\n        double y = metadata == 9 ? -.125F : metadata * .125F;\n        y -= BlockGrate.renderShift(metadata);\n        List<BakedQuad> quads = new ArrayList<>();\n        for(EnumFacing face : EnumFacing.values()) quads.add(ConveyorCuboidGeometry.face(\n                face.getAxis() == EnumFacing.Axis.Y ? top : side, false, face, 0, 0, y, 0, 1, y + .125D, 1, 0));\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderMovingItem.java": {
+      "before_sha256": "d770371880568f4c129a91dea82eb858c32083abca5775420a8ee7737c1965ed",
+      "after_sha256": "26482f055a7959e5dd110ce2fe69785521619b7bdeee4c2d2be97baad0ab5a8f",
+      "edits": [
+        {
+          "before_offset": 139,
+          "after_offset": 139,
+          "old": "",
+          "new": "import com.hbm.render.util.NativeGuiItemDraw;\nimport com.hbm.render.util.NativeItemBaseModel;\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 140,
+          "after_offset": 288,
+          "old": "import net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\n",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.renderer.RenderItem;\nimport net.minecraft.client.renderer.block.model.IBakedModel;\n"
+        },
+        {
+          "before_offset": 277,
+          "after_offset": 536,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 392,
+          "after_offset": 595,
+          "old": "import net.minecraft.entity.Entity;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 502,
+          "after_offset": 669,
+          "old": "",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\n"
+        },
+        {
+          "before_offset": 547,
+          "after_offset": 761,
+          "old": "public class RenderMovingItem extends Render {\n",
+          "new": "public class RenderMovingItem extends Render<EntityMovingItem> {\n\n\tprivate final NativeMachineItemRenderer items = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 690,
+          "after_offset": 1005,
+          "old": "\tpublic void doRender(Entity entity, double x, double y, double z, float f1, float f2) {\n",
+          "new": "\tpublic void doRender(EntityMovingItem item, double x, double y, double z, float f1, float f2) {\n"
+        },
+        {
+          "before_offset": 803,
+          "after_offset": 1126,
+          "old": "\t\tGL11.glTranslated(x, y, z);\n\t\t\n\t\tRandom rand = new Random(entity.getEntityId());\n\t\tGL11.glTranslated(0, rand.nextDouble() * 0.0625, 0);\n",
+          "new": "\t\ttry {\n\t\t\tGL11.glTranslated(x, y, z);\n"
+        },
+        {
+          "before_offset": 942,
+          "after_offset": 1166,
+          "old": "\t\tEntityMovingItem item = (EntityMovingItem) entity;\n\t\tItemStack stack = item.getItemStack();\n",
+          "new": "\t\t\tRandom rand = new Random(item.getEntityId());\n\t\t\tGL11.glTranslated(0, rand.nextDouble() * 0.0625, 0);\n"
+        },
+        {
+          "before_offset": 1037,
+          "after_offset": 1272,
+          "old": "\t\tif(!(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock && RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType()))) {\n\t\t\tGL11.glRotatef(90F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glTranslated(0.0, -0.1875, 0.0);\n\t\t\t\n\t\t\tif(!this.renderManager.options.fancyGraphics) {\n\t\t\t\tGL11.glRotatef(180F, 0.0F, 1.0F, 0.0F);\n",
+          "new": "\t\t\tif(!isBlockItem(item, item.getItemStack())) {\n\t\t\t\tGL11.glRotatef(90F, 1.0F, 0.0F, 0.0F);\n\t\t\t\tGL11.glTranslated(0.0, -0.1875, 0.0);\n\n\t\t\t\tif(!this.renderManager.options.fancyGraphics) {\n\t\t\t\t\tGL11.glRotatef(180F, 0.0F, 1.0F, 0.0F);\n\t\t\t\t}\n"
+        },
+        {
+          "before_offset": 1396,
+          "after_offset": 1515,
+          "old": "",
+          "new": "\n\t\t\tif(item.cacheForRender != null) {\n\t\t\t\titem.cacheForRender.hoverStart = 0.0F;\n\t\t\t\t// This was the ordinary entity renderer, not RenderDecoItem: retain\n\t\t\t\t// its stack count, spread and bob while replacing the removed global.\n\t\t\t\titems.renderFrame(item.cacheForRender, 0, 0, 0, 0, 0,\n\t\t\t\t\t\tNativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t}\n\t\t} finally {\n\t\t\tGL11.glPopMatrix();\n"
+        },
+        {
+          "before_offset": 1400,
+          "after_offset": 1903,
+          "old": "",
+          "new": "\t}\n"
+        },
+        {
+          "before_offset": 1401,
+          "after_offset": 1907,
+          "old": "\t\tif(item.cacheForRender != null) {\n\t\t\titem.cacheForRender.hoverStart = 0.0F;\n\n\t\t\tRenderItem.renderInFrame = true;\n\t\t\tRenderManager.instance.renderEntityWithPosYaw(item.cacheForRender, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n\t\t}\n\n\t\tGL11.glPopMatrix();\n",
+          "new": "\t/** The original outer rotation used the block's ordinary inventory shape,\n\t * not an IItemRenderer's custom mesh. Native wrappers commonly report gui3d\n\t * for every item, so resolve their retained base before classifying a block.\n\t */\n\tprivate static boolean isBlockItem(EntityMovingItem entity, ItemStack stack) {\n\t\tif(stack == null || stack.isEmpty() || !(stack.getItem() instanceof ItemBlock)) return false;\n\t\tItemBlock item = (ItemBlock) stack.getItem();\n\t\tIBlockState state = item.getBlock().getStateFromMeta(item.getMetadata(stack.getMetadata()));\n\t\tif(state.getRenderType() == EnumBlockRenderType.INVISIBLE) return false;\n\t\tRenderItem renderer = Minecraft.getMinecraft().getRenderItem();\n\t\tIBakedModel model = renderer.getItemModelWithOverrides(stack, entity.world, null);\n\t\tif(model instanceof NativeMachineItemRenderer.FrameBaseModel)\n\t\t\tmodel = ((NativeMachineItemRenderer.FrameBaseModel) model).machineFrameModel(stack);\n\t\tif(model instanceof NativeItemBaseModel) model = NativeGuiItemDraw.baseModel(renderer, stack);\n\t\treturn model.isGui3d();\n"
+        },
+        {
+          "before_offset": 1696,
+          "after_offset": 2980,
+          "old": "\tprotected ResourceLocation getEntityTexture(Entity p_110775_1_) {\n",
+          "new": "\tprotected ResourceLocation getEntityTexture(EntityMovingItem entity) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderMovingPackage.java": {
+      "before_sha256": "5381a242e961dc7297be406394ee67a7392bb468c3524443c0cc93188263ba29",
+      "after_sha256": "4297ab5eddc7c68ea09505e70495ffd6b6990ad60cbbb13f0015ccb1f4c17b9e",
+      "edits": [
+        {
+          "before_offset": 101,
+          "after_offset": 101,
+          "old": "",
+          "new": "import com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 154,
+          "after_offset": 208,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 432,
+          "after_offset": 430,
+          "old": "public class RenderMovingPackage extends Render {\n",
+          "new": "public class RenderMovingPackage extends Render<Entity> {\n\n\tprivate final NativeMachineItemRenderer items = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 569,
+          "after_offset": 658,
+          "old": "\t\n",
+          "new": "\n"
+        },
+        {
+          "before_offset": 722,
+          "after_offset": 810,
+          "old": "\t\tGL11.glTranslated(x, y - 0.0125, z);\n",
+          "new": "\t\ttry {\n\t\t\tGL11.glTranslated(x, y - 0.0125, z);\n"
+        },
+        {
+          "before_offset": 762,
+          "after_offset": 859,
+          "old": "\t\tif(this.dummy == null) {\n\t\t\tthis.dummy = new ItemStack(ModBlocks.crate);\n",
+          "new": "\t\t\tif(this.dummy == null) {\n\t\t\t\tthis.dummy = new ItemStack(ModBlocks.crate);\n\t\t\t}\n\n\t\t\tEntityItem dummy = new EntityItem(entity.world, 0, 0, 0, this.dummy);\n\t\t\tdummy.hoverStart = 0.0F;\n\n\t\t\tdouble scale = 2;\n\t\t\tGL11.glScaled(scale, scale, scale);\n\t\t\titems.renderFrame(dummy, 0, 0, 0, 0, 0,\n\t\t\t\t\tNativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t} finally {\n\t\t\tGL11.glPopMatrix();\n"
+        },
+        {
+          "before_offset": 841,
+          "after_offset": 1242,
+          "old": "\n\t\tEntityItem dummy = new EntityItem(entity.worldObj, 0, 0, 0, this.dummy);\n\t\tdummy.hoverStart = 0.0F;\n\n\t\tRenderItem.renderInFrame = true;\n\t\tdouble scale = 2;\n\t\tGL11.glScaled(scale, scale, scale);\n\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\tRenderItem.renderInFrame = false;\n\n\t\tGL11.glPopMatrix();\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1198,
+          "after_offset": 1257,
+          "old": "\tprotected ResourceLocation getEntityTexture(Entity p_110775_1_) {\n",
+          "new": "\tprotected ResourceLocation getEntityTexture(Entity entity) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java": {
+      "before_sha256": "1833a858b87ebc3386cfd2833a506c2057da99757865a70265f75e747c6f5044",
+      "after_sha256": "88b0553fc9af75fc23fe11de69582112db832854a21cd02164aba5c997b014fe",
+      "edits": [
+        {
+          "before_offset": 80,
+          "after_offset": 80,
+          "old": "",
+          "new": "import net.minecraft.util.math.AxisAlignedBB;\n"
+        },
+        {
+          "before_offset": 8954,
+          "after_offset": 9000,
+          "old": "\t\treturn AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 4, this.pos.getZ() + 3);\n",
+          "new": "\t\treturn new AxisAlignedBB(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 4, this.pos.getZ() + 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/wiaj/actors/ActorBasicPanel.java": {
+      "before_sha256": "429512ecedaa9e7a90930ffccea364eb314e04f3427af394d36b0e8a12bde9a7",
+      "after_sha256": "1e4a6d22e56e8b950d095610cd19f74591f637a4f05001c4eb8e7c9cd27c725c",
+      "edits": [
+        {
+          "before_offset": 139,
+          "after_offset": 139,
+          "old": "import org.lwjgl.opengl.GL12;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 319,
+          "after_offset": 289,
+          "old": "import net.minecraft.client.renderer.OpenGlHelper;\n",
+          "new": "import net.minecraft.client.renderer.GlStateManager;\n"
+        },
+        {
+          "before_offset": 471,
+          "after_offset": 443,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": "import net.minecraft.client.renderer.RenderItem;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\nimport com.hbm.render.util.NativeGuiItemDraw;\n"
+        },
+        {
+          "before_offset": 978,
+          "after_offset": 1107,
+          "old": "\t\tdrawStackText(lines, x, y, Minecraft.getMinecraft().fontRenderer, RenderItem.getInstance(), w, h);\n",
+          "new": "\t\tdrawStackText(lines, x, y, Minecraft.getMinecraft().fontRenderer, Minecraft.getMinecraft().getRenderItem(), w, h);\n"
+        },
+        {
+          "before_offset": 1537,
+          "after_offset": 1682,
+          "old": "\t\t\tGL11.glDisable(GL12.GL_RESCALE_NORMAL);\n",
+          "new": "\t\t\tGlStateManager.disableRescaleNormal();\n"
+        },
+        {
+          "before_offset": 1627,
+          "after_offset": 1771,
+          "old": "\t\t\tGL11.glDisable(GL11.GL_LIGHTING);\n\t\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n",
+          "new": "\t\t\tGlStateManager.disableLighting();\n\t\t\tGlStateManager.disableDepth();\n"
+        },
+        {
+          "before_offset": 2455,
+          "after_offset": 2594,
+          "old": "",
+          "new": "\t\t\t// The native renderer is shared; restore its caller-owned depth even on failure.\n\t\t\tfloat previousZ = itemRender.zLevel;\n"
+        },
+        {
+          "before_offset": 2486,
+          "after_offset": 2750,
+          "old": "\t\t\t//int j1 = -267386864;\n\t\t\tint colorBg = 0xF0100010;\n\t\t\tthis.drawGradientRect(minX - 3, minY - 4, minX + longestline + 3, minY - 3, colorBg, colorBg);\n\t\t\tthis.drawGradientRect(minX - 3, minY + height + 3, minX + longestline + 3, minY + height + 4, colorBg, colorBg);\n\t\t\tthis.drawGradientRect(minX - 3, minY - 3, minX + longestline + 3, minY + height + 3, colorBg, colorBg);\n\t\t\tthis.drawGradientRect(minX - 4, minY - 3, minX - 3, minY + height + 3, colorBg, colorBg);\n\t\t\tthis.drawGradientRect(minX + longestline + 3, minY - 3, minX + longestline + 4, minY + height + 3, colorBg, colorBg);\n\t\t\t//int k1 = 1347420415;\n\t\t\tint color0 = 0x505000FF;\n\t\t\t//int l1 = (k1 & 16711422) >> 1 | k1 & -16777216;\n\t\t\tint color1 = (color0 & 0xFEFEFE) >> 1 | color0 & 0xFF000000;\n\t\t\tthis.drawGradientRect(minX - 3, minY - 3 + 1, minX - 3 + 1, minY + height + 3 - 1, color0, color1);\n\t\t\tthis.drawGradientRect(minX + longestline + 2, minY - 3 + 1, minX + longestline + 3, minY + height + 3 - 1, color0, color1);\n\t\t\tthis.drawGradientRect(minX - 3, minY - 3, minX + longestline + 3, minY - 3 + 1, color0, color0);\n\t\t\tthis.drawGradientRect(minX - 3, minY + height + 2, minX + longestline + 3, minY + height + 3, color1, color1);\n",
+          "new": "\t\t\ttry {\n\t\t\t\t//int j1 = -267386864;\n\t\t\t\tint colorBg = 0xF0100010;\n\t\t\t\tthis.drawGradientRect(minX - 3, minY - 4, minX + longestline + 3, minY - 3, colorBg, colorBg);\n\t\t\t\tthis.drawGradientRect(minX - 3, minY + height + 3, minX + longestline + 3, minY + height + 4, colorBg, colorBg);\n\t\t\t\tthis.drawGradientRect(minX - 3, minY - 3, minX + longestline + 3, minY + height + 3, colorBg, colorBg);\n\t\t\t\tthis.drawGradientRect(minX - 4, minY - 3, minX - 3, minY + height + 3, colorBg, colorBg);\n\t\t\t\tthis.drawGradientRect(minX + longestline + 3, minY - 3, minX + longestline + 4, minY + height + 3, colorBg, colorBg);\n\t\t\t\t//int k1 = 1347420415;\n\t\t\t\tint color0 = 0x505000FF;\n\t\t\t\t//int l1 = (k1 & 16711422) >> 1 | k1 & -16777216;\n\t\t\t\tint color1 = (color0 & 0xFEFEFE) >> 1 | color0 & 0xFF000000;\n\t\t\t\tthis.drawGradientRect(minX - 3, minY - 3 + 1, minX - 3 + 1, minY + height + 3 - 1, color0, color1);\n\t\t\t\tthis.drawGradientRect(minX + longestline + 2, minY - 3 + 1, minX + longestline + 3, minY + height + 3 - 1, color0, color1);\n\t\t\t\tthis.drawGradientRect(minX - 3, minY - 3, minX + longestline + 3, minY - 3 + 1, color0, color0);\n\t\t\t\tthis.drawGradientRect(minX - 3, minY + height + 2, minX + longestline + 3, minY + height + 3, color1, color1);\n"
+        },
+        {
+          "before_offset": 3692,
+          "after_offset": 3980,
+          "old": "\t\t\tfor(int index = 0; index < lines.size(); ++index) {\n",
+          "new": "\t\t\t\tfor(int index = 0; index < lines.size(); ++index) {\n"
+        },
+        {
+          "before_offset": 3752,
+          "after_offset": 4041,
+          "old": "\t\t\t\tObject[] line = (Object[]) lines.get(index);\n\t\t\t\tint indent = 0;\n\t\t\t\tboolean hasStack = false;\n",
+          "new": "\t\t\t\t\tObject[] line = (Object[]) lines.get(index);\n\t\t\t\t\tint indent = 0;\n\t\t\t\t\tboolean hasStack = false;\n"
+        },
+        {
+          "before_offset": 3856,
+          "after_offset": 4148,
+          "old": "\t\t\t\tfor(Object o : line) {\n\t\t\t\t\tif(!(o instanceof String)) {\n\t\t\t\t\t\thasStack = true;\n",
+          "new": "\t\t\t\t\tfor(Object o : line) {\n\t\t\t\t\t\tif(!(o instanceof String)) {\n\t\t\t\t\t\t\thasStack = true;\n\t\t\t\t\t\t}\n"
+        },
+        {
+          "before_offset": 3947,
+          "after_offset": 4250,
+          "old": "\t\t\t\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3958,
+          "after_offset": 4255,
+          "old": "\t\t\t\tfor(Object o : line) {\n",
+          "new": "\t\t\t\t\tfor(Object o : line) {\n"
+        },
+        {
+          "before_offset": 3991,
+          "after_offset": 4289,
+          "old": "\t\t\t\t\tif(o instanceof String) {\n\t\t\t\t\t\tfont.drawStringWithShadow((String) o, minX + indent, minY + (hasStack ? 4 : 0), -1);\n\t\t\t\t\t\tindent += font.getStringWidth((String) o) + 2;\n\t\t\t\t\t} else {\n\t\t\t\t\t\tItemStack stack = (ItemStack) o;\n\t\t\t\t\t\tGL11.glColor3f(1F, 1F, 1F);\n",
+          "new": "\t\t\t\t\t\tif(o instanceof String) {\n\t\t\t\t\t\t\tfont.drawStringWithShadow((String) o, minX + indent, minY + (hasStack ? 4 : 0), -1);\n\t\t\t\t\t\t\tindent += font.getStringWidth((String) o) + 2;\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\tItemStack stack = (ItemStack) o;\n\t\t\t\t\t\t\tGlStateManager.color(1F, 1F, 1F, 1F);\n"
+        },
+        {
+          "before_offset": 4254,
+          "after_offset": 4568,
+          "old": "\t\t\t\t\t\tif(stack.stackSize == 0) {\n\t\t\t\t\t\t\tthis.drawGradientRect(minX + indent - 1, minY - 1, minX + indent + 17, minY + 17, 0xffff0000, 0xffff0000);\n\t\t\t\t\t\t\tthis.drawGradientRect(minX + indent, minY, minX + indent + 16, minY + 16, 0xffb0b0b0, 0xffb0b0b0);\n",
+          "new": "\t\t\t\t\t\t\tif(stack.getCount() == 0) {\n\t\t\t\t\t\t\t\tthis.drawGradientRect(minX + indent - 1, minY - 1, minX + indent + 17, minY + 17, 0xffff0000, 0xffff0000);\n\t\t\t\t\t\t\t\tthis.drawGradientRect(minX + indent, minY, minX + indent + 16, minY + 16, 0xffb0b0b0, 0xffb0b0b0);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tNativeGuiItemDraw.withOverlay(itemRender, font, stack, minX + indent, minY, 300.0F, null);\n\t\t\t\t\t\t\tRenderHelper.disableStandardItemLighting();\n\t\t\t\t\t\t\tGlStateManager.disableDepth();\n\t\t\t\t\t\t\tindent += 18;\n"
+        },
+        {
+          "before_offset": 4515,
+          "after_offset": 5050,
+          "old": "\t\t\t\t\t\titemRender.renderItemAndEffectIntoGUI(font, Minecraft.getMinecraft().getTextureManager(), stack, minX + indent, minY);\n\t\t\t\t\t\titemRender.renderItemOverlayIntoGUI(font, Minecraft.getMinecraft().getTextureManager(), stack, minX + indent, minY, null);\n\t\t\t\t\t\tRenderHelper.disableStandardItemLighting();\n\t\t\t\t\t\tGL11.glDisable(GL11.GL_DEPTH_TEST);\n\t\t\t\t\t\tindent += 18;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4888,
+          "after_offset": 5057,
+          "old": "",
+          "new": "\n\t\t\t\t\tif(index == 0) {\n\t\t\t\t\t\tminY += 2;\n\t\t\t\t\t}\n\n\t\t\t\t\tminY += hasStack ? 18 : 10;\n"
+        },
+        {
+          "before_offset": 4895,
+          "after_offset": 5145,
+          "old": "\t\t\t\tif(index == 0) {\n\t\t\t\t\tminY += 2;\n\t\t\t\t}\n\n\t\t\t\tminY += hasStack ? 18 : 10;\n",
+          "new": "\t\t\t} finally {\n\t\t\t\titemRender.zLevel = previousZ;\n\t\t\t\tGlStateManager.enableLighting();\n\t\t\t\tGlStateManager.enableDepth();\n\t\t\t\tRenderHelper.enableStandardItemLighting();\n\t\t\t\tGlStateManager.enableRescaleNormal();\n"
+        },
+        {
+          "before_offset": 4976,
+          "after_offset": 5360,
+          "old": "\n\t\t\titemRender.zLevel = 0.0F;\n\t\t\tGL11.glEnable(GL11.GL_LIGHTING);\n\t\t\tGL11.glEnable(GL11.GL_DEPTH_TEST);\n\t\t\tRenderHelper.enableStandardItemLighting();\n\t\t\tGL11.glEnable(GL12.GL_RESCALE_NORMAL);\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5765,
+          "after_offset": 5957,
+          "old": "\t\tGL11.glDisable(GL11.GL_TEXTURE_2D);\n\t\tGL11.glEnable(GL11.GL_BLEND);\n\t\tGL11.glDisable(GL11.GL_ALPHA_TEST);\n\t\tOpenGlHelper.glBlendFunc(770, 771, 1, 0);\n\t\tGL11.glShadeModel(GL11.GL_SMOOTH);\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setColorRGBA_F(f1, f2, f3, f);\n\t\ttessellator.addVertex((double) p_73733_3_, (double) p_73733_2_, (double) zLevel);\n\t\ttessellator.addVertex((double) p_73733_1_, (double) p_73733_2_, (double) zLevel);\n\t\ttessellator.setColorRGBA_F(f5, f6, f7, f4);\n\t\ttessellator.addVertex((double) p_73733_1_, (double) p_73733_4_, (double) zLevel);\n\t\ttessellator.addVertex((double) p_73733_3_, (double) p_73733_4_, (double) zLevel);\n",
+          "new": "\t\tGlStateManager.disableTexture2D();\n\t\tGlStateManager.enableBlend();\n\t\tGlStateManager.disableAlpha();\n\t\tGlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);\n\t\tGlStateManager.shadeModel(GL11.GL_SMOOTH);\n\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder buffer = tessellator.getBuffer();\n\t\tbuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);\n\t\tbuffer.pos(p_73733_3_, p_73733_2_, zLevel).color(f1, f2, f3, f).endVertex();\n\t\tbuffer.pos(p_73733_1_, p_73733_2_, zLevel).color(f1, f2, f3, f).endVertex();\n\t\tbuffer.pos(p_73733_1_, p_73733_4_, zLevel).color(f5, f6, f7, f4).endVertex();\n\t\tbuffer.pos(p_73733_3_, p_73733_4_, zLevel).color(f5, f6, f7, f4).endVertex();\n"
+        },
+        {
+          "before_offset": 6488,
+          "after_offset": 6672,
+          "old": "\t\tGL11.glShadeModel(GL11.GL_FLAT);\n\t\tGL11.glDisable(GL11.GL_BLEND);\n\t\tGL11.glEnable(GL11.GL_ALPHA_TEST);\n\t\tGL11.glEnable(GL11.GL_TEXTURE_2D);\n",
+          "new": "\t\tGlStateManager.shadeModel(GL11.GL_FLAT);\n\t\tGlStateManager.disableBlend();\n\t\tGlStateManager.enableAlpha();\n\t\tGlStateManager.enableTexture2D();\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/main/GrateModelHandler.java": "4c8d1230370a970924cd7159e652831e30c0724b8508050794fee9cd18d6e236",
+    "src/main/java/com/hbm/main/WandModelHandler.java": "31c3efe07a5af02eec2fa4d4c7fcabacca9e2425469ca1554d5b55bd40eb486a",
+    "src/main/java/com/hbm/render/block/nativeblock/GrateBakedModel.java": "3dd252d70e97c313ccce91f9cc1558d7d8034afefbb13ea85072c10641cccf13",
+    "src/main/java/com/hbm/render/block/nativeblock/GrateShiftedLightQuad.java": "80283f76b52bb6b7cc60b9d7f00737967af38f4d38c99b652ce972e928bcb5a8",
+    "src/main/java/com/hbm/render/block/nativeblock/WandBakedModel.java": "219f985434d8d3aaa67de4e8b3be5abf6d6f2bac33358d79e738a417a78d435e",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_grate.json": "d2cae07f48b7384ffe6ef5ac7b8e5190abc1548ade1ddff08ddc24141c74b424",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_grate_wide.json": "8a13953da1603e6ae7853886bd493eae1254077e8d9bc75539997bd0683c6d0f",
+    "src/main/resources/assets/hbm/blockstates/tile.wand_air.json": "fa57e05a49e01e3675b2c3ba8558418f4d59b93cf1c1fd82234de9469c359c78"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

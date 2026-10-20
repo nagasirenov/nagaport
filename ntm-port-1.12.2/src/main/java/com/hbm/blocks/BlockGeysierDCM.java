@@ -33,25 +33,25 @@ public class BlockGeysierDCM extends BlockContainer {
 		return false;
 	}
 
-	public static class TileEntityDCM extends TileEntity {
+	public static class TileEntityDCM extends TileEntity implements net.minecraft.util.ITickable {
 
 		public TileEntityDCM() {
 
 		}
 
 		@Override
-		public void updateEntity() {
-			if(!worldObj.isRemote) {
+		public void update() {
+			if(!this.world.isRemote) {
 				NBTTagCompound data = new NBTTagCompound();
-				data.setDouble("posX", xCoord + 0.5);
-				data.setDouble("posY", yCoord + 0);
-				data.setDouble("posZ", zCoord + 0.5);
+				data.setDouble("posX", this.pos.getX() + 0.5);
+				data.setDouble("posY", this.pos.getY() + 0);
+				data.setDouble("posZ", this.pos.getZ() + 0.5);
 				data.setString("type", "missileContrail");
 				data.setFloat("scale", 1.5f);
 				data.setDouble("moX", 0);
 				data.setDouble("moY", 4);
 				data.setDouble("moZ", 0);
-				data.setInteger("maxAge", 100 + worldObj.rand.nextInt(20));
+				data.setInteger("maxAge", 100 + this.world.rand.nextInt(20));
 				data.setInteger("color", 0xA4D7DD);
 				MainRegistry.proxy.effectNT(data);
 
@@ -72,13 +72,13 @@ public class BlockGeysierDCM extends BlockContainer {
 
 		// copy pasting without reading makes you create a fluid geyser that... zaps you to death with electricty?
 		private void vapor() {
-			List<Entity> entities = this.worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.xCoord - 0.5, this.yCoord + 0.5, this.zCoord - 0.5, this.xCoord + 1.5, this.yCoord + 60, this.zCoord + 1.5));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 60, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(Entity e : entities) {
 					if(e instanceof EntityLivingBase) {
-						if(e.attackEntityFrom(ModDamageSource.acid, MathHelper.clamp_float(((EntityLivingBase) e).getMaxHealth() * 0.1F, 3, 20))) {
-							worldObj.playSoundAtEntity(e, "random.fizz", 1.0F, 1.0F);
+						if(e.attackEntityFrom(ModDamageSource.acid, MathHelper.clamp(((EntityLivingBase) e).getMaxHealth() * 0.1F, (float) (3), (float) (20)))) {
+							this.world.playSoundAtEntity(e, "random.fizz", 1.0F, 1.0F);
 						}
 					}
 				}

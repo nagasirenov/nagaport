@@ -28,7 +28,7 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 	@Override
 	public FluidNode createNode(FluidType type) {
 		TileEntity tile = (TileEntity) this;
-		FluidNode node = new FluidNode(type.getNetworkProvider(), new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(new DirPos(xCoord, yCoord, zCoord, ForgeDirection.UNKNOWN));
+		FluidNode node = new FluidNode(type.getNetworkProvider(), new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.UNKNOWN));
 		for(int[] pos : this.connected) node.addConnection(new DirPos(pos[0], pos[1], pos[2], ForgeDirection.UNKNOWN));
 		return node;
 	}
@@ -37,32 +37,32 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 
 		connected.add(new int[] {x, y, z});
 
-		FluidNode node = (FluidNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, this.type.getNetworkProvider());
+		FluidNode node = (FluidNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.type.getNetworkProvider());
 		node.recentlyChanged = true;
 		node.addConnection(new DirPos(x, y, z, ForgeDirection.UNKNOWN));
 
 		this.markDirty();
 
-		if(worldObj instanceof WorldServer) {
-			WorldServer world = (WorldServer) worldObj;
-			world.getPlayerManager().markBlockForUpdate(xCoord, yCoord, zCoord);
+		if(this.world instanceof WorldServer) {
+			WorldServer world = (WorldServer) this.world;
+			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 	}
 
 	public void disconnectAll() {
 
 		for(int[] pos : connected) {
-			TileEntity te = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(te == this) continue;
 
 			if(te instanceof TileEntityPipelineBase) {
 				TileEntityPipelineBase pipeline = (TileEntityPipelineBase) te;
-				UniNodespace.destroyNode(worldObj, pos[0], pos[1], pos[2], this.type.getNetworkProvider());
+				UniNodespace.destroyNode(this.world, pos[0], pos[1], pos[2], this.type.getNetworkProvider());
 
 				for(int i = 0; i < pipeline.connected.size(); i++) {
 					int[] conPos = pipeline.connected.get(i);
 
-					if(conPos[0] == xCoord && conPos[1] == yCoord && conPos[2] == zCoord) {
+					if(conPos[0] == this.pos.getX() && conPos[1] == this.pos.getY() && conPos[2] == this.pos.getZ()) {
 						pipeline.connected.remove(i);
 						i--;
 					}
@@ -70,14 +70,14 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 
 				pipeline.markDirty();
 
-				if(worldObj instanceof WorldServer) {
-					WorldServer world = (WorldServer) worldObj;
-					world.getPlayerManager().markBlockForUpdate(pipeline.xCoord, pipeline.yCoord, pipeline.zCoord);
+				if(this.world instanceof WorldServer) {
+					WorldServer world = (WorldServer) this.world;
+					world.getPlayerManager().markBlockForUpdate(pipeline.getPos().getX(), pipeline.getPos().getY(), pipeline.getPos().getZ());
 				}
 			}
 		}
 
-		UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, this.type.getNetworkProvider());
+		UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.type.getNetworkProvider());
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 
 	public Vec3d getConnectionPoint() {
 		Vec3d mount = this.getMountPos();
-		return mount.addVector(xCoord, yCoord, zCoord);
+		return mount.addVector(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 	
 	public List<int[]> getConnected() {
@@ -128,7 +128,7 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("conCount", connected.size());
@@ -136,6 +136,7 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 		for(int i = 0; i < connected.size(); i++) {
 			nbt.setIntArray("con" + i, connected.get(i));
 		}
+		return nbt;
 	}
 
 	@Override

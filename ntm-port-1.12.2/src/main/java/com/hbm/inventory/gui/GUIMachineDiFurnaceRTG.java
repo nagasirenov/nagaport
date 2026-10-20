@@ -47,12 +47,12 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 		
 		for(int i = 0; i < pellets.size(); i++) {
 			ItemRTGPellet pellet = pellets.get(i);
-			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletHeat", I18nUtil.resolveKey(pellet.getUnlocalizedName() + ".name"), pellet.getHeat());
+			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletHeat", I18nUtil.resolveKey(pellet.getTranslationKey() + ".name"), pellet.getHeat());
 		}
 		
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 15, guiTop + 36, 16, 16, guiLeft - 8, guiTop + 36 + 16, pelletText);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 2; i++) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 				
@@ -62,7 +62,7 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 					byte dir = i == 0 ? bFurnace.sideUpper : bFurnace.sideLower;
 					label += ForgeDirection.getOrientation(dir);
 					
-					this.func_146283_a(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0));
+					this.drawHoveringText(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0));
 					
 					return;
 				}
@@ -74,8 +74,8 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		String name = this.bFurnace.hasCustomInventoryName() ? this.bFurnace.getInventoryName() : I18n.format(this.bFurnace.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		
 		if(bFurnace.isInvalid()) {
-			TileEntity te = bFurnace.getWorldObj().getTileEntity(bFurnace.xCoord, bFurnace.yCoord, bFurnace.zCoord);
+			TileEntity te = bFurnace.getWorld().getTileEntity(bFurnace.getPos().getX(), bFurnace.getPos().getY(), bFurnace.getPos().getZ());
 			if(te instanceof TileEntityDiFurnaceRTG) {
 				bFurnace = (TileEntityDiFurnaceRTG) te;
 			}

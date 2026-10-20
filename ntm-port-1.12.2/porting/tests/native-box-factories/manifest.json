@@ -1,0 +1,668 @@
+[
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java",
+    "start": 9518,
+    "select_end": 9546,
+    "end": 9564,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 1, 1, 1)",
+    "sha256": "e5dc3213a3802227630352d8bcb22e0b8f8ea3a4b8e84c9c3c3c851f0eb45197"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 3838,
+    "select_end": 3866,
+    "end": 3884,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 6634,
+    "select_end": 6662,
+    "end": 6680,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 6703,
+    "select_end": 6731,
+    "end": 6751,
+    "before": "AxisAlignedBB.getBoundingBox(0.5, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0.5, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 6780,
+    "select_end": 6808,
+    "end": 6828,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 0.5, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 0.5, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 6855,
+    "select_end": 6883,
+    "end": 6904,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0.75, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0.75, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 8743,
+    "select_end": 8771,
+    "end": 8791,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0.5, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 10062,
+    "select_end": 10090,
+    "end": 10108,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 0, 0, 0)",
+    "after": "new AxisAlignedBB(0, 0, 0, 0, 0, 0)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 10125,
+    "select_end": 10153,
+    "end": 10178,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 1 - 0.25, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 1 - 0.25, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 11750,
+    "select_end": 11778,
+    "end": 11804,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0.375, 1, 1, 0.625)",
+    "after": "new AxisAlignedBB(0, 0, 0.375, 1, 1, 0.625)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 11817,
+    "select_end": 11845,
+    "end": 11863,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 11989,
+    "select_end": 12017,
+    "end": 12043,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0.5, 0.15, 1, 1, 0.85)",
+    "after": "new AxisAlignedBB(0, 0.5, 0.15, 1, 1, 0.85)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 12071,
+    "select_end": 12099,
+    "end": 12117,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 14021,
+    "select_end": 14049,
+    "end": 14069,
+    "before": "AxisAlignedBB.getBoundingBox(0.4, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0.4, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 14098,
+    "select_end": 14126,
+    "end": 14146,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 0.6, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 0.6, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 14174,
+    "select_end": 14202,
+    "end": 14222,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0.5, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 15793,
+    "select_end": 15821,
+    "end": 15856,
+    "before": "AxisAlignedBB.getBoundingBox(1 - 0.125, 0, 1 - 0.1875, 1, 1, 1)",
+    "after": "new AxisAlignedBB(1 - 0.125, 0, 1 - 0.1875, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 15874,
+    "select_end": 15902,
+    "end": 15933,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 1 - 0.1875, 0.125, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 1 - 0.1875, 0.125, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 15958,
+    "select_end": 15986,
+    "end": 16013,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 1 - 0.1875, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 1 - 0.1875, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 17828,
+    "select_end": 17856,
+    "end": 17876,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0.5, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0.5, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 17898,
+    "select_end": 17926,
+    "end": 17949,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0.25, 0.5, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0.25, 0.5, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 19897,
+    "select_end": 19925,
+    "end": 19946,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0.75, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0.75, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 19973,
+    "select_end": 20001,
+    "end": 20025,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0.85, 0.75, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0.85, 0.75, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 26095,
+    "select_end": 26123,
+    "end": 26143,
+    "before": "AxisAlignedBB.getBoundingBox(0.4, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0.4, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 26172,
+    "select_end": 26200,
+    "end": 26220,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 0.6, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 0.6, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 28874,
+    "select_end": 28902,
+    "end": 28920,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 0, 0, 0)",
+    "after": "new AxisAlignedBB(0, 0, 0, 0, 0, 0)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/DoorDecl.java",
+    "start": 28923,
+    "select_end": 28951,
+    "end": 28969,
+    "before": "AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1)",
+    "after": "new AxisAlignedBB(0, 0, 0, 1, 1, 1)",
+    "sha256": "219d636265ffdeeefb16c71bb8348877bad1103b2526496c5181a669432cd276"
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+    "start": 2653,
+    "select_end": 2681,
+    "end": 2719,
+    "before": "AxisAlignedBB.getBoundingBox(-1D, 0.375D, -1D, -0.875, 2.375D, 1D)",
+    "after": "new AxisAlignedBB(-1D, 0.375D, -1D, -0.875, 2.375D, 1D)",
+    "sha256": "4924c5758eef672fea06ce5f368c4191cb364661746aa27814429fe44217219e"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadLarge.java",
+    "start": 640,
+    "select_end": 668,
+    "end": 703,
+    "before": "AxisAlignedBB.getBoundingBox(-4.5D, 0D, -4.5D, 4.5D, 1D, -0.5D)",
+    "after": "new AxisAlignedBB(-4.5D, 0D, -4.5D, 4.5D, 1D, -0.5D)",
+    "sha256": "55c22adad27404089f9f3970430aa23bb8fc319583c3b7b11d09205bddeb121f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadLarge.java",
+    "start": 726,
+    "select_end": 754,
+    "end": 787,
+    "before": "AxisAlignedBB.getBoundingBox(-4.5D, 0D, 0.5D, 4.5D, 1D, 4.5D)",
+    "after": "new AxisAlignedBB(-4.5D, 0D, 0.5D, 4.5D, 1D, 4.5D)",
+    "sha256": "55c22adad27404089f9f3970430aa23bb8fc319583c3b7b11d09205bddeb121f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadLarge.java",
+    "start": 810,
+    "select_end": 838,
+    "end": 876,
+    "before": "AxisAlignedBB.getBoundingBox(-4.5D, 0.875D, -0.5D, 4.5D, 1D, 0.5D)",
+    "after": "new AxisAlignedBB(-4.5D, 0.875D, -0.5D, 4.5D, 1D, 0.5D)",
+    "sha256": "55c22adad27404089f9f3970430aa23bb8fc319583c3b7b11d09205bddeb121f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+    "start": 618,
+    "select_end": 646,
+    "end": 682,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, -0.5D, 1D, -0.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, -1.5D, -0.5D, 1D, -0.5D)",
+    "sha256": "224180c701e4b5d04802a57e4770b8a2f3fbcfe90cdf8fcc39dbef7776e703bd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+    "start": 705,
+    "select_end": 733,
+    "end": 767,
+    "before": "AxisAlignedBB.getBoundingBox(0.5D, 0D, -1.5D, 1.5D, 1D, -0.5D)",
+    "after": "new AxisAlignedBB(0.5D, 0D, -1.5D, 1.5D, 1D, -0.5D)",
+    "sha256": "224180c701e4b5d04802a57e4770b8a2f3fbcfe90cdf8fcc39dbef7776e703bd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+    "start": 790,
+    "select_end": 818,
+    "end": 852,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, 0.5D, -0.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, 0.5D, -0.5D, 1D, 1.5D)",
+    "sha256": "224180c701e4b5d04802a57e4770b8a2f3fbcfe90cdf8fcc39dbef7776e703bd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+    "start": 875,
+    "select_end": 903,
+    "end": 935,
+    "before": "AxisAlignedBB.getBoundingBox(0.5D, 0D, 0.5D, 1.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(0.5D, 0D, 0.5D, 1.5D, 1D, 1.5D)",
+    "sha256": "224180c701e4b5d04802a57e4770b8a2f3fbcfe90cdf8fcc39dbef7776e703bd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+    "start": 958,
+    "select_end": 986,
+    "end": 1022,
+    "before": "AxisAlignedBB.getBoundingBox(-0.5D, 0.5D, -1.5D, 0.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(-0.5D, 0.5D, -1.5D, 0.5D, 1D, 1.5D)",
+    "sha256": "224180c701e4b5d04802a57e4770b8a2f3fbcfe90cdf8fcc39dbef7776e703bd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java",
+    "start": 1045,
+    "select_end": 1073,
+    "end": 1109,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0.5D, -0.5D, 1.5D, 1D, 0.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0.5D, -0.5D, 1.5D, 1D, 0.5D)",
+    "sha256": "224180c701e4b5d04802a57e4770b8a2f3fbcfe90cdf8fcc39dbef7776e703bd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+    "start": 625,
+    "select_end": 653,
+    "end": 689,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, -0.5D, 1D, -0.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, -1.5D, -0.5D, 1D, -0.5D)",
+    "sha256": "b9cf3380e2b990bc6ca17d44f08985133c74d2d35a181edf8631a38de5a83482"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+    "start": 712,
+    "select_end": 740,
+    "end": 774,
+    "before": "AxisAlignedBB.getBoundingBox(0.5D, 0D, -1.5D, 1.5D, 1D, -0.5D)",
+    "after": "new AxisAlignedBB(0.5D, 0D, -1.5D, 1.5D, 1D, -0.5D)",
+    "sha256": "b9cf3380e2b990bc6ca17d44f08985133c74d2d35a181edf8631a38de5a83482"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+    "start": 797,
+    "select_end": 825,
+    "end": 859,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, 0.5D, -0.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, 0.5D, -0.5D, 1D, 1.5D)",
+    "sha256": "b9cf3380e2b990bc6ca17d44f08985133c74d2d35a181edf8631a38de5a83482"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+    "start": 882,
+    "select_end": 910,
+    "end": 942,
+    "before": "AxisAlignedBB.getBoundingBox(0.5D, 0D, 0.5D, 1.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(0.5D, 0D, 0.5D, 1.5D, 1D, 1.5D)",
+    "sha256": "b9cf3380e2b990bc6ca17d44f08985133c74d2d35a181edf8631a38de5a83482"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+    "start": 965,
+    "select_end": 993,
+    "end": 1029,
+    "before": "AxisAlignedBB.getBoundingBox(-0.5D, 0.5D, -1.5D, 0.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(-0.5D, 0.5D, -1.5D, 0.5D, 1D, 1.5D)",
+    "sha256": "b9cf3380e2b990bc6ca17d44f08985133c74d2d35a181edf8631a38de5a83482"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchPad.java",
+    "start": 1052,
+    "select_end": 1080,
+    "end": 1116,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0.5D, -0.5D, 1.5D, 1D, 0.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0.5D, -0.5D, 1.5D, 1D, 0.5D)",
+    "sha256": "b9cf3380e2b990bc6ca17d44f08985133c74d2d35a181edf8631a38de5a83482"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCentrifuge.java",
+    "start": 678,
+    "select_end": 706,
+    "end": 740,
+    "before": "AxisAlignedBB.getBoundingBox(-0.5D, 0D, -0.5D, 0.5D, 1D, 0.5D)",
+    "after": "new AxisAlignedBB(-0.5D, 0D, -0.5D, 0.5D, 1D, 0.5D)",
+    "sha256": "77f9fca91abda3516b868ec70ba59310d47fab567b970c25f67af36e3f3b2082"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCentrifuge.java",
+    "start": 763,
+    "select_end": 791,
+    "end": 833,
+    "before": "AxisAlignedBB.getBoundingBox(-0.375D, 1D, -0.375D, 0.375D, 4D, 0.375D)",
+    "after": "new AxisAlignedBB(-0.375D, 1D, -0.375D, 0.375D, 4D, 0.375D)",
+    "sha256": "77f9fca91abda3516b868ec70ba59310d47fab567b970c25f67af36e3f3b2082"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+    "start": 1095,
+    "select_end": 1123,
+    "end": 1157,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, 1.5D, 1D, 1.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, -1.5D, 1.5D, 1D, 1.5D)",
+    "sha256": "0c7d045c6503c64d1bfafc6d4345bab15024c3427397b2ed83997549c9964320"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+    "start": 1180,
+    "select_end": 1208,
+    "end": 1250,
+    "before": "AxisAlignedBB.getBoundingBox(-1.25D, 1D, -0.5D, -0.625D, 1.875D, 0.5D)",
+    "after": "new AxisAlignedBB(-1.25D, 1D, -0.5D, -0.625D, 1.875D, 0.5D)",
+    "sha256": "0c7d045c6503c64d1bfafc6d4345bab15024c3427397b2ed83997549c9964320"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+    "start": 1273,
+    "select_end": 1301,
+    "end": 1335,
+    "before": "AxisAlignedBB.getBoundingBox(-0.625D, 1D, -1D, 1.375D, 2D, 1D)",
+    "after": "new AxisAlignedBB(-0.625D, 1D, -1D, 1.375D, 2D, 1D)",
+    "sha256": "0c7d045c6503c64d1bfafc6d4345bab15024c3427397b2ed83997549c9964320"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java",
+    "start": 538,
+    "select_end": 566,
+    "end": 602,
+    "before": "AxisAlignedBB.getBoundingBox(-0.125, 0, -0.125, 0.125, 4, 0.125)",
+    "after": "new AxisAlignedBB(-0.125, 0, -0.125, 0.125, 4, 0.125)",
+    "sha256": "6332e4c0c71e4f6cf5e22c3a11f5153de20a2031d6b99e0eeff1878401ebb86d"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java",
+    "start": 625,
+    "select_end": 653,
+    "end": 681,
+    "before": "AxisAlignedBB.getBoundingBox(-0.5, 4, -0.5, 0.5, 9, 0.5)",
+    "after": "new AxisAlignedBB(-0.5, 4, -0.5, 0.5, 9, 0.5)",
+    "sha256": "6332e4c0c71e4f6cf5e22c3a11f5153de20a2031d6b99e0eeff1878401ebb86d"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+    "start": 1319,
+    "select_end": 1347,
+    "end": 1375,
+    "before": "AxisAlignedBB.getBoundingBox(-0.5, 0, -1.5, 0.5, 3, 1.5)",
+    "after": "new AxisAlignedBB(-0.5, 0, -1.5, 0.5, 3, 1.5)",
+    "sha256": "15f6ec8cdf29b89433a9f0e52d5fe9934ec57b9c48e7e4340dc9124dd9ece38f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+    "start": 1410,
+    "select_end": 1438,
+    "end": 1471,
+    "before": "AxisAlignedBB.getBoundingBox(-1.125, 1, -2.5, 1.125, 3, -1.5)",
+    "after": "new AxisAlignedBB(-1.125, 1, -2.5, 1.125, 3, -1.5)",
+    "sha256": "15f6ec8cdf29b89433a9f0e52d5fe9934ec57b9c48e7e4340dc9124dd9ece38f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+    "start": 1494,
+    "select_end": 1522,
+    "end": 1553,
+    "before": "AxisAlignedBB.getBoundingBox(-1.125, 1, 1.5, 1.125, 3, 2.5)",
+    "after": "new AxisAlignedBB(-1.125, 1, 1.5, 1.125, 3, 2.5)",
+    "sha256": "15f6ec8cdf29b89433a9f0e52d5fe9934ec57b9c48e7e4340dc9124dd9ece38f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+    "start": 1593,
+    "select_end": 1621,
+    "end": 1652,
+    "before": "AxisAlignedBB.getBoundingBox(-0.75, 0, -2.5, 0.75, 1, -1.5)",
+    "after": "new AxisAlignedBB(-0.75, 0, -2.5, 0.75, 1, -1.5)",
+    "sha256": "15f6ec8cdf29b89433a9f0e52d5fe9934ec57b9c48e7e4340dc9124dd9ece38f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java",
+    "start": 1675,
+    "select_end": 1703,
+    "end": 1732,
+    "before": "AxisAlignedBB.getBoundingBox(-0.75, 0, 1.5, 0.75, 1, 2.5)",
+    "after": "new AxisAlignedBB(-0.75, 0, 1.5, 0.75, 1, 2.5)",
+    "sha256": "15f6ec8cdf29b89433a9f0e52d5fe9934ec57b9c48e7e4340dc9124dd9ece38f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasCent.java",
+    "start": 731,
+    "select_end": 759,
+    "end": 793,
+    "before": "AxisAlignedBB.getBoundingBox(-0.5D, 0D, -0.5D, 0.5D, 1D, 0.5D)",
+    "after": "new AxisAlignedBB(-0.5D, 0D, -0.5D, 0.5D, 1D, 0.5D)",
+    "sha256": "676b9798d2bdf2490c15ea2a0f6f8a74705ca8dc23ec5769b719cb1368f856be"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasCent.java",
+    "start": 816,
+    "select_end": 844,
+    "end": 890,
+    "before": "AxisAlignedBB.getBoundingBox(-0.4375D, 1D, -0.4375D, 0.4375D, 4D, 0.4375D)",
+    "after": "new AxisAlignedBB(-0.4375D, 1D, -0.4375D, 0.4375D, 4D, 0.4375D)",
+    "sha256": "676b9798d2bdf2490c15ea2a0f6f8a74705ca8dc23ec5769b719cb1368f856be"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "start": 1297,
+    "select_end": 1325,
+    "end": 1361,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, 1.5D, 0.5D, 1.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, -1.5D, 1.5D, 0.5D, 1.5D)",
+    "sha256": "e0d828149c99bfe67729d72005cfc52d7ddfc19c99261ee0e019b8ea1357c281"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "start": 1384,
+    "select_end": 1412,
+    "end": 1452,
+    "before": "AxisAlignedBB.getBoundingBox(-1.25D, 0.5D, -1.25D, 1.25D, 1.5D, -1D)",
+    "after": "new AxisAlignedBB(-1.25D, 0.5D, -1.25D, 1.25D, 1.5D, -1D)",
+    "sha256": "e0d828149c99bfe67729d72005cfc52d7ddfc19c99261ee0e019b8ea1357c281"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "start": 1475,
+    "select_end": 1503,
+    "end": 1543,
+    "before": "AxisAlignedBB.getBoundingBox(-1.25D, 0.5D, -1.25D, -1D, 1.5D, 1.25D)",
+    "after": "new AxisAlignedBB(-1.25D, 0.5D, -1.25D, -1D, 1.5D, 1.25D)",
+    "sha256": "e0d828149c99bfe67729d72005cfc52d7ddfc19c99261ee0e019b8ea1357c281"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "start": 1566,
+    "select_end": 1594,
+    "end": 1632,
+    "before": "AxisAlignedBB.getBoundingBox(-1.25D, 0.5D, 1D, 1.25D, 1.5D, 1.25D)",
+    "after": "new AxisAlignedBB(-1.25D, 0.5D, 1D, 1.25D, 1.5D, 1.25D)",
+    "sha256": "e0d828149c99bfe67729d72005cfc52d7ddfc19c99261ee0e019b8ea1357c281"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "start": 1655,
+    "select_end": 1683,
+    "end": 1721,
+    "before": "AxisAlignedBB.getBoundingBox(1D, 0.5D, -1.25D, 1.25D, 1.5D, 1.25D)",
+    "after": "new AxisAlignedBB(1D, 0.5D, -1.25D, 1.25D, 1.5D, 1.25D)",
+    "sha256": "e0d828149c99bfe67729d72005cfc52d7ddfc19c99261ee0e019b8ea1357c281"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasFlare.java",
+    "start": 746,
+    "select_end": 774,
+    "end": 812,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, 1.5D, 3.875D, 1.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 0D, -1.5D, 1.5D, 3.875D, 1.5D)",
+    "sha256": "8ef2763a04ea3db3e5f3977cab472539e4ee6286decba458c0a745760fb1ddf1"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasFlare.java",
+    "start": 835,
+    "select_end": 863,
+    "end": 904,
+    "before": "AxisAlignedBB.getBoundingBox(-0.75D, 3.875D, -0.75D, 0.75D, 9, 0.75D)",
+    "after": "new AxisAlignedBB(-0.75D, 3.875D, -0.75D, 0.75D, 9, 0.75D)",
+    "sha256": "8ef2763a04ea3db3e5f3977cab472539e4ee6286decba458c0a745760fb1ddf1"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasFlare.java",
+    "start": 927,
+    "select_end": 955,
+    "end": 993,
+    "before": "AxisAlignedBB.getBoundingBox(-1.5D, 9D, -1.5D, 1.5D, 9.375D, 1.5D)",
+    "after": "new AxisAlignedBB(-1.5D, 9D, -1.5D, 1.5D, 9.375D, 1.5D)",
+    "sha256": "8ef2763a04ea3db3e5f3977cab472539e4ee6286decba458c0a745760fb1ddf1"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasFlare.java",
+    "start": 1016,
+    "select_end": 1044,
+    "end": 1086,
+    "before": "AxisAlignedBB.getBoundingBox(-0.75D, 9.375D, -0.75D, 0.75D, 12, 0.75D)",
+    "after": "new AxisAlignedBB(-0.75D, 9.375D, -0.75D, 0.75D, 12, 0.75D)",
+    "sha256": "8ef2763a04ea3db3e5f3977cab472539e4ee6286decba458c0a745760fb1ddf1"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 581,
+    "select_end": 609,
+    "end": 637,
+    "before": "AxisAlignedBB.getBoundingBox(-3.5, 0, -1.5, 3.5, 1, 1.5)",
+    "after": "new AxisAlignedBB(-3.5, 0, -1.5, 3.5, 1, 1.5)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 676,
+    "select_end": 704,
+    "end": 734,
+    "before": "AxisAlignedBB.getBoundingBox(0.5, 1, -1.5, 3.5, 3.25, 1.5)",
+    "after": "new AxisAlignedBB(0.5, 1, -1.5, 3.5, 3.25, 1.5)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 770,
+    "select_end": 798,
+    "end": 833,
+    "before": "AxisAlignedBB.getBoundingBox(-2.25, 1, -1.5, 0.25, 3.25, -0.75)",
+    "after": "new AxisAlignedBB(-2.25, 1, -1.5, 0.25, 3.25, -0.75)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 856,
+    "select_end": 884,
+    "end": 917,
+    "before": "AxisAlignedBB.getBoundingBox(-2.25, 1, 0.75, 0.25, 3.25, 1.5)",
+    "after": "new AxisAlignedBB(-2.25, 1, 0.75, 0.25, 3.25, 1.5)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 940,
+    "select_end": 968,
+    "end": 999,
+    "before": "AxisAlignedBB.getBoundingBox(-2.25, 1, -1.5, -2, 3.25, 1.5)",
+    "after": "new AxisAlignedBB(-2.25, 1, -1.5, -2, 3.25, 1.5)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 1022,
+    "select_end": 1050,
+    "end": 1079,
+    "before": "AxisAlignedBB.getBoundingBox(0, 1, -1.5, 0.25, 3.25, 1.5)",
+    "after": "new AxisAlignedBB(0, 1, -1.5, 0.25, 3.25, 1.5)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 1102,
+    "select_end": 1130,
+    "end": 1156,
+    "before": "AxisAlignedBB.getBoundingBox(-2, 1, -0.75, 0, 2, 0.75)",
+    "after": "new AxisAlignedBB(-2, 1, -0.75, 0, 2, 0.75)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java",
+    "start": 1190,
+    "select_end": 1218,
+    "end": 1245,
+    "before": "AxisAlignedBB.getBoundingBox(-3.25, 1, -1, -2.25, 3, 1)",
+    "after": "new AxisAlignedBB(-3.25, 1, -1, -2.25, 3, 1)",
+    "sha256": "4ebcc195e0a4d3bc69816feff0c31caf0a334a4bb7ba811d3c1286cc24c77d16"
+  }
+]

@@ -68,10 +68,10 @@ public class NBTControlPacket implements IMessage {
 
 			EntityPlayer p = ctx.getServerHandler().playerEntity;
 
-			if(p.worldObj == null)
+			if(p.world == null)
 				return null;
 
-			TileEntity te = p.worldObj.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = p.world.getTileEntity(m.x, m.y, m.z);
 
 			try {
 

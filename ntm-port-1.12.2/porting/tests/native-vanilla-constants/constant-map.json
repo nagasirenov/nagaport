@@ -1,0 +1,2733 @@
+{
+  "original_client_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "original_srg_sha256": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+  "native_fields_sha256": "f83618fe93f51872d62734d049b45ccacb7bf9fa45222b1f1d9030d90564d76c",
+  "rows": [
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "air",
+      "new": "AIR",
+      "registry": "minecraft:air",
+      "srg": "field_150350_a",
+      "obfuscated": "ajn/a"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stone",
+      "new": "STONE",
+      "registry": "minecraft:stone",
+      "srg": "field_150348_b",
+      "obfuscated": "ajn/b"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "grass",
+      "new": "GRASS",
+      "registry": "minecraft:grass",
+      "srg": "field_150349_c",
+      "obfuscated": "ajn/c"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "dirt",
+      "new": "DIRT",
+      "registry": "minecraft:dirt",
+      "srg": "field_150346_d",
+      "obfuscated": "ajn/d"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "cobblestone",
+      "new": "COBBLESTONE",
+      "registry": "minecraft:cobblestone",
+      "srg": "field_150347_e",
+      "obfuscated": "ajn/e"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "planks",
+      "new": "PLANKS",
+      "registry": "minecraft:planks",
+      "srg": "field_150344_f",
+      "obfuscated": "ajn/f"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "sapling",
+      "new": "SAPLING",
+      "registry": "minecraft:sapling",
+      "srg": "field_150345_g",
+      "obfuscated": "ajn/g"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "bedrock",
+      "new": "BEDROCK",
+      "registry": "minecraft:bedrock",
+      "srg": "field_150357_h",
+      "obfuscated": "ajn/h"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "flowing_water",
+      "new": "FLOWING_WATER",
+      "registry": "minecraft:flowing_water",
+      "srg": "field_150358_i",
+      "obfuscated": "ajn/i"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "water",
+      "new": "WATER",
+      "registry": "minecraft:water",
+      "srg": "field_150355_j",
+      "obfuscated": "ajn/j"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "flowing_lava",
+      "new": "FLOWING_LAVA",
+      "registry": "minecraft:flowing_lava",
+      "srg": "field_150356_k",
+      "obfuscated": "ajn/k"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lava",
+      "new": "LAVA",
+      "registry": "minecraft:lava",
+      "srg": "field_150353_l",
+      "obfuscated": "ajn/l"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "sand",
+      "new": "SAND",
+      "registry": "minecraft:sand",
+      "srg": "field_150354_m",
+      "obfuscated": "ajn/m"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "gravel",
+      "new": "GRAVEL",
+      "registry": "minecraft:gravel",
+      "srg": "field_150351_n",
+      "obfuscated": "ajn/n"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "gold_ore",
+      "new": "GOLD_ORE",
+      "registry": "minecraft:gold_ore",
+      "srg": "field_150352_o",
+      "obfuscated": "ajn/o"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "iron_ore",
+      "new": "IRON_ORE",
+      "registry": "minecraft:iron_ore",
+      "srg": "field_150366_p",
+      "obfuscated": "ajn/p"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "coal_ore",
+      "new": "COAL_ORE",
+      "registry": "minecraft:coal_ore",
+      "srg": "field_150365_q",
+      "obfuscated": "ajn/q"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "log",
+      "new": "LOG",
+      "registry": "minecraft:log",
+      "srg": "field_150364_r",
+      "obfuscated": "ajn/r"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "log2",
+      "new": "LOG2",
+      "registry": "minecraft:log2",
+      "srg": "field_150363_s",
+      "obfuscated": "ajn/s"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "leaves",
+      "new": "LEAVES",
+      "registry": "minecraft:leaves",
+      "srg": "field_150362_t",
+      "obfuscated": "ajn/t"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "leaves2",
+      "new": "LEAVES2",
+      "registry": "minecraft:leaves2",
+      "srg": "field_150361_u",
+      "obfuscated": "ajn/u"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "sponge",
+      "new": "SPONGE",
+      "registry": "minecraft:sponge",
+      "srg": "field_150360_v",
+      "obfuscated": "ajn/v"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "glass",
+      "new": "GLASS",
+      "registry": "minecraft:glass",
+      "srg": "field_150359_w",
+      "obfuscated": "ajn/w"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lapis_ore",
+      "new": "LAPIS_ORE",
+      "registry": "minecraft:lapis_ore",
+      "srg": "field_150369_x",
+      "obfuscated": "ajn/x"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lapis_block",
+      "new": "LAPIS_BLOCK",
+      "registry": "minecraft:lapis_block",
+      "srg": "field_150368_y",
+      "obfuscated": "ajn/y"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "dispenser",
+      "new": "DISPENSER",
+      "registry": "minecraft:dispenser",
+      "srg": "field_150367_z",
+      "obfuscated": "ajn/z"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "sandstone",
+      "new": "SANDSTONE",
+      "registry": "minecraft:sandstone",
+      "srg": "field_150322_A",
+      "obfuscated": "ajn/A"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "noteblock",
+      "new": "NOTEBLOCK",
+      "registry": "minecraft:noteblock",
+      "srg": "field_150323_B",
+      "obfuscated": "ajn/B"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "bed",
+      "new": "BED",
+      "registry": "minecraft:bed",
+      "srg": "field_150324_C",
+      "obfuscated": "ajn/C"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "golden_rail",
+      "new": "GOLDEN_RAIL",
+      "registry": "minecraft:golden_rail",
+      "srg": "field_150318_D",
+      "obfuscated": "ajn/D"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "detector_rail",
+      "new": "DETECTOR_RAIL",
+      "registry": "minecraft:detector_rail",
+      "srg": "field_150319_E",
+      "obfuscated": "ajn/E"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "sticky_piston",
+      "new": "STICKY_PISTON",
+      "registry": "minecraft:sticky_piston",
+      "srg": "field_150320_F",
+      "obfuscated": "ajn/F"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "web",
+      "new": "WEB",
+      "registry": "minecraft:web",
+      "srg": "field_150321_G",
+      "obfuscated": "ajn/G"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "tallgrass",
+      "new": "TALLGRASS",
+      "registry": "minecraft:tallgrass",
+      "srg": "field_150329_H",
+      "obfuscated": "ajn/H"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "deadbush",
+      "new": "DEADBUSH",
+      "registry": "minecraft:deadbush",
+      "srg": "field_150330_I",
+      "obfuscated": "ajn/I"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "piston",
+      "new": "PISTON",
+      "registry": "minecraft:piston",
+      "srg": "field_150331_J",
+      "obfuscated": "ajn/J"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "piston_head",
+      "new": "PISTON_HEAD",
+      "registry": "minecraft:piston_head",
+      "srg": "field_150332_K",
+      "obfuscated": "ajn/K"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "wool",
+      "new": "WOOL",
+      "registry": "minecraft:wool",
+      "srg": "field_150325_L",
+      "obfuscated": "ajn/L"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "yellow_flower",
+      "new": "YELLOW_FLOWER",
+      "registry": "minecraft:yellow_flower",
+      "srg": "field_150327_N",
+      "obfuscated": "ajn/N"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "red_flower",
+      "new": "RED_FLOWER",
+      "registry": "minecraft:red_flower",
+      "srg": "field_150328_O",
+      "obfuscated": "ajn/O"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "brown_mushroom",
+      "new": "BROWN_MUSHROOM",
+      "registry": "minecraft:brown_mushroom",
+      "srg": "field_150338_P",
+      "obfuscated": "ajn/P"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "red_mushroom",
+      "new": "RED_MUSHROOM",
+      "registry": "minecraft:red_mushroom",
+      "srg": "field_150337_Q",
+      "obfuscated": "ajn/Q"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "gold_block",
+      "new": "GOLD_BLOCK",
+      "registry": "minecraft:gold_block",
+      "srg": "field_150340_R",
+      "obfuscated": "ajn/R"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "iron_block",
+      "new": "IRON_BLOCK",
+      "registry": "minecraft:iron_block",
+      "srg": "field_150339_S",
+      "obfuscated": "ajn/S"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "double_stone_slab",
+      "new": "DOUBLE_STONE_SLAB",
+      "registry": "minecraft:double_stone_slab",
+      "srg": "field_150334_T",
+      "obfuscated": "ajn/T"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stone_slab",
+      "new": "STONE_SLAB",
+      "registry": "minecraft:stone_slab",
+      "srg": "field_150333_U",
+      "obfuscated": "ajn/U"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "brick_block",
+      "new": "BRICK_BLOCK",
+      "registry": "minecraft:brick_block",
+      "srg": "field_150336_V",
+      "obfuscated": "ajn/V"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "tnt",
+      "new": "TNT",
+      "registry": "minecraft:tnt",
+      "srg": "field_150335_W",
+      "obfuscated": "ajn/W"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "bookshelf",
+      "new": "BOOKSHELF",
+      "registry": "minecraft:bookshelf",
+      "srg": "field_150342_X",
+      "obfuscated": "ajn/X"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "mossy_cobblestone",
+      "new": "MOSSY_COBBLESTONE",
+      "registry": "minecraft:mossy_cobblestone",
+      "srg": "field_150341_Y",
+      "obfuscated": "ajn/Y"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "obsidian",
+      "new": "OBSIDIAN",
+      "registry": "minecraft:obsidian",
+      "srg": "field_150343_Z",
+      "obfuscated": "ajn/Z"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "torch",
+      "new": "TORCH",
+      "registry": "minecraft:torch",
+      "srg": "field_150478_aa",
+      "obfuscated": "ajn/aa"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "fire",
+      "new": "FIRE",
+      "registry": "minecraft:fire",
+      "srg": "field_150480_ab",
+      "obfuscated": "ajn/ab"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "mob_spawner",
+      "new": "MOB_SPAWNER",
+      "registry": "minecraft:mob_spawner",
+      "srg": "field_150474_ac",
+      "obfuscated": "ajn/ac"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "oak_stairs",
+      "new": "OAK_STAIRS",
+      "registry": "minecraft:oak_stairs",
+      "srg": "field_150476_ad",
+      "obfuscated": "ajn/ad"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "chest",
+      "new": "CHEST",
+      "registry": "minecraft:chest",
+      "srg": "field_150486_ae",
+      "obfuscated": "ajn/ae"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "redstone_wire",
+      "new": "REDSTONE_WIRE",
+      "registry": "minecraft:redstone_wire",
+      "srg": "field_150488_af",
+      "obfuscated": "ajn/af"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "diamond_ore",
+      "new": "DIAMOND_ORE",
+      "registry": "minecraft:diamond_ore",
+      "srg": "field_150482_ag",
+      "obfuscated": "ajn/ag"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "diamond_block",
+      "new": "DIAMOND_BLOCK",
+      "registry": "minecraft:diamond_block",
+      "srg": "field_150484_ah",
+      "obfuscated": "ajn/ah"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "crafting_table",
+      "new": "CRAFTING_TABLE",
+      "registry": "minecraft:crafting_table",
+      "srg": "field_150462_ai",
+      "obfuscated": "ajn/ai"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "wheat",
+      "new": "WHEAT",
+      "registry": "minecraft:wheat",
+      "srg": "field_150464_aj",
+      "obfuscated": "ajn/aj"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "farmland",
+      "new": "FARMLAND",
+      "registry": "minecraft:farmland",
+      "srg": "field_150458_ak",
+      "obfuscated": "ajn/ak"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "furnace",
+      "new": "FURNACE",
+      "registry": "minecraft:furnace",
+      "srg": "field_150460_al",
+      "obfuscated": "ajn/al"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lit_furnace",
+      "new": "LIT_FURNACE",
+      "registry": "minecraft:lit_furnace",
+      "srg": "field_150470_am",
+      "obfuscated": "ajn/am"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "standing_sign",
+      "new": "STANDING_SIGN",
+      "registry": "minecraft:standing_sign",
+      "srg": "field_150472_an",
+      "obfuscated": "ajn/an"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "ladder",
+      "new": "LADDER",
+      "registry": "minecraft:ladder",
+      "srg": "field_150468_ap",
+      "obfuscated": "ajn/ap"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "rail",
+      "new": "RAIL",
+      "registry": "minecraft:rail",
+      "srg": "field_150448_aq",
+      "obfuscated": "ajn/aq"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stone_stairs",
+      "new": "STONE_STAIRS",
+      "registry": "minecraft:stone_stairs",
+      "srg": "field_150446_ar",
+      "obfuscated": "ajn/ar"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "wall_sign",
+      "new": "WALL_SIGN",
+      "registry": "minecraft:wall_sign",
+      "srg": "field_150444_as",
+      "obfuscated": "ajn/as"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lever",
+      "new": "LEVER",
+      "registry": "minecraft:lever",
+      "srg": "field_150442_at",
+      "obfuscated": "ajn/at"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stone_pressure_plate",
+      "new": "STONE_PRESSURE_PLATE",
+      "registry": "minecraft:stone_pressure_plate",
+      "srg": "field_150456_au",
+      "obfuscated": "ajn/au"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "iron_door",
+      "new": "IRON_DOOR",
+      "registry": "minecraft:iron_door",
+      "srg": "field_150454_av",
+      "obfuscated": "ajn/av"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "wooden_pressure_plate",
+      "new": "WOODEN_PRESSURE_PLATE",
+      "registry": "minecraft:wooden_pressure_plate",
+      "srg": "field_150452_aw",
+      "obfuscated": "ajn/aw"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "redstone_ore",
+      "new": "REDSTONE_ORE",
+      "registry": "minecraft:redstone_ore",
+      "srg": "field_150450_ax",
+      "obfuscated": "ajn/ax"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lit_redstone_ore",
+      "new": "LIT_REDSTONE_ORE",
+      "registry": "minecraft:lit_redstone_ore",
+      "srg": "field_150439_ay",
+      "obfuscated": "ajn/ay"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "unlit_redstone_torch",
+      "new": "UNLIT_REDSTONE_TORCH",
+      "registry": "minecraft:unlit_redstone_torch",
+      "srg": "field_150437_az",
+      "obfuscated": "ajn/az"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "redstone_torch",
+      "new": "REDSTONE_TORCH",
+      "registry": "minecraft:redstone_torch",
+      "srg": "field_150429_aA",
+      "obfuscated": "ajn/aA"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stone_button",
+      "new": "STONE_BUTTON",
+      "registry": "minecraft:stone_button",
+      "srg": "field_150430_aB",
+      "obfuscated": "ajn/aB"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "snow_layer",
+      "new": "SNOW_LAYER",
+      "registry": "minecraft:snow_layer",
+      "srg": "field_150431_aC",
+      "obfuscated": "ajn/aC"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "ice",
+      "new": "ICE",
+      "registry": "minecraft:ice",
+      "srg": "field_150432_aD",
+      "obfuscated": "ajn/aD"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "snow",
+      "new": "SNOW",
+      "registry": "minecraft:snow",
+      "srg": "field_150433_aE",
+      "obfuscated": "ajn/aE"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "cactus",
+      "new": "CACTUS",
+      "registry": "minecraft:cactus",
+      "srg": "field_150434_aF",
+      "obfuscated": "ajn/aF"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "clay",
+      "new": "CLAY",
+      "registry": "minecraft:clay",
+      "srg": "field_150435_aG",
+      "obfuscated": "ajn/aG"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "reeds",
+      "new": "REEDS",
+      "registry": "minecraft:reeds",
+      "srg": "field_150436_aH",
+      "obfuscated": "ajn/aH"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "jukebox",
+      "new": "JUKEBOX",
+      "registry": "minecraft:jukebox",
+      "srg": "field_150421_aI",
+      "obfuscated": "ajn/aI"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "pumpkin",
+      "new": "PUMPKIN",
+      "registry": "minecraft:pumpkin",
+      "srg": "field_150423_aK",
+      "obfuscated": "ajn/aK"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "netherrack",
+      "new": "NETHERRACK",
+      "registry": "minecraft:netherrack",
+      "srg": "field_150424_aL",
+      "obfuscated": "ajn/aL"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "soul_sand",
+      "new": "SOUL_SAND",
+      "registry": "minecraft:soul_sand",
+      "srg": "field_150425_aM",
+      "obfuscated": "ajn/aM"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "glowstone",
+      "new": "GLOWSTONE",
+      "registry": "minecraft:glowstone",
+      "srg": "field_150426_aN",
+      "obfuscated": "ajn/aN"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "portal",
+      "new": "PORTAL",
+      "registry": "minecraft:portal",
+      "srg": "field_150427_aO",
+      "obfuscated": "ajn/aO"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lit_pumpkin",
+      "new": "LIT_PUMPKIN",
+      "registry": "minecraft:lit_pumpkin",
+      "srg": "field_150428_aP",
+      "obfuscated": "ajn/aP"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "cake",
+      "new": "CAKE",
+      "registry": "minecraft:cake",
+      "srg": "field_150414_aQ",
+      "obfuscated": "ajn/aQ"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "unpowered_repeater",
+      "new": "UNPOWERED_REPEATER",
+      "registry": "minecraft:unpowered_repeater",
+      "srg": "field_150413_aR",
+      "obfuscated": "ajn/aR"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "powered_repeater",
+      "new": "POWERED_REPEATER",
+      "registry": "minecraft:powered_repeater",
+      "srg": "field_150416_aS",
+      "obfuscated": "ajn/aS"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "trapdoor",
+      "new": "TRAPDOOR",
+      "registry": "minecraft:trapdoor",
+      "srg": "field_150415_aT",
+      "obfuscated": "ajn/aT"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "monster_egg",
+      "new": "MONSTER_EGG",
+      "registry": "minecraft:monster_egg",
+      "srg": "field_150418_aU",
+      "obfuscated": "ajn/aU"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stonebrick",
+      "new": "STONEBRICK",
+      "registry": "minecraft:stonebrick",
+      "srg": "field_150417_aV",
+      "obfuscated": "ajn/aV"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "brown_mushroom_block",
+      "new": "BROWN_MUSHROOM_BLOCK",
+      "registry": "minecraft:brown_mushroom_block",
+      "srg": "field_150420_aW",
+      "obfuscated": "ajn/aW"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "red_mushroom_block",
+      "new": "RED_MUSHROOM_BLOCK",
+      "registry": "minecraft:red_mushroom_block",
+      "srg": "field_150419_aX",
+      "obfuscated": "ajn/aX"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "iron_bars",
+      "new": "IRON_BARS",
+      "registry": "minecraft:iron_bars",
+      "srg": "field_150411_aY",
+      "obfuscated": "ajn/aY"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "glass_pane",
+      "new": "GLASS_PANE",
+      "registry": "minecraft:glass_pane",
+      "srg": "field_150410_aZ",
+      "obfuscated": "ajn/aZ"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "melon_block",
+      "new": "MELON_BLOCK",
+      "registry": "minecraft:melon_block",
+      "srg": "field_150440_ba",
+      "obfuscated": "ajn/ba"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "pumpkin_stem",
+      "new": "PUMPKIN_STEM",
+      "registry": "minecraft:pumpkin_stem",
+      "srg": "field_150393_bb",
+      "obfuscated": "ajn/bb"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "melon_stem",
+      "new": "MELON_STEM",
+      "registry": "minecraft:melon_stem",
+      "srg": "field_150394_bc",
+      "obfuscated": "ajn/bc"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "vine",
+      "new": "VINE",
+      "registry": "minecraft:vine",
+      "srg": "field_150395_bd",
+      "obfuscated": "ajn/bd"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "brick_stairs",
+      "new": "BRICK_STAIRS",
+      "registry": "minecraft:brick_stairs",
+      "srg": "field_150389_bf",
+      "obfuscated": "ajn/bf"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stone_brick_stairs",
+      "new": "STONE_BRICK_STAIRS",
+      "registry": "minecraft:stone_brick_stairs",
+      "srg": "field_150390_bg",
+      "obfuscated": "ajn/bg"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "mycelium",
+      "new": "MYCELIUM",
+      "registry": "minecraft:mycelium",
+      "srg": "field_150391_bh",
+      "obfuscated": "ajn/bh"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "waterlily",
+      "new": "WATERLILY",
+      "registry": "minecraft:waterlily",
+      "srg": "field_150392_bi",
+      "obfuscated": "ajn/bi"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "nether_brick",
+      "new": "NETHER_BRICK",
+      "registry": "minecraft:nether_brick",
+      "srg": "field_150385_bj",
+      "obfuscated": "ajn/bj"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "nether_brick_fence",
+      "new": "NETHER_BRICK_FENCE",
+      "registry": "minecraft:nether_brick_fence",
+      "srg": "field_150386_bk",
+      "obfuscated": "ajn/bk"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "nether_brick_stairs",
+      "new": "NETHER_BRICK_STAIRS",
+      "registry": "minecraft:nether_brick_stairs",
+      "srg": "field_150387_bl",
+      "obfuscated": "ajn/bl"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "nether_wart",
+      "new": "NETHER_WART",
+      "registry": "minecraft:nether_wart",
+      "srg": "field_150388_bm",
+      "obfuscated": "ajn/bm"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "enchanting_table",
+      "new": "ENCHANTING_TABLE",
+      "registry": "minecraft:enchanting_table",
+      "srg": "field_150381_bn",
+      "obfuscated": "ajn/bn"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "brewing_stand",
+      "new": "BREWING_STAND",
+      "registry": "minecraft:brewing_stand",
+      "srg": "field_150382_bo",
+      "obfuscated": "ajn/bo"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "cauldron",
+      "new": "CAULDRON",
+      "registry": "minecraft:cauldron",
+      "srg": "field_150383_bp",
+      "obfuscated": "ajn/bp"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "end_portal",
+      "new": "END_PORTAL",
+      "registry": "minecraft:end_portal",
+      "srg": "field_150384_bq",
+      "obfuscated": "ajn/bq"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "end_portal_frame",
+      "new": "END_PORTAL_FRAME",
+      "registry": "minecraft:end_portal_frame",
+      "srg": "field_150378_br",
+      "obfuscated": "ajn/br"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "end_stone",
+      "new": "END_STONE",
+      "registry": "minecraft:end_stone",
+      "srg": "field_150377_bs",
+      "obfuscated": "ajn/bs"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "dragon_egg",
+      "new": "DRAGON_EGG",
+      "registry": "minecraft:dragon_egg",
+      "srg": "field_150380_bt",
+      "obfuscated": "ajn/bt"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "redstone_lamp",
+      "new": "REDSTONE_LAMP",
+      "registry": "minecraft:redstone_lamp",
+      "srg": "field_150379_bu",
+      "obfuscated": "ajn/bu"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "lit_redstone_lamp",
+      "new": "LIT_REDSTONE_LAMP",
+      "registry": "minecraft:lit_redstone_lamp",
+      "srg": "field_150374_bv",
+      "obfuscated": "ajn/bv"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "double_wooden_slab",
+      "new": "DOUBLE_WOODEN_SLAB",
+      "registry": "minecraft:double_wooden_slab",
+      "srg": "field_150373_bw",
+      "obfuscated": "ajn/bw"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "wooden_slab",
+      "new": "WOODEN_SLAB",
+      "registry": "minecraft:wooden_slab",
+      "srg": "field_150376_bx",
+      "obfuscated": "ajn/bx"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "cocoa",
+      "new": "COCOA",
+      "registry": "minecraft:cocoa",
+      "srg": "field_150375_by",
+      "obfuscated": "ajn/by"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "sandstone_stairs",
+      "new": "SANDSTONE_STAIRS",
+      "registry": "minecraft:sandstone_stairs",
+      "srg": "field_150372_bz",
+      "obfuscated": "ajn/bz"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "emerald_ore",
+      "new": "EMERALD_ORE",
+      "registry": "minecraft:emerald_ore",
+      "srg": "field_150412_bA",
+      "obfuscated": "ajn/bA"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "ender_chest",
+      "new": "ENDER_CHEST",
+      "registry": "minecraft:ender_chest",
+      "srg": "field_150477_bB",
+      "obfuscated": "ajn/bB"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "tripwire_hook",
+      "new": "TRIPWIRE_HOOK",
+      "registry": "minecraft:tripwire_hook",
+      "srg": "field_150479_bC",
+      "obfuscated": "ajn/bC"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "tripwire",
+      "new": "TRIPWIRE",
+      "registry": "minecraft:tripwire",
+      "srg": "field_150473_bD",
+      "obfuscated": "ajn/bD"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "emerald_block",
+      "new": "EMERALD_BLOCK",
+      "registry": "minecraft:emerald_block",
+      "srg": "field_150475_bE",
+      "obfuscated": "ajn/bE"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "spruce_stairs",
+      "new": "SPRUCE_STAIRS",
+      "registry": "minecraft:spruce_stairs",
+      "srg": "field_150485_bF",
+      "obfuscated": "ajn/bF"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "birch_stairs",
+      "new": "BIRCH_STAIRS",
+      "registry": "minecraft:birch_stairs",
+      "srg": "field_150487_bG",
+      "obfuscated": "ajn/bG"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "jungle_stairs",
+      "new": "JUNGLE_STAIRS",
+      "registry": "minecraft:jungle_stairs",
+      "srg": "field_150481_bH",
+      "obfuscated": "ajn/bH"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "command_block",
+      "new": "COMMAND_BLOCK",
+      "registry": "minecraft:command_block",
+      "srg": "field_150483_bI",
+      "obfuscated": "ajn/bI"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "beacon",
+      "new": "BEACON",
+      "registry": "minecraft:beacon",
+      "srg": "field_150461_bJ",
+      "obfuscated": "ajn/bJ"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "cobblestone_wall",
+      "new": "COBBLESTONE_WALL",
+      "registry": "minecraft:cobblestone_wall",
+      "srg": "field_150463_bK",
+      "obfuscated": "ajn/bK"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "flower_pot",
+      "new": "FLOWER_POT",
+      "registry": "minecraft:flower_pot",
+      "srg": "field_150457_bL",
+      "obfuscated": "ajn/bL"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "carrots",
+      "new": "CARROTS",
+      "registry": "minecraft:carrots",
+      "srg": "field_150459_bM",
+      "obfuscated": "ajn/bM"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "potatoes",
+      "new": "POTATOES",
+      "registry": "minecraft:potatoes",
+      "srg": "field_150469_bN",
+      "obfuscated": "ajn/bN"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "wooden_button",
+      "new": "WOODEN_BUTTON",
+      "registry": "minecraft:wooden_button",
+      "srg": "field_150471_bO",
+      "obfuscated": "ajn/bO"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "skull",
+      "new": "SKULL",
+      "registry": "minecraft:skull",
+      "srg": "field_150465_bP",
+      "obfuscated": "ajn/bP"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "anvil",
+      "new": "ANVIL",
+      "registry": "minecraft:anvil",
+      "srg": "field_150467_bQ",
+      "obfuscated": "ajn/bQ"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "trapped_chest",
+      "new": "TRAPPED_CHEST",
+      "registry": "minecraft:trapped_chest",
+      "srg": "field_150447_bR",
+      "obfuscated": "ajn/bR"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "light_weighted_pressure_plate",
+      "new": "LIGHT_WEIGHTED_PRESSURE_PLATE",
+      "registry": "minecraft:light_weighted_pressure_plate",
+      "srg": "field_150445_bS",
+      "obfuscated": "ajn/bS"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "heavy_weighted_pressure_plate",
+      "new": "HEAVY_WEIGHTED_PRESSURE_PLATE",
+      "registry": "minecraft:heavy_weighted_pressure_plate",
+      "srg": "field_150443_bT",
+      "obfuscated": "ajn/bT"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "unpowered_comparator",
+      "new": "UNPOWERED_COMPARATOR",
+      "registry": "minecraft:unpowered_comparator",
+      "srg": "field_150441_bU",
+      "obfuscated": "ajn/bU"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "powered_comparator",
+      "new": "POWERED_COMPARATOR",
+      "registry": "minecraft:powered_comparator",
+      "srg": "field_150455_bV",
+      "obfuscated": "ajn/bV"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "daylight_detector",
+      "new": "DAYLIGHT_DETECTOR",
+      "registry": "minecraft:daylight_detector",
+      "srg": "field_150453_bW",
+      "obfuscated": "ajn/bW"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "redstone_block",
+      "new": "REDSTONE_BLOCK",
+      "registry": "minecraft:redstone_block",
+      "srg": "field_150451_bX",
+      "obfuscated": "ajn/bX"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "quartz_ore",
+      "new": "QUARTZ_ORE",
+      "registry": "minecraft:quartz_ore",
+      "srg": "field_150449_bY",
+      "obfuscated": "ajn/bY"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "hopper",
+      "new": "HOPPER",
+      "registry": "minecraft:hopper",
+      "srg": "field_150438_bZ",
+      "obfuscated": "ajn/bZ"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "quartz_block",
+      "new": "QUARTZ_BLOCK",
+      "registry": "minecraft:quartz_block",
+      "srg": "field_150371_ca",
+      "obfuscated": "ajn/ca"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "quartz_stairs",
+      "new": "QUARTZ_STAIRS",
+      "registry": "minecraft:quartz_stairs",
+      "srg": "field_150370_cb",
+      "obfuscated": "ajn/cb"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "activator_rail",
+      "new": "ACTIVATOR_RAIL",
+      "registry": "minecraft:activator_rail",
+      "srg": "field_150408_cc",
+      "obfuscated": "ajn/cc"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "dropper",
+      "new": "DROPPER",
+      "registry": "minecraft:dropper",
+      "srg": "field_150409_cd",
+      "obfuscated": "ajn/cd"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stained_hardened_clay",
+      "new": "STAINED_HARDENED_CLAY",
+      "registry": "minecraft:stained_hardened_clay",
+      "srg": "field_150406_ce",
+      "obfuscated": "ajn/ce"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "hay_block",
+      "new": "HAY_BLOCK",
+      "registry": "minecraft:hay_block",
+      "srg": "field_150407_cf",
+      "obfuscated": "ajn/cf"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "carpet",
+      "new": "CARPET",
+      "registry": "minecraft:carpet",
+      "srg": "field_150404_cg",
+      "obfuscated": "ajn/cg"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "hardened_clay",
+      "new": "HARDENED_CLAY",
+      "registry": "minecraft:hardened_clay",
+      "srg": "field_150405_ch",
+      "obfuscated": "ajn/ch"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "coal_block",
+      "new": "COAL_BLOCK",
+      "registry": "minecraft:coal_block",
+      "srg": "field_150402_ci",
+      "obfuscated": "ajn/ci"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "packed_ice",
+      "new": "PACKED_ICE",
+      "registry": "minecraft:packed_ice",
+      "srg": "field_150403_cj",
+      "obfuscated": "ajn/cj"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "acacia_stairs",
+      "new": "ACACIA_STAIRS",
+      "registry": "minecraft:acacia_stairs",
+      "srg": "field_150400_ck",
+      "obfuscated": "ajn/ck"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "dark_oak_stairs",
+      "new": "DARK_OAK_STAIRS",
+      "registry": "minecraft:dark_oak_stairs",
+      "srg": "field_150401_cl",
+      "obfuscated": "ajn/cl"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "double_plant",
+      "new": "DOUBLE_PLANT",
+      "registry": "minecraft:double_plant",
+      "srg": "field_150398_cm",
+      "obfuscated": "ajn/cm"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stained_glass",
+      "new": "STAINED_GLASS",
+      "registry": "minecraft:stained_glass",
+      "srg": "field_150399_cn",
+      "obfuscated": "ajn/cn"
+    },
+    {
+      "owner": "net.minecraft.init.Blocks",
+      "old": "stained_glass_pane",
+      "new": "STAINED_GLASS_PANE",
+      "registry": "minecraft:stained_glass_pane",
+      "srg": "field_150397_co",
+      "obfuscated": "ajn/co"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_shovel",
+      "new": "IRON_SHOVEL",
+      "registry": "minecraft:iron_shovel",
+      "srg": "field_151037_a",
+      "obfuscated": "ade/a"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_pickaxe",
+      "new": "IRON_PICKAXE",
+      "registry": "minecraft:iron_pickaxe",
+      "srg": "field_151035_b",
+      "obfuscated": "ade/b"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_axe",
+      "new": "IRON_AXE",
+      "registry": "minecraft:iron_axe",
+      "srg": "field_151036_c",
+      "obfuscated": "ade/c"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "flint_and_steel",
+      "new": "FLINT_AND_STEEL",
+      "registry": "minecraft:flint_and_steel",
+      "srg": "field_151033_d",
+      "obfuscated": "ade/d"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "apple",
+      "new": "APPLE",
+      "registry": "minecraft:apple",
+      "srg": "field_151034_e",
+      "obfuscated": "ade/e"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "bow",
+      "new": "BOW",
+      "registry": "minecraft:bow",
+      "srg": "field_151031_f",
+      "obfuscated": "ade/f"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "arrow",
+      "new": "ARROW",
+      "registry": "minecraft:arrow",
+      "srg": "field_151032_g",
+      "obfuscated": "ade/g"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "coal",
+      "new": "COAL",
+      "registry": "minecraft:coal",
+      "srg": "field_151044_h",
+      "obfuscated": "ade/h"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond",
+      "new": "DIAMOND",
+      "registry": "minecraft:diamond",
+      "srg": "field_151045_i",
+      "obfuscated": "ade/i"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_ingot",
+      "new": "IRON_INGOT",
+      "registry": "minecraft:iron_ingot",
+      "srg": "field_151042_j",
+      "obfuscated": "ade/j"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "gold_ingot",
+      "new": "GOLD_INGOT",
+      "registry": "minecraft:gold_ingot",
+      "srg": "field_151043_k",
+      "obfuscated": "ade/k"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_sword",
+      "new": "IRON_SWORD",
+      "registry": "minecraft:iron_sword",
+      "srg": "field_151040_l",
+      "obfuscated": "ade/l"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wooden_sword",
+      "new": "WOODEN_SWORD",
+      "registry": "minecraft:wooden_sword",
+      "srg": "field_151041_m",
+      "obfuscated": "ade/m"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wooden_shovel",
+      "new": "WOODEN_SHOVEL",
+      "registry": "minecraft:wooden_shovel",
+      "srg": "field_151038_n",
+      "obfuscated": "ade/n"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wooden_pickaxe",
+      "new": "WOODEN_PICKAXE",
+      "registry": "minecraft:wooden_pickaxe",
+      "srg": "field_151039_o",
+      "obfuscated": "ade/o"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wooden_axe",
+      "new": "WOODEN_AXE",
+      "registry": "minecraft:wooden_axe",
+      "srg": "field_151053_p",
+      "obfuscated": "ade/p"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "stone_sword",
+      "new": "STONE_SWORD",
+      "registry": "minecraft:stone_sword",
+      "srg": "field_151052_q",
+      "obfuscated": "ade/q"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "stone_shovel",
+      "new": "STONE_SHOVEL",
+      "registry": "minecraft:stone_shovel",
+      "srg": "field_151051_r",
+      "obfuscated": "ade/r"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "stone_pickaxe",
+      "new": "STONE_PICKAXE",
+      "registry": "minecraft:stone_pickaxe",
+      "srg": "field_151050_s",
+      "obfuscated": "ade/s"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "stone_axe",
+      "new": "STONE_AXE",
+      "registry": "minecraft:stone_axe",
+      "srg": "field_151049_t",
+      "obfuscated": "ade/t"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_sword",
+      "new": "DIAMOND_SWORD",
+      "registry": "minecraft:diamond_sword",
+      "srg": "field_151048_u",
+      "obfuscated": "ade/u"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_shovel",
+      "new": "DIAMOND_SHOVEL",
+      "registry": "minecraft:diamond_shovel",
+      "srg": "field_151047_v",
+      "obfuscated": "ade/v"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_pickaxe",
+      "new": "DIAMOND_PICKAXE",
+      "registry": "minecraft:diamond_pickaxe",
+      "srg": "field_151046_w",
+      "obfuscated": "ade/w"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_axe",
+      "new": "DIAMOND_AXE",
+      "registry": "minecraft:diamond_axe",
+      "srg": "field_151056_x",
+      "obfuscated": "ade/x"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "stick",
+      "new": "STICK",
+      "registry": "minecraft:stick",
+      "srg": "field_151055_y",
+      "obfuscated": "ade/y"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "bowl",
+      "new": "BOWL",
+      "registry": "minecraft:bowl",
+      "srg": "field_151054_z",
+      "obfuscated": "ade/z"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "mushroom_stew",
+      "new": "MUSHROOM_STEW",
+      "registry": "minecraft:mushroom_stew",
+      "srg": "field_151009_A",
+      "obfuscated": "ade/A"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_sword",
+      "new": "GOLDEN_SWORD",
+      "registry": "minecraft:golden_sword",
+      "srg": "field_151010_B",
+      "obfuscated": "ade/B"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_shovel",
+      "new": "GOLDEN_SHOVEL",
+      "registry": "minecraft:golden_shovel",
+      "srg": "field_151011_C",
+      "obfuscated": "ade/C"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_pickaxe",
+      "new": "GOLDEN_PICKAXE",
+      "registry": "minecraft:golden_pickaxe",
+      "srg": "field_151005_D",
+      "obfuscated": "ade/D"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_axe",
+      "new": "GOLDEN_AXE",
+      "registry": "minecraft:golden_axe",
+      "srg": "field_151006_E",
+      "obfuscated": "ade/E"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "string",
+      "new": "STRING",
+      "registry": "minecraft:string",
+      "srg": "field_151007_F",
+      "obfuscated": "ade/F"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "feather",
+      "new": "FEATHER",
+      "registry": "minecraft:feather",
+      "srg": "field_151008_G",
+      "obfuscated": "ade/G"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "gunpowder",
+      "new": "GUNPOWDER",
+      "registry": "minecraft:gunpowder",
+      "srg": "field_151016_H",
+      "obfuscated": "ade/H"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wooden_hoe",
+      "new": "WOODEN_HOE",
+      "registry": "minecraft:wooden_hoe",
+      "srg": "field_151017_I",
+      "obfuscated": "ade/I"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "stone_hoe",
+      "new": "STONE_HOE",
+      "registry": "minecraft:stone_hoe",
+      "srg": "field_151018_J",
+      "obfuscated": "ade/J"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_hoe",
+      "new": "IRON_HOE",
+      "registry": "minecraft:iron_hoe",
+      "srg": "field_151019_K",
+      "obfuscated": "ade/K"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_hoe",
+      "new": "DIAMOND_HOE",
+      "registry": "minecraft:diamond_hoe",
+      "srg": "field_151012_L",
+      "obfuscated": "ade/L"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_hoe",
+      "new": "GOLDEN_HOE",
+      "registry": "minecraft:golden_hoe",
+      "srg": "field_151013_M",
+      "obfuscated": "ade/M"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wheat_seeds",
+      "new": "WHEAT_SEEDS",
+      "registry": "minecraft:wheat_seeds",
+      "srg": "field_151014_N",
+      "obfuscated": "ade/N"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "wheat",
+      "new": "WHEAT",
+      "registry": "minecraft:wheat",
+      "srg": "field_151015_O",
+      "obfuscated": "ade/O"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "bread",
+      "new": "BREAD",
+      "registry": "minecraft:bread",
+      "srg": "field_151025_P",
+      "obfuscated": "ade/P"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "leather_helmet",
+      "new": "LEATHER_HELMET",
+      "registry": "minecraft:leather_helmet",
+      "srg": "field_151024_Q",
+      "obfuscated": "ade/Q"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "leather_chestplate",
+      "new": "LEATHER_CHESTPLATE",
+      "registry": "minecraft:leather_chestplate",
+      "srg": "field_151027_R",
+      "obfuscated": "ade/R"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "leather_leggings",
+      "new": "LEATHER_LEGGINGS",
+      "registry": "minecraft:leather_leggings",
+      "srg": "field_151026_S",
+      "obfuscated": "ade/S"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "leather_boots",
+      "new": "LEATHER_BOOTS",
+      "registry": "minecraft:leather_boots",
+      "srg": "field_151021_T",
+      "obfuscated": "ade/T"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "chainmail_helmet",
+      "new": "CHAINMAIL_HELMET",
+      "registry": "minecraft:chainmail_helmet",
+      "srg": "field_151020_U",
+      "obfuscated": "ade/U"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "chainmail_chestplate",
+      "new": "CHAINMAIL_CHESTPLATE",
+      "registry": "minecraft:chainmail_chestplate",
+      "srg": "field_151023_V",
+      "obfuscated": "ade/V"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "chainmail_leggings",
+      "new": "CHAINMAIL_LEGGINGS",
+      "registry": "minecraft:chainmail_leggings",
+      "srg": "field_151022_W",
+      "obfuscated": "ade/W"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "chainmail_boots",
+      "new": "CHAINMAIL_BOOTS",
+      "registry": "minecraft:chainmail_boots",
+      "srg": "field_151029_X",
+      "obfuscated": "ade/X"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_helmet",
+      "new": "IRON_HELMET",
+      "registry": "minecraft:iron_helmet",
+      "srg": "field_151028_Y",
+      "obfuscated": "ade/Y"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_chestplate",
+      "new": "IRON_CHESTPLATE",
+      "registry": "minecraft:iron_chestplate",
+      "srg": "field_151030_Z",
+      "obfuscated": "ade/Z"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_leggings",
+      "new": "IRON_LEGGINGS",
+      "registry": "minecraft:iron_leggings",
+      "srg": "field_151165_aa",
+      "obfuscated": "ade/aa"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_boots",
+      "new": "IRON_BOOTS",
+      "registry": "minecraft:iron_boots",
+      "srg": "field_151167_ab",
+      "obfuscated": "ade/ab"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_helmet",
+      "new": "DIAMOND_HELMET",
+      "registry": "minecraft:diamond_helmet",
+      "srg": "field_151161_ac",
+      "obfuscated": "ade/ac"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_chestplate",
+      "new": "DIAMOND_CHESTPLATE",
+      "registry": "minecraft:diamond_chestplate",
+      "srg": "field_151163_ad",
+      "obfuscated": "ade/ad"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_leggings",
+      "new": "DIAMOND_LEGGINGS",
+      "registry": "minecraft:diamond_leggings",
+      "srg": "field_151173_ae",
+      "obfuscated": "ade/ae"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_boots",
+      "new": "DIAMOND_BOOTS",
+      "registry": "minecraft:diamond_boots",
+      "srg": "field_151175_af",
+      "obfuscated": "ade/af"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_helmet",
+      "new": "GOLDEN_HELMET",
+      "registry": "minecraft:golden_helmet",
+      "srg": "field_151169_ag",
+      "obfuscated": "ade/ag"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_chestplate",
+      "new": "GOLDEN_CHESTPLATE",
+      "registry": "minecraft:golden_chestplate",
+      "srg": "field_151171_ah",
+      "obfuscated": "ade/ah"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_leggings",
+      "new": "GOLDEN_LEGGINGS",
+      "registry": "minecraft:golden_leggings",
+      "srg": "field_151149_ai",
+      "obfuscated": "ade/ai"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_boots",
+      "new": "GOLDEN_BOOTS",
+      "registry": "minecraft:golden_boots",
+      "srg": "field_151151_aj",
+      "obfuscated": "ade/aj"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "flint",
+      "new": "FLINT",
+      "registry": "minecraft:flint",
+      "srg": "field_151145_ak",
+      "obfuscated": "ade/ak"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "porkchop",
+      "new": "PORKCHOP",
+      "registry": "minecraft:porkchop",
+      "srg": "field_151147_al",
+      "obfuscated": "ade/al"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "cooked_porkchop",
+      "new": "COOKED_PORKCHOP",
+      "registry": "minecraft:cooked_porkchop",
+      "srg": "field_151157_am",
+      "obfuscated": "ade/am"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "painting",
+      "new": "PAINTING",
+      "registry": "minecraft:painting",
+      "srg": "field_151159_an",
+      "obfuscated": "ade/an"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_apple",
+      "new": "GOLDEN_APPLE",
+      "registry": "minecraft:golden_apple",
+      "srg": "field_151153_ao",
+      "obfuscated": "ade/ao"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "sign",
+      "new": "SIGN",
+      "registry": "minecraft:sign",
+      "srg": "field_151155_ap",
+      "obfuscated": "ade/ap"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "bucket",
+      "new": "BUCKET",
+      "registry": "minecraft:bucket",
+      "srg": "field_151133_ar",
+      "obfuscated": "ade/ar"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "water_bucket",
+      "new": "WATER_BUCKET",
+      "registry": "minecraft:water_bucket",
+      "srg": "field_151131_as",
+      "obfuscated": "ade/as"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "lava_bucket",
+      "new": "LAVA_BUCKET",
+      "registry": "minecraft:lava_bucket",
+      "srg": "field_151129_at",
+      "obfuscated": "ade/at"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "minecart",
+      "new": "MINECART",
+      "registry": "minecraft:minecart",
+      "srg": "field_151143_au",
+      "obfuscated": "ade/au"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "saddle",
+      "new": "SADDLE",
+      "registry": "minecraft:saddle",
+      "srg": "field_151141_av",
+      "obfuscated": "ade/av"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_door",
+      "new": "IRON_DOOR",
+      "registry": "minecraft:iron_door",
+      "srg": "field_151139_aw",
+      "obfuscated": "ade/aw"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "redstone",
+      "new": "REDSTONE",
+      "registry": "minecraft:redstone",
+      "srg": "field_151137_ax",
+      "obfuscated": "ade/ax"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "snowball",
+      "new": "SNOWBALL",
+      "registry": "minecraft:snowball",
+      "srg": "field_151126_ay",
+      "obfuscated": "ade/ay"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "boat",
+      "new": "BOAT",
+      "registry": "minecraft:boat",
+      "srg": "field_151124_az",
+      "obfuscated": "ade/az"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "leather",
+      "new": "LEATHER",
+      "registry": "minecraft:leather",
+      "srg": "field_151116_aA",
+      "obfuscated": "ade/aA"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "milk_bucket",
+      "new": "MILK_BUCKET",
+      "registry": "minecraft:milk_bucket",
+      "srg": "field_151117_aB",
+      "obfuscated": "ade/aB"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "brick",
+      "new": "BRICK",
+      "registry": "minecraft:brick",
+      "srg": "field_151118_aC",
+      "obfuscated": "ade/aC"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "clay_ball",
+      "new": "CLAY_BALL",
+      "registry": "minecraft:clay_ball",
+      "srg": "field_151119_aD",
+      "obfuscated": "ade/aD"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "reeds",
+      "new": "REEDS",
+      "registry": "minecraft:reeds",
+      "srg": "field_151120_aE",
+      "obfuscated": "ade/aE"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "paper",
+      "new": "PAPER",
+      "registry": "minecraft:paper",
+      "srg": "field_151121_aF",
+      "obfuscated": "ade/aF"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "book",
+      "new": "BOOK",
+      "registry": "minecraft:book",
+      "srg": "field_151122_aG",
+      "obfuscated": "ade/aG"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "slime_ball",
+      "new": "SLIME_BALL",
+      "registry": "minecraft:slime_ball",
+      "srg": "field_151123_aH",
+      "obfuscated": "ade/aH"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "chest_minecart",
+      "new": "CHEST_MINECART",
+      "registry": "minecraft:chest_minecart",
+      "srg": "field_151108_aI",
+      "obfuscated": "ade/aI"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "furnace_minecart",
+      "new": "FURNACE_MINECART",
+      "registry": "minecraft:furnace_minecart",
+      "srg": "field_151109_aJ",
+      "obfuscated": "ade/aJ"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "egg",
+      "new": "EGG",
+      "registry": "minecraft:egg",
+      "srg": "field_151110_aK",
+      "obfuscated": "ade/aK"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "compass",
+      "new": "COMPASS",
+      "registry": "minecraft:compass",
+      "srg": "field_151111_aL",
+      "obfuscated": "ade/aL"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "fishing_rod",
+      "new": "FISHING_ROD",
+      "registry": "minecraft:fishing_rod",
+      "srg": "field_151112_aM",
+      "obfuscated": "ade/aM"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "clock",
+      "new": "CLOCK",
+      "registry": "minecraft:clock",
+      "srg": "field_151113_aN",
+      "obfuscated": "ade/aN"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "glowstone_dust",
+      "new": "GLOWSTONE_DUST",
+      "registry": "minecraft:glowstone_dust",
+      "srg": "field_151114_aO",
+      "obfuscated": "ade/aO"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "fish",
+      "new": "FISH",
+      "registry": "minecraft:fish",
+      "srg": "field_151115_aP",
+      "obfuscated": "ade/aP"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "dye",
+      "new": "DYE",
+      "registry": "minecraft:dye",
+      "srg": "field_151100_aR",
+      "obfuscated": "ade/aR"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "bone",
+      "new": "BONE",
+      "registry": "minecraft:bone",
+      "srg": "field_151103_aS",
+      "obfuscated": "ade/aS"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "sugar",
+      "new": "SUGAR",
+      "registry": "minecraft:sugar",
+      "srg": "field_151102_aT",
+      "obfuscated": "ade/aT"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "cake",
+      "new": "CAKE",
+      "registry": "minecraft:cake",
+      "srg": "field_151105_aU",
+      "obfuscated": "ade/aU"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "bed",
+      "new": "BED",
+      "registry": "minecraft:bed",
+      "srg": "field_151104_aV",
+      "obfuscated": "ade/aV"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "repeater",
+      "new": "REPEATER",
+      "registry": "minecraft:repeater",
+      "srg": "field_151107_aW",
+      "obfuscated": "ade/aW"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "cookie",
+      "new": "COOKIE",
+      "registry": "minecraft:cookie",
+      "srg": "field_151106_aX",
+      "obfuscated": "ade/aX"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "filled_map",
+      "new": "FILLED_MAP",
+      "registry": "minecraft:filled_map",
+      "srg": "field_151098_aY",
+      "obfuscated": "ade/aY"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "shears",
+      "new": "SHEARS",
+      "registry": "minecraft:shears",
+      "srg": "field_151097_aZ",
+      "obfuscated": "ade/aZ"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "melon",
+      "new": "MELON",
+      "registry": "minecraft:melon",
+      "srg": "field_151127_ba",
+      "obfuscated": "ade/ba"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "pumpkin_seeds",
+      "new": "PUMPKIN_SEEDS",
+      "registry": "minecraft:pumpkin_seeds",
+      "srg": "field_151080_bb",
+      "obfuscated": "ade/bb"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "melon_seeds",
+      "new": "MELON_SEEDS",
+      "registry": "minecraft:melon_seeds",
+      "srg": "field_151081_bc",
+      "obfuscated": "ade/bc"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "beef",
+      "new": "BEEF",
+      "registry": "minecraft:beef",
+      "srg": "field_151082_bd",
+      "obfuscated": "ade/bd"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "cooked_beef",
+      "new": "COOKED_BEEF",
+      "registry": "minecraft:cooked_beef",
+      "srg": "field_151083_be",
+      "obfuscated": "ade/be"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "chicken",
+      "new": "CHICKEN",
+      "registry": "minecraft:chicken",
+      "srg": "field_151076_bf",
+      "obfuscated": "ade/bf"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "cooked_chicken",
+      "new": "COOKED_CHICKEN",
+      "registry": "minecraft:cooked_chicken",
+      "srg": "field_151077_bg",
+      "obfuscated": "ade/bg"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "rotten_flesh",
+      "new": "ROTTEN_FLESH",
+      "registry": "minecraft:rotten_flesh",
+      "srg": "field_151078_bh",
+      "obfuscated": "ade/bh"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "ender_pearl",
+      "new": "ENDER_PEARL",
+      "registry": "minecraft:ender_pearl",
+      "srg": "field_151079_bi",
+      "obfuscated": "ade/bi"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "blaze_rod",
+      "new": "BLAZE_ROD",
+      "registry": "minecraft:blaze_rod",
+      "srg": "field_151072_bj",
+      "obfuscated": "ade/bj"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "ghast_tear",
+      "new": "GHAST_TEAR",
+      "registry": "minecraft:ghast_tear",
+      "srg": "field_151073_bk",
+      "obfuscated": "ade/bk"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "gold_nugget",
+      "new": "GOLD_NUGGET",
+      "registry": "minecraft:gold_nugget",
+      "srg": "field_151074_bl",
+      "obfuscated": "ade/bl"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "nether_wart",
+      "new": "NETHER_WART",
+      "registry": "minecraft:nether_wart",
+      "srg": "field_151075_bm",
+      "obfuscated": "ade/bm"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "potion",
+      "new": "POTIONITEM",
+      "registry": "minecraft:potion",
+      "srg": "field_151068_bn",
+      "obfuscated": "ade/bn"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "glass_bottle",
+      "new": "GLASS_BOTTLE",
+      "registry": "minecraft:glass_bottle",
+      "srg": "field_151069_bo",
+      "obfuscated": "ade/bo"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "spider_eye",
+      "new": "SPIDER_EYE",
+      "registry": "minecraft:spider_eye",
+      "srg": "field_151070_bp",
+      "obfuscated": "ade/bp"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "fermented_spider_eye",
+      "new": "FERMENTED_SPIDER_EYE",
+      "registry": "minecraft:fermented_spider_eye",
+      "srg": "field_151071_bq",
+      "obfuscated": "ade/bq"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "blaze_powder",
+      "new": "BLAZE_POWDER",
+      "registry": "minecraft:blaze_powder",
+      "srg": "field_151065_br",
+      "obfuscated": "ade/br"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "magma_cream",
+      "new": "MAGMA_CREAM",
+      "registry": "minecraft:magma_cream",
+      "srg": "field_151064_bs",
+      "obfuscated": "ade/bs"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "brewing_stand",
+      "new": "BREWING_STAND",
+      "registry": "minecraft:brewing_stand",
+      "srg": "field_151067_bt",
+      "obfuscated": "ade/bt"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "cauldron",
+      "new": "CAULDRON",
+      "registry": "minecraft:cauldron",
+      "srg": "field_151066_bu",
+      "obfuscated": "ade/bu"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "ender_eye",
+      "new": "ENDER_EYE",
+      "registry": "minecraft:ender_eye",
+      "srg": "field_151061_bv",
+      "obfuscated": "ade/bv"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "speckled_melon",
+      "new": "SPECKLED_MELON",
+      "registry": "minecraft:speckled_melon",
+      "srg": "field_151060_bw",
+      "obfuscated": "ade/bw"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "spawn_egg",
+      "new": "SPAWN_EGG",
+      "registry": "minecraft:spawn_egg",
+      "srg": "field_151063_bx",
+      "obfuscated": "ade/bx"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "experience_bottle",
+      "new": "EXPERIENCE_BOTTLE",
+      "registry": "minecraft:experience_bottle",
+      "srg": "field_151062_by",
+      "obfuscated": "ade/by"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "fire_charge",
+      "new": "FIRE_CHARGE",
+      "registry": "minecraft:fire_charge",
+      "srg": "field_151059_bz",
+      "obfuscated": "ade/bz"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "writable_book",
+      "new": "WRITABLE_BOOK",
+      "registry": "minecraft:writable_book",
+      "srg": "field_151099_bA",
+      "obfuscated": "ade/bA"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "written_book",
+      "new": "WRITTEN_BOOK",
+      "registry": "minecraft:written_book",
+      "srg": "field_151164_bB",
+      "obfuscated": "ade/bB"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "emerald",
+      "new": "EMERALD",
+      "registry": "minecraft:emerald",
+      "srg": "field_151166_bC",
+      "obfuscated": "ade/bC"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "item_frame",
+      "new": "ITEM_FRAME",
+      "registry": "minecraft:item_frame",
+      "srg": "field_151160_bD",
+      "obfuscated": "ade/bD"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "flower_pot",
+      "new": "FLOWER_POT",
+      "registry": "minecraft:flower_pot",
+      "srg": "field_151162_bE",
+      "obfuscated": "ade/bE"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "carrot",
+      "new": "CARROT",
+      "registry": "minecraft:carrot",
+      "srg": "field_151172_bF",
+      "obfuscated": "ade/bF"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "potato",
+      "new": "POTATO",
+      "registry": "minecraft:potato",
+      "srg": "field_151174_bG",
+      "obfuscated": "ade/bG"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "baked_potato",
+      "new": "BAKED_POTATO",
+      "registry": "minecraft:baked_potato",
+      "srg": "field_151168_bH",
+      "obfuscated": "ade/bH"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "poisonous_potato",
+      "new": "POISONOUS_POTATO",
+      "registry": "minecraft:poisonous_potato",
+      "srg": "field_151170_bI",
+      "obfuscated": "ade/bI"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "map",
+      "new": "MAP",
+      "registry": "minecraft:map",
+      "srg": "field_151148_bJ",
+      "obfuscated": "ade/bJ"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_carrot",
+      "new": "GOLDEN_CARROT",
+      "registry": "minecraft:golden_carrot",
+      "srg": "field_151150_bK",
+      "obfuscated": "ade/bK"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "skull",
+      "new": "SKULL",
+      "registry": "minecraft:skull",
+      "srg": "field_151144_bL",
+      "obfuscated": "ade/bL"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "carrot_on_a_stick",
+      "new": "CARROT_ON_A_STICK",
+      "registry": "minecraft:carrot_on_a_stick",
+      "srg": "field_151146_bM",
+      "obfuscated": "ade/bM"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "nether_star",
+      "new": "NETHER_STAR",
+      "registry": "minecraft:nether_star",
+      "srg": "field_151156_bN",
+      "obfuscated": "ade/bN"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "pumpkin_pie",
+      "new": "PUMPKIN_PIE",
+      "registry": "minecraft:pumpkin_pie",
+      "srg": "field_151158_bO",
+      "obfuscated": "ade/bO"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "fireworks",
+      "new": "FIREWORKS",
+      "registry": "minecraft:fireworks",
+      "srg": "field_151152_bP",
+      "obfuscated": "ade/bP"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "firework_charge",
+      "new": "FIREWORK_CHARGE",
+      "registry": "minecraft:firework_charge",
+      "srg": "field_151154_bQ",
+      "obfuscated": "ade/bQ"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "enchanted_book",
+      "new": "ENCHANTED_BOOK",
+      "registry": "minecraft:enchanted_book",
+      "srg": "field_151134_bR",
+      "obfuscated": "ade/bR"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "comparator",
+      "new": "COMPARATOR",
+      "registry": "minecraft:comparator",
+      "srg": "field_151132_bS",
+      "obfuscated": "ade/bS"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "netherbrick",
+      "new": "NETHERBRICK",
+      "registry": "minecraft:netherbrick",
+      "srg": "field_151130_bT",
+      "obfuscated": "ade/bT"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "quartz",
+      "new": "QUARTZ",
+      "registry": "minecraft:quartz",
+      "srg": "field_151128_bU",
+      "obfuscated": "ade/bU"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "tnt_minecart",
+      "new": "TNT_MINECART",
+      "registry": "minecraft:tnt_minecart",
+      "srg": "field_151142_bV",
+      "obfuscated": "ade/bV"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "hopper_minecart",
+      "new": "HOPPER_MINECART",
+      "registry": "minecraft:hopper_minecart",
+      "srg": "field_151140_bW",
+      "obfuscated": "ade/bW"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "iron_horse_armor",
+      "new": "IRON_HORSE_ARMOR",
+      "registry": "minecraft:iron_horse_armor",
+      "srg": "field_151138_bX",
+      "obfuscated": "ade/bX"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "golden_horse_armor",
+      "new": "GOLDEN_HORSE_ARMOR",
+      "registry": "minecraft:golden_horse_armor",
+      "srg": "field_151136_bY",
+      "obfuscated": "ade/bY"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "diamond_horse_armor",
+      "new": "DIAMOND_HORSE_ARMOR",
+      "registry": "minecraft:diamond_horse_armor",
+      "srg": "field_151125_bZ",
+      "obfuscated": "ade/bZ"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "lead",
+      "new": "LEAD",
+      "registry": "minecraft:lead",
+      "srg": "field_151058_ca",
+      "obfuscated": "ade/ca"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "name_tag",
+      "new": "NAME_TAG",
+      "registry": "minecraft:name_tag",
+      "srg": "field_151057_cb",
+      "obfuscated": "ade/cb"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "command_block_minecart",
+      "new": "COMMAND_BLOCK_MINECART",
+      "registry": "minecraft:command_block_minecart",
+      "srg": "field_151095_cc",
+      "obfuscated": "ade/cc"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_13",
+      "new": "RECORD_13",
+      "registry": "minecraft:record_13",
+      "srg": "field_151096_cd",
+      "obfuscated": "ade/cd"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_cat",
+      "new": "RECORD_CAT",
+      "registry": "minecraft:record_cat",
+      "srg": "field_151093_ce",
+      "obfuscated": "ade/ce"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_blocks",
+      "new": "RECORD_BLOCKS",
+      "registry": "minecraft:record_blocks",
+      "srg": "field_151094_cf",
+      "obfuscated": "ade/cf"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_chirp",
+      "new": "RECORD_CHIRP",
+      "registry": "minecraft:record_chirp",
+      "srg": "field_151091_cg",
+      "obfuscated": "ade/cg"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_far",
+      "new": "RECORD_FAR",
+      "registry": "minecraft:record_far",
+      "srg": "field_151092_ch",
+      "obfuscated": "ade/ch"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_mall",
+      "new": "RECORD_MALL",
+      "registry": "minecraft:record_mall",
+      "srg": "field_151089_ci",
+      "obfuscated": "ade/ci"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_mellohi",
+      "new": "RECORD_MELLOHI",
+      "registry": "minecraft:record_mellohi",
+      "srg": "field_151090_cj",
+      "obfuscated": "ade/cj"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_stal",
+      "new": "RECORD_STAL",
+      "registry": "minecraft:record_stal",
+      "srg": "field_151087_ck",
+      "obfuscated": "ade/ck"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_strad",
+      "new": "RECORD_STRAD",
+      "registry": "minecraft:record_strad",
+      "srg": "field_151088_cl",
+      "obfuscated": "ade/cl"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_ward",
+      "new": "RECORD_WARD",
+      "registry": "minecraft:record_ward",
+      "srg": "field_151085_cm",
+      "obfuscated": "ade/cm"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_11",
+      "new": "RECORD_11",
+      "registry": "minecraft:record_11",
+      "srg": "field_151086_cn",
+      "obfuscated": "ade/cn"
+    },
+    {
+      "owner": "net.minecraft.init.Items",
+      "old": "record_wait",
+      "new": "RECORD_WAIT",
+      "registry": "minecraft:record_wait",
+      "srg": "field_151084_co",
+      "obfuscated": "ade/co"
+    }
+  ],
+  "excluded": [
+    [
+      "Blocks",
+      "piston_extension",
+      "field_150326_M",
+      "unmapped"
+    ],
+    [
+      "Blocks",
+      "wooden_door",
+      "field_150466_ao",
+      "unmapped"
+    ],
+    [
+      "Blocks",
+      "fence",
+      "field_150422_aJ",
+      "unmapped"
+    ],
+    [
+      "Blocks",
+      "fence_gate",
+      "field_150396_be",
+      "unmapped"
+    ],
+    [
+      "Items",
+      "wooden_door",
+      "field_151135_aq",
+      "unmapped"
+    ],
+    [
+      "Items",
+      "cooked_fished",
+      "field_151101_aQ",
+      "unmapped"
+    ]
+  ]
+}

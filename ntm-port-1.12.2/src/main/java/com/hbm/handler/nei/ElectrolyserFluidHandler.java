@@ -13,15 +13,12 @@ public class ElectrolyserFluidHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmElectrolysisFluid";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(57, 15, 12, 40), "ntmElectrolysisFluid"));
-		guiGui.add(GUIElectrolyserFluid.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIElectrolyserFluid.class, (57) + 5, (15) + 11, 12, 40, "ntmElectrolysisFluid");
 	}
 }

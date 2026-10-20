@@ -69,16 +69,16 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machinePUREX";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		if(maxPower <= 0) this.maxPower = 1_000_000;
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			GenericRecipe recipe = PUREXRecipes.INSTANCE.recipeNameMap.get(purexModule.recipe);
 			if(recipe != null) {
@@ -90,9 +90,9 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 			upgradeManager.checkSlots(slots, 2, 3);
 			
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos);
-				for(FluidTank tank : inputTanks) if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), worldObj, pos);
-				for(FluidTank tank : outputTanks) if(tank.getFill() > 0) this.tryProvide(tank, worldObj, pos);
+				this.trySubscribe(this.world, pos);
+				for(FluidTank tank : inputTanks) if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), this.world, pos);
+				for(FluidTank tank : outputTanks) if(tank.getFill() > 0) this.tryProvide(tank, this.world, pos);
 			}
 
 			double speed = 1D;
@@ -116,34 +116,34 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 			this.prevAnim = this.anim;
 			if(this.didProcess) this.anim++;
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
-				frame = !worldObj.getBlock(xCoord, yCoord + 5, zCoord).isAir(worldObj, xCoord, yCoord + 5, zCoord);
+			if(this.world.getTotalWorldTime() % 20 == 0) {
+				frame = !com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 5, this.pos.getZ()).getBlock().isAir(this.world, this.pos.getX(), this.pos.getY() + 5, this.pos.getZ());
 			}
 		}
 	}
 	
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 3, yCoord, zCoord - 2, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord + 0, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord + 2, Library.POS_X),
-				new DirPos(xCoord - 3, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord - 2, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 0, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 2, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 2, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord - 2, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord + 2, yCoord, zCoord - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() - 2, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 0, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 2, Library.POS_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 0, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 2, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
 		};
 	}
 
@@ -184,7 +184,7 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		for(int i = 0; i < 3; i++) {
@@ -195,6 +195,7 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 		nbt.setLong("power", power);
 		nbt.setLong("maxPower", maxPower);
 		this.purexModule.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
@@ -207,12 +208,14 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return (i >= 7 && i <= 12) || this.purexModule.isSlotClogged(i);
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {4, 5, 6, 7, 8, 9, 10, 11, 12};
 	}
 
@@ -227,7 +230,7 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 	@Override public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return new ContainerMachinePUREX(player.inventory, this); }
 	@Override @SideOnly(Side.CLIENT) public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) { return new GUIMachinePUREX(player.inventory, this); }
 
-	@Override public boolean hasPermission(EntityPlayer player) { return this.isUseableByPlayer(player); }
+	@Override public boolean hasPermission(EntityPlayer player) { return this.isUsableByPlayer(player); }
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
@@ -245,7 +248,7 @@ public class TileEntityMachinePUREX extends TileEntityMachineBase implements IEn
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord, zCoord - 2, xCoord + 3, yCoord + 5, zCoord + 3);
+		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 5, this.pos.getZ() + 3);
 		return bb;
 	}
 	

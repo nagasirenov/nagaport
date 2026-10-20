@@ -21,7 +21,7 @@ public class AshpitHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmAshpit";
 	}
 
@@ -31,8 +31,8 @@ public class AshpitHandler extends NEIUniversalHandler {
 
 		ItemStack[] ovens = new ItemStack[] {new ItemStack(ModBlocks.heater_firebox), new ItemStack(ModBlocks.heater_oven)};
 		ItemStack[] chimneys = new ItemStack[] {new ItemStack(ModBlocks.chimney_brick), new ItemStack(ModBlocks.chimney_industrial)};
-		ItemStack[] coals = new ItemStack[] {new ItemStack(Items.coal, 1, 0), new ItemStack(ModItems.lignite), new ItemStack(ModItems.coke)};
-		ItemStack[] wood = new ItemStack[] {new ItemStack(Blocks.log), new ItemStack(Blocks.log2), new ItemStack(Blocks.planks), new ItemStack(Blocks.sapling)};
+		ItemStack[] coals = new ItemStack[] {new ItemStack(Items.COAL, 1, 0), new ItemStack(ModItems.lignite), new ItemStack(ModItems.coke)};
+		ItemStack[] wood = new ItemStack[] {new ItemStack(Blocks.LOG), new ItemStack(Blocks.LOG2), new ItemStack(Blocks.PLANKS), new ItemStack(Blocks.SAPLING)};
 		ItemStack[] misc = new ItemStack[] {new ItemStack(ModItems.solid_fuel), new ItemStack(ModItems.scrap), new ItemStack(ModItems.dust), new ItemStack(ModItems.rocket_fuel)};
 		FluidType[] smokes = new FluidType[] {Fluids.SMOKE, Fluids.SMOKE_LEADED, Fluids.SMOKE_POISON};;
 

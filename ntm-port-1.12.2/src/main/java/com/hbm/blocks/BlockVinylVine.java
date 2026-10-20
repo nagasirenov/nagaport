@@ -28,7 +28,7 @@ public class BlockVinylVine extends BlockVine {
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		Block blockBelow = world.getBlock(x, y - 1, z);
+		Block blockBelow = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return !blockBelow.isOpaqueCube() || blockBelow instanceof BlockRubberLeaves || super.canBlockStay(world, x, y, z);
 	}
 

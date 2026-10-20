@@ -1,0 +1,108 @@
+{
+  "baseline": "021eb39146f5d461c751909d8dfdc041cc56b4f2",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "dd5f915fdad903a50584c25762371abf679f2ea591f30b63e3fb6f3ea3709855",
+      "after_sha256": "02583e607790e808e24478aedc674b6b00fd0845a01c8a00bdee4d9c668c4af6",
+      "edits": [
+        {
+          "before_offset": 158569,
+          "after_offset": 158569,
+          "old": "\t\tdet_cord = new DetCord(Material.iron).setBlockName(\"det_cord\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + \":det_cord\");\r\n",
+          "new": "\t\tdet_cord = new DetCord(Material.IRON).setBlockName(\"det_cord\").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F);\r\n"
+        },
+        {
+          "before_offset": 331598,
+          "after_offset": 331546,
+          "old": "\t\tGameRegistry.registerBlock(det_cord, det_cord.getUnlocalizedName());\r\n",
+          "new": "\t\tregister(det_cord);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DetCord.java": {
+      "before_sha256": "0768a2a8cc2bfc777ac4105974e04166a5b12052c2615ddf7c7eeba8396df7c2",
+      "after_sha256": "0a9b670d504ca56e908178fd6d7bf4cb69fb19c7db3158721be4e15b03952a43",
+      "edits": [
+        {
+          "before_offset": 122,
+          "after_offset": 122,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\nimport com.hbm.blocks.network.ConnectionState;\nimport com.hbm.lib.ForgeDirection;\n"
+        },
+        {
+          "before_offset": 496,
+          "after_offset": 1108,
+          "old": "\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n",
+          "new": "\t@Override protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[0], new IUnlistedProperty<?>[] {ConnectionState.CONNECTIONS});\n    }\n    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        int mask = 0;\n        EnumFacing[] sides = {EnumFacing.EAST, EnumFacing.WEST, EnumFacing.UP, EnumFacing.DOWN, EnumFacing.SOUTH, EnumFacing.NORTH};\n        for(int i = 0; i < sides.length; i++) {\n            BlockPos next = pos.offset(sides[i]);\n            if(IDetConnectible.isConnectible(world, next.getX(), next.getY(), next.getZ(), ForgeDirection.getOrientation(sides[i].getOpposite().getIndex()))) mask |= 32 >> i;\n        }\n        return ((IExtendedBlockState)state).withProperty(ConnectionState.CONNECTIONS, mask);\n    }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }\n"
+        },
+        {
+          "before_offset": 584,
+          "after_offset": 2481,
+          "old": "\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\t\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\t\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\tpublic void neighborChanged(IBlockState state, World world, BlockPos pos, Block changed, BlockPos fromPos) {\n\t\tint x = pos.getX(), y = pos.getY(), z = pos.getZ();\n\t\tif(world.isBlockPowered(new BlockPos(x, y, z))) {\n"
+        },
+        {
+          "before_offset": 1052,
+          "after_offset": 2819,
+          "old": "\t\t\tworld.setBlock(x, y, z, Blocks.air);\n",
+          "new": "\t\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1282,
+          "after_offset": 3056,
+          "old": "\t\texplode(world, MathHelper.floor_double(x), MathHelper.floor_double(y), MathHelper.floor_double(z));\n",
+          "new": "\t\texplode(world, MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/IDetConnectible.java": {
+      "before_sha256": "c00e94b295895297abe3c4559ca01bb13a7a30d16a646ec15f32b5971794a1a3",
+      "after_sha256": "ad47b2d27ab7fe098c7ed11036a5dc534e17c4d275291ce05b8183607848c1b0",
+      "edits": [
+        {
+          "before_offset": 404,
+          "after_offset": 404,
+          "old": "\t\tBlock b = world.getBlock(x, y, z);\n",
+          "new": "\t\tBlock b = world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "97a8bbc71b008cf9eeaa4f096086e0fe0932f8453493dec3d4d49fe2dafea6c8",
+      "after_sha256": "7c41fe29cfe3f876b183541d742dd1d8932ee8180b9fefba39c1eeb07d558d43",
+      "edits": [
+        {
+          "before_offset": 80297,
+          "after_offset": 80297,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderDetCord());\n",
+          "new": "\t\t// DetCordModelHandler owns the native detonator cord model.\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderDetCord.java": {
+      "before_sha256": "99ea64a83119dfaa3aaaf942367a6fecc82ddf294a0e8f240269b64725a09499",
+      "after_sha256": "77086c703f6d3947ccc85b12e01dbef74da7baabe87598e06e9a555fe132f09a",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.blocks.network.ConnectionState;\nimport com.hbm.render.block.nativeblock.ConnectionQuadFactory;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 384,
+          "old": "import com.hbm.blocks.bomb.DetCord;\nimport com.hbm.blocks.bomb.IDetConnectible;\nimport com.hbm.lib.Library;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderDetCord implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\tGL11.glRotated(180, 0, 1, 0);\n\t\tGL11.glScaled(1.25D, 1.25D, 1.25D);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CZ\", iicon, tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, 0);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tboolean pX = IDetConnectible.isConnectible(world, x + 1, y, z, Library.NEG_X);\n\t\tboolean nX = IDetConnectible.isConnectible(world, x - 1, y, z, Library.POS_X);\n\t\tboolean pY = IDetConnectible.isConnectible(world, x, y + 1, z, Library.NEG_Y);\n\t\tboolean nY = IDetConnectible.isConnectible(world, x, y - 1, z, Library.POS_Y);\n\t\tboolean pZ = IDetConnectible.isConnectible(world, x, y, z + 1, Library.NEG_Z);\n\t\tboolean nZ = IDetConnectible.isConnectible(world, x, y, z - 1, Library.POS_Z);\n\t\t\n\t\tint mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\n\t\tif(mask == 0b110000 || mask == 0b100000 || mask == 0b010000)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CX\", iicon, tessellator, 0, true);\n\t\telse if(mask == 0b001100 || mask == 0b001000 || mask == 0b000100)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CY\", iicon, tessellator, 0, true);\n\t\telse if(mask == 0b000011 || mask == 0b000010 || mask == 0b000001)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"CZ\", iicon, tessellator, 0, true);\n\t\t\n\t\telse {\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"Core\", iicon, tessellator, 0, true);\n\t\t\tif(pX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posX\", iicon, tessellator, 0, true);\n\t\t\tif(nX) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negX\", iicon, tessellator, 0, true);\n\t\t\tif(pY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posY\", iicon, tessellator, 0, true);\n\t\t\tif(nY) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negY\", iicon, tessellator, 0, true);\n\t\t\tif(nZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"posZ\", iicon, tessellator, 0, true);\n\t\t\tif(pZ) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.cable_neo, \"negZ\", iicon, tessellator, 0, true);\n\t\t}\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn DetCord.renderID;\n\t}\n",
+          "new": "/** Native successor of the original detonator cord renderer, using its original OBJ groups. */\npublic final class RenderDetCord {\n    private RenderDetCord() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int connections, boolean inventory, TextureAtlasSprite sprite) {\n        if(connections < 0 || connections > 63) throw new IllegalArgumentException(\"Invalid connection mask \" + connections);\n        List<String> groups = new ArrayList<>();\n        if(inventory) groups.add(\"CZ\");\n        else if(connections == (ConnectionState.POS_X | ConnectionState.NEG_X) || connections == ConnectionState.POS_X || connections == ConnectionState.NEG_X) groups.add(\"CX\");\n        else if(connections == (ConnectionState.POS_Y | ConnectionState.NEG_Y) || connections == ConnectionState.POS_Y || connections == ConnectionState.NEG_Y) groups.add(\"CY\");\n        else if(connections == (ConnectionState.POS_Z | ConnectionState.NEG_Z) || connections == ConnectionState.POS_Z || connections == ConnectionState.NEG_Z) groups.add(\"CZ\");\n        else {\n            groups.add(\"Core\");\n            int[] bits = {32, 16, 8, 4, 1, 2};\n            String[] arms = {\"posX\", \"negX\", \"posY\", \"negY\", \"posZ\", \"negZ\"};\n            // The original mesh reverses the world Z-arm names.\n            for(int i = 0; i < bits.length; i++) if((connections & bits[i]) != 0) groups.add(arms[i]);\n        }\n        List<BakedQuad> result = new ArrayList<>();\n        for(String name : groups) {\n            ObjMesh.Part selected = null;\n            for(ObjMesh.Part part : mesh.parts) if(name.equals(part.name)) selected = part;\n            if(selected == null) throw new IllegalArgumentException(\"Missing cable OBJ part \" + name);\n            for(ObjMesh.Face face : selected.faces) {\n                float nx = face.normal.x, ny = face.normal.y, nz = face.normal.z;\n                float shade = inventory ? 1 : Math.max(.45F, ny * .3F + .7F - Math.abs(nx) * .1F + Math.abs(nz) * .1F);\n                double[] vertices = new double[20];\n                for(int v = 0; v < 4; v++) {\n                    ObjMesh.Corner corner = face.corners.get(Math.min(v, face.corners.size() - 1));\n                    if(corner.uv == null) throw new IllegalArgumentException(\"Cable OBJ requires UVs\");\n                    vertices[v * 5] = .5D + corner.position.x * (inventory ? -1.25D : 1D);\n                    vertices[v * 5 + 1] = .5D + corner.position.y * (inventory ? 1.25D : 1D);\n                    vertices[v * 5 + 2] = .5D + corner.position.z * (inventory ? -1.25D : 1D);\n                    vertices[v * 5 + 3] = corner.uv.x * 16D;\n                    vertices[v * 5 + 4] = corner.uv.y * 16D;\n                }\n                result.add(ConnectionQuadFactory.quad(sprite, inventory, shade, inventory ? -nx : nx, ny, inventory ? -nz : nz, vertices));\n            }\n        }\n        return Collections.unmodifiableList(result);\n    }\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/main/DetCordModelHandler.java": "77ffca71378ba2ac81258d8bfefc6ec4d04daac935e9595ff76ee1d0a70bfe49",
+    "src/main/java/com/hbm/render/block/nativeblock/DetCordBakedModel.java": "6627cd6f34ab80c38ee9d12583cb255aeb9092d9ca77b57954136ab0b036499d",
+    "src/main/resources/assets/hbm/blockstates/tile.det_cord.json": "46cd7a48f5e1fb63725a945fdeeabb1b35a65fba1fbda92cdfd7985c9b6b7610"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

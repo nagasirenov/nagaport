@@ -21,6 +21,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGUIProvider, IInfoProviderEC {
+    @Override
+    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+        // Legacy metadata-only orientation changes retained inventory and all tile state.
+        return oldState.getBlock() != newState.getBlock();
+    }
+
 	
 	public short progress;
 	private short processSpeed = 0;
@@ -55,9 +62,9 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(worldObj.isRemote)
+		if(this.world.isRemote)
 			return;
 
 		boolean hasProgress = progress > 0;
@@ -73,7 +80,7 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 		}
 		
 		if(hasProgress != progress > 0) {
-			MachineDiFurnaceRTG.updateBlockState(isProcessing() || (canProcess() && hasPower()), getWorldObj(), xCoord, yCoord, zCoord);
+			MachineDiFurnaceRTG.updateBlockState(isProcessing() || (canProcess() && hasPower()), getWorld(), this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 
 		networkPackNT(10);
@@ -130,11 +137,12 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setShort("progress", progress);
 		nbt.setShort("speed", processSpeed);
 		nbt.setByteArray("modes", new byte[] {(byte) sideUpper, (byte) sideLower});
+		return nbt;
 	}
 
 	public int getDiFurnaceProgressScaled(int i) {
@@ -143,9 +151,10 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack stack) {
+		stack = stack == null || stack.isEmpty() ? null : stack;
 		slots[i] = stack;
-		if(stack != null && stack.stackSize > getInventoryStackLimit()) {
-			stack.stackSize = getInventoryStackLimit();
+		if(stack != null && stack.getCount() > getInventoryStackLimit()) {
+			stack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -169,12 +178,12 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.name : "container.diFurnaceRTG";
+	public String getName() {
+		return this.hasCustomName() ? this.name : "container.diFurnaceRTG";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.name != null && this.name.length() > 0;
 	}
 
@@ -184,7 +193,8 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(i == 0 && this.sideUpper != j) return false;
 		if(i == 1 && this.sideLower != j) return false;
 		
@@ -199,12 +209,14 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8};
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		
 		if(slot > 2) {
 			return !(stack.getItem() instanceof ItemRTGPellet);
@@ -214,7 +226,7 @@ public class TileEntityDiFurnaceRTG extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.diFurnaceRTG";
 	}
 

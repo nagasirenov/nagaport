@@ -8,10 +8,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityShrapnel extends EntityThrowable {
+
+	private static final DataParameter<Byte> SHRAPNEL_TYPE = EntityDataManager.createKey(EntityShrapnel.class, DataSerializers.BYTE);
 
 	public EntityShrapnel(World p_i1773_1_) {
 		super(p_i1773_1_);
@@ -24,7 +29,7 @@ public class EntityShrapnel extends EntityThrowable {
 
 	@Override
 	public void entityInit() {
-		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+		this.dataManager.register(SHRAPNEL_TYPE, Byte.valueOf((byte) 0));
 	}
 
 	public EntityShrapnel(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_) {
@@ -35,8 +40,8 @@ public class EntityShrapnel extends EntityThrowable {
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(worldObj.isRemote && this.dataWatcher.getWatchableObjectByte(16) == 1)
-			worldObj.spawnParticle("flame", posX, posY, posZ, 0.0, 0.0, 0.0);
+		if(this.world.isRemote && this.dataManager.get(SHRAPNEL_TYPE) == 1)
+			this.world.spawnParticle("flame", posX, posY, posZ, 0.0, 0.0, 0.0);
 	}
 
 	@Override
@@ -52,30 +57,30 @@ public class EntityShrapnel extends EntityThrowable {
 
 		if(this.ticksExisted > 5) {
 			
-			if(!worldObj.isRemote)
+			if(!this.world.isRemote)
 				this.setDead();
 
-			int b = this.dataWatcher.getWatchableObjectByte(16);
+			int b = this.dataManager.get(SHRAPNEL_TYPE);
 			if(b == 2 || b == 4) {
 				
-				if(!worldObj.isRemote) {
+				if(!this.world.isRemote) {
 					if(motionY < -0.2D) {
 						
-						if(worldObj.getBlock(blockX, blockY + 1, blockZ).isReplaceable(worldObj, blockX, blockY + 1, blockZ))
-							worldObj.setBlock(blockX, blockY + 1, blockZ, b == 2 ? ModBlocks.volcanic_lava_block : ModBlocks.rad_lava_block);
+						if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, blockX, blockY + 1, blockZ))
+							this.world.setBlock(blockX, blockY + 1, blockZ, b == 2 ? ModBlocks.volcanic_lava_block : ModBlocks.rad_lava_block);
 						
 						for(int x = blockX - 1; x <= blockX + 1; x++) {
 							for(int y = blockY; y <= blockY + 2; y++) {
 								for(int z = blockZ - 1; z <= blockZ + 1; z++) {
-									if(worldObj.getBlock(x, y, z) == Blocks.air)
-										worldObj.setBlock(x, y, z, ModBlocks.gas_monoxide);
+									if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock() == Blocks.AIR)
+										this.world.setBlock(x, y, z, ModBlocks.gas_monoxide);
 								}
 							}
 						}
 					}
 					
 					if(motionY > 0) {
-						ExplosionNT explosion = new ExplosionNT(worldObj, null, blockX + 0.5, blockY + 0.5, blockZ + 0.5, 7);
+						ExplosionNT explosion = new ExplosionNT(this.world, null, blockX + 0.5, blockY + 0.5, blockZ + 0.5, 7);
 						explosion.addAttrib(ExAttrib.NODROP);
 						explosion.addAttrib(b == 2 ? ExAttrib.LAVA_V : ExAttrib.LAVA_R);
 						explosion.addAttrib(ExAttrib.NOSOUND);
@@ -85,35 +90,39 @@ public class EntityShrapnel extends EntityThrowable {
 					}
 				}
 				
-			} else if(this.dataWatcher.getWatchableObjectByte(16) == 3) {
+			} else if(this.dataManager.get(SHRAPNEL_TYPE) == 3) {
 				
-				if(worldObj.getBlock(blockX, blockY + 1, blockZ).isReplaceable(worldObj, blockX, blockY + 1, blockZ)) {
-					worldObj.setBlock(blockX, blockY + 1, blockZ, ModBlocks.mud_block);
+				if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, blockX, blockY + 1, blockZ)) {
+					this.world.setBlock(blockX, blockY + 1, blockZ, ModBlocks.mud_block);
 				}
 				
 			} else {
 				
-				for(int i = 0; i < 5; i++) worldObj.spawnParticle("lava", posX, posY, posZ, 0.0, 0.0, 0.0);
+				for(int i = 0; i < 5; i++) this.world.spawnParticle("lava", posX, posY, posZ, 0.0, 0.0, 0.0);
 			}
 
-			worldObj.playSoundEffect(posX, posY, posZ, "random.fizz", 1.0F, 1.0F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, "random.fizz", 1.0F, 1.0F);
 		}
 	}
 
+	public byte getShrapnelType() {
+		return this.dataManager.get(SHRAPNEL_TYPE);
+	}
+
 	public void setTrail(boolean b) {
-		this.dataWatcher.updateObject(16, (byte) (b ? 1 : 0));
+		this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 1 : 0));
 	}
 
 	public void setVolcano(boolean b) {
-		this.dataWatcher.updateObject(16, (byte) (b ? 2 : 0));
+		this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 2 : 0));
 	}
 
 	public void setWatz(boolean b) {
-		this.dataWatcher.updateObject(16, (byte) (b ? 3 : 0));
+		this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 3 : 0));
 	}
 
 	public void setRadVolcano(boolean b) {
-		this.dataWatcher.updateObject(16, (byte) (b ? 4 : 0));
+		this.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 4 : 0));
 	}
 
 	@Override

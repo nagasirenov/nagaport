@@ -37,7 +37,7 @@ public class ContainerLiquefactor extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return liquefactor.isUseableByPlayer(player);
+		return liquefactor.isUsableByPlayer(player);
 	}
 
 	@Override

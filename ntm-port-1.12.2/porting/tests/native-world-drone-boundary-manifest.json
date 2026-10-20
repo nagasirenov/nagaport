@@ -1,0 +1,1610 @@
+{
+  "baseline": "5e6ba284ef32b46ad5f81cd1e1570c08b53cb24f",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "d7db5af63a4a4751c07871622f29fbbf15acead190575ed8272bfc77b2a8d749",
+      "after_sha256": "3db082727414bbc75ce7621513a5e173aa8188b8e0bdf55946a6b635acadf8b9",
+      "edits": [
+        {
+          "before_offset": 5365,
+          "after_offset": 5365,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"hbm:weapon.fstbmbStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.fstbmbStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 7115,
+          "after_offset": 7137,
+          "old": "\t\t\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:weapon.fstbmbStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.fstbmbStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 7659,
+          "after_offset": 7703,
+          "old": "\t\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:item.techBoop\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:item.techBoop\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombFloat.java": {
+      "before_sha256": "8dc2d6d967fe424929711c3611bfd2174e4fe7eae630dcd82a1c6f1516d4eaac",
+      "after_sha256": "bef25f59da9d19b9377ae3cc91266ccc76aa000e0fdf252917fa49cc81018e3f",
+      "edits": [
+        {
+          "before_offset": 2343,
+          "after_offset": 2343,
+          "old": "\t\tworld.playSoundEffect(x, y, z, \"hbm:weapon.sparkShoot\", 5.0f, world.rand.nextFloat() * 0.2F + 0.9F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:weapon.sparkShoot\", 5.0f, world.rand.nextFloat() * 0.2F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java": {
+      "before_sha256": "85d2b545b80f7cabd5b9f1e4f16d7ab6c3b39fa26f4413635e4925f77890701b",
+      "after_sha256": "b5e3edbde304623306159ed6a155a25e087868cad7602245836164cc9dbfaff7",
+      "edits": [
+        {
+          "before_offset": 2441,
+          "after_offset": 2441,
+          "old": "\t\t\t\t\t\t\tList<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, entity.getEntityBoundingBox().expand(10, 10, 10));\n",
+          "new": "\t\t\t\t\t\t\tList<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, entity.getEntityBoundingBox().grow(10, 10, 10));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWandStructure.java": {
+      "before_sha256": "12791ccfea84ac5fad94c92734add239b52d62faaa59d0518a664e0e6bb52fc4",
+      "after_sha256": "98166d49ba83a8d3a5e6a08424b5ca91dd8768d6ac01be713ba797a10b1212b5",
+      "edits": [
+        {
+          "before_offset": 11391,
+          "after_offset": 11391,
+          "old": "\t\t\ttextName = new GuiTextField(fontRenderer, width / 2 - 150, 50, 300, 20);\n",
+          "new": "\t\t\ttextName = new GuiTextField(0, fontRenderer, width / 2 - 150, 50, 300, 20);\n"
+        },
+        {
+          "before_offset": 11500,
+          "after_offset": 11503,
+          "old": "\t\t\ttextSizeX = new GuiTextField(fontRenderer, width / 2 - 150, 100, 50, 20);\n",
+          "new": "\t\t\ttextSizeX = new GuiTextField(1, fontRenderer, width / 2 - 150, 100, 50, 20);\n"
+        },
+        {
+          "before_offset": 11616,
+          "after_offset": 11622,
+          "old": "\t\t\ttextSizeY = new GuiTextField(fontRenderer, width / 2 - 100, 100, 50, 20);\n",
+          "new": "\t\t\ttextSizeY = new GuiTextField(2, fontRenderer, width / 2 - 100, 100, 50, 20);\n"
+        },
+        {
+          "before_offset": 11732,
+          "after_offset": 11741,
+          "old": "\t\t\ttextSizeZ = new GuiTextField(fontRenderer, width / 2 - 50, 100, 50, 20);\n",
+          "new": "\t\t\ttextSizeZ = new GuiTextField(3, fontRenderer, width / 2 - 50, 100, 50, 20);\n"
+        },
+        {
+          "before_offset": 14701,
+          "after_offset": 14713,
+          "old": "\t\t\ttextName = new GuiTextField(fontRenderer, width / 2 - 150, 50, 300, 20);\n",
+          "new": "\t\t\ttextName = new GuiTextField(0, fontRenderer, width / 2 - 150, 50, 300, 20);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFluidTank.java": {
+      "before_sha256": "ce511f5220cd6d6fe67b853c8d11ecc035ed39ae57e4f1331ef3eb37b37d0a2d",
+      "after_sha256": "7bd40c48b1667459c8f30401f568bbdae3be86163f5735288b055a01f955bf9b",
+      "edits": [
+        {
+          "before_offset": 5685,
+          "after_offset": 5685,
+          "old": "\t\t\t\t\t\tnew AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));\n",
+          "new": "\t\t\t\t\t\tnew AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(100, 100, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRefinery.java": {
+      "before_sha256": "43c694576a1554b4738f60984055c572ee041fa53d912feedd4dfdb2f4366958",
+      "after_sha256": "5e0ecf5e7805579347fe37358cde17d6174e72553cbfef55e768bf12131937ee",
+      "edits": [
+        {
+          "before_offset": 4326,
+          "after_offset": 4326,
+          "old": "\t\t\t\t\t\tnew AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));\n",
+          "new": "\t\t\t\t\t\tnew AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(100, 100, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "b58fdb67ce66d83906f6cc9534e4124183f384ff64a4fdc9be16df62916d6e55",
+      "after_sha256": "76062c9b36da36bc1b0cb7e94357fab6ff9cb3e09e2b06fcb2c63dbf2a77f132",
+      "edits": [
+        {
+          "before_offset": 8431,
+          "after_offset": 8431,
+          "old": "\t\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.pressOperate\", 1.0F, 1.5F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.pressOperate\", 1.0F, 1.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Radiobox.java": {
+      "before_sha256": "b2cdaefcf7b560cb96f2040e11d3a8d5f7b910b4418a1caed98d6f1e9f809bdf",
+      "after_sha256": "84504670396775e5849eb7f2766539734821fff9bce8a415cb85bf130af0e227",
+      "edits": [
+        {
+          "before_offset": 2433,
+          "after_offset": 2433,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 2579,
+          "after_offset": 2601,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CableDetector.java": {
+      "before_sha256": "5638817c7009ef1c22cd55a15f4a6706ed236097a5b7cd00f6ceea741c212828",
+      "after_sha256": "73731e69d60aefa0c5effa168ca37ec7e2624b5d17d2200ba90bfb9a309cba97",
+      "edits": [
+        {
+          "before_offset": 1574,
+          "after_offset": 1574,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 1747,
+          "after_offset": 1769,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CableSwitch.java": {
+      "before_sha256": "4ecec95536d88f0c638ae551968730ce10c54024091bcac397cf47ad2f8640ab",
+      "after_sha256": "4abb39148805ffacb8d586820f1e6682c416ea4dc7ab7e3dbed6c82a9c7b648b",
+      "edits": [
+        {
+          "before_offset": 1617,
+          "after_offset": 1617,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 1756,
+          "after_offset": 1778,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidSwitch.java": {
+      "before_sha256": "591128cdfeb8127dd33370163f95346ba65ffa9d871865a622dcbbc55c64f669",
+      "after_sha256": "113dc691af54d6b64e0169068e2eeabe91bac0ddd990799f08313d449d4aab12",
+      "edits": [
+        {
+          "before_offset": 1719,
+          "after_offset": 1719,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 1892,
+          "after_offset": 1914,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidValve.java": {
+      "before_sha256": "e9771346ead540f9ae0b8cfdc1bb5c198297e1a7974225935dc19703f6edead2",
+      "after_sha256": "5eb4c67bc021a1e46b3b0c2782b0c21725268444ffa11537909eb2b3f5a3fec0",
+      "edits": [
+        {
+          "before_offset": 1963,
+          "after_offset": 1963,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 2102,
+          "after_offset": 2124,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "e62fb6d9b74f6015e15587291a696e57feca754f4bdcf7bb2de8187919365f6f",
+      "after_sha256": "4f34ec3bb6a12500a073d2748313eafc2ba8485c213b8bf941d34d374a568599",
+      "edits": [
+        {
+          "before_offset": 11279,
+          "after_offset": 11279,
+          "old": "\t\t\t\tList list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(0.2D, 0.0D, 0.2D));\n",
+          "new": "\t\t\t\tList list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.2D, 0.0D, 0.2D));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java": {
+      "before_sha256": "3557157418654892fa37728f1ad9266944db6bd1c45569df997eb687b7e6728a",
+      "after_sha256": "fd20ec9b47e015f7bb91fe2351ac4b527ce9e5e6a7848ed2de95f6df173f5fd9",
+      "edits": [
+        {
+          "before_offset": 677,
+          "after_offset": 677,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;\r\n"
+        },
+        {
+          "before_offset": 946,
+          "after_offset": 1114,
+          "old": "",
+          "new": "\r\n\tprivate static final DataParameter<Byte> LOAD = EntityDataManager.createKey(EntityDeliveryDrone.class, DataSerializers.BYTE);\r\n"
+        },
+        {
+          "before_offset": 1536,
+          "after_offset": 1834,
+          "old": "\t\t\tif(this.dataWatcher.getWatchableObjectByte(11) == 1)\r\n",
+          "new": "\t\t\tif(this.dataManager.get(LOAD) == 1)\r\n"
+        },
+        {
+          "before_offset": 1815,
+          "after_offset": 2096,
+          "old": "\t\tthis.dataWatcher.addObject(11, new Byte((byte) 0));\r\n",
+          "new": "\t\tthis.dataManager.register(LOAD, new Byte((byte) 0));\r\n\t}\r\n\r\n\tpublic void setLoad(byte load) {\r\n\t\tthis.dataManager.set(LOAD, load);\r\n\t}\r\n\r\n\tpublic byte getLoad() {\r\n\t\treturn this.dataManager.get(LOAD);\r\n"
+        },
+        {
+          "before_offset": 2078,
+          "after_offset": 2508,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(11) == 1 ? 0.375 * 3 : 0.375;\r\n",
+          "new": "\t\treturn this.dataManager.get(LOAD) == 1 ? 0.375 * 3 : 0.375;\r\n"
+        },
+        {
+          "before_offset": 2774,
+          "after_offset": 3187,
+          "old": "\t\tnbt.setByte(\"load\", this.dataWatcher.getWatchableObjectByte(11));\r\n",
+          "new": "\t\tnbt.setByte(\"load\", this.dataManager.get(LOAD));\r\n"
+        },
+        {
+          "before_offset": 3744,
+          "after_offset": 4140,
+          "old": "\t\tthis.dataWatcher.updateObject(11, nbt.getByte(\"load\"));\r\n",
+          "new": "\t\tthis.dataManager.set(LOAD, nbt.getByte(\"load\"));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityDroneBase.java": {
+      "before_sha256": "05cc2e40877a5d2ca68cc75944a4841188b334ce40bbb1accbf9fd686b4eb034",
+      "after_sha256": "8e89d11fbb2a782a9fc32ab7a8a525a7c314150ca3782ad2d2f3b954f5d65b7b",
+      "edits": [
+        {
+          "before_offset": 326,
+          "after_offset": 326,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 382,
+          "after_offset": 547,
+          "old": "",
+          "new": "\n\tprotected static final DataParameter<Byte> APPEARANCE = EntityDataManager.createKey(EntityDroneBase.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 1343,
+          "after_offset": 1640,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Byte((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(APPEARANCE, new Byte((byte) 0));\n"
+        },
+        {
+          "before_offset": 1503,
+          "after_offset": 1807,
+          "old": "\t\tthis.dataWatcher.updateObject(10, (byte) style);\n",
+          "new": "\t\tthis.dataManager.set(APPEARANCE, (byte) style);\n"
+        },
+        {
+          "before_offset": 1588,
+          "after_offset": 1891,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(10);\n",
+          "new": "\t\treturn this.dataManager.get(APPEARANCE);\n"
+        },
+        {
+          "before_offset": 3865,
+          "after_offset": 4157,
+          "old": "\t\tnbt.setByte(\"app\", this.dataWatcher.getWatchableObjectByte(10));\n",
+          "new": "\t\tnbt.setByte(\"app\", this.dataManager.get(APPEARANCE));\n"
+        },
+        {
+          "before_offset": 4151,
+          "after_offset": 4432,
+          "old": "\t\tthis.dataWatcher.updateObject(10, nbt.getByte(\"app\"));\n",
+          "new": "\t\tthis.dataManager.set(APPEARANCE, nbt.getByte(\"app\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "5cccece87682efac5512f9a8ea66a1911b5d4dedcaa2cdd4f2ad2384872bfce5",
+      "after_sha256": "06d357bc72319ff742f4492c3a4a5952881cb8686b94ac5db653ede382e03e7e",
+      "edits": [
+        {
+          "before_offset": 12491,
+          "after_offset": 12491,
+          "old": "\t\t\tAxisAlignedBB box = this.getEntityBoundingBox().expand(0.2D, 0.0D, 0.2D);\n",
+          "new": "\t\t\tAxisAlignedBB box = this.getEntityBoundingBox().grow(0.2D, 0.0D, 0.2D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "cd554458e3c8defada567eba01ce4a318d50acfa34cdee61cddc8cb2e76a228b",
+      "after_sha256": "c9721fe73f07511902de78b5f945319e3ca21ae254df7ae4659fe31837bbf3ee",
+      "edits": [
+        {
+          "before_offset": 15544,
+          "after_offset": 15544,
+          "old": "                box = this.getEntityBoundingBox().expand(0.2D, 0.0D, 0.2D);\n",
+          "new": "                box = this.getEntityBoundingBox().grow(0.2D, 0.0D, 0.2D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityRequestDrone.java": {
+      "before_sha256": "13b529ae9dde8a6b3557745b1dfa68dfc033a438ad47b9c0fcd1c103005bdd4e",
+      "after_sha256": "10a4bb40c5a66f6b565d20252b07600a33e5d0b43e94c189ecc6988a1b2b06d5",
+      "edits": [
+        {
+          "before_offset": 7268,
+          "after_offset": 7268,
+          "old": "\t\tthis.dataWatcher.updateObject(10, nbt.getByte(\"app\"));\n",
+          "new": "\t\tthis.dataManager.set(APPEARANCE, nbt.getByte(\"app\"));\n"
+        },
+        {
+          "before_offset": 8372,
+          "after_offset": 8371,
+          "old": "\t\tnbt.setByte(\"app\", this.dataWatcher.getWatchableObjectByte(10));\n",
+          "new": "\t\tnbt.setByte(\"app\", this.dataManager.get(APPEARANCE));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntitySoyuz.java": {
+      "before_sha256": "6a494d4de1688b095b526631fb95053cd5d89ee109c6aae71c645b5e5b78a47e",
+      "after_sha256": "1ce2b266762c4d75fdc7dc3f567dff1319e003d244f00516e8d70621edeb2e0e",
+      "edits": [
+        {
+          "before_offset": 1968,
+          "after_offset": 1968,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:alarm.soyuzed\", 100, 1.0F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:alarm.soyuzed\", 100, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "98ca0f59742d6295f8533872daa84ebf3bc33770dd02c13a7baf07d2862c776c",
+      "after_sha256": "a2aa4a6d407d3702b9bdf48c18820076c3a668d3f93a0ebeb7abee398915bd9c",
+      "edits": [
+        {
+          "before_offset": 4016,
+          "after_offset": 4016,
+          "old": "\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().expand(100, 50, 100));\n",
+          "new": "\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().grow(100, 50, 100));\n"
+        },
+        {
+          "before_offset": 13346,
+          "after_offset": 13344,
+          "old": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(200, 200, 200));\n",
+          "new": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java": {
+      "before_sha256": "887b6956f0ad31e0bfa9c551904081624ebe9761c2170aa5429ee6e5a1caa52b",
+      "after_sha256": "2599f13e1a87182475b54834bf7aa0e44fd024fba20a6a24a3f50a83cf998853",
+      "edits": [
+        {
+          "before_offset": 3137,
+          "after_offset": 3137,
+          "old": "\t\t\tattackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(0.5D, 0.5D, 0.5D)));\n",
+          "new": "\t\t\tattackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.5D, 0.5D, 0.5D)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java": {
+      "before_sha256": "c48cdaee90d8e749f68ca9e91ded4979d7c68b0ce690f686dba1dd0331044058",
+      "after_sha256": "a0ae4750ea750c44d63adc697368c2a89496011cf4d3e1b6b723fecb765c3a16",
+      "edits": [
+        {
+          "before_offset": 2497,
+          "after_offset": 2497,
+          "old": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(50, 50, 50));\n",
+          "new": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(50, 50, 50));\n"
+        },
+        {
+          "before_offset": 3099,
+          "after_offset": 3097,
+          "old": "\t\tList<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(5, 5, 5));\n",
+          "new": "\t\tList<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(5, 5, 5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityMaskMan.java": {
+      "before_sha256": "059e9e58d4a25e7c8aa67fe317f4d0c94384d5a6bb2d446de034f44df5ad73fb",
+      "after_sha256": "9e2e478988b965dc76280c4fb3799cf4fb2d4fb0a77dfb27504a0627fb7976ef",
+      "edits": [
+        {
+          "before_offset": 3611,
+          "after_offset": 3611,
+          "old": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(50, 50, 50));\n",
+          "new": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(50, 50, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+      "before_sha256": "3411b368f5a9fd9c0c65d726b40ba45383fbeb2722a238991bf79069aaa0ec5d",
+      "after_sha256": "1cb5ab317c849fb75d5602e5fd147eeb5f61b21072130a1a681f38e45d3c0d71",
+      "edits": [
+        {
+          "before_offset": 5319,
+          "after_offset": 5319,
+          "old": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(50, 50, 50));\n",
+          "new": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(50, 50, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "b205eb4de786efbb1c883cd9651d652a4fa55740f3a926497b62e845ae9b80f3",
+      "after_sha256": "41a489f9bd9d03078560cdef33bdeac0b462651b8db2052603f3b85a9c3b0b5a",
+      "edits": [
+        {
+          "before_offset": 3063,
+          "after_offset": 3063,
+          "old": "\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().expand(100, 50, 100));\n",
+          "new": "\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().grow(100, 50, 100));\n"
+        },
+        {
+          "before_offset": 8704,
+          "after_offset": 8702,
+          "old": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(200, 200, 200));\n",
+          "new": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIEatBread.java": {
+      "before_sha256": "f420aad9c30008c7838948a73965fd1ff197bf012e3762cef612149c0346c291",
+      "after_sha256": "2a1cc8e710d3306146b1a06762a5ca8c5b5541f1ebf2563a89b987610ad6b858",
+      "edits": [
+        {
+          "before_offset": 664,
+          "after_offset": 664,
+          "old": "\t\tList<EntityItem> items = pigeon.world.getEntitiesWithinAABB(EntityItem.class, this.pigeon.getEntityBoundingBox().expand(10, 10, 10));\n",
+          "new": "\t\tList<EntityItem> items = pigeon.world.getEntitiesWithinAABB(EntityItem.class, this.pigeon.getEntityBoundingBox().grow(10, 10, 10));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAISwimAway.java": {
+      "before_sha256": "fa6c235cbd8e434b9bf39517caefe6d1313c832351935e49ae1393f3fc343975",
+      "after_sha256": "6da087d3733af070af86d8c9acf9343f8bb52a400be41204f6d33729338ae89d",
+      "edits": [
+        {
+          "before_offset": 665,
+          "after_offset": 665,
+          "old": "\t\tList players = fish.world.getEntitiesWithinAABB(EntityPlayer.class, fish.getEntityBoundingBox().expand(5.0D, 3.0D, 5.0D));\n",
+          "new": "\t\tList players = fish.world.getEntitiesWithinAABB(EntityPlayer.class, fish.getEntityBoundingBox().grow(5.0D, 3.0D, 5.0D));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": {
+      "before_sha256": "76e5c1712e8609cfa6239745135157341305585fe63312283775fa1ff944cfa3",
+      "after_sha256": "480e5c61b5407c611aa3428219014a2e53670d734959ade8a5c4928049e5a977",
+      "edits": [
+        {
+          "before_offset": 4138,
+          "after_offset": 4138,
+          "old": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(200, 200, 200));\n",
+          "new": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java": {
+      "before_sha256": "b186f6c00dc8101aeb830088b6bd30e808f28f3e484f025cfe4e983a2cdaffcb",
+      "after_sha256": "00ecaf765a01b0574012d3485d1f6582822bbc3ae2a804110a9874aa790bf822",
+      "edits": [
+        {
+          "before_offset": 2970,
+          "after_offset": 2970,
+          "old": "\t\t\tattackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(0.5D, 0.5D, 0.5D)));\n",
+          "new": "\t\t\tattackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.5D, 0.5D, 0.5D)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java": {
+      "before_sha256": "5ed4efe76c84aa18b481c122bee89a7de278d781ee1d44ddf3744a679cf8a19c",
+      "after_sha256": "d7057f3080a722c16385cc3408daaff661cfb44c9d184de62621c1824cfd1967",
+      "edits": [
+        {
+          "before_offset": 3186,
+          "after_offset": 3186,
+          "old": "\t\t\t\tList<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().expand(2.5, 2.5, 2.5));\n",
+          "new": "\t\t\t\tList<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.5, 2.5, 2.5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityTom.java": {
+      "before_sha256": "f3fa79f170180b040941d3de9690d5bc31c50376043fd0baec43bb97d5d8c76b",
+      "after_sha256": "5f4ba1047935854e2b0e0639a6169724feee9b0db7037f6dbd589d648ba3594c",
+      "edits": [
+        {
+          "before_offset": 833,
+          "after_offset": 833,
+          "old": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"hbm:alarm.chime\", 10000, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, \"hbm:alarm.chime\", 10000, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java": {
+      "before_sha256": "034419cdd13eb15634ccf6304fbb6894c64ac812d1704fd2b6cc303806b68f51",
+      "after_sha256": "0f5d85c1d0741fcee938f16cb0254b9629e9d29de1cddffcda9e146eceed8669",
+      "edits": [
+        {
+          "before_offset": 3536,
+          "after_offset": 3536,
+          "old": "\t\t\t\tList<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().expand(2.5, 2.5, 2.5));\n",
+          "new": "\t\t\t\tList<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.5, 2.5, 2.5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/EntityRailCarBase.java": {
+      "before_sha256": "4d08d68bfd90f42d23f00b113cc046f121c9be85606dbfcbeb29106a247c48fc",
+      "after_sha256": "aa62032cfb4b7297d8f341c8a9e2f197d29d170aba01bd426a9f809534df0914",
+      "edits": [
+        {
+          "before_offset": 2664,
+          "after_offset": 2664,
+          "old": "\t\t\tList<EntityRailCarBase> intersecting = this.world.getEntitiesWithinAABB(EntityRailCarBase.class, this.getEntityBoundingBox().expand(2D, 0D, 2D));\n",
+          "new": "\t\t\tList<EntityRailCarBase> intersecting = this.world.getEntitiesWithinAABB(EntityRailCarBase.class, this.getEntityBoundingBox().grow(2D, 0D, 2D));\n"
+        },
+        {
+          "before_offset": 30654,
+          "after_offset": 30652,
+          "old": "\t\t\tList<EntityRailCarBase> intersect = collidingTrain.world.getEntitiesWithinAABB(EntityRailCarBase.class, collidingTrain.getEntityBoundingBox().expand(1, 1, 1));\n",
+          "new": "\t\t\tList<EntityRailCarBase> intersect = collidingTrain.world.getEntitiesWithinAABB(EntityRailCarBase.class, collidingTrain.getEntityBoundingBox().grow(1, 1, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/guncfg/BulletConfigFactory.java": {
+      "before_sha256": "de929f01e148293b670ccdea927b2efa4e17a8f5696d65872a86d3b972385fd2",
+      "after_sha256": "d3040c0261ec897ee32d0161f9764c3118bb7402c7b487c945aeda29ce833e91",
+      "edits": [
+        {
+          "before_offset": 4624,
+          "after_offset": 4624,
+          "old": "\t\t\t\t\t\t\tif(bullet.getConfig().doesPenetrate && bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().expand(2, 2, 2)) == null) {\n",
+          "new": "\t\t\t\t\t\t\tif(bullet.getConfig().doesPenetrate && bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().grow(2, 2, 2)) == null) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java": {
+      "before_sha256": "5f3e03627d7750e607d25b1c9579de39ec6c8184d185d119a3ffd81788b85331",
+      "after_sha256": "2ba9781c35a8037bb8021c6ac6a6560f1ad6c435928ab812b2cfe54c0e893bed",
+      "edits": [
+        {
+          "before_offset": 1778,
+          "after_offset": 1778,
+          "old": "\t\t\tList<EntityPlayer> players = bulletnt.world.getEntitiesWithinAABB(EntityPlayer.class, bulletnt.getEntityBoundingBox().expand(50, 50, 50));\n",
+          "new": "\t\t\tList<EntityPlayer> players = bulletnt.world.getEntitiesWithinAABB(EntityPlayer.class, bulletnt.getEntityBoundingBox().grow(50, 50, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "53eb2c6db0c93459fdab7738356367825fbfd44407476985924d151cd72d6564",
+      "after_sha256": "6f7499abef7aaea5f38d5902a239f70cd7ae5019602970d480baacb97a1bb4d2",
+      "edits": [
+        {
+          "before_offset": 11474,
+          "after_offset": 11474,
+          "old": "\t\t\t\tList<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().expand(3, 0, 3));\n",
+          "new": "\t\t\t\tList<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().grow(3, 0, 3));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModDefuser.java": {
+      "before_sha256": "ff44a2e558a829e8948aa5c4459dc416a1a6ad5dc0ac4707784518deb1e8ecce",
+      "after_sha256": "b0e47f91c404b2ef07b1f50c333f83de057b508d96525c1ec139d41b9cdf293b",
+      "edits": [
+        {
+          "before_offset": 1319,
+          "after_offset": 1319,
+          "old": "\t\tList<EntityCreeper> creepers = entity.world.getEntitiesWithinAABB(EntityCreeper.class, entity.getEntityBoundingBox().expand(5, 5, 5));\n",
+          "new": "\t\tList<EntityCreeper> creepers = entity.world.getEntitiesWithinAABB(EntityCreeper.class, entity.getEntityBoundingBox().grow(5, 5, 5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "before_sha256": "61799b9573da44b1879f04cc5e273131413364d614a848ec66b33b418fc6df2e",
+      "after_sha256": "5071f8f5144b47de42512c5d38a276898e7a3fc49738688ac59f7181638b5acf",
+      "edits": [
+        {
+          "before_offset": 3618,
+          "after_offset": 3618,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"hbm:player.oil\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:player.oil\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDrone.java": {
+      "before_sha256": "f3c5ba24ef49d791d3f9a4d9a366139e4148ee3bf8151b47ea681bac81f9f0cb",
+      "after_sha256": "b28cad9fbb834ddfc5f1a553001faf318ac29279dbb549b4b9a38846d7585fab",
+      "edits": [
+        {
+          "before_offset": 1347,
+          "after_offset": 1347,
+          "old": "\t\t\t\t((EntityDeliveryDrone) toSpawn).getDataWatcher().updateObject(11, (byte) 1);\n",
+          "new": "\t\t\t\t((EntityDeliveryDrone) toSpawn).setLoad((byte) 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPeas.java": {
+      "before_sha256": "5e6f4d01cfc7ac11fa80b9290d5afbbc3131c0f6843fdc8d9b54889695b43fde",
+      "after_sha256": "3396f870e02cc8eee13fa14e7be9c7d76b6dc347d7e96d1e431d31a4b66c1413",
+      "edits": [
+        {
+          "before_offset": 462,
+          "after_offset": 462,
+          "old": "\t\tList<EntityQuackos> quacc = world.getEntitiesWithinAABB(EntityQuackos.class, player.getEntityBoundingBox().expand(50, 50, 50));\n",
+          "new": "\t\tList<EntityQuackos> quacc = world.getEntitiesWithinAABB(EntityQuackos.class, player.getEntityBoundingBox().grow(50, 50, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTurretControl.java": {
+      "before_sha256": "f4b202d1453d6509584e6b44de4316babc3829524a9e96ffa3605744afc078fb",
+      "after_sha256": "39a911e469d4b2c749ce5e0d49add426913faa66fe921a3326e07bb57e63a297",
+      "edits": [
+        {
+          "before_offset": 2386,
+          "after_offset": 2386,
+          "old": "\t\t\t\t\t\t\tList<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().expand(200, 200, 200));\r\n",
+          "new": "\t\t\t\t\t\t\tList<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().grow(200, 200, 200));\r\n"
+        },
+        {
+          "before_offset": 2625,
+          "after_offset": 2623,
+          "old": "\t\t\t\t\t\t\t\t\tRayTraceResult mop = e.getEntityBoundingBox().expand(0.2, 0.2, 0.2).calculateIntercept(vecOrigin, vecDestination);\n",
+          "new": "\t\t\t\t\t\t\t\t\tRayTraceResult mop = e.getEntityBoundingBox().grow(0.2, 0.2, 0.2).calculateIntercept(vecOrigin, vecDestination);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "c00ab5bd68888961051abd49962ffbc93136c7ce61ad7103d2c2511cb3edc92a",
+      "after_sha256": "4465681cf4e6e947ec79d15a3c547cc2027d40a42ef2b42e78786fbf16c55792",
+      "edits": [
+        {
+          "before_offset": 15572,
+          "after_offset": 15572,
+          "old": "\t\t\tfor(Object o : event.getEntity().world.getEntitiesWithinAABB(EntityPlayer.class, event.getEntity().getEntityBoundingBox().expand(50, 50, 50))) {\n",
+          "new": "\t\t\tfor(Object o : event.getEntity().world.getEntitiesWithinAABB(EntityPlayer.class, event.getEntity().getEntityBoundingBox().grow(50, 50, 50))) {\n"
+        },
+        {
+          "before_offset": 55045,
+          "after_offset": 55043,
+          "old": "\t\t\t\tList<EntityLivingBase> entities = player.world.getEntitiesWithinAABB(EntityLivingBase.class, player.getEntityBoundingBox().expand(3, 3, 3));\n",
+          "new": "\t\t\t\tList<EntityLivingBase> entities = player.world.getEntitiesWithinAABB(EntityLivingBase.class, player.getEntityBoundingBox().grow(3, 3, 3));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModSoundEvents.java": {
+      "before_sha256": "2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33",
+      "after_sha256": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+      "edits": [
+        {
+          "before_offset": 4902,
+          "after_offset": 4902,
+          "old": "",
+          "new": "\t\t// Additional compiler-attributed literal coordinate effects with original bundled resources.\n\t\tworldEffect(\"alarm.chime\", SoundCategory.RECORDS);\n\t\tworldEffect(\"alarm.hatch\", SoundCategory.RECORDS);\n\t\tworldEffect(\"alarm.soyuzed\", SoundCategory.RECORDS);\n\t\tworldEffect(\"block.boilerGroan\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.hatchOpen\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.hornFarDual\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.hornFarSingle\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.hornNearDual\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.hornNearSingle\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.missileAssembly2\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.pressOperate\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.rbmk_explosion\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.reactorStart\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.reactorStop\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.sonarPing\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.steamEngineOperate\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.turbinegasShutdown\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.turbinegasStartup\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.vaultScrapeNew\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.vaultThudNew\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"block.warnOverspeed\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"door.garage_stop\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"door.wgh_stop\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"entity.soyuzTakeoff\", SoundCategory.PLAYERS);\n\t\tworldEffect(\"item.techBoop\", SoundCategory.PLAYERS);\n\t\tworldEffect(\"misc.htrfstart\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"misc.htrstart\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"misc.htrstop\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"misc.lpwstart\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"misc.lpwstop\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"misc.spincharge\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"misc.spinshot\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"player.oil\", SoundCategory.PLAYERS);\n\t\tworldEffect(\"turret.chekhov_fire\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"turret.howard_fire\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"turret.howard_reload\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"turret.richard_fire\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"turret.sentry_fire\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"weapon.fstbmbStart\", SoundCategory.PLAYERS);\n\t\tworldEffect(\"weapon.rocketFlame\", SoundCategory.BLOCKS);\n\t\tworldEffect(\"weapon.sparkShoot\", SoundCategory.PLAYERS);\n\t\tworldEffect(\"weapon.tauShoot\", SoundCategory.PLAYERS);\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderDeliveryDrone.java": {
+      "before_sha256": "deb0d9bba1f340eb6fdc891993671e75d6d0bf15f538f5fa55c46d537ecde2cb",
+      "after_sha256": "3c758bfee7b2d69d430229b9a88cbf570e9b9b9355b30f372f2c2391dbe2fff3",
+      "edits": [
+        {
+          "before_offset": 112,
+          "after_offset": 112,
+          "old": "",
+          "new": "import com.hbm.entity.item.EntityDeliveryDrone;\n"
+        },
+        {
+          "before_offset": 866,
+          "after_offset": 914,
+          "old": "\t\t} else if(entity.getDataWatcher().getWatchableObjectByte(11) == 1)\n",
+          "new": "\t\t} else if(((EntityDeliveryDrone) entity).getLoad() == 1)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/DoorDecl.java": {
+      "before_sha256": "44f06d8cd38fbaf053b1d6ce7f8ff0d7f2f63a4adda81c6b314cc5b51cacded1",
+      "after_sha256": "cc9889ea38187b87619b61365d4ca31460c9feadf52aec6820fbf87745d5cd70",
+      "edits": [
+        {
+          "before_offset": 4092,
+          "after_offset": 4092,
+          "old": "\t\t\t\tif(door.openTicks == 0) door.getWorld().playSoundEffect(door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultScrapeNew\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tif(door.openTicks == 0) com.hbm.sound.WorldSoundEffects.play(door.getWorld(), door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultScrapeNew\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 4298,
+          "after_offset": 4320,
+          "old": "\t\t\t\t\tif(door.openTicks == i) door.getWorld().playSoundEffect(door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultThudNew\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tif(door.openTicks == i) com.hbm.sound.WorldSoundEffects.play(door.getWorld(), door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultThudNew\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 4513,
+          "after_offset": 4557,
+          "old": "\t\t\t\tif(door.openTicks == 30) door.getWorld().playSoundEffect(door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultScrapeNew\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tif(door.openTicks == 30) com.hbm.sound.WorldSoundEffects.play(door.getWorld(), door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultScrapeNew\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 4720,
+          "after_offset": 4786,
+          "old": "\t\t\t\t\tif(door.openTicks == i) door.getWorld().playSoundEffect(door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultThudNew\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tif(door.openTicks == i) com.hbm.sound.WorldSoundEffects.play(door.getWorld(), door.getPos().getX(), door.getPos().getY(), door.getPos().getZ(), \"hbm:block.vaultThudNew\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": {
+      "before_sha256": "66fa64533d6d5abdf1f280fcebee59acf06355d09cb7fb042547be2b89356d54",
+      "after_sha256": "793ae5b331b2bc2f3654ae8afb89eabd9101d458b54f5aa164a1da7bc045549d",
+      "edits": [
+        {
+          "before_offset": 1836,
+          "after_offset": 1836,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbStart\", 5.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbStart\", 5.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLandmine.java": {
+      "before_sha256": "61ecbc44418eeb2f3772a8503e1a9a6ff2316cfb08fe5f62271fc67ed2c837b9",
+      "after_sha256": "93c6af923f52b6366dc1976b3fa2aac3db01a297e26f7535ceef01d64a156b46",
+      "edits": [
+        {
+          "before_offset": 2891,
+          "after_offset": 2891,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbStart\", 3.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbStart\", 3.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java": {
+      "before_sha256": "88730b1b56d3c09844482de0da3396c6e362198a44dd0b189dd3f56a75c484ab",
+      "after_sha256": "3cfa3cd535b043f15b7da45f8560e03eb8c56fa9ca912f8e5c8639a75b3b3d13",
+      "edits": [
+        {
+          "before_offset": 4753,
+          "after_offset": 4753,
+          "old": "\t\t\tif(prevLiftMoving && !this.liftMoving) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:door.wgh_stop\", 2F, 1F);\n\t\t\tif(prevErectorMoving && !this.erectorMoving) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:door.garage_stop\", 2F, 1F);\n",
+          "new": "\t\t\tif(prevLiftMoving && !this.liftMoving) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:door.wgh_stop\", 2F, 1F);\n\t\t\tif(prevErectorMoving && !this.erectorMoving) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:door.garage_stop\", 2F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": {
+      "before_sha256": "1810d8a0ba628ff6a6732fc20692e0bdda4b0d3c9c27e02691b564e492a94d38",
+      "after_sha256": "53fa7ec40857aff2723555ed73d55038049e87a04ab3aea92292fdeddbf4f41e",
+      "edits": [
+        {
+          "before_offset": 1934,
+          "after_offset": 1934,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbStart\", 5.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.fstbmbStart\", 5.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityLanternBehemoth.java": {
+      "before_sha256": "6c5093955df3f931f3fc1b6f8963cedffb621a604e6602fe63ed2ff9de760b3d",
+      "after_sha256": "6df631b0d279f51fc902be28a1b0b870eeee599342c52b05bd511d6fec86de0f",
+      "edits": [
+        {
+          "before_offset": 1297,
+          "after_offset": 1297,
+          "old": "\t\t\tif(comTimer == 360) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornNearSingle\", 10F, 1F);\n\t\t\tif(comTimer == 280) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornFarSingle\", 10000F, 1F);\n\t\t\tif(comTimer == 220) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornNearDual\", 10F, 1F);\n\t\t\tif(comTimer == 100) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornFarDual\", 10000F, 1F);\n",
+          "new": "\t\t\tif(comTimer == 360) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornNearSingle\", 10F, 1F);\n\t\t\tif(comTimer == 280) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornFarSingle\", 10000F, 1F);\n\t\t\tif(comTimer == 220) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornNearDual\", 10F, 1F);\n\t\t\tif(comTimer == 100) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hornFarDual\", 10000F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "before_sha256": "7d8faf618f6d02d15787c1fb030abfce5423f306e6b908df2e354295b55b82c9",
+      "after_sha256": "5854d553fcf7be446fc2f1f30cfcce624234ac6d7bac9c09418ae22db3fc720c",
+      "edits": [
+        {
+          "before_offset": 3441,
+          "after_offset": 3441,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStart\", 0.5F,\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStart\", 0.5F,\n"
+        },
+        {
+          "before_offset": 3617,
+          "after_offset": 3639,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStop\", 0.5F,\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStop\", 0.5F,\n"
+        },
+        {
+          "before_offset": 4073,
+          "after_offset": 4117,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStart\", 0.5F,\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStart\", 0.5F,\n"
+        },
+        {
+          "before_offset": 4250,
+          "after_offset": 4316,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStop\", 0.5F,\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStop\", 0.5F,\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java": {
+      "before_sha256": "1b2b89d5b5255ee6fddb14a456703bd011f2fc315a84f4ac143be4b5913fb6d0",
+      "after_sha256": "00ec148e82a35cba23f2d88b9674864bd0dd5b86220f4229cd63dff6a31eb25b",
+      "edits": [
+        {
+          "before_offset": 4326,
+          "after_offset": 4326,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.pressOperate\", getVolume(1.5F), 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.pressOperate\", getVolume(1.5F), 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java": {
+      "before_sha256": "12fced20f49947748468a5a4998b1a0ede881f041b3a51b20940bbf149d30901",
+      "after_sha256": "5174b847529e112d7317753660e832e8573f708462d7ce34b3474372ed157bdf",
+      "edits": [
+        {
+          "before_offset": 2444,
+          "after_offset": 2444,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 8, this.pos.getZ(), \"hbm:misc.spincharge\", 1.5F, pitch);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 8, this.pos.getZ(), \"hbm:misc.spincharge\", 1.5F, pitch);\n"
+        },
+        {
+          "before_offset": 3263,
+          "after_offset": 3285,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + rot.offsetX * 6, this.pos.getY() + 8, this.pos.getZ() + rot.offsetZ * 6, \"hbm:misc.spinshot\", volume, 0.9F + this.world.rand.nextFloat() * 0.3F);\n\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + rot.offsetX * 6, this.pos.getY() + 8, this.pos.getZ() + rot.offsetZ * 6, \"hbm:misc.spinshot\", volume, 1F + this.world.rand.nextFloat() * 0.3F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + rot.offsetX * 6, this.pos.getY() + 8, this.pos.getZ() + rot.offsetZ * 6, \"hbm:misc.spinshot\", volume, 0.9F + this.world.rand.nextFloat() * 0.3F);\n\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + rot.offsetX * 6, this.pos.getY() + 8, this.pos.getZ() + rot.offsetZ * 6, \"hbm:misc.spinshot\", volume, 1F + this.world.rand.nextFloat() * 0.3F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java": {
+      "before_sha256": "dcb4bc140b26e7412e1a051205ed55fd45971057eaac142e48ca33c066636ce5",
+      "after_sha256": "fd03fc8ede1a1238ff77d0262280320e1f839a1226ae0f4a35a9d3568715aa02",
+      "edits": [
+        {
+          "before_offset": 6434,
+          "after_offset": 6434,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.boilerGroan\", 0.5F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.boilerGroan\", 0.5F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoilerIndustrial.java": {
+      "before_sha256": "9cf97fb6c70f7b0b5c74cab98d2a8021d4bc6a4a461623b4e91b3ec04475488c",
+      "after_sha256": "77e3d77b661c4951bbddcf75c8de56aa03ad8616d55cf9470fbe9574cff850a7",
+      "edits": [
+        {
+          "before_offset": 5884,
+          "after_offset": 5884,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.boilerGroan\", 0.5F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.boilerGroan\", 0.5F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java": {
+      "before_sha256": "1014a514555136b38b91abd61888e49fcde2a2cb42618091953a59e650014e60",
+      "after_sha256": "12391e43e14ba16adb628d917f8ce13f7ec835349c5e63a9a9c2233c2bf888ac",
+      "edits": [
+        {
+          "before_offset": 1894,
+          "after_offset": 1894,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrstart\", 1.5F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrstart\", 1.5F, 1F);\n"
+        },
+        {
+          "before_offset": 2124,
+          "after_offset": 2146,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrstop\", 2.0F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrstop\", 2.0F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java": {
+      "before_sha256": "80867dcc3408900902a4ec10611c5792f177b39f49c6d6cf2ae87b38f415923c",
+      "after_sha256": "ed4d353cdb75513178246595a70714e02e190c9deff7db8de1cc9920aa845b60",
+      "edits": [
+        {
+          "before_offset": 2103,
+          "after_offset": 2103,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstart\", 1.5F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstart\", 1.5F, 1F);\n"
+        },
+        {
+          "before_offset": 2333,
+          "after_offset": 2355,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstop\", 2.0F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstop\", 2.0F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java": {
+      "before_sha256": "d9d1437b9ad7b72c840bd367eb0c7571fe821342a897bc82554eb7ca82c1ca03",
+      "after_sha256": "a9f1e265a601dbbbd9db010855e0e97f2037e473565301405e9f427c73c6aff5",
+      "edits": [
+        {
+          "before_offset": 2967,
+          "after_offset": 2967,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrfstart\", 1.5F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrfstart\", 1.5F, 1F);\n"
+        },
+        {
+          "before_offset": 3198,
+          "after_offset": 3220,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrstop\", 2.0F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.htrstop\", 2.0F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java": {
+      "before_sha256": "99737911e5e2195524e6ec5e29c1115c4fef17c57cfa819c10d47d2db4b5c2a0",
+      "after_sha256": "87f7a15e93a369909af8ccde8fed1933ea3069cadd1afc3fea9838d99fbf41d4",
+      "edits": [
+        {
+          "before_offset": 1933,
+          "after_offset": 1933,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstart\", 1.5F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstart\", 1.5F, 1F);\n"
+        },
+        {
+          "before_offset": 2163,
+          "after_offset": 2185,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstop\", 2.0F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:misc.lpwstop\", 2.0F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java": {
+      "before_sha256": "c7c5e310aebbfa87bdc831a700593f4f8b5aa6b09e246db8e55b2d5e3375e5c0",
+      "after_sha256": "3e0450ab354b965f839f824591cb7d58408a7b23c53c0b5b94ca3407b2565865",
+      "edits": [
+        {
+          "before_offset": 8398,
+          "after_offset": 8398,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.missileAssembly2\", 1F, 1F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.missileAssembly2\", 1F, 1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java": {
+      "before_sha256": "c294d1c12acdcf3b19251c6ad5785f3d4ad905fdee70e5ce4a0a6764772ece5d",
+      "after_sha256": "8e814c3e1dc4ab0875ef1d428221d634abdada3bee974e7087fe941a541eaaa9",
+      "edits": [
+        {
+          "before_offset": 5672,
+          "after_offset": 5672,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.sonarPing\", 5.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.sonarPing\", 5.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java": {
+      "before_sha256": "e41e5e820324b3f7139ba8d5483111fa5f335a125355035fdd67ee50175555b6",
+      "after_sha256": "1d42fd5e1d0607da680a2c47a4178e5d38304f59d12ec4ce5e26d67c4878479f",
+      "edits": [
+        {
+          "before_offset": 9763,
+          "after_offset": 9763,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), \"hbm:block.turbinegasStartup\", getVolume(1.0F), 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), \"hbm:block.turbinegasStartup\", getVolume(1.0F), 1.0F);\n"
+        },
+        {
+          "before_offset": 10353,
+          "after_offset": 10375,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), \"hbm:block.turbinegasShutdown\", getVolume(1.0F), 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), \"hbm:block.turbinegasShutdown\", getVolume(1.0F), 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java": {
+      "before_sha256": "c7b2b133a84a30637ccf57b32876077c9cc9bf820e50cf145680b8fcfd24eaf4",
+      "after_sha256": "3258be3c1a027eb9a0b4321c69450739e76eeb95081a4f89fb016f3ad97dfb64",
+      "edits": [
+        {
+          "before_offset": 13030,
+          "after_offset": 13030,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), \"hbm:block.rbmk_explosion\", 10.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), \"hbm:block.rbmk_explosion\", 10.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java": {
+      "before_sha256": "269b27fc1d686fc61833a1b126adcb2972b92268ab0a647b09cefb16121dd036",
+      "after_sha256": "82add305d627b19a709eb6aac81c62704f44ef620dc5b587aad7714afeae6dcb",
+      "edits": [
+        {
+          "before_offset": 4029,
+          "after_offset": 4029,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, \"hbm:block.warnOverspeed\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, \"hbm:block.warnOverspeed\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java": {
+      "before_sha256": "a194483eae2fa4aceb2018ed2457e7629baa44074e60f19fcf3799cad8ce72cc",
+      "after_sha256": "1858c9dfbf74859b98a797bf7f4b7e64762b88b0be0676db8c53a8685f1c76d8",
+      "edits": [
+        {
+          "before_offset": 2975,
+          "after_offset": 2975,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:alarm.hatch\", 100F, 1.1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:alarm.hatch\", 100F, 1.1F);\n"
+        },
+        {
+          "before_offset": 6417,
+          "after_offset": 6439,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:entity.soyuzTakeoff\", 100F, 1.1F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:entity.soyuzTakeoff\", 100F, 1.1F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java": {
+      "before_sha256": "9f099f9c2d901b1ebf8110107811c6763b3123e23cd93ad8ec79a1629e14e852",
+      "after_sha256": "b3a4e6e8e8be30f0c9a63d5a7427c58689cf8320bee046765b217eceb84fc394",
+      "edits": [
+        {
+          "before_offset": 3432,
+          "after_offset": 3432,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.steamEngineOperate\", getVolume(1.0F), 0.5F + (acceleration / 80F));\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.steamEngineOperate\", getVolume(1.0F), 0.5F + (acceleration / 80F));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java": {
+      "before_sha256": "677e72dea261cf80c5d8a733d8e210e507792e039503f8ad31fbcbae3d216947",
+      "after_sha256": "699becc77f318a37c3bacaec9ff4cd5d7495763f9fdc7467281df7fd54edcfda",
+      "edits": [
+        {
+          "before_offset": 1832,
+          "after_offset": 1832,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, \"hbm:block.warnOverspeed\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, \"hbm:block.warnOverspeed\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java": {
+      "before_sha256": "40a703ef3b942a4bf2debb21535b46eb2826ce145e25fbe87db66107f02abdce",
+      "after_sha256": "9a24f72aca77268a6c0a74d3eb624cf2bfbac26144172b2982cf89eadc9e656c",
+      "edits": [
+        {
+          "before_offset": 6211,
+          "after_offset": 6211,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.rbmk_explosion\", 50.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.rbmk_explosion\", 50.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java": {
+      "before_sha256": "fee9816e4dfe9632a3a4f77e086d4054986e36661508029ae283d47bb2a960ae",
+      "after_sha256": "eaae2a0cc84141f532ece8b4ae47d07aa5ff49a8418ccd576bdc16bec7de4f11",
+      "edits": [
+        {
+          "before_offset": 4637,
+          "after_offset": 4637,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.boilerGroan\", 2.5F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, \"hbm:block.boilerGroan\", 2.5F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before_sha256": "aa9dd8344fbc3162e529409316faa531d2d09b576fbb99aa976046da2a2b40cd",
+      "after_sha256": "1b526c3dac38db79e33fdd7788b0cbf503604aec2955368e28b6477023ee6a5e",
+      "edits": [
+        {
+          "before_offset": 16419,
+          "after_offset": 16419,
+          "old": "\t\tthis.world.playSoundEffect(avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5, \"hbm:block.rbmk_explosion\", 50.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5, \"hbm:block.rbmk_explosion\", 50.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBoiler.java": {
+      "before_sha256": "3609b28e2d7a20ec234eaea6abbe7dc18fffeec24bf1246a63b4cdad0079a1eb",
+      "after_sha256": "e085dc7200d52b4e8f691b7bb1b72471cdb417212fa9de1aab9ea7cdfd435a0b",
+      "edits": [
+        {
+          "before_offset": 4199,
+          "after_offset": 4199,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world), this.pos.getZ(), \"hbm:block.steamEngineOperate\", 2F, 1F + this.world.rand.nextFloat() * 0.25F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + RBMKDials.getColumnHeight(this.world), this.pos.getZ(), \"hbm:block.steamEngineOperate\", 2F, 1F + this.world.rand.nextFloat() * 0.25F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java": {
+      "before_sha256": "0f2ad275723b2e960588a5ffc8f3dadc315a7d874f038e99fa81bf2aa804400f",
+      "after_sha256": "4dee031dff52c32a036ff101e26143cdd2fce39d20b3b49b9580d5c4f9277202",
+      "edits": [
+        {
+          "before_offset": 2409,
+          "after_offset": 2409,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hatchOpen\", 10.0F, 0.9F);\r\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.hatchOpen\", 10.0F, 0.9F);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java": {
+      "before_sha256": "8bbb609e3841813aae484866cf463d1cd5d3d8a1e040361610b3c9c951eb08cd",
+      "after_sha256": "fa32f4fe43ef563b279b91f7844bb00bbdfb623266f95fef12306e0feff726a3",
+      "edits": [
+        {
+          "before_offset": 2275,
+          "after_offset": 2275,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStart\", 1.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:block.reactorStart\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java": {
+      "before_sha256": "efce040ba2d4d6eaddbe7d8b84ae7f9ed377bd7c4a40734754fbbdcd6f2f76cf",
+      "after_sha256": "7556bcaa927ce17b6d72abc3b87ee0f8166d1f3591b1061d5b7d05ff4f0f8232",
+      "edits": [
+        {
+          "before_offset": 1979,
+          "after_offset": 1979,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.chekhov_fire\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.chekhov_fire\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java": {
+      "before_sha256": "30f0d0a6f6c4d9c24f027b48c7859a0f15dfeb91b351d840ac5577ba5a150706",
+      "after_sha256": "89c554b6c3d2b7164f2b804441abd58ea0b974943de6c58aa34d1ccaa641156b",
+      "edits": [
+        {
+          "before_offset": 6695,
+          "after_offset": 6695,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.rocketFlame\", 25.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.rocketFlame\", 25.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java": {
+      "before_sha256": "703a34770474e1280d13e7321822299223874d9833d7440733241e60d46919a6",
+      "after_sha256": "b42d1c88d387a638cdab4a950148d2f1e040858983debd9080e630a57850397b",
+      "edits": [
+        {
+          "before_offset": 2340,
+          "after_offset": 2340,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_reload\", 4.0F, 1F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_reload\", 4.0F, 1F);\n"
+        },
+        {
+          "before_offset": 2665,
+          "after_offset": 2687,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_fire\", 4.0F, 0.9F + this.world.rand.nextFloat() * 0.3F);\n\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_fire\", 4.0F, 1F + this.world.rand.nextFloat() * 0.3F);\n",
+          "new": "\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_fire\", 4.0F, 0.9F + this.world.rand.nextFloat() * 0.3F);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_fire\", 4.0F, 1F + this.world.rand.nextFloat() * 0.3F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHowardDamaged.java": {
+      "before_sha256": "16167a0a3b2b5c390a022e2ba4ef2ea6d360213f00054dff1b4fc93d84b5ec32",
+      "after_sha256": "73d6f3c6a4ca7d5d636198671360e4a683e3d1be80cfae2853275474c0c430c2",
+      "edits": [
+        {
+          "before_offset": 1657,
+          "after_offset": 1657,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_fire\", 4.0F, 0.7F + this.world.rand.nextFloat() * 0.3F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.howard_fire\", 4.0F, 0.7F + this.world.rand.nextFloat() * 0.3F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java": {
+      "before_sha256": "84167a9885d98384d9fd17aa974ca9b2b63706bd4fe1ba140afb24c6b178d434",
+      "after_sha256": "34af8c8f186f6fe3e4924b2ba39801a7bf354670eace6acbcbdf9a9277ee7b48",
+      "edits": [
+        {
+          "before_offset": 2561,
+          "after_offset": 2561,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.richard_fire\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.richard_fire\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java": {
+      "before_sha256": "7e797d99b4260e70b5a1afaac9d95a6dc8b0442a4c87af7d987fcb4c929f4397",
+      "after_sha256": "c2c4c4576377db521dbb30fcf1d7107a1651753e16d86354108f174f75fd672e",
+      "edits": [
+        {
+          "before_offset": 3577,
+          "after_offset": 3577,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.sentry_fire\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.sentry_fire\", 2.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentryDamaged.java": {
+      "before_sha256": "1a4fe3822ba8971b8fb60e4bc8007870a4c1bdcb95180444606f63dfc967b669",
+      "after_sha256": "06c0c6b785c6a3da3c0fdc4d894f2cfae2e1bf8ee763d35e3e99c4d67e082bd1",
+      "edits": [
+        {
+          "before_offset": 1518,
+          "after_offset": 1518,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.sentry_fire\", 2.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.sentry_fire\", 2.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 2056,
+          "after_offset": 2078,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.sentry_fire\", 2.0F, 0.75F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:turret.sentry_fire\", 2.0F, 0.75F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java": {
+      "before_sha256": "043e9a407361b240dcad3151badefa0d389fabebe4a2aa922f93d854be329385",
+      "after_sha256": "2fb1167df11cf14073eb17fa36ba93e89fd772e1ae780552521abf46b67448ed",
+      "edits": [
+        {
+          "before_offset": 2569,
+          "after_offset": 2569,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.tauShoot\", 4.0F, 0.9F + this.world.rand.nextFloat() * 0.3F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"hbm:weapon.tauShoot\", 4.0F, 0.9F + this.world.rand.nextFloat() * 0.3F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Barrel.java": {
+      "before_sha256": "6b5eee858cb5b0756c9664187be25d1467c8b425c20b2a80d6442aa3f43a554f",
+      "after_sha256": "b928ff9722df1dece7e488afdb8b9b4a6e69410bee07c1ec8f5976a306358731",
+      "edits": [
+        {
+          "before_offset": 2617,
+          "after_offset": 2617,
+          "old": "\t\tworld.setBlock(x + 1, y + -1, z + 0, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 0, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 0, Block1, 0, 3);\n\t\tworld.setBlock(x + 0, y + -1, z + 1, Block1, 0, 3);\n\t\tworld.setBlock(x + 1, y + -1, z + 1, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 1, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 1, Block1, 0, 3);\n\t\tworld.setBlock(x + 4, y + -1, z + 1, Block1, 0, 3);\n\t\tworld.setBlock(x + 0, y + -1, z + 2, Block1, 0, 3);\n\t\tworld.setBlock(x + 1, y + -1, z + 2, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 2, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 2, Block1, 0, 3);\n\t\tworld.setBlock(x + 4, y + -1, z + 2, Block1, 0, 3);\n\t\tworld.setBlock(x + 0, y + -1, z + 3, Block1, 0, 3);\n\t\tworld.setBlock(x + 1, y + -1, z + 3, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 3, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 3, Block1, 0, 3);\n\t\tworld.setBlock(x + 4, y + -1, z + 3, Block1, 0, 3);\n\t\tworld.setBlock(x + 1, y + -1, z + 4, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 4, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 4, Block1, 0, 3);\n\t\tworld.setBlock(x + 1, y + -1, z + 5, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 5, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 5, Block1, 0, 3);\n\t\tworld.setBlock(x + 1, y + -1, z + 6, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + -1, z + 6, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + -1, z + 6, Block1, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 0, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 0, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 0, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + -1, z + 1, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 1, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 1, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 1, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 1, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + -1, z + 2, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 2, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 2, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 2, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 2, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + -1, z + 3, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 3, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 3, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 3, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 3, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 4, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 4, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 4, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 5, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 5, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 5, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -1, z + 6, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 6, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -1, z + 6, Block1);\n"
+        },
+        {
+          "before_offset": 78568,
+          "after_offset": 80053,
+          "old": "\t\tworld.setBlock(x + 0, y + 11, z + 1, Block11, 0, 3);\n\t\tworld.setBlock(x + 0, y + 11, z + 2, Block11, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 2, Block11, 0, 3);\n\t\tworld.setBlock(x + 0, y + 11, z + 3, Block11, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 3, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 11, z + 1, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 11, z + 2, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 2, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 11, z + 3, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 3, Block11);\n"
+        },
+        {
+          "before_offset": 89478,
+          "after_offset": 91238,
+          "old": "\t\tworld.setBlock(x + 1, y + 13, z + 0, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + 13, z + 0, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + 13, z + 0, Block1, 0, 3);\n\t\tworld.setBlock(x + 0, y + 13, z + 1, Block1, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 13, z + 0, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 13, z + 0, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 13, z + 0, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 13, z + 1, Block1);\n"
+        },
+        {
+          "before_offset": 90024,
+          "after_offset": 92004,
+          "old": "\t\tworld.setBlock(x + 4, y + 13, z + 1, Block1, 0, 3);\n\t\tworld.setBlock(x + 0, y + 13, z + 2, Block1, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 13, z + 1, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 13, z + 2, Block1);\n"
+        },
+        {
+          "before_offset": 90352,
+          "after_offset": 92442,
+          "old": "\t\tworld.setBlock(x + 4, y + 13, z + 2, Block1, 0, 3);\n\t\tworld.setBlock(x + 0, y + 13, z + 3, Block1, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 13, z + 2, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 13, z + 3, Block1);\n"
+        },
+        {
+          "before_offset": 90680,
+          "after_offset": 92880,
+          "old": "\t\tworld.setBlock(x + 1, y + 13, z + 4, Block1, 0, 3);\n\t\tworld.setBlock(x + 2, y + 13, z + 4, Block1, 0, 3);\n\t\tworld.setBlock(x + 3, y + 13, z + 4, Block1, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 13, z + 4, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 13, z + 4, Block1);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 13, z + 4, Block1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before_sha256": "dd55ab0e5d7c8603d4b3828842f642e0f150b724bf255396dc8ab4769a50fca3",
+      "after_sha256": "139d09f508b02cd1dec7077c4305d9c05c9fff25ccd70a3a09d53357de4bf2e6",
+      "edits": [
+        {
+          "before_offset": 400097,
+          "after_offset": 400097,
+          "old": "\t\tworld.setBlock(x + 18, y + 1, z + 6, Block11, 0, 3);\n\t\tworld.setBlock(x + 19, y + 1, z + 6, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 1, z + 6, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 1, z + 6, Block11);\n"
+        },
+        {
+          "before_offset": 401705,
+          "after_offset": 401815,
+          "old": "\t\tworld.setBlock(x + 22, y + 1, z + 6, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 1, z + 6, Block11);\n"
+        },
+        {
+          "before_offset": 403422,
+          "after_offset": 403587,
+          "old": "\t\tworld.setBlock(x + 26, y + 1, z + 6, Block11, 0, 3);\n\t\tworld.setBlock(x + 27, y + 1, z + 6, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 1, z + 6, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 1, z + 6, Block11);\n"
+        },
+        {
+          "before_offset": 406691,
+          "after_offset": 406966,
+          "old": "\t\tworld.setBlock(x + 35, y + 1, z + 6, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 6, Block11);\n"
+        },
+        {
+          "before_offset": 480237,
+          "after_offset": 480567,
+          "old": "\t\tworld.setBlock(x + 21, y + 1, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 1, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 482543,
+          "after_offset": 482928,
+          "old": "\t\tworld.setBlock(x + 25, y + 1, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 482655,
+          "after_offset": 483095,
+          "old": "\t\tworld.setBlock(x + 28, y + 1, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 1, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 484961,
+          "after_offset": 485456,
+          "old": "\t\tworld.setBlock(x + 32, y + 1, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 1, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 485188,
+          "after_offset": 485738,
+          "old": "\t\tworld.setBlock(x + 35, y + 1, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 598285,
+          "after_offset": 598890,
+          "old": "\t\tworld.setBlock(x + 21, y + 2, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 2, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 600591,
+          "after_offset": 601251,
+          "old": "\t\tworld.setBlock(x + 27, y + 2, z + 18, Block11, 0, 3);\n\t\tworld.setBlock(x + 28, y + 2, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 2, z + 18, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 2, z + 18, Block11);\n"
+        },
+        {
+          "before_offset": 602953,
+          "after_offset": 603723,
+          "old": "\t\tworld.setBlock(x + 32, y + 2, z + 18, Block11, 0, 3);\n\t\tworld.setBlock(x + 34, y + 2, z + 18, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 2, z + 18, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 2, z + 18, Block11);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before_sha256": "708c5b7283d87857647291fa7ba13bfa47456a919a7dab97abbd32bde8d84ee4",
+      "after_sha256": "e3d270b9a29156797ed7477b8f61872a1ec51aad8e70d6cf602085a8349e513c",
+      "edits": [
+        {
+          "before_offset": 72102,
+          "after_offset": 72102,
+          "old": "\t\tworld.setBlock(x + 33, y + 4, z + 7, Block22, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 4, z + 7, Block22);\n"
+        },
+        {
+          "before_offset": 76025,
+          "after_offset": 76080,
+          "old": "\t\tworld.setBlock(x + 33, y + 4, z + 8, Block22, 0, 3);\n\t\tworld.setBlock(x + 34, y + 4, z + 8, Block22, 0, 3);\n\t\tworld.setBlock(x + 35, y + 4, z + 8, Block22, 0, 3);\n\t\tworld.setBlock(x + 36, y + 4, z + 8, Block22, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 4, z + 8, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 4, z + 8, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 4, z + 8, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 4, z + 8, Block22);\n"
+        },
+        {
+          "before_offset": 131951,
+          "after_offset": 132226,
+          "old": "\t\tworld.setBlock(x + 18, y + 5, z + 6, Block11, 0, 3);\n\t\tworld.setBlock(x + 19, y + 5, z + 6, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 5, z + 6, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 5, z + 6, Block11);\n"
+        },
+        {
+          "before_offset": 148074,
+          "after_offset": 148459,
+          "old": "\t\tworld.setBlock(x + 33, y + 5, z + 7, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 5, z + 7, Block11);\n"
+        },
+        {
+          "before_offset": 149376,
+          "after_offset": 149816,
+          "old": "\t\tworld.setBlock(x + 16, y + 5, z + 8, Block11, 0, 3);\n\t\tworld.setBlock(x + 23, y + 5, z + 8, Block11, 0, 3);\n\t\tworld.setBlock(x + 33, y + 5, z + 8, Block11, 0, 3);\n\t\tworld.setBlock(x + 34, y + 5, z + 8, Block11, 0, 3);\n\t\tworld.setBlock(x + 35, y + 5, z + 8, Block11, 0, 3);\n\t\tworld.setBlock(x + 36, y + 5, z + 8, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 8, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 8, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 5, z + 8, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 5, z + 8, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 5, z + 8, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 5, z + 8, Block11);\n"
+        },
+        {
+          "before_offset": 150672,
+          "after_offset": 151442,
+          "old": "\t\tworld.setBlock(x + 16, y + 5, z + 9, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 9, Block11);\n"
+        },
+        {
+          "before_offset": 150851,
+          "after_offset": 151676,
+          "old": "\t\tworld.setBlock(x + 23, y + 5, z + 9, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 9, Block11);\n"
+        },
+        {
+          "before_offset": 155777,
+          "after_offset": 156657,
+          "old": "\t\tworld.setBlock(x + 23, y + 5, z + 11, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 11, Block11);\n"
+        },
+        {
+          "before_offset": 161231,
+          "after_offset": 162166,
+          "old": "\t\tworld.setBlock(x + 23, y + 5, z + 13, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 5, z + 13, Block11);\n"
+        },
+        {
+          "before_offset": 165363,
+          "after_offset": 166353,
+          "old": "\t\tworld.setBlock(x + 16, y + 5, z + 15, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 15, Block11);\n"
+        },
+        {
+          "before_offset": 166694,
+          "after_offset": 167739,
+          "old": "\t\tworld.setBlock(x + 16, y + 5, z + 16, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 5, z + 16, Block11);\n"
+        },
+        {
+          "before_offset": 206686,
+          "after_offset": 207786,
+          "old": "\t\tworld.setBlock(x + 33, y + 6, z + 7, Block22, 0, 3);\n\t\tworld.setBlock(x + 34, y + 6, z + 7, Block22, 0, 3);\n\t\tworld.setBlock(x + 35, y + 6, z + 7, Block22, 0, 3);\n\t\tworld.setBlock(x + 36, y + 6, z + 7, Block22, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 6, z + 7, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 6, z + 7, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 6, z + 7, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 6, z + 7, Block22);\n"
+        },
+        {
+          "before_offset": 210183,
+          "after_offset": 211503,
+          "old": "\t\tworld.setBlock(x + 33, y + 6, z + 8, Block22, 0, 3);\n\t\tworld.setBlock(x + 34, y + 6, z + 8, Block22, 0, 3);\n\t\tworld.setBlock(x + 35, y + 6, z + 8, Block22, 0, 3);\n\t\tworld.setBlock(x + 36, y + 6, z + 8, Block22, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 6, z + 8, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 6, z + 8, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 6, z + 8, Block22);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 6, z + 8, Block22);\n"
+        },
+        {
+          "before_offset": 347014,
+          "after_offset": 348554,
+          "old": "\t\tworld.setBlock(x + 7, y + 8, z + 10, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 10, Block11);\n"
+        },
+        {
+          "before_offset": 347178,
+          "after_offset": 348773,
+          "old": "\t\tworld.setBlock(x + 9, y + 8, z + 10, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 10, Block11);\n"
+        },
+        {
+          "before_offset": 349062,
+          "after_offset": 350712,
+          "old": "\t\tworld.setBlock(x + 6, y + 8, z + 11, Block11, 0, 3);\n\t\tworld.setBlock(x + 10, y + 8, z + 11, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 8, z + 11, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 8, z + 11, Block11);\n"
+        },
+        {
+          "before_offset": 352177,
+          "after_offset": 353937,
+          "old": "\t\tworld.setBlock(x + 6, y + 8, z + 13, Block11, 0, 3);\n\t\tworld.setBlock(x + 10, y + 8, z + 13, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 8, z + 13, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 8, z + 13, Block11);\n"
+        },
+        {
+          "before_offset": 353797,
+          "after_offset": 355667,
+          "old": "\t\tworld.setBlock(x + 7, y + 8, z + 14, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 14, Block11);\n"
+        },
+        {
+          "before_offset": 353961,
+          "after_offset": 355886,
+          "old": "\t\tworld.setBlock(x + 9, y + 8, z + 14, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 14, Block11);\n"
+        },
+        {
+          "before_offset": 376587,
+          "after_offset": 378567,
+          "old": "\t\tworld.setBlock(x + 7, y + 9, z + 10, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 10, Block11);\n"
+        },
+        {
+          "before_offset": 376751,
+          "after_offset": 378786,
+          "old": "\t\tworld.setBlock(x + 9, y + 9, z + 10, Block11, 0, 3);\n\t\tworld.setBlock(x + 6, y + 9, z + 11, Block11, 0, 3);\n\t\tworld.setBlock(x + 7, y + 9, z + 11, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 10, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 9, z + 11, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 11, Block11);\n"
+        },
+        {
+          "before_offset": 377025,
+          "after_offset": 379225,
+          "old": "\t\tworld.setBlock(x + 9, y + 9, z + 11, Block11, 0, 3);\n\t\tworld.setBlock(x + 10, y + 9, z + 11, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 11, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 9, z + 11, Block11);\n"
+        },
+        {
+          "before_offset": 377682,
+          "after_offset": 379992,
+          "old": "\t\tworld.setBlock(x + 6, y + 9, z + 13, Block11, 0, 3);\n\t\tworld.setBlock(x + 7, y + 9, z + 13, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 9, z + 13, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 13, Block11);\n"
+        },
+        {
+          "before_offset": 377901,
+          "after_offset": 380321,
+          "old": "\t\tworld.setBlock(x + 9, y + 9, z + 13, Block11, 0, 3);\n\t\tworld.setBlock(x + 10, y + 9, z + 13, Block11, 0, 3);\n\t\tworld.setBlock(x + 7, y + 9, z + 14, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 13, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 9, z + 13, Block11);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 14, Block11);\n"
+        },
+        {
+          "before_offset": 378314,
+          "after_offset": 380899,
+          "old": "\t\tworld.setBlock(x + 9, y + 9, z + 14, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 14, Block11);\n"
+        },
+        {
+          "before_offset": 380807,
+          "after_offset": 383447,
+          "old": "\t\tworld.setBlock(x + 7, y + 10, z + 11, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 10, z + 11, Block11);\n"
+        },
+        {
+          "before_offset": 380973,
+          "after_offset": 383668,
+          "old": "\t\tworld.setBlock(x + 9, y + 10, z + 11, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 10, z + 11, Block11);\n"
+        },
+        {
+          "before_offset": 381359,
+          "after_offset": 384109,
+          "old": "\t\tworld.setBlock(x + 7, y + 10, z + 13, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 10, z + 13, Block11);\n"
+        },
+        {
+          "before_offset": 381525,
+          "after_offset": 384330,
+          "old": "\t\tworld.setBlock(x + 9, y + 10, z + 13, Block11, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 10, z + 13, Block11);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Silo.java": {
+      "before_sha256": "816a1de163c5233f519d684f92343dadb69bb7f8ccd79e460c7fdafa0d44fcc5",
+      "after_sha256": "0083d7e4f4b39d35a7b649c4622f9df9d648bd7bb9b20d8535dd5f66b883fde8",
+      "edits": [
+        {
+          "before_offset": 242296,
+          "after_offset": 242296,
+          "old": "\t\tworld.setBlock(x + 8, y + -8, z + 6, Block5, 0, 3);\n\t\tworld.setBlock(x + 9, y + -8, z + 6, Block5, 0, 3);\n\t\tworld.setBlock(x + 10, y + -8, z + 6, Block5, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -8, z + 6, Block5);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -8, z + 6, Block5);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -8, z + 6, Block5);\n"
+        },
+        {
+          "before_offset": 277318,
+          "after_offset": 277483,
+          "old": "\t\tworld.setBlock(x + 8, y + -7, z + 6, Block5, 0, 3);\n\t\tworld.setBlock(x + 9, y + -7, z + 6, Block5, 0, 3);\n\t\tworld.setBlock(x + 10, y + -7, z + 6, Block5, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -7, z + 6, Block5);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -7, z + 6, Block5);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -7, z + 6, Block5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship.java": {
+      "before_sha256": "ab64cf8f8c87638c22e133f1c18410c16842bea34f26a9828cf4447c8ae8042f",
+      "after_sha256": "27a68e34f5a42bffd06617f7812859af971e08bd498d289212b76e2c0d0e356b",
+      "edits": [
+        {
+          "before_offset": 121508,
+          "after_offset": 121508,
+          "old": "\t\tworld.setBlock(x + 4, y + -1, z + 36, Block10, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 36, Block10);\n"
+        },
+        {
+          "before_offset": 122220,
+          "after_offset": 122275,
+          "old": "\t\tworld.setBlock(x + 9, y + -1, z + 36, Block10, 0, 3);\n\t\tworld.setBlock(x + 4, y + -1, z + 37, Block10, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 36, Block10);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 37, Block10);\n"
+        },
+        {
+          "before_offset": 122988,
+          "after_offset": 123153,
+          "old": "\t\tworld.setBlock(x + 9, y + -1, z + 37, Block10, 0, 3);\n\t\tworld.setBlock(x + 4, y + -1, z + 38, Block10, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 37, Block10);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 38, Block10);\n"
+        },
+        {
+          "before_offset": 123756,
+          "after_offset": 124031,
+          "old": "\t\tworld.setBlock(x + 9, y + -1, z + 38, Block10, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 38, Block10);\n"
+        },
+        {
+          "before_offset": 123976,
+          "after_offset": 124306,
+          "old": "\t\tworld.setBlock(x + 5, y + -1, z + 39, Block10, 0, 3);\n\t\tworld.setBlock(x + 6, y + -1, z + 39, Block10, 0, 3);\n\t\tworld.setBlock(x + 7, y + -1, z + 39, Block10, 0, 3);\n\t\tworld.setBlock(x + 8, y + -1, z + 39, Block10, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -1, z + 39, Block10);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -1, z + 39, Block10);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -1, z + 39, Block10);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -1, z + 39, Block10);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

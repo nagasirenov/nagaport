@@ -21,9 +21,9 @@ public class EntityGrenadeNuke extends EntityGrenadeBase {
 	@Override
 	public void explode() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			// this.setDead();
-			this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 30F, true);
+			this.world.createExplosion(this, this.posX, this.posY, this.posZ, 30F, true);
 		}
 	}
 

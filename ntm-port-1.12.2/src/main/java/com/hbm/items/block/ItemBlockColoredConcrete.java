@@ -19,6 +19,6 @@ public class ItemBlockColoredConcrete extends ItemBlockBlastInfo {
 	}
 	
 	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName() + "." + ItemDye.field_150923_a[BlockConcreteColored.func_150032_b(stack.getItemDamage())];
+		return super.getTranslationKey() + "." + ItemDye.field_150923_a[BlockConcreteColored.func_150032_b(stack.getItemDamage())];
 	}
 }

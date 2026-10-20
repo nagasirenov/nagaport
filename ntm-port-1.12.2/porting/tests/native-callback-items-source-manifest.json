@@ -1,0 +1,3381 @@
+{
+  "baseline": "40f6979edd0a80cb7a94cfa91410f40aa5fd02a6",
+  "files": {
+    "src/main/java/com/hbm/items/armor/ArmorAJR.java": {
+      "before_sha256": "8736be4f7d581141ef0045bef51e59427b289a59ae3c2b44fa12c2c7e6cafe72",
+      "after_sha256": "985722f188610e2330a6ff9f76b18dc420d853c38dc4b0a93374e18efb71ac78",
+      "edits": [
+        {
+          "before_offset": 469,
+          "after_offset": 469,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1251,
+          "after_offset": 1204,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1261,
+          "after_offset": 1213,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1262,
+          "after_offset": 1217,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAJRO.java": {
+      "before_sha256": "2df3e050562e3a06e6ea4d86a8de5cfac599127a13f52555e85f9fdebd88bc1e",
+      "after_sha256": "7b2a36362c40e31edf4305b871dc06f88c87c35f17d04c4247777cca65223cb0",
+      "edits": [
+        {
+          "before_offset": 470,
+          "after_offset": 470,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1257,
+          "after_offset": 1210,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1267,
+          "after_offset": 1219,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1268,
+          "after_offset": 1223,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": {
+      "before_sha256": "1d8645bf4e19851d56379326cf77fa7cc1879e3dabbbfd34f12aee96445d7645",
+      "after_sha256": "6045eb39b8446945309924d3a184086d0fd9c8add78da709a91d52b65e00a8e2",
+      "edits": [
+        {
+          "before_offset": 688,
+          "after_offset": 688,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1989,
+          "after_offset": 1942,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1999,
+          "after_offset": 1951,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2000,
+          "after_offset": 1955,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBismuth.java": {
+      "before_sha256": "b16077648491695674c6549ba262db652a72888facdae10301f9292cfce8c212",
+      "after_sha256": "113d33a2f8fa338ac7d66ba55642c8e582346f892839ff384f98753a1d010507",
+      "edits": [
+        {
+          "before_offset": 504,
+          "after_offset": 504,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1196,
+          "after_offset": 1149,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1206,
+          "after_offset": 1158,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1207,
+          "after_offset": 1162,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "5c4d33a8fe423eeeb0d80d9e7641563904773dde6886b74b976b18286786b546",
+      "after_sha256": "aa767fac5cd4a3996e9a6ed4da95babc2e1ddc1670c75fa70bd2cfc789e58290",
+      "edits": [
+        {
+          "before_offset": 1368,
+          "after_offset": 1368,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 6887,
+          "after_offset": 6840,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 6897,
+          "after_offset": 6849,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 6898,
+          "after_offset": 6853,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+      "before_sha256": "eb8e6bcbd2d22089dd4de152280404609b9b166a342d4b41fe8debd5e16c97ae",
+      "after_sha256": "babc9d3c897e6bc582fc336d261286d9a8cd2ff369398e8cad6c78a4e033d723",
+      "edits": [
+        {
+          "before_offset": 756,
+          "after_offset": 756,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1872,
+          "after_offset": 1825,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1882,
+          "after_offset": 1834,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1883,
+          "after_offset": 1838,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "before_sha256": "7d98fef5b4e5c0e6339acb43193cc2f4beb6415ca227807ff64cfd256905fb72",
+      "after_sha256": "76f5a354305de3af218005a7e6956997546193f8df7633e1ce7e5c09afd6145d",
+      "edits": [
+        {
+          "before_offset": 1159,
+          "after_offset": 1159,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3034,
+          "after_offset": 2987,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3044,
+          "after_offset": 2996,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3045,
+          "after_offset": 3000,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDigamma.java": {
+      "before_sha256": "1632a0a1ab6d98fa222be6f13685697ef8a3d95947ad5d32e84658258dcd81b4",
+      "after_sha256": "5af5e69d94529bde0f47afaa9024dcb4a2c9f252231693e6484aafb612731398",
+      "edits": [
+        {
+          "before_offset": 504,
+          "after_offset": 504,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1306,
+          "after_offset": 1259,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1316,
+          "after_offset": 1268,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1317,
+          "after_offset": 1272,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "a80ddcb52c40a73a8cba655e35fe3a4a92592c3e2eae56c63faec9b3f582c480",
+      "after_sha256": "392f904447c90a03d48e53dd1de9e7853d3ad3796836c0cdfef88fa3fa5bf1fa",
+      "edits": [
+        {
+          "before_offset": 939,
+          "after_offset": 939,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3285,
+          "after_offset": 3238,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3295,
+          "after_offset": 3247,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3296,
+          "after_offset": 3251,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHEV.java": {
+      "before_sha256": "7e8dc87e1261a9c400c6667c0988640c7b60154e087503f9a24050cd9261dde8",
+      "after_sha256": "0b1071412a81c70b9f8badcc5015ce7f3bea4513d8c9e48dc3db30117ac64456",
+      "edits": [
+        {
+          "before_offset": 796,
+          "after_offset": 796,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 4894,
+          "after_offset": 4847,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 4904,
+          "after_offset": 4856,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 4905,
+          "after_offset": 4860,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+      "before_sha256": "2a449c9be2cf6f2217e3a8e15dab15009b1da6854ac5915b4dd567d797533414",
+      "after_sha256": "0b547db1ef9098d361ab2c196685cbfea687208f0a7342c6fc9fcf8f2265e4af",
+      "edits": [
+        {
+          "before_offset": 914,
+          "after_offset": 914,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2582,
+          "after_offset": 2535,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2592,
+          "after_offset": 2544,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2593,
+          "after_offset": 2548,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorRPA.java": {
+      "before_sha256": "96319fce7e8ca49dd24f9dfb7dbdd1f82d3123494520b00e1e6ed3d2e5aa1824",
+      "after_sha256": "0b6d79faf6baa8d18bc2bc864f57ae11bcd232109c25dce34688e2554ac309a3",
+      "edits": [
+        {
+          "before_offset": 549,
+          "after_offset": 549,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1351,
+          "after_offset": 1304,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1361,
+          "after_offset": 1313,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1362,
+          "after_offset": 1317,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorT51.java": {
+      "before_sha256": "7765108dc236ea69da17344e63e44fb88b36189efa80b085313a28ef1092a87d",
+      "after_sha256": "58390925ceec035dc9a0e5ecb58d0c349c3fe7a280acaddbd5a4267db065a16d",
+      "edits": [
+        {
+          "before_offset": 469,
+          "after_offset": 469,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1251,
+          "after_offset": 1204,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1261,
+          "after_offset": 1213,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1262,
+          "after_offset": 1217,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTaurun.java": {
+      "before_sha256": "2e72285b0827d3f5aa200e77f5338de1ef137b2846d7e01cfdf475052065d9d1",
+      "after_sha256": "b815e6726a089a869202f7aad31734a97dfdfa01fce58254bae9eb0389da2441",
+      "edits": [
+        {
+          "before_offset": 503,
+          "after_offset": 503,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1206,
+          "after_offset": 1159,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1216,
+          "after_offset": 1168,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1217,
+          "after_offset": 1172,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": {
+      "before_sha256": "df181cd9c17d9fe4eb57f0fc39dc71444e42f256d17d1b9d30dff76c660100ba",
+      "after_sha256": "c4ca2a478d46b424b5d32b1f84c0c5ffcc420850ae2c2ebc5d40af721571bcc6",
+      "edits": [
+        {
+          "before_offset": 774,
+          "after_offset": 774,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3438,
+          "after_offset": 3391,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3448,
+          "after_offset": 3400,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3449,
+          "after_offset": 3404,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "a59235eaf46bd40d34d75f58b1cfb639e7b62e7209db49c36def5d072ab3a8eb",
+      "after_sha256": "f578f81b064cf939c30f045920028b10df3706d7dba5fe39d9e3eb7b761a4b25",
+      "edits": [
+        {
+          "before_offset": 6370,
+          "after_offset": 6370,
+          "old": "",
+          "new": "    private java.util.Set<Item> nativeStaticItems = java.util.Collections.emptySet();\n\n"
+        },
+        {
+          "before_offset": 7435,
+          "after_offset": 7522,
+          "old": "",
+          "new": "nativeStaticItems = "
+        },
+        {
+          "before_offset": 36483,
+          "after_offset": 36590,
+          "old": "\t\t",
+          "new": "        "
+        },
+        {
+          "before_offset": 36511,
+          "after_offset": 36624,
+          "old": "\n\t\tfor(En",
+          "new": "        java.u"
+        },
+        {
+          "before_offset": 36521,
+          "after_offset": 36639,
+          "old": "ry",
+          "new": "il.Map"
+        },
+        {
+          "before_offset": 36546,
+          "after_offset": 36668,
+          "old": "",
+          "new": "nativeCallbacks = new java.util.Id"
+        },
+        {
+          "before_offset": 36549,
+          "after_offset": 36705,
+          "old": "r",
+          "new": "it"
+        },
+        {
+          "before_offset": 36551,
+          "after_offset": 36708,
+          "old": "",
+          "new": "HashMap<>();\n"
+        },
+        {
+          "before_offset": 36552,
+          "after_offset": 36722,
+          "old": ":",
+          "new": ""
+        },
+        {
+          "before_offset": 36554,
+          "after_offset": 36723,
+          "old": "",
+          "new": "      nativeCallbacks.putAll("
+        },
+        {
+          "before_offset": 36581,
+          "after_offset": 36779,
+          "old": ".entrySet())\n\t\t\tMinecraftForgeClient.registerItemRenderer(entry.getKey(), entry.getValue()",
+          "new": ""
+        },
+        {
+          "before_offset": 36674,
+          "after_offset": 36782,
+          "old": "\n\t\t//",
+          "new": "        for(Objec"
+        },
+        {
+          "before_offset": 36680,
+          "after_offset": 36800,
+          "old": "his bit registers an item",
+          "new": ""
+        },
+        {
+          "before_offset": 36715,
+          "after_offset": 36810,
+          "old": "for every existing tile entity renderer that implements IItemRendererProvider\n\t\tIterator iterator =",
+          "new": ":"
+        },
+        {
+          "before_offset": 36853,
+          "after_offset": 36850,
+          "old": "mapSpecialR",
+          "new": "r"
+        },
+        {
+          "before_offset": 36881,
+          "after_offset": 36868,
+          "old": ".iterator();\n\t\twhile(iterator.hasNext()",
+          "new": ""
+        },
+        {
+          "before_offset": 36924,
+          "after_offset": 36872,
+          "old": "\t\t\tObject",
+          "new": ""
+        },
+        {
+          "before_offset": 36934,
+          "after_offset": 36873,
+          "old": "renderer",
+          "new": ""
+        },
+        {
+          "before_offset": 36943,
+          "after_offset": 36874,
+          "old": "=",
+          "new": ""
+        },
+        {
+          "before_offset": 36945,
+          "after_offset": 36875,
+          "old": "iterator.next();\n\t\t\t",
+          "new": "         "
+        },
+        {
+          "before_offset": 37013,
+          "after_offset": 36932,
+          "old": "\t\t\t\t",
+          "new": "                "
+        },
+        {
+          "before_offset": 37043,
+          "after_offset": 36974,
+          "old": "",
+          "new": "ider"
+        },
+        {
+          "before_offset": 37080,
+          "after_offset": 37015,
+          "old": "\t\t\t\t",
+          "new": "                "
+        },
+        {
+          "before_offset": 37104,
+          "after_offset": 37051,
+          "old": "",
+          "new": "ider"
+        },
+        {
+          "before_offset": 37128,
+          "after_offset": 37079,
+          "old": "{\n\t\t\t\t\tM",
+          "new": "nat"
+        },
+        {
+          "before_offset": 37137,
+          "after_offset": 37083,
+          "old": "necraftForg",
+          "new": "v"
+        },
+        {
+          "before_offset": 37150,
+          "after_offset": 37086,
+          "old": "",
+          "new": "a"
+        },
+        {
+          "before_offset": 37151,
+          "after_offset": 37088,
+          "old": "ien",
+          "new": "lbacks.pu"
+        },
+        {
+          "before_offset": 37155,
+          "after_offset": 37098,
+          "old": ".registerItemRenderer",
+          "new": ""
+        },
+        {
+          "before_offset": 37187,
+          "after_offset": 37109,
+          "old": "",
+          "new": "ider"
+        },
+        {
+          "before_offset": 37204,
+          "after_offset": 37130,
+          "old": "\t\t\t\t",
+          "new": "            "
+        },
+        {
+          "before_offset": 37210,
+          "after_offset": 37144,
+          "old": "\t\t\t",
+          "new": "        "
+        },
+        {
+          "before_offset": 37215,
+          "after_offset": 37154,
+          "old": "\t\t}\n\n\t\t//",
+          "new": ""
+        },
+        {
+          "before_offset": 37225,
+          "after_offset": 37155,
+          "old": "same",
+          "new": ""
+        },
+        {
+          "before_offset": 37230,
+          "after_offset": 37156,
+          "old": "crap",
+          "new": ""
+        },
+        {
+          "before_offset": 37235,
+          "after_offset": 37157,
+          "old": "but",
+          "new": "    "
+        },
+        {
+          "before_offset": 37242,
+          "after_offset": 37165,
+          "old": "",
+          "new": "(Item"
+        },
+        {
+          "before_offset": 37247,
+          "after_offset": 37175,
+          "old": "s",
+          "new": ""
+        },
+        {
+          "before_offset": 37249,
+          "after_offset": 37176,
+          "old": "directly because why invent a",
+          "new": ":"
+        },
+        {
+          "before_offset": 37281,
+          "after_offset": 37180,
+          "old": "w solu",
+          "new": ""
+        },
+        {
+          "before_offset": 37288,
+          "after_offset": 37181,
+          "old": "ion when this shit works just f",
+          "new": ".m"
+        },
+        {
+          "before_offset": 37322,
+          "after_offset": 37186,
+          "old": "\n\t\tIte",
+          "new": "c"
+        },
+        {
+          "before_offset": 37330,
+          "after_offset": 37189,
+          "old": "",
+          "new": "f"
+        },
+        {
+          "before_offset": 37331,
+          "after_offset": 37191,
+          "old": "",
+          "new": "f"
+        },
+        {
+          "before_offset": 37333,
+          "after_offset": 37194,
+          "old": " itIt",
+          "new": "g"
+        },
+        {
+          "before_offset": 37339,
+          "after_offset": 37196,
+          "old": "",
+          "new": ".f"
+        },
+        {
+          "before_offset": 37340,
+          "after_offset": 37199,
+          "old": "s = Ite",
+          "new": "l.co"
+        },
+        {
+          "before_offset": 37348,
+          "after_offset": 37204,
+          "old": "",
+          "new": "mon"
+        },
+        {
+          "before_offset": 37349,
+          "after_offset": 37208,
+          "old": "itemR",
+          "new": "r"
+        },
+        {
+          "before_offset": 37362,
+          "after_offset": 37217,
+          "old": "iterat",
+          "new": "F"
+        },
+        {
+          "before_offset": 37370,
+          "after_offset": 37220,
+          "old": "();\n\t\twh",
+          "new": "geReg"
+        },
+        {
+          "before_offset": 37379,
+          "after_offset": 37226,
+          "old": "",
+          "new": "stries.ITEMS.getValuesCol"
+        },
+        {
+          "before_offset": 37381,
+          "after_offset": 37253,
+          "old": "(",
+          "new": "ct"
+        },
+        {
+          "before_offset": 37383,
+          "after_offset": 37256,
+          "old": "tItems.hasNext",
+          "new": "on"
+        },
+        {
+          "before_offset": 37403,
+          "after_offset": 37264,
+          "old": "\t\t\tObject",
+          "new": ""
+        },
+        {
+          "before_offset": 37413,
+          "after_offset": 37265,
+          "old": "o",
+          "new": ""
+        },
+        {
+          "before_offset": 37415,
+          "after_offset": 37266,
+          "old": "=",
+          "new": "         "
+        },
+        {
+          "before_offset": 37418,
+          "after_offset": 37277,
+          "old": "tI",
+          "new": "f(i"
+        },
+        {
+          "before_offset": 37423,
+          "after_offset": 37283,
+          "old": "s.next();\n\t\t\tif(o",
+          "new": ""
+        },
+        {
+          "before_offset": 37477,
+          "after_offset": 37320,
+          "old": "\t\t\t\t",
+          "new": "                "
+        },
+        {
+          "before_offset": 37507,
+          "after_offset": 37362,
+          "old": "",
+          "new": "ider"
+        },
+        {
+          "before_offset": 37534,
+          "after_offset": 37393,
+          "old": "o",
+          "new": "item"
+        },
+        {
+          "before_offset": 37537,
+          "after_offset": 37399,
+          "old": "\t\t\t\t",
+          "new": "                "
+        },
+        {
+          "before_offset": 37550,
+          "after_offset": 37424,
+          "old": "it",
+          "new": "own"
+        },
+        {
+          "before_offset": 37553,
+          "after_offset": 37428,
+          "old": "m",
+          "new": "d"
+        },
+        {
+          "before_offset": 37561,
+          "after_offset": 37436,
+          "old": "",
+          "new": "ider"
+        },
+        {
+          "before_offset": 37585,
+          "after_offset": 37464,
+          "old": "{\n\t\t\t\t\tM",
+          "new": "nat"
+        },
+        {
+          "before_offset": 37594,
+          "after_offset": 37468,
+          "old": "",
+          "new": "veCallbacks.put(ow"
+        },
+        {
+          "before_offset": 37596,
+          "after_offset": 37488,
+          "old": "craftForgeClient.registerItemRen",
+          "new": ""
+        },
+        {
+          "before_offset": 37629,
+          "after_offset": 37489,
+          "old": "erer(item",
+          "new": ""
+        },
+        {
+          "before_offset": 37644,
+          "after_offset": 37495,
+          "old": "",
+          "new": "ider"
+        },
+        {
+          "before_offset": 37661,
+          "after_offset": 37516,
+          "old": "\t\t\t\t",
+          "new": "            "
+        },
+        {
+          "before_offset": 37667,
+          "after_offset": 37530,
+          "old": "\t\t\t}\n\t\t",
+          "new": "        "
+        },
+        {
+          "before_offset": 44755,
+          "after_offset": 44619,
+          "old": "M",
+          "new": "nat"
+        },
+        {
+          "before_offset": 44757,
+          "after_offset": 44623,
+          "old": "necraftForg",
+          "new": "v"
+        },
+        {
+          "before_offset": 44770,
+          "after_offset": 44626,
+          "old": "",
+          "new": "a"
+        },
+        {
+          "before_offset": 44771,
+          "after_offset": 44628,
+          "old": "ien",
+          "new": "lbacks.pu"
+        },
+        {
+          "before_offset": 44775,
+          "after_offset": 44638,
+          "old": ".registerItemRenderer",
+          "new": ""
+        },
+        {
+          "before_offset": 48845,
+          "after_offset": 48687,
+          "old": "\t",
+          "new": "        com.hbm.render.item.nativeitem.callback.CallbackItemRegistration callbacks =\n                new com.hbm.render.item.nativeitem.callback.CallbackItemRegistration(nativeCallbacks);\n        MinecraftForge.EVENT_BUS.register(callbacks);\n        java.util.Set<Item> oneMeshItems = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Item, Boolean>());\n        oneMeshItems.addAll(nativeStaticItems);\n        oneMeshItems.addAll(callbacks.items());\n        MinecraftForge.EVENT_BUS.register(new com.hbm.render.item.nativeitem.staticfamily.StaticItemEntityOwnership(oneMeshItems, MainRegistry.logger::warn));\n    "
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/ItemRenderBase.java": {
+      "before_sha256": "dcfd289692ac22548fad7e391fa0dc1065aac12ac4459252861ad53b72b9b220",
+      "after_sha256": "6425a7c3e7e548acab57145843b4089e773cd3aefdf7412b0b17669c0c9a7026",
+      "edits": [
+        {
+          "before_offset": 60,
+          "after_offset": 60,
+          "old": "",
+          "new": "import net.minecraft.client.Minecraft;"
+        },
+        {
+          "before_offset": 98,
+          "after_offset": 136,
+          "old": "",
+          "new": "GlStateManager;\nimport net.minecraft.client.renderer.tileentity.TileEntityItemStack"
+        },
+        {
+          "before_offset": 104,
+          "after_offset": 225,
+          "old": "Help",
+          "new": ""
+        },
+        {
+          "before_offset": 149,
+          "after_offset": 266,
+          "old": "",
+          "new": "\n/** Nat"
+        },
+        {
+          "before_offset": 150,
+          "after_offset": 275,
+          "old": "mp",
+          "new": "ve TEISR f"
+        },
+        {
+          "before_offset": 154,
+          "after_offset": 287,
+          "old": "",
+          "new": " the mod's ordered mesh callbacks. Perspective callbacks are\n * owned by CallbackItemModel, no"
+        },
+        {
+          "before_offset": 156,
+          "after_offset": 383,
+          "old": "n",
+          "new": "a r"
+        },
+        {
+          "before_offset": 158,
+          "after_offset": 387,
+          "old": "t.",
+          "new": ""
+        },
+        {
+          "before_offset": 161,
+          "after_offset": 388,
+          "old": "in",
+          "new": "ov"
+        },
+        {
+          "before_offset": 164,
+          "after_offset": 391,
+          "old": "craftf",
+          "new": "d F"
+        },
+        {
+          "before_offset": 174,
+          "after_offset": 398,
+          "old": ".client.IItemR",
+          "new": " r"
+        },
+        {
+          "before_offset": 195,
+          "after_offset": 407,
+          "old": ";",
+          "new": " context or global stack."
+        },
+        {
+          "before_offset": 197,
+          "after_offset": 433,
+          "old": "",
+          "new": " */"
+        },
+        {
+          "before_offset": 235,
+          "after_offset": 474,
+          "old": "",
+          "new": "extends T"
+        },
+        {
+          "before_offset": 236,
+          "after_offset": 484,
+          "old": "mp",
+          "new": ""
+        },
+        {
+          "before_offset": 240,
+          "after_offset": 486,
+          "old": "me",
+          "new": "E"
+        },
+        {
+          "before_offset": 244,
+          "after_offset": 489,
+          "old": "s I",
+          "new": "ity"
+        },
+        {
+          "before_offset": 251,
+          "after_offset": 496,
+          "old": "",
+          "new": "Stack"
+        },
+        {
+          "before_offset": 262,
+          "after_offset": 512,
+          "old": "\n\t",
+          "new": "    "
+        },
+        {
+          "before_offset": 273,
+          "after_offset": 525,
+          "old": "\n\t",
+          "new": " "
+        },
+        {
+          "before_offset": 282,
+          "after_offset": 533,
+          "old": "b",
+          "new": "final v"
+        },
+        {
+          "before_offset": 284,
+          "after_offset": 541,
+          "old": "olean",
+          "new": "id"
+        },
+        {
+          "before_offset": 290,
+          "after_offset": 544,
+          "old": "handleR",
+          "new": "r"
+        },
+        {
+          "before_offset": 302,
+          "after_offset": 550,
+          "old": "T",
+          "new": "B"
+        },
+        {
+          "before_offset": 304,
+          "after_offset": 552,
+          "old": "p",
+          "new": "It"
+        },
+        {
+          "before_offset": 306,
+          "after_offset": 555,
+          "old": "",
+          "new": "m"
+        },
+        {
+          "before_offset": 321,
+          "after_offset": 571,
+          "old": ", ItemRenderType type",
+          "new": ""
+        },
+        {
+          "before_offset": 346,
+          "after_offset": 575,
+          "old": "\t\tsw",
+          "new": "        "
+        },
+        {
+          "before_offset": 351,
+          "after_offset": 584,
+          "old": "",
+          "new": "n"
+        },
+        {
+          "before_offset": 352,
+          "after_offset": 586,
+          "old": "ch(",
+          "new": " "
+        },
+        {
+          "before_offset": 356,
+          "after_offset": 588,
+          "old": "yp",
+          "new": ""
+        },
+        {
+          "before_offset": 359,
+          "after_offset": 589,
+          "old": ") {\n\t\tcase EQUIPPED:\n\t\tcase EQUIPPED_FIRST_PERSON:\n\t\tcase ENTITY:\n\t\tcase INVENTORY:\n\t\t\tre",
+          "new": "x"
+        },
+        {
+          "before_offset": 451,
+          "after_offset": 593,
+          "old": "n",
+          "new": "e"
+        },
+        {
+          "before_offset": 453,
+          "after_offset": 595,
+          "old": "true;\n\t\tdefau",
+          "new": "= GL11.g"
+        },
+        {
+          "before_offset": 467,
+          "after_offset": 604,
+          "old": "t: r",
+          "new": "G"
+        },
+        {
+          "before_offset": 473,
+          "after_offset": 607,
+          "old": "ur",
+          "new": "I"
+        },
+        {
+          "before_offset": 476,
+          "after_offset": 609,
+          "old": " fals",
+          "new": "t"
+        },
+        {
+          "before_offset": 482,
+          "after_offset": 611,
+          "old": ";\n\t\t}\n\t}\n\n\t@Override\n\tpublic boolean shouldUseRenderHelp",
+          "new": "g"
+        },
+        {
+          "before_offset": 541,
+          "after_offset": 615,
+          "old": "Item",
+          "new": "GL11.GL_TEXTU"
+        },
+        {
+          "before_offset": 546,
+          "after_offset": 629,
+          "old": "enderType type, ItemStack item, ItemRendererHelper helper) {\n\t\treturn type == ItemRenderType.",
+          "new": ""
+        },
+        {
+          "before_offset": 640,
+          "after_offset": 630,
+          "old": "NTITY && (helper == ItemRendererHelper.ENTITY",
+          "new": ""
+        },
+        {
+          "before_offset": 686,
+          "after_offset": 631,
+          "old": "BOB",
+          "new": ""
+        },
+        {
+          "before_offset": 692,
+          "after_offset": 634,
+          "old": "",
+          "new": "DIN"
+        },
+        {
+          "before_offset": 693,
+          "after_offset": 638,
+          "old": " || helper == ItemRendererHelper.ENTITY",
+          "new": ""
+        },
+        {
+          "before_offset": 733,
+          "after_offset": 639,
+          "old": "ROTATION",
+          "new": "2D"
+        },
+        {
+          "before_offset": 744,
+          "after_offset": 644,
+          "old": "\t}\n\t\n\t@Override\n\tpublic",
+          "new": ""
+        },
+        {
+          "before_offset": 768,
+          "after_offset": 645,
+          "old": "void",
+          "new": ""
+        },
+        {
+          "before_offset": 773,
+          "after_offset": 646,
+          "old": "renderItem(ItemRenderType",
+          "new": ""
+        },
+        {
+          "before_offset": 799,
+          "after_offset": 647,
+          "old": "type,",
+          "new": ""
+        },
+        {
+          "before_offset": 805,
+          "after_offset": 648,
+          "old": "ItemStack",
+          "new": ""
+        },
+        {
+          "before_offset": 815,
+          "after_offset": 649,
+          "old": "item,",
+          "new": ""
+        },
+        {
+          "before_offset": 821,
+          "after_offset": 650,
+          "old": "Object...",
+          "new": ""
+        },
+        {
+          "before_offset": 831,
+          "after_offset": 651,
+          "old": "data)",
+          "new": ""
+        },
+        {
+          "before_offset": 837,
+          "after_offset": 652,
+          "old": "{\n\t\t\n\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 865,
+          "after_offset": 673,
+          "old": "\t\t",
+          "new": "        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_LIGHTING_BIT | GL11.GL_CURRENT_BIT);\n        try {\n            "
+        },
+        {
+          "before_offset": 901,
+          "after_offset": 825,
+          "old": "\t\t",
+          "new": "            "
+        },
+        {
+          "before_offset": 938,
+          "after_offset": 872,
+          "old": "\t\t\n\t\t",
+          "new": "            "
+        },
+        {
+          "before_offset": 944,
+          "after_offset": 885,
+          "old": "f(",
+          "new": "n"
+        },
+        {
+          "before_offset": 947,
+          "after_offset": 887,
+          "old": "ype",
+          "new": " tint"
+        },
+        {
+          "before_offset": 952,
+          "after_offset": 894,
+          "old": "=",
+          "new": ""
+        },
+        {
+          "before_offset": 954,
+          "after_offset": 895,
+          "old": "",
+          "new": "Minecraft.getMinecraft().get"
+        },
+        {
+          "before_offset": 958,
+          "after_offset": 927,
+          "old": "Rend",
+          "new": "Colors().colorMultipli"
+        },
+        {
+          "before_offset": 964,
+          "after_offset": 951,
+          "old": "Type.INVENTORY) {\n\t\t\tRenderHelper.enableGUIStandardI",
+          "new": "(i"
+        },
+        {
+          "before_offset": 1019,
+          "after_offset": 956,
+          "old": "Lighting(",
+          "new": ", 0"
+        },
+        {
+          "before_offset": 1031,
+          "after_offset": 962,
+          "old": "\t\t\t",
+          "new": "            "
+        },
+        {
+          "before_offset": 1041,
+          "after_offset": 981,
+          "old": "T",
+          "new": "Colo"
+        },
+        {
+          "before_offset": 1043,
+          "after_offset": 986,
+          "old": "a",
+          "new": "4f((ti"
+        },
+        {
+          "before_offset": 1045,
+          "after_offset": 993,
+          "old": "sla",
+          "new": ""
+        },
+        {
+          "before_offset": 1049,
+          "after_offset": 994,
+          "old": "ed",
+          "new": " >> 16 & 255) / 255F, "
+        },
+        {
+          "before_offset": 1052,
+          "after_offset": 1017,
+          "old": "",
+          "new": "tint >> "
+        },
+        {
+          "before_offset": 1053,
+          "after_offset": 1026,
+          "old": "",
+          "new": " & 255) / 255F, (tint & 255) / 255F"
+        },
+        {
+          "before_offset": 1056,
+          "after_offset": 1064,
+          "old": "0, 0",
+          "new": "F"
+        },
+        {
+          "before_offset": 1063,
+          "after_offset": 1068,
+          "old": "\t\t\tGL11.glRotated(-30,",
+          "new": ""
+        },
+        {
+          "before_offset": 1086,
+          "after_offset": 1069,
+          "old": "1,",
+          "new": ""
+        },
+        {
+          "before_offset": 1089,
+          "after_offset": 1070,
+          "old": "0,",
+          "new": ""
+        },
+        {
+          "before_offset": 1092,
+          "after_offset": 1071,
+          "old": "0);\n\t\t\tGL11.glRotated(45,",
+          "new": ""
+        },
+        {
+          "before_offset": 1118,
+          "after_offset": 1072,
+          "old": "0,",
+          "new": ""
+        },
+        {
+          "before_offset": 1121,
+          "after_offset": 1073,
+          "old": "1,",
+          "new": ""
+        },
+        {
+          "before_offset": 1124,
+          "after_offset": 1074,
+          "old": "0);\n\t\t\tGL11.glScaled(-1,",
+          "new": ""
+        },
+        {
+          "before_offset": 1149,
+          "after_offset": 1075,
+          "old": "-1,",
+          "new": ""
+        },
+        {
+          "before_offset": 1153,
+          "after_offset": 1076,
+          "old": "-1);\n\t\t\trenderInventory();\n\t\t}",
+          "new": ""
+        },
+        {
+          "before_offset": 1184,
+          "after_offset": 1077,
+          "old": "else",
+          "new": ""
+        },
+        {
+          "before_offset": 1189,
+          "after_offset": 1078,
+          "old": "{\n\t\t\t\n\t\t\tif(type",
+          "new": ""
+        },
+        {
+          "before_offset": 1206,
+          "after_offset": 1079,
+          "old": "!=",
+          "new": ""
+        },
+        {
+          "before_offset": 1209,
+          "after_offset": 1080,
+          "old": "ItemRenderType.ENTITY)\n\t\t\t\tGL11.glTranslated(0.5, 0.25, 0);\n\t\t\telse\n\t\t\t\tGL11.glScaled(1.5, 1.5, 1.5);\n\t\t\t\n\t\t\tGL11.glScaled(0.25, 0.25, 0.25);\n\n\t\t\tif(type != ItemRenderType.EQUIPPED)\n\t\t\t\tGL11.glRotated(90, 0, 1, 0);\n\t\t\trenderNonInv();\n\t\t}\n\t\t",
+          "new": ""
+        },
+        {
+          "before_offset": 1465,
+          "after_offset": 1096,
+          "old": "\t\t",
+          "new": "            "
+        },
+        {
+          "before_offset": 1496,
+          "after_offset": 1137,
+          "old": "\t\t",
+          "new": "        } finally {"
+        },
+        {
+          "before_offset": 1499,
+          "after_offset": 1157,
+          "old": "\t\t",
+          "new": "            GlStateManager.bindTexture(texture);\n            GL11.glPopAttrib();\n            "
+        },
+        {
+          "before_offset": 1521,
+          "after_offset": 1270,
+          "old": "\t",
+          "new": "        "
+        },
+        {
+          "before_offset": 1524,
+          "after_offset": 1280,
+          "old": "",
+          "new": "    }"
+        },
+        {
+          "before_offset": 1525,
+          "after_offset": 1286,
+          "old": "\t",
+          "new": "    @Override public final void renderByItem(ItemStack item, float partialTicks) { renderByItem(item); }\n    "
+        },
+        {
+          "before_offset": 1557,
+          "after_offset": 1426,
+          "old": "\t",
+          "new": "    "
+        },
+        {
+          "before_offset": 1592,
+          "after_offset": 1464,
+          "old": "\t",
+          "new": "    "
+        },
+        {
+          "before_offset": 1624,
+          "after_offset": 1499,
+          "old": "\t",
+          "new": "    "
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/nativeitem/staticfamily/StaticItemFamilyBootstrap.java": {
+      "before_sha256": "bb1ecc5528234e803dfba09abb70e0cf1a99fc977fc02ede79b340765780f363",
+      "after_sha256": "899b848d17604213a2c72c516b7aa5a5b8cc4255acd73d6e956b60648f4addd2",
+      "edits": [
+        {
+          "before_offset": 470,
+          "after_offset": 470,
+          "old": "void",
+          "new": "Set<Item>"
+        },
+        {
+          "before_offset": 642,
+          "after_offset": 647,
+          "old": "MinecraftForge.EVENT_BUS.",
+          "new": ""
+        },
+        {
+          "before_offset": 669,
+          "after_offset": 649,
+          "old": "gis",
+          "new": ""
+        },
+        {
+          "before_offset": 673,
+          "after_offset": 650,
+          "old": "e",
+          "new": "u"
+        },
+        {
+          "before_offset": 675,
+          "after_offset": 652,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "before_offset": 677,
+          "after_offset": 653,
+          "old": "ew",
+          "new": ""
+        },
+        {
+          "before_offset": 680,
+          "after_offset": 654,
+          "old": "StaticItemEntityOwnership(",
+          "new": ""
+        },
+        {
+          "before_offset": 719,
+          "after_offset": 667,
+          "old": "), MainRegistry.logger::warn)",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/IItemRendererProvider.java": {
+      "before_sha256": "8444ef3849989e99a762c43e3dee31a081b29d3fc46d7ca97792f0c32eb4c778",
+      "after_sha256": "535921d917851bd6c7021465065419ae113231d5dde6496475ea9c4181cb1f50",
+      "edits": [
+        {
+          "before_offset": 75,
+          "after_offset": 75,
+          "old": "net",
+          "new": "com"
+        },
+        {
+          "before_offset": 79,
+          "after_offset": 79,
+          "old": "",
+          "new": "hb"
+        },
+        {
+          "before_offset": 80,
+          "after_offset": 82,
+          "old": "inec",
+          "new": "."
+        },
+        {
+          "before_offset": 85,
+          "after_offset": 84,
+          "old": "aftforge.cli",
+          "new": ""
+        },
+        {
+          "before_offset": 99,
+          "after_offset": 86,
+          "old": "",
+          "new": "der.i"
+        },
+        {
+          "before_offset": 100,
+          "after_offset": 92,
+          "old": "",
+          "new": "em"
+        },
+        {
+          "before_offset": 101,
+          "after_offset": 95,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 112,
+          "after_offset": 105,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 113,
+          "after_offset": 109,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "before_offset": 308,
+          "after_offset": 303,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 318,
+          "after_offset": 312,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 319,
+          "after_offset": 316,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAnnihilator.java": {
+      "before_sha256": "e61958fc85f15060639a51516b23a81b41cf77d795b27bc584b2e16b63768ad6",
+      "after_sha256": "6e83c4f5c9c29c51c661895c5bd509e698d2cb05eb77e3d1822b7740fbe80ad5",
+      "edits": [
+        {
+          "before_offset": 407,
+          "after_offset": 407,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1916,
+          "after_offset": 1869,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1926,
+          "after_offset": 1878,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1927,
+          "after_offset": 1882,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAssemblyFactory.java": {
+      "before_sha256": "750ce31d70f826ee2b272ccc7958f7b6705178d4db3015d5ea43be55eebfc0bc",
+      "after_sha256": "ae8bb7191e51f03bf81afe0ca70a077cdc9d813d4f5700cdfb3d95a0a73d01c3",
+      "edits": [
+        {
+          "before_offset": 1004,
+          "after_offset": 1004,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 10135,
+          "after_offset": 10088,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 10145,
+          "after_offset": 10097,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 10146,
+          "after_offset": 10101,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAssemblyMachine.java": {
+      "before_sha256": "a9b1e7ceb9034d7ffa486c473332fd6431c1833712d56f429e5583cb364ba7ea",
+      "after_sha256": "425154f848afd99bc0c83ce355720b6d7afd39a24235f2798392eee5d7e31267",
+      "edits": [
+        {
+          "before_offset": 936,
+          "after_offset": 936,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 5035,
+          "after_offset": 4988,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 5045,
+          "after_offset": 4997,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 5046,
+          "after_offset": 5001,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderAutosaw.java": {
+      "before_sha256": "fe6aaa85073c3ceab1b3ce18a4a4a23447decdb4f275a6bb91572b4b9cf2a9ed",
+      "after_sha256": "c00a57db90386d28267e57909116c3fb600742695d27ab30ad36bdf2662bfc60",
+      "edits": [
+        {
+          "before_offset": 429,
+          "after_offset": 429,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2537,
+          "after_offset": 2490,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2547,
+          "after_offset": 2499,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2548,
+          "after_offset": 2503,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBoiler.java": {
+      "before_sha256": "7007c81fe4b02145187463c09ab3f2c8cdcf44911c9d8c52cae6b0d7c6e863b8",
+      "after_sha256": "46cbac20d370ddfcaa5e003961a39cf3529971604bc4ae6f5b53b010962d473f",
+      "edits": [
+        {
+          "before_offset": 463,
+          "after_offset": 463,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1885,
+          "after_offset": 1838,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1895,
+          "after_offset": 1847,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1896,
+          "after_offset": 1851,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCentrifuge.java": {
+      "before_sha256": "60d3c1f14ae5b65337454a0f78866a48cf1a19f0b98295a4e17363893a28dc47",
+      "after_sha256": "a55855d34520ebf7ed58aae9037e39fbe4e7f65999d1b481bdfc2c7aafb33b51",
+      "edits": [
+        {
+          "before_offset": 492,
+          "after_offset": 492,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1996,
+          "after_offset": 1949,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2006,
+          "after_offset": 1958,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2007,
+          "after_offset": 1962,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderChemicalFactory.java": {
+      "before_sha256": "b814b5b8584a3988224f18321a7d86f6dbb0fbfaaca0432172f54ddcbbf21625",
+      "after_sha256": "a05d9416e7eb911785f3ff7a2ce7575a043d8dbcc890a2ff4bf7b789a85e6b04",
+      "edits": [
+        {
+          "before_offset": 475,
+          "after_offset": 475,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2129,
+          "after_offset": 2082,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2139,
+          "after_offset": 2091,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2140,
+          "after_offset": 2095,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderChemicalPlant.java": {
+      "before_sha256": "797748742b7af42af55d5babe29a046e949e6897fc55f44e439f44b9013a3d67",
+      "after_sha256": "abbdecad4aa51516bdef5efe1b58497022c166418a0a4e5308915870daf40199",
+      "edits": [
+        {
+          "before_offset": 728,
+          "after_offset": 728,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3964,
+          "after_offset": 3917,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3974,
+          "after_offset": 3926,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3975,
+          "after_offset": 3930,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderChungus.java": {
+      "before_sha256": "3d356fbededb3a43ab7d259a2cdbc61b0febbced0c28e658758f82b6fb04dddb",
+      "after_sha256": "b27569acd5edaf88b5df39660a20e08cbfb2ccd48daa902fa3cd79395f1f5ba9",
+      "edits": [
+        {
+          "before_offset": 460,
+          "after_offset": 460,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2184,
+          "after_offset": 2137,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2194,
+          "after_offset": 2146,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2195,
+          "after_offset": 2150,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCompressor.java": {
+      "before_sha256": "d5855ed97d48845bd874fcc27408ff2c108874f0ed2002d65abc17add293c155",
+      "after_sha256": "aaf84d6a0d89950be61aad85ff2976fc9d02ba1d674a84198b0ec181f4b35bbe",
+      "edits": [
+        {
+          "before_offset": 433,
+          "after_offset": 433,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2068,
+          "after_offset": 2021,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2078,
+          "after_offset": 2030,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2079,
+          "after_offset": 2034,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCondenser.java": {
+      "before_sha256": "d52bf00bd3b3199defb1d30ca0670d01ac34cf43f55f766d9f01a6be1fec0b7f",
+      "after_sha256": "0ecdd74fcb3fa618776e1ea200008fcd4db7a64ec947e0ff453dc6caff8adeb7",
+      "edits": [
+        {
+          "before_offset": 431,
+          "after_offset": 431,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2189,
+          "after_offset": 2142,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2199,
+          "after_offset": 2151,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2200,
+          "after_offset": 2155,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderConnector.java": {
+      "before_sha256": "173b31fa5d9f6e052d411a8e432c93dcc6278ea869b71fcc438e230404076ba1",
+      "after_sha256": "4a7662e922741ed287c764f9d52d1cb72a71bd6f84681b9ebb1d61d3169e0f78",
+      "edits": [
+        {
+          "before_offset": 312,
+          "after_offset": 312,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1469,
+          "after_offset": 1422,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1479,
+          "after_offset": 1431,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1480,
+          "after_offset": 1435,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderConnectorSuper.java": {
+      "before_sha256": "744dcb6e76d20bb479328a462e79f89cbdd257d3e35576796d28604f9a3003c8",
+      "after_sha256": "a14530cefbd9ddef0619d3c6e93964819530c11898f39fec7d2678cb9305f87f",
+      "edits": [
+        {
+          "before_offset": 317,
+          "after_offset": 317,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1540,
+          "after_offset": 1493,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1550,
+          "after_offset": 1502,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1551,
+          "after_offset": 1506,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCoreComponent.java": {
+      "before_sha256": "6445e2ce461d5ead2c5e7e5219bf8df15b9067e2a96e1cc1b528eede7c928c2f",
+      "after_sha256": "e21df341eed3a65220258f9072d6c2e670aacb341627a1c5f887292f3586188f",
+      "edits": [
+        {
+          "before_offset": 786,
+          "after_offset": 786,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 5394,
+          "after_offset": 5347,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 5404,
+          "after_offset": 5356,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 5405,
+          "after_offset": 5360,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCrashedBomb.java": {
+      "before_sha256": "d894af88a18442cbcd2021a4305641e4be9b2ae4c5d849730952c694d882d5eb",
+      "after_sha256": "1ad15135153cbf2938d557a2920c6db6e8f313936a44455415e9fba2be705809",
+      "edits": [
+        {
+          "before_offset": 528,
+          "after_offset": 528,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2240,
+          "after_offset": 2193,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2250,
+          "after_offset": 2202,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2251,
+          "after_offset": 2206,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCrystallizer.java": {
+      "before_sha256": "e5be02ee03949b4cf6cb550a147140bc7cf79eeb5ab3fb663bd7036ff2165a07",
+      "after_sha256": "706a355fb205e7f3bcfdfd093cd6055ccdccafc00af1239ea8e876fae462c7ac",
+      "edits": [
+        {
+          "before_offset": 448,
+          "after_offset": 448,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1995,
+          "after_offset": 1948,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2005,
+          "after_offset": 1957,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2006,
+          "after_offset": 1961,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDieselGen.java": {
+      "before_sha256": "9d7201e6c2f5dae426490d13ab4f1681794ccbaf5b32f245cdbf6879632f6923",
+      "after_sha256": "38a595c7b792b0ecb99c51021a3ff079bcaa53f412be0833a8f2dd69b58604de",
+      "edits": [
+        {
+          "before_offset": 391,
+          "after_offset": 391,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1746,
+          "after_offset": 1699,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1756,
+          "after_offset": 1708,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1757,
+          "after_offset": 1712,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderElectricHeater.java": {
+      "before_sha256": "3a4000990756e4074689429e9ddc6e09177e4a1a1cf7611c34af091fc9d3e9ec",
+      "after_sha256": "01936c8007d96df0f0261404573572c185daba2414aea35d38e2b02552ba08b4",
+      "edits": [
+        {
+          "before_offset": 407,
+          "after_offset": 407,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1327,
+          "after_offset": 1280,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1337,
+          "after_offset": 1289,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1338,
+          "after_offset": 1293,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFan.java": {
+      "before_sha256": "631f14da720b16bbf722050c9d07f0f7488809b07295924f643b6beec133f04e",
+      "after_sha256": "5d0e94c0af060015c6b489bfb070b75486fab7967d868b887c73496c3cd29172",
+      "edits": [
+        {
+          "before_offset": 388,
+          "after_offset": 388,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1575,
+          "after_offset": 1528,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1585,
+          "after_offset": 1537,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1586,
+          "after_offset": 1541,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java": {
+      "before_sha256": "5a483c52a2ff1abb847cd09aafef8fa34d2681203bb271562f09a9efdb7cf5c4",
+      "after_sha256": "5227d3e18e15b3a3da2421b0b0ddf7a7a8dbcdb97b6d06c7568f1e469a5a3788",
+      "edits": [
+        {
+          "before_offset": 434,
+          "after_offset": 434,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2083,
+          "after_offset": 2036,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2093,
+          "after_offset": 2045,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2094,
+          "after_offset": 2049,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFloodlight.java": {
+      "before_sha256": "665cd8e9f4ca683aacdc108c6a67443fc8bd4233c57a2dab6d5c7d17c137056b",
+      "after_sha256": "8661a7869977197d49442ca51b401a8687f9ee8c2a3a4912a2ee5d94f6672f0b",
+      "edits": [
+        {
+          "before_offset": 482,
+          "after_offset": 482,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2457,
+          "after_offset": 2410,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2467,
+          "after_offset": 2419,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2468,
+          "after_offset": 2423,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFluidTank.java": {
+      "before_sha256": "70203a3390209a697bf8c4203bdd9a37dc7c268e3e2c1e097e09bfa38a23f157",
+      "after_sha256": "35c1311a33bf78274ff929274390b9d99c995debfbcfdea84c99d909636d7b76",
+      "edits": [
+        {
+          "before_offset": 829,
+          "after_offset": 829,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3723,
+          "after_offset": 3676,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3733,
+          "after_offset": 3685,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3734,
+          "after_offset": 3689,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFusionKlystron.java": {
+      "before_sha256": "5490a9f5342e85df6061e0b0bea1e01e60287c405adc579c23b5237d4664d50e",
+      "after_sha256": "70f2f61b386a706a4fa22783cdce8b06dfe38dec7e6550c191d80e9d2d20e939",
+      "edits": [
+        {
+          "before_offset": 437,
+          "after_offset": 437,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1825,
+          "after_offset": 1778,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1835,
+          "after_offset": 1787,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1836,
+          "after_offset": 1791,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFusionKlystronCreative.java": {
+      "before_sha256": "a049cd99bd9e2270481bead48af03033e923e262d42401e0d14efd6658eee4ac",
+      "after_sha256": "aba795da673019d52b131e1e7009cdacf5c7ed368093777c63d8baa494881320",
+      "edits": [
+        {
+          "before_offset": 445,
+          "after_offset": 445,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1875,
+          "after_offset": 1828,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1885,
+          "after_offset": 1837,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1886,
+          "after_offset": 1841,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFusionMHDT.java": {
+      "before_sha256": "d0ab94aeacbfc5a32dbf65f55f67502ba6eeb5a71d459400c9fe226302d94637",
+      "after_sha256": "6ba8f2fb92a034b72a03e82b1ad4afc81d0030ef6c3801d8020438e55e08201e",
+      "edits": [
+        {
+          "before_offset": 433,
+          "after_offset": 433,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1770,
+          "after_offset": 1723,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1780,
+          "after_offset": 1732,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1781,
+          "after_offset": 1736,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderFusionTorus.java": {
+      "before_sha256": "acc29298e9a761342900efaefadfa11de8bbcbfb0cb72fab5411f19850d2e28b",
+      "after_sha256": "35f0a13a647a95be7df8f32dc30599da6c661abf39df9d1da548fc36825846d0",
+      "edits": [
+        {
+          "before_offset": 588,
+          "after_offset": 588,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 4400,
+          "after_offset": 4353,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 4410,
+          "after_offset": 4362,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 4411,
+          "after_offset": 4366,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderHephaestus.java": {
+      "before_sha256": "648287a08c1a7af92cc3d7080ea94c7cbb4581b8fc065e69718b67db14edbb72",
+      "after_sha256": "dda71899cd401949dead18f90ccb1d0360ab23c43d65d01a7c1728e10cc14e7c",
+      "edits": [
+        {
+          "before_offset": 446,
+          "after_offset": 446,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2368,
+          "after_offset": 2321,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2378,
+          "after_offset": 2330,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2379,
+          "after_offset": 2334,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderICF.java": {
+      "before_sha256": "9c2cace4ea54d5abb97cec45a7c0c5adf41d0da6d851b304058af38a449a7a9a",
+      "after_sha256": "ff838f064400273a06e1f7ac55f1d3448921f7d9bf5b45cb6d6765a7c101f3c4",
+      "edits": [
+        {
+          "before_offset": 370,
+          "after_offset": 370,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1329,
+          "after_offset": 1282,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1339,
+          "after_offset": 1291,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1340,
+          "after_offset": 1295,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderIndustrialBoiler.java": {
+      "before_sha256": "7394baf4a0e2232f07b4e9aedac88447a06edad9b608479c82d48419990d4d86",
+      "after_sha256": "149617f9348f56f066904538ea3960000941b0b4fdea9dd4fc2455e1c0f7249d",
+      "edits": [
+        {
+          "before_offset": 369,
+          "after_offset": 369,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1077,
+          "after_offset": 1030,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1087,
+          "after_offset": 1039,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1088,
+          "after_offset": 1043,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderIndustrialTurbine.java": {
+      "before_sha256": "1acbe7892c515b4c3fe51e984c0f3b329903c8d0e0dcc77a9c320a30ae0acb23",
+      "after_sha256": "cf10a67dcb199c4d95837db79eb4a23b0f4c66807b45c6446dc6ebd5429d2c09",
+      "edits": [
+        {
+          "before_offset": 441,
+          "after_offset": 441,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2077,
+          "after_offset": 2030,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2087,
+          "after_offset": 2039,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2088,
+          "after_offset": 2043,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLantern.java": {
+      "before_sha256": "797ac8a06b216d82d45bb9b20683c7fb0a0bb996c38f65e0d7a5d2a17381ce18",
+      "after_sha256": "65a2f5ba9174c803ead91803f665cc7806046afae97b174bc03da78f5f0982dc",
+      "edits": [
+        {
+          "before_offset": 383,
+          "after_offset": 383,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1586,
+          "after_offset": 1539,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1596,
+          "after_offset": 1548,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1597,
+          "after_offset": 1552,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLaunchPadLarge.java": {
+      "before_sha256": "ef0c05198171529b90ee33c1b49003d0f0b6e35f3a520ccf16416fd504573a91",
+      "after_sha256": "2dfe9f87b0e9dde56981f5082a1a27dde16b81ec0a79918635c0985c93f762d2",
+      "edits": [
+        {
+          "before_offset": 771,
+          "after_offset": 771,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 4534,
+          "after_offset": 4487,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 4544,
+          "after_offset": 4496,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 4545,
+          "after_offset": 4500,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderNukeGadget.java": {
+      "before_sha256": "d3f860886c84850f7fa779133d6dfc2c33fad0c6205511446243f8fc94b19b2c",
+      "after_sha256": "f60e1978b1eb151ce85170c817c88c77503569a8f03b09bbd28d346f914c1192",
+      "edits": [
+        {
+          "before_offset": 371,
+          "after_offset": 371,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1485,
+          "after_offset": 1438,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1495,
+          "after_offset": 1447,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1496,
+          "after_offset": 1451,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderOrbitalStation.java": {
+      "before_sha256": "91d89657beebbab9d82de14db913ed36b4c1689bdc30727c6a2c1291824a4903",
+      "after_sha256": "21a29934bdb608eec28764d7113b0cef0e6c5109a394f4b9367509180d61ab30",
+      "edits": [
+        {
+          "before_offset": 654,
+          "after_offset": 654,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2956,
+          "after_offset": 2909,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2966,
+          "after_offset": 2918,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2967,
+          "after_offset": 2922,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderOreSlopper.java": {
+      "before_sha256": "10bced65710cc6786d4ccf7db8f87fc0c7e94542fe9ed21428b7e4effb71a3c8",
+      "after_sha256": "476973f5defee4d549d9685b068bf09c51517d5a64d8c8370949347f64de5192",
+      "edits": [
+        {
+          "before_offset": 688,
+          "after_offset": 688,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3880,
+          "after_offset": 3833,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3890,
+          "after_offset": 3842,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3891,
+          "after_offset": 3846,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderOrrery.java": {
+      "before_sha256": "9688b4f9fbb85dd7cc2c13a5da1baeb238d98d30a5c88b83e20082ce2c267847",
+      "after_sha256": "f80d1e5838a6ef83e187f48f537e843d987fb7bb1a3b7c445f597a8c06c7c1d0",
+      "edits": [
+        {
+          "before_offset": 490,
+          "after_offset": 490,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1123,
+          "after_offset": 1076,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1133,
+          "after_offset": 1085,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1134,
+          "after_offset": 1089,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPABeamline.java": {
+      "before_sha256": "d99d546c215be04f7e10ded5a1975b782f7261f85d0f19ea817c30a99bd02cc7",
+      "after_sha256": "20c960162d29d62a7274cb6d988aa9498622cad7ca0c059db2feb0d6a9760e7b",
+      "edits": [
+        {
+          "before_offset": 433,
+          "after_offset": 433,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1981,
+          "after_offset": 1934,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1991,
+          "after_offset": 1943,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1992,
+          "after_offset": 1947,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPADetector.java": {
+      "before_sha256": "aaa04aca92a32da5fb475d3a6f1ff5e7e3c79fdde27d1e701850618fe6d2eae0",
+      "after_sha256": "06c0680457e9e4b7061d2f396016400c107376f1982025f24e4c150dc8c51938",
+      "edits": [
+        {
+          "before_offset": 370,
+          "after_offset": 370,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1350,
+          "after_offset": 1303,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1360,
+          "after_offset": 1312,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1361,
+          "after_offset": 1316,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPADipole.java": {
+      "before_sha256": "ce8ca46c7deae6771ef38cadfdc5c144d66c15cb3f75d4619cb20249ea66fb36",
+      "after_sha256": "ab92f7d1cdd857df88319c588145799c803a9d6950db42b963234d458a6ea7ec",
+      "edits": [
+        {
+          "before_offset": 332,
+          "after_offset": 332,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1040,
+          "after_offset": 993,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1050,
+          "after_offset": 1002,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1051,
+          "after_offset": 1006,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPAQuadrupole.java": {
+      "before_sha256": "9f53267ad1748a293fa51f93594f83aed0fe1e19f02d06ac4fbc99811a776f44",
+      "after_sha256": "6d35d05328f259647f159414687fefcf5576e718ddd9941de821b5738f3e4d59",
+      "edits": [
+        {
+          "before_offset": 370,
+          "after_offset": 370,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1358,
+          "after_offset": 1311,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1368,
+          "after_offset": 1320,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1369,
+          "after_offset": 1324,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPARFC.java": {
+      "before_sha256": "799321d5ba408a4932d27dea07c434a91c57b1d9b27e51fc0a0fd5b627c36128",
+      "after_sha256": "bb66ae5b0588a46522569074acc6ddf6f7d9481518a4223417bfd420caf6f7cc",
+      "edits": [
+        {
+          "before_offset": 370,
+          "after_offset": 370,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1330,
+          "after_offset": 1283,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1340,
+          "after_offset": 1292,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1341,
+          "after_offset": 1296,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPASource.java": {
+      "before_sha256": "b853aabfa33592afd952cf33d83b13ac1e3f660a1a796d11601cfc3eb8966523",
+      "after_sha256": "5918b78264a39903d21db9b3e98e13e08afb889a4b42ed174ed829c27c14f828",
+      "edits": [
+        {
+          "before_offset": 370,
+          "after_offset": 370,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1342,
+          "after_offset": 1295,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1352,
+          "after_offset": 1304,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1353,
+          "after_offset": 1308,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPUREX.java": {
+      "before_sha256": "49415540409cca944567a9b504dfe67b49d5dfbd2ff3ff80be189c281268a45f",
+      "after_sha256": "a88a6ff7ea19494451a5c802173368c4a0eae039fb7bca823a66796e9558e99f",
+      "edits": [
+        {
+          "before_offset": 498,
+          "after_offset": 498,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1993,
+          "after_offset": 1946,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2003,
+          "after_offset": 1955,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2004,
+          "after_offset": 1959,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPipeAnchor.java": {
+      "before_sha256": "f73e129a8c1920194108c10520a7ac2573299386d77495927dc56241d9c6b15e",
+      "after_sha256": "6c5c86ec08b38c1645e39fb84b053cfeb005433ce220689dce14a9ae17b48df3",
+      "edits": [
+        {
+          "before_offset": 485,
+          "after_offset": 485,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3734,
+          "after_offset": 3687,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3744,
+          "after_offset": 3696,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3745,
+          "after_offset": 3700,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPistonInserter.java": {
+      "before_sha256": "70070c1efb57c4022aff5b00a930d5a470b2db66a6c0be02a84c4707078e4bf3",
+      "after_sha256": "ff8c81630eeee3fcc72d3e38b734975999e3a65fe9894b0d6fae57749a6c722f",
+      "edits": [
+        {
+          "before_offset": 680,
+          "after_offset": 680,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2899,
+          "after_offset": 2852,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2909,
+          "after_offset": 2861,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2910,
+          "after_offset": 2865,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPlushie.java": {
+      "before_sha256": "a01cca991108be5cdf882e758c4be0a52a300c6753228e73335e41d7301cdda1",
+      "after_sha256": "a27093b2954bf8d81daf4e0f6e55539c556a34cdf70f3b01d46d99e90ffbe2c9",
+      "edits": [
+        {
+          "before_offset": 1004,
+          "after_offset": 1004,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 7427,
+          "after_offset": 7380,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 7437,
+          "after_offset": 7389,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 7438,
+          "after_offset": 7393,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPrecAss.java": {
+      "before_sha256": "f49809180da574fcc9609f4bb0c1b8728086399c7e4f1d409fb7a69e1a56f0fd",
+      "after_sha256": "4681ad6eda32350a460fa77248ab2557bbe8e6e6377e192f12e28ee835c0666e",
+      "edits": [
+        {
+          "before_offset": 920,
+          "after_offset": 920,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 4742,
+          "after_offset": 4695,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 4752,
+          "after_offset": 4704,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 4753,
+          "after_offset": 4708,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPump.java": {
+      "before_sha256": "88e295c26a73e0f6c9f0d80475f3c4bffe5955ef344a5174746db8a970b75338",
+      "after_sha256": "32eca63f74b2b30fdc22971510b50170360bc21e100c4f20372da7a5c1ecb547",
+      "edits": [
+        {
+          "before_offset": 468,
+          "after_offset": 468,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2879,
+          "after_offset": 2832,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2889,
+          "after_offset": 2841,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2890,
+          "after_offset": 2845,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPylonMedium.java": {
+      "before_sha256": "133478320c407c5a94b9a1b8041a34c7ce933d677e36462cb95d2422da103aac",
+      "after_sha256": "82100cb3f7eab53dc7ceb4a68706e5b061b261d28c3da32aaa2e088e282fb848",
+      "edits": [
+        {
+          "before_offset": 389,
+          "after_offset": 389,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2080,
+          "after_offset": 2033,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2090,
+          "after_offset": 2042,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2091,
+          "after_offset": 2046,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRadarLarge.java": {
+      "before_sha256": "68001d1abc340c4b6eb88c52f4b6e0a05a6bc6ec42f10b3190b29313c562594c",
+      "after_sha256": "5a2053718990fb49c17e18c6787e6fa79067fdeea5f8ac7e1bbcc59593ceaa9a",
+      "edits": [
+        {
+          "before_offset": 429,
+          "after_offset": 429,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1343,
+          "after_offset": 1296,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1353,
+          "after_offset": 1305,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1354,
+          "after_offset": 1309,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java": {
+      "before_sha256": "b246a44d8fd3633f3c0022fa028a117211a1a1e3582c4b1b4eb7ff6f7c31b7af",
+      "after_sha256": "cdb4c18e800f6e58357ac5d602241233d30048c647ee3ca2af3199d2fb1fc25b",
+      "edits": [
+        {
+          "before_offset": 603,
+          "after_offset": 603,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3856,
+          "after_offset": 3809,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3866,
+          "after_offset": 3818,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3867,
+          "after_offset": 3822,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSawmill.java": {
+      "before_sha256": "83c2b736db0bbd4925e4d5817e6130ea733b5eba25fc7f0c257e459bb6052955",
+      "after_sha256": "d6d80315b6f424aa9001d3dc7a56cf4dc6d0806889d66a64ccdc642a28bd33d6",
+      "edits": [
+        {
+          "before_offset": 460,
+          "after_offset": 460,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2253,
+          "after_offset": 2206,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2263,
+          "after_offset": 2215,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2264,
+          "after_offset": 2219,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSnowglobe.java": {
+      "before_sha256": "5a54acb1e1cd4534bf380ca271f7420ec59c177bc5cddbfbfc466b14acee33f9",
+      "after_sha256": "fb359af36b50d20c576394d72a15313677460715e0d24869a2f846b06fac236f",
+      "edits": [
+        {
+          "before_offset": 727,
+          "after_offset": 727,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3460,
+          "after_offset": 3413,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3470,
+          "after_offset": 3422,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3471,
+          "after_offset": 3426,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSteamEngine.java": {
+      "before_sha256": "6846b4fe0538b82c5ac8d0339804a6cee9807918e18eeb5204c27532c546e469",
+      "after_sha256": "be8b81b4f76815167afbb453981206860faa95ffc4e4c82a11920ffb7f50d863",
+      "edits": [
+        {
+          "before_offset": 464,
+          "after_offset": 464,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2879,
+          "after_offset": 2832,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2889,
+          "after_offset": 2841,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2890,
+          "after_offset": 2845,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderStirling.java": {
+      "before_sha256": "d146469b907b6620686887d9081f911bd61d8c1b2ea98de8006cd0742cd581ea",
+      "after_sha256": "a9124b09e807908e79511a92a53bbeaa7c907714ac580e2ebd589c6297379178",
+      "edits": [
+        {
+          "before_offset": 665,
+          "after_offset": 665,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2978,
+          "after_offset": 2931,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2988,
+          "after_offset": 2940,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2989,
+          "after_offset": 2944,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderStrandCaster.java": {
+      "before_sha256": "196d775d8a777c99841b0a900b1909a58959ddeaa44dc7f35f2865182be6a6da",
+      "after_sha256": "88be633074d89cceeaadfeaed31e87a91aec63abdd76a635c0478158ebf51061",
+      "edits": [
+        {
+          "before_offset": 630,
+          "after_offset": 630,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 3613,
+          "after_offset": 3566,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 3623,
+          "after_offset": 3575,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 3624,
+          "after_offset": 3579,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderTurretHIMARS.java": {
+      "before_sha256": "f8faf1388268e474316f045854cca801a6844d8e3a20d66660e61268ec0325e9",
+      "after_sha256": "65188c800baa096228abd8968ac9ffd2ae06fe06f4aa48a2e8c9650cc5605c04",
+      "edits": [
+        {
+          "before_offset": 565,
+          "after_offset": 565,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 2706,
+          "after_offset": 2659,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 2716,
+          "after_offset": 2668,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 2717,
+          "after_offset": 2672,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderWatzPump.java": {
+      "before_sha256": "9ef22901a0d12ffacf3fdd9773c21f7e363bc626876da47ebe3516da1494728b",
+      "after_sha256": "94d12df5d048f17a148163460e4c9b4abcd266b636acf07151685691f21c5737",
+      "edits": [
+        {
+          "before_offset": 332,
+          "after_offset": 332,
+          "old": "import net.minecraftforge.client.IItemRenderer;",
+          "new": ""
+        },
+        {
+          "before_offset": 1057,
+          "after_offset": 1010,
+          "old": "I",
+          "new": ""
+        },
+        {
+          "before_offset": 1067,
+          "after_offset": 1019,
+          "old": "",
+          "new": "Bas"
+        },
+        {
+          "before_offset": 1068,
+          "after_offset": 1023,
+          "old": "r",
+          "new": ""
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemRegistration.java": "f2015e2c7a62a3931352a8a869d5e014cc391e896158c12e54e40be7100787f0",
+    "src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemModel.java": "6b35f3f4d9d7b0c4e754651459014d5d1cd9a45d16bff860607e729be95dcc1b"
+  }
+}

@@ -179,9 +179,9 @@ public class HazardRegistry {
 	
 	public static void registerItems() {
 		
-		HazardSystem.register(Items.gunpowder, makeData(EXPLOSIVE, 1F));
-		HazardSystem.register(Blocks.tnt, makeData(EXPLOSIVE, 4F));
-		HazardSystem.register(Items.pumpkin_pie, makeData(EXPLOSIVE, 1F));
+		HazardSystem.register(Items.GUNPOWDER, makeData(EXPLOSIVE, 1F));
+		HazardSystem.register(Blocks.TNT, makeData(EXPLOSIVE, 4F));
+		HazardSystem.register(Items.PUMPKIN_PIE, makeData(EXPLOSIVE, 1F));
 		
 		HazardSystem.register(new ItemStack(Item.getItemFromBlock(ModBlocks.bobblehead), 1, 22), makeData(ASBESTOS, 1F)); //this works okay
 		

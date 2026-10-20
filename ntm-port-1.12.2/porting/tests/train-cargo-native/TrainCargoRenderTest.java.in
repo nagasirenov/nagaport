@@ -1,0 +1,39 @@
+import java.util.*;
+import java.lang.reflect.*;
+import com.hbm.entity.train.EntityRailCarCargo;
+import com.hbm.render.entity.item.RenderTrainCargoTramTrailer;
+import com.hbm.render.util.NativeMachineItemRenderer;
+import com.hbm.main.ResourceManager;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import org.lwjgl.opengl.GL11;
+public class TrainCargoRenderTest {
+ static int checks;static final double[][][] LAYOUTS=@LAYOUTS@;
+ static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static float[] matrix(){return NativeMachineItemTest.matrix();}
+ static class Frame extends NativeMachineDrawTest.BaseOwner implements NativeMachineItemRenderer.FrameItemModel {
+  List<double[]> positions=new ArrayList<>();List<float[]> matrices=new ArrayList<>();boolean fail;
+  Frame(){super(NativeMachineDrawTest.icon);}
+  public void renderFrame(EntityItem e,double x,double y,double z,float yaw,float partial,NativeMachineItemRenderer.Display mode){positions.add(new double[]{x,y,z});matrices.add(matrix());check(e.hoverStart==0&&e.getItem().getCount()==1&&yaw==0&&partial==0&&mode==NativeMachineItemRenderer.Display.ENTITY_FRAME,"crate normal-entity-frame contract");if(fail)throw new IllegalStateException("controlled frame failure");}
+ }
+ static void outer(TrainCargoNativeTest.Cargo e,float t){double x=.25,y=.4,z=-.15;x-=e.prevPosX+(e.posX-e.prevPosX)*t-(e.lastRenderX+(e.renderX-e.lastRenderX)*t);y-=e.prevPosY+(e.posY-e.prevPosY)*t-(e.lastRenderY+(e.renderY-e.lastRenderY)*t);z-=e.prevPosZ+(e.posZ-e.prevPosZ)*t-(e.lastRenderZ+(e.renderZ-e.lastRenderZ)*t);GL11.glTranslated(x,y,z);float yaw=e.rotationYaw,previous=e.prevRotationYaw;if(yaw-previous>180)yaw-=360;if(previous-yaw>180)previous-=360;GL11.glRotated(-(previous+(yaw-previous)*t-720),0,1,0);GL11.glRotated(-(e.prevRotationPitch+(e.rotationPitch-e.prevRotationPitch)*t),1,0,0);}
+ static void reset(){NativeMachineDrawTest.reset();GL11.glTranslated(32,32,0);GL11.glScaled(12,12,12);ResourceManager.train_cargo_tram_trailer.calls.clear();ResourceManager.train_cargo_tram_trailer.matrices.clear();}
+ static double[][] layout(int slots){return slots<=0?new double[0][]:LAYOUTS[Math.min(8,(slots-1)/5)];}
+ static void fill(TrainCargoNativeTest.Cargo e,int slots){e.clear();for(int i=0;i<slots;i++)e.setInventorySlotContents(i,new ItemStack(Items.DIAMOND));e.onUpdate();}
+ static NativeMachineDrawTest.Cube cube(){List<BakedQuad> q=new ArrayList<>();FaceBakery b=new FaceBakery();for(EnumFacing f:EnumFacing.values())q.add(b.makeBakedQuad(new org.lwjgl.util.vector.Vector3f(0,0,0),new org.lwjgl.util.vector.Vector3f(16,16,16),new BlockPartFace(null,-1,"test",new BlockFaceUV(new float[]{0,0,16,16},0)),NativeMachineDrawTest.icon.getParticleTexture(),f,ModelRotation.X0_Y0,null,false,true));return new NativeMachineDrawTest.Cube(q,NativeMachineDrawTest.icon.getParticleTexture());}
+ public static void main(String[] args)throws Exception{
+  Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);try(AutoCloseable context=(AutoCloseable)ctor.newInstance()){
+   Method init=Class.forName("MaterialTextureAtlasSpriteNativeTest").getDeclaredMethod("initializeNativeClientSettings");init.setAccessible(true);init.invoke(null);NativeMachineDrawTest.setup();TrainCargoNativeTest.Cargo e=new TrainCargoNativeTest.Cargo();e.world=TrainCargoNativeTest.world(false);e.prevPosX=1;e.posX=2;e.prevPosY=3;e.posY=4;e.prevPosZ=-1;e.posZ=-2;e.lastRenderX=.25;e.renderX=.75;e.lastRenderY=.3;e.renderY=.9;e.lastRenderZ=-.2;e.renderZ=-.7;e.prevRotationPitch=-15;e.rotationPitch=25;
+   RenderTrainCargoTramTrailer renderer=new RenderTrainCargoTramTrailer(NativeMachineDrawTest.mc.getRenderManager());Frame frame=new Frame();NativeMachineDrawTest.model(Item.getItemFromBlock(Blocks.STONE),frame);
+   for(int slots=0;slots<=45;slots++)for(float partial:new float[]{0,.5F,1})for(float[] angles:new float[][]{{170,-170},{-170,170},{30,50}}){fill(e,slots);e.prevRotationYaw=angles[0];e.rotationYaw=angles[1];frame.positions.clear();frame.matrices.clear();reset();float[] original=matrix();renderer.doRender(e,.25,.4,-.15,123,partial);check(Arrays.equals(original,matrix()),"outer matrix restored");check(ResourceManager.train_cargo_tram_trailer.calls.equals(Collections.singletonList("all")),"original train mesh once");float[] mesh=ResourceManager.train_cargo_tram_trailer.matrices.get(0);reset();outer(e,partial);check(Arrays.equals(mesh,matrix()),"interpolation and yaw wrap mesh transform");GL11.glScaled(2,2,2);float[] cargo=matrix();double[][] expected=layout(slots);check(frame.positions.size()==expected.length,"cargo threshold count "+slots);for(int i=0;i<expected.length;i++){check(Arrays.equals(expected[i],frame.positions.get(i)),"original parsed crate position");check(Arrays.equals(cargo,frame.matrices.get(i)),"original crate parent matrix");}}
+   NativeMachineDrawTest.Cube cube=cube();NativeMachineDrawTest.model(Item.getItemFromBlock(Blocks.STONE),cube);for(int slots:new int[]{0,1,6,11,16,21,26,31,36,41,45}){fill(e,slots);reset();cube.queries=0;renderer.doRender(e,.25,.4,-.15,0,.5F);byte[] actual=NativeMachineDrawTest.pixels();check(cube.queries==7*layout(slots).length,"actual native cube draw counts");reset();outer(e,.5F);GL11.glScaled(2,2,2);EntityItem item=new EntityItem(e.world,0,0,0,new ItemStack(Blocks.STONE));item.hoverStart=0;for(double[] p:layout(slots))new NativeMachineItemRenderer().renderFrame(item,p[0],p[1],p[2],0,0,NativeMachineItemRenderer.Display.ENTITY_FRAME);check(Arrays.equals(actual,NativeMachineDrawTest.pixels()),"actual crate framebuffer layout "+slots);}
+   NativeMachineDrawTest.model(Item.getItemFromBlock(Blocks.STONE),frame);fill(e,1);frame.fail=true;reset();float[] before=matrix();boolean failed=false;try{renderer.doRender(e,.25,.4,-.15,0,.5F);}catch(IllegalStateException ex){failed=true;}check(failed&&Arrays.equals(before,matrix()),"item failure restores outer matrix");frame.fail=false;
+   ResourceManager.Draw normal=ResourceManager.train_cargo_tram_trailer;ResourceManager.train_cargo_tram_trailer=new ResourceManager.Draw(){public void renderAll(){throw new IllegalStateException("mesh failure");}};reset();before=matrix();failed=false;try{renderer.doRender(e,.25,.4,-.15,0,.5F);}catch(IllegalStateException ex){failed=true;}check(failed&&Arrays.equals(before,matrix())&&GL11.glIsEnabled(GL11.GL_CULL_FACE),"mesh failure restores cull and matrix");ResourceManager.train_cargo_tram_trailer=normal;GlStateManager.disableCull();check(!GL11.glIsEnabled(GL11.GL_CULL_FACE),"native cull cache coherent");check(GL11.glGetError()==0,"native GL no error");
+   System.out.println("PASS "+checks+" complete native train cargo renderer checks: original layouts/interpolation/yaw, actual cube framebuffers and exception state. Train mesh is recording boundary; no full train/game claim.");
+  }
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "concrete-placement-native/PlacementOwner.java": "ea9eb1094882bf2d75faa513452d2345c262596a679a47d440a4b1521eae6083",
+  "concrete-placement-native/NativeProof.java": "78e62bbf86fea0a824470b24aff1a271e3014336712668636b75398f4fdfbf39",
+  "concrete-placement-native/ownership-proof.log": "1347436e5b7f6734a144962298f8349f7f1fde6216f7b702d29a2009bfe1fa82",
+  "concrete-placement-native/method-size-rejection.log": "5986030f6c11e190e94d64f4334f7cc2c20363ce9fa6c63d98f24cd327735914",
+  "generic-metadata-native/run-native.py": "42396c5d1bea8c094cf02f1ba3c271a6da75af33bb7adf51dbaaa31ab6a4672b",
+  "generic-metadata-native/source-baseline.zip": "00fd338ee83ad053707da076fd9ccf3c06592b67719c4e3ad902da4c8b6edb7d"
+}

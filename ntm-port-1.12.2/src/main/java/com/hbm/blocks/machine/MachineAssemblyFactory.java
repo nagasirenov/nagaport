@@ -69,7 +69,7 @@ public class MachineAssemblyFactory extends BlockDummyable implements ITooltipPr
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityMachineAssemblyFactory)) return;
 		TileEntityMachineAssemblyFactory assemfac = (TileEntityMachineAssemblyFactory) te;
 
@@ -82,7 +82,7 @@ public class MachineAssemblyFactory extends BlockDummyable implements ITooltipPr
 			text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + assemfac.water.getTankType().getLocalizedName());
 			text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + assemfac.lps.getTankType().getLocalizedName());
 			
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 			break;
 		}
 		
@@ -91,7 +91,7 @@ public class MachineAssemblyFactory extends BlockDummyable implements ITooltipPr
 			if(port.compare(x + port.getDir().offsetX, y, z + port.getDir().offsetZ)) {
 				List<String> text = new ArrayList();
 				text.add(TextFormatting.YELLOW + "-> " + TextFormatting.RESET + "Recipe field [" + (i + 1) + "]");
-				ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+				ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 				break;
 			}
 		}

@@ -1,0 +1,10 @@
+PASS exact 29-file frozen production scope
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS all 14 complete machine TESR classes compiled against genuine native APIs; NTM fields/resources are controlled fixtures.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[19:50:55] [main/INFO]: Setting user: AtlasProbe
+PASS 26 actual native bake/reload/base-geometry ownership checks. Direct event methods, not another event-bus proof.
+PASS 111 full native press/mass-storage consumer draw, animation/source-stack/font/gauge/direction/label checks; NTM data/mesh fixtures, not complete game.
+PASS 192 genuine native machine/GUI full-draw, framebuffer effect, custom ownership, renderer replacement and stack checks; no fullmod gameplay claim.
+PASS 41 native generated-model ownership and actual GL frame-matrix checks; not full machine draw or game acceptance.

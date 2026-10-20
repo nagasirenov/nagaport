@@ -1,0 +1,87 @@
+{
+  "baseline": "39837aa8a5fad4d7fde8657e18d1956881fc2bcc",
+  "production_files": {
+    "src/main/java/com/hbm/blocks/generic/BlockSandbags.java": {
+      "change": "modified",
+      "sha256": "4bae51970677270e5f11e85e779a19c29be0cb1c85edc27c0280e79e478223ad",
+      "baseline_sha256": "86c04dcf8c9530c6a7d5d91495400957ad6007803bc522e1721c7885422b8f1c"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBarrier.java": {
+      "change": "modified",
+      "sha256": "0db3083375f682c87b759344fa1e70eb8c651d9d77c0c029ec0ca7d3a0022ed5",
+      "baseline_sha256": "bcee4fad23444309978dbd661c4e9695f82332e35377951e8b610616b7343c0f"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockWoodStructure.java": {
+      "change": "modified",
+      "sha256": "a0e33e396c57138fcb431ac228ffa3e3aaf44d73534b37146c0d7860d89c2691",
+      "baseline_sha256": "517526e8a813ab290de52b13a03a7f534e4bec89c9ed0196ae29088f56b45c35"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRebar.java": {
+      "change": "modified",
+      "sha256": "5fa6ef936af8d9ad82612ef97a59ea5b31edee8006a428b33250ae00171474dd",
+      "baseline_sha256": "85bb677bd1f9c9575a5d9ffaf9ff458885e4727e4920dbde96112c97bbb82efc"
+    },
+    "src/main/java/com/hbm/blocks/generic/UniversalBlockState.java": {
+      "change": "new",
+      "sha256": "477b2f74a8f32c9327e197ecedc7fc759928e29d1827701f01a21c6a67d75c1b"
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase.java": {
+      "change": "modified",
+      "sha256": "00d36c8f495a16901a706c174559e2eaf578d09e99c7d2f463ff238d2b03b2c2",
+      "baseline_sha256": "aa3bfa4d132feb126dae10ac2793aa4ad5ccec29ff5960dd4f1b48a7cf536810"
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDisplay.java": {
+      "change": "modified",
+      "sha256": "c7b6770e151f23263f2d95728293bc6aef7d73c3abe5f5bf9d52870234c4c605",
+      "baseline_sha256": "e18da50e68c228cad1b0ac950a52f1b748c6f3c9ce8eafa4cc3a181d539ce793"
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKKeyPad.java": {
+      "change": "modified",
+      "sha256": "4fa339d3477f66c0467d5b3dc0c42f05d29463061580bbd29ec9e54a939b6154",
+      "baseline_sha256": "babc69eb3b1ae6a3a9652f1a0f15a2c4bfacacaa651eb01216f9b846d336cbae"
+    },
+    "src/main/java/com/hbm/render/block/ISBRHUniversal.java": {
+      "change": "modified",
+      "sha256": "162b2b4a144529945a888caef72959737c87ca91b085391be521494d3bf47a43",
+      "baseline_sha256": "6251653ee49250fe1ffdd14ec04d96dd4f719c8a536ff374a721c897f68290c9"
+    },
+    "src/main/java/com/hbm/render/block/RenderISBRHUniversal.java": {
+      "change": "modified",
+      "sha256": "3b2138e280c04e807086689b99883a72383724cc6fd0f351bb586e413a6dcdd1",
+      "baseline_sha256": "bb67d55e26e8bfadfcafba69a59596ddd71e600b45741a46aa2ed07fae6c2628"
+    },
+    "src/main/java/com/hbm/render/block/nativeblock/UniversalCuboidGeometry.java": {
+      "change": "new",
+      "sha256": "511860977b1bd9ff9819923b65efab60500f5385973f0ed099ede0a16070a4de"
+    },
+    "src/main/java/com/hbm/render/block/nativeblock/UniversalModelFactory.java": {
+      "change": "new",
+      "sha256": "f484f7257a1bcfe3d2d95951a615f825be7e62f309b85e543d1b772a72e34c04"
+    },
+    "src/main/java/com/hbm/main/UniversalBlockModelHandler.java": {
+      "change": "new",
+      "sha256": "6344b107f0541380da93e2f3765ababe5fa4459df83aa87fd7b920238bae122b"
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKDisplay.java": {
+      "change": "modified",
+      "sha256": "32b36051062adc81fe8bb6222372b78cc041d06f6134bc89f049ac12b8873d7c",
+      "baseline_sha256": "8c3c36c0e0e396f085d77eaa9d6c74bbaec13ec9482e22db59b7ae44b891e32d"
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java": {
+      "change": "modified",
+      "sha256": "61407eb5ed45d6073ca7ef8879771b80e6e1b9d10b13b91bea6c0364597f096e",
+      "baseline_sha256": "951919119888b90025c3c6f115ca0eb75a89a1412bd8103249a4a52945886181"
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java": {
+      "change": "modified",
+      "sha256": "e70631468cb510b7229736dc057d35d1c57c8d472735cb4bd5d4db8aa30109d1",
+      "baseline_sha256": "9058cfdcdc2857e2e467521a7f27935a5227341b09c0de03a0816deedf2922b0"
+    }
+  },
+  "shared_parent_integration_files": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/main/ClientProxy.java",
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java"
+  ],
+  "partial_tile_scope": "Only shouldRefresh hooks in the three RBMK panel tiles; remaining tile implementations are external to whole-class compilation."
+}

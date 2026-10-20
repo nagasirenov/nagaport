@@ -2,85 +2,62 @@ package com.hbm.blocks.network;
 
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.inventory.fluid.Fluids;
+import com.hbm.lib.ForgeDirection;
 import com.hbm.lib.Library;
-import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.network.TileEntityPipeExhaust;
 import com.hbm.util.i18n.I18nUtil;
-
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
-import com.hbm.lib.ForgeDirection;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FluidDuctBoxExhaust extends FluidDuctBox {
 
-	public FluidDuctBoxExhaust(Material mat) {
-		super(mat);
-	}
+    public FluidDuctBoxExhaust(Material material) {
+        super(material);
+    }
 
-	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
-		return new TileEntityPipeExhaust();
-	}
+    @Override
+    public TileEntity createNewTileEntity(World world, int metadata) {
+        return new TileEntityPipeExhaust();
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
+    @Override
+    public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection direction, TileEntity tile) {
+        return Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, direction, Fluids.SMOKE) ||
+                Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, direction, Fluids.SMOKE_LEADED) ||
+                Library.canConnectFluid(world, x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, direction, Fluids.SMOKE_POISON);
+    }
 
-		iconStraight = new IIcon[1];
-		iconEnd = new IIcon[1];
-		iconCurveTL = new IIcon[1];
-		iconCurveTR = new IIcon[1];
-		iconCurveBL = new IIcon[1];
-		iconCurveBR = new IIcon[1];
-		iconJunction = new IIcon[1][5];
+    @Override
+    public int getSubCount() {
+        return 1;
+    }
 
-		iconStraight[0] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_straight");
-		iconEnd[0] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_end");
-		iconCurveTL[0] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_curve_tl");
-		iconCurveTR[0] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_curve_tr");
-		iconCurveBL[0] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_curve_bl");
-		iconCurveBR[0] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_curve_br");
-		for(int i = 0; i < 5; i++) iconJunction[0][i] = iconRegister.registerIcon(RefStrings.MODID + ":boxduct_exhaust_junction_" + i);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
+        for(int metadata = 0; metadata < 15; metadata += 3) {
+            items.add(new ItemStack(this, 1, metadata));
+        }
+    }
 
-	public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir, TileEntity tile) {
-		return Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, Fluids.SMOKE) ||
-				Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, Fluids.SMOKE_LEADED) ||
-				Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, Fluids.SMOKE_POISON);
-	}
-
-	@Override
-	public int getSubCount() {
-		return 1;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for(int i = 0; i < 15; i += 3) {
-			list.add(new ItemStack(item, 1, i));
-		}
-	}
-
-	@Override
-	public void printHook(Pre event, World world, int x, int y, int z) {
-		List<String> text = new ArrayList();
-		text.add(Fluids.SMOKE.getLocalizedName());
-		text.add(Fluids.SMOKE_LEADED.getLocalizedName());
-		text.add(Fluids.SMOKE_POISON.getLocalizedName());
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void printHook(Pre event, World world, int x, int y, int z) {
+        List<String> text = new ArrayList<>();
+        text.add(Fluids.SMOKE.getLocalizedName());
+        text.add(Fluids.SMOKE_LEADED.getLocalizedName());
+        text.add(Fluids.SMOKE_POISON.getLocalizedName());
+        ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
+    }
 }

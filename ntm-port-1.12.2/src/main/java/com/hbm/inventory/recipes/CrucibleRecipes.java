@@ -324,7 +324,7 @@ public class CrucibleRecipes extends SerializableRecipe {
 				if(out != null) {
 					ItemStack scrap = ItemScraps.create(new MaterialStack(material, mold.getCost()), true);
 					ItemStack shape = new ItemStack(ModItems.mold, 1, mold.id);
-					ItemStack basin = new ItemStack(mold.size == 0 ? ModBlocks.foundry_mold : mold.size == 1 ? ModBlocks.foundry_basin : Blocks.fire);
+					ItemStack basin = new ItemStack(mold.size == 0 ? ModBlocks.foundry_mold : mold.size == 1 ? ModBlocks.foundry_basin : Blocks.FIRE);
 					ItemStack[] entry = new ItemStack[] {scrap, shape, basin, out};
 					moldRecipes.add(entry);
 				}

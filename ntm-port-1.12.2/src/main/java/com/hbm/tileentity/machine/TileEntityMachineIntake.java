@@ -23,7 +23,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEnergyReceiverMK2, IFluidStandardSenderMK2 {
+public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEnergyReceiverMK2, IFluidStandardSenderMK2, net.minecraft.util.ITickable {
 
 	public FluidTank compair;
 	public long power;
@@ -36,12 +36,12 @@ public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEn
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			boolean isInPressurizedRoom = ChunkAtmosphereManager.proxy.hasAtmosphere(worldObj, xCoord, yCoord, zCoord);
-			CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, xCoord, yCoord, zCoord);
+			boolean isInPressurizedRoom = ChunkAtmosphereManager.proxy.hasAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 			if(this.power >= this.getMaxPower() / 20) {
 				if(atmosphere != null && atmosphere.getPressure() > 0.01D) {
@@ -54,9 +54,9 @@ public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEn
 
 					if(consumption > 0) {
 						if(!isInPressurizedRoom) {
-							FT_Gaseous.capture(worldObj, atmosphere.getMainFluid(), consumption);
+							FT_Gaseous.capture(this.world, atmosphere.getMainFluid(), consumption);
 						} else {
-							List<AtmosphereBlob> blobs = ChunkAtmosphereManager.proxy.getBlobs(worldObj, xCoord, yCoord, zCoord);
+							List<AtmosphereBlob> blobs = ChunkAtmosphereManager.proxy.getBlobs(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 							for(AtmosphereBlob blob : blobs) {
 								if(blob.hasPressure(0.1)) {
 									blob.consume(consumption);
@@ -73,8 +73,8 @@ public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEn
 			}
 
 			for(DirPos pos : getConPos()) {
-				if(this.compair.getFill() > 0) this.tryProvide(compair, worldObj, pos);
-				this.trySubscribe(worldObj, pos);
+				if(this.compair.getFill() > 0) this.tryProvide(compair, this.world, pos);
+				this.trySubscribe(this.world, pos);
 			}
 
 			this.networkPackNT(50);
@@ -115,22 +115,22 @@ public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEn
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX + rot.offsetX, yCoord, zCoord + dir.offsetZ + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ, dir),
 
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
 
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + rot.offsetX * 2 - dir.offsetX, yCoord, zCoord + rot.offsetZ * 2 - dir.offsetZ, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2 - dir.offsetX, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ, rot),
 
-				new DirPos(xCoord - rot.offsetX, yCoord, zCoord - rot.offsetZ, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX - dir.offsetX, yCoord, zCoord - rot.offsetZ - dir.offsetZ, rot.getOpposite())
+				new DirPos(this.pos.getX() - rot.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX - dir.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ - dir.offsetZ, rot.getOpposite())
 		};
 	}
 
 	@Override public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", xCoord, yCoord, zCoord, 0.25F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 10F, 1.0F, 20);
 	}
 
 	@Override public void onChunkUnload() {
@@ -164,10 +164,11 @@ public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEn
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		compair.writeToNBT(nbt, "compair");
+		return nbt;
 	}
 
 	@Override public boolean canConnect(ForgeDirection dir) { return dir != ForgeDirection.UP && dir != ForgeDirection.DOWN; }
@@ -187,12 +188,12 @@ public class TileEntityMachineIntake extends TileEntityLoadedBase implements IEn
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 1,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 2
 					);
 		}
 

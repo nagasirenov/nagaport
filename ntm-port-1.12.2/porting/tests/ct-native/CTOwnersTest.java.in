@@ -1,0 +1,115 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.util.*;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.generic.*;
+import com.hbm.blocks.machine.*;
+import com.hbm.blocks.network.*;
+import com.hbm.lib.RefStrings;
+import com.hbm.main.CTModelHandler;
+import com.hbm.render.block.RenderBlockCT;
+import com.hbm.render.block.ct.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.*;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraftforge.client.model.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+public class CTOwnersTest {
+ static int checks; static final BlockPos POS=new BlockPos(4,20,8);
+ static final Map<String,Block> owners=new LinkedHashMap<>(); static final Map<String,TextureAtlasSprite> sprites=new HashMap<>();
+ static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static Field field(Class<?> c,String name)throws Exception{Field f=c.getDeclaredField(name);f.setAccessible(true);return f;}
+ static class Sprite extends TextureAtlasSprite {Sprite(String name){super(name);setIconWidth(16);setIconHeight(16);initSprite(1024,1024,64+sprites.size()*16,64,false);}}
+ static TextureAtlasSprite sprite(ResourceLocation r){return sprites.computeIfAbsent(r.toString(),Sprite::new);}
+ static class Access implements IBlockAccess {
+  final Block owner,neighbor;final int meta;Access(Block owner,Block neighbor,int meta){this.owner=owner;this.neighbor=neighbor;this.meta=meta;}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?owner.getStateFromMeta(meta):neighbor.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){return null;} public int getCombinedLight(BlockPos p,int light){return 0xA000B0;}
+  public boolean isAirBlock(BlockPos p){return getBlockState(p).getBlock()==Blocks.AIR;} public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing face){return 0;}public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing face,boolean fallback){return getBlockState(p).isOpaqueCube();}
+ }
+ static void setup()throws Exception{Bootstrap.register();net.minecraftforge.fml.common.ModMetadata md=new net.minecraftforge.fml.common.ModMetadata();md.modId="hbm";md.name="CT owner native proof";md.version="test";net.minecraftforge.fml.common.DummyModContainer container=new net.minecraftforge.fml.common.DummyModContainer(md);net.minecraftforge.fml.common.Loader.instance().setupTestHarness(container);net.minecraftforge.fml.common.Loader.instance().setActiveModContainer(container);
+ INITIALIZERS
+ ModBlocks.icf_controller=new Block(Material.IRON){};ModBlocks.pwr_controller=new Block(Material.IRON){};
+ for(Block b:owners.values()){ForgeRegistries.BLOCKS.register(b);Item item=new ItemBlock(b).setRegistryName(b.getRegistryName());ForgeRegistries.ITEMS.register(item);((Map<Block,Item>)field(Item.class,"BLOCK_TO_ITEM").get(null)).put(b,item);}
+ }
+ static void mechanics(){
+  for(Map.Entry<String,Block> entry:owners.entrySet()) {
+   Block b=entry.getValue();String name=entry.getKey();check(b.getBlockState().getValidStates().size()==16,"sixteen metadata "+name);
+   for(int meta=0;meta<16;meta++) {
+    IBlockState s=b.getStateFromMeta(meta);check(b.getMetaFromState(s)==meta,"metadata roundtrip "+name);check(b.getRenderType(s)==EnumBlockRenderType.MODEL,"native render "+name);
+    for(Block other:owners.values()){
+     boolean expected=b==other || b instanceof BlockHadronCoil && other instanceof BlockHadronCoil || b==ModBlocks.deco_steel&&other==ModBlocks.deco_rusty_steel || b==ModBlocks.deco_rusty_steel&&other==ModBlocks.deco_steel;
+     Access w=new Access(b,other,meta);check(((IBlockCT)b).canConnect(w,1,2,3,other)==expected,"exact join predicate "+name);
+     CTContext context=((IExtendedBlockState)b.getExtendedState(s,w,POS)).getValue(CTContext.PROPERTY);
+     for(EnumFacing face:EnumFacing.values())check(context.mask(face)==(expected?255:0),"captured owner joins "+name);
+     check(context.material()==((b instanceof BlockICF||b instanceof BlockPWR)&&meta==1?1:0),"port material only metadata1 "+name);
+    }
+    if(b instanceof BlockNTMGlass) {
+     check(!b.isOpaqueCube(s)&&!b.isFullCube(s),"glass opacity/normal status");
+     check(b.getCollisionBoundingBox(s,new Access(b,Blocks.AIR,meta),POS).equals(Block.FULL_BLOCK_AABB),"glass full collision");
+     check(!b.shouldSideBeRendered(s,new Access(b,b,meta),POS,EnumFacing.UP),"same glass hidden");
+     check(b.shouldSideBeRendered(s,new Access(b,Blocks.AIR,meta),POS,EnumFacing.UP),"air face visible");
+     boolean transparent=Arrays.asList("reinforced_laminate","glass_uranium","glass_trinitite","glass_polonium","glass_ash").contains(name);
+     check(b.getRenderLayer()==(transparent?BlockRenderLayer.TRANSLUCENT:BlockRenderLayer.CUTOUT_MIPPED),"original pass "+name);
+     check(b.quantityDropped(new Random(42))==(name.equals("reinforced_laminate")||name.equals("glass_quartz")?1:0),"original glass drop");
+    }
+   }
+  }
+  for(Block b:new Block[]{ModBlocks.icf_block,ModBlocks.pwr_block})for(Block other:new Block[]{ModBlocks.icf_controller,ModBlocks.pwr_controller})
+   check(((IBlockCT)b).canConnect(new Access(b,other,0),3,2,1,other)==(b==ModBlocks.icf_block&&other==ModBlocks.icf_controller||b==ModBlocks.pwr_block&&other==ModBlocks.pwr_controller),"controller identity join");
+  for(Block b:owners.values())if(b instanceof WireCoated)for(int meta=0;meta<16;meta++)check(((WireCoated)b).createNewTileEntity(null,meta).getClass().getName().equals("com.hbm.tileentity.network.TileEntityCableBaseNT"),"wire tile identity");
+  for(Block b:owners.values())if(b instanceof BlockHadronCoil){List<String> info=new ArrayList<>();((BlockHadronCoil)b).addInformation(ItemStack.EMPTY,null,info,false);check(info.size()==1&&info.get(0).equals("info.coil: "+String.format(java.util.Locale.US,"%,d",((BlockHadronCoil)b).factor)),"coil tooltip factor");}
+ }
+ static void models(File root)throws Exception {
+  SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+  net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);field(net.minecraft.client.Minecraft.class,"instance").set(null,mc);field(net.minecraft.client.Minecraft.class,"resourceManager").set(mc,resources);
+  if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+  CTModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent());
+  ICustomModelLoader loader=(ICustomModelLoader)field(CTModelHandler.class,"LOADER").get(null);
+  resources.reloadResources(Collections.singletonList(new FolderResourcePack(root)));ModelLoaderRegistry.clearModelCache(resources);
+  TextureMap atlas=new TextureMap("textures");ModelManager manager=new ModelManager(atlas);net.minecraft.client.renderer.BlockModelShapes shapes=new net.minecraft.client.renderer.BlockModelShapes(manager);new ModelLoader(resources,atlas,shapes);
+  CTModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent());
+  ModelLoader.onRegisterAllBlocks(shapes);
+  check(((Map<?,?>)field(ModelLoader.class,"customModels").get(null)).size()==480,"exact thirty owners x sixteen metadata item routes");
+  for(Block block:owners.values()) {
+   Map<IBlockState,ModelResourceLocation> routes=shapes.getBlockStateMapper().getVariants(block);check(routes.size()==16,"sixteen world states mapped");
+   for(ModelResourceLocation route:routes.values())check(route.getPath().equals("native_ct/"+block.getRegistryName().getPath().substring(5)+"/world"),"actual state mapper route");
+  }
+  for(Map.Entry<String,Block> e:owners.entrySet())for(String type:new String[]{"world","item"}) {
+   ResourceLocation route=new ResourceLocation("hbm","native_ct/"+e.getKey()+"/"+type);
+   for(String prefix:new String[]{"","models/","block/","models/block/"})check(loader.accepts(new ResourceLocation("hbm",prefix+route.getPath())),"accepted exact loader path");
+   IModel descriptor=ModelLoaderRegistry.getModel(route);check(descriptor!=ModelLoaderRegistry.getMissingModel(),"actual native load "+route);
+   for(ResourceLocation texture:descriptor.getTextures())check(new File(root,"assets/"+texture.getNamespace()+"/textures/"+texture.getPath()+".png").isFile(),"exact original asset "+texture);
+   IBakedModel model=descriptor.bake(descriptor.getDefaultState(),DefaultVertexFormats.ITEM,CTOwnersTest::sprite);check(model instanceof RenderBlockCT,"native CT model "+route);
+   Block b=e.getValue();for(int meta=0;meta<16;meta++) {
+    IBlockState state=b.getExtendedState(b.getStateFromMeta(meta),new Access(b,b,meta),POS);
+    if(type.equals("item")){check(model.getQuads(state,null,0).size()==6,"unsplit item cube");continue;}
+    for(EnumFacing face:EnumFacing.values()) {
+     List<BakedQuad> quads=model.getQuads(state,face,0);check(quads.size()==4,"four fragments");
+     String material=((IExtendedBlockState)state).getValue(CTContext.PROPERTY).material()==1?(e.getKey().equals("pwr_block")?"pwr_casing_port":"icf_block_port"):e.getKey();
+     for(BakedQuad q:quads)check(q.getSprite().getIconName().equals("hbm:blocks/"+material+"_ct"),"joined original material "+route);
+    }
+   }
+  }
+  for(String route:new String[]{"native_ct/unknown/world","native_ct/deco_steel/unknown","native_ct/deco_steel/world/extra"})check(!loader.accepts(new ResourceLocation("hbm",route)),"reject unknown routes");
+  check(!loader.accepts(new ResourceLocation("other","native_ct/deco_steel/world")),"foreign namespace rejected");
+  check(!CTModelHandler.owns(new BlockDecoCT(Material.IRON).setRegistryName("foreign","tile.deco_steel")),"foreign owner ignored");
+  check(!CTModelHandler.owns(new BlockDecoCT(Material.IRON){}.setRegistryName("hbm","tile.deco_steel")),"subclass ignored");
+  check(!CTModelHandler.owns(new Block(Material.IRON){}.setRegistryName("hbm","tile.deco_steel")),"replacement ignored");
+ }
+ public static void main(String[] args)throws Exception{setup();mechanics();models(new File(args[0]));System.out.println("PASS CT real owners/loader "+checks+" assertions");}
+}

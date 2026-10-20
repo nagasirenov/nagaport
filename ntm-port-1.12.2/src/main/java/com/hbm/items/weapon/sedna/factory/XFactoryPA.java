@@ -33,13 +33,13 @@ public class XFactoryPA {
 				.rec(new Receiver(0))
 				.pp(LAMBDA_CLICK_MELEE_PRIMARY).ps(LAMBDA_CLICK_MELEE_SENONDARY).decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				.anim(LAMBDA_MELEE_ANIMS).orchestra(ORCHESTRA)
-				).setUnlocalizedName("gun_pa_melee");
+				).setTranslationKey("gun_pa_melee");
 
 		ModItems.gun_pa_ranged = new ItemGunPA(WeaponQuality.UTILITY, new GunConfig()
 				.draw(0).crosshair(Crosshair.CROSS)
 				.rec(new Receiver(0))
 				.pp(LAMBDA_CLICK_RANGED_PRIMARY).ps(LAMBDA_CLICK_RANGED_SENONDARY).decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
-				).setUnlocalizedName("gun_pa_ranged").setFull3D().setTextureName(RefStrings.MODID + ":gun_pa_ranged");
+				).setTranslationKey("gun_pa_ranged").setFull3D().setTextureName(RefStrings.MODID + ":gun_pa_ranged");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> ORCHESTRA = (stack, ctx) -> {

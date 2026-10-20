@@ -17,7 +17,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachinePlasmaHeater extends BlockDummyable {
 
 	public MachinePlasmaHeater() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class MachinePlasmaHeater extends BlockDummyable {
 			if(pos == null)
 				return false;
 
-			TileEntityMachinePlasmaHeater entity = (TileEntityMachinePlasmaHeater) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachinePlasmaHeater entity = (TileEntityMachinePlasmaHeater) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
@@ -76,9 +76,9 @@ public class MachinePlasmaHeater extends BlockDummyable {
 
         float f = 0.0625F;
 
-        if(world.getBlockMetadata(x, y, z) == ForgeDirection.UP.ordinal() && world.getBlock(x, y + 1, z) != this) {
+        if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == ForgeDirection.UP.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != this) {
     		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + f * 8F, z + 1);
-    	} else if(world.getBlockMetadata(x, y, z) == ForgeDirection.DOWN.ordinal() && world.getBlock(x, y - 1, z) != this) {
+    	} else if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == ForgeDirection.DOWN.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
     		return AxisAlignedBB.getBoundingBox(x, y + f * 8F, z, x + 1, y + 1, z + 1);
     	} else {
     		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);

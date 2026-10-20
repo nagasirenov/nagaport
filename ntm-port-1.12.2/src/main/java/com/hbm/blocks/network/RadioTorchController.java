@@ -23,7 +23,7 @@ import com.hbm.lib.ForgeDirection;
 public class RadioTorchController extends RadioTorchBase {
 
 	public RadioTorchController() {
-		super();
+		super("rtty_controller");
 	}
 
 	@Override
@@ -39,20 +39,20 @@ public class RadioTorchController extends RadioTorchBase {
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityRadioTorchController) {
 			TileEntityRadioTorchController radio = (TileEntityRadioTorchController) te;
 			List<String> text = new ArrayList();
 			text.add(TextFormatting.AQUA + "Freq: " + radio.channel);
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof TileEntityRadioTorchController) return new GUIScreenRadioTorchController((TileEntityRadioTorchController) te);
 		return null;
 	}

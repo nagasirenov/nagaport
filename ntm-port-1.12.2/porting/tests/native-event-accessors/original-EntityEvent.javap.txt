@@ -1,0 +1,13 @@
+Compiled from "EntityEvent.java"
+public class net.minecraftforge.event.entity.EntityEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final sa entity;
+
+  public net.minecraftforge.event.entity.EntityEvent(sa);
+    Code:
+       0: aload_0
+       1: invokespecial #21                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #23                 // Field entity:Lsa;
+       9: return
+}

@@ -18,10 +18,10 @@ public class TileEntityMachineCompressor extends TileEntityMachineCompressorBase
 	private float randSpeed = 0.1F;
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			this.prevFanSpin = this.fanSpin;
 			this.prevPiston = this.piston;
@@ -37,18 +37,18 @@ public class TileEntityMachineCompressor extends TileEntityMachineCompressorBase
 				if(this.pistonDir) {
 					this.piston -= randSpeed;
 					if(this.piston <= 0) {
-						MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:item.boltgun", this.getVolume(0.5F), 0.75F);
+						MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:item.boltgun", this.getVolume(0.5F), 0.75F);
 						this.pistonDir = !this.pistonDir;
 					}
 				} else {
 					this.piston += 0.05F;
 					if(this.piston >= 1) {
-						this.randSpeed = 0.085F + worldObj.rand.nextFloat() * 0.03F;
+						this.randSpeed = 0.085F + this.world.rand.nextFloat() * 0.03F;
 						this.pistonDir = !this.pistonDir;
 					}
 				}
 
-				this.piston = MathHelper.clamp_float(this.piston, 0F, 1F);
+				this.piston = MathHelper.clamp(this.piston, 0F, 1F);
 			}
 		}
 	}
@@ -59,9 +59,9 @@ public class TileEntityMachineCompressor extends TileEntityMachineCompressorBase
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - rot.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
 		};
 	}
 
@@ -72,12 +72,12 @@ public class TileEntityMachineCompressor extends TileEntityMachineCompressorBase
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 9,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 9,
+					this.pos.getZ() + 3
 					);
 		}
 

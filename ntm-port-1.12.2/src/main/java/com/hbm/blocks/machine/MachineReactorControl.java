@@ -73,7 +73,7 @@ public class MachineReactorControl extends BlockContainer {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0)
 		{
@@ -94,7 +94,7 @@ public class MachineReactorControl extends BlockContainer {
 
 		if(itemStack.hasDisplayName())
 		{
-			((TileEntityReactorControl)world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
+			((TileEntityReactorControl)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))).setCustomName(itemStack.getDisplayName());
 		}
 	}
 
@@ -104,7 +104,7 @@ public class MachineReactorControl extends BlockContainer {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
         return Item.getItemFromBlock(this);
     }
@@ -114,7 +114,7 @@ public class MachineReactorControl extends BlockContainer {
     {
         if (!keepInventory)
         {
-        	ISidedInventory tileentityfurnace = (ISidedInventory)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+        	ISidedInventory tileentityfurnace = (ISidedInventory)p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
             if (tileentityfurnace != null)
             {
@@ -122,34 +122,38 @@ public class MachineReactorControl extends BlockContainer {
                 {
                     ItemStack itemstack = tileentityfurnace.getStackInSlot(i1);
 
-                    if (itemstack != null)
+                    if (itemstack != null && !itemstack.isEmpty())
                     {
                         float f = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
                         float f1 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
                         float f2 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 
-                        while (itemstack.stackSize > 0)
+                        while (itemstack.getCount() > 0)
                         {
                             int j1 = this.field_149933_a.nextInt(21) + 10;
 
-                            if (j1 > itemstack.stackSize)
+                            if (j1 > itemstack.getCount())
                             {
-                                j1 = itemstack.stackSize;
+                                j1 = itemstack.getCount();
                             }
 
-                            itemstack.stackSize -= j1;
-                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+                            // Capture before depletion: native empty stacks hide their item.
+                            net.minecraft.item.Item dropItem = itemstack.getItem();
+                            int dropMeta = itemstack.getItemDamage();
+                            NBTTagCompound dropTag = itemstack.getTagCompound();
+                            itemstack.shrink(j1);
+                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));
 
-                            if (itemstack.hasTagCompound())
+                            if (dropTag != null)
                             {
-                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+                                entityitem.getItem().setTagCompound(dropTag.copy());
                             }
 
                             float f3 = 0.05F;
                             entityitem.motionX = (float)this.field_149933_a.nextGaussian() * f3;
                             entityitem.motionY = (float)this.field_149933_a.nextGaussian() * f3 + 0.2F;
                             entityitem.motionZ = (float)this.field_149933_a.nextGaussian() * f3;
-                            p_149749_1_.spawnEntityInWorld(entityitem);
+                            p_149749_1_.spawnEntity(entityitem);
                         }
                     }
                 }
@@ -168,7 +172,7 @@ public class MachineReactorControl extends BlockContainer {
 			return true;
 		} else if(!player.isSneaking())
 		{
-			TileEntityReactorControl entity = (TileEntityReactorControl) world.getTileEntity(x, y, z);
+			TileEntityReactorControl entity = (TileEntityReactorControl) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
@@ -188,7 +192,7 @@ public class MachineReactorControl extends BlockContainer {
 	@Override
     public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_)
     {
-		TileEntityReactorControl entity = (TileEntityReactorControl) world.getTileEntity(x, y, z);
+		TileEntityReactorControl entity = (TileEntityReactorControl) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(entity != null)
 		{

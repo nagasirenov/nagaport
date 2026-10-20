@@ -1,0 +1,16 @@
+// Compile the complete production HFR VBO against real target classes, test its actual
+// float3 payloads independently, and source-audit retained GL calls. No source exclusions.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortVboMesh', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-vbo-mesh.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

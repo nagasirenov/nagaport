@@ -30,7 +30,7 @@ public class EntityBoxcar extends EntityThrowable {
 	@Override
 	public void onUpdate() {
 
-		if(!worldObj.isRemote && this.ticksExisted == 1) {
+		if(!this.world.isRemote && this.ticksExisted == 1) {
 			for(int i = 0; i < 50; i++) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "bf");
@@ -51,23 +51,23 @@ public class EntityBoxcar extends EntityThrowable {
 		if(motionY < -1.5)
 			motionY = -1.5;
 
-		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air) {
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:weapon.trainImpact", 100.0F, 1.0F);
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) this.posX, (int) this.posY, (int) this.posZ).getBlock() != Blocks.AIR) {
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:weapon.trainImpact", 100.0F, 1.0F);
 			this.setDead();
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 3);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 2.5);
-			ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 2);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 2.5);
+			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 2);
 			//ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 1.5);
 			//ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 1);
 
-			List<Entity> list = (List<Entity>) worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 2, posY - 2, posZ - 2, posX + 2, posY + 2, posZ + 2));
+			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 2, posY - 2, posZ - 2, posX + 2, posY + 2, posZ + 2));
 
 			for(Entity e : list) {
 				e.attackEntityFrom(ModDamageSource.boxcar, 1000);
 			}
 
-			if(!worldObj.isRemote)
-				worldObj.setBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY + 0.5), (int) Math.floor(this.posZ), ModBlocks.boxcar);
+			if(!this.world.isRemote)
+				this.world.setBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY + 0.5), (int) Math.floor(this.posZ), ModBlocks.boxcar);
 		}
 	}
 

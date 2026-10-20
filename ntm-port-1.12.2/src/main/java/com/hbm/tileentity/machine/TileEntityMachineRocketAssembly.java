@@ -50,19 +50,19 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineRocketAssembly";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			ItemStack fromStack = slots[slots.length - (RocketStruct.MAX_STAGES - currentStage) * 2];
 			ItemStack toStack = slots[slots.length - (RocketStruct.MAX_STAGES - currentStage) * 2 + 1];
 
 			// updates the orbital station information and syncs it to the client, if necessary
-			ItemVOTVdrive.getTarget(fromStack, worldObj);
-			ItemVOTVdrive.getTarget(toStack, worldObj);
+			ItemVOTVdrive.getTarget(fromStack, this.world);
+			ItemVOTVdrive.getTarget(toStack, this.world);
 
 			rocket = new RocketStruct(slots[0]);
 			if(slots[0] != null && slots[0].getItem() instanceof ISatChip) {
@@ -98,8 +98,8 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 				// Check headroom
 				int maxHeight = Integer.MAX_VALUE;
 				for(int h = 1; h < 256; h++) {
-					Block block = worldObj.getBlock(xCoord, yCoord + h, zCoord);
-					if(!block.isReplaceable(worldObj, xCoord, yCoord + h, zCoord) && block != ModBlocks.machine_rocket_assembly) {
+					Block block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()).getBlock();
+					if(!block.isReplaceable(this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()) && block != ModBlocks.machine_rocket_assembly) {
 						maxHeight = h;
 						break;
 					}
@@ -130,29 +130,29 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 					// Create a central spire (required so the VAB can be broken properly)
 					int meta = ForgeDirection.UP.ordinal();
 					for(int i = 1; i < targetHeight + 1; i++) {
-						if(yCoord + i > 255) break;
-						worldObj.setBlock(xCoord, yCoord + i, zCoord, ModBlocks.machine_rocket_assembly, meta, 3);
-						worldObj.setBlock(xCoord - 4, yCoord + i, zCoord - 4, ModBlocks.machine_rocket_assembly, meta, 3);
-						worldObj.setBlock(xCoord + 4, yCoord + i, zCoord - 4, ModBlocks.machine_rocket_assembly, meta, 3);
-						worldObj.setBlock(xCoord - 4, yCoord + i, zCoord + 4, ModBlocks.machine_rocket_assembly, meta, 3);
-						worldObj.setBlock(xCoord + 4, yCoord + i, zCoord + 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						if(this.pos.getY() + i > 255) break;
+						this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.machine_rocket_assembly, meta, 3);
+						this.world.setBlock(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						this.world.setBlock(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						this.world.setBlock(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						this.world.setBlock(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4, ModBlocks.machine_rocket_assembly, meta, 3);
 					}
 
-					for(int i = targetHeight + 1; i < 256 && worldObj.getBlock(xCoord, yCoord + i, zCoord) == ModBlocks.machine_rocket_assembly; i++) {
-						worldObj.setBlockToAir(xCoord, yCoord + i, zCoord);
+					for(int i = targetHeight + 1; i < 256 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ()).getBlock() == ModBlocks.machine_rocket_assembly; i++) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ());
 					}
 
-					for(int i = targetHeight + 1; i < 256 && worldObj.getBlock(xCoord - 4, yCoord + i, zCoord - 4) == ModBlocks.machine_rocket_assembly; i++) {
-						worldObj.setBlockToAir(xCoord - 4, yCoord + i, zCoord - 4);
+					for(int i = targetHeight + 1; i < 256 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4).getBlock() == ModBlocks.machine_rocket_assembly; i++) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4);
 					}
-					for(int i = targetHeight + 1; i < 256 && worldObj.getBlock(xCoord + 4, yCoord + i, zCoord - 4) == ModBlocks.machine_rocket_assembly; i++) {
-						worldObj.setBlockToAir(xCoord + 4, yCoord + i, zCoord - 4);
+					for(int i = targetHeight + 1; i < 256 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4).getBlock() == ModBlocks.machine_rocket_assembly; i++) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4);
 					}
-					for(int i = targetHeight + 1; i < 256 && worldObj.getBlock(xCoord - 4, yCoord + i, zCoord + 4) == ModBlocks.machine_rocket_assembly; i++) {
-						worldObj.setBlockToAir(xCoord - 4, yCoord + i, zCoord + 4);
+					for(int i = targetHeight + 1; i < 256 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4).getBlock() == ModBlocks.machine_rocket_assembly; i++) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4);
 					}
-					for(int i = targetHeight + 1; i < 256 && worldObj.getBlock(xCoord + 4, yCoord + i, zCoord + 4) == ModBlocks.machine_rocket_assembly; i++) {
-						worldObj.setBlockToAir(xCoord + 4, yCoord + i, zCoord + 4);
+					for(int i = targetHeight + 1; i < 256 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4).getBlock() == ModBlocks.machine_rocket_assembly; i++) {
+						com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4);
 					}
 
 					platformFailed = false;
@@ -191,7 +191,7 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 					continue;
 				}
 
-				worldObj.setBlock(xCoord + x, yCoord + height, zCoord + z, ModBlocks.machine_rocket_assembly, meta, 3);
+				this.world.setBlock(this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z, ModBlocks.machine_rocket_assembly, meta, 3);
 			}
 		}
 	}
@@ -202,7 +202,7 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 				if(x == 0 && z == 0) continue;
 				if((x == -4 || x == 4) && (z == -4 || z == 4)) continue;
 
-				worldObj.setBlockToAir(xCoord + x, yCoord + height, zCoord + z);
+				com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z);
 			}
 		}
 	}
@@ -224,9 +224,10 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setIntArray("platforms", BobMathUtil.intCollectionToArray(platforms));
+		return nbt;
 	}
 
 	@Override
@@ -299,13 +300,13 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this;
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		return world.getTileEntity(pos) == this;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return isUseableByPlayer(player);
+		return isUsableByPlayer(player);
 	}
 
 	@Override

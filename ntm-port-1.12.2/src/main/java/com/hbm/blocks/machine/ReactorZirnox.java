@@ -97,7 +97,7 @@ public class ReactorZirnox extends BlockDummyable {
 		int cx = core[0];
 		int cy = core[1];
 		int cz = core[2];
-		TileEntity te = world.getTileEntity(cx, cy, cz);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(cx, cy, cz));
 		if (!(te instanceof TileEntityReactorZirnox)) return;
 		TileEntityReactorZirnox reactor = (TileEntityReactorZirnox) te;
 		boolean powered = false;

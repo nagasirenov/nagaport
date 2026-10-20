@@ -15,23 +15,27 @@ import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.IPersistentInfoProvider;
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.blocks.ModBlocks;
-import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.IPersistentNBT;
 import com.hbm.tileentity.TileEntityLoadedBase;
 import com.hbm.util.BobMathUtil;
-import com.hbm.util.fauxpointtwelve.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.util.i18n.I18nUtil;
 
 import api.hbm.energymk2.IEnergyProviderMK2;
 import api.hbm.energymk2.IEnergyReceiverMK2;
 import api.hbm.redstoneoverradio.IRORValueProvider;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -39,48 +43,39 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import com.hbm.lib.ForgeDirection;
 
 public class MachineCapacitor extends BlockContainer implements ILookOverlay, IPersistentInfoProvider, ITooltipProvider {
 
-	@SideOnly(Side.CLIENT) public IIcon iconTop;
-	@SideOnly(Side.CLIENT) public IIcon iconSide;
-	@SideOnly(Side.CLIENT) public IIcon iconBottom;
-	@SideOnly(Side.CLIENT) public IIcon iconInnerTop;
-	@SideOnly(Side.CLIENT) public IIcon iconInnerSide;
+	public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
+	@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }
+	@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta); }
+	@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }
+	@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+	@Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }
+	@Override public boolean isOpaqueCube(IBlockState state) { return false; }
+	@Override public boolean isFullCube(IBlockState state) { return false; }
+	@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }
+
 
 	protected long power;
 	String name;
 
 	public MachineCapacitor(Material mat, long power, String name) {
 		super(mat);
+		setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));
 		this.power = power;
 		this.name = name;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":capacitor_" + name + "_top");
-		this.iconSide = iconRegister.registerIcon(RefStrings.MODID + ":capacitor_" + name + "_side");
-		this.iconBottom = iconRegister.registerIcon(RefStrings.MODID + ":capacitor_" + name + "_bottom");
-		this.iconInnerTop = iconRegister.registerIcon(RefStrings.MODID + ":capacitor_" + name + "_inner_top");
-		this.iconInnerSide = iconRegister.registerIcon(RefStrings.MODID + ":capacitor_" + name + "_inner_side");
-	}
-
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	public String getModelMaterial() { return name; }
 
 	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float fX, float fY, float fZ, int meta) {
-		return side;
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float fX, float fY, float fZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		return getStateFromMeta(side.getIndex());
 	}
 
 	@Override
@@ -91,7 +86,7 @@ public class MachineCapacitor extends BlockContainer implements ILookOverlay, IP
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityCapacitor))
 			return;
@@ -107,7 +102,7 @@ public class MachineCapacitor extends BlockContainer implements ILookOverlay, IP
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + "+" + BobMathUtil.getShortNumber(battery.powerReceived) + "HE/t");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + "-" + BobMathUtil.getShortNumber(battery.powerSent) + "HE/t");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -138,32 +133,38 @@ public class MachineCapacitor extends BlockContainer implements ILookOverlay, IP
 	}
 
 	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-		return IPersistentNBT.getDrops(world, x, y, z, this);
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		if(world instanceof World) drops.addAll(IPersistentNBT.getDrops((World) world, pos.getX(), pos.getY(), pos.getZ(), this));
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		IPersistentNBT.restoreData(world, x, y, z, itemStack);
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		IPersistentNBT.restoreData(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
 	}
 
 	@Override
-	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
+	public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
-			this.dropBlockAsItem(world, x, y, z, meta, 0);
+			this.dropBlockAsItem(world, pos, state, 0);
 			harvesters.set(null);
 		}
 	}
 
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
-		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
+	public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {
+		player.addStat(StatList.getBlockStats(this), 1);
 		player.addExhaustion(0.025F);
 	}
 	@Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-	public static class TileEntityCapacitor extends TileEntityLoadedBase implements IEnergyProviderMK2, IEnergyReceiverMK2, IPersistentNBT, IRORValueProvider, SimpleComponent, CompatHandler.OCComponent {
+	public static class TileEntityCapacitor extends TileEntityLoadedBase implements IEnergyProviderMK2, IEnergyReceiverMK2, IPersistentNBT, IRORValueProvider, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {
+
+		/** Placement metadata does not change the stored energy tile's identity. */
+		@Override
+		public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+			return oldState.getBlock() != newState.getBlock();
+		}
 
 		public long power;
 		protected long maxPower;
@@ -179,20 +180,20 @@ public class MachineCapacitor extends BlockContainer implements ILookOverlay, IP
 		}
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				ForgeDirection opp = ForgeDirection.getOrientation(this.getBlockMetadata());
 				ForgeDirection dir = opp.getOpposite();
 
-				BlockPos pos = new BlockPos(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ);
+				BlockPos pos = new BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);
 
 				boolean didStep = false;
 				ForgeDirection last = null;
 
-				while(worldObj.getBlock(pos.getX(), pos.getY(), pos.getZ()) == ModBlocks.capacitor_bus) {
-					ForgeDirection current = ForgeDirection.getOrientation(worldObj.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));
+				while(this.world.getBlockState(pos).getBlock() == ModBlocks.capacitor_bus) {
+					ForgeDirection current = ForgeDirection.getOrientation(this.world.getBlockState(pos).getBlock().getMetaFromState(this.world.getBlockState(pos)));
 					if(!didStep) last = current;
 					didStep = true;
 
@@ -201,15 +202,15 @@ public class MachineCapacitor extends BlockContainer implements ILookOverlay, IP
 						break;
 					}
 
-					pos = pos.offset(current);
+					pos = pos.add(current.offsetX, current.offsetY, current.offsetZ);
 				}
 
 				if(pos != null && last != null) {
-					this.tryUnsubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ());
-					this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), last);
+					this.tryUnsubscribe(this.world, pos.getX(), pos.getY(), pos.getZ());
+					this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), last);
 				}
 
-				this.trySubscribe(worldObj, xCoord + opp.offsetX, yCoord + opp.offsetY, zCoord + opp.offsetZ, opp);
+				this.trySubscribe(this.world, this.pos.getX() + opp.offsetX, this.pos.getY() + opp.offsetY, this.pos.getZ() + opp.offsetZ, opp);
 
 				networkPackNT(15);
 
@@ -312,10 +313,11 @@ public class MachineCapacitor extends BlockContainer implements ILookOverlay, IP
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setLong("power", power);
 			nbt.setLong("maxPower", maxPower);
+			return nbt;
 		}
 
 		@Override

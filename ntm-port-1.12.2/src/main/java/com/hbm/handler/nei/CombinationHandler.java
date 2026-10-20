@@ -13,15 +13,12 @@ public class CombinationHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmCombination";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(49, 44, 18, 18), "ntmCombination"));
-		guiGui.add(GUIFurnaceCombo.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIFurnaceCombo.class, (49) + 5, (44) + 11, 18, 18, "ntmCombination");
 	}
 }

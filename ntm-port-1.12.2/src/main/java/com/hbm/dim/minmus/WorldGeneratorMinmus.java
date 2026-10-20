@@ -67,7 +67,7 @@ public class WorldGeneratorMinmus implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.minmusDimension) {
+		if(world.provider.getDimension() == SpaceConfig.minmusDimension) {
 			generateMinmus(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
@@ -88,8 +88,7 @@ public class WorldGeneratorMinmus implements IWorldGenerator {
 
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
-			this.field_151562_a = ModBlocks.concrete_colored_ext;
-			this.selectedBlockMetaData = 6;
+			this.blockstate = ModBlocks.concrete_colored_ext.getStateFromMeta(6);
 		}
 
 	}

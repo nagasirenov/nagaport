@@ -66,23 +66,23 @@ public class TileEntityMachineIGenerator extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.iGenerator";
 	}
 	
 	protected DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * -4, yCoord, zCoord + dir.offsetZ * -4, dir.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * -2, yCoord - 1, zCoord + dir.offsetZ * -2, ForgeDirection.DOWN),
-				new DirPos(xCoord + dir.offsetX * -1, yCoord - 1, zCoord + dir.offsetZ * -1, ForgeDirection.DOWN),
-				new DirPos(xCoord, yCoord - 1, zCoord, ForgeDirection.DOWN),
-				new DirPos(xCoord + dir.offsetX * 3, yCoord, zCoord + dir.offsetZ * 3, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * -4, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -4, dir.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * -2, this.pos.getY() - 1, this.pos.getZ() + dir.offsetZ * -2, ForgeDirection.DOWN),
+				new DirPos(this.pos.getX() + dir.offsetX * -1, this.pos.getY() - 1, this.pos.getZ() + dir.offsetZ * -1, ForgeDirection.DOWN),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), ForgeDirection.DOWN),
+				new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3, dir),
 		};
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		/*if(!worldObj.isRemote) {
 			
@@ -216,7 +216,8 @@ public class TileEntityMachineIGenerator extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 3, 4, 5, 6 };
 	}
 
@@ -250,7 +251,7 @@ public class TileEntityMachineIGenerator extends TileEntityMachineBase implement
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		for(int i = 0; i < 3; i++)
@@ -258,6 +259,7 @@ public class TileEntityMachineIGenerator extends TileEntityMachineBase implement
 		
 		nbt.setLong("power", power);
 		nbt.setIntArray("burn", burn);
+		return nbt;
 	}
 	
 	@Override

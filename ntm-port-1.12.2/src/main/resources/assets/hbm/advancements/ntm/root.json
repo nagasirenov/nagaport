@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "hbm:item.geiger_counter"
+    },
+    "title": {
+      "text": "Nuclear Tech"
+    },
+    "description": {
+      "text": "Nuclear Tech achievements"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

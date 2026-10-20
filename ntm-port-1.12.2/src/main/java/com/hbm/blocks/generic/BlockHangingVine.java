@@ -1,127 +1,30 @@
 package com.hbm.blocks.generic;
-
-import java.util.ArrayList;
-
-import com.hbm.lib.RefStrings;
-
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import java.util.List;
+import java.util.Collections;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.AxisAlignedBB;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-import com.hbm.lib.ForgeDirection;
-
 public class BlockHangingVine extends Block implements IShearable {
+ public BlockHangingVine(Material material) { super(material); }
+ @Override public void onEntityCollision(World world,BlockPos pos,IBlockState state,Entity entity) { entity.motionX*=.5;entity.motionY*=.5;entity.motionZ*=.5;entity.fallDistance=0; }
+ @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { return world.isSideSolid(pos.up(),EnumFacing.UP,false) || world.getBlockState(pos.up()).getBlock()==this; }
+ public boolean canBlockStay(World world,int x,int y,int z) { return canPlaceBlockAt(world,new BlockPos(x,y,z)); }
+ @Override public void neighborChanged(IBlockState state,World world,BlockPos pos,Block block,BlockPos fromPos) { super.neighborChanged(state,world,pos,block,fromPos);if(!canPlaceBlockAt(world,pos))world.setBlockToAir(pos); }
+ @Override protected boolean canSilkHarvest() { return true; }
+ @Override public boolean isShearable(ItemStack item,IBlockAccess world,BlockPos pos) { return true; }
+ @Override public List<ItemStack> onSheared(ItemStack item,IBlockAccess world,BlockPos pos,int fortune) { return Collections.singletonList(new ItemStack(this)); }
 
-	public BlockHangingVine(Material mat) {
-		super(mat);
-	}
-	
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-		entity.motionX *= 0.5;
-		entity.motionY *= 0.5;
-		entity.motionZ *= 0.5;
-		entity.fallDistance = 0F;
-	}
-	
-	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return this.canBlockStay(world, x, y, z);
-	}
-	
-	@Override
-	public boolean canBlockStay(World world, int x, int y, int z) {
-		Block b = world.getBlock(x, y + 1, z);
-		return com.hbm.lib.FacingCompat.isBlockSideSolid(world, x, y + 1, z, ForgeDirection.UP) || b == this;
-	}
-	
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		super.onNeighborBlockChange(world, x, y, z, block);
-		this.checkAndDropBlock(world, x, y, z);
-	}
-
-	protected void checkAndDropBlock(World world, int x, int y, int z) {
-		if(!this.canBlockStay(world, x, y, z)) {
-			world.setBlock(x, y, z, Blocks.air);
-		}
-	}
-	
-	@Override protected boolean canSilkHarvest() { return true; }
-	
-	@Override
-	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) {
-		return true;
-	}
-	
-	@Override
-	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
-		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		ret.add(new ItemStack(this)); //placeholder
-		return ret;
-	}
-	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return null;
-	}
-	
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	@SideOnly(Side.CLIENT) public IIcon iconItem;
-	@SideOnly(Side.CLIENT) public IIcon iconGround; //when touching a solid face below
-	@SideOnly(Side.CLIENT) public IIcon iconHang; //when hanging mid-air
-	@SideOnly(Side.CLIENT) public IIcon iconGlow; //regular phosphor
-	@SideOnly(Side.CLIENT) public IIcon iconHangGlow; //phosphor in different position when hanging for variety
-	
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		this.iconItem = reg.registerIcon(RefStrings.MODID + ":vine_phosphor_item");
-		this.blockIcon = reg.registerIcon(RefStrings.MODID + ":vine_phosphor");
-		this.iconGround = reg.registerIcon(RefStrings.MODID + ":vine_phosphor_ground");
-		this.iconHang = reg.registerIcon(RefStrings.MODID + ":vine_phosphor_hang");
-		this.iconGlow = reg.registerIcon(RefStrings.MODID + ":vine_phosphor_spots");
-		this.iconHangGlow = reg.registerIcon(RefStrings.MODID + ":vine_phosphor_spots_hang");
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, boolean pass) {
-		Block b = world.getBlock(x, y - 1, z);
-		
-		if(!pass)
-			return com.hbm.lib.FacingCompat.isBlockSideSolid(world, x, y, z, ForgeDirection.UP) ? iconGround : b == this ? blockIcon : iconHang;
-		else
-			return b.isAir(world, x, y, z) ? iconHangGlow : iconGlow;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return this.iconItem;
-	}
-	
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-	
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
+ @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+ @Override public boolean isFullCube(IBlockState state) { return false; }
+ @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }
+ @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face) { return BlockFaceShape.UNDEFINED; }
+ @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) { return NULL_AABB; }
+ @Override protected BlockStateContainer createBlockState() { return PlantBlockState.create(this); }
+ @Override public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos) { return PlantBlockState.extend(state,world,pos); }
 }

@@ -13,15 +13,12 @@ public class ExposureChamberHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmExposure";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(31, 28, 41, 10), "ntmExposure"));
-		guiGui.add(GUIMachineExposureChamber.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMachineExposureChamber.class, (31) + 5, (28) + 11, 41, 10, "ntmExposure");
 	}
 }

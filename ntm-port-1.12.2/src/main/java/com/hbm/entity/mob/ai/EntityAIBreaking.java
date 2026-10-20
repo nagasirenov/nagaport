@@ -40,9 +40,9 @@ public class EntityAIBreaking extends EntityAIBase {
 			int x = mop.getBlockPos().getX();
 			int y = mop.getBlockPos().getY();
 			int z = mop.getBlockPos().getZ();
-			Block block = entityDigger.worldObj.getBlock(x, y, z);
+			Block block = com.hbm.world.WorldBlockState.read(entityDigger.world, x, y, z).getBlock();
 			
-			if(block.getBlockHardness(entityDigger.worldObj, x, y, z) >= 0) {
+			if(block.getBlockHardness(entityDigger.world, x, y, z) >= 0) {
 				markedLoc = new int[]{x, y, z};
 				return true;
 			}
@@ -84,16 +84,16 @@ public class EntityAIBreaking extends EntityAIBase {
 			markedLoc = new int[]{mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ()};
 		}
 		
-		if(markedLoc == null || markedLoc.length != 3 || entityDigger.worldObj.getBlock(markedLoc[0], markedLoc[1], markedLoc[2]) == Blocks.air)
+		if(markedLoc == null || markedLoc.length != 3 || com.hbm.world.WorldBlockState.read(entityDigger.world, markedLoc[0], markedLoc[1], markedLoc[2]).getBlock() == Blocks.AIR)
 		{
 			digTick = 0;
 			return;
 		}
 		
-		Block block = entityDigger.worldObj.getBlock(markedLoc[0], markedLoc[1], markedLoc[2]);
+		Block block = com.hbm.world.WorldBlockState.read(entityDigger.world, markedLoc[0], markedLoc[1], markedLoc[2]).getBlock();
 		digTick++;
 		
-		int health = (int) block.getBlockHardness(entityDigger.worldObj, markedLoc[0], markedLoc[1], markedLoc[2]) / 3;
+		int health = (int) block.getBlockHardness(entityDigger.world, markedLoc[0], markedLoc[1], markedLoc[2]) / 3;
 		
 		if(health < 0) {
 			markedLoc = null;
@@ -107,7 +107,7 @@ public class EntityAIBreaking extends EntityAIBase {
 			digTick = 0;
 			
 			boolean canHarvest = false;
-			entityDigger.worldObj.func_147480_a(markedLoc[0], markedLoc[1], markedLoc[2], canHarvest);
+			entityDigger.world.func_147480_a(markedLoc[0], markedLoc[1], markedLoc[2], canHarvest);
 			markedLoc = null;
 			
 			if(target != null)
@@ -116,9 +116,9 @@ public class EntityAIBreaking extends EntityAIBase {
 		{
 			if(digTick % 5 == 0)
 			{
-				entityDigger.worldObj.playSoundAtEntity(entityDigger, block.stepSound.getStepResourcePath(), block.stepSound.getVolume() + 1F, block.stepSound.getPitch());
+				entityDigger.world.playSoundAtEntity(entityDigger, block.stepSound.getStepResourcePath(), block.stepSound.getVolume() + 1F, block.stepSound.getPitch());
 				entityDigger.swingItem();
-				entityDigger.worldObj.destroyBlockInWorldPartially(entityDigger.getEntityId(), markedLoc[0], markedLoc[1], markedLoc[2], (int)(str * 10F));
+				entityDigger.world.destroyBlockInWorldPartially(entityDigger.getEntityId(), markedLoc[0], markedLoc[1], markedLoc[2], (int)(str * 10F));
 			}
 		}
 	}
@@ -141,8 +141,8 @@ public class EntityAIBreaking extends EntityAIBase {
         float f1 = entityLiving.prevRotationPitch + (entityLiving.rotationPitch - entityLiving.prevRotationPitch) * f;
         float f2 = entityLiving.prevRotationYaw + (entityLiving.rotationYaw - entityLiving.prevRotationYaw) * f;
         
-        int digWidth = MathHelper.ceiling_double_int(entityLiving.width);
-        int digHeight = MathHelper.ceiling_double_int(entityLiving.height);
+        int digWidth = MathHelper.ceil((double) (entityLiving.width));
+        int digHeight = MathHelper.ceil((double) (entityLiving.height));
         
         int passMax = digWidth * digWidth * digHeight;
         
@@ -154,16 +154,16 @@ public class EntityAIBreaking extends EntityAIBase {
 		double rayY = y + entityLiving.posY;
 		double rayZ = z + entityLiving.posZ;
 		
-		RayTraceResult mop = RayCastBlocks(entityLiving.worldObj, rayX, rayY, rayZ, f2, f1, dist, false);
+		RayTraceResult mop = RayCastBlocks(entityLiving.world, rayX, rayY, rayZ, f2, f1, dist, false);
     	
 		if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK)
     	{
 			int blockX = mop.getBlockPos().getX();
 		int blockY = mop.getBlockPos().getY();
 		int blockZ = mop.getBlockPos().getZ();
-		Block block = entityLiving.worldObj.getBlock(blockX, blockY, blockZ);
+		Block block = com.hbm.world.WorldBlockState.read(entityLiving.world, blockX, blockY, blockZ).getBlock();
     		
-		if(block.getBlockHardness(entityLiving.worldObj, blockX, blockY, blockZ) >= 0)
+		if(block.getBlockHardness(entityLiving.world, blockX, blockY, blockZ) >= 0)
     		{
     			scanTick = 0;
     			return mop;

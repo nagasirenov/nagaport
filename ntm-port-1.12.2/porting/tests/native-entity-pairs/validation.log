@@ -1,0 +1,3 @@
+PASS: 43 original calls; byte-exact inverse; owner/source ranges and nine keys; renderer registration closure; no descendants; native inherited key retained
+PASS: 149 native constructor/inheritance/metadata/dirty/bounded-NBT assertions
+PASS: actual World constructors and init chain; bounded scalar accessor/callback/NBT tails, no fake registry or parent NBT

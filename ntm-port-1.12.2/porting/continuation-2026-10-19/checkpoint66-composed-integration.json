@@ -1,0 +1,458 @@
+{
+  "baseline": "5e6ba284ef32b46ad5f81cd1e1570c08b53cb24f",
+  "patches": [
+    {
+      "path": "/tmp/reinforced-palette-production.patch",
+      "sha256": "5067ce9c37a4546e92f39965da94aedade70297e61db70ac38f94f4499631dd9"
+    },
+    {
+      "path": "/workspace/shared/native-entity-drones-production.patch",
+      "sha256": "349f08005fcec7d191d005459a47ab520cdd273728c6bd7c85626f56ac7637bd"
+    },
+    {
+      "path": "/tmp/nagaport-structure-text-fields-production.patch",
+      "sha256": "bb7b92c739674c0f2b6a74624aa059b03577dc0e918a8f15553af1b12105dadb"
+    },
+    {
+      "path": "/workspace/shared/nagaport-world-literals-production.patch",
+      "sha256": "081c10044715d2d9aa177ed4493047be076a0c9f55b860b05204eb27ca882339"
+    },
+    {
+      "path": "/workspace/shared/nagaport-grow-cp64-production.patch",
+      "sha256": "1b9ba46e842bf2a58d551fed169d83dff60110cd5dc9ca34bed4eb3f6a423fc5"
+    }
+  ],
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "before": "d7db5af63a4a4751c07871622f29fbbf15acead190575ed8272bfc77b2a8d749",
+      "after": "3db082727414bbc75ce7621513a5e173aa8188b8e0bdf55946a6b635acadf8b9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFloat.java",
+      "before": "8dc2d6d967fe424929711c3611bfd2174e4fe7eae630dcd82a1c6f1516d4eaac",
+      "after": "bef25f59da9d19b9377ae3cc91266ccc76aa000e0fdf252917fa49cc81018e3f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java",
+      "before": "85d2b545b80f7cabd5b9f1e4f16d7ab6c3b39fa26f4413635e4925f77890701b",
+      "after": "b5e3edbde304623306159ed6a155a25e087868cad7602245836164cc9dbfaff7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockWandStructure.java",
+      "before": "12791ccfea84ac5fad94c92734add239b52d62faaa59d0518a664e0e6bb52fc4",
+      "after": "98166d49ba83a8d3a5e6a08424b5ca91dd8768d6ac01be713ba797a10b1212b5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFluidTank.java",
+      "before": "ce511f5220cd6d6fe67b853c8d11ecc035ed39ae57e4f1331ef3eb37b37d0a2d",
+      "after": "7bd40c48b1667459c8f30401f568bbdae3be86163f5735288b055a01f955bf9b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineRefinery.java",
+      "before": "43c694576a1554b4738f60984055c572ee041fa53d912feedd4dfdb2f4366958",
+      "after": "5e0ecf5e7805579347fe37358cde17d6174e72553cbfef55e768bf12131937ee"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "before": "b58fdb67ce66d83906f6cc9534e4124183f384ff64a4fdc9be16df62916d6e55",
+      "after": "76062c9b36da36bc1b0cb7e94357fab6ff9cb3e09e2b06fcb2c63dbf2a77f132"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Radiobox.java",
+      "before": "b2cdaefcf7b560cb96f2040e11d3a8d5f7b910b4418a1caed98d6f1e9f809bdf",
+      "after": "84504670396775e5849eb7f2766539734821fff9bce8a415cb85bf130af0e227"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/CableDetector.java",
+      "before": "5638817c7009ef1c22cd55a15f4a6706ed236097a5b7cd00f6ceea741c212828",
+      "after": "73731e69d60aefa0c5effa168ca37ec7e2624b5d17d2200ba90bfb9a309cba97"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/CableSwitch.java",
+      "before": "4ecec95536d88f0c638ae551968730ce10c54024091bcac397cf47ad2f8640ab",
+      "after": "4abb39148805ffacb8d586820f1e6682c416ea4dc7ab7e3dbed6c82a9c7b648b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidSwitch.java",
+      "before": "591128cdfeb8127dd33370163f95346ba65ffa9d871865a622dcbbc55c64f669",
+      "after": "113dc691af54d6b64e0169068e2eeabe91bac0ddd990799f08313d449d4aab12"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidValve.java",
+      "before": "e9771346ead540f9ae0b8cfdc1bb5c198297e1a7974225935dc19703f6edead2",
+      "after": "5eb4c67bc021a1e46b3b0c2782b0c21725268444ffa11537909eb2b3f5a3fec0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "before": "e62fb6d9b74f6015e15587291a696e57feca754f4bdcf7bb2de8187919365f6f",
+      "after": "4f34ec3bb6a12500a073d2748313eafc2ba8485c213b8bf941d34d374a568599"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "before": "3557157418654892fa37728f1ad9266944db6bd1c45569df997eb687b7e6728a",
+      "after": "fd20ec9b47e015f7bb91fe2351ac4b527ce9e5e6a7848ed2de95f6df173f5fd9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDroneBase.java",
+      "before": "05cc2e40877a5d2ca68cc75944a4841188b334ce40bbb1accbf9fd686b4eb034",
+      "after": "8e89d11fbb2a782a9fc32ab7a8a525a7c314150ca3782ad2d2f3b954f5d65b7b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "before": "5cccece87682efac5512f9a8ea66a1911b5d4dedcaa2cdd4f2ad2384872bfce5",
+      "after": "06d357bc72319ff742f4492c3a4a5952881cb8686b94ac5db653ede382e03e7e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "before": "cd554458e3c8defada567eba01ce4a318d50acfa34cdee61cddc8cb2e76a228b",
+      "after": "c9721fe73f07511902de78b5f945319e3ca21ae254df7ae4659fe31837bbf3ee"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "before": "13b529ae9dde8a6b3557745b1dfa68dfc033a438ad47b9c0fcd1c103005bdd4e",
+      "after": "10a4bb40c5a66f6b565d20252b07600a33e5d0b43e94c189ecc6988a1b2b06d5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuz.java",
+      "before": "6a494d4de1688b095b526631fb95053cd5d89ee109c6aae71c645b5e5b78a47e",
+      "after": "1ce2b266762c4d75fdc7dc3f567dff1319e003d244f00516e8d70621edeb2e0e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "before": "98ca0f59742d6295f8533872daa84ebf3bc33770dd02c13a7baf07d2862c776c",
+      "after": "a2aa4a6d407d3702b9bdf48c18820076c3a668d3f93a0ebeb7abee398915bd9c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java",
+      "before": "887b6956f0ad31e0bfa9c551904081624ebe9761c2170aa5429ee6e5a1caa52b",
+      "after": "2599f13e1a87182475b54834bf7aa0e44fd024fba20a6a24a3f50a83cf998853"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java",
+      "before": "c48cdaee90d8e749f68ca9e91ded4979d7c68b0ce690f686dba1dd0331044058",
+      "after": "a0ae4750ea750c44d63adc697368c2a89496011cf4d3e1b6b723fecb765c3a16"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityMaskMan.java",
+      "before": "059e9e58d4a25e7c8aa67fe317f4d0c94384d5a6bb2d446de034f44df5ad73fb",
+      "after": "9e2e478988b965dc76280c4fb3799cf4fb2d4fb0a77dfb27504a0627fb7976ef"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityRADBeast.java",
+      "before": "3411b368f5a9fd9c0c65d726b40ba45383fbeb2722a238991bf79069aaa0ec5d",
+      "after": "1cb5ab317c849fb75d5602e5fd147eeb5f61b21072130a1a681f38e45d3c0d71"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "before": "b205eb4de786efbb1c883cd9651d652a4fa55740f3a926497b62e845ae9b80f3",
+      "after": "41a489f9bd9d03078560cdef33bdeac0b462651b8db2052603f3b85a9c3b0b5a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIEatBread.java",
+      "before": "f420aad9c30008c7838948a73965fd1ff197bf012e3762cef612149c0346c291",
+      "after": "2a1cc8e710d3306146b1a06762a5ca8c5b5541f1ebf2563a89b987610ad6b858"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAISwimAway.java",
+      "before": "fa6c235cbd8e434b9bf39517caefe6d1313c832351935e49ae1393f3fc343975",
+      "after": "6da087d3733af070af86d8c9acf9343f8bb52a400be41204f6d33729338ae89d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java",
+      "before": "76e5c1712e8609cfa6239745135157341305585fe63312283775fa1ff944cfa3",
+      "after": "480e5c61b5407c611aa3428219014a2e53670d734959ade8a5c4928049e5a977"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java",
+      "before": "b186f6c00dc8101aeb830088b6bd30e808f28f3e484f025cfe4e983a2cdaffcb",
+      "after": "00ecaf765a01b0574012d3485d1f6582822bbc3ae2a804110a9874aa790bf822"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java",
+      "before": "5ed4efe76c84aa18b481c122bee89a7de278d781ee1d44ddf3744a679cf8a19c",
+      "after": "d7057f3080a722c16385cc3408daaff661cfb44c9d184de62621c1824cfd1967"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityTom.java",
+      "before": "f3fa79f170180b040941d3de9690d5bc31c50376043fd0baec43bb97d5d8c76b",
+      "after": "5f4ba1047935854e2b0e0639a6169724feee9b0db7037f6dbd589d648ba3594c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java",
+      "before": "034419cdd13eb15634ccf6304fbb6894c64ac812d1704fd2b6cc303806b68f51",
+      "after": "0f5d85c1d0741fcee938f16cb0254b9629e9d29de1cddffcda9e146eceed8669"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarBase.java",
+      "before": "4d08d68bfd90f42d23f00b113cc046f121c9be85606dbfcbeb29106a247c48fc",
+      "after": "aa62032cfb4b7297d8f341c8a9e2f197d29d170aba01bd426a9f809534df0914"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/BulletConfigFactory.java",
+      "before": "de929f01e148293b670ccdea927b2efa4e17a8f5696d65872a86d3b972385fd2",
+      "after": "d3040c0261ec897ee32d0161f9764c3118bb7402c7b487c945aeda29ce833e91"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java",
+      "before": "5f3e03627d7750e607d25b1c9579de39ec6c8184d185d119a3ffd81788b85331",
+      "after": "2ba9781c35a8037bb8021c6ac6a6560f1ad6c435928ab812b2cfe54c0e893bed"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "before": "53eb2c6db0c93459fdab7738356367825fbfd44407476985924d151cd72d6564",
+      "after": "6f7499abef7aaea5f38d5902a239f70cd7ae5019602970d480baacb97a1bb4d2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModDefuser.java",
+      "before": "ff44a2e558a829e8948aa5c4459dc416a1a6ad5dc0ac4707784518deb1e8ecce",
+      "after": "b0e47f91c404b2ef07b1f50c333f83de057b508d96525c1ec139d41b9cdf293b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java",
+      "before": "61799b9573da44b1879f04cc5e273131413364d614a848ec66b33b418fc6df2e",
+      "after": "5071f8f5144b47de42512c5d38a276898e7a3fc49738688ac59f7181638b5acf"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDrone.java",
+      "before": "f3c5ba24ef49d791d3f9a4d9a366139e4148ee3bf8151b47ea681bac81f9f0cb",
+      "after": "b28cad9fbb834ddfc5f1a553001faf318ac29279dbb549b4b9a38846d7585fab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemPeas.java",
+      "before": "5e6f4d01cfc7ac11fa80b9290d5afbbc3131c0f6843fdc8d9b54889695b43fde",
+      "after": "3396f870e02cc8eee13fa14e7be9c7d76b6dc347d7e96d1e431d31a4b66c1413"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemTurretControl.java",
+      "before": "f4b202d1453d6509584e6b44de4316babc3829524a9e96ffa3605744afc078fb",
+      "after": "39a911e469d4b2c749ce5e0d49add426913faa66fe921a3326e07bb57e63a297"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "before": "c00ab5bd68888961051abd49962ffbc93136c7ce61ad7103d2c2511cb3edc92a",
+      "after": "4465681cf4e6e947ec79d15a3c547cc2027d40a42ef2b42e78786fbf16c55792"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModSoundEvents.java",
+      "before": "2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33",
+      "after": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderDeliveryDrone.java",
+      "before": "deb0d9bba1f340eb6fdc891993671e75d6d0bf15f538f5fa55c46d537ecde2cb",
+      "after": "3c758bfee7b2d69d430229b9a88cbf570e9b9b9355b30f372f2c2391dbe2fff3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/DoorDecl.java",
+      "before": "44f06d8cd38fbaf053b1d6ce7f8ff0d7f2f63a4adda81c6b314cc5b51cacded1",
+      "after": "cc9889ea38187b87619b61365d4ca31460c9feadf52aec6820fbf87745d5cd70"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java",
+      "before": "66fa64533d6d5abdf1f280fcebee59acf06355d09cb7fb042547be2b89356d54",
+      "after": "793ae5b331b2bc2f3654ae8afb89eabd9101d458b54f5aa164a1da7bc045549d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLandmine.java",
+      "before": "61ecbc44418eeb2f3772a8503e1a9a6ff2316cfb08fe5f62271fc67ed2c837b9",
+      "after": "93c6af923f52b6366dc1976b3fa2aac3db01a297e26f7535ceef01d64a156b46"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java",
+      "before": "88730b1b56d3c09844482de0da3396c6e362198a44dd0b189dd3f56a75c484ab",
+      "after": "3cfa3cd535b043f15b7da45f8560e03eb8c56fa9ca912f8e5c8639a75b3b3d13"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java",
+      "before": "1810d8a0ba628ff6a6732fc20692e0bdda4b0d3c9c27e02691b564e492a94d38",
+      "after": "53fa7ec40857aff2723555ed73d55038049e87a04ab3aea92292fdeddbf4f41e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/deco/TileEntityLanternBehemoth.java",
+      "before": "6c5093955df3f931f3fc1b6f8963cedffb621a604e6602fe63ed2ff9de760b3d",
+      "after": "6df631b0d279f51fc902be28a1b0b870eeee599342c52b05bd511d6fec86de0f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java",
+      "before": "7d8faf618f6d02d15787c1fb030abfce5423f306e6b908df2e354295b55b82c9",
+      "after": "5854d553fcf7be446fc2f1f30cfcce624234ac6d7bac9c09418ae22db3fc720c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java",
+      "before": "1b2b89d5b5255ee6fddb14a456703bd011f2fc315a84f4ac143be4b5913fb6d0",
+      "after": "00ec148e82a35cba23f2d88b9674864bd0dd5b86220f4229cd63dff6a31eb25b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+      "before": "12fced20f49947748468a5a4998b1a0ede881f041b3a51b20940bbf149d30901",
+      "after": "5174b847529e112d7317753660e832e8573f708462d7ce34b3474372ed157bdf"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java",
+      "before": "dcb4bc140b26e7412e1a051205ed55fd45971057eaac142e48ca33c066636ce5",
+      "after": "fd03fc8ede1a1238ff77d0262280320e1f839a1226ae0f4a35a9d3568715aa02"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoilerIndustrial.java",
+      "before": "9cf97fb6c70f7b0b5c74cab98d2a8021d4bc6a4a461623b4e91b3ec04475488c",
+      "after": "77e3d77b661c4951bbddcf75c8de56aa03ad8616d55cf9470fbe9574cff850a7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      "before": "1014a514555136b38b91abd61888e49fcde2a2cb42618091953a59e650014e60",
+      "after": "12391e43e14ba16adb628d917f8ce13f7ec835349c5e63a9a9c2233c2bf888ac"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      "before": "80867dcc3408900902a4ec10611c5792f177b39f49c6d6cf2ae87b38f415923c",
+      "after": "ed4d353cdb75513178246595a70714e02e190c9deff7db8de1cc9920aa845b60"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+      "before": "d9d1437b9ad7b72c840bd367eb0c7571fe821342a897bc82554eb7ca82c1ca03",
+      "after": "a9f1e265a601dbbbd9db010855e0e97f2037e473565301405e9f427c73c6aff5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      "before": "99737911e5e2195524e6ec5e29c1115c4fef17c57cfa819c10d47d2db4b5c2a0",
+      "after": "87f7a15e93a369909af8ccde8fed1933ea3069cadd1afc3fea9838d99fbf41d4"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java",
+      "before": "c7c5e310aebbfa87bdc831a700593f4f8b5aa6b09e246db8e55b2d5e3375e5c0",
+      "after": "3e0450ab354b965f839f824591cb7d58408a7b23c53c0b5b94ca3407b2565865"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "before": "c294d1c12acdcf3b19251c6ad5785f3d4ad905fdee70e5ce4a0a6764772ece5d",
+      "after": "8e814c3e1dc4ab0875ef1d428221d634abdada3bee974e7087fe941a541eaaa9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java",
+      "before": "e41e5e820324b3f7139ba8d5483111fa5f335a125355035fdd67ee50175555b6",
+      "after": "1d42fd5e1d0607da680a2c47a4178e5d38304f59d12ec4ce5e26d67c4878479f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java",
+      "before": "c7b2b133a84a30637ccf57b32876077c9cc9bf820e50cf145680b8fcfd24eaf4",
+      "after": "3258be3c1a027eb9a0b4321c69450739e76eeb95081a4f89fb016f3ad97dfb64"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+      "before": "269b27fc1d686fc61833a1b126adcb2972b92268ab0a647b09cefb16121dd036",
+      "after": "82add305d627b19a709eb6aac81c62704f44ef620dc5b587aad7714afeae6dcb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+      "before": "a194483eae2fa4aceb2018ed2457e7629baa44074e60f19fcf3799cad8ce72cc",
+      "after": "1858c9dfbf74859b98a797bf7f4b7e64762b88b0be0676db8c53a8685f1c76d8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java",
+      "before": "9f099f9c2d901b1ebf8110107811c6763b3123e23cd93ad8ec79a1629e14e852",
+      "after": "b3a4e6e8e8be30f0c9a63d5a7427c58689cf8320bee046765b217eceb84fc394"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java",
+      "before": "677e72dea261cf80c5d8a733d8e210e507792e039503f8ad31fbcbae3d216947",
+      "after": "699becc77f318a37c3bacaec9ff4cd5d7495763f9fdc7467281df7fd54edcfda"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java",
+      "before": "40a703ef3b942a4bf2debb21535b46eb2826ce145e25fbe87db66107f02abdce",
+      "after": "9a24f72aca77268a6c0a74d3eb624cf2bfbac26144172b2982cf89eadc9e656c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java",
+      "before": "fee9816e4dfe9632a3a4f77e086d4054986e36661508029ae283d47bb2a960ae",
+      "after": "eaae2a0cc84141f532ece8b4ae47d07aa5ff49a8418ccd576bdc16bec7de4f11"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java",
+      "before": "aa9dd8344fbc3162e529409316faa531d2d09b576fbb99aa976046da2a2b40cd",
+      "after": "1b526c3dac38db79e33fdd7788b0cbf503604aec2955368e28b6477023ee6a5e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBoiler.java",
+      "before": "3609b28e2d7a20ec234eaea6abbe7dc18fffeec24bf1246a63b4cdad0079a1eb",
+      "after": "e085dc7200d52b4e8f691b7bb1b72471cdb417212fa9de1aab9ea7cdfd435a0b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java",
+      "before": "0f2ad275723b2e960588a5ffc8f3dadc315a7d874f038e99fa81bf2aa804400f",
+      "after": "4dee031dff52c32a036ff101e26143cdd2fce39d20b3b49b9580d5c4f9277202"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java",
+      "before": "8bbb609e3841813aae484866cf463d1cd5d3d8a1e040361610b3c9c951eb08cd",
+      "after": "fa32f4fe43ef563b279b91f7844bb00bbdfb623266f95fef12306e0feff726a3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java",
+      "before": "efce040ba2d4d6eaddbe7d8b84ae7f9ed377bd7c4a40734754fbbdcd6f2f76cf",
+      "after": "7556bcaa927ce17b6d72abc3b87ee0f8166d1f3591b1061d5b7d05ff4f0f8232"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java",
+      "before": "30f0d0a6f6c4d9c24f027b48c7859a0f15dfeb91b351d840ac5577ba5a150706",
+      "after": "89c554b6c3d2b7164f2b804441abd58ea0b974943de6c58aa34d1ccaa641156b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java",
+      "before": "703a34770474e1280d13e7321822299223874d9833d7440733241e60d46919a6",
+      "after": "b42d1c88d387a638cdab4a950148d2f1e040858983debd9080e630a57850397b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHowardDamaged.java",
+      "before": "16167a0a3b2b5c390a022e2ba4ef2ea6d360213f00054dff1b4fc93d84b5ec32",
+      "after": "73d6f3c6a4ca7d5d636198671360e4a683e3d1be80cfae2853275474c0c430c2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java",
+      "before": "84167a9885d98384d9fd17aa974ca9b2b63706bd4fe1ba140afb24c6b178d434",
+      "after": "34af8c8f186f6fe3e4924b2ba39801a7bf354670eace6acbcbdf9a9277ee7b48"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java",
+      "before": "7e797d99b4260e70b5a1afaac9d95a6dc8b0442a4c87af7d987fcb4c929f4397",
+      "after": "c2c4c4576377db521dbb30fcf1d7107a1651753e16d86354108f174f75fd672e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentryDamaged.java",
+      "before": "1a4fe3822ba8971b8fb60e4bc8007870a4c1bdcb95180444606f63dfc967b669",
+      "after": "06c0c6b785c6a3da3c0fdc4d894f2cfae2e1bf8ee763d35e3e99c4d67e082bd1"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java",
+      "before": "043e9a407361b240dcad3151badefa0d389fabebe4a2aa922f93d854be329385",
+      "after": "2fb1167df11cf14073eb17fa36ba93e89fd772e1ae780552521abf46b67448ed"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/dungeon/Barrel.java",
+      "before": "6b5eee858cb5b0756c9664187be25d1467c8b425c20b2a80d6442aa3f43a554f",
+      "after": "b928ff9722df1dece7e488afdb8b9b4a6e69410bee07c1ec8f5976a306358731"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
+      "before": "dd55ab0e5d7c8603d4b3828842f642e0f150b724bf255396dc8ab4769a50fca3",
+      "after": "139d09f508b02cd1dec7077c4305d9c05c9fff25ccd70a3a09d53357de4bf2e6"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
+      "before": "708c5b7283d87857647291fa7ba13bfa47456a919a7dab97abbd32bde8d84ee4",
+      "after": "e3d270b9a29156797ed7477b8f61872a1ec51aad8e70d6cf602085a8349e513c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/dungeon/Silo.java",
+      "before": "816a1de163c5233f519d684f92343dadb69bb7f8ccd79e460c7fdafa0d44fcc5",
+      "after": "0083d7e4f4b39d35a7b649c4622f9df9d648bd7bb9b20d8535dd5f66b883fde8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/dungeon/Spaceship.java",
+      "before": "ab64cf8f8c87638c22e133f1c18410c16842bea34f26a9828cf4447c8ae8042f",
+      "after": "27a68e34f5a42bffd06617f7812859af971e08bd498d289212b76e2c0d0e356b"
+    }
+  ],
+  "result": "All patches compose in native Git. Forward byte-identical to integrated main; reverse byte-identical to CP65, only own new files removed. Historical isolated whole-file guards retain original baseline scopes; no regeneration or false blanket pass claimed."
+}

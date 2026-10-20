@@ -37,7 +37,7 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.setDead();
 			this.dropItem(ModItems.plastic_bag, 1);
 		}
@@ -48,12 +48,12 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 	@Override
 	public EntityItem entityDropItem(ItemStack stack, float offset) {
 		if(stack.stackSize != 0 && stack.getItem() != null) {
-			EntityItemBuoyant entityitem = new EntityItemBuoyant(this.worldObj, this.posX, this.posY + (double) offset, this.posZ, stack);
+			EntityItemBuoyant entityitem = new EntityItemBuoyant(this.world, this.posX, this.posY + (double) offset, this.posZ, stack);
 			entityitem.delayBeforeCanPickup = 10;
 			if(captureDrops) {
 				capturedDrops.add(entityitem);
 			} else {
-				this.worldObj.spawnEntityInWorld(entityitem);
+				this.world.spawnEntityInWorld(entityitem);
 			}
 			return entityitem;
 		} else {
@@ -83,7 +83,7 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 
 	@Override
 	public boolean isInWater() {
-		return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6D, 0.0D), Material.water, this);
+		return this.world.handleMaterialAcceleration(this.getEntityBoundingBox().expand(0.0D, -0.6D, 0.0D), Material.WATER, this);
 	}
 
 	@Override
@@ -113,18 +113,18 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 				this.randomMotionSpeed *= 0.999F;
 			}
 
-			if(!this.worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				this.motionX = (double) (this.randomMotionVecX * this.randomMotionSpeed);
 				this.motionY = (double) (this.randomMotionVecY * this.randomMotionSpeed);
 				this.motionZ = (double) (this.randomMotionVecZ * this.randomMotionSpeed);
 			}
 
-			f = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+			f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 			this.renderYawOffset += (-((float) Math.atan2(this.motionX, this.motionZ)) * 180.0F / (float) Math.PI - this.renderYawOffset) * 0.1F;
 			this.rotationYaw = this.renderYawOffset;
 			this.rotationPitch = (float)(Math.atan2(this.motionY, (double)f) * 180.0D / Math.PI);
 		} else {
-			if(!this.worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				this.motionX = 0.0D;
 				this.motionY -= 0.08D;
 				this.motionY *= 0.98D;

@@ -9,12 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityMultiblock extends TileEntity {
+public class TileEntityMultiblock extends TileEntity implements net.minecraft.util.ITickable {
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.getBlockType() == ModBlocks.struct_launcher_core && isCompact()) {
 				buildCompact();
@@ -35,7 +35,7 @@ public class TileEntityMultiblock extends TileEntity {
 		for(int i = -1; i <= 1; i++)
 			for(int j = -1; j <= 1; j++)
 				if(!(i == 0 && j == 0))
-					if(worldObj.getBlock(xCoord + i, yCoord, zCoord + j) != ModBlocks.struct_launcher)
+					if(com.hbm.world.WorldBlockState.read(this.world, this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ() + j).getBlock() != ModBlocks.struct_launcher)
 						return false;
 		
 		return true;
@@ -46,13 +46,13 @@ public class TileEntityMultiblock extends TileEntity {
 		for(int i = -4; i <= 4; i++)
 			for(int j = -4; j <= 4; j++)
 				if(!(i == 0 && j == 0))
-					if(worldObj.getBlock(xCoord + i, yCoord, zCoord + j) != ModBlocks.struct_launcher)
+					if(com.hbm.world.WorldBlockState.read(this.world, this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ() + j).getBlock() != ModBlocks.struct_launcher)
 						return -1;
 		
 		boolean flag = true;
 		
 		for(int k = 1; k < 12; k++) {
-			if(worldObj.getBlock(xCoord + 3, yCoord + k, zCoord) != ModBlocks.struct_scaffold)
+			if(com.hbm.world.WorldBlockState.read(this.world, this.getPos().getX() + 3, this.getPos().getY() + k, this.getPos().getZ()).getBlock() != ModBlocks.struct_scaffold)
 				flag = false;
 		}
 		
@@ -61,7 +61,7 @@ public class TileEntityMultiblock extends TileEntity {
 		flag = true;
 		
 		for(int k = 1; k < 12; k++) {
-			if(worldObj.getBlock(xCoord - 3, yCoord + k, zCoord) != ModBlocks.struct_scaffold)
+			if(com.hbm.world.WorldBlockState.read(this.world, this.getPos().getX() - 3, this.getPos().getY() + k, this.getPos().getZ()).getBlock() != ModBlocks.struct_scaffold)
 				flag = false;
 		}
 		
@@ -70,7 +70,7 @@ public class TileEntityMultiblock extends TileEntity {
 		flag = true;
 		
 		for(int k = 1; k < 12; k++) {
-			if(worldObj.getBlock(xCoord, yCoord + k, zCoord + 3) != ModBlocks.struct_scaffold)
+			if(com.hbm.world.WorldBlockState.read(this.world, this.getPos().getX(), this.getPos().getY() + k, this.getPos().getZ() + 3).getBlock() != ModBlocks.struct_scaffold)
 				flag = false;
 		}
 		
@@ -79,7 +79,7 @@ public class TileEntityMultiblock extends TileEntity {
 		flag = true;
 		
 		for(int k = 1; k < 12; k++) {
-			if(worldObj.getBlock(xCoord, yCoord + k, zCoord - 3) != ModBlocks.struct_scaffold)
+			if(com.hbm.world.WorldBlockState.read(this.world, this.getPos().getX(), this.getPos().getY() + k, this.getPos().getZ() - 3).getBlock() != ModBlocks.struct_scaffold)
 				flag = false;
 		}
 		
@@ -92,76 +92,76 @@ public class TileEntityMultiblock extends TileEntity {
 	
 	private void buildCompact() {
 		
-		worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.compact_launcher);
+		this.world.setBlock(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.compact_launcher);
 
-		placeDummy(xCoord + 1, yCoord, zCoord + 1, xCoord, yCoord, zCoord, ModBlocks.dummy_port_compact_launcher);
-		placeDummy(xCoord + 1, yCoord, zCoord, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_compact_launcher);
-		placeDummy(xCoord + 1, yCoord, zCoord - 1, xCoord, yCoord, zCoord, ModBlocks.dummy_port_compact_launcher);
-		placeDummy(xCoord, yCoord, zCoord - 1, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_compact_launcher);
-		placeDummy(xCoord - 1, yCoord, zCoord - 1, xCoord, yCoord, zCoord, ModBlocks.dummy_port_compact_launcher);
-		placeDummy(xCoord - 1, yCoord, zCoord, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_compact_launcher);
-		placeDummy(xCoord - 1, yCoord, zCoord + 1, xCoord, yCoord, zCoord, ModBlocks.dummy_port_compact_launcher);
-		placeDummy(xCoord, yCoord, zCoord + 1, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_compact_launcher);
+		placeDummy(this.getPos().getX() + 1, this.getPos().getY(), this.getPos().getZ() + 1, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_compact_launcher);
+		placeDummy(this.getPos().getX() + 1, this.getPos().getY(), this.getPos().getZ(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_compact_launcher);
+		placeDummy(this.getPos().getX() + 1, this.getPos().getY(), this.getPos().getZ() - 1, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_compact_launcher);
+		placeDummy(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ() - 1, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_compact_launcher);
+		placeDummy(this.getPos().getX() - 1, this.getPos().getY(), this.getPos().getZ() - 1, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_compact_launcher);
+		placeDummy(this.getPos().getX() - 1, this.getPos().getY(), this.getPos().getZ(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_compact_launcher);
+		placeDummy(this.getPos().getX() - 1, this.getPos().getY(), this.getPos().getZ() + 1, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_compact_launcher);
+		placeDummy(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ() + 1, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_compact_launcher);
 	}
 	
 	private void buildTable(int meta) {
 		
-		worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.launch_table, meta, 2);
+		this.world.setBlock(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.launch_table, meta, 2);
 		
 		switch(meta) {
 		case 0:
 			for(int i = 1; i < 12; i++)
-				worldObj.setBlock(xCoord + 3, yCoord + i, zCoord, Blocks.air);
+				this.world.setBlock(this.getPos().getX() + 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord + i, yCoord, zCoord, xCoord, yCoord, zCoord, ModBlocks.dummy_port_launch_table);
+					placeDummy(this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_launch_table);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_launch_table);
+					placeDummy(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ() + i, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_launch_table);
 			
 			break;
 			
 		case 1:
 			for(int i = 1; i < 12; i++)
-				worldObj.setBlock(xCoord - 3, yCoord + i, zCoord, Blocks.air);
+				this.world.setBlock(this.getPos().getX() - 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord + i, yCoord, zCoord, xCoord, yCoord, zCoord, ModBlocks.dummy_port_launch_table);
+					placeDummy(this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_launch_table);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_launch_table);
+					placeDummy(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ() + i, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_launch_table);
 			
 			break;
 			
 		case 2:
 			for(int i = 1; i < 12; i++)
-				worldObj.setBlock(xCoord, yCoord + i, zCoord + 3, Blocks.air);
+				this.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() + 3, Blocks.AIR);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord + i, yCoord, zCoord, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_launch_table);
+					placeDummy(this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_launch_table);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_port_launch_table);
+					placeDummy(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ() + i, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_launch_table);
 			
 			break;
 			
 		case 3:
 			for(int i = 1; i < 12; i++)
-				worldObj.setBlock(xCoord, yCoord + i, zCoord - 3, Blocks.air);
+				this.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() - 3, Blocks.AIR);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord + i, yCoord, zCoord, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_launch_table);
+					placeDummy(this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_plate_launch_table);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
-					placeDummy(xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_port_launch_table);
+					placeDummy(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ() + i, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_launch_table);
 			
 			break;
 			
@@ -170,16 +170,16 @@ public class TileEntityMultiblock extends TileEntity {
 		for(int i = -4; i <= 4; i++)
 			for(int j = -4; j <= 4; j++)
 				if(i != 0 && j != 0)
-					placeDummy(xCoord + i, yCoord, zCoord + j, xCoord, yCoord, zCoord, ModBlocks.dummy_port_launch_table);
+					placeDummy(this.getPos().getX() + i, this.getPos().getY(), this.getPos().getZ() + j, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), ModBlocks.dummy_port_launch_table);
 					
 		
 	}
 	
 	private void placeDummy(int x, int y, int z, int xCoord, int yCoord, int zCoord, Block block) {
 		
-		worldObj.setBlock(x, y, z, block);
+		this.world.setBlock(x, y, z, block);
 		
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(te instanceof TileEntityDummy) {
 			TileEntityDummy dummy = (TileEntityDummy)te;

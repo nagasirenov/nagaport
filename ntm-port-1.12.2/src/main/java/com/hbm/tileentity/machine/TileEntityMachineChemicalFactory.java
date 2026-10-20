@@ -94,7 +94,8 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(i >= 8 && i <= 10) return true;
 		if(i >= 15 && i <= 17) return true;
 		if(i >= 22 && i <= 24) return true;
@@ -113,7 +114,8 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {
 				5, 6, 7, 8, 9, 10,
 				12, 13, 14, 15, 16, 17,
@@ -124,8 +126,8 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 
 	/// CONDITIONAL ACCESS ///
 	@Override public boolean isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack) { return this.isItemValidForSlot(slot, stack); }
-	@Override public boolean canInsertItem(int x, int y, int z, int slot, ItemStack stack, int side) { return this.canInsertItem(slot, stack, side); }
-	@Override public boolean canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side) { return this.canExtractItem(slot, stack, side); }
+	@Override public boolean canInsertItem(int x, int y, int z, int slot, ItemStack stack, int side) { return this.canInsertItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing()); }
+	@Override public boolean canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side) { return this.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing()); }
 
 	@Override public int[] getAccessibleSlotsFromSide(int x, int y, int z, int side) {
 		DirPos[] io = getIOPos();
@@ -140,20 +142,20 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 				};
 			}
 		}
-		return this.getAccessibleSlotsFromSide(side);
+		return this.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineChemicalFactory";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		if(maxPower <= 0) this.maxPower = 10_000_000;
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			long nextMaxPower = 0;
 			for(int i = 0; i < 4; i++) {
@@ -169,15 +171,15 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 			upgradeManager.checkSlots(slots, 1, 3);
 			
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos);
-				for(FluidTank tank : inputTanks) if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), worldObj, pos);
-				for(FluidTank tank : outputTanks) if(tank.getFill() > 0) this.tryProvide(tank, worldObj, pos);
+				this.trySubscribe(this.world, pos);
+				for(FluidTank tank : inputTanks) if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), this.world, pos);
+				for(FluidTank tank : outputTanks) if(tank.getFill() > 0) this.tryProvide(tank, this.world, pos);
 			}
 			
 			for(DirPos pos : getCoolPos()) {
-				delegate.trySubscribe(worldObj, pos);
-				delegate.trySubscribe(water.getTankType(), worldObj, pos);
-				delegate.tryProvide(lps, worldObj, pos);
+				delegate.trySubscribe(this.world, pos);
+				delegate.trySubscribe(water.getTankType(), this.world, pos);
+				delegate.tryProvide(lps, this.world, pos);
 			}
 
 			double speed = 1D;
@@ -224,11 +226,11 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 			boolean didSomething = didProcess[0] || didProcess[1] || didProcess[2] || didProcess[3];
 			if(didSomething) this.anim++;
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
-				frame = !worldObj.getBlock(xCoord, yCoord + 3, zCoord).isAir(worldObj, xCoord, yCoord + 3, zCoord);
+			if(this.world.getTotalWorldTime() % 20 == 0) {
+				frame = !com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock().isAir(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ());
 			}
 			
-			if(didSomething && MainRegistry.proxy.me().getDistance(xCoord , yCoord, zCoord) < 50) {
+			if(didSomething && MainRegistry.proxy.me().getDistance(this.pos.getX() , this.pos.getY(), this.pos.getZ()) < 50) {
 				if(audio == null) {
 					audio = createAudioLoop();
 					audio.startSound();
@@ -248,7 +250,7 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 	}
 
 	@Override public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.chemicalPlant", xCoord, yCoord, zCoord, 1F, 15F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.chemicalPlant", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1F, 15F, 1.0F, 20);
 	}
 
 	@Override public void onChunkUnload() {
@@ -268,34 +270,34 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + 3, yCoord, zCoord - 2, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord + 0, Library.POS_X),
-				new DirPos(xCoord + 3, yCoord, zCoord + 2, Library.POS_X),
-				new DirPos(xCoord - 3, yCoord, zCoord - 2, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 0, Library.NEG_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 2, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 2, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord - 2, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord + 2, yCoord, zCoord - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() - 2, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 0, Library.POS_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 2, Library.POS_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 0, Library.NEG_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 2, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
 
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX * 2, yCoord + 3, zCoord + dir.offsetZ * 2 + rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord + dir.offsetX * 1 + rot.offsetX * 2, yCoord + 3, zCoord + dir.offsetZ * 1 + rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord + dir.offsetX * 0 + rot.offsetX * 2, yCoord + 3, zCoord + dir.offsetZ * 0 + rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord - dir.offsetX * 1 + rot.offsetX * 2, yCoord + 3, zCoord - dir.offsetZ * 1 + rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX * 2, yCoord + 3, zCoord - dir.offsetZ * 2 + rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX * 2, yCoord + 3, zCoord + dir.offsetZ * 2 - rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord + dir.offsetX * 1 - rot.offsetX * 2, yCoord + 3, zCoord + dir.offsetZ * 1 - rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord + dir.offsetX * 0 - rot.offsetX * 2, yCoord + 3, zCoord + dir.offsetZ * 0 - rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord - dir.offsetX * 1 - rot.offsetX * 2, yCoord + 3, zCoord - dir.offsetZ * 1 - rot.offsetZ * 2, Library.POS_Y),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX * 2, yCoord + 3, zCoord - dir.offsetZ * 2 - rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 1 + rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 1 + rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 0 + rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 0 + rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() - dir.offsetX * 1 + rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 1 + rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 1 - rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 1 - rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 0 - rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() + dir.offsetZ * 0 - rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() - dir.offsetX * 1 - rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 1 - rot.offsetZ * 2, Library.POS_Y),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY() + 3, this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 2, Library.POS_Y),
 
-				new DirPos(xCoord + dir.offsetX + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - dir.offsetX + rot.offsetX * 3, yCoord, zCoord - dir.offsetZ + rot.offsetZ * 3, rot),
-				new DirPos(xCoord + dir.offsetX - rot.offsetX * 3, yCoord, zCoord + dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + dir.offsetX - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
 		};
 	}
 
@@ -305,10 +307,10 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
 		return new DirPos[] {
-				new DirPos(xCoord + rot.offsetX + dir.offsetX * 3, yCoord, zCoord + rot.offsetZ + dir.offsetZ * 3, dir),
-				new DirPos(xCoord - rot.offsetX + dir.offsetX * 3, yCoord, zCoord - rot.offsetZ + dir.offsetZ * 3, dir),
-				new DirPos(xCoord + rot.offsetX - dir.offsetX * 3, yCoord, zCoord + rot.offsetZ - dir.offsetZ * 3, dir.getOpposite()),
-				new DirPos(xCoord - rot.offsetX - dir.offsetX * 3, yCoord, zCoord - rot.offsetZ - dir.offsetZ * 3, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ + dir.offsetZ * 3, dir),
+				new DirPos(this.pos.getX() - rot.offsetX + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ + dir.offsetZ * 3, dir),
+				new DirPos(this.pos.getX() + rot.offsetX - dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ - dir.offsetZ * 3, dir.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX - dir.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ - dir.offsetZ * 3, dir.getOpposite()),
 		};
 	}
 	
@@ -317,10 +319,10 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - dir.offsetX + rot.offsetX * 3, yCoord, zCoord - dir.offsetZ + rot.offsetZ * 3, rot),
-				new DirPos(xCoord + dir.offsetX - rot.offsetX * 3, yCoord, zCoord + dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + dir.offsetX - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ * 3, rot.getOpposite()),
 		};
 	}
 
@@ -366,7 +368,7 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		for(int i = 0; i < inputTanks.length; i++) this.inputTanks[i].writeToNBT(nbt, "i" + i);
@@ -378,6 +380,7 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 		nbt.setLong("power", power);
 		nbt.setLong("maxPower", maxPower);
 		for(int i = 0; i < 4; i++) this.chemplantModule[i].writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override public long getPower() { return power; }
@@ -391,7 +394,7 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 	@Override public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return new ContainerMachineChemicalFactory(player.inventory, this); }
 	@Override @SideOnly(Side.CLIENT) public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) { return new GUIMachineChemicalFactory(player.inventory, this); }
 
-	@Override public boolean hasPermission(EntityPlayer player) { return this.isUseableByPlayer(player); }
+	@Override public boolean hasPermission(EntityPlayer player) { return this.isUsableByPlayer(player); }
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
@@ -409,7 +412,7 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord, zCoord - 2, xCoord + 3, yCoord + 3, zCoord + 3);
+		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 3, this.pos.getZ() + 3);
 		return bb;
 	}
 	
@@ -456,10 +459,10 @@ public class TileEntityMachineChemicalFactory extends TileEntityMachineBase impl
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
 		if(coolantLine == null) coolantLine = new DirPos[] {
-				new DirPos(xCoord + rot.offsetX + dir.offsetX * 2, yCoord, zCoord + rot.offsetZ + dir.offsetZ * 2, dir),
-				new DirPos(xCoord - rot.offsetX + dir.offsetX * 2, yCoord, zCoord - rot.offsetZ + dir.offsetZ * 2, dir),
-				new DirPos(xCoord + rot.offsetX - dir.offsetX * 2, yCoord, zCoord + rot.offsetZ - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - rot.offsetX - dir.offsetX * 2, yCoord, zCoord - rot.offsetZ - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ + dir.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() - rot.offsetX + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ + dir.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() + rot.offsetX - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ - dir.offsetZ * 2, dir.getOpposite()),
 		};
 		
 		for(DirPos pos : coolantLine) if(pos.compare(x, y, z)) return this.delegate; // this actually fucking works

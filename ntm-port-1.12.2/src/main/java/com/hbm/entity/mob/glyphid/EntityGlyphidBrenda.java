@@ -51,17 +51,17 @@ public class EntityGlyphidBrenda extends EntityGlyphid {
 	@Override
 	public void onDeath(DamageSource source) {
 		super.onDeath(source);
-		if(!this.worldObj.isRemote && this.getHealth() <= 0.0F) {
-			EntityMist mist = new EntityMist(worldObj);
+		if(!this.world.isRemote && this.getHealth() <= 0.0F) {
+			EntityMist mist = new EntityMist(this.world);
 			mist.setType(Fluids.PHEROMONE);
 			mist.setPosition(posX, posY, posZ);
 			mist.setArea(14, 6);
 			mist.setDuration(80);
-			worldObj.spawnEntityInWorld(mist);
+			this.world.spawnEntityInWorld(mist);
 			for(int i = 0; i < 12; ++i) {
-				EntityGlyphid glyphid = new EntityGlyphid(worldObj);
+				EntityGlyphid glyphid = new EntityGlyphid(this.world);
 				glyphid.setLocationAndAngles(this.posX, this.posY + 0.5D, this.posZ, rand.nextFloat() * 360.0F, 0.0F);
-				this.worldObj.spawnEntityInWorld(glyphid);
+				this.world.spawnEntityInWorld(glyphid);
 				glyphid.moveEntity(rand.nextGaussian(), 0, rand.nextGaussian());
 			}
 		}

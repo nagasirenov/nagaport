@@ -1,0 +1,12 @@
+{
+  "src/main/java/com/hbm/world/WorldBlockState.java": "3a8d62e0bf8fd086cb9e8d4ceed52aa35e6b670b942227a8b6f0a1018b0819f5",
+  "porting/tests/native-world-reads/WorldReadNativeTest.java": "7201b1aba7c686ee2dd1773723cf48f78575f3285d6b55c47fe01e136782ee8f",
+  "porting/tests/native-world-reads/ProductionMethodsTest.java": "58b6ba3b0db0cb2d5f40a89f80f950f004c6bc64fd10cec68569d0a409acdac5",
+  "porting/tests/native-world-reads/OriginalWorldEvaluation.java": "305b27254d958ac01b07ae1a1a2405d5d3723c871a557fd7f2d368159c86f145",
+  "porting/tests/native-world-reads/WorldReadScanner.java": "30e6353208a42207fdcd9b0de9f22a3ed84b6c86d390458478b75895b377d4ae",
+  "porting/tests/native-world-reads/NativeWorldReadScanner.java": "1464b18dec5bfb3dbdb2acde1cbcd2e8a6b47ce51c3d586b221bdac63312b908",
+  "porting/tests/native-world-reads/probe.py": "be409c4c8db9c2961858dba1533eee6aab35aa51046be49089c54bf20c36afd7",
+  "porting/tests/native-world-reads/audit.py": "ba1fd52cc69efdf6a0733c43d3ebf09f69cf03c6d3af6cd83d8167a9c1ac3ecd",
+  "porting/tests/native-world-reads/manifest.json": "fc8ae0a1a9b613d4fc95185fe4c49c4a54ee1899bc8cafded2c676d07878235a",
+  "porting/tests/native-world-reads/negative-controls.java.in": "61b811dbcbb27ef0a864a94cbf5698af0fd4e8d325bd408b5c8e85618533daa8"
+}

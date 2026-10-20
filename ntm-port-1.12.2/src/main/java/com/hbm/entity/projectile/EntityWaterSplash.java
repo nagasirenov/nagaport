@@ -29,7 +29,7 @@ public class EntityWaterSplash extends EntityThrowable {
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.ticksExisted > 200) {
 				this.setDead();
@@ -47,7 +47,7 @@ public class EntityWaterSplash extends EntityThrowable {
 	@Override
 	protected void onImpact(RayTraceResult p_70184_1_) {
 		if(this.ticksExisted > 5) {
-			worldObj.spawnParticle("splash", posX, posY, posZ, 0.0D, 0.0D, 0.0D);
+			this.world.spawnParticle("splash", posX, posY, posZ, 0.0D, 0.0D, 0.0D);
 			this.setDead();
 		}
 	}

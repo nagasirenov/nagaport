@@ -1,0 +1,7 @@
+PASS all three changed Java sources match staged tree, independent snapshot and 4005 generated main compiler inputs.
+Production tree 8cdde31ad5f1bf9fb769b5b36882ec0577ac724f
+{
+  "src/main/java/com/hbm/blocks/BlockDummyable.java": "37d31d015839532f4e26b57d46f603f8bd81d216d0cc2a509967252a6fe89163",
+  "src/main/java/com/hbm/handler/MultiblockHandlerXR.java": "cf660309ec2465376605096eca9926b28dca4001c849183e23dd63a95aeb4012",
+  "src/main/java/com/hbm/interfaces/ICopiable.java": "8ff8692757fe67d708cde45100aecb67e5f9e635a81194dc5b0897ea3cbfb226"
+}

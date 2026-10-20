@@ -65,7 +65,7 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 	}
 
 	public void incrementGrowStage(World world, Random rand, int x, int y, int z) {
-		int growStage = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(rand, 2, 5);
+		int growStage = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) + MathHelper.getRandomIntegerInRange(rand, 2, 5);
 
 		if(growStage > maxGrowthStage) {
 			growStage = maxGrowthStage;
@@ -116,14 +116,14 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		if(!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
 			world.setBlock(x, y, z, getBlockById(0), 0, 2);
 		}
 	}
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		Block soil = world.getBlock(x, y - 1, z);
+		Block soil = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return soil.canSustainPlant(soil.getDefaultState(), world, new BlockPos(x, y - 1, z), EnumFacing.UP, this);
 	}
 
@@ -133,7 +133,7 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		super.updateTick(world, x, y, z, rand);
-		int growStage = world.getBlockMetadata(x, y, z) + 1;
+		int growStage = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) + 1;
 
 		if(growStage > 7) {
 			growStage = 7;
@@ -145,7 +145,7 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 	// checks if finished growing (a grow stage of 7 is final stage)
 	@Override
 	public boolean func_149851_a(World world, int x, int y, int z, boolean p_149851_5_) {
-		return world.getBlockMetadata(x, y, z) != 7;
+		return com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 7;
 	}
 
 	@Override

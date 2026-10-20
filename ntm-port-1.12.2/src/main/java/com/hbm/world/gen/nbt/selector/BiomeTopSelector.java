@@ -6,7 +6,7 @@ public class BiomeTopSelector extends BiomeBlockSelector {
 
 	@Override
 	public void selectBlocks(Random rand, int x, int y, int z, boolean notInterior) {
-		field_151562_a = nextBiome.topBlock;
+		blockstate = nextBiome.topBlock;
 	}
 
 }

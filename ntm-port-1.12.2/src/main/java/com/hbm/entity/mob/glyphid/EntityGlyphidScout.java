@@ -87,12 +87,12 @@ public class EntityGlyphidScout extends EntityGlyphid {
 					if(!hasTarget) {
 					Vec3d dirVec = playerBaseDirFinder(new Vec3d(posX, posY, posZ), getPlayerTargetDirection());
 
-						EntityWaypoint target = new EntityWaypoint(worldObj);
+						EntityWaypoint target = new EntityWaypoint(this.world);
 						target.setLocationAndAngles(dirVec.x, dirVec.y, dirVec.z, 0, 0);
 						target.maxAge = 300;
 						target.radius = 6;
 						target.setWaypointType(TASK_BUILD_HIVE);
-						worldObj.spawnEntityInWorld(target);
+						this.world.spawnEntityInWorld(target);
 						hasTarget = true;
 
 						setCurrentTask(TASK_RETREAT_FOR_REINFORCEMENTS, target);
@@ -111,7 +111,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 
 		if(getCurrentTask() == TASK_BUILD_HIVE || getCurrentTask() == TASK_TERRAFORM) {
 
-			if(!worldObj.isRemote && !hasTarget) {
+			if(!this.world.isRemote && !hasTarget) {
 				//Check for whether a big man johnson is nearby, this makes the scout switch into its terraforming task
 				if(scoutingRange != 60 && hasNuclearGlyphidNearby()){
 					setCurrentTask(TASK_TERRAFORM, null);
@@ -134,22 +134,22 @@ public class EntityGlyphidScout extends EntityGlyphid {
 			if (ticksExisted % 10 == 0 && isAtDestination()) {
 				timer++;
 
-				if (!worldObj.isRemote && canBuildHiveHere()) {
+				if (!this.world.isRemote && canBuildHiveHere()) {
 					if(timer == 1) {
 
-						EntityWaypoint additional = new EntityWaypoint(worldObj);
+						EntityWaypoint additional = new EntityWaypoint(this.world);
 						additional.setLocationAndAngles(posX, posY, posZ, 0, 0);
 						additional.setWaypointType(TASK_IDLE);
 
 						// First, go home and get reinforcements
-						EntityWaypoint home = new EntityWaypoint(worldObj);
+						EntityWaypoint home = new EntityWaypoint(this.world);
 						home.setWaypointType(TASK_RETREAT_FOR_REINFORCEMENTS);
 						home.setAdditionalWaypoint(additional);
 						home.setLocationAndAngles(homeX, homeY, homeZ, 0, 0);
 						home.maxAge = 1200;
 						home.radius = 6;
 
-						worldObj.spawnEntityInWorld(home);
+						this.world.spawnEntityInWorld(home);
 
 						this.taskWaypoint = home;
 						this.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40 * 20, 10));
@@ -157,8 +157,8 @@ public class EntityGlyphidScout extends EntityGlyphid {
 
 					} else if(timer >= 5) {
 
-						worldObj.newExplosion(this, posX, posY, posZ, 5F, false, false);
-						GlyphidHive.generateSmall(worldObj, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), rand, this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) != TYPE_NORMAL, false);
+						this.world.newExplosion(this, posX, posY, posZ, 5F, false, false);
+						GlyphidHive.generateSmall(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), rand, this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) != TYPE_NORMAL, false);
 						this.setDead();
 
 					} else {
@@ -180,11 +180,11 @@ public class EntityGlyphidScout extends EntityGlyphid {
 			rot = rot.rotateYaw(angle);
 			Vec3d pos = new Vec3d(this.posX, this.posY + 1, this.posZ);
 			Vec3d nextPos = new Vec3d(this.posX + rot.x, this.posY + 1, this.posZ + rot.z);
-			RayTraceResult mop = this.worldObj.rayTraceBlocks(pos, nextPos);
+			RayTraceResult mop = this.world.rayTraceBlocks(pos, nextPos);
 
 			if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-				Block block = worldObj.getBlockState(mop.getBlockPos()).getBlock();
+				Block block = this.world.getBlockState(mop.getBlockPos()).getBlock();
 
 				if(block == ModBlocks.glyphid_base) {
 					setCurrentTask(TASK_IDLE, null);
@@ -213,7 +213,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				this.posY + radius,
 				this.posZ + radius);
 
-		List<Entity> bugs = worldObj.getEntitiesWithinAABBExcludingEntity(this, bb);
+		List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 		
 		for (Entity e: bugs){
 			if(e instanceof EntityGlyphidNuclear){
@@ -228,12 +228,12 @@ public class EntityGlyphidScout extends EntityGlyphid {
 
 		int nestX = rand.nextInt((homeX + scoutingRange) - (homeX - scoutingRange)) + (homeX - scoutingRange);
 		int nestZ = rand.nextInt((homeZ + scoutingRange) - (homeZ - scoutingRange)) + (homeZ - scoutingRange);
-		int nestY = worldObj.getHeightValue(nestX, nestZ);
-		Block b = worldObj.getBlock(nestX, nestY - 1, nestZ);
+		int nestY = this.world.getHeightValue(nestX, nestZ);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ).getBlock();
 
 		boolean distanceCheck = new Vec3d(nestX - homeX, nestY - homeY, nestZ - homeZ).length() > minDistanceToHive;
 
-		if(distanceCheck && b.getMaterial() != Material.air && b.isNormalCube() && b != ModBlocks.glyphid_base) {
+		if(distanceCheck && b.getDefaultState().getMaterial() != Material.AIR && b.isNormalCube() && b != ModBlocks.glyphid_base) {
 
 			if(b == ModBlocks.basalt) {
 				useLargeHive = true;
@@ -241,8 +241,8 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 3));
 			}
 			
-			if(!worldObj.isRemote) {
-				EntityWaypoint nest = new EntityWaypoint(worldObj);
+			if(!this.world.isRemote) {
+				EntityWaypoint nest = new EntityWaypoint(this.world);
 				nest.setWaypointType(getCurrentTask());
 				nest.radius = 5;
 
@@ -250,7 +250,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 					nest.setHighPriority();
 
 				nest.setLocationAndAngles(nestX, nestY, nestZ, 0, 0);
-				worldObj.spawnEntityInWorld(nest);
+				this.world.spawnEntityInWorld(nest);
 
 				taskWaypoint = nest;
 
@@ -267,25 +267,25 @@ public class EntityGlyphidScout extends EntityGlyphid {
 
 	@Override
 	public void carryOutTask() {
-		if (!worldObj.isRemote && taskWaypoint == null) {
+		if (!this.world.isRemote && taskWaypoint == null) {
 			switch(getCurrentTask()){
 				case TASK_INITIATE_RETREAT:
 					this.removePotionEffect(Potion.moveSlowdown.id);
 					this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20 * 20, 4));
 
 					//then, come back later
-					EntityWaypoint additional = new EntityWaypoint(worldObj);
+					EntityWaypoint additional = new EntityWaypoint(this.world);
 					additional.setLocationAndAngles(posX, posY, posZ, 0, 0);
 					additional.setWaypointType(0);
 					
 					//First, go home and get reinforcements
-					EntityWaypoint home = new EntityWaypoint(worldObj);
+					EntityWaypoint home = new EntityWaypoint(this.world);
 					home.setWaypointType(2);
 					home.setAdditionalWaypoint(additional);
 					home.setHighPriority();
 					home.radius = 6;
 					home.setLocationAndAngles(homeX, homeY, homeZ, 0, 0);
-					worldObj.spawnEntityInWorld(home);
+					this.world.spawnEntityInWorld(home);
 
 					communicate(4, home);
 					break;
@@ -310,7 +310,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	protected Entity findPlayerToAttack() {
 		if(this.isPotionActive(Potion.blindness)) return null;
 		//no extended targeting, and a low attack distance, ensures the scouts are focused in expanding, and not in chasing the player
-		return this.worldObj.getClosestVulnerablePlayerToEntity(this, 10);
+		return this.world.getClosestVulnerablePlayerToEntity(this, 10);
 	}
 
 
@@ -329,7 +329,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	}
 	
 	protected Vec3d getPlayerTargetDirection() {
-		EntityPlayer player = worldObj.getClosestPlayerToEntity(this, 300);
+		EntityPlayer player = this.world.getClosestPlayerToEntity(this, 300);
 		if(player != null) {
 			return new Vec3d(player.posX, player.posY, player.posZ);
 		}
@@ -340,15 +340,15 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	@Override
 	public boolean isValidLightLevel() {
 		int x = MathHelper.floor_double(this.posX);
-		int y = MathHelper.floor_double(this.boundingBox.minY);
+		int y = MathHelper.floor_double(this.getEntityBoundingBox().minY);
 		int z = MathHelper.floor_double(this.posZ);
 
-		int skylightSubtracted = this.worldObj.skylightSubtracted;
+		int skylightSubtracted = this.world.skylightSubtracted;
 
-		if(this.worldObj.isThundering()) this.worldObj.skylightSubtracted = 10;
-		int light = worldObj.getChunkFromChunkCoords(x >> 4, z >> 4).getBlockLightValue(x & 15, y, z & 15, worldObj.skylightSubtracted);
+		if(this.world.isThundering()) this.world.skylightSubtracted = 10;
+		int light = this.world.getChunkFromChunkCoords(x >> 4, z >> 4).getBlockLightValue(x & 15, y, z & 15, this.world.skylightSubtracted);
 
-		this.worldObj.skylightSubtracted = skylightSubtracted;
+		this.world.skylightSubtracted = skylightSubtracted;
 		return light <= 7;
 
 	}

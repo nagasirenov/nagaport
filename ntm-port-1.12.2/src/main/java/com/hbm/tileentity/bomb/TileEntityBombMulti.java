@@ -62,23 +62,24 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null)
 		{
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-		return null;
+		return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit())
 		{
-			itemStack.stackSize = getInventoryStackLimit();
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -104,11 +105,11 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
 		}else{
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <=64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
 
@@ -128,18 +129,21 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[0];
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
-		return j != 0 || i != 1 || itemStack.getItem() == Items.bucket;
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
+		return j != 0 || i != 1 || itemStack.getItem() == Items.BUCKET;
 	}
 	
 	@Override
@@ -162,7 +166,7 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
 		
@@ -181,14 +185,15 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 	
 	public boolean isLoaded(){
 		
-		if(slots[0] != null && slots[0].getItem() == Item.getItemFromBlock(Blocks.tnt) && 
-				slots[1] != null && slots[1].getItem() == Item.getItemFromBlock(Blocks.tnt) && 
-				slots[3] != null && slots[3].getItem() == Item.getItemFromBlock(Blocks.tnt) && 
-				slots[4] != null && slots[4].getItem() == Item.getItemFromBlock(Blocks.tnt))
+		if(slots[0] != null && slots[0].getItem() == Item.getItemFromBlock(Blocks.TNT) && 
+				slots[1] != null && slots[1].getItem() == Item.getItemFromBlock(Blocks.TNT) && 
+				slots[3] != null && slots[3].getItem() == Item.getItemFromBlock(Blocks.TNT) && 
+				slots[4] != null && slots[4].getItem() == Item.getItemFromBlock(Blocks.TNT))
 		{
 			return true;
 		}
@@ -200,12 +205,12 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 
 		if(slots[2] != null)
 		{
-		if(slots[2].getItem() == Items.gunpowder)
+		if(slots[2].getItem() == Items.GUNPOWDER)
 		{
 			return 1;
 		}
 		
-		if(slots[2].getItem() == Item.getItemFromBlock(Blocks.tnt))
+		if(slots[2].getItem() == Item.getItemFromBlock(Blocks.TNT))
 		{
 			return 2;
 		}
@@ -237,12 +242,12 @@ public class TileEntityBombMulti extends TileEntity implements ISidedInventory, 
 		
 		if(slots[5] != null)
 		{
-		if(slots[5].getItem() == Items.gunpowder)
+		if(slots[5].getItem() == Items.GUNPOWDER)
 		{
 			return 1;
 		}
 		
-		if(slots[5].getItem() == Item.getItemFromBlock(Blocks.tnt))
+		if(slots[5].getItem() == Item.getItemFromBlock(Blocks.TNT))
 		{
 			return 2;
 		}

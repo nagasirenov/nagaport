@@ -20,9 +20,9 @@ public class ExplosionEffectStandard implements IExplosionSFX {
 		if(world.isRemote)
 			return;
 		
-		world.playSoundEffect(x, y, z, "random.explode", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, "random.explode", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
 		
-		PacketDispatcher.wrapper.sendToAllAround(new ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket(x, y, z, explosion.size, explosion.compat.getAffectedBlockPositions()),  new TargetPoint(world.provider.dimensionId, x, y, z, 250));
+		PacketDispatcher.wrapper.sendToAllAround(new ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket(x, y, z, explosion.size, explosion.compat.getAffectedBlockPositions()),  new TargetPoint(world.provider.getDimension(), x, y, z, 250));
 	}
 	
 	public static void performClient(World world, double x, double y, double z, float size, List<BlockPos> affectedBlocks) {
@@ -48,7 +48,7 @@ public class ExplosionEffectStandard implements IExplosionSFX {
 			double dX = oX - x;
 			double dY = oY - y;
 			double dZ = oZ - z;
-			double delta = (double) MathHelper.sqrt_double(dX * dX + dY * dY + dZ * dZ) / 1D /* hehehe */;
+			double delta = (double) MathHelper.sqrt(dX * dX + dY * dY + dZ * dZ) / 1D /* hehehe */;
 			dX /= delta;
 			dY /= delta;
 			dZ /= delta;

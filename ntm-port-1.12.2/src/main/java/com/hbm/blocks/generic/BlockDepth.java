@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class BlockDepth extends Block implements ITooltipProvider {
 
 	public BlockDepth() {
-		super(Material.rock);
+		super(Material.ROCK);
 		this.setBlockUnbreakable();
 		this.setResistance(10.0F);
 	}
@@ -24,9 +24,9 @@ public class BlockDepth extends Block implements ITooltipProvider {
 	@Override
 	public float getPlayerRelativeBlockHardness(EntityPlayer player, World world, int x, int y, int z) {
 		
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IDepthRockTool) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IDepthRockTool) {
 			
-			if(((IDepthRockTool)player.getHeldItem().getItem()).canBreakRock(world, player, player.getHeldItem(), this, x, y, z))
+			if(((IDepthRockTool)com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).canBreakRock(world, player, com.hbm.util.NativeHeldItem.getMainHandNullable(player), this, x, y, z))
 			return (float) (1D / 50D);
 		}
 		

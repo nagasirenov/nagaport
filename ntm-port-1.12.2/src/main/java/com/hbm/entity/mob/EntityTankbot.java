@@ -14,13 +14,12 @@ import com.hbm.util.ParticleUtil;
 
 import api.hbm.entity.IRadiationImmune;
 import api.hbm.entity.ISuffocationImmune;
-import net.minecraft.command.IEntitySelector;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIFleeSun;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -44,8 +43,8 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 	public double currentHeadYaw; 
 	public EntityLivingBase targetEntityLiving;
 	
-    private static final IEntitySelector selector = new IEntitySelector() {
-		public boolean isEntityApplicable(Entity p_82704_1_) {
+    private static final Predicate<Entity> selector = new Predicate<Entity>() {
+		public boolean apply(Entity p_82704_1_) {
 			return !(p_82704_1_ instanceof EntityTankbot);
 		}
 	};
@@ -71,14 +70,14 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 	protected void onDeathUpdate() {
 		
 		if(this.deathTime == -30) {
-			worldObj.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
 		}
-		if(this.deathTime >= -30 && !worldObj.isRemote) {
-		ParticleUtil.spawnGasFlame(worldObj, this.posX, this.posY + 1, this.posZ, rand.nextGaussian(), 0.4, rand.nextGaussian());
+		if(this.deathTime >= -30 && !this.world.isRemote) {
+		ParticleUtil.spawnGasFlame(this.world, this.posX, this.posY + 1, this.posZ, rand.nextGaussian(), 0.4, rand.nextGaussian());
 		}
-		if(this.deathTime == -5 && !worldObj.isRemote) {
-			worldObj.newExplosion(this, posX, posY, posZ, 5F, true, false);
-			ExplosionCreator.composeEffectSmall(worldObj, this.posX, this.posY, this.posZ);
+		if(this.deathTime == -5 && !this.world.isRemote) {
+			this.world.newExplosion(this, posX, posY, posZ, 5F, true, false);
+			ExplosionCreator.composeEffectSmall(this.world, this.posX, this.posY, this.posZ);
 			this.setDead();
 
 		}
@@ -89,7 +88,7 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 	protected Entity findPlayerToAttack() {
 		if(this.isPotionActive(Potion.blindness)) return null;
 
-		return this.worldObj.getClosestVulnerablePlayerToEntity(this, 64D);
+		return this.world.getClosestVulnerablePlayerToEntity(this, 64D);
 	}
 
 
@@ -137,9 +136,9 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(180.0D);
 
 	}

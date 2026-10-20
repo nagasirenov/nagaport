@@ -24,7 +24,7 @@ import com.hbm.lib.ForgeDirection;
 public class HeaterElectric extends BlockDummyable implements ILookOverlay, ITooltipProvider, IToolable {
 
 	public HeaterElectric() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class HeaterElectric extends BlockDummyable implements ILookOverlay, IToo
 		if(pos == null)
 			return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityHeaterElectric))
 			return;
@@ -80,7 +80,7 @@ public class HeaterElectric extends BlockDummyable implements ILookOverlay, IToo
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + heater.getConsumption() + " HE/t");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + heater.getHeatGen() + " TU/t");
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class HeaterElectric extends BlockDummyable implements ILookOverlay, IToo
 		
 		if(pos == null) return false;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityHeaterElectric)) return false;
 		

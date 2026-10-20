@@ -1,0 +1,18 @@
+  public static net.minecraftforge.event.entity.PlaySoundAtEntityEvent onPlaySoundAtEntity(net.minecraft.entity.Entity, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, float, float);
+    Code:
+       0: new           #681                // class net/minecraftforge/event/entity/PlaySoundAtEntityEvent
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: fload_3
+       8: fload         4
+      10: invokespecial #684                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent."<init>":(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FF)V
+      13: astore        5
+      15: getstatic     #210                // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/fml/common/eventhandler/EventBus;
+      18: aload         5
+      20: invokevirtual #216                // Method net/minecraftforge/fml/common/eventhandler/EventBus.post:(Lnet/minecraftforge/fml/common/eventhandler/Event;)Z
+      23: pop
+      24: aload         5
+      26: areturn
+

@@ -1,0 +1,250 @@
+Original actual 1.7.10 ahb methods (SRG func_147468_f, func_147465_d)
+  public boolean f(int, int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: iload_3
+       4: getstatic     #232                // Field ajn.a:Laji;
+       7: iconst_0
+       8: iconst_3
+       9: invokevirtual #353                // Method d:(IIILaji;II)Z
+      12: ireturn
+  public boolean d(int, int, int, aji, int, int);
+    Code:
+       0: iload_1
+       1: ldc           #1                  // int -30000000
+       3: if_icmplt     24
+       6: iload_3
+       7: ldc           #1                  // int -30000000
+       9: if_icmplt     24
+      12: iload_1
+      13: ldc           #5                  // int 30000000
+      15: if_icmpge     24
+      18: iload_3
+      19: ldc           #5                  // int 30000000
+      21: if_icmplt     26
+      24: iconst_0
+      25: ireturn
+      26: iload_2
+      27: ifge          32
+      30: iconst_0
+      31: ireturn
+      32: iload_2
+      33: sipush        256
+      36: if_icmplt     41
+      39: iconst_0
+      40: ireturn
+      41: aload_0
+      42: iload_1
+      43: iconst_4
+      44: ishr
+      45: iload_3
+      46: iconst_4
+      47: ishr
+      48: invokevirtual #355                // Method e:(II)Lapx;
+      51: astore        7
+      53: aconst_null
+      54: astore        8
+      56: iload         6
+      58: iconst_1
+      59: iand
+      60: ifeq          79
+      63: aload         7
+      65: iload_1
+      66: bipush        15
+      68: iand
+      69: iload_2
+      70: iload_3
+      71: bipush        15
+      73: iand
+      74: invokevirtual #417                // Method apx.a:(III)Laji;
+      77: astore        8
+      79: aload         7
+      81: iload_1
+      82: bipush        15
+      84: iand
+      85: iload_2
+      86: iload_3
+      87: bipush        15
+      89: iand
+      90: aload         4
+      92: iload         5
+      94: invokevirtual #419                // Method apx.a:(IIILaji;I)Z
+      97: istore        9
+      99: aload_0
+     100: getfield      #193                // Field C:Lqi;
+     103: ldc           #62                 // String checkLight
+     105: invokevirtual #530                // Method qi.a:(Ljava/lang/String;)V
+     108: aload_0
+     109: iload_1
+     110: iload_2
+     111: iload_3
+     112: invokevirtual #375                // Method t:(III)Z
+     115: pop
+     116: aload_0
+     117: getfield      #193                // Field C:Lqi;
+     120: invokevirtual #531                // Method qi.b:()V
+     123: iload         9
+     125: ifeq          204
+     128: iload         6
+     130: iconst_2
+     131: iand
+     132: ifeq          164
+     135: aload_0
+     136: getfield      #195                // Field E:Z
+     139: ifeq          149
+     142: iload         6
+     144: iconst_4
+     145: iand
+     146: ifne          164
+     149: aload         7
+     151: invokevirtual #439                // Method apx.k:()Z
+     154: ifeq          164
+     157: aload_0
+     158: iload_1
+     159: iload_2
+     160: iload_3
+     161: invokevirtual #362                // Method g:(III)V
+     164: aload_0
+     165: getfield      #195                // Field E:Z
+     168: ifne          204
+     171: iload         6
+     173: iconst_1
+     174: iand
+     175: ifeq          204
+     178: aload_0
+     179: iload_1
+     180: iload_2
+     181: iload_3
+     182: aload         8
+     184: invokevirtual #348                // Method c:(IIILaji;)V
+     187: aload         4
+     189: invokevirtual #390                // Method aji.M:()Z
+     192: ifeq          204
+     195: aload_0
+     196: iload_1
+     197: iload_2
+     198: iload_3
+     199: aload         4
+     201: invokevirtual #361                // Method f:(IIILaji;)V
+     204: iload         9
+     206: ireturn
+
+Native actual Forge World methods
+  public boolean setBlockToAir(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getstatic     #581                // Field net/minecraft/init/Blocks.AIR:Lnet/minecraft/block/Block;
+       5: invokevirtual #585                // Method net/minecraft/block/Block.getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+       8: iconst_3
+       9: invokevirtual #587                // Method setBlockState:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z
+      12: ireturn
+  public boolean setBlockState(net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #388                // Method isOutsideBuildHeight:(Lnet/minecraft/util/math/BlockPos;)Z
+       5: ifeq          10
+       8: iconst_0
+       9: ireturn
+      10: aload_0
+      11: getfield      #233                // Field isRemote:Z
+      14: ifne          32
+      17: aload_0
+      18: getfield      #229                // Field worldInfo:Lnet/minecraft/world/storage/WorldInfo;
+      21: invokevirtual #487                // Method net/minecraft/world/storage/WorldInfo.getTerrainType:()Lnet/minecraft/world/WorldType;
+      24: getstatic     #493                // Field net/minecraft/world/WorldType.DEBUG_ALL_BLOCK_STATES:Lnet/minecraft/world/WorldType;
+      27: if_acmpne     32
+      30: iconst_0
+      31: ireturn
+      32: aload_0
+      33: aload_1
+      34: invokevirtual #277                // Method getChunk:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/world/chunk/Chunk;
+      37: astore        4
+      39: aload_1
+      40: invokevirtual #496                // Method net/minecraft/util/math/BlockPos.toImmutable:()Lnet/minecraft/util/math/BlockPos;
+      43: astore_1
+      44: aconst_null
+      45: astore        5
+      47: aload_0
+      48: getfield      #191                // Field captureBlockSnapshots:Z
+      51: ifeq          79
+      54: aload_0
+      55: getfield      #233                // Field isRemote:Z
+      58: ifne          79
+      61: aload_0
+      62: aload_1
+      63: iload_3
+      64: invokestatic  #502                // Method net/minecraftforge/common/util/BlockSnapshot.getBlockSnapshot:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;I)Lnet/minecraftforge/common/util/BlockSnapshot;
+      67: astore        5
+      69: aload_0
+      70: getfield      #196                // Field capturedBlockSnapshots:Ljava/util/ArrayList;
+      73: aload         5
+      75: invokevirtual #506                // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+      78: pop
+      79: aload_0
+      80: aload_1
+      81: invokevirtual #382                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      84: astore        6
+      86: aload         6
+      88: aload_0
+      89: aload_1
+      90: invokeinterface #510,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getLightValue:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+      95: istore        7
+      97: aload         6
+      99: aload_0
+     100: aload_1
+     101: invokeinterface #513,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getLightOpacity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+     106: istore        8
+     108: aload         4
+     110: aload_1
+     111: aload_2
+     112: invokevirtual #516                // Method net/minecraft/world/chunk/Chunk.setBlockState:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/state/IBlockState;
+     115: astore        9
+     117: aload         9
+     119: ifnonnull     139
+     122: aload         5
+     124: ifnull        137
+     127: aload_0
+     128: getfield      #196                // Field capturedBlockSnapshots:Ljava/util/ArrayList;
+     131: aload         5
+     133: invokevirtual #519                // Method java/util/ArrayList.remove:(Ljava/lang/Object;)Z
+     136: pop
+     137: iconst_0
+     138: ireturn
+     139: aload_2
+     140: aload_0
+     141: aload_1
+     142: invokeinterface #513,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getLightOpacity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+     147: iload         8
+     149: if_icmpne     165
+     152: aload_2
+     153: aload_0
+     154: aload_1
+     155: invokeinterface #510,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getLightValue:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+     160: iload         7
+     162: if_icmpeq     188
+     165: aload_0
+     166: getfield      #227                // Field profiler:Lnet/minecraft/profiler/Profiler;
+     169: ldc_w         #521                // String checkLight
+     172: invokevirtual #527                // Method net/minecraft/profiler/Profiler.startSection:(Ljava/lang/String;)V
+     175: aload_0
+     176: aload_1
+     177: invokevirtual #529                // Method checkLight:(Lnet/minecraft/util/math/BlockPos;)Z
+     180: pop
+     181: aload_0
+     182: getfield      #227                // Field profiler:Lnet/minecraft/profiler/Profiler;
+     185: invokevirtual #532                // Method net/minecraft/profiler/Profiler.endSection:()V
+     188: aload         5
+     190: ifnonnull     204
+     193: aload_0
+     194: aload_1
+     195: aload         4
+     197: aload         9
+     199: aload_2
+     200: iload_3
+     201: invokevirtual #536                // Method markAndNotifyBlock:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;I)V
+     204: iconst_1
+     205: ireturn

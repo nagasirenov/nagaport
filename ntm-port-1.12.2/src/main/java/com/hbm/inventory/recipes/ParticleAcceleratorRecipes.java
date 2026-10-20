@@ -97,8 +97,8 @@ public class ParticleAcceleratorRecipes extends SerializableRecipe {
 				null
 				));
 		recipes.add(new ParticleAcceleratorRecipe(
-				new ComparableStack(Items.chicken),
-				new ComparableStack(Items.chicken),
+				new ComparableStack(Items.CHICKEN),
+				new ComparableStack(Items.CHICKEN),
 				100,
 				new ItemStack(ModItems.nugget),
 				new ItemStack(ModItems.nugget)

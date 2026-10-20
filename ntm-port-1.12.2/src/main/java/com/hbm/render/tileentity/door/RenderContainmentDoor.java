@@ -35,7 +35,7 @@ public class RenderContainmentDoor implements IRenderDoors {
 		buf.put(new double[] { 0, -1, 0, 3 }); buf.rewind();
 		GL11.glClipPlane(GL11.GL_CLIP_PLANE0, buf);
 		
-		GL11.glTranslated(0, MathHelper.clamp_double(raise, 0, maxRaise), 0);
+		GL11.glTranslated(0, MathHelper.clamp(raise, (double) (0), maxRaise), 0);
 		ResourceManager.pheo_containment_door.renderPart("Door");
 		
 		GL11.glDisable(GL11.GL_CLIP_PLANE0);

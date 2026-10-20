@@ -23,7 +23,7 @@ public class HazardTypeHydroactive extends HazardTypeBase {
 		
 		if(target.isWet() && stack.stackSize > 0) {
 			stack.stackSize = 0;
-			target.worldObj.newExplosion(null, target.posX, target.posY + target.getEyeHeight() - target.getYOffset(), target.posZ, level, false, true);
+			target.world.newExplosion(null, target.posX, target.posY + target.getEyeHeight() - target.getYOffset(), target.posZ, level, false, true);
 		}
 	}
 
@@ -33,9 +33,9 @@ public class HazardTypeHydroactive extends HazardTypeBase {
 		if(RadiationConfig.disableHydro)
 			return;
 		
-		if(item.isWet() || item.worldObj.getBlock((int) Math.floor(item.posX), (int) Math.floor(item.posY), (int) Math.floor(item.posZ)).getMaterial() == Material.water) {
+		if(item.isWet() || com.hbm.world.WorldBlockState.read(item.world, (int) Math.floor(item.posX), (int) Math.floor(item.posY), (int) Math.floor(item.posZ)).getBlock().getMaterial() == Material.WATER) {
 			item.setDead();
-			item.worldObj.newExplosion(null, item.posX, item.posY + item.height * 0.5, item.posZ, level, false, true);
+			item.world.newExplosion(null, item.posX, item.posY + item.height * 0.5, item.posZ, level, false, true);
 		}
 	}
 

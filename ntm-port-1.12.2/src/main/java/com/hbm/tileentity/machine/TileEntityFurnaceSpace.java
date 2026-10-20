@@ -11,7 +11,7 @@ public class TileEntityFurnaceSpace extends TileEntityFurnace {
 	// Overrides the vanilla furnace TE to check airbreathing
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		boolean flag = this.furnaceBurnTime > 0;
 		boolean flag1 = false;
 
@@ -19,13 +19,13 @@ public class TileEntityFurnaceSpace extends TileEntityFurnace {
 			--this.furnaceBurnTime;
 		}
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.furnaceBurnTime != 0 || this.furnaceItemStacks[1] != null && this.furnaceItemStacks[0] != null) {
 				if(this.furnaceBurnTime == 0 && this.canSmelt()) {
 					int burnTime = getItemBurnTime(this.furnaceItemStacks[1]);
 
 					// If the machine can't combust, provide no burning (lava works without an atmosphere though!)
-					if(burnTime > 0 && this.furnaceItemStacks[1].getItem() != Items.lava_bucket && !TileEntityMachineBase.breatheAir(worldObj, xCoord, yCoord, zCoord, 0)) {
+					if(burnTime > 0 && this.furnaceItemStacks[1].getItem() != Items.LAVA_BUCKET && !TileEntityMachineBase.breatheAir(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0)) {
 						burnTime = 0;
 					}
 
@@ -59,7 +59,7 @@ public class TileEntityFurnaceSpace extends TileEntityFurnace {
 
 			if(flag != this.furnaceBurnTime > 0) {
 				flag1 = true;
-				BlockFurnaceSpace.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				BlockFurnaceSpace.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 		}
 

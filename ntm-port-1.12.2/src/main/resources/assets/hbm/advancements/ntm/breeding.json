@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/rbmk",
+  "display": {
+    "icon": {
+      "item": "hbm:item.ingot_am_mix",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.breeding"
+    },
+    "description": {
+      "translate": "achievement.breeding.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

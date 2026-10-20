@@ -56,8 +56,8 @@ public class GUISILEX extends GuiInfoContainer {
 
 		if(guiLeft + 10 <= x && guiLeft + 10 + 12 > x && guiTop + 92 < y && guiTop + 92 + 12 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-			PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(silex.xCoord, silex.yCoord, silex.zCoord, 0, 0));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+			PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(silex.getPos().getX(), silex.getPos().getY(), silex.getPos().getZ(), 0, 0));
 		}
 	}
 
@@ -65,11 +65,11 @@ public class GUISILEX extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.silex.hasCustomInventoryName() ? this.silex.getInventoryName() : I18n.format(this.silex.getInventoryName());
 
-		this.fontRendererObj.drawString(name, (this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2) - 54, 8, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, (this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2) - 54, 8, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		
 		if(silex.mode != EnumWavelengths.NULL) {
-			this.fontRendererObj.drawString(silex.mode.textColor + I18nUtil.resolveKey(silex.mode.name), 100 + (32 - this.fontRendererObj.getStringWidth(I18nUtil.resolveKey(silex.mode.name)) / 2), 16, 0);
+			this.fontRenderer.drawString(silex.mode.textColor + I18nUtil.resolveKey(silex.mode.name), 100 + (32 - this.fontRenderer.getStringWidth(I18nUtil.resolveKey(silex.mode.name)) / 2), 16, 0);
 		}
 	}
 
@@ -82,7 +82,7 @@ public class GUISILEX extends GuiInfoContainer {
 		
 		if(silex.mode != EnumWavelengths.NULL) {
 			float freq = 0.05F * (float)Math.pow(2, silex.mode.ordinal());
-			int color = (silex.mode != EnumWavelengths.VISIBLE) ? silex.mode.guiColor : Color.HSBtoRGB(silex.getWorldObj().getTotalWorldTime() / 50.0F, 0.5F, 1F) & 16777215;
+			int color = (silex.mode != EnumWavelengths.VISIBLE) ? silex.mode.guiColor : Color.HSBtoRGB(silex.getWorld().getTotalWorldTime() / 50.0F, 0.5F, 1F) & 16777215;
 			drawWave(81, 46, 16, 84, 0.5F, freq, color, 3F, 1F);
 		}
 		
@@ -108,7 +108,7 @@ public class GUISILEX extends GuiInfoContainer {
 	private void drawWave(int x, int y, int height, int width, float resolution, float freq, int color, float thickness, float mult) {
 		float samples = ((float)width) / resolution;
 		float scale = ((float)height)/2F;
-		float offset = (float)((float)silex.getWorldObj().getTotalWorldTime() % (4*Math.PI/freq));//((width/3)*Math.PI/3));//(2.05F*width*freq));
+		float offset = (float)((float)silex.getWorld().getTotalWorldTime() % (4*Math.PI/freq));//((width/3)*Math.PI/3));//(2.05F*width*freq));
 		for(int i = 1; i < samples; i++) {
 			double currentX = offset + x + i*resolution;
 			double nextX = offset + x + (i+1)*resolution;

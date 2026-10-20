@@ -2,7 +2,6 @@ package com.hbm.blocks.generic;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.lib.ModDamageSource;
-import com.hbm.lib.RefStrings;
 import com.hbm.potion.HbmPotion;
 import com.hbm.render.icon.IIcon;
 import com.hbm.render.icon.IIconRegister;
@@ -34,10 +33,16 @@ public class BarbedWire extends Block implements INBTBlockTransformable {
 	public static final PropertyInteger ORIENTATION = PropertyInteger.create("orientation", 0, 5);
 	@SideOnly(Side.CLIENT)
 	private IIcon blockIcon;
+	private String modelTexture;
 
 	public BarbedWire(Material mat) {
 		super(mat);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(ORIENTATION, 0));
+	}
+
+	public BarbedWire setModelTexture(String texture) {
+		this.modelTexture = texture;
+		return this;
 	}
 
 	@Override
@@ -57,8 +62,7 @@ public class BarbedWire extends Block implements INBTBlockTransformable {
 
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
-		String path = getRegistryName().getPath();
-		blockIcon = register.registerIcon(RefStrings.MODID + ":blocks/" + path + "_model");
+		blockIcon = register.registerIcon(modelTexture);
 	}
 
 	@SideOnly(Side.CLIENT)

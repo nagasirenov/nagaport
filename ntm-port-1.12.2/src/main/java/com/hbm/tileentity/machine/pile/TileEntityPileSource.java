@@ -5,9 +5,9 @@ import com.hbm.blocks.ModBlocks;
 public class TileEntityPileSource extends TileEntityPileBase {
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			int n = this.getBlockType() == ModBlocks.block_graphite_source ? 1 : 2;
 			

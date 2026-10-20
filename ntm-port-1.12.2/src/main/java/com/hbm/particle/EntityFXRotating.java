@@ -2,13 +2,28 @@ package com.hbm.particle;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class EntityFXRotating extends EntityFX {
+/** Native atlas particle with the original degree-based billboard rotation. */
+public class EntityFXRotating extends Particle {
+
+	protected float spinDegrees, previousSpinDegrees;
+	// Purely visual variation, no longer consumes the shared Entity ID counter.
+	protected final int visualSeed = System.identityHashCode(this) & Integer.MAX_VALUE;
+
+	public void setMotion(double x, double y, double z) {
+		this.motionX = x;
+		this.motionY = y;
+		this.motionZ = z;
+	}
+
+	@Override
+	public boolean shouldDisableDepth() { return true; }
 
 	protected EntityFXRotating(World world, double x, double y, double z) {
 		super(world, x, y, z);
@@ -19,12 +34,12 @@ public class EntityFXRotating extends EntityFX {
 		return 1;
 	}
 
-	public void renderParticleRotated(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ, double scale) {
+	public void renderParticleRotated(BufferBuilder tess, float interp, float sX, float sY, float sZ, float dX, float dZ, double scale, float red, float green, float blue, float alpha, int brightness) {
 
 		float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
 		float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
 		float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
-		float rotation = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * interp;
+		float rotation = this.previousSpinDegrees + (this.spinDegrees - this.previousSpinDegrees) * interp;
 
 		double x1 = 0 - sX * scale - dX * scale;
 		double y1 = 0 - sY * scale;
@@ -64,9 +79,9 @@ public class EntityFXRotating extends EntityFX {
 		double y04 = y4 * cosTh + (nZ * x4 - nX * z4) * sinTh;
 		double z04 = z4 * cosTh + (nX * y4 - nY * x4) * sinTh;
 
-		tess.addVertexWithUV(pX + x01, pY + y01, pZ + z01, particleIcon.getMaxU(), particleIcon.getMaxV());
-		tess.addVertexWithUV(pX + x02, pY + y02, pZ + z02, particleIcon.getMaxU(), particleIcon.getMinV());
-		tess.addVertexWithUV(pX + x03, pY + y03, pZ + z03, particleIcon.getMinU(), particleIcon.getMinV());
-		tess.addVertexWithUV(pX + x04, pY + y04, pZ + z04, particleIcon.getMinU(), particleIcon.getMaxV());
+		ParticleAtlasVertex.append(tess, pX + x01, pY + y01, pZ + z01, particleTexture.getMaxU(), particleTexture.getMaxV(), red, green, blue, alpha, brightness);
+		ParticleAtlasVertex.append(tess, pX + x02, pY + y02, pZ + z02, particleTexture.getMaxU(), particleTexture.getMinV(), red, green, blue, alpha, brightness);
+		ParticleAtlasVertex.append(tess, pX + x03, pY + y03, pZ + z03, particleTexture.getMinU(), particleTexture.getMinV(), red, green, blue, alpha, brightness);
+		ParticleAtlasVertex.append(tess, pX + x04, pY + y04, pZ + z04, particleTexture.getMinU(), particleTexture.getMaxV(), red, green, blue, alpha, brightness);
 	}
 }

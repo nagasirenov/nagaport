@@ -1,5 +1,6 @@
 package com.hbm.items.special;
 
+import net.minecraft.client.util.ITooltipFlag;
 import java.util.List;
 
 import com.hbm.inventory.gui.GUIScreenHolotape;
@@ -28,7 +29,8 @@ public class ItemHolotapeImage extends ItemHoloTape implements IGUIProvider {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		
 		EnumHoloImage holo = EnumUtil.grabEnumSafely(EnumHoloImage.class, stack.getItemDamage());
 		list.add("Band Color: " + holo.colorCode + holo.colorName);

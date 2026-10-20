@@ -104,7 +104,7 @@ public class OreCave {
 		
 		if(world.provider == null) return;
 
-		Block replace = Blocks.stone;
+		Block replace = Blocks.STONE;
 		if(override != null) {
 			replace = override;
 		} else if(world.provider instanceof WorldProviderCelestial) {
@@ -112,9 +112,9 @@ public class OreCave {
 		}
 
 		if(allCelestials) {
-			if(!(world.provider instanceof WorldProviderCelestial) && world.provider.dimensionId != 0) return;
+			if(!(world.provider instanceof WorldProviderCelestial) && world.provider.getDimension() != 0) return;
 		} else {
-			if(world.provider.dimensionId != this.dim) return;
+			if(world.provider.getDimension() != this.dim) return;
 		}
 		
 		if(this.noise == null) {
@@ -141,7 +141,7 @@ public class OreCave {
 						continue;
 					
 					for(int y = yLevel - range; y <= yLevel + range; y++) {
-						Block genTarget = world.getBlock(x, y, z);
+						Block genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 						
 						if(genTarget.isNormalCube() && genTarget.isReplaceableOreGen(world, x, y, z, replace)) {
 							
@@ -149,9 +149,9 @@ public class OreCave {
 							boolean canGenFluid = event.rand.nextBoolean();
 							
 							for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-								Block neighbor = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
-								Material material = neighbor.getMaterial();
-								if(material == Material.air || (ignoreWater && material == Material.water) || neighbor instanceof BlockStalagmite) {
+								Block neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
+								Material material = neighbor.getDefaultState().getMaterial();
+								if(material == Material.AIR || (ignoreWater && material == Material.WATER) || neighbor instanceof BlockStalagmite) {
 									shouldGen = true;
 								}
 								
@@ -160,7 +160,7 @@ public class OreCave {
 								
 								if(fluid != null) {
 									switch(dir) {
-									case UP: if(neighbor.getMaterial() != Material.air && !(neighbor instanceof BlockStalagmite)) canGenFluid = false; break;
+									case UP: if(neighbor.getDefaultState().getMaterial() != Material.AIR && !(neighbor instanceof BlockStalagmite)) canGenFluid = false; break;
 									case DOWN: if(!neighbor.isNormalCube()) canGenFluid = false; break;
 									case NORTH:
 									case SOUTH:
@@ -179,7 +179,7 @@ public class OreCave {
 									ForgeDirection dir = ForgeDirection.getOrientation(i);
 									int clX = x + dir.offsetX;
 									int clZ = z + dir.offsetZ;
-									Block neighbor = world.getBlock(clX, y, clZ);
+									Block neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ).getBlock();
 									
 									if(neighbor.isNormalCube())
 										world.setBlock(clX, y, clZ, ore.block, ore.meta, 2);
@@ -191,7 +191,7 @@ public class OreCave {
 							
 						} else if(spawnStalagmites) {
 
-							if((genTarget.getMaterial() == Material.air || !genTarget.isNormalCube()) && event.rand.nextInt(5) == 0 && !genTarget.getMaterial().isLiquid()) {
+							if((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube()) && event.rand.nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {
 								if(ModBlocks.stalactite.canPlaceBlockAt(world, x, y, z)) {
 									world.setBlock(x, y, z, ModBlocks.stalactite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
 								} else {

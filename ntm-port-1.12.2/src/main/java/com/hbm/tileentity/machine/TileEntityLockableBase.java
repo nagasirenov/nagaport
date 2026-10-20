@@ -44,12 +44,13 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("lock", lock);
 		nbt.setBoolean("isLocked", isLocked);
 		nbt.setDouble("lockMod", lockMod);
+		return nbt;
 	}
 
 	@Override
@@ -77,15 +78,15 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 		} else {
 			if(player == null)
 				return false;
-			ItemStack stack = player.getHeldItem();
+			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 			if(stack != null && stack.getItem() instanceof ItemKey && ItemKey.getPins(stack) == this.lock) {
-				worldObj.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
+				this.world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
 				return true;
 			}
 
 			if(stack != null && stack.getItem() == ModItems.key_red) {
-				worldObj.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
+				this.world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
 				return true;
 			}
 
@@ -96,7 +97,7 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 	private boolean tryPick(EntityPlayer player) {
 
 		boolean canPick = false;
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		double chanceOfSuccess = this.lockMod * 100;
 
 		if(stack != null && stack.getItem() == ModItems.pin && (player.inventory.hasItem(ModItems.screwdriver) || player.inventory.hasItem(ModItems.screwdriver_desh))) {
@@ -117,14 +118,14 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 			if(ArmorUtil.checkArmorPiece(player, ModItems.jackt, 2) || ArmorUtil.checkArmorPiece(player, ModItems.jackt2, 2))
 				chanceOfSuccess *= 100D;
 
-			double rand = player.worldObj.rand.nextDouble() * 100;
+			double rand = player.world.rand.nextDouble() * 100;
 
 			if(chanceOfSuccess > rand) {
-				worldObj.playSoundAtEntity(player, "hbm:item.pinUnlock", 1.0F, 1.0F);
+				this.world.playSoundAtEntity(player, "hbm:item.pinUnlock", 1.0F, 1.0F);
 				return true;
 			}
 
-			worldObj.playSoundAtEntity(player, "hbm:item.pinBreak", 1.0F, 0.8F + player.worldObj.rand.nextFloat() * 0.2F);
+			this.world.playSoundAtEntity(player, "hbm:item.pinBreak", 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F);
 		}
 
 		return false;

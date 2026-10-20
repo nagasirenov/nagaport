@@ -99,8 +99,8 @@ public class SILEXRecipes {
 				.addOut(new ItemStack(ModItems.powder_spark_mix), 1)
 				);
 
-		itemTranslation.put(new ComparableStack(ModItems.powder_lapis), new ComparableStack(Items.dye, 1, 4));
-		recipes.put(new ComparableStack(Items.dye, 1, 4), new SILEXRecipe(100, 100 ,1)
+		itemTranslation.put(new ComparableStack(ModItems.powder_lapis), new ComparableStack(Items.DYE, 1, 4));
+		recipes.put(new ComparableStack(Items.DYE, 1, 4), new SILEXRecipe(100, 100 ,1)
 				.addOut(new ItemStack(ModItems.sulfur), 4)
 				.addOut(new ItemStack(ModItems.powder_aluminium), 3)
 				.addOut(new ItemStack(ModItems.powder_cobalt), 3)
@@ -321,14 +321,14 @@ public class SILEXRecipes {
 			recipes.put(new ComparableStack(ModItems.rbmk_pellet_heaus, 1, i), new SILEXRecipe(600, 100, 2)
 					.addOut(new ItemStack(ModItems.nugget_australium_greater), 90 - i * 20)
 					.addOut(new ItemStack(ModItems.nugget_au198), 5 + 10 * i)
-					.addOut(new ItemStack(Items.gold_nugget), 3 + 6 * i)
+					.addOut(new ItemStack(Items.GOLD_NUGGET), 3 + 6 * i)
 					.addOut(new ItemStack(ModItems.nugget_pb209), 2 + 4 * i) );
 
 			recipes.put(new ComparableStack(ModItems.rbmk_pellet_heaus, 1, i + 5), new SILEXRecipe(600, 100, 2)
 					.addOut(new ItemStack(ModItems.powder_xe135_tiny), 1)
 					.addOut(new ItemStack(ModItems.nugget_australium_greater), 89 - i * 20)
 					.addOut(new ItemStack(ModItems.nugget_au198), 5 + 10 * i)
-					.addOut(new ItemStack(Items.gold_nugget), 3 + 6 * i)
+					.addOut(new ItemStack(Items.GOLD_NUGGET), 3 + 6 * i)
 					.addOut(new ItemStack(ModItems.nugget_pb209), 2 + 4 * i) );
 
 			// LES //
@@ -850,8 +850,8 @@ public class SILEXRecipes {
 				.addOut(new ItemStack(ModItems.nugget_au198), 1)
 				);
 
-		recipes.put(new ComparableStack(Blocks.gravel, 1), new SILEXRecipe(1000, 250, EnumWavelengths.VISIBLE)
-				.addOut(new ItemStack(Items.flint), 80)
+		recipes.put(new ComparableStack(Blocks.GRAVEL, 1), new SILEXRecipe(1000, 250, EnumWavelengths.VISIBLE)
+				.addOut(new ItemStack(Items.FLINT), 80)
 				.addOut(new ItemStack(ModItems.powder_boron), 5)
 				.addOut(new ItemStack(ModItems.powder_lithium), 10)
 				.addOut(new ItemStack(ModItems.fluorite), 5)

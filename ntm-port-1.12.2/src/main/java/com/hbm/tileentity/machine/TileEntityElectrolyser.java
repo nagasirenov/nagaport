@@ -92,7 +92,8 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 	}
 
@@ -103,19 +104,20 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i != 14;
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineElectrolyser";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			this.tanks[0].setType(3, 4, slots);
@@ -123,14 +125,14 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 			this.tanks[1].unloadTank(7, 8, slots);
 			this.tanks[2].unloadTank(9, 10, slots);
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : this.getConPos()) {
-					this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					this.trySubscribe(tanks[3].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(tanks[3].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 
-					if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 
@@ -172,7 +174,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 				toCast.add(this.leftStack);
 
 				Vec3NT impact = new Vec3NT(0, 0, 0);
-				MaterialStack didPour = CrucibleUtil.pourFullStack(worldObj, xCoord + 0.5D + dir.offsetX * 5.875D, yCoord + 2D, zCoord + 0.5D + dir.offsetZ * 5.875D, 6, true, toCast, MaterialShapes.NUGGET.q(3) * Math.max (getCycleCount() * speedLevel, 1), impact);
+				MaterialStack didPour = CrucibleUtil.pourFullStack(this.world, this.pos.getX() + 0.5D + dir.offsetX * 5.875D, this.pos.getY() + 2D, this.pos.getZ() + 0.5D + dir.offsetZ * 5.875D, 6, true, toCast, MaterialShapes.NUGGET.q(3) * Math.max (getCycleCount() * speedLevel, 1), impact);
 
 				if(didPour != null) {
 					NBTTagCompound data = new NBTTagCompound();
@@ -181,8 +183,8 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 					data.setByte("dir", (byte) dir.ordinal());
 					data.setFloat("off", 0.625F);
 					data.setFloat("base", 0.625F);
-					data.setFloat("len", Math.max(1F, yCoord - (float) (Math.ceil(impact.y) - 0.875) + 2));
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5D + dir.offsetX * 5.875D, yCoord + 2, zCoord + 0.5D + dir.offsetZ * 5.875D), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 50));
+					data.setFloat("len", Math.max(1F, this.pos.getY() - (float) (Math.ceil(impact.y) - 0.875) + 2));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D + dir.offsetX * 5.875D, this.pos.getY() + 2, this.pos.getZ() + 0.5D + dir.offsetZ * 5.875D), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 50));
 
 					if(this.leftStack.amount <= 0) this.leftStack = null;
 				}
@@ -195,7 +197,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 				toCast.add(this.rightStack);
 
 				Vec3NT impact = new Vec3NT(0, 0, 0);
-				MaterialStack didPour = CrucibleUtil.pourFullStack(worldObj, xCoord + 0.5D + dir.offsetX * 5.875D, yCoord + 2D, zCoord + 0.5D + dir.offsetZ * 5.875D, 6, true, toCast, MaterialShapes.NUGGET.q(3) * Math.max (getCycleCount() * speedLevel, 1), impact);
+				MaterialStack didPour = CrucibleUtil.pourFullStack(this.world, this.pos.getX() + 0.5D + dir.offsetX * 5.875D, this.pos.getY() + 2D, this.pos.getZ() + 0.5D + dir.offsetZ * 5.875D, 6, true, toCast, MaterialShapes.NUGGET.q(3) * Math.max (getCycleCount() * speedLevel, 1), impact);
 
 				if(didPour != null) {
 					NBTTagCompound data = new NBTTagCompound();
@@ -204,8 +206,8 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 					data.setByte("dir", (byte) dir.ordinal());
 					data.setFloat("off", 0.625F);
 					data.setFloat("base", 0.625F);
-					data.setFloat("len", Math.max(1F, yCoord - (float) (Math.ceil(impact.y) - 0.875) + 2));
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5D + dir.offsetX * 5.875D, yCoord + 2, zCoord + 0.5D + dir.offsetZ * 5.875D), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 50));
+					data.setFloat("len", Math.max(1F, this.pos.getY() - (float) (Math.ceil(impact.y) - 0.875) + 2));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D + dir.offsetX * 5.875D, this.pos.getY() + 2, this.pos.getZ() + 0.5D + dir.offsetZ * 5.875D), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 50));
 
 					if(this.rightStack.amount <= 0) this.rightStack = null;
 				}
@@ -220,16 +222,16 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord - dir.offsetX * 6, yCoord, zCoord - dir.offsetZ * 6, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 6 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 6 + rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 6 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 6 - rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 6, yCoord, zCoord + dir.offsetZ * 6, dir),
-				new DirPos(xCoord + dir.offsetX * 6 + rot.offsetX, yCoord, zCoord + dir.offsetZ * 6 + rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 6 - rot.offsetX, yCoord, zCoord + dir.offsetZ * 6 - rot.offsetZ, dir),
-				new DirPos(xCoord - rot.offsetX * 4, yCoord, zCoord - rot.offsetZ * 4, rot.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - dir.offsetX * 5 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 5 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + dir.offsetX * 5 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 5 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 6, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 6, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 6 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 6 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 6 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 6 - rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 6, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 6, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 6 + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 6 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 6 - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 6 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - rot.offsetX * 4, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 4, rot.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 5 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 5 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 5 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5 + rot.offsetZ * 2, rot),
 		};
 	}
 
@@ -431,7 +433,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", this.power);
@@ -449,6 +451,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 		}
 		for(int i = 0; i < 4; i++) tanks[i].writeToNBT(nbt, "t" + i);
 		nbt.setInteger("lastSelectedGUI", this.lastSelectedGUI);
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -458,12 +461,12 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 5,
-					yCoord - 0,
-					zCoord - 5,
-					xCoord + 6,
-					yCoord + 4,
-					zCoord + 6
+					this.pos.getX() - 5,
+					this.pos.getY() - 0,
+					this.pos.getZ() - 5,
+					this.pos.getX() + 6,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 6
 					);
 		}
 
@@ -530,12 +533,12 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 		if(data.hasKey("sgm")) lastSelectedGUI = 1;
 		if(data.hasKey("sgf")) lastSelectedGUI = 0;
 
-		FMLNetworkHandler.openGui(player, MainRegistry.instance, lastSelectedGUI, worldObj, xCoord, yCoord, zCoord);
+		FMLNetworkHandler.openGui(player, MainRegistry.instance, lastSelectedGUI, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

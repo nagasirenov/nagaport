@@ -1,0 +1,27 @@
+{
+  "mode": "forward",
+  "written": true,
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+      "before": "6b476d5d951faca8434e05825537d8833f402b185b9f4e9c1a398ebe996d2e17",
+      "after": "fc5a8792d525d4593cf3454ae0ba2387a2ef4d1367f317b8ec6f7d3e3ff3e802",
+      "inverse": "6b476d5d951faca8434e05825537d8833f402b185b9f4e9c1a398ebe996d2e17",
+      "fragments": 26
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazard.java",
+      "before": "1a2fa469d8739ead410527e5f4af15d718e1e58b3d929ceaf64cd871db0c91ed",
+      "after": "cfa78cbe78a61fbe039d78e4d41f0758f9df324a12151b2a91e42d932cc429b5",
+      "inverse": "1a2fa469d8739ead410527e5f4af15d718e1e58b3d929ceaf64cd871db0c91ed",
+      "fragments": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+      "before": "bb79d3d6bb206ac6a80d62e713dc5e9a508af331a7a037d6410ba10253bb451d",
+      "after": "b065c12215db546dd38fa1dd5bf9baf6ddd7ab87f7e76dc593fd3075f4b0b438",
+      "inverse": "bb79d3d6bb206ac6a80d62e713dc5e9a508af331a7a037d6410ba10253bb451d",
+      "fragments": 1
+    }
+  ]
+}

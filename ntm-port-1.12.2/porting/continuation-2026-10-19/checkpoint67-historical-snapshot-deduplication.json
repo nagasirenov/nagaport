@@ -1,0 +1,8 @@
+{
+  "files": 534232,
+  "duplicate_file_bytes": 8757645018,
+  "full_manifest": "checkpoint67-historical-snapshot-deduplication.json.gz",
+  "manifest_sha256": "ef6537958f9134ce081b82db378658b997ec143062c77f983128bf5ec6b64e0e",
+  "compressed_sha256": "24546bd2e295fe8ca02d71a5da2ecc5fe4140c46cc5806b4686ba71938655af9",
+  "skipped_active": []
+}

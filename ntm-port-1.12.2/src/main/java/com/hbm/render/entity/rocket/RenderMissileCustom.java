@@ -9,11 +9,17 @@ import com.hbm.render.util.MissilePronter;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
+import com.hbm.entity.missile.EntityMissileCustom;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMissileCustom extends Render {
+
+	public RenderMissileCustom(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float interp) {
@@ -24,10 +30,10 @@ public class RenderMissileCustom extends Render {
 		GL11.glRotatef(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * interp, 0.0F, 0.0F, 1.0F);
 		GL11.glRotatef(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * interp - 90.0F, 0.0F, -1.0F, 0.0F);
 
-		int w = entity.getDataWatcher().getWatchableObjectInt(9);
-		int f = entity.getDataWatcher().getWatchableObjectInt(10);
-		int s = entity.getDataWatcher().getWatchableObjectInt(11);
-		int t = entity.getDataWatcher().getWatchableObjectInt(12);
+		int w = ((EntityMissileCustom) entity).getWarheadId();
+		int f = ((EntityMissileCustom) entity).getFuselageId();
+		int s = ((EntityMissileCustom) entity).getFinsId();
+		int t = ((EntityMissileCustom) entity).getThrusterId();
 		MissileMultipart missile = new MissileMultipart();
 		missile.warhead = MissilePart.getPart(Item.getItemById(w));
 		missile.fuselage = MissilePart.getPart(Item.getItemById(f));

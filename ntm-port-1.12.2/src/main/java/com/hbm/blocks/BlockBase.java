@@ -4,6 +4,7 @@ import com.hbm.lib.RefStrings;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.block.state.IBlockState;
@@ -26,7 +27,7 @@ public class BlockBase extends Block {
 	private String textureName;
 
 	public BlockBase() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	public BlockBase(Material material) {
@@ -35,9 +36,22 @@ public class BlockBase extends Block {
 
 	/** Legacy NTM naming helper; the registry name retains the full legacy unlocalized path. */
 	public BlockBase setBlockName(String name) {
-		this.setUnlocalizedName(name);
-		this.setRegistryName(new ResourceLocation(RefStrings.MODID, this.getUnlocalizedName()));
+		this.setTranslationKey(name);
+		this.setRegistryName(new ResourceLocation(RefStrings.MODID, this.getTranslationKey()));
 		this.textureName = RefStrings.MODID + ":" + name;
+		return this;
+	}
+
+	/** Public NTM construction hook for the native, protected Block sound setter. */
+	@Override
+	public BlockBase setSoundType(SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+	/** Original explicit texture assignment, consumed by the native atlas adapter. */
+	public BlockBase setBlockTextureName(String texture) {
+		this.textureName = texture;
 		return this;
 	}
 
@@ -49,9 +63,18 @@ public class BlockBase extends Block {
 	/** Registers the normal block texture for legacy renderers and subclasses. */
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
-		ResourceLocation name = getRegistryName();
-		if(name == null) throw new IllegalStateException("Block must be registered before its icon callback: " + this);
-		blockIcon = register.registerIcon(name.toString());
+		String texture = getTextureName();
+		if(texture == null) {
+			ResourceLocation name = getRegistryName();
+			if(name == null) throw new IllegalStateException("Block must be registered before its icon callback: " + this);
+			texture = name.toString();
+		} else {
+			// 1.7 used a block-only atlas rooted at textures/blocks. The native
+			// shared atlas is rooted at textures, so preserve the original file.
+			ResourceLocation legacy = new ResourceLocation(texture);
+			texture = new ResourceLocation(legacy.getNamespace(), "blocks/" + legacy.getPath()).toString();
+		}
+		blockIcon = register.registerIcon(texture);
 	}
 
 	/** Legacy side/metadata icon lookup used by the 1.12 baked-model bridge. */

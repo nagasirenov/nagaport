@@ -18,103 +18,86 @@ import com.hbm.tileentity.network.TileEntityPneumoTube;
 import com.hbm.util.Compat;
 
 import api.hbm.block.IToolable;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import com.hbm.lib.ForgeDirection;
 
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.property.*;
+
+/** Native exposed pneumatic tube owner; transport stays in TileEntityPneumoTube. */
 public class PneumoTube extends BlockContainer implements IToolable, ITooltipProvider {
-
-	@SideOnly(Side.CLIENT) public IIcon baseIcon;
-	@SideOnly(Side.CLIENT) public IIcon iconIn;
-	@SideOnly(Side.CLIENT) public IIcon iconOut;
-	@SideOnly(Side.CLIENT) public IIcon iconConnector;
-	@SideOnly(Side.CLIENT) public IIcon iconStraight;
-	@SideOnly(Side.CLIENT) public IIcon activeIcon;
-
-	public boolean[] renderSides = new boolean[] {true, true, true, true, true, true};
-
-	public PneumoTube() {
-		super(Material.iron);
-	}
-
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
-
+    public PneumoTube(){super(Material.IRON);}
+    @Override protected BlockStateContainer createBlockState(){return new ExtendedBlockState(this,new IProperty<?>[0],new IUnlistedProperty<?>[]{PneumaticModelState.MODEL});}
+    @Override public int getMetaFromState(IBlockState state){return 0;}
+    @Override public IBlockState getStateFromMeta(int meta){return getDefaultState();}
+    @Override public EnumBlockRenderType getRenderType(IBlockState state){return EnumBlockRenderType.MODEL;}
+    @Override public boolean isOpaqueCube(IBlockState state){return false;}
+    @Override public boolean isFullCube(IBlockState state){return false;}
+    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing side){return BlockFaceShape.UNDEFINED;}
+    @Override public TileEntity createNewTileEntity(World world,int meta){return new TileEntityPneumoTube();}
+    public PneumaticModelState snapshot(IBlockAccess world,BlockPos pos){
+        int tubes=0,air=0;
+        for(ForgeDirection dir:ForgeDirection.VALID_DIRECTIONS){
+            if(canConnectTo(world,pos.getX(),pos.getY(),pos.getZ(),dir)) tubes|=PneumaticModelState.bit(dir.ordinal());
+            if(canConnectToAir(world,pos.getX(),pos.getY(),pos.getZ(),dir)) air|=PneumaticModelState.bit(dir.ordinal());
+        }
+        TileEntity tile=world.getTileEntity(pos);
+        TileEntityPneumoTube tube=tile instanceof TileEntityPneumoTube?(TileEntityPneumoTube)tile:null;
+        // The original renderer only rendered air connectors when its tile existed.
+        return new PneumaticModelState(tubes,tube==null?0:air,tube==null?6:tube.insertionDir.ordinal(),tube==null?6:tube.ejectionDir.ordinal());
+    }
+    @Override public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos){return ((IExtendedBlockState)state).withProperty(PneumaticModelState.MODEL,snapshot(world,pos));}
+    @Override public AxisAlignedBB getBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos){
+        PneumaticModelState model=snapshot(world,pos);int air=0;
+        for(ForgeDirection dir:ForgeDirection.VALID_DIRECTIONS) if(canConnectToAir(world,pos.getX(),pos.getY(),pos.getZ(),dir))air|=PneumaticModelState.bit(dir.ordinal());
+        return new PneumaticModelState(model.tubes,air,model.insertion,model.ejection).bounds();
+    }
+    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos){return getBoundingBox(state,world,pos);}
+    @Override public void addCollisionBoxToList(IBlockState state,World world,BlockPos pos,AxisAlignedBB query,List<AxisAlignedBB> boxes,Entity entity,boolean actual){
+        addCollisionBoxToList(pos,query,boxes,new AxisAlignedBB(.3125,.3125,.3125,.6875,.6875,.6875));
+        for(ForgeDirection dir:ForgeDirection.VALID_DIRECTIONS) if(canConnectTo(world,pos.getX(),pos.getY(),pos.getZ(),dir)||canConnectToAir(world,pos.getX(),pos.getY(),pos.getZ(),dir))
+            addCollisionBoxToList(pos,query,boxes,PneumaticModelState.arm(EnumFacing.byIndex(dir.ordinal()),.3125,.6875,.6875,1));
+        // Insertion/ejection-only collars deliberately do not contribute collision arms.
+    }
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
-		return new TileEntityPneumoTube();
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		super.registerBlockIcons(reg);
-
-		iconIn = reg.registerIcon(RefStrings.MODID + ":pneumatic_tube_in");
-		iconOut = reg.registerIcon(RefStrings.MODID + ":pneumatic_tube_out");
-		iconConnector = reg.registerIcon(RefStrings.MODID + ":pneumatic_tube_connector");
-		iconStraight = reg.registerIcon(RefStrings.MODID + ":pneumatic_tube_straight");
-
-		this.activeIcon = this.baseIcon = this.blockIcon;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return this.activeIcon;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-		return renderSides[side % 6];
-	}
-
-	public void resetRenderSides() {
-		for(int i = 0; i < 6; i++) renderSides[i] = true;
-	}
-
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if(player.getHeldItem() != null && ToolType.getType(player.getHeldItem()) == ToolType.SCREWDRIVER) return false;
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        int x=pos.getX(), y=pos.getY(), z=pos.getZ();
+		if(!player.getHeldItem(hand).isEmpty() && ToolType.getType(player.getHeldItem(hand)) == ToolType.SCREWDRIVER) return false;
 		if(!player.isSneaking()) {
-			TileEntity tile = world.getTileEntity(x, y, z);
+			TileEntity tile = world.getTileEntity(new BlockPos(x,y,z));
 			if(tile instanceof TileEntityPneumoTube) {
 				TileEntityPneumoTube tube = (TileEntityPneumoTube) tile;
 				if(tube.isCompressor()) {
-					if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
+					if(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() instanceof IItemFluidIdentifier) {
 						if(!world.isRemote) {
-							FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, x, y, z, player.getHeldItem());
+							FluidType type = ((IItemFluidIdentifier) player.getHeldItem(hand).getItem()).getType(world, x, y, z, player.getHeldItem(hand));
 							boolean canUse = !type.hasTrait(FT_Amat.class) && !type.hasTrait(FT_Corrosive.class) && (type.hasTrait(FT_Gaseous.class) || type.hasTrait(FT_Gaseous_ART.class));
 
 							if(canUse) {
 								tube.compair.setTankType(type);
 								tube.markDirty();
-								player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+								player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 							} else {
-								player.addChatComponentMessage(new ChatComponentText("Invalid gas!").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+								player.sendMessage(new TextComponentString("Invalid gas!").setStyle(new Style().setColor(TextFormatting.RED)));
 							}
 						}
 					} else {
@@ -138,7 +121,7 @@ public class PneumoTube extends BlockContainer implements IToolable, ITooltipPro
 		if(tool != ToolType.SCREWDRIVER) return false;
 		if(world.isRemote) return true;
 
-		TileEntityPneumoTube tube = (TileEntityPneumoTube) world.getTileEntity(x, y, z);
+		TileEntityPneumoTube tube = (TileEntityPneumoTube) world.getTileEntity(new BlockPos(x,y,z));
 
 		ForgeDirection rot = player.isSneaking() ? tube.ejectionDir : tube.insertionDir;
 		ForgeDirection oth = player.isSneaking() ? tube.insertionDir : tube.ejectionDir;
@@ -155,103 +138,30 @@ public class PneumoTube extends BlockContainer implements IToolable, ITooltipPro
 		if(player.isSneaking()) tube.ejectionDir = rot; else tube.insertionDir = rot;
 
 		tube.markDirty();
-		if(world instanceof WorldServer) ((WorldServer) world).getPlayerManager().markBlockForUpdate(x, y, z);
+		BlockPos pos=new BlockPos(x,y,z);
+        world.notifyBlockUpdate(pos,world.getBlockState(pos),world.getBlockState(pos),3);
 
 		return true;
 	}
 
-	@Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB entityBounding, List list, Entity entity) {
-
-		List<AxisAlignedBB> bbs = new ArrayList();
-
-		double lower = 0.3125D;
-		double upper = 0.6875D;
-
-		bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + lower, x + upper, y + upper, z + upper));
-
-		if(canConnectTo(world, x, y, z, Library.POS_X) || canConnectToAir(world, x, y, z, Library.POS_X)) bbs.add(AxisAlignedBB.getBoundingBox(x + upper, y + lower, z + lower, x + 1, y + upper, z + upper));
-		if(canConnectTo(world, x, y, z, Library.NEG_X) || canConnectToAir(world, x, y, z, Library.NEG_X)) bbs.add(AxisAlignedBB.getBoundingBox(x, y + lower, z + lower, x + lower, y + upper, z + upper));
-		if(canConnectTo(world, x, y, z, Library.POS_Y) || canConnectToAir(world, x, y, z, Library.POS_Y)) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + upper, z + lower, x + upper, y + 1, z + upper));
-		if(canConnectTo(world, x, y, z, Library.NEG_Y) || canConnectToAir(world, x, y, z, Library.NEG_Y)) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y, z + lower, x + upper, y + lower, z + upper));
-		if(canConnectTo(world, x, y, z, Library.POS_Z) || canConnectToAir(world, x, y, z, Library.POS_Z)) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z + upper, x + upper, y + upper, z + 1));
-		if(canConnectTo(world, x, y, z, Library.NEG_Z) || canConnectToAir(world, x, y, z, Library.NEG_Z)) bbs.add(AxisAlignedBB.getBoundingBox(x + lower, y + lower, z, x + upper, y + upper, z + lower));
-
-		for(AxisAlignedBB bb : bbs) {
-			if(entityBounding.intersectsWith(bb)) {
-				list.add(bb);
-			}
-		}
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-
-		float lower = 0.3125F;
-		float upper = 0.6875F;
-
-		TileEntity te = world.getTileEntity(x, y, z);
-
-		boolean nX = canConnectTo(world, x, y, z, Library.NEG_X) || canConnectToAir(world, x, y, z, Library.NEG_X);
-		boolean pX = canConnectTo(world, x, y, z, Library.POS_X) || canConnectToAir(world, x, y, z, Library.POS_X);
-		boolean nY = canConnectTo(world, x, y, z, Library.NEG_Y) || canConnectToAir(world, x, y, z, Library.NEG_Y);
-		boolean pY = canConnectTo(world, x, y, z, Library.POS_Y) || canConnectToAir(world, x, y, z, Library.POS_Y);
-		boolean nZ = canConnectTo(world, x, y, z, Library.NEG_Z) || canConnectToAir(world, x, y, z, Library.NEG_Z);
-		boolean pZ = canConnectTo(world, x, y, z, Library.POS_Z) || canConnectToAir(world, x, y, z, Library.POS_Z);
-
-		if(te instanceof TileEntityPneumoTube) {
-			TileEntityPneumoTube tube = (TileEntityPneumoTube) te;
-			nX |= tube.insertionDir == Library.NEG_X || tube.ejectionDir == Library.NEG_X;
-			pX |= tube.insertionDir == Library.POS_X || tube.ejectionDir == Library.POS_X;
-			nY |= tube.insertionDir == Library.NEG_Y || tube.ejectionDir == Library.NEG_Y;
-			pY |= tube.insertionDir == Library.POS_Y || tube.ejectionDir == Library.POS_Y;
-			nZ |= tube.insertionDir == Library.NEG_Z || tube.ejectionDir == Library.NEG_Z;
-			pZ |= tube.insertionDir == Library.POS_Z || tube.ejectionDir == Library.POS_Z;
-		}
-
-		this.setBlockBounds(
-				nX ? 0F : lower,
-				nY ? 0F : lower,
-				nZ ? 0F : lower,
-				pX ? 1F : upper,
-				pY ? 1F : upper,
-				pZ ? 1F : upper);
-	}
-
 	public boolean canConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
-		TileEntity tile = world instanceof World ? Compat.getTileStandard((World) world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) : world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+		TileEntity tile = world instanceof World ? Compat.getTileStandard((World) world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) : world.getTileEntity(new BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ));
 		return tile instanceof TileEntityPneumoTube;
 	}
 
 	public boolean canConnectToAir(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
 		FluidType air = Fluids.AIR;
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x,y,z));
 		if(te instanceof TileEntityPneumoTube) {
 			TileEntityPneumoTube tube = (TileEntityPneumoTube) te;
 			if(!tube.isCompressor()) return false;
 			if(tube.ejectionDir == dir || tube.insertionDir == dir) return false;
 			air = tube.compair.getTankType();
 		}
-		TileEntity tile = world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+		TileEntity tile = world.getTileEntity(new BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ));
 		if(tile instanceof TileEntityPneumoTube) return false;
 		return Library.canConnectFluid(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir, air);
 	}
 
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
-		addStandardInfo(stack, player, list, ext);
-	}
+    @Override public void addInformation(ItemStack stack,EntityPlayer player,List list,boolean ext){addStandardInfo(stack,player,list,ext);}
 }

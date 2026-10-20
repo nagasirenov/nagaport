@@ -47,7 +47,7 @@ public class HazardTransformerRadiationContainer extends HazardTransformerBase {
 		if(isCrate) {
 
 			for(int i = 0; i < 104; i++) {
-				ItemStack held = ItemStack.loadItemStackFromNBT(stack.stackTagCompound.getCompoundTag("slot" + i));
+				ItemStack held = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot" + i));
 
 				if(held != null) {
 					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;

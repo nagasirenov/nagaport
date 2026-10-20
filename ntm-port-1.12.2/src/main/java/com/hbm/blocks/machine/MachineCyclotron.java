@@ -42,14 +42,14 @@ public class MachineCyclotron extends BlockDummyable {
 			if(pos == null)
 				return false;
 			
-			TileEntityMachineCyclotron cyc = (TileEntityMachineCyclotron)world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineCyclotron cyc = (TileEntityMachineCyclotron)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
-			if(player.getHeldItem() != null) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 				
 				for(int i = 0; i < 4; i++) {
 					
-					if(player.getHeldItem().getItem() == TileEntityMachineCyclotron.getItemForPlug(i) && !cyc.getPlug(i)) {
-						player.getHeldItem().stackSize--;
+					if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == TileEntityMachineCyclotron.getItemForPlug(i) && !cyc.getPlug(i)) {
+						com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 						cyc.setPlug(i);
 						world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.5F, 1.0F);
 						return true;

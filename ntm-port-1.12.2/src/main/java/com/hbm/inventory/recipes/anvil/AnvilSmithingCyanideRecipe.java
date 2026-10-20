@@ -11,12 +11,12 @@ import net.minecraft.nbt.NBTTagCompound;
 public class AnvilSmithingCyanideRecipe extends AnvilSmithingRecipe {
 	
 	public AnvilSmithingCyanideRecipe() {
-		super(1, new ItemStack(Items.bread), new ComparableStack(Items.bread), new ComparableStack(ModItems.plan_c));
+		super(1, new ItemStack(Items.BREAD), new ComparableStack(Items.BREAD), new ComparableStack(ModItems.plan_c));
 		
 		if(!this.output.hasTagCompound())
-			this.output.stackTagCompound = new NBTTagCompound();
+			this.output.setTagCompound(new NBTTagCompound());
 		
-		this.output.stackTagCompound.setBoolean("ntmCyanide", true);
+		this.output.getTagCompound().setBoolean("ntmCyanide", true);
 		
 	}
 	
@@ -34,11 +34,11 @@ public class AnvilSmithingCyanideRecipe extends AnvilSmithingRecipe {
 	public ItemStack getOutput(ItemStack left, ItemStack right) {
 		
 		ItemStack out = left.copy();
-		out.stackSize = 1;
+		out.setCount(1);
 		if(!out.hasTagCompound())
-			out.stackTagCompound = new NBTTagCompound();
+			out.setTagCompound(new NBTTagCompound());
 		
-		out.stackTagCompound.setBoolean("ntmCyanide", true);
+		out.getTagCompound().setBoolean("ntmCyanide", true);
 		
 		return out;
 	}

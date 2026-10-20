@@ -1,0 +1,19 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockNTMGlass.java": "71e432fc6fd478ba8d2f023e7d5e8b4266bdb8613dba55e477589ea5da775f3c",
+  "src/main/java/com/hbm/blocks/generic/BlockNTMGlassCT.java": "e46be1ef1417d4e6dfda837d5616a8b426f61bfc20f36e9615d97d90c2f20d38",
+  "src/main/java/com/hbm/render/block/ct/CT.java": "bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76",
+  "src/main/java/com/hbm/render/block/ct/CTContext.java": "8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70",
+  "src/main/java/com/hbm/render/block/ct/IBlockCT.java": "d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34",
+  "src/main/java/com/hbm/main/CTModelHandler.java": "d29acfcd055abb1e05f98118fd19b08ed9d8381b45380c82b42632661129aa27",
+  "src/main/java/com/hbm/render/block/RenderBlockCT.java": "7333353045dee00b9194315e0222cdfe4a0855b97568d9f628bd3f789294ee67",
+  "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+  "src/main/java/com/hbm/blocks/generic/BlockGeneric.java": "aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106",
+  "src/main/resources/assets/hbm/textures/blocks/reinforced_glass.png": "eaabff5a6791dfcf1eab5ea1c17e3ea6a42006f56c1ab70a408208ce63e3c601",
+  "src/main/resources/assets/hbm/textures/blocks/reinforced_glass_ct.png": "6f4d513c89ef927926ac467f87783aba8534fad4af155af678dbb5be1c6ba63c",
+  "src/main/resources/assets/hbm/textures/blocks/reinforced_brick.png": "cf27668ab6b20ab231e6fc994f1d1ebc010df56e7dcd3ac3d4d790f07e0c1978",
+  "porting/tests/ct-native/owners-proof.log": "b9fd1e6a144fe03393561e78976d25d52ec5a4b309491421a78f9a1a40da9a3b",
+  "porting/tests/ct-native/integrated-owners-proof.log": "10359b6ac3cb6310990f4069d694db50d189fa43d377018b768a49f7a1884e66",
+  "porting/tests/ct-native/geometry-proof.log": "4f2f9168be73afeedae662cf8a00d79730e043b4b4437da39ab02e9f288e74c0",
+  "porting/tests/generic-metadata-native/native-test.log": "670fe5edc07cc5df8db39ce36dbb361606b536c775b91fde6d8d3ec33cc472fb",
+  "porting/tests/structure-palette-native/native-proof.log": "a793018cf3985ad32270d02c64067f4a00b0fec189b7659a1e130bbed621b6c7"
+}

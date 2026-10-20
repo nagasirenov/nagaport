@@ -1,0 +1,70 @@
+PRODUCTION api/hbm/block/IToolable.java c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62
+PRODUCTION com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/blocks/generic/BlockSteelDecoration.java 5bd5c41aa0da3f57f6d5d11e3ea21463728f15a1f75e6def311f6444e362aa74
+PRODUCTION com/hbm/render/block/RenderSteelWall.java 964715852bbce46395747812f0da41ac5cee56bd2ab6cdaa9a4a710d9d8c8918
+PRODUCTION com/hbm/render/block/RenderSteelCorner.java 35a3e6938eab2f1293f1bd5412c1a786d287e05db323ec6ef7aa0db25d2fb6ad
+PRODUCTION com/hbm/main/SteelDecorationModelHandler.java 842eb2173884070954a9f445d72531c6d5f0bbac474053af0b9ef766b840f69a
+PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+PRODUCTION com/hbm/render/block/nativeblock/PneumaticCuboidGeometry.java 6d1f1f5649dc94ceb714f0d97f0c8614e5779f7b986aa8b5308a91ed26a5756d
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/render/block/nativeblock/SteelDecorationBakedModel.java 84d6ef290b1954f50080a530d41b44c4917e3fbbb3c80ab977e7a6bb96ca75d3
+/tmp/steel-native-z6nklxfr/OriginalSteelOracle.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/steel-native-z6nklxfr/OriginalSteelOracle.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/steel-native-z6nklxfr/OriginalSteelOracle.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/steel-native-z6nklxfr/OriginalSteelOracle.java:635: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/tmp/steel-native-z6nklxfr/OriginalSteelOracle.java:635: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/tmp/steel-native-z6nklxfr/OriginalSteelOracle.java:635: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+/tmp/steel-native-z6nklxfr/SteelNativeTest.java:43: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager resources;
+                ^
+/tmp/steel-native-z6nklxfr/SteelNativeTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                  ^
+/tmp/steel-native-z6nklxfr/SteelNativeTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                                        ^
+/tmp/steel-native-z6nklxfr/SteelNativeTest.java:155: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);Block wrong=mode.equals("wrong-kind")?new BlockSteelDecoration(Material.IRON,true):new Block(Material.IRON){};
+                                       ^
+/tmp/steel-native-z6nklxfr/SteelNativeTest.java:155: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);Block wrong=mode.equals("wrong-kind")?new BlockSteelDecoration(Material.IRON,true):new Block(Material.IRON){};
+                                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+11 warnings
+PASS complete native wall/corner production bytecode contains no legacy rendering/world API references
+[21:11:06] [main/INFO]: Processing ObjectHolder annotations
+[21:11:06] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS complete actual owner state, native World/Chunk placement and screw updates, six tools, drop/no-tile, bounds history and collision filtering.
+PASS independent pinned pristine callbacks plus actual original RenderBlocks bytecode and RenderBlocksNT N/E faces: all metadata/world/item x five owner-bound histories, exact XYZ/UV/winding, original collision, tool cycles and 8642 placement scenarios.
+PASS actual Forge/vanilla flat and smooth lighting, asymmetric AO response, all-face visibility and native damage retexturing.
+[21:11:07] [main/INFO]: Reloading ResourceManager: resources
+[21:11:07] [main/INFO]: Reloading ResourceManager: resources
+[21:11:07] [main/INFO]: Reloading ResourceManager: resources
+PASS 32 world +32 item native state/loader/mesher routes, original PNG, reload: resources
+[21:11:07] [main/INFO]: Reloading ResourceManager: steel-resources.jar
+[21:11:07] [main/INFO]: Reloading ResourceManager: steel-resources.jar
+[21:11:07] [main/INFO]: Reloading ResourceManager: steel-resources.jar
+PASS 32 world +32 item native state/loader/mesher routes, original PNG, reload: steel-resources.jar
+[21:11:07] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.steel_wall`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[21:11:07] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.steel_corner`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS steel native family: 39252 assertions, 12480 direct native vertices. Explicit sole NTM collaborator: RecipesCommon.ComparableStack tool recipe-key class; complete production owner/interfaces/models/handler/helpers and actual native Minecraft/Forge. Controlled atlas/Minecraft holder/registry flush, not live game or full mod acceptance.
+[21:11:09] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.steel_wall`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS isolated exact owner negative: wrong-kind
+[21:11:10] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.steel_wall`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS isolated exact owner negative: replacement

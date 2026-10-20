@@ -1,0 +1,17 @@
+# Native Entity world-field migration
+
+Base CP52 e0d4369. Exactly 2,632 accesses in 349 production files change from the removed Entity.worldObj name to the genuine public mutable Entity.world field. Unqualified expressions become this.world to prevent capture by local world variables. Qualified receivers, expression evaluation order, read/write contexts, assignments, arguments, and all unrelated bytes remain unchanged.
+
+EntityWorldScanner parses and attributes every one of the 4,048 CP52 production sources using genuine native dependencies. The original attribution reports 32,469 unfinished-port diagnostics, not successful compilation. It requires an actual declared receiver type whose superclass chain reaches net.minecraft.entity.Entity and verifies that Entity owns the public World field. All inherited/interface legacy-field shadows and destination-field shadows are excluded. Unknown/error/generic receivers, TileEntity fields, static type receivers, static unqualified accesses and implicit outer-instance accesses inside non-Entity inner/anonymous classes are excluded. Explicit Outer.this receivers remain exact. No text-match ownership inference, platform stubs, source exclusions or compatibility accessor is used.
+
+The original sa/o field maps through joined.srg to Entity.field_70170_p. Actual 1.7.10 and 1.12.2 engines both expose the public mutable World field. Tests execute direct reads/writes against actual engine objects, including receiver-before-RHS ordering, single evaluation, aliases, null storage, null-receiver failure timing and RHS exceptions. A temporary original-engine JAR container omits signature metadata solely to permit default-package fixture classes; every original class byte is retained unchanged. Production and shipped artifacts are not modified.
+
+The exact complete EntityWormBaseNT.getHead method is extracted from the changed production source, transplanted unchanged into a finite native EntityItem subclass with its headID field, compiled and executed against the real World.getEntityByID implementation and real IntHashMap. This is production method-body execution, NOT compilation or execution of the complete still-unported EntityWormBaseNT class or gameplay equivalence. Native fixtures assert direct getfield/putfield bytecode, not accessor substitutions.
+
+Reproduce without downloads:
+
+    python3 porting/tests/entity-world-native/run.py --java-home JAVA8 --classpath-file NATIVE_CLASSPATH_FILE --legacy-client ORIGINAL_1710_CLIENT_JAR --legacy-srg ORIGINAL_1710_SRG_ZIP --verify-attribution
+
+The runner checks 28 attributed positive/negative fixtures, 349 exact forward/inverse source files, 1,047 mutation negatives, 6 original-engine evaluation controls, 15 original/native identity/behavior/production-body checks and actual field bytecode. Full re-attribution reconstructs CP52 source in a temporary directory and requires exact selection equality for all 2,632 accesses; expected unrelated compile diagnostics are not suppressed or reported as success. The separate source manifest pins before/after hashes, UTF16 edit positions and attributed receiver names. No Minecraft binary is redistributed.
+
+When merging another independently approved patch in the same files, preserve both sets of exact fragments; these isolated whole-file hashes must not be treated as permission to overwrite the other patch. The coordinator must reconcile combined source guards explicitly. Full mod compile, full entity classes, gameplay, saves and launches remain outside this finite proof.

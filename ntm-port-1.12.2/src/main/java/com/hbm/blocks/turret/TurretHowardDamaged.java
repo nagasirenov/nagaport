@@ -30,7 +30,7 @@ public class TurretHowardDamaged extends TurretBaseNT {
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 }

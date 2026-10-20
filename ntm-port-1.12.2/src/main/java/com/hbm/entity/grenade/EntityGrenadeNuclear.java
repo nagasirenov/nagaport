@@ -24,10 +24,10 @@ public class EntityGrenadeNuclear extends EntityGrenadeBouncyBase {
 	@Override
 	public void explode() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.setDead();
 			
-			ExplosionNukeSmall.explode(worldObj, posX, posY + 0.5, posZ, ExplosionNukeSmall.PARAMS_TOTS);
+			ExplosionNukeSmall.explode(this.world, posX, posY + 0.5, posZ, ExplosionNukeSmall.PARAMS_TOTS);
 		}
 	}
 

@@ -7,10 +7,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntitySpacer extends TileEntity {
 	
-	@Override
-	public boolean canUpdate() {
-		return false;
-	}
 	
 	AxisAlignedBB bb = null;
 	
@@ -19,12 +15,12 @@ public class TileEntitySpacer extends TileEntity {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 1,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 2
 					);
 		}
 		

@@ -1,0 +1,15 @@
+// Whole production RocketMetadata; explicitly extracted, source-audited rocket caller fixtures.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortRocketMetadata', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-rocket-metadata.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

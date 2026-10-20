@@ -28,11 +28,11 @@ public class EntityGrenadePulse extends EntityGrenadeBouncyBase {
     public void explode() {
     	
 
-		if (!this.worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			this.setDead();
-			ExplosionChaos.pulse(this.worldObj, (int) this.posX, (int) this.posY, (int) this.posZ, 7);
-    		this.worldObj.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
-    		ExplosionLarge.spawnShock(worldObj, posX, posY, posZ, 24, 2);
+			ExplosionChaos.pulse(this.world, (int) this.posX, (int) this.posY, (int) this.posZ, 7);
+    		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
+    		ExplosionLarge.spawnShock(this.world, posX, posY, posZ, 24, 2);
 		}
     }
 

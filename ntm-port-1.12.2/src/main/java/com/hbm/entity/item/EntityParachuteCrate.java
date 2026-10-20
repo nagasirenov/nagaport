@@ -36,14 +36,14 @@ public class EntityParachuteCrate extends Entity {
 		if(this.motionY > -0.2) this.motionY -= 0.02;
 		if(posY > 600) posY = 600;
 
-		if(this.worldObj.getBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ)) != Blocks.air) {
+		if(com.hbm.world.WorldBlockState.read(this.world, (int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ)).getBlock() != Blocks.AIR) {
 
 			this.setDead();
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				
-				worldObj.setBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ), ModBlocks.crate_supply);
-				TileEntitySupplyCrate crate = (TileEntitySupplyCrate) worldObj.getTileEntity((int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ));
+				this.world.setBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ), ModBlocks.crate_supply);
+				TileEntitySupplyCrate crate = (TileEntitySupplyCrate) this.world.getTileEntity((int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ));
 				if(crate != null) crate.items.addAll(this.items);
 			}
 		}

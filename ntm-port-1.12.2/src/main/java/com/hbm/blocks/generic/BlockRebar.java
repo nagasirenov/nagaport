@@ -2,6 +2,8 @@ package com.hbm.blocks.generic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.EnumMap;
 
 import org.lwjgl.opengl.GL11;
 
@@ -18,7 +20,7 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.main.ServerProxy;
 import com.hbm.render.block.ISBRHUniversal;
-import com.hbm.render.util.RenderBlocksNT;
+import com.hbm.render.block.nativeblock.UniversalCuboidGeometry;
 import com.hbm.tileentity.IBufPacketReceiver;
 import com.hbm.tileentity.TileEntityLoadedBase;
 import com.hbm.tileentity.network.TileEntityPipeBaseNT;
@@ -42,16 +44,28 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.block.model.ItemOverrideList;
+import net.minecraft.client.renderer.block.model.SimpleBakedModel;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIconRegister;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -59,52 +73,49 @@ import com.hbm.lib.ForgeDirection;
 
 public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 
-	@SideOnly(Side.CLIENT) protected IIcon concrete;
-	
 	public BlockRebar() {
-		super(Material.iron);
+		super(Material.IRON);
+		setDefaultState(blockState.getBaseState().withProperty(UniversalBlockState.META, 0));
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		super.registerBlockIcons(reg);
-		this.concrete = reg.registerIcon(RefStrings.MODID + ":concrete_liquid");
-	}
+	@Override protected BlockStateContainer createBlockState() { return UniversalBlockState.create(this); }
+	@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(UniversalBlockState.META, meta & 15); }
+	@Override public int getMetaFromState(IBlockState state) { return UniversalBlockState.metadata(state); }
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityRebar();
 	}
 
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
-	
+	@Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+	@Override public boolean isOpaqueCube(IBlockState state) { return false; }
+	@Override public boolean isFullCube(IBlockState state) { return false; }
+	@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, net.minecraft.util.math.BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
+	public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos, EnumFacing side) {
 		return true;
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		TileEntity tile = world.getTileEntity(x, y, z);
+	public void neighborChanged(IBlockState state, World world, net.minecraft.util.math.BlockPos pos, Block block, net.minecraft.util.math.BlockPos fromPos) {
+		TileEntity tile = world.getTileEntity(pos);
 		if(!(tile instanceof TileEntityRebar)) return;
-		
+
 		TileEntityRebar rebar = (TileEntityRebar) tile;
 		rebar.hasConnection = false;
-		
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			TileEntity neighbor = Compat.getTileStandard(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			TileEntity neighbor = Compat.getTileStandard(world, pos.getX() + dir.offsetX, pos.getY() + dir.offsetY, pos.getZ() + dir.offsetZ);
 			if(neighbor instanceof TileEntityPipeBaseNT) {
 				rebar.hasConnection = true;
 				return;
 			}
 		}
 	}
-	
-	public static class TileEntityRebar extends TileEntityLoadedBase implements IFluidReceiverMK2, IBufPacketReceiver {
+
+	public static class TileEntityRebar extends TileEntityLoadedBase implements IFluidReceiverMK2, IBufPacketReceiver, net.minecraft.util.ITickable {
 
 		public Block concrete;
 		public int concreteMeta;
@@ -120,39 +131,44 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 		}
 
 		@Override
-		public void updateEntity() {
+		public boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos, IBlockState oldState, IBlockState newState) {
+			return oldState.getBlock() != newState.getBlock();
+		}
 
-			long time = worldObj.getTotalWorldTime();
+		@Override
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			long time = this.world.getTotalWorldTime();
+
+			if(!this.world.isRemote) {
 
 				if(prevProgress != progress) {
-					worldObj.markTileEntityChunkModified(xCoord, yCoord, zCoord, this);
+					this.world.markChunkDirty(this.pos, this);
 					prevProgress = progress;
 				}
 				
 				if(this.progress >= 1_000) {
 					if(concrete != null && ItemRebarPlacer.isValidConk(Item.getItemFromBlock(concrete), concreteMeta)) {
-						worldObj.setBlock(xCoord, yCoord, zCoord, concrete, concreteMeta, 3);
+						this.world.setBlockState(this.pos, concrete.getStateFromMeta(concreteMeta), 3);
 					} else {
-						worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.concrete_rebar);
+						this.world.setBlockState(this.pos, ModBlocks.concrete_rebar.getDefaultState());
 					}
 					return;
 				}
 				
 				if(time % 60 == 0) {
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-						this.trySubscribe(Fluids.CONCRETE, worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+						this.trySubscribe(Fluids.CONCRETE, this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 					}
 				}
 
 				if(this.node == null || this.node.expired) {
 
-					this.node = (RebarNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, RebarNetworkProvider.THE_PROVIDER);
+					this.node = (RebarNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), RebarNetworkProvider.THE_PROVIDER);
 
 					if(this.node == null || this.node.expired) {
 						this.node = this.createNode();
-						UniNodespace.createNode(worldObj, this.node);
+						UniNodespace.createNode(this.world, this.node);
 					}
 				}
 				
@@ -164,9 +180,9 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 		public void invalidate() {
 			super.invalidate();
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				if(this.node != null) {
-					UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, RebarNetworkProvider.THE_PROVIDER);
+					UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), RebarNetworkProvider.THE_PROVIDER);
 				}
 			}
 		}
@@ -187,7 +203,7 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("progress", this.progress);
 			nbt.setBoolean("hasConnection", this.hasConnection);
@@ -196,17 +212,18 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 				nbt.setInteger("block", Block.getIdFromBlock(this.concrete));
 				nbt.setInteger("meta", this.concreteMeta);
 			}
+			return nbt;
 		}
 		
 		public RebarNode createNode() {
 			TileEntity tile = (TileEntity) this;
-			return new RebarNode(RebarNetworkProvider.THE_PROVIDER, new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(
-					new DirPos(tile.xCoord + 1, tile.yCoord, tile.zCoord, Library.POS_X),
-					new DirPos(tile.xCoord - 1, tile.yCoord, tile.zCoord, Library.NEG_X),
-					new DirPos(tile.xCoord, tile.yCoord + 1, tile.zCoord, Library.POS_Y),
-					new DirPos(tile.xCoord, tile.yCoord - 1, tile.zCoord, Library.NEG_Y),
-					new DirPos(tile.xCoord, tile.yCoord, tile.zCoord + 1, Library.POS_Z),
-					new DirPos(tile.xCoord, tile.yCoord, tile.zCoord - 1, Library.NEG_Z)
+			return new RebarNode(RebarNetworkProvider.THE_PROVIDER, new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(
+					new DirPos(tile.getPos().getX() + 1, tile.getPos().getY(), tile.getPos().getZ(), Library.POS_X),
+					new DirPos(tile.getPos().getX() - 1, tile.getPos().getY(), tile.getPos().getZ(), Library.NEG_X),
+					new DirPos(tile.getPos().getX(), tile.getPos().getY() + 1, tile.getPos().getZ(), Library.POS_Y),
+					new DirPos(tile.getPos().getX(), tile.getPos().getY() - 1, tile.getPos().getZ(), Library.NEG_Y),
+					new DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() + 1, Library.POS_Z),
+					new DirPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ() - 1, Library.NEG_Z)
 					);
 		}
 
@@ -239,7 +256,7 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 				}
 				
 				if(y == lowestY) {
-					TileEntity tile = worldObj.getTileEntity(node.positions[0].getX(), y, node.positions[0].getZ());
+					TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(node.positions[0].getX(), y, node.positions[0].getZ()));
 					if(!(tile instanceof TileEntityRebar)) continue;
 					
 					TileEntityRebar rebar = (TileEntityRebar) tile;
@@ -288,78 +305,42 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 	}
 
 	@Override
-	public void renderInventoryBlock(Block block, int meta, int modelId, Object renderBlocks) {
-
-		GL11.glPushMatrix();
-		RenderBlocks renderer = (RenderBlocks) renderBlocks;
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
+	public List<AxisAlignedBB> getRenderBoxes(IBlockState state, boolean inventory) {
+		List<AxisAlignedBB> boxes = new ArrayList<>();
 		double o = 0.25D;
-		renderer.setRenderBounds(0.4375D - o, 0D, 0.4375D - o, 0.5625D - o, 1D, 0.5625D - o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.4375D - o, 0D, 0.4375D + o, 0.5625D - o, 1D, 0.5625D + o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.4375D + o, 0D, 0.4375D - o, 0.5625D + o, 1D, 0.5625D - o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.4375D + o, 0D, 0.4375D + o, 0.5625D + o, 1D, 0.5625D + o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-
-		renderer.setRenderBounds(0D, 0.4375D - o, 0.4375D - o, 1D, 0.5625D - o, 0.5625D - o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0D, 0.4375D - o, 0.4375D + o, 1D, 0.5625D - o, 0.5625D + o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0D, 0.4375D + o, 0.4375D - o, 1D, 0.5625D + o, 0.5625D - o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0D, 0.4375D + o, 0.4375D + o, 1D, 0.5625D + o, 0.5625D + o); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-
-		renderer.setRenderBounds(0.4375D - o, 0.4375D - o, 0D, 0.5625D - o, 0.5625D - o, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.4375D - o, 0.4375D + o, 0D, 0.5625D - o, 0.5625D + o, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.4375D + o, 0.4375D - o, 0D, 0.5625D + o, 0.5625D - o, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		renderer.setRenderBounds(0.4375D + o, 0.4375D + o, 0D, 0.5625D + o, 0.5625D + o, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-		
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, Object renderBlocks) {
-
-		RenderBlocksNT renderer = RenderBlocksNT.INSTANCE.setWorld(world);
-		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		double o = 0.25D;
-		double min = -0.001;
-		double max = 1.001;
-		
-		if(ClientConfig.RENDER_REBAR_SIMPLE.get()) {
-			renderer.setRenderBounds(0.4375D, min, 0.4375D, 0.5625D, max, 0.5625D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(min, 0.4375D, 0.4375D, max, 0.5625D, 0.5625D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D, 0.4375D, min, 0.5625D, 0.5625D, max); renderer.renderStandardBlock(block, x, y, z);
+		double min = inventory ? 0D : -0.001D;
+		double max = inventory ? 1D : 1.001D;
+		if(!inventory && ClientConfig.RENDER_REBAR_SIMPLE.get()) {
+			boxes.add(new AxisAlignedBB(0.4375D, min, 0.4375D, 0.5625D, max, 0.5625D));
+			boxes.add(new AxisAlignedBB(min, 0.4375D, 0.4375D, max, 0.5625D, 0.5625D));
+			boxes.add(new AxisAlignedBB(0.4375D, 0.4375D, min, 0.5625D, 0.5625D, max));
 		} else {
-			renderer.setRenderBounds(0.4375D - o, min, 0.4375D - o, 0.5625D - o, max, 0.5625D - o); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D - o, min, 0.4375D + o, 0.5625D - o, max, 0.5625D + o); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D + o, min, 0.4375D - o, 0.5625D + o, max, 0.5625D - o); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D + o, min, 0.4375D + o, 0.5625D + o, max, 0.5625D + o); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0.4375D - o, min, 0.4375D - o, 0.5625D - o, max, 0.5625D - o));
+			boxes.add(new AxisAlignedBB(0.4375D - o, min, 0.4375D + o, 0.5625D - o, max, 0.5625D + o));
+			boxes.add(new AxisAlignedBB(0.4375D + o, min, 0.4375D - o, 0.5625D + o, max, 0.5625D - o));
+			boxes.add(new AxisAlignedBB(0.4375D + o, min, 0.4375D + o, 0.5625D + o, max, 0.5625D + o));
 
-			renderer.setRenderBounds(min, 0.4375D - o, 0.4375D - o, max, 0.5625D - o, 0.5625D - o); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(min, 0.4375D - o, 0.4375D + o, max, 0.5625D - o, 0.5625D + o); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(min, 0.4375D + o, 0.4375D - o, max, 0.5625D + o, 0.5625D - o); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(min, 0.4375D + o, 0.4375D + o, max, 0.5625D + o, 0.5625D + o); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(min, 0.4375D - o, 0.4375D - o, max, 0.5625D - o, 0.5625D - o));
+			boxes.add(new AxisAlignedBB(min, 0.4375D - o, 0.4375D + o, max, 0.5625D - o, 0.5625D + o));
+			boxes.add(new AxisAlignedBB(min, 0.4375D + o, 0.4375D - o, max, 0.5625D + o, 0.5625D - o));
+			boxes.add(new AxisAlignedBB(min, 0.4375D + o, 0.4375D + o, max, 0.5625D + o, 0.5625D + o));
 
-			renderer.setRenderBounds(0.4375D - o, 0.4375D - o, min, 0.5625D - o, 0.5625D - o, max); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D - o, 0.4375D + o, min, 0.5625D - o, 0.5625D + o, max); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D + o, 0.4375D - o, min, 0.5625D + o, 0.5625D - o, max); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.4375D + o, 0.4375D + o, min, 0.5625D + o, 0.5625D + o, max); renderer.renderStandardBlock(block, x, y, z);
+			boxes.add(new AxisAlignedBB(0.4375D - o, 0.4375D - o, min, 0.5625D - o, 0.5625D - o, max));
+			boxes.add(new AxisAlignedBB(0.4375D - o, 0.4375D + o, min, 0.5625D - o, 0.5625D + o, max));
+			boxes.add(new AxisAlignedBB(0.4375D + o, 0.4375D - o, min, 0.5625D + o, 0.5625D - o, max));
+			boxes.add(new AxisAlignedBB(0.4375D + o, 0.4375D + o, min, 0.5625D + o, 0.5625D + o, max));
 		}
 		
-		/*TileEntity tile = world.getTileEntity(x, y, z);
-		if(tile instanceof TileEntityRebar) {
-			TileEntityRebar rebar = (TileEntityRebar) tile;
-			if(rebar.progress > 0) {
-				double height = rebar.progress / 1000D;
-				renderer.setOverrideBlockTexture(concrete);
-				renderer.setRenderBounds(0, 0, 0, 1, height, 1); renderer.renderStandardBlock(block, x, y, z);
-				renderer.clearOverrideBlockTexture();
-			}
-		}*/
-		
-		return true;
+		return boxes;
+	}
+
+	@SideOnly(Side.CLIENT)
+	private static IBakedModel concreteModel(TextureAtlasSprite sprite, int progress) {
+		List<BakedQuad> quads = UniversalCuboidGeometry.bake(Collections.singletonList(
+				new AxisAlignedBB(0, 0, 0, 1, progress / 1000D, 1)), sprite, false, 0);
+		EnumMap<EnumFacing, List<BakedQuad>> faces = new EnumMap<>(EnumFacing.class);
+		for(EnumFacing face : EnumFacing.values()) faces.put(face, Collections.emptyList());
+		return new SimpleBakedModel(quads, faces, true, true, sprite, ItemCameraTransforms.DEFAULT, ItemOverrideList.NONE);
 	}
 
 	// from ModEventHandlerClient.onRenderWorldLastEvent
@@ -375,8 +356,8 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 		}
 
 		Minecraft mc = Minecraft.getMinecraft();
-		EntityPlayer player = mc.thePlayer;
-		World world = mc.theWorld;
+		EntityPlayer player = mc.player;
+		World world = mc.world;
 
 		double dx = player.prevPosX + (player.posX - player.prevPosX) * interp;
 		double dy = player.prevPosY + (player.posY - player.prevPosY) * interp;
@@ -389,38 +370,36 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 			//RenderHelper.enableStandardItemLighting();
 
 			EntityRenderer entityRenderer = mc.entityRenderer;
-			entityRenderer.enableLightmap(interp);
+			entityRenderer.enableLightmap();
 
-			RenderBlocksNT renderer = RenderBlocksNT.INSTANCE.setWorld(world);
-			renderer.setOverrideBlockTexture(((BlockRebar) ModBlocks.rebar).concrete);
-			mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-			
-			Tessellator tess = Tessellator.instance;
-			tess.startDrawingQuads();
+			TextureAtlasSprite concrete = mc.getTextureMapBlocks().getAtlasSprite(RefStrings.MODID + ":blocks/concrete_liquid");
+			mc.getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buffer = tess.getBuffer();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
 
 			for(TileEntityRebar rebar : rebars) {
-				tess.setTranslation(-dx, -dy, -dz);
-				tess.setColorRGBA_F(1F, 1F, 1F, 1F);
-				renderer.setRenderBounds(0, 0, 0, 1, rebar.progress / 1000D, 1);
-				renderer.renderStandardBlock(ModBlocks.rebar, rebar.xCoord, rebar.yCoord, rebar.zCoord);
+				buffer.setTranslation(-dx, -dy, -dz);
+				mc.getBlockRendererDispatcher().getBlockModelRenderer().renderModel(world,
+						concreteModel(concrete, rebar.progress), ModBlocks.rebar.getDefaultState(), rebar.getPos(), buffer, false);
 			}
-			
+
 			tess.draw();
-			tess.setTranslation(0, 0, 0);
-			renderer.clearOverrideBlockTexture();
-			entityRenderer.disableLightmap(interp);
+			buffer.setTranslation(0, 0, 0);
+			entityRenderer.disableLightmap();
 
 			GL11.glShadeModel(GL11.GL_FLAT);
 			GL11.glPopMatrix();
 		}
 		
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.rebar_placer && player.getHeldItem().hasTagCompound() &&
-				player.getHeldItem().stackTagCompound.hasKey("pos") && mc.objectMouseOver != null && mc.objectMouseOver.typeOfHit == RayTraceResult.Type.BLOCK) {
+		ItemStack held = player.getHeldItemMainhand();
+		if(!held.isEmpty() && held.getItem() == ModItems.rebar_placer && held.hasTagCompound() &&
+				held.getTagCompound().hasKey("pos") && mc.objectMouseOver != null && mc.objectMouseOver.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-			int[] pos = player.getHeldItem().stackTagCompound.getIntArray("pos");
+			int[] pos = held.getTagCompound().getIntArray("pos");
 			RayTraceResult mop = mc.objectMouseOver;
-			net.minecraft.util.math.BlockPos pos = mop.getBlockPos();
-			net.minecraft.util.math.BlockPos adjacent = pos.offset(mop.sideHit);
+			net.minecraft.util.math.BlockPos adjacent = mop.getBlockPos().offset(mop.sideHit);
 			int iX = adjacent.getX();
 			int iY = adjacent.getY();
 			int iZ = adjacent.getZ();
@@ -437,54 +416,15 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glColor3f(1F, 1F, 1F);
 			
-			Tessellator tess = Tessellator.instance;
-			tess.setTranslation(-dx, -dy, -dz);
-			tess.startDrawing(GL11.GL_LINES);
-			tess.setBrightness(240);
-			tess.setColorRGBA_F(1F, 1F, 1F, 1F);
-			
-			// top
-			tess.addVertex(minX, maxY, minZ);
-			tess.addVertex(minX, maxY, maxZ);
-			
-			tess.addVertex(minX, maxY, maxZ);
-			tess.addVertex(maxX, maxY, maxZ);
-			
-			tess.addVertex(maxX, maxY, maxZ);
-			tess.addVertex(maxX, maxY, minZ);
-
-			tess.addVertex(maxX, maxY, minZ);
-			tess.addVertex(minX, maxY, minZ);
-			
-			// bottom
-			tess.addVertex(minX, minY, minZ);
-			tess.addVertex(minX, minY, maxZ);
-			
-			tess.addVertex(minX, minY, maxZ);
-			tess.addVertex(maxX, minY, maxZ);
-			
-			tess.addVertex(maxX, minY, maxZ);
-			tess.addVertex(maxX, minY, minZ);
-
-			tess.addVertex(maxX, minY, minZ);
-			tess.addVertex(minX, minY, minZ);
-
-			// sides
-			tess.addVertex(minX, minY, minZ);
-			tess.addVertex(minX, maxY, minZ);
-
-			tess.addVertex(maxX, minY, minZ);
-			tess.addVertex(maxX, maxY, minZ);
-
-			tess.addVertex(maxX, minY, maxZ);
-			tess.addVertex(maxX, maxY, maxZ);
-
-			tess.addVertex(minX, minY, maxZ);
-			tess.addVertex(minX, maxY, maxZ);
-			
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buffer = tess.getBuffer();
+			buffer.setTranslation(-dx, -dy, -dz);
+			// UV0 is unused with texturing disabled, but native UV1 lightmap indexing requires it.
+			buffer.begin(GL11.GL_LINES, DefaultVertexFormats.BLOCK);
+			appendSelectionBox(buffer, minX, minY, minZ, maxX, maxY, maxZ);
 			tess.draw();
-			tess.setTranslation(0, 0, 0);
-			
+			buffer.setTranslation(0, 0, 0);
+
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
 			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -494,4 +434,47 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 			MainRegistry.proxy.displayTooltip((rebarRequired > rebarLeft ? TextFormatting.RED : TextFormatting.GREEN) + (rebarLeft + " / " + rebarRequired), 1_000, ServerProxy.ID_CABLE);
 		}
 	}
+	@SideOnly(Side.CLIENT)
+	private static void appendSelectionBox(BufferBuilder buffer, double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
+			// top
+			buffer.pos(minX, maxY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(minX, maxY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			
+			buffer.pos(minX, maxY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(maxX, maxY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			
+			buffer.pos(maxX, maxY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(maxX, maxY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+
+			buffer.pos(maxX, maxY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(minX, maxY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			
+			// bottom
+			buffer.pos(minX, minY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(minX, minY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			
+			buffer.pos(minX, minY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(maxX, minY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			
+			buffer.pos(maxX, minY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(maxX, minY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+
+			buffer.pos(maxX, minY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(minX, minY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+
+			// sides
+			buffer.pos(minX, minY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(minX, maxY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+
+			buffer.pos(maxX, minY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(maxX, maxY, minZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+
+			buffer.pos(maxX, minY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(maxX, maxY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+
+			buffer.pos(minX, minY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			buffer.pos(minX, maxY, maxZ).color(255, 255, 255, 255).tex(0, 0).lightmap(0, 240).endVertex();
+			
+	}
+
 }

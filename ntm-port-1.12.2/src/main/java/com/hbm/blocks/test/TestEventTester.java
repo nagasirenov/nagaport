@@ -429,14 +429,14 @@ public class TestEventTester extends Block {
 				int dY = (int) Math.round(vec.y * r + y);
 				int dZ = (int) Math.round(vec.z * r + z);
 				
-				world.setBlock(dX, dY, dZ, Blocks.gold_block);
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = dX; int nativePlacementY = dY; int nativePlacementZ = dZ; net.minecraft.block.Block nativePlacementBlock = Blocks.GOLD_BLOCK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
     	}
     }
 	
 	public void killEvent(World world, int x, int y, int z) {
 		
-			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.break", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "random.break", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
 			float f = this.explosionSize;
 	        int i;
 	        int j;
@@ -448,12 +448,12 @@ public class TestEventTester extends Block {
 	        
 
 	        this.explosionSize *= 2.0F;
-	        i = MathHelper.floor_double(x - wat - 1.0D);
-	        j = MathHelper.floor_double(x + wat + 1.0D);
-	        k = MathHelper.floor_double(y - wat - 1.0D);
-	        int i2 = MathHelper.floor_double(y + wat + 1.0D);
-	        int l = MathHelper.floor_double(z - wat - 1.0D);
-	        int j2 = MathHelper.floor_double(z + wat + 1.0D);
+	        i = MathHelper.floor(x - wat - 1.0D);
+	        j = MathHelper.floor(x + wat + 1.0D);
+	        k = MathHelper.floor(y - wat - 1.0D);
+	        int i2 = MathHelper.floor(y + wat + 1.0D);
+	        int l = MathHelper.floor(z - wat - 1.0D);
+	        int j2 = MathHelper.floor(z + wat + 1.0D);
 	        List list = world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(i, k, l, j, i2, j2));
 	        Vec3d vec4 = new Vec3d(x, y + 1, z);
 
@@ -467,18 +467,18 @@ public class TestEventTester extends Block {
 	                d5 = entity.posX - x;
 	                d6 = entity.posY + entity.getEyeHeight() - y;
 	                d7 = entity.posZ - z;
-	                double d9 = MathHelper.sqrt_double(d5 * d5 + d6 * d6 + d7 * d7);
+	                double d9 = MathHelper.sqrt(d5 * d5 + d6 * d6 + d7 * d7);
 
 	                if (d9 < wat)
 	                {
 	                    d5 /= d9;
 	                    d6 /= d9;
 	                    d7 /= d9;
-	                    double d10 = world.getBlockDensity(vec4, entity.boundingBox);
+	                    double d10 = world.getBlockDensity(vec4, entity.getEntityBoundingBox());
 	                    double d11 = (1.0D - d4) * d10;
 	                    //entity.attackEntityFrom(DamageSource.generic, (float)(100 - d9/wat*100/d10));
 	                    
-	                    if(!entity.worldObj.isRemote && !entity.isDead)
+	                    if(!entity.world.isRemote && !entity.isDead)
 	                    {
 	                    	entity.setFire(50);
 	                    	//entity.setDead();

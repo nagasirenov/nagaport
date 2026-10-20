@@ -77,7 +77,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineTurbofan";
 	}
 
@@ -92,13 +92,14 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("powerTime", power);
 		tank.writeToNBT(nbt, "fuel");
 		blood.writeToNBT(nbt, "blood");
 		nbt.setBoolean("showBlood", showBlood);
+		return nbt;
 	}
 
 	public long getPowerScaled(long i) {
@@ -111,17 +112,17 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
-				new DirPos(this.xCoord + rot.offsetX * 2, this.yCoord, this.zCoord + rot.offsetZ * 2, rot),
-				new DirPos(this.xCoord + rot.offsetX * 2 - dir.offsetX, this.yCoord, this.zCoord + rot.offsetZ * 2 - dir.offsetZ, rot),
-				new DirPos(this.xCoord - rot.offsetX * 2, this.yCoord, this.zCoord - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(this.xCoord - rot.offsetX * 2 - dir.offsetX, this.yCoord, this.zCoord - rot.offsetZ * 2 - dir.offsetZ, rot.getOpposite())
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2 - dir.offsetX, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX * 2 - dir.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ, rot.getOpposite())
 		};
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.output = 0;
 			this.consumption = 0;
@@ -131,20 +132,20 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				//get old direction
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				//remove tile from the world to prevent inventory dropping
-				worldObj.removeTileEntity(xCoord, yCoord, zCoord);
+				this.world.removeTileEntity(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				//use fillspace to create a new multiblock configuration
-				worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.machine_turbofan, dir.ordinal() + 10, 3);
-				MultiblockHandlerXR.fillSpace(worldObj, xCoord, yCoord, zCoord, ((BlockDummyable) ModBlocks.machine_turbofan).getDimensions(), ModBlocks.machine_turbofan, dir);
+				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_turbofan, dir.ordinal() + 10, 3);
+				MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ((BlockDummyable) ModBlocks.machine_turbofan).getDimensions(), ModBlocks.machine_turbofan, dir);
 				//restore connections
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ);
-				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(worldObj, xCoord + dir.offsetX - rot.offsetX, yCoord, zCoord + dir.offsetZ - rot.offsetZ);
-				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(worldObj, xCoord - dir.offsetX, yCoord, zCoord - dir.offsetZ);
-				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(worldObj, xCoord - dir.offsetX - rot.offsetX, yCoord, zCoord - dir.offsetZ - rot.offsetZ);
+				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);
+				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(this.world, this.pos.getX() + dir.offsetX - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ);
+				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(this.world, this.pos.getX() - dir.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ);
+				((BlockDummyable) ModBlocks.machine_turbofan).makeExtra(this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ);
 				//load the tile data to restore the old values
 				NBTTagCompound data = new NBTTagCompound();
 				this.writeToNBT(data);
-				worldObj.getTileEntity(xCoord, yCoord, zCoord).readFromNBT(data);
+				this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())).readFromNBT(data);
 				return;
 			}
 
@@ -166,7 +167,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 			boolean redstone = false;
 
 			for(DirPos pos : getConPos()) {
-				if(this.worldObj.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) {
+				if(this.world.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) {
 					redstone = true;
 					break;
 				}
@@ -190,16 +191,16 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 					this.power += this.output;
 					this.consumption = amountToBurn;
 
-					if(worldObj.getTotalWorldTime() % 20 == 0) super.pollute(tank.getTankType(), FluidTrait.FluidReleaseType.BURN, amountToBurn * 5);;
+					if(this.world.getTotalWorldTime() % 20 == 0) super.pollute(tank.getTankType(), FluidTrait.FluidReleaseType.BURN, amountToBurn * 5);;
 				}
 			}
 
 			power = Library.chargeItemsFromTE(slots, 3, power, power);
 
 			for(DirPos pos : getConPos()) {
-				this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(this.blood.getFill() > 0) this.sendFluid(blood, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.blood.getFill() > 0) this.sendFluid(blood, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				this.sendSmoke(pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
@@ -211,43 +212,43 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				if(this.afterburner > 0) {
 
 					for(int i = 0; i < 2; i++) {
-						double speed = 2 + worldObj.rand.nextDouble() * 3;
-						double deviation = worldObj.rand.nextGaussian() * 0.2;
+						double speed = 2 + this.world.rand.nextDouble() * 3;
+						double deviation = this.world.rand.nextGaussian() * 0.2;
 						NBTTagCompound data = new NBTTagCompound();
 						data.setString("type", "gasfire");
 						data.setDouble("mX", -dir.offsetX * speed + deviation);
 						data.setDouble("mZ", -dir.offsetZ * speed + deviation);
 						data.setFloat("scale", 8F);
-						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.xCoord + 0.5F - dir.offsetX * (3 - i), this.yCoord + 1.5F, this.zCoord + 0.5F - dir.offsetZ * (3 - i)), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 150));
+						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5F - dir.offsetX * (3 - i), this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F - dir.offsetZ * (3 - i)), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 150));
 					}
 
 					/*if(this.afterburner > 90 && worldObj.rand.nextInt(60) == 0) {
 						worldObj.newExplosion(null, xCoord + 0.5 + dir.offsetX * 3.5, yCoord + 0.5, zCoord + 0.5 + dir.offsetZ * 3.5, 3F, false, false);
 					}*/
 
-					if(this.afterburner > 90 && worldObj.rand.nextInt(30) == 0) {
-						worldObj.playSoundEffect(xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, "hbm:block.damage", 3.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+					if(this.afterburner > 90 && this.world.rand.nextInt(30) == 0) {
+						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, "hbm:block.damage", 3.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 					}
 
 					if(this.afterburner > 90) {
 						NBTTagCompound data = new NBTTagCompound();
 						data.setString("type", "gasfire");
-						data.setDouble("mY", 0.1 * worldObj.rand.nextDouble());
+						data.setDouble("mY", 0.1 * this.world.rand.nextDouble());
 						data.setFloat("scale", 4F);
 						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data,
-								this.xCoord + 0.5F + dir.offsetX * (worldObj.rand.nextDouble() * 4 - 2) + rot.offsetX * (worldObj.rand.nextDouble() * 2 - 1),
-								this.yCoord + 1F + worldObj.rand.nextDouble() * 2,
-								this.zCoord + 0.5F - dir.offsetZ * (worldObj.rand.nextDouble() * 4 - 2) + rot.offsetZ * (worldObj.rand.nextDouble() * 2 - 1)
-								), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 150));
+								this.pos.getX() + 0.5F + dir.offsetX * (this.world.rand.nextDouble() * 4 - 2) + rot.offsetX * (this.world.rand.nextDouble() * 2 - 1),
+								this.pos.getY() + 1F + this.world.rand.nextDouble() * 2,
+								this.pos.getZ() + 0.5F - dir.offsetZ * (this.world.rand.nextDouble() * 4 - 2) + rot.offsetZ * (this.world.rand.nextDouble() * 2 - 1)
+								), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 150));
 					}
 				}
 
-				double minX = this.xCoord + 0.5 - dir.offsetX * 3.5 - rot.offsetX * 1.5;
-				double maxX = this.xCoord + 0.5 - dir.offsetX * 19.5 + rot.offsetX * 1.5;
-				double minZ = this.zCoord + 0.5 - dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
-				double maxZ = this.zCoord + 0.5 - dir.offsetZ * 19.5 + rot.offsetZ * 1.5;
+				double minX = this.pos.getX() + 0.5 - dir.offsetX * 3.5 - rot.offsetX * 1.5;
+				double maxX = this.pos.getX() + 0.5 - dir.offsetX * 19.5 + rot.offsetX * 1.5;
+				double minZ = this.pos.getZ() + 0.5 - dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
+				double maxZ = this.pos.getZ() + 0.5 - dir.offsetZ * 19.5 + rot.offsetZ * 1.5;
 
-				List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), yCoord, Math.min(minZ, maxZ), Math.max(minX, maxX), yCoord + 3, Math.max(minZ, maxZ)));
+				List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 
@@ -259,24 +260,24 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 					e.motionZ -= dir.offsetZ * 0.2;
 				}
 
-				minX = this.xCoord + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
-				maxX = this.xCoord + 0.5 + dir.offsetX * 8.5 + rot.offsetX * 1.5;
-				minZ = this.zCoord + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
-				maxZ = this.zCoord + 0.5 + dir.offsetZ * 8.5 + rot.offsetZ * 1.5;
+				minX = this.pos.getX() + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
+				maxX = this.pos.getX() + 0.5 + dir.offsetX * 8.5 + rot.offsetX * 1.5;
+				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
+				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 8.5 + rot.offsetZ * 1.5;
 
-				list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), yCoord, Math.min(minZ, maxZ), Math.max(minX, maxX), yCoord + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					e.motionX -= dir.offsetX * 0.2;
 					e.motionZ -= dir.offsetZ * 0.2;
 				}
 
-				minX = this.xCoord + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
-				maxX = this.xCoord + 0.5 + dir.offsetX * 3.75 + rot.offsetX * 1.5;
-				minZ = this.zCoord + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
-				maxZ = this.zCoord + 0.5 + dir.offsetZ * 3.75 + rot.offsetZ * 1.5;
+				minX = this.pos.getX() + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
+				maxX = this.pos.getX() + 0.5 + dir.offsetX * 3.75 + rot.offsetX * 1.5;
+				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
+				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.75 + rot.offsetZ * 1.5;
 
-				list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), yCoord, Math.min(minZ, maxZ), Math.max(minX, maxX), yCoord + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					e.attackEntityFrom(ModDamageSource.turbofan, 1000);
@@ -289,7 +290,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 						vdat.setInteger("cDiv", 5);
 						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(vdat, e.posX, e.posY + e.height * 0.5, e.posZ), new TargetPoint(e.dimension, e.posX, e.posY + e.height * 0.5, e.posZ, 150));
 
-						worldObj.playSoundEffect(e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+						com.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 
 						blood.setFill(blood.getFill() + 50);
 						if(blood.getFill() > blood.getMaxFill()) {
@@ -354,26 +355,12 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-				double minX = this.xCoord + 0.5 - dir.offsetX * 3.5 - rot.offsetX * 1.5;
-				double maxX = this.xCoord + 0.5 - dir.offsetX * 19.5 + rot.offsetX * 1.5;
-				double minZ = this.zCoord + 0.5 - dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
-				double maxZ = this.zCoord + 0.5 - dir.offsetZ * 19.5 + rot.offsetZ * 1.5;
+				double minX = this.pos.getX() + 0.5 - dir.offsetX * 3.5 - rot.offsetX * 1.5;
+				double maxX = this.pos.getX() + 0.5 - dir.offsetX * 19.5 + rot.offsetX * 1.5;
+				double minZ = this.pos.getZ() + 0.5 - dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
+				double maxZ = this.pos.getZ() + 0.5 - dir.offsetZ * 19.5 + rot.offsetZ * 1.5;
 
-				List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), yCoord, Math.min(minZ, maxZ), Math.max(minX, maxX), yCoord + 3, Math.max(minZ, maxZ)));
-
-				for(Entity e : list) {
-					if(e == MainRegistry.proxy.me()) {
-						e.motionX -= dir.offsetX * 0.2;
-						e.motionZ -= dir.offsetZ * 0.2;
-					}
-				}
-
-				minX = this.xCoord + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
-				maxX = this.xCoord + 0.5 + dir.offsetX * 8.5 + rot.offsetX * 1.5;
-				minZ = this.zCoord + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
-				maxZ = this.zCoord + 0.5 + dir.offsetZ * 8.5 + rot.offsetZ * 1.5;
-
-				list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), yCoord, Math.min(minZ, maxZ), Math.max(minX, maxX), yCoord + 3, Math.max(minZ, maxZ)));
+				List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					if(e == MainRegistry.proxy.me()) {
@@ -382,12 +369,26 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 					}
 				}
 
-				minX = this.xCoord + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
-				maxX = this.xCoord + 0.5 + dir.offsetX * 3.75 + rot.offsetX * 1.5;
-				minZ = this.zCoord + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
-				maxZ = this.zCoord + 0.5 + dir.offsetZ * 3.75 + rot.offsetZ * 1.5;
+				minX = this.pos.getX() + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
+				maxX = this.pos.getX() + 0.5 + dir.offsetX * 8.5 + rot.offsetX * 1.5;
+				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
+				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 8.5 + rot.offsetZ * 1.5;
 
-				list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), yCoord, Math.min(minZ, maxZ), Math.max(minX, maxX), yCoord + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+
+				for(Entity e : list) {
+					if(e == MainRegistry.proxy.me()) {
+						e.motionX -= dir.offsetX * 0.2;
+						e.motionZ -= dir.offsetZ * 0.2;
+					}
+				}
+
+				minX = this.pos.getX() + 0.5 + dir.offsetX * 3.5 - rot.offsetX * 1.5;
+				maxX = this.pos.getX() + 0.5 + dir.offsetX * 3.75 + rot.offsetX * 1.5;
+				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
+				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.75 + rot.offsetZ * 1.5;
+
+				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					if(e == MainRegistry.proxy.me()) {
@@ -421,7 +422,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 	}
 
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.turbofanOperate", xCoord, yCoord, zCoord, 1.0F, 50F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.turbofanOperate", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 50F, 1.0F, 20);
 	}
 
 	@Override

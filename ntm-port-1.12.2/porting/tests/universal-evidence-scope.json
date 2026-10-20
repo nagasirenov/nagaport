@@ -1,0 +1,41 @@
+{
+  "production_manifest": "porting/tests/universal-production-scope.json",
+  "final_logs": [
+    "porting/continuation-2026-10-19/universal-native-FINAL.log",
+    "porting/continuation-2026-10-19/universal-rebar-native-FINAL.log",
+    "porting/continuation-2026-10-19/universal-source-FINAL.log"
+  ],
+  "files": {
+    "porting/continuation-2026-10-19/universal-combined-initial.log": "ed915a094202386130269e37ac769c664fee6aefce0987b1bda673f6ce460b42",
+    "porting/continuation-2026-10-19/universal-combined-second.log": "682a08fa6b8125b9791340226a0d6c9f99856f2b45a6b7db113840b0ca2c21bb",
+    "porting/continuation-2026-10-19/universal-light-initial.log": "7f5cad88ed6d549a29bc98b45e9b56e4a4889927b659e96b768d69b574ae0fba",
+    "porting/continuation-2026-10-19/universal-native-FINAL.log": "64b42a0375908b2fb45020e08670a13fa49eaf7261e7b85bb39a83a9031ff0c2",
+    "porting/continuation-2026-10-19/universal-native-initial.log": "8c85f458c68020a3b978cdebf2e27c27e456fdfdf1e0b574624a93cebe2f45af",
+    "porting/continuation-2026-10-19/universal-native-owners.log": "36fc12499c37cdc023c99b6c4f62c1b10967136a74d0d48cd171355ea28815a7",
+    "porting/continuation-2026-10-19/universal-native-second.log": "71440168b08ca8b47e107f9018b57cb296a95237b24304f87b9a8c64a68b7daf",
+    "porting/continuation-2026-10-19/universal-native-third.log": "546666937f57d1fdfe9ba7de2fc142a318d4374870d359ffd5d8245433859160",
+    "porting/continuation-2026-10-19/universal-oracle-initial.log": "36fc12499c37cdc023c99b6c4f62c1b10967136a74d0d48cd171355ea28815a7",
+    "porting/continuation-2026-10-19/universal-rebar-native-FINAL.log": "0bf0ef5e733dfc4b3d15adf6f621bc16613a4e4381faf4e7f3c1d7c994b047f3",
+    "porting/continuation-2026-10-19/universal-source-FINAL.log": "9a79f7f9095fbeb8aaa8a79ac24d7a27fb9bb29fedfdae2e1bad04a18f98ebe7",
+    "porting/tests/NativeUniversalBlocksTest.java": "de2341a1333980af17f8baa013d8c9a3674fd7da7cf664e16bec80ef9a8c19f6",
+    "porting/tests/check-native-universal-source.py": "428f81787da2e11f343e37ba99d1a166b0aabca775989bcda19ac54b12d2ead5",
+    "porting/tests/native-rebar-fixtures.py": "8f4f6d09f0ea013fd04413352e137876033c7ef5a636e9f569b821bf7f46e01b",
+    "porting/tests/native-rebar-notes.md": "368c010ce6f56abe819d7ff4e6e6e0e79b849dc41b356ec875cf92de10b32727",
+    "porting/tests/native-rebar-probe.py": "27d8b9c0da9ef1002d20ea608ad6235463bf307d7770504b0aa026607454b385",
+    "porting/tests/native-rebar-proof.log": "1df2ecaadfe4ccdc83009b523781c1ed068207427a083e33f44ccd3ba5670de5",
+    "porting/tests/native-rebar-source-parity.py": "10e203571caf37323afe59babe9f741e13cff5c71025d6e995c265453406bc4a",
+    "porting/tests/native-rebar-source-proof.log": "8d5c3683ee8f2a8f0fd286a77e5a343a19665f0d68731bbb82a0b2a77d063712",
+    "porting/tests/native-rebar-test.java.in": "6ebb79cfebdd1fd4094ef56459ab41205d2ff49422f88a321a2f9f7466b305ed",
+    "porting/tests/native-universal-blocks-notes.md": "7285cf6ace32aa953dc58bfcd8badabf6e3b61efe04711857d81d73dc77048c6",
+    "porting/tests/probe-native-universal-blocks.py": "e7d663683874b9d59054f388c5a6b016ebb5276bf971c293a59de4fe2a65ee10",
+    "porting/tests/universal-legacy-geometry-oracle.py": "cf754d349bf36ce54fcc80c71686152484e02c529ce78d6ef2daa051eb22a380",
+    "porting/tests/universal-original-geometry.json": "13dcf8e8b6122fc79bb2534909e178b4c9cdd01690394275748b7963963c25d3",
+    "porting/tests/universal-panel-hook-baseline.json": "0f84347e4719fe92735a6ec5eb4c2741882e43b70ba4b5930bb6da551ceed96f",
+    "porting/tests/universal-production-scope.json": "2e89e697be1713798a37751a298baec177d18bf997a90da82f5a6ed9cd07659f"
+  },
+  "existing_test_dependencies": {
+    "porting/tests/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "porting/tests/MaterialTextureAtlasSpriteNativeTest.java": "2c5dfcebee1a45f08371273e503a47e6f4f55daf5fe63adccd648a21b0f011bd"
+  },
+  "note": "Earlier initial/second/third logs are retained diagnostics, not final acceptance; original helper source proof predates only fixture organization, final named logs pin current production."
+}

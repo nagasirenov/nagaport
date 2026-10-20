@@ -30,9 +30,9 @@ public class TileEntityPipeAnchor extends TileEntityPipelineBase {
 	public FluidNode createNode(FluidType type) {
 		TileEntity tile = (TileEntity) this;
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
-		FluidNode node = new FluidNode(type.getNetworkProvider(), new BlockPos(tile.xCoord, tile.yCoord, tile.zCoord)).setConnections(
-				new DirPos(xCoord, yCoord, zCoord, ForgeDirection.UNKNOWN),
-				new DirPos(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir));
+		FluidNode node = new FluidNode(type.getNetworkProvider(), new BlockPos(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ())).setConnections(
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.UNKNOWN),
+				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir));
 		for(int[] pos : this.connected) node.addConnection(new DirPos(pos[0], pos[1], pos[2], ForgeDirection.UNKNOWN));
 		return node;
 	}

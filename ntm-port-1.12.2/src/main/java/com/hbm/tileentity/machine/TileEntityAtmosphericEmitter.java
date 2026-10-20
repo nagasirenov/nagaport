@@ -20,7 +20,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implements IEnergyReceiverMK2, IFluidStandardReceiverMK2 {
+public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implements IEnergyReceiverMK2, IFluidStandardReceiverMK2, net.minecraft.util.ITickable {
 
 	public FluidTank tank;
 	public long power;
@@ -34,13 +34,13 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 	}
 	
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
-					trySubscribe(tank.getTankType(), worldObj, pos);
-					trySubscribe(worldObj, pos);
+					trySubscribe(tank.getTankType(), this.world, pos);
+					trySubscribe(this.world, pos);
 				}
 			}
 
@@ -51,14 +51,14 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 
 				if(this.power >= toSpill * 10) {
 					if(tank.getTankType().hasTrait(FT_Amat.class)) {
-						worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 10F, true, true);
+						this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 10F, true, true);
 						return;
 					}
 	
 					tank.setFill(tank.getFill() - toSpill);
 	
-					FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.SPILL, toSpill);
-					FT_Gaseous.release(worldObj, tank.getTankType(), toSpill);
+					FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.SPILL, toSpill);
+					FT_Gaseous.release(this.world, tank.getTankType(), toSpill);
 	
 					this.power -= toSpill * 10;
 				}
@@ -84,7 +84,7 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 				audio.keepAlive();
 				audio.updateVolume(this.getVolume(0.25F));
 
-				if(tank.getFill() > 0 && MainRegistry.proxy.me().getDistance(xCoord, yCoord, zCoord) < 100) {
+				if(tank.getFill() > 0 && MainRegistry.proxy.me().getDistance(this.pos.getX(), this.pos.getY(), this.pos.getZ()) < 100) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 					ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
@@ -92,14 +92,14 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 					data.setFloat("lift", 0.5F);
 					data.setFloat("base", 0.375F);
 					data.setFloat("max", 3F);
-					data.setInteger("life", 100 + worldObj.rand.nextInt(50));
+					data.setInteger("life", 100 + this.world.rand.nextInt(50));
 					
 					data.setString("type", "tower");
 
 					data.setInteger("color", tank.getTankType().getColor());
-					data.setDouble("posX", xCoord + 0.5 - dir.offsetX * 0.5 + rot.offsetX * 0.5);
-					data.setDouble("posZ", zCoord + 0.5 - dir.offsetZ * 0.5 + rot.offsetZ * 0.5);
-					data.setDouble("posY", yCoord + 2.5);
+					data.setDouble("posX", this.pos.getX() + 0.5 - dir.offsetX * 0.5 + rot.offsetX * 0.5);
+					data.setDouble("posZ", this.pos.getZ() + 0.5 - dir.offsetZ * 0.5 + rot.offsetZ * 0.5);
+					data.setDouble("posY", this.pos.getY() + 2.5);
 
 					data.setDouble("mY", 0.2);
 
@@ -120,22 +120,22 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX + rot.offsetX, yCoord, zCoord + dir.offsetZ + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ, dir),
 
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
 
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + rot.offsetX * 2 - dir.offsetX, yCoord, zCoord + rot.offsetZ * 2 - dir.offsetZ, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2 - dir.offsetX, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ, rot),
 
-				new DirPos(xCoord - rot.offsetX, yCoord, zCoord - rot.offsetZ, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX - dir.offsetX, yCoord, zCoord - rot.offsetZ - dir.offsetZ, rot.getOpposite())
+				new DirPos(this.pos.getX() - rot.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX - dir.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ - dir.offsetZ, rot.getOpposite())
 		};
 	}
 
 	@Override public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", xCoord, yCoord, zCoord, 0.25F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 10F, 1.0F, 20);
 	}
 
 	@Override public void onChunkUnload() {
@@ -155,10 +155,11 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		this.tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override
@@ -187,12 +188,12 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 3,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 2
 					);
 		}
 

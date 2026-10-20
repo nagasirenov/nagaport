@@ -21,12 +21,12 @@ public class BlockForgottenLock extends BlockPillar {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
 		// placeholder
-		if(player.getHeldItem() != null) {
-			boolean cracked = player.getHeldItem().getItem() == ModItems.key_red_cracked;
-			if((player.getHeldItem().getItem() == ModItems.key_red || cracked) && side != 0 && side != 1) {
-				if(cracked) player.getHeldItem().stackSize--;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
+			boolean cracked = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red_cracked;
+			if((com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red || cracked) && side != 0 && side != 1) {
+				if(cracked) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				if(world.isRemote) return true;
-				int meta = world.getBlockMetadata(x, y, z);
+				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 				ForgeDirection dir = ForgeDirection.getOrientation(side);
 				
 				generate(world, x, y, z, meta, dir);
@@ -45,7 +45,7 @@ public class BlockForgottenLock extends BlockPillar {
 		
 		int len = 15;
 		for(int w = -2; w <= 2; w++) for(int h = -2; h <= 2; h++) for(int d = 0; d < len; d++) {
-			Block b = (w == -2 || w == 2 || h == -2 || h == 2 || d == len - 1) ? ModBlocks.brick_forgotten : Blocks.air;
+			Block b = (w == -2 || w == 2 || h == -2 || h == 2 || d == len - 1) ? ModBlocks.brick_forgotten : Blocks.AIR;
 			world.setBlock(x - dir.offsetX * d + rot.offsetX * w, y + h, z - dir.offsetZ * d + rot.offsetZ * w, b);
 		}
 	}

@@ -4,7 +4,7 @@ import com.hbm.items.special.ItemBookLore;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 import java.util.Random;
 

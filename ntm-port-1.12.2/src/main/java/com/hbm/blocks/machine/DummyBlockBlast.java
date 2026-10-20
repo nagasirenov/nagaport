@@ -37,7 +37,7 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 	public void breakBlock(World world, int x, int y, int z, Block block, int i)
     {
     	if(!safeBreak) {
-    		TileEntity te = world.getTileEntity(x, y, z);
+    		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
     		if(te != null && te instanceof TileEntityDummy) {
     			int a = ((TileEntityDummy)te).targetX;
     			int b = ((TileEntityDummy)te).targetY;
@@ -66,7 +66,7 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 	}
 	
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
         return null;
     }
@@ -83,18 +83,18 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 		if(world.isRemote)
 		{
 			return true;
-		} else if(player.getHeldItem() != null && (player.getHeldItem().getItem() instanceof ItemLock || player.getHeldItem().getItem() == ModItems.key_kit)) {
+		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
 			return false;
 			
 		} else if(!player.isSneaking())
 		{
-			TileEntity til = world.getTileEntity(x, y, z);
+			TileEntity til = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(til != null && til instanceof TileEntityDummy) {
 				int a = ((TileEntityDummy)til).targetX;
 				int b = ((TileEntityDummy)til).targetY;
 				int c = ((TileEntityDummy)til).targetZ;
 						
-				TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(a, b, c);
+				TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(a, b, c));
 				if(entity != null)
 				{
 					if(entity.canAccess(player))
@@ -113,13 +113,13 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 		
 		if(!world.isRemote) {
 			
-			TileEntity te = world.getTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(te != null && te instanceof TileEntityDummy) {
 				int a = ((TileEntityDummy)te).targetX;
 				int b = ((TileEntityDummy)te).targetY;
 				int c = ((TileEntityDummy)te).targetZ;
 				
-				TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(a, b, c);
+				TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(a, b, c));
 				if(entity != null && !entity.isLocked()) {
 					entity.tryToggle();
 					return BombReturnCode.TRIGGERED;

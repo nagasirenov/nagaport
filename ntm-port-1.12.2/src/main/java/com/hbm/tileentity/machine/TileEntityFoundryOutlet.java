@@ -30,19 +30,19 @@ public class TileEntityFoundryOutlet extends TileEntityFoundryBase{
 
 	/** if TRUE, prevents all fluids from flowing through the outlet and renders a small barrier */
 	public boolean isClosed() {
-		return invertRedstone ^ this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord);
+		return invertRedstone ^ this.world.isBlockPowered(this.pos);
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			boolean isClosed = isClosed();
 			if(this.lastClosed != isClosed || this.filter != this.lastFilter) {
 				this.lastFilter = this.filter;
 				this.lastClosed = isClosed;
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+				this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
 			}
 		}
 	}
@@ -96,8 +96,8 @@ public class TileEntityFoundryOutlet extends TileEntityFoundryBase{
 			data.setByte("dir", (byte) dir.ordinal());
 			data.setFloat("off", 0.375F);
 			data.setFloat("base", 0F);
-			data.setFloat("len", Math.max(1F, yCoord - (float) (Math.ceil(hitY) - 0.875)));
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5D - dir.offsetX * 0.125, yCoord + 0.125, zCoord + 0.5D - dir.offsetZ * 0.125), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord, zCoord + 0.5, 50));
+			data.setFloat("len", Math.max(1F, this.pos.getY() - (float) (Math.ceil(hitY) - 0.875)));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D - dir.offsetX * 0.125, this.pos.getY() + 0.125, this.pos.getZ() + 0.5D - dir.offsetZ * 0.125), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, 50));
 
 		}
 
@@ -118,11 +118,12 @@ public class TileEntityFoundryOutlet extends TileEntityFoundryBase{
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("invert", this.invertRedstone);
 		nbt.setBoolean("invertFilter", this.invertFilter);
 		nbt.setShort("filter", this.filter == null ? -1 : (short) this.filter.id);
+		return nbt;
 	}
 
 	@Override

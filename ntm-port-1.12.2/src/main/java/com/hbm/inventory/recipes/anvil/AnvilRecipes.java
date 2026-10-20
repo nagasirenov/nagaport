@@ -162,14 +162,14 @@ public class AnvilRecipes extends SerializableRecipe {
 			}
 		}
 
-		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(COAL.dust()), new AnvilOutput(new ItemStack(Items.coal))).setTier(3));
+		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(COAL.dust()), new AnvilOutput(new ItemStack(Items.COAL))).setTier(3));
 		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(COALCOKE.dust()), new AnvilOutput(new ItemStack(ModItems.coke, 1, EnumCokeType.COAL.ordinal()))).setTier(3));
 		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(LIGCOKE.dust()), new AnvilOutput(new ItemStack(ModItems.coke, 1, EnumCokeType.LIGNITE.ordinal()))).setTier(3));
 		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(PETCOKE.dust()), new AnvilOutput(new ItemStack(ModItems.coke, 1, EnumCokeType.PETROLEUM.ordinal()))).setTier(3));
-		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(NETHERQUARTZ.dust()), new AnvilOutput(new ItemStack(Items.quartz))).setTier(3));
-		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(LAPIS.dust()), new AnvilOutput(new ItemStack(Items.dye, 1, 4))).setTier(3));
-		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(DIAMOND.dust()), new AnvilOutput(new ItemStack(Items.diamond))).setTier(3));
-		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(EMERALD.dust()), new AnvilOutput(new ItemStack(Items.emerald))).setTier(3));
+		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(NETHERQUARTZ.dust()), new AnvilOutput(new ItemStack(Items.QUARTZ))).setTier(3));
+		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(LAPIS.dust()), new AnvilOutput(new ItemStack(Items.DYE, 1, 4))).setTier(3));
+		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(DIAMOND.dust()), new AnvilOutput(new ItemStack(Items.DIAMOND))).setTier(3));
+		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(EMERALD.dust()), new AnvilOutput(new ItemStack(Items.EMERALD))).setTier(3));
 
 		registerConstructionRecipes();
 		registerConstructionAmmo();
@@ -180,7 +180,7 @@ public class AnvilRecipes extends SerializableRecipe {
 	public static void registerConstructionRecipes() {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
-				new AStack[] {new ComparableStack(Blocks.stonebrick, 16), new ComparableStack(ModItems.ingot_firebrick, 16), new OreDictStack(IRON.ingot(), 8), new OreDictStack(CU.ingot(), 8)},
+				new AStack[] {new ComparableStack(Blocks.STONEBRICK, 16), new ComparableStack(ModItems.ingot_firebrick, 16), new OreDictStack(IRON.ingot(), 8), new OreDictStack(CU.ingot(), 8)},
 				new AnvilOutput(new ItemStack(ModBlocks.machine_annihilator))).setTier(2));
 		
 		constructionRecipes.add(new AnvilConstructionRecipe(new OreDictStack(AL.ingot(), 1), new AnvilOutput(new ItemStack(ModBlocks.deco_aluminium, 4))).setTier(1).setOverlay(OverlayType.CONSTRUCTION));
@@ -226,7 +226,7 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Blocks.stonebrick, 4),
+						new ComparableStack(Blocks.STONEBRICK, 4),
 						new ComparableStack(ModItems.ingot_firebrick, 4),
 						new OreDictStack(CU.plate(), 4)
 				},
@@ -261,7 +261,7 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Blocks.stonebrick, 8),
+						new ComparableStack(Blocks.STONEBRICK, 8),
 						new OreDictStack(STEEL.plate(), 16),
 						new OreDictStack(PB.pipe(), 4),
 						new ComparableStack(ModItems.motor, 2),
@@ -270,7 +270,7 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Blocks.furnace),
+						new ComparableStack(Blocks.FURNACE),
 						new OreDictStack(STEEL.plate(), 8),
 						new OreDictStack(CU.ingot(), 8)
 				}, new AnvilOutput(new ItemStack(ModBlocks.heater_firebox))).setTier(2));
@@ -316,7 +316,7 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Blocks.stonebrick, 16),
+						new ComparableStack(Blocks.STONEBRICK, 16),
 						new OreDictStack(IRON.ingot(), 4),
 						new OreDictStack(STEEL.plate(), 16),
 						new OreDictStack(CU.ingot(), 8),
@@ -325,7 +325,7 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Blocks.stonebrick, 8),
+						new ComparableStack(Blocks.STONEBRICK, 8),
 						new OreDictStack(KEY_LOG, 16),
 						new OreDictStack(CU.plateCast(), 2),
 						new OreDictStack(KEY_BRICK, 16)
@@ -333,7 +333,7 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Blocks.stonebrick, 8),
+						new ComparableStack(Blocks.STONEBRICK, 8),
 						new ComparableStack(ModItems.ingot_firebrick, 16),
 						new OreDictStack(IRON.ingot(), 4),
 						new OreDictStack(CU.plate(), 8),
@@ -435,7 +435,7 @@ public class AnvilRecipes extends SerializableRecipe {
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
 						new ComparableStack(ModBlocks.brick_concrete, 64),
-						new ComparableStack(Blocks.iron_bars, 128),
+						new ComparableStack(Blocks.IRON_BARS, 128),
 						new ComparableStack(ModBlocks.machine_condenser, 4),
 				}, new AnvilOutput(new ItemStack(ModBlocks.machine_tower_small))).setTier(3));
 		constructionRecipes.add(new AnvilConstructionRecipe(
@@ -448,9 +448,9 @@ public class AnvilRecipes extends SerializableRecipe {
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
-						new ComparableStack(Items.bone, 16),
-						new ComparableStack(Items.leather, 4),
-						new ComparableStack(Items.feather, 24)
+						new ComparableStack(Items.BONE, 16),
+						new ComparableStack(Items.LEATHER, 4),
+						new ComparableStack(Items.FEATHER, 24)
 				}, new AnvilOutput(new ItemStack(ModItems.wings_limp))).setTier(2));
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
@@ -519,7 +519,7 @@ public class AnvilRecipes extends SerializableRecipe {
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {
 						new OreDictStack(STEEL.plate(), 4),
-						new ComparableStack(Blocks.brick_block, 16),
+						new ComparableStack(Blocks.BRICK_BLOCK, 16),
 						new ComparableStack(ModBlocks.steel_grate, 2)
 				},
 				new AnvilOutput(new ItemStack(ModBlocks.chimney_brick))).setTier(2));
@@ -784,7 +784,7 @@ public class AnvilRecipes extends SerializableRecipe {
 					new AnvilOutput(new ItemStack(ModItems.plate_iron, 3)),
 					new AnvilOutput(new ItemStack(ModItems.scrap, 1)),
 					new AnvilOutput(new ItemStack(ModItems.coil_tungsten, 1)),
-					new AnvilOutput(new ItemStack(Items.bread, 1), 0.5F),
+					new AnvilOutput(new ItemStack(Items.BREAD, 1), 0.5F),
 					new AnvilOutput(new ItemStack(ModItems.fusion_core, 1), 0.01F)
 
 				}
@@ -795,7 +795,7 @@ public class AnvilRecipes extends SerializableRecipe {
 					new AnvilOutput(new ItemStack(ModItems.plate_steel, 3)),
 					new AnvilOutput(new ItemStack(ModItems.scrap, 1)),
 					new AnvilOutput(new ItemStack(ModItems.coil_tungsten, 2)),
-					new AnvilOutput(new ItemStack(Items.bread, 1), 0.5F),
+					new AnvilOutput(new ItemStack(Items.BREAD, 1), 0.5F),
 					new AnvilOutput(new ItemStack(ModItems.battery_sc, 1, EnumBatterySC.RA226.ordinal()), 0.1F),
 					new AnvilOutput(new ItemStack(ModItems.fusion_core, 1), 0.05F)
 
@@ -807,7 +807,7 @@ public class AnvilRecipes extends SerializableRecipe {
 					new AnvilOutput(new ItemStack(ModItems.powder_sawdust, 4)),
 					new AnvilOutput(new ItemStack(ModItems.scrap, 1)),
 					new AnvilOutput(new ItemStack(ModItems.coil_tungsten, 4)),
-					new AnvilOutput(new ItemStack(Items.bread, 1), 0.5F),
+					new AnvilOutput(new ItemStack(Items.BREAD, 1), 0.5F),
 					new AnvilOutput(new ItemStack(ModItems.fusion_core, 1), 0.5F),
 					new AnvilOutput(new ItemStack(ModItems.fusion_core, 1), 0.5F),
 					new AnvilOutput(new ItemStack(ModItems.gem_alexandrite, 1), 0.25F),
@@ -873,7 +873,7 @@ public class AnvilRecipes extends SerializableRecipe {
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new ComparableStack(ModItems.pile_rod_boron), new AnvilOutput[] {
 						new AnvilOutput(new ItemStack(ModItems.ingot_boron, 2)),
-						new AnvilOutput(new ItemStack(Items.stick, 2))
+						new AnvilOutput(new ItemStack(Items.STICK, 2))
 						}).setTier(2));
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new ComparableStack(ModItems.pile_rod_detector), new AnvilOutput[] {
@@ -938,7 +938,7 @@ public class AnvilRecipes extends SerializableRecipe {
 						new AnvilOutput(new ItemStack(ModBlocks.rbmk_blank, 1)),
 						new AnvilOutput(new ItemStack(ModBlocks.steel_grate, 6)),
 						new AnvilOutput(new ItemStack(ModItems.tank_steel, 1)),
-						new AnvilOutput(new ItemStack(Blocks.hopper, 1))
+						new AnvilOutput(new ItemStack(Blocks.HOPPER, 1))
 				}).setTier(4));
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new ComparableStack(ModBlocks.rbmk_storage), new AnvilOutput[] {
@@ -1036,8 +1036,8 @@ public class AnvilRecipes extends SerializableRecipe {
 				new ComparableStack(ModItems.egg_glyphid), new AnvilOutput[] {
 						new AnvilOutput(new ItemStack(ModItems.glyphid_meat, 2)),
 						new AnvilOutput(new ItemStack(ModItems.glyphid_meat, 1), 0.5F),
-						new AnvilOutput(new ItemStack(Items.bone, 1), 0.75F),
-						new AnvilOutput(new ItemStack(Items.experience_bottle, 1), 0.5F)
+						new AnvilOutput(new ItemStack(Items.BONE, 1), 0.75F),
+						new AnvilOutput(new ItemStack(Items.EXPERIENCE_BOTTLE, 1), 0.5F)
 				}).setTier(1));
 	}
 
@@ -1127,7 +1127,7 @@ public class AnvilRecipes extends SerializableRecipe {
 						return ((ComparableStack)stack).toStack();
 				}
 				return this.output.get(0).stack.copy();
-			default: return new ItemStack(Items.iron_pickaxe);
+			default: return new ItemStack(Items.IRON_PICKAXE);
 			}
 		}
 	}

@@ -204,8 +204,8 @@ public class CustomMachineConfigJSON {
 						}
 
 						ItemStack stack = new ItemStack(ModBlocks.custom_machine, 1, i + 100);
-						stack.stackTagCompound = new NBTTagCompound();
-						stack.stackTagCompound.setString("machineType", configuration.unlocalizedName);
+						stack.setTagCompound(new NBTTagCompound());
+						stack.getTagCompound().setString("machineType", configuration.unlocalizedName);
 
 						CraftingManager.addRecipeAuto(stack, parts);
 					} catch(Exception ex) {

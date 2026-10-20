@@ -73,8 +73,8 @@ public class PneumaticNetwork extends NodeNet {
 
 		for(int i : sourceSlotAccess) {
 			ItemStack stack = source.getStackInSlot(i);
-			if(stack != null) {
-				if(sidedSource != null && !sidedSource.canExtractItem(i, stack, sourceSide)) continue;
+			if(stack != null && !stack.isEmpty()) {
+				if(sidedSource != null && !sidedSource.canExtractItem(i, stack, com.hbm.lib.ForgeDirection.getOrientation(sourceSide).toEnumFacing())) continue;
 				boolean match = tube.matchesFilter(stack);
 				if((match && !tube.whitelist) || (!match && tube.whitelist)) continue;
 				hasItem = true;
@@ -117,7 +117,7 @@ public class PneumaticNetwork extends NodeNet {
 
 			// range check for our compression level, skip if either source or dest aren't tile entities
 			if(tile1 != null && tile2 != null) {
-				int sq = (tile1.xCoord - tile2.xCoord) * (tile1.xCoord - tile2.xCoord) + (tile1.yCoord - tile2.yCoord) * (tile1.yCoord - tile2.yCoord) + (tile1.zCoord - tile2.zCoord) * (tile1.zCoord - tile2.zCoord);
+				int sq = (tile1.getPos().getX() - tile2.getPos().getX()) * (tile1.getPos().getX() - tile2.getPos().getX()) + (tile1.getPos().getY() - tile2.getPos().getY()) * (tile1.getPos().getY() - tile2.getPos().getY()) + (tile1.getPos().getZ() - tile2.getPos().getZ()) * (tile1.getPos().getZ() - tile2.getPos().getZ());
 				if(sq > maxRange * maxRange) {
 					attempts++;
 					continue;
@@ -133,8 +133,8 @@ public class PneumaticNetwork extends NodeNet {
 
 			for(int sourceIndex : sourceSlotAccess) {
 				ItemStack sourceStack = source.getStackInSlot(sourceIndex);
-				if(sourceStack == null) continue;
-				if(sidedSource != null && !sidedSource.canExtractItem(sourceIndex, sourceStack, sourceSide)) continue;
+				if(sourceStack == null || sourceStack.isEmpty()) continue;
+				if(sidedSource != null && !sidedSource.canExtractItem(sourceIndex, sourceStack, com.hbm.lib.ForgeDirection.getOrientation(sourceSide).toEnumFacing())) continue;
 				// filter of the source
 				boolean match = tube.matchesFilter(sourceStack);
 				if((match && !tube.whitelist) || (!match && tube.whitelist)) continue;
@@ -144,44 +144,45 @@ public class PneumaticNetwork extends NodeNet {
 					if((match && !endpointTile.whitelist) || (!match && endpointTile.whitelist)) continue;
 				}
 				// the "mass" of an item. something that only stacks to 4 has a "mass" of 16. max transfer mass is 64, i.e. one standard stack, or one single unstackable item
-				int proportionalValue = MathHelper.clamp_int(64 / sourceStack.getMaxStackSize(), 1, 64);
+				int proportionalValue = MathHelper.clamp(64 / sourceStack.getMaxStackSize(), 1, 64);
 
 				// try to fill partial stacks first
 				for(int destIndex : destSlotAccess) {
 					ItemStack destStack = dest.getStackInSlot(destIndex);
-					if(destStack == null) continue;
+					if(destStack == null || destStack.isEmpty()) continue;
 					if(!ItemStackUtil.areStacksCompatible(sourceStack, destStack)) continue;
-					int toMove = BobMathUtil.min(sourceStack.stackSize, destStack.getMaxStackSize() - destStack.stackSize, dest.getInventoryStackLimit() - destStack.stackSize, itemsLeftToSend / proportionalValue, itemHardCap);
+					int toMove = BobMathUtil.min(sourceStack.getCount(), destStack.getMaxStackSize() - destStack.getCount(), dest.getInventoryStackLimit() - destStack.getCount(), itemsLeftToSend / proportionalValue, itemHardCap);
 					if(toMove <= 0) continue;
 
 					ItemStack checkStack = destStack.copy();
-					checkStack.stackSize += toMove;
+					checkStack.grow(toMove);
 					if(!dest.isItemValidForSlot(destIndex, checkStack)) continue;
-					if(sidedDest != null && !sidedDest.canInsertItem(destIndex, checkStack, destSide)) continue;
+					if(sidedDest != null && !sidedDest.canInsertItem(destIndex, checkStack, com.hbm.lib.ForgeDirection.getOrientation(destSide).toEnumFacing())) continue;
 
-					sourceStack.stackSize -= toMove;
-					if(sourceStack.stackSize <= 0) source.setInventorySlotContents(sourceIndex, null);
-					destStack.stackSize += toMove;
+					sourceStack.shrink(toMove);
+					if(sourceStack.getCount() <= 0) source.setInventorySlotContents(sourceIndex, ItemStack.EMPTY);
+					destStack.grow(toMove);
 					itemsLeftToSend -= toMove * proportionalValue;
 					didSomething = true;
 					if(itemsLeftToSend <= 0) break;
 				}
 
 				// if there's stuff left to send, occupy empty slots
-				if(itemsLeftToSend > 0 && sourceStack.stackSize > 0) for(int destIndex : destSlotAccess) {
-					if(dest.getStackInSlot(destIndex) != null) continue;
-					int toMove = BobMathUtil.min(sourceStack.stackSize, dest.getInventoryStackLimit(), itemsLeftToSend / proportionalValue, itemHardCap);
+				if(itemsLeftToSend > 0 && sourceStack.getCount() > 0) for(int destIndex : destSlotAccess) {
+					ItemStack destStack = dest.getStackInSlot(destIndex);
+					if(destStack != null && !destStack.isEmpty()) continue;
+					int toMove = BobMathUtil.min(sourceStack.getCount(), dest.getInventoryStackLimit(), itemsLeftToSend / proportionalValue, itemHardCap);
 					if(toMove <= 0) continue;
 
 					ItemStack checkStack = sourceStack.copy();
-					checkStack.stackSize = toMove;
+					checkStack.setCount(toMove);
 					if(!dest.isItemValidForSlot(destIndex, checkStack)) continue;
-					if(sidedDest != null && !sidedDest.canInsertItem(destIndex, checkStack, destSide)) continue;
+					if(sidedDest != null && !sidedDest.canInsertItem(destIndex, checkStack, com.hbm.lib.ForgeDirection.getOrientation(destSide).toEnumFacing())) continue;
 
 					ItemStack newStack = sourceStack.copy();
-					newStack.stackSize = toMove;
-					sourceStack.stackSize -= toMove;
-					if(sourceStack.stackSize <= 0) source.setInventorySlotContents(sourceIndex, null);
+					newStack.setCount(toMove);
+					sourceStack.shrink(toMove);
+					if(sourceStack.getCount() <= 0) source.setInventorySlotContents(sourceIndex, ItemStack.EMPTY);
 					dest.setInventorySlotContents(destIndex, newStack);
 					itemsLeftToSend -= toMove * proportionalValue;
 					didSomething = true;
@@ -207,7 +208,7 @@ public class PneumaticNetwork extends NodeNet {
 	public static int[] getSlotAccess(IInventory inventory, int dir) {
 
 		if(inventory instanceof ISidedInventory) {
-			int[] slotAccess = ((ISidedInventory) inventory).getAccessibleSlotsFromSide(dir);
+			int[] slotAccess = ((ISidedInventory) inventory).getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(dir).toEnumFacing());
 			return Arrays.copyOf(slotAccess, slotAccess.length); //we mess with the order, so better not use the original array
 		} else {
 			int[] slotAccess = new int[inventory.getSizeInventory()];
@@ -237,12 +238,12 @@ public class PneumaticNetwork extends NodeNet {
 			if(tile1 == null && tile2 == null) return 0;
 
 			// calculate distances from origin
-			int dist1 = (tile1.xCoord - origin.xCoord) * (tile1.xCoord - origin.xCoord) + (tile1.yCoord - origin.yCoord) * (tile1.yCoord - origin.yCoord) + (tile1.zCoord - origin.zCoord) * (tile1.zCoord - origin.zCoord);
-			int dist2 = (tile2.xCoord - origin.xCoord) * (tile2.xCoord - origin.xCoord) + (tile2.yCoord - origin.yCoord) * (tile2.yCoord - origin.yCoord) + (tile2.zCoord - origin.zCoord) * (tile2.zCoord - origin.zCoord);
+			int dist1 = (tile1.getPos().getX() - origin.getPos().getX()) * (tile1.getPos().getX() - origin.getPos().getX()) + (tile1.getPos().getY() - origin.getPos().getY()) * (tile1.getPos().getY() - origin.getPos().getY()) + (tile1.getPos().getZ() - origin.getPos().getZ()) * (tile1.getPos().getZ() - origin.getPos().getZ());
+			int dist2 = (tile2.getPos().getX() - origin.getPos().getX()) * (tile2.getPos().getX() - origin.getPos().getX()) + (tile2.getPos().getY() - origin.getPos().getY()) * (tile2.getPos().getY() - origin.getPos().getY()) + (tile2.getPos().getZ() - origin.getPos().getZ()) * (tile2.getPos().getZ() - origin.getPos().getZ());
 
 			// tier-breaker: use hash value instead
 			if(dist1 == dist2) {
-				return TileEntityPneumoTube.getIdentifier(tile1.xCoord, tile1.yCoord, tile1.zCoord) - TileEntityPneumoTube.getIdentifier(tile2.xCoord, tile2.yCoord, tile2.zCoord);
+				return TileEntityPneumoTube.getIdentifier(tile1.getPos().getX(), tile1.getPos().getY(), tile1.getPos().getZ()) - TileEntityPneumoTube.getIdentifier(tile2.getPos().getX(), tile2.getPos().getY(), tile2.getPos().getZ());
 			}
 			
 			// no tie? return difference of the distances

@@ -30,9 +30,9 @@ public class ItemStructureSolid extends ItemStructureTool {
 		BlockPos pos = this.getAnchor(stack);
 		if(pos == null) return;
 
-		int savedX = stack.stackTagCompound.getInteger("x");
-		int savedY = stack.stackTagCompound.getInteger("y");
-		int savedZ = stack.stackTagCompound.getInteger("z");
+		int savedX = stack.getTagCompound().getInteger("x");
+		int savedY = stack.getTagCompound().getInteger("y");
+		int savedZ = stack.getTagCompound().getInteger("z");
 
 		int minX = Math.min(savedX, x) - pos.getX();
 		int minY = Math.min(savedY, y) - pos.getY();
@@ -41,14 +41,14 @@ public class ItemStructureSolid extends ItemStructureTool {
 		int maxY = Math.max(savedY, y) - pos.getY();
 		int maxZ = Math.max(savedZ, z) - pos.getZ();
 		//Assumes the last selected block is the one that all of them are.
-		Block b = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		String line;
 		if(meta > 0)
-			line = "fillWithMetadataBlocks(world, box, " + minX + ", " + minY + ", " + minZ + ", " + maxX + ", " + maxY + ", " + maxZ + ", " + b.getUnlocalizedName() +", " + meta +");\n";
+			line = "fillWithMetadataBlocks(world, box, " + minX + ", " + minY + ", " + minZ + ", " + maxX + ", " + maxY + ", " + maxZ + ", " + b.getTranslationKey() +", " + meta +");\n";
 		else
-			line = "fillWithBlocks(world, box, " + minX + ", " + minY + ", " + minZ + ", " + maxX + ", " + maxY + ", " + maxZ + ", " + b.getUnlocalizedName() +");\n";
+			line = "fillWithBlocks(world, box, " + minX + ", " + minY + ", " + minZ + ", " + maxX + ", " + maxY + ", " + maxZ + ", " + b.getTranslationKey() +");\n";
 		
 		System.out.print(line);
 		writeToFile(line);

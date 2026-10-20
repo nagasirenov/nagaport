@@ -1,0 +1,13 @@
+PASS: 10,939 exact read-only native field tokens / 384 files; 434 tile owners; 38 nested named-owner files.
+PASS: full selected-file inverse, owner/count/shadow/write/anonymous and excluded receiver guards.
+SOURCE PARITY ONLY: not complete machine compilation, gameplay, saves or network acceptance.
+EXACT PRODUCTION EXPRESSION tileentity/machine/TileEntityAirPump.java b88715d72cece120b609d86b8fa1065f69e4eb64f66bd6a79702f52b4bcdc4b6 this.world
+EXACT PRODUCTION EXPRESSION blocks/BlockGeysierDCM.java 48343de1ed0fb777e845d72f90fb5157854b81719b74401930a4e1a8f96f52de !this.world.isRemote
+EXACT PRODUCTION EXPRESSION blocks/BlockGeysierDCM.java cba7231488ba9104d2958742deb700bef1a51ae66b4556723fd43dea35206b91 this.pos.getX() + 0.5
+EXACT PRODUCTION EXPRESSION blocks/BlockGeysierDCM.java 8f85532f2d80d87185dca6ec6e0b995dc9de0b1e1a10da321abc1f479de250b6 this.pos.getY() + 0
+EXACT PRODUCTION EXPRESSION blocks/BlockGeysierDCM.java 6bb0faabfeb20e50238ab19a7e477bc072bddf7d9345c277ad1c5e9809be7246 this.pos.getZ() + 0.5
+EXACT PRODUCTION EXPRESSION blocks/BlockGeysierDCM.java 959d371071a1a75aaa915d62dc7ed5d4981ec63bfe065063990e8ed62233ed1e this.pos.getY() + 60
+EXACT PRODUCTION EXPRESSION blocks/BlockVolcanoV2.java 876c6e90b61ffb70a1a6da8935e1288cc642696238b735a6a689fffe8c3ee951 (int) (this.pos.getX() + dir.offsetX * (this.world.getTotalWorldTime() / 5L) % 1) + 0.5
+COMPLETE PRODUCTION INPUT 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b src/main/java/com/hbm/lib/ForgeDirection.java
+PASS: 7121 assertions using actual TileEntity/TileEntityFurnace/BlockPos/World/NBT, exact production samples, full signed bounds, native rebind/null/NBT and nonvirtual inherited/nested fields.
+LIMIT: native field API fixtures plus seven extracted production expressions; not complete 384-class compilation, live-world lifecycle, machine gameplay or networking.

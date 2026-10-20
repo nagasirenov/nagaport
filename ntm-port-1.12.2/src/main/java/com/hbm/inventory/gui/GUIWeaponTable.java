@@ -14,8 +14,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 public class GUIWeaponTable extends GuiInfoContainer {
 
@@ -72,8 +70,8 @@ public class GUIWeaponTable extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int mX, int mY) {
 
 		String name = I18n.format("container.weaponsTable");
-		this.fontRendererObj.drawString(name, (this.xSize) / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, (this.xSize) / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -91,10 +89,9 @@ public class GUIWeaponTable extends GuiInfoContainer {
 			GL11.glPushMatrix();
 			GL11.glTranslated(guiLeft + 88, guiTop + 57, 100);
 			
-			IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(gun, IItemRenderer.ItemRenderType.INVENTORY);
+			ItemRenderWeaponBase renderGun = com.hbm.render.item.weapon.sedna.nativehand.SednaHandHandler.renderer(gun);
 			
-			if(customRenderer instanceof ItemRenderWeaponBase) {
-				ItemRenderWeaponBase renderGun = (ItemRenderWeaponBase) customRenderer;
+			if(renderGun != null) {
 
 				GL11.glPushMatrix();
 				GL11.glRotated(180, 1, 0, 0);

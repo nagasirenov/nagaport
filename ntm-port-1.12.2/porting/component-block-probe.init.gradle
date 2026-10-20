@@ -1,0 +1,16 @@
+// Isolated native API checks; does not exclude or replace production sources.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortComponentBlocks', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-component-block-helpers.py',
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

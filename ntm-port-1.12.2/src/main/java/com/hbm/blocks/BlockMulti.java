@@ -18,6 +18,10 @@ public abstract class BlockMulti extends BlockBase implements IBlockMulti {
 	}
 
 	@Override
+	public int damageDropped(net.minecraft.block.state.IBlockState state) {
+		return damageDropped(getMetaFromState(state));
+	}
+
 	public int damageDropped(int meta) {
 		return rectify(meta);
 	}

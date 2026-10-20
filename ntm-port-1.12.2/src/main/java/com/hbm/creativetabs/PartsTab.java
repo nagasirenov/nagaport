@@ -20,7 +20,7 @@ public class PartsTab extends CreativeTabs {
 			return ModItems.ingot_uranium;
 		}
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 
 }

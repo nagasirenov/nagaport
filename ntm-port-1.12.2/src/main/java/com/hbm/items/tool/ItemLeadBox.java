@@ -36,13 +36,13 @@ public class ItemLeadBox extends Item implements IGUIProvider {
 
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new ContainerLeadBox(player.inventory, new InventoryLeadBox(player, player.getHeldItem()));
+		return new ContainerLeadBox(player.inventory, new InventoryLeadBox(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		return new GUILeadBox(player.inventory, new InventoryLeadBox(player, player.getHeldItem()));
+		return new GUILeadBox(player.inventory, new InventoryLeadBox(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
 
 	public static class InventoryLeadBox extends ItemInventory {

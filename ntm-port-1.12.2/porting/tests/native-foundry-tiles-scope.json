@@ -1,0 +1,33 @@
+{
+  "scope": "Seven edited production files: six foundry tiles plus exact shared UniNodespace server lookup. All eight complete tiles/native networking algorithms compile; 260 runtime checks; explicit NTM collaborators, not full-game acceptance.",
+  "base_commit": "e8970b85e0c8fe46f17348330b3853bb32ffaa0b",
+  "production": {
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryBase.java": "ceca20c4a2e6e3893df35f912821d73f9dcbbc9ee0a7edec0665bcd28ac1585b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryChannel.java": "0d99fca15897d41b5accc70e665ce97f22fb24dd782f18597f82509c49723f8d",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryTank.java": "4119eb0290dcbf11329b95217c0b4bd95b797df7d3c9c689e252e9d5cd3f210f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java": "1508670dbae5404faa03a748e3d56503ff03be3af0ba454f88cbe01d49f760fc",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java": "73534891612b24a7a8186000d1eb126b5079fde61a545d8a3f24b8e7938aaace",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java": "2e2867e81af690c810bce58b59783dc4cc1c2daff9f1fd2813c1b79816308160",
+    "src/main/java/com/hbm/uninos/UniNodespace.java": "f3493a61f364467dd7137e00c8f717bbdf7e7b1ef23d2a50a396a5d2da90b6df"
+  },
+  "unchanged_complete_tile_inputs": {
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryBasin.java": "d2570d42e67d8c9cef214af3143eb122ada7c25b26ca018e007ba2f9b1990883",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryMold.java": "9abc6225ad70e50421892a8f735dbd9de93dc6fa1c51828d44d2bbd2d1a799fe"
+  },
+  "artifacts": {
+    "porting/tests/NativeFoundryTilesTest.java": "59ed7eee20c52f9c69075e84b59ceea5905faeafa06c42d3be8d01acd54074d1",
+    "porting/tests/probe-native-foundry-tiles.py": "a39f55f440dfce2925bf8ec9dea62d72cfa3400529274d26a9e48edf16c908ca",
+    "porting/tests/native-foundry-tiles-notes.md": "8c9217b9c8c7aabbcbc6a9177c585eb97423054c7b4b10301488f627dcd7253e",
+    "porting/continuation-2026-10-19/native-foundry-tiles-FINAL.log": "672c0e37a73bdb1380e8f95044cb21b9cbbc14b1c71f8cdce5d87e88fad06599",
+    "porting/tests/fixtures/foundry/TileEntityFoundryBase-legacy.java.txt": "98a28db995acc8abfaa599fcb9709815c86c7ae440b7bcd35d6901bdf1365f91",
+    "porting/tests/fixtures/foundry/TileEntityFoundryBasin-legacy.java.txt": "67b920cf710e4b76d7e2b9a286b195df4f1c6a3ed1ceee59d7eefd9a31e57ba6",
+    "porting/tests/fixtures/foundry/TileEntityFoundryCastingBase-legacy.java.txt": "be1919f0be030c45372c66b92f7eeb886e9b336ca9eb08d79c08e3d77b514c3d",
+    "porting/tests/fixtures/foundry/TileEntityFoundryChannel-legacy.java.txt": "3805757680a4637a5da85dbd959982019ac86432f211166c7eb19eb62891ca10",
+    "porting/tests/fixtures/foundry/TileEntityFoundryMold-legacy.java.txt": "568f83fb8b0e397184bb1ad6b6146b64d749526e14f281b35dbf599ce933bbb0",
+    "porting/tests/fixtures/foundry/TileEntityFoundryOutlet-legacy.java.txt": "2394e710c2719530332100bc97419adcdef4d5cfdeacdea0cc5c040cb271a7b3",
+    "porting/tests/fixtures/foundry/TileEntityFoundrySlagtap-legacy.java.txt": "161d07a0beb2ead80be16624b903f21da5630164e5de08f29fd4eee1422a01d8",
+    "porting/tests/fixtures/foundry/TileEntityFoundryTank-legacy.java.txt": "b7039e364279af59babe9356773301bf22daee4f0a4b5a10b3fc2d03f2bb20cd",
+    "porting/tests/fixtures/foundry/UniNodespace-legacy.java.txt": "9d103c5358e799ee452ce54ed973a46f20a1dc5999f219e1f7981fa66c2b21c8"
+  },
+  "checks": 260
+}

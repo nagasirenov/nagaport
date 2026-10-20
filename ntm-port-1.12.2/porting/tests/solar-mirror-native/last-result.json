@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "date": "2026-10-19",
+  "java": "JDK 8",
+  "native_forge": "1.12.2-14.23.5.2768",
+  "production_sources": 13,
+  "explicit_outside_owner_fixtures": 2,
+  "geometry_cases": 1058,
+  "native_vertices": 43132,
+  "main_assertions": 415088,
+  "exact_registry_subclass_negative_assertions": 5,
+  "exact_registry_unrelated_negative_assertions": 5,
+  "total_assertions": 415098,
+  "production_sha256": {
+    "src/main/java/com/hbm/blocks/machine/SolarMirror.java": "4948f85a7c1e04915950f51ef5c8ad47798e4a9b7832a87b43e26d4b3bbd3f23",
+    "src/main/java/com/hbm/blocks/machine/SolarMirrorModelState.java": "ff374db2cd3ea1227b13218bbc8f6b27934fb7945a072299fc5d101c87d1512e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java": "4cdfae5009ab3794c5a6f5d3575a5fd59bb6bdd4444acbd550c5dae69caf02d5",
+    "src/main/java/com/hbm/tileentity/machine/SolarMirrorPosition.java": "27628901995f9caf7d5f5d5bcbde5d4535a4915330bd47b384ba0033655e40c5",
+    "src/main/java/com/hbm/render/block/RenderMirror.java": "d45775900e6d160d9e0cc85db3759c05e1e7c1758f51e08163e9d6b0964a8e58",
+    "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorGeometry.java": "bc523b4ec40d545ebe690f4b00a74f3d75e48a2a4b07fc8fa9b74dced70ade72",
+    "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorBakedModel.java": "d2ef56e9219cc185d6a4057a7e9e0a374e7b7f66590ce819b21c325d17764ae3",
+    "src/main/java/com/hbm/main/SolarMirrorModelHandler.java": "04b82ec00f2edae6adf3aeb5609d0aa05ec71aa28503aa05d8a6cef5eda3736a",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "src/main/java/com/hbm/render/mesh/ObjMesh.java": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736",
+    "src/main/java/com/hbm/render/mesh/ObjMeshParser.java": "e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java": "236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e",
+    "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f",
+    "src/main/resources/assets/hbm/blockstates/tile.solar_mirror.json": "e869df48c1469822f1730c74ad9309dc6581a1b51ab1e36d3fcd59e1efe1c697"
+  },
+  "boundaries": [
+    "Adapted pristine RenderMirror full source and original ObjUtil named-part bodies executed, not an old-game binary run.",
+    "Actual owner and tile are compiled; TileEntityTickingBase and TileEntitySolarBoiler are explicit external collaborator fixtures.",
+    "No live-game visual validation, real networking integration, full boiler closure or full mod build claim."
+  ]
+}

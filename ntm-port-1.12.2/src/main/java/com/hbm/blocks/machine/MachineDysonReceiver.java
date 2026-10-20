@@ -44,14 +44,14 @@ public class MachineDysonReceiver extends BlockDummyable implements ILookOverlay
 			if(pos == null)
 				return false;
 
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(!(te instanceof TileEntityDysonReceiver))
 				return false;
 
 			TileEntityDysonReceiver receiver = (TileEntityDysonReceiver) te;
 
-			ItemStack heldStack = player.getHeldItem();
+			ItemStack heldStack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 			if(heldStack != null && heldStack.getItem() == ModItems.sat_chip) {
 				if(receiver.slots[0] != null)
@@ -107,7 +107,7 @@ public class MachineDysonReceiver extends BlockDummyable implements ILookOverlay
 
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityDysonReceiver)) return;
 
@@ -129,7 +129,7 @@ public class MachineDysonReceiver extends BlockDummyable implements ILookOverlay
 			text.add("No Satellite ID-Chip installed!");
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@SuppressWarnings("rawtypes")

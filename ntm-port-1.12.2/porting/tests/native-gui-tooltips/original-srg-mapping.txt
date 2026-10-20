@@ -1,0 +1,5 @@
+CL: bdw net/minecraft/client/gui/GuiScreen
+FD: bbw/e net/minecraft/client/gui/Gui/field_73735_i
+FD: bdw/q net/minecraft/client/gui/GuiScreen/field_146289_q
+FD: bny/f net/minecraft/client/renderer/entity/RenderItem/field_77023_b
+MD: bdw/a (Ljava/util/List;II)V net/minecraft/client/gui/GuiScreen/func_146283_a (Ljava/util/List;II)V

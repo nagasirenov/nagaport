@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 public class DungeonSpawner extends BlockContainer {
 
 	public DungeonSpawner() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	@Override
@@ -31,16 +31,16 @@ public class DungeonSpawner extends BlockContainer {
 		return new TileEntityDungeonSpawner();
 	}
 	
-	public static class TileEntityDungeonSpawner extends TileEntity {
+	public static class TileEntityDungeonSpawner extends TileEntity implements net.minecraft.util.ITickable {
 		
 		public int phase = 0;
 		public int timer = 0;
 		public EnumSpawnerType type = EnumSpawnerType.ABERRATOR;
 		
 		@Override
-		public void updateEntity() {
+		public void update() {
 			
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				type.phase.accept(this);
 				if(type.phaseCondition.apply(this)) {
 					phase++;
@@ -52,10 +52,11 @@ public class DungeonSpawner extends BlockContainer {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("phase", phase);
 			nbt.setByte("type", (byte) type.ordinal());
+			return nbt;
 		}
 
 		@Override
@@ -80,11 +81,11 @@ public class DungeonSpawner extends BlockContainer {
 	}
 	
 	public static Function<TileEntityDungeonSpawner, Boolean> CON_ABERRATOR = (tile) -> {
-		World world = tile.getWorldObj();
+		World world = tile.getWorld();
 		if(world.difficultySetting.ordinal() == 0) return false;
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if(tile.phase == 0) {
 			if(world.getTotalWorldTime() % 20 != 0) return false;
 			return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(20, 10, 20)).isEmpty();
@@ -97,10 +98,10 @@ public class DungeonSpawner extends BlockContainer {
 	};
 	
 	public static Consumer<TileEntityDungeonSpawner> PHASE_ABERRATOR = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if(tile.phase == 1 || tile.phase == 2) {
 			if(tile.timer == 0) {
 				Vec3NT vec = new Vec3NT(10, 0, 0);
@@ -120,7 +121,7 @@ public class DungeonSpawner extends BlockContainer {
 			}
 		}
 		if(tile.phase > 2) {
-			TileEntity te = world.getTileEntity(x, y + 18, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y + 18, z));
 			if(te instanceof TileEntitySkeletonHolder) {
 				TileEntitySkeletonHolder skeleton = (TileEntitySkeletonHolder) te;
 				if(world.rand.nextInt(5) == 0) {
@@ -131,7 +132,7 @@ public class DungeonSpawner extends BlockContainer {
 				skeleton.markDirty();
 				world.markBlockForUpdate(x, y + 18, z);
 			}
-			world.setBlock(x, y, z, Blocks.obsidian);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.OBSIDIAN; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 }

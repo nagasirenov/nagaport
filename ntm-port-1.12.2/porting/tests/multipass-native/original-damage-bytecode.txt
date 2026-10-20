@@ -1,0 +1,892 @@
+Official original client SHA256 a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+Official Forge1614 patch archive SHA256 5cb7f1cd1c4faf0c435548c610c3322c15ae3524cbb4926f272ec057dce83bd4
+
+Mappings checked against pinned SRG: bma=RenderGlobal; bmh=Tessellator; bma.a(bmh,yz,float)=drawBlockDamageTexture; bmh.b()=startDrawingQuads; bmh.c()=disableColor; bmh.l=hasColor; bmh.r=isColorDisabled.
+
+The damage method starts drawing, disables color, then invokes the override-texture renderer. Color setters cannot enable hasColor when disabled. Vertex writes and GL_COLOR_ARRAY setup both depend on hasColor. Brightness remains independent.
+
+  public void a(bmh, yz, float);
+    Code:
+       0: aload_2
+       1: getfield      #465                // Field yz.S:D
+       4: aload_2
+       5: getfield      #468                // Field yz.s:D
+       8: aload_2
+       9: getfield      #465                // Field yz.S:D
+      12: dsub
+      13: fload_3
+      14: f2d
+      15: dmul
+      16: dadd
+      17: dstore        4
+      19: aload_2
+      20: getfield      #466                // Field yz.T:D
+      23: aload_2
+      24: getfield      #469                // Field yz.t:D
+      27: aload_2
+      28: getfield      #466                // Field yz.T:D
+      31: dsub
+      32: fload_3
+      33: f2d
+      34: dmul
+      35: dadd
+      36: dstore        6
+      38: aload_2
+      39: getfield      #467                // Field yz.U:D
+      42: aload_2
+      43: getfield      #470                // Field yz.u:D
+      46: aload_2
+      47: getfield      #467                // Field yz.U:D
+      50: dsub
+      51: fload_3
+      52: f2d
+      53: dmul
+      54: dadd
+      55: dstore        8
+      57: aload_0
+      58: getfield      #389                // Field O:Ljava/util/Map;
+      61: invokeinterface #724,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+      66: ifne          366
+      69: sipush        774
+      72: sipush        768
+      75: iconst_1
+      76: iconst_0
+      77: invokestatic  #627                // Method buu.c:(IIII)V
+      80: aload_0
+      81: getfield      #426                // Field s:Lbqf;
+      84: getstatic     #443                // Field bpz.b:Lbqx;
+      87: invokevirtual #621                // Method bqf.a:(Lbqx;)V
+      90: fconst_1
+      91: fconst_1
+      92: fconst_1
+      93: ldc           #26                 // float 0.5f
+      95: invokestatic  #679                // Method org/lwjgl/opengl/GL11.glColor4f:(FFFF)V
+      98: invokestatic  #690                // Method org/lwjgl/opengl/GL11.glPushMatrix:()V
+     101: ldc           #10                 // float -3.0f
+     103: ldc           #10                 // float -3.0f
+     105: invokestatic  #688                // Method org/lwjgl/opengl/GL11.glPolygonOffset:(FF)V
+     108: ldc           #2                  // int 32823
+     110: invokestatic  #683                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     113: sipush        516
+     116: ldc           #18                 // float 0.1f
+     118: invokestatic  #676                // Method org/lwjgl/opengl/GL11.glAlphaFunc:(IF)V
+     121: sipush        3008
+     124: invokestatic  #683                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     127: aload_1
+     128: invokevirtual #608                // Method bmh.b:()V
+     131: aload_1
+     132: dload         4
+     134: dneg
+     135: dload         6
+     137: dneg
+     138: dload         8
+     140: dneg
+     141: invokevirtual #609                // Method bmh.b:(DDD)V
+     144: aload_1
+     145: invokevirtual #610                // Method bmh.c:()V
+     148: aload_0
+     149: getfield      #389                // Field O:Ljava/util/Map;
+     152: invokeinterface #727,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+     157: invokeinterface #712,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     162: astore        10
+     164: aload         10
+     166: invokeinterface #713,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     171: ifeq          325
+     174: aload         10
+     176: invokeinterface #714,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     181: checkcast     #245                // class mj
+     184: astore        11
+     186: aload         11
+     188: invokevirtual #665                // Method mj.b:()I
+     191: i2d
+     192: dload         4
+     194: dsub
+     195: dstore        12
+     197: aload         11
+     199: invokevirtual #667                // Method mj.c:()I
+     202: i2d
+     203: dload         6
+     205: dsub
+     206: dstore        14
+     208: aload         11
+     210: invokevirtual #668                // Method mj.d:()I
+     213: i2d
+     214: dload         8
+     216: dsub
+     217: dstore        16
+     219: dload         12
+     221: dload         12
+     223: dmul
+     224: dload         14
+     226: dload         14
+     228: dmul
+     229: dadd
+     230: dload         16
+     232: dload         16
+     234: dmul
+     235: dadd
+     236: ldc2_w        #315                // double 1024.0d
+     239: dcmpl
+     240: ifle          253
+     243: aload         10
+     245: invokeinterface #715,  1          // InterfaceMethod java/util/Iterator.remove:()V
+     250: goto          322
+     253: aload_0
+     254: getfield      #425                // Field r:Lbjf;
+     257: aload         11
+     259: invokevirtual #665                // Method mj.b:()I
+     262: aload         11
+     264: invokevirtual #667                // Method mj.c:()I
+     267: aload         11
+     269: invokevirtual #668                // Method mj.d:()I
+     272: invokevirtual #507                // Method bjf.a:(III)Laji;
+     275: astore        18
+     277: aload         18
+     279: invokevirtual #482                // Method aji.o:()Lawt;
+     282: getstatic     #328                // Field awt.a:Lawt;
+     285: if_acmpeq     322
+     288: aload_0
+     289: getfield      #376                // Field B:Lblm;
+     292: aload         18
+     294: aload         11
+     296: invokevirtual #665                // Method mj.b:()I
+     299: aload         11
+     301: invokevirtual #667                // Method mj.c:()I
+     304: aload         11
+     306: invokevirtual #668                // Method mj.d:()I
+     309: aload_0
+     310: getfield      #391                // Field Q:[Lrf;
+     313: aload         11
+     315: invokevirtual #669                // Method mj.e:()I
+     318: aaload
+     319: invokevirtual #564                // Method blm.a:(Laji;IIILrf;)V
+     322: goto          164
+     325: aload_1
+     326: invokevirtual #602                // Method bmh.a:()I
+     329: pop
+     330: aload_1
+     331: dconst_0
+     332: dconst_0
+     333: dconst_0
+     334: invokevirtual #609                // Method bmh.b:(DDD)V
+     337: sipush        3008
+     340: invokestatic  #682                // Method org/lwjgl/opengl/GL11.glDisable:(I)V
+     343: fconst_0
+     344: fconst_0
+     345: invokestatic  #688                // Method org/lwjgl/opengl/GL11.glPolygonOffset:(FF)V
+     348: ldc           #2                  // int 32823
+     350: invokestatic  #682                // Method org/lwjgl/opengl/GL11.glDisable:(I)V
+     353: sipush        3008
+     356: invokestatic  #683                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     359: iconst_1
+     360: invokestatic  #681                // Method org/lwjgl/opengl/GL11.glDepthMask:(Z)V
+     363: invokestatic  #689                // Method org/lwjgl/opengl/GL11.glPopMatrix:()V
+     366: return
+
+
+  public void a(int);
+    Code:
+       0: aload_0
+       1: getfield      #51                 // Field x:Z
+       4: ifeq          17
+       7: new           #17                 // class java/lang/IllegalStateException
+      10: dup
+      11: ldc           #8                  // String Already tesselating!
+      13: invokespecial #76                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      16: athrow
+      17: aload_0
+      18: iconst_1
+      19: putfield      #51                 // Field x:Z
+      22: aload_0
+      23: invokespecial #65                 // Method d:()V
+      26: aload_0
+      27: iload_1
+      28: putfield      #46                 // Field s:I
+      31: aload_0
+      32: iconst_0
+      33: putfield      #42                 // Field o:Z
+      36: aload_0
+      37: iconst_0
+      38: putfield      #39                 // Field l:Z
+      41: aload_0
+      42: iconst_0
+      43: putfield      #40                 // Field m:Z
+      46: aload_0
+      47: iconst_0
+      48: putfield      #41                 // Field n:Z
+      51: aload_0
+      52: iconst_0
+      53: putfield      #45                 // Field r:Z
+      56: return
+
+
+  public void c();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #45                 // Field r:Z
+       5: return
+
+
+  public void a(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field r:Z
+       4: ifeq          8
+       7: return
+       8: iload_1
+       9: sipush        255
+      12: if_icmple     19
+      15: sipush        255
+      18: istore_1
+      19: iload_2
+      20: sipush        255
+      23: if_icmple     30
+      26: sipush        255
+      29: istore_2
+      30: iload_3
+      31: sipush        255
+      34: if_icmple     41
+      37: sipush        255
+      40: istore_3
+      41: iload         4
+      43: sipush        255
+      46: if_icmple     54
+      49: sipush        255
+      52: istore        4
+      54: iload_1
+      55: ifge          60
+      58: iconst_0
+      59: istore_1
+      60: iload_2
+      61: ifge          66
+      64: iconst_0
+      65: istore_2
+      66: iload_3
+      67: ifge          72
+      70: iconst_0
+      71: istore_3
+      72: iload         4
+      74: ifge          80
+      77: iconst_0
+      78: istore        4
+      80: aload_0
+      81: iconst_1
+      82: putfield      #39                 // Field l:Z
+      85: invokestatic  #87                 // Method java/nio/ByteOrder.nativeOrder:()Ljava/nio/ByteOrder;
+      88: getstatic     #55                 // Field java/nio/ByteOrder.LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+      91: if_acmpne     118
+      94: aload_0
+      95: iload         4
+      97: bipush        24
+      99: ishl
+     100: iload_3
+     101: bipush        16
+     103: ishl
+     104: ior
+     105: iload_2
+     106: bipush        8
+     108: ishl
+     109: ior
+     110: iload_1
+     111: ior
+     112: putfield      #38                 // Field k:I
+     115: goto          139
+     118: aload_0
+     119: iload_1
+     120: bipush        24
+     122: ishl
+     123: iload_2
+     124: bipush        16
+     126: ishl
+     127: ior
+     128: iload_3
+     129: bipush        8
+     131: ishl
+     132: ior
+     133: iload         4
+     135: ior
+     136: putfield      #38                 // Field k:I
+     139: return
+
+
+  public void a(double, double, double);
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #44                 // Field q:I
+       5: iconst_1
+       6: iadd
+       7: putfield      #44                 // Field q:I
+      10: aload_0
+      11: getfield      #40                 // Field m:Z
+      14: ifeq          55
+      17: aload_0
+      18: getfield      #33                 // Field f:[I
+      21: aload_0
+      22: getfield      #43                 // Field p:I
+      25: iconst_3
+      26: iadd
+      27: aload_0
+      28: getfield      #35                 // Field h:D
+      31: d2f
+      32: invokestatic  #75                 // Method java/lang/Float.floatToRawIntBits:(F)I
+      35: iastore
+      36: aload_0
+      37: getfield      #33                 // Field f:[I
+      40: aload_0
+      41: getfield      #43                 // Field p:I
+      44: iconst_4
+      45: iadd
+      46: aload_0
+      47: getfield      #36                 // Field i:D
+      50: d2f
+      51: invokestatic  #75                 // Method java/lang/Float.floatToRawIntBits:(F)I
+      54: iastore
+      55: aload_0
+      56: getfield      #41                 // Field n:Z
+      59: ifeq          78
+      62: aload_0
+      63: getfield      #33                 // Field f:[I
+      66: aload_0
+      67: getfield      #43                 // Field p:I
+      70: bipush        7
+      72: iadd
+      73: aload_0
+      74: getfield      #37                 // Field j:I
+      77: iastore
+      78: aload_0
+      79: getfield      #39                 // Field l:Z
+      82: ifeq          100
+      85: aload_0
+      86: getfield      #33                 // Field f:[I
+      89: aload_0
+      90: getfield      #43                 // Field p:I
+      93: iconst_5
+      94: iadd
+      95: aload_0
+      96: getfield      #38                 // Field k:I
+      99: iastore
+     100: aload_0
+     101: getfield      #42                 // Field o:Z
+     104: ifeq          123
+     107: aload_0
+     108: getfield      #33                 // Field f:[I
+     111: aload_0
+     112: getfield      #43                 // Field p:I
+     115: bipush        6
+     117: iadd
+     118: aload_0
+     119: getfield      #50                 // Field w:I
+     122: iastore
+     123: aload_0
+     124: getfield      #33                 // Field f:[I
+     127: aload_0
+     128: getfield      #43                 // Field p:I
+     131: iconst_0
+     132: iadd
+     133: dload_1
+     134: aload_0
+     135: getfield      #47                 // Field t:D
+     138: dadd
+     139: d2f
+     140: invokestatic  #75                 // Method java/lang/Float.floatToRawIntBits:(F)I
+     143: iastore
+     144: aload_0
+     145: getfield      #33                 // Field f:[I
+     148: aload_0
+     149: getfield      #43                 // Field p:I
+     152: iconst_1
+     153: iadd
+     154: dload_3
+     155: aload_0
+     156: getfield      #48                 // Field u:D
+     159: dadd
+     160: d2f
+     161: invokestatic  #75                 // Method java/lang/Float.floatToRawIntBits:(F)I
+     164: iastore
+     165: aload_0
+     166: getfield      #33                 // Field f:[I
+     169: aload_0
+     170: getfield      #43                 // Field p:I
+     173: iconst_2
+     174: iadd
+     175: dload         5
+     177: aload_0
+     178: getfield      #49                 // Field v:D
+     181: dadd
+     182: d2f
+     183: invokestatic  #75                 // Method java/lang/Float.floatToRawIntBits:(F)I
+     186: iastore
+     187: aload_0
+     188: dup
+     189: getfield      #43                 // Field p:I
+     192: bipush        8
+     194: iadd
+     195: putfield      #43                 // Field p:I
+     198: aload_0
+     199: dup
+     200: getfield      #34                 // Field g:I
+     203: iconst_1
+     204: iadd
+     205: putfield      #34                 // Field g:I
+     208: aload_0
+     209: getfield      #34                 // Field g:I
+     212: iconst_4
+     213: irem
+     214: ifne          241
+     217: aload_0
+     218: getfield      #43                 // Field p:I
+     221: aload_0
+     222: getfield      #52                 // Field y:I
+     225: bipush        32
+     227: isub
+     228: if_icmplt     241
+     231: aload_0
+     232: invokevirtual #59                 // Method a:()I
+     235: pop
+     236: aload_0
+     237: iconst_1
+     238: putfield      #51                 // Field x:Z
+     241: return
+
+
+  public int a();
+    Code:
+       0: aload_0
+       1: getfield      #51                 // Field x:Z
+       4: ifne          17
+       7: new           #17                 // class java/lang/IllegalStateException
+      10: dup
+      11: ldc           #9                  // String Not tesselating!
+      13: invokespecial #76                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      16: athrow
+      17: aload_0
+      18: iconst_0
+      19: putfield      #51                 // Field x:Z
+      22: aload_0
+      23: getfield      #34                 // Field g:I
+      26: ifle          317
+      29: aload_0
+      30: getfield      #30                 // Field c:Ljava/nio/IntBuffer;
+      33: invokevirtual #89                 // Method java/nio/IntBuffer.clear:()Ljava/nio/Buffer;
+      36: pop
+      37: aload_0
+      38: getfield      #30                 // Field c:Ljava/nio/IntBuffer;
+      41: aload_0
+      42: getfield      #33                 // Field f:[I
+      45: iconst_0
+      46: aload_0
+      47: getfield      #43                 // Field p:I
+      50: invokevirtual #90                 // Method java/nio/IntBuffer.put:([III)Ljava/nio/IntBuffer;
+      53: pop
+      54: aload_0
+      55: getfield      #29                 // Field b:Ljava/nio/ByteBuffer;
+      58: iconst_0
+      59: invokevirtual #86                 // Method java/nio/ByteBuffer.position:(I)Ljava/nio/Buffer;
+      62: pop
+      63: aload_0
+      64: getfield      #29                 // Field b:Ljava/nio/ByteBuffer;
+      67: aload_0
+      68: getfield      #43                 // Field p:I
+      71: iconst_4
+      72: imul
+      73: invokevirtual #85                 // Method java/nio/ByteBuffer.limit:(I)Ljava/nio/Buffer;
+      76: pop
+      77: aload_0
+      78: getfield      #40                 // Field m:Z
+      81: ifeq          108
+      84: aload_0
+      85: getfield      #31                 // Field d:Ljava/nio/FloatBuffer;
+      88: iconst_3
+      89: invokevirtual #88                 // Method java/nio/FloatBuffer.position:(I)Ljava/nio/Buffer;
+      92: pop
+      93: iconst_2
+      94: bipush        32
+      96: aload_0
+      97: getfield      #31                 // Field d:Ljava/nio/FloatBuffer;
+     100: invokestatic  #101                // Method org/lwjgl/opengl/GL11.glTexCoordPointer:(IILjava/nio/FloatBuffer;)V
+     103: ldc           #4                  // int 32888
+     105: invokestatic  #99                 // Method org/lwjgl/opengl/GL11.glEnableClientState:(I)V
+     108: aload_0
+     109: getfield      #41                 // Field n:Z
+     112: ifeq          152
+     115: getstatic     #54                 // Field buu.c:I
+     118: invokestatic  #74                 // Method buu.k:(I)V
+     121: aload_0
+     122: getfield      #32                 // Field e:Ljava/nio/ShortBuffer;
+     125: bipush        14
+     127: invokevirtual #91                 // Method java/nio/ShortBuffer.position:(I)Ljava/nio/Buffer;
+     130: pop
+     131: iconst_2
+     132: bipush        32
+     134: aload_0
+     135: getfield      #32                 // Field e:Ljava/nio/ShortBuffer;
+     138: invokestatic  #102                // Method org/lwjgl/opengl/GL11.glTexCoordPointer:(IILjava/nio/ShortBuffer;)V
+     141: ldc           #4                  // int 32888
+     143: invokestatic  #99                 // Method org/lwjgl/opengl/GL11.glEnableClientState:(I)V
+     146: getstatic     #53                 // Field buu.b:I
+     149: invokestatic  #74                 // Method buu.k:(I)V
+     152: aload_0
+     153: getfield      #39                 // Field l:Z
+     156: ifeq          185
+     159: aload_0
+     160: getfield      #29                 // Field b:Ljava/nio/ByteBuffer;
+     163: bipush        20
+     165: invokevirtual #86                 // Method java/nio/ByteBuffer.position:(I)Ljava/nio/Buffer;
+     168: pop
+     169: iconst_4
+     170: iconst_1
+     171: bipush        32
+     173: aload_0
+     174: getfield      #29                 // Field b:Ljava/nio/ByteBuffer;
+     177: invokestatic  #96                 // Method org/lwjgl/opengl/GL11.glColorPointer:(IZILjava/nio/ByteBuffer;)V
+     180: ldc           #3                  // int 32886
+     182: invokestatic  #99                 // Method org/lwjgl/opengl/GL11.glEnableClientState:(I)V
+     185: aload_0
+     186: getfield      #42                 // Field o:Z
+     189: ifeq          216
+     192: aload_0
+     193: getfield      #29                 // Field b:Ljava/nio/ByteBuffer;
+     196: bipush        24
+     198: invokevirtual #86                 // Method java/nio/ByteBuffer.position:(I)Ljava/nio/Buffer;
+     201: pop
+     202: bipush        32
+     204: aload_0
+     205: getfield      #29                 // Field b:Ljava/nio/ByteBuffer;
+     208: invokestatic  #100                // Method org/lwjgl/opengl/GL11.glNormalPointer:(ILjava/nio/ByteBuffer;)V
+     211: ldc           #2                  // int 32885
+     213: invokestatic  #99                 // Method org/lwjgl/opengl/GL11.glEnableClientState:(I)V
+     216: aload_0
+     217: getfield      #31                 // Field d:Ljava/nio/FloatBuffer;
+     220: iconst_0
+     221: invokevirtual #88                 // Method java/nio/FloatBuffer.position:(I)Ljava/nio/Buffer;
+     224: pop
+     225: iconst_3
+     226: bipush        32
+     228: aload_0
+     229: getfield      #31                 // Field d:Ljava/nio/FloatBuffer;
+     232: invokestatic  #103                // Method org/lwjgl/opengl/GL11.glVertexPointer:(IILjava/nio/FloatBuffer;)V
+     235: ldc           #1                  // int 32884
+     237: invokestatic  #99                 // Method org/lwjgl/opengl/GL11.glEnableClientState:(I)V
+     240: aload_0
+     241: getfield      #46                 // Field s:I
+     244: iconst_0
+     245: aload_0
+     246: getfield      #34                 // Field g:I
+     249: invokestatic  #98                 // Method org/lwjgl/opengl/GL11.glDrawArrays:(III)V
+     252: ldc           #1                  // int 32884
+     254: invokestatic  #97                 // Method org/lwjgl/opengl/GL11.glDisableClientState:(I)V
+     257: aload_0
+     258: getfield      #40                 // Field m:Z
+     261: ifeq          269
+     264: ldc           #4                  // int 32888
+     266: invokestatic  #97                 // Method org/lwjgl/opengl/GL11.glDisableClientState:(I)V
+     269: aload_0
+     270: getfield      #41                 // Field n:Z
+     273: ifeq          293
+     276: getstatic     #54                 // Field buu.c:I
+     279: invokestatic  #74                 // Method buu.k:(I)V
+     282: ldc           #4                  // int 32888
+     284: invokestatic  #97                 // Method org/lwjgl/opengl/GL11.glDisableClientState:(I)V
+     287: getstatic     #53                 // Field buu.b:I
+     290: invokestatic  #74                 // Method buu.k:(I)V
+     293: aload_0
+     294: getfield      #39                 // Field l:Z
+     297: ifeq          305
+     300: ldc           #3                  // int 32886
+     302: invokestatic  #97                 // Method org/lwjgl/opengl/GL11.glDisableClientState:(I)V
+     305: aload_0
+     306: getfield      #42                 // Field o:Z
+     309: ifeq          317
+     312: ldc           #2                  // int 32885
+     314: invokestatic  #97                 // Method org/lwjgl/opengl/GL11.glDisableClientState:(I)V
+     317: aload_0
+     318: getfield      #43                 // Field p:I
+     321: iconst_4
+     322: imul
+     323: istore_1
+     324: aload_0
+     325: invokespecial #65                 // Method d:()V
+     328: iload_1
+     329: ireturn
+
+
+FORGE1614 RENDERGLOBAL PATCH
+--- ../src-base/minecraft/net/minecraft/client/renderer/RenderGlobal.java
++++ ../src-work/minecraft/net/minecraft/client/renderer/RenderGlobal.java
+@@ -79,6 +79,9 @@
+ import org.lwjgl.opengl.ARBOcclusionQuery;
+ import org.lwjgl.opengl.GL11;
+ 
++import net.minecraftforge.client.IRenderHandler;
++import net.minecraftforge.client.MinecraftForgeClient;
++
+ @SideOnly(Side.CLIENT)
+ public class RenderGlobal implements IWorldAccess
+ {
+@@ -376,8 +379,10 @@
+ 
+     public void func_147589_a(EntityLivingBase p_147589_1_, ICamera p_147589_2_, float p_147589_3_)
+     {
++        int pass = MinecraftForgeClient.getRenderPass();
+         if (this.field_72740_G > 0)
+         {
++            if (pass > 0) return;
+             --this.field_72740_G;
+         }
+         else
+@@ -388,9 +393,12 @@
+             this.field_72769_h.field_72984_F.func_76320_a("prepare");
+             TileEntityRendererDispatcher.field_147556_a.func_147542_a(this.field_72769_h, this.field_72777_q.func_110434_K(), this.field_72777_q.field_71466_p, this.field_72777_q.field_71451_h, p_147589_3_);
+             RenderManager.field_78727_a.func_147938_a(this.field_72769_h, this.field_72777_q.func_110434_K(), this.field_72777_q.field_71466_p, this.field_72777_q.field_71451_h, this.field_72777_q.field_147125_j, this.field_72777_q.field_71474_y, p_147589_3_);
++            if (pass == 0) // no indentation to shrink patch
++            {
+             this.field_72748_H = 0;
+             this.field_72749_I = 0;
+             this.field_72750_J = 0;
++            }
+             EntityLivingBase entitylivingbase1 = this.field_72777_q.field_71451_h;
+             double d3 = entitylivingbase1.field_70142_S + (entitylivingbase1.field_70165_t - entitylivingbase1.field_70142_S) * (double)p_147589_3_;
+             double d4 = entitylivingbase1.field_70137_T + (entitylivingbase1.field_70163_u - entitylivingbase1.field_70137_T) * (double)p_147589_3_;
+@@ -419,13 +427,17 @@
+             this.field_72777_q.field_71460_t.func_78463_b((double)p_147589_3_);
+             this.field_72769_h.field_72984_F.func_76318_c("global");
+             List list = this.field_72769_h.func_72910_y();
++            if (pass == 0) // no indentation for smaller patch size
++            {
+             this.field_72748_H = list.size();
++            }
+             int i;
+             Entity entity;
+ 
+             for (i = 0; i < this.field_72769_h.field_73007_j.size(); ++i)
+             {
+                 entity = (Entity)this.field_72769_h.field_73007_j.get(i);
++                if (!entity.shouldRenderInPass(pass)) continue;
+                 ++this.field_72749_I;
+ 
+                 if (entity.func_145770_h(d0, d1, d2))
+@@ -439,6 +451,7 @@
+             for (i = 0; i < list.size(); ++i)
+             {
+                 entity = (Entity)list.get(i);
++                if (!entity.shouldRenderInPass(pass)) continue;
+                 boolean flag = entity.func_145770_h(d0, d1, d2) && (entity.field_70158_ak || p_147589_2_.func_78546_a(entity.field_70121_D) || entity.field_70153_n == this.field_72777_q.field_71439_g);
+ 
+                 if (!flag && entity instanceof EntityLiving)
+@@ -464,7 +477,11 @@
+ 
+             for (i = 0; i < this.field_147598_a.size(); ++i)
+             {
+-                TileEntityRendererDispatcher.field_147556_a.func_147544_a((TileEntity)this.field_147598_a.get(i), p_147589_3_);
++                TileEntity tile = (TileEntity)this.field_147598_a.get(i);
++                if (tile.shouldRenderInPass(pass) && p_147589_2_.func_78546_a(tile.getRenderBoundingBox()))
++                {
++                    TileEntityRendererDispatcher.field_147556_a.func_147544_a(tile, p_147589_3_);
++                }
+             }
+ 
+             this.field_72777_q.field_71460_t.func_78483_a((double)p_147589_3_);
+@@ -941,6 +958,12 @@
+ 
+     public void func_72714_a(float p_72714_1_)
+     {
++        IRenderHandler skyProvider = null;
++        if ((skyProvider = this.field_72777_q.field_71441_e.field_73011_w.getSkyRenderer()) != null)
++        {
++            skyProvider.render(p_72714_1_, this.field_72769_h, field_72777_q);
++            return;
++        }
+         if (this.field_72777_q.field_71441_e.field_73011_w.field_76574_g == 1)
+         {
+             GL11.glDisable(GL11.GL_FOG);
+@@ -1179,6 +1202,12 @@
+ 
+     public void func_72718_b(float p_72718_1_)
+     {
++        IRenderHandler renderer = null;
++        if ((renderer = field_72769_h.field_73011_w.getCloudRenderer()) != null)
++        {
++            renderer.render(p_72718_1_, field_72769_h, field_72777_q);
++            return;
++        }
+         if (this.field_72777_q.field_71441_e.field_73011_w.func_76569_d())
+         {
+             if (this.field_72777_q.field_71474_y.field_74347_j)
+@@ -1579,6 +1608,11 @@
+ 
+     public void func_72717_a(Tessellator p_72717_1_, EntityPlayer p_72717_2_, float p_72717_3_)
+     {
++        drawBlockDamageTexture(p_72717_1_, (EntityLivingBase)p_72717_2_, p_72717_3_);
++    }
++
++    public void drawBlockDamageTexture(Tessellator p_72717_1_, EntityLivingBase p_72717_2_, float p_72717_3_)
++    {
+         double d0 = p_72717_2_.field_70142_S + (p_72717_2_.field_70165_t - p_72717_2_.field_70142_S) * (double)p_72717_3_;
+         double d1 = p_72717_2_.field_70137_T + (p_72717_2_.field_70163_u - p_72717_2_.field_70137_T) * (double)p_72717_3_;
+         double d2 = p_72717_2_.field_70136_U + (p_72717_2_.field_70161_v - p_72717_2_.field_70136_U) * (double)p_72717_3_;
+@@ -1798,12 +1832,15 @@
+         {
+             ItemRecord itemrecord = ItemRecord.func_150926_b(p_72702_1_);
+ 
++            ResourceLocation resource = null;
+             if (itemrecord != null)
+             {
+                 this.field_72777_q.field_71456_v.func_73833_a(itemrecord.func_150927_i());
++                resource = itemrecord.getRecordResource(p_72702_1_);
+             }
+ 
+-            PositionedSoundRecord positionedsoundrecord = PositionedSoundRecord.func_147675_a(new ResourceLocation(p_72702_1_), (float)p_72702_2_, (float)p_72702_3_, (float)p_72702_4_);
++            if (resource == null) resource = new ResourceLocation(p_72702_1_);
++            PositionedSoundRecord positionedsoundrecord = PositionedSoundRecord.func_147675_a(resource, (float)p_72702_2_, (float)p_72702_3_, (float)p_72702_4_);
+             this.field_147593_P.put(chunkcoordinates, positionedsoundrecord);
+             this.field_72777_q.func_147118_V().func_147682_a(positionedsoundrecord);
+         }
+
+FORGE1614 TESSELLATOR PATCH
+--- ../src-base/minecraft/net/minecraft/client/renderer/Tessellator.java
++++ ../src-work/minecraft/net/minecraft/client/renderer/Tessellator.java
+@@ -7,6 +7,7 @@
+ import java.nio.FloatBuffer;
+ import java.nio.IntBuffer;
+ import java.nio.ShortBuffer;
++import java.util.Arrays;
+ import java.util.PriorityQueue;
+ import net.minecraft.client.shader.TesselatorVertexState;
+ import net.minecraft.client.util.QuadComparator;
+@@ -15,10 +16,17 @@
+ @SideOnly(Side.CLIENT)
+ public class Tessellator
+ {
+-    private ByteBuffer field_78394_d;
+-    private IntBuffer field_147568_c;
+-    private FloatBuffer field_147566_d;
+-    private ShortBuffer field_147567_e;
++    private static int nativeBufferSize = 0x200000;
++    private static int trivertsInBuffer = (nativeBufferSize / 48) * 6;
++    public static boolean renderingWorldRenderer = false;
++    public boolean defaultTexture = false;
++    private int rawBufferSize = 0;
++    public int textureID = 0;
++
++    private static ByteBuffer field_78394_d = GLAllocation.func_74524_c(nativeBufferSize * 4);
++    private static IntBuffer field_147568_c = field_78394_d.asIntBuffer();
++    private static FloatBuffer field_147566_d = field_78394_d.asFloatBuffer();
++    private static ShortBuffer field_147567_e = field_78394_d.asShortBuffer();
+     private int[] field_78405_h;
+     private int field_78406_i;
+     private double field_78403_j;
+@@ -44,14 +52,17 @@
+ 
+     private Tessellator(int p_i1250_1_)
+     {
+-        this.field_78388_E = p_i1250_1_;
+-        this.field_78394_d = GLAllocation.func_74524_c(p_i1250_1_ * 4);
+-        this.field_147568_c = this.field_78394_d.asIntBuffer();
+-        this.field_147566_d = this.field_78394_d.asFloatBuffer();
+-        this.field_147567_e = this.field_78394_d.asShortBuffer();
+-        this.field_78405_h = new int[p_i1250_1_];
+     }
+ 
++    public Tessellator()
++    {
++    }
++
++    static
++    {
++        field_78398_a.defaultTexture = true;
++    }
++
+     public int func_78381_a()
+     {
+         if (!this.field_78415_z)
+@@ -62,12 +73,15 @@
+         {
+             this.field_78415_z = false;
+ 
+-            if (this.field_78406_i > 0)
++            int offs = 0;
++            while (offs < field_78406_i)
+             {
++                int vtc = Math.min(field_78406_i - offs, nativeBufferSize >> 5);
+                 this.field_147568_c.clear();
+-                this.field_147568_c.put(this.field_78405_h, 0, this.field_147569_p);
++                this.field_147568_c.put(this.field_78405_h, offs * 8, vtc * 8);
+                 this.field_78394_d.position(0);
+-                this.field_78394_d.limit(this.field_147569_p * 4);
++                this.field_78394_d.limit(vtc * 32);
++                offs += vtc;
+ 
+                 if (this.field_78400_o)
+                 {
+@@ -102,7 +116,7 @@
+                 this.field_147566_d.position(0);
+                 GL11.glVertexPointer(3, 32, this.field_147566_d);
+                 GL11.glEnableClientState(GL11.GL_VERTEX_ARRAY);
+-                GL11.glDrawArrays(this.field_78409_u, 0, this.field_78406_i);
++                GL11.glDrawArrays(this.field_78409_u, 0, vtc);
+                 GL11.glDisableClientState(GL11.GL_VERTEX_ARRAY);
+ 
+                 if (this.field_78400_o)
+@@ -128,6 +142,12 @@
+                 }
+             }
+ 
++            if (rawBufferSize > 0x20000 && field_147569_p < (rawBufferSize << 3))
++            {
++                rawBufferSize = 0x10000;
++                field_78405_h = new int[rawBufferSize];
++            }
++
+             int i = this.field_147569_p * 4;
+             this.func_78379_d();
+             return i;
+@@ -162,6 +182,14 @@
+ 
+     public void func_147565_a(TesselatorVertexState p_147565_1_)
+     {
++        while (p_147565_1_.func_147572_a().length > rawBufferSize && rawBufferSize > 0)
++        {
++            rawBufferSize <<= 1;
++        }
++        if (rawBufferSize > field_78405_h.length)
++        {
++            field_78405_h = new int[rawBufferSize];
++        }
+         System.arraycopy(p_147565_1_.func_147572_a(), 0, this.field_78405_h, 0, p_147565_1_.func_147572_a().length);
+         this.field_147569_p = p_147565_1_.func_147576_b();
+         this.field_78406_i = p_147565_1_.func_147575_c();
+@@ -301,6 +329,19 @@
+ 
+     public void func_78377_a(double p_78377_1_, double p_78377_3_, double p_78377_5_)
+     {
++        if (field_147569_p >= rawBufferSize - 32) 
++        {
++            if (rawBufferSize == 0)
++            {
++                rawBufferSize = 0x10000;
++                field_78405_h = new int[rawBufferSize];
++            }
++            else
++            {
++                rawBufferSize *= 2;
++                field_78405_h = Arrays.copyOf(field_78405_h, rawBufferSize);
++            }
++        }
+         ++this.field_78411_s;
+ 
+         if (this.field_78400_o)
+@@ -329,12 +370,6 @@
+         this.field_78405_h[this.field_147569_p + 2] = Float.floatToRawIntBits((float)(p_78377_5_ + this.field_78417_x));
+         this.field_147569_p += 8;
+         ++this.field_78406_i;
+-
+-        if (this.field_78406_i % 4 == 0 && this.field_147569_p >= this.field_78388_E - 32)
+-        {
+-            this.func_78381_a();
+-            this.field_78415_z = true;
+-        }
+     }
+ 
+     public void func_78378_d(int p_78378_1_)

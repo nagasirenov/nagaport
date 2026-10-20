@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -38,7 +41,7 @@ public class ItemRenderMinigunDual extends ItemRenderWeaponBase {
 		
 		for(int i = -1; i <= 1; i += 2) {
 			int index = i == -1 ? 0 : 1;
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.minigun_dual_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.minigun_dual_tex);
 
 			GL11.glPushMatrix();
 			standardAimingTransform(stack, -2.75F * offset * i, -1.75F * offset, 2.5F * offset, 0, 0, 0);
@@ -113,18 +116,18 @@ public class ItemRenderMinigunDual extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderEquipped(ItemStack stack, Object... data) {
+	public void renderEquipped(ItemStack stack, NativeItemContext context) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.minigun_dual_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.minigun_dual_tex);
 		ResourceManager.minigun.renderPart("Gun");
 		ResourceManager.minigun.renderPart("Barrels");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		EntityLivingBase ent = (EntityLivingBase) data[1];
+		EntityLivingBase ent = context.holder;
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[1];
 			shotRand = gun.shotRand;
@@ -147,14 +150,14 @@ public class ItemRenderMinigunDual extends ItemRenderWeaponBase {
 	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase ent) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.minigun_dual_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.minigun_dual_tex);
 		ResourceManager.minigun.renderPart("GunDual");
 		ResourceManager.minigun.renderPart("Barrels");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[0];
 			shotRand = gun.shotRand;
@@ -178,7 +181,7 @@ public class ItemRenderMinigunDual extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.minigun_dual_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.minigun_dual_tex);
 		ResourceManager.minigun.renderPart(index == 0 ? "GunDual" : "Gun");
 		ResourceManager.minigun.renderPart("Barrels");
 		GL11.glShadeModel(GL11.GL_FLAT);
@@ -190,7 +193,7 @@ public class ItemRenderMinigunDual extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.minigun_dual_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.minigun_dual_tex);
 
 		GL11.glPushMatrix();
 		GL11.glRotated(225, 0, 0, 1);
@@ -214,11 +217,11 @@ public class ItemRenderMinigunDual extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.minigun_dual_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.minigun_dual_tex);
 		ResourceManager.minigun.renderPart("Gun");
 		ResourceManager.minigun.renderPart("Barrels");
 		GL11.glShadeModel(GL11.GL_FLAT);

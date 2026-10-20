@@ -92,7 +92,7 @@ public interface IToolAreaAbility extends IBaseAbility {
 
 		@Override
 		public boolean onDig(int level, World world, int x, int y, int z, EntityPlayer player, ItemToolAbility tool) {
-			Block b = world.getBlock(x, y, z);
+			Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 			if(!ToolConfig.recursiveStone) {
 				Item item = Item.getItemFromBlock(b);
@@ -108,7 +108,7 @@ public interface IToolAreaAbility extends IBaseAbility {
 				}
 			}
 
-			if(b == Blocks.netherrack && !ToolConfig.recursiveNetherrack) {
+			if(b == Blocks.NETHERRACK && !ToolConfig.recursiveNetherrack) {
 				return false;
 			}
 
@@ -160,10 +160,10 @@ public interface IToolAreaAbility extends IBaseAbility {
 			if(new Vec3d(x - refX, y - refY, z - refZ).length() > radius)
 				return;
 
-			Block b = world.getBlock(x, y, z);
-			Block ref = world.getBlock(refX, refY, refZ);
-			int meta = world.getBlockMetadata(x, y, z);
-			int refMeta = world.getBlockMetadata(refX, refY, refZ);
+			Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+			Block ref = com.hbm.world.WorldBlockState.read(world, refX, refY, refZ).getBlock();
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+			int refMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, refX, refY, refZ) );
 
 			if(!isSameBlock(b, ref))
 				return;
@@ -171,7 +171,7 @@ public interface IToolAreaAbility extends IBaseAbility {
 			if(meta != refMeta)
 				return;
 
-			if(player.getHeldItem() == null)
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null)
 				return;
 
 			tool.breakExtraBlock(world, x, y, z, player, refX, refY, refZ);
@@ -182,7 +182,7 @@ public interface IToolAreaAbility extends IBaseAbility {
 		private boolean isSameBlock(Block b1, Block b2) {
 			if(b1 == b2)
 				return true;
-			if((b1 == Blocks.redstone_ore && b2 == Blocks.lit_redstone_ore) || (b1 == Blocks.lit_redstone_ore && b2 == Blocks.redstone_ore))
+			if((b1 == Blocks.REDSTONE_ORE && b2 == Blocks.LIT_REDSTONE_ORE) || (b1 == Blocks.LIT_REDSTONE_ORE && b2 == Blocks.REDSTONE_ORE))
 				return true;
 
 			return false;
@@ -371,14 +371,14 @@ public interface IToolAreaAbility extends IBaseAbility {
 		public boolean onDig(int level, World world, int x, int y, int z, EntityPlayer player, ItemToolAbility tool) {
 			float strength = strengthAtLevel[level];
 
-			ExplosionNT ex = new ExplosionNT(player.worldObj, player, x + 0.5, y + 0.5, z + 0.5, strength);
+			ExplosionNT ex = new ExplosionNT(player.world, player, x + 0.5, y + 0.5, z + 0.5, strength);
 			ex.addAttrib(ExAttrib.ALLDROP);
 			ex.addAttrib(ExAttrib.NOHURT);
 			ex.addAttrib(ExAttrib.NOPARTICLE);
 			ex.doExplosionA();
 			ex.doExplosionB(false);
 
-			player.worldObj.createExplosion(player, x + 0.5, y + 0.5, z + 0.5, 0.1F, false);
+			player.world.createExplosion(player, x + 0.5, y + 0.5, z + 0.5, 0.1F, false);
 
 			return true;
 		}

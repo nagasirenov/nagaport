@@ -2,16 +2,15 @@ package com.hbm.blocks.network;
 
 import api.hbm.block.IToolable;
 import com.hbm.blocks.IBlockMultiPass;
+import com.hbm.blocks.MultipassContext;
 import com.hbm.interfaces.ICopiable;
 import com.hbm.lib.RefStrings;
-import com.hbm.render.block.RenderBlockMultipass;
 import com.hbm.tileentity.network.TileEntityCableBaseNT;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -20,16 +19,33 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCablePaintable extends BlockContainer implements IToolable, IBlockMultiPass {
 
-	@SideOnly(Side.CLIENT) protected IIcon overlay;
+    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }
+    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }
+    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }
+    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));
+    }
+    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        int metadata = getMetaFromState(state);
+        TileEntity tile = world.getTileEntity(pos);
+        if(tile instanceof TileEntityCablePaintable) {
+            TileEntityCablePaintable pipe = (TileEntityCablePaintable) tile;
+            return MultipassContext.of(metadata, pipe.block == null ? null : pipe.block.getStateFromMeta(pipe.meta), true, 0xffffff, 0, 6, 6, 0);
+        }
+        return MultipassContext.basic(metadata);
+    }
+
+
 
 	public BlockCablePaintable() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -37,37 +53,14 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 		return new TileEntityCablePaintable();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon(RefStrings.MODID + ":red_cable_base");
-		this.overlay = reg.registerIcon(RefStrings.MODID + ":red_cable_overlay");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		TileEntity tile = world.getTileEntity(x, y, z);
 
-		if(tile instanceof TileEntityCablePaintable) {
-			TileEntityCablePaintable pipe = (TileEntityCablePaintable) tile;
 
-			if(pipe.block != null) {
-				if(RenderBlockMultipass.currentPass == 1) {
-					return this.overlay;
-				} else {
-					return pipe.block.getIcon(side, pipe.meta);
-				}
-			}
-		}
-
-		return RenderBlockMultipass.currentPass == 1 ? this.overlay : this.blockIcon;
-	}
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
 
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		if(stack != null && stack.getItem() instanceof ItemBlock) {
 			ItemBlock ib = (ItemBlock) stack.getItem();
@@ -75,7 +68,7 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 
 			if(allowedPaint(block, this)) {
 
-				TileEntity tile = world.getTileEntity(x, y, z);
+				TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 				if(tile instanceof TileEntityCablePaintable) {
 					TileEntityCablePaintable pipe = (TileEntityCablePaintable) tile;
@@ -95,7 +88,7 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 	}
 	
 	public static boolean allowedPaint(Block paint, Block that) {
-		if(paint == Blocks.grass) return false;
+		if(paint == Blocks.GRASS) return false;
 		return paint.renderAsNormalBlock() && paint != that;
 	}
 
@@ -104,7 +97,7 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 
 		if(tool != ToolType.SCREWDRIVER) return false;
 
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile instanceof TileEntityCablePaintable) {
 			TileEntityCablePaintable pipe = (TileEntityCablePaintable) tile;
@@ -125,10 +118,7 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 		return 2;
 	}
 
-	@Override
-	public int getRenderType(){
-		return IBlockMultiPass.getRenderType();
-	}
+
 
 	public static class TileEntityCablePaintable extends TileEntityCableBaseNT implements ICopiable {
 
@@ -138,11 +128,11 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 		private int lastMeta;
 
 		@Override
-		public void updateEntity() {
-			super.updateEntity();
+		public void update() {
+			super.update();
 
-			if(worldObj.isRemote && (lastBlock != block || lastMeta != meta)) {
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			if(this.world.isRemote && (lastBlock != block || lastMeta != meta)) {
+				this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				lastBlock = block;
 				lastMeta = meta;
 			}
@@ -169,10 +159,11 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			if(block != null) nbt.setInteger("block", Block.getIdFromBlock(block));
 			nbt.setInteger("meta", meta);
+			return nbt;
 		}
 
 		@Override

@@ -54,28 +54,28 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dfcCore";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.prevConsumption = this.consumption;
 			this.consumption = 0;
 			
-			int chunkX = xCoord >> 4;
-			int chunkZ = zCoord >> 4;
+			int chunkX = this.pos.getX() >> 4;
+			int chunkZ = this.pos.getZ() >> 4;
 			
 			meltdownTick = false;
 			
-			lastTickValid = worldObj.getChunkProvider().chunkExists(chunkX, chunkZ) &&
-					worldObj.getChunkProvider().chunkExists(chunkX + 1, chunkZ + 1) &&
-					worldObj.getChunkProvider().chunkExists(chunkX + 1, chunkZ - 1) &&
-					worldObj.getChunkProvider().chunkExists(chunkX - 1, chunkZ + 1) &&
-					worldObj.getChunkProvider().chunkExists(chunkX - 1, chunkZ - 1);
+			lastTickValid = this.world.getChunkProvider().chunkExists(chunkX, chunkZ) &&
+					this.world.getChunkProvider().chunkExists(chunkX + 1, chunkZ + 1) &&
+					this.world.getChunkProvider().chunkExists(chunkX + 1, chunkZ - 1) &&
+					this.world.getChunkProvider().chunkExists(chunkX - 1, chunkZ + 1) &&
+					this.world.getChunkProvider().chunkExists(chunkX - 1, chunkZ - 1);
 			
 			if(lastTickValid && heat > 0 && heat >= field) {
 				
@@ -89,13 +89,13 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 				Iterator<Entry<ATEntry, Long>> it = EntityNukeExplosionMK3.at.entrySet().iterator();
 				while(it.hasNext()) {
 					Entry<ATEntry, Long> next = it.next();
-					if(next.getValue() < worldObj.getTotalWorldTime()) {
+					if(next.getValue() < this.world.getTotalWorldTime()) {
 						it.remove();
 						continue;
 					}
 					ATEntry entry = next.getKey();
-					if(entry.dim != worldObj.provider.dimensionId)  continue;
-					Vec3d vec = new Vec3d(xCoord + 0.5 - entry.x, yCoord + 0.5 - entry.y, zCoord + 0.5 - entry.z);
+					if(entry.dim != this.world.provider.getDimension())  continue;
+					Vec3d vec = new Vec3d(this.pos.getX() + 0.5 - entry.x, this.pos.getY() + 0.5 - entry.y, this.pos.getZ() + 0.5 - entry.z);
 					if(vec.length() < 300) {
 						canExplode = false;
 						break;
@@ -104,27 +104,27 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 				
 				if(canExplode) {
 					
-					EntityNukeExplosionMK3 ex = new EntityNukeExplosionMK3(worldObj);
-					ex.posX = xCoord + 0.5;
-					ex.posY = yCoord + 0.5;
-					ex.posZ = zCoord + 0.5;
+					EntityNukeExplosionMK3 ex = new EntityNukeExplosionMK3(this.world);
+					ex.posX = this.pos.getX() + 0.5;
+					ex.posY = this.pos.getY() + 0.5;
+					ex.posZ = this.pos.getZ() + 0.5;
 					ex.destructionRange = size;
 					ex.speed = BombConfig.blastSpeed;
 					ex.coefficient = 1.0F;
 					ex.waste = false;
-					worldObj.spawnEntityInWorld(ex);
+					this.world.spawnEntityInWorld(ex);
 					
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.explode", 100000.0F, 1.0F);
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "random.explode", 100000.0F, 1.0F);
 					
-					EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(worldObj, size);
-					cloud.posX = xCoord;
-					cloud.posY = yCoord;
-					cloud.posZ = zCoord;
-					worldObj.spawnEntityInWorld(cloud);
+					EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(this.world, size);
+					cloud.posX = this.pos.getX();
+					cloud.posY = this.pos.getY();
+					cloud.posZ = this.pos.getZ();
+					this.world.spawnEntityInWorld(cloud);
 					
 				} else {
 					meltdownTick = true;
-					ChunkRadiationManager.proxy.incrementRad(worldObj, xCoord, yCoord, zCoord, 100);
+					ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 100);
 				}
 			}
 			
@@ -184,17 +184,17 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 		double scale = this.meltdownTick ? 5 : 3;
 		double range = this.meltdownTick ? 50 : 10;
 		
-		List<Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(range, range, range));
+		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
 		
 		for(Entity e : list) {
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForHazmat((EntityPlayer)e)))
-				if(!Library.isObstructed(worldObj, xCoord + 0.5, yCoord + 0.5 + 6, zCoord + 0.5, e.posX, e.posY + e.getEyeHeight(), e.posZ)) {
+				if(!Library.isObstructed(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + 6, this.pos.getZ() + 0.5, e.posX, e.posY + e.getEyeHeight(), e.posZ)) {
 					e.attackEntityFrom(ModDamageSource.ams, 1000);
 					e.setFire(3);
 				}
 		}
 
-		List<Entity> list2 =worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(scale, scale, scale));
+		List<Entity> list2 =this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(scale, scale, scale));
 		
 		for(Entity e : list2) {
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForHaz2((EntityPlayer)e)))
@@ -323,12 +323,13 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		tanks[0].writeToNBT(nbt, "fuel1");
 		tanks[1].writeToNBT(nbt, "fuel2");
 		nbt.setInteger("field", this.field);
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -338,12 +339,12 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord + 0.5 - 4,
-					yCoord + 0.5 - 4,
-					zCoord + 0.5 - 4,
-					xCoord + 0.5 + 5,
-					yCoord + 0.5 + 5,
-					zCoord + 0.5 + 5
+					this.pos.getX() + 0.5 - 4,
+					this.pos.getY() + 0.5 - 4,
+					this.pos.getZ() + 0.5 - 4,
+					this.pos.getX() + 0.5 + 5,
+					this.pos.getY() + 0.5 + 5,
+					this.pos.getZ() + 0.5 + 5
 					);
 		}
 		

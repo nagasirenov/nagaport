@@ -16,19 +16,19 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityBroadcaster extends TileEntityLoadedBase {
+public class TileEntityBroadcaster extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 	private AudioWrapper audio;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		List<Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(xCoord + 0.5 - 25, yCoord + 0.5 - 25, zCoord + 0.5 - 25, xCoord + 0.5 + 25, yCoord + 0.5 + 25, zCoord + 0.5 + 25));
+		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 - 25, this.pos.getY() + 0.5 - 25, this.pos.getZ() + 0.5 - 25, this.pos.getX() + 0.5 + 25, this.pos.getY() + 0.5 + 25, this.pos.getZ() + 0.5 + 25));
 
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i) instanceof EntityLivingBase) {
 				EntityLivingBase e = (EntityLivingBase)list.get(i);
-				double d = Math.sqrt(Math.pow(e.posX - (xCoord + 0.5), 2) + Math.pow(e.posY - (yCoord + 0.5), 2) + Math.pow(e.posZ - (zCoord + 0.5), 2));
+				double d = Math.sqrt(Math.pow(e.posX - (this.pos.getX() + 0.5), 2) + Math.pow(e.posY - (this.pos.getY() + 0.5), 2) + Math.pow(e.posZ - (this.pos.getZ() + 0.5), 2));
 
 				if(d <= 25) {
 					if(e.getActivePotionEffect(Potion.confusion) == null || e.getActivePotionEffect(Potion.confusion).getDuration() < 100)
@@ -42,7 +42,7 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase {
 			}
 		}
 
-		if (worldObj.isRemote) {
+		if (this.world.isRemote) {
 			if(audio == null) {
 				audio = createAudioLoop();
 				audio.startSound();
@@ -74,8 +74,8 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase {
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		Random rand = new Random(xCoord + yCoord + zCoord);
-		return MainRegistry.proxy.getLoopedSound("hbm:block.broadcast" + (rand.nextInt(3) + 1), xCoord, yCoord, zCoord, 25F, 25F, 1.0F, 20);
+		Random rand = new Random(this.pos.getX() + this.pos.getY() + this.pos.getZ());
+		return MainRegistry.proxy.getLoopedSound("hbm:block.broadcast" + (rand.nextInt(3) + 1), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 25F, 25F, 1.0F, 20);
 	}
 	
 	AxisAlignedBB bb = null;
@@ -85,12 +85,12 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord,
-					yCoord,
-					zCoord,
-					xCoord + 1,
-					yCoord + 2,
-					zCoord + 1
+					this.pos.getX(),
+					this.pos.getY(),
+					this.pos.getZ(),
+					this.pos.getX() + 1,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 1
 					);
 		}
 		

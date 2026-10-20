@@ -20,17 +20,17 @@ public interface ISatChip {
 	}
 
 	public default int getFreq(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
-		return stack.stackTagCompound.getInteger("freq");
+		return stack.getTagCompound().getInteger("freq");
 	}
 	
 	public default void setFreq(ItemStack stack, int freq) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
-		stack.stackTagCompound.setInteger("freq", freq);
+		stack.getTagCompound().setInteger("freq", freq);
 	}
 }

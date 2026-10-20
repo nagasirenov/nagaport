@@ -28,7 +28,7 @@ public class BlockAstroturf extends Block {
 
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.iconTop : (side == 0 ? Blocks.dirt.getBlockTextureFromSide(side) : this.blockIcon);
+		return side == 1 ? this.iconTop : (side == 0 ? Blocks.DIRT.getBlockTextureFromSide(side) : this.blockIcon);
 	}
 	
 }

@@ -1,0 +1,38 @@
+# Exact javap method excerpts; source native-ServerWorldEventHandler.javap
+
+  public void playSoundToAllNearExcept(net.minecraft.entity.player.EntityPlayer, net.minecraft.util.SoundEvent, net.minecraft.util.SoundCategory, double, double, double, float, float);
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field server:Lnet/minecraft/server/MinecraftServer;
+       4: invokevirtual #100                // Method net/minecraft/server/MinecraftServer.getPlayerList:()Lnet/minecraft/server/management/PlayerList;
+       7: aload_1
+       8: dload         4
+      10: dload         6
+      12: dload         8
+      14: fload         10
+      16: fconst_1
+      17: fcmpl
+      18: ifle          30
+      21: ldc           #101                // float 16.0f
+      23: fload         10
+      25: fmul
+      26: f2d
+      27: goto          33
+      30: ldc2_w        #110                // double 16.0d
+      33: aload_0
+      34: getfield      #20                 // Field world:Lnet/minecraft/world/WorldServer;
+      37: getfield      #66                 // Field net/minecraft/world/WorldServer.provider:Lnet/minecraft/world/WorldProvider;
+      40: invokevirtual #115                // Method net/minecraft/world/WorldProvider.getDimension:()I
+      43: new           #117                // class net/minecraft/network/play/server/SPacketSoundEffect
+      46: dup
+      47: aload_2
+      48: aload_3
+      49: dload         4
+      51: dload         6
+      53: dload         8
+      55: fload         10
+      57: fload         11
+      59: invokespecial #120                // Method net/minecraft/network/play/server/SPacketSoundEffect."<init>":(Lnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;DDDFF)V
+      62: invokevirtual #124                // Method net/minecraft/server/management/PlayerList.sendToAllNearExcept:(Lnet/minecraft/entity/player/EntityPlayer;DDDDILnet/minecraft/network/Packet;)V
+      65: return
+

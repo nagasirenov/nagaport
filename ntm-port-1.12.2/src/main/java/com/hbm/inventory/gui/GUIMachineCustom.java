@@ -39,13 +39,13 @@ public class GUIMachineCustom extends GuiInfoContainer {
 
 		this.drawElectricityInfo(this, x, y, guiLeft + 150, guiTop + 18, 16, 52, custom.power, custom.config.maxPower);
 		if(custom.config.maxHeat>0) this.drawCustomInfoStat(x, y, guiLeft + 61, guiTop + 53, 18, 18, x, y, new String[] { "Heat:" + String.format(Locale.US, "%,d", custom.heat) + " / " + String.format(Locale.US, "%,d", custom.config.maxHeat)});
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < this.inventorySlots.inventorySlots.size(); ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 				int tileIndex = slot.getSlotIndex();
 
 				if(this.isMouseOverSlot(slot, x, y) && slot instanceof SlotPattern && custom.matcher.modes[tileIndex - 10] != null) {
-					this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) }), x, y - 30);
+					this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(custom.matcher.modes[tileIndex - 10]) }), x, y - 30);
 				}
 			}
 		}
@@ -64,9 +64,9 @@ public class GUIMachineCustom extends GuiInfoContainer {
 		String name = this.custom.getInventoryName();
 		String localizedName = this.custom.config.localization.get(MainRegistry.proxy.getLanguageCode());
 		if(localizedName != null) name = localizedName;
-		this.fontRendererObj.drawString(name, 68 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
-		if(custom.config.fluxMode) this.fontRendererObj.drawString("Flux:" + custom.flux,83, 57,0x08FF00);
+		this.fontRenderer.drawString(name, 68 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		if(custom.config.fluxMode) this.fontRenderer.drawString("Flux:" + custom.flux,83, 57,0x08FF00);
 	}
 
 	@Override

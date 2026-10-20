@@ -1,0 +1,15 @@
+PASS OWNER com/hbm/blocks/network/BlockCablePaintable.java
+PASS OWNER com/hbm/blocks/network/BlockOpenComputersCablePaintable.java
+PASS OWNER com/hbm/blocks/network/FluidDuctPaintable.java
+PASS OWNER com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java
+PASS OWNER com/hbm/blocks/network/PneumoTubePaintableBlock.java
+PASS OWNER com/hbm/blocks/network/BlockCableGauge.java
+PASS OWNER com/hbm/blocks/network/FluidDuctGauge.java
+PASS OWNER com/hbm/blocks/network/CraneRouter.java
+PASS OWNER com/hbm/blocks/generic/BlockFissure.java
+PASS OWNER com/hbm/blocks/generic/BlockOre.java
+PASS OWNER com/hbm/blocks/generic/BlockBedrockOreTE.java
+PASS OWNER com/hbm/blocks/generic/BlockSellafieldOre.java
+PASS BYTE-EXACT SHARED src/main/java/com/hbm/blocks/ModBlocks.java
+PASS BYTE-EXACT SHARED src/main/java/com/hbm/main/ClientProxy.java
+PASS 156 nonrender methods/constructors and 9 complete nested tile bodies invariant; explicit Fissure native tick mapping;129 exact shared fragments;71 actual native registrations.

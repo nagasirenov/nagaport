@@ -1,0 +1,19 @@
+test_added_native_version_lf_fails (__main__.ProvenanceChecks.test_added_native_version_lf_fails) ... ok
+test_changed_category_fails (__main__.ProvenanceChecks.test_changed_category_fails) ... ok
+test_changed_download_url_fails (__main__.ProvenanceChecks.test_changed_download_url_fails) ... ok
+test_changed_native_index_hash_fails (__main__.ProvenanceChecks.test_changed_native_index_hash_fails) ... ok
+test_changed_registry_listing_fails (__main__.ProvenanceChecks.test_changed_registry_listing_fails) ... ok
+test_changed_volume_fails (__main__.ProvenanceChecks.test_changed_volume_fails) ... ok
+test_duplicate_json_member_fails (__main__.ProvenanceChecks.test_duplicate_json_member_fails) ... ok
+test_effective_multiset_preserves_duplicates_and_defaults (__main__.ProvenanceChecks.test_effective_multiset_preserves_duplicates_and_defaults) ... ok
+test_extra_alias_fails (__main__.ProvenanceChecks.test_extra_alias_fails) ... ok
+test_lost_sample_multiplicity_fails (__main__.ProvenanceChecks.test_lost_sample_multiplicity_fails) ... ok
+test_missing_alias_fails (__main__.ProvenanceChecks.test_missing_alias_fails) ... ok
+test_unmodified_evidence_passes (__main__.ProvenanceChecks.test_unmodified_evidence_passes) ... ok
+test_wrong_manifest_category_fails (__main__.ProvenanceChecks.test_wrong_manifest_category_fails) ... ok
+test_wrong_native_mapping_fails (__main__.ProvenanceChecks.test_wrong_native_mapping_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.140s
+
+OK

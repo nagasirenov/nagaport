@@ -1,0 +1,21 @@
+{
+  "production": {
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before": "2b9f2b081d7e9d3c705c24d87c463e2f8255a44f8dacfdb01c4e05d9f538ac8e",
+      "after": "390c001307572e5fc208024b7d055edf5147aa28c2d5fff9dbab467425480dad"
+    }
+  },
+  "unchanged": {
+    "src/main/java/com/hbm/util/ShadyUtil.java": "174eb1dd3e587997763e4902c6c7822ad9528676319ee740fc194e825d464865"
+  },
+  "methods": {
+    "onClickBlock": "5c2f102069de4e190325e6ef519ccffe9cab1529666c2255da9ea9a89be9fbd7",
+    "onTrySleep": "33fb700087f754038934be9671324ab4f0ce8db4aa047957963db03930f471e2",
+    "onPull": "00076bac63709d46ac3780b0ac2cf6ef3e4fad0f496dcfe29f6af053a7b7ce91",
+    "onFoodEaten": "1b3db335e022d7e212570e69a1fa4f386534c16c2f36fe807a4e1ba95bc28eb9"
+  },
+  "original": {
+    "src/main/java/com/hbm/main/ModEventHandler.java": "cbe943e70b2b1e29fec9a354fa51e144a529cdcd34d40a760cfea3c74a309335"
+  },
+  "tests": 122
+}

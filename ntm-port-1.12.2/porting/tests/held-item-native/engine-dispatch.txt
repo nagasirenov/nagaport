@@ -1,0 +1,133 @@
+Owner: net.minecraft.entity.EntityLivingBase
+  public net.minecraft.item.ItemStack getHeldItemMainhand();
+    Code:
+       0: aload_0
+       1: getstatic     #1916               // Field net/minecraft/inventory/EntityEquipmentSlot.MAINHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+       4: invokevirtual #844                // Method getItemStackFromSlot:(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lnet/minecraft/item/ItemStack;
+       7: areturn
+
+
+Owner: net.minecraft.entity.EntityLiving
+  public net.minecraft.item.ItemStack getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: getstatic     #921                // Field net/minecraft/entity/EntityLiving$1.$SwitchMap$net$minecraft$inventory$EntityEquipmentSlot$Type:[I
+       3: aload_1
+       4: invokevirtual #884                // Method net/minecraft/inventory/EntityEquipmentSlot.getSlotType:()Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+       7: invokevirtual #924                // Method net/minecraft/inventory/EntityEquipmentSlot$Type.ordinal:()I
+      10: iaload
+      11: lookupswitch  { // 2
+                     1: 36
+                     2: 51
+               default: 66
+          }
+      36: aload_0
+      37: getfield      #88                 // Field inventoryHands:Lnet/minecraft/util/NonNullList;
+      40: aload_1
+      41: invokevirtual #927                // Method net/minecraft/inventory/EntityEquipmentSlot.getIndex:()I
+      44: invokevirtual #371                // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      47: checkcast     #76                 // class net/minecraft/item/ItemStack
+      50: areturn
+      51: aload_0
+      52: getfield      #92                 // Field inventoryArmor:Lnet/minecraft/util/NonNullList;
+      55: aload_1
+      56: invokevirtual #927                // Method net/minecraft/inventory/EntityEquipmentSlot.getIndex:()I
+      59: invokevirtual #371                // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      62: checkcast     #76                 // class net/minecraft/item/ItemStack
+      65: areturn
+      66: getstatic     #80                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      69: areturn
+
+
+Owner: net.minecraft.entity.player.EntityPlayer
+  public net.minecraft.item.ItemStack getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_1
+       1: getstatic     #1549               // Field net/minecraft/inventory/EntityEquipmentSlot.MAINHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+       4: if_acmpne     15
+       7: aload_0
+       8: getfield      #170                // Field inventory:Lnet/minecraft/entity/player/InventoryPlayer;
+      11: invokevirtual #1031               // Method net/minecraft/entity/player/InventoryPlayer.getCurrentItem:()Lnet/minecraft/item/ItemStack;
+      14: areturn
+      15: aload_1
+      16: getstatic     #1556               // Field net/minecraft/inventory/EntityEquipmentSlot.OFFHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      19: if_acmpne     37
+      22: aload_0
+      23: getfield      #170                // Field inventory:Lnet/minecraft/entity/player/InventoryPlayer;
+      26: getfield      #2361               // Field net/minecraft/entity/player/InventoryPlayer.offHandInventory:Lnet/minecraft/util/NonNullList;
+      29: iconst_0
+      30: invokevirtual #2362               // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      33: checkcast     #190                // class net/minecraft/item/ItemStack
+      36: areturn
+      37: aload_1
+      38: invokevirtual #2366               // Method net/minecraft/inventory/EntityEquipmentSlot.getSlotType:()Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      41: getstatic     #2370               // Field net/minecraft/inventory/EntityEquipmentSlot$Type.ARMOR:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      44: if_acmpne     67
+      47: aload_0
+      48: getfield      #170                // Field inventory:Lnet/minecraft/entity/player/InventoryPlayer;
+      51: getfield      #1570               // Field net/minecraft/entity/player/InventoryPlayer.armorInventory:Lnet/minecraft/util/NonNullList;
+      54: aload_1
+      55: invokevirtual #2373               // Method net/minecraft/inventory/EntityEquipmentSlot.getIndex:()I
+      58: invokevirtual #2362               // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      61: checkcast     #190                // class net/minecraft/item/ItemStack
+      64: goto          70
+      67: getstatic     #193                // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      70: areturn
+
+
+Owner: net.minecraft.entity.player.InventoryPlayer
+  public net.minecraft.item.ItemStack getCurrentItem();
+    Code:
+       0: aload_0
+       1: getfield      #70                 // Field currentItem:I
+       4: invokestatic  #74                 // Method isHotbar:(I)Z
+       7: ifeq          27
+      10: aload_0
+      11: getfield      #47                 // Field mainInventory:Lnet/minecraft/util/NonNullList;
+      14: aload_0
+      15: getfield      #70                 // Field currentItem:I
+      18: invokevirtual #78                 // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      21: checkcast     #36                 // class net/minecraft/item/ItemStack
+      24: goto          30
+      27: getstatic     #39                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      30: areturn
+
+
+Owner: sw
+  public add be();
+    Code:
+       0: aload_0
+       1: getfield      #181                // Field br:[Ladd;
+       4: iconst_0
+       5: aaload
+       6: areturn
+
+
+Owner: yz
+  public add be();
+    Code:
+       0: aload_0
+       1: getfield      #278                // Field bm:Lyx;
+       4: invokevirtual #493                // Method yx.h:()Ladd;
+       7: areturn
+
+
+Owner: yx
+  public add h();
+    Code:
+       0: aload_0
+       1: getfield      #37                 // Field c:I
+       4: bipush        9
+       6: if_icmpge     26
+       9: aload_0
+      10: getfield      #37                 // Field c:I
+      13: iflt          26
+      16: aload_0
+      17: getfield      #35                 // Field a:[Ladd;
+      20: aload_0
+      21: getfield      #37                 // Field c:I
+      24: aaload
+      25: areturn
+      26: aconst_null
+      27: areturn
+
+

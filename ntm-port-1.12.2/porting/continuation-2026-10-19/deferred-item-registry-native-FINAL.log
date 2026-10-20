@@ -1,0 +1,12 @@
+FULL PRODUCTION src/main/java/com/hbm/registry/GameRegistry.java fed01b4eeeec1e0b44bc754a06da858d079cfe9a39596eb59926d633364d4456
+FULL PRODUCTION src/main/java/com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+FULL PRODUCTION src/main/java/com/hbm/render/item/ItemRenderBase.java 6425a7c3e7e548acab57145843b4089e773cd3aefdf7412b0b17669c0c9a7026
+FULL PRODUCTION src/main/java/com/hbm/render/tileentity/IItemRendererProvider.java 91f503c014b03f3fc8b161131bdad145c78a9bad29943fea5f7aff2d12beaabe
+FULL PRODUCTION src/main/java/com/hbm/render/item/nativeitem/callback/DeferredItemModelRegistration.java ab0121b3b76bd2858df2f76a43cd2fdc0484549a25bd6f2042885b5554624e3c
+[17:19:09] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[17:19:09] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[17:19:09] [main/INFO]: Replaced 1036 ore ingredients
+[17:19:09] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[17:19:09] [main/INFO]: Processing ObjectHolder annotations
+[17:19:09] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 32 native deferred-registry assertions: full production GameRegistry queue, native Block then Item registry events, real ItemBlock mapping/provider identity, constructor/pre-flush deferral, genuine ModelRegistryEvent dispatch, one-shot/reentrant initialization and failure propagation. Controlled model provider/listener only; not complete ClientProxy/model bake/GL or loaded-game acceptance.

@@ -92,7 +92,7 @@ public class PyroOvenRecipes extends SerializableRecipe {
 		//syngas from biomass
 		recipes.add(new PyroOvenRecipe(100)
 				.in(new ComparableStack(ModItems.biomass, 4))
-				.out(new FluidStack(Fluids.SYNGAS, 1_000)).out(new ItemStack(Items.coal, 1, 1)));
+				.out(new FluidStack(Fluids.SYNGAS, 1_000)).out(new ItemStack(Items.COAL, 1, 1)));
 		//soot from tar
 		recipes.add(new PyroOvenRecipe(40)
 				.out(new FluidStack(Fluids.HYDROGEN, 250)).in(new OreDictStack(ANY_TAR.any(), 4))

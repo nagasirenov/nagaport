@@ -39,9 +39,9 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -66,7 +66,7 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
 
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -78,16 +78,16 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
 
 		if(!player.isSneaking()) {
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
-				IItemFluidIdentifier id = (IItemFluidIdentifier) player.getHeldItem().getItem();
-				FluidType type = id.getType(world, x, y, z, player.getHeldItem());
-				TileEntity tile = world.getTileEntity(x, y, z);
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
+				IItemFluidIdentifier id = (IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem();
+				FluidType type = id.getType(world, x, y, z, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
+				TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				if(tile instanceof TileEntityFluidPump) {
 					if(!world.isRemote) {
 						TileEntityFluidPump pump = (TileEntityFluidPump) tile;
 						pump.tank[0].setTankType(type);
 						pump.markDirty();
-						player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+						player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 					}
 					return true;
 				}
@@ -101,13 +101,13 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 	}
 
 	@Override @SideOnly(Side.CLIENT)
-	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) { return new GUIPump((TileEntityFluidPump) world.getTileEntity(x, y, z)); }
+	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) { return new GUIPump((TileEntityFluidPump) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))); }
 	@Override
 	public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return null; }
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(tile instanceof TileEntityFluidPump)) return;
 		TileEntityFluidPump pump = (TileEntityFluidPump) tile;
 
@@ -115,7 +115,7 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + pump.tank[0].getTankType().getLocalizedName() + " (" + pump.tank[0].getPressure() + " PU): " + BobMathUtil.format(pump.bufferSize) + "mB/t" + TextFormatting.RED + " ->");
 		text.add("Priority: " + TextFormatting.YELLOW + pump.priority.name());
 		if(pump.tank[0].getFill() > 0) text.add(BobMathUtil.format(pump.tank[0].getFill()) + "mB buffered");
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -124,7 +124,7 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 	}
 
 	@Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-	public static class TileEntityFluidPump extends TileEntityLoadedBase implements IFluidStandardTransceiverMK2, IControlReceiver, SimpleComponent, CompatHandler.OCComponent {
+	public static class TileEntityFluidPump extends TileEntityLoadedBase implements IFluidStandardTransceiverMK2, IControlReceiver, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {
 
 		public int bufferSize = 100;
 		public FluidTank[] tank;
@@ -137,9 +137,9 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 		}
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				// if the capacity were changed directly, any excess buffered fluid would be destroyed
 				// when running a closed loop or handling hard to get fluids, that's quite bad
@@ -148,25 +148,26 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 					this.tank[0].changeTankSize(nextBuffer);
 				}
 
-				this.redstone = worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord);
+				this.redstone = this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				ForgeDirection in = dir.getRotation(ForgeDirection.UP);
 				ForgeDirection out = in.getOpposite();
 
-				this.trySubscribe(tank[0].getTankType(), worldObj, xCoord + in.offsetX, yCoord, zCoord + in.offsetZ, in);
-				if(!redstone) this.tryProvide(tank[0], worldObj, xCoord + out.offsetX, yCoord, zCoord + out.offsetZ, out);
+				this.trySubscribe(tank[0].getTankType(), this.world, this.pos.getX() + in.offsetX, this.pos.getY(), this.pos.getZ() + in.offsetZ, in);
+				if(!redstone) this.tryProvide(tank[0], this.world, this.pos.getX() + out.offsetX, this.pos.getY(), this.pos.getZ() + out.offsetZ, out);
 
 				this.networkPackNT(15);
 			}
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			tank[0].writeToNBT(nbt, "t");
 			nbt.setByte("p", (byte) priority.ordinal());
 			nbt.setInteger("buffer", bufferSize);
+			return nbt;
 		}
 
 		@Override
@@ -200,16 +201,16 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 
 		@Override
 		public boolean hasPermission(EntityPlayer player) {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 128;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 128;
 		}
 
 		@Override
 		public void receiveControl(NBTTagCompound data) {
 			if(data.hasKey("capacity")) {
-				this.bufferSize = MathHelper.clamp_int(data.getInteger("capacity"), 0, 10_000);
+				this.bufferSize = MathHelper.clamp(data.getInteger("capacity"), 0, 10_000);
 			}
 			if(data.hasKey("pressure")) {
-				this.tank[0].withPressure(MathHelper.clamp_int(data.getByte("pressure"), 0, 5));
+				this.tank[0].withPressure(MathHelper.clamp((int) (data.getByte("pressure")), 0, 5));
 			}
 			if(data.hasKey("priority")) {
 				priority = EnumUtil.grabEnumSafely(ConnectionPriority.class, data.getByte("priority"));

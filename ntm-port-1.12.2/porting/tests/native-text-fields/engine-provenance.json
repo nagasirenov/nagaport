@@ -1,0 +1,20 @@
+{
+  "original": {
+    "jar_name": "nagaport-legacy-client.jar",
+    "jar_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "classes": {
+      "bcd.class": "66bb09dfe77c1f52ebe00c38b7c6e4b30c30974db16c62a3c2aa3c573a9085fa",
+      "bbu.class": "9144384cf19786b12e3507f5b00f1ab396ecdbb7b6f7f8f09516ee8a1ee28a0d",
+      "bdw.class": "70761126a8f9b6d0298e3205afb55caf01b8a0682b92dd82cb0b7ca807cb07cf"
+    }
+  },
+  "native": {
+    "jar_name": "forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "jar_sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "classes": {
+      "net/minecraft/client/gui/GuiTextField.class": "060e862cf27d80deb60c44a0d700b23b83d307e5d6dac1d487b0a2522b04a5c5",
+      "net/minecraft/client/gui/FontRenderer.class": "a35e705e38f5a6e207179844c7f6b2c48dd821e056bc53be9e0c2fdec52cae0c",
+      "net/minecraft/client/gui/GuiScreen.class": "dfe39c4bb21563c267febe0b08a71c05eaace058dea16e7436ebc6dca91b2ecf"
+    }
+  }
+}

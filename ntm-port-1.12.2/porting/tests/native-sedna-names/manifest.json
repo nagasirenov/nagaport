@@ -1,0 +1,816 @@
+{
+  "base": "c986d3f35683a7b81fe0e2caf928f6a47a7a6b5f",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory10ga.java",
+      "before": "87eec30ec57a1cd02202916ac70f8fabb9e2961b37c68d8fdde0967c605d21a1",
+      "after": "f310fdce166bdf7c136b758fdedb0b4990478cf4a4ff35d6b4509c380d82c66e",
+      "edits": [
+        [
+          "YES",
+          "XFactory10ga.java",
+          "4355",
+          "4373",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.SPECIAL, new GunConfig()\\n\\t\\t\\t\\t.dura(1000).draw(10).inspect(39).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(30F).rounds(2).delay(10).reload(41).reloadOnEmpty(true).sound(\"hbm:weapon.fire.shotgun\", 1.0F, 0.9F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 2).addConfigs(g10, g10_shrapnel, g10_du, g10_slug, g10_explosive))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_DOUBLE_BARREL))\\n\\t\\t\\t\\t.setupStandardConfiguration().ps(LAMBDA_DOUBLE_SECONDARY)\\n\\t\\t\\t\\t.anim(LAMBDA_DOUBLE_BARREL_ANIMS).orchestra(Orchestras.ORCHESTRA_DOUBLE_BARREL)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G10, 6)",
+          "\"gun_double_barrel\""
+        ],
+        [
+          "YES",
+          "XFactory10ga.java",
+          "5146",
+          "5164",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(6000).draw(10).inspect(39).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(45F).spreadAmmo(1.35F).rounds(2).delay(10).reload(41).reloadOnEmpty(true).sound(\"hbm:weapon.fire.shotgun\", 1.0F, 0.9F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 2).addConfigs(g10, g10_shrapnel, g10_du, g10_slug, g10_explosive))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_DOUBLE_BARREL))\\n\\t\\t\\t\\t.setupStandardConfiguration().ps(LAMBDA_DOUBLE_SECONDARY)\\n\\t\\t\\t\\t.anim(LAMBDA_DOUBLE_BARREL_ANIMS).orchestra(Orchestras.ORCHESTRA_DOUBLE_BARREL)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G10_DU, 6)",
+          "\"gun_double_barrel_sacred_dragon\""
+        ],
+        [
+          "YES",
+          "XFactory10ga.java",
+          "6022",
+          "6040",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.DEBUG, new GunConfig()\\n\\t\\t\\t\\t.draw(20).inspect(65).reloadSequential(true).inspectCancel(false).crosshair(Crosshair.L_CIRCLE).hideCrosshair(false).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(100F).delay(3).auto(true).dryfireAfterAuto(true).reload(110).jam(19).sound(\"hbm:weapon.fire.shotgunAuto\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 250).addConfigs(g10, g10_shrapnel, g10_du, g10_slug, g10_explosive))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.125, -0.25)\\n\\t\\t\\t\\t\\t\\t.canFire(Lego.LAMBDA_STANDARD_CAN_FIRE).fire(Lego.LAMBDA_NOWEAR_FIRE).recoil(XFactory12ga.LAMBDA_RECOIL_SEXY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(XFactory12ga.LAMBDA_SEXY_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER_SEXY)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G10, 50)",
+          "\"gun_autoshotgun_heretic\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+      "before": "d7bc8ab998f1fc7c7cb722b69951c34ac0f17cf4772dfef6a9c3e4c0e826f5de",
+      "after": "1d2e9aaed7affe74d82c33350dd4db526b99bce545d2c65251e01770ff8e6dc6",
+      "edits": [
+        [
+          "YES",
+          "XFactory12ga.java",
+          "17277",
+          "17295",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(600).draw(10).inspect(39).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(16F).delay(20).reload(22, 10, 13, 0).jam(24).sound(\"hbm:weapon.fire.shotgun\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 6).addConfigs(all))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MARESLEG))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_MARESLEG_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12, 12).setNameMutator(LAMBDA_NAME_MARESLEG)",
+          "\"gun_maresleg\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "18770",
+          "18788",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE,\\n\\t\\t\\t\\tnew GunConfig().dura(600).draw(5).inspect(39).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(16F).spreadHipfire(0F).spreadAmmo(1.35F).delay(20).reload(22, 10, 13, 0).jam(24).sound(\"hbm:weapon.fire.shotgun\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 6).addConfigs(all))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, 0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MARESLEG))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_MARESLEG_SHORT_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG_AKIMBO),\\n\\t\\t\\t\\tnew GunConfig().dura(600).draw(5).inspect(39).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(16F).spreadHipfire(0F).spreadAmmo(1.35F).delay(20).reload(22, 10, 13, 0).jam(24).sound(\"hbm:weapon.fire.shotgun\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(1, 6).addConfigs(all))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MARESLEG))\\n\\t\\t\\t\\t.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_MARESLEG_SHORT_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG_AKIMBO)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12, 24)",
+          "\"gun_maresleg_akimbo\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "19664",
+          "19682",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(0).draw(5).inspect(39).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(48F).spreadAmmo(1.15F).delay(20).reload(22, 10, 13, 0).jam(24).sound(\"hbm:weapon.fire.shotgun\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 6).addConfigs(g12_equestrian_tkr, g12_bp, g12_bp_magnum, g12_bp_slug, g12, g12_slug, g12_flechette, g12_magnum, g12_explosive, g12_phosphorus))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.canFire(Lego.LAMBDA_STANDARD_CAN_FIRE).fire(Lego.LAMBDA_NOWEAR_FIRE).recoil(LAMBDA_RECOIL_MARESLEG))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_MARESLEG_SHORT_ANIMS).orchestra(Orchestras.ORCHESTRA_MARESLEG_SHORT)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 24)",
+          "\"gun_maresleg_broken\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "20358",
+          "20376",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(200).draw(20).inspect(21).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(16F).delay(20).rounds(4).reload(25, 15, 7, 0).jam(45).sound(\"hbm:weapon.fire.shotgunAlt\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 4).addConfigs(all))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_LIBERATOR))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LIBERATOR_ANIMS).orchestra(Orchestras.ORCHESTRA_LIBERATOR)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12, 12)",
+          "\"gun_liberator\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "21099",
+          "21117",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(600).draw(20).inspect(39).reloadSequential(true).reloadChangeType(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(32F).spreadHipfire(0F).delay(20).reload(5, 10, 10, 10, 0).jam(36).sound(\"hbm:weapon.shotgunShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 8).addConfigs(all))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MARESLEG))\\n\\t\\t\\t\\t.setupStandardConfiguration().ps(LAMBDA_SPAS_SECONDARY).pt(null)\\n\\t\\t\\t\\t.anim(LAMBDA_SPAS_ANIMS).orchestra(Orchestras.ORCHESTRA_SPAS)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12, 16)",
+          "\"gun_spas12\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "21818",
+          "21836",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(2_000).draw(10).inspect(33).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(48F).delay(10).auto(true).autoAfterDry(true).dryfireAfterAuto(true).reload(44).jam(19).sound(\"hbm:weapon.fire.shotgunAuto\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 20).addConfigs(all))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.125, -0.25)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_AUTOSHOTGUN))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_SHREDDER_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12, 20)",
+          "\"gun_autoshotgun\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "22661",
+          "22679",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(2_000).draw(10).inspect(33).reloadSequential(true).crosshair(Crosshair.L_CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(50F).delay(10).auto(true).autoAfterDry(true).dryfireAfterAuto(true).reload(44).jam(19).sound(\"hbm:weapon.fire.shotgunAuto\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(g12_shredder, g12_shredder_slug, g12_shredder_flechette, g12_shredder_magnum, g12_shredder_explosive, g12_shredder_phosphorus))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.125, -0.25)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_AUTOSHOTGUN))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_SHREDDER_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12, 20)",
+          "\"gun_autoshotgun_shredder\""
+        ],
+        [
+          "YES",
+          "XFactory12ga.java",
+          "23550",
+          "23568",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(5_000).draw(20).inspect(65).reloadSequential(true).inspectCancel(false).crosshair(Crosshair.L_CIRCLE).hideCrosshair(false).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(64F).delay(4).auto(true).dryfireAfterAuto(true).reload(110).jam(19).sound(\"hbm:weapon.fire.shotgunAuto\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 100).addConfigs(g12_equestrian_bj, g12_bp, g12_bp_magnum, g12_bp_slug, g12, g12_slug, g12_flechette, g12_magnum, g12_explosive, g12_phosphorus))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.125, -0.25)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_SEXY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_SEXY_ANIMS).orchestra(Orchestras.ORCHESTRA_SHREDDER_SEXY)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 50)",
+          "\"gun_autoshotgun_sexy\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory22lr.java",
+      "before": "c7bf060bd538d1dc48dea51916ff48abb04c69366e7d2346156361e353098ae2",
+      "after": "5ef2a9b6ed9c7de9f9283ffc16bfdf74cf31e86d95473f701d1f7cfc2911000f",
+      "edits": [
+        [
+          "YES",
+          "XFactory22lr.java",
+          "3147",
+          "3165",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(177 * 25).draw(15).inspect(38).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(2F).delay(1).dry(10).auto(true).spread(0.01F).reload(66).jam(30).sound(\"hbm:weapon.fire.greaseGun\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 177).addConfigs(p22_sp, p22_fmj, p22_jhp, p22_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_AM180))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_AM180_ANIMS).orchestra(Orchestras.ORCHESTRA_AM180)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P22_SP, 35).setNameMutator(LAMBDA_NAME_SILENCED)",
+          "\"gun_am180\""
+        ],
+        [
+          "YES",
+          "XFactory22lr.java",
+          "3865",
+          "3883",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(15 * 25).draw(15).inspect(38).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(12.5F).delay(5).dry(17).spread(0.01F).reload(40).jam(32).sound(\"hbm:weapon.fire.pistolLight\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 15).addConfigs(p22_sp, p22_fmj, p22_jhp, p22_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_STAR_F))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_STAR_F_ANIMS).orchestra(Orchestras.ORCHESTRA_STAR_F)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P22_SP, 15).setNameMutator(LAMBDA_NAME_SILENCED)",
+          "\"gun_star_f\""
+        ],
+        [
+          "YES",
+          "XFactory22lr.java",
+          "5287",
+          "5305",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE,\\n\\t\\t\\t\\tnew GunConfig().dura(15 * 25).draw(15).inspect(38).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(12.5F).delay(5).dry(17).spread(0.01F).reload(40).jam(32).sound(\"hbm:weapon.fire.pistolLight\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 15).addConfigs(p22_sp, p22_fmj, p22_jhp, p22_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, 0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_STAR_F))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_STAR_F_ANIMS).orchestra(Orchestras.ORCHESTRA_STAR_F_AKIMBO),\\n\\t\\t\\t\\tnew GunConfig().dura(15 * 25).draw(15).inspect(38).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(12.5F).delay(5).dry(17).spread(0.01F).reload(40).jam(32).sound(\"hbm:weapon.fire.pistolLight\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(1, 15).addConfigs(p22_sp, p22_fmj, p22_jhp, p22_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_STAR_F))\\n\\t\\t\\t\\t.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_STAR_F_ANIMS).orchestra(Orchestras.ORCHESTRA_STAR_F_AKIMBO)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P22_SP, 30)",
+          "\"gun_star_f_akimbo\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory357.java",
+      "before": "7c141a6c171238a9a1b43f0f4415e79c5b93357547aa79839589b69eb515d1e7",
+      "after": "b913419962773d838270da99e9fbe11b432c0c69bfea741fb4f07f1582d35d05",
+      "edits": [
+        [
+          "YES",
+          "XFactory357.java",
+          "2819",
+          "2837",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(4).inspect(23).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(7.5F).delay(11).reload(55).jam(45).sound(\"hbm:weapon.fire.pistol\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(m357_bp, m357_sp, m357_fmj, m357_jhp, m357_ap, m357_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ATLAS))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_ATLAS_ANIMS).orchestra(Orchestras.ORCHESTRA_ATLAS)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M357_SP, 12)",
+          "\"gun_light_revolver\""
+        ],
+        [
+          "YES",
+          "XFactory357.java",
+          "3522",
+          "3540",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(4).inspect(23).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(12.5F).delay(11).reload(55).jam(45).sound(\"hbm:weapon.fire.pistol\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(m357_bp, m357_sp, m357_fmj, m357_jhp, m357_ap, m357_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ATLAS))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_ATLAS_ANIMS).orchestra(Orchestras.ORCHESTRA_ATLAS)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M357_JHP, 12)",
+          "\"gun_light_revolver_atlas\""
+        ],
+        [
+          "YES",
+          "XFactory357.java",
+          "5000",
+          "5018",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY,\\n\\t\\t\\t\\tnew GunConfig().dura(30_000).draw(20).inspect(23).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(15F).spreadHipfire(0F).delay(11).reload(55).jam(45).sound(\"hbm:weapon.fire.pistol\", 1.0F, 1.1F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(m357_bp, m357_sp, m357_fmj, m357_jhp, m357_ap, m357_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, 0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_DANI))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_DANI_ANIMS).orchestra(Orchestras.ORCHESTRA_DANI),\\n\\t\\t\\t\\tnew GunConfig().dura(30_000).draw(20).inspect(23).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(15F).spreadHipfire(0F).delay(11).reload(55).jam(45).sound(\"hbm:weapon.fire.pistol\", 1.0F, 0.9F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(1, 6).addConfigs(m357_bp, m357_sp, m357_fmj, m357_jhp, m357_ap, m357_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_DANI))\\n\\t\\t\\t\\t.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_DANI_ANIMS).orchestra(Orchestras.ORCHESTRA_DANI)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M357_EXPRESS, 24)",
+          "\"gun_light_revolver_dani\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory40mm.java",
+      "before": "5b9876de6207e56e1cfc7dacf2a16368c10edf493e832c5424673e30843f22dc",
+      "after": "0cba206f40007a54e6ced90315f5fce9334d3b4c2fa31a513db66da78b7d68ef",
+      "edits": [
+        [
+          "YES",
+          "XFactory40mm.java",
+          "10033",
+          "10051",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(100).draw(7).inspect(39).crosshair(Crosshair.L_CIRCUMFLEX).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(15F).delay(20).reload(28).jam(33).sound(\"hbm:weapon.hkShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 1).addConfigs(g26_flare, g26_flare_supply, g26_flare_weapon))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_GL))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_FLAREGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAREGUN)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G26_FLARE, 3)",
+          "\"gun_flaregun\""
+        ],
+        [
+          "YES",
+          "XFactory40mm.java",
+          "10758",
+          "10776",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(400).draw(7).inspect(39).reloadSequential(true).reloadChangeType(true).crosshair(Crosshair.L_CIRCUMFLEX).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(20F).delay(24).reload(16, 16, 16, 0).jam(0).sound(\"hbm:weapon.glShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 4).addConfigs(g40_he, g40_heat, g40_demo, g40_inc, g40_phosphorus))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_GL))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_CONGOLAKE_ANIMS).orchestra(Orchestras.ORCHESTRA_CONGOLAKE)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.G40_HE, 8)",
+          "\"gun_congolake\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory44.java",
+      "before": "d90c4fd7226873875c194848775c63d01292cbcc9710693bb8a9b5ed29b6caf6",
+      "after": "439073f63d3528f0900371cffdabea671bfd0d5a4c5c23f8ba6247b27c9ff7ae",
+      "edits": [
+        [
+          "YES",
+          "XFactory44.java",
+          "5374",
+          "5392",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(15).inspect(23).reloadSequential(true).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(10F).delay(20).reload(25, 11, 14, 8).jam(45).sound(\"hbm:weapon.fire.rifle\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 14).addConfigs(m44_bp, m44_sp, m44_fmj, m44_jhp, m44_ap, m44_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_HENRY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_HENRY_ANIMS).orchestra(Orchestras.ORCHESTRA_HENRY)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M44_SP, 14)",
+          "\"gun_henry\""
+        ],
+        [
+          "YES",
+          "XFactory44.java",
+          "6108",
+          "6126",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(15).inspect(23).reloadSequential(true).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(20F).spreadHipfire(0F).delay(20).reload(25, 11, 14, 8).jam(45).sound(\"hbm:weapon.fire.rifle\", 1.0F, 1.25F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 14).addConfigs(m44_bp, m44_sp, m44_fmj, m44_jhp, m44_ap, m44_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_HENRY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_HENRY_ANIMS).orchestra(Orchestras.ORCHESTRA_HENRY)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M44_JHP, 14)",
+          "\"gun_henry_lincoln\""
+        ],
+        [
+          "YES",
+          "XFactory44.java",
+          "6834",
+          "6852",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(600).draw(10).inspect(23).crosshair(Crosshair.L_CLASSIC).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(15F).delay(14).reload(46).jam(23).sound(\"hbm:weapon.44Shoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(m44_bp, m44_sp, m44_fmj, m44_jhp, m44_ap, m44_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_NOPIP))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_NOPIP_ANIMS).orchestra(Orchestras.ORCHESTRA_NOPIP)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M44_SP, 12).setNameMutator(LAMBDA_NAME_NOPIP)",
+          "\"gun_heavy_revolver\""
+        ],
+        [
+          "YES",
+          "XFactory44.java",
+          "7583",
+          "7601",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(31_000).draw(10).inspect(23).crosshair(Crosshair.L_CLASSIC).scopeTexture(scope_lilmac).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(30F).delay(14).reload(46).jam(23).sound(\"hbm:weapon.44Shoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(m44_equestrian_pip, m44_bp, m44_sp, m44_fmj, m44_jhp, m44_ap, m44_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_NOPIP))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LILMAC_ANIMS).orchestra(Orchestras.ORCHESTRA_NOPIP)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M44_JHP, 12)",
+          "\"gun_heavy_revolver_lilmac\""
+        ],
+        [
+          "YES",
+          "XFactory44.java",
+          "8313",
+          "8331",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(31_000).draw(10).inspect(23).crosshair(Crosshair.L_CLASSIC).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(30F).delay(14).reload(46).jam(23).sound(\"hbm:weapon.44Shoot\", 1.0F, 0.8F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(m44_equestrian_mn7, m44_bp, m44_sp, m44_fmj, m44_jhp, m44_ap, m44_express))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.3125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_NOPIP))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LILMAC_ANIMS).orchestra(Orchestras.ORCHESTRA_NOPIP)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M44_JHP, 12)",
+          "\"gun_heavy_revolver_protege\""
+        ],
+        [
+          "YES",
+          "XFactory44.java",
+          "9050",
+          "9068",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(600).draw(10).inspect(31).inspectCancel(false).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(25F).delay(10).reload(46).jam(23).sound(\"hbm:weapon.44Shoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 8).addConfigs(m44_bp, m44_sp, m44_fmj, m44_jhp, m44_ap, m44_express))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_HANGMAN))\\n\\t\\t\\t\\t.setupStandardConfiguration().ps(SMACK_A_FUCKER)\\n\\t\\t\\t\\t.anim(LAMBDA_HANGMAN_ANIMS).orchestra(Orchestras.ORCHESTRA_HANGMAN)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.M44_FMJ, 16)",
+          "\"gun_hangman\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory50.java",
+      "before": "38fd80f0e8b0efc5c3a90b29231aa22cbf1bfa4e696ef24df285cba6133de88c",
+      "after": "037c457bcec7abe995855dbe72adccb1952921b989532e480a8cc1529ac9660c",
+      "edits": [
+        [
+          "YES",
+          "XFactory50.java",
+          "5772",
+          "5790",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(350).draw(20).inspect(50).crosshair(Crosshair.CIRCLE).scopeTexture(scope).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(30F).delay(25).dry(25).spreadHipfire(0.05F).reload(51).jam(43).sound(\"hbm:weapon.fire.amat\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 7).addConfigs(bmg50_sp, bmg50_fmj, bmg50_jhp, bmg50_ap, bmg50_du, bmg50_sm, bmg50_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_AMAT))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_AMAT_ANIMS).orchestra(Orchestras.ORCHESTRA_AMAT)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.BMG50_SP, 7)",
+          "\"gun_amat\""
+        ],
+        [
+          "YES",
+          "XFactory50.java",
+          "6522",
+          "6540",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(1_000).draw(20).inspect(50).crosshair(Crosshair.CIRCLE).scopeTexture(scope).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(50F).delay(25).dry(25).spreadHipfire(0.05F).reload(51).jam(43).sound(\"hbm:weapon.fire.amat\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 7).addConfigs(bmg50_equestrian, bmg50_sp, bmg50_fmj, bmg50_jhp, bmg50_ap, bmg50_du, bmg50_sm, bmg50_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_AMAT))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_AMAT_ANIMS).orchestra(Orchestras.ORCHESTRA_AMAT)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.BMG50_JHP, 7)",
+          "\"gun_amat_subtlety\""
+        ],
+        [
+          "YES",
+          "XFactory50.java",
+          "7304",
+          "7322",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(5_000).draw(20).inspect(50).crosshair(Crosshair.CIRCLE).scopeTexture(scope_thermal).thermalSights(true).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(45F).delay(25).dry(25).spreadHipfire(0F).reload(51).jam(43).sound(\"hbm:weapon.silencerShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 7).addConfigs(bmg50_sp, bmg50_fmj, bmg50_jhp, bmg50_ap, bmg50_du, bmg50_sm, bmg50_he, bmg50_black))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_AMAT))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_AMAT_ANIMS).orchestra(Orchestras.ORCHESTRA_AMAT)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.BMG50_JHP, 7)",
+          "\"gun_amat_penance\""
+        ],
+        [
+          "YES",
+          "XFactory50.java",
+          "7977",
+          "7995",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(10).inspect(31).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(7.5F).delay(2).dry(10).auto(true).spread(0.005F).sound(\"hbm:turret.chekhov_fire\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(bmg50_sp, bmg50_fmj, bmg50_jhp, bmg50_ap, bmg50_du, bmg50_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_M2))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_M2_ANIMS).orchestra(Orchestras.ORCHESTRA_M2)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.BMG50_FMJ, 25)",
+          "\"gun_m2\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory556mm.java",
+      "before": "5c012aa5db702df9d3d36dba164eed2da73eba8b8889d10ef4d9a115efa63aad",
+      "after": "203140c4331c3f0c123bef085a9d2f1db95ed8691030868e5d2bf7ddeef0983a",
+      "edits": [
+        [
+          "YES",
+          "XFactory556mm.java",
+          "4249",
+          "4267",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(10).inspect(33).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(5F).delay(2).auto(true).dry(15).reload(50).jam(47).sound(\"hbm:weapon.fire.assault\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(r556_sp, r556_fmj, r556_jhp, r556_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_G3))\\n\\t\\t\\t\\t.setupStandardConfiguration().ps(Lego.LAMBDA_STANDARD_CLICK_SECONDARY)\\n\\t\\t\\t\\t.anim(LAMBDA_G3_ANIMS).orchestra(Orchestras.ORCHESTRA_G3)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R556_SP, 30).setNameMutator(LAMBDA_NAME_G3)",
+          "\"gun_g3\""
+        ],
+        [
+          "YES",
+          "XFactory556mm.java",
+          "5038",
+          "5056",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(6_000).draw(10).inspect(33).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE).scopeTexture(scope)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(7.5F).delay(2).auto(true).dry(15).spreadHipfire(0.01F).reload(50).jam(47).sound(\"hbm:weapon.fire.silenced\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(r556_inc_sp, r556_inc_fmj, r556_inc_jhp, r556_inc_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ZEBRA))\\n\\t\\t\\t\\t.setupStandardConfiguration().ps(Lego.LAMBDA_STANDARD_CLICK_SECONDARY)\\n\\t\\t\\t\\t.anim(LAMBDA_G3_ANIMS).orchestra(Orchestras.ORCHESTRA_G3)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R556_JHP, 30).setNameMutator(LAMBDA_NAME_G3)",
+          "\"gun_g3_zebra\""
+        ],
+        [
+          "YES",
+          "XFactory556mm.java",
+          "5867",
+          "5885",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(10).inspect(125).crosshair(Crosshair.CIRCLE).scopeTexture(scope).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(10F).delay(2).dry(15).auto(true).reload(46).jam(0).sound(\"hbm:weapon.fire.assault\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(r556_sp, r556_fmj, r556_jhp, r556_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_STG))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD).pt(Lego.LAMBDA_TOGGLE_AIM)\\n\\t\\t\\t\\t.decider(LAMBDA_STG77_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_STG77_ANIMS).orchestra(Orchestras.ORCHESTRA_STG77)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R556_FMJ, 30)",
+          "\"gun_stg77\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory75Bolt.java",
+      "before": "3b92c03c71c47c1b3e806c473a82630314b71f05d92036017e5a0b1074142ae6",
+      "after": "902fb2602d1a6900055e38a096fca61440f7914ba4618b41b07379c09917eece",
+      "edits": [
+        [
+          "YES",
+          "XFactory75Bolt.java",
+          "3276",
+          "3294",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.SPECIAL, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(20).inspect(31).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(15F).delay(2).auto(true).spread(0.005F).reload(40).jam(55).sound(\"hbm:weapon.fire.blackPowder\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(b75, b75_inc, b75_exp))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_BOLT))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_BOLTER_ANIMS).orchestra(Orchestras.ORCHESTRA_BOLTER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.B75, 15)",
+          "\"gun_bolter\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory762mm.java",
+      "before": "68402d65d8a08d48a7bef0ed65a7d6692d4056680e8211e5e2d02a507691b2a7",
+      "after": "edcdeb03695583aef628ffd2a0bca81ba37c0313ff2ccd83b0818c36a55f9696",
+      "edits": [
+        [
+          "YES",
+          "XFactory762mm.java",
+          "5202",
+          "5220",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(10).inspect(31).reloadSequential(true).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(15F).delay(5).dry(15).spread(0.0F).reload(30, 0, 15, 0).jam(60).sound(\"hbm:weapon.fire.blackPowder\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 14).addConfigs(r762_sp, r762_fmj, r762_jhp, r762_ap, r762_du, r762_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_CARBINE))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_CARBINE_ANIMS).orchestra(Orchestras.ORCHESTRA_CARBINE)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R762_SP, 14)",
+          "\"gun_carbine\""
+        ],
+        [
+          "YES",
+          "XFactory762mm.java",
+          "5877",
+          "5895",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(50_000).draw(20).inspect(20).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(6F).delay(1).auto(true).dry(15).spread(0.01F).sound(\"hbm:weapon.calShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(r762_sp, r762_fmj, r762_jhp, r762_ap, r762_du, r762_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MINIGUN))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_MINIGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_MINIGUN)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R762_FMJ, 30)",
+          "\"gun_minigun\""
+        ],
+        [
+          "YES",
+          "XFactory762mm.java",
+          "6582",
+          "6600",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(50_000).draw(20).inspect(20).crosshair(Crosshair.L_CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(12F).delay(1).auto(true).dry(15).reload(15).spread(0.01F).sound(\"hbm:weapon.fire.laserGatling\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 200).addConfigs(energy_lacunae, energy_lacunae_overcharge, energy_lacunae_ir))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_LACUNAE))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_MINIGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_MINIGUN)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15)",
+          "\"gun_minigun_lacunae\""
+        ],
+        [
+          "YES",
+          "XFactory762mm.java",
+          "7989",
+          "8007",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.DEBUG,\\n\\t\\t\\t\\tnew GunConfig()\\n\\t\\t\\t\\t.dura(50_000).draw(20).inspect(20).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(6F).delay(1).auto(true).dry(15).spread(0.01F).sound(\"hbm:weapon.calShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(r762_sp, r762_fmj, r762_jhp, r762_ap, r762_du, r762_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, 0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MINIGUN))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_MINIGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_MINIGUN_DUAL),\\n\\t\\t\\t\\tnew GunConfig()\\n\\t\\t\\t\\t.dura(50_000).draw(20).inspect(20).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(6F).delay(1).auto(true).dry(15).spread(0.01F).sound(\"hbm:weapon.calShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(r762_sp, r762_fmj, r762_jhp, r762_ap, r762_du, r762_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_MINIGUN))\\n\\t\\t\\t\\t.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(LAMBDA_SECOND_MINIGUN)\\n\\t\\t\\t\\t.anim(LAMBDA_MINIGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_MINIGUN_DUAL)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R762_SP, 50)",
+          "\"gun_minigun_dual\""
+        ],
+        [
+          "YES",
+          "XFactory762mm.java",
+          "8711",
+          "8729",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(5_000).draw(20).inspect(31).reloadSequential(true).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(30F).delay(25).dry(25).spread(0.0F).reload(43).jam(43).sound(\"hbm:weapon.fire.rifleHeavy\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 7).addConfigs(r762_sp, r762_fmj, r762_jhp, r762_ap, r762_du, r762_he))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_CARBINE))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_MAS36_ANIMS).orchestra(Orchestras.ORCHESTRA_MAS36)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.R762_AP, 14)",
+          "\"gun_mas36\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory9mm.java",
+      "before": "89919443ac8de0903ffdbcd4b67f0654259225fa866da7bf721d032684d4558a",
+      "after": "4c176e2917a6fc1bc688ee014a3072c1e7927df2a7e560e7312f035e40e1a0c2",
+      "edits": [
+        [
+          "YES",
+          "XFactory9mm.java",
+          "3287",
+          "3305",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(20).inspect(31).crosshair(Crosshair.L_CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(3F).delay(4).dry(40).auto(true).spread(0.015F).reload(60).jam(55).sound(\"hbm:weapon.fire.greaseGun\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(p9_sp, p9_fmj, p9_jhp, p9_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_GREASEGUN))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_GREASEGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_GREASEGUN)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P9_SP, 30).setNameMutator(LAMBDA_NAME_GREASEGUN)",
+          "\"gun_greasegun\""
+        ],
+        [
+          "YES",
+          "XFactory9mm.java",
+          "3962",
+          "3980",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(1_700).draw(7).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(25F).delay(4).dry(10).spread(0.005F).reload(53).jam(44).sound(\"hbm:weapon.fire.pistol\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 17).addConfigs(p9_sp, p9_fmj, p9_jhp, p9_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().fire(LAMBDA_FIRE_LAG).recoil(LAMBDA_RECOIL_LAG))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LAG_ANIMS).orchestra(Orchestras.ORCHESTRA_LAG)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P9_JHP, 17)",
+          "\"gun_lag\""
+        ],
+        [
+          "YES",
+          "XFactory9mm.java",
+          "4653",
+          "4671",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setNameMutator(java.util.function.Function<net.minecraft.item.ItemStack,java.lang.String>):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(3_000).draw(15).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(3F).delay(2).dry(25).auto(true).spread(0.005F).reload(55).jam(50).sound(\"hbm:weapon.fire.uzi\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(p9_sp, p9_fmj, p9_jhp, p9_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_UZI))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_UZI_ANIMS).orchestra(Orchestras.ORCHESTRA_UZI)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P9_SP, 30).setNameMutator(LAMBDA_NAME_UZI)",
+          "\"gun_uzi\""
+        ],
+        [
+          "YES",
+          "XFactory9mm.java",
+          "6053",
+          "6071",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE,\\n\\t\\t\\t\\tnew GunConfig().dura(3_000).draw(15).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(3F).spreadHipfire(0F).delay(2).dry(25).auto(true).spread(0.005F).reload(55).jam(50).sound(\"hbm:weapon.fire.uzi\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(p9_sp, p9_fmj, p9_jhp, p9_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, 0.375D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_UZI))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_UZI_ANIMS).orchestra(Orchestras.ORCHESTRA_UZI_AKIMBO),\\n\\t\\t\\t\\tnew GunConfig().dura(3_000).draw(15).inspect(31).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(3F).spreadHipfire(0F).delay(2).dry(25).auto(true).spread(0.005F).reload(55).jam(50).sound(\"hbm:weapon.fire.uzi\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(1, 30).addConfigs(p9_sp, p9_fmj, p9_jhp, p9_ap))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.375D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_UZI))\\n\\t\\t\\t\\t.ps(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(LAMBDA_SECOND_UZI)\\n\\t\\t\\t\\t.anim(LAMBDA_UZI_ANIMS).orchestra(Orchestras.ORCHESTRA_UZI_AKIMBO)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.P9_SP, 60)",
+          "\"gun_uzi_akimbo\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "before": "73b2dcdd4eb1103b2d746a356ae5e6eee096876424df0d3da765e5a719373a27",
+      "after": "9d07c48728cf471d0ee713f01153db8aefc4a2ce358a59d6ecafd5e2189eca3c",
+      "edits": [
+        [
+          "YES",
+          "XFactoryAccelerator.java",
+          "5372",
+          "5390",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(6_400).draw(10).inspect(10).crosshair(Crosshair.CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(25F).spreadHipfire(0F).delay(4).auto(true).spread(0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(tau_uranium))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 2.5, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_TAU))\\n\\t\\t\\t\\t.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY)\\n\\t\\t\\t\\t.rp(LAMBDA_TAU_PRIMARY_RELEASE)\\n\\t\\t\\t\\t.ps(LAMBDA_TAU_SECONDARY_PRESS)\\n\\t\\t\\t\\t.rs(LAMBDA_TAU_SECONDARY_RELEASE)\\n\\t\\t\\t\\t.pr(Lego.LAMBDA_STANDARD_RELOAD)\\n\\t\\t\\t\\t.decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)\\n\\t\\t\\t\\t.anim(LAMBDA_TAU_ANIMS).orchestra(Orchestras.ORCHESTRA_TAU)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.TAU_URANIUM, 15)",
+          "\"gun_tau\""
+        ],
+        [
+          "YES",
+          "XFactoryAccelerator.java",
+          "6008",
+          "6026",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.SPECIAL, new GunConfig()\\n\\t\\t\\t\\t.dura(400).draw(5).inspect(39).crosshair(Crosshair.L_CIRCUMFLEX)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(35F).delay(5).reload(20).jam(33).sound(\"hbm:weapon.coilgunShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 1).addConfigs(coil_tungsten, coil_ferrouranium))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_COILGUN))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_COILGUN_ANIMS).orchestra(Orchestras.ORCHESTRA_COILGUN)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.COIL_TUNGSTEN, 5)",
+          "\"gun_coilgun\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryBlackPowder.java",
+      "before": "701e302dc4fb826804fbb009030a6cf11250517d1c2743a1dc722eab6429438f",
+      "after": "764283e9cbfcda28dd88956ab4f014e6af3e9a66c4cfe943d2444920cacd7a4b",
+      "edits": [
+        [
+          "YES",
+          "XFactoryBlackPowder.java",
+          "2357",
+          "2375",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(4).inspect(23).crosshair(Crosshair.CIRCLE).smoke(Lego.LAMBDA_STANDARD_SMOKE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(5F).delay(27).reload(67).jam(58).sound(\"hbm:weapon.fire.blackPowder\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 6).addConfigs(stone, flint, iron, shot))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_PEPPERBOX))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_PEPPERBOX_ANIMS).orchestra(Orchestras.ORCHESTRA_PEPPERBOX)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.STONE, 12)",
+          "\"gun_pepperbox\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java",
+      "before": "2b5d87f34cefbf4a05dffd45f83af99bbb7f5d6736cfdc09dad73f9865d86871",
+      "after": "61b0ab167c59e9754cc08c4b3ec4fb07a225e90bf322e0b08814665efbb52818",
+      "edits": [
+        [
+          "YES",
+          "XFactoryCatapult.java",
+          "9863",
+          "9881",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmoExpensive(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(20).inspect(30).reloadChangeType(true).crosshair(Crosshair.L_CIRCUMFLEX).hideCrosshair(false)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(100F).spreadHipfire(0F).delay(10).reload(57).jam(40).sound(\"hbm:weapon.fire.fatman\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 1).addConfigs(nuke_standard, nuke_demo, nuke_high, nuke_tots, nuke_hive, nuke_balefire))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.1875D).offsetScoped(1, -0.0625 * 1.5, -0.125D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_FATMAN))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_FATMAN_ANIMS).orchestra(Orchestras.ORCHESTRA_FATMAN)\\n\\t\\t\\t\\t).setDefaultAmmoExpensive(EnumAmmo.NUKE_STANDARD, 1)",
+          "\"gun_fatman\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java",
+      "before": "b315b0581be2e9d273d25c801921d2590fc657a272d7f055ba42445d6f78b663",
+      "after": "5ef7cb63c281864fee2d219f64fee805af8c4b57fca35e712ab322ac41a2d513",
+      "edits": [
+        [
+          "YES",
+          "XFactoryEnergy.java",
+          "9998",
+          "10016",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(1_000).draw(10).inspect(33).crosshair(Crosshair.CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(35F).delay(20).spreadHipfire(1.5F).reload(44).jam(19).sound(\"hbm:weapon.fire.tesla\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineBelt().addConfigs(energy_tesla, energy_tesla_overcharge, energy_tesla_ir))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, 0, -0.375).offsetScoped(0.75, 0, -0.25)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_TESLA_ANIMS).orchestra(Orchestras.ORCHESTRA_TESLA)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15)",
+          "\"gun_tesla_cannon\""
+        ],
+        [
+          "YES",
+          "XFactoryEnergy.java",
+          "10695",
+          "10713",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(500).draw(10).inspect(26).crosshair(Crosshair.CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(25F).delay(5).spread(1F).spreadHipfire(1F).reload(45).jam(37).sound(\"hbm:weapon.fire.laserPistol\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 30).addConfigs(energy_las, energy_las_overcharge, energy_las_ir))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625 * 1.5, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LASER_PISTOL).orchestra(Orchestras.ORCHESTRA_LASER_PISTOL)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15)",
+          "\"gun_laser_pistol\""
+        ],
+        [
+          "YES",
+          "XFactoryEnergy.java",
+          "11424",
+          "11442",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(500).draw(10).inspect(26).crosshair(Crosshair.CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(30F).rounds(5).delay(10).spread(0.25F).spreadHipfire(1F).reload(45).jam(37).sound(\"hbm:weapon.fire.laserPistol\", 1.0F, 0.8F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 10).addConfigs(energy_las, energy_las_overcharge, energy_las_ir))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625 * 1.5, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LASER_PISTOL).orchestra(Orchestras.ORCHESTRA_LASER_PISTOL)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 10)",
+          "\"gun_laser_pistol_pew_pew\""
+        ],
+        [
+          "YES",
+          "XFactoryEnergy.java",
+          "12172",
+          "12190",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(1_500).draw(10).inspect(26).crosshair(Crosshair.CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(20F).delay(7).spread(0F).spreadHipfire(0.5F).reload(45).jam(37).sound(\"hbm:weapon.fire.laserPistol\", 1.0F, 1.1F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 20).addConfigs(energy_emerald, energy_emerald_overcharge, energy_emerald_ir))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625 * 1.5, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LASER_PISTOL).orchestra(Orchestras.ORCHESTRA_LASER_PISTOL)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 20)",
+          "\"gun_laser_pistol_morning_glory\""
+        ],
+        [
+          "YES",
+          "XFactoryEnergy.java",
+          "12881",
+          "12899",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(2_000).draw(10).inspect(26).crosshair(Crosshair.CIRCLE).scopeTexture(scope_luna)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(50F).delay(8).spreadHipfire(1F).reload(44).jam(36).sound(\"hbm:weapon.fire.laser\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 24).addConfigs(energy_las, energy_las_overcharge, energy_las_ir))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625 * 1.5, -0.1875)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ENERGY))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_LASRIFLE).orchestra(Orchestras.ORCHESTRA_LASRIFLE)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 24)",
+          "\"gun_lasrifle\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java",
+      "before": "b4a887537b6258e0f1c870c501daef2107cef1aa8b06f16281aca3b2e7e7d75b",
+      "after": "60d2f238067b16e9f1db5127ec197d112af5396f039ed7b5e290eeb72c2b3c53",
+      "edits": [
+        [
+          "YES",
+          "XFactoryFlamer.java",
+          "9159",
+          "9177",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(20_000).draw(10).inspect(17).crosshair(Crosshair.L_CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(1F).spreadHipfire(0F).delay(1).auto(true).reload(90).jam(17)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 300).addConfigs(flame_diesel, flame_gas, flame_napalm, flame_balefire))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire())\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_FLAMER_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAMER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1)",
+          "\"gun_flamer\""
+        ],
+        [
+          "YES",
+          "XFactoryFlamer.java",
+          "9796",
+          "9814",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.B_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(20_000).draw(10).inspect(17).crosshair(Crosshair.L_CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(1.5F).spreadHipfire(0F).delay(1).auto(true).reload(90).jam(17)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 500).addConfigs(flame_topaz_diesel, flame_topaz_gas, flame_topaz_napalm, flame_topaz_balefire))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire())\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_FLAMER_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAMER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1)",
+          "\"gun_flamer_topaz\""
+        ],
+        [
+          "YES",
+          "XFactoryFlamer.java",
+          "10526",
+          "10544",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.LEGENDARY, new GunConfig()\\n\\t\\t\\t\\t.dura(20_000).draw(10).inspect(17).crosshair(Crosshair.L_CIRCLE)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(25F).spreadHipfire(0F).delay(10).auto(true).reload(90).jam(17).sound(\"hbm:weapon.fire.blackPowder\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 50).addConfigs(flame_daybreaker_diesel, flame_daybreaker_gas, flame_daybreaker_napalm, flame_daybreaker_balefire))\\n\\t\\t\\t\\t\\t\\t.offset(0.75, -0.0625, -0.25D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire())\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_FLAMER_ANIMS).orchestra(Orchestras.ORCHESTRA_FLAMER_DAYBREAKER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1)",
+          "\"gun_flamer_daybreaker\""
+        ]
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryRocket.java",
+      "before": "b6f4038f967211899f98bb4c835ecf42b769ebdaf43c5e98d07ab441a8d0d721",
+      "after": "b72d36c88ad692fe61810d0b8a4610be8b8d441bfdd63c1184d8345bcb8b94cd",
+      "edits": [
+        [
+          "YES",
+          "XFactoryRocket.java",
+          "10200",
+          "10218",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(300).draw(7).inspect(40).crosshair(Crosshair.L_CIRCUMFLEX)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(25F).delay(5).reload(50).jam(40).sound(\"hbm:weapon.rpgShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 1).addConfigs(rocket_rpzb))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ROCKET))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_PANZERSCHRECK_ANIMS).orchestra(Orchestras.ORCHESTRA_PANERSCHRECK)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.ROCKET_HE, 3)",
+          "\"gun_panzerschreck\""
+        ],
+        [
+          "YES",
+          "XFactoryRocket.java",
+          "11543",
+          "11561",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(400).draw(7).inspect(40).crosshair(Crosshair.L_CIRCUMFLEX).hideCrosshair(false)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(40F).spreadHipfire(0F).delay(10).reload(55).jam(40).sound(\"hbm:weapon.rpgShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineFullReload(0, 4).addConfigs(rocket_qd))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ROCKET))\\n\\t\\t\\t\\t.setupStandardConfiguration()\\n\\t\\t\\t\\t.anim(LAMBDA_QUADRO_ANIMS).orchestra(Orchestras.ORCHESTRA_QUADRO)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.ROCKET_HE, 4)",
+          "\"gun_quadro\""
+        ],
+        [
+          "YES",
+          "XFactoryRocket.java",
+          "12263",
+          "12281",
+          "setUnlocalizedName",
+          "UNRESOLVED",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#ItemGunBaseNT(com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality,com.hbm.items.weapon.sedna.GunConfig...):void",
+          "com.hbm.items.weapon.sedna.ItemGunBaseNT#setDefaultAmmo(com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo,int):com.hbm.items.weapon.sedna.ItemGunBaseNT",
+          "new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()\\n\\t\\t\\t\\t.dura(500).draw(20).inspect(40).crosshair(Crosshair.L_CIRCUMFLEX).hideCrosshair(false)\\n\\t\\t\\t\\t.rec(new Receiver(0)\\n\\t\\t\\t\\t\\t\\t.dmg(50F).spreadHipfire(0F).delay(5).reload(48).jam(33).sound(\"hbm:weapon.rpgShoot\", 1.0F, 1.0F)\\n\\t\\t\\t\\t\\t\\t.mag(new MagazineSingleReload(0, 1).addConfigs(rocket_ml))\\n\\t\\t\\t\\t\\t\\t.offset(1, -0.0625 * 1.5, -0.1875D)\\n\\t\\t\\t\\t\\t\\t.setupStandardFire().recoil(LAMBDA_RECOIL_ROCKET))\\n\\t\\t\\t\\t.setupStandardConfiguration().pp(LAMBDA_MISSILE_LAUNCHER_PRIMARY_PRESS)\\n\\t\\t\\t\\t.anim(LAMBDA_MISSILE_LAUNCHER_ANIMS).orchestra(Orchestras.ORCHESTRA_MISSILE_LAUNCHER)\\n\\t\\t\\t\\t).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 5)",
+          "\"gun_missile_launcher\""
+        ]
+      ]
+    }
+  ],
+  "unchanged_proofs": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/ItemGunBaseNT.java": "07d9e9f361a34c51cc3794bcd0708846780b89b1c3daf6c66e263bfcf41f82b9",
+    "ntm-port-1.12.2/porting/tests/native-translation-names/bytecode-proof.json": "f74d8ea44380ebe279f165736313889c399eaa328f23f6865bad3cf71e14cd8b",
+    "ntm-port-1.12.2/porting/tests/native-translation-names/binary-inputs.json": "1664482ea24a58d2a271e4e28ee3c454c193705a4540eb31b515231f10f26701",
+    "ntm-port-1.12.2/porting/tests/native-translation-names/NameOracle.java": "4d04c5190725747cac1bf095dd6af142b6bf7938305d251306acf61b0238123d",
+    "ntm-port-1.12.2/porting/tests/native-translation-names/oracle.log": "ea93045324eeba67e8524485d54ed673601c62daca04c97e81b4d97ae6ec4706",
+    "ntm-port-1.12.2/porting/tests/native-translation-names/bytecode.py": "9bdb77f785ea0aff5f78a93728cdb96b454a0113c168726504d3f548eb66369f"
+  }
+}

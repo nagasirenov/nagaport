@@ -15,20 +15,20 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class TileEntityRadioRec extends TileEntityLoadedBase implements IControlReceiver {
+public class TileEntityRadioRec extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {
 
 	public String channel = "";
 	public boolean isOn = false;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.isOn && !this.channel.isEmpty()) {
-				RTTYChannel chan = RTTYSystem.listen(worldObj, this.channel);
+				RTTYChannel chan = RTTYSystem.listen(this.world, this.channel);
 
-				if(chan != null && chan.timeStamp == worldObj.getTotalWorldTime() - 1) {
+				if(chan != null && chan.timeStamp == this.world.getTotalWorldTime() - 1) {
 					Triplet<Instrument, Note, Octave>[] notes = NoteBuilder.translate(chan.signal + "");
 
 					for(Triplet<Instrument, Note, Octave> note : notes) {
@@ -45,7 +45,7 @@ public class TileEntityRadioRec extends TileEntityLoadedBase implements IControl
 						if(i == Instrument.BASSGUITAR)  s = "bassattack";
 
 						float f = (float)Math.pow(2.0D, (double)(noteId - 12) / 12.0D);
-						worldObj.playSoundEffect(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D, "note." + s, 3.0F, f);
+						this.world.playSoundEffect(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, "note." + s, 3.0F, f);
 					}
 				}
 			}
@@ -75,16 +75,17 @@ public class TileEntityRadioRec extends TileEntityLoadedBase implements IControl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setString("channel", channel);
 		nbt.setBoolean("isOn", isOn);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 16D;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;
 	}
 
 	@Override

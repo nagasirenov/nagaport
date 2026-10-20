@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:native_structural/fence/world"
+    },
+    "post": {
+      "model": "hbm:native_structural/fence/world_post"
+    }
+  }
+}

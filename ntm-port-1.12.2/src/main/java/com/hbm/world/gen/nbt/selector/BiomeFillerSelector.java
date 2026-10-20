@@ -6,7 +6,7 @@ public class BiomeFillerSelector extends BiomeBlockSelector {
 
 	@Override
 	public void selectBlocks(Random rand, int x, int y, int z, boolean notInterior) {
-		field_151562_a = nextBiome.fillerBlock;
+		blockstate = nextBiome.fillerBlock;
 	}
 
 }

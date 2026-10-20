@@ -53,7 +53,7 @@ public class ContainerToolBox extends Container {
 			}
 
 			if(var5.stackSize == 0) {
-				var4.putStack(null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

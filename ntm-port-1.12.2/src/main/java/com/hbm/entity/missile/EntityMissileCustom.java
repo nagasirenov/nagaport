@@ -28,11 +28,36 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLoader {
 
+	private static final DataParameter<Integer> HEALTH_SNAPSHOT = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> WARHEAD = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> FUSELAGE = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> FINS = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> THRUSTER = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);
+
 	public float fuel;
 	public float consumption;
+
+	public int getWarheadId() {
+		return this.dataManager.get(WARHEAD);
+	}
+
+	public int getFuselageId() {
+		return this.dataManager.get(FUSELAGE);
+	}
+
+	public int getFinsId() {
+		return this.dataManager.get(FINS);
+	}
+
+	public int getThrusterId() {
+		return this.dataManager.get(THRUSTER);
+	}
 
 	public EntityMissileCustom(World world) {
 		super(world);
@@ -53,13 +78,13 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 		decelY *= 2;
 		velocity = 0;
 
-		this.dataWatcher.updateObject(9, Item.getIdFromItem(template.warhead));
-		this.dataWatcher.updateObject(10, Item.getIdFromItem(template.fuselage));
-		this.dataWatcher.updateObject(12, Item.getIdFromItem(template.thruster));
+		this.dataManager.set(WARHEAD, Item.getIdFromItem(template.warhead));
+		this.dataManager.set(FUSELAGE, Item.getIdFromItem(template.fuselage));
+		this.dataManager.set(THRUSTER, Item.getIdFromItem(template.thruster));
 		if(template.fins != null) {
-			this.dataWatcher.updateObject(11, Item.getIdFromItem(template.fins));
+			this.dataManager.set(FINS, Item.getIdFromItem(template.fins));
 		} else {
-			this.dataWatcher.updateObject(11, Integer.valueOf(0));
+			this.dataManager.set(FINS, Integer.valueOf(0));
 		}
 
 		ItemCustomMissilePart fuselage = (ItemCustomMissilePart) template.fuselage;
@@ -75,21 +100,21 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	protected void killMissile() {
 		if(!this.isDead) {
 			this.setDead();
-			ExplosionLarge.explode(worldObj, posX, posY, posZ, 5, true, false, true);
-			ExplosionLarge.spawnShrapnelShower(worldObj, posX, posY, posZ, motionX, motionY, motionZ, 15, 0.075);
+			ExplosionLarge.explode(this.world, posX, posY, posZ, 5, true, false, true);
+			ExplosionLarge.spawnShrapnelShower(this.world, posX, posY, posZ, motionX, motionY, motionZ, 15, 0.075);
 		}
 	}
 
 	@Override
 	public void onUpdate() {
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(9));
+		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(WARHEAD));
 		WarheadType type = (WarheadType) part.attributes[0];
 		if(type != null && type.updateCustom != null) {
 			type.updateCustom.accept(this);
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.hasPropulsion()) this.fuel -= this.consumption;
 		}
 
@@ -104,11 +129,11 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(8, Integer.valueOf(this.health));
-		this.dataWatcher.addObject(9, Integer.valueOf(0));
-		this.dataWatcher.addObject(10, Integer.valueOf(0));
-		this.dataWatcher.addObject(11, Integer.valueOf(0));
-		this.dataWatcher.addObject(12, Integer.valueOf(0));
+		this.dataManager.register(HEALTH_SNAPSHOT, Integer.valueOf(this.health));
+		this.dataManager.register(WARHEAD, Integer.valueOf(0));
+		this.dataManager.register(FUSELAGE, Integer.valueOf(0));
+		this.dataManager.register(FINS, Integer.valueOf(0));
+		this.dataManager.register(THRUSTER, Integer.valueOf(0));
 	}
 
 	@Override
@@ -116,10 +141,10 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 		super.readEntityFromNBT(nbt);
 		fuel = nbt.getFloat("fuel");
 		consumption = nbt.getFloat("consumption");
-		this.dataWatcher.updateObject(9, nbt.getInteger("warhead"));
-		this.dataWatcher.updateObject(10, nbt.getInteger("fuselage"));
-		this.dataWatcher.updateObject(11, nbt.getInteger("fins"));
-		this.dataWatcher.updateObject(12, nbt.getInteger("thruster"));
+		this.dataManager.set(WARHEAD, nbt.getInteger("warhead"));
+		this.dataManager.set(FUSELAGE, nbt.getInteger("fuselage"));
+		this.dataManager.set(FINS, nbt.getInteger("fins"));
+		this.dataManager.set(THRUSTER, nbt.getInteger("thruster"));
 	}
 
 	@Override
@@ -127,10 +152,10 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 		super.writeEntityToNBT(nbt);
 		nbt.setFloat("fuel", fuel);
 		nbt.setFloat("consumption", consumption);
-		nbt.setInteger("warhead", this.dataWatcher.getWatchableObjectInt(9));
-		nbt.setInteger("fuselage", this.dataWatcher.getWatchableObjectInt(10));
-		nbt.setInteger("fins", this.dataWatcher.getWatchableObjectInt(11));
-		nbt.setInteger("thruster", this.dataWatcher.getWatchableObjectInt(12));
+		nbt.setInteger("warhead", this.dataManager.get(WARHEAD));
+		nbt.setInteger("fuselage", this.dataManager.get(FUSELAGE));
+		nbt.setInteger("fins", this.dataManager.get(FINS));
+		nbt.setInteger("thruster", this.dataManager.get(THRUSTER));
 	}
 
 	@Override
@@ -138,7 +163,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 
 		Vec3d v = new Vec3d(motionX, motionY, motionZ).normalize();
 		String smoke = "";
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(10));
+		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));
 		FuelType type = (FuelType) part.attributes[0];
 
 		switch(type) {
@@ -166,7 +191,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public void onMissileImpact(RayTraceResult mop) { //TODO: demolish this steaming pile of shit
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(9));
+		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(WARHEAD));
 
 		WarheadType type = (WarheadType) part.attributes[0];
 		float strength = (Float) part.attributes[1];
@@ -178,35 +203,35 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 
 		switch(type) {
 		case HE:
-			ExplosionLarge.explode(worldObj, posX, posY, posZ, strength, true, false, true);
-			ExplosionLarge.jolt(worldObj, posX, posY, posZ, strength, (int) (strength * 50), 0.25);
+			ExplosionLarge.explode(this.world, posX, posY, posZ, strength, true, false, true);
+			ExplosionLarge.jolt(this.world, posX, posY, posZ, strength, (int) (strength * 50), 0.25);
 			break;
 		case INC:
-			ExplosionLarge.explodeFire(worldObj, posX, posY, posZ, strength, true, false, true);
-			ExplosionLarge.jolt(worldObj, posX, posY, posZ, strength * 1.5, (int) (strength * 50), 0.25);
+			ExplosionLarge.explodeFire(this.world, posX, posY, posZ, strength, true, false, true);
+			ExplosionLarge.jolt(this.world, posX, posY, posZ, strength * 1.5, (int) (strength * 50), 0.25);
 			break;
 		case CLUSTER:
 			break;
 		case BUSTER:
-			ExplosionLarge.buster(worldObj, posX, posY, posZ, new Vec3d(motionX, motionY, motionZ), strength, strength * 4);
+			ExplosionLarge.buster(this.world, posX, posY, posZ, new Vec3d(motionX, motionY, motionZ), strength, strength * 4);
 			break;
 		case NUCLEAR:
 		case TX:
-			worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, (int) strength, posX, posY, posZ));
-			EntityNukeTorex.statFacStandard(worldObj, posX, posY, posZ, strength);
+			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, (int) strength, posX, posY, posZ));
+			EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, strength);
 			break;
 		case BALEFIRE:
-			EntityBalefire bf = new EntityBalefire(worldObj);
+			EntityBalefire bf = new EntityBalefire(this.world);
 			bf.posX = this.posX;
 			bf.posY = this.posY;
 			bf.posZ = this.posZ;
 			bf.destructionRange = (int) strength;
-			worldObj.spawnEntityInWorld(bf);
-			EntityNukeTorex.statFacBale(worldObj, posX, posY, posZ, strength);
+			this.world.spawnEntityInWorld(bf);
+			EntityNukeTorex.statFacBale(this.world, posX, posY, posZ, strength);
 			break;
 		case N2:
-			worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(worldObj, (int) strength, posX, posY, posZ));
-			EntityNukeTorex.statFacStandard(worldObj, posX, posY, posZ, strength);
+			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(this.world, (int) strength, posX, posY, posZ));
+			EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, strength);
 			break;
 		case TAINT:
 			int r = (int) strength;
@@ -214,27 +239,27 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 				int a = rand.nextInt(r) + (int) posX - (r / 2 - 1);
 				int b = rand.nextInt(r) + (int) posY - (r / 2 - 1);
 				int c = rand.nextInt(r) + (int) posZ - (r / 2 - 1);
-				Block block = worldObj.getBlock(a, b, c);
-				if(block.isNormalCube() && !block.isAir(worldObj, a, b, c)) {
-					worldObj.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
+				Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
+				if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
+					this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
 				}
 			}
 			break;
 		case CLOUD:
-			this.worldObj.playAuxSFX(2002, (int) Math.round(this.posX), (int) Math.round(this.posY), (int) Math.round(this.posZ), 0);
-			ExplosionChaos.spawnPoisonCloud(worldObj, posX - motionX, posY - motionY, posZ - motionZ, 750, 2.5, 2);
+			this.world.playAuxSFX(2002, (int) Math.round(this.posX), (int) Math.round(this.posY), (int) Math.round(this.posZ), 0);
+			ExplosionChaos.spawnPoisonCloud(this.world, posX - motionX, posY - motionY, posZ - motionZ, 750, 2.5, 2);
 			break;
 		case TURBINE:
-			ExplosionLarge.explode(worldObj, posX, posY, posZ, 10, true, false, true);
+			ExplosionLarge.explode(this.world, posX, posY, posZ, 10, true, false, true);
 			int count = (int) strength;
 			Vec3d vec = new Vec3d(0.5, 0, 0);
 
 			for(int i = 0; i < count; i++) {
-				EntityBulletBaseNT blade = new EntityBulletBaseNT(worldObj, BulletConfigSyncingUtil.TURBINE);
+				EntityBulletBaseNT blade = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.TURBINE);
 				blade.setPositionAndRotation(this.posX - this.motionX, this.posY - this.motionY + rand.nextGaussian(), this.posZ - this.motionZ, 0, 0);
 				blade.motionX = vec.x;
 				blade.motionZ = vec.z;
-				worldObj.spawnEntityInWorld(blade);
+				this.world.spawnEntityInWorld(blade);
 				vec = vec.rotateYaw((float) (Math.PI * 2F / (float) count));
 			}
 
@@ -248,7 +273,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public String getUnlocalizedName() {
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(10));
+		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));
 		PartSize top = part.top;
 		PartSize bottom = part.bottom;
 
@@ -264,7 +289,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public int getBlipLevel() {
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataWatcher.getWatchableObjectInt(10));
+		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));
 		PartSize top = part.top;
 		PartSize bottom = part.bottom;
 

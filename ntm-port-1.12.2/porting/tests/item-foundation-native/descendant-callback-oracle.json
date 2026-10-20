@@ -1,0 +1,107 @@
+{
+  "baseline_commit": "077492a6c31c910f34697783f1aa0cfabd8ff88e",
+  "source": "Verbatim callback declarations and bodies from the pre-migration Git commit.",
+  "callbacks": {
+    "src/main/java/com/hbm/items/weapon/ItemMissile.java": {
+      "addInformation": "public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n\t\t// Tier localized: missile.tier.tier0, missile.tier.tier1, ...\n\t\tString tierKey = \"item.missile.tier.\" + this.tier.name().toLowerCase();\n\t\tlist.add(TextFormatting.ITALIC + I18nUtil.resolveKey(tierKey));\n\n\t\tif(!this.launchable) {\n\t\t\tlist.add(TextFormatting.RED + I18nUtil.resolveKey(\"item.missile.desc.notLaunchable\"));\n\t\t} else {\n\t\t\t// Fuel localized & colored via enum helper\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.missile.desc.fuel\") + \": \" + this.fuel.getDisplay());\n\t\t\tif(this.fuelCap > 0) list.add(I18nUtil.resolveKey(\"item.missile.desc.fuelCapacity\") + \": \" + this.fuelCap + \"mB\");\n\t\t\tsuper.addInformation(itemstack, player, list, bool);\n\t\t}\n\t}"
+    },
+    "src/main/java/com/hbm/items/special/ItemSchraranium.java": {
+      "addInformation": "public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n\t\tif(GeneralConfig.enableLBSM && GeneralConfig.enableLBSMFullSchrab) list.add(\"pank\u00e6k\");\n\t}"
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmo.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\tsuper.addInformation(stack, player, list, ext);\n\t\t\n\t\tif(!altName.isEmpty()) list.add(TextFormatting.ITALIC + I18nUtil.resolveKey(altName));\n\n\t\tIAmmoItemEnum item = (IAmmoItemEnum) EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\tSet<AmmoItemTrait> ammoTraits = item.getTraits();\n\n\t\tif(ammoTraits.size() > 0) {\n\t\t\t\n\t\t\tArrayList<AmmoItemTrait> sortedTraits = new ArrayList<AmmoItemTrait>(ammoTraits);\n\t\t\tsortedTraits.sort(Comparator.reverseOrder());\n\t\t\tfor(AmmoItemTrait trait : sortedTraits) {\n\t\t\t\tfinal TextFormatting color;\n\t\t\t\tswitch(trait.toString().substring(0, 3)) {\n\t\t\t\tcase \"PRO\": color = TextFormatting.BLUE; break;\n\t\t\t\tcase \"NEU\": color = TextFormatting.YELLOW; break;\n\t\t\t\tcase \"CON\": color = TextFormatting.RED; break;\n\t\t\t\tdefault: color = TextFormatting.DARK_GRAY; break;\n\t\t\t\t}\n\t\t\t\tlist.add(color + I18nUtil.resolveKey(trait.key));\n\t\t\t}\n\t\t}\t\t\n\t}",
+      "getUnlocalizedName": "public String getUnlocalizedName(ItemStack stack) {\n\t\tIAmmoItemEnum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\treturn \"item.\" + num.getInternalName();\n\t}",
+      "setUnlocalizedName": "public ItemEnumMulti setUnlocalizedName(String uloc) {\n\t\tsetTextureName(RefStrings.MODID + ':' + uloc);\n\t\treturn (ItemEnumMulti) super.setUnlocalizedName(uloc);\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemBatteryPack.java": {
+      "addInformation": "public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n\t\tlong maxCharge = this.getMaxCharge(itemstack);\n\t\tlong chargeRate = this.getChargeRate(itemstack);\n\t\tlong dischargeRate = this.getDischargeRate(itemstack);\n\t\tlong charge = maxCharge;\n\t\t\n\t\tif(itemstack.hasTagCompound()) charge = getCharge(itemstack);\n\n\t\tlist.add(TextFormatting.GREEN + \"Energy stored: \" + BobMathUtil.getShortNumber(charge) + \"/\" + BobMathUtil.getShortNumber(maxCharge) + \"HE (\" + (charge * 1000 / maxCharge / 10D) + \"%)\");\n\t\tlist.add(TextFormatting.YELLOW + \"Charge rate: \" + BobMathUtil.getShortNumber(chargeRate) + \"HE/t\");\n\t\tlist.add(TextFormatting.YELLOW + \"Discharge rate: \" + BobMathUtil.getShortNumber(dischargeRate) + \"HE/t\");\n\t\tlist.add(TextFormatting.GOLD + \"Time for full charge: \" + (maxCharge / chargeRate / 20 / 60D) + \"min\");\n\t\tlist.add(TextFormatting.GOLD + \"Charge lasts for: \" + (maxCharge / dischargeRate / 20 / 60D) + \"min\");\n\t}",
+      "getSubItems": "public void getSubItems(Item item, CreativeTabs tab, List list) {\n\t\t\n\t\tEnum[] order = theEnum.getEnumConstants();\n\t\tif(order[0] instanceof IOrderedEnum) order = ((IOrderedEnum) order[0]).getOrder();\n\t\t\n\t\tfor(int i = 0; i < order.length; i++) {\n\t\t\tlist.add(makeEmptyBattery(new ItemStack(item, 1, order[i].ordinal())));\n\t\t\tlist.add(makeFullBattery(new ItemStack(item, 1, order[i].ordinal())));\n\t\t}\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemBatterySC.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\tEnumBatterySC pack = EnumUtil.grabEnumSafely(EnumBatterySC.class, stack.getItemDamage());\n\t\tif(pack.power > 0) list.add(TextFormatting.YELLOW + \"Discharge rate: \" + BobMathUtil.getShortNumber(pack.power) + \"HE/t\");\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemCircuit.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\t/*List<String> lines = new ArrayList();\n\n\t\tswitch(stack.getItemDamage()) {\n\t\tcase 0: lines.add(\"We taught this filament how to think.\"); break;\n\t\tcase 1: lines.add(\"3300\u00b5F\"); break;\n\t\tcase 2: lines.add(\"Sorry, we were out of flux capacitors, this is a regular one.\"); break;\n\t\tcase 3: lines.add(\"Laminated Sandwich Structure\u2122\"); break;\n\t\tcase 4: lines.add(\"Microscopic arcane sigils have given this rock anima.\"); break;\n\t\tcase 5: lines.add(\"Less tasty than it sounds.\"); break;\n\t\tcase 6: lines.add(\"The ALU is probably wired together correctly. Probably.\"); break;\n\t\tcase 7: lines.add(\"One final act of goodwill.\"); lines.add(\"If I have to hear the words \\\"Interplay\\\" or\"); lines.add(\"\\\"objectively better\\\" one more time I'll blow\"); lines.add(\"up Chris Avellone with a bazooka.\"); break;\n\t\tcase 8: lines.add(\"100% lead solder (not RoHS compliant)\"); break;\n\t\tcase 9: lines.add(\"It's red, that means it's better.\"); break;\n\t\tcase 10: lines.add(\"Uses that exceptionally stanky 90s yellow PCB.\"); break;\n\t\tcase 11: lines.add(\"Can do up to three different things (instead of two)!\"); break;\n\t\t}\n\n\t\tfor(String line : lines) {\n\t\t\tlist.add(EnumChatFormatting.ITALIC + line);\n\t\t}*/\n\t}",
+      "getSubItems": "public void getSubItems(Item item, CreativeTabs tab, List list) {\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.VACUUM_TUBE.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.NUMITRON.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR_TANTALIUM.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.ATOMIC_CLOCK.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.PCB.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.SILICON.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CHIP.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CHIP_BISMOID.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CHIP_QUANTUM.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.ANALOG.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.BASIC.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.ADVANCED.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR_BOARD.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.BISMOID.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.AVIONICS.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.AERO.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.GAAS.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.QUANTUM.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER_CHASSIS.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER_ADVANCED.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CONTROLLER_QUANTUM.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.CAPACITOR_LANTHANIUM.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.PROCESST1.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.PROCESST2.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.PROCESST3.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.GASCHIP.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.HFCHIP.ordinal()));\n\t\tlist.add(new ItemStack(item, 1, EnumCircuitType.MOLYCHIP.ordinal()));\n\t}"
+    },
+    "src/main/java/com/hbm/items/food/ItemConserve.java": {
+      "addInformation": "public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n\t\tString unloc = this.getUnlocalizedName(itemstack) + \".desc\";\n\t\tString loc = I18nUtil.resolveKey(unloc);\n\t\t\n\t\tif(!unloc.equals(loc)) {\n\t\t\tString[] locs = loc.split(\"\\\\$\");\n\t\t\t\n\t\t\tfor(String s : locs) {\n\t\t\t\tlist.add(s);\n\t\t\t}\n\t\t}\n\t}",
+      "getUnlocalizedName": "public String getUnlocalizedName(ItemStack stack) {\n\t\tEnum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\treturn \"item.canned_\" + num.name().toLowerCase(Locale.US);\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemDrillbit.java": {
+      "getUnlocalizedName": "public String getUnlocalizedName(ItemStack stack) {\n\t\tEnum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\treturn super.getUnlocalizedName() + \"_\" + num.name().toLowerCase(Locale.US);\n\t}",
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\tEnumDrillType type = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\n\t\tlist.add(TextFormatting.YELLOW + \"Speed: \" + ((int) (type.speed * 100)) + \"%\");\n\t\tlist.add(TextFormatting.YELLOW + \"Tier: \" + type.tier);\n\t\tif(type.fortune > 0) list.add(TextFormatting.LIGHT_PURPLE + \"Fortune \" + type.fortune);\n\t\tif(type.vein) list.add(TextFormatting.GREEN + \"Vein miner\");\n\t\tif(type.silk) list.add(TextFormatting.GREEN + \"Silk touch\");\n\t}"
+    },
+    "src/main/java/com/hbm/items/tool/ItemDrone.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\t\n\t\tif(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {\n\t\t\tfor(String s : I18nUtil.resolveKeyArray(stack.getUnlocalizedName() + \".desc\"))\n\t\t\t\tlist.add(TextFormatting.YELLOW + s);\n\t\t} else {\n\t\t\tlist.add(TextFormatting.DARK_GRAY + \"\" + TextFormatting.ITALIC + \"Hold <\" + TextFormatting.YELLOW + \"\" + TextFormatting.ITALIC + \"LSHIFT\" + TextFormatting.DARK_GRAY\n\t\t\t\t\t+ \"\" + TextFormatting.ITALIC + \"> to display more info\");\n\t\t}\n\t}"
+    },
+    "src/main/java/com/hbm/items/special/ItemExpensive.java": {
+      "addInformation": "public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n\t\tlist.add(TextFormatting.RED + \"Expensive mode item\");\n\t}"
+    },
+    "src/main/java/com/hbm/items/special/ItemHolotapeImage.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\t\n\t\tEnumHoloImage holo = EnumUtil.grabEnumSafely(EnumHoloImage.class, stack.getItemDamage());\n\t\tlist.add(\"Band Color: \" + holo.colorCode + holo.colorName);\n\t\tlist.add(\"Label: \" + holo.name);\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemPACoil.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\tEnumCoilType type = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\tlist.add(TextFormatting.BLUE + \"Quadrupole operational range: \" + TextFormatting.RESET + String.format(Locale.US, \"%,d\", type.quadMin) + \" - \" + String.format(Locale.US, \"%,d\", type.quadMax));\n\t\tlist.add(TextFormatting.BLUE + \"Dipole operational range: \" + TextFormatting.RESET + String.format(Locale.US, \"%,d\", type.diMin) + \" - \" + String.format(Locale.US, \"%,d\", type.diMax));\n\t\tlist.add(TextFormatting.BLUE + \"Dipole minimum side length: \" + TextFormatting.RESET + type.diDistMin);\n\t\tlist.add(TextFormatting.RED + \"Minimums not met result in a power draw penalty!\");\n\t\tlist.add(TextFormatting.RED + \"Maximums exceeded result in the particle crashing!\");\n\t\tlist.add(TextFormatting.RED + \"Particles will crash in dipoles if both penalties take effect!\");\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemPWRFuel.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\t\n\t\tEnumPWRFuel num = EnumUtil.grabEnumSafely(EnumPWRFuel.class, stack.getItemDamage());\n\t\t\n\t\tString color = TextFormatting.GOLD + \"\";\n\t\tString reset = TextFormatting.RESET + \"\";\n\t\t\n\t\tlist.add(color + \"Heat per flux: \" + reset + num.heatEmission + \" TU\");\n\t\tlist.add(color + \"Reaction function: \" + reset + num.function.getLabelForFuel());\n\t\tlist.add(color + \"Fuel type: \" + reset + num.function.getDangerFromFuel());\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemPistons.java": {
+      "getUnlocalizedName": "public String getUnlocalizedName(ItemStack stack) {\n\t\tEnum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\treturn super.getUnlocalizedName() + \"_\" + num.name().toLowerCase(Locale.US);\n\t}",
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\tEnumPistonType type = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\t\n\n\t\tlist.add(TextFormatting.YELLOW + \"Fuel efficiency:\");\n\t\tfor(int i = 0; i < type.eff.length; i++) {\n\t\t\tlist.add(TextFormatting.YELLOW + \"-\" + FuelGrade.values()[i].getGrade() + \": \" + TextFormatting.RED + \"\" + (int)(type.eff[i] * 100) + \"%\");\n\t\t}\n\t}"
+    },
+    "src/main/java/com/hbm/items/special/ItemTrain.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\tEnumTrainType train = EnumUtil.grabEnumSafely(this.theEnum, stack.getItemDamage());\n\n\t\tif(train.engine != null) list.add(TextFormatting.GREEN + \"Engine: \" + TextFormatting.RESET + train.engine);\n\t\tlist.add(TextFormatting.GREEN + \"Gauge: \" + TextFormatting.RESET + train.gauge);\n\t\tif(train.maxSpeed != null) list.add(TextFormatting.GREEN + \"Max Speed: \" + TextFormatting.RESET + train.maxSpeed);\n\t\tif(train.acceleration != null) list.add(TextFormatting.GREEN + \"Acceleration: \" + TextFormatting.RESET + train.acceleration);\n\t\tif(train.brakeThreshold != null) list.add(TextFormatting.GREEN + \"Engine Brake Threshold: \" + TextFormatting.RESET + train.brakeThreshold);\n\t\tif(train.parkingBrake != null) list.add(TextFormatting.GREEN + \"Parking Brake: \" + TextFormatting.RESET + train.parkingBrake);\n\t}"
+    },
+    "src/main/java/com/hbm/items/ItemVOTVdrive.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\tsuper.addInformation(stack, player, list, bool);\n\n\t\tDestination destination = getDestination(stack);\n\n\t\tif(destination.body == SolarSystem.Body.ORBIT) {\n\t\t\tString identifier = stack.stackTagCompound.getString(\"stationName\");\n\n\t\t\tif(identifier.equals(\"\")) identifier = \"0x\" + Integer.toHexString(new ChunkPos(destination.x, destination.z).hashCode()).toUpperCase();\n\n\t\t\tlist.add(\"Destination: ORBITAL STATION\");\n\t\t\tlist.add(\"Station: \" + identifier);\n\n\t\t\tif(player.worldObj.provider.dimensionId != destination.body.getDimensionId()) {\n\t\t\t\tfor(String s : I18nUtil.resolveKey(\"item.hard_drive_full.orbit.desc\").split(\"\\\\$\")) {\n\t\t\t\t\tlist.add(TextFormatting.GOLD + s);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\treturn;\n\t\t}\n\n\t\tint processingLevel = destination.body.getProcessingLevel(CelestialBody.getBody(player.worldObj));\n\n\t\tlist.add(\"Destination: \" + TextFormatting.AQUA + I18nUtil.resolveKey(\"body.\" + destination.body.name));\n\n\t\tif(destination.x == 0 && destination.z == 0) {\n\t\t\tlist.add(TextFormatting.GOLD + \"Needs destination coordinates!\");\n\t\t} else if(!getProcessed(stack)) {\n\t\t\t// Display processing level info if not processed\n\t\t\tlist.add(\"Process requirement: Level \" + processingLevel);\n\t\t\tlist.add(TextFormatting.GOLD + \"Needs processing!\");\n\t\t\tlist.add(\"Target coordinates: \" + destination.x + \", \" + destination.z);\n\t\t} else {\n\t\t\t// Display destination info if processed\n\t\t\tlist.add(TextFormatting.GREEN + \"Processed!\");\n\t\t\tlist.add(\"Target coordinates: \" + destination.x + \", \" + destination.z);\n\t\t}\n\n\t\tif(player.worldObj.provider.dimensionId == destination.body.getDimensionId()) {\n\t\t\tfor(String s : I18nUtil.resolveKey(\"item.hard_drive_full.surface.desc\").split(\"\\\\$\")) {\n\t\t\t\tlist.add(TextFormatting.GOLD + s);\n\t\t\t}\n\t\t}\n\t}",
+      "getSubItems": "public void getSubItems(Item item, CreativeTabs tab, List list) {\n\t\tNBTTagCompound stackTag = new NBTTagCompound();\n\t\tstackTag.setInteger(\"x\", 1);\n\t\tstackTag.setInteger(\"ax\", 1);\n\t\tstackTag.setBoolean(\"Processed\", true);\n\t\tfor(int i = 0; i < theEnum.getEnumConstants().length; i++) {\n\t\t\tItemStack stack = new ItemStack(item, 1, i);\n\t\t\tstack.stackTagCompound = stackTag;\n\t\t\tlist.add(stack);\n\t\t}\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemWatzPellet.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\t\n\t\tif(this != ModItems.watz_pellet) return;\n\t\t\n\t\tEnumWatzType num = EnumUtil.grabEnumSafely(EnumWatzType.class, stack.getItemDamage());\n\t\t\n\t\tlist.add(TextFormatting.GREEN + \"Depletion: \" + String.format(Locale.US, \"%.1f\", getDurabilityForDisplay(stack) * 100D) + \"%\");\n\t\t\n\t\tString color = TextFormatting.GOLD + \"\";\n\t\tString reset = TextFormatting.RESET + \"\";\n\n\t\tif(num.passive > 0){\n\t\t\tlist.add(color + \"Base fission rate: \" + reset + num.passive);\n\t\t\tlist.add(TextFormatting.RED + \"Self-igniting!\");\n\t\t}\n\t\tif(num.heatEmission > 0) list.add(color + \"Heat per flux: \" + reset + num.heatEmission + \" TU\");\n\t\tif(num.burnFunc != null) {\n\t\t\tlist.add(color + \"Reaction function: \" + reset + num.burnFunc.getLabelForFuel());\n\t\t\tlist.add(color + \"Fuel type: \" + reset + num.burnFunc.getDangerFromFuel());\n\t\t}\n\t\tif(num.heatDiv != null) list.add(color + \"Thermal multiplier: \" + reset + num.heatDiv.getLabelForFuel() + \" TU\u207b\u00b9\");\n\t\tif(num.absorbFunc != null) list.add(color + \"Flux capture: \" + reset + num.absorbFunc.getLabelForFuel());\n\t}"
+    },
+    "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java": {
+      "addInformation": "public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n\t\t\n\t\t\n\t\tEnumZirnoxType num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\tlist.add(TextFormatting.YELLOW + I18nUtil.resolveKey(\"trait.rbmk.depletion\", ((int)((((double)getLifeTime(stack)) / (double)num.maxLife) * 100000)) / 1000D + \"%\"));\n\t\tString[] loc = I18nUtil.resolveKeyArray(\"desc.item.zirnox\" + (num.breeding ? \"BreedingRod\" : \"Rod\"), BobMathUtil.getShortNumber(num.maxLife));\n\n\t\tif(num.breeding)\n\t\t\tloc = I18nUtil.resolveKeyArray(\"desc.item.zirnoxBreedingRod\", BobMathUtil.getShortNumber(num.maxLife));\n\t\telse\n\t\t\tloc = I18nUtil.resolveKeyArray(\"desc.item.zirnoxRod\", num.heat, BobMathUtil.getShortNumber(num.maxLife));\n\t\t\n\t\tfor(String s : loc) {\n\t\t\tlist.add(s);\n\t\t}\n\t}",
+      "getUnlocalizedName": "public String getUnlocalizedName(ItemStack stack) {\n\t\tEnum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());\n\t\treturn super.getUnlocalizedName() + \"_\" + num.name().toLowerCase(Locale.US);\n\t}"
+    }
+  },
+  "descendants": {
+    "ItemCustomLore": [
+      "ItemMissile",
+      "ItemSchraranium",
+      "ItemSimpleConsumable"
+    ],
+    "ItemEnumMulti": [
+      "ItemAmmo",
+      "ItemArcElectrode",
+      "ItemArcElectrodeBurnt",
+      "ItemBatteryPack",
+      "ItemBatterySC",
+      "ItemBedrockOre",
+      "ItemBreedingRod",
+      "ItemByproduct",
+      "ItemChemicalDye",
+      "ItemCircuit",
+      "ItemCircuitStarComponent",
+      "ItemConserve",
+      "ItemDrillbit",
+      "ItemDrone",
+      "ItemExpensive",
+      "ItemFlask",
+      "ItemGenericPart",
+      "ItemHoloTape",
+      "ItemHolotapeImage",
+      "ItemPACoil",
+      "ItemPWRFuel",
+      "ItemPistons",
+      "ItemPlasticScrap",
+      "ItemProduct",
+      "ItemRTGPelletDepleted",
+      "ItemTrain",
+      "ItemVOTVdrive",
+      "ItemWatzPellet",
+      "ItemZirnoxRod"
+    ]
+  }
+}

@@ -48,10 +48,10 @@ public class GUIOilburner extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 		
 		if(guiLeft + 80 <= x && guiLeft + 80 + 16 > x && guiTop + 54 < y && guiTop + 54 + 14 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("toggle", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, diFurnace.xCoord, diFurnace.yCoord, diFurnace.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, diFurnace.getPos().getX(), diFurnace.getPos().getY(), diFurnace.getPos().getZ()));
 			
 		}
 		
@@ -61,8 +61,8 @@ public class GUIOilburner extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.diFurnace.hasCustomInventoryName() ? this.diFurnace.getInventoryName() : I18n.format(this.diFurnace.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

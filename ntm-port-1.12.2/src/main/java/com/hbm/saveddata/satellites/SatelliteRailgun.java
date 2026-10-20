@@ -90,7 +90,7 @@ public class SatelliteRailgun extends SatelliteWar {
 			} else {
 				CBT_War war = target.getTrait(CBT_War.class);
 				if(war != null) {
-					float rand = Minecraft.getMinecraft().theWorld.rand.nextFloat();
+					float rand = Minecraft.getMinecraft().world.rand.nextFloat();
 					//TODO: be able to choose projectile types
 					Projectile projectile = new Projectile(100, 20, 50, 28 * rand * 5, 55, 20, ProjectileType.SMALL, body.dimensionId);
 					projectile.GUIangle = (int) (rand * 360);
@@ -103,7 +103,7 @@ public class SatelliteRailgun extends SatelliteWar {
 	}
 
 	public void playsound() {
-		Minecraft.getMinecraft().thePlayer.playSound("hbm:misc.fireflash", 10F, 1F);
+		Minecraft.getMinecraft().player.playSound("hbm:misc.fireflash", 10F, 1F);
 	}
 
 	@Override

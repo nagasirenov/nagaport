@@ -28,7 +28,7 @@ public class GUIPlasticBag extends GuiContainer {
 	@Override
 	public void drawScreen(int x, int y, float interp) {
 		if(firstHeld == null) {
-			firstHeld = this.mc.thePlayer.getHeldItem();
+			firstHeld = com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player);
 		}
 		
 		super.drawScreen(x, y, interp);
@@ -36,7 +36,7 @@ public class GUIPlasticBag extends GuiContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

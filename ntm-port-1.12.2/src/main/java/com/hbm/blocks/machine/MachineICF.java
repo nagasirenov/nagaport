@@ -14,7 +14,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineICF extends BlockDummyable {
 
 	public MachineICF() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

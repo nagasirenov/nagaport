@@ -226,7 +226,7 @@ public class FluidType {
 	 * @param overflowAmount
 	 */
 	public void onFluidRelease(TileEntity te, FluidTank tank, int overflowAmount) {
-		this.onFluidRelease(te.getWorldObj(), te.xCoord, te.yCoord, te.zCoord, tank, overflowAmount);
+		this.onFluidRelease(te.getWorld(), te.getPos().getX(), te.getPos().getY(), te.getPos().getZ(), tank, overflowAmount);
 	}
 	
 	public void onFluidRelease(World world, int x, int y, int z, FluidTank tank, int overflowAmount) { }

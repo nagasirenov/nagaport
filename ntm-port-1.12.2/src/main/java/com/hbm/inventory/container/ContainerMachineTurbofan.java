@@ -9,7 +9,7 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -40,9 +40,9 @@ public class ContainerMachineTurbofan extends Container {
 		}
 	}
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 1, this.diFurnace.afterburner);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
+		crafting.sendWindowProperty(this, 1, this.diFurnace.afterburner);
 	}
 	
 	@Override
@@ -83,20 +83,20 @@ public class ContainerMachineTurbofan extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return diFurnace.isUseableByPlayer(player);
+		return diFurnace.isUsableByPlayer(player);
 	}
 	
 	@Override
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 		
-		for(int i = 0; i < this.crafters.size(); i++)
+		for(int i = 0; i < this.listeners.size(); i++)
 		{
-			ICrafting par1 = (ICrafting)this.crafters.get(i);
+			IContainerListener par1 = (IContainerListener)this.listeners.get(i);
 			
 			if(this.afterburner != this.diFurnace.afterburner)
 			{
-				par1.sendProgressBarUpdate(this, 1, this.diFurnace.afterburner);
+				par1.sendWindowProperty(this, 1, this.diFurnace.afterburner);
 			}
 		}
 		

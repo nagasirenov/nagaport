@@ -1,0 +1,5 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BarbedWire.java": "24fb3939ec5d189e3b21064da3c263e85570aa6b161e7d3011fe13b194535c6c",
+  "src/main/java/com/hbm/world/generator/DungeonToolbox.java": "c77a86116e4eb1a4c31f17524e45fd05554e08330efed47655751eaa2aaca11c",
+  "src/main/java/com/hbm/main/BarbedWireObjModelHandler.java": "fc22eef4ba554970cc2589b3a0f43639c88cbc2166e512d634d780e9c7adb7bb"
+}

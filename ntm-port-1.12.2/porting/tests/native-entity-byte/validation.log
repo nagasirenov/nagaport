@@ -1,0 +1,3 @@
+PASS: 39 operations, seven per-owner BYTE keys, exact CP62 inverse source, independent ranges/receiver attribution and guarded shared-renderer closure
+PASS: 8821 native BYTE protocol, exhaustive bit-mask/mode, owner and NBT assertions
+PASS: five actual synchronization/NBT method fixtures with native Entity/EntityThrowable parents and exact renderer condition

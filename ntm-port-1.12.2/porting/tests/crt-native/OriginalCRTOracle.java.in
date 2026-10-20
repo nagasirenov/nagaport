@@ -1,0 +1,31 @@
+import java.util.*;
+/** Executes unmodified pristine callback bodies in a recording fixture, not a native API facade. */
+final class OriginalCRTOracle {
+ static Layout active;
+ static final class Layer {String group;int variant,light;float yaw;boolean shadow;double x,y,z;Layer(String g,IIcon i,float r,boolean s){group=g;variant=i.variant;light=Tessellator.instance.brightness;yaw=r;shadow=s;x=active.x;y=active.y;z=active.z;}}
+ static final class Layout {List<Layer> layers=new ArrayList<>();double x,y,z;int starts,draws,brightnessCalls;}
+ static final class IIcon {int variant;IIcon(int v){variant=v;}}
+ static class IBlockAccess {int meta;IBlockAccess(int m){meta=m;}int getBlockMetadata(int x,int y,int z){return meta;}}
+ static final class World extends IBlockAccess {int flags,writes;World(int m){super(m);}void setBlockMetadataWithNotify(int x,int y,int z,int m,int f){meta=m;flags=f;writes++;}}
+ static final class EntityLivingBase {float rotationYaw;}
+ static final class ItemStack {int damage;ItemStack(int d){damage=d;}int getItemDamage(){return damage;}}
+ static final class MathHelper {static int floor_double(double v){int n=(int)v;return v<n?n-1:n;}}
+ static final class INBTBlockTransformable {/* TRANSFORM */}
+ static class Block {
+  IIcon getIcon(int side,int meta){return new IIcon(new Owner().damageDropped(meta));}
+  int getMixedBrightnessForBlock(IBlockAccess world,int x,int y,int z){return 0x00a00070;}
+ }
+ static final class Owner extends Block {/* OWNER */}
+ static final class RenderBlocks {IIcon overrideBlockTexture;boolean hasOverrideBlockTexture(){return overrideBlockTexture!=null;}}
+ static final class Tessellator {static final Tessellator instance=new Tessellator();int brightness;void setBrightness(int b){brightness=b;active.brightnessCalls++;}void setColorOpaque_F(float r,float g,float b){}void startDrawingQuads(){active.starts++;}void draw(){active.draws++;}void addTranslation(float x,float y,float z){active.x+=x;active.y+=y;active.z+=z;}}
+ static final class GL11 {static void glPushMatrix(){}static void glPopMatrix(){}static void glTranslated(double x,double y,double z){active.x+=x;active.y+=y;active.z+=z;}}
+ static final class HFRWavefrontObject {}
+ static final class ResourceManager {static final HFRWavefrontObject crt=new HFRWavefrontObject();}
+ static final class ObjUtil {static void renderWithIcon(HFRWavefrontObject m,IIcon i,Tessellator t,float r,boolean s){active.layers.add(new Layer(null,i,r,s));}static void renderPartWithIcon(HFRWavefrontObject m,String g,IIcon i,Tessellator t,float r,boolean s){active.layers.add(new Layer(g,i,r,s));}}
+ static final class Renderer {/* RENDER */}
+ static Layout layout(int meta,boolean item){active=new Layout();Tessellator.instance.brightness=0;Renderer r=new Renderer();if(item)r.renderInventoryBlock(new Block(),meta,0,new RenderBlocks());else r.renderWorldBlock(new IBlockAccess(meta),0,0,0,new Block(),0,new RenderBlocks());return active;}
+ static World placed(int variant,float yaw){Owner b=new Owner();World w=new World(0);EntityLivingBase p=new EntityLivingBase();p.rotationYaw=yaw;b.onBlockPlacedBy(w,0,0,0,p,new ItemStack(variant));return w;}
+ static final class Normal {double xCoord,yCoord,zCoord;Normal(double[] n){xCoord=n[0];yCoord=n[1];zCoord=n[2];}}
+ static final class Color {int value=-1;void setColorOpaque(int r,int g,int b){r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));value=0xff000000|(b<<16)|(g<<8)|r;}void setColorOpaque_F(float r,float g,float b){setColorOpaque((int)(r*255F),(int)(g*255F),(int)(b*255F));}}
+ static int color(double[] n,boolean shadow,boolean whole){Normal normal=new Normal(n);Color tes=new Color();boolean hasColor=false;int red=255,green=255,blue=255;if(whole){/* WHOLE */}else{/* PART */}return tes.value;}
+}

@@ -35,15 +35,15 @@ public class MachineHydroponic extends BlockDummyable implements ILookOverlay, I
 		super(mat);
 
 		// Middle
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.5, 0, -1.5, 0.5, 3, 1.5));
+		this.bounding.add(new AxisAlignedBB(-0.5, 0, -1.5, 0.5, 3, 1.5));
 
 		// Sides
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.125, 1, -2.5, 1.125, 3, -1.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.125, 1, 1.5, 1.125, 3, 2.5));
+		this.bounding.add(new AxisAlignedBB(-1.125, 1, -2.5, 1.125, 3, -1.5));
+		this.bounding.add(new AxisAlignedBB(-1.125, 1, 1.5, 1.125, 3, 2.5));
 
 		// Side butts
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.75, 0, -2.5, 0.75, 1, -1.5));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.75, 0, 1.5, 0.75, 1, 2.5));
+		this.bounding.add(new AxisAlignedBB(-0.75, 0, -2.5, 0.75, 1, -1.5));
+		this.bounding.add(new AxisAlignedBB(-0.75, 0, 1.5, 0.75, 1, 2.5));
 
 	}
 
@@ -130,7 +130,7 @@ public class MachineHydroponic extends BlockDummyable implements ILookOverlay, I
 		if(pos == null)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityHydroponic))
 			return;
@@ -144,7 +144,7 @@ public class MachineHydroponic extends BlockDummyable implements ILookOverlay, I
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + hydro.tanks[0].getTankType().getLocalizedName() + ": " + hydro.tanks[0].getFill() + "/" + hydro.tanks[0].getMaxFill() + "mB");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + hydro.tanks[1].getTankType().getLocalizedName() + ": " + hydro.tanks[1].getFill() + "/" + hydro.tanks[1].getMaxFill() + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

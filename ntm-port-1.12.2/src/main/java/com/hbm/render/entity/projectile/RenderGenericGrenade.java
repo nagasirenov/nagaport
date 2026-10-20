@@ -9,12 +9,17 @@ import com.hbm.inventory.fluid.FluidType;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGenericGrenade extends Render {
+
+	public RenderGenericGrenade(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {

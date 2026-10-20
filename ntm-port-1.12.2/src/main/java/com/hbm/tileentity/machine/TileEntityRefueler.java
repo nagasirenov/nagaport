@@ -20,7 +20,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidStandardReceiver {
+public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidStandardReceiver, net.minecraft.util.ITickable {
 
 	public double fillLevel;
 	public double prevFillLevel;
@@ -37,16 +37,16 @@ public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidSt
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void updateEntity() {
+	public void update() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-		if(!worldObj.isRemote) {
-			trySubscribe(tank.getTankType(), worldObj, xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir);
+		if(!this.world.isRemote) {
+			trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir);
 
 			isOperating = false;
 
-			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(0.5, 0.0, 0.5));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));
 
 			for(EntityPlayer player : players) {
 				for(int i = 0; i < 5; i++) {
@@ -73,7 +73,7 @@ public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidSt
 
 			if(isOperating) {
 				if(operatingTime % 20 == 0)
-					worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.fizz", 0.2F, 0.5F);
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "random.fizz", 0.2F, 0.5F);
 
 				operatingTime++;
 			} else {
@@ -83,14 +83,14 @@ public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidSt
 			networkPackNT(150);
 		} else {
 			if(isOperating) {
-				Random rand = worldObj.rand;
+				Random rand = this.world.rand;
 
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "fluidfill");
 				data.setInteger("color", tank.getTankType().getColor());
-				data.setDouble("posX", xCoord + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetX * 0.5 + rot.offsetX * 0.25);
-				data.setDouble("posZ", zCoord + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetZ * 0.5 + rot.offsetZ * 0.25);
-				data.setDouble("posY", yCoord + 0.375);
+				data.setDouble("posX", this.pos.getX() + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetX * 0.5 + rot.offsetX * 0.25);
+				data.setDouble("posZ", this.pos.getZ() + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetZ * 0.5 + rot.offsetZ * 0.25);
+				data.setDouble("posY", this.pos.getY() + 0.375);
 				data.setDouble("mX", -dir.offsetX + rand.nextGaussian() * 0.1);
 				data.setDouble("mZ", -dir.offsetZ + rand.nextGaussian() * 0.1);
 				data.setDouble("mY", 0D);
@@ -139,9 +139,10 @@ public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidSt
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override

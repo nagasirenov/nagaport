@@ -1,0 +1,16 @@
+{
+  "baseline_commit": "a60fe7806f90257b5dbfbe9a62f46b887946bf93",
+  "scope": "Geometry-reader type/data substitutions only; no renderer body API migration",
+  "readers": [
+    {
+      "path": "src/main/java/com/hbm/render/util/ObjUtil.java",
+      "baseline_sha256": "250bf35a453efac36a82fe99d1403dc0ae0e7aab176bec8828b87d97c8c63e54",
+      "migrated_sha256": "2d2799c24f4985d4afdbad3023a1efab786e73ed57143d975da29e07fa292fe1"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/block/RenderMirror.java",
+      "baseline_sha256": "7c936c8b5a86a075483e9c0b1c42c2d79235e2112bdfcd37b8754162be7006d9",
+      "migrated_sha256": "fa33beaaf01ba2c50b61850de842e57abda986f43ff145fe91152ae9ebc6778d"
+    }
+  ]
+}

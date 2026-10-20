@@ -56,15 +56,15 @@ public class Balefire extends BlockFire {
 		if(world.getGameRules().getGameRuleBooleanValue("doFireTick")) {
 
 			if(!this.canPlaceBlockAt(world, x, y, z)) {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			}
 
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 			if(meta < 15) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + rand.nextInt(10));
 
 			if(!this.canNeighborBurn(world, x, y, z) && !World.doesBlockHaveSolidTopSurface(world, x, y - 1, z)) {
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			} else {
 				if(meta < 15) {
 					this.tryCatchFire(world, x + 1, y, z, 500, rand, meta, WEST);
@@ -87,7 +87,7 @@ public class Balefire extends BlockFire {
 										fireLimit += (iy - (y + 1)) * 100;
 									}
 									
-									if(world.getBlock(ix, iy, iz) == ModBlocks.balefire && world.getBlockMetadata(ix, iy, iz) > meta + 1) {
+									if(com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock() == ModBlocks.balefire && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) ) > meta + 1) {
 										world.setBlock(ix, iy, iz, this, meta + 1, 3);
 										continue;
 									}
@@ -117,12 +117,12 @@ public class Balefire extends BlockFire {
 		int flammability = world.getBlockState(pos).getBlock().getFlammability(world, pos, facing);
 
 		if(rand.nextInt(chance) < flammability) {
-			boolean flag = world.getBlock(x, y, z) == Blocks.tnt;
+			boolean flag = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.TNT;
 
 			world.setBlock(x, y, z, this, fireMetadata + 1, 3);
 
 			if(flag) {
-				Blocks.tnt.onBlockDestroyedByPlayer(world, x, y, z, 1);
+				Blocks.TNT.onBlockDestroyedByPlayer(world, x, y, z, 1);
 			}
 		}
 	}

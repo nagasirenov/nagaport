@@ -1,0 +1,18 @@
+Portable copy: /tmp/jei-portable-no-git-vqrhdoou
+Actual git rev-parse --show-toplevel exit: 128
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Copied 37 selected production/test/fixture files; no Git metadata.
+PASS: 30 optional-browser source contracts; exact 20-file comparator-only delta, unchanged visibility and optional GUI.
+Note: /tmp/jei-portable-no-git-vqrhdoou/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: complete production plugin/core/matcher/visibility/catalyst sources compile with NEI jar removed.
+PASS: 117379 native matcher checks; 242 stack variants, both ordered predicates against pinned NEI 2.4.3.245.
+[15:31:20] [main/INFO]: Processing ObjectHolder annotations
+[15:31:20] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS: 311 optional-browser checks (oracle); actual MC/Forge/JEI with isolated NTM registry/category/GUI collaborators.
+[15:31:22] [main/INFO]: Processing ObjectHolder annotations
+[15:31:22] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS: 99 optional-browser checks (no-nei); actual MC/Forge/JEI with isolated NTM registry/category/GUI collaborators.
+PASS: isolated no-NEI classloader; negative adapter control fails as expected; complete scoped plugin/helper execution requests zero NEI classes.
+Scope: complete scoped sources against isolated NTM collaborators, not full-mod/client or Forge optional GUI lifecycle.

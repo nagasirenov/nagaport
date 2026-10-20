@@ -1,0 +1,27 @@
+// Bounded production drop extraction, native ItemStack/NBT/EntityItem fixtures.
+allprojects {
+    afterEvaluate {
+        def sourceCheck = tasks.create('checkPortMachineDropsSource', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-machine-drops-source.py')
+        }
+        def extract = tasks.create('extractPortMachineDrops', Exec) {
+            dependsOn sourceCheck
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/probe-machine-drops.py')
+        }
+        def probe = tasks.create('compilePortMachineDropsProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            dependsOn extract
+            source project.file('build/portMachineDropsProbeSrc/ExtractedMachineDrops.java')
+            source project.file('porting/tests/MachineDropsNativeTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portMachineDropsProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('testPortMachineDrops', JavaExec) {
+            dependsOn probe
+            classpath = files(probe.destinationDir) + probe.classpath
+            main = 'MachineDropsNativeTest'
+        }
+    }
+}

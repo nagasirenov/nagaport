@@ -39,14 +39,14 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 		if(posY > 600)
 			posY = 600;
         
-        if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.air) {
+        if(com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getBlock() != Blocks.AIR) {
         	
     		this.setDead();
     		
-    		if(!worldObj.isRemote) {
-    			worldObj.setBlock((int)(this.posX), (int)(this.posY + 1), (int)(this.posZ), ModBlocks.soyuz_capsule);
+    		if(!this.world.isRemote) {
+    			this.world.setBlock((int)(this.posX), (int)(this.posY + 1), (int)(this.posZ), ModBlocks.soyuz_capsule);
     			
-    			TileEntitySoyuzCapsule capsule = (TileEntitySoyuzCapsule)worldObj.getTileEntity((int)(this.posX), (int)(this.posY + 1), (int)(this.posZ));
+    			TileEntitySoyuzCapsule capsule = (TileEntitySoyuzCapsule)this.world.getTileEntity((int)(this.posX), (int)(this.posY + 1), (int)(this.posZ));
     			if(capsule != null) {
     				
     				for(int i = 0; i < payload.length; i++) {

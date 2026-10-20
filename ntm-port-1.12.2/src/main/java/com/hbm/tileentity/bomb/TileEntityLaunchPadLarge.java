@@ -48,9 +48,9 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 	@Override public double getLaunchOffset() { return 2D; }
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.prevLift = this.lift;
 			this.prevErector = this.erector;
@@ -151,8 +151,8 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 			if(this.prevLift != this.lift) this.liftMoving = true;
 			if(this.prevErector != this.erector) this.erectorMoving = true;
 
-			if(prevLiftMoving && !this.liftMoving) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:door.wgh_stop", 2F, 1F);
-			if(prevErectorMoving && !this.erectorMoving) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:door.garage_stop", 2F, 1F);
+			if(prevLiftMoving && !this.liftMoving) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:door.wgh_stop", 2F, 1F);
+			if(prevErectorMoving && !this.erectorMoving) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:door.garage_stop", 2F, 1F);
 
 		} else {
 			this.prevLift = this.lift;
@@ -169,7 +169,7 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 
 			if(this.liftMoving) {
 				if(this.audioLift == null || !this.audioLift.isPlaying()) {
-					this.audioLift = MainRegistry.proxy.getLoopedSound("hbm:door.wgh_start", xCoord, yCoord, zCoord, 0.75F, 25F, 1.0F, 5);
+					this.audioLift = MainRegistry.proxy.getLoopedSound("hbm:door.wgh_start", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.75F, 25F, 1.0F, 5);
 					this.audioLift.startSound();
 				}
 				this.audioLift.keepAlive();
@@ -182,7 +182,7 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 
 			if(this.erectorMoving) {
 				if(this.audioErector == null || !this.audioErector.isPlaying()) {
-					this.audioErector = MainRegistry.proxy.getLoopedSound("hbm:door.garage_move", xCoord, yCoord, zCoord, 1.5F, 25F, 1.0F, 5);
+					this.audioErector = MainRegistry.proxy.getLoopedSound("hbm:door.garage_move", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.5F, 25F, 1.0F, 5);
 					this.audioErector.startSound();
 				}
 				this.audioErector.keepAlive();
@@ -199,30 +199,30 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 				data.setFloat("lift", 0F);
 				data.setFloat("base", 0.5F);
 				data.setFloat("max", 2F);
-				data.setInteger("life", 70 + worldObj.rand.nextInt(30));
-				data.setDouble("posX", xCoord + 0.5 + worldObj.rand.nextGaussian() * 0.5);
-				data.setDouble("posZ", zCoord + 0.5 + worldObj.rand.nextGaussian() * 0.5);
-				data.setDouble("posY", yCoord + 2);
+				data.setInteger("life", 70 + this.world.rand.nextInt(30));
+				data.setDouble("posX", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5);
+				data.setDouble("posZ", this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5);
+				data.setDouble("posY", this.pos.getY() + 2);
 				data.setBoolean("noWind", true);
 				data.setFloat("alphaMod", 2F);
 				data.setFloat("strafe", 0.05F);
 				for(int i = 0; i < 3; i++) MainRegistry.proxy.effectNT(data);
 			}
 
-			List<EntityMissileBaseNT> entities = worldObj.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(xCoord - 0.5, yCoord, zCoord - 0.5, xCoord + 1.5, yCoord + 10, zCoord + 1.5));
+			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
 
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-					if(worldObj.rand.nextBoolean()) dir = dir.getOpposite();
-					float moX = (float) (worldObj.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetX;
-					float moZ = (float) (worldObj.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetZ;
+					if(this.world.rand.nextBoolean()) dir = dir.getOpposite();
+					float moX = (float) (this.world.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetX;
+					float moZ = (float) (this.world.rand.nextGaussian() * 0.15F + 0.75) * dir.offsetZ;
 
 					NBTTagCompound data = new NBTTagCompound();
-					data.setDouble("posX", xCoord + 0.5);
-					data.setDouble("posY", yCoord + 0.25);
-					data.setDouble("posZ", zCoord + 0.5);
+					data.setDouble("posX", this.pos.getX() + 0.5);
+					data.setDouble("posY", this.pos.getY() + 0.25);
+					data.setDouble("posZ", this.pos.getZ() + 0.5);
 					data.setString("type", "launchSmoke");
 					data.setDouble("moX", moX);
 					data.setDouble("moY", 0);
@@ -232,7 +232,7 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -277,7 +277,7 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("erected", erected);
@@ -285,6 +285,7 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 		nbt.setFloat("lift", lift);
 		nbt.setFloat("erector", erector);
 		nbt.setInteger("formFactor", formFactor);
+		return nbt;
 	}
 
 	@Override
@@ -296,14 +297,14 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 5, yCoord, zCoord - 2, Library.POS_X),
-				new DirPos(xCoord + 5, yCoord, zCoord + 2, Library.POS_X),
-				new DirPos(xCoord - 5, yCoord, zCoord - 2, Library.NEG_X),
-				new DirPos(xCoord - 5, yCoord, zCoord + 2, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 5, Library.POS_Z),
-				new DirPos(xCoord + 2, yCoord, zCoord + 5, Library.POS_Z),
-				new DirPos(xCoord - 2, yCoord, zCoord - 5, Library.NEG_Z),
-				new DirPos(xCoord + 2, yCoord, zCoord - 5, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 5, this.pos.getY(), this.pos.getZ() - 2, Library.POS_X),
+				new DirPos(this.pos.getX() + 5, this.pos.getY(), this.pos.getZ() + 2, Library.POS_X),
+				new DirPos(this.pos.getX() - 5, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_X),
+				new DirPos(this.pos.getX() - 5, this.pos.getY(), this.pos.getZ() + 2, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 5, Library.POS_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 5, Library.POS_Z),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 5, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 5, Library.NEG_Z)
 		};
 	}
 
@@ -314,12 +315,12 @@ public class TileEntityLaunchPadLarge extends TileEntityLaunchPadBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 10,
-					yCoord,
-					zCoord - 10,
-					xCoord + 11,
-					yCoord + 15,
-					zCoord + 11
+					this.pos.getX() - 10,
+					this.pos.getY(),
+					this.pos.getZ() - 10,
+					this.pos.getX() + 11,
+					this.pos.getY() + 15,
+					this.pos.getZ() + 11
 					);
 		}
 

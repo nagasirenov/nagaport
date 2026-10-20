@@ -25,6 +25,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.IModel;
+import net.minecraftforge.client.model.ICustomModelLoader;
+import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.client.model.obj.OBJLoader;
@@ -37,7 +39,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public final class BarbedWireObjModelHandler {
 
-	private static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, "models/blocks/barbed_wire.obj");
+	private static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, "blocks/barbed_wire.obj");
 	private static final BarbedWire[] BLOCKS = {
 		(BarbedWire) ModBlocks.barbed_wire,
 		(BarbedWire) ModBlocks.barbed_wire_fire,
@@ -47,9 +49,22 @@ public final class BarbedWireObjModelHandler {
 		(BarbedWire) ModBlocks.barbed_wire_ultradeath
 	};
 
+	/** Exact blockstate route to the original plural-directory OBJ asset. */
+	private enum StateModelLoader implements ICustomModelLoader {
+		INSTANCE;
+		@Override public boolean accepts(ResourceLocation location) {
+			return location.equals(new ResourceLocation(RefStrings.MODID, "models/block/barbed_wire"));
+		}
+		@Override public IModel loadModel(ResourceLocation location) throws Exception {
+			return ModelLoaderRegistry.getModel(MODEL);
+		}
+		@Override public void onResourceManagerReload(IResourceManager manager) { }
+	}
+
 	@SubscribeEvent
 	public void onModelRegistry(ModelRegistryEvent event) {
 		OBJLoader.INSTANCE.addDomain(RefStrings.MODID);
+		ModelLoaderRegistry.registerLoader(StateModelLoader.INSTANCE);
 
 		for(BarbedWire block : BLOCKS) {
 			ResourceLocation name = block.getRegistryName();

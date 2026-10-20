@@ -40,7 +40,7 @@ public class EntityBomber extends EntityPlaneBase {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			if(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {
 				if(audio == null || !audio.isPlaying()) {
 					int bomberType = this.dataWatcher.getWatchableObjectByte(16);
@@ -62,29 +62,29 @@ public class EntityBomber extends EntityPlaneBase {
 			}
 		}
 		
-		if(!worldObj.isRemote && this.health > 0 && this.ticksExisted > bombStart && this.ticksExisted < bombStop && this.ticksExisted % bombRate == 0) {
+		if(!this.world.isRemote && this.health > 0 && this.ticksExisted > bombStart && this.ticksExisted < bombStop && this.ticksExisted % bombRate == 0) {
 			
 			if(type == 3) {
-				worldObj.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "random.fizz", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
-				ExplosionChaos.spawnPoisonCloud(worldObj, this.posX, this.posY - 1F, this.posZ, 10, 0.5, 3);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "random.fizz", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
+				ExplosionChaos.spawnPoisonCloud(this.world, this.posX, this.posY - 1F, this.posZ, 10, 0.5, 3);
 
 			} else if(type == 5) {
 
 			} else if(type == 6) {
-				worldObj.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "hbm:weapon.missileTakeOff", 10.0F, 0.9F + rand.nextFloat() * 0.2F);
-				EntityBoxcar rocket = new EntityBoxcar(worldObj);
+				com.hbm.sound.WorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "hbm:weapon.missileTakeOff", 10.0F, 0.9F + rand.nextFloat() * 0.2F);
+				EntityBoxcar rocket = new EntityBoxcar(this.world);
 				rocket.posX = posX + rand.nextDouble() - 0.5;
 				rocket.posY = posY - rand.nextDouble();
 				rocket.posZ = posZ + rand.nextDouble() - 0.5;
-				worldObj.spawnEntityInWorld(rocket);
+				this.world.spawnEntityInWorld(rocket);
 
 			} else if(type == 7) {
-				worldObj.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "random.fizz", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
-				ExplosionChaos.spawnPoisonCloud(worldObj, this.posX, worldObj.getHeightValue((int) this.posX, (int) this.posZ) + 2, this.posZ, 10, 1, 2);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "random.fizz", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
+				ExplosionChaos.spawnPoisonCloud(this.world, this.posX, this.world.getHeightValue((int) this.posX, (int) this.posZ) + 2, this.posZ, 10, 1, 2);
 			
 			} else {
-				worldObj.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "hbm:entity.bombWhistle", 10.0F, 0.9F + rand.nextFloat() * 0.2F);
-				EntityBombletZeta zeta = new EntityBombletZeta(worldObj);
+				com.hbm.sound.WorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), "hbm:entity.bombWhistle", 10.0F, 0.9F + rand.nextFloat() * 0.2F);
+				EntityBombletZeta zeta = new EntityBombletZeta(this.world);
 				zeta.rotation();
 				zeta.type = type;
 				zeta.posX = posX + rand.nextDouble() - 0.5;
@@ -95,7 +95,7 @@ public class EntityBomber extends EntityPlaneBase {
 				} else {
 					zeta.motionX = motionX; zeta.motionZ = motionZ;
 				}
-				worldObj.spawnEntityInWorld(zeta);
+				this.world.spawnEntityInWorld(zeta);
 			}
 		}
 	}

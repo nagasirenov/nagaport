@@ -7,6 +7,9 @@ import com.hbm.entity.mob.glyphid.EntityGlyphidScout;
 import com.hbm.main.MainRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
@@ -15,6 +18,8 @@ import static com.hbm.entity.mob.glyphid.EntityGlyphid.*;
 import java.util.List;
 
 public class EntityWaypoint extends Entity {
+
+	private static final DataParameter<Integer> WAYPOINT_TYPE = EntityDataManager.createKey(EntityWaypoint.class, DataSerializers.VARINT);
 	public EntityWaypoint(World world) {
 		super(world);
 		this.isImmuneToFire = true;
@@ -23,7 +28,7 @@ public class EntityWaypoint extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(10, 0);
+		this.dataManager.register(WAYPOINT_TYPE, 0);
 		// this.dataWatcher.addObject(11, 0);
 
 	}
@@ -38,7 +43,7 @@ public class EntityWaypoint extends Entity {
 	}
 
 	public int getWaypointType() {
-		return this.dataWatcher.getWatchableObjectInt(10);
+		return this.dataManager.get(WAYPOINT_TYPE);
 	}
 
 	public void setAdditionalWaypoint(EntityWaypoint waypoint) {
@@ -46,7 +51,7 @@ public class EntityWaypoint extends Entity {
 	}
 
 	public void setWaypointType(int waypointType) {
-		this.dataWatcher.updateObject(10, waypointType);
+		this.dataManager.set(WAYPOINT_TYPE, waypointType);
 	}
 
 	boolean hasSpawned = false;
@@ -71,11 +76,11 @@ public class EntityWaypoint extends Entity {
 
 		bb = AxisAlignedBB.getBoundingBox(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(ticksExisted % 40 == 0) {
 
-				List<Entity> targets = worldObj.getEntitiesWithinAABBExcludingEntity(this, bb);
+				List<Entity> targets = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 
 				for(Entity e : targets) {
 					if(e instanceof EntityGlyphid) {
@@ -83,7 +88,7 @@ public class EntityWaypoint extends Entity {
 						EntityGlyphid bug = ((EntityGlyphid) e);
 
 						if(additional != null && !hasSpawned) {
-							worldObj.spawnEntityInWorld(additional);
+							this.world.spawnEntityInWorld(additional);
 							hasSpawned = true;
 						}
 
@@ -113,7 +118,7 @@ public class EntityWaypoint extends Entity {
 			fx.setFloat("lift", 0.5F);
 			fx.setFloat("base", 0.75F);
 			fx.setFloat("max", 2F);
-			fx.setInteger("life", 50 + worldObj.rand.nextInt(10));
+			fx.setInteger("life", 50 + this.world.rand.nextInt(10));
 			fx.setInteger("color", getColor());
 			fx.setDouble("posX", x);
 			fx.setDouble("posY", y);

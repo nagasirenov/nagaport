@@ -1,0 +1,968 @@
+{
+  "baseline": "36387bc1c10fa9c36fbb27f5e9d44b45d474eb18",
+  "files": {
+    "src/main/java/com/hbm/entity/effect/EntityBlackHole.java": {
+      "before_sha256": "02945136c9ccb06beae2a8e5f2d2e06562c41538e8ce1dc628c1bae1e8ea558c",
+      "after_sha256": "d22fcd64095587bbc1130880c6349420c77e65f402533acaf51b2d853e85d4f3",
+      "edits": [
+        {
+          "before_offset": 644,
+          "after_offset": 644,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 809,
+          "after_offset": 974,
+          "old": "",
+          "new": "\n\tprotected static final DataParameter<Float> BLACK_HOLE_SIZE = EntityDataManager.createKey(EntityBlackHole.class, DataSerializers.FLOAT);\n"
+        },
+        {
+          "before_offset": 1061,
+          "after_offset": 1365,
+          "old": "\t\tthis.dataWatcher.updateObject(16, size);\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, size);\n"
+        },
+        {
+          "before_offset": 1109,
+          "after_offset": 1417,
+          "old": "",
+          "new": "\tpublic float getBlackHoleSize() {\n\t\treturn this.dataManager.get(BLACK_HOLE_SIZE);\n\t}\n\n"
+        },
+        {
+          "before_offset": 1254,
+          "after_offset": 1649,
+          "old": "\t\tfloat size = this.dataWatcher.getWatchableObjectFloat(16);\n",
+          "new": "\t\tfloat size = this.dataManager.get(BLACK_HOLE_SIZE);\n"
+        },
+        {
+          "before_offset": 4829,
+          "after_offset": 5217,
+          "old": "\t\tthis.dataWatcher.addObject(16, 0.5F);\n",
+          "new": "\t\tthis.dataManager.register(BLACK_HOLE_SIZE, 0.5F);\n"
+        },
+        {
+          "before_offset": 4940,
+          "after_offset": 5340,
+          "old": "\t\tthis.dataWatcher.updateObject(16, nbt.getFloat(\"size\"));\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, nbt.getFloat(\"size\"));\n"
+        },
+        {
+          "before_offset": 5123,
+          "after_offset": 5527,
+          "old": "\t\tnbt.setFloat(\"size\", this.dataWatcher.getWatchableObjectFloat(16));\n",
+          "new": "\t\tnbt.setFloat(\"size\", this.dataManager.get(BLACK_HOLE_SIZE));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityQuasar.java": {
+      "before_sha256": "8bb48d127c19679b20933eaa5ff7ff69a0bbaa9d0df699f1fa19a2a2ff9e4aa9",
+      "after_sha256": "27a07cfb3be1478d748647ddd8c681baf2b0d96906737a8616d92c79f20bc762",
+      "edits": [
+        {
+          "before_offset": 304,
+          "after_offset": 304,
+          "old": "\t\tthis.dataWatcher.updateObject(16, size);\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, size);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityRagingVortex.java": {
+      "before_sha256": "934c565ee26eb175418b709396dabe17019ce5af531239f82d9d1397f88d4558",
+      "after_sha256": "28fc7da11b8f8bc5ddd23b68560f33f104fa218dde44e0c6a44cd20176045be0",
+      "edits": [
+        {
+          "before_offset": 391,
+          "after_offset": 391,
+          "old": "\t\tthis.dataWatcher.updateObject(16, size);\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, size);\n"
+        },
+        {
+          "before_offset": 742,
+          "after_offset": 746,
+          "old": "\t\tthis.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - pulse - dec);\n\t\tif(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, this.dataManager.get(BLACK_HOLE_SIZE) - pulse - dec);\n\t\tif(this.dataManager.get(BLACK_HOLE_SIZE) <= 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityVortex.java": {
+      "before_sha256": "4b06191bfde9fac4ea3251b5f9d4f288ad54b0cf18b22ddf445fbf1ae16495d6",
+      "after_sha256": "610438d5a93cb6ce2cd1760a3c9e64574d4902067245694806430afadb0529ec",
+      "edits": [
+        {
+          "before_offset": 393,
+          "after_offset": 393,
+          "old": "\t\tthis.dataWatcher.updateObject(16, size);\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, size);\n"
+        },
+        {
+          "before_offset": 588,
+          "after_offset": 592,
+          "old": "\t\tthis.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - shrinkRate);\n\t\tif(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {\n",
+          "new": "\t\tthis.dataManager.set(BLACK_HOLE_SIZE, this.dataManager.get(BLACK_HOLE_SIZE) - shrinkRate);\n\t\tif(this.dataManager.get(BLACK_HOLE_SIZE) <= 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "8ba60998f3e321990e6f5f8a24e437ca4df5856e3869f9fd3acede2815a3e9d6",
+      "after_sha256": "c7cb849b3378f472d0398140ebe66f8024741c5d39f7690b27c20630987fbedb",
+      "edits": [
+        {
+          "before_offset": 17357,
+          "after_offset": 17357,
+          "old": "\t\t\t\t\tif(block == Blocks.STONEBRICK && meta == 0) this.world.setBlock(x, y, z, Blocks.STONEBRICK, 1, 3);\n",
+          "new": "\t\t\t\t\tif(block == Blocks.STONEBRICK && meta == 0) { net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.STONEBRICK; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ModItemsArmor.java": {
+      "before_sha256": "663454e9edcd5add3cd3365bc337457281b71655891815904ed7d776b90a23a2",
+      "after_sha256": "fc3b04aa6a3bb013c94cb488d34b43cfb24e169bc81b64ced3722d76096a5c6f",
+      "edits": [
+        {
+          "before_offset": 3456,
+          "after_offset": 3456,
+          "old": "\t\tschrabidium_plate = new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setUnlocalizedName(\"schrabidium_plate\").setTextureName(RefStrings.MODID + \":schrabidium_plate\");\n\t\tschrabidium_legs = new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + \":textures/armor/schrabidium_2.png\").cloneStats((ArmorFSB) schrabidium_helmet).setUnlocalizedName(\"schrabidium_legs\").setTextureName(RefStrings.MODID + \":schrabidium_legs\");\n\t\tschrabidium_boots = new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setUnlocalizedName(\"schrabidium_boots\").setTextureName(RefStrings.MODID + \":schrabidium_boots\");\n",
+          "new": "\t\tschrabidium_plate = new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_plate\").setTextureName(RefStrings.MODID + \":schrabidium_plate\");\n\t\tschrabidium_legs = new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + \":textures/armor/schrabidium_2.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_legs\").setTextureName(RefStrings.MODID + \":schrabidium_legs\");\n\t\tschrabidium_boots = new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_boots\").setTextureName(RefStrings.MODID + \":schrabidium_boots\");\n"
+        },
+        {
+          "before_offset": 5668,
+          "after_offset": 5665,
+          "old": "\t\ttitanium_plate = new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setUnlocalizedName(\"titanium_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_plate\");\n\t\ttitanium_legs = new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + \":textures/armor/titanium_2.png\").cloneStats((ArmorFSB) titanium_helmet).setUnlocalizedName(\"titanium_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_legs\");\n\t\ttitanium_boots = new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setUnlocalizedName(\"titanium_boots\").setTextureName(RefStrings.MODID + \":titanium_boots\");\n",
+          "new": "\t\ttitanium_plate = new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_plate\");\n\t\ttitanium_legs = new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + \":textures/armor/titanium_2.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_legs\");\n\t\ttitanium_boots = new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_boots\").setTextureName(RefStrings.MODID + \":titanium_boots\");\n"
+        },
+        {
+          "before_offset": 6622,
+          "after_offset": 6616,
+          "old": "\t\tsteel_plate = new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setUnlocalizedName(\"steel_plate\").setTextureName(RefStrings.MODID + \":steel_plate\");\n\t\tsteel_legs = new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + \":textures/armor/steel_2.png\").cloneStats((ArmorFSB) steel_helmet).setUnlocalizedName(\"steel_legs\").setTextureName(RefStrings.MODID + \":steel_legs\");\n\t\tsteel_boots = new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setUnlocalizedName(\"steel_boots\").setTextureName(RefStrings.MODID + \":steel_boots\");\n",
+          "new": "\t\tsteel_plate = new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_plate\").setTextureName(RefStrings.MODID + \":steel_plate\");\n\t\tsteel_legs = new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + \":textures/armor/steel_2.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_legs\").setTextureName(RefStrings.MODID + \":steel_legs\");\n\t\tsteel_boots = new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_boots\").setTextureName(RefStrings.MODID + \":steel_boots\");\n"
+        },
+        {
+          "before_offset": 7493,
+          "after_offset": 7484,
+          "old": "\t\talloy_plate = new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setUnlocalizedName(\"alloy_plate\").setTextureName(RefStrings.MODID + \":alloy_plate\");\n\t\talloy_legs = new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + \":textures/armor/alloy_2.png\").cloneStats((ArmorFSB) alloy_helmet).setUnlocalizedName(\"alloy_legs\").setTextureName(RefStrings.MODID + \":alloy_legs\");\n\t\talloy_boots = new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setUnlocalizedName(\"alloy_boots\").setTextureName(RefStrings.MODID + \":alloy_boots\");\n",
+          "new": "\t\talloy_plate = new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_plate\").setTextureName(RefStrings.MODID + \":alloy_plate\");\n\t\talloy_legs = new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + \":textures/armor/alloy_2.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_legs\").setTextureName(RefStrings.MODID + \":alloy_legs\");\n\t\talloy_boots = new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_boots\").setTextureName(RefStrings.MODID + \":alloy_boots\");\n"
+        },
+        {
+          "before_offset": 8544,
+          "after_offset": 8532,
+          "old": "\t\tcmb_plate = new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setUnlocalizedName(\"cmb_plate\").setTextureName(RefStrings.MODID + \":cmb_plate\");\n\t\tcmb_legs = new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + \":textures/armor/cmb_2.png\").cloneStats((ArmorFSB) cmb_helmet).setUnlocalizedName(\"cmb_legs\").setTextureName(RefStrings.MODID + \":cmb_legs\");\n\t\tcmb_boots = new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setUnlocalizedName(\"cmb_boots\").setTextureName(RefStrings.MODID + \":cmb_boots\");\n",
+          "new": "\t\tcmb_plate = new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_plate\").setTextureName(RefStrings.MODID + \":cmb_plate\");\n\t\tcmb_legs = new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + \":textures/armor/cmb_2.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_legs\").setTextureName(RefStrings.MODID + \":cmb_legs\");\n\t\tcmb_boots = new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_boots\").setTextureName(RefStrings.MODID + \":cmb_boots\");\n"
+        },
+        {
+          "before_offset": 9445,
+          "after_offset": 9430,
+          "old": "\t\tpaa_legs = new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + \":textures/armor/paa_2.png\").cloneStats((ArmorFSB) paa_plate).setUnlocalizedName(\"paa_legs\").setTextureName(RefStrings.MODID + \":paa_legs\");\n\t\tpaa_boots = new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + \":textures/armor/paa_1.png\").cloneStats((ArmorFSB) paa_plate).setUnlocalizedName(\"paa_boots\").setTextureName(RefStrings.MODID + \":paa_boots\");\n",
+          "new": "\t\tpaa_legs = new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + \":textures/armor/paa_2.png\").cloneStats((ArmorFSB) paa_plate).setTranslationKey(\"paa_legs\").setTextureName(RefStrings.MODID + \":paa_legs\");\n\t\tpaa_boots = new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + \":textures/armor/paa_1.png\").cloneStats((ArmorFSB) paa_plate).setTranslationKey(\"paa_boots\").setTextureName(RefStrings.MODID + \":paa_boots\");\n"
+        },
+        {
+          "before_offset": 10968,
+          "after_offset": 10951,
+          "old": "\t\tsecurity_plate = new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setUnlocalizedName(\"security_plate\").setTextureName(RefStrings.MODID + \":security_plate\");\n\t\tsecurity_legs = new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + \":textures/armor/security_2.png\").cloneStats((ArmorFSB) security_helmet).setUnlocalizedName(\"security_legs\").setTextureName(RefStrings.MODID + \":security_legs\");\n\t\tsecurity_boots = new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setUnlocalizedName(\"security_boots\").setTextureName(RefStrings.MODID + \":security_boots\");\n",
+          "new": "\t\tsecurity_plate = new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_plate\").setTextureName(RefStrings.MODID + \":security_plate\");\n\t\tsecurity_legs = new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + \":textures/armor/security_2.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_legs\").setTextureName(RefStrings.MODID + \":security_legs\");\n\t\tsecurity_boots = new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_boots\").setTextureName(RefStrings.MODID + \":security_boots\");\n"
+        },
+        {
+          "before_offset": 11898,
+          "after_offset": 11878,
+          "old": "\t\tcobalt_plate = new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setUnlocalizedName(\"cobalt_plate\").setTextureName(RefStrings.MODID + \":cobalt_plate\");\n\t\tcobalt_legs = new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + \":textures/armor/cobalt_2.png\").cloneStats((ArmorFSB) cobalt_helmet).setUnlocalizedName(\"cobalt_legs\").setTextureName(RefStrings.MODID + \":cobalt_legs\");\n\t\tcobalt_boots = new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setUnlocalizedName(\"cobalt_boots\").setTextureName(RefStrings.MODID + \":cobalt_boots\");\n",
+          "new": "\t\tcobalt_plate = new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_plate\").setTextureName(RefStrings.MODID + \":cobalt_plate\");\n\t\tcobalt_legs = new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + \":textures/armor/cobalt_2.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_legs\").setTextureName(RefStrings.MODID + \":cobalt_legs\");\n\t\tcobalt_boots = new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_boots\").setTextureName(RefStrings.MODID + \":cobalt_boots\");\n"
+        },
+        {
+          "before_offset": 12812,
+          "after_offset": 12789,
+          "old": "\t\tstarmetal_plate = new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setUnlocalizedName(\"starmetal_plate\").setTextureName(RefStrings.MODID + \":starmetal_plate\");\n\t\tstarmetal_legs = new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) starmetal_helmet).setUnlocalizedName(\"starmetal_legs\").setTextureName(RefStrings.MODID + \":starmetal_legs\");\n\t\tstarmetal_boots = new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setUnlocalizedName(\"starmetal_boots\").setTextureName(RefStrings.MODID + \":starmetal_boots\");\n",
+          "new": "\t\tstarmetal_plate = new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_plate\").setTextureName(RefStrings.MODID + \":starmetal_plate\");\n\t\tstarmetal_legs = new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_legs\").setTextureName(RefStrings.MODID + \":starmetal_legs\");\n\t\tstarmetal_boots = new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_boots\").setTextureName(RefStrings.MODID + \":starmetal_boots\");\n"
+        },
+        {
+          "before_offset": 13753,
+          "after_offset": 13727,
+          "old": "\t\trobes_plate = new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setUnlocalizedName(\"robes_plate\").setTextureName(RefStrings.MODID + \":robes_plate\");\n\t\trobes_legs = new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + \":textures/armor/robes_2.png\").cloneStats((ArmorFSB) robes_helmet).setUnlocalizedName(\"robes_legs\").setTextureName(RefStrings.MODID + \":robes_legs\");\n\t\trobes_boots = new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setUnlocalizedName(\"robes_boots\").setTextureName(RefStrings.MODID + \":robes_boots\");\n",
+          "new": "\t\trobes_plate = new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_plate\").setTextureName(RefStrings.MODID + \":robes_plate\");\n\t\trobes_legs = new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + \":textures/armor/robes_2.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_legs\").setTextureName(RefStrings.MODID + \":robes_legs\");\n\t\trobes_boots = new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_boots\").setTextureName(RefStrings.MODID + \":robes_boots\");\n"
+        },
+        {
+          "before_offset": 15147,
+          "after_offset": 15118,
+          "old": "\t\tdnt_plate = new ArmorFSB(aMatDNT, 1, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setUnlocalizedName(\"dnt_plate\").setTextureName(RefStrings.MODID + \":dnt_plate\");\n\t\tdnt_legs = new ArmorFSB(aMatDNT, 2, RefStrings.MODID + \":textures/armor/dnt_2.png\").cloneStats((ArmorFSB) dnt_helmet).setUnlocalizedName(\"dnt_legs\").setTextureName(RefStrings.MODID + \":dnt_legs\");\n\t\tdnt_boots = new ArmorFSB(aMatDNT, 3, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setUnlocalizedName(\"dnt_boots\").setTextureName(RefStrings.MODID + \":dnt_boots\");\n",
+          "new": "\t\tdnt_plate = new ArmorFSB(aMatDNT, 1, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_plate\").setTextureName(RefStrings.MODID + \":dnt_plate\");\n\t\tdnt_legs = new ArmorFSB(aMatDNT, 2, RefStrings.MODID + \":textures/armor/dnt_2.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_legs\").setTextureName(RefStrings.MODID + \":dnt_legs\");\n\t\tdnt_boots = new ArmorFSB(aMatDNT, 3, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_boots\").setTextureName(RefStrings.MODID + \":dnt_boots\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java": {
+      "before_sha256": "edfb3ab30abc8c58b86e9019903830be1f75713c67a1a76468e56b80db49f7ca",
+      "after_sha256": "51aee53a661aace503ea564e99452009c8861a6b534f7b51bee83890cc516ff7",
+      "edits": [
+        {
+          "before_offset": 219,
+          "after_offset": 219,
+          "old": "",
+          "new": "import com.hbm.entity.effect.EntityBlackHole;\n"
+        },
+        {
+          "before_offset": 1548,
+          "after_offset": 1594,
+          "old": "\t\tfloat size = entity.getDataWatcher().getWatchableObjectFloat(16);\n",
+          "new": "\t\tfloat size = ((EntityBlackHole) entity).getBlackHoleSize();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderQuasar.java": {
+      "before_sha256": "d94d9d939951f3ea9488097b9622a76461b9b89540cec54072a6e1c46ecae794",
+      "after_sha256": "8be233cb55a949d9f9bc9d649540da92b368485da0f9de22321cc8d1a4114b90",
+      "edits": [
+        {
+          "before_offset": 101,
+          "after_offset": 101,
+          "old": "",
+          "new": "import com.hbm.entity.effect.EntityBlackHole;\n"
+        },
+        {
+          "before_offset": 715,
+          "after_offset": 761,
+          "old": "\t\tfloat size = entity.getDataWatcher().getWatchableObjectFloat(16);\n",
+          "new": "\t\tfloat size = ((EntityBlackHole) entity).getBlackHoleSize();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before_sha256": "8556c33483de813c334f651f5f01bb80b61813e2538554c850832a182b01ae16",
+      "after_sha256": "dd55ab0e5d7c8603d4b3828842f642e0f150b724bf255396dc8ab4769a50fca3",
+      "edits": [
+        {
+          "before_offset": 616511,
+          "after_offset": 616511,
+          "old": "\t\tworld.setBlock(x + 1, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 2, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 3, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 4, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 5, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 6, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 7, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 8, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 9, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 10, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 11, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 12, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 14, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 15, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 16, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 17, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 18, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 19, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 20, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 21, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 22, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 23, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 24, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 25, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 26, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 27, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 28, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 29, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 30, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 31, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 32, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 33, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 34, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 35, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 36, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 37, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 38, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 39, y + 3, z + 0, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 3, z + 0, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 3, z + 0, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 619302,
+          "after_offset": 621447,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 1, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 40, y + 3, z + 1, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 2, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 40, y + 3, z + 2, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 3, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 40, y + 3, z + 3, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 4, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 40, y + 3, z + 4, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 5, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 40, y + 3, z + 5, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 6, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 1, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 1, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 2, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 2, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 3, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 3, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 4, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 4, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 5, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 5, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 6, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 636642,
+          "after_offset": 639392,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 7, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 7, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 640603,
+          "after_offset": 643408,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 8, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 8, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 644999,
+          "after_offset": 647859,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 9, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 9, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 649612,
+          "after_offset": 652527,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 10, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 10, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 654367,
+          "after_offset": 657337,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 11, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 11, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 658960,
+          "after_offset": 661985,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 12, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 12, ModBlocks.barbed_wire);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before_sha256": "d0a4dec9a5e82f7135662b30e1987f5f138788f9ce627ed038a921138645b3c2",
+      "after_sha256": "708c5b7283d87857647291fa7ba13bfa47456a919a7dab97abbd32bde8d84ee4",
+      "edits": [
+        {
+          "before_offset": 4563,
+          "after_offset": 4563,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 12, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 13, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 12, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 13, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 8954,
+          "after_offset": 9064,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 13, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 14, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 13, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 14, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 13618,
+          "after_offset": 13838,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 14, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 15, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 14, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 15, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 18022,
+          "after_offset": 18352,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 15, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 16, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 15, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 16, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 22134,
+          "after_offset": 22574,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 16, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 17, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 16, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 17, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 25006,
+          "after_offset": 25556,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 17, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 18, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 17, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 18, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 39729,
+          "after_offset": 40389,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 18, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 19, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 40, y + 3, z + 19, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 20, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 18, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 19, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 19, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 20, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 40558,
+          "after_offset": 41438,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 20, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 21, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 20, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 21, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 41139,
+          "after_offset": 42129,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 21, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 22, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 21, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 22, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 41499,
+          "after_offset": 42599,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 22, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 23, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 22, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 23, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 41859,
+          "after_offset": 43069,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 23, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 24, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 23, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 24, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 42219,
+          "after_offset": 43539,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 24, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 25, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 24, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 25, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 42579,
+          "after_offset": 44009,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 25, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 26, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 25, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 26, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 42939,
+          "after_offset": 44479,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 26, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 27, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 26, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 27, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 43299,
+          "after_offset": 44949,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 27, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 28, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 27, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 28, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 43659,
+          "after_offset": 45419,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 28, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 29, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 28, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 29, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 44240,
+          "after_offset": 46110,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 29, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 30, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 29, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 30, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 44930,
+          "after_offset": 46910,
+          "old": "\t\tworld.setBlock(x + 40, y + 3, z + 30, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 3, z + 30, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 31, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 45179,
+          "after_offset": 47269,
+          "old": "\t\tworld.setBlock(x + 17, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 18, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 19, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 20, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 21, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 22, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 23, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 24, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 25, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 26, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 27, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 28, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 29, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 30, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 31, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 32, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 33, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 34, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 35, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 36, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 37, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 38, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 39, y + 3, z + 31, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 27, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 37, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 38, y + 3, z + 31, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 39, y + 3, z + 31, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 46899,
+          "after_offset": 50254,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 32, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 16, y + 3, z + 32, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 3, z + 32, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 16, y + 3, z + 32, ModBlocks.barbed_wire);\n"
+        },
+        {
+          "before_offset": 47147,
+          "after_offset": 50612,
+          "old": "\t\tworld.setBlock(x + 1, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 2, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 3, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 4, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 5, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 6, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 7, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 8, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 9, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 10, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 11, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 12, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 14, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n\t\tworld.setBlock(x + 15, y + 3, z + 33, ModBlocks.barbed_wire, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 14, y + 3, z + 33, ModBlocks.barbed_wire);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 15, y + 3, z + 33, ModBlocks.barbed_wire);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java": {
+      "before_sha256": "f61e28e76c3a0702e3e1e440a26139dba02f305971d28e86c0592075c7d52d39",
+      "after_sha256": "9fe9962122907f481ac80a7ef9a60deb2cc27051a82d1f90f451d1d157925f63",
+      "edits": [
+        {
+          "before_offset": 747,
+          "after_offset": 747,
+          "old": "",
+          "new": "\n    /** Native boundary for this dungeon's audited vanilla stone-brick variants. */\n    private static void placeStoneBrick(World world, int x, int y, int z,\n            net.minecraft.block.BlockStoneBrick brick, int metadata) {\n        if(world == null) throw new NullPointerException();\n        if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {\n            world.setBlockState(new BlockPos(x, y, z), brick.getStateFromMeta(metadata), 3);\n        }\n    }\n"
+        },
+        {
+          "before_offset": 2309,
+          "after_offset": 2808,
+          "old": "\t\tworld.setBlock(x + 1, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 3017,
+          "after_offset": 3817,
+          "old": "\t\tworld.setBlock(x + 0, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 0, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 0, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 9424,
+          "after_offset": 13707,
+          "old": "\t\tworld.setBlock(x + 1, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 0, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 0, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 10309,
+          "after_offset": 14893,
+          "old": "\t\tworld.setBlock(x + 1, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 1, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 11017,
+          "after_offset": 15902,
+          "old": "\t\tworld.setBlock(x + 0, y + 1, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 1, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 12127,
+          "after_offset": 17055,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 13765,
+          "after_offset": 18779,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 14958,
+          "after_offset": 20058,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 16145,
+          "after_offset": 21331,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 17668,
+          "after_offset": 22940,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 18861,
+          "after_offset": 24219,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 20048,
+          "after_offset": 25492,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 22194,
+          "after_offset": 27724,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 1, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 1, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 23381,
+          "after_offset": 28997,
+          "old": "\t\tworld.setBlock(x + 8, y + 1, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 1, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 23628,
+          "after_offset": 29287,
+          "old": "\t\tworld.setBlock(x + 1, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 1, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 1, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 24513,
+          "after_offset": 30473,
+          "old": "\t\tworld.setBlock(x + 1, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 2, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 25221,
+          "after_offset": 31482,
+          "old": "\t\tworld.setBlock(x + 0, y + 2, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 2, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 26331,
+          "after_offset": 32635,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 27518,
+          "after_offset": 33908,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 29050,
+          "after_offset": 35526,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 30237,
+          "after_offset": 36799,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 31533,
+          "after_offset": 38181,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 32726,
+          "after_offset": 39460,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 33913,
+          "after_offset": 40733,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 35209,
+          "after_offset": 42115,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 2, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 2, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 36396,
+          "after_offset": 43388,
+          "old": "\t\tworld.setBlock(x + 8, y + 2, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 2, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 36643,
+          "after_offset": 43678,
+          "old": "\t\tworld.setBlock(x + 1, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 2, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 2, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 37528,
+          "after_offset": 44864,
+          "old": "\t\tworld.setBlock(x + 1, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 3, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 3, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 38236,
+          "after_offset": 45873,
+          "old": "\t\tworld.setBlock(x + 0, y + 3, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 3, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 39447,
+          "after_offset": 47127,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 40573,
+          "after_offset": 48339,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 41738,
+          "after_offset": 49590,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 43058,
+          "after_offset": 50996,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 44378,
+          "after_offset": 52402,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 45543,
+          "after_offset": 53653,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 46863,
+          "after_offset": 55059,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 48183,
+          "after_offset": 56465,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 3, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 3, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 49503,
+          "after_offset": 57871,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 3, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 49750,
+          "after_offset": 58161,
+          "old": "\t\tworld.setBlock(x + 1, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 3, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 3, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 50635,
+          "after_offset": 59347,
+          "old": "\t\tworld.setBlock(x + 1, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 4, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 4, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 51343,
+          "after_offset": 60356,
+          "old": "\t\tworld.setBlock(x + 0, y + 4, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 4, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 52554,
+          "after_offset": 61610,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 53842,
+          "after_offset": 62984,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 55136,
+          "after_offset": 64364,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 56323,
+          "after_offset": 65637,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 58469,
+          "after_offset": 67869,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 59662,
+          "after_offset": 69148,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 60849,
+          "after_offset": 70421,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 62036,
+          "after_offset": 71694,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 4, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 4, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 63360,
+          "after_offset": 73104,
+          "old": "\t\tworld.setBlock(x + 8, y + 4, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 4, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 63607,
+          "after_offset": 73394,
+          "old": "\t\tworld.setBlock(x + 1, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 4, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 4, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 64492,
+          "after_offset": 74580,
+          "old": "\t\tworld.setBlock(x + 1, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 5, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 5, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 65200,
+          "after_offset": 75589,
+          "old": "\t\tworld.setBlock(x + 0, y + 5, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 5, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 66443,
+          "after_offset": 76875,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 67763,
+          "after_offset": 78281,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 68928,
+          "after_offset": 79532,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 70147,
+          "after_offset": 80837,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 71475,
+          "after_offset": 82251,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 72539,
+          "after_offset": 83401,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 73903,
+          "after_offset": 84851,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 75090,
+          "after_offset": 86124,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 5, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 5, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 76184,
+          "after_offset": 87304,
+          "old": "\t\tworld.setBlock(x + 8, y + 5, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 5, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 76431,
+          "after_offset": 87594,
+          "old": "\t\tworld.setBlock(x + 1, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 5, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 5, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 77316,
+          "after_offset": 88780,
+          "old": "\t\tworld.setBlock(x + 1, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 6, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 6, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 78024,
+          "after_offset": 89789,
+          "old": "\t\tworld.setBlock(x + 0, y + 6, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 6, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 79271,
+          "after_offset": 91079,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 80458,
+          "after_offset": 92352,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 81651,
+          "after_offset": 93631,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 83797,
+          "after_offset": 95863,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 84984,
+          "after_offset": 97136,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 86278,
+          "after_offset": 98516,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 87566,
+          "after_offset": 99890,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 88854,
+          "after_offset": 101264,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 6, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 6, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 90142,
+          "after_offset": 102638,
+          "old": "\t\tworld.setBlock(x + 8, y + 6, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 6, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 90389,
+          "after_offset": 102928,
+          "old": "\t\tworld.setBlock(x + 1, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 6, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 6, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 91274,
+          "after_offset": 104114,
+          "old": "\t\tworld.setBlock(x + 1, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 7, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 7, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 91982,
+          "after_offset": 105123,
+          "old": "\t\tworld.setBlock(x + 0, y + 7, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 7, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 92999,
+          "after_offset": 106183,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 94186,
+          "after_offset": 107456,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 95379,
+          "after_offset": 108735,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 96675,
+          "after_offset": 110117,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 97862,
+          "after_offset": 111390,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 99156,
+          "after_offset": 112770,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 100444,
+          "after_offset": 114144,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 101732,
+          "after_offset": 115518,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 7, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 7, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 103020,
+          "after_offset": 116892,
+          "old": "\t\tworld.setBlock(x + 8, y + 7, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 8, y + 7, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 103267,
+          "after_offset": 117182,
+          "old": "\t\tworld.setBlock(x + 1, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 7, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 7, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 104152,
+          "after_offset": 118368,
+          "old": "\t\tworld.setBlock(x + 1, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 0, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 104860,
+          "after_offset": 119377,
+          "old": "\t\tworld.setBlock(x + 0, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 1, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 2, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 3, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 4, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 5, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 6, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 7, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 8, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 0, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 1, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 9, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 0, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 0, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 1, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 8, y + 8, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        },
+        {
+          "before_offset": 111267,
+          "after_offset": 129267,
+          "old": "\t\tworld.setBlock(x + 1, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 2, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 3, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 4, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 10, Blocks.STONEBRICK, getBrick(rand), 3);\n",
+          "new": "\t\tplaceStoneBrick(world, x + 1, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 2, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 3, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 4, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 5, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 6, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n\t\tplaceStoneBrick(world, x + 7, y + 8, z + 10, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

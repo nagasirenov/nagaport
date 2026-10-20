@@ -16,9 +16,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -26,7 +26,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 public class MachineAutosaw extends BlockContainer implements ILookOverlay, ITooltipProvider, IToolable {
 
 	public MachineAutosaw() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -54,15 +54,15 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 		
 		if(!world.isRemote && !player.isSneaking()) {
 				
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
 				
-				TileEntityMachineAutosaw saw = (TileEntityMachineAutosaw) world.getTileEntity(x, y, z);
+				TileEntityMachineAutosaw saw = (TileEntityMachineAutosaw) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				
-				FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, x, y, z, player.getHeldItem());
+				FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, x, y, z, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 				if(saw.acceptedFuels.contains(type)) {
 					saw.tank.setTankType(type);
 					saw.markDirty();
-					player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+					player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 					return true;
 				}
 			}
@@ -78,7 +78,7 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityMachineAutosaw))
 			return false;
@@ -94,7 +94,7 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 		
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(!(te instanceof TileEntityMachineAutosaw))
 			return;
@@ -105,10 +105,10 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 		text.add(saw.tank.getTankType().getLocalizedName() + ": " + saw.tank.getFill() + "/" + saw.tank.getMaxFill() + "mB");
 
 		if (saw.isSuspended) {
-			text.add(TextFormatting.RED + "! " + I18nUtil.resolveKey(getUnlocalizedName() + ".suspended") + " !");
+			text.add(TextFormatting.RED + "! " + I18nUtil.resolveKey(getTranslationKey() + ".suspended") + " !");
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

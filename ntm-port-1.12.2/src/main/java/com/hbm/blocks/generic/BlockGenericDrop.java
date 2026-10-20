@@ -15,7 +15,8 @@ public class BlockGenericDrop extends BlockGeneric {
 		this.drops = drops;
 	}
 
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	@Override
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return Item.getItemFromBlock(drops);
 	}
 

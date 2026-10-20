@@ -1,0 +1,231 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import javax.imageio.ImageIO;
+import com.hbm.blocks.BlockEnums.LightType;
+import com.hbm.blocks.machine.*;
+import com.hbm.lib.*;
+import com.hbm.render.block.*;
+import com.hbm.main.SpotlightBlockModelHandler;
+import net.minecraftforge.client.model.*;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.render.mesh.*;
+import com.google.gson.*;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+
+/** Complete native Spotlight family with independent pristine renderer and ordered asset oracle. */
+public final class SpotlightModelNativeTest {
+ static long checks,vertices,layouts;static final BlockPos POS=new BlockPos(8,64,8);
+ static final Map<String,List<Part>> original=new LinkedHashMap<>();static final Map<String,ObjMesh> meshes=new LinkedHashMap<>();static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();
+ static final String[] NAMES={"spotlight_incandescent","spotlight_incandescent_off","spotlight_fluoro","spotlight_fluoro_off","spotlight_halogen","spotlight_halogen_off"};
+ static final String[] ASSETS={"cage_lamp","cage_lamp","fluorescent_lamp","fluorescent_lamp","flood_lamp","flood_lamp"};
+ static final Spotlight[] blocks=new Spotlight[6];
+ static final class Sprite extends TextureAtlasSprite {Sprite(String name,int index){super(name);setIconWidth(16);setIconHeight(16);initSprite(2048,128,32*index,32,false);}}
+ static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ static void close(float got,float want,String message){check(Math.abs(got-want)<0.000003F,message+": "+got+" != "+want);}
+ interface Throwing {void run()throws Exception;}
+ static void rejects(Throwing run,String label)throws Exception{boolean rejected=false;try{run.run();}catch(Exception expected){rejected=true;}check(rejected,label);}
+ static TextureAtlasSprite sprite(String name){return sprites.computeIfAbsent(name,k->new Sprite(k,sprites.size()+1));}
+ static TextureAtlasSprite sprite(int owner){return sprite("hbm:blocks/"+ASSETS[owner]+(owner%2==1?"_off":""));}
+ static LightType type(int owner){return owner<2?LightType.INCANDESCENT:owner<4?LightType.FLUORESCENT:LightType.HALOGEN;}
+ static boolean modular(int owner){return owner==2||owner==3;}
+ static void setup()throws Exception{
+  Bootstrap.register();Map<Block,Item> itemMap=(Map<Block,Item>)get(null,Item.class,"BLOCK_TO_ITEM");
+  for(int i=0;i<6;i++){Spotlight b=modular(i)?new SpotlightModular(Material.IRON,8,type(i),i%2==0):new Spotlight(Material.IRON,i<2?2:32,type(i),i%2==0);blocks[i]=b;ForgeRegistries.BLOCKS.register(b.setRegistryName("hbm","tile."+NAMES[i]));ItemBlock item=new ItemBlock(b);item.setHasSubtypes(true);item.setRegistryName(b.getRegistryName());ForgeRegistries.ITEMS.register(item);itemMap.put(b,item);}
+ }
+ static final class NeighborWorld implements IBlockAccess {
+  final Spotlight block;final IBlockState state;final int mask;final Block falseNeighbor;
+  NeighborWorld(int owner,int meta,int mask){block=blocks[owner];state=block.getStateFromMeta(meta);this.mask=mask;falseNeighbor=blocks[owner^1];}
+  public IBlockState getBlockState(BlockPos p){if(p.equals(POS))return state;for(EnumFacing d:EnumFacing.values())if(p.equals(POS.offset(d)))return ((mask&(1<<d.getIndex()))!=0?block:falseNeighbor).getStateFromMeta((state.getValue(Spotlight.METADATA)+d.getIndex()+3)&15);return Blocks.STONE.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){return null;}public int getCombinedLight(BlockPos p,int e){return 0x00A00070;}public boolean isAirBlock(BlockPos p){return false;}public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}public int getStrongPower(BlockPos p,EnumFacing side){return 0;}public WorldType getWorldType(){return WorldType.DEFAULT;}public boolean isSideSolid(BlockPos p,EnumFacing side,boolean fallback){return true;}
+  IBlockState extended(){return block.getExtendedState(state,this,POS);}
+ }
+ static final class Face {float[][] xyz,uv;float[] normal;}
+ static final class Part {String name;List<Face> faces=new ArrayList<>();Part(String n){name=n;}}
+ static List<Part> originalObj(Reader source)throws Exception {
+  List<float[]> points=new ArrayList<>(),uvs=new ArrayList<>();List<Part> groups=new ArrayList<>();BufferedReader in=new BufferedReader(source);String line;Part group=null;
+  while((line=in.readLine())!=null){String[] p=line.trim().split("\\s+");if(p[0].equals("o")||p[0].equals("g")){group=new Part(p[1]);groups.add(group);}
+   else if(p[0].equals("v"))points.add(new float[]{Float.parseFloat(p[1]),Float.parseFloat(p[2]),Float.parseFloat(p[3])});
+   else if(p[0].equals("vt"))uvs.add(new float[]{Float.parseFloat(p[1]),1-Float.parseFloat(p[2])});
+   else if(p[0].equals("f")){check(p.length==4||p.length==5,"original triangle/quad primitive");if(group==null){group=new Part("Default");groups.add(group);}Face f=new Face();f.xyz=new float[p.length-1][];f.uv=new float[p.length-1][];
+    for(int i=1;i<p.length;i++){String[] k=p[i].split("/");f.xyz[i-1]=points.get(Integer.parseInt(k[0])-1);f.uv[i-1]=uvs.get(Integer.parseInt(k[1])-1);}
+    double ax=f.xyz[1][0]-f.xyz[0][0],ay=f.xyz[1][1]-f.xyz[0][1],az=f.xyz[1][2]-f.xyz[0][2],bx=f.xyz[2][0]-f.xyz[0][0],by=f.xyz[2][1]-f.xyz[0][1],bz=f.xyz[2][2]-f.xyz[0][2];
+    double nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx,length=(float)Math.sqrt(nx*nx+ny*ny+nz*nz);
+    f.normal=length<1E-4D?new float[3]:new float[]{(float)(nx/length),(float)(ny/length),(float)(nz/length)};group.faces.add(f);
+   }
+  }return groups;
+ }
+
+ static double[] rotate(float[] v,float yaw,float pitch,float roll){
+  double cx=net.minecraft.util.math.MathHelper.cos(roll),sx=net.minecraft.util.math.MathHelper.sin(roll),cz=net.minecraft.util.math.MathHelper.cos(pitch),sz=net.minecraft.util.math.MathHelper.sin(pitch),cy=net.minecraft.util.math.MathHelper.cos(yaw),sy=net.minecraft.util.math.MathHelper.sin(yaw);
+  double x=v[0],y=v[1]*cx+v[2]*sx,z=v[2]*cx-v[1]*sx;double xx=x*cz+y*sz,yy=y*cz-x*sz;return new double[]{xx*cy+z*sy,yy,z*cy-xx*sy};
+ }
+ static final class Vertex {float x,y,z,u,v,nx,ny,nz;int color=0xffffffff;TextureAtlasSprite sprite;}
+ static List<Vertex> stream(List<Part> parts,OriginalLightOracle.Layout layout,TextureAtlasSprite sprite,boolean item){
+  check(!layout.shadow,"original false-shade contract");Part selected=null;for(Part p:parts)if(p.name.equals(layout.part))selected=p;
+  List<Vertex> out=new ArrayList<>();if(selected==null)return out;
+  for(Face f:selected.faces){double[] n=rotate(f.normal,layout.yaw,layout.pitch,0);
+   if(item){check(layout.glYaw==-90&&layout.scale==1.5,"original inventory GL -90Y/scale1.5");n=new double[]{-n[2],n[1],n[0]};}
+   for(int i=0;i<f.xyz.length;i++){double[] q=rotate(f.xyz[i],layout.yaw,layout.pitch,layout.roll);Vertex v=new Vertex();
+    if(item){v.x=(float)(.5-(float)q[2]*layout.scale);v.y=(float)(.5+(float)q[1]*layout.scale);v.z=(float)(.5+(float)q[0]*layout.scale);}else{v.x=(float)(layout.x+(float)q[0]);v.y=(float)(layout.y+(float)q[1]);v.z=(float)(layout.z+(float)q[2]);}
+    v.nx=(float)n[0];v.ny=(float)n[1];v.nz=(float)n[2];v.sprite=sprite;v.u=sprite.getInterpolatedU(f.uv[i][0]*16D);v.v=sprite.getInterpolatedV(f.uv[i][1]*16D);out.add(v);if(i==2&&f.xyz.length==3)out.add(v);
+   }
+  }return out;
+ }
+ static List<Vertex> oracle(int owner,int meta,int mask,boolean item,Map<String,List<Part>> sources){OriginalLightOracle.Layout l=OriginalLightOracle.layout(type(owner),modular(owner),meta,mask,item);check(l.asset.equals(ASSETS[owner]),"pristine asset selector");return stream(sources.get(l.asset),l,sprite(owner),item);}
+ static void geometry(List<BakedQuad> actual,List<Vertex> want,boolean item,String context){
+  check(actual.size()==want.size()/4,context+" original stream quad count "+actual.size()+" != "+want.size()/4);
+  for(int i=0;i<actual.size();i++){BakedQuad q=actual.get(i);String label=context+" quad="+i;int[] bytes=q.getVertexData();
+   check(q.getSprite()==want.get(i*4).sprite,label+" original material/part order");check(q.shouldApplyDiffuseLighting()==item&&!q.hasTintIndex(),label+" native diffuse and untinted RGB");check(q.getFormat().equals(item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK)&&bytes.length==28,label+" real native vertex format");
+   for(int v=0;v<4;v++){int k=v*7;Vertex e=want.get(i*4+v);vertices++;
+    check(Float.floatToIntBits(e.x)==bytes[k]&&Float.floatToIntBits(e.y)==bytes[k+1]&&Float.floatToIntBits(e.z)==bytes[k+2],label+" exact original XYZ at vertex "+v+" actual="+Float.intBitsToFloat(bytes[k])+","+Float.intBitsToFloat(bytes[k+1])+","+Float.intBitsToFloat(bytes[k+2])+" expected="+e.x+","+e.y+","+e.z);
+    check(Float.floatToIntBits(e.u)==bytes[k+4]&&Float.floatToIntBits(e.v)==bytes[k+5],label+" exact original uncontracted UV");check(e.color==bytes[k+3],label+" original whole/part shader: "+Integer.toHexString(bytes[k+3])+" != "+Integer.toHexString(e.color));
+    if(item){int n=bytes[k+6];check((byte)n==(byte)(e.nx*127F)&&(byte)(n>>8)==(byte)(e.ny*127F)&&(byte)(n>>16)==(byte)(e.nz*127F),label+" original signed-byte normals");}
+   }
+  }
+ }
+ static final class LightingWorld implements IBlockAccess {
+  final IBlockState state;final int own=0x00A00070;
+  LightingWorld(IBlockState state){this.state=state;}
+  public TileEntity getTileEntity(BlockPos p){return null;}
+  public int getCombinedLight(BlockPos p,int emission){return p.equals(POS)?own:0x00100010*((Math.abs(p.getX()+2*p.getY()+3*p.getZ())%8)+1);}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?state:Blocks.STONE.getDefaultState();}
+  public boolean isAirBlock(BlockPos p){return false;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing side){return 0;}
+  public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing side,boolean fallback){return !p.equals(POS);}
+ }
+ static void lighting(IBakedModel model,IBlockState state,String context){
+  LightingWorld world=new LightingWorld(state);net.minecraft.client.renderer.color.BlockColors colors=new net.minecraft.client.renderer.color.BlockColors();List<BakedQuad> quads=model.getQuads(state,null,0);
+  for(boolean forge:new boolean[]{false,true}){
+   net.minecraft.client.renderer.BufferBuilder out=new net.minecraft.client.renderer.BufferBuilder(65536);out.begin(7,DefaultVertexFormats.BLOCK);
+   if(forge){net.minecraftforge.client.model.pipeline.VertexLighterFlat lighter=new net.minecraftforge.client.model.pipeline.VertexLighterFlat(colors);
+    net.minecraftforge.client.model.pipeline.VertexBufferConsumer consumer=new net.minecraftforge.client.model.pipeline.VertexBufferConsumer(out);consumer.setOffset(POS);lighter.setParent(consumer);lighter.setWorld(world);lighter.setState(state);lighter.setBlockPos(POS);lighter.updateBlockInfo();
+    for(BakedQuad q:quads)q.pipe(lighter);lighter.resetBlockInfo();
+   }else check(new net.minecraft.client.renderer.BlockModelRenderer(colors).renderModelFlat(world,model,state,POS,out,true,0),context+" native vanilla emits model");
+   out.finishDrawing();check(out.getVertexCount()==quads.size()*4,context+" native emitted vertices "+forge);java.nio.ByteBuffer data=out.getByteBuffer();
+   for(int v=0;v<out.getVertexCount();v++){
+    check(data.getInt(v*28+24)==world.own,context+" "+(forge?"Forge":"vanilla")+" original block-position light, not neighbor at vertex "+v+": "+Integer.toHexString(data.getInt(v*28+24)));
+    check(data.getInt(v*28+12)==quads.get(v/4).getVertexData()[v%4*7+3],context+" original shading without doubled diffuse "+forge);
+   }
+  }
+ }
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+ static void set(Object o,Class<?> c,String field,Object value)throws Exception{Field f=c.getDeclaredField(field);f.setAccessible(true);f.set(o,value);}
+ static Object get(Object o,Class<?> c,String field)throws Exception{Field f=c.getDeclaredField(field);f.setAccessible(true);return f.get(o);}
+
+ static List<BakedQuad> collect(IBakedModel model,IBlockState state){for(EnumFacing face:EnumFacing.values())check(model.getQuads(state,face,0).isEmpty(),"no accidental native face culling");List<BakedQuad> q=model.getQuads(state,null,0);check(q==model.getQuads(state,null,123),"cached RNG-independent mesh");try{q.add(null);throw new AssertionError("mutable quads");}catch(UnsupportedOperationException expected){checks++;}return q;}
+ static void properties(IBakedModel model,int owner){check(!model.isAmbientOcclusion()&&model.isGui3d()&&!model.isBuiltInRenderer(),"flat unculled model, not TESR");check(model.getParticleTexture()==sprite(owner),"original particle texture");check(model.getOverrides()==ItemOverrideList.NONE,"no fabricated overrides");close(model.getItemCameraTransforms().gui.scale.x,.625F,"native block GUI transform");}
+ static void snapshots()throws Exception{
+  for(int owner=0;owner<6;owner++)for(int meta=0;meta<16;meta++)for(int mask=0;mask<64;mask++){NeighborWorld w=new NeighborWorld(owner,meta,mask);IBlockState e=w.extended();check(e instanceof IExtendedBlockState,"real native extended state");check(SpotlightModelState.connections(e)==(modular(owner)?mask:0),"all six neighbor identities ignore neighbor metadata but not on/off identity");check(e.getValue(Spotlight.METADATA)==meta,"snapshot preserves raw metadata");check(((IExtendedBlockState)w.state).getValue(SpotlightModelState.CONNECTIONS)==null,"snapshot doesn't mutate listed state");}
+  check(!SpotlightModelState.CONNECTIONS.isValid(null)&&!SpotlightModelState.CONNECTIONS.isValid(-1)&&!SpotlightModelState.CONNECTIONS.isValid(64),"snapshot invalid values rejected");check(SpotlightModelState.CONNECTIONS.isValid(0)&&SpotlightModelState.CONNECTIONS.isValid(63),"snapshot inclusive domain");
+  rejects(()->SpotlightModelState.connections(null),"null snapshot rejected");rejects(()->SpotlightModelState.connections(Blocks.STONE.getDefaultState()),"nonextended snapshot rejected");rejects(()->SpotlightModelState.connections(blocks[2].getDefaultState()),"absent snapshot rejected");
+ }
+ static void direct()throws Exception{
+  snapshots();Set<String> parts=new TreeSet<>();
+  for(int owner=0;owner<6;owner++)for(int meta=0;meta<16;meta++){
+   IBakedModel world=new SpotlightBakedModel(meshes.get(ASSETS[owner]),type(owner),modular(owner),meta,false,sprite(owner));properties(world,owner);
+   for(int mask=0;mask<(modular(owner)?64:1);mask++){NeighborWorld w=new NeighborWorld(owner,meta,mask);IBlockState state=w.extended();geometry(collect(world,state),oracle(owner,meta,mask,false,original),false,NAMES[owner]+" meta="+meta+" mask="+mask);layouts++;parts.add(OriginalLightOracle.layout(type(owner),modular(owner),meta,mask,false).part);
+    if(meta%2==0&&meta<12&&(mask==0||mask==1||mask==3||mask==63))lighting(world,state,NAMES[owner]+" meta="+meta+" mask="+mask);
+   }
+   IBakedModel item=new SpotlightBakedModel(meshes.get(ASSETS[owner]),type(owner),modular(owner),meta,true,sprite(owner));properties(item,owner);geometry(collect(item,null),oracle(owner,meta,0,true,original),true,NAMES[owner]+" inventory meta="+meta);layouts++;
+   if(modular(owner)){rejects(()->world.getQuads(null,null,0),"modular world requires state");rejects(()->world.getQuads(blocks[2].getDefaultState(),null,0),"modular world requires snapshot");}
+  }
+  check(parts.equals(new TreeSet<>(Arrays.asList("CageLamp","FloodLamp","FluoroSingle","FluoroCap","FluoroMid"))),"all five original parts exercised");System.out.println("PASS pristine geometry: "+layouts+" complete layouts, all six owners x16 metadata and all64 modular masks; native Forge/vanilla flat lighting on six directions and connected states.");
+ }
+ static void legacyRotation(File file)throws Exception{
+  if(!file.isFile())throw new AssertionError("Cached pinned legacy client required for X/Z/Y rotation check");
+  try(java.net.URLClassLoader cl=new java.net.URLClassLoader(new java.net.URL[]{file.toURI().toURL()},SpotlightModelNativeTest.class.getClassLoader())){Class<?> vec=Class.forName("azw",true,cl);Method create=vec.getMethod("a",double.class,double.class,double.class),x=vec.getMethod("a",float.class),z=vec.getMethod("c",float.class),y=vec.getMethod("b",float.class);Field fx=vec.getField("a"),fy=vec.getField("b"),fz=vec.getField("c");float[] angles={0,(float)Math.PI,(float)Math.PI*.5F,(float)Math.PI*-.5F,.73F,1.31F,-.7F};Random random=new Random(7101122);
+   for(float yaw:angles)for(float pitch:angles)for(float roll:angles)for(int i=0;i<8;i++){float[] p={random.nextFloat()*4-2,random.nextFloat()*4-2,random.nextFloat()*4-2};Object v=create.invoke(null,(double)p[0],(double)p[1],(double)p[2]);x.invoke(v,roll);z.invoke(v,pitch);y.invoke(v,yaw);double[] expected=rotate(p,yaw,pitch,roll),got={fx.getDouble(v),fy.getDouble(v),fz.getDouble(v)};for(int axis=0;axis<3;axis++)check(got[axis]==expected[axis],"actual legacy Vec3 X/Z/Y lookup-table rotation axis="+axis);}
+  }System.out.println("PASS cached original 1.7.10 Vec3 actual X then Z then Y bytecode: 8232 exact double comparisons.");
+ }
+ static void event()throws Exception{
+  Class<?> c=SpotlightBlockModelHandler.class;net.minecraftforge.fml.common.Mod.EventBusSubscriber a=c.getAnnotation(net.minecraftforge.fml.common.Mod.EventBusSubscriber.class);check(a!=null&&a.modid().equals("hbm")&&Arrays.equals(a.value(),new net.minecraftforge.fml.relauncher.Side[]{net.minecraftforge.fml.relauncher.Side.CLIENT}),"native client-only event subscriber");int n=0;
+  for(Method m:c.getDeclaredMethods())if(m.isAnnotationPresent(net.minecraftforge.fml.common.eventhandler.SubscribeEvent.class)&&Arrays.equals(m.getParameterTypes(),new Class<?>[]{net.minecraftforge.client.event.ModelRegistryEvent.class})){check(Modifier.isStatic(m.getModifiers()),"static native subscriber");m.invoke(null,new net.minecraftforge.client.event.ModelRegistryEvent());n++;}check(n==1,"exactly one model registry callback");
+ }
+ static ResourceLocation route(int owner,int meta,boolean item){return new ResourceLocation("hbm","native_spotlight/tile."+NAMES[owner]+"/"+meta+(item?"/item":"/world"));}
+ static IModel load(ResourceLocation route)throws Exception{IModel m=ModelLoaderRegistry.getModel(route);check(m!=ModelLoaderRegistry.getMissingModel(),"real native custom route "+route);return m;}
+ static IBakedModel bake(ResourceLocation route,int owner,boolean item)throws Exception{IModel m=load(route);check(m.getDependencies().isEmpty(),"no invented model dependencies");check(new HashSet<>(m.getTextures()).equals(Collections.singleton(new ResourceLocation(sprite(owner).getIconName()))),"one exact original atlas texture");IBakedModel b=m.bake(m.getDefaultState(),item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK,id->sprite(id.toString()));properties(b,owner);return b;}
+ static void registry(IResourcePack pack)throws Exception{
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+  sharedResources.reloadResources(Collections.singletonList(pack));net.minecraft.launchwrapper.Launch.blackboard=new HashMap<String,Object>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);TextureMap atlas=new TextureMap("textures");ModelManager initial=new ModelManager(atlas);net.minecraft.client.renderer.BlockModelShapes shapes=new net.minecraft.client.renderer.BlockModelShapes(initial);new ModelLoader(sharedResources,atlas,shapes);event();reload(pack);
+  Map<?,?> custom=(Map<?,?>)get(null,ModelLoader.class,"customModels");check(custom.size()==96,"all6 owners x16 item registrations after actual ModelRegistryEvent");net.minecraft.util.registry.RegistrySimple<ModelResourceLocation,IBakedModel> registry=new net.minecraft.util.registry.RegistrySimple<>();Map<IBlockState,ModelResourceLocation> routes=new LinkedHashMap<>();ModelLoader.onRegisterAllBlocks(shapes);
+  for(int owner=0;owner<6;owner++){
+   Spotlight b=blocks[owner];Map<IBlockState,ModelResourceLocation> states=shapes.getBlockStateMapper().getVariants(b);check(states.size()==16,"all sixteen listed native states");ResourceLocation json=new ResourceLocation("hbm","blockstates/tile."+NAMES[owner]+".json");ModelBlockDefinition definition;try(Reader in=new InputStreamReader(pack.getInputStream(json),StandardCharsets.UTF_8)){definition=ModelBlockDefinition.parseFromReader(in,b.getRegistryName());}
+   for(int meta=0;meta<16;meta++){IBlockState state=b.getStateFromMeta(meta);ModelResourceLocation mapped=states.get(state);check(mapped.getVariant().equals("metadata="+meta)&&definition.hasVariant(mapped.getVariant()),"native state exact metadata JSON");List<Variant> vars=definition.getVariant(mapped.getVariant()).getVariantList();check(vars.size()==1,"one original route");Variant v=vars.get(0);check(v.getRotation()==ModelRotation.X0_Y0&&!v.isUvLock(),"no added rotation/UV lock");check(v.getModelLocation().getPath().equals("block/"+route(owner,meta,false).getPath()),"JSON exact custom world route");IBakedModel world=bake(v.getModelLocation(),owner,false);registry.putObject(mapped,world);routes.put(state,mapped);
+    for(int mask:new int[]{0,1,3,63}){IBlockState e=new NeighborWorld(owner,meta,mask).extended();geometry(collect(world,e),oracle(owner,meta,mask,false,original),false,pack.getPackName()+" world "+NAMES[owner]+"/"+meta+"/"+mask);}
+    Item item=Item.getItemFromBlock(b);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(id!=null&&id.getPath().equals(route(owner,meta,true).getPath())&&id.getVariant().equals("inventory"),"actual item metadata registration");IBakedModel inventory=bake(id,owner,true);registry.putObject(id,inventory);geometry(collect(inventory,null),oracle(owner,meta,0,true,original),true,"registered item "+NAMES[owner]+"/"+meta);
+   }
+   ResourceLocation png=new ResourceLocation("hbm","textures/"+new ResourceLocation(sprite(owner).getIconName()).getPath()+".png");check(pack.resourceExists(png),"exact-case original PNG");try(InputStream in=pack.getInputStream(png)){check(ImageIO.read(in)!=null,"original PNG decode");}
+  }
+  ModelManager manager=(ModelManager)unsafe.allocateInstance(ModelManager.class);set(manager,ModelManager.class,"modelRegistry",registry);set(manager,ModelManager.class,"defaultModel",registry.getObject(routes.values().iterator().next()));net.minecraft.client.renderer.ItemModelMesher mesher=new net.minecraft.client.renderer.ItemModelMesher(manager);ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();for(int owner=0;owner<6;owner++)for(int meta=0;meta<16;meta++){Item item=Item.getItemFromBlock(blocks[owner]);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(mesher.getItemModel(new ItemStack(item,1,meta))==registry.getObject(id),"actual native ItemModelMesher");}
+  net.minecraft.client.renderer.BlockModelShapes actual=new net.minecraft.client.renderer.BlockModelShapes(manager);ModelLoader.onRegisterAllBlocks(actual);actual.reloadModels();for(Map.Entry<IBlockState,ModelResourceLocation> e:routes.entrySet())check(actual.getModelForState(e.getKey())==registry.getObject(e.getValue()),"actual native BlockModelShapes world route");
+  for(String prefix:new String[]{"","block/"}){IBakedModel b=bake(new ResourceLocation("hbm",prefix+route(0,4,false).getPath()),0,false);geometry(collect(b,blocks[0].getStateFromMeta(4)),oracle(0,4,0,false,original),false,"native route normalization "+prefix);}
+  System.out.println("PASS native ModelRegistryEvent, custom loader, exact JSON/state/item routing, ItemModelMesher/BlockModelShapes, actual six PNGs: "+pack.getPackName());
+ }
+ static final class AlteredPack implements IResourcePack {
+  final IResourcePack original;final String missing;final boolean translate;AlteredPack(IResourcePack p,String m,boolean shift){original=p;missing=m;translate=shift;}
+  boolean absent(ResourceLocation id){return id.getNamespace().equals("hbm")&&id.getPath().equals("models/lights/"+missing+".obj");}
+  public InputStream getInputStream(ResourceLocation id)throws IOException {
+   if(absent(id))throw new FileNotFoundException(id.toString());if(!translate||!id.getPath().endsWith(".obj"))return original.getInputStream(id);
+   StringBuilder changed=new StringBuilder();try(BufferedReader in=new BufferedReader(new InputStreamReader(original.getInputStream(id),StandardCharsets.UTF_8))){String line;while((line=in.readLine())!=null){if(line.startsWith("v ")){String[] p=line.trim().split("\\s+");line="v "+(Float.parseFloat(p[1])+.0625F)+" "+p[2]+" "+p[3];}changed.append(line).append('\n');}}
+   return new ByteArrayInputStream(changed.toString().getBytes(StandardCharsets.UTF_8));
+  }
+  public boolean resourceExists(ResourceLocation id){return !absent(id)&&original.resourceExists(id);}public Set<String> getResourceDomains(){return original.getResourceDomains();}
+  public <T extends net.minecraft.client.resources.data.IMetadataSection>T getPackMetadata(net.minecraft.client.resources.data.MetadataSerializer m,String k)throws IOException{return original.getPackMetadata(m,k);}
+  public java.awt.image.BufferedImage getPackImage()throws IOException{return original.getPackImage();}public String getPackName(){return "Controlled OBJ mutation";}
+ }
+ static void reload(IResourcePack pack)throws Exception{sharedResources.reloadResources(Collections.singletonList(pack));net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(sharedResources);}
+
+ static void resources(IResourcePack pack)throws Exception{
+  IModel[] before=new IModel[3];List<BakedQuad>[] retained=new List[3];for(int i=0;i<3;i++){before[i]=load(route(i*2,4,false));retained[i]=collect(bake(route(i*2,4,false),i*2,false),new NeighborWorld(i*2,4,63).extended());}
+  AlteredPack changed=new AlteredPack(pack,null,true);Map<String,List<Part>> revised=new LinkedHashMap<>();for(String asset:original.keySet())try(Reader r=new InputStreamReader(changed.getInputStream(new ResourceLocation("hbm","models/lights/"+asset+".obj")),StandardCharsets.UTF_8)){revised.put(asset,originalObj(r));}reload(changed);
+  TextureAtlasSprite oldSprite=sprite(0);Map<String,TextureAtlasSprite> oldAtlas=new LinkedHashMap<>(sprites);sprites.clear();
+  for(int i=0;i<3;i++){int owner=i*2;check(load(route(owner,4,false))!=before[i],"reload invalidates native descriptor cache");IBakedModel fresh=bake(route(owner,4,false),owner,false);geometry(collect(fresh,new NeighborWorld(owner,4,63).extended()),oracle(owner,4,63,false,revised),false,"changed source asset "+ASSETS[owner]);check(fresh.getParticleTexture()!=oldSprite,"rebake resolves fresh atlas sprites");
+   Map<String,TextureAtlasSprite> freshAtlas=new LinkedHashMap<>(sprites);sprites.clear();sprites.putAll(oldAtlas);geometry(retained[i],oracle(owner,4,63,false,original),false,"retained model immutable after reload");sprites.clear();sprites.putAll(freshAtlas);
+  }
+  reload(pack);for(int owner:new int[]{0,2,4})geometry(collect(bake(route(owner,4,false),owner,false),new NeighborWorld(owner,4,63).extended()),oracle(owner,4,63,false,original),false,"restored original resource");
+  for(int owner:new int[]{0,2,4}){reload(new AlteredPack(pack,ASSETS[owner],false));final int index=owner;rejects(()->load(route(index,4,false)),"missing original asset fails rather than substitutes missing model");}reload(pack);System.out.println("PASS all three mesh resources changed/reloaded/restored/missing, retained geometry immutable, replacement atlas accepted: "+pack.getPackName());
+ }
+ static void controlledParts()throws Exception{
+  String fixture="v -0.25 0 0\nv 0.75 0 0\nv 0.75 1 0\nv -0.25 1 0\nv 0 0 1\nvt 0.123456 0.234567\nvt 1 0\nvt 1 1\nvt 0 1\ng Top\nf 1/1 2/2 3/3 4/4\ng Side\nf 1/1 5/2 3/3\ng Top\nf 4/1 3/2 2/3 1/4\ng top\nf 1/1 2/2 3/3 4/4\n";
+  ObjMesh mesh=ObjMeshParser.parse(new StringReader(fixture),"controlled-light-parts",false);List<Part> reference=originalObj(new StringReader(fixture));TextureAtlasSprite texture=sprite("hbm:blocks/controlled_spotlight");
+  for(boolean item:new boolean[]{false,true})for(String part:new String[]{"Top","top","Side","TOP","missing"}){OriginalLightOracle.Layout l=new OriginalLightOracle.Layout();l.part=part;l.yaw=item?0:.73F;l.pitch=item?0:1.31F;l.roll=item?0:-.7F;l.x=.25;l.y=.5;l.z=.75;if(item){l.glYaw=-90;l.scale=1.5;}
+   geometry(SpotlightGeometry.bake(mesh,part,texture,item,l.yaw,l.pitch,l.roll,(float)l.x,(float)l.y,(float)l.z),stream(reference,l,texture,item),item,"controlled original quad/triangle, duplicate last-match, exact case "+part+" item="+item);
+  }
+  ObjMesh noUv=ObjMeshParser.parse(new StringReader("v 0 0 0\nv 1 0 0\nv 0 1 0\ng NoUv\nf 1 2 3\n"),"missing-light-uv",false);rejects(()->SpotlightGeometry.bake(noUv,"NoUv",texture,false,0,0,0,0,0,0),"missing UV fails rather than fabricating texture coordinates");
+  System.out.println("PASS controlled actual native quad/triangle encoding, last duplicate exact-case part, missing part empty, missing UV explicit failure.");
+ }
+ static void badRoutes()throws Exception{
+  ICustomModelLoader loader=(ICustomModelLoader)get(null,SpotlightBlockModelHandler.class,"LOADER");check(loader.accepts(route(0,0,false)),"custom route accepted");check(loader.accepts(new ResourceLocation("hbm","models/block/"+route(0,0,false).getPath())),"native loader canonical models/block prefix");check(!loader.accepts(new ResourceLocation("other",route(0,0,false).getPath()))&&!loader.accepts(new ResourceLocation("hbm","unrelated/light")),"loader scope exact");
+  for(String r:new String[]{"native_spotlight/unknown/0/world","native_spotlight/tile.spotlight_fluoro/16/world","native_spotlight/tile.spotlight_fluoro/-1/world","native_spotlight/tile.spotlight_fluoro/no/world","native_spotlight/tile.spotlight_fluoro/0/other","native_spotlight/tile.spotlight_fluoro/0/world/extra"})rejects(()->loader.loadModel(new ResourceLocation("hbm",r)),"malformed native route rejected "+r);
+  Spotlight unknown=new Spotlight(Material.IRON,2,LightType.INCANDESCENT,true);ForgeRegistries.BLOCKS.register(unknown.setRegistryName("hbm","tile.unspecified_light"));rejects(SpotlightModelNativeTest::event,"unknown owner fails explicitly, no invented material");
+ }
+ public static void main(String[] args)throws Exception{
+  setup();for(String name:new String[]{"cage_lamp","fluorescent_lamp","flood_lamp"}){File f=new File(args[2],"assets/hbm/models/lights/"+name+".obj");try(Reader r=new InputStreamReader(new FileInputStream(f),StandardCharsets.UTF_8)){original.put(name,originalObj(r));}try(Reader r=new InputStreamReader(new FileInputStream(f),StandardCharsets.UTF_8)){meshes.put(name,ObjMeshParser.parse(r,f.toString(),false));}int faces=0;for(Part part:original.get(name))for(Face face:part.faces){check(face.xyz.length==3,"original lamp asset triangles");faces++;}System.out.println("ORIGINAL OBJ "+name+": "+original.get(name).size()+" groups, "+faces+" triangles");}
+  legacyRotation(new File(args[3]));controlledParts();direct();try(FileResourcePack jar=new FileResourcePack(new File(args[1]))){IResourcePack folder=new FolderResourcePack(new File(args[0]));registry(folder);resources(folder);registry(jar);resources(jar);}badRoutes();
+  System.out.println("PASS native Spotlight model family: "+checks+" assertions, "+layouts+" complete exhaustive layouts, "+vertices+" ordered native vertices. Complete model/state/geometry/handler sources, pinned pristine renderer and assets, all metadata and modular masks, actual native lighting/routing/resources/reload.");
+  System.out.println("Boundaries: complete actual owners and models, explicit external NTM registry/celestial fixtures. Native MC/Forge classes unchanged. Headless CPU, controlled atlas rectangles and Unsafe Minecraft holder, no GL/live graphical or full-mod acceptance.");
+ }
+}

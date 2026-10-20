@@ -5,6 +5,8 @@ import java.util.Random;
 import com.hbm.blocks.ModBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
@@ -12,20 +14,21 @@ public class RBMKDebrisDigamma extends RBMKDebris {
 
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		
 		if(!world.isRemote) {
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+				Block b = world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)).getBlock();
 				if((b instanceof RBMKDebris  && b != this) || b == ModBlocks.corium_block || b == ModBlocks.block_corium)
-					world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this);
+					world.setBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ), getDefaultState());
 			}
 		}
 	}
 
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
-		world.scheduleBlockUpdate(x, y, z, this, 2);
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		world.scheduleUpdate(pos, this, 2);
 	}
 }

@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/desh",
+  "display": {
+    "icon": {
+      "item": "hbm:item.missile_soyuz",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.space"
+    },
+    "description": {
+      "translate": "achievement.space.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

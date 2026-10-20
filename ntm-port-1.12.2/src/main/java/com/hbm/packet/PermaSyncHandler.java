@@ -122,7 +122,7 @@ public class PermaSyncHandler {
 		/// SATELLITES ///
 
 		/// TIME OF DAY ///
-		if(world.provider instanceof WorldProviderCelestial && world.provider.dimensionId != 0) {
+		if(world.provider instanceof WorldProviderCelestial && world.provider.getDimension() != 0) {
 			buf.writeBoolean(true);
 			((WorldProviderCelestial) world.provider).serialize(buf);
 		} else {
@@ -153,7 +153,7 @@ public class PermaSyncHandler {
 	public static void readPacket(ByteBuf buf, World world, EntityPlayer player) {
 
 		/// TOM IMPACT DATA ///
-		ImpactWorldHandler.lastSyncWorld = player.worldObj;
+		ImpactWorldHandler.lastSyncWorld = player.world;
 		ImpactWorldHandler.fire = buf.readFloat();
 		ImpactWorldHandler.dust = buf.readFloat();
 		ImpactWorldHandler.impact = buf.readBoolean();

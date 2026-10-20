@@ -1,0 +1,12 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before": "\t\twand_air = new BlockWand(Blocks.air).setBlockName(\"wand_air\").setBlockTextureName(RefStrings.MODID + \":wand_air\");\r\n",
+    "after": "\t\twand_air = new BlockWand(Blocks.AIR).setTranslationKey(\"wand_air\");\r\n"
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "before": "\t\tRenderingRegistry.registerBlockHandler(new RenderBlockWand());\n",
+    "after": "\t\t// WandModelHandler owns the native wand_air block and flat item models.\n"
+  }
+]

@@ -1,0 +1,6 @@
+PASS 336 actual original-engine/native static-final registry identity and numeric-ID mappings. No block behavior/state/worldgen equivalence claimed.
+PASS 3073 exact native constant replacements across 278 files; 834 source drift/reintroduction mutations rejected. Original newlines/comments/unrelated bytes recover exactly; not full-class compile/gameplay proof.
+Attribution diagnostics (not a successful compile): 48159
+PASS 15 actual attributed ownership/comment/string/shadow/inherited-field/import/Unicode fixtures.
+PASS 3073 exact native constant replacements across 278 files; 834 source drift/reintroduction mutations rejected. Original newlines/comments/unrelated bytes recover exactly; not full-class compile/gameplay proof.
+PASS all3073 original-expression owners re-attributed to actual native class symbols; unfinished-source diagnostics are not compile success.

@@ -1,6 +1,10 @@
 package com.hbm.tileentity;
 
 import java.util.List;
+import java.util.Arrays;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 
 import com.hbm.dim.CelestialBody;
 import com.hbm.dim.orbit.WorldProviderOrbit;
@@ -20,8 +24,9 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 import net.minecraftforge.fluids.FluidTank;
 
-public abstract class TileEntityMachineBase extends TileEntityLoadedBase implements ISidedInventory {
+public abstract class TileEntityMachineBase extends TileEntityLoadedBase implements ISidedInventory, net.minecraft.util.ITickable {
 
+	/** Nullable domain storage; native IInventory methods expose EMPTY for absence. */
 	public ItemStack slots[];
 
 	private String customName;
@@ -32,7 +37,7 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 
 	/** The "chunks is modified, pls don't forget to save me" effect of markDirty, minus the block updates */
 	public void markChanged() {
-		this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+		this.world.markChunkDirty(this.pos, this);
 	}
 
 	@Override
@@ -40,41 +45,64 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 		return slots.length;
 	}
 
-	@Override
-	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-		if(slots[i] != null)
-		{
-			ItemStack itemStack = slots[i];
-			slots[i] = null;
-			return itemStack;
-		} else {
-		return null;
+	public boolean isEmpty() {
+		for(ItemStack stack : slots) {
+			if(!nativeStack(stack).isEmpty()) return false;
 		}
+		return true;
+	}
+
+	@Override
+	public ItemStack getStackInSlot(int i) {
+		return nativeStack(slots[i]);
+	}
+
+	@Override
+	public ItemStack removeStackFromSlot(int i) {
+		ItemStack stack = nativeStack(slots[i]);
+		slots[i] = null;
+		return stack;
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
-		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
-		{
-			itemStack.stackSize = getInventoryStackLimit();
+		slots[i] = nativeStack(itemStack).isEmpty() ? null : itemStack;
+		if(slots[i] != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
+	// Machines sync their actual progress/power/muffled data via serialize, not vanilla window fields.
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+	@Override public void clear() { Arrays.fill(slots, null); }
+
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : getName();
+	public String getName() {
+		return this.hasCustomName() ? this.customName : getDefaultName();
 	}
 
-	public abstract String getName();
+	public abstract String getDefaultName();
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public net.minecraft.util.text.ITextComponent getDisplayName() {
+		return hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
+	}
+
+	/** Narrow compatibility for existing machine GUI/container callers. */
+	public String getInventoryName() { return getName(); }
+
+	/** Narrow compatibility for existing machine GUI/container callers. */
+	public boolean hasCustomInventoryName() { return hasCustomName(); }
+
+	@Override
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
 
@@ -89,18 +117,18 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		if(world.getTileEntity(pos) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 128;
+			return player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 128;
 		}
 	}
 
 	@Override
-	public void openInventory() {}
+	public void openInventory(EntityPlayer player) {}
 	@Override
-	public void closeInventory() {}
+	public void closeInventory(EntityPlayer player) {}
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
@@ -109,37 +137,40 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
-		if(slots[slot] != null) {
+		if(!nativeStack(slots[slot]).isEmpty()) {
 
-			if(slots[slot].stackSize <= amount) {
+			if(slots[slot].getCount() <= amount) {
 				ItemStack itemStack = slots[slot];
 				slots[slot] = null;
 				return itemStack;
 			}
 
 			ItemStack itemStack1 = slots[slot].splitStack(amount);
-			if(slots[slot].stackSize == 0) {
+			if(slots[slot].isEmpty()) {
 				slots[slot] = null;
 			}
 
-			return itemStack1;
+			return nativeStack(itemStack1);
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
-	public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
+	public boolean canInsertItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(slot, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { };
 	}
 
@@ -152,7 +183,7 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 	//was it update? onUpdate? updateTile? did it have any args?
 	//shit i don't know man
 	@Override
-	public abstract void updateEntity();
+	public abstract void update();
 
 	@Deprecated
 	public void handleButtonPacket(int value, int meta) { }
@@ -168,7 +199,8 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length)
 			{
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				ItemStack stack = new ItemStack(nbt1);
+				slots[b0] = stack.isEmpty() ? null : stack;
 			}
 		}
 
@@ -176,13 +208,13 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
 
 		for(int i = 0; i < slots.length; i++)
 		{
-			if(slots[i] != null)
+			if(!nativeStack(slots[i]).isEmpty())
 			{
 				NBTTagCompound nbt1 = new NBTTagCompound();
 				nbt1.setByte("slot", (byte)i);
@@ -195,34 +227,34 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	public void updateRedstoneConnection(DirPos pos) {
 
-		int x = pos.getX();
-		int y = pos.getY();
-		int z = pos.getZ();
+		BlockPos neighborPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
 		ForgeDirection dir = pos.getDir();
-		Block block1 = worldObj.getBlock(x, y, z);
+		IBlockState state1 = world.getBlockState(neighborPos);
+		Block block1 = state1.getBlock();
 
-		block1.onNeighborChange(worldObj, x, y, z, xCoord, yCoord, zCoord);
-		block1.onNeighborBlockChange(worldObj, x, y, z, this.getBlockType());
-		if(block1.isNormalCube(worldObj, x, y, z)) {
-			x += dir.offsetX;
-			y += dir.offsetY;
-			z += dir.offsetZ;
-			Block block2 = worldObj.getBlock(x, y, z);
+		block1.onNeighborChange(world, neighborPos, this.pos);
+		// Earlier callbacks may mutate metadata/state; keep the captured block, but refresh state.
+		block1.neighborChanged(world.getBlockState(neighborPos), world, neighborPos, this.getBlockType(), this.pos);
+		if(block1.isNormalCube(world.getBlockState(neighborPos), world, neighborPos)) {
+			neighborPos = neighborPos.add(dir.offsetX, dir.offsetY, dir.offsetZ);
+			IBlockState state2 = world.getBlockState(neighborPos);
+			Block block2 = state2.getBlock();
 
-			if(block2.getWeakChanges(worldObj, x, y, z)) {
-				block2.onNeighborChange(worldObj, x, y, z, xCoord, yCoord, zCoord);
-				block2.onNeighborBlockChange(worldObj, x, y, z, this.getBlockType());
+			if(block2.getWeakChanges(world, neighborPos)) {
+				block2.onNeighborChange(world, neighborPos, this.pos);
+				block2.neighborChanged(world.getBlockState(neighborPos), world, neighborPos, this.getBlockType(), this.pos);
 			}
 		}
 	}
 
 	// TODO: Consume air from connected tanks if available
 	public boolean breatheAir(int amount) {
-		return breatheAir(worldObj, xCoord, yCoord, zCoord, amount);
+		return breatheAir(world, pos.getX(), pos.getY(), pos.getZ(), amount);
 	}
 
 	public static boolean breatheAir(World world, int x, int y, int z, int amount) {

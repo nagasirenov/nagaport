@@ -1,0 +1,374 @@
+{
+  "baseline": "4117777482629b159d6cfa5dcc20c1f4ec5aa311",
+  "existing": {
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "28e1c01aeb3f61933e7b1c5f06ea8432ddaebc6f430b77d640a770e3d1e96181",
+      "after_sha256": "7112f22df61cad70c37e7c26b22a16f4951fcce22c1ba9e23742186f434095aa",
+      "edits": [
+        {
+          "before_offset": 4903,
+          "after_offset": 4903,
+          "old": "Obj",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "f2d175b98a234add95d166c2e1a84420ae3618dc8bafabff2f41b3dbd188c882",
+      "after_sha256": "ab8fb55dc956e223c219f83f98dd5add73a68542ba8800b9fef865c314e9bb27",
+      "edits": [
+        {
+          "before_offset": 8778,
+          "after_offset": 8778,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 9690,
+          "after_offset": 9687,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 10002,
+          "after_offset": 9996,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 20458,
+          "after_offset": 20449,
+          "old": "Obj",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/pathfinder/PathFinderUtils.java": {
+      "before_sha256": "61843202217108c953fa74a30a3c88d977d600fd6879d6f59ced6b05772aa96e",
+      "after_sha256": "1b998e13d9ebad52e9b38ce9d206741cb9551d19872685d41ff6babfcb7596df",
+      "edits": [
+        {
+          "before_offset": 109,
+          "after_offset": 109,
+          "old": "Entity",
+          "new": ""
+        },
+        {
+          "before_offset": 138,
+          "after_offset": 132,
+          "old": "p",
+          "new": "util.m"
+        },
+        {
+          "before_offset": 142,
+          "after_offset": 141,
+          "old": "finding",
+          "new": ""
+        },
+        {
+          "before_offset": 150,
+          "after_offset": 142,
+          "old": "",
+          "new": "Block"
+        },
+        {
+          "before_offset": 151,
+          "after_offset": 148,
+          "old": "athFinder",
+          "new": "os"
+        },
+        {
+          "before_offset": 368,
+          "after_offset": 358,
+          "old": "Entity",
+          "new": ""
+        },
+        {
+          "before_offset": 558,
+          "after_offset": 542,
+          "old": "theP",
+          "new": "p"
+        },
+        {
+          "before_offset": 627,
+          "after_offset": 608,
+          "old": "_double",
+          "new": ""
+        },
+        {
+          "before_offset": 684,
+          "after_offset": 658,
+          "old": "_double",
+          "new": ""
+        },
+        {
+          "before_offset": 748,
+          "after_offset": 715,
+          "old": "_double",
+          "new": ""
+        },
+        {
+          "before_offset": 1070,
+          "after_offset": 1030,
+          "old": "",
+          "new": "new BlockPos("
+        },
+        {
+          "before_offset": 1086,
+          "after_offset": 1059,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 1088,
+          "after_offset": 1062,
+          "old": "",
+          "new": "new BlockPos("
+        },
+        {
+          "before_offset": 1104,
+          "after_offset": 1091,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 1649,
+          "after_offset": 1637,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 1657,
+          "after_offset": 1663,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 1693,
+          "after_offset": 1700,
+          "old": "",
+          "new": "NTMPathFinder.isOriginalNormalCube("
+        },
+        {
+          "before_offset": 1707,
+          "after_offset": 1749,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 1720,
+          "after_offset": 1780,
+          "old": ".isNormalCube(",
+          "new": ")"
+        },
+        {
+          "before_offset": 1863,
+          "after_offset": 1910,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 1871,
+          "after_offset": 1936,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 1907,
+          "after_offset": 1973,
+          "old": "",
+          "new": "NTMPathFinder.isOriginalNormalCube("
+        },
+        {
+          "before_offset": 1921,
+          "after_offset": 2022,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 1934,
+          "after_offset": 2053,
+          "old": ".isNormalCube(",
+          "new": ")"
+        },
+        {
+          "before_offset": 2005,
+          "after_offset": 2111,
+          "old": "//",
+          "new": ""
+        },
+        {
+          "before_offset": 2011,
+          "after_offset": 2115,
+          "old": "Entity",
+          "new": ""
+        },
+        {
+          "before_offset": 2036,
+          "after_offset": 2134,
+          "old": "PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPath",
+          "new": "N"
+        },
+        {
+          "before_offset": 2125,
+          "after_offset": 2136,
+          "old": "o(fromEntity, toEntity, maxDist);\n\t\tPathEntity pathentity = (new ",
+          "new": "M"
+        },
+        {
+          "before_offset": 2320,
+          "after_offset": 2267,
+          "old": "theP",
+          "new": "p"
+        },
+        {
+          "before_offset": 2390,
+          "after_offset": 2334,
+          "old": "Entity",
+          "new": ""
+        },
+        {
+          "before_offset": 2592,
+          "after_offset": 2530,
+          "old": "theP",
+          "new": "p"
+        },
+        {
+          "before_offset": 2661,
+          "after_offset": 2596,
+          "old": "_double",
+          "new": ""
+        },
+        {
+          "before_offset": 2718,
+          "after_offset": 2646,
+          "old": "_double",
+          "new": ""
+        },
+        {
+          "before_offset": 2782,
+          "after_offset": 2703,
+          "old": "_double",
+          "new": ""
+        },
+        {
+          "before_offset": 3104,
+          "after_offset": 3018,
+          "old": "",
+          "new": "new BlockPos("
+        },
+        {
+          "before_offset": 3120,
+          "after_offset": 3047,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 3122,
+          "after_offset": 3050,
+          "old": "",
+          "new": "new BlockPos("
+        },
+        {
+          "before_offset": 3138,
+          "after_offset": 3079,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 3650,
+          "after_offset": 3592,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 3658,
+          "after_offset": 3618,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 3694,
+          "after_offset": 3655,
+          "old": "",
+          "new": "NTMPathFinder.isOriginalNormalCube("
+        },
+        {
+          "before_offset": 3708,
+          "after_offset": 3704,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 3721,
+          "after_offset": 3735,
+          "old": ".isNormalCube(",
+          "new": ")"
+        },
+        {
+          "before_offset": 3859,
+          "after_offset": 3860,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 3867,
+          "after_offset": 3886,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 3903,
+          "after_offset": 3923,
+          "old": "",
+          "new": "NTMPathFinder.isOriginalNormalCube("
+        },
+        {
+          "before_offset": 3917,
+          "after_offset": 3972,
+          "old": "",
+          "new": "State(new BlockPos"
+        },
+        {
+          "before_offset": 3930,
+          "after_offset": 4003,
+          "old": ".isNormalCube(",
+          "new": ")"
+        },
+        {
+          "before_offset": 4001,
+          "after_offset": 4061,
+          "old": "//",
+          "new": ""
+        },
+        {
+          "before_offset": 4007,
+          "after_offset": 4065,
+          "old": "Entity",
+          "new": ""
+        },
+        {
+          "before_offset": 4032,
+          "after_offset": 4084,
+          "old": "PathFinder(chunkcache, allowDoors, allowBlocked, allowWater, canDrown)).createEntityPath",
+          "new": "N"
+        },
+        {
+          "before_offset": 4121,
+          "after_offset": 4086,
+          "old": "o(fromEntity, toEntity, maxDist);\n\t\tPathEntity pathentity = (new ",
+          "new": "M"
+        },
+        {
+          "before_offset": 4316,
+          "after_offset": 4217,
+          "old": "theP",
+          "new": "p"
+        }
+      ]
+    }
+  },
+  "new": {
+    "src/main/java/com/hbm/entity/pathfinder/NTMPathFinder.java": "917cac970d420f5e4b3777c431f16148dbcced853f8ed8b0bb42d09da8400577"
+  }
+}

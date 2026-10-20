@@ -53,7 +53,7 @@ public class ContainerMachineTurbineGas extends Container {
 			} else if(var5.getItem() instanceof IItemFluidIdentifier) {
 
 				IItemFluidIdentifier id = (IItemFluidIdentifier) var5.getItem();
-				FluidType type = id.getType(turbinegas.getWorldObj(), turbinegas.xCoord, turbinegas.yCoord, turbinegas.zCoord, var5);
+				FluidType type = id.getType(turbinegas.getWorld(), turbinegas.getPos().getX(), turbinegas.getPos().getY(), turbinegas.getPos().getZ(), var5);
 				if(!(type.hasTrait(FT_Combustible.class) && type.getTrait(FT_Combustible.class).getGrade() == FuelGrade.GAS)) // redundant restriction that does nothing at best and at worst breaks shit but i'm not questioning pvn on this one
 					return null;
 
@@ -75,6 +75,6 @@ public class ContainerMachineTurbineGas extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return turbinegas.isUseableByPlayer(player);
+		return turbinegas.isUsableByPlayer(player);
 	}
 }

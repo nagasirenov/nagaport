@@ -1,0 +1,5 @@
+/workspace/shared/world-sound-widening-replay.qcPMl4/negative/NativeObjectReceiverNegative.java:1: error: incompatible types: Object cannot be converted to World
+class NativeObjectReceiverNegative { static void test(Object w) { com.hbm.sound.WorldSoundEffects.play(w, 1, 2, 3, "hbm:player.vomit", 1F, 1F); } }
+                                                                                                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

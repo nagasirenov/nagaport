@@ -42,8 +42,8 @@ public class GUIFEL extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 142 <= x && guiLeft + 142 + 29 > x && guiTop + 41 < y && guiTop + 41 + 17 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-			PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(fel.xCoord, fel.yCoord, fel.zCoord, 0, 2));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+			PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(fel.getPos().getX(), fel.getPos().getY(), fel.getPos().getZ(), 0, 2));
 		}
 		
 	}
@@ -52,13 +52,13 @@ public class GUIFEL extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.fel.hasCustomInventoryName() ? this.fel.getInventoryName() : I18n.format(this.fel.getInventoryName());
 
-		this.fontRendererObj.drawString(name, 90 + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 7, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 98, 4210752);
+		this.fontRenderer.drawString(name, 90 + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 7, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 98, 4210752);
 		
 		if(fel.missingValidSilex && fel.isOn) {
-			this.fontRendererObj.drawString(I18n.format("ERR."), 55 + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 9, 0xFF0000);
+			this.fontRenderer.drawString(I18n.format("ERR."), 55 + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 9, 0xFF0000);
 		} else if(fel.isOn) {
-			this.fontRendererObj.drawString(I18n.format("LIVE"), 54 + this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 9, 0x00FF00);
+			this.fontRenderer.drawString(I18n.format("LIVE"), 54 + this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 9, 0x00FF00);
 		}
 		
 	}
@@ -75,7 +75,7 @@ public class GUIFEL extends GuiInfoContainer {
 		int k = (int)fel.getPowerScaled(114);
 		drawTexturedModalRect(guiLeft + 182, guiTop + 27 + 113 - k, 203, 17 + 113 - k, 16, k);
 		
-		int color = !(fel.mode == EnumWavelengths.VISIBLE) ? fel.mode.guiColor : Color.HSBtoRGB(fel.getWorldObj().getTotalWorldTime() / 50.0F, 0.5F, 1F) & 16777215;
+		int color = !(fel.mode == EnumWavelengths.VISIBLE) ? fel.mode.guiColor : Color.HSBtoRGB(fel.getWorld().getTotalWorldTime() / 50.0F, 0.5F, 1F) & 16777215;
 		
 		if(fel.power > fel.powerReq * Math.pow(2, fel.mode.ordinal()) && fel.isOn && !(fel.mode == EnumWavelengths.NULL) && fel.distance > 0) {
 			

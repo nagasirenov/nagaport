@@ -1,0 +1,6 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/util/EnumUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 22 complete production classes; four explicit NTM registry/lock collaborators, no Minecraft/Forge substitutes
+PASS 67688 native appliance owner/model checks

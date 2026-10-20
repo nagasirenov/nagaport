@@ -92,13 +92,13 @@ public class EntityAIBehemothGun extends EntityAIBase {
 	    bullet.motionY = targetY * 0.5D;
 	    bullet.motionZ = targetZ * 0.5D;
 
-	    owner.worldObj.spawnEntityInWorld(bullet);
+	    owner.world.spawnEntityInWorld(bullet);
 	    owner.playSound("hbm:weapon.calShoot", 15.0F, 1.0F);
 	}
 
 	private void fireArtilleryShell() {
 		if(reloadTimer <= 0) {
-			EntityArtilleryShell grenade = new EntityArtilleryShell(owner.worldObj);
+			EntityArtilleryShell grenade = new EntityArtilleryShell(owner.world);
 			grenade.setType(9);
 			grenade.setPosition(owner.posX, owner.posY + 14, owner.posZ);
 			Vec3d vec = new Vec3d(target.posX - owner.posX, 0, target.posZ - owner.posZ);
@@ -107,8 +107,8 @@ public class EntityAIBehemothGun extends EntityAIBase {
 			grenade.motionZ = vec.z * 0.05D;
 			grenade.setThrowableHeading(grenade.motionX , grenade.motionY * 6, grenade.motionZ , 5F, 0);
 			grenade.setTarget(target.posX, target.posZ, target.posY);
-			owner.worldObj.playSoundEffect(owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
-			owner.worldObj.spawnEntityInWorld(grenade);
+			com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
+			owner.world.spawnEntityInWorld(grenade);
 			reloadTimer = reloadDelay;
 		} else {
 			reloadTimer--;

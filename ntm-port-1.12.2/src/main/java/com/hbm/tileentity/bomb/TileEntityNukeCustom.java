@@ -24,7 +24,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class TileEntityNukeCustom extends TileEntity implements ISidedInventory, IGUIProvider {
+public class TileEntityNukeCustom extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
 	public ItemStack slots[];
 	private String customName;
@@ -66,23 +66,24 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null)
 		{
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-		return null;
+		return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit())
 		{
-			itemStack.stackSize = getInventoryStackLimit();
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -108,11 +109,11 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
 		}else{
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <=64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
 
@@ -132,17 +133,20 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[0];
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 	
@@ -167,7 +171,7 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		NBTTagList list = new NBTTagList();
@@ -187,14 +191,15 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 	
 	public static HashMap<ComparableStack, CustomNukeEntry> entries = new HashMap();
 	
 	public static void registerBombItems() {
 
-		entries.put(new ComparableStack(Items.gunpowder), new CustomNukeEntry(EnumBombType.TNT, 0.8F));
-		entries.put(new ComparableStack(Blocks.tnt), new CustomNukeEntry(EnumBombType.TNT, 4F));
+		entries.put(new ComparableStack(Items.GUNPOWDER), new CustomNukeEntry(EnumBombType.TNT, 0.8F));
+		entries.put(new ComparableStack(Blocks.TNT), new CustomNukeEntry(EnumBombType.TNT, 4F));
 		entries.put(new ComparableStack(ModBlocks.det_cord), new CustomNukeEntry(EnumBombType.TNT, 1.5F));
 		entries.put(new ComparableStack(ModItems.ingot_semtex), new CustomNukeEntry(EnumBombType.TNT, 8F));
 		entries.put(new ComparableStack(ModBlocks.det_charge), new CustomNukeEntry(EnumBombType.TNT, 15F));
@@ -239,8 +244,8 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		entries.put(new ComparableStack(ModItems.nugget_euphemium), new CustomNukeEntry(EnumBombType.EUPH, 1F));
 		entries.put(new ComparableStack(ModItems.ingot_euphemium), new CustomNukeEntry(EnumBombType.EUPH, 1F));
 
-		entries.put(new ComparableStack(Items.redstone), new CustomNukeEntry(EnumBombType.TNT, 1.05F, EnumEntryType.MULT));
-		entries.put(new ComparableStack(Blocks.redstone_block), new CustomNukeEntry(EnumBombType.TNT, 1.5F, EnumEntryType.MULT));
+		entries.put(new ComparableStack(Items.REDSTONE), new CustomNukeEntry(EnumBombType.TNT, 1.05F, EnumEntryType.MULT));
+		entries.put(new ComparableStack(Blocks.REDSTONE_BLOCK), new CustomNukeEntry(EnumBombType.TNT, 1.5F, EnumEntryType.MULT));
 
 		entries.put(new ComparableStack(ModItems.ingot_uranium), new CustomNukeEntry(EnumBombType.NUKE, 1.05F, EnumEntryType.MULT));
 		entries.put(new ComparableStack(ModItems.ingot_plutonium), new CustomNukeEntry(EnumBombType.NUKE, 1.15F, EnumEntryType.MULT));
@@ -269,7 +274,7 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	
 	@SuppressWarnings("incomplete-switch")
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		float tnt = 0F,		tntMod = 1F;
 		float nuke = 0F,	nukeMod = 1F;
@@ -382,7 +387,7 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	public void destruct() {
 		
 		clearSlots();
-		worldObj.func_147480_a(xCoord, yCoord, xCoord, false);
+		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getX(), false);
 	}
 	
 	public void clearSlots() {

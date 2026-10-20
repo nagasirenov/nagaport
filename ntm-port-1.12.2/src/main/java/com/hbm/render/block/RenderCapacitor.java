@@ -1,89 +1,29 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.render.block.nativeblock.AtlasObjGeometry;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-import com.hbm.blocks.machine.MachineCapacitor;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderCapacitor implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setColorOpaque_F(1, 1, 1);
-		
-		MachineCapacitor capacitor = (MachineCapacitor) block;
-		
-		tessellator.startDrawingQuads();
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "Top", capacitor.iconTop, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "Side", capacitor.iconSide, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "Bottom", capacitor.iconBottom, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "InnerTop", capacitor.iconInnerTop, tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "InnerSide", capacitor.iconInnerSide, tessellator, 0, false);
-		tessellator.draw();
-
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		MachineCapacitor capacitor = (MachineCapacitor) block;
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		float flip = 0;
-		float rotation = 0;
-		
-		int meta = world.getBlockMetadata(x, y, z);
-		
-		if(meta == 0)
-			flip = (float)Math.PI;
-
-		if(meta == 2)
-			rotation = 90F / 180F * (float) Math.PI;
-
-		if(meta == 3)
-			rotation = 270F / 180F * (float) Math.PI;
-
-		if(meta == 4)
-			rotation = 180F / 180F * (float)Math.PI;
-		
-		if(rotation != 0F || meta == 5)
-			flip = (float)Math.PI * 0.5F;
-
-		tessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);
-
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "Top", capacitor.iconTop, tessellator, rotation, flip, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "Side", capacitor.iconSide, tessellator, rotation, flip, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "Bottom", capacitor.iconBottom, tessellator, rotation, flip, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "InnerTop", capacitor.iconInnerTop, tessellator, rotation, flip, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.capacitor, "InnerSide", capacitor.iconInnerSide, tessellator, rotation, flip, true);
-		
-		tessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return MachineCapacitor.renderID;
-	}
+/** Five original material groups, with the original six-direction Z-then-Y orientation. */
+public final class RenderCapacitor {
+    private RenderCapacitor() { }
+    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite[] sprites) {
+        if(sprites.length != 5) throw new IllegalArgumentException("Capacitor requires five material sprites");
+        float pitch = 0, yaw = 0;
+        if(!inventory) {
+            if(metadata == 0) pitch = (float)Math.PI;
+            if(metadata == 2) yaw = 90F / 180F * (float)Math.PI;
+            if(metadata == 3) yaw = 270F / 180F * (float)Math.PI;
+            if(metadata == 4) yaw = 180F / 180F * (float)Math.PI;
+            if(yaw != 0F || metadata == 5) pitch = (float)Math.PI * .5F;
+        }
+        String[] names = {"Top", "Side", "Bottom", "InnerTop", "InnerSide"};
+        List<BakedQuad> quads = new ArrayList<>();
+        for(int i = 0; i < names.length; i++) AtlasObjGeometry.appendPart(quads, mesh, names[i], sprites[i], inventory, yaw, pitch, 1, .5, .5, .5);
+        return Collections.unmodifiableList(quads);
+    }
 }

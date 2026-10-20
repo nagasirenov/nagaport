@@ -1,0 +1,9 @@
+{
+  "baseline": "2c6dc45f34bf8ff6016a5f0f84e86051dde67f7f",
+  "nonimport_sha256": {
+    "crafting/handlers/RBMKFuelCraftingHandler": "c201e09a0f29b21b5c62c9912c00670185fcf12d84ec8df6c43f7c6cd45e7551",
+    "crafting/handlers/ScrapsCraftingHandler": "e07d250924c1dd7eab6d5cdcec33597870afa3ea94f3294fe0ac7388765d9978",
+    "crafting/handlers/CargoShellCraftingHandler": "6c41d1f0e174c209463e1f491990517def75db16dd7ebbe8d92b9df505c51e39",
+    "main/CraftingManager": "32d1e8ab60240ba0a2829a09e9b3b6a8a2c2ae27ce96d2b8e00a6c2afe3a4463"
+  }
+}

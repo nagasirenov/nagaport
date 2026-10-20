@@ -1,0 +1,2386 @@
+{
+  "description": "Exact whole-file callback migration; reverse before naming then sided. No git baseline required.",
+  "usability_owners": [
+    "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java"
+  ],
+  "open_close_owners": [
+    "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+    "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java",
+    "src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java",
+    "src/main/java/com/hbm/blocks/machine/BlockPWR.java"
+  ],
+  "paired_containers": [
+    "src/main/java/com/hbm/inventory/container/ContainerAshpit.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFirebox.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCombustionEngine.java",
+    "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineWoodBurner.java"
+  ],
+  "self_calls": [
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java"
+  ],
+  "container_calls": [
+    "src/main/java/com/hbm/inventory/container/ContainerAshpit.java",
+    "src/main/java/com/hbm/inventory/container/ContainerBarrel.java",
+    "src/main/java/com/hbm/inventory/container/ContainerBatteryREDD.java",
+    "src/main/java/com/hbm/inventory/container/ContainerBatterySocket.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCentrifuge.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCombustionEngine.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCompressor.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCore.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCoreEmitter.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCoreInjector.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCoreReceiver.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCoreStabilizer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCrucible.java",
+    "src/main/java/com/hbm/inventory/container/ContainerCrystallizer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerDiFurnace.java",
+    "src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java",
+    "src/main/java/com/hbm/inventory/container/ContainerElectricFurnace.java",
+    "src/main/java/com/hbm/inventory/container/ContainerElectrolyser.java",
+    "src/main/java/com/hbm/inventory/container/ContainerElectrolyserFluid.java",
+    "src/main/java/com/hbm/inventory/container/ContainerElectrolyserMetal.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFEL.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFirebox.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFunnel.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFurnaceBrick.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFurnaceCombo.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFurnaceIron.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFurnaceSteel.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFusionBreeder.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFusionKlystron.java",
+    "src/main/java/com/hbm/inventory/container/ContainerFusionTorus.java",
+    "src/main/java/com/hbm/inventory/container/ContainerHeaterHeatex.java",
+    "src/main/java/com/hbm/inventory/container/ContainerICF.java",
+    "src/main/java/com/hbm/inventory/container/ContainerICFPress.java",
+    "src/main/java/com/hbm/inventory/container/ContainerIGenerator.java",
+    "src/main/java/com/hbm/inventory/container/ContainerITER.java",
+    "src/main/java/com/hbm/inventory/container/ContainerLaunchPadLarge.java",
+    "src/main/java/com/hbm/inventory/container/ContainerLaunchPadRusted.java",
+    "src/main/java/com/hbm/inventory/container/ContainerLiquefactor.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineAmmoPress.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineArcFurnaceLarge.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineArcWelder.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineBattery.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineCatalyticReformer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineCoker.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineCryoDistill.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineCustom.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineCyclotron.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineDiFurnaceRTG.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineDiesel.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineEPress.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineExcavator.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineExposureChamber.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineFluidTank.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineGasCent.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineGasFlare.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineHydrotreater.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineLargeTurbine.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineMilkReformer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineOilWell.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachinePress.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineRadGen.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineRadarNT.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineReactorBreeding.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineRefinery.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineRotaryFurnace.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineSolderingStation.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineTurbineGas.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineTurbofan.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineVacuumDistill.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineWarController.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineWoodBurner.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMicrowave.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMiningLaser.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMixer.java",
+    "src/main/java/com/hbm/inventory/container/ContainerNukeAntimatter.java",
+    "src/main/java/com/hbm/inventory/container/ContainerNukeFstbmb.java",
+    "src/main/java/com/hbm/inventory/container/ContainerOilburner.java",
+    "src/main/java/com/hbm/inventory/container/ContainerOreSlopper.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPADetector.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPADipole.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPAQuadrupole.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPARFC.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPASource.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPWR.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPlasmaHeater.java",
+    "src/main/java/com/hbm/inventory/container/ContainerPyroOven.java",
+    "src/main/java/com/hbm/inventory/container/ContainerRBMKAutoloader.java",
+    "src/main/java/com/hbm/inventory/container/ContainerRadiolysis.java",
+    "src/main/java/com/hbm/inventory/container/ContainerReactorControl.java",
+    "src/main/java/com/hbm/inventory/container/ContainerReactorResearch.java",
+    "src/main/java/com/hbm/inventory/container/ContainerReactorZirnox.java",
+    "src/main/java/com/hbm/inventory/container/ContainerSILEX.java",
+    "src/main/java/com/hbm/inventory/container/ContainerSolidifier.java",
+    "src/main/java/com/hbm/inventory/container/ContainerSoyuzLauncher.java",
+    "src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java",
+    "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+    "src/main/java/com/hbm/inventory/container/ContainerVacuumCircuit.java",
+    "src/main/java/com/hbm/inventory/container/ContainerWatz.java"
+  ],
+  "independent_container_calls": [
+    "src/main/java/com/hbm/inventory/container/ContainerBase.java",
+    "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java"
+  ],
+  "independent_owners": [
+    "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java",
+    "src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java",
+    "src/main/java/com/hbm/blocks/machine/BlockPWR.java"
+  ],
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      "baseline_sha256": "307e6c1a20209bdd53110f189b56fbe3062217518f0346841e724bae7fbaeb46",
+      "migrated_sha256": "73f8aee4154d9dadc98e8bdbd27d44b032ff1e64807fe81cbb156861a588e95d",
+      "edits": [
+        {
+          "offset": 8259,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 8327,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 8390,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAshpit.java",
+      "baseline_sha256": "910e2346b91430b0eb77bec7885c5239c893690225c0e23fbe57605e340ef665",
+      "migrated_sha256": "a58b54492c677d7ad06f0bd16f6695aaefa97e8253f824b0dddeafa2e654e5e0",
+      "edits": [
+        {
+          "offset": 1675,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 552,
+          "old": ".openInventory()",
+          "new": ".openInventory(invPlayer.player)",
+          "kind": "constructor supplied player"
+        },
+        {
+          "offset": 1834,
+          "old": ".closeInventory()",
+          "new": ".closeInventory(player)",
+          "kind": "close supplied player"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBarrel.java",
+      "baseline_sha256": "9e708a8c6c0485b70765b1ba602ba4245432ad866ed4bd85af2571ed966240c5",
+      "migrated_sha256": "766255885b7cde92affc87a6187933ecf55110874491e951d5c014a1047a462b",
+      "edits": [
+        {
+          "offset": 2013,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBase.java",
+      "baseline_sha256": "c4b98c41c23b382e883b49faad0e66a2c5f33a336ac79babd915e655b242d1fc",
+      "migrated_sha256": "3362ca55d545a85250fb33fb4ba7df83923a20202771f85c3286fdadfdb55f81",
+      "edits": [
+        {
+          "offset": 940,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBatteryREDD.java",
+      "baseline_sha256": "dd755d913537eb34d756498074ea87f82a013a9fecf6951e5ff47355ebe7aa88",
+      "migrated_sha256": "af39cea56657544ce9af85073dfcad27b3d995b128bce3c3d3b09dff3d4e783d",
+      "edits": [
+        {
+          "offset": 1062,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBatterySocket.java",
+      "baseline_sha256": "46e02abb331d9df6e4b26d9e4f73c094f972c00810b20a941c58e6b0a2c4dedb",
+      "migrated_sha256": "94591b0f3b092bcf5b1665049f0c97ba70db1cc97cb98d3fe053f5983e73d0d1",
+      "edits": [
+        {
+          "offset": 1005,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCentrifuge.java",
+      "baseline_sha256": "d3fac26d1bc971e8570f3e58ff0aca5ef61a070ab02ec8d07bb5fa3101c8f584",
+      "migrated_sha256": "32f4a8bafe7614578004359dd1142b5470b3863ae39f6a0f4cc921465070e889",
+      "edits": [
+        {
+          "offset": 2661,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCombustionEngine.java",
+      "baseline_sha256": "0a6038cbe446603a995c08647d10ebe003abc2de8fc66839c4df148a9cda9397",
+      "migrated_sha256": "e1fb11edc27fbf9bd5746a69ab05c4f9b678c4ab9d607ef646eaba31efe0f6f8",
+      "edits": [
+        {
+          "offset": 2454,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 742,
+          "old": ".openInventory()",
+          "new": ".openInventory(invPlayer.player)",
+          "kind": "constructor supplied player"
+        },
+        {
+          "offset": 2613,
+          "old": ".closeInventory()",
+          "new": ".closeInventory(player)",
+          "kind": "close supplied player"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCompressor.java",
+      "baseline_sha256": "8647c1646e8cd6ec2804c004aaf501e583c226a900fc8aaac4b9148ad3ec7843",
+      "migrated_sha256": "ef5b1fbc8171b76ea1bd831e355d4f7c8de1defac509a556e848cee760c21477",
+      "edits": [
+        {
+          "offset": 1256,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCore.java",
+      "baseline_sha256": "f54b069f1baad980cea1b41a4db968516fa38a7847fa7cd3e3a3451cc4a4fdbc",
+      "migrated_sha256": "36c3423ef4325313afbe8eff374ac728855e2f0cba0cfc8d442bb00d28fec2e9",
+      "edits": [
+        {
+          "offset": 1745,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCoreEmitter.java",
+      "baseline_sha256": "cf7b0fd732b0dcc4ee42ddd032ed441b44507ff5fca1966093b60a37dd169fa4",
+      "migrated_sha256": "093244657ccd3d7fa125175219a8e40cdf812b5cda3c2bc6b7cb2ee4827956e1",
+      "edits": [
+        {
+          "offset": 884,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCoreInjector.java",
+      "baseline_sha256": "a16beb076352afd55ddd5bff24ed465f305118351973176351acf624348d50ef",
+      "migrated_sha256": "8affe48ff9c42b7f19749b84a026ce9d7f2df918302b4678451614c798e47f18",
+      "edits": [
+        {
+          "offset": 1828,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCoreReceiver.java",
+      "baseline_sha256": "9ca347b6ae71db958e5777cbffafe5299c7ebcb650347787d6fe47327d99784d",
+      "migrated_sha256": "cecc2d0c992558098d6207a347655eebb7fabcb7c2554f7dd7022d4fe5d55755",
+      "edits": [
+        {
+          "offset": 875,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCoreStabilizer.java",
+      "baseline_sha256": "480f3b2b36a4a08de205a4e20f77255d9892c91b10d3a76935771ea07e03e7e4",
+      "migrated_sha256": "ac574d6648b550ce029563896fd67adbcf587b6f76e04c092435cf0deeacc784",
+      "edits": [
+        {
+          "offset": 1598,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java",
+      "baseline_sha256": "8def217610be8bfd6509d30999890eb5234eb034a913ab1eeaa91b9d7851335c",
+      "migrated_sha256": "c30ed03c90aa4d44b89eefc63c8badc674d212109b40ad13a4809b2204bfca6c",
+      "edits": [
+        {
+          "offset": 1770,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java",
+      "baseline_sha256": "befefccb88344b486ede58e73e5ac6899588d772288a78f15f5a37f21c738858",
+      "migrated_sha256": "f4367b299f752a6153af93e33f219ac41e207696abc55dd980dfc6f585dc790c",
+      "edits": [
+        {
+          "offset": 1784,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java",
+      "baseline_sha256": "f3246fdc0b0e8b7cfc471baf856e87537d7ad8c41a912dcee01e0a7078f13353",
+      "migrated_sha256": "4dd90b1ad7bb7112f03b9b6aef991869b9fa0ee56a821c977c8d0c6019d4adf7",
+      "edits": [
+        {
+          "offset": 1956,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCrucible.java",
+      "baseline_sha256": "0abc5c3f5e8085d45fab5826d727d83b1d6b88a74b35bff85bfe5add268a3a02",
+      "migrated_sha256": "ddf33792ac736898bcab4a0f277c0dcea8ec16d21089b2be81dae11efd8280cf",
+      "edits": [
+        {
+          "offset": 2139,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCrystallizer.java",
+      "baseline_sha256": "33164d27c84356864b146b959e6af28a76ee5f451a9af3ce742dcd69d2f17d5d",
+      "migrated_sha256": "f8f9a7c96bb91ba617729bdfe2380de530ac30853e323940972decf7aa97cfd2",
+      "edits": [
+        {
+          "offset": 2884,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDiFurnace.java",
+      "baseline_sha256": "f1d2f7805578cd02788e453c629ad92a9711aaaffdc9f154e9713bc76f97ea76",
+      "migrated_sha256": "4b7368a87a636a4d30e150caa16c1edb9ce43783d6ee2aa43804ca0d0289913a",
+      "edits": [
+        {
+          "offset": 2431,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java",
+      "baseline_sha256": "283566b563f48f54ea70dc18df98d6189ae85d3c376262f48410fc526f0f593c",
+      "migrated_sha256": "b90af0955cf6664fffac741744d2c553d57655854f0634238d9c31f97e177f23",
+      "edits": [
+        {
+          "offset": 2012,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerElectricFurnace.java",
+      "baseline_sha256": "99d2c7f61b4a3555c126b38c9a495f21904b39539370a365a4c60a4686c48168",
+      "migrated_sha256": "ac199990acf2fd10ed07356aa3ba704d77cef663ea095c5569190a9becacf89f",
+      "edits": [
+        {
+          "offset": 2508,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerElectrolyser.java",
+      "baseline_sha256": "f1de660e8d28fd0a05943d0d59536818c5c64277b9c6092f9a328e82c31ba026",
+      "migrated_sha256": "388153baf7c2565e74416b0b333d3d66d60f34addae8669c6013921fbb51d079",
+      "edits": [
+        {
+          "offset": 2524,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerElectrolyserFluid.java",
+      "baseline_sha256": "c9c0dd41ba16da162c310d6c535410a66362a51e30db49e0f57031d0fb7f8dbe",
+      "migrated_sha256": "c00587993c7a3f52ab011d0547cb726cfd87a67024ef1865308f04a9169c12c7",
+      "edits": [
+        {
+          "offset": 3042,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerElectrolyserMetal.java",
+      "baseline_sha256": "8e341fd1ac331d155b0150bdc5577c8540413e197945a0228bade06bf8521c19",
+      "migrated_sha256": "9e59d5a684785e4318923c75b02b352614fd194e3c6912dda7e713b46ba562b5",
+      "edits": [
+        {
+          "offset": 2814,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFEL.java",
+      "baseline_sha256": "77ef64f2da4411cc17130e608b6e5cc39e880addb3ee3ce7695bef015ceac30c",
+      "migrated_sha256": "ded58fe21456584cb5b1cc178134c997288e1e2b3a997bec9627352bcc554869",
+      "edits": [
+        {
+          "offset": 1805,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFirebox.java",
+      "baseline_sha256": "e1e7b2bcfc28abcf6af665a3d0f8b8222bbfe20a1e358efedd998a71c4e73eba",
+      "migrated_sha256": "0d23640573026335c7b7c26f712c759790e2d73985bff1e207c664b46d929ff5",
+      "edits": [
+        {
+          "offset": 1726,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 535,
+          "old": ".openInventory()",
+          "new": ".openInventory(invPlayer.player)",
+          "kind": "constructor supplied player"
+        },
+        {
+          "offset": 1886,
+          "old": ".closeInventory()",
+          "new": ".closeInventory(player)",
+          "kind": "close supplied player"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFunnel.java",
+      "baseline_sha256": "7152388e57e7a28677ec773439734e90654207fa93310d221105430e77af79c4",
+      "migrated_sha256": "1f9ba83020af66f246048c6629fca941f63322e4f772f21857e8864ee86f89af",
+      "edits": [
+        {
+          "offset": 1123,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceBrick.java",
+      "baseline_sha256": "a10ef46ad59d80a71d8c5d8c7f1c8de1cf37c07909d9dcd33867c5f534c14d1b",
+      "migrated_sha256": "d11bd68c39b84f5ba205ca5222b4dc794159fa5f62aaf42166b7458ef568036a",
+      "edits": [
+        {
+          "offset": 2167,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceCombo.java",
+      "baseline_sha256": "eb4080a7dfc1bf68a73197f58bd1a1bb1264d7004bdc2e5e3089862fd010eab9",
+      "migrated_sha256": "d37eda0b3738d797d26d4ee54a09fe60cbc843651b5e5886b7523a77b01467bd",
+      "edits": [
+        {
+          "offset": 2003,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceIron.java",
+      "baseline_sha256": "6e0af020427fc2eec3cb378051a8e8e6f7692854c321bcd80dd966fe9e93574a",
+      "migrated_sha256": "997c365dc75e04e554fd89d0f01c7a426343eb4a96c0a2ad6d7db0eeb0b6d264",
+      "edits": [
+        {
+          "offset": 2024,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceSteel.java",
+      "baseline_sha256": "6206b0f4737ae6b3cd88cc6f8674d2d8ac2c60113325fefad40748ca4d38b96b",
+      "migrated_sha256": "95034e93cddf61f26c450e2b1c9f6ddf98b5c32ea9f1d5e47adeb8a945961ce0",
+      "edits": [
+        {
+          "offset": 2074,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFusionBreeder.java",
+      "baseline_sha256": "ceb92680121f8828960953fec9867150667b0d207d5c0ccb17b0b17b7336ba0d",
+      "migrated_sha256": "01ec9cd8fcaad87b0ce5d835c072e3358516f15ab0cf1b800d8cba9af404e6c5",
+      "edits": [
+        {
+          "offset": 1998,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFusionKlystron.java",
+      "baseline_sha256": "00ed8f19db7676e6fc3ee623d4502b52d88fe3448207e8114a460b0784fe6123",
+      "migrated_sha256": "c106c57520ac989b193953fd9d3414415a374915b1c369c23db4c974bd3e3c7b",
+      "edits": [
+        {
+          "offset": 1818,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFusionTorus.java",
+      "baseline_sha256": "ac703ccf85370c5577a8c502dff46ade767b5aab2ecc44e6f45fcf45861b04d3",
+      "migrated_sha256": "f6eba411a27d8e6d9735d310bfadfade6bf60cc919cf0cbcd7e06dbfdfb14dc4",
+      "edits": [
+        {
+          "offset": 1196,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerHeaterHeatex.java",
+      "baseline_sha256": "362a78f86b00414914ccbbdac466e5519ea510f5d95f29e5636d96869eedef0d",
+      "migrated_sha256": "22a58d3977a1b5d63e1eb4dd8df9af728713fa77a2ecb3d58a6b1502580449ea",
+      "edits": [
+        {
+          "offset": 1539,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerICF.java",
+      "baseline_sha256": "77aa2913a2e30dfb33466fc40510b83a22e4f3157c720074d0186ff603dc7fde",
+      "migrated_sha256": "07e4c669e19a99355d60cdd785510cb08d47117b6705b9bfa8142bd7eb6dba8f",
+      "edits": [
+        {
+          "offset": 2096,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerICFPress.java",
+      "baseline_sha256": "9685eb8d8326f6302c7f0204a79f3160cd95ad2236e23288e788226b2f5ca8f6",
+      "migrated_sha256": "eddde9bce0420edf86bb580918e9ddb3b62d53acc80d0036043c530e99632e9d",
+      "edits": [
+        {
+          "offset": 2565,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerIGenerator.java",
+      "baseline_sha256": "ae538bf70e222c47bfbc30d6ec8d3724623f9940f177cfe3f6422306c11e3599",
+      "migrated_sha256": "b60cd105c2c7961270d517ae7a1e655abcf2316645b0ba93bad3527641b46af4",
+      "edits": [
+        {
+          "offset": 2394,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerITER.java",
+      "baseline_sha256": "55857139fb07f402231a2faba0cb5114e3cb17c342ac3b9da2a2d376d75e9077",
+      "migrated_sha256": "77fe41afb72daa2d8926bba5a91e2ca180610c8ad0cf7f21c33d08c43d4697c2",
+      "edits": [
+        {
+          "offset": 1912,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLaunchPadLarge.java",
+      "baseline_sha256": "aed5aef99d72328c9c45d3c06e7bdfe5f4383af3f281979e101a01c1ba723200",
+      "migrated_sha256": "becd16fce2c7d67473ec5df450cd37c1017d285e1a605bb62779f63173665461",
+      "edits": [
+        {
+          "offset": 3137,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLaunchPadRusted.java",
+      "baseline_sha256": "3cf4e3cb158ec268e23a84df927787a4ac9b874cb5b9455d2d686621e3218807",
+      "migrated_sha256": "fe9f626de908a61c2491d8019b0cf98ce809d8350c065f80662a70f77d77cf12",
+      "edits": [
+        {
+          "offset": 2234,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLiquefactor.java",
+      "baseline_sha256": "d81fefc07fa4732ae289ea5026a40243334016f1f6c3e43988b64b3197c744f7",
+      "migrated_sha256": "96bdd3e69dc7cffb20f09ea8967552068b374214d9df561841caf8962402f22d",
+      "edits": [
+        {
+          "offset": 1215,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAmmoPress.java",
+      "baseline_sha256": "11ff78c6ad9741d3941b8d98eed133e9d1deec7f5660be7d1d5daa7d7f514980",
+      "migrated_sha256": "4e6a93b935a4bc80bfbc1ccfe2180fe0522ef149cddb54766386ad790fe1f16b",
+      "edits": [
+        {
+          "offset": 2311,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineArcFurnaceLarge.java",
+      "baseline_sha256": "88f30b38d263504dfb0780fd253bf1b339c23bec5e97d72550a6e5edf39558d9",
+      "migrated_sha256": "c5e84743daf3fe0ed4590a588d64535adf42326e1f2cf29711034ef00c2c2946",
+      "edits": [
+        {
+          "offset": 2996,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineArcWelder.java",
+      "baseline_sha256": "9a39dd7171d742886cb43bfd3b777fb9ff46536d3a8eef46a930f69a2701cf77",
+      "migrated_sha256": "f31e9e8ddf0ff00c0295e848846512894b28b60be0643cdb13f64d4c0a9c69d1",
+      "edits": [
+        {
+          "offset": 1690,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineBattery.java",
+      "baseline_sha256": "8e201f5544ecedc7cb7749feca2a55e73d8e8400d749b1874a06ac7b2a5beac7",
+      "migrated_sha256": "aa60af1967f76a11d4d77d69b4af39a7fb588474268b3a01185b9479ebe459c1",
+      "edits": [
+        {
+          "offset": 1832,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineCatalyticReformer.java",
+      "baseline_sha256": "bf4961d82a387d7002894725e91b73af5cf11dcc25f3e7e5e1df68e96d99b8de",
+      "migrated_sha256": "e103ef21eb85239127509ba5e0e1d8753caa90c1e1a13985a8c0ecc5ac630f13",
+      "edits": [
+        {
+          "offset": 3138,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineCoker.java",
+      "baseline_sha256": "d67215a2def71f4a2c2932c433d3a49fb91f46b356c02d71707008c2b97d78d8",
+      "migrated_sha256": "c57bae47774caae6802762a3268c59eedfdbf167aa4f503d93be2b8e023c2f6d",
+      "edits": [
+        {
+          "offset": 1831,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineCryoDistill.java",
+      "baseline_sha256": "cb86882481ffc241e5ae3848c1043bbc056e02a1098e5c2643c77ddb28c00320",
+      "migrated_sha256": "0db1b9f25283973adcd8dba6a12ae94590ceb8a3bf8ec15dcb29ef1d67338e7a",
+      "edits": [
+        {
+          "offset": 2916,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineCustom.java",
+      "baseline_sha256": "f290cefd9677742a805a946b7189b102a5e01e2c7230fac9243cfbb6b75611c0",
+      "migrated_sha256": "36d1defb16153fb60fcf4bf793b853cd666d3480b4169daf9045368052c5faeb",
+      "edits": [
+        {
+          "offset": 3011,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineCyclotron.java",
+      "baseline_sha256": "eb9bf07b2dbe2b5fa5bc53b297081921121a686d8eb0a1c49b813c5eebacbadd",
+      "migrated_sha256": "b594328dedb3db631c0a62d13f56b190dbdb2ffebb892b96be8ba5f85d6e0d58",
+      "edits": [
+        {
+          "offset": 3326,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineDiFurnaceRTG.java",
+      "baseline_sha256": "a2b51fe4dbc630503962c26d83cd4d628e391e3e8a9a678b6ff76634bd858eb0",
+      "migrated_sha256": "fbc22dc7f722d5047234fa95bfa64ed6f066a6077982edc4d8731c116f1354b6",
+      "edits": [
+        {
+          "offset": 1564,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineDiesel.java",
+      "baseline_sha256": "77eddf4a2fad2ce3dbf344182cac3dc8b6342a104df1711bb8369075ae916a6c",
+      "migrated_sha256": "b1361eb7d64625825de12bfb3ea6d60550861bb4d567ccc42fd9233379e0505f",
+      "edits": [
+        {
+          "offset": 1974,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineEPress.java",
+      "baseline_sha256": "433adaaf3d71ac8529c3625ba2b21ad0319a48461c5dfb760e0ac52e864b4aa2",
+      "migrated_sha256": "1df47fec8913c1821040ddccb1084b3371ce26f0c272fd6289f4f0d78c6a424e",
+      "edits": [
+        {
+          "offset": 2570,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineExcavator.java",
+      "baseline_sha256": "9c62982cbbac872ca61b247e3d8b70abb880feaef99de00ff377afe7e7549ebb",
+      "migrated_sha256": "5862ea152e15bd3708e7488b8fa4af04954364b1d124fd1464fc3318d19e373c",
+      "edits": [
+        {
+          "offset": 2727,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineExposureChamber.java",
+      "baseline_sha256": "83ea320035e1db6f1e2a229275b764a0d3b68012d3e82b8ba3f160aad973c918",
+      "migrated_sha256": "99ff7acd52b3801cfeb3be051b9bcf13820d931507ca3e04e242c8794db63ff6",
+      "edits": [
+        {
+          "offset": 2501,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineFluidTank.java",
+      "baseline_sha256": "feae73e03fe0237931abfa9077704a0503f887ede5d5fc725175fedcee151126",
+      "migrated_sha256": "8f3a462d963bebe2aa74b8191a1a9ecef33fee518e23e9becfc46e8aeea33c52",
+      "edits": [
+        {
+          "offset": 2065,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineGasCent.java",
+      "baseline_sha256": "7db607898b4d92bda2d48a030feb507ef93dc66f702930f17793631de770435a",
+      "migrated_sha256": "82c75f1caad6eacd103d447e8cc5a9f6a855a97dc9b9d612008114dcb0e9e503",
+      "edits": [
+        {
+          "offset": 2698,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineGasFlare.java",
+      "baseline_sha256": "1de60312767842d9087385a101bf65aed72aabd5d7e74363e3befe8f313d997d",
+      "migrated_sha256": "ab3c593946bb92ab20d8a2c0f72852deb2a511814ff34a379d149159621deacc",
+      "edits": [
+        {
+          "offset": 2710,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineHydrotreater.java",
+      "baseline_sha256": "062427a3185ca9fed862a76ba999834b396dca1dd1531b302c4fc2c53fbe8677",
+      "migrated_sha256": "28164fc5210d8689a987cbfa2eefbf101ae986573b938fde8461d61917dd4248",
+      "edits": [
+        {
+          "offset": 3242,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineLargeTurbine.java",
+      "baseline_sha256": "022d4ff1b7656997047ab4f3f23f2bf6e92ad0347a4ea339b89c53590521547f",
+      "migrated_sha256": "66e120aae3aceb5193f447807982bdf6de0964cabdeedccc84ee0297beff9f6c",
+      "edits": [
+        {
+          "offset": 2379,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineMilkReformer.java",
+      "baseline_sha256": "a9b8f01f3b83e0a24534a8dea7a6e1e86e8313a8b844aa4f79f51a96d1b6cce2",
+      "migrated_sha256": "5fe835552d872b377f39e49247d1e5c9850fadd9375aa73433637a512c6f85a8",
+      "edits": [
+        {
+          "offset": 2604,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineOilWell.java",
+      "baseline_sha256": "cf2f8e2fad83731563236267736660f0316863ae737a7258991a9d52b814f927",
+      "migrated_sha256": "ec263c912cf16fae93bbcbb5c267e5411db2d8db6b3aff24fbd30eeafe345049",
+      "edits": [
+        {
+          "offset": 2344,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePress.java",
+      "baseline_sha256": "888b4bf9cd7fc7a232658aef25efd24a8d5f9bc9847c5af8bf4db83e51bc14bc",
+      "migrated_sha256": "52e789dcd18c4f2f890b2418fde7d4a3e1b9154cc2baf3d281bf07e5437cd141",
+      "edits": [
+        {
+          "offset": 2187,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineRadGen.java",
+      "baseline_sha256": "afd0d47780dfb4be3c6a94b99b451f558cfacc7b0ab20c6b9360a10293baf76b",
+      "migrated_sha256": "16178f95809f344ba925583e9b0d235bfdf43670a4dbf4968ae28a51db996e6e",
+      "edits": [
+        {
+          "offset": 2035,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineRadarNT.java",
+      "baseline_sha256": "dd9312e4c5bdf063a2153f7bdb6e05767c4999be26fdd27d67a31411853a28ee",
+      "migrated_sha256": "d30e0e5a20779b90b6ed35fa209b71f7a284bf01e461adf51e19f6800785d09d",
+      "edits": [
+        {
+          "offset": 1969,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineReactorBreeding.java",
+      "baseline_sha256": "b8e65bd9e97b16012137a76a38531a83ff1bd0cfe52e18369ef7d57367784731",
+      "migrated_sha256": "83312da0c9de2439d7666d4836f512e9eeee5c6a55d22b94ad694b944a5f2303",
+      "edits": [
+        {
+          "offset": 1852,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineRefinery.java",
+      "baseline_sha256": "5086eced275f471adf10645e1bde78e46b41fd52629cc3352fb514ec49af5546",
+      "migrated_sha256": "8abaa1f6fcaf91c544bc33468d895c8fe7eac8bc35b6c5a181dc48c895f82fae",
+      "edits": [
+        {
+          "offset": 2966,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineRotaryFurnace.java",
+      "baseline_sha256": "b321ad1b3a64c335cd8d81f1f3588df67d70c568a1d8409248d2605ff766544e",
+      "migrated_sha256": "5aa59a6d2ea914d3c42108e2c860db33b096fe9f30d6ba19e35aef2d80b9e4a5",
+      "edits": [
+        {
+          "offset": 2181,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineSolderingStation.java",
+      "baseline_sha256": "ae0115c490009f57d3147f4f3f03d9d6b4938600460355210c2cb462384b31e6",
+      "migrated_sha256": "720d9046a16d35b9c220e15b6038a80a0ca2cfeea9c6b6b30f147d1b028e58af",
+      "edits": [
+        {
+          "offset": 3275,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineTurbineGas.java",
+      "baseline_sha256": "3d8413164341eeb3c5cc250fbbd47c051defa146dc713ba62026caf6b0a0928d",
+      "migrated_sha256": "14962dcd7e8bb00384ab08f7ae14f2e7a20219da9be233ab61fe10abe1772127",
+      "edits": [
+        {
+          "offset": 2693,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineTurbofan.java",
+      "baseline_sha256": "b38353b716a92542bea649a4332a3098e69252cb3441f5ec7f393ce2ec35da46",
+      "migrated_sha256": "5da7b3ba2c9c8bfee58d4ff4a049fb575f337fc18c94d1f1a472e530bf74feab",
+      "edits": [
+        {
+          "offset": 2634,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineVacuumDistill.java",
+      "baseline_sha256": "9054e9229656fde38949097821e5d0119fd4a08d0b47923ae76aee130c488cf7",
+      "migrated_sha256": "1d82770307d5195a1171cb83dd6d92909f90c61eaddb45c345928fb2ee12042b",
+      "edits": [
+        {
+          "offset": 3011,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineWarController.java",
+      "baseline_sha256": "03710d52e1e23ad20a85b886b6a0de33330e4e8d34e47384c79a39aaee0a6627",
+      "migrated_sha256": "62226fdcd13d95b885647cb0fba8cb6b3b6f3f6c3fa4fbc717591214d8954a6c",
+      "edits": [
+        {
+          "offset": 1859,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineWoodBurner.java",
+      "baseline_sha256": "c75ef6d718df57f4f3b417914bb599701611097767310798a86593a5e361e802",
+      "migrated_sha256": "bbd6fc154d756af7215f138cf076bf3258e6368e037851b86a33bda15410415d",
+      "edits": [
+        {
+          "offset": 2706,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 748,
+          "old": ".openInventory()",
+          "new": ".openInventory(invPlayer.player)",
+          "kind": "constructor supplied player"
+        },
+        {
+          "offset": 2865,
+          "old": ".closeInventory()",
+          "new": ".closeInventory(player)",
+          "kind": "close supplied player"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java",
+      "baseline_sha256": "0959f85fc0986339f50f8e6da26fbfa9cd338ab69e324850fb9d2eedf91ce8ac",
+      "migrated_sha256": "0ce0828156006de9bd5800e774c0a4c542d9a2f5e1a0cc5a47c2b60360697005",
+      "edits": [
+        {
+          "offset": 2471,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMicrowave.java",
+      "baseline_sha256": "e9d2f1c60cb0f5d5bbd9c2384b4425c8c29aa5ba661f4f1c01fd2ad6ac2acd64",
+      "migrated_sha256": "f670be6db0180090807abba71e45ab899ae20d3daabf6cf934a117a629dc6950",
+      "edits": [
+        {
+          "offset": 1770,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMiningLaser.java",
+      "baseline_sha256": "169bbf7b0ab35ca11dca9b32960528707addcbfc5980073e9dee0758162814b7",
+      "migrated_sha256": "cbf9ef3b269b67522acd8326abc7f1771a59f8ccf2ad4e2f11acced688022754",
+      "edits": [
+        {
+          "offset": 2034,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMixer.java",
+      "baseline_sha256": "a033eebf51a8a67d3cf0444816b52f2b43bfccb1b4fdd2016cf51c0d1caadd54",
+      "migrated_sha256": "1480c32d23f97fa5acfe498e4e00553de31bea192393ae4f32e4501a3765dc72",
+      "edits": [
+        {
+          "offset": 2369,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNukeAntimatter.java",
+      "baseline_sha256": "85161ea0b6511c021218b510181da7256e4a48bf813ad05ca25d48c5c83f3e85",
+      "migrated_sha256": "37c8eb24f35543fcab7f8d47f63c2b6d0f4ab77d7e680df93f1d9353f9959d98",
+      "edits": [
+        {
+          "offset": 1783,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNukeFstbmb.java",
+      "baseline_sha256": "dbdcbdd12b1b02babd9bdc568fa483f8d81ca674af4fbd2fe2371207e6853d34",
+      "migrated_sha256": "7cf9daa23c7e012fec4069f4db3983cd39ace375411bee042c9ee631bcc4acb9",
+      "edits": [
+        {
+          "offset": 1626,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerOilburner.java",
+      "baseline_sha256": "f059b21ff7627205efb414c81c422772651512eebda94c0d0d8fb030ea0684dc",
+      "migrated_sha256": "e0a828e86e8cdc7afe23b7031deaf2d6201f4b11820ae50d91e1e9da1f2fe82f",
+      "edits": [
+        {
+          "offset": 1977,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerOreSlopper.java",
+      "baseline_sha256": "97eb387f2b6664310c686352e9e661776f87201123c1d9cc7f01e908788cd39c",
+      "migrated_sha256": "0090533557fe5854b988c6774b8df718d4143427ba59a4381d5b2aa01f78b6b6",
+      "edits": [
+        {
+          "offset": 3141,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPADetector.java",
+      "baseline_sha256": "0757f035d275b4598fc720e97252af0413f2ba7b92e18a39a48d7274eace1bf2",
+      "migrated_sha256": "c86fad1a405923e101164f74e0c903a103a6a86d88ff1543a1de14691e842e66",
+      "edits": [
+        {
+          "offset": 1366,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPADipole.java",
+      "baseline_sha256": "3dca33aad31a58db2f427a3a9d376c619178c889c0c17774f9f0ed009b4e613a",
+      "migrated_sha256": "6c4cd7336d01e44357db7a8d72f7b91f8eb05b0b829d0e635898856e99a8be04",
+      "edits": [
+        {
+          "offset": 1073,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPAQuadrupole.java",
+      "baseline_sha256": "8593431cccab88d0cc5f7ed57b853cc5011cbb1f5a51301ecbdc8a20cddeb81c",
+      "migrated_sha256": "1115873b1f8be4684672695a22461ee2523893f048087854509aee4082ddb326",
+      "edits": [
+        {
+          "offset": 1094,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPARFC.java",
+      "baseline_sha256": "2c05616e75bb8ee954162aab629e4052ae09dfec13ca6100df4953846ff0df99",
+      "migrated_sha256": "a7788e48affbb8f27e2e2f3a5790f4ebd76006c150b2f6f8a6753da5f5e91996",
+      "edits": [
+        {
+          "offset": 905,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPASource.java",
+      "baseline_sha256": "24b0ab46be2bcd6ba01fa96c92a265ee718fd3cf9522e9bd03d7b934528a256c",
+      "migrated_sha256": "3c48b3532f313037807126a00aa36da0aab945f109a8c43e7d9575cdf72bff8e",
+      "edits": [
+        {
+          "offset": 1330,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPWR.java",
+      "baseline_sha256": "88ea566db3b72b40cbc97292f5144aa9368a9d1471136c6d92cdcc136b749830",
+      "migrated_sha256": "5ac047c0733fd4fb1e0b71369c018ab451f084728083e496bbfb1e3fc592f333",
+      "edits": [
+        {
+          "offset": 1962,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPlasmaHeater.java",
+      "baseline_sha256": "5c245b1ca6023232e12383aab551998278b19e4340689a97616d89fbcf7695f7",
+      "migrated_sha256": "8138e746a901dd23da9c3e5515fa1ea04a03e01e496dad00e0d21021f5946951",
+      "edits": [
+        {
+          "offset": 1829,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPyroOven.java",
+      "baseline_sha256": "df372ebbb11a0fbc0fde3d8686e23bac39fa5dd369fd4f175f6c34507a44fb43",
+      "migrated_sha256": "8c8fbc6d5c1eb4b12116b557c2798f73a08f381e734a465f5456c610f4cc624b",
+      "edits": [
+        {
+          "offset": 2556,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerRBMKAutoloader.java",
+      "baseline_sha256": "063f8ffbcd63b63d979e6769965a0aa0a6c251abea8920f5ff53f0cdd5a3b0ef",
+      "migrated_sha256": "cad27770005e4e727f762326f665decc93c48b47b24e87a9761fd59dce6621f0",
+      "edits": [
+        {
+          "offset": 1347,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerRadiolysis.java",
+      "baseline_sha256": "8d8ab23e13e75c514bdf13481692a30ebc91f1ab5675c8ba078f6c2e62302321",
+      "migrated_sha256": "38adc1d8e47dd7fade38b5c89bfd99367ce43f4d93b599b25e1269378f6b5765",
+      "edits": [
+        {
+          "offset": 1448,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerReactorControl.java",
+      "baseline_sha256": "9f91837f208c3e3d83cc4a02e934e8b29e4675d29fc93417610d1ae326e2b76d",
+      "migrated_sha256": "1e6a60b403d779b1e5bc85ebeee9fc910437f9235ea5b469874e42201a7fd59e",
+      "edits": [
+        {
+          "offset": 1605,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerReactorResearch.java",
+      "baseline_sha256": "fd5c9386cabe5906571fd095dbcb932aefad36988d1007159fd95341c2fa0581",
+      "migrated_sha256": "90da7b80609d08dc1393246da5e7410b7b8cb33fddd7cd0cd3b58c1a76192a38",
+      "edits": [
+        {
+          "offset": 2349,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerReactorZirnox.java",
+      "baseline_sha256": "90bfb08b25c8e18fdd6654d2fc30b5f7a667a179974b1f6988e6dcb6902ca03d",
+      "migrated_sha256": "f647a1ddf7b7f16698089f12e91c70b715179a6a87d33e591a17c118b225f205",
+      "edits": [
+        {
+          "offset": 3613,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSILEX.java",
+      "baseline_sha256": "32ca3994bf783e1bdb8941a1c8fb80c8ac67510418383702370fdf373f1ac99c",
+      "migrated_sha256": "59deaa4a73bacbac410f98299240025cdaaffea12eb03f945454acd1f85f1680",
+      "edits": [
+        {
+          "offset": 2938,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSolidifier.java",
+      "baseline_sha256": "128ab4c962635c910d4c51913c8a0baa5536402df018d8ce43f6aa80e7a0eb75",
+      "migrated_sha256": "41c9c12aa55c9d9afc93e86564295a22e693fc5e119c8e99b368c127a0c56cdd",
+      "edits": [
+        {
+          "offset": 1268,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSoyuzLauncher.java",
+      "baseline_sha256": "08532802e14a388dd7731b644e30a2a41a057dbeab2b259d509c15cd22e8cc8a",
+      "migrated_sha256": "770e65f7e228ed9a7c4da3be40ced8de6f9cbb6671fec9f60cca3e7886b15420",
+      "edits": [
+        {
+          "offset": 2340,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java",
+      "baseline_sha256": "f26c1824d7c1642105a1af41e3b73982809e7d0dfc19c37fcfc6fe001e1b585d",
+      "migrated_sha256": "188c80082724a492307c3db2db206a4aef63dc4354b43445a15c5d0bceb8fb46",
+      "edits": [
+        {
+          "offset": 1938,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+      "baseline_sha256": "9fd9f4487b248645320e34db62200813deeb00f1e3e7983d64819ab91b9514b1",
+      "migrated_sha256": "7feb292e4460d4c036660a43da06d9f52e59219a4ed5f347e4d35064478e3327",
+      "edits": [
+        {
+          "offset": 2078,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 547,
+          "old": ".openInventory()",
+          "new": ".openInventory(invPlayer.player)",
+          "kind": "constructor supplied player"
+        },
+        {
+          "offset": 2246,
+          "old": ".closeInventory()",
+          "new": ".closeInventory(p_75134_1_)",
+          "kind": "close supplied player"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerVacuumCircuit.java",
+      "baseline_sha256": "e4b0fd30bc37a3d2a9f54e459c08477ed2742f90f25e1bc5bcd62778a77da899",
+      "migrated_sha256": "a94a2add59c786bd620b14d83c33c1d713cbdacb45c53601e102733cfe49d391",
+      "edits": [
+        {
+          "offset": 2860,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWatz.java",
+      "baseline_sha256": "4fec58db5659f903a472b7aac331696e9674d2ed9ba1d243a79d1e92e58948e7",
+      "migrated_sha256": "a39f6fd47d645ce558b09a667d183635f813ba2985b1d893b466abf031197023",
+      "edits": [
+        {
+          "offset": 1956,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java",
+      "baseline_sha256": "ddbda501a04acdaccde6609f18fcc11cfefc5b0b29add8cf41eb92f1bd48c04a",
+      "migrated_sha256": "b8a2f8c70941f371141b53edf5df3aa6a22ff02521275e30ea17fadf1fd1cfd9",
+      "edits": [
+        {
+          "offset": 2771,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 2756,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 128;\n\t\t}\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(world.getTileEntity(pos) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 128;\n\t\t}\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        },
+        {
+          "offset": 2996,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 3058,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java",
+      "baseline_sha256": "add4f6301e07f01cf72ce1be17ea9240d64b21f5f0b7d4e1dc1ac16e1bd4e203",
+      "migrated_sha256": "cc807f49158dd64382e6b59a6ec59ae0d463a31eb72bd7b09ac336b82b74724c",
+      "edits": [
+        {
+          "offset": 7706,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 7533,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 7768,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 7973,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 7768,
+          "old": "public void openInventory(EntityPlayer player) {\n\n\t\tif(!inventory)\n\t\t\treturn;\n\n\t\tif(getCoreObject() instanceof ISidedInventory) {\n\t\t\t((ISidedInventory)getCoreObject()).openInventory();\n\t\t}\n\t}",
+          "new": "public void openInventory(EntityPlayer player) {\n\n\t\tif(!inventory)\n\t\t\treturn;\n\n\t\tif(getCoreObject() instanceof ISidedInventory) {\n\t\t\t((ISidedInventory)getCoreObject()).openInventory(player);\n\t\t}\n\t}",
+          "kind": "preserve native callback behavior"
+        },
+        {
+          "offset": 7979,
+          "old": "public void closeInventory(EntityPlayer player) {\n\n\t\tif(!inventory)\n\t\t\treturn;\n\n\t\tif(getCoreObject() instanceof ISidedInventory) {\n\t\t\t((ISidedInventory)getCoreObject()).closeInventory();\n\t\t}\n\t}",
+          "new": "public void closeInventory(EntityPlayer player) {\n\n\t\tif(!inventory)\n\t\t\treturn;\n\n\t\tif(getCoreObject() instanceof ISidedInventory) {\n\t\t\t((ISidedInventory)getCoreObject()).closeInventory(player);\n\t\t}\n\t}",
+          "kind": "preserve native callback behavior"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/TileEntityProxyInventory.java",
+      "baseline_sha256": "5ff07c0351fd8b74e895cbbc48ae8688372c876b01b404671792739a42a6155d",
+      "migrated_sha256": "f6b14ced1efcf70fa0d03b17d3adc877287ef55c0988ff2f64d03533768e1fec",
+      "edits": [
+        {
+          "offset": 1784,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 1890,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 1954,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+      "baseline_sha256": "ba6a98c137671a8d852bb91649c22629bf2dc16aa8fea403239785717721915d",
+      "migrated_sha256": "fed6e12f0bc2a1782f872c255d457a7b1c92bc5cccbbe689cd4bcf96a20adc62",
+      "edits": [
+        {
+          "offset": 28651,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 23768,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 28635,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 1024;\n\t\t}\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(world.getTileEntity(pos) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 1024;\n\t\t}\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+      "baseline_sha256": "2053d9dca5adce939f701d69dea66eee324f020b0ae6d8e84912414afdee4a4d",
+      "migrated_sha256": "b54a5664f7cf10f7fa9c4f591bab4e0ac6817c463373a46ce5f14f3e509b03e0",
+      "edits": [
+        {
+          "offset": 6840,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java",
+      "baseline_sha256": "8447b79de57da9b0f6e1cd06d89ed8c8eefbbb4ce7bbd6a2e8d88764a0a24d9c",
+      "migrated_sha256": "ab527d1f2810ad085b0dc773c49762e8b7e3ef2e30869a285798695e3e31d033",
+      "edits": [
+        {
+          "offset": 2465,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 2577,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 2465,
+          "old": "public void openInventory(EntityPlayer player) {\n\t\tif(!worldObj.isRemote) this.playersUsing++;\n\t}",
+          "new": "public void openInventory(EntityPlayer player) {\n\t\tif(!world.isRemote) this.playersUsing++;\n\t}",
+          "kind": "preserve native callback behavior"
+        },
+        {
+          "offset": 2574,
+          "old": "public void closeInventory(EntityPlayer player) {\n\t\tif(!worldObj.isRemote) this.playersUsing--;\n\t}",
+          "new": "public void closeInventory(EntityPlayer player) {\n\t\tif(!world.isRemote) this.playersUsing--;\n\t}",
+          "kind": "preserve native callback behavior"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+      "baseline_sha256": "55e0cae8d859e7aac781108c317bf2c0408a9283dddcbcd7a5ad3b2588990903",
+      "migrated_sha256": "7e950a75c95a103926225f17cbd5ec734cf90a85902f2c4fac4cdf689f761346",
+      "edits": [
+        {
+          "offset": 19093,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java",
+      "baseline_sha256": "771df183fd62e14182d461ef5d5023fa20b04c81fe0269a7a553c0a80563234a",
+      "migrated_sha256": "ccda46b3bf1cca67d72cac99888e90e36c201e4e3eea870fbda4176fa3d37b2e",
+      "edits": [
+        {
+          "offset": 1399,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 1511,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 722,
+          "old": "import net.minecraft.item.ItemStack;\n",
+          "new": "import net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.item.ItemStack;\n",
+          "kind": "callback EntityPlayer import"
+        },
+        {
+          "offset": 1448,
+          "old": "public void openInventory(EntityPlayer player) {\n\t\tif(!worldObj.isRemote) this.playersUsing++;\n\t}",
+          "new": "public void openInventory(EntityPlayer player) {\n\t\tif(!world.isRemote) this.playersUsing++;\n\t}",
+          "kind": "preserve native callback behavior"
+        },
+        {
+          "offset": 1557,
+          "old": "public void closeInventory(EntityPlayer player) {\n\t\tif(!worldObj.isRemote) this.playersUsing--;\n\t}",
+          "new": "public void closeInventory(EntityPlayer player) {\n\t\tif(!world.isRemote) this.playersUsing--;\n\t}",
+          "kind": "preserve native callback behavior"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java",
+      "baseline_sha256": "3e8409d6413e889997d3ebd91dfa873d32cd272282e938ae33b437a425a0454e",
+      "migrated_sha256": "a4c930c7dc0c3d043e324e1035361a67e492378cee565c4dcd618ccf9209d626",
+      "edits": [
+        {
+          "offset": 7967,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 7952,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 256;\n\t\t}\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(world.getTileEntity(pos) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 256;\n\t\t}\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java",
+      "baseline_sha256": "702437842c5a5ef31e125de6828465acc3515980a312d135127337ce2cea0191",
+      "migrated_sha256": "17fb3d153800ec1e438bd5fa153019e0dcf53a6ec07b670bd1834333241328ce",
+      "edits": [
+        {
+          "offset": 5738,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      "baseline_sha256": "076409cf4b07ed2e4cd3ca18a56721fdf0e9883452a14836fb1346324e527da1",
+      "migrated_sha256": "0cfc8d775ddb3340091d0149aa3abd64a5088c18dc61db794ea5998beead68df",
+      "edits": [
+        {
+          "offset": 8813,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      "baseline_sha256": "e4fdde91f0c203a9f9e83340f0ca0ebda4c1c74fe15e4735259df58bc8896c3b",
+      "migrated_sha256": "46d289c01bbaddce777c5e0638477a8cd0343d08047f33d8d8b6a795e02cbb74",
+      "edits": [
+        {
+          "offset": 21920,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      "baseline_sha256": "5c3c2eab63cd53e7417bf256f35c6cfe16dc7dd868718d1e6f47cc7ca59f554d",
+      "migrated_sha256": "0b5f83b1b07f9083b5c84b5628a028aa181617e21865cb68d24704aa2c3955b4",
+      "edits": [
+        {
+          "offset": 15279,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java",
+      "baseline_sha256": "6e879efcdc3a7803d077d95f6f2f28bd3be466bb7c4edc4c6ccfd31f9e20cc5d",
+      "migrated_sha256": "8ce9512c759b74816e66eb50d2bbbcb3a494011659952db59a3b0dea6541e3db",
+      "edits": [
+        {
+          "offset": 10737,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      "baseline_sha256": "59be2e7175e5930f0296b49fc72511b18719fa2668c826df43baffd1e2b78d4b",
+      "migrated_sha256": "b0a06d414e1cf0f137cab51e42e3d1fe26b97725883b47828de295e6acffd0db",
+      "edits": [
+        {
+          "offset": 16749,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java",
+      "baseline_sha256": "fda86bdafed7823ea00e26efd60908df361a0b1ab22caf25d7c7e0d90f61e34e",
+      "migrated_sha256": "000666110d15b0f5093ee00dab046b9a09fedf2c00f622ac97ade7a6f8220eec",
+      "edits": [
+        {
+          "offset": 9804,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java",
+      "baseline_sha256": "9ca59b0c07c4eacf0df5ab2630481f91f30ea352c59214951e697bddba59f294",
+      "migrated_sha256": "8c4dfdb03ffa4e43e3875662e4e038452a26a74ee0e7d8c6a95b372998ed9c36",
+      "edits": [
+        {
+          "offset": 7333,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 7444,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 7333,
+          "old": "public void openInventory(EntityPlayer player) {\n\t\tif(!worldObj.isRemote) this.playersUsing++;\n\t}",
+          "new": "public void openInventory(EntityPlayer player) {\n\t\tif(!world.isRemote) this.playersUsing++;\n\t}",
+          "kind": "preserve native callback behavior"
+        },
+        {
+          "offset": 7441,
+          "old": "public void closeInventory(EntityPlayer player) {\n\t\tif(!worldObj.isRemote) this.playersUsing--;\n\t}",
+          "new": "public void closeInventory(EntityPlayer player) {\n\t\tif(!world.isRemote) this.playersUsing--;\n\t}",
+          "kind": "preserve native callback behavior"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java",
+      "baseline_sha256": "cc512cce0c1cd0c10076827c14fcfa8abef33169ca8de5dbd05c9df042d8dfcf",
+      "migrated_sha256": "06016bd6abda734c5ed47aee1eb3b1cd454de5b2e2e8b2f1263d62720bc8744c",
+      "edits": [
+        {
+          "offset": 7084,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java",
+      "baseline_sha256": "3170f7305902ac34c1ad4cb0402913235426c90f22a2c9dca9b9a43ae3320508",
+      "migrated_sha256": "e60d3891f206990f1e8b1e397e5faf823f62ebe9ae92f89e58594cac74fac09c",
+      "edits": [
+        {
+          "offset": 3855,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      "baseline_sha256": "5d5851d81ebe8db1447340d31c487cd84b4d086b2e1087f83ffa3caee6c11a12",
+      "migrated_sha256": "4a8d6338071bb3979cd8c27611d92647396955a39e7f0c52434fae2e89547acf",
+      "edits": [
+        {
+          "offset": 23262,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java",
+      "baseline_sha256": "1bea255e2625ae751ca3068460f0a0798ffc20879f25e77389042485177775f3",
+      "migrated_sha256": "cab758bf0d6da9827eed4319dc862edfa2ddaf7c3ab0fe30160ba8e0c35c1dca",
+      "edits": [
+        {
+          "offset": 5889,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java",
+      "baseline_sha256": "2aff43b31eee5e7092b563c020c24a036dd5536101eadefd7ac06850d63ea525",
+      "migrated_sha256": "c262dffc893294d22fd88717a891ca9d6914378d906e0bd954c439f243cc0361",
+      "edits": [
+        {
+          "offset": 8639,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java",
+      "baseline_sha256": "a81db704bdc196608ce42d773762793d0a7f723194c30b655ff98cdb89cf5613",
+      "migrated_sha256": "24212c9296a476863d48c87262c18ef9df3a8328dbb3ab9e95fc75515b7356d7",
+      "edits": [
+        {
+          "offset": 12464,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "baseline_sha256": "ac3875c560c434cbfdadb868155dff98bd44908ad148661698baff2b1e5ff852",
+      "migrated_sha256": "268c70e45b4d628cb8c489f823bfd40f94c67d4cdfa82ead7317aa61937a6260",
+      "edits": [
+        {
+          "offset": 16241,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 12695,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 16225,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn true;\n\t\t}\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(world.getTileEntity(pos) != this) {\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn true;\n\t\t}\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+      "baseline_sha256": "03ec16ee7101666d63c180357600f59735967c7aaaf68d9ae9ef2d656e634125",
+      "migrated_sha256": "e1aa54d591ec1ad42b937199e6d38198d479e465c157b3d60904de5827243f87",
+      "edits": [
+        {
+          "offset": 10386,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 10203,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 10188,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\treturn worldObj.getTileEntity(xCoord, yCoord, zCoord) == this;\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\treturn world.getTileEntity(pos) == this;\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+      "baseline_sha256": "f0c697bce80270c3f056345b1eb958d0ec5d271d59caa7ddfa05f1d9d085420a",
+      "migrated_sha256": "dab5727978d3e6bb68226ccb7a80ef610a43107159f3da0d7c1691e095d172a8",
+      "edits": [
+        {
+          "offset": 13327,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+      "baseline_sha256": "ec2eec9d1b5d2671b5f9686e4cef411a1dc9a8673192db364d9b97bb12092670",
+      "migrated_sha256": "7147e0720f8aba0091be1a53d87fa6f3d1c52e178d9453fdd29d98c1fef761a6",
+      "edits": [
+        {
+          "offset": 10499,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 10375,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java",
+      "baseline_sha256": "cf2c1b71d1a5601fffa478b0aef3cd66e45a755e12776eafda07845cd313102f",
+      "migrated_sha256": "df8a13501d2481b739fbe389884787904ca4fd14e55db8e4c89caaf5d2b7d8db",
+      "edits": [
+        {
+          "offset": 2969,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+      "baseline_sha256": "c42cf2c5417f27125d0a12f2cce16fca33740e41639b288890cf0fb3188e8169",
+      "migrated_sha256": "81f06dc1e8922ba2df0697959449138266ac075453257d68be070d4382e1f4ad",
+      "edits": [
+        {
+          "offset": 7574,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+      "baseline_sha256": "54c4ff3b8ab780d07df847ff45a2d74b1b3b43d7a9e3631e43ddcf39228f0dd2",
+      "migrated_sha256": "b2c0f326a0d5db9554909a22bf1cf9de8ed9af32709ff25fae0518b6dc0b3744",
+      "edits": [
+        {
+          "offset": 10967,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java",
+      "baseline_sha256": "11682c7bf36de79b223bcd5afbc6b784ac64cc88ef00bc9701e5f71b073bdb0a",
+      "migrated_sha256": "88493d88a378155f4477fb14358f94e691bc60f6540e715c448596a5a81c6459",
+      "edits": [
+        {
+          "offset": 18118,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java",
+      "baseline_sha256": "b34508cc89b3c122fd407f39932e3bce03ff679945b8f834219f95c4e7e48dab",
+      "migrated_sha256": "b9003d76936c6e0e766ce12b40c67c3c9ff6b9c00de2ca08b14561cf2312b21e",
+      "edits": [
+        {
+          "offset": 15629,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java",
+      "baseline_sha256": "1b5b426d062569e84c0d50038bbfd9b0da278444b8a8dcdcb88b637583c1aa08",
+      "migrated_sha256": "65fc34a7ea9844a31e74a9f9ba7a29fe829aaeb07a2412e4833aad191278c2c3",
+      "edits": [
+        {
+          "offset": 13976,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java",
+      "baseline_sha256": "febff428d596a12111fe851f79d05d8ced79260e715c8bff50c6542d9921ed5e",
+      "migrated_sha256": "762fc7c7a26f94e4d75a84b2cbe1cf2fcd5e65e869bf7ea7abb5d69805b74218",
+      "edits": [
+        {
+          "offset": 6470,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      "baseline_sha256": "7dce61b5e675c69769cf207babb49e1841c1da0c8b897129370b2e99da02af8a",
+      "migrated_sha256": "978bc0d9e4805fe1d6238c146cd13bdcfad75c84d40c0e883b8bfddec8c247e2",
+      "edits": [
+        {
+          "offset": 9676,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java",
+      "baseline_sha256": "dac6da412b3f3d826d477e2e6c1674f6eaf06c46c53a2395d73179638264c62d",
+      "migrated_sha256": "c86cbc8d3b2bf622385c268e9dd748cd9a9d1919840858f2a896da6fd9111a2c",
+      "edits": [
+        {
+          "offset": 16320,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 16035,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 16020,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) return false;\n\t\treturn player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 32 * 32;\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\n\t\tif(world.getTileEntity(pos) != this) return false;\n\t\treturn player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 32 * 32;\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java",
+      "baseline_sha256": "b0e361c2d7acbc9f5ba3673afaa56822f8b6c54a794d5f216ffaf11b1ee8b6c9",
+      "migrated_sha256": "e6a0366fe3190036bfd13db832382fed88703256927cfc966927fe5a814e5ea7",
+      "edits": [
+        {
+          "offset": 7903,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java",
+      "baseline_sha256": "8fd489a3ad81ce9f54ddc099499a218c151912ae247c56a9db07caa3dcce3dbc",
+      "migrated_sha256": "e2c3922e4a609e5d9157b34c492a7a58f3c41b4b1d114a71dd75fd52ed20597a",
+      "edits": [
+        {
+          "offset": 5849,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "baseline_sha256": "05925e22f3a0ba1104fa2a6f93c32189757ef375a535a590066bcb7dee05c2b0",
+      "migrated_sha256": "fe5f63ad3035ba0532f5085d1cef7653ca93a89df4a33e011ef31f072586986b",
+      "edits": [
+        {
+          "offset": 1852,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 1837,
+          "old": "public boolean isUsableByPlayer(EntityPlayer player) {\r\n\t\tif (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {\r\n\t\t\treturn false;\r\n\t\t} else {\r\n\t\t\treturn player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;\r\n\t\t}\r\n\t}",
+          "new": "public boolean isUsableByPlayer(EntityPlayer player) {\r\n\t\tif (world.getTileEntity(pos) != this) {\r\n\t\t\treturn false;\r\n\t\t} else {\r\n\t\t\treturn player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 64;\r\n\t\t}\r\n\t}",
+          "kind": "callback-only native world/center coordinates"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "baseline_sha256": "ef56a12e857ec02cd048354c2bf454a576d7a7f3d7eaef43345b2da5eee7df58",
+      "migrated_sha256": "172dc7a911ea51f3b4632071e6ec53a498278488373bed6191ae578b44b07e82",
+      "edits": [
+        {
+          "offset": 7433,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java",
+      "baseline_sha256": "aea90002d126188d99459cce7cd7e691136e91f49277d86790a4c93a36187673",
+      "migrated_sha256": "04f839ced11d6bd9f51a3ae6010625b672d76d73aa0d09593683ac0e4d383da9",
+      "edits": [
+        {
+          "offset": 10401,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java",
+      "baseline_sha256": "7dfc65f23c7a1f37060e49b4531f23194792bfb76ff1b2328d0113ef554d62f4",
+      "migrated_sha256": "5eb1228adf2ef94412e26abefb6192bc0b12ca849f7dd74061a4cd593ec139d5",
+      "edits": [
+        {
+          "offset": 3450,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+      "baseline_sha256": "51829ea85ee88754151e2434ee676390596097589fed85c1fe24ce52e4809d55",
+      "migrated_sha256": "c07fc8bf10e9160352ec91f3f257e3c74fabd9711dd82f8b7a50f7847ce5ecfb",
+      "edits": [
+        {
+          "offset": 3020,
+          "old": "isUseableByPlayer",
+          "new": "isUsableByPlayer",
+          "kind": "native usability name"
+        },
+        {
+          "offset": 23175,
+          "old": "public void openInventory()",
+          "new": "public void openInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 23343,
+          "old": "public void closeInventory()",
+          "new": "public void closeInventory(EntityPlayer player)",
+          "kind": "native player callback signature"
+        },
+        {
+          "offset": 23175,
+          "old": "public void openInventory(EntityPlayer player) {\n\t\tthis.world.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, \"hbm:block.openC\", 1.0F, 1.0F);\n\t}",
+          "new": "public void openInventory(EntityPlayer player) {\n\t\tthis.world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ModSoundEvents.BLOCK_OPENC, SoundCategory.BLOCKS, 1.0F, 1.0F);\n\t}",
+          "kind": "preserve native callback behavior"
+        },
+        {
+          "offset": 23386,
+          "old": "public void closeInventory(EntityPlayer player) {\n\t\tthis.world.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, \"hbm:block.closeC\", 1.0F, 1.0F);\n\t}",
+          "new": "public void closeInventory(EntityPlayer player) {\n\t\tthis.world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ModSoundEvents.BLOCK_CLOSEC, SoundCategory.BLOCKS, 1.0F, 1.0F);\n\t}",
+          "kind": "preserve native callback behavior"
+        },
+        {
+          "offset": 151,
+          "old": "import com.hbm.blocks.BlockDummyable;\n",
+          "new": "import com.hbm.main.ModSoundEvents;\nimport com.hbm.blocks.BlockDummyable;\n",
+          "kind": "registered sound import"
+        },
+        {
+          "offset": 1656,
+          "old": "import net.minecraft.entity.Entity;\n",
+          "new": "import net.minecraft.util.SoundCategory;\nimport net.minecraft.entity.Entity;\n",
+          "kind": "registered sound import"
+        }
+      ]
+    }
+  ]
+}

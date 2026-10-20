@@ -1,0 +1,21 @@
+// Diagnostic-only checks. Native probe extracts three production state methods;
+// it does NOT compile complete BlockNTMFlower or change production source sets.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortWorldgenStatic', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', 'porting/tests/check-worldgen-coordinates.py'
+        }
+        tasks.create('testPortFlowerState', Exec) {
+            // Uses the current resolved compile classpath, never a stale prior log.
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-worldgen-flower-state.py',
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

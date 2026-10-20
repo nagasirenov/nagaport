@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/burnerpress",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.machine_difurnace_off",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.blastFurnace"
+    },
+    "description": {
+      "translate": "achievement.blastFurnace.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

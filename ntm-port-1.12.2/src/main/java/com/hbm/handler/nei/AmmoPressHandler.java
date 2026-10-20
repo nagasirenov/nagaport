@@ -10,7 +10,7 @@ public class AmmoPressHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmAmmoPress";
 	}
 }

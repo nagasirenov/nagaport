@@ -21,7 +21,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -30,7 +30,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineIndustrialTurbine extends BlockDummyable implements ITooltipProvider, ILookOverlay {
 
 	public MachineIndustrialTurbine() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -48,18 +48,18 @@ public class MachineIndustrialTurbine extends BlockDummyable implements ITooltip
 			int[] pos = this.findCore(world, x, y, z);
 			if(pos == null) return true;
 
-			TileEntityTurbineBase entity = (TileEntityTurbineBase) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityTurbineBase entity = (TileEntityTurbineBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null) {
 				
 				ForgeDirection dir = ForgeDirection.getOrientation(entity.getBlockMetadata() - this.offset);
 				
-				if(x == entity.xCoord + dir.offsetX * 3 && z == entity.zCoord + dir.offsetZ * 3 && y == entity.yCoord + 1) {
+				if(x == entity.getPos().getX() + dir.offsetX * 3 && z == entity.getPos().getZ() + dir.offsetZ * 3 && y == entity.getPos().getY() + 1) {
 					if(!world.isRemote) {
 						if(!entity.operational) {
-							world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:block.chungusLever", 1.5F, 1.0F);
+							com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:block.chungusLever", 1.5F, 1.0F);
 							entity.onLeverPull();
 						} else {
-							player.addChatComponentMessage(new ChatComponentText(TextFormatting.RED + "Cannot change compressor setting while operational!"));
+							player.sendMessage(new TextComponentString(TextFormatting.RED + "Cannot change compressor setting while operational!"));
 						}
 					}
 					return true;
@@ -103,7 +103,7 @@ public class MachineIndustrialTurbine extends BlockDummyable implements ITooltip
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityMachineIndustrialTurbine)) return;
 		
 		TileEntityMachineIndustrialTurbine chungus = (TileEntityMachineIndustrialTurbine) te;
@@ -128,6 +128,6 @@ public class MachineIndustrialTurbine extends BlockDummyable implements ITooltip
 				TextFormatting.RESET + blocks[chungus.powerBuffer <= 0 ? 0 : time] + (int) Math.round(chungus.spin * 100) + "%" + TextFormatting.WHITE + ")");
 		
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

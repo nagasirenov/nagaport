@@ -1,0 +1,34 @@
+{
+  "production": {
+    "src/main/java/com/hbm/blocks/generic/BlockScaffold.java": "2b8b964df94193d83c6bbdb2cc22c14e114a0ca34e850c1c346ab8ee5416a48e",
+    "src/main/java/com/hbm/blocks/IBlockMulti.java": "f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9",
+    "src/main/java/com/hbm/main/ScaffoldBlockModelHandler.java": "168caa50a5a3da24f4bb1aa376daed13dded1b8bc7e185796b70d0e5753a3305",
+    "src/main/java/com/hbm/render/block/RenderScaffoldBlock.java": "09e036d7b98f02e64979042b5d69170063a89e6c22cf88776df4d0475a4e4e86",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java": "236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjBakedModel.java": "e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa",
+    "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f",
+    "src/main/java/com/hbm/render/block/nativeblock/ConnectionQuadFactory.java": "81d2b3a95cef3980479d4cf15dc697c33fcac2972aab7fb533e214376d5e4d4a",
+    "src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java": "9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc",
+    "src/main/java/com/hbm/render/mesh/ObjMesh.java": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736",
+    "src/main/java/com/hbm/render/mesh/ObjMeshParser.java": "e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_scaffold.json": "5d2b93e4e8dba389bd157e56e4c209cbcb485bde777c9cea65c20a8d18b2a7e0"
+  },
+  "original": {
+    "src/main/java/com/hbm/blocks/generic/BlockScaffold.java": "8f2873ff76415074c9a8411bbf53f6c85e5858f2b8364d7f9752c17ecdbc5b4a",
+    "src/main/java/com/hbm/render/block/RenderScaffoldBlock.java": "c851d517f53e6bd2dbf382726e9708d7280a5bde1e36190e7c030aa327b6cc66",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+    "src/main/resources/assets/hbm/models/blocks/scaffold.obj": "38453ee90b2a1601ea7c1cb151e9fa417139fc9d0f12757ee703137db8eabe9b",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_steel.png": "fed3dbefdb03e420a705153abd2f8c8bcf8436704b82c0e06288c8be9b0e8a27",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_red.png": "4602ceb245566d5618ec83da0a3e32c701f5304e26c490731197929bf68d4bc3",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_white.png": "00a8a73cdfb159c5fc45ca0605373a980716ee01c764116e76bca111d18ac61c",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_yellow.png": "d50a037b189e45a96d10e26d63c6ff7241a3fae1ed6440aba2740bf2a08d18b4"
+  },
+  "assets": [
+    "src/main/resources/assets/hbm/models/blocks/scaffold.obj",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_steel.png",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_red.png",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_white.png",
+    "src/main/resources/assets/hbm/textures/blocks/scaffold_yellow.png"
+  ]
+}

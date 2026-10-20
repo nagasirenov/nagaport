@@ -1,0 +1,3 @@
+PASS BufferUtil exact checkpoint18 reverse/forward source reconstruction, six drift rejections, immutable original hash, independent NBT wire fixtures.
+PRODUCTION src/main/java/com/hbm/util/BufferUtil.java ed5747a3be9db9ccdb3a09bcd097b7e90b48ae5761066f42dd27737a71be049d
+PASS complete BufferUtil native codec: 188 assertions; pinned independent bytes, signed widths, malformed inputs and exact index behavior. Not packet dispatch/threading or gameplay acceptance.

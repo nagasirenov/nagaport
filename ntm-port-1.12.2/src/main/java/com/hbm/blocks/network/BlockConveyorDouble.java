@@ -5,6 +5,7 @@ import java.util.Random;
 import com.hbm.items.ModItems;
 
 import net.minecraft.item.Item;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -17,8 +18,8 @@ public class BlockConveyorDouble extends BlockConveyorBendable {
 
 		ForgeDirection dir = this.getTravelDirection(world, x, y, z, itemPos);
 
-		double itemX = MathHelper.clamp_double(itemPos.x, x, x + 1);
-		double itemZ = MathHelper.clamp_double(itemPos.z, z, z + 1);
+		double itemX = MathHelper.clamp(itemPos.x, x, x + 1);
+		double itemZ = MathHelper.clamp(itemPos.z, z, z + 1);
 
 		double posX = x + 0.5;
 		double posZ = z + 0.5;
@@ -36,12 +37,12 @@ public class BlockConveyorDouble extends BlockConveyorBendable {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return ModItems.conveyor_wand;
 	}
 
 	@Override
-	public int damageDropped(int meta) {
+	public int damageDropped(IBlockState state) {
 		return 2;
 	}
 

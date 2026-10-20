@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class ActorVillager implements ISpecialActor {
 
-	EntityVillager villager = new EntityVillager(Minecraft.getMinecraft().theWorld);
+	EntityVillager villager = new EntityVillager(Minecraft.getMinecraft().world);
 	NBTTagCompound data = new NBTTagCompound();
 
 	public ActorVillager() { }

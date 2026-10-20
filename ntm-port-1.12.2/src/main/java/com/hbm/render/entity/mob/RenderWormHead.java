@@ -8,9 +8,9 @@ import com.hbm.render.loader.HFRWavefrontObject;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.BossStatus;
+import com.hbm.render.util.ClientBossDisplay;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderWormHead extends Render {
 
@@ -18,14 +18,14 @@ public class RenderWormHead extends Render {
 		this.shadowOpaque = 0.0F;
 	}
 
-	public static final IModelCustom body = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/mobs/bot_prime_head.obj"));
+	public static final MeshModel body = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/mobs/bot_prime_head.obj"));
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/mark_zero_head.png");
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
 		
 		GL11.glPushMatrix();
-        BossStatus.setBossStatus((EntityBOTPrimeHead)entity, true);
+        ClientBossDisplay.capture((EntityBOTPrimeHead)entity, true);
 		GL11.glTranslated(x, y, z);
 		
 		GL11.glRotatef(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);

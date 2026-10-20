@@ -1,0 +1,544 @@
+Compiled from "SourceFile"
+public class net.minecraft.network.datasync.EntityDataManager {
+  public net.minecraft.network.datasync.EntityDataManager(net.minecraft.entity.Entity);
+    Code:
+       0: aload_0
+       1: invokespecial #27                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #33                 // Method com/google/common/collect/Maps.newHashMap:()Ljava/util/HashMap;
+       8: putfield      #35                 // Field entries:Ljava/util/Map;
+      11: aload_0
+      12: new           #37                 // class java/util/concurrent/locks/ReentrantReadWriteLock
+      15: dup
+      16: invokespecial #38                 // Method java/util/concurrent/locks/ReentrantReadWriteLock."<init>":()V
+      19: putfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      22: aload_0
+      23: iconst_1
+      24: putfield      #42                 // Field empty:Z
+      27: aload_0
+      28: aload_1
+      29: putfield      #44                 // Field entity:Lnet/minecraft/entity/Entity;
+      32: return
+
+  public static <T> net.minecraft.network.datasync.DataParameter<T> createKey(java.lang.Class<? extends net.minecraft.entity.Entity>, net.minecraft.network.datasync.DataSerializer<T>);
+    Code:
+       0: getstatic     #53                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: invokeinterface #59,  1           // InterfaceMethod org/apache/logging/log4j/Logger.isDebugEnabled:()Z
+       8: ifeq          57
+      11: invokestatic  #65                 // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+      14: invokevirtual #69                 // Method java/lang/Thread.getStackTrace:()[Ljava/lang/StackTraceElement;
+      17: iconst_2
+      18: aaload
+      19: invokevirtual #75                 // Method java/lang/StackTraceElement.getClassName:()Ljava/lang/String;
+      22: invokestatic  #81                 // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+      25: astore_2
+      26: aload_2
+      27: aload_0
+      28: invokevirtual #85                 // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      31: ifne          53
+      34: getstatic     #53                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      37: ldc           #87                 // String defineId called for: {} from {}
+      39: aload_0
+      40: aload_2
+      41: new           #89                 // class java/lang/RuntimeException
+      44: dup
+      45: invokespecial #90                 // Method java/lang/RuntimeException."<init>":()V
+      48: invokeinterface #94,  5           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      53: goto          57
+      56: astore_2
+      57: getstatic     #96                 // Field NEXT_ID_MAP:Ljava/util/Map;
+      60: aload_0
+      61: invokeinterface #101,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+      66: ifeq          90
+      69: getstatic     #96                 // Field NEXT_ID_MAP:Ljava/util/Map;
+      72: aload_0
+      73: invokeinterface #105,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      78: checkcast     #107                // class java/lang/Integer
+      81: invokevirtual #111                // Method java/lang/Integer.intValue:()I
+      84: iconst_1
+      85: iadd
+      86: istore_2
+      87: goto          146
+      90: iconst_0
+      91: istore_3
+      92: aload_0
+      93: astore        4
+      95: aload         4
+      97: ldc           #113                // class net/minecraft/entity/Entity
+      99: if_acmpeq     144
+     102: aload         4
+     104: invokevirtual #117                // Method java/lang/Class.getSuperclass:()Ljava/lang/Class;
+     107: astore        4
+     109: getstatic     #96                 // Field NEXT_ID_MAP:Ljava/util/Map;
+     112: aload         4
+     114: invokeinterface #101,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+     119: ifeq          95
+     122: getstatic     #96                 // Field NEXT_ID_MAP:Ljava/util/Map;
+     125: aload         4
+     127: invokeinterface #105,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     132: checkcast     #107                // class java/lang/Integer
+     135: invokevirtual #111                // Method java/lang/Integer.intValue:()I
+     138: iconst_1
+     139: iadd
+     140: istore_3
+     141: goto          144
+     144: iload_3
+     145: istore_2
+     146: iload_2
+     147: sipush        254
+     150: if_icmple     196
+     153: new           #121                // class java/lang/IllegalArgumentException
+     156: dup
+     157: new           #123                // class java/lang/StringBuilder
+     160: dup
+     161: invokespecial #124                // Method java/lang/StringBuilder."<init>":()V
+     164: ldc           #126                // String Data value id is too big with
+     166: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     169: iload_2
+     170: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     173: ldc           #135                // String ! (Max is
+     175: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     178: sipush        254
+     181: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     184: ldc           #137                // String )
+     186: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     189: invokevirtual #140                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     192: invokespecial #143                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+     195: athrow
+     196: getstatic     #96                 // Field NEXT_ID_MAP:Ljava/util/Map;
+     199: aload_0
+     200: iload_2
+     201: invokestatic  #147                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     204: invokeinterface #151,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     209: pop
+     210: aload_1
+     211: iload_2
+     212: invokeinterface #154,  2          // InterfaceMethod net/minecraft/network/datasync/DataSerializer.createKey:(I)Lnet/minecraft/network/datasync/DataParameter;
+     217: areturn
+    Exception table:
+       from    to  target type
+          11    53    56   Class java/lang/ClassNotFoundException
+
+  public <T> void register(net.minecraft.network.datasync.DataParameter<T>, T);
+    Code:
+       0: aload_1
+       1: invokevirtual #174                // Method net/minecraft/network/datasync/DataParameter.getId:()I
+       4: istore_3
+       5: iload_3
+       6: sipush        254
+       9: if_icmple     55
+      12: new           #121                // class java/lang/IllegalArgumentException
+      15: dup
+      16: new           #123                // class java/lang/StringBuilder
+      19: dup
+      20: invokespecial #124                // Method java/lang/StringBuilder."<init>":()V
+      23: ldc           #126                // String Data value id is too big with
+      25: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      28: iload_3
+      29: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      32: ldc           #135                // String ! (Max is
+      34: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      37: sipush        254
+      40: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      43: ldc           #137                // String )
+      45: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      48: invokevirtual #140                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      51: invokespecial #143                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      54: athrow
+      55: aload_0
+      56: getfield      #35                 // Field entries:Ljava/util/Map;
+      59: iload_3
+      60: invokestatic  #147                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      63: invokeinterface #101,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+      68: ifeq          103
+      71: new           #121                // class java/lang/IllegalArgumentException
+      74: dup
+      75: new           #123                // class java/lang/StringBuilder
+      78: dup
+      79: invokespecial #124                // Method java/lang/StringBuilder."<init>":()V
+      82: ldc           #176                // String Duplicate id value for
+      84: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      87: iload_3
+      88: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      91: ldc           #178                // String !
+      93: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      96: invokevirtual #140                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      99: invokespecial #143                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+     102: athrow
+     103: aload_1
+     104: invokevirtual #182                // Method net/minecraft/network/datasync/DataParameter.getSerializer:()Lnet/minecraft/network/datasync/DataSerializer;
+     107: invokestatic  #188                // Method net/minecraft/network/datasync/DataSerializers.getSerializerId:(Lnet/minecraft/network/datasync/DataSerializer;)I
+     110: ifge          157
+     113: new           #121                // class java/lang/IllegalArgumentException
+     116: dup
+     117: new           #123                // class java/lang/StringBuilder
+     120: dup
+     121: invokespecial #124                // Method java/lang/StringBuilder."<init>":()V
+     124: ldc           #190                // String Unregistered serializer
+     126: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     129: aload_1
+     130: invokevirtual #182                // Method net/minecraft/network/datasync/DataParameter.getSerializer:()Lnet/minecraft/network/datasync/DataSerializer;
+     133: invokevirtual #193                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     136: ldc           #195                // String  for
+     138: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     141: iload_3
+     142: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     145: ldc           #178                // String !
+     147: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     150: invokevirtual #140                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     153: invokespecial #143                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+     156: athrow
+     157: aload_0
+     158: aload_1
+     159: aload_2
+     160: invokespecial #198                // Method setEntry:(Lnet/minecraft/network/datasync/DataParameter;Ljava/lang/Object;)V
+     163: return
+
+  public <T> T get(net.minecraft.network.datasync.DataParameter<T>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #265                // Method getEntry:(Lnet/minecraft/network/datasync/DataParameter;)Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;
+       5: invokevirtual #269                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.getValue:()Ljava/lang/Object;
+       8: areturn
+
+  public <T> void set(net.minecraft.network.datasync.DataParameter<T>, T);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #265                // Method getEntry:(Lnet/minecraft/network/datasync/DataParameter;)Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;
+       5: astore_3
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #269                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.getValue:()Ljava/lang/Object;
+      11: invokestatic  #277                // Method org/apache/commons/lang3/ObjectUtils.notEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      14: ifeq          40
+      17: aload_3
+      18: aload_2
+      19: invokevirtual #281                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.setValue:(Ljava/lang/Object;)V
+      22: aload_0
+      23: getfield      #44                 // Field entity:Lnet/minecraft/entity/Entity;
+      26: aload_1
+      27: invokevirtual #285                // Method net/minecraft/entity/Entity.notifyDataManagerChange:(Lnet/minecraft/network/datasync/DataParameter;)V
+      30: aload_3
+      31: iconst_1
+      32: invokevirtual #289                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.setDirty:(Z)V
+      35: aload_0
+      36: iconst_1
+      37: putfield      #291                // Field dirty:Z
+      40: return
+
+  public <T> void setDirty(net.minecraft.network.datasync.DataParameter<T>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #265                // Method getEntry:(Lnet/minecraft/network/datasync/DataParameter;)Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;
+       5: iconst_1
+       6: invokestatic  #297                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.access$002:(Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;Z)Z
+       9: pop
+      10: aload_0
+      11: iconst_1
+      12: putfield      #291                // Field dirty:Z
+      15: return
+
+  public boolean isDirty();
+    Code:
+       0: aload_0
+       1: getfield      #291                // Field dirty:Z
+       4: ireturn
+
+  public static void writeEntries(java.util.List<net.minecraft.network.datasync.EntityDataManager$DataEntry<?>>, net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: ifnull        42
+       4: iconst_0
+       5: istore_2
+       6: aload_0
+       7: invokeinterface #308,  1          // InterfaceMethod java/util/List.size:()I
+      12: istore_3
+      13: iload_2
+      14: iload_3
+      15: if_icmpge     42
+      18: aload_0
+      19: iload_2
+      20: invokeinterface #311,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      25: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      28: astore        4
+      30: aload_1
+      31: aload         4
+      33: invokestatic  #315                // Method writeEntry:(Lnet/minecraft/network/PacketBuffer;Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;)V
+      36: iinc          2, 1
+      39: goto          13
+      42: aload_1
+      43: sipush        255
+      46: invokevirtual #321                // Method net/minecraft/network/PacketBuffer.writeByte:(I)Lio/netty/buffer/ByteBuf;
+      49: pop
+      50: return
+
+  public java.util.List<net.minecraft.network.datasync.EntityDataManager$DataEntry<?>> getDirty();
+    Code:
+       0: aconst_null
+       1: astore_1
+       2: aload_0
+       3: getfield      #291                // Field dirty:Z
+       6: ifeq          105
+       9: aload_0
+      10: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      13: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+      18: invokeinterface #216,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      23: aload_0
+      24: getfield      #35                 // Field entries:Ljava/util/Map;
+      27: invokeinterface #334,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+      32: invokeinterface #340,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      37: astore_2
+      38: aload_2
+      39: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      44: ifeq          91
+      47: aload_2
+      48: invokeinterface #350,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      53: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      56: astore_3
+      57: aload_3
+      58: invokevirtual #352                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.isDirty:()Z
+      61: ifeq          88
+      64: aload_3
+      65: iconst_0
+      66: invokevirtual #289                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.setDirty:(Z)V
+      69: aload_1
+      70: ifnonnull     77
+      73: invokestatic  #358                // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+      76: astore_1
+      77: aload_1
+      78: aload_3
+      79: invokevirtual #362                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.copy:()Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;
+      82: invokeinterface #365,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      87: pop
+      88: goto          38
+      91: aload_0
+      92: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      95: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+     100: invokeinterface #219,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     105: aload_0
+     106: iconst_0
+     107: putfield      #291                // Field dirty:Z
+     110: aload_1
+     111: areturn
+
+  public void writeEntries(net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+       4: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+       9: invokeinterface #216,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      14: aload_0
+      15: getfield      #35                 // Field entries:Ljava/util/Map;
+      18: invokeinterface #334,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+      23: invokeinterface #340,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      28: astore_2
+      29: aload_2
+      30: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      35: ifeq          56
+      38: aload_2
+      39: invokeinterface #350,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      44: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      47: astore_3
+      48: aload_1
+      49: aload_3
+      50: invokestatic  #315                // Method writeEntry:(Lnet/minecraft/network/PacketBuffer;Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;)V
+      53: goto          29
+      56: aload_0
+      57: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      60: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+      65: invokeinterface #219,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+      70: aload_1
+      71: sipush        255
+      74: invokevirtual #321                // Method net/minecraft/network/PacketBuffer.writeByte:(I)Lio/netty/buffer/ByteBuf;
+      77: pop
+      78: return
+
+  public java.util.List<net.minecraft.network.datasync.EntityDataManager$DataEntry<?>> getAll();
+    Code:
+       0: aconst_null
+       1: astore_1
+       2: aload_0
+       3: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+       6: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+      11: invokeinterface #216,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      16: aload_0
+      17: getfield      #35                 // Field entries:Ljava/util/Map;
+      20: invokeinterface #334,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+      25: invokeinterface #340,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      30: astore_2
+      31: aload_2
+      32: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      37: ifeq          72
+      40: aload_2
+      41: invokeinterface #350,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      46: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      49: astore_3
+      50: aload_1
+      51: ifnonnull     58
+      54: invokestatic  #358                // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+      57: astore_1
+      58: aload_1
+      59: aload_3
+      60: invokevirtual #362                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.copy:()Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;
+      63: invokeinterface #365,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      68: pop
+      69: goto          31
+      72: aload_0
+      73: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      76: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+      81: invokeinterface #219,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+      86: aload_1
+      87: areturn
+
+  public static java.util.List<net.minecraft.network.datasync.EntityDataManager$DataEntry<?>> readEntries(net.minecraft.network.PacketBuffer) throws java.io.IOException;
+    Code:
+       0: aconst_null
+       1: astore_1
+       2: aload_0
+       3: invokevirtual #393                // Method net/minecraft/network/PacketBuffer.readUnsignedByte:()S
+       6: dup
+       7: istore_2
+       8: sipush        255
+      11: if_icmpeq     99
+      14: aload_1
+      15: ifnonnull     22
+      18: invokestatic  #358                // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+      21: astore_1
+      22: aload_0
+      23: invokevirtual #396                // Method net/minecraft/network/PacketBuffer.readVarInt:()I
+      26: istore_3
+      27: iload_3
+      28: invokestatic  #399                // Method net/minecraft/network/datasync/DataSerializers.getSerializer:(I)Lnet/minecraft/network/datasync/DataSerializer;
+      31: astore        4
+      33: aload         4
+      35: ifnonnull     66
+      38: new           #401                // class io/netty/handler/codec/DecoderException
+      41: dup
+      42: new           #123                // class java/lang/StringBuilder
+      45: dup
+      46: invokespecial #124                // Method java/lang/StringBuilder."<init>":()V
+      49: ldc_w         #376                // String Unknown serializer type
+      52: invokevirtual #130                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      55: iload_3
+      56: invokevirtual #133                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      59: invokevirtual #140                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      62: invokespecial #402                // Method io/netty/handler/codec/DecoderException."<init>":(Ljava/lang/String;)V
+      65: athrow
+      66: aload_1
+      67: new           #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      70: dup
+      71: aload         4
+      73: iload_2
+      74: invokeinterface #154,  2          // InterfaceMethod net/minecraft/network/datasync/DataSerializer.createKey:(I)Lnet/minecraft/network/datasync/DataParameter;
+      79: aload         4
+      81: aload_0
+      82: invokeinterface #406,  2          // InterfaceMethod net/minecraft/network/datasync/DataSerializer.read:(Lnet/minecraft/network/PacketBuffer;)Ljava/lang/Object;
+      87: invokespecial #206                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry."<init>":(Lnet/minecraft/network/datasync/DataParameter;Ljava/lang/Object;)V
+      90: invokeinterface #365,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      95: pop
+      96: goto          2
+      99: aload_1
+     100: areturn
+
+  public void setEntryValues(java.util.List<net.minecraft.network.datasync.EntityDataManager$DataEntry<?>>);
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+       4: invokeinterface #212,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.writeLock:()Ljava/util/concurrent/locks/Lock;
+       9: invokeinterface #216,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      14: aload_1
+      15: invokeinterface #415,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      20: astore_2
+      21: aload_2
+      22: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      27: ifeq          90
+      30: aload_2
+      31: invokeinterface #350,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      36: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      39: astore_3
+      40: aload_0
+      41: getfield      #35                 // Field entries:Ljava/util/Map;
+      44: aload_3
+      45: invokevirtual #372                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.getKey:()Lnet/minecraft/network/datasync/DataParameter;
+      48: invokevirtual #174                // Method net/minecraft/network/datasync/DataParameter.getId:()I
+      51: invokestatic  #147                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      54: invokeinterface #105,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      59: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      62: astore        4
+      64: aload         4
+      66: ifnull        87
+      69: aload_0
+      70: aload         4
+      72: aload_3
+      73: invokevirtual #419                // Method setEntryValue:(Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;Lnet/minecraft/network/datasync/EntityDataManager$DataEntry;)V
+      76: aload_0
+      77: getfield      #44                 // Field entity:Lnet/minecraft/entity/Entity;
+      80: aload_3
+      81: invokevirtual #372                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.getKey:()Lnet/minecraft/network/datasync/DataParameter;
+      84: invokevirtual #285                // Method net/minecraft/entity/Entity.notifyDataManagerChange:(Lnet/minecraft/network/datasync/DataParameter;)V
+      87: goto          21
+      90: aload_0
+      91: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      94: invokeinterface #212,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.writeLock:()Ljava/util/concurrent/locks/Lock;
+      99: invokeinterface #219,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     104: aload_0
+     105: iconst_1
+     106: putfield      #291                // Field dirty:Z
+     109: return
+
+  protected <T> void setEntryValue(net.minecraft.network.datasync.EntityDataManager$DataEntry<T>, net.minecraft.network.datasync.EntityDataManager$DataEntry<?>);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokevirtual #269                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.getValue:()Ljava/lang/Object;
+       5: invokevirtual #281                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.setValue:(Ljava/lang/Object;)V
+       8: return
+
+  public boolean isEmpty();
+    Code:
+       0: aload_0
+       1: getfield      #42                 // Field empty:Z
+       4: ireturn
+
+  public void setClean();
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: putfield      #291                // Field dirty:Z
+       5: aload_0
+       6: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+       9: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+      14: invokeinterface #216,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      19: aload_0
+      20: getfield      #35                 // Field entries:Ljava/util/Map;
+      23: invokeinterface #334,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+      28: invokeinterface #340,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      33: astore_1
+      34: aload_1
+      35: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      40: ifeq          61
+      43: aload_1
+      44: invokeinterface #350,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      49: checkcast     #7                  // class net/minecraft/network/datasync/EntityDataManager$DataEntry
+      52: astore_2
+      53: aload_2
+      54: iconst_0
+      55: invokevirtual #289                // Method net/minecraft/network/datasync/EntityDataManager$DataEntry.setDirty:(Z)V
+      58: goto          34
+      61: aload_0
+      62: getfield      #40                 // Field lock:Ljava/util/concurrent/locks/ReadWriteLock;
+      65: invokeinterface #230,  1          // InterfaceMethod java/util/concurrent/locks/ReadWriteLock.readLock:()Ljava/util/concurrent/locks/Lock;
+      70: invokeinterface #219,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+      75: return
+
+  static {};
+    Code:
+       0: invokestatic  #431                // Method org/apache/logging/log4j/LogManager.getLogger:()Lorg/apache/logging/log4j/Logger;
+       3: putstatic     #53                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       6: invokestatic  #33                 // Method com/google/common/collect/Maps.newHashMap:()Ljava/util/HashMap;
+       9: putstatic     #96                 // Field NEXT_ID_MAP:Ljava/util/Map;
+      12: return
+}

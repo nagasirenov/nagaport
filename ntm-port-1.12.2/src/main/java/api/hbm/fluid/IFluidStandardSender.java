@@ -16,7 +16,7 @@ public interface IFluidStandardSender extends IFluidStandardSenderMK2 {
 
 	public default void sendFluidToAll(FluidTank tank, TileEntity tile) {
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			tryProvide(tank, tile.getWorldObj(), tile.xCoord + dir.offsetX, tile.yCoord + dir.offsetY, tile.zCoord + dir.offsetZ, dir);
+			tryProvide(tank, tile.getWorld(), tile.getPos().getX() + dir.offsetX, tile.getPos().getY() + dir.offsetY, tile.getPos().getZ() + dir.offsetZ, dir);
 		}
 	}
 }

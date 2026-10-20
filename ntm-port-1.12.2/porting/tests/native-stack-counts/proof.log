@@ -1,0 +1,7 @@
+PASS exact forward/inverse UTF8 bytes for 22 files; 47 mutation controls
+PASS 1344 actual original/native count, EMPTY, alias, evaluation and deferred quickExtract candidate checks; zero-sentinel incompatibility is a deferred gate.
+Expected unfinished-source attribution errors: 13
+Expected unfinished-source attribution errors: 32469
+PASS actual native bytecode: setter writes raw count then updates empty state; getter normalizes EMPTY.
+PASS 15 actual native-owner attribution, used-value/compound/unary/shadow/comment/unicode/error/static-access negative controls.
+PASS all 25 selected original writes re-attributed among 57 candidates using all production sources; unfinished compile errors expected.

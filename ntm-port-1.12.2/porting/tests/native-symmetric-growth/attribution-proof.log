@@ -1,0 +1,4 @@
+PASS 32 original-provenance expand-to-grow tokens / 26 exact source inverses / 52 source mutants / all 4062 production inputs retained
+Native attribution only; inputs=4062; source AABB overrides=0; errors=15858
+Native attribution only; inputs=4062; source AABB overrides=0; errors=15858
+PASS 32 genuine native (DDD) expand/grow bindings; each receiver and all argument AST bytes identical; source AABB override exclusion active

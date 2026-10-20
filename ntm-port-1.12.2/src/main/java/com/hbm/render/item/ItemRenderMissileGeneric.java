@@ -10,14 +10,16 @@ import com.hbm.items.ModItems;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderHelper;
+import javax.vecmath.Matrix4f;
+import com.hbm.render.item.nativeitem.ItemTransformMatrix;
+import com.hbm.render.item.nativeitem.direct.DirectMeshItemRenderer;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
-public class ItemRenderMissileGeneric implements IItemRenderer {
+public class ItemRenderMissileGeneric extends DirectMeshItemRenderer {
 	
 	public static HashMap<ComparableStack, Consumer<TextureManager>> renderers = new HashMap();
 	
@@ -38,86 +40,49 @@ public class ItemRenderMissileGeneric implements IItemRenderer {
 		this.type = type;
 	}
 	
-	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		switch(type) {
-		case EQUIPPED:
-		case EQUIPPED_FIRST_PERSON:
-		case ENTITY:
-		case INVENTORY:
-			return true;
-		default: return false;
-		}
-	}
+    @Override public Matrix4f localTransform(TransformType perspective, long timeMillis) {
+        ItemTransformMatrix matrix = new ItemTransformMatrix();
+        switch(perspective) {
+        case THIRD_PERSON_LEFT_HAND:
+        case THIRD_PERSON_RIGHT_HAND: return matrix.translate(.5, -.25, 0).scale(.15).build();
+        case FIRST_PERSON_LEFT_HAND:
+        case FIRST_PERSON_RIGHT_HAND: return matrix.translate(.5, .25, 0).scale(.1).build();
+        case GUI:
+            double guiScale = 1, guiOffset = 0;
+            switch(type) {
+            case TYPE_TIER0: guiScale = 3.75D; guiOffset = 10.75D; break;
+            case TYPE_TIER1: guiScale = 2.5D; guiOffset = 8.5D; break;
+            case TYPE_TIER2: guiScale = 2D; guiOffset = 6.5D; break;
+            case TYPE_TIER3: guiScale = 1.25D; guiOffset = 1D; break;
+            case TYPE_STEALTH: guiScale = 1.75D; guiOffset = 4.75D; break;
+            case TYPE_ABM: guiScale = 2.25D; guiOffset = 7D; break;
+            case TYPE_NUCLEAR: guiScale = 1.375D; guiOffset = 1.5D; break;
+            case TYPE_ROBIN: guiScale = 1.25D; guiOffset = 2D; break;
+            }
+            return matrix.scale(guiScale).rotateZ(135).rotateY(timeMillis / 15 % 360)
+                    .translate(0, -16 + guiOffset, 0).build();
+        default: return matrix.scale(.15).build();
+        }
+    }
 
-	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return helper == ItemRendererHelper.ENTITY_BOBBING || helper == ItemRendererHelper.ENTITY_ROTATION;
-	}
+    @Override public boolean usesGuiStandardLighting() { return true; }
 
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+    @Override protected void draw(ItemStack item) {
+        Consumer<TextureManager> renderer = renderers.get(new ComparableStack(item).makeSingular());
+        if(renderer == null) return;
+        GL11.glEnable(GL11.GL_LIGHTING);
+        GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
+        GL11.glEnable(GL11.GL_ALPHA_TEST);
+        GL11.glDisable(GL11.GL_CULL_FACE);
+        renderer.accept(Minecraft.getMinecraft().getTextureManager());
+        GL11.glEnable(GL11.GL_CULL_FACE);
+    }
 
-		Consumer<TextureManager> renderer = renderers.get(new ComparableStack(item).makeSingular());
-		if(renderer == null) return;
-		
-		GL11.glPushMatrix();
-
-		double guiScale = 1;
-		double guiOffset = 0;
-
-		switch(this.type) {
-		case TYPE_TIER0: guiScale = 3.75D; guiOffset = 10.75D; break;
-		case TYPE_TIER1: guiScale = 2.5D; guiOffset = 8.5D; break;
-		case TYPE_TIER2: guiScale = 2D; guiOffset = 6.5D; break;
-		case TYPE_TIER3: guiScale = 1.25D; guiOffset = 1D; break;
-		case TYPE_STEALTH: guiScale = 1.75D; guiOffset = 4.75D; break;
-		case TYPE_ABM: guiScale = 2.25D; guiOffset = 7D; break;
-		case TYPE_NUCLEAR: guiScale = 1.375D; guiOffset = 1.5D; break;
-		case TYPE_ROBIN: guiScale = 1.25D; guiOffset = 2D; break;
-		}
-
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		
-		switch(type) {
-		case EQUIPPED:
-			double s = 0.15;
-			GL11.glTranslated(0.5, -0.25, 0);
-			GL11.glScaled(s, s, s);
-			break;
-		case EQUIPPED_FIRST_PERSON:
-			double heldScale = 0.1;
-			GL11.glTranslated(0.5, 0.25, 0);
-			GL11.glScaled(heldScale, heldScale, heldScale);
-			break;
-		case ENTITY:
-			double s2 = 0.15;
-			GL11.glScaled(s2, s2, s2);
-			break;
-		case INVENTORY:
-			RenderHelper.enableGUIStandardItemLighting();
-			GL11.glScaled(guiScale, guiScale, guiScale);
-			GL11.glRotated(135, 0, 0, 1);
-			GL11.glRotatef(System.currentTimeMillis() / 15 % 360, 0, 1, 0);
-			GL11.glTranslated(0, -16 + guiOffset, 0);
-			break;
-		default: break;
-		}
-		
-		GL11.glDisable(GL11.GL_CULL_FACE);
-		renderer.accept(Minecraft.getMinecraft().renderEngine);
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		
-		GL11.glPopMatrix();
-	}
+	public static Consumer<TextureManager> generateStandard(ResourceLocation texture, MeshModel model) { return generateWithScale(texture, model, 1F); }
+	public static Consumer<TextureManager> generateLarge(ResourceLocation texture, MeshModel model) { return generateWithScale(texture, model, 1.5F); }
+	public static Consumer<TextureManager> generateDouble(ResourceLocation texture, MeshModel model) { return generateWithScale(texture, model, 2F); }
 	
-	public static Consumer<TextureManager> generateStandard(ResourceLocation texture, IModelCustom model) { return generateWithScale(texture, model, 1F); }
-	public static Consumer<TextureManager> generateLarge(ResourceLocation texture, IModelCustom model) { return generateWithScale(texture, model, 1.5F); }
-	public static Consumer<TextureManager> generateDouble(ResourceLocation texture, IModelCustom model) { return generateWithScale(texture, model, 2F); }
-	
-	public static Consumer<TextureManager> generateWithScale(ResourceLocation texture, IModelCustom model, float scale) {
+	public static Consumer<TextureManager> generateWithScale(ResourceLocation texture, MeshModel model, float scale) {
 		return x -> {
 			GL11.glScalef(scale, scale, scale);
 			GL11.glShadeModel(GL11.GL_SMOOTH);

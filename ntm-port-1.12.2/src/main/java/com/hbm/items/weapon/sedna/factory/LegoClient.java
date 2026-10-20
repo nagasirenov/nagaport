@@ -150,7 +150,7 @@ public class LegoClient {
 		if(bullet.ticksExisted < 2) return;
 		RenderArcFurnace.fullbright(true);
 		
-		double scale = Math.min(5, (bullet.ticksExisted + interp - 2) * 0.5) * (0.8 + bullet.worldObj.rand.nextDouble() * 0.4);
+		double scale = Math.min(5, (bullet.ticksExisted + interp - 2) * 0.5) * (0.8 + bullet.world.rand.nextDouble() * 0.4);
 		renderFlareSprite(bullet, interp, r, g, b, scale, 0.5F, 0.75F);
 		
 		RenderArcFurnace.fullbright(false);
@@ -278,7 +278,7 @@ public class LegoClient {
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
 		GL11.glRotatef(-bullet.rotationPitch - 90, 1F, 0, 0);
 		Vec3d delta = new Vec3d(0, bullet.beamLength, 0);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		GL11.glScaled(age / 2 + 0.5, 1, age / 2 + 0.5);
 		double scale = 0.075D;
 		int colorInner = ((int)(0x20 * age) << 16) | ((int)(0x20 * age) << 8) | (int) (0x40 * age);
@@ -297,7 +297,7 @@ public class LegoClient {
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
 		GL11.glRotatef(-bullet.rotationPitch - 90, 1F, 0, 0);
 		Vec3d delta = new Vec3d(0, bullet.beamLength, 0);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		GL11.glScaled(age / 2 + 0.15, 1, age / 2 + 0.15);
 		double scale = 0.075D;
 		int colorInner = ((int)(0x20 * age) << 16) | ((int)(0x20 * age) << 8) | (int) (0x40 * age);
@@ -312,7 +312,7 @@ public class LegoClient {
 	public static BiConsumer<EntityBulletBeamBase, Float> RENDER_TAU = (bullet, interp) -> {
 
 		RenderArcFurnace.fullbright(true);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		
 		GL11.glPushMatrix();
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
@@ -338,7 +338,7 @@ public class LegoClient {
 	public static BiConsumer<EntityBulletBeamBase, Float> RENDER_TAU_CHARGE = (bullet, interp) -> {
 
 		RenderArcFurnace.fullbright(true);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		
 		GL11.glPushMatrix();
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
@@ -364,7 +364,7 @@ public class LegoClient {
 	public static BiConsumer<EntityBulletBeamBase, Float> RENDER_CRACKLE = (bullet, interp) -> {
 
 		RenderArcFurnace.fullbright(true);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		
 		GL11.glPushMatrix();
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
@@ -383,7 +383,7 @@ public class LegoClient {
 	public static BiConsumer<EntityBulletBeamBase, Float> RENDER_BLACK_LIGHTNING = (bullet, interp) -> {
 
 		RenderArcFurnace.fullbright(true);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		
 		GL11.glPushMatrix();
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
@@ -402,7 +402,7 @@ public class LegoClient {
 	public static BiConsumer<EntityBulletBeamBase, Float> RENDER_NI4NI_BOLT = (bullet, interp) -> {
 
 		RenderArcFurnace.fullbright(true);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		
 		GL11.glPushMatrix();
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
@@ -441,7 +441,7 @@ public class LegoClient {
 		GL11.glRotatef(180 - bullet.rotationYaw, 0, 1F, 0);
 		GL11.glRotatef(-bullet.rotationPitch - 90, 1F, 0, 0);
 		Vec3d delta = new Vec3d(0, bullet.beamLength, 0);
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		GL11.glScaled(age / 2 + 0.5, 1, age / 2 + 0.5);
 		int colorInner = ((int)(r * age) << 16) | ((int)(g * age) << 8) | (int) (b * age);
 		BeamPronter.prontBeam(delta, EnumWaveType.RANDOM, EnumBeamType.SOLID, colorInner, colorInner, bullet.ticksExisted / 3, (int)(bullet.beamLength / 2 + 1), 0F, 4, 0.025F);
@@ -451,7 +451,7 @@ public class LegoClient {
 	
 	public static BiConsumer<EntityBulletBeamBase, Float> RENDER_FOLLY = (bullet, interp) -> {
 
-		double age = MathHelper.clamp_double(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, 0, 1);
+		double age = MathHelper.clamp(1D - ((double) bullet.ticksExisted - 2 + interp) / (double) bullet.getBulletConfig().expires, (double) (0), (double) (1));
 		RenderArcFurnace.fullbright(true);
 		
 		GL11.glPushMatrix();
@@ -531,7 +531,7 @@ public class LegoClient {
 		
 		if(bullet.getThrower() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) bullet.getThrower();
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.gun_charge_thrower && ItemGunChargeThrower.getLastHook(player.getHeldItem()) == bullet.getEntityId()) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.gun_charge_thrower && ItemGunChargeThrower.getLastHook(com.hbm.util.NativeHeldItem.getMainHandNullable(player)) == bullet.getEntityId()) {
 				renderWire(bullet, interp);
 			}
 		}
@@ -597,7 +597,7 @@ public class LegoClient {
 			double iy = by + deltaY / (double)(count) * ja - sagMean;
 			double iz = bz + deltaZ / (double)(count) * ja;
 
-			int brightness = bullet.worldObj.getLightBrightnessForSkyBlocks(MathHelper.floor_double(ix), MathHelper.floor_double(iy), MathHelper.floor_double(iz), 0);
+			int brightness = bullet.world.getLightBrightnessForSkyBlocks(MathHelper.floor(ix), MathHelper.floor(iy), MathHelper.floor(iz), 0);
 			tess.setBrightness(brightness);
 
 			tess.setColorOpaque_I(0x606060);

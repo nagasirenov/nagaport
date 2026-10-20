@@ -10,7 +10,7 @@ public class VacuumRecipeHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmVacuum";
 	}
 }

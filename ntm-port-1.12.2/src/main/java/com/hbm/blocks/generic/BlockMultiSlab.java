@@ -55,7 +55,7 @@ public class BlockMultiSlab extends BlockSlab implements IStepTickReceiver {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return Item.getItemFromBlock(single != null ? single : this);
 	}
 	
@@ -74,7 +74,7 @@ public class BlockMultiSlab extends BlockSlab implements IStepTickReceiver {
 	public String func_150002_b(int meta) {
 		meta = (meta & 7) % slabMaterials.length;
 		Block block = slabMaterials[meta];
-		return super.getUnlocalizedName() + "." + block.getUnlocalizedName().substring(5);
+		return super.getTranslationKey() + "." + block.getTranslationKey().substring(5);
 	}
 	
 	@Override
@@ -95,7 +95,7 @@ public class BlockMultiSlab extends BlockSlab implements IStepTickReceiver {
 	
 	@Override
 	public float getExplosionResistance(Entity entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		meta = (meta & 7) % slabMaterials.length;
 		Block block = slabMaterials[meta];
 		return block.getExplosionResistance(entity);
@@ -103,7 +103,7 @@ public class BlockMultiSlab extends BlockSlab implements IStepTickReceiver {
 	
 	@Override
 	public float getBlockHardness(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		meta = (meta & 7) % slabMaterials.length;
 		Block block = slabMaterials[meta];
 		return block.getBlockHardness(world, x, y, z); //relies on block not assuming that they are at that position
@@ -111,7 +111,7 @@ public class BlockMultiSlab extends BlockSlab implements IStepTickReceiver {
 
 	@Override
 	public void onPlayerStep(World world, int x, int y, int z, EntityPlayer player) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		meta = (meta & 7) % slabMaterials.length;
 		Block block = slabMaterials[meta];
 		if(!world.isRemote || !(block instanceof BlockSpeedy))

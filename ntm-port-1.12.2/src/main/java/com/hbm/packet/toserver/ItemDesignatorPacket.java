@@ -52,13 +52,13 @@ public class ItemDesignatorPacket implements IMessage {
 			
 			EntityPlayer p = ctx.getServerHandler().playerEntity;
 			
-			ItemStack stack = p.getHeldItem();
+			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(p);
 			
 			if(stack != null && stack.getItem() == ModItems.designator_manual) {
 				if(!stack.hasTagCompound())
-					stack.stackTagCompound = new NBTTagCompound();
-				int x = stack.stackTagCompound.getInteger("xCoord");
-				int z = stack.stackTagCompound.getInteger("zCoord");
+					stack.setTagCompound(new NBTTagCompound());
+				int x = stack.getTagCompound().getInteger("xCoord");
+				int z = stack.getTagCompound().getInteger("zCoord");
 				
 				int result = 0;
 
@@ -68,16 +68,16 @@ public class ItemDesignatorPacket implements IMessage {
 					result -= m.value;
 				if(m.operator == 2) {
 					if(m.reference == 0)
-						stack.stackTagCompound.setInteger("xCoord", (int)Math.round(p.posX));
+						stack.getTagCompound().setInteger("xCoord", (int)Math.round(p.posX));
 					else
-						stack.stackTagCompound.setInteger("zCoord", (int)Math.round(p.posZ));
+						stack.getTagCompound().setInteger("zCoord", (int)Math.round(p.posZ));
 					return null;
 				}
 				
 				if(m.reference == 0)
-					stack.stackTagCompound.setInteger("xCoord", x + result);
+					stack.getTagCompound().setInteger("xCoord", x + result);
 				else
-					stack.stackTagCompound.setInteger("zCoord", z + result);
+					stack.getTagCompound().setInteger("zCoord", z + result);
 			}
 			
 			return null;

@@ -7,17 +7,17 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderFallingNuke extends Render {
 
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(RefStrings.MODID, "models/LilBoy1.obj");
-	private IModelCustom boyModel;
+	private MeshModel boyModel;
 	private ResourceLocation boyTexture;
 
 	public RenderFallingNuke() {
-		boyModel = AdvancedModelLoader.loadModel(objTesterModelRL);
+		boyModel = new ObjMeshModel(objTesterModelRL);
 		boyTexture = new ResourceLocation(RefStrings.MODID, "textures/models/CustomNuke.png");
 	}
 

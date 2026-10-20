@@ -1,0 +1,55 @@
+[
+  {
+    "old": "  public adb c(java.lang.String);\n    Code:\n       0: aload_0\n       1: aload_1\n       2: putfield      #527                // Field m:Ljava/lang/String;\n       5: aload_0\n       6: areturn",
+    "native": "  public net.minecraft.item.Item setTranslationKey(java.lang.String);\n    Code:\n       0: aload_0\n       1: aload_1\n       2: putfield      #349                // Field translationKey:Ljava/lang/String;\n       5: aload_0\n       6: areturn",
+    "normalized": [
+      "aload_0",
+      "aload_1",
+      "putfield // Field translationKey:Ljava/lang/String;",
+      "aload_0",
+      "areturn"
+    ]
+  },
+  {
+    "old": "  public java.lang.String a();\n    Code:\n       0: new           #485                // class java/lang/StringBuilder\n       3: dup\n       4: invokespecial #803                // Method java/lang/StringBuilder.\"<init>\":()V\n       7: ldc           #221                // String item.\n       9: invokevirtual #805                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      12: aload_0\n      13: getfield      #527                // Field m:Ljava/lang/String;\n      16: invokevirtual #805                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      19: invokevirtual #806                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;\n      22: areturn",
+    "native": "  public java.lang.String getTranslationKey();\n    Code:\n       0: new           #365                // class java/lang/StringBuilder\n       3: dup\n       4: invokespecial #366                // Method java/lang/StringBuilder.\"<init>\":()V\n       7: ldc_w         #368                // String item.\n      10: invokevirtual #372                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      13: aload_0\n      14: getfield      #349                // Field translationKey:Ljava/lang/String;\n      17: invokevirtual #372                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      20: invokevirtual #375                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;\n      23: areturn",
+    "normalized": [
+      "new // class java/lang/StringBuilder",
+      "dup",
+      "invokespecial // Method java/lang/StringBuilder.\"<init>\":()V",
+      "ldc // String item.",
+      "invokevirtual // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+      "aload_0",
+      "getfield // Field translationKey:Ljava/lang/String;",
+      "invokevirtual // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+      "invokevirtual // Method java/lang/StringBuilder.toString:()Ljava/lang/String;",
+      "areturn"
+    ]
+  },
+  {
+    "old": "  public java.lang.String a();\n    Code:\n       0: new           #484                // class java/lang/StringBuilder\n       3: dup\n       4: invokespecial #878                // Method java/lang/StringBuilder.\"<init>\":()V\n       7: ldc_w         #302                // String tile.\n      10: invokevirtual #880                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      13: aload_0\n      14: getfield      #514                // Field b:Ljava/lang/String;\n      17: invokevirtual #880                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      20: invokevirtual #881                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;\n      23: areturn",
+    "native": "  public java.lang.String getTranslationKey();\n    Code:\n       0: new           #313                // class java/lang/StringBuilder\n       3: dup\n       4: invokespecial #316                // Method java/lang/StringBuilder.\"<init>\":()V\n       7: ldc_w         #1128               // String tile.\n      10: invokevirtual #322                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      13: aload_0\n      14: getfield      #1113               // Field translationKey:Ljava/lang/String;\n      17: invokevirtual #322                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;\n      20: invokevirtual #331                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;\n      23: areturn",
+    "normalized": [
+      "new // class java/lang/StringBuilder",
+      "dup",
+      "invokespecial // Method java/lang/StringBuilder.\"<init>\":()V",
+      "ldc // String tile.",
+      "invokevirtual // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+      "aload_0",
+      "getfield // Field translationKey:Ljava/lang/String;",
+      "invokevirtual // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+      "invokevirtual // Method java/lang/StringBuilder.toString:()Ljava/lang/String;",
+      "areturn"
+    ]
+  },
+  {
+    "old": "  public java.lang.String a();\n    Code:\n       0: aload_0\n       1: getfield      #13                 // Field a:Laji;\n       4: invokevirtual #33                 // Method aji.a:()Ljava/lang/String;\n       7: areturn",
+    "native": "  public java.lang.String getTranslationKey();\n    Code:\n       0: aload_0\n       1: getfield      #14                 // Field block:Lnet/minecraft/block/Block;\n       4: invokevirtual #257                // Method net/minecraft/block/Block.getTranslationKey:()Ljava/lang/String;\n       7: areturn",
+    "normalized": [
+      "aload_0",
+      "getfield // Field block:Lnet/minecraft/block/Block;",
+      "invokevirtual // Method net/minecraft/block/Block.getTranslationKey:()Ljava/lang/String;",
+      "areturn"
+    ]
+  }
+]

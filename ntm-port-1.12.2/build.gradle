@@ -23,13 +23,24 @@ minecraft {
 	mappings = 'stable_39'
 }
 
+// This optional integration uses the user-supplied, pinned real release JAR.
+// Fail before dependency resolution rather than falling back to an unapproved mirror.
+def ae2LocalJar = file('.local-dependencies/maven/appeng/appliedenergistics2/rv6-stable-7/appliedenergistics2-rv6-stable-7.jar')
+if (!ae2LocalJar.isFile()) {
+	throw new GradleException('Missing local AE2 dependency. Run: python3 porting/install-ae2-dependency.py /path/to/appliedenergistics2-rv6-stable-7.jar')
+}
+
 repositories {
+	maven { url = uri('.local-dependencies/maven') }
 	maven { url = 'https://modmaven.dev/' }
 	maven { url = 'https://maven.cil.li/' }
 }
 
 dependencies {
+	deobfProvided 'appeng:appliedenergistics2:rv6-stable-7'
 	deobfCompile 'codechicken:NotEnoughItems:1.12.2-2.4.3.245:universal'
+	// Native recipe API, pinned to the version already resolved by this NEI release.
+	deobfCompile 'mezz.jei:jei_1.12.2:4.12.0.216'
 	deobfCompile 'li.cil.oc:OpenComputers:MC1.12.2-1.7.5.192:api'
 }
 

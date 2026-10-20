@@ -1,0 +1,5 @@
+{
+  "src/main/java/com/hbm/entity/projectile/EntityChemical.java": "6bc28d7953289101717200bb993df324dc021ecffae3e6e4f624d57dd83b101b",
+  "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": "1b97cb6377925fedf2c0a6b3d9b4074866fda5ceb08ec5d8a9477755513f077a",
+  "src/main/java/com/hbm/world/dungeon/LibraryDungeon.java": "8e8623f0c48c7624975a323350211bbd0a0390b9f7d1433aade43dcf62b1b02c"
+}

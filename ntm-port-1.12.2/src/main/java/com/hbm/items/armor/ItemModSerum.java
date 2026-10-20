@@ -33,7 +33,7 @@ public class ItemModSerum extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote && entity.isPotionActive(Potion.poison.id)) {
+		if(!entity.world.isRemote && entity.isPotionActive(Potion.poison.id)) {
 			entity.removePotionEffect(Potion.poison.id);
 			entity.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 100, 4));
 		}

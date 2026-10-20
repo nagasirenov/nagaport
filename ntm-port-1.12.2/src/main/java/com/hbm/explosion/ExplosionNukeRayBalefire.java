@@ -17,7 +17,7 @@ public class ExplosionNukeRayBalefire extends ExplosionNukeRayBatched {
 		if(world.rand.nextInt(5) == 0 && com.hbm.lib.FacingCompat.isBlockSideSolid(world, x, y - 1, z, ForgeDirection.UP)) {
 			world.setBlock(x, y, z, ModBlocks.balefire, 0, 3);
 		} else {
-			world.setBlock(x, y, z, Blocks.air, 0, 3);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 }

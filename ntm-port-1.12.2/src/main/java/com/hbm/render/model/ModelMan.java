@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.main.ResourceManager;
 import com.hbm.render.loader.ModelRendererObj;
 
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 
@@ -27,7 +28,7 @@ public class ModelMan extends ModelArmorBase {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 
 		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_LIGHTING);
+		GlStateManager.enableLighting();
 		bindTexture(ResourceManager.player_manly_tex);
 		this.head.render(scaleFactor);
 		this.body.render(scaleFactor);
@@ -42,15 +43,15 @@ public class ModelMan extends ModelArmorBase {
 
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, par1Entity);
 
-		this.head.copyRotationFrom(render.modelBipedMain.bipedHead);
-		this.body.copyRotationFrom(render.modelBipedMain.bipedBody);
-		this.leftArm.copyRotationFrom(render.modelBipedMain.bipedLeftArm);
-		this.rightArm.copyRotationFrom(render.modelBipedMain.bipedRightArm);
-		this.leftLeg.copyRotationFrom(render.modelBipedMain.bipedLeftLeg);
-		this.rightLeg.copyRotationFrom(render.modelBipedMain.bipedRightLeg);
+		this.head.copyRotationFrom(render.getMainModel().bipedHead);
+		this.body.copyRotationFrom(render.getMainModel().bipedBody);
+		this.leftArm.copyRotationFrom(render.getMainModel().bipedLeftArm);
+		this.rightArm.copyRotationFrom(render.getMainModel().bipedRightArm);
+		this.leftLeg.copyRotationFrom(render.getMainModel().bipedLeftLeg);
+		this.rightLeg.copyRotationFrom(render.getMainModel().bipedRightLeg);
 
 		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_LIGHTING);
+		GlStateManager.enableLighting();
 		bindTexture(ResourceManager.player_manly_tex);
 		this.head.render(scaleFactor);
 		this.body.render(scaleFactor);

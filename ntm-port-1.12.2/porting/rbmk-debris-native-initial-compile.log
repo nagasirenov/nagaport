@@ -1,0 +1,7 @@
+PASS pristine gameplay body parity: all three full subclasses, original branch/constants/random order/ray formula/payload bodies
+PRODUCTION com/hbm/blocks/machine/rbmk/RBMKDebris.java ad90e085eff050a1db1975049db8cfcd2734e278583f049c90575223f00b10cb
+PRODUCTION com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java af5b78989213b64a992188ebec85fe7b2e394efdd9fb3779f1c62ef44e269ded
+PRODUCTION com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java a53fdd9f1506f2585c423c742496f7709c9f97aff7dde9cbb27f1eb933eeb9d3
+PRODUCTION com/hbm/blocks/machine/rbmk/RBMKDebrisDigamma.java d058e1d1a0b927c6e91f13506957127b3c7e44e6b861ccb9fe85ae22013ced28
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PASS complete owner native API compile

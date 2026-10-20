@@ -34,8 +34,8 @@ public class GUICrateTungsten extends GuiCrateBase {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.diFurnace.hasCustomInventoryName() ? this.diFurnace.getInventoryName() : I18n.format(this.diFurnace.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 0xffffff);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 0xffffff);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class GUICrateTungsten extends GuiCrateBase {
 
 		if (diFurnace instanceof TileEntityCrateTungsten) {
 			TileEntityCrateTungsten crate = (TileEntityCrateTungsten) diFurnace;
-			if(crate.getWorldObj().getBlockMetadata(crate.xCoord, crate.yCoord, crate.zCoord) == 0)
+			if(crate.getWorld().getBlockMetadata(crate.getPos().getX(), crate.getPos().getY(), crate.getPos().getZ()) == 0)
 				Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 			else
 				Minecraft.getMinecraft().getTextureManager().bindTexture(texture_hot);

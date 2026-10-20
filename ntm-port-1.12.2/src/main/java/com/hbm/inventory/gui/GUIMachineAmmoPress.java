@@ -60,7 +60,7 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 		super.initGui();
 
 		Keyboard.enableRepeatEvents(true);
-		this.search = new GuiTextField(this.fontRendererObj, guiLeft + 10, guiTop + 75, 66, 12);
+		this.search = new GuiTextField(0, this.fontRenderer, guiLeft + 10, guiTop + 75, 66, 12);
 		this.search.setTextColor(-1);
 		this.search.setDisabledTextColour(-1);
 		this.search.setEnableBackgroundDrawing(false);
@@ -177,7 +177,7 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 				
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("selection", this.selection);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, press.xCoord, press.yCoord, press.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, press.getPos().getX(), press.getPos().getY(), press.getPos().getZ()));
 				click();
 				return;
 			}
@@ -187,8 +187,8 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.press.hasCustomInventoryName() ? this.press.getInventoryName() : I18n.format(this.press.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -223,7 +223,7 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 			
 			FontRenderer font = null;
 			if(recipe.output != null) font = recipe.output.getItem().getFontRenderer(recipe.output);
-			if(font == null) font = fontRendererObj;
+			if(font == null) font = fontRenderer;
 			
 			itemRender.zLevel = 100.0F;
 			itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), recipe.output, guiLeft + 17 + 18 * (ind / 3), guiTop + 18 + 18 * (ind % 3));
@@ -262,7 +262,7 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 				
 				FontRenderer font = input.getItem().getFontRenderer(input);
-				if(font == null) font = fontRendererObj;
+				if(font == null) font = fontRenderer;
 				
 				itemRender.zLevel = 10.0F;
 				itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), input, guiLeft + 116 + 18 * (i % 3), guiTop + 18 + 18 * (i / 3));

@@ -29,9 +29,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
@@ -73,7 +73,7 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 			if(pos == null)
 				return false;
 			
-			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
 			if(tank != null) {
 				if(tank.hasExploded) return false;
@@ -87,16 +87,16 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 			if(pos == null)
 				return false;
 			
-			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
 			if(tank != null) {
 				if(tank.hasExploded) return false;
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemFluidIdentifier) {
-				FluidType type = ((IItemFluidIdentifier) player.getHeldItem().getItem()).getType(world, pos[0], pos[1], pos[2], player.getHeldItem());
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
+				FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, pos[0], pos[1], pos[2], com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 
 				tank.tank.setTankType(type);
 				tank.markDirty();
-				player.addChatComponentMessage(new ChatComponentText("Changed type to ").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)).appendSibling(new ChatComponentTranslation(type.getConditionalName())).appendSibling(new ChatComponentText("!")));
+				player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 				}
 			} 
 			return true;
@@ -138,7 +138,7 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity core = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityMachineFluidTank)) return;
 		
 		TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) core;
@@ -152,12 +152,12 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 				if(tank.tank.getTankType().getTrait(FT_Flammable.class) == null) return;
 				
 				List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class,
-						AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(100, 100, 100));
+						new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(100, 100, 100));
 				
-				for(EntityPlayer p : players) p.triggerAchievement(MainRegistry.achInferno);
+				for(EntityPlayer p : players) com.hbm.advancement.NtmAdvancements.award(p, MainRegistry.achInferno);
 			}
 		} else {
-			world.setBlock(pos[0], pos[1], pos[2], Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = pos[0]; int nativePlacementY = pos[1]; int nativePlacementZ = pos[2]; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 
@@ -169,12 +169,12 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		if(meta >= 6) {
 			int[] pos = this.findCore(world, x, y, z);
 			if(pos == null) return 0;
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 	
 			if(!(te instanceof TileEntityMachineFluidTank))
 				return 0;

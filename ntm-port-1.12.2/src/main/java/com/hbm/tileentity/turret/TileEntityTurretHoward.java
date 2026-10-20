@@ -37,7 +37,7 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretHoward";
 	}
 
@@ -97,9 +97,9 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 	public float lastSpin;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			this.lastSpin = this.spin;
 
@@ -118,13 +118,13 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 
 				if(conf != null) {
 					this.conusmeAmmo(conf.ammo);
-					this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.howard_reload", 4.0F, 1F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.howard_reload", 4.0F, 1F);
 					loaded = 200;
 				}
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -136,8 +136,8 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 
 			SpentCasing cfg = GunDGKFactory.CASINGDGK;
 
-			this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.howard_fire", 4.0F, 0.9F + worldObj.rand.nextFloat() * 0.3F);
-			this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.howard_fire", 4.0F, 1F + worldObj.rand.nextFloat() * 0.3F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.howard_fire", 4.0F, 0.9F + this.world.rand.nextFloat() * 0.3F);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.howard_fire", 4.0F, 1F + this.world.rand.nextFloat() * 0.3F);
 
 			for(int i = 0; i < 2; i++) {
 				this.cachedCasingConfig = cfg;
@@ -147,8 +147,8 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 			if(timer % 2 == 0) {
 				loaded--;
 
-				if(worldObj.rand.nextInt(100) + 1 <= WeaponConfig.ciwsHitrate)
-					EntityDamageUtil.attackEntityFromIgnoreIFrame(this.target, ModDamageSource.shrapnel, 2F + worldObj.rand.nextInt(2));
+				if(this.world.rand.nextInt(100) + 1 <= WeaponConfig.ciwsHitrate)
+					EntityDamageUtil.attackEntityFromIgnoreIFrame(this.target, ModDamageSource.shrapnel, 2F + this.world.rand.nextInt(2));
 
 				Vec3d pos = this.getTurretPos();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
@@ -170,7 +170,7 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 					data.setString("mode", "largeexplode");
 					data.setFloat("size", 1.5F);
 					data.setByte("count", (byte)1);
-					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + hOff.x, pos.y + vec.y + hOff.y, pos.z + vec.z + hOff.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + hOff.x, pos.y + vec.y + hOff.y, pos.z + vec.z + hOff.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 				}
 			}
 		}
@@ -183,9 +183,10 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("loaded", loaded);
+		return nbt;
 	}
 
 	@Override

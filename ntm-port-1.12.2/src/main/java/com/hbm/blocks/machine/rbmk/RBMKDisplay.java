@@ -19,7 +19,7 @@ public class RBMKDisplay extends RBMKMiniPanelBase implements IToolable {
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
 		if(!world.isRemote) {
-			TileEntity tile = world.getTileEntity(x, y, z);
+			TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x,y,z));
 			if (tile instanceof TileEntityRBMKDisplay) {
 				((TileEntityRBMKDisplay) tile).rotate();
 			}

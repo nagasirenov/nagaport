@@ -44,7 +44,7 @@ public class JetpackBooster extends JetpackFueledBase {
 				data.setString("type", "jetpack");
 				data.setInteger("player", player.getEntityId());
 				data.setInteger("mode", 1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.dimensionId, player.posX, player.posY, player.posZ, 100));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.getDimension(), player.posX, player.posY, player.posZ, 100));
 			}
 		}
 
@@ -65,7 +65,7 @@ public class JetpackBooster extends JetpackFueledBase {
 					player.fallDistance = 0;
 			}
 
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:weapon.flamethrowerShoot", 0.25F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "hbm:weapon.flamethrowerShoot", 0.25F, 1.0F);
 			this.useUpFuel(player, stack, 1);
 			ArmorUtil.resetFlightTime(player);
 		}

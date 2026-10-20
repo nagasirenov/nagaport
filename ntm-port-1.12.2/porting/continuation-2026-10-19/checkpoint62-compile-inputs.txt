@@ -1,0 +1,27 @@
+PASS all 23 production paths match staged tree and independent snapshot; 23 edited Java sources match generated compiler inputs among 4062.
+Production tree 0f2d4087b014eeecf663d5daa4c2d317fceadfa6
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "b5d385db491d5c1a1a8b51eabd3096e5e3e9c999465839004d358c871c0828be",
+  "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": "c17c645283de8cbacecfa923a4438368a7594a0f1fd202881e69abac540e0865",
+  "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": "dd951b5c5924e11b412f424b2d5deae701c92e0874d1f277a217ccbe19f7425a",
+  "src/main/java/com/hbm/entity/effect/EntityFireLingering.java": "edb071316640bb9310a5004fdec1b56b7fceee3c6379091efe79a70bc5f72f63",
+  "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+  "src/main/java/com/hbm/entity/logic/EntityWaypoint.java": "70d5120117c4b3f1abd4496ff1e576e02e3a2f47ab11f6f56bd07afc125b9913",
+  "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": "3f86f70194ab7cf0bb9cfe0231301e220336a3f1c4b9e9cee5c43be7657f6f2f",
+  "src/main/java/com/hbm/handler/EntityEffectHandler.java": "355019e5c69782380f2f4d4e78bfed8c6cb6c7ff9573d518e1f166246453179a",
+  "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+  "src/main/java/com/hbm/items/food/ItemPill.java": "61799b9573da44b1879f04cc5e273131413364d614a848ec66b33b418fc6df2e",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": "66fa64533d6d5abdf1f280fcebee59acf06355d09cb7fb042547be2b89356d54",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityCharge.java": "5f1f50b6b6b7c57000a6ca5c7ad406a9510e3fe2c410d07dbab10a0d49a39601",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java": "8f2eb498ff22c6de63ef9a2ef0a67f91a5d960cbab480320b9ed604f3d125be0",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": "d84fd6dc51e2f369f4be1d8b47799774659cd8957a964e83af0b02a2a34cdbca",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java": "f6b4afdaafbd657e93a7155a6869a00908f8d922eb08f1ffb15cf8efa7c609c9",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java": "ffa6f5d7a800f4709959efa7f551ebdfd6fb1a355a5f7e8d4c3c0ee14e385597",
+  "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": "1810d8a0ba628ff6a6732fc20692e0bdda4b0d3c9c27e02691b564e492a94d38",
+  "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java": "fc6dbdab9f67388c8ae69fef85132a9c317f1d98c83d25ee3385382a1846c47c",
+  "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java": "068cacfab346057bc99b066f7496e67b7d70ef20111a067bcb512729bd12ae4b",
+  "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": "e38925e2cd5c0e215b5d6809ee73d2a625361aa590ee58282d7f099ff4e7c08f",
+  "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java": "ccf944a31cc97904b41b3633dc133553cac35846a05363a9fb453c8b0e032941",
+  "src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java": "3b39037b7e2f0a60c895ae10b59fd305e6e4162245da81ad0efa176920d7357a",
+  "src/main/java/com/hbm/world/WorldHeight.java": "bafa5e61be56e33953eb5c029384d0453fc7bdf0a8313c82b6b467fb45a55f29"
+}

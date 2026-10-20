@@ -1,0 +1,13 @@
+// Complete production MachineBase and LoadedBase with documented NTM test collaborators.
+allprojects { afterEvaluate {
+    tasks.create('checkPortMachineEmptyBoundary', Exec) {
+        commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-machine-empty-boundary.py')
+    }
+    tasks.create('testPortMachineCore', Exec) {
+        dependsOn 'checkPortMachineEmptyBoundary'
+        commandLine project.findProperty('portPython') ?: 'python3',
+            project.file('porting/tests/probe-machine-core.py'),
+            '--java-home', System.getProperty('java.home'),
+            '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+    }
+} }

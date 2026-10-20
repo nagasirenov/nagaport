@@ -1,0 +1,22 @@
+// Complete production base, native API tests. Does not modify sourceSets/compileJava.
+allprojects {
+    afterEvaluate {
+        def probe = tasks.create('compilePortInventoryBoundaryProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            source project.file('src/main/java/com/hbm/tileentity/TileEntityInventoryBase.java')
+            source project.file('porting/tests/InventoryBoundaryMinecraftTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portInventoryBoundaryProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('testPortInventoryBoundary', JavaExec) {
+            dependsOn probe, 'checkPortInventoryBoundarySource'
+            classpath = files(probe.destinationDir) + probe.classpath
+            main = 'InventoryBoundaryMinecraftTest'
+        }
+        tasks.create('checkPortInventoryBoundarySource', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-inventory-boundary.py')
+        }
+    }
+}

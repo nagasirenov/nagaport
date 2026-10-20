@@ -1,0 +1,5 @@
+PASS four retired implementations absent, including empty tombstones; four pristine sources and original binary archive unchanged.
+PASS pristine consumers: Fixed=0, Wrapper=0, IconUtil=0, NT=8; 8628 pristine resources have no named references; 27 exact native successor sources retained.
+PASS 12965 runtime source/resource files and three build/config files: no live identifier, literal, binary-name or service/config references; two explanatory comments only.
+PASS 37 negative reference/tombstone fixtures rejected.
+SOURCE/REACHABILITY AUDIT ONLY: existing family proofs are cited in README; no new full compile, original/native light-solver, gameplay or external-mod compatibility claim.

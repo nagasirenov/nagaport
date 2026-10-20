@@ -5,13 +5,13 @@ import com.hbm.lib.ModDamageSource;
 
 import api.hbm.entity.ISuffocationImmune;
 import api.hbm.entity.IRadiationImmune;
-import net.minecraft.command.IEntitySelector;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
+import com.hbm.entity.mob.ai.EntityAIRangedAttackNT;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -24,8 +24,8 @@ import net.minecraft.world.World;
 
 public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRadiationImmune, ISuffocationImmune {
 
-	private static final IEntitySelector selector = new IEntitySelector() {
-		public boolean isEntityApplicable(Entity p_82704_1_) {
+	private static final Predicate<Entity> selector = new Predicate<Entity>() {
+		public boolean apply(Entity p_82704_1_) {
 			return !(p_82704_1_ instanceof EntityCyberCrab || p_82704_1_ instanceof EntityCreeper);
 		}
 	};
@@ -44,8 +44,8 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, true, selector));
 	}
 
-	protected EntityAIArrowAttack arrowAI() {
-		return new EntityAIArrowAttack(this, 0.5D, 60, 80, 15.0F);
+	protected EntityAIRangedAttackNT arrowAI() {
+		return new EntityAIRangedAttackNT(this, 0.5D, 60, 80, 15.0F);
 	}
 
 	@Override
@@ -116,9 +116,9 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 			this.setDead();
 
 			if(this instanceof EntityTaintCrab)
-				worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3F, false);
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3F, false);
 			else
-				worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 0.1F, false);
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 0.1F, false);
 		}
 	}
 
@@ -153,11 +153,11 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float f) {
-		EntityBullet bullet = new EntityBullet(worldObj, this, entity, 1.6F, 2);
+		EntityBullet bullet = new EntityBullet(this.world, this, entity, 1.6F, 2);
 		bullet.setIsCritical(true);
 		bullet.setTau(true);
 		bullet.damage = 3;
-		this.worldObj.spawnEntityInWorld(bullet);
+		this.world.spawnEntityInWorld(bullet);
 		this.playSound("hbm:weapon.sawShoot", 1.0F, 2.0F);
 	}
 }

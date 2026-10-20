@@ -22,8 +22,8 @@ public interface IPersistentNBT {
 		ItemStack stack = new ItemStack(b);
 		NBTTagCompound data = new NBTTagCompound();
 		writeNBT(data);
-		if(!data.hasNoTags())
-			stack.stackTagCompound = data;
+		if(!data.isEmpty())
+			stack.setTagCompound(data);
 		list.add(stack);
 		return list;
 	}
@@ -42,10 +42,10 @@ public interface IPersistentNBT {
 	public static void restoreData(World world, int x, int y, int z, ItemStack stack) {
 		try {
 			if(!stack.hasTagCompound()) return;
-			TileEntity tile = world.getTileEntity(x, y, z);
+			TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(!(tile instanceof IPersistentNBT)) return;
 			IPersistentNBT persistent = (IPersistentNBT) tile;
-			persistent.readNBT(stack.stackTagCompound);
+			persistent.readNBT(stack.getTagCompound());
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}

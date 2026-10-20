@@ -1,0 +1,26 @@
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring root project 'ntm-port-1.12.2'.
+> Could not resolve all artifacts for configuration ':classpath'.
+   > Could not resolve net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT.
+     Required by:
+         project :
+      > Could not resolve net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT.
+         > Unable to load Maven meta-data from https://maven.minecraftforge.net/net/minecraftforge/gradle/ForgeGradle/2.3-SNAPSHOT/maven-metadata.xml.
+            > Could not get resource 'https://maven.minecraftforge.net/net/minecraftforge/gradle/ForgeGradle/2.3-SNAPSHOT/maven-metadata.xml'.
+               > Could not GET 'https://maven.minecraftforge.net/net/minecraftforge/gradle/ForgeGradle/2.3-SNAPSHOT/maven-metadata.xml'.
+                  > PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+      > Could not resolve net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT.
+         > Unable to load Maven meta-data from https://repo.maven.apache.org/maven2/net/minecraftforge/gradle/ForgeGradle/2.3-SNAPSHOT/maven-metadata.xml.
+            > Could not get resource 'https://repo.maven.apache.org/maven2/net/minecraftforge/gradle/ForgeGradle/2.3-SNAPSHOT/maven-metadata.xml'.
+               > Could not GET 'https://repo.maven.apache.org/maven2/net/minecraftforge/gradle/ForgeGradle/2.3-SNAPSHOT/maven-metadata.xml'.
+                  > PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 11s

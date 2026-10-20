@@ -1,0 +1,20 @@
+{
+  "files": {
+    "porting/tests/NativeStructuralTest.java": "7cd55597611b2d273523fe13f378e605d65875fe69c3fb2d7aeeff812f7c7686",
+    "porting/tests/probe-native-structural-blocks.py": "a5b7d02a6d4c46158c3e9c9aa3bafa80a5ea9269829e04cf080aa03abac3a6c2",
+    "porting/tests/structural-original-oracle.py": "5e00e2d3b8c136164bad83f38b32559e3308a58a2b38f36ad554aa76367bdf5d",
+    "porting/tests/check-native-structural-source.py": "da1898f973de3aff2684966fca82f596c6fe6a8cba46acda6f8daaaf68a1f50d",
+    "porting/tests/native-structural-notes.md": "07847021b2e7cc8ce341e555052901571ad0e0c555fa213cfe411a6a97d782cd",
+    "porting/tests/structural-production-scope.json": "19679f190150546d32090dc598814d5c24a9400bb0215415d98a7f5a261c64a0",
+    "porting/tests/structural-integration.txt": "aecf3115a64276cee588b5ae624dd74220a4aba803c3dc191f35dfa6d5519baf",
+    "porting/tests/native-structural-proof.log": "b5d357fd403eadd0a4fc1ac18114e1e7d5a69532173016d11e6b5f6c4cb77381",
+    "porting/tests/structural-source-proof.log": "1905b0eea9190bd632673f2e6b88f69d4e04b2545e49e013c459fccf7e98f541"
+  },
+  "native_assertions": 208475,
+  "production_classes_compiled": 12,
+  "external_collaborators": [
+    "ModBlocks.fence_gate registry identity only"
+  ],
+  "open_boundary": "BlockGrate / RenderGrate shifted-origin AO and light",
+  "replacement_owner_event_assertions": 8
+}

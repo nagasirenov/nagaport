@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class WeaponizedCell extends Item {
 
 	public boolean onEntityItemUpdate(EntityItem item) {
-		World world = item.worldObj;
+		World world = item.world;
 
 		if(item.ticksExisted > 50 * 20 || item.isBurning()) {
 
@@ -24,7 +24,7 @@ public class WeaponizedCell extends Item {
 
 					EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(world, item.posX, item.posY, item.posZ, 100);
 					if(!ex.isDead) {
-						world.playSoundEffect(item.posX, item.posY, item.posZ, "random.explode", 100.0F, world.rand.nextFloat() * 0.1F + 0.9F);
+						com.hbm.sound.VanillaWorldSoundEffects.play(world, item.posX, item.posY, item.posZ, "random.explode", 100.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 						world.spawnEntityInWorld(ex);
 
 						EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(world, 100);
@@ -44,13 +44,13 @@ public class WeaponizedCell extends Item {
 		if(randy < 1)
 			randy = 1;
 
-		if(item.worldObj.rand.nextInt(50 * 20) >= randy)
-			world.spawnParticle("reddust", item.posX + item.worldObj.rand.nextGaussian() * item.width / 2, item.posY + item.worldObj.rand.nextGaussian() * item.height, item.posZ + item.worldObj.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+		if(item.world.rand.nextInt(50 * 20) >= randy)
+			world.spawnParticle("reddust", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
 		else
-			world.spawnParticle("smoke", item.posX + item.worldObj.rand.nextGaussian() * item.width / 2, item.posY + item.worldObj.rand.nextGaussian() * item.height, item.posZ + item.worldObj.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			world.spawnParticle("smoke", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
 
 		if(randy < 100)
-			world.spawnParticle("lava", item.posX + item.worldObj.rand.nextGaussian() * item.width / 2, item.posY + item.worldObj.rand.nextGaussian() * item.height, item.posZ + item.worldObj.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			world.spawnParticle("lava", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
 
 		return false;
 	}

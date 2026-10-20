@@ -1,0 +1,9 @@
+[19:20:47] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[19:20:47] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[19:20:47] [main/INFO]: Replaced 1036 ore ingredients
+[19:20:47] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[19:20:47] [main/INFO]: Processing ObjectHolder annotations
+[19:20:47] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 9808 actual typed native registry-event decisions, all original retired IDs/five remaps, canonical keys, foreign/unknown defaults, refreshed and absent targets. Not saved-world migration acceptance.
+PRODUCTION 1250fbcd298abf5380b78035d2a994ad183ae999918dda3fa317ceaaf779d257 com/hbm/main/MissingMappingHandler.java
+ORIGINAL_DATA 75a2655949272d4d7062de565c17a0bcc071e479eda3b31dbd4b525678408c0f

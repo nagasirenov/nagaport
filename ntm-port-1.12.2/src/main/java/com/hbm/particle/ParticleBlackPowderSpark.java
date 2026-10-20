@@ -2,11 +2,15 @@ package com.hbm.particle;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleBlackPowderSpark extends EntityFX {
+public class ParticleBlackPowderSpark extends Particle {
+
+	@Override
+	public boolean shouldDisableDepth() { return true; }
+
 
 	public ParticleBlackPowderSpark(World world, double x, double y, double z, double mX, double mY, double mZ) {
 		super(world, x, y, z, mX, mY, mZ);
@@ -33,13 +37,13 @@ public class ParticleBlackPowderSpark extends EntityFX {
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
 		this.motionY -= particleGravity;
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 		this.motionX *= 0.95D;
 		this.motionY *= 0.95D;
 		this.motionZ *= 0.95D;
 
 		if(this.particleMaxAge-- <= 0) {
-			this.setDead();
+			this.setExpired();
 		}
 	}
 	

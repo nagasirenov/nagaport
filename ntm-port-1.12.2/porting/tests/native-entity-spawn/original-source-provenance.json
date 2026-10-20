@@ -1,0 +1,70 @@
+{
+  "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": {
+    "original_sha256": "2ba4ac35f7770ae866bf6e4f865db49e745744bca6175fb28d3fc5f49fc6efdf",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+    "original_sha256": "4f5266e72c9f33c8ad1bebb79439f16133a4cd1336a73395c4c4a7d0845dfe95",
+    "original_inline_calls": 3
+  },
+  "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+    "original_sha256": "d73601ad2fcde2bfcba108a6f17081be53adfdfad69ead0dbb64392381100b22",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/blocks/machine/Radiobox.java": {
+    "original_sha256": "18c869389bf7d553dbee5d21de2150e94fa5e0bbbe052d2495e2897cdb635556",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+    "original_sha256": "139877f7e26575f0a759d58a8660f019933c9e0260b6d7ab552634fecc7b93dd",
+    "original_inline_calls": 7
+  },
+  "src/main/java/com/hbm/blocks/machine/Watz.java": {
+    "original_sha256": "cae7bbf738a4d7902fbc0d3385ca8f2cb6204cc0fed100bcdbc29f327bb12fdd",
+    "original_inline_calls": 5
+  },
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java": {
+    "original_sha256": "2f5d2fea2f858815363e82dbdb6983bf21b4ef4935e5f32eb9df525faaf2c07d",
+    "original_inline_calls": 4
+  },
+  "src/main/java/com/hbm/blocks/network/CraneRouter.java": {
+    "original_sha256": "9be903abe52fedf4a1d1775ba42066ae55b992d48ffb0395f885ab6f581f746f",
+    "original_inline_calls": 4
+  },
+  "src/main/java/com/hbm/entity/grenade/EntityGrenadeSmart.java": {
+    "original_sha256": "e4b48cd4964e54d06135c022bf286f3ddf5ac76b128f07627a57126fe6ee9ebc",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/entity/item/EntityMovingPackage.java": {
+    "original_sha256": "b10aaec52776e974a372653755750469a4a94a3d2479ce34a4c13a1ec08fe0f6",
+    "original_inline_calls": 2
+  },
+  "src/main/java/com/hbm/handler/ability/IToolHarvestAbility.java": {
+    "original_sha256": "7127656a4d5e72b3c30afbcd1bb4706e263df7afa666a99b7d892ef8110577a8",
+    "original_inline_calls": 5
+  },
+  "src/main/java/com/hbm/items/special/ItemDemonCore.java": {
+    "original_sha256": "0054c91ce413f0b3b1ffb0029c76770507a35db5a60ecc1d46833a9fbf565361",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+    "original_sha256": "e6f8df380d891f5db75b56b58a010ae2145186d247fddf23132e7f71e303c18c",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+    "original_sha256": "f707d75c71e69be23fb2601af0b2f4b860490d2dc07b0f8003f15837a6982054",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+    "original_sha256": "3e5e105fe4faaef98046d8c81c7ac21c6c35cb15678816eedc63968aae0d6e6f",
+    "original_inline_calls": 1
+  },
+  "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": {
+    "original_sha256": "49270d0a2415c82180f6cc0e763ba23d98ce22b93ac4c6317e45e7f08dde9a03",
+    "original_inline_calls": 4
+  },
+  "src/main/java/com/hbm/tileentity/network/TileEntityRadioTelex.java": {
+    "original_sha256": "b3b794bc2ffc9e6efa328f61672b618464a4ba1d359518b943108f94ffff75da",
+    "original_inline_calls": 1
+  }
+}

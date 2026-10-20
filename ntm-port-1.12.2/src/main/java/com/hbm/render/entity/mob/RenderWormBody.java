@@ -8,7 +8,7 @@ import com.hbm.render.loader.HFRWavefrontObject;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderWormBody extends Render {
 
@@ -16,7 +16,7 @@ public class RenderWormBody extends Render {
 		this.shadowOpaque = 0.0F;
 	}
 
-	public static final IModelCustom body = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/mobs/bot_prime_body.obj"));
+	public static final MeshModel body = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/mobs/bot_prime_body.obj"));
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/mark_zero_body.png");
 
 	@Override

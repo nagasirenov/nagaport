@@ -26,11 +26,11 @@ public class EntityGrenadeIFConcussion extends EntityGrenadeBouncyBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
     		
-    		worldObj.newExplosion(this, posX, posY, posZ, 15, false, false);
+    		this.world.newExplosion(this, posX, posY, posZ, 15, false, false);
         }
     }
 

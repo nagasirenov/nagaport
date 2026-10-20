@@ -1,0 +1,5 @@
+package tileoracle;
+public class LegacyBlocks {
+ public static final Lava lava=new Lava();
+ public static class Lava {public net.minecraft.client.renderer.texture.TextureAtlasSprite getIcon(int side,int meta){if(side!=0||meta!=0)throw new AssertionError("Unexpected original lava material lookup");return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("minecraft:blocks/lava_still");}}
+}

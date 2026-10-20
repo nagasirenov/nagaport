@@ -1,0 +1,254 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityDebrisBase.java",
+    "original_sha256": "1de688621bbf48e492795cb22eb4eedfc0b36be895723e117153f7b1cda06a7c",
+    "before_sha256": "748965581c4bd3c86ccacfdff9b47b25cefb8059f512708653349357ba3a3b88",
+    "after_sha256": "acc72ea5259c1f8627f4040779af2144a0202760138bffd1dbdfa7050c68c6ad",
+    "owner": "EntityDebrisBase",
+    "legacy_slot": 20,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 28,
+        "before": "this.dataWatcher.addObject(20, 0);",
+        "after": "this.dataManager.register(DEBRIS_TYPE, 0);",
+        "after_line": 34,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 43,
+        "before": "this.dataWatcher.updateObject(20, nbt.getInteger(\"debtype\"));",
+        "after": "this.dataManager.set(DEBRIS_TYPE, nbt.getInteger(\"debtype\"));",
+        "after_line": 49,
+        "source_method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+      },
+      {
+        "before_line": 48,
+        "before": "nbt.setInteger(\"debtype\", this.dataWatcher.getWatchableObjectInt(20));",
+        "after": "nbt.setInteger(\"debtype\", this.dataManager.get(DEBRIS_TYPE));",
+        "after_line": 54,
+        "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+      }
+    ],
+    "receiver_type": "EntityDebrisBase",
+    "declared_superclass": "Entity"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java",
+    "original_sha256": "f95ea7f689c29b8b612c5d03674a4bedb2fdcbf00bc088aa2bfe9dd90c2f9a06",
+    "before_sha256": "9c1bbe0a86adf543c4eaf919a4b4c70ae64de68617697b8c9cca1e4dc5a903ed",
+    "after_sha256": "5ed4efe76c84aa18b481c122bee89a7de278d781ee1d44ddf3744a679cf8a19c",
+    "owner": "EntityDebrisBase",
+    "legacy_slot": 20,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 153,
+        "before": "this.dataWatcher.updateObject(20, type.ordinal());",
+        "after": "this.dataManager.set(DEBRIS_TYPE, type.ordinal());",
+        "after_line": 153,
+        "source_method": "public void setType(DebrisType type) {"
+      },
+      {
+        "before_line": 162,
+        "before": "this.dataWatcher.updateObject(20, nbt.getInteger(\"debtype\"));",
+        "after": "this.dataManager.set(DEBRIS_TYPE, nbt.getInteger(\"debtype\"));",
+        "after_line": 162,
+        "source_method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+      },
+      {
+        "before_line": 157,
+        "before": "return DebrisType.values()[Math.abs(this.dataWatcher.getWatchableObjectInt(20)) % DebrisType.values().length];",
+        "after": "return DebrisType.values()[Math.abs(this.dataManager.get(DEBRIS_TYPE)) % DebrisType.values().length];",
+        "after_line": 157,
+        "source_method": "public DebrisType getType() {"
+      },
+      {
+        "before_line": 167,
+        "before": "nbt.setInteger(\"debtype\", this.dataWatcher.getWatchableObjectInt(20));",
+        "after": "nbt.setInteger(\"debtype\", this.dataManager.get(DEBRIS_TYPE));",
+        "after_line": 167,
+        "source_method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+      }
+    ],
+    "receiver_type": "EntityRBMKDebris",
+    "declared_superclass": "EntityDebrisBase"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java",
+    "original_sha256": "e0791a9e655e320f090043d6c45c2305c474e224a730ec3eefad12f7d66c8eb7",
+    "before_sha256": "4d0cebec1c39d8326796cc5ac99b496fdf0f67ff662d4e3c1742dc142620c35f",
+    "after_sha256": "034419cdd13eb15634ccf6304fbb6894c64ac812d1704fd2b6cc303806b68f51",
+    "owner": "EntityDebrisBase",
+    "legacy_slot": 20,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 146,
+        "before": "this.dataWatcher.updateObject(20, type.ordinal());",
+        "after": "this.dataManager.set(DEBRIS_TYPE, type.ordinal());",
+        "after_line": 146,
+        "source_method": "public void setType(DebrisType type) {"
+      },
+      {
+        "before_line": 150,
+        "before": "return DebrisType.values()[Math.abs(this.dataWatcher.getWatchableObjectInt(20)) % DebrisType.values().length];",
+        "after": "return DebrisType.values()[Math.abs(this.dataManager.get(DEBRIS_TYPE)) % DebrisType.values().length];",
+        "after_line": 150,
+        "source_method": "public DebrisType getType() {"
+      }
+    ],
+    "receiver_type": "EntityZirnoxDebris",
+    "declared_superclass": "EntityDebrisBase"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityCloudFleija.java",
+    "original_sha256": "70ad5cbea44c25245ffa129939a2419de475da9060fb4e220df792bbc214b603",
+    "before_sha256": "d7f416e04edf1b2860494da2fdbedd220e6f597b8668b2416512000d8478bc9f",
+    "after_sha256": "a679e2ebda663735dddc22db8c3e8cbe3ca66b89d22d7c4d3a48c3b8a4fe3b2f",
+    "owner": "EntityCloudFleija",
+    "legacy_slot": 16,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 27,
+        "before": "this.dataWatcher.addObject(16, Integer.valueOf(0));",
+        "after": "this.dataManager.register(MAX_AGE, Integer.valueOf(0));",
+        "after_line": 33,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 78,
+        "before": "this.dataWatcher.updateObject(16, Integer.valueOf(i));",
+        "after": "this.dataManager.set(MAX_AGE, Integer.valueOf(i));",
+        "after_line": 84,
+        "source_method": "public void setMaxAge(int i) {"
+      },
+      {
+        "before_line": 82,
+        "before": "return this.dataWatcher.getWatchableObjectInt(16);",
+        "after": "return this.dataManager.get(MAX_AGE);",
+        "after_line": 88,
+        "source_method": "public int getMaxAge() {"
+      }
+    ],
+    "receiver_type": "EntityCloudFleija",
+    "declared_superclass": "Entity"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityCloudFleijaRainbow.java",
+    "original_sha256": "a190acff4ad76c85b9715703e00b5a9c41633d1cb4cd3010dd40475ddc8c2e53",
+    "before_sha256": "ee315f1850121c814022332d330c751c58d0e4e99058ecf697f4677238ca2300",
+    "after_sha256": "fe2856766ec8cbfb693cc88260b672435041dca2ff7e444ae65ccb35b116172f",
+    "owner": "EntityCloudFleijaRainbow",
+    "legacy_slot": 16,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 27,
+        "before": "this.dataWatcher.addObject(16, Integer.valueOf(0));",
+        "after": "this.dataManager.register(MAX_AGE, Integer.valueOf(0));",
+        "after_line": 33,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 78,
+        "before": "this.dataWatcher.updateObject(16, Integer.valueOf(i));",
+        "after": "this.dataManager.set(MAX_AGE, Integer.valueOf(i));",
+        "after_line": 84,
+        "source_method": "public void setMaxAge(int i) {"
+      },
+      {
+        "before_line": 82,
+        "before": "return this.dataWatcher.getWatchableObjectInt(16);",
+        "after": "return this.dataManager.get(MAX_AGE);",
+        "after_line": 88,
+        "source_method": "public int getMaxAge() {"
+      }
+    ],
+    "receiver_type": "EntityCloudFleijaRainbow",
+    "declared_superclass": "Entity"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityCloudTom.java",
+    "original_sha256": "0e7cd2bedaaa03c8e78e5aa0a928fbabc56df6cbae7ff73041accb753acf8e5b",
+    "before_sha256": "c10e8807312af968e08d4711162b1043cdb1397b7f711ad68d357924434a15d0",
+    "after_sha256": "4f5b03734e565db29c018a591396af75f9fbb260edf9ed8944aad721742be613",
+    "owner": "EntityCloudTom",
+    "legacy_slot": 16,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 24,
+        "before": "this.dataWatcher.addObject(16, Integer.valueOf(0));",
+        "after": "this.dataManager.register(MAX_AGE, Integer.valueOf(0));",
+        "after_line": 30,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 67,
+        "before": "this.dataWatcher.updateObject(16, Integer.valueOf(i));",
+        "after": "this.dataManager.set(MAX_AGE, Integer.valueOf(i));",
+        "after_line": 73,
+        "source_method": "public void setMaxAge(int i) {"
+      },
+      {
+        "before_line": 71,
+        "before": "return this.dataWatcher.getWatchableObjectInt(16);",
+        "after": "return this.dataManager.get(MAX_AGE);",
+        "after_line": 77,
+        "source_method": "public int getMaxAge() {"
+      }
+    ],
+    "receiver_type": "EntityCloudTom",
+    "declared_superclass": "Entity"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityCloudSolinium.java",
+    "original_sha256": "67c6ce50cf7133bb6e17fc5cb6b1095b50238561e13077aa3d3e8163212af79a",
+    "before_sha256": "a05a0f1c689ce0d4644afbb6bf8df0e8b7eedd000e400944b2bdaefeec468a25",
+    "after_sha256": "89b3661665246e442f6c67e0a0ee4f35200db48dff3485dfd44101cb71f38154",
+    "owner": "EntityCloudSolinium",
+    "legacy_slot": 16,
+    "java_type": "Integer",
+    "serializer": "VARINT",
+    "default": 0,
+    "transformations": [
+      {
+        "before_line": 27,
+        "before": "this.dataWatcher.addObject(16, Integer.valueOf(0));",
+        "after": "this.dataManager.register(MAX_AGE, Integer.valueOf(0));",
+        "after_line": 33,
+        "source_method": "protected void entityInit() {"
+      },
+      {
+        "before_line": 78,
+        "before": "this.dataWatcher.updateObject(16, Integer.valueOf(i));",
+        "after": "this.dataManager.set(MAX_AGE, Integer.valueOf(i));",
+        "after_line": 84,
+        "source_method": "public void setMaxAge(int i) {"
+      },
+      {
+        "before_line": 82,
+        "before": "return this.dataWatcher.getWatchableObjectInt(16);",
+        "after": "return this.dataManager.get(MAX_AGE);",
+        "after_line": 88,
+        "source_method": "public int getMaxAge() {"
+      }
+    ],
+    "receiver_type": "EntityCloudSolinium",
+    "declared_superclass": "Entity"
+  }
+]

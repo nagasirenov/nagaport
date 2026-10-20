@@ -33,10 +33,10 @@ public class BlockCrate extends BlockFalling {
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-		if(player.getHeldItem() != null && player.getHeldItem().getItem().equals(ModItems.crowbar)) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem().equals(ModItems.crowbar)) {
 			if(!world.isRemote) {
 				dropItems(world, x, y, z);
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				world.playSoundEffect(x, y, z, "hbm:block.crateBreak", 0.5F, 1.0F);
 			}
 			return true;
@@ -182,7 +182,7 @@ public class BlockCrate extends BlockFalling {
 			entityitem.motionY = (float) rand.nextGaussian() * f3 + 0.2F;
 			entityitem.motionZ = (float) rand.nextGaussian() * f3;
 			if(!world.isRemote)
-				world.spawnEntityInWorld(entityitem);
+				world.spawnEntity(entityitem);
 		}
 	}
 

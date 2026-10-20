@@ -63,7 +63,7 @@ public class ReactorResearch extends BlockDummyable {
 			if(dir == ForgeDirection.DOWN || dir == ForgeDirection.UP)
 				continue;
 
-			if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getMaterial() == Material.water) {
+			if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().getDefaultState().getMaterial() == Material.WATER) {
 
 				double ix = x + 0.5F + dir.offsetX + rand.nextDouble() - 0.5D;
 				double iy = y + 0.5F + dir.offsetY + rand.nextDouble() - 0.5D;

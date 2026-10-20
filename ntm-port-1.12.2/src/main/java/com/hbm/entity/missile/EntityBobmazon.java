@@ -40,16 +40,16 @@ public class EntityBobmazon extends Entity {
 		
 		for(int i = 0; i < 4; i++) {
 			
-			if(worldObj.getBlock((int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getMaterial() != Material.air && !worldObj.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {
-				ExplosionLarge.spawnParticles(worldObj, posX, posY + 1, posZ, 50);
+			if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {
+				ExplosionLarge.spawnParticles(this.world, posX, posY + 1, posZ, 50);
 
-	            this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F);
+	            com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F);
 				
 				if(payload != null) {
-					EntityItem pack = new EntityItem(worldObj, posX, posY + 2, posZ, payload);
+					EntityItem pack = new EntityItem(this.world, posX, posY + 2, posZ, payload);
 					pack.motionX = 0;
 					pack.motionZ = 0;
-					worldObj.spawnEntityInWorld(pack);
+					this.world.spawnEntity(pack);
 				}
 				
 				this.setDead();
@@ -62,7 +62,7 @@ public class EntityBobmazon extends Entity {
 			this.posZ += this.motionZ;
 		}
 		
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 
 			NBTTagCompound data = new NBTTagCompound();

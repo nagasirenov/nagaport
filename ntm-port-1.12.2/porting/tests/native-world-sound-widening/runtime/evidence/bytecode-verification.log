@@ -1,0 +1,1 @@
+PASS exact javac pre-invocation bytecode sequence equality for all 12 generated wrappers; migration shapes use only i2d (three/one), float volume/pitch unchanged; separately labelled robustness conversions also match.

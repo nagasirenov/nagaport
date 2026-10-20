@@ -23,7 +23,7 @@ public class GUIScreenSnowglobe extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.bobble"), 1.0F));
+		mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.bobble"), 1.0F));
 	}
 
 	@Override
@@ -57,12 +57,12 @@ public class GUIScreenSnowglobe extends GuiScreen {
 		int nextLevel = (int)top + 10;
 
 		String bobbleTitle = "Nuclear Tech Commemorative Snowglobe";
-		this.fontRendererObj.drawStringWithShadow(bobbleTitle, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(bobbleTitle) / 2), nextLevel, 0x00ff00);
+		this.fontRenderer.drawStringWithShadow(bobbleTitle, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(bobbleTitle) / 2), nextLevel, 0x00ff00);
 		
 		nextLevel += 10;
 		
 		String bobbleName = this.snowglobe.type.label;
-		this.fontRendererObj.drawStringWithShadow(bobbleName, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(bobbleName) / 2), nextLevel, 0x009900);
+		this.fontRenderer.drawStringWithShadow(bobbleName, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(bobbleName) / 2), nextLevel, 0x009900);
 		
 		nextLevel += 20;
 		
@@ -86,13 +86,13 @@ public class GUIScreenSnowglobe extends GuiScreen {
 		if(this.snowglobe.type.inscription != null) {
 
 			String title = "On the bottom is the following inscription:";
-			this.fontRendererObj.drawStringWithShadow(title, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(title) / 2), nextLevel, 0x00ff00);
+			this.fontRenderer.drawStringWithShadow(title, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(title) / 2), nextLevel, 0x00ff00);
 			
 			nextLevel += 10;
 
-			List<String> list = I18nUtil.autoBreakWithParagraphs(this.fontRendererObj, this.snowglobe.type.inscription, 280);
+			List<String> list = I18nUtil.autoBreakWithParagraphs(this.fontRenderer, this.snowglobe.type.inscription, 280);
 			for(String text : list) {
-				this.fontRendererObj.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(text) / 2), nextLevel, 0x009900);
+				this.fontRenderer.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(text) / 2), nextLevel, 0x009900);
 				nextLevel += 10;
 			}
 
@@ -105,7 +105,7 @@ public class GUIScreenSnowglobe extends GuiScreen {
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 	

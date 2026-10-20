@@ -1,0 +1,441 @@
+{
+  "scope": "Exactly 32 audited direct-literal resources; excludes computed/unknown resource inventory.",
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/TheGadget3_.png",
+      "after": "src/main/resources/assets/hbm/textures/models/thegadget3_.png",
+      "sha256": "a9c0d8597f8a90cda964b17da8737a1a19cde878848184f7b7a5e2b3037e37c4",
+      "literal": "textures/models/TheGadget3_.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 479,
+          "text": "public static final ResourceLocation universal = new ResourceLocation(RefStrings.MODID, \"textures/models/TheGadget3_.png\");"
+        },
+        {
+          "file": "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+          "line": 66,
+          "text": "return new ResourceLocation(RefStrings.MODID + \":textures/models/TheGadget3_.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/NMine.png",
+      "after": "src/main/resources/assets/hbm/textures/models/nmine.png",
+      "sha256": "15c920999a551dd0c72b82871f6a8dbc2b35511956dc291e1af52adebcfa8cce",
+      "literal": "textures/models/NMine.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 522,
+          "text": "public static final ResourceLocation mine_naval_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/NMine.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/tank/tank_NONE.png",
+      "after": "src/main/resources/assets/hbm/textures/models/tank/tank_none.png",
+      "sha256": "1f5d2b5771baaac9b43c56ecea1bb77a340a97c30c631ba95d298f818d17f055",
+      "literal": "textures/models/tank/tank_NONE.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 596,
+          "text": "public static final ResourceLocation tank_label_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/tank/tank_NONE.png\");"
+        },
+        {
+          "file": "src/main/java/com/hbm/render/tileentity/RenderFluidTank.java",
+          "line": 92,
+          "text": "return \"textures/models/tank/tank_NONE.png\";"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/UF6Tank.png",
+      "after": "src/main/resources/assets/hbm/textures/models/uf6tank.png",
+      "sha256": "4b5f52030a72795f23ce29e095131b61a2318db53d6db138c43551e3ac17745a",
+      "literal": "textures/models/UF6Tank.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 696,
+          "text": "public static final ResourceLocation uf6_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/UF6Tank.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/PUF6Tank.png",
+      "after": "src/main/resources/assets/hbm/textures/models/puf6tank.png",
+      "sha256": "53651e5c2394f743e58372c6cb4748995ff9e372f3a3fdfa493f94e9c8c229d8",
+      "literal": "textures/models/PUF6Tank.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 697,
+          "text": "public static final ResourceLocation puf6_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/PUF6Tank.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/FatMan.png",
+      "after": "src/main/resources/assets/hbm/textures/models/fatman.png",
+      "sha256": "c4a491269f40c7516fdb1f740d6e1490f3fd21c1c3e23cb7c90bef625946c0ec",
+      "literal": "textures/models/FatMan.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 852,
+          "text": "public static final ResourceLocation bomb_man_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/FatMan.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/bombs/Prototype.png",
+      "after": "src/main/resources/assets/hbm/textures/models/bombs/prototype.png",
+      "sha256": "2d9a80225338d999d18f86de6364c0061a8f51cec35f19ab52824f2fa5b35253",
+      "literal": "textures/models/bombs/Prototype.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 855,
+          "text": "public static final ResourceLocation bomb_prototype_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/bombs/Prototype.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/CustomNuke.png",
+      "after": "src/main/resources/assets/hbm/textures/models/customnuke.png",
+      "sha256": "1e8cff3ec7c484998418094f7b2db6ff8a9c0493c9fdb289967e1ab603b90241",
+      "literal": "textures/models/CustomNuke.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 859,
+          "text": "public static final ResourceLocation bomb_custom_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/CustomNuke.png\");"
+        },
+        {
+          "file": "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+          "line": 21,
+          "text": "boyTexture = new ResourceLocation(RefStrings.MODID, \"textures/models/CustomNuke.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/BombGeneric.png",
+      "after": "src/main/resources/assets/hbm/textures/models/bombgeneric.png",
+      "sha256": "7a4d46b17e93b410101b69533253c278611c2b0458ddd98f5f45dfe7197240d7",
+      "literal": "textures/models/BombGeneric.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 860,
+          "text": "public static final ResourceLocation bomb_multi_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/BombGeneric.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/entity/shifterEel_1.png",
+      "after": "src/main/resources/assets/hbm/textures/entity/shiftereel_1.png",
+      "sha256": "8fa67770a7af94e40daf96732f8c6d8e3124482cddcce79f349ef3cca6749f65",
+      "literal": "textures/entity/shifterEel_1.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 948,
+          "text": "public static final ResourceLocation eel_tex = new ResourceLocation(RefStrings.MODID, \"textures/entity/shifterEel_1.png\");"
+        },
+        {
+          "file": "src/main/java/com/hbm/render/entity/mob/RenderSifterEel.java",
+          "line": 14,
+          "text": "public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, \"textures/entity/shifterEel_1.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/minerRocket.png",
+      "after": "src/main/resources/assets/hbm/textures/models/minerrocket.png",
+      "sha256": "1284dcad6a50d0ab2215d8cb8215137fadea33de9096b7b0824666332c79a9ef",
+      "literal": "textures/models/minerRocket.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/ResourceManager.java",
+          "line": 1495,
+          "text": "public static final ResourceLocation minerRocket_tex = new ResourceLocation(RefStrings.MODID, \"textures/models/minerRocket.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsA.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsa.nbt",
+      "sha256": "267caeea2b235e96e205f05e7b7f2634ba7c4b561a2e22f5674b2af6a792de95",
+      "literal": "structures/ntmruinsA.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 141,
+          "text": "public static final NBTStructure ntmruinsA = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsA.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsB.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsb.nbt",
+      "sha256": "ce031c3d7bcc2787b7f681d21431200ee5d60a79506c28c9d90f0b46946b8068",
+      "literal": "structures/ntmruinsB.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 142,
+          "text": "public static final NBTStructure ntmruinsB = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsB.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsC.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsc.nbt",
+      "sha256": "6adfc6487098e075fbe4bdf026ccdec4a2d900530a9721e6c0d88e6b713489d6",
+      "literal": "structures/ntmruinsC.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 143,
+          "text": "public static final NBTStructure ntmruinsC = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsC.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsD.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsd.nbt",
+      "sha256": "0cb876dc0d9760469b59e2d956204edf4faf1e571b3be452681a954f4630ff01",
+      "literal": "structures/ntmruinsD.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 144,
+          "text": "public static final NBTStructure ntmruinsD = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsD.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsE.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinse.nbt",
+      "sha256": "fdbcaf134ad37b0fb528284045776dc6245264fdb49c946b7ed1548983f1eb60",
+      "literal": "structures/ntmruinsE.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 145,
+          "text": "public static final NBTStructure ntmruinsE = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsE.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsF.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsf.nbt",
+      "sha256": "fcda4d8327cba9218e7c9c66a35f11021aa4a094a51aa15fdbe2dc4f0c6ae80f",
+      "literal": "structures/ntmruinsF.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 146,
+          "text": "public static final NBTStructure ntmruinsF = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsF.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsG.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsg.nbt",
+      "sha256": "a30dbd85664d71026b43efbe06267efdda9dcf87b0efdda157fac9f20ce8ce6e",
+      "literal": "structures/ntmruinsG.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 147,
+          "text": "public static final NBTStructure ntmruinsG = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsG.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsH.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsh.nbt",
+      "sha256": "bc4458980b1ac0626c32371e6440bc339ebcf96af2c380946c0bba0b5c4acc36",
+      "literal": "structures/ntmruinsH.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 148,
+          "text": "public static final NBTStructure ntmruinsH = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsH.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsI.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsi.nbt",
+      "sha256": "a3a1b7870c6ac9533e8fd5de7817a92516c8a06c2d9fdde4deab9d7fc2505300",
+      "literal": "structures/ntmruinsI.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 149,
+          "text": "public static final NBTStructure ntmruinsI = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsI.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/structures/ntmruinsJ.nbt",
+      "after": "src/main/resources/assets/hbm/structures/ntmruinsj.nbt",
+      "sha256": "abdab3df61f0b183c6ef6279b7c919ff141fe683bde0762f5045b48223e93ebe",
+      "literal": "structures/ntmruinsJ.nbt",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/main/StructureManager.java",
+          "line": 150,
+          "text": "public static final NBTStructure ntmruinsJ = new NBTStructure(new ResourceLocation(RefStrings.MODID, \"structures/ntmruinsJ.nbt\"));"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/shaders/iChannel1.png",
+      "after": "src/main/resources/assets/hbm/shaders/ichannel1.png",
+      "sha256": "f46061bd3c0ef8a957bbafa2466fe5e6ac61556d68de3a4ce9829c50bddbff3a",
+      "literal": "shaders/iChannel1.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+          "line": 71,
+          "text": "private static final ResourceLocation noise = new ResourceLocation(RefStrings.MODID, \"shaders/iChannel1.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/trinkets/Juicy_Lad.png",
+      "after": "src/main/resources/assets/hbm/textures/models/trinkets/juicy_lad.png",
+      "sha256": "8f736a5dc1c0382664b04befd838beb36ee5e1ad6e227e9761cc833c6cb30945",
+      "literal": "textures/models/trinkets/Juicy_Lad.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/tileentity/RenderBobble.java",
+          "line": 51,
+          "text": "public static final ResourceLocation bobble_juice = new ResourceLocation(RefStrings.MODID, \"textures/models/trinkets/Juicy_Lad.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/trinkets/JamesH_2.png",
+      "after": "src/main/resources/assets/hbm/textures/models/trinkets/jamesh_2.png",
+      "sha256": "f285c9d416f59fba4e8b2caca2291a5207223a6ad9a3eb8ad49ef0014b46177d",
+      "literal": "textures/models/trinkets/JamesH_2.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/tileentity/RenderBobble.java",
+          "line": 52,
+          "text": "public static final ResourceLocation bobble_jamesh_2= new ResourceLocation(RefStrings.MODID, \"textures/models/trinkets/JamesH_2.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/trinkets/MrKimkimora.png",
+      "after": "src/main/resources/assets/hbm/textures/models/trinkets/mrkimkimora.png",
+      "sha256": "3700197c63a130cfe737d6bcfd89fd6602a45353eac3f56be0b2205bcd1ff9b6",
+      "literal": "textures/models/trinkets/MrKimkimora.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/tileentity/RenderBobble.java",
+          "line": 57,
+          "text": "public static final ResourceLocation bobble_mrkimkimora = new ResourceLocation(RefStrings.MODID, \"textures/models/trinkets/MrKimkimora.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/BlastSolinium.png",
+      "after": "src/main/resources/assets/hbm/textures/models/blastsolinium.png",
+      "sha256": "3cfc1d0a9e6582a73c195f311bc563e5eb15c67ea7acd6b4d52df0b50714a433",
+      "literal": "textures/models/BlastSolinium.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/effect/RenderCloudSolinium.java",
+          "line": 24,
+          "text": "blastTexture = new ResourceLocation(RefStrings.MODID, \"textures/models/BlastSolinium.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/BlastFleija.png",
+      "after": "src/main/resources/assets/hbm/textures/models/blastfleija.png",
+      "sha256": "015b5fdc1894d7798497f3e650bf3765043219bd94f0dbcb21fa2c899a6f2442",
+      "literal": "textures/models/BlastFleija.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/effect/RenderCloudFleija.java",
+          "line": 24,
+          "text": "blastTexture = new ResourceLocation(RefStrings.MODID, \"textures/models/BlastFleija.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/entity/bholeD.png",
+      "after": "src/main/resources/assets/hbm/textures/entity/bholed.png",
+      "sha256": "02b141dfab918f31bf48b75fa5aeb72de99cab9f8891787859516a934d9f64c1",
+      "literal": "textures/entity/bholeD.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/effect/RenderQuasar.java",
+          "line": 13,
+          "text": "protected ResourceLocation quasar = new ResourceLocation(RefStrings.MODID, \"textures/entity/bholeD.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/BlackHole.png",
+      "after": "src/main/resources/assets/hbm/textures/models/blackhole.png",
+      "sha256": "40bdcc3e40d653dad2eab473b717d3f7af8ed892c2c6a168fe5c5d825ccb2d5a",
+      "literal": "textures/models/BlackHole.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java",
+          "line": 25,
+          "text": "protected ResourceLocation hole = new ResourceLocation(RefStrings.MODID, \"textures/models/BlackHole.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/entity/bholeDisc.png",
+      "after": "src/main/resources/assets/hbm/textures/entity/bholedisc.png",
+      "sha256": "907f9b224489846c3a48f87b50b476648e719871cc21017797096f4b22668093",
+      "literal": "textures/entity/bholeDisc.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java",
+          "line": 27,
+          "text": "protected ResourceLocation disc = new ResourceLocation(RefStrings.MODID, \"textures/entity/bholeDisc.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/ModelM65Blaze.png",
+      "after": "src/main/resources/assets/hbm/textures/models/modelm65blaze.png",
+      "sha256": "a0b3f9f6b34b51af94fc5d011414da8731c6fccf5e85397f90b13281982d284e",
+      "literal": "textures/models/ModelM65Blaze.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/mob/RenderRADBeast.java",
+          "line": 24,
+          "text": "private static final ResourceLocation mask = new ResourceLocation(RefStrings.MODID, \"textures/models/ModelM65Blaze.png\");"
+        }
+      ]
+    },
+    {
+      "before": "src/main/resources/assets/hbm/textures/models/bombletZetaTexture.png",
+      "after": "src/main/resources/assets/hbm/textures/models/bombletzetatexture.png",
+      "sha256": "4532267f576a913f7e39e282a824ab421cf9ac69328d6502e5c5a172be9cbfef",
+      "literal": "textures/models/bombletZetaTexture.png",
+      "references": [
+        {
+          "file": "src/main/java/com/hbm/render/entity/projectile/RenderBombletTheta.java",
+          "line": 35,
+          "text": "bindTexture(new ResourceLocation(RefStrings.MODID, \"textures/models/bombletZetaTexture.png\"));"
+        }
+      ]
+    }
+  ]
+}

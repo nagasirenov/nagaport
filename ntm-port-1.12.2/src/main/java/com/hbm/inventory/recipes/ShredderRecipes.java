@@ -70,10 +70,10 @@ public class ShredderRecipes extends SerializableRecipe {
 
 				if(dust != null && dust.getItem() != ModItems.scrap) {
 
-					dust.stackSize = 9;
+					dust.setCount(9);
 
 					if(getIngotOrGemByName(name.substring(5)) == null)
-						dust.stackSize = 4;
+						dust.setCount(4);
 
 					for(ItemStack stack : matches) {
 						putIfValid(stack, dust, name);
@@ -136,48 +136,48 @@ public class ShredderRecipes extends SerializableRecipe {
 	public void registerDefaults() {
 
 		/* Primary recipes */
-		ShredderRecipes.setRecipe(Items.wheat, new ItemStack(ModItems.flour));
+		ShredderRecipes.setRecipe(Items.WHEAT, new ItemStack(ModItems.flour));
 
 		ShredderRecipes.setRecipe(ModItems.scrap, new ItemStack(ModItems.dust));
 		ShredderRecipes.setRecipe(ModItems.dust, new ItemStack(ModItems.dust));
 		ShredderRecipes.setRecipe(ModItems.dust_tiny, new ItemStack(ModItems.dust_tiny));
-		ShredderRecipes.setRecipe(Blocks.glowstone, new ItemStack(Items.glowstone_dust, 4));
-		ShredderRecipes.setRecipe(ModBlocks.reinforced_light, new ItemStack(Items.glowstone_dust, 4));
-		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.ore_glowstone, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.glowstone_dust, 4));
-		ShredderRecipes.setRecipe(new ItemStack(Blocks.quartz_block, 1, 0), new ItemStack(ModItems.powder_quartz, 4));
-		ShredderRecipes.setRecipe(new ItemStack(Blocks.quartz_block, 1, 1), new ItemStack(ModItems.powder_quartz, 4));
-		ShredderRecipes.setRecipe(new ItemStack(Blocks.quartz_block, 1, 2), new ItemStack(ModItems.powder_quartz, 4));
-		ShredderRecipes.setRecipe(Blocks.quartz_stairs, new ItemStack(ModItems.powder_quartz, 3));
-		ShredderRecipes.setRecipe(new ItemStack(Blocks.stone_slab, 1, 7), new ItemStack(ModItems.powder_quartz, 2));
-		ShredderRecipes.setRecipe(Items.quartz, new ItemStack(ModItems.powder_quartz));
-		ShredderRecipes.setRecipe(Blocks.quartz_ore, new ItemStack(ModItems.powder_quartz, 2));
+		ShredderRecipes.setRecipe(Blocks.GLOWSTONE, new ItemStack(Items.GLOWSTONE_DUST, 4));
+		ShredderRecipes.setRecipe(ModBlocks.reinforced_light, new ItemStack(Items.GLOWSTONE_DUST, 4));
+		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.ore_glowstone, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.GLOWSTONE_DUST, 4));
+		ShredderRecipes.setRecipe(new ItemStack(Blocks.QUARTZ_BLOCK, 1, 0), new ItemStack(ModItems.powder_quartz, 4));
+		ShredderRecipes.setRecipe(new ItemStack(Blocks.QUARTZ_BLOCK, 1, 1), new ItemStack(ModItems.powder_quartz, 4));
+		ShredderRecipes.setRecipe(new ItemStack(Blocks.QUARTZ_BLOCK, 1, 2), new ItemStack(ModItems.powder_quartz, 4));
+		ShredderRecipes.setRecipe(Blocks.QUARTZ_STAIRS, new ItemStack(ModItems.powder_quartz, 3));
+		ShredderRecipes.setRecipe(new ItemStack(Blocks.STONE_SLAB, 1, 7), new ItemStack(ModItems.powder_quartz, 2));
+		ShredderRecipes.setRecipe(Items.QUARTZ, new ItemStack(ModItems.powder_quartz));
+		ShredderRecipes.setRecipe(Blocks.QUARTZ_ORE, new ItemStack(ModItems.powder_quartz, 2));
 		ShredderRecipes.setRecipe(ModBlocks.ore_quartz, new ItemStack(ModItems.powder_quartz, 2));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.ore_fire, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.powder_fire, 6));
 		ShredderRecipes.setRecipe(ModBlocks.ore_fire, new ItemStack(ModItems.powder_fire, 6));
-		ShredderRecipes.setRecipe(Blocks.packed_ice, new ItemStack(ModItems.powder_ice, 1));
-		ShredderRecipes.setRecipe(ModBlocks.brick_light, new ItemStack(Items.clay_ball, 4));
-		ShredderRecipes.setRecipe(ModBlocks.concrete, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(ModBlocks.concrete_smooth, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(ModBlocks.brick_concrete, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(ModBlocks.brick_concrete_mossy, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(ModBlocks.brick_concrete_cracked, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(ModBlocks.brick_concrete_broken, new ItemStack(Blocks.gravel, 1));
+		ShredderRecipes.setRecipe(Blocks.PACKED_ICE, new ItemStack(ModItems.powder_ice, 1));
+		ShredderRecipes.setRecipe(ModBlocks.brick_light, new ItemStack(Items.CLAY_BALL, 4));
+		ShredderRecipes.setRecipe(ModBlocks.concrete, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(ModBlocks.concrete_smooth, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(ModBlocks.brick_concrete, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(ModBlocks.brick_concrete_mossy, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(ModBlocks.brick_concrete_cracked, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(ModBlocks.brick_concrete_broken, new ItemStack(Blocks.GRAVEL, 1));
 		ShredderRecipes.setRecipe(ModBlocks.brick_obsidian, new ItemStack(ModBlocks.gravel_obsidian, 1));
-		ShredderRecipes.setRecipe(Blocks.obsidian, new ItemStack(ModBlocks.gravel_obsidian, 1));
-		ShredderRecipes.setRecipe(ModBlocks.ore_oil_empty, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(ModBlocks.ore_gas_empty, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(Blocks.stonebrick, new ItemStack(Blocks.gravel, 1));
-		ShredderRecipes.setRecipe(Blocks.gravel, new ItemStack(Blocks.sand, 1));
-		ShredderRecipes.setRecipe(Blocks.brick_block, new ItemStack(Items.clay_ball, 4));
-		ShredderRecipes.setRecipe(Blocks.brick_stairs, new ItemStack(Items.clay_ball, 3));
-		ShredderRecipes.setRecipe(Items.flower_pot, new ItemStack(Items.clay_ball, 3));
-		ShredderRecipes.setRecipe(Items.brick, new ItemStack(Items.clay_ball, 1));
-		ShredderRecipes.setRecipe(Blocks.sandstone, new ItemStack(Blocks.sand, 4));
-		ShredderRecipes.setRecipe(Blocks.sandstone_stairs, new ItemStack(Blocks.sand, 6));
-		ShredderRecipes.setRecipe(Blocks.clay, new ItemStack(Items.clay_ball, 4));
-		ShredderRecipes.setRecipe(Blocks.hardened_clay, new ItemStack(Items.clay_ball, 4));
-		ShredderRecipes.setRecipe(Blocks.tnt, new ItemStack(Items.gunpowder, Compat.isModLoaded(Compat.MOD_GT6) ? 4 : 5));
+		ShredderRecipes.setRecipe(Blocks.OBSIDIAN, new ItemStack(ModBlocks.gravel_obsidian, 1));
+		ShredderRecipes.setRecipe(ModBlocks.ore_oil_empty, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(ModBlocks.ore_gas_empty, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(Blocks.COBBLESTONE, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(Blocks.STONEBRICK, new ItemStack(Blocks.GRAVEL, 1));
+		ShredderRecipes.setRecipe(Blocks.GRAVEL, new ItemStack(Blocks.SAND, 1));
+		ShredderRecipes.setRecipe(Blocks.BRICK_BLOCK, new ItemStack(Items.CLAY_BALL, 4));
+		ShredderRecipes.setRecipe(Blocks.BRICK_STAIRS, new ItemStack(Items.CLAY_BALL, 3));
+		ShredderRecipes.setRecipe(Items.FLOWER_POT, new ItemStack(Items.CLAY_BALL, 3));
+		ShredderRecipes.setRecipe(Items.BRICK, new ItemStack(Items.CLAY_BALL, 1));
+		ShredderRecipes.setRecipe(Blocks.SANDSTONE, new ItemStack(Blocks.SAND, 4));
+		ShredderRecipes.setRecipe(Blocks.SANDSTONE_STAIRS, new ItemStack(Blocks.SAND, 6));
+		ShredderRecipes.setRecipe(Blocks.CLAY, new ItemStack(Items.CLAY_BALL, 4));
+		ShredderRecipes.setRecipe(Blocks.HARDENED_CLAY, new ItemStack(Items.CLAY_BALL, 4));
+		ShredderRecipes.setRecipe(Blocks.TNT, new ItemStack(Items.GUNPOWDER, Compat.isModLoaded(Compat.MOD_GT6) ? 4 : 5));
 		ShredderRecipes.setRecipe(DictFrame.fromOne(ModBlocks.stone_resource, EnumStoneType.LIMESTONE), new ItemStack(ModItems.powder_limestone, 4));
 		ShredderRecipes.setRecipe(ModBlocks.stone_gneiss, new ItemStack(ModItems.powder_lithium_tiny, 1));
 		ShredderRecipes.setRecipe(ModItems.powder_lapis, new ItemStack(ModItems.powder_cobalt_tiny, 1));
@@ -190,7 +190,7 @@ public class ShredderRecipes extends SerializableRecipe {
 		ShredderRecipes.setRecipe(ModItems.fragment_boron, new ItemStack(ModItems.powder_boron_tiny, 1));
 		ShredderRecipes.setRecipe(ModItems.fragment_meteorite, new ItemStack(ModItems.powder_meteorite_tiny, 1));
 		ShredderRecipes.setRecipe(ModBlocks.block_meteor, new ItemStack(ModItems.powder_meteorite, 10));
-		ShredderRecipes.setRecipe(Items.enchanted_book, new ItemStack(ModItems.powder_magic, 1));
+		ShredderRecipes.setRecipe(Items.ENCHANTED_BOOK, new ItemStack(ModItems.powder_magic, 1));
 		ShredderRecipes.setRecipe(ModBlocks.meteor_polished, new ItemStack(ModItems.powder_meteorite, 1));
 		ShredderRecipes.setRecipe(ModBlocks.meteor_brick, new ItemStack(ModItems.powder_meteorite, 1));
 		ShredderRecipes.setRecipe(ModBlocks.meteor_brick_mossy, new ItemStack(ModItems.powder_meteorite, 1));
@@ -198,19 +198,19 @@ public class ShredderRecipes extends SerializableRecipe {
 		ShredderRecipes.setRecipe(ModBlocks.meteor_brick_chiseled, new ItemStack(ModItems.powder_meteorite, 1));
 		ShredderRecipes.setRecipe(ModBlocks.meteor_pillar, new ItemStack(ModItems.powder_meteorite, 1));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.ore_rare, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.powder_desh_mix, 1));
-		ShredderRecipes.setRecipe(Blocks.diamond_ore, new ItemStack(ModBlocks.gravel_diamond, 2));
+		ShredderRecipes.setRecipe(Blocks.DIAMOND_ORE, new ItemStack(ModBlocks.gravel_diamond, 2));
 		ShredderRecipes.setRecipe(ModBlocks.ore_sellafield_diamond, new ItemStack(ModBlocks.gravel_diamond, 2));
 		ShredderRecipes.setRecipe(ModBlocks.boxcar, new ItemStack(ModItems.powder_steel, 32));
 		ShredderRecipes.setRecipe(ModItems.ingot_schrabidate, new ItemStack(ModItems.powder_schrabidate, 1));
 		ShredderRecipes.setRecipe(ModBlocks.block_schrabidate, new ItemStack(ModItems.powder_schrabidate, 9));
 		ShredderRecipes.setRecipe(ModItems.coal_infernal, new ItemStack(ModItems.powder_coal, 2));
-		ShredderRecipes.setRecipe(Items.fermented_spider_eye, new ItemStack(ModItems.powder_poison, 3));
-		ShredderRecipes.setRecipe(Items.poisonous_potato, new ItemStack(ModItems.powder_poison, 1));
+		ShredderRecipes.setRecipe(Items.FERMENTED_SPIDER_EYE, new ItemStack(ModItems.powder_poison, 3));
+		ShredderRecipes.setRecipe(Items.POISONOUS_POTATO, new ItemStack(ModItems.powder_poison, 1));
 		ShredderRecipes.setRecipe(ModBlocks.ore_tektite_osmiridium, new ItemStack(ModItems.powder_tektite, 1));
-		ShredderRecipes.setRecipe(Blocks.dirt, new ItemStack(ModItems.dust, 1));
-		ShredderRecipes.setRecipe(Items.reeds, new ItemStack(Items.sugar, 3));
-		ShredderRecipes.setRecipe(Items.apple, new ItemStack(Items.sugar, 1));
-		ShredderRecipes.setRecipe(Items.carrot, new ItemStack(Items.sugar, 1));
+		ShredderRecipes.setRecipe(Blocks.DIRT, new ItemStack(ModItems.dust, 1));
+		ShredderRecipes.setRecipe(Items.REEDS, new ItemStack(Items.SUGAR, 3));
+		ShredderRecipes.setRecipe(Items.APPLE, new ItemStack(Items.SUGAR, 1));
+		ShredderRecipes.setRecipe(Items.CARROT, new ItemStack(Items.SUGAR, 1));
 		ShredderRecipes.setRecipe(ModItems.crystal_cleaned, new ItemStack(ModItems.mineral_dust, 4));
 		ShredderRecipes.setRecipe(ModBlocks.laythe_coral_block, new ItemStack(ModItems.powder_calcium, 4));
 
@@ -222,7 +222,7 @@ public class ShredderRecipes extends SerializableRecipe {
 		ShredderRecipes.setRecipe(DictFrame.fromOne(ModBlocks.stone_resource, EnumStoneType.CALCIUM), new ItemStack(ModItems.powder_calcium, 6));
 		ShredderRecipes.setRecipe(ModItems.can_empty, new ItemStack(ModItems.powder_aluminium, 2));
 		ShredderRecipes.setRecipe(DictFrame.fromOne(ModItems.chunk_ore, EnumChunkType.RARE), new ItemStack(ModItems.powder_desh_mix));
-		ShredderRecipes.setRecipe(Blocks.sand, new ItemStack(ModItems.dust, 2));
+		ShredderRecipes.setRecipe(Blocks.SAND, new ItemStack(ModItems.dust, 2));
 		ShredderRecipes.setRecipe(ModBlocks.block_slag, new ItemStack(ModItems.powder_cement, 4));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.ore_aluminium, 1, OreDictionary.WILDCARD_VALUE), DictFrame.fromOne(ModItems.chunk_ore, EnumChunkType.CRYOLITE, 2));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.ore_nickel, 1, OreDictionary.WILDCARD_VALUE), DictFrame.fromOne(ModItems.chunk_ore, EnumChunkType.PENTLANDITE, 2));
@@ -241,9 +241,9 @@ public class ShredderRecipes extends SerializableRecipe {
 
 		for(ItemStack log : logs) ShredderRecipes.setRecipe(log, new ItemStack(ModItems.powder_sawdust, 4));
 		for(ItemStack plank : planks) ShredderRecipes.setRecipe(plank, new ItemStack(ModItems.powder_sawdust, 1));
-		for(ItemStack sapling : saplings) ShredderRecipes.setRecipe(sapling, new ItemStack(Items.stick, 1));
-		for(ItemStack stone : stones) ShredderRecipes.setRecipe(stone, new ItemStack(Blocks.gravel, 1));
-		for(ItemStack cobble : cobbles) ShredderRecipes.setRecipe(cobble, new ItemStack(Blocks.gravel, 1));
+		for(ItemStack sapling : saplings) ShredderRecipes.setRecipe(sapling, new ItemStack(Items.STICK, 1));
+		for(ItemStack stone : stones) ShredderRecipes.setRecipe(stone, new ItemStack(Blocks.GRAVEL, 1));
+		for(ItemStack cobble : cobbles) ShredderRecipes.setRecipe(cobble, new ItemStack(Blocks.GRAVEL, 1));
 		for(ItemStack sand : sands) ShredderRecipes.setRecipe(sand, new ItemStack(ModItems.dust, 2));
 
 		for(EnumBedrockOre ore : EnumBedrockOre.values()) {
@@ -259,14 +259,14 @@ public class ShredderRecipes extends SerializableRecipe {
 			ShredderRecipes.setRecipe(new ItemStack(ModItems.ore_seared, 1, i), new ItemStack(ModItems.ore_enriched, 1, i));
 		}
 
-		for(int i = 0; i < 5; i++) ShredderRecipes.setRecipe(new ItemStack(Items.skull, 1, i), new ItemStack(ModItems.biomass, 4));
+		for(int i = 0; i < 5; i++) ShredderRecipes.setRecipe(new ItemStack(Items.SKULL, 1, i), new ItemStack(ModItems.biomass, 4));
 
 		/* Crystal processing */
 		ShredderRecipes.setRecipe(ModItems.ingot_schraranium, new ItemStack(ModItems.nugget_schrabidium, 2));
 		ShredderRecipes.setRecipe(ModItems.crystal_coal, new ItemStack(ModItems.powder_coal, 3));
 		ShredderRecipes.setRecipe(ModItems.crystal_iron, new ItemStack(ModItems.powder_iron, 3));
 		ShredderRecipes.setRecipe(ModItems.crystal_gold, new ItemStack(ModItems.powder_gold, 3));
-		ShredderRecipes.setRecipe(ModItems.crystal_redstone, new ItemStack(Items.redstone, 8));
+		ShredderRecipes.setRecipe(ModItems.crystal_redstone, new ItemStack(Items.REDSTONE, 8));
 		ShredderRecipes.setRecipe(ModItems.crystal_lapis, new ItemStack(ModItems.powder_lapis, 8));
 		ShredderRecipes.setRecipe(ModItems.crystal_diamond, new ItemStack(ModItems.powder_diamond, 3));
 		ShredderRecipes.setRecipe(ModItems.crystal_uranium, new ItemStack(ModItems.powder_uranium, 3));
@@ -311,14 +311,14 @@ public class ShredderRecipes extends SerializableRecipe {
 		ShredderRecipes.setRecipe(ModBlocks.crate_iron, new ItemStack(ModItems.powder_iron, 8));
 		ShredderRecipes.setRecipe(ModBlocks.crate_steel, new ItemStack(ModItems.powder_steel, 8));
 		ShredderRecipes.setRecipe(ModBlocks.crate_tungsten, new ItemStack(ModItems.powder_tungsten, 36));
-		ShredderRecipes.setRecipe(Blocks.anvil, new ItemStack(ModItems.powder_iron, 31));
+		ShredderRecipes.setRecipe(Blocks.ANVIL, new ItemStack(ModItems.powder_iron, 31));
 		ShredderRecipes.setRecipe(ModBlocks.chain, new ItemStack(ModItems.powder_steel_tiny, 1));
 		ShredderRecipes.setRecipe(ModBlocks.steel_grate, new ItemStack(ModItems.powder_steel_tiny, 3));
 		ShredderRecipes.setRecipe(ModItems.pipes_steel, new ItemStack(ModItems.powder_steel, 27));
-		ShredderRecipes.setRecipe(new ItemStack(ModItems.bedrock_ore, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.gravel));
+		ShredderRecipes.setRecipe(new ItemStack(ModItems.bedrock_ore, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.GRAVEL));
 
 		/* Sellafite scrapping */
-		ShredderRecipes.setRecipe(ModBlocks.sellafield_slaked, new ItemStack(Blocks.gravel));
+		ShredderRecipes.setRecipe(ModBlocks.sellafield_slaked, new ItemStack(Blocks.GRAVEL));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.sellafield, 1, 0), new ItemStack(ModItems.scrap_nuclear, 1));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.sellafield, 1, 1), new ItemStack(ModItems.scrap_nuclear, 2));
 		ShredderRecipes.setRecipe(new ItemStack(ModBlocks.sellafield, 1, 2), new ItemStack(ModItems.scrap_nuclear, 3));
@@ -362,8 +362,8 @@ public class ShredderRecipes extends SerializableRecipe {
 
 		/* Wool and clay scrapping */
 		for(int i = 0; i < 16; i++) {
-			ShredderRecipes.setRecipe(new ItemStack(Blocks.stained_hardened_clay, 1, i), new ItemStack(Items.clay_ball, 4));
-			ShredderRecipes.setRecipe(new ItemStack(Blocks.wool, 1, i), new ItemStack(Items.string, 4));
+			ShredderRecipes.setRecipe(new ItemStack(Blocks.STAINED_HARDENED_CLAY, 1, i), new ItemStack(Items.CLAY_BALL, 4));
+			ShredderRecipes.setRecipe(new ItemStack(Blocks.WOOL, 1, i), new ItemStack(Items.STRING, 4));
 		}
 
 		/* Shredding bobbleheads */
@@ -382,16 +382,16 @@ public class ShredderRecipes extends SerializableRecipe {
 
 		/* GC COMPAT */
 		Block gcMoonBlock = Compat.tryLoadBlock(Compat.MOD_GCC, "moonBlock");
-		if(gcMoonBlock != null && gcMoonBlock != Blocks.air) {
+		if(gcMoonBlock != null && gcMoonBlock != Blocks.AIR) {
 			ShredderRecipes.setRecipe(new ItemStack(gcMoonBlock, 1, 3), new ItemStack(ModBlocks.moon_turf)); //Moon dirt
 			ShredderRecipes.setRecipe(new ItemStack(gcMoonBlock, 1, 5), new ItemStack(ModBlocks.moon_turf)); //Moon topsoil
 		}
 
 		/* AR COMPAT */
 		Block arMoonTurf = Compat.tryLoadBlock(Compat.MOD_AR, "turf");
-		if(arMoonTurf != null && arMoonTurf != Blocks.air) ShredderRecipes.setRecipe(arMoonTurf, new ItemStack(ModBlocks.moon_turf)); //i assume it's moon turf
+		if(arMoonTurf != null && arMoonTurf != Blocks.AIR) ShredderRecipes.setRecipe(arMoonTurf, new ItemStack(ModBlocks.moon_turf)); //i assume it's moon turf
 		Block arMoonTurfDark = Compat.tryLoadBlock(Compat.MOD_AR, "turfDark");
-		if(arMoonTurfDark != null && arMoonTurfDark != Blocks.air) ShredderRecipes.setRecipe(arMoonTurfDark, new ItemStack(ModBlocks.moon_turf)); //probably moon dirt? would have helped if i had ever played AR for more than 5 seconds
+		if(arMoonTurfDark != null && arMoonTurfDark != Blocks.AIR) ShredderRecipes.setRecipe(arMoonTurfDark, new ItemStack(ModBlocks.moon_turf)); //probably moon dirt? would have helped if i had ever played AR for more than 5 seconds
 	}
 
 	/**

@@ -8,7 +8,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class CargoShellCraftingHandler implements IRecipe {
+public class CargoShellCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
@@ -19,9 +19,11 @@ public class CargoShellCraftingHandler implements IRecipe {
 		for(int i = 0; i < 9; i++) {
 			ItemStack stack = inventory.getStackInRowAndColumn(i % 3, i / 3);
 			
-			if(stack != null) {
+			if(!stack.isEmpty()) {
 				
-				if(stack.getItem().hasContainerItem(stack) || !stack.getItem().doesContainerItemLeaveCraftingGrid(stack))
+				// Both original NTM leave-grid opt-outs also report a container; vanilla always left the grid.
+				// The removed Forge hook adds no exclusion in that verified domain. See dynamic-crafting notes.
+				if(stack.getItem().hasContainerItem(stack))
 					return false;
 				
 				itemCount++;
@@ -44,34 +46,43 @@ public class CargoShellCraftingHandler implements IRecipe {
 		for(int i = 0; i < 9; i++) {
 			ItemStack stack = inventory.getStackInRowAndColumn(i % 3, i / 3);
 			
-			if(stack == null)
+			if(stack.isEmpty())
 				continue;
 
 			if(stack.getItem() == ModItems.ammo_arty && stack.getItemDamage() == 8 && !stack.hasTagCompound()) {
 				ItemStack copy = stack.copy();
-				copy.stackSize = 1;
+				copy.setCount(1);
 				shell = copy;
 			} else {
 				ItemStack copy = stack.copy();
-				copy.stackSize = 1;
+				copy.setCount(1);
 				cargo = copy;
 			}
 		}
 		
 		if(shell == null || cargo == null)
-			return null;
+			return ItemStack.EMPTY;
 		
 		if(!shell.hasTagCompound())
-			shell.stackTagCompound = new NBTTagCompound();
+			shell.setTagCompound(new NBTTagCompound());
 
-		shell.stackTagCompound.setTag("cargo", cargo.writeToNBT(new NBTTagCompound()));
+		shell.getTagCompound().setTag("cargo", cargo.writeToNBT(new NBTTagCompound()));
 		
 		return shell;
 	}
 
-	@Override
 	public int getRecipeSize() {
 		return 9;
+	}
+
+	@Override
+	public boolean canFit(int width, int height) {
+		return width * height >= 2;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return true;
 	}
 
 	@Override

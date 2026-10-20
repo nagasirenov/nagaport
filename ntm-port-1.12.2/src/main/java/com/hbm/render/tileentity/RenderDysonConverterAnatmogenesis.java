@@ -5,15 +5,13 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityDysonConverterAnatmogenesis;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderDysonConverterAnatmogenesis extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderDysonConverterAnatmogenesis extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
@@ -38,9 +36,9 @@ public class RenderDysonConverterAnatmogenesis extends TileEntitySpecialRenderer
 			ResourceManager.dyson_anatmogenesis.renderPart("Anatmogenesis");
 
 			if(converter.isConverting) {
-				float t = tileEntity.getWorldObj().getTotalWorldTime() + f;
+				float t = tileEntity.getWorld().getTotalWorldTime() + f;
 
-				GL11.glTranslated(0, Math.sin(t * 0.1) * 0.025 + tileEntity.getWorldObj().rand.nextFloat() * 0.02, 0);
+				GL11.glTranslated(0, Math.sin(t * 0.1) * 0.025 + tileEntity.getWorld().rand.nextFloat() * 0.02, 0);
 			}
 
 			ResourceManager.dyson_anatmogenesis.renderPart("Coils");
@@ -51,26 +49,6 @@ public class RenderDysonConverterAnatmogenesis extends TileEntitySpecialRenderer
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -2, 0);
-				GL11.glScaled(2.5D, 2.5D, 2.5D);
-			}
-			public void renderCommon() {
-				GL11.glScaled(0.55, 0.55, 0.55);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.dyson_anatmogenesis_tex);
-				ResourceManager.dyson_anatmogenesis.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-			}
-		};
-	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.dyson_converter_anatmogenesis);
-	}
 
 }

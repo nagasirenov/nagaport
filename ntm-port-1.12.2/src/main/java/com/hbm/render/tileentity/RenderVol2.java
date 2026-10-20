@@ -46,8 +46,8 @@ public class RenderVol2 extends TileEntitySpecialRenderer {
 		GL11.glColor4f(1, 1, 1, alphad);
 		if(emitter.chargetime == 0) {
 			BeamPronter.prontBeam(new Vec3d(0, 0, -100 - scale), EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0x101020, 0x101020, 0, 8, 0F, 6, (float)3 * alphad, alphad * 2F);
-			BeamPronter.prontBeam(new Vec3d(0, 0, -100 - scale), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(emitter.getWorldObj().getTotalWorldTime() / 2) % 1000, 26, (float)3, 2, 0.0625F * (float)2, 0.5F *alphad );
-			BeamPronter.prontBeam(new Vec3d(0, 0, -100 - scale), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(emitter.getWorldObj().getTotalWorldTime() / 4) % 1000, 26, (float)3, 2, 0.0625F * (float)2, 0.5F*alphad );
+			BeamPronter.prontBeam(new Vec3d(0, 0, -100 - scale), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(emitter.getWorld().getTotalWorldTime() / 2) % 1000, 26, (float)3, 2, 0.0625F * (float)2, 0.5F *alphad );
+			BeamPronter.prontBeam(new Vec3d(0, 0, -100 - scale), EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, (int)(emitter.getWorld().getTotalWorldTime() / 4) % 1000, 26, (float)3, 2, 0.0625F * (float)2, 0.5F*alphad );
 		}
 
 		GL11.glDisable(GL11.GL_BLEND);

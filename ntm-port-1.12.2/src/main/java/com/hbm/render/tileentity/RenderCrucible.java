@@ -7,7 +7,6 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.inventory.material.Mats.MaterialStack;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityCrucible;
 import com.hbm.wiaj.WorldInAJar;
 import com.hbm.wiaj.actors.ITileActorRenderer;
@@ -19,9 +18,8 @@ import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderCrucible extends TileEntitySpecialRenderer implements IItemRendererProvider, ITileActorRenderer {
+public class RenderCrucible extends TileEntitySpecialRenderer implements ITileActorRenderer {
 	
 	public static final ResourceLocation lava = new ResourceLocation(RefStrings.MODID, "textures/models/machines/lava.png");
 
@@ -77,23 +75,7 @@ public class RenderCrucible extends TileEntitySpecialRenderer implements IItemRe
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_crucible);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase( ) {
-			public void renderInventory() {
-				GL11.glTranslated(0, -1.5, 0);
-				GL11.glScaled(3.25, 3.25, 3.25);
-			}
-			public void renderCommon() {
-				bindTexture(ResourceManager.crucible_tex);
-				ResourceManager.crucible_heat.renderAll();
-			}};
-	}
 
 	@Override
 	public void renderActor(WorldInAJar world, int ticks, float interp, NBTTagCompound data) {

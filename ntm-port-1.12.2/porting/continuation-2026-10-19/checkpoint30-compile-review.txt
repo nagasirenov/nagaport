@@ -1,0 +1,6 @@
+Frozen checkpoint30 clean compile FAIL558 versus612, exit1,24s.
+54 changed/new Java exactly match3936 generated compiler sources.
+Snapshot /workspace/shared/nagaport-cp30-compile-snapshot/ntm-port-1.12.2
+Log SHA256b6b57259f1570b873ab3002f4715d2275a03652b646f877fa2f85b719e1deaf0
+Repeated class symbols [('RenderBlocks', 173), ('ItemRenderType', 106), ('ISimpleBlockRenderingHandler', 86), ('IItemRenderer', 43), ('EntityFX', 27), ('IBossDisplayData', 18), ('ItemRendererHelper', 18), ('RenderItem', 12), ('BossStatus', 6), ('BiomeGenBase', 5), ('EntityAIArrowAttack', 5), ('EntityClientPlayerMP', 4)]
+No source exclusions. Not playable/full game proof. Future Sedna/NativeProjectionScope sources are outside this frozen tree.

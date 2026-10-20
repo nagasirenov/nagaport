@@ -123,7 +123,7 @@ public class HbmKeybinds {
 		if(event.phase != event.phase.END) return;
 		EntityPlayer player = MainRegistry.proxy.me();
 		if(player == null) return;
-		if(player.worldObj == null) return;
+		if(player.world == null) return;
 
 		HbmPlayerProps props = HbmPlayerProps.getData(player);
 
@@ -164,9 +164,9 @@ public class HbmKeybinds {
 			boolean gunKey = keyCode == HbmKeybinds.gunPrimaryKey.getKeyCode() || keyCode == HbmKeybinds.gunSecondaryKey.getKeyCode() ||
 					keyCode == HbmKeybinds.gunTertiaryKey.getKeyCode() || keyCode == HbmKeybinds.reloadKey.getKeyCode();
 
-			EntityPlayer player = mc.thePlayer;
+			EntityPlayer player = mc.player;
 
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemGunBaseNT) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemGunBaseNT) {
 
 				/* Shoot in favor of attacking */
 				if(gunKey && keyCode == mc.gameSettings.keyBindAttack.getKeyCode()) {
@@ -213,7 +213,7 @@ public class HbmKeybinds {
 
 	public static void onPressedClient(EntityPlayer player, EnumKeybind key, boolean state) {
 		// ITEM HANDLING
-		ItemStack held = player.getHeldItem();
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		if(held != null && held.getItem() instanceof IKeybindReceiver) {
 			IKeybindReceiver rec = (IKeybindReceiver) held.getItem();
 			if(rec.canHandleKeybind(player, held, key)) rec.handleKeybindClient(player, held, key, state);

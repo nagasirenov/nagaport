@@ -1,0 +1,25 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/native-structural-274qx5pb/NativeStructuralTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 12 complete production classes; one NTM registry identity collaborator, no Minecraft/Forge substitutes
+[20:45:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:45:35] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:45:35] [main/INFO]: Replaced 1036 ore ingredients
+[20:45:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:45:35] [main/INFO]: Processing ObjectHolder annotations
+[20:45:35] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:45:35] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.dungeon_chain`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:35] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.fence_metal`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:35] [main/INFO]: Setting user: StructuralProbe
+PASS structural owners/models 208475 assertions
+[20:45:37] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:45:37] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:45:37] [main/INFO]: Replaced 1036 ore ingredients
+[20:45:37] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:45:37] [main/INFO]: Processing ObjectHolder annotations
+[20:45:37] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:45:37] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.dungeon_chain`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:37] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `tile.fence_metal`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:45:37] [main/INFO]: Setting user: StructuralProbe
+PASS replacement-owner native model event 8 assertions

@@ -1,0 +1,16 @@
+import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+public class NameOracle {
+ static int n;static void check(boolean b){n++;if(!b)throw new AssertionError(n);}
+ public static class NamedItem extends Item {public String getTranslationKey(){return "custom.item.key";}}
+ public static class NamedBlock extends Block {NamedBlock(){super(Material.ROCK);}public String getTranslationKey(){return "custom.block.key";}}
+ public static void main(String[] args)throws Exception{
+ Bootstrap.register(); URLClassLoader old=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NameOracle.class.getClassLoader());Class<?> bi=old.loadClass("aji"),it=old.loadClass("adb"),ib=old.loadClass("abh");bi.getMethod("p").invoke(null);it.getMethod("l").invoke(null);
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+ Item item=new Item();Block block=new Block(Material.ROCK);ItemBlock itemBlock=new ItemBlock(block);
+ Method is=it.getMethod("c",String.class),ig=it.getMethod("a"),bs=bi.getMethod("c",String.class),bg=bi.getMethod("a"),ibg=ib.getMethod("a");Field oi=it.getDeclaredField("m"),ob=bi.getDeclaredField("b"),ni=Item.class.getDeclaredField("translationKey"),nb=Block.class.getDeclaredField("translationKey");for(Field f:new Field[]{oi,ob,ni,nb})f.setAccessible(true);
+ String[] keys={null,"","foo","item.foo","tile.foo","hbm:ore","UPPER.Mixed","spaces are literal","ñ漢字","foo.name","foo.desc.P11","%s\\n"};
+ for(String key:keys){String value=key==null?null:new String(key);check(is.invoke(oldItem,value)==oldItem);check(item.setTranslationKey(value)==item);check(bs.invoke(oldBlock,value)==oldBlock);check(block.setTranslationKey(value)==block);check(oi.get(oldItem)==value&&ni.get(item)==value);check(ob.get(oldBlock)==value&&nb.get(block)==value);check(ig.invoke(oldItem).equals(item.getTranslationKey()));check(bg.invoke(oldBlock).equals(block.getTranslationKey()));check(ibg.invoke(oldIB).equals(itemBlock.getTranslationKey()));check(item.getTranslationKey().equals("item."+value));check(block.getTranslationKey().equals("tile."+value));check(item.getTranslationKey()!=item.getTranslationKey());check(block.getTranslationKey()!=block.getTranslationKey());}
+ Item dispatch=new NamedItem();Block dispatchBlock=new NamedBlock();check(dispatch.getTranslationKey().equals("custom.item.key"));check(dispatchBlock.getTranslationKey().equals("custom.block.key"));check(new ItemBlock(dispatchBlock).getTranslationKey().equals("custom.block.key"));check(Item.class.getMethod("setTranslationKey",String.class).getReturnType()==Item.class);check(Block.class.getMethod("getTranslationKey").getReturnType()==String.class);
+ old.close();System.out.println("PASS "+n+" actual legacy/native name setter/getter, raw identity, return, prefix, null, ItemBlock delegation and virtual-dispatch assertions");
+ }
+}

@@ -1,0 +1,25 @@
+PASS all 21 production paths match staged tree and independent snapshot; 15 edited Java sources match generated compiler inputs among 4062.
+Production tree 395ff3351e4da09fdc66d7a37760c8e3fd052162
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "6b476d5d951faca8434e05825537d8833f402b185b9f4e9c1a398ebe996d2e17",
+  "src/main/java/com/hbm/blocks/generic/BarbedWire.java": "9039af91f9ff43a89eb8bf1a727f84b592139589b89308c603c787d37eda3ee8",
+  "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": "e62fb6d9b74f6015e15587291a696e57feca754f4bdcf7bb2de8187919365f6f",
+  "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java": "781dd073b9f557a67776d57d3609c5287950d00ea47155542325c02cdf3b3872",
+  "src/main/java/com/hbm/entity/missile/EntityMinerRocket.java": "6321a2f7f4df5a73827db2a729e8bb7805b4d5c1d781a1acb9a17198d08c0b60",
+  "src/main/java/com/hbm/entity/missile/EntitySoyuz.java": "6a494d4de1688b095b526631fb95053cd5d89ee109c6aae71c645b5e5b78a47e",
+  "src/main/java/com/hbm/entity/projectile/EntityBullet.java": "baf914e3397ed36e8c197560d5bc75928f2bf51ef7bd600f3707eaf0edcacbb5",
+  "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": "ec52f718d4e509e8eb7bcba163e2e05bab899e3eb19fd64bfd0d7f9872298955",
+  "src/main/java/com/hbm/entity/projectile/EntityRocket.java": "c6e8c10bfdf5b80eac6151ef9680776ed7f4e8300eac999a3049820c8177ab8f",
+  "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": "a3b9bf0f783561218b5feb4eabcb7ec2ab4c88ccfa33e8682631c00ddaf6c2fe",
+  "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java": "e71ecb8d8c8cfb3d7b1480a74c548db2f5974924b4ec4893365feead8f327595",
+  "src/main/java/com/hbm/main/BarbedWireObjModelHandler.java": "ca549f417ff3ece9b68d0d903344bdd9702e8eaff88e9908d521cd8100711276",
+  "src/main/java/com/hbm/render/entity/projectile/RenderShrapnel.java": "b31522fc4881a51281abbb8c0fd812ed7dd13487e2975fd38dcee128ef588697",
+  "src/main/java/com/hbm/render/entity/rocket/RenderSoyuz.java": "2add829131b4c29afdb76ceaec250f5d50082fe748531d5f8da61a109ed1a567",
+  "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java": "88cbb6761ed12dea210de8aed8be29e18da163413be9fc2c19b545ca44f1c5e2",
+  "src/main/resources/assets/hbm/blockstates/tile.barbed_wire.json": "095eebc518eb682aacb0d060414bf7b14974ff4fa7b112f759bc394ada7f5dda",
+  "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_acid.json": "465370f440d7f31dfb51c2a8327b3ab4201ffdc9cebe25f5c9816c6ee7da24d3",
+  "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_fire.json": "74268ee3ec7de987df29915b924f398b0171dea2815eb50aa5475f8ae7160cb1",
+  "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_poison.json": "13dee5b92b4bb024b2f1bea324428c288a8c1a61a8c2b75cb4d61aad6a11085f",
+  "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_ultradeath.json": "95ebb2d027337a00af284714abbb748ebd4f270afd5d8b97b4649dedf6967256",
+  "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_wither.json": "f23d0057f5f5c65def5279b9f7c89f579d89295208b335d4f8917b2aacf4a6f7"
+}

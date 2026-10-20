@@ -54,7 +54,7 @@ public class ArmorBJJetpack extends ArmorBJ {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "jetpack_bj");
 				data.setInteger("player", player.getEntityId());
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.dimensionId, player.posX, player.posY, player.posZ, 100));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.getDimension(), player.posX, player.posY, player.posZ, 100));
 			}
 		}
 
@@ -69,7 +69,7 @@ public class ArmorBJJetpack extends ArmorBJ {
 
 				player.fallDistance = 0;
 
-				world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:weapon.immolatorShoot", 0.125F, 1.5F);
+				com.hbm.sound.WorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "hbm:weapon.immolatorShoot", 0.125F, 1.5F);
 
 			} else if(player.isSneaking()) {
 

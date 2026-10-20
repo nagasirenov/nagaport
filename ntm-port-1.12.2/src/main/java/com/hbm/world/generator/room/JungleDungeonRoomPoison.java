@@ -29,28 +29,28 @@ public class JungleDungeonRoomPoison extends JungleDungeonRoom {
 					public void work() {
 				
 						for(int i = 1; i < 4; i++) {
-							Block bl = world.getBlock(x, y + 2, z + i);
+							Block bl = com.hbm.world.WorldBlockState.read(world, x, y + 2, z + i).getBlock();
 							if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 								world.setBlock(x, y + 2, z + i, ModBlocks.brick_jungle_trap, Trap.POISON_DART.ordinal(), 3);
 							}
 						}
 						
 						for(int i = 1; i < 4; i++) {
-							Block bl = world.getBlock(x + parent.width - 1, y + 2, z + i);
+							Block bl = com.hbm.world.WorldBlockState.read(world, x + parent.width - 1, y + 2, z + i).getBlock();
 							if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 								world.setBlock(x + parent.width - 1, y + 2, z + i, ModBlocks.brick_jungle_trap, Trap.POISON_DART.ordinal(), 3);
 							}
 						}
 						
 						for(int i = 1; i < 4; i++) {
-							Block bl = world.getBlock(x + i, y + 2, z);
+							Block bl = com.hbm.world.WorldBlockState.read(world, x + i, y + 2, z).getBlock();
 							if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 								world.setBlock(x + i, y + 2, z, ModBlocks.brick_jungle_trap, Trap.POISON_DART.ordinal(), 3);
 							}
 						}
 						
 						for(int i = 1; i < 4; i++) {
-							Block bl = world.getBlock(x + i, y + 2, z + parent.width - 1);
+							Block bl = com.hbm.world.WorldBlockState.read(world, x + i, y + 2, z + parent.width - 1).getBlock();
 							if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 								world.setBlock(x + i, y + 2, z + parent.width - 1, ModBlocks.brick_jungle_trap, Trap.POISON_DART.ordinal(), 3);
 							}

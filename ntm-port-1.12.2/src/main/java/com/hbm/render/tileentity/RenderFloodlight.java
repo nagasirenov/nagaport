@@ -12,12 +12,12 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.model.IModelCustom;
+
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderFloodlight extends TileEntitySpecialRenderer implements IItemRendererProvider {
 	
-	public static final IModelCustom floodlight = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/blocks/floodlight.obj"));
+	public static final MeshModel floodlight = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/blocks/floodlight.obj"));
 	public static final ResourceLocation tex = new ResourceLocation(RefStrings.MODID, "textures/models/machines/floodlight.png");
 
 	@Override
@@ -72,7 +72,7 @@ public class RenderFloodlight extends TileEntitySpecialRenderer implements IItem
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(0, -1.5, 0);

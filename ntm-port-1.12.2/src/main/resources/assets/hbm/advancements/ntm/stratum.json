@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/root",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.stone_gneiss",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.stratum"
+    },
+    "description": {
+      "translate": "achievement.stratum.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

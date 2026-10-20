@@ -1,0 +1,12 @@
+PASS 8 production paths match staged tree and independent snapshot; all 7 changed Java sources match 4007 generated main compiler inputs.
+Production tree 14fa3d9d21fe1c2f262354c2c3ab23b71b299c0b
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "02583e607790e808e24478aedc674b6b00fd0845a01c8a00bdee4d9c668c4af6",
+  "src/main/java/com/hbm/blocks/bomb/DetCord.java": "0a9b670d504ca56e908178fd6d7bf4cb69fb19c7db3158721be4e15b03952a43",
+  "src/main/java/com/hbm/blocks/bomb/IDetConnectible.java": "ad47b2d27ab7fe098c7ed11036a5dc534e17c4d275291ce05b8183607848c1b0",
+  "src/main/java/com/hbm/main/ClientProxy.java": "7c41fe29cfe3f876b183541d742dd1d8932ee8180b9fefba39c1eeb07d558d43",
+  "src/main/java/com/hbm/main/DetCordModelHandler.java": "77ffca71378ba2ac81258d8bfefc6ec4d04daac935e9595ff76ee1d0a70bfe49",
+  "src/main/java/com/hbm/render/block/RenderDetCord.java": "77086c703f6d3947ccc85b12e01dbef74da7baabe87598e06e9a555fe132f09a",
+  "src/main/java/com/hbm/render/block/nativeblock/DetCordBakedModel.java": "6627cd6f34ab80c38ee9d12583cb255aeb9092d9ca77b57954136ab0b036499d",
+  "src/main/resources/assets/hbm/blockstates/tile.det_cord.json": "46cd7a48f5e1fb63725a945fdeeabb1b35a65fba1fbda92cdfd7985c9b6b7610"
+}

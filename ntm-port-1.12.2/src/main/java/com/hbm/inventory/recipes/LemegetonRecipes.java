@@ -30,7 +30,7 @@ public class LemegetonRecipes {
 		recipes.put(new OreDictStack(MINGRADE.ingot()), new ItemStack(ModItems.ingot_advanced_alloy));
 		recipes.put(new OreDictStack(ALLOY.ingot()), new ItemStack(ModItems.ingot_desh));
 
-		recipes.put(new OreDictStack(PB.ingot()), new ItemStack(Items.gold_ingot));
+		recipes.put(new OreDictStack(PB.ingot()), new ItemStack(Items.GOLD_INGOT));
 		recipes.put(new OreDictStack(GOLD.ingot()), new ItemStack(ModItems.ingot_bismuth));
 		recipes.put(new OreDictStack(BI.ingot()), new ItemStack(ModItems.ingot_osmiridium));
 
@@ -53,7 +53,7 @@ public class LemegetonRecipes {
 		recipes.put(new OreDictStack(LATEX.ingot()), new ItemStack(ModItems.ingot_rubber));
 
 		recipes.put(new OreDictStack(COAL.gem()), new ItemStack(ModItems.ingot_graphite));
-		recipes.put(new OreDictStack(GRAPHITE.ingot()), new ItemStack(Items.diamond));
+		recipes.put(new OreDictStack(GRAPHITE.ingot()), new ItemStack(Items.DIAMOND));
 		recipes.put(new OreDictStack(DIAMOND.gem()), new ItemStack(ModItems.ingot_cft));
 
 		recipes.put(new OreDictStack(F.dust()), new ItemStack(ModItems.gem_sodalite));

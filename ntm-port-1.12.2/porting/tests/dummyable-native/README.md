@@ -1,0 +1,23 @@
+# Native Dummyable shared boundary (checkpoint 43)
+
+Base checkpoint 42: 8ddca7d2d36b223ffdb99c884d1431301c3e957b. Exactly three production files change: BlockDummyable, MultiblockHandlerXR, ICopiable. No Minecraft/Forge compatibility emulator is introduced. Existing NTM-owned virtual coordinate hooks remain; native engine callbacks invoke them once. Metadata is an explicit 0–15 property. Bounds are NTM-owned selection state; native immutable AABB offsets are retained rather than discarded.
+
+Run from the module with Java 8 and the existing genuine Forge/Minecraft classpath:
+
+    python3 porting/tests/dummyable-native/run.py --module . --source-root . --java-home /path/to/java8 --classpath "native-classpath"
+
+131 assertions pass. Entire three owners and six real production dependencies compile against genuine Forge 14.23.5.2768/MCP stable39. Only MainRegistry.instance and CompatExternal core lookup are explicit surrounding fixtures. Native registries, ItemBlock.onItemUse/placeBlockAt, ItemStacks, inventory, entity drops, Chunk.setBlockState/storage and TileEntity refresh execute. Captured WorldServer boundaries use Unsafe allocation to avoid starting a server; sound, lighting generation, world scheduling/network/storage services are not integrated. This is not a launched game, save or server test.
+
+The runner also compiles three exact, untransformed production MachineHeatBoiler domain methods (dimensions, offset, fillSpace) in a test subclass. This verifies base-fill/super dispatch and its three extra connectors, not the complete boiler owner. Main/offhand placement, stacks 1/10/64, successful consumption and failed-placement refund totals are checked through native ItemBlock. Native Chunk removal calls the inherited override once and drops all 57 inventory items with copied NBT. Custom world-coordinate collision hooks are invoked once by the entity collision-list path. Core lookup, orphan loaded-neighborhood protection, metadata-only transitions, extra flags, rotated immutable bounds and invisible default rendering are checked.
+
+Native Chunk creates an extra connector tile when metadata changes from a normal dummy to an extra, then removes it on downgrade for a mod TileEntity using default shouldRefresh. Original Forge1614 TileEntity patch returns !isVanilla || oldBlock != newBlock; native Forge returns oldState != newState for mod tiles. The tested changed-metadata transitions agree. No global forced tile retention/recreation policy is added. Fixture World.removeTileEntity captures removal; it does not certify chunk unload/invalidation events or custom descendant refresh overrides.
+
+Important remaining gates:
+- The bounded class graph has 200 descendants, not 200 migrated machines. Their legacy activation/drop/query methods and bodies still need real native migration. Native state collision-box queries used outside the entity collision-list path must be migrated per descendant; the old world-coordinate hook is not a universal IBlockAccess adapter.
+- Positive legacy render IDs (rail/RBMK/splitter etc.) require actual native model bindings. Returning MODEL does not certify a registered or visible mesh. Existing negative/TESR owners remain INVISIBLE.
+- The base GUI opening and settings methods compile, but successful server GUI/network flow is not launched. Full chunk/world persistence, energy/fluid/radiation semantics and custom descendant overrides remain separate acceptance work.
+- Highlight drawing is an API/coordinate migration only; no live GL claim. Original formulas, dimensions, loop order, 2000-block guard, static flags and original failure quirks are retained. No balancing or generic dropped radiation mechanic is introduced.
+
+The clean whole-module build still fails with 151 declaration diagnostics (28 seconds), unchanged from checkpoint 42. These method-body fixes are behind those declaration failures; focused whole-owner native compilation supplies independent evidence. The three files are byte-identical to all corresponding generated compiler inputs. Full historical source reversal/drift guards pass; those guards are static preservation checks, not gameplay tests.
+
+CP37 lighting policy remains unapproved. CP37–43 are local-only and withheld. No inferred consent, source exclusions, pushes, or user-working-tree overwrite.

@@ -35,11 +35,11 @@ public class ItemModAuto extends ItemArmorMod {
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
 		
-		if(!entity.worldObj.isRemote) {
+		if(!entity.world.isRemote) {
 			
 			if(HbmLivingProps.getDigamma(entity) >= 5F) {
 				ArmorModHandler.removeMod(armor, ArmorModHandler.extra);
-				entity.worldObj.playSoundAtEntity(entity, "hbm:item.syringe", 1.0F, 1.0F);
+				entity.world.playSoundAtEntity(entity, "hbm:item.syringe", 1.0F, 1.0F);
 				HbmLivingProps.setDigamma(entity, HbmLivingProps.getDigamma(entity) - 5F);
 				entity.addPotionEffect(new PotionEffect(HbmPotion.stability.id, 60 * 20, 0));
 				entity.heal(20F);

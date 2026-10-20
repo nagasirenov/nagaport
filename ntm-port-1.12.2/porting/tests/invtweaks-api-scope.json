@@ -1,0 +1,13 @@
+{
+  "upstream": "https://github.com/Inventory-Tweaks/inventory-tweaks",
+  "revision": "220f184e98d4d938a3edc9e3e244f702032ef15f",
+  "sha256": {
+    "src/api/java/invtweaks/api/container/ChestContainer.java": "19b64cd1427a5e08e614a3ff4b83045f3eb6f58de8e1acb3f8fac3acd7ee6aaa",
+    "porting/third-party/inventory-tweaks-1.63/LICENSE.md": "a951a1d9201d3f595e4f77b9d2fdef078a216fa6a80b10515f27cc763674cd18",
+    "porting/third-party/inventory-tweaks-1.63/README.md": "b861affad55d202f9150743da132397c1c1c3242395fb8c4203bdfdc6ff4c3a0",
+    "porting/tests/inspect-invtweaks-api.init.gradle": "ee6948bcafa7fc3ce36953cb18d89f2590ecd5a0d09b06bab8ce1c2496e6f292",
+    "porting/tests/probe-invtweaks-api.py": "bd70124c3b90d78db3d23c71de054d01f0a1582e1d6497c35398da281c4e78fc",
+    "porting/continuation-2026-10-19/invtweaks-api-gradle.log": "3814860a90507c64f719f1b09b6b185245b9208a4db48b42d09688e09592ea39",
+    "porting/continuation-2026-10-19/invtweaks-api-metadata.log": "e6b605dd141b6ed22c50a106f0eb2a32c819ad2626e17ab0e88f5574ed7afbe0"
+  }
+}

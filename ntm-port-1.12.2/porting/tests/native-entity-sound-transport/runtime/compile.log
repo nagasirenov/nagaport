@@ -1,0 +1,21 @@
+/workspace/shared/entity-sound-transport-evidence/NativeEntityTransportProbe.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/entity-sound-transport-evidence/NativeEntityTransportProbe.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/entity-sound-transport-evidence/NativeEntityTransportProbe.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/entity-sound-transport-evidence/NativeEntityTransportProbe.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final Unsafe U; static int checks,wireCases; static Class<?> oldPacket,oldBuffer; static SoundEvent foreign;
+                 ^
+/workspace/shared/entity-sound-transport-evidence/NativeEntityTransportProbe.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                        ^
+/workspace/shared/entity-sound-transport-evidence/NativeEntityTransportProbe.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                                                                                            ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/sound/SoundCategoryResolver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings

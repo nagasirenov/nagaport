@@ -1,0 +1,6 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS actual native World subclass received 18212 ordered state/flag placements over 9 ordinary, boundary, invalid-height and integer-overflow origins
+PASS 18233 checks, including real native World.setBlockState/chunks, notifications, same-state false return, chest creation/orientation and tile removal
+PASS independently lexed pristine placement sequence for 11 generators; 12040 original active placements source-compared; 4762 selected native statements; 18212 exact ordered identity/metadata/flags/coordinate events
+LIMIT: selected call-site execution, not whole generators, random helpers, custom owners, chest loot or a full mod build

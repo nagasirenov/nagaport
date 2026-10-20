@@ -1,0 +1,2327 @@
+{
+  "descendant_default_paths": [
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java",
+    "src/main/java/com/hbm/blocks/network/CranePartitioner.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterFirebox.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOven.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationComputer.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBrandon.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFriendly.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java"
+  ],
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java",
+      "baseline_sha256": "019c705105396e1be0907d87873d81a5178a45819ff1ffd76182f59eccbd0bfa",
+      "migrated_sha256": "ddbda501a04acdaccde6609f18fcc11cfefc5b0b29add8cf41eb92f1bd48c04a",
+      "edits": [
+        {
+          "offset": 1827,
+          "old": "public String getInventoryName() {\n\t\treturn this.hasCustomInventoryName() ? this.customName : getName();\n\t}",
+          "new": "public String getName() {\n\t\treturn this.hasCustomName() ? this.customName : getDefaultName();\n\t}",
+          "kind": "native-name"
+        },
+        {
+          "offset": 1926,
+          "old": "public abstract String getName();",
+          "new": "public abstract String getDefaultName();\n\n\t@Override\n\tpublic net.minecraft.util.text.ITextComponent getDisplayName() {\n\t\treturn hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());\n\t}\n\n\t/** Narrow compatibility for existing machine GUI/container callers. */\n\tpublic String getInventoryName() { return getName(); }\n\n\t/** Narrow compatibility for existing machine GUI/container callers. */\n\tpublic boolean hasCustomInventoryName() { return hasCustomName(); }",
+          "kind": "default-and-display"
+        },
+        {
+          "offset": 2487,
+          "old": "public boolean hasCustomInventoryName() {\n",
+          "new": "public boolean hasCustomName() {\n",
+          "kind": "native-custom"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java",
+      "baseline_sha256": "20765fa4c8d989ff992dcee8e9334ddf292e0ac5593bc6c30fb5b2164687255d",
+      "migrated_sha256": "9c77ae31eb7d954b549be60b5007b792db6a0dc8c9919f66374e50ffbacf3944",
+      "edits": [
+        {
+          "offset": 8121,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java",
+      "baseline_sha256": "e323d68cc38381928406372b76b109ca13e236179a3894b58ba99e35c9b6381c",
+      "migrated_sha256": "5122edfbf0aa258164852d1b74a1e3dd2b95b6a66c057771640dd76d84bda672",
+      "edits": [
+        {
+          "offset": 1010,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java",
+      "baseline_sha256": "dfd09d95b1706658109e768c8155755420a0b277b200439d7592c21a315fbb52",
+      "migrated_sha256": "a93bd3fb16bb6ba562ed1a8636c0757a952a75f2f7b282849390608a0f25f448",
+      "edits": [
+        {
+          "offset": 729,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java",
+      "baseline_sha256": "66d2c59c422b3f3aa765771cb5fbf62b2582530067be6000703f8381b102e7b1",
+      "migrated_sha256": "dc2bbef505164d75352e7b13e72406889250d0912f701653f11429bd211ea3b1",
+      "edits": [
+        {
+          "offset": 978,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java",
+      "baseline_sha256": "12557c23522163e9461fcf1440404d9bab3a29dfa17ff6f10fe3cd22f4b6648f",
+      "migrated_sha256": "8447b79de57da9b0f6e1cd06d89ed8c8eefbbb4ce7bbd6a2e8d88764a0a24d9c",
+      "edits": [
+        {
+          "offset": 2651,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java",
+      "baseline_sha256": "fbdebba380fdbacb1e4e633f0af7d91eeacdeb5db3d3050a4d03e2eb82a3ea53",
+      "migrated_sha256": "760b49f4410f9de73fd3fc18669187e47d91ab9104d33495cd9ea31f2b97c7a7",
+      "edits": [
+        {
+          "offset": 1316,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java",
+      "baseline_sha256": "a1bab8b1b1266bf972bb8a1d40709e5b92b97e4f6b23793946f027ef52c98634",
+      "migrated_sha256": "95cdfe56621617d5ef7fcee88eb9b170fc353e3a71ce380ad88e1820bc7bde91",
+      "edits": [
+        {
+          "offset": 2985,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java",
+      "baseline_sha256": "024b819f84be971160fd4c3e4536743b2334793041551a9a301cbab105cf70d5",
+      "migrated_sha256": "e2e60e8514309779874c922a57b1144835fc16a69c80f0f6d12cfa285115fce7",
+      "edits": [
+        {
+          "offset": 1248,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java",
+      "baseline_sha256": "9f916f81322542bf71d7ef2dfc2256fe86fc98a3be6d7c320ed96b5874f438b7",
+      "migrated_sha256": "5b1c6301af85a038a1e8342b7b362301f66ba0cf324d2d356312bf996d30954c",
+      "edits": [
+        {
+          "offset": 1350,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java",
+      "baseline_sha256": "3a4056cd09cdda087ca944a174690371dd4860b15e29e35dff4c3a08d81644a3",
+      "migrated_sha256": "ca6c04d6000d85090df085b915f70f5e7bd96c36c322713fc91a550d34e5b361",
+      "edits": [
+        {
+          "offset": 1192,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java",
+      "baseline_sha256": "a913bfdd03914723dc1642d70b123437aaa889f68c542bf3900fbd4d200d4fbb",
+      "migrated_sha256": "a4a72b0b571c692844214320a6cb3d20585bc78d41d2bdc1f033560576cd3dba",
+      "edits": [
+        {
+          "offset": 1857,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+      "baseline_sha256": "8739a36701d5cb21896a3ebfcb13130e4babe338a2170972585e36eb5c9920b3",
+      "migrated_sha256": "8ac944a20692ee7cb1e20dc560a4553a2270bf5e688e89439ffb8dc350bb7bf0",
+      "edits": [
+        {
+          "offset": 2134,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java",
+      "baseline_sha256": "6384dceb59aba8e79b76a8f037b9427754833b510755649c5361e4f8cd5c3fb8",
+      "migrated_sha256": "507c85073031eea13acf81304daf7e879341bcc2f4514774fbd2892a8a900d89",
+      "edits": [
+        {
+          "offset": 1595,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java",
+      "baseline_sha256": "69f7f273811f873e621b4c4ac456dfb02d87ad324fab31e81abef3d329c261cc",
+      "migrated_sha256": "46e209906c0e6a3e2e59126c667b4989453bc617817cec3c96524963e9a71662",
+      "edits": [
+        {
+          "offset": 1730,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java",
+      "baseline_sha256": "190ff6d66a98817fe5af6443350ed4f99d40c3c6276d454e697593ec9874298e",
+      "migrated_sha256": "2737cd5e65001be65089032d3863e8deaf4e1c1f4fba71304ce1b5e4bde906b3",
+      "edits": [
+        {
+          "offset": 1788,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java",
+      "baseline_sha256": "275c668c34dce005c7d7c4d7df09effad3b2be4ebaa45a6a1706724f6ba867fe",
+      "migrated_sha256": "8b281fafb4bd41c1abac4b0c4e6a1bb4d832359cce48e05bee53fe2ed633fa7c",
+      "edits": [
+        {
+          "offset": 1149,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java",
+      "baseline_sha256": "8e0f0800982c780301ddd034b15ace1b8c23aaf075d04990bc62eeef5d029bfc",
+      "migrated_sha256": "214f0e96ec3b2b95c5c3a56ab906dac0bf98c3ce5b4bb0321d66af6b0cb4e765",
+      "edits": [
+        {
+          "offset": 1439,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      "baseline_sha256": "edec14d39d4f69fb61270a5dbf89adce356099e20abeebe037700e5f645b4b43",
+      "migrated_sha256": "b140accdc39129a20e0ac31f7b21a06b7c807254558036bb85806bc0fb2e8ccf",
+      "edits": [
+        {
+          "offset": 1579,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java",
+      "baseline_sha256": "fbf68760f0540a3c3f3de83f99ce3c6bf9fa953eb0d55e89068f5011f0a1fe39",
+      "migrated_sha256": "96378bd57176c9e309680f10b23431a74bbdbcb568c862457a571fd31710598d",
+      "edits": [
+        {
+          "offset": 1213,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/network/CranePartitioner.java",
+      "baseline_sha256": "f7344b82c5cc49d425f2ad94a0d19e1f34722f57d723ef797fe03f83d17d9367",
+      "migrated_sha256": "26f522e5c3d7a9654007984f26412785c3cb2c63a33e4a173b0bd448d7044bce",
+      "edits": [
+        {
+          "offset": 6613,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java",
+      "baseline_sha256": "ae49ef86ece50c055f3633d33596def30a3dc076dfdec761ceb1d67440d98d34",
+      "migrated_sha256": "25fcaa40ded9f568e332477efdf627cd6b1580f7d634f348216a349d995c4392",
+      "edits": [
+        {
+          "offset": 1401,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityCraneUnboxer.java",
+      "baseline_sha256": "afb63898a22cfd7768affc4a9a796ae593db6ca8895b0830d4bb22b81a41b361",
+      "migrated_sha256": "45441d291a5b1195389974f0ae582cc8016777ae97a2998fd6eb332393eb4687",
+      "edits": [
+        {
+          "offset": 819,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java",
+      "baseline_sha256": "485767bc8a00cd85e5ea8196a54c60dd95efe4f5be64c67fbd223060f8c5a621",
+      "migrated_sha256": "8c8fddfae3294f7e1b98e06b597391b95f1e85947d026e16bc58ee9487070d61",
+      "edits": [
+        {
+          "offset": 3725,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java",
+      "baseline_sha256": "eea33759b764e445aa354e3c92ef7e85dcec4379bdfa32176ab5ce4ea5631173",
+      "migrated_sha256": "73151d8a9218d0475a98386b94d37659d3ffc6b00ba7930ce5504636cce8c8af",
+      "edits": [
+        {
+          "offset": 3511,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java",
+      "baseline_sha256": "d902dc714e21813c313201e3577b0808a190965415b8ff2ed804558f543f5596",
+      "migrated_sha256": "bd7c9494bea36284d171f496404dcbe7713ab66bfeaa01725bf2dad0b9c8107d",
+      "edits": [
+        {
+          "offset": 815,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java",
+      "baseline_sha256": "f887c30c61f7582a9b08a74bdd2dda0377d54eeff60f1229f3f119704d2a61ab",
+      "migrated_sha256": "c6e74593ebc28866241c6c33cda389aa159bbace1816604eef6aa3f8225b6436",
+      "edits": [
+        {
+          "offset": 1626,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java",
+      "baseline_sha256": "2cf635079a422cd62f4bd1d2f4cc7a697fd09a11aa3d07c397ae595c90b9e8d2",
+      "migrated_sha256": "af6b9de8a9a7ebfde675a13773d752bd04afc2bb993c5f1416747d80728d127c",
+      "edits": [
+        {
+          "offset": 5884,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        },
+        {
+          "offset": 4502,
+          "old": "public String getInventoryName()",
+          "new": "public String getName()",
+          "kind": "custom-owner-name"
+        },
+        {
+          "offset": 4623,
+          "old": "public boolean hasCustomInventoryName()",
+          "new": "public boolean hasCustomName()",
+          "kind": "custom-owner-predicate"
+        },
+        {
+          "offset": 4537,
+          "old": "this.hasCustomInventoryName()",
+          "new": "this.hasCustomName()",
+          "kind": "custom-owner-dispatch"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java",
+      "baseline_sha256": "33fb09295d7599e52c7cf26f4f208466e87fdad29b108f3d16604eddb7f2b79c",
+      "migrated_sha256": "2a4ccb6ff5af76afef66b893e54d2a7e1a5eae109fb07183cd94cd45b546b824",
+      "edits": [
+        {
+          "offset": 948,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+      "baseline_sha256": "2a6daae035cb376271c5df42a367e2400ad22b15a6fb9d1b2c9022ea35ddfdc2",
+      "migrated_sha256": "ef56a12e857ec02cd048354c2bf454a576d7a7f3d7eaef43345b2da5eee7df58",
+      "edits": [
+        {
+          "offset": 1538,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java",
+      "baseline_sha256": "e8b2c3f35a6d7047714613bf68ba7035b934ee322df8a06e68baae3f147b16de",
+      "migrated_sha256": "23a7429709e6b66e2af0637cd4f500d2a006b6bc52f53f076ea71ad30bfc2471",
+      "edits": [
+        {
+          "offset": 1504,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java",
+      "baseline_sha256": "933f333680c0337188f6c730bbe552f18e058869d27c70437d16d77be0d65345",
+      "migrated_sha256": "ac265da418986584f7ff636d9a24f2bc295170e4b217283c654f39de5450acf7",
+      "edits": [
+        {
+          "offset": 938,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java",
+      "baseline_sha256": "e1a8296072ec27a18df00ac8fc9c586c6bdf301519834cbe245eaba82fbd564c",
+      "migrated_sha256": "6b0f201f2e8f9ce44bca85553d1a806ef113821bbab9d0fac2ea5361bd5e6f53",
+      "edits": [
+        {
+          "offset": 645,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+      "baseline_sha256": "128fe69f937adfcf2b2d5317dc4f5390b252c169ea00dbdefc414bc42f1af4f5",
+      "migrated_sha256": "9c9731475d6749a6cb9f64c6e858b2993522f4ea82f0038f4b0d8ec1a839f0bd",
+      "edits": [
+        {
+          "offset": 1597,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java",
+      "baseline_sha256": "4de661274b93f4f1d59fbd9a7471b209e047d7dc1ff3bd428f23ffbcc333290b",
+      "migrated_sha256": "7db5adeeb1371ca2d41f1e6d4d9fc30b1c9fa80a70f04b2d89bf2404921779a4",
+      "edits": [
+        {
+          "offset": 2828,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+      "baseline_sha256": "6c9ef2337b4e3e3b628d5eb3f1524206081b7332f64d66a92ddf6ec0e1319ca4",
+      "migrated_sha256": "55e0cae8d859e7aac781108c317bf2c0408a9283dddcbcd7a5ad3b2588990903",
+      "edits": [
+        {
+          "offset": 4004,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+      "baseline_sha256": "223588e5d549ca4e6f0da98b1cb1342c04dfc6f3aaadde428e342e631573593f",
+      "migrated_sha256": "dc57d39760099e3175a512737cce85a19cea473892342f97e80bc4a129cf7f5c",
+      "edits": [
+        {
+          "offset": 2146,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java",
+      "baseline_sha256": "5bea4d5cdbebd08a8270ccbb6b1ec77baafd459fb58b2585584522fefbea4a11",
+      "migrated_sha256": "4ea8f93f22833122d28e3cf1096ad59775fd396439bbd318c2e4bacbedb95cf6",
+      "edits": [
+        {
+          "offset": 2678,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java",
+      "baseline_sha256": "50812b7f93c5e0955a06d73f1522d798a4e8880cc133c81c1dbf88cbee523e3d",
+      "migrated_sha256": "7317805515e91785d4bf3e4dd1d0eeb33c6a89f10783bde7e0e6c32dc5733196",
+      "edits": [
+        {
+          "offset": 1674,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java",
+      "baseline_sha256": "b06fba79064ed0c6d3b2e070744c1d1b7a63e4f2e424c7155cbea6644746e025",
+      "migrated_sha256": "63dfa694667dcf1784e2fd6166b79c254c378178854cf9f5377159abd44197ef",
+      "edits": [
+        {
+          "offset": 1810,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java",
+      "baseline_sha256": "f85161ddd33a8dbc2f823b3ec21650da26b9ca57bd4350b4b41c3cbff1c623bf",
+      "migrated_sha256": "5bef044d2a035beaf4e62d59c75c6dfee94b1f5e738babdf39df4df845bcc796",
+      "edits": [
+        {
+          "offset": 1572,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java",
+      "baseline_sha256": "568977e550ad1eff24b1a1c034b882d6589f4ecefaedf5bc19676eab56673694",
+      "migrated_sha256": "8d211823ffda506fe3abddc08a823d043b163bc7b3cb9b866e77f0b064ee3250",
+      "edits": [
+        {
+          "offset": 2285,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java",
+      "baseline_sha256": "0e05316bc0f56fc885488ddc27d8ba3855f4272c33716b421524e4b3f14792d3",
+      "migrated_sha256": "4112040e0a609dceee995b0f250bda1c6b3fd96148f02fa60ec32e0d4a343068",
+      "edits": [
+        {
+          "offset": 2477,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java",
+      "baseline_sha256": "83fdd83dde4ba7f7e73953bebb84d05d6035c8d2682d8a13e593868a6225594e",
+      "migrated_sha256": "dac6da412b3f3d826d477e2e6c1674f6eaf06c46c53a2395d73179638264c62d",
+      "edits": [
+        {
+          "offset": 3131,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterFirebox.java",
+      "baseline_sha256": "00e0a6a07be8b7fd3c61f64dff1b5b4fd7e0f82a29862d21546a316d40f1378c",
+      "migrated_sha256": "a2087ba8aa9bd2438d0bc212159f1fb30f2cc294f6189ff2208a28d9837690fb",
+      "edits": [
+        {
+          "offset": 1271,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java",
+      "baseline_sha256": "e8e605068aacddd43a970cf36145a38db7d76c7215fbca00757c77191a5db960",
+      "migrated_sha256": "ac41838c1bfe759ff4b9163bcd020eb6efd4f562acf1ee8a5455189fc06c564e",
+      "edits": [
+        {
+          "offset": 1669,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java",
+      "baseline_sha256": "7e3c5b4a30af04820e9cf7bb99c91929bb46ba42d5ac7931fb99608bd69274cb",
+      "migrated_sha256": "8d782e3cd636401ec6ad368a245344dfd579eb0a7e3783382bddbaf4aef3df3b",
+      "edits": [
+        {
+          "offset": 1466,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOven.java",
+      "baseline_sha256": "cea0eb7cd76ddacf42c5671c5e0e9b8df1564a4571727e875b41c58b369c5930",
+      "migrated_sha256": "08bd4a6f2fc14a11df72147eca7669c6ed834a1370729350de2691ecb9a01abe",
+      "edits": [
+        {
+          "offset": 1537,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java",
+      "baseline_sha256": "07d4adf2fde0bd78512ae11c7d9109951149fe264d87a9eb44f71c23a92fc905",
+      "migrated_sha256": "a93d4fa508e7966e21f9cf71c692db63143b71c585744cdbf548140397b51b09",
+      "edits": [
+        {
+          "offset": 2306,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java",
+      "baseline_sha256": "92181a40d6233d3702a60009056f25db7fe43a76ee3af70fbee86f9bf4616221",
+      "migrated_sha256": "3e8409d6413e889997d3ebd91dfa873d32cd272282e938ae33b437a425a0454e",
+      "edits": [
+        {
+          "offset": 2417,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java",
+      "baseline_sha256": "3032089a673003fc42ad85b04e26afb4c2bfd61a5ce634924e1658344a41c275",
+      "migrated_sha256": "b00217d8e42d965b3646cec80c4092bf0941e3252cfb3aec8e5942f597aef289",
+      "edits": [
+        {
+          "offset": 1452,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java",
+      "baseline_sha256": "42c3c60bd767772e4617c767de9f468d5a6e650833f9088302b9e167c2a0b5bb",
+      "migrated_sha256": "f004bf720649601431ba003059ffdbd94c4765e6b2fa26cf884afa959cf52784",
+      "edits": [
+        {
+          "offset": 3026,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+      "baseline_sha256": "e17b0c50807beb759998644610462cc09172d92d87419ecb1dcac32a336c4eb4",
+      "migrated_sha256": "8f4a2d846a3f356c9ff7d09651ea30c4df5802dc0105de47b4ad115df45001b5",
+      "edits": [
+        {
+          "offset": 5851,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+      "baseline_sha256": "3a2e0c811b77e6593e994dab1ce3d39d747c2a3c111caa9b99820f269f59d32b",
+      "migrated_sha256": "ba6a98c137671a8d852bb91649c22629bf2dc16aa8fea403239785717721915d",
+      "edits": [
+        {
+          "offset": 2851,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+      "baseline_sha256": "d284bb2c365156c76887c1556e698d28e7b82cd8125d431058b02c5e7064dac7",
+      "migrated_sha256": "2053d9dca5adce939f701d69dea66eee324f020b0ae6d8e84912414afdee4a4d",
+      "edits": [
+        {
+          "offset": 1490,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java",
+      "baseline_sha256": "d31e5faba030dcc99e9cf32aa394d4a8ace6a8307f128fe6ca44e69d0bc720c6",
+      "migrated_sha256": "0ae456e0c6c0061692d1125c6abcd0ae9c80cf6620c6c157214227e2a6abaf1d",
+      "edits": [
+        {
+          "offset": 1396,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java",
+      "baseline_sha256": "62ff5f00fa97e403b2a953ee1ecd0a47c4e188c2a7a0dd9209c801dbf920c5ec",
+      "migrated_sha256": "702437842c5a5ef31e125de6828465acc3515980a312d135127337ce2cea0191",
+      "edits": [
+        {
+          "offset": 1286,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      "baseline_sha256": "8cba01dd53616b1fe61af19337416e72fff1138716b2d2ea15e04860669fce83",
+      "migrated_sha256": "076409cf4b07ed2e4cd3ca18a56721fdf0e9883452a14836fb1346324e527da1",
+      "edits": [
+        {
+          "offset": 1980,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      "baseline_sha256": "bae9617f60c5211bbf57b70ba5c58579b052d9987d5e5c172879cddd561d971d",
+      "migrated_sha256": "e4fdde91f0c203a9f9e83340f0ca0ebda4c1c74fe15e4735259df58bc8896c3b",
+      "edits": [
+        {
+          "offset": 3208,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java",
+      "baseline_sha256": "7f80c1b4644b4b856b5c9e8219542d1aed43d46f379583dc766b956905208baf",
+      "migrated_sha256": "43bf998d5e9f03f90525e1f42eee4499c29c7fc65a48e7182c0de82722f030b8",
+      "edits": [
+        {
+          "offset": 2180,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      "baseline_sha256": "5109920f60de12be88a50d4b2b6ff56399956615d2dacbec825274a239fbc09e",
+      "migrated_sha256": "5c3c2eab63cd53e7417bf256f35c6cfe16dc7dd868718d1e6f47cc7ca59f554d",
+      "edits": [
+        {
+          "offset": 6414,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java",
+      "baseline_sha256": "5abc47df10054d48f787a110fe3237d5a8d70f2f7fbaadbb434e62d7b1e723f9",
+      "migrated_sha256": "6e879efcdc3a7803d077d95f6f2f28bd3be466bb7c4edc4c6ccfd31f9e20cc5d",
+      "edits": [
+        {
+          "offset": 2745,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java",
+      "baseline_sha256": "0c540edd63eafcf11b62e637cfefba9ae2b9347a61515a81bf41e76b86aad36c",
+      "migrated_sha256": "abb70f476969339a48f8d958b417f7d9564465c6847294d11718c257e8aff496",
+      "edits": [
+        {
+          "offset": 1907,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java",
+      "baseline_sha256": "cd16c01cc120fab89d4bfdd7fe8f24e5848f053a3de0a0a1bf887a98cc19edb2",
+      "migrated_sha256": "b9b1d60a9f6664b35b82c641ef55059b2ea188772d0281e76abb0b78e57ed6d8",
+      "edits": [
+        {
+          "offset": 401,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java",
+      "baseline_sha256": "bbac5a1d6cd6f7b4482a0f42d365030c8480fabfc1d2656788e344ea35a866a5",
+      "migrated_sha256": "678dfd59815cea1db038cd73a9927fe925a52de8c7c8833a509e82477fdb2a65",
+      "edits": [
+        {
+          "offset": 2764,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        },
+        {
+          "offset": 2843,
+          "old": "public String getInventoryName()",
+          "new": "public String getName()",
+          "kind": "custom-owner-name"
+        },
+        {
+          "offset": 2955,
+          "old": "public boolean hasCustomInventoryName()",
+          "new": "public boolean hasCustomName()",
+          "kind": "custom-owner-predicate"
+        },
+        {
+          "offset": 2878,
+          "old": "this.hasCustomInventoryName()",
+          "new": "this.hasCustomName()",
+          "kind": "custom-owner-dispatch"
+        },
+        {
+          "offset": 2917,
+          "old": ": getName();",
+          "new": ": getDefaultName();",
+          "kind": "battery-default-dispatch"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java",
+      "baseline_sha256": "0c59b8968afce6e0b92d3e80f03be85eb997ce41a2041ca806ebaf591af44dab",
+      "migrated_sha256": "21978354361412ba5e03fad61d025a16cd2ab171260e14c31c976018e1d28d61",
+      "edits": [
+        {
+          "offset": 1834,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java",
+      "baseline_sha256": "e92943acfaec30342faddeb354ea53e8a665bf1dd9a05e5a2c24eac2cde80703",
+      "migrated_sha256": "46b7107ef0a026c71ee8c929a72242689304d098a2f3e47460af41ac413a7786",
+      "edits": [
+        {
+          "offset": 3160,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      "baseline_sha256": "4948cb6b54e369dfa4842ffbb657376a3c4fb6a5ecbf225741300eba5777402d",
+      "migrated_sha256": "59be2e7175e5930f0296b49fc72511b18719fa2668c826df43baffd1e2b78d4b",
+      "edits": [
+        {
+          "offset": 6054,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java",
+      "baseline_sha256": "cafe2f15794dfce37540ca2ebb293a91e30207fed001db4b344ac006fb66065a",
+      "migrated_sha256": "fda86bdafed7823ea00e26efd60908df361a0b1ab22caf25d7c7e0d90f61e34e",
+      "edits": [
+        {
+          "offset": 2715,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java",
+      "baseline_sha256": "2f6f3e8cfe0a31c1df338e715bedafb856e9a14d7f63dc0bbe510e0deb61fef3",
+      "migrated_sha256": "954bd5490f4ad865de21d933f7ad3094c7bf382d4ab997f3a81e836fa88c149c",
+      "edits": [
+        {
+          "offset": 2166,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java",
+      "baseline_sha256": "8aa98dcad7ff72223349dda3b3c12471fa013b1276181523bc1ace897ff9c845",
+      "migrated_sha256": "9ca59b0c07c4eacf0df5ab2630481f91f30ea352c59214951e697bddba59f294",
+      "edits": [
+        {
+          "offset": 2493,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java",
+      "baseline_sha256": "a5df4f01fd4e288754986a4b7d891567b298f34c7033e47c38eb4a855fa379fa",
+      "migrated_sha256": "cc512cce0c1cd0c10076827c14fcfa8abef33169ca8de5dbd05c9df042d8dfcf",
+      "edits": [
+        {
+          "offset": 2185,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java",
+      "baseline_sha256": "8d7015112eaa641cdc9ce96e2502a64574e4a3bdb67d82b6d2e65ef65d0cc9cc",
+      "migrated_sha256": "cace3b625818df928843692b9402a256c1b32f9ccc050a3f1c998f3e3a16ea22",
+      "edits": [
+        {
+          "offset": 1767,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java",
+      "baseline_sha256": "6a522f0ba9f8822fed1e3c3924826943ccf03c3d968db4fed53075234deee5ed",
+      "migrated_sha256": "43d59a206087cbb3240c5a322a89e8ce653ec673798ddc20cb78111f355d4653",
+      "edits": [
+        {
+          "offset": 2049,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java",
+      "baseline_sha256": "73df009cf208290fade3676061097b40a7e179964bdad966eac4833dd57bd26a",
+      "migrated_sha256": "1bd7b57f09ac61895c3575b2e3627e5daf06e73c6996ac21047fbd49bd2ae1c4",
+      "edits": [
+        {
+          "offset": 2301,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java",
+      "baseline_sha256": "b7eba7a35c4737655d209c1023f96d36a06510d6956eef744ec8d91389bfdb7b",
+      "migrated_sha256": "3b6f57713dd42edc2516769da175f11d2f98d16b56e3d481501fd8ae6814d31e",
+      "edits": [
+        {
+          "offset": 2576,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java",
+      "baseline_sha256": "23092e8be84f52a1c29098fac3a1ef19252fe9b1594640724fdd884785837c3f",
+      "migrated_sha256": "3170f7305902ac34c1ad4cb0402913235426c90f22a2c9dca9b9a43ae3320508",
+      "edits": [
+        {
+          "offset": 5672,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "baseline_sha256": "fc04def159bb5775352a549e691106c534717d1ff4662b2ecbeb32febf30bdfb",
+      "migrated_sha256": "b65348b8fc250e542fbfaa024e83a095dfaadf5223b540a1ff650e05dc43bb3b",
+      "edits": [
+        {
+          "offset": 2297,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java",
+      "baseline_sha256": "438732e28530c7551935eeac19fab02fab1dec64ab95556f745f8e5c55d114cb",
+      "migrated_sha256": "cfb0f206a80f2402ccb050147d0d6f7dbada1ed49a4b14469e4c0dec57f646bf",
+      "edits": [
+        {
+          "offset": 1962,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      "baseline_sha256": "0cca7e5d1b5d5d49fde8bfec5212cc6666be80826ada213473c9e360e2a487e6",
+      "migrated_sha256": "5d5851d81ebe8db1447340d31c487cd84b4d086b2e1087f83ffa3caee6c11a12",
+      "edits": [
+        {
+          "offset": 3638,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java",
+      "baseline_sha256": "fa698a6ee2470f2fd61cd02c251eea09f1ee955191ca97787ff6eda74e088fb1",
+      "migrated_sha256": "9e3c5f868869fb5facb8e28df4e62e0fc68ec66ec5a6725ef36190b169af1c49",
+      "edits": [
+        {
+          "offset": 2596,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java",
+      "baseline_sha256": "3c824cc7917e26aa005cfc2f2735b806e0fec0240d4858f53b4960248073e71e",
+      "migrated_sha256": "7a2ddf222ab84a53449c826f2e3f2c20d82697959b61fe40df18715e741cb088",
+      "edits": [
+        {
+          "offset": 3086,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java",
+      "baseline_sha256": "69b42215fb4df315c0b856f9ce58d71b2a7523ce792977b3078c2c0b1a8300dc",
+      "migrated_sha256": "4a3b2099b89bd93021065d03b97d001d41bf9195193818668b9015d7aa045bd7",
+      "edits": [
+        {
+          "offset": 1651,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java",
+      "baseline_sha256": "1549dbccb92714cefc642cc5bce08187791d2356d778df69c49626f1fa84e1f9",
+      "migrated_sha256": "1bea255e2625ae751ca3068460f0a0798ffc20879f25e77389042485177775f3",
+      "edits": [
+        {
+          "offset": 1230,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java",
+      "baseline_sha256": "a111abe4d32abdf3a17aa14738e2469e8172f24d50d6ff7492061ef5ad724a45",
+      "migrated_sha256": "f438fbf7ec29266df537d25aed6bc72a0231925b46f06365b199bbdb709aefb1",
+      "edits": [
+        {
+          "offset": 2276,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java",
+      "baseline_sha256": "8cf0e3a86989b02e4344cf8961a4c3efd409a9332dbfbe8001ed2616cdd463f3",
+      "migrated_sha256": "1cbcee758de577c18db560f3e0c5f5cb2c10ed993e6abe5cb10dbae723ae7962",
+      "edits": [
+        {
+          "offset": 5252,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java",
+      "baseline_sha256": "b5bfd112a01173bc2e811c8599a51d4a7d8adbf4ce02eb469b8810db6528a6e0",
+      "migrated_sha256": "80642bec2277fb25d5009d00f8863ff9ca44b1ee05b363298f2407ca727df085",
+      "edits": [
+        {
+          "offset": 2486,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      "baseline_sha256": "e6a57df01029424998cdc12da019c64eeb13a8f1e2dd54f14751193c75ef29b5",
+      "migrated_sha256": "33c6ad5902bd28dc4d3d7397ae960e77ad0f6bd53d7c2b9bff284dcd73726cfe",
+      "edits": [
+        {
+          "offset": 7147,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      "baseline_sha256": "85842f94c8417d120b998a1d592d212f1141eb6070819f165a9ae35c13dc7deb",
+      "migrated_sha256": "e14057bb0347da65236d9035b3003757e572cc9ce831f96b6288e79edac9ee82",
+      "edits": [
+        {
+          "offset": 7665,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+      "baseline_sha256": "bdfab8e8114f477786f9bc02f0a18294627e5f0f51750a385e7df3a2dffc53e3",
+      "migrated_sha256": "eac59c731d27a20c408da4c9eb26d471c82457cf30ee9645437c082179ddb759",
+      "edits": [
+        {
+          "offset": 9050,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java",
+      "baseline_sha256": "8ade6a297d6f13f2ec7a8cd2b1a463ee562a20e98b9ff6a35d2f32fdea25ceb9",
+      "migrated_sha256": "55719c5ba7a35edec6efe4b9e93315b6a33e5eb84601cb8d25520ec21f51f4e6",
+      "edits": [
+        {
+          "offset": 1787,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java",
+      "baseline_sha256": "e62957df3462d3adef9e269f48eeadcb89e637ac20f682cbcf357b8c2bef8faa",
+      "migrated_sha256": "61b044f25331d7fc3ea4b17f9f75622951523a4b8b5aac28e57ef9e85bb46ff0",
+      "edits": [
+        {
+          "offset": 2213,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      "baseline_sha256": "28ee5803b7af2f848d666d96e0ad6c8527d434336c52658f250257c19d33cbba",
+      "migrated_sha256": "fa3010f2969c04d9864436b4a9aeee713b8f186b6ffe99bca42645a8905f06ed",
+      "edits": [
+        {
+          "offset": 6964,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java",
+      "baseline_sha256": "61d58d9d6ecfb0b2c4ebe7af392b21f0412a003654ac6eb968e39406bf4d03da",
+      "migrated_sha256": "ca1db8e1e627641c9e12a1d5af4c305270781864b89a5493ed7d36b9ce158bb1",
+      "edits": [
+        {
+          "offset": 2669,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java",
+      "baseline_sha256": "9988254431338933e5cb8daa9c62f85e5691e189b0d327511f42497a7f5f2526",
+      "migrated_sha256": "72c964d76e12c4d8f15b695d680dd75387c34aa988558b8ded3b5f192a5ae72c",
+      "edits": [
+        {
+          "offset": 2012,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java",
+      "baseline_sha256": "21b0226a1a7b3377b81ccea3c611dacf9efd0cead2e92f42732d4720944dfec6",
+      "migrated_sha256": "c07598e1c109b3de2bd5458a36fcd58323e93188ced430f6c7365ef25ffb5b65",
+      "edits": [
+        {
+          "offset": 8308,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java",
+      "baseline_sha256": "761bad2427963e4651e59bc9a727b281f1dbf7282cae692aa01215e87a709adb",
+      "migrated_sha256": "99e58a219656942f46fedc1aafda7e73e566a0d00b7585f9e9bc12ea12e8ea78",
+      "edits": [
+        {
+          "offset": 1525,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "baseline_sha256": "7770f2cd8df5fe70d48c583cbda8dd0a2d37a7b25f610f514bd62c6e95edf72a",
+      "migrated_sha256": "4f96155cf540bd7f7c20f705c2a4b72fe4dfb820154bc532504e9680183c5040",
+      "edits": [
+        {
+          "offset": 3306,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java",
+      "baseline_sha256": "7ad67914c37e3d5f248931cbf284bc4118edc053102b103abe4fe99f53744035",
+      "migrated_sha256": "2bd0ce909c69fd7eac053753acb484fda09fcb2f644267e65dcf8c4ea1f00716",
+      "edits": [
+        {
+          "offset": 2043,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java",
+      "baseline_sha256": "5c34dd042153f06b7562dd0f1ddd9e4d03d0bf1a71a6b262dd35e2edb9842040",
+      "migrated_sha256": "82fc054436aeeb49a774f196de8a3d5071a35f071e6a5612b28518be9f001b36",
+      "edits": [
+        {
+          "offset": 1293,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java",
+      "baseline_sha256": "b5c1245f091209cf22448c9d7faccb69bee7d0b0b88e5b7e1df1cc79a8959468",
+      "migrated_sha256": "9fcaa342d353d01fe26a11d323eb7ec321718bf12b7ceddbd3e79493af617ea1",
+      "edits": [
+        {
+          "offset": 866,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java",
+      "baseline_sha256": "535bf036b450b1553faa88e5c75803409a7d73055ee03cf1ff033a3ba4539780",
+      "migrated_sha256": "087e55d39b65d6a38cb2fc4f32dee5f533dee06694cc22edcc60c7ea7de40143",
+      "edits": [
+        {
+          "offset": 3213,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java",
+      "baseline_sha256": "76f9c52c435e7d30d040a72718221ab4b94bfb7cfaecadbcb48b3a5cd2f45458",
+      "migrated_sha256": "2aff43b31eee5e7092b563c020c24a036dd5536101eadefd7ac06850d63ea525",
+      "edits": [
+        {
+          "offset": 2505,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java",
+      "baseline_sha256": "a91a173df367752b786221fb3d1603d6c7368422c304cefe6080b9e23cff5098",
+      "migrated_sha256": "60ff71750ac0a3e59a4f7d465e8e5168a332824cf58f2ba15830b2ae57b2cccf",
+      "edits": [
+        {
+          "offset": 1692,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java",
+      "baseline_sha256": "a3291c9272b0fd7652d400a950886cfd5e0b93eece848a393ddb4a07b26e8825",
+      "migrated_sha256": "a81db704bdc196608ce42d773762793d0a7f723194c30b655ff98cdb89cf5613",
+      "edits": [
+        {
+          "offset": 2934,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java",
+      "baseline_sha256": "c094b8ffdfe75fdcc8e32c9e0f3d4e84e60eea9527cfad4b395646c987911471",
+      "migrated_sha256": "f618f531e8b9235a26d379f63f9244a0ee4eecd0cbaf348af78efc3dd81b458d",
+      "edits": [
+        {
+          "offset": 2417,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java",
+      "baseline_sha256": "00094041149495ebb404edca171f1b09d06d681edef16dd08693999ce374ed21",
+      "migrated_sha256": "6016e57a4862d68cfb1331417a4e46b6264073aab52d8c671a0b02989d069753",
+      "edits": [
+        {
+          "offset": 1594,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+      "baseline_sha256": "f8909945f5670e95016484ad865ed804439df2bad6de783175daf12235b981ee",
+      "migrated_sha256": "21298e8185879a1886b0493115db4198bf1c4b7544bce43bf73f76e8c6c181c4",
+      "edits": [
+        {
+          "offset": 2710,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java",
+      "baseline_sha256": "026bc6df25aa187e6e026ed831f6bac516489cd34b710f87a62966f761d7f14a",
+      "migrated_sha256": "1ece0045c1d7a56d4029169ea9d3a38e83c2432246456e914dbadaab8f1c90e0",
+      "edits": [
+        {
+          "offset": 1684,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java",
+      "baseline_sha256": "070914ece052fe0b01b0ed8bc3a8a5809e12472b3cfe9465a260dc205bb724ec",
+      "migrated_sha256": "ac3875c560c434cbfdadb868155dff98bd44908ad148661698baff2b1e5ff852",
+      "edits": [
+        {
+          "offset": 4779,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java",
+      "baseline_sha256": "7f48cda9268f27d239938958448ce16d770cf8f9b0cff01a6b61fd125bffd5a0",
+      "migrated_sha256": "913690221821fd69eeca87642ea26ad7df47fedb8a2bb1a96c05f810589c078d",
+      "edits": [
+        {
+          "offset": 2151,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java",
+      "baseline_sha256": "c05c60125fe8bb35076c2c4bbb43fb736c8deed0ef0bd7bc45e9d2b77ec2813d",
+      "migrated_sha256": "34da8f3d4fb7bc1dc49015353a0ae80656b5ed3bc6543fe285ff6a5a8f6abd73",
+      "edits": [
+        {
+          "offset": 1725,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java",
+      "baseline_sha256": "f5e349752d5d46efd1109cbc3847c63d2b54cf9d40539a272169394ff5575ce3",
+      "migrated_sha256": "136c4ce0f5d0dfdf2947fd3bc5dc8ac9339094601189ad9af5ee4ac7d77f354e",
+      "edits": [
+        {
+          "offset": 2770,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+      "baseline_sha256": "14dba4ec85bc85f2238f090cd276729ea6e684ecd2b6bcfb0bd9d26e8b4edf82",
+      "migrated_sha256": "03ec16ee7101666d63c180357600f59735967c7aaaf68d9ae9ef2d656e634125",
+      "edits": [
+        {
+          "offset": 1757,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java",
+      "baseline_sha256": "fd5db0e34118c6e8a7ed4b3f174728bfce36129bd23b9d5c1ac0b37bc61b92be",
+      "migrated_sha256": "fb1389a12a61098f5ff1e5bab715ac2430ae7e554fea84d3892606b10e8cc7cb",
+      "edits": [
+        {
+          "offset": 3019,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+      "baseline_sha256": "6b7b191bc0d609ec65cde45ca97329c5e1ad7d6ffd5e11891f30ab31166e8ad3",
+      "migrated_sha256": "f0c697bce80270c3f056345b1eb958d0ec5d271d59caa7ddfa05f1d9d085420a",
+      "edits": [
+        {
+          "offset": 2396,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java",
+      "baseline_sha256": "8d8c59a7c2267603d6318d33696ae0b51f4528da13df75a85c2a6b60fc955c8b",
+      "migrated_sha256": "d30ec4c19cc314593b029a4038995dd628074e22d34bb06f30b981561ba1200b",
+      "edits": [
+        {
+          "offset": 2008,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java",
+      "baseline_sha256": "1aa54ced3b80110eed5ec892aa96e4a7ce17a8557b9f445b412e2f92b8b55272",
+      "migrated_sha256": "ec2eec9d1b5d2671b5f9686e4cef411a1dc9a8673192db364d9b97bb12092670",
+      "edits": [
+        {
+          "offset": 4678,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java",
+      "baseline_sha256": "e088800d85e66cd2f3f2a50722f606e1cb043e718f53dcf2eebe6eb07e83602d",
+      "migrated_sha256": "5fe6fa4de861795cf8350bdc9f4529ec38ab852e1c8fd26212e2584c71b1495b",
+      "edits": [
+        {
+          "offset": 17236,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      "baseline_sha256": "110285923b40efa938dc22cbfda2e1ca8b4c110a23ce158dbb80d187c56e3a77",
+      "migrated_sha256": "4091a7769bec4878547b023f2f285dfd6ca9c523dd7c25f879b2398f26b90ec4",
+      "edits": [
+        {
+          "offset": 2822,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java",
+      "baseline_sha256": "6ce7751b3f7385554f860899181053c29c3d3e55cc0281bc5c11230f17d2367d",
+      "migrated_sha256": "e452567864d3f6fb565ccc2497bc760195ed7292cd0b00614fbb7cd15af4ef39",
+      "edits": [
+        {
+          "offset": 2118,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java",
+      "baseline_sha256": "66d6b6f17474cda2cafc63bb465f7520ef962232977910275b9e482a4a182474",
+      "migrated_sha256": "c82e3ff94f22bd347c581138a1a7ea89d8d0e9e010053505e983dd011268f9eb",
+      "edits": [
+        {
+          "offset": 2024,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWarController.java",
+      "baseline_sha256": "1379a5c9d2f986e80bcfe694b7a4e6885f18801ebb6bf780003b6692913fa1f2",
+      "migrated_sha256": "cf2c1b71d1a5601fffa478b0aef3cd66e45a755e12776eafda07845cd313102f",
+      "edits": [
+        {
+          "offset": 1127,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+      "baseline_sha256": "7cf47b45661586224721614f5278c051a1e4ec7e1cda1772286738636c52bba4",
+      "migrated_sha256": "c42cf2c5417f27125d0a12f2cce16fca33740e41639b288890cf0fb3188e8169",
+      "edits": [
+        {
+          "offset": 2172,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java",
+      "baseline_sha256": "4f171a867439373934b3fce8f215f6891bd5fd0bb05adf1352b7931e506c94de",
+      "migrated_sha256": "34a7ee9a29dd2ccffa49c2abd1c0e3040bf40a5efda5f1932db03a6e9ee8fb7e",
+      "edits": [
+        {
+          "offset": 2000,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java",
+      "baseline_sha256": "540109bd823454a866608f193cccd7f9ce8710a86d83c717f8fa91cd299d339a",
+      "migrated_sha256": "d342b86530abb7bda495c4eef745b627c29a062af4681ce8f9a40518b48ea1d6",
+      "edits": [
+        {
+          "offset": 974,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java",
+      "baseline_sha256": "c496dca717effbf3da385aeeceed3d77646d8b5a5350e348329084f8ae63556b",
+      "migrated_sha256": "a4aed4287154b1e03952e2dddcf15cf13cff41ebc155aec72ce0b249513349d9",
+      "edits": [
+        {
+          "offset": 1688,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationComputer.java",
+      "baseline_sha256": "172b63d5e85206b325ddd00024493f5fa53d0ae5719e52c54febd104334942e2",
+      "migrated_sha256": "aef42716a6bdba74144b6b5d72d9e3ea5b0707bf91efb95b290eaf18b13d4361",
+      "edits": [
+        {
+          "offset": 1478,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+      "baseline_sha256": "da3303c4baa8013408a9bb4efedea6e591ee8e1abf58594842ce7b90431bfec2",
+      "migrated_sha256": "54c4ff3b8ab780d07df847ff45a2d74b1b3b43d7a9e3631e43ddcf39228f0dd2",
+      "edits": [
+        {
+          "offset": 2525,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java",
+      "baseline_sha256": "f67bc4cc3ab8fcfa353dacc801765b0cccaa4973e0e96afe20eb0a715984b0c8",
+      "migrated_sha256": "cb4094f41000d19ea4222378a7a5c4ab2461694251ea7989b5030f8289edfd5a",
+      "edits": [
+        {
+          "offset": 1644,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java",
+      "baseline_sha256": "680e94492ad6414243146340645e9a8240ca3bade9d7c7fbc061a020f0270795",
+      "migrated_sha256": "febff428d596a12111fe851f79d05d8ced79260e715c8bff50c6542d9921ed5e",
+      "edits": [
+        {
+          "offset": 2268,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java",
+      "baseline_sha256": "10866d002a4a815893b9cdb914ee4eaade1e88c02d2a70f060e2fa455bb8f061",
+      "migrated_sha256": "6f1836333a811cf40bce5e8a5b41d016c99559669f40a3b617c1ddc1e29ffcd6",
+      "edits": [
+        {
+          "offset": 1599,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java",
+      "baseline_sha256": "209b8521e75a2365917f185435f049384141bad54ef92d8ad78174c90c5fb83f",
+      "migrated_sha256": "72b450b94b7430c632888a05b3a014f5fd793179e89f4b17d757fe136540c709",
+      "edits": [
+        {
+          "offset": 1503,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      "baseline_sha256": "2866c1bd5e9a7873213f66c7d7095f1979b4bed2121034d42087347e7d30a32b",
+      "migrated_sha256": "7dce61b5e675c69769cf207babb49e1841c1da0c8b897129370b2e99da02af8a",
+      "edits": [
+        {
+          "offset": 2779,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java",
+      "baseline_sha256": "3169f3bc5e2b8de35601dd14938315ed1ae936d99b2bee0fe5f2405c25a86e08",
+      "migrated_sha256": "11682c7bf36de79b223bcd5afbc6b784ac64cc88ef00bc9701e5f71b073bdb0a",
+      "edits": [
+        {
+          "offset": 5300,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java",
+      "baseline_sha256": "e02389481e1bc9d9dc8e90d75b74de21023e41d21da4aa8a57904427ecd29f5c",
+      "migrated_sha256": "aea90002d126188d99459cce7cd7e691136e91f49277d86790a4c93a36187673",
+      "edits": [
+        {
+          "offset": 2244,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java",
+      "baseline_sha256": "128a434a43241ee2beae687efbea7feef210733ecf6410baea1ecaee022d995c",
+      "migrated_sha256": "b0e361c2d7acbc9f5ba3673afaa56822f8b6c54a794d5f216ffaf11b1ee8b6c9",
+      "edits": [
+        {
+          "offset": 1467,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java",
+      "baseline_sha256": "ee84f4c61e473c09c29f55ca7c269c3760859873afb4d45c5d779ae606a411ac",
+      "migrated_sha256": "c5a575fd66b1b7f925f5cb43217e94d93e6620a53909fc7eff00330fc9e48f59",
+      "edits": [
+        {
+          "offset": 2106,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java",
+      "baseline_sha256": "1c47af40a264820f9012af12a1cb54a3314e44ddd77e86c95ef9295c44cdae45",
+      "migrated_sha256": "7dfc65f23c7a1f37060e49b4531f23194792bfb76ff1b2328d0113ef554d62f4",
+      "edits": [
+        {
+          "offset": 983,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java",
+      "baseline_sha256": "f7cfea5132a4d6febb31f83d78a14430cdd31f74a1f8151e46eb8807818f9955",
+      "migrated_sha256": "f5f037386ce6aa3652a749897df12088f0b7ea8000f9da93d06607fffe2a1969",
+      "edits": [
+        {
+          "offset": 1512,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java",
+      "baseline_sha256": "b62ce1a9f54aa3b5587fdbe7614af6e2aae20af4a5bd8030d8b59b0c676abb5c",
+      "migrated_sha256": "a1128c4edb8d03bc1d629a49b287a0345417d06dcb7409c0d96b6dd0b37f8c67",
+      "edits": [
+        {
+          "offset": 3528,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java",
+      "baseline_sha256": "f495d2317aa912115c4ef4c4bebf6bab40f8065c17677b4bac490ff30e4c468e",
+      "migrated_sha256": "b0b073b356c7ecd887c7d9bc1904b1d3fd3c1079637ad6012e6fb97ed362f115",
+      "edits": [
+        {
+          "offset": 4895,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java",
+      "baseline_sha256": "02d1f0c460ea0ac2548711e73afc39e78a99c0dbca6289cc87c0a0ca16740cbd",
+      "migrated_sha256": "b95e67e8494d792b9ed6fe4e0a2835f09891205b646ea2562f109680fcdc46f8",
+      "edits": [
+        {
+          "offset": 1886,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+      "baseline_sha256": "e1dc782ec2c7db9fbe0c1af4a910b6936f1ea43453729d2e19877f13d99e4eea",
+      "migrated_sha256": "2722122a94bc531c36a92c411537592e016b576937b340e6254447d8126e7b85",
+      "edits": [
+        {
+          "offset": 1885,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+      "baseline_sha256": "aed9b682b68dcf0dea7ace4fec0d6b0fc907e1a7d6212f18b29bfa402bed6e20",
+      "migrated_sha256": "e0b36408b6bb218120e56cbe6c7987358e2bf16495e37d6be8aa4040eee8d9c3",
+      "edits": [
+        {
+          "offset": 2101,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java",
+      "baseline_sha256": "73cb358aef4699c8d6f01d3b5da34082604a4aea0797b3246ae3823df7f8a861",
+      "migrated_sha256": "6e8c8f03fb305b52bfd59805acf38cf026172ccd92d0ad5f26bc02e50f2287b4",
+      "edits": [
+        {
+          "offset": 1928,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java",
+      "baseline_sha256": "37386cae576fce2801974678db29344b82e824424c357be0283692d4c66f0926",
+      "migrated_sha256": "8539b00f2bfd9d5cbcc128e985f86d0770948caa51cf2ebb5ed405a168499260",
+      "edits": [
+        {
+          "offset": 1381,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java",
+      "baseline_sha256": "b313d5df24593c7404af62bc82a21fd897c7e1726cd7dba21e31fb536fb1cdef",
+      "migrated_sha256": "b34508cc89b3c122fd407f39932e3bce03ff679945b8f834219f95c4e7e48dab",
+      "edits": [
+        {
+          "offset": 2462,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java",
+      "baseline_sha256": "e943bc144a64bfdac000394843a9587a054f154a1caa32194a0ec6083f5ef329",
+      "migrated_sha256": "2a8b5f93327076806d80afc3b4b34ab0e14086f95e235b641de755b84fd7cd32",
+      "edits": [
+        {
+          "offset": 2043,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBrandon.java",
+      "baseline_sha256": "d805727f0b5afa7981f4e0da9c350c3558194ebbba6916b9f2b299200bb2c3b1",
+      "migrated_sha256": "35e2414cb440789f000a2df9da8302a77f0932f632c3abd161078ded830f7c43",
+      "edits": [
+        {
+          "offset": 657,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretChekhov.java",
+      "baseline_sha256": "6487102362ff6e0573c6d3abe88dcac044974df046871c3f067599a7583bba1b",
+      "migrated_sha256": "ee34e8e4179cfc33c26b2e23dacab8c7f4201f53ccd2dbe04587dff0be9d0037",
+      "edits": [
+        {
+          "offset": 1341,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFriendly.java",
+      "baseline_sha256": "18a7584916f810b2344f3d9a10bb99403a89072e630f5bdc8f479c557b6add2a",
+      "migrated_sha256": "0613a8ebf739d06e8a9126d6021c8179124dd56198672fd5e988784d3e845cf2",
+      "edits": [
+        {
+          "offset": 805,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java",
+      "baseline_sha256": "c849b35b716d0e46ba4ed5d17cb58c0ef11898693a6ac322bf1b2fde820122f3",
+      "migrated_sha256": "ea59537b67eb4ea1528fb9c8893300b0ef6ce8b9089fd4f0d45d74bca21bdc57",
+      "edits": [
+        {
+          "offset": 1383,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java",
+      "baseline_sha256": "d2f77bd5485009d3f32eacd0686b43af6195df32ffb4cf73ac7d2e5d1441b30a",
+      "migrated_sha256": "d6c825ce737f7468a1c8098a1688558cdd4d74515bb958cdd2cd567521ac2569",
+      "edits": [
+        {
+          "offset": 1874,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java",
+      "baseline_sha256": "ea8c426399b0ce93bd19d14c8ab5b84337da7b224a4d40431e186b8d04b1e06f",
+      "migrated_sha256": "ad409ed1aef91b3ac0f0674bcf67da41a2c127beea48cbb23d7438aad2b15090",
+      "edits": [
+        {
+          "offset": 1173,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java",
+      "baseline_sha256": "3f0bdd13157a64cd78fe264cae218279a2d8117ad50b9206e64be6ba8683ca18",
+      "migrated_sha256": "87cade823acbfcc8c2df65a57df876ff74ee4b4fd375b050779090891e9e8a96",
+      "edits": [
+        {
+          "offset": 1170,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java",
+      "baseline_sha256": "a8dd381b41545c1d42896e4af84e8bf964849fbb7df6e3384f050f706ca9e80f",
+      "migrated_sha256": "88ba04bb668e77123591342ea96300a42dd240803a3197da7dec842ca76a63a1",
+      "edits": [
+        {
+          "offset": 1298,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java",
+      "baseline_sha256": "1d395cdba5444e2f978564f4cdf9dd99a38720b096919f6799b0ba50892035f3",
+      "migrated_sha256": "a3581b4ff21e9092c61f1e3f1a5cbe188b95557b3be4a8ba33593ccde3cfa261",
+      "edits": [
+        {
+          "offset": 884,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretSentry.java",
+      "baseline_sha256": "67ce1836ccab1f0aa90d441326f8122fff00e6de2f7926cd1c076dbbde44a884",
+      "migrated_sha256": "dc2991fccd7eba3ac7fb1c82e27a34c564ff63670576023a3f5e102f2c7e45b6",
+      "edits": [
+        {
+          "offset": 1673,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretTauon.java",
+      "baseline_sha256": "1a0f4896123c292144949a11ebbed398b605a5173ddbddbd9a55c421cca8dc54",
+      "migrated_sha256": "da98dc049a603de0e6f9f39d433802675ec47952aa8b35bed3dc2974590a293e",
+      "edits": [
+        {
+          "offset": 1020,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java",
+      "baseline_sha256": "33a2815f7acb9b8455e5386604a13e6a69a9c5528dadc83956a29b1d2b5068ae",
+      "migrated_sha256": "1b5b426d062569e84c0d50038bbfd9b0da278444b8a8dcdcb88b637583c1aa08",
+      "edits": [
+        {
+          "offset": 2699,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java",
+      "baseline_sha256": "4b99aa0a4ebce5fb9c5ea8319ae980578b8d6d22e601e8484e757f59acaa452e",
+      "migrated_sha256": "ccd5c5ea665ba7f89f76bc2d04b91be26e8fb087d8f0acd78ce05b428c4acffd",
+      "edits": [
+        {
+          "offset": 1465,
+          "old": "public String getName()",
+          "new": "public String getDefaultName()",
+          "kind": "default-hook"
+        }
+      ]
+    }
+  ]
+}

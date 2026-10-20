@@ -18,7 +18,7 @@ public class BlockRemap extends Block implements ILookOverlay {
 	public int remapMeta;
 
 	protected BlockRemap(Block block, int meta) {
-		super(Material.tnt);
+		super(Material.TNT);
 		this.remapBlock = block;
 		this.remapMeta = meta;
 		this.setTickRandomly(true);

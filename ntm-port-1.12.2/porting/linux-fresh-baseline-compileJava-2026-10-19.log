@@ -1,0 +1,110 @@
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :clean UP-TO-DATE
+> Task :extractMcpMappings
+> Task :deobfCompileDeobfDepTask0
+> Task :deobfCompileDeobfDepTask1
+> Task :deobfCompileDeobfDepTask2
+> Task :deobfCompileDeobfDepTask3
+> Task :deobfCompileRemapDepSourcesTask4
+> Task :deobfCompileRemapDepSourcesTask5
+> Task :deobfCompileRemapDepSourcesTask6
+> Task :deobfCompileDummyTask
+> Task :getVersionJson
+> Task :extractUserdev
+> Task :downloadClient
+> Task :downloadServer
+> Task :splitServerJar
+> Task :mergeJars
+> Task :applyBinaryPatches
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData
+> Task :genSrgs
+
+> Task :deobfMcMCP
+Applying SpecialSource...
+Applying Exceptor...
+
+> Task :sourceApiJava
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+> Task :sourceMainJava
+> Task :compileJava
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not resolve all files for configuration ':forgeGradleMcDeps'.
+> Could not resolve com.mojang:realms:1.10.22.
+  Required by:
+      project :
+   > Could not resolve com.mojang:realms:1.10.22.
+      > Could not get resource 'https://libraries.minecraft.net/com/mojang/realms/1.10.22/realms-1.10.22.pom'.
+         > Could not GET 'https://libraries.minecraft.net/com/mojang/realms/1.10.22/realms-1.10.22.pom'. Received status code 503 from server: Service Unavailable
+> Could not resolve com.mojang:text2speech:1.10.3.
+  Required by:
+      project :
+   > Could not resolve com.mojang:text2speech:1.10.3.
+      > Could not get resource 'https://libraries.minecraft.net/com/mojang/text2speech/1.10.3/text2speech-1.10.3.pom'.
+         > Could not GET 'https://libraries.minecraft.net/com/mojang/text2speech/1.10.3/text2speech-1.10.3.pom'. Received status code 503 from server: Service Unavailable
+> Could not resolve net.minecraft:launchwrapper:1.12.
+  Required by:
+      project :
+   > Could not resolve net.minecraft:launchwrapper:1.12.
+      > Could not get resource 'https://libraries.minecraft.net/net/minecraft/launchwrapper/1.12/launchwrapper-1.12.pom'.
+         > Could not GET 'https://libraries.minecraft.net/net/minecraft/launchwrapper/1.12/launchwrapper-1.12.pom'. Received status code 503 from server: Service Unavailable
+> Could not resolve com.paulscode:codecwav:20101023.
+  Required by:
+      project :
+   > Skipped due to earlier error
+> Could not resolve com.paulscode:libraryjavasound:20101123.
+  Required by:
+      project :
+   > Skipped due to earlier error
+> Could not resolve com.paulscode:librarylwjglopenal:20100824.
+  Required by:
+      project :
+   > Skipped due to earlier error
+> Could not resolve com.paulscode:soundsystem:20120107.
+  Required by:
+      project :
+      project : > com.paulscode:codecjorbis:20101023
+   > Skipped due to earlier error
+> Could not resolve org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209.
+  Required by:
+      project :
+   > Skipped due to earlier error
+> Could not resolve org.lwjgl.lwjgl:lwjgl_util:2.9.4-nightly-20150209.
+  Required by:
+      project :
+   > Skipped due to earlier error
+> Could not resolve java3d:vecmath:1.5.2.
+  Required by:
+      project :
+   > Skipped due to earlier error
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 3m 32s
+24 actionable tasks: 23 executed, 1 up-to-date

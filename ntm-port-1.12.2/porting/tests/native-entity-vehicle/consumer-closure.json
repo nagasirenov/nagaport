@@ -1,0 +1,298 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "references": [
+      {
+        "line": 738,
+        "text": "RenderingRegistry.registerEntityRenderingHandler(EntityMinerRocket.class, renderManager -> new RenderMinerRocket(renderManager));"
+      },
+      {
+        "line": 832,
+        "text": "RenderingRegistry.registerEntityRenderingHandler(EntitySoyuz.class, renderManager -> new RenderSoyuz(renderManager));"
+      },
+      {
+        "line": 834,
+        "text": "RenderingRegistry.registerEntityRenderingHandler(EntityCombatDropPod.class, renderManager -> new RenderCombatDropPod(renderManager));"
+      },
+      {
+        "line": 862,
+        "text": "RenderingRegistry.registerEntityRenderingHandler(EntityBoatRubber.class, new RenderBoatRubber());"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "references": [
+      {
+        "line": 148,
+        "text": "addEntity(EntityMinerRocket.class, \"entity_miner_lander\", 1000);"
+      },
+      {
+        "line": 162,
+        "text": "addEntity(EntitySoyuz.class, \"entity_soyuz\", 1000);"
+      },
+      {
+        "line": 164,
+        "text": "addEntity(EntityCombatDropPod.class, \"entity_combat_pod\", 1000);"
+      },
+      {
+        "line": 208,
+        "text": "addEntity(EntityBoatRubber.class, \"entity_rubber_boat\", 250, false);"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemBoatRubber.java",
+    "references": [
+      {
+        "line": 5,
+        "text": "import com.hbm.entity.item.EntityBoatRubber;"
+      },
+      {
+        "line": 82,
+        "text": "EntityBoatRubber entityboat = new EntityBoatRubber(world, (double) ((float) x + 0.5F), (double) ((float) y + 1.0F), (double) ((float) z + 0.5F));"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemWandD.java",
+    "references": [
+      {
+        "line": 15,
+        "text": "import com.hbm.entity.missile.EntityCombatDropPod;"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuz.java",
+    "references": [
+      {
+        "line": 26,
+        "text": "public class EntitySoyuz extends Entity {"
+      },
+      {
+        "line": 28,
+        "text": "private static final DataParameter<Integer> SKIN = EntityDataManager.createKey(EntitySoyuz.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 38,
+        "text": "public EntitySoyuz(World p_i1582_1_) {"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+    "references": [
+      {
+        "line": 32,
+        "text": "public class EntityCombatDropPod extends EntityThrowable {"
+      },
+      {
+        "line": 34,
+        "text": "private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityCombatDropPod.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 40,
+        "text": "public EntityCombatDropPod(World p_i1582_1_) {"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMinerRocket.java",
+    "references": [
+      {
+        "line": 15,
+        "text": "public class EntityMinerRocket extends Entity {"
+      },
+      {
+        "line": 17,
+        "text": "private static final DataParameter<Integer> FLIGHT_MODE = EntityDataManager.createKey(EntityMinerRocket.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 18,
+        "text": "private static final DataParameter<Integer> SATELLITE_FREQUENCY = EntityDataManager.createKey(EntityMinerRocket.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 22,
+        "text": "public EntityMinerRocket(World p_i1582_1_) {"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+    "references": [
+      {
+        "line": 29,
+        "text": "public class EntityBoatRubber extends Entity {"
+      },
+      {
+        "line": 31,
+        "text": "private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 32,
+        "text": "private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 33,
+        "text": "private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.FLOAT);"
+      },
+      {
+        "line": 48,
+        "text": "public EntityBoatRubber(World world) {"
+      },
+      {
+        "line": 57,
+        "text": "public EntityBoatRubber(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 363,
+        "text": "if(entity != this.riddenByEntity && entity.canBePushed() && (entity instanceof EntityBoatRubber || entity instanceof EntityBoat)) {"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/trait/CBT_Invasion.java",
+    "references": [
+      {
+        "line": 13,
+        "text": "import com.hbm.entity.missile.EntityCombatDropPod;"
+      },
+      {
+        "line": 120,
+        "text": "EntityCombatDropPod pod = new EntityCombatDropPod(world);"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBoatRubber.java",
+    "references": [
+      {
+        "line": 5,
+        "text": "import com.hbm.entity.item.EntityBoatRubber;"
+      },
+      {
+        "line": 27,
+        "text": "public void doRender(EntityBoatRubber entity, double x, double y, double z, float yaw, float interp) {"
+      },
+      {
+        "line": 61,
+        "text": "protected ResourceLocation getEntityTexture(EntityBoatRubber entity) {"
+      },
+      {
+        "line": 67,
+        "text": "return this.getEntityTexture((EntityBoatRubber) entity);"
+      },
+      {
+        "line": 72,
+        "text": "this.doRender((EntityBoatRubber) entity, x, y, z, f0, f1);"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderCombatDropPod.java",
+    "references": [
+      {
+        "line": 5,
+        "text": "import com.hbm.entity.missile.EntityCombatDropPod;"
+      },
+      {
+        "line": 25,
+        "text": "EntityCombatDropPod pod = (EntityCombatDropPod) entity;"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderSoyuz.java",
+    "references": [
+      {
+        "line": 6,
+        "text": "import com.hbm.entity.missile.EntitySoyuz;"
+      },
+      {
+        "line": 27,
+        "text": "int type = ((EntitySoyuz) entity).getSkin();"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMinerRocket.java",
+    "references": [
+      {
+        "line": 5,
+        "text": "import com.hbm.entity.missile.EntityMinerRocket;"
+      },
+      {
+        "line": 26,
+        "text": "if(entity instanceof EntityMinerRocket) {"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java",
+    "references": [
+      {
+        "line": 3,
+        "text": "import com.hbm.entity.missile.EntityMinerRocket;"
+      },
+      {
+        "line": 159,
+        "text": "EntityMinerRocket rocket = new EntityMinerRocket(this.world);"
+      },
+      {
+        "line": 173,
+        "text": "List<EntityMinerRocket> list = this.world.getEntitiesWithinAABBExcludingEntity(null,"
+      },
+      {
+        "line": 175,
+        "text": "entity -> entity instanceof EntityMinerRocket);"
+      },
+      {
+        "line": 177,
+        "text": "for(EntityMinerRocket rocket : list) {"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java",
+    "references": [
+      {
+        "line": 6,
+        "text": "import com.hbm.entity.missile.EntitySoyuz;"
+      },
+      {
+        "line": 125,
+        "text": "List<EntitySoyuz> entities = this.world.getEntitiesWithinAABB(EntitySoyuz.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));"
+      },
+      {
+        "line": 222,
+        "text": "EntitySoyuz soyuz = new EntitySoyuz(this.world);"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/test/TestEventTester.java",
+    "references": [
+      {
+        "line": 357,
+        "text": "EntityMinerRocket rocket = new EntityMinerRocket(worldObj);"
+      }
+    ],
+    "remaining_watcher_calls": 0
+  }
+]

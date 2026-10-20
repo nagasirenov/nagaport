@@ -113,7 +113,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 			double cy2 = Math.sin(walkCycle % (Math.PI * 2) - Math.PI);
 			double cy3 = Math.sin(walkCycle % (Math.PI * 2) - Math.PI * 0.75);
 
-			double bite = MathHelper.clamp_double(Math.sin(this.bite * Math.PI * 2 - Math.PI * 0.5), 0, 1) * 20;
+			double bite = MathHelper.clamp(Math.sin(this.bite * Math.PI * 2 - Math.PI * 0.5), (double) (0), (double) (1)) * 20;
 			double headTilt = Math.sin(this.bite * Math.PI) * 30;
 			
 			ResourceManager.glyphid.renderPart("Body");

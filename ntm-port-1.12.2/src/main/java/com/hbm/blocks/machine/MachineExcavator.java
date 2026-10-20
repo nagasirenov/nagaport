@@ -14,7 +14,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineExcavator extends BlockDummyable {
 
 	public MachineExcavator() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

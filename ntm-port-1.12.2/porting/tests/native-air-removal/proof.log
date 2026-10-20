@@ -1,0 +1,42 @@
+/workspace/shared/nagaport-air-native/ntm-port-1.12.2/porting/tests/native-air-removal/AirRemovalTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport-air-native/ntm-port-1.12.2/porting/tests/native-air-removal/AirRemovalTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-air-native/ntm-port-1.12.2/porting/tests/native-air-removal/AirRemovalTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+3 warnings
+PASS: 2440 real original/native World/Chunk removal, return, bounds and evaluation assertions
+PASS: 80 complete actual deletePlatform method scenarios (not whole enclosing class)
+/workspace/shared/nagaport-air-native/ntm-port-1.12.2/porting/tests/native-air-removal/OriginalAirEvaluation.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-air-native/ntm-port-1.12.2/porting/tests/native-air-removal/OriginalAirEvaluation.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-air-native/ntm-port-1.12.2/porting/tests/native-air-removal/OriginalAirEvaluation.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 6 direct original World invocation null/argument exception/evaluation assertions
+net/minecraft/client/multiplayer/WorldClient extends net/minecraft/world/World declares []
+net/minecraft/world/World extends java/lang/Object declares [setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z, setBlockToAir(Lnet/minecraft/util/math/BlockPos;)Z]
+net/minecraft/world/WorldServer extends net/minecraft/world/World declares []
+net/minecraft/world/WorldServerDemo extends net/minecraft/world/WorldServer declares []
+net/minecraft/world/WorldServerMulti extends net/minecraft/world/WorldServer declares []
+Audited 5 World hierarchy classes among 48240 classes
+ahb extends java/lang/Object declares [d(IIILaji;II)Z, f(III)Z]
+bjf extends ahb declares []
+mk extends mt declares []
+mm extends mt declares []
+mt extends ahb declares []
+Audited 5 World hierarchy classes among 1803 classes
+Attribution diagnostics, not compile success: 9
+Unrelated unfinished-port diagnostics: 24643
+Attribution diagnostics, not compile success: 24793
+PASS: 150 exact selected edits, original-byte reversal and target regeneration in 82 files
+PASS: 2 exact World/int positive and 8 negative owner/type/arity/unresolved attribution controls
+PASS: exact 150 original full-source attributed positions equal 150 native helper overload resolutions
+PASS: six behavioral bound/null/coordinate/boolean-return mutants rejected

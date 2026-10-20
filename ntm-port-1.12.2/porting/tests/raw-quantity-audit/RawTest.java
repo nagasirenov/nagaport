@@ -1,0 +1,14 @@
+import java.lang.reflect.*;import java.net.*;import java.io.*;import net.minecraft.init.*;import net.minecraft.item.*;import net.minecraftforge.fml.relauncher.ReflectionHelper;
+public class RawTest{
+ static final Field RAW=ReflectionHelper.findField(ItemStack.class,"stackSize","field_77994_a");static int checks=0,calls=0;static ItemStack current;
+ static int raw(ItemStack s){try{return RAW.getInt(s);}catch(IllegalAccessException e){throw new IllegalStateException(e);}}
+ static int fast(ItemStack s){int n=s.getCount();return n!=0?n:raw(s);}static ItemStack receiver(){calls++;return current;}
+ static void check(boolean b){checks++;if(!b)throw new AssertionError("check "+checks);}
+ public static void main(String[]a)throws Exception {Bootstrap.register();URLClassLoader old=new URLClassLoader(new URL[]{new File(a[0]).toURI().toURL()},RawTest.class.getClassLoader());Class<?>block=old.loadClass("aji"),item=old.loadClass("adb"),stack=old.loadClass("add");block.getMethod("p").invoke(null);item.getMethod("l").invoke(null);Object apple=item.getMethod("d",int.class).invoke(null,260);Field oc=stack.getField("b");Constructor<?>ctor=stack.getConstructor(item,int.class,int.class);
+ int[]ns={Integer.MIN_VALUE,-100,-1,0,1,2,64,65,127,128,100000,Integer.MAX_VALUE};int mismatch=0;
+ for(Item i:new Item[]{Items.APPLE,Items.AIR,null})for(int n:ns){ItemStack s=new ItemStack(i,n);Object o=ctor.newInstance(i==Items.APPLE?apple:null,n,0);check(raw(s)==oc.getInt(o));check(fast(s)==n);check(raw(s.copy())==n);if(s.getCount()!=n)mismatch++;for(int step:ns){s.setCount(step);oc.setInt(o,step);check(raw(s)==oc.getInt(o));check(fast(s)==step);}}
+ for(int n:ns)for(int delta:ns){ItemStack s=new ItemStack(Items.APPLE,n);Object o=ctor.newInstance(apple,n,0);s.grow(delta);oc.setInt(o,oc.getInt(o)+delta);check(raw(s)==oc.getInt(o));check(fast(s)==raw(s));s.shrink(delta);oc.setInt(o,oc.getInt(o)-delta);check(raw(s)==oc.getInt(o));check(raw(s)==n);}
+ // Invalid cached state via genuine setters, and independently stale cache fixture.
+ Field damage=ItemStack.class.getDeclaredField("itemDamage");damage.setAccessible(true);for(int n:ns){ItemStack s=new ItemStack(Items.APPLE,n);damage.setInt(s,65536);s.setCount(n);check(s.getCount()==0);check(raw(s)==n);check(fast(s)==n);}
+ Field empty=ItemStack.class.getDeclaredField("isEmpty");empty.setAccessible(true);for(int n:ns)for(boolean cached:new boolean[]{false,true}){ItemStack s=new ItemStack(Items.APPLE,n);empty.setBoolean(s,cached);check(raw(s)==n);check(fast(s)==n);}
+ check(raw(ItemStack.EMPTY)==1 && ItemStack.EMPTY.getCount()==0);check(fast(ItemStack.EMPTY)==1);current=new ItemStack(Items.APPLE,-1);check(raw(receiver())==-1&&calls==1);try{raw(null);throw new AssertionError();}catch(NullPointerException expected){checks++;}old.close();System.out.println("PASS "+checks+" actual old/native raw/read/copy/overflow/cache/evaluation checks; getCount mismatches="+mismatch+"; no EMPTY or global stack mutation");}}

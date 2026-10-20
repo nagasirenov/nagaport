@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -29,7 +29,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 @Spaghetti("this sucks complete donkey shit")
-public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisplayData, IRadiationImmune, ISuffocationImmune {
+public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
 
 	public int courseChangeCooldown;
 	public double waypointX;
@@ -73,8 +73,8 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 		}
 
 		if(rand.nextInt(15) == 0) {
-			if(!worldObj.isRemote && !this.isDying) {
-				this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 5F, true);
+			if(!this.world.isRemote && !this.isDying) {
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 5F, true);
 				this.dropDamageItem();
 			}
 		}
@@ -85,8 +85,8 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 			double d2 = rand.nextDouble() / 20 * rand.nextInt(2) == 0 ? -1 : 1;
 
 			for(int i = 0; i < 8; i++)
-				if(this.worldObj.isRemote)
-					worldObj.spawnParticle("fireworksSpark", this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);
+				if(this.world.isRemote)
+					this.world.spawnParticle("fireworksSpark", this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);
 		}
 
 		return super.attackEntityFrom(source, amount);
@@ -109,12 +109,12 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 
 	@Override
 	protected void updateEntityActionState() {
-		if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+		if(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
 			this.setDead();
 		}
 
 		if(!isDying) {
-			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:misc.nullChopper", 10.0F, 0.5F);
+			this.world.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:misc.nullChopper", 10.0F, 0.5F);
 
 			this.prevAttackCounter = this.attackCounter;
 			double d0 = this.waypointX - this.posX;
@@ -126,17 +126,17 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				if(this.targetedEntity != null) {
 					this.waypointX = targetedEntity.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
 					this.waypointZ = targetedEntity.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-					this.waypointY = this.worldObj.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
+					this.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
 				} else {
 					this.waypointX = this.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
 					this.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-					this.waypointY = this.worldObj.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
+					this.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
 				}
 			}
 
 			if(this.courseChangeCooldown-- <= 0) {
 				this.courseChangeCooldown += this.rand.nextInt(5) + 2;
-				d3 = MathHelper.sqrt_double(d3);
+				d3 = MathHelper.sqrt(d3);
 
 				if(this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
 					this.motionX += d0 / d3 * 0.1D;
@@ -145,7 +145,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				} else {
 					this.waypointX = this.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
 					this.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-					this.waypointY = this.worldObj.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
+					this.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
 				}
 			}
 
@@ -157,7 +157,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				// this.targetedEntity =
 				// this.worldObj.getClosestVulnerablePlayerToEntity(this,
 				// 100.0D);
-				this.targetedEntity = Library.getClosestEntityForChopper(worldObj, this.posX, this.posY, this.posZ, 250);
+				this.targetedEntity = Library.getClosestEntityForChopper(this.world, this.posX, this.posY, this.posZ, 250);
 			}
 
 			double d4 = 64.0D;
@@ -169,7 +169,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				double yStart = this.posY - 0.5;
 				double zStart = this.posZ + vec3.z * d8;
 				double d5 = this.targetedEntity.posX - xStart;
-				double d6 = this.targetedEntity.boundingBox.minY + this.targetedEntity.height / 2.0F - yStart;
+				double d6 = this.targetedEntity.getEntityBoundingBox().minY + this.targetedEntity.height / 2.0F - yStart;
 				double d7 = this.targetedEntity.posZ - zStart;
 
 				++this.attackCounter;
@@ -178,10 +178,10 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				}
 
 				if(this.attackCounter % 2 == 0 && attackCounter >= 120) {
-					worldObj.playSoundAtEntity(this, "hbm:weapon.osiprShoot", 10.0F, 1.0F);
+					this.world.playSoundAtEntity(this, "hbm:weapon.osiprShoot", 10.0F, 1.0F);
 					// EntityLargeFireball entitylargefireball = new
 					// EntityLargeFireball(this.worldObj, this, d5, d6, d7);
-					EntityBullet entityarrow = new EntityBullet(this.worldObj, this, 3.0F, 35, 45, false, "chopper");
+					EntityBullet entityarrow = new EntityBullet(this.world, this, 3.0F, 35, 45, false, "chopper");
 					Vec3d vec2 = new Vec3d(d5 - 1 + rand.nextInt(3), d6 - 1 + rand.nextInt(3), d7 - 1 + rand.nextInt(3)).normalize();
 					double motion = 3;
 					entityarrow.motionX = vec2.x * motion;
@@ -199,28 +199,28 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 					entityarrow.posY = yStart;
 					entityarrow.posZ = zStart;
 					// this.worldObj.spawnEntityInWorld(entitylargefireball);
-					this.worldObj.spawnEntityInWorld(entityarrow);
+					this.world.spawnEntityInWorld(entityarrow);
 				}
 				if(this.attackCounter == 80) {
-					worldObj.playSoundAtEntity(this, "hbm:entity.chopperCharge", 5.0F, 1.0F);
+					this.world.playSoundAtEntity(this, "hbm:entity.chopperCharge", 5.0F, 1.0F);
 				}
 
 				this.mineDropCounter++;
 				if(mineDropCounter > 100 && rand.nextInt(15) == 0) {
-					worldObj.playSoundAtEntity(this, "hbm:entity.chopperDrop", 15.0F, 1.0F);
-					EntityChopperMine mine = new EntityChopperMine(worldObj, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, 0, this);
+					this.world.playSoundAtEntity(this, "hbm:entity.chopperDrop", 15.0F, 1.0F);
+					EntityChopperMine mine = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, 0, this);
 					this.mineDropCounter = 0;
-					this.worldObj.spawnEntityInWorld(mine);
+					this.world.spawnEntityInWorld(mine);
 
 					if(rand.nextInt(3) == 0) {
-						EntityChopperMine mine1 = new EntityChopperMine(worldObj, this.posX, this.posY - 0.5, this.posZ, 1, -0.3, 0, this);
-						EntityChopperMine mine2 = new EntityChopperMine(worldObj, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, 1, this);
-						EntityChopperMine mine3 = new EntityChopperMine(worldObj, this.posX, this.posY - 0.5, this.posZ, -1, -0.3, 0, this);
-						EntityChopperMine mine4 = new EntityChopperMine(worldObj, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, -1, this);
-						this.worldObj.spawnEntityInWorld(mine1);
-						this.worldObj.spawnEntityInWorld(mine2);
-						this.worldObj.spawnEntityInWorld(mine3);
-						this.worldObj.spawnEntityInWorld(mine4);
+						EntityChopperMine mine1 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 1, -0.3, 0, this);
+						EntityChopperMine mine2 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, 1, this);
+						EntityChopperMine mine3 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, -1, -0.3, 0, this);
+						EntityChopperMine mine4 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, -1, this);
+						this.world.spawnEntityInWorld(mine1);
+						this.world.spawnEntityInWorld(mine2);
+						this.world.spawnEntityInWorld(mine3);
+						this.world.spawnEntityInWorld(mine4);
 					}
 				}
 
@@ -231,7 +231,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				}
 			}
 
-			if(!this.worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				byte b1 = this.dataWatcher.getWatchableObjectByte(16);
 				byte b0 = (byte) (this.attackCounter > 10 ? 1 : 0);
 
@@ -247,10 +247,10 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 			}
 
 			if(rand.nextInt(20) == 0) {
-				this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 5F, true);
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 5F, true);
 			}
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "exhaust");
@@ -263,16 +263,16 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 			rotationYaw += 20;
 
 			if(this.onGround) {
-				this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 15F, true);
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 15F, true);
 				this.dropItems();
 				this.setDead();
 			}
 			if(this.ticksExisted % 2 == 0)
-				this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:misc.nullCrashing", 10.0F, 0.5F);
+				this.world.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:misc.nullCrashing", 10.0F, 0.5F);
 		}
 
 		if(this.targetedEntity == null) {
-			float f3 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+			float f3 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 			if(this.rotationYaw - (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI) >= 10)
 				this.prevRotationYaw = this.rotationYaw -= 10;
 			if(this.rotationYaw - (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI) <= -10)
@@ -281,7 +281,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 				this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 			this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(this.motionY, f3) * 180.0D / Math.PI);
 		} else {
-			float f3 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+			float f3 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 			if(this.rotationYaw - (float) (Math.atan2(this.posX - targetedEntity.posX, this.posZ - targetedEntity.posZ) * 180.0D / Math.PI) >= 10)
 				this.prevRotationYaw = this.rotationYaw -= 10;
 			if(this.rotationYaw - (float) (Math.atan2(this.posX - targetedEntity.posX, this.posZ - targetedEntity.posZ) * 180.0D / Math.PI) <= -10)
@@ -309,12 +309,12 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 		double d4 = (this.waypointX - this.posX) / p_70790_7_;
 		double d5 = (this.waypointY - this.posY) / p_70790_7_;
 		double d6 = (this.waypointZ - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.boundingBox.copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}
@@ -356,7 +356,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 	 */
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.rand.nextInt(20) == 0 && super.getCanSpawnHere() && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL;
+		return this.rand.nextInt(20) == 0 && super.getCanSpawnHere() && this.world.difficultySetting != EnumDifficulty.PEACEFUL;
 	}
 
 	/**
@@ -390,9 +390,9 @@ public class EntityHunterChopper extends EntityFlying implements IMob, IBossDisp
 	}
 
 	public void initDeath() {
-		this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 10F, true);
+		this.world.createExplosion(this, this.posX, this.posY, this.posZ, 10F, true);
 		if(!this.isDying)
-			worldObj.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
 		isDying = true;
 	}
 

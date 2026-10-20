@@ -1,0 +1,1 @@
+PASS: both selectors/verifiers also replayed successfully from deterministic gzip diagnostics in the fresh work directory; generated manifests remain byte-identical to sealed evidence.

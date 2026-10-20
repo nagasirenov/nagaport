@@ -61,7 +61,7 @@ public class ContainerMachinePUREX extends ContainerBase {
 			}
 
 			if(slotStack.stackSize == 0) {
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

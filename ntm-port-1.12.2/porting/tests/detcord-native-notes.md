@@ -1,0 +1,22 @@
+# Native detonator cord boundary (checkpoint 44)
+
+Exact base CP43: 021eb39146f5d461c751909d8dfdc041cc56b4f2. Eight production paths, seven Java files and one blockstate JSON. The retired ISBRH/RenderBlocks implementation is replaced by genuine native extended connection state, OBJ quads, model loader and registry event ownership. Existing native cable quad/atlas utilities are reused; no legacy Forge emulator or placeholder. Original cable_neo.obj and det_cord.png are byte-identical to the pinned original checkout. Original cord, connection interface and renderer sources are hash-pinned by the test.
+
+Reproduce from module:
+
+    python3 porting/tests/detcord-native-probe.py --module . --source-root . --original-root ../ntm-original-pristine --java-home /path/to/java8 --classpath "native-classpath"
+
+1,598,072 small assertions pass across native geometry, all 64 connection masks, the original single-arm straight-through branch and reversed Z mesh group convention, inventory CZ group with 180-degree Y rotation and 1.25 scale, UVs/normal bytes/shades, exact atlas material, both Forge and vanilla ordinary flat-light paths, native model registry/state mapper/ItemModelMesher, folder and packaged resources, and actual changed-OBJ resource reload. The original selector is extracted from the hash-pinned RenderDetCord, not copied from the new renderer. OBJ positions/UVs are independently parsed for the oracle. Multiple assertions inspect each vertex; this is not a count of distinct bugs or whole-game tests.
+
+Complete cord, connector interface, model builder and loader compile against native Forge/Minecraft. Real BlockBase, BlockFlammable, BlockDetonatable, explosion interface, icon interfaces, mesh parser, connection property and native quad helpers are compiled. Two explicit surrounding NTM fixtures remain: primed TNT entity construction and an energy helper which throws if unexpectedly reached. The unused classic-cable oracle support is retained from the established geometry harness but classic cable behavior is not newly claimed. Real World/Chunk state storage runs; light recalculation is captured, explosion calls are recorded rather than executing terrain damage. No client/server launch.
+
+Original gameplay retained: cord visual width does not narrow the original full-block collision; neighbor connectivity uses the original opposite face and does not serialize render-only bits; redstone explosion is server-only, removes the block before invoking the original null-source explosion at center, strength1.5, terrain damage true; negative positions use floor. No new flame ignition inheritance or chain detonation balance is introduced. The original primed TNT entity implementation, explosion propagation and full explosive-world tests remain outside this fixture.
+
+Registration uses the existing deferred ItemBlock path, retaining hbm:tile.det_cord, texture blocks/det_cord, item model routes and actual resource reload. No speculative optional mod overrides.
+
+## Explicit remaining visual gate
+Native ForgeHooksClient.getDamageModel and its real BakedQuadRetextured conversion preserve the crack material, geometry and UVs, but recalculate the sampling face and lose the custom block-position-light wrapper. The actual CPU render pipeline probe finds 48/112 differently lit vertices for a straight single-arm cord (mask1), in both vanilla and Forge flat rendering. The core-only mask0 remains 0/176 different. This is an unresolved destroy-stage lighting difference, NOT full damage-render parity and NOT a user-approved simplification. Ordinary rendering passes. The same shared native damage path should be audited for prior cable/atlas models before claiming their complete breaking-overlay parity. Keep this finite migration checkpoint while correcting the shared path in a later bounded batch; do not invent a policy approval or silently change mechanics.
+
+Full clean module compile FAIL146 diagnostics versus151,25seconds,exit1. Frozen tree 14fa3d9d21fe1c2f262354c2c3ab23b71b299c0b; 7 changed Java sources are byte-identical to all matching generated compiler inputs among 4007. Historical source guards pass, five existing sources/three new sources/24 rejected mutations; static guards are not gameplay evidence. No exclusions/stubs in production. Original source pin, whole-project baseline and toolchain chain remain in continuation.
+
+CP37 lighting-policy gate remains unapproved; CP37–44 are local-only/withheld. Windows and actual client/server/save/radiation/energy topology acceptance remain open.

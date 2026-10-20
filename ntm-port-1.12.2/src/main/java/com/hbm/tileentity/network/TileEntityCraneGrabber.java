@@ -43,18 +43,18 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 
 	@Override
 	public void nextMode(int i) {
-		this.matcher.nextMode(worldObj, slots[i], i);
+		this.matcher.nextMode(this.world, slots[i], i);
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.craneGrabber";
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote) {
+	public void update() {
+		super.update();
+		if(!this.world.isRemote) {
 
 			int delay = 20;
 
@@ -66,7 +66,7 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 				}
 			}
 
-			if(worldObj.getTotalWorldTime() >= lastGrabbedTick + delay && !this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {
+			if(this.world.getTotalWorldTime() >= lastGrabbedTick + delay && !this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
 				int amount = 1;
 
 				if(slots[9] != null && slots[9].getItem() == ModItems.upgrade_stack) {
@@ -79,7 +79,7 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 
 				ForgeDirection inputSide = getInputSide();
 				ForgeDirection outputSide = getOutputSide();
-				Block beltBlock = worldObj.getBlock(xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+				Block beltBlock = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ).getBlock();
 
 				//unholy copy paste bullshit because i can't be assed to rework the entire thing
 				if(beltBlock instanceof IConveyorBelt) {
@@ -87,16 +87,16 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 
 					double reach = 1D;
 					if(this.getBlockMetadata() > 1) { //ignore if pointing up or down
-						Block b = worldObj.getBlock(xCoord + inputSide.offsetX, yCoord + inputSide.offsetY, zCoord + inputSide.offsetZ);
+						Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + inputSide.offsetX, this.pos.getY() + inputSide.offsetY, this.pos.getZ() + inputSide.offsetZ).getBlock();
 						if(b == ModBlocks.conveyor_double) reach = 0.5D;
 						if(b == ModBlocks.conveyor_triple) reach = 0.33D;
 					}
 
-					double x = xCoord + inputSide.offsetX * reach;
-					double y = yCoord + inputSide.offsetY * reach;
-					double z = zCoord + inputSide.offsetZ * reach;
+					double x = this.pos.getX() + inputSide.offsetX * reach;
+					double y = this.pos.getY() + inputSide.offsetY * reach;
+					double z = this.pos.getZ() + inputSide.offsetZ * reach;
 
-					List<EntityMovingItem> items = worldObj.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
+					List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
 
 					for(EntityMovingItem item : items) {
 						if(item.isDead) continue;
@@ -104,21 +104,21 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 						boolean match = this.matchesFilter(stack);
 						if(this.isWhitelist && !match || !this.isWhitelist && match) continue;
 
-						lastGrabbedTick = worldObj.getTotalWorldTime();
+						lastGrabbedTick = this.world.getTotalWorldTime();
 
-						Vec3d pos = new Vec3d(xCoord + 0.5 + outputSide.offsetX * 0.55, yCoord + 0.5 + outputSide.offsetY * 0.55, zCoord + 0.5 + outputSide.offsetZ * 0.55);
-						Vec3d snap = belt.getClosestSnappingPosition(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, pos);
-						EntityMovingItem newItem = new EntityMovingItem(worldObj);
+						Vec3d pos = new Vec3d(this.pos.getX() + 0.5 + outputSide.offsetX * 0.55, this.pos.getY() + 0.5 + outputSide.offsetY * 0.55, this.pos.getZ() + 0.5 + outputSide.offsetZ * 0.55);
+						Vec3d snap = belt.getClosestSnappingPosition(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, pos);
+						EntityMovingItem newItem = new EntityMovingItem(this.world);
 						newItem.setItemStack(item.getItemStack().copy());
 						newItem.setPosition(snap.x, snap.y, snap.z);
 						item.setDead();
-						worldObj.spawnEntityInWorld(newItem);
+						this.world.spawnEntityInWorld(newItem);
 						break;
 					}
 
 				} else {
 
-					TileEntity te = worldObj.getTileEntity(xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+					TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ));
 
 					int[] access = null;
 					ISidedInventory sided = null;
@@ -138,22 +138,22 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 						*/
 						double reach = 1D;
 						if(this.getBlockMetadata() > 1) { //ignore if pointing up or down
-							Block b = worldObj.getBlock(xCoord + inputSide.offsetX, yCoord + inputSide.offsetY, zCoord + inputSide.offsetZ);
+							Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + inputSide.offsetX, this.pos.getY() + inputSide.offsetY, this.pos.getZ() + inputSide.offsetZ).getBlock();
 							if(b == ModBlocks.conveyor_double) reach = 0.5D;
 							if(b == ModBlocks.conveyor_triple) reach = 0.33D;
 						}
 
-						double x = xCoord + inputSide.offsetX * reach;
-						double y = yCoord + inputSide.offsetY * reach;
-						double z = zCoord + inputSide.offsetZ * reach;
-						List<EntityMovingItem> items = worldObj.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
+						double x = this.pos.getX() + inputSide.offsetX * reach;
+						double y = this.pos.getY() + inputSide.offsetY * reach;
+						double z = this.pos.getZ() + inputSide.offsetZ * reach;
+						List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
 
 						for(EntityMovingItem item : items) {
 							ItemStack stack = item.getItemStack();
 							boolean match = this.matchesFilter(stack);
 							if(this.isWhitelist && !match || !this.isWhitelist && match) continue;
 
-							lastGrabbedTick = worldObj.getTotalWorldTime();
+							lastGrabbedTick = this.world.getTotalWorldTime();
 
 							ItemStack copy = stack.copy();
 							int toAdd = Math.min(stack.stackSize, amount);
@@ -226,16 +226,17 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("isWhitelist", this.isWhitelist);
 		this.matcher.writeToNBT(nbt);
 		nbt.setLong("lastGrabbedTick", lastGrabbedTick);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override

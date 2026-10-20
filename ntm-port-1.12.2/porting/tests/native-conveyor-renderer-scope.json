@@ -1,0 +1,36 @@
+{
+  "baseline_commit": "e03449f2b4042bd79cfe100acaac97743b0078a9",
+  "production": {
+    "src/main/java/com/hbm/render/entity/item/RenderMovingItem.java": "26482f055a7959e5dd110ce2fe69785521619b7bdeee4c2d2be97baad0ab5a8f",
+    "src/main/java/com/hbm/render/entity/item/RenderMovingPackage.java": "4297ab5eddc7c68ea09505e70495ffd6b6990ad60cbbb13f0015ccb1f4c17b9e"
+  },
+  "unchanged_collaborators": {
+    "src/main/java/com/hbm/entity/item/EntityMovingItem.java": "978c436c8d6beba7fdd3c4fbc08d71bf05272b53478621e8e338f85c07d81d68",
+    "src/main/java/com/hbm/render/util/NativeMachineItemRenderer.java": "f3a8cc805fdf6acc44640528df48e1c34d8c3529f76d6a3691d3059a6e3b428f",
+    "src/main/java/com/hbm/render/util/NativeGuiItemDraw.java": "77a08cf17c72d3d7f88016e15944e5a73ee2bc7ec754abb4f611300bf1e9809c"
+  },
+  "original_sources": {
+    "src/main/java/com/hbm/render/entity/item/RenderMovingItem.java": {
+      "sha256": "9e7b298a951d3be0df24c6b969534dd57caf49e66ce5989236f3d63154b7c386",
+      "source": "package com.hbm.render.entity.item;\n\nimport java.util.Random;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.entity.item.EntityMovingItem;\n\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\nimport net.minecraft.entity.Entity;\nimport net.minecraft.item.ItemBlock;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.ResourceLocation;\n\npublic class RenderMovingItem extends Render {\n\n\t@Override\n\tpublic void doRender(Entity entity, double x, double y, double z, float f1, float f2) {\n\n\t\tGL11.glPushMatrix();\n\t\tGL11.glTranslated(x, y, z);\n\t\t\n\t\tRandom rand = new Random(entity.getEntityId());\n\t\tGL11.glTranslated(0, rand.nextDouble() * 0.0625, 0);\n\n\t\tEntityMovingItem item = (EntityMovingItem) entity;\n\t\tItemStack stack = item.getItemStack();\n\n\t\tif(!(stack.getItemSpriteNumber() == 0 && stack.getItem() instanceof ItemBlock && RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType()))) {\n\t\t\tGL11.glRotatef(90F, 1.0F, 0.0F, 0.0F);\n\t\t\tGL11.glTranslated(0.0, -0.1875, 0.0);\n\t\t\t\n\t\t\tif(!this.renderManager.options.fancyGraphics) {\n\t\t\t\tGL11.glRotatef(180F, 0.0F, 1.0F, 0.0F);\n\t\t\t}\n\t\t}\n\n\t\tif(item.cacheForRender != null) {\n\t\t\titem.cacheForRender.hoverStart = 0.0F;\n\n\t\t\tRenderItem.renderInFrame = true;\n\t\t\tRenderManager.instance.renderEntityWithPosYaw(item.cacheForRender, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\t\tRenderItem.renderInFrame = false;\n\t\t}\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tprotected ResourceLocation getEntityTexture(Entity p_110775_1_) {\n\t\treturn null;\n\t}\n}\n"
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderMovingPackage.java": {
+      "sha256": "d264195c8f6638986e39d1f9886d66e42db28a59c59d42416337d06435f73f21",
+      "source": "package com.hbm.render.entity.item;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.ModBlocks;\n\nimport net.minecraft.client.renderer.entity.Render;\nimport net.minecraft.client.renderer.entity.RenderItem;\nimport net.minecraft.client.renderer.entity.RenderManager;\nimport net.minecraft.entity.Entity;\nimport net.minecraft.entity.item.EntityItem;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.ResourceLocation;\n\npublic class RenderMovingPackage extends Render {\n\t\n\tprivate ItemStack dummy;\n\n\t@Override\n\tpublic void doRender(Entity entity, double x, double y, double z, float f1, float f2) {\n\n\t\tGL11.glPushMatrix();\n\t\tGL11.glTranslated(x, y - 0.0125, z);\n\n\t\tif(this.dummy == null) {\n\t\t\tthis.dummy = new ItemStack(ModBlocks.crate);\n\t\t}\n\n\t\tEntityItem dummy = new EntityItem(entity.worldObj, 0, 0, 0, this.dummy);\n\t\tdummy.hoverStart = 0.0F;\n\n\t\tRenderItem.renderInFrame = true;\n\t\tdouble scale = 2;\n\t\tGL11.glScaled(scale, scale, scale);\n\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);\n\t\tRenderItem.renderInFrame = false;\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tprotected ResourceLocation getEntityTexture(Entity p_110775_1_) {\n\t\treturn null;\n\t}\n}\n"
+    }
+  },
+  "native_item_parents": {
+    "torch": "item/generated",
+    "redstone_torch": "item/generated",
+    "lever": "item/generated",
+    "ladder": "item/generated",
+    "vine": "item/generated",
+    "hopper": "item/generated",
+    "cauldron": "item/generated",
+    "brewing_stand": "item/generated",
+    "oak_sapling": "item/generated",
+    "stone": "block/stone",
+    "oak_fence": "block/oak_fence_inventory",
+    "chest": "builtin/entity"
+  }
+}

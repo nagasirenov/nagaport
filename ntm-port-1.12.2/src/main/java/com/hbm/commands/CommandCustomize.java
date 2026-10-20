@@ -40,12 +40,12 @@ public class CommandCustomize extends CommandBase {
 		
 		EntityPlayer player = (EntityPlayer) sender;
 		
-		if(player.getHeldItem() == null || !(player.getHeldItem().getItem() instanceof ICustomizable)) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || !(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ICustomizable)) {
 			sender.sendMessage(new TextComponentString("You have to hold a customizable item to use this command!").setStyle(new Style().setColor(TextFormatting.RED)));
 			return;
 		}
 		
-		ICustomizable item = (ICustomizable) player.getHeldItem().getItem();
-		item.customize(player, player.getHeldItem(), args);
+		ICustomizable item = (ICustomizable) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem();
+		item.customize(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player), args);
 	}
 }

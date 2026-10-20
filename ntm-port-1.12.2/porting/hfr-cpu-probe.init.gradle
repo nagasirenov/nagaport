@@ -1,0 +1,15 @@
+// Complete native CPU model/HFR classes and real BufferBuilder tests, not full-mod acceptance.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortHfrCpu', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-hfr-cpu.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

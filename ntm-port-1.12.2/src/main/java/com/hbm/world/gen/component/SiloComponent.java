@@ -17,9 +17,10 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
+import net.minecraft.world.gen.structure.template.TemplateManager;
 import com.hbm.lib.ForgeDirection;
 
 public class SiloComponent extends Component {
@@ -38,15 +39,17 @@ public class SiloComponent extends Component {
 	}
 	
 	/** Set to NBT */
-	protected void func_143012_a(NBTTagCompound nbt) {
-		super.func_143012_a(nbt);
+	@Override
+	protected void writeStructureToNBT(NBTTagCompound nbt) {
+		super.writeStructureToNBT(nbt);
 		nbt.setInteger("freq", freq);
 		nbt.setInteger("freqHatch", freqHatch);
 	}
 	
 	/** Get from NBT */
-	protected void func_143011_b(NBTTagCompound nbt) {
-		super.func_143011_b(nbt);
+	@Override
+	protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
+		super.readStructureFromNBT(nbt, templateManager);
 		this.freq = nbt.getInteger("freq");
 		this.freqHatch = nbt.getInteger("freqHatch");
 	}
@@ -212,8 +215,8 @@ public class SiloComponent extends Component {
 		fillWithMetadataBlocks(world, box, 36, 29, 10, 38, 29, 10, ModBlocks.concrete_stairs, stairS);
 		fillWithMetadataBlocks(world, box, 39, 29, 5, 39, 29, 9, ModBlocks.concrete_stairs, stairE);
 		//Deco
-		placeBlockAtCurrentPosition(world, Blocks.iron_bars, 0, 35, 27, 7, box);
-		placeBlockAtCurrentPosition(world, Blocks.iron_bars, 0, 39, 27, 7, box);
+		placeBlockAtCurrentPosition(world, Blocks.IRON_BARS, 0, 35, 27, 7, box);
+		placeBlockAtCurrentPosition(world, Blocks.IRON_BARS, 0, 39, 27, 7, box);
 		placeDoor(world, box, ModBlocks.door_metal, 1, false, rand.nextBoolean(), 37, 26, 5);
 		
 		//Stuff not-bolted down
@@ -251,11 +254,11 @@ public class SiloComponent extends Component {
 		setRTTYFreq(world, box, 16, 25, 17, freqHatch);
 		
 		//Containers
-		generateInvContents(world, box, rand, Blocks.chest, 2, 36, 26, 17, ItemPool.getPool(ItemPoolsLegacy.POOL_VERTIBIRD), 5);
+		generateInvContents(world, box, rand, Blocks.CHEST, 2, 36, 26, 17, ItemPool.getPool(ItemPoolsLegacy.POOL_VERTIBIRD), 5);
 		
 		/* Stairway */
 		fillWithAir(world, box, 37, 26, 9, 37, 27, 10);
-		placeBlockAtCurrentPosition(world, Blocks.air, 11, 37, 25, 10, box);
+		placeBlockAtCurrentPosition(world, Blocks.AIR, 11, 37, 25, 10, box);
 		fillWithAir(world, box, 37, 24, 11, 37, 26, 11);
 		fillWithAir(world, box, 37, 23, 12, 37, 25, 12);
 		fillWithAir(world, box, 37, 21, 13, 37, 24, 14);
@@ -280,7 +283,7 @@ public class SiloComponent extends Component {
 		
 		/* Blue Control Room */
 		//Air
-			placeBlockAtCurrentPosition(world, Blocks.air, 0, 36, 23, 17, box);
+			placeBlockAtCurrentPosition(world, Blocks.AIR, 0, 36, 23, 17, box);
 			fillWithAir(world, box, 34, 21, 13, 35, 23, 19);
 			fillWithAir(world, box, 33, 21, 13, 33, 23, 15);
 			fillWithAir(world, box, 29, 21, 16, 31, 23, 19);
@@ -409,7 +412,7 @@ public class SiloComponent extends Component {
 		fillWithMetadataBlocks(world, box, 33, 21, 16, 33, 23, 16, ModBlocks.tape_recorder, decoW);
 		placeBlockAtCurrentPosition(world, ModBlocks.reinforced_stone_stairs, stairE | 4, 34, 21, 19, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.brick_slab, 8, 34, 21, 18, box);
-		placeBlockAtCurrentPosition(world, Blocks.heavy_weighted_pressure_plate, 0, 34, 22, 18, box);
+		placeBlockAtCurrentPosition(world, Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE, 0, 34, 22, 18, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.capacitor_copper, decoE, 36, 21, 16, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.deco_steel, 0, 36, 21, 17, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.hadron_coil_alloy, 0, 36, 21, 19, box);
@@ -430,15 +433,15 @@ public class SiloComponent extends Component {
 		fillWithBlocks(world, box, 25, 21, 7, 26, 21, 7, ModBlocks.deco_steel);
 		fillWithBlocks(world, box, 24, 21, 5, 24, 21, 6, ModBlocks.deco_steel);
 		placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, decoModelN, 28, 22, 9, box);
-		placeBlockAtCurrentPosition(world, Blocks.lever, 6, 26, 22, 8, box); //placed on ground
-		placeBlockAtCurrentPosition(world, Blocks.lever, 6, 25, 22, 7, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairS, 28, 21, 7, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairW, 27, 21, 5, box);
+		placeBlockAtCurrentPosition(world, Blocks.LEVER, 6, 26, 22, 8, box); //placed on ground
+		placeBlockAtCurrentPosition(world, Blocks.LEVER, 6, 25, 22, 7, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairS, 28, 21, 7, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairW, 27, 21, 5, box);
 		
 		placeBlockAtCurrentPosition(world, ModBlocks.tape_recorder, decoE, 30, 21, 5, box);
-		placeBlockAtCurrentPosition(world, Blocks.flower_pot, 0, 27, 21, 3, box);
+		placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 27, 21, 3, box);
 		
-		placeBlockAtCurrentPosition(world, Blocks.flower_pot, 0, 25, 22, 2, box);
+		placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 25, 22, 2, box);
 		
 		placeCore(world, box, ModBlocks.radio_telex, ForgeDirection.WEST, 25, 21, 5);
 		fillSpace(world, box, 25, 21, 5, new int[] {0, 0, 0, 0, 1, 0}, ModBlocks.radio_telex, ForgeDirection.WEST);
@@ -458,11 +461,11 @@ public class SiloComponent extends Component {
 		placeBlockAtCurrentPosition(world, ModBlocks.capacitor_copper, decoN, 22, 22, 1, box);
 		fillWithBlocks(world, box, 20, 23, 1, 22, 23, 1, ModBlocks.deco_steel);
 		placeBlockAtCurrentPosition(world, ModBlocks.hev_battery, 0, 23, 21, 1, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairW, 18, 21, 2, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairW, 18, 21, 2, box);
 		fillWithBlocks(world, box, 16, 21, 1, 16, 21, 3, ModBlocks.deco_steel);
 		
 		placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, decoModelE, 16, 22, 2, box);
-		placeBlockAtCurrentPosition(world, Blocks.flower_pot, 0, 16, 22, 3, box);
+		placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 16, 22, 3, box);
 		placeRandomBobble(world, box, rand, 16, 22, 4);
 		
 		//Containers
@@ -772,8 +775,8 @@ public class SiloComponent extends Component {
 		fillWithBlocks(world, box, 16, 5, 17, 18, 5, 17, ModBlocks.fence_metal);
 		fillWithBlocks(world, box, 16, 5, 15, 16, 5, 16, ModBlocks.fence_metal);
 		fillWithBlocks(world, box, 16, 5, 11, 16, 5, 13, ModBlocks.fence_metal);
-		placeBlockAtCurrentPosition(world, Blocks.air, 0, 21, 5, 17, box);
-		placeBlockAtCurrentPosition(world, Blocks.air, 0, 17, 5, 11, box);
+		placeBlockAtCurrentPosition(world, Blocks.AIR, 0, 21, 5, 17, box);
+		placeBlockAtCurrentPosition(world, Blocks.AIR, 0, 17, 5, 11, box);
 		
 		fillWithMetadataBlocks(world, box, 17, 2, 12, 17, 4, 12, ModBlocks.ladder_steel, decoN);
 		fillWithMetadataBlocks(world, box, 21, 2, 16, 21, 4, 16, ModBlocks.ladder_steel, decoS);
@@ -886,31 +889,31 @@ public class SiloComponent extends Component {
 		//Deco
 		//Living Room
 		placeBlockAtCurrentPosition(world, ModBlocks.reinforced_stone_stairs, stairW | 4, 12, 17, 17, box);
-		placeBlockAtCurrentPosition(world, Blocks.cauldron, 0, 12, 17, 18, box);
+		placeBlockAtCurrentPosition(world, Blocks.CAULDRON, 0, 12, 17, 18, box);
 		fillWithMetadataBlocks(world, box, 12, 17, 19, 12, 17, 20, ModBlocks.reinforced_stone_stairs, stairW | 4);
 		placeBlockAtCurrentPosition(world, ModBlocks.machine_electric_furnace_off, decoE, 12, 17, 21, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.deco_toaster, getCRTMeta(3) | 4, 12, 18, 17, box);
 		placeLever(world, box, 2, true, 12, 18, 18);
 		placeBlockAtCurrentPosition(world, ModBlocks.machine_microwave, decoE, 12, 18, 19, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.hev_battery, 0, 12, 18, 20, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairS, 8, 17, 17, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairS, 8, 17, 17, box);
 		fillWithMetadataBlocks(world, box, 8, 17, 19, 9, 17, 19, ModBlocks.reinforced_stone_stairs, stairS | 4);
 		fillWithMetadataBlocks(world, box, 8, 17, 20, 9, 17, 20, ModBlocks.reinforced_stone_stairs, stairN | 4);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairN, 8, 17, 22, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairE, 10, 17, 23, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairS, 11, 17, 23, box);
-		placeBlockAtCurrentPosition(world, Blocks.oak_stairs, stairW, 12, 17, 23, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairN, 8, 17, 22, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairE, 10, 17, 23, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairS, 11, 17, 23, box);
+		placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairW, 12, 17, 23, box);
 		fillWithMetadataBlocks(world, box, 10, 17, 25, 12, 17, 25, ModBlocks.reinforced_stone_stairs, stairN | 4);
 		placeBlockAtCurrentPosition(world, ModBlocks.deco_crt, getCRTMeta(0), 11, 18, 25, box);
 		
 		//Bathroom
 		placeBlockAtCurrentPosition(world, ModBlocks.reinforced_stone, 0, 6, 17, 17, box);
-		fillWithBlocks(world, box, 6, 17, 18, 6, 17, 20, Blocks.cauldron);
+		fillWithBlocks(world, box, 6, 17, 18, 6, 17, 20, Blocks.CAULDRON);
 		placeBlockAtCurrentPosition(world, ModBlocks.reinforced_stone, 0, 6, 17, 21, box);
 		for(int i = 0; i < 3; i++)
 			placeLever(world, box, 2, true, 6, 18, 18 + i);
-		placeBlockAtCurrentPosition(world, Blocks.hopper, decoW, 6, 17, 24, box);
-		placeBlockAtCurrentPosition(world, Blocks.trapdoor, decoModelW >> 2, 6, 18, 24, box);
+		placeBlockAtCurrentPosition(world, Blocks.HOPPER, decoW, 6, 17, 24, box);
+		placeBlockAtCurrentPosition(world, Blocks.TRAPDOOR, decoModelW >> 2, 6, 18, 24, box);
 		//Bedroom
 		for(int i = 3; i <= 7; i += 2)
 			placeBlockAtCurrentPosition(world, ModBlocks.reinforced_stone_stairs, stairN | 4, i, 17, 11, box);
@@ -1013,8 +1016,8 @@ public class SiloComponent extends Component {
 		fillWithRandomizedBlocks(world, box, 33, 13, 18, 33, 13, 20, rand, Supplies);
 		
 		placeBlockAtCurrentPosition(world, ModBlocks.anvil_iron, decoN, 31, 13, 21, box);
-		fillWithBlocks(world, box, 28, 13, 18, 29, 13, 20, Blocks.planks);
-		placeBlockAtCurrentPosition(world, Blocks.crafting_table, 0, 29, 13, 19, box);
+		fillWithBlocks(world, box, 28, 13, 18, 29, 13, 20, Blocks.PLANKS);
+		placeBlockAtCurrentPosition(world, Blocks.CRAFTING_TABLE, 0, 29, 13, 19, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.radiorec, decoE, 28, 14, 19, box);
 		placeBlockAtCurrentPosition(world, ModBlocks.deco_toaster, getCRTMeta(1), 28, 13, 17, box);
 		
@@ -1168,8 +1171,8 @@ public class SiloComponent extends Component {
 		fillWithAir(world, box, 27, 7, 14, 31, 7, 14);
 		fillWithAir(world, box, 28, 2, 11, 31, 3, 15);
 		//Floor + Ceiling
-		fillWithBlocks(world, box, 28, 0, 11, 31, 0, 15, Blocks.dirt);
-		randomlyFillWithBlocks(world, box, rand, 0.5F, 28, 0, 11, 31, 0, 15, Blocks.dirt, 2);
+		fillWithBlocks(world, box, 28, 0, 11, 31, 0, 15, Blocks.DIRT);
+		randomlyFillWithBlocks(world, box, rand, 0.5F, 28, 0, 11, 31, 0, 15, Blocks.DIRT, 2);
 		fillWithBlocks(world, box, 27, 4, 11, 31, 4, 15, ModBlocks.concrete_smooth);
 		fillWithBlocks(world, box, 27, 8, 12, 32, 8, 16, ModBlocks.concrete_smooth);
 		//Walls
@@ -1195,14 +1198,14 @@ public class SiloComponent extends Component {
 		ConcreteStairs.setMetadata(stairS | 4);
 		fillWithRandomizedBlocks(world, box, 27, 7, 13, 31, 7, 13, rand, ConcreteStairs);
 		//Water
-		fillWithBlocks(world, box, 28, 1, 11, 31, 1, 15, Blocks.water);
+		fillWithBlocks(world, box, 28, 1, 11, 31, 1, 15, Blocks.WATER);
 		//Deco
 		fillWithBlocks(world, box, 26, 5, 14, 26, 6, 14, ModBlocks.concrete_smooth); //doorway
 		fillWithMetadataBlocks(world, box, 31, 2, 15, 31, 4, 15, ModBlocks.ladder_steel, decoE);
 		//Top Room
-		randomlyFillWithBlocks(world, box, rand, 0.15F, 27, 5, 13, 30, 6, 15, Blocks.web); //webs
-		randomlyFillWithBlocks(world, box, rand, 0.15F, 31, 6, 13, 31, 6, 15, Blocks.web);
-		randomlyFillWithBlocks(world, box, rand, 0.15F, 27, 7, 14, 31, 7, 14, Blocks.web);
+		randomlyFillWithBlocks(world, box, rand, 0.15F, 27, 5, 13, 30, 6, 15, Blocks.WEB); //webs
+		randomlyFillWithBlocks(world, box, rand, 0.15F, 31, 6, 13, 31, 6, 15, Blocks.WEB);
+		randomlyFillWithBlocks(world, box, rand, 0.15F, 27, 7, 14, 31, 7, 14, Blocks.WEB);
 		
 		//Flooded Room
 		randomlyFillWithBlocks(world, box, rand, 0.15F, 28, 2, 11, 31, 2, 15, ModBlocks.reeds);
@@ -1236,7 +1239,7 @@ public class SiloComponent extends Component {
 		
 		if(!box.isVecInside(posX, posY, posZ)) return;
 		
-		TileEntityRadioTorchBase torch = (TileEntityRadioTorchBase) world.getTileEntity(posX, posY, posZ);
+		TileEntityRadioTorchBase torch = (TileEntityRadioTorchBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(posX, posY, posZ));
 		
 		if(torch != null) {
 			//for some reason, the silo hatch torch stays at signal 15, despite the others not doing so.
@@ -1247,72 +1250,78 @@ public class SiloComponent extends Component {
 	}
 	
 	public static class ConcreteStairs extends BlockSelector {
+		private int selectedMetadata;
 		
 		public void setMetadata(int meta) {
-			this.selectedBlockMetaData = meta;
+			selectedMetadata = meta;
 		}
 		
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 			
 			if(chance < 0.4F)
-				this.field_151562_a = ModBlocks.brick_concrete_stairs;
+				selectedBlock = ModBlocks.brick_concrete_stairs;
 			else if (chance < 0.7F)
-				this.field_151562_a = ModBlocks.brick_concrete_mossy_stairs;
+				selectedBlock = ModBlocks.brick_concrete_mossy_stairs;
 			else if (chance < 0.9F)
-				this.field_151562_a = ModBlocks.brick_concrete_cracked_stairs;
+				selectedBlock = ModBlocks.brick_concrete_cracked_stairs;
 			else
-				this.field_151562_a = ModBlocks.brick_concrete_broken_stairs;
+				selectedBlock = ModBlocks.brick_concrete_broken_stairs;
 			
+			this.blockstate = selectedBlock.getStateFromMeta(selectedMetadata);
 		}
 	}
 	
 	public static class DestroyedBricks extends BlockSelector {
+		private int selectedMetadata;
 		
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
-			this.selectedBlockMetaData = 0;
+			net.minecraft.block.Block selectedBlock;
+			selectedMetadata = 0;
 			float chance = rand.nextFloat();
 			
 			if(chance < 0.3F) {
-				this.field_151562_a = ModBlocks.concrete_brick_slab;
+				selectedBlock = ModBlocks.concrete_brick_slab;
 				chance = rand.nextFloat();
 				
 				if (chance >= 0.4F && chance < 0.7F)
-					this.selectedBlockMetaData |= 1;
+					selectedMetadata |= 1;
 				else if (chance < 0.9F)
-					this.selectedBlockMetaData |= 2;
+					selectedMetadata |= 2;
 				else 
-					this.selectedBlockMetaData |= 3;
+					selectedMetadata |= 3;
 				
 			} else if(chance < 0.6F) {
-				this.selectedBlockMetaData = rand.nextInt(4);
+				selectedMetadata = rand.nextInt(4);
 				chance = rand.nextFloat();
 				
 				if(chance < 0.4F)
-					this.field_151562_a = ModBlocks.brick_concrete_stairs;
+					selectedBlock = ModBlocks.brick_concrete_stairs;
 				else if (chance < 0.7F)
-					this.field_151562_a = ModBlocks.brick_concrete_mossy_stairs;
+					selectedBlock = ModBlocks.brick_concrete_mossy_stairs;
 				else if (chance < 0.9F)
-					this.field_151562_a = ModBlocks.brick_concrete_cracked_stairs;
+					selectedBlock = ModBlocks.brick_concrete_cracked_stairs;
 				else
-					this.field_151562_a = ModBlocks.brick_concrete_broken_stairs;
+					selectedBlock = ModBlocks.brick_concrete_broken_stairs;
 				
 			} else if(chance < 0.9F) {
 				chance = rand.nextFloat();
 				
 				if(chance < 0.4F)
-					this.field_151562_a = ModBlocks.brick_concrete;
+					selectedBlock = ModBlocks.brick_concrete;
 				else if (chance < 0.7F)
-					this.field_151562_a = ModBlocks.brick_concrete_mossy;
+					selectedBlock = ModBlocks.brick_concrete_mossy;
 				else if (chance < 0.9F)
-					this.field_151562_a = ModBlocks.brick_concrete_cracked;
+					selectedBlock = ModBlocks.brick_concrete_cracked;
 				else
-					this.field_151562_a = ModBlocks.brick_concrete_broken;
+					selectedBlock = ModBlocks.brick_concrete_broken;
 				
 			} else
-				this.field_151562_a = Blocks.air;
+				selectedBlock = Blocks.AIR;
+			this.blockstate = selectedBlock.getStateFromMeta(selectedMetadata);
 		}
 	}
 	
@@ -1320,18 +1329,20 @@ public class SiloComponent extends Component {
 		
 		@Override
 		public void selectBlocks(Random rand, int posX, int posY, int posZ, boolean notInterior) {
+			net.minecraft.block.Block selectedBlock;
 			float chance = rand.nextFloat();
 			
 			if(chance < 0.2F)
-				this.field_151562_a = ModBlocks.barrel_corroded;
+				selectedBlock = ModBlocks.barrel_corroded;
 			else if(chance < 0.4F)
-				this.field_151562_a = ModBlocks.crate_can;
+				selectedBlock = ModBlocks.crate_can;
 			else if(chance < 0.45F)
-				this.field_151562_a = ModBlocks.red_barrel;
+				selectedBlock = ModBlocks.red_barrel;
 			else if(chance < 0.5F)
-				this.field_151562_a = ModBlocks.pink_barrel;
+				selectedBlock = ModBlocks.pink_barrel;
 			else
-				this.field_151562_a = Blocks.air;
+				selectedBlock = Blocks.AIR;
+			this.blockstate = selectedBlock.getStateFromMeta(0);
 		}
 	}
 	//stop-gap because there's no point in replacing all the blockselector classes yet
@@ -1351,10 +1362,10 @@ public class SiloComponent extends Component {
 					for(int y = minY; y <= maxY; y++) {
 						int posY = getYWithOffset(y);
 						//shouldn't cause issues
-						if(rand.nextInt(15) == 0 && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && !world.getBlock(posX, posY - 1, posZ).isAir(world, posX, posY - 1, posZ)) {
+						if(rand.nextInt(15) == 0 && com.hbm.world.WorldBlockState.read(world, posX, posY, posZ).getBlock().isAir(world, posX, posY, posZ) && !com.hbm.world.WorldBlockState.read(world, posX, posY - 1, posZ).getBlock().isAir(world, posX, posY - 1, posZ)) {
 							world.setBlock(posX, posY, posZ, ModBlocks.mine_ap, 0, 2);
 							
-							TileEntityLandmine mine = (TileEntityLandmine)world.getTileEntity(posX, posY, posZ);
+							TileEntityLandmine mine = (TileEntityLandmine)world.getTileEntity(new net.minecraft.util.math.BlockPos(posX, posY, posZ));
 							if(mine != null)
 								mine.waitingForPlayer = true;
 						}
@@ -1376,14 +1387,14 @@ public class SiloComponent extends Component {
 		dir = getDirection(dir.getOpposite());
 		world.setBlock(posX, posY, posZ, block, dir.ordinal() + BlockDummyable.offset, 2);
 		
-		TileEntity launchpad = world.getTileEntity(posX, posY, posZ);
+		TileEntity launchpad = world.getTileEntity(new net.minecraft.util.math.BlockPos(posX, posY, posZ));
 		if(launchpad instanceof TileEntityLaunchPadRusted) {
 			((TileEntityLaunchPadRusted) launchpad).missileLoaded = true;
 		}
 	}
 	//this might be a decent method to have in general actually
 	protected StructureBoundingBox getRotatedBoundingBox(int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
-		switch(this.coordBaseMode) {
+		switch(this.getCoordMode()) {
 		default: //0 & 2
 			return new StructureBoundingBox(minX, minY, minZ, minX + maxX, minY + maxY, minZ + maxZ);
 		case 1:

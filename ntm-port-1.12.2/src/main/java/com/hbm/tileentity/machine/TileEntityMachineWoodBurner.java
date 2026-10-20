@@ -58,14 +58,14 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineWoodBurner";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			powerGen = 0;
 			
 			this.tank.setType(2, slots);
@@ -73,8 +73,8 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 			this.power = Library.chargeItemsFromTE(slots, 5, power, maxPower);
 			
 			for(DirPos pos : getConPos()) {
-				if(power > 0) this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(worldObj.getTotalWorldTime() % 20 == 0) this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(power > 0) this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.world.getTotalWorldTime() % 20 == 0) this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 			
 			if(!liquidBurn) {
@@ -104,7 +104,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 				} else if(this.power < maxPower && isOn && breatheAir(1)) {
 					this.burnTime--;
 					this.powerGen += 100;
-					if(worldObj.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND);
+					if(this.world.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND);
 				}
 				
 			} else {
@@ -119,7 +119,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 						if(toBurn > 0) {
 							this.powerGen += trait.getHeatEnergy() * toBurn / 2_000L;
 							this.tank.setFill(this.tank.getFill() - toBurn);
-							if(worldObj.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * toBurn / 2F);
+							if(this.world.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * toBurn / 2F);
 						}
 					}
 				}
@@ -134,7 +134,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 			if(powerGen > 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-				worldObj.spawnParticle("smoke", xCoord + 0.5 - dir.offsetX + rot.offsetX, yCoord + 4, zCoord + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);
+				this.world.spawnParticle("smoke", this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);
 			}
 		}
 	}
@@ -169,8 +169,8 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
 		};
 	}
 	
@@ -186,7 +186,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setInteger("burnTime", burnTime);
@@ -194,6 +194,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 		nbt.setBoolean("isOn", isOn);
 		nbt.setBoolean("liquidBurn", liquidBurn);
 		tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 	
 	protected boolean processAsh(int level, EnumAshType type, int threshold) {
@@ -225,7 +226,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -240,7 +241,8 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1 };
 	}
 	
@@ -250,7 +252,8 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot == 1;
 	}
 
@@ -298,12 +301,12 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 6,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 6,
+					this.pos.getZ() + 2
 					);
 		}
 		

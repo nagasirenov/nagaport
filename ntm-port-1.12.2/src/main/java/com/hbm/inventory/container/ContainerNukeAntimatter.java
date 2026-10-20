@@ -71,6 +71,6 @@ private TileEntityAntimatter SillyBomb;
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return SillyBomb.isUseableByPlayer(player);
+		return SillyBomb.isUsableByPlayer(player);
 	}
 }

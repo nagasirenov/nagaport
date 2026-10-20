@@ -74,7 +74,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if(!this.worldObj.isRemote && !this.isDead) {
+		if(!this.world.isRemote && !this.isDead) {
 			this.setDead();
 		}
 		
@@ -129,29 +129,29 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 		
 		@Override
 		public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
-			ItemStack stackCopy = null;
+			ItemStack stackCopy = ItemStack.EMPTY;
 			Slot slot = (Slot) this.inventorySlots.get(slotIndex);
 			if(slot != null && slot.getHasStack()) {
 				ItemStack stack = slot.getStack();
 				stackCopy = stack.copy();
 				if(slotIndex < train.getSizeInventory()) {
 					if(!this.mergeItemStack(stack, train.getSizeInventory(), this.inventorySlots.size(), true)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else {
 					
 					if(stackCopy.getItem() instanceof IBatteryItem) {
 						if(!this.mergeItemStack(stack, 28, 29, false)) {
-							return null;
+							return ItemStack.EMPTY;
 						}
 					} else {
 						if(!this.mergeItemStack(stack, 0, 28, false)) {
-							return null;
+							return ItemStack.EMPTY;
 						}
 					}
 				}
-				if(stack.stackSize == 0) {
-					slot.putStack((ItemStack) null);
+				if(stack.isEmpty()) {
+					slot.putStack(ItemStack.EMPTY);
 				} else {
 					slot.onSlotChanged();
 				}
@@ -161,7 +161,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 
 		@Override
 		public boolean canInteractWith(EntityPlayer player) {
-			return train.isUseableByPlayer(player);
+			return train.isUsableByPlayer(player);
 		}
 	}
 	
@@ -192,8 +192,8 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 		@Override
 		protected void drawGuiContainerForegroundLayer(int i, int j) {
 			String name = this.train.hasCustomInventoryName() ? this.train.getInventoryName() : I18nUtil.format(this.train.getInventoryName());
-			this.fontRendererObj.drawString(name, 140 / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-			this.fontRendererObj.drawString(I18nUtil.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+			this.fontRenderer.drawString(name, 140 / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+			this.fontRenderer.drawString(I18nUtil.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		}
 
 		@Override

@@ -38,17 +38,17 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.alkylation";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
-			if(this.worldObj.getTotalWorldTime() % 10 == 0) this.updateConnections();
+		if(!this.world.isRemote) {
+			if(this.world.getTotalWorldTime() % 10 == 0) this.updateConnections();
 			
-			if(worldObj.getTotalWorldTime() % 2 == 0) alkylate();
+			if(this.world.getTotalWorldTime() % 2 == 0) alkylate();
 			
 			this.networkPackNT(25);
 		}
@@ -98,11 +98,11 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 	
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[1].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			if(tanks[3].getFill() > 0) this.sendFluid(tanks[3], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			if(tanks[3].getFill() > 0) this.sendFluid(tanks[3], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 	
@@ -111,19 +111,19 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 		
 		return new DirPos[] {
-			new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-			new DirPos(xCoord + rot.offsetX * 2 + dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2 + dir.offsetZ * 2, rot),
-			new DirPos(xCoord + rot.offsetX * 2 - dir.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2 - dir.offsetZ * 2, rot),
+			new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+			new DirPos(this.pos.getX() + rot.offsetX * 2 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 + dir.offsetZ * 2, rot),
+			new DirPos(this.pos.getX() + rot.offsetX * 2 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ * 2, rot),
 
-			new DirPos(xCoord + rot.offsetX * 1 + dir.offsetX * 3, yCoord, zCoord + rot.offsetZ * 1 + dir.offsetZ * 3, dir),
-			new DirPos(xCoord - rot.offsetX * 1 + dir.offsetX * 3, yCoord, zCoord - rot.offsetZ * 1 + dir.offsetZ * 3, dir),
+			new DirPos(this.pos.getX() + rot.offsetX * 1 + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 1 + dir.offsetZ * 3, dir),
+			new DirPos(this.pos.getX() - rot.offsetX * 1 + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 1 + dir.offsetZ * 3, dir),
 			
-			new DirPos(xCoord - rot.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2, rot.getOpposite()),
-			new DirPos(xCoord - rot.offsetX * 2 + dir.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2 + dir.offsetZ * 2, rot.getOpposite()),
-			new DirPos(xCoord - rot.offsetX * 2 - dir.offsetX * 2, yCoord, zCoord - rot.offsetZ * 2 - dir.offsetZ * 2, rot.getOpposite()),
+			new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
+			new DirPos(this.pos.getX() - rot.offsetX * 2 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2 + dir.offsetZ * 2, rot.getOpposite()),
+			new DirPos(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 2, rot.getOpposite()),
 			
-			new DirPos(xCoord + rot.offsetX * 1 - dir.offsetX * 3, yCoord, zCoord + rot.offsetZ * 1 - dir.offsetZ * 3, dir.getOpposite()),
-			new DirPos(xCoord - rot.offsetX * 1 - dir.offsetX * 3, yCoord, zCoord - rot.offsetZ * 1 - dir.offsetZ * 3, dir.getOpposite()),
+			new DirPos(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3, dir.getOpposite()),
+			new DirPos(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3, dir.getOpposite()),
 		};
 	}
 	
@@ -135,10 +135,11 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		for(int i = 0; i < tanks.length; i++) tanks[i].writeToNBT(nbt, "t" + i);
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -147,12 +148,12 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 3,
-				yCoord,
-				zCoord - 3,
-				xCoord + 3,
-				yCoord + 3,
-				zCoord + 3
+				this.pos.getX() - 3,
+				this.pos.getY(),
+				this.pos.getZ() - 3,
+				this.pos.getX() + 3,
+				this.pos.getY() + 3,
+				this.pos.getZ() + 3
 			);
 		}
 		

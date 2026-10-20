@@ -5,10 +5,16 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
+import com.hbm.entity.projectile.EntityCog;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderCog extends Render {
+
+	public RenderCog(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity cog, double x, double y, double z, float f0, float f1) {
@@ -16,7 +22,7 @@ public class RenderCog extends Render {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x, y, z);
 
-		int orientation = cog.getDataWatcher().getWatchableObjectInt(10);
+		int orientation = ((EntityCog) cog).getOrientation();
 		switch(orientation % 6) {
 		case 3: GL11.glRotatef(0, 0F, 1F, 0F); break;
 		case 5: GL11.glRotatef(90, 0F, 1F, 0F); break;
@@ -42,7 +48,7 @@ public class RenderCog extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		int meta = entity.getDataWatcher().getWatchableObjectInt(11);
+		int meta = ((EntityCog) entity).getMeta();
 		
 		if(meta == 0)
 			return ResourceManager.stirling_tex;

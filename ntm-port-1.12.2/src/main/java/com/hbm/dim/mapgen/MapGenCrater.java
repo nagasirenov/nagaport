@@ -60,7 +60,7 @@ public class MapGenCrater extends MapGenBase {
 
 							if(r - rand.nextInt(3) <= radius) {
 								// Carve out to intended depth
-								int dep = (int)MathHelper.clamp_double(depthFunc(r, radius, depth), 0, y - 1);
+								int dep = (int)MathHelper.clamp(depthFunc(r, radius, depth), (double) (0), (double) (y - 1));
 								for(int i = 0; i < dep; i++) {
 									primer.setBlockState(bx, y - i, bz, Blocks.AIR.getDefaultState());
 								}

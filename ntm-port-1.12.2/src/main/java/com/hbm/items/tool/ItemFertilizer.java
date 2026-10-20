@@ -70,7 +70,7 @@ public class ItemFertilizer extends Item {
 	
 	public static boolean fertilize(World world, int x, int y, int z, EntityPlayer player, boolean force) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		BonemealEvent event = new BonemealEvent(player, world, b, x, y, z);
 		if(MinecraftForge.EVENT_BUS.post(event)) {

@@ -1,0 +1,7 @@
+Validated 593 original assets, 456 exact namespace edits, 225 collision-free renames; reverse=False
+DRY RUN only; pass --apply after baseline checkpoint is committed and approved
+Validated 593 original assets, 456 exact namespace edits, 225 collision-free renames; reverse=False
+APPLIED only validated JSON token edits and byte-identical OGG path renames
+Validated 593 original assets, 456 exact namespace edits, 225 collision-free renames; reverse=True
+APPLIED only validated JSON token edits and byte-identical OGG path renames
+PASS isolated apply/reverse exact whole-tree round trip and no-write baseline/collision rejection

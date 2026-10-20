@@ -1,0 +1,4 @@
+Attribution diagnostics (unfinished source, not compile success): 10
+Attribution diagnostics (unfinished source, not compile success): 28083
+PASS 4 positive native reads; 6 write/other-owner negatives; string exclusion
+PASS zero native Vec3d legacy-coordinate reads across 4048 production sources

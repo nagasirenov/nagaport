@@ -6,12 +6,14 @@ import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBomber extends Render {
 
-	public RenderBomber() {
+	public RenderBomber(RenderManager renderManager) {
+		super(renderManager);
 	}
 
 	@Override
@@ -76,7 +78,7 @@ public class RenderBomber extends Render {
 			ResourceManager.b2x.renderAll();
 			bindTexture(ResourceManager.b2x_tex_mex_sex);
 
-			float trailStretch = entity.worldObj.rand.nextFloat();
+			float trailStretch = entity.world.rand.nextFloat();
 			trailStretch = 1.2F - (trailStretch * trailStretch * 0.2F);
 			trailStretch *= 2;
 

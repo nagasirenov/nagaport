@@ -27,7 +27,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachinePump extends BlockDummyable implements ITooltipProvider, ILookOverlay {
 
 	public MachinePump() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class MachinePump extends BlockDummyable implements ITooltipProvider, ILo
 		if(pos == null)
 			return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityMachinePumpBase)) return;
 
@@ -103,6 +103,6 @@ public class MachinePump extends BlockDummyable implements ITooltipProvider, ILo
 			text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! NO VALID GROUND ! ! !");
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

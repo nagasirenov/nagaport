@@ -49,23 +49,23 @@ public class BedrockOre {
 		BedrockOreDefinition uranium = new BedrockOreDefinition(EnumBedrockOre.URANIUM,												4,	new FluidStack(Fluids.SULFURIC_ACID, 500));
 		BedrockOreDefinition thorium = new BedrockOreDefinition(EnumBedrockOre.THORIUM,												4,	new FluidStack(Fluids.SULFURIC_ACID, 500));
 		BedrockOreDefinition fluorite = new BedrockOreDefinition(EnumBedrockOre.FLUORITE,												1);
-		BedrockOreDefinition coal = new BedrockOreDefinition(new ItemStack(Items.coal, 8),											1,	0x202020);
+		BedrockOreDefinition coal = new BedrockOreDefinition(new ItemStack(Items.COAL, 8),											1,	0x202020);
 		BedrockOreDefinition niter = new BedrockOreDefinition(new ItemStack(ModItems.niter, 4),										2,	0x808080,	new FluidStack(Fluids.PEROXIDE, 500));
-		BedrockOreDefinition redstone = new BedrockOreDefinition(new ItemStack(Items.redstone, 4),										1,	0xd01010);
-		BedrockOreDefinition emerald = new BedrockOreDefinition(new ItemStack(Items.emerald, 4),										1,	0x3FDD85);
+		BedrockOreDefinition redstone = new BedrockOreDefinition(new ItemStack(Items.REDSTONE, 4),										1,	0xd01010);
+		BedrockOreDefinition emerald = new BedrockOreDefinition(new ItemStack(Items.EMERALD, 4),										1,	0x3FDD85);
 		BedrockOreDefinition rare = new BedrockOreDefinition(DictFrame.fromOne(ModItems.chunk_ore, EnumChunkType.RARE),			2,	0x8F9999,	new FluidStack(Fluids.PEROXIDE, 500));
 		BedrockOreDefinition bauxite = new BedrockOreDefinition(DictFrame.fromOne(ModBlocks.stone_resource, EnumStoneType.BAUXITE, 2),1,	0xEF7213);
 
-		BedrockOreDefinition glowstone = new BedrockOreDefinition(new ItemStack(Items.glowstone_dust, 4),		1,	0xF9FF4D);
+		BedrockOreDefinition glowstone = new BedrockOreDefinition(new ItemStack(Items.GLOWSTONE_DUST, 4),		1,	0xF9FF4D);
 		BedrockOreDefinition phosporous = new BedrockOreDefinition(new ItemStack(ModItems.powder_fire, 4),		1,	0xD7341F);
-		BedrockOreDefinition quartz = new BedrockOreDefinition(new ItemStack(Items.quartz, 4),				1,	0xF0EFDD);
+		BedrockOreDefinition quartz = new BedrockOreDefinition(new ItemStack(Items.QUARTZ, 4),				1,	0xF0EFDD);
 
 		// NTM Space Fork ores
 		BedrockOreDefinition nickel = new BedrockOreDefinition(EnumBedrockOre.NICKEL,												2);
 		BedrockOreDefinition cadmium = new BedrockOreDefinition(EnumBedrockOre.CAD, 3, new FluidStack(Fluids.SULFURIC_ACID, 500));
 		BedrockOreDefinition zinc = new BedrockOreDefinition(EnumBedrockOre.ZINC,												2);
 		BedrockOreDefinition lithium = new BedrockOreDefinition(new ItemStack(ModItems.powder_lithium, 4), 1, 0xFFFFFF);
-		BedrockOreDefinition ice = new BedrockOreDefinition(new ItemStack(Blocks.packed_ice, 8), 1, 0xAAFFFF);
+		BedrockOreDefinition ice = new BedrockOreDefinition(new ItemStack(Blocks.PACKED_ICE, 8), 1, 0xAAFFFF);
 		BedrockOreDefinition coltan = new BedrockOreDefinition(new ItemStack(ModItems.fragment_coltan), 1, 0xA78D7A);
 		BedrockOreDefinition lanthanium = new BedrockOreDefinition(new ItemStack(ModItems.powder_lanthanium), 2, 0xA1B9B9);
 		BedrockOreDefinition schrabidium = new BedrockOreDefinition(new ItemStack(ModItems.powder_schrabidium, 1), 4, 0x00FFFF, new FluidStack(Fluids.NITRIC_ACID, 500));
@@ -172,7 +172,7 @@ public class BedrockOre {
 	}
 
 	public static void generate(World world, int x, int z, ItemStack stack, FluidStack acid, int color, int tier) {
-		generate(world, x, z, stack, acid, color, tier, ModBlocks.stone_depth, Blocks.stone);
+		generate(world, x, z, stack, acid, color, tier, ModBlocks.stone_depth, Blocks.STONE);
 	}
 
 	public static void generate(World world, int x, int z, ItemStack stack, FluidStack acid, int color, int tier, Block depthRock, Block targetBlock) {
@@ -180,12 +180,12 @@ public class BedrockOre {
 		for(int ix = x - 1; ix <= x + 1; ix++) {
 			for(int iz = z - 1; iz <= z + 1; iz++) {
 
-				Block b = world.getBlock(ix, 0, iz);
-				if(b.isReplaceableOreGen(world, ix, 0, iz, Blocks.bedrock)) {
+				Block b = com.hbm.world.WorldBlockState.read(world, ix, 0, iz).getBlock();
+				if(b.isReplaceableOreGen(world, ix, 0, iz, Blocks.BEDROCK)) {
 					if((ix == x && iz == z) || world.rand.nextBoolean()) {
 
 						world.setBlock(ix, 0, iz, ModBlocks.ore_bedrock);
-						TileEntityBedrockOre ore = (TileEntityBedrockOre) world.getTileEntity(ix, 0, iz);
+						TileEntityBedrockOre ore = (TileEntityBedrockOre) world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, 0, iz));
 						ore.resource = stack;
 						ore.color = color;
 						ore.shape = world.rand.nextInt(10);
@@ -202,10 +202,10 @@ public class BedrockOre {
 			for(int iz = z - 3; iz <= z + 3; iz++) {
 
 				for(int iy = 1; iy < 7; iy++) {
-					if(iy < 3 || world.getBlock(ix, iy, iz) == Blocks.bedrock) {
+					if(iy < 3 || com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock() == Blocks.BEDROCK) {
 
-						Block b = world.getBlock(ix, iy, iz);
-						if(b.isReplaceableOreGen(world, ix, iy, iz, targetBlock) || b.isReplaceableOreGen(world, ix, iy, iz, Blocks.bedrock)) {
+						Block b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();
+						if(b.isReplaceableOreGen(world, ix, iy, iz, targetBlock) || b.isReplaceableOreGen(world, ix, iy, iz, Blocks.BEDROCK)) {
 							world.setBlock(ix, iy, iz, depthRock);
 						}
 					}

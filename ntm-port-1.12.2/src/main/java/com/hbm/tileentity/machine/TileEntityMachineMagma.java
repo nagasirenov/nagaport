@@ -62,10 +62,10 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			for(DirPos pos : getConPos()) {
-				trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			// baby drill, baby
@@ -75,7 +75,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 
 				int timeBetweenOutputs = 10;
 
-				if(worldObj.getTotalWorldTime() % timeBetweenOutputs == 0) {
+				if(this.world.getTotalWorldTime() % timeBetweenOutputs == 0) {
 					for(MaterialStack mat : getOutputs()) {
 						int totalLiquid = 0;
 						for(MaterialStack m : liquids) totalLiquid += m.amount;
@@ -96,7 +96,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 
 				Vec3NT impact = new Vec3NT(0, 0, 0);
-				MaterialStack didPour = CrucibleUtil.pourFullStack(worldObj, xCoord + 0.5D + dir.offsetX * 3.875D, yCoord + 1.25D, zCoord + 0.5D + dir.offsetZ * 3.875D, 6, true, liquids, MaterialShapes.INGOT.q(1), impact);
+				MaterialStack didPour = CrucibleUtil.pourFullStack(this.world, this.pos.getX() + 0.5D + dir.offsetX * 3.875D, this.pos.getY() + 1.25D, this.pos.getZ() + 0.5D + dir.offsetZ * 3.875D, 6, true, liquids, MaterialShapes.INGOT.q(1), impact);
 
 				if(didPour != null) {
 					NBTTagCompound data = new NBTTagCompound();
@@ -105,8 +105,8 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 					data.setByte("dir", (byte) dir.ordinal());
 					data.setFloat("off", 0.625F);
 					data.setFloat("base", 0.625F);
-					data.setFloat("len", Math.max(1F, yCoord + 1 - (float) (Math.ceil(impact.y) - 0.875)));
-					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, xCoord + 0.5D + dir.offsetX * 3.875D, yCoord + 1, zCoord + 0.5D + dir.offsetZ * 3.875D), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1, zCoord + 0.5, 50));
+					data.setFloat("len", Math.max(1F, this.pos.getY() + 1 - (float) (Math.ceil(impact.y) - 0.875)));
+					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, this.pos.getX() + 0.5D + dir.offsetX * 3.875D, this.pos.getY() + 1, this.pos.getZ() + 0.5D + dir.offsetZ * 3.875D), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 50));
 				}
 			}
 
@@ -121,7 +121,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 				drillSpeed += 0.15F;
 				if(drillSpeed > 15F) drillSpeed = 15F;
 
-				lavaHeight += (worldObj.rand.nextFloat() - 0.5) * 0.01;
+				lavaHeight += (this.world.rand.nextFloat() - 0.5) * 0.01;
 				lavaHeight = (float)BobMathUtil.lerp(0.02D, lavaHeight, 0.9D);
 			} else {
 				drillSpeed -= 0.3F;
@@ -143,18 +143,18 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-			new DirPos(xCoord - dir.offsetX * 4, yCoord - 1, zCoord - dir.offsetZ * 4, dir),
-			new DirPos(xCoord - dir.offsetX * 4, yCoord - 2, zCoord - dir.offsetZ * 4, dir),
-			new DirPos(xCoord - dir.offsetX * 4 + rot.offsetX, yCoord - 1, zCoord - dir.offsetZ * 4 + rot.offsetZ, dir),
-			new DirPos(xCoord - dir.offsetX * 4 + rot.offsetX, yCoord - 2, zCoord - dir.offsetZ * 4 + rot.offsetZ, dir),
-			new DirPos(xCoord - dir.offsetX * 4 - rot.offsetX, yCoord - 1, zCoord - dir.offsetZ * 4 - rot.offsetZ, dir),
-			new DirPos(xCoord - dir.offsetX * 4 - rot.offsetX, yCoord - 2, zCoord - dir.offsetZ * 4 - rot.offsetZ, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 4, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ * 4, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 4, this.pos.getY() - 2, this.pos.getZ() - dir.offsetZ * 4, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 4 + rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ * 4 + rot.offsetZ, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 4 + rot.offsetX, this.pos.getY() - 2, this.pos.getZ() - dir.offsetZ * 4 + rot.offsetZ, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 4 - rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ * 4 - rot.offsetZ, dir),
+			new DirPos(this.pos.getX() - dir.offsetX * 4 - rot.offsetX, this.pos.getY() - 2, this.pos.getZ() - dir.offsetZ * 4 - rot.offsetZ, dir),
 		};
 	}
 
 	private boolean canOperate() {
 		// Currently only functions on Moho, so the simplest solution is acceptable
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 		if(body.name != "moho") return false;
 
 		validPosition = isValidPosition();
@@ -168,7 +168,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 	private boolean isValidPosition() {
 		for(int x = -1; x <= 1; x++) {
 			for(int z = -1; z <= 1; z++) {
-				if(worldObj.getBlock(xCoord + x, yCoord - 4, zCoord + z) != Blocks.lava) return false;
+				if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() - 4, this.pos.getZ() + z).getBlock() != Blocks.LAVA) return false;
 			}
 		}
 
@@ -242,7 +242,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -252,6 +252,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 		int[] liquidData = new int[liquids.size() * 2];
 		for(int i = 0; i < liquids.size(); i++) { MaterialStack sta = liquids.get(i); liquidData[i * 2] = sta.material.id; liquidData[i * 2 + 1] = sta.amount; }
 		nbt.setIntArray("liquids", liquidData);
+		return nbt;
 	}
 
 	@Override
@@ -285,7 +286,7 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineMagma";
 	}
 
@@ -296,12 +297,12 @@ public class TileEntityMachineMagma extends TileEntityMachineBase implements IEn
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 4,
-				yCoord - 3,
-				zCoord - 4,
-				xCoord + 5,
-				yCoord + 3,
-				zCoord + 5
+				this.pos.getX() - 4,
+				this.pos.getY() - 3,
+				this.pos.getZ() - 4,
+				this.pos.getX() + 5,
+				this.pos.getY() + 3,
+				this.pos.getZ() + 5
 			);
 		}
 

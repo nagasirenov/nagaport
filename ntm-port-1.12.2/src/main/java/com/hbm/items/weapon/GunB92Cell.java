@@ -46,21 +46,21 @@ public class GunB92Cell extends Item {
 	}
 
 	private static int getPower(ItemStack stack) {
-		if (stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 
-		return stack.stackTagCompound.getInteger("energy");
+		return stack.getTagCompound().getInteger("energy");
 
 	}
 
 	private static void setPower(ItemStack stack, int i) {
-		if (stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("energy", i);
+		stack.getTagCompound().setInteger("energy", i);
 
 	}
 	

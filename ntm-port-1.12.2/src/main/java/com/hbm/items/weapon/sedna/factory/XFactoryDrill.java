@@ -33,7 +33,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.server.S28PacketEffect;
+import net.minecraft.network.play.server.SPacketEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
@@ -58,7 +58,7 @@ public class XFactoryDrill {
 						.canFire(Lego.LAMBDA_STANDARD_CAN_FIRE).fire(LAMBDA_DRILL_FIRE))
 				.pp(Lego.LAMBDA_STANDARD_CLICK_PRIMARY).pr(Lego.LAMBDA_STANDARD_RELOAD).decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				.anim(LAMBDA_DRILL_ANIMS).orchestra(Orchestras.ORCHESTRA_DRILL)
-				).setUnlocalizedName("gun_drill");
+				).setTranslationKey("gun_drill");
 	}
 	
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_DRILL_FIRE = (stack, ctx) -> {
@@ -87,7 +87,7 @@ public class XFactoryDrill {
 				
 				int aoe = player.isSneaking() ? 0 : getModdableAoE(stack, 1);
 				for(int i = -aoe; i <= aoe; i++) for(int j = -aoe; j <= aoe; j++) for(int k = -aoe; k <= aoe; k++) {
-					breakExtraBlock(player.worldObj, mop.getBlockPos().getX() + i, mop.getBlockPos().getY() + j, mop.getBlockPos().getZ() + k, player, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+					breakExtraBlock(player.world, mop.getBlockPos().getX() + i, mop.getBlockPos().getY() + j, mop.getBlockPos().getZ() + k, player, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 				}
 			}
 		}
@@ -103,8 +103,8 @@ public class XFactoryDrill {
 		if(!(playerEntity instanceof EntityPlayerMP)) return;
 
 		EntityPlayerMP player = (EntityPlayerMP) playerEntity;
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		if(!block.canHarvestBlock(player, meta) || (block.getBlockHardness(world, x, y, z) == -1.0F && block.getPlayerRelativeBlockHardness(player, world, x, y, z) == 0.0F) || block == ModBlocks.stone_keyhole) {
 			world.playSoundAtEntity(player, "random.break", 0.5F, 0.8F + world.rand.nextFloat() * 0.6F);
@@ -114,8 +114,8 @@ public class XFactoryDrill {
 		// we are serverside and tryHarvestBlock already invokes the 2001 packet for every player except the user, so we manually send it for the user as well
 		player.theItemInWorldManager.tryHarvestBlock(x, y, z);
 		
-		if(world.getBlock(x, y, z) == Blocks.air) { // only do this when the block was destroyed. if the block doesn't create air when broken, this breaks, but it's no big deal
-			player.playerNetServerHandler.sendPacket(new S28PacketEffect(2001, x, y, z, Block.getIdFromBlock(block) + (meta << 12), false));
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.air) { // only do this when the block was destroyed. if the block doesn't create air when broken, this breaks, but it's no big deal
+			player.connection.sendPacket(new SPacketEffect(2001, new net.minecraft.util.math.BlockPos(x, y, z), Block.getIdFromBlock(block) + (meta << 12), false));
 		}
 	}
 	
@@ -170,7 +170,7 @@ public class XFactoryDrill {
 			int aoe = player.isSneaking() ? 0 : getModdableAoE(drill, 1);
 			
 			float exp = 0.002F;
-			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1);
+			AxisAlignedBB aabb = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
 			RenderGlobal.drawOutlinedBoundingBox(aabb.expand(exp, exp, exp).getOffsetBoundingBox(mop.getBlockPos().getX() - dX, mop.getBlockPos().getY() - dY, mop.getBlockPos().getZ() - dZ), aoe > 0 ? -1 : 0x800000);
 			
 			if(aoe > 0) {

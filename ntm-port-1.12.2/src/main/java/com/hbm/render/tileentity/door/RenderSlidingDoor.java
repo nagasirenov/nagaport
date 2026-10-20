@@ -32,12 +32,12 @@ public class RenderSlidingDoor implements IRenderDoors {
 		ResourceManager.pheo_sliding_door.renderPart("Frame");
 		
 		GL11.glPushMatrix();
-		GL11.glTranslated(0, 0, MathHelper.clamp_double(open, 0, maxOpen));
+		GL11.glTranslated(0, 0, MathHelper.clamp(open, (double) (0), maxOpen));
 		ResourceManager.pheo_sliding_door.renderPart("Left");
 		GL11.glPopMatrix();
 		
 		GL11.glPushMatrix();
-		GL11.glTranslated(0, 0, -MathHelper.clamp_double(open, 0, maxOpen));
+		GL11.glTranslated(0, 0, -MathHelper.clamp(open, (double) (0), maxOpen));
 		ResourceManager.pheo_sliding_door.renderPart("Right");
 		GL11.glPopMatrix();
 	}

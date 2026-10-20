@@ -1,0 +1,202 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.net.*;
+import java.nio.ByteBuffer;
+import java.util.*;
+import java.util.concurrent.*;
+import sun.misc.Unsafe;
+import com.hbm.blocks.*;
+import com.hbm.blocks.generic.BlockFissure;
+import com.hbm.render.block.RenderBlockMultipass;
+import com.hbm.render.block.multipass.MultipassMaterials;
+import com.hbm.render.block.multipass.MultipassMaterials.Kind;
+import com.hbm.main.MultipassModelHandler;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.*;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraftforge.client.model.*;
+import net.minecraftforge.client.model.pipeline.*;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+public final class MultipassNativeTest {
+ static int checks,vertices;
+ static final Map<String,Block> owners=new LinkedHashMap<>();
+ static final Map<String,TextureAtlasSprite> sprites=new ConcurrentHashMap<>();
+ static final BlockPos POS=new BlockPos(-13,72,31);
+ static final List<ResourceLocation> STONES=Arrays.asList(MultipassMaterials.texture("minecraft:stone"),MultipassMaterials.texture("hbm:moon_rock"),MultipassMaterials.texture("hbm:minmus_stone"));
+ static void check(boolean b,String why){checks++;if(!b)throw new AssertionError(why);}
+ static void bits(float a,float b,String why){check(Float.floatToIntBits(a)==Float.floatToIntBits(b),why+" "+a+" != "+b);}
+ static Field field(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}
+ static final class Sprite extends TextureAtlasSprite {Sprite(String n,int variant){super(n);setIconWidth(variant==0?16:37);setIconHeight(variant==0?16:29);initSprite(variant==0?512:997,variant==0?256:503,variant==0?32:137,variant==0?64:97,false);}}
+ static TextureAtlasSprite sprite(ResourceLocation id){return sprites.computeIfAbsent(id.toString(),n->new Sprite(n,0));}
+ static final class Owner extends Block implements IBlockMultiPass {
+  Owner(){super(Material.ROCK);}
+  protected BlockStateContainer createBlockState(){return MultipassContext.stateContainer(this);}
+  public IBlockState getStateFromMeta(int m){return getDefaultState().withProperty(MultipassContext.METADATA,m&15);}
+  public int getMetaFromState(IBlockState s){return s.getValue(MultipassContext.METADATA);}
+  public int getPasses(){return 2;}
+  public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos){return ((IExtendedBlockState)state).withProperty(MultipassContext.PROPERTY,((IExtendedBlockState)((Access)world).own).getValue(MultipassContext.PROPERTY));}
+ }
+ static final class Access implements IBlockAccess {
+  final IBlockState own;TileEntity tile;boolean sealed,asymmetric;int samples;
+  Access(IBlockState s){own=s;}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?own:sealed?Blocks.STONE.getDefaultState():Blocks.AIR.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){return p.equals(POS)?tile:null;}
+  public int getCombinedLight(BlockPos p,int e){samples++;if(!asymmetric)return 0xF000F0;int x=p.getX()-POS.getX(),y=p.getY()-POS.getY(),z=p.getZ()-POS.getZ();return Math.floorMod(3*x+5*y+7*z+11,16)*16<<16|Math.floorMod(7*x+3*y+z+7,16)*16;}
+  public boolean isAirBlock(BlockPos p){return getBlockState(p).getBlock()==Blocks.AIR;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing f){return 0;}
+  public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing f,boolean fallback){return getBlockState(p).isOpaqueCube();}
+ }
+ static IBlockState extended(Block owner,MultipassContext c){return ((IExtendedBlockState)owner.getStateFromMeta(c.metadata)).withProperty(MultipassContext.PROPERTY,c);}
+ static RenderBlockMultipass model(MultipassMaterials m,boolean item,int metadata){return new RenderBlockMultipass(m,MultipassNativeTest::sprite,s->{throw new AssertionError("Unexpected camouflage lookup");},item,metadata);}
+ static MultipassMaterials materials(Kind kind){return new MultipassMaterials(kind,"test_base",STONES);}
+ static List<BakedQuad> all(IBakedModel model,IBlockState state){List<BakedQuad> q=new ArrayList<>(model.getQuads(state,null,0));for(EnumFacing f:EnumFacing.values())q.addAll(model.getQuads(state,f,0));return q;}
+ static void setup()throws Exception{
+  Bootstrap.register();net.minecraftforge.fml.common.ModMetadata md=new net.minecraftforge.fml.common.ModMetadata();md.modId="hbm";md.name="Multipass native proof";md.version="test";net.minecraftforge.fml.common.DummyModContainer container=new net.minecraftforge.fml.common.DummyModContainer(md);net.minecraftforge.fml.common.Loader.instance().setupTestHarness(container);net.minecraftforge.fml.common.Loader.instance().setActiveModContainer(container);
+  INITIALIZERS
+  for(Block b:owners.values()){ForgeRegistries.BLOCKS.register(b);Item item=new ItemBlock(b).setRegistryName(b.getRegistryName());ForgeRegistries.ITEMS.register(item);((Map<Block,Item>)field(Item.class,"BLOCK_TO_ITEM").get(null)).put(b,item);}
+ }
+ static final class FissureWorld extends net.minecraft.world.World {
+  final Map<BlockPos,IBlockState> blocks=new HashMap<>();int writes,flags;BlockPos written;
+  FissureWorld(boolean remote){super(new net.minecraft.world.storage.SaveHandlerMP(),new net.minecraft.world.storage.WorldInfo(new net.minecraft.nbt.NBTTagCompound()),new net.minecraft.world.WorldProviderSurface(),new net.minecraft.profiler.Profiler(),remote);provider.setWorld(this);}
+  protected net.minecraft.world.chunk.IChunkProvider createChunkProvider(){return null;}
+  protected boolean isChunkLoaded(int x,int z,boolean empty){return true;}
+  public IBlockState getBlockState(BlockPos pos){return blocks.getOrDefault(pos,Blocks.AIR.getDefaultState());}
+  public boolean setBlockState(BlockPos pos,IBlockState state,int flags){writes++;written=pos;this.flags=flags;blocks.put(pos,state);return true;}
+ }
+ static void fissureMechanics(){
+  BlockFissure block=(BlockFissure)owners.get("ore_volcano");ModBlocks.rad_lava_block=Blocks.LAVA;ModBlocks.volcanic_lava_block=Blocks.FLOWING_LAVA;
+  for(boolean remote:new boolean[]{false,true})for(int metadata=0;metadata<16;metadata++)for(boolean replaceable:new boolean[]{false,true}){
+   FissureWorld world=new FissureWorld(remote);world.blocks.put(POS,block.getStateFromMeta(metadata));world.blocks.put(POS.up(),(replaceable?Blocks.AIR:Blocks.STONE).getDefaultState());
+   block.updateTick(world,POS,block.getStateFromMeta(0),new Random(0));check(world.writes==(replaceable?1:0),"original fissure replacement predicate");if(replaceable){check(world.written.equals(POS.up())&&world.flags==3,"original default placement flags and upward coordinate");check(world.getBlockState(POS.up()).getBlock()==(metadata!=0?ModBlocks.rad_lava_block:ModBlocks.volcanic_lava_block),"original live metadata selects crater lava");}
+   BlockFissure.TileEntityFissure tile=(BlockFissure.TileEntityFissure)block.createNewTileEntity(world,metadata);tile.setWorld(world);tile.setPos(POS);tile.lava.setFill(19);api.hbm.fluid.IFluidStandardSender.Trace.calls=0;tile.update();
+   check(tile.lava.fill==(remote?19:1000),"original server-only lava refill");check(api.hbm.fluid.IFluidStandardSender.Trace.calls==(remote?0:1),"original server-only fluid send");if(!remote){check(api.hbm.fluid.IFluidStandardSender.Trace.tank==tile.lava&&api.hbm.fluid.IFluidStandardSender.Trace.world==world,"original send tank/world identity");check(api.hbm.fluid.IFluidStandardSender.Trace.x==POS.getX()&&api.hbm.fluid.IFluidStandardSender.Trace.y==POS.getY()+1&&api.hbm.fluid.IFluidStandardSender.Trace.z==POS.getZ()&&api.hbm.fluid.IFluidStandardSender.Trace.dir==com.hbm.lib.ForgeDirection.UP,"original upward sender endpoint");}
+  }
+  System.out.println("PASS complete native Fissure tick:16 metadata,replaceable/solid neighbors,client/server,live-state crater selection and exact lava refill/sender boundary. Actual fluid network remains an NTM collaborator fixture.");
+ }
+ static void contexts()throws Exception{
+  for(Field f:MultipassContext.class.getDeclaredFields())if(!Modifier.isStatic(f.getModifiers())){check(Modifier.isFinal(f.getModifiers()),"immutable context "+f);check(!IBlockAccess.class.isAssignableFrom(f.getType()),"no retained world");check(!TileEntity.class.isAssignableFrom(f.getType()),"no retained tile");}
+  for(Block b:owners.values())for(int m=0;m<16;m++){
+   IBlockState state=b.getStateFromMeta(m);check(b.getMetaFromState(state)==m,"metadata round trip "+b);check(b.getBlockState().getValidStates().size()==16,"16 listed states");check(b.getRenderType(state)==EnumBlockRenderType.MODEL,"native MODEL");check(b.getRenderLayer()==BlockRenderLayer.CUTOUT_MIPPED,"old pass0 binary alpha with terrain mipmaps");
+   Access w=new Access(state);MultipassContext c=((IExtendedBlockState)b.getExtendedState(state,w,POS)).getValue(MultipassContext.PROPERTY);check(c.metadata==m,"native metadata capture");
+   for(Class<?> nested:b.getClass().getDeclaredClasses())if(TileEntity.class.isAssignableFrom(nested)&&b.getClass()!=BlockFissure.class){
+    w.tile=(TileEntity)nested.newInstance();field(nested,"block").set(w.tile,Blocks.LOG);field(nested,"meta").setInt(w.tile,2);
+    c=((IExtendedBlockState)b.getExtendedState(state,w,POS)).getValue(MultipassContext.PROPERTY);check(c.tile,"tile capture present");
+    if(!b.getClass().getSimpleName().equals("BlockBedrockOreTE"))check(c.paint==Blocks.LOG.getStateFromMeta(2),"exact camouflage metadata state");
+    field(nested,"meta").setInt(w.tile,3);check(c.paint==null||c.paint==Blocks.LOG.getStateFromMeta(2),"snapshot not live tile");
+   }
+  }
+  BlockFissure fissure=(BlockFissure)owners.get("ore_volcano");check(fissure.getBlockHardness(fissure.getDefaultState(),null,POS)==-1F,"complete fissure unbreakable");check(fissure.getTickRandomly(),"complete fissure random tick enabled");
+  BlockFissure.TileEntityFissure tile=(BlockFissure.TileEntityFissure)fissure.createNewTileEntity(null,0);check(tile.lava.capacity==1000,"original lava tank capacity");
+  for(com.hbm.lib.ForgeDirection dir:com.hbm.lib.ForgeDirection.values())check(tile.canConnect(com.hbm.inventory.fluid.Fluids.LAVA,dir)==(dir==com.hbm.lib.ForgeDirection.DOWN),"original lava connection direction");
+  check(tile.getAllTanks()[0]==tile.lava&&tile.getSendingTanks()[0]==tile.lava,"original tank identities");
+  System.out.println("PASS 71 actual registration identities, exact extracted render hooks,16 metadata states, immutable tile snapshots, and complete Fissure native owner compilation.");
+ }
+ static void geometry(String jar)throws Exception{
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+  try(URLClassLoader loader=new URLClassLoader(new URL[]{new File(jar).toURI().toURL()},MultipassNativeTest.class.getClassLoader())){
+   Class<?> renderer=Class.forName("blm",true,loader),block=Class.forName("aji",true,loader),iconType=Class.forName("rf",true,loader),tessType=Class.forName("bmh",true,loader);
+   Object render=unsafe.allocateInstance(renderer),tess=tessType.getField("a").get(null);for(String max:new String[]{"j","l","n"})field(renderer,max).setDouble(render,1);
+   Field raw=field(tessType,"f"),count=field(tessType,"g"),ptr=field(tessType,"p");Owner owner=new Owner();
+   for(int atlas=0;atlas<2;atlas++)for(Kind kind:Kind.values())for(boolean item:new boolean[]{false,true})for(int meta=0;meta<16;meta++){
+    final int variant=atlas;MultipassMaterials materials=materials(kind);RenderBlockMultipass model=new RenderBlockMultipass(materials,r->new Sprite(r.toString(),variant),s->{throw new AssertionError();},item,meta);
+    MultipassContext context=MultipassContext.of(meta,null,true,0x35a1c7,meta%10,meta%7,(meta+1)%7,meta%4);IBlockState state=extended(owner,context);
+    List<BakedQuad> quads=all(model,state);int expected=item?6*materials.passes(true):kind==Kind.ROUTER?12:6*materials.passes(false);check(quads.size()==expected,"unsimplified full cube pass geometry "+kind);
+    for(BakedQuad q:quads){TextureAtlasSprite full=q.getSprite();EnumFacing oldFace=item&&q.getFace().getAxis()!=EnumFacing.Axis.Y?q.getFace().rotateY():q.getFace();
+     Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(proxy,method,args)->{if(args!=null&&args.length==1)return method.getName().equals("a")?full.getInterpolatedU((Double)args[0]):full.getInterpolatedV((Double)args[0]);switch(method.getName()){case "a":return full.getIconWidth();case "b":return full.getIconHeight();case "c":return full.getMinU();case "d":return full.getMaxU();case "e":return full.getMinV();case "f":return full.getMaxV();default:return full.getIconName();}});
+     count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(oldFace.getIndex(),oldFace.getIndex()+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);check(count.getInt(tess)==4,"old face vertex count");int[] old=(int[])raw.get(tess),data=q.getVertexData();int shift=-1;
+     for(int cyclic=0;cyclic<4;cyclic++){boolean equal=true;for(int v=0;v<4;v++){int o=(v+cyclic)%4*8,k=v*7;float x=Float.intBitsToFloat(old[o]),y=Float.intBitsToFloat(old[o+1]),z=Float.intBitsToFloat(old[o+2]);float[] want=item?new float[]{z,y,1-x}:new float[]{x,y,z};for(int axis=0;axis<3;axis++)if(data[k+axis]!=Float.floatToIntBits(want[axis]))equal=false;}if(equal){shift=cyclic;break;}}
+     check(shift>=0,"old/native positions and winding "+kind+" item="+item+" face="+oldFace);
+     for(int v=0;v<4;v++){int o=(v+shift)%4*8,k=v*7;bits(Float.intBitsToFloat(data[k+4]),Float.intBitsToFloat(old[o+3]),"original U");bits(Float.intBitsToFloat(data[k+5]),Float.intBitsToFloat(old[o+4]),"original V");int n=data[k+6];check((byte)n==127*q.getFace().getXOffset()&&(byte)(n>>8)==127*q.getFace().getYOffset()&&(byte)(n>>16)==127*q.getFace().getZOffset(),"outward native normal");vertices++;}
+    }
+   }
+  }
+  System.out.println("PASS actual official1.7.10 RenderBlocks/Tessellator geometry: "+vertices+" vertices across12 families,16 metadata,two atlas layouts,world/item rotation and all preserved repeats.");
+ }
+ static int[][] render(IBakedModel model,Access world,boolean forge,boolean smooth,boolean cull){
+  BufferBuilder buffer=new BufferBuilder(16384);buffer.begin(7,DefaultVertexFormats.BLOCK);BlockColors colors=new BlockColors();
+  if(forge){VertexLighterFlat lighter=smooth?new VertexLighterSmoothAo(colors):new VertexLighterFlat(colors);VertexBufferConsumer consumer=new VertexBufferConsumer(buffer);consumer.setOffset(POS);lighter.setParent(consumer);ForgeBlockModelRenderer.render(lighter,world,model,world.own,POS,buffer,cull,0);}
+  else{BlockModelRenderer renderer=new BlockModelRenderer(colors);if(smooth)renderer.renderModelSmooth(world,model,world.own,POS,buffer,cull,0);else renderer.renderModelFlat(world,model,world.own,POS,buffer,cull,0);}
+  buffer.finishDrawing();ByteBuffer bytes=buffer.getByteBuffer();int[][] result=new int[buffer.getVertexCount()][7];for(int v=0;v<result.length;v++)for(int k=0;k<7;k++)result[v][k]=bytes.getInt(v*28+k*4);return result;
+ }
+ static void lightingAndDamage(){
+  Owner owner=new Owner();for(Kind kind:Kind.values())for(boolean forge:new boolean[]{false,true})for(boolean smooth:new boolean[]{false,true}){
+   MultipassMaterials m=materials(kind);IBakedModel model=model(m,false,0);IBlockState state=extended(owner,MultipassContext.of(6,null,true,0x39a1c7,4,2,3,2));Access world=new Access(state);world.asymmetric=true;
+   int[][] output=render(model,world,forge,smooth,true);check(output.length==all(model,state).size()*4,"actual native model vertex count");check(world.samples>0,"native light samples");for(int[] v:output){for(int i=0;i<3;i++)check(Float.isFinite(Float.intBitsToFloat(v[i])),"finite native lit position");check(v[3]>>>24==255,"opaque native vertex");}
+   world.sealed=true;check(render(model,world,forge,smooth,true).length==(kind==Kind.ROUTER?48:0),"router bypass vs ordinary face culling");world.sealed=false;
+   TextureAtlasSprite crack=sprite(new ResourceLocation("minecraft:blocks/destroy_stage_4"));IBakedModel damaged=new SimpleBakedModel.Builder(state,model,crack,POS).makeBakedModel();List<BakedQuad> before=all(model,state),after=all(damaged,state);check(before.size()==after.size(),"native damage repeats retained");
+   for(int q=0;q<before.size();q++){check(after.get(q).getSprite()==crack,"native standard crack material");for(int v=0;v<4;v++){for(int axis=0;axis<3;axis++)check(before.get(q).getVertexData()[v*7+axis]==after.get(q).getVertexData()[v*7+axis],"damage geometry stable");check(before.get(q).getVertexData()[v*7+3]==after.get(q).getVertexData()[v*7+3],"damage model preserves baked pass tint");}}
+   check(render(damaged,world,forge,smooth,true).length==output.length,"actual native destruction route renders all passes");
+  }
+  System.out.println("PASS actual native Forge/vanilla flat/smooth light, culling and destruction-model smoke. OPEN: full old/native light-solver and RenderGlobal breaking draw comparison, not waived.");
+ }
+ static void camouflage(){
+  Owner owner=new Owner();TextureAtlasSprite paint=sprite(new ResourceLocation("hbm:blocks/paint_side"));MultipassMaterials materials=materials(Kind.CABLE);
+  IBakedModel simple=new SimpleBakedModel(Collections.emptyList(),new HashMap<EnumFacing,List<BakedQuad>>(){{for(EnumFacing f:EnumFacing.values())put(f,Collections.singletonList(com.hbm.render.block.nativeblock.ConveyorCuboidGeometry.face(paint,false,f,0,0,0,0,1,1,1,0)));}},true,true,paint,ItemCameraTransforms.DEFAULT,ItemOverrideList.NONE);
+  RenderBlockMultipass model=new RenderBlockMultipass(materials,MultipassNativeTest::sprite,s->simple,false,0);IBlockState state=extended(owner,MultipassContext.of(0,Blocks.STONE.getDefaultState(),true,0xffffff,0,6,6,0));
+  for(EnumFacing f:EnumFacing.values())check(model.getQuads(state,f,0).get(0).getSprite()==paint,"unique foreign side material used, not foreign geometry or tint");
+  IBakedModel ambiguous=new SimpleBakedModel(Collections.emptyList(),new HashMap<EnumFacing,List<BakedQuad>>(){{for(EnumFacing f:EnumFacing.values())put(f,Collections.emptyList());}},true,true,paint,ItemCameraTransforms.DEFAULT,ItemOverrideList.NONE);
+  try{new RenderBlockMultipass(materials,MultipassNativeTest::sprite,s->ambiguous,false,0).getQuads(state,EnumFacing.DOWN,0);throw new AssertionError("particle fallback silently accepted");}catch(IllegalStateException expected){check(expected.getMessage().contains("Ambiguous camouflage"),"explicit ambiguity gate");}
+  RenderBlockMultipass ownPaint=model(materials(Kind.ORE),false,0);
+  RenderBlockMultipass ownCamouflage=new RenderBlockMultipass(materials,MultipassNativeTest::sprite,s->ownPaint,false,0);
+  for(EnumFacing f:EnumFacing.values())check(ownCamouflage.getQuads(state,f,0).get(0).getSprite()==sprite(MultipassMaterials.texture("minecraft:stone")),"owned multipass camouflage uses original pass-zero material only");
+  System.out.println("PASS unique foreign face and owned multipass pass-zero material resolution plus explicit absent/ambiguous foreign face failure; no particle fallback.");
+ }
+ static void damageDispatcher()throws Exception{
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);
+  net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);
+  field(net.minecraft.client.Minecraft.class,"instance").set(null,mc);mc.gameSettings=(net.minecraft.client.settings.GameSettings)unsafe.allocateInstance(net.minecraft.client.settings.GameSettings.class);
+  TextureMap damageAtlas=new TextureMap("textures");field(net.minecraft.client.Minecraft.class,"textureMapBlocks").set(mc,damageAtlas);BlockModelShapes shapes=new BlockModelShapes(new ModelManager(damageAtlas));BlockColors colors=new BlockColors();
+  BlockRendererDispatcher dispatcher=new BlockRendererDispatcher(shapes,colors);Map<IBlockState,IBakedModel> store=(Map<IBlockState,IBakedModel>)field(BlockModelShapes.class,"bakedModelStore").get(shapes);
+  Owner owner=new Owner();int rendered=0;
+  for(Kind kind:Kind.values())for(boolean forge:new boolean[]{false,true})for(boolean smooth:new boolean[]{false,true})for(int metadata=0;metadata<16;metadata++)for(int stage=0;stage<10;stage++){
+   mc.gameSettings.ambientOcclusion=smooth?2:0;field(BlockRendererDispatcher.class,"blockModelRenderer").set(dispatcher,forge?new ForgeBlockModelRenderer(colors):new BlockModelRenderer(colors));
+   IBakedModel model=model(materials(kind),false,0);IBlockState plain=owner.getStateFromMeta(metadata);IBlockState state=extended(owner,MultipassContext.of(metadata,null,true,0x35a1c7,metadata%10,2,3,metadata%4));store.put(plain,model);
+   Access world=new Access(state);world.asymmetric=true;TextureAtlasSprite crack=sprite(new ResourceLocation("minecraft:blocks/destroy_stage_"+stage));
+   BufferBuilder buffer=Tessellator.getInstance().getBuffer();buffer.begin(7,DefaultVertexFormats.BLOCK);buffer.noColor();dispatcher.renderBlockDamage(plain,POS,crack,world);buffer.finishDrawing();check(buffer.getVertexCount()==all(model,state).size()*4,"actual dispatcher all original passes "+kind);
+   ByteBuffer bytes=buffer.getByteBuffer();for(int v=0;v<buffer.getVertexCount();v++){check(bytes.getInt(v*28+12)==-1,"actual noColor draw strips pass tint and AO RGB "+kind+" forge="+forge+" smooth="+smooth);for(int a=0;a<3;a++)check(Float.isFinite(bytes.getFloat(v*28+a*4)),"finite damage position");rendered++;}
+   check(buffer.isColorDisabled(),"damage dispatcher retains caller noColor contract");buffer.reset();
+  }
+  System.out.println("PASS actual BlockRendererDispatcher.renderBlockDamage with exact RenderGlobal noColor contract: "+rendered+" emitted vertices are white across12 families,16 metadata,10 stages,Forge/vanilla AO/flat. Baked tint retention is not a rendered damage-tint mismatch.");
+ }
+ static void registry(File root)throws Exception{
+  SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);field(net.minecraft.client.Minecraft.class,"instance").set(null,mc);field(net.minecraft.client.Minecraft.class,"resourceManager").set(mc,resources);
+  if(net.minecraft.launchwrapper.Launch.blackboard==null)net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+  MultipassModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent());ICustomModelLoader loader=(ICustomModelLoader)field(MultipassModelHandler.class,"LOADER").get(null);
+  resources.reloadResources(Collections.singletonList(new FolderResourcePack(root)));ModelLoaderRegistry.clearModelCache(resources);TextureMap atlas=new TextureMap("textures");ModelManager manager=new ModelManager(atlas);BlockModelShapes shapes=new BlockModelShapes(manager);new ModelLoader(resources,atlas,shapes);MultipassModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent());ModelLoader.onRegisterAllBlocks(shapes);
+  check(((Map<?,?>)field(ModelLoader.class,"customModels").get(null)).size()==71*16,"71 owners x16 item routes");
+  for(Map.Entry<String,Block> entry:owners.entrySet()){
+   Block owner=entry.getValue();check(MultipassModelHandler.owns(owner),"exact registered owner");Map<IBlockState,ModelResourceLocation> routes=shapes.getBlockStateMapper().getVariants(owner);check(routes.size()==16,"16 world states route");
+   for(int metadata=0;metadata<16;metadata++)for(boolean item:new boolean[]{false,true}){
+    ResourceLocation route=item?new ModelResourceLocation("hbm:native_multipass/"+entry.getKey()+"/item_"+metadata,"inventory"):routes.get(owner.getStateFromMeta(metadata));check(loader.accepts(route),"native loader route");IModel source=loader.loadModel(route);
+    for(ResourceLocation texture:source.getTextures())if(texture.getNamespace().equals("hbm"))check(new File(root,"assets/hbm/textures/"+texture.getPath()+".png").isFile(),"original material asset exists "+texture);
+    IBakedModel baked=source.bake(net.minecraftforge.common.model.TRSRTransformation.identity(),DefaultVertexFormats.ITEM,MultipassNativeTest::sprite);check(baked instanceof RenderBlockMultipass,"real native family baked");if(entry.getValue().getClass().getSimpleName().startsWith("BlockOre")||entry.getValue().getClass().getSimpleName().equals("BlockCluster")){
+     String[] expected={"minecraft:blocks/stone","minecraft:blocks/stone","hbm:blocks/moon_rock","hbm:blocks/minmus_stone","hbm:blocks/duna_rock","hbm:blocks/moho_stone","hbm:blocks/dresbase","hbm:blocks/eve_stone_2","hbm:blocks/ike_stone","minecraft:blocks/stone","hbm:blocks/basalt"};check(baked.getParticleTexture().getIconName().equals(expected[metadata%11]),"world/item ore particle base retains metadata");}
+    IBlockState state=owner.getExtendedState(owner.getStateFromMeta(metadata),new Access(owner.getStateFromMeta(metadata)),POS);int passes=item&&!((IBlockMultiPass)owner).shouldRenderItemMulti()?1:((IBlockMultiPass)owner).getPasses();check(all(baked,item?null:state).size()==(passes==7?12:passes*6),"original inventory exception/world pass count "+entry.getKey());
+   }
+  }
+  check(!loader.accepts(new ResourceLocation("hbm:native_multipass/red_cable_paintable/item_16")),"invalid metadata route rejected");check(!loader.accepts(new ResourceLocation("foreign:native_multipass/red_cable_paintable/world")),"foreign namespace rejected");loader.onResourceManagerReload(resources);
+  System.out.println("PASS actual native registration,71 world state mappers,1136 per-meta item routes, asset discovery/bake and reload callbacks.");
+ }
+ static void concurrency()throws Exception{
+  final Owner owner=new Owner();final RenderBlockMultipass model=model(materials(Kind.BEDROCK_ORE),false,0);ExecutorService pool=Executors.newFixedThreadPool(4);List<Future<Boolean>> pending=new ArrayList<>();
+  for(int task=0;task<8;task++){final int n=task;pending.add(pool.submit(()->{for(int i=0;i<256;i++){int shape=(i+n)%10,color=(i*123+n*997)&0xffffff;MultipassContext c=MultipassContext.of(i&15,null,true,color,shape,6,6,0);IBlockState s=extended(owner,c);for(EnumFacing f:EnumFacing.values()){List<BakedQuad> q=model.getQuads(s,f,i);if(q.size()!=2||!q.get(1).getSprite().getIconName().equals("hbm:blocks/ore_random_"+(shape+1)))return false;int packed=0xff000000|(color>>16&255)|(color&0xff00)|(color&255)<<16;if(q.get(1).getVertexData()[3]!=packed)return false;}}return true;}));}
+  try{for(Future<Boolean> f:pending)check(f.get(),"parallel pass/color/material isolation");}finally{pool.shutdownNow();}
+  System.out.println("PASS8 concurrent streams x256 snapshots x6 sides with no global pass/color leaks.");
+ }
+ public static void main(String[] args)throws Exception{setup();contexts();fissureMechanics();geometry(args[0]);lightingAndDamage();camouflage();damageDispatcher();registry(new File(args[1]));concurrency();System.out.println("PASS multipass native model/owner proof: "+checks+" assertions, "+vertices+" original geometry vertices.");}
+}

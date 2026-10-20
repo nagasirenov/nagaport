@@ -1,0 +1,1 @@
+PASS 945 native owned field tokens across 245 files; exact forward/inverse, native attribution, 14 excluded production accesses, 11 positive/negative controls, and original mutable-field visibility

@@ -1,0 +1,4 @@
+PASS: 35 original calls; byte-exact inverse/ticket order; six owner keys;35-class hierarchy and typed receiver/consumer closure
+PASS: 118 native POST-TICKET-SLICE metadata/allocation/consumer/NBT-tail assertions; no chunk lifecycle claim
+PASS: real native post-ticket metadata slice ONLY; ticket return assumed, full constructor/chunk lifecycle UNVERIFIED
+PASS: CRLF-aware whitespace check

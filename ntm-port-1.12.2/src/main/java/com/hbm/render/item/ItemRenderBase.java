@@ -1,65 +1,35 @@
 package com.hbm.render.item;
 
 import org.lwjgl.opengl.GL11;
-
-import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
 
-public abstract class ItemRenderBase implements IItemRenderer {
-
-	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		switch(type) {
-		case EQUIPPED:
-		case EQUIPPED_FIRST_PERSON:
-		case ENTITY:
-		case INVENTORY:
-			return true;
-		default: return false;
-		}
-	}
-
-	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return type == ItemRenderType.ENTITY && (helper == ItemRendererHelper.ENTITY_BOBBING || helper == ItemRendererHelper.ENTITY_ROTATION);
-	}
-	
-	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		
-		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_CULL_FACE);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		
-		if(type == ItemRenderType.INVENTORY) {
-			RenderHelper.enableGUIStandardItemLighting();
-			GL11.glTranslated(8, 10, 0);
-			GL11.glRotated(-30, 1, 0, 0);
-			GL11.glRotated(45, 0, 1, 0);
-			GL11.glScaled(-1, -1, -1);
-			renderInventory();
-		} else {
-			
-			if(type != ItemRenderType.ENTITY)
-				GL11.glTranslated(0.5, 0.25, 0);
-			else
-				GL11.glScaled(1.5, 1.5, 1.5);
-			
-			GL11.glScaled(0.25, 0.25, 0.25);
-
-			if(type != ItemRenderType.EQUIPPED)
-				GL11.glRotated(90, 0, 1, 0);
-			renderNonInv();
-		}
-		renderCommon();
-		renderCommonWithStack(item);
-		
-		GL11.glPopMatrix();
-	}
-
-	public void renderNonInv() { }
-	public void renderInventory() { }
-	public void renderCommon() { }
-	public void renderCommonWithStack(ItemStack item) { }
+/** Native TEISR for the mod's ordered mesh callbacks. Perspective callbacks are
+ * owned by CallbackItemModel, not a removed Forge renderer context or global stack.
+ */
+public abstract class ItemRenderBase extends TileEntityItemStackRenderer {
+    @Override public final void renderByItem(ItemStack item) {
+        int texture = GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
+        GL11.glPushMatrix();
+        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_LIGHTING_BIT | GL11.GL_CURRENT_BIT);
+        try {
+            GL11.glEnable(GL11.GL_CULL_FACE);
+            GL11.glEnable(GL11.GL_ALPHA_TEST);
+            int tint = Minecraft.getMinecraft().getItemColors().colorMultiplier(item, 0);
+            GL11.glColor4f((tint >> 16 & 255) / 255F, (tint >> 8 & 255) / 255F, (tint & 255) / 255F, 1F);
+            renderCommon();
+            renderCommonWithStack(item);
+        } finally {
+            GlStateManager.bindTexture(texture);
+            GL11.glPopAttrib();
+            GL11.glPopMatrix();
+        }
+    }
+    @Override public final void renderByItem(ItemStack item, float partialTicks) { renderByItem(item); }
+    public void renderNonInv() { }
+    public void renderInventory() { }
+    public void renderCommon() { }
+    public void renderCommonWithStack(ItemStack item) { }
 }

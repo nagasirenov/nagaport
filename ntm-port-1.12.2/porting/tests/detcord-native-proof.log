@@ -1,0 +1,60 @@
+PINNED ORIGINAL src/main/java/com/hbm/render/block/RenderCable.java 8b18c13cf596de519848679a4d1b2b37677e2683964817b4ae4e2cfb407a3bb6
+PINNED ORIGINAL src/main/java/com/hbm/render/block/RenderCableClassic.java 9370713b903286f975ef385e2d616f390c4e248f628b8697f5c7e39aa567e6df
+PINNED ORIGINAL src/main/java/com/hbm/blocks/network/BlockCable.java 5e66960027a213d7fa9fe953050da7ad3d835567bf0b09cd3bcdf30049e443fd
+PINNED ORIGINAL src/main/resources/assets/hbm/models/blocks/cable_neo.obj 51f16e698e3d0dcae5e165e185c0eb50be87c5b7fb78be5fc0997503ead37e4e
+PINNED ORIGINAL src/main/java/com/hbm/render/block/RenderDetCord.java e5f450fd603331b59b4d67f523ca8dc86b5620a605c72ed3514e5ff95b2b0e6d
+PINNED ORIGINAL src/main/java/com/hbm/blocks/bomb/DetCord.java c9ae64074254be02f8ccc77bb0a16bfd43404303c27298dee563e05f60bccd90
+PINNED ORIGINAL src/main/java/com/hbm/blocks/bomb/IDetConnectible.java 7b9a0f95231d069e5114d9af0a895d8f94cd3d4d06c3145c45c482d64a4c35b2
+PINNED ORIGINAL src/main/resources/assets/hbm/textures/blocks/det_cord.png d344309924da191e1a65b86d8f672d7e25f6ad716ed8cee6e42c249919f8a32d
+PRODUCTION DetCord.java 0a9b670d504ca56e908178fd6d7bf4cb69fb19c7db3158721be4e15b03952a43
+PRODUCTION IDetConnectible.java ad47b2d27ab7fe098c7ed11036a5dc534e17c4d275291ce05b8183607848c1b0
+PRODUCTION RenderDetCord.java 77086c703f6d3947ccc85b12e01dbef74da7baabe87598e06e9a555fe132f09a
+PRODUCTION DetCordBakedModel.java 6627cd6f34ab80c38ee9d12583cb255aeb9092d9ca77b57954136ab0b036499d
+PRODUCTION DetCordModelHandler.java 77ffca71378ba2ac81258d8bfefc6ec4d04daac935e9595ff76ee1d0a70bfe49
+PRODUCTION BlockBase.java c39027a1e7a2d1cc5df0dc2a5a52aacf28cf5b90b90e5654e5f58487ee52dbfe
+PRODUCTION BlockFlammable.java 9aaf14ca2f962f5bca4c5017e16bd6b9fa6a180c0b45013ee1184887a2e9e227
+PRODUCTION BlockDetonatable.java 1ddce481a507dd1e6ba5c2c5afaf000e22cbef79a78a38346ad303777ff07e14
+PRODUCTION IFuckingExplode.java ef669704e96e4750b5d37ccda58bb77821f5da1bdaa6cb5b788e6cae884e407c
+PRODUCTION IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+PRODUCTION IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+PRODUCTION RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+PRODUCTION ConnectionState.java 9c0c0ddabdbac2063ac71ec9c2fe95ae4acc7c2e3e3d7af83e34a2fdfd8c1f7d
+PRODUCTION RenderCableClassic.java f0f9496664e9e05ce3de1fab425ac63ecbcf1ffc2bee0795c2fd7038dfe05151
+PRODUCTION ConnectionQuadFactory.java 81d2b3a95cef3980479d4cf15dc697c33fcac2972aab7fb533e214376d5e4d4a
+PRODUCTION BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+/tmp/cable-native-ts8qb8oc/DetCordNativeTest.java:158: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+                ^
+/tmp/cable-native-ts8qb8oc/DetCordNativeTest.java:186: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft minecraft=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",minecraft);set(minecraft,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+                                            ^
+/tmp/cable-native-ts8qb8oc/DetCordNativeTest.java:186: warning: Unsafe is internal proprietary API and may be removed in a future release
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft minecraft=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",minecraft);set(minecraft,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+                                                                                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+[22:27:10] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.det_cord`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[22:27:10] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.det_cord`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+DAMAGE LIGHT PROBE mask=0 forge=false: original block-position light differs at 0 of 176 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=0 forge=true: original block-position light differs at 0 of 176 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=1 forge=false: original block-position light differs at 48 of 112 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=1 forge=true: original block-position light differs at 48 of 112 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=0 forge=false: original block-position light differs at 0 of 176 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=0 forge=true: original block-position light differs at 0 of 176 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=1 forge=false: original block-position light differs at 48 of 112 vertices; geometry/UV/material passes. Not full damage-light parity.
+DAMAGE LIGHT PROBE mask=1 forge=true: original block-position light differs at 48 of 112 vertices; geometry/UV/material passes. Not full damage-light parity.
+[22:27:11] [main/INFO]: Reloading ResourceManager: resources
+[22:27:11] [main/INFO]: Reloading ResourceManager: resources
+[22:27:11] [main/INFO]: Reloading ResourceManager: Controlled translated original cable OBJ
+[22:27:11] [main/INFO]: Reloading ResourceManager: resources
+[22:27:11] [main/INFO]: Reloading ResourceManager: cable-resources.jar
+[22:27:11] [main/INFO]: Reloading ResourceManager: cable-resources.jar
+[22:27:11] [main/INFO]: Reloading ResourceManager: Controlled translated original cable OBJ
+[22:27:11] [main/INFO]: Reloading ResourceManager: cable-resources.jar
+PASS native detonator cord parity: 1598072 assertions; complete production cord/model classes, all64 cord masks, independent pinned-source/original-OBJ vertices UV normals shades, original separate inventory variants, real Forge and vanilla light pipelines, original full-block collision, real World/Chunk state and captured explosion dispatch, native event/statemapper/ItemModelMesher routing and changed-OBJ resource reload; directory and packaged resources.
+Boundaries: explicit NTM primed-entity collaborator and unreachable energy helper; real Minecraft/Forge classes throughout. CPU-headless fixture, not live graphical acceptance.

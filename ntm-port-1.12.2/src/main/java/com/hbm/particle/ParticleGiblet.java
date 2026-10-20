@@ -4,13 +4,17 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.lib.RefStrings;
 
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -19,7 +23,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleGiblet extends EntityFX {
+public class ParticleGiblet extends Particle {
+	// Local mesh orientation, independent of native particle billboard angle.
+	public float rotationYaw, rotationPitch, prevRotationYaw, prevRotationPitch;
 
 	private static final ResourceLocation textureMeat = new ResourceLocation(RefStrings.MODID + ":textures/particle/meat.png");
 	private static final ResourceLocation textureSlime = new ResourceLocation(RefStrings.MODID + ":textures/particle/slime.png");
@@ -65,23 +71,24 @@ public class ParticleGiblet extends EntityFX {
 			
 			if(gibType == 2) return;
 			
-			EntityFX fx = new net.minecraft.client.particle.EntityBlockDustFX(worldObj, posX, posY, posZ, 0, 0, 0, gibType == 1 ? Blocks.melon_block : Blocks.redstone_block, 0);
-			ReflectionHelper.setPrivateValue(EntityFX.class, fx, 20 + rand.nextInt(20), "particleMaxAge", "field_70547_e");
+			Particle fx = new net.minecraft.client.particle.ParticleBlockDust.Factory().createParticle(0, world, posX, posY, posZ, 0, 0, 0, net.minecraft.block.Block.getStateId((gibType == 1 ? Blocks.MELON_BLOCK : Blocks.REDSTONE_BLOCK).getDefaultState()));
+			fx.setMaxAge(20 + rand.nextInt(20));
 			Minecraft.getMinecraft().effectRenderer.addEffect(fx);
 		}
 	}
 	
 	@Override
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
 
 		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glDisable(GL11.GL_BLEND);
+		GlStateManager.disableLighting();
+		GlStateManager.disableBlend();
 		
 		this.theRenderEngine.bindTexture(gibType == 2 ? textureMetal : gibType == 1 ? textureSlime : textureMeat);
 		
-		/* use this instead of EntityFX.interpPosN since interpPosN isn't set up correctly for the current tick for layer 3 particles */
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		/* The native layer-three callback supplies its actual view entity. */
+		Entity player = camera != null ? camera : Minecraft.getMinecraft().player;
+		if(player == null) return;
 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;
 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;
 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
@@ -94,20 +101,19 @@ public class ParticleGiblet extends EntityFX {
 		double pX = prevPosX + (posX - prevPosX) * interp;
 		double pY = prevPosY + (posY - prevPosY) * interp;
 		double pZ = prevPosZ + (posZ - prevPosZ) * interp;
-		int brightness = worldObj.getLightBrightnessForSkyBlocks(MathHelper.floor_double(pX), MathHelper.floor_double(pY), MathHelper.floor_double(pZ), 0);
+		int brightness = world.getCombinedLight(new BlockPos(pX, pY, pZ), 0);
 		int lX = brightness % 65536;
 		int lY = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);
 
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		//tess.setBrightness(240);
-		tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-		tess.addVertexWithUV((double) (f11 - x * f10 - tx * f10), (double) (f12 - y * f10), (double) (f13 - z * f10 - tz * f10), (double) 0, (double) 0);
-		tess.addVertexWithUV((double) (f11 - x * f10 + tx * f10), (double) (f12 + y * f10), (double) (f13 - z * f10 + tz * f10), (double) 0, (double) 1);
-		tess.addVertexWithUV((double) (f11 + x * f10 + tx * f10), (double) (f12 + y * f10), (double) (f13 + z * f10 + tz * f10), (double) 1, (double) 1);
-		tess.addVertexWithUV((double)(f11 + x * f10 - tx * f10), (double)(f12 - y * f10), (double)(f13 + z * f10 - tz * f10), (double)1, (double)0);
-		tess.draw();
+		tess.begin(7, ParticleVertexFormats.LIT_TEXTURED);
+
+
+		tess.pos((double) (f11 - x * f10 - tx * f10), (double) (f12 - y * f10), (double) (f13 - z * f10 - tz * f10)).tex((double) 0, (double) 0).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(brightness >> 16 & 65535, brightness & 65535).normal(0, 1, 0).endVertex();
+		tess.pos((double) (f11 - x * f10 + tx * f10), (double) (f12 + y * f10), (double) (f13 - z * f10 + tz * f10)).tex((double) 0, (double) 1).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(brightness >> 16 & 65535, brightness & 65535).normal(0, 1, 0).endVertex();
+		tess.pos((double) (f11 + x * f10 + tx * f10), (double) (f12 + y * f10), (double) (f13 + z * f10 + tz * f10)).tex((double) 1, (double) 1).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(brightness >> 16 & 65535, brightness & 65535).normal(0, 1, 0).endVertex();
+		tess.pos((double)(f11 + x * f10 - tx * f10), (double)(f12 - y * f10), (double)(f13 + z * f10 - tz * f10)).tex((double)1, (double)0).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(brightness >> 16 & 65535, brightness & 65535).normal(0, 1, 0).endVertex();
+		Tessellator.getInstance().draw();
 		GL11.glPopMatrix();
 	}
 }

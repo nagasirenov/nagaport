@@ -1,0 +1,11 @@
+[
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "cp56_sha256": "af9f2d4d1f23b5e18c11caea34d5b5800fc67e3a7c75397c1178260b26491dac",
+    "cp57_sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "prior_commits": [
+      "324f35ad53f98e42045ad81c7ec4b45410d663df Port native block materials, air removal and tile world access"
+    ],
+    "exact_prior_diff": "diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java b/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java\nindex f3ac9341..78951fe3 100644\n--- a/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java\n+++ b/ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java\n@@ -2320,7 +2320,7 @@ public class ClientProxy extends ServerProxy {\n \t\tif(stack == null) return 0x000000;\n \t\tif(stack.getItem() instanceof ItemBlock) {\n \t\t\tBlock b = Block.getBlockFromItem(stack.getItem());\n-\t\t\treturn b.getMaterial().getMaterialMapColor().colorValue;\n+\t\t\treturn b.getDefaultState().getMaterial().getMaterialMapColor().colorValue;\n \t\t}\n \t\tint color = ColorUtil.getAverageColorFromStack(stack);\n \t\tif(amplify) color = ColorUtil.amplifyColor(color);\n"
+  }
+]

@@ -1,0 +1,70 @@
+PASS96 exact call inverses across67 files; receiver/coordinates/name/volume/pitch order unchanged;45 authoritative names/categories;25 explicit exclusions; 71 negative controls
+INPUT RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+INPUT ModSoundEvents.java 2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33
+INPUT SoundCategoryResolver.java 4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33
+INPUT WorldSoundEffects.java 444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e
+INPUT WorldSoundCategories.java 27f10f7689b907e30e2cddc0b8ce58fa02e325cbd3b60c18d4905a80bb33e164
+INPUT WorldSoundRegistryCategoryTest.java 19c24f6e74bfbf77df754ade8d02450734e80a82b2a656423fcf877ba7bfff3f
+INPUT NativeWorldSoundCallbackProbe.java 557e4eb2602975d472fb18eef3fd3c0252dc94c2fb3908c3516b3fa54f042120
+INPUT PacketParityProbe.java 20e708ff9978536366f408d1833a0881efc56f2b48de71553c865250dd8ae841
+INPUT ReceiverRangeTest.java 74a102e5ce2ae6d230c0c369092bef4afba60886a387ceb2e36fd936bbb4b4e8
+INPUT ForgeEventNativeLauncher.java e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3
+/workspace/shared/world-sound-correction/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-correction/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-correction/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-correction/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final Unsafe U;
+                 ^
+/workspace/shared/world-sound-correction/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); U=(Unsafe)f.get(null); }catch(Exception e){throw new ExceptionInInitializerError(e);} }
+                           ^
+/workspace/shared/world-sound-correction/ntm-port-1.12.2/porting/tests/native-world-sound/NativeWorldSoundCallbackProbe.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); U=(Unsafe)f.get(null); }catch(Exception e){throw new ExceptionInInitializerError(e);} }
+                                                                                                 ^
+Note: /workspace/shared/world-sound-correction/ntm-port-1.12.2/src/main/java/com/hbm/sound/SoundCategoryResolver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+PASS native compile negative control legacy
+PASS native compile negative control wrong-pitch
+PASS ReceiverRangeTest: 55 checks;8 complete javac-attributed receivers before/after, native destination owners,3 independent negative controls including reported regression and compiling wrong-receiver mutation
+[01:46:54] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:46:54] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:46:54] [main/INFO]: Replaced 1036 ore ingredients
+[01:46:54] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:46:54] [main/INFO]: Processing ObjectHolder annotations
+[01:46:54] [main/INFO]: Found 1167 ObjectHolder annotations
+[01:46:54] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-8751831690652473455
+[01:46:54] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-8751831690652473455, world-sound-pack-8361867960797433589
+[01:46:54] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-8751831690652473455, world-sound-pack-8361867960797433589, world-sound-pack-4816257045410434967
+[01:46:54] [main/INFO]: Reloading ResourceManager: resources, world-sound-pack-8751831690652473455, world-sound-pack-8361867960797433589, world-sound-pack-4816257045410434967, world-sound-pack-7290387350968110809
+[01:46:54] [main/WARN]: Invalid sound category metadata in hbm:sounds.json from world-sound-pack-7290387350968110809
+java.lang.IllegalArgumentException: Invalid sound category: invalid
+	at com.hbm.sound.SoundCategoryResolver.onResourceManagerReload(SoundCategoryResolver.java:55) [SoundCategoryResolver.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.notifyReloadListeners(SimpleReloadableResourceManager.java:132) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.reloadResources(SimpleReloadableResourceManager.java:112) [SimpleReloadableResourceManager.class:?]
+	at WorldSoundRegistryCategoryTest.main(WorldSoundRegistryCategoryTest.java:66) [WorldSoundRegistryCategoryTest.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_504]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_504]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_504]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_504]
+	at ForgeEventNativeLauncher.main(ForgeEventNativeLauncher.java:44) [world-sound-native-d0wi7yva/:?]
+[01:46:54] [main/INFO]: Reloading ResourceManager: 
+[01:46:54] [main/INFO]: Reloading ResourceManager: resources
+PASS WorldSoundRegistryCategoryTest: 617 assertions; registry identities, native event/category bridge,45 resource-backed sample selections, reload/replace/cancellation/ownership gates; no audio device or game launch
+[01:46:56] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:46:56] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:46:56] [main/INFO]: Replaced 1036 ore ingredients
+[01:46:56] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:46:56] [main/INFO]: Processing ObjectHolder annotations
+[01:46:56] [main/INFO]: Found 1167 ObjectHolder annotations
+[01:46:56] [main/INFO]: Reloading ResourceManager: world-sound-category-audit-1553049772309189192
+PASS production WorldSoundEffects native callback/broadcast probe: 3428 checks, ordinary+remote+empty World lists, raw custom observers/subclass, native silent RenderGlobal, mutation order, no entity hook, actual ServerWorldEventHandler metadata/packet encoding, actual PlayerList recipient boundaries/exclusion, actual registered packet roundtrip through native client network/world/sound manager and production category event hook (audio stopped at final event sink).
+[01:46:59] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `audit_world_sound`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS: 13332 actual legacy/custom/registered native packet encode-decode parity cases (names, all coordinates, volume, quantized pitch), including negative fractions, large coordinates, NaN and infinities.
+PASS complete bounded production native compile/probes; no full mod compile, launched game or audible verification

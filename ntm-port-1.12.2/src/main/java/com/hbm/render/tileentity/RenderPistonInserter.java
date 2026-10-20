@@ -6,22 +6,20 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.machine.PistonInserter.TileEntityPistonInserter;
 import com.hbm.main.ResourceManager;
 import com.hbm.render.item.ItemRenderBase;
-import com.hbm.render.util.RenderDecoItem;
+import com.hbm.render.util.NativeMachineItemRenderer;
 
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderPistonInserter extends TileEntitySpecialRenderer implements IItemRendererProvider {
+
+public class RenderPistonInserter extends TileEntitySpecialRenderer<TileEntity> implements IItemRendererProvider {
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {
 		GL11.glPushMatrix();
 			GL11.glTranslated(x + 0.5, y + 0.5, z + 0.5);
 			GL11.glEnable(GL11.GL_LIGHTING);
@@ -49,29 +47,26 @@ public class RenderPistonInserter extends TileEntitySpecialRenderer implements I
 			GL11.glTranslated(0, e * 0.9375D, 0);
 			ResourceManager.piston_inserter.renderPart("Piston");
 			
-			RenderItem itemRenderer = new RenderDecoItem(this);
-			itemRenderer.setRenderManager(RenderManager.instance);
+			NativeMachineItemRenderer itemRenderer = new NativeMachineItemRenderer();
 			
 			if(piston.slot != null) {
 				ItemStack stack = piston.slot.copy();
 				
 				EntityItem item = new EntityItem(null, 0.0D, 0.0D, 0.0D, stack);
-				item.getEntityItem().stackSize = 1;
+				item.getItem().setCount(1);
 				item.hoverStart = 0.0F;
 				
 				if(stack.getItem() instanceof ItemBlock) {
 					GL11.glTranslated(0.0D, 1.125D, 0.0D);
 				} else {
 					GL11.glTranslated(0.0D, 1.0625D, 0.1D);
-					if(!RenderManager.instance.options.fancyGraphics)
+					if(!net.minecraft.client.Minecraft.getMinecraft().gameSettings.fancyGraphics)
 						GL11.glTranslated(0.0D, 0.01D, 0.0D);
 					
 					GL11.glRotated(90, -1, 0, 0);
 				}
 				
-				RenderItem.renderInFrame = true;
-				itemRenderer.doRender(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-				RenderItem.renderInFrame = false;
+				itemRenderer.renderFrame(item, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.DECORATION_FRAME);
 			}
 
 		
@@ -84,7 +79,7 @@ public class RenderPistonInserter extends TileEntitySpecialRenderer implements I
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, -2.5, 0);

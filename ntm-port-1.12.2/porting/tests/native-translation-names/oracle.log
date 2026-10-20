@@ -1,0 +1,20 @@
+/tmp/translation-oracle-pidxeijm/NameOracle.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.util.Locale;import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+                                                                                                                                                                                                                                               ^
+/tmp/translation-oracle-pidxeijm/NameOracle.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.util.Locale;import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+                                                                                                                                                                                                                                               ^
+/tmp/translation-oracle-pidxeijm/NameOracle.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.util.Locale;import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+                                                                                                                                                                                                                                               ^
+/tmp/translation-oracle-pidxeijm/NameOracle.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+          ^
+/tmp/translation-oracle-pidxeijm/NameOracle.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+                                                                            ^
+/tmp/translation-oracle-pidxeijm/NameOracle.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+                                                                                      ^
+6 warnings
+PASS 165 actual legacy/native name setter/getter, raw identity, return, prefix, null, ItemBlock delegation and virtual-dispatch assertions

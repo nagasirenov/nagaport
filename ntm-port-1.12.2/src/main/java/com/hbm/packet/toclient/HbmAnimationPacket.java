@@ -73,8 +73,8 @@ public class HbmAnimationPacket implements IMessage {
 
 			try {
 
-				EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-				ItemStack stack = player.getHeldItem();
+				EntityPlayer player = Minecraft.getMinecraft().player;
+				ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 				int slot = player.inventory.currentItem;
 
 				if(stack == null) return null;
@@ -96,7 +96,7 @@ public class HbmAnimationPacket implements IMessage {
 
 			if(type == GunAnimation.CYCLE) {
 				if(gunIndex < gun.lastShot.length) gun.lastShot[gunIndex] = System.currentTimeMillis();
-				gun.shotRand = player.worldObj.rand.nextDouble();
+				gun.shotRand = player.world.rand.nextDouble();
 
 				Receiver[] receivers = config.getReceivers(stack);
 				if(receiverIndex >= 0 && receiverIndex < receivers.length) {
@@ -118,7 +118,7 @@ public class HbmAnimationPacket implements IMessage {
 				Minecraft.getMinecraft().entityRenderer.itemRenderer.itemToRender = stack;
 				boolean isReloadAnimation = type == GunAnimation.RELOAD || type == GunAnimation.RELOAD_CYCLE;
 				if(isReloadAnimation && ArmorTrenchmaster.isTrenchMaster(player)) animation.setTimeMult(0.5D);
-				HbmAnimations.hotbar[slot][gunIndex] = new Animation(stack.getItem().getUnlocalizedName(), System.currentTimeMillis(), animation, isReloadAnimation && config.getReloadAnimSequential(stack));
+				HbmAnimations.hotbar[slot][gunIndex] = new Animation(stack.getItem().getTranslationKey(), System.currentTimeMillis(), animation, isReloadAnimation && config.getReloadAnimSequential(stack));
 			}
 		}
 
@@ -128,7 +128,7 @@ public class HbmAnimationPacket implements IMessage {
 			BusAnimation animation = item.getAnimation(EnumUtil.grabEnumSafely(animClass, type), stack);
 
 			if(animation != null) {
-				HbmAnimations.hotbar[slot][itemIndex] = new Animation(stack.getItem().getUnlocalizedName(), System.currentTimeMillis(), animation);
+				HbmAnimations.hotbar[slot][itemIndex] = new Animation(stack.getItem().getTranslationKey(), System.currentTimeMillis(), animation);
 			}
 		}
 

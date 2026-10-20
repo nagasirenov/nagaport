@@ -1,0 +1,14 @@
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "b5d385db491d5c1a1a8b51eabd3096e5e3e9c999465839004d358c871c0828be",
+  "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": "c17c645283de8cbacecfa923a4438368a7594a0f1fd202881e69abac540e0865",
+  "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": "dd951b5c5924e11b412f424b2d5deae701c92e0874d1f277a217ccbe19f7425a",
+  "src/main/java/com/hbm/blocks/PlainCubeTextures.java": "89f4baae91d7e920f90244c353a68ed51b42898e28c14fdb447a7ff82214be07",
+  "src/main/java/com/hbm/main/PlainCubeModelHandler.java": "7705f2ed8df2bdd249d38d8948eec046d8761561cb7ad595c4652a84030bc3a1",
+  "src/main/java/com/hbm/render/model/PlainCubeModel.java": "43920d78146b1771b6e28cedb5d216eba5d4e318e99c8555c0fc47452b0b4d35",
+  "porting/tests/plain-cube-sound/run-native.py": "5e889bb9251fd3f964d90178721b60756d23f77ed8abad43d447f8611dcc9bea",
+  "porting/tests/plain-cube-sound/TextureAttribution.java": "8d7142d2a1ec380ddcc971e1930c98f050f78fb786d2b05ba4f57e30e81865cc",
+  "porting/tests/plain-cube-sound/PlainCubeNativeTest.java": "1a1f90890e9ad6866802b92614830092026c7c944955d34b7812effb46b0d02b",
+  "porting/tests/plain-cube-sound/OriginalCubeFaces.java": "6a2ebdb983cf30cdbe3e98b50954ffc93ffe6548f72d735dea1bc8ab2fe70b5b",
+  "porting/tests/plain-cube-sound/check-source.py": "d925c192d802427ebe0829965a98856c709db754c9e571a8fe28e2374e44a4ce",
+  "porting/tests/plain-cube-sound/run-attribution.py": "0e6173c0a5274f8f380de65c25058bd3eb5479d45c53f6bb7a92e3fa9ad9db72"
+}

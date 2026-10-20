@@ -84,6 +84,6 @@ public class ContainerMachineOilWell extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return well.isUseableByPlayer(player);
+		return well.isUsableByPlayer(player);
 	}
 }

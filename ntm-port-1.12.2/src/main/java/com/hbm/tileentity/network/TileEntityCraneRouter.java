@@ -38,14 +38,14 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.craneRouter";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.networkPackNT(15);
 		}
@@ -88,7 +88,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 		int matcher = index / 5;
 		int mIndex = index % 5;
 		
-		this.patterns[matcher].nextMode(worldObj, slots[index], mIndex);
+		this.patterns[matcher].nextMode(this.world, slots[index], mIndex);
 	}
 
 	public void initPattern(ItemStack stack, int index) {
@@ -96,7 +96,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 		int matcher = index / 5;
 		int mIndex = index % 5;
 		
-		this.patterns[matcher].initPatternSmart(worldObj, stack, mIndex);
+		this.patterns[matcher].initPatternSmart(this.world, stack, mIndex);
 	}
 	
 	@Override
@@ -111,7 +111,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		for(int i = 0; i < patterns.length; i++) {
@@ -120,11 +120,12 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 			nbt.setTag("pattern" + i, compound);
 		}
 		nbt.setIntArray("modes", this.modes);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 	
 	@Override
@@ -154,7 +155,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 		int count = 0;
 		for (int i = getFilterSlots()[0]; i < getFilterSlots()[1]; i++) {
 			NBTTagCompound slotNBT = new NBTTagCompound();
-			if (inv.getStackInSlot(i) != null) {
+			if (inv.getStackInSlot(i) != null && !inv.getStackInSlot(i).isEmpty()) {
 				slotNBT.setByte("slot", (byte) count);
 				inv.getStackInSlot(i).writeToNBT(slotNBT);
 				tags.appendTag(slotNBT);
@@ -178,12 +179,12 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 			for (int i = 0; i < listSize; i++) {
 				NBTTagCompound slotNBT = items.getCompoundTagAt(i);
 				byte slot = slotNBT.getByte("slot");
-				ItemStack loadedStack = ItemStack.loadItemStackFromNBT(slotNBT);
+				ItemStack loadedStack = new ItemStack(slotNBT);
 
-				if (loadedStack != null && slot > index * 5 && slot < Math.min(index * 5 + 5, 30)) {
-					this.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(slotNBT));
+				if (!loadedStack.isEmpty() && slot > index * 5 && slot < Math.min(index * 5 + 5, 30)) {
+					this.setInventorySlotContents(slot, new ItemStack(slotNBT));
 					nextMode(slot);
-					this.getWorldObj().markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+					this.getWorld().markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 				}
 			}
 			modes = nbt.getIntArray("modes");

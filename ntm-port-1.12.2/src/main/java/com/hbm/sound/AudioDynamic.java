@@ -4,13 +4,18 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
-import net.minecraft.client.audio.MovingSound;
-import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.client.audio.ITickableSound;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class AudioDynamic extends MovingSound {
+public class AudioDynamic extends ResourceLoopSound implements ITickableSound {
+
+	protected boolean donePlaying;
+
+	@Override
+	public boolean isDonePlaying() { return donePlaying; }
 
 	public float maxVolume = 1;
 	public float range;
@@ -24,7 +29,7 @@ public class AudioDynamic extends MovingSound {
 	protected AudioDynamic(ResourceLocation loc) {
 		super(loc);
 		this.repeat = true;
-		this.field_147666_i = ISound.AttenuationType.NONE;
+		this.attenuationType = ISound.AttenuationType.NONE;
 		this.range = 10;
 	}
 
@@ -41,7 +46,7 @@ public class AudioDynamic extends MovingSound {
 	@Override
 	public void update() {
 
-		EntityClientPlayerMP player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
 		float f = 0;
 
 		if(parentEntity != null && player != parentEntity) {
@@ -94,7 +99,7 @@ public class AudioDynamic extends MovingSound {
 	}
 
 	public void setPitch(float pitch) {
-		this.field_147663_c = pitch;
+		this.pitch = pitch;
 	}
 
 	public float func(float dist) {

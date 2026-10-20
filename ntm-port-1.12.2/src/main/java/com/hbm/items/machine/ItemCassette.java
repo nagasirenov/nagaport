@@ -122,7 +122,7 @@ public class ItemCassette extends Item {
     	if(!(stack.getItem() instanceof ItemCassette))
     		return;
 
-		list.add(TextFormatting.YELLOW + I18nUtil.resolveKey("info.templatefolder", I18nUtil.resolveKey(ModItems.template_folder.getUnlocalizedName() + ".name")));
+		list.add(TextFormatting.YELLOW + I18nUtil.resolveKey("info.templatefolder", I18nUtil.resolveKey(ModItems.template_folder.getTranslationKey() + ".name")));
 		list.add("");
     	
     	list.add("Siren sound cassette:");

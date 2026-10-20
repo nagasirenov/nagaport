@@ -51,7 +51,7 @@ public class RadBlock extends VolcanicBlock {
 	public void onSolidify(World world, int x, int y, int z, int lavaCount, int basaltCount, Random rand) {
 		int r = rand.nextInt(400);
 		
-		Block above = world.getBlock(x, y + 10, z);
+		Block above = com.hbm.world.WorldBlockState.read(world, x, y + 10, z).getBlock();
 		boolean canMakeGem = lavaCount + basaltCount == 6 && lavaCount < 3 && (above == ModBlocks.sellafield_slaked || above == ModBlocks.rad_lava_block);
 		int meta = 5 + rand.nextInt(3);
 		
@@ -69,12 +69,12 @@ public class RadBlock extends VolcanicBlock {
 	@Override
 	public Block getReaction(World world, int x, int y, int z) {
 		
-		Block b = world.getBlock(x, y, z);
-		if(b.getMaterial() == Material.water) return Blocks.stone;
-		if(b == Blocks.log || b == Blocks.log2) return ModBlocks.waste_log;
-		if(b == Blocks.planks) return ModBlocks.waste_planks;
-		if(b == Blocks.leaves || b == Blocks.leaves2) return Blocks.fire;
-		if(b == Blocks.diamond_ore) return ModBlocks.ore_sellafield_radgem;
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		if(b.getDefaultState().getMaterial() == Material.WATER) return Blocks.STONE;
+		if(b == Blocks.LOG || b == Blocks.LOG2) return ModBlocks.waste_log;
+		if(b == Blocks.PLANKS) return ModBlocks.waste_planks;
+		if(b == Blocks.LEAVES || b == Blocks.LEAVES2) return Blocks.FIRE;
+		if(b == Blocks.DIAMOND_ORE) return ModBlocks.ore_sellafield_radgem;
 		if(b == ModBlocks.ore_uranium || b == ModBlocks.ore_gneiss_uranium) return world.rand.nextInt(5) == 0 ? ModBlocks.ore_sellafield_schrabidium : ModBlocks.ore_sellafield_uranium_scorched;
 		return null;
 	}

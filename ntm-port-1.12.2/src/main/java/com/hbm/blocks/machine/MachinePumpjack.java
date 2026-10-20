@@ -27,7 +27,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachinePumpjack extends BlockDummyable implements IPersistentInfoProvider {
 
 	public MachinePumpjack() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

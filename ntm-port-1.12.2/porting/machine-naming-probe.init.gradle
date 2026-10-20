@@ -1,0 +1,15 @@
+// Extracted production naming methods against native dependencies, not full machines.
+// Does not alter sourceSets or compileJava. Python accepts portable Java executable suffixes.
+allprojects {
+    afterEvaluate {
+        def javaHome = new File(System.getProperty('java.home'))
+        def javacName = System.getProperty('os.name').toLowerCase().contains('windows') ? 'javac.exe' : 'javac'
+        if (!new File(javaHome, 'bin/' + javacName).isFile()) javaHome = javaHome.parentFile
+        tasks.create('testPortMachineNaming', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3',
+                project.file('porting/tests/machine-naming-native-test.py'),
+                '--java-home', javaHome.absolutePath,
+                '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+        }
+    }
+}

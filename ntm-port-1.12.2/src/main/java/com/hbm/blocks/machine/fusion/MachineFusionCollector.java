@@ -16,7 +16,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineFusionCollector extends BlockDummyable implements ITooltipProvider {
 
 	public MachineFusionCollector() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

@@ -33,80 +33,13 @@ import com.hbm.items.weapon.sedna.ItemGunBaseNT;
 import com.hbm.main.ResourceManager;
 import com.hbm.render.item.weapon.sedna.*;
 
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraft.item.Item;
+import java.util.Map;
+import java.util.IdentityHashMap;
 
 public class GunFactoryClient {
 
 	public static void init() {
-		//GUNS
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_debug,						new ItemRenderDebug());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_pepperbox,					new ItemRenderPepperbox());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_light_revolver,				new ItemRenderAtlas(ResourceManager.bio_revolver_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_light_revolver_atlas,		new ItemRenderAtlas(ResourceManager.bio_revolver_atlas_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_light_revolver_dani,			new ItemRenderDANI());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_henry,						new ItemRenderHenry(ResourceManager.henry_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_henry_lincoln,				new ItemRenderHenry(ResourceManager.henry_lincoln_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_greasegun,					new ItemRenderGreasegun());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_maresleg,					new ItemRenderMaresleg(ResourceManager.maresleg_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_maresleg_akimbo,				new ItemRenderMareslegAkimbo());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_maresleg_broken,				new ItemRenderMaresleg(ResourceManager.maresleg_broken_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_flaregun,					new ItemRenderFlaregun());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_heavy_revolver,				new ItemRenderHeavyRevolver(ResourceManager.heavy_revolver_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_heavy_revolver_lilmac,		new ItemRenderHeavyRevolver(ResourceManager.lilmac_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_heavy_revolver_protege,		new ItemRenderHeavyRevolver(ResourceManager.heavy_revolver_protege_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_carbine,						new ItemRenderCarbine());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_am180,						new ItemRenderAm180());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_liberator,					new ItemRenderLiberator());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_congolake,					new ItemRenderCongoLake());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_flamer,						new ItemRenderFlamer(ResourceManager.flamethrower_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_flamer_topaz,				new ItemRenderFlamer(ResourceManager.flamethrower_topaz_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_flamer_daybreaker,			new ItemRenderFlamer(ResourceManager.flamethrower_daybreaker_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_lag,							new ItemRenderLAG());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_uzi,							new ItemRenderUzi());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_uzi_akimbo,					new ItemRenderUziAkimbo());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_spas12,						new ItemRenderSPAS12());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_panzerschreck,				new ItemRenderPanzerschreck());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_star_f,						new ItemRenderStarF());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_star_f_akimbo,				new ItemRenderStarFAkimbo());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_g3,							new ItemRenderG3(ResourceManager.g3_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_g3_zebra,					new ItemRenderG3(ResourceManager.g3_zebra_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_stinger,						new ItemRenderStinger());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_chemthrower,					new ItemRenderChemthrower());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_amat,						new ItemRenderAmat(ResourceManager.amat_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_amat_subtlety,				new ItemRenderAmat(ResourceManager.amat_subtlety_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_amat_penance,				new ItemRenderAmat(ResourceManager.amat_penance_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_m2,							new ItemRenderM2());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_autoshotgun,					new ItemRenderShredder(ResourceManager.shredder_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_autoshotgun_shredder,		new ItemRenderShredder(ResourceManager.shredder_orig_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_autoshotgun_sexy,			new ItemRenderSexy(ResourceManager.sexy_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_autoshotgun_heretic,			new ItemRenderSexy(ResourceManager.heretic_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_quadro,						new ItemRenderQuadro());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_minigun,						new ItemRenderMinigun(ResourceManager.minigun_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_minigun_lacunae,				new ItemRenderMinigun(ResourceManager.minigun_lacunae_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_minigun_dual,				new ItemRenderMinigunDual());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_missile_launcher,			new ItemRenderMissileLauncher());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_tesla_cannon,				new ItemRenderTeslaCannon());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_laser_pistol,				new ItemRenderLaserPistol(ResourceManager.laser_pistol_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_laser_pistol_pew_pew,		new ItemRenderLaserPistol(ResourceManager.laser_pistol_pew_pew_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_laser_pistol_morning_glory,	new ItemRenderLaserPistol(ResourceManager.laser_pistol_morning_glory_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_stg77,						new ItemRenderSTG77());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_tau,							new ItemRenderTau());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_fatman,						new ItemRenderFatMan());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_lasrifle,					new ItemRenderLasrifle());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_coilgun,						new ItemRenderCoilgun());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_hangman,						new ItemRenderHangman());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_mas36,						new ItemRenderMAS36());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_bolter,						new ItemRenderBolter());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_folly,						new ItemRenderFolly());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_aberrator,					new ItemRenderAberrator());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_aberrator_eott,				new ItemRenderEOTT());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_double_barrel,				new ItemRenderDoubleBarrel(ResourceManager.double_barrel_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_double_barrel_sacred_dragon,	new ItemRenderDoubleBarrel(ResourceManager.double_barrel_sacred_dragon_tex));
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_charge_thrower,				new ItemRenderChargeThrower());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_drill,						new ItemRenderDrill());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_n_i_4_n_i,					new ItemRenderNI4NI());
-		MinecraftForgeClient.registerItemRenderer(ModItems.gun_pa_melee,					new ItemRenderPAMelee());
-		
 		//PROJECTILES
 		ammo_debug.setRenderer(LegoClient.RENDER_STANDARD_BULLET);
 		ammo_debug_shot.setRenderer(LegoClient.RENDER_STANDARD_BULLET);
@@ -321,4 +254,79 @@ public class GunFactoryClient {
 	
 	public static void setRendererBulk(BiConsumer<EntityBulletBaseMK4, Float> renderer, BulletConfig... configs) { for(BulletConfig config : configs) config.setRenderer(renderer); }
 	public static void setRendererBulkBeam(BiConsumer<EntityBulletBeamBase, Float> renderer, BulletConfig... configs) { for(BulletConfig config : configs) config.setRendererBeam(renderer); }
+
+    public static Map<Item, ItemRenderWeaponBase> createItemRenderers() {
+        Map<Item, ItemRenderWeaponBase> renderers = new IdentityHashMap<>();
+		//GUNS
+		renderers.put(ModItems.gun_debug,						new ItemRenderDebug());
+		renderers.put(ModItems.gun_pepperbox,					new ItemRenderPepperbox());
+		renderers.put(ModItems.gun_light_revolver,				new ItemRenderAtlas(ResourceManager.bio_revolver_tex));
+		renderers.put(ModItems.gun_light_revolver_atlas,		new ItemRenderAtlas(ResourceManager.bio_revolver_atlas_tex));
+		renderers.put(ModItems.gun_light_revolver_dani,			new ItemRenderDANI());
+		renderers.put(ModItems.gun_henry,						new ItemRenderHenry(ResourceManager.henry_tex));
+		renderers.put(ModItems.gun_henry_lincoln,				new ItemRenderHenry(ResourceManager.henry_lincoln_tex));
+		renderers.put(ModItems.gun_greasegun,					new ItemRenderGreasegun());
+		renderers.put(ModItems.gun_maresleg,					new ItemRenderMaresleg(ResourceManager.maresleg_tex));
+		renderers.put(ModItems.gun_maresleg_akimbo,				new ItemRenderMareslegAkimbo());
+		renderers.put(ModItems.gun_maresleg_broken,				new ItemRenderMaresleg(ResourceManager.maresleg_broken_tex));
+		renderers.put(ModItems.gun_flaregun,					new ItemRenderFlaregun());
+		renderers.put(ModItems.gun_heavy_revolver,				new ItemRenderHeavyRevolver(ResourceManager.heavy_revolver_tex));
+		renderers.put(ModItems.gun_heavy_revolver_lilmac,		new ItemRenderHeavyRevolver(ResourceManager.lilmac_tex));
+		renderers.put(ModItems.gun_heavy_revolver_protege,		new ItemRenderHeavyRevolver(ResourceManager.heavy_revolver_protege_tex));
+		renderers.put(ModItems.gun_carbine,						new ItemRenderCarbine());
+		renderers.put(ModItems.gun_am180,						new ItemRenderAm180());
+		renderers.put(ModItems.gun_liberator,					new ItemRenderLiberator());
+		renderers.put(ModItems.gun_congolake,					new ItemRenderCongoLake());
+		renderers.put(ModItems.gun_flamer,						new ItemRenderFlamer(ResourceManager.flamethrower_tex));
+		renderers.put(ModItems.gun_flamer_topaz,				new ItemRenderFlamer(ResourceManager.flamethrower_topaz_tex));
+		renderers.put(ModItems.gun_flamer_daybreaker,			new ItemRenderFlamer(ResourceManager.flamethrower_daybreaker_tex));
+		renderers.put(ModItems.gun_lag,							new ItemRenderLAG());
+		renderers.put(ModItems.gun_uzi,							new ItemRenderUzi());
+		renderers.put(ModItems.gun_uzi_akimbo,					new ItemRenderUziAkimbo());
+		renderers.put(ModItems.gun_spas12,						new ItemRenderSPAS12());
+		renderers.put(ModItems.gun_panzerschreck,				new ItemRenderPanzerschreck());
+		renderers.put(ModItems.gun_star_f,						new ItemRenderStarF());
+		renderers.put(ModItems.gun_star_f_akimbo,				new ItemRenderStarFAkimbo());
+		renderers.put(ModItems.gun_g3,							new ItemRenderG3(ResourceManager.g3_tex));
+		renderers.put(ModItems.gun_g3_zebra,					new ItemRenderG3(ResourceManager.g3_zebra_tex));
+		renderers.put(ModItems.gun_stinger,						new ItemRenderStinger());
+		renderers.put(ModItems.gun_chemthrower,					new ItemRenderChemthrower());
+		renderers.put(ModItems.gun_amat,						new ItemRenderAmat(ResourceManager.amat_tex));
+		renderers.put(ModItems.gun_amat_subtlety,				new ItemRenderAmat(ResourceManager.amat_subtlety_tex));
+		renderers.put(ModItems.gun_amat_penance,				new ItemRenderAmat(ResourceManager.amat_penance_tex));
+		renderers.put(ModItems.gun_m2,							new ItemRenderM2());
+		renderers.put(ModItems.gun_autoshotgun,					new ItemRenderShredder(ResourceManager.shredder_tex));
+		renderers.put(ModItems.gun_autoshotgun_shredder,		new ItemRenderShredder(ResourceManager.shredder_orig_tex));
+		renderers.put(ModItems.gun_autoshotgun_sexy,			new ItemRenderSexy(ResourceManager.sexy_tex));
+		renderers.put(ModItems.gun_autoshotgun_heretic,			new ItemRenderSexy(ResourceManager.heretic_tex));
+		renderers.put(ModItems.gun_quadro,						new ItemRenderQuadro());
+		renderers.put(ModItems.gun_minigun,						new ItemRenderMinigun(ResourceManager.minigun_tex));
+		renderers.put(ModItems.gun_minigun_lacunae,				new ItemRenderMinigun(ResourceManager.minigun_lacunae_tex));
+		renderers.put(ModItems.gun_minigun_dual,				new ItemRenderMinigunDual());
+		renderers.put(ModItems.gun_missile_launcher,			new ItemRenderMissileLauncher());
+		renderers.put(ModItems.gun_tesla_cannon,				new ItemRenderTeslaCannon());
+		renderers.put(ModItems.gun_laser_pistol,				new ItemRenderLaserPistol(ResourceManager.laser_pistol_tex));
+		renderers.put(ModItems.gun_laser_pistol_pew_pew,		new ItemRenderLaserPistol(ResourceManager.laser_pistol_pew_pew_tex));
+		renderers.put(ModItems.gun_laser_pistol_morning_glory,	new ItemRenderLaserPistol(ResourceManager.laser_pistol_morning_glory_tex));
+		renderers.put(ModItems.gun_stg77,						new ItemRenderSTG77());
+		renderers.put(ModItems.gun_tau,							new ItemRenderTau());
+		renderers.put(ModItems.gun_fatman,						new ItemRenderFatMan());
+		renderers.put(ModItems.gun_lasrifle,					new ItemRenderLasrifle());
+		renderers.put(ModItems.gun_coilgun,						new ItemRenderCoilgun());
+		renderers.put(ModItems.gun_hangman,						new ItemRenderHangman());
+		renderers.put(ModItems.gun_mas36,						new ItemRenderMAS36());
+		renderers.put(ModItems.gun_bolter,						new ItemRenderBolter());
+		renderers.put(ModItems.gun_folly,						new ItemRenderFolly());
+		renderers.put(ModItems.gun_aberrator,					new ItemRenderAberrator());
+		renderers.put(ModItems.gun_aberrator_eott,				new ItemRenderEOTT());
+		renderers.put(ModItems.gun_double_barrel,				new ItemRenderDoubleBarrel(ResourceManager.double_barrel_tex));
+		renderers.put(ModItems.gun_double_barrel_sacred_dragon,	new ItemRenderDoubleBarrel(ResourceManager.double_barrel_sacred_dragon_tex));
+		renderers.put(ModItems.gun_charge_thrower,				new ItemRenderChargeThrower());
+		renderers.put(ModItems.gun_drill,						new ItemRenderDrill());
+		renderers.put(ModItems.gun_n_i_4_n_i,					new ItemRenderNI4NI());
+		renderers.put(ModItems.gun_pa_melee,					new ItemRenderPAMelee());
+
+
+        return renderers;
+    }
 }

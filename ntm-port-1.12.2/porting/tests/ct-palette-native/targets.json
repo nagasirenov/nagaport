@@ -1,0 +1,28 @@
+{
+  "Ruin002": {
+    "Block4": "deco_steel"
+  },
+  "Silo": {
+    "Block6": "deco_steel"
+  },
+  "DesertAtom002": {
+    "Block5": "deco_steel",
+    "Block7": "deco_tungsten"
+  },
+  "Barrel": {
+    "Block10": "deco_lead"
+  },
+  "Spaceship2": {
+    "Block3": "deco_steel"
+  },
+  "Spaceship": {
+    "Block1": "deco_tungsten",
+    "Block2": "deco_red_copper",
+    "Block3": "deco_steel"
+  },
+  "DesertAtom003": {
+    "Block5": "deco_steel",
+    "Block7": "deco_tungsten",
+    "Block24": "deco_lead"
+  }
+}

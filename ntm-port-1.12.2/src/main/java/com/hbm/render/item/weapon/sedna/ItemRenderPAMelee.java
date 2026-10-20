@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.armor.IPAMelee;
@@ -56,7 +59,7 @@ public class ItemRenderPAMelee extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.ncrpa_arm);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.ncrpa_arm);
 
 		GL11.glPushMatrix();
 		double scale = 0.3125D;
@@ -74,13 +77,13 @@ public class ItemRenderPAMelee extends ItemRenderWeaponBase {
 		GL11.glShadeModel(GL11.GL_FLAT);
 	}
 	
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
-		if(type == type.EQUIPPED) return;
+	public void renderOther(ItemStack stack, NativeItemContext context) {
+		if(isThirdPerson(context.transform)) return;
 		
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.ncrpa_arm);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.ncrpa_arm);
 
 		GL11.glPushMatrix();
 		double scale = 0.3125D;

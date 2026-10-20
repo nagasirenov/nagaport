@@ -64,13 +64,13 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.paDipole";
 	}
 
 	@Override
 	public boolean canParticleEnter(Particle particle, ForgeDirection dir, int x, int y, int z) {
-		return this.yCoord == y && (this.xCoord == x || this.zCoord == z);
+		return this.pos.getY() == y && (this.pos.getX() == x || this.pos.getZ() == z);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 	@Override
 	public BlockPos getExitPos(Particle particle) {
 		particle.dir = getExitDir(particle);
-		return new BlockPos(xCoord, yCoord, zCoord).offset(particle.dir, 2);
+		return new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(particle.dir, 2);
 	}
 
 	public ForgeDirection getExitDir(Particle particle) {
@@ -118,19 +118,19 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 
 	public boolean checkRedstone() {
 		for(DirPos pos : getConPos()) {
-			if(worldObj.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) return true;
+			if(this.world.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) return true;
 		}
 		return false;
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.power = Library.chargeTEFromItems(slots, 0, power, this.getMaxPower());
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -162,13 +162,14 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("dirLower", dirLower);
 		nbt.setInteger("dirUpper", dirUpper);
 		nbt.setInteger("dirRedstone", dirRedstone);
 		nbt.setInteger("threshold", threshold);
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -178,12 +179,12 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord - 1,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY() - 1,
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 
@@ -199,14 +200,14 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 1, yCoord + 2, zCoord, Library.POS_Y),
-				new DirPos(xCoord - 1, yCoord + 2, zCoord, Library.POS_Y),
-				new DirPos(xCoord, yCoord + 2, zCoord + 1, Library.POS_Y),
-				new DirPos(xCoord, yCoord + 2, zCoord - 1, Library.POS_Y),
-				new DirPos(xCoord + 1, yCoord - 2, zCoord, Library.NEG_Y),
-				new DirPos(xCoord - 1, yCoord - 2, zCoord, Library.NEG_Y),
-				new DirPos(xCoord, yCoord - 2, zCoord + 1, Library.NEG_Y),
-				new DirPos(xCoord, yCoord - 2, zCoord - 1, Library.NEG_Y)
+				new DirPos(this.pos.getX() + 1, this.pos.getY() + 2, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX() - 1, this.pos.getY() + 2, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ() + 1, Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ() - 1, Library.POS_Y),
+				new DirPos(this.pos.getX() + 1, this.pos.getY() - 2, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX() - 1, this.pos.getY() - 2, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() + 1, Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ() - 1, Library.NEG_Y)
 		};
 	}
 
@@ -222,7 +223,7 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -236,7 +237,7 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 		if(this.dirUpper > 3) this.dirUpper -= 4;
 		if(this.dirRedstone > 3) this.dirRedstone -= 4;
 
-		this.threshold = MathHelper.clamp_int(threshold, 0, 999_999_999);
+		this.threshold = MathHelper.clamp(threshold, 0, 999_999_999);
 	}
 
 	public static ForgeDirection ditToForgeDir(int dir) {
@@ -332,7 +333,7 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setThreshold(Context context, Arguments args) {
-		threshold = MathHelper.clamp_int(args.checkInteger(0), 0, 999_999_999);
+		threshold = MathHelper.clamp(args.checkInteger(0), 0, 999_999_999);
 		return new Object[] {};
 	}
 

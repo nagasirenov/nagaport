@@ -1,185 +1,123 @@
 package com.hbm.blocks.generic;
 
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
-import com.hbm.blocks.BlockEnumMulti;
-import com.hbm.extprop.HbmPlayerProps;
+import java.util.*;
 import com.hbm.render.block.ISBRHUniversal;
-import com.hbm.render.util.RenderBlocksNT;
-import com.hbm.util.EnumUtil;
-
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import com.hbm.blocks.BlockEnumMulti;
+import com.hbm.extprop.HbmPlayerProps;
+import com.hbm.util.EnumUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class BlockWoodStructure extends BlockEnumMulti implements ISBRHUniversal {
-
-	public BlockWoodStructure(Material mat) {
-		super(mat, EnumWoodStructure.class, true, false);
-	}
-	
-	public enum EnumWoodStructure {
-		ROOF, SCAFFOLD, CEILING
-	}
-
-	@Override public int getRenderType() { return renderID; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-		return true;
-	}
-
-	@Override
-	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-		EnumWoodStructure type = EnumUtil.grabEnumSafely(EnumWoodStructure.class, world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));
-		if(type == type.SCAFFOLD && side == EnumFacing.UP) return true;
-		return false;
-	}
-
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		EnumWoodStructure type = EnumUtil.grabEnumSafely(EnumWoodStructure.class, world.getBlockMetadata(x, y, z));
-		setBlockBounds(0, 0, 0, 1, 1, 1);
-		if(type == type.ROOF) setBlockBounds(0F, 0F, 0F, 1F, 0.1875F, 1F);
-		if(type == type.SCAFFOLD) setBlockBounds(0.0625F, 0F, 0.0625F, 1F - 0.0625F, 1F, 1F - 0.0625F);
-		if(type == type.CEILING) setBlockBounds(0F, 0.875F, 0F, 1F, 1F, 1F);
-	}
-
-	@Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity collider) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		super.addCollisionBoxesToList(world, x, y, z, aabb, list, collider);
-	}
-	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
-	}
-  
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		EnumWoodStructure type = EnumUtil.grabEnumSafely(EnumWoodStructure.class, meta);
-
-		if (type == type.SCAFFOLD) return AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1);
-		
-		return super.getSelectedBoundingBoxFromPool(world, i, j, k);
-	}
-
-	@Override
-	public void renderInventoryBlock(Block block, int meta, int modelId, Object renderBlocks) {
-
-		GL11.glPushMatrix();
-		RenderBlocks renderer = (RenderBlocks) renderBlocks;
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-		
-		EnumWoodStructure type = EnumUtil.grabEnumSafely(EnumWoodStructure.class, meta);
-
+    public BlockWoodStructure(Material material) { super(material,EnumWoodStructure.class,true,false); }
+    @Override public String getTextureName() { return "hbm:wood_barrier"; }
+    public enum EnumWoodStructure { ROOF, SCAFFOLD, CEILING }
+    @Override protected BlockStateContainer createBlockState() { return UniversalBlockState.create(this); }
+    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(UniversalBlockState.META, meta & 15); }
+    @Override public int getMetaFromState(IBlockState state) { return UniversalBlockState.metadata(state); }
+    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }
+    @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+    @Override public boolean isFullCube(IBlockState state) { return false; }
+    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) { return BlockFaceShape.UNDEFINED; }
+    private EnumWoodStructure type(IBlockState state) { return EnumUtil.grabEnumSafely(EnumWoodStructure.class,getMetaFromState(state)); }
+    @Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) { return true; }
+    @Override public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) { return type(world.getBlockState(pos)) == EnumWoodStructure.SCAFFOLD && side == EnumFacing.UP; }
+    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+        int mask=0,meta=getMetaFromState(state);
+        for(EnumFacing side:EnumFacing.values()) {
+            IBlockState neighbor=world.getBlockState(pos.offset(side));
+            if(neighbor.getBlock()==this && getMetaFromState(neighbor)==meta) mask |= 1 << side.getIndex();
+        }
+        return UniversalBlockState.withConnections(state,mask);
+    }
+    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        switch(type(state)) {
+        case ROOF: return new AxisAlignedBB(0,0,0,1,.1875,1);
+        case SCAFFOLD: return new AxisAlignedBB(.0625,0,.0625,.9375,1,.9375);
+        case CEILING: return new AxisAlignedBB(0,.875,0,1,1,1);
+        default: throw new AssertionError(type(state));
+        }
+    }
+    @Override public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos) {
+        return (type(state)==EnumWoodStructure.SCAFFOLD?FULL_BLOCK_AABB:getBoundingBox(state,world,pos)).offset(pos);
+    }
+    @Override public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity) {
+        if(entity instanceof EntityPlayer && type(world.getBlockState(pos))==EnumWoodStructure.SCAFFOLD) HbmPlayerProps.getData((EntityPlayer)entity).isOnLadder=true;
+    }
+    @Override public double getInventoryYOffset(IBlockState state) { return type(state)==EnumWoodStructure.ROOF?.125:type(state)==EnumWoodStructure.CEILING?.625:0; }
+    @Override public List<AxisAlignedBB> getRenderBoxes(IBlockState state, boolean inventory) {
+        List<AxisAlignedBB> boxes=new ArrayList<>();
+        AxisAlignedBB bounds=FULL_BLOCK_AABB;
+        EnumWoodStructure type=type(state);
+        int mask=UniversalBlockState.connections(state);
+        if(inventory) {
 		if(type == type.ROOF) {
-			GL11.glTranslatef(0F, 0.125F, 0F);
-			renderer.setRenderBounds(0D, 0D, 0D, 0.125D, 0.125D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0.875D, 0D, 0D, 1D, 0.125D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.125D, 0.0625D, 1D, 0.1875D, 0.4375D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.125D, 0.5625D, 1D, 0.1875D, 0.9375D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
+			bounds = new AxisAlignedBB(0D, 0D, 0D, 0.125D, 0.125D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.875D, 0D, 0D, 1D, 0.125D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.125D, 0.0625D, 1D, 0.1875D, 0.4375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.125D, 0.5625D, 1D, 0.1875D, 0.9375D); boxes.add(bounds);
 		}
 		if(type == type.SCAFFOLD) {
-			renderer.setRenderBounds(0.0625D, 0D, 0.0625D, 0.1875D, 0.875D, 0.1875D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0.8125D, 0D, 0.0625D, 0.9375D, 0.875D, 0.1875D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0.0625D, 0D, 0.8125D, 0.1875D, 0.875D, 0.9375D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0.8125D, 0D, 0.8125D, 0.9375D, 0.875D, 0.9375D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.125D, 0D, 0.0625D, 0.375D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0.9375D, 0.125D, 0D, 1D, 0.375D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.5D, 0D, 1D, 0.75D, 0.0625D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.5D, 0.9375D, 1D, 0.75D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.875D, 0D, 1D, 1D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
+			bounds = new AxisAlignedBB(0.0625D, 0D, 0.0625D, 0.1875D, 0.875D, 0.1875D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.8125D, 0D, 0.0625D, 0.9375D, 0.875D, 0.1875D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.0625D, 0D, 0.8125D, 0.1875D, 0.875D, 0.9375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.8125D, 0D, 0.8125D, 0.9375D, 0.875D, 0.9375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.125D, 0D, 0.0625D, 0.375D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.9375D, 0.125D, 0D, 1D, 0.375D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.5D, 0D, 1D, 0.75D, 0.0625D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.5D, 0.9375D, 1D, 0.75D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.875D, 0D, 1D, 1D, 1D); boxes.add(bounds);
 		}
 		if(type == type.CEILING) {
-			GL11.glTranslatef(0F, 0.625F, 0F);
-			renderer.setRenderBounds(0D, 0.0625D, 0D, 0.125D, 0.125D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0.875D, 0.0625D, 0D, 1D, 0.125D, 1D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.125D, 0.0625D, 1D, 0.1875D, 0.4375D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
-			renderer.setRenderBounds(0D, 0.125D, 0.5625D, 1D, 0.1875D, 0.9375D); RenderBlocksNT.renderStandardInventoryBlock(block, meta, renderer);
+			bounds = new AxisAlignedBB(0D, 0.0625D, 0D, 0.125D, 0.125D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.875D, 0.0625D, 0D, 1D, 0.125D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.125D, 0.0625D, 1D, 0.1875D, 0.4375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.125D, 0.5625D, 1D, 0.1875D, 0.9375D); boxes.add(bounds);
 		}
 		
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, Object renderBlocks) {
-
-		RenderBlocksNT renderer = RenderBlocksNT.INSTANCE.setWorld(world);
-		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		int meta = world.getBlockMetadata(x, y, z);
-		EnumWoodStructure type = EnumUtil.grabEnumSafely(EnumWoodStructure.class,meta);
-
+        } else {
+            // Deliberately preserve unconditional draws after the original five
+            // unbraced ifs, including duplicates of the previous bounds.
 		if(type == type.ROOF) {
-			boolean nx = world.getBlock(x - 1, y, z) == this && world.getBlockMetadata(x - 1, y, z) == meta;
-			boolean px = world.getBlock(x + 1, y, z) == this && world.getBlockMetadata(x + 1, y, z) == meta;
-			renderer.setRenderBounds(0D, 0D, 0D, 0.125D, 0.125D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.875D, 0D, 0D, 1D, 0.125D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(nx ? 0D : 0.0625D, 0.125D, 0.0625D, px ? 1D : 0.9375D, 0.1875D, 0.4375D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(nx ? 0D : 0.0625D, 0.125D, 0.5625D, px ? 1D : 0.9375D, 0.1875D, 0.9375D); renderer.renderStandardBlock(block, x, y, z);
+			boolean nx = UniversalBlockState.connected(mask,EnumFacing.WEST);
+			boolean px = UniversalBlockState.connected(mask,EnumFacing.EAST);
+			bounds = new AxisAlignedBB(0D, 0D, 0D, 0.125D, 0.125D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.875D, 0D, 0D, 1D, 0.125D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(nx ? 0D : 0.0625D, 0.125D, 0.0625D, px ? 1D : 0.9375D, 0.1875D, 0.4375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(nx ? 0D : 0.0625D, 0.125D, 0.5625D, px ? 1D : 0.9375D, 0.1875D, 0.9375D); boxes.add(bounds);
 		}
 		if(type == type.SCAFFOLD) {
-			boolean py = world.getBlock(x, y + 1, z) == this && world.getBlockMetadata(x, y + 1, z) == meta;
-			boolean nx = world.getBlock(x - 1, y, z) == this && world.getBlockMetadata(x - 1, y, z) == meta;
-			boolean nz = world.getBlock(x, y, z - 1) == this && world.getBlockMetadata(x, y, z - 1) == meta;
-			boolean px = world.getBlock(x + 1, y, z) == this && world.getBlockMetadata(x + 1, y, z) == meta;
-			boolean pz = world.getBlock(x, y, z + 1) == this && world.getBlockMetadata(x, y, z + 1) == meta;
-			renderer.setRenderBounds(0.0625D, 0D, 0.0625D, 0.1875D, py ? 1D : 0.875D, 0.1875D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.8125D, 0D, 0.0625D, 0.9375D, py ? 1D : 0.875D, 0.1875D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.0625D, 0D, 0.8125D, 0.1875D, py ? 1D : 0.875D, 0.9375D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.8125D, 0D, 0.8125D, 0.9375D, py ? 1D : 0.875D, 0.9375D); renderer.renderStandardBlock(block, x, y, z);
+			boolean py = UniversalBlockState.connected(mask,EnumFacing.UP);
+			boolean nx = UniversalBlockState.connected(mask,EnumFacing.WEST);
+			boolean nz = UniversalBlockState.connected(mask,EnumFacing.NORTH);
+			boolean px = UniversalBlockState.connected(mask,EnumFacing.EAST);
+			boolean pz = UniversalBlockState.connected(mask,EnumFacing.SOUTH);
+			bounds = new AxisAlignedBB(0.0625D, 0D, 0.0625D, 0.1875D, py ? 1D : 0.875D, 0.1875D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.8125D, 0D, 0.0625D, 0.9375D, py ? 1D : 0.875D, 0.1875D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.0625D, 0D, 0.8125D, 0.1875D, py ? 1D : 0.875D, 0.9375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.8125D, 0D, 0.8125D, 0.9375D, py ? 1D : 0.875D, 0.9375D); boxes.add(bounds);
 			
-			if(!nx) renderer.setRenderBounds(0D, 0.125D, 0D, 0.0625D, 0.375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			if(!px) renderer.setRenderBounds(0.9375D, 0.125D, 0D, 1D, 0.375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			if(!nz) renderer.setRenderBounds(0D, 0.5D, 0D, 1D, 0.75D, 0.0625D); renderer.renderStandardBlock(block, x, y, z);
-			if(!pz) renderer.setRenderBounds(0D, 0.5D, 0.9375D, 1D, 0.75D, 1D); renderer.renderStandardBlock(block, x, y, z);
+			if(!nx) bounds = new AxisAlignedBB(0D, 0.125D, 0D, 0.0625D, 0.375D, 1D); boxes.add(bounds);
+			if(!px) bounds = new AxisAlignedBB(0.9375D, 0.125D, 0D, 1D, 0.375D, 1D); boxes.add(bounds);
+			if(!nz) bounds = new AxisAlignedBB(0D, 0.5D, 0D, 1D, 0.75D, 0.0625D); boxes.add(bounds);
+			if(!pz) bounds = new AxisAlignedBB(0D, 0.5D, 0.9375D, 1D, 0.75D, 1D); boxes.add(bounds);
 			
-			if(!py) renderer.setRenderBounds(0D, 0.875D, 0D, 1D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);
+			if(!py) bounds = new AxisAlignedBB(0D, 0.875D, 0D, 1D, 1D, 1D); boxes.add(bounds);
 		}
 		if(type == type.CEILING) {
-			renderer.setRenderBounds(0D, 0.875D, 0D, 0.125D, 0.9375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.875D, 0.875D, 0D, 1D, 0.9375D, 1D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0D, 0.9375D, 0.0625D, 1D, 1D, 0.4375D); renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0D, 0.9375D, 0.5625D, 1D, 1D, 0.9375D); renderer.renderStandardBlock(block, x, y, z);
+			bounds = new AxisAlignedBB(0D, 0.875D, 0D, 0.125D, 0.9375D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0.875D, 0.875D, 0D, 1D, 0.9375D, 1D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.9375D, 0.0625D, 1D, 1D, 0.4375D); boxes.add(bounds);
+			bounds = new AxisAlignedBB(0D, 0.9375D, 0.5625D, 1D, 1D, 0.9375D); boxes.add(bounds);
 		}
 		
-		return true;
-	}
-
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-		if (entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) entity;
-
-			int meta = world.getBlockMetadata(x, y, z);
-			EnumWoodStructure type = EnumUtil.grabEnumSafely(EnumWoodStructure.class,meta);
-			if (type != type.SCAFFOLD) return;
-
-			HbmPlayerProps props = HbmPlayerProps.getData(player);
-			props.isOnLadder = true;
-		}
-	}
+        }
+        return boxes;
+    }
 }

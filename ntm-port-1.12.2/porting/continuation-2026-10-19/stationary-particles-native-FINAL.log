@@ -1,0 +1,8 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeStationaryParticlesTest.java:33: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true);
+                        ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeStationaryParticlesTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+        World world=(World)((sun.misc.Unsafe)f.get(null)).allocateInstance(NoContactWorld.class);
+                                     ^
+2 warnings
+PASS 644 native stationary particle lifecycle/manager/buffer/resource checks; six complete production classes compile. No GL/game acceptance.

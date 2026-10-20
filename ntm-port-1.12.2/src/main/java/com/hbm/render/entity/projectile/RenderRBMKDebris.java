@@ -8,10 +8,15 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderRBMKDebris extends Render {
+
+	public RenderRBMKDebris(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	//for fallback only
 	private static final ResourceLocation tex_base = new ResourceLocation(RefStrings.MODID + ":textures/blocks/rbmk/rbmk_side.png");

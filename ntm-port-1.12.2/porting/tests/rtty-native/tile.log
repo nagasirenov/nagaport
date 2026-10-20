@@ -1,0 +1,17 @@
+PASS pinned original radio sources, unchanged queue body and all original persisted keys/byte-buffer protocols.
+/tmp/radio-tile-native-tgndlrx0/RadioTileNativeTest.java:116: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/tmp/radio-tile-native-tgndlrx0/RadioTileNativeTest.java:116: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/tmp/radio-tile-native-tgndlrx0/RadioTileNativeTest.java:116: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                 ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS all seven production radio tiles, RTTYSystem, actual filter interface, both complete native base classes, BufferUtil and ModulePatternMatcher compile against real Minecraft/Forge APIs.
+PASS native radio tile probe: 491 assertions; all16 initial tags/packet state, render invalidation, volatile publication, all6 input sides and real native weak-power/vanilla redstone dispatch, comparator, receiver timing/remap, ten logic operators, reader/controller/counter updates, NBT and byte buffers, native filter dirty calls, real FML server accessor and world-scoped radio queue.

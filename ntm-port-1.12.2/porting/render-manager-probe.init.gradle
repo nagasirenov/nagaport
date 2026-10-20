@@ -1,0 +1,15 @@
+// Native registry/full RenderEmpty + explicitly constructor-only excerpts. No production source exclusions.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortRenderManager', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-render-manager.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+import java.io.*;import java.util.*;import java.util.jar.*;import org.objectweb.asm.*;
+/** Inspect actual dependency bytes without loading or substituting platform types. */
+public class DispatchAudit {
+ static Map<String,String> supers=new TreeMap<>();static Map<String,List<String>> methods=new TreeMap<>();
+ static boolean under(String n,String root){Set<String>s=new HashSet<>();while(n!=null&&s.add(n)){if(n.equals(root))return true;n=supers.get(n);}return false;}
+ public static void main(String[] a)throws Exception{
+  for(String path:a[0].split(File.pathSeparator)){File f=new File(path);if(!f.isFile()||!path.endsWith(".jar"))continue;try(JarFile jar=new JarFile(f)){Enumeration<JarEntry> es=jar.entries();while(es.hasMoreElements()){JarEntry e=es.nextElement();if(!e.getName().endsWith(".class")||e.getName().startsWith("META-INF/"))continue;try(InputStream in=jar.getInputStream(e)){ClassReader c=new ClassReader(in);String name=c.getClassName();if(supers.containsKey(name))continue;supers.put(name,c.getSuperName());List<String> mm=new ArrayList<>();methods.put(name,mm);c.accept(new ClassVisitor(Opcodes.ASM5){public MethodVisitor visitMethod(int access,String n,String desc,String sig,String[] ex){if((n.equals("setBlockToAir")&&desc.equals("(Lnet/minecraft/util/math/BlockPos;)Z"))||(n.equals("setBlockState")&&desc.equals("(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z"))||(n.equals("f")&&desc.equals("(III)Z"))||(n.equals("d")&&desc.equals("(IIILaji;II)Z")))mm.add(n+desc);return null;}},ClassReader.SKIP_CODE|ClassReader.SKIP_DEBUG|ClassReader.SKIP_FRAMES);}}}}
+  int count=0;for(String n:supers.keySet())if(under(n,a[1])){count++;if(!n.equals(a[1])&&!methods.get(n).isEmpty())throw new AssertionError("Unreviewed World override: "+n+methods.get(n));System.out.println(n+" extends "+supers.get(n)+" declares "+methods.get(n));}System.out.println("Audited "+count+" World hierarchy classes among "+supers.size()+" classes");
+ }
+}

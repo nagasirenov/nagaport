@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:native_thermal/brick/false/false/0/false"
+    },
+    "metadata=1": {
+      "model": "hbm:native_thermal/brick/false/false/1/false"
+    },
+    "metadata=2": {
+      "model": "hbm:native_thermal/brick/false/false/2/false"
+    },
+    "metadata=3": {
+      "model": "hbm:native_thermal/brick/false/false/3/false"
+    },
+    "metadata=4": {
+      "model": "hbm:native_thermal/brick/false/false/4/false"
+    },
+    "metadata=5": {
+      "model": "hbm:native_thermal/brick/false/false/5/false"
+    },
+    "metadata=6": {
+      "model": "hbm:native_thermal/brick/false/false/6/false"
+    },
+    "metadata=7": {
+      "model": "hbm:native_thermal/brick/false/false/7/false"
+    },
+    "metadata=8": {
+      "model": "hbm:native_thermal/brick/false/false/8/false"
+    },
+    "metadata=9": {
+      "model": "hbm:native_thermal/brick/false/false/9/false"
+    },
+    "metadata=10": {
+      "model": "hbm:native_thermal/brick/false/false/10/false"
+    },
+    "metadata=11": {
+      "model": "hbm:native_thermal/brick/false/false/11/false"
+    },
+    "metadata=12": {
+      "model": "hbm:native_thermal/brick/false/false/12/false"
+    },
+    "metadata=13": {
+      "model": "hbm:native_thermal/brick/false/false/13/false"
+    },
+    "metadata=14": {
+      "model": "hbm:native_thermal/brick/false/false/14/false"
+    },
+    "metadata=15": {
+      "model": "hbm:native_thermal/brick/false/false/15/false"
+    }
+  }
+}

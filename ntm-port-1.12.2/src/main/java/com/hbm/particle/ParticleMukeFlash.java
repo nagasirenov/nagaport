@@ -9,15 +9,19 @@ import com.hbm.lib.RefStrings;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleMukeFlash extends EntityFX {
+public class ParticleMukeFlash extends Particle {
 
 	private static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/particle/flare.png");
 	private TextureManager theRenderEngine;
@@ -42,13 +46,13 @@ public class ParticleMukeFlash extends EntityFX {
 
 			// Stem
 			for(double d = 0.0D; d <= 1.8D; d += 0.1) {
-				ParticleMukeCloud cloud = getCloud(theRenderEngine, worldObj, posX, posY, posZ, rand.nextGaussian() * 0.05, d + rand.nextGaussian() * 0.02, rand.nextGaussian() * 0.05);
+				ParticleMukeCloud cloud = getCloud(theRenderEngine, world, posX, posY, posZ, rand.nextGaussian() * 0.05, d + rand.nextGaussian() * 0.02, rand.nextGaussian() * 0.05);
 				Minecraft.getMinecraft().effectRenderer.addEffect(cloud);
 			}
 
 			// Ground
 			for(int i = 0; i < 100; i++) {
-				ParticleMukeCloud cloud = getCloud(theRenderEngine, worldObj, posX, posY + 0.5, posZ, rand.nextGaussian() * 0.5, rand.nextInt(5) == 0 ? 0.02 : 0, rand.nextGaussian() * 0.5);
+				ParticleMukeCloud cloud = getCloud(theRenderEngine, world, posX, posY + 0.5, posZ, rand.nextGaussian() * 0.5, rand.nextInt(5) == 0 ? 0.02 : 0, rand.nextGaussian() * 0.5);
 				Minecraft.getMinecraft().effectRenderer.addEffect(cloud);
 			}
 
@@ -64,7 +68,7 @@ public class ParticleMukeFlash extends EntityFX {
 
 				double y = 1.8 + (rand.nextDouble() * 3 - 1.5) * (0.75 - (x * x + z * z)) * 0.5;
 
-				ParticleMukeCloud cloud = getCloud(theRenderEngine, worldObj, posX, posY, posZ, x, y + rand.nextGaussian() * 0.02, z);
+				ParticleMukeCloud cloud = getCloud(theRenderEngine, world, posX, posY, posZ, x, y + rand.nextGaussian() * 0.02, z);
 				Minecraft.getMinecraft().effectRenderer.addEffect(cloud);
 			}
 		}
@@ -79,29 +83,29 @@ public class ParticleMukeFlash extends EntityFX {
 		}
 	}
 
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
 
 		this.theRenderEngine.bindTexture(texture);
 		boolean fog = GL11.glIsEnabled(GL11.GL_FOG);
-		if(fog) GL11.glDisable(GL11.GL_FOG);
+		if(fog) GlStateManager.disableFog();
 
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glDepthMask(false);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0);
-		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableLighting();
+		GlStateManager.enableBlend();
+		GlStateManager.depthMask(false);
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
+		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 		RenderHelper.disableStandardItemLighting();
 
-		tess.startDrawingQuads();
+		tess.begin(7, ParticleVertexFormats.LIT_TEXTURED);
 
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setBrightness(240);
+
+
 
 		this.particleAlpha = 1 - (((float) this.particleAge + interp) / (float) this.particleMaxAge);
 		float scale = (this.particleAge + interp) * 3F + 1F;
 
-		tess.setColorRGBA_F(1.0F, 0.9F, 0.75F, this.particleAlpha * 0.5F);
+
 
 		float dX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
 		float dY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
@@ -117,16 +121,16 @@ public class ParticleMukeFlash extends EntityFX {
 			float pY = (float) (dY + rand.nextDouble() * 7.5 - 3.75);
 			float pZ = (float) (dZ + rand.nextDouble() * 15 - 7.5);
 
-			tess.addVertexWithUV((double) (pX - x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ - z * scale - tz * scale), 1, 1);
-			tess.addVertexWithUV((double) (pX - x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ - z * scale + tz * scale), 1, 0);
-			tess.addVertexWithUV((double) (pX + x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ + z * scale + tz * scale), 0, 0);
-			tess.addVertexWithUV((double) (pX + x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ + z * scale - tz * scale), 0, 1);
+			tess.pos((double) (pX - x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ - z * scale - tz * scale)).tex(1, 1).color(1.0F, 0.9F, 0.75F, this.particleAlpha * 0.5F).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
+			tess.pos((double) (pX - x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ - z * scale + tz * scale)).tex(1, 0).color(1.0F, 0.9F, 0.75F, this.particleAlpha * 0.5F).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
+			tess.pos((double) (pX + x * scale + tx * scale), (double) (pY + y * scale), (double) (pZ + z * scale + tz * scale)).tex(0, 0).color(1.0F, 0.9F, 0.75F, this.particleAlpha * 0.5F).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
+			tess.pos((double) (pX + x * scale - tx * scale), (double) (pY - y * scale), (double) (pZ + z * scale - tz * scale)).tex(0, 1).color(1.0F, 0.9F, 0.75F, this.particleAlpha * 0.5F).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
 		}
-		tess.draw();
+		Tessellator.getInstance().draw();
 
-		GL11.glPolygonOffset(0.0F, 0.0F);
-		GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
-		GL11.glEnable(GL11.GL_LIGHTING);
-		if(fog) GL11.glEnable(GL11.GL_FOG);
+		GlStateManager.doPolygonOffset(0.0F, 0.0F);
+		GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);
+		GlStateManager.enableLighting();
+		if(fog) GlStateManager.enableFog();
 	}
 }

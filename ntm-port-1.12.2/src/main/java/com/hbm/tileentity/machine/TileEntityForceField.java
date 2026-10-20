@@ -34,7 +34,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityForceField extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IGUIProvider, IConfigurableMachine {
+public class TileEntityForceField extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IGUIProvider, IConfigurableMachine, net.minecraft.util.ITickable {
 
 	private ItemStack slots[];
 
@@ -111,23 +111,24 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null)
 		{
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-		return null;
+		return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit())
 		{
-			itemStack.stackSize = getInventoryStackLimit();
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -153,11 +154,11 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
 		}else{
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <=64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
 
@@ -230,7 +231,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("powerTime", power);
 		nbt.setInteger("health", health);
@@ -257,21 +258,25 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_)
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace)
     {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
         return p_94128_1_ == 0 ? slots_bottom : (p_94128_1_ == 1 ? slots_top : slots_side);
     }
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
@@ -284,9 +289,9 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			updateConnections();
 
@@ -330,7 +335,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 		if(isOn && cooldown == 0 && health > 0 && power >= powerCons) {
 			doField(radius);
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				power -= powerCons;
 			}
 		} else {
@@ -338,13 +343,13 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 			this.inside.clear();
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(power < powerCons)
 				power = 0;
 		}
 
-		if(!worldObj.isRemote) {
-			PacketDispatcher.wrapper.sendToAllAround(new TEFFPacket(xCoord, yCoord, zCoord, radius, health, maxHealth, (int) power, isOn, color, cooldown), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 500));
+		if(!this.world.isRemote) {
+			PacketDispatcher.wrapper.sendToAllAround(new TEFFPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), radius, health, maxHealth, (int) power, isOn, color, cooldown), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 500));
 		}
 	}
 
@@ -378,14 +383,14 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 		outside.clear();
 		inside.clear();
 
-		List<Object> list = worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(xCoord + 0.5 - (rad + 25), yCoord + 0.5 - (rad + 25), zCoord + 0.5 - (rad + 25), xCoord + 0.5 + (rad + 25), yCoord + 0.5 + (rad + 25), zCoord + 0.5 + (rad + 25)));
+		List<Object> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 - (rad + 25), this.pos.getY() + 0.5 - (rad + 25), this.pos.getZ() + 0.5 - (rad + 25), this.pos.getX() + 0.5 + (rad + 25), this.pos.getY() + 0.5 + (rad + 25), this.pos.getZ() + 0.5 + (rad + 25)));
 
 		for(Object o : list) {
 
 			if(o instanceof Entity && !(o instanceof EntityPlayer)) {
 				Entity entity = (Entity)o;
 
-				double dist = Math.sqrt(Math.pow(xCoord + 0.5 - entity.posX, 2) + Math.pow(yCoord + 0.5 - entity.posY, 2) + Math.pow(zCoord + 0.5 - entity.posZ, 2));
+				double dist = Math.sqrt(Math.pow(this.pos.getX() + 0.5 - entity.posX, 2) + Math.pow(this.pos.getY() + 0.5 - entity.posY, 2) + Math.pow(this.pos.getZ() + 0.5 - entity.posZ, 2));
 
 				boolean out = dist > rad;
 
@@ -402,14 +407,14 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 
 					//if the entity has crossed inwards
 					if(oLegacy.contains(entity) && !out) {
-						Vec3d vec = new Vec3d(xCoord + 0.5 - entity.posX, yCoord + 0.5 - entity.posY, zCoord + 0.5 - entity.posZ);
+						Vec3d vec = new Vec3d(this.pos.getX() + 0.5 - entity.posX, this.pos.getY() + 0.5 - entity.posY, this.pos.getZ() + 0.5 - entity.posZ);
 						vec = vec.normalize();
 
 						double mx = -vec.x * (rad + 1);
 						double my = -vec.y * (rad + 1);
 						double mz = -vec.z * (rad + 1);
 
-						entity.setLocationAndAngles(xCoord + 0.5 + mx, yCoord + 0.5 + my, zCoord + 0.5 + mz, 0, 0);
+						entity.setLocationAndAngles(this.pos.getX() + 0.5 + mx, this.pos.getY() + 0.5 + my, this.pos.getZ() + 0.5 + mz, 0, 0);
 
 						double mo = Math.sqrt(Math.pow(entity.motionX, 2) + Math.pow(entity.motionY, 2) + Math.pow(entity.motionZ, 2));
 
@@ -421,10 +426,10 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 						entity.posY -= entity.motionY;
 						entity.posZ -= entity.motionZ;
 
-			    		worldObj.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
+			    		this.world.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
 						outside.add(entity);
 
-						if(!worldObj.isRemote) {
+						if(!this.world.isRemote) {
 							this.damage(this.impact(entity));
 						}
 
@@ -432,14 +437,14 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 
 					//if the entity has crossed outwards
 					if(iLegacy.contains(entity) && out) {
-						Vec3d vec = new Vec3d(xCoord + 0.5 - entity.posX, yCoord + 0.5 - entity.posY, zCoord + 0.5 - entity.posZ);
+						Vec3d vec = new Vec3d(this.pos.getX() + 0.5 - entity.posX, this.pos.getY() + 0.5 - entity.posY, this.pos.getZ() + 0.5 - entity.posZ);
 						vec = vec.normalize();
 
 						double mx = -vec.x * (rad - 1);
 						double my = -vec.y * (rad - 1);
 						double mz = -vec.z * (rad - 1);
 
-						entity.setLocationAndAngles(xCoord + 0.5 + mx, yCoord + 0.5 + my, zCoord + 0.5 + mz, 0, 0);
+						entity.setLocationAndAngles(this.pos.getX() + 0.5 + mx, this.pos.getY() + 0.5 + my, this.pos.getZ() + 0.5 + mz, 0, 0);
 
 						double mo = Math.sqrt(Math.pow(entity.motionX, 2) + Math.pow(entity.motionY, 2) + Math.pow(entity.motionZ, 2));
 
@@ -451,10 +456,10 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 						entity.posY -= entity.motionY;
 						entity.posZ -= entity.motionZ;
 
-			    		worldObj.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
+			    		this.world.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
 						inside.add(entity);
 
-						if(!worldObj.isRemote) {
+						if(!this.world.isRemote) {
 							this.damage(this.impact(entity));
 						}
 
@@ -511,11 +516,11 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	}
 
 	private void updateConnections() {
-		this.trySubscribe(worldObj, xCoord + 1, yCoord, zCoord, Library.POS_X);
-		this.trySubscribe(worldObj, xCoord - 1, yCoord, zCoord, Library.NEG_X);
-		this.trySubscribe(worldObj, xCoord, yCoord, zCoord + 1, Library.POS_Z);
-		this.trySubscribe(worldObj, xCoord, yCoord, zCoord - 1, Library.NEG_Z);
-		this.trySubscribe(worldObj, xCoord, yCoord - 1, zCoord, Library.NEG_Y);
+		this.trySubscribe(this.world, this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X);
+		this.trySubscribe(this.world, this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X);
+		this.trySubscribe(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z);
+		this.trySubscribe(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z);
+		this.trySubscribe(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y);
 	}
 
 	@Override

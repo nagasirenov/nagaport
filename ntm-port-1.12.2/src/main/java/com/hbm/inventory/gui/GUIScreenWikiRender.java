@@ -57,7 +57,7 @@ public class GUIScreenWikiRender extends GuiScreen {
 
 		// Once we've reached the end of the array, immedaitely close this GUI
 		if(index >= preview.length) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			return;
 		}
 
@@ -101,8 +101,8 @@ public class GUIScreenWikiRender extends GuiScreen {
 		itemRender.zLevel = 200.0F;
 
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), preview, -8, -8);
-		itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), preview, -8, -8, null);
+		itemRender.renderItemAndEffectIntoGUI(this.fontRenderer, this.mc.getTextureManager(), preview, -8, -8);
+		itemRender.renderItemOverlayIntoGUI(this.fontRenderer, this.mc.getTextureManager(), preview, -8, -8, null);
 
 		itemRender.zLevel = 0.0F;
 		this.zLevel = 0.0F;

@@ -43,7 +43,7 @@ public class BlockDynamicSlag extends BlockContainer {
 	private HashMap<NTMMaterial, IIcon> iconMap = new HashMap();
 
 	public BlockDynamicSlag() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.useNeighborBrightness = true;
 	}
 
@@ -114,7 +114,7 @@ public class BlockDynamicSlag extends BlockContainer {
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(x, y, z);
+		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(tile != null) {
 			this.setBlockBounds(0F, 0F, 0F, 1F, (float) tile.amount / (float) TileEntitySlag.maxAmount, 1F);
 		}
@@ -129,20 +129,20 @@ public class BlockDynamicSlag extends BlockContainer {
 		
 		/* Error here, delete the block */
 		if(s == null || !(s instanceof TileEntitySlag)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return;
 		}
 		
 		TileEntitySlag self = (TileEntitySlag) s;
 		
 		/* Flow down */
-		if(world.getBlock(x, y - 1, z).isReplaceable(world, x, y - 1, z) && y > 0) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().isReplaceable(world, x, y - 1, z) && y > 0) {
 			world.setBlock(x, y - 1, z, ModBlocks.slag);
 			TileEntitySlag tile = (TileEntitySlag) Compat.getTileStandard(world, x, y - 1, z);
 			tile.mat = self.mat;
 			tile.amount = self.amount;
 			world.markBlockForUpdate(x, y - 1, z);
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return;
 		} else if(b instanceof TileEntitySlag) {
 			
@@ -154,7 +154,7 @@ public class BlockDynamicSlag extends BlockContainer {
 				self.amount -= transfer;
 				
 				if(self.amount <= 0){
-					world.setBlockToAir(x, y, z);
+					com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				} else {
 					world.markBlockForUpdate(x, y, z);
 				}
@@ -172,7 +172,7 @@ public class BlockDynamicSlag extends BlockContainer {
 			int iX = x + dir.offsetX;
 			int iZ = z + dir.offsetZ;
 			
-			if(world.getBlock(iX, y, iZ).isReplaceable(world, iX, y, iZ)) {
+			if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, iX, y, iZ)) {
 				count++;
 			}
 		}
@@ -184,7 +184,7 @@ public class BlockDynamicSlag extends BlockContainer {
 				int iX = x + dir.offsetX;
 				int iZ = z + dir.offsetZ;
 				
-				if(world.getBlock(iX, y, iZ).isReplaceable(world, iX, y, iZ)) {
+				if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, iX, y, iZ)) {
 					world.setBlock(iX, y, iZ, ModBlocks.slag);
 					TileEntitySlag tile = (TileEntitySlag) Compat.getTileStandard(world, iX, y, iZ);
 					world.markBlockForUpdate(iX, y, iZ);
@@ -218,7 +218,7 @@ public class BlockDynamicSlag extends BlockContainer {
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(x, y, z);
+		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile != null && tile.mat != null && tile.amount > 0) {
 			ret.add(ItemScraps.create(new MaterialStack(tile.mat, tile.amount)));
@@ -233,7 +233,7 @@ public class BlockDynamicSlag extends BlockContainer {
 		int y = pos.getY();
 		int z = pos.getZ();
 
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(x, y, z);
+		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile != null) {
 			return ItemScraps.create(new MaterialStack(tile.mat, tile.amount));
@@ -248,10 +248,6 @@ public class BlockDynamicSlag extends BlockContainer {
 		public int amount;
 		public static int maxAmount = MaterialShapes.BLOCK.q(16);
 
-		@Override
-		public boolean canUpdate() {
-			return false;
-		}
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -273,10 +269,11 @@ public class BlockDynamicSlag extends BlockContainer {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			if(this.mat != null) nbt.setInteger("mat", this.mat.id);
 			nbt.setInteger("amount", this.amount);
+			return nbt;
 		}
 	}
 }

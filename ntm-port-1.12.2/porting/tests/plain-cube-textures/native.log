@@ -1,0 +1,36 @@
+/workspace/shared/plain-textures/ntm-port-1.12.2/porting/tests/plain-cube-textures/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/plain-textures/ntm-port-1.12.2/porting/tests/plain-cube-textures/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/plain-textures/ntm-port-1.12.2/porting/tests/plain-cube-textures/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/plain-textures/ntm-port-1.12.2/porting/tests/plain-cube-textures/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/workspace/shared/plain-textures/ntm-port-1.12.2/porting/tests/plain-cube-textures/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/workspace/shared/plain-textures/ntm-port-1.12.2/porting/tests/plain-cube-textures/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+6 warnings
+[02:07:05] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:07:05] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:07:05] [main/INFO]: Replaced 1036 ore ingredients
+[02:07:05] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:07:05] [main/INFO]: Processing ObjectHolder annotations
+[02:07:05] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[02:07:06] [main/INFO]: Setting user: AtlasProbe
+[02:07:06] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+PASS actual original Block setter return/string identity, 96 side/meta icons,16 item colors, white world color and normal opaque cube methods.
+[02:07:06] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[02:07:06] [main/INFO]: Max texture size: 16384
+[02:07:06] [main/INFO]: Created: 128x64 textures-atlas
+[02:07:06] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[02:07:06] [main/INFO]: Max texture size: 16384
+[02:07:07] [main/INFO]: Created: 128x64 textures-atlas
+PASS 67301 native cube checks; production loader/helper, 27 exact constructor chains, actual native model/atlas/reload and original RenderBlocks bytecode. Gameplay owner bodies are deliberately not compiled in this bounded constructor fixture.

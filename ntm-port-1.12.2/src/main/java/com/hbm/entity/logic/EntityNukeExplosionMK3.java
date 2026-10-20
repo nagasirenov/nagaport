@@ -64,20 +64,20 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 		}
 
 		if(this.waste) {
-			exp = new ExplosionNukeAdvanced((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, this.destructionRange, this.coefficient, 0);
+			exp = new ExplosionNukeAdvanced((int) this.posX, (int) this.posY, (int) this.posZ, this.world, this.destructionRange, this.coefficient, 0);
 			exp.readFromNbt(nbt, "exp_");
-			wst = new ExplosionNukeAdvanced((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, (int) (this.destructionRange * 1.8), this.coefficient, 2);
+			wst = new ExplosionNukeAdvanced((int) this.posX, (int) this.posY, (int) this.posZ, this.world, (int) (this.destructionRange * 1.8), this.coefficient, 2);
 			wst.readFromNbt(nbt, "wst_");
-			vap = new ExplosionNukeAdvanced((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, (int) (this.destructionRange * 2.5), this.coefficient, 1);
+			vap = new ExplosionNukeAdvanced((int) this.posX, (int) this.posY, (int) this.posZ, this.world, (int) (this.destructionRange * 2.5), this.coefficient, 1);
 			vap.readFromNbt(nbt, "vap_");
 		} else {
 
 			if(extType == 0) {
-				expl = new ExplosionFleija((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, this.destructionRange, this.coefficient, this.coefficient2);
+				expl = new ExplosionFleija((int) this.posX, (int) this.posY, (int) this.posZ, this.world, this.destructionRange, this.coefficient, this.coefficient2);
 				expl.readFromNbt(nbt, "expl_");
 			}
 			if(extType == 1) {
-				sol = new ExplosionSolinium((int) this.posX, (int) this.posY, (int) this.posZ, this.worldObj, this.destructionRange, this.coefficient, this.coefficient2);
+				sol = new ExplosionSolinium((int) this.posX, (int) this.posY, (int) this.posZ, this.world, this.destructionRange, this.coefficient, this.coefficient2);
 				sol.readFromNbt(nbt, "sol_");
 			}
 		}
@@ -121,26 +121,26 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 	public void onUpdate() {
         super.onUpdate();
 
-		if(!worldObj.isRemote) loadChunk((int) Math.floor(posX / 16D), (int) Math.floor(posZ / 16D));
+		if(!this.world.isRemote) loadChunk((int) Math.floor(posX / 16D), (int) Math.floor(posZ / 16D));
 
         if(!this.did)
         {
-        	for(Object player : this.worldObj.playerEntities)
-    			((EntityPlayer)player).triggerAchievement(MainRegistry.achManhattan);
+        	for(Object player : this.world.playerEntities)
+    			com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)player), MainRegistry.achManhattan);
 
-    		if(GeneralConfig.enableExtendedLogging && !worldObj.isRemote)
+    		if(GeneralConfig.enableExtendedLogging && !this.world.isRemote)
     			MainRegistry.logger.log(Level.INFO, "[NUKE] Initialized mk3 explosion at " + posX + " / " + posY + " / " + posZ + " with strength " + destructionRange + "!");
 
         	if(this.waste)
         	{
-            	exp = new ExplosionNukeAdvanced((int)this.posX, (int)this.posY, (int)this.posZ, this.worldObj, this.destructionRange, this.coefficient, 0);
-        		wst = new ExplosionNukeAdvanced((int)this.posX, (int)this.posY, (int)this.posZ, this.worldObj, (int)(this.destructionRange * 1.8), this.coefficient, 2);
-        		vap = new ExplosionNukeAdvanced((int)this.posX, (int)this.posY, (int)this.posZ, this.worldObj, (int)(this.destructionRange * 2.5), this.coefficient, 1);
+            	exp = new ExplosionNukeAdvanced((int)this.posX, (int)this.posY, (int)this.posZ, this.world, this.destructionRange, this.coefficient, 0);
+        		wst = new ExplosionNukeAdvanced((int)this.posX, (int)this.posY, (int)this.posZ, this.world, (int)(this.destructionRange * 1.8), this.coefficient, 2);
+        		vap = new ExplosionNukeAdvanced((int)this.posX, (int)this.posY, (int)this.posZ, this.world, (int)(this.destructionRange * 2.5), this.coefficient, 1);
         	} else {
         		if(extType == 0)
-        			expl = new ExplosionFleija((int)this.posX, (int)this.posY, (int)this.posZ, this.worldObj, this.destructionRange, this.coefficient, this.coefficient2);
+        			expl = new ExplosionFleija((int)this.posX, (int)this.posY, (int)this.posZ, this.world, this.destructionRange, this.coefficient, this.coefficient2);
         		if(extType == 1)
-        			sol = new ExplosionSolinium((int)this.posX, (int)this.posY, (int)this.posZ, this.worldObj, this.destructionRange, this.coefficient, this.coefficient2);
+        			sol = new ExplosionSolinium((int)this.posX, (int)this.posY, (int)this.posZ, this.world, this.destructionRange, this.coefficient, this.coefficient2);
         	}
 
         	this.did = true;
@@ -179,23 +179,23 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 
         if(!flag)
         {
-        	this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
+        	com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);
 
         	if(waste || extType != 1) {
-        		ExplosionNukeGeneric.dealDamage(this.worldObj, this.posX, this.posY, this.posZ, this.destructionRange * 2);
+        		ExplosionNukeGeneric.dealDamage(this.world, this.posX, this.posY, this.posZ, this.destructionRange * 2);
         	} else {
-        		ExplosionHurtUtil.doRadiation(worldObj, posX, posY, posZ, 15000, 250000, this.destructionRange);
+        		ExplosionHurtUtil.doRadiation(this.world, posX, posY, posZ, 15000, 250000, this.destructionRange);
         	}
 
         } else {
 			if (!did2 && waste) {
-				EntityFalloutRain fallout = new EntityFalloutRain(this.worldObj, (int)(this.destructionRange * 1.8) * 10);
+				EntityFalloutRain fallout = new EntityFalloutRain(this.world, (int)(this.destructionRange * 1.8) * 10);
 				fallout.posX = this.posX;
 				fallout.posY = this.posY;
 				fallout.posZ = this.posZ;
 				fallout.setScale((int)(this.destructionRange * 1.8));
 
-				this.worldObj.spawnEntityInWorld(fallout);
+				this.world.spawnEntityInWorld(fallout);
 				//this.worldObj.getWorldInfo().setRaining(true);
 
 				did2 = true;
@@ -229,7 +229,7 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 			}
 
 			ATEntry entry = next.getKey();
-			if(entry.dim != world.provider.dimensionId)  continue;
+			if(entry.dim != world.provider.getDimension())  continue;
 
 			Vec3d vec = new Vec3d(x - entry.x, y - entry.y, z - entry.z);
 
@@ -244,7 +244,7 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 						double iy = i == 0 ? y : (entry.y + 0.5);
 						double iz = i == 0 ? z : (entry.z + 0.5);
 
-						world.playSoundEffect(ix, iy, iz, "hbm:entity.ufoBlast", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F);
+						com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:entity.ufoBlast", 15.0F, 0.7F + world.rand.nextFloat() * 0.2F);
 
 						NBTTagCompound data = new NBTTagCompound();
 						data.setString("type", "plasmablast");

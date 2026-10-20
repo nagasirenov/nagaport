@@ -1,0 +1,31 @@
+PASS all 27 production paths match staged tree and independent snapshot; 27 edited Java sources match generated compiler inputs among 4030.
+Production tree 7c1d8a8970fea38e3b9f1fdb1672a2dc40c1739b
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "546ab338c10986179c92fd22dab0e2a51399412ece3771424f32b9e95593c9dd",
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java": "5a57416c4afa80018d65bdd2de4cd77aa8db949020b04727e58e10bfeff0ee2e",
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControl.java": "febd8b20f2f7b8bc6ead3c8f0d03f876942360931fe229a4c90ad970546000a1",
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKControlAuto.java": "90d580ab43ece28ae758d78123be33a4650c8752222d725856445620c899c8fc",
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKPipedBase.java": "fe87a244e798bbabb33c69704ce4b95a62644dedd964115b9458a7e47568df3c",
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRenderState.java": "767a538141e14b8333532ad3b90b7d5af9641f6992cee4fe9f10a634d35369e8",
+  "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java": "7ef98f190a98343d82ed97c333accafaa0a4ba5fd7da82de1b09145bd9ae3b96",
+  "src/main/java/com/hbm/entity/mob/EntityCyberCrab.java": "27fe28dcb647abc4bce555e2a8bb71c3212c3789ce2e293cf1a7601f5ec324a6",
+  "src/main/java/com/hbm/entity/mob/EntityFBI.java": "28e1c01aeb3f61933e7b1c5f06ea8432ddaebc6f430b77d640a770e3d1e96181",
+  "src/main/java/com/hbm/entity/mob/EntityTaintCrab.java": "fa25fa296e8a0665594526e60fd1ee7b9eb1bb7c33e007ac72416a57d9528c8e",
+  "src/main/java/com/hbm/entity/mob/ai/EntityAIFBIMelee.java": "e6630abcfc41ca359b527c6561be53dce5cbcdd99a60f9115a059dd3435c88f1",
+  "src/main/java/com/hbm/entity/mob/ai/EntityAIRangedAttackNT.java": "5c1ab5c2b3d78234d7c524daf59e5ea440ef507d15e7570f84309e9194068170",
+  "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": "6ca022ab883eb8d4dd549c192e40a647d9c50b6ce16741a0990891066af36629",
+  "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": "aa22ae486fe9e8131da418f44c5afd3e6a36f061933b658145898f8f5a9c56a3",
+  "src/main/java/com/hbm/items/special/ItemChopper.java": "ad21910d6461c77f285f0719938b560b1904f9c3ff5715ad37f6c815cc3a8dca",
+  "src/main/java/com/hbm/main/ClientProxy.java": "61c3b24b8a2dca63d7765c46b852d1cf03aa37ae5a35c3eaa5a4af36f2891ea9",
+  "src/main/java/com/hbm/main/RBMKModelHandler.java": "15903823b776d79c5e1d4f43fc7b007c65419bceeaab959582df9d8cf6ddd796",
+  "src/main/java/com/hbm/render/block/RenderRBMKControl.java": "9f3569968e8fae2d8b935a22934c28140050dcd77af40a87bd60b3fe28a5513c",
+  "src/main/java/com/hbm/render/block/RenderRBMKReflector.java": "92d091bdca4a78810e43c3761553e268b88663358523cb3252a8e4a7db3e8334",
+  "src/main/java/com/hbm/render/block/RenderRBMKRod.java": "1d5f1864b025553b7b7b6627d6b3b27d5d7b028958ff59ad98ad95116383db46",
+  "src/main/java/com/hbm/render/block/nativeblock/RBMKBakedModel.java": "05a459175686518dba2094bdb1b328f8fda3e94d22e66a701d5bea2d4f077ce5",
+  "src/main/java/com/hbm/render/block/nativeblock/RBMKContextQuad.java": "220976aa8a973a9c21a1b9cead99a6d8a3fa73cbeab3cd2ec389e60db8245f24",
+  "src/main/java/com/hbm/render/block/nativeblock/RBMKGeometry.java": "4602bb1404a5f5034de1b53d00b0d65d8629eabce47d6f423f4a0a094f5c04b2",
+  "src/main/java/com/hbm/render/block/nativeblock/RBMKMaterials.java": "2271624ebbb8189360981694633502b600e820c2fa5a74f65b92bc35111626a8",
+  "src/main/java/com/hbm/render/entity/projectile/RenderBullet.java": "72a82e65cafbc375664d4f7b28d9233ed15538ee2d2b620635870810f87f59ce",
+  "src/main/java/com/hbm/render/util/BeamPronter.java": "07accbe0062fde793b3582886c017809740816559e43f3bdc3737c38b5f36536",
+  "src/main/java/com/hbm/render/util/RenderSparks.java": "d4dc77dec44243791e4d9109f6b8e12c9488e2c99a6678f860380f962029a420"
+}

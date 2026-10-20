@@ -1,0 +1,14 @@
+// Portable isolated extracted-method probe. No sourceSets/compileJava changes.
+allprojects {
+    afterEvaluate {
+        tasks.create('checkPortMachineConsumerSource', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-machine-consumer-source.py')
+        }
+        tasks.create('testPortMachineConsumers', Exec) {
+            dependsOn 'checkPortMachineConsumerSource'
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/machine-consumer-native-test.py'),
+                '--java-home', project.findProperty('portJavaHome') ?: System.getProperty('java.home'),
+                '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+        }
+    }
+}

@@ -1,0 +1,23 @@
+/workspace/shared/world-sound-widening-replay.qcPMl4/generated/NativeNumericFixture.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-widening-replay.qcPMl4/generated/NativeNumericFixture.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-widening-replay.qcPMl4/generated/NativeNumericFixture.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/world-sound-widening-replay.qcPMl4/generated/NativeNumericFixture.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final Unsafe U;
+              ^
+/workspace/shared/world-sound-widening-replay.qcPMl4/generated/NativeNumericFixture.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                      ^
+/workspace/shared/world-sound-widening-replay.qcPMl4/generated/NativeNumericFixture.java:7: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                                                                                          ^
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/sound/SoundCategoryResolver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/world-sound-widening-runtime/NumericWideningProbe.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings

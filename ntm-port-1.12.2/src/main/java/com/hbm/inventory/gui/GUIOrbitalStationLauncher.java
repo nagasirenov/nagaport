@@ -62,7 +62,7 @@ public class GUIOrbitalStationLauncher extends GuiInfoContainerLayered {
 		lastTime = System.nanoTime();
 
 		if(machine.hasDocked) {
-			fontRendererObj.drawString("Ready for launch!", (guiLeft + 74), (guiTop + 11), 0x00FF00);
+			fontRenderer.drawString("Ready for launch!", (guiLeft + 74), (guiTop + 11), 0x00FF00);
 			return;
 		}
 
@@ -101,17 +101,17 @@ public class GUIOrbitalStationLauncher extends GuiInfoContainerLayered {
 			ItemStack fromStack = machine.slots[machine.slots.length - (RocketStruct.MAX_STAGES - currentLayer) * 2];
 			ItemStack toStack = machine.slots[machine.slots.length - (RocketStruct.MAX_STAGES - currentLayer) * 2 + 1];
 
-			Target from = ItemVOTVdrive.getTarget(fromStack, machine.getWorldObj());
-			Target to = ItemVOTVdrive.getTarget(toStack, machine.getWorldObj());
+			Target from = ItemVOTVdrive.getTarget(fromStack, machine.getWorld());
+			Target to = ItemVOTVdrive.getTarget(toStack, machine.getWorld());
 
 			List<String> issues = machine.rocket.findIssues(stage, from.body, to.body, from.inOrbit, to.inOrbit);
 			for(int i = 0; i < issues.size(); i++) {
 				String issue = issues.get(i);
-				fontRendererObj.drawStringWithShadow(issue, (guiLeft + 65) * 2, (guiTop + 5) * 2 + i * 8, 0xFFFFFF);
+				fontRenderer.drawStringWithShadow(issue, (guiLeft + 65) * 2, (guiTop + 5) * 2 + i * 8, 0xFFFFFF);
 			}
 
-			if(from.body != null) fontRendererObj.drawString(I18nUtil.resolveKey("body." + from.body.name), (guiLeft + 162) * 2, (guiTop + 75) * 2, 0x00FF00);
-			if(to.body != null) fontRendererObj.drawString(I18nUtil.resolveKey("body." + to.body.name), (guiLeft + 162) * 2, (guiTop + 108) * 2, 0x00FF00);
+			if(from.body != null) fontRenderer.drawString(I18nUtil.resolveKey("body." + from.body.name), (guiLeft + 162) * 2, (guiTop + 75) * 2, 0x00FF00);
+			if(to.body != null) fontRenderer.drawString(I18nUtil.resolveKey("body." + to.body.name), (guiLeft + 162) * 2, (guiTop + 108) * 2, 0x00FF00);
 
 		}
 		GL11.glPopMatrix();
@@ -125,7 +125,7 @@ public class GUIOrbitalStationLauncher extends GuiInfoContainerLayered {
 			List<String> issues = machine.findIssues();
 			for(int i = 0; i < issues.size(); i++) {
 				String issue = issues.get(i);
-				fontRendererObj.drawString(issue, (guiLeft + 65) * 2, (guiTop + 111) * 2 + i * 8 - issues.size() * 8, 0xFFFFFF);
+				fontRenderer.drawString(issue, (guiLeft + 65) * 2, (guiTop + 111) * 2 + i * 8 - issues.size() * 8, 0xFFFFFF);
 			}
 
 		}
@@ -152,7 +152,7 @@ public class GUIOrbitalStationLauncher extends GuiInfoContainerLayered {
 
 		// Stage up
 		if(checkClick(x, y, 17, 34, 18, 8)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			if(getLayer() > 0) {
 				setLayer(getLayer() - 1);
@@ -161,7 +161,7 @@ public class GUIOrbitalStationLauncher extends GuiInfoContainerLayered {
 
 		// Stage down
 		if(checkClick(x, y, 17, 98, 18, 8)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			if(getLayer() < Math.min(machine.rocket.stages.size(), RocketStruct.MAX_STAGES - 1)) {
 				setLayer(getLayer() + 1);
@@ -170,10 +170,10 @@ public class GUIOrbitalStationLauncher extends GuiInfoContainerLayered {
 
 		// COMMIT TO LAUNCH
 		if(machine.rocket.validate() && checkClick(x, y, 41, 12, 18, 17)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("launch", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.xCoord, machine.yCoord, machine.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, machine.getPos().getX(), machine.getPos().getY(), machine.getPos().getZ()));
 		}
 	}
 

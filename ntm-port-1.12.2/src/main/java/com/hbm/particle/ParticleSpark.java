@@ -5,11 +5,15 @@ import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ParticleSpark extends EntityFX {
+public class ParticleSpark extends Particle {
 
 	List<double[]> steps = new ArrayList();
 	int thresh;
@@ -33,7 +37,7 @@ public class ParticleSpark extends EntityFX {
 		this.prevPosZ = this.posZ;
 
 		if(this.particleAge++ >= this.particleMaxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 
 		steps.add(new double[] { motionX, motionY, motionZ });
@@ -43,7 +47,7 @@ public class ParticleSpark extends EntityFX {
 
 		this.motionY -= 0.04D * (double) this.particleGravity;
 		double lastY = this.motionY;
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 
 		if(this.onGround) {
 			this.onGround = false;
@@ -51,24 +55,24 @@ public class ParticleSpark extends EntityFX {
 		}
 	}
 
-	public void renderParticle(Tessellator tess, float interp, float x, float y, float z, float tx, float tz) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
 
 		if(steps.size() < 2)
 			return;
 
 		GL11.glPushMatrix();
 
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		GlStateManager.disableTexture2D();
+		GlStateManager.disableLighting();
 		GL11.glLineWidth(3F);
 
 		float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
 		float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
 		float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
 		
-		tess.startDrawing(3);
-		tess.setBrightness(240);
-		tess.setColorOpaque_I(0xffffff);
+		tess.begin(3, ParticleVertexFormats.LIT_TEXTURED);
+
+
 
 		double[] prev = new double[] { pX, pY, pZ };
 
@@ -76,14 +80,14 @@ public class ParticleSpark extends EntityFX {
 
 			double[] curr = new double[] { prev[0] + steps.get(i)[0], prev[1] + steps.get(i)[1], prev[2] + steps.get(i)[2] };
 
-			tess.addVertex(prev[0], prev[1], prev[2]);
+			tess.pos(prev[0], prev[1], prev[2]).tex(0, 0).color(1F, 1F, 1F, 1F).lightmap((240) >> 16 & 65535, (240) & 65535).normal(0, 1, 0).endVertex();
 
 			prev = curr;
 		}
-		tess.draw();
+		Tessellator.getInstance().draw();
 
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GlStateManager.enableLighting();
+		GlStateManager.enableTexture2D();
 		GL11.glPopMatrix();
 	}
 }

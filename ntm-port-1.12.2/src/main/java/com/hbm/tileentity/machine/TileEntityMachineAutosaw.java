@@ -42,7 +42,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardReceiver, IFluidCopiable {
+public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardReceiver, IFluidCopiable, net.minecraft.util.ITickable {
 
 	private static final int MIN_DIST = 2;
 	private static final int MAX_DIST = 9;
@@ -94,11 +94,11 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(!isSuspended && worldObj.getTotalWorldTime() % 20 == 0) {
+			if(!isSuspended && this.world.getTotalWorldTime() % 20 == 0) {
 				if(tank.getFill() > 0) {
 					tank.setFill(tank.getFill() - 1);
 					this.isOn = true;
@@ -110,7 +110,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 			}
 
 			if(isOn && !isSuspended) {
-				Vec3d pivot = new Vec3d(xCoord + 0.5, yCoord + 1.75, zCoord + 0.5);
+				Vec3d pivot = new Vec3d(this.pos.getX() + 0.5, this.pos.getY() + 1.75, this.pos.getZ() + 0.5);
 				com.hbm.util.Vec3NT upperArm = new com.hbm.util.Vec3NT(0, 0, -4);
 				upperArm.rotateAroundXRad((float) Math.toRadians(80 - rotationPitch));
 				upperArm.rotateAroundYRad(-(float) Math.toRadians(rotationYaw));
@@ -124,18 +124,18 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 				double cY = pivot.y;
 				double cZ = pivot.z + upperArm.z + lowerArm.z + armTip.z;
 
-				List<EntityLivingBase> affected = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(cX - 1, cY - 0.25, cZ - 1, cX + 1, cY + 0.25, cZ + 1));
+				List<EntityLivingBase> affected = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(cX - 1, cY - 0.25, cZ - 1, cX + 1, cY + 0.25, cZ + 1));
 
 				for(EntityLivingBase e : affected) {
 					if(e.isEntityAlive() && e.attackEntityFrom(ModDamageSource.turbofan, 100)) {
-						worldObj.playSoundEffect(e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + worldObj.rand.nextFloat() * 0.2F);
+						com.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
 						int count = Math.min((int)Math.ceil(e.getMaxHealth() / 4), 250);
 						NBTTagCompound data = new NBTTagCompound();
 						data.setString("type", "vanillaburst");
 						data.setInteger("count", count * 4);
 						data.setDouble("motion", 0.1D);
 						data.setString("mode", "blockdust");
-						data.setInteger("block", Block.getIdFromBlock(Blocks.redstone_block));
+						data.setInteger("block", Block.getIdFromBlock(Blocks.REDSTONE_BLOCK));
 						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, e.posX, e.posY + e.height * 0.5, e.posZ), new TargetPoint(e.dimension, e.posX, e.posY, e.posZ, 50));
 					}
 				}
@@ -168,16 +168,16 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 
 								if(relAngle > CUT_ANGLE) continue;
 
-								int x = xCoord + dx;
-								int y = yCoord + 1;
-								int z = zCoord + dz;
+								int x = this.pos.getX() + dx;
+								int y = this.pos.getY() + 1;
+								int z = this.pos.getZ() + dz;
 
-								Block b = worldObj.getBlock(x, y, z);
-								if(!(b.getMaterial() == Material.wood || b.getMaterial() == Material.leaves || b.getMaterial() == Material.plants))
+								Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+								if(!(b.getDefaultState().getMaterial() == Material.wood || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS))
 									continue;
 
-								int meta = worldObj.getBlockMetadata(x, y, z);
-								if(shouldIgnore(worldObj, x, y, z, b, meta)) continue;
+								int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) );
+								if(shouldIgnore(this.world, x, y, z, b, meta)) continue;
 								
 								state = 1;
 								break outer;
@@ -227,7 +227,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 				Vec3d vec = new Vec3d(0.625, 0, 1.625);
 				vec = vec.rotateYaw(-(float) Math.toRadians(rotationYaw));
 
-				worldObj.spawnParticle("smoke", xCoord + 0.5 + vec.x, yCoord + 2.0625, zCoord + 0.5 + vec.z, 0, 0, 0);
+				this.world.spawnParticle("smoke", this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);
 			}
 
 			if(this.spin >= 360F) {
@@ -239,8 +239,8 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 			this.prevRotationPitch = this.rotationPitch;
 
 			if(this.turnProgress > 0) {
-				double d0 = MathHelper.wrapAngleTo180_double(this.syncYaw - (double) this.rotationYaw);
-				double d1 = MathHelper.wrapAngleTo180_double(this.syncPitch - (double) this.rotationPitch);
+				double d0 = MathHelper.wrapDegrees(this.syncYaw - (double) this.rotationYaw);
+				double d1 = MathHelper.wrapDegrees(this.syncPitch - (double) this.rotationPitch);
 				this.rotationYaw = (float) ((double) this.rotationYaw + d0 / (double) this.turnProgress);
 				this.rotationPitch = (float) ((double) this.rotationPitch + d1 / (double) this.turnProgress);
 				--this.turnProgress;
@@ -266,13 +266,13 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 
 	protected void tryInteract(int x, int y, int z) {
 
-		Block b = worldObj.getBlock(x, y, z);
-		int meta = worldObj.getBlockMetadata(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) );
 
-		if(!shouldIgnore(worldObj, x, y, z, b, meta)) {
-			if(b.getMaterial() == Material.leaves || b.getMaterial() == Material.plants) {
+		if(!shouldIgnore(this.world, x, y, z, b, meta)) {
+			if(b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS) {
 				cutCrop(x, y, z);
-			} else if(b.getMaterial() == Material.wood) {
+			} else if(b.getDefaultState().getMaterial() == Material.wood) {
 				fellTree(x, y, z);
 				if(state == 1) {
 					state = 2;
@@ -281,7 +281,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 		}
 
 		// Return when hitting a wall
-		if(state == 1 && worldObj.getBlock(x, y, z).isNormalCube(worldObj, x, y, z)) {
+		if(state == 1 && com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isNormalCube(this.world, x, y, z)) {
 			state = 2;
 			forceSkip = 5;
 		}
@@ -289,52 +289,52 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 
 	protected void cutCrop(int x, int y, int z) {
 
-		Block soil = worldObj.getBlock(x, y - 1, z);
+		Block soil = com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock();
 
-		Block b = worldObj.getBlock(x, y, z);
-		int meta = worldObj.getBlockMetadata(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) );
 
-		worldObj.playAuxSFX(2001, x, y, z, Block.getIdFromBlock(b) + (meta << 12));
+		this.world.playAuxSFX(2001, x, y, z, Block.getIdFromBlock(b) + (meta << 12));
 
-		Block replacementBlock = Blocks.air;
+		Block replacementBlock = Blocks.AIR;
 		int replacementMeta = 0;
 
-		if (!worldObj.isRemote && !worldObj.restoringBlockSnapshots) {
-			ArrayList<ItemStack> drops = b.getDrops(worldObj, x, y, z, meta, 0);
+		if (!this.world.isRemote && !this.world.restoringBlockSnapshots) {
+			ArrayList<ItemStack> drops = b.getDrops(this.world, x, y, z, meta, 0);
 			boolean replanted = false;
 
 			for (ItemStack drop : drops) {
 				if (!replanted && drop.getItem() instanceof IPlantable) {
 					IPlantable seed = (IPlantable) drop.getItem();
 
-					if(soil.canSustainPlant(soil.getDefaultState(), worldObj, new net.minecraft.util.math.BlockPos(x, y - 1, z), EnumFacing.UP, seed)) {
-						replacementBlock = seed.getPlant(worldObj, x, y, z);
-						replacementMeta = seed.getPlantMetadata(worldObj, x, y, z);
+					if(soil.canSustainPlant(soil.getDefaultState(), this.world, new net.minecraft.util.math.BlockPos(x, y - 1, z), EnumFacing.UP, seed)) {
+						replacementBlock = seed.getPlant(this.world, x, y, z);
+						replacementMeta = seed.getPlantMetadata(this.world, x, y, z);
 						replanted = true;
 						drop.stackSize -= 1;
 					}
 				}
 
 				float delta = 0.7F;
-				double dx = (double)(worldObj.rand.nextFloat() * delta) + (double)(1.0F - delta) * 0.5D;
-				double dy = (double)(worldObj.rand.nextFloat() * delta) + (double)(1.0F - delta) * 0.5D;
-				double dz = (double)(worldObj.rand.nextFloat() * delta) + (double)(1.0F - delta) * 0.5D;
+				double dx = (double)(this.world.rand.nextFloat() * delta) + (double)(1.0F - delta) * 0.5D;
+				double dy = (double)(this.world.rand.nextFloat() * delta) + (double)(1.0F - delta) * 0.5D;
+				double dz = (double)(this.world.rand.nextFloat() * delta) + (double)(1.0F - delta) * 0.5D;
 
-				EntityItem entityItem = new EntityItem(worldObj, x + dx, y + dy, z + dz, drop);
+				EntityItem entityItem = new EntityItem(this.world, x + dx, y + dy, z + dz, drop);
 				entityItem.delayBeforeCanPickup = 10;
-				worldObj.spawnEntityInWorld(entityItem);
+				this.world.spawnEntityInWorld(entityItem);
 			}
 
 			// Apparently, until 1.14 full-grown wheat could sometimes drop no seeds at all
 			// This is a quick and dirty workaround for that.
-			if (b == Blocks.wheat && !replanted) {
+			if (b == Blocks.WHEAT && !replanted) {
 				replacementBlock = b;
 				replacementMeta = 0;
 				replanted = true;
 			}
 		}
 
-		worldObj.setBlock(x, y, z, replacementBlock, replacementMeta, 3);
+		this.world.setBlock(x, y, z, replacementBlock, replacementMeta, 3);
 	}
 
 	protected void fellTree(int hitX, int hitY, int hitZ) {
@@ -351,19 +351,19 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 					continue;
 				}
 
-				int colX = xCoord + dx;
-				int colZ = zCoord + dz;
+				int colX = this.pos.getX() + dx;
+				int colZ = this.pos.getZ() + dz;
 
-				if(worldObj.getBlock(colX, sawY, colZ).getMaterial() != Material.wood) {
+				if(com.hbm.world.WorldBlockState.read(this.world, colX, sawY, colZ).getBlock().getDefaultState().getMaterial() != Material.wood) {
 					continue;
 				}
 
 				int baseY = sawY;
-				while(sawY - baseY < FELL_MAX_BASE_DEPTH && worldObj.getBlock(colX, baseY - 1, colZ).getMaterial() == Material.wood) {
+				while(sawY - baseY < FELL_MAX_BASE_DEPTH && com.hbm.world.WorldBlockState.read(this.world, colX, baseY - 1, colZ).getBlock().getDefaultState().getMaterial() == Material.wood) {
 					baseY--;
 				}
 
-				if(!canSupportSapling(worldObj, colX, baseY - 1, colZ)) {
+				if(!canSupportSapling(this.world, colX, baseY - 1, colZ)) {
 					continue;
 				}
 
@@ -374,7 +374,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 		// Always include the hit position's trunk
 		if(!trunks.containsKey(hitCol)) {
 			int baseY = hitY;
-			while(sawY - baseY < FELL_MAX_BASE_DEPTH && worldObj.getBlock(hitX, baseY - 1, hitZ).getMaterial() == Material.wood) {
+			while(sawY - baseY < FELL_MAX_BASE_DEPTH && com.hbm.world.WorldBlockState.read(this.world, hitX, baseY - 1, hitZ).getBlock().getDefaultState().getMaterial() == Material.wood) {
 				baseY--;
 			}
 			trunks.put(hitCol, new BlockPos(hitX, baseY, hitZ));
@@ -416,8 +416,8 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 				int neighborZ = current.getZ() + dir[2];
 
 				// Bounds check: radius FELL_BFS_RADIUS horizontal, minY to maxY vertical
-				int neighborDx = neighborX - xCoord;
-				int neighborDz = neighborZ - zCoord;
+				int neighborDx = neighborX - this.pos.getX();
+				int neighborDz = neighborZ - this.pos.getZ();
 				if(neighborDx * neighborDx + neighborDz * neighborDz > FELL_BFS_RADIUS * FELL_BFS_RADIUS) {
 					continue;
 				}
@@ -430,9 +430,9 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 					continue;
 				}
 
-				Block b = worldObj.getBlock(neighborX, neighborY, neighborZ);
-				Material mat = b.getMaterial();
-				if(mat != Material.wood && mat != Material.leaves && !(b instanceof BlockLeaves)) {
+				Block b = com.hbm.world.WorldBlockState.read(this.world, neighborX, neighborY, neighborZ).getBlock();
+				Material mat = b.getDefaultState().getMaterial();
+				if(mat != Material.wood && mat != Material.LEAVES && !(b instanceof BlockLeaves)) {
 					continue;
 				}
 
@@ -467,35 +467,35 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 			int by = pos.getY();
 			int bz = pos.getZ();
 
-			Block b = worldObj.getBlock(bx, by, bz);
+			Block b = com.hbm.world.WorldBlockState.read(this.world, bx, by, bz).getBlock();
 
 			// Replant sapling at positions within working area
-			if(b.getMaterial() == Material.wood && isWithinWorkingArea(bx, bz) && canSupportSapling(worldObj, bx, by - 1, bz)) {
-				int bmeta = worldObj.getBlockMetadata(bx, by, bz);
+			if(b.getDefaultState().getMaterial() == Material.wood && isWithinWorkingArea(bx, bz) && canSupportSapling(this.world, bx, by - 1, bz)) {
+				int bmeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, bx, by, bz) );
 				int sapMeta = 0;
-				if(b == Blocks.log) {
+				if(b == Blocks.LOG) {
 					sapMeta = bmeta & 3;
-				} else if(b == Blocks.log2) {
+				} else if(b == Blocks.LOG2) {
 					sapMeta = (bmeta & 3) + 4;
 				}
-				worldObj.func_147480_a(bx, by, bz, true);
-				worldObj.setBlock(bx, by, bz, Blocks.sapling, sapMeta, 3);
+				this.world.func_147480_a(bx, by, bz, true);
+				this.world.setBlock(bx, by, bz, Blocks.SAPLING, sapMeta, 3);
 			} else {
-				worldObj.func_147480_a(bx, by, bz, true);
+				this.world.func_147480_a(bx, by, bz, true);
 			}
 		}
 	}
 
 	private boolean isWithinWorkingArea(int x, int z) {
-		int dx = x - xCoord;
-		int dz = z - zCoord;
+		int dx = x - this.pos.getX();
+		int dz = z - this.pos.getZ();
 		int distSq = dx * dx + dz * dz;
 		return distSq > MIN_DIST * MIN_DIST && distSq <= MAX_DIST * MAX_DIST;
 	}
 
 	private static boolean canSupportSapling(World world, int x, int y, int z) {
-		Block block = world.getBlock(x, y, z);
-		return block.canSustainPlant(block.getDefaultState(), world, new net.minecraft.util.math.BlockPos(x, y, z), EnumFacing.UP, (IPlantable) Blocks.sapling);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		return block.canSustainPlant(block.getDefaultState(), world, new net.minecraft.util.math.BlockPos(x, y, z), EnumFacing.UP, (IPlantable) Blocks.SAPLING);
 	}
 
 	@Override
@@ -530,7 +530,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("isOn", this.isOn);
 		nbt.setBoolean("isSuspended", this.isSuspended);
@@ -539,6 +539,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 		nbt.setFloat("pitch", this.rotationPitch);
 		nbt.setInteger("state", this.state);
 		tank.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override
@@ -558,12 +559,12 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 12,
-					yCoord,
-					zCoord - 12,
-					xCoord + 13,
-					yCoord + 10,
-					zCoord + 13
+					this.pos.getX() - 12,
+					this.pos.getY(),
+					this.pos.getZ() - 12,
+					this.pos.getX() + 13,
+					this.pos.getY() + 10,
+					this.pos.getZ() + 13
 					);
 		}
 

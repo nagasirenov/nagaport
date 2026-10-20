@@ -1,0 +1,858 @@
+Compiled from "SourceFile"
+public abstract class aqo {
+  public static final float[] a;
+
+  public ahb b;
+
+  public ahm c;
+
+  public java.lang.String d;
+
+  public aib e;
+
+  public boolean f;
+
+  public boolean g;
+
+  public float[] h;
+
+  public int i;
+
+  private float[] j;
+
+  public aqo();
+    Code:
+       0: aload_0
+       1: invokespecial #79                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: bipush        16
+       7: newarray       float
+       9: putfield      #57                 // Field h:[F
+      12: aload_0
+      13: iconst_4
+      14: newarray       float
+      16: putfield      #58                 // Field j:[F
+      19: return
+
+  public final void a(ahb);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #52                 // Field b:Lahb;
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #60                 // Method ahb.N:()Lays;
+      10: invokevirtual #75                 // Method ays.u:()Lahm;
+      13: putfield      #53                 // Field c:Lahm;
+      16: aload_0
+      17: aload_1
+      18: invokevirtual #60                 // Method ahb.N:()Lays;
+      21: invokevirtual #76                 // Method ays.y:()Ljava/lang/String;
+      24: putfield      #54                 // Field d:Ljava/lang/String;
+      27: aload_0
+      28: invokevirtual #66                 // Method b:()V
+      31: aload_0
+      32: invokevirtual #65                 // Method a:()V
+      35: return
+
+  protected void a();
+    Code:
+       0: fconst_0
+       1: fstore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        15
+       7: if_icmpgt     46
+      10: fconst_1
+      11: iload_2
+      12: i2f
+      13: ldc           #18                 // float 15.0f
+      15: fdiv
+      16: fsub
+      17: fstore_3
+      18: aload_0
+      19: getfield      #57                 // Field h:[F
+      22: iload_2
+      23: fconst_1
+      24: fload_3
+      25: fsub
+      26: fload_3
+      27: ldc           #16                 // float 3.0f
+      29: fmul
+      30: fconst_1
+      31: fadd
+      32: fdiv
+      33: fconst_1
+      34: fload_1
+      35: fsub
+      36: fmul
+      37: fload_1
+      38: fadd
+      39: fastore
+      40: iinc          2, 1
+      43: goto          4
+      46: return
+
+  protected void b();
+    Code:
+       0: aload_0
+       1: getfield      #52                 // Field b:Lahb;
+       4: invokevirtual #60                 // Method ahb.N:()Lays;
+       7: invokevirtual #75                 // Method ays.u:()Lahm;
+      10: getstatic     #49                 // Field ahm.c:Lahm;
+      13: if_acmpne     53
+      16: aload_0
+      17: getfield      #52                 // Field b:Lahb;
+      20: invokevirtual #60                 // Method ahb.N:()Lays;
+      23: invokevirtual #76                 // Method ays.y:()Ljava/lang/String;
+      26: invokestatic  #73                 // Method ass.a:(Ljava/lang/String;)Lass;
+      29: astore_1
+      30: aload_0
+      31: new           #25                 // class aie
+      34: dup
+      35: aload_1
+      36: invokevirtual #72                 // Method ass.a:()I
+      39: invokestatic  #62                 // Method ahu.d:(I)Lahu;
+      42: ldc           #8                  // float 0.5f
+      44: invokespecial #64                 // Method aie."<init>":(Lahu;F)V
+      47: putfield      #55                 // Field e:Laib;
+      50: goto          68
+      53: aload_0
+      54: new           #24                 // class aib
+      57: dup
+      58: aload_0
+      59: getfield      #52                 // Field b:Lahb;
+      62: invokespecial #63                 // Method aib."<init>":(Lahb;)V
+      65: putfield      #55                 // Field e:Laib;
+      68: return
+
+  public apu c();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field c:Lahm;
+       4: getstatic     #49                 // Field ahm.c:Lahm;
+       7: if_acmpne     43
+      10: new           #31                 // class aqu
+      13: dup
+      14: aload_0
+      15: getfield      #52                 // Field b:Lahb;
+      18: aload_0
+      19: getfield      #52                 // Field b:Lahb;
+      22: invokevirtual #59                 // Method ahb.H:()J
+      25: aload_0
+      26: getfield      #52                 // Field b:Lahb;
+      29: invokevirtual #60                 // Method ahb.N:()Lays;
+      32: invokevirtual #74                 // Method ays.s:()Z
+      35: aload_0
+      36: getfield      #54                 // Field d:Ljava/lang/String;
+      39: invokespecial #70                 // Method aqu."<init>":(Lahb;JZLjava/lang/String;)V
+      42: areturn
+      43: new           #32                 // class aqz
+      46: dup
+      47: aload_0
+      48: getfield      #52                 // Field b:Lahb;
+      51: aload_0
+      52: getfield      #52                 // Field b:Lahb;
+      55: invokevirtual #59                 // Method ahb.H:()J
+      58: aload_0
+      59: getfield      #52                 // Field b:Lahb;
+      62: invokevirtual #60                 // Method ahb.N:()Lays;
+      65: invokevirtual #74                 // Method ays.s:()Z
+      68: invokespecial #71                 // Method aqz."<init>":(Lahb;JZ)V
+      71: areturn
+
+  public boolean a(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #52                 // Field b:Lahb;
+       4: iload_1
+       5: iload_2
+       6: invokevirtual #61                 // Method ahb.b:(II)Laji;
+       9: getstatic     #50                 // Field ajn.c:Lalh;
+      12: if_acmpne     19
+      15: iconst_1
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+
+  public float a(long, float);
+    Code:
+       0: lload_1
+       1: ldc2_w        #41                 // long 24000l
+       4: lrem
+       5: l2i
+       6: istore        4
+       8: iload         4
+      10: i2f
+      11: fload_3
+      12: fadd
+      13: ldc           #20                 // float 24000.0f
+      15: fdiv
+      16: ldc           #5                  // float 0.25f
+      18: fsub
+      19: fstore        5
+      21: fload         5
+      23: fconst_0
+      24: fcmpg
+      25: ifge          34
+      28: fload         5
+      30: fconst_1
+      31: fadd
+      32: fstore        5
+      34: fload         5
+      36: fconst_1
+      37: fcmpl
+      38: ifle          47
+      41: fload         5
+      43: fconst_1
+      44: fsub
+      45: fstore        5
+      47: fload         5
+      49: fstore        6
+      51: fconst_1
+      52: fload         5
+      54: f2d
+      55: ldc2_w        #47                 // double 3.141592653589793d
+      58: dmul
+      59: invokestatic  #78                 // Method java/lang/Math.cos:(D)D
+      62: dconst_1
+      63: dadd
+      64: ldc2_w        #45                 // double 2.0d
+      67: ddiv
+      68: d2f
+      69: fsub
+      70: fstore        5
+      72: fload         6
+      74: fload         5
+      76: fload         6
+      78: fsub
+      79: ldc           #16                 // float 3.0f
+      81: fdiv
+      82: fadd
+      83: fstore        5
+      85: fload         5
+      87: freturn
+
+  public int a(long);
+    Code:
+       0: lload_1
+       1: ldc2_w        #41                 // long 24000l
+       4: ldiv
+       5: ldc2_w        #39                 // long 8l
+       8: lrem
+       9: ldc2_w        #39                 // long 8l
+      12: ladd
+      13: l2i
+      14: bipush        8
+      16: irem
+      17: ireturn
+
+  public boolean d();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public float[] a(float, float);
+    Code:
+       0: ldc           #7                  // float 0.4f
+       2: fstore_3
+       3: fload_1
+       4: ldc           #17                 // float 3.1415927f
+       6: fmul
+       7: fconst_2
+       8: fmul
+       9: invokestatic  #81                 // Method qh.b:(F)F
+      12: fconst_0
+      13: fsub
+      14: fstore        4
+      16: ldc           #1                  // float -0.0f
+      18: fstore        5
+      20: fload         4
+      22: fload         5
+      24: fload_3
+      25: fsub
+      26: fcmpl
+      27: iflt          139
+      30: fload         4
+      32: fload         5
+      34: fload_3
+      35: fadd
+      36: fcmpg
+      37: ifgt          139
+      40: fload         4
+      42: fload         5
+      44: fsub
+      45: fload_3
+      46: fdiv
+      47: ldc           #8                  // float 0.5f
+      49: fmul
+      50: ldc           #8                  // float 0.5f
+      52: fadd
+      53: fstore        6
+      55: fconst_1
+      56: fconst_1
+      57: fload         6
+      59: ldc           #17                 // float 3.1415927f
+      61: fmul
+      62: invokestatic  #80                 // Method qh.a:(F)F
+      65: fsub
+      66: ldc           #15                 // float 0.99f
+      68: fmul
+      69: fsub
+      70: fstore        7
+      72: fload         7
+      74: fload         7
+      76: fmul
+      77: fstore        7
+      79: aload_0
+      80: getfield      #58                 // Field j:[F
+      83: iconst_0
+      84: fload         6
+      86: ldc           #6                  // float 0.3f
+      88: fmul
+      89: ldc           #9                  // float 0.7f
+      91: fadd
+      92: fastore
+      93: aload_0
+      94: getfield      #58                 // Field j:[F
+      97: iconst_1
+      98: fload         6
+     100: fload         6
+     102: fmul
+     103: ldc           #9                  // float 0.7f
+     105: fmul
+     106: ldc           #4                  // float 0.2f
+     108: fadd
+     109: fastore
+     110: aload_0
+     111: getfield      #58                 // Field j:[F
+     114: iconst_2
+     115: fload         6
+     117: fload         6
+     119: fmul
+     120: fconst_0
+     121: fmul
+     122: ldc           #4                  // float 0.2f
+     124: fadd
+     125: fastore
+     126: aload_0
+     127: getfield      #58                 // Field j:[F
+     130: iconst_3
+     131: fload         7
+     133: fastore
+     134: aload_0
+     135: getfield      #58                 // Field j:[F
+     138: areturn
+     139: aconst_null
+     140: areturn
+
+  public azw b(float, float);
+    Code:
+       0: fload_1
+       1: ldc           #17                 // float 3.1415927f
+       3: fmul
+       4: fconst_2
+       5: fmul
+       6: invokestatic  #81                 // Method qh.b:(F)F
+       9: fconst_2
+      10: fmul
+      11: ldc           #8                  // float 0.5f
+      13: fadd
+      14: fstore_3
+      15: fload_3
+      16: fconst_0
+      17: fcmpg
+      18: ifge          23
+      21: fconst_0
+      22: fstore_3
+      23: fload_3
+      24: fconst_1
+      25: fcmpl
+      26: ifle          31
+      29: fconst_1
+      30: fstore_3
+      31: ldc           #11                 // float 0.7529412f
+      33: fstore        4
+      35: ldc           #12                 // float 0.84705883f
+      37: fstore        5
+      39: fconst_1
+      40: fstore        6
+      42: fload         4
+      44: fload_3
+      45: ldc           #14                 // float 0.94f
+      47: fmul
+      48: ldc           #2                  // float 0.06f
+      50: fadd
+      51: fmul
+      52: fstore        4
+      54: fload         5
+      56: fload_3
+      57: ldc           #14                 // float 0.94f
+      59: fmul
+      60: ldc           #2                  // float 0.06f
+      62: fadd
+      63: fmul
+      64: fstore        5
+      66: fload         6
+      68: fload_3
+      69: ldc           #13                 // float 0.91f
+      71: fmul
+      72: ldc           #3                  // float 0.09f
+      74: fadd
+      75: fmul
+      76: fstore        6
+      78: fload         4
+      80: f2d
+      81: fload         5
+      83: f2d
+      84: fload         6
+      86: f2d
+      87: invokestatic  #77                 // Method azw.a:(DDD)Lazw;
+      90: areturn
+
+  public boolean e();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public static aqo a(int);
+    Code:
+       0: iload_0
+       1: iconst_m1
+       2: if_icmpne     13
+       5: new           #28                 // class aqp
+       8: dup
+       9: invokespecial #67                 // Method aqp."<init>":()V
+      12: areturn
+      13: iload_0
+      14: ifne          25
+      17: new           #29                 // class aqq
+      20: dup
+      21: invokespecial #68                 // Method aqq."<init>":()V
+      24: areturn
+      25: iload_0
+      26: iconst_1
+      27: if_icmpne     38
+      30: new           #30                 // class aqr
+      33: dup
+      34: invokespecial #69                 // Method aqr."<init>":()V
+      37: areturn
+      38: aconst_null
+      39: areturn
+
+  public float f();
+    Code:
+       0: ldc           #19                 // float 128.0f
+       2: freturn
+
+  public boolean g();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public r h();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public int i();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field c:Lahm;
+       4: getstatic     #49                 // Field ahm.c:Lahm;
+       7: if_acmpne     12
+      10: iconst_4
+      11: ireturn
+      12: bipush        64
+      14: ireturn
+
+  public boolean j();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field c:Lahm;
+       4: getstatic     #49                 // Field ahm.c:Lahm;
+       7: if_acmpeq     21
+      10: aload_0
+      11: getfield      #56                 // Field g:Z
+      14: ifne          21
+      17: iconst_1
+      18: goto          22
+      21: iconst_0
+      22: ireturn
+
+  public double k();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field c:Lahm;
+       4: getstatic     #49                 // Field ahm.c:Lahm;
+       7: if_acmpne     12
+      10: dconst_1
+      11: dreturn
+      12: ldc2_w        #43                 // double 0.03125d
+      15: dreturn
+
+  public boolean b(int, int);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public abstract java.lang.String l();
+
+  static {};
+    Code:
+       0: bipush        8
+       2: newarray       float
+       4: dup
+       5: iconst_0
+       6: fconst_1
+       7: fastore
+       8: dup
+       9: iconst_1
+      10: ldc           #10                 // float 0.75f
+      12: fastore
+      13: dup
+      14: iconst_2
+      15: ldc           #8                  // float 0.5f
+      17: fastore
+      18: dup
+      19: iconst_3
+      20: ldc           #5                  // float 0.25f
+      22: fastore
+      23: dup
+      24: iconst_4
+      25: fconst_0
+      26: fastore
+      27: dup
+      28: iconst_5
+      29: ldc           #5                  // float 0.25f
+      31: fastore
+      32: dup
+      33: bipush        6
+      35: ldc           #8                  // float 0.5f
+      37: fastore
+      38: dup
+      39: bipush        7
+      41: ldc           #10                 // float 0.75f
+      43: fastore
+      44: putstatic     #51                 // Field a:[F
+      47: return
+}
+Compiled from "SourceFile"
+public class aqp extends aqo {
+  public aqp();
+    Code:
+       0: aload_0
+       1: invokespecial #26                 // Method aqo."<init>":()V
+       4: return
+
+  public void b();
+    Code:
+       0: aload_0
+       1: new           #8                  // class aie
+       4: dup
+       5: getstatic     #17                 // Field ahu.w:Lahu;
+       8: fconst_0
+       9: invokespecial #25                 // Method aie."<init>":(Lahu;F)V
+      12: putfield      #19                 // Field e:Laib;
+      15: aload_0
+      16: iconst_1
+      17: putfield      #20                 // Field f:Z
+      20: aload_0
+      21: iconst_1
+      22: putfield      #21                 // Field g:Z
+      25: aload_0
+      26: iconst_m1
+      27: putfield      #23                 // Field i:I
+      30: return
+
+  public azw b(float, float);
+    Code:
+       0: ldc2_w        #15                 // double 0.20000000298023224d
+       3: ldc2_w        #13                 // double 0.029999999329447746d
+       6: ldc2_w        #13                 // double 0.029999999329447746d
+       9: invokestatic  #28                 // Method azw.a:(DDD)Lazw;
+      12: areturn
+
+  protected void a();
+    Code:
+       0: ldc           #1                  // float 0.1f
+       2: fstore_1
+       3: iconst_0
+       4: istore_2
+       5: iload_2
+       6: bipush        15
+       8: if_icmpgt     47
+      11: fconst_1
+      12: iload_2
+      13: i2f
+      14: ldc           #4                  // float 15.0f
+      16: fdiv
+      17: fsub
+      18: fstore_3
+      19: aload_0
+      20: getfield      #22                 // Field h:[F
+      23: iload_2
+      24: fconst_1
+      25: fload_3
+      26: fsub
+      27: fload_3
+      28: ldc           #3                  // float 3.0f
+      30: fmul
+      31: fconst_1
+      32: fadd
+      33: fdiv
+      34: fconst_1
+      35: fload_1
+      36: fsub
+      37: fmul
+      38: fload_1
+      39: fadd
+      40: fastore
+      41: iinc          2, 1
+      44: goto          5
+      47: return
+
+  public apu c();
+    Code:
+       0: new           #11                 // class aqv
+       3: dup
+       4: aload_0
+       5: getfield      #18                 // Field b:Lahb;
+       8: aload_0
+       9: getfield      #18                 // Field b:Lahb;
+      12: invokevirtual #24                 // Method ahb.H:()J
+      15: invokespecial #27                 // Method aqv."<init>":(Lahb;J)V
+      18: areturn
+
+  public boolean d();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean a(int, int);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public float a(long, float);
+    Code:
+       0: ldc           #2                  // float 0.5f
+       2: freturn
+
+  public boolean e();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean b(int, int);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public java.lang.String l();
+    Code:
+       0: ldc           #5                  // String Nether
+       2: areturn
+}
+Compiled from "SourceFile"
+public class aqq extends aqo {
+  public aqq();
+    Code:
+       0: aload_0
+       1: invokespecial #4                  // Method aqo."<init>":()V
+       4: return
+
+  public java.lang.String l();
+    Code:
+       0: ldc           #1                  // String Overworld
+       2: areturn
+}
+Compiled from "SourceFile"
+public class aqr extends aqo {
+  public aqr();
+    Code:
+       0: aload_0
+       1: invokespecial #28                 // Method aqo."<init>":()V
+       4: return
+
+  public void b();
+    Code:
+       0: aload_0
+       1: new           #10                 // class aie
+       4: dup
+       5: getstatic     #19                 // Field ahu.x:Lahu;
+       8: fconst_0
+       9: invokespecial #26                 // Method aie."<init>":(Lahu;F)V
+      12: putfield      #21                 // Field e:Laib;
+      15: aload_0
+      16: iconst_1
+      17: putfield      #23                 // Field i:I
+      20: aload_0
+      21: iconst_1
+      22: putfield      #22                 // Field g:Z
+      25: return
+
+  public apu c();
+    Code:
+       0: new           #14                 // class ara
+       3: dup
+       4: aload_0
+       5: getfield      #20                 // Field b:Lahb;
+       8: aload_0
+       9: getfield      #20                 // Field b:Lahb;
+      12: invokevirtual #24                 // Method ahb.H:()J
+      15: invokespecial #29                 // Method ara."<init>":(Lahb;J)V
+      18: areturn
+
+  public float a(long, float);
+    Code:
+       0: fconst_0
+       1: freturn
+
+  public float[] a(float, float);
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public azw b(float, float);
+    Code:
+       0: ldc           #1                  // int 10518688
+       2: istore_3
+       3: fload_1
+       4: ldc           #4                  // float 3.1415927f
+       6: fmul
+       7: fconst_2
+       8: fmul
+       9: invokestatic  #32                 // Method qh.b:(F)F
+      12: fconst_2
+      13: fmul
+      14: ldc           #3                  // float 0.5f
+      16: fadd
+      17: fstore        4
+      19: fload         4
+      21: fconst_0
+      22: fcmpg
+      23: ifge          29
+      26: fconst_0
+      27: fstore        4
+      29: fload         4
+      31: fconst_1
+      32: fcmpl
+      33: ifle          39
+      36: fconst_1
+      37: fstore        4
+      39: iload_3
+      40: bipush        16
+      42: ishr
+      43: sipush        255
+      46: iand
+      47: i2f
+      48: ldc           #6                  // float 255.0f
+      50: fdiv
+      51: fstore        5
+      53: iload_3
+      54: bipush        8
+      56: ishr
+      57: sipush        255
+      60: iand
+      61: i2f
+      62: ldc           #6                  // float 255.0f
+      64: fdiv
+      65: fstore        6
+      67: iload_3
+      68: sipush        255
+      71: iand
+      72: i2f
+      73: ldc           #6                  // float 255.0f
+      75: fdiv
+      76: fstore        7
+      78: fload         5
+      80: fload         4
+      82: fconst_0
+      83: fmul
+      84: ldc           #2                  // float 0.15f
+      86: fadd
+      87: fmul
+      88: fstore        5
+      90: fload         6
+      92: fload         4
+      94: fconst_0
+      95: fmul
+      96: ldc           #2                  // float 0.15f
+      98: fadd
+      99: fmul
+     100: fstore        6
+     102: fload         7
+     104: fload         4
+     106: fconst_0
+     107: fmul
+     108: ldc           #2                  // float 0.15f
+     110: fadd
+     111: fmul
+     112: fstore        7
+     114: fload         5
+     116: f2d
+     117: fload         6
+     119: f2d
+     120: fload         7
+     122: f2d
+     123: invokestatic  #31                 // Method azw.a:(DDD)Lazw;
+     126: areturn
+
+  public boolean g();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean e();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean d();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public float f();
+    Code:
+       0: ldc           #5                  // float 8.0f
+       2: freturn
+
+  public boolean a(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #20                 // Field b:Lahb;
+       4: iload_1
+       5: iload_2
+       6: invokevirtual #25                 // Method ahb.b:(II)Laji;
+       9: invokevirtual #27                 // Method aji.o:()Lawt;
+      12: invokevirtual #30                 // Method awt.c:()Z
+      15: ireturn
+
+  public r h();
+    Code:
+       0: new           #18                 // class r
+       3: dup
+       4: bipush        100
+       6: bipush        50
+       8: iconst_0
+       9: invokespecial #33                 // Method r."<init>":(III)V
+      12: areturn
+
+  public int i();
+    Code:
+       0: bipush        50
+       2: ireturn
+
+  public boolean b(int, int);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public java.lang.String l();
+    Code:
+       0: ldc           #7                  // String The End
+       2: areturn
+}

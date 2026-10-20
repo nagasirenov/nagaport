@@ -11,6 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
+import java.util.Arrays;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import com.hbm.lib.ForgeDirection;
 
 /**
@@ -24,12 +27,26 @@ public abstract class TileEntityFoundryCastingBase extends TileEntityFoundryBase
 		slots = new ItemStack[slotCount];
 	}
 	public int cooloff = 100;
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
+	@Override public boolean isEmpty() {
+		for(ItemStack stack : slots) if(!nativeStack(stack).isEmpty()) return false;
+		return true;
+	}
+	@Override public ITextComponent getDisplayName() { return new TextComponentTranslation(getName()); }
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) { }
+	@Override public int getFieldCount() { return 0; }
+	@Override public void clear() { Arrays.fill(slots, null); }
+
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.amount > this.getCapacity()) {
 				this.amount = this.getCapacity();
@@ -109,41 +126,42 @@ public abstract class TileEntityFoundryCastingBase extends TileEntityFoundryBase
 	public abstract int getMoldSize();
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null) {
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return nativeStack(itemStack);
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
-			itemStack.stackSize = getInventoryStackLimit();
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		this.notifyFoundryUpdate();
 	}
 	
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		this.notifyFoundryUpdate();
 		if(slots[slot] != null) {
-			if(slots[slot].stackSize <= amount) {
+			if(slots[slot].getCount() <= amount) {
 				ItemStack itemStack = slots[slot];
 				slots[slot] = null;
-				return itemStack;
+				return nativeStack(itemStack);
 			}
 			ItemStack itemStack1 = slots[slot].splitStack(amount);
-			if(slots[slot].stackSize == 0) {
+			if(slots[slot].getCount() == 0) {
 				slots[slot] = null;
 			}
-			return itemStack1;
+			return nativeStack(itemStack1);
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
@@ -154,11 +172,11 @@ public abstract class TileEntityFoundryCastingBase extends TileEntityFoundryBase
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+		return nativeStack(slots[i]);
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 		return "ntmFoundry";
 	}
 
@@ -167,12 +185,12 @@ public abstract class TileEntityFoundryCastingBase extends TileEntityFoundryBase
 		return 64;
 	}
 
-	@Override public boolean hasCustomInventoryName() { return false; }
-	@Override public boolean isUseableByPlayer(EntityPlayer player) { return false; }
+	@Override public boolean hasCustomName() { return false; }
+	@Override public boolean isUsableByPlayer(EntityPlayer player) { return false; }
 	@Override public boolean isItemValidForSlot(int i, ItemStack stack) { return false; }
 
-	@Override public void openInventory() { }
-	@Override public void closeInventory() { }
+	@Override public void openInventory(EntityPlayer player) { }
+	@Override public void closeInventory(EntityPlayer player) { }
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
@@ -185,13 +203,14 @@ public abstract class TileEntityFoundryCastingBase extends TileEntityFoundryBase
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length) {
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				ItemStack stack = new ItemStack(nbt1);
+				slots[b0] = stack.isEmpty() ? null : stack;
 			}
 		}
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		NBTTagList list = new NBTTagList();
@@ -205,20 +224,24 @@ public abstract class TileEntityFoundryCastingBase extends TileEntityFoundryBase
 			}
 		}
 		nbt.setTag("items", list);
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1 };
 	}
 
 	@Override
-	public boolean canInsertItem(int slot, ItemStack stack, int side) {
+	public boolean canInsertItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot == 1;
 	}
 }

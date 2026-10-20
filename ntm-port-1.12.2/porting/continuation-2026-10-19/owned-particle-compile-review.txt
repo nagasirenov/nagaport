@@ -1,0 +1,14 @@
+Clean common compile: FAIL929 (previous949); 25s. All11changed/new Java byte-identical to 3897 generated compiler sources. No exclusions.
+LogSHA256 2d238f44ff553a9d5b83af3ee176f1a5b2bac65a1bcaad342204a9ae3e5a2e24
+Whole mod remains blocked on declaration roots; selected native compile/lifecycle tests are not game/GL acceptance.
+src/main/java/com/hbm/particle/ParticleContrail.java 18c6cc940f9720d91c107a67f35e8bf57e05ede25f0f3706d819e129be4d34dd
+src/main/java/com/hbm/particle/ParticleDebug.java 246fed2d0e3a5fd39905c508a2518ac9de6fd74fe83be9c368c63f428a6f7bd5
+src/main/java/com/hbm/particle/ParticleDebugLine.java 76ee10856b7bc3cc169c6823dbc93608eaefc65fe13b66d79d0ac1a885b02a28
+src/main/java/com/hbm/particle/ParticleFoundry.java 4e12baf28077f6cb352b74153373ccbc7648e90150c0efaa08afd2ca3756f78c
+src/main/java/com/hbm/particle/ParticleGasFlame.java 9811727b478680b8fae5f6516d43824aeb13f0038d07e745f588c945e97012b9
+src/main/java/com/hbm/particle/ParticleHaze.java df5437a172679fe1926d93bccb0673161380d0cae62cad3ad98d313a3c5c0e59
+src/main/java/com/hbm/particle/ParticleProblem.java 71a9f5525e6e22bdef105366408f52ee434932c4a33a9b7d72a7cbc79720a66d
+src/main/java/com/hbm/particle/ParticleRBMKMush.java 3fa4b80bec9c8c29a5457042e2182857bc0cd4798b5bbf19e4397b1ca55f0876
+src/main/java/com/hbm/particle/ParticleRadiationFog.java a8314f9be99f3d13d3d2238985218cad582e2e423782d2fb3904bb5e3c037788
+src/main/java/com/hbm/particle/ParticleText.java 7961e2f23cf9b54a84a9a2937372a36496d1705b55eda5da7e06a88e86112338
+src/main/java/com/hbm/particle/ParticleVertexFormats.java 93025c764c2c3277def244439b913458435443cb8c0422dfe963d83f6b376afa

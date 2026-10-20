@@ -1,0 +1,40 @@
+     199: invokevirtual #337                // Method mt.i:(II)I
+     202: istore        8
+     204: aload_0
+     205: aload_1
+     206: putfield      #170                // Field b:Lnet/minecraft/server/MinecraftServer;
+     209: aload_0
+     210: aload_1
+     211: invokevirtual #377                // Method net/minecraft/server/MinecraftServer.ah:()Loi;
+     214: aload_0
+     215: invokevirtual #387                // Method oi.a:(Lyz;)Lpg;
+     218: putfield      #179                // Field bO:Lpg;
+     221: aload_0
+     222: fconst_0
+     223: putfield      #164                // Field W:F
+     226: aload_0
+     227: fconst_0
+     228: putfield      #163                // Field L:F
+     231: aload_0
+     232: iload         6
+     234: i2d
+     235: ldc2_w        #146                // double 0.5d
+     238: dadd
+     239: iload         8
+     241: i2d
+     242: iload         7
+     244: i2d
+     245: ldc2_w        #146                // double 0.5d
+     248: dadd
+     249: fconst_0
+     250: fconst_0
+     251: invokevirtual #351                // Method b:(DDDFF)V
+     254: aload_2
+     255: aload_0
+     256: aload_0
+     257: getfield      #162                // Field C:Lazt;
+     260: invokevirtual #336                // Method mt.a:(Lsa;Lazt;)Ljava/util/List;
+     263: invokeinterface #459,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     268: ifne          292
+     271: aload_0
+     272: aload_0

@@ -1,0 +1,14 @@
+{
+  "base": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "native": {
+    "com/hbm/wiaj/GuiWorldInAJar.java": "d95c6ae97f551becf9cdc25c0c1c20680f744390880044d1a21f831c95b2a999",
+    "com/hbm/inventory/gui/GUIScreenSlicePrinter.java": "47c9e99a45f6d4bfd922df92985e3d02c39713988fe617dfddad06a6d9d26864",
+    "com/hbm/render/util/RenderOverhead.java": "00c3ddec04864b3385b93deec5dc2560840a753220835db40b7fb2bdfe929b16",
+    "com/hbm/render/util/NativeSceneBlockDraw.java": "7bf81fbebd1f3f30a68dac74c93f3b63f124d719f60384a9d1d5c1248347f07d",
+    "com/hbm/wiaj/JarScript.java": "a53fa8babb06167bda4352c607116c88e022ed5f6a1a05c28138bc2cbf99d1b3",
+    "com/hbm/wiaj/WorldInAJar.java": "ae6776b28cf36178cfe91809dc366ad63e8c1f227d3f05c4b4576a44d479011e"
+  },
+  "pristine": {},
+  "shared_fragment": "JarScript: MathHelper.clamp_float to MathHelper.clamp (float overload only).",
+  "coordinator_owned_dependency": "com/hbm/entity/boss/INtmBossDisplay.java; copied unchanged solely for native compile, excluded from patch."
+}

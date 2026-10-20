@@ -47,10 +47,10 @@ public class GUICompressor extends GuiInfoContainer {
 	
 			if(guiLeft + 43 + j * 11 <= x && guiLeft + 43 + 8 + j * 11 > x && guiTop + 46 < y && guiTop + 46 + 14 >= y) {
 
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("compression", j);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, compressor.xCoord, compressor.yCoord, compressor.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, compressor.getPos().getX(), compressor.getPos().getY(), compressor.getPos().getZ()));
 			}
 		}
 	}
@@ -60,8 +60,8 @@ public class GUICompressor extends GuiInfoContainer {
 		
 		String name = this.compressor.hasCustomInventoryName() ? this.compressor.getInventoryName() : I18n.format(this.compressor.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, 70 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xC7C1A3);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 70 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xC7C1A3);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

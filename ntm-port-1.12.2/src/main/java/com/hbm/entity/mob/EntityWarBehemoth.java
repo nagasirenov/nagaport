@@ -5,7 +5,7 @@ import com.hbm.entity.mob.ai.EntityAIMaskmanMinigun;
 import com.hbm.entity.mob.ai.EntityAIStepTowardsTarget;
 
 import api.hbm.entity.ISuffocationImmune;
-import net.minecraft.command.IEntitySelector;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -33,8 +33,8 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
     private int stepTimer = 0;
     public double headTargetYaw; 
 
-    private static final IEntitySelector selector = new IEntitySelector() {
-		public boolean isEntityApplicable(Entity p_82704_1_) {
+    private static final Predicate<Entity> selector = new Predicate<Entity>() {
+		public boolean apply(Entity p_82704_1_) {
 			return !(p_82704_1_ instanceof EntityWarBehemoth);
 		}
 	};
@@ -85,9 +85,9 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(100.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(100.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0D);
 	}
 
@@ -103,7 +103,7 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (!this.worldObj.isRemote) {
+        if (!this.world.isRemote) {
             this.motionY -= 0.10D;  // Increase the downward pull for heavier gravity (adjust value as needed)
         }
 

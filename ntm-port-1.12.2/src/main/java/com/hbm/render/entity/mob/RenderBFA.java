@@ -14,19 +14,24 @@ import com.hbm.render.util.BeamPronter.EnumWaveType;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.BossStatus;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.render.util.ClientBossDisplay;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderBFA extends Render {
 
+	public RenderBFA(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
 
-		BossStatus.setBossStatus((IBossDisplayData)entity, false);
+		ClientBossDisplay.capture((INtmBossDisplay)entity, false);
 
 
 		EntityBFAngel ufo = (EntityBFAngel)entity;
@@ -115,7 +120,7 @@ public class RenderBFA extends Render {
 			
 			for(int i = (int)Math.ceil(entity.posY); i >= 0; i--) {
 				
-				if(entity.worldObj.getBlock(ix, i, iz) != Blocks.air) {
+				if(com.hbm.world.WorldBlockState.read(entity.world, ix, i, iz).getBlock() != Blocks.AIR) {
 					iy = i;
 					break;
 				}

@@ -1,78 +1,26 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import com.hbm.render.block.nativeblock.AtlasObjGeometry;
+import com.hbm.render.mesh.ObjMesh;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-import com.hbm.blocks.machine.NTMAnvil;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderAnvil implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
-		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
-
-		GL11.glTranslated(0, -0.5, 0);
-		GL11.glRotated(180, 0, 1, 0);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Top", block.getIcon(1, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Bottom", block.getIcon(0, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Front", block.getIcon(0, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Back", block.getIcon(0, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Left", block.getIcon(0, 0), tessellator, 0, false);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Right", block.getIcon(0, 0), tessellator, 0, false);
-		tessellator.draw();
-
-		GL11.glPopMatrix();
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		float rotation = 0;
-
-		if(world.getBlockMetadata(x, y, z) == 2)
-			rotation = 90F / 180F * (float) Math.PI;
-
-		if(world.getBlockMetadata(x, y, z) == 3)
-			rotation = 270F / 180F * (float) Math.PI;
-
-		if(world.getBlockMetadata(x, y, z) == 4)
-			rotation = 180F / 180F * (float)Math.PI;
-
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Top", block.getIcon(1, 0), tessellator, rotation, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Bottom", block.getIcon(0, 0), tessellator, rotation, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Front", block.getIcon(0, 0), tessellator, rotation, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Back", block.getIcon(0, 0), tessellator, rotation, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Left", block.getIcon(0, 0), tessellator, rotation, true);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.anvil, "Right", block.getIcon(0, 0), tessellator, rotation, true);
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return NTMAnvil.renderID;
-	}
+/** Six original named OBJ parts, top-only murky material, and original metadata rotations. */
+public final class RenderAnvil {
+    private RenderAnvil() { }
+    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory,
+            TextureAtlasSprite top, TextureAtlasSprite side) {
+        List<BakedQuad> quads = new ArrayList<>();
+        float yaw = inventory ? (float)Math.PI : metadata == 2 ? 90F / 180F * (float)Math.PI
+                : metadata == 3 ? 270F / 180F * (float)Math.PI
+                : metadata == 4 ? 180F / 180F * (float)Math.PI : 0;
+        // Native item models rotate about (.5,.5,.5); this is legacy GL translate(0,-.5,0), rotate(180).
+        for(String part : new String[] {"Top", "Bottom", "Front", "Back", "Left", "Right"})
+            AtlasObjGeometry.appendPart(quads, mesh, part, part.equals("Top") ? top : side,
+                    inventory, yaw, 0, 1, .5, 0, .5);
+        return Collections.unmodifiableList(quads);
+    }
 }

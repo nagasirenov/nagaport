@@ -30,7 +30,7 @@ import java.util.List;
 public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITooltipProvider {
 
 	public DroneWaypoint() {
-		super(Material.circuits);
+		super(Material.CIRCUITS);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITool
 	@Override
 	public RayTraceResult collisionRayTrace(IBlockState state, World world, BlockPos pos, Vec3d vec0, Vec3d vec1) {
 
-		int meta = world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()) & 7;
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, pos.getX(), pos.getY(), pos.getZ()) ) & 7;
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
 
 		this.setBlockBounds(
@@ -90,13 +90,13 @@ public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITool
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
-		Block b = world.getBlock(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);
+		Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();
 
 		if(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {
 			this.dropBlockAsItem(world, x, y, z, meta, 0);
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
 
@@ -105,7 +105,7 @@ public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITool
 		if(!super.canPlaceBlockOnSide(world, x, y, z, side)) return false;
 
 		ForgeDirection dir = ForgeDirection.getOrientation(side);
-		Block b = world.getBlock(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);
+		Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();
 
 		return com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z));
 	}
@@ -113,11 +113,11 @@ public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITool
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.drone_linker) return false;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.drone_linker) return false;
 
 		if(world.isRemote) return true;
 
-		TileEntityDroneWaypoint tile = (TileEntityDroneWaypoint) world.getTileEntity(x, y, z);
+		TileEntityDroneWaypoint tile = (TileEntityDroneWaypoint) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		tile.addHeight(player.isSneaking() ? - 1 : 1);
 		return true;
 	}
@@ -129,7 +129,7 @@ public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITool
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		TileEntityDroneWaypoint tile = (TileEntityDroneWaypoint) world.getTileEntity(x, y, z);
+		TileEntityDroneWaypoint tile = (TileEntityDroneWaypoint) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		List<String> text = new ArrayList();
 
 		text.add("Waypoint distance: " + tile.height);
@@ -138,6 +138,6 @@ public class DroneWaypoint extends BlockContainer implements ILookOverlay, ITool
 			text.add("Next waypoint: " + tile.nextX + " / " + tile.nextY + " / " + tile.nextZ);
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

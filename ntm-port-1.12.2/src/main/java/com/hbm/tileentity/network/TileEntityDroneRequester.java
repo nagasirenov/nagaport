@@ -41,10 +41,10 @@ public class TileEntityDroneRequester extends TileEntityRequestNetworkContainer 
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			networkPackNT(15);
 		}
@@ -60,11 +60,12 @@ public class TileEntityDroneRequester extends TileEntityRequestNetworkContainer 
 
 	@Override
 	public void nextMode(int i) {
-		this.matcher.nextMode(worldObj, slots[i], i);
+		this.matcher.nextMode(this.world, slots[i], i);
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
 	}
 
@@ -74,7 +75,8 @@ public class TileEntityDroneRequester extends TileEntityRequestNetworkContainer 
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 
@@ -85,9 +87,10 @@ public class TileEntityDroneRequester extends TileEntityRequestNetworkContainer 
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.matcher.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
@@ -128,7 +131,7 @@ public class TileEntityDroneRequester extends TileEntityRequestNetworkContainer 
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override

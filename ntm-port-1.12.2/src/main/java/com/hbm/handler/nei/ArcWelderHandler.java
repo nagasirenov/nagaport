@@ -19,31 +19,28 @@ public class ArcWelderHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmArcWelder";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(67, 26, 32, 14), "ntmArcWelder"));
-		guiGui.add(GUIMachineArcWelder.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMachineArcWelder.class, (67) + 5, (26) + 11, 32, 14, "ntmArcWelder");
 	}
 
 	@Override
-	public void drawExtras(int recipe) {
+	public void drawRecipe(com.hbm.handler.jei.MachineRecipeView rec, Minecraft minecraft, int mouseX, int mouseY) {
 
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
-		Object[] original = (Object[]) rec.originalInputInstance;
-		ItemStack output = rec.output[0].item;
+		super.drawRecipe(rec, minecraft, mouseX, mouseY);
+		Object[] original = (Object[]) rec.source;
+		ItemStack output = rec.displayedOutput(0);
 		
 		outer: for(ArcWelderRecipe arc : ArcWelderRecipes.recipes) {
 			
 			//checks do not include the fluid, will break of there's two recipes with identical input and output but with fluids
 			if(ItemStack.areItemStacksEqual(arc.output, output) && arc.ingredients.length == original.length - (arc.fluid == null ? 0 : 1)) {
 				
-				for(int i = 0; i < rec.input.length - (arc.fluid == null ? 0 : 1); i++) {
+				for(int i = 0; i < rec.inputs.length - (arc.fluid == null ? 0 : 1); i++) {
 					if(arc.ingredients[i] != original[i]) continue outer;
 				}
 

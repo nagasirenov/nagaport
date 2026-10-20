@@ -1,0 +1,569 @@
+{
+  "baseline": "27dceb0ef9e5815de3dc5f0494ca43aef9997370",
+  "patches": [
+    {
+      "path": "/workspace/shared/nagaport-aabb-cp63-production.patch",
+      "sha256": "cb9ea2fa3984e38839ab73c04780cd86128e64ab03a0a9e5cd69fd17110af7f3"
+    },
+    {
+      "path": "/workspace/shared/nagaport-gui-sounds-production.patch",
+      "sha256": "4f6e4efbe81620ea94e775303fce32a39ffe7ade531797b79488f641186d0090"
+    },
+    {
+      "path": "/workspace/shared/native-entity-pairs-production.patch",
+      "sha256": "0edc73cff62dc3280ac70106b7c3aa703e394716d040597ff77b6d3034c3b21d"
+    },
+    {
+      "path": "/tmp/nagaport-native-text-fields-production.patch",
+      "sha256": "df33dd21c0f633040faa3b973e879637900e1e05d6505172d01d0c92c991cd5f"
+    }
+  ],
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+      "before": "729a89958c4be026b8494380725af3b475b354a1f3c1e7db3054ac3b699ed955",
+      "after": "9fc713668ddd489f06eaf668e3d36efeac7a21db64b74588877224ae8ea7c1dc"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFluidTank.java",
+      "before": "90c3bd7721e77c75cc85252135e587fddbf1b5d27b98a6a0cf25aa4f85d6a51b",
+      "after": "ce511f5220cd6d6fe67b853c8d11ecc035ed39ae57e4f1331ef3eb37b37d0a2d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineRefinery.java",
+      "before": "5e774b04cf5b08d9abfe8e1a815dd58e17c9a5143a9af137421136691edf565e",
+      "after": "43c694576a1554b4738f60984055c572ee041fa53d912feedd4dfdb2f4366958"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityMist.java",
+      "before": "94d28af9dd5e85142acff5fdd359c86de9e0a732db817efa58a38524e2a6c9d7",
+      "after": "a35ef00c111172882e3c7389574e7d49b0d933cd386c84b07600c3be247abbe5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityDisperserCanister.java",
+      "before": "58550c2bc373889c5b3787f9aaaa32d5aeb677a871d4643357651d3af894a852",
+      "after": "488e6d311f028ee2bcbd2407882ed68fabe327f53d2c27c32b9334f03d3bac59"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityCog.java",
+      "before": "830fc21d51ace005502013d58b0d0b05aadda181f38019eeac10f45dc11fb669",
+      "after": "bd71906378959d21b98754ed41a363c3b320ff6604d6d66987f9eb495f5ca2c4"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySawblade.java",
+      "before": "ff7e4940747cad75c553460bdccfaf3b60741e080b84238d825b677752273693",
+      "after": "4b6550fccaac532206a0d71adc56981a6b396a949fe8c57c3bad49044a51107e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java",
+      "before": "7e5ffd0f10445b6923b869da09ddfc56f44a0dd14f2f4b075912ba7490170d31",
+      "after": "74fcd86a6a9bde515409c606aec8334dfa372cab6e4089562287a541d6c95334"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/neutron/PileNeutronHandler.java",
+      "before": "42b533b8427a48961858624edd78a8959fd7e4de927a5310bc9b65d4b9c7219b",
+      "after": "2f5242cb2303d429cd94c032531e43c42ebe82f46ca9d1d8059f61702ee56933"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIAnvil.java",
+      "before": "f1d707baef3d73fb9f3bda2b538ce5c22ced4a290ed81df5bf86a01d8118b6dc",
+      "after": "8083ec5bf55c66764bb4befd9de4f437d95ec02766459e33579273318d0e1097"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIBarrel.java",
+      "before": "5c0c470a4a1a40644b75c5f089cecb2a7c01ef5c3aff2378f31ba5e7a02cf462",
+      "after": "8dd399a9e527aae8acc6420c16bd345df1d38b4bf7c0c8243875c0287c7f0587"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIBookLore.java",
+      "before": "94a15613f93c13e0d9ae5c4919394e1a5f7b47562f3676f9ebf3932ca3e3f26e",
+      "after": "3da143788c67d0da5b63ce6e170935091361e2805849343eec87fc11182d204e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICalculator.java",
+      "before": "6fe18524ce9fe3b3a171e3c2da214df926aaa544c2cb41cc6713c9affedc986c",
+      "after": "f5190e39513e85d551e56a4b79b1f72418b4b31f400bb70f95d6e359a58bc7cf"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java",
+      "before": "4f9a5ef1362bd37db04460121b35681a964fb80bac46014e4f10332f95d14a09",
+      "after": "de0cae20a1db4dd48d0287a232a0f94c79dd702efa7a31fbce63274af7948660"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICompressor.java",
+      "before": "f7abf826070cf3f1768336681c6c5d95d6730eba6bb2ddb48427498571b86448",
+      "after": "d719df624b7c6ef2e35ae3b8dbb7780bec53df1b2712c60ff4bddb6300bad88a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICoreEmitter.java",
+      "before": "8c4e07e6a970d862984fb765d58c6de3dcfaeb2ffdd62b91b49b0ecbaa6722aa",
+      "after": "2d0d4d2638baf57832014ffa24c80d45e6ab03b6250e5718ce2f3b0289b79f01"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICoreStabilizer.java",
+      "before": "ac0a45ad0f6a4d5fc7f1655644500506f3b4960833e6e2ca05e5eb95121cfb34",
+      "after": "93a743599fc7f890bf3e26cbfe730d0637138667470eed3eaf8593dc58c9462e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICounterTorch.java",
+      "before": "892d9f7a2310d474b7998481f8db218af8be09bdf56102c3acf76b02c2dae22b",
+      "after": "61b7e0e19f1459b5a48931b46deb259ea109ae160eb85f2a85c2ffa2593ef93a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICraneBoxer.java",
+      "before": "fab16c7df7e93c5760cfa5e905125f425d6e898165e14c767d0b2912e8212962",
+      "after": "735ecc6e7b078717e2f3cbc2ca903057c1e5bb194a69d3f2202d4703a0a9ab42"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICraneGrabber.java",
+      "before": "b2c394e10953a06c771c5d193ac350777ad5cd426f2eff937ea420d55265d7b3",
+      "after": "35492433c2bca0193e27d678387f02ba88d43388d9e90732a2e495b59d8a1a78"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICraneInserter.java",
+      "before": "8885a43bf0c40fb2422de0d87bedf4200cfed34fb27fed82f6d4fe0ac6616cf5",
+      "after": "62f4c9c88b497a2fb573ccb2bc90a6ec283cd658e6d71f01aaf800ab1683aa7f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUICraneRouter.java",
+      "before": "23a13af966491d8ae76e5433a723f35dfaf518d83d13bac8e517738910c0bf94",
+      "after": "cba74c5dda8236bc6ff51373a21e7b4bff43f6d3dbd9057a0350f3b3f2fd49f7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIDroneCrate.java",
+      "before": "c5df054ba91063fe2ae028fb361dc5b4d20da73ea2d02ee26b1b52f89fd7ee1d",
+      "after": "c4f83ea06a514500cae0169cdb462764453002daad4a11ca33d9b8ffcf9d06ed"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIElectrolyserFluid.java",
+      "before": "2d651fa68a2af7e38b3eb6a574a44a0fffb879c6be4e0ec342c46a1ee8727db3",
+      "after": "d63832a68e69df8729af19f1f27c1ca3d329143fc86e8cd3d8b6fe446b477a5e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIElectrolyserMetal.java",
+      "before": "4ba27a4048fe56bb3e7d8e874d36090c86ee280b74f3692c25a5e8e88f4611f7",
+      "after": "75b2fa5449d4955b34c513e67e33d57ee52e3dfffe391764bc717e466d0147df"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIFEL.java",
+      "before": "ad6e63c7a543f9de293fae603ca9a7ea280305b256628454476eb00c2b0e661e",
+      "after": "fea0c6537022aaa21289c0d0531f37146c8dc1529f27bc599fed4d55e7627c5e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIForceField.java",
+      "before": "d41d9678f3c0cbe53b1ee9d467409de23b4d6eb947a59065665a55bc32a484c8",
+      "after": "18db5dba3d829278386c693451ffb55ac4fa511a6373e20be5c51f27efe13a93"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIFunnel.java",
+      "before": "21ee230d78c621da12c76cae9d04ee0d8487654cd32a5fda4cac21922eda7150",
+      "after": "be062ac7b19177cc6fc71eaf71d6ba47e53ab3969205ec5bb1114a6071ef276a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIFusionKlystron.java",
+      "before": "5e12d4cf4038c5b7d86fa13f3ca7cf1dc45ab4f52620e9ea6be767c03d55aa38",
+      "after": "b56375a7fe43dfeafc395ee4a20db9ff98d7c93a2b11bfa4b408b7bd5fabdf5d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIHeaterHeatex.java",
+      "before": "72ec5669c6819c5ed696c0945866cabfa7cfd2dd94196921bba8e16c40f1e233",
+      "after": "801a094e2db7d89ecbc7dac68d33eb4609aca8fd6c4cca10d82636ca916aa6b9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIITER.java",
+      "before": "abad77a29616494d3dee720e7a32ee30ff6e98be22133969099a5deb69bbbc10",
+      "after": "3e6069761fbf3beda6ba49440b1985d457e823f89f3e7e20a5324ff5ad07954a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUILaunchPadRocket.java",
+      "before": "d84d0f8164c087d550e12c57728e63b99575da573a02ecd54a4f315979e82b83",
+      "after": "967e6992feda1018588776abc6c3ec38f9654c4910310e887124e7cc7f9ef318"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUILaunchPadRusted.java",
+      "before": "0b8c1419b846abbb6cf7d284a8f40e5b2778e45c6e8f4043920219c6e56028ca",
+      "after": "2a83a925984030eeb6e279c80ca44eda0d1c0afe844cfd214790be5cb99408d5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java",
+      "before": "5bd5e1404d8aab00b6666241506e3b94e5715955dc537725427992b31f68c974",
+      "after": "1173d1c04fbe0f6c349de1f2039ae8a3dbfd10cce09070f07c5c4258b31d9dce"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineAnnihilator.java",
+      "before": "f24e7b06e728c5b8e174e8b01d611261dd060c8fae87ec20cd6bf7ef6274c807",
+      "after": "d08b19a219d64befdb0f539903ff4f7dca86ab5c502a3673ba19490b70db9883"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineArcFurnaceLarge.java",
+      "before": "688f921a5b56337030989d2857e281a7b9e25a41c6d9b6bf29d3b1a6f1cb9587",
+      "after": "511dfe0e427053c901d00dd06e072b47e244bca49345ab310ec863bc9bbf94c2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineBattery.java",
+      "before": "9ea82c730ffdcb9388b9119a2c60eace39818153deeca499723dde0d0d7eae99",
+      "after": "646ba379bc3c16957dba676dd96c0beea78bf7efe553881bf7f7a27c17300c08"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineDriveProcessor.java",
+      "before": "1548cff353060ab8dbe1b0d42810c08b72c3e081bb7d4bda4bd02e76ad62d44a",
+      "after": "72fc45cdbb64733b72ca397c030e99956919c0abdeaa81dedeb045a811cc022b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineExcavator.java",
+      "before": "fd345142a8db073509cc75eebf20836522e44bb19478d2ea054ef12f86ef633d",
+      "after": "728f4ca03558abc8c6e24f0220c1185ac68bed3d564e7639f17b79eec5e00aa2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineFluidTank.java",
+      "before": "d0fbad0b70179d297b59a43f567750fad8801a5835afffb8f3d9ed8ebe045df6",
+      "after": "acd5661bf0667a7afd0bbee53e25cbee99a88e51b165a8e736e7e25a23e2931f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineGasFlare.java",
+      "before": "3b297090da4df4dab80898bd5e9612263f5e17baea11f677381e704a569fb928",
+      "after": "1cd54105d05cfdcbe043e4d9b0b24e2e037272b5333ac68997fccb7e72973c9c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineLaunchTable.java",
+      "before": "cbe909729b3c122c733980a79786a8f4178a8e4d6c3ec572abc47161a00cd7c9",
+      "after": "9d957cffd322d7c3a01b4e6bd01422b9d5a0ec3def9286d3e1a671d07649141c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineMissileAssembly.java",
+      "before": "9cd80e01013f434a8ec0476e2905406d2d2dab6b321ce898d1b96911c0890a3d",
+      "after": "9f48cf1eae681d3fd5ca6f063bedb5fa974662bf48075e261cbcfcffa7e6a1b7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "before": "ee5dcc0ee66752b3a5dc271adcb273bd82461254856ff5797680c334cf48eb0b",
+      "after": "5d0b8bf559a12c682e4f73062466acec13a57bfb4254d0179d776fe0781b8e6c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineRadarNTSlots.java",
+      "before": "80f42513dd712a6a80dd2be9eb3e6e98e161cbdf81bd9ff784c740cb45b0e167",
+      "after": "05838e3473113cc6728682f1bc7870e8416d1ba29cc31dd6608a9147eb19cb91"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineRocketAssembly.java",
+      "before": "c1d185f58358e869560ace6af0149114e0f7fe89d126cdbbb39919c48e9049f3",
+      "after": "106105d99447ed3e9fee0e8f00670fe5c1a7aa3c6bb9afbebb2a7a0ab84a9dde"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineSolderingStation.java",
+      "before": "9a56cc33eed8f0d3e65661d1ac8c88210546a79a510a1c18e2f907a4a827936c",
+      "after": "7f35c920fbce25e1360563d11eb021567f3a7651bbd55f3c0c67200bd3f2fc54"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java",
+      "before": "c1b9f32e6e490161169933b6f34b18edac198b32ff14c28ae69504021d65c603",
+      "after": "fcdbe3eed0f9cbec8514f46bc9edac1d07291326e0da9fa42a56add392690e75"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineTurbineGas.java",
+      "before": "005315041189fe7bafb8cbd5408341ca5a3261e5168f035f8e538d47823fc820",
+      "after": "5a87ef3142706132daf77be781f32d21f81267657b55d4cdf8bbd75ce85ae738"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineWoodBurner.java",
+      "before": "73579f249671c2c58841eaeebadf773a8688c6f2c68d889aa224b3249f060622",
+      "after": "68ba5dcb9abe1fb107cd6b3dc175b83e52806b38a64a70f41f3895373c9883c9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMassStorage.java",
+      "before": "17cb87639e6920e65a1ce03663bade49ec606a56b332cea122d90b25482fdfd5",
+      "after": "e1d109f57dbe9104d8454f816923c35d3023bee111ce2a9733fd7bf37d5c5ca0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMiningLaser.java",
+      "before": "d988d839a7d8213e3ca4849822b71e3eabf1d0cb6cfe63bc5ba4e1d5e189167a",
+      "after": "8e85f15e8c4a036a030d7be95215964158615bf21b2f69a44ed6f6ca392fb9fa"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMixer.java",
+      "before": "b168fea083828b771e5b1fa364ae01cb2a191500764701410709a0b7c39c6167",
+      "after": "52fec53ced0b046fda3116c374b92a9f4921dfc183b406e217ce120b47778792"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUINukeAntimatter.java",
+      "before": "0f2b764668c7311e338679c3b49e9cd3251995b7c68e53d3fe82faadde29a19c",
+      "after": "2a5437905024dc5feb5250778f16b90d5865d71f0ee2fa3775f45e61d15239a5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUINukeFstbmb.java",
+      "before": "faabe49999a8fa189b957c064a2dbcf918bb64b97044f082e53d9f478e78b49e",
+      "after": "1137e8da6c3c299e75dfb6db7a1462038f6f33ba26b364dc6ce86aa3eab03511"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIOilburner.java",
+      "before": "66adf9df0570e0daaa1b6419c03ef43a133e49b0e1cc651f1d1736e5f7d1724d",
+      "after": "32b2db1ae6676e09ef31bb850908d1053424cf42a161ab2ba7441d104259a5f6"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIOrbitalStationComputer.java",
+      "before": "9c8a146c5e6367ac7644df67349f1f97dcd3573bd0477448613b301f5f3d3979",
+      "after": "328069ba5c03ec58a451f127eecfe24e357f154d7066f20f9a1c0cb07c8be060"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIOrbitalStationLauncher.java",
+      "before": "61907c49549b15d900432bfaffbe340bc1d919c7e7863b9fcce2e2ae2470ba14",
+      "after": "38dc877386d4b616c4dc57e3fb7cf20a95ad2ceacbdbaac4d107a4f615a1649d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIPADipole.java",
+      "before": "743f3584cc0b263ba8c9ea98208986a5fb32b42b5dafc2d2ffbea32beabebeb3",
+      "after": "7c5953460406a4b746e00ca54be6a66e98c3bfaee8fe723a17796d1af5f480dc"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIPASource.java",
+      "before": "cd9ff86e9eb2eb16002efa281986550050527daa6d2d3e7ce266d63bfad5351b",
+      "after": "9eb85cbef4bf6c89ca7891e2f15d1ec66f3178b8fdad86ec4c5b7336091f30ad"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIPWR.java",
+      "before": "933bd90d29ef0d065e7cff64cb9aad7ebea9833359a17fc0c9cbce9e358f3675",
+      "after": "29016cd93a013a471498b8cdf9e65925de19d59eb216d06cc3425a642b0d20ed"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIPneumoTube.java",
+      "before": "d80705069f5472efaf7bcdf7fb1ea557999405d796f284d3104b69ca1f0e2c67",
+      "after": "6c5d662b7e3256b67eea4c5094e71191046c92928ac1efa35a08301c278346a3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIPump.java",
+      "before": "f06a0f022d75d6edbbf1fd51c2368a5845d98265dceae2ab56c3657e90f495b5",
+      "after": "bad1b49cdf890603a0392c710f99fb13427c3953a1fe76b5cfff4c679d9d6403"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRBMKAutoloader.java",
+      "before": "ea2f963156279b000bf35882e4bc41aa3fdba8cc7d5cb5c737a8cb5dff00412a",
+      "after": "2876c6e6a71158e6fc9851d11907855e899954f13c038a3a39f6891da7b9188f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRBMKBoiler.java",
+      "before": "4114ca7a1b6d0173d476670bef5308f165d5663e2f2b767a5f033476997b2a09",
+      "after": "c9bad90b51a8f2dc227d585262a10c7a03c4a3800d34edbfc9d383edea55e9e2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRBMKConsole.java",
+      "before": "c3844a9e432caae46899f294a560547f3f5153ac8cab9b05544ff1d4243d4981",
+      "after": "fcedf1a4353791b84d937ced44d97933090ba312747a9594ff822b8073262411"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRBMKControl.java",
+      "before": "ce9f052ad0be80b444bac0bc909b97919d564a91aa385424699cb749c7b34166",
+      "after": "3277aa66b8abc7b0dd9a0bfc47d9342a30aed16cb055d32eb07d92573984c934"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRBMKControlAuto.java",
+      "before": "4da394a31de40eada19f5bf09ce7303c285d47de6e103b1f9e62a42bc9ed94a2",
+      "after": "30bff6699184694a689e3e9ab5a01fb9778818d27d38cadabe898136297c92b5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIRadioRec.java",
+      "before": "903acd2bd8dbd88779a37f58717bc8c96c5404d1c147474adac35185f26a2e43",
+      "after": "9803144f612efe8b2acb82238b805cccd32174b35a11971332619151280ab7c4"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIReactorControl.java",
+      "before": "a96d51ac9102ea36785b5178254c0758c767e704346b4891f09a8368f71e0726",
+      "after": "b22f390c37df3ea5eebce0c042300b4a7e152ed63319656b5cc91cb8e4adf6ff"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIReactorResearch.java",
+      "before": "ac99c5948e0939d081dc5473cab3d4361c00c9721db37123f11ff8aa06ded16c",
+      "after": "9fb66e00af5f5d0e8a35a7405b3ae7cc7be9ed2f1c0f4785218bf7d52cea1f32"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIReactorZirnox.java",
+      "before": "d32ff5999abb80ea96599a27db51de6660582ac8f1f3bca9943f4caeaad24809",
+      "after": "d2f4b06e90f69b9d4a9102558265b3bcab6c087c327db5e48852ca07208b4428"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUISILEX.java",
+      "before": "803b5e5f98c0ba0bb749dbd7e598d644cc0a023d095b135047317d59f70c79d4",
+      "after": "88e44b828105563c5f5d726625a4b5794d67579effd97b0256054562cd4f6168"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenBobble.java",
+      "before": "db421e4cc100ff1858676645e96160440f0eb0e6879d5fc1641086898752ac14",
+      "after": "fde63ae15b8e6be47314c133cb8df930d87cdfb5cb74881b686c856ee0db9187"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java",
+      "before": "ea71fcff0750a154ef42f2af4f18be96369a72ac24473ff29a42c5524f1dc85b",
+      "after": "e04647b33a4bf5549d0b658272c15a73c025e32bae1865540dbb925cf18b6a8b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java",
+      "before": "025e568a20d47a593fac99dc2388877b9cf5883b1d71888926af8db1bea82e67",
+      "after": "7522e55686d1ae2301ae3d54d4759fcbc2f7e63fb0b6a2dc43ea1582f8853440"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenFluid.java",
+      "before": "609a963ac78102fdaa50b7a6ffe6df2316f0951dbcaddb3dcdad70a6ba37732d",
+      "after": "b4ce5bfd5eee32dd97e307063a6f9724620e35bf8c08cd6217fad2662f9e3b20"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenGuide.java",
+      "before": "8ecaea11af10245c221e347ddeb2f35f33a2289e96a5fcd30d39eaa4a9d0f9e5",
+      "after": "69046ab36ac96f0e56877f195e2ec4dbf3a804d788a6d9752e3c192d1b167ad8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenHolotape.java",
+      "before": "a9236ae733053fab71087d1283d74d0bf318ead9e9829b25286bb930057cd60f",
+      "after": "bb535a973ef33ef2c9a17287cdfc4afef211e523878535de4c3c51c84d5be080"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRBMKGauge.java",
+      "before": "810d65af95760a675e51efedcb4eaceace2041fcccbfefc7d53971cb18af4d35",
+      "after": "172e99dcffea71d3467c5fa5abee625f4da911b86dc099056666a5ff232e271b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRBMKKeyPad.java",
+      "before": "fdde5f780702f8cad0ce038e6e61edb0ee79b14eaa484b365f060e4b1716ce18",
+      "after": "479cd73503e4a686298c92e90421aba7604c06d7c0d5dd1109fb3d30d7019983"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorch.java",
+      "before": "56716c47655094b57e456b876f858721f77a6740f7c5f6c64187e9eddd8c8b3c",
+      "after": "8c30e5619268cc3117ef8f43228d5f32fd7f1833a3d2efe7d5593d22c34ebf0d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java",
+      "before": "3d20cb73f535f2dc5246e9ee266e38b46fb2154e343bd450e60f276737c49803",
+      "after": "8e963b4b3e7dd412a2d49e663f1361cbcef0c96a5a3649141a7556d345a3836e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchLogic.java",
+      "before": "cdd93679c12d67284b666ab9f1fa30a06be50aa193cc14f5b6331f53a2f4c827",
+      "after": "6b565d8ac6d453f25b42abe21c10f5f09ade366c3ed36264c9480cd235523cce"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java",
+      "before": "991a96d9e6d6da4286e9eeea60fc61e80d6ae2060e79e41ef868d5dc0cdd9d54",
+      "after": "21ff3d93cc88a2f578248e84510abd4a67ab8ae53c896fba914daa804779a66c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java",
+      "before": "f6c60c70a8c6c8d0dd1d3dd1b53c1c21e80df003650d7d8edd6fe98f277096b2",
+      "after": "dc7201b1e7f66d0f34fb49da6d7816ca875763eda65d798ce3f273b5ed94d55c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenSatCoord.java",
+      "before": "3c08002c8d4688d1d8541d54e969f8c62f9063323775b078b1dc39d498e360aa",
+      "after": "e8bf894f455cec9b9417f900724d673e62b3c4724e17e9bf8d3333e50e44605d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java",
+      "before": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+      "after": "5c7662acc8c761b7300988c858a55e0c5601bf26a6a8a2f5e0cf1a9027b243d2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenSnowglobe.java",
+      "before": "963829c0b5d523540402106d3030ec20d71cf2fcb648f165cca1dc196d2ee7b6",
+      "after": "d71ae93168b64781c6e88a47719a50962293aedd9c6b4eb730a1ef731810c054"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java",
+      "before": "2497b53ec9eaa9687a3abcbd5a2db28ae45fe6b53dd40358641a147b2e23c667",
+      "after": "355c28cb6e5238c940aba92c5189254832251362951ea70b9660d85ff5baf61d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenToolAbility.java",
+      "before": "4363df35af229641dda8f56f63707c95039740d6cb7fb686f84eeaaf1493346b",
+      "after": "c381a6e22518767fc079f0e49c9e4d2dd5d9ec364fec6a31708ab6420d04fff8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUISoyuzLauncher.java",
+      "before": "1d78fd4dd69fbda057c9afc3cfdf95fa137d33a41f8cff56dab5650bfd56ad5e",
+      "after": "fbf5e10772fea7819202c952d6080f5834cde683c99ee93a54f2f57ea26be8c8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java",
+      "before": "b3e1022bdb708dce4cf2c2418e2242a09511016a7e93954acd69ae5c78ded510",
+      "after": "8d525bf5b7865eaf30e8d46f7e0cbcd2ea9703258385bfd96ca6574662637c21"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUITransporterRocket.java",
+      "before": "840afe02e434c8cc65c216ffe5cac3e937f5d0836532d9bafc114706d97e7128",
+      "after": "9410a2034d94b0dd5879b07b460514d54d0ec40bc51b869ce121d96f07f9c297"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUITurretArty.java",
+      "before": "512365153770b4b38ca141085fb58ce57e12991d7735bfbf9a31a8a8e823b74c",
+      "after": "2d0eb64889710679e7c3dea0ff1b6469043ca237f552a3440b345e2d9352305a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUITurretBase.java",
+      "before": "a39723eb2d31aeba8ea9a54d6789134f7c6658f2a3a6057ba1e212a6ebe79aa3",
+      "after": "5c3f8fe6e8ad8b283a91972d28eded32fb0e4c036ac125e11b06b5fc36d79d95"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUITurretHIMARS.java",
+      "before": "84e866e6c27c889e548d6ebf26b025bc6b8a6d3e1ce0d893502f20294d41212a",
+      "after": "536d557e5f6700f20d9f5abe8aced9ed942a58ae5e4f74b3085c830619dcec4d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIWarController.java",
+      "before": "ff4a7c56dc001e24e2845cf9ad74ed97ae8b5ac6e975e958ec4b2698e4d1fa28",
+      "after": "700955146e74592c14add23628e0be721ff067fb4ee8396d7d9d531735de6363"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIWatz.java",
+      "before": "8581819b53d24bb648ff97b713a93ab626c79f40902004d56ce0102501fd1c2d",
+      "after": "82abf9d71a2ec4e7255ca793f0f905ece932adad643d9433f61f12d4f79db307"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GuiScreenRadioTelex.java",
+      "before": "e98c69538470a9128c68cdc017eb1a865b91d9b34ba5fecd25a8a9f8aca0b171",
+      "after": "b09c15673540b84526cc6191a563f458e4fe18e8905a7de0d6cf5d54264b8f2a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+      "before": "78537257d548b26a9011cfb885f0feb533918c1aa73a4ea2c32d0676f456d049",
+      "after": "aaf31b81b84f427390aa54e3e937cc8a20a21b2370ec0d1b964b35f74cf15694"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/qmaw/GuiQMAW.java",
+      "before": "d987d6f17f7e25894f6ba7971417f6344bb70383796002f852e317076f2d1632",
+      "after": "b42ffde02e40614d0fef0fbc6f727da4c0e218ab3f5ae33c2501a03d4b5bb3e1"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderCog.java",
+      "before": "05abab4c6304e98e3db99e2bfffe347c6305b66b01d8c8d5ed247eb313ce2773",
+      "after": "c38873ebbaaeafafa0aa372165ffa5d9821b79f5e4c66782d44fbd775ac8bea9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderSawblade.java",
+      "before": "a384c419f4cc03853a4a627f821f5264c351acefc47fb1143df8727a8d26d0e5",
+      "after": "8a657272ae6c1891209c23103ad9a2d27f1f65f91c90c1a4e684b3745ef3f987"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/sound/GuiSound.java",
+      "before": null,
+      "after": "21991818d61aefba8412f2eca534cd3305942e21a1302222fab669e08d1763cb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java",
+      "before": "87fd9ca39eb1821c4ae839b525e2d73f684cf623c7a03ab5021babb10b406868",
+      "after": "b1451e5c82154e197c55751ce16ce7ee02a33a66fb64e54d190fafe1de880646"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java",
+      "before": "ba5405486fac83755164c17a31660635c6b1db1ee5e5527c0630019a47cce052",
+      "after": "1caed290652c04d6bc0c706a07b6d6bbd72d6192742ceb9bc23003ed896d251d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityZirnoxDestroyed.java",
+      "before": "57770db7acb8e8041d9bdc2e629e6ada115e8fa7b5ce2a3ecf0cc7fb9fe6c7a3",
+      "after": "1026d5aadfc2b0d0952283ffbbb10cfc16be77178d21aff3c0ed7a2509e54050"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/feature/Meteorite.java",
+      "before": "d88e0f50b3d56535770cf5de3fe9ba577f9f08bdebe7dcfbabdcad95d497c264",
+      "after": "21ef92ed4b6190ce76be98e16e4d99de6ca0c62749576b206df52e6e05a39761"
+    }
+  ],
+  "result": "All patches compose in native Git. Forward byte-identical to integrated main; reverse byte-identical to CP64, only own new files removed. Historical isolated whole-file guards retain original baseline scopes; no regeneration or false blanket pass claimed."
+}

@@ -19,10 +19,10 @@ public class ItemDesingatorRange extends Item implements IDesignatorItem {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		if(itemstack.stackTagCompound != null) {
+		if(itemstack.getTagCompound() != null) {
 			list.add("Target Coordinates:");
-			list.add("X: " + itemstack.stackTagCompound.getInteger("xCoord"));
-			list.add("Z: " + itemstack.stackTagCompound.getInteger("zCoord"));
+			list.add("X: " + itemstack.getTagCompound().getInteger("xCoord"));
+			list.add("Z: " + itemstack.getTagCompound().getInteger("zCoord"));
 		} else {
 			list.add("Please select a target.");
 		}
@@ -35,13 +35,13 @@ public class ItemDesingatorRange extends Item implements IDesignatorItem {
 		int y = pos.getBlockPos().getY();
 		int z = pos.getBlockPos().getZ();
 
-		if(!(world.getBlock(x, y, z) instanceof LaunchPad)) {
+		if(!(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof LaunchPad)) {
 			
-			if(stack.stackTagCompound == null)
-				stack.stackTagCompound = new NBTTagCompound();
+			if(stack.getTagCompound() == null)
+				stack.setTagCompound(new NBTTagCompound());
 
-			stack.stackTagCompound.setInteger("xCoord", x);
-			stack.stackTagCompound.setInteger("zCoord", z);
+			stack.getTagCompound().setInteger("xCoord", x);
+			stack.getTagCompound().setInteger("zCoord", z);
 
 			if(world.isRemote) {
 				player.sendMessage(new TextComponentString("Position set to X:" + x + ", Z:" + z));
@@ -62,6 +62,6 @@ public class ItemDesingatorRange extends Item implements IDesignatorItem {
 
 	@Override
 	public Vec3d getCoords(World world, ItemStack stack, int x, int y, int z) {
-		return new Vec3d(stack.stackTagCompound.getInteger("xCoord"), 0, stack.stackTagCompound.getInteger("zCoord"));
+		return new Vec3d(stack.getTagCompound().getInteger("xCoord"), 0, stack.getTagCompound().getInteger("zCoord"));
 	}
 }

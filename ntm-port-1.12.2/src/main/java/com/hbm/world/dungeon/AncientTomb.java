@@ -53,7 +53,7 @@ public class AncientTomb {
 						continue;
 					}
 					
-					world.setBlockToAir(x + ix, yOff + iy, z + iz);
+					com.hbm.world.WorldAirRemoval.remove(world, x + ix, yOff + iy, z + iz);
 				}
 			}
 		}
@@ -102,7 +102,7 @@ public class AncientTomb {
 			int h = i < yOff ? 3 : 2;
 			
 			if(i > 40)
-				DungeonToolbox.generateBox(world, x + ix - 1, i, z + iz - 1, 3, h, 3, Blocks.air);
+				DungeonToolbox.generateBox(world, x + ix - 1, i, z + iz - 1, 3, h, 3, Blocks.AIR);
 			else
 				DungeonToolbox.generateBox(world, x + ix - 1, i, z + iz - 1, 3, h, 3, ModBlocks.gas_radon_tomb);
 
@@ -113,9 +113,9 @@ public class AncientTomb {
 						//if(dy >= yOff + 2)
 						//	continue;
 
-						Block b = world.getBlock(dx, dy, dz);
+						Block b = com.hbm.world.WorldBlockState.read(world, dx, dy, dz).getBlock();
 
-						if(b != Blocks.air && b != ModBlocks.gas_radon_tomb && b != ModBlocks.concrete && b != ModBlocks.concrete_smooth && b != ModBlocks.brick_concrete && b != ModBlocks.brick_concrete_cracked && b != ModBlocks.brick_concrete_broken) {
+						if(b != Blocks.AIR && b != ModBlocks.gas_radon_tomb && b != ModBlocks.concrete && b != ModBlocks.concrete_smooth && b != ModBlocks.brick_concrete && b != ModBlocks.brick_concrete_cracked && b != ModBlocks.brick_concrete_broken) {
 
 							MetaBlock meta = DungeonToolbox.getRandom(concrete, rand);
 							world.setBlock(dx, dy, dz, meta.block, meta.meta, 3);
@@ -131,9 +131,9 @@ public class AncientTomb {
 			for(int dy = y - 1; dy < y + 4; dy++) {
 				for(int dz = z - 2; dz < z + 3; dz++) {
 					
-					Block b = world.getBlock(dx, dy, dz);
+					Block b = com.hbm.world.WorldBlockState.read(world, dx, dy, dz).getBlock();
 					
-					if(b != Blocks.air && b != ModBlocks.gas_radon_tomb && b != ModBlocks.concrete &&
+					if(b != Blocks.AIR && b != ModBlocks.gas_radon_tomb && b != ModBlocks.concrete &&
 							b != ModBlocks.concrete_smooth && b != ModBlocks.brick_concrete &&
 							b != ModBlocks.brick_concrete_cracked && b != ModBlocks.brick_concrete_broken) {
 						

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.hbm.blocks.IBlockMultiPass;
+import com.hbm.blocks.MultipassContext;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.inventory.FluidContainerRegistry;
 import com.hbm.inventory.FluidStack;
@@ -14,7 +15,6 @@ import com.hbm.items.ModItems;
 import com.hbm.items.machine.ItemDrillbit.EnumDrillType;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
-import com.hbm.render.block.RenderBlockMultipass;
 import com.hbm.util.EnumUtil;
 import com.hbm.util.i18n.I18nUtil;
 
@@ -23,7 +23,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,16 +33,33 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, IBlockMultiPass {
 
+    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }
+    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }
+    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }
+    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));
+    }
+    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        int metadata = getMetaFromState(state);
+        TileEntity tile = world.getTileEntity(pos);
+        if(tile instanceof TileEntityBedrockOre) {
+            TileEntityBedrockOre ore = (TileEntityBedrockOre) tile;
+            return MultipassContext.of(metadata, null, true, ore.color, ore.shape, 6, 6, 0);
+        }
+        return MultipassContext.basic(metadata);
+    }
+
+
 	public BlockBedrockOreTE() {
-		super(Material.rock);
-		this.setBlockTextureName("bedrock");
+		super(Material.ROCK);
 		this.setBlockUnbreakable();
 		this.setResistance(1_000_000);
 	}
@@ -59,7 +75,7 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return null;
 	}
 
@@ -72,12 +88,12 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
 		
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		if(stack == null) return false;
 		if(!player.capabilities.isCreativeMode) return false;
 		if(world.isRemote) return true;
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(te instanceof TileEntityBedrockOre) {
 			TileEntityBedrockOre ore = (TileEntityBedrockOre) te;
@@ -108,77 +124,26 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 		return true;
 	}
 	
-	@Override
-	public int getRenderType(){
-		return IBlockMultiPass.getRenderType();
-	}
+
 
 	@Override
 	public int getPasses() {
 		return 2;
 	}
 
-	private IIcon[] overlays = new IIcon[10];
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		
-		this.blockIcon = reg.registerIcon("bedrock");
-		for(int i = 0; i < overlays.length; i++) {
-			overlays[i] = reg.registerIcon(RefStrings.MODID + ":ore_random_" + (i + 1));
-		}
-	}
+
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		
-		if(RenderBlockMultipass.currentPass == 0)
-			return Blocks.bedrock.getIcon(0, 0);
 
-		TileEntity te = world.getTileEntity(x, y, z);
-		
-		if(te instanceof TileEntityBedrockOre) {
-			TileEntityBedrockOre ore = (TileEntityBedrockOre) te;
-			int index = ore.shape % overlays.length;
-			return overlays[index];
-		}
 
-		return Blocks.bedrock.getIcon(0, 0);
-	}
 
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
 
-		if(RenderBlockMultipass.currentPass == 0)
-			return Blocks.bedrock.getIcon(0, 0);
-		
-		int index = meta % overlays.length;
-		return overlays[index];
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-		
-		if(RenderBlockMultipass.currentPass == 0)
-			return 0xffffff;
-
-		TileEntity te = world.getTileEntity(x, y, z);
-		
-		if(te instanceof TileEntityBedrockOre) {
-			TileEntityBedrockOre ore = (TileEntityBedrockOre) te;
-			return ore.color;
-		}
-		
-		return super.colorMultiplier(world, x, y, z);
-	}
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
 		
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(!(te instanceof TileEntityBedrockOre))
 			return;
@@ -197,7 +162,7 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 			text.add("Requires: " + ore.acidRequirement.fill + "mB " + ore.acidRequirement.type.getLocalizedName());
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 	
 	public static class TileEntityBedrockOre extends TileEntity {
@@ -214,10 +179,6 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 			return this;
 		}
 
-		@Override
-		public boolean canUpdate() {
-			return false;
-		}
 		
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
@@ -239,7 +200,7 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 		}
 		
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			
 			if(this.resource != null) {
@@ -256,6 +217,7 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 			nbt.setInteger("tier", this.tier);
 			nbt.setInteger("color", this.color);
 			nbt.setInteger("shape", this.shape);
+			return nbt;
 		}
 
 		@Override
@@ -273,7 +235,7 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 				this.color = MainRegistry.proxy.getStackColor(resource, true);
 			}
 
-			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 	}
 }

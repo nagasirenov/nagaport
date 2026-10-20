@@ -73,7 +73,7 @@ public class LootGenerator {
 
 	public static void lootBooklet(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 			loot.addItem(ItemBookLore.createBook("beacon", 12, 0x404040, 0xD637B3), 0, 0, 0);;
@@ -82,7 +82,7 @@ public class LootGenerator {
 
 	public static void lootCapNuke(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -99,7 +99,7 @@ public class LootGenerator {
 
 	public static void lootMedicine(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -110,7 +110,7 @@ public class LootGenerator {
 
 	public static void lootCapStash(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -128,7 +128,7 @@ public class LootGenerator {
 
 	public static void lootMakeshiftGun(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -147,7 +147,7 @@ public class LootGenerator {
 
 	public static void lootNukeStorage(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -164,7 +164,7 @@ public class LootGenerator {
 
 	public static void lootBones(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -177,7 +177,7 @@ public class LootGenerator {
 
 	public static void lootGlyphidHive(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 
@@ -190,7 +190,7 @@ public class LootGenerator {
 
 	public static void lootBookMeteor(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 			Item mkuItem = MKUCraftingHandler.getMKUItem(world);
@@ -203,21 +203,21 @@ public class LootGenerator {
 
 	public static void lootBookLore(World world, int x, int y, int z, ItemStack book) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 			addItemWithDeviation(loot, world.rand, book, 0, 0, -0.25);
 
 			int count = world.rand.nextInt(3) + 2;
-			for(int k = 0; k < count; k++) addItemWithDeviation(loot, world.rand, new ItemStack(Items.book), -0.25, k * 0.03125, 0.25);
+			for(int k = 0; k < count; k++) addItemWithDeviation(loot, world.rand, new ItemStack(Items.BOOK), -0.25, k * 0.03125, 0.25);
 
 			count = world.rand.nextInt(2) + 1;
-			for(int k = 0; k < count; k++) addItemWithDeviation(loot, world.rand, new ItemStack(Items.paper), 0.25, k * 0.03125, 0.125);
+			for(int k = 0; k < count; k++) addItemWithDeviation(loot, world.rand, new ItemStack(Items.PAPER), 0.25, k * 0.03125, 0.125);
 		}
 	}
 
 	public static void lootFlareGun(World world, int x, int y, int z) {
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if (loot != null && loot.items.isEmpty()) {
 			addItemWithDeviation(loot, world.rand, new ItemStack(ModItems.gun_flaregun), 0, 0, -0.25);
 
@@ -237,7 +237,7 @@ public class LootGenerator {
 	}
 	public static void lootShit(World world, int x, int y, int z) {
 
-		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(x, y, z);
+		TileEntityLoot loot = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(loot != null && loot.items.isEmpty()) {
 

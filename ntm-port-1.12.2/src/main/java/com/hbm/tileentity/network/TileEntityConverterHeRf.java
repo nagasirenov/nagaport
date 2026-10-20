@@ -18,7 +18,7 @@ import com.hbm.lib.ForgeDirection;
 
 import java.io.IOException;
 
-public class TileEntityConverterHeRf extends TileEntityLoadedBase implements IEnergyReceiverMK2, IEnergyHandler, IConfigurableMachine {
+public class TileEntityConverterHeRf extends TileEntityLoadedBase implements IEnergyReceiverMK2, IEnergyHandler, IConfigurableMachine, net.minecraft.util.ITickable {
 	
 	//Thanks to the great people of Fusion Warfare for helping me with the original implementation of the RF energy API
 	
@@ -30,21 +30,21 @@ public class TileEntityConverterHeRf extends TileEntityLoadedBase implements IEn
 	public EnergyStorage storage = new EnergyStorage(1_000_000, 1_000_000, 1_000_000);
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			
 			long rfCreated = Math.min(storage.getMaxEnergyStored() - storage.getEnergyStored(), power / heInput * rfOutput);
 			this.power -= rfCreated * heInput / rfOutput;
 			this.storage.setEnergyStored((int) (storage.getEnergyStored() + rfCreated));
 			if(power > 0) this.power *= (1D - inputDecay);
-			if(rfCreated > 0) this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+			if(rfCreated > 0) this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 			
 			for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 				
-				BlockPos loc = new BlockPos(xCoord, yCoord, zCoord).offset(dir);
-				TileEntity entity = Compat.getTileStandard(worldObj, loc.getX(), loc.getY(), loc.getZ());
+				BlockPos loc = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(dir);
+				TileEntity entity = Compat.getTileStandard(this.world, loc.getX(), loc.getY(), loc.getZ());
 			
 				if (entity != null && entity instanceof IEnergyReceiver) {
 					IEnergyReceiver receiver = (IEnergyReceiver) entity;
@@ -79,11 +79,12 @@ public class TileEntityConverterHeRf extends TileEntityLoadedBase implements IEn
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
 		storage.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override

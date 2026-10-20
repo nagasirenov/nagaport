@@ -28,11 +28,11 @@ public class TileEntityOrbitalStationComputer extends TileEntityMachineBase impl
 	}
 
 	public boolean travelTo(CelestialBody body, ItemStack drive) {
-		OrbitalStation station = OrbitalStation.getStationFromPosition(xCoord, zCoord);
+		OrbitalStation station = OrbitalStation.getStationFromPosition(this.pos.getX(), this.pos.getZ());
 
 		if(station.orbiting == body) return false;
 
-		station.travelTo(worldObj, body);
+		station.travelTo(this.world, body);
 		slots[0] = drive;
 		markChanged();
 
@@ -40,19 +40,19 @@ public class TileEntityOrbitalStationComputer extends TileEntityMachineBase impl
 	}
 
 	public boolean isTravelling() {
-		OrbitalStation station = OrbitalStation.getStationFromPosition(xCoord, zCoord);
+		OrbitalStation station = OrbitalStation.getStationFromPosition(this.pos.getX(), this.pos.getZ());
 
 		return station.state != StationState.ORBIT;
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.orbitalStationComputer";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			hasDrive = slots[0] != null;
 			networkPackNT(50);
 		}
@@ -89,12 +89,12 @@ public class TileEntityOrbitalStationComputer extends TileEntityMachineBase impl
 	@Override
 	public void receiveControl(NBTTagCompound data) {
 		if(data.hasKey("name")) {
-			OrbitalStation station = OrbitalStation.getStationFromPosition(xCoord, zCoord);
+			OrbitalStation station = OrbitalStation.getStationFromPosition(this.pos.getX(), this.pos.getZ());
 			station.name = data.getString("name");
 		}
 
 		if(data.hasKey("gravity")) {
-			OrbitalStation station = OrbitalStation.getStationFromPosition(xCoord, zCoord);
+			OrbitalStation station = OrbitalStation.getStationFromPosition(this.pos.getX(), this.pos.getZ());
 			station.gravityMultiplier = data.getBoolean("gravity") ? 1 : 0;
 		}
 	}
@@ -105,12 +105,12 @@ public class TileEntityOrbitalStationComputer extends TileEntityMachineBase impl
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord,
-				yCoord,
-				zCoord,
-				xCoord + 1,
-				yCoord + 2,
-				zCoord + 1
+				this.pos.getX(),
+				this.pos.getY(),
+				this.pos.getZ(),
+				this.pos.getX() + 1,
+				this.pos.getY() + 2,
+				this.pos.getZ() + 1
 			);
 		}
 		

@@ -1,0 +1,31 @@
+# Exact javap method excerpts; source legacy-World.javap
+
+  public void a(double, double, double, java.lang.String, float, float);
+    Code:
+       0: iconst_0
+       1: istore        10
+       3: iload         10
+       5: aload_0
+       6: getfield      #223                // Field u:Ljava/util/List;
+       9: invokeinterface #590,  1          // InterfaceMethod java/util/List.size:()I
+      14: if_icmpge     52
+      17: aload_0
+      18: getfield      #223                // Field u:Ljava/util/List;
+      21: iload         10
+      23: invokeinterface #584,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      28: checkcast     #85                 // class ahh
+      31: aload         7
+      33: dload_1
+      34: dload_3
+      35: dload         5
+      37: fload         8
+      39: fload         9
+      41: invokeinterface #560,  10         // InterfaceMethod ahh.a:(Ljava/lang/String;DDDFF)V
+      46: iinc          10, 1
+      49: goto          3
+      52: return
+
+  public void a(double, double, double, java.lang.String, float, float, boolean);
+    Code:
+       0: return
+

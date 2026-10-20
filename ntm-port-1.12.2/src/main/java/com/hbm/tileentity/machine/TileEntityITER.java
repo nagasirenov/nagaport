@@ -85,14 +85,14 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineITER";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.updateConnections();
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
@@ -131,7 +131,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 
 					if(ItemFusionShield.getShieldDamage(slots[3]) > ((ItemFusionShield)slots[3].getItem()).maxDamage) {
 						slots[3] = null;
-						worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:block.shutdown", 5F, 1F);
+						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.shutdown", 5F, 1F);
 						this.isOn = false;
 						this.markDirty();
 					}
@@ -179,10 +179,10 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 
 			for(DirPos pos : getConPos()) {
 				if(tanks[1].getFill() > 0) {
-					this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 				if(tanks[3].getFill() > 0) {
-					this.sendFluid(tanks[3], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[3], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 
@@ -203,7 +203,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 				this.rotorSpeed = Math.max(0F, Math.min(15F, this.rotorSpeed + 0.05F));
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fusionReactorRunning", xCoord, yCoord, zCoord, 1.0F, 30F, 1.0F);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fusionReactorRunning", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 30F, 1.0F);
 					audio.startSound();
 				}
 
@@ -232,9 +232,9 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	private void updateConnections() {
 
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[2].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[2].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -244,15 +244,15 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 
 		connections = new ArrayList();
 
-		connections.add(new DirPos(xCoord, yCoord + 3, zCoord, ForgeDirection.UP));
-		connections.add(new DirPos(xCoord, yCoord - 3, zCoord, ForgeDirection.DOWN));
+		connections.add(new DirPos(this.pos.getX(), this.pos.getY() + 3, this.pos.getZ(), ForgeDirection.UP));
+		connections.add(new DirPos(this.pos.getX(), this.pos.getY() - 3, this.pos.getZ(), ForgeDirection.DOWN));
 
 		Vec3d vec = new Vec3d(5.75, 0, 0);
 
 		for(int i = 0; i < 16; i++) {
 			vec = vec.rotateYaw((float) (Math.PI / 8));
-			connections.add(new DirPos(xCoord + (int)vec.x, yCoord + 3, zCoord + (int)vec.z, ForgeDirection.UP));
-			connections.add(new DirPos(xCoord + (int)vec.x, yCoord - 3, zCoord + (int)vec.z, ForgeDirection.DOWN));
+			connections.add(new DirPos(this.pos.getX() + (int)vec.x, this.pos.getY() + 3, this.pos.getZ() + (int)vec.z, ForgeDirection.UP));
+			connections.add(new DirPos(this.pos.getX() + (int)vec.x, this.pos.getY() - 3, this.pos.getZ() + (int)vec.z, ForgeDirection.DOWN));
 		}
 
 		return connections;
@@ -263,10 +263,10 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 
 		if(this.plasma.getTankType() == Fluids.PLASMA_BF) {
 
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
-			ExplosionLarge.spawnShrapnels(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 50);
+			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+			ExplosionLarge.spawnShrapnels(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 50);
 
-			ExplosionNT exp = new ExplosionNT(worldObj, null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 20F)
+			ExplosionNT exp = new ExplosionNT(this.world, null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 20F)
 					.addAttrib(ExAttrib.BALEFIRE)
 					.addAttrib(ExAttrib.NOPARTICLE)
 					.addAttrib(ExAttrib.NOSOUND)
@@ -278,13 +278,13 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "muke");
 			data.setBoolean("balefire", true);
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 250));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 250));
 
 		} else {
 			Vec3d vec = new Vec3d(5.5, 0, 0);
-			vec = vec.rotateYaw(worldObj.rand.nextFloat() * (float)Math.PI * 2F);
+			vec = vec.rotateYaw(this.world.rand.nextFloat() * (float)Math.PI * 2F);
 
-			worldObj.newExplosion(null, xCoord + 0.5 + vec.x, yCoord + 0.5 + worldObj.rand.nextGaussian() * 1.5D, zCoord + 0.5 + vec.z, 2.5F, true, true);
+			this.world.newExplosion(null, this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 0.5 + this.world.rand.nextGaussian() * 1.5D, this.pos.getZ() + 0.5 + vec.z, 2.5F, true, true);
 		}
 
 	}
@@ -346,12 +346,14 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot == 2 || slot == 4; // only allow removing breeder outputs <- ?????
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1, 2, 4 };
 	}
 
@@ -468,7 +470,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", this.power);
@@ -480,6 +482,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 		tanks[2].writeToNBT(nbt, "coolant");
 		tanks[3].writeToNBT(nbt, "hotlant");
 		plasma.writeToNBT(nbt, "plasma");
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -489,12 +492,12 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord + 0.5 - 8,
-					yCoord + 0.5 - 3,
-					zCoord + 0.5 - 8,
-					xCoord + 0.5 + 8,
-					yCoord + 0.5 + 3,
-					zCoord + 0.5 + 8
+					this.pos.getX() + 0.5 - 8,
+					this.pos.getY() + 0.5 - 3,
+					this.pos.getZ() + 0.5 - 8,
+					this.pos.getX() + 0.5 + 8,
+					this.pos.getY() + 0.5 + 3,
+					this.pos.getZ() + 0.5 + 8
 					);
 		}
 
@@ -508,7 +511,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	}
 
 	public void disassemble() {
-		worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 	}
 
 	@Override

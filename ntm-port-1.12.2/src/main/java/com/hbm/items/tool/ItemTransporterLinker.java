@@ -62,7 +62,7 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 				player.sendMessage(new TextComponentString("Added transporter to linker"));
 			}
 		} else if(world.isRemote) {
-			lastTransporter = TransporterInfo.from(world.provider.dimensionId, transporter);
+			lastTransporter = TransporterInfo.from(world.provider.getDimension(), transporter);
 			player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		}
 
@@ -73,7 +73,7 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
     	if(world.isRemote || !(entity instanceof EntityPlayerMP))
     		return;
 
-    	if(((EntityPlayerMP)entity).getHeldItem() != stack)
+    	if(com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayerMP)entity)) != stack)
     		return;
 
 		List<TransporterInfo> transporters = getTransporters(stack);
@@ -123,7 +123,7 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 		}
 
 		public static TransporterInfo from(int dimensionId, TileEntityTransporterBase transporter) {
-			TransporterInfo info = new TransporterInfo(transporter.getTransporterName(), dimensionId, transporter.xCoord, transporter.yCoord, transporter.zCoord);
+			TransporterInfo info = new TransporterInfo(transporter.getTransporterName(), dimensionId, transporter.getPos().getX(), transporter.getPos().getY(), transporter.getPos().getZ());
 			info.linkedTo = transporter.getLinkedTransporter();
 			return info;
 		}
@@ -174,7 +174,7 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 	}
 
 	private void addTransporter(ItemStack stack, World world, TileEntityTransporterBase transporter) {
-		int dimensionId = world.provider.dimensionId;
+		int dimensionId = world.provider.getDimension();
 
 		Set<TransporterInfo> transporters = loadTransporters(stack);
 
@@ -193,15 +193,15 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 	}
 
 	private static Set<TransporterInfo> loadTransporters(ItemStack stack) {
-		if(stack.stackTagCompound == null)
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null)
+			stack.setTagCompound(new NBTTagCompound());
 
 		Set<TransporterInfo> transporterCoordinates = new HashSet<>();
 
-		int[] dimensionsToLoad = stack.stackTagCompound.getIntArray("dimensions");
+		int[] dimensionsToLoad = stack.getTagCompound().getIntArray("dimensions");
 		for(int dimensionId : dimensionsToLoad) {
 
-			NBTTagCompound dimensionTag = stack.stackTagCompound.getCompoundTag("d" + dimensionId);
+			NBTTagCompound dimensionTag = stack.getTagCompound().getCompoundTag("d" + dimensionId);
 			int[] coordinateList = dimensionTag.getIntArray("coords");
 			World world = DimensionManager.getWorld(dimensionId);
 
@@ -209,7 +209,7 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 
 			// 3 dimension strides
 			for(int i = 0; i < coordinateList.length; i += 3) {
-				TileEntity te = world.getTileEntity(coordinateList[i], coordinateList[i+1], coordinateList[i+2]);
+				TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(coordinateList[i], coordinateList[i+1], coordinateList[i+2]));
 				if(te instanceof TileEntityTransporterBase) {
 					transporterCoordinates.add(TransporterInfo.from(dimensionId, (TileEntityTransporterBase) te));
 				}
@@ -220,8 +220,8 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 	}
 
 	private static void saveTransporters(ItemStack stack, Set<TransporterInfo> transporters) {
-		if(stack.stackTagCompound == null)
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null)
+			stack.setTagCompound(new NBTTagCompound());
 
 		Map<Integer, List<Integer>> data = new HashMap<>();
 
@@ -232,12 +232,12 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 			data.get(info.dimensionId).addAll(Arrays.asList(info.x, info.y, info.z));
 		}
 
-		stack.stackTagCompound.setIntArray("dimensions", BobMathUtil.intCollectionToArray(data.keySet()));
+		stack.getTagCompound().setIntArray("dimensions", BobMathUtil.intCollectionToArray(data.keySet()));
 
 		for(Entry<Integer, List<Integer>> entry : data.entrySet()) {
 			NBTTagCompound dimensionTag = new NBTTagCompound();
 			dimensionTag.setIntArray("coords", BobMathUtil.intCollectionToArray(entry.getValue()));
-			stack.stackTagCompound.setTag("d" + entry.getKey(), dimensionTag);
+			stack.getTagCompound().setTag("d" + entry.getKey(), dimensionTag);
 		}
 	}
 

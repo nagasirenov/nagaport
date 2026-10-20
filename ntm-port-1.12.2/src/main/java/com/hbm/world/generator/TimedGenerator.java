@@ -15,7 +15,7 @@ public class TimedGenerator {
 	
 	public static void automaton(World world, int amount) {
 
-		ArrayList<ITimedJob> list = operations.get(world.provider.dimensionId);
+		ArrayList<ITimedJob> list = operations.get(world.provider.getDimension());
 		
 		if(list == null)
 			return;
@@ -36,11 +36,11 @@ public class TimedGenerator {
 	
 	public static void addOp(World world, ITimedJob job) {
 		
-		ArrayList<ITimedJob> list = operations.get(world.provider.dimensionId);
+		ArrayList<ITimedJob> list = operations.get(world.provider.getDimension());
 		
 		if(list == null) {
 			list = new ArrayList();
-			operations.put(world.provider.dimensionId, list);
+			operations.put(world.provider.getDimension(), list);
 		}
 		
 		list.add(job);

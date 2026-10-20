@@ -49,19 +49,19 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.radGen";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.output = 0;
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-			this.tryProvide(worldObj, this.xCoord - dir.offsetX * 4, this.yCoord, this.zCoord - dir.offsetZ * 4, dir.getOpposite());
+			this.tryProvide(this.world, this.pos.getX() - dir.offsetX * 4, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 4, dir.getOpposite());
 			
 			//check if reload necessary for any queues
 			for(int i = 0; i < 12; i++) {
@@ -165,7 +165,7 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setIntArray("progress", this.progress);
 		nbt.setIntArray("maxProgress", this.maxProgress);
@@ -185,6 +185,7 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 		nbt.setTag("progressing", list);
 		
 		nbt.setLong("power", this.power);
+		return nbt;
 	}
 
 	@Override
@@ -210,13 +211,15 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int i) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int i = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 				12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= 12;
 	}
 	
@@ -234,7 +237,7 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 		}
 
 		fuels.put(		new ComparableStack(ModItems.scrap_nuclear),					new Triplet<Integer, Integer, ItemStack>(50,		5 * 60 * 20,		null));
-		fuels.put(		new ComparableStack(ModItems.gem_rad),							new Triplet<Integer, Integer, ItemStack>(25_000,	30 * 60 * 20,		new ItemStack(Items.diamond)));
+		fuels.put(		new ComparableStack(ModItems.gem_rad),							new Triplet<Integer, Integer, ItemStack>(25_000,	30 * 60 * 20,		new ItemStack(Items.DIAMOND)));
 	}
 	
 	private Triplet<Integer, Integer, ItemStack> grabResult(ItemStack stack) {

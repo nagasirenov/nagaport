@@ -40,7 +40,7 @@ public class BlockVolcanoV2 extends BlockContainer {
 		return false;
 	}
 
-	public static class TileEntityLightningVolcano extends TileEntity implements IBufPacketReceiver {
+	public static class TileEntityLightningVolcano extends TileEntity implements IBufPacketReceiver, net.minecraft.util.ITickable {
 
 		public int chargetime;
 		public float flashd;
@@ -51,7 +51,7 @@ public class BlockVolcanoV2 extends BlockContainer {
 		}
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 			// flashd is used locally to render the spike, and on the server for timing
 			if(chargetime > 0) {
 				flashd = 0;
@@ -60,13 +60,13 @@ public class BlockVolcanoV2 extends BlockContainer {
 				flashd = Math.min(100.0f, flashd + 0.3f * (100.0f - flashd) * 0.15f);
 			}
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 
 				if(chargetime == 1) {
-					double x = (int) (xCoord + dir.offsetX * (worldObj.getTotalWorldTime() / 5L) % 1) + 0.5;
-					double y = (int) (yCoord + dir.offsetY * (worldObj.getTotalWorldTime() / 5L) % 1) + 20.5;
-					double z = (int) (zCoord + dir.offsetZ * (worldObj.getTotalWorldTime() / 5L) % 1) + 0.5;
+					double x = (int) (this.pos.getX() + dir.offsetX * (this.world.getTotalWorldTime() / 5L) % 1) + 0.5;
+					double y = (int) (this.pos.getY() + dir.offsetY * (this.world.getTotalWorldTime() / 5L) % 1) + 20.5;
+					double z = (int) (this.pos.getZ() + dir.offsetZ * (this.world.getTotalWorldTime() / 5L) % 1) + 0.5;
 
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "plasmablast");
@@ -76,8 +76,8 @@ public class BlockVolcanoV2 extends BlockContainer {
 					data.setFloat("scale", 10 * 4);
 					data.setFloat("yaw", 90);
 
-					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(worldObj.provider.dimensionId, x, y, z, 256));
-					worldObj.playSoundEffect(x, y, z, "ambient.weather.thunder", 200, 0.8F + this.worldObj.rand.nextFloat() * 0.2F);
+					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(this.world.provider.getDimension(), x, y, z, 256));
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x, y, z, "ambient.weather.thunder", 200, 0.8F + this.world.rand.nextFloat() * 0.2F);
 					vapor();
 				}
 
@@ -85,10 +85,10 @@ public class BlockVolcanoV2 extends BlockContainer {
 				if(chargetime > 0) chargetime--;
 
 				if(flashd >= 100) {
-					chargetime = worldObj.rand.nextInt(400) + 100;
+					chargetime = this.world.rand.nextInt(400) + 100;
 				}
 
-				PacketDispatcher.wrapper.sendToAllAround(new BufPacket(xCoord, yCoord, zCoord, this), new TargetPoint(this.worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 256));
+				PacketDispatcher.wrapper.sendToAllAround(new BufPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 256));
 			}
 		}
 
@@ -99,9 +99,10 @@ public class BlockVolcanoV2 extends BlockContainer {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("charge", this.chargetime);
+			return nbt;
 		}
 
 		@Override
@@ -126,16 +127,16 @@ public class BlockVolcanoV2 extends BlockContainer {
 		}
 
 		private void vapor() {
-			List<Entity> entities = this.worldObj.getEntitiesWithinAABB(Entity.class,
-					AxisAlignedBB.getBoundingBox(this.xCoord - 0.5, this.yCoord + 0.5, this.zCoord - 0.5, this.xCoord + 1.5,
-							this.yCoord + 60, this.zCoord + 1.5));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class,
+					AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5,
+							this.pos.getY() + 60, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(Entity e : entities) {
 
 					if(e instanceof EntityLivingBase)
-						if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp_float(((EntityLivingBase) e).getMaxHealth() * 1F, 3, 20)))
-							worldObj.playSoundAtEntity(e, "hbm:weapon.tesla", 1.0F, 1.0F);
+						if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp(((EntityLivingBase) e).getMaxHealth() * 1F, (float) (3), (float) (20))))
+							this.world.playSoundAtEntity(e, "hbm:weapon.tesla", 1.0F, 1.0F);
 				}
 			}
 		}

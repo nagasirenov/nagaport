@@ -6,20 +6,16 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.inventory.fluid.FluidType;
 import com.hbm.inventory.fluid.tank.FluidTank;
 import com.hbm.lib.RefStrings;
-import com.hbm.render.block.ct.CT;
-import com.hbm.render.block.ct.CTStitchReceiver;
+import com.hbm.render.block.ct.CTContext;
 import com.hbm.render.block.ct.IBlockCT;
 import com.hbm.tileentity.machine.TileEntityPWRController;
 
 import api.hbm.fluidmk2.IFluidReceiverMK2;
 import api.hbm.redstoneoverradio.IRORInteractive;
 import api.hbm.redstoneoverradio.IRORValueProvider;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.ISidedInventory;
@@ -27,46 +23,34 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockPWR extends BlockContainer implements IBlockCT {
 	
-	@SideOnly(Side.CLIENT) protected IIcon iconPort;
 	
 	public BlockPWR(Material mat) {
 		super(mat);
+        setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));
 	}
 
-	@Override
-	public int getRenderType() {
-		return CT.renderID;
-	}
+    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return CTContext.stateContainer(this); }
+    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(CTContext.METADATA, metadata & 15); }
+    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(CTContext.METADATA); }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        return CTContext.extend(state, world, pos, this);
+    }
+
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j)  {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)  {
 		return null;
 	}
 
-	@SideOnly(Side.CLIENT) public CTStitchReceiver rec;
-	@SideOnly(Side.CLIENT) public CTStitchReceiver recPort;
+    @Override public int getCTMaterial(net.minecraft.block.state.IBlockState state) { return getMetaFromState(state) == 1 ? 1 : 0; }
 
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		super.registerBlockIcons(reg);
-		this.iconPort = reg.registerIcon(RefStrings.MODID + ":pwr_casing_port");
-		this.rec = IBlockCT.primeReceiver(reg, this.blockIcon.getIconName(), this.blockIcon);
-		this.recPort = IBlockCT.primeReceiver(reg, this.iconPort.getIconName(), this.iconPort);
-	}
-
-	@Override
-	public IIcon[] getFragments(IBlockAccess world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		if(meta == 1) return recPort.fragCache;
-		return rec.fragCache;
-	}
 
 	@Override
 	public boolean canConnect(IBlockAccess world, int x, int y, int z, Block block) {
@@ -81,14 +65,14 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile instanceof TileEntityBlockPWR) {
 			TileEntityBlockPWR pwr = (TileEntityBlockPWR) tile;
 			world.removeTileEntity(x, y, z);
 			if(pwr.block != null) {
 				world.setBlock(x, y, z, pwr.block);
-				TileEntity controller = world.getTileEntity(pwr.coreX, pwr.coreY, pwr.coreZ);
+				TileEntity controller = world.getTileEntity(new net.minecraft.util.math.BlockPos(pwr.coreX, pwr.coreY, pwr.coreZ));
 				
 				if(controller instanceof TileEntityPWRController) {
 					((TileEntityPWRController) controller).assembled = false;
@@ -100,7 +84,7 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 		super.breakBlock(world, x, y, z, block, meta);
 	}
 	
-	public static class TileEntityBlockPWR extends TileEntity implements IFluidReceiverMK2, ISidedInventory, IRORValueProvider, IRORInteractive {
+	public static class TileEntityBlockPWR extends TileEntity implements IFluidReceiverMK2, ISidedInventory, IRORValueProvider, IRORInteractive, net.minecraft.util.ITickable {
 		
 		public Block block;
 		public int coreX;
@@ -108,20 +92,20 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 		public int coreZ;
 		
 		@Override
-		public void updateEntity() {
+		public void update() {
 			
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				
-				if(worldObj.getTotalWorldTime() % 20 == 0 && block != null) {
+				if(this.world.getTotalWorldTime() % 20 == 0 && block != null) {
 					
 					TileEntityPWRController controller = getCore();
 					
 					if(controller != null) {
 						if(!controller.assembled) {
-							this.getBlockType().breakBlock(worldObj, xCoord, yCoord, zCoord, this.getBlockType(), this.getBlockMetadata());
+							this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
 						}
-					} else if(worldObj.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
-						this.getBlockType().breakBlock(worldObj, xCoord, yCoord, zCoord, this.getBlockType(), this.getBlockMetadata());
+					} else if(this.world.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
+						this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
 					}
 				}
 			}
@@ -132,7 +116,7 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 			super.readFromNBT(nbt);
 			
 			block = Block.getBlockById(nbt.getInteger("block"));
-			if(block != Blocks.air) {
+			if(block != Blocks.AIR) {
 				coreX = nbt.getInteger("cX");
 				coreY = nbt.getInteger("cY");
 				coreZ = nbt.getInteger("cZ");
@@ -142,7 +126,7 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 		}
 		
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 
 			if(block != null) {
@@ -151,12 +135,13 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 				nbt.setInteger("cY", coreY);
 				nbt.setInteger("cZ", coreZ);
 			}
+			return nbt;
 		}
 		
 		@Override
 		public void markDirty() {
-			if(this.worldObj != null) {
-				this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+			if(this.world != null) {
+				this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 			}
 		}
 		
@@ -166,9 +151,9 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 			
 			if(cachedCore != null && !cachedCore.isInvalid()) return cachedCore;
 
-			if(worldObj.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
+			if(this.world.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
 				
-				TileEntity tile = worldObj.getTileEntity(coreX, coreY, coreZ);
+				TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(coreX, coreY, coreZ));
 				if(tile instanceof TileEntityPWRController) {
 					TileEntityPWRController controller = (TileEntityPWRController) tile;
 					cachedCore = controller;
@@ -224,37 +209,41 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 			return 0;
 		}
 
+		private static ItemStack nativeStack(ItemStack stack) {
+			return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+		}
+
 		@Override
 		public ItemStack getStackInSlot(int slot) {
 			
-			if(this.getBlockMetadata() != 1) return null;
-			if(block == null) return null;
+			if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
+			if(block == null) return ItemStack.EMPTY;
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) return controller.getStackInSlot(slot);
+			if(controller != null) return nativeStack(controller.getStackInSlot(slot));
 			
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		@Override
 		public ItemStack decrStackSize(int slot, int amount) {
 			
-			if(this.getBlockMetadata() != 1) return null;
-			if(block == null) return null;
+			if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
+			if(block == null) return ItemStack.EMPTY;
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) return controller.decrStackSize(slot, amount);
+			if(controller != null) return nativeStack(controller.decrStackSize(slot, amount));
 			
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		@Override
-		public ItemStack getStackInSlotOnClosing(int slot) {
+		public ItemStack removeStackFromSlot(int slot) {
 			
-			if(this.getBlockMetadata() != 1) return null;
-			if(block == null) return null;
+			if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
+			if(block == null) return ItemStack.EMPTY;
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) return controller.getStackInSlotOnClosing(slot);
+			if(controller != null) return nativeStack(controller.removeStackFromSlot(slot));
 			
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		@Override
@@ -263,7 +252,7 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 			if(this.getBlockMetadata() != 1) return;
 			if(block == null) return;
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) controller.setInventorySlotContents(slot, stack);
+			if(controller != null) controller.setInventorySlotContents(slot, nativeStack(stack));
 		}
 
 		@Override
@@ -277,9 +266,9 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 			return 0;
 		}
 
-		@Override public boolean isUseableByPlayer(EntityPlayer player) { return false; }
-		@Override public void openInventory() { }
-		@Override public void closeInventory() { }
+		@Override public boolean isUsableByPlayer(EntityPlayer player) { return false; }
+		@Override public void openInventory(EntityPlayer player) { }
+		@Override public void closeInventory(EntityPlayer player) { }
 		@Override public String getInventoryName() { return ""; }
 		@Override public boolean hasCustomInventoryName() { return false; }
 
@@ -295,34 +284,37 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 		}
 
 		@Override
-		public int[] getAccessibleSlotsFromSide(int side) {
+		public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+			int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 			
 			if(this.getBlockMetadata() != 1) return new int[0];
 			if(block == null) return new int[0];
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) return controller.getAccessibleSlotsFromSide(side);
+			if(controller != null) return controller.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 			
 			return new int[0];
 		}
 
 		@Override
-		public boolean canInsertItem(int slot, ItemStack stack, int side) {
+		public boolean canInsertItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+			int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 			
 			if(this.getBlockMetadata() != 1) return false;
 			if(block == null) return false;
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) return controller.canInsertItem(slot, stack, side);
+			if(controller != null) return controller.canInsertItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 			
 			return false;
 		}
 
 		@Override
-		public boolean canExtractItem(int slot, ItemStack stack, int side) {
+		public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+			int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 			
 			if(this.getBlockMetadata() != 1) return false;
 			if(block == null) return false;
 			TileEntityPWRController controller = this.getCore();
-			if(controller != null) return controller.canExtractItem(slot, stack, side);
+			if(controller != null) return controller.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 			
 			return false;
 		}

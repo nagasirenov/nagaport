@@ -78,7 +78,7 @@ public class ContainerOrbitalStationLauncher extends ContainerBase {
 		slot.putStack(held != null ? held.copy() : null);
 
 		if(slot.getHasStack()) {
-			slot.getStack().stackSize = 1;
+			slot.getStack().setCount(1);
 		}
 
 		slot.onSlotChanged();

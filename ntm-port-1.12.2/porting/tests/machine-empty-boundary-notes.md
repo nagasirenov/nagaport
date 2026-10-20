@@ -1,0 +1,41 @@
+# Machine native storage and EMPTY consumer boundary
+
+This batch changes 111 Java files in six disjoint, frozen source groups. `check-machine-empty-boundary.py` composes their whole-file fail-closed reversals before the existing player callbacks → naming → sided → older method audits. Historical manifests were not refreshed. Both original source payloads/deltas and hashes are shipped; recipient Git objects and temporary snapshots are not required.
+
+## Actual core, not a naming-only slice
+
+The COMPLETE production `TileEntityMachineBase` and `TileEntityLoadedBase` compile against native Minecraft 1.12.2/Forge 2768 APIs in `testPortMachineCore`. Controlled collaborators are limited to NTM atmosphere routing, its DirPos data carrier, the ILoadedTile declaration, and packet dispatch. The packet's fields/constructors/read/write methods are extracted verbatim, and actual production ThreadedPacket/PrecompiledPacket, AudioWrapper, ForgeDirection and IBufPacketReceiver compile. No fake Minecraft/Forge classes or production stubs are installed. This does not establish that all those NTM collaborator implementations or the whole machine hierarchy compile.
+
+- Public nullable slots and recipe/helper arrays remain nullable. Native reads/removals return EMPTY; setter ingress normalizes null/EMPTY before assignment/clamp, retaining live nonempty identity. Direct storage removal/decrement does not acquire a new virtual getter dependency. Partial split, full-removal identity, lack of added markDirty calls, and Slot-owned dirty notification are tested.
+- NBT retains overlay loading, duplicate-last-wins, signed-byte slot bounds, un-clamped decoded counts, custom names and inherited muffled data. Native empty loads become null; empty entries are omitted on write. No reset or resizing is introduced.
+- Native window fields are genuinely absent: original machines use their custom serialize/deserialize channel. getFieldCount=0 does not replace progress/power/muffled serialization. A custom payload fixture verifies byte ordering.
+- `markChanged` remains chunk-save-only via native markChunkDirty, not full block updates. Neighbor callbacks retain captured block identities and the original tile-change → block-change → solid gate → weak gate → far tile/block sequence. Each native state-consuming callback refreshes state after prior callbacks, including mutation fixtures where the target changes block/state. Source-position arguments remain the originating tile. Legacy Forge 1614 Block/World patches and native signatures were inspected; this is not replaced with a broader world notification helper.
+- LoadedBase keeps constructor-loaded=true, chunk-unload=false, and no new onLoad reset. Audio stop/create/start, volume attenuation, NBT, packet coordinate/payload order, duplicate suppression, world-global modulo-20 resend, server-only guard, dimension and target range are tested. Existing packet copies/leaks/thread dispatch behavior was deliberately NOT repaired; dispatch is recorded, not run as a production worker thread.
+
+## Consumers and boundaries
+
+35 independent direct setters and 34 independent removal callbacks are migrated, without changing independent getters/decrement contracts. DiFurnaceRTG's direct setter, SatDock's setter/removal, and PistonInserter's no-op removal are separately covered. Proxy getter/decrement/removal adapters preserve legacy nullable delegates and missing-core gates; outbound setters use EMPTY. Combo's pre-existing ungated decrement remains ungated. Proxy methods are extracted for tests; full proxy classes still have unrelated native API debt.
+
+Generic insertion/Slot merge and pneumatic transfers are tested for debit/receipt, partial/full/denied transfers, aliases and native clears. Transfer/filter consumers, magazine outer-inventory guards, pattern serialization, SlotPattern, GUI empty prompts, and autocrafter native crafting ingress are adapted without turning domain arrays/remainders into EMPTY. Consumer whole-file compilation is NOT claimed. Complete SlotPattern compiles in its native probe.
+
+The COMPLETE production ContainerNT compiles with actual native ClickType/Slot/player inventories; ContainerBase's actual constructor/transfer/merge methods are tested with unrelated slot-construction helpers omitted. All seven old modes are explicitly mapped. Offhand button40 remains the native 1.12.2 no-op, not newer-version invented behavior. Creative-only drag mode2 is rejected for both creative and survival players, matching the original 1.7.10 helper; no native mechanic upgrade is introduced. See container-clicks-notes.md for preserved custom algorithm anomalies and exhaustive test scope.
+
+All35 audited block-drop bodies are native-count/item/entity migrated and tested with seeded RNG, final-depleted item/meta/NBT preservation, source aliases and independently copied tags. Snapshot before shrinking prevents native EMPTY from hiding the final item's identity. Block break callback signatures and inheritance are intentionally not migrated: these are bounded native-body tests, NOT actual block lifecycle acceptance.
+
+19 additional explicit native clear arguments in17 otherwise unchanged files, plus four item-inventory clears, now use EMPTY. The lexical audit finds zero literal-null Slot.putStack/IInventory.setInventorySlotContents clears. It does not assert that every dynamic stack argument or every player cursor use elsewhere is ported.
+
+## Explicit native representation differences and deferred debt
+
+Native ItemStack treats zero/negative counts as empty and hides item identity. Zero/negative ingress/load becomes null; native getter/removal output is EMPTY. Negative decrement still increases a positive source when native split does so; Integer.MIN_VALUE subtraction overflow yields an empty result/storage rather than preserving a negative legacy object. Zero/negative pre-existing domain stacks remain direct domain values until a native boundary requires normalization. No new amount clamping or balancing fix was added.
+
+Empty drops are now skipped before RNG, including zero/negative stacks which the legacy non-null guard could advance offsets for without spawning anything. This necessary EMPTY boundary changes those invalid-count RNG draws; positive-count RNG ordering is preserved and tested. The drop oracle models the valid positive legacy count algorithm, not a fake old Minecraft runtime. Count128 NBT wraps through the native signed count byte and becomes absent on load; no silent unsigned reinterpretation.
+
+Seven old closing-call sites remain in five unrelated container classes: Anvil.input is InventoryBasic; ArmorTable.upgrades is InventoryBasic and armor is initialized InventoryCraftResult; Book/Lemegeton.craftMatrix are InventoryCrafting; WeaponTable.mods is InventoryBasic and gun is initialized InventoryCraftResult. They do not call any renamed owned independent inventory. These pre-existing vanilla-container API calls are deferred, not supported through blanket legacy wrappers. No other old closing declarations/calls remain in owned inventory implementations/proxies.
+
+Other container integer slotClick overrides, Slot callback overrides, independent inventory getters, recipe count APIs and machine implementations still have separate debt. No full mod build, runnable JAR, GUI/client, server, world-save, furnace-operation or radiation readiness claim follows from this batch.
+
+## Validation at production freeze
+
+Standalone native probes: core130, ingress828, consumer43, ContainerNT126, drop30031 assertions passed. Source checks:111 exact aggregate reversals and drift rejection, native-clear census, and unchanged historical player/naming/sided/NBT method audits pass. Reusable tick method audit passes; the obsolete strict whole-file tick snapshot still fails at untouched BlockGeysierDCM due to earlier checkpoint drift. Do not refresh its old manifest to hide that mismatch. Parent-owned common clean Gradle build/results are reported separately.
+
+All portable runners use UTF-8, platform executable suffixes and os.pathsep, with a caller-supplied real Java8/native classpath. The core and consumer runners resolve a Gradle-reported Java8 jre directory to its parent JDK when needed.

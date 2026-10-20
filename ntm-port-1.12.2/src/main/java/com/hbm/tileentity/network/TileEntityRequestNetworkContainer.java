@@ -38,32 +38,36 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 	@Override public void openInventory() { }
 	@Override public void closeInventory() { }
 	@Override public boolean isItemValidForSlot(int slot, ItemStack itemStack) { return false; }
-	@Override public boolean canInsertItem(int slot, ItemStack itemStack, int side) { return this.isItemValidForSlot(slot, itemStack); }
-	@Override public boolean canExtractItem(int slot, ItemStack itemStack, int side) { return false; }
-	@Override public int[] getAccessibleSlotsFromSide(int side) { return new int[] { }; }
+	@Override public boolean canInsertItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return this.isItemValidForSlot(slot, itemStack); }
+	@Override public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return false; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] { }; }
 	
 	public void markChanged() {
-		this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);
+		this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null)
 		{
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-		return null;
+		return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit())
 		{
-			itemStack.stackSize = getInventoryStackLimit();
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -75,10 +79,10 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 128;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 128;
 		}
 	}
 	
@@ -122,7 +126,7 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
 		
@@ -141,5 +145,6 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 }

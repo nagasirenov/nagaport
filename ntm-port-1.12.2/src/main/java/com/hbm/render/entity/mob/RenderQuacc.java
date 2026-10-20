@@ -7,8 +7,8 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderChicken;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.boss.BossStatus;
-import net.minecraft.entity.boss.IBossDisplayData;
+import com.hbm.render.util.ClientBossDisplay;
+import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.util.ResourceLocation;
 
@@ -41,7 +41,7 @@ public class RenderQuacc extends RenderChicken {
      */
     protected void preRenderCallback(EntityLivingBase DUCC, float f0) {
     	
-        BossStatus.setBossStatus((IBossDisplayData) DUCC, false);
+        ClientBossDisplay.capture((INtmBossDisplay) DUCC, false);
         
     	GL11.glScaled(25, 25, 25);
     }

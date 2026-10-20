@@ -1,0 +1,4 @@
+Independent read-only review: PASS, no blocking findings.
+Baseline8098 exact hash confirmed. Native jar bytecode independently checked for final getPathToXYZ->BlockPos->getPathToPos, getEntityWorld, exclusive home-radius boundary and float-rounded Vec3d square root.
+Production control flow, RNG/timer/penalty ordering, bbox minY, disabled attack comment and approach formula preserved. 128-assertion saved result supports controlled native fixture claims, not actual engine navigation/gameplay.
+Historical source bridge validates full baseline hash/roundtrip and does not affect compiler inputs. Portable design, Windows execution unverified. No redundant tests/Gradle run by reviewer.

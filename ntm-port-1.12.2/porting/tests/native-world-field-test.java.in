@@ -1,0 +1,106 @@
+import java.lang.reflect.*;
+import java.util.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.border.WorldBorder;
+import net.minecraft.world.chunk.*;
+
+/** Native API test fixtures, not substitute production tiles or a compatibility layer. */
+public class NativeWorldFieldTest {
+    static int checks;
+    static void check(boolean condition,String message) { checks++;if(!condition)throw new AssertionError(message); }
+    static class CountingRandom extends Random {
+        int calls; final float value;
+        CountingRandom(float value) { this.value=value; }
+        public float nextFloat() { calls++;return value; }
+    }
+    static class FixtureWorld extends World {
+        Map<Long,Chunk> chunks; int timeReads;
+        private FixtureWorld() { super(null,null,null,null,false); }
+        protected IChunkProvider createChunkProvider() { throw new UnsupportedOperationException("Unused world storage service"); }
+        protected boolean isChunkLoaded(int x,int z,boolean empty) { return chunks.containsKey(key(x,z)); }
+        public Chunk getChunk(int x,int z) { return chunks.computeIfAbsent(key(x,z), k -> new Chunk(this,x,z)); }
+        static long key(int x,int z) { return ((long)x<<32)^(z&0xffffffffL); }
+        public long getTotalWorldTime() { timeReads++;return super.getTotalWorldTime(); }
+        static FixtureWorld make(boolean remote,CountingRandom random) throws Exception {
+            Field unsafe=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");unsafe.setAccessible(true);
+            FixtureWorld w=(FixtureWorld)((sun.misc.Unsafe)unsafe.get(null)).allocateInstance(FixtureWorld.class);
+            for(Field field:World.class.getDeclaredFields()) if(List.class.isAssignableFrom(field.getType())&&!Modifier.isStatic(field.getModifiers())) {
+                field.setAccessible(true);field.set(w,new ArrayList<>());
+            }
+            set(w,"profiler",new Profiler());set(w,"worldBorder",new WorldBorder());set(w,"isRemote",remote);set(w,"rand",random);
+            set(w,"worldInfo",new net.minecraft.world.storage.WorldInfo(new net.minecraft.nbt.NBTTagCompound()));
+            w.chunks=new HashMap<>();w.getChunk(0,0);return w;
+        }
+        static void set(World w,String name,Object value)throws Exception {Field f=World.class.getDeclaredField(name);f.setAccessible(true);f.set(w,value);}
+    }
+    static class NativeTile extends TileEntity implements ITickable {
+        World loadedWorld,tickedWorld;int ticks,loads;
+        public World direct() { return this.world; }
+        public void onLoad() { loads++;loadedWorld=this.world; }
+        public void update() { ticks++;tickedWorld=this.world; }
+        // These expressions are extracted verbatim from the migrated production files.
+        boolean serverBranch() { return @SERVER@; }
+        boolean skipPacket(Object preBuf,Object lastPackedBuf) { return @GUARD@; }
+        float soundPitch() { return @PITCH@; }
+        World forwardedWorld() { return capture(@FORWARD@); }
+        World capture(World argument) { return argument; }
+    }
+    static class Intermediate extends NativeTile {}
+    static class Descendant extends Intermediate {}
+    static class FurnaceDescendant extends TileEntityFurnace { World direct(){return this.world;} }
+    static class BlockContainer { static class NestedTile extends TileEntity { World direct(){return this.world;} } }
+    static class Value {
+        boolean equal;int reads;
+        Value(boolean equal) {this.equal=equal;}
+        public boolean equals(Object ignored) {reads++;return equal;}
+    }
+    static class Spawner extends NativeTile {
+        NativeTile pending; boolean added;
+        Spawner(NativeTile pending){this.pending=pending;}
+        public void update(){super.update();if(!added){added=true;world.addTileEntity(pending);check(pending.loads==0&&pending.ticks==0,"no load/tick before deferred admission");}}
+    }
+    static void nullRead(Runnable action,String label){try{action.run();throw new AssertionError(label);}catch(NullPointerException expected){checks++;}}
+    public static void main(String[]args)throws Exception {
+        Bootstrap.register();CountingRandom ra=new CountingRandom(0.25F),rb=new CountingRandom(0.75F);
+        FixtureWorld a=FixtureWorld.make(false,ra),b=FixtureWorld.make(true,rb);
+        a.setTotalWorldTime(21);b.setTotalWorldTime(40);
+        NativeTile root=new NativeTile();Descendant child=new Descendant();
+        FurnaceDescendant furnace=new FurnaceDescendant();BlockContainer.NestedTile nested=new BlockContainer.NestedTile();
+        for(NativeTile t:new NativeTile[]{root,child}) {
+            check(t.direct()==null&&!t.hasWorld(),"initial native null");
+            t.setWorld(a);check(t.direct()==a&&t.getWorld()==a&&t.hasWorld(),"A identity through inherited field");
+            t.setWorld(b);check(t.direct()==b&&t.getWorld()==b,"B rebind not cached");
+            t.setWorld(null);check(t.direct()==null&&t.getWorld()==null&&!t.hasWorld(),"null rebind shared by field/accessor");
+        }
+        furnace.setWorld(a);nested.setWorld(b);check(furnace.direct()==a&&nested.direct()==b,"native Furnace and nested TileEntity inheritance");
+        furnace.setWorld(b);nested.setWorld(a);check(furnace.direct()==b&&nested.direct()==a,"Furnace/nested rebinding");
+        Value unequal=new Value(false),equal=new Value(true);Object previous=new Object();
+        root.setWorld(null);check(!root.skipPacket(unequal,previous)&&unequal.reads==1,"false equality short circuits null world");
+        nullRead(()->root.skipPacket(equal,previous),"true equality retains null dereference");
+        nullRead(()->root.serverBranch(),"server expression retains null dereference");
+        nullRead(()->root.soundPitch(),"RNG expression retains null dereference");
+        check(root.forwardedWorld()==null,"World argument preserves null without a dereference");
+        root.setWorld(a);check(root.serverBranch()&&root.forwardedWorld()==a,"server branch and helper argument A identity");
+        int reads=a.timeReads;check(root.skipPacket(equal,previous)&&a.timeReads==reads+1,"one actual time read; 21 modulo 20");
+        reads=a.timeReads;check(!root.skipPacket(unequal,previous)&&a.timeReads==reads,"false equality does not read World time");
+        float pa=root.soundPitch();check(Float.floatToIntBits(pa)==Float.floatToIntBits(0.25F*0.1F+0.7F)&&ra.calls==1&&rb.calls==0,"exact RNG arithmetic, one A read");
+        root.setWorld(b);check(!root.serverBranch()&&root.forwardedWorld()==b,"client branch and helper argument track B");
+        reads=b.timeReads;check(!root.skipPacket(equal,previous)&&b.timeReads==reads+1,"time boundary 40 follows B");
+        float pb=root.soundPitch();check(Float.floatToIntBits(pb)==Float.floatToIntBits(0.75F*0.1F+0.7F)&&ra.calls==1&&rb.calls==1,"one B RNG read, A unchanged");
+        root.setPos(new BlockPos(1,64,0));a.addTileEntity(root);
+        check(root.direct()==a&&root.loadedWorld==a&&root.loads==1,"native add binds exact field before onLoad");
+        a.updateEntities();check(root.ticks==1&&root.tickedWorld==a,"native update sees exact bound World");
+        NativeTile pending=new Descendant();pending.setPos(new BlockPos(2,64,0));Spawner spawner=new Spawner(pending);spawner.setPos(new BlockPos(3,64,0));a.addTileEntity(spawner);
+        a.updateEntities();check(pending.direct()==a&&pending.loadedWorld==a&&pending.loads==1&&pending.ticks==0,"deferred add binds field before onLoad after pass");
+        a.updateEntities();check(pending.ticks==1&&pending.tickedWorld==a,"deferred descendant native tick World identity");
+        pending.setWorld(null);int ticks=pending.ticks;a.updateEntities();check(pending.ticks==ticks,"native scheduler suppresses missing World");
+        System.out.println("PASS: "+checks+" native World identity, direct/inherited/nested/Furnace access, rebind/null, native admission/onLoad/deferred scheduler and exact production-expression assertions");
+        System.out.println("LIMIT: controlled native World storage fixtures and four extracted expressions, not production tile compilation or gameplay");
+    }
+}

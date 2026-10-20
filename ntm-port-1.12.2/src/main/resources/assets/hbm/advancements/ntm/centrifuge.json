@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/polymer",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.machine_centrifuge",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.centrifuge"
+    },
+    "description": {
+      "translate": "achievement.centrifuge.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

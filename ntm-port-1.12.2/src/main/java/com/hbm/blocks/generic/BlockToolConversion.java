@@ -63,10 +63,10 @@ public class BlockToolConversion extends BlockMulti implements IToolable, ILookO
 		int meta = stack.getItemDamage() - 1;
 		
 		if(meta == -1 || names == null || meta >= names.length) {
-			return this.getUnlocalizedName();
+			return this.getTranslationKey();
 		}
 		
-		return this.getUnlocalizedName() + names[meta];
+		return this.getTranslationKey() + names[meta];
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class BlockToolConversion extends BlockMulti implements IToolable, ILookO
 		
 		if(world.isRemote) return false;
 		
-		Pair<AStack[], MetaBlock> result = conversions.get(new Pair(tool, new MetaBlock(this, world.getBlockMetadata(x, y, z))));
+		Pair<AStack[], MetaBlock> result = conversions.get(new Pair(tool, new MetaBlock(this, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ))));
 		
 		if(result == null) return false;
 		
@@ -106,12 +106,12 @@ public class BlockToolConversion extends BlockMulti implements IToolable, ILookO
 	@SideOnly(Side.CLIENT)
 	public void printHook(Pre event, World world, int x, int y, int z) {
 		
-		ItemStack held = Minecraft.getMinecraft().thePlayer.getHeldItem();
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player);
 		if(held == null) return;
 		ToolType tool = this.quickLookup(held);
 		if(tool == null) return;
 		
-		Pair<AStack[], MetaBlock> result = conversions.get(new Pair(tool, new MetaBlock(this, world.getBlockMetadata(x, y, z))));
+		Pair<AStack[], MetaBlock> result = conversions.get(new Pair(tool, new MetaBlock(this, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ))));
 		
 		if(result == null) return;
 		
@@ -134,7 +134,7 @@ public class BlockToolConversion extends BlockMulti implements IToolable, ILookO
 		}
 		
 		if(!materials.isEmpty()) {
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(this.getUnlocalizedName(new ItemStack(this, 1, meta)) + ".name"), 0xffff00, 0x404000, text);
 		}
 	}

@@ -27,6 +27,6 @@ public class EventHandlerParticleEngine {
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
 		/* create new engine instance on every new world load (when joining servers, switching dimensions, etc), prevents particles from persisting between worlds */
-		ParticleEngine.INSTANCE = new ParticleEngine(event.world, Minecraft.getMinecraft().renderEngine);
+		ParticleEngine.INSTANCE = new ParticleEngine(event.getWorld(), Minecraft.getMinecraft().renderEngine);
 	}
 }

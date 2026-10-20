@@ -1,0 +1,43 @@
+  public void playSound(net.minecraft.util.SoundEvent, float, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_0
+       3: invokevirtual #714                // Method getSoundCategory:()Lnet/minecraft/util/SoundCategory;
+       6: fload_2
+       7: fload_3
+       8: invokestatic  #720                // Method net/minecraftforge/event/ForgeEventFactory.onPlaySoundAtEntity:(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FF)Lnet/minecraftforge/event/entity/PlaySoundAtEntityEvent;
+      11: astore        4
+      13: aload         4
+      15: invokevirtual #725                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.isCanceled:()Z
+      18: ifne          29
+      21: aload         4
+      23: invokevirtual #729                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getSound:()Lnet/minecraft/util/SoundEvent;
+      26: ifnonnull     30
+      29: return
+      30: aload         4
+      32: invokevirtual #729                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getSound:()Lnet/minecraft/util/SoundEvent;
+      35: astore_1
+      36: aload         4
+      38: invokevirtual #732                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getVolume:()F
+      41: fstore_2
+      42: aload         4
+      44: invokevirtual #735                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getPitch:()F
+      47: fstore_3
+      48: aload_0
+      49: getfield      #186                // Field world:Lnet/minecraft/world/World;
+      52: aload_0
+      53: getfield      #191                // Field posX:D
+      56: aload_0
+      57: getfield      #709                // Field posY:D
+      60: aload_0
+      61: getfield      #194                // Field posZ:D
+      64: aload_1
+      65: aload         4
+      67: invokevirtual #738                // Method net/minecraftforge/event/entity/PlaySoundAtEntityEvent.getCategory:()Lnet/minecraft/util/SoundCategory;
+      70: fload_2
+      71: fload_3
+      72: iconst_0
+      73: invokevirtual #741                // Method net/minecraft/world/World.playSound:(DDDLnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FFZ)V
+      76: return
+

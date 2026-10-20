@@ -14,12 +14,12 @@ public class TileEntityDroneWaypointRequest extends TileEntityRequestNetwork {
 	@Override
 	public BlockPos getCoord() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
-		return new BlockPos(xCoord + dir.offsetX * height, yCoord + dir.offsetY * height, zCoord + dir.offsetZ * height);
+		return new BlockPos(this.pos.getX() + dir.offsetX * height, this.pos.getY() + dir.offsetY * height, this.pos.getZ() + dir.offsetZ * height);
 	}
 	
 	public void addHeight(int h) {
 		height += h;
-		height = MathHelper.clamp_int(height, 1, 15);
+		height = MathHelper.clamp(height, 1, 15);
 	}
 	
 	@Override
@@ -30,10 +30,11 @@ public class TileEntityDroneWaypointRequest extends TileEntityRequestNetwork {
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("height", height);
+		return nbt;
 	}
 
 	@Override

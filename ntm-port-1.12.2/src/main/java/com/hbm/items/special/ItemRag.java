@@ -18,10 +18,10 @@ public class ItemRag extends Item {
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 
-		if(entityItem != null && !entityItem.worldObj.isRemote) {
+		if(entityItem != null && !entityItem.world.isRemote) {
 
-			if (entityItem.worldObj.getBlock((int) Math.floor(entityItem.posX), (int) Math.floor(entityItem.posY),
-				(int) Math.floor(entityItem.posZ)).getMaterial() == Material.water) {
+			if (com.hbm.world.WorldBlockState.read(entityItem.world, (int) Math.floor(entityItem.posX), (int) Math.floor(entityItem.posY),
+				(int) Math.floor(entityItem.posZ)).getBlock().getMaterial() == Material.WATER) {
 				ItemStack stack = entityItem.getEntityItem();
 				entityItem.setEntityItemStack(new ItemStack(ModItems.rag_damp, stack.stackSize));
 				return true;

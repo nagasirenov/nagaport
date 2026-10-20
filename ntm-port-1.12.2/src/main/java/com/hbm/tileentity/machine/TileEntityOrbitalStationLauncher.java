@@ -71,15 +71,15 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.orbitalStationLauncher";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!CelestialBody.inOrbit(worldObj)) return;
+	public void update() {
+		if(!CelestialBody.inOrbit(this.world)) return;
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			// This TE acts almost entirely like a port, except doesn't register itself so nothing actually tries to dock here
 
 			// ROCKET CONSTRUCTION //
@@ -88,9 +88,9 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 			ItemStack toStack = slots[slots.length - (RocketStruct.MAX_STAGES - currentStage) * 2 + 1];
 
 			// updates the orbital station information and syncs it to the client, if necessary
-			ItemVOTVdrive.getTarget(slots[0], worldObj);
-			ItemVOTVdrive.getTarget(fromStack, worldObj);
-			ItemVOTVdrive.getTarget(toStack, worldObj);
+			ItemVOTVdrive.getTarget(slots[0], this.world);
+			ItemVOTVdrive.getTarget(fromStack, this.world);
+			ItemVOTVdrive.getTarget(toStack, this.world);
 
 			rocket = new RocketStruct(slots[3]);
 			if(slots[3] != null && slots[3].getItem() instanceof ISatChip) {
@@ -118,14 +118,14 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 			updateTanks();
 
 			// Connections
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
 					// trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 
 					if(rocket.validate()) {
 						for(FluidTank tank : tanks) {
 							if(tank.getTankType() == Fluids.NONE) continue;
-							trySubscribe(tank.getTankType(), worldObj, pos);
+							trySubscribe(tank.getTankType(), this.world, pos);
 						}
 					}
 				}
@@ -191,8 +191,8 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 		if(target == SolarSystem.Body.ORBIT && rocket.capsule.part != ModItems.rp_capsule_20 && rocket.capsule.part != ModItems.rp_station_core_20)
 		return false;
 
-		Target from = CelestialBody.getTarget(worldObj, xCoord, zCoord);
-		Target to = ItemVOTVdrive.getTarget(slots[0], worldObj);
+		Target from = CelestialBody.getTarget(this.world, this.pos.getX(), this.pos.getZ());
+		Target to = ItemVOTVdrive.getTarget(slots[0], this.world);
 
 		if(!to.isValid && rocket.capsule.part != ModItems.rp_station_core_20) return false;
 		if(to.isValid && rocket.capsule.part == ModItems.rp_station_core_20) return false;
@@ -210,9 +210,9 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 
 		ItemStack stack = ItemCustomRocket.build(rocket);
 
-		EntityRideableRocket rocket = new EntityRideableRocket(worldObj, xCoord + 0.5F, yCoord + 1.5F, zCoord + 0.5F, stack).withProgram(slots[0]).launchedBy(player);
+		EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, stack).withProgram(slots[0]).launchedBy(player);
 		rocket.posY -= rocket.height;
-		worldObj.spawnEntityInWorld(rocket);
+		this.world.spawnEntityInWorld(rocket);
 
 		// Deplete all fills
 		for(int i = 0; i < tanks.length; i++) tanks[i] = new FluidTank(Fluids.NONE, 64_000);
@@ -245,21 +245,21 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-			new DirPos(xCoord - 1, yCoord + 1, zCoord + 3, ForgeDirection.NORTH),
-			new DirPos(xCoord + 0, yCoord + 1, zCoord + 3, ForgeDirection.NORTH),
-			new DirPos(xCoord + 1, yCoord + 1, zCoord + 3, ForgeDirection.NORTH),
+			new DirPos(this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ() + 3, ForgeDirection.NORTH),
+			new DirPos(this.pos.getX() + 0, this.pos.getY() + 1, this.pos.getZ() + 3, ForgeDirection.NORTH),
+			new DirPos(this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 3, ForgeDirection.NORTH),
 
-			new DirPos(xCoord - 1, yCoord + 1, zCoord - 3, ForgeDirection.SOUTH),
-			new DirPos(xCoord + 0, yCoord + 1, zCoord - 3, ForgeDirection.SOUTH),
-			new DirPos(xCoord + 1, yCoord + 1, zCoord - 3, ForgeDirection.SOUTH),
+			new DirPos(this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ() - 3, ForgeDirection.SOUTH),
+			new DirPos(this.pos.getX() + 0, this.pos.getY() + 1, this.pos.getZ() - 3, ForgeDirection.SOUTH),
+			new DirPos(this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() - 3, ForgeDirection.SOUTH),
 
-			new DirPos(xCoord + 3, yCoord + 1, zCoord - 1, ForgeDirection.EAST),
-			new DirPos(xCoord + 3, yCoord + 1, zCoord + 0, ForgeDirection.EAST),
-			new DirPos(xCoord + 3, yCoord + 1, zCoord + 1, ForgeDirection.EAST),
+			new DirPos(this.pos.getX() + 3, this.pos.getY() + 1, this.pos.getZ() - 1, ForgeDirection.EAST),
+			new DirPos(this.pos.getX() + 3, this.pos.getY() + 1, this.pos.getZ() + 0, ForgeDirection.EAST),
+			new DirPos(this.pos.getX() + 3, this.pos.getY() + 1, this.pos.getZ() + 1, ForgeDirection.EAST),
 
-			new DirPos(xCoord - 3, yCoord + 1, zCoord - 1, ForgeDirection.WEST),
-			new DirPos(xCoord - 3, yCoord + 1, zCoord + 0, ForgeDirection.WEST),
-			new DirPos(xCoord - 3, yCoord + 1, zCoord + 1, ForgeDirection.WEST),
+			new DirPos(this.pos.getX() - 3, this.pos.getY() + 1, this.pos.getZ() - 1, ForgeDirection.WEST),
+			new DirPos(this.pos.getX() - 3, this.pos.getY() + 1, this.pos.getZ() + 0, ForgeDirection.WEST),
+			new DirPos(this.pos.getX() - 3, this.pos.getY() + 1, this.pos.getZ() + 1, ForgeDirection.WEST),
 		};
 	}
 
@@ -272,8 +272,8 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 		if(TileEntityLaunchPadRocket.findDriveIssues(issues, rocket, slots[0])) return issues;
 
 		// Check that the rocket is actually capable of reaching our destination
-		Target from = CelestialBody.getTarget(worldObj, xCoord, zCoord);
-		Target to = ItemVOTVdrive.getTarget(slots[0], worldObj);
+		Target from = CelestialBody.getTarget(this.world, this.pos.getX(), this.pos.getZ());
+		Target to = ItemVOTVdrive.getTarget(slots[0], this.world);
 
 		TileEntityLaunchPadRocket.findTravelIssues(issues, rocket, from, to);
 
@@ -309,12 +309,13 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		// nbt.setLong("power", power);
 		nbt.setInteger("solid", solidFuel.level);
 		nbt.setInteger("maxSolid", solidFuel.max);
 		for(int i = 0; i < tanks.length; i++) tanks[i].writeToNBT(nbt, "t" + i);
+		return nbt;
 	}
 
 	@Override
@@ -339,7 +340,7 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return isUseableByPlayer(player);
+		return isUsableByPlayer(player);
 	}
 
 	@Override

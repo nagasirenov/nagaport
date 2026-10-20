@@ -15,14 +15,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityCrashedBomb extends TileEntity {
+public class TileEntityCrashedBomb extends TileEntity implements net.minecraft.util.ITickable {
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(worldObj.getTotalWorldTime() % 2 == 0) {
+			if(this.world.getTotalWorldTime() % 2 == 0) {
 				EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, this.getBlockMetadata());
 				
 				if(type == type.BALEFIRE)	affectEntities((entity, intensity) -> { ContaminationUtil.contaminate(entity, HazardType.RADIATION, ContaminationType.CREATIVE, 1F * intensity); }, 15D);
@@ -33,7 +33,7 @@ public class TileEntityCrashedBomb extends TileEntity {
 	}
 	
 	public void affectEntities(BiConsumer<EntityLivingBase, Float> effect, double range) {
-		List<EntityLivingBase> list = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(range, range, range));
+		List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
 		for(EntityLivingBase entity : list) {
 			double dist = Math.sqrt(getDistanceFrom(entity.posX, entity.posY + entity.height / 2, entity.posZ));
 			if(dist > range) continue;

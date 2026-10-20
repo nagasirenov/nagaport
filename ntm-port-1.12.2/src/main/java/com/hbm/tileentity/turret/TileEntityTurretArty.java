@@ -64,7 +64,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretArty";
 	}
 
@@ -194,14 +194,14 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 		vec.rotateAroundZRad((float) -this.rotationPitch);
 		vec.rotateAroundYRad((float) -(this.rotationYaw + Math.PI * 0.5));
 
-		EntityArtilleryShell proj = new EntityArtilleryShell(worldObj);
+		EntityArtilleryShell proj = new EntityArtilleryShell(this.world);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, 0.0F, 0.0F);
 		proj.setThrowableHeading(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);
 		proj.setTarget((int) tPos.x, (int) tPos.y, (int) tPos.z);
 		proj.setType(type.getItemDamage());
 
 		if(type.getItemDamage() == 8 && type.hasTagCompound()) {
-			NBTTagCompound cargo = type.stackTagCompound.getCompoundTag("cargo");
+			NBTTagCompound cargo = type.getTagCompound().getCompoundTag("cargo");
 
 			if(cargo != null) {
 				proj.setCargo(ItemStack.loadItemStackFromNBT(cargo));
@@ -211,7 +211,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 		if(this.mode != this.MODE_CANNON)
 			proj.setWhistle(true);
 
-		worldObj.spawnEntityInWorld(proj);
+		this.world.spawnEntityInWorld(proj);
 
 		casingDelay = this.casingDelay();
 	}
@@ -222,9 +222,9 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.lastBarrelPos = this.barrelPos;
 
 			if(this.retracting) {
@@ -246,7 +246,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 			this.rotationYaw = this.syncRotationYaw;
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.mode == this.MODE_MANUAL) {
 				if(!this.targetQueue.isEmpty()) {
 					this.tPos = this.targetQueue.get(0);
@@ -356,7 +356,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 				cachedCasingConfig = ItemAmmoArty.itemTypes[conf.getItemDamage()].casing;
 				this.spawnShell(conf);
 				this.conusmeAmmo(ModItems.ammo_arty);
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_fire", 25.0F, 1.0F);
 				Vec3d pos = this.getTurretPos();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
 				vec.rotateAroundZRad((float) -this.rotationPitch);
@@ -368,7 +368,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 0F);
 				data.setByte("count", (byte)5);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 150));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 150));
 			}
 
 			if(this.mode == this.MODE_MANUAL && !this.targetQueue.isEmpty()) {
@@ -420,10 +420,11 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setShort("mode", this.mode);
+		return nbt;
 	}
 
 	@Override
@@ -434,11 +435,11 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 		float yaw = (float) Math.toDegrees(rotationYaw);
 		float pitch = (float) -Math.toDegrees(this.rotationPitch);
 		
-		CasingCreator.composeEffect(worldObj,
+		CasingCreator.composeEffect(this.world,
 				spawn.x, spawn.y, spawn.z,
 				yaw, pitch,
 				-0.6, 0.3, 0,
-				0.01, worldObj.rand.nextFloat() * 20F - 10F, 0,
+				0.01, this.world.rand.nextFloat() * 20F - 10F, 0,
 				cachedCasingConfig.getName(),
 				true, 200, 1, 20);
 		
@@ -459,7 +460,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] addCoords(Context context, Arguments args) {
 		this.mode = MODE_MANUAL;
-		if(Math.sqrt(Math.pow(xCoord - args.checkDouble(0), 2)+Math.pow(yCoord - args.checkDouble(1), 2)+Math.pow(zCoord - args.checkDouble(2), 2)) >= this.getDecetorRange()) // check distance against range
+		if(Math.sqrt(Math.pow(this.pos.getX() - args.checkDouble(0), 2)+Math.pow(this.pos.getY() - args.checkDouble(1), 2)+Math.pow(this.pos.getZ() - args.checkDouble(2), 2)) >= this.getDecetorRange()) // check distance against range
 			return new Object[] {false};
 		targetQueue.add(new Vec3d(args.checkDouble(0), args.checkDouble(1), args.checkDouble(2)));
 		return new Object[] {true};

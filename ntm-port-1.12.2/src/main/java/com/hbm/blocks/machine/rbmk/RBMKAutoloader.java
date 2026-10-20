@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 public class RBMKAutoloader extends BlockDummyable {
 
 	public RBMKAutoloader() {
-		super(Material.iron);
+		super(Material.IRON);
 		
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.125, 0, -0.125, 0.125, 4, 0.125));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.5, 4, -0.5, 0.5, 9, 0.5));
+		this.bounding.add(new AxisAlignedBB(-0.125, 0, -0.125, 0.125, 4, 0.125));
+		this.bounding.add(new AxisAlignedBB(-0.5, 4, -0.5, 0.5, 9, 0.5));
 	}
 
 	@Override

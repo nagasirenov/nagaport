@@ -31,12 +31,12 @@ public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunk
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 	}
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote && ticket != null) {
+		if(!this.world.isRemote && ticket != null) {
 			if(loaderTicket == null) {
 				loaderTicket = ticket;
 				loaderTicket.bindEntity(this);
@@ -50,7 +50,7 @@ public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunk
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(!worldObj.isRemote) loadNeighboringChunks((int)Math.floor(posX / 16D), (int)Math.floor(posZ / 16D));
+		if(!this.world.isRemote) loadNeighboringChunks((int)Math.floor(posX / 16D), (int)Math.floor(posZ / 16D));
 	}
 
 	@Override
@@ -60,14 +60,14 @@ public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunk
 	}
 	
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}
 	}
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);

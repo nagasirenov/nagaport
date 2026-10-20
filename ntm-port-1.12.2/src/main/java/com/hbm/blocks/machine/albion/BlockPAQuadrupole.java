@@ -19,7 +19,7 @@ import com.hbm.lib.ForgeDirection;
 public class BlockPAQuadrupole extends BlockDummyable implements ITooltipProvider {
 
 	public BlockPAQuadrupole() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
 		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}

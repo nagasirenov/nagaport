@@ -42,10 +42,10 @@ public class NukeEnvironmentalEffect {
 		Block b = null;
 		int meta = 0;
 		
-		Block in = world.getBlock(x, y, z);
-		int inMeta = world.getBlockMetadata(x, y, z);
+		Block in = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int inMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
-		if(in == Blocks.air)
+		if(in == Blocks.AIR)
 			return;
 		
 		//Task done by fallout effect entity.
@@ -54,7 +54,7 @@ public class NukeEnvironmentalEffect {
 			
 		} else */
 		
-		if(in == Blocks.sand) {
+		if(in == Blocks.SAND) {
 			
 			if(inMeta == 1)
 				b = ModBlocks.waste_trinitite_red;
@@ -63,21 +63,21 @@ public class NukeEnvironmentalEffect {
 			
 			chance = 20;
 			
-		} else if(in == Blocks.mycelium) {
+		} else if(in == Blocks.MYCELIUM) {
 			b = ModBlocks.waste_mycelium;
 			
-		} else if(in == Blocks.log || in == Blocks.log2) {
+		} else if(in == Blocks.LOG || in == Blocks.LOG2) {
 			b = ModBlocks.waste_log;
 			
-		} else if(in == Blocks.planks) {
+		} else if(in == Blocks.PLANKS) {
 			b = ModBlocks.waste_planks;
 			
-		} else if(in == Blocks.mossy_cobblestone) {
+		} else if(in == Blocks.MOSSY_COBBLESTONE) {
 			b = ModBlocks.ore_oil;
 			chance = 50;
 			
-		} else if(in == Blocks.coal_ore) {
-			b = Blocks.diamond_ore;
+		} else if(in == Blocks.COAL_ORE) {
+			b = Blocks.DIAMOND_ORE;
 			chance = 10;
 		} else if(in == ModBlocks.ore_uranium) {
 			b = ModBlocks.ore_schrabidium;
@@ -94,20 +94,20 @@ public class NukeEnvironmentalEffect {
 			b = ModBlocks.ore_nether_schrabidium;
 			chance = 25;
 			
-		} else if(in == Blocks.brown_mushroom_block && inMeta == 10) {
+		} else if(in == Blocks.BROWN_MUSHROOM_BLOCK && inMeta == 10) {
 			b = ModBlocks.waste_planks;
 			
-		} else if(in == Blocks.red_mushroom_block && inMeta == 10) {
+		} else if(in == Blocks.RED_MUSHROOM_BLOCK && inMeta == 10) {
 			b = ModBlocks.waste_planks;
 			
-		} else if(in == Blocks.end_stone) {
+		} else if(in == Blocks.END_STONE) {
 			b = ModBlocks.ore_tikite;
 			chance = 1;
 			
-		} else if(in == Blocks.clay) {
-			b = Blocks.hardened_clay;
-		} else if(in.getMaterial().getCanBurn()) {
-			b = Blocks.fire;
+		} else if(in == Blocks.CLAY) {
+			b = Blocks.HARDENED_CLAY;
+		} else if(in.getDefaultState().getMaterial().getCanBurn()) {
+			b = Blocks.FIRE;
 			chance = 100;
 		}
 		

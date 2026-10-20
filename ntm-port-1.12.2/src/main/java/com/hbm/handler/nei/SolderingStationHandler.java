@@ -19,23 +19,20 @@ public class SolderingStationHandler extends NEIUniversalHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmSoldering";
 	}
 	
 	@Override
-	public void loadTransferRects() {
-		super.loadTransferRects();
-		transferRectsGui.add(new RecipeTransferRect(new Rectangle(67, 17, 32, 14), "ntmSoldering"));
-		guiGui.add(GUIMachineSolderingStation.class);
-		RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+	public void registerGuiAreas(mezz.jei.api.IModRegistry registry) {
+		registry.addRecipeClickArea(GUIMachineSolderingStation.class, (67) + 5, (17) + 11, 32, 14, "ntmSoldering");
 	}
 
 	@Override
-	public void drawExtras(int recipe) {
+	public void drawRecipe(com.hbm.handler.jei.MachineRecipeView rec, Minecraft minecraft, int mouseX, int mouseY) {
 
-		RecipeSet rec = (RecipeSet) this.arecipes.get(recipe);
-		ItemStack output = rec.output[0].item;
+		super.drawRecipe(rec, minecraft, mouseX, mouseY);
+		ItemStack output = rec.displayedOutput(0);
 		
 		for(SolderingRecipe sol : SolderingRecipes.recipes) {
 			

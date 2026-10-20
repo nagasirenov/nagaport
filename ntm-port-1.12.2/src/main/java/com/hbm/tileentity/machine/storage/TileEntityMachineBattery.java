@@ -75,17 +75,17 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.battery";
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : getName();
+	public String getName() {
+		return this.hasCustomName() ? this.customName : getDefaultName();
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
 
@@ -121,7 +121,7 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -133,20 +133,24 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return p_94128_1_ == 0 ? slots_bottom : (p_94128_1_ == 1 ? slots_top : slots_side);
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 
 		if(itemStack.getItem() instanceof IBatteryItem) {
 			if(i == 0 && ((IBatteryItem)itemStack.getItem()).getCharge(itemStack) == 0) {
@@ -167,13 +171,13 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	public byte getComparatorPower() {
 		if(power == 0) return 0;
 		double frac = (double) this.power / (double) this.getMaxPower() * 15D;
-		return (byte) (MathHelper.clamp_int((int) frac + 1, 0, 15)); //to combat eventual rounding errors with the FEnSU's stupid maxPower
+		return (byte) (MathHelper.clamp((int) frac + 1, 0, 15)); //to combat eventual rounding errors with the FEnSU's stupid maxPower
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote && worldObj.getBlock(xCoord, yCoord, zCoord) instanceof MachineBattery) {
+		if(!this.world.isRemote && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock() instanceof MachineBattery) {
 
 			if(priority == null || priority.ordinal() == 0 || priority.ordinal() == 4) {
 				priority = ConnectionPriority.LOW;
@@ -190,27 +194,27 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 			if(mode == mode_buffer) {
 				if(this.node == null || this.node.expired) {
 
-					this.node = (PowerNode) UniNodespace.getNode(worldObj, xCoord, yCoord, zCoord, Nodespace.THE_POWER_PROVIDER);
+					this.node = (PowerNode) UniNodespace.getNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Nodespace.THE_POWER_PROVIDER);
 
 					if(this.node == null || this.node.expired) {
 						this.node = this.createNode();
-						UniNodespace.createNode(worldObj, this.node);
+						UniNodespace.createNode(this.world, this.node);
 					}
 				}
 
-				this.tryProvide(worldObj, xCoord, yCoord, zCoord, ForgeDirection.UNKNOWN);
+				this.tryProvide(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.UNKNOWN);
 				if(node != null && node.hasValidNet()) node.net.addReceiver(this);
 			} else {
 				if(this.node != null) {
-					UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, Nodespace.THE_POWER_PROVIDER);
+					UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Nodespace.THE_POWER_PROVIDER);
 					this.node = null;
 				}
 
 				for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-					PowerNode dirNode = (PowerNode) UniNodespace.getNode(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, Nodespace.THE_POWER_PROVIDER);
+					PowerNode dirNode = (PowerNode) UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, Nodespace.THE_POWER_PROVIDER);
 
 					if(mode == mode_output) {
-						tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+						tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 					} else {
 						if(dirNode != null && dirNode.hasValidNet()) dirNode.net.removeProvider(this);
 					}
@@ -249,9 +253,9 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.node != null) {
-				UniNodespace.destroyNode(worldObj, xCoord, yCoord, zCoord, Nodespace.THE_POWER_PROVIDER);
+				UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Nodespace.THE_POWER_PROVIDER);
 			}
 		}
 	}
@@ -296,7 +300,7 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	private short modeCache = 0;
 	public short getRelevantMode(boolean useCache) {
 		if(useCache) return this.modeCache;
-		this.modeCache = worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) ? this.redHigh : this.redLow;
+		this.modeCache = this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()) ? this.redHigh : this.redLow;
 		return this.modeCache;
 	}
 
@@ -306,7 +310,7 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	public long getMaxPower() {
 
 		if(bufferedMax == 0) {
-			bufferedMax = ((MachineBattery)worldObj.getBlock(xCoord, yCoord, zCoord)).maxPower;
+			bufferedMax = ((MachineBattery)com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock()).maxPower;
 		}
 
 		return bufferedMax;

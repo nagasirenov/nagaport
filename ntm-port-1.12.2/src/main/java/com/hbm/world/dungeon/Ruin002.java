@@ -8,6 +8,7 @@ import com.hbm.blocks.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Ruin002 {
@@ -18,1235 +19,1235 @@ public class Ruin002 {
 	
 	public boolean generate_r00(World world, Random rand, int x, int y, int z) {
 		
-		world.setBlock(x + 0, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 9, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 10, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 11, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 4, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 5, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 5, Blocks.chest, 3, 3);
-		world.setBlock(x + 6, y + 5, z + 5, Blocks.chest, 3, 3);
-		world.setBlock(x + 7, y + 5, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 5, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 6, Block1, 0, 3);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 5, z + 6, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 6, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 7, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 7, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 8, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 8, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 9, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 9, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 10, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 5, z + 10, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 5, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 10, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 11, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 5, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 11, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 12, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 5, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 5, z + 12, Block1, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 12, Block1, 0, 3);
-		world.setBlock(x + 0, y + 5, z + 13, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 13, Blocks.web, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 5, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 5, z + 13, Block1, 0, 3);
-		world.setBlock(x + 11, y + 5, z + 13, Block1, 0, 3);
-		world.setBlock(x + 12, y + 5, z + 13, Block1, 0, 3);
-		world.setBlock(x + 1, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 2, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 3, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 4, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 5, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 6, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 7, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 8, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 9, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 10, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 11, y + 5, z + 14, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 1, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 4, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 5, Block1, 0, 3);
-		world.setBlock(x + 1, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 5, Blocks.web, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 5, Blocks.web, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 5, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 6, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 5, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 5, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 5; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 5; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 6, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 6, Blocks.web, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 6, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 7, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 7, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 7, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 8, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 8, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 8, Blocks.web, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 8, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 9, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 9, ModBlocks.cable_switch, 1, 3);
-		world.setBlock(x + 2, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 9, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 10, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 10, ModBlocks.red_cable, 0, 3);
 		world.setBlock(x + 2, y + 6, z + 10, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 10, Blocks.web, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 10, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 11, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 11, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 11, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 12, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 6, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 1, y + 6, z + 12, ModBlocks.red_cable, 0, 3);
 		world.setBlock(x + 2, y + 6, z + 12, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 12, Block1, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 12, Block1, 0, 3);
-		world.setBlock(x + 0, y + 6, z + 13, Block1, 0, 3);
-		world.setBlock(x + 1, y + 6, z + 13, Blocks.web, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 13, Blocks.web, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 13, Block1, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 13, Block1, 0, 3);
-		world.setBlock(x + 12, y + 6, z + 13, Block1, 0, 3);
-		world.setBlock(x + 1, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 2, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 3, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 4, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 5, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 6, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 7, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 8, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 9, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 10, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 11, y + 6, z + 14, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 4, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 5, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 6, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 7, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 8, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 9, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 10, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 10, Block1, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 6; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 6; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WEB.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 6, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 6; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 6; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 6; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 6; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 7, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 7, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 7, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 7, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 7, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 7, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 2, y + 7, z + 10, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 10, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 10, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 10, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 10, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 11, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 12, Block1, 0, 3);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 7, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 7, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 7, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 7, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 7, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 7, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 7, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 7, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 2, y + 7, z + 12, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 12, Block1, 0, 3);
-		world.setBlock(x + 0, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 13, Block1, 0, 3);
-		world.setBlock(x + 1, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 2, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 3, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 4, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 5, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 6, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 7, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 8, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 9, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 10, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 11, y + 7, z + 14, Block1, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 1, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 2, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 3, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 4, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 5, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 6, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 7, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 8, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 9, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 10, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 11, y + 8, z + 1, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 0, y + 8, z + 2, Blocks.stone_stairs, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 2, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 8, z + 2, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 3, Blocks.stone_stairs, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 3, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 3, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 3, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 3, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 3, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 3, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 7, y + 8, z + 3, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 3, Blocks.stone_stairs, 1, 3);
-		world.setBlock(x + 9, y + 8, z + 3, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 3, Blocks.stone_stairs, 3, 3);
-		world.setBlock(x + 11, y + 8, z + 3, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 4, Blocks.stone_stairs, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 8, z + 4, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 5, Blocks.dirt, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 8, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 6, Blocks.dirt, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 6, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 6, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 3, y + 8, z + 6, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 6, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 5, y + 8, z + 6, Blocks.planks, 1, 3);
-		world.setBlock(x + 6, y + 8, z + 6, Blocks.spruce_stairs, 1, 3);
-		world.setBlock(x + 7, y + 8, z + 6, Blocks.planks, 1, 3);
-		world.setBlock(x + 8, y + 8, z + 6, Blocks.planks, 1, 3);
-		world.setBlock(x + 9, y + 8, z + 6, Blocks.spruce_stairs, 3, 3);
-		world.setBlock(x + 10, y + 8, z + 6, Blocks.spruce_stairs, 3, 3);
-		world.setBlock(x + 11, y + 8, z + 6, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 7, Blocks.dirt, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 7, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 7, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 7, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 4, y + 8, z + 7, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 7, Blocks.planks, 1, 3);
-		world.setBlock(x + 6, y + 8, z + 7, Blocks.spruce_stairs, 1, 3);
-		world.setBlock(x + 7, y + 8, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 7, Blocks.spruce_stairs, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 7, Blocks.spruce_stairs, 0, 3);
-		world.setBlock(x + 11, y + 8, z + 7, Blocks.stone_stairs, 5, 3);
-		world.setBlock(x + 0, y + 8, z + 8, Blocks.dirt, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 8, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 8, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 3, y + 8, z + 8, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 8, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 5, y + 8, z + 8, Blocks.planks, 1, 3);
-		world.setBlock(x + 6, y + 8, z + 8, Blocks.planks, 1, 3);
-		world.setBlock(x + 7, y + 8, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 8, Blocks.planks, 1, 3);
-		world.setBlock(x + 10, y + 8, z + 8, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 8, z + 8, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 9, Blocks.grass, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 9, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 9, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 9, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 4, y + 8, z + 9, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 9, Blocks.spruce_stairs, 1, 3);
-		world.setBlock(x + 6, y + 8, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 9, Blocks.planks, 1, 3);
-		world.setBlock(x + 10, y + 8, z + 9, Blocks.planks, 1, 3);
-		world.setBlock(x + 11, y + 8, z + 9, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 10, Blocks.grass, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 10, Blocks.cobblestone, 0, 3);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 7, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 7, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 1; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 2; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 3; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 4; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.GRASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.GRASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
 		world.setBlock(x + 2, y + 8, z + 10, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 10, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 10, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 5, y + 8, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 10, Blocks.planks, 1, 3);
-		world.setBlock(x + 10, y + 8, z + 10, Blocks.planks, 1, 3);
-		world.setBlock(x + 11, y + 8, z + 10, Blocks.stone_stairs, 1, 3);
-		world.setBlock(x + 0, y + 8, z + 11, Blocks.grass, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 11, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 11, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 4, y + 8, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 11, Blocks.planks, 1, 3);
-		world.setBlock(x + 10, y + 8, z + 11, Blocks.planks, 1, 3);
-		world.setBlock(x + 11, y + 8, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 12, Blocks.grass, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 12, Blocks.cobblestone, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.GRASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.GRASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
 		world.setBlock(x + 2, y + 8, z + 12, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 12, Blocks.stained_hardened_clay, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 12, Blocks.stained_hardened_clay, 15, 3);
-		world.setBlock(x + 5, y + 8, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 12, Blocks.spruce_stairs, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 12, Blocks.spruce_stairs, 1, 3);
-		world.setBlock(x + 8, y + 8, z + 12, Blocks.planks, 1, 3);
-		world.setBlock(x + 9, y + 8, z + 12, Blocks.planks, 1, 3);
-		world.setBlock(x + 10, y + 8, z + 12, Blocks.trapdoor, 13, 3);
-		world.setBlock(x + 11, y + 8, z + 12, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 0, y + 8, z + 13, Blocks.dirt, 0, 3);
-		world.setBlock(x + 1, y + 8, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 8, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 3, y + 8, z + 14, Blocks.grass, 0, 3);
-		world.setBlock(x + 4, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 5, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 6, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 7, y + 8, z + 14, Blocks.grass, 0, 3);
-		world.setBlock(x + 8, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 9, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 10, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 11, y + 8, z + 14, Blocks.dirt, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 2, Blocks.fence, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 9, z + 2, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 9, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 9, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 9, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 9, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 9, z + 2, Blocks.fence, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 9, z + 3, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 3, Blocks.fence, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 3, Blocks.fence, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 3, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 4, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 5, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 5, Blocks.diamond_block, 5, 3);
-		world.setBlock(x + 7, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 6, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 6, Blocks.iron_block, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 6, Blocks.iron_door, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 6, Block4, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_HARDENED_CLAY.getStateFromMeta(15), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TRAPDOOR.getStateFromMeta(13), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.GRASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.GRASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 8, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DIRT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		world.setBlock(x + 6, y + 9, z + 5, Blocks.DIAMOND_BLOCK, 5, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.IRON_BLOCK.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.IRON_DOOR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 9, z + 6, Block4);
 		world.setBlock(x + 5, y + 9, z + 6, Block5, 5, 3);
-		world.setBlock(x + 6, y + 9, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 6, Blocks.chest, 4, 3);
-		world.setBlock(x + 11, y + 9, z + 6, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 7, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 7, Block4, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 7, Block4, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 9, z + 7, Block4);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 9, z + 7, Block4);
 		world.setBlock(x + 5, y + 9, z + 7, Block5, 5, 3);
-		world.setBlock(x + 6, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 7, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 8, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 8, Blocks.cauldron, 3, 3);
-		world.setBlock(x + 3, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 8, Block4, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CAULDRON.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 9, z + 8, Block4);
 		world.setBlock(x + 5, y + 9, z + 8, Block5, 5, 3);
-		world.setBlock(x + 6, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 8, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 9, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 9, Block4, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 9, Block4, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 9, z + 9, Block4);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 9, z + 9, Block4);
 		world.setBlock(x + 5, y + 9, z + 9, Block5, 5, 3);
-		world.setBlock(x + 6, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 9, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 10, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 10, Blocks.lit_redstone_lamp, 5, 3);
-		world.setBlock(x + 3, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 10, Blocks.spruce_stairs, 1, 3);
-		world.setBlock(x + 10, y + 9, z + 10, Blocks.nether_brick_fence, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 10, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 11, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 11, Block4, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 11, Blocks.spruce_stairs, 1, 3);
-		world.setBlock(x + 10, y + 9, z + 11, Blocks.nether_brick_fence, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 12, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 12, Blocks.lit_redstone_lamp, 5, 3);
-		world.setBlock(x + 3, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 12, Blocks.stone_stairs, 5, 3);
-		world.setBlock(x + 12, y + 9, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 9, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 9, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 13, Blocks.stone_stairs, 3, 3);
-		world.setBlock(x + 5, y + 9, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 7, y + 9, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 13, Blocks.mossy_cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 9, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 9, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 2, Blocks.fence, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 2, Blocks.fence, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 3, Blocks.fence, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 3, Blocks.fence, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 5, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 3, y + 10, z + 5, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 4, y + 10, z + 5, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 5, y + 10, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 5, Blocks.diamond_block, 8, 3);
-		world.setBlock(x + 7, y + 10, z + 5, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 8, y + 10, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 5, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 10, y + 10, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 6, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 6, Blocks.dispenser, 5, 3);
-		world.setBlock(x + 3, y + 10, z + 6, Blocks.iron_door, 8, 3);
-		world.setBlock(x + 4, y + 10, z + 6, Blocks.flower_pot, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 6, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 7, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 7, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 8, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 8, Blocks.stone_stairs, 4, 3);
-		world.setBlock(x + 12, y + 10, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 9, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 9, Blocks.stone_stairs, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 10, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 2, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 10, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 10, z + 10, Blocks.stone_stairs, 4, 3);
-		world.setBlock(x + 12, y + 10, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 11, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 10, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 12, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 12, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 12, y + 10, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 10, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 13, Blocks.stone_stairs, 7, 3);
-		world.setBlock(x + 4, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 13, Blocks.stained_glass, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 13, Blocks.stained_glass, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 10, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 10, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 2, Blocks.fence, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 2, Blocks.fence, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 3, Blocks.fence, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 3, Blocks.fence, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 5, Blocks.stone_stairs, 6, 3);
-		world.setBlock(x + 4, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 5, Blocks.stone_stairs, 2, 3);
-		world.setBlock(x + 10, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 5, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 6, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 6, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 12, y + 11, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 7, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 7, Blocks.stone_slab, 3, 3);
-		world.setBlock(x + 12, y + 11, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 8, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 8, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 9, Blocks.stone_stairs, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 9, Blocks.trapped_chest, 5, 3);
-		world.setBlock(x + 3, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 9, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 10, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 10, Blocks.chest, 5, 3);
-		world.setBlock(x + 3, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 10, Blocks.stone_stairs, 1, 3);
-		world.setBlock(x + 12, y + 11, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 11, Blocks.trapped_chest, 5, 3);
-		world.setBlock(x + 3, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 11, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 12, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 12, Blocks.chest, 5, 3);
-		world.setBlock(x + 3, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 12, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 11, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 13, Blocks.stained_glass, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 13, Blocks.stone_stairs, 3, 3);
-		world.setBlock(x + 10, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 13, Blocks.cobblestone, 0, 3);
-		world.setBlock(x + 12, y + 11, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 11, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 12, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 12, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 12, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 12, z + 2, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 0, y + 12, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 12, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 12, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 3, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 4, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 5, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 6, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 7, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 7, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 8, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 8, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 8, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 8, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 8, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 8, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 12, z + 8, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 8, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 9, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 9, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 9, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 9, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 12, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 12, z + 9, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 9, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 9, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 10, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 10, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 10, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 12, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 12, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 10, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 10, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 10, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 10, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 11, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 11, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 11, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 11, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 11, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 11, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 12, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 12, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 12, Blocks.wooden_slab, 1, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		world.setBlock(x + 2, y + 9, z + 10, Blocks.LIT_REDSTONE_LAMP, 5, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.NETHER_BRICK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 9, z + 11, Block4);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.SPRUCE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.NETHER_BRICK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		world.setBlock(x + 2, y + 9, z + 12, Blocks.LIT_REDSTONE_LAMP, 5, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 9, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 9, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		world.setBlock(x + 6, y + 10, z + 5, Blocks.DIAMOND_BLOCK, 8, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DISPENSER.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.IRON_DOOR.getStateFromMeta(8), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.FLOWER_POT.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(7), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_GLASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_GLASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 10, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 10, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(6), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TRAPPED_CHEST.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TRAPPED_CHEST.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(5), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STAINED_GLASS.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.COBBLESTONE.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 11, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 11, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
 
 		generate_r01(world, rand, x, y, z);
 		return true;
@@ -1255,39 +1256,39 @@ public class Ruin002 {
 	public boolean generate_r01(World world, Random rand, int x, int y, int z)
 	{
 
-		world.setBlock(x + 4, y + 12, z + 12, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 12, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 12, Blocks.wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 12, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 12, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 12, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 12, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 12, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 2, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 3, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 4, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 5, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 6, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 7, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 8, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 9, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 10, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 11, y + 12, z + 13, Blocks.double_wooden_slab, 1, 3);
-		world.setBlock(x + 12, y + 12, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 12, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 12, z + 14, Blocks.air, 0, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 12, y + 12, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 12, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 
 		generate_r02_last(world, rand, x, y, z);
 		return true;
@@ -1296,17 +1297,17 @@ public class Ruin002 {
 	
 	public boolean generate_r02_last(World world, Random rand, int x, int y, int z) {
 
-		world.setBlock(x + 10, y + 3, z + 12, Blocks.ladder, 4, 3);
-		world.setBlock(x + 1, y + 4, z + 5, Blocks.torch, 1, 3);
-		world.setBlock(x + 10, y + 4, z + 12, Blocks.ladder, 4, 3);
-		world.setBlock(x + 6, y + 4, z + 13, Blocks.torch, 4, 3);
-		world.setBlock(x + 10, y + 5, z + 12, Blocks.ladder, 4, 3);
-		world.setBlock(x + 10, y + 6, z + 12, Blocks.ladder, 4, 3);
-		world.setBlock(x + 10, y + 7, z + 12, Blocks.ladder, 4, 3);
-		world.setBlock(x + 2, y + 10, z + 7, Blocks.stone_button, 3, 3);
-		world.setBlock(x + 10, y + 10, z + 7, Blocks.torch, 2, 3);
-		world.setBlock(x + 2, y + 10, z + 8, Blocks.lever, 9, 3);
-		world.setBlock(x + 2, y + 10, z + 9, Blocks.torch, 1, 3);
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 3, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 4, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TORCH.getStateFromMeta(1), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 4, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TORCH.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 5, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 6, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 7, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(4), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_BUTTON.getStateFromMeta(3), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 10, y + 10, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TORCH.getStateFromMeta(2), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LEVER.getStateFromMeta(9), 3); }
+		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.TORCH.getStateFromMeta(1), 3); }
 		return true;
 
 	}

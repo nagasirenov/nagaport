@@ -1,0 +1,98 @@
+{
+  "base": "ae8284453fb887301fe3411c63ce5ae84556f45e",
+  "files": [
+    "src/main/java/com/hbm/blocks/generic/BlockSteelBeam.java",
+    "src/main/java/com/hbm/blocks/generic/BlockCanCrate.java",
+    "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebris.java",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisDigamma.java",
+    "src/main/java/com/hbm/render/block/RenderSteelBeam.java",
+    "src/main/java/com/hbm/render/block/RenderConserve.java",
+    "src/main/java/com/hbm/render/block/RenderPribris.java",
+    "src/main/java/com/hbm/main/DecorationObjBlockModelHandler.java",
+    "src/main/java/com/hbm/main/ModSoundEvents.java",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_beam.json",
+    "src/main/resources/assets/hbm/blockstates/tile.crate_can.json",
+    "src/main/resources/assets/hbm/blockstates/tile.crate_supply.json",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris.json",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_burning.json",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_radiating.json",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_digamma.json",
+    "src/main/resources/assets/hbm/sounds.json",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak1.ogg",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak2.ogg",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak3.ogg",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak4.ogg",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak5.ogg"
+  ],
+  "sha256": {
+    "src/main/java/com/hbm/blocks/generic/BlockSteelBeam.java": "81bfad257126b94ac5e42d053626de8ac03e601e122df765d920e879edb36cf2",
+    "src/main/java/com/hbm/blocks/generic/BlockCanCrate.java": "f17de046762dd5b14a1f8fd70c1fcd749fa24df1f72078e082ebd7bf967e47c6",
+    "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java": "c0c735be817ebeda382f83ee8910fc11a2fa77052abcaff615cde8b4f4b81f6c",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebris.java": "ad90e085eff050a1db1975049db8cfcd2734e278583f049c90575223f00b10cb",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java": "af5b78989213b64a992188ebec85fe7b2e394efdd9fb3779f1c62ef44e269ded",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java": "a53fdd9f1506f2585c423c742496f7709c9f97aff7dde9cbb27f1eb933eeb9d3",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisDigamma.java": "d058e1d1a0b927c6e91f13506957127b3c7e44e6b861ccb9fe85ae22013ced28",
+    "src/main/java/com/hbm/render/block/RenderSteelBeam.java": "d964f52de9557ca369d73d2c49f577c65920dab905a2d79744ba28e0b9cb766e",
+    "src/main/java/com/hbm/render/block/RenderConserve.java": "fccd39f778e393394a604c0ddeeeb032f8037ee58f0730fdf4a5fd4f2b76d6a7",
+    "src/main/java/com/hbm/render/block/RenderPribris.java": "6ee5404ab9dddb687acc645cf148ea62d0be454fefc2b62fa4b4b5136c996f5c",
+    "src/main/java/com/hbm/main/DecorationObjBlockModelHandler.java": "47149b708c172ae56ada66b3515cf864406e2b14ca61fbed8c5dcb4a89ceeb06",
+    "src/main/java/com/hbm/main/ModSoundEvents.java": "f11734453407566473aaf618b0e8ffee0a70e16e920955473b8b3b8fdf05957e",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_beam.json": "7ec2fa65ee8d2cc775512f484c3c93a1236caa28eea7d210ea2ddabed28c95f2",
+    "src/main/resources/assets/hbm/blockstates/tile.crate_can.json": "46fc34c4467f5346e8c3a2b2887f910c9c713d3f1d042e4f82f8a451e754e9eb",
+    "src/main/resources/assets/hbm/blockstates/tile.crate_supply.json": "6d70b25cb901fe41dc72f4998238da76129bcb8e0d49dd219cedea82b62e7d27",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris.json": "36dc429ff5afa10a67a6245a30b00ce16244f77c3bffc65b7e12e30e3822b6bd",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_burning.json": "ccfa40afd751abcf79d0cd051ae06f94213c8a9895cf87716e007013bca5ec7c",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_radiating.json": "78cd77e14aa23534b802c466d3d9308d74565d02527ffc8007e27a9858e6bbba",
+    "src/main/resources/assets/hbm/blockstates/tile.pribris_digamma.json": "795c3462abf91e2ed84be1d4ec0dccd0f4186a43f0469fc72d9d65a40697deb5",
+    "src/main/resources/assets/hbm/sounds.json": "5b4ebcaf6a1c1e797907e6d9fa0d1f4cf4eb12e497a865413c8e9f9d7d3631c5",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak1.ogg": "630ec2121f2779f6ffdab78195701274e3f0319c5e16a20dea397afaea0f1fae",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak2.ogg": "f32b5b78471c7fa0f5ec0e4ccac4265f59bbd8c86132d4772c8de1565451c8d2",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak3.ogg": "b1769c655c7d52d6b39177d4d3fcc45029f01c6abceba2e34604225ecb445f66",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak4.ogg": "f5ccf8c5e132158bf6a63538fe34ffc341930d5fe9c9bd4e32335c6573058f76",
+    "src/main/resources/assets/hbm/sounds/block/cratebreak5.ogg": "40f04f42c86754ae6f9f9ccfd15470cb7c2d60bc58e51ef7129867ef2ed83553"
+  },
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak1.ogg",
+      "sha256": "630ec2121f2779f6ffdab78195701274e3f0319c5e16a20dea397afaea0f1fae"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak2.ogg",
+      "sha256": "f32b5b78471c7fa0f5ec0e4ccac4265f59bbd8c86132d4772c8de1565451c8d2"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak3.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak3.ogg",
+      "sha256": "b1769c655c7d52d6b39177d4d3fcc45029f01c6abceba2e34604225ecb445f66"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak4.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak4.ogg",
+      "sha256": "f5ccf8c5e132158bf6a63538fe34ffc341930d5fe9c9bd4e32335c6573058f76"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/block/crateBreak5.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/block/cratebreak5.ogg",
+      "sha256": "40f04f42c86754ae6f9f9ccfd15470cb7c2d60bc58e51ef7129867ef2ed83553"
+    }
+  ],
+  "parent_owned_integration": [
+    "src/main/java/com/hbm/main/ClientProxy.java",
+    "src/main/java/com/hbm/blocks/ModBlocks.java"
+  ],
+  "unchanged_prior_sources": {
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java": "236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjBakedModel.java": "e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa",
+    "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f",
+    "src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java": "9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc",
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": "2507eba19e0a341a9ac2b792b28d3e19c928dd204db1503f7a36dc33cc5ce682",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoModel.java": "47fbf2c85adc3ec3facec88113b79cf86b463aa947e557a4a95fc6d68e0b6dae",
+    "src/main/java/com/hbm/blocks/BlockEnumMulti.java": "44afa16e0d0f201653620d6fc7543976d32fe96c58d8dd62265535e9d2e885b4",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoContainer.java": "b48d3d3651e985f273091e45064bd4aa6a192e510333ae86c9d8cd2a50c19263"
+  }
+}

@@ -84,7 +84,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		/// OILS ///
 		this.register(new GenericRecipe("chem.ethanol").setupNamed(50, 100).setIcon(ModItems.canister_full, Fluids.ETHANOL.getID())
-				.inputItems(new ComparableStack(Items.sugar, 10))
+				.inputItems(new ComparableStack(Items.SUGAR, 10))
 				.outputFluids(new FluidStack(Fluids.ETHANOL, 1000)));
 
 		this.register(new GenericRecipe("chem.biogas").setupNamed(60, 100).setIcon(ModItems.gas_full, Fluids.BIOGAS.getID())
@@ -113,7 +113,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		this.register(new GenericRecipe("chem.tarsand").setupNamed(200, 100).setIcon(ModBlocks.ore_oil_sand)
 				.inputItems(new ComparableStack(ModBlocks.ore_oil_sand, 16), new OreDictStack(ANY_TAR.any(), 1))
-				.outputItems(new ItemStack(Blocks.sand, 16))
+				.outputItems(new ItemStack(Blocks.SAND, 16))
 				.outputFluids(new FluidStack(Fluids.BITUMEN, 1_000)));
 
 		this.register(new GenericRecipe("chem.tel").setup(40, 100)
@@ -128,12 +128,12 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 		/// THE CONC AND ASPHALE ///
 		this.register(new GenericRecipe("chem.cobble").setup(20, 100)
 				.inputFluids(new FluidStack(Fluids.WATER, 1_000), new FluidStack(Fluids.LAVA, 25))
-				.outputItems(new ItemStack(Blocks.cobblestone)));
+				.outputItems(new ItemStack(Blocks.COBBLESTONE)));
 		this.register(new GenericRecipe("chem.stone").setup(60, 500).setPools(GenericRecipes.POOL_PREFIX_DISCOVER)
 				.inputFluids(new FluidStack(Fluids.WATER, 1_000), new FluidStack(Fluids.LAVA, 25), new FluidStack(Fluids.AIR, 4_000))
-				.outputItems(new ItemStack(Blocks.stone)));
+				.outputItems(new ItemStack(Blocks.STONE)));
 		this.register(new GenericRecipe("chem.concrete").setup(100, 100)
-				.inputItems(new ComparableStack(ModItems.powder_cement, 1), new ComparableStack(Blocks.gravel, 8), new OreDictStack(KEY_SAND, 8))
+				.inputItems(new ComparableStack(ModItems.powder_cement, 1), new ComparableStack(Blocks.GRAVEL, 8), new OreDictStack(KEY_SAND, 8))
 				.inputFluids(new FluidStack(Fluids.WATER, 2_000))
 				.outputItems(new ItemStack(ModBlocks.concrete_smooth, 16)));
 
@@ -148,12 +148,12 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 				.outputItems(new ItemStack(ModBlocks.ducrete_smooth, 8)));
 
 		this.register(new GenericRecipe("chem.liquidconk").setup(100, 100)
-				.inputItems(new ComparableStack(ModItems.powder_cement, 1), new ComparableStack(Blocks.gravel, 8), new OreDictStack(KEY_SAND, 8))
+				.inputItems(new ComparableStack(ModItems.powder_cement, 1), new ComparableStack(Blocks.GRAVEL, 8), new OreDictStack(KEY_SAND, 8))
 				.inputFluids(new FluidStack(Fluids.WATER, 2_000))
 				.outputFluids(new FluidStack(Fluids.CONCRETE, 16_000)));
 
 		this.register(new GenericRecipe("chem.asphalt").setup(100, 100)
-				.inputItems(new ComparableStack(Blocks.gravel, 2), new OreDictStack(KEY_SAND, 6))
+				.inputItems(new ComparableStack(Blocks.GRAVEL, 2), new OreDictStack(KEY_SAND, 6))
 				.inputFluids(new FluidStack(Fluids.BITUMEN, 1_000))
 				.outputItems(new ItemStack(ModBlocks.asphalt, 16)));
 
@@ -228,7 +228,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 				.outputItems(new ItemStack(ModItems.plate_kevlar, 4)));
 
 		this.register(new GenericRecipe("chem.meth").setup(60, 300)
-				.inputItems(new ComparableStack(Items.wheat), new ComparableStack(Items.dye, 2, 3))
+				.inputItems(new ComparableStack(Items.WHEAT), new ComparableStack(Items.DYE, 2, 3))
 				.inputFluids(new FluidStack(Fluids.LUBRICANT, 400), new FluidStack(Fluids.PEROXIDE, 500))
 				.outputItems(new ItemStack(ModItems.chocolate, 4)));
 
@@ -324,7 +324,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 				.outputItems(new ItemStack(ModItems.rocket_fuel, 4)));
 
 		this.register(new GenericRecipe("chem.dynamite").setup(50, 100)
-				.inputItems(new ComparableStack(Items.sugar), new OreDictStack(KNO.dust()), new OreDictStack(KEY_SAND))
+				.inputItems(new ComparableStack(Items.SUGAR), new OreDictStack(KNO.dust()), new OreDictStack(KEY_SAND))
 				.outputItems(new ItemStack(ModItems.ball_dynamite, 2)));
 
 		this.register(new GenericRecipe("chem.tnt").setup(100, 1_000)
@@ -435,9 +435,9 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 		this.register(new GenericRecipe("chem.masscake").setup(200, 100)
 				.inputFluids(new FluidStack(Fluids.CMILK, 4000), new FluidStack(Fluids.CREAM, 1000)) // why not regular milk? well its because the refined products allow for higher mass cakes while still needing less milk
 				.inputItems(
-						new ComparableStack(Items.sugar, 8),				// if there is a hole in my logic i will shoot myself
-						new ComparableStack(Items.egg, 4))				//ex: since a cake needs 3 buckets of milk, c-milk is more dense, leading to it being only 4 buckets of condensed milk, thats 1 bucket per cake.
-						.outputItems(new ItemStack(Items.cake, 4)));
+						new ComparableStack(Items.SUGAR, 8),				// if there is a hole in my logic i will shoot myself
+						new ComparableStack(Items.EGG, 4))				//ex: since a cake needs 3 buckets of milk, c-milk is more dense, leading to it being only 4 buckets of condensed milk, thats 1 bucket per cake.
+						.outputItems(new ItemStack(Items.CAKE, 4)));
 
 		this.register(new GenericRecipe("chem.butter").setup(100, 100)
 				.inputFluids(new FluidStack(Fluids.EMILK, 1000))
@@ -445,7 +445,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		this.register(new GenericRecipe("chem.strawberryicecream").setup(150, 100)
 				.inputFluids(new FluidStack(Fluids.CREAM, 1000))
-				.inputItems(new ComparableStack(ModItems.butter, 2), new ComparableStack(Blocks.packed_ice, 1), new ComparableStack(ModItems.strawberry, 4))
+				.inputItems(new ComparableStack(ModItems.butter, 2), new ComparableStack(Blocks.PACKED_ICE, 1), new ComparableStack(ModItems.strawberry, 4))
 				.outputItems(new ItemStack(ModItems.s_cream, 4)));
 
 		this.register(new GenericRecipe("chem.minmusicecream").setup(150, 100)
@@ -455,7 +455,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		this.register(new GenericRecipe("chem.minmussmoothstone").setup(200, 1_000)
 				.inputFluids(new FluidStack(Fluids.MILK, 350), new FluidStack(Fluids.EMILK, 250))
-				.inputItems(new ComparableStack(Blocks.ice, 4), new ComparableStack(ModItems.mint_leaves, 2), new ComparableStack(ModBlocks.minmus_smooth, 2))
+				.inputItems(new ComparableStack(Blocks.ICE, 4), new ComparableStack(ModItems.mint_leaves, 2), new ComparableStack(ModBlocks.minmus_smooth, 2))
 				.outputItems(new ItemStack(ModBlocks.minmus_smooth, 4)));
 			//something about a steam distilation?
 		this.register(new GenericRecipe("chem.menthol").setup(50, 100)
@@ -470,7 +470,7 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		this.register(new GenericRecipe("chem.mintslice").setup(50, 100)
 				.inputFluids(new FluidStack(Fluids.MILK, 350))
-				.inputItems(new ComparableStack(ModItems.billet_menthol, 3), new ComparableStack(ModBlocks.minmus_stone, 1), new ComparableStack(Items.sugar, 6))
+				.inputItems(new ComparableStack(ModItems.billet_menthol, 3), new ComparableStack(ModBlocks.minmus_stone, 1), new ComparableStack(Items.SUGAR, 6))
 				.outputItems(new ItemStack(ModItems.chocolate_mint_billet, 3)));
 
 		this.register(new GenericRecipe("chem.minmusstone").setup(300, 500)
@@ -480,8 +480,8 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		this.register(new GenericRecipe("chem.soil").setup(100, 1_000)
 				.inputFluids(new FluidStack(Fluids.WATER, 4000))
-				.inputItems(new ComparableStack(ModItems.ammonium_nitrate, 1), new ComparableStack(Blocks.gravel, 8))
-				.outputItems(new ItemStack(Blocks.dirt, 8)));
+				.inputItems(new ComparableStack(ModItems.ammonium_nitrate, 1), new ComparableStack(Blocks.GRAVEL, 8))
+				.outputItems(new ItemStack(Blocks.DIRT, 8)));
 
 		this.register(new GenericRecipe("chem.chloromethane").setup(50, 1_000)
 				.inputFluids(new FluidStack(Fluids.GAS, 750), new FluidStack(Fluids.CHLORINE, 250))
@@ -499,8 +499,8 @@ public class ChemicalPlantRecipes extends GenericRecipes<GenericRecipe> {
 
 		this.register(new GenericRecipe("chem.synleather").setupNamed(200, 500)
 				.inputFluids(new FluidStack(Fluids.PEROXIDE, 250))
-				.inputItems(new OreDictStack(ANY_PLASTIC.ingot()), new ComparableStack(Items.string, 4))
-				.outputItems(new ItemStack(Items.leather)));
+				.inputItems(new OreDictStack(ANY_PLASTIC.ingot()), new ComparableStack(Items.STRING, 4))
+				.outputItems(new ItemStack(Items.LEATHER)));
 
 	}
 

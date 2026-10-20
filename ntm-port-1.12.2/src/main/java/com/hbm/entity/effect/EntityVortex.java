@@ -15,7 +15,7 @@ public class EntityVortex extends EntityBlackHole {
 
 	public EntityVortex(World world, float size) {
 		super(world);
-		this.dataWatcher.updateObject(16, size);
+		this.dataManager.set(BLACK_HOLE_SIZE, size);
 	}
 	
 	public EntityVortex setShrinkRate(float shrinkRate) {
@@ -26,8 +26,8 @@ public class EntityVortex extends EntityBlackHole {
 	@Override
 	public void onUpdate() {
 		
-		this.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - shrinkRate);
-		if(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {
+		this.dataManager.set(BLACK_HOLE_SIZE, this.dataManager.get(BLACK_HOLE_SIZE) - shrinkRate);
+		if(this.dataManager.get(BLACK_HOLE_SIZE) <= 0) {
 			this.setDead();
 			return;
 		}

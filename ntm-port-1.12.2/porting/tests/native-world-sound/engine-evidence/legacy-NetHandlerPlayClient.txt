@@ -1,0 +1,23 @@
+# Exact javap method excerpts; source legacy-NetHandlerPlayClient.javap
+
+  public void a(hc);
+    Code:
+       0: aload_0
+       1: getfield      #297                // Field f:Lbao;
+       4: getfield      #275                // Field bao.f:Lbjf;
+       7: aload_1
+       8: invokevirtual #665                // Method hc.d:()D
+      11: aload_1
+      12: invokevirtual #666                // Method hc.e:()D
+      15: aload_1
+      16: invokevirtual #667                // Method hc.f:()D
+      19: aload_1
+      20: invokevirtual #664                // Method hc.c:()Ljava/lang/String;
+      23: aload_1
+      24: invokevirtual #668                // Method hc.g:()F
+      27: aload_1
+      28: invokevirtual #669                // Method hc.h:()F
+      31: iconst_0
+      32: invokevirtual #457                // Method bjf.a:(DDDLjava/lang/String;FFZ)V
+      35: return
+

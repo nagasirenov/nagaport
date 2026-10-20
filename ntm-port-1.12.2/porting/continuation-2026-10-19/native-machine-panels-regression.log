@@ -1,0 +1,3 @@
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/wiaj/actors/ActorFancyPanel.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS six complete production classes compile against real native Minecraft/Forge. Six explicit NTM navigation/world/localization fixtures; not complete manual/tutorial, GUI, game or GL acceptance.

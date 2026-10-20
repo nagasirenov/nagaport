@@ -1,0 +1,557 @@
+Repository copy: trailing line whitespace stripped from raw audit only.
+Raw /tmp audit SHA256: 06759be72be382699e4166af33de9b3e1eddfb7b7da5a808bf1a507ee1a41161
+
+CargoShellCraftingHandler removed container-leave-grid predicate audit
+Recorded 2026-10-19 UTC. Read-only audit; this report is the only file written.
+CONCLUSION AND SCOPE
+For the audited original NTM and original vanilla item families, the Cargo predicate
+  item.hasContainerItem(stack) || !item.doesContainerItemLeaveCraftingGrid(stack)
+is equivalent to native item.hasContainerItem(stack). Every NTM override that makes
+!leaveGrid true also makes hasContainerItem true, including all in-tree subclasses;
+vanilla Item returns leaveGrid true and no vanilla Item descendant overrides it.
+The two terms are NOT logically equivalent for arbitrary external legacy mods.
+An external item may independently return hasContainerItem=false and leaveGrid=false.
+Forge2768 has no equivalent item-level leave-grid query. Removal therefore preserves
+the verified original NTM + vanilla domain, not arbitrary external legacy-only opt-outs.
+No fabricated method, constant compatibility stub, reflection or instanceof policy
+is necessary. Original/port ItemFluidIDMulti no-arg hasContainerItem still participates
+through the actual virtual stack-sensitive delegation in both Forge versions.
+This report does not claim a complete build, runtime startup, or external-mod parity.
+INPUT SHA-256 (exact external artifacts and relevant source owners)
+a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce  /tmp/nagaport-legacy-client.jar
+d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2  /tmp/nagaport1710-srg.zip
+6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91  /tmp/nagaport-forge1614-userdev.jar
+8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e  /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+bfc1af3a8fc4ea7f05708b471e2e8f71ba80048904be224db965c8144885661f  /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/patches.zip
+77cb714ca23265a1d478b17579baef52cb02ba59896881a84cf4c85cec03ec31  /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/sources.zip
+168ba83b59caf21edee639957a89acdb2c61817b886d740eed12cb45d02ed22e  /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java
+df23d80a2181f591b8961ea5887fb81854d01bf33cfaebcc29911215d6a1b76b  /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java
+851ff590d9bd06423438a09b09d5248aa4f5eb38839a37f525e665692fc7486f  /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemTooling.java
+a5c2d65f8832448b6a093c76a48c66acc37a8ef0af3e232ad9472ba41a850a70  /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemToolingWeapon.java
+dbadcd4d650d2d3c45d378dea9f92d476f8563a5c799e2e0caa09b55a10875d5  /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemDefuser.java
+168ba83b59caf21edee639957a89acdb2c61817b886d740eed12cb45d02ed22e  /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java
+7e47ce2685056cf16ee6c8e2cf40cc0bc1fbc8969e37beea36c08ffe5aa251d7  /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java
+95b13cb5c0a37573128818177efd165c61096ec8cf5e2ccb440c4741ec6bee4e  /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemTooling.java
+b65f6bebc33477c34a1cba2bbc81ecd8a0636c9a52be703cb4f09b59b9a5c18a  /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemToolingWeapon.java
+8d8c5b264d95f2abfd07ffdf92f197c955254c91b5858efb65c380c519935b25  /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDefuser.java
+
+COMMAND
+rg -n 'doesContainerItemLeaveCraftingGrid|hasContainerItem|extends ItemCraftingDegradation|extends ItemTooling|extends ItemFluidIDMulti' ntm-original-pristine/src --glob '*.java'
+OUTPUT
+ntm-original-pristine/src/main/java/com/hbm/crafting/handlers/CargoShellCraftingHandler.java:24:				if(stack.getItem().hasContainerItem(stack) || !stack.getItem().doesContainerItemLeaveCraftingGrid(stack))
+ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemToolingWeapon.java:14:public class ItemToolingWeapon extends ItemTooling {
+ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemTooling.java:12:public class ItemTooling extends ItemCraftingDegradation {
+ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemDefuser.java:20:public class ItemDefuser extends ItemTooling {
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:124:		if(slots[1].getItem().hasContainerItem(slots[1]) && slots[3] != null) return;
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:125:		if(slots[2].getItem().hasContainerItem(slots[2]) && slots[4] != null) return;
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:127:		if(slots[1].getItem().hasContainerItem(slots[1])) slots[3] = slots[1].getItem().getContainerItem(slots[1]).copy();
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:128:		if(slots[2].getItem().hasContainerItem(slots[2])) slots[4] = slots[2].getItem().getContainerItem(slots[2]).copy();
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:139:				if(recipe.output1.getItem().hasContainerItem(recipe.output1)) this.decrStackSize(1, 1);
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:140:				if(recipe.output2 != null && recipe.output2.getItem().hasContainerItem(recipe.output2)) this.decrStackSize(2, 1);
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java:179:			if(output.getItem().hasContainerItem(output)) {
+ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java:19:	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java:24:	public boolean hasContainerItem(ItemStack stack) {
+ntm-original-pristine/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java:96:	public boolean hasContainerItem() {
+ntm-original-pristine/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java:101:	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:157:				if(slots[0].stackSize == 1 && slots[0].getItem().hasContainerItem(slots[0])) {
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:151:								if(slots[slot].getItem().hasContainerItem(slots[slot])) {
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:107:									if(slots[i] == null && ingredient.getItem().hasContainerItem(ingredient)) {
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:199:		if(stack.stackSize > 1 && stack.getItem().hasContainerItem(stack)) return false;
+ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:250:		if(stack.getItem().hasContainerItem(stack))
+Exit status: 0
+
+COMMAND
+rg -n 'public boolean hasContainerItem|doesContainerItemLeaveCraftingGrid|extends ItemCraftingDegradation|extends ItemTooling|extends ItemFluidIDMulti' ntm-port-1.12.2/src/main/java/com/hbm/items --glob '*.java'
+OUTPUT
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemToolingWeapon.java:14:public class ItemToolingWeapon extends ItemTooling {
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDefuser.java:20:public class ItemDefuser extends ItemTooling {
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemTooling.java:12:public class ItemTooling extends ItemCraftingDegradation {
+ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java:96:	public boolean hasContainerItem() {
+ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java:101:	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java:19:	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java:24:	public boolean hasContainerItem(ItemStack stack) {
+Exit status: 0
+
+COMMAND
+python3 - <<'PY'
+from pathlib import Path
+root=Path('/workspace/shared/nagaport-crafting-cp55')
+for base in ['ntm-original-pristine','ntm-port-1.12.2']:
+ for rel,start,end in [('com/hbm/items/tool/ItemCraftingDegradation.java',18,37),('com/hbm/items/machine/ItemFluidIDMulti.java',90,103)]:
+  p=root/base/'src/main/java'/rel
+  print('SOURCE',p)
+  for i,line in enumerate(p.read_text().splitlines(),1):
+   if start<=i<=end: print('%d: %s'%(i,line))
+PY
+OUTPUT
+SOURCE /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java
+18: 	@Override
+19: 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+20: 		return false;
+21: 	}
+22:
+23: 	@Override
+24: 	public boolean hasContainerItem(ItemStack stack) {
+25: 		return true;
+26: 	}
+27:
+28: 	@Override
+29: 	public ItemStack getContainerItem(ItemStack stack) {
+30: 		if(this.getMaxDamage() > 0) {
+31: 			stack.setItemDamage(stack.getItemDamage() + 1);
+32: 			return stack;
+33:
+34: 		} else {
+35: 			return stack;
+36: 		}
+37: 	}
+SOURCE /workspace/shared/nagaport-crafting-cp55/ntm-original-pristine/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java
+90: 	@Override
+91: 	public ItemStack getContainerItem(ItemStack stack) {
+92: 		return stack.copy();
+93: 	}
+94:
+95: 	@Override
+96: 	public boolean hasContainerItem() {
+97: 		return true;
+98: 	}
+99:
+100: 	@Override
+101: 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+102: 		return false;
+103: 	}
+SOURCE /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java
+18: 	@Override
+19: 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+20: 		return false;
+21: 	}
+22:
+23: 	@Override
+24: 	public boolean hasContainerItem(ItemStack stack) {
+25: 		return true;
+26: 	}
+27:
+28: 	@Override
+29: 	public ItemStack getContainerItem(ItemStack stack) {
+30: 		if(this.getMaxDamage() > 0) {
+31: 			stack.setItemDamage(stack.getItemDamage() + 1);
+32: 			return stack;
+33:
+34: 		} else {
+35: 			return stack;
+36: 		}
+37: 	}
+SOURCE /workspace/shared/nagaport-crafting-cp55/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java
+90: 	@Override
+91: 	public ItemStack getContainerItem(ItemStack stack) {
+92: 		return stack.copy();
+93: 	}
+94:
+95: 	@Override
+96: 	public boolean hasContainerItem() {
+97: 		return true;
+98: 	}
+99:
+100: 	@Override
+101: 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
+102: 		return false;
+103: 	}
+Exit status: 0
+
+COMMAND
+python3 - <<'PY'
+import zipfile,io,hashlib
+old='/tmp/nagaport-forge1614-userdev.jar'
+cache='/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev'
+z=zipfile.ZipFile(old); oldpatch=zipfile.ZipFile(io.BytesIO(z.read('forgepatches.zip')))
+newpatch=zipfile.ZipFile(cache+'/patches.zip')
+for label,archive,ranges in [(old+'!forgepatches.zip',oldpatch,[(261,285)]),(cache+'/patches.zip',newpatch,[(223,247)])]:
+ name='net/minecraft/item/Item.java.patch'
+ data=archive.read(name)
+ print('ENTRY',label+'!'+name,'SHA256',hashlib.sha256(data).hexdigest())
+ lines=data.decode().splitlines()
+ for start,end in ranges:
+  for i in range(start-1,end): print('%d: %s'%(i+1,lines[i]))
+name='net/minecraft/inventory/SlotCrafting.java.patch'
+print('OLD CRAFTING CALLER',old+'!forgepatches.zip!'+name)
+print(oldpatch.read(name).decode())
+print('NATIVE IRecipe REMAINDER DEFAULT',cache+'/patches.zip!net/minecraft/item/crafting/IRecipe.java.patch')
+print(newpatch.read('net/minecraft/item/crafting/IRecipe.java.patch').decode())
+source=zipfile.ZipFile(cache+'/sources.zip')
+name='net/minecraftforge/common/ForgeHooks.java'
+print('NATIVE REMAINDER IMPLEMENTATION',cache+'/sources.zip!'+name)
+lines=source.read(name).decode().splitlines()
+for i in list(range(983,997))+list(range(1008,1022)):print('%d: %s'%(i+1,lines[i]))
+srg=zipfile.ZipFile('/tmp/nagaport1710-srg.zip').read('joined.srg').decode()
+print('ORIGINAL MAPPING')
+for line in srg.splitlines():
+ if 'func_77630_h' in line or 'func_77634_r' in line or line=='CL: adb net/minecraft/item/Item': print(line)
+PY
+OUTPUT
+ENTRY /tmp/nagaport-forge1614-userdev.jar!forgepatches.zip!net/minecraft/item/Item.java.patch SHA256 0555d5fa03ceba22c11ec7bc44cae7ef7002831796d7296d1b6d1aea706dacb0
+261: +    /**
+262: +     * ItemStack sensitive version of getContainerItem.
+263: +     * Returns a full ItemStack instance of the result.
+264: +     *
+265: +     * @param itemStack The current ItemStack
+266: +     * @return The resulting ItemStack
+267: +     */
+268: +    public ItemStack getContainerItem(ItemStack itemStack)
+269: +    {
+270: +        if (!hasContainerItem(itemStack))
+271: +        {
+272: +            return null;
+273: +        }
+274: +        return new ItemStack(func_77668_q());
+275: +    }
+276: +
+277: +    /**
+278: +     * ItemStack sensitive version of hasContainerItem
+279: +     * @param stack The current item stack
+280: +     * @return True if this item has a 'container'
+281: +     */
+282: +    public boolean hasContainerItem(ItemStack stack)
+283: +    {
+284: +        return func_77634_r();
+285: +    }
+ENTRY /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/patches.zip!net/minecraft/item/Item.java.patch SHA256 1a328ebb2b6c53803e4a3faa67b4e63d9bc0d625198df8c63545462b7b472d7e
+223: +    /**
+224: +     * ItemStack sensitive version of getContainerItem.
+225: +     * Returns a full ItemStack instance of the result.
+226: +     *
+227: +     * @param itemStack The current ItemStack
+228: +     * @return The resulting ItemStack
+229: +     */
+230: +    public ItemStack getContainerItem(ItemStack itemStack)
+231: +    {
+232: +        if (!hasContainerItem(itemStack))
+233: +        {
+234: +            return ItemStack.field_190927_a;
+235: +        }
+236: +        return new ItemStack(func_77668_q());
+237: +    }
+238: +
+239: +    /**
+240: +     * ItemStack sensitive version of hasContainerItem
+241: +     * @param stack The current item stack
+242: +     * @return True if this item has a 'container'
+243: +     */
+244: +    public boolean hasContainerItem(ItemStack stack)
+245: +    {
+246: +        return func_77634_r();
+247: +    }
+OLD CRAFTING CALLER /tmp/nagaport-forge1614-userdev.jar!forgepatches.zip!net/minecraft/inventory/SlotCrafting.java.patch
+--- ../src-base/minecraft/net/minecraft/inventory/SlotCrafting.java
++++ ../src-work/minecraft/net/minecraft/inventory/SlotCrafting.java
+@@ -10,6 +10,8 @@
+ import net.minecraft.item.ItemStack;
+ import net.minecraft.item.ItemSword;
+ import net.minecraft.stats.AchievementList;
++import net.minecraftforge.common.MinecraftForge;
++import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
+
+ public class SlotCrafting extends Slot
+ {
+@@ -115,10 +117,16 @@
+             {
+                 this.field_75239_a.func_70298_a(i, 1);
+
+-                if (itemstack1.func_77973_b().func_77634_r())
++                if (itemstack1.func_77973_b().hasContainerItem(itemstack1))
+                 {
+-                    ItemStack itemstack2 = new ItemStack(itemstack1.func_77973_b().func_77668_q());
++                    ItemStack itemstack2 = itemstack1.func_77973_b().getContainerItem(itemstack1);
+
++                    if (itemstack2 != null && itemstack2.func_77984_f() && itemstack2.func_77960_j() > itemstack2.func_77958_k())
++                    {
++                        MinecraftForge.EVENT_BUS.post(new PlayerDestroyItemEvent(field_75238_b, itemstack2));
++                        continue;
++                    }
++
+                     if (!itemstack1.func_77973_b().func_77630_h(itemstack1) || !this.field_75238_b.field_71071_by.func_70441_a(itemstack2))
+                     {
+                         if (this.field_75239_a.func_70301_a(i) == null)
+
+NATIVE IRecipe REMAINDER DEFAULT /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/patches.zip!net/minecraft/item/crafting/IRecipe.java.patch
+--- /net/minecraft/item/crafting/IRecipe.java
++++ /net/minecraft/item/crafting/IRecipe.java
+@@ -4,21 +4,21 @@
+ import net.minecraft.item.ItemStack;
+ import net.minecraft.util.NonNullList;
+ import net.minecraft.world.World;
+-import net.minecraftforge.fml.relauncher.Side;
+-import net.minecraftforge.fml.relauncher.SideOnly;
+
+-public interface IRecipe
++public interface IRecipe extends net.minecraftforge.registries.IForgeRegistryEntry<IRecipe>
+ {
+     boolean func_77569_a(InventoryCrafting p_77569_1_, World p_77569_2_);
+
+     ItemStack func_77572_b(InventoryCrafting p_77572_1_);
+
+-    @SideOnly(Side.CLIENT)
+     boolean func_194133_a(int p_194133_1_, int p_194133_2_);
+
+     ItemStack func_77571_b();
+
+-    NonNullList<ItemStack> func_179532_b(InventoryCrafting p_179532_1_);
++    default NonNullList<ItemStack> func_179532_b(InventoryCrafting p_179532_1_)
++    {
++        return net.minecraftforge.common.ForgeHooks.defaultRecipeGetRemainingItems(p_179532_1_);
++    }
+
+ default NonNullList<Ingredient> func_192400_c()
+     {
+@@ -30,7 +30,6 @@
+         return false;
+     }
+
+-    @SideOnly(Side.CLIENT)
+ default String func_193358_e()
+     {
+         return "";
+
+NATIVE REMAINDER IMPLEMENTATION /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/sources.zip!net/minecraftforge/common/ForgeHooks.java
+984:      * this is just copy pasted over a lot of recipes.
+985:      *
+986:      * @param inv Crafting inventory
+987:      * @return Crafting inventory contents after the recipe.
+988:      */
+989:     public static NonNullList<ItemStack> defaultRecipeGetRemainingItems(InventoryCrafting inv)
+990:     {
+991:         NonNullList<ItemStack> ret = NonNullList.func_191197_a(inv.func_70302_i_(), ItemStack.field_190927_a);
+992:         for (int i = 0; i < ret.size(); i++)
+993:         {
+994:             ret.set(i, getContainerItem(inv.func_70301_a(i)));
+995:         }
+996:         return ret;
+997:     }
+1009:     public static ItemStack getContainerItem(@Nonnull ItemStack stack)
+1010:     {
+1011:         if (stack.func_77973_b().hasContainerItem(stack))
+1012:         {
+1013:             stack = stack.func_77973_b().getContainerItem(stack);
+1014:             if (!stack.func_190926_b() && stack.func_77984_f() && stack.func_77960_j() > stack.func_77958_k())
+1015:             {
+1016:                 ForgeEventFactory.onPlayerDestroyItem(craftingPlayer.get(), stack, null);
+1017:                 return ItemStack.field_190927_a;
+1018:             }
+1019:             return stack;
+1020:         }
+1021:         return ItemStack.field_190927_a;
+1022:     }
+ORIGINAL MAPPING
+CL: adb net/minecraft/item/Item
+MD: adb/l (Ladd;)Z net/minecraft/item/Item/func_77630_h (Lnet/minecraft/item/ItemStack;)Z
+MD: adb/u ()Z net/minecraft/item/Item/func_77634_r ()Z
+Exit status: 0
+
+COMMAND
+/workspace/shared/nagaport-toolchain/java8/bin/javap -c -p -classpath /tmp/nagaport-legacy-client.jar adb
+OUTPUT
+Output filtered to matching method headers and surrounding bytecode, using: ['public boolean l(add);', 'public boolean u();']
+
+  public boolean l(add);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean s();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public adb t();
+    Code:
+
+  public boolean u();
+    Code:
+       0: aload_0
+       1: getfield      #517                // Field c:Ladb;
+       4: ifnull        11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public int a(add, int);
+    Code:
+Exit status: 0
+
+COMMAND
+/workspace/shared/nagaport-toolchain/java8/bin/javap -c -p -classpath '/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar' net.minecraft.item.Item
+OUTPUT
+Output filtered to matching method headers and surrounding bytecode, using: ['public boolean hasContainerItem(net.minecraft.item.ItemStack);', 'public boolean hasContainerItem();']
+
+  public boolean hasContainerItem();
+    Code:
+       0: aload_0
+       1: getfield      #380                // Field containerItem:Lnet/minecraft/item/Item;
+       4: ifnull        11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public void onUpdate(net.minecraft.item.ItemStack, net.minecraft.world.World, net.minecraft.entity.Entity, int, boolean);
+    Code:
+
+  public boolean hasContainerItem(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #664                // Method hasContainerItem:()Z
+       4: ireturn
+
+  public int getEntityLifespan(net.minecraft.item.ItemStack, net.minecraft.world.World);
+    Code:
+       0: sipush        6000
+       3: ireturn
+
+  public boolean hasCustomEntity(net.minecraft.item.ItemStack);
+Exit status: 0
+
+COMMAND
+python3 - <<'PY'
+# Exhaustive original vanilla Item hierarchy declaration scan.
+# Reads all class files directly; no class loading, initialization or compilation.
+import zipfile,struct
+z=zipfile.ZipFile('/tmp/nagaport-legacy-client.jar')
+def members(data):
+ p=8
+ def u1():
+  nonlocal p
+  v=data[p];p+=1;return v
+ def u2():
+  nonlocal p
+  v=struct.unpack_from('>H',data,p)[0];p+=2;return v
+ def u4():
+  nonlocal p
+  v=struct.unpack_from('>I',data,p)[0];p+=4;return v
+ cp=[None]*u2();i=1
+ while i<len(cp):
+  t=u1()
+  if t==1:
+   n=u2();cp[i]=data[p:p+n].decode('utf-8','replace');p+=n
+  elif t in (3,4):p+=4
+  elif t in (5,6):p+=8;i+=1
+  elif t==7:cp[i]=u2()
+  elif t in (8,16):p+=2
+  elif t in (9,10,11,12,18):p+=4
+  elif t==15:p+=3
+  else:raise ValueError(t)
+  i+=1
+ access=u2();this=u2();sup=u2();superclass=cp[cp[sup]] if sup else None
+ n=u2();p+=2*n
+ def skipattributes():
+  nonlocal p
+  for _ in range(u2()):
+   u2();n=u4();p+=n
+ for _ in range(u2()):u2();u2();u2();skipattributes()
+ methods=[]
+ for _ in range(u2()):
+  flags=u2();name=cp[u2()];desc=cp[u2()];methods.append((name,desc));skipattributes()
+ return superclass,methods
+classes={n[:-6]:members(z.read(n)) for n in z.namelist() if n.endswith('.class')}
+def isitem(n):
+ while n:
+  if n=='adb':return True
+  if n not in classes:return False
+  n=classes[n][0]
+ return False
+srg=zipfile.ZipFile('/tmp/nagaport1710-srg.zip').read('joined.srg').decode()
+names={r.split()[1]:r.split()[2] for r in srg.splitlines() if r.startswith('CL:')}
+items=sorted(n for n in classes if isitem(n))
+declarations=[n for n in items if ('l','(Ladd;)Z') in classes[n][1]]
+print('Parsed class count:',len(classes))
+print('Item plus descendant count:',len(items))
+print('All Item hierarchy members:')
+for n in items:print(n,names.get(n), 'extends',names.get(classes[n][0],classes[n][0]))
+print('Leave-grid declarations:',[(n,names.get(n)) for n in declarations])
+assert declarations==['adb'],declarations
+print('PASS: only original vanilla Item declares the mapped leave-grid method.')
+PY
+OUTPUT
+Parsed class count: 1803
+Item plus descendant count: 67
+All Item hierarchy members:
+aba net/minecraft/item/ItemAnvilBlock extends net/minecraft/item/ItemMultiTexture
+abb net/minecraft/item/ItemArmor extends net/minecraft/item/Item
+abe net/minecraft/item/ItemBlockWithMetadata extends net/minecraft/item/ItemBlock
+abf net/minecraft/item/ItemAxe extends net/minecraft/item/ItemTool
+abg net/minecraft/item/ItemBed extends net/minecraft/item/Item
+abh net/minecraft/item/ItemBlock extends net/minecraft/item/Item
+abi net/minecraft/item/ItemReed extends net/minecraft/item/Item
+abj net/minecraft/item/ItemBoat extends net/minecraft/item/Item
+abk net/minecraft/item/ItemBook extends net/minecraft/item/Item
+abl net/minecraft/item/ItemGlassBottle extends net/minecraft/item/Item
+abm net/minecraft/item/ItemBow extends net/minecraft/item/Item
+abn net/minecraft/item/ItemSoup extends net/minecraft/item/ItemFood
+abo net/minecraft/item/ItemBucket extends net/minecraft/item/Item
+abp net/minecraft/item/ItemCarrotOnAStick extends net/minecraft/item/Item
+abq net/minecraft/item/ItemCoal extends net/minecraft/item/Item
+abr net/minecraft/item/ItemColored extends net/minecraft/item/ItemBlock
+abs net/minecraft/item/ItemMapBase extends net/minecraft/item/Item
+acg net/minecraft/item/ItemTool extends net/minecraft/item/Item
+ach net/minecraft/item/ItemDoor extends net/minecraft/item/Item
+aci net/minecraft/item/ItemDoublePlant extends net/minecraft/item/ItemMultiTexture
+acj net/minecraft/item/ItemDye extends net/minecraft/item/Item
+ack net/minecraft/item/ItemEgg extends net/minecraft/item/Item
+acl net/minecraft/item/ItemEmptyMap extends net/minecraft/item/ItemMapBase
+acm net/minecraft/item/ItemEnchantedBook extends net/minecraft/item/Item
+acn net/minecraft/item/ItemEnderEye extends net/minecraft/item/Item
+aco net/minecraft/item/ItemEnderPearl extends net/minecraft/item/Item
+acp net/minecraft/item/ItemExpBottle extends net/minecraft/item/Item
+acq net/minecraft/item/ItemFireball extends net/minecraft/item/Item
+acr net/minecraft/item/ItemFireworkCharge extends net/minecraft/item/Item
+acs net/minecraft/item/ItemFirework extends net/minecraft/item/Item
+act net/minecraft/item/ItemFishFood extends net/minecraft/item/ItemFood
+acv net/minecraft/item/ItemFishingRod extends net/minecraft/item/Item
+acw net/minecraft/item/ItemFlintAndSteel extends net/minecraft/item/Item
+acx net/minecraft/item/ItemFood extends net/minecraft/item/Item
+acy net/minecraft/item/ItemAppleGold extends net/minecraft/item/ItemFood
+acz net/minecraft/item/ItemHangingEntity extends net/minecraft/item/Item
+ada net/minecraft/item/ItemHoe extends net/minecraft/item/Item
+adb net/minecraft/item/Item extends java/lang/Object
+adf net/minecraft/item/ItemLead extends net/minecraft/item/Item
+adg net/minecraft/item/ItemLeaves extends net/minecraft/item/ItemBlock
+adh net/minecraft/item/ItemMap extends net/minecraft/item/ItemMapBase
+adi net/minecraft/item/ItemBucketMilk extends net/minecraft/item/Item
+adj net/minecraft/item/ItemMinecart extends net/minecraft/item/Item
+adl net/minecraft/item/ItemMultiTexture extends net/minecraft/item/ItemBlock
+adm net/minecraft/item/ItemNameTag extends net/minecraft/item/Item
+adn net/minecraft/item/ItemPickaxe extends net/minecraft/item/ItemTool
+ado net/minecraft/item/ItemPiston extends net/minecraft/item/ItemBlock
+adp net/minecraft/item/ItemPotion extends net/minecraft/item/Item
+adr net/minecraft/item/ItemRecord extends net/minecraft/item/Item
+ads net/minecraft/item/ItemRedstone extends net/minecraft/item/Item
+adt net/minecraft/item/ItemSaddle extends net/minecraft/item/Item
+adv net/minecraft/item/ItemSeedFood extends net/minecraft/item/ItemFood
+adw net/minecraft/item/ItemSeeds extends net/minecraft/item/Item
+adx net/minecraft/item/ItemShears extends net/minecraft/item/Item
+ady net/minecraft/item/ItemSpade extends net/minecraft/item/ItemTool
+adz net/minecraft/item/ItemSign extends net/minecraft/item/Item
+aea net/minecraft/item/ItemSimpleFoiled extends net/minecraft/item/Item
+aeb net/minecraft/item/ItemSkull extends net/minecraft/item/Item
+aec net/minecraft/item/ItemSnow extends net/minecraft/item/ItemBlockWithMetadata
+aed net/minecraft/item/ItemSnowball extends net/minecraft/item/Item
+aee net/minecraft/item/ItemMonsterPlacer extends net/minecraft/item/Item
+aeg net/minecraft/item/ItemSlab extends net/minecraft/item/ItemBlock
+aeh net/minecraft/item/ItemSword extends net/minecraft/item/Item
+aej net/minecraft/item/ItemLilyPad extends net/minecraft/item/ItemColored
+aek net/minecraft/item/ItemCloth extends net/minecraft/item/ItemBlock
+ael net/minecraft/item/ItemWritableBook extends net/minecraft/item/Item
+aem net/minecraft/item/ItemEditableBook extends net/minecraft/item/Item
+Leave-grid declarations: [('adb', 'net/minecraft/item/Item')]
+PASS: only original vanilla Item declares the mapped leave-grid method.
+Exit status: 0
+
+INTERPRETATION
+Original NTM ItemCraftingDegradation descendants: ItemTooling, then ItemToolingWeapon
+and ItemDefuser. All inherit hasContainerItem(stack)=true and leaveGrid=false.
+ItemFluidIDMulti has no in-tree subclass and its no-argument true container override
+is reached by the native stack-sensitive virtual call, as shown above.
+Pristine original CargoShellCraftingHandler line 24 is the only NTM caller found.
+The port item owners still contain other legacy signatures; this audit proves the
+cargo predicate reduction only, not that those entire classes currently compile.
+Source search results and archive/bytecode captures are actual command outputs.
+No full Gradle, compiler, download, network request or repository edit was performed.

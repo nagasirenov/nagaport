@@ -5,17 +5,17 @@ import com.hbm.interfaces.IMultiblock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityDummy extends TileEntity {
+public class TileEntityDummy extends TileEntity implements net.minecraft.util.ITickable {
 
 	public int targetX;
 	public int targetY;
 	public int targetZ;
 	
     @Override
-	public void updateEntity() {
-    	if(!this.worldObj.isRemote) {
-    		if(!(this.worldObj.getBlock(targetX, targetY, targetZ) instanceof IMultiblock)) {
-    			worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+	public void update() {
+    	if(!this.world.isRemote) {
+    		if(!(com.hbm.world.WorldBlockState.read(this.world, targetX, targetY, targetZ).getBlock() instanceof IMultiblock)) {
+    			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
     		}
     	}
     }
@@ -30,11 +30,12 @@ public class TileEntityDummy extends TileEntity {
     }
 
     @Override
-	public void writeToNBT(NBTTagCompound nbt)
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
     {
     	super.writeToNBT(nbt);
     	nbt.setInteger("tx", this.targetX);
     	nbt.setInteger("ty", this.targetY);
     	nbt.setInteger("tz", this.targetZ);
+	    return nbt;
     }
 }

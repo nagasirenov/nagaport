@@ -1,5 +1,7 @@
 package com.hbm.items.machine;
 
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 
 import com.hbm.interfaces.IOrderedEnum;
@@ -14,9 +16,9 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.ResourceLocation;
@@ -74,41 +76,41 @@ public class ItemBatteryPack extends ItemEnumMulti implements IBatteryItem {
 	@Override
 	public void chargeBattery(ItemStack stack, long i) {
 		if(stack.hasTagCompound()) {
-			stack.stackTagCompound.setLong("charge", stack.stackTagCompound.getLong("charge") + i);
+			stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") + i);
 		} else {
-			stack.stackTagCompound = new NBTTagCompound();
-			stack.stackTagCompound.setLong("charge", i);
+			stack.setTagCompound(new NBTTagCompound());
+			stack.getTagCompound().setLong("charge", i);
 		}
 	}
 
 	@Override
 	public void setCharge(ItemStack stack, long i) {
 		if(stack.hasTagCompound()) {
-			stack.stackTagCompound.setLong("charge", i);
+			stack.getTagCompound().setLong("charge", i);
 		} else {
-			stack.stackTagCompound = new NBTTagCompound();
-			stack.stackTagCompound.setLong("charge", i);
+			stack.setTagCompound(new NBTTagCompound());
+			stack.getTagCompound().setLong("charge", i);
 		}
 	}
 
 	@Override
 	public void dischargeBattery(ItemStack stack, long i) {
 		if(stack.hasTagCompound()) {
-			stack.stackTagCompound.setLong("charge", stack.stackTagCompound.getLong("charge") - i);
+			stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") - i);
 		} else {
-			stack.stackTagCompound = new NBTTagCompound();
-			stack.stackTagCompound.setLong("charge", 0);
+			stack.setTagCompound(new NBTTagCompound());
+			stack.getTagCompound().setLong("charge", 0);
 		}
 	}
 
 	@Override
 	public long getCharge(ItemStack stack) {
 		if(stack.hasTagCompound()) {
-			return stack.stackTagCompound.getLong("charge");
+			return stack.getTagCompound().getLong("charge");
 		} else {
-			stack.stackTagCompound = new NBTTagCompound();
-			stack.stackTagCompound.setLong("charge", 0);
-			return stack.stackTagCompound.getLong("charge");
+			stack.setTagCompound(new NBTTagCompound());
+			stack.getTagCompound().setLong("charge", 0);
+			return stack.getTagCompound().getLong("charge");
 		}
 	}
 
@@ -134,7 +136,8 @@ public class ItemBatteryPack extends ItemEnumMulti implements IBatteryItem {
 	@Override public double getDurabilityForDisplay(ItemStack stack) { return 1D - (double) getCharge(stack) / (double) getMaxCharge(stack); }
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		long maxCharge = this.getMaxCharge(itemstack);
 		long chargeRate = this.getChargeRate(itemstack);
 		long dischargeRate = this.getDischargeRate(itemstack);
@@ -150,27 +153,28 @@ public class ItemBatteryPack extends ItemEnumMulti implements IBatteryItem {
 	}
 
 	public static ItemStack makeEmptyBattery(ItemStack stack) {
-		stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setLong("charge", 0);
+		stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setLong("charge", 0);
 		return stack;
 	}
 
 	public static ItemStack makeFullBattery(ItemStack stack) {
-		stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setLong("charge", ((ItemBatteryPack) stack.getItem()).getMaxCharge(stack));
+		stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setLong("charge", ((ItemBatteryPack) stack.getItem()).getMaxCharge(stack));
 		return stack;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
+		if(!this.isInCreativeTab(tab)) return;
 		
 		Enum[] order = theEnum.getEnumConstants();
 		if(order[0] instanceof IOrderedEnum) order = ((IOrderedEnum) order[0]).getOrder();
 		
 		for(int i = 0; i < order.length; i++) {
-			list.add(makeEmptyBattery(new ItemStack(item, 1, order[i].ordinal())));
-			list.add(makeFullBattery(new ItemStack(item, 1, order[i].ordinal())));
+			list.add(makeEmptyBattery(new ItemStack(this, 1, order[i].ordinal())));
+			list.add(makeFullBattery(new ItemStack(this, 1, order[i].ordinal())));
 		}
 	}
 }

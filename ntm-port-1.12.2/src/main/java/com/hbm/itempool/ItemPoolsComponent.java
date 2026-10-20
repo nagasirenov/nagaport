@@ -15,7 +15,7 @@ import com.hbm.items.tool.ItemBlowtorch;
 import com.hbm.items.weapon.sedna.factory.GunFactory.EnumAmmo;
 
 import net.minecraft.init.Items;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 public class ItemPoolsComponent {
 
@@ -101,8 +101,8 @@ public class ItemPoolsComponent {
 		//low quality items from offices in chests
 		new ItemPool(POOL_OFFICE_TRASH) {{
 			this.pool = new WeightedRandomChestContent[] {
-					weighted(Items.paper, 0, 1, 12, 10),
-					weighted(Items.book, 0, 1, 3, 4),
+					weighted(Items.PAPER, 0, 1, 12, 10),
+					weighted(Items.BOOK, 0, 1, 3, 4),
 					weighted(ModItems.twinkie, 0, 1, 2, 6),
 					weighted(ModItems.coffee, 0, 1, 1, 4),
 					weighted(ModItems.bean_raw, 0, 1, 4, 4),
@@ -123,10 +123,10 @@ public class ItemPoolsComponent {
 		//things found in various filing cabinets, paper, books, etc
 		new ItemPool(POOL_FILING_CABINET) {{
 			this.pool = new WeightedRandomChestContent[] {
-					weighted(Items.paper, 0, 1, 12, 240),
-					weighted(Items.book, 0, 1, 3, 90),
-					weighted(Items.map, 0, 1, 1, 50),
-					weighted(Items.writable_book, 0, 1, 1, 30),
+					weighted(Items.PAPER, 0, 1, 12, 240),
+					weighted(Items.BOOK, 0, 1, 3, 90),
+					weighted(Items.MAP, 0, 1, 1, 50),
+					weighted(Items.WRITABLE_BOOK, 0, 1, 1, 30),
 					weighted(ModItems.cigarette, 0, 1, 16, 20),
 					weighted(ModItems.dust, 0, 1, 1, 40),
 					weighted(ModItems.dust_tiny, 0, 1, 3, 75),
@@ -143,7 +143,7 @@ public class ItemPoolsComponent {
 					weighted(ModItems.solid_fuel_presto, 0, 1, 2, 2),
 					weighted(ModItems.ball_dynamite, 0, 1, 4, 2),
 					weighted(ModItems.coke, EnumCokeType.PETROLEUM.ordinal(), 1, 3, 1),
-					weighted(Items.redstone, 0, 1, 3, 1),
+					weighted(Items.REDSTONE, 0, 1, 3, 1),
 					weighted(ModItems.niter, 0, 1, 3, 1)
 			};
 		}};
@@ -158,9 +158,9 @@ public class ItemPoolsComponent {
 					weighted(ModItems.morning_glory, 0, 1, 1, 1),
 					weighted(ModItems.filter_coal, 0, 1, 1, 5),
 					weighted(ModItems.dust, 0, 1, 3, 25),
-					weighted(Items.paper, 0, 1, 2, 15),
+					weighted(Items.PAPER, 0, 1, 2, 15),
 					weighted(ModItems.cell_empty, 0, 1, 1, 5),
-					weighted(Items.glass_bottle, 0, 1, 1, 5),
+					weighted(Items.GLASS_BOTTLE, 0, 1, 1, 5),
 					weighted(ModItems.powder_iodine, 0, 1, 1, 1),
 					weighted(ModItems.powder_bromine, 0, 1, 1, 1),
 					weighted(ModItems.powder_cobalt, 0, 1, 1, 1),
@@ -191,10 +191,10 @@ public class ItemPoolsComponent {
 					weighted(ModItems.armor_polish, 0, 1, 1, 3),
 					weighted(ModItems.gun_kit_1, 0, 1, 1, 3),
 					weighted(ModItems.rag, 0, 1, 3, 5),
-					weighted(Items.paper, 0, 1, 6, 7),
-					weighted(Items.clock, 0, 1, 1, 3),
-					weighted(Items.book, 0, 1, 5, 10),
-					weighted(Items.experience_bottle, 0, 1, 3, 1),
+					weighted(Items.PAPER, 0, 1, 6, 7),
+					weighted(Items.CLOCK, 0, 1, 1, 3),
+					weighted(Items.BOOK, 0, 1, 5, 10),
+					weighted(Items.EXPERIENCE_BOTTLE, 0, 1, 3, 1),
 					weighted(ModItems.blueprint_folder, 0, 1, 1, 1),
 					weighted(ModItems.blueprint_folder, 1, 1, 1, 1),
 					weighted(ModItems.ammo_container, 0, 1, 1, 1)
@@ -236,10 +236,10 @@ public class ItemPoolsComponent {
 					weighted(ModItems.pwr_fuel, EnumPWRFuel.MEU.ordinal(), 1, 3, 3),
 					weighted(ModItems.pwr_fuel, EnumPWRFuel.MEP.ordinal(), 1, 3, 3),
 					weighted(ModItems.pwr_fuel, EnumPWRFuel.HEU235.ordinal(), 1, 3, 4),
-					weighted(Items.paper, 0, 1, 6, 5),
-					weighted(Items.clock, 0, 1, 1, 3),
-					weighted(Items.compass, 0, 1, 1, 3),
-					weighted(Items.book, 0, 1, 5, 4),
+					weighted(Items.PAPER, 0, 1, 6, 5),
+					weighted(Items.CLOCK, 0, 1, 1, 3),
+					weighted(Items.COMPASS, 0, 1, 1, 3),
+					weighted(Items.BOOK, 0, 1, 5, 4),
 			};
 		}};
 

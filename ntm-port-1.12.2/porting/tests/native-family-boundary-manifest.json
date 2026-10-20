@@ -1,0 +1,1142 @@
+{
+  "baseline": "641ba083c276c6ac75afa6a8f996cdd86f8b16d4",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "d8b62d1748ee02e40d903545f491dca484a3346e3c6aa60ef9cb1421ef3fa68f",
+      "after_sha256": "a168c461de2bdf4b6d056b2477fd7ac795defeffc760905eedba103e7b8d4a74",
+      "edits": [
+        {
+          "before_offset": 130064,
+          "after_offset": 130064,
+          "old": "\t\tdeco_crt = new BlockDecoCRT(Material.iron).setBlockName(\"deco_crt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_steel\");\r\n",
+          "new": "\t\tdeco_crt = new BlockDecoCRT(Material.IRON).setBlockName(\"deco_crt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);\r\n"
+        },
+        {
+          "before_offset": 190455,
+          "after_offset": 190400,
+          "old": "\t\tradio_torch_counter = new RadioTorchCounter().setBlockName(\"radio_torch_counter\").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rtty_counter\");\r\n",
+          "new": "\t\tradio_torch_counter = new RadioTorchCounter().setBlockName(\"radio_torch_counter\").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 190835,
+          "after_offset": 190724,
+          "old": "\t\tradio_torch_reader = new RadioTorchReader().setBlockName(\"radio_torch_reader\").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rtty_reader\");\r\n\t\tradio_torch_controller = new RadioTorchController().setBlockName(\"radio_torch_controller\").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":rtty_controller\");\r\n",
+          "new": "\t\tradio_torch_reader = new RadioTorchReader().setBlockName(\"radio_torch_reader\").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tradio_torch_controller = new RadioTorchController().setBlockName(\"radio_torch_controller\").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        },
+        {
+          "before_offset": 193233,
+          "after_offset": 193008,
+          "old": "\t\tcrane_splitter = new CraneSplitter().setBlockName(\"crane_splitter\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":crane_side\");\r\n",
+          "new": "\t\tcrane_splitter = new CraneSplitter().setTranslationKey(\"crane_splitter\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDecoCRT.java": {
+      "before_sha256": "00266abd9eafdd8be1504cc1bc614fde3df934094961ed1a92ad1e474840d137",
+      "after_sha256": "eabfb7a9934a912475e99acb0f6eb44acc74dfe00756eecfa0703900d25a045a",
+      "edits": [
+        {
+          "before_offset": 67,
+          "after_offset": 67,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 151,
+          "after_offset": 120,
+          "old": "\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 361,
+          "after_offset": 166,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 449,
+          "after_offset": 416,
+          "old": "",
+          "new": "import net.minecraft.entity.player.EntityPlayer;\n"
+        },
+        {
+          "before_offset": 486,
+          "after_offset": 502,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 563,
+          "after_offset": 671,
+          "old": "",
+          "new": "import net.minecraft.util.math.RayTraceResult;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 598,
+          "after_offset": 794,
+          "old": "",
+          "new": "/** Four original CRT variants: persisted metadata is variant * 4 + placement yaw. */\n"
+        },
+        {
+          "before_offset": 679,
+          "after_offset": 961,
+          "old": "\n\tprotected String[] variants = new String[] {\"crt_clean\", \"crt_broken\", \"crt_blinking\", \"crt_bsod\"};\n\t@SideOnly(Side.CLIENT) protected IIcon[] icons;\n\n\tpublic BlockDecoCRT(Material mat) {\n\t\tsuper(mat);\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType(){\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister reg) {\n\t\tsuper.registerBlockIcons(reg);\n\t\tthis.icons = new IIcon[variants.length];\n\n\t\tfor(int i = 0; i < variants.length; i++) {\n\t\t\tthis.icons[i] = reg.registerIcon(RefStrings.MODID + \":\" + variants[i]);\n\t\t}\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\t\treturn this.icons[damageDropped(meta)];\n\t}\n\n\t@Override\n\tpublic int damageDropped(int meta) {\n\t\treturn (Math.abs(meta) % 16) / 4;\n\t}\n\n\t@Override\n\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\tint meta = stack.getItemDamage();\n\t\tworld.setBlockMetadataWithNotify(x, y, z, meta * 4 + i, 2);\n\t}\n\n\t@Override\n\tpublic int getSubCount() {\n\t\treturn 4;\n\t}\n\n\t@Override\n\tpublic int transformMeta(int meta, int coordBaseMode) {\n\t\treturn INBTBlockTransformable.transformMetaDecoModel(meta, coordBaseMode);\n\t}\n\n",
+          "new": "    public static final PropertyInteger META = PropertyInteger.create(\"meta\", 0, 15);\n    public BlockDecoCRT(Material material) {\n        super(material);\n        setDefaultState(blockState.getBaseState().withProperty(META, 0));\n    }\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, META); }\n    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(META, meta & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(META); }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {\n        return BlockFaceShape.UNDEFINED;\n    }\n    @Override public int damageDropped(int meta) { return (Math.abs(meta) % 16) / 4; }\n    @Override public ItemStack getItem(World world, BlockPos pos, IBlockState state) {\n        return new ItemStack(this, 1, damageDropped(state));\n    }\n    @Override public ItemStack getPickBlock(IBlockState state, RayTraceResult hit, World world, BlockPos pos, EntityPlayer player) {\n        return getItem(world, pos, state);\n    }\n    @Override public int getSubCount() { return 4; }\n    @Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {\n        int yaw = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + .5D) & 3;\n        world.setBlockState(pos, getStateFromMeta(stack.getItemDamage() * 4 + yaw), 2);\n    }\n    @Override public int transformMeta(int meta, int coordBaseMode) {\n        return INBTBlockTransformable.transformMetaDecoModel(meta, coordBaseMode);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/CraneSplitter.java": {
+      "before_sha256": "a61d5c7357155f1633091a56ec2ca0007b207eb3ee13eea9c1d75a426a086ffc",
+      "after_sha256": "e202d17d4243245ab6bcaad867a3f86eebd933e2d6f22370d204945dcdc8eb28",
+      "edits": [
+        {
+          "before_offset": 385,
+          "after_offset": 385,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 511,
+          "after_offset": 480,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 720,
+          "after_offset": 526,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 892,
+          "after_offset": 656,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 969,
+          "after_offset": 699,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 1334,
+          "after_offset": 1105,
+          "old": "\t@SideOnly(Side.CLIENT) public IIcon iconTopLeft;\n\t@SideOnly(Side.CLIENT) public IIcon iconTopRight;\n\t@SideOnly(Side.CLIENT) public IIcon iconFrontLeft;\n\t@SideOnly(Side.CLIENT) public IIcon iconFrontRight;\n\t@SideOnly(Side.CLIENT) public IIcon iconBackLeft;\n\t@SideOnly(Side.CLIENT) public IIcon iconBackRight;\n\t@SideOnly(Side.CLIENT) public IIcon iconLeft;\n\t@SideOnly(Side.CLIENT) public IIcon iconRight;\n\t@SideOnly(Side.CLIENT) public IIcon iconBelt;\n\t@SideOnly(Side.CLIENT) public IIcon iconInner;\n\t@SideOnly(Side.CLIENT) public IIcon iconInnerSide;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1912,
+          "after_offset": 1132,
+          "old": "\t\tsuper(Material.iron);\n",
+          "new": "\t\tsuper(Material.IRON);\n"
+        },
+        {
+          "before_offset": 2198,
+          "after_offset": 1418,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tsuper.registerBlockIcons(iconRegister);\n\t\tthis.iconTopLeft = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_top_left\");\n\t\tthis.iconTopRight = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_top_right\");\n\t\tthis.iconFrontLeft = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_front_left\");\n\t\tthis.iconFrontRight = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_front_right\");\n\t\tthis.iconBackLeft = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_back_left\");\n\t\tthis.iconBackRight = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_back_right\");\n\t\tthis.iconLeft = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_left\");\n\t\tthis.iconRight = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_right\");\n\t\tthis.iconBelt = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_belt\");\n\t\tthis.iconInner = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_inner\");\n\t\tthis.iconInnerSide = iconRegister.registerIcon(RefStrings.MODID + \":crane_splitter_inner_side\");\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n",
+          "new": "    /** Exact original registry owner, not a class-wide renderer override for foreign subclasses. */\n    public static boolean isNativeModelOwner(net.minecraft.block.Block block) {\n        return block != null && block.getClass() == CraneSplitter.class\n                && new net.minecraft.util.ResourceLocation(\"hbm\", \"tile.crane_splitter\").equals(block.getRegistryName());\n    }\n    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n        return net.minecraft.util.EnumBlockRenderType.MODEL;\n    }\n    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }\n    @Override public boolean hasCustomBreakingProgress(net.minecraft.block.state.IBlockState state) { return isNativeModelOwner(this); }\n"
+        },
+        {
+          "before_offset": 4193,
+          "after_offset": 2929,
+          "old": "\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 4770,
+          "after_offset": 3520,
+          "old": "\t\tif(stack == null || stack.stackSize <= 0) return;\n",
+          "new": "\t\tif(stack == null || stack.isEmpty()) return;\n"
+        },
+        {
+          "before_offset": 5076,
+          "after_offset": 3821,
+          "old": "\t\tworld.spawnEntityInWorld(moving);\n",
+          "new": "\t\tworld.spawnEntity(moving);\n"
+        },
+        {
+          "before_offset": 5479,
+          "after_offset": 4217,
+          "old": "\t\titemPos = new Vec3d(MathHelper.clamp_double(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp_double(itemPos.z, z, z + 1));\n",
+          "new": "\t\t// The original mutable Vec3 was clamped by getClosestSnappingPosition before this arithmetic.\n\t\titemPos = new Vec3d(MathHelper.clamp(itemPos.x, x, x + 1), itemPos.y, MathHelper.clamp(itemPos.z, z, z + 1));\n"
+        },
+        {
+          "before_offset": 6174,
+          "after_offset": 4995,
+          "old": "\t\tdouble itemX = MathHelper.clamp_double(itemPos.x, x, x + 1);\n\t\tdouble itemZ = MathHelper.clamp_double(itemPos.z, z, z + 1);\n",
+          "new": "\t\tdouble itemX = MathHelper.clamp(itemPos.x, x, x + 1);\n\t\tdouble itemZ = MathHelper.clamp(itemPos.z, z, z + 1);\n"
+        },
+        {
+          "before_offset": 6563,
+          "after_offset": 5370,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));\n"
+        },
+        {
+          "before_offset": 7257,
+          "after_offset": 6093,
+          "old": "\t\tTileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));\n"
+        },
+        {
+          "before_offset": 7627,
+          "after_offset": 6477,
+          "old": "\t\t\tcrane.leftRatio = (byte)MathHelper.clamp_int(crane.leftRatio + adjust, 1, 16);\n",
+          "new": "\t\t\tcrane.leftRatio = (byte)MathHelper.clamp(crane.leftRatio + adjust, 1, 16);\n"
+        },
+        {
+          "before_offset": 7720,
+          "after_offset": 6566,
+          "old": "\t\t\tcrane.rightRatio = (byte)MathHelper.clamp_int(crane.rightRatio + adjust, 1, 16);\n",
+          "new": "\t\t\tcrane.rightRatio = (byte)MathHelper.clamp(crane.rightRatio + adjust, 1, 16);\n"
+        },
+        {
+          "before_offset": 7981,
+          "after_offset": 6823,
+          "old": "\t\tTileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));\n"
+        },
+        {
+          "before_offset": 8282,
+          "after_offset": 7138,
+          "old": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchBase.java": {
+      "before_sha256": "c01f091e86ec28a9a5b0416e18931837d01e7255b73fb550e81aaba817d5301b",
+      "after_sha256": "f301f1e4173c12bc24a2adafd6278ad3f07f33f1f6ef00d942f9d9d0d409f254",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import java.util.List;\nimport com.hbm.blocks.BlockBase;\n"
+        },
+        {
+          "before_offset": 143,
+          "after_offset": 199,
+          "old": "",
+          "new": "import com.hbm.lib.ForgeDirection;\nimport com.hbm.lib.RefStrings;\nimport com.hbm.render.icon.IIconRegister;\n"
+        },
+        {
+          "before_offset": 183,
+          "after_offset": 347,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": "import com.hbm.tileentity.network.TileEntityRadioTorchBase;\nimport com.hbm.tileentity.network.TileEntityRadioTorchLogic;\nimport net.minecraft.block.Block;\nimport net.minecraft.block.ITileEntityProvider;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.block.properties.IProperty;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.entity.EntityLivingBase;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.inventory.Container;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.BlockRenderLayer;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport net.minecraftforge.common.property.ExtendedBlockState;\nimport net.minecraftforge.common.property.IExtendedBlockState;\nimport net.minecraftforge.common.property.IUnlistedProperty;\n"
+        },
+        {
+          "before_offset": 419,
+          "after_offset": 1696,
+          "old": "import net.minecraft.block.Block;\nimport net.minecraft.block.BlockContainer;\nimport net.minecraft.block.material.Material;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.inventory.Container;\nimport net.minecraft.item.ItemStack;\nimport net.minecraft.util.math.AxisAlignedBB;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.math.RayTraceResult;\nimport net.minecraft.util.math.Vec3d;\nimport net.minecraft.world.IBlockAccess;\nimport net.minecraft.world.World;\nimport com.hbm.lib.ForgeDirection;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 999,
+          "after_offset": 1697,
+          "old": "import java.util.List;\n\n/**\n * Base class for all torch-like RTTY blocks\n * @author hbm\n */\npublic abstract class RadioTorchBase extends BlockContainer implements IGUIProvider, ILookOverlay, ITooltipProvider {\n\n\tpublic RadioTorchBase() {\n\t\tsuper(Material.circuits);\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn null;\n\t}\n\n\t@Override\n\tpublic RayTraceResult collisionRayTrace(IBlockState state, World world, BlockPos pos, Vec3d vec0, Vec3d vec1) {\n\n\t\tint meta = world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()) & 7;\n\t\tForgeDirection dir = ForgeDirection.getOrientation(meta);\n\n\t\tthis.setBlockBounds(\n\t\t\t\tdir.offsetX == 1 ? 0F : 0.375F,\n\t\t\t\tdir.offsetY == 1 ? 0F : 0.375F,\n\t\t\t\tdir.offsetZ == 1 ? 0F : 0.375F,\n\t\t\t\tdir.offsetX == -1 ? 1F : 0.625F,\n\t\t\t\tdir.offsetY == -1 ? 1F : 0.625F,\n\t\t\t\tdir.offsetZ == -1 ? 1F : 0.625F\n\t\t\t\t);\n\n\t\treturn super.collisionRayTrace(state, world, pos, vec0, vec1);\n\t}\n\n\t@Override\n\tpublic int onBlockPlaced(World world, int x, int y, int z, int side, float fX, float fY, float fZ, int meta) {\n\t\treturn side;\n\t}\n\n\t@Override\n\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tForgeDirection dir = ForgeDirection.getOrientation(meta);\n\t\tBlock b = world.getBlock(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\n\t\tif(!canBlockStay(world, x, y, z, dir, b)) {\n\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n\t\t\tworld.setBlockToAir(x, y, z);\n\t\t}\n\t}\n\n\t@Override\n\tpublic boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {\n\t\tif(!super.canPlaceBlockOnSide(world, x, y, z, side)) return false;\n\n\t\tForgeDirection dir = ForgeDirection.getOrientation(side);\n\t\tBlock b = world.getBlock(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\n\t\treturn canBlockStay(world, x, y, z, dir, b);\n\t}\n\n\tpublic boolean canBlockStay(World world, int x, int y, int z, ForgeDirection dir, Block b) {\n\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || b.hasComparatorInputOverride() || b.canProvidePower() || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z));\n\t}\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n\t\tif(world.isRemote && !player.isSneaking()) {\n\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);\n\t\t\treturn true;\n\t\t} else {\n\t\t\treturn !player.isSneaking();\n\t\t}\n\t}\n\n\t@Override public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return null; }\n\n\t@Override\n\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n\t\taddStandardInfo(stack, player, list, ext);\n\t}\n",
+          "new": "/** Native common owner for the original torch-like RTTY family. */\npublic abstract class RadioTorchBase extends BlockBase implements ITileEntityProvider, IGUIProvider, ILookOverlay, ITooltipProvider {\n    private static final String[] MODEL_NAMES = {\"sender\", \"receiver\", \"counter\", \"logic\", \"reader\", \"controller\"};\n    private static final Class<?>[] MODEL_OWNERS = {RadioTorchSender.class, RadioTorchReceiver.class, RadioTorchCounter.class,\n            RadioTorchLogic.class, RadioTorchReader.class, RadioTorchController.class};\n    private static final Class<?>[] TILE_OWNERS = {com.hbm.tileentity.network.TileEntityRadioTorchSender.class,\n            com.hbm.tileentity.network.TileEntityRadioTorchReceiver.class, com.hbm.tileentity.network.TileEntityRadioTorchCounter.class,\n            com.hbm.tileentity.network.TileEntityRadioTorchLogic.class, com.hbm.tileentity.network.TileEntityRadioTorchReader.class,\n            com.hbm.tileentity.network.TileEntityRadioTorchController.class};\n    private static int nativeFamily(Block block) {\n        if(block == null || block.getRegistryName() == null || !RefStrings.MODID.equals(block.getRegistryName().getNamespace())) return -1;\n        for(int i = 0; i < MODEL_NAMES.length; i++) if(block.getClass() == MODEL_OWNERS[i]\n                && block.getRegistryName().getPath().equals(\"tile.radio_torch_\" + MODEL_NAMES[i])) return i;\n        return -1;\n    }\n    public static boolean isNativeModelOwner(Block block) { return nativeFamily(block) >= 0; }\n    public static boolean isNativeBreakingOwner(TileEntity tile, IBlockState state) {\n        int family = state == null ? -1 : nativeFamily(state.getBlock());\n        return family >= 0 && tile != null && tile.getClass() == TILE_OWNERS[family];\n    }\n    @Override public boolean hasCustomBreakingProgress(IBlockState state) { return isNativeModelOwner(this); }\n    private final String iconName;\n    public RadioTorchBase() { this(\"rtty_programmer\"); }\n    protected RadioTorchBase(String iconName) {\n        super(Material.CIRCUITS);\n        this.iconName = iconName;\n        setDefaultState(blockState.getBaseState().withProperty(RadioTorchModelState.META, 0));\n    }\n    @Override protected BlockStateContainer createBlockState() {\n        return new ExtendedBlockState(this, new IProperty<?>[]{RadioTorchModelState.META},\n                new IUnlistedProperty<?>[]{RadioTorchModelState.ACTIVE});\n    }\n    @Override public IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(RadioTorchModelState.META, metadata & 15); }\n    @Override public int getMetaFromState(IBlockState state) { return state.getValue(RadioTorchModelState.META); }\n    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        // Read the tile only while building the snapshot, never from a cached baked model.\n        TileEntity tile = world.getTileEntity(pos);\n        int signal = tile instanceof TileEntityRadioTorchBase ? ((TileEntityRadioTorchBase)tile).lastState\n                : tile instanceof TileEntityRadioTorchLogic ? ((TileEntityRadioTorchLogic)tile).lastState : 0;\n        return ((IExtendedBlockState)state).withProperty(RadioTorchModelState.ACTIVE, signal > 0);\n    }\n    @Override public boolean hasTileEntity(IBlockState state) { return true; }\n    @Override public TileEntity createTileEntity(World world, IBlockState state) { return createNewTileEntity(world, getMetaFromState(state)); }\n    @Override public boolean eventReceived(IBlockState state, World world, BlockPos pos, int id, int parameter) {\n        super.eventReceived(state, world, pos, id, parameter);\n        TileEntity tile = world.getTileEntity(pos);\n        return tile != null && tile.receiveClientEvent(id, parameter);\n    }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) { return true; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }\n    @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return NULL_AABB; }\n    @Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        ForgeDirection dir = ForgeDirection.getOrientation(getMetaFromState(state) & 7);\n        return new AxisAlignedBB(dir.offsetX == 1 ? 0F : .375F, dir.offsetY == 1 ? 0F : .375F, dir.offsetZ == 1 ? 0F : .375F,\n                dir.offsetX == -1 ? 1F : .625F, dir.offsetY == -1 ? 1F : .625F, dir.offsetZ == -1 ? 1F : .625F);\n    }\n    @Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int metadata, EntityLivingBase placer) {\n        return getStateFromMeta(side.getIndex());\n    }\n    @Override public void neighborChanged(IBlockState state, World world, BlockPos pos, Block changed, BlockPos fromPos) {\n        ForgeDirection dir = ForgeDirection.getOrientation(getMetaFromState(state));\n        Block support = world.getBlockState(pos.add(-dir.offsetX, -dir.offsetY, -dir.offsetZ)).getBlock();\n        if(!canBlockStay(world, pos.getX(), pos.getY(), pos.getZ(), dir, support)) {\n            dropBlockAsItem(world, pos, state, 0);\n            world.setBlockToAir(pos);\n        }\n    }\n    @Override public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side) {\n        if(!super.canPlaceBlockOnSide(world, pos, side)) return false;\n        ForgeDirection dir = ForgeDirection.getOrientation(side.getIndex());\n        Block support = world.getBlockState(pos.offset(side.getOpposite())).getBlock();\n        return canBlockStay(world, pos.getX(), pos.getY(), pos.getZ(), dir, support);\n    }\n    public boolean canBlockStay(World world, int x, int y, int z, ForgeDirection dir, Block block) {\n        BlockPos support = new BlockPos(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n        IBlockState state = world.getBlockState(support);\n        // Preserve the original unusual air query at the torch position, not the support.\n        return com.hbm.lib.FacingCompat.isBlockSideSolid(world, support.getX(), support.getY(), support.getZ(), dir)\n                || block.hasComparatorInputOverride(state) || state.canProvidePower()\n                || (state.isFullCube() && !block.isAir(state, world, new BlockPos(x, y, z)));\n    }\n    @Override public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n        if(world.isRemote && !player.isSneaking()) {\n            FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());\n            return true;\n        }\n        return !player.isSneaking();\n    }\n    @Override public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return null; }\n    @Override public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) { addStandardInfo(stack, player, list, ext); }\n    @Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister register) { blockIcon = register.registerIcon(RefStrings.MODID + \":\" + iconName); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchController.java": {
+      "before_sha256": "6da2db3627219a5243f834a828c71745bb223922de903ae6785a66999b3bafb9",
+      "after_sha256": "552138e9e0b69261025393168628cd7d7005e7b703f1b54dc8ba548bcb39c94c",
+      "edits": [
+        {
+          "before_offset": 863,
+          "after_offset": 863,
+          "old": "\t\tsuper();\n",
+          "new": "\t\tsuper(\"rtty_controller\");\n"
+        },
+        {
+          "before_offset": 1338,
+          "after_offset": 1355,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1620,
+          "after_offset": 1675,
+          "old": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        },
+        {
+          "before_offset": 1870,
+          "after_offset": 1924,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchCounter.java": {
+      "before_sha256": "a26b418936a4546c4acb0028546ad8288db683b6f29ba3686cb532d6b8d39505",
+      "after_sha256": "c37db475b00827fa2c369a06bf02c3f6184e433a93067afd242fff89265ec9e1",
+      "edits": [
+        {
+          "before_offset": 1010,
+          "after_offset": 1010,
+          "old": "",
+          "new": "    public RadioTorchCounter() { super(\"rtty_counter\"); }\n\n"
+        },
+        {
+          "before_offset": 1021,
+          "after_offset": 1080,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityPlayer player, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing side, float hitX, float hitY, float hitZ) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1580,
+          "after_offset": 1821,
+          "old": "\t\tif(com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z))) return true;\n",
+          "new": "\t\tif(com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (world.getBlockState(new net.minecraft.util.math.BlockPos(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)).isFullCube() && !b.isAir(world.getBlockState(new net.minecraft.util.math.BlockPos(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)), world, new net.minecraft.util.math.BlockPos(x, y, z)))) return true;\n"
+        },
+        {
+          "before_offset": 2011,
+          "after_offset": 2498,
+          "old": "\t\treturn new ContainerCounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(x, y, z));\n",
+          "new": "\t\treturn new ContainerCounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));\n"
+        },
+        {
+          "before_offset": 2255,
+          "after_offset": 2780,
+          "old": "\t\treturn new GUICounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(x, y, z));\n",
+          "new": "\t\treturn new GUICounterTorch(player.inventory, (TileEntityRadioTorchCounter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));\n"
+        },
+        {
+          "before_offset": 2448,
+          "after_offset": 3011,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 2910,
+          "after_offset": 3511,
+          "old": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchLogic.java": {
+      "before_sha256": "02b31513b5fa78c988870862d0b7453782663b39fb91c9029475ec18663b94b7",
+      "after_sha256": "d6908abc028b0e597fe52161e20700b9e69cff73ab0d8e458514817c0095b5d9",
+      "edits": [
+        {
+          "before_offset": 1312,
+          "after_offset": 1312,
+          "old": "\tpublic boolean canProvidePower() {\n",
+          "new": "\tpublic boolean canProvidePower(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1378,
+          "after_offset": 1421,
+          "old": "\tpublic int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getWeakPower(net.minecraft.block.state.IBlockState blockState, IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1465,
+          "after_offset": 1653,
+          "old": "\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1770,
+          "after_offset": 1996,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 2155,
+          "after_offset": 2419,
+          "old": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        },
+        {
+          "before_offset": 2405,
+          "after_offset": 2668,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchRWBase.java": {
+      "before_sha256": "97245a11aeab550467297a4fc3fa930367cb241caeabb5b7463f34a15ad04097",
+      "after_sha256": "769b8a8ff48b7c337168df7b1ff6cc7812b3a347b4c971a56f418bd78882c23e",
+      "edits": [
+        {
+          "before_offset": 1080,
+          "after_offset": 1080,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1462,
+          "after_offset": 1500,
+          "old": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        },
+        {
+          "before_offset": 1712,
+          "after_offset": 1749,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchReader.java": {
+      "before_sha256": "a3baea533f44b2c5d81d46c2a863749d031311018689447444745c2727a133f2",
+      "after_sha256": "ae2be7f4759f473fdc394170429094eb2cc4a77c60db4c4c5473dc8d358e5871",
+      "edits": [
+        {
+          "before_offset": 891,
+          "after_offset": 891,
+          "old": "\t\tsuper();\n",
+          "new": "\t\tsuper(\"rtty_reader\");\n"
+        },
+        {
+          "before_offset": 1364,
+          "after_offset": 1377,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 1833,
+          "after_offset": 1884,
+          "old": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + \".name\"), 0xffff00, 0x404000, text);\n",
+          "new": "\t\t\tILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + \".name\"), 0xffff00, 0x404000, text);\n"
+        },
+        {
+          "before_offset": 2209,
+          "after_offset": 2259,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/RadioTorchReceiver.java": {
+      "before_sha256": "931f0ad733ee82e78859723f6958edbbd54f0488bbdf21ecc1ee1b1d55b40fdf",
+      "after_sha256": "9499bf090ceab6ba6f16e6048d24eff8d5bb7da6ff45cfdf7614c6fc8978723a",
+      "edits": [
+        {
+          "before_offset": 981,
+          "after_offset": 981,
+          "old": "\tpublic boolean canProvidePower() {\n",
+          "new": "\tpublic boolean canProvidePower(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1047,
+          "after_offset": 1090,
+          "old": "\tpublic int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getWeakPower(net.minecraft.block.state.IBlockState blockState, IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 1134,
+          "after_offset": 1322,
+          "old": "\t\tTileEntity tile = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/EntityRailCarCargo.java": {
+      "before_sha256": "e924c382e2a9fbff59abfd1aed4d6798673e8a91bd11374b778afa7ff9fc8a51",
+      "after_sha256": "e51c7a230d756fea73a7b66a62d34b08b6ab60d2c4fd212c4896998a2599654b",
+      "edits": [
+        {
+          "before_offset": 272,
+          "after_offset": 272,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 364,
+          "after_offset": 529,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> OCCUPIED_SLOTS = EntityDataManager.createKey(EntityRailCarCargo.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 594,
+          "after_offset": 901,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n",
+          "new": "\t\tthis.dataManager.register(OCCUPIED_SLOTS, 0);\n"
+        },
+        {
+          "before_offset": 757,
+          "after_offset": 1062,
+          "old": "\t\t\tif(this.getStackInSlot(i) != null) slots++;\n",
+          "new": "\t\t\t// Retain original slot presence, including a live stack consumed to zero.\n\t\t\tif(this.slots[i] != null) slots++;\n"
+        },
+        {
+          "before_offset": 887,
+          "after_offset": 1261,
+          "old": "\t\treturn slots[slot];\n",
+          "new": "\t\tItemStack stack = slots[slot];\n\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\n"
+        },
+        {
+          "before_offset": 1039,
+          "after_offset": 1493,
+          "old": "\t\t\tif(this.slots[slot].stackSize <= amount) {\n",
+          "new": "\t\t\tif(this.slots[slot].getCount() <= amount) {\n"
+        },
+        {
+          "before_offset": 1236,
+          "after_offset": 1691,
+          "old": "\t\t\t\tif(this.slots[slot].stackSize == 0) {\n",
+          "new": "\t\t\t\tif(this.slots[slot].getCount() == 0) {\n"
+        },
+        {
+          "before_offset": 1353,
+          "after_offset": 1809,
+          "old": "\t\t\treturn null;\n",
+          "new": "\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 2026,
+          "after_offset": 2493,
+          "old": "\t\tif(!this.worldObj.isRemote) this.dataWatcher.updateObject(10, this.countOccupiedSlots());\n",
+          "new": "\t\tif(!this.world.isRemote) this.dataManager.set(OCCUPIED_SLOTS, this.countOccupiedSlots());\n"
+        },
+        {
+          "before_offset": 2241,
+          "after_offset": 2708,
+          "old": "\tpublic boolean isUseableByPlayer(EntityPlayer player) {\n\t\treturn this.isDead ? false : player.getDistanceSqToEntity(this) <= 64.0D;\n",
+          "new": "\tpublic boolean isUsableByPlayer(EntityPlayer player) {\n\t\treturn this.isDead ? false : player.getDistanceSq(this) <= 64.0D;\n"
+        },
+        {
+          "before_offset": 2389,
+          "after_offset": 2847,
+          "old": "\tpublic void openInventory() { }\n",
+          "new": "\tpublic void openInventory(EntityPlayer player) { }\n"
+        },
+        {
+          "before_offset": 2434,
+          "after_offset": 2911,
+          "old": "\tpublic void closeInventory() { }\n",
+          "new": "\tpublic void closeInventory(EntityPlayer player) { }\n"
+        },
+        {
+          "before_offset": 3450,
+          "after_offset": 3946,
+          "old": "\t\t\t\tthis.slots[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);\n",
+          "new": "\t\t\t\tItemStack stack = new ItemStack(nbttagcompound1);\n\t\t\t\tthis.slots[j] = stack.isEmpty() ? null : stack;\n"
+        },
+        {
+          "before_offset": 3531,
+          "after_offset": 4064,
+          "old": "\t\tthis.dataWatcher.updateObject(10, this.countOccupiedSlots());\n",
+          "new": "\t\tthis.dataManager.set(OCCUPIED_SLOTS, this.countOccupiedSlots());\n"
+        },
+        {
+          "before_offset": 3600,
+          "after_offset": 4136,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 3691,
+          "after_offset": 4216,
+          "old": "",
+          "new": "\n\t/** Domain inventory label retained for the two original train GUIs. */\n\tpublic abstract String getInventoryName();\n\n\t@Override public boolean hasCustomName() { return hasCustomInventoryName() || super.hasCustomName(); }\n\t@Override public boolean isEmpty() {\n\t\tfor(ItemStack stack : slots) if(stack != null && !stack.isEmpty()) return false;\n\t\treturn true;\n\t}\n\t@Override public int getField(int id) { return 0; }\n\t@Override public void setField(int id, int value) { }\n\t@Override public int getFieldCount() { return 0; }\n\t@Override public void clear() { java.util.Arrays.fill(slots, null); }\n\n\t/** Client display value, updated by the original server-tick/load boundaries. */\n\tpublic int getSyncedOccupiedSlots() { return this.dataManager.get(OCCUPIED_SLOTS); }\n"
+        },
+        {
+          "before_offset": 3839,
+          "after_offset": 5127,
+          "old": "\tpublic String getCommandSenderName() {\n\t\treturn this.entityName != null ? this.entityName : super.getCommandSenderName();\n",
+          "new": "\tpublic String getName() {\n\t\treturn this.entityName != null ? this.entityName : super.getName();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/TrainCargoTram.java": {
+      "before_sha256": "656c350d092d06c79b59f3df6bd531387d8a218b80da8fb6fb1b1eaf5e50fece",
+      "after_sha256": "0cad1dcb69148cba15055795863412d9cee285756afa216d711c906fb8ac9061",
+      "edits": [
+        {
+          "before_offset": 4746,
+          "after_offset": 4746,
+          "old": "\t\t\tItemStack stackCopy = null;\n",
+          "new": "\t\t\tItemStack stackCopy = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 5094,
+          "after_offset": 5105,
+          "old": "\t\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 5249,
+          "after_offset": 5271,
+          "old": "\t\t\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 5345,
+          "after_offset": 5378,
+          "old": "\t\t\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 5386,
+          "after_offset": 5430,
+          "old": "\t\t\t\tif(stack.stackSize == 0) {\n\t\t\t\t\tslot.putStack((ItemStack) null);\n",
+          "new": "\t\t\t\tif(stack.isEmpty()) {\n\t\t\t\t\tslot.putStack(ItemStack.EMPTY);\n"
+        },
+        {
+          "before_offset": 5600,
+          "after_offset": 5638,
+          "old": "\t\t\treturn train.isUseableByPlayer(player);\n",
+          "new": "\t\t\treturn train.isUsableByPlayer(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java": {
+      "before_sha256": "8c025917773342a82554058403407607355f49aae13dd805d94c7295ea37eb07",
+      "after_sha256": "bc5908e5e5063f948a85a955a946a886a1856ff548e636713f67a701f1fec656",
+      "edits": [
+        {
+          "before_offset": 4243,
+          "after_offset": 4243,
+          "old": "\t\t\tItemStack stackCopy = null;\n",
+          "new": "\t\t\tItemStack stackCopy = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 4591,
+          "after_offset": 4602,
+          "old": "\t\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 4682,
+          "after_offset": 4704,
+          "old": "\t\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 4708,
+          "after_offset": 4741,
+          "old": "\t\t\t\tif(stack.stackSize == 0) {\n\t\t\t\t\tslot.putStack((ItemStack) null);\n",
+          "new": "\t\t\t\tif(stack.isEmpty()) {\n\t\t\t\t\tslot.putStack(ItemStack.EMPTY);\n"
+        },
+        {
+          "before_offset": 4922,
+          "after_offset": 4949,
+          "old": "\t\t\treturn train.isUseableByPlayer(player);\n",
+          "new": "\t\t\treturn train.isUsableByPlayer(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "51fe71271bb81bd67dfd2f39d1a452cf98244329ff84e0454804cdb4b2b3dd7a",
+      "after_sha256": "c15df237c0755601fee8d5755eed74aeedf25357a8103fa3ef5225364cbe2c15",
+      "edits": [
+        {
+          "before_offset": 80432,
+          "after_offset": 80432,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderRTTY());\n\t\tRenderingRegistry.registerBlockHandler(new RenderSplitter());\n\t\tRenderingRegistry.registerBlockHandler(new RenderCRT());\n",
+          "new": "\t\t// RadioTorchModelHandler owns the native RTTY world and flat item models.\n\t\t// SplitterModelHandler owns the native splitter OBJ, item and damage routes.\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderCRT.java": {
+      "before_sha256": "ba4b23eb2e1fec99c4233ba59a2567f7cc69e279f1100ada2ad128f1eb718fa7",
+      "after_sha256": "f1f3293fe9001c66b4531ec365ce8b4ce226c3179e65919793834d5f140fba28",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.block.nativeblock.CRTPackedLightQuad;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 392,
+          "old": "import com.hbm.blocks.generic.BlockDecoCRT;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderCRT implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, metadata * 4);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tGL11.glTranslated(0, -0.5, 0);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.crt, iicon, tessellator, (float) Math.PI * -0.5F, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttessellator.setBrightness(brightness);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\t\t\n\t\tfloat rotation = 0;\n\t\tint metaOrig = world.getBlockMetadata(x, y, z);\n\t\tint meta = metaOrig % 4;\n\t\t\n\t\tswitch(meta) {\n\t\tdefault: rotation = 0.5F * (float) Math.PI; break;\n\t\tcase 1: break;\n\t\tcase 2: rotation = 1.5F * (float) Math.PI; break;\n\t\tcase 3: rotation = (float) Math.PI; break;\n\t\t}\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crt, \"Monitor\", iicon, tessellator, rotation, true);\n\t\tif(metaOrig >= 8) tessellator.setBrightness(240);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.crt, \"Screen\", iicon, tessellator, rotation, true);\n\t\ttessellator.setBrightness(brightness);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn BlockDecoCRT.renderID;\n\t}\n",
+          "new": "/** Original CRT groups, atlas mapping, part shading and inventory whole-mesh stream. */\npublic final class RenderCRT {\n    private RenderCRT() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        if(inventory) {\n            // Native RenderItem and the existing frame helper supply T(-.5,-.5,-.5).\n            // The resulting original inventory transform is T(0,-.5,0), yaw -pi/2.\n            AtlasObjGeometry.appendWhole(quads, mesh, sprite, true, (float)Math.PI * -.5F, 0, 1, .5, 0, .5);\n        } else {\n            float yaw;\n            switch(metadata % 4) {\n                default: yaw = .5F * (float)Math.PI; break;\n                case 1: yaw = 0; break;\n                case 2: yaw = 1.5F * (float)Math.PI; break;\n                case 3: yaw = (float)Math.PI; break;\n            }\n            AtlasObjGeometry.appendPart(quads, mesh, \"Monitor\", sprite, false, yaw, 0, 1, .5, 0, .5);\n            List<BakedQuad> screen = new ArrayList<>();\n            AtlasObjGeometry.appendPart(screen, mesh, \"Screen\", sprite, false, yaw, 0, 1, .5, 0, .5);\n            for(BakedQuad quad : screen) quads.add(metadata >= 8 ? new CRTPackedLightQuad(quad, 240) : quad);\n        }\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderRTTY.java": {
+      "before_sha256": "2b148d080eca8c09193b970398751804dccdc7b71f25c93878b48fba63ffa56a",
+      "after_sha256": "455667825e8d187d4bfc39020b89daa83388e9a96d3baeb92db25c2f573bc0d3",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import com.hbm.blocks.network.RadioTorchBase;\nimport com.hbm.interfaces.NotableComments;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\nimport com.hbm.tileentity.network.TileEntityRadioTorchBase;\nimport com.hbm.tileentity.network.TileEntityRadioTorchLogic;\n",
+          "new": "import java.util.List;\nimport com.hbm.render.block.nativeblock.RadioTorchGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 364,
+          "after_offset": 276,
+          "old": "import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.world.IBlockAccess;\n\n@NotableComments\npublic class RenderRTTY implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\t\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tint brightness = block.getMixedBrightnessForBlock(world, x, y, z);\n\t\ttessellator.setBrightness(brightness);\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tIIcon icon = block.getIcon(0, 0);\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\tTileEntity tile = world.getTileEntity(x, y, z);\n\t\t\n\t\tif(tile instanceof TileEntityRadioTorchBase) {\n\t\t\tTileEntityRadioTorchBase rtty = (TileEntityRadioTorchBase) tile;\n\t\t\t\n\t\t\tif(rtty.lastState > 0) {\n\t\t\t\ticon = block.getIcon(1, 0);\n\t\t\t}\n\t\t}\n\t\t//consequences of my actions\n\t\tif(tile instanceof TileEntityRadioTorchLogic) {\n\t\t\tTileEntityRadioTorchLogic rtty = (TileEntityRadioTorchLogic) tile;\n\t\t\t\n\t\t\tif(rtty.lastState > 0) {\n\t\t\t\ticon = block.getIcon(1, 0);\n\t\t\t}\n\t\t}\n\n\t\tfloat flip = 0;\n\t\tfloat rotation = 0;\n\t\t\n\t\tif(meta == 0)\n\t\t\tflip = (float)Math.PI;\n\n\t\tif(meta == 2)\n\t\t\trotation = 90F / 180F * (float) Math.PI;\n\n\t\tif(meta == 3)\n\t\t\trotation = 270F / 180F * (float) Math.PI;\n\n\t\tif(meta == 4)\n\t\t\trotation = 180F / 180F * (float)Math.PI;\n\t\t\n\t\tif(rotation != 0F || meta == 5)\n\t\t\tflip = (float)Math.PI * 0.5F;\n\n\t\t//using OBJ here because vanilla's block renderer is so broken it's not even funny anymore\n\t\t//mojang genuinely doesn't know how on earth UVs work\n\t\ttessellator.addTranslation(x + 0.5F, y + 0.5F, z + 0.5F);\n\t\tObjUtil.renderWithIcon((HFRWavefrontObject) ResourceManager.rtty, icon, tessellator, rotation, flip, false);\n\t\ttessellator.addTranslation(-x - 0.5F, -y - 0.5F, -z - 0.5F);\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn RadioTorchBase.renderID;\n\t}\n",
+          "new": "/** Native successor of RenderRTTY, retaining the original OBJ orientation sequence. */\npublic final class RenderRTTY {\n    private RenderRTTY() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, TextureAtlasSprite sprite) {\n        float flip = 0, rotation = 0;\n        if(metadata == 0) flip = (float)Math.PI;\n        if(metadata == 2) rotation = 90F / 180F * (float)Math.PI;\n        if(metadata == 3) rotation = 270F / 180F * (float)Math.PI;\n        if(metadata == 4) rotation = 180F / 180F * (float)Math.PI;\n        if(rotation != 0F || metadata == 5) flip = (float)Math.PI * .5F;\n        return RadioTorchGeometry.bake(mesh, sprite, rotation, flip);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderSplitter.java": {
+      "before_sha256": "238b0031e8f6ce78333c11a58f90f30400489a98525f1ed04b5c6db087a66261",
+      "after_sha256": "45c45f390e16ea2750e6a962b25e623d140706e44f98c4bbba3efb73adef6ab1",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.mesh.ObjMesh;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 332,
+          "old": "import com.hbm.blocks.network.CraneSplitter;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderSplitter implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tGL11.glScaled(0.625, 0.625, 0.625);\n\t\tGL11.glRotated(-90, 0, 1, 0);\n\t\tGL11.glTranslatef(0F, -0.5F, 0.5F);\n\t\ttessellator.startDrawingQuads();\n\t\tdrawSplitter(tessellator, block, true, 0, false);\n\t\ttessellator.draw();\n\t\tGL11.glTranslatef(0F, 0F, -1F);\n\t\ttessellator.startDrawingQuads();\n\t\tdrawSplitter(tessellator, block, false, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\tfloat rotation = 0;\n\t\tif(meta == 12 || meta == 4) rotation = 90F / 180F * (float) Math.PI;\n\t\tif(meta == 13 || meta == 5) rotation = 270F / 180F * (float) Math.PI;\n\t\tif(meta == 14 || meta == 3) rotation = 180F / 180F * (float)Math.PI;\n\t\t\n\t\tboolean isLeft = meta >= 12;\n\t\tdrawSplitter(tessellator, block, isLeft, rotation, true);\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\t\t\n\t\treturn true;\n\t}\n\t\n\tprivate static void drawSplitter(Tessellator tessellator, Block block, boolean isLeft, float rotation, boolean shadeNormals) {\n\t\tCraneSplitter splitter = (CraneSplitter) block;\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Top\", isLeft ? splitter.iconTopLeft : splitter.iconTopRight, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Bottom\", isLeft ? splitter.iconTopRight : splitter.iconTopLeft , tessellator, rotation, shadeNormals);\n\t\tif(isLeft) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Left\", splitter.iconLeft, tessellator, rotation, shadeNormals);\n\t\tif(!isLeft) ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Right\", splitter.iconRight, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Back\", isLeft ? splitter.iconBackLeft : splitter.iconBackRight, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Front\", isLeft ? splitter.iconFrontLeft : splitter.iconFrontRight, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"Inner\", splitter.iconInner, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"InnerLeft\", splitter.iconInnerSide, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"InnerRight\", splitter.iconInnerSide, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"InnerTop\", splitter.iconInnerSide, tessellator, rotation, shadeNormals);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.splitter, \"InnerBottom\", splitter.iconBelt, tessellator, rotation, shadeNormals);\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn CraneSplitter.renderID;\n\t}\n",
+          "new": "/** Original splitter OBJ groups, material selection and transforms in native atlas quads. */\npublic final class RenderSplitter {\n    private RenderSplitter() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, int metadata, boolean inventory, TextureAtlasSprite[] sprites) {\n        if(sprites.length != 11) throw new IllegalArgumentException(\"Eleven splitter materials required\");\n        List<BakedQuad> result = new ArrayList<>();\n        if(inventory) {\n            // Native item draw centers at (-.5,-.5,-.5). Bake the original\n            // S(.625) RY(-90) T(0,-.5,.5), then the second half T(0,0,-1).\n            append(result, mesh, sprites, true, true, -(float)Math.PI * .5F, .625, .1875, .1875, .5);\n            append(result, mesh, sprites, false, true, -(float)Math.PI * .5F, .625, .8125, .1875, .5);\n        } else {\n            append(result, mesh, sprites, metadata >= 12, false, rotation(metadata), 1, .5, 0, .5);\n        }\n        return Collections.unmodifiableList(result);\n    }\n    private static void append(List<BakedQuad> result, ObjMesh mesh, TextureAtlasSprite[] sprites,\n            boolean left, boolean inventory, float yaw, double scale, double x, double y, double z) {\n        String[] groups = {\"Top\", \"Bottom\", left ? \"Left\" : \"Right\", \"Back\", \"Front\", \"Inner\", \"InnerLeft\", \"InnerRight\", \"InnerTop\", \"InnerBottom\"};\n        int[] materials = {left ? 0 : 1, left ? 1 : 0, left ? 6 : 7, left ? 4 : 5, left ? 2 : 3, 9, 10, 10, 10, 8};\n        for(int i = 0; i < groups.length; i++) AtlasObjGeometry.appendPart(result, mesh, groups[i], sprites[materials[i]], inventory,\n                yaw, 0, scale, x, y, z);\n    }\n    public static float rotation(int metadata) {\n        if(metadata == 12 || metadata == 4) return 90F / 180F * (float)Math.PI;\n        if(metadata == 13 || metadata == 5) return 270F / 180F * (float)Math.PI;\n        if(metadata == 14 || metadata == 3) return 180F / 180F * (float)Math.PI;\n        return 0;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderTrainCargoTramTrailer.java": {
+      "before_sha256": "9e0c46c7d0d547d5b9a0d8331a4f46025c3b77a8430deb191d636b7f0e96bfef",
+      "after_sha256": "01db727aa8d37ee597a0a5e5965a86f267c71c610504c9b617ada1f5a4aa8de7",
+      "edits": [
+        {
+          "before_offset": 101,
+          "after_offset": 101,
+          "old": "import com.hbm.entity.train.EntityRailCarBase;\n",
+          "new": "import com.hbm.entity.train.EntityRailCarCargo;\nimport com.hbm.render.util.NativeMachineItemRenderer;\n"
+        },
+        {
+          "before_offset": 238,
+          "after_offset": 293,
+          "old": "import net.minecraft.client.renderer.entity.RenderItem;\n",
+          "new": "import net.minecraft.client.renderer.GlStateManager;\n"
+        },
+        {
+          "before_offset": 353,
+          "after_offset": 405,
+          "old": "import net.minecraft.entity.Entity;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 516,
+          "after_offset": 532,
+          "old": "public class RenderTrainCargoTramTrailer extends Render {\n",
+          "new": "public class RenderTrainCargoTramTrailer extends Render<EntityRailCarCargo> {\n\n\tprivate final NativeMachineItemRenderer items = new NativeMachineItemRenderer();\n"
+        },
+        {
+          "before_offset": 681,
+          "after_offset": 800,
+          "old": "\tpublic void doRender(Entity entity, double x, double y, double z, float swing, float interp) {\n",
+          "new": "\tpublic void doRender(EntityRailCarCargo entity, double x, double y, double z, float swing, float interp) {\n"
+        },
+        {
+          "before_offset": 800,
+          "after_offset": 931,
+          "old": "",
+          "new": "\t\ttry {\n"
+        },
+        {
+          "before_offset": 803,
+          "after_offset": 942,
+          "old": "\t\tEntityRailCarBase train = (EntityRailCarBase) entity;\n",
+          "new": "\t\tEntityRailCarCargo train = entity;\n"
+        },
+        {
+          "before_offset": 1849,
+          "after_offset": 1969,
+          "old": "\t\tGL11.glDisable(GL11.GL_CULL_FACE);\n\t\tbindTexture(ResourceManager.tram_trailer);\n\t\tResourceManager.train_cargo_tram_trailer.renderAll();\n\t\tGL11.glEnable(GL11.GL_CULL_FACE);\n",
+          "new": "\t\tGlStateManager.disableCull();\n\t\ttry {\n\t\t\tbindTexture(ResourceManager.tram_trailer);\n\t\t\tResourceManager.train_cargo_tram_trailer.renderAll();\n\t\t} finally {\n\t\t\tGlStateManager.enableCull();\n\t\t}\n"
+        },
+        {
+          "before_offset": 2026,
+          "after_offset": 2165,
+          "old": "\t\tint slots = entity.getDataWatcher().getWatchableObjectInt(10);\n",
+          "new": "\t\tint slots = entity.getSyncedOccupiedSlots();\n"
+        },
+        {
+          "before_offset": 2113,
+          "after_offset": 2234,
+          "old": "\t\t\tEntityItem dummy = new EntityItem(entity.worldObj, 0, 0, 0, new ItemStack(ModBlocks.crate));\n",
+          "new": "\t\t\tEntityItem dummy = new EntityItem(entity.world, 0, 0, 0, new ItemStack(ModBlocks.crate));\n"
+        },
+        {
+          "before_offset": 2238,
+          "after_offset": 2356,
+          "old": "\t\t\tRenderItem.renderInFrame = true;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2358,
+          "after_offset": 2440,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.375D, 0.0D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.0D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 2476,
+          "after_offset": 2578,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.1D, 0.375D, 0.25D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, -0.25D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.1D, 0.375D, 0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.1D, 0.375D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 2688,
+          "after_offset": 2830,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.1D, 0.375D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, 0.375D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, -0.375D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.1D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.1D, 0.375D, 0.375D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.1D, 0.375D, -0.375D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 2993,
+          "after_offset": 3195,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.3D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.2D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, -0.2D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 3385,
+          "after_offset": 3667,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, 0.2D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 3867,
+          "after_offset": 4249,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.5D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.6D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.6D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, 0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.6D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 4441,
+          "after_offset": 4943,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 5108,
+          "after_offset": 5750,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 5851,
+          "after_offset": 6653,
+          "old": "\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F);\n\t\t\t\tRenderManager.instance.renderEntityWithPosYaw(dummy, -0.1D, 0.375D, 0.8D, 0.0F, 0.0F);\n",
+          "new": "\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, 0.0D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.2D, 0.375D, -0.4D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, 0.3D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.1D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.2D, 0.375D, -0.5D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.0D, 0.6875D, -0.25D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, 0.0D, 0.6875D, 0.15D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n\t\t\t\titems.renderFrame(dummy, -0.1D, 0.375D, 0.8D, 0.0F, 0.0F, NativeMachineItemRenderer.Display.ENTITY_FRAME);\n"
+        },
+        {
+          "before_offset": 6682,
+          "after_offset": 7664,
+          "old": "\t\t\tRenderItem.renderInFrame = false;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 6726,
+          "after_offset": 7671,
+          "old": "\t\tGL11.glPopMatrix();\n",
+          "new": "\t\t} finally {\n\t\t\tGL11.glPopMatrix();\n\t\t}\n"
+        },
+        {
+          "before_offset": 6763,
+          "after_offset": 7727,
+          "old": "\tprotected ResourceLocation getEntityTexture(Entity entity) {\n",
+          "new": "\tprotected ResourceLocation getEntityTexture(EntityRailCarCargo entity) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/IControlReceiverFilter.java": {
+      "before_sha256": "2577b53d842d7d873223936b94820f7f223502cfa5345490c5a357173006a3d9",
+      "after_sha256": "c3002cc77296c730f3f29fea6da1a91b37bc72c1d0d3fc3a533af89e37e636b7",
+      "edits": [
+        {
+          "before_offset": 1174,
+          "after_offset": 1174,
+          "old": "\t\ttile.getWorldObj().markTileEntityChunkModified(tile.xCoord, tile.yCoord, tile.zCoord, tile);\n",
+          "new": "\t\ttile.getWorld().markChunkDirty(tile.getPos(), tile);\n"
+        },
+        {
+          "before_offset": 2954,
+          "after_offset": 2914,
+          "old": "\t\t\t\t\t\ttile.getWorldObj().markTileEntityChunkModified(tile.xCoord, tile.yCoord, tile.zCoord, tile);\n",
+          "new": "\t\t\t\t\t\ttile.getWorld().markChunkDirty(tile.getPos(), tile);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/RTTYSystem.java": {
+      "before_sha256": "806bdc2e2695d1cc7b78307dc310b6ec0c4d404f04ce20e44566ed911438d928",
+      "after_sha256": "59e98296b8c34539dd258847e3edca88ae481f3c24486f4cb91325ec52f3e3b7",
+      "edits": [
+        {
+          "before_offset": 374,
+          "after_offset": 374,
+          "old": "import net.minecraft.server.MinecraftServer;\n",
+          "new": "import net.minecraftforge.fml.common.FMLCommonHandler;\n"
+        },
+        {
+          "before_offset": 2296,
+          "after_offset": 2306,
+          "old": "\t\tfor(World world : MinecraftServer.getServer().worldServers) {\n",
+          "new": "\t\tfor(World world : FMLCommonHandler.instance().getMinecraftServerInstance().worlds) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneSplitter.java": {
+      "before_sha256": "14cb2f8ce6084d91fdce451a62815cddf3f6abab80eb30348545bac33b258484",
+      "after_sha256": "79953d1fce6dddfc3e31dc1656e7e4713866a834e3b9b48ae8c949871f9c30a3",
+      "edits": [
+        {
+          "before_offset": 305,
+          "after_offset": 305,
+          "old": "",
+          "new": "\n    @Override public boolean canRenderBreaking() {\n        return getClass() == TileEntityCraneSplitter.class && getWorld() != null\n                && com.hbm.blocks.network.CraneSplitter.isNativeModelOwner(getWorld().getBlockState(getPos()).getBlock());\n    }\n"
+        },
+        {
+          "before_offset": 677,
+          "after_offset": 939,
+          "old": "\t\tint count = stack.stackSize;\n",
+          "new": "\t\tint count = stack.getCount();\n"
+        },
+        {
+          "before_offset": 1146,
+          "after_offset": 1409,
+          "old": "\t\tleftStack.stackSize = left;\n\t\trightStack.stackSize = right;\n",
+          "new": "\t\tleftStack.setCount(left);\n\t\trightStack.setCount(right);\n"
+        },
+        {
+          "before_offset": 1209,
+          "after_offset": 1468,
+          "old": "\t\tthis.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);\n",
+          "new": "\t\tthis.world.markChunkDirty(this.pos, this);\n"
+        },
+        {
+          "before_offset": 1364,
+          "after_offset": 1569,
+          "old": "",
+          "new": "\t@Override\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchBase.java": {
+      "before_sha256": "3b4d70187150cd5f61ce15b2da7c30361f0d583716d22c68d1a76a905c16d64d",
+      "after_sha256": "1e400b083a0a17d844bf62c13637592bef019374ce6d7c2fc9abf4a49d68641a",
+      "edits": [
+        {
+          "before_offset": 0,
+          "after_offset": 0,
+          "old": "package com.hbm.tileentity.network;\r\n\r\nimport com.hbm.handler.CompatHandler;\r\nimport com.hbm.interfaces.IControlReceiver;\r\n\r\nimport com.hbm.tileentity.TileEntityLoadedBase;\r\nimport com.hbm.util.BufferUtil;\r\nimport net.minecraftforge.fml.common.Optional;\r\nimport io.netty.buffer.ByteBuf;\r\nimport li.cil.oc.api.machine.Arguments;\r\nimport li.cil.oc.api.machine.Callback;\r\nimport li.cil.oc.api.machine.Context;\r\nimport li.cil.oc.api.network.SimpleComponent;\r\nimport net.minecraft.entity.player.EntityPlayer;\r\nimport net.minecraft.nbt.NBTTagCompound;\r\nimport net.minecraft.network.NetworkManager;\r\n",
+          "new": "package com.hbm.tileentity.network;\n\nimport com.hbm.handler.CompatHandler;\nimport com.hbm.interfaces.IControlReceiver;\n\nimport com.hbm.tileentity.TileEntityLoadedBase;\nimport com.hbm.util.BufferUtil;\nimport net.minecraftforge.fml.common.Optional;\nimport io.netty.buffer.ByteBuf;\nimport li.cil.oc.api.machine.Arguments;\nimport li.cil.oc.api.machine.Callback;\nimport li.cil.oc.api.machine.Context;\nimport li.cil.oc.api.network.SimpleComponent;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.nbt.NBTTagCompound;\nimport net.minecraft.network.NetworkManager;\n"
+        },
+        {
+          "before_offset": 659,
+          "after_offset": 643,
+          "old": "\r\nimport java.util.Map;\r\n\r\n@Optional.InterfaceList({@Optional.Interface(iface = \"li.cil.oc.api.network.SimpleComponent\", modid = \"OpenComputers\")})\r\npublic class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IControlReceiver, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {\r\n\r\n\t/** channel we're broadcasting on/listening to */\r\n\tpublic String channel = \"\";\r\n\t/** previous redstone state for input/output, needed for state change detection */\r\n\tpublic int lastState = 0;\r\n\t/** last update tick, needed for receivers listening for changes */\r\n\tpublic long lastUpdate;\r\n\t/** switches state change mode to tick-based polling */\r\n\tpublic boolean polling = false;\r\n\t/** switches redstone passthrough to custom signal mapping */\r\n\tpublic boolean customMap = false;\r\n\t/** custom mapping */\r\n\tpublic String[] mapping = new String[16];\r\n\r\n\t@Override\r\n\tpublic void update() {\r\n\r\n\t\tif(!this.world.isRemote) {\r\n\r\n\t\t\tnetworkPackNT(50);\r\n\t\t}\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void readFromNBT(NBTTagCompound nbt) {\r\n\t\tsuper.readFromNBT(nbt);\r\n\t\tthis.polling = nbt.getBoolean(\"p\");\r\n\t\tthis.customMap = nbt.getBoolean(\"m\");\r\n\t\tthis.lastState = nbt.getInteger(\"l\");\r\n\t\tthis.lastUpdate = nbt.getLong(\"u\");\r\n\t\tthis.channel = nbt.getString(\"c\");\r\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = nbt.getString(\"m\" + i);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\r\n\t\tsuper.writeToNBT(nbt);\r\n\t\tnbt.setBoolean(\"p\", polling);\r\n\t\tnbt.setBoolean(\"m\", customMap);\r\n\t\tnbt.setInteger(\"l\", lastState);\r\n\t\tnbt.setLong(\"u\", lastUpdate);\r\n\t\tif(channel != null) nbt.setString(\"c\", channel);\r\n\t\tfor(int i = 0; i < 16; i++) if(mapping[i] != null) nbt.setString(\"m\" + i, mapping[i]);\r\n\t\treturn nbt;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void serialize(ByteBuf buf) {\r\n\t\tbuf.writeBoolean(this.polling);\r\n\t\tbuf.writeBoolean(this.customMap);\r\n\t\tBufferUtil.writeString(buf, this.channel);\r\n\t\tfor(int i = 0; i < 16; i++) BufferUtil.writeString(buf, this.mapping[i]);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void deserialize(ByteBuf buf) {\r\n\t\tthis.polling = buf.readBoolean();\r\n\t\tthis.customMap = buf.readBoolean();\r\n\t\tthis.channel = BufferUtil.readString(buf);\r\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = BufferUtil.readString(buf);\r\n\t}\r\n\r\n\t@Override\r\n",
+          "new": "\nimport java.util.Map;\n\n@Optional.InterfaceList({@Optional.Interface(iface = \"li.cil.oc.api.network.SimpleComponent\", modid = \"OpenComputers\")})\npublic class TileEntityRadioTorchBase extends TileEntityLoadedBase implements IControlReceiver, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {\n\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n\n\t/** channel we're broadcasting on/listening to */\n\tpublic String channel = \"\";\n\t/** Previous redstone state; volatile for the concurrent native render snapshot. */\n\tpublic volatile int lastState = 0;\n\t/** last update tick, needed for receivers listening for changes */\n\tpublic long lastUpdate;\n\t/** switches state change mode to tick-based polling */\n\tpublic boolean polling = false;\n\t/** switches redstone passthrough to custom signal mapping */\n\tpublic boolean customMap = false;\n\t/** custom mapping */\n\tpublic String[] mapping = new String[16];\n\n\t@Override\n\tpublic void update() {\n\n\t\tif(!this.world.isRemote) {\n\n\t\t\tnetworkPackNT(50);\n\t\t}\n\t}\n\n\t@Override\n\tpublic void readFromNBT(NBTTagCompound nbt) {\n\t\tsuper.readFromNBT(nbt);\n\t\tthis.polling = nbt.getBoolean(\"p\");\n\t\tthis.customMap = nbt.getBoolean(\"m\");\n\t\tthis.lastState = nbt.getInteger(\"l\");\n\t\tthis.lastUpdate = nbt.getLong(\"u\");\n\t\tthis.channel = nbt.getString(\"c\");\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = nbt.getString(\"m\" + i);\n\t}\n\n\t@Override\n\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeToNBT(nbt);\n\t\tnbt.setBoolean(\"p\", polling);\n\t\tnbt.setBoolean(\"m\", customMap);\n\t\tnbt.setInteger(\"l\", lastState);\n\t\tnbt.setLong(\"u\", lastUpdate);\n\t\tif(channel != null) nbt.setString(\"c\", channel);\n\t\tfor(int i = 0; i < 16; i++) if(mapping[i] != null) nbt.setString(\"m\" + i, mapping[i]);\n\t\treturn nbt;\n\t}\n\n\t@Override\n\tpublic void serialize(ByteBuf buf) {\n\t\tbuf.writeBoolean(this.polling);\n\t\tbuf.writeBoolean(this.customMap);\n\t\tBufferUtil.writeString(buf, this.channel);\n\t\tfor(int i = 0; i < 16; i++) BufferUtil.writeString(buf, this.mapping[i]);\n\t}\n\n\t@Override\n\tpublic void deserialize(ByteBuf buf) {\n\t\tthis.polling = buf.readBoolean();\n\t\tthis.customMap = buf.readBoolean();\n\t\tthis.channel = BufferUtil.readString(buf);\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = BufferUtil.readString(buf);\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 2972,
+          "after_offset": 3097,
+          "old": "\t\tNBTTagCompound nbt = new NBTTagCompound();\r\n\t\tnbt.setByte(\"l\", (byte) this.lastState);\r\n",
+          "new": "\t\tNBTTagCompound nbt = new NBTTagCompound();\n\t\tnbt.setByte(\"l\", (byte) this.lastState);\n"
+        },
+        {
+          "before_offset": 3123,
+          "after_offset": 3246,
+          "old": "\t}\r\n\r\n\t@Override\r\n",
+          "new": "\t}\n\n\t@Override\n\tpublic NBTTagCompound getUpdateTag() {\n\t\tNBTTagCompound nbt = super.getUpdateTag();\n\t\tnbt.setByte(\"l\", (byte) this.lastState);\n\t\treturn nbt;\n\t}\n\n\t@Override\n\tpublic void handleUpdateTag(NBTTagCompound tag) {\n\t\t// This is a render-state tag, not the full persisted configuration.\n\t\t// Chunk loading already assigns the native tile position.\n\t\tapplySyncedState(tag);\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 3218,
+          "after_offset": 3718,
+          "old": "",
+          "new": "\t\tapplySyncedState(pkt.getNbtCompound());\n\t}\n\n\tprivate void applySyncedState(NBTTagCompound tag) {\n"
+        },
+        {
+          "before_offset": 3247,
+          "after_offset": 3846,
+          "old": "\t\tthis.lastState = pkt.getNbtCompound().getByte(\"l\");\n\t\tif(this.lastState != last) {\n",
+          "new": "\t\tthis.lastState = tag.getByte(\"l\");\n\t\tif(this.world != null && this.lastState != last) {\n"
+        },
+        {
+          "before_offset": 3407,
+          "after_offset": 4011,
+          "old": "\t\t}\r\n\t}\r\n\r\n\t@Override\r\n\tpublic boolean hasPermission(EntityPlayer player) {\r\n\t\treturn player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void receiveControl(NBTTagCompound data) {\r\n\t\tif(data.hasKey(\"p\")) this.polling = data.getBoolean(\"p\");\r\n\t\tif(data.hasKey(\"m\")) this.customMap = data.getBoolean(\"m\");\r\n\t\tif(data.hasKey(\"c\")) this.channel = data.getString(\"c\");\r\n\t\tfor(int i = 0; i < 16; i++) if(data.hasKey(\"m\" + i)) this.mapping[i] = data.getString(\"m\" + i);\r\n\r\n\t\tthis.markDirty();\r\n\t}\r\n\r\n\t@Override\r\n\t@Optional.Method(modid = \"OpenComputers\")\r\n\tpublic String getComponentName() {\r\n\t\treturn \"radio_torch\";\r\n\t}\r\n\r\n\t@Callback(direct = true, limit = 4, doc = \"setChannle(channel: string) -- Set the channel the torch is listening/broadcasting to\")\r\n\t@Optional.Method(modid = \"OpenComputers\")\r\n\tpublic Object[] setChannel(Context context, Arguments args) {\r\n\t\tchannel = args.checkString(0);\r\n\t\treturn new Object[] {};\r\n\t}\r\n\r\n\t@Callback(direct = true, limit = 4, doc = \"setPolling(value: boolean) -- Switches state change mode to tick-based polling\")\r\n\t@Optional.Method(modid = \"OpenComputers\")\r\n\tpublic Object[] setPolling(Context context, Arguments args) {\r\n\t\tpolling = args.checkBoolean(0);\r\n\t\treturn new Object[] {};\r\n\t}\r\n\r\n\t@Callback(direct = true, limit = 4, doc = \"setCustomMap(value: boolean) -- Switches redstone passthrough to custom signal mapping\")\r\n\t@Optional.Method(modid = \"OpenComputers\")\r\n\tpublic Object[] setCustomMap(Context context, Arguments args) {\r\n\t\tcustomMap = args.checkBoolean(0);\r\n\t\treturn new Object[] {};\r\n\t}\r\n\r\n\t@Callback(direct = true, limit = 4, doc = \"setCustomMapValues(value: table) -- Sets the custom signal mapping values with a table with indices corresponding to the redstone value (1-16)\")\r\n\t@Optional.Method(modid = \"OpenComputers\")\r\n\tpublic Object[] setCustomMapValues(Context context, Arguments args){\r\n\t\tMap values = args.checkTable(0);\r\n\r\n\t\tfor (int i = 1; i <= 16; i++){\r\n\t\t\tif (values.containsKey(i) && values.get(i) instanceof String){\r\n\t\t\t\tthis.mapping[i - 1] = (String) values.get(i);\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn new Object[] {};\r\n\t}\r\n}\r\n",
+          "new": "\t\t}\n\t}\n\n\t@Override\n\tpublic boolean hasPermission(EntityPlayer player) {\n\t\treturn player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;\n\t}\n\n\t@Override\n\tpublic void receiveControl(NBTTagCompound data) {\n\t\tif(data.hasKey(\"p\")) this.polling = data.getBoolean(\"p\");\n\t\tif(data.hasKey(\"m\")) this.customMap = data.getBoolean(\"m\");\n\t\tif(data.hasKey(\"c\")) this.channel = data.getString(\"c\");\n\t\tfor(int i = 0; i < 16; i++) if(data.hasKey(\"m\" + i)) this.mapping[i] = data.getString(\"m\" + i);\n\n\t\tthis.markDirty();\n\t}\n\n\t@Override\n\t@Optional.Method(modid = \"OpenComputers\")\n\tpublic String getComponentName() {\n\t\treturn \"radio_torch\";\n\t}\n\n\t@Callback(direct = true, limit = 4, doc = \"setChannle(channel: string) -- Set the channel the torch is listening/broadcasting to\")\n\t@Optional.Method(modid = \"OpenComputers\")\n\tpublic Object[] setChannel(Context context, Arguments args) {\n\t\tchannel = args.checkString(0);\n\t\treturn new Object[] {};\n\t}\n\n\t@Callback(direct = true, limit = 4, doc = \"setPolling(value: boolean) -- Switches state change mode to tick-based polling\")\n\t@Optional.Method(modid = \"OpenComputers\")\n\tpublic Object[] setPolling(Context context, Arguments args) {\n\t\tpolling = args.checkBoolean(0);\n\t\treturn new Object[] {};\n\t}\n\n\t@Callback(direct = true, limit = 4, doc = \"setCustomMap(value: boolean) -- Switches redstone passthrough to custom signal mapping\")\n\t@Optional.Method(modid = \"OpenComputers\")\n\tpublic Object[] setCustomMap(Context context, Arguments args) {\n\t\tcustomMap = args.checkBoolean(0);\n\t\treturn new Object[] {};\n\t}\n\n\t@Callback(direct = true, limit = 4, doc = \"setCustomMapValues(value: table) -- Sets the custom signal mapping values with a table with indices corresponding to the redstone value (1-16)\")\n\t@Optional.Method(modid = \"OpenComputers\")\n\tpublic Object[] setCustomMapValues(Context context, Arguments args){\n\t\tMap values = args.checkTable(0);\n\n\t\tfor (int i = 1; i <= 16; i++){\n\t\t\tif (values.containsKey(i) && values.get(i) instanceof String){\n\t\t\t\tthis.mapping[i - 1] = (String) values.get(i);\n\t\t\t}\n\t\t}\n\n\t\treturn new Object[] {};\n\t}\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchController.java": {
+      "before_sha256": "35582fe4979762a208c3a2123ada5e907265ca39089fd745f3e9d563786aaad8",
+      "after_sha256": "10587a38e44b78f3155a4bb1dc3aa3a2e4e8501bc4865abf38c647b36ec4ea08",
+      "edits": [
+        {
+          "before_offset": 946,
+          "after_offset": 946,
+          "old": "",
+          "new": "    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n\n"
+        },
+        {
+          "before_offset": 1665,
+          "after_offset": 1864,
+          "old": "\t\t\t\t\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\t\t\t\t\tthis.world.destroyBlock(this.pos, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java": {
+      "before_sha256": "1a5ca472ef7b5830b465b7c97195b941509dfed218dd0be4d4e16c93ff5e6ee4",
+      "after_sha256": "1a5fd76598155a4eb4f3a2608a46f1d7776bf01324fd2d15021309ca4886f488",
+      "edits": [
+        {
+          "before_offset": 630,
+          "after_offset": 630,
+          "old": "",
+          "new": "\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n"
+        },
+        {
+          "before_offset": 2082,
+          "after_offset": 2281,
+          "old": "\t\t\t\t\t\t\tcount += invSlots[j].stackSize;\n",
+          "new": "\t\t\t\t\t\t\tcount += invSlots[j].getCount();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchLogic.java": {
+      "before_sha256": "f619311ef3f23cf90cba5361a7959147a4d4e16ea70d136fcfa13fae6ff82ed8",
+      "after_sha256": "f5af1ae6e8eb81c3825abaecc6a9a607457c30421ea1d8a190e2ff98bbdd3281",
+      "edits": [
+        {
+          "before_offset": 0,
+          "after_offset": 0,
+          "old": "package com.hbm.tileentity.network;\r\n\r\nimport com.hbm.interfaces.IControlReceiver;\r\nimport com.hbm.tileentity.TileEntityLoadedBase;\r\nimport com.hbm.tileentity.network.RTTYSystem.RTTYChannel;\r\n\r\nimport com.hbm.util.BufferUtil;\r\nimport io.netty.buffer.ByteBuf;\r\nimport net.minecraft.entity.player.EntityPlayer;\r\nimport net.minecraft.nbt.NBTTagCompound;\r\nimport net.minecraft.network.NetworkManager;\r\n",
+          "new": "package com.hbm.tileentity.network;\n\nimport com.hbm.interfaces.IControlReceiver;\nimport com.hbm.tileentity.TileEntityLoadedBase;\nimport com.hbm.tileentity.network.RTTYSystem.RTTYChannel;\n\nimport com.hbm.util.BufferUtil;\nimport io.netty.buffer.ByteBuf;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraft.nbt.NBTTagCompound;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.network.NetworkManager;\n"
+        },
+        {
+          "before_offset": 464,
+          "after_offset": 499,
+          "old": "\r\npublic class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {\r\n\r\n\t/** channel we're broadcasting on/listening to */\r\n\tpublic String channel = \"\";\r\n\t/** previous redstone state for input/output, needed for state change detection */\r\n\tpublic int lastState = 0;\r\n\t/** last update tick, needed for receivers listening for changes */\r\n\tpublic long lastUpdate;\r\n\t/** switches state change mode to tick-based polling */\r\n\tpublic boolean polling = false;\r\n\t/** switches evaluation of conditions from ascending to descending */\r\n\tpublic boolean descending = false;\r\n\t/** mapping for constants to compare against */\r\n\tpublic String[] mapping;\r\n\t/** mapping for conditions through [1, 10], being (<, <=, >=, >, ==, !=, equals, !equals, contains, !contains) */\r\n\tpublic int[] conditions;\r\n\r\n\tpublic TileEntityRadioTorchLogic() {\r\n\t\tthis.mapping = new String[16];\r\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = \"\";\r\n\t\tthis.conditions = new int[16];\r\n\t\tfor(int i = 0; i < 16; i++) this.conditions[i] = 0;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void update() {\r\n\r\n\t\tif(!this.world.isRemote) {\r\n\r\n\t\t\tif(!this.channel.isEmpty()) {\r\n\r\n\t\t\t\tRTTYChannel chan = RTTYSystem.listen(this.world, this.channel);\r\n\r\n\t\t\t\tif(chan != null && (this.polling || (chan.timeStamp > this.lastUpdate - 1 && chan.timeStamp != -1))) { // if we're either polling or a new message has come in\r\n\t\t\t\t\tString msg = \"\" + chan.signal;\r\n\t\t\t\t\tthis.lastUpdate = this.world.getTotalWorldTime();\r\n\t\t\t\t\tint nextState = 0; //if no remap apply, default to 0\r\n\r\n\t\t\t\t\tif(chan.timeStamp < this.lastUpdate - 2 && this.polling) {\r\n\t\t\t\t\t\t/* the vast majority use-case for this is going to be inequalities, NOT parsing, and the input is undefined - not the output\r\n\t\t\t\t\t\t * if no signal => 0 for polling, advanced users parsing strings can easily accommodate this fact instead of breaking numerical torches */\r\n\t\t\t\t\t\tmsg = \"0\";\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif(descending) {\r\n\t\t\t\t\t\tfor(int i = 15; i >= 0; i--) {\r\n\t\t\t\t\t\t\tif(!mapping[i].equals(\"\") && parseSignal(msg, i)) {\r\n\t\t\t\t\t\t\t\tnextState = i;\r\n\t\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} else {\r\n\t\t\t\t\t\tfor(int i = 0; i <= 15; i++) {\r\n\t\t\t\t\t\t\tif(!mapping[i].equals(\"\") && parseSignal(msg, i)) {\r\n\t\t\t\t\t\t\t\tnextState = i;\r\n\t\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif(this.lastState != nextState) {\r\n\t\t\t\t\t\tthis.lastState = nextState;\r\n\t\t\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n\t\t\t\t\t\tthis.world.notifyBlocksOfNeighborChange(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType());\r\n\t\t\t\t\t\tthis.markDirty();\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\tnetworkPackNT(50);\r\n\t\t}\r\n\t}\r\n\r\n\tpublic boolean parseSignal(String signal, int index) {\r\n\t\tif(conditions[index] <= 5) { //if a non-string operator\r\n\t\t\tint sig = 0;\r\n\t\t\tint map = 0;\r\n\t\t\ttry { sig = Integer.parseInt(signal); map = Integer.parseInt(mapping[index]); } catch(Exception x) {\r\n\t\t\t\treturn false; //not a valid input; skip! slightly annoying about the mapping but we'll restrict input anyway\r\n\t\t\t};\r\n\r\n\t\t\tswitch(conditions[index]) {\r\n\t\t\tdefault: return sig < map;\r\n\t\t\tcase 1: return sig <= map;\r\n\t\t\tcase 2: return sig >= map;\r\n\t\t\tcase 3: return sig > map;\r\n\t\t\tcase 4: return sig == map;\r\n\t\t\tcase 5: return sig != map;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tswitch(conditions[index]) {\r\n\t\tdefault: return signal.equals(mapping[index]);\r\n\t\tcase 7: return !signal.equals(mapping[index]);\r\n\t\tcase 8: return signal.contains(mapping[index]);\r\n\t\tcase 9: return !signal.contains(mapping[index]);\r\n\t\t}\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void readFromNBT(NBTTagCompound nbt) {\r\n\t\tsuper.readFromNBT(nbt);\r\n\t\tthis.polling = nbt.getBoolean(\"p\");\r\n\t\tthis.descending = nbt.getBoolean(\"d\");\r\n\t\tthis.lastState = nbt.getInteger(\"l\");\r\n\t\tthis.lastUpdate = nbt.getLong(\"u\");\r\n\t\tthis.channel = nbt.getString(\"c\");\r\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = nbt.getString(\"m\" + i);\r\n\t\tfor(int i = 0; i < 16; i++) this.conditions[i] = nbt.getInteger(\"c\" + i);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\r\n\t\tsuper.writeToNBT(nbt);\r\n\t\tnbt.setBoolean(\"p\", polling);\r\n\t\tnbt.setBoolean(\"d\", descending);\r\n\t\tnbt.setInteger(\"l\", lastState);\r\n\t\tnbt.setLong(\"u\", lastUpdate);\r\n\t\tif(channel != null) nbt.setString(\"c\", channel);\r\n\t\tfor(int i = 0; i < 16; i++) if(!mapping[i].equals(\"\")) nbt.setString(\"m\" + i, mapping[i]);\r\n\t\tfor(int i = 0; i < 16; i++) if(conditions[i] > 0) nbt.setInteger(\"c\" + i, conditions[i]);\r\n\t\treturn nbt;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void serialize(ByteBuf buf) {\r\n\t\tbuf.writeBoolean(this.polling);\r\n\t\tBufferUtil.writeString(buf, this.channel);\r\n\t\tbuf.writeBoolean(this.descending);\r\n\t\tfor(int i = 0; i < 16; i++) BufferUtil.writeString(buf, this.mapping[i]);\r\n\t\tfor(int i = 0; i < 16; i++) buf.writeInt(this.conditions[i]);\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void deserialize(ByteBuf buf) {\r\n\t\tthis.polling = buf.readBoolean();\r\n\t\tthis.channel = BufferUtil.readString(buf);\r\n\t\tthis.descending = buf.readBoolean();\r\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = BufferUtil.readString(buf);\r\n\t\tfor(int i = 0; i < 16; i++) this.conditions[i] = buf.readInt();\r\n\t}\r\n\r\n\t@Override\r\n",
+          "new": "\npublic class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {\n\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n\n\t/** channel we're broadcasting on/listening to */\n\tpublic String channel = \"\";\n\t/** Previous redstone state; volatile for the concurrent native render snapshot. */\n\tpublic volatile int lastState = 0;\n\t/** last update tick, needed for receivers listening for changes */\n\tpublic long lastUpdate;\n\t/** switches state change mode to tick-based polling */\n\tpublic boolean polling = false;\n\t/** switches evaluation of conditions from ascending to descending */\n\tpublic boolean descending = false;\n\t/** mapping for constants to compare against */\n\tpublic String[] mapping;\n\t/** mapping for conditions through [1, 10], being (<, <=, >=, >, ==, !=, equals, !equals, contains, !contains) */\n\tpublic int[] conditions;\n\n\tpublic TileEntityRadioTorchLogic() {\n\t\tthis.mapping = new String[16];\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = \"\";\n\t\tthis.conditions = new int[16];\n\t\tfor(int i = 0; i < 16; i++) this.conditions[i] = 0;\n\t}\n\n\t@Override\n\tpublic void update() {\n\n\t\tif(!this.world.isRemote) {\n\n\t\t\tif(!this.channel.isEmpty()) {\n\n\t\t\t\tRTTYChannel chan = RTTYSystem.listen(this.world, this.channel);\n\n\t\t\t\tif(chan != null && (this.polling || (chan.timeStamp > this.lastUpdate - 1 && chan.timeStamp != -1))) { // if we're either polling or a new message has come in\n\t\t\t\t\tString msg = \"\" + chan.signal;\n\t\t\t\t\tthis.lastUpdate = this.world.getTotalWorldTime();\n\t\t\t\t\tint nextState = 0; //if no remap apply, default to 0\n\n\t\t\t\t\tif(chan.timeStamp < this.lastUpdate - 2 && this.polling) {\n\t\t\t\t\t\t/* the vast majority use-case for this is going to be inequalities, NOT parsing, and the input is undefined - not the output\n\t\t\t\t\t\t * if no signal => 0 for polling, advanced users parsing strings can easily accommodate this fact instead of breaking numerical torches */\n\t\t\t\t\t\tmsg = \"0\";\n\t\t\t\t\t}\n\n\t\t\t\t\tif(descending) {\n\t\t\t\t\t\tfor(int i = 15; i >= 0; i--) {\n\t\t\t\t\t\t\tif(!mapping[i].equals(\"\") && parseSignal(msg, i)) {\n\t\t\t\t\t\t\t\tnextState = i;\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t} else {\n\t\t\t\t\t\tfor(int i = 0; i <= 15; i++) {\n\t\t\t\t\t\t\tif(!mapping[i].equals(\"\") && parseSignal(msg, i)) {\n\t\t\t\t\t\t\t\tnextState = i;\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\n\t\t\t\t\tif(this.lastState != nextState) {\n\t\t\t\t\t\tthis.lastState = nextState;\n\t\t\t\t\t\tIBlockState state = this.world.getBlockState(this.pos);\n\t\t\t\t\t\tthis.world.notifyBlockUpdate(this.pos, state, state, 2);\n\t\t\t\t\t\tthis.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);\n\t\t\t\t\t\tthis.markDirty();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tnetworkPackNT(50);\n\t\t}\n\t}\n\n\tpublic boolean parseSignal(String signal, int index) {\n\t\tif(conditions[index] <= 5) { //if a non-string operator\n\t\t\tint sig = 0;\n\t\t\tint map = 0;\n\t\t\ttry { sig = Integer.parseInt(signal); map = Integer.parseInt(mapping[index]); } catch(Exception x) {\n\t\t\t\treturn false; //not a valid input; skip! slightly annoying about the mapping but we'll restrict input anyway\n\t\t\t};\n\n\t\t\tswitch(conditions[index]) {\n\t\t\tdefault: return sig < map;\n\t\t\tcase 1: return sig <= map;\n\t\t\tcase 2: return sig >= map;\n\t\t\tcase 3: return sig > map;\n\t\t\tcase 4: return sig == map;\n\t\t\tcase 5: return sig != map;\n\t\t\t}\n\t\t}\n\n\t\tswitch(conditions[index]) {\n\t\tdefault: return signal.equals(mapping[index]);\n\t\tcase 7: return !signal.equals(mapping[index]);\n\t\tcase 8: return signal.contains(mapping[index]);\n\t\tcase 9: return !signal.contains(mapping[index]);\n\t\t}\n\t}\n\n\t@Override\n\tpublic void readFromNBT(NBTTagCompound nbt) {\n\t\tsuper.readFromNBT(nbt);\n\t\tthis.polling = nbt.getBoolean(\"p\");\n\t\tthis.descending = nbt.getBoolean(\"d\");\n\t\tthis.lastState = nbt.getInteger(\"l\");\n\t\tthis.lastUpdate = nbt.getLong(\"u\");\n\t\tthis.channel = nbt.getString(\"c\");\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = nbt.getString(\"m\" + i);\n\t\tfor(int i = 0; i < 16; i++) this.conditions[i] = nbt.getInteger(\"c\" + i);\n\t}\n\n\t@Override\n\tpublic NBTTagCompound writeToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeToNBT(nbt);\n\t\tnbt.setBoolean(\"p\", polling);\n\t\tnbt.setBoolean(\"d\", descending);\n\t\tnbt.setInteger(\"l\", lastState);\n\t\tnbt.setLong(\"u\", lastUpdate);\n\t\tif(channel != null) nbt.setString(\"c\", channel);\n\t\tfor(int i = 0; i < 16; i++) if(!mapping[i].equals(\"\")) nbt.setString(\"m\" + i, mapping[i]);\n\t\tfor(int i = 0; i < 16; i++) if(conditions[i] > 0) nbt.setInteger(\"c\" + i, conditions[i]);\n\t\treturn nbt;\n\t}\n\n\t@Override\n\tpublic void serialize(ByteBuf buf) {\n\t\tbuf.writeBoolean(this.polling);\n\t\tBufferUtil.writeString(buf, this.channel);\n\t\tbuf.writeBoolean(this.descending);\n\t\tfor(int i = 0; i < 16; i++) BufferUtil.writeString(buf, this.mapping[i]);\n\t\tfor(int i = 0; i < 16; i++) buf.writeInt(this.conditions[i]);\n\t}\n\n\t@Override\n\tpublic void deserialize(ByteBuf buf) {\n\t\tthis.polling = buf.readBoolean();\n\t\tthis.channel = BufferUtil.readString(buf);\n\t\tthis.descending = buf.readBoolean();\n\t\tfor(int i = 0; i < 16; i++) this.mapping[i] = BufferUtil.readString(buf);\n\t\tfor(int i = 0; i < 16; i++) this.conditions[i] = buf.readInt();\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 5622,
+          "after_offset": 5725,
+          "old": "\t\tNBTTagCompound nbt = new NBTTagCompound();\r\n\t\tnbt.setByte(\"l\", (byte) this.lastState);\r\n",
+          "new": "\t\tNBTTagCompound nbt = new NBTTagCompound();\n\t\tnbt.setByte(\"l\", (byte) this.lastState);\n"
+        },
+        {
+          "before_offset": 5773,
+          "after_offset": 5874,
+          "old": "\t}\r\n\r\n\t@Override\r\n",
+          "new": "\t}\n\n\t@Override\n\tpublic NBTTagCompound getUpdateTag() {\n\t\tNBTTagCompound nbt = super.getUpdateTag();\n\t\tnbt.setByte(\"l\", (byte) this.lastState);\n\t\treturn nbt;\n\t}\n\n\t@Override\n\tpublic void handleUpdateTag(NBTTagCompound tag) {\n\t\t// This is a render-state tag, not the full persisted configuration.\n\t\t// Chunk loading already assigns the native tile position.\n\t\tapplySyncedState(tag);\n\t}\n\n\t@Override\n"
+        },
+        {
+          "before_offset": 5868,
+          "after_offset": 6346,
+          "old": "",
+          "new": "\t\tapplySyncedState(pkt.getNbtCompound());\n\t}\n\n\tprivate void applySyncedState(NBTTagCompound tag) {\n"
+        },
+        {
+          "before_offset": 5897,
+          "after_offset": 6474,
+          "old": "\t\tthis.lastState = pkt.getNbtCompound().getByte(\"l\");\n\t\tif(this.lastState != last) {\n",
+          "new": "\t\tthis.lastState = tag.getByte(\"l\");\n\t\tif(this.world != null && this.lastState != last) {\n"
+        },
+        {
+          "before_offset": 6057,
+          "after_offset": 6639,
+          "old": "\t\t}\r\n\t}\r\n\r\n\t@Override\r\n\tpublic boolean hasPermission(EntityPlayer player) {\r\n\t\treturn player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void receiveControl(NBTTagCompound data) {\r\n\t\tif(data.hasKey(\"p\")) this.polling = data.getBoolean(\"p\");\r\n\t\tif(data.hasKey(\"c\")) this.channel = data.getString(\"c\");\r\n\t\tif(data.hasKey(\"d\")) this.descending = data.getBoolean(\"d\");\r\n\t\tfor(int i = 0; i < 16; i++) if(data.hasKey(\"m\" + i)) this.mapping[i] = data.getString(\"m\" + i);\r\n\t\tfor(int i = 0; i < 16; i++) if(data.hasKey(\"c\" + i)) this.conditions[i] = data.getInteger(\"c\" + i);\r\n\r\n\t\tthis.markDirty();\r\n\t}\r\n}\r\n",
+          "new": "\t\t}\n\t}\n\n\t@Override\n\tpublic boolean hasPermission(EntityPlayer player) {\n\t\treturn player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;\n\t}\n\n\t@Override\n\tpublic void receiveControl(NBTTagCompound data) {\n\t\tif(data.hasKey(\"p\")) this.polling = data.getBoolean(\"p\");\n\t\tif(data.hasKey(\"c\")) this.channel = data.getString(\"c\");\n\t\tif(data.hasKey(\"d\")) this.descending = data.getBoolean(\"d\");\n\t\tfor(int i = 0; i < 16; i++) if(data.hasKey(\"m\" + i)) this.mapping[i] = data.getString(\"m\" + i);\n\t\tfor(int i = 0; i < 16; i++) if(data.hasKey(\"c\" + i)) this.conditions[i] = data.getInteger(\"c\" + i);\n\n\t\tthis.markDirty();\n\t}\n}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReader.java": {
+      "before_sha256": "25ba55ce81510a01702c2bf2c453028fdfcc3bc0f3b370bd008534f1498f3354",
+      "after_sha256": "4a9747a0340981c1ac00cdd8fc7d989c9d06210250e80ac45946639150292bfd",
+      "edits": [
+        {
+          "before_offset": 573,
+          "after_offset": 573,
+          "old": "",
+          "new": "\n    @Override public boolean canRenderBreaking() {\n        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReceiver.java": {
+      "before_sha256": "68f5fb4a3a182b0bc9427223b043ae8b4c6e4ba4cf73ee91d3abb102abebf657",
+      "after_sha256": "6ec6e9e5e40296bd5d980b5ac2a84fe36ff11f259385cfc92f046694c1bc59b0",
+      "edits": [
+        {
+          "before_offset": 139,
+          "after_offset": 139,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 1035,
+          "after_offset": 1081,
+          "old": "\t\t\t\t\t\tnextState = MathHelper.clamp_int(sig, 0, 15);\n",
+          "new": "\t\t\t\t\t\tnextState = MathHelper.clamp(sig, 0, 15);\n"
+        },
+        {
+          "before_offset": 1271,
+          "after_offset": 1313,
+          "old": "\t\t\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n\t\t\t\t\t\tthis.world.notifyBlocksOfNeighborChange(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType());\n",
+          "new": "\t\t\t\t\t\tIBlockState state = this.world.getBlockState(this.pos);\n\t\t\t\t\t\tthis.world.notifyBlockUpdate(this.pos, state, state, 2);\n\t\t\t\t\t\tthis.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchSender.java": {
+      "before_sha256": "52c3bd89e6c925e615f5049aad1fba47bfdafdd5d2f837e07d3281751fe0cfb0",
+      "after_sha256": "2b2d681aba80a661a35aece5666475727aeb1f88d30ba58f40a4498b5c0ea778",
+      "edits": [
+        {
+          "before_offset": 37,
+          "after_offset": 37,
+          "old": "import net.minecraft.block.Block;\n",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 344,
+          "after_offset": 397,
+          "old": "\t\t\tint input = this.world.getIndirectPowerLevelTo(this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, this.getBlockMetadata());\n",
+          "new": "\t\t\tBlockPos sourcePos = this.pos.add(dir.offsetX, dir.offsetY, dir.offsetZ);\n\t\t\tint input = this.world.getRedstonePower(sourcePos, dir.getOpposite().toEnumFacing());\n"
+        },
+        {
+          "before_offset": 517,
+          "after_offset": 567,
+          "old": "\t\t\tBlock b = this.world.getBlock(this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ);\n",
+          "new": "\t\t\tIBlockState sourceState = this.world.getBlockState(sourcePos);\n"
+        },
+        {
+          "before_offset": 648,
+          "after_offset": 637,
+          "old": "\t\t\tif(b.hasComparatorInputOverride()) {\n\t\t\t\tinput = b.getComparatorInputOverride(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir.getOpposite().ordinal());\n",
+          "new": "\t\t\tif(sourceState.hasComparatorInputOverride()) {\n\t\t\t\tinput = sourceState.getComparatorInputOverride(this.world, sourcePos);\n"
+        },
+        {
+          "before_offset": 970,
+          "after_offset": 868,
+          "old": "\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1084,
+          "after_offset": 896,
+          "old": "",
+          "new": "\t\t\t\t// Native notification may request the update packet immediately.\n\t\t\t\tIBlockState state = this.world.getBlockState(this.pos);\n\t\t\t\tthis.world.notifyBlockUpdate(this.pos, state, state, 2);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/network/RadioTorchModelState.java": "03b36c432d94d851cf046e9637e419f9469cf1f38b9f319c3f2fc94c109dbb39",
+    "src/main/java/com/hbm/main/CRTModelHandler.java": "937ed2bfd2f54ea30bee203e120a58020b319f30fc51e0c404734acf260d46d5",
+    "src/main/java/com/hbm/main/RadioTorchModelHandler.java": "60778331deaa0e857ab4bea82aa37cf08b0172b13ea529d35ae6963a93d7dfb6",
+    "src/main/java/com/hbm/main/SplitterModelHandler.java": "3fb6bb9a05d59de4b8ca3cf19becb1e94633261ef15df3bbffcbae23fe3baa5a",
+    "src/main/java/com/hbm/render/block/nativeblock/CRTBakedModel.java": "8e3717c2b29c683bc0303e3d2fb594c88e3370e74035fb21129b1a3c1f357e03",
+    "src/main/java/com/hbm/render/block/nativeblock/CRTPackedLightQuad.java": "f7c2251f476a04ca44770e0dacaca82329ef75be5e14bf6ce3427b5132ed88fe",
+    "src/main/java/com/hbm/render/block/nativeblock/RadioTorchBakedModel.java": "0f4170ae4f0e914aa039c32df84d8bacb0a62a34818bc2d058bf9b7da6a3658d",
+    "src/main/java/com/hbm/render/block/nativeblock/RadioTorchGeometry.java": "995e210cca15b9d2c261eb122483c4feb150c56b62666eff8212852d15045fa4",
+    "src/main/java/com/hbm/render/tileentity/RadioTorchBreakingRenderer.java": "597800f8b688796b577ca1242e5823b0002918797353c20ed6eda93ddc12c5e5",
+    "src/main/java/com/hbm/render/tileentity/SplitterBreakingRenderer.java": "c806f9fb5735d4a49c4b020785e65d406b8be1a15972c2a089810b39fa4036da",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_crt.json": "301aa0fe3d26ae25561a23c997b9d929bc3b7dc51eba784f24d465095c63e22f",
+    "src/main/resources/assets/hbm/blockstates/tile.radio_torch_controller.json": "9a1cc58b0dcdb5c0ac88dd8ab7469fcb1aee033147900f41b1cc7f8e1348a023",
+    "src/main/resources/assets/hbm/blockstates/tile.radio_torch_counter.json": "175da54b69eb04fbe85049e70e663a9700e26234532bd09261e5a6275ab79fa7",
+    "src/main/resources/assets/hbm/blockstates/tile.radio_torch_logic.json": "76398d327c12c3659d9ff90a0b3ccd2cb49491b95d78bafdc9e94cefcc456335",
+    "src/main/resources/assets/hbm/blockstates/tile.radio_torch_reader.json": "fc99ef2a413f062eb2af12aa0c5686a169eaabd45c527be27d2c5fa374c06b08",
+    "src/main/resources/assets/hbm/blockstates/tile.radio_torch_receiver.json": "7d46fc47361aa53ccfb031b1a131ab61ae18c6ac4b345ee4a0b50074787b30fb",
+    "src/main/resources/assets/hbm/blockstates/tile.radio_torch_sender.json": "5fc6275fdfa5a420ad940a1fa50016c646cd33ce3e80a5c9b326296b104f777f"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

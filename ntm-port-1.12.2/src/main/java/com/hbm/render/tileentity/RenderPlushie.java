@@ -1,5 +1,6 @@
 package com.hbm.render.tileentity;
 
+import com.hbm.render.util.NativeIconExtrusion;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -16,7 +17,6 @@ import com.hbm.util.BobMathUtil;
 import com.hbm.util.EnumUtil;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -25,28 +25,28 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.model.IModelCustom;
+
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderPlushie extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
-	public static final IModelCustom yomiModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/yomi.obj"), false).asVBO();
-	public static final IModelCustom hundunModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/hundun.obj"), false).asVBO();
-	public static final IModelCustom dergModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/derg.obj"), false).asVBO();
+	public static final MeshModel yomiModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/yomi.obj"), false).asVBO();
+	public static final MeshModel hundunModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/hundun.obj"), false).asVBO();
+	public static final MeshModel dergModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/derg.obj"), false).asVBO();
 	public static final ResourceLocation yomiTex = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/yomi.png");
 	public static final ResourceLocation numbernineTex = new ResourceLocation(RefStrings.MODID, "textures/models/horse/numbernine.png");
 	public static final ResourceLocation hundunTex = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/hundun.png");
 
 	//VOCALOIDS//
-	public static final IModelCustom tetoModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/teto.obj")).asVBO();
+	public static final MeshModel tetoModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/teto.obj")).asVBO();
 	public static final ResourceLocation tetoTex = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/teto.png");
 	public static final ResourceLocation tetoBlush = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/teto_squished.png");
 
-	public static final IModelCustom mikuModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/miku.obj")).asVBO();
+	public static final MeshModel mikuModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/miku.obj")).asVBO();
 	public static final ResourceLocation mikuTex = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/miku.png");
 	public static final ResourceLocation mikuBlush = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/miku_squished.png");
 
-	public static final IModelCustom neruModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/neru.obj")).asVBO();
+	public static final MeshModel neruModel = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/neru.obj")).asVBO();
 	public static final ResourceLocation neruTex = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/neru.png");
 	public static final ResourceLocation neruBlush = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/neru_squished.png");
 
@@ -131,7 +131,7 @@ public class RenderPlushie extends TileEntitySpecialRenderer implements IItemRen
 			GL11.glRotated(60, 0, 0, -1);
 			Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationItemsTexture);
 			IIcon icon = stack.getIconIndex();
-			ItemRenderer.renderItemIn2D(Tessellator.instance, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
+			NativeIconExtrusion.draw(icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 			break;
 		case HUNDUN:
 			Minecraft.getMinecraft().getTextureManager().bindTexture(hundunTex);
@@ -163,7 +163,7 @@ public class RenderPlushie extends TileEntitySpecialRenderer implements IItemRen
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				GL11.glTranslated(0, -6, 0);

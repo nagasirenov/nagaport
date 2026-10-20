@@ -1,0 +1,2092 @@
+[
+  {
+    "owner": "ModBlocks.sliding_blast_door",
+    "sprite": "hbm:blocks/sliding_blast_door",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2323",
+    "original_icon": "sliding_blast_door",
+    "png": "src/main/resources/assets/hbm/textures/blocks/sliding_blast_door.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "49bc6466fc85a67fbccc25168b8ec73bbad2c2d8372799852a0cade32218a242",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.large_vehicle_door",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2329",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.silo_hatch",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2326",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.silo_hatch_large",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2327",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.qe_sliding_door",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2331",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.sliding_seal_door",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2333",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.blast_door",
+    "sprite": "hbm:blocks/blast_door",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2321",
+    "original_icon": "blast_door",
+    "png": "src/main/resources/assets/hbm/textures/blocks/blast_door.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "bd17036e4e567c7be51262e726244d45d2ff10edc85597852565a93c497f3f0a",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.obj_tester",
+    "sprite": "hbm:blocks/test_render",
+    "source": "src/main/java/com/hbm/blocks/test/TestObjTester.java:46-47",
+    "original_icon": "test_render",
+    "png": "src/main/resources/assets/hbm/textures/blocks/test_render.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "1ca5e3d9c35c729a1dbf8aea8f0f62d5364ef3a897c48e6ecbb341d0e527def7",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_cyclotron",
+    "sprite": "hbm:blocks/cyclotron",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2074",
+    "original_icon": "cyclotron",
+    "png": "src/main/resources/assets/hbm/textures/blocks/cyclotron.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "521e4bf97086a8dd13a13f594f3f8f197cdf90918a3a95cb4bb542ed8ba9053f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.iter",
+    "sprite": "hbm:blocks/iter",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2277",
+    "original_icon": "iter",
+    "png": "src/main/resources/assets/hbm/textures/blocks/iter.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "04d36b1a1561683ed0e482cbd47fd123bab16820b853abe908264e0be8b13d07",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_press",
+    "sprite": "hbm:blocks/machine_press",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2508",
+    "original_icon": "machine_press",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_press.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "b94b4b24f21adab2dcbc34950e5fb5e1b01e3d357966a2106d9fce746420c25a",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_epress",
+    "sprite": "hbm:blocks/machine_epress",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2509",
+    "original_icon": "machine_epress",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_epress.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "f0db6c4fcf910bfddd54ebf7acbc8352f49490f9db9bc4e0bd38c529d08acaaa",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_reactor_breeding",
+    "sprite": "hbm:blocks/machine_reactor",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2066",
+    "original_icon": "machine_reactor",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_reactor.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "fdf47b773e5d3c1669057e8ac3b274c8dc389a3db0d2a3913ccb991dd5b709f5",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_large_turbine",
+    "sprite": "hbm:blocks/machine_large_turbine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2524",
+    "original_icon": "machine_large_turbine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_large_turbine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "5ed9bb8ecf373dce053445dd6cfd3a32fa1d754595aff52b0e468133e8a3e114",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.reactor_research",
+    "sprite": "hbm:blocks/machine_reactor_small",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2512",
+    "original_icon": "machine_reactor_small",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_reactor_small.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "4069b41285e4e17eaabe7ac20ed439f3279a488c24ecee8d4231ff924b0714eb",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_industrial_generator",
+    "sprite": "minecraft:blocks/gold_block",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2073",
+    "original_icon": "gold_block",
+    "png": "assets/minecraft/textures/blocks/gold_block.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_radgen",
+    "sprite": "hbm:blocks/machine_radgen",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2076",
+    "original_icon": "machine_radgen",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_radgen.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "97adad647d666a170c3ac3bf8c1a34b82d678e9327210328aff7ae710c22d08b",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_pumpjack",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2463",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_flare",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2466",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_refinery",
+    "sprite": "hbm:blocks/machine_refinery",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2469",
+    "original_icon": "machine_refinery",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_refinery.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "26fdcefe5af5e16fff2fda0983ebf3410af42910039c0794617e8a237fbf07c2",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_mining_laser",
+    "sprite": "hbm:blocks/machine_mining_laser",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2484",
+    "original_icon": "machine_mining_laser",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_mining_laser.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "a47b7ff68fba321cc67f29c96bfa84886661ef683a8fcf8383f70e9e56fb911c",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.plasma_heater",
+    "sprite": "hbm:blocks/plasma_heater",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2278",
+    "original_icon": "plasma_heater",
+    "png": "src/main/resources/assets/hbm/textures/blocks/plasma_heater.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "d1624d347b9a1684e4cd16aced5e2e56574d71bb98c24cf9d0c667511ff13588",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.tesla",
+    "sprite": "hbm:blocks/tesla",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2354",
+    "original_icon": "tesla",
+    "png": "src/main/resources/assets/hbm/textures/blocks/tesla.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "15e11fc97656a3088a59fec7ce26fb7434cffe660404cc0138308b26c26ab92f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.boxcar",
+    "sprite": "hbm:blocks/boxcar",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2456",
+    "original_icon": "boxcar",
+    "png": "src/main/resources/assets/hbm/textures/blocks/boxcar.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "569ec1e0505690413a826b3cb3e6fd61e6f29a06228ada694d15440ea1a004e5",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.boat",
+    "sprite": "hbm:blocks/asphalt",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2457",
+    "original_icon": "asphalt",
+    "png": "src/main/resources/assets/hbm/textures/blocks/asphalt.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "ee0a00ad684a7225bfa1ae430fd975a7aaf3fdf30eea3dcb7603f1de41afdf7e",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_boy",
+    "sprite": "hbm:blocks/lilboy",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1969",
+    "original_icon": "lilBoy",
+    "png": "src/main/resources/assets/hbm/textures/blocks/lilboy.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "53b115946f7fa145a27b2be68af517bc85d3020a2e053fa2c5000781fdcfb954",
+    "case_rename_from": "src/main/resources/assets/hbm/textures/blocks/lilBoy.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_fstbmb",
+    "sprite": "hbm:blocks/nuke_fstbmb",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1978",
+    "original_icon": "nuke_fstbmb",
+    "png": "src/main/resources/assets/hbm/textures/blocks/nuke_fstbmb.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "1a0361b18b51f3d124ed2823766530548063fad5d15b893a71242462d31f2cb5",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_custom",
+    "sprite": "hbm:blocks/custom",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1975",
+    "original_icon": "custom",
+    "png": "src/main/resources/assets/hbm/textures/blocks/custom.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "5193f17e0276cececb4d6f6cd190717be6031c1dd2763bdc1d577a23cff8ef26",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.bomb_multi",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1981",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.mine_ap",
+    "sprite": "hbm:blocks/mine_ap",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2006",
+    "original_icon": "mine_ap",
+    "png": "src/main/resources/assets/hbm/textures/blocks/mine_ap.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "072d8ba55c72f32bd108cb2adcfacb36110b4fab9cdb3bf45a9d8cf794ba64f0",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.mine_shrap",
+    "sprite": "hbm:blocks/mine_shrap",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2008",
+    "original_icon": "mine_shrap",
+    "png": "src/main/resources/assets/hbm/textures/blocks/mine_shrap.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "d39417120cf3d66ac09ae5ace8b0b233055919484e49e0271039410cbfa54568",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.mine_naval",
+    "sprite": "hbm:blocks/mine_naval",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2010",
+    "original_icon": "mine_naval",
+    "png": "src/main/resources/assets/hbm/textures/blocks/mine_naval.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "21594fc901a9419078f9c9cda849d83a8c55abda75b31d0b8138ae2a6ed231ea",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.mine_fat",
+    "sprite": "hbm:blocks/mine_fat",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2009",
+    "original_icon": "mine_fat",
+    "png": "src/main/resources/assets/hbm/textures/blocks/mine_fat.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "e353ae08cac4128434c825af5c96e38bedd34c44879c0efd1e7eb9e1a6f42b40",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_forcefield",
+    "sprite": "hbm:blocks/machine_forcefield",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2571",
+    "original_icon": "machine_forcefield",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_forcefield.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "f3bca18734924d29c03d5bc644bb96bf0a6014971a8faaaad50ed9a51ea9220f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_missile_assembly",
+    "sprite": "hbm:blocks/machine_missile_assembly",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2364",
+    "original_icon": "machine_missile_assembly",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_missile_assembly.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "47e6bfba5c35c0d2b74a4f12b15eafc7ca08371a47386d30647142621b1ca73b",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.launch_pad",
+    "sprite": "hbm:blocks/launch_pad",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2356",
+    "original_icon": "launch_pad",
+    "png": "src/main/resources/assets/hbm/textures/blocks/launch_pad.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "e6bb6dfabf49c1e045bc22d489e499111a6ab801fd5c21b52c5704f242f577bc",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.compact_launcher",
+    "sprite": "hbm:blocks/compact_launcher",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2366",
+    "original_icon": "compact_launcher",
+    "png": "src/main/resources/assets/hbm/textures/blocks/compact_launcher.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "68c81477c6a54e6469c446190c8364ea777def4cac62bc377aeb57b2d3127321",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.soyuz_capsule",
+    "sprite": "hbm:blocks/soyuz_capsule",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2371",
+    "original_icon": "soyuz_capsule",
+    "png": "src/main/resources/assets/hbm/textures/blocks/soyuz_capsule.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "44289c4ab0a11f80c091efbb7927aa63ad3ae567305e678593ee0aca5df12b6a",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_radar",
+    "sprite": "hbm:blocks/machine_radar",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2360",
+    "original_icon": "machine_radar",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_radar.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "34f355c40a94c75c3c4cb3b01ab64b1c8e340547e49cf03841b381ec86b9d911",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_uf6_tank",
+    "sprite": "hbm:blocks/machine_uf6_tank",
+    "source": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java:43-44",
+    "original_icon": "machine_uf6_tank",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_uf6_tank.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "feee84ef7acacbe524c91565cee3cb04a0ebc9fe9780000fa22e1ef6d024580d",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_puf6_tank",
+    "sprite": "hbm:blocks/machine_puf6_tank",
+    "source": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java:43-44",
+    "original_icon": "machine_puf6_tank",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_puf6_tank.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "bee6c69337c116aa280513360e4183eb47b5524661f99639f8110e491caa0bd6",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.sat_dock",
+    "sprite": "hbm:blocks/sat_dock",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2370",
+    "original_icon": "sat_dock",
+    "png": "src/main/resources/assets/hbm/textures/blocks/sat_dock.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "52a808ffd519ff784bb4f9f11af8d59b3ddbce795d8aeccbd7e5f545cf60e934",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.gas_dock",
+    "sprite": "hbm:blocks/sat_dock",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2372",
+    "original_icon": "sat_dock",
+    "png": "src/main/resources/assets/hbm/textures/blocks/sat_dock.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "52a808ffd519ff784bb4f9f11af8d59b3ddbce795d8aeccbd7e5f545cf60e934",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_microwave",
+    "sprite": "hbm:blocks/machine_microwave",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2098",
+    "original_icon": "machine_microwave",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_microwave.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3ca436c4cb7c780ec29e6fb44b48f0d759956a409c89159fac6cd5105d688f7a",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_solar_boiler",
+    "sprite": "hbm:blocks/machine_solar_boiler",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2236",
+    "original_icon": "machine_solar_boiler",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_solar_boiler.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "856ef9bcf8f5e99764cd15cbaca6e531f8280d1c02876a514de53d3e357c6012",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.solar_mirror",
+    "sprite": "hbm:blocks/solar_mirror",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2237",
+    "original_icon": "solar_mirror",
+    "png": "src/main/resources/assets/hbm/textures/blocks/solar_mirror.png",
+    "size": [
+      36,
+      36
+    ],
+    "sha256": "c84b9de85728fe5e9777d4bc937584dce9444326355a03c7ab204b301aa02aeb",
+    "mip_aligned_custom_sprite": true,
+    "custom_sprite_reason": "Original icon has non-power-of-two dimension requiring square mip-aligned canvas; original pixels retained."
+  },
+  {
+    "owner": "ModBlocks.turret_chekhov",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2376",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_friendly",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2377",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_jeremy",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2378",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_tauon",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2379",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_richard",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2380",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_howard",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2381",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_howard_damaged",
+    "sprite": "hbm:blocks/block_rust",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2382",
+    "original_icon": "block_rust",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_rust.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3111054a932e36610c65d11f1dd9dd1e1f2b06c5617a2399099c9a7d9e0144f7",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_silex",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2059",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_fel",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2058",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.rbmk_console",
+    "sprite": "hbm:blocks/rbmk/rbmk_console",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2408",
+    "original_icon": "rbmk/rbmk_console",
+    "png": "src/main/resources/assets/hbm/textures/blocks/rbmk/rbmk_console.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "21d8170dee6d5a2ad2a4718dd58c4fe8dfc8a087b363f641bf1668f27d0e32c9",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.rbmk_crane_console",
+    "sprite": "hbm:blocks/rbmk/rbmk_crane_console",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2409",
+    "original_icon": "rbmk/rbmk_crane_console",
+    "png": "src/main/resources/assets/hbm/textures/blocks/rbmk/rbmk_crane_console.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "21d8170dee6d5a2ad2a4718dd58c4fe8dfc8a087b363f641bf1668f27d0e32c9",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_storage_drum",
+    "sprite": "hbm:blocks/machine_storage_drum",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2564",
+    "original_icon": "machine_storage_drum",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_storage_drum.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "52ce03240701c4c8a5d1530732ab83dd8e3c712d47f2ae312bb24e967480e7ab",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_maxwell",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2383",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_fritz",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2384",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_bat9000",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2498",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_orbus",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2499",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_antimatter",
+    "sprite": "hbm:blocks/thegadget",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1979",
+    "original_icon": "theGadget",
+    "png": "src/main/resources/assets/hbm/textures/blocks/thegadget.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "1830d1cf1f0313e7470eccf40e50aff901a46da149eacfddcc14bc7433744407",
+    "case_rename_from": "src/main/resources/assets/hbm/textures/blocks/theGadget.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.watz",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2300",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_fraction_tower",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2471",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.fraction_spacer",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2472",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_tower_small",
+    "sprite": "hbm:blocks/brick_concrete",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2528",
+    "original_icon": "brick_concrete",
+    "png": "src/main/resources/assets/hbm/textures/blocks/brick_concrete.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "b5bfef311e10ccfd1c80f6c2a93e49a7fbe38bac4e27a26a4db907b43964c1b5",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_atmo_tower",
+    "sprite": "hbm:blocks/concrete",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2535",
+    "original_icon": "concrete",
+    "png": "src/main/resources/assets/hbm/textures/blocks/concrete.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_atmo_vent",
+    "sprite": "hbm:blocks/concrete",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2536",
+    "original_icon": "concrete",
+    "png": "src/main/resources/assets/hbm/textures/blocks/concrete.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_fracking_tower",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2464",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_deuterium_tower",
+    "sprite": "hbm:blocks/concrete",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2534",
+    "original_icon": "concrete",
+    "png": "src/main/resources/assets/hbm/textures/blocks/concrete.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.reactor_zirnox",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2513",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_catalytic_cracker",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2473",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_liquefactor",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2538",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_solidifier",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2539",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_radiolysis",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2134",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.red_pylon_large",
+    "sprite": "hbm:blocks/red_pylon_large",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2154",
+    "original_icon": "red_pylon_large",
+    "png": "src/main/resources/assets/hbm/textures/blocks/red_pylon_large.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "146d694f4762af6e3735054d39047c9325b3de344b83b6575a3eef6368ae0a48",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.substation",
+    "sprite": "hbm:blocks/substation",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2155",
+    "original_icon": "substation",
+    "png": "src/main/resources/assets/hbm/textures/blocks/substation.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "f3bc94b863787d2de9cb7f459cb60c4039a5923ed817e084b64e8d42dc97427b",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.charger",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2351",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.furnace_iron",
+    "sprite": "hbm:blocks/block_aluminium",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2030",
+    "original_icon": "block_aluminium",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_aluminium.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "676a6e55ed6d353c77930b0c9aac5d3814fcf81f6c1420d10b4484cebb51d09f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_arty",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2385",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_soldering_station",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2490",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.heater_oilburner",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2022",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_arc_furnace",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2097",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_n2",
+    "sprite": "hbm:blocks/nuke_n2",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1977",
+    "original_icon": "nuke_n2",
+    "png": "src/main/resources/assets/hbm/textures/blocks/nuke_n2.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "aa52bcfe13d4ed77895c4b075446a15177485d9f567cd5a3fbbd1dc65d9d926d",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_milk_reformer",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2475",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_htr3",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2503",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_magma",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2481",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_crucible",
+    "sprite": "hbm:blocks/brick_fire",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2038",
+    "original_icon": "brick_fire",
+    "png": "src/main/resources/assets/hbm/textures/blocks/brick_fire.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "ef7f23b737ada34dba7ae88734291f0d4c94140848e90cd33ca7bef00e0c74bb",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_hydrotreater",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2476",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.fusion_collector",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2285",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.dyson_converter_tu",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2720",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.furnace_steel",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2031",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_htrf4neo",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2505",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_combustion_engine",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2121",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.geiger",
+    "sprite": "hbm:blocks/geiger",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1881",
+    "original_icon": "geiger",
+    "png": "src/main/resources/assets/hbm/textures/blocks/geiger.png",
+    "size": [
+      55,
+      55
+    ],
+    "sha256": "6b40dcf51e075585956e6e284a2d8f705b80d18d1bc37bdc092cfa4605fb2502",
+    "mip_aligned_custom_sprite": true,
+    "custom_sprite_reason": "Original icon has non-power-of-two dimension requiring square mip-aligned canvas; original pixels retained."
+  },
+  {
+    "owner": "ModBlocks.machine_htrf4",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2504",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_excavator",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2480",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_mixer",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2496",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_fleija",
+    "sprite": "hbm:blocks/fleija",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1973",
+    "original_icon": "fleija",
+    "png": "src/main/resources/assets/hbm/textures/blocks/fleija.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "e98ec036a1e4dc28f88bcf41ee501d03b7a106b0a5fc68cf5688d4f0bd5e1bde",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_xenon_thruster",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2506",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_catalytic_reformer",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2474",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.fusion_coupler",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2288",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.orbital_station_computer",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2715",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_turbofan",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2500",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.dyson_launcher",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2718",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_solinium",
+    "sprite": "hbm:blocks/nuke_solinium",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1976",
+    "original_icon": "nuke_solinium",
+    "png": "src/main/resources/assets/hbm/textures/blocks/nuke_solinium.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "484ec31ea6e303333d6fac67b36b1d968bbbb76a85569ab7300c7e35094021ff",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_stardar",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2137",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.chimney_industrial",
+    "sprite": "hbm:blocks/concrete_colored_ext.machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2468",
+    "original_icon": "concrete_colored_ext.machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/concrete_colored_ext.machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "2c540f4c73b76d97095f8685a3dfb4828a38849d63a879dca7047727328f7df6",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.hydrobay",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2589",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_vacuum_circuit",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2492",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_vacuum_distill",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2470",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_mike",
+    "sprite": "hbm:blocks/ivymike",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1971",
+    "original_icon": "ivyMike",
+    "png": "src/main/resources/assets/hbm/textures/blocks/ivymike.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "91f88748ecc5401bf75a9d070847852533b75f018fb7f72d2242f2db63350b16",
+    "case_rename_from": "src/main/resources/assets/hbm/textures/blocks/ivyMike.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_ashpit",
+    "sprite": "minecraft:blocks/stonebrick",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2025",
+    "original_icon": "stonebrick",
+    "png": "assets/minecraft/textures/blocks/stonebrick.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_arc_welder",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2489",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_battery_socket",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2100",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_man",
+    "sprite": "hbm:blocks/fatman",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1970",
+    "original_icon": "fatMan",
+    "png": "src/main/resources/assets/hbm/textures/blocks/fatman.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3d20284f5ca68c470d317a72fef65520c95da6ee7a0c77372c0d7ef899aa4aa3",
+    "case_rename_from": "src/main/resources/assets/hbm/textures/blocks/fatMan.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_compressor_compact",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2543",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_prototype",
+    "sprite": "hbm:blocks/prototype",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1974",
+    "original_icon": "prototype",
+    "png": "src/main/resources/assets/hbm/textures/blocks/prototype.png",
+    "size": [
+      96,
+      96
+    ],
+    "sha256": "9cacf2764873ae92fe6e6211b6c9f47a1226a629ce5ab1adc640e4edf590d9bf",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_lpw2",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2502",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.dyson_converter_anatmogenesis",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2722",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_turbinegas",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2501",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.heater_firebox",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2020",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_drain",
+    "sprite": "hbm:blocks/concrete",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2171",
+    "original_icon": "concrete",
+    "png": "src/main/resources/assets/hbm/textures/blocks/concrete.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_rotary_furnace",
+    "sprite": "hbm:blocks/brick_fire",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2060",
+    "original_icon": "brick_fire",
+    "png": "src/main/resources/assets/hbm/textures/blocks/brick_fire.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "ef7f23b737ada34dba7ae88734291f0d4c94140848e90cd33ca7bef00e0c74bb",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_rocket_assembly",
+    "sprite": "hbm:blocks/machine_missile_assembly",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2365",
+    "original_icon": "machine_missile_assembly",
+    "png": "src/main/resources/assets/hbm/textures/blocks/machine_missile_assembly.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "47e6bfba5c35c0d2b74a4f12b15eafc7ca08371a47386d30647142621b1ca73b",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_drive_processor",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2138",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_battery_redd",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2101",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.fusion_boiler",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2286",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.rbmk_autoloader",
+    "sprite": "hbm:blocks/rbmk_autoloader",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2413",
+    "original_icon": "rbmk_autoloader",
+    "png": "src/main/resources/assets/hbm/textures/blocks/rbmk_autoloader.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "411d8d55d1b66bc753c3f8debc9828228a3c06a759aa680cb5f5e03d4d8a808d",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.fusion_breeder",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2284",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_cryo_distill",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2518",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.transporter_rocket",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2711",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.chimney_brick",
+    "sprite": "hbm:blocks/brick_fire",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2467",
+    "original_icon": "brick_fire",
+    "png": "src/main/resources/assets/hbm/textures/blocks/brick_fire.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "ef7f23b737ada34dba7ae88734291f0d4c94140848e90cd33ca7bef00e0c74bb",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.dyson_converter_he",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2721",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.air_scrubber",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2587",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_radiator",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2531",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_atmo_emitter",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2541",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_pyrooven",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2478",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.turret_sentry",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2387",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_alkylation",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2139",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.launch_pad_rusted",
+    "sprite": "hbm:blocks/block_rust",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2358",
+    "original_icon": "block_rust",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_rust.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "3111054a932e36610c65d11f1dd9dd1e1f2b06c5617a2399099c9a7d9e0144f7",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_electrolyser",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2545",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.heater_heatex",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2024",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_ammo_press",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2511",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.refueler",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2352",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.heater_oven",
+    "sprite": "hbm:blocks/brick_fire",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2021",
+    "original_icon": "brick_fire",
+    "png": "src/main/resources/assets/hbm/textures/blocks/brick_fire.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "ef7f23b737ada34dba7ae88734291f0d4c94140848e90cd33ca7bef00e0c74bb",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_dish_controller",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2516",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_intake",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2540",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.nuke_tsar",
+    "sprite": "hbm:blocks/tsarbomba",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:1972",
+    "original_icon": "tsarBomba",
+    "png": "src/main/resources/assets/hbm/textures/blocks/tsarbomba.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "d3ef87790f8212b01c879323ba833d782929e4499f188ffaf899fe35778a3904",
+    "case_rename_from": "src/main/resources/assets/hbm/textures/blocks/tsarBomba.png",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_solar",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2136",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.fluid_pump",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2170",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.dyson_receiver",
+    "sprite": "hbm:blocks/block_steel_machine",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2719",
+    "original_icon": "block_steel_machine",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel_machine.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "103d9f051d1251ff6573826292d6baabc5f2b7a3642ab112a455cd7112f6c399",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.radio_telex",
+    "sprite": "hbm:blocks/radio_telex",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2178",
+    "original_icon": "radio_telex",
+    "png": "src/main/resources/assets/hbm/textures/blocks/radio_telex.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "9e3a2c032edf0881e399f3fe3100f80b45d162e5a069ad87e363c904bc452fdb",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_exposure_chamber",
+    "sprite": "hbm:blocks/block_aluminium",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2075",
+    "original_icon": "block_aluminium",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_aluminium.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "676a6e55ed6d353c77930b0c9aac5d3814fcf81f6c1420d10b4484cebb51d09f",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_wood_burner",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2119",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_conveyor_press",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2510",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.launch_pad_rocket",
+    "sprite": "hbm:blocks/launch_pad",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2357",
+    "original_icon": "launch_pad",
+    "png": "src/main/resources/assets/hbm/textures/blocks/launch_pad.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "e6bb6dfabf49c1e045bc22d489e499111a6ab801fd5c21b52c5704f242f577bc",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_well",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2462",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.furnace_combination",
+    "sprite": "hbm:blocks/brick_light_alt",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2032",
+    "original_icon": "brick_light_alt",
+    "png": "src/main/resources/assets/hbm/textures/blocks/brick_light_alt.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "ae114f79ef812fde1ad70514c804da89409264ed220a7025da176b9e5612eeb7",
+    "mip_aligned_custom_sprite": false
+  },
+  {
+    "owner": "ModBlocks.machine_coker",
+    "sprite": "hbm:blocks/block_steel",
+    "source": "src/main/java/com/hbm/blocks/ModBlocks.java:2477",
+    "original_icon": "block_steel",
+    "png": "src/main/resources/assets/hbm/textures/blocks/block_steel.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0df702f198bc845e83cae21957007bed50232efe0080072f7ffe3c7a1b460728",
+    "mip_aligned_custom_sprite": false
+  }
+]

@@ -47,16 +47,16 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.catalyticReformer";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			if(this.worldObj.getTotalWorldTime() % 20 == 0) this.updateConnections();
+			if(this.world.getTotalWorldTime() % 20 == 0) this.updateConnections();
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[0].setType(9, slots);
 			tanks[0].loadTank(1, 2, slots);
@@ -70,7 +70,7 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 			for(DirPos pos : getConPos()) {
 				for(int i = 1; i < 4; i++) {
 					if(tanks[i].getFill() > 0) {
-						this.sendFluid(tanks[i], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						this.sendFluid(tanks[i], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 					}
 				}
 			}
@@ -125,8 +125,8 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 	
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 	
@@ -135,12 +135,12 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ, dir),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 3, yCoord, zCoord + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - rot.offsetX * 3, yCoord, zCoord - rot.offsetZ * 3, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 3, rot.getOpposite())
 		};
 	}
 	
@@ -156,7 +156,7 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
@@ -164,6 +164,7 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		tanks[1].writeToNBT(nbt, "o1");
 		tanks[2].writeToNBT(nbt, "o2");
 		tanks[3].writeToNBT(nbt, "o3");
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -173,12 +174,12 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 7,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 7,
+					this.pos.getZ() + 3
 					);
 		}
 		

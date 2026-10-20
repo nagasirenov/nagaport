@@ -104,7 +104,7 @@ public class ItemModMinecart extends Item {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		EnumMinecart cart = EnumUtil.grabEnumSafely(EnumMinecart.class, stack.getItemDamage());
-		return super.getUnlocalizedName() + "." + cart.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "." + cart.name().toLowerCase(Locale.US);
 	}
 
 	@Override
@@ -143,14 +143,14 @@ public class ItemModMinecart extends Item {
 		if(!stack.hasTagCompound())
 			return EnumCartBase.VANILLA;
 		
-		int meta = stack.stackTagCompound.getInteger(CART_BASE_NBT);
+		int meta = stack.getTagCompound().getInteger(CART_BASE_NBT);
 		return EnumUtil.grabEnumSafely(EnumCartBase.class, meta);
 	}
 	
 	public static ItemStack createCartItem(EnumCartBase base, EnumMinecart cart) {
 		ItemStack stack = new ItemStack(ModItems.cart, 1, cart.ordinal());
-		stack.stackTagCompound = new NBTTagCompound();
-		stack.stackTagCompound.setInteger(CART_BASE_NBT, base.ordinal());
+		stack.setTagCompound(new NBTTagCompound());
+		stack.getTagCompound().setInteger(CART_BASE_NBT, base.ordinal());
 		return stack;
 	}
 
@@ -185,13 +185,13 @@ public class ItemModMinecart extends Item {
 			int iX = source.getXInt() + enumfacing.getFrontOffsetX();
 			int iY = source.getYInt() + enumfacing.getFrontOffsetY();
 			int iZ = source.getZInt() + enumfacing.getFrontOffsetZ();
-			Block block = world.getBlock(iX, iY, iZ);
+			Block block = com.hbm.world.WorldBlockState.read(world, iX, iY, iZ).getBlock();
 			double yOffset;
 
 			if(BlockRailBase.func_150051_a(block)) {
 				yOffset = 0.0D;
 			} else {
-				if(block.getMaterial() != Material.air || !BlockRailBase.func_150051_a(world.getBlock(iX, iY - 1, iZ))) {
+				if(block.getDefaultState().getMaterial() != Material.AIR || !BlockRailBase.func_150051_a(com.hbm.world.WorldBlockState.read(world, iX, iY - 1, iZ).getBlock())) {
 					return this.behaviourDefaultDispenseItem.dispense(source, stack);
 				}
 
@@ -216,7 +216,7 @@ public class ItemModMinecart extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
-		if(BlockRailBase.func_150051_a(world.getBlock(x, y, z))) {
+		if(BlockRailBase.func_150051_a(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock())) {
 			if(!world.isRemote) {
 				
 				EntityMinecart entityminecart = createMinecart(world, x + fx, y + fy, z + fz, stack);

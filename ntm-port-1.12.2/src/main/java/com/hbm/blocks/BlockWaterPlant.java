@@ -14,7 +14,7 @@ public class BlockWaterPlant extends Block {
 
 	//once carbon tetrachloride exists, this will be rewritten. i just want my damn plants already ffs...
 	protected BlockWaterPlant() {
-		super(Material.water);
+		super(Material.WATER);
 	}
 	
 	@Override
@@ -38,7 +38,7 @@ public class BlockWaterPlant extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int parMetadata, Random parRand, int parFortune)   {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata, Random parRand, int parFortune)   {
 	   return (ModItems.saltleaf);
 	}
 
@@ -49,7 +49,7 @@ public class BlockWaterPlant extends Block {
 	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.getBlock(x, y + 1, z).getMaterial().isLiquid();
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();
 	}
 	
 }

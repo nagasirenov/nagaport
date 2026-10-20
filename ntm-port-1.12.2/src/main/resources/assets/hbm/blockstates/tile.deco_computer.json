@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "meta=0": {
+      "model": "hbm:native_appliance/tile.deco_computer/0/world"
+    },
+    "meta=1": {
+      "model": "hbm:native_appliance/tile.deco_computer/1/world"
+    },
+    "meta=2": {
+      "model": "hbm:native_appliance/tile.deco_computer/2/world"
+    },
+    "meta=3": {
+      "model": "hbm:native_appliance/tile.deco_computer/3/world"
+    },
+    "meta=4": {
+      "model": "hbm:native_appliance/tile.deco_computer/4/world"
+    },
+    "meta=5": {
+      "model": "hbm:native_appliance/tile.deco_computer/5/world"
+    },
+    "meta=6": {
+      "model": "hbm:native_appliance/tile.deco_computer/6/world"
+    },
+    "meta=7": {
+      "model": "hbm:native_appliance/tile.deco_computer/7/world"
+    },
+    "meta=8": {
+      "model": "hbm:native_appliance/tile.deco_computer/8/world"
+    },
+    "meta=9": {
+      "model": "hbm:native_appliance/tile.deco_computer/9/world"
+    },
+    "meta=10": {
+      "model": "hbm:native_appliance/tile.deco_computer/10/world"
+    },
+    "meta=11": {
+      "model": "hbm:native_appliance/tile.deco_computer/11/world"
+    },
+    "meta=12": {
+      "model": "hbm:native_appliance/tile.deco_computer/12/world"
+    },
+    "meta=13": {
+      "model": "hbm:native_appliance/tile.deco_computer/13/world"
+    },
+    "meta=14": {
+      "model": "hbm:native_appliance/tile.deco_computer/14/world"
+    },
+    "meta=15": {
+      "model": "hbm:native_appliance/tile.deco_computer/15/world"
+    }
+  }
+}

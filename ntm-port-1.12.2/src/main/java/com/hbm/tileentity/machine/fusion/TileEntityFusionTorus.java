@@ -89,14 +89,14 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.fusionTorus";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			for(int i = 0; i < 4; i++) {
 				if(klystronNodes[i] == null || klystronNodes[i].expired) klystronNodes[i] = createNode(KlystronNetworkProvider.THE_PROVIDER, ForgeDirection.getOrientation(i + 2));
@@ -122,16 +122,16 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 
 			for(DirPos pos : getConPos()) {
 
-				if(worldObj.getTotalWorldTime() % 20 == 0) {
-					this.trySubscribe(worldObj, pos);
-					this.trySubscribe(coolantTanks[0].getTankType(), worldObj, pos);
-					if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos);
-					if(tanks[1].getTankType() != Fluids.NONE) this.trySubscribe(tanks[1].getTankType(), worldObj, pos);
-					if(tanks[2].getTankType() != Fluids.NONE) this.trySubscribe(tanks[2].getTankType(), worldObj, pos);
+				if(this.world.getTotalWorldTime() % 20 == 0) {
+					this.trySubscribe(this.world, pos);
+					this.trySubscribe(coolantTanks[0].getTankType(), this.world, pos);
+					if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos);
+					if(tanks[1].getTankType() != Fluids.NONE) this.trySubscribe(tanks[1].getTankType(), this.world, pos);
+					if(tanks[2].getTankType() != Fluids.NONE) this.trySubscribe(tanks[2].getTankType(), this.world, pos);
 				}
 
-				if(coolantTanks[1].getFill() > 0) this.tryProvide(coolantTanks[1], worldObj, pos);
-				if(tanks[3].getFill() > 0) this.tryProvide(tanks[3], worldObj, pos);
+				if(coolantTanks[1].getFill() > 0) this.tryProvide(coolantTanks[1], this.world, pos);
+				if(tanks[3].getFill() > 0) this.tryProvide(tanks[3], this.world, pos);
 			}
 
 			this.power = Library.chargeTEFromItems(slots, 0, power, this.getMaxPower());
@@ -210,13 +210,13 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 
 		} else {
 
-			if(timeOffset == -1) this.timeOffset = worldObj.rand.nextInt(30_000);
+			if(timeOffset == -1) this.timeOffset = this.world.rand.nextInt(30_000);
 
 			double powerFactor = TileEntityFusionTorus.getSpeedScaled(this.getMaxPower(), power);
 			if(this.didProcess) this.magnetSpeed += MAGNET_ACCELERATION;
 			else this.magnetSpeed -= MAGNET_ACCELERATION;
 
-			this.magnetSpeed = MathHelper.clamp_float(this.magnetSpeed, 0F, 30F * (float) powerFactor);
+			this.magnetSpeed = MathHelper.clamp(this.magnetSpeed, 0F, 30F * (float) powerFactor);
 
 			this.prevMagnet = this.magnet;
 			this.magnet += this.magnetSpeed;
@@ -226,12 +226,12 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 				this.prevMagnet -= 360F;
 			}
 
-			if(this.magnetSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(xCoord + 0.5, yCoord + 2.5, zCoord + 0.5) < 50 * 50) {
+			if(this.magnetSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(this.pos.getX() + 0.5, this.pos.getY() + 2.5, this.pos.getZ() + 0.5) < 50 * 50) {
 
 				float speed = this.magnetSpeed / 30F;
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fusionReactorRunning", xCoord + 0.5F, yCoord + 2.5F, zCoord + 0.5F, getVolume(speed), 30F, speed, 20);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fusionReactorRunning", this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, getVolume(speed), 30F, speed, 20);
 					audio.startSound();
 				} else {
 					audio.updateVolume(getVolume(speed));
@@ -257,14 +257,14 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 	}
 
 	public GenNode createNode(INetworkProvider provider, ForgeDirection dir) {
-		GenNode node = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * 7, yCoord + 2, zCoord + dir.offsetZ * 7, provider);
+		GenNode node = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * 7, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 7, provider);
 		if(node != null) return node;
 
 		node = new GenNode(provider,
-				new BlockPos(xCoord + dir.offsetX * 7, yCoord + 2, zCoord + dir.offsetZ * 7))
-				.setConnections(new DirPos(xCoord + dir.offsetX * 8, yCoord + 2, zCoord + dir.offsetZ * 8, dir));
+				new BlockPos(this.pos.getX() + dir.offsetX * 7, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 7))
+				.setConnections(new DirPos(this.pos.getX() + dir.offsetX * 8, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 8, dir));
 
-		UniNodespace.createNode(worldObj, node);
+		UniNodespace.createNode(this.world, node);
 
 		return node;
 	}
@@ -288,9 +288,9 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 			audio = null;
 		}
 
-		if(!worldObj.isRemote) {
-			for(GenNode node : klystronNodes) if(node != null) UniNodespace.destroyNode(worldObj, node);
-			for(GenNode node : plasmaNodes) if(node != null) UniNodespace.destroyNode(worldObj, node);
+		if(!this.world.isRemote) {
+			for(GenNode node : klystronNodes) if(node != null) UniNodespace.destroyNode(this.world, node);
+			for(GenNode node : plasmaNodes) if(node != null) UniNodespace.destroyNode(this.world, node);
 		}
 	}
 
@@ -331,13 +331,14 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		for(int i = 0; i < 4; i++) this.tanks[i].writeToNBT(nbt, "ft" + i);
 
 		nbt.setLong("power", power);
 		this.fusionModule.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
@@ -359,36 +360,36 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord, yCoord + 5, zCoord, Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() + 5, this.pos.getZ(), Library.POS_Y),
 
-				new DirPos(xCoord + 6, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord + 6, yCoord + 5, zCoord, Library.POS_Y),
-				new DirPos(xCoord + 6, yCoord - 1, zCoord + 2, Library.NEG_Y),
-				new DirPos(xCoord + 6, yCoord + 5, zCoord + 2, Library.POS_Y),
-				new DirPos(xCoord + 6, yCoord - 1, zCoord - 2, Library.NEG_Y),
-				new DirPos(xCoord + 6, yCoord + 5, zCoord - 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + 6, this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX() + 6, this.pos.getY() + 5, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX() + 6, this.pos.getY() - 1, this.pos.getZ() + 2, Library.NEG_Y),
+				new DirPos(this.pos.getX() + 6, this.pos.getY() + 5, this.pos.getZ() + 2, Library.POS_Y),
+				new DirPos(this.pos.getX() + 6, this.pos.getY() - 1, this.pos.getZ() - 2, Library.NEG_Y),
+				new DirPos(this.pos.getX() + 6, this.pos.getY() + 5, this.pos.getZ() - 2, Library.POS_Y),
 
-				new DirPos(xCoord - 6, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord - 6, yCoord + 5, zCoord, Library.POS_Y),
-				new DirPos(xCoord - 6, yCoord - 1, zCoord + 2, Library.NEG_Y),
-				new DirPos(xCoord - 6, yCoord + 5, zCoord + 2, Library.POS_Y),
-				new DirPos(xCoord - 6, yCoord - 1, zCoord - 2, Library.NEG_Y),
-				new DirPos(xCoord - 6, yCoord + 5, zCoord - 2, Library.POS_Y),
+				new DirPos(this.pos.getX() - 6, this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX() - 6, this.pos.getY() + 5, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX() - 6, this.pos.getY() - 1, this.pos.getZ() + 2, Library.NEG_Y),
+				new DirPos(this.pos.getX() - 6, this.pos.getY() + 5, this.pos.getZ() + 2, Library.POS_Y),
+				new DirPos(this.pos.getX() - 6, this.pos.getY() - 1, this.pos.getZ() - 2, Library.NEG_Y),
+				new DirPos(this.pos.getX() - 6, this.pos.getY() + 5, this.pos.getZ() - 2, Library.POS_Y),
 
-				new DirPos(xCoord, yCoord - 1, zCoord + 6, Library.NEG_Y),
-				new DirPos(xCoord, yCoord + 5, zCoord + 6, Library.POS_Y),
-				new DirPos(xCoord + 2, yCoord - 1, zCoord + 6, Library.NEG_Y),
-				new DirPos(xCoord + 2, yCoord + 5, zCoord + 6, Library.POS_Y),
-				new DirPos(xCoord - 2, yCoord - 1, zCoord + 6, Library.NEG_Y),
-				new DirPos(xCoord - 2, yCoord + 5, zCoord + 6, Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() + 6, Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() + 5, this.pos.getZ() + 6, Library.POS_Y),
+				new DirPos(this.pos.getX() + 2, this.pos.getY() - 1, this.pos.getZ() + 6, Library.NEG_Y),
+				new DirPos(this.pos.getX() + 2, this.pos.getY() + 5, this.pos.getZ() + 6, Library.POS_Y),
+				new DirPos(this.pos.getX() - 2, this.pos.getY() - 1, this.pos.getZ() + 6, Library.NEG_Y),
+				new DirPos(this.pos.getX() - 2, this.pos.getY() + 5, this.pos.getZ() + 6, Library.POS_Y),
 
-				new DirPos(xCoord, yCoord - 1, zCoord - 6, Library.NEG_Y),
-				new DirPos(xCoord, yCoord + 5, zCoord - 6, Library.POS_Y),
-				new DirPos(xCoord + 2, yCoord - 1, zCoord - 6, Library.NEG_Y),
-				new DirPos(xCoord + 2, yCoord + 5, zCoord - 6, Library.POS_Y),
-				new DirPos(xCoord - 2, yCoord - 1, zCoord - 6, Library.NEG_Y),
-				new DirPos(xCoord - 2, yCoord + 5, zCoord - 6, Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ() - 6, Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() + 5, this.pos.getZ() - 6, Library.POS_Y),
+				new DirPos(this.pos.getX() + 2, this.pos.getY() - 1, this.pos.getZ() - 6, Library.NEG_Y),
+				new DirPos(this.pos.getX() + 2, this.pos.getY() + 5, this.pos.getZ() - 6, Library.POS_Y),
+				new DirPos(this.pos.getX() - 2, this.pos.getY() - 1, this.pos.getZ() - 6, Library.NEG_Y),
+				new DirPos(this.pos.getX() - 2, this.pos.getY() + 5, this.pos.getZ() - 6, Library.POS_Y),
 		};
 	}
 
@@ -400,12 +401,14 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 2;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {2};
 	}
 
@@ -416,12 +419,12 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 8,
-					yCoord,
-					zCoord - 8,
-					xCoord + 9,
-					yCoord + 5,
-					zCoord + 9
+					this.pos.getX() - 8,
+					this.pos.getY(),
+					this.pos.getZ() - 8,
+					this.pos.getX() + 9,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 9
 					);
 		}
 
@@ -445,14 +448,14 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements IGUIP
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) return false;
-		return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 32 * 32;
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		if(world.getTileEntity(pos) != this) return false;
+		return player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 32 * 32;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

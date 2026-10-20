@@ -1,0 +1,1680 @@
+{
+  "scope": "Six explicit tile/container files. Reversible native boundary family, no algorithms normalized.",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java",
+      "before_sha256": "4ea8f93f22833122d28e3cf1096ad59775fd396439bbd318c2e4bacbedb95cf6",
+      "after_sha256": "f8f18a861c29820581ea9956f8834837a1eec77f3af527c28d1eb7bb78e1a626",
+      "edits": [
+        {
+          "before_offset": 1372,
+          "after_offset": 1372,
+          "old": "clay",
+          "new": "CLAY"
+        },
+        {
+          "before_offset": 1377,
+          "after_offset": 1377,
+          "old": "ball",
+          "new": "BALL"
+        },
+        {
+          "before_offset": 1488,
+          "after_offset": 1488,
+          "old": "netherrack",
+          "new": "NETHERRACK"
+        },
+        {
+          "before_offset": 1551,
+          "after_offset": 1551,
+          "old": "cobblestone",
+          "new": "COBBLESTONE"
+        },
+        {
+          "before_offset": 2076,
+          "after_offset": 2076,
+          "old": "sand",
+          "new": "SAND"
+        },
+        {
+          "before_offset": 2392,
+          "after_offset": 2392,
+          "old": "log",
+          "new": "LOG"
+        },
+        {
+          "before_offset": 2449,
+          "after_offset": 2449,
+          "old": "log",
+          "new": "LOG"
+        },
+        {
+          "before_offset": 2798,
+          "after_offset": 2798,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2911,
+          "after_offset": 2908,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3092,
+          "after_offset": 3086,
+          "old": "",
+          "new": "!this.slots[1].isEmpty() && "
+        },
+        {
+          "before_offset": 3113,
+          "after_offset": 3135,
+          "old": "",
+          "new": " && !this.slots[0].isEmpty()"
+        },
+        {
+          "before_offset": 3354,
+          "after_offset": 3404,
+          "old": "",
+          "new": " && !this.slots[1].isEmpty()"
+        },
+        {
+          "before_offset": 3357,
+          "after_offset": 3435,
+          "old": "",
+          "new": "\n\t\t\t\t\t\t\t// Keep the callback receiver and ash identity before native depletion hides the item.\n\t\t\t\t\t\t\tItem fuelItem = slots[1].getItem();\n\t\t\t\t\t\t\tItemStack ashFuel = slots[1].copy();"
+        },
+        {
+          "before_offset": 3380,
+          "after_offset": 3639,
+          "old": "tac",
+          "new": "hrin"
+        },
+        {
+          "before_offset": 3384,
+          "after_offset": 3644,
+          "old": "Size--",
+          "new": "(1)"
+        },
+        {
+          "before_offset": 3456,
+          "after_offset": 3713,
+          "old": "",
+          "new": "a"
+        },
+        {
+          "before_offset": 3457,
+          "after_offset": 3715,
+          "old": "",
+          "new": "hFue"
+        },
+        {
+          "before_offset": 3458,
+          "after_offset": 3720,
+          "old": "ots[1]",
+          "new": ""
+        },
+        {
+          "before_offset": 3983,
+          "after_offset": 4239,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 3985,
+          "after_offset": 4242,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 4025,
+          "after_offset": 4282,
+          "old": "s",
+          "new": "fue"
+        },
+        {
+          "before_offset": 4027,
+          "after_offset": 4286,
+          "old": "ots[1].get",
+          "new": ""
+        },
+        {
+          "before_offset": 4041,
+          "after_offset": 4290,
+          "old": "()",
+          "new": ""
+        },
+        {
+          "before_offset": 4070,
+          "after_offset": 4317,
+          "old": "",
+          "new": ";\n\t\t\t\t\t\t\t\tif(slots[1] != null && slots[1].isEmpty()) slots[1] = null"
+        },
+        {
+          "before_offset": 4509,
+          "after_offset": 4824,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 4512,
+          "after_offset": 4826,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 4522,
+          "after_offset": 4841,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 4525,
+          "after_offset": 4843,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 4535,
+          "after_offset": 4858,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 4538,
+          "after_offset": 4860,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 5628,
+          "after_offset": 5955,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 5644,
+          "after_offset": 5972,
+          "old": "",
+          "new": " || slots[3].isEmpty())"
+        },
+        {
+          "before_offset": 5748,
+          "after_offset": 6099,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 5750,
+          "after_offset": 6102,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 5894,
+          "after_offset": 6246,
+          "old": "stackSize++",
+          "new": "grow(1)"
+        },
+        {
+          "before_offset": 5989,
+          "after_offset": 6337,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 6010,
+          "after_offset": 6359,
+          "old": "",
+          "new": " || this.slots[0].isEmpty())"
+        },
+        {
+          "before_offset": 6082,
+          "after_offset": 6459,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 6089,
+          "after_offset": 6461,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 6142,
+          "after_offset": 6519,
+          "old": " == null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 6176,
+          "after_offset": 6555,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 6197,
+          "after_offset": 6577,
+          "old": "",
+          "new": " || this.slots[2].isEmpty())"
+        },
+        {
+          "before_offset": 6304,
+          "after_offset": 6712,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6306,
+          "after_offset": 6715,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 6326,
+          "after_offset": 6735,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6328,
+          "after_offset": 6738,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 6527,
+          "after_offset": 6937,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 6534,
+          "after_offset": 6939,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 6579,
+          "after_offset": 6989,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 6600,
+          "after_offset": 7011,
+          "old": "",
+          "new": " || this.slots[2].isEmpty())"
+        },
+        {
+          "before_offset": 6723,
+          "after_offset": 7162,
+          "old": "stackSize += ",
+          "new": "grow("
+        },
+        {
+          "before_offset": 6746,
+          "after_offset": 7177,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6748,
+          "after_offset": 7180,
+          "old": "ackSize",
+          "new": "Count())"
+        },
+        {
+          "before_offset": 6766,
+          "after_offset": 7199,
+          "old": "--",
+          "new": ""
+        },
+        {
+          "before_offset": 6783,
+          "after_offset": 7214,
+          "old": "tac",
+          "new": "hrin"
+        },
+        {
+          "before_offset": 6787,
+          "after_offset": 7219,
+          "old": "Size",
+          "new": "(1)"
+        },
+        {
+          "before_offset": 6814,
+          "after_offset": 7245,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6816,
+          "after_offset": 7248,
+          "old": "ackSize",
+          "new": "Count()"
+        }
+      ],
+      "edit_count": 58
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceBrick.java",
+      "before_sha256": "d11bd68c39b84f5ba205ca5222b4dc794159fa5f62aaf42166b7458ef568036a",
+      "after_sha256": "28a81f3c8d9b57695b66d332984be2ca31e538d6c5ca0606a625c0820016001e",
+      "edits": [
+        {
+          "before_offset": 1380,
+          "after_offset": 1380,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1648,
+          "after_offset": 1659,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1815,
+          "after_offset": 1837,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1933,
+          "after_offset": 1966,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1962,
+          "after_offset": 2006,
+          "old": "",
+          "new": "i"
+        },
+        {
+          "before_offset": 1963,
+          "after_offset": 2008,
+          "old": "",
+          "new": "Emp"
+        },
+        {
+          "before_offset": 1964,
+          "after_offset": 2012,
+          "old": "ackSize == 0",
+          "new": "y()"
+        },
+        {
+          "before_offset": 1998,
+          "after_offset": 2037,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "before_offset": 2008,
+          "after_offset": 2046,
+          "old": ") null",
+          "new": ".EMPTY"
+        }
+      ],
+      "edit_count": 9
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java",
+      "before_sha256": "63dfa694667dcf1784e2fd6166b79c254c378178854cf9f5377159abd44197ef",
+      "after_sha256": "92958624d3d2db0843c06f0a9c4f1367fefdc7a66a2c0de33258b4fe21a8ccb7",
+      "edits": [
+        {
+          "before_offset": 937,
+          "after_offset": 937,
+          "old": "",
+          "new": "Item;\nimport net.minecraft.init.SoundEvents;\nimport net.minecraft.util.SoundCategory;\nimport net.minecraft.item."
+        },
+        {
+          "before_offset": 1047,
+          "after_offset": 1159,
+          "old": "",
+          "new": ";\nimport net.minecraft.util.EnumParticleTypes"
+        },
+        {
+          "before_offset": 1928,
+          "after_offset": 2085,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2198,
+          "after_offset": 2352,
+          "old": "",
+          "new": " && !slots[i].isEmpty()"
+        },
+        {
+          "before_offset": 2331,
+          "after_offset": 2508,
+          "old": "",
+          "new": "// Invoke the captured item with the original, already-decremented stack.\n\t\t\t\t\t\t\tItem fuelItem = slots[i].getItem();\n\t\t\t\t\t\t\t"
+        },
+        {
+          "before_offset": 2341,
+          "after_offset": 2642,
+          "old": "tac",
+          "new": "hrin"
+        },
+        {
+          "before_offset": 2345,
+          "after_offset": 2647,
+          "old": "Size--",
+          "new": "(1)"
+        },
+        {
+          "before_offset": 2373,
+          "after_offset": 2672,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 2375,
+          "after_offset": 2675,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 2410,
+          "after_offset": 2710,
+          "old": "s",
+          "new": "fue"
+        },
+        {
+          "before_offset": 2412,
+          "after_offset": 2714,
+          "old": "ots[i].get",
+          "new": ""
+        },
+        {
+          "before_offset": 2426,
+          "after_offset": 2718,
+          "old": "()",
+          "new": ""
+        },
+        {
+          "before_offset": 2455,
+          "after_offset": 2745,
+          "old": "",
+          "new": ";\n\t\t\t\t\t\t\t\tif(slots[i] != null && slots[i].isEmpty()) slots[i] = null"
+        },
+        {
+          "before_offset": 2544,
+          "after_offset": 2902,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2711,
+          "after_offset": 3066,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2724,
+          "after_offset": 3076,
+          "old": "",
+          "new": "(null, pos.getX(), pos.getY(), pos.getZ(), Sound"
+        },
+        {
+          "before_offset": 2725,
+          "after_offset": 3125,
+          "old": "ff",
+          "new": "v"
+        },
+        {
+          "before_offset": 2728,
+          "after_offset": 3127,
+          "old": "c",
+          "new": "n"
+        },
+        {
+          "before_offset": 2730,
+          "after_offset": 3129,
+          "old": "(x",
+          "new": "s.BLO"
+        },
+        {
+          "before_offset": 2733,
+          "after_offset": 3135,
+          "old": "",
+          "new": "K_FIRE_AMBIENT, S"
+        },
+        {
+          "before_offset": 2734,
+          "after_offset": 3153,
+          "old": "",
+          "new": "undCateg"
+        },
+        {
+          "before_offset": 2736,
+          "after_offset": 3163,
+          "old": "d, ",
+          "new": ""
+        },
+        {
+          "before_offset": 2740,
+          "after_offset": 3164,
+          "old": "",
+          "new": ".BLO"
+        },
+        {
+          "before_offset": 2741,
+          "after_offset": 3169,
+          "old": "oord, zCoord, \"fire.fire\"",
+          "new": "KS"
+        },
+        {
+          "before_offset": 2786,
+          "after_offset": 3191,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2909,
+          "after_offset": 3311,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 2916,
+          "after_offset": 3313,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 2958,
+          "after_offset": 3360,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 2974,
+          "after_offset": 3377,
+          "old": "",
+          "new": " || slots[3].isEmpty())"
+        },
+        {
+          "before_offset": 3039,
+          "after_offset": 3465,
+          "old": "stackSize += ",
+          "new": "grow("
+        },
+        {
+          "before_offset": 3059,
+          "after_offset": 3477,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 3061,
+          "after_offset": 3480,
+          "old": "ackSize",
+          "new": "Count())"
+        },
+        {
+          "before_offset": 3175,
+          "after_offset": 3595,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3251,
+          "after_offset": 3668,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3256,
+          "after_offset": 3670,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3259,
+          "after_offset": 3672,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 3264,
+          "after_offset": 3682,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3267,
+          "after_offset": 3684,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 3272,
+          "after_offset": 3694,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3275,
+          "after_offset": 3696,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 3653,
+          "after_offset": 4079,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3671,
+          "after_offset": 4094,
+          "old": "\"",
+          "new": "EnumParticleType"
+        },
+        {
+          "before_offset": 3673,
+          "after_offset": 4111,
+          "old": "moke\"",
+          "new": ".SMOKE_NORMAL"
+        },
+        {
+          "before_offset": 3680,
+          "after_offset": 4126,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3683,
+          "after_offset": 4128,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 3740,
+          "after_offset": 4190,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3743,
+          "after_offset": 4192,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 3752,
+          "after_offset": 4206,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3755,
+          "after_offset": 4208,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 3887,
+          "after_offset": 4345,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3920,
+          "after_offset": 4375,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3938,
+          "after_offset": 4390,
+          "old": "\"f",
+          "new": "EnumPartic"
+        },
+        {
+          "before_offset": 3941,
+          "after_offset": 4401,
+          "old": "am",
+          "new": ""
+        },
+        {
+          "before_offset": 3944,
+          "after_offset": 4402,
+          "old": "\"",
+          "new": "Types.FLAME"
+        },
+        {
+          "before_offset": 3947,
+          "after_offset": 4415,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3950,
+          "after_offset": 4417,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 4003,
+          "after_offset": 4475,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 4006,
+          "after_offset": 4477,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 4024,
+          "after_offset": 4500,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 4054,
+          "after_offset": 4527,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 4057,
+          "after_offset": 4529,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 4717,
+          "after_offset": 5194,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 4733,
+          "after_offset": 5211,
+          "old": "",
+          "new": " || slots[0].isEmpty())"
+        },
+        {
+          "before_offset": 4786,
+          "after_offset": 5287,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 4793,
+          "after_offset": 5289,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 4838,
+          "after_offset": 5339,
+          "old": " == null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 4867,
+          "after_offset": 5370,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 4883,
+          "after_offset": 5387,
+          "old": "",
+          "new": " || slots[3].isEmpty())"
+        },
+        {
+          "before_offset": 4961,
+          "after_offset": 5488,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 4963,
+          "after_offset": 5491,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 4982,
+          "after_offset": 5510,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 4984,
+          "after_offset": 5513,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 5358,
+          "after_offset": 5887,
+          "old": "",
+          "new": "!"
+        },
+        {
+          "before_offset": 5373,
+          "after_offset": 5903,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 5380,
+          "after_offset": 5905,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 5412,
+          "after_offset": 5942,
+          "old": " != null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 6655,
+          "after_offset": 7187,
+          "old": "",
+          "new": "new "
+        },
+        {
+          "before_offset": 6668,
+          "after_offset": 7204,
+          "old": ".getBoundingBox",
+          "new": ""
+        },
+        {
+          "before_offset": 6690,
+          "after_offset": 7211,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6693,
+          "after_offset": 7213,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 6707,
+          "after_offset": 7232,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6710,
+          "after_offset": 7234,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 6720,
+          "after_offset": 7249,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6723,
+          "after_offset": 7251,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 6737,
+          "after_offset": 7270,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6740,
+          "after_offset": 7272,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 6754,
+          "after_offset": 7291,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6757,
+          "after_offset": 7293,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 6771,
+          "after_offset": 7312,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 6774,
+          "after_offset": 7314,
+          "old": "ord",
+          "new": "s.getZ()"
+        }
+      ],
+      "edit_count": 90
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceIron.java",
+      "before_sha256": "997c365dc75e04e554fd89d0f01c7a426343eb4a96c0a2ad6d7db0eeb0b6d264",
+      "after_sha256": "d14f245eb1d8372af8cd803e90b1a7ed6132638b9d294d806a5486d6e0951151",
+      "edits": [
+        {
+          "before_offset": 1345,
+          "after_offset": 1345,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1643,
+          "after_offset": 1654,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1786,
+          "after_offset": 1808,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1818,
+          "after_offset": 1851,
+          "old": "",
+          "new": "i"
+        },
+        {
+          "before_offset": 1819,
+          "after_offset": 1853,
+          "old": "",
+          "new": "Emp"
+        },
+        {
+          "before_offset": 1820,
+          "after_offset": 1857,
+          "old": "ackSize == 0",
+          "new": "y()"
+        },
+        {
+          "before_offset": 1854,
+          "after_offset": 1882,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "before_offset": 1864,
+          "after_offset": 1891,
+          "old": ") null",
+          "new": ".EMPTY"
+        }
+      ],
+      "edit_count": 8
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java",
+      "before_sha256": "5bef044d2a035beaf4e62d59c75c6dfee94b1f5e738babdf39df4df845bcc796",
+      "after_sha256": "e2454c5d1a0b37907d15750a2bebaedf2eea222045f381ac70d00c8bbf5f97ba",
+      "edits": [
+        {
+          "before_offset": 969,
+          "after_offset": 969,
+          "old": "",
+          "new": "util.EnumParticleTypes;\nimport net.minecraft."
+        },
+        {
+          "before_offset": 1693,
+          "after_offset": 1738,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 1852,
+          "after_offset": 1894,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 1856,
+          "after_offset": 1899,
+          "old": "",
+          "new": "s[i] == null || slots[i].isEmpty()) || (lastItem"
+        },
+        {
+          "before_offset": 1884,
+          "after_offset": 1975,
+          "old": " == null",
+          "new": ".isEmpty())"
+        },
+        {
+          "before_offset": 2096,
+          "after_offset": 2190,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2172,
+          "after_offset": 2263,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 2177,
+          "after_offset": 2265,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 2180,
+          "after_offset": 2267,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 2185,
+          "after_offset": 2277,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 2188,
+          "after_offset": 2279,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 2193,
+          "after_offset": 2289,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 2196,
+          "after_offset": 2291,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 2381,
+          "after_offset": 2481,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 2388,
+          "after_offset": 2483,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 2435,
+          "after_offset": 2535,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 2455,
+          "after_offset": 2556,
+          "old": "",
+          "new": " || slots[i + 3].isEmpty())"
+        },
+        {
+          "before_offset": 2528,
+          "after_offset": 2656,
+          "old": "stackSize += ",
+          "new": "grow("
+        },
+        {
+          "before_offset": 2548,
+          "after_offset": 2668,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 2550,
+          "after_offset": 2671,
+          "old": "ackSize",
+          "new": "Count())"
+        },
+        {
+          "before_offset": 2661,
+          "after_offset": 2783,
+          "old": "",
+          "new": "e"
+        },
+        {
+          "before_offset": 2662,
+          "after_offset": 2785,
+          "old": "ackSize =  ",
+          "new": "Count("
+        },
+        {
+          "before_offset": 2727,
+          "after_offset": 2845,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 2729,
+          "after_offset": 2848,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 2746,
+          "after_offset": 2865,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 2748,
+          "after_offset": 2868,
+          "old": "ackSize",
+          "new": "Count())"
+        },
+        {
+          "before_offset": 3095,
+          "after_offset": 3216,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3113,
+          "after_offset": 3231,
+          "old": "\"",
+          "new": "EnumParticleType"
+        },
+        {
+          "before_offset": 3115,
+          "after_offset": 3248,
+          "old": "moke\"",
+          "new": ".SMOKE_NORMAL"
+        },
+        {
+          "before_offset": 3122,
+          "after_offset": 3263,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3125,
+          "after_offset": 3265,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 3179,
+          "after_offset": 3324,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3182,
+          "after_offset": 3326,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 3195,
+          "after_offset": 3344,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3198,
+          "after_offset": 3346,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 3286,
+          "after_offset": 3439,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3323,
+          "after_offset": 3473,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3341,
+          "after_offset": 3488,
+          "old": "\"",
+          "new": "EnumParti"
+        },
+        {
+          "before_offset": 3344,
+          "after_offset": 3499,
+          "old": "oud\"",
+          "new": "eTypes.CLOUD"
+        },
+        {
+          "before_offset": 3350,
+          "after_offset": 3513,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3353,
+          "after_offset": 3515,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 3385,
+          "after_offset": 3552,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3388,
+          "after_offset": 3554,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 3397,
+          "after_offset": 3568,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3400,
+          "after_offset": 3570,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 3462,
+          "after_offset": 3637,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3499,
+          "after_offset": 3671,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3517,
+          "after_offset": 3686,
+          "old": "\"",
+          "new": "EnumPartic"
+        },
+        {
+          "before_offset": 3519,
+          "after_offset": 3697,
+          "old": "ava\"",
+          "new": "eTypes.LAVA"
+        },
+        {
+          "before_offset": 3525,
+          "after_offset": 3710,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3528,
+          "after_offset": 3712,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 3580,
+          "after_offset": 3769,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 3610,
+          "after_offset": 3796,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3613,
+          "after_offset": 3798,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 3625,
+          "after_offset": 3815,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 3628,
+          "after_offset": 3817,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 3680,
+          "after_offset": 3874,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 4686,
+          "after_offset": 4877,
+          "old": "",
+          "new": "ItemStack loaded = new ItemStack(nbt1);\n\t\t\t\t"
+        },
+        {
+          "before_offset": 4702,
+          "after_offset": 4937,
+          "old": "ItemStack.",
+          "new": ""
+        },
+        {
+          "before_offset": 4716,
+          "after_offset": 4941,
+          "old": "I",
+          "new": "ed.isEmp"
+        },
+        {
+          "before_offset": 4718,
+          "after_offset": 4950,
+          "old": "",
+          "new": "y() ? null : load"
+        },
+        {
+          "before_offset": 4719,
+          "after_offset": 4968,
+          "old": "mStackFromNBT(nbt1)",
+          "new": "d"
+        },
+        {
+          "before_offset": 5068,
+          "after_offset": 5299,
+          "old": "",
+          "new": " && !lastItems[i].isEmpty()"
+        },
+        {
+          "before_offset": 5744,
+          "after_offset": 6002,
+          "old": "Obj",
+          "new": ""
+        },
+        {
+          "before_offset": 5762,
+          "after_offset": 6017,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 5765,
+          "after_offset": 6019,
+          "old": "",
+          "new": "s.d"
+        },
+        {
+          "before_offset": 5766,
+          "after_offset": 6023,
+          "old": "rd, yCoord - 1, zCoord",
+          "new": "wn()"
+        },
+        {
+          "before_offset": 6339,
+          "after_offset": 6578,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 6359,
+          "after_offset": 6599,
+          "old": "",
+          "new": " || slots[index].isEmpty())"
+        },
+        {
+          "before_offset": 6414,
+          "after_offset": 6681,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 6421,
+          "after_offset": 6683,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 6472,
+          "after_offset": 6739,
+          "old": " == null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 6500,
+          "after_offset": 6769,
+          "old": "",
+          "new": "("
+        },
+        {
+          "before_offset": 6525,
+          "after_offset": 6795,
+          "old": "",
+          "new": " || slots[index + 3].isEmpty())"
+        },
+        {
+          "before_offset": 6613,
+          "after_offset": 6914,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6615,
+          "after_offset": 6917,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 6642,
+          "after_offset": 6944,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6644,
+          "after_offset": 6947,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 7036,
+          "after_offset": 7339,
+          "old": "",
+          "new": "!"
+        },
+        {
+          "before_offset": 7051,
+          "after_offset": 7355,
+          "old": "smelt",
+          "new": ""
+        },
+        {
+          "before_offset": 7058,
+          "after_offset": 7357,
+          "old": "g",
+          "new": "stance"
+        },
+        {
+          "before_offset": 7090,
+          "after_offset": 7394,
+          "old": " != null",
+          "new": ".isEmpty()"
+        },
+        {
+          "before_offset": 7808,
+          "after_offset": 8114,
+          "old": "",
+          "new": "new "
+        },
+        {
+          "before_offset": 7821,
+          "after_offset": 8131,
+          "old": ".getBoundingBox",
+          "new": ""
+        },
+        {
+          "before_offset": 7843,
+          "after_offset": 8138,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 7846,
+          "after_offset": 8140,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 7860,
+          "after_offset": 8159,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 7863,
+          "after_offset": 8161,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 7873,
+          "after_offset": 8176,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 7876,
+          "after_offset": 8178,
+          "old": "ord",
+          "new": "s.getZ()"
+        },
+        {
+          "before_offset": 7890,
+          "after_offset": 8197,
+          "old": "xC",
+          "new": "p"
+        },
+        {
+          "before_offset": 7893,
+          "after_offset": 8199,
+          "old": "ord",
+          "new": "s.getX()"
+        },
+        {
+          "before_offset": 7907,
+          "after_offset": 8218,
+          "old": "yC",
+          "new": "p"
+        },
+        {
+          "before_offset": 7910,
+          "after_offset": 8220,
+          "old": "ord",
+          "new": "s.getY()"
+        },
+        {
+          "before_offset": 7924,
+          "after_offset": 8239,
+          "old": "zC",
+          "new": "p"
+        },
+        {
+          "before_offset": 7927,
+          "after_offset": 8241,
+          "old": "ord",
+          "new": "s.getZ()"
+        }
+      ],
+      "edit_count": 96
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerFurnaceSteel.java",
+      "before_sha256": "95034e93cddf61f26c450e2b1c9f6ddf98b5c32ea9f1d5e47adeb8a945961ce0",
+      "after_sha256": "41df66f282b5f88288500104a2bee366b0e247722927b052ac29b45ffa44bcb9",
+      "edits": [
+        {
+          "before_offset": 1395,
+          "after_offset": 1395,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1693,
+          "after_offset": 1704,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1836,
+          "after_offset": 1858,
+          "old": "null",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "before_offset": 1868,
+          "after_offset": 1901,
+          "old": "",
+          "new": "i"
+        },
+        {
+          "before_offset": 1869,
+          "after_offset": 1903,
+          "old": "",
+          "new": "Emp"
+        },
+        {
+          "before_offset": 1870,
+          "after_offset": 1907,
+          "old": "ackSize == 0",
+          "new": "y()"
+        },
+        {
+          "before_offset": 1904,
+          "after_offset": 1932,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "before_offset": 1914,
+          "after_offset": 1941,
+          "old": ") null",
+          "new": ".EMPTY"
+        }
+      ],
+      "edit_count": 8
+    }
+  ],
+  "baseline": "Checkpoint18 2cc79304086a82ddb5af1c32e74024b2db2ba05e",
+  "unchanged_support": {
+    "src/main/java/com/hbm/module/ModuleBurnTime.java": "cf4c53aae880dd363bb7976a642c4a053e9abc328fb0c999ef0010173e68b017",
+    "src/main/java/com/hbm/handler/FuelHandler.java": "3763a87149eb6609d68f854a15bf93b328b066fa788af9bc1dacf47b9bfec3b6",
+    "src/main/java/com/hbm/tileentity/IConfigurableMachine.java": "78686912783baf5d05edc460ed461c9fe530ff1df3ae0af258b2b430dc19fbaa",
+    "src/main/java/api/hbm/tile/IHeatSource.java": "115e803f6f085de810cda738749499202d007ba3db3990224bec42f335b33861",
+    "src/main/java/com/hbm/util/ItemStackUtil.java": "91d4772513c195e82949f693b14bbde7103002c1bf929a8f33023a04d947fa04",
+    "src/main/java/com/hbm/inventory/UpgradeManagerNT.java": "f24f0b0130bcf35321f2c7ae833e4d1467dd8e0fc20e9f1991730961e4348cd7",
+    "src/main/java/com/hbm/inventory/SlotUpgrade.java": "2c450c840abac47aa37048f2069d2c9cc5d013913be0ff92508fe82aefdfc742",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java": "ccda46b3bf1cca67d72cac99888e90e36c201e4e3eea870fbda4176fa3d37b2e",
+    "src/main/java/com/hbm/inventory/SlotSmelting.java": "62ab3ebbbe81a04f959ced2e02cb29ac01c908f1950648e486a31254ea6afcb5",
+    "src/main/java/com/hbm/inventory/SlotCraftingOutput.java": "2a0353e5aba59dc57aed52376c20c8a67dc79cced026ba4efd9518e170d31f83"
+  }
+}

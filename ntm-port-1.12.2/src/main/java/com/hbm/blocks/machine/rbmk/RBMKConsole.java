@@ -21,7 +21,7 @@ import com.hbm.lib.ForgeDirection;
 public class RBMKConsole extends BlockDummyable implements IToolable {
 
 	public RBMKConsole() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setHardness(3F);
 		this.setResistance(30F);
 	}
@@ -62,7 +62,7 @@ public class RBMKConsole extends BlockDummyable implements IToolable {
 			if(pos == null)
 				return true;
 
-			TileEntityRBMKConsole entity = (TileEntityRBMKConsole) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityRBMKConsole entity = (TileEntityRBMKConsole) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null) {
 
 				if(side == 1) {
@@ -77,8 +77,8 @@ public class RBMKConsole extends BlockDummyable implements IToolable {
 
 					float hX = x + hitX;
 					float hZ = z + hitZ;
-					double rX = entity.xCoord + 0.5D + vec.x;
-					double rZ = entity.zCoord + 0.5D + vec.z;
+					double rX = entity.getPos().getX() + 0.5D + vec.x;
+					double rZ = entity.getPos().getZ() + 0.5D + vec.z;
 					double size = 0.1875D;
 
 					if(Math.abs(hX - rX) < size && Math.abs(hZ - rZ) < size && !player.inventory.hasItemStack(new ItemStack(ModItems.book_guide, 1, BookType.RBMK.ordinal()))) {
@@ -129,7 +129,7 @@ public class RBMKConsole extends BlockDummyable implements IToolable {
 			return false;
 		if(!world.isRemote) {
 			int[] pos = findCore(world, x, y, z);
-			TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if (tile instanceof TileEntityRBMKConsole) {
 				((TileEntityRBMKConsole) tile).rotate();
 			}

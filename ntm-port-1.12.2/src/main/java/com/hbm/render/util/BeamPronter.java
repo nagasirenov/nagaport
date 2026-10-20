@@ -5,9 +5,14 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
+/** State writes also update the native cache, but remain unconditional for
+ * existing raw-GL callers. Do not remove the raw write before its cache update. */
 public class BeamPronter {
 	
 	public static Random rand = new Random();
@@ -39,10 +44,10 @@ public class BeamPronter {
 	public static void prontBeam(Vec3d skeleton, EnumWaveType wave, EnumBeamType beam, int outerColor, int innerColor, int start, int segments, float size, int layers, float thickness, float alpha) {
 
 		GL11.glPushMatrix();
-		GL11.glDepthMask(depthMask);
+		GL11.glDepthMask(depthMask); GlStateManager.depthMask(depthMask);
 
 		float sYaw = (float) (Math.atan2(skeleton.x, skeleton.z) * 180F / Math.PI);
-		float sqrt = MathHelper.sqrt_double(skeleton.x * skeleton.x + skeleton.z * skeleton.z);
+		float sqrt = MathHelper.sqrt(skeleton.x * skeleton.x + skeleton.z * skeleton.z);
 		float sPitch = (float) (Math.atan2(skeleton.y, (double) sqrt) * 180F / Math.PI);
 
 		GL11.glRotatef(180, 0, 1F, 0);
@@ -50,18 +55,19 @@ public class BeamPronter {
 		GL11.glRotatef(sPitch - 90, 1F, 0, 0);
 
 		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		GL11.glDisable(GL11.GL_TEXTURE_2D); GlStateManager.disableTexture2D();
+		GL11.glDisable(GL11.GL_LIGHTING); GlStateManager.disableLighting();
 
 		if(beam == EnumBeamType.SOLID) {
-			GL11.glDisable(GL11.GL_CULL_FACE);
+			GL11.glDisable(GL11.GL_CULL_FACE); GlStateManager.disableCull();
 
-			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glEnable(GL11.GL_BLEND); GlStateManager.enableBlend();
 
-			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 		}
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder buffer = tessellator.getBuffer();
 
 		Vec3d unit = new Vec3d(0, 1, 0);
 		rand.setSeed(start);
@@ -89,10 +95,9 @@ public class BeamPronter {
 
 			if(beam == EnumBeamType.LINE && i > 0) {
 
-				tessellator.startDrawing(3);
-				tessellator.setColorOpaque_I(outerColor);
-				tessellator.addVertex(pX, pY, pZ);
-				tessellator.addVertex(lastX, lastY, lastZ);
+				buffer.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
+				buffer.pos(pX, pY, pZ).color(outerColor >> 16 & 255, outerColor >> 8 & 255, outerColor & 255, 255).endVertex();
+				buffer.pos(lastX, lastY, lastZ).color(outerColor >> 16 & 255, outerColor >> 8 & 255, outerColor & 255, 255).endVertex();
 				tessellator.draw();
 			}
 
@@ -118,33 +123,33 @@ public class BeamPronter {
 					
 					int color = r | g | b;
 
-					tessellator.startDrawingQuads();
+					buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
 					setColorWithAlpha(tessellator, color, alpha);
-					tessellator.addVertex(lastX + (radius * j), lastY, lastZ + (radius * j));
-					tessellator.addVertex(lastX + (radius * j), lastY, lastZ - (radius * j));
-					tessellator.addVertex(pX + (radius * j), pY, pZ - (radius * j));
-					tessellator.addVertex(pX + (radius * j), pY, pZ + (radius * j));
+					buffer.pos(lastX + (radius * j), lastY, lastZ + (radius * j)).endVertex();
+					buffer.pos(lastX + (radius * j), lastY, lastZ - (radius * j)).endVertex();
+					buffer.pos(pX + (radius * j), pY, pZ - (radius * j)).endVertex();
+					buffer.pos(pX + (radius * j), pY, pZ + (radius * j)).endVertex();
 					tessellator.draw();
-					tessellator.startDrawingQuads();
+					buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
 					setColorWithAlpha(tessellator, color, alpha);
-					tessellator.addVertex(lastX - (radius * j), lastY, lastZ + (radius * j));
-					tessellator.addVertex(lastX - (radius * j), lastY, lastZ - (radius * j));
-					tessellator.addVertex(pX - (radius * j), pY, pZ - (radius * j));
-					tessellator.addVertex(pX - (radius * j), pY, pZ + (radius * j));
+					buffer.pos(lastX - (radius * j), lastY, lastZ + (radius * j)).endVertex();
+					buffer.pos(lastX - (radius * j), lastY, lastZ - (radius * j)).endVertex();
+					buffer.pos(pX - (radius * j), pY, pZ - (radius * j)).endVertex();
+					buffer.pos(pX - (radius * j), pY, pZ + (radius * j)).endVertex();
 					tessellator.draw();
-					tessellator.startDrawingQuads();
+					buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
 					setColorWithAlpha(tessellator, color, alpha);
-					tessellator.addVertex(lastX + (radius * j), lastY, lastZ + (radius * j));
-					tessellator.addVertex(lastX - (radius * j), lastY, lastZ + (radius * j));
-					tessellator.addVertex(pX - (radius * j), pY, pZ + (radius * j));
-					tessellator.addVertex(pX + (radius * j), pY, pZ + (radius * j));
+					buffer.pos(lastX + (radius * j), lastY, lastZ + (radius * j)).endVertex();
+					buffer.pos(lastX - (radius * j), lastY, lastZ + (radius * j)).endVertex();
+					buffer.pos(pX - (radius * j), pY, pZ + (radius * j)).endVertex();
+					buffer.pos(pX + (radius * j), pY, pZ + (radius * j)).endVertex();
 					tessellator.draw();
-					tessellator.startDrawingQuads();
+					buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
 					setColorWithAlpha(tessellator, color, alpha);
-					tessellator.addVertex(lastX + (radius * j), lastY, lastZ - (radius * j));
-					tessellator.addVertex(lastX - (radius * j), lastY, lastZ - (radius * j));
-					tessellator.addVertex(pX - (radius * j), pY, pZ - (radius * j));
-					tessellator.addVertex(pX + (radius * j), pY, pZ - (radius * j));
+					buffer.pos(lastX + (radius * j), lastY, lastZ - (radius * j)).endVertex();
+					buffer.pos(lastX - (radius * j), lastY, lastZ - (radius * j)).endVertex();
+					buffer.pos(pX - (radius * j), pY, pZ - (radius * j)).endVertex();
+					buffer.pos(pX + (radius * j), pY, pZ - (radius * j)).endVertex();
 					tessellator.draw();
 					
 					
@@ -158,24 +163,23 @@ public class BeamPronter {
 
 		if(beam == EnumBeamType.LINE) {
 
-			tessellator.startDrawing(3);
-			tessellator.setColorOpaque_I(innerColor);
-			tessellator.addVertex(0, 0, 0);
-			tessellator.addVertex(0, skeleton.length(), 0);
+			buffer.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
+			buffer.pos(0, 0, 0).color(innerColor >> 16 & 255, innerColor >> 8 & 255, innerColor & 255, 255).endVertex();
+			buffer.pos(0, skeleton.length(), 0).color(innerColor >> 16 & 255, innerColor >> 8 & 255, innerColor & 255, 255).endVertex();
 			tessellator.draw();
 		}
 
 		if(beam == EnumBeamType.SOLID) {
-			GL11.glDisable(GL11.GL_BLEND);
-			GL11.glEnable(GL11.GL_TEXTURE_2D);
+			GL11.glDisable(GL11.GL_BLEND); GlStateManager.disableBlend();
+			GL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();
 
 		}
 
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_LIGHTING); GlStateManager.enableLighting();
+		GL11.glEnable(GL11.GL_TEXTURE_2D); GlStateManager.enableTexture2D();
 		
 		GL11.glPopMatrix();
-		GL11.glDepthMask(true);
+		GL11.glDepthMask(true); GlStateManager.depthMask(true);
 
 		GL11.glPopMatrix();
 	}
@@ -184,6 +188,6 @@ public class BeamPronter {
         float green = ((color >> 8) & 0xFF) / 255.0f;
         float blue = (color & 0xFF) / 255.0f;
         
-        GL11.glColor4f(red, green, blue, alpha);
+        GL11.glColor4f(red, green, blue, alpha); GlStateManager.color(red, green, blue, alpha);
     }
 }

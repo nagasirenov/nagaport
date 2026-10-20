@@ -21,7 +21,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.client.IItemRenderer;
+
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
@@ -61,7 +61,7 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 	public void handleHurt(LivingHurtEvent event) {
 		super.handleHurt(event);
 
-		EntityLivingBase e = event.entityLiving;
+		EntityLivingBase e = event.getEntityLiving();
 
 		if(e instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) e;
@@ -80,7 +80,7 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 	public void handleAttack(LivingAttackEvent event) {
 		super.handleAttack(event);
 
-		EntityLivingBase e = event.entityLiving;
+		EntityLivingBase e = event.getEntityLiving();
 
 		if(e instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) e;
@@ -113,7 +113,8 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				if(armorType == 0) GL11.glTranslated(0, 1, 0);

@@ -33,7 +33,7 @@ public class TileEntityTurretTauon extends TileEntityTurretBaseNT {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.turretTauon";
 	}
 
@@ -89,9 +89,9 @@ public class TileEntityTurretTauon extends TileEntityTurretBaseNT {
 	public double lastDist;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			if(this.tPos != null) {
 				Vec3d pos = this.getTurretPos();
@@ -114,7 +114,7 @@ public class TileEntityTurretTauon extends TileEntityTurretBaseNT {
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -127,9 +127,9 @@ public class TileEntityTurretTauon extends TileEntityTurretBaseNT {
 			BulletConfig conf = this.getFirstConfigLoaded();
 
 			if(conf != null && this.target != null) {
-				this.target.attackEntityFrom(ModDamageSource.electricity, 30F + worldObj.rand.nextInt(11));
+				this.target.attackEntityFrom(ModDamageSource.electricity, 30F + this.world.rand.nextInt(11));
 				this.conusmeAmmo(conf.ammo);
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.tauShoot", 4.0F, 0.9F + worldObj.rand.nextFloat() * 0.3F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.tauShoot", 4.0F, 0.9F + this.world.rand.nextFloat() * 0.3F);
 
 				this.shot = true;
 				this.networkPackNT(250);
@@ -143,7 +143,7 @@ public class TileEntityTurretTauon extends TileEntityTurretBaseNT {
 				NBTTagCompound dPart = new NBTTagCompound();
 				dPart.setString("type", "tau");
 				dPart.setByte("count", (byte)5);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, pos.x + vec.x, pos.y + vec.y, pos.z + vec.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 			}
 		}
 	}

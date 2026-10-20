@@ -31,7 +31,7 @@ public class TileEntityMachineWarController extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.warController";
 	}
 
@@ -71,12 +71,12 @@ public class TileEntityMachineWarController extends TileEntityMachineBase implem
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			id = ISatChip.getFreqS(slots[2]);
 			if(slots[1] == null || slots[1].getItem() != ModItems.full_drive) return;
 
-			SatelliteSavedData data = SatelliteSavedData.getData(worldObj, xCoord, zCoord);
+			SatelliteSavedData data = SatelliteSavedData.getData(this.world, this.pos.getX(), this.pos.getZ());
 
 			SolarSystem.Body target = ItemVOTVdrive.getDestination(slots[1]).body;
 			CelestialBody body = target.getBody();
@@ -108,7 +108,7 @@ public class TileEntityMachineWarController extends TileEntityMachineBase implem
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return isUseableByPlayer(player);
+		return isUsableByPlayer(player);
 	}
 
 }

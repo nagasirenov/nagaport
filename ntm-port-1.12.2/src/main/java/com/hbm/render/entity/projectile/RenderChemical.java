@@ -12,11 +12,16 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderChemical extends Render {
+
+	public RenderChemical(RenderManager renderManager) {
+		super(renderManager);
+	}
 	
 	private static ResourceLocation gas = new ResourceLocation(RefStrings.MODID + ":textures/particle/particle_base.png");
 

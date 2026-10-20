@@ -111,7 +111,7 @@ public class CBT_Invasion extends CelestialBodyTrait {
 				.get(world.rand.nextInt(world.playerEntities.size()));
 		if (!(player instanceof EntityPlayerMP))
 			return;
-		if (player.posY < 50 && player.worldObj.getWorldInfo().getTerrainType() != WorldType.FLAT)
+		if (player.posY < 50 && player.world.getWorldInfo().getTerrainType() != WorldType.FLAT)
 			return;
 
 		EntityPlayerMP playerMP = (EntityPlayerMP) player;
@@ -246,7 +246,7 @@ public class CBT_Invasion extends CelestialBodyTrait {
 		if (world.getTotalWorldTime() % timer == 0) {
 			EntityPlayer player = (EntityPlayer) world.playerEntities.get(world.rand.nextInt(world.playerEntities.size()));
 			
-			if (player.posY < 50 && player.worldObj.getWorldInfo().getTerrainType() != WorldType.FLAT)
+			if (player.posY < 50 && player.world.getWorldInfo().getTerrainType() != WorldType.FLAT)
 				return; 
 
 			double spawnX = player.posX + world.rand.nextGaussian() * 30;
@@ -301,7 +301,7 @@ public class CBT_Invasion extends CelestialBodyTrait {
 		EntityUFO entity = new EntityUFO(world);
 		((EntityUFO) entity).scanCooldown = 100;
 		EntityLiving entityliving = (EntityLiving) entity;
-		entity.setLocationAndAngles(player.posX, player.posY + 50, player.posZ, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);
+		entity.setLocationAndAngles(player.posX, player.posY + 50, player.posZ, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
 		entityliving.rotationYawHead = entityliving.rotationYaw;
 		entityliving.renderYawOffset = entityliving.rotationYaw;
 		entityliving.onSpawnWithEgg((IEntityLivingData) null);

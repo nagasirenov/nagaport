@@ -115,7 +115,7 @@ public class ContainerAnvil extends Container {
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 		
-		if(!player.worldObj.isRemote) {
+		if(!player.world.isRemote) {
 			for(int i = 0; i < this.input.getSizeInventory(); ++i) {
 				ItemStack itemstack = this.input.getStackInSlotOnClosing(i);
 				
@@ -154,7 +154,7 @@ public class ContainerAnvil extends Container {
 		ItemStack right = this.input.getStackInSlot(1);
 		
 		if(left == null || right == null) {
-			this.output.setInventorySlotContents(0, null);
+			this.output.setInventorySlotContents(0, ItemStack.EMPTY);
 			return;
 		}
 		
@@ -166,6 +166,6 @@ public class ContainerAnvil extends Container {
 			}
 		}
 		
-		this.output.setInventorySlotContents(0, null);
+		this.output.setInventorySlotContents(0, ItemStack.EMPTY);
 	}
 }

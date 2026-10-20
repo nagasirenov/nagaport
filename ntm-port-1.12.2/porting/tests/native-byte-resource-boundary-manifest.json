@@ -1,0 +1,681 @@
+{
+  "baseline": "0bbba4f47800cea8dd60370f697450597f27c8a6",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "b5d385db491d5c1a1a8b51eabd3096e5e3e9c999465839004d358c871c0828be",
+      "after_sha256": "6b476d5d951faca8434e05825537d8833f402b185b9f4e9c1a398ebe996d2e17",
+      "edits": [
+        {
+          "before_offset": 48032,
+          "after_offset": 48032,
+          "old": "",
+          "new": "\t\tblock.setModelTexture(RefStrings.MODID + \":blocks/\" + registryName + \"_model\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BarbedWire.java": {
+      "before_sha256": "24fb3939ec5d189e3b21064da3c263e85570aa6b161e7d3011fe13b194535c6c",
+      "after_sha256": "9039af91f9ff43a89eb8bf1a727f84b592139589b89308c603c787d37eda3ee8",
+      "edits": [
+        {
+          "before_offset": 102,
+          "after_offset": 102,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1375,
+          "after_offset": 1344,
+          "old": "",
+          "new": "\tprivate String modelTexture;\n"
+        },
+        {
+          "before_offset": 1510,
+          "after_offset": 1509,
+          "old": "",
+          "new": "\t}\n\n\tpublic BarbedWire setModelTexture(String texture) {\n\t\tthis.modelTexture = texture;\n\t\treturn this;\n"
+        },
+        {
+          "before_offset": 1967,
+          "after_offset": 2069,
+          "old": "\t\tString path = getRegistryName().getPath();\n\t\tblockIcon = register.registerIcon(RefStrings.MODID + \":blocks/\" + path + \"_model\");\n",
+          "new": "\t\tblockIcon = register.registerIcon(modelTexture);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "f1f697ab9a66591239f4c9f2dcc3b0e460a61791565b7bceddb05f4fbf913a06",
+      "after_sha256": "e62fb6d9b74f6015e15587291a696e57feca754f4bdcf7bb2de8187919365f6f",
+      "edits": [
+        {
+          "before_offset": 596,
+          "after_offset": 596,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 885,
+          "after_offset": 1050,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.createKey(EntityBoatRubber.class, DataSerializers.FLOAT);\n"
+        },
+        {
+          "before_offset": 1816,
+          "after_offset": 2397,
+          "old": "\t\tthis.dataWatcher.addObject(17, new Integer(0));\n\t\tthis.dataWatcher.addObject(18, new Integer(1));\n\t\tthis.dataWatcher.addObject(19, new Float(0.0F));\n",
+          "new": "\t\tthis.dataManager.register(TIME_SINCE_HIT, new Integer(0));\n\t\tthis.dataManager.register(FORWARD_DIRECTION, new Integer(1));\n\t\tthis.dataManager.register(DAMAGE_TAKEN, new Float(0.0F));\n"
+        },
+        {
+          "before_offset": 14267,
+          "after_offset": 14882,
+          "old": "\t\tthis.dataWatcher.updateObject(19, Float.valueOf(amount));\n",
+          "new": "\t\tthis.dataManager.set(DAMAGE_TAKEN, Float.valueOf(amount));\n"
+        },
+        {
+          "before_offset": 14364,
+          "after_offset": 14980,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectFloat(19);\n",
+          "new": "\t\treturn this.dataManager.get(DAMAGE_TAKEN);\n"
+        },
+        {
+          "before_offset": 14464,
+          "after_offset": 15070,
+          "old": "\t\tthis.dataWatcher.updateObject(17, Integer.valueOf(time));\n",
+          "new": "\t\tthis.dataManager.set(TIME_SINCE_HIT, Integer.valueOf(time));\n"
+        },
+        {
+          "before_offset": 14560,
+          "after_offset": 15169,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n",
+          "new": "\t\treturn this.dataManager.get(TIME_SINCE_HIT);\n"
+        },
+        {
+          "before_offset": 14661,
+          "after_offset": 15264,
+          "old": "\t\tthis.dataWatcher.updateObject(18, Integer.valueOf(dir));\n",
+          "new": "\t\tthis.dataManager.set(FORWARD_DIRECTION, Integer.valueOf(dir));\n"
+        },
+        {
+          "before_offset": 14760,
+          "after_offset": 15369,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n",
+          "new": "\t\treturn this.dataManager.get(FORWARD_DIRECTION);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java": {
+      "before_sha256": "50569d438d3f1edde60e6192e188ff79260a6c31777c7dad1a1465da68d7f6ce",
+      "after_sha256": "781dd073b9f557a67776d57d3609c5287950d00ea47155542325c02cdf3b3872",
+      "edits": [
+        {
+          "before_offset": 904,
+          "after_offset": 904,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1168,
+          "after_offset": 1333,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityCombatDropPod.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 1614,
+          "after_offset": 1913,
+          "old": "\t\tthis.dataWatcher.updateObject(20, color);\n",
+          "new": "\t\tthis.dataManager.set(COLOR, color);\n"
+        },
+        {
+          "before_offset": 1687,
+          "after_offset": 1980,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(20);\n",
+          "new": "\t\treturn this.dataManager.get(COLOR);\n"
+        },
+        {
+          "before_offset": 1787,
+          "after_offset": 2065,
+          "old": "\t    this.dataWatcher.addObject(20, (int) 0);\n",
+          "new": "\t    this.dataManager.register(COLOR, (int) 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMinerRocket.java": {
+      "before_sha256": "0d44578a457c2e605a751ebed12f92614e9e2b08586b8eb02fc5b5cc931605f2",
+      "after_sha256": "6321a2f7f4df5a73827db2a729e8bb7805b4d5c1d781a1acb9a17198d08c0b60",
+      "edits": [
+        {
+          "before_offset": 265,
+          "after_offset": 265,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 348,
+          "after_offset": 513,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> FLIGHT_MODE = EntityDataManager.createKey(EntityMinerRocket.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> SATELLITE_FREQUENCY = EntityDataManager.createKey(EntityMinerRocket.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 544,
+          "after_offset": 992,
+          "old": "",
+          "new": "\tpublic int getFlightMode() {\n\t\treturn this.dataManager.get(FLIGHT_MODE);\n\t}\n\n\tpublic int getSatelliteFrequency() {\n\t\treturn this.dataManager.get(SATELLITE_FREQUENCY);\n\t}\n\n\tpublic void setSatelliteFrequency(int frequency) {\n\t\tthis.dataManager.set(SATELLITE_FREQUENCY, frequency);\n\t}\n\n"
+        },
+        {
+          "before_offset": 586,
+          "after_offset": 1318,
+          "old": "\t\tthis.dataWatcher.addObject(16, 0);\n\t\tthis.dataWatcher.addObject(17, 0);\n",
+          "new": "\t\tthis.dataManager.register(FLIGHT_MODE, 0);\n\t\tthis.dataManager.register(SATELLITE_FREQUENCY, 0);\n"
+        },
+        {
+          "before_offset": 702,
+          "after_offset": 1458,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) == 0)\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) == 0)\n"
+        },
+        {
+          "before_offset": 771,
+          "after_offset": 1518,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) == 1)\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) == 1)\n"
+        },
+        {
+          "before_offset": 836,
+          "after_offset": 1574,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) == 2)\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) == 2)\n"
+        },
+        {
+          "before_offset": 1029,
+          "after_offset": 1758,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY - 0.5), (int)(posZ - 0.5)).getBlock() == ModBlocks.sat_dock) {\n\t\t\tdataWatcher.updateObject(16, 1);\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY - 0.5), (int)(posZ - 0.5)).getBlock() == ModBlocks.sat_dock) {\n\t\t\tdataManager.set(FLIGHT_MODE, 1);\n"
+        },
+        {
+          "before_offset": 1293,
+          "after_offset": 2013,
+          "old": "\t\t} else if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {\n",
+          "new": "\t\t} else if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataManager.get(FLIGHT_MODE) != 1) {\n"
+        },
+        {
+          "before_offset": 1738,
+          "after_offset": 2449,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) == 1) {\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) == 1) {\n"
+        },
+        {
+          "before_offset": 1990,
+          "after_offset": 2692,
+          "old": "\t\t\t\tdataWatcher.updateObject(16, 2);\n",
+          "new": "\t\t\t\tdataManager.set(FLIGHT_MODE, 2);\n"
+        },
+        {
+          "before_offset": 2039,
+          "after_offset": 2741,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) != 1 && !this.world.isRemote && ticksExisted % 2 == 0) {\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) != 1 && !this.world.isRemote && ticksExisted % 2 == 0) {\n"
+        },
+        {
+          "before_offset": 2229,
+          "after_offset": 2922,
+          "old": "\t\tif(dataWatcher.getWatchableObjectInt(16) == 2 && posY > 300)\n",
+          "new": "\t\tif(dataManager.get(FLIGHT_MODE) == 2 && posY > 300)\n"
+        },
+        {
+          "before_offset": 2382,
+          "after_offset": 3066,
+          "old": "\t\tdataWatcher.updateObject(16, nbt.getInteger(\"mode\"));\n\t\tdataWatcher.updateObject(17, nbt.getInteger(\"sat\"));\n",
+          "new": "\t\tdataManager.set(FLIGHT_MODE, nbt.getInteger(\"mode\"));\n\t\tdataManager.set(SATELLITE_FREQUENCY, nbt.getInteger(\"sat\"));\n"
+        },
+        {
+          "before_offset": 2598,
+          "after_offset": 3290,
+          "old": "\t\tnbt.setInteger(\"mode\", dataWatcher.getWatchableObjectInt(16));\n\t\tnbt.setInteger(\"sat\", dataWatcher.getWatchableObjectInt(17));\n",
+          "new": "\t\tnbt.setInteger(\"mode\", dataManager.get(FLIGHT_MODE));\n\t\tnbt.setInteger(\"sat\", dataManager.get(SATELLITE_FREQUENCY));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntitySoyuz.java": {
+      "before_sha256": "df464322712a9a12ad7cfd686d83abebf88916518160aa2f96b423eca030caba",
+      "after_sha256": "6a494d4de1688b095b526631fb95053cd5d89ee109c6aae71c645b5e5b78a47e",
+      "edits": [
+        {
+          "before_offset": 539,
+          "after_offset": 539,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 748,
+          "after_offset": 913,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> SKIN = EntityDataManager.createKey(EntitySoyuz.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 3862,
+          "after_offset": 4152,
+          "old": "        this.dataWatcher.addObject(8, 0);\n",
+          "new": "        this.dataManager.register(SKIN, 0);\n"
+        },
+        {
+          "before_offset": 4154,
+          "after_offset": 4446,
+          "old": "\t\tthis.dataWatcher.updateObject(8, i);\n",
+          "new": "\t\tthis.dataManager.set(SKIN, i);\n"
+        },
+        {
+          "before_offset": 4222,
+          "after_offset": 4508,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(8);\n",
+          "new": "\t\treturn this.dataManager.get(SKIN);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "23a6ef1510803d5b0de66ca16c5814aaef19d409a3d02d1eac26f7146a35f217",
+      "after_sha256": "baf914e3397ed36e8c197560d5bc75928f2bf51ef7bd600f3707eaf0edcacbb5",
+      "edits": [
+        {
+          "before_offset": 830,
+          "after_offset": 830,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1686,
+          "after_offset": 1851,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntityBullet.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Byte> TAU_FLAGS = EntityDataManager.createKey(EntityBullet.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Byte> CHOPPER_FLAGS = EntityDataManager.createKey(EntityBullet.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 9532,
+          "after_offset": 10082,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\tthis.dataWatcher.addObject(17, Byte.valueOf((byte) 0));\n\t\tthis.dataWatcher.addObject(18, Byte.valueOf((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(TAU_FLAGS, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(CHOPPER_FLAGS, Byte.valueOf((byte) 0));\n"
+        },
+        {
+          "before_offset": 30234,
+          "after_offset": 30811,
+          "old": "\t\tbyte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "\t\tbyte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        },
+        {
+          "before_offset": 30312,
+          "after_offset": 30882,
+          "old": "\t\t\tthis.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 | 1)));\n",
+          "new": "\t\t\tthis.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte) (b0 | 1)));\n"
+        },
+        {
+          "before_offset": 30392,
+          "after_offset": 30965,
+          "old": "\t\t\tthis.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -2)));\n",
+          "new": "\t\t\tthis.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte) (b0 & -2)));\n"
+        },
+        {
+          "before_offset": 30512,
+          "after_offset": 31088,
+          "old": "\t\tbyte b0 = this.dataWatcher.getWatchableObjectByte(17);\n",
+          "new": "\t\tbyte b0 = this.dataManager.get(TAU_FLAGS);\n"
+        },
+        {
+          "before_offset": 30590,
+          "after_offset": 31154,
+          "old": "\t\t\tthis.dataWatcher.updateObject(17, Byte.valueOf((byte) (b0 | 1)));\n",
+          "new": "\t\t\tthis.dataManager.set(TAU_FLAGS, Byte.valueOf((byte) (b0 | 1)));\n"
+        },
+        {
+          "before_offset": 30670,
+          "after_offset": 31232,
+          "old": "\t\t\tthis.dataWatcher.updateObject(17, Byte.valueOf((byte) (b0 & -2)));\n",
+          "new": "\t\t\tthis.dataManager.set(TAU_FLAGS, Byte.valueOf((byte) (b0 & -2)));\n"
+        },
+        {
+          "before_offset": 30794,
+          "after_offset": 31354,
+          "old": "\t\tbyte b0 = this.dataWatcher.getWatchableObjectByte(18);\n",
+          "new": "\t\tbyte b0 = this.dataManager.get(CHOPPER_FLAGS);\n"
+        },
+        {
+          "before_offset": 30872,
+          "after_offset": 31424,
+          "old": "\t\t\tthis.dataWatcher.updateObject(18, Byte.valueOf((byte) (b0 | 1)));\n",
+          "new": "\t\t\tthis.dataManager.set(CHOPPER_FLAGS, Byte.valueOf((byte) (b0 | 1)));\n"
+        },
+        {
+          "before_offset": 30952,
+          "after_offset": 31506,
+          "old": "\t\t\tthis.dataWatcher.updateObject(18, Byte.valueOf((byte) (b0 & -2)));\n",
+          "new": "\t\t\tthis.dataManager.set(CHOPPER_FLAGS, Byte.valueOf((byte) (b0 & -2)));\n"
+        },
+        {
+          "before_offset": 31157,
+          "after_offset": 31713,
+          "old": "\t\tbyte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "\t\tbyte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        },
+        {
+          "before_offset": 31271,
+          "after_offset": 31820,
+          "old": "\t\tbyte b0 = this.dataWatcher.getWatchableObjectByte(17);\n",
+          "new": "\t\tbyte b0 = this.dataManager.get(TAU_FLAGS);\n"
+        },
+        {
+          "before_offset": 31389,
+          "after_offset": 31926,
+          "old": "\t\tbyte b0 = this.dataWatcher.getWatchableObjectByte(18);\n",
+          "new": "\t\tbyte b0 = this.dataManager.get(CHOPPER_FLAGS);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "61886dfdcc131707dad92eb466cbc0d647aaf067068eec30ba1c341d84b8407b",
+      "after_sha256": "ec52f718d4e509e8eb7bcba163e2e05bab899e3eb19fd64bfd0d7f9872298955",
+      "edits": [
+        {
+          "before_offset": 608,
+          "after_offset": 608,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 890,
+          "after_offset": 1055,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntityExplosiveBeam.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 5950,
+          "after_offset": 6253,
+          "old": "        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));\n",
+          "new": "        this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));\n"
+        },
+        {
+          "before_offset": 17357,
+          "after_offset": 17671,
+          "old": "        byte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "        byte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        },
+        {
+          "before_offset": 17455,
+          "after_offset": 17762,
+          "old": "            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));\n",
+          "new": "            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));\n"
+        },
+        {
+          "before_offset": 17565,
+          "after_offset": 17875,
+          "old": "            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));\n",
+          "new": "            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));\n"
+        },
+        {
+          "before_offset": 17799,
+          "after_offset": 18112,
+          "old": "        byte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "        byte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "506819df671d964758f9bb97b7f4af9548b85b13d4a6ce33159257274bb8da69",
+      "after_sha256": "c6e8c10bfdf5b80eac6151ef9680776ed7f4e8300eac999a3049820c8177ab8f",
+      "edits": [
+        {
+          "before_offset": 648,
+          "after_offset": 648,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1112,
+          "after_offset": 1277,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntityRocket.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 5179,
+          "after_offset": 5475,
+          "old": "        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));\n",
+          "new": "        this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));\n"
+        },
+        {
+          "before_offset": 25084,
+          "after_offset": 25391,
+          "old": "        byte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "        byte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        },
+        {
+          "before_offset": 25182,
+          "after_offset": 25482,
+          "old": "            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));\n",
+          "new": "            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));\n"
+        },
+        {
+          "before_offset": 25292,
+          "after_offset": 25595,
+          "old": "            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));\n",
+          "new": "            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));\n"
+        },
+        {
+          "before_offset": 25526,
+          "after_offset": 25832,
+          "old": "        byte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "        byte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "3dccaa75449a4745760b996d998d25f14fe267ade7d581806378a5003df502f0",
+      "after_sha256": "a3b9bf0f783561218b5feb4eabcb7ec2ab4c88ccfa33e8682631c00ddaf6c2fe",
+      "edits": [
+        {
+          "before_offset": 564,
+          "after_offset": 564,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1131,
+          "after_offset": 1296,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntitySchrab.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 5198,
+          "after_offset": 5494,
+          "old": "        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));\n",
+          "new": "        this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));\n"
+        },
+        {
+          "before_offset": 25143,
+          "after_offset": 25450,
+          "old": "        byte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "        byte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        },
+        {
+          "before_offset": 25241,
+          "after_offset": 25541,
+          "old": "            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));\n",
+          "new": "            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));\n"
+        },
+        {
+          "before_offset": 25351,
+          "after_offset": 25654,
+          "old": "            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));\n",
+          "new": "            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));\n"
+        },
+        {
+          "before_offset": 25585,
+          "after_offset": 25891,
+          "old": "        byte b0 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "        byte b0 = this.dataManager.get(CRITICAL_FLAGS);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java": {
+      "before_sha256": "a501eaeca09afa436456306181c47b31031317d9fa0c39f01cd6b0dec4e61ee6",
+      "after_sha256": "e71ecb8d8c8cfb3d7b1480a74c548db2f5974924b4ec4893365feead8f327595",
+      "edits": [
+        {
+          "before_offset": 367,
+          "after_offset": 367,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 503,
+          "after_offset": 668,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Byte> SHRAPNEL_TYPE = EntityDataManager.createKey(EntityShrapnel.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 750,
+          "after_offset": 1047,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(SHRAPNEL_TYPE, Byte.valueOf((byte) 0));\n"
+        },
+        {
+          "before_offset": 1031,
+          "after_offset": 1338,
+          "old": "\t\tif(this.world.isRemote && this.dataWatcher.getWatchableObjectByte(16) == 1)\n",
+          "new": "\t\tif(this.world.isRemote && this.dataManager.get(SHRAPNEL_TYPE) == 1)\n"
+        },
+        {
+          "before_offset": 1566,
+          "after_offset": 1865,
+          "old": "\t\t\tint b = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "\t\t\tint b = this.dataManager.get(SHRAPNEL_TYPE);\n"
+        },
+        {
+          "before_offset": 2783,
+          "after_offset": 3074,
+          "old": "\t\t\t} else if(this.dataWatcher.getWatchableObjectByte(16) == 3) {\n",
+          "new": "\t\t\t} else if(this.dataManager.get(SHRAPNEL_TYPE) == 3) {\n"
+        },
+        {
+          "before_offset": 3294,
+          "after_offset": 3577,
+          "old": "",
+          "new": "\tpublic byte getShrapnelType() {\n\t\treturn this.dataManager.get(SHRAPNEL_TYPE);\n\t}\n\n"
+        },
+        {
+          "before_offset": 3329,
+          "after_offset": 3695,
+          "old": "\t\tthis.dataWatcher.updateObject(16, (byte) (b ? 1 : 0));\n",
+          "new": "\t\tthis.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 1 : 0));\n"
+        },
+        {
+          "before_offset": 3427,
+          "after_offset": 3795,
+          "old": "\t\tthis.dataWatcher.updateObject(16, (byte) (b ? 2 : 0));\n",
+          "new": "\t\tthis.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 2 : 0));\n"
+        },
+        {
+          "before_offset": 3522,
+          "after_offset": 3892,
+          "old": "\t\tthis.dataWatcher.updateObject(16, (byte) (b ? 3 : 0));\n",
+          "new": "\t\tthis.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 3 : 0));\n"
+        },
+        {
+          "before_offset": 3623,
+          "after_offset": 3995,
+          "old": "\t\tthis.dataWatcher.updateObject(16, (byte) (b ? 4 : 0));\n",
+          "new": "\t\tthis.dataManager.set(SHRAPNEL_TYPE, (byte) (b ? 4 : 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/BarbedWireObjModelHandler.java": {
+      "before_sha256": "fc22eef4ba554970cc2589b3a0f43639c88cbc2166e512d634d780e9c7adb7bb",
+      "after_sha256": "ca549f417ff3ece9b68d0d903344bdd9702e8eaff88e9908d521cd8100711276",
+      "edits": [
+        {
+          "before_offset": 1166,
+          "after_offset": 1166,
+          "old": "",
+          "new": "import net.minecraftforge.client.model.ICustomModelLoader;\nimport net.minecraft.client.resources.IResourceManager;\n"
+        },
+        {
+          "before_offset": 1700,
+          "after_offset": 1815,
+          "old": "\tprivate static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, \"models/blocks/barbed_wire.obj\");\n",
+          "new": "\tprivate static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, \"blocks/barbed_wire.obj\");\n"
+        },
+        {
+          "before_offset": 2133,
+          "after_offset": 2241,
+          "old": "",
+          "new": "\t/** Exact blockstate route to the original plural-directory OBJ asset. */\n\tprivate enum StateModelLoader implements ICustomModelLoader {\n\t\tINSTANCE;\n\t\t@Override public boolean accepts(ResourceLocation location) {\n\t\t\treturn location.equals(new ResourceLocation(RefStrings.MODID, \"models/block/barbed_wire\"));\n\t\t}\n\t\t@Override public IModel loadModel(ResourceLocation location) throws Exception {\n\t\t\treturn ModelLoaderRegistry.getModel(MODEL);\n\t\t}\n\t\t@Override public void onResourceManagerReload(IResourceManager manager) { }\n\t}\n\n"
+        },
+        {
+          "before_offset": 2257,
+          "after_offset": 2893,
+          "old": "",
+          "new": "\t\tModelLoaderRegistry.registerLoader(StateModelLoader.INSTANCE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderShrapnel.java": {
+      "before_sha256": "8b82a192151dac6554f312e0de3c97689926d6d4eccfca0320dad0df4d801b30",
+      "after_sha256": "b31522fc4881a51281abbb8c0fd812ed7dd13487e2975fd38dcee128ef588697",
+      "edits": [
+        {
+          "before_offset": 983,
+          "after_offset": 983,
+          "old": "\t\t\tif(rocket.getDataWatcher().getWatchableObjectByte(16) >= 2) { //scale up lava blobs\n",
+          "new": "\t\t\tif(((EntityShrapnel) rocket).getShrapnelType() >= 2) { //scale up lava blobs\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/rocket/RenderSoyuz.java": {
+      "before_sha256": "5daa2b081f064e42dbbf0db4665099dc35398082c81e0f462dbf65b2c5cc26a7",
+      "after_sha256": "2add829131b4c29afdb76ceaec250f5d50082fe748531d5f8da61a109ed1a567",
+      "edits": [
+        {
+          "before_offset": 107,
+          "after_offset": 107,
+          "old": "",
+          "new": "import com.hbm.entity.missile.EntitySoyuz;\n"
+        },
+        {
+          "before_offset": 666,
+          "after_offset": 709,
+          "old": "        int type = entity.getDataWatcher().getWatchableObjectInt(8);\n",
+          "new": "        int type = ((EntitySoyuz) entity).getSkin();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java": {
+      "before_sha256": "4da848474a0607aac609ae9e12ec114fc0a2583f43def54d9a4a7e91ec30050d",
+      "after_sha256": "88cbb6761ed12dea210de8aed8be29e18da163413be9fc2c19b545ca44f1c5e2",
+      "edits": [
+        {
+          "before_offset": 5594,
+          "after_offset": 5594,
+          "old": "\t\t\t\t\t\trocket.getDataWatcher().updateObject(17, freq);\n",
+          "new": "\t\t\t\t\t\trocket.setSatelliteFrequency(freq);\n"
+        },
+        {
+          "before_offset": 6203,
+          "after_offset": 6191,
+          "old": "\t\t\t\tif(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getDataWatcher().getWatchableObjectInt(17)) {\n",
+          "new": "\t\t\t\tif(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getSatelliteFrequency()) {\n"
+        },
+        {
+          "before_offset": 6504,
+          "after_offset": 6473,
+          "old": "\t\t\t\tif(rocket.getDataWatcher().getWatchableObjectInt(16) == 1 && rocket.timer == 50) {\n",
+          "new": "\t\t\t\tif(rocket.getFlightMode() == 1 && rocket.timer == 50) {\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire.json": "095eebc518eb682aacb0d060414bf7b14974ff4fa7b112f759bc394ada7f5dda",
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_acid.json": "465370f440d7f31dfb51c2a8327b3ab4201ffdc9cebe25f5c9816c6ee7da24d3",
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_fire.json": "74268ee3ec7de987df29915b924f398b0171dea2815eb50aa5475f8ae7160cb1",
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_poison.json": "13dee5b92b4bb024b2f1bea324428c288a8c1a61a8c2b75cb4d61aad6a11085f",
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_ultradeath.json": "95ebb2d027337a00af284714abbb748ebd4f270afd5d8b97b4649dedf6967256",
+    "src/main/resources/assets/hbm/blockstates/tile.barbed_wire_wither.json": "f23d0057f5f5c65def5279b9f7c89f579d89295208b335d4f8917b2aacf4a6f7"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

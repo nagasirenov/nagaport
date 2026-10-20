@@ -56,28 +56,28 @@ public class FalloutConfigJSON {
 		double woodEffectRange = 65D;
 		
 		/* petrify all wooden things possible */
-		entries.add(new FalloutEntry()	.mB(Blocks.log)							.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.log2)						.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.red_mushroom_block).mM(10)	.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.brown_mushroom_block).mM(10)	.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.red_mushroom_block)			.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.brown_mushroom_block)		.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.snow_layer)					.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.planks)						.prim(new Triplet(ModBlocks.waste_planks, 0, 1))	.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.LOG)							.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.LOG2)						.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.RED_MUSHROOM_BLOCK).mM(10)	.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.BROWN_MUSHROOM_BLOCK).mM(10)	.prim(new Triplet(ModBlocks.waste_log, 0, 1))		.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.RED_MUSHROOM_BLOCK)			.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.BROWN_MUSHROOM_BLOCK)		.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.SNOW_LAYER)					.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.PLANKS)						.prim(new Triplet(ModBlocks.waste_planks, 0, 1))	.max(woodEffectRange));
 		/* if it can't be petrified, destroy it */
-		entries.add(new FalloutEntry()	.mMa(Material.wood)						.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mMa(Material.wood)						.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
 		/* destroy all leaves within the radios, kill all leaves outside of it */
-		entries.add(new FalloutEntry()	.mMa(Material.leaves)		.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mMa(Material.plants)		.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mMa(Material.vine)			.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(ModBlocks.waste_leaves)	.prim(new Triplet(Blocks.air, 0, 1))				.max(woodEffectRange));
-		entries.add(new FalloutEntry()	.mB(Blocks.leaves)			.prim(new Triplet(ModBlocks.waste_leaves, 0, 1))	.min(woodEffectRange - 5D));
-		entries.add(new FalloutEntry()	.mB(Blocks.leaves2)			.prim(new Triplet(ModBlocks.waste_leaves, 0, 1))	.min(woodEffectRange - 5D));
+		entries.add(new FalloutEntry()	.mMa(Material.LEAVES)		.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mMa(Material.PLANTS)		.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mMa(Material.VINE)			.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(ModBlocks.waste_leaves)	.prim(new Triplet(Blocks.AIR, 0, 1))				.max(woodEffectRange));
+		entries.add(new FalloutEntry()	.mB(Blocks.LEAVES)			.prim(new Triplet(ModBlocks.waste_leaves, 0, 1))	.min(woodEffectRange - 5D));
+		entries.add(new FalloutEntry()	.mB(Blocks.LEAVES2)			.prim(new Triplet(ModBlocks.waste_leaves, 0, 1))	.min(woodEffectRange - 5D));
 		
 		entries.add(new FalloutEntry()	.mB(ModBlocks.glyphid_base)		.prim(new Triplet(ModBlocks.glyphid_base, 2, 1)));
 		entries.add(new FalloutEntry()	.mB(ModBlocks.glyphid_spawner)	.prim(new Triplet(ModBlocks.glyphid_spawner, 2, 1)));
 
-		entries.add(new FalloutEntry().mB(Blocks.mossy_cobblestone).prim(new Triplet(Blocks.coal_ore, 0, 1)));
+		entries.add(new FalloutEntry().mB(Blocks.MOSSY_COBBLESTONE).prim(new Triplet(Blocks.COAL_ORE, 0, 1)));
 		entries.add(new FalloutEntry().mB(ModBlocks.ore_nether_uranium).prim(new Triplet(ModBlocks.ore_nether_schrabidium, 0, 1), new Triplet(ModBlocks.ore_nether_uranium_scorched, 0, 99)));
 		
 		Block deepslate = Compat.tryLoadBlock(Compat.MOD_EF, "deepslate");
@@ -85,39 +85,39 @@ public class FalloutConfigJSON {
 		
 		for(int i = 1; i <= 10; i++) {
 			int m = 10 - i;
-			entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_diamond, m, 3),		new Triplet(ModBlocks.ore_sellafield_emerald, m, 2))			.c(0.5)		.max(i * 5).sol(true).mB(Blocks.coal_ore));
+			entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_diamond, m, 3),		new Triplet(ModBlocks.ore_sellafield_emerald, m, 2))			.c(0.5)		.max(i * 5).sol(true).mB(Blocks.COAL_ORE));
 			entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_diamond, m, 1))																		.c(0.2)		.max(i * 5).sol(true).mB(ModBlocks.ore_lignite));
 			entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_emerald, m, 1))																					.max(i * 5).sol(true).mB(ModBlocks.ore_beryllium));
 			if(m > 4) entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_schrabidium, m, 1),	new Triplet(ModBlocks.ore_sellafield_uranium_scorched, m, 9))		.max(i * 5).sol(true).mB(ModBlocks.ore_uranium));
 			if(m > 4) entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_schrabidium, m, 1),	new Triplet(ModBlocks.ore_sellafield_uranium_scorched, m, 9))		.max(i * 5).sol(true).mB(ModBlocks.ore_gneiss_uranium));
-			entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_radgem, m, 1))																						.max(i * 5).sol(true).mB(Blocks.diamond_ore));
-			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_bedrock, m, 1)).max(i * 5).sol(true).mB(Blocks.bedrock));
+			entries.add(new FalloutEntry().prim(new Triplet(ModBlocks.ore_sellafield_radgem, m, 1))																						.max(i * 5).sol(true).mB(Blocks.DIAMOND_ORE));
+			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_bedrock, m, 1)).max(i * 5).sol(true).mB(Blocks.BEDROCK));
 			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_bedrock, m, 1)).max(i * 5).sol(true).mB(ModBlocks.ore_bedrock));
 			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_bedrock, m, 1)).max(i * 5).sol(true).mB(ModBlocks.ore_bedrock_oil));
 			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_bedrock, m, 1)).max(i * 5).sol(true).mB(ModBlocks.sellafield_bedrock));
-			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.iron));
-			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.rock));
-			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.sand));
+			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.IRON));
+			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.ROCK));
+			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.SAND));
 			entries.add(new FalloutEntry()							.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.ground));
-			if(i <= 9) entries.add(new FalloutEntry()				.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.grass));
+			if(i <= 9) entries.add(new FalloutEntry()				.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mMa(Material.GRASS));
 			if(deepslate != null)	entries.add(new FalloutEntry()	.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mB(deepslate));
 			if(stone != null)		entries.add(new FalloutEntry()	.prim(new Triplet(ModBlocks.sellafield_slaked, m, 1)).max(i * 5).sol(true).mB(stone));
 		}
 		
 		entries.add(new FalloutEntry()
-				.mB(Blocks.mycelium)
+				.mB(Blocks.MYCELIUM)
 				.prim(new Triplet(ModBlocks.waste_mycelium, 0, 1)));
 		entries.add(new FalloutEntry()
-				.mB(Blocks.sand).mM(0)
+				.mB(Blocks.SAND).mM(0)
 				.prim(new Triplet(ModBlocks.waste_trinitite, 0, 1))
 				.c(0.05));
 		entries.add(new FalloutEntry()
-				.mB(Blocks.sand).mM(1)
+				.mB(Blocks.SAND).mM(1)
 				.prim(new Triplet(ModBlocks.waste_trinitite_red, 0, 1))
 				.c(0.05));
 		entries.add(new FalloutEntry()
-				.mB(Blocks.clay)
-				.prim(new Triplet(Blocks.hardened_clay, 0, 1)));
+				.mB(Blocks.CLAY)
+				.prim(new Triplet(Blocks.HARDENED_CLAY, 0, 1)));
 	}
 	
 	private static void writeDefault(File file) {
@@ -211,7 +211,7 @@ public class FalloutConfigJSON {
 
 			if(dist > maxDist || dist < minDist) return false;
 			if(matchesBlock != null && b != matchesBlock) return false;
-			if(matchesMaterial != null && b.getMaterial() != matchesMaterial) return false;
+			if(matchesMaterial != null && b.getDefaultState().getMaterial() != matchesMaterial) return false;
 			if(matchesMeta != -1 && meta != matchesMeta) return false;
 			if(matchesOpaque && !b.isOpaqueCube()) return false;
 			if(dist > maxDist * falloffStart && Math.abs(world.rand.nextGaussian()) < Math.pow((dist - maxDist * falloffStart) / (maxDist - maxDist * falloffStart), 2D) * 3D) return false;
@@ -346,36 +346,36 @@ public class FalloutConfigJSON {
 	public static HashBiMap<String, Material> matNames = HashBiMap.create();
 	
 	static {
-		matNames.put("grass", Material.grass);
+		matNames.put("grass", Material.GRASS);
 		matNames.put("ground", Material.ground);
 		matNames.put("wood", Material.wood);
-		matNames.put("rock", Material.rock);
-		matNames.put("iron", Material.iron);
-		matNames.put("anvil", Material.anvil);
-		matNames.put("water", Material.water);
-		matNames.put("lava", Material.lava);
-		matNames.put("leaves", Material.leaves);
-		matNames.put("plants", Material.plants);
-		matNames.put("vine", Material.vine);
+		matNames.put("rock", Material.ROCK);
+		matNames.put("iron", Material.IRON);
+		matNames.put("anvil", Material.ANVIL);
+		matNames.put("water", Material.WATER);
+		matNames.put("lava", Material.LAVA);
+		matNames.put("leaves", Material.LEAVES);
+		matNames.put("plants", Material.PLANTS);
+		matNames.put("vine", Material.VINE);
 		matNames.put("sponge", Material.sponge);
 		matNames.put("cloth", Material.cloth);
-		matNames.put("fire", Material.fire);
-		matNames.put("sand", Material.sand);
-		matNames.put("circuits", Material.circuits);
+		matNames.put("fire", Material.FIRE);
+		matNames.put("sand", Material.SAND);
+		matNames.put("circuits", Material.CIRCUITS);
 		matNames.put("carpet", Material.carpet);
-		matNames.put("redstoneLight", Material.redstoneLight);
-		matNames.put("tnt", Material.tnt);
-		matNames.put("coral", Material.coral);
-		matNames.put("ice", Material.ice);
-		matNames.put("packedIce", Material.packedIce);
-		matNames.put("snow", Material.snow);
-		matNames.put("craftedSnow", Material.craftedSnow);
-		matNames.put("cactus", Material.cactus);
-		matNames.put("clay", Material.clay);
-		matNames.put("gourd", Material.gourd);
-		matNames.put("dragonEgg", Material.dragonEgg);
-		matNames.put("portal", Material.portal);
-		matNames.put("cake", Material.cake);
+		matNames.put("redstoneLight", Material.REDSTONE_LIGHT);
+		matNames.put("tnt", Material.TNT);
+		matNames.put("coral", Material.CORAL);
+		matNames.put("ice", Material.ICE);
+		matNames.put("packedIce", Material.PACKED_ICE);
+		matNames.put("snow", Material.SNOW);
+		matNames.put("craftedSnow", Material.CRAFTED_SNOW);
+		matNames.put("cactus", Material.CACTUS);
+		matNames.put("clay", Material.CLAY);
+		matNames.put("gourd", Material.GOURD);
+		matNames.put("dragonEgg", Material.DRAGON_EGG);
+		matNames.put("portal", Material.PORTAL);
+		matNames.put("cake", Material.CAKE);
 		matNames.put("web", Material.web);
 	}
 }

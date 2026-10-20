@@ -5,135 +5,83 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 import com.hbm.blocks.ModBlocks;
-import com.hbm.handler.imc.ICompatNHNEI;
 import com.hbm.inventory.gui.GUIMachineCyclotron;
 import com.hbm.inventory.recipes.CyclotronRecipes;
 import com.hbm.lib.RefStrings;
-
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
-
-public class CyclotronRecipeHandler extends TemplateRecipeHandler implements ICompatNHNEI {
-	@Override
-	public ItemStack[] getMachinesForRecipe() {
+import java.util.ArrayList;
+import com.hbm.handler.jei.MachineRecipeCategory;
+import com.hbm.handler.jei.MachineRecipeView;
+import com.hbm.handler.jei.RecipeStackMatcher;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.recipe.IFocus;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.ResourceLocation;
+/** Native JEI category for the original CyclotronRecipeHandler recipe source. */
+public class CyclotronRecipeHandler extends MachineRecipeCategory {
+    private final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/nei/gui_nei_cyclotron.png");
+    private IDrawable background;
+    @Override public String getUid() { return "cyclotronProcessing"; }
+    @Override public String getTitle() {
+		return "Cyclotron";
+	 }
+    @Override public ItemStack[] getMachines() {
 		return new ItemStack[]{
 				new ItemStack(ModBlocks.machine_cyclotron)};
-	}
-
-	@Override
-	public String getRecipeID() {
-		return "cyclotronProcessing";
-	}
-    public LinkedList<RecipeTransferRect> transferRectsRec = new LinkedList<RecipeTransferRect>();
-    public LinkedList<RecipeTransferRect> transferRectsGui = new LinkedList<RecipeTransferRect>();
-    public LinkedList<Class<? extends GuiContainer>> guiRec = new LinkedList<Class<? extends GuiContainer>>();
-    public LinkedList<Class<? extends GuiContainer>> guiGui = new LinkedList<Class<? extends GuiContainer>>();
-
-    public class SmeltingSet extends TemplateRecipeHandler.CachedRecipe
-    {
-    	PositionedStack input1;
-		PositionedStack input2;
-        PositionedStack result;
-    	
-        public SmeltingSet(ItemStack input1, ItemStack input2, ItemStack result) {
-        	input1.stackSize = 1;
-        	input2.stackSize = 1;
-            this.input1 = new PositionedStack(input1, 66 - 45, 6 + 18);
-            this.input2 = new PositionedStack(input2, 66 + 9, 42 - 18);
-            this.result = new PositionedStack(result, 129, 24);
-        }
-
-        @Override
-		public List<PositionedStack> getIngredients() {
-            return getCycledIngredients(cycleticks / 48, Arrays.asList(new PositionedStack[] {input1, input2}));
-        }
-
-        @Override
-		public PositionedStack getResult() {
-            return result;
-        }
+	 }
+    @Override public IDrawable getBackground() { return background; }
+    @Override public void initialize(IGuiHelper helper) {
+        super.initialize(helper);
+        background = helper.createDrawable(texture, 5, 11, 166, 65);
+        progress = helper.createAnimatedDrawable(helper.createDrawable(texture, 100, 119, 24, 16), 48, IDrawableAnimated.StartDirection.LEFT, false);
     }
-    
-	@Override
-	public String getRecipeName() {
-		return "Cyclotron";
-	}
-
-	@Override
-	public String getGuiTexture() {
-		return RefStrings.MODID + ":textures/gui/nei/gui_nei_cyclotron.png";
-	}
-	
-	@Override
-	public void loadCraftingRecipes(String outputId, Object... results) {
-		if ((outputId.equals("cyclotronProcessing")) && getClass() == CyclotronRecipeHandler.class) {
+    @Override public void registerGuiAreas(IModRegistry registry) { registry.addRecipeClickArea(GUIMachineCyclotron.class, (48 - 5) + 5, (27 - 11) + 11, 34, 34, getUid()); }
+    @Override public boolean isNavigationArea(int x, int y) {
+        return (new java.awt.Rectangle(83 - 3 + 16 - 52, 5 + 18 + 1, 24, 18).contains(x, y));
+    }
+    @Override public List<MachineRecipeView> query(IFocus<ItemStack> focus) {
+        List<MachineRecipeView> views = new ArrayList<>();
+        if(focus == null) {
 			Map<Object[], Object> recipes = CyclotronRecipes.getRecipes();
 			for (Map.Entry<Object[], Object> recipe : recipes.entrySet()) {
-				this.arecipes.add(new SmeltingSet((ItemStack)recipe.getKey()[0], (ItemStack)recipe.getKey()[1], (ItemStack)recipe.getValue()));
+				views.add(createView((ItemStack)recipe.getKey()[0], (ItemStack)recipe.getKey()[1], (ItemStack)recipe.getValue()));
 			}
-		} else {
-			super.loadCraftingRecipes(outputId, results);
-		}
-	}
+		 }
+        else if(focus.getMode() == IFocus.Mode.OUTPUT) {
+            ItemStack result = focus.getValue();
 
-	@Override
-	public void loadCraftingRecipes(ItemStack result) {
 		Map<Object[], Object> recipes = CyclotronRecipes.getRecipes();
 		for (Map.Entry<Object[], Object> recipe : recipes.entrySet()) {
-			if (NEIServerUtils.areStacksSameType((ItemStack)recipe.getValue(), result))
-				this.arecipes.add(new SmeltingSet((ItemStack)recipe.getKey()[0], (ItemStack)recipe.getKey()[1], (ItemStack)recipe.getValue()));
+			if (RecipeStackMatcher.matchesType((ItemStack)recipe.getValue(), result))
+				views.add(createView((ItemStack)recipe.getKey()[0], (ItemStack)recipe.getKey()[1], (ItemStack)recipe.getValue()));
 		}
-	}
 
-	@Override
-	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		if ((inputId.equals("cyclotronProcessing")) && getClass() == CyclotronRecipeHandler.class) {
-			loadCraftingRecipes("cyclotronProcessing", new Object[0]);
-		} else {
-			super.loadUsageRecipes(inputId, ingredients);
-		}
-	}
+        } else {
+            ItemStack ingredient = focus.getValue();
 
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
 		Map<Object[], Object> recipes = CyclotronRecipes.getRecipes();
 		for (Map.Entry<Object[], Object> recipe : recipes.entrySet()) {
-			if (NEIServerUtils.areStacksSameType(ingredient, (ItemStack)recipe.getKey()[0]) || NEIServerUtils.areStacksSameType(ingredient, (ItemStack)recipe.getKey()[1]))
-				this.arecipes.add(new SmeltingSet((ItemStack)recipe.getKey()[0], (ItemStack)recipe.getKey()[1], (ItemStack)recipe.getValue()));				
+			if (RecipeStackMatcher.matchesType(ingredient, (ItemStack)recipe.getKey()[0]) || RecipeStackMatcher.matchesType(ingredient, (ItemStack)recipe.getKey()[1]))
+				views.add(createView((ItemStack)recipe.getKey()[0], (ItemStack)recipe.getKey()[1], (ItemStack)recipe.getValue()));
 		}
-	}
 
-    @Override
-    public Class<? extends GuiContainer> getGuiClass() {
-        //return GUITestDiFurnace.class;
-    	return null;
+        }
+        return views;
     }
-    
-    @Override
-    public void loadTransferRects() {
-        transferRectsGui = new LinkedList<RecipeTransferRect>();
-        guiGui = new LinkedList<Class<? extends GuiContainer>>();
-        
-        transferRects.add(new RecipeTransferRect(new Rectangle(83 - 3 + 16 - 52, 5 + 18 + 1, 24, 18), "cyclotronProcessing"));
-        transferRectsGui.add(new RecipeTransferRect(new Rectangle(48 - 5, 27 - 11, 34, 34), "cyclotronProcessing"));
-        guiGui.add(GUIMachineCyclotron.class);
-        RecipeTransferRectHandler.registerRectsToGuis(getRecipeTransferRectGuis(), transferRects);
-        RecipeTransferRectHandler.registerRectsToGuis(guiGui, transferRectsGui);
+    private MachineRecipeView createView(ItemStack input1, ItemStack input2, ItemStack result) {
+        ItemStack first = input1.copy(); first.setCount(1);
+        ItemStack second = input2.copy(); second.setCount(1);
+        return new MachineRecipeView(this, new ItemStack[]{input1, input2}, new ItemStack[][]{{first}, {second}}, new ItemStack[][]{{result}})
+            .addInputSlot(0, 21, 24).addInputSlot(1, 75, 24).addOutputSlot(0, 129, 24);
     }
-
-    @Override
-    public void drawExtras(int recipe) {
-
-        drawProgressBar(83 - 3 + 16 - 52, 5 + 18 + 1, 100, 118 + 1, 24, 16, 48, 0);
+    @Override public void drawRecipe(MachineRecipeView view, Minecraft minecraft, int mouseX, int mouseY) {
+        progress.draw(minecraft, 44, 24);
     }
-
-    @Override
-    public TemplateRecipeHandler newInstance() {
-        return super.newInstance();
-    }
+    private IDrawableAnimated progress;
 }

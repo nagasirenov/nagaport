@@ -59,14 +59,14 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineMixer";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[2].setType(2, slots);
@@ -83,9 +83,9 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 			this.consumption *= (overLevel * 3 + 1);
 
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				if(tanks[1].getTankType() != Fluids.NONE) this.trySubscribe(tanks[1].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[1].getTankType() != Fluids.NONE) this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			this.wasOn = this.canProcess();
@@ -109,7 +109,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 			}
 
 			for(DirPos pos : getConPos()) {
-				if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(tanks[2].getFill() > 0) this.sendFluid(tanks[2], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			NBTTagCompound data = new NBTTagCompound();
@@ -216,16 +216,17 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-				new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z),
+				new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z),
 		};
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int meta) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1 };
 	}
 
@@ -253,7 +254,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -261,6 +262,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 		nbt.setInteger("processTime", processTime);
 		nbt.setInteger("recipe", recipeIndex);
 		for(int i = 0; i < 3; i++) this.tanks[i].writeToNBT(nbt, i + "");
+		return nbt;
 	}
 
 	@Override
@@ -312,7 +314,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 		if(aabb != null)
 			return aabb;
 
-		aabb = AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 3, zCoord + 1);
+		aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 3, this.pos.getZ() + 1);
 		return aabb;
 	}
 
@@ -324,7 +326,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 16;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) <= 16;
 	}
 
 	@Override

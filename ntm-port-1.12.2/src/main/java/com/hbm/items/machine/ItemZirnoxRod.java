@@ -1,5 +1,7 @@
 package com.hbm.items.machine;
 
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 import java.util.Locale;
 
@@ -11,7 +13,6 @@ import com.hbm.util.i18n.I18nUtil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import com.hbm.render.icon.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;
@@ -28,29 +29,29 @@ public class ItemZirnoxRod extends ItemEnumMulti {
 	public static void incrementLifeTime(ItemStack stack) {
 		
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		
-		int time = stack.stackTagCompound.getInteger("life");
+		int time = stack.getTagCompound().getInteger("life");
 		
-		stack.stackTagCompound.setInteger("life", time + 1);
+		stack.getTagCompound().setInteger("life", time + 1);
 	}
 	
 	public static void setLifeTime(ItemStack stack, int time) {
 		
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 		
-		stack.stackTagCompound.setInteger("life", time);
+		stack.getTagCompound().setInteger("life", time);
 	}
 	
 	public static int getLifeTime(ItemStack stack) {
 		
 		if(!stack.hasTagCompound()) {
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 			return 0;
 		}
 		
-		return stack.stackTagCompound.getInteger("life");
+		return stack.getTagCompound().getInteger("life");
 	}
 
 	public boolean showDurabilityBar(ItemStack stack) {
@@ -63,7 +64,8 @@ public class ItemZirnoxRod extends ItemEnumMulti {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		
 		
 		EnumZirnoxType num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
@@ -93,9 +95,9 @@ public class ItemZirnoxRod extends ItemEnumMulti {
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		Enum num = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
-		return super.getUnlocalizedName() + "_" + num.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "_" + num.name().toLowerCase(Locale.US);
 	}
 
 	public static enum EnumZirnoxType {

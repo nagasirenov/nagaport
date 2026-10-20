@@ -1,0 +1,7 @@
+PASS reviewed complete production ItemStackUtil source digest (normalized newlines; no Git dependency)
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/util/ItemStackUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[13:18:25] [main/WARN]: Potentially Dangerous alternative prefix `fixture` for name `not_registered`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[13:18:25] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[13:18:25] [main/INFO]: Replaced 1036 ore ingredients
+PASS ItemStackUtil native assertions: 532; not radiation gameplay

@@ -43,7 +43,7 @@ public class RBMKRod extends RBMKBase {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		if(meta >= this.offset && !RBMKDials.getMeltdownsDisabled(world)) {
-			TileEntityRBMKRod tile = (TileEntityRBMKRod) world.getTileEntity(x, y, z);
+			TileEntityRBMKRod tile = (TileEntityRBMKRod) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(tile != null && tile.explodeOnBroken) {
 				if(tile.slots[0] != null && tile.slots[0].getItem() instanceof ItemRBMKRod && ItemRBMKRod.getHullHeat(tile.slots[0]) >= 1500) {
 					tile.meltdown();
@@ -58,8 +58,8 @@ public class RBMKRod extends RBMKBase {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		super.registerBlockIcons(reg);
-		this.inner = reg.registerIcon(this.getTextureName() + "_inner");
-		this.fuel = reg.registerIcon(this.getTextureName() + "_fuel");
+		this.inner = reg.registerIcon(this.getRBMKTexture() + "_inner");
+		this.fuel = reg.registerIcon(this.getRBMKTexture() + "_fuel");
 	}
 	
 	@Override
@@ -71,18 +71,18 @@ public class RBMKRod extends RBMKBase {
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return false;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityRBMKRod)) return false;
 		TileEntityRBMKRod rbmk = (TileEntityRBMKRod) te;
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemRBMKLid) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemRBMKLid) {
 			if(!rbmk.hasLid()) return false;
 		}
 		
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemRBMKRod && rbmk.slots[0] == null) {
-			rbmk.slots[0] = player.getHeldItem().copy();
-			rbmk.slots[0].stackSize = 1;
-			if(!player.capabilities.isCreativeMode) player.getHeldItem().stackSize--;
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemRBMKRod && rbmk.slots[0] == null) {
+			rbmk.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
+			rbmk.slots[0].setCount(1);
+			if(!player.capabilities.isCreativeMode) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 			world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
 			return false;
 		}

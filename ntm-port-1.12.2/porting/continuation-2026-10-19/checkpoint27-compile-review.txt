@@ -1,0 +1,6 @@
+Frozen checkpoint27: clean compile FAIL737 vs771, exit1,33s.
+40 changed/new Java files byte-identical to3911 generated compiler inputs.
+Snapshot: /workspace/shared/nagaport-cp27-compile-snapshot/ntm-port-1.12.2
+Log SHA256 acd0f93804b33d41bd48f0565161adbbf6f77db65d7004c987c1fe66e94d9d79
+Repeated class symbols: [('RenderBlocks', 207), ('ItemRenderType', 109), ('ISimpleBlockRenderingHandler', 104), ('Achievement', 71), ('IItemRenderer', 45), ('EntityFX', 41), ('RenderItem', 38), ('ItemRendererHelper', 19), ('IBossDisplayData', 18), ('BossStatus', 6), ('BiomeGenBase', 5), ('EntityAIArrowAttack', 5)]
+Native selected proofs are not full client/server/game acceptance.

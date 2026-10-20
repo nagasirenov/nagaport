@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class DemonLamp extends BlockContainer {
 	
 	public DemonLamp() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

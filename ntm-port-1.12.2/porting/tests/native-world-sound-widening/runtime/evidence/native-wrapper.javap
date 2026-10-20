@@ -1,0 +1,965 @@
+Compiled from "NativeNumericFixture.java"
+public final class NativeNumericFixture {
+  static final sun.misc.Unsafe U;
+
+  public NativeNumericFixture();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  static void call0_0(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: getfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      25: iconst_0
+      26: iaload
+      27: i2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      40: iconst_1
+      41: iaload
+      42: i2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      82: iconst_0
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      90: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      93: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      96: iconst_1
+      97: faload
+      98: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call0_1(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: invokevirtual #17                 // Method NativeNumericFixture$Context.getWorld:()Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      25: iconst_0
+      26: iaload
+      27: i2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      40: iconst_1
+      41: iaload
+      42: i2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      82: iconst_0
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      90: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      93: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      96: iconst_1
+      97: faload
+      98: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call1_0(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: getfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      33: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      36: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      39: iconst_1
+      40: iaload
+      41: i2d
+      42: aload_0
+      43: ldc           #10                 // String z
+      45: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      48: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      51: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      54: iconst_2
+      55: daload
+      56: aload_0
+      57: ldc           #11                 // String name
+      59: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      62: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      65: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      68: aload_0
+      69: ldc           #13                 // String volume
+      71: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      74: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      77: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      80: iconst_0
+      81: faload
+      82: aload_0
+      83: ldc           #15                 // String pitch
+      85: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      88: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      91: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      94: iconst_1
+      95: faload
+      96: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+      99: return
+
+  static void call1_1(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: invokevirtual #17                 // Method NativeNumericFixture$Context.getWorld:()Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      33: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      36: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      39: iconst_1
+      40: iaload
+      41: i2d
+      42: aload_0
+      43: ldc           #10                 // String z
+      45: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      48: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      51: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      54: iconst_2
+      55: daload
+      56: aload_0
+      57: ldc           #11                 // String name
+      59: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      62: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      65: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      68: aload_0
+      69: ldc           #13                 // String volume
+      71: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      74: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      77: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      80: iconst_0
+      81: faload
+      82: aload_0
+      83: ldc           #15                 // String pitch
+      85: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      88: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      91: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      94: iconst_1
+      95: faload
+      96: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+      99: return
+
+  static void call2_0(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: getfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      40: iconst_2
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      82: iconst_0
+      83: iaload
+      84: i2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      91: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      94: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      97: iconst_1
+      98: laload
+      99: l2f
+     100: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call2_1(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: invokevirtual #17                 // Method NativeNumericFixture$Context.getWorld:()Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      40: iconst_2
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      55: iconst_2
+      56: iaload
+      57: i2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      82: iconst_0
+      83: iaload
+      84: i2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      91: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      94: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      97: iconst_1
+      98: laload
+      99: l2f
+     100: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call3_0(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: getfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      25: iconst_0
+      26: faload
+      27: f2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      40: iconst_1
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      55: iconst_2
+      56: faload
+      57: f2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      82: iconst_3
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      90: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      93: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      96: iconst_4
+      97: faload
+      98: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call3_1(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: invokevirtual #17                 // Method NativeNumericFixture$Context.getWorld:()Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      25: iconst_0
+      26: faload
+      27: f2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      40: iconst_1
+      41: faload
+      42: f2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      55: iconst_2
+      56: faload
+      57: f2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      82: iconst_3
+      83: faload
+      84: aload_0
+      85: ldc           #15                 // String pitch
+      87: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      90: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      93: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      96: iconst_4
+      97: faload
+      98: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     101: return
+
+  static void call4_0(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: getfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      40: iconst_1
+      41: laload
+      42: l2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      55: iconst_2
+      56: laload
+      57: l2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      82: iconst_3
+      83: laload
+      84: l2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      91: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      94: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      97: iconst_4
+      98: laload
+      99: l2f
+     100: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call4_1(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: invokevirtual #17                 // Method NativeNumericFixture$Context.getWorld:()Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      25: iconst_0
+      26: laload
+      27: l2d
+      28: aload_0
+      29: ldc           #9                  // String y
+      31: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      34: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      37: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      40: iconst_1
+      41: laload
+      42: l2d
+      43: aload_0
+      44: ldc           #10                 // String z
+      46: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      49: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      52: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      55: iconst_2
+      56: laload
+      57: l2d
+      58: aload_0
+      59: ldc           #11                 // String name
+      61: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      64: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      67: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      70: aload_0
+      71: ldc           #13                 // String volume
+      73: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      76: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      79: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      82: iconst_3
+      83: laload
+      84: l2f
+      85: aload_0
+      86: ldc           #15                 // String pitch
+      88: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      91: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      94: getfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      97: iconst_4
+      98: laload
+      99: l2f
+     100: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+     103: return
+
+  static void call5_0(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: getfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      33: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      36: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      39: iconst_1
+      40: daload
+      41: aload_0
+      42: ldc           #10                 // String z
+      44: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      47: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      50: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      53: iconst_2
+      54: daload
+      55: aload_0
+      56: ldc           #11                 // String name
+      58: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      61: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      64: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      67: aload_0
+      68: ldc           #13                 // String volume
+      70: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      73: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      76: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      79: iconst_0
+      80: faload
+      81: aload_0
+      82: ldc           #15                 // String pitch
+      84: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      87: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      90: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      93: iconst_1
+      94: faload
+      95: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+      98: return
+
+  static void call5_1(NativeNumericFixture$Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method NativeNumericFixture$Context.outer:()LNativeNumericFixture$Context;
+       4: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+       7: invokevirtual #4                  // Method NativeNumericFixture$Context.nested:()LNativeNumericFixture$Context;
+      10: invokevirtual #17                 // Method NativeNumericFixture$Context.getWorld:()Lnet/minecraft/world/World;
+      13: aload_0
+      14: ldc           #6                  // String x
+      16: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      19: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      22: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      25: iconst_0
+      26: daload
+      27: aload_0
+      28: ldc           #9                  // String y
+      30: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      33: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      36: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      39: iconst_1
+      40: daload
+      41: aload_0
+      42: ldc           #10                 // String z
+      44: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      47: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      50: getfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      53: iconst_2
+      54: daload
+      55: aload_0
+      56: ldc           #11                 // String name
+      58: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      61: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      64: getfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      67: aload_0
+      68: ldc           #13                 // String volume
+      70: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      73: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      76: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      79: iconst_0
+      80: faload
+      81: aload_0
+      82: ldc           #15                 // String pitch
+      84: invokevirtual #7                  // Method NativeNumericFixture$Context.arg:(Ljava/lang/String;)LNativeNumericFixture$Context;
+      87: getfield      #3                  // Field NativeNumericFixture$Context.member:LNativeNumericFixture$Context;
+      90: getfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      93: iconst_1
+      94: faload
+      95: invokestatic  #16                 // Method com/hbm/sound/WorldSoundEffects.play:(Lnet/minecraft/world/World;DDDLjava/lang/String;FF)V
+      98: return
+
+  public static java.lang.Object[] run(int, int, int, java.lang.String, java.lang.String, int[], long[], float[], double[]) throws java.lang.Exception;
+    Code:
+       0: new           #20                 // class NativeNumericFixture$Context
+       3: dup
+       4: invokespecial #21                 // Method NativeNumericFixture$Context."<init>":()V
+       7: astore        9
+       9: aload         9
+      11: aload         5
+      13: putfield      #8                  // Field NativeNumericFixture$Context.ints:[I
+      16: aload         9
+      18: aload         6
+      20: putfield      #19                 // Field NativeNumericFixture$Context.longs:[J
+      23: aload         9
+      25: aload         7
+      27: putfield      #14                 // Field NativeNumericFixture$Context.floats:[F
+      30: aload         9
+      32: aload         8
+      34: putfield      #18                 // Field NativeNumericFixture$Context.doubles:[D
+      37: aload         9
+      39: aload         4
+      41: putfield      #12                 // Field NativeNumericFixture$Context.name:Ljava/lang/String;
+      44: aload         9
+      46: aload_3
+      47: putfield      #22                 // Field NativeNumericFixture$Context.fail:Ljava/lang/String;
+      50: aload         9
+      52: iload_2
+      53: putfield      #23                 // Field NativeNumericFixture$Context.nullMode:I
+      56: new           #24                 // class java/util/ArrayList
+      59: dup
+      60: invokespecial #25                 // Method java/util/ArrayList."<init>":()V
+      63: astore        10
+      65: getstatic     #26                 // Field U:Lsun/misc/Unsafe;
+      68: ldc           #27                 // class net/minecraft/client/multiplayer/WorldClient
+      70: invokevirtual #28                 // Method sun/misc/Unsafe.allocateInstance:(Ljava/lang/Class;)Ljava/lang/Object;
+      73: checkcast     #29                 // class net/minecraft/world/World
+      76: astore        11
+      78: ldc           #30                 // class NativeNumericFixture
+      80: invokevirtual #31                 // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+      83: iconst_1
+      84: anewarray     #32                 // class java/lang/Class
+      87: dup
+      88: iconst_0
+      89: ldc           #33                 // class net/minecraft/world/IWorldEventListener
+      91: aastore
+      92: aload         4
+      94: aload         10
+      96: invokedynamic #34,  0             // InvokeDynamic #0:invoke:(Ljava/lang/String;Ljava/util/List;)Ljava/lang/reflect/InvocationHandler;
+     101: invokestatic  #35                 // Method java/lang/reflect/Proxy.newProxyInstance:(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+     104: checkcast     #33                 // class net/minecraft/world/IWorldEventListener
+     107: astore        12
+     109: ldc           #29                 // class net/minecraft/world/World
+     111: ldc           #36                 // String eventListeners
+     113: invokevirtual #37                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     116: astore        13
+     118: aload         13
+     120: iconst_1
+     121: invokevirtual #38                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     124: aload         13
+     126: aload         11
+     128: new           #24                 // class java/util/ArrayList
+     131: dup
+     132: iconst_1
+     133: anewarray     #33                 // class net/minecraft/world/IWorldEventListener
+     136: dup
+     137: iconst_0
+     138: aload         12
+     140: aastore
+     141: invokestatic  #39                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     144: invokespecial #40                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+     147: invokevirtual #41                 // Method java/lang/reflect/Field.set:(Ljava/lang/Object;Ljava/lang/Object;)V
+     150: aload         9
+     152: iload_2
+     153: iconst_1
+     154: if_icmpne     161
+     157: aconst_null
+     158: goto          163
+     161: aload         11
+     163: putfield      #5                  // Field NativeNumericFixture$Context.world:Lnet/minecraft/world/World;
+     166: aconst_null
+     167: astore        14
+     169: iload_0
+     170: iconst_2
+     171: imul
+     172: iload_1
+     173: iadd
+     174: tableswitch   { // 0 to 11
+                     0: 236
+                     1: 244
+                     2: 252
+                     3: 260
+                     4: 268
+                     5: 276
+                     6: 284
+                     7: 292
+                     8: 300
+                     9: 308
+                    10: 316
+                    11: 324
+               default: 332
+          }
+     236: aload         9
+     238: invokestatic  #42                 // Method call0_0:(LNativeNumericFixture$Context;)V
+     241: goto          342
+     244: aload         9
+     246: invokestatic  #43                 // Method call0_1:(LNativeNumericFixture$Context;)V
+     249: goto          342
+     252: aload         9
+     254: invokestatic  #44                 // Method call1_0:(LNativeNumericFixture$Context;)V
+     257: goto          342
+     260: aload         9
+     262: invokestatic  #45                 // Method call1_1:(LNativeNumericFixture$Context;)V
+     265: goto          342
+     268: aload         9
+     270: invokestatic  #46                 // Method call2_0:(LNativeNumericFixture$Context;)V
+     273: goto          342
+     276: aload         9
+     278: invokestatic  #47                 // Method call2_1:(LNativeNumericFixture$Context;)V
+     281: goto          342
+     284: aload         9
+     286: invokestatic  #48                 // Method call3_0:(LNativeNumericFixture$Context;)V
+     289: goto          342
+     292: aload         9
+     294: invokestatic  #49                 // Method call3_1:(LNativeNumericFixture$Context;)V
+     297: goto          342
+     300: aload         9
+     302: invokestatic  #50                 // Method call4_0:(LNativeNumericFixture$Context;)V
+     305: goto          342
+     308: aload         9
+     310: invokestatic  #51                 // Method call4_1:(LNativeNumericFixture$Context;)V
+     313: goto          342
+     316: aload         9
+     318: invokestatic  #52                 // Method call5_0:(LNativeNumericFixture$Context;)V
+     321: goto          342
+     324: aload         9
+     326: invokestatic  #53                 // Method call5_1:(LNativeNumericFixture$Context;)V
+     329: goto          342
+     332: new           #54                 // class java/lang/AssertionError
+     335: dup
+     336: ldc           #55                 // String bad shape
+     338: invokespecial #56                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+     341: athrow
+     342: goto          351
+     345: astore        15
+     347: aload         15
+     349: astore        14
+     351: aload         14
+     353: ifnonnull     360
+     356: aconst_null
+     357: goto          420
+     360: new           #58                 // class java/lang/StringBuilder
+     363: dup
+     364: invokespecial #59                 // Method java/lang/StringBuilder."<init>":()V
+     367: aload         14
+     369: invokevirtual #60                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+     372: invokevirtual #61                 // Method java/lang/Class.getName:()Ljava/lang/String;
+     375: invokevirtual #62                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     378: aload         14
+     380: instanceof    #63                 // class java/lang/IllegalStateException
+     383: ifeq          412
+     386: new           #58                 // class java/lang/StringBuilder
+     389: dup
+     390: invokespecial #59                 // Method java/lang/StringBuilder."<init>":()V
+     393: ldc           #64                 // String :
+     395: invokevirtual #62                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     398: aload         14
+     400: invokevirtual #65                 // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+     403: invokevirtual #62                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     406: invokevirtual #66                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     409: goto          414
+     412: ldc           #67                 // String
+     414: invokevirtual #62                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     417: invokevirtual #66                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     420: astore        15
+     422: iconst_3
+     423: anewarray     #68                 // class java/lang/Object
+     426: dup
+     427: iconst_0
+     428: aload         9
+     430: getfield      #69                 // Field NativeNumericFixture$Context.trace:Ljava/util/List;
+     433: aastore
+     434: dup
+     435: iconst_1
+     436: aload         10
+     438: aastore
+     439: dup
+     440: iconst_2
+     441: aload         15
+     443: aastore
+     444: areturn
+    Exception table:
+       from    to  target type
+         169   342   345   Class java/lang/Throwable
+
+  public static java.lang.String origin();
+    Code:
+       0: ldc           #29                 // class net/minecraft/world/World
+       2: invokevirtual #70                 // Method java/lang/Class.getProtectionDomain:()Ljava/security/ProtectionDomain;
+       5: invokevirtual #71                 // Method java/security/ProtectionDomain.getCodeSource:()Ljava/security/CodeSource;
+       8: invokevirtual #72                 // Method java/security/CodeSource.getLocation:()Ljava/net/URL;
+      11: invokevirtual #73                 // Method java/net/URL.toString:()Ljava/lang/String;
+      14: areturn
+
+  private static java.lang.Object lambda$run$0(java.lang.String, java.util.List, java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable;
+    Code:
+       0: aload_3
+       1: invokevirtual #74                 // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+       4: ldc           #75                 // String playSoundToAllNearExcept
+       6: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       9: ifeq          134
+      12: aload         4
+      14: iconst_1
+      15: aaload
+      16: checkcast     #77                 // class net/minecraft/util/SoundEvent
+      19: astore        5
+      21: aload         4
+      23: iconst_0
+      24: aaload
+      25: ifnonnull     62
+      28: aload         5
+      30: new           #78                 // class net/minecraft/util/ResourceLocation
+      33: dup
+      34: aload_0
+      35: invokespecial #79                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      38: invokestatic  #80                 // Method com/hbm/main/ModSoundEvents.worldEffect:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraft/util/SoundEvent;
+      41: if_acmpne     62
+      44: aload         4
+      46: iconst_2
+      47: aaload
+      48: new           #78                 // class net/minecraft/util/ResourceLocation
+      51: dup
+      52: aload_0
+      53: invokespecial #79                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      56: invokestatic  #81                 // Method com/hbm/main/ModSoundEvents.worldEffectCategory:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraft/util/SoundCategory;
+      59: if_acmpeq     72
+      62: new           #54                 // class java/lang/AssertionError
+      65: dup
+      66: ldc           #82                 // String native callback metadata
+      68: invokespecial #56                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+      71: athrow
+      72: aload_1
+      73: bipush        6
+      75: anewarray     #68                 // class java/lang/Object
+      78: dup
+      79: iconst_0
+      80: aload         5
+      82: invokevirtual #83                 // Method net/minecraft/util/SoundEvent.getSoundName:()Lnet/minecraft/util/ResourceLocation;
+      85: invokevirtual #84                 // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+      88: aastore
+      89: dup
+      90: iconst_1
+      91: aload         4
+      93: iconst_3
+      94: aaload
+      95: aastore
+      96: dup
+      97: iconst_2
+      98: aload         4
+     100: iconst_4
+     101: aaload
+     102: aastore
+     103: dup
+     104: iconst_3
+     105: aload         4
+     107: iconst_5
+     108: aaload
+     109: aastore
+     110: dup
+     111: iconst_4
+     112: aload         4
+     114: bipush        6
+     116: aaload
+     117: aastore
+     118: dup
+     119: iconst_5
+     120: aload         4
+     122: bipush        7
+     124: aaload
+     125: aastore
+     126: invokeinterface #85,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     131: pop
+     132: aconst_null
+     133: areturn
+     134: new           #54                 // class java/lang/AssertionError
+     137: dup
+     138: new           #58                 // class java/lang/StringBuilder
+     141: dup
+     142: invokespecial #59                 // Method java/lang/StringBuilder."<init>":()V
+     145: ldc           #86                 // String unexpected native callback:
+     147: invokevirtual #62                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     150: aload_3
+     151: invokevirtual #87                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     154: invokevirtual #66                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     157: invokespecial #56                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+     160: athrow
+
+  static {};
+    Code:
+       0: ldc           #88                 // class sun/misc/Unsafe
+       2: ldc           #89                 // String theUnsafe
+       4: invokevirtual #37                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+       7: astore_0
+       8: aload_0
+       9: iconst_1
+      10: invokevirtual #38                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+      13: aload_0
+      14: aconst_null
+      15: invokevirtual #90                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      18: checkcast     #88                 // class sun/misc/Unsafe
+      21: putstatic     #26                 // Field U:Lsun/misc/Unsafe;
+      24: goto          37
+      27: astore_0
+      28: new           #92                 // class java/lang/ExceptionInInitializerError
+      31: dup
+      32: aload_0
+      33: invokespecial #93                 // Method java/lang/ExceptionInInitializerError."<init>":(Ljava/lang/Throwable;)V
+      36: athrow
+      37: return
+    Exception table:
+       from    to  target type
+           0    24    27   Class java/lang/Exception
+}

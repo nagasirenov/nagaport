@@ -31,7 +31,7 @@ public final class LegacyIconRegistrationHandler {
 		TextureMap map = event.getMap();
 		LegacyIconRegister register = new LegacyIconRegister(map);
 		int blockCount = registerBlocks(register);
-		int itemCount = registerItems(register);
+		int itemCount = registerItems(new LegacyIconRegister(map, true));
 		MainRegistry.logger.debug("Invoked legacy icon callbacks for {} NTM blocks and {} NTM items", blockCount, itemCount);
 	}
 

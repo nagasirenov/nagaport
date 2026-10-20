@@ -14,7 +14,7 @@ public class TileEntityMachineBAT9000 extends TileEntityBarrel {
 	}
 	
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.bat9000";
 	}
 	
@@ -22,22 +22,22 @@ public class TileEntityMachineBAT9000 extends TileEntityBarrel {
 	public void checkFluidInteraction() {
 		
 		if(tank.getTankType().isAntimatter()) {
-			worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-			worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 10, true, true);
+			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 10, true, true);
 		}
 	}
 	
 	@Override
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 1, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord + 3, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 3, Library.NEG_Z),
-				new DirPos(xCoord + 3, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord - 3, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord + 3, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord - 3, yCoord, zCoord - 1, Library.NEG_X)
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() + 3, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X)
 		};
 	}
 
@@ -48,12 +48,12 @@ public class TileEntityMachineBAT9000 extends TileEntityBarrel {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 5,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 3
 					);
 		}
 		

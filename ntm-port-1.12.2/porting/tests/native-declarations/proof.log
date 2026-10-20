@@ -1,0 +1,2 @@
+PASS nine exact whole-source forward/reverse API mappings; not whole-owner compilation
+PASS 371 actual old/native packet and native relocated-type assertions. Entire projectile/GUI/turret owners are NOT compiled or behavior-certified by this bounded API test.

@@ -13,7 +13,10 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.S2BPacketChangeGameState;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
@@ -28,6 +31,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySchrab extends Entity implements IProjectile
 {
+
+	private static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntitySchrab.class, DataSerializers.BYTE);
     private int field_145791_d = -1;
     private int field_145792_e = -1;
     private int field_145789_f = -1;
@@ -75,9 +80,9 @@ public class EntitySchrab extends Entity implements IProjectile
 
         this.posY = p_i1755_2_.posY + p_i1755_2_.getEyeHeight() - 0.10000000149011612D;
         double d0 = p_i1755_3_.posX - p_i1755_2_.posX;
-        double d1 = p_i1755_3_.boundingBox.minY + p_i1755_3_.height / 3.0F - this.posY;
+        double d1 = p_i1755_3_.getEntityBoundingBox().minY + p_i1755_3_.height / 3.0F - this.posY;
         double d2 = p_i1755_3_.posZ - p_i1755_2_.posZ;
-        double d3 = MathHelper.sqrt_double(d0 * d0 + d2 * d2);
+        double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
 
         if (d3 >= 1.0E-7D)
         {
@@ -132,7 +137,7 @@ public class EntitySchrab extends Entity implements IProjectile
     @Override
 	protected void entityInit()
     {
-        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
+        this.dataManager.register(CRITICAL_FLAGS, Byte.valueOf((byte)0));
     }
 
     /**
@@ -141,7 +146,7 @@ public class EntitySchrab extends Entity implements IProjectile
     @Override
 	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
     {
-        float f2 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
+        float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
         p_70186_1_ /= f2;
         p_70186_3_ /= f2;
         p_70186_5_ /= f2;
@@ -154,7 +159,7 @@ public class EntitySchrab extends Entity implements IProjectile
         this.motionX = p_70186_1_;
         this.motionY = p_70186_3_;
         this.motionZ = p_70186_5_;
-        float f3 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_5_ * p_70186_5_);
+        float f3 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_5_ * p_70186_5_);
         this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70186_1_, p_70186_5_) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70186_3_, f3) * 180.0D / Math.PI);
         this.ticksInGround = 0;
@@ -185,7 +190,7 @@ public class EntitySchrab extends Entity implements IProjectile
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
-            float f = MathHelper.sqrt_double(p_70016_1_ * p_70016_1_ + p_70016_5_ * p_70016_5_);
+            float f = MathHelper.sqrt(p_70016_1_ * p_70016_1_ + p_70016_5_ * p_70016_5_);
             this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70016_1_, p_70016_5_) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70016_3_, f) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch;
@@ -206,17 +211,17 @@ public class EntitySchrab extends Entity implements IProjectile
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
-            MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+            MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
             //this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(this.motionY, (double)f) * 180.0D / Math.PI);
         }
 
-        Block block = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+        Block block = com.hbm.world.WorldBlockState.read(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f).getBlock();
 
-        if (block.getMaterial() != Material.air)
+        if (block.getDefaultState().getMaterial() != Material.AIR)
         {
-            block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
-            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            block.setBlockBoundsBasedOnState(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
 
             if (axisalignedbb != null && axisalignedbb.isVecInside(new Vec3d(this.posX, this.posY, this.posZ)))
             {
@@ -253,15 +258,15 @@ public class EntitySchrab extends Entity implements IProjectile
             }*/
 
 
-            if (!this.worldObj.isRemote)
+            if (!this.world.isRemote)
             {
-            	this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
-            	ExplosionChaos.burn(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 10);
-            	ExplosionChaos.flameDeath(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
-            	ExplosionNukeGeneric.wasteNoSchrab(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
-            	ExplosionChaos.poison(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
+            	this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
+            	ExplosionChaos.burn(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 10);
+            	ExplosionChaos.flameDeath(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
+            	ExplosionNukeGeneric.wasteNoSchrab(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
+            	ExplosionChaos.poison(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
             }
-            this.worldObj.spawnEntityInWorld(new EntityLightningBolt(this.worldObj, this.posX, this.posY, this.posZ));
+            this.world.spawnEntityInWorld(new EntityLightningBolt(this.world, this.posX, this.posY, this.posZ));
         	this.setDead();
         }
         else
@@ -269,7 +274,7 @@ public class EntitySchrab extends Entity implements IProjectile
             ++this.ticksInAir;
             Vec3d vec31 = new Vec3d(this.posX, this.posY, this.posZ);
             Vec3d vec3 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-            RayTraceResult movingobjectposition = this.worldObj.rayTraceBlocks(vec31, vec3, false, true, false);
+            RayTraceResult movingobjectposition = this.world.rayTraceBlocks(vec31, vec3, false, true, false);
             vec31 = new Vec3d(this.posX, this.posY, this.posZ);
             vec3 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
@@ -279,7 +284,7 @@ public class EntitySchrab extends Entity implements IProjectile
             }
 
             Entity entity = null;
-            List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             int i;
             float f1;
@@ -291,7 +296,7 @@ public class EntitySchrab extends Entity implements IProjectile
                 if (entity1.canBeCollidedWith() && (entity1 != this.shootingEntity || this.ticksInAir >= 5))
                 {
                     f1 = 0.3F;
-                    AxisAlignedBB axisalignedbb1 = entity1.boundingBox.expand(f1, f1, f1);
+                    AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand(f1, f1, f1);
                     RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec31, vec3);
 
                     if (movingobjectposition1 != null)
@@ -329,8 +334,8 @@ public class EntitySchrab extends Entity implements IProjectile
             {
                 if (movingobjectposition.entityHit != null)
                 {
-                    f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-                    int k = MathHelper.ceiling_double_int(f2 * this.damage);
+                    f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+                    int k = MathHelper.ceil(f2 * this.damage);
 
                     if (this.getIsCritical())
                     {
@@ -361,7 +366,7 @@ public class EntitySchrab extends Entity implements IProjectile
 
                             if (this.knockbackStrength > 0)
                             {
-                                f4 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+                                f4 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 
                                 if (f4 > 0.0F)
                                 {
@@ -377,15 +382,15 @@ public class EntitySchrab extends Entity implements IProjectile
 
                             if (this.shootingEntity != null && movingobjectposition.entityHit != this.shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
                             {
-                                ((EntityPlayerMP)this.shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
+                                ((EntityPlayerMP)this.shootingEntity).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
                             }
                         }
 
                         if (!(movingobjectposition.entityHit instanceof EntityEnderman))
                         {
-                            if (!this.worldObj.isRemote)
+                            if (!this.world.isRemote)
                             {
-                            	this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
+                            	this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
                             }
                         	this.setDead();
                         }
@@ -405,12 +410,12 @@ public class EntitySchrab extends Entity implements IProjectile
                     this.field_145791_d = movingobjectposition.getBlockPos().getX();
                     this.field_145792_e = movingobjectposition.getBlockPos().getY();
                     this.field_145789_f = movingobjectposition.getBlockPos().getZ();
-                    this.field_145790_g = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e, this.field_145789_f);
-                    this.inData = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+                    this.field_145790_g = com.hbm.world.WorldBlockState.read(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f).getBlock();
+                    this.inData = this.world.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
                     this.motionX = ((float)(movingobjectposition.hitVec.x - this.posX));
                     this.motionY = ((float)(movingobjectposition.hitVec.y - this.posY));
                     this.motionZ = ((float)(movingobjectposition.hitVec.z - this.posZ));
-                    f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+                    f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
                     this.posX -= this.motionX / f2 * 0.05000000074505806D;
                     this.posY -= this.motionY / f2 * 0.05000000074505806D;
                     this.posZ -= this.motionZ / f2 * 0.05000000074505806D;
@@ -419,9 +424,9 @@ public class EntitySchrab extends Entity implements IProjectile
                     this.arrowShake = 7;
                     this.setIsCritical(false);
 
-                    if (this.field_145790_g.getMaterial() != Material.air)
+                    if (this.field_145790_g.getDefaultState().getMaterial() != Material.AIR)
                     {
-                        this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f, this);
+                        this.field_145790_g.onEntityCollidedWithBlock(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f, this);
                     }
                 }
             }
@@ -430,14 +435,14 @@ public class EntitySchrab extends Entity implements IProjectile
             {
                 for (i = 0; i < 4; ++i)
                 {
-                    this.worldObj.spawnParticle("smoke", this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);
+                    this.world.spawnParticle("smoke", this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);
                 }
             }
 
             this.posX += this.motionX;
             this.posY += this.motionY;
             this.posZ += this.motionZ;
-            f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+            f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
             //for (this.rotationPitch = (float)(Math.atan2(this.motionY, (double)f2) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)
@@ -470,7 +475,7 @@ public class EntitySchrab extends Entity implements IProjectile
                 for (int l = 0; l < 4; ++l)
                 {
                     f4 = 0.25F;
-                    this.worldObj.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
+                    this.world.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
                 }
 
                 f3 = 0.8F;
@@ -547,7 +552,7 @@ public class EntitySchrab extends Entity implements IProjectile
     @Override
 	public void onCollideWithPlayer(EntityPlayer p_70100_1_)
     {
-        if (!this.worldObj.isRemote && this.inGround && this.arrowShake <= 0)
+        if (!this.world.isRemote && this.inGround && this.arrowShake <= 0)
         {
             boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && p_70100_1_.capabilities.isCreativeMode;
 
@@ -609,15 +614,15 @@ public class EntitySchrab extends Entity implements IProjectile
      */
     public void setIsCritical(boolean p_70243_1_)
     {
-        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+        byte b0 = this.dataManager.get(CRITICAL_FLAGS);
 
         if (p_70243_1_)
         {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));
+            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 | 1)));
         }
         else
         {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));
+            this.dataManager.set(CRITICAL_FLAGS, Byte.valueOf((byte)(b0 & -2)));
         }
     }
 
@@ -626,7 +631,7 @@ public class EntitySchrab extends Entity implements IProjectile
      */
     public boolean getIsCritical()
     {
-        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+        byte b0 = this.dataManager.get(CRITICAL_FLAGS);
         return (b0 & 1) != 0;
     }
 }

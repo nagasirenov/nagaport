@@ -371,16 +371,16 @@ public class OreDictManager {
 		/*
 		 * VANILLA
 		 */
-		COAL.gem(Items.coal).dustSmall(powder_coal_tiny).dust(powder_coal);
+		COAL.gem(Items.COAL).dustSmall(powder_coal_tiny).dust(powder_coal);
 		IRON.plate(plate_iron).dust(powder_iron).ore(ore_gneiss_iron).oreAll(ore_iron);
 		GOLD.plate(plate_gold).dust(powder_gold).ore(ore_gneiss_gold).oreAll(ore_gold);
 		LAPIS.dust(powder_lapis).oreAll(ore_lapis);
 		REDSTONE.oreAll(ore_redstone);
-		NETHERQUARTZ.gem(Items.quartz).dust(powder_quartz).ore(Blocks.quartz_ore).oreAll(ore_quartz);
+		NETHERQUARTZ.gem(Items.QUARTZ).dust(powder_quartz).ore(Blocks.QUARTZ_ORE).oreAll(ore_quartz);
 		QUARTZ.dust(powder_quartz);
 		DIAMOND.dust(powder_diamond).ore(gravel_diamond, ore_sellafield_diamond).oreAll(ore_diamond);
 		EMERALD.dust(powder_emerald).ore(ore_sellafield_emerald).oreAll(ore_emerald);
-		GLOWSTONE.dust(Items.glowstone_dust);
+		GLOWSTONE.dust(Items.GLOWSTONE_DUST);
 
 		/*
 		 * RADIOACTIVE
@@ -570,7 +570,7 @@ public class OreDictManager {
 		/*
 		 * COLLECTIONS
 		 */
-		ANY_GUNPOWDER			.dust(Items.gunpowder, ballistite, cordite);
+		ANY_GUNPOWDER			.dust(Items.GUNPOWDER, ballistite, cordite);
 		ANY_SMOKELESS			.dust(ballistite, cordite);
 		ANY_PLASTICEXPLOSIVE	.ingot(ingot_semtex, ingot_c4);
 		ANY_HIGHEXPLOSIVE		.ingot(ball_tnt).ingot(ball_tatb);
@@ -812,24 +812,24 @@ public class OreDictManager {
 	/** Vanilla item ore dict registration events never actually register in the ODM because vanilla items are registered so early that the ODM event handler doesn't exist yet. */
 	public static void compensateMojangSpaghettiBullshit() {
 
-		arcSmeltable.add(new ComparableStack(Blocks.gold_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.iron_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.lapis_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.diamond_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.redstone_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.emerald_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.quartz_ore));
-		arcSmeltable.add(new ComparableStack(Blocks.gold_block));
-		arcSmeltable.add(new ComparableStack(Blocks.iron_block));
-		arcSmeltable.add(new ComparableStack(Blocks.lapis_block));
-		arcSmeltable.add(new ComparableStack(Blocks.diamond_block));
-		arcSmeltable.add(new ComparableStack(Blocks.redstone_block));
-		arcSmeltable.add(new ComparableStack(Blocks.emerald_block));
-		arcSmeltable.add(new ComparableStack(Blocks.quartz_block));
-		arcSmeltable.add(new ComparableStack(Items.iron_ingot));
-		arcSmeltable.add(new ComparableStack(Items.gold_ingot));
-		arcSmeltable.add(new ComparableStack(Items.brick));
-		arcSmeltable.add(new ComparableStack(Items.netherbrick));
+		arcSmeltable.add(new ComparableStack(Blocks.GOLD_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.IRON_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.LAPIS_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.DIAMOND_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.REDSTONE_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.EMERALD_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.QUARTZ_ORE));
+		arcSmeltable.add(new ComparableStack(Blocks.GOLD_BLOCK));
+		arcSmeltable.add(new ComparableStack(Blocks.IRON_BLOCK));
+		arcSmeltable.add(new ComparableStack(Blocks.LAPIS_BLOCK));
+		arcSmeltable.add(new ComparableStack(Blocks.DIAMOND_BLOCK));
+		arcSmeltable.add(new ComparableStack(Blocks.REDSTONE_BLOCK));
+		arcSmeltable.add(new ComparableStack(Blocks.EMERALD_BLOCK));
+		arcSmeltable.add(new ComparableStack(Blocks.QUARTZ_BLOCK));
+		arcSmeltable.add(new ComparableStack(Items.IRON_INGOT));
+		arcSmeltable.add(new ComparableStack(Items.GOLD_INGOT));
+		arcSmeltable.add(new ComparableStack(Items.BRICK));
+		arcSmeltable.add(new ComparableStack(Items.NETHERBRICK));
 	}
 
 	public static class DictFrame {

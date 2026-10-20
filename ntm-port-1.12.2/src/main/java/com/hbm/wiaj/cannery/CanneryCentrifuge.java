@@ -49,7 +49,7 @@ public class CanneryCentrifuge extends CanneryBase {
 		
 		for(int x = world.sizeX - 1; x >= 0 ; x--) {
 			for(int z = 0; z < world.sizeZ; z++) {
-				scene0.add(new ActionSetBlock(x, 0, z, Blocks.brick_block));
+				scene0.add(new ActionSetBlock(x, 0, z, Blocks.BRICK_BLOCK));
 			}
 			
 			if(x == 7) {

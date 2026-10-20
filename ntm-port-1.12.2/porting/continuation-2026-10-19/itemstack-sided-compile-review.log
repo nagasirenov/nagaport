@@ -1,0 +1,9 @@
+Previous diagnostics: 1459
+Current diagnostics: 1458
+Removed diagnostics:
+Counter({('com/hbm/util/ItemStackUtil.java', 'cannot find symbol'): 1})
+Added diagnostics:
+Counter()
+PASS: all126 modified production files byte-identical to actual compiler inputs;3861 total Java inputs.
+Common clean compile FAIL exit1 in23s; not runnable mod.
+Independent ItemStackUtil and sided reviews: no blocking findings.

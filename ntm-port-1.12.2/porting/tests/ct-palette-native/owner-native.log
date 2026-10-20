@@ -1,0 +1,11 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[01:50:10] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:50:10] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:50:10] [main/INFO]: Replaced 1036 ore ingredients
+[01:50:10] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:50:10] [main/INFO]: Processing ObjectHolder annotations
+[01:50:10] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS pinned original1.7.10 bytecode oracle: quantity1/dropdamage0 all16; original pick damage delegates metadata to same damageDropped.
+PASS 1572 actual CT owner/state/drop/pick/WorldChunk/Anvil assertions; no graphics acceptance change.
+PASS exact CT owner/native model source hashes and five exact constructor assignments; no new visual policy acceptance.

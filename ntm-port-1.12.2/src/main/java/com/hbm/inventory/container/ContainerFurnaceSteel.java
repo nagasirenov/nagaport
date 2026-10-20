@@ -38,7 +38,7 @@ public class ContainerFurnaceSteel extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack stack = null;
+		ItemStack stack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -47,17 +47,17 @@ public class ContainerFurnaceSteel extends Container {
 
 			if(index <= 5) {
 				if(!this.mergeItemStack(originalStack, 6, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 				
 				slot.onSlotChange(originalStack, stack);
 				
 			} else if(!this.mergeItemStack(originalStack, 0, 3, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
-			if(originalStack.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+			if(originalStack.isEmpty()) {
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -68,6 +68,6 @@ public class ContainerFurnaceSteel extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return furnace.isUseableByPlayer(player);
+		return furnace.isUsableByPlayer(player);
 	}
 }

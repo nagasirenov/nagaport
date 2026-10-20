@@ -1,0 +1,13 @@
+{
+  "original_root": "ntm-original-pristine",
+  "original_sha256": {
+    "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": "35d82f536aba7024fbb1f7e72caf8bf1711d719b640c906d8f5210b0f6e25f3c",
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": "8ec52d7e50c1fd0fff45ba5d150a2fb2f558152e6b7c0bc371fbe54574aeb577",
+    "src/main/java/com/hbm/items/tool/ItemSatInterface.java": "87e60c8b23658067b2ab2f96b4565fa9591c43f901a8ec9410a1d867130015fb"
+  },
+  "gui_constructors": [
+    "src/main/java/com/hbm/items/tool/ItemSatInterface.java"
+  ],
+  "native_unchanged_gui_provider_sha256": "39235a725126a34a735139f45f343a6a0aacc015b4097df7fbf56047c1a2f191",
+  "scope": "Torex true this.world.isRemote branch; GUI private drawMap via drawScreen, constructed only by ItemSatInterface.provideGUI annotated SideOnly CLIENT; original onItemRightClick opens GUI only for world.isRemote."
+}

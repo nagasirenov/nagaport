@@ -29,9 +29,9 @@ public class ItemStructureRandomized extends ItemStructureTool {
 		BlockPos pos = this.getAnchor(stack);
 		if(pos == null) return;
 
-		int savedX = stack.stackTagCompound.getInteger("x");
-		int savedY = stack.stackTagCompound.getInteger("y");
-		int savedZ = stack.stackTagCompound.getInteger("z");
+		int savedX = stack.getTagCompound().getInteger("x");
+		int savedY = stack.getTagCompound().getInteger("y");
+		int savedZ = stack.getTagCompound().getInteger("z");
 
 		int minX = Math.min(savedX, x) - pos.getX();
 		int minY = Math.min(savedY, y) - pos.getY();

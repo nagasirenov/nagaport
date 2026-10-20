@@ -1,0 +1,32 @@
+import com.hbm.blocks.BlockEnums.LightType;
+import com.hbm.lib.ForgeDirection;
+/** Renderer selectors are extracted verbatim from pinned pristine RenderLight, not production. */
+final class OriginalLightOracle {
+ static Layout active;
+ static final class Layout {String asset,part;float yaw,pitch,roll;double x,y,z,scale=1,glYaw;boolean shadow;}
+ static class IIcon {}
+ static class IBlockAccess {final int meta,mask;IBlockAccess(int m,int k){meta=m;mask=k;}int getBlockMetadata(int x,int y,int z){return meta;}}
+ static class Block {IIcon getIcon(int a,int b){return new IIcon();}int getMixedBrightnessForBlock(IBlockAccess w,int x,int y,int z){return 0;}}
+ static class Spotlight extends Block {final LightType type;Spotlight(LightType t){type=t;}
+ /* getModel */
+ /* getPartName */
+ ForgeDirection getDirection(IBlockAccess world,int x,int y,int z){return getDirection(world.meta);}
+ /* getDirection */
+ }
+ static final class SpotlightModular extends Spotlight {SpotlightModular(LightType t){super(t);}
+ /* modularPart */
+ boolean canConnectTo(IBlockAccess w,int x,int y,int z){for(ForgeDirection d:ForgeDirection.VALID_DIRECTIONS)if(x==d.offsetX&&y==d.offsetY&&z==d.offsetZ)return (w.mask&(1<<d.ordinal()))!=0;throw new AssertionError("Non-adjacent query");}
+ }
+ static final class ResourceManager {static final String fluorescent_lamp="fluorescent_lamp",flood_lamp="flood_lamp",cage_lamp="cage_lamp";}
+ static final class RenderBlocks {IIcon overrideBlockTexture;boolean hasOverrideBlockTexture(){return false;}}
+ static final class Tessellator {static final Tessellator instance=new Tessellator();double x,y,z;void setBrightness(int b){}void setColorOpaque_F(float r,float g,float b){}void startDrawingQuads(){}void draw(){}void addTranslation(double a,double b,double c){x+=a;y+=b;z+=c;}}
+ static final class GL11 {static void glPushMatrix(){}static void glPopMatrix(){}static void glRotated(double degrees,double x,double y,double z){if(x!=0||y!=1||z!=0)throw new AssertionError();active.glYaw=degrees;}static void glScaled(double x,double y,double z){if(x!=y||x!=z)throw new AssertionError();active.scale=x;}}
+ static final class ObjUtil {
+ /* getYaw */
+ /* getPitch */
+ static void renderPartWithIcon(String mesh,String part,IIcon icon,Tessellator t,float yaw,boolean shade){renderPartWithIcon(mesh,part,icon,t,yaw,0,0,shade);}
+ static void renderPartWithIcon(String mesh,String part,IIcon icon,Tessellator t,float yaw,float pitch,float roll,boolean shade){active.asset=mesh;active.part=part;active.yaw=yaw;active.pitch=pitch;active.roll=roll;active.shadow=shade;active.x=t.x;active.y=t.y;active.z=t.z;}
+ }
+ /* renderer */
+ static Layout layout(LightType type,boolean modular,int meta,int mask,boolean item){active=new Layout();Tessellator.instance.x=Tessellator.instance.y=Tessellator.instance.z=0;Spotlight b=modular?new SpotlightModular(type):new Spotlight(type);OriginalLightOracle renderer=new OriginalLightOracle();if(item)renderer.renderInventoryBlock(b,meta,0,new RenderBlocks());else renderer.renderWorldBlock(new IBlockAccess(meta,mask),0,0,0,b,0,new RenderBlocks());return active;}
+}

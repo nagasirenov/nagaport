@@ -1,0 +1,4 @@
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/JeiCoreNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[15:05:18] [main/WARN]: Potentially Dangerous alternative prefix `jei_fixture` for name `rod`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS migrated production JEI handlers: 272 assertions. Real MC/JEI/NEI dependencies; scoped NTM-only registry/domain fixtures; no gameplay/full-mod claim.

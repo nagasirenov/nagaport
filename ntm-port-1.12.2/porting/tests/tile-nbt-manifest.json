@@ -1,0 +1,2722 @@
+{
+  "format": 1,
+  "baseline": "checkpoint3 fb4263a; fingerprints do not require this git object",
+  "scope": "Named TileEntity descendants and their exact single-compound writers; native TileEntityFurnace inheritance included",
+  "methods": [
+    {
+      "key": "src/main/java/cofh/api/energy/TileEnergyHandler.java:TileEnergyHandler:NBTTagCompound nbt",
+      "owner": "TileEnergyHandler",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2a26c31955d25ab1e6ea549e412fb62f824a4f725e2de61a07f131f2f148f0b0"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/BlockVolcanoV2.java:TileEntityLightningVolcano:NBTTagCompound nbt",
+      "owner": "TileEntityLightningVolcano",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "26bc24175abd1168c623788f4d65bd593ff0235cfc8e64d3c5e2c6c18b3951c3"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java:TileEntityVolcanoCore:NBTTagCompound nbt",
+      "owner": "TileEntityVolcanoCore",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "124906411ce478e66f3fcf1f43564254a25cf38b838473010da271849896cceb"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java:TileEntityBedrockOre:NBTTagCompound nbt",
+      "owner": "TileEntityBedrockOre",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2c657441999ed85dad0ab886fe9f23b9428ecc036a4ec3e24af2b00e2e55ae76"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockBobble.java:TileEntityBobble:NBTTagCompound nbt",
+      "owner": "TileEntityBobble",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5ca611eb5666a563200b3132f2f350085b121a7148d1f1a5a16449c0dfea4425"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java:TileEntitySlag:NBTTagCompound nbt",
+      "owner": "TileEntitySlag",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0ea247f7d709748eb8e3f25eb8f40d0c2cf59bf48a0c6176a544b23939892fe8"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockEmitter.java:TileEntityEmitter:NBTTagCompound nbt",
+      "owner": "TileEntityEmitter",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f5cf1fb2818def8650316aba97123f38abcec58675aeb4942bd292a6e6bb2552"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java:TileEntityGlpyhidSpawner:NBTTagCompound nbt",
+      "owner": "TileEntityGlpyhidSpawner",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d3715ff106045f9ef93d14b117fe7b430a68f2685b2f14be7b098b38b5680361"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockLoot.java:TileEntityLoot:NBTTagCompound nbt",
+      "owner": "TileEntityLoot",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "fd7e69c4c0899ff9a2bdb1dcc82e6fdefa15f9b52c13d255308dc1c874516278"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockPedestal.java:TileEntityPedestal:NBTTagCompound nbt",
+      "owner": "TileEntityPedestal",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "68d1824d574c7f91d4a78f6ac72aeaf2a68cfae7f3280184d959cf17e9b1bdce"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java:TileEntityPlushie:NBTTagCompound nbt",
+      "owner": "TileEntityPlushie",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5ca611eb5666a563200b3132f2f350085b121a7148d1f1a5a16449c0dfea4425"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockRebar.java:TileEntityRebar:NBTTagCompound nbt",
+      "owner": "TileEntityRebar",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e305f6c6a4155fc4a9a3c2a82066567b8c4f9840b24d01051c2afb81e4d97d06"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java:TileEntitySkeletonHolder:NBTTagCompound nbt",
+      "owner": "TileEntitySkeletonHolder",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "68d1824d574c7f91d4a78f6ac72aeaf2a68cfae7f3280184d959cf17e9b1bdce"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java:TileEntitySnowglobe:NBTTagCompound nbt",
+      "owner": "TileEntitySnowglobe",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5ca611eb5666a563200b3132f2f350085b121a7148d1f1a5a16449c0dfea4425"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java:TileEntitySupplyCrate:NBTTagCompound nbt",
+      "owner": "TileEntitySupplyCrate",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bb166f4ad6e7b4c1594660cd62049145db11b31d94245e4983557c94521e6e0f"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java:TileEntityWandJigsaw:NBTTagCompound nbt",
+      "owner": "TileEntityWandJigsaw",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9f522a21386ce1df34e5c14e3ffd36a56724ea6eb33e9bcf174bee4041377ea4"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockWandLogic.java:TileEntityWandLogic:NBTTagCompound nbt",
+      "owner": "TileEntityWandLogic",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "771d5bf634db931b8fe9ee8949de540e875fe23237bd9338011e43968833894f"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockWandLoot.java:TileEntityWandLoot:NBTTagCompound nbt",
+      "owner": "TileEntityWandLoot",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "40c00215cc1cd8b7170f19e07ad395cbedbd86a1eeb409440ad922b4c0dc7b37"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockWandStructure.java:TileEntityWandStructure:NBTTagCompound nbt",
+      "owner": "TileEntityWandStructure",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "52ac575ba0d306d8509e12bf75599729b8f0bf7df5ec9bdbbd46abb4fb9fabd3"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java:TileEntityWandTandem:NBTTagCompound nbt",
+      "owner": "TileEntityWandTandem",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c18ee7f1cdda03b1782c4327287887e03ed31a9ec48fa98f6d04bc56bee988f4"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/DungeonSpawner.java:TileEntityDungeonSpawner:NBTTagCompound nbt",
+      "owner": "TileEntityDungeonSpawner",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "811e7925c9f3da67f5561fad8e709696b52d8ea5bf4ed9792c19ec21b758f699"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/LogicBlock.java:TileEntityLogicBlock:NBTTagCompound nbt",
+      "owner": "TileEntityLogicBlock",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "90867d6d72c5a8b08e45bbddeb9065dd3b8c63ddb3f8c98c9f88a26f60c97294"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/generic/PartEmitter.java:TileEntityPartEmitter:NBTTagCompound nbt",
+      "owner": "TileEntityPartEmitter",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "065d78fed794a4cad7166cc425222695cf4f64c325ef48e19e15f371ecda558f"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/BlockAtmosphereEditor.java:TileEntityAtmosphereEditor:NBTTagCompound nbt",
+      "owner": "TileEntityAtmosphereEditor",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5d4a8bcab004c65ff5733a43e6ea9bcd7a2ff38bf12281523add62ce50439ffe"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/BlockICF.java:TileEntityBlockICF:NBTTagCompound nbt",
+      "owner": "TileEntityBlockICF",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "df3db2a1b0fb9f643f2e9dffc1b17c72d892892ba4d54f2013196fa69445a22f"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/BlockPWR.java:TileEntityBlockPWR:NBTTagCompound nbt",
+      "owner": "TileEntityBlockPWR",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0c11761d1fd3c9450abec80483afd62d0b223fa4d9e6cab4908ae671fecaa0a8"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/Floodlight.java:TileEntityFloodlight:NBTTagCompound nbt",
+      "owner": "TileEntityFloodlight",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c3060759f552cbc4f4a8b880885690c004d785234a2812a75d38d1eb5d7bf172"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/FloodlightBeam.java:TileEntityFloodlightBeam:NBTTagCompound nbt",
+      "owner": "TileEntityFloodlightBeam",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4d1bf1ff21afe7f679c9674dcbfa1eaf5ead392a81086591c7b62d85fbad7451"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java:TileEntityCapacitor:NBTTagCompound nbt",
+      "owner": "TileEntityCapacitor",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a96b628f96d8c20f5bd4f59e5efb3812fcaa3cf6204d59f257965557830b5c4f"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/MachineFan.java:TileEntityFan:NBTTagCompound nbt",
+      "owner": "TileEntityFan",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "368282ca6394287d6eb8d025124938aa31fef75fd3eea28be3a3ca12c5602c56"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/machine/PistonInserter.java:TileEntityPistonInserter:NBTTagCompound nbt",
+      "owner": "TileEntityPistonInserter",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "ce86995970759b36972d9ac45777c124b916a817b66f7f39dd1f45b23f20ab63"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java:TileEntityCablePaintable:NBTTagCompound nbt",
+      "owner": "TileEntityCablePaintable",
+      "parent": "TileEntityCableBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "903cb1c69d68669f5438b39fde3a3ce027cb5387dbe34d8e870588fbefbd5b12"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java:TileEntityOpenComputersCablePaintable:NBTTagCompound nbt",
+      "owner": "TileEntityOpenComputersCablePaintable",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0e54886360c325138bc61cb67da483156ecef75f5045ef2d846ad707d33dc25c"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/CableDiode.java:TileEntityDiode:NBTTagCompound nbt",
+      "owner": "TileEntityDiode",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "dd9c6f50ca9c8eb1b63b91725c54cf7b284d07eba08f5893640a53fa2e3ca2ee"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java:TileEntityPipePaintable:NBTTagCompound nbt",
+      "owner": "TileEntityPipePaintable",
+      "parent": "TileEntityPipeBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "903cb1c69d68669f5438b39fde3a3ce027cb5387dbe34d8e870588fbefbd5b12"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java:TileEntityPipeExhaustPaintable:NBTTagCompound nbt",
+      "owner": "TileEntityPipeExhaustPaintable",
+      "parent": "TileEntityPipeExhaust",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "903cb1c69d68669f5438b39fde3a3ce027cb5387dbe34d8e870588fbefbd5b12"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/FluidPump.java:TileEntityFluidPump:NBTTagCompound nbt",
+      "owner": "TileEntityFluidPump",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "39e18e9a6c1f02e84f371e61b7c2bb5b25072ce2bfb50d2b9cb5d1a11a31b1b5"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java:TileEntityPneumoTubePaintable:NBTTagCompound nbt",
+      "owner": "TileEntityPneumoTubePaintable",
+      "parent": "TileEntityPneumoTube",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "903cb1c69d68669f5438b39fde3a3ce027cb5387dbe34d8e870588fbefbd5b12"
+    },
+    {
+      "key": "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java:TileEntityRailSwitch:NBTTagCompound nbt",
+      "owner": "TileEntityRailSwitch",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "cc1795c1aeff4a44676a29389243eaa164a84f08191ae0cf17833fdbf67cf229"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityData.java:TileEntityData:NBTTagCompound nbt",
+      "owner": "TileEntityData",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bd8a5f8b916a9e75165fb3efb9d6e27240c9390898d35f78435e58e99eeb2d6e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityDoorGeneric.java:TileEntityDoorGeneric:NBTTagCompound tag",
+      "owner": "TileEntityDoorGeneric",
+      "parent": "TileEntityLockableBase",
+      "parameter": "tag",
+      "early_returns": 0,
+      "body_sha256": "dbae5923d265e2cfbd31156a9f2dff2f8e9b91fafb9fb94f2449d66193004c37"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityInventoryBase.java:TileEntityInventoryBase:NBTTagCompound nbt",
+      "owner": "TileEntityInventoryBase",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityLoadedBase.java:TileEntityLoadedBase:NBTTagCompound nbt",
+      "owner": "TileEntityLoadedBase",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "92ec88b064e89171edf4fbdab5dff7866c81ee116a175f1e56630f0a09edfc0a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java:TileEntityMachineBase:NBTTagCompound nbt",
+      "owner": "TileEntityMachineBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityMachinePolluting.java:TileEntityMachinePolluting:NBTTagCompound nbt",
+      "owner": "TileEntityMachinePolluting",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b8e436c4dcfc2a25ba70473a770a54b0e37a1ca8b24d890f24dbf6ca1e7f906b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityProxyBase.java:TileEntityProxyBase:NBTTagCompound nbt",
+      "owner": "TileEntityProxyBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "70656549be183995ca05ba251a5e1d3af0b669e92944d86dfd67df2ac5c5b60a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java:TileEntityProxyCombo:NBTTagCompound nbt",
+      "owner": "TileEntityProxyCombo",
+      "parent": "TileEntityProxyBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "3004e693cc88bed5025c666a2aa96b91792d50da18011a3f5c1edc7ca43b7120"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java:TileEntityAntimatter:NBTTagCompound nbt",
+      "owner": "TileEntityAntimatter",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "edfcaf61ad6d1da6e67bb7919020be7c7a68d924b82dc2753801004ffb439d4e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java:TileEntityBombMulti:NBTTagCompound nbt",
+      "owner": "TileEntityBombMulti",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java:TileEntityCompactLauncher:NBTTagCompound nbt",
+      "owner": "TileEntityCompactLauncher",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "fd79f1fbd83ed7aa5c6c1ff672b825b9cf54756dba81cfd218ebe376ff5eff00"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityFireworks.java:TileEntityFireworks:NBTTagCompound nbt",
+      "owner": "TileEntityFireworks",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5ef294d06afe87c6e99771f55c7edc64c4f6b8997c66dcb44403f29901886671"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLandmine.java:TileEntityLandmine:NBTTagCompound nbt",
+      "owner": "TileEntityLandmine",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a6b04a880d9b4be57b062800709d746f5b609f44858ac2de1102812b0cf44337"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java:TileEntityLaunchPad:NBTTagCompound nbt",
+      "owner": "TileEntityLaunchPad",
+      "parent": "TileEntityLaunchPadBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "09bade42d47e3ad6de1ee2f3858a64551f105b863f1014bd60ab6d166b449303"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:TileEntityLaunchPadBase:NBTTagCompound nbt",
+      "owner": "TileEntityLaunchPadBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bea4d50f714f39fa8996a2cd0f873ca864eb31ff39852390dad916c464378771"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java:TileEntityLaunchPadLarge:NBTTagCompound nbt",
+      "owner": "TileEntityLaunchPadLarge",
+      "parent": "TileEntityLaunchPadBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "66c1abcb3228cabe9061504c13e80d232a72c39168a3f03278a8563e5b4536aa"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java:TileEntityLaunchPadRocket:NBTTagCompound nbt",
+      "owner": "TileEntityLaunchPadRocket",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9a4fa59c3ab3481fc8731a898014f7c5f7dafe17b2aa7bf1821d7a2e7173df0b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java:TileEntityLaunchPadRusted:NBTTagCompound nbt",
+      "owner": "TileEntityLaunchPadRusted",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1b4f092e395558fe4cd09b792d3d3c66d045cd127958f0113075ad1b5b9922f1"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java:TileEntityLaunchTable:NBTTagCompound nbt",
+      "owner": "TileEntityLaunchTable",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "10f369e00d4ab0f8241f76bbb34b6ca10051f54518674a40521fbd2578905b2a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java:TileEntityNukeBalefire:NBTTagCompound nbt",
+      "owner": "TileEntityNukeBalefire",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "edfcaf61ad6d1da6e67bb7919020be7c7a68d924b82dc2753801004ffb439d4e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java:TileEntityNukeBoy:NBTTagCompound nbt",
+      "owner": "TileEntityNukeBoy",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java:TileEntityNukeCustom:NBTTagCompound nbt",
+      "owner": "TileEntityNukeCustom",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java:TileEntityNukeFleija:NBTTagCompound nbt",
+      "owner": "TileEntityNukeFleija",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java:TileEntityNukeGadget:NBTTagCompound nbt",
+      "owner": "TileEntityNukeGadget",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java:TileEntityNukeMan:NBTTagCompound nbt",
+      "owner": "TileEntityNukeMan",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java:TileEntityNukeMike:NBTTagCompound nbt",
+      "owner": "TileEntityNukeMike",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java:TileEntityNukeN2:NBTTagCompound nbt",
+      "owner": "TileEntityNukeN2",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java:TileEntityNukePrototype:NBTTagCompound nbt",
+      "owner": "TileEntityNukePrototype",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java:TileEntityNukeSolinium:NBTTagCompound nbt",
+      "owner": "TileEntityNukeSolinium",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java:TileEntityNukeTsar:NBTTagCompound nbt",
+      "owner": "TileEntityNukeTsar",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/bomb/TileEntitySellafield.java:TileEntitySellafield:NBTTagCompound nbt",
+      "owner": "TileEntitySellafield",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d7304d56fa8cb80235fef7b2a08730809f6577d85b9a45990093466c80aff79e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/deco/TileEntityLanternBehemoth.java:TileEntityLanternBehemoth:NBTTagCompound nbt",
+      "owner": "TileEntityLanternBehemoth",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "597db5fcdd0a8bc53eb3846116933c3928be00f7134844df42e4630c5f5a70ce"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java:TileEntityAirPump:NBTTagCompound nbt",
+      "owner": "TileEntityAirPump",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "7926769df66aff0959317b89161e9dea8e631069fd580fb99dadf9075265f253"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java:TileEntityAirScrubber:NBTTagCompound nbt",
+      "owner": "TileEntityAirScrubber",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f1ec71ddc7324df4827fd46e919e51f0c373342bc07ce3391c9c0f229c6ea848"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java:TileEntityAlgaeFilm:NBTTagCompound nbt",
+      "owner": "TileEntityAlgaeFilm",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b54d483fd6264970ac953cf7f128fea1a0a12da58083fa315ee917eabbb7de91"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java:TileEntityAshpit:NBTTagCompound nbt",
+      "owner": "TileEntityAshpit",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "19e344a3b4cfb3f366937d29bada13c6ea7959e76e474f011b21afbde78926f2"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java:TileEntityAtmosphericCompressor:NBTTagCompound nbt",
+      "owner": "TileEntityAtmosphericCompressor",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4aa5173230bcf1ae1d3c92e5cc38757d3412f4434315381def8f12c6da4d4f77"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java:TileEntityAtmosphericEmitter:NBTTagCompound nbt",
+      "owner": "TileEntityAtmosphericEmitter",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c7553227ce1620f805269f8f728c6ae434f6496ad9365bc67f5aa63ed462b88e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java:TileEntityBlastDoor:NBTTagCompound nbt",
+      "owner": "TileEntityBlastDoor",
+      "parent": "TileEntityLockableBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d0faa9df9c202078e46ba7766658ff27789043cd5809096ac840a4af448830f8"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java:TileEntityChungus:NBTTagCompound nbt",
+      "owner": "TileEntityChungus",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b48d9deb2682fea279aeefac20957acbff988d2912fc7a3f73360f5c721387cd"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCondenser.java:TileEntityCondenser:NBTTagCompound nbt",
+      "owner": "TileEntityCondenser",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5cd0f7f289873ee3f5e4f11b14be8474927f1e97d106c2df250223525bfb331e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java:TileEntityCondenserPowered:NBTTagCompound nbt",
+      "owner": "TileEntityCondenserPowered",
+      "parent": "TileEntityCondenser",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0fb374e2d69995eb5a02a46e32a6b9330cda9291d7a14ae39f7a0cff3834d951"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java:TileEntityConveyorPress:NBTTagCompound nbt",
+      "owner": "TileEntityConveyorPress",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "220e4e999ab7fb247ffa488382d169d9f5010413a7144e320fa57f1a9e553692"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java:TileEntityCore:NBTTagCompound nbt",
+      "owner": "TileEntityCore",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "721f5e872d981eb3475cf7231b1542905c03372341c5976db1a1bcb78c9c0deb"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java:TileEntityCoreEmitter:NBTTagCompound nbt",
+      "owner": "TileEntityCoreEmitter",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0ee23b939cc914b9ea67912950042365f39b71ffa17f726de9088c82efa0c92b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java:TileEntityCoreInjector:NBTTagCompound nbt",
+      "owner": "TileEntityCoreInjector",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "62f224db88b242e88564144480320baf58d0983162941911a3ab66e069e3e607"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java:TileEntityCoreReceiver:NBTTagCompound nbt",
+      "owner": "TileEntityCoreReceiver",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c767b677adec3cae8171f9400141a357784dea659c7c8f1bdf63e18a2305371c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java:TileEntityCoreStabilizer:NBTTagCompound nbt",
+      "owner": "TileEntityCoreStabilizer",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1d09385e85a5bf720ebf8944ecb9c915cfc1301e688a29951efd4acb66ab1a19"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:TileEntityCrucible:NBTTagCompound nbt",
+      "owner": "TileEntityCrucible",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0bca047ce05deaea3a5e973432de00c98e0f0171f032cc676fc0a86ae8c580cf"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java:TileEntityCustomMachine:NBTTagCompound nbt",
+      "owner": "TileEntityCustomMachine",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 1,
+      "body_sha256": "4467978487d322cf8ff61b36078f4e4c494d3736344fca1a0c0a48dc740f3534"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java:TileEntityDeuteriumExtractor:NBTTagCompound nbt",
+      "owner": "TileEntityDeuteriumExtractor",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "ce8bec144d51b8bbf58c7d27acb0bac3166cb37f3510be13283d301d8ef9cb91"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java:TileEntityDiFurnace:NBTTagCompound nbt",
+      "owner": "TileEntityDiFurnace",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c85a94a757ba1c57e93efa43ca76b7a9be09ae2469ac0d5aa44bb9ee09dd4b56"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java:TileEntityDiFurnaceRTG:NBTTagCompound nbt",
+      "owner": "TileEntityDiFurnaceRTG",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "3cb07fab7d4cecf25d1795e0f6b2257680721c06011049d78cb37f3e0bd4c201"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java:TileEntityDishControl:NBTTagCompound nbt",
+      "owner": "TileEntityDishControl",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e6789e4758a0ef9ba89ded81c7bcd40d644cc296b062457674a60e8291a3acc9"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDummy.java:TileEntityDummy:NBTTagCompound nbt",
+      "owner": "TileEntityDummy",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d55717d838fd66b8881df4ef32515a7ef6f2c7179354a7f6775fd114ef1e9a3c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java:TileEntityDysonConverterAnatmogenesis:NBTTagCompound nbt",
+      "owner": "TileEntityDysonConverterAnatmogenesis",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b51537d1e4300c4453138bd9f1481660423b8cc43a5a632546dd9eae0ef9f31a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java:TileEntityDysonConverterHE:NBTTagCompound nbt",
+      "owner": "TileEntityDysonConverterHE",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "7d4a96934b0eb6a852f5872194c0f17a74c3a3c3c20ad4ff703eaf6b2316724c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java:TileEntityDysonConverterTU:NBTTagCompound nbt",
+      "owner": "TileEntityDysonConverterTU",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "682a6b74d17073d6efa935c2d5bf03825d136e6721f6e4b95f5d6eaf73f65d4f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java:TileEntityDysonLauncher:NBTTagCompound nbt",
+      "owner": "TileEntityDysonLauncher",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bcc8cc1f9bf0a1e4d6633eb5d2cc0bb40eae7bda2655d19199de3b8332a5a944"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java:TileEntityElectrolyser:NBTTagCompound nbt",
+      "owner": "TileEntityElectrolyser",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a54182090d21a4eb844b493b6014d4027619ffb4e8667ecf84d3f1541187a816"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java:TileEntityFEL:NBTTagCompound nbt",
+      "owner": "TileEntityFEL",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4d18fd3b89c4e8be54421b5c6159a5fc5d104c07958c6c20e7da84ec41592590"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:TileEntityFireboxBase:NBTTagCompound nbt",
+      "owner": "TileEntityFireboxBase",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "652b57e090e85d32b770ae60acb51d090adf2920bccd67f0e36dd4254a1d9682"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java:TileEntityForceField:NBTTagCompound nbt",
+      "owner": "TileEntityForceField",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "543453c44ffd1f3a032d14157852077263e0943d0836ad533fea114d4d5c6c5f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryBase.java:TileEntityFoundryBase:NBTTagCompound nbt",
+      "owner": "TileEntityFoundryBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "22b89990ecb846c5b4e47df88a080764e8b395355a0eb8a5d62ee6a9286d3b3a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java:TileEntityFoundryCastingBase:NBTTagCompound nbt",
+      "owner": "TileEntityFoundryCastingBase",
+      "parent": "TileEntityFoundryBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b2ea3537ff84130a1dc5e32d68d0b3b3bf8b18e0f87eb84f108536ace4dc8577"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryChannel.java:TileEntityFoundryChannel:NBTTagCompound nbt",
+      "owner": "TileEntityFoundryChannel",
+      "parent": "TileEntityFoundryBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bc11d490baa52d1e6866cbca4653f25d6d90d00f6660534b1fd842613289225c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java:TileEntityFoundryOutlet:NBTTagCompound nbt",
+      "owner": "TileEntityFoundryOutlet",
+      "parent": "TileEntityFoundryBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0f3a9c41d23eed59bdd40320897cd67d07adb5b9a517a9e2d930195a38eb61ae"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java:TileEntityFurnaceBrick:NBTTagCompound nbt",
+      "owner": "TileEntityFurnaceBrick",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "46f25f213b7d7590104b6208d4dd303e4c162210175c4d1b1f6b3492c0b145de"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:TileEntityFurnaceCombination:NBTTagCompound nbt",
+      "owner": "TileEntityFurnaceCombination",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4b84ceec34821b4cac63ba06eddac7443c13237ca14dfdd8d96426d152832c1c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java:TileEntityFurnaceIron:NBTTagCompound nbt",
+      "owner": "TileEntityFurnaceIron",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b2770e7e41f67abdd3e90be3d16805c983732b06b2bf35bf718384d238124e49"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java:TileEntityFurnaceSteel:NBTTagCompound nbt",
+      "owner": "TileEntityFurnaceSteel",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "3058c50fd72fbb42147a06260f02f172fce0ef01b6d9626cfa5af29c3bba51a2"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHatch.java:TileEntityHatch:NBTTagCompound p_145841_1_",
+      "owner": "TileEntityHatch",
+      "parent": "TileEntity",
+      "parameter": "p_145841_1_",
+      "early_returns": 0,
+      "body_sha256": "2f431bcfdf05e20754e55b8172cea25e6ce64cd9173a9c920f1c6d0abdc80a21"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java:TileEntityHeatBoiler:NBTTagCompound nbt",
+      "owner": "TileEntityHeatBoiler",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f555b652fa2ca8f53cc2ef021ca02b1aaf0012f90d169bc2d441ad4bb2a64d91"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoilerIndustrial.java:TileEntityHeatBoilerIndustrial:NBTTagCompound nbt",
+      "owner": "TileEntityHeatBoilerIndustrial",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "39c591d45887baef3279c2e16aad51a64066e6d06e03a11bc833aad771c50443"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterElectric.java:TileEntityHeaterElectric:NBTTagCompound nbt",
+      "owner": "TileEntityHeaterElectric",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4149b8036e4aaee60a08a499e86134fbe55a171e5a1523b6318a0d5bed6099bb"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java:TileEntityHeaterHeatex:NBTTagCompound nbt",
+      "owner": "TileEntityHeaterHeatex",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0197c019f64dd4e813367fa590382a1675d24f7a7d85aaee9eb49999f5b1c234"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java:TileEntityHeaterOilburner:NBTTagCompound nbt",
+      "owner": "TileEntityHeaterOilburner",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0b75795c77cf8103a2516fd5bec78805a476b7799bb6e3fb83a69c345664f024"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java:TileEntityHydroponic:NBTTagCompound nbt",
+      "owner": "TileEntityHydroponic",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5b78f07616ce57126ce6bd749e91b3e818ee4d3ef4f6426e33ec3d1f337dfa60"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java:TileEntityICF:NBTTagCompound nbt",
+      "owner": "TileEntityICF",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "870f33eef92de0e047ed480db2fbee086617bb1082510ee7ae619a2473d0d1d4"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java:TileEntityICFController:NBTTagCompound nbt",
+      "owner": "TileEntityICFController",
+      "parent": "TileEntityTickingBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c939739c456f2cdac500c9bbf875061205cef97a27b2aba137c71a5133530129"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java:TileEntityICFPress:NBTTagCompound nbt",
+      "owner": "TileEntityICFPress",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "483ff0d7d18a77085ffbbded2c589ef746faa02283a105edd3bb5615f734cddc"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java:TileEntityITER:NBTTagCompound nbt",
+      "owner": "TileEntityITER",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f325b13815f98fe9a5845374c722848a5aa8b6c41aeb52aa4c62842a9ec7f022"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityLockableBase.java:TileEntityLockableBase:NBTTagCompound nbt",
+      "owner": "TileEntityLockableBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "38aef734005d5cf0a8e1db6686d32461292e0479f5b3519a950a24d879d083f5"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java:TileEntityMachineAmmoPress:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAmmoPress",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "37fa5e8a292d560c7ee8b5906b30781fdb515ab99ee4539bf5985968b588827b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java:TileEntityMachineAnnihilator:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAnnihilator",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0937e4e4c28827cabd6669816a4c819b0640cd7746bc584a474ee68d97394596"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java:TileEntityMachineArcFurnaceLarge:NBTTagCompound nbt",
+      "owner": "TileEntityMachineArcFurnaceLarge",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "16b01fa2781a3cd9d1e0405d3b9344a755bce49b64de0a744b8087fb672378b4"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java:TileEntityMachineArcWelder:NBTTagCompound nbt",
+      "owner": "TileEntityMachineArcWelder",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b1910e0003d2583925df47af2725210c3e7505ef441fb6f34013a702d0a6fa68"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java:TileEntityMachineAssemblyFactory:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAssemblyFactory",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "eaaabaa81556bd262732f3276b9250f94f8befc4b3ad883052d53393e0db3401"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java:TileEntityMachineAssemblyMachine:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAssemblyMachine",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0db6ba4d0de6afc9f3abe5806b2ce07bb27ef1c4cbe25964b607d34c4fb9aeb6"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java:TileEntityMachineAutocrafter:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAutocrafter",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "50c9ae59cc4c29f2a2bf2dd720c0fe7bec35a7ab89bf641cd9b71efebc6c24d8"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java:TileEntityMachineAutosaw:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAutosaw",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2558b6960b8d75496c049edaf06ef8672531610779a70dc8eb73ae52374c4d23"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java:TileEntityMachineCentrifuge:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCentrifuge",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1c742b9a751017e7c87a8930e7236434bafac1d78d94bea9fc70af9f5a798af1"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java:TileEntityMachineChemicalFactory:NBTTagCompound nbt",
+      "owner": "TileEntityMachineChemicalFactory",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c189f4a040d72691d04783e680c304da1dbbfd9638a6bb510f7e854416ba79a4"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java:TileEntityMachineChemicalPlant:NBTTagCompound nbt",
+      "owner": "TileEntityMachineChemicalPlant",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a2c5ff0186b92b59051328f4bf1c24ee534d543065f61228fc198ad90b0280b1"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java:TileEntityMachineCombustionEngine:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCombustionEngine",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "fe0f35e12e0d0fe975b1472a2c629ff93404ab5780678aafa1d52483b3294b20"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java:TileEntityMachineCompressorBase:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCompressorBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "49c881762ad08c6adc9d2ee5d09f5da1ab0eda14580ef7c8e86adc7c5c8f48f9"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java:TileEntityMachineCryoDistill:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCryoDistill",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e80816f3c6bd0dab944c8abddeef59495a4c7177b5f3e87f52f722dd5152dfa2"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:TileEntityMachineCrystallizer:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCrystallizer",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "7514f3bbc140b956797b652a31fbcc54ce7b28cfee30f08b6339fb1c9e3bd84a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java:TileEntityMachineCyclotron:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCyclotron",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "cd5348e0702327f2668ab659d2cc12df0b70d70816e75bb44bbe3622673e6960"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java:TileEntityMachineDiesel:NBTTagCompound nbt",
+      "owner": "TileEntityMachineDiesel",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "970ddb2a356cde7ff1d80988a3ae3fbe6a43f893f1fb4805a78ce88384613b41"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java:TileEntityMachineDrain:NBTTagCompound nbt",
+      "owner": "TileEntityMachineDrain",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bcc6a6a6468a3de6b19c86c9b4b1b8a2462cd2bc519fff519e98522b90cdfb58"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java:TileEntityMachineDriveProcessor:NBTTagCompound nbt",
+      "owner": "TileEntityMachineDriveProcessor",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5eec934cbc2deda86c6b55b3b57cafeaccc76b4a271ed7c2db59eb1cd970ce74"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java:TileEntityMachineEPress:NBTTagCompound nbt",
+      "owner": "TileEntityMachineEPress",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2446255e3c0db503b8a975877d2f01f2de3a1a613b07a9ce29eff17fc951b2b3"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java:TileEntityMachineElectricFurnace:NBTTagCompound nbt",
+      "owner": "TileEntityMachineElectricFurnace",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "bf77cb04720b8d27420b20bf4e819307372ed6948abafd6b7fccf020738e5eea"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java:TileEntityMachineExcavator:NBTTagCompound nbt",
+      "owner": "TileEntityMachineExcavator",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1ae4d1439af101b58ba7c26b36d207a18d34101ef589f6a852ea3d915202dc12"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java:TileEntityMachineExposureChamber:NBTTagCompound nbt",
+      "owner": "TileEntityMachineExposureChamber",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "7b2335be94bb378a8ed96cb1dbc2e22f256d116177701a6a86bfc64a19998a35"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java:TileEntityMachineFunnel:NBTTagCompound nbt",
+      "owner": "TileEntityMachineFunnel",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1c5191a51a07bc2ee1f8e06b2b3672c70b851836b46f05a5a71890c11db1738b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:TileEntityMachineGasCent:NBTTagCompound nbt",
+      "owner": "TileEntityMachineGasCent",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "07caf535f608940077dfd2323b9cd7330bfdba863f0bcd22f0d58f339088d16d"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java:TileEntityMachineGasDock:NBTTagCompound nbt",
+      "owner": "TileEntityMachineGasDock",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "3de8b07ceec9a14a2ee2cd64dbd53c3f7f89c54ce650577aae27c63e85fb9750"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java:TileEntityMachineHTR3:NBTTagCompound nbt",
+      "owner": "TileEntityMachineHTR3",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "727f6a29e1988567f5b8d6ca057138c44b11955c18403439807b98797d8b478c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java:TileEntityMachineHTRF4:NBTTagCompound nbt",
+      "owner": "TileEntityMachineHTRF4",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "657d1e1aa9f24f10989f4bcf73b7db599383eaace529eb41603bd813ddaacc94"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java:TileEntityMachineHTRNeo:NBTTagCompound nbt",
+      "owner": "TileEntityMachineHTRNeo",
+      "parent": "TileEntityCooledBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e9fba1ccab9a32000cc7e05780e3ba92e5b26318246d8e19601f3315a1fa2124"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHephaestus.java:TileEntityMachineHephaestus:NBTTagCompound nbt",
+      "owner": "TileEntityMachineHephaestus",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "8acbc53a9fcb657b3565488916515f09b4901e91ea0dd0dc5e922af92da797dd"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java:TileEntityMachineIGenerator:NBTTagCompound nbt",
+      "owner": "TileEntityMachineIGenerator",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0793296d736988ca4170dfddfc3e7938a7191789c5ea6a46e5f0b03a05e60e42"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java:TileEntityMachineIndustrialTurbine:NBTTagCompound nbt",
+      "owner": "TileEntityMachineIndustrialTurbine",
+      "parent": "TileEntityTurbineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5d3886bc3d83c130d51e805cb0ef2617d6995aa3e014202124fe82dfca2610de"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIntake.java:TileEntityMachineIntake:NBTTagCompound nbt",
+      "owner": "TileEntityMachineIntake",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5561b85d82cf2f549f2c6310d76d00d5d4b92f97f9ffb2fc53915819029be74f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java:TileEntityMachineKeyForge:NBTTagCompound nbt",
+      "owner": "TileEntityMachineKeyForge",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java:TileEntityMachineLPW2:NBTTagCompound nbt",
+      "owner": "TileEntityMachineLPW2",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "727f6a29e1988567f5b8d6ca057138c44b11955c18403439807b98797d8b478c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java:TileEntityMachineLargeTurbine:NBTTagCompound nbt",
+      "owner": "TileEntityMachineLargeTurbine",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d5cdabc2a449711eafbc6e7d037d75c89de84ec3da1ab96ecc588ac2c51b6fc2"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java:TileEntityMachineMagma:NBTTagCompound nbt",
+      "owner": "TileEntityMachineMagma",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "914c0a9ad24ca7943113d64221779cac6e56b448a15c2e05478f454eb1b844ba"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java:TileEntityMachineMilkReformer:NBTTagCompound nbt",
+      "owner": "TileEntityMachineMilkReformer",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "28ce0ef3f17146044126c8fcd6a814aaa89bcf27d17fc0b304749ff56df527bb"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:TileEntityMachineMiningLaser:NBTTagCompound nbt",
+      "owner": "TileEntityMachineMiningLaser",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f8815d874724df3da7c70bf6a5a8738c3522e00fd383a91e6beeaad88237dd4d"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java:TileEntityMachineMissileAssembly:NBTTagCompound nbt",
+      "owner": "TileEntityMachineMissileAssembly",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java:TileEntityMachineMixer:NBTTagCompound nbt",
+      "owner": "TileEntityMachineMixer",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "555da4113cb79311493488d08f806acec3c6da6e5450da03621a6f724c82e5d4"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java:TileEntityMachineOreSlopper:NBTTagCompound nbt",
+      "owner": "TileEntityMachineOreSlopper",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b66c1452c05ee73dd403308b72a31dda193b0b3188889328405d2003eee4e25e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java:TileEntityMachinePUREX:NBTTagCompound nbt",
+      "owner": "TileEntityMachinePUREX",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "849a659ca128752d46fd5745f979bc0e5293ecdcc609042ea8d725b64b5614bf"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java:TileEntityMachinePlasmaHeater:NBTTagCompound nbt",
+      "owner": "TileEntityMachinePlasmaHeater",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "30bd69383be5368d3798914161aa320793a334a3dfe104e6d5863e99606c771f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java:TileEntityMachinePrecAss:NBTTagCompound nbt",
+      "owner": "TileEntityMachinePrecAss",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0db6ba4d0de6afc9f3abe5806b2ce07bb27ef1c4cbe25964b607d34c4fb9aeb6"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java:TileEntityMachinePress:NBTTagCompound nbt",
+      "owner": "TileEntityMachinePress",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "deaecf81a7557990f5fa6799b1df40f849f63bc6e111dc3c5a0510fe793ecba3"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java:TileEntityMachineRTG:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRTG",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "cc04c12872be4e0f78d1e918eabd3078ab7049944c438ce0349c6bc02c660aa6"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java:TileEntityMachineRadGen:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRadGen",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9cc334454a1b484cb0744a5933f6f74b53afae24924ae2c8b5b2689314995237"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java:TileEntityMachineRadarNT:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRadarNT",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "82459196e53874243e2e85ed6d24363518b9a2777d960c76c1daa41c3853f179"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java:TileEntityMachineRadiolysis:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRadiolysis",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "032ca569498b7127eca248d76900a00dbaaf2a0f955b28bab78dfc959f040ebd"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java:TileEntityMachineReactorBreeding:NBTTagCompound nbt",
+      "owner": "TileEntityMachineReactorBreeding",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "8efc36fa117ac22ea97da668a6eec7fab26efc1e55daa197099ba872ed34be08"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java:TileEntityMachineRocketAssembly:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRocketAssembly",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5e6fb8e9baa4dd28aebb66630d4f0f62c3568fc10907d43999c06cb4adcd58cf"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:TileEntityMachineRotaryFurnace:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRotaryFurnace",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d02ff622749da5421de2bfd17a0dc5b06d39d5a030a37bb189b7c0970430a9e9"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java:TileEntityMachineSatDock:NBTTagCompound nbt",
+      "owner": "TileEntityMachineSatDock",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java:TileEntityMachineSatLinker:NBTTagCompound nbt",
+      "owner": "TileEntityMachineSatLinker",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java:TileEntityMachineShredder:NBTTagCompound nbt",
+      "owner": "TileEntityMachineShredder",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "705dc36c0c3c97be1ef538c666e6479e7d42cc411e3c906223028f19cc8dbcd6"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java:TileEntityMachineSiren:NBTTagCompound nbt",
+      "owner": "TileEntityMachineSiren",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolarPanel.java:TileEntityMachineSolarPanel:NBTTagCompound nbt",
+      "owner": "TileEntityMachineSolarPanel",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e1da95bcb4501c78a43be670b0eacc2a4228d5b7c9f030d44019c505c66ce3be"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java:TileEntityMachineSolderingStation:NBTTagCompound nbt",
+      "owner": "TileEntityMachineSolderingStation",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "8c8333daea2a6c88f3513a83303fd494e67f7b234295ad65a5494396278a0542"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java:TileEntityMachineStardar:NBTTagCompound nbt",
+      "owner": "TileEntityMachineStardar",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "13ef23124a3228125ac74ca15be1f2d530457f65f05b4c25fd2faa4aa83bee2c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java:TileEntityMachineStrandCaster:NBTTagCompound nbt",
+      "owner": "TileEntityMachineStrandCaster",
+      "parent": "TileEntityFoundryCastingBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "6b0b7473f2cdeb56f89edcc18f706dd9000860ba20a5bca304eeac9544d7b9ae"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTeleporter.java:TileEntityMachineTeleporter:NBTTagCompound nbt",
+      "owner": "TileEntityMachineTeleporter",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "ebc9b99908c658ff6b5c81c39c68e05f5b831b11dd1abecf62cfebe996900392"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java:TileEntityMachineTurbine:NBTTagCompound nbt",
+      "owner": "TileEntityMachineTurbine",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "08eb1b07081e8ccffb56ecc0436c59f31c3201fe8a4e76ec3061d495143b7335"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java:TileEntityMachineTurbineGas:NBTTagCompound nbt",
+      "owner": "TileEntityMachineTurbineGas",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1228576eaf7f2852a2999b896c9ec988180c769bb78ce607b1383493c72bf6e4"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java:TileEntityMachineTurbofan:NBTTagCompound nbt",
+      "owner": "TileEntityMachineTurbofan",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9a52d7eb1ec2466451dbb77a291012e2d16e732cbd61f8e56d32220e9d89c28a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java:TileEntityMachineVacuumCircuit:NBTTagCompound nbt",
+      "owner": "TileEntityMachineVacuumCircuit",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c83fc4a3b27997a601f1b3baad89ef4357ce4ccab10ca1eca483101739e20ed5"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:TileEntityMachineWoodBurner:NBTTagCompound nbt",
+      "owner": "TileEntityMachineWoodBurner",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9cc028e4ab0d6f23cdf850d039abb8ea7a6d9a2cc9115c4f85c8995cae697511"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java:TileEntityMicrowave:NBTTagCompound nbt",
+      "owner": "TileEntityMicrowave",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e4342e3f89b29d78c54de7deb66a86adda0dfc23b881d8f2211a19db3ebd4b7f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java:TileEntityOrbitalStation:NBTTagCompound nbt",
+      "owner": "TileEntityOrbitalStation",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b54d483fd6264970ac953cf7f128fea1a0a12da58083fa315ee917eabbb7de91"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java:TileEntityOrbitalStationLauncher:NBTTagCompound nbt",
+      "owner": "TileEntityOrbitalStationLauncher",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "49506c0525ebc575eaa90f0dede7f250de4a13475223ef2b7567333bf8d1fdaa"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java:TileEntityPWRController:NBTTagCompound nbt",
+      "owner": "TileEntityPWRController",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "71541d1f16995ac19705ba127058b9fb6449ecd2a30de5695da732e8ac23a910"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityRadioRec.java:TileEntityRadioRec:NBTTagCompound nbt",
+      "owner": "TileEntityRadioRec",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "786e6ff791927349786c2511ee804292cf245e83762d7cdbea54989ed713935d"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityRadiobox.java:TileEntityRadiobox:NBTTagCompound nbt",
+      "owner": "TileEntityRadiobox",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a3d38865fe4adf48b8de30b94b87644afa4e59d6bd58c3c78ad0b42790cbd9a0"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java:TileEntityReactorControl:NBTTagCompound nbt",
+      "owner": "TileEntityReactorControl",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "724e4a247711efe90c05d22ec32be294387bc624b72a1d9d24a5a684fc4ae074"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:TileEntityReactorResearch:NBTTagCompound nbt",
+      "owner": "TileEntityReactorResearch",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2fbd4ea8a361f15466bba76a515123442e90364c74f247973d2a14d6b6db9128"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java:TileEntityReactorZirnox:NBTTagCompound nbt",
+      "owner": "TileEntityReactorZirnox",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2565619182a93b5c00f6348e603e89412e296e3d7249e3e00adb02ab8b6a83e0"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java:TileEntityRefueler:NBTTagCompound nbt",
+      "owner": "TileEntityRefueler",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "6a1377a791af5a3adaa5895dc8768fe8eaf66ba17f7f67508c6e367d773004c3"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java:TileEntityRtgFurnace:NBTTagCompound nbt",
+      "owner": "TileEntityRtgFurnace",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "09e636dada846da278edc6b6208ae6a724e823fa4822e981c1f13c38c0918196"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java:TileEntitySILEX:NBTTagCompound nbt",
+      "owner": "TileEntitySILEX",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f6211dbf488ac94382d6f2de5660ad61a5fee9f0db97d3bbfc465dac556f0a5b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java:TileEntitySawmill:NBTTagCompound nbt",
+      "owner": "TileEntitySawmill",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f365d322ba11fcda2856465da846e3eabd670d16627cffbaf03f7fb12edab552"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntitySolarBoiler.java:TileEntitySolarBoiler:NBTTagCompound nbt",
+      "owner": "TileEntitySolarBoiler",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "3867a7a14bce9ef2340c0684147c6a873526345e2035c28f7cc235b648da6ae5"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java:TileEntitySolarMirror:NBTTagCompound nbt",
+      "owner": "TileEntitySolarMirror",
+      "parent": "TileEntityTickingBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4915266dd0a47496f1e87bfc8f972df298bb9f347561c8881ffed2dbf97cbed2"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java:TileEntitySoyuzLauncher:NBTTagCompound nbt",
+      "owner": "TileEntitySoyuzLauncher",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0a0b6c974e60aa9da6ad25e7f1b3328afff78d8931f347dbf7bc16558b4f792a"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java:TileEntitySteamEngine:NBTTagCompound nbt",
+      "owner": "TileEntitySteamEngine",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "155e99fff699bd25d3738aef18b42f5339f846989738d0bc4c50e616c47bbe48"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java:TileEntityStirling:NBTTagCompound nbt",
+      "owner": "TileEntityStirling",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0816813f08aeb5922463c29de8d0f862e87c55bf3f525e0d28f47072a1879e23"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java:TileEntityStorageDrum:NBTTagCompound nbt",
+      "owner": "TileEntityStorageDrum",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f7967e8539ce89ab9c3528c80b1ab83dd8fb12a297dea71a43d03f60f0530f32"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java:TileEntityTransporterBase:NBTTagCompound nbt",
+      "owner": "TileEntityTransporterBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "08662ff557e7f7a7d7225ab23c2f2702934c8bee2a04f73a99fb183b8e4c8270"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java:TileEntityTransporterRocket:NBTTagCompound nbt",
+      "owner": "TileEntityTransporterRocket",
+      "parent": "TileEntityTransporterBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1f8ac61faff99ec7078daf16c59bf564ca6ce8682d95c796989d73a185d89a93"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityTurbineBase.java:TileEntityTurbineBase:NBTTagCompound nbt",
+      "owner": "TileEntityTurbineBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "ea88bd4a57737d55786ab4d377a5a0a75854c98f3e3719b8165b777afa481668"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java:TileEntityWasteDrum:NBTTagCompound nbt",
+      "owner": "TileEntityWasteDrum",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java:TileEntityWatz:NBTTagCompound nbt",
+      "owner": "TileEntityWatz",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "cf8186bea652c887caef5d48994878814ce03937aa2ffed915fec6f69ed97a03"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java:TileEntityXenonThruster:NBTTagCompound nbt",
+      "owner": "TileEntityXenonThruster",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "657d1e1aa9f24f10989f4bcf73b7db599383eaace529eb41603bd813ddaacc94"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/TileEntityZirnoxDestroyed.java:TileEntityZirnoxDestroyed:NBTTagCompound nbt",
+      "owner": "TileEntityZirnoxDestroyed",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "46435991ac4648d55dfe8d1f97b90e3b8ff23b3b9486240d30bf58447d45c8e3"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityCooledBase.java:TileEntityCooledBase:NBTTagCompound nbt",
+      "owner": "TileEntityCooledBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "da02d88ed0352556a43d30793481a959f61dc761bd2625c653bcc5ea7f7eef7f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java:TileEntityPABeamline:NBTTagCompound nbt",
+      "owner": "TileEntityPABeamline",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d8d92ab541d9e4763acbce45ad329481faa15381446ec05e6b88f3d124785dfe"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java:TileEntityPADipole:NBTTagCompound nbt",
+      "owner": "TileEntityPADipole",
+      "parent": "TileEntityCooledBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f18429cd444b79abe791442fa7c34cb181c1525a9caa9beee075e831d1557369"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java:TileEntityPASource:NBTTagCompound nbt",
+      "owner": "TileEntityPASource",
+      "parent": "TileEntityCooledBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "27d9554b11e33fc103a632fd022be853bb98b2b126d124c6abdc32846f3f0450"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java:TileEntityFusionBoiler:NBTTagCompound nbt",
+      "owner": "TileEntityFusionBoiler",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d633868a71dcb7b999ccdc2d4cc2eb37607c28f02ded724bdd6aa820735c5a53"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java:TileEntityFusionBreeder:NBTTagCompound nbt",
+      "owner": "TileEntityFusionBreeder",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2732da59285a945274ef4ac91493935dc7011117be763079c8be4b4bf5d4d90b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java:TileEntityFusionKlystron:NBTTagCompound nbt",
+      "owner": "TileEntityFusionKlystron",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f4de86d88c613eef31109c0a899ece922983f2222ceab7ed0219fa406eab961b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java:TileEntityFusionMHDT:NBTTagCompound nbt",
+      "owner": "TileEntityFusionMHDT",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "d633868a71dcb7b999ccdc2d4cc2eb37607c28f02ded724bdd6aa820735c5a53"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java:TileEntityFusionTorus:NBTTagCompound nbt",
+      "owner": "TileEntityFusionTorus",
+      "parent": "TileEntityCooledBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "770450c5fef7cda232de6acb787b24360fcbbccc61ad2e4ae6b305b0de634250"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java:TileEntityMachineAlkylation:NBTTagCompound nbt",
+      "owner": "TileEntityMachineAlkylation",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "79e948b70f18c88c3e190f9bb7ff0857edc7ee3deaa8738988bc0b11c323c4d7"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java:TileEntityMachineCatalyticCracker:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCatalyticCracker",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "37ca7939f370202270a4d5157645e538d35b21b485e600c105832253da22d264"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java:TileEntityMachineCatalyticReformer:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCatalyticReformer",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "eddfb2176fea88a929da78f572ef718c7c7737040e4b851e1ce892a255fbdbc7"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java:TileEntityMachineCoker:NBTTagCompound nbt",
+      "owner": "TileEntityMachineCoker",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b922dd52d19be87bbbffb24161c23dcb0a6bcf216f0ee473760420579c9e5ca8"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFractionTower.java:TileEntityMachineFractionTower:NBTTagCompound nbt",
+      "owner": "TileEntityMachineFractionTower",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c0a7827c8261cf2651985eb2b936603253cf6aebd9c370812059a9df5d250d96"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java:TileEntityMachineGasFlare:NBTTagCompound nbt",
+      "owner": "TileEntityMachineGasFlare",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "87f132fad13febc6b492cff2a8d30ed8c4c563f01832a45256137551d8d4f39d"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java:TileEntityMachineHydrotreater:NBTTagCompound nbt",
+      "owner": "TileEntityMachineHydrotreater",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "ff3318ead05de7947fbc7eb991e8975a624adfca16f9ad87af10e59eacfa6539"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java:TileEntityMachineLiquefactor:NBTTagCompound nbt",
+      "owner": "TileEntityMachineLiquefactor",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "fd08b6da2843b3202c8fae35e12ab637333467ea338b4b2da8e40cd211131f4b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:TileEntityMachinePyroOven:NBTTagCompound nbt",
+      "owner": "TileEntityMachinePyroOven",
+      "parent": "TileEntityMachinePolluting",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "33115205abffd3adb7bc212c073aceedb8aedeefa579af51f4453439bf9e4097"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java:TileEntityMachineRefinery:NBTTagCompound nbt",
+      "owner": "TileEntityMachineRefinery",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0c20439e11896091be68bcdd0cb86aa88631371b05b50dc004c8ea46eb194dda"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java:TileEntityMachineSolidifier:NBTTagCompound nbt",
+      "owner": "TileEntityMachineSolidifier",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "fd08b6da2843b3202c8fae35e12ab637333467ea338b4b2da8e40cd211131f4b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java:TileEntityMachineVacuumDistill:NBTTagCompound nbt",
+      "owner": "TileEntityMachineVacuumDistill",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "cfdef311efaaaba99758b78e28703ae8008ad85218bc2bfab88575ad0095cfbe"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:TileEntityOilDrillBase:NBTTagCompound nbt",
+      "owner": "TileEntityOilDrillBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2158d3f264e0975eea362ca4ed42057a845cd169b656e537a691106c741ebadc"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileBreedingFuel.java:TileEntityPileBreedingFuel:NBTTagCompound nbt",
+      "owner": "TileEntityPileBreedingFuel",
+      "parent": "TileEntityPileBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "091ca4cb4f68a59198f46e6cd373a721ba477ca3197e1e8bcf368f754fed4252"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java:TileEntityPileFuel:NBTTagCompound nbt",
+      "owner": "TileEntityPileFuel",
+      "parent": "TileEntityPileBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "23a3f79004f7278ed4783d3cd62b19b88515fdcda7f5b98741e5ab6d18730766"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java:TileEntityPileNeutronDetector:NBTTagCompound nbt",
+      "owner": "TileEntityPileNeutronDetector",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1685c6f471fd71b5557019579bffb12014bb92b11198170311acb73a3d89c276"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java:TileEntityCraneConsole:NBTTagCompound nbt",
+      "owner": "TileEntityCraneConsole",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "abd5661b4b553696aa7965d2b7dbe4c172361ef7a259a1dc4194ded2897a7851"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java:TileEntityRBMKAutoloader:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKAutoloader",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b949c7d1fcae212acab8277438c877deb26218a6ea85da61074625cdba19a4e6"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java:TileEntityRBMKBase:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "87deeee3725bbf31684acbba93185eb5899d3f7443dd169b961d9db544727374"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBoiler.java:TileEntityRBMKBoiler:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKBoiler",
+      "parent": "TileEntityRBMKSlottedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "40b7fad5822cfc198eb9e9934d99e244e913b4e756d171ab46fb7aff983812e8"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java:TileEntityRBMKConsole:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKConsole",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "792aede33d68f6fffc74b48e718fd0f68ac851380e2ae64e363c97e0c1e866ad"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControl.java:TileEntityRBMKControl:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKControl",
+      "parent": "TileEntityRBMKSlottedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1cc345e31a7e5a218875ce776abc06ddaf9b3fb0bac09a9b803a0002668e3268"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlAuto.java:TileEntityRBMKControlAuto:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKControlAuto",
+      "parent": "TileEntityRBMKControl",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a53fba3e6788db33a5c9bb2be15777ef9141d47f752b63230ff22543e8e2f75c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlManual.java:TileEntityRBMKControlManual:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKControlManual",
+      "parent": "TileEntityRBMKControl",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b9193c35f3a68ed3e1cfa1c45a3765011088851e6b8d2f33568b471ae949225c"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKCooler.java:TileEntityRBMKCooler:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKCooler",
+      "parent": "TileEntityRBMKBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e3bcca5f1226c5b01721343a37d9ec15486a6d7bf12c0cfc38b5339af666bde9"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKDisplay.java:TileEntityRBMKDisplay:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKDisplay",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "fd6700f2a3fa803e4c794e83627829a9ecfe491eb2c95b88f670843c01e8a2a1"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java:TileEntityRBMKGauge:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKGauge",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1efa8c14faaf8ef4ece84e2cb1451025c250547189736f41b6352c903140ac63"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKHeater.java:TileEntityRBMKHeater:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKHeater",
+      "parent": "TileEntityRBMKSlottedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "40b7fad5822cfc198eb9e9934d99e244e913b4e756d171ab46fb7aff983812e8"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKInlet.java:TileEntityRBMKInlet:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKInlet",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4c335b25deebb32226283a556b55237a54379c637dd2429a17c776a7c7af4e2e"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java:TileEntityRBMKKeyPad:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKKeyPad",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9c61d8b7b079c87d6af8f48daa96840458ea54392238a1a0c7de43d11947f339"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutgasser.java:TileEntityRBMKOutgasser:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKOutgasser",
+      "parent": "TileEntityRBMKSlottedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1bea115955fc34dd88f95ca134bc601d02dc34bb4bd04a3e22993c39e9bf3e67"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutlet.java:TileEntityRBMKOutlet:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKOutlet",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "28fef10053b08b4b904a15a705b3a1b558be7d0fd026aa7f6783d6d59a92ea64"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java:TileEntityRBMKRod:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKRod",
+      "parent": "TileEntityRBMKSlottedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "55201bac86cdd66dc87bd1d5acb44d2a9d55e6a1874b9e65766a29633cbb4a1b"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java:TileEntityRBMKSlottedBase:NBTTagCompound nbt",
+      "owner": "TileEntityRBMKSlottedBase",
+      "parent": "TileEntityRBMKActiveBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "3849fc82f62f7a2145bb2a02f577c1b1c7069b864d14e5912db90240cef1e206"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java:TileEntityBarrel:NBTTagCompound nbt",
+      "owner": "TileEntityBarrel",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c4dbc81f6946d6ed04a8aa197a9f2c6e5062add4555e16dd6978e32ad7dbb9fa"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java:TileEntityBatteryBase:NBTTagCompound nbt",
+      "owner": "TileEntityBatteryBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "526b535f828ea644e4eda8cd2286b37f5c75848aebbf649c5e4da799b85b8bdd"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java:TileEntityBatteryREDD:NBTTagCompound nbt",
+      "owner": "TileEntityBatteryREDD",
+      "parent": "TileEntityBatteryBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "16dc6e026999185cacf82bdff675942b6b9b82642955ea3ff741a55cc06471ad"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java:TileEntityCombatDropPod:NBTTagCompound nbt",
+      "owner": "TileEntityCombatDropPod",
+      "parent": "TileEntity",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5a70f5bac42ebad72a52e52c362da8bd853f559ebf2d402fcea19d1440fe8b81"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java:TileEntityCrateBase:NBTTagCompound nbt",
+      "owner": "TileEntityCrateBase",
+      "parent": "TileEntityLockableBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b095126bee297410194504d31f82553c83a322b0cbcc66010dfee61bd3cf3d01"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java:TileEntityMachineBattery:NBTTagCompound nbt",
+      "owner": "TileEntityMachineBattery",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "198ff33d745845d5a45142e4232274e99ecc610da5a9ab24476902d5f8fad708"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java:TileEntityMachineFluidTank:NBTTagCompound nbt",
+      "owner": "TileEntityMachineFluidTank",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1df1a08fb10f65523e736215876242e4e2515c630ff8e2f3f8bbe8f0ed5416d4"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java:TileEntityMassStorage:NBTTagCompound nbt",
+      "owner": "TileEntityMassStorage",
+      "parent": "TileEntityCrateBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0d9b84b092191351d0b2af686729e0fea2199cd80f3129e1268310373ee33881"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityConverterHeRf.java:TileEntityConverterHeRf:NBTTagCompound nbt",
+      "owner": "TileEntityConverterHeRf",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4fde2b6721603fe5ba382d56da48c6a8a09553ea0aef8e038ee38da9be90a88f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityConverterRfHe.java:TileEntityConverterRfHe:NBTTagCompound nbt",
+      "owner": "TileEntityConverterRfHe",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "4fde2b6721603fe5ba382d56da48c6a8a09553ea0aef8e038ee38da9be90a88f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java:TileEntityCraneBase:NBTTagCompound nbt",
+      "owner": "TileEntityCraneBase",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "e8981012339f26f413f94e839e8b4f59d8e85bddb47b313c6edb5ae0fe37a333"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java:TileEntityCraneBoxer:NBTTagCompound nbt",
+      "owner": "TileEntityCraneBoxer",
+      "parent": "TileEntityCraneBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "78012dfe95ae3fb9ded9f6c5eda335fddd7acfdc504e4e1eb3ea8e0143148dad"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java:TileEntityCraneExtractor:NBTTagCompound nbt",
+      "owner": "TileEntityCraneExtractor",
+      "parent": "TileEntityCraneBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "518e45ef97abd9bd938887964dc7d1f32c9d630c48bf189bfafc841dbd857947"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java:TileEntityCraneGrabber:NBTTagCompound nbt",
+      "owner": "TileEntityCraneGrabber",
+      "parent": "TileEntityCraneBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "ea3a9290d6628306a30bca47b980035cc7f9f863645fc4c084788367e1061e33"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java:TileEntityCraneInserter:NBTTagCompound nbt",
+      "owner": "TileEntityCraneInserter",
+      "parent": "TileEntityCraneBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a73573792348aa28d7456a39e92ad9aa15aa89a20e40cfadb59c8a8cdb985879"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java:TileEntityCraneRouter:NBTTagCompound nbt",
+      "owner": "TileEntityCraneRouter",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "6c5d4e92a8e9d5922cd0a493b28434f0c0397c9bf13827b0a35b264b58538a02"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityCraneSplitter.java:TileEntityCraneSplitter:NBTTagCompound nbt",
+      "owner": "TileEntityCraneSplitter",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "2a62059d96ef66509479e1b8b49a4dda047fcb910cebb721a855903151ea8055"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java:TileEntityDroneCrate:NBTTagCompound nbt",
+      "owner": "TileEntityDroneCrate",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1e4a16f27b0a198c2dddc52ac9cffcac09095c6e504e42ffc230a18a2ea12f88"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityDroneRequester.java:TileEntityDroneRequester:NBTTagCompound nbt",
+      "owner": "TileEntityDroneRequester",
+      "parent": "TileEntityRequestNetworkContainer",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "db194ce0f9ca61f0acb88a2c0874aa9cc60089e4421dadcd78938dc114b734fa"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java:TileEntityDroneWaypoint:NBTTagCompound nbt",
+      "owner": "TileEntityDroneWaypoint",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a4913e39b2da742ed0418f8d6528120fa434a779bb5fea0fbb8675c4c2ae3430"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java:TileEntityDroneWaypointRequest:NBTTagCompound nbt",
+      "owner": "TileEntityDroneWaypointRequest",
+      "parent": "TileEntityRequestNetwork",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "b5445916d806201a468e310ca3c04ef8f986f6ad5c607d78854308b005e021a2"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java:TileEntityFluidCounterValve:NBTTagCompound nbt",
+      "owner": "TileEntityFluidCounterValve",
+      "parent": "TileEntityPipeBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "f72ba53d9ac6bfddc78577f176d8ace183fae924acb8f9e9bcd4a78b81806e5f"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java:TileEntityPipeBaseNT:NBTTagCompound nbt",
+      "owner": "TileEntityPipeBaseNT",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9deb476a615b1aaa5e44123e22cf13d6b1df6067acc068072e2eb6c4f021bc90"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java:TileEntityPipelineBase:NBTTagCompound nbt",
+      "owner": "TileEntityPipelineBase",
+      "parent": "TileEntityPipeBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "78398a5ccc7af86cc6325c23f18833228112c3906ad586219fa49d2381f73415"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java:TileEntityPneumoTube:NBTTagCompound nbt",
+      "owner": "TileEntityPneumoTube",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "0b451fb746793728f9367313a8336ab204052e3e0ccee83bf2dcb1602bb5b8c5"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java:TileEntityPylonBase:NBTTagCompound nbt",
+      "owner": "TileEntityPylonBase",
+      "parent": "TileEntityCableBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "63f4eaddc781b33a3bb88f385a7a102757b2869e0a434939376de84ce951f4c8"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTelex.java:TileEntityRadioTelex:NBTTagCompound nbt",
+      "owner": "TileEntityRadioTelex",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "6032e0b5182d5f3fdc3ea8067ef74fb9c1dba8fedee062e5abce6aff840ebf31"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchBase.java:TileEntityRadioTorchBase:NBTTagCompound nbt",
+      "owner": "TileEntityRadioTorchBase",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "c53d3b7a7539e419f8f0e875729b6fe906e4a101cdbc438b9a146e6fcfd786ff"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchController.java:TileEntityRadioTorchController:NBTTagCompound nbt",
+      "owner": "TileEntityRadioTorchController",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "9ff6c5cf265a4c7e09fad9aac3966dc5fa3baac3c7f938288051b94ae14e9303"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java:TileEntityRadioTorchCounter:NBTTagCompound nbt",
+      "owner": "TileEntityRadioTorchCounter",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "6008914613956889a49e84f85757bdca1878c881d4b6af101941d9f517273577"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchLogic.java:TileEntityRadioTorchLogic:NBTTagCompound nbt",
+      "owner": "TileEntityRadioTorchLogic",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "93d4709bf0340dbcb20d872dbdab33d9e77b89fa53769e3224b2ebd3e5c103d5"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReader.java:TileEntityRadioTorchReader:NBTTagCompound nbt",
+      "owner": "TileEntityRadioTorchReader",
+      "parent": "TileEntityLoadedBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "21af173c2fbf4820533a703e770a7feb726452a1fdd5e026055027089c7d2da1"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java:TileEntityRequestNetworkContainer:NBTTagCompound nbt",
+      "owner": "TileEntityRequestNetworkContainer",
+      "parent": "TileEntityRequestNetwork",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "931ef50bb5efcb770645de13a8dbadc62a15f3c04d4f6bf1aa7bd1dfc623d164"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java:TileEntityTurretArty:NBTTagCompound nbt",
+      "owner": "TileEntityTurretArty",
+      "parent": "TileEntityTurretBaseArtillery",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "1897a8c94fedaa20728c168863c4df595ab8eb57823ef844670329c41f292f84"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java:TileEntityTurretBaseNT:NBTTagCompound nbt",
+      "owner": "TileEntityTurretBaseNT",
+      "parent": "TileEntityMachineBase",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "8455a10234eccb67ce8d4ff36cf1a92ad45bc24c6ef5041561c53b4165f60b34"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java:TileEntityTurretFritz:NBTTagCompound nbt",
+      "owner": "TileEntityTurretFritz",
+      "parent": "TileEntityTurretBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "36473f8f4192af9d453c26011b9018f7408f29d1bbc6a235491fcc3005b3ccae"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java:TileEntityTurretHIMARS:NBTTagCompound nbt",
+      "owner": "TileEntityTurretHIMARS",
+      "parent": "TileEntityTurretBaseArtillery",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "76a403e252a983d0dc535b5b64d7d0b2663d9473165e5902282409fcb0fa5ade"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java:TileEntityTurretHoward:NBTTagCompound nbt",
+      "owner": "TileEntityTurretHoward",
+      "parent": "TileEntityTurretBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "5afe049cf931053078004b2a07c756aad3f04c743a6ff7b3229b08e9cc301b19"
+    },
+    {
+      "key": "src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java:TileEntityTurretRichard:NBTTagCompound nbt",
+      "owner": "TileEntityTurretRichard",
+      "parent": "TileEntityTurretBaseNT",
+      "parameter": "nbt",
+      "early_returns": 0,
+      "body_sha256": "a96d0d0621a230a600408e61e3df53e0eb5e73b9ac039ab7b42ac89562da79a6"
+    }
+  ],
+  "post_file_sha256": {
+    "src/main/java/cofh/api/energy/TileEnergyHandler.java": "be8cfd0f210889e331145fd4baf78c6258f2507d4dbaeb92e8972d32bf3a1f40",
+    "src/main/java/com/hbm/blocks/BlockVolcanoV2.java": "41ef592664d838548910580bdc56d316cff85a7b42dd8b289acadf5766152234",
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": "3330470ac454bb08b5351abb0cafd88ec50dec41b16b7c842c81e78090424d0e",
+    "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java": "ed0106d07c8f952bdcc9e6fb0447cbff7021a64db000f5de5ac7a60387232d9a",
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": "6deeb6679a7a9f5d9c43f1b87d863703ac8123045fef1d8c07e55807492c0f25",
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": "d61a365e60494a1d834dc71e64e98bc0ecb0de3e656799a3265e7f8ad0fa1716",
+    "src/main/java/com/hbm/blocks/generic/BlockEmitter.java": "9e2f2c5f160c3c329f10c84230c021b14b4eb34e36085738a43d8a4df6d2377c",
+    "src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java": "dd2ffbc51b4b5396cfc568b758cf5e39e7e010fa745209facb630f01d287619b",
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": "c3654e56a06285a3e8d04ec23df2dd3c0581a64b5de3144b6012579c31d53765",
+    "src/main/java/com/hbm/blocks/generic/BlockPedestal.java": "36c4f2cbc3794d29156cc9a0908fc1951ed7d175e5ea2618f4df1920e89eca69",
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": "7589d3f0ed96dfb4dc99c8c38bf8fc19ecbb83e98bb33bc8c9007faebe606ada",
+    "src/main/java/com/hbm/blocks/generic/BlockRebar.java": "8b1f0bfbf650b101e9d7bf15e963e7ada7a4f98eacbadc27ced265d8f439908d",
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": "23c85e7dadb06d8e7f876a472db6c099b9a6bea3c9ffbb6c627ef44ea8743ec5",
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": "4a674dcafae902a30249c5ba0c10cecec291890807856e94009bdc661c1c3120",
+    "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java": "9602f2201ff659eb063081b08349ca9304a0483f66339d304711dcfbad3445f8",
+    "src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java": "41ff2de1c7209f5593102f34f24558e783f765346a615a924b1cb3559fe86f6f",
+    "src/main/java/com/hbm/blocks/generic/BlockWandLogic.java": "2ebb36f71352a9f7b13b0389ce494e7120c2e9619c89d283ac0b76a48aa5e9c7",
+    "src/main/java/com/hbm/blocks/generic/BlockWandLoot.java": "cc4ecd74e99f9eceb4cd45770311956a897f53fae67cc305ba32edf392628e81",
+    "src/main/java/com/hbm/blocks/generic/BlockWandStructure.java": "da7c8cfb87c08e233742701e9c7c13b854451c4a0c17a496f3f9f36663fde24f",
+    "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java": "ee4c68ca42c16649f697539143aed68e2cdfc2d87e4a432c0bb454b66aacb5de",
+    "src/main/java/com/hbm/blocks/generic/DungeonSpawner.java": "57249ea505dfec4a1d7f2054472008b71c67819443fb233dd7e3ecdb42f76205",
+    "src/main/java/com/hbm/blocks/generic/LogicBlock.java": "2a794b176a603418f0b1d563b892f900241f23b34a49d0d5814cffa5265756db",
+    "src/main/java/com/hbm/blocks/generic/PartEmitter.java": "94dc33f54ea9904f831952a14f2637c0fbfea47a8e3edc7108f4e89fa932ec59",
+    "src/main/java/com/hbm/blocks/machine/BlockAtmosphereEditor.java": "47058b90ff6d224d8240f3cd740535e8cec72fe1ed6f147596ae5f407581b05b",
+    "src/main/java/com/hbm/blocks/machine/BlockICF.java": "37c30750ca48d82dbad7e875c46c98d03c8d42a777b077984ebada2135193b2b",
+    "src/main/java/com/hbm/blocks/machine/BlockPWR.java": "cf08b53fd78213feff720473cb8beca4079f791024bada8753660f76714f3dd4",
+    "src/main/java/com/hbm/blocks/machine/Floodlight.java": "51121e9f55248409da6a003b3256184bc7b1406334f33399f7d258cd17448e8c",
+    "src/main/java/com/hbm/blocks/machine/FloodlightBeam.java": "c29d2017fd4f78571e017526a8040bdb08f6bbaab8a1ec9ee9272e56c14b6795",
+    "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java": "00a6a70863aa4d2ce6b07cfc5c04b3df5ac1841c85cf5ab3bfb57dc985f50636",
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": "ac2f77670b0ff22aaa7cd36eff16cb1963d00b21a6c882f7a0f7beef6667be24",
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": "24f361c7fb46f2fcaf90b11079c47be74f6e21c445dc75cf3e93fa9651841945",
+    "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": "add934d52003d7e94146326f51c4ac66ba043b4b4523f3f0a14df0af7054dcce",
+    "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": "ba6138032c407ec4e5268ed9451ed0ccbbdf5e421eb1855e3c04d076da6ae39e",
+    "src/main/java/com/hbm/blocks/network/CableDiode.java": "87f8d4414bed713c4daadfc394267cb480f4cece65dd6d9bc0ca5b56c83f4351",
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": "759f876655a0facdb7bf1de8e6479fe5017b36fe6a87e0baf659afa937963a52",
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": "a1e58803768cf0b5f27086e6fe1be6ef6ae255cc3ace55657e3692a499605afa",
+    "src/main/java/com/hbm/blocks/network/FluidPump.java": "bf0c84b09a3b767d7f82ab7e8c70c1b7cada849e8c60df6331bdfb53217f355d",
+    "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": "12c5e9431cc7304121f193f8af40131f7e724b759170b7202c3819b6226e117c",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java": "e9745905953ad19f9695abfdf210b9fde9ed1cab080ba5cdf46a3aa19ee1efbd",
+    "src/main/java/com/hbm/tileentity/TileEntityData.java": "c65747af5f01fa299344d8ebeb6087139c837af81e7024d9dfadd7e58a031aa7",
+    "src/main/java/com/hbm/tileentity/TileEntityDoorGeneric.java": "3e06c259ee66b9cc093bfae978cb48624087c5c8534a0a13f35728171bb1e031",
+    "src/main/java/com/hbm/tileentity/TileEntityInventoryBase.java": "fc58d72b7e42845731112df53ff8343c91148837cd71798b100d6963a124295c",
+    "src/main/java/com/hbm/tileentity/TileEntityLoadedBase.java": "506b00b2cd58828433dfcf7688bcaffc7df18b3962c5eb877d417dbf59433955",
+    "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java": "692a6ddb0f5714378d6adf335922d8725b4e5bb88278b31d73a7e31feac15cc3",
+    "src/main/java/com/hbm/tileentity/TileEntityMachinePolluting.java": "023b3ca7e03d837fd18b0c26921379b187075275199ce04c84e6ee43bf462f0d",
+    "src/main/java/com/hbm/tileentity/TileEntityProxyBase.java": "89cdc3a1eb61ff075af4704ac73007c6bb4aef40907db2e0e6ec9ec7e36c820e",
+    "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java": "ad9b7a1ae44377ce9b0c4aba914fb1090a6c9815bd5218d7f734acfe68f7f71c",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": "7a427522a217764910ecfe55904400aa660928c0f1fdbcea487fc433a16b6696",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java": "aca61b6ed9720b5c577fcc2eb32948971b752ecfdebe3c0b9bb64e5fecd67048",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java": "c8c3b72be4fa4031486a17b24a4bc17d623d2301096691d61fca7ee0de88f8e0",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityFireworks.java": "fa5cc425fb7f498077bd3d7ac0023a5030a3df842ffad8a11637e8ed5ef7299e",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLandmine.java": "7543de59a971ab1d8ed600da218c42f1fbfb3744ac78daad99fde21cabd2eb65",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java": "d625aeda7f9eec1e13c0f3a927374c5d4f697e06c6a966d1222e72e66ce1264e",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": "7b9e318697ce10523c725ff34412c8f115ba2092974986a8cda140da42c004fe",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java": "9a7f5322f5bc130e804ea87f9badad72047b7e8a0ce82d7f844df2cde4df3e14",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java": "25c190d71836ff4df879bef9589534512f02d576b17b73a866e285b936e21aa7",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java": "f6fb2a644c1c04b65d67c44e9f9bc76289cb37e0567dbc0eedff457add1d7f21",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java": "ecb572cfc843949ab29264740c4b1fdd7d59c6151b0e92fba984a5be69596fbb",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": "05b026393d7b2c7d9404323685a7b47a979d0a1d075a35a2b6e6d14020019d5b",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java": "fc367bab8b503171f0bccdc1abb250ee6f4ca769db1209a19f57f7ff6aa14288",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java": "fe3d1f9c8e82f04f95742fe8ba20bdf5da2af5fffbea768b00d6b5f18b37faf6",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java": "9ba93e179d0a2cb6c39a7775264e15f2bb8ae6efc129b18c84546d5edab5b7c8",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java": "ebd00b676b89a84249a798feb0ef2754c18ecc39efc7f4ec701b5c648d3ba5ca",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java": "d99e7da6bab3ec4a6f124e91f13a10e13d2b96ff3150e2aab1424040c65b8391",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java": "022e8d142c77b21f4facf2c0985bdf84979fdd9ce9ce9874f86f9066fe36d95d",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java": "2c7194f751974a6306ea96e0bb626c0aa779a4d6cec185cf68e5894ff7eea536",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java": "026cd70693dbdd46e7dd5c8b3436c40a550c85f5968afe2fea5d082eae0bca8c",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java": "17a033cb24628bf68a5271bb21fc274c041923bceea6906f09ac471c87d2757d",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java": "53e10c10d9f7e4603229b29d49160a1f38b7f3d0a7d1f8ffca5de781272787e7",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntitySellafield.java": "7f46f17d586c3210e3b34e503757b04882bd2a95799285230e85022c9b894bcb",
+    "src/main/java/com/hbm/tileentity/deco/TileEntityLanternBehemoth.java": "5b067e0b80ddf966be6a91caf2ec6f53c4de7b2c4e89cc0964272ec9fa0dd101",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java": "8b2bcb4a4484d52d1e9b6064ff046e7a275d2e31ff15bb20a810a2c374a9c79c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAirScrubber.java": "cdacd5a6a177f608d11e6c67f311d01afd311890094759db6362487ef54b6ae6",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java": "6651b3422fc54f1acdcc2b5804840df719eb17aa431fb4fd9339d3a7da7c822c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAshpit.java": "adfef3441a8b9b8b2422aee5b1e9a1c03abb5789bc74cae6103f354a1a1d33cc",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java": "32c51d5301d0cc28f21fd79ef045203597644231880deff1fb0331c346d7d9ed",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java": "1545144386cca0f67642073ec0ec0feba2a7091682473dccebf7b9c7fa0f4fa8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": "69d5789ae68a5b344fcf2ca94d41b5d698e06edf7b3128010e9b6c7716abd2f9",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java": "e5c2d9a45975bc6fc0fad342f59423fd758c26be9598485179a4d7cf6a0895d2",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCondenser.java": "8e38dac630f01ab2e4dd7b545ac2a306616a75c53c1e248bc4d877d175584823",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java": "00f331b5513dd7efb7e1bcfa3df40ddbf243fc42fdd40638a60a8d08e259be4e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityConveyorPress.java": "4d282279c85f054994dc2dc6cad2272bc5f1e911a478dcdcb818297e5d29f021",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java": "1d0c683fc71c6ed05b3b18902cead44a64f945d8675d834e2417a4011e493386",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": "1884870bb1d82bbf09a898347919fc87090a9ee5e78ae91fba4cda0737292b51",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java": "8a07d3bce23e97c580917f328726e92b78bf2c0116005775f33109b2d67190c3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java": "303825236ff5fead604596b0cf1b9b102138b144a1c67506f5fe239fa86baebb",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java": "91f7699525ff6a719ffe9185d977f705203e2e853c05ba4fd24d32e9da965d81",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java": "25767ef78d1e64b7a40f70cb15e37b6f2a3c192733b3344af1f441876b38ba34",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java": "c0915d1800c4153f9b2f99d8d68bebdc2fcd67b40d7f386698983aafbd640da3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumExtractor.java": "c3ecb1608abf814fe248dd002e89bc10604b1cd6ed8f2b21acf026e37979658b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java": "ae0fd399c2ac94e87e445dda6288339b97c3a245b5fd65cf5c2341d42e3ce449",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java": "0c37c0979011de430f40107547eb1db667f1da69432141a0b4e31040dd19504a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDishControl.java": "3e55e9d20479a47e1811a01b1d2b1fc75f7856abc65c1f52e44bc12ca7cedc01",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDummy.java": "d9e5be888c3900d471718f385a44c334ba7fe17d8bb320a043a15fe96123a1c3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java": "fe5d2eb720054ad0580fd9f99ab417dc0d48f945c947ec98225825e9eb7ce4e3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java": "7811a186271c797bf87fd785e7bf3d3d9200ee6c83539513c72764017d6815a7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java": "4578f8cdc53b27af998d46cd4b67ae7e918fa1d30f3e54ddf46baa88be90b188",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java": "360254d23cd31bf55408a7aec75a55d7f3a1ae9f27e50818de8e3d08b8a0ba0b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java": "31d0537be0ada643a75bea2f7631f01d99e8d685a70638a7a3d68170e67207d0",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": "e98b7f9df849cf0477d4f32511eb62c03337900ea5e347718fc2f4ac9ad8ef1e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java": "dbffda09abaf7325bf77ee45a7ce5178583011d7db4e7a414f263b67d6dea4c4",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java": "d7aea5f58adb198203dca4669057f8c92407b17090e3a3d2612b83c72f8177a1",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryBase.java": "ff30d41eb088ad7751ed63bde3a5de6b1499bd70a950022b87bf13d9c83560da",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryCastingBase.java": "8bbe37a3b7e0454ea71bea6b1a73e4fd61b84220dfbedd9beee143cf467ac0cd",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryChannel.java": "f1b3424e5aa34c1600eee9510934666cddc61bdf9729058a0ca710d0e99abb31",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java": "fd76c5079e1420fc54e4dcf73b65307cef30003f8931f8a22a0c6a489a305f02",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java": "5b9f858989fa2702564e2f4b9416de2de6ee808b09079f9bf8a6bfce32ae026e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java": "338c9172dfcc0ef4c55efe6af6839220258a9a2c2cd3b2aac695c1e54d5358fe",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java": "3bac72ba86a120c0422c2367ffa459bf7cf636a45883daad846a8019c82eb466",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java": "2a466ab31575bb6a0bba120052054edf2c82d3056720af80a4174d63635884ff",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHatch.java": "9b21d29acf771a098a3b22e810ee4b7d4a27b44f24bcab81ce40ca01abddff3e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java": "36a4ad56ad625359cf6e6c02fcbfc7dcdd265225c3da8691bb04ee744fc34a17",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoilerIndustrial.java": "2b3400fdcdba44e11658ab643d9ceddf639bfab6ce4985a857f805ae6f0ebf99",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterElectric.java": "fcf4fb841ca78e15b2359683bbabfb114687d07789760b0e1cdce26320144264",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java": "fff33c1d80f65fc2d02376dd640c2e9de67d85d61fef3ead2e2ec216c4f19043",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterOilburner.java": "c059c54588565c1a4a0d76f5f5719d6f082e2da3817e96dec3fa6af4de8cf3d8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java": "def31204370e614c779ba75e2eb7266f45a1c1db0e6bb05f4ec894c1ebf057b1",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java": "35128a7f1246c4920e076368977ac28ffac45b27f7b5e6719c0a6ebdeadc5a1b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": "4ddf05906dc165240cc69b5e95e66316583516168fd9f6d1fb84e0f3517ffceb",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFPress.java": "ad463874944004c1cd443342dad1e8fb8923a59e2a75cb0dac539113fb9ab4cb",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java": "60de5256ad78f75f0e6d00963b23eedd6423d2b70f834365e5195d4c45b1ba2a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityLockableBase.java": "f206dad2e353572d7c4a93ed62d4c3047bd22d1ac9c562a54f58e5c469fa41e5",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAmmoPress.java": "e511b5a55a0f554856a7ca25d1331404f7fb9887964fe68893ecc7a262d30daa",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java": "6393706057ca1c8155fda4f452d9be9c48beac758d7222aba0552202a649ae85",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java": "b75e9de8c399d6b0c539661f9ddefff4b8e8bd5e6b43d07a4d454549ef9c4def",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java": "b7e8f3ca696aa5ffcbfdca9e87e1cd3da4e6bd0e2682ffaaf1ec8d5498c8bb1e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java": "de19ea8829951fb5d924d7fe32319eb18cae4d9e3dc6cc42576e85b6cd9d9860",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java": "2e050f617224e779ad96d590df52a1e032a95a65fbe1786294f87ec645978bd1",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java": "2d1092046a8b177d1ad48d4fff9d398618bc3bb4c3d508bce5453683264b3667",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": "3a16c14576192219247d9a540c3a862a69675c5fa0240d6765dac93a06c854b8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCentrifuge.java": "09d0fa7d985fa0bdd37167549c987e454b786ac5ab92c63bdfd2268c9ee1fb4c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java": "2e1fc0887de195de794533569f8b784d5e6b67cd7fb635b183b5d7c6c86f7516",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java": "660d8bfde4f4ec4c2f13a0da35622969d31f17ad7f08c421bd6aacbe9dabbe17",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java": "4f98d30260fffac6a84e33b3bce52a26673a0164e282c16ac31730aebb5d983d",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorBase.java": "19afd6172153bf4d32dcd1e43da0b608b124fb49a8ef57000945dd21c22f5e52",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java": "e06ab21ad9aaf3ab177846e84e89df2337f7be7d283bf9b0feb3f36ae5d06fc4",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java": "47867cc4e6f057ba3d44329e397802ceba16669734c617f4e8425c466efbbb7a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCyclotron.java": "f43b799723bed46b169c17ae14ede5b2d58a5aa0be1cad72316aefe57912df9c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDiesel.java": "5b947fec8999f631b52bec4b22af9e31af88a0a99afba7a56233cbeab3b1ada1",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java": "bdfd10d110d3209a0735f0ad3c59b737959c90ac123a04b99f5a9efced829246",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDriveProcessor.java": "d8dfbf1acda5c612d516ccc5db450a24111b7a429f6187e77d41f891949b2a64",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": "6edc0ebf849cbc5c6d96fa2455fd2305613a8536a492030eac2672e2a85cd46e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineElectricFurnace.java": "bd1cde7bbe21bc2ccec3e6e05616731d70f949ee53e6eb7bd57fb795df800d8b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": "bb9a4c322ffcbc914765d4039a122a9412ca1e774f55205494305cd52d29ff76",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java": "f60a655b8026b432dd66a47cd338fc28f340c3e8da45fe2ccf5ca30a852864e4",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineFunnel.java": "f0fa5efb6436d853128ce9fe0fe687b235351b8162435795db80916bc62a2946",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java": "95b092c5f91e477ac7a696c7779c4c7b83560ee3f0308cba48d7d5ea0942622f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasDock.java": "ad5fc94681be90e69e56c612d5651582258974a4f42e0bea12818885bfc7b99f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java": "dbe56d03572a89fe98bc98d1764dd0256463d138c8df73d2aab444c525f975b5",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java": "95b15c3818c7b23c588a183fe499e6c5ab0074a46d60f9de09dd8197b18f4a68",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java": "ad3ad0592d59eddf2b0429489bc3ec7f24b3613469bf869569244277e6fb9b77",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHephaestus.java": "e8cef9dafde9fbaa7506f49143f36c149e3c2bc0cd44142975a78de77b95978c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java": "3539b89281c157f8993986b99cedcd34d5f9ba2df5bf4fb4e7fb879cbf9d9f49",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java": "3117d721bac71d92f973896388f6fbe6f38ffe094a78ecb7609f032e9e4fd715",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIntake.java": "e933512ffc69065e8dd33d751f2c7ae73f68a2052da680ee0d6a9a56c7652c6c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java": "4ba7ea61f745e956628f0edf6bdd99d734a10c81941e41287160cbb83046cbd4",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java": "e95cb5a184b29d26122b66e8fd342647350bd4967acfa9fe823fb376e2bbecdf",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java": "a995d206a36cb98d01efa60863aa056a59243794358e6618dfbd609425bbeeb8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java": "a7b0d826e42a09bb0ae646205795614ea27004b1371f6dd0e8a46f6a32b88527",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMilkReformer.java": "a1c9c5fa77de4e516f56c8dcbbb70b3ac049040cc4bbab43121879a554824e81",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": "fec41e4b0ca9f8783c745182c672ac2b9b1d59eb3539719d6093380c813abdab",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java": "29c2e106b05bae2635b175ecaea768788832cde283b52d09eeb4364de8196c73",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMixer.java": "fa15c339d9fdc7c676a17b0e4252aa136d2c76f400789816e60a4b3acf8de0d7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java": "b0799aac3a8d6411db281a72376f712af57568855a9ad3e1d91507ae831b0e6d",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java": "764b52ec62e644966e19ad15d69abb2e78afb8a9bf43df33356246c1ab2b0cbe",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java": "447f6eab880cbcb0091e3e3e13702922b74288d22fb673d321f3f75397d48092",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java": "2b08e3cb77b3d9549104dd0e98bb4ad9e3fb24dae483a605c52e7e70c9b7b04c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": "3a66f1cbc0d651d0ecb84705bcccdf025094efea2cb049a5dfabde9abca0b029",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java": "144207a1cd5ad8d5458301e93e8c9bcdeb5162aa0bab1fb05f8e5f64c49cfd81",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java": "a6a96844f30b180aa476649c048f851523abd221ddc7b1b5ec084c920e564919",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadarNT.java": "0c30a1057a3c9dabe644bdbc8a9207d7f6b822d69b9848869edf13c79da22621",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java": "c35d9c65c3d58d345befb0f2457d6c463ba66c5dca7459aa31f438c4997f5127",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineReactorBreeding.java": "c098547c2f672dc9f846e0ca2124f05dff5ee6a690e2c875c3844cba2c9d2051",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java": "43ec90dd58b928c9644b2139174b94aa03dea9fd7b26347667dcfc90cf46aad7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java": "961ecc60bea5de62630b663ba22256463890531779795e09b49c2ed80bff227a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java": "1ba70802c688f68f198078c38212518b181d470589de81691308fc47b03daa36",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java": "8891c50ccac792a84bd70a7ee9bad257a256e396c3d359d06d19d2af08bfbbea",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java": "e82236b74d9839c185604699bfb431835604469d2c84c7ea54c81de5adfbcbb7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java": "0e6c7aa195b60c838dec188de44fd3ee14c7ae6555fc9d8953f1e158a602df42",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolarPanel.java": "949fc0025669c0f0eea3b312ca894f9d3c99142553bbe205841154429f519984",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java": "a8bbff150a3eb3576b3e4ba62885cfaa5cacef867c82489dcd1cef928c5fc55b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java": "f84588d66a90941d52cc4c17ffa5d5fdb5210548141ff9ccec27e1d0062ed54e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java": "707e2d15e1e7ef131806ae73ada6d3991c504d10246791dd2cbe162fd44705dc",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTeleporter.java": "aafa666bb4cf9bde644c41c630f4fe77f2d7669af6b19261cba77cbe97cd203e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java": "675411d83e3f5e7de8d83e80b00ce48d45f8c7ba910a7e718dba4ef278530859",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java": "81b06ae9ab33ae2c4383d5bbfdeeda6288bdc0732dece04e924e3bacdf6595fd",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java": "85d620469e627a97bdc7e7af76344941095ea6a9bd83e4b8f42461d91802c093",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java": "ae08aa8a3ba505e91c9b30407e89e749a845cabe2f755b505beb299d017d69ae",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java": "a4c348cf1d0b99c2b3cef0ed758a565b8c61b62cb65e51fd011693b66987632f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java": "1728746f623aeb3b79419c3d9c8992ce1a2b5dff90b2f7ca6fbe2a2a08686676",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java": "07ed86ea8fc9adb1e597f7f70964f75578c52253c6b991f492fe2aa063a06f27",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java": "337c5bc13b2f05f756637b2cdd699a421386b799ec50a0bd0b37ff2617c0a60f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java": "af6f1d5a17f12bc1f15004095e33e92d481837d2c9f2013e9c3e579cfae20466",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRadioRec.java": "ba290dab4e213452bebc0431fef88dc42fad3d5148348e9f4815067120eca1dd",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRadiobox.java": "d411d98fe594181b63e8f4d358de753f9294395add8b5da896b7217202e575fc",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java": "73d9600f593fb7b6e0317eb5de09ef35f72965383293338f14c1877e0984710f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": "6d78eb0dce99e7ea5d2150267cb363eaf8060ece62f49561be9e004ad3e31c20",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java": "fdf95eab4bf0b2209e83bc99c8f4ba9b4576dcdf65384f2cbc1e6a5a16561d51",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java": "432e0c8b5248f901b2d7bc777c516e26c0df0978b9adac190143716c477048dd",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java": "ae457e60521494c1e2e0f422180e7fe34974efaefee3893860a3cde3471dfa0b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java": "89edcac4d6204763105e2b622c5e8b57200f5dceedc8a57ebb85beb86e07900e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java": "b5eaac59c9a9e3183aacf23e7638cf65f4c6bf4ee24501549bef8d18a4f38a27",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySolarBoiler.java": "efc129af5361e8c52e53125eb580e46998cd9b500d10051dbad67a7ce87f7333",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java": "e57eb16abbba80e1ae4c4928c170e8d6942a64b64c977e7c1ffbb25c096d37bc",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java": "c96fd65e2a33cd4179d160de54374774e02d4ff293b2b91225f0fc7a7fc48017",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java": "f7185d8fb31c807c6eb6bdd64b1c3e54a7dcd136dffb106ee77dd6d519c87b43",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java": "34ab16c0b4d84019452ded3b03ba74fea2558c6fb45a11c6423d8016d9f0fac8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityStorageDrum.java": "0cee2f78887d46159fe20f676025e28a5fed34116abe76c09d72aeb4012d4dc3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterBase.java": "945190e6eed1df2c18f0526839033b3d6705f0ed741d9bb542366f92dc431e47",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java": "3aa6f763b45781bb3c9fc078d804930776cb5e92c0b252c3707abb311ffdc008",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTurbineBase.java": "701a0a2d868b30cf8f66976945b0084ae1e7917450b8dc66a72ce871ef208468",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java": "79182876fbf2b0948b234589afb492b968441b796b60c9db7212542a83622c83",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java": "14d4f2fdf8056293907b9d7165249eb3d90b0bdccfb1d3ebaeb8f2d3bf032bb1",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java": "a3ef849b52b8114207d1dfe18fada0aa7855e522ecb433935b721b400d7f2b90",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityZirnoxDestroyed.java": "b48360ca0baf76a8a6e8c20aff02a3bb37af7d8ac4bc4eff468e70b98b3fbf35",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityCooledBase.java": "1a2345ebf1e0547d71870e3d758db61272970f141902ab6ca1f6d7d0a5a5e57a",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java": "c97f019ef081965aa94a6ab8d735e2717f2a493085c9043daf644a91f345bbc1",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADipole.java": "1f69fbf387ba1bd919cd7fa863ff972cefbb341190f7cb13a045b5d20a31a9a5",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java": "346375cb70abbaea2b2ac223b95e32c2ed8d35ac1a30e4514e5de85853ebb151",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java": "e391cf5d69d2b569137f6bf04a12d48c58437ca40aeafbdae3417ed8d02c0db6",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java": "891ef289aecede7de74b6d53a4c4b4992e5e86e12586f22d99bf2e9969a610a8",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": "0f80a05a5f0dfff511ca9cf1a9e31910f63a1e2ed7b39ef57e2446cb90ad7b2a",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java": "b9fa0197fe8ea2def5715e4a7b072bc855a458bad5eec80d8970918907a89803",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionTorus.java": "f95c0b589fca92dd6969ce5db43d482b458d7dc93dae0fb877e93a2539d27a92",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java": "860648b9e95d447554fd00bc6f1768a3373d9b083a94f09e8b949b5bd46eeac5",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java": "123a5bf5c8a73a69e213b8abf39bd0ca048bfcf764b0837835a4d1cc94b59956",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java": "2f2df3c45a4f64fa08541774020ee7b6f861b71e62fd58aeeefa82b03344e1e4",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCoker.java": "f8451debcc0a660cd10605abf140b9150f4c828d7010dd30dc89ea5b5b6b290e",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFractionTower.java": "bd0ef957ed2a9ab5da81f179a4524a3b44e1acd95e1b9a9881ffec47a583eb3f",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java": "91d5fa68efdb6a29cdaea944619b4bd476710897048ced318c7f208740bc07ab",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineHydrotreater.java": "59caff7563f0a2782b5e6fc30c5051eb00a9744ad6adc142782489135b210f12",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineLiquefactor.java": "183e54629ee1b48d9f8b17af4632872d923dd91c4453c7a8318e1551d48f1618",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java": "7bf06afb1689d379f6eebcf2e079aa35c4780fdbdb941f5bf0e492094a4a1fbf",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java": "ef6000e00b162bffce2b9513633d91e5a43a23d3e0bea17c8ca0d965ac465c87",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineSolidifier.java": "4e61fcf02a49c3c5920621ad1e316933e62167ef58d9f380330f4547b1bf73f3",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineVacuumDistill.java": "f380178bdf7d7fd2aaec352edf3fa903b9d59271a010515c4030499bebba6749",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java": "d527ade9967299b2fa3bb240a266523c608bbea693136f78a76e32170f294516",
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileBreedingFuel.java": "ddd5e92a09add6adf3bdef3cdb2d7696b912b437b630d1a8f14d6b65ce9ec133",
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java": "20e5c926e7fd2c2d162bf11ab2ffd89745c6e3f1ced01e7f365fb7ca58c6b1fe",
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java": "55da18cc0aaff6bd104952e8446b8c79186adaa5ab619d7b1fa083f0aeeca961",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java": "484f6f03b3902ebe48757cf0f070807933651ebd6c6e15783f350087c8031afb",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKAutoloader.java": "30d4f494b60bf15ab66107707fbe4f2a6f537c5d387b6d36c62f4a2893e68aab",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": "52b3f9f433f160cb1d2473169b44396451dcf395f1eabfaea5104af7929a0548",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBoiler.java": "4739e42b17b1c02ce45180c85726b35af5423d1f331fffcf98cadf96f95a027d",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java": "d061f4364f39e5c75a2ce9fa985d38b91263e8223df93a43384053c09640e49b",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControl.java": "c2814924b077b91f19e0a927a307f64e5bacf0e92fb747328477f6e8f23f8cc8",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlAuto.java": "60b165fc40d364889340b395d38a81b810a15afc80fc0c06804bbd439fd18160",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKControlManual.java": "5a70edd56707404d7259587789acf26558975bf9a849f3292c0e4a50f5abcede",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKCooler.java": "db9888fc714beeabb6adf1704e33b7132d8fa2df4c2d15abfe4b4a98c52b2042",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKDisplay.java": "f2d3a483280e0095e2f31c36cfbabac0da9d50a66102193139c9d9c42d9777a7",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java": "88c8b5ca88032820a44c44f056552616c9bf4fe6eb694cc17962a469de3dc6fe",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKHeater.java": "5325e5a749ac95d98ee6adea789cc1951abd529c60ccf3b52eefdbc71d11b2ef",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKInlet.java": "85a47bf5f328820fae39fcdcc8ed3764feb50b68102d39419a3acafe1c2ec590",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java": "e1a3fbfb7bc3abae69485ef8ecad458ba92bd67705e6afba2bb5c4849d66ff2b",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutgasser.java": "ac2b29b06cbfb5cbd1a452b149a6303af1b823e274e62c389c7ee1f98c651df0",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKOutlet.java": "6c0697a63bbeea12b6ae6cd14758efb54075d108ad6652cab7ec1e2c243f4c12",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java": "67ccde7251174e30cdf21422f6be7225d6fec88d6018acc72c7eef9f602b5a1a",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java": "893e45675ecfb7f5c4b04b607d01890ba9e8cbaf19f28797d24d1fbb8f7803fb",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java": "0882f9548cd4eb97a2aeb51ea9280d43d06bbb15dc4b5ce3bd3932d32906c46b",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java": "62678a0c58169f2ed1c98b53e26082d08210bcfde7532330897f55bca81d854b",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java": "cff017b0e42188ed2863b88aa20013ad12c2c4b3daa40d8d444e892c854778cc",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java": "5a1450b3b9078274f26efea45b666fe96d35163a44ee28c3c746e52f072f2a17",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java": "eb16a101c8f134c38901295e3eaacea5bf4b3ec2db8aebf06f3fa61af1444fd1",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java": "36f57362c3d26068a2b5bc923f0216d5e24b5797a35e8f943c6a003899b5e66f",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java": "ee218b7bfb19f2a2b777ccb29550b325fff7e160335f1412b695d90e3d052a54",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java": "e8ce3395ab19c20e87601db243afbbad83b088a38ed417247e988284e50af581",
+    "src/main/java/com/hbm/tileentity/network/TileEntityConverterHeRf.java": "89b0a01bc785e966c8edceb221ba1af19074ca24cae2dda33710d29061707a87",
+    "src/main/java/com/hbm/tileentity/network/TileEntityConverterRfHe.java": "2d782d70013d21bac2bbc4e71cecfb4a133c5bb1a9ea411ad24e2df8c3503f28",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java": "15d29dfeb35e28cda6972fe73add7c4e4970105d0a3496c2ea00cb323ec751fb",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneBoxer.java": "bb9843068d422b94648bcdfcf15e6b9c64cc73deab583ea76a061796dc4cee29",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneExtractor.java": "0163a470dcec3ec3f2ba1beaa969741d437fa3b279f5850df10c53257d0842d1",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java": "ac9050b3a41fcaeee276a572f0e01ecc22f5cec3a0f2d3adad3434acd268608a",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneInserter.java": "58b6ec767d320741f3db07f4317c11a75c401014e56d3e564261fcb2cc1533b2",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneRouter.java": "0d042e31e69153ada9dadbaf63204780f08bb11b29b13fe535cf97ca82a30e87",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneSplitter.java": "7891efa680e53b45106f73653ca805c74835ac4134b24646a4223d41448be9da",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java": "e35afee673d828db79607d010087f31faba5399638613bc65222ac3ba3e578a3",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneRequester.java": "b9e9c1f63dc3a359a84e3b085a9e461a90a9af0e76abe837df83c672317c4f21",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java": "691dc6aabe9d25f7057e8525310173bfdd40fad879d8edf279350e1c226a6494",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java": "5be8b2114d1efc9a8062d80be8486c9ffe65c375928cd8eb31fd1bc63d22f882",
+    "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java": "7b6059b9ffdcd9c036cc67ad7e5af0585df76dd61cbde08d8f809ba5a4ca107d",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java": "4cfafef68e56a0e30c1cec9e0b89957ca81f9e1bb524d921dfd1ca656c1788ac",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java": "1871c38759bbda5659330c1e34668cba0ab878d2556fdae35af6d03564af341d",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPneumoTube.java": "4a8987ab270fbcbc7da0d6e41eaca3102966cf12074cb5c2796de1826fb3ca89",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java": "438e5eba07c94b431627da38f2eb2b5d8be0d48758671bf9afea6b6d4f7ec65f",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTelex.java": "8399d93d533daf71cbc3b356cdc0359ee728b877e5c3403aa3df6a04df3fd9b7",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchBase.java": "6fe7defd99fdc37f33cf86cef140c9ace9aea1be1f740c468f9768f2e7374e87",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchController.java": "20c64a194197ce8a31b77972316e03f40e4a6bce89b7b454c6faec94e54bdf2a",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java": "43b5f565fb9dfa32f0e9723b5ee93096caa6ae10285de4ad85f10e70320f4f7e",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchLogic.java": "d29f63c6f3ea2d0564ca8860333052e478bd911c4c3e60be72bf14bfaa3dfd72",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReader.java": "928f83db3cfc474f85ad3e0b802d1201d8b8d26a2f3620db841ece0734822a74",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java": "2664ad67e328ba91462d4106c29207981ad416068e135b21d0d538bbf2ef14a0",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": "731e1c583b2a0b455f30dbc3583e3b6509b37bd6ec03a85531385b9cae2ca127",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java": "874da85a858e1db74626c9857610b980b422401e8c84872809dffaf47a379145",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java": "6d40ca36bfe0d6c55baa667795bf3e5625d2e0ac762cc7517073e5f546fbded4",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java": "b5538b86bb4db57e8db28ccd522aa5aec47633e2ec6b34d6cb773335cc24230b",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHoward.java": "8eadc969f8361ad0e10576fba3e6c0a8e0056a188d968eca6057bae2c2fbaf68",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java": "e4fc360fef6d0b73137a2bd97ba905658adddfab492daac4aa6709e04b5038fd"
+  },
+  "excluded_void_methods": {
+    "src/main/java/com/hbm/dim/WorldProviderCelestial.java:WorldProviderCelestial:NBTTagCompound nbt": "747bba1d5f856912b379bb4b5ee836cb0aa67098a05638afe7df133d79e4a762",
+    "src/main/java/com/hbm/dim/duna/WorldProviderDuna.java:WorldProviderDuna:NBTTagCompound nbt": "87501862830580fd74ee0da1472d334156149ba2df7e5f36e895ec103998cb6d",
+    "src/main/java/com/hbm/dim/eve/WorldProviderEve.java:WorldProviderEve:NBTTagCompound nbt": "5602fd4144c69c58cfd145d30ed2da7d50bc650cc32a68d7af1295669a9f65d7",
+    "src/main/java/com/hbm/dim/trait/CBT_Atmosphere.java:CBT_Atmosphere:NBTTagCompound nbt": "3f18d0c56546f3cb50704543df2d8a0a62ccaf5c7306a26ea9c015216eded2c1",
+    "src/main/java/com/hbm/dim/trait/CBT_Bees.java:CBT_Bees:NBTTagCompound nbt": "031c61755787e178dbfe1835fd7b077e64a3dc9eec29cef1f71f16d1f0412b8e",
+    "src/main/java/com/hbm/dim/trait/CBT_Destroyed.java:CBT_Destroyed:NBTTagCompound nbt": "850d768e18e77fe37e6977046d6391d7b7019768a04ddb5e48668b4282100209",
+    "src/main/java/com/hbm/dim/trait/CBT_Dyson.java:CBT_Dyson:NBTTagCompound nbt": "d0fb5763e9cf1a37305c1aa59159db13d36466d6ce3cb9304094145a8cf1c49b",
+    "src/main/java/com/hbm/dim/trait/CBT_Impact.java:CBT_Impact:NBTTagCompound nbt": "af1cf84d8cf2f4359242ec3da96205e428e67ee388c98b50804c9ffc91822dde",
+    "src/main/java/com/hbm/dim/trait/CBT_Invasion.java:CBT_Invasion:NBTTagCompound nbt": "14f7ba525cfc847ce081ef4897815ba95a890c576b559dda1cdf9ddfee8dfc2f",
+    "src/main/java/com/hbm/dim/trait/CBT_Lights.java:CBT_Lights:NBTTagCompound nbt": "3f186dc07f30efa750079456ceb1d83b790519567842190283aa4e345b2dd31a",
+    "src/main/java/com/hbm/dim/trait/CBT_Temperature.java:CBT_Temperature:NBTTagCompound nbt": "971db572bb2633c0dd1b72927864216de7e306cb5987e4c22d9e8e3120a106b3",
+    "src/main/java/com/hbm/dim/trait/CBT_War.java:CBT_War:NBTTagCompound nbt": "1e1d97081d582749df6d8c4a31399e26b5ef480dc9c735b38f849410310c8ba6",
+    "src/main/java/com/hbm/dim/trait/CBT_War.java:Projectile:NBTTagCompound nbt": "d87b604f62246e33e86e5c345726feedd4dd3544712e93b4cf20447f54a23e34",
+    "src/main/java/com/hbm/dim/trait/CBT_Water.java:CBT_Water:NBTTagCompound nbt": "a90be7b9417e84959ca6c73165bec9fc87171f806a005f239f4e089274b5c8c9",
+    "src/main/java/com/hbm/dim/trait/CelestialBodyTrait.java:CelestialBodyTrait:NBTTagCompound nbt": "a8a6ca1dba6bfd097a29e9d314faddefa5ed33f19a72da472b62e98cf4792700",
+    "src/main/java/com/hbm/entity/effect/EntityFireLingering.java:EntityFireLingering:NBTTagCompound nbt": "a8a6ca1dba6bfd097a29e9d314faddefa5ed33f19a72da472b62e98cf4792700",
+    "src/main/java/com/hbm/handler/RocketStruct.java:RocketStruct:NBTTagCompound nbt": "f06b03655769aa7c0165c3e24d15d7597e3baad636c2dae1f5d05dcd1b219db3",
+    "src/main/java/com/hbm/handler/ability/ToolPreset.java:ToolPreset:NBTTagCompound nbt": "a5be7cde838eab67960fcf31ead54e31dff8ae9c9d441a82ec1923c54a13000b",
+    "src/main/java/com/hbm/inventory/fluid/tank/FluidTank.java:FluidTank:NBTTagCompound nbt, String s": "74f80ae840bbae7dfa1dae6c6f0d5d0ec52d30b672fdc8602cdb5a83d595a70a",
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java:Configuration:NBTTagCompound nbt": "cb38a8292a59fc0673c8dc7cc5b9ead4e800e7688f71cdfd3230a142ff8c18b1",
+    "src/main/java/com/hbm/items/tool/ItemTransporterLinker.java:TransporterInfo:NBTTagCompound nbt": "a7e95480b3fc579b5519e4a401e757334b1c7e6e3292dab265aa7b5851303049",
+    "src/main/java/com/hbm/items/tool/ItemTransporterLinker.java:TransporterInfo:NBTTagCompound nbt, boolean recurse": "4ebcab2a40127040e281a1c0bacb9640f9e44da8621a0e8953e3a05667d17c29",
+    "src/main/java/com/hbm/items/weapon/ItemCustomMissile.java:ItemCustomMissile:ItemStack stack, String key, int value": "36e486635270a686adaa84339b01b23fa89b0c57dcacd712298d13fc4e175424",
+    "src/main/java/com/hbm/module/ModulePatternMatcher.java:ModulePatternMatcher:NBTTagCompound nbt": "06bdb8bf77d69677e89aff94681401e9028e5655f438ec1820adc3a1ccfbb165",
+    "src/main/java/com/hbm/module/machine/ModuleMachineBase.java:ModuleMachineBase:NBTTagCompound nbt": "9f078bc5a0a05f4d3097cd61e93a6b404c53a474222024e8197fe0419cad42a5",
+    "src/main/java/com/hbm/module/machine/ModuleMachineFusion.java:ModuleMachineFusion:NBTTagCompound nbt": "6de2ee336e04cb804b05e080d42ea579491585ae256795c298a2edbb991c757a",
+    "src/main/java/com/hbm/saveddata/satellites/Satellite.java:Satellite:NBTTagCompound nbt": "a8a6ca1dba6bfd097a29e9d314faddefa5ed33f19a72da472b62e98cf4792700",
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteHorizons.java:SatelliteHorizons:NBTTagCompound nbt": "ae762949e37d53f99b1329fb43e771a51a40a18320dfffe222ec1316101d3b23",
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteLaser.java:SatelliteLaser:NBTTagCompound nbt": "373b378b257b933edb65907880c0d6e33c2c2b67c4d4c70cb0ca420dd53cad29",
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteMiner.java:SatelliteMiner:NBTTagCompound nbt": "373b378b257b933edb65907880c0d6e33c2c2b67c4d4c70cb0ca420dd53cad29",
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteRailgun.java:SatelliteRailgun:NBTTagCompound nbt": "373b378b257b933edb65907880c0d6e33c2c2b67c4d4c70cb0ca420dd53cad29",
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteWar.java:SatelliteWar:NBTTagCompound nbt": "373b378b257b933edb65907880c0d6e33c2c2b67c4d4c70cb0ca420dd53cad29",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java:PseudoFluidTank:NBTTagCompound nbt, String s": "b7f1b6f9bc29dc60acc8978633f297993e12ff9d95cea72fbbd6f29d0fe255a8",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java:GaugeUnit:NBTTagCompound nbt, int index": "9aacfe17f674cbe49bfd0141057c34296a99b5267f8d616e8c91d610a4f727fd",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java:KeyUnit:NBTTagCompound nbt, int index": "5853fed876cb28333fcf7e5ad319b3938d1263ba4b6558ee008dc99ebe9073b9",
+    "src/main/java/com/hbm/world/gen/ProceduralStructureStart.java:ProceduralStructureStart:NBTTagCompound nbt": "aa7dd333a3314db889b4e2f1ae78ae289596a6f605cabeda5d9329cce964c38b",
+    "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java:Start:NBTTagCompound nbt": "31c740eafe37b6dc1fa1d90fe03cd482d8d353ad6a84a48c03751fedc05b3e12"
+  },
+  "body_fingerprint": "SHA-256 with whitespace removed only outside quoted literals and comments; literals/comments retained exactly"
+}

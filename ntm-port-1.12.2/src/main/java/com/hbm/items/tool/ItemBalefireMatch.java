@@ -41,7 +41,7 @@ public class ItemBalefireMatch extends Item {
         } else {
         	
             if (world.isAirBlock(x, y, z)) {
-                world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+                com.hbm.sound.VanillaWorldSoundEffects.play(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
                 world.setBlock(x, y, z, ModBlocks.balefire);
             }
 

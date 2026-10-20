@@ -1,0 +1,12 @@
+[
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidTank.java",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderStandard.java",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderFillableItem.java",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderInfinite.java",
+  "src/main/java/com/hbm/inventory/FluidContainerRegistry.java",
+  "src/main/java/api/hbm/fluid/IFluidStandardReceiver.java",
+  "src/main/java/api/hbm/fluid/IFluidStandardSender.java",
+  "src/main/java/api/hbm/fluidmk2/IFluidPipeMK2.java",
+  "src/main/java/api/hbm/fluidmk2/IFluidReceiverMK2.java",
+  "src/main/java/api/hbm/fluidmk2/IFluidStandardSenderMK2.java"
+]

@@ -73,13 +73,13 @@ public class TileEntityTurretHowardDamaged extends TileEntityTurretHoward {
 
 			if(timer % 4 == 0) {
 
-				this.worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:turret.howard_fire", 4.0F, 0.7F + worldObj.rand.nextFloat() * 0.3F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.howard_fire", 4.0F, 0.7F + this.world.rand.nextFloat() * 0.3F);
 
 				this.cachedCasingConfig = GunDGKFactory.CASINGDGK;
 				this.spawnCasing();
 
-				if(worldObj.rand.nextInt(100) + 1 <= WeaponConfig.ciwsHitrate * 0.5)
-					EntityDamageUtil.attackEntityFromIgnoreIFrame(this.target, ModDamageSource.shrapnel, 2F + worldObj.rand.nextInt(2));
+				if(this.world.rand.nextInt(100) + 1 <= WeaponConfig.ciwsHitrate * 0.5)
+					EntityDamageUtil.attackEntityFromIgnoreIFrame(this.target, ModDamageSource.shrapnel, 2F + this.world.rand.nextInt(2));
 
 				Vec3d pos = this.getTurretPos();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(this.getBarrelLength(), 0, 0);
@@ -95,7 +95,7 @@ public class TileEntityTurretHowardDamaged extends TileEntityTurretHoward {
 				data.setString("mode", "largeexplode");
 				data.setFloat("size", 1.5F);
 				data.setByte("count", (byte)1);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + hOff.x, pos.y + vec.y + hOff.y, pos.z + vec.z + hOff.z), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, pos.x + vec.x + hOff.x, pos.y + vec.y + hOff.y, pos.z + vec.z + hOff.z), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50));
 			}
 		}
 	}

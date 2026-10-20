@@ -81,6 +81,6 @@ public class ContainerPyroOven extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return pyro.isUseableByPlayer(player);
+		return pyro.isUsableByPlayer(player);
 	}
 }

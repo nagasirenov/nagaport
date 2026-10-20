@@ -1,0 +1,14 @@
+PASS: three exact original-owner mappings, two complete native implementation hashes; 9 drift mutations rejected.
+PASS: original ranged/melee/path bytecode identities and original Forge melee patch verified.
+/workspace/shared/nagaport-native-ai-roots/ntm-port-1.12.2/porting/tests/native-ai-roots/NativeAiRootsTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static <T> T allocate(Class<T> type) throws Exception { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return type.cast(((sun.misc.Unsafe)f.get(null)).allocateInstance(type)); }
+                                                                            ^
+/workspace/shared/nagaport-native-ai-roots/ntm-port-1.12.2/porting/tests/native-ai-roots/NativeAiRootsTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static <T> T allocate(Class<T> type) throws Exception { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return type.cast(((sun.misc.Unsafe)f.get(null)).allocateInstance(type)); }
+                                                                                                                                                                         ^
+Note: /workspace/shared/nagaport-native-ai-roots/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIFBIMelee.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+PASS: original vd.class rehosted; one field-to-getter boundary, all original decisions retained.
+PASS: 372976 actual native assertions; complete two production AI tasks, original ranged bytecode differential, original Forge melee cadence/target/penalty tests. Owner entities and real path search are not compiled/exercised here.
+PASS: 15 native extracted-owner factory/registration assertions; full owner classes explicitly outside fixture scope.

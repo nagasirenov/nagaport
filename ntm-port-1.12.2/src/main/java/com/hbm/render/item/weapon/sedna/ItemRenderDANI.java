@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -31,7 +34,7 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 		for(int i = -1; i <= 1; i += 2) {
 			
 			int index = i == -1 ? 0 : 1;
-			Minecraft.getMinecraft().renderEngine.bindTexture(index == 0 ? ResourceManager.dani_celestial_tex : ResourceManager.dani_lunar_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(index == 0 ? ResourceManager.dani_celestial_tex : ResourceManager.dani_lunar_tex);
 			
 			GL11.glPushMatrix();
 			
@@ -148,7 +151,7 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 		GL11.glRotated(25, 1, 0, 0);
 		GL11.glRotated(45, 0, 1, 0);
 		GL11.glTranslated(2, 0, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_celestial_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_celestial_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glPopMatrix();
 
@@ -160,7 +163,7 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 		GL11.glRotated(25, 1, 0, 0);
 		GL11.glRotated(-45, 0, 1, 0);
 		GL11.glTranslated(-2, 0, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_lunar_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_lunar_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glPopMatrix();
 		
@@ -168,17 +171,17 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderEquipped(ItemStack stack, Object... data) {
+	public void renderEquipped(ItemStack stack, NativeItemContext context) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_lunar_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_lunar_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
 		//Stopgap: at the moment, the flashMap is gun agnostic and does not care about index.
-		EntityLivingBase ent = (EntityLivingBase) data[1]; //Entity is second obj. passed 
+		EntityLivingBase ent = context.holder; //Entity is second obj. passed
 		long shot;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[1];
 		} else {
@@ -197,13 +200,13 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase ent) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_celestial_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_celestial_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
 		//EntityPlayer is first & only object passed
 		long shot;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[0];
 		} else {
@@ -223,7 +226,7 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(index == 1 ? ResourceManager.dani_celestial_tex : ResourceManager.dani_lunar_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(index == 1 ? ResourceManager.dani_celestial_tex : ResourceManager.dani_lunar_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
 	}
@@ -236,13 +239,13 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 		GL11.glPushMatrix();
 		
 		GL11.glTranslated(-2, 1, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_lunar_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_lunar_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glPopMatrix();
 		
 		GL11.glPushMatrix();
 		GL11.glTranslated(2, 1, 0);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_celestial_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_celestial_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glPopMatrix();
 		
@@ -250,10 +253,10 @@ public class ItemRenderDANI extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.dani_celestial_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.dani_celestial_tex);
 		ResourceManager.bio_revolver.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
 	}

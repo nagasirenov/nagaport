@@ -65,7 +65,7 @@ public class XFactoryRocket {
 			return;
 		}
 		EntityPlayer player = (EntityPlayer) bullet.getThrower();
-		steeringAccelerate(entity, player.getHeldItem() == null || !(player.getHeldItem().getItem() instanceof ItemGunBaseNT) || !ItemGunBaseNT.getIsAiming(player.getHeldItem()));
+		steeringAccelerate(entity, com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || !(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemGunBaseNT) || !ItemGunBaseNT.getIsAiming(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	};
 	public static Consumer<Entity> LAMBDA_NCR_ACCELERATE = (entity) -> {
 		steeringAccelerate(entity, false);
@@ -109,7 +109,7 @@ public class XFactoryRocket {
 	};
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_DEMO = (bullet, mop) -> {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3) return;
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5F, bullet.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 5F, bullet.getThrower());
 		vnt.setBlockAllocator(new BlockAllocatorStandard());
 		vnt.setBlockProcessor(new BlockProcessorStandard());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage));
@@ -127,7 +127,7 @@ public class XFactoryRocket {
 
 	public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, boolean phosphorus, int duration) {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3) return;
-		World world = bullet.worldObj;
+		World world = bullet.world;
 		Lego.standardExplode(bullet, mop, 3F);
 		EntityFireLingering fire = new EntityFireLingering(world).setArea(6, 2).setDuration(duration).setType(phosphorus ? EntityFireLingering.TYPE_PHOSPHORUS : EntityFireLingering.TYPE_DIESEL);
 		fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
@@ -139,8 +139,8 @@ public class XFactoryRocket {
 					int x = (int) Math.floor(mop.hitVec.x) + dx;
 					int y = (int) Math.floor(mop.hitVec.y) + dy;
 					int z = (int) Math.floor(mop.hitVec.z) + dz;
-					if(world.getBlock(x, y, z).isAir(bullet.worldObj, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-						if(com.hbm.lib.FacingCompat.isFlammable(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.getOpposite())) {
+					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(bullet.world, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+						if(com.hbm.lib.FacingCompat.isFlammable(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock(), world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.getOpposite())) {
 							world.setBlock(x, y, z, Blocks.fire);
 							break;
 						}
@@ -191,7 +191,7 @@ public class XFactoryRocket {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ROCKET))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_PANZERSCHRECK_ANIMS).orchestra(Orchestras.ORCHESTRA_PANERSCHRECK)
-				).setDefaultAmmo(EnumAmmo.ROCKET_HE, 3).setUnlocalizedName("gun_panzerschreck");
+				).setDefaultAmmo(EnumAmmo.ROCKET_HE, 3).setTranslationKey("gun_panzerschreck");
 
 		ModItems.gun_stinger = new ItemGunStinger(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(300).draw(7).inspect(40).crosshair(Crosshair.L_BOX_OUTLINE)
@@ -213,7 +213,7 @@ public class XFactoryRocket {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ROCKET))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_QUADRO_ANIMS).orchestra(Orchestras.ORCHESTRA_QUADRO)
-				).setDefaultAmmo(EnumAmmo.ROCKET_HE, 4).setUnlocalizedName("gun_quadro");
+				).setDefaultAmmo(EnumAmmo.ROCKET_HE, 4).setTranslationKey("gun_quadro");
 
 		ModItems.gun_missile_launcher = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(500).draw(20).inspect(40).crosshair(Crosshair.L_CIRCUMFLEX).hideCrosshair(false)
@@ -224,7 +224,7 @@ public class XFactoryRocket {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_ROCKET))
 				.setupStandardConfiguration().pp(LAMBDA_MISSILE_LAUNCHER_PRIMARY_PRESS)
 				.anim(LAMBDA_MISSILE_LAUNCHER_ANIMS).orchestra(Orchestras.ORCHESTRA_MISSILE_LAUNCHER)
-				).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 5).setUnlocalizedName("gun_missile_launcher");
+				).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 5).setTranslationKey("gun_missile_launcher");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_STINGER_SECONDARY_PRESS = (stack, ctx) -> { ItemGunStinger.setIsLockingOn(stack, true); };

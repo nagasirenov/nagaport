@@ -60,9 +60,9 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(!hasRegistered) {
 				if(isFacingPrograde()) registerPropulsion();
 				hasRegistered = true;
@@ -70,9 +70,9 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 			}
 
 			for(DirPos pos : this.getConPos()) {
-				this.trySubscribe(worldObj, pos);
-				this.trySubscribe(coolantTanks[0].getTankType(), worldObj, pos);
-				this.tryProvide(coolantTanks[1], worldObj, pos);
+				this.trySubscribe(this.world, pos);
+				this.trySubscribe(coolantTanks[0].getTankType(), this.world, pos);
+				this.tryProvide(coolantTanks[1], this.world, pos);
 			}
 
 			plasmaEnergySync = plasmaEnergy;
@@ -95,7 +95,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 				soundtime++;
 
 				if(soundtime == 1) {
-					this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:misc.htrfstart", 1.5F, 1F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:misc.htrfstart", 1.5F, 1F);
 				} else if(soundtime > 30) {
 					soundtime = 30;
 				}
@@ -103,7 +103,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 				soundtime--;
 
 				if(soundtime == 29) {
-					this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:misc.htrstop", 2.0F, 1F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:misc.htrstop", 2.0F, 1F);
 				} else if(soundtime <= 0) {
 					soundtime = 0;
 				}
@@ -113,14 +113,14 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 			// nodespace setup
 			if(plasmaNode == null || plasmaNode.expired) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
-				plasmaNode = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * -10, yCoord, zCoord + dir.offsetZ * -10, PlasmaNetworkProvider.THE_PROVIDER);
+				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * -10, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -10, PlasmaNetworkProvider.THE_PROVIDER);
 
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
-							new BlockPos(xCoord + dir.offsetX * -10, yCoord, zCoord + dir.offsetZ * -10))
-							.setConnections(new DirPos(xCoord + dir.offsetX * -11, yCoord, zCoord + dir.offsetZ * -11, dir));
+							new BlockPos(this.pos.getX() + dir.offsetX * -10, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -10))
+							.setConnections(new DirPos(this.pos.getX() + dir.offsetX * -11, this.pos.getY(), this.pos.getZ() + dir.offsetZ * -11, dir));
 
-					UniNodespace.createNode(worldObj, plasmaNode);
+					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
 
@@ -134,7 +134,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 			if(power >= maxPower || isOn) this.rotorSpeed += 0.125F;
 			else this.rotorSpeed -= 0.125F;
 
-			this.rotorSpeed = MathHelper.clamp_float(this.rotorSpeed, 0F, 15F);
+			this.rotorSpeed = MathHelper.clamp(this.rotorSpeed, 0F, 15F);
 
 			this.prevRotor = this.rotor;
 			this.rotor += this.rotorSpeed;
@@ -173,7 +173,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:misc.htrloop", xCoord, yCoord, zCoord, 0.25F, 27.5F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:misc.htrloop", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 27.5F, 1.0F, 20);
 	}
 
 	@Override
@@ -195,8 +195,8 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 			hasRegistered = false;
 		}
 
-		if(!worldObj.isRemote) {
-			if(this.plasmaNode != null) UniNodespace.destroyNode(worldObj, plasmaNode);
+		if(!this.world.isRemote) {
+			if(this.plasmaNode != null) UniNodespace.destroyNode(this.world, plasmaNode);
 		}
 	}
 
@@ -216,10 +216,10 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-			new DirPos(xCoord - rot.offsetX * 5 - dir.offsetX * 3, yCoord - 2, zCoord - rot.offsetZ * 5 - dir.offsetZ * 3, dir.getOpposite()),
-			new DirPos(xCoord - rot.offsetX * -1 - dir.offsetX * 3, yCoord - 2, zCoord - rot.offsetZ * -1 - dir.offsetZ * 3, dir.getOpposite()),
-			new DirPos(xCoord - rot.offsetX * 5 - dir.offsetX * -3, yCoord - 2, zCoord - rot.offsetZ * 5 - dir.offsetZ * -3, dir),
-			new DirPos(xCoord - rot.offsetX * -1 - dir.offsetX * -3, yCoord - 2, zCoord - rot.offsetZ * -1 - dir.offsetZ * -3, dir),
+			new DirPos(this.pos.getX() - rot.offsetX * 5 - dir.offsetX * 3, this.pos.getY() - 2, this.pos.getZ() - rot.offsetZ * 5 - dir.offsetZ * 3, dir.getOpposite()),
+			new DirPos(this.pos.getX() - rot.offsetX * -1 - dir.offsetX * 3, this.pos.getY() - 2, this.pos.getZ() - rot.offsetZ * -1 - dir.offsetZ * 3, dir.getOpposite()),
+			new DirPos(this.pos.getX() - rot.offsetX * 5 - dir.offsetX * -3, this.pos.getY() - 2, this.pos.getZ() - rot.offsetZ * 5 - dir.offsetZ * -3, dir),
+			new DirPos(this.pos.getX() - rot.offsetX * -1 - dir.offsetX * -3, this.pos.getY() - 2, this.pos.getZ() - rot.offsetZ * -1 - dir.offsetZ * -3, dir),
 		};
 	}
 
@@ -315,11 +315,12 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("plasma", plasmaEnergy);
 		nbt.setBoolean("on", isOn);
+		return nbt;
 	}
 
 	@Override
@@ -341,19 +342,19 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null)
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 11,
-				yCoord - 2,
-				zCoord - 11,
-				xCoord + 12,
-				yCoord + 3,
-				zCoord + 12
+				this.pos.getX() - 11,
+				this.pos.getY() - 2,
+				this.pos.getZ() - 11,
+				this.pos.getX() + 12,
+				this.pos.getY() + 3,
+				this.pos.getZ() + 12
 			);
 
 		return bb;
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.htrfneo";
 	}
 

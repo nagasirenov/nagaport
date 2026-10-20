@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:native_rail/tile.machine_funnel/0/world"
+    }
+  }
+}

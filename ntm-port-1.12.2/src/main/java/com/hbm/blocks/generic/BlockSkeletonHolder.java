@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class BlockSkeletonHolder extends BlockContainer {
 
 	public BlockSkeletonHolder() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class BlockSkeletonHolder extends BlockContainer {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
@@ -42,16 +42,16 @@ public class BlockSkeletonHolder extends BlockContainer {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if(player.isSneaking()) return false;
 
-		TileEntitySkeletonHolder pedestal = (TileEntitySkeletonHolder) world.getTileEntity(x, y, z);
+		TileEntitySkeletonHolder pedestal = (TileEntitySkeletonHolder) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
-		if(pedestal.item == null && player.getHeldItem() != null) {
+		if(pedestal.item == null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 			if(world.isRemote) return true;
-			pedestal.item = player.getHeldItem().copy();
+			pedestal.item = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
 			player.inventory.mainInventory[player.inventory.currentItem] = null;
 			pedestal.markDirty();
 			world.markBlockForUpdate(x, y, z);
 			return true;
-		} else if(pedestal.item != null && player.getHeldItem() == null) {
+		} else if(pedestal.item != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null) {
 			if(world.isRemote) return true;
 			player.inventory.mainInventory[player.inventory.currentItem] = pedestal.item.copy();
 			pedestal.item = null;
@@ -67,10 +67,10 @@ public class BlockSkeletonHolder extends BlockContainer {
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 
 		if(!world.isRemote) {
-			TileEntitySkeletonHolder entity = (TileEntitySkeletonHolder) world.getTileEntity(x, y, z);
+			TileEntitySkeletonHolder entity = (TileEntitySkeletonHolder) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null && entity.item != null) {
 				EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, entity.item.copy());
-				world.spawnEntityInWorld(item);
+				world.spawnEntity(item);
 			}
 		}
 
@@ -81,7 +81,6 @@ public class BlockSkeletonHolder extends BlockContainer {
 
 		public ItemStack item;
 
-		@Override public boolean canUpdate() { return false; }
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -102,13 +101,14 @@ public class BlockSkeletonHolder extends BlockContainer {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			if(this.item != null) {
 				NBTTagCompound stack = new NBTTagCompound();
 				this.item.writeToNBT(stack);
 				nbt.setTag("item", stack);
 			}
+			return nbt;
 		}
 	}
 }

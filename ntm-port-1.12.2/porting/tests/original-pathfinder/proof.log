@@ -1,0 +1,24 @@
+PASS three exact CP48 inverses, one pinned native helper, 12 rejected drift mutations
+PASS pinned original client, Forge1614 patches and pristine wrapper
+PRODUCTION com/hbm/entity/pathfinder/NTMPathFinder.java 917cac970d420f5e4b3777c431f16148dbcced853f8ed8b0bb42d09da8400577
+PRODUCTION com/hbm/entity/pathfinder/PathFinderUtils.java 1b998e13d9ebad52e9b38ce9d206741cb9551d19872685d41ff6babfcb7596df
+PRODUCTION com/hbm/blocks/generic/BlockMetalFence.java 706ee563fa21bd6bf3a05cce2fae94fa8e55ec83f68e59e97e2801209e97ab8c
+PRODUCTION com/hbm/blocks/IBlockMulti.java f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9
+/workspace/shared/nagaport-original-pathfinder/ntm-port-1.12.2/porting/tests/original-pathfinder/NativePathFinderTest.java:25: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final sun.misc.Unsafe U;
+                         ^
+/workspace/shared/nagaport-original-pathfinder/ntm-port-1.12.2/porting/tests/original-pathfinder/NativePathFinderTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null); } catch(Exception e) { throw new RuntimeException(e); } }
+                                   ^
+/workspace/shared/nagaport-original-pathfinder/ntm-port-1.12.2/porting/tests/original-pathfinder/NativePathFinderTest.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null); } catch(Exception e) { throw new RuntimeException(e); } }
+                                                                                                                ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS complete production helpers contain only native APIs, no native altered search/cost policy
+PASS 1160 canonical original vanilla block states: support and all eight collision flags
+PASS actual original/native PathPoint and PathHeap differential
+PASS full flag/metadata/width obstacle matrix
+PASS exact FBI statement and four Glyphid helper expressions compile/run on native entities; Glyphid path sink/lifecycle not claimed
+PASS 887015 original/native path assertions; whole production helpers and native metal fence compile. Original ayg/aye/ayd/ayf bytecode executes unchanged. Whole FBI/Glyphid entities and live movement are not certified.

@@ -1,0 +1,29 @@
+{
+  "scope": "Native toaster/computer models and inherited cabinet callbacks; shared BlockMulti/BlockEnumMulti native callbacks",
+  "paths": [
+    "src/main/java/com/hbm/blocks/BlockMulti.java",
+    "src/main/java/com/hbm/blocks/BlockEnumMulti.java",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoToaster.java",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoModel.java",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoContainer.java",
+    "src/main/java/com/hbm/render/block/RenderToaster.java",
+    "src/main/java/com/hbm/render/block/RenderBlockDecoModel.java",
+    "src/main/java/com/hbm/main/DecoApplianceModelHandler.java",
+    "src/main/java/com/hbm/render/block/nativeblock/DecoApplianceBakedModel.java",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_computer.json",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_toaster.json"
+  ],
+  "sha256": {
+    "src/main/java/com/hbm/blocks/BlockMulti.java": "8a9614ddfcac2172a6bfa53fad6c0d797c29bab3b02c2313eca4b98decbccc32",
+    "src/main/java/com/hbm/blocks/BlockEnumMulti.java": "b818ceae7675720ffbc85a12a1902add0dd9565ec9e66e28304d6e023f52d303",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoToaster.java": "1534ed4a1ea7c34444c43b4f3c7b9f589073753ffc45bcc094162749976f57f7",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoModel.java": "9b4539ab014e37da11f73005d81ba65f8d250a9df7933733335e1f894086fd4a",
+    "src/main/java/com/hbm/blocks/generic/BlockDecoContainer.java": "6bf7a9c3ebf4e1e7151af4d5d2bf52a2db5ff85e5aee1f970f3e98299ea2b509",
+    "src/main/java/com/hbm/render/block/RenderToaster.java": "5c217af29cabcdf5f87b5a355a5e9921931dc293268ed01409f2af16fd7adda6",
+    "src/main/java/com/hbm/render/block/RenderBlockDecoModel.java": "e96ddabb2045a4fd04274fb117b2168ae72d3adc77e1b8c027a348aeecf8549d",
+    "src/main/java/com/hbm/main/DecoApplianceModelHandler.java": "a35e8609ae248139f4d6d3f7b5462e8e70d36c46185c8ff500cd4712cb9261eb",
+    "src/main/java/com/hbm/render/block/nativeblock/DecoApplianceBakedModel.java": "f0c14ec6f7550279cecb107abff4be78ecfb4f7ed82f3447a3603e1d29b52656",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_computer.json": "eeab4066f48eed17ee90b89dd5d6a071f9adcfdfaca868c636318709683086a2",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_toaster.json": "db55af324550d37726857e76dbd4d8b0a795514beaff7cf16fbe8b8d18ad51d2"
+  }
+}

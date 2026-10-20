@@ -1,0 +1,66 @@
+{
+  "scope": "Six original item-render declarations, opt-in complete native base fallback, no-bob Java-model entity seam; native source-only tests, not whole-game acceptance",
+  "baseline": "dff345a",
+  "production": {
+    "src/main/java/com/hbm/render/item/ItemRenderDetonatorLaser.java": "760f266ec8925d5cbf728b18a06c9d07c6bdaabbfaed919fc02f65e16439c6eb",
+    "src/main/java/com/hbm/render/item/ItemRenderTemplate.java": "b11db70ec02690d189074b29e5752dd69d18a75dc424530d71ee9c8e4580707d",
+    "src/main/java/com/hbm/render/item/ItemRenderTransformer.java": "a14c52cc16ad158bc8ea8af9bf9643f35b942299dcbe2496640a2dcf91b64784",
+    "src/main/java/com/hbm/render/item/block/ItemRenderDecoBlock.java": "ff0fb950a77629bf660744112fadcd93de4cd6c0e729fc2be7800f492b632866",
+    "src/main/java/com/hbm/render/item/block/ItemRenderPoleTop.java": "9c3695433bae912fd6b0047cfce39c97f002ee13fa20190f52a0d686af0e46c0",
+    "src/main/java/com/hbm/render/item/block/ItemRenderSatelliteReceiver.java": "c76f3bc4264a71c64dd99441cb6b5a1402ffa76647bba1e05477ce9a0630e6a9",
+    "src/main/java/com/hbm/render/item/block/NativeDecoItemRenderer.java": "b6669106d5ffc95781e8394ca587dd30b596381d02e1c6278300eaedd028a8b5",
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextItemModel.java": "612a4eb403cd14366c90ed71b1fbbcea2bcb5a19a41d79edddfc36e3bf5b15ff",
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRegistration.java": "1f022c7c685eb54d5359403aa585e60828cff375f652d85efece540a66a35a1a",
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeSelectiveItemRenderer.java": "ae52d9c6d7a4cf99ae827d367bb30abc29de3eb783bfdda96f82be4a609881e3",
+    "src/main/java/com/hbm/render/util/NativeMachineItemRenderer.java": "f3a8cc805fdf6acc44640528df48e1c34d8c3529f76d6a3691d3059a6e3b428f"
+  },
+  "parent_integration": "src/main/java/com/hbm/main/ClientProxy.java (parent-owned)",
+  "tests": {
+    "porting/tests/SelectiveItemNativeTest.java": "a6005a7bb3565d00c0f920089cd123f757db1c7fb51aec650a016af82f7616ef",
+    "porting/tests/probe-native-selective-items.py": "6742532b526b552f54e7f1cb8dbed51b14407b93b8107191359fcef965490293",
+    "porting/tests/NativeMachineDrawTest.java": "c921ac893f5baac4e783c55bb92abd9732a26cc2fd0f5fd31684bfd368622b8f",
+    "porting/tests/machine-renderer-fixtures.py": "48fb762121aea4967b5c4456a700e5dd9e809ebf7d0fcc74b9d833eb552a6cb4",
+    "porting/tests/native-machine-item-scope.json": "9893fa9042612aa69d018e5163b2724619d86b5eb5759a003aa02c7757d166c4",
+    "porting/tests/probe-native-context-items.py": "bf70fd4c321ddfafee5b2017f8fdd84b8fd6ca99d7e8ac982e630d466858d7ea",
+    "porting/tests/probe-native-sedna-items.py": "c36964ee60e3c268e12da472d80666e9efd70227376159c135b55cbd96370e36",
+    "porting/tests/probe-native-sedna-player.py": "ace9b10a998396ac19bc1923cc73011a20b159bc38d1b334b66142ab0273cef3"
+  },
+  "assets": [
+    {
+      "original": "src/main/resources/assets/hbm/textures/models/SteelRoof.png",
+      "native": "src/main/resources/assets/hbm/textures/models/steelroof.png",
+      "sha256": "e895f0ab1f4e06900e447097c9086c69663999bfe84a714ff825d00cd532d85d",
+      "byte_identical_to_dff345a": true
+    },
+    {
+      "original": "src/main/resources/assets/hbm/textures/models/PoleTop.png",
+      "native": "src/main/resources/assets/hbm/textures/models/poletop.png",
+      "sha256": "5d081eeb6bbfa8529258352ac69c5822dc2d5d435899d4bab16f24af69f7e40d",
+      "byte_identical_to_dff345a": true
+    },
+    {
+      "original": "src/main/resources/assets/hbm/textures/models/PoleSatelliteReceiver.png",
+      "native": "src/main/resources/assets/hbm/textures/models/polesatellitereceiver.png",
+      "sha256": "ed812abd9ffbd986656eef139195aaae2e89b8eef7ee3f50c164facde138516b",
+      "byte_identical_to_dff345a": true
+    },
+    {
+      "original": "src/main/resources/assets/hbm/models/weapons/detonator_laser.obj",
+      "native": "src/main/resources/assets/hbm/models/weapons/detonator_laser.obj",
+      "sha256": "39146aa48a2f1e6893f8b8b39cc783b527330dfa471a05ae12c8cb60852c9be1",
+      "byte_identical_to_dff345a": true
+    },
+    {
+      "original": "src/main/resources/assets/hbm/textures/models/weapons/detonator_laser.png",
+      "native": "src/main/resources/assets/hbm/textures/models/weapons/detonator_laser.png",
+      "sha256": "c0476576a1d16cd07c624c5ecceaf615c8bcdca9c2437abac4fbdcc6cd4b7499",
+      "byte_identical_to_dff345a": true
+    },
+    {
+      "original": "src/main/resources/assets/hbm/textures/misc/glint.png",
+      "native": "src/main/resources/assets/hbm/textures/misc/glint.png",
+      "sha256": "134be4ee82e2c9e505064a65abc01af098a8173f3f4234802ea186c61120c7bf",
+      "byte_identical_to_dff345a": true
+    }
+  ]
+}

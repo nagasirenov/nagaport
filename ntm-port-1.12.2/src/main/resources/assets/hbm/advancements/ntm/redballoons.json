@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/polymer",
+  "display": {
+    "icon": {
+      "item": "hbm:item.missile_nuclear",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.redBalloons"
+    },
+    "description": {
+      "translate": "achievement.redBalloons.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

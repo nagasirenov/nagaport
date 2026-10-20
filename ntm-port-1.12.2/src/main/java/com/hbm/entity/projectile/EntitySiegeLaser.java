@@ -6,12 +6,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntitySiegeLaser extends EntityThrowable {
+
+	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntitySiegeLaser.class, DataSerializers.VARINT);
 	
 	private float damage = 2;
 	private float explosive = 0F;
@@ -32,7 +37,7 @@ public class EntitySiegeLaser extends EntityThrowable {
 	
 	@Override
 	protected void entityInit() {
-		this.getDataWatcher().addObject(12, (int) 0xffffff);
+		this.dataManager.register(COLOR, (int) 0xffffff);
 	}
 	
 	public EntitySiegeLaser setDamage(float f) {
@@ -56,12 +61,12 @@ public class EntitySiegeLaser extends EntityThrowable {
 	}
 	
 	public EntitySiegeLaser setColor(int color) {
-		this.getDataWatcher().updateObject(12, color);
+		this.dataManager.set(COLOR, color);
 		return this;
 	}
 	
 	public int getColor() {
-		return this.getDataWatcher().getWatchableObjectInt(12);
+		return this.dataManager.get(COLOR);
 	}
 
 	@Override
@@ -90,14 +95,14 @@ public class EntitySiegeLaser extends EntityThrowable {
 					mop.entityHit.setFire(3);
 				
 				if(this.explosive > 0)
-					this.worldObj.newExplosion(this, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, this.explosive, this.incendiary, false);
+					this.world.newExplosion(this, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, this.explosive, this.incendiary, false);
 			}
 			
 			
 		} else if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 			
 			if(this.explosive > 0) {
-				this.worldObj.newExplosion(this, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, this.explosive, this.incendiary, false);
+				this.world.newExplosion(this, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, this.explosive, this.incendiary, false);
 				
 			} else if(this.incendiary) {
 				net.minecraft.util.EnumFacing side = mop.sideHit;
@@ -105,13 +110,13 @@ public class EntitySiegeLaser extends EntityThrowable {
 				int y = mop.getBlockPos().getY() + side.getFrontOffsetY();
 				int z = mop.getBlockPos().getZ() + side.getFrontOffsetZ();
 				
-				if(this.worldObj.getBlock(x, y, z).isReplaceable(this.worldObj, x, y, z)) {
-					this.worldObj.setBlock(x, y, z, Blocks.fire);
+				if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, x, y, z)) {
+					this.world.setBlock(x, y, z, Blocks.FIRE);
 				}
 			}
 			
 			if(this.rand.nextFloat() < this.breakChance) {
-				this.worldObj.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+				this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 			}
 
 			this.setDead();

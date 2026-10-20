@@ -40,14 +40,14 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dfcInjector";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.subscribeToAllAround(tanks[0].getTankType(), this);
 			this.subscribeToAllAround(tanks[1].getTankType(), this);
@@ -60,11 +60,11 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 			for(int i = 1; i <= range; i++) {
 
-				int x = xCoord + dir.offsetX * i;
-				int y = yCoord + dir.offsetY * i;
-				int z = zCoord + dir.offsetZ * i;
+				int x = this.pos.getX() + dir.offsetX * i;
+				int y = this.pos.getY() + dir.offsetY * i;
+				int z = this.pos.getZ() + dir.offsetZ * i;
 				
-				TileEntity te = worldObj.getTileEntity(x, y, z);
+				TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				
 				if(te instanceof TileEntityCore) {
 					
@@ -95,7 +95,7 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 					break;
 				}
 				
-				if(!worldObj.getBlock(x, y, z).isAir(worldObj, x, y, z))
+				if(!com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isAir(this.world, x, y, z))
 					break;
 			}
 			
@@ -143,11 +143,12 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		tanks[0].writeToNBT(nbt, "fuel1");
 		tanks[1].writeToNBT(nbt, "fuel2");
+		return nbt;
 	}
 
 	@Override

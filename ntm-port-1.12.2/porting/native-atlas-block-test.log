@@ -1,0 +1,73 @@
+PASS exact pristine full nested capacitor control flow and payload preservation
+PASS actual barrel lifecycle override; all pre-existing tile source bytes unchanged
+PRODUCTION com/hbm/blocks/generic/BrownBarrel.java 8717cc85ec6a348988fbc2c8ca80e812e220da1e5383e765c8ee7ff752385025
+PRODUCTION com/hbm/blocks/generic/YellowBarrel.java 46954392f4156e3b7ac651179c07b0fbf5d03dccb6547df6989bb461a30db587
+PRODUCTION com/hbm/blocks/generic/RedBarrel.java 2992c56ecb4a0b9a30f07d0a375e1c9980c6d0e5e84c17702fee262c3bcfd35e
+PRODUCTION com/hbm/blocks/generic/BlockFlammable.java 9aaf14ca2f962f5bca4c5017e16bd6b9fa6a180c0b45013ee1184887a2e9e227
+PRODUCTION com/hbm/blocks/bomb/BlockDetonatable.java 1ddce481a507dd1e6ba5c2c5afaf000e22cbef79a78a38346ad303777ff07e14
+PRODUCTION com/hbm/blocks/BlockBase.java c39027a1e7a2d1cc5df0dc2a5a52aacf28cf5b90b90e5654e5f58487ee52dbfe
+PRODUCTION com/hbm/render/icon/IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+PRODUCTION com/hbm/render/icon/IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+PRODUCTION api/hbm/block/IFuckingExplode.java ef669704e96e4750b5d37ccda58bb77821f5da1bdaa6cb5b788e6cae884e407c
+PRODUCTION com/hbm/blocks/generic/BlockPipe.java f77152040f080649167d0794038ecba94b2897e111b976bf12f1ac8c447fbf02
+PRODUCTION com/hbm/blocks/generic/HEVBattery.java 8f85a87687384474ad0419aed6eda46ce4b0e87e6f70c72c0985e725a6a3486f
+PRODUCTION com/hbm/blocks/generic/DecoPoleTop.java 1c8996569b86637f3aac9f159ad6481817f23aac7e145fd616305b64879c3eb5
+PRODUCTION com/hbm/blocks/ModSoundType.java ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3
+PRODUCTION com/hbm/blocks/ModSoundTypes.java 822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c
+PRODUCTION com/hbm/main/ModSoundEvents.java 4c473be88e9e510470ef3b3a26d80e20db1b52e959831ab917aad3cd336066d5
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+PRODUCTION api/hbm/energymk2/IBatteryItem.java c5e4990221abd8d88bd0b9b4daec28052f2d02cc17a6097961b3f3f62e528d4c
+PRODUCTION com/hbm/blocks/machine/MachineCapacitor.java 802b7fb0b711b0920c9b0a04c25845ae913eea1c249756b5ce14dd900022deda
+PRODUCTION com/hbm/blocks/machine/BlockFluidBarrel.java ed4b9553094996c0d3eb80a08138d9cd34ca38b6e6d835afe2d7d5ef73618f49
+PRODUCTION com/hbm/blocks/IPersistentInfoProvider.java 6b9f18bf71bbd87e0eb2889331b2cf1afc5f8712bf640fecf6d07a22a5b490ad
+PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+PRODUCTION com/hbm/tileentity/IPersistentNBT.java 351d6d5004ad1e2ede9a95d7ac2d095e8f8ad779873619e5da8af178a797d7ce
+PRODUCTION com/hbm/tileentity/TileEntityLoadedBase.java b3853d47d40045826978c19c70ba803b71b81bb63b066bf16b07b88761491cc3
+PRODUCTION com/hbm/tileentity/IBufPacketReceiver.java 295d694c4c4219a01ea709acb02450d6b0d9981648a91634ae03b90d8c650e4b
+PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+PRODUCTION com/hbm/items/machine/IItemFluidIdentifier.java 8c761e7839680fe688ae349aa4446551a879b1273534f5933a21ed4e86762e67
+PRODUCTION api/hbm/redstoneoverradio/IRORInfo.java e3c152a255e6d32d06a778d6d571bb9b39c0a67609b5d9298bf30dff1cc0d223
+PRODUCTION api/hbm/redstoneoverradio/IRORValueProvider.java 9b1bc311d1ead5d5bc53122c97952f9110c3016d35e3d43b2f40a92c3625fa91
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `red_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `red_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `pink_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `pink_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `yellow_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `yellow_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `oil_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `oil_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `vitrified_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `vitrified_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `lox_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `lox_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `taint_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `taint_barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.metalblock`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.pipeplaced`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.morkite`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `pipe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `pipe`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `pole`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `pole`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `armor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `capacitor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `capacitor`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `barrel`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `bus`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `bus`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `fluid_id`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `corroded`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[17:56:23] [main/WARN]: Potentially Dangerous alternative prefix `atlas_probe` for name `corroded`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native whole atlas block family (8 concrete classes, 3 additional native bases) and capacitor tile: 2648 checks. Network transport, GUI screen, barrel fluid engine, blast effects, radiation, oil generation and primed TNT are controlled collaborators, not full gameplay integration.

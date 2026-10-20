@@ -14,12 +14,12 @@ public class TileEntityPileBreedingFuel extends TileEntityPileBase implements IP
 	public static final int maxProgress = GeneralConfig.enable528 ? 50000 : 30000;
 	
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			react();
 			
 			if(this.progress >= this.maxProgress) {
-				worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.block_graphite_tritium, this.getBlockMetadata(), 3);
+				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_tritium, this.getBlockMetadata(), 3);
 			}
 		}
 	}
@@ -51,9 +51,10 @@ public class TileEntityPileBreedingFuel extends TileEntityPileBase implements IP
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("progress", this.progress);
 		nbt.setInteger("neutrons", this.neutrons);
+		return nbt;
 	}
 }

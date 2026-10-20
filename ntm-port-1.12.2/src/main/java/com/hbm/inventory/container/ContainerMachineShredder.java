@@ -9,7 +9,7 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -65,9 +65,9 @@ public class ContainerMachineShredder extends Container {
 	}
 
 	@Override
-	public void addCraftingToCrafters(ICrafting crafting) {
-		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 1, this.diFurnace.progress);
+	public void addListener(IContainerListener crafting) {
+		super.addListener(crafting);
+		crafting.sendWindowProperty(this, 1, this.diFurnace.progress);
 	}
 
 	@Override
@@ -113,11 +113,11 @@ public class ContainerMachineShredder extends Container {
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 
-		for(int i = 0; i < this.crafters.size(); i++) {
-			ICrafting par1 = (ICrafting) this.crafters.get(i);
+		for(int i = 0; i < this.listeners.size(); i++) {
+			IContainerListener par1 = (IContainerListener) this.listeners.get(i);
 
 			if(this.progress != this.diFurnace.progress) {
-				par1.sendProgressBarUpdate(this, 1, this.diFurnace.progress);
+				par1.sendWindowProperty(this, 1, this.diFurnace.progress);
 			}
 		}
 

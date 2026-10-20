@@ -29,7 +29,7 @@ public class EntityParasiteMaggot extends EntityMob implements ISuffocationImmun
 
 	@Override
 	protected Entity findPlayerToAttack() {
-		return this.worldObj.getClosestVulnerablePlayerToEntity(this, 16);
+		return this.world.getClosestVulnerablePlayerToEntity(this, 16);
 	}
 
 	@Override

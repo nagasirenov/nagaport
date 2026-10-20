@@ -1,0 +1,16 @@
+// Native click/EMPTY boundary probe. Does not modify production sourceSets.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortContainerClicks', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-container-clicks.py',
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

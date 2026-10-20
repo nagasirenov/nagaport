@@ -27,11 +27,11 @@ public class EntityGrenadeCluster extends EntityGrenadeBouncyBase
     @Override
     public void explode() {
 
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
-            ExplosionChaos.cluster(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 10, 50);
-            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1.5F, true);
+            ExplosionChaos.cluster(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 10, 50);
+            this.world.createExplosion(this, this.posX, this.posY, this.posZ, 1.5F, true);
         }
     }
 

@@ -33,7 +33,7 @@ public class BobmazonOfferFactory {
 		special.clear();
 
 		//gear
-		standard.add(new Offer(new ItemStack(Blocks.torch, 64), Requirement.NONE, 2));
+		standard.add(new Offer(new ItemStack(Blocks.TORCH, 64), Requirement.NONE, 2));
 		standard.add(new Offer(new ItemStack(ModItems.definitelyfood, 16), Requirement.NONE, 4));
 		standard.add(new Offer(new ItemStack(ModItems.nitra, 4), Requirement.CHEMICS, 16));
 		standard.add(new Offer(new ItemStack(ModItems.gun_kit_1, 1), Requirement.ASSEMBLY, 16));
@@ -43,7 +43,7 @@ public class BobmazonOfferFactory {
 		standard.add(new Offer(new ItemStack(ModItems.blueprint_folder, 1, 0), Requirement.ASSEMBLY, 64));
 		standard.add(new Offer(new ItemStack(ModItems.blueprint_folder, 1, 1), Requirement.OIL, 256));
 		//plants
-		standard.add(new Offer(new ItemStack(Blocks.sapling, 1, 3), Requirement.STEEL, 12, 9));
+		standard.add(new Offer(new ItemStack(Blocks.SAPLING, 1, 3), Requirement.STEEL, 12, 9));
 		standard.add(new Offer(new ItemStack(ModBlocks.plant_flower, 1, EnumFlowerType.FOXGLOVE.ordinal()), Requirement.STEEL, 16, 5));
 		standard.add(new Offer(new ItemStack(ModBlocks.plant_flower, 1, EnumFlowerType.TOBACCO.ordinal()), Requirement.STEEL, 16, 9));
 		standard.add(new Offer(new ItemStack(ModBlocks.plant_flower, 1, EnumFlowerType.NIGHTSHADE.ordinal()), Requirement.STEEL, 16, 3));
@@ -54,7 +54,7 @@ public class BobmazonOfferFactory {
 		for(SnowglobeType globe : SnowglobeType.values()) standard.add(new Offer(new ItemStack(ModBlocks.snowglobe, 1, globe.ordinal()), Requirement.CHEMICS, 128));
 		for(int i = 1; i < PlushieType.values().length; i++) standard.add(new Offer(new ItemStack(ModBlocks.plushie, 1, i), Requirement.OIL, 16, i < 3 ? 10 : 0));
 
-		special.add(new Offer(new ItemStack(Items.iron_ingot, 64), Requirement.STEEL, 1));
+		special.add(new Offer(new ItemStack(Items.IRON_INGOT, 64), Requirement.STEEL, 1));
 		special.add(new Offer(new ItemStack(ModItems.ingot_steel, 64), Requirement.STEEL, 1));
 		special.add(new Offer(new ItemStack(ModItems.ingot_copper, 64), Requirement.STEEL, 1));
 		special.add(new Offer(new ItemStack(ModItems.ingot_red_copper, 64), Requirement.STEEL, 1));
@@ -127,8 +127,8 @@ public class BobmazonOfferFactory {
 				new ItemStack(ModItems.wiring_red_copper, 1),
 				new ItemStack(ModBlocks.machine_chungus, 3),
 				new ItemStack(ModItems.template_folder, 1),
-				new ItemStack(Items.paper, 64),
-				new ItemStack(Items.dye, 64)
+				new ItemStack(Items.PAPER, 64),
+				new ItemStack(Items.DYE, 64)
 				), Requirement.HIDDEN, 64));
 
 		special.add(new Offer(ItemKitCustom.create("Maid's Cleaning Utensils", "For the hard to reach spots", 0x00ff00, 0x008000,

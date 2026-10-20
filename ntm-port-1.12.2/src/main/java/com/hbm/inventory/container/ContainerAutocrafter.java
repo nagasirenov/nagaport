@@ -75,7 +75,7 @@ public class ContainerAutocrafter extends ContainerBase {
 		} else {
 	
 			slot.putStack(held);
-			autocrafter.matcher.initPatternSmart(autocrafter.getWorldObj(), slot.getStack(), index);
+			autocrafter.matcher.initPatternSmart(autocrafter.getWorld(), slot.getStack(), index);
 			autocrafter.updateTemplateGrid();
 			
 			return ret;

@@ -83,7 +83,7 @@ public class ContainerVacuumCircuit extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return sucker.isUseableByPlayer(player);
+		return sucker.isUsableByPlayer(player);
 	}
 
 }

@@ -1,0 +1,21 @@
+{
+  "source_baseline": "dff345a2411f7d3d6bef5c0b6c3aa8ab47ac357e:ntm-original-pristine",
+  "sources": {
+    "src/main/java/com/hbm/render/block/RenderRTGBlock.java": "fb34076e77ef89a70982501d510470a1803e7c919e61f5e96d4049d6ddcfdf3e",
+    "src/main/java/com/hbm/render/tileentity/RenderRTG.java": "fa9a8b4d7018447929e355ec23f5cbc90053adf3328190128e051bb3678d1e6e",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608",
+    "src/main/java/com/hbm/blocks/machine/MachineRTG.java": "029b600457ee7efe1675bb22830ad64f332d7edcbcc9dee24f71e268ccd51502",
+    "src/main/java/com/hbm/blocks/machine/MachineMiniRTG.java": "fe46408206f8bf4bc6643ef92f6d5893a271fcb7cde2dd7d38ddf631df7a7562",
+    "src/main/java/com/hbm/blocks/ModBlocks.java": "59c47c68001a8582a188dc4c37a04cf0b36550a42501e64bd4d4ab7ddebd22d3",
+    "src/main/java/com/hbm/main/ResourceManager.java": "dd86786c08d235f29318f1775afc5d8b34d17829307f93ea13114875596ba0d9"
+  },
+  "unchanged_assets": {
+    "src/main/resources/assets/hbm/models/machines/rtg.obj": "423efc639a59c8b8530852bf4f24afd6f7a32d1a663b8f5d7b1e771e6452e411",
+    "src/main/resources/assets/hbm/textures/blocks/rtg.png": "ef8131ecf78ae9ccebfc9be0530cd3090001127f6a38531c2d9258b18c5f8120",
+    "src/main/resources/assets/hbm/textures/blocks/rtg_cell.png": "5513813323d42975a027da1dfaacff6cde812c45c9627f457f297d43f54ac4a6",
+    "src/main/resources/assets/hbm/textures/blocks/rtg_polonium.png": "74628dbc3126c7bc4dec369a5afdb19ba19a4818cf55490c22ebc960a1e0654a",
+    "src/main/resources/assets/hbm/textures/models/machines/rtg.png": "ef8131ecf78ae9ccebfc9be0530cd3090001127f6a38531c2d9258b18c5f8120",
+    "src/main/resources/assets/hbm/textures/models/machines/rtg_cell.png": "5513813323d42975a027da1dfaacff6cde812c45c9627f457f297d43f54ac4a6",
+    "src/main/resources/assets/hbm/textures/models/machines/rtg_polonium.png": "74628dbc3126c7bc4dec369a5afdb19ba19a4818cf55490c22ebc960a1e0654a"
+  }
+}

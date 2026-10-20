@@ -2,9 +2,9 @@ package com.hbm.blocks.network;
 
 import api.hbm.block.IToolable;
 import com.hbm.blocks.IBlockMultiPass;
+import com.hbm.blocks.MultipassContext;
 import com.hbm.interfaces.ICopiable;
 import com.hbm.lib.RefStrings;
-import com.hbm.render.block.RenderBlockMultipass;
 import com.hbm.tileentity.TileEntityLoadedBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -12,7 +12,6 @@ import li.cil.oc.api.network.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -20,7 +19,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import li.cil.oc.api.network.Message;
@@ -36,11 +34,28 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockOpenComputersCablePaintable extends BlockContainer implements IToolable, IBlockMultiPass {
 
-	@SideOnly(Side.CLIENT) protected IIcon overlay;
-	@SideOnly(Side.CLIENT) protected IIcon overlayColor;
+    @Override protected net.minecraft.block.state.BlockStateContainer createBlockState() { return MultipassContext.stateContainer(this); }
+    @Override public net.minecraft.block.state.IBlockState getStateFromMeta(int metadata) { return getDefaultState().withProperty(MultipassContext.METADATA, metadata & 15); }
+    @Override public int getMetaFromState(net.minecraft.block.state.IBlockState state) { return state.getValue(MultipassContext.METADATA); }
+    @Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) { return net.minecraft.util.EnumBlockRenderType.MODEL; }
+    @Override public net.minecraft.util.BlockRenderLayer getRenderLayer() { return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED; }
+    @Override public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(MultipassContext.PROPERTY, getMultipassContext(state, world, pos));
+    }
+    @Override public MultipassContext getMultipassContext(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+        int metadata = getMetaFromState(state);
+        TileEntity tile = world.getTileEntity(pos);
+        if(tile instanceof TileEntityOpenComputersCablePaintable) {
+            TileEntityOpenComputersCablePaintable pipe = (TileEntityOpenComputersCablePaintable) tile;
+            return MultipassContext.of(metadata, pipe.block == null ? null : pipe.block.getStateFromMeta(pipe.meta), true, pipe.getColor(), 0, 6, 6, 0);
+        }
+        return MultipassContext.basic(metadata);
+    }
+
+
 
 	public BlockOpenComputersCablePaintable() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -48,54 +63,16 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		return new TileEntityOpenComputersCablePaintable();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon(RefStrings.MODID + ":oc_cable_base");
-		this.overlay = reg.registerIcon(RefStrings.MODID + ":oc_cable_overlay");
-		this.overlayColor = reg.registerIcon(RefStrings.MODID + ":oc_cable_color");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		TileEntity tile = world.getTileEntity(x, y, z);
 
-		if(tile instanceof TileEntityOpenComputersCablePaintable) {
-			TileEntityOpenComputersCablePaintable pipe = (TileEntityOpenComputersCablePaintable) tile;
 
-			if(pipe.block != null) {
-				if(RenderBlockMultipass.currentPass == 1) {
-					return this.overlay;
-				} else if(RenderBlockMultipass.currentPass == 2) {
-					return this.overlayColor;
-				} else {
-					return pipe.block.getIcon(side, pipe.meta);
-				}
-			}
-		}
 
-		return RenderBlockMultipass.currentPass == 1 ? this.overlay : RenderBlockMultipass.currentPass == 2 ? this.overlayColor : this.blockIcon;
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-		if (RenderBlockMultipass.currentPass == 2) {
-			TileEntityOpenComputersCablePaintable tile = (TileEntityOpenComputersCablePaintable) world.getTileEntity(x, y, z);
-			if (tile == null)
-				return 0xffffff;
-
-			return tile.getColor();
-		}
-
-		return 0xffffff;
-	}
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
 
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		if (stack == null)
 			return super.onBlockActivated(world, x, y, z, player, side, fX, fY, fZ);
@@ -106,7 +83,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 
 			if(block.renderAsNormalBlock() && block != this) {
 
-				TileEntity tile = world.getTileEntity(x, y, z);
+				TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 				if(tile instanceof TileEntityOpenComputersCablePaintable) {
 					TileEntityOpenComputersCablePaintable pipe = (TileEntityOpenComputersCablePaintable) tile;
@@ -130,7 +107,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 			}
 
 			if (isDye) {
-				TileEntityOpenComputersCablePaintable tile = (TileEntityOpenComputersCablePaintable) world.getTileEntity(x, y, z);
+				TileEntityOpenComputersCablePaintable tile = (TileEntityOpenComputersCablePaintable) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				tile.setColor(OCColors.fromDye(stack).getColor());
 				world.markBlockForUpdate(x, y, z);
 				tile.markDirty();
@@ -145,7 +122,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 
 		if(tool != ToolType.SCREWDRIVER) return false;
 
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile instanceof TileEntityOpenComputersCablePaintable) {
 			TileEntityOpenComputersCablePaintable pipe = (TileEntityOpenComputersCablePaintable) tile;
@@ -166,17 +143,14 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		return 3;
 	}
 
-	@Override
-	public int getRenderType(){
-		return IBlockMultiPass.getRenderType();
-	}
+
 
 	@Optional.InterfaceList({
 		@Optional.Interface(iface = "li.cil.oc.api.network.Environment", modid = "OpenComputers"),
 		@Optional.Interface(iface = "li.cil.oc.api.network.SidedEnvironment", modid = "OpenComputers"),
 		@Optional.Interface(iface = "li.cil.oc.api.network.Colored", modid = "OpenComputers")
 	})
-	public static class TileEntityOpenComputersCablePaintable extends TileEntityLoadedBase implements Environment, SidedEnvironment, Colored, ICopiable {
+	public static class TileEntityOpenComputersCablePaintable extends TileEntityLoadedBase implements Environment, SidedEnvironment, Colored, ICopiable, net.minecraft.util.ITickable {
 
 		protected Node node;
 		protected boolean addedToNetwork = false;
@@ -192,16 +166,16 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		}
 
 		@Override
-		public void updateEntity() {
-			super.updateEntity();
+		public void update() {
 
-			if(worldObj.isRemote && (lastBlock != block || lastMeta != meta)) {
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+
+			if(this.world.isRemote && (lastBlock != block || lastMeta != meta)) {
+				this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				lastBlock = block;
 				lastMeta = meta;
 			}
 
-			if(!this.getWorldObj().isRemote && !addedToNetwork) {
+			if(!this.getWorld().isRemote && !addedToNetwork) {
 				addedToNetwork = true;
 				Network.joinOrCreateNetwork(this);
 			}
@@ -235,7 +209,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			if(block != null) nbt.setInteger("block", Block.getIdFromBlock(block));
 			nbt.setInteger("meta", meta);
@@ -247,6 +221,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 				node.save(nodeNbt);
 				nbt.setTag("oc:node", nodeNbt);
 			}
+			return nbt;
 		}
 
 		public NBTTagCompound getSettings(World world, int x, int y, int z) {
@@ -276,10 +251,10 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 			if (side == null)
 				return null;
 
-			int neighborX = super.xCoord + side.getXOffset();
-			int neighborY = super.yCoord + side.getYOffset();
-			int neighborZ = super.zCoord + side.getZOffset();
-			TileEntity neighbor = worldObj.getTileEntity(neighborX, neighborY, neighborZ);
+			int neighborX = super.getPos().getX() + side.getXOffset();
+			int neighborY = super.getPos().getY() + side.getYOffset();
+			int neighborZ = super.getPos().getZ() + side.getZOffset();
+			TileEntity neighbor = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(neighborX, neighborY, neighborZ));
 
 			// If a cable does not support colors but is a valid cable block, allow it to connect regardless of color.
 			if (!(neighbor instanceof Colored)) {
@@ -320,10 +295,10 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 			if (side == null)
 				return false;
 
-			int neighborX = super.xCoord + side.getXOffset();
-			int neighborY = super.yCoord + side.getYOffset();
-			int neighborZ = super.zCoord + side.getZOffset();
-			TileEntity neighbor = worldObj.getTileEntity(neighborX, neighborY, neighborZ);
+			int neighborX = super.getPos().getX() + side.getXOffset();
+			int neighborY = super.getPos().getY() + side.getYOffset();
+			int neighborZ = super.getPos().getZ() + side.getZOffset();
+			TileEntity neighbor = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(neighborX, neighborY, neighborZ));
 
 			// If a cable does not support colors but is a valid cable block, allow it to connect regardless of color.
 			if (!(neighbor instanceof Colored)) {

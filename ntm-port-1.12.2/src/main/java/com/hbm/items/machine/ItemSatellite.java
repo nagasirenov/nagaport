@@ -80,7 +80,7 @@ public class ItemSatellite extends ItemCustomMissilePart implements ISatChip {
 		if(canLaunchByHand) {
 			list.add(TextFormatting.GOLD + I18nUtil.resolveKey("item.sat.desc.launch_by_hand"));
 
-			if(CelestialBody.inOrbit(player.worldObj))
+			if(CelestialBody.inOrbit(player.world))
 				list.add(TextFormatting.BOLD + I18nUtil.resolveKey("item.sat.desc.deploy_orbit"));
 		}
 	}

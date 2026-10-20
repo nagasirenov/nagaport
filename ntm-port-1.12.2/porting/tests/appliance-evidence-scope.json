@@ -1,0 +1,21 @@
+{
+  "scope": "Native toaster/computer models and inherited cabinet callbacks; shared BlockMulti/BlockEnumMulti native callbacks",
+  "paths": [
+    "porting/native-appliance-acceptance.md",
+    "porting/tests/NativeApplianceTest.java",
+    "porting/tests/probe-native-appliances.py",
+    "porting/tests/audit-appliance-shared-bases.py",
+    "porting/tests/native-appliance-proof.log",
+    "porting/tests/appliance-shared-base-audit.log",
+    "porting/tests/appliance-atlas-regression.log"
+  ],
+  "sha256": {
+    "porting/native-appliance-acceptance.md": "7fcd06649cdccbf60f740dcc93cb64ab30b1fd2e11cf44faa580c757cde56a49",
+    "porting/tests/NativeApplianceTest.java": "3f6e06086c554da4fce9c6b6779756ebd0ced274b712c5a78e53950ee1bb85b7",
+    "porting/tests/probe-native-appliances.py": "3b5829584a25b1761fd9ad0c0f172786c422d345a2fcfed9b7df8b71d0dd416d",
+    "porting/tests/audit-appliance-shared-bases.py": "5231cf96ef12d40fcf2370bc08085a5001b52177c8dbf6822e30ab21b51d4ded",
+    "porting/tests/native-appliance-proof.log": "07ffa72092a32542c00a1ebbe6ce09ba858c480c059b76b9ae22cbb0eb7c3c6b",
+    "porting/tests/appliance-shared-base-audit.log": "9568939311787b7b25e1f3492aaecd722c64cb5363c81d0fd8fdb07db7c63eaa",
+    "porting/tests/appliance-atlas-regression.log": "3f5c9a843b261cd4d94ff8292e39ffbdb0bd9d820072a6f2b1292edb947f38ce"
+  }
+}

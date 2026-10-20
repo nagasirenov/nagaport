@@ -1,0 +1,15 @@
+# Native client sound events and train input declaration root
+
+Scope: `ModEventHandlerClient.onPlayMusic`, `onPlaySound`, `worldTick` and their imports only, plus the existing resolver's getter visibility and strictly necessary sound resource lookups. This does **not** compile the complete large event-handler class or claim whole-game acceptance. Production/evidence manifests list exact methods, six complete sound classes and NTM collaborator fixtures.
+
+- Native `PlaySoundEvent` accessors replace the removed event. `Result.DENY` is retained: original Forge 1614 `playSound` returns the mutable sound result, not Event.Result, but downstream subscribers can observe DENY. Genuine native event dispatch and hook tests cover both views.
+- Native creative music key is `minecraft:music.creative`, verified against `MusicTicker.MusicType.CREATIVE`; game key remains unchanged. Replacement keeps original gain/pitch, no repeat, no attenuation, origin and overlap behavior. Its category resolves through existing metadata, including changes to an already-created sound after reload.
+- ResourceLocation-to-ResourceLocation trigger comparisons account for native lowercase normalization. Trigger lookups preserve distance 2, XYZ, original duplicated search, volume 10, existing loop suppression and original constructor/caller duplicate list entries. No unrelated cleanup of original anomalies.
+- Three null-trigger sample names and six space-music samples require explicit `hbm:` namespaces; native parser otherwise resolves these to minecraft. Six space OGG files are renamed lowercase without byte changes. Event keys, sample order, categories and streaming flags are untouched. Directory and packaged-JAR tests load actual normalized OGG resources.
+- Native `EntityPlayerSP.connection.sendPacket` sends `CPacketPlayer.Rotation` then `CPacketInput`, keeping yaw/pitch/grounded then strafe/forward/jump/sneak. Both tick phases still send, while lore runs only END. Sitting and unmounted/null gates remain unchanged.
+- Unmodified 1.7.10 bytecode oracle compares 200 rotation packets byte-for-byte, and 200 input packets by exact decoded fields/order: vanilla changed input serialization from two boolean bytes (10-byte payload) to one bit mask (9 bytes). Native wire tests check every jump/sneak combination. An old 10-byte payload is deliberately NOT emitted to a 1.12 server.
+
+Run:
+`python porting/tests/client-sound-train-native-test.py --classpath "$(cat /tmp/nagaport-ae2-native-classpath.txt)" --java-home /workspace/shared/nagaport-toolchain/java8`
+
+Final result: 926 native assertions plus exact original-method transformation checks, exact CP36 helper/resource boundary checks and immutable original asset hashes. Real Forge event subscriber transformation is used; Minecraft/world/player are controlled native instances, audio and connection are recording subclasses, and declared NTM game collaborators are fixtures. No stubs replace native APIs. Final log: `porting/continuation-2026-10-19/client-sound-train-native-FINAL.log`.

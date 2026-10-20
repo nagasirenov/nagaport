@@ -23,7 +23,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISidedInventory, IEnergyProviderMK2, IGUIProvider, IInfoProviderEC {
+public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISidedInventory, IEnergyProviderMK2, IGUIProvider, IInfoProviderEC, net.minecraft.util.ITickable {
 
 	private ItemStack slots[];
 
@@ -40,6 +40,33 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 		slots = new ItemStack[15];
 	}
 
+	/** Nullable domain storage stays private; native inventory boundaries expose EMPTY. */
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
+	@Override
+	public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+			net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+		// Legacy metadata-only changes retained the generator and its stored state.
+		return oldState.getBlock() != newState.getBlock();
+	}
+
+	@Override public boolean isEmpty() {
+		for(ItemStack stack : slots) if(!nativeStack(stack).isEmpty()) return false;
+		return true;
+	}
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+	@Override public void clear() { java.util.Arrays.fill(slots, null); }
+	@Override public net.minecraft.util.text.ITextComponent getDisplayName() {
+		return hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
+	}
+	/** Compatibility for unmigrated GUI/container consumers. */
+	public String getInventoryName() { return getName(); }
+	public boolean hasCustomInventoryName() { return hasCustomName(); }
+
 	@Override
 	public int getSizeInventory() {
 		return slots.length;
@@ -47,37 +74,38 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+		return nativeStack(slots[i]);
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-		if(slots[i] != null)
+	public ItemStack removeStackFromSlot(int i) {
+		if(!nativeStack(slots[i]).isEmpty())
 		{
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-		return null;
+		return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit())
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit())
 		{
-			itemStack.stackSize = getInventoryStackLimit();
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.rtg";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.rtg";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
 
@@ -92,20 +120,20 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		if(this.world.getTileEntity(this.pos) != this)
 		{
 			return false;
 		}else{
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <=64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
 
 	//You scrubs aren't needed for anything (right now)
 	@Override
-	public void openInventory() {}
+	public void openInventory(EntityPlayer player) {}
 	@Override
-	public void closeInventory() {}
+	public void closeInventory(EntityPlayer player) {}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
@@ -114,23 +142,23 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
-		if(slots[i] != null)
+		if(!nativeStack(slots[i]).isEmpty())
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
@@ -149,7 +177,8 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length)
 			{
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				ItemStack stack = new ItemStack(nbt1);
+				slots[b0] = stack.isEmpty() ? null : stack;
 			}
 		}
 
@@ -157,14 +186,14 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setInteger("heat", heat);
 		NBTTagList list = new NBTTagList();
 
 		for(int i = 0; i < slots.length; i++) {
-			if(slots[i] != null) {
+			if(!nativeStack(slots[i]).isEmpty()) {
 				NBTTagCompound nbt1 = new NBTTagCompound();
 				nbt1.setByte("slot", (byte) i);
 				slots[i].writeToNBT(nbt1);
@@ -176,20 +205,24 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot_io;
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
 
@@ -210,12 +243,12 @@ public class TileEntityMachineRTG extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-				this.tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 
 			heat = RTGUtil.updateRTGs(slots, slot_io);
 

@@ -18,7 +18,7 @@ public class WaterTableHandler extends NEICelestialHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmFluidTable";
 	}
 

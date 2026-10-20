@@ -1,0 +1,13 @@
+PASS exact RecipesCommon reverse/forward source reconstruction; 6 drift mutations rejected; no Git dependency.
+PRODUCTION src/main/java/com/hbm/inventory/RecipesCommon.java d10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/RecipeKeyNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/src/main/java/com/hbm/inventory/RecipesCommon.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[14:33:05] [main/WARN]: Potentially Dangerous alternative prefix `recipe_probe` for name `unregistered`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[14:33:05] [main/ERROR]: ComparableStack has a null item! This is a serious issue!
+[14:33:05] [main/ERROR]: ComparableStack holds an item that does not seem to be registered. How does that even happen? This error can be turned off with the config <enableSilentCompStackErrors>. Item name: item.null
+[14:33:05] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[14:33:05] [main/INFO]: Replaced 1036 ore ingredients
+PASS RecipesCommon complete native root: 1055 assertions; original key anomalies and native nonpositive-stack limits explicit; no gameplay claim.
+PASS complete production RecipesCommon native compile/runtime; not complete recipe registration, FuelHandler, client display or gameplay.

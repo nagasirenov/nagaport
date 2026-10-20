@@ -32,17 +32,17 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.craneInserter";
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote) {
+	public void update() {
+		super.update();
+		if(!this.world.isRemote) {
 
-			if(!this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {ForgeDirection outputSide = getOutputSide();
-				TileEntity te = Compat.getTileStandard(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+			if(!this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {ForgeDirection outputSide = getOutputSide();
+				TileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ);
 				
 				int[] access = null;
 				
@@ -78,7 +78,7 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 						
 						if(stack != null) {
 							stack = stack.copy();
-							stack.stackSize = 1;
+							stack.setCount(1);
 							
 							ItemStack ret = CraneInserter.addToInventory((IInventory) te, access, stack.copy(), outputSide.getOpposite().ordinal());
 							
@@ -110,7 +110,8 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return access;
 	}
 
@@ -120,7 +121,8 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 
@@ -142,14 +144,15 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("destroyer", this.destroyer);
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override

@@ -1,0 +1,7 @@
+FINAL frozen furnace source clean compile: FAIL1458, exit1,23s.
+Command: /workspace/shared/nagaport-toolchain/run-gradle.sh --offline clean -I porting/compile-diagnostics.init.gradle compileJava --console=plain
+Nine changed plus one new Java files byte-identical to build/sources/main/java;3862Java compiler inputs.
+Normalized diagnostics against checkpoint17: added0 removed0.
+Final log SHA256 fe76b9083722554f7fe69f8fcff0791536e5331dee0554799084928f6687a934
+No source exclusion. Full mod compilation not reached; no runnable JAR or game/server/save acceptance.
+Independent core/GUI and limited block/model reviews pass, with deferred debris-face visual parity explicitly unresolved.

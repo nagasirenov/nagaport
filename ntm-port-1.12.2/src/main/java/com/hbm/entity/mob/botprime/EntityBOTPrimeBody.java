@@ -55,7 +55,7 @@ public class EntityBOTPrimeBody extends EntityBOTPrimeBase {
 				setHealth(getHealth() - 1999.0F);
 			}
 			if(((this.followed == null) || (!this.followed.isEntityAlive())) && (this.rand.nextInt(60) == 0)) {
-				this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 2.0F, false);
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2.0F, false);
 			}
 		}
 
@@ -78,7 +78,7 @@ public class EntityBOTPrimeBody extends EntityBOTPrimeBase {
 			double dx = targetedEntity.posX - posX;
 			double dy = targetedEntity.posY - posY;
 			double dz = targetedEntity.posZ - posZ;
-			float f3 = MathHelper.sqrt_double(dx * dx + dz * dz);
+			float f3 = MathHelper.sqrt(dx * dx + dz * dz);
 			this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(dx, dz) * 180.0D / Math.PI);
 			this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(dy, f3) * 180.0D / Math.PI);
 		}
@@ -93,7 +93,7 @@ public class EntityBOTPrimeBody extends EntityBOTPrimeBase {
 			double dx = targetedEntity.posX - posX;
 			double dy = targetedEntity.posY - posY;
 			double dz = targetedEntity.posZ - posZ;
-			float f3 = MathHelper.sqrt_double(dx * dx + dz * dz);
+			float f3 = MathHelper.sqrt(dx * dx + dz * dz);
 			this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(dx, dz) * 180.0D / Math.PI);
 			this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(dy, f3) * 180.0D / Math.PI);
 		}

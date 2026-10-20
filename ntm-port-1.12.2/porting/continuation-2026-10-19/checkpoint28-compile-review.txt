@@ -1,0 +1,6 @@
+Frozen checkpoint28 clean compile FAIL653 vs737, exit1,25s.
+55 changed/new Java exactly match 3920 generated compiler sources.
+Snapshot /workspace/shared/nagaport-cp28-compile-snapshot/ntm-port-1.12.2
+Log SHA256 b105f5189d1b7a8cc26d335d9ce56e9bf2f858ed944f6306e6ea1f2c7b663364
+Repeated class symbols [('RenderBlocks', 204), ('ItemRenderType', 109), ('ISimpleBlockRenderingHandler', 102), ('IItemRenderer', 45), ('EntityFX', 41), ('RenderItem', 38), ('ItemRendererHelper', 19), ('IBossDisplayData', 18), ('BossStatus', 6), ('BiomeGenBase', 5), ('EntityAIArrowAttack', 5), ('EntityClientPlayerMP', 4)]
+No source exclusions; not playable or full runtime proof.

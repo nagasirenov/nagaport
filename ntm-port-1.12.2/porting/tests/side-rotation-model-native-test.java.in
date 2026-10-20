@@ -1,0 +1,196 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.net.*;
+import java.nio.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import javax.imageio.ImageIO;
+import com.hbm.blocks.*;
+import com.hbm.blocks.generic.*;
+import com.hbm.blocks.network.*;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.main.SideRotationBlockModelHandler;
+import com.hbm.render.block.RenderBlockSideRotation;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.tileentity.network.TileEntityCraneBase;
+import net.minecraft.block.*;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraftforge.client.model.*;
+import net.minecraftforge.client.model.pipeline.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+/** Complete production native rotated-cube integration, independent original selectors and face bytecode. */
+public final class SideRotationModelNativeTest {
+ static long checks,layouts,vertices;static final BlockPos POS=new BlockPos(8,64,8);
+ static final String[] NAMES={"crane_extractor","crane_inserter","crane_grabber","crane_boxer","crane_unboxer","wand_jigsaw","wand_tandem","wand_logic","wand_loot"};
+ static Block[] blocks;static OriginalSideRotationOracle.Owner[] originals;
+ static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+ static void check(boolean ok,String why){checks++;if(!ok)throw new AssertionError(why);}
+ static void equal(float a,float b,String why){check(Float.floatToIntBits(a)==Float.floatToIntBits(b),why+": "+a+" != "+b);}
+ interface Throwing {void run()throws Exception;}
+ static void rejects(Throwing run,String why)throws Exception{boolean rejected=false;try{run.run();}catch(Exception e){rejected=true;}check(rejected,why);}
+ static Field field(Class<?> c,String name)throws Exception{Field f=c.getDeclaredField(name);f.setAccessible(true);return f;}
+ static Object get(Object o,Class<?> c,String name)throws Exception{return field(c,name).get(o);}
+ static void set(Object o,Class<?> c,String name,Object value)throws Exception{field(c,name).set(o,value);}
+ static final class Sprite extends TextureAtlasSprite {Sprite(String name,int index){super(name);setIconWidth(16);setIconHeight(16);initSprite(4096,128,index*32,32,false);}}
+ static TextureAtlasSprite sprite(String name){return sprites.computeIfAbsent(name,n->new Sprite(n,sprites.size()+1));}
+ static IBlockSideRotation owner(int i){return (IBlockSideRotation)blocks[i];}
+ static Map<ResourceLocation,TextureAtlasSprite> atlas(int i){Map<ResourceLocation,TextureAtlasSprite> m=new HashMap<>();for(ResourceLocation id:owner(i).getModelTextures())m.put(id,sprite(id.toString()));return m;}
+ static void setup()throws Exception {
+  Bootstrap.register();net.minecraftforge.fml.common.ModMetadata metadata=new net.minecraftforge.fml.common.ModMetadata();metadata.modId="hbm";metadata.name="Native side rotation proof";metadata.version="probe";net.minecraftforge.fml.common.DummyModContainer container=new net.minecraftforge.fml.common.DummyModContainer(metadata);net.minecraftforge.fml.common.Loader.instance().setupTestHarness(container);net.minecraftforge.fml.common.Loader.instance().setActiveModContainer(container);unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+  blocks=new Block[]{new CraneExtractor(),new CraneInserter(),new CraneGrabber(),new CraneBoxer(),new CraneUnboxer(),new BlockWandJigsaw(),new BlockWandTandem(),new BlockWandLogic(),new BlockWandLoot()};
+  originals=new OriginalSideRotationOracle.Owner[]{new OriginalSideRotationOracle.CraneExtractor(),new OriginalSideRotationOracle.CraneInserter(),new OriginalSideRotationOracle.CraneGrabber(),new OriginalSideRotationOracle.CraneBoxer(),new OriginalSideRotationOracle.CraneUnboxer(),new OriginalSideRotationOracle.BlockWandJigsaw(),new OriginalSideRotationOracle.BlockWandTandem(),new OriginalSideRotationOracle.BlockWandLogic(),new OriginalSideRotationOracle.BlockWandLoot()};
+  for(int i=0;i<9;i++)ForgeRegistries.BLOCKS.register(blocks[i].setRegistryName("hbm","tile."+NAMES[i]));
+  sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);
+  net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+ }
+ static final class ModelWorld implements IBlockAccess {
+  final IBlockState state;final TileEntityCraneBase tile;final int meta,override;
+  ModelWorld(int i,int meta,int override)throws Exception {this.meta=meta;this.override=override;state=blocks[i].getStateFromMeta(meta);tile=i<5&&override>=0?((BlockCraneBase)blocks[i]).createNewTileEntity(null,meta):null;
+   if(tile!=null){NBTTagCompound n=new NBTTagCompound();n.setByte("CraneOutputOverride",(byte)override);tile.readFromNBT(n);tile.setPos(POS);set(tile,TileEntity.class,"blockMetadata",meta);}
+  }
+  IBlockState extended(){return state.getBlock().getExtendedState(state,this,POS);}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?state:Blocks.AIR.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){return p.equals(POS)?tile:null;}
+  public int getCombinedLight(BlockPos p,int e){return 0x00f000f0;}public boolean isAirBlock(BlockPos p){return !p.equals(POS);}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}public int getStrongPower(BlockPos p,EnumFacing f){return 0;}public WorldType getWorldType(){return WorldType.DEFAULT;}public boolean isSideSolid(BlockPos p,EnumFacing f,boolean fallback){return p.equals(POS);}
+ }
+ static OriginalSideRotationOracle.World oldWorld(int meta,int override){OriginalSideRotationOracle.World w=new OriginalSideRotationOracle.World();w.meta=meta;w.missing=override<0;w.outputOverride=ForgeDirection.getOrientation(override);return w;}
+ static final class LegacyFaces implements AutoCloseable {
+  final URLClassLoader loader;final Class<?> renderer,block,iconType,tessType;final Object render,tess;final Field raw,count,ptr;
+  LegacyFaces(File jar)throws Exception {loader=new URLClassLoader(new URL[]{jar.toURI().toURL()},SideRotationModelNativeTest.class.getClassLoader());renderer=Class.forName("blm",true,loader);block=Class.forName("aji",true,loader);iconType=Class.forName("rf",true,loader);tessType=Class.forName("bmh",true,loader);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");for(String s:new String[]{"i","k","m"})field(renderer,s).setDouble(render,0);for(String s:new String[]{"j","l","n"})field(renderer,s).setDouble(render,1);}
+  int[] face(int side,TextureAtlasSprite sprite)throws Exception {
+   Object icon=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{iconType},(p,m,a)->{if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}});
+   count.setInt(tess,0);ptr.setInt(tess,0);renderer.getMethod("abcdef".substring(side,side+1),block,double.class,double.class,double.class,iconType).invoke(render,null,0D,0D,0D,icon);check(count.getInt(tess)==4,"original RenderBlocks face emits four vertices");return Arrays.copyOf((int[])raw.get(tess),32);
+  }
+  public void close()throws Exception{loader.close();}
+ }
+ static LegacyFaces legacy;
+ static List<BakedQuad> collect(IBakedModel model,IBlockState state,boolean item){
+  List<BakedQuad> q=new ArrayList<>();if(item){q.addAll(model.getQuads(null,null,0));for(EnumFacing f:EnumFacing.values())check(model.getQuads(null,f,0).isEmpty(),"inventory has no culled buckets");check(model.getQuads(null,null,0)==model.getQuads(null,null,71),"cached RNG-independent inventory");}
+  else {check(model.getQuads(state,null,0).isEmpty(),"world has no unculled faces");for(EnumFacing f:EnumFacing.values()){List<BakedQuad> face=model.getQuads(state,f,0);check(face.size()==1,"exactly one native face bucket");check(face.get(0)==model.getQuads(state,f,91).get(0),"cached RNG-independent world quads");q.addAll(face);try{if(model instanceof SideRotationBakedModel){face.add(null);throw new AssertionError("mutable face list");}}catch(UnsupportedOperationException expected){checks++;}}}
+  check(q.size()==6,"six full-cube faces");return q;
+ }
+ static void properties(IBakedModel model,int i,int meta){check(model.isAmbientOcclusion()&&model.isGui3d()&&!model.isBuiltInRenderer(),"native AO/3D/model contract");check(model.getParticleTexture()==sprite(originals[i].getIcon(0,meta)),"original bottom particle material");check(model.getOverrides()==ItemOverrideList.NONE,"no fabricated item overrides");equal(model.getItemCameraTransforms().gui.scale.x,.625F,"native block GUI scale");}
+ static void geometry(List<BakedQuad> q,int i,int meta,int override,boolean item,String context)throws Exception {
+  OriginalSideRotationOracle.Owner original=originals[i];OriginalSideRotationOracle.World old=oldWorld(meta,override);OriginalSideRotationOracle.configure(legacy.render,legacy.renderer,original,old,item);
+  int cos=(int)Math.round(Math.cos(Math.toRadians(OriginalSideRotationOracle.ITEM_YAW))),sin=(int)Math.round(Math.sin(Math.toRadians(OriginalSideRotationOracle.ITEM_YAW)));
+  for(EnumFacing side:EnumFacing.values()){
+   int face=side.getIndex();TextureAtlasSprite material=sprite(item?original.getIcon(face,meta):original.getIcon(old,0,0,0,face));int[] oldData=legacy.face(face,material);BakedQuad actual=q.get(face);int[] data=actual.getVertexData();String label=context+" "+side;
+   check(actual.getSprite()==material,label+" independent pristine material");check(actual.getFormat().equals(DefaultVertexFormats.ITEM)&&data.length==28,label+" native normal-retaining format");check(actual.shouldApplyDiffuseLighting()&&!actual.hasTintIndex(),label+" exactly one native diffuse/no tint");
+   int nx=side.getXOffset(),ny=side.getYOffset(),nz=side.getZOffset();if(item){int x=nx;nx=cos*x+sin*nz;nz=-sin*x+cos*nz;}check(actual.getFace()==EnumFacing.getFacingFromVector(nx,ny,nz),label+" transformed geometric orientation");
+   for(int v=0;v<4;v++){vertices++;int ov=(v+new int[]{0,2,1,0,1,3}[face])%4;float x=Float.intBitsToFloat(oldData[ov*8]),y=Float.intBitsToFloat(oldData[ov*8+1]),z=Float.intBitsToFloat(oldData[ov*8+2]);if(item){float ox=x-.5F,oz=z-.5F;x=.5F+cos*ox+sin*oz;z=.5F-sin*ox+cos*oz;}
+    equal(Float.intBitsToFloat(data[v*7]),x,label+" original XYZ x");equal(Float.intBitsToFloat(data[v*7+1]),y,label+" original XYZ y");equal(Float.intBitsToFloat(data[v*7+2]),z,label+" original XYZ z");
+    equal(Float.intBitsToFloat(data[v*7+4]),Float.intBitsToFloat(oldData[ov*8+3]),label+" exact original U");equal(Float.intBitsToFloat(data[v*7+5]),Float.intBitsToFloat(oldData[ov*8+4]),label+" exact original V");check(data[v*7+3]==-1,label+" no pre-baked AO");int normal=data[v*7+6];check((byte)normal==nx*127&&(byte)(normal>>8)==ny*127&&(byte)(normal>>16)==nz*127,label+" original transformed normals");
+   }
+  }layouts++;
+ }
+ static void snapshotsAndDirect()throws Exception {
+  for(int i=0;i<9;i++)for(int meta=0;meta<16;meta++){
+   SideRotationModelState.Snapshot inventory=SideRotationModelState.inventory(owner(i),meta);IBakedModel item=new SideRotationBakedModel(inventory,true,atlas(i)),world=new SideRotationBakedModel(inventory,false,atlas(i));properties(item,i,meta);properties(world,i,meta);geometry(collect(item,null,true),i,meta,6,true,NAMES[i]+" item="+meta);
+   for(int override=-1;override<(i<5?7:0);override++){
+    ModelWorld w=new ModelWorld(i,meta,override);IBlockState state=w.extended();SideRotationModelState.Snapshot snapshot=SideRotationModelState.appearance(state);OriginalSideRotationOracle.World old=oldWorld(meta,override);
+    check(state.getValue(SideRotationModelState.METADATA)==meta,"snapshot retains listed metadata");check(((IExtendedBlockState)w.state).getValue(SideRotationModelState.APPEARANCE)==null,"snapshot leaves listed state immutable");
+    for(int face=0;face<6;face++){check(snapshot.texture(face).toString().equals(originals[i].getIcon(old,0,0,0,face)),"pristine world selector in immutable snapshot");check(snapshot.rotation(face)==originals[i].getRotationFromSide(old,0,0,0,face),"pristine raw rotation in immutable snapshot");check(inventory.rotation(face)==0,"original inventory did not assign UV rotations");}
+    geometry(collect(world,state,false),i,meta,override,false,NAMES[i]+" world="+meta+" override="+override);
+    if(w.tile!=null){NBTTagCompound changed=new NBTTagCompound();changed.setByte("CraneOutputOverride",(byte)((override+1)%7));w.tile.readFromNBT(changed);check(SideRotationModelState.appearance(state)==snapshot,"captured state does not follow later live tile mutation");}
+   }
+   final IBakedModel invalid=world;rejects(()->invalid.getQuads(blocks[0].getDefaultState(),EnumFacing.UP,0),"world requires actual appearance snapshot");
+  }
+  ResourceLocation[] tex=new ResourceLocation[6];Arrays.fill(tex,new ResourceLocation("hbm","blocks/crane_top"));int[] rot={0,1,2,3,14,-3};SideRotationModelState.Snapshot frozen=new SideRotationModelState.Snapshot(tex,rot);tex[0]=null;rot[0]=99;check(frozen.texture(0)!=null&&frozen.rotation(0)==0,"snapshot defensive copies");
+  check(!SideRotationModelState.APPEARANCE.isValid(null),"null appearance invalid");rejects(()->SideRotationModelState.appearance(Blocks.STONE.getDefaultState()),"nonextended state rejected");
+  System.out.println("PASS independent original RenderBlocks bytecode and pristine owner selectors: nine owners x16 item/world metadata; all five cranes x seven overrides plus missing tile; exact original UV field composition, original inventory +90Y positions/normals, immutable native snapshots.");
+ }
+ static final class LightingWorld implements IBlockAccess {
+  final IBlockState own;final int mode;int samples;LightingWorld(IBlockState own,int mode){this.own=own;this.mode=mode;}
+  public IBlockState getBlockState(BlockPos p){if(p.equals(POS))return own;int x=p.getX()-POS.getX(),y=p.getY()-POS.getY(),z=p.getZ()-POS.getZ();return mode==2||mode==1&&x==-1&&z>=0&&y>=0?Blocks.STONE.getDefaultState():mode==3?Blocks.GLASS.getDefaultState():Blocks.AIR.getDefaultState();}
+  public int getCombinedLight(BlockPos p,int emission){samples++;if(mode!=1)return 0x00f000f0;int x=p.getX()-8,y=p.getY()-64,z=p.getZ()-8;return Math.floorMod(11+3*x+5*y+7*z,16)*16<<16|Math.floorMod(7+5*x+3*y+z,16)*16;}
+  public TileEntity getTileEntity(BlockPos p){return null;}public boolean isAirBlock(BlockPos p){return getBlockState(p).getBlock()==Blocks.AIR;}public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}public int getStrongPower(BlockPos p,EnumFacing f){return 0;}public WorldType getWorldType(){return WorldType.DEFAULT;}public boolean isSideSolid(BlockPos p,EnumFacing f,boolean fallback){return getBlockState(p).isOpaqueCube();}
+ }
+ static int[][] render(IBakedModel mesh,LightingWorld world,boolean forge,boolean smooth,boolean cull){
+  BufferBuilder out=new BufferBuilder(4096);out.begin(7,DefaultVertexFormats.BLOCK);BlockColors colors=new BlockColors();boolean rendered;
+  if(forge){VertexLighterFlat lighter=smooth?new VertexLighterSmoothAo(colors):new VertexLighterFlat(colors);VertexBufferConsumer consumer=new VertexBufferConsumer(out);consumer.setOffset(POS);lighter.setParent(consumer);rendered=ForgeBlockModelRenderer.render(lighter,world,mesh,world.own,POS,out,cull,0);}
+  else {BlockModelRenderer renderer=new BlockModelRenderer(colors);rendered=smooth?renderer.renderModelSmooth(world,mesh,world.own,POS,out,cull,0):renderer.renderModelFlat(world,mesh,world.own,POS,out,cull,0);}
+  out.finishDrawing();check(rendered==(out.getVertexCount()>0),"actual native renderer return matches geometry");ByteBuffer bytes=out.getByteBuffer();int[][] result=new int[out.getVertexCount()][7];for(int v=0;v<result.length;v++)for(int k=0;k<7;k++)result[v][k]=bytes.getInt(v*28+k*4);return result;
+ }
+ static IBakedModel reference(final List<BakedQuad> actual){
+  final List<BakedQuad> q=new ArrayList<>();FaceBakery bakery=new FaceBakery();for(EnumFacing side:EnumFacing.values())q.add(bakery.makeBakedQuad(new org.lwjgl.util.vector.Vector3f(0,0,0),new org.lwjgl.util.vector.Vector3f(16,16,16),new BlockPartFace(side,-1,"#reference",new BlockFaceUV(new float[]{0,0,16,16},0)),actual.get(side.getIndex()).getSprite(),side,ModelRotation.X0_Y0,null,false,true));
+  return new IBakedModel(){public List<BakedQuad> getQuads(IBlockState s,EnumFacing f,long seed){return f==null?Collections.emptyList():Collections.singletonList(q.get(f.getIndex()));}public boolean isAmbientOcclusion(){return true;}public boolean isGui3d(){return true;}public boolean isBuiltInRenderer(){return false;}public TextureAtlasSprite getParticleTexture(){return q.get(0).getSprite();}public ItemCameraTransforms getItemCameraTransforms(){return ItemCameraTransforms.DEFAULT;}public ItemOverrideList getOverrides(){return ItemOverrideList.NONE;}};
+ }
+ static void lightingAndDamage()throws Exception {
+  for(int i:new int[]{0,1,2,3,4,5,6,7,8}){
+   IBlockState state=new ModelWorld(i,4,3).extended();IBakedModel model=new SideRotationBakedModel(SideRotationModelState.inventory(owner(i),4),false,atlas(i));IBakedModel ref=reference(collect(model,state,false));
+   for(boolean forge:new boolean[]{false,true}){
+    int[][] smooth=render(model,new LightingWorld(state,1),forge,true,false),flat=render(model,new LightingWorld(state,1),forge,false,false),canonical=render(ref,new LightingWorld(state,1),forge,true,false);check(smooth.length==24&&flat.length==24,"six actual smooth/flat faces");boolean different=false;Set<Integer> lights=new HashSet<>(),colors=new HashSet<>();
+    for(int v=0;v<24;v++){for(int k:new int[]{0,1,2,3,6})check(smooth[v][k]==canonical[v][k],"native FaceBakery AO/light corner association "+NAMES[i]+" forge="+forge+" vertex="+v+" field="+k);different|=smooth[v][3]!=flat[v][3]||smooth[v][6]!=flat[v][6];lights.add(smooth[v][6]);colors.add(smooth[v][3]);check(smooth[v][3]>>>24==255,"finite opaque smooth color");}
+    check(different&&lights.size()>1&&colors.size()>1,"asymmetric real native AO/light response");
+    for(int mode:new int[]{0,1,2,3}){int visible=0;LightingWorld w=new LightingWorld(state,mode);for(EnumFacing face:EnumFacing.values())if(state.shouldSideBeRendered(w,POS,face))visible++;check(render(model,w,forge,true,true).length==visible*4,"actual owner culling against air/asymmetric stone/all stone/glass");if(mode==0||mode==3)check(visible==6,"transparent neighbors do not cull cube");if(mode==2)check(visible==0,"opaque neighbors cull every cube face");}
+    int[][] lit=render(model,new LightingWorld(state,0),forge,true,false);for(int f=0;f<6;f++)for(int v=0;v<4;v++)check(Math.abs((lit[f*4+v][3]&255)-Math.round(LightUtil.diffuseLight(EnumFacing.byIndex(f))*255))<=1,"single native directional diffuse");
+   }
+  }
+  ModelWorld world=new ModelWorld(0,4,3);IBlockState state=world.extended();IBakedModel model=new SideRotationBakedModel(SideRotationModelState.inventory(owner(0),4),false,atlas(0));TextureAtlasSprite crack=sprite("minecraft:blocks/destroy_stage_4");IBakedModel damage=net.minecraftforge.client.ForgeHooksClient.getDamageModel(model,crack,world.state,world,POS);List<BakedQuad> before=collect(model,state,false),after=collect(damage,state,false);
+  for(int f=0;f<6;f++){check(after.get(f).getSprite()==crack,"actual damage model crack texture");BakedQuad expected=new BakedQuadRetextured(before.get(f),crack);check(Arrays.equals(expected.getVertexData(),after.get(f).getVertexData()),"actual damage path extended state preserves rotated face positions/UV remap");}
+  System.out.println("PASS all nine actual owners through native Forge SmoothAo and vanilla smooth: native FaceBakery reference corner lights/AO, non-flat asymmetric lighting, single diffuse, air/stone/glass culling; real ForgeHooksClient damage-model snapshot and six crack buckets.");
+ }
+ static void event()throws Exception {
+  Class<?> c=SideRotationBlockModelHandler.class;net.minecraftforge.fml.common.Mod.EventBusSubscriber a=c.getAnnotation(net.minecraftforge.fml.common.Mod.EventBusSubscriber.class);check(a!=null&&a.modid().equals("hbm")&&Arrays.equals(a.value(),new net.minecraftforge.fml.relauncher.Side[]{net.minecraftforge.fml.relauncher.Side.CLIENT}),"native client-only subscriber");int count=0;for(Method m:c.getDeclaredMethods())if(m.isAnnotationPresent(net.minecraftforge.fml.common.eventhandler.SubscribeEvent.class)&&Arrays.equals(m.getParameterTypes(),new Class<?>[]{net.minecraftforge.client.event.ModelRegistryEvent.class})){check(Modifier.isStatic(m.getModifiers()),"static model registration");count++;}check(count==1,"one model registry handler");
+  net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.client.event.ModelRegistryEvent());
+ }
+ static ResourceLocation route(int i,int meta,boolean item){return new ResourceLocation("hbm","native_side_rotation/tile."+NAMES[i]+"/"+meta+(item?"/item":"/world"));}
+ static IModel load(ResourceLocation id)throws Exception{IModel m=ModelLoaderRegistry.getModel(id);check(m!=ModelLoaderRegistry.getMissingModel(),"actual native custom route "+id);return m;}
+ static IBakedModel bake(ResourceLocation id,int i,int meta,boolean item)throws Exception{IModel m=load(id);check(m.getDependencies().isEmpty(),"no invented dependencies");check(new HashSet<>(m.getTextures()).equals(new HashSet<>(owner(i).getModelTextures())),"complete native owner atlas declarations");IBakedModel b=m.bake(m.getDefaultState(),item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK,t->sprite(t.toString()));properties(b,i,meta);return b;}
+ static void reload(IResourcePack pack)throws Exception{sharedResources.reloadResources(Collections.singletonList(pack));ModelLoaderRegistry.clearModelCache(sharedResources);}
+ static void deferredItems()throws Exception {
+  rejects(()->SideRotationBlockModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent()),"missing deferred ItemBlock fails, does not bind AIR");Map<Block,Item> itemMap=(Map<Block,Item>)get(null,Item.class,"BLOCK_TO_ITEM");
+  for(Block b:blocks){ItemBlock item=new ItemBlock(b);item.setHasSubtypes(true);item.setRegistryName(b.getRegistryName());ForgeRegistries.ITEMS.register(item);itemMap.put(b,item);check(Item.getItemFromBlock(b)==item&&ForgeRegistries.ITEMS.getValue(b.getRegistryName())==item,"registry-flush fixture retains exact ItemBlock identity");}
+  net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(SideRotationBlockModelHandler.class);
+ }
+ static void registry(IResourcePack pack)throws Exception {
+  reload(pack);TextureMap atlas=new TextureMap("textures");ModelManager initial=new ModelManager(atlas);BlockModelShapes shapes=new BlockModelShapes(initial);new ModelLoader(sharedResources,atlas,shapes);event();reload(pack);
+  Map<?,?> custom=(Map<?,?>)get(null,ModelLoader.class,"customModels");check(custom.size()==144,"nine owners x16 item registrations");net.minecraft.util.registry.RegistrySimple<ModelResourceLocation,IBakedModel> registry=new net.minecraft.util.registry.RegistrySimple<>();Map<IBlockState,ModelResourceLocation> routes=new LinkedHashMap<>();ModelLoader.onRegisterAllBlocks(shapes);Set<ResourceLocation> textures=new HashSet<>();
+  for(int i=0;i<9;i++){
+   Block b=blocks[i];Map<IBlockState,ModelResourceLocation> states=shapes.getBlockStateMapper().getVariants(b);check(states.size()==16,"all native listed states");ModelBlockDefinition definition;try(Reader in=new InputStreamReader(pack.getInputStream(new ResourceLocation("hbm","blockstates/tile."+NAMES[i]+".json")),StandardCharsets.UTF_8)){definition=ModelBlockDefinition.parseFromReader(in,b.getRegistryName());}
+   for(int meta=0;meta<16;meta++){
+    IBlockState listed=b.getStateFromMeta(meta);ModelResourceLocation mapped=states.get(listed);check(mapped.getVariant().equals("metadata="+meta)&&definition.hasVariant(mapped.getVariant()),"native exact JSON metadata state");List<Variant> variants=definition.getVariant(mapped.getVariant()).getVariantList();check(variants.size()==1,"single native world route");Variant v=variants.get(0);check(v.getRotation()==ModelRotation.X0_Y0&&!v.isUvLock(),"no added rotation/UV lock");check(v.getModelLocation().getPath().equals("block/"+route(i,meta,false).getPath()),"JSON exact custom world route");IBakedModel world=bake(v.getModelLocation(),i,meta,false);registry.putObject(mapped,world);routes.put(listed,mapped);
+    for(int override:i<5?new int[]{-1,0,1,2,3,4,5,6}:new int[]{-1})geometry(collect(world,new ModelWorld(i,meta,override).extended(),false),i,meta,override,false,pack.getPackName()+" world="+NAMES[i]+"/"+meta+"/"+override);
+    Item item=Item.getItemFromBlock(b);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(id!=null&&id.getPath().equals(route(i,meta,true).getPath())&&id.getVariant().equals("inventory"),"actual registered item delegate/meta route");IBakedModel inventory=bake(id,i,meta,true);registry.putObject(id,inventory);geometry(collect(inventory,null,true),i,meta,6,true,pack.getPackName()+" item="+NAMES[i]+"/"+meta);
+   }
+   for(ResourceLocation texture:owner(i).getModelTextures())if(textures.add(texture)){ResourceLocation png=new ResourceLocation(texture.getNamespace(),"textures/"+texture.getPath()+".png");check(pack.resourceExists(png),"exact-case original PNG resource "+png);try(InputStream in=pack.getInputStream(png)){check(ImageIO.read(in)!=null,"actual PNG decode "+png);}}
+  }
+  ModelManager manager=(ModelManager)unsafe.allocateInstance(ModelManager.class);set(manager,ModelManager.class,"modelRegistry",registry);set(manager,ModelManager.class,"defaultModel",registry.getObject(routes.values().iterator().next()));ItemModelMesher mesher=new ItemModelMesher(manager);ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();for(int i=0;i<9;i++)for(int meta=0;meta<16;meta++){Item item=Item.getItemFromBlock(blocks[i]);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(mesher.getItemModel(new ItemStack(item,1,meta))==registry.getObject(id),"actual native ItemModelMesher exact metadata identity");}
+  BlockModelShapes actual=new BlockModelShapes(manager);ModelLoader.onRegisterAllBlocks(actual);actual.reloadModels();for(Map.Entry<IBlockState,ModelResourceLocation> e:routes.entrySet())check(actual.getModelForState(e.getKey())==registry.getObject(e.getValue()),"actual native BlockModelShapes world route");
+  System.out.println("PASS actual native ModelRegistryEvent bus, ModelLoaderRegistry, all144 item/all144 world metadata routes, ItemModelMesher/BlockModelShapes and "+textures.size()+" exact-case decoded original PNGs: "+pack.getPackName());
+ }
+ static void resourceReload(IResourcePack pack)throws Exception {
+  IModel[] before=new IModel[9];IBakedModel[] retained=new IBakedModel[9];TextureAtlasSprite[] particles=new TextureAtlasSprite[9];Map<String,TextureAtlasSprite> oldAtlas=new LinkedHashMap<>(sprites);
+  for(int i=0;i<9;i++){before[i]=load(route(i,4,false));retained[i]=bake(route(i,4,false),i,4,false);collect(retained[i],new ModelWorld(i,4,3).extended(),false);particles[i]=retained[i].getParticleTexture();}
+  reload(pack);sprites.clear();for(int i=0;i<9;i++){check(load(route(i,4,false))!=before[i],"reload invalidates actual descriptor cache");IBakedModel fresh=bake(route(i,4,false),i,4,false);check(fresh.getParticleTexture()!=particles[i],"rebake uses fresh atlas objects");geometry(collect(fresh,new ModelWorld(i,4,3).extended(),false),i,4,3,false,"fresh atlas reload "+NAMES[i]);}
+  Map<String,TextureAtlasSprite> newAtlas=new LinkedHashMap<>(sprites);sprites.clear();sprites.putAll(oldAtlas);for(int i=0;i<9;i++)geometry(collect(retained[i],new ModelWorld(i,4,3).extended(),false),i,4,3,false,"retained immutable atlas "+NAMES[i]);sprites.clear();sprites.putAll(newAtlas);
+  System.out.println("PASS actual model-cache reload and nine fresh atlas rebakes; retained snapshots/quads preserve old atlas objects: "+pack.getPackName());
+ }
+ static void badRoutes()throws Exception {
+  ICustomModelLoader loader=(ICustomModelLoader)get(null,SideRotationBlockModelHandler.class,"LOADER");for(String prefix:new String[]{"","block/","models/","models/block/"}){ResourceLocation r=new ResourceLocation("hbm",prefix+route(0,4,false).getPath());check(loader.accepts(r),"canonical loader prefix "+prefix);IBakedModel b=loader.loadModel(r).bake(net.minecraftforge.common.model.TRSRTransformation.identity(),DefaultVertexFormats.BLOCK,t->sprite(t.toString()));geometry(collect(b,new ModelWorld(0,4,3).extended(),false),0,4,3,false,"normalized native route "+prefix);}
+  check(!loader.accepts(new ResourceLocation("other",route(0,4,false).getPath()))&&!loader.accepts(new ResourceLocation("hbm","unrelated/cube")),"exact loader scope");for(String r:new String[]{"unknown/0/world","tile.crane_extractor/16/world","tile.crane_extractor/-1/world","tile.crane_extractor/no/world","tile.crane_extractor/0/other","tile.crane_extractor/0/world/extra"})rejects(()->loader.loadModel(new ResourceLocation("hbm","native_side_rotation/"+r)),"malformed route rejected "+r);
+  ForgeRegistries.BLOCKS.register(new CraneExtractor().setRegistryName("hbm","tile.unknown_crane"));rejects(()->SideRotationBlockModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent()),"unlisted owner rejected explicitly");
+ }
+ public static void main(String[] args)throws Exception {
+  setup();try(LegacyFaces oracle=new LegacyFaces(new File(args[2]));FileResourcePack jar=new FileResourcePack(new File(args[1]))){legacy=oracle;snapshotsAndDirect();lightingAndDamage();IResourcePack folder=new FolderResourcePack(new File(args[0]));reload(folder);deferredItems();registry(folder);resourceReload(folder);registry(jar);resourceReload(jar);badRoutes();}
+  System.out.println("PASS native side-rotation model family: "+checks+" assertions, "+layouts+" complete layouts, "+vertices+" ordered vertices. Complete combined owners/model/handler, independent pinned pristine selectors and actual original RenderBlocks bytecode, all metadata/overrides/missing tile, native smooth AO/culling/damage/routing/resources/reload.");
+  System.out.println("BOUNDARY: real unchanged Minecraft/Forge; explicit external NTM collaborators; controlled atlas rectangles and Unsafe Minecraft holder; fixture performs deferred ItemBlock registry flush/identity mapping. No live GL, automatic mod lifecycle, full tile engines, full-mod or graphical acceptance.");
+ }
+}

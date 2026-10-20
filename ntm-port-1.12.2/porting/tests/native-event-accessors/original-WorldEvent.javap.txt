@@ -1,0 +1,13 @@
+Compiled from "WorldEvent.java"
+public class net.minecraftforge.event.world.WorldEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final ahb world;
+
+  public net.minecraftforge.event.world.WorldEvent(ahb);
+    Code:
+       0: aload_0
+       1: invokespecial #27                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #29                 // Field world:Lahb;
+       9: return
+}

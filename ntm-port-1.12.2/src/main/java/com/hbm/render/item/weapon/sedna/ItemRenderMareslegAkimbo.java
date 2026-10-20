@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -31,7 +34,7 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 		
 		for(int i = -1; i <= 1; i += 2) {
 			
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.maresleg_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.maresleg_tex);
 			GL11.glPushMatrix();
 			
 			int index = i == -1 ? 0 : 1;
@@ -150,7 +153,7 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.maresleg_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.maresleg_tex);
 
 		GL11.glPushMatrix();
 		GL11.glRotated(225, 0, 0, 1);
@@ -179,7 +182,7 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 
 	@Override
 	public void renderModTable(ItemStack stack, int index) {
-		renderOther(stack, ItemRenderType.INVENTORY);
+		renderOther(stack, new NativeItemContext(TransformType.GUI, null));
 	}
 	
 	@Override
@@ -188,7 +191,7 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.maresleg_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.maresleg_tex);
 		
 		GL11.glTranslated(-1, 1, 0);
 		ResourceManager.maresleg.renderPart("Gun");
@@ -205,13 +208,13 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 	}
 	
 	@Override
-	public void renderEquipped(ItemStack stack, Object... data) {
-		renderOther(stack, ItemRenderType.EQUIPPED);
+	public void renderEquipped(ItemStack stack, NativeItemContext context) {
+		renderOther(stack, new NativeItemContext(TransformType.THIRD_PERSON_RIGHT_HAND, null));
 		//grumble grumble
-		EntityLivingBase ent = (EntityLivingBase) data[1];
+		EntityLivingBase ent = context.holder;
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[1];
 			shotRand = gun.shotRand;
@@ -230,11 +233,11 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 	
 	@Override
 	public void renderEquippedAkimbo(ItemStack stack, EntityLivingBase ent) {
-		renderOther(stack, ItemRenderType.EQUIPPED);
+		renderOther(stack, new NativeItemContext(TransformType.THIRD_PERSON_RIGHT_HAND, null));
 		
 		long shot;
 		double shotRand = 0;
-		if(ent == Minecraft.getMinecraft().thePlayer) {
+		if(ent == Minecraft.getMinecraft().player) {
 			ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 			shot = gun.lastShot[0];
 			shotRand = gun.shotRand;
@@ -252,10 +255,10 @@ public class ItemRenderMareslegAkimbo extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.maresleg_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.maresleg_tex);
 		ResourceManager.maresleg.renderPart("Gun");
 		ResourceManager.maresleg.renderPart("Lever");
 		GL11.glShadeModel(GL11.GL_FLAT);

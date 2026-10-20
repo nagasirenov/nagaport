@@ -29,7 +29,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 		if(radWorld != null) {
 			ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 			
-			int yReg = MathHelper.clamp_int(y >> 4, 0, 15);
+			int yReg = MathHelper.clamp(y >> 4, 0, 15);
 			
 			Float rad = radWorld.radiation.get(coords)[yReg]; // this will crash if the coord pair isn't nullchecked
 			return rad == null ? 0F : rad;
@@ -48,7 +48,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 				
 				ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 				
-				int yReg = MathHelper.clamp_int(y >> 4, 0, 15);
+				int yReg = MathHelper.clamp(y >> 4, 0, 15);
 				
 				if(radWorld.radiation.containsKey(coords)) {
 					radWorld.radiation.get(coords)[yReg] = rad;
@@ -98,7 +98,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 								ChunkPos newCoord = new ChunkPos(coord.x + i, coord.z + k);
 								
 								if(buff.containsKey(newCoord)) {
-									int newY = MathHelper.clamp_int(y + j, 0, 15);
+									int newY = MathHelper.clamp(y + j, 0, 15);
 									Float[] vals = radiation.get(newCoord); // ????????? but radiation was cleared!
 									float newRad = vals[newY] + chunk.getValue()[newY] * percent;
 									vals[newY] = Math.max(0F, newRad * 0.999F - 0.05F);
@@ -122,14 +122,14 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 
 	@Override
 	public void receiveWorldLoad(WorldEvent.Load event) {
-		if(!event.world.isRemote)
-			perWorld.put(event.world, new ThreeDimRadiationPerWorld());
+		if(!event.getWorld().isRemote)
+			perWorld.put(event.getWorld(), new ThreeDimRadiationPerWorld());
 	}
 
 	@Override
 	public void receiveWorldUnload(WorldEvent.Unload event) {
-		if(!event.world.isRemote)
-			perWorld.remove(event.world);
+		if(!event.getWorld().isRemote)
+			perWorld.remove(event.getWorld());
 	}
 	
 	private static final String NBT_KEY_CHUNK_RADIATION = "hfr_3d_radiation_";
@@ -137,8 +137,8 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 	@Override
 	public void receiveChunkLoad(ChunkDataEvent.Load event) {
 		
-		if(!event.world.isRemote) {
-			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.world);
+		if(!event.getWorld().isRemote) {
+			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.getWorld());
 			
 			if(radWorld != null) {
 				
@@ -156,8 +156,8 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 	@Override
 	public void receiveChunkSave(ChunkDataEvent.Save event) {
 		
-		if(!event.world.isRemote) {
-			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.world);
+		if(!event.getWorld().isRemote) {
+			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.getWorld());
 			
 			if(radWorld != null) {
 				Float[] vals = radWorld.radiation.get(event.getChunk().getPos());
@@ -173,8 +173,8 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 	@Override
 	public void receiveChunkUnload(ChunkEvent.Unload event) {
 		
-		if(!event.world.isRemote) {
-			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.world);
+		if(!event.getWorld().isRemote) {
+			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.getWorld());
 			
 			if(radWorld != null) { 
 				radWorld.radiation.remove(event.getChunk().getPos());

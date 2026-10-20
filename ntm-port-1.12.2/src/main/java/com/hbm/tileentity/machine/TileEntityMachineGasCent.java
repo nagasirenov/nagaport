@@ -62,17 +62,19 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.gasCentrifuge";
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i < 4;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_io;
 	}
 
@@ -88,13 +90,14 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setShort("progress", (short) progress);
 		tank.writeToNBT(nbt, "tank");
 		inputTank.writeToNBT(nbt, "inputTank");
 		outputTank.writeToNBT(nbt, "outputTank");
+		return nbt;
 	}
 
 	public int getCentrifugeProgressScaled(int i) {
@@ -173,9 +176,9 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			updateConnections();
 
@@ -209,9 +212,9 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 				this.progress = 0;
 			}
 
-			if(worldObj.getTotalWorldTime() % 10 == 0) {
+			if(this.world.getTotalWorldTime() % 10 == 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-				TileEntity te = worldObj.getTileEntity(this.xCoord - dir.offsetX, this.yCoord, this.zCoord - dir.offsetZ);
+				TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() - dir.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ));
 
 				//*AT THE MOMENT*, there's not really any need for a dedicated method for this. Yet.
 				if(!attemptTransfer(te) && this.inputTank.getTankType() == PseudoFluidType.LEUF6) {
@@ -235,9 +238,9 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 				audioDuration -= 3;
 			}
 
-			audioDuration = MathHelper.clamp_int(audioDuration, 0, 60);
+			audioDuration = MathHelper.clamp(audioDuration, 0, 60);
 
-			if(audioDuration > 10 && MainRegistry.proxy.me().getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 25) {
+			if(audioDuration > 10 && MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 25) {
 
 				if(audio == null) {
 					audio = createAudioLoop();
@@ -262,7 +265,7 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", xCoord, yCoord, zCoord, 1.0F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 10F, 1.0F, 20);
 	}
 
 	@Override
@@ -317,21 +320,21 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 
 			if(GasCentrifugeRecipes.fluidConversions.containsValue(inputTank.getTankType())) {
-				this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 		}
 	}
 
 	private DirPos[] getConPos() {
 		return new DirPos[] {
-			new DirPos(xCoord, yCoord - 1, zCoord, Library.NEG_Y),
-			new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-			new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-			new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-			new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z)
+			new DirPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ(), Library.NEG_Y),
+			new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+			new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+			new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+			new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z)
 		};
 	}
 
@@ -350,7 +353,7 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 
 		if(slots[in] != null && slots[in].getItem() instanceof IItemFluidIdentifier) {
 			IItemFluidIdentifier id = (IItemFluidIdentifier) slots[in].getItem();
-			FluidType newType = id.getType(worldObj, xCoord, yCoord, zCoord, slots[in]);
+			FluidType newType = id.getType(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), slots[in]);
 
 			if(tank.getTankType() != newType) {
 				PseudoFluidType pseudo = GasCentrifugeRecipes.fluidConversions.get(newType);
@@ -380,7 +383,7 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 5, zCoord + 1);
+			bb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 5, this.pos.getZ() + 1);
 		}
 		return bb;
 	}

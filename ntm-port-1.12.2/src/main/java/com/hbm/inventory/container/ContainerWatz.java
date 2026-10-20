@@ -70,6 +70,6 @@ public class ContainerWatz extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return watz.isUseableByPlayer(player);
+		return watz.isUsableByPlayer(player);
 	}
 }

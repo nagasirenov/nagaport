@@ -6,7 +6,6 @@ import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.lib.Library;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntitySolarBoiler;
 
 import net.minecraft.client.Minecraft;
@@ -14,10 +13,8 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderSolarPanel extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderSolarPanel extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
@@ -43,56 +40,37 @@ public class RenderSolarPanel extends TileEntitySpecialRenderer implements IItem
 		GL11.glShadeModel(GL11.GL_FLAT);
 		GL11.glPopMatrix();
 
-		int ix = te.xCoord;
-        int iy = te.yCoord;
-        int iz = te.zCoord;
+		int ix = te.getPos().getX();
+        int iy = te.getPos().getY();
+        int iz = te.getPos().getZ();
 
-        if(Library.canConnect(te.getWorldObj(), ix, iy, iz + 1, Library.POS_Z))
+        if(Library.canConnect(te.getWorld(), ix, iy, iz + 1, Library.POS_Z))
             ResourceManager.solarp.renderPart("connector_front");
         
-        if(Library.canConnect(te.getWorldObj(), ix, iy, iz - 1, Library.NEG_Z))
+        if(Library.canConnect(te.getWorld(), ix, iy, iz - 1, Library.NEG_Z))
             ResourceManager.solarp.renderPart("connector_side");
 
-        if(Library.canConnect(te.getWorldObj(), ix + 1, iy, iz, Library.POS_X)) {
+        if(Library.canConnect(te.getWorld(), ix + 1, iy, iz, Library.POS_X)) {
         	GL11.glRotatef(90, 0F, 1F, 0F);
             ResourceManager.solarp.renderPart("connector_front");
             GL11.glRotatef(-90, 0F, 1F, 0F);
         }
 
-        if(Library.canConnect(te.getWorldObj(), ix - 1, iy, iz, Library.NEG_X)) {
+        if(Library.canConnect(te.getWorld(), ix - 1, iy, iz, Library.NEG_X)) {
         	GL11.glRotatef(90, 0F, 1F, 0F);
             ResourceManager.solarp.renderPart("connector_side");
             GL11.glRotatef(-90, 0F, 1F, 0F);
         }
         
-        if(Library.canConnect(te.getWorldObj(), ix, iy + 1, iz, Library.POS_Y))
+        if(Library.canConnect(te.getWorld(), ix, iy + 1, iz, Library.POS_Y))
             ResourceManager.solarp.renderPart("connector_top");
 
-        if(Library.canConnect(te.getWorldObj(), ix, iy - 1, iz, Library.NEG_Y))
+        if(Library.canConnect(te.getWorld(), ix, iy - 1, iz, Library.NEG_Y))
             ResourceManager.solarp.renderPart("connector_bottom");
 
 		GL11.glPopMatrix();
 	}
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, 0, 0);
-				GL11.glScaled(3.75, 3.75, 3.75);
-			}
-			public void renderCommon() {
-				GL11.glScaled(1, 1, 1);
-				GL11.glDisable(GL11.GL_CULL_FACE);
-				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.solarp_tex);
-				ResourceManager.solarp.renderAll();
-				GL11.glShadeModel(GL11.GL_FLAT);
-				GL11.glEnable(GL11.GL_CULL_FACE);
-			}};
-	}
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.machine_solar);
-	}
+
+
 
 }

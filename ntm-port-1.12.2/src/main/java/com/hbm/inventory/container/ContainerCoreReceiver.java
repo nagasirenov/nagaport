@@ -32,7 +32,7 @@ public class ContainerCoreReceiver extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return te.isUseableByPlayer(player);
+		return te.isUsableByPlayer(player);
 	}
 	
 	@Override

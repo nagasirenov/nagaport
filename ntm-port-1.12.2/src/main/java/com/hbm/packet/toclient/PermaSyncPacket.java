@@ -25,7 +25,7 @@ public class PermaSyncPacket implements IMessage {
 
 	@Override
 	public void toBytes(ByteBuf buf) {
-		PermaSyncHandler.writePacket(buf, player.worldObj, player);
+		PermaSyncHandler.writePacket(buf, player.world, player);
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public class PermaSyncPacket implements IMessage {
 
 			try {
 
-				EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-				if(player != null) PermaSyncHandler.readPacket(m.out, player.worldObj, player);
+				EntityPlayer player = Minecraft.getMinecraft().player;
+				if(player != null) PermaSyncHandler.readPacket(m.out, player.world, player);
 
 			} catch(Exception x) { } finally {
 				m.out.release();

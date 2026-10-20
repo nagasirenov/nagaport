@@ -49,13 +49,13 @@ public class CelestialTeleporter extends Teleporter {
 
 		if(grounded) {
 			for(int i = targetServer.getHeight(); i > 0; i--) {
-				if(targetServer.getBlock(ix, i, iz) != Blocks.air) {
+				if(targetServer.getBlock(ix, i, iz) != Blocks.AIR) {
 					y = i + 5;
 					break;
 				}
 			}
 		} else {
-			targetServer.getBlock(ix, MathHelper.clamp_int(iy, 1, 255), iz); // dummy load to maybe gen chunk
+			targetServer.getBlock(ix, MathHelper.clamp(iy, 1, 255), iz); // dummy load to maybe gen chunk
 		}
 
 		entity.setPosition(x, y, z);
@@ -80,11 +80,11 @@ public class CelestialTeleporter extends Teleporter {
 			EntityPlayerMP playerMP = (EntityPlayerMP) entity;
 			Entity ridingEntity = entity.ridingEntity;
 
-			manager.transferPlayerToDimension(playerMP, targetServer.provider.dimensionId, this);
+			manager.transferPlayerToDimension(playerMP, targetServer.provider.getDimension(), this);
 
 			if(ridingEntity != null && !ridingEntity.isDead) {
 				ridingEntity.dimension = fromDimension;
-				ridingEntity.worldObj.removeEntity(ridingEntity);
+				ridingEntity.world.removeEntity(ridingEntity);
 				ridingEntity.isDead = false;
 
 				manager.transferEntityToWorld(ridingEntity, fromDimension, sourceServer, targetServer, this);
@@ -95,7 +95,7 @@ public class CelestialTeleporter extends Teleporter {
 					newEntity.posX = x;
 					newEntity.posZ = z;
 					targetServer.spawnEntityInWorld(newEntity);
-					newEntity.dimension = targetServer.provider.dimensionId;
+					newEntity.dimension = targetServer.provider.getDimension();
 				}
 
 				ridingEntity.isDead = true;
@@ -113,7 +113,7 @@ public class CelestialTeleporter extends Teleporter {
 				playerMP.setPositionAndUpdate(x, 900, z);
 			}
 		} else {
-			entity.worldObj.removeEntity(entity);
+			entity.world.removeEntity(entity);
 			entity.isDead = false;
 
 			manager.transferEntityToWorld(entity, fromDimension, sourceServer, targetServer, this);
@@ -124,7 +124,7 @@ public class CelestialTeleporter extends Teleporter {
 				newEntity.posX = x;
 				newEntity.posZ = z;
 				targetServer.spawnEntityInWorld(newEntity);
-				newEntity.dimension = targetServer.provider.dimensionId;
+				newEntity.dimension = targetServer.provider.getDimension();
 			}
 
 			entity.isDead = true;

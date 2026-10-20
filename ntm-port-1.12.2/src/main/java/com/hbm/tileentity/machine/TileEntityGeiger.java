@@ -22,13 +22,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityGeiger extends TileEntity implements SimpleComponent, IInfoProviderEC, CompatHandler.OCComponent, IRORValueProvider {
+public class TileEntityGeiger extends TileEntity implements SimpleComponent, IInfoProviderEC, CompatHandler.OCComponent, IRORValueProvider, net.minecraft.util.ITickable {
 
 	int timer = 0;
 	float ticker = 0;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		timer++;
 
@@ -37,13 +37,13 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 			ticker = check();
 
 			// To update the adjacent comparators
-			worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType());
+			this.world.notifyBlocksOfNeighborChange(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType());
 		}
 
 		if(timer % 5 == 0) {
 			
 			if(ticker > 0) {
-				if(worldObj.rand.nextFloat() > ticker) return;
+				if(this.world.rand.nextFloat() > ticker) return;
 				List<Integer> list = new ArrayList<Integer>();
 
 				if(ticker < 1) list.add(0);
@@ -55,19 +55,19 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 				if(ticker > 20 && ticker < 30) list.add(5);
 				if(ticker > 25) list.add(6);
 
-				int r = list.get(worldObj.rand.nextInt(list.size()));
+				int r = list.get(this.world.rand.nextInt(list.size()));
 
-				if(r > 0) worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:item.geiger" + r, 1.0F, 1.0F);
+				if(r > 0) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:item.geiger" + r, 1.0F, 1.0F);
 				
-			} else if(worldObj.rand.nextInt(50) == 0) {
-				worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "hbm:item.geiger"+ (1 + worldObj.rand.nextInt(1)), 1.0F, 1.0F);
+			} else if(this.world.rand.nextInt(50) == 0) {
+				this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:item.geiger"+ (1 + this.world.rand.nextInt(1)), 1.0F, 1.0F);
 			}
 		}
 
 	}
 
 	public float check() {
-		return ChunkRadiationManager.proxy.getRadiation(worldObj, xCoord, yCoord, zCoord);
+		return ChunkRadiationManager.proxy.getRadiation(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 	
 	@Override
@@ -92,7 +92,7 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 1, zCoord + 1);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1);
 	}
 
 	@Override

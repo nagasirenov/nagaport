@@ -20,13 +20,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class TileEntityDemonLamp extends TileEntity {
+public class TileEntityDemonLamp extends TileEntity implements net.minecraft.util.ITickable {
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
-			radiate(worldObj, xCoord, yCoord, zCoord);
+		if(!this.world.isRemote) {
+			radiate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 	}
 	
@@ -36,7 +36,7 @@ public class TileEntityDemonLamp extends TileEntity {
 		double range = 25D;
 		
 		
-		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
+		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
 		
 		for(EntityLivingBase e : entities) {
 			
@@ -52,7 +52,7 @@ public class TileEntityDemonLamp extends TileEntity {
 				int iy = (int)Math.floor(y + 0.5 + vec.y * i);
 				int iz = (int)Math.floor(z + 0.5 + vec.z * i);
 				
-				res += world.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock().getExplosionResistance(null);
 			}
 			
 			if(res < 1)

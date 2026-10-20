@@ -9,7 +9,7 @@ public class BrickSelector extends BlockSelector {
 
 	@Override
 	public void selectBlocks(Random rand, int x, int y, int z, boolean notInterior) {
-		field_151562_a = Blocks.brick_block;
+		this.blockstate = Blocks.BRICK_BLOCK.getStateFromMeta(0);
 	}
 
 }

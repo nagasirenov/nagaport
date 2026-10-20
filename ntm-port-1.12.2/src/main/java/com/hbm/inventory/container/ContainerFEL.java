@@ -67,6 +67,6 @@ public class ContainerFEL extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return fel.isUseableByPlayer(player);
+		return fel.isUsableByPlayer(player);
 	}
 }

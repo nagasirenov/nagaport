@@ -1,0 +1,220 @@
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import javax.imageio.ImageIO;
+import com.hbm.blocks.bomb.*;
+import com.hbm.blocks.network.*;
+import com.hbm.lib.*;
+import com.hbm.render.block.*;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.render.mesh.*;
+
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.*;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.common.property.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+/** Complete production classes, original-source recorder and independent OBJ parser. */
+public final class DetCordNativeTest {
+ static int checks; static final BlockPos POS=new BlockPos(8,64,8);
+ static DetCord modern,classic;
+ static final class Sprite extends TextureAtlasSprite {
+  Sprite(String name,int index){super(name);setIconWidth(16);setIconHeight(16);initSprite(512,128,16*index,32,false);}
+ }
+ static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ static void close(float got,float want,String message){check(Math.abs(got-want)<0.000003F,message+": "+got+" != "+want);}
+ static void register(Block block,String name){block.setTranslationKey(name);ForgeRegistries.BLOCKS.register(block.setRegistryName("hbm","tile."+name));ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));}
+ static void setup(){modern=new DetCord(Material.IRON);register(modern,"det_cord");}
+ static final class Face {String group;float[][] xyz,uv;float[] normal;}
+ static Map<String,List<Face>> originalObj(Reader source)throws Exception{
+  List<float[]> points=new ArrayList<>(),uvs=new ArrayList<>();Map<String,List<Face>> groups=new LinkedHashMap<>();BufferedReader in=new BufferedReader(source);String line,group=null;
+  while((line=in.readLine())!=null){String[] p=line.trim().split("\\s+");if(p[0].equals("o")||p[0].equals("g")){group=p[1];groups.put(group,new ArrayList<>());}
+   else if(p[0].equals("v"))points.add(new float[]{Float.parseFloat(p[1]),Float.parseFloat(p[2]),Float.parseFloat(p[3])});
+   else if(p[0].equals("vt"))uvs.add(new float[]{Float.parseFloat(p[1]),1-Float.parseFloat(p[2])});
+   else if(p[0].equals("f")){check(p.length==4||p.length==5,"original triangle/quad primitive");Face f=new Face();f.group=group;f.xyz=new float[p.length-1][];f.uv=new float[p.length-1][];
+    for(int i=1;i<p.length;i++){String[] k=p[i].split("/");f.xyz[i-1]=points.get(Integer.parseInt(k[0])-1);f.uv[i-1]=uvs.get(Integer.parseInt(k[1])-1);}
+    double ax=f.xyz[1][0]-f.xyz[0][0],ay=f.xyz[1][1]-f.xyz[0][1],az=f.xyz[1][2]-f.xyz[0][2],bx=f.xyz[2][0]-f.xyz[0][0],by=f.xyz[2][1]-f.xyz[0][1],bz=f.xyz[2][2]-f.xyz[0][2];
+    double nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx,length=(float)Math.sqrt(nx*nx+ny*ny+nz*nz);
+    f.normal=new float[]{(float)(nx/length),(float)(ny/length),(float)(nz/length)};groups.get(group).add(f);
+   }
+  }
+  check(groups.keySet().equals(new LinkedHashSet<String>(Arrays.asList("negY","negX","negZ","posX","posY","Core","posZ","CZ","CX","CY"))),"exact original cable group set");return groups;
+ }
+ static List<OriginalCableOracle.Vertex[]> modernOracle(Map<String,List<Face>> source,int mask,boolean inventory,TextureAtlasSprite sprite){
+  OriginalCableOracle.Recorder out=new OriginalCableOracle.Recorder(inventory,false);
+  for(String group:OriginalCableOracle.modernGroups(mask,inventory))for(Face f:source.get(group)){
+   float nx=f.normal[0],ny=f.normal[1],nz=f.normal[2];out.setNormal(inventory?-nx:nx,ny,inventory?-nz:nz);
+   float shade=inventory?1:Math.max(.45F,ny*.3F+.7F-Math.abs(nx)*.1F+Math.abs(nz)*.1F);out.setColorOpaque_F(shade,shade,shade);
+   for(int v=0;v<4;v++){int i=Math.min(v,f.xyz.length-1);float[] p=f.xyz[i],uv=f.uv[i];out.addVertexWithUV(p[0],p[1],p[2],sprite.getInterpolatedU(uv[0]*16D),sprite.getInterpolatedV(uv[1]*16D));}
+  }
+  return out.quads();
+ }
+ static void geometry(List<BakedQuad> actual,List<OriginalCableOracle.Vertex[]> expected,boolean inventory,TextureAtlasSprite sprite,String context){
+  check(actual.size()==expected.size(),context+" pristine quad count "+actual.size()+" != "+expected.size());
+  for(int i=0;i<actual.size();i++){
+   BakedQuad q=actual.get(i);OriginalCableOracle.Vertex[] want=expected.get(i);check(q.getSprite()==sprite,context+" exact chosen sprite");
+   check(q.shouldApplyDiffuseLighting()==inventory&&!q.hasTintIndex(),context+" native diffuse flag/no tint");
+   check(q.getFormat().equals(inventory?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK),context+" native format");int[] bytes=q.getVertexData();check(bytes.length==28,context+" four native vertices");
+   for(int v=0;v<4;v++){int k=7*v;OriginalCableOracle.Vertex e=want[v];String label=context+" quad"+i+" vertex"+v;
+    close(Float.intBitsToFloat(bytes[k]),e.x,label+" original X");close(Float.intBitsToFloat(bytes[k+1]),e.y,label+" original Y");close(Float.intBitsToFloat(bytes[k+2]),e.z,label+" original Z");
+    close(Float.intBitsToFloat(bytes[k+4]),e.u,label+" original U without contraction");close(Float.intBitsToFloat(bytes[k+5]),e.v,label+" original V without contraction");
+    int c=bytes[k+3];check((c&255)==e.shade&&((c>>8)&255)==e.shade&&((c>>16)&255)==e.shade&&((c>>>24)&255)==255,label+" source truncated color bytes");
+    if(inventory){int n=bytes[k+6];check((byte)n==(byte)(e.nx*127F)&&(byte)(n>>8)==(byte)(e.ny*127F)&&(byte)(n>>16)==(byte)(e.nz*127F),label+" original packed normal: "+Integer.toHexString(n));}
+   }
+  }
+  if(!context.startsWith("native damage"))try{actual.add(null);throw new AssertionError("mutable cable quad list");}catch(UnsupportedOperationException expectedFailure){checks++;}
+ }
+ static class LightingWorld implements IBlockAccess {
+  final IBlockState state;final int own=0x00A00070;
+  LightingWorld(IBlockState state){this.state=state;}
+  public TileEntity getTileEntity(BlockPos p){return null;}
+  public int getCombinedLight(BlockPos p,int emission){return p.equals(POS)?own:0x00100010*((Math.abs(p.getX()+2*p.getY()+3*p.getZ())%8)+1);}
+  public IBlockState getBlockState(BlockPos p){return p.equals(POS)?state:Blocks.STONE.getDefaultState();}
+  public boolean isAirBlock(BlockPos p){return false;}
+  public net.minecraft.world.biome.Biome getBiome(BlockPos p){return Biomes.PLAINS;}
+  public int getStrongPower(BlockPos p,EnumFacing side){return 0;}
+  public WorldType getWorldType(){return WorldType.DEFAULT;}
+  public boolean isSideSolid(BlockPos p,EnumFacing side,boolean fallback){return !p.equals(POS);}
+ }
+ static void lighting(IBakedModel model,IBlockState state,String context){
+  LightingWorld world=new LightingWorld(state);net.minecraft.client.renderer.color.BlockColors colors=new net.minecraft.client.renderer.color.BlockColors();List<BakedQuad> quads=model.getQuads(state,null,0);
+  for(boolean forge:new boolean[]{false,true}){
+   net.minecraft.client.renderer.BufferBuilder out=new net.minecraft.client.renderer.BufferBuilder(65536);out.begin(7,DefaultVertexFormats.BLOCK);
+   if(forge){net.minecraftforge.client.model.pipeline.VertexLighterFlat lighter=new net.minecraftforge.client.model.pipeline.VertexLighterFlat(colors);
+    net.minecraftforge.client.model.pipeline.VertexBufferConsumer consumer=new net.minecraftforge.client.model.pipeline.VertexBufferConsumer(out);consumer.setOffset(POS);lighter.setParent(consumer);lighter.setWorld(world);lighter.setState(state);lighter.setBlockPos(POS);lighter.updateBlockInfo();
+    for(BakedQuad q:quads)q.pipe(lighter);lighter.resetBlockInfo();
+   }else check(new net.minecraft.client.renderer.BlockModelRenderer(colors).renderModelFlat(world,model,state,POS,out,true,0),context+" native vanilla emits model");
+   out.finishDrawing();check(out.getVertexCount()==quads.size()*4,context+" native emitted vertices "+forge);java.nio.ByteBuffer data=out.getByteBuffer();
+   for(int v=0;v<out.getVertexCount();v++){
+    check(data.getInt(v*28+24)==world.own,context+" "+(forge?"Forge":"vanilla")+" original block-position light, not neighbor at vertex "+v+": "+Integer.toHexString(data.getInt(v*28+24)));
+    check(data.getInt(v*28+12)==quads.get(v/4).getVertexData()[v%4*7+3],context+" original gray shading without doubled diffuse "+forge);
+   }
+  }
+ }
+ static void damageGate(IBakedModel original,IBlockState state,Map<String,List<Face>> oracle,final int mask){
+  LightingWorld world=new LightingWorld(state){public IBlockState getBlockState(BlockPos p){if(p.equals(POS))return state;EnumFacing[] sides={EnumFacing.EAST,EnumFacing.WEST,EnumFacing.UP,EnumFacing.DOWN,EnumFacing.SOUTH,EnumFacing.NORTH};for(int i=0;i<6;i++)if((mask&(32>>i))!=0&&p.equals(POS.offset(sides[i])))return modern.getDefaultState();return Blocks.STONE.getDefaultState();}};TextureAtlasSprite crack=new Sprite("minecraft:blocks/destroy_stage_5",7);IBakedModel damage=net.minecraftforge.client.ForgeHooksClient.getDamageModel(original,crack,state,world,POS);
+  geometry(damage.getQuads(state,null,0),modernOracle(oracle,mask,false,crack),false,crack,"native damage material/geometry");
+  for(boolean forge:new boolean[]{false,true}){net.minecraft.client.renderer.BufferBuilder out=new net.minecraft.client.renderer.BufferBuilder(65536);out.begin(7,DefaultVertexFormats.BLOCK);
+  if(forge){net.minecraftforge.client.model.pipeline.VertexLighterFlat lighter=new net.minecraftforge.client.model.pipeline.VertexLighterFlat(new net.minecraft.client.renderer.color.BlockColors());net.minecraftforge.client.model.pipeline.VertexBufferConsumer consumer=new net.minecraftforge.client.model.pipeline.VertexBufferConsumer(out);consumer.setOffset(POS);lighter.setParent(consumer);lighter.setWorld(world);lighter.setState(state);lighter.setBlockPos(POS);lighter.updateBlockInfo();for(BakedQuad q:damage.getQuads(state,null,0))q.pipe(lighter);lighter.resetBlockInfo();}else new net.minecraft.client.renderer.BlockModelRenderer(new net.minecraft.client.renderer.color.BlockColors()).renderModelFlat(world,damage,state,POS,out,true,0);out.finishDrawing();int different=0;java.nio.ByteBuffer data=out.getByteBuffer();for(int v=0;v<out.getVertexCount();v++)if(data.getInt(v*28+24)!=world.own)different++;
+  System.out.println("DAMAGE LIGHT PROBE mask="+mask+" forge="+forge+": original block-position light differs at "+different+" of "+out.getVertexCount()+" vertices; geometry/UV/material passes. Not full damage-light parity.");}
+ }
+ static void direct(IResourcePack pack,Map<String,List<Face>> oracle)throws Exception{
+  ObjMesh mesh;ResourceLocation obj=new ResourceLocation("hbm","models/blocks/cable_neo.obj");try(Reader r=new InputStreamReader(pack.getInputStream(obj),StandardCharsets.UTF_8)){mesh=ObjMeshParser.parse(r,obj.toString(),false);}
+  for(boolean old:new boolean[]{false}){
+   TextureAtlasSprite sprite=new Sprite("hbm:blocks/"+(old?"red_cable_classic":"det_cord"),old?3:1);
+   for(boolean item:new boolean[]{false,true}){
+    IBakedModel model=new DetCordBakedModel(mesh,item,sprite);
+    check(!model.isAmbientOcclusion()&&model.isGui3d()&&!model.isBuiltInRenderer(),"native non-AO 3D cable model");check(model.getParticleTexture()==sprite,"exact cable particle");
+    close(model.getItemCameraTransforms().gui.scale.x,.625F,"native GUI transform");check(model.getOverrides().getOverrides().isEmpty(),"no invented overrides");
+    for(int mask=0;mask<64;mask++){
+     String label=(old?"classic":"modern")+":"+(item?"inventory":"world")+":"+mask;
+     IBlockState state=((IExtendedBlockState)(old?classic:modern).getDefaultState()).withProperty(ConnectionState.CONNECTIONS,mask);
+     List<BakedQuad> q=old?RenderCableClassic.bake(mask,item,sprite):RenderDetCord.bake(mesh,mask,item,sprite);
+     List<OriginalCableOracle.Vertex[]> expected=old?(item?OriginalCableOracle.classicItem(sprite):OriginalCableOracle.classicWorld(sprite,mask)):modernOracle(oracle,mask,item,sprite);
+     if(old)check(expected.size()==(item?22:6+3*Integer.bitCount(mask)),label+" source cap/arm count");
+     geometry(q,expected,item,sprite,label+" direct");geometry(model.getQuads(state,null,17),expected,item,sprite,label+" model");
+     check(model.getQuads(state,null,0)==model.getQuads(state,null,99),label+" immutable cached variant independent of RNG");
+     for(EnumFacing face:EnumFacing.values())check(model.getQuads(state,face,0).isEmpty(),label+" no duplicated culled bucket "+face);
+     if(!item)lighting(model,state,label);if(!item&&(mask==0||mask==1))damageGate(model,state,oracle,mask);
+    }
+   }
+   ResourceLocation png=new ResourceLocation("hbm","textures/blocks/"+(old?"red_cable_classic":"det_cord")+".png");check(pack.resourceExists(png),"exact-case cable texture present");try(InputStream in=pack.getInputStream(png)){check(ImageIO.read(in)!=null,"actual cable PNG decodes");}
+  }
+ }
+ static final class Connector extends Block implements IDetConnectible {ForgeDirection expected;boolean allow;int calls;Connector(){super(Material.IRON);}public boolean canConnectToDetCord(IBlockAccess w,int x,int y,int z,ForgeDirection dir){check(dir==expected,"original opposite connection direction");calls++;return allow;}}
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();boolean powered;int explosions;List<String> order=new ArrayList<>();double ex,ey,ez;float power;boolean terrain;
+  NativeWorld(boolean remote){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),remote);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "native cord fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+  public boolean isBlockPowered(BlockPos p){return powered;}
+  public Explosion createExplosion(net.minecraft.entity.Entity e,double x,double y,double z,float strength,boolean terrain){check(e==null,"original null explosion source");check(getBlockState(new BlockPos(x,y,z)).getBlock()==Blocks.AIR,"cord removed before explosion");explosions++;ex=x;ey=y;ez=z;power=strength;this.terrain=terrain;return null;}
+ }
+ static void stateAndConnections(){
+  EnumFacing[] sides={EnumFacing.EAST,EnumFacing.WEST,EnumFacing.UP,EnumFacing.DOWN,EnumFacing.SOUTH,EnumFacing.NORTH};
+  for(int mask=0;mask<64;mask++){NativeWorld w=new NativeWorld(false);w.setBlockState(POS,modern.getDefaultState(),3);for(int i=0;i<6;i++){Connector c=new Connector();c.expected=ForgeDirection.fromEnumFacing(sides[i].getOpposite());c.allow=(mask&(32>>i))!=0;w.setBlockState(POS.offset(sides[i]),c.getDefaultState(),3);}IExtendedBlockState e=(IExtendedBlockState)modern.getExtendedState(w.getBlockState(POS),w,POS);check(e.getValue(ConnectionState.CONNECTIONS)==mask,"all64 original cord masks");check(e.getClean()==modern.getDefaultState(),"connections not persisted");check(modern.getCollisionBoundingBox(e,w,POS).equals(Block.FULL_BLOCK_AABB),"original full-block physical collision retained despite narrow visual mesh");}
+ }
+ static void nativeWorld(){
+  for(boolean remote:new boolean[]{false,true})for(boolean power:new boolean[]{false,true}){NativeWorld w=new NativeWorld(remote);w.setBlockState(POS,modern.getDefaultState(),3);w.powered=power;modern.neighborChanged(modern.getDefaultState(),w,POS,Blocks.REDSTONE_BLOCK,POS.up());check(w.explosions==(!remote&&power?1:0),"original server/redstone gate");if(w.explosions>0)check(w.ex==8.5&&w.ey==64.5&&w.ez==8.5&&w.power==1.5F&&w.terrain,"original explosion center strength terrain");}
+  NativeWorld w=new NativeWorld(false);modern.explodeEntity(w,-.01,64.99,-1.01,null);check(w.ex==-.5&&w.ey==64.5&&w.ez==-1.5,"negative explosion coordinates use floor");check(!modern.canDropFromExplosion(null),"original explosion drop exclusion");
+ }
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+ static void set(Object o,Class<?> c,String field,Object value)throws Exception{Field f=c.getDeclaredField(field);f.setAccessible(true);f.set(o,value);}
+ static Object get(Object o,Class<?> c,String field)throws Exception{Field f=c.getDeclaredField(field);f.setAccessible(true);return f.get(o);}
+ static void event()throws Exception{
+  Class<?> type=com.hbm.main.DetCordModelHandler.class;net.minecraftforge.fml.common.Mod.EventBusSubscriber ann=type.getAnnotation(net.minecraftforge.fml.common.Mod.EventBusSubscriber.class);
+  check(ann!=null&&ann.modid().equals("hbm")&&Arrays.equals(ann.value(),new net.minecraftforge.fml.relauncher.Side[]{net.minecraftforge.fml.relauncher.Side.CLIENT}),"native automatic client-only subscriber");int count=0;
+  for(Method m:type.getDeclaredMethods())if(m.isAnnotationPresent(net.minecraftforge.fml.common.eventhandler.SubscribeEvent.class)&&Arrays.equals(m.getParameterTypes(),new Class<?>[]{net.minecraftforge.client.event.ModelRegistryEvent.class})){check(Modifier.isStatic(m.getModifiers()),"native subscribed handler static");m.invoke(null,new net.minecraftforge.client.event.ModelRegistryEvent());count++;}
+  check(count==1,"one native model-registry subscriber");
+ }
+ static IBakedModel bake(ResourceLocation id,boolean item,TextureAtlasSprite sprite)throws Exception{
+  net.minecraftforge.client.model.IModel model=net.minecraftforge.client.model.ModelLoaderRegistry.getModel(id);check(model!=net.minecraftforge.client.model.ModelLoaderRegistry.getMissingModel(),"actual custom loader, never missing placeholder: "+id);
+  check(model.getDependencies().isEmpty(),"no fabricated model dependencies");check(new HashSet<ResourceLocation>(model.getTextures()).equals(Collections.singleton(new ResourceLocation(sprite.getIconName()))),"exact advertised cable atlas dependency");
+  return model.bake(model.getDefaultState(),item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK,r->{check(r.toString().equals(sprite.getIconName()),"real bake requested original texture");return sprite;});
+ }
+ static final class ChangedObjPack implements IResourcePack {
+  final IResourcePack original;ChangedObjPack(IResourcePack p){original=p;}
+  public InputStream getInputStream(ResourceLocation id)throws IOException{
+   if(!id.equals(new ResourceLocation("hbm","models/blocks/cable_neo.obj")))return original.getInputStream(id);
+   ByteArrayOutputStream b=new ByteArrayOutputStream();try(InputStream in=original.getInputStream(id)){byte[] data=new byte[4096];int n;while((n=in.read(data))!=-1)b.write(data,0,n);}
+   String[] lines=new String(b.toByteArray(),StandardCharsets.UTF_8).split("\\n");StringBuilder changed=new StringBuilder();
+   for(String line:lines){if(line.startsWith("v ")){String[] p=line.trim().split("\\s+");line="v "+(Float.parseFloat(p[1])+.0625F)+" "+p[2]+" "+p[3];}changed.append(line).append('\n');}
+   return new ByteArrayInputStream(changed.toString().getBytes(StandardCharsets.UTF_8));
+  }
+  public boolean resourceExists(ResourceLocation id){return original.resourceExists(id);}public Set<String> getResourceDomains(){return original.getResourceDomains();}
+  public <T extends net.minecraft.client.resources.data.IMetadataSection>T getPackMetadata(net.minecraft.client.resources.data.MetadataSerializer m,String k)throws IOException{return original.getPackMetadata(m,k);}
+  public java.awt.image.BufferedImage getPackImage()throws IOException{return original.getPackImage();}public String getPackName(){return "Controlled translated original cable OBJ";}
+ }
+ static void registry(IResourcePack pack,Map<String,List<Face>> oracle)throws Exception{
+  if(sharedResources==null){Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);sharedResources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft minecraft=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",minecraft);set(minecraft,net.minecraft.client.Minecraft.class,"resourceManager",sharedResources);}
+  sharedResources.reloadResources(Collections.singletonList(pack));net.minecraft.launchwrapper.Launch.blackboard=new HashMap<String,Object>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+  TextureMap atlas=new TextureMap("textures");ModelManager loaderManager=new ModelManager(atlas);net.minecraft.client.renderer.BlockModelShapes shapes=new net.minecraft.client.renderer.BlockModelShapes(loaderManager);
+  new net.minecraftforge.client.model.ModelLoader(sharedResources,atlas,shapes);event();sharedResources.reloadResources(Collections.singletonList(pack));net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(sharedResources);
+  Map<?,?> custom=(Map<?,?>)get(null,net.minecraftforge.client.model.ModelLoader.class,"customModels");check(custom.size()==16,"one cord ItemBlock with sixteen item metadata registrations");
+  net.minecraftforge.client.model.ModelLoader.onRegisterAllBlocks(shapes);net.minecraft.util.registry.RegistrySimple<ModelResourceLocation,IBakedModel> baked=new net.minecraft.util.registry.RegistrySimple<>();
+  for(DetCord block:new DetCord[]{modern}){
+   boolean old=block==classic;TextureAtlasSprite sprite=new Sprite("hbm:blocks/"+(old?"red_cable_classic":"det_cord"),old?3:1);
+   Map<IBlockState,ModelResourceLocation> mapping=shapes.getBlockStateMapper().getVariants(block);check(mapping.size()==1,"native mapper covers the sole persisted state");check(new HashSet<ModelResourceLocation>(mapping.values()).size()==1,"connections remain unlisted and absent from saved state");
+   ResourceLocation path=new ResourceLocation("hbm","blockstates/"+block.getRegistryName().getPath()+".json");ModelBlockDefinition definition;
+   try(Reader r=new InputStreamReader(pack.getInputStream(path),StandardCharsets.UTF_8)){definition=ModelBlockDefinition.parseFromReader(r,block.getRegistryName());}
+   ModelResourceLocation mapped=mapping.values().iterator().next();check(definition.hasVariant(mapped.getVariant()),"exact mapped blockstate variant exists");List<Variant> variants=definition.getVariant(mapped.getVariant()).getVariantList();check(variants.size()==1,"one deterministic custom native world model");Variant variant=variants.get(0);
+   check(variant.getRotation()==ModelRotation.X0_Y0&&!variant.isUvLock(),"no unintended model/UV rotation");IBakedModel model=bake(variant.getModelLocation(),false,sprite);baked.putObject(mapped,model);
+   for(int mask=0;mask<64;mask++){IBlockState extended=((IExtendedBlockState)block.getDefaultState()).withProperty(ConnectionState.CONNECTIONS,mask);geometry(model.getQuads(extended,null,0),old?OriginalCableOracle.classicWorld(sprite,mask):modernOracle(oracle,mask,false,sprite),false,sprite,"native loader world mask"+mask);}
+   for(String prefix:new String[]{"","block/"}){
+    IBakedModel route=bake(new ResourceLocation("hbm",prefix+"native_detcord/"+(old?"classic":"cord")+"/world"),false,sprite);
+    geometry(route.getQuads(null,null,0),old?OriginalCableOracle.classicWorld(sprite,0):modernOracle(oracle,0,false,sprite),false,sprite,"loader normalized prefix "+prefix);
+   }
+   for(int meta=0;meta<16;meta++){Item item=Item.getItemFromBlock(block);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(id!=null,"real item model registration all metadata");IBakedModel itemModel=bake(id,true,sprite);baked.putObject(id,itemModel);geometry(itemModel.getQuads(null,null,0),old?OriginalCableOracle.classicItem(sprite):modernOracle(oracle,0,true,sprite),true,sprite,"loader inventory metadata"+meta);}
+  }
+  ModelManager manager=(ModelManager)unsafe.allocateInstance(ModelManager.class);set(manager,ModelManager.class,"modelRegistry",baked);net.minecraft.client.renderer.ItemModelMesher mesher=new net.minecraft.client.renderer.ItemModelMesher(manager);net.minecraftforge.client.model.ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();
+  for(DetCord block:new DetCord[]{modern})for(int meta=0;meta<16;meta++){Item item=Item.getItemFromBlock(block);ModelResourceLocation id=(ModelResourceLocation)custom.get(org.apache.commons.lang3.tuple.Pair.of(item.delegate,meta));check(mesher.getItemModel(new ItemStack(item,1,meta))==baked.getObject(id),"actual native ItemModelMesher allmetadata route");}
+  TextureAtlasSprite sprite=new Sprite("hbm:blocks/det_cord",1);ResourceLocation id=new ResourceLocation("hbm","native_detcord/cord/world");net.minecraftforge.client.model.IModel old=net.minecraftforge.client.model.ModelLoaderRegistry.getModel(id);float before=Float.intBitsToFloat(bake(id,false,sprite).getQuads(null,null,0).get(0).getVertexData()[0]);
+  sharedResources.reloadResources(Collections.singletonList(new ChangedObjPack(pack)));net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(sharedResources);
+  check(net.minecraftforge.client.model.ModelLoaderRegistry.getModel(id)!=old,"real resource reload invalidates unbaked cache");close(Float.intBitsToFloat(bake(id,false,sprite).getQuads(null,null,0).get(0).getVertexData()[0]),before+.0625F,"reload reparses changed original OBJ instead of stale mesh");
+  sharedResources.reloadResources(Collections.singletonList(pack));net.minecraftforge.client.model.ModelLoaderRegistry.clearModelCache(sharedResources);close(Float.intBitsToFloat(bake(id,false,sprite).getQuads(null,null,0).get(0).getVertexData()[0]),before,"reload restores original OBJ");
+ }
+
+ public static void main(String[] args)throws Exception{
+  Bootstrap.register();setup();stateAndConnections();nativeWorld();Map<String,List<Face>> oracle;try(Reader r=new InputStreamReader(new FileInputStream(args[2]),StandardCharsets.UTF_8)){oracle=originalObj(r);}
+  try(FileResourcePack zip=new FileResourcePack(new File(args[1]))){IResourcePack folder=new FolderResourcePack(new File(args[0]));direct(folder,oracle);direct(zip,oracle);registry(folder,oracle);registry(zip,oracle);}
+  System.out.println("PASS native detonator cord parity: "+checks+" assertions; complete production cord/model classes, all64 cord masks, independent pinned-source/original-OBJ vertices UV normals shades, original separate inventory variants, real Forge and vanilla light pipelines, original full-block collision, real World/Chunk state and captured explosion dispatch, native event/statemapper/ItemModelMesher routing and changed-OBJ resource reload; directory and packaged resources.");
+  System.out.println("Boundaries: explicit NTM primed-entity collaborator and unreachable energy helper; real Minecraft/Forge classes throughout. CPU-headless fixture, not live graphical acceptance.");
+ }
+}

@@ -20,7 +20,7 @@ public class TemplateTab extends CreativeTabs {
 			return ModItems.crucible_template;
 		}
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 
 	@Override

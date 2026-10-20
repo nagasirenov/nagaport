@@ -13,7 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderLaunchTable extends TileEntitySpecialRenderer {
 
@@ -63,9 +63,9 @@ public class RenderLaunchTable extends TileEntitySpecialRenderer {
 		int height = (int) (launcher.height * 0.75);
 		ResourceLocation base = ResourceManager.launch_table_large_scaffold_base_tex;
 		ResourceLocation connector = ResourceManager.launch_table_large_scaffold_connector_tex;
-		IModelCustom baseM = ResourceManager.launch_table_large_scaffold_base;
-		IModelCustom connectorM = ResourceManager.launch_table_large_scaffold_connector;
-		IModelCustom emptyM = ResourceManager.launch_table_large_scaffold_empty;
+		MeshModel baseM = ResourceManager.launch_table_large_scaffold_base;
+		MeshModel connectorM = ResourceManager.launch_table_large_scaffold_connector;
+		MeshModel emptyM = ResourceManager.launch_table_large_scaffold_empty;
 
 
 		if(launcher.padSize == PartSize.SIZE_10) {

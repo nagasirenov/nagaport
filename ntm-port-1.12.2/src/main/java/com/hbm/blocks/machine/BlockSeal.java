@@ -48,13 +48,13 @@ public class BlockSeal extends Block implements IBomb {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return Item.getItemFromBlock(this);
 	}
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
@@ -99,29 +99,29 @@ public class BlockSeal extends Block implements IBomb {
 
 			int xOff = 0;
 			int zOff = 0;
-			if(world.getBlockMetadata(x, y, z) % 4 == 2)
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 2)
 				zOff += size;
-			if(world.getBlockMetadata(x, y, z) % 4 == 3)
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 3)
 				zOff -= size;
-			if(world.getBlockMetadata(x, y, z) % 4 == 0)
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 0)
 				xOff += size;
-			if(world.getBlockMetadata(x, y, z) % 4 == 1)
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 1)
 				xOff -= size;
 
 			for(int X = x - size; X <= x + size; X++) {
-				if(world.getBlock(X + xOff, y, z + size + zOff) != ModBlocks.seal_frame && world.getBlock(X + xOff, y, z + size + zOff) != ModBlocks.seal_controller)
+				if(com.hbm.world.WorldBlockState.read(world, X + xOff, y, z + size + zOff).getBlock() != ModBlocks.seal_frame && com.hbm.world.WorldBlockState.read(world, X + xOff, y, z + size + zOff).getBlock() != ModBlocks.seal_controller)
 					valid = false;
 			}
 			for(int X = x - size; X <= x + size; X++) {
-				if(world.getBlock(X + xOff, y, z - size + zOff) != ModBlocks.seal_frame && world.getBlock(X + xOff, y, z - size + zOff) != ModBlocks.seal_controller)
+				if(com.hbm.world.WorldBlockState.read(world, X + xOff, y, z - size + zOff).getBlock() != ModBlocks.seal_frame && com.hbm.world.WorldBlockState.read(world, X + xOff, y, z - size + zOff).getBlock() != ModBlocks.seal_controller)
 					valid = false;
 			}
 			for(int Z = z - size; Z <= z + size; Z++) {
-				if(world.getBlock(x - size + xOff, y, Z + zOff) != ModBlocks.seal_frame && world.getBlock(x - size + xOff, y, Z + zOff) != ModBlocks.seal_controller)
+				if(com.hbm.world.WorldBlockState.read(world, x - size + xOff, y, Z + zOff).getBlock() != ModBlocks.seal_frame && com.hbm.world.WorldBlockState.read(world, x - size + xOff, y, Z + zOff).getBlock() != ModBlocks.seal_controller)
 					valid = false;
 			}
 			for(int Z = z - size; Z <= z + size; Z++) {
-				if(world.getBlock(x + size + xOff, y, Z + zOff) != ModBlocks.seal_frame && world.getBlock(x + size + xOff, y, Z + zOff) != ModBlocks.seal_controller)
+				if(com.hbm.world.WorldBlockState.read(world, x + size + xOff, y, Z + zOff).getBlock() != ModBlocks.seal_frame && com.hbm.world.WorldBlockState.read(world, x + size + xOff, y, Z + zOff).getBlock() != ModBlocks.seal_controller)
 					valid = false;
 			}
 			/*
@@ -144,20 +144,20 @@ public class BlockSeal extends Block implements IBomb {
 
 		int xOff = 0;
 		int zOff = 0;
-		if(world.getBlockMetadata(x, y, z) % 4 == 2)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 2)
 			zOff += size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 3)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 3)
 			zOff -= size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 0)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 0)
 			xOff += size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 1)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 1)
 			xOff -= size;
 
 		for(int X = x - size + 1; X <= x + size - 1; X++) {
 			for(int Z = z - size + 1; Z <= z + size - 1; Z++) {
-				if(world.getBlock(X + xOff, y, Z + zOff) == Blocks.air && !world.isRemote) {
+				if(com.hbm.world.WorldBlockState.read(world, X + xOff, y, Z + zOff).getBlock() == Blocks.AIR && !world.isRemote) {
 					world.setBlock(X + xOff, y, Z + zOff, ModBlocks.seal_hatch);
-					TileEntity te = world.getTileEntity(X + xOff, y, Z + zOff);
+					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(X + xOff, y, Z + zOff));
 					if(te != null && te instanceof TileEntityHatch)
 						((TileEntityHatch) te).setControllerPos(x, y, z);
 
@@ -170,19 +170,19 @@ public class BlockSeal extends Block implements IBomb {
 
 		int xOff = 0;
 		int zOff = 0;
-		if(world.getBlockMetadata(x, y, z) % 4 == 2)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 2)
 			zOff += size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 3)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 3)
 			zOff -= size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 0)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 0)
 			xOff += size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 1)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 1)
 			xOff -= size;
 
 		for(int X = x - size + 1; X <= x + size - 1; X++) {
 			for(int Z = z - size + 1; Z <= z + size - 1; Z++) {
-				if(world.getBlock(X + xOff, y, Z + zOff) == ModBlocks.seal_hatch && !world.isRemote) {
-					world.setBlock(X + xOff, y, Z + zOff, Blocks.air);
+				if(com.hbm.world.WorldBlockState.read(world, X + xOff, y, Z + zOff).getBlock() == ModBlocks.seal_hatch && !world.isRemote) {
+					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = X + xOff; int nativePlacementY = y; int nativePlacementZ = Z + zOff; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
 		}
@@ -192,18 +192,18 @@ public class BlockSeal extends Block implements IBomb {
 
 		int xOff = 0;
 		int zOff = 0;
-		if(world.getBlockMetadata(x, y, z) % 4 == 2)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 2)
 			zOff += size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 3)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 3)
 			zOff -= size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 0)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 0)
 			xOff += size;
-		if(world.getBlockMetadata(x, y, z) % 4 == 1)
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 4 == 1)
 			xOff -= size;
 
 		for(int X = x - size + 1; X <= x + size - 1; X++) {
 			for(int Z = z - size + 1; Z <= z + size - 1; Z++) {
-				if(world.getBlock(X + xOff, y, Z + zOff) == ModBlocks.seal_hatch) {
+				if(com.hbm.world.WorldBlockState.read(world, X + xOff, y, Z + zOff).getBlock() == ModBlocks.seal_hatch) {
 					return true;
 				}
 			}
@@ -237,7 +237,7 @@ public class BlockSeal extends Block implements IBomb {
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta < 4) {
 				world.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);
 
@@ -250,7 +250,7 @@ public class BlockSeal extends Block implements IBomb {
 						BlockSeal.closeSeal(world, x, y, z, i);
 			}
 		} else {
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta >= 4) {
 				world.setBlockMetadataWithNotify(x, y, z, meta % 4, 2);
 			}

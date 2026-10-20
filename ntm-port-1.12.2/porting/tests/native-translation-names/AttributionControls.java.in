@@ -1,0 +1,27 @@
+import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;
+class AttributionControls extends Item {
+ static class Domain {String getUnlocalizedName(){return "domain";} Domain setUnlocalizedName(String k){return this;}}
+ static class LegacySetter extends Item {public Item setUnlocalizedName(String s){return this;}}
+ static class LegacyGetter extends Item {public String getUnlocalizedName(){return "custom";}}
+ static class CustomBlock extends Block {CustomBlock(){super(Material.ROCK);}String getUnlocalizedName(ItemStack s){return "metadata";}}
+ void test(Item item,Block block,ItemStack stack,Domain domain,LegacyGetter custom,LegacySetter setter){
+  new Item().setUnlocalizedName("literal"); // YES
+  new ItemFood(2,0.2f,false).setUnlocalizedName("food"); // YES
+  item.getUnlocalizedName(); // YES
+  block.getUnlocalizedName(); // YES
+  this.getUnlocalizedName(); // YES
+  getUnlocalizedName(); // YES
+  new CustomBlock().getUnlocalizedName(); // YES
+  item.setUnlocalizedName("dynamic"); // NO
+  new LegacySetter().setUnlocalizedName("legacy"); // NO
+  setter.setUnlocalizedName("legacy"); // NO
+  new ItemBlock(block).setUnlocalizedName("block side effect"); // NO
+  new Item(){}.setUnlocalizedName("anonymous"); // NO
+  custom.getUnlocalizedName(); // NO
+  domain.getUnlocalizedName(); // NO
+  domain.setUnlocalizedName("domain"); // NO
+  stack.getUnlocalizedName(); // NO
+  item.getUnlocalizedName(stack); // NO
+  new CustomBlock().getUnlocalizedName(stack); // NO
+ }
+}

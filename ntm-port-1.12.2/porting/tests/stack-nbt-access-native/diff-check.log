@@ -1,0 +1,38 @@
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemUnstable.java:61: space before tab in indent.
++    		stack.setTagCompound(new NBTTagCompound());
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemUnstable.java:63: space before tab in indent.
++    	stack.getTagCompound().setInteger("timer", time);
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemUnstable.java:68: space before tab in indent.
++    		stack.setTagCompound(new NBTTagCompound());
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemUnstable.java:70: space before tab in indent.
++    	return stack.getTagCompound().getInteger("timer");
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:32: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") + i);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:34: space before tab in indent.
++    			stack.setTagCompound(new NBTTagCompound());
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:35: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", i);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:44: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", i);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:46: space before tab in indent.
++    			stack.setTagCompound(new NBTTagCompound());
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:47: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", i);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:56: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") - i);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:58: space before tab in indent.
++    			stack.setTagCompound(new NBTTagCompound());
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:59: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", this.maxPower - i);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:62: space before tab in indent.
++    		if(stack.getTagCompound().getLong("charge") < 0)
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:63: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", 0);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:71: space before tab in indent.
++    			return stack.getTagCompound().getLong("charge");
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:73: space before tab in indent.
++    			stack.setTagCompound(new NBTTagCompound());
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:74: space before tab in indent.
++    			stack.getTagCompound().setLong("charge", ((ItemSwordAbilityPower)stack.getItem()).maxPower);
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java:75: space before tab in indent.
++    			return stack.getTagCompound().getLong("charge");

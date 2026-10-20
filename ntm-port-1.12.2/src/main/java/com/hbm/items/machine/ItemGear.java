@@ -25,7 +25,7 @@ public class ItemGear extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return this.getUnlocalizedName() + (stack.getItemDamage() == 1 ? "_steel" : "");
+		return this.getTranslationKey() + (stack.getItemDamage() == 1 ? "_steel" : "");
 	}
 
 }

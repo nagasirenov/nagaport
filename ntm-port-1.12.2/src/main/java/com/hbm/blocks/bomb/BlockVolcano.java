@@ -36,7 +36,7 @@ import net.minecraft.world.World;
 public class BlockVolcano extends BlockContainer implements ITooltipProvider, IBlockMulti {
 
 	public BlockVolcano() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		return meta == META_STATIC_EXTINGUISHING || meta == META_GROWING_EXTINGUISHING;
 	}
 
-	public static class TileEntityVolcanoCore extends TileEntity {
+	public static class TileEntityVolcanoCore extends TileEntity implements net.minecraft.util.ITickable {
 
 		private static List<ExAttrib> volcanoExplosion = Arrays.asList(new ExAttrib[] {ExAttrib.NODROP, ExAttrib.LAVA_V, ExAttrib.NOSOUND, ExAttrib.ALLMOD, ExAttrib.NOHURT});
 		private static List<ExAttrib> volcanoRadExplosion = Arrays.asList(new ExAttrib[] {ExAttrib.NODROP, ExAttrib.LAVA_R, ExAttrib.NOSOUND, ExAttrib.ALLMOD, ExAttrib.NOHURT});
@@ -93,9 +93,9 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		public int volcanoTimer;
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				this.volcanoTimer++;
 
 				if(this.volcanoTimer % 10 == 0) {
@@ -123,11 +123,11 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 					this.volcanoTimer = 0;
 
 					if(this.shouldGrow()) {
-						worldObj.setBlock(xCoord, yCoord + 1, zCoord, this.getBlockType(), this.getBlockMetadata(), 3);
-						worldObj.setBlock(xCoord, yCoord, zCoord, getLava());
+						this.world.setBlock(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.getBlockType(), this.getBlockMetadata(), 3);
+						this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), getLava());
 						return;
 					} else if(this.isExtinguishing()) {
-						worldObj.setBlock(xCoord, yCoord, zCoord, getLava());
+						this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), getLava());
 						return;
 					}
 				}
@@ -154,13 +154,14 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("timer", this.volcanoTimer);
+			return nbt;
 		}
 
 		private boolean shouldGrow() {
-			return isGrowing() && yCoord < 200;
+			return isGrowing() && this.pos.getY() < 200;
 		}
 
 		private boolean isGrowing() {
@@ -205,9 +206,9 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 
 		/** Causes two magma explosions, one from bedrock to the core and one from the core to 15 blocks above. */
 		private void blastMagmaChannel() {
-			ExplosionNT explosion = new ExplosionNT(worldObj, null, xCoord + 0.5, yCoord + worldObj.rand.nextInt(15) + 1.5, zCoord + 0.5, 7);
+			ExplosionNT explosion = new ExplosionNT(this.world, null, this.pos.getX() + 0.5, this.pos.getY() + this.world.rand.nextInt(15) + 1.5, this.pos.getZ() + 0.5, 7);
 			explosion.addAllAttrib(getExpAttrb()).explode();
-			ExplosionNT explosion2 = new ExplosionNT(worldObj, null, xCoord + 0.5 + worldObj.rand.nextGaussian() * 3, worldObj.rand.nextInt(yCoord + 1), zCoord + 0.5 + worldObj.rand.nextGaussian() * 3, 10);
+			ExplosionNT explosion2 = new ExplosionNT(this.world, null, this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 3, this.world.rand.nextInt(this.pos.getY() + 1), this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 3, 10);
 			explosion2.addAllAttrib(getExpAttrb()).explode();
 		}
 
@@ -216,7 +217,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 
 			for(int i = 0; i < 2; i++) {
 				double dist = size / (double) (i + 1);
-				ExplosionNT explosion = new ExplosionNT(worldObj, null, xCoord + 0.5 + worldObj.rand.nextGaussian() * dist, yCoord + 0.5 + worldObj.rand.nextGaussian() * dist, zCoord + 0.5 + worldObj.rand.nextGaussian() * dist, 7);
+				ExplosionNT explosion = new ExplosionNT(this.world, null, this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * dist, this.pos.getY() + 0.5 + this.world.rand.nextGaussian() * dist, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * dist, 7);
 				explosion.addAllAttrib(getExpAttrb()).explode();
 			}
 		}
@@ -225,16 +226,16 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		private void meltSurface(int count, double radius, double depth) {
 
 			for(int i = 0; i < count; i++) {
-				int x = (int) Math.floor(xCoord + worldObj.rand.nextGaussian() * radius);
-				int z = (int) Math.floor(zCoord + worldObj.rand.nextGaussian() * radius);
+				int x = (int) Math.floor(this.pos.getX() + this.world.rand.nextGaussian() * radius);
+				int z = (int) Math.floor(this.pos.getZ() + this.world.rand.nextGaussian() * radius);
 				//gaussian distribution makes conversions more likely on the surface and rarer at the bottom
-				int y = worldObj.getHeightValue(x, z) + 1 - (int) Math.floor(Math.abs(worldObj.rand.nextGaussian() * depth));
+				int y = this.world.getHeightValue(x, z) + 1 - (int) Math.floor(Math.abs(this.world.rand.nextGaussian() * depth));
 
-				Block b = worldObj.getBlock(x, y, z);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-				if(!b.isAir(worldObj, x, y, z) && b.getExplosionResistance(null) < Blocks.obsidian.getExplosionResistance(null)) {
+				if(!b.isAir(this.world, x, y, z) && b.getExplosionResistance(null) < Blocks.OBSIDIAN.getExplosionResistance(null)) {
 					//turn into lava if solid block, otherwise just break
-					worldObj.setBlock(x, y, z, b.isNormalCube() ? this.getLava() : Blocks.air);
+					this.world.setBlock(x, y, z, b.isNormalCube() ? this.getLava() : Blocks.AIR);
 				}
 			}
 		}
@@ -242,12 +243,12 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		/** Increases the magma level in a small radius around the core. */
 		private void raiseMagma() {
 
-			int rX = xCoord - 10 + worldObj.rand.nextInt(21);
-			int rY = yCoord + worldObj.rand.nextInt(11);
-			int rZ = zCoord - 10 + worldObj.rand.nextInt(21);
+			int rX = this.pos.getX() - 10 + this.world.rand.nextInt(21);
+			int rY = this.pos.getY() + this.world.rand.nextInt(11);
+			int rZ = this.pos.getZ() - 10 + this.world.rand.nextInt(21);
 
-			if(worldObj.getBlock(rX, rY, rZ) == Blocks.air && worldObj.getBlock(rX, rY - 1, rZ) == this.getLava())
-				worldObj.setBlock(rX, rY, rZ, this.getLava());
+			if(com.hbm.world.WorldBlockState.read(this.world, rX, rY, rZ).getBlock() == Blocks.AIR && com.hbm.world.WorldBlockState.read(this.world, rX, rY - 1, rZ).getBlock() == this.getLava())
+				this.world.setBlock(rX, rY, rZ, this.getLava());
 		}
 
 		/** Creates a 3x3x3 lava sphere around the core. */
@@ -258,7 +259,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 					for(int k = -1; k <= 1; k++) {
 
 						if(i != 0 || j != 0 || k != 0) {
-							worldObj.setBlock(xCoord + i, yCoord + j, zCoord + k, this.getLava());
+							this.world.setBlock(this.pos.getX() + i, this.pos.getY() + j, this.pos.getZ() + k, this.getLava());
 						}
 					}
 				}
@@ -269,17 +270,17 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		private void spawnBlobs() {
 
 			for(int i = 0; i < 3; i++) {
-				EntityShrapnel frag = new EntityShrapnel(worldObj);
-				frag.setLocationAndAngles(xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, 0.0F, 0.0F);
-				frag.motionY = 1D + worldObj.rand.nextDouble();
-				frag.motionX = worldObj.rand.nextGaussian() * 0.2D;
-				frag.motionZ = worldObj.rand.nextGaussian() * 0.2D;
+				EntityShrapnel frag = new EntityShrapnel(this.world);
+				frag.setLocationAndAngles(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, 0.0F, 0.0F);
+				frag.motionY = 1D + this.world.rand.nextDouble();
+				frag.motionX = this.world.rand.nextGaussian() * 0.2D;
+				frag.motionZ = this.world.rand.nextGaussian() * 0.2D;
 				if(this.isRadioacitve()) {
 					frag.setRadVolcano(true);
 				} else {
 					frag.setVolcano(true);
 				}
-				worldObj.spawnEntityInWorld(frag);
+				this.world.spawnEntityInWorld(frag);
 			}
 		}
 
@@ -288,7 +289,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 			NBTTagCompound dPart = new NBTTagCompound();
 			dPart.setString("type", "vanillaExt");
 			dPart.setString("mode", "volcano");
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, xCoord + 0.5, yCoord + 10, zCoord + 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 10, zCoord + 0.5, 250));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, this.pos.getX() + 0.5, this.pos.getY() + 10, this.pos.getZ() + 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 10, this.pos.getZ() + 0.5, 250));
 		}
 	}
 

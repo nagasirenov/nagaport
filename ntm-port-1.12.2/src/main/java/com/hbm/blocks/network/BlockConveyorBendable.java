@@ -1,27 +1,13 @@
 package com.hbm.blocks.network;
 
 import api.hbm.block.IToolable;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public abstract class BlockConveyorBendable extends BlockConveyorBase implements IToolable {
-
-	@SideOnly(Side.CLIENT) protected IIcon curveLeft;
-	@SideOnly(Side.CLIENT) protected IIcon curveRight;
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.curveLeft = iconRegister.registerIcon(this.getTextureName() + "_curve_left");
-		this.curveRight = iconRegister.registerIcon(this.getTextureName() + "_curve_right");
-	}
 
 	protected int getPathDirection(int meta) {
 
@@ -31,35 +17,15 @@ public abstract class BlockConveyorBendable extends BlockConveyorBase implements
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int metadata) {
-
-		int dir = getPathDirection(metadata);
-
-		if(dir > 0 && side > 1)
-			return this.sideIcon;
-
-		if((metadata == 2 || metadata == 3) && (side == 4 || side == 5))
-			return this.sideIcon;
-		if((metadata == 4 || metadata == 5) && (side == 2 || side == 3))
-			return this.sideIcon;
-
-		if(dir == 1) return this.curveLeft;
-		if(dir == 2) return this.curveRight;
-
-		return super.getIcon(side, metadata);
-	}
-
-	@Override
 	public ForgeDirection getInputDirection(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		int dir = getPathDirection(meta);
 		return ForgeDirection.getOrientation(meta - dir * 4);
 	}
 
 	@Override
 	public ForgeDirection getOutputDirection(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		int dir = getPathDirection(meta);
 		meta -= dir * 4;
 
@@ -73,7 +39,7 @@ public abstract class BlockConveyorBendable extends BlockConveyorBase implements
 	@Override
 	public ForgeDirection getTravelDirection(World world, int x, int y, int z, Vec3d itemPos) {
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		int dir = getPathDirection(meta);
 		meta -= dir * 4;
 
@@ -108,7 +74,7 @@ public abstract class BlockConveyorBendable extends BlockConveyorBase implements
 
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		int newMeta = meta;
 
 		int dir = getPathDirection(meta);
@@ -125,7 +91,7 @@ public abstract class BlockConveyorBendable extends BlockConveyorBase implements
 				newMeta -= 8;
 		}
 
-		world.setBlockMetadataWithNotify(x, y, z, newMeta, 3);
+		world.setBlockState(new BlockPos(x, y, z), getStateFromMeta(newMeta), 3);
 
 		return true;
 	}

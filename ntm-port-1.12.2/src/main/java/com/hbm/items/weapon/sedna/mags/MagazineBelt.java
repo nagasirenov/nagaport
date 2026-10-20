@@ -38,7 +38,7 @@ public class MagazineBelt implements IMagazine<BulletConfig> {
 		for(int i = 0; i < inventory.getSizeInventory(); i++) {
 			ItemStack slot = inventory.getStackInSlot(i);
 			
-			if(slot != null) {
+			if(slot != null && !slot.isEmpty()) {
 				if(first.ammo.matchesRecipe(slot, true)) {
 					int toRemove = Math.min(slot.stackSize, amount);
 					amount -= toRemove;
@@ -87,7 +87,7 @@ public class MagazineBelt implements IMagazine<BulletConfig> {
 		for(int i = 0; i < inventory.getSizeInventory(); i++) {
 			ItemStack slot = inventory.getStackInSlot(i);
 			
-			if(slot != null) {
+			if(slot != null && !slot.isEmpty()) {
 				if(first.ammo.matchesRecipe(slot, true)) count += slot.stackSize;
 
 				boolean infBag = slot.getItem() == ModItems.ammo_bag_infinite;
@@ -132,7 +132,7 @@ public class MagazineBelt implements IMagazine<BulletConfig> {
 		for(int i = 0; i < inventory.getSizeInventory(); i++) {
 			ItemStack slot = inventory.getStackInSlot(i);
 			
-			if(slot != null) {
+			if(slot != null && !slot.isEmpty()) {
 				for(BulletConfig config : this.acceptedBullets) {
 					if(config.ammo.matchesRecipe(slot, true)) return config;
 				}

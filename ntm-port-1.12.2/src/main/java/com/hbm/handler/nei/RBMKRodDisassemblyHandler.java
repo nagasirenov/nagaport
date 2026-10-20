@@ -12,11 +12,11 @@ import net.minecraft.item.ItemStack;
 public class RBMKRodDisassemblyHandler extends NEIUniversalHandler {
 
 	public RBMKRodDisassemblyHandler() {
-		super("RBMK Rod Disassembly", Blocks.crafting_table, getRecipes());
+		super("RBMK Rod Disassembly", Blocks.CRAFTING_TABLE, getRecipes());
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmRBMKDisassembly";
 	}
 
@@ -38,15 +38,14 @@ public class RBMKRodDisassemblyHandler extends NEIUniversalHandler {
 		return map;
 	}
 
-	// Don't show recipes for hot rods (which will cause it to only show cooling recipes)
-	@Override
-	public void loadUsageRecipes(ItemStack ingredient) {
-		if(ingredient != null && ingredient.getItem() != null && ingredient.getItem() instanceof ItemRBMKRod) {
-			if(ItemRBMKRod.getCoreHeat(ingredient) > 50 || ItemRBMKRod.getHullHeat(ingredient) > 50) return;
-		}
-
-		super.loadUsageRecipes(ingredient);
-	}
+    // Keep the original strict >50 disassembly threshold (pool lookup uses >=50).
+    @Override
+    protected boolean acceptsFocus(mezz.jei.api.recipe.IFocus<ItemStack> focus) {
+        if(focus == null || focus.getMode() != mezz.jei.api.recipe.IFocus.Mode.INPUT) return true;
+        ItemStack ingredient = focus.getValue();
+        return !(ingredient != null && ingredient.getItem() instanceof ItemRBMKRod &&
+            (ItemRBMKRod.getCoreHeat(ingredient) > 50 || ItemRBMKRod.getHullHeat(ingredient) > 50));
+    }
 
 	public static class ComparableStackHeat extends ComparableStack {
 

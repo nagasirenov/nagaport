@@ -23,7 +23,7 @@ public class ItemBlockLore extends ItemBlockBase {
 		super.addInformation(itemstack, player, list, bool);
 
 		// Check for a generic localisation so we can add descriptions to them regular ass blocks
-		String unloc = this.getUnlocalizedName() + ".desc";
+		String unloc = this.getTranslationKey() + ".desc";
 		String loc = I18nUtil.resolveKey(unloc);
 
 		if(!unloc.equals(loc)) {
@@ -34,20 +34,20 @@ public class ItemBlockLore extends ItemBlockBase {
 			}
 		}
 
-		if(this.field_150939_a instanceof RedBarrel) {
+		if(this.block instanceof RedBarrel) {
 			list.add("Static fluid barrel");
 		}
 
-		if(this.field_150939_a == ModBlocks.meteor_battery) {
+		if(this.block == ModBlocks.meteor_battery) {
 			list.add("Provides infinite charge to tesla coils");
 		}
 
-		if(this.field_150939_a instanceof BlockOreFluid) {
+		if(this.block instanceof BlockOreFluid) {
 			list.add("You weren't supposed to mine that.");
 			list.add("Come on, get a derrick you doofus.");
 		}
 
-		if(this.field_150939_a == ModBlocks.gravel_diamond) {
+		if(this.block == ModBlocks.gravel_diamond) {
 			list.add("There is some kind of joke here,");
 			list.add("but I can't quite tell what it is.");
 			list.add("");
@@ -70,13 +70,13 @@ public class ItemBlockLore extends ItemBlockBase {
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		if(this.field_150939_a == ModBlocks.gravel_diamond)
-			return EnumRarity.rare;
+		if(this.block == ModBlocks.gravel_diamond)
+			return EnumRarity.RARE;
 
-		if(this.field_150939_a == ModBlocks.block_euphemium || this.field_150939_a == ModBlocks.block_euphemium_cluster || this.field_150939_a == ModBlocks.plasma)
-			return EnumRarity.epic;
+		if(this.block == ModBlocks.block_euphemium || this.block == ModBlocks.block_euphemium_cluster || this.block == ModBlocks.plasma)
+			return EnumRarity.EPIC;
 
-		return EnumRarity.common;
+		return EnumRarity.COMMON;
 	}
 
 }

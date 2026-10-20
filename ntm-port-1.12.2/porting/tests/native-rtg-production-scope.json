@@ -1,0 +1,28 @@
+{
+  "paths": [
+    "src/main/java/com/hbm/blocks/machine/MachineRTG.java",
+    "src/main/java/com/hbm/blocks/machine/MachineMiniRTG.java",
+    "src/main/java/com/hbm/render/block/RenderRTGBlock.java",
+    "src/main/java/com/hbm/render/tileentity/RenderRTG.java",
+    "src/main/java/com/hbm/main/RTGBlockModelHandler.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiniRTG.java",
+    "src/main/java/com/hbm/items/machine/ItemRTGPellet.java",
+    "src/main/resources/assets/hbm/blockstates/tile.machine_rtg_grey.json",
+    "src/main/resources/assets/hbm/blockstates/tile.machine_minirtg.json",
+    "src/main/resources/assets/hbm/blockstates/tile.machine_powerrtg.json"
+  ],
+  "sha256": {
+    "src/main/java/com/hbm/blocks/machine/MachineRTG.java": "6cb9a09173a00ad518dd07ae3208eb39449ce19b03220a665e43e27b46f5f7df",
+    "src/main/java/com/hbm/blocks/machine/MachineMiniRTG.java": "087ea3979526cb58ee3cffc93fe820ccea5141b644dda0e70c34215a1fa395cf",
+    "src/main/java/com/hbm/render/block/RenderRTGBlock.java": "9611d72a0adf62be2eb2ec2f359989adba5d9452b07b41649561d76da1e9f3c0",
+    "src/main/java/com/hbm/render/tileentity/RenderRTG.java": "7134d7eb59ae3647a79c654c6ce167602f85c3c99f12acf0d5e5f28015c7ccd3",
+    "src/main/java/com/hbm/main/RTGBlockModelHandler.java": "ae72780a3c88e261d49a8aa10b23ce305a01052bbebb747555a361a9167a6e2b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRTG.java": "b9c611cefabd3206814908019719e96d57b50046fcd7be05031fe3f315828c75",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiniRTG.java": "9c66dfdbf4e38c5db59464ffc61e9beeda734aa6ae49f6368cfca8802e62935f",
+    "src/main/java/com/hbm/items/machine/ItemRTGPellet.java": "8dd3e350619dd9ee7b95f53672bfcc121fbcc8d07e400d9bf152a45c2dee06fd",
+    "src/main/resources/assets/hbm/blockstates/tile.machine_rtg_grey.json": "0a23382582d088a6bb49721531172eb99db78012dbfc7efd265bf3efb525fa3f",
+    "src/main/resources/assets/hbm/blockstates/tile.machine_minirtg.json": "c00b92617b76d36b82ce9ebc0dd20d2299813882a3385d0e0a44a8b38814a850",
+    "src/main/resources/assets/hbm/blockstates/tile.machine_powerrtg.json": "50b1b3625cdc771a18e875bf634dde7df0692315e49bdb4a0034198cce42f49e"
+  }
+}

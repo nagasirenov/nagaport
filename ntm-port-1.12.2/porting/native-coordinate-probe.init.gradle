@@ -1,0 +1,23 @@
+// Dedicated real key/native target tests. Does not change compileJava or sourceSets.
+allprojects {
+    afterEvaluate {
+        def probe = tasks.create('compilePortNativeCoordinateProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            source project.file('src/main/java/com/hbm/tileentity/machine/SolarMirrorPosition.java')
+            source project.file('porting/tests/NativeCoordinateMigrationTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portNativeCoordinateProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('testPortNativeCoordinates', JavaExec) {
+            dependsOn probe
+            classpath = files(probe.destinationDir) + probe.classpath
+            main = 'NativeCoordinateMigrationTest'
+            if (project.hasProperty('legacyMinecraftClientJar')) args project.property('legacyMinecraftClientJar')
+        }
+        tasks.create('checkPortNativeCoordinateSource', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-native-coordinates.py')
+        }
+    }
+}

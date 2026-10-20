@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/polymer",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.nuke_boy",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.manhattan"
+    },
+    "description": {
+      "translate": "achievement.manhattan.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

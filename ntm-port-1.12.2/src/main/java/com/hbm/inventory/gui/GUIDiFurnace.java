@@ -34,7 +34,7 @@ public class GUIDiFurnace extends GuiContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 3; i++) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 				
@@ -44,7 +44,7 @@ public class GUIDiFurnace extends GuiContainer {
 					byte dir = i == 0 ? diFurnace.sideUpper : i == 1 ? diFurnace.sideLower : diFurnace.sideFuel;
 					label += ForgeDirection.getOrientation(dir);
 					
-					this.func_146283_a(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0));
+					this.drawHoveringText(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0));
 					
 					return;
 				}
@@ -60,8 +60,8 @@ public class GUIDiFurnace extends GuiContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.diFurnace.hasCustomInventoryName() ? this.diFurnace.getInventoryName() : I18n.format(this.diFurnace.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -70,8 +70,8 @@ public class GUIDiFurnace extends GuiContainer {
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-		if(diFurnace.isInvalid() && diFurnace.getWorldObj().getTileEntity(diFurnace.xCoord, diFurnace.yCoord, diFurnace.zCoord) instanceof TileEntityDiFurnace)
-			diFurnace = (TileEntityDiFurnace) diFurnace.getWorldObj().getTileEntity(diFurnace.xCoord, diFurnace.yCoord, diFurnace.zCoord);
+		if(diFurnace.isInvalid() && diFurnace.getWorld().getTileEntity(diFurnace.getPos().getX(), diFurnace.getPos().getY(), diFurnace.getPos().getZ()) instanceof TileEntityDiFurnace)
+			diFurnace = (TileEntityDiFurnace) diFurnace.getWorld().getTileEntity(diFurnace.getPos().getX(), diFurnace.getPos().getY(), diFurnace.getPos().getZ());
 
 		if(diFurnace.hasPower()) {
 			int i1 = diFurnace.getPowerRemainingScaled(52);

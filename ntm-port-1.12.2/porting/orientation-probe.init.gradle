@@ -1,0 +1,19 @@
+// Diagnostic slice only. Does not change main sourceSets or full compileJava.
+allprojects {
+    afterEvaluate {
+        def probe = tasks.create('compilePortOrientationProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            source project.file('src/main/java/com/hbm/world/gen/LegacyStructureOrientation.java')
+            source project.file('porting/tests/StructureOrientationTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portOrientationProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+        }
+        tasks.create('testPortOrientation', JavaExec) {
+            dependsOn probe
+            classpath = files(probe.destinationDir) + probe.classpath
+            main = 'StructureOrientationTest'
+        }
+    }
+}

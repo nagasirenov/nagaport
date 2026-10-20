@@ -55,7 +55,7 @@ public class WeaponSpecial extends ItemSword {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, EntityLivingBase entityPlayer) {
-		World world = entity.worldObj;
+		World world = entity.world;
 
 		if(this == ModItems.schrabidium_hammer) {
 			if(!world.isRemote) {
@@ -166,14 +166,14 @@ public class WeaponSpecial extends ItemSword {
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f1, float f2, float f3) {
 
 		if(this == ModItems.shimmer_sledge) {
-			if(world.getBlock(x, y, z) != Blocks.air && world.getBlock(x, y, z).getExplosionResistance(null) < 6000) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
 
 				EntityRubble rubble = new EntityRubble(world);
 				rubble.posX = x + 0.5F;
 				rubble.posY = y;
 				rubble.posZ = z + 0.5F;
 
-				rubble.setMetaBasedOnBlock(world.getBlock(x, y, z), world.getBlockMetadata(x, y, z));
+				rubble.setMetaBasedOnBlock(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 
 				Vec3d vec = player.getLookVec();
 				double dX = vec.x * 5;
@@ -196,16 +196,16 @@ public class WeaponSpecial extends ItemSword {
 
 		if(this == ModItems.shimmer_axe) {
 
-			world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.kapeng", 3.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.kapeng", 3.0F, 1.0F);
 
 			if(!world.isRemote) {
-				if(world.getBlock(x, y, z) != Blocks.air && world.getBlock(x, y, z).getExplosionResistance(null) < 6000) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
 					world.func_147480_a(x, y, z, false);
 				}
-				if(world.getBlock(x, y + 1, z) != Blocks.air && world.getBlock(x, y + 1, z).getExplosionResistance(null) < 6000) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getExplosionResistance(null) < 6000) {
 					world.func_147480_a(x, y + 1, z, false);
 				}
-				if(world.getBlock(x, y - 1, z) != Blocks.air && world.getBlock(x, y - 1, z).getExplosionResistance(null) < 6000) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getExplosionResistance(null) < 6000) {
 					world.func_147480_a(x, y - 1, z, false);
 				}
 			}
@@ -235,9 +235,9 @@ public class WeaponSpecial extends ItemSword {
 
 		if(entity instanceof EntityPlayer) {
 			if(ArmorUtil.checkForFiend((EntityPlayer) entity)) {
-				((EntityPlayer) entity).triggerAchievement(MainRegistry.achFiend);
+				com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achFiend);
 			} else if(ArmorUtil.checkForFiend2((EntityPlayer) entity)) {
-				((EntityPlayer) entity).triggerAchievement(MainRegistry.achFiend2);
+				com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achFiend2);
 			}
 		}
 	}

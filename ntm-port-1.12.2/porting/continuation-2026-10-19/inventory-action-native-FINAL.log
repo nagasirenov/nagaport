@@ -1,0 +1,16 @@
+FULL PRODUCTION src/main/java/com/hbm/advancement/client/LegacyInventoryActionHandler.java 70659fbcd0e2ceb06e88302a09f7bad333018de919abe931b53071010b1110d5
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionNativeTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static <T>T allocate(Class<T> cls)throws Exception {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return cls.cast(((sun.misc.Unsafe)f.get(null)).allocateInstance(cls));}
+                                                                     ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/InventoryActionNativeTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static <T>T allocate(Class<T> cls)throws Exception {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return cls.cast(((sun.misc.Unsafe)f.get(null)).allocateInstance(cls));}
+                                                                                                                                                                 ^
+2 warnings
+[17:30:46] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[17:30:46] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[17:30:47] [main/INFO]: Replaced 1036 ore ingredients
+[17:30:47] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[17:30:47] [main/INFO]: Processing ObjectHolder annotations
+[17:30:47] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 23 real native inventory action/queue/event checks. No full client, physical-input or external-mod compatibility claim.
+LIMIT: earlier same-priority GuiOpenEvent replacement can hide the original inventory screen; native cancelled and nested cases are proven separately.

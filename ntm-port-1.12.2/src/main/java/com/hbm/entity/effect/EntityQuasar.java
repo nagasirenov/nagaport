@@ -12,7 +12,7 @@ public class EntityQuasar extends EntityBlackHole {
 
 	public EntityQuasar(World world, float size) {
 		super(world);
-		this.dataWatcher.updateObject(16, size);
+		this.dataManager.set(BLACK_HOLE_SIZE, size);
 	}
 	
 	@Override

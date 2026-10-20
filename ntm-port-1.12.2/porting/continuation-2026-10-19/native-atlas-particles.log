@@ -1,0 +1,9 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAtlasParticlesTest.java:33: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);
+                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeAtlasParticlesTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+  LightWorld w=(LightWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(LightWorld.class);
+                                     ^
+2 warnings
+PASS 318 full production native particle/sprite/buffer/lifecycle checks; no GL or full-mod acceptance.
+PASS native particle source integration/settings/real sprite routes

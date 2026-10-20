@@ -1,0 +1,5 @@
+PASS: four full files exactly reversible to baseline hashes without Git/pristine dependency
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: 88 whole-interface/native tile-world checks; controlled NTM topology, debug packets disabled as production
+PASS: native whole-interface fixture; real ILoadedTile cache and extracted Compat lookup; controlled NTM nodes/packets, NOT runtime topology/gameplay

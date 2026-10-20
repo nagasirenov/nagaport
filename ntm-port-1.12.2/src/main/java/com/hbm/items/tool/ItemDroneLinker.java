@@ -19,29 +19,29 @@ public class ItemDroneLinker extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 		
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile instanceof IDroneLinkable) {
 			
 			if(!world.isRemote) {
 				if(!stack.hasTagCompound()) {
-					stack.stackTagCompound = new NBTTagCompound();
-					stack.stackTagCompound.setInteger("x", x);
-					stack.stackTagCompound.setInteger("y", y);
-					stack.stackTagCompound.setInteger("z", z);
+					stack.setTagCompound(new NBTTagCompound());
+					stack.getTagCompound().setInteger("x", x);
+					stack.getTagCompound().setInteger("y", y);
+					stack.getTagCompound().setInteger("z", z);
 					
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Set initial position!").color(TextFormatting.AQUA).flush());
 					
 				} else {
 	
-					int tx = stack.stackTagCompound.getInteger("x");
-					int ty = stack.stackTagCompound.getInteger("y");
-					int tz = stack.stackTagCompound.getInteger("z");
+					int tx = stack.getTagCompound().getInteger("x");
+					int ty = stack.getTagCompound().getInteger("y");
+					int tz = stack.getTagCompound().getInteger("z");
 					
-					TileEntity prev = world.getTileEntity(tx, ty, tz);
+					TileEntity prev = world.getTileEntity(new net.minecraft.util.math.BlockPos(tx, ty, tz));
 					
 					if(prev instanceof IDroneLinkable) {
 						
@@ -49,19 +49,19 @@ public class ItemDroneLinker extends Item {
 						((IDroneLinkable) prev).setNextTarget(dest.getX(), dest.getY(), dest.getZ());
 						
 						player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-								.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+								.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 								.next("] ").color(TextFormatting.DARK_AQUA)
 								.next("Link set!").color(TextFormatting.AQUA).flush());
 					} else {
 						player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-								.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+								.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 								.next("] ").color(TextFormatting.DARK_AQUA)
 								.next("Previous link lost!").color(TextFormatting.RED).flush());
 					}
 					
-					stack.stackTagCompound.setInteger("x", x);
-					stack.stackTagCompound.setInteger("y", y);
-					stack.stackTagCompound.setInteger("z", z);
+					stack.getTagCompound().setInteger("x", x);
+					stack.getTagCompound().setInteger("y", y);
+					stack.getTagCompound().setInteger("z", z);
 				}
 			}
 			
@@ -76,9 +76,9 @@ public class ItemDroneLinker extends Item {
 		
 		if(world.isRemote && inhand) {
 			if(stack.hasTagCompound()) {
-				int x = stack.stackTagCompound.getInteger("x");
-				int y = stack.stackTagCompound.getInteger("y");
-				int z = stack.stackTagCompound.getInteger("z");
+				int x = stack.getTagCompound().getInteger("x");
+				int y = stack.getTagCompound().getInteger("y");
+				int z = stack.getTagCompound().getInteger("z");
 				MainRegistry.proxy.displayTooltip("Prev pos: " + x + " / " + y + " / " + z, MainRegistry.proxy.ID_DRONE);
 			}
 		}
@@ -88,10 +88,10 @@ public class ItemDroneLinker extends Item {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		
 		if(!world.isRemote && stack.hasTagCompound()) {
-			stack.stackTagCompound = null;
+			stack.setTagCompound(null);
 
 			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-					.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+					.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 					.next("] ").color(TextFormatting.DARK_AQUA)
 					.next("Position cleared!").color(TextFormatting.GREEN).flush());
 		}

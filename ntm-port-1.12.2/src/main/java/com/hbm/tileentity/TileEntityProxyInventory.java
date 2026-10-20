@@ -19,15 +19,19 @@ public class TileEntityProxyInventory extends TileEntityProxyBase implements ISi
 		return 0;
 	}
 
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
 	@Override
 	public ItemStack getStackInSlot(int slot) {
 		
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			return inv.getStackInSlot(slot);
+			return nativeStack(inv.getStackInSlot(slot));
 		
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -36,20 +40,20 @@ public class TileEntityProxyInventory extends TileEntityProxyBase implements ISi
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			return inv.decrStackSize(slot, count);
+			return nativeStack(inv.decrStackSize(slot, count));
 		
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int slot) {
+	public ItemStack removeStackFromSlot(int slot) {
 		
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			return inv.getStackInSlotOnClosing(slot);
+			return nativeStack(inv.removeStackFromSlot(slot));
 		
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -58,7 +62,7 @@ public class TileEntityProxyInventory extends TileEntityProxyBase implements ISi
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			inv.setInventorySlotContents(slot, stack);
+			inv.setInventorySlotContents(slot, nativeStack(stack));
 	}
 
 	@Override
@@ -95,15 +99,15 @@ public class TileEntityProxyInventory extends TileEntityProxyBase implements ISi
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		return false; //never usable, it's just a proxy
 	}
 
 	@Override
-	public void openInventory() { }
+	public void openInventory(EntityPlayer player) { }
 
 	@Override
-	public void closeInventory() { }
+	public void closeInventory(EntityPlayer player) { }
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
@@ -117,34 +121,37 @@ public class TileEntityProxyInventory extends TileEntityProxyBase implements ISi
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			return inv.getAccessibleSlotsFromSide(side);
+			return inv.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 		
 		return new int[0];
 	}
 
 	@Override
-	public boolean canInsertItem(int slot, ItemStack stack, int side) {
+	public boolean canInsertItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			return inv.canInsertItem(slot, stack, side);
+			return inv.canInsertItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 		
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		
 		ISidedInventory inv = this.getBase();
 		
 		if(inv != null)
-			return inv.canExtractItem(slot, stack, side);
+			return inv.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 		
 		return false;
 	}

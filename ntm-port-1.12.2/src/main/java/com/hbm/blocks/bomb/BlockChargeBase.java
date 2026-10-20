@@ -47,7 +47,7 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 	public static boolean safe = false;
 	
 	public BlockChargeBase() {
-		super(Material.tnt);
+		super(Material.TNT);
 		setDefaultState(blockState.getBaseState().withProperty(ORIENTATION, 0));
 	}
 
@@ -93,7 +93,7 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 	
@@ -111,10 +111,10 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		
-		ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
+		ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 		
 		if(!com.hbm.lib.FacingCompat.isWorldSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			//this.explode(world, x, y, z);
 		}
 	}
@@ -145,11 +145,11 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 		if(tool != ToolType.DEFUSER)
 			return false;
 
-		TileEntityCharge charge = (TileEntityCharge) world.getTileEntity(x, y, z);
+		TileEntityCharge charge = (TileEntityCharge) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(charge.started) {
 			charge.started = !charge.started;
-			world.playSoundEffect(x, y, z, "hbm:weapon.fstbmbStart", 1.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:weapon.fstbmbStart", 1.0F, 1.0F);
 			charge.markDirty();
 		} else {
 			safe = true;
@@ -180,7 +180,7 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 
 	@Override
 	public void explodeEntity(World world, double x, double y, double z, EntityTNTPrimedBase entity) {
-		explode(world, MathHelper.floor_double(x), MathHelper.floor_double(y), MathHelper.floor_double(z));
+		explode(world, MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));
 	}
 	
 	@Override
@@ -196,7 +196,7 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 			return true;
 		} else {
 
-			TileEntityCharge charge = (TileEntityCharge) world.getTileEntity(x, y, z);
+			TileEntityCharge charge = (TileEntityCharge) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(!charge.started) {
 				
@@ -204,7 +204,7 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 					
 					if(charge.timer > 0) {
 						charge.started = true;
-						world.playSoundEffect(x, y, z, "hbm:weapon.fstbmbStart", 1.0F, 1.0F);
+						com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:weapon.fstbmbStart", 1.0F, 1.0F);
 					}
 				} else {
 					
@@ -217,7 +217,7 @@ public abstract class BlockChargeBase extends BlockContainerBase implements IBom
 					else if(charge.timer == 3600) { charge.timer = 6000; }
 					else { charge.timer = 0; }
 					
-					world.playSoundEffect(x, y, z, "hbm:item.techBoop", 1.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:item.techBoop", 1.0F, 1.0F);
 				}
 				
 				charge.markDirty();

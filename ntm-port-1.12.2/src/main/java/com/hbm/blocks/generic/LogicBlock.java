@@ -26,7 +26,7 @@ import java.util.function.Function;
 public class LogicBlock extends BlockContainer {
 
 	public LogicBlock() {
-		super(Material.rock);
+		super(Material.ROCK);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class LogicBlock extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, int x, int y, int z, EntityPlayer player, int side, float subX, float subY, float subZ) {
-		TileEntity te = worldIn.getTileEntity(x, y, z);
+		TileEntity te = worldIn.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof LogicBlock.TileEntityLogicBlock && ((LogicBlock.TileEntityLogicBlock) te).interaction != null) {
 			((LogicBlock.TileEntityLogicBlock) te).interaction.accept(new Object[]{worldIn, te, x, y, z, player, side, subX, subY, subZ});
 			return true;
@@ -60,7 +60,7 @@ public class LogicBlock extends BlockContainer {
 		return super.onBlockActivated(worldIn, x, y, z, player, side, subX, subY, subZ);
 	}
 
-	public static class TileEntityLogicBlock extends TileEntity {
+	public static class TileEntityLogicBlock extends TileEntity implements net.minecraft.util.ITickable {
 
 		//phase is incremented per condition check, timer counts since last condition check by default
 		public int phase = 0;
@@ -84,9 +84,9 @@ public class LogicBlock extends BlockContainer {
 
 		public ForgeDirection direction = ForgeDirection.UNKNOWN;
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				if(action == null){
 					action = LogicBlockActions.actions.get(actionID);
 				}
@@ -98,7 +98,7 @@ public class LogicBlock extends BlockContainer {
 				}
 
 				if(action == null || condition == null){
-					worldObj.setBlock(xCoord,yCoord,zCoord, Blocks.air);
+					{ net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = this.pos.getX(); int nativePlacementY = this.pos.getY(); int nativePlacementZ = this.pos.getZ(); net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					return;
 				}
 				action.accept(this);
@@ -112,7 +112,7 @@ public class LogicBlock extends BlockContainer {
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("phase", phase);
 
@@ -126,6 +126,7 @@ public class LogicBlock extends BlockContainer {
 				nbt.setInteger("disguiseMeta", disguiseMeta);
 				nbt.setString("disguise", GameRegistry.findUniqueIdentifierFor(disguise).toString());
 			}
+			return nbt;
 		}
 
 		@Override

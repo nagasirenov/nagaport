@@ -23,15 +23,15 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase implements IFluidStandardTransceiver, IConfigurableMachine, IFluidCopiable {
+public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase implements IFluidStandardTransceiver, IConfigurableMachine, IFluidCopiable, net.minecraft.util.ITickable {
 
 	public static final HashSet<Block> validBlocks = new HashSet<>();
 
 	static {
-		validBlocks.add(Blocks.grass);
-		validBlocks.add(Blocks.dirt);
-		validBlocks.add(Blocks.sand);
-		validBlocks.add(Blocks.mycelium);
+		validBlocks.add(Blocks.GRASS);
+		validBlocks.add(Blocks.DIRT);
+		validBlocks.add(Blocks.SAND);
+		validBlocks.add(Blocks.MYCELIUM);
 		validBlocks.add(ModBlocks.waste_earth);
 		validBlocks.add(ModBlocks.dirt_dead);
 		validBlocks.add(ModBlocks.dirt_oily);
@@ -86,12 +86,12 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 		writer.name("I:electricSpeed").value(electricSpeed);
 	}
 
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			for(DirPos pos : getConPos()) {
-				if(water.getFill() > 0) this.sendFluid(water, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(water.getFill() > 0) this.sendFluid(water, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			if(groundCheckDelay > 0) {
@@ -101,7 +101,7 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 			}
 
 			this.isOn = false;
-			if(this.canOperate() && yCoord <= groundHeight && onGround) {
+			if(this.canOperate() && this.pos.getY() <= groundHeight && onGround) {
 				this.isOn = true;
 				this.operate();
 			}
@@ -117,17 +117,17 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 				this.rotor -= 360F;
 				this.lastRotor -= 360F;
 
-				MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.steamEngineOperate", 0.5F, 0.75F);
-				MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "game.neutral.swim.splash", 1F, 0.5F);
+				MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.steamEngineOperate", 0.5F, 0.75F);
+				MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "game.neutral.swim.splash", 1F, 0.5F);
 			}
 		}
 	}
 
 	protected boolean checkGround() {
 
-		if(worldObj.provider.hasNoSky) return false;
-		if(worldObj.provider instanceof WorldProviderOrbit) return false;
-		CBT_Water table = CelestialBody.getTrait(worldObj, CBT_Water.class);
+		if(this.world.provider.hasNoSky) return false;
+		if(this.world.provider instanceof WorldProviderOrbit) return false;
+		CBT_Water table = CelestialBody.getTrait(this.world, CBT_Water.class);
 		if(table == null) return false;
 
 		water.setTankType(table.fluid);
@@ -139,7 +139,7 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 			for(int y = -1; y >= -groundDepth; y--) {
 				for(int z = -1; z <= 1; z++) {
 
-					Block b = worldObj.getBlock(xCoord + x, yCoord + y, zCoord + z);
+					Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z).getBlock();
 
 					if(y == -1 && !b.isNormalCube()) return false; // first layer has to be full solid
 
@@ -171,10 +171,10 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 
 	protected DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -200,12 +200,12 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 5,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 2
 					);
 		}
 

@@ -45,18 +45,18 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dfcStabilizer";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.updateConnections();
 			
-			watts = MathHelper.clamp_int(watts, 1, 100);
+			watts = MathHelper.clamp(watts, 1, 100);
 			int demand = (int) Math.pow(watts, 4);
 
 			beam = 0;
@@ -66,11 +66,11 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				for(int i = 1; i <= range; i++) {
 	
-					int x = xCoord + dir.offsetX * i;
-					int y = yCoord + dir.offsetY * i;
-					int z = zCoord + dir.offsetZ * i;
+					int x = this.pos.getX() + dir.offsetX * i;
+					int y = this.pos.getY() + dir.offsetY * i;
+					int z = this.pos.getZ() + dir.offsetZ * i;
 					
-					TileEntity te = worldObj.getTileEntity(x, y, z);
+					TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 	
 					if(te instanceof TileEntityCore) {
 						
@@ -90,7 +90,7 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 						break;
 					}
 					
-					if(!worldObj.getBlock(x, y, z).isAir(worldObj, x, y, z))
+					if(!com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isAir(this.world, x, y, z))
 						break;
 				}
 			}
@@ -102,7 +102,7 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 	private void updateConnections() {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 
 	@Override
@@ -171,11 +171,12 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
 		nbt.setInteger("watts", watts);
+		return nbt;
 	}
 
 	// do some opencomputer stuff
@@ -222,7 +223,7 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setInput(Context context, Arguments args) {
 		int newOutput = args.checkInteger(0);
-		watts = MathHelper.clamp_int(newOutput, 0, 100);
+		watts = MathHelper.clamp(newOutput, 0, 100);
 		return new Object[] {};
 	}
 

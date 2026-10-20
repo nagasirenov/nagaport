@@ -1,64 +1,34 @@
 package com.hbm.blocks;
-
-import java.util.Random;
-
-import com.hbm.items.ModItems;
-
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import java.util.Random;
+import com.hbm.blocks.generic.PlantBlockState;
+import com.hbm.items.ModItems;
 import net.minecraft.item.Item;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.world.World;
+import net.minecraft.item.ItemStack;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.block.properties.PropertyInteger;
+public class BlockCoral extends Block implements IBlockMulti {
+ public enum EnumCoral { TUBE,BRAIN,BUBBLE,FIRE,HORN }
+ public static final PropertyInteger META=PropertyInteger.create("meta",0,15);
+ public BlockCoral() { super(Material.WATER);setDefaultState(blockState.getBaseState().withProperty(META,0)); }
+ @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(META,meta&15); }
+ @Override public int getMetaFromState(IBlockState state) { return state.getValue(META); }
+ @Override public int getSubCount() { return 5; }
+ @Override public void getSubBlocks(CreativeTabs tab,NonNullList<ItemStack> items) { for(int i=0;i<5;i++)items.add(new ItemStack(this,1,i)); }
+ @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { return super.canPlaceBlockAt(world,pos) && world.getBlockState(pos.up()).getMaterial().isLiquid(); }
+ @Override public Item getItemDropped(IBlockState state,Random random,int fortune) { return ModItems.powder_calcium; }
+ @Override public int damageDropped(IBlockState state) { return 0; }
 
-public class BlockCoral extends BlockEnumMulti {
-
-	public BlockCoral() {
-		super(Material.water, EnumCoral.class, false, true);
-	}
-
-	public static enum EnumCoral {
-		TUBE,
-		BRAIN,
-		BUBBLE,
-		FIRE,
-		HORN,
-	}
-
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
-
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return null;
-	}
-
-	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.getBlock(x, y + 1, z).getMaterial().isLiquid();
-	}
-
-	@Override
-	public Item getItemDropped(int parMetadata, Random parRand, int parFortune) {
-	   return ModItems.powder_calcium;
-	}
-
-	@Override
-	public int damageDropped(int meta) {
-		return 0;
-	}
-
+ @Override public boolean isOpaqueCube(IBlockState state) { return false; }
+ @Override public boolean isFullCube(IBlockState state) { return false; }
+ @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT_MIPPED; }
+ @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face) { return BlockFaceShape.UNDEFINED; }
+ @Override public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) { return NULL_AABB; }
+ @Override protected BlockStateContainer createBlockState() { return PlantBlockState.create(this,META); }
+ @Override public IBlockState getExtendedState(IBlockState state,IBlockAccess world,BlockPos pos) { return PlantBlockState.extend(state,world,pos); }
 }

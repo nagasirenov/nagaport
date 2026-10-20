@@ -44,12 +44,12 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 
 			power = Library.chargeTEFromItems(slots, 3, power, maxPower);
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-				trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 
 			if(power < maxPower * 0.75) {
 				isProcessing = false;
@@ -57,7 +57,7 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 			} else if(slots[0] == null || slots[0].getItem() != ModItems.full_drive) {
 				isProcessing = false;
 				status = "";
-			} else if(getProcessingTier() < ItemVOTVdrive.getProcessingTier(slots[0], CelestialBody.getBody(worldObj))) {
+			} else if(getProcessingTier() < ItemVOTVdrive.getProcessingTier(slots[0], CelestialBody.getBody(this.world))) {
 				isProcessing = false;
 				status = TextFormatting.RED + "Low tier ";
 			}
@@ -114,7 +114,7 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -122,6 +122,7 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 		nbt.setInteger("progress", progress);
 		nbt.setString("status", status);
 		nbt.setInteger("lastTier", lastTier);
+		return nbt;
 	}
 
 	@Override
@@ -137,7 +138,7 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return isUseableByPlayer(player);
+		return isUsableByPlayer(player);
 	}
 
 	private int getProcessingTier() {
@@ -164,7 +165,7 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 		if(ItemVOTVdrive.getProcessed(slots[0])) return;
 
 		// Check that our installed upgrade is a high enough tier
-		if(getProcessingTier() >= ItemVOTVdrive.getProcessingTier(slots[0], CelestialBody.getBody(worldObj))) {
+		if(getProcessingTier() >= ItemVOTVdrive.getProcessingTier(slots[0], CelestialBody.getBody(this.world))) {
 			isProcessing = true;
 		}
 	}
@@ -206,7 +207,7 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineDriveProcessor";
 	}
 
@@ -222,12 +223,12 @@ public class TileEntityMachineDriveProcessor extends TileEntityMachineBase imple
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 1,
-				yCoord,
-				zCoord - 1,
-				xCoord + 2,
-				yCoord + 1,
-				zCoord + 2
+				this.pos.getX() - 1,
+				this.pos.getY(),
+				this.pos.getZ() - 1,
+				this.pos.getX() + 2,
+				this.pos.getY() + 1,
+				this.pos.getZ() + 2
 			);
 		}
 

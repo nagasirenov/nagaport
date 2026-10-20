@@ -40,7 +40,7 @@ public class SoyuzLauncher extends BlockDummyable {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 	
@@ -58,7 +58,7 @@ public class SoyuzLauncher extends BlockDummyable {
 			
 			BossSpawnHandler.markFBI(player);
 			
-			TileEntitySoyuzLauncher entity = (TileEntitySoyuzLauncher) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntitySoyuzLauncher entity = (TileEntitySoyuzLauncher) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
@@ -84,7 +84,7 @@ public class SoyuzLauncher extends BlockDummyable {
 		ForgeDirection dir = ForgeDirection.EAST;
 		
 		if(!checkRequirement(world, x, y, z, dir, o)) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			
 			if(!pl.capabilities.isCreativeMode) {
 				ItemStack stack = pl.inventory.mainInventory[pl.inventory.currentItem];
@@ -96,7 +96,7 @@ public class SoyuzLauncher extends BlockDummyable {
 					if(stack.getItem() != item || stack.stackSize == stack.getMaxStackSize()) {
 						pl.inventory.addItemStackToInventory(new ItemStack(this));
 					} else {
-						pl.getHeldItem().stackSize++;
+						com.hbm.util.NativeHeldItem.getMainHandNullable(pl).stackSize++;
 					}
 				}
 			}
@@ -104,7 +104,7 @@ public class SoyuzLauncher extends BlockDummyable {
 			return;
 		}
 		
-		pl.getHeldItem().stackSize--;
+		com.hbm.util.NativeHeldItem.getMainHandNullable(pl).stackSize--;
 		
 		world.setBlock(x + dir.offsetX * o , y + dir.offsetY * o + height, z + dir.offsetZ * o, this, dir.ordinal() + offset, 3);
 		fillSpace(world, x, y, z, dir, o);
@@ -175,50 +175,54 @@ public class SoyuzLauncher extends BlockDummyable {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block p_149749_5_, int i) {
 		if(!keepInventory) {
-			ISidedInventory tileentityfurnace = (ISidedInventory) world.getTileEntity(x, y, z);
+			ISidedInventory tileentityfurnace = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(tileentityfurnace instanceof TileEntitySoyuzLauncher) {
 				for(int i1 = 0; i1 < tileentityfurnace.getSizeInventory(); ++i1) {
 					ItemStack itemstack = tileentityfurnace.getStackInSlot(i1);
 
-					if(itemstack != null) {
+					if(itemstack != null && !itemstack.isEmpty()) {
 						float f = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 						float f1 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 						float f2 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 
-						while(itemstack.stackSize > 0) {
+						while(itemstack.getCount() > 0) {
 							int j1 = this.field_149933_a.nextInt(21) + 10;
 
-							if(j1 > itemstack.stackSize) {
-								j1 = itemstack.stackSize;
+							if(j1 > itemstack.getCount()) {
+								j1 = itemstack.getCount();
 							}
 
-							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							// Capture before depletion: native empty stacks hide their item.
+							net.minecraft.item.Item dropItem = itemstack.getItem();
+							int dropMeta = itemstack.getItemDamage();
+							NBTTagCompound dropTag = itemstack.getTagCompound();
+							itemstack.shrink(j1);
+							EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-							if(itemstack.hasTagCompound()) {
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+							if(dropTag != null) {
+								entityitem.getItem().setTagCompound(dropTag.copy());
 							}
 
 							float f3 = 0.05F;
 							entityitem.motionX = (float) this.field_149933_a.nextGaussian() * f3;
 							entityitem.motionY = (float) this.field_149933_a.nextGaussian() * f3 + 0.2F;
 							entityitem.motionZ = (float) this.field_149933_a.nextGaussian() * f3;
-							world.spawnEntityInWorld(entityitem);
+							world.spawnEntity(entityitem);
 						}
 					}
 				}
 
 				for(int l = 0; l < 6; l++)
-					world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_launcher, 64)));
+					world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_launcher, 64)));
 				for(int l = 0; l < 4; l++)
-					world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.concrete_smooth, 64)));
+					world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.concrete_smooth, 64)));
 				for(int l = 0; l < 6; l++)
-					world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_scaffold, 64)));
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_launcher, 30)));
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_scaffold, 63)));
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.concrete_smooth, 38)));
-				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_soyuz_core, 1)));
+					world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_scaffold, 64)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_launcher, 30)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_scaffold, 63)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.concrete_smooth, 38)));
+				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_soyuz_core, 1)));
 
 				world.func_147453_f(x, y, z, p_149749_5_);
 			}

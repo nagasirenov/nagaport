@@ -1,0 +1,32 @@
+{
+  "legacy-version.json": {
+    "url": "https://piston-meta.mojang.com/v1/packages/ed5d8789ed29872ea2ef1c348302b0c55e3f3468/1.7.10.json",
+    "bytes": 14777,
+    "sha1": "ed5d8789ed29872ea2ef1c348302b0c55e3f3468",
+    "sha256": "265c7e47aad4c74f6085a49667d3a828f48d63f484def2ae70b5e426e5b7cba6"
+  },
+  "native-index.json": {
+    "url": "https://piston-meta.mojang.com/v1/packages/a21e1ded1a24ea1548dd8db0cf30b6acb02655a9/1.12.json",
+    "bytes": 143136,
+    "sha1": "a21e1ded1a24ea1548dd8db0cf30b6acb02655a9",
+    "sha256": "7a87ae9278d129fc60285547332b8c17c1ae7f72b9c8017cb0a6898df743eb2f"
+  },
+  "legacy-index.json": {
+    "url": "https://launchermeta.mojang.com/v1/packages/1863782e33ce7b584fc45b037325a1964e095d3e/1.7.10.json",
+    "bytes": 72996,
+    "sha1": "1863782e33ce7b584fc45b037325a1964e095d3e",
+    "sha256": "48d191b37f391edfcdc77c51f2dce7ee4a9a97c48c0069af5b4f93a25c698f4f"
+  },
+  "legacy-sounds.json": {
+    "url": "https://resources.download.minecraft.net/fc/fce0bb3e14ade7b292a7c1d5fa785533d8106d82",
+    "bytes": 34020,
+    "sha1": "fce0bb3e14ade7b292a7c1d5fa785533d8106d82",
+    "sha256": "14ef20dbd81eeb5eec0ec002f5d6fcb047e7f53203b20c79ba33836faa0f6f44"
+  },
+  "native-sounds.json": {
+    "url": "https://resources.download.minecraft.net/97/975a99ed9870f51bbae348533d775d730e3fee18",
+    "bytes": 105658,
+    "sha1": "975a99ed9870f51bbae348533d775d730e3fee18",
+    "sha256": "b33ac54ddcbe81c8f627e8e7eb642f269e0b54686849a2acb4048812eb06711e"
+  }
+}

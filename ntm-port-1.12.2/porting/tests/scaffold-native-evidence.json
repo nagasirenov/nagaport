@@ -1,0 +1,9 @@
+{
+  "sha256": {
+    "porting/tests/scaffold-native-probe.py": "f0f1e1e17ce97b650b3bff4bea64d42e3cffd596118e7b7c7120469d33c0af63",
+    "porting/tests/scaffold-native-test.java.in": "7107f97ae2fa9f902ad1476fe066d66eff301a36f35bd6cad2c233a8ad20b5f1",
+    "porting/tests/scaffold-native-notes.md": "d98b7c9ac14e4586d07eb15f6f53f0ad65c57ed97e7e27db2facba8492544815",
+    "porting/tests/scaffold-native-scope.json": "028d781a2ae70d7679732d41f363c655fb4244d815bac76936420df8e7fa0e51",
+    "porting/scaffold-native-test.log": "4bb9617be2fcc88dc70c5e06148c7f770d301e60eeffcacfdd7414b4d64781ce"
+  }
+}

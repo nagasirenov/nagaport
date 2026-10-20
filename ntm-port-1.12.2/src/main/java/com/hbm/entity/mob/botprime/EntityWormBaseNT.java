@@ -2,12 +2,12 @@ package com.hbm.entity.mob.botprime;
 
 import java.util.List;
 
-import net.minecraft.command.IEntitySelector;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
@@ -24,7 +24,7 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 	protected boolean canFly = false;
 	protected int dmgCooldown = 0;
 	protected boolean wasNearGround;
-	protected ChunkCoordinates spawnPoint = new ChunkCoordinates();
+	protected BlockPos.MutableBlockPos spawnPoint = new BlockPos.MutableBlockPos();
 	protected double attackRange;
 	protected double maxSpeed;
 	protected double fallSpeed;
@@ -38,10 +38,10 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 	protected double segmentDistance;
 	protected double knockbackDivider;
 
-	public static final IEntitySelector wormSelector = new IEntitySelector() {
+	public static final Predicate<Entity> wormSelector = new Predicate<Entity>() {
 
 		@Override
-		public boolean isEntityApplicable(Entity target) {
+		public boolean apply(Entity target) {
 			return target instanceof EntityWormBaseNT;
 		}
 	};
@@ -62,7 +62,7 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 	}
 
 	public Entity getHead() {
-		return worldObj.getEntityByID(this.headID);
+		return this.world.getEntityByID(this.headID);
 	}
 
 	public int getHeadID() {
@@ -98,7 +98,7 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 
 	protected void updateEntityActionState() {
 		
-		if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+		if(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
 			setDead();
 		}
 		if((this.targetedEntity != null) && (this.targetedEntity.isDead)) {
@@ -111,7 +111,7 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		}
 		
 		if(this.ticksExisted % 5 == 0) {
-			attackEntitiesInList(this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(0.5D, 0.5D, 0.5D)));
+			attackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.5D, 0.5D, 0.5D)));
 		}
 	}
 
@@ -136,9 +136,9 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		
 		if(var2) {
 			this.entityAge = 0;
-			double tx = (this.boundingBox.minX + this.boundingBox.maxX) / 2.0D;
-			double tz = (this.boundingBox.minZ + this.boundingBox.maxZ) / 2.0D;
-			double ty = (this.boundingBox.minY + this.boundingBox.maxY) / 2.0D;
+			double tx = (this.getEntityBoundingBox().minX + this.getEntityBoundingBox().maxX) / 2.0D;
+			double tz = (this.getEntityBoundingBox().minZ + this.getEntityBoundingBox().maxZ) / 2.0D;
+			double ty = (this.getEntityBoundingBox().minY + this.getEntityBoundingBox().maxY) / 2.0D;
 			double deltaX = target.posX - tx;
 			double deltaZ = target.posZ - tz;
 			double deltaY = target.posY - ty;
@@ -193,13 +193,13 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		}
 		
 		if((this.ticksExisted % 60 == 0 || this.ticksExisted == 1) && (this.targetedEntity == null || this.followed == null)) {
-			findEntityToFollow(this.worldObj.selectEntitiesWithinAABB(EntityLiving.class, this.boundingBox.expand(this.rangeForParts, this.rangeForParts, this.rangeForParts), EntityWormBaseNT.wormSelector));
+			findEntityToFollow(this.world.getEntitiesWithinAABB(EntityLiving.class, this.getEntityBoundingBox().grow(this.rangeForParts, this.rangeForParts, this.rangeForParts), EntityWormBaseNT.wormSelector));
 		}
 		
 		double deltaX = this.waypointX - this.posX;
 		double deltaY = this.waypointY - this.posY;
 		double deltaZ = this.waypointZ - this.posZ;
-		double deltaDist = MathHelper.sqrt_double(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+		double deltaDist = MathHelper.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
 		if(this.targetedEntity != null) {
 			this.faceEntity(this.targetedEntity, 180.0F, 180.0F);

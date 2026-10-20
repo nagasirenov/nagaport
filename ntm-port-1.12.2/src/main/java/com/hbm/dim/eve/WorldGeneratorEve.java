@@ -36,7 +36,7 @@ public class WorldGeneratorEve implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.eveDimension) {
+		if(world.provider.getDimension() == SpaceConfig.eveDimension) {
 			generateEve(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}

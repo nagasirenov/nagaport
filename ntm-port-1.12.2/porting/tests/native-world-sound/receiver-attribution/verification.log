@@ -1,0 +1,22 @@
+{
+  "baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+  "source_call_count": 96,
+  "original_native_world_receivers": 96,
+  "corrected_native_world_first_arguments": 96,
+  "corrected_executable_owner_count": 96,
+  "corrected_exact_argument_preservation_count": 96,
+  "malformed_original_candidate_sites": [
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "line": 147,
+      "before_receiver": "ctx.getPlayer().world",
+      "malformed_receiver": "ctx.getPlayer().com.hbm.sound.WorldSoundEffects",
+      "malformed_receiver_type": "net.minecraft.entity.player.EntityPlayer.com.hbm.sound.WorldSoundEffects",
+      "malformed_method_kind": "CLASS",
+      "malformed_method_owner": "net.minecraft.entity.player.EntityPlayer.com.hbm.sound.WorldSoundEffects",
+      "malformed_first_argument_type": "world"
+    }
+  ],
+  "overall_compilation_success": false,
+  "diagnostics_note": "This is targeted javac type attribution amid pre-existing unfinished-port errors, not full-project compilation success."
+}

@@ -52,29 +52,29 @@ public class EntityAIMaskmanLasergun extends EntityAIBase {
 
 			switch(attack) {
 			case ORB:
-				EntityBulletBaseNT orb = new EntityBulletBaseNT(owner.worldObj, BulletConfigSyncingUtil.MASKMAN_ORB, owner, target, 2.0F, 0);
+				EntityBulletBaseNT orb = new EntityBulletBaseNT(owner.world, BulletConfigSyncingUtil.MASKMAN_ORB, owner, target, 2.0F, 0);
 				orb.motionY += 0.5D;
 				
-				owner.worldObj.spawnEntityInWorld(orb);
+				owner.world.spawnEntityInWorld(orb);
 				owner.playSound("hbm:weapon.teslaShoot", 1.0F, 1.0F);
 				break;
 				
 			case MISSILE:
-				EntityBulletBaseNT missile = new EntityBulletBaseNT(owner.worldObj, BulletConfigSyncingUtil.MASKMAN_ROCKET, owner, target, 1.0F, 0);
+				EntityBulletBaseNT missile = new EntityBulletBaseNT(owner.world, BulletConfigSyncingUtil.MASKMAN_ROCKET, owner, target, 1.0F, 0);
 				Vec3d vec = new Vec3d(target.posX - owner.posX, 0, target.posZ - owner.posZ);
 				missile.motionX = vec.x * 0.05D;
 				missile.motionY = 0.5D + owner.getRNG().nextDouble() * 0.5D;
 				missile.motionZ = vec.z * 0.05D;
 				
-				owner.worldObj.spawnEntityInWorld(missile);
+				owner.world.spawnEntityInWorld(missile);
 				owner.playSound("hbm:weapon.hkShoot", 1.0F, 1.0F);
 				break;
 				
 			case SPLASH:
 				
 				for(int i = 0; i < 5; i++) {
-					EntityBulletBaseNT tracer = new EntityBulletBaseNT(owner.worldObj, BulletConfigSyncingUtil.MASKMAN_TRACER, owner, target, 1.0F, 0.05F);
-					owner.worldObj.spawnEntityInWorld(tracer);
+					EntityBulletBaseNT tracer = new EntityBulletBaseNT(owner.world, BulletConfigSyncingUtil.MASKMAN_TRACER, owner, target, 1.0F, 0.05F);
+					owner.world.spawnEntityInWorld(tracer);
 				}
 				break;
 				

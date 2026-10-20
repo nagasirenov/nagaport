@@ -1,0 +1,17 @@
+PASS 165 world getter token mutation negatives, 70 exact inverses and whole-file drift negatives
+PASS 20 compiler ownership/arity/static/shadow/override/unicode adversaries
+PASS full baseline attribution 165
+PASS full native destination method attribution 165
+EXACT PRODUCTION METHOD src/main/java/com/hbm/tileentity/machine/TileEntityAirPump.java public World getWorld() 1be70598da1c39aed4ab575ab3348a4a7edeea4915f8449de81508f55d4d810e
+EXACT PRODUCTION METHOD src/main/java/com/hbm/inventory/fluid/FluidType.java public void onFluidRelease(TileEntity te, FluidTank tank, int overflowAmount) 8acd9eb27c81ca656180a5449486b02c09428e1f403aa707f5056efd6c9c21c8
+/tmp/tile-world-proof-lsju8opj/NativeWorldTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/tmp/tile-world-proof-lsju8opj/NativeWorldTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/tmp/tile-world-proof-lsju8opj/NativeWorldTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                 ^
+3 warnings
+PASS 132 original/native getter, identity, lifecycle, dispatch, exact fluid forwarding assertions

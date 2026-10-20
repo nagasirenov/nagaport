@@ -33,31 +33,31 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 			return null;
 		}
 
-		return new BlockPos(stack.stackTagCompound.getInteger("anchorX"), stack.stackTagCompound.getInteger("anchorY"), stack.stackTagCompound.getInteger("anchorZ"));
+		return new BlockPos(stack.getTagCompound().getInteger("anchorX"), stack.getTagCompound().getInteger("anchorY"), stack.getTagCompound().getInteger("anchorZ"));
 	}
 
 	public static void setAnchor(ItemStack stack, int x, int y, int z) {
 
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("anchorX", x);
-		stack.stackTagCompound.setInteger("anchorY", y);
-		stack.stackTagCompound.setInteger("anchorZ", z);
+		stack.getTagCompound().setInteger("anchorX", x);
+		stack.getTagCompound().setInteger("anchorY", y);
+		stack.getTagCompound().setInteger("anchorZ", z);
 	}
 
 	public static void writeToFile(File config, ItemStack stack, World world) {
-		int anchorX = stack.stackTagCompound.getInteger("anchorX");
-		int anchorY = stack.stackTagCompound.getInteger("anchorY");
-		int anchorZ = stack.stackTagCompound.getInteger("anchorZ");
-		int x1 = stack.stackTagCompound.getInteger("x1");
-		int y1 = stack.stackTagCompound.getInteger("y1");
-		int z1 = stack.stackTagCompound.getInteger("z1");
-		int x2 = stack.stackTagCompound.getInteger("x2");
-		int y2 = stack.stackTagCompound.getInteger("y2");
-		int z2 = stack.stackTagCompound.getInteger("z2");
-		ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(anchorX, anchorY, anchorZ));
+		int anchorX = stack.getTagCompound().getInteger("anchorX");
+		int anchorY = stack.getTagCompound().getInteger("anchorY");
+		int anchorZ = stack.getTagCompound().getInteger("anchorZ");
+		int x1 = stack.getTagCompound().getInteger("x1");
+		int y1 = stack.getTagCompound().getInteger("y1");
+		int z1 = stack.getTagCompound().getInteger("z1");
+		int x2 = stack.getTagCompound().getInteger("x2");
+		int y2 = stack.getTagCompound().getInteger("y2");
+		int z2 = stack.getTagCompound().getInteger("z2");
+		ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, anchorX, anchorY, anchorZ) ));
 		int minX = Math.min(x1, x2);
 		int maxX = Math.max(x1, x2);
 		int minY = Math.min(y1, y2);
@@ -98,8 +98,8 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 						}
 						
 						if(x == anchorX && y == anchorY && z == anchorZ) continue;
-						Block block = world.getBlock(x, y, z);
-						int meta = world.getBlockMetadata(x, y, z);
+						Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+						int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 						if(block == Blocks.air) continue;
 						
 						writer.beginObject().setIndent("");
@@ -123,7 +123,7 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b == ModBlocks.cm_anchor) {
 			this.setAnchor(stack, x, y, z);
@@ -133,22 +133,22 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 		if(this.getAnchor(stack) == null) {
 			return false;
 		}
-		if(!stack.stackTagCompound.hasKey("x1")) {
-			stack.stackTagCompound.setInteger("x1", x);
-			stack.stackTagCompound.setInteger("y1", y);
-			stack.stackTagCompound.setInteger("z1", z);
-		} else if(!stack.stackTagCompound.hasKey("x2")) {
-			stack.stackTagCompound.setInteger("x2", x);
-			stack.stackTagCompound.setInteger("y2", y);
-			stack.stackTagCompound.setInteger("z2", z);
+		if(!stack.getTagCompound().hasKey("x1")) {
+			stack.getTagCompound().setInteger("x1", x);
+			stack.getTagCompound().setInteger("y1", y);
+			stack.getTagCompound().setInteger("z1", z);
+		} else if(!stack.getTagCompound().hasKey("x2")) {
+			stack.getTagCompound().setInteger("x2", x);
+			stack.getTagCompound().setInteger("y2", y);
+			stack.getTagCompound().setInteger("z2", z);
 		} else {
 			writeToFile(file, stack, world);
-			stack.stackTagCompound.removeTag("x1");
-			stack.stackTagCompound.removeTag("y1");
-			stack.stackTagCompound.removeTag("z1");
-			stack.stackTagCompound.removeTag("x2");
-			stack.stackTagCompound.removeTag("y2");
-			stack.stackTagCompound.removeTag("z2");
+			stack.getTagCompound().removeTag("x1");
+			stack.getTagCompound().removeTag("y1");
+			stack.getTagCompound().removeTag("z1");
+			stack.getTagCompound().removeTag("x2");
+			stack.getTagCompound().removeTag("y2");
+			stack.getTagCompound().removeTag("z2");
 		}
 		return true;
 	}
@@ -164,7 +164,7 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 
 	@Override
 	public void printHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {
-		ItemStack stack = Minecraft.getMinecraft().thePlayer.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player);
 		List<String> text = new ArrayList();
 
 		BlockPos anchor = getAnchor(stack);
@@ -173,21 +173,21 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 
 			text.add(TextFormatting.RED + "No Anchor");
 		} else {
-			int anchorX = stack.stackTagCompound.getInteger("anchorX");
-			int anchorY = stack.stackTagCompound.getInteger("anchorY");
-			int anchorZ = stack.stackTagCompound.getInteger("anchorZ");
+			int anchorX = stack.getTagCompound().getInteger("anchorX");
+			int anchorY = stack.getTagCompound().getInteger("anchorY");
+			int anchorZ = stack.getTagCompound().getInteger("anchorZ");
 			text.add(TextFormatting.GOLD + "Anchor: " + anchorX + " / " + anchorY + " / " + anchorZ);
-			if(stack.stackTagCompound.hasKey("x1")) {
-				int x1 = stack.stackTagCompound.getInteger("x1");
-				int y1 = stack.stackTagCompound.getInteger("y1");
-				int z1 = stack.stackTagCompound.getInteger("z1");
+			if(stack.getTagCompound().hasKey("x1")) {
+				int x1 = stack.getTagCompound().getInteger("x1");
+				int y1 = stack.getTagCompound().getInteger("y1");
+				int z1 = stack.getTagCompound().getInteger("z1");
 
 				text.add(TextFormatting.YELLOW + "Position1: " + x1 + " / " + y1 + " / " + z1);
 			}
-			if(stack.stackTagCompound.hasKey("x2")) {
-				int x2 = stack.stackTagCompound.getInteger("x2");
-				int y2 = stack.stackTagCompound.getInteger("y2");
-				int z2 = stack.stackTagCompound.getInteger("z2");
+			if(stack.getTagCompound().hasKey("x2")) {
+				int x2 = stack.getTagCompound().getInteger("x2");
+				int y2 = stack.getTagCompound().getInteger("y2");
+				int z2 = stack.getTagCompound().getInteger("z2");
 				text.add(TextFormatting.YELLOW + "Position2: " + x2 + " / " + y2 + " / " + z2);
 			}
 		}

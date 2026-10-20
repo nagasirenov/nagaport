@@ -27,37 +27,37 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements IRepairable {
+public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements IRepairable, net.minecraft.util.ITickable {
 
 	public boolean isBroken = false;
 	public int comTimer = -1;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(comTimer == 360) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.hornNearSingle", 10F, 1F);
-			if(comTimer == 280) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.hornFarSingle", 10000F, 1F);
-			if(comTimer == 220) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.hornNearDual", 10F, 1F);
-			if(comTimer == 100) worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.hornFarDual", 10000F, 1F);
+			if(comTimer == 360) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.hornNearSingle", 10F, 1F);
+			if(comTimer == 280) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.hornFarSingle", 10000F, 1F);
+			if(comTimer == 220) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.hornNearDual", 10F, 1F);
+			if(comTimer == 100) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.hornFarDual", 10000F, 1F);
 
 			if(comTimer == 0) {
-				List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - 10, yCoord - 10, zCoord - 10, xCoord + 11, yCoord + 11, zCoord + 11));
+				List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 10, this.pos.getY() - 10, this.pos.getZ() - 10, this.pos.getX() + 11, this.pos.getY() + 11, this.pos.getZ() + 11));
 				EntityPlayer first = players.isEmpty() ? null : players.get(0);
 				boolean bonus = first == null ? false : (HbmPlayerProps.getData(first).reputation >= 10);
-				EntityBobmazon shuttle = new EntityBobmazon(worldObj);
-				shuttle.posX = xCoord + 0.5 + worldObj.rand.nextGaussian() * 10;
+				EntityBobmazon shuttle = new EntityBobmazon(this.world);
+				shuttle.posX = this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 10;
 				shuttle.posY = 300;
-				shuttle.posZ = zCoord + 0.5 + worldObj.rand.nextGaussian() * 10;
+				shuttle.posZ = this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 10;
 				ItemStack payload = ItemKitCustom.create("Supplies", null, 0xffffff, 0x008000,
-						DictFrame.fromOne(ModItems.circuit, EnumCircuitType.BASIC, 4 + worldObj.rand.nextInt(4)),
-						DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED, 4 + worldObj.rand.nextInt(2)),
-						bonus ? new ItemStack(ModItems.gem_alexandrite) : new ItemStack(Items.diamond, 6 + worldObj.rand.nextInt(6)),
-						new ItemStack(Blocks.red_flower));
+						DictFrame.fromOne(ModItems.circuit, EnumCircuitType.BASIC, 4 + this.world.rand.nextInt(4)),
+						DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED, 4 + this.world.rand.nextInt(2)),
+						bonus ? new ItemStack(ModItems.gem_alexandrite) : new ItemStack(Items.DIAMOND, 6 + this.world.rand.nextInt(6)),
+						new ItemStack(Blocks.RED_FLOWER));
 				shuttle.payload = payload;
 
-				worldObj.spawnEntityInWorld(shuttle);
+				this.world.spawnEntityInWorld(shuttle);
 			}
 
 			if(comTimer >= 0) {
@@ -71,7 +71,7 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 	@Override
 	public void invalidate() {
 		super.invalidate();
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - 50, yCoord - 50, zCoord - 50, xCoord + 51, yCoord + 51, zCoord + 51));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 50, this.pos.getY() - 50, this.pos.getZ() - 50, this.pos.getX() + 51, this.pos.getY() + 51, this.pos.getZ() + 51));
 		for(EntityPlayer player : players) {
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
 			if(props.reputation > -25) props.reputation--;
@@ -96,10 +96,11 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("isBroken", isBroken);
 		nbt.setInteger("comTimer", comTimer);
+		return nbt;
 	}
 
 	@Override
@@ -135,12 +136,12 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord,
-					yCoord,
-					zCoord,
-					xCoord + 1,
-					yCoord + 6,
-					zCoord + 1
+					this.pos.getX(),
+					this.pos.getY(),
+					this.pos.getZ(),
+					this.pos.getX() + 1,
+					this.pos.getY() + 6,
+					this.pos.getZ() + 1
 					);
 		}
 

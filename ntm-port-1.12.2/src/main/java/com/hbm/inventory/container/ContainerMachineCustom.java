@@ -58,7 +58,7 @@ public class ContainerMachineCustom extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return custom.isUseableByPlayer(player);
+		return custom.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -89,13 +89,13 @@ public class ContainerMachineCustom extends Container {
 			ret = slot.getStack().copy();
 		
 		if(button == 1 && mode == 0 && slot.getHasStack()) {
-			custom.matcher.nextMode(player.worldObj, slot.getStack(), index - 10);
+			custom.matcher.nextMode(player.world, slot.getStack(), index - 10);
 			return ret;
 			
 		} else {
 	
 			slot.putStack(held);
-			custom.matcher.initPatternSmart(player.worldObj, slot.getStack(), index - 10);
+			custom.matcher.initPatternSmart(player.world, slot.getStack(), index - 10);
 			
 			return ret;
 		}

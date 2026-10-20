@@ -58,7 +58,7 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
-						if (world.getBlock(X, Y, Z) == ModBlocks.crystal_virus)
+						if (com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock() == ModBlocks.crystal_virus)
 							world.setBlock(X, Y, Z, ModBlocks.crystal_hardened);
 					}
 				}
@@ -81,7 +81,7 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
-						if (rand.nextInt(15) == 0 && world.getBlock(X, Y, Z) != Blocks.air)
+						if (rand.nextInt(15) == 0 && com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock() != Blocks.AIR)
 							world.setBlock(X, Y, Z, ModBlocks.cheater_virus_seed);
 					}
 				}
@@ -105,8 +105,8 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
 						
-						if(world.getBlock(X, Y, Z).getExplosionResistance(null) <= 70) {
-							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, X + 0.5, Y + 0.5, Z + 0.5, world.getBlock(X, Y, Z), world.getBlockMetadata(X, Y, Z));
+						if(com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock().getExplosionResistance(null) <= 70) {
+							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, X + 0.5, Y + 0.5, Z + 0.5, com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, X, Y, Z) ));
 							world.spawnEntityInWorld(entityfallingblock);
 						}
 					}
@@ -130,8 +130,8 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
-						if (!(world.getBlock(X, Y, Z) == Blocks.bedrock && Y <= 0))
-							world.setBlock(X, Y, Z, Blocks.air);
+						if (!(com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock() == Blocks.BEDROCK && Y <= 0))
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = X; int nativePlacementY = Y; int nativePlacementZ = Z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					}
 				}
 			}
@@ -184,9 +184,9 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
-						if (com.hbm.lib.FacingCompat.isFlammable(world.getBlock(X, Y, Z), world, XX, YY, ZZ, ForgeDirection.UP)
-								&& world.getBlock(X, Y + 1, Z) == Blocks.air) {
-							world.setBlock(X, Y + 1, Z, Blocks.fire);
+						if (com.hbm.lib.FacingCompat.isFlammable(com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock(), world, XX, YY, ZZ, ForgeDirection.UP)
+								&& com.hbm.world.WorldBlockState.read(world, X, Y + 1, Z).getBlock() == Blocks.AIR) {
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = X; int nativePlacementY = Y + 1; int nativePlacementZ = Z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					}
 				}
@@ -219,10 +219,10 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
-						if ((world.getBlock(X, Y + 1, Z) == Blocks.air
-								|| world.getBlock(X, Y + 1, Z) == Blocks.snow_layer)
-								&& world.getBlock(X, Y, Z) != Blocks.air) {
-							world.setBlock(X, Y + 1, Z, Blocks.fire);
+						if ((com.hbm.world.WorldBlockState.read(world, X, Y + 1, Z).getBlock() == Blocks.AIR
+								|| com.hbm.world.WorldBlockState.read(world, X, Y + 1, Z).getBlock() == Blocks.SNOW_LAYER)
+								&& com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock() != Blocks.AIR) {
+							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = X; int nativePlacementY = Y + 1; int nativePlacementZ = Z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					}
 				}
@@ -439,10 +439,10 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
-						save = world.getBlock(X, Y, Z);
-						meta = world.getBlockMetadata(X, Y, Z);
-						world.setBlock(X, Y, Z, Blocks.air);
-						if (save != Blocks.air) {
+						save = com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock();
+						meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, X, Y, Z) );
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = X; int nativePlacementY = Y; int nativePlacementZ = Z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+						if (save != Blocks.AIR) {
 							world.setBlock(X, Y + height, Z, save);
 							world.setBlockMetadataWithNotify(X, Y + height, Z, meta, 2);
 						}
@@ -465,12 +465,12 @@ public class ExplosionChaos { //TODO: destroy this entire class
 		int rand = 0;
 
 		radius *= 2.0F;
-		i = MathHelper.floor_double(x - wat - 1.0D);
-		j = MathHelper.floor_double(x + wat + 1.0D);
-		k = MathHelper.floor_double(y - wat - 1.0D);
-		int i2 = MathHelper.floor_double(y + wat + 1.0D);
-		int l = MathHelper.floor_double(z - wat - 1.0D);
-		int j2 = MathHelper.floor_double(z + wat + 1.0D);
+		i = MathHelper.floor(x - wat - 1.0D);
+		j = MathHelper.floor(x + wat + 1.0D);
+		k = MathHelper.floor(y - wat - 1.0D);
+		int i2 = MathHelper.floor(y + wat + 1.0D);
+		int l = MathHelper.floor(z - wat - 1.0D);
+		int j2 = MathHelper.floor(z + wat + 1.0D);
 		List list = world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(i, k, l, j, i2, j2));
 
 		for (int i1 = 0; i1 < list.size(); ++i1) {
@@ -494,7 +494,7 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					((EntityLiving) entity).setCustomNameTag("jeb_");
 				}
 
-				double d9 = MathHelper.sqrt_double(d5 * d5 + d6 * d6 + d7 * d7);
+				double d9 = MathHelper.sqrt(d5 * d5 + d6 * d6 + d7 * d7);
 				if (d9 < wat) {
 					entity.setPosition(entity.posX += a, entity.posY += b, entity.posZ += c);
 				}
@@ -518,7 +518,7 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int Z = zz + z;
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22 + world.rand.nextInt(r22 / 2)) {
-						if(world.getBlock(X, Y, Z) != ModBlocks.statue_elb_f)
+						if(com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock() != ModBlocks.statue_elb_f)
 							world.setBlock(X, Y, Z, ModBlocks.plasma);
 					}
 				}
@@ -577,10 +577,10 @@ public class ExplosionChaos { //TODO: destroy this entire class
 		for (int i = x - radius; i <= x + radius; i++)
 			for (int j = z - radius; j <= z + radius; j++) {
 				
-				Block b = world.getBlock(i, y, j);
+				Block b = com.hbm.world.WorldBlockState.read(world, i, y, j).getBlock();
 				float k = b.getExplosionResistance(null);
 						
-				if(k < 6000 && b != Blocks.air) {
+				if(k < 6000 && b != Blocks.AIR) {
 					
 					EntityRubble rubble = new EntityRubble(world);
 					rubble.posX = i + 0.5F;
@@ -588,11 +588,11 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					rubble.posZ = j + 0.5F;
 					
 					rubble.motionY = 0.025F * 10 + 0.15F;
-					rubble.setMetaBasedOnBlock(b, world.getBlockMetadata(i, y, j));
+					rubble.setMetaBasedOnBlock(b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, i, y, j) ));
 					
 					world.spawnEntityInWorld(rubble);
 					
-					world.setBlock(i, y, j, Blocks.air);
+					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = i; int nativePlacementY = y; int nativePlacementZ = j; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
 	}
@@ -601,40 +601,40 @@ public class ExplosionChaos { //TODO: destroy this entire class
 		
 		Random random = new Random();
 
-		if (world.getBlock(x, y, z) == ModBlocks.waste_earth && random.nextInt(3) != 0) {
-			world.setBlock(x, y, z, Blocks.grass);
+		if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_earth && random.nextInt(3) != 0) {
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.GRASS; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.waste_mycelium && random.nextInt(5) == 0) {
-			world.setBlock(x, y, z, Blocks.mycelium);
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_mycelium && random.nextInt(5) == 0) {
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.MYCELIUM; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.waste_trinitite && random.nextInt(3) == 0) {
-			world.setBlock(x, y, z, Blocks.sand);
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_trinitite && random.nextInt(3) == 0) {
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.SAND; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.waste_trinitite_red && random.nextInt(3) == 0) {
-			world.setBlock(x, y, z, Blocks.sand, 1, 2);
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_trinitite_red && random.nextInt(3) == 0) {
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.SAND; int nativePlacementMeta = 1; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.waste_log && random.nextInt(3) != 0) {
-			world.setBlock(x, y, z, Blocks.log);
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_log && random.nextInt(3) != 0) {
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.LOG; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.waste_planks && random.nextInt(3) != 0) {
-			world.setBlock(x, y, z, Blocks.planks);
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_planks && random.nextInt(3) != 0) {
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.PLANKS; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.block_trinitite && random.nextInt(10) == 0) {
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.block_trinitite && random.nextInt(10) == 0) {
 			world.setBlock(x, y, z, ModBlocks.block_lead);
 		}
 
-		else if (world.getBlock(x, y, z) == ModBlocks.block_waste && random.nextInt(10) == 0) {
+		else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.block_waste && random.nextInt(10) == 0) {
 			world.setBlock(x, y, z, ModBlocks.block_lead);
 		}
 		
-		else if(world.getBlock(x, y, z) == ModBlocks.sellafield) {
-			int meta = world.getBlockMetadata(x, y, z);
+		else if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.sellafield) {
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			
 			if(meta > 0) {
 				if(meta == 5 && random.nextInt(10) == 0)

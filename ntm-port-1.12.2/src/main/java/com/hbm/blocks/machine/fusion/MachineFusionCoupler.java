@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class MachineFusionCoupler extends BlockDummyable implements ITooltipProvider {
 
 	public MachineFusionCoupler() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

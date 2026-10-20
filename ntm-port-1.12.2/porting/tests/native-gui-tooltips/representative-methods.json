@@ -1,0 +1,18 @@
+[
+  [
+    "GUIScreenBobmazon",
+    "public void drawString(int x, int y) {\n\t\t\tif(info == null || info.isEmpty())\n\t\t\t\treturn;\n\n\t\t\tdrawHoveringText(Arrays.asList(new String[] { info }), x, y);\n\t\t}"
+  ],
+  [
+    "GUIScreenDesignator",
+    "public void drawString(int x, int y) {\n\t\t\tif(info == null || info.isEmpty())\n\t\t\t\treturn;\n\t\t\t\n\t\t\tString s = info;\n\n\t\t\tdrawHoveringText(Arrays.asList(new String[] { s }), x, y);\n\t\t}"
+  ],
+  [
+    "GUIScreenTemplateFolder",
+    "public void drawString(int x, int y) {\n\t\t\tif(info == null || info.isEmpty())\n\t\t\t\treturn;\n\t\t\t\n\t\t\tif(stack != null) {\n\t\t\t\tGUIScreenTemplateFolder.this.renderToolTip(stack, x, y);\n\t\t\t} else {\n\t\t\t\tdrawHoveringText(Arrays.asList(new String[] { info }), x, y);\n\t\t\t}\n\t\t}"
+  ],
+  [
+    "GUIRBMKConsole",
+    "public void drawCustomInfoStat(int mouseX, int mouseY, int x, int y, int width, int height, int tPosX, int tPosY, String[] text) {\n\t\t\n\t\tif(x <= mouseX && x + width > mouseX && y < mouseY && y + height >= mouseY)\n\t\t\tthis.drawHoveringText(Arrays.asList(text), tPosX, tPosY);\n\t}"
+  ]
+]

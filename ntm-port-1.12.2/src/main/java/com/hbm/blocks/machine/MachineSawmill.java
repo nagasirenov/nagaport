@@ -28,11 +28,11 @@ import com.hbm.lib.ForgeDirection;
 public class MachineSawmill extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public MachineSawmill() {
-		super(Material.iron);
+		super(Material.IRON);
 
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, 1.5D, 1D, 1.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.25D, 1D, -0.5D, -0.625D, 1.875D, 0.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.625D, 1D, -1D, 1.375D, 2D, 1D));
+		this.bounding.add(new AxisAlignedBB(-1.5D, 0D, -1.5D, 1.5D, 1D, 1.5D));
+		this.bounding.add(new AxisAlignedBB(-1.25D, 1D, -0.5D, -0.625D, 1.875D, 0.5D));
+		this.bounding.add(new AxisAlignedBB(-0.625D, 1D, -1D, 1.375D, 2D, 1D));
 		this.maxY = 0.999D; //item bounce prevention
 	}
 
@@ -83,10 +83,10 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 			if(pos == null)
 				return false;
 			
-			TileEntitySawmill sawmill = (TileEntitySawmill)world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntitySawmill sawmill = (TileEntitySawmill)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
-			if(!sawmill.hasBlade && player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.sawblade) {
-				player.getHeldItem().stackSize--;
+			if(!sawmill.hasBlade && com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.sawblade) {
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				sawmill.hasBlade = true;
 				sawmill.markDirty();
 				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.5F, 0.75F);
@@ -107,10 +107,10 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 				return true;
 				
 			} else {
-				if(sawmill.slots[0] == null && player.getHeldItem() != null && sawmill.getOutput(player.getHeldItem()) != null) {
-					sawmill.slots[0] = player.getHeldItem().copy();
-					sawmill.slots[0].stackSize = 1;
-					player.getHeldItem().stackSize--;
+				if(sawmill.slots[0] == null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && sawmill.getOutput(com.hbm.util.NativeHeldItem.getMainHandNullable(player)) != null) {
+					sawmill.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
+					sawmill.slots[0].setCount(1);
+					com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 					sawmill.markDirty();
 					player.inventoryContainer.detectAndSendChanges();
 					return true;
@@ -127,7 +127,7 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 		
 		if(itemStack.getItemDamage() == 1) {
 
-			int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+			int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 			int o = -getOffset();
 			
 			ForgeDirection dir = ForgeDirection.NORTH;
@@ -138,7 +138,7 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 			
 			dir = getDirModified(dir);
 
-			TileEntity te = world.getTileEntity(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o));
 			
 			if(te instanceof TileEntitySawmill) {
 				((TileEntitySawmill) te).hasBlade = false;
@@ -156,7 +156,7 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 		int[] pos = this.findCore(world, x, y, z);
 		
 		if(pos != null) {
-			TileEntitySawmill stirling = (TileEntitySawmill)world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntitySawmill stirling = (TileEntitySawmill)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(!stirling.hasBlade) {
 				dmg = 1;
 			}
@@ -184,7 +184,7 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 		if(pos == null)
 			return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntitySawmill))
 			return;
@@ -230,6 +230,6 @@ public class MachineSawmill extends BlockDummyable implements ILookOverlay, IToo
 			text.add("&[" + 0xff0000 + "&]Blade missing!");
 		}
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

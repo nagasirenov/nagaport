@@ -74,6 +74,6 @@ public class ContainerDroneCrate extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return crate.isUseableByPlayer(player);
+		return crate.isUsableByPlayer(player);
 	}
 }

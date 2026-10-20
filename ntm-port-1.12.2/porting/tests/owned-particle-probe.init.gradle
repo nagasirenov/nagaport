@@ -1,0 +1,10 @@
+// Complete production native compile; does not alter source sets or compileJava.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortOwnedParticles', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/probe-native-owned-particles.py'),
+                '--java-home', project.findProperty('portJavaHome') ?: System.getProperty('java.home'),
+                '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+        }
+    }
+}

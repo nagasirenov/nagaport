@@ -40,14 +40,14 @@ public class TileEntityPARFC extends TileEntityCooledBase implements IGUIProvide
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.paRFC";
 	}
 
 	@Override
 	public boolean canParticleEnter(Particle particle, ForgeDirection dir, int x, int y, int z) {
 		ForgeDirection rfcDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
-		BlockPos input = new BlockPos(xCoord, yCoord, zCoord).offset(rfcDir, -4);
+		BlockPos input = new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(rfcDir, -4);
 		return input.compare(x, y, z) && rfcDir == dir;
 	}
 
@@ -68,17 +68,17 @@ public class TileEntityPARFC extends TileEntityCooledBase implements IGUIProvide
 	@Override
 	public BlockPos getExitPos(Particle particle) {
 		ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
-		return new BlockPos(xCoord, yCoord, zCoord).offset(beamlineDir, 5);
+		return new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(beamlineDir, 5);
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.power = Library.chargeTEFromItems(slots, 0, power, this.getMaxPower());
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	AxisAlignedBB bb = null;
@@ -88,12 +88,12 @@ public class TileEntityPARFC extends TileEntityCooledBase implements IGUIProvide
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord - 1,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 2,
-					zCoord + 5
+					this.pos.getX() - 4,
+					this.pos.getY() - 1,
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 5
 					);
 		}
 
@@ -110,12 +110,12 @@ public class TileEntityPARFC extends TileEntityCooledBase implements IGUIProvide
 	public DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 3, yCoord + 2, zCoord + dir.offsetZ * 3, Library.POS_Y),
-				new DirPos(xCoord - dir.offsetX * 3, yCoord + 2, zCoord - dir.offsetZ * 3, Library.POS_Y),
-				new DirPos(xCoord, yCoord + 2, zCoord, Library.POS_Y),
-				new DirPos(xCoord + dir.offsetX * 3, yCoord - 2, zCoord + dir.offsetZ * 3, Library.NEG_Y),
-				new DirPos(xCoord - dir.offsetX * 3, yCoord - 2, zCoord - dir.offsetZ * 3, Library.NEG_Y),
-				new DirPos(xCoord, yCoord - 2, zCoord, Library.NEG_Y)
+				new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 3, Library.POS_Y),
+				new DirPos(this.pos.getX() - dir.offsetX * 3, this.pos.getY() + 2, this.pos.getZ() - dir.offsetZ * 3, Library.POS_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), Library.POS_Y),
+				new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() - 2, this.pos.getZ() + dir.offsetZ * 3, Library.NEG_Y),
+				new DirPos(this.pos.getX() - dir.offsetX * 3, this.pos.getY() - 2, this.pos.getZ() - dir.offsetZ * 3, Library.NEG_Y),
+				new DirPos(this.pos.getX(), this.pos.getY() - 2, this.pos.getZ(), Library.NEG_Y)
 		};
 	}
 

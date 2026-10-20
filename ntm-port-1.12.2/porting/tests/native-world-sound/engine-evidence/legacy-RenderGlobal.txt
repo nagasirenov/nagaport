@@ -1,0 +1,6 @@
+# Exact javap method excerpts; source legacy-RenderGlobal.javap
+
+  public void a(java.lang.String, double, double, double, float, float);
+    Code:
+       0: return
+

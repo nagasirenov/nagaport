@@ -1,0 +1,131 @@
+  public void setPosition(double, double, double);
+    Code:
+       0: aload_0
+       1: dload_1
+       2: putfield      #393                // Field posX:D
+       5: aload_0
+       6: dload_3
+       7: putfield      #389                // Field posY:D
+      10: aload_0
+      11: dload         5
+      13: putfield      #395                // Field posZ:D
+      16: aload_0
+      17: invokevirtual #470                // Method isAddedToWorld:()Z
+      20: ifeq          42
+      23: aload_0
+      24: getfield      #269                // Field world:Lnet/minecraft/world/World;
+      27: getfield      #447                // Field net/minecraft/world/World.isRemote:Z
+      30: ifne          42
+      33: aload_0
+      34: getfield      #269                // Field world:Lnet/minecraft/world/World;
+      37: aload_0
+      38: iconst_0
+      39: invokevirtual #474                // Method net/minecraft/world/World.updateEntityWithOptionalForce:(Lnet/minecraft/entity/Entity;Z)V
+      42: aload_0
+      43: getfield      #218                // Field width:F
+      46: fconst_2
+      47: fdiv
+      48: fstore        7
+      50: aload_0
+      51: getfield      #221                // Field height:F
+      54: fstore        8
+      56: aload_0
+      57: new           #428                // class net/minecraft/util/math/AxisAlignedBB
+      60: dup
+      61: dload_1
+      62: fload         7
+      64: f2d
+      65: dsub
+      66: dload_3
+      67: dload         5
+      69: fload         7
+      71: f2d
+      72: dsub
+      73: dload_1
+      74: fload         7
+      76: f2d
+      77: dadd
+      78: dload_3
+      79: fload         8
+      81: f2d
+      82: dadd
+      83: dload         5
+      85: fload         7
+      87: f2d
+      88: dadd
+      89: invokespecial #431                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+      92: invokevirtual #435                // Method setEntityBoundingBox:(Lnet/minecraft/util/math/AxisAlignedBB;)V
+      95: return
+
+
+  public void resetPositionToBB();
+    Code:
+       0: aload_0
+       1: invokevirtual #399                // Method getEntityBoundingBox:()Lnet/minecraft/util/math/AxisAlignedBB;
+       4: astore_1
+       5: aload_0
+       6: aload_1
+       7: getfield      #438                // Field net/minecraft/util/math/AxisAlignedBB.minX:D
+      10: aload_1
+      11: getfield      #990                // Field net/minecraft/util/math/AxisAlignedBB.maxX:D
+      14: dadd
+      15: ldc2_w        #425                // double 2.0d
+      18: ddiv
+      19: putfield      #393                // Field posX:D
+      22: aload_0
+      23: aload_1
+      24: getfield      #441                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+      27: putfield      #389                // Field posY:D
+      30: aload_0
+      31: aload_1
+      32: getfield      #444                // Field net/minecraft/util/math/AxisAlignedBB.minZ:D
+      35: aload_1
+      36: getfield      #993                // Field net/minecraft/util/math/AxisAlignedBB.maxZ:D
+      39: dadd
+      40: ldc2_w        #425                // double 2.0d
+      43: ddiv
+      44: putfield      #395                // Field posZ:D
+      47: aload_0
+      48: invokevirtual #470                // Method isAddedToWorld:()Z
+      51: ifeq          73
+      54: aload_0
+      55: getfield      #269                // Field world:Lnet/minecraft/world/World;
+      58: getfield      #447                // Field net/minecraft/world/World.isRemote:Z
+      61: ifne          73
+      64: aload_0
+      65: getfield      #269                // Field world:Lnet/minecraft/world/World;
+      68: aload_0
+      69: iconst_0
+      70: invokevirtual #474                // Method net/minecraft/world/World.updateEntityWithOptionalForce:(Lnet/minecraft/entity/Entity;Z)V
+      73: return
+
+
+  public void playSound(net.minecraft.util.SoundEvent, float, float);
+    Code:
+       0: aload_0
+       1: invokevirtual #1093               // Method isSilent:()Z
+       4: ifne          37
+       7: aload_0
+       8: getfield      #269                // Field world:Lnet/minecraft/world/World;
+      11: aconst_null
+      12: checkcast     #725                // class net/minecraft/entity/player/EntityPlayer
+      15: aload_0
+      16: getfield      #393                // Field posX:D
+      19: aload_0
+      20: getfield      #389                // Field posY:D
+      23: aload_0
+      24: getfield      #395                // Field posZ:D
+      27: aload_1
+      28: aload_0
+      29: invokevirtual #1097               // Method getSoundCategory:()Lnet/minecraft/util/SoundCategory;
+      32: fload_2
+      33: fload_3
+      34: invokevirtual #1100               // Method net/minecraft/world/World.playSound:(Lnet/minecraft/entity/player/EntityPlayer;DDDLnet/minecraft/util/SoundEvent;Lnet/minecraft/util/SoundCategory;FF)V
+      37: return
+
+
+  public double getYOffset();
+    Code:
+       0: dconst_0
+       1: dreturn
+

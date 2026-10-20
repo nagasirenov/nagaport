@@ -1,0 +1,11 @@
+
+	/** Places one of the original four concrete bricks, using Library's shared selector. */
+	public static void placeRandomConcrete(World world, int x, int y, int z) {
+		Block concrete = com.hbm.lib.Library.getRandomConcrete();
+		// Selection precedes the receiver check, just as it did at the call sites.
+		if(world == null) throw new NullPointerException();
+		// Keep the original pre-chunk bounds, including draws for rejected placements.
+		if(x >= -30000000 && z >= -30000000 && x < 30000000 && z < 30000000 && y >= 0 && y < 256) {
+			world.setBlockState(new BlockPos(x, y, z), concrete.getStateFromMeta(0), 3);
+		}
+	}

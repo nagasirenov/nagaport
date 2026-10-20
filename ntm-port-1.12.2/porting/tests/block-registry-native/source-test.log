@@ -1,0 +1,9 @@
+PASS exact CP51 reverse hashes for both changed production owners
+PASS 834 name receivers: 647 native mappings; 187 NTM BlockBase side-effect setters retained
+PASS constructor/string literals and complete fluent evaluation order unchanged
+PASS 651 registration calls and original ItemBlock selections unchanged; seven Fluid name setters retained
+PASS 676 explicit texture calls retained; original CRLF bytes retained
+PASS 156 BlockBase-owned call sites use audited receiver casts, without setter reordering
+PASS genuine production registry queue is unmodified
+REMAINING {"old_setStepSound": 148, "old_texture_calls_non_Base": 531}
+PASS 129 standalone assigned texture resources retain exact pristine bytes; 16 variant-stem entries remain owner callback cases, not fabricated assets

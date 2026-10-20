@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 public class BlockPABeamline extends BlockDummyable implements ITooltipProvider, IToolable {
 
 	public BlockPABeamline() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
 		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}
@@ -44,7 +44,7 @@ public class BlockPABeamline extends BlockDummyable implements ITooltipProvider,
 		
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos != null) {
-			TileEntityPABeamline tile = (TileEntityPABeamline) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityPABeamline tile = (TileEntityPABeamline) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			tile.window = !tile.window;
 			tile.markDirty();
 		}

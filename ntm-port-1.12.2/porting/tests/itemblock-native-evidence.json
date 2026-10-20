@@ -1,0 +1,19 @@
+{
+  "sha256": {
+    "porting/tests/itemblock-native/removed-method-references.json": "b868e47f319175efa0e4f6ba03d89b455e697f865d804735ac4df86db54ddff2",
+    "porting/tests/itemblock-native/NativeItemBlockTest.java": "a44e285a56f554b6aa9cb58ed35c9217ba1424f02047a01096c8549a21624da3",
+    "porting/tests/itemblock-native/structural-with-production-item.py": "400b53202f24925f656960734f352d4fe9012ad7b21bc84e9e2a42194bf231a9",
+    "porting/tests/itemblock-native/native-root.log": "798657255893be09bc76a899fd44e47253912fc3027dc7e6d2607eb4fbbf3b34",
+    "porting/tests/itemblock-native/README.md": "fefb3fa9abfff3787e3563b1dbaeba7ed945f3f8262c3e8a9c9e41b3dbd92728",
+    "porting/tests/itemblock-native/run.py": "f9e3333cb1ef99ef90299de953531b45b95744f2aa7b6869a56c0c2fa730b78c",
+    "porting/tests/itemblock-native/isolated-latest.log": "4ab8c95875fb90f0b5a322d7bfb860d99dd847580a8c449c8889092fe86388cc",
+    "porting/tests/itemblock-native/native-root-expanded.log": "bf5562727fef0db2a932eeb96ecd24f798fa5939261ac2f41226b99b6cc2783c",
+    "porting/tests/itemblock-native/native-structural.log": "fc378a12d3d5c0ee12817ec6525535cd7f6c1689e8a1ed7c5c6a6eaf35594ae0",
+    "porting/tests/itemblock-native/scaffold-with-production-item.py": "f0155d96b0a448cb0eb4105ed3c835e5b8148044aceb739b1a74cfbc5a83f76a",
+    "porting/tests/itemblock-native/native-scaffold.log": "9fce8d14f364d3efa39e2d3cf160e0dcc56ba5d297fe69aa97d3a08a8a9ec3d5",
+    "porting/tests/itemblock-native/legacy-route-source.log": "4ae516dd9e5b038e6c5d07a358e0678ba71b5c34d959a3827d789c7d9c72f856",
+    "porting/tests/itemblock-native/check-legacy-route.py": "c6d568ef969c18416fbed9fc3bde9ef37d51368a2253c49568c93f9f582fefeb",
+    "porting/tests/itemblock-native/REMOVED_METHOD_CALLERS.md": "bc171947da8cceb6b145271e5f725e7172b271a6b50e946aeb3838aea36fc580",
+    "porting/tests/itemblock-native/migration-manifest.json": "5ded7e5387b25c58115fe08be5f6712d7a4241e0ea68042365b7a1285c7b627c"
+  }
+}

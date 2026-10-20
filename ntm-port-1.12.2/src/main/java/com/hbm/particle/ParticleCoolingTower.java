@@ -1,16 +1,15 @@
 package com.hbm.particle;
 
-import com.hbm.main.ModEventHandlerClient;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class ParticleCoolingTower extends EntityFX {
+public class ParticleCoolingTower extends Particle {
 
 	private float baseScale = 1.0F;
 	private float maxScale = 1.0F;
@@ -21,9 +20,9 @@ public class ParticleCoolingTower extends EntityFX {
 
 	public ParticleCoolingTower(TextureManager texman, World world, double x, double y, double z) {
 		super(world, x, y, z);
-		particleIcon = ModEventHandlerClient.particleBase;
+		particleTexture = ParticleSprites.base;
 		this.particleRed = this.particleGreen = this.particleBlue = 0.9F + world.rand.nextFloat() * 0.05F;
-		this.noClip = true;
+		this.canCollide = false;
 	}
 	
 	public void setBaseScale(float f) { this.baseScale = f; }
@@ -33,6 +32,12 @@ public class ParticleCoolingTower extends EntityFX {
 	public void setStrafe(float f) { this.strafe = f; }
 	public void noWind() { this.windDir = false; }
 	public void alphaMod(float mod) { this.alphaMod = mod; }
+
+	public void setMotion(double x, double y, double z) {
+		this.motionX = x;
+		this.motionY = y;
+		this.motionZ = z;
+	}
 
 	public void onUpdate() {
 		
@@ -63,34 +68,31 @@ public class ParticleCoolingTower extends EntityFX {
 		}
 
 		if(this.particleAge == this.particleMaxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 
 		motionX *= 0.925;
 		motionY *= 0.925;
 		motionZ *= 0.925;
 	}
 
+	@Override
+	public boolean shouldDisableDepth() {
+		return true;
+	}
+
 	public int getFXLayer() {
 		return 1;
 	}
 
-	public void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {
-
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		
-		tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-
-		float scale = this.particleScale;
-		float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
-		float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
-		float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
-
-		tess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());
-		tess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());
-		tess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleIcon.getMinU(), particleIcon.getMinV());
-		tess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());
+	public void renderParticle(BufferBuilder buffer, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {
+		float x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);
+		float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);
+		float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);
+		ParticleQuadRenderer.append(buffer, particleTexture, x, y, z, particleScale,
+				fX, fY, fZ, sX, sZ, particleRed, particleGreen, particleBlue, particleAlpha,
+				getBrightnessForRender(interp));
 	}
 }

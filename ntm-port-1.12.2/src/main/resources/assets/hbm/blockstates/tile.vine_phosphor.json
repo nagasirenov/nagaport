@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "variant=0": {
+      "model": "hbm:native_plants/vine/world/0"
+    }
+  }
+}

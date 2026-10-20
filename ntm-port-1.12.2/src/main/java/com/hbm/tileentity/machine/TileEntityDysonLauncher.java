@@ -54,18 +54,18 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineDysonLauncher";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
-			for(DirPos pos : getConPos()) trySubscribe(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+	public void update() {
+		if(!this.world.isRemote) {
+			for(DirPos pos : getConPos()) trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			for(DirPos pos : getInvPos()) tryLoad(pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 
 			swarmId = ISatChip.getFreqS(slots[1]);
-			swarmCount = CBT_Dyson.count(worldObj, swarmId);
+			swarmCount = CBT_Dyson.count(this.world, swarmId);
 
 			isOperating = !isSpinningDown && power >= getPowerPerTick() && slots[0] != null && slots[0].getItem() == ModItems.swarm_member && swarmId > 0;
 
@@ -79,7 +79,7 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 			} else if(isOperating) {
 				if(operatingTime == 0) {
 					float pitch = sunsetOverdrive ? 1.0F : 0.25F;
-					worldObj.playSoundEffect(xCoord, yCoord + 8, zCoord, "hbm:misc.spincharge", 1.5F, pitch);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 8, this.pos.getZ(), "hbm:misc.spincharge", 1.5F, pitch);
 				}
 
 				operatingTime++;
@@ -87,9 +87,9 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 
 				if(operatingTime > getSpinUpTime()) {
 					int toLaunch = Math.min(slots[0].stackSize, MEMBERS_PER_LAUNCH);
-					CBT_Dyson.launch(worldObj, swarmId, toLaunch);
+					CBT_Dyson.launch(this.world, swarmId, toLaunch);
 
-					CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+					CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 					double pressure = atmosphere != null ? atmosphere.getPressure() : 0;
 					double scaledPressure = 1.0 - Math.pow(1.0 - pressure, 3);
 
@@ -98,14 +98,14 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 					ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
-					worldObj.playSoundEffect(xCoord + rot.offsetX * 6, yCoord + 8, zCoord + rot.offsetZ * 6, "hbm:misc.spinshot", volume, 0.9F + worldObj.rand.nextFloat() * 0.3F);
-					worldObj.playSoundEffect(xCoord + rot.offsetX * 6, yCoord + 8, zCoord + rot.offsetZ * 6, "hbm:misc.spinshot", volume, 1F + worldObj.rand.nextFloat() * 0.3F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + rot.offsetX * 6, this.pos.getY() + 8, this.pos.getZ() + rot.offsetZ * 6, "hbm:misc.spinshot", volume, 0.9F + this.world.rand.nextFloat() * 0.3F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + rot.offsetX * 6, this.pos.getY() + 8, this.pos.getZ() + rot.offsetZ * 6, "hbm:misc.spinshot", volume, 1F + this.world.rand.nextFloat() * 0.3F);
 
 					int count = Math.min(20, (int)(pressure * 80));
 
-					double posX = xCoord + rot.offsetX * 9;
-					double posY = yCoord + 12;
-					double posZ = zCoord + rot.offsetZ * 9;
+					double posX = this.pos.getX() + rot.offsetX * 9;
+					double posY = this.pos.getY() + 12;
+					double posZ = this.pos.getZ() + rot.offsetZ * 9;
 
 					NBTTagCompound data = new NBTTagCompound();
 					data.setInteger("count", count);
@@ -114,8 +114,8 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 					data.setDouble("moX", dir.offsetX * 10);
 					data.setDouble("moY", 10);
 					data.setDouble("moZ", dir.offsetZ * 10);
-					data.setInteger("maxAge", 10 + count / 2 + worldObj.rand.nextInt(5));
-					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(this.worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 150));
+					data.setInteger("maxAge", 10 + count / 2 + this.world.rand.nextInt(5));
+					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 150));
 
 					slots[0].stackSize -= toLaunch;
 					if(slots[0].stackSize <= 0) slots[0] = null;
@@ -172,11 +172,11 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-			new DirPos(xCoord - dir.offsetX * 0 - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 0 - rot.offsetZ * 3, rot.getOpposite()),
-			new DirPos(xCoord - dir.offsetX * 1 - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 1 - rot.offsetZ * 3, rot.getOpposite()),
-			new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ * 3, rot.getOpposite()),
-			new DirPos(xCoord - dir.offsetX * 3 - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 3 - rot.offsetZ * 3, rot.getOpposite()),
-			new DirPos(xCoord - dir.offsetX * 4 - rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 4 - rot.offsetZ * 3, rot.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 0 - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 0 - rot.offsetZ * 3, rot.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 1 - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 1 - rot.offsetZ * 3, rot.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 3, rot.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 3 - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 3 - rot.offsetZ * 3, rot.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 4 - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 4 - rot.offsetZ * 3, rot.getOpposite()),
 		};
 	}
 
@@ -184,29 +184,31 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 
 		return new DirPos[] {
-			new DirPos(xCoord - dir.offsetX * 9, yCoord, zCoord - dir.offsetZ * 9, dir.getOpposite()),
+			new DirPos(this.pos.getX() - dir.offsetX * 9, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 9, dir.getOpposite()),
 		};
 	}
 
 	private void tryLoad(int x, int y, int z, ForgeDirection dir) {
-		if(slots[0] != null && slots[0].stackSize >= MEMBERS_PER_LAUNCH) return;
+		if(slots[0] != null && slots[0].getCount() >= MEMBERS_PER_LAUNCH) return;
 
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(te instanceof IInventory)) return;
 
 		IInventory inv = (IInventory) te;
 		ISidedInventory sided = inv instanceof ISidedInventory ? (ISidedInventory) inv : null;
-		int[] access = sided != null ? sided.getAccessibleSlotsFromSide(dir.ordinal()) : null;
+		int[] access = sided != null ? sided.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()) : null;
 
 		for(int i = 0; i < (access != null ? access.length : inv.getSizeInventory()); i++) {
 			int slot = access != null ? access[i] : i;
 			ItemStack stack = inv.getStackInSlot(slot);
-			if(stack != null && stack.getItem() == ModItems.swarm_member && (sided == null || sided.canExtractItem(slot, stack, dir.ordinal()))) {
+			if(stack != null && !stack.isEmpty() && stack.getItem() == ModItems.swarm_member && (sided == null || sided.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()))) {
 				ItemStack removed = inv.decrStackSize(slot, 1);
-				if(slots[0] == null) {
-					slots[0] = removed;
-				} else {
-					slots[0].stackSize++;
+				if(removed != null && !removed.isEmpty()) {
+					if(slots[0] == null) {
+						slots[0] = removed;
+					} else {
+						slots[0].grow(1);
+					}
 				}
 				break;
 			}
@@ -238,12 +240,13 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("power", power);
 		nbt.setBoolean("spinDown", isSpinningDown);
 		nbt.setInteger("time", operatingTime);
 		nbt.setBoolean("overdrive", sunsetOverdrive);
+		return nbt;
 	}
 
 	@Override
@@ -267,7 +270,8 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0};
 	}
 
@@ -282,12 +286,12 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 
 			if(bb == null) {
 				bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 100,
-					yCoord,
-					zCoord - 100,
-					xCoord + 100,
-					yCoord + 100,
-					zCoord + 100
+					this.pos.getX() - 100,
+					this.pos.getY(),
+					this.pos.getZ() - 100,
+					this.pos.getX() + 100,
+					this.pos.getY() + 100,
+					this.pos.getZ() + 100
 				);
 			}
 

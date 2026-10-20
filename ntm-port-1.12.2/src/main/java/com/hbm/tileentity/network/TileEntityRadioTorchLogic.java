@@ -8,15 +8,21 @@ import com.hbm.util.BufferUtil;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 
-public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements IControlReceiver {
+public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements IControlReceiver, net.minecraft.util.ITickable {
+
+    @Override public boolean canRenderBreaking() {
+        return getWorld() != null && com.hbm.blocks.network.RadioTorchBase.isNativeBreakingOwner(this, getWorld().getBlockState(getPos()));
+    }
+
 
 	/** channel we're broadcasting on/listening to */
 	public String channel = "";
-	/** previous redstone state for input/output, needed for state change detection */
-	public int lastState = 0;
+	/** Previous redstone state; volatile for the concurrent native render snapshot. */
+	public volatile int lastState = 0;
 	/** last update tick, needed for receivers listening for changes */
 	public long lastUpdate;
 	/** switches state change mode to tick-based polling */
@@ -36,17 +42,17 @@ public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(!this.channel.isEmpty()) {
 
-				RTTYChannel chan = RTTYSystem.listen(worldObj, this.channel);
+				RTTYChannel chan = RTTYSystem.listen(this.world, this.channel);
 
 				if(chan != null && (this.polling || (chan.timeStamp > this.lastUpdate - 1 && chan.timeStamp != -1))) { // if we're either polling or a new message has come in
 					String msg = "" + chan.signal;
-					this.lastUpdate = worldObj.getTotalWorldTime();
+					this.lastUpdate = this.world.getTotalWorldTime();
 					int nextState = 0; //if no remap apply, default to 0
 
 					if(chan.timeStamp < this.lastUpdate - 2 && this.polling) {
@@ -73,8 +79,9 @@ public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements I
 
 					if(this.lastState != nextState) {
 						this.lastState = nextState;
-						worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-						worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord, zCoord, this.getBlockType());
+						IBlockState state = this.world.getBlockState(this.pos);
+						this.world.notifyBlockUpdate(this.pos, state, state, 2);
+						this.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);
 						this.markDirty();
 					}
 				}
@@ -123,7 +130,7 @@ public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("p", polling);
 		nbt.setBoolean("d", descending);
@@ -132,6 +139,7 @@ public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements I
 		if(channel != null) nbt.setString("c", channel);
 		for(int i = 0; i < 16; i++) if(!mapping[i].equals("")) nbt.setString("m" + i, mapping[i]);
 		for(int i = 0; i < 16; i++) if(conditions[i] > 0) nbt.setInteger("c" + i, conditions[i]);
+		return nbt;
 	}
 
 	@Override
@@ -160,17 +168,35 @@ public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements I
 	}
 
 	@Override
+	public NBTTagCompound getUpdateTag() {
+		NBTTagCompound nbt = super.getUpdateTag();
+		nbt.setByte("l", (byte) this.lastState);
+		return nbt;
+	}
+
+	@Override
+	public void handleUpdateTag(NBTTagCompound tag) {
+		// This is a render-state tag, not the full persisted configuration.
+		// Chunk loading already assigns the native tile position.
+		applySyncedState(tag);
+	}
+
+	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		applySyncedState(pkt.getNbtCompound());
+	}
+
+	private void applySyncedState(NBTTagCompound tag) {
 		int last = this.lastState;
-		this.lastState = pkt.getNbtCompound().getByte("l");
-		if(this.lastState != last) {
-			worldObj.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
+		this.lastState = tag.getByte("l");
+		if(this.world != null && this.lastState != last) {
+			this.world.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
 		}
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistance(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 16D;
+		return player.getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) < 16D;
 	}
 
 	@Override

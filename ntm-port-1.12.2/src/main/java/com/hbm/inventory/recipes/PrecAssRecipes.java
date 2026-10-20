@@ -142,20 +142,20 @@ public class PrecAssRecipes extends GenericRecipes<GenericRecipe> {
 		
 		// all hail the pufferfish, driver of all innovation
 		this.register(new GenericRecipe("precass.blueprints").setup(5 * min, 20_000L)
-				.inputItems(new ComparableStack(Items.paper, 16),
+				.inputItems(new ComparableStack(Items.PAPER, 16),
 						new OreDictStack(KEY_BLUE, 16),
-						new ComparableStack(Items.fish, 4, FishType.PUFFERFISH))
+						new ComparableStack(Items.FISH, 4, FishType.PUFFERFISH))
 				.outputItems(new ChanceOutputMulti(
 					new ChanceOutput(new ItemStack(ModItems.blueprint_folder, 1, 0), 10),
-					new ChanceOutput(new ItemStack(Items.paper, 16, 0), 90))
+					new ChanceOutput(new ItemStack(Items.PAPER, 16, 0), 90))
 				));
 		this.register(new GenericRecipe("precass.beigeprints").setup(5 * min, 50_000L)
-				.inputItems(new ComparableStack(Items.paper, 24),
+				.inputItems(new ComparableStack(Items.PAPER, 24),
 						new OreDictStack(CINNABAR.gem(), 24),
-						new ComparableStack(Items.fish, 8, FishType.PUFFERFISH))
+						new ComparableStack(Items.FISH, 8, FishType.PUFFERFISH))
 				.outputItems(new ChanceOutputMulti(
 					new ChanceOutput(new ItemStack(ModItems.blueprint_folder, 1, 1), 5),
-					new ChanceOutput(new ItemStack(Items.paper, 24, 0), 95))
+					new ChanceOutput(new ItemStack(Items.PAPER, 24, 0), 95))
 				));
 	}
 	

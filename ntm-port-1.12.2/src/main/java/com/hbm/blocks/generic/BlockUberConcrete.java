@@ -53,7 +53,7 @@ public class BlockUberConcrete extends BlockBase {
 	}
 	
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		if(rand.nextInt(meta + 1) > 0)
 			return;
@@ -61,9 +61,9 @@ public class BlockUberConcrete extends BlockBase {
 		if(meta < 15) {
 			world.setBlockMetadataWithNotify(x, y, z, meta + 1, 3);
 		} else {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			
-			if(world.getBlock(x, y - 1, z) == Blocks.air) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR) {
 				world.setBlock(x, y, z, ModBlocks.concrete_super_broken);
 				return;
 			}
@@ -74,7 +74,7 @@ public class BlockUberConcrete extends BlockBase {
 			
 			for(Integer i : sides) {
 				ForgeDirection dir = ForgeDirection.getOrientation(i);
-				if(world.getBlock(x + dir.offsetX, y, z + dir.offsetZ) == Blocks.air && world.getBlock(x + dir.offsetX, y - 1, z + dir.offsetZ) == Blocks.air) {
+				if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y, z + dir.offsetZ).getBlock() == Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y - 1, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 					EntityFallingBlock debris = new EntityFallingBlock(world, x + 0.5 + dir.offsetX, y + 0.5, z + 0.5 + dir.offsetZ, ModBlocks.concrete_super_broken);
 					debris.field_145812_b = 2;
 					debris.field_145813_c = false;

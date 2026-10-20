@@ -67,12 +67,12 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.fusionKlystron";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
 		if(!worldObj.isRemote) {
 
@@ -114,7 +114,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 			if(this.output > 0) this.fanSpeed += FAN_ACCELERATION * mult;
 			else this.fanSpeed -= FAN_ACCELERATION;
 
-			this.fanSpeed = MathHelper.clamp_float(this.fanSpeed, 0F, 5F * (float) mult);
+			this.fanSpeed = MathHelper.clamp(this.fanSpeed, 0F, 5F * (float) mult);
 
 			this.prevFan = this.fan;
 			this.fan += this.fanSpeed;
@@ -124,12 +124,12 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 				this.prevFan -= 360F;
 			}
 
-			if(this.fanSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(xCoord + 0.5, yCoord + 2.5, zCoord + 0.5) < 30 * 30) {
+			if(this.fanSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(this.getPos().getX() + 0.5, this.getPos().getY() + 2.5, this.getPos().getZ() + 0.5) < 30 * 30) {
 
 				float speed = this.fanSpeed / 5F;
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fel", xCoord + 0.5F, yCoord + 2.5F, zCoord + 0.5F, getVolume(speed), 15F, speed, 20);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fel", this.getPos().getX() + 0.5F, this.getPos().getY() + 2.5F, this.getPos().getZ() + 0.5F, getVolume(speed), 15F, speed, 20);
 					audio.startSound();
 				} else {
 					audio.updateVolume(getVolume(speed));
@@ -150,10 +150,10 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 	/** Ensures the k-node exists, is loaded, and the klystron is a provider in the k-net. Returns a new klystron node if none existed, or the previous one. */
 	public static GenNode handleKNode(GenNode klystronNode, TileEntity that) {
 		
-		World worldObj = that.getWorldObj();
-		int xCoord = that.xCoord;
-		int yCoord = that.yCoord;
-		int zCoord = that.zCoord;
+		World worldObj = that.getWorld();
+		int xCoord = that.getPos().getX();
+		int yCoord = that.getPos().getY();
+		int zCoord = that.getPos().getZ();
 
 		if(klystronNode == null || klystronNode.expired) {
 			ForgeDirection dir = ForgeDirection.getOrientation(that.getBlockMetadata() - 10).getOpposite();
@@ -202,9 +202,9 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 4, yCoord + 2, zCoord + dir.offsetZ * 4, dir),
-				new DirPos(xCoord + rot.offsetX * 3, yCoord, zCoord + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - rot.offsetX * 3, yCoord, zCoord - rot.offsetZ * 3, rot.getOpposite())
+				new DirPos(this.getPos().getX() + dir.offsetX * 4, this.getPos().getY() + 2, this.getPos().getZ() + dir.offsetZ * 4, dir),
+				new DirPos(this.getPos().getX() + rot.offsetX * 3, this.getPos().getY(), this.getPos().getZ() + rot.offsetZ * 3, rot),
+				new DirPos(this.getPos().getX() - rot.offsetX * 3, this.getPos().getY(), this.getPos().getZ() - rot.offsetZ * 3, rot.getOpposite())
 		};
 	}
 
@@ -264,7 +264,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setLong("power", power);
@@ -272,6 +272,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 		nbt.setLong("outputTarget", outputTarget);
 
 		this.compair.writeToNBT(nbt, "t");
+		return nbt;
 	}
 
 	@Override
@@ -304,12 +305,12 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 5,
-					zCoord + 5
+					this.getPos().getX() - 4,
+					this.getPos().getY(),
+					this.getPos().getZ() - 4,
+					this.getPos().getX() + 5,
+					this.getPos().getY() + 5,
+					this.getPos().getZ() + 5
 					);
 		}
 
@@ -324,7 +325,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistanceSq(xCoord + 0.5, yCoord + 2.5, zCoord + 0.5) < 20 * 20;
+		return player.getDistanceSq(this.getPos().getX() + 0.5, this.getPos().getY() + 2.5, this.getPos().getZ() + 0.5) < 20 * 20;
 	}
 
 	@Override
@@ -364,7 +365,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 	@Callback(direct = true, limit = 4)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setOutput(Context context, Arguments args) {
-		outputTarget = (long) MathHelper.clamp_double(args.checkDouble(0), 0.0, MAX_OUTPUT);
+		outputTarget = (long) MathHelper.clamp(args.checkDouble(0), 0.0, (double) (MAX_OUTPUT));
 		return new Object[] {};
 	}
 

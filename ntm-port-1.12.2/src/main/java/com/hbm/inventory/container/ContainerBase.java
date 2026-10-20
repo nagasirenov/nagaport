@@ -29,12 +29,12 @@ public class ContainerBase extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return tile.isUseableByPlayer(player);
+		return tile.isUsableByPlayer(player);
 	}
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack slotOriginal = null;
+		ItemStack slotOriginal = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -43,19 +43,19 @@ public class ContainerBase extends Container {
 
 			if(index < tile.getSizeInventory()) {
 				if(!this.mergeItemStack(slotStack, tile.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(slotStack, 0, tile.getSizeInventory(), false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
-			if(slotStack.stackSize == 0) {
-				slot.putStack(null);
+			if(slotStack.getCount() == 0) {
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
 
-			slot.onPickupFromSlot(player, slotStack);
+			slot.onTake(player, slotStack);
 		}
 
 		return slotOriginal;
@@ -123,6 +123,7 @@ public class ContainerBase extends Container {
 	// Fixed mergeItemStack that actually respects stacksize limits AND whether the slot actually accepts the fucking item
 	@Override
 	protected boolean mergeItemStack(ItemStack stack, int fromInclusive, int toExclusive, boolean toPlayerInventory) {
+		if(stack == null || stack.isEmpty()) return false;
 		boolean didMerge = false;
 		int targetIndex = fromInclusive;
 
@@ -138,22 +139,22 @@ public class ContainerBase extends Container {
 
 		// Stack on top of existing
 		if(stack.isStackable()) {
-			while(stack.stackSize > 0 && (!toPlayerInventory && targetIndex < toExclusive || toPlayerInventory && targetIndex >= fromInclusive)) {
+			while(stack.getCount() > 0 && (!toPlayerInventory && targetIndex < toExclusive || toPlayerInventory && targetIndex >= fromInclusive)) {
 				targetSlot = getSlot(targetIndex);
 				targetStack = targetSlot.getStack();
 
-				if(targetStack != null && targetStack.getItem() == stack.getItem() && (!stack.getHasSubtypes() || stack.getItemDamage() == targetStack.getItemDamage()) && ItemStack.areItemStackTagsEqual(stack, targetStack)) {
+				if(targetStack != null && !targetStack.isEmpty() && targetStack.getItem() == stack.getItem() && (!stack.getHasSubtypes() || stack.getItemDamage() == targetStack.getItemDamage()) && ItemStack.areItemStackTagsEqual(stack, targetStack)) {
 					if(targetSlot.isItemValid(stack)) {
-						int l = targetStack.stackSize + stack.stackSize;
+						int l = targetStack.getCount() + stack.getCount();
 
 						if(l <= maxStackSize) {
-							stack.stackSize = 0;
-							targetStack.stackSize = l;
+							stack.setCount(0);
+							targetStack.setCount(l);
 							targetSlot.onSlotChanged();
 							didMerge = true;
-						} else if(targetStack.stackSize < maxStackSize) {
-							stack.stackSize -= maxStackSize - targetStack.stackSize;
-							targetStack.stackSize = maxStackSize;
+						} else if(targetStack.getCount() < maxStackSize) {
+							stack.shrink(maxStackSize - targetStack.getCount());
+							targetStack.setCount(maxStackSize);
 							targetSlot.onSlotChanged();
 							didMerge = true;
 						}
@@ -169,7 +170,7 @@ public class ContainerBase extends Container {
 		}
 
 		// Remainder into an empty slot
-		if(stack.stackSize > 0) {
+		if(stack.getCount() > 0) {
 			if(toPlayerInventory) {
 				targetIndex = toExclusive - 1;
 			} else {
@@ -180,19 +181,19 @@ public class ContainerBase extends Container {
 				targetSlot = getSlot(targetIndex);
 				targetStack = targetSlot.getStack();
 
-				if(targetStack == null && targetSlot.isItemValid(stack)) {
-					if(stack.stackSize <= maxStackSize) {
+				if((targetStack == null || targetStack.isEmpty()) && targetSlot.isItemValid(stack)) {
+					if(stack.getCount() <= maxStackSize) {
 						targetSlot.putStack(stack.copy());
 						targetSlot.onSlotChanged();
-						stack.stackSize = 0;
+						stack.setCount(0);
 						didMerge = true;
 						break;
 					} else {
 						ItemStack newStack = stack.copy();
-						newStack.stackSize = maxStackSize;
+						newStack.setCount(maxStackSize);
 						targetSlot.putStack(newStack);
 						targetSlot.onSlotChanged();
-						stack.stackSize -= maxStackSize;
+						stack.shrink(maxStackSize);
 						didMerge = true;
 					}
 				}

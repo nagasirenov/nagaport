@@ -1,0 +1,17 @@
+Compiled from "ItemStack.java"
+public final class net.minecraft.item.ItemStack implements net.minecraftforge.common.capabilities.ICapabilitySerializable<net.minecraft.nbt.NBTTagCompound> {
+  public net.minecraft.nbt.NBTTagCompound getTagCompound();
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       4: areturn
+
+  public net.minecraft.nbt.NBTTagCompound getOrCreateSubCompound(java.lang.String);
+  public void setTagCompound(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+       5: return
+
+  public java.lang.String getDisplayName();

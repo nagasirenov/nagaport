@@ -1,0 +1,3 @@
+CL: azt net/minecraft/util/AxisAlignedBB
+MD: azt/a (DDD)Lazt; net/minecraft/util/AxisAlignedBB/func_72321_a (DDD)Lnet/minecraft/util/AxisAlignedBB;
+MD: azt/b (DDD)Lazt; net/minecraft/util/AxisAlignedBB/func_72314_b (DDD)Lnet/minecraft/util/AxisAlignedBB;

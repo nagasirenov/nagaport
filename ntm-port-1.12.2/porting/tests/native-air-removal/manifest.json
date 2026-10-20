@@ -1,0 +1,1070 @@
+{
+  "baseline": "2fa015374be0e330d2541e5bfe9d4b96e380aa05",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockDummyableBeam.java": [
+      {
+        "start": 2703,
+        "end": 2731,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 3293,
+        "end": 3321,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/BlockNTSapling.java": [
+      {
+        "start": 3691,
+        "end": 3719,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java": [
+      {
+        "start": 1599,
+        "end": 1627,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 1954,
+        "end": 1982,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": [
+      {
+        "start": 4142,
+        "end": 4170,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeC4.java": [
+      {
+        "start": 978,
+        "end": 1006,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeDynamite.java": [
+      {
+        "start": 377,
+        "end": 405,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeMiner.java": [
+      {
+        "start": 543,
+        "end": 571,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeSemtex.java": [
+      {
+        "start": 676,
+        "end": 704,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": [
+      {
+        "start": 3468,
+        "end": 3496,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": [
+      {
+        "start": 1376,
+        "end": 1404,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 1666,
+        "end": 1694,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 1909,
+        "end": 1937,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 2888,
+        "end": 2916,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 3486,
+        "end": 3514,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": [
+      {
+        "start": 5509,
+        "end": 5537,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java": [
+      {
+        "start": 1657,
+        "end": 1685,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": [
+      {
+        "start": 3397,
+        "end": 3425,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 3959,
+        "end": 3987,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": [
+      {
+        "start": 4345,
+        "end": 4379,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6408,
+        "end": 6436,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": [
+      {
+        "start": 9300,
+        "end": 9328,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": [
+      {
+        "start": 4325,
+        "end": 4359,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6251,
+        "end": 6279,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": [
+      {
+        "start": 4376,
+        "end": 4410,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6190,
+        "end": 6218,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": [
+      {
+        "start": 4285,
+        "end": 4319,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6075,
+        "end": 6103,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": [
+      {
+        "start": 4319,
+        "end": 4353,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 4541,
+        "end": 4575,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6456,
+        "end": 6484,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 6697,
+        "end": 6725,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": [
+      {
+        "start": 4214,
+        "end": 4248,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 5975,
+        "end": 6003,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": [
+      {
+        "start": 4007,
+        "end": 4035,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 4893,
+        "end": 4927,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6848,
+        "end": 6876,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": [
+      {
+        "start": 4284,
+        "end": 4318,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6228,
+        "end": 6256,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": [
+      {
+        "start": 4319,
+        "end": 4353,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 4541,
+        "end": 4575,
+        "old": "p_149695_1_.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z)"
+      },
+      {
+        "start": 6346,
+        "end": 6374,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 6587,
+        "end": 6615,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java": [
+      {
+        "start": 2243,
+        "end": 2271,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": [
+      {
+        "start": 1805,
+        "end": 1833,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasAsbestos.java": [
+      {
+        "start": 1699,
+        "end": 1727,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": [
+      {
+        "start": 3201,
+        "end": 3229,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasClorine.java": [
+      {
+        "start": 1768,
+        "end": 1796,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasCoal.java": [
+      {
+        "start": 1664,
+        "end": 1692,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java": [
+      {
+        "start": 1867,
+        "end": 1895,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasMeltdown.java": [
+      {
+        "start": 2857,
+        "end": 2885,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasMonoxide.java": [
+      {
+        "start": 1324,
+        "end": 1352,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadon.java": [
+      {
+        "start": 1668,
+        "end": 1696,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java": [
+      {
+        "start": 2472,
+        "end": 2500,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java": [
+      {
+        "start": 4310,
+        "end": 4338,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": [
+      {
+        "start": 2479,
+        "end": 2507,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockAmmoCrate.java": [
+      {
+        "start": 1720,
+        "end": 1748,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockCrate.java": [
+      {
+        "start": 1434,
+        "end": 1462,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": [
+      {
+        "start": 4646,
+        "end": 4674,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 5122,
+        "end": 5150,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 5524,
+        "end": 5552,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": [
+      {
+        "start": 2613,
+        "end": 2641,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockLayering.java": [
+      {
+        "start": 2869,
+        "end": 2933,
+        "old": "p_150155_1_.setBlockToAir(p_150155_2_, p_150155_3_, p_150155_4_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_)"
+      },
+      {
+        "start": 3230,
+        "end": 3294,
+        "old": "p_149636_1_.setBlockToAir(p_149636_3_, p_149636_4_, p_149636_5_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149636_1_, p_149636_3_, p_149636_4_, p_149636_5_)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": [
+      {
+        "start": 2447,
+        "end": 2475,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockModDoor.java": [
+      {
+        "start": 9683,
+        "end": 9747,
+        "old": "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)"
+      },
+      {
+        "start": 9878,
+        "end": 9942,
+        "old": "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)"
+      },
+      {
+        "start": 10088,
+        "end": 10156,
+        "old": "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_ + 1, p_149695_4_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_)"
+      },
+      {
+        "start": 10827,
+        "end": 10891,
+        "old": "p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)"
+      },
+      {
+        "start": 14107,
+        "end": 14175,
+        "old": "p_149681_1_.setBlockToAir(p_149681_2_, p_149681_3_ - 1, p_149681_4_)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(p_149681_1_, p_149681_2_, p_149681_3_ - 1, p_149681_4_)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": [
+      {
+        "start": 2304,
+        "end": 2332,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 4223,
+        "end": 4251,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java": [
+      {
+        "start": 1502,
+        "end": 1530,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": [
+      {
+        "start": 4893,
+        "end": 4921,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 6798,
+        "end": 6826,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      },
+      {
+        "start": 6999,
+        "end": 7027,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": [
+      {
+        "start": 6749,
+        "end": 6781,
+        "old": "world.setBlockToAir(x, y - 1, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y - 1, z)"
+      },
+      {
+        "start": 6970,
+        "end": 7002,
+        "old": "world.setBlockToAir(x, y + 1, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y + 1, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockUberConcrete.java": [
+      {
+        "start": 1737,
+        "end": 1765,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": [
+      {
+        "start": 5654,
+        "end": 5694,
+        "old": "world.setBlockToAir(x + i, y + j, z + k)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x + i, y + j, z + k)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java": [
+      {
+        "start": 1080,
+        "end": 1108,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": [
+      {
+        "start": 6340,
+        "end": 6368,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/MachineEPress.java": [
+      {
+        "start": 2362,
+        "end": 2390,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": [
+      {
+        "start": 2546,
+        "end": 2574,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/MachineOilWell.java": [
+      {
+        "start": 4661,
+        "end": 4689,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/MachinePress.java": [
+      {
+        "start": 1745,
+        "end": 1773,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": [
+      {
+        "start": 2430,
+        "end": 2458,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/network/DroneWaypoint.java": [
+      {
+        "start": 3171,
+        "end": 3199,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java": [
+      {
+        "start": 2722,
+        "end": 2750,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeIFNull.java": [
+      {
+        "start": 901,
+        "end": 1009,
+        "old": "this.world.setBlockToAir((int) Math.floor(posX + a), (int) Math.floor(posY + b), (int) Math.floor(posZ + c))",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, (int) Math.floor(posX + a), (int) Math.floor(posY + b), (int) Math.floor(posZ + c))"
+      }
+    ],
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": [
+      {
+        "start": 9234,
+        "end": 9267,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntityMeteor.java": [
+      {
+        "start": 1956,
+        "end": 1999,
+        "old": "world.setBlockToAir(blockX, blockY, blockZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, blockX, blockY, blockZ)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java": [
+      {
+        "start": 2965,
+        "end": 3010,
+        "old": "this.world.setBlockToAir(x + i, y + j, z + k)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x + i, y + j, z + k)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java": [
+      {
+        "start": 3320,
+        "end": 3365,
+        "old": "this.world.setBlockToAir(x + i, y + j, z + k)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x + i, y + j, z + k)"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionBalefire.java": [
+      {
+        "start": 4219,
+        "end": 4252,
+        "old": "worldObj.setBlockToAir(pX, y, pZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(worldObj, pX, y, pZ)"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": [
+      {
+        "start": 30052,
+        "end": 30080,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": [
+      {
+        "start": 4762,
+        "end": 4807,
+        "old": "worldObj.setBlockToAir(pX + i, y + j, pZ + k)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(worldObj, pX + i, y + j, pZ + k)"
+      },
+      {
+        "start": 4820,
+        "end": 4853,
+        "old": "worldObj.setBlockToAir(pX, y, pZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(worldObj, pX, y, pZ)"
+      }
+    ],
+    "src/main/java/com/hbm/handler/ImpactWorldHandler.java": [
+      {
+        "start": 5720,
+        "end": 5748,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/handler/ability/IToolHarvestAbility.java": [
+      {
+        "start": 1555,
+        "end": 1583,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java": [
+      {
+        "start": 8249,
+        "end": 8277,
+        "old": "world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java": [
+      {
+        "start": 6297,
+        "end": 6449,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 4)"
+      },
+      {
+        "start": 6459,
+        "end": 6611,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 5, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 5)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 5, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 5)"
+      },
+      {
+        "start": 6621,
+        "end": 6773,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 6)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 6)"
+      },
+      {
+        "start": 6784,
+        "end": 6936,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 4)"
+      },
+      {
+        "start": 6946,
+        "end": 7098,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 4)"
+      },
+      {
+        "start": 7109,
+        "end": 7261,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 6)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 6)"
+      },
+      {
+        "start": 7271,
+        "end": 7423,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 6)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 6)"
+      },
+      {
+        "start": 7536,
+        "end": 7696,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 3)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 3)"
+      },
+      {
+        "start": 7706,
+        "end": 7866,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 1)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 1)"
+      },
+      {
+        "start": 7875,
+        "end": 8035,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 2)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 2)"
+      },
+      {
+        "start": 8044,
+        "end": 8204,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3)"
+      },
+      {
+        "start": 8213,
+        "end": 8373,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 4)"
+      },
+      {
+        "start": 8382,
+        "end": 8542,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 5)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 5)"
+      },
+      {
+        "start": 8551,
+        "end": 8711,
+        "old": "this.world.setBlockToAir(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 6)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 6)"
+      },
+      {
+        "start": 8721,
+        "end": 8845,
+        "old": "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 1)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 1)"
+      },
+      {
+        "start": 8854,
+        "end": 8978,
+        "old": "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 2)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 2)"
+      },
+      {
+        "start": 8987,
+        "end": 9111,
+        "old": "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 3)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 3)"
+      },
+      {
+        "start": 9120,
+        "end": 9244,
+        "old": "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 4)"
+      },
+      {
+        "start": 9253,
+        "end": 9377,
+        "old": "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 5)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 5)"
+      },
+      {
+        "start": 9386,
+        "end": 9510,
+        "old": "this.world.setBlockToAir(this.pos.getX() - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 6)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() - dir.offsetZ * 6)"
+      },
+      {
+        "start": 9520,
+        "end": 9680,
+        "old": "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 1)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 1)"
+      },
+      {
+        "start": 9689,
+        "end": 9849,
+        "old": "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 2)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 2)"
+      },
+      {
+        "start": 9858,
+        "end": 10018,
+        "old": "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3)"
+      },
+      {
+        "start": 10027,
+        "end": 10187,
+        "old": "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 4)"
+      },
+      {
+        "start": 10196,
+        "end": 10356,
+        "old": "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 5)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 5)"
+      },
+      {
+        "start": 10365,
+        "end": 10525,
+        "old": "this.world.setBlockToAir(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 6)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + height + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 6)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": [
+      {
+        "start": 4233,
+        "end": 4266,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java": [
+      {
+        "start": 5027,
+        "end": 5060,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": [
+      {
+        "start": 6264,
+        "end": 6297,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java": [
+      {
+        "start": 6955,
+        "end": 6988,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      },
+      {
+        "start": 7019,
+        "end": 7098,
+        "old": "this.world.setBlockToAir(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java": [
+      {
+        "start": 7122,
+        "end": 7155,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": [
+      {
+        "start": 17020,
+        "end": 17053,
+        "old": "this.world.setBlockToAir(x, y, z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": [
+      {
+        "start": 5840,
+        "end": 5891,
+        "old": "this.world.setBlockToAir(targetX, targetY, targetZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, targetX, targetY, targetZ)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java": [
+      {
+        "start": 5690,
+        "end": 5769,
+        "old": "this.world.setBlockToAir(this.pos.getX(), this.pos.getY() + i, this.pos.getZ())",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ())"
+      },
+      {
+        "start": 5997,
+        "end": 6084,
+        "old": "this.world.setBlockToAir(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4)"
+      },
+      {
+        "start": 6311,
+        "end": 6398,
+        "old": "this.world.setBlockToAir(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4)"
+      },
+      {
+        "start": 6625,
+        "end": 6712,
+        "old": "this.world.setBlockToAir(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4)"
+      },
+      {
+        "start": 6939,
+        "end": 7026,
+        "old": "this.world.setBlockToAir(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4)"
+      },
+      {
+        "start": 8152,
+        "end": 8244,
+        "old": "this.world.setBlockToAir(this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": [
+      {
+        "start": 11844,
+        "end": 11919,
+        "old": "this.world.setBlockToAir(this.pos.getX(), this.pos.getY(), this.pos.getZ())",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())"
+      },
+      {
+        "start": 12205,
+        "end": 12302,
+        "old": "this.world.setBlockToAir(this.pos.getX(), this.pos.getY() + 1 + dir.offsetY * 2, this.pos.getZ())",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY() + 1 + dir.offsetY * 2, this.pos.getZ())"
+      },
+      {
+        "start": 12538,
+        "end": 12645,
+        "old": "this.world.setBlockToAir(this.pos.getX() + dir.offsetX, this.pos.getY() + i, this.pos.getZ() + dir.offsetZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + i, this.pos.getZ() + dir.offsetZ)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java": [
+      {
+        "start": 2654,
+        "end": 2729,
+        "old": "this.world.setBlockToAir(this.pos.getX(), this.pos.getY(), this.pos.getZ())",
+        "new": "com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())"
+      }
+    ],
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": [
+      {
+        "start": 1537,
+        "end": 1583,
+        "old": "world.setBlockToAir(x + ix, yOff + iy, z + iz)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, x + ix, yOff + iy, z + iz)"
+      }
+    ],
+    "src/main/java/com/hbm/world/feature/OilSpot.java": [
+      {
+        "start": 4654,
+        "end": 4684,
+        "old": "world.setBlockToAir(rX, y, rZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ)"
+      },
+      {
+        "start": 6129,
+        "end": 6163,
+        "old": "world.setBlockToAir(rX, y - 1, rZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, rX, y - 1, rZ)"
+      },
+      {
+        "start": 6656,
+        "end": 6686,
+        "old": "world.setBlockToAir(rX, y, rZ)",
+        "new": "com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ)"
+      }
+    ]
+  },
+  "helper_sha256": "45875ef1517caf57a3baccf04c99bd0036e3a37cdfaeffe5e1ee81267c798141"
+}

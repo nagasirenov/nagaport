@@ -49,22 +49,22 @@ public class TileEntityHeaterOven extends TileEntityFireboxBase implements IConf
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.heaterOven";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.tryPullHeat();
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 	
 	protected void tryPullHeat() {
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 		
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;

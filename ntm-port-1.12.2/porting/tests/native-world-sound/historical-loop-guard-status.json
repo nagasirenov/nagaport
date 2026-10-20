@@ -1,0 +1,7 @@
+{
+  "baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "path": "src/main/java/com/hbm/sound/SoundCategoryResolver.java",
+  "actual_cp56_and_current_sha256": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33",
+  "historical_expected_sha256": "e37dc04cdb07af9b914619f515b5b8dcf152158e602ee94331c71848714b3189",
+  "status": "historical source inverse is already stale at CP56; runtime replay is separately labelled"
+}

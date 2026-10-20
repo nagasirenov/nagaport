@@ -1,0 +1,25 @@
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.network.BlockCraneBase;
+import com.hbm.items.tool.ItemConveyorWand.ConveyorType;
+import com.hbm.lib.ForgeDirection;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import java.util.*;
+/** Independent pristine algorithm. Its facade alone adapts native coordinates, never logic. */
+final class LegacyWandOracle {
+ static final class OracleWorld {
+  final World world;OracleWorld(World w){world=w;}
+  Block getBlock(int x,int y,int z){return world.getBlockState(new BlockPos(x,y,z)).getBlock();}
+  boolean replaceable(int x,int y,int z){return getBlock(x,y,z).isReplaceable(world,new BlockPos(x,y,z));}
+  void setBlock(int x,int y,int z,Block b,int meta,int flags){world.setBlockState(new BlockPos(x,y,z),b.getStateFromMeta(meta),flags);}
+ }
+ static final class OracleJar {
+  final Map<BlockPos,String> bytes=new TreeMap<>();final int sx,sy,sz;
+  OracleJar(int x,int y,int z){sx=x;sy=y;sz=z;}
+  void setBlock(int x,int y,int z,Block b,int m){if(x>=0&&x<sx&&y>=0&&y<sy&&z>=0&&z<sz)bytes.put(new BlockPos(x,y,z),b.getRegistryName()+":"+(short)m);}
+ }
+@@PRISTINE_ROUTING@@
+}

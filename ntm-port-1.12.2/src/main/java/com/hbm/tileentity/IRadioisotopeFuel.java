@@ -58,11 +58,11 @@ public interface IRadioisotopeFuel
 			if (!((IRadioisotopeFuel) stack.getItem()).getDoesDecay())
 				return;
 			if (stack.hasTagCompound())
-				stack.stackTagCompound.setLong(lifeKey, getLifespan(stack) - 1);
+				stack.getTagCompound().setLong(lifeKey, getLifespan(stack) - 1);
 			else
 			{
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong(lifeKey, getMaxLifespan());
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong(lifeKey, getMaxLifespan());
 			}
 		}
 	}
@@ -72,11 +72,11 @@ public interface IRadioisotopeFuel
 		if (stack != null && stack.getItem() instanceof IRadioisotopeFuel)
 		{
 			if (stack.hasTagCompound())
-				return stack.stackTagCompound.getLong(lifeKey);
+				return stack.getTagCompound().getLong(lifeKey);
 			else
 			{
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong(lifeKey, getMaxLifespan());
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong(lifeKey, getMaxLifespan());
 				return getMaxLifespan();
 			}
 		}

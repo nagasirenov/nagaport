@@ -1,0 +1,59 @@
+static int checks;
+static void check(boolean v,String label){checks++;if(!v)throw new AssertionError(label);}
+static class Inv extends TileEntityInventoryBase {
+ boolean allowInsert=true,allowExtract=true,legacy;int dirty,clears;ItemStack lastWrite;
+ Inv(int n){super(n);}
+ protected String getDefaultName(){return "probe";}
+ public void markDirty(){dirty++;}
+ public ItemStack getStackInSlot(int n){return legacy?slots[n]:super.getStackInSlot(n);}
+ public void setInventorySlotContents(int n,ItemStack s){lastWrite=s;if(s==ItemStack.EMPTY)clears++;super.setInventorySlotContents(n,s);}
+ public int[] getSlotsForFace(EnumFacing face){int[] out=new int[slots.length];for(int i=0;i<out.length;i++)out[i]=i;return out;}
+ public boolean isItemValidForSlot(int n,ItemStack s){return allowInsert;}
+ public boolean canInsertItem(int n,ItemStack s,EnumFacing f){return allowInsert;}
+ public boolean canExtractItem(int n,ItemStack s,EnumFacing f){return allowExtract;}
+}
+static ItemStack stack(int n){return new ItemStack(Items.STICK,n);}
+static boolean send(Inv source,Inv dest){Network n=new Network();TileEntityPneumoTube tube=new TileEntityPneumoTube();n.addReceiver(dest,ForgeDirection.NORTH,null);return n.send(source,tube,ForgeDirection.SOUTH,Network.SEND_FIRST,Network.RECEIVE_ROBIN,100,0);}
+public static void main(String[] args){
+ Bootstrap.register();
+ SatDock dock=new SatDock();check(dock.removeStackFromSlot(0)==ItemStack.EMPTY,"SatDock native absent removal");
+ ItemStack dockItem=stack(80);dock.setInventorySlotContents(0,dockItem);
+ check(dock.slots[0]==dockItem&&dockItem.getCount()==64,"SatDock ingress clamp identity");
+ check(dock.removeStackFromSlot(0)==dockItem&&dock.slots[0]==null,"SatDock whole removal identity");
+ dock.setInventorySlotContents(0,ItemStack.EMPTY);check(dock.slots[0]==null,"SatDock EMPTY ingress");
+ dock.setInventorySlotContents(0,null);check(dock.slots[0]==null,"SatDock null ingress");
+ dock.slots[0]=ItemStack.EMPTY;check(dock.removeStackFromSlot(0)==ItemStack.EMPTY&&dock.slots[0]==null,"SatDock direct empty removal");
+ Inv filter=new Inv(1);com.hbm.inventory.SlotPattern pattern=new com.hbm.inventory.SlotPattern(filter,0,0,0);
+ pattern.putStack(ItemStack.EMPTY);check(filter.slots[0]==null&&filter.lastWrite==ItemStack.EMPTY,"pattern EMPTY clear");
+ pattern.putStack(null);check(filter.slots[0]==null&&filter.lastWrite==ItemStack.EMPTY,"pattern null clear");
+ ItemStack sample=stack(12);pattern.putStack(sample);check(filter.slots[0]!=sample&&filter.slots[0].getCount()==1&&sample.getCount()==12,"pattern copy single count");
+ pattern=new com.hbm.inventory.SlotPattern(filter,0,0,0,true);pattern.putStack(sample);check(filter.slots[0]!=sample&&filter.slots[0].getCount()==12,"pattern allowed count");
+ for(boolean legacy:new boolean[]{false,true}){
+  Inv inv=new Inv(2);inv.legacy=legacy;
+  check(InventoryUtil.tryAddItemToExistingStack(inv,0,1,ItemStack.EMPTY)==null,"empty insertion source");
+  ItemStack incoming=stack(7);check(InventoryUtil.tryAddItemToNewSlot(inv,0,1,incoming)&&inv.slots[0]==incoming,"new slot same identity");
+  ItemStack add=stack(60);check(InventoryUtil.tryAddItemToExistingStack(inv,0,1,add)==add&&add.getCount()==3&&incoming.getCount()==64,"partial insertion alias/count");
+  check(InventoryUtil.tryAddItemToNewSlot(inv,0,1,add)&&inv.slots[1]==add,"remainder identity new slot");
+  ItemStack one=stack(1);check(InventoryUtil.tryAddItemToExistingStack(inv,0,1,one)==null&&one.getCount()==0&&add.getCount()==4,"whole insertion nullable remainder");
+  Inv m=new Inv(2);m.legacy=legacy;ItemStack occupied=stack(62);m.slots[0]=occupied;
+  List<Slot> slots=Arrays.asList(new Slot(m,0,0,0),new Slot(m,1,0,0));ItemStack moving=stack(5);
+  check(InventoryUtil.mergeItemStack(slots,moving,0,2,false),"Slot merge success");
+  check(m.slots[0]==occupied&&occupied.getCount()==64&&m.slots[1].getCount()==3&&moving.getCount()==0,"Slot merge counts + occupied alias");
+  m=new Inv(1);m.allowInsert=false;slots=Arrays.asList(new Slot(m,0,0,0){public boolean isItemValid(ItemStack s){return false;}});moving=stack(3);
+  check(!InventoryUtil.mergeItemStack(slots,moving,0,1,false)&&moving.getCount()==3&&m.slots[0]==null,"Slot denied no debit");
+  check(!InventoryUtil.mergeItemStack(slots,ItemStack.EMPTY,0,1,false),"Slot EMPTY source");
+  Inv src=new Inv(1),dst=new Inv(1);src.legacy=dst.legacy=legacy;ItemStack original=stack(12);src.slots[0]=original;
+  check(send(src,dst),"network whole send");
+  check(src.slots[0]==null&&src.lastWrite==ItemStack.EMPTY&&src.clears==1&&original.getCount()==0,"network source debit and native clear");
+  check(dst.slots[0]!=original&&dst.slots[0].getCount()==12&&src.dirty==1&&dst.dirty==1,"network target copy receipt dirty");
+  src=new Inv(1);dst=new Inv(1);src.legacy=dst.legacy=legacy;original=stack(10);ItemStack target=stack(60);src.slots[0]=original;dst.slots[0]=target;
+  check(send(src,dst)&&src.slots[0]==original&&original.getCount()==6&&dst.slots[0]==target&&target.getCount()==64&&src.clears==0,"network partial retains aliases");
+  src=new Inv(1);dst=new Inv(1);src.legacy=dst.legacy=legacy;original=stack(10);src.slots[0]=original;dst.allowInsert=false;
+  check(!send(src,dst)&&src.slots[0]==original&&original.getCount()==10&&dst.slots[0]==null&&src.dirty==0&&dst.dirty==0,"network denied insertion");
+  dst.allowInsert=true;src.allowExtract=false;
+  check(!send(src,dst)&&original.getCount()==10&&dst.slots[0]==null,"network denied extraction");
+  src=new Inv(1);src.legacy=legacy;check(!send(src,dst),"network empty source");
+ }
+ check(ItemStack.EMPTY.isEmpty()&&ItemStack.EMPTY.getCount()==0,"EMPTY sentinel unchanged");
+ System.out.println("PASS "+checks+" native extracted consumer checks");
+}

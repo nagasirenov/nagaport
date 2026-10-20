@@ -31,7 +31,7 @@ public abstract class EntityFish extends EntityWaterMob {
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15.0);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(10.0);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0);
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public abstract class EntityFish extends EntityWaterMob {
 	private void updateSwimTarget() {
 		if(rand.nextInt(200) == 0 || !this.isInWater()) {
 			double targetX = this.posX + (rand.nextDouble() - 0.5) * 20.0;
-			double targetY = MathHelper.clamp_double(this.posY + (rand.nextDouble() - 0.5) * 8.0, 0, this.worldObj.getHeight() - 1);
+			double targetY = MathHelper.clamp_double(this.posY + (rand.nextDouble() - 0.5) * 8.0, 0, this.world.getHeight() - 1);
 			double targetZ = this.posZ + (rand.nextDouble() - 0.5) * 20.0;
 			this.currentSwimTarget = new Vec3d(targetX, targetY, targetZ);
 		}
@@ -79,7 +79,7 @@ public abstract class EntityFish extends EntityWaterMob {
 		double deltaX = this.currentSwimTarget.x - this.posX;
 		double deltaY = this.currentSwimTarget.y - this.posY;
 		double deltaZ = this.currentSwimTarget.z - this.posZ;
-		double distance = MathHelper.sqrt_double(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+		double distance = MathHelper.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
 		double dirX = deltaX / distance;
 		double dirY = deltaY / distance;
@@ -102,7 +102,7 @@ public abstract class EntityFish extends EntityWaterMob {
 			this.prevLimbSwingAmount = this.limbSwingAmount;
 			double d0 = this.posX - this.prevPosX;
 			double d1 = this.posZ - this.prevPosZ;
-			float f6 = MathHelper.sqrt_double(d0 * d0 + d1 * d1) * 4.0F;
+			float f6 = MathHelper.sqrt(d0 * d0 + d1 * d1) * 4.0F;
 
 			if(f6 > 1.0F) {
 				f6 = 1.0F;
@@ -127,7 +127,7 @@ public abstract class EntityFish extends EntityWaterMob {
 	}
 
 	private float updateRotation(float currentRotation, float targetRotation, float maxIncrement) {
-		float deltaRotation = MathHelper.wrapAngleTo180_float(targetRotation - currentRotation);
+		float deltaRotation = MathHelper.wrapDegrees(targetRotation - currentRotation);
 		if(deltaRotation > maxIncrement) {
 			deltaRotation = maxIncrement;
 		}

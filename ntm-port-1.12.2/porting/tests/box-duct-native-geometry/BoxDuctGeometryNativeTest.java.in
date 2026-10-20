@@ -1,0 +1,79 @@
+import java.io.File;
+import java.util.*;
+import com.hbm.blocks.network.ConnectionState;
+import com.hbm.blocks.network.FluidConnectionState;
+import com.hbm.render.block.RenderBoxDuct;
+import com.hbm.render.block.nativeblock.*;
+import com.hbm.render.block.nativeblock.BoxDuctMaterials.Kind;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.*;
+import net.minecraftforge.common.property.*;
+
+public final class BoxDuctGeometryNativeTest {
+ static long checks;static int cases,failedCases;
+ static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();
+ static void check(boolean okay,String why){checks++;if(!okay)throw new AssertionError(why);}
+ static final class Sprite extends TextureAtlasSprite {Sprite(String name,int i){super(name);setIconWidth(16);setIconHeight(16);initSprite(1024,512,(i%24)*32+16,(i/24)*32+16,false);}}
+ static TextureAtlasSprite sprite(String name){TextureAtlasSprite s=sprites.get(name);if(s==null){s=new Sprite(name,sprites.size());sprites.put(name,s);}return s;}
+ static int rgba(int rgb){return 0xff000000|(rgb&255)<<16|(rgb&0xff00)|(rgb>>>16&255);}
+ static void same(float actual,float expected,String label){check(Float.floatToIntBits(actual)==Float.floatToIntBits(expected),label+" actual="+actual+" expected="+expected);}
+ static void compare(List<BakedQuad> quads,OriginalBoxDuctOracle.Layout original,OriginalBoxDuctOracle.LegacyFaces legacy,String label)throws Exception{
+  check(quads.size()==original.faces.size(),label+" face count");
+  for(int i=0;i<quads.size();i++){
+   BakedQuad q=quads.get(i);OriginalBoxDuctOracle.Face face=original.faces.get(i);check(q.getFace().getIndex()==face.side,label+" face order #"+i);check(q.getSprite()==face.icon.sprite,label+" original selected texture #"+i+" "+q.getSprite().getIconName()+" vs "+face.icon.name);check(q.getFormat().equals(DefaultVertexFormats.ITEM),label+" native finite normal format");check(!q.hasTintIndex()&&q.shouldApplyDiffuseLighting(),label+" no second tint and native diffuse flag");
+   double[][] old=legacy.face(face,original.item);int[] data=q.getVertexData();int shift=new int[]{0,2,1,0,1,3}[face.side];
+   for(int v=0;v<4;v++){
+    int oldV=(v+shift)%4;
+    for(int j=0;j<3;j++)same(Float.intBitsToFloat(data[v*7+j]),(float)old[oldV][j],label+" xyz #"+i+" side="+face.side+" vertex="+v+" axis="+j);
+    for(int j=0;j<2;j++)same(Float.intBitsToFloat(data[v*7+4+j]),(float)old[oldV][3+j],label+" UV #"+i+" side="+face.side+" vertex="+v+" axis="+j+" rot="+face.rotation+" bounds="+Arrays.toString(face.bounds));
+    check(data[v*7+3]==rgba(original.color),label+" original final color (before native world lighting)");int normal=data[v*7+6];EnumFacing side=q.getFace();check((byte)normal==127*side.getXOffset()&&(byte)(normal>>8)==127*side.getYOffset()&&(byte)(normal>>16)==127*side.getZOffset(),label+" explicit axis normal");
+   }
+  }
+ }
+ static IExtendedBlockState state(int mask,int color){return ((IExtendedBlockState)new ExtendedBlockState(new Block(Material.IRON),new IProperty<?>[0],new IUnlistedProperty<?>[]{ConnectionState.CONNECTIONS,FluidConnectionState.FLUID_COLOR}).getBaseState()).withProperty(ConnectionState.CONNECTIONS,mask).withProperty(FluidConnectionState.FLUID_COLOR,color);}
+ static void allCases(OriginalBoxDuctOracle.LegacyFaces legacy)throws Exception{
+  Kind[] kinds={Kind.FLUID,Kind.EXHAUST,Kind.CABLE};
+  for(int kind=0;kind<3;kind++){
+   BoxDuctMaterials materials=new BoxDuctMaterials(kinds[kind],id->sprite(id.toString()));
+   for(int meta=0;meta<16;meta++)for(boolean item:new boolean[]{false,true})for(int mask=0;mask<(item?1:64);mask++){
+    String label=kinds[kind]+" meta="+meta+" mask="+mask+" item="+item;cases++;
+    OriginalBoxDuctOracle.Layout original=null;Class<?> oldFailure=null,newFailure=null;List<BakedQuad> quads=null;
+    try{original=OriginalBoxDuctOracle.layout(kind,meta,mask,item,BoxDuctGeometryNativeTest::sprite);}catch(ArrayIndexOutOfBoundsException ex){oldFailure=ex.getClass();}
+    int color=original==null?0xffffff:original.color;
+    try{quads=RenderBoxDuct.bake(materials,meta,mask,item,color);}catch(ArrayIndexOutOfBoundsException ex){newFailure=ex.getClass();}
+    check(oldFailure==newFailure,label+" invalid metadata exception parity");if(oldFailure!=null){failedCases++;continue;}
+    compare(quads,original,legacy,label);
+    BoxDuctBakedModel model=new BoxDuctBakedModel(materials,meta,item);IExtendedBlockState state=state(mask,color);List<BakedQuad> modelQuads=model.getQuads(state,null,0);compare(modelQuads,original,legacy,label+" baked model");check(modelQuads==model.getQuads(state,null,785439),label+" immutable cached seed-independent mesh");
+    for(EnumFacing side:EnumFacing.values())check(model.getQuads(state,side,0).isEmpty(),label+" general-face buckets retain all original always-rendered faces");
+    check(model.isAmbientOcclusion()&&model.isGui3d()&&!model.isBuiltInRenderer(),label+" native AO and 3D model flags");check(model.getParticleTexture()==materials.particle,label+" explicit generic particle texture");
+    try{modelQuads.add(null);throw new AssertionError("mutable mesh");}catch(UnsupportedOperationException expected){checks++;}
+   }
+  }
+ }
+ static void materialParity(){
+  Kind[] kinds={Kind.FLUID,Kind.EXHAUST,Kind.CABLE};
+  for(int kind=0;kind<3;kind++){
+   BoxDuctMaterials materials=new BoxDuctMaterials(kinds[kind],id->sprite(id.toString()));
+   for(int meta:new int[]{-3,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,31,255})for(int mask=0;mask<64;mask++)for(int side=0;side<6;side++){
+    OriginalBoxDuctOracle.sprites=BoxDuctGeometryNativeTest::sprite;OriginalBoxDuctOracle.Block block=kind==0?new OriginalBoxDuctOracle.FluidDuctBox():kind==1?new OriginalBoxDuctOracle.FluidDuctBoxExhaust():new OriginalBoxDuctOracle.PowerCableBox();block.registerBlockIcons(new OriginalBoxDuctOracle.IIconRegister());
+    TextureAtlasSprite old=null,now=null;Class<?> oldFailure=null,newFailure=null;
+    try{old=block.getIcon(new OriginalBoxDuctOracle.IBlockAccess(meta,mask,null),0,0,0,side).sprite;}catch(ArrayIndexOutOfBoundsException ex){oldFailure=ex.getClass();}
+    try{now=materials.face(meta,mask,side,false);}catch(ArrayIndexOutOfBoundsException ex){newFailure=ex.getClass();}
+    check(oldFailure==newFailure&&old==now,kinds[kind]+" direct original texture selection including invalid domain meta="+meta+" mask="+mask+" side="+side);
+   }
+   Set<ResourceLocation> required=new HashSet<>(BoxDuctMaterials.textures(kinds[kind]));check(required.size()==(kind==0?34:12),"exact texture dependency counts");check(required.contains(new ResourceLocation("hbm","blocks/fluid_duct_box")),"generic fallback particle included");
+  }
+ }
+ public static void main(String[] args)throws Exception{
+  net.minecraft.init.Bootstrap.register();
+  try(OriginalBoxDuctOracle.LegacyFaces legacy=new OriginalBoxDuctOracle.LegacyFaces(new File(args[0]))){allCases(legacy);materialParity();}
+  System.out.println("PASS native boxed duct geometry: "+checks+" assertions, "+cases+" complete original-renderer cases, "+failedCases+" exactly preserved invalid-metadata failures. All64 masks x16 metadata x3 families plus item shapes; exact ordered faces, native XYZUV float bits, pristine icon routing, item/world rotation, custom negative-Z/positive-X original overrides, tint, model cache/cull buckets.");
+  System.out.println("Boundary: original callbacks/icons/RenderBlocksNT face overrides execute in a recording fixture; unchanged original vanilla faces execute actual pinned 1.7.10 client bytecode. Complete production native renderer/materials/model/helpers compile against real Minecraft/Forge 1.12.2. No original lighting solver, OpenGL/framebuffer, or whole-mod build claim.");
+ }
+}

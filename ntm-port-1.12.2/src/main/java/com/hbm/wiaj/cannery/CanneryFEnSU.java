@@ -68,13 +68,13 @@ public class CanneryFEnSU extends CanneryBase {
 		
 		scene0.add(new ActionSetBlock(7, 0, 2, ModBlocks.red_wire_coated));
 		scene0.add(new ActionWait(10));
-		scene0.add(new ActionSetBlock(6, 0, 2, Blocks.lever, 2));
+		scene0.add(new ActionSetBlock(6, 0, 2, Blocks.LEVER, 2));
 		scene0.add(new ActionWait(10));
 		scene0.add(new ActionRotateBy(0, -60, 20));
 		scene0.add(new ActionWait(10));
-		scene0.add(new ActionSetBlock(6, 0, 2, Blocks.lever, 10));
+		scene0.add(new ActionSetBlock(6, 0, 2, Blocks.LEVER, 10));
 		scene0.add(new ActionWait(20));
-		scene0.add(new ActionSetBlock(6, 0, 2, Blocks.lever, 2));
+		scene0.add(new ActionSetBlock(6, 0, 2, Blocks.LEVER, 2));
 		scene0.add(new ActionWait(20));
 		scene0.add(new ActionRotateBy(-45, -30, 20));
 		scene0.add(new ActionOffsetBy(2D, 0D, 0D, 10));
@@ -87,7 +87,7 @@ public class CanneryFEnSU extends CanneryBase {
 				if(z == 2 && x > 0 && x < 10)
 					scene1.add(new ActionSetBlock(x, 0, z, ModBlocks.red_wire_coated));
 				else
-					scene1.add(new ActionSetBlock(x, 0, z, Blocks.brick_block));
+					scene1.add(new ActionSetBlock(x, 0, z, Blocks.BRICK_BLOCK));
 			}
 			scene1.add(new ActionWait(2));
 		}

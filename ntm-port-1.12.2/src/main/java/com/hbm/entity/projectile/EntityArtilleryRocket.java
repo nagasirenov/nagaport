@@ -48,7 +48,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 
 	@Override
 	protected void entityInit() {
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 		this.dataWatcher.addObject(10, new Integer(0));
 	}
 
@@ -89,7 +89,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 	@Override
 	public void onUpdate() {
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			this.lastTickPosX = this.posX;
 			this.lastTickPosY = this.posY;
 			this.lastTickPosZ = this.posZ;
@@ -97,7 +97,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 
 		super.onUpdate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			Vec3NT delta = new Vec3NT(this.lastTargetPos.x - this.posX, this.lastTargetPos.y - this.posY, this.lastTargetPos.z - this.posZ);
 			double momentum = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) * motionMult();
@@ -140,14 +140,14 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 	@Override
 	protected void onImpact(RayTraceResult mop) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.getType().onImpact(this, mop);
 		}
 	}
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote && ticket != null) {
+		if(!this.world.isRemote && ticket != null) {
 			if(loaderTicket == null) {
 				loaderTicket = ticket;
 				loaderTicket.bindEntity(this);
@@ -160,7 +160,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 	List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
@@ -182,7 +182,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 	}
 
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}

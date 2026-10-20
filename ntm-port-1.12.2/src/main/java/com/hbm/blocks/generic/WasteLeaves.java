@@ -30,7 +30,7 @@ public class WasteLeaves extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;
 	}
 
@@ -38,9 +38,9 @@ public class WasteLeaves extends Block {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		if(rand.nextInt(30) == 0) {
-			world.setBlockToAir(x, y, z);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			
-			if(world.getBlock(x, y - 1, z).getMaterial() == Material.air) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR) {
 				EntityFallingBlock leaves = new EntityFallingBlock(world, x + 0.5, y + 0.5, z + 0.5, ModBlocks.leaves_layer);
 				leaves.field_145812_b = 2;
 				leaves.field_145813_c = false;
@@ -56,7 +56,7 @@ public class WasteLeaves extends Block {
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 		super.randomDisplayTick(world, x, y, z, rand);
 		
-		if(rand.nextInt(7) == 0 && world.getBlock(x, y - 1, z).getMaterial() == Material.air) {
+		if(rand.nextInt(7) == 0 && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "deadleaf");
 			data.setDouble("posX", x + rand.nextDouble());

@@ -46,8 +46,8 @@ public class GUIMachineTurbofan extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.turbofan.hasCustomInventoryName() ? this.turbofan.getInventoryName() : I18n.format(this.turbofan.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, 43 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 43 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

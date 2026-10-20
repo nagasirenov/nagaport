@@ -13,7 +13,7 @@ import com.hbm.util.Vec3NT;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityClientPlayerMP;
+
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -83,9 +83,7 @@ public class SkeletonCreator implements IParticleCreator {
 						skeleton.useTexture = skeleton.texture;
 						skeleton.useTextureExt = skeleton.texture_ext;
 					}
-					skeleton.motionX = rand.nextGaussian() * force;
-					skeleton.motionY = (rand.nextGaussian() + 1) * force;
-					skeleton.motionZ = rand.nextGaussian() * force;
+					skeleton.setMotion(rand.nextGaussian() * force, (rand.nextGaussian() + 1) * force, rand.nextGaussian() * force);
 				}
 				Minecraft.getMinecraft().effectRenderer.addEffect(skeleton);
 			}
@@ -170,7 +168,6 @@ public class SkeletonCreator implements IParticleCreator {
 	
 	public static void init() {
 		skullanizer.put(EntityOtherPlayerMP.class.getSimpleName(), BONES_BIPED);
-		skullanizer.put(EntityClientPlayerMP.class.getSimpleName(), BONES_BIPED);
 		skullanizer.put(EntityPlayerSP.class.getSimpleName(), BONES_BIPED);
 
 		skullanizer.put(EntityZombie.class.getSimpleName(), BONES_ZOMBIE);

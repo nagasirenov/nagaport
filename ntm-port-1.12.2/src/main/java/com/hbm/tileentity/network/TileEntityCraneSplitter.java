@@ -6,7 +6,12 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class TileEntityCraneSplitter extends TileEntityLoadedBase {
+public class TileEntityCraneSplitter extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
+
+    @Override public boolean canRenderBreaking() {
+        return getClass() == TileEntityCraneSplitter.class && getWorld() != null
+                && com.hbm.blocks.network.CraneSplitter.isNativeModelOwner(getWorld().getBlockState(getPos()).getBlock());
+    }
 
 	/* false: left belt is preferred, true: right belt is preferred */
 	private boolean position;
@@ -19,7 +24,7 @@ public class TileEntityCraneSplitter extends TileEntityLoadedBase {
 	public ItemStack[] splitStack(ItemStack stack) {
 		int left = 0;
 		int right = 0;
-		int count = stack.stackSize;
+		int count = stack.getCount();
 
 		if(remaining <= 0) remaining = position ? rightRatio : leftRatio;
 
@@ -38,15 +43,16 @@ public class TileEntityCraneSplitter extends TileEntityLoadedBase {
 
 		ItemStack leftStack = stack.copy();
 		ItemStack rightStack = stack.copy();
-		leftStack.stackSize = left;
-		rightStack.stackSize = right;
+		leftStack.setCount(left);
+		rightStack.setCount(right);
 
-		worldObj.markTileEntityChunkModified(xCoord, yCoord, zCoord, this);
+		this.world.markChunkDirty(this.pos, this);
 		return new ItemStack[] { leftStack, rightStack };
 	}
 
-	public void updateEntity() {
-		if(worldObj.isRemote) return;
+	@Override
+	public void update() {
+		if(this.world.isRemote) return;
 		networkPackNT(15);
 	}
 
@@ -63,7 +69,7 @@ public class TileEntityCraneSplitter extends TileEntityLoadedBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setBoolean("pos", position);
@@ -71,6 +77,7 @@ public class TileEntityCraneSplitter extends TileEntityLoadedBase {
 
 		nbt.setByte("left", leftRatio);
 		nbt.setByte("right", rightRatio);
+		return nbt;
 	}
 
 	@Override

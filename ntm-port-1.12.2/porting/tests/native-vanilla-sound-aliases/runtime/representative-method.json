@@ -1,0 +1,6 @@
+{
+  "path": "com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java",
+  "original": "@Override\n\tpublic void onSuck(BlockOreFluid block, int x, int y, int z) {\n\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"game.neutral.swim.splash\", 2.0F, 0.5F);\n\n\t\tsuper.onSuck(block, x, y, z);\n\t}",
+  "adapted": "@Override\n\tpublic void onSuck(BlockOreFluid block, int x, int y, int z) {\n\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"game.neutral.swim.splash\", 2.0F, 0.5F);\n\n\t\tsuper.onSuck(block, x, y, z);\n\t}",
+  "generated_sha256": "7f4952954e14c53de8c7ab632fa84c0df74803911a235fba7f3be920d4df79c8"
+}

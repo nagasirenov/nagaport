@@ -20,7 +20,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineArcFurnaceLarge extends BlockDummyable {
 
 	public MachineArcFurnaceLarge() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -74,14 +74,14 @@ public class MachineArcFurnaceLarge extends BlockDummyable {
 
 			if(pos == null)
 				return false;
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemTool && ((ItemTool) player.getHeldItem().getItem()).getToolClasses(player.getHeldItem()).contains("shovel")) {
-				TileEntityMachineArcFurnaceLarge crucible = (TileEntityMachineArcFurnaceLarge) world.getTileEntity(pos[0], pos[1], pos[2]);
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemTool && ((ItemTool) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getToolClasses(com.hbm.util.NativeHeldItem.getMainHandNullable(player)).contains("shovel")) {
+				TileEntityMachineArcFurnaceLarge crucible = (TileEntityMachineArcFurnaceLarge) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 				for(MaterialStack stack : crucible.liquids) {
 					ItemStack scrap = ItemScraps.create(new MaterialStack(stack.material, stack.amount));
 					if(!player.inventory.addItemStackToInventory(scrap)) {
 						EntityItem item = new EntityItem(world, x + hitX, y + hitY, z + hitZ, scrap);
-						world.spawnEntityInWorld(item);
+						world.spawnEntity(item);
 					}
 				}
 

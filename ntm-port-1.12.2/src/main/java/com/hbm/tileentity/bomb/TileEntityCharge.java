@@ -5,24 +5,24 @@ import com.hbm.blocks.bomb.BlockChargeBase;
 import com.hbm.tileentity.TileEntityLoadedBase;
 import io.netty.buffer.ByteBuf;
 
-public class TileEntityCharge extends TileEntityLoadedBase {
+public class TileEntityCharge extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 	public boolean started;
 	public int timer;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(started) {
 				timer--;
 
 				if(timer % 20 == 0 && timer > 0)
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:weapon.fstbmbPing", 1.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 1.0F, 1.0F);
 
 				if(timer <= 0) {
-					((BlockChargeBase)this.getBlockType()).explode(worldObj, xCoord, yCoord, zCoord);
+					((BlockChargeBase)this.getBlockType()).explode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				}
 			}
 

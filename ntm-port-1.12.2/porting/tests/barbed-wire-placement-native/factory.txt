@@ -1,0 +1,9 @@
+private static Block createBarbedWire(String registryName) {
+		BarbedWire block = new BarbedWire(Material.IRON);
+		block.setTranslationKey(registryName);
+		block.setRegistryName(new ResourceLocation(RefStrings.MODID, block.getTranslationKey()));
+		block.setHardness(5.0F);
+		block.setResistance(10.0F);
+		block.setCreativeTab(MainRegistry.blockTab);
+		return block;
+	}

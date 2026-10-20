@@ -29,7 +29,7 @@ public class JungleDungeonRoomFire extends JungleDungeonRoom {
 						if(a == 1 && b == 1)
 							continue;
 						
-						Block bl = world.getBlock(x + 1 + a, y, z + 1 + b);
+						Block bl = com.hbm.world.WorldBlockState.read(world, x + 1 + a, y, z + 1 + b).getBlock();
 						
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava || bl == ModBlocks.brick_jungle_trap) {
 							world.setBlock(x + 1 + a, y, z + 1 + b, ModBlocks.brick_jungle_trap, Trap.FIRE.ordinal(), 3);

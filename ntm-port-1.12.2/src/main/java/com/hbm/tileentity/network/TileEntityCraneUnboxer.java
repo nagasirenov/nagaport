@@ -23,14 +23,14 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.craneUnboxer";
 	}
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote) {
+	public void update() {
+		super.update();
+		if(!this.world.isRemote) {
 			
 			int delay = 20;
 			
@@ -51,7 +51,7 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 				}
 			}*/
 			
-			if(worldObj.getTotalWorldTime() % delay == 0 && !worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {
+			if(this.world.getTotalWorldTime() % delay == 0 && !this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
 				int amount = 1;
 				
 				if(slots[21] != null && slots[21].getItem() == ModItems.upgrade_stack) {
@@ -63,7 +63,7 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 				}
 	
 				ForgeDirection outputSide = getInputSide(); // note the switcheroo!
-				Block b = worldObj.getBlock(xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ);
+				Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ).getBlock();
 				
 				if(b instanceof IConveyorBelt) {
 					
@@ -78,12 +78,12 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 							decrStackSize(i, toSend);
 							stack.stackSize = toSend;
 							
-							EntityMovingItem moving = new EntityMovingItem(worldObj);
-							Vec3d pos = new Vec3d(xCoord + 0.5 + outputSide.offsetX * 0.55, yCoord + 0.5 + outputSide.offsetY * 0.55, zCoord + 0.5 + outputSide.offsetZ * 0.55);
-							Vec3d snap = belt.getClosestSnappingPosition(worldObj, xCoord + outputSide.offsetX, yCoord + outputSide.offsetY, zCoord + outputSide.offsetZ, pos);
+							EntityMovingItem moving = new EntityMovingItem(this.world);
+							Vec3d pos = new Vec3d(this.pos.getX() + 0.5 + outputSide.offsetX * 0.55, this.pos.getY() + 0.5 + outputSide.offsetY * 0.55, this.pos.getZ() + 0.5 + outputSide.offsetZ * 0.55);
+							Vec3d snap = belt.getClosestSnappingPosition(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, pos);
 							moving.setPosition(snap.x, snap.y, snap.z);
 							moving.setItemStack(stack);
-							worldObj.spawnEntityInWorld(moving);
+							this.world.spawnEntityInWorld(moving);
 							break;
 						}
 					}
@@ -93,7 +93,8 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 	}
 
@@ -103,7 +104,8 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 

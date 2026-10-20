@@ -3,12 +3,10 @@ package com.hbm.inventory;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.stats.AchievementList;
 import net.minecraft.util.math.MathHelper;
 
 public class SlotSmelting extends Slot {
@@ -28,15 +26,15 @@ public class SlotSmelting extends Slot {
 	public ItemStack decrStackSize(int amount) {
 		
 		if(this.getHasStack()) {
-			this.itemCountBuffer += Math.min(amount, this.getStack().stackSize);
+			this.itemCountBuffer += Math.min(amount, this.getStack().getCount());
 		}
 		
 		return super.decrStackSize(amount);
 	}
 
-	public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
+	public ItemStack onTake(EntityPlayer player, ItemStack stack) {
 		this.onCrafting(stack);
-		super.onPickupFromSlot(player, stack);
+		return super.onTake(player, stack);
 	}
 	
 	protected void onCrafting(ItemStack stack, int amount) {
@@ -46,21 +44,21 @@ public class SlotSmelting extends Slot {
 	
 	protected void onCrafting(ItemStack stack) {
 		
-		stack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.itemCountBuffer);
+		stack.onCrafting(this.thePlayer.world, this.thePlayer, this.itemCountBuffer);
 
-		if(!this.thePlayer.worldObj.isRemote) {
+		if(!this.thePlayer.world.isRemote) {
 			
 			int buffer = this.itemCountBuffer;
-			float exp = FurnaceRecipes.smelting().func_151398_b(stack);
+			float exp = FurnaceRecipes.instance().getSmeltingExperience(stack);
 			int remainingExp;
 
 			if(exp == 0.0F) {
 				buffer = 0;
 				
 			} else if(exp < 1.0F) {
-				remainingExp = MathHelper.floor_float((float) buffer * exp);
+				remainingExp = MathHelper.floor((float) buffer * exp);
 
-				if(remainingExp < MathHelper.ceiling_float_int((float) buffer * exp) && (float) Math.random() < (float) buffer * exp - (float) remainingExp) {
+				if(remainingExp < MathHelper.ceil((float) buffer * exp) && (float) Math.random() < (float) buffer * exp - (float) remainingExp) {
 					++remainingExp;
 				}
 
@@ -70,7 +68,7 @@ public class SlotSmelting extends Slot {
 			while(buffer > 0) {
 				remainingExp = EntityXPOrb.getXPSplit(buffer);
 				buffer -= remainingExp;
-				this.thePlayer.worldObj.spawnEntityInWorld(new EntityXPOrb(this.thePlayer.worldObj, this.thePlayer.posX, this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, remainingExp));
+				this.thePlayer.world.spawnEntity(new EntityXPOrb(this.thePlayer.world, this.thePlayer.posX, this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, remainingExp));
 			}
 		}
 
@@ -78,12 +76,6 @@ public class SlotSmelting extends Slot {
 
 		FMLCommonHandler.instance().firePlayerSmeltedEvent(thePlayer, stack);
 
-		if(stack.getItem() == Items.iron_ingot) {
-			this.thePlayer.addStat(AchievementList.acquireIron, 1);
-		}
-
-		if(stack.getItem() == Items.cooked_fished) {
-			this.thePlayer.addStat(AchievementList.cookFish, 1);
-		}
+		// The native smelt event above owns both legacy iron/fish gates exactly once.
 	}
 }

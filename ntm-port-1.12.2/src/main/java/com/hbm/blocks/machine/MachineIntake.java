@@ -19,7 +19,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 public class MachineIntake extends BlockDummyable implements ILookOverlay {
 
 	public MachineIntake() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class MachineIntake extends BlockDummyable implements ILookOverlay {
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityMachineIntake)) return;
 
 		TileEntityMachineIntake intake = (TileEntityMachineIntake) te;
@@ -45,6 +45,6 @@ public class MachineIntake extends BlockDummyable implements ILookOverlay {
 		text.add((intake.power < intake.getMaxPower() / 20 ? TextFormatting.RED : TextFormatting.GREEN) + "Power: " + BobMathUtil.getShortNumber(intake.power) + "HE");
 		text.add(TextFormatting.RED + "<- " + TextFormatting.RESET + intake.compair.getTankType().getLocalizedName() + ": " + intake.compair.getFill() + "/" + intake.compair.getMaxFill() + "mB");
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 }

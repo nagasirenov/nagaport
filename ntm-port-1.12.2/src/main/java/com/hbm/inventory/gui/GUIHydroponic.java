@@ -38,7 +38,7 @@ public class GUIHydroponic extends GuiInfoContainer {
 		hydro.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 31, guiTop + 70 - 52, 16, 52);
 		drawElectricityInfo(this, mouseX, mouseY, guiLeft + 147, guiTop + 52 - 34, 16, 34, hydro.power, TileEntityHydroponic.maxPower);
 
-		if(mc.thePlayer.inventory.getItemStack() == null && isMouseOverSlot(this.inventorySlots.getSlot(1), mouseX, mouseY) && !inventorySlots.getSlot(1).getHasStack()) {
+		if(mc.player.inventory.getItemStack() == null && isMouseOverSlot(this.inventorySlots.getSlot(1), mouseX, mouseY) && !inventorySlots.getSlot(1).getHasStack()) {
 			ItemStack[] validItems = hydro.getValidFertilizers();
 			int cycle = (int) ((System.currentTimeMillis() % (1000 * validItems.length)) / 1000);
 			ItemStack selected = validItems[cycle];
@@ -47,7 +47,7 @@ public class GUIHydroponic extends GuiInfoContainer {
 			List<Object[]> lines = new ArrayList<>();
 			lines.add(validItems);
 			lines.add(new Object[] {I18nUtil.resolveKey(selected.getDisplayName())});
-			drawStackText(lines, mouseX, mouseY, this.fontRendererObj);
+			drawStackText(lines, mouseX, mouseY, this.fontRenderer);
 		}
 	}
 
@@ -55,8 +55,8 @@ public class GUIHydroponic extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = hydro.hasCustomInventoryName() ? hydro.getInventoryName() : I18n.format(hydro.getInventoryName());
 
-		this.fontRendererObj.drawString(name, 97 - this.fontRendererObj.getStringWidth(name) / 2, 5, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 97 - this.fontRenderer.getStringWidth(name) / 2, 5, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

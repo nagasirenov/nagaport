@@ -7,10 +7,15 @@ import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSiegeLaser extends Render {
+
+	public RenderSiegeLaser(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity laser, double x, double y, double z, float f0, float f1) {

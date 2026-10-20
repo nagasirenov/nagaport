@@ -24,9 +24,9 @@ public class TileEntityRBMKStorage extends TileEntityRBMKSlottedBase implements 
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote && worldObj.getTotalWorldTime() % 10 == 0) {
+		if(!this.world.isRemote && this.world.getTotalWorldTime() % 10 == 0) {
 			
 			for(int i = 0; i < slots.length - 1; i++) {
 				
@@ -37,7 +37,7 @@ public class TileEntityRBMKStorage extends TileEntityRBMKSlottedBase implements 
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override
@@ -56,12 +56,14 @@ public class TileEntityRBMKStorage extends TileEntityRBMKSlottedBase implements 
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 	}
 

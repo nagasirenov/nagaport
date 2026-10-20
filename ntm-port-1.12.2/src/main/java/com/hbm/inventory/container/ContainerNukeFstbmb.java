@@ -68,6 +68,6 @@ private TileEntityNukeBalefire balefireBomb;
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return balefireBomb.isUseableByPlayer(player);
+		return balefireBomb.isUsableByPlayer(player);
 	}
 }

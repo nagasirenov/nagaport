@@ -1,64 +1,12 @@
 package com.hbm.render.block;
-
-import com.hbm.blocks.BlockCoral;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIcon;
-import net.minecraft.world.IBlockAccess;
-import com.hbm.lib.ForgeDirection;
-
-public class RenderCoral implements ISimpleBlockRenderingHandler {
-
-	private static final ForgeDirection[] directions = new ForgeDirection[] {
-		ForgeDirection.NORTH,
-		ForgeDirection.SOUTH,
-		ForgeDirection.WEST,
-		ForgeDirection.EAST,
-		ForgeDirection.UP,
-		ForgeDirection.DOWN,
-	};
-	
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		Tessellator tess = Tessellator.instance;
-		int colorMult = block.colorMultiplier(world, x, y, z);
-		float r = (float) (colorMult >> 16 & 255) / 255.0F;
-		float g = (float) (colorMult >> 8 & 255) / 255.0F;
-		float b = (float) (colorMult & 255) / 255.0F;
-		
-		tess.setColorOpaque_F(r, g, b);
-		
-		int brightness = block.getMixedBrightnessForBlock(world, x, y, z);
-		tess.setBrightness(brightness);
-		
-		IIcon icon = block.getIcon(world, x, y, z, 0);
-		renderCrossedSquares(icon, x, y, z, 1.0D, getAttachment(world, x, y, z));
-		
-		return true;
-	}
-
-	// find a block to connect to, biased towards sideways connections
-	private ForgeDirection getAttachment(IBlockAccess world, int x, int y, int z) {
-		for(ForgeDirection dir : directions) {
-			int ox = x + dir.offsetX;
-			int oy = y + dir.offsetY;
-			int oz = z + dir.offsetZ;
-
-			if(world.getBlock(ox, oy, oz).isBlockSolid(world, ox, oy, oz, dir.ordinal())) {
-				return dir;
-			}
-		}
-
-		return ForgeDirection.DOWN;
-	}
-	
-	// drawCrossedSquares but with a direction
-	private void renderCrossedSquares(IIcon icon, double x, double y, double z, double height, ForgeDirection dir) {
-		Tessellator tess = Tessellator.instance;
-		
+import java.util.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
+/** Original coral coordinate, winding and UV equations, now native quad input. */
+public final class RenderCoral {
+ private RenderCoral() { }
+ public static List<double[]> vertices(TextureAtlasSprite icon,double x,double y,double z,double height,EnumFacing dir) {
+  List<double[]> vertices=new ArrayList<>();
 		double minU = icon.getMinU();
 		double minV = icon.getMinV();
 		double maxU = icon.getMaxU();
@@ -117,38 +65,25 @@ public class RenderCoral implements ISimpleBlockRenderingHandler {
 			break;
 		}
 
-		tess.addVertexWithUV(x + x0, y + y0, z + z0, maxU, maxV); 
-		tess.addVertexWithUV(x + x1, y + y1, z + z1, maxU, minV);
-		tess.addVertexWithUV(x + x2, y + y2, z + z2, minU, minV);
-		tess.addVertexWithUV(x + x3, y + y3, z + z3, minU, maxV);
+		vertices.add(new double[]{x + x0, y + y0, z + z0, maxU, maxV}); 
+		vertices.add(new double[]{x + x1, y + y1, z + z1, maxU, minV});
+		vertices.add(new double[]{x + x2, y + y2, z + z2, minU, minV});
+		vertices.add(new double[]{x + x3, y + y3, z + z3, minU, maxV});
 
-		tess.addVertexWithUV(x + x3, y + y3, z + z3, maxU, maxV);
-		tess.addVertexWithUV(x + x2, y + y2, z + z2, maxU, minV);
-		tess.addVertexWithUV(x + x1, y + y1, z + z1, minU, minV);
-		tess.addVertexWithUV(x + x0, y + y0, z + z0, minU, maxV); 
+		vertices.add(new double[]{x + x3, y + y3, z + z3, maxU, maxV});
+		vertices.add(new double[]{x + x2, y + y2, z + z2, maxU, minV});
+		vertices.add(new double[]{x + x1, y + y1, z + z1, minU, minV});
+		vertices.add(new double[]{x + x0, y + y0, z + z0, minU, maxV}); 
 
-		tess.addVertexWithUV(x + x4, y + y4, z + z4, maxU, maxV); 
-		tess.addVertexWithUV(x + x5, y + y5, z + z5, maxU, minV);
-		tess.addVertexWithUV(x + x6, y + y6, z + z6, minU, minV);
-		tess.addVertexWithUV(x + x7, y + y7, z + z7, minU, maxV);
+		vertices.add(new double[]{x + x4, y + y4, z + z4, maxU, maxV}); 
+		vertices.add(new double[]{x + x5, y + y5, z + z5, maxU, minV});
+		vertices.add(new double[]{x + x6, y + y6, z + z6, minU, minV});
+		vertices.add(new double[]{x + x7, y + y7, z + z7, minU, maxV});
 
-		tess.addVertexWithUV(x + x7, y + y7, z + z7, maxU, maxV);
-		tess.addVertexWithUV(x + x6, y + y6, z + z6, maxU, minV);
-		tess.addVertexWithUV(x + x5, y + y5, z + z5, minU, minV);
-		tess.addVertexWithUV(x + x4, y + y4, z + z4, minU, maxV); 
-	}
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return false;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockCoral.renderID;
-	}
-	
+		vertices.add(new double[]{x + x7, y + y7, z + z7, maxU, maxV});
+		vertices.add(new double[]{x + x6, y + y6, z + z6, maxU, minV});
+		vertices.add(new double[]{x + x5, y + y5, z + z5, minU, minV});
+		vertices.add(new double[]{x + x4, y + y4, z + z4, minU, maxV}); 
+ return vertices;
+ }
 }

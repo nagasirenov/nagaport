@@ -498,9 +498,9 @@ public class SolarSystem {
 
 		double distance = Math.min(body.radiusKm, ORRERY_MAX_RADIUS) * 1.42;
 		for(CelestialBody satellite : body.satellites) {
-			double extraDistance = MathHelper.clamp_double(satellite.radiusKm, ORRERY_MIN_RADIUS, ORRERY_MAX_RADIUS) * ((1 + satellite.eccentricity) * 2) * 1.42;
+			double extraDistance = MathHelper.clamp((double) (satellite.radiusKm), ORRERY_MIN_RADIUS, ORRERY_MAX_RADIUS) * ((1 + satellite.eccentricity) * 2) * 1.42;
 			for(CelestialBody inner : satellite.satellites) {
-				extraDistance += MathHelper.clamp_double(inner.radiusKm, ORRERY_MIN_RADIUS, ORRERY_MAX_RADIUS) * ((1 + inner.eccentricity) * 2) * 2;
+				extraDistance += MathHelper.clamp((double) (inner.radiusKm), ORRERY_MIN_RADIUS, ORRERY_MAX_RADIUS) * ((1 + inner.eccentricity) * 2) * 2;
 			}
 
 			// distance is combined radii * hypotenuse (so cubes don't intersect at edges)
@@ -649,7 +649,7 @@ public class SolarSystem {
 		double angleToOrigin = Math.atan2(-from.y, -from.x);
 		double angleToTarget = Math.atan2(to.y - from.y, to.x - from.x);
 
-		return MathHelper.wrapAngleTo180_double(Math.toDegrees(angleToOrigin - angleToTarget));
+		return MathHelper.wrapDegrees(Math.toDegrees(angleToOrigin - angleToTarget));
 	}
 
 	private static double getApparentInclinationDegrees(Vec3d from, Vec3d to) {
@@ -658,7 +658,7 @@ public class SolarSystem {
 		double planeDistance = Math.sqrt(x * x + y * y);
 		double offsetDistance = from.z - to.z;
 
-		return MathHelper.wrapAngleTo180_double(Math.toDegrees(Math.atan2(offsetDistance, planeDistance)));
+		return MathHelper.wrapDegrees(Math.toDegrees(Math.atan2(offsetDistance, planeDistance)));
 	}
 
 	private static double getPhase(Vec3d from, Vec3d to) {
@@ -778,7 +778,7 @@ public class SolarSystem {
 		double propellantMass = totalMass - mass;
 		double propellantVolume = propellantMass / 2; // two propellants
 
-		return propellantVolume + 100 > Integer.MAX_VALUE ? Integer.MAX_VALUE : MathHelper.ceiling_double_int(propellantVolume * 0.01D) * 100;
+		return propellantVolume + 100 > Integer.MAX_VALUE ? Integer.MAX_VALUE : MathHelper.ceil(propellantVolume * 0.01D) * 100;
 	}
 
 	private static double getAtmosphericDrag(CBT_Atmosphere atmosphere) {

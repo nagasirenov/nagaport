@@ -58,8 +58,8 @@ public class RenderBehemoth extends RenderLiving {
 
 		        int targetId = behemoth.getDataWatcher().getWatchableObjectInt(19);
 
-		        EntityLivingBase targetBase = (EntityLivingBase) behemoth.worldObj.getEntityByID(targetId);
-		        if (behemoth.worldObj != null) {
+		        EntityLivingBase targetBase = (EntityLivingBase) behemoth.world.getEntityByID(targetId);
+		        if (behemoth.world != null) {
 		            if (targetBase != null) {
 	    	            double dx = targetBase.posX - behemoth.posX;
 	    	            double dy = (targetBase.posY - targetBase.getEyeHeight()) - (behemoth.posY + behemoth.getEyeHeight());
@@ -69,7 +69,7 @@ public class RenderBehemoth extends RenderLiving {
 	    	            // Calculate Pitch (vertical rotation)
 	    	            double horizontalDistance = Math.sqrt(dx * dx + dz * dz);  // Distance in XZ plane
 	    	            double targetPitch = Math.atan2(dy, horizontalDistance) * (-180 / Math.PI);
-	    	            double deltaPitch = MathHelper.wrapAngleTo180_double(targetPitch - behemoth.rotationPitch);
+	    	            double deltaPitch = MathHelper.wrapDegrees(targetPitch - behemoth.rotationPitch);
 	    	            behemoth.rotationPitch += deltaPitch * 0.1;  // Smooth pitch rotation
 	    	            
 		                double targetYaw = Math.atan2(dz, dx) * (180 / Math.PI) - 90;

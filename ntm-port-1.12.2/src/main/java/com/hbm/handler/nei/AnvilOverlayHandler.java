@@ -1,37 +1,40 @@
 package com.hbm.handler.nei;
 
+import com.hbm.inventory.container.ContainerAnvil;
 import com.hbm.inventory.gui.GUIAnvil;
 import com.hbm.inventory.recipes.anvil.AnvilRecipes.AnvilConstructionRecipe;
+import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.recipe.transfer.IRecipeTransferError;
+import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
+import mezz.jei.api.recipe.transfer.IRecipeTransferHandlerHelper;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.client.event.GuiOpenEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import codechicken.nei.api.IOverlayHandler;
-import codechicken.nei.recipe.IRecipeHandler;
-import net.minecraft.client.gui.inventory.GuiContainer;
+/** Native JEI transfer action selects an anvil recipe. It never crafts or moves items. */
+public final class AnvilOverlayHandler implements IRecipeTransferHandler<ContainerAnvil> {
+    private final AnvilRecipeHandler category;
+    private final IRecipeTransferHandlerHelper helper;
+    private GUIAnvil target;
 
-/**
- * Links NEI overlay interactions with the {@link GUIAnvil} so selecting a recipe focuses the anvil view.
- */
-public class AnvilOverlayHandler implements IOverlayHandler {
+    public AnvilOverlayHandler(AnvilRecipeHandler category, IRecipeTransferHandlerHelper helper) {
+        this.category = category;
+        this.helper = helper;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>When the NEI overlay is opened for the Nuclear Tech anvil, the GUI is instructed to focus the selected recipe.</p>
-	 * <p>It will not craft the recepie. Only select it.</p>
-	 *
-	 * @param firstGui the GUI currently displaying the overlay
-	 * @param recipe the NEI recipe handler backing the overlay
-	 * @param recipeIndex index of the recipe within the handler
-	 * @param maxTransfer whether NEI is performing a maximal transfer (ignored)
-	 */
-	@Override
-	public void overlayRecipe(GuiContainer firstGui, IRecipeHandler recipe, int recipeIndex, boolean maxTransfer) {
-		if(!(firstGui instanceof GUIAnvil) || !(recipe instanceof AnvilRecipeHandler)) {
-			return;
-		}
+    @SubscribeEvent
+    public void onGuiOpened(GuiOpenEvent event) {
+        if(event.getGui() instanceof GUIAnvil) target = (GUIAnvil) event.getGui();
+        else if(event.getGui() == null) target = null;
+    }
 
-		AnvilConstructionRecipe construction = ((AnvilRecipeHandler) recipe).getConstructionRecipe(recipeIndex);
-		if(construction != null) {
-			((GUIAnvil) firstGui).focusRecipe(construction);
-		}
-	}
+    @Override public Class<ContainerAnvil> getContainerClass() { return ContainerAnvil.class; }
+
+    @Override public IRecipeTransferError transferRecipe(ContainerAnvil container, IRecipeLayout layout,
+            EntityPlayer player, boolean maxTransfer, boolean doTransfer) {
+        AnvilConstructionRecipe recipe = category.getConstructionRecipe(layout);
+        if(target == null || target.inventorySlots != container || recipe == null) return helper.createInternalError();
+        if(doTransfer) target.focusRecipe(recipe);
+        return null;
+    }
 }

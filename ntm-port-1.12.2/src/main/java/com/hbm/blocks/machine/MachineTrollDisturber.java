@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class MachineTrollDisturber extends Block {
 	float absorb = 0;
 	public MachineTrollDisturber(float ab) {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setTickRandomly(true);
 		absorb = ab;
 	}
@@ -37,7 +37,7 @@ public class MachineTrollDisturber extends Block {
 
 		if(!world.isRemote) {
 			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
-			EntityNukeExplosionMK3.at.put(new ATEntry(world.provider.dimensionId, x, y, z),  world.getTotalWorldTime() + 100);
+			EntityNukeExplosionMK3.at.put(new ATEntry(world.provider.getDimension(), x, y, z),  world.getTotalWorldTime() + 100);
 		}
 	}
 }

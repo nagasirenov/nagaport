@@ -21,7 +21,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.EnumSkyBlock;
 
-public class TileEntityCondenser extends TileEntityLoadedBase implements IFluidStandardTransceiver, IInfoProviderEC, IConfigurableMachine, IBufPacketReceiver, IFluidCopiable {
+public class TileEntityCondenser extends TileEntityLoadedBase implements IFluidStandardTransceiver, IInfoProviderEC, IConfigurableMachine, IBufPacketReceiver, IFluidCopiable, net.minecraft.util.ITickable {
 
 	public int age = 0;
 	public FluidTank[] tanks;
@@ -59,9 +59,9 @@ public class TileEntityCondenser extends TileEntityLoadedBase implements IFluidS
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			age++;
 			if(age >= 2) {
@@ -80,12 +80,12 @@ public class TileEntityCondenser extends TileEntityLoadedBase implements IFluidS
 				if(convert > 0)
 					this.waterTimer = 20;
 
-				int light = this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, this.xCoord, this.yCoord, this.zCoord);
+				int light = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
-				boolean shouldEvaporate = TomSaveData.forWorld(worldObj).fire > 1e-5 && light > 7;
+				boolean shouldEvaporate = TomSaveData.forWorld(this.world).fire > 1e-5 && light > 7;
 				if(!shouldEvaporate && !vacuumOptimised) {
-					CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
-					if(CelestialBody.inOrbit(worldObj) || atmosphere == null || atmosphere.getPressure() < 0.01) shouldEvaporate = true;
+					CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
+					if(CelestialBody.inOrbit(this.world) || atmosphere == null || atmosphere.getPressure() < 0.01) shouldEvaporate = true;
 				}
 				
 				if(shouldEvaporate) { // Make both steam and water evaporate during firestorms and in vacuums
@@ -130,10 +130,11 @@ public class TileEntityCondenser extends TileEntityLoadedBase implements IFluidS
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tanks[0].writeToNBT(nbt, "water");
 		tanks[1].writeToNBT(nbt, "steam");
+		return nbt;
 	}
 
 	@Override

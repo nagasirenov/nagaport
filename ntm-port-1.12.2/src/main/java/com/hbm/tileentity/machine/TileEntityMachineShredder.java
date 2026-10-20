@@ -27,7 +27,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineShredder extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IGUIProvider {
+public class TileEntityMachineShredder extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IGUIProvider, net.minecraft.util.ITickable {
 
 	private ItemStack slots[];
 
@@ -57,21 +57,22 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack removeStackFromSlot(int i) {
 		if(slots[i] != null) {
 			ItemStack itemStack = slots[i];
 			slots[i] = null;
-			return itemStack;
+			return itemStack == null || itemStack.isEmpty() ? ItemStack.EMPTY : itemStack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) {
+		itemStack = itemStack == null || itemStack.isEmpty() ? null : itemStack;
 		slots[i] = itemStack;
-		if(itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
-			itemStack.stackSize = getInventoryStackLimit();
+		if(itemStack != null && itemStack.getCount() > getInventoryStackLimit()) {
+			itemStack.setCount(getInventoryStackLimit());
 		}
 	}
 
@@ -97,10 +98,10 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;
+			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
 
@@ -164,7 +165,7 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setLong("powerTime", power);
 		NBTTagList list = new NBTTagList();
@@ -182,15 +183,18 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 		if(customName != null) {
 			nbt.setString("name", customName);
 		}
+		return nbt;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_io;
 	}
 
 	@Override
-	public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
+	public boolean canInsertItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if((slot >= 9 && slot != 27 && slot != 28) || !this.isItemValidForSlot(slot, itemStack))
 			return false;
 
@@ -211,7 +215,8 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(i >= 9 && i <= 26)
 			return true;
 		if(i >= 27 && i <= 28)
@@ -234,10 +239,10 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		boolean flag1 = false;
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.updateConnections();
 
@@ -258,7 +263,7 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 					flag1 = true;
 				}
 				if(soundCycle == 0)
-					this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "minecart.base", getVolume(1.0F), 0.75F);
+					com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "minecart.base", getVolume(1.0F), 0.75F);
 				soundCycle++;
 
 				if(soundCycle >= 50)
@@ -302,7 +307,7 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	private void updateConnections() {
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 
 	public void processItem() {
@@ -345,8 +350,8 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 
 			for(int i = 0; i < 9; i++) {
 				if(slots[i] != null && slots[i].getItem() == Item.getItemFromBlock(ModBlocks.bobblehead)&& slots[i].getItemDamage() == BobbleType.GWEN.ordinal()) {
-					worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-					worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 5, true, true);
+					this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+					this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5, true, true);
 					break;
 				} else if(slots[i] != null && slots[i].stackSize > 0 && hasSpace(slots[i])) {
 					return true;

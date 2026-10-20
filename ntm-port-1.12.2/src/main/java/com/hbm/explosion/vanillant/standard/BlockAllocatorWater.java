@@ -43,15 +43,15 @@ public class BlockAllocatorWater implements IBlockAllocator {
 						double currentZ = z;
 
 						for (float stepSize = 0.3F; powerRemaining > 0.0F; powerRemaining -= stepSize * 0.75F) {
-							int blockX = MathHelper.floor_double(currentX);
-							int blockY = MathHelper.floor_double(currentY);
-							int blockZ = MathHelper.floor_double(currentZ);
+							int blockX = MathHelper.floor(currentX);
+							int blockY = MathHelper.floor(currentY);
+							int blockZ = MathHelper.floor(currentZ);
 
-							Block block = world.getBlock(blockX, blockY, blockZ);
-							Material material = block.getMaterial();
+							Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
+							Material material = block.getDefaultState().getMaterial();
 
 							// im braindead and copy code 🧃🐱‍👤
-							if (material != Material.air && !material.isLiquid()) {
+							if (material != Material.AIR && !material.isLiquid()) {
 								float blockResistance = explosion.exploder != null ?
 									explosion.exploder.func_145772_a(explosion.compat, world, blockX, blockY, blockZ, block) :
 									block.getExplosionResistance(null, world, blockX, blockY, blockZ, x, y, z);

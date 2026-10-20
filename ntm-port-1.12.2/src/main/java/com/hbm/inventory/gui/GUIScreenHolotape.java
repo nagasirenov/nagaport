@@ -23,14 +23,14 @@ public class GUIScreenHolotape extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.bobble"), 1.0F));
+		mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.bobble"), 1.0F));
 		
-		ItemStack stack = Minecraft.getMinecraft().thePlayer.getHeldItem();
+		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player);
 		
 		if(stack != null && stack.getItem() == ModItems.holotape_image) {
 			this.holo = EnumUtil.grabEnumSafely(EnumHoloImage.class, stack.getItemDamage());
 		} else {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 
@@ -69,10 +69,10 @@ public class GUIScreenHolotape extends GuiScreen {
 		
 		if(this.holo.getText() != null) {
 			
-			List<String> lines = I18nUtil.autoBreak(this.fontRendererObj, this.holo.getText(), 275);
+			List<String> lines = I18nUtil.autoBreak(this.fontRenderer, this.holo.getText(), 275);
 			
 			for(String text : lines) {
-				this.fontRendererObj.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(text) / 2), nextLevel, 0x009900);
+				this.fontRenderer.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(text) / 2), nextLevel, 0x009900);
 				nextLevel += 10;
 			}
 
@@ -85,7 +85,7 @@ public class GUIScreenHolotape extends GuiScreen {
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 	

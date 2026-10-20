@@ -3,6 +3,7 @@ package com.hbm.render.entity.effect;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.lib.RefStrings;
+import com.hbm.entity.effect.EntityBlackHole;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
@@ -20,7 +21,7 @@ public class RenderQuasar extends RenderBlackHole {
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 
-		float size = entity.getDataWatcher().getWatchableObjectFloat(16);
+		float size = ((EntityBlackHole) entity).getBlackHoleSize();
 
 		GL11.glScalef(size, size, size);
 

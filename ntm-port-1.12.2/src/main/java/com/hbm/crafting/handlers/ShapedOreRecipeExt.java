@@ -12,6 +12,6 @@ public class ShapedOreRecipeExt extends ShapedOreRecipe {
 	public ShapedOreRecipeExt(Item result, Object... recipe) { this(new ItemStack(result), recipe); }
 
 	public ShapedOreRecipeExt(ItemStack result, Object... recipe) {
-		super(result, recipe);
+		super(null, result, recipe);
 	}
 }

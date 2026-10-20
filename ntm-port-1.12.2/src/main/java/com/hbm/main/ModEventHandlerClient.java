@@ -1,5 +1,6 @@
 package com.hbm.main;
 
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.Vec3d;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.ModBlocks;
@@ -64,6 +65,7 @@ import com.hbm.render.util.RenderOverhead;
 import com.hbm.render.util.RenderScreenOverlay;
 import com.hbm.render.util.SoyuzPronter;
 import com.hbm.sound.AudioWrapper;
+import com.hbm.sound.SoundCategoryResolver;
 import com.hbm.sound.MovingSoundChopper;
 import com.hbm.sound.MovingSoundChopperMine;
 import com.hbm.sound.MovingSoundCrashing;
@@ -99,7 +101,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -118,8 +120,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.client.C03PacketPlayer;
-import net.minecraft.network.play.client.C0CPacketInput;
+import net.minecraft.network.play.client.CPacketPlayer;
+import net.minecraft.network.play.client.CPacketInput;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
@@ -128,11 +130,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.client.GuiIngameForge;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.client.event.sound.PlaySoundEvent17;
+import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.oredict.OreDictionary;
@@ -154,7 +154,7 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void onOverlayRender(RenderGameOverlayEvent.Pre event) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		/// NUKE FLASH ///
 		if(event.type == ElementType.CROSSHAIRS && (flashTimestamp + flashDuration - Clock.get_ms()) > 0 && ClientConfig.NUKE_HUD_FLASH.get()) {
@@ -205,8 +205,8 @@ public class ModEventHandlerClient {
 		}*/
 
 		/// HANDLE GUN OVERLAYS ///
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IItemHUD) {
-			((IItemHUD)player.getHeldItem().getItem()).renderHUD(event, event.type, player, player.getHeldItem());
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemHUD) {
+			((IItemHUD)com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).renderHUD(event, event.type, player, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 		}
 
 		/// HANDLE GEIGER COUNTER HUD ///
@@ -227,15 +227,15 @@ public class ModEventHandlerClient {
 		/// DODD DIAG HOOK FOR RBMK
 		if(event.type == ElementType.CROSSHAIRS && ClientConfig.DODD_RBMK_DIAGNOSTIC.get()) {
 			Minecraft mc = Minecraft.getMinecraft();
-			World world = mc.theWorld;
+			World world = mc.world;
 			RayTraceResult mop = mc.objectMouseOver;
 
 			if(mop != null) {
 
 				if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
-					if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ILookOverlay) {
-						((ILookOverlay) player.getHeldItem().getItem()).printHook(event, world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+					if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ILookOverlay) {
+						((ILookOverlay) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).printHook(event, world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 
 					} else if(world.getBlockState(mop.getBlockPos()).getBlock() instanceof ILookOverlay) {
 						((ILookOverlay) world.getBlockState(mop.getBlockPos()).getBlock()).printHook(event, world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
@@ -249,7 +249,7 @@ public class ModEventHandlerClient {
 						Block b = world.getBlockState(mop.getBlockPos()).getBlock();
 						int i = b.getMetaFromState(world.getBlockState(mop.getBlockPos()));
 						List<String> text = new ArrayList();
-						text.add(b.getUnlocalizedName());
+						text.add(b.getTranslationKey());
 						text.add("Meta: " + i);
 						ILookOverlay.printGeneric(event, "DEBUG", 0xffff00, 0x4040000, text);
 					}
@@ -380,7 +380,7 @@ public class ModEventHandlerClient {
 		}
 
 		/// HANDLE SCOPE OVERLAY ///
-		ItemStack held = player.getHeldItem();
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		if(held != null && held.getItem() instanceof ItemGunBaseNT && ItemGunBaseNT.aimingProgress == ItemGunBaseNT.prevAimingProgress && ItemGunBaseNT.aimingProgress == 1F && event.type == ElementType.HOTBAR)  {
 			ItemGunBaseNT gun = (ItemGunBaseNT) held.getItem();
@@ -419,7 +419,7 @@ public class ModEventHandlerClient {
 	@SubscribeEvent(receiveCanceled = true)
 	public void onHUDRenderShield(RenderGameOverlayEvent.Pre event) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		if(event.type == ElementType.ARMOR) {
 
@@ -455,7 +455,7 @@ public class ModEventHandlerClient {
 
 		/// HANDLE ELECTRIC FSB HUD ///
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		Tessellator tess = Tessellator.instance;
 
 		if(!event.isCanceled() && event.type == ElementType.HEALTH) {
@@ -465,9 +465,9 @@ public class ModEventHandlerClient {
 		}
 
 		if (!event.isCanceled() && event.type == ElementType.ALL) {
-			long time = ImpactWorldHandler.getTimeForClient(player.worldObj);
+			long time = ImpactWorldHandler.getTimeForClient(player.world);
 			if(time > 0) {
-				RenderScreenOverlay.renderCountdown(event.resolution, Minecraft.getMinecraft().ingameGUI, Minecraft.getMinecraft().theWorld);
+				RenderScreenOverlay.renderCountdown(event.resolution, Minecraft.getMinecraft().ingameGUI, Minecraft.getMinecraft().world);
 			}
 		}
 
@@ -561,16 +561,11 @@ public class ModEventHandlerClient {
 
 	@SubscribeEvent
 	public void setupFOV(FOVUpdateEvent event) {
-
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		ItemStack held = player.getHeldItem();
-
-		if(held == null) return;
-
-		IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(held, IItemRenderer.ItemRenderType.EQUIPPED);
-		if(!(customRenderer instanceof ItemRenderWeaponBase)) return;
-		ItemRenderWeaponBase renderGun = (ItemRenderWeaponBase) customRenderer;
-		event.newfov = renderGun.getViewFOV(held, event.fov);
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		ItemStack held = player.getHeldItemMainhand();
+		ItemRenderWeaponBase renderGun = com.hbm.render.item.weapon.sedna.nativehand.SednaHandHandler.renderer(held);
+		if(renderGun == null) return;
+		event.setNewfov(renderGun.getViewFOV(held, event.getFov()));
 	}
 
 	public static boolean ducked = false;
@@ -593,7 +588,7 @@ public class ModEventHandlerClient {
 			float pX = (float) (player.prevPosX + (player.posX - player.prevPosX) * (double)event.partialRenderTick);
 			float pY = (float) (player.prevPosY + (player.posY - player.prevPosY) * (double)event.partialRenderTick);
 			float pZ = (float) (player.prevPosZ + (player.posZ - player.prevPosZ) * (double)event.partialRenderTick);
-			EntityPlayer me = Minecraft.getMinecraft().thePlayer;
+			EntityPlayer me = Minecraft.getMinecraft().player;
 			float mX = (float) (me.prevPosX + (me.posX - me.prevPosX) * (double)event.partialRenderTick);
 			float mY = (float) (me.prevPosY + (me.posY - me.prevPosY) * (double)event.partialRenderTick);
 			float mZ = (float) (me.prevPosZ + (me.posZ - me.prevPosZ) * (double)event.partialRenderTick);
@@ -624,7 +619,7 @@ public class ModEventHandlerClient {
 		if(cloak != null)
 			player.func_152121_a(Type.CAPE, cloak);
 
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IHoldableWeapon) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IHoldableWeapon) {
 			renderer.modelBipedMain.aimedBow = true;
 			renderer.modelArmor.aimedBow = true;
 			renderer.modelArmorChestplate.aimedBow = true;
@@ -672,58 +667,62 @@ public class ModEventHandlerClient {
 	private ISound currentSong;
 
 	@SubscribeEvent
-	public void onPlayMusic(PlaySoundEvent17 event) {
-		ResourceLocation r = event.sound.getPositionedSoundLocation();
-		if(Minecraft.getMinecraft().theWorld == null) return;
-		if(!r.toString().equals("minecraft:music.game.creative") && !r.toString().equals("minecraft:music.game")) return;
+	public void onPlayMusic(PlaySoundEvent event) {
+		ResourceLocation r = event.getSound().getSoundLocation();
+		if(Minecraft.getMinecraft().world == null) return;
+		if(!r.toString().equals("minecraft:music.creative") && !r.toString().equals("minecraft:music.game")) return;
 
 		// Prevent songs playing over the top of each other
 		if(Minecraft.getMinecraft().getSoundHandler().isSoundPlaying(currentSong)) {
 			event.setResult(Result.DENY);
-			event.result = null;
+			event.setResultSound(null);
 			return;
 		}
 
 		// Replace the sound if we're not on Earth
-		WorldProvider provider = Minecraft.getMinecraft().theWorld.provider;
-		if((provider instanceof WorldProviderCelestial || provider instanceof WorldProviderOrbit) && provider.dimensionId != 0) {
-			event.result = currentSong = PositionedSoundRecord.func_147673_a(MUSIC_LOCATION);
+		WorldProvider provider = Minecraft.getMinecraft().world.provider;
+		if((provider instanceof WorldProviderCelestial || provider instanceof WorldProviderOrbit) && provider.getDimension() != 0) {
+			currentSong = new PositionedSoundRecord(MUSIC_LOCATION, SoundCategory.MUSIC, 1.0F, 1.0F, false, 0, ISound.AttenuationType.NONE, 0.0F, 0.0F, 0.0F) {
+				@Override
+				public SoundCategory getCategory() { return SoundCategoryResolver.get(MUSIC_LOCATION); }
+			};
+			event.setResultSound(currentSong);
 		}
 	}
 
 	@Spaghetti("please get this shit out of my face")
 	@SubscribeEvent
-	public void onPlaySound(PlaySoundEvent17 e) {
+	public void onPlaySound(PlaySoundEvent e) {
 
 		EntityPlayer player = MainRegistry.proxy.me();
 		Minecraft mc = Minecraft.getMinecraft();
 
-		if(player != null && mc.theWorld != null) {
-			int i = MathHelper.floor_double(player.posX);
-			int j = MathHelper.floor_double(player.posY);
-			int k = MathHelper.floor_double(player.posZ);
-			Block block = mc.theWorld.getBlock(i, j, k);
+		if(player != null && mc.world != null) {
+			int i = MathHelper.floor(player.posX);
+			int j = MathHelper.floor(player.posY);
+			int k = MathHelper.floor(player.posZ);
+			Block block = mc.world.getBlockState(new BlockPos(i, j, k)).getBlock();
 
 			if(block == ModBlocks.vacuum) {
-				e.result = null;
+				e.setResultSound(null);
 				return;
 			}
 
 
 		}
 
-		ResourceLocation r = e.sound.getPositionedSoundLocation();
+		ResourceLocation r = e.getSound().getSoundLocation();
 
-		WorldClient wc = mc.theWorld;
+		WorldClient wc = mc.world;
 
 		//Alright, alright, I give the fuck up, you've wasted my time enough with this bullshit. You win.
 		//A winner is you.
 		//Conglaturations.
 		//Fuck you.
 
-		if(r.toString().equals("hbm:misc.nullChopper") && Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)
+		if(r.equals(new ResourceLocation("hbm:misc.nullChopper")) && Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2) != null)
 		{
-			EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);
+			EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);
 
 			if(MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundChopperLoop) == null) {
 				MovingSoundPlayerLoop.globalSoundList.add(new MovingSoundChopper(new ResourceLocation("hbm:entity.chopperFlyingLoop"), ent, EnumHbmSound.soundChopperLoop));
@@ -731,9 +730,9 @@ public class ModEventHandlerClient {
 			}
 		}
 
-		if(r.toString().equals("hbm:misc.nullCrashing") && Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)
+		if(r.equals(new ResourceLocation("hbm:misc.nullCrashing")) && Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2) != null)
 		{
-			EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);
+			EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);
 
 			if(MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundCrashingLoop) == null) {
 				MovingSoundPlayerLoop.globalSoundList.add(new MovingSoundCrashing(new ResourceLocation("hbm:entity.chopperCrashingLoop"), ent, EnumHbmSound.soundCrashingLoop));
@@ -741,9 +740,9 @@ public class ModEventHandlerClient {
 			}
 		}
 
-		if(r.toString().equals("hbm:misc.nullMine") && Library.getClosestMineForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)
+		if(r.equals(new ResourceLocation("hbm:misc.nullMine")) && Library.getClosestMineForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2) != null)
 		{
-			EntityChopperMine ent = Library.getClosestMineForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);
+			EntityChopperMine ent = Library.getClosestMineForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);
 
 			if(MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundMineLoop) == null) {
 				MovingSoundPlayerLoop.globalSoundList.add(new MovingSoundChopperMine(new ResourceLocation("hbm:entity.chopperMineLoop"), ent, EnumHbmSound.soundMineLoop));
@@ -836,8 +835,8 @@ public class ModEventHandlerClient {
 		float level = 0;
 		float rads = HazardSystem.getHazardLevelFromStack(stack, HazardRegistry.RADIATION);
 		if(rads == 0) {
-			if(stack.hasTagCompound() && stack.stackTagCompound.hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
-				level += stack.stackTagCompound.getFloat(HazardTypeNeutron.NEUTRON_KEY);
+			if(stack.hasTagCompound() && stack.getTagCompound().hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
+				level += stack.getTagCompound().getFloat(HazardTypeNeutron.NEUTRON_KEY);
 			}
 
 			if(level >= 1e-5) {
@@ -911,7 +910,7 @@ public class ModEventHandlerClient {
 				BlockOre ore = BlockOre.vanillaMap.get(block);
 				if(ore != null) {
 					ore.addInformation(stack, event.entityPlayer, list, event.showAdvancedItemTooltips);
-				} else if(block == Blocks.coal_ore) {
+				} else if(block == Blocks.COAL_ORE) {
 					// we don't have any celestial coal, special case
 					list.add(TextFormatting.GOLD + "Can be found on:");
 					list.add(TextFormatting.AQUA + " - " + I18nUtil.resolveKey("body.kerbin"));
@@ -937,8 +936,8 @@ public class ModEventHandlerClient {
 
 		Minecraft mc = Minecraft.getMinecraft();
 
-		GL11.glRotatef((float)-mc.thePlayer.rotationYaw, 0, 1, 0);
-		GL11.glRotatef((float)(mc.thePlayer.rotationPitch), 1, 0, 0);
+		GL11.glRotatef((float)-mc.player.rotationYaw, 0, 1, 0);
+		GL11.glRotatef((float)(mc.player.rotationPitch), 1, 0, 0);
 
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 
@@ -960,9 +959,9 @@ public class ModEventHandlerClient {
 		int cY = currentBrightness / 65536;
 		int lX = lastBrightness % 65536;
 		int lY = lastBrightness / 65536;
-		float interp = (mc.theWorld.getTotalWorldTime() % 20) * 0.05F;
+		float interp = (mc.world.getTotalWorldTime() % 20) * 0.05F;
 
-		if(mc.theWorld.getTotalWorldTime() == 1)
+		if(mc.world.getTotalWorldTime() == 1)
 			lastBrightness = currentBrightness;
 
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)(lX + (cX - lX) * interp) / 1.0F, (float)(lY + (cY - lY) * interp) / 1.0F);
@@ -1003,7 +1002,7 @@ public class ModEventHandlerClient {
 	public void clientTick(ClientTickEvent event) {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		ArmorNo9.updateWorldHook(mc.theWorld);
+		ArmorNo9.updateWorldHook(mc.world);
 
 		boolean supportsHighRenderDistance = FMLClientHandler.instance().hasOptifine() || Loader.isModLoaded(Compat.MOD_ANG);
 
@@ -1018,7 +1017,7 @@ public class ModEventHandlerClient {
 			LoggingUtil.errorWithHighlight("========================== WARNING ==========================");
 		}
 
-		if(mc.theWorld == null || mc.thePlayer == null)
+		if(mc.world == null || mc.player == null)
 			return;
 
 		if(event.phase == Phase.START && event.side == Side.CLIENT) {
@@ -1027,27 +1026,27 @@ public class ModEventHandlerClient {
 			if(BlockAshes.ashes > 0) BlockAshes.ashes -= 2;
 			if(BlockAshes.ashes < 0) BlockAshes.ashes = 0;
 
-			if(mc.theWorld.getTotalWorldTime() % 20 == 0) {
+			if(mc.world.getTotalWorldTime() % 20 == 0) {
 				lastBrightness = currentBrightness;
-				currentBrightness = mc.theWorld.getLightBrightnessForSkyBlocks(MathHelper.floor_double(mc.thePlayer.posX), MathHelper.floor_double(mc.thePlayer.posY), MathHelper.floor_double(mc.thePlayer.posZ), 0);
+				currentBrightness = mc.world.getLightBrightnessForSkyBlocks(MathHelper.floor_double(mc.player.posX), MathHelper.floor_double(mc.player.posY), MathHelper.floor_double(mc.player.posZ), 0);
 			}
 
-			if(ArmorUtil.isWearingEmptyMask(mc.thePlayer)) {
+			if(ArmorUtil.isWearingEmptyMask(mc.player)) {
 				MainRegistry.proxy.displayTooltip(TextFormatting.RED + "Your mask has no filter!", ServerProxy.ID_FILTER);
 			}
 			
 			//prune other entities' muzzle flashes
-			if(mc.theWorld.getTotalWorldTime() % 30 == 0) {
+			if(mc.world.getTotalWorldTime() % 30 == 0) {
 				long millis = System.currentTimeMillis();
 				//dead entities may have later insertion order than actively firing ones, so we be safe
 				ItemRenderWeaponBase.flashMap.values().removeIf(entry -> millis - entry.longValue() >= 150);
 			}
 			
-			CelestialBody body = CelestialBody.getBody(mc.theWorld);
-			CBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().thePlayer.worldObj, CBT_Invasion.class);
+			CelestialBody body = CelestialBody.getBody(mc.world);
+			CBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().player.worldObj, CBT_Invasion.class);
 			
 			if(invasion != null) {
-				if (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().thePlayer.worldObj, CBT_Invasion.class)) {
+				if (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().player.worldObj, CBT_Invasion.class)) {
 					MainRegistry.proxy.displayTooltip(TextFormatting.GREEN + "Kills Left: " + (invasion.killreq - invasion.kills), 14);
 				}	
 			}
@@ -1066,7 +1065,7 @@ public class ModEventHandlerClient {
 			if(comp != null) {
 				CanneryBase cannery = Jars.canneries.get(comp);
 				if(cannery != null) {
-					Minecraft.getMinecraft().thePlayer.closeScreen();
+					Minecraft.getMinecraft().player.closeScreen();
 					FMLCommonHandler.instance().showGuiScreen(new GuiWorldInAJar(cannery.createScript(), cannery.getName(), cannery.getIcon(), cannery.seeAlso()));
 				}
 			}
@@ -1077,7 +1076,7 @@ public class ModEventHandlerClient {
 			QuickManualAndWiki qmaw = qmawTimestamp > Clock.get_ms() - 100 ? lastQMAW : null;
 
 			if(qmaw != null) {
-				Minecraft.getMinecraft().thePlayer.closeScreen();
+				Minecraft.getMinecraft().player.closeScreen();
 				FMLCommonHandler.instance().showGuiScreen(new GuiQMAW(qmaw));
 			}
 		}
@@ -1087,8 +1086,8 @@ public class ModEventHandlerClient {
 			ItemStack stack = getMouseOverStack();
 			if(stack != null) {
 				stack = stack.copy();
-				stack.stackSize = 1;
-				Minecraft.getMinecraft().thePlayer.closeScreen();
+				stack.setCount(1);
+				Minecraft.getMinecraft().player.closeScreen();
 				FMLCommonHandler.instance().showGuiScreen(new GUIScreenPreview(stack));
 			}
 		}
@@ -1102,8 +1101,8 @@ public class ModEventHandlerClient {
 				List<Item> ignoredItems = Arrays.asList(
 					ModItems.crucible_template,
 					ModItems.achievement_icon,
-					Items.spawn_egg,
-					Item.getItemFromBlock(Blocks.mob_spawner)
+					Items.SPAWN_EGG,
+					Item.getItemFromBlock(Blocks.MOB_SPAWNER)
 				);
 
 				List<Class<? extends Item>> collapsedClasses = Arrays.asList(
@@ -1132,14 +1131,14 @@ public class ModEventHandlerClient {
 					}
 				}
 
-				Minecraft.getMinecraft().thePlayer.closeScreen();
+				Minecraft.getMinecraft().player.closeScreen();
 				FMLCommonHandler.instance().showGuiScreen(new GUIScreenWikiRender(stacks.toArray(new ItemStack[0]), prefix, "wiki-block-renders-256", slotScale));
 			}
 		} else {
 			isRenderingItems = false;
 		}
 
-		EntityPlayer player = mc.thePlayer;
+		EntityPlayer player = mc.player;
 
 		if(event.phase == Phase.START) {
 
@@ -1168,13 +1167,13 @@ public class ModEventHandlerClient {
 				}
 			}
 
-			CBT_War war = CelestialBody.getTrait(mc.theWorld, CBT_War.class);
+			CBT_War war = CelestialBody.getTrait(mc.world, CBT_War.class);
 
 			if(war != null) {
 				for(int i = 0; i < war.getProjectiles().size(); i++) {
 					CBT_War.Projectile projectile = war.getProjectiles().get(i);
 					if(projectile != null && projectile.getTravel() >= 18 && projectile.getTravel() <= 18) {
-						Minecraft.getMinecraft().thePlayer.playSound("hbm:misc.impact", 10F, 1F);
+						Minecraft.getMinecraft().player.playSound("hbm:misc.impact", 10F, 1F);
 					}
 				}
 			}
@@ -1205,8 +1204,8 @@ public class ModEventHandlerClient {
 			}
 		}
 
-		if(event.phase == Phase.START && mc.theWorld.provider.dimensionId == SpaceConfig.orbitDimension) {
-			for(Object o : mc.theWorld.loadedEntityList) {
+		if(event.phase == Phase.START && mc.world.provider.getDimension() == SpaceConfig.orbitDimension) {
+			for(Object o : mc.world.loadedEntityList) {
 				if(o instanceof EntityItem) {
 					EntityItem item = (EntityItem) o;
 					item.motionX *= 0.81D; // applies twice on server it seems? 0.9 * 0.9
@@ -1272,10 +1271,10 @@ public class ModEventHandlerClient {
 
 		if(event.phase == Phase.START) {
 			// I didn't see anything boss, I swears it
-			World world = mc.theWorld;
+			World world = mc.world;
 			if(world == null) return;
 
-			EntityPlayer player = mc.thePlayer;
+			EntityPlayer player = mc.player;
 
 			if(lastStarCheck + 200 < millis) {
 				renderLodeStar = false;
@@ -1334,12 +1333,12 @@ public class ModEventHandlerClient {
 		int x = MathHelper.floor_double(player.posX);
 		int y = MathHelper.floor_double(player.posY);
 		int z = MathHelper.floor_double(player.posZ);
-		Block b = player.worldObj.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(player.world, x, y, z).getBlock();
 
 		// Support climbing freestanding vines and chains using spacebar
 		if (
-			b.isLadder(player.worldObj, x, y, z, player) &&
-			b.getCollisionBoundingBoxFromPool(player.worldObj, x, y, z) == null &&
+			b.isLadder(player.world, x, y, z, player) &&
+			b.getCollisionBoundingBoxFromPool(player.world, x, y, z) == null &&
 			!player.capabilities.isFlying &&
 			GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindJump) &&
 			player.motionY < 0.15
@@ -1354,11 +1353,11 @@ public class ModEventHandlerClient {
 
 		Clock.update();
 
-		BlockRebar.renderRebar(Minecraft.getMinecraft().theWorld.loadedTileEntityList, event.partialTicks);
+		BlockRebar.renderRebar(Minecraft.getMinecraft().world.loadedTileEntityList, event.getPartialTicks());
 
 		GL11.glPushMatrix();
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		double dx = player.prevPosX + (player.posX - player.prevPosX) * event.partialTicks;
 		double dy = player.prevPosY + (player.posY - player.prevPosY) * event.partialTicks;
@@ -1371,7 +1370,7 @@ public class ModEventHandlerClient {
 
 		Vec3d vec = new Vec3d(x - dx, y - dy, z - dz);
 
-		if(player.worldObj.provider.dimensionId == 0 && vec.length() < dist && !HTTPHandler.capsule.isEmpty()) {
+		if(player.world.provider.getDimension() == 0 && vec.length() < dist && !HTTPHandler.capsule.isEmpty()) {
 
 			GL11.glTranslated(vec.x, vec.y, vec.z);
 
@@ -1445,9 +1444,9 @@ public class ModEventHandlerClient {
 				if(chestplate.thermal) thermalSights = true;
 			}
 
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemGunBaseNT && ItemGunBaseNT.aimingProgress == 1) {
-				ItemGunBaseNT gun = (ItemGunBaseNT) player.getHeldItem().getItem();
-				for(int i = 0; i < gun.getConfigCount(); i++) if(gun.getConfig(player.getHeldItem(), i).hasThermalSights(player.getHeldItem())) thermalSights = true;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemGunBaseNT && ItemGunBaseNT.aimingProgress == 1) {
+				ItemGunBaseNT gun = (ItemGunBaseNT) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem();
+				for(int i = 0; i < gun.getConfigCount(); i++) if(gun.getConfig(com.hbm.util.NativeHeldItem.getMainHandNullable(player), i).hasThermalSights(com.hbm.util.NativeHeldItem.getMainHandNullable(player))) thermalSights = true;
 			}
 
 			if(thermalSights) RenderOverhead.renderThermalSight(event.partialTicks);
@@ -1466,7 +1465,7 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void preRenderEvent(RenderLivingEvent.Pre event) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		if(ArmorFSB.hasFSBArmor(player) && HbmPlayerProps.getData(player).enableHUD) {
 			ItemStack plate = player.inventory.armorInventory[2];
@@ -1504,16 +1503,17 @@ public class ModEventHandlerClient {
 
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre event) {
+		com.hbm.particle.ParticleSprites.register(event.getMap());
 		LegacyIconRegister register = new LegacyIconRegister(event.getMap());
-		particleBase = register.registerIcon(RefStrings.MODID + ":particle/particle_base");
-		particleLeaf = register.registerIcon(RefStrings.MODID + ":particle/dead_leaf");
-		particleSwen = register.registerIcon(RefStrings.MODID + ":particle/particlenote2");
-		particleLen = register.registerIcon(RefStrings.MODID + ":particle/particlenote1");
+		particleBase = register.registerIcon(RefStrings.MODID + ":blocks/particle/particle_base");
+		particleLeaf = register.registerIcon(RefStrings.MODID + ":blocks/particle/dead_leaf");
+		particleSwen = register.registerIcon(RefStrings.MODID + ":blocks/particle/particlenote2");
+		particleLen = register.registerIcon(RefStrings.MODID + ":blocks/particle/particlenote1");
 
-		particleSplash = register.registerIcon(RefStrings.MODID + ":particle/particle_splash");
-		particleAshes = register.registerIcon(RefStrings.MODID + ":particle/particle_ashes");
+		particleSplash = register.registerIcon(RefStrings.MODID + ":blocks/particle/particle_splash");
+		particleAshes = register.registerIcon(RefStrings.MODID + ":blocks/particle/particle_ashes");
 
-		particleFlare = register.registerIcon(RefStrings.MODID + ":particle/yelflare");
+		particleFlare = register.registerIcon(RefStrings.MODID + ":blocks/particle/yelflare");
 	}
 
 	@SubscribeEvent
@@ -1545,7 +1545,7 @@ public class ModEventHandlerClient {
 			GL11.glEnable(GL11.GL_LIGHTING);
 		}
 
-		if(event.item != null && event.item.getItem() == Items.paper) {
+		if(event.item != null && event.item.getItem() == Items.PAPER) {
 			event.setCanceled(true);
 
 			double p = 0.0625D;
@@ -1567,16 +1567,16 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void worldTick(WorldTickEvent event) {
 
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
-		if(player != null && player.ridingEntity instanceof EntityRailCarRidable && player instanceof EntityClientPlayerMP) {
-			EntityRailCarRidable train = (EntityRailCarRidable) player.ridingEntity;
-			EntityClientPlayerMP client = (EntityClientPlayerMP) player;
+		if(player != null && player.getRidingEntity() instanceof EntityRailCarRidable && player instanceof EntityPlayerSP) {
+			EntityRailCarRidable train = (EntityRailCarRidable) player.getRidingEntity();
+			EntityPlayerSP client = (EntityPlayerSP) player;
 
 			//mojank compensation, because apparently the "this makes the render work" method also determines the fucking input
 			if(!train.shouldRiderSit()) {
-				client.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(client.rotationYaw, client.rotationPitch, client.onGround));
-				client.sendQueue.addToSendQueue(new C0CPacketInput(client.moveStrafing, client.moveForward, client.movementInput.jump, client.movementInput.sneak));
+				client.connection.sendPacket(new CPacketPlayer.Rotation(client.rotationYaw, client.rotationPitch, client.onGround));
+				client.connection.sendPacket(new CPacketInput(client.moveStrafing, client.moveForward, client.movementInput.jump, client.movementInput.sneak));
 			}
 		}
 

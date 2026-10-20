@@ -47,7 +47,7 @@ public class EntityMagnusCartus extends EntityMinecart {
 	public void onUpdate() {
 		super.onUpdate();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			double dist = 3.0D;
 			double force = 0.3D;
@@ -55,9 +55,9 @@ public class EntityMagnusCartus extends EntityMinecart {
 			if(bogie == null) {
 				Vec3d vec = new Vec3d(dist, 0, 0);
 				vec = vec.rotateYaw(rand.nextFloat() * 6.28F);
-				EntityMinecartBogie bog = new EntityMinecartBogie(worldObj, posX + vec.x, posY + vec.y, posZ + vec.z);
+				EntityMinecartBogie bog = new EntityMinecartBogie(this.world, posX + vec.x, posY + vec.y, posZ + vec.z);
 				this.setBogie(bog);
-				worldObj.spawnEntityInWorld(bog);
+				this.world.spawnEntityInWorld(bog);
 			}
 
 			Vec3d delta = new Vec3d(posX - bogie.posX, posY - bogie.posY, posZ - bogie.posZ);
@@ -89,7 +89,7 @@ public class EntityMagnusCartus extends EntityMinecart {
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		int bogieID = nbt.getInteger("bogie");
-		Entity e = worldObj.getEntityByID(bogieID);
+		Entity e = this.world.getEntityByID(bogieID);
 
 		if(e instanceof EntityMinecartBogie) {
 			this.setBogie((EntityMinecartBogie) e);

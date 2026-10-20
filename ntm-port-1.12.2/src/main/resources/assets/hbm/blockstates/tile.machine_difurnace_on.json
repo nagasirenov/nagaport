@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "covered=false,metadata=0": {
+      "model": "hbm:native_thermal/difurnace/true/false/0/false"
+    },
+    "covered=true,metadata=0": {
+      "model": "hbm:native_thermal/difurnace/true/false/0/true"
+    },
+    "covered=false,metadata=1": {
+      "model": "hbm:native_thermal/difurnace/true/false/1/false"
+    },
+    "covered=true,metadata=1": {
+      "model": "hbm:native_thermal/difurnace/true/false/1/true"
+    },
+    "covered=false,metadata=2": {
+      "model": "hbm:native_thermal/difurnace/true/false/2/false"
+    },
+    "covered=true,metadata=2": {
+      "model": "hbm:native_thermal/difurnace/true/false/2/true"
+    },
+    "covered=false,metadata=3": {
+      "model": "hbm:native_thermal/difurnace/true/false/3/false"
+    },
+    "covered=true,metadata=3": {
+      "model": "hbm:native_thermal/difurnace/true/false/3/true"
+    },
+    "covered=false,metadata=4": {
+      "model": "hbm:native_thermal/difurnace/true/false/4/false"
+    },
+    "covered=true,metadata=4": {
+      "model": "hbm:native_thermal/difurnace/true/false/4/true"
+    },
+    "covered=false,metadata=5": {
+      "model": "hbm:native_thermal/difurnace/true/false/5/false"
+    },
+    "covered=true,metadata=5": {
+      "model": "hbm:native_thermal/difurnace/true/false/5/true"
+    },
+    "covered=false,metadata=6": {
+      "model": "hbm:native_thermal/difurnace/true/false/6/false"
+    },
+    "covered=true,metadata=6": {
+      "model": "hbm:native_thermal/difurnace/true/false/6/true"
+    },
+    "covered=false,metadata=7": {
+      "model": "hbm:native_thermal/difurnace/true/false/7/false"
+    },
+    "covered=true,metadata=7": {
+      "model": "hbm:native_thermal/difurnace/true/false/7/true"
+    },
+    "covered=false,metadata=8": {
+      "model": "hbm:native_thermal/difurnace/true/false/8/false"
+    },
+    "covered=true,metadata=8": {
+      "model": "hbm:native_thermal/difurnace/true/false/8/true"
+    },
+    "covered=false,metadata=9": {
+      "model": "hbm:native_thermal/difurnace/true/false/9/false"
+    },
+    "covered=true,metadata=9": {
+      "model": "hbm:native_thermal/difurnace/true/false/9/true"
+    },
+    "covered=false,metadata=10": {
+      "model": "hbm:native_thermal/difurnace/true/false/10/false"
+    },
+    "covered=true,metadata=10": {
+      "model": "hbm:native_thermal/difurnace/true/false/10/true"
+    },
+    "covered=false,metadata=11": {
+      "model": "hbm:native_thermal/difurnace/true/false/11/false"
+    },
+    "covered=true,metadata=11": {
+      "model": "hbm:native_thermal/difurnace/true/false/11/true"
+    },
+    "covered=false,metadata=12": {
+      "model": "hbm:native_thermal/difurnace/true/false/12/false"
+    },
+    "covered=true,metadata=12": {
+      "model": "hbm:native_thermal/difurnace/true/false/12/true"
+    },
+    "covered=false,metadata=13": {
+      "model": "hbm:native_thermal/difurnace/true/false/13/false"
+    },
+    "covered=true,metadata=13": {
+      "model": "hbm:native_thermal/difurnace/true/false/13/true"
+    },
+    "covered=false,metadata=14": {
+      "model": "hbm:native_thermal/difurnace/true/false/14/false"
+    },
+    "covered=true,metadata=14": {
+      "model": "hbm:native_thermal/difurnace/true/false/14/true"
+    },
+    "covered=false,metadata=15": {
+      "model": "hbm:native_thermal/difurnace/true/false/15/false"
+    },
+    "covered=true,metadata=15": {
+      "model": "hbm:native_thermal/difurnace/true/false/15/true"
+    }
+  }
+}

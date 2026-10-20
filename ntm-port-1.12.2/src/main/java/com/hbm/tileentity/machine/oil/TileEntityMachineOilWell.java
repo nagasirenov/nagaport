@@ -35,7 +35,7 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 	protected static int delay = 50;
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.oilWell";
 	}
 
@@ -56,7 +56,7 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 
 	@Override
 	public void onDrill(int y) {
-		Block b = worldObj.getBlock(xCoord, y, zCoord);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock();
 		ItemStack stack = new ItemStack(b);
 		int[] ids = OreDictionary.getOreIDs(stack);
 		for(Integer i : ids) {
@@ -65,8 +65,8 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 			if("oreUranium".equals(name)) {
 				for(int j = -1; j <= 1; j++) {
 					for(int k = -1; k <= 1; k++) {
-						if(worldObj.getBlock(xCoord + j, yCoord + 10, zCoord + j).isReplaceable(worldObj, xCoord + j, yCoord + 7, zCoord + k)) {
-							worldObj.setBlock(xCoord + k, yCoord + 10, zCoord + k, ModBlocks.gas_radon_dense);
+						if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 10, this.pos.getZ() + j).getBlock().isReplaceable(this.world, this.pos.getX() + j, this.pos.getY() + 7, this.pos.getZ() + k)) {
+							this.world.setBlock(this.pos.getX() + k, this.pos.getY() + 10, this.pos.getZ() + k, ModBlocks.gas_radon_dense);
 						}
 					}
 				}
@@ -75,8 +75,8 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 			if("oreAsbestos".equals(name)) {
 				for(int j = -1; j <= 1; j++) {
 					for(int k = -1; k <= 1; k++) {
-						if(worldObj.getBlock(xCoord + j, yCoord + 10, zCoord + j).isReplaceable(worldObj, xCoord + j, yCoord + 7, zCoord + k)) {
-							worldObj.setBlock(xCoord + k, yCoord + 10, zCoord + k, ModBlocks.gas_asbestos);
+						if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 10, this.pos.getZ() + j).getBlock().isReplaceable(this.world, this.pos.getX() + j, this.pos.getY() + 7, this.pos.getZ() + k)) {
+							this.world.setBlock(this.pos.getX() + k, this.pos.getY() + 10, this.pos.getZ() + k, ModBlocks.gas_asbestos);
 						}
 					}
 				}
@@ -86,7 +86,7 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 
 	@Override
 	public void onSuck(BlockOreFluid block, int x, int y, int z) {
-		worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, "game.neutral.swim.splash", 2.0F, 0.5F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "game.neutral.swim.splash", 2.0F, 0.5F);
 
 		super.onSuck(block, x, y, z);
 	}
@@ -98,12 +98,12 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 10,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 10,
+					this.pos.getZ() + 2
 					);
 		}
 
@@ -113,10 +113,10 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 	@Override
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 1, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 1, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 1, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 1, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 1, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 1, Library.NEG_Z)
 		};
 	}
 

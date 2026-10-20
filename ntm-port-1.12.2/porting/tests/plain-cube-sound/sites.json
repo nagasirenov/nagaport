@@ -1,0 +1,74 @@
+[
+  {
+    "before": "\t\tblock_asbestos = new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"block_asbestos\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":block_asbestos\");",
+    "after": "\t\tblock_asbestos = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"block_asbestos\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + \":block_asbestos\");",
+    "owner": "BlockOutgas",
+    "receiver": "new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"block_asbestos\").setCreativeTab(MainRegistry.blockTab)",
+    "sound": "SoundType.CLOTH",
+    "sound_after": "((BlockOutgas) new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey(\"block_asbestos\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH)"
+  },
+  {
+    "before": "\r\n\t\ttile_lab = new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":tile_lab\");",
+    "after": "\r\n\t\ttile_lab = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F), RefStrings.MODID + \":tile_lab\");",
+    "owner": "BlockOutgas",
+    "receiver": "new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab\")",
+    "sound": "SoundType.GLASS",
+    "sound_after": "((BlockOutgas) new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab\")).withSoundType(SoundType.GLASS)"
+  },
+  {
+    "before": "\t\ttile_lab_cracked = new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab_cracked\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":tile_lab_cracked\");",
+    "after": "\t\ttile_lab_cracked = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab_cracked\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F), RefStrings.MODID + \":tile_lab_cracked\");",
+    "owner": "BlockOutgas",
+    "receiver": "new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab_cracked\")",
+    "sound": "SoundType.GLASS",
+    "sound_after": "((BlockOutgas) new BlockOutgas(Material.ROCK, false, 5, true).setTranslationKey(\"tile_lab_cracked\")).withSoundType(SoundType.GLASS)"
+  },
+  {
+    "before": "\t\ttile_lab_broken = new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"tile_lab_broken\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":tile_lab_broken\");",
+    "after": "\t\ttile_lab_broken = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"tile_lab_broken\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(20.0F), RefStrings.MODID + \":tile_lab_broken\");",
+    "owner": "BlockOutgas",
+    "receiver": "new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"tile_lab_broken\")",
+    "sound": "SoundType.GLASS",
+    "sound_after": "((BlockOutgas) new BlockOutgas(Material.ROCK, true, 5, true).setTranslationKey(\"tile_lab_broken\")).withSoundType(SoundType.GLASS)"
+  },
+  {
+    "before": "\t\twaste_trinitite = new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_trinitite\");",
+    "after": "\t\twaste_trinitite = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_trinitite\");",
+    "owner": "BlockStepEffect",
+    "receiver": "new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\")",
+    "sound": "SoundType.SAND",
+    "sound_after": "((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\")).withSoundType(SoundType.SAND)"
+  },
+  {
+    "before": "\t\twaste_trinitite_red = new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_trinitite_red\");",
+    "after": "\t\twaste_trinitite_red = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_trinitite_red\");",
+    "owner": "BlockStepEffect",
+    "receiver": "new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\")",
+    "sound": "SoundType.SAND",
+    "sound_after": "((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\")).withSoundType(SoundType.SAND)"
+  },
+  {
+    "before": "\t\twaste_planks = new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":waste_planks\");",
+    "after": "\t\twaste_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_planks\");",
+    "owner": "BlockStepEffect",
+    "receiver": "new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\")",
+    "sound": "SoundType.WOOD",
+    "sound_after": "((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\")).withSoundType(SoundType.WOOD)"
+  },
+  {
+    "before": "\t\tfrozen_dirt = new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":frozen_dirt\");",
+    "after": "\t\tfrozen_dirt = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":frozen_dirt\");",
+    "owner": "BlockStepEffect",
+    "receiver": "new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\")",
+    "sound": "SoundType.GLASS",
+    "sound_after": "((BlockStepEffect) new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\")).withSoundType(SoundType.GLASS)"
+  },
+  {
+    "before": "\t\tfrozen_planks = new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + \":frozen_planks\");",
+    "after": "\t\tfrozen_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":frozen_planks\");",
+    "owner": "BlockStepEffect",
+    "receiver": "new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\")",
+    "sound": "SoundType.GLASS",
+    "sound_after": "((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\")).withSoundType(SoundType.GLASS)"
+  }
+]

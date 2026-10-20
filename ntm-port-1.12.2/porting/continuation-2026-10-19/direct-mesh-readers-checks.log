@@ -1,0 +1,9 @@
+PASS: exact forward/reverse geometry-only source parity: src/main/java/com/hbm/render/util/ObjUtil.java
+PASS: exact forward/reverse geometry-only source parity: src/main/java/com/hbm/render/block/RenderMirror.java
+PASS: rejected 7 deliberate formula/order/selection/guard/UV/tint/null-return changes
+Fixture source SHA256 d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736 src/main/java/com/hbm/render/mesh/ObjMesh.java
+Fixture source SHA256 e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c src/main/java/com/hbm/render/mesh/ObjMeshParser.java
+Fixture source SHA256 89185892928d291c2f6e8f45f85bb03054d55f48aba30b29957d81ca27d09b54 porting/tests/DirectMeshReaderGeometryProbe.java
+PASS: native CPU geometry fixture (18 checks): source/corner order, last exact selection, empty/missing parts, both duplicate guards, face/corner normals, UV data and float-versus-double UV evaluation
+BOUNDARY: fixture traversal only; no production reader compilation, Minecraft, Forge, GL, atlas, tint, lighting or block-rendering execution
+BOUNDARY: ObjUtil and RenderMirror were not compiled or rendered; legacy body APIs remain.

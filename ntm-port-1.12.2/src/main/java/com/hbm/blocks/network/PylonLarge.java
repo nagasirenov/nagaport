@@ -50,7 +50,7 @@ public class PylonLarge extends BlockDummyable implements ITooltipProvider {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block b, int m) {
 
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(te instanceof TileEntityPylonBase) {
 			((TileEntityPylonBase)te).disconnectAll();
@@ -62,7 +62,7 @@ public class PylonLarge extends BlockDummyable implements ITooltipProvider {
 	@Override
 	protected int getMetaForCore(World world, int x, int y, int z, EntityPlayer player, int original) {
 
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 180.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 180.0F + 0.5D) & 3;
 
 		ForgeDirection dir = ForgeDirection.NORTH;
 
@@ -88,8 +88,8 @@ public class PylonLarge extends BlockDummyable implements ITooltipProvider {
 			return true;
 		} else if(!player.isSneaking()) {
 			int[] pos = this.findCore(world, x, y, z);
-			TileEntityPylonBase te = (TileEntityPylonBase) world.getTileEntity(pos[0], pos[1], pos[2]);
-			return te.setColor(player.getHeldItem());
+			TileEntityPylonBase te = (TileEntityPylonBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
+			return te.setColor(com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 		} else {
 			return false;
 		}

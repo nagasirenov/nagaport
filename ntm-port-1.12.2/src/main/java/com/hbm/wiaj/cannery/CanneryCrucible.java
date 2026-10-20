@@ -61,13 +61,13 @@ public class CanneryCrucible extends CanneryBase {
 		
 		for(int x = 0; x < 5 ; x++) {
 			for(int z = 0; z < 5; z++) {
-				scene0.add(new ActionSetBlock(x, 0, z, Blocks.brick_block));
+				scene0.add(new ActionSetBlock(x, 0, z, Blocks.BRICK_BLOCK));
 			}
 		}
 		scene0.add(new ActionWait(5));
 		for(int x = 1; x < 4 ; x++) {
 			for(int z = 1; z < 4; z++) {
-				scene0.add(new ActionSetBlock(x, 1, z, Blocks.brick_block));
+				scene0.add(new ActionSetBlock(x, 1, z, Blocks.BRICK_BLOCK));
 			}
 		}
 		scene0.add(new ActionWait(5));
@@ -88,7 +88,7 @@ public class CanneryCrucible extends CanneryBase {
 		scene0.add(new ActionRemoveActor(0));
 		scene0.add(new ActionWait(10));
 
-		for(int x = 1; x < 4 ; x++) for(int z = 1; z < 4; z++) scene0.add(new ActionSetBlock(x, 1, z, Blocks.air)); 
+		for(int x = 1; x < 4 ; x++) for(int z = 1; z < 4; z++) scene0.add(new ActionSetBlock(x, 1, z, Blocks.AIR)); 
 		
 		NBTTagCompound firebox = new NBTTagCompound(); firebox.setDouble("x", 2); firebox.setDouble("y", 1); firebox.setDouble("z", 2); firebox.setInteger("rotation", 5);
 		scene0.add(new ActionCreateActor(2, new ActorTileEntity(new ActorFirebox(), firebox)));
@@ -97,7 +97,7 @@ public class CanneryCrucible extends CanneryBase {
 		scene0.add(new ActionWait(30));
 		scene0.add(new ActionUpdateActor(2, "isOn", true));
 
-		scene0.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, -50, 25, new Object[][] {{new ItemStack(Items.coal)}}, 0)
+		scene0.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, -50, 25, new Object[][] {{new ItemStack(Items.COAL)}}, 0)
 				.setColors(colorCopper).setOrientation(Orientation.RIGHT)));
 		
 		scene0.add(new ActionWait(20));
@@ -162,7 +162,7 @@ public class CanneryCrucible extends CanneryBase {
 		
 		scene2.add(new ActionRemoveActor(0));
 		scene2.add(new ActionWait(10));
-		scene2.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -40, new Object[][] {{new ItemStack(Items.gold_ingot, 11)}}, 0)
+		scene2.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -40, new Object[][] {{new ItemStack(Items.GOLD_INGOT, 11)}}, 0)
 				.setColors(colorCopper).setOrientation(Orientation.BOTTOM)));
 		scene2.add(new ActionWait(20));
 		
@@ -190,10 +190,10 @@ public class CanneryCrucible extends CanneryBase {
 		}
 		
 		scene2.add(new ActionWait(40));
-		scene2.add(new ActionSetTile(0, 1, 2, new TileEntityFoundryBasin() {{ slots[0] = new ItemStack(ModItems.mold, 0, 12); slots[1] = new ItemStack(Blocks.gold_block); }}));
+		scene2.add(new ActionSetTile(0, 1, 2, new TileEntityFoundryBasin() {{ slots[0] = new ItemStack(ModItems.mold, 0, 12); slots[1] = new ItemStack(Blocks.GOLD_BLOCK); }}));
 		scene2.add(new ActionWait(20));
 		scene2.add(new ActionSetTile(0, 1, 2, new TileEntityFoundryBasin() {{ slots[0] = new ItemStack(ModItems.mold, 0, 12); }}));
-		scene2.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 42, 25, new Object[][] {{new ItemStack(Blocks.gold_block)}}, 0)
+		scene2.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 42, 25, new Object[][] {{new ItemStack(Blocks.GOLD_BLOCK)}}, 0)
 				.setColors(colorCopper).setOrientation(Orientation.BOTTOM)));
 		scene2.add(new ActionWait(20));
 		scene2.add(new ActionRemoveActor(0));
@@ -202,7 +202,7 @@ public class CanneryCrucible extends CanneryBase {
 				.setColors(colorCopper).setOrientation(Orientation.BOTTOM)));
 		scene2.add(new ActionWait(60));
 		scene2.add(new ActionRemoveActor(0));
-		scene2.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -30, new Object[][] {{new ItemStack(Items.iron_shovel), " -> ", ItemScraps.create(new MaterialStack(Mats.MAT_GOLD, 1))}}, 200)
+		scene2.add(new ActionCreateActor(0, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, 0, -30, new Object[][] {{new ItemStack(Items.IRON_SHOVEL), " -> ", ItemScraps.create(new MaterialStack(Mats.MAT_GOLD, 1))}}, 200)
 				.setColors(colorCopper).setOrientation(Orientation.BOTTOM)));
 		scene2.add(new ActionSetTile(2, 2, 2, new TileEntityFauxCrucible() {{ meta = 14; }}));
 		scene2.add(new ActionWait(20));

@@ -19,12 +19,12 @@ public class BlockLithium extends BlockBeaconable {
 		if (world.isRemote)
 			return false;
 
-		return world.getBlock(x + 1, y, z).getMaterial() == Material.water
-				|| world.getBlock(x - 1, y, z).getMaterial() == Material.water
-				|| world.getBlock(x, y + 1, z).getMaterial() == Material.water
-				|| world.getBlock(x, y - 1, z).getMaterial() == Material.water
-				|| world.getBlock(x, y, z + 1).getMaterial() == Material.water
-				|| world.getBlock(x, y, z - 1).getMaterial() == Material.water;
+		return com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock().getDefaultState().getMaterial() == Material.WATER
+				|| com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock().getDefaultState().getMaterial() == Material.WATER
+				|| com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial() == Material.WATER
+				|| com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getDefaultState().getMaterial() == Material.WATER
+				|| com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock().getDefaultState().getMaterial() == Material.WATER
+				|| com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock().getDefaultState().getMaterial() == Material.WATER;
 	}
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {

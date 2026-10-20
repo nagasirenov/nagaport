@@ -53,31 +53,31 @@ public class EntityMeteor extends Entity {
 		if(safe) return;
 
 		// Get current block info
-		Block block = world.getBlock(blockX, blockY, blockZ);
+		Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 		if(block == null) return;
 		float hardness = block.getBlockHardness(world, blockX, blockY, blockZ);
 
 		// Check if the block is weak and can be destroyed
-		if(block == Blocks.leaves || block == Blocks.log || (hardness >= 0 && hardness <= 0.3F)) {
+		if(block == Blocks.LEAVES || block == Blocks.LOG || (hardness >= 0 && hardness <= 0.3F)) {
 			// Destroy the block
-			world.setBlockToAir(blockX, blockY, blockZ);
+			com.hbm.world.WorldAirRemoval.remove(world, blockX, blockY, blockZ);
 		} else {
 			// Found solid block
 			if(hardness < 0 || hardness > 5F) return;
 
 			if(rand.nextInt(6) == 1) {
 				// Turn blocks into damaged variants
-				if(block == Blocks.dirt) {
+				if(block == Blocks.DIRT) {
 					world.setBlock(blockX, blockY, blockZ, ModBlocks.dirt_dead);
-				} else if(block == Blocks.sand) {
+				} else if(block == Blocks.SAND) {
 					if(rand.nextInt(2) == 1) {
-						world.setBlock(blockX, blockY, blockZ, Blocks.sandstone);
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = blockX; int nativePlacementY = blockY; int nativePlacementZ = blockZ; net.minecraft.block.Block nativePlacementBlock = Blocks.SANDSTONE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					} else {
-						world.setBlock(blockX, blockY, blockZ, Blocks.glass);
+						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = blockX; int nativePlacementY = blockY; int nativePlacementZ = blockZ; net.minecraft.block.Block nativePlacementBlock = Blocks.GLASS; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					}
-				} else if(block == Blocks.stone) {
-					world.setBlock(blockX, blockY, blockZ, Blocks.cobblestone);
-				} else if(block == Blocks.grass) {
+				} else if(block == Blocks.STONE) {
+					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = blockX; int nativePlacementY = blockY; int nativePlacementZ = blockZ; net.minecraft.block.Block nativePlacementBlock = Blocks.COBBLESTONE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+				} else if(block == Blocks.GRASS) {
 					world.setBlock(blockX, blockY, blockZ, ModBlocks.waste_earth);
 				}
 			}
@@ -86,13 +86,13 @@ public class EntityMeteor extends Entity {
 
 	public void clearMeteorPath(World world, int x, int y, int z) {
 		for(BlockPos blockPos : getBlocksInRadius(world, x, y, z, 5)) {
-			damageOrDestroyBlock(worldObj, blockPos.getX(), blockPos.getY(), blockPos.getZ());
+			damageOrDestroyBlock(this.world, blockPos.getX(), blockPos.getY(), blockPos.getZ());
 		}
 	}
 
 	@Override
 	public void onUpdate() {
-		if(!worldObj.isRemote && !WorldConfig.enableMeteorStrikes) {
+		if(!this.world.isRemote && !WorldConfig.enableMeteorStrikes) {
 			this.setDead();
 			return;
 		}
@@ -106,19 +106,19 @@ public class EntityMeteor extends Entity {
 
 		this.moveEntity(motionX, motionY, motionZ);
 
-		if(!this.worldObj.isRemote && this.posY < 260) {
-			clearMeteorPath(worldObj, (int) this.posX, (int) this.posY, (int) this.posZ);
+		if(!this.world.isRemote && this.posY < 260) {
+			clearMeteorPath(this.world, (int) this.posX, (int) this.posY, (int) this.posZ);
 			if(this.onGround) {
-				worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 5 + rand.nextFloat(), !safe);
+				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 5 + rand.nextFloat(), !safe);
 
 				if(WorldConfig.enableMeteorTails) {
-					ExplosionLarge.spawnRubble(worldObj, this.posX, this.posY, this.posZ, 15);
+					ExplosionLarge.spawnRubble(this.world, this.posX, this.posY, this.posZ, 15);
 
-					ExplosionLarge.spawnParticles(worldObj, posX, posY + 5, posZ, 75);
-					ExplosionLarge.spawnParticles(worldObj, posX + 5, posY, posZ, 75);
-					ExplosionLarge.spawnParticles(worldObj, posX - 5, posY, posZ, 75);
-					ExplosionLarge.spawnParticles(worldObj, posX, posY, posZ + 5, 75);
-					ExplosionLarge.spawnParticles(worldObj, posX, posY, posZ - 5, 75);
+					ExplosionLarge.spawnParticles(this.world, posX, posY + 5, posZ, 75);
+					ExplosionLarge.spawnParticles(this.world, posX + 5, posY, posZ, 75);
+					ExplosionLarge.spawnParticles(this.world, posX - 5, posY, posZ, 75);
+					ExplosionLarge.spawnParticles(this.world, posX, posY, posZ + 5, 75);
+					ExplosionLarge.spawnParticles(this.world, posX, posY, posZ - 5, 75);
 				}
 
 				// Bury the meteor into the ground
@@ -126,17 +126,17 @@ public class EntityMeteor extends Entity {
 				int spawnPosY = (int) Math.round(this.posY - (safe ? 0 : 4));
 				int spawnPosZ = (int) (Math.round(this.posZ - 0.5D) + (safe ? 0 : (this.motionZ * 4)));
 
-				(new Meteorite()).generate(worldObj, rand, spawnPosX, spawnPosY, spawnPosZ, safe, true, true);
-				clearMeteorPath(worldObj, spawnPosX, spawnPosY, spawnPosZ);
+				(new Meteorite()).generate(this.world, rand, spawnPosX, spawnPosY, spawnPosZ, safe, true, true);
+				clearMeteorPath(this.world, spawnPosX, spawnPosY, spawnPosZ);
 
-				this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10000.0F, 0.5F + this.rand.nextFloat() * 0.1F);
 
 				this.setDead();
 			}
 		}
 
 		// Sound
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			if(this.isDead) {
 				if(this.audioFly != null) this.audioFly.stopSound();

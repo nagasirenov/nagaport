@@ -1,0 +1,9 @@
+PASS payload and hook signatures: Component.java
+PASS payload and hook signatures: BunkerComponents.java
+PASS payload and hook signatures: CivilianFeatures.java
+PASS payload and hook signatures: OfficeFeatures.java
+PASS payload and hook signatures: SiloComponent.java
+PASS: 28 component NBT hooks; registration IDs; procedural start payloads.
+STATIC ONLY: full component compilation and world save/reload are separate checks.
+PASS: all 13 pristine vanilla item/table/weight/count registrations retained; preInit event registration present
+PASS: all 8 LibraryDungeon chest-fill consumers migrated; removed loot imports absent from production sources

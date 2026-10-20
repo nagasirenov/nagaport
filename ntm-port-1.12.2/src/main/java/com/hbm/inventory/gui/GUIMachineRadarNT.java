@@ -60,10 +60,10 @@ public class GUIMachineRadarNT extends GuiScreen {
 		if(checkClick(x, y, -10, 178, 8, 8)) cmd = "clear";
 		
 		if(cmd != null) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean(cmd, true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radar.xCoord, radar.yCoord, radar.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radar.getPos().getX(), radar.getPos().getY(), radar.getPos().getZ()));
 		}
 	}
 
@@ -81,35 +81,35 @@ public class GUIMachineRadarNT extends GuiScreen {
 
 	private void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 
-		if(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.func_146283_a(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + "/" + BobMathUtil.getShortNumber(radar.maxPower) + "HE"), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, 8, 221, 200, 7)) this.drawHoveringText(Arrays.asList(BobMathUtil.getShortNumber(radar.power) + "/" + BobMathUtil.getShortNumber(radar.maxPower) + "HE"), mouseX, mouseY);
 		
-		if(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.detectMissiles")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.detectShells")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.detectPlayers")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.smartMode")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.redMode")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.showMap")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.toggleGui")), mouseX, mouseY);
-		if(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.clearMap")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 88, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.detectMissiles")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 98, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.detectShells")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 108, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.detectPlayers")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 118, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.smartMode")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 128, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.redMode")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 138, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.showMap")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 158, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.toggleGui")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, -10, 178, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.clearMap")), mouseX, mouseY);
 
 		if(!radar.entries.isEmpty()) {
 			for(RadarEntry m : radar.entries) {
-				int x = guiLeft + (int)((m.posX - radar.xCoord) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;
-				int z = guiTop + (int)((m.posZ - radar.zCoord) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;
+				int x = guiLeft + (int)((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;
+				int z = guiTop + (int)((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;
 				
 				if(mouseX + 5 > x && mouseX - 4 <= x && mouseY + 5 > z && mouseY - 4 <= z) {
 
 					String[] text = new String[] { I18nUtil.resolveKey(m.unlocalizedName), m.posX + " / " + m.posZ, "Alt.: " + m.posY };
-					this.func_146283_a(Arrays.asList(text), x, z);
+					this.drawHoveringText(Arrays.asList(text), x, z);
 					return;
 				}
 			}
 		}
 
 		if(checkClick(mouseX, mouseY, 8, 17, 200, 200)) {
-			int tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.xCoord);
-			int tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.zCoord);
-			this.func_146283_a(Arrays.asList(tX + " / " + tZ), lastMouseX, lastMouseY);
+			int tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());
+			int tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());
+			this.drawHoveringText(Arrays.asList(tX + " / " + tZ), lastMouseX, lastMouseY);
 		}
 	}
 
@@ -125,19 +125,19 @@ public class GUIMachineRadarNT extends GuiScreen {
 			drawTexturedModalRect(guiLeft + 8, guiTop + 221, 0, 234, i, 16);
 		}
 		
-		if(radar.scanMissiles ^ (radar.jammed && radar.getWorldObj().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 88, 238, 4, 8, 8);
-		if(radar.scanShells ^ (radar.jammed && radar.getWorldObj().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 98, 238, 14, 8, 8);
-		if(radar.scanPlayers ^ (radar.jammed && radar.getWorldObj().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 108, 238, 24, 8, 8);
-		if(radar.smartMode ^ (radar.jammed && radar.getWorldObj().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 118, 238, 34, 8, 8);
-		if(radar.redMode ^ (radar.jammed && radar.getWorldObj().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 128, 238, 44, 8, 8);
-		if(radar.showMap ^ (radar.jammed && radar.getWorldObj().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 138, 238, 54, 8, 8);
+		if(radar.scanMissiles ^ (radar.jammed && radar.getWorld().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 88, 238, 4, 8, 8);
+		if(radar.scanShells ^ (radar.jammed && radar.getWorld().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 98, 238, 14, 8, 8);
+		if(radar.scanPlayers ^ (radar.jammed && radar.getWorld().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 108, 238, 24, 8, 8);
+		if(radar.smartMode ^ (radar.jammed && radar.getWorld().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 118, 238, 34, 8, 8);
+		if(radar.redMode ^ (radar.jammed && radar.getWorld().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 128, 238, 44, 8, 8);
+		if(radar.showMap ^ (radar.jammed && radar.getWorld().rand.nextBoolean())) drawTexturedModalRect(guiLeft - 10, guiTop + 138, 238, 54, 8, 8);
 		
 		if(radar.power < radar.consumption) return;
 		
 		if(radar.jammed) {
 			for(int i = 0; i < 5; i++) {
 				for(int j = 0; j < 5; j++) {
-					drawTexturedModalRect(guiLeft + 8 + i * 40, guiTop + 17 + j * 40, 216, 118 + radar.getWorldObj().rand.nextInt(81), 40, 40);
+					drawTexturedModalRect(guiLeft + 8 + i * 40, guiTop + 17 + j * 40, 216, 118 + radar.getWorld().rand.nextInt(81), 40, 40);
 				}
 			}
 			return;
@@ -190,8 +190,8 @@ public class GUIMachineRadarNT extends GuiScreen {
 		
 		if(!radar.entries.isEmpty()) {
 			for(RadarEntry m : radar.entries) {
-				double x = (m.posX - radar.xCoord) / ((double) radar.getRange() * 2 + 1) * (200D - 8D) - 4D;
-				double z = (m.posZ - radar.zCoord) / ((double) radar.getRange() * 2 + 1) * (200D - 8D) - 4D;
+				double x = (m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D) - 4D;
+				double z = (m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D) - 4D;
 				int t = m.blipLevel;
 				drawTexturedModalRectDouble(guiLeft + 108 + x, guiTop + 117 + z, 216, 8 * t, 8, 8);
 			}
@@ -217,7 +217,7 @@ public class GUIMachineRadarNT extends GuiScreen {
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 
 		if(checkClick(lastMouseX, lastMouseY, 8, 17, 200, 200) && c >= '1' && c <= '8') {
@@ -226,26 +226,26 @@ public class GUIMachineRadarNT extends GuiScreen {
 	
 			if(!radar.entries.isEmpty()) {
 				for(RadarEntry m : radar.entries) {
-					int x = guiLeft + (int) ((m.posX - radar.xCoord) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;
-					int z = guiTop + (int) ((m.posZ - radar.zCoord) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;
+					int x = guiLeft + (int) ((m.posX - radar.getPos().getX()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 108;
+					int z = guiTop + (int) ((m.posZ - radar.getPos().getZ()) / ((double) radar.getRange() * 2 + 1) * (200D - 8D)) + 117;
 
 					if(lastMouseX + 5 > x && lastMouseX - 4 <= x && lastMouseY + 5 > z && lastMouseY - 4 <= z) {
 						NBTTagCompound data = new NBTTagCompound();
 						data.setInteger("launchEntity", m.entityID);
 						data.setInteger("link", id);
-						PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radar.xCoord, radar.yCoord, radar.zCoord));
+						PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radar.getPos().getX(), radar.getPos().getY(), radar.getPos().getZ()));
 						return;
 					}
 				}
 			}
 
-			int tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.xCoord);
-			int tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.zCoord);
+			int tX = (int) ((lastMouseX - guiLeft - 108) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getX());
+			int tZ = (int) ((lastMouseY - guiTop - 117) * ((double) radar.getRange() * 2 + 1) / 192D + radar.getPos().getZ());
 			NBTTagCompound data = new NBTTagCompound();
 			data.setInteger("launchPosX", tX);
 			data.setInteger("launchPosZ", tZ);
 			data.setInteger("link", id);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radar.xCoord, radar.yCoord, radar.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, radar.getPos().getX(), radar.getPos().getY(), radar.getPos().getZ()));
 		}
 	}
 	
@@ -258,8 +258,8 @@ public class GUIMachineRadarNT extends GuiScreen {
 	public void updateScreen() {
 		super.updateScreen();
 
-		if(!this.mc.thePlayer.isEntityAlive() || this.mc.thePlayer.isDead) {
-			this.mc.thePlayer.closeScreen();
+		if(!this.mc.player.isEntityAlive() || this.mc.player.isDead) {
+			this.mc.player.closeScreen();
 		}
 	}
 }

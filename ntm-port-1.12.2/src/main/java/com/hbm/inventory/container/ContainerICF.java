@@ -73,6 +73,6 @@ public class ContainerICF extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return icf.isUseableByPlayer(player);
+		return icf.isUsableByPlayer(player);
 	}
 }

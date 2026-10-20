@@ -35,7 +35,7 @@ public class ContainerPADipole extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return quadrupole.isUseableByPlayer(player);
+		return quadrupole.isUsableByPlayer(player);
 	}
 
 	@Override

@@ -76,16 +76,16 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineAssemblyMachine";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		if(maxPower <= 0) this.maxPower = 1_000_000;
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			GenericRecipe recipe = AssemblyMachineRecipes.INSTANCE.recipeNameMap.get(assemblerModule.recipe);
 			if(recipe != null) {
@@ -97,9 +97,9 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 			upgradeManager.checkSlots(slots, 2, 3);
 			
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos);
-				if(inputTank.getTankType() != Fluids.NONE) this.trySubscribe(inputTank.getTankType(), worldObj, pos);
-				if(outputTank.getFill() > 0) this.tryProvide(outputTank, worldObj, pos);
+				this.trySubscribe(this.world, pos);
+				if(inputTank.getTankType() != Fluids.NONE) this.trySubscribe(inputTank.getTankType(), this.world, pos);
+				if(outputTank.getFill() > 0) this.tryProvide(outputTank, this.world, pos);
 			}
 
 			double speed = 1D;
@@ -125,11 +125,11 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 			
 		} else {
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
-				frame = !worldObj.getBlock(xCoord, yCoord + 3, zCoord).isAir(worldObj, xCoord, yCoord + 3, zCoord);
+			if(this.world.getTotalWorldTime() % 20 == 0) {
+				frame = !com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock().isAir(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ());
 			}
 			
-			if(this.didProcess && MainRegistry.proxy.me().getDistance(xCoord , yCoord, zCoord) < 50) {
+			if(this.didProcess && MainRegistry.proxy.me().getDistance(this.pos.getX() , this.pos.getY(), this.pos.getZ()) < 50) {
 				if(audio == null) {
 					audio = createAudioLoop();
 					audio.startSound();
@@ -156,7 +156,7 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 				}
 				
 				if(!this.muffled && arm.prevAngles[3] != arm.angles[3] && arm.angles[3] == -0.75) {
-					MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.assemblerStrike", this.getVolume(0.5F), 1F);
+					MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.assemblerStrike", this.getVolume(0.5F), 1F);
 				}
 			}
 			
@@ -173,14 +173,14 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 						this.ringTarget += sub;
 						this.ring += sub;
 						this.prevRing += sub;
-						this.ringDelay = 20 + worldObj.rand.nextInt(21);
+						this.ringDelay = 20 + this.world.rand.nextInt(21);
 					}
 				} else {
 					if(this.ringDelay > 0) this.ringDelay--;
 					if(this.ringDelay <= 0) {
-						this.ringTarget += (worldObj.rand.nextDouble() * 2 - 1) * 135;
-						this.ringSpeed = 10D + worldObj.rand.nextDouble() * 5D;
-						if(!this.muffled) MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.assemblerStart", this.getVolume(0.25F), 1.25F + worldObj.rand.nextFloat() * 0.25F);
+						this.ringTarget += (this.world.rand.nextDouble() * 2 - 1) * 135;
+						this.ringSpeed = 10D + this.world.rand.nextDouble() * 5D;
+						if(!this.muffled) MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.assemblerStart", this.getVolume(0.25F), 1.25F + this.world.rand.nextFloat() * 0.25F);
 					}
 				}
 			}
@@ -188,7 +188,7 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	}
 
 	@Override public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", xCoord, yCoord, zCoord, 0.5F, 15F, 0.75F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.5F, 15F, 0.75F, 20);
 	}
 
 	@Override public void onChunkUnload() {
@@ -202,18 +202,18 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 0, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 0, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 0, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 0, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
 		};
 	}
 
@@ -240,7 +240,7 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 		this.assemblerModule.deserialize(buf);
 		
 		if(wasProcessing && !didProcess) {
-			MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.assemblerStop", this.getVolume(0.25F), 1.5F);
+			MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.assemblerStop", this.getVolume(0.25F), 1.5F);
 		}
 	}
 	
@@ -255,13 +255,14 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.inputTank.writeToNBT(nbt, "i");
 		this.outputTank.writeToNBT(nbt, "o");
 		nbt.setLong("power", power);
 		nbt.setLong("maxPower", maxPower);
 		this.assemblerModule.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
@@ -274,12 +275,14 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 16 || this.assemblerModule.isSlotClogged(i);
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 	}
 
@@ -294,7 +297,7 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	@Override public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return new ContainerMachineAssemblyMachine(player.inventory, this); }
 	@Override @SideOnly(Side.CLIENT) public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) { return new GUIMachineAssemblyMachine(player.inventory, this); }
 
-	@Override public boolean hasPermission(EntityPlayer player) { return this.isUseableByPlayer(player); }
+	@Override public boolean hasPermission(EntityPlayer player) { return this.isUsableByPlayer(player); }
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
@@ -312,7 +315,7 @@ public class TileEntityMachineAssemblyMachine extends TileEntityMachineBase impl
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord, zCoord - 1, xCoord + 2, yCoord + 3, zCoord + 2);
+		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
 		return bb;
 	}
 	

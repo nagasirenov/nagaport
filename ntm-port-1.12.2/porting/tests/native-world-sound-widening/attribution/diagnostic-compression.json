@@ -1,0 +1,20 @@
+[
+  {
+    "raw_name": "before-all-diagnostics.tsv",
+    "raw_bytes": 4036849,
+    "raw_sha256": "9f2927edd06794bfba0e18441e187c9265c3db4fbbf8541c9cc379bb96d6d83c",
+    "compressed_name": "before-all-diagnostics.tsv.gz",
+    "compressed_bytes": 272904,
+    "compressed_sha256": "1a818277a320ccdf28369bdb86c5d42b58dee50a048e341f3f282057edce0820",
+    "gzip_mtime": 0
+  },
+  {
+    "raw_name": "after-all-diagnostics.tsv",
+    "raw_bytes": 4032613,
+    "raw_sha256": "2e0ead197fb5dd542433489de9e7029dead65c263f1d57138c91146202708d76",
+    "compressed_name": "after-all-diagnostics.tsv.gz",
+    "compressed_bytes": 272728,
+    "compressed_sha256": "d677e19d9ec1ab2cb428b7f3e0ef86d2f11d4f2f0e4772c3ba5def93b6518696",
+    "gzip_mtime": 0
+  }
+]

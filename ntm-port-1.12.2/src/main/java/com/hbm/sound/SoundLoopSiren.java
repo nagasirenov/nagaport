@@ -8,7 +8,7 @@ import com.hbm.tileentity.machine.TileEntityMachineSiren;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
-import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
@@ -22,7 +22,7 @@ public class SoundLoopSiren extends SoundLoopMachine {
 		super(path, te);
 		list.add(this);
 		intendedVolume = 10.0F;
-		this.field_147666_i = ISound.AttenuationType.NONE;
+		this.attenuationType = ISound.AttenuationType.NONE;
 		this.type = type;
 	}
 
@@ -30,7 +30,7 @@ public class SoundLoopSiren extends SoundLoopMachine {
 	public void update() {
 		super.update();
 		
-		EntityClientPlayerMP player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
 		float f = 0;
 		
 		if(player != null) {
@@ -56,7 +56,7 @@ public class SoundLoopSiren extends SoundLoopMachine {
 	}
 	
 	public String getPath() {
-		return this.field_147664_a.getResourceDomain() + ":" + this.field_147664_a.getResourcePath();
+		return this.positionedSoundLocation.getNamespace() + ":" + this.positionedSoundLocation.getPath();
 	}
 	
 	public void setRepeat(boolean b) {
@@ -64,7 +64,7 @@ public class SoundLoopSiren extends SoundLoopMachine {
 	}
 	
 	public void setRepeatDelay(int i) {
-		this.field_147665_h = i;
+		this.repeatDelay = i;
 	}
 	
 	public float func(float f, float v) {

@@ -204,7 +204,7 @@ public class ItemGunBaseNT extends Item implements IKeybindReceiver, IItemHUD, I
 
 			float maxDura = config.getDurability(stack);
 			if(maxDura > 0) {
-				int dura = MathHelper.clamp_int((int)((maxDura - this.getWear(stack, i)) * 100 / maxDura), 0, 100);
+				int dura = MathHelper.clamp((int)((maxDura - this.getWear(stack, i)) * 100 / maxDura), 0, 100);
 				list.add(I18nUtil.resolveKey("gui.weapon.condition") + ": " + dura + "%");
 			}
 
@@ -309,7 +309,7 @@ public class ItemGunBaseNT extends Item implements IKeybindReceiver, IItemHUD, I
 				float aimSpeed = 0.25F;
 				if(aiming && aimingProgress < 1F) aimingProgress += aimSpeed;
 				if(!aiming && aimingProgress > 0F) aimingProgress -= aimSpeed;
-				aimingProgress = MathHelper.clamp_float(aimingProgress, 0F, 1F);
+				aimingProgress = MathHelper.clamp(aimingProgress, 0F, 1F);
 
 				/// SMOKE NODES ///
 				for(int i = 0; i < confNo; i++) if(configs[i].getSmokeHandler(stack) != null) {
@@ -411,16 +411,16 @@ public class ItemGunBaseNT extends Item implements IKeybindReceiver, IItemHUD, I
 
 	/// UTIL ///
 	public static int getValueInt(ItemStack stack, String name) { if(stack.hasTagCompound()) return stack.getTagCompound().getInteger(name); return 0; }
-	public static void setValueInt(ItemStack stack, String name, int value) { if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound(); stack.getTagCompound().setInteger(name, value); }
+	public static void setValueInt(ItemStack stack, String name, int value) { if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound()); stack.getTagCompound().setInteger(name, value); }
 
 	public static float getValueFloat(ItemStack stack, String name) { if(stack.hasTagCompound()) return stack.getTagCompound().getFloat(name); return 0; }
-	public static void setValueFloat(ItemStack stack, String name, float value) { if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound(); stack.getTagCompound().setFloat(name, value); }
+	public static void setValueFloat(ItemStack stack, String name, float value) { if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound()); stack.getTagCompound().setFloat(name, value); }
 
 	public static byte getValueByte(ItemStack stack, String name) { if(stack.hasTagCompound()) return stack.getTagCompound().getByte(name); return 0; }
-	public static void setValueByte(ItemStack stack, String name, byte value) { if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound(); stack.getTagCompound().setByte(name, value); }
+	public static void setValueByte(ItemStack stack, String name, byte value) { if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound()); stack.getTagCompound().setByte(name, value); }
 
 	public static boolean getValueBool(ItemStack stack, String name) { if(stack.hasTagCompound()) return stack.getTagCompound().getBoolean(name); return false; }
-	public static void setValueBool(ItemStack stack, String name, boolean value) { if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound(); stack.getTagCompound().setBoolean(name, value); }
+	public static void setValueBool(ItemStack stack, String name, boolean value) { if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound()); stack.getTagCompound().setBoolean(name, value); }
 
 	/** Wrapper for extra context used in most Consumer lambdas which are part of the guncfg */
 	public static class LambdaContext {

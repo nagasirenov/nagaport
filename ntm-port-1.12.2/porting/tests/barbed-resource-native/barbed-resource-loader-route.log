@@ -1,0 +1,39 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[02:43:28] [main/INFO]: Setting user: AtlasProbe
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_fire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_fire`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_poison`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_poison`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_acid`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_acid`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_wither`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_wither`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_ultradeath`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.barbed_wire_ultradeath`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[02:43:29] [main/INFO]: Reloading ResourceManager: resources
+[02:43:30] [main/INFO]: OBJLoader: Domain hbm has been added.
+[02:43:30] [main/INFO]: Reloading ResourceManager: resources
+[02:43:30] [main/INFO]: Max texture size: 16384
+[02:43:30] [main/INFO]: Created: 128x64 textures-atlas
+Exception in thread "main" net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model hbm:tile.barbed_wire#orientation=0 with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
+	at BarbedResourceTest.run(BarbedResourceTest.java:28)
+	at BarbedResourceTest.main(BarbedResourceTest.java:58)
+Caused by: net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model hbm:block/barbed_wire with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
+	at net.minecraftforge.client.model.ModelLoader$WeightedRandomModel.<init>(ModelLoader.java:658)
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1176)
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
+	... 2 more
+Caused by: java.io.FileNotFoundException: hbm:models/block/barbed_wire.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69)
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65)
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334)
+	at net.minecraftforge.client.model.ModelLoader.access$1400(ModelLoader.java:115)
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:861)
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
+	... 5 more

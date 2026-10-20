@@ -63,6 +63,6 @@ public class ContainerCraneInserter extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return inserter.isUseableByPlayer(player);
+		return inserter.isUsableByPlayer(player);
 	}
 }

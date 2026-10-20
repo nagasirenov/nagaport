@@ -53,15 +53,15 @@ public class SatLaserPacket implements IMessage {
 
 			EntityPlayer p = ctx.getServerHandler().playerEntity;
 
-			if(p.getHeldItem() != null && p.getHeldItem().getItem() instanceof ItemSatInterface) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(p) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(p).getItem() instanceof ItemSatInterface) {
 
-				int freq = ISatChip.getFreqS(p.getHeldItem());
+				int freq = ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(p));
 
 				if(freq == m.freq) {
-				    Satellite sat = SatelliteSavedData.getData(p.worldObj, (int)p.posX, (int)p.posZ).getSatFromFreq(m.freq);
+				    Satellite sat = SatelliteSavedData.getData(p.world, (int)p.posX, (int)p.posZ).getSatFromFreq(m.freq);
 
 				    if(sat != null)
-				    	sat.onClick(p.worldObj, m.x, m.z);
+				    	sat.onClick(p.world, m.x, m.z);
 				}
 			}
 

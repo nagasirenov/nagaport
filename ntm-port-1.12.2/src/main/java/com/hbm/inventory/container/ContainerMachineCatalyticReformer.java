@@ -102,6 +102,6 @@ public class ContainerMachineCatalyticReformer extends Container {
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return reformer.isUseableByPlayer(player);
+		return reformer.isUsableByPlayer(player);
 	}
 }

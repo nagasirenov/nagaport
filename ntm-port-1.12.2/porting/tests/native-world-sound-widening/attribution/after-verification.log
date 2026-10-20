@@ -1,0 +1,1 @@
+PASS: 16 complete native helper invocations independently attributed; original receiver + all six arguments preserved exactly and primitive int→double widening only. 14 full files differ only at selected AST spans; errors 17474→17458, precisely the selected16 removed; every other diagnostic unchanged.

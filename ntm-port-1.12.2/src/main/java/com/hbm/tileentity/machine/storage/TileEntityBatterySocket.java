@@ -38,15 +38,15 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 		super(1);
 	}
 
-	@Override public String getName() { return "container.batterySocket"; }
+	@Override public String getDefaultName() { return "container.batterySocket"; }
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		long prevPower = this.getPower();
 
-		super.updateEntity();
+		super.update();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			long avg = (this.getPower() + prevPower) / 2;
 			this.delta = avg - this.log[0];
@@ -85,7 +85,8 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(stack.getItem() instanceof IBatteryItem) {
 			if(i == mode_input && ((IBatteryItem)stack.getItem()).getCharge(stack) == 0) return true;
 			if(i == mode_output && ((IBatteryItem)stack.getItem()).getCharge(stack) == ((IBatteryItem)stack.getItem()).getMaxCharge(stack)) return true;
@@ -93,7 +94,8 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 		return false;
 	}
 
-	@Override public int[] getAccessibleSlotsFromSide(int side) { return new int[] {0}; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] {0}; }
 
 	@Override public long getPower() { return powerFromStack(slots[0]); }
 	@Override public long getMaxPower() { return maxPowerFromStack(slots[0]); }
@@ -131,10 +133,10 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new BlockPos[] {
-				new BlockPos(xCoord, yCoord, zCoord),
-				new BlockPos(xCoord - dir.offsetX, yCoord, zCoord - dir.offsetZ),
-				new BlockPos(xCoord + rot.offsetX, yCoord, zCoord + rot.offsetZ),
-				new BlockPos(xCoord - dir.offsetX + rot.offsetX, yCoord, zCoord - dir.offsetZ + rot.offsetZ)
+				new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()),
+				new BlockPos(this.pos.getX() - dir.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ),
+				new BlockPos(this.pos.getX() + rot.offsetX, this.pos.getY(), this.pos.getZ() + rot.offsetZ),
+				new BlockPos(this.pos.getX() - dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ)
 		};
 	}
 
@@ -143,17 +145,17 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX, yCoord, zCoord + dir.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX + rot.offsetX, yCoord, zCoord + dir.offsetZ + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ, dir),
 
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
 
-				new DirPos(xCoord + rot.offsetX * 2, yCoord, zCoord + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + rot.offsetX * 2 - dir.offsetX, yCoord, zCoord + rot.offsetZ * 2 - dir.offsetZ, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + rot.offsetX * 2 - dir.offsetX, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 - dir.offsetZ, rot),
 
-				new DirPos(xCoord - rot.offsetX, yCoord, zCoord - rot.offsetZ, rot.getOpposite()),
-				new DirPos(xCoord - rot.offsetX - dir.offsetX, yCoord, zCoord - rot.offsetZ - dir.offsetZ, rot.getOpposite())
+				new DirPos(this.pos.getX() - rot.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ, rot.getOpposite()),
+				new DirPos(this.pos.getX() - rot.offsetX - dir.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ - dir.offsetZ, rot.getOpposite())
 		};
 	}
 
@@ -167,12 +169,12 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 

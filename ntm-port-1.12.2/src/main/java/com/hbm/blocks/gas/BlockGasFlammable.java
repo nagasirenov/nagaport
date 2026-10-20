@@ -23,10 +23,10 @@ public class BlockGasFlammable extends BlockGasBase {
 		super(0.8F, 0.8F, 0.2F);
 		
 		if(fireSources.isEmpty()) {
-			fireSources.add(Blocks.fire);
-			fireSources.add(Blocks.lava);
-			fireSources.add(Blocks.torch);
-			fireSources.add(Blocks.lit_pumpkin);
+			fireSources.add(Blocks.FIRE);
+			fireSources.add(Blocks.LAVA);
+			fireSources.add(Blocks.TORCH);
+			fireSources.add(Blocks.LIT_PUMPKIN);
 			
 			if(Compat.isModLoaded(Compat.MOD_TIC)) {
 				Block stoneTorch = Compat.tryLoadBlock(Compat.MOD_TIC, "decoration.stonetorch");
@@ -57,7 +57,7 @@ public class BlockGasFlammable extends BlockGasBase {
 		if(!world.isRemote) {
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+				Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 				
 				if(isFireSource(b)) {
 					combust(world, x, y, z);
@@ -65,8 +65,8 @@ public class BlockGasFlammable extends BlockGasBase {
 				}
 			}
 
-			if(rand.nextInt(20) == 0 && world.getBlock(x, y - 1, z) == Blocks.air) {
-				world.setBlockToAir(x, y, z);
+			if(rand.nextInt(20) == 0 && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR) {
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				return;
 			}
 		}
@@ -88,7 +88,7 @@ public class BlockGasFlammable extends BlockGasBase {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			Block b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 			
 			if(isFireSource(b)) {
 				world.scheduleBlockUpdate(x, y, z, this, 2);
@@ -97,7 +97,7 @@ public class BlockGasFlammable extends BlockGasBase {
 	}
 	
 	protected void combust(World world, int x, int y, int z) {
-		world.setBlock(x, y, z, Blocks.fire);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 	}
 	
 	public boolean isFireSource(Block b) {

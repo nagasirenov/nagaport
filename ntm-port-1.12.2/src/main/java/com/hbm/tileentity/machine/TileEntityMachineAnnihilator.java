@@ -51,24 +51,24 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.annihilator";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.tank.setType(1, slots);
 			
 			if(this.pool != null && !this.pool.isEmpty()) {
 				
 				for(DirPos pos : getConPos()) {
-					if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), worldObj, pos);
+					if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), this.world, pos);
 				}
 				
-				AnnihilatorSavedData data = AnnihilatorSavedData.getData(worldObj);
+				AnnihilatorSavedData data = AnnihilatorSavedData.getData(this.world);
 				boolean didSomething = false;
 				
 				if(slots[0] != null) {
@@ -79,7 +79,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 					didSomething = true;
 				}
 				if(tank.getFill() > 0) {
-					FT_Polluting.pollute(worldObj, xCoord, yCoord, zCoord, tank.getTankType(), FluidReleaseType.BURN, tank.getFill() * 2);
+					FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.BURN, tank.getFill() * 2);
 					tryAddPayout(data.pushToPool(pool, tank.getTankType(), tank.getFill(), false));
 					tank.setFill(0);
 					this.markChanged();
@@ -88,16 +88,16 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 				
 				if(didSomething) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-					ParticleUtil.spawnGasFlame(worldObj, this.xCoord + 0.5 - dir.offsetX * 3, this.yCoord + 8.75, this.zCoord + 0.5 - dir.offsetZ * 3, worldObj.rand.nextGaussian() * 0.05, 0.1, worldObj.rand.nextGaussian() * 0.05);
+					ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, this.world.rand.nextGaussian() * 0.05, 0.1, this.world.rand.nextGaussian() * 0.05);
 
-					if(worldObj.getTotalWorldTime() % 3 == 0)
-						this.worldObj.playSoundEffect(this.xCoord + 0.5 - dir.offsetX * 3, this.yCoord + 8.75, this.zCoord + 0.5 - dir.offsetZ * 3, "hbm:weapon.flamethrowerShoot", getVolume(1F), 0.5F + worldObj.rand.nextFloat() * 0.25F);
+					if(this.world.getTotalWorldTime() % 3 == 0)
+						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, "hbm:weapon.flamethrowerShoot", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F);
 				}
 				
 				if(slots[8] != null) {
 					if(slots[8].getItem() instanceof IItemFluidIdentifier) {
 						IItemFluidIdentifier id = (IItemFluidIdentifier) slots[8].getItem();
-						FluidType type = id.getType(worldObj, xCoord, yCoord, zCoord, slots[8]);
+						FluidType type = id.getType(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), slots[8]);
 						monitor(data, type);
 					} else {
 						monitor(data, new ComparableStack(slots[8]).makeSingular());
@@ -106,7 +106,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 				
 				if(slots[9] != null) {
 					ItemStack single = slots[9].copy();
-					single.stackSize = 1;
+					single.setCount(1);
 					onDestroy(single);
 					ItemStack payout = data.pushToPool(pool, single, true);
 					this.decrStackSize(9, 1);
@@ -129,7 +129,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 		float radiation = HazardSystem.getHazardLevelFromStack(stack, HazardRegistry.RADIATION);
 		if(radiation > 0) {
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-			ChunkRadiationManager.proxy.incrementRad(worldObj, this.xCoord - dir.offsetX * 3, this.yCoord + 9, this.zCoord - dir.offsetZ * 3, Math.min(radiation * 5F, 1_000F));
+			ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX() - dir.offsetX * 3, this.pos.getY() + 9, this.pos.getZ() - dir.offsetZ * 3, Math.min(radiation * 5F, 1_000F));
 		}
 	}
 	
@@ -138,9 +138,9 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 5, yCoord, zCoord + dir.offsetZ * 5, dir),
-				new DirPos(xCoord + dir.offsetX * 3 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 3 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + dir.offsetX * 3 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 3 - rot.offsetZ * 2, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 5, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 3 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 - rot.offsetZ * 2, rot.getOpposite())
 		};
 	}
 	
@@ -185,12 +185,14 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot >= 2 && slot <= 7;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 2, 3, 4, 5, 6, 7};
 	}
 	
@@ -202,10 +204,11 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tank.writeToNBT(nbt, "t");
 		nbt.setString("pool", pool);
+		return nbt;
 	}
 
 	@Override
@@ -235,7 +238,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -256,12 +259,12 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 5,
-					yCoord,
-					zCoord - 5,
-					xCoord + 6,
-					yCoord + 8,
-					zCoord + 6
+					this.pos.getX() - 5,
+					this.pos.getY(),
+					this.pos.getZ() - 5,
+					this.pos.getX() + 6,
+					this.pos.getY() + 8,
+					this.pos.getZ() + 6
 					);
 		}
 

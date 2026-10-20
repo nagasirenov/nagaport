@@ -1,0 +1,91 @@
+PASS thermal source: pristine selectors/render provenance, 24 unchanged assets, native full-block signatures, 160 cube state variants, original registry lighting and exact tile refresh policy
+EXTRACTED production TileEntityFurnaceBrick shouldRefresh SHA256 a2568ad2f1aef51bcb63087d4199674e0f948e492b49fffc4e4d6df8dd2232db
+EXTRACTED production TileEntityRtgFurnace shouldRefresh SHA256 a2568ad2f1aef51bcb63087d4199674e0f948e492b49fffc4e4d6df8dd2232db
+EXTRACTED production TileEntityDiFurnaceRTG shouldRefresh SHA256 a2568ad2f1aef51bcb63087d4199674e0f948e492b49fffc4e4d6df8dd2232db
+EXTRACTED production TileEntityDiFurnace shouldRefresh SHA256 a2568ad2f1aef51bcb63087d4199674e0f948e492b49fffc4e4d6df8dd2232db
+PRODUCTION com/hbm/blocks/machine/MachineBrickFurnace.java 3b3751a6ae895584a4078b7b545cd57ea7aed0145341e563655ebfd023917fb3
+PRODUCTION com/hbm/blocks/machine/MachineRtgFurnace.java 77a2df27858f8e82d757205295062111dc56b2c16cfe620e52f3a840e8b5b5e8
+PRODUCTION com/hbm/blocks/machine/MachineDiFurnaceRTG.java c4d8826af1c6b5553e6e3f3ea5895d138889114d1d03fdc71d55b3095b07f5d4
+PRODUCTION com/hbm/blocks/machine/MachineDiFurnace.java 8dac191b93cc4f109051ac29d72eba9f46a08d44ad66f2a574e70027ea2e3d33
+PRODUCTION com/hbm/blocks/machine/MachineDiFurnaceExtension.java 69727ce02de19514436706080264491604cda366b9c46b9bb0bbb4a786c92c09
+PRODUCTION com/hbm/blocks/machine/BlockThermalFurnace.java 89502296596e1c861fa4d395f8153f7f72d02abfd57c9cd146b9c2b8ab833e69
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/blocks/IProxyController.java 157239ea3a5bf80c4c5a60c6f0182a34b8d5f1803e80ecb38f34aed52c952824
+PRODUCTION com/hbm/main/ThermalFurnaceModelHandler.java 1ccefb5ec8ee6a98d5dfd4e2dc1bbdf414084a3f111f0beffd055e49f31c6ebd
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/block/nativeblock/DiFurnaceExtensionBakedModel.java 6765c4ab88002a218bf7d3c5f9e76af8755bb928df4e140113b4a603b2c95578
+PRODUCTION com/hbm/render/block/nativeblock/ThermalFurnaceBakedModel.java 8cf8698109117d147307f72a091f13ed3a62e04375be97fdc063808e1ed2203a
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+/tmp/thermal-block-native-ueo3kops/ThermalBlockModelNativeTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/thermal-block-native-ueo3kops/ThermalBlockModelNativeTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/thermal-block-native-ueo3kops/ThermalBlockModelNativeTest.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/thermal-block-native-ueo3kops/ThermalBlockModelNativeTest.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks; static Unsafe unsafe; static SimpleReloadableResourceManager sharedResources;
+                           ^
+/tmp/thermal-block-native-ueo3kops/ThermalBlockModelNativeTest.java:255: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);ThermalBlockNativeTest.setup();
+                                                  ^
+/tmp/thermal-block-native-ueo3kops/ThermalBlockModelNativeTest.java:255: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);ThermalBlockNativeTest.setup();
+                                                                                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_extension`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:34] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_extension`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS thermal native blocks: 9006 assertions; complete five production block classes, native World/Chunk placement, metadata, tile swaps, drops, particles, covered state, and proxy lookup.
+Boundaries: explicit NTM inventory/registry/proxy/sealability/GUI-owner collaborators; brick spill helper invocation only. No full mod startup, GUI opening/network/save/GL proof.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_furnace_brick_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_rtg_furnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_rtg_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_off`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_on`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_extension`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.machine_difurnace_extension`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[15:59:37] [main/INFO]: Reloading ResourceManager: resources
+[15:59:37] [main/INFO]: Reloading ResourceManager: resources
+[15:59:37] [main/INFO]: Reloading ResourceManager: resources
+[15:59:37] [main/INFO]: Reloading ResourceManager: Controlled changed OBJ resource for native reload test
+[15:59:37] [main/INFO]: Reloading ResourceManager: resources
+[15:59:37] [main/INFO]: Reloading ResourceManager: thermal-resources.jar
+[15:59:37] [main/INFO]: Reloading ResourceManager: thermal-resources.jar
+[15:59:37] [main/INFO]: Reloading ResourceManager: thermal-resources.jar
+[15:59:37] [main/INFO]: Reloading ResourceManager: Controlled changed OBJ resource for native reload test
+[15:59:37] [main/INFO]: Reloading ResourceManager: thermal-resources.jar
+PASS thermal native baked models: 411490 assertions; all metadata/active/covered/item selectors, exact native quad bytes/UV/winding, original OBJ geometry/world shading, native event/mesher routing, directory and packaged resources.
+Boundaries: real production block/model/handler classes and native MC/Forge; controlled atlas rectangles and Unsafe headless Minecraft holder avoid GL/context startup. No live graphical acceptance claim.

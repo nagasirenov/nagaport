@@ -49,7 +49,7 @@ public class WorldGeneratorLaythe implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.laytheDimension) {
+		if(world.provider.getDimension() == SpaceConfig.laytheDimension) {
 			generateLaythe(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}

@@ -38,13 +38,13 @@ public class GUIMachineWoodBurner extends GuiInfoContainer {
 		super.drawScreen(mouseX, mouseY, f);
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 18, 16, 34, burner.power, burner.maxPower);
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			
 			Slot slot = (Slot) this.inventorySlots.inventorySlots.get(0);
 			if(this.isMouseOverSlot(slot, mouseX, mouseY) && !slot.getHasStack()) {
 				List<String> bonuses = burner.burnModule.getDesc();
 				if(!bonuses.isEmpty()) {
-					this.func_146283_a(bonuses, mouseX, mouseY);
+					this.drawHoveringText(bonuses, mouseX, mouseY);
 				}
 			}
 		}
@@ -52,11 +52,11 @@ public class GUIMachineWoodBurner extends GuiInfoContainer {
 		if(burner.liquidBurn) burner.tank.renderTankInfo(this, mouseX, mouseY, guiLeft + 80, guiTop + 18, 16, 52);
 		
 		if(!burner.liquidBurn && guiLeft + 16 <= mouseX && guiLeft + 16 + 8 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 54 >= mouseY) {
-			func_146283_a(Arrays.asList(new String[] { (burner.burnTime / 20) + "s" }), mouseX, mouseY);
+			drawHoveringText(Arrays.asList(new String[] { (burner.burnTime / 20) + "s" }), mouseX, mouseY);
 		}
 		
 		if(guiLeft + 53 <= mouseX && guiLeft + 53 + 16 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 15 >= mouseY) {
-			func_146283_a(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + "ON" : TextFormatting.RED + "OFF" }), mouseX, mouseY);
+			drawHoveringText(Arrays.asList(new String[] { burner.isOn ? TextFormatting.GREEN + "ON" : TextFormatting.RED + "OFF" }), mouseX, mouseY);
 		}
 	}
 
@@ -65,17 +65,17 @@ public class GUIMachineWoodBurner extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 53 <= x && guiLeft + 53 + 16 > x && guiTop + 17 < y && guiTop + 17 + 15 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("toggle", false);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, burner.xCoord, burner.yCoord, burner.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, burner.getPos().getX(), burner.getPos().getY(), burner.getPos().getZ()));
 		}
 
 		if(guiLeft + 46 <= x && guiLeft + 46 + 30 > x && guiTop + 37 < y && guiTop + 37 + 14 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("switch", false);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, burner.xCoord, burner.yCoord, burner.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, burner.getPos().getX(), burner.getPos().getY(), burner.getPos().getZ()));
 		}
 	}
 	
@@ -83,8 +83,8 @@ public class GUIMachineWoodBurner extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.burner.hasCustomInventoryName() ? this.burner.getInventoryName() : I18n.format(this.burner.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, 70 - this.fontRendererObj.getStringWidth(name) / 2, 6, 0xffffff);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 70 - this.fontRenderer.getStringWidth(name) / 2, 6, 0xffffff);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

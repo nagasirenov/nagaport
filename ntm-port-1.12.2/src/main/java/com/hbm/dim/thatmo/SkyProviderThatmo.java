@@ -155,9 +155,9 @@ public class SkyProviderThatmo extends SkyProviderCelestial {
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_FOG);
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
-			double dx = mc.thePlayer.prevPosX + (mc.thePlayer.posX - mc.thePlayer.prevPosX) * partialTicks;
-			double dy = mc.thePlayer.prevPosY + (mc.thePlayer.posY - mc.thePlayer.prevPosY) * partialTicks;
-			double dz = mc.thePlayer.prevPosZ + (mc.thePlayer.posZ - mc.thePlayer.prevPosZ) * partialTicks;
+			double dx = mc.player.prevPosX + (mc.player.posX - mc.player.prevPosX) * partialTicks;
+			double dy = mc.player.prevPosY + (mc.player.posY - mc.player.prevPosY) * partialTicks;
+			double dz = mc.player.prevPosZ + (mc.player.posZ - mc.player.prevPosZ) * partialTicks;
 			Vec3d vec = new Vec3d(meteor.posX - dx, meteor.posY - dy, meteor.posZ - dz);
 			Vec3d vec2 = new Vec3d(meteor.posX - dx, meteor.posY - dy, meteor.posZ - dz);
 			double l = Math.min(Minecraft.getMinecraft().gameSettings.renderDistanceChunks*16, vec.length());
@@ -180,9 +180,9 @@ public class SkyProviderThatmo extends SkyProviderCelestial {
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_FOG);
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
-			double dx = mc.thePlayer.prevPosX + (mc.thePlayer.posX - mc.thePlayer.prevPosX) * partialTicks;
-			double dy = mc.thePlayer.prevPosY + (mc.thePlayer.posY - mc.thePlayer.prevPosY) * partialTicks;
-			double dz = mc.thePlayer.prevPosZ + (mc.thePlayer.posZ - mc.thePlayer.prevPosZ) * partialTicks;
+			double dx = mc.player.prevPosX + (mc.player.posX - mc.player.prevPosX) * partialTicks;
+			double dy = mc.player.prevPosY + (mc.player.posY - mc.player.prevPosY) * partialTicks;
+			double dz = mc.player.prevPosZ + (mc.player.posZ - mc.player.prevPosZ) * partialTicks;
 			Vec3d vec = new Vec3d(fragment.posX - dx, fragment.posY - dy, fragment.posZ - dz);
 			Vec3d vec2 = new Vec3d(fragment.posX - dx, fragment.posY - dy, fragment.posZ - dz);
 			double l = Math.min(Minecraft.getMinecraft().gameSettings.renderDistanceChunks*16, vec.length());
@@ -205,9 +205,9 @@ public class SkyProviderThatmo extends SkyProviderCelestial {
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_FOG);
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
-			double dx = mc.thePlayer.prevPosX + (mc.thePlayer.posX - mc.thePlayer.prevPosX) * partialTicks;
-			double dy = mc.thePlayer.prevPosY + (mc.thePlayer.posY - mc.thePlayer.prevPosY) * partialTicks;
-			double dz = mc.thePlayer.prevPosZ + (mc.thePlayer.posZ - mc.thePlayer.prevPosZ) * partialTicks;
+			double dx = mc.player.prevPosX + (mc.player.posX - mc.player.prevPosX) * partialTicks;
+			double dy = mc.player.prevPosY + (mc.player.posY - mc.player.prevPosY) * partialTicks;
+			double dz = mc.player.prevPosZ + (mc.player.posZ - mc.player.prevPosZ) * partialTicks;
 			Vec3d vec = new Vec3d(smoke.posX - dx, smoke.posY - dy, smoke.posZ - dz);
 			Vec3d vec2 = new Vec3d(smoke.posX - dx, smoke.posY - dy, smoke.posZ - dz);
 			double l = Math.min(Minecraft.getMinecraft().gameSettings.renderDistanceChunks*16, vec.length());
@@ -377,7 +377,7 @@ public class SkyProviderThatmo extends SkyProviderCelestial {
 		//double near = distant*(Math.min(40000f, Math.max(0d, y-35000f))/40000f)*Math.min(1d,Minecraft.getMinecraft().thePlayer.worldObj.getStarBrightness(partialTicks)+sf);
 		double near = 0.51d*(Math.min(40000f, Math.max(0d, y-35000d))/40000d);
 		//  System.out.println((1d-(Math.min(200d, Math.max(0d, y-2017d))/200f)));
-		double entry = near*(1d-Minecraft.getMinecraft().thePlayer.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));
+		double entry = near*(1d-Minecraft.getMinecraft().player.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));
 		GL11.glColor4d(entry, entry, entry, entry);
 		Tessellator tess = Tessellator.instance;
 		TextureManager tex = Minecraft.getMinecraft().getTextureManager();

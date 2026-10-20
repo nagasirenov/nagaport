@@ -1,0 +1,16 @@
+// Native mesh + real cached Clock/HmfController, two Tom assets and bounded source parity.
+// Does not exclude any source from compileJava or substitute a ResourceManager class.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortHmfMesh', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-hmf-mesh.py', '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

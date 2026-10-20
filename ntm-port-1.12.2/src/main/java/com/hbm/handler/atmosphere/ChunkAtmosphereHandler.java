@@ -61,7 +61,7 @@ public class ChunkAtmosphereHandler {
 	 * Methods to get information about the current atmosphere
 	 */
 	public CBT_Atmosphere getAtmosphere(Entity entity) {
-		return getAtmosphere(entity.worldObj, MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posY + entity.getEyeHeight()), MathHelper.floor_double(entity.posZ), null);
+		return getAtmosphere(entity.world, MathHelper.floor(entity.posX), MathHelper.floor(entity.posY + entity.getEyeHeight()), MathHelper.floor(entity.posZ), null);
 	}
 
 	public CBT_Atmosphere getAtmosphere(World world, int x, int y, int z) {
@@ -70,7 +70,7 @@ public class ChunkAtmosphereHandler {
 
 	public CBT_Atmosphere getAtmosphere(World world, int x, int y, int z, AtmosphereBlob excludeBlob) {
 		ThreeInts pos = new ThreeInts(x, y, z);
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.getDimension());
 		if(blobs == null) return null;
 
 		CBT_Atmosphere atmosphere = getCelestialAtmosphere(world);
@@ -107,7 +107,7 @@ public class ChunkAtmosphereHandler {
 		List<AtmosphereBlob> inBlobs = new ArrayList<AtmosphereBlob>();
 
 		ThreeInts pos = new ThreeInts(x, y, z);
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.getDimension());
 
 		if(blobs == null) return inBlobs;
 
@@ -122,7 +122,7 @@ public class ChunkAtmosphereHandler {
 
 	public boolean hasAtmosphere(World world, int x, int y, int z) {
 		ThreeInts pos = new ThreeInts(x, y, z);
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.getDimension());
 
 		if(blobs == null) return false;
 
@@ -140,7 +140,7 @@ public class ChunkAtmosphereHandler {
 	}
 
 	protected List<AtmosphereBlob> getBlobsWithinRadius(World world, ThreeInts pos, int radius) {
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(world.provider.getDimension());
 		List<AtmosphereBlob> list = new LinkedList<AtmosphereBlob>();
 
 		if(blobs == null) return list;
@@ -160,7 +160,7 @@ public class ChunkAtmosphereHandler {
 	public boolean canBreathe(EntityLivingBase entity) {
 		CBT_Atmosphere atmosphere = getAtmosphere(entity);
 
-		if(GeneralConfig.enableDebugMode && entity instanceof EntityPlayer && entity.worldObj.getTotalWorldTime() % 20 == 0) {
+		if(GeneralConfig.enableDebugMode && entity instanceof EntityPlayer && entity.world.getTotalWorldTime() % 20 == 0) {
 			if(atmosphere != null && atmosphere.fluids.size() > 0) {
 				for(FluidEntry entry : atmosphere.fluids) {
 					MainRegistry.logger.info("Atmosphere: " + entry.fluid.getUnlocalizedName() + " - " + entry.pressure + "bar");
@@ -194,7 +194,7 @@ public class ChunkAtmosphereHandler {
 	 * Actions to rectify world status based on atmosphere
 	 */
 	private boolean runEffectsOnBlock(CBT_Atmosphere atmosphere, World world, Block block, int x, int y, int z, boolean fetchAtmosphere) {
-		boolean requiresPressure = block == Blocks.water || block == Blocks.flowing_water;
+		boolean requiresPressure = block == Blocks.WATER || block == Blocks.FLOWING_WATER;
 		boolean requiresO2 = (block instanceof BlockTorch && !(block instanceof BlockRedstoneTorch)) || block instanceof BlockFire;
 		boolean requiresCO2 = block instanceof IPlantable;
 
@@ -222,8 +222,8 @@ public class ChunkAtmosphereHandler {
 
 		if(canExist) return false;
 
-		block.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-		world.setBlockToAir(x, y, z);
+		block.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
+		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 
 		return true;
 	}
@@ -241,7 +241,7 @@ public class ChunkAtmosphereHandler {
 	 * Registration methods
 	 */
 	public void registerAtmosphere(IAtmosphereProvider handler) {
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(handler.getWorld().provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(handler.getWorld().provider.getDimension());
 		AtmosphereBlob blob = blobs.get(handler);
 
 		if(blob == null) {
@@ -252,7 +252,7 @@ public class ChunkAtmosphereHandler {
 	}
 
 	public void unregisterAtmosphere(IAtmosphereProvider handler) {
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(handler.getWorld().provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(handler.getWorld().provider.getDimension());
 		blobs.remove(handler);
 	}
 
@@ -311,15 +311,15 @@ public class ChunkAtmosphereHandler {
 	 * Event handlers
 	 */
 	public void receiveWorldLoad(WorldEvent.Load event) {
-		if(event.world.isRemote) return;
-		worldBlobs.put(event.world.provider.dimensionId, new HashMap<>());
-		growthMap.put(event.world.provider.dimensionId, new ArrayDeque<>());
+		if(event.getWorld().isRemote) return;
+		worldBlobs.put(event.getWorld().provider.getDimension(), new HashMap<>());
+		growthMap.put(event.getWorld().provider.getDimension(), new ArrayDeque<>());
 	}
 
 	public void receiveWorldUnload(WorldEvent.Unload event) {
-		if(event.world.isRemote) return;
-		worldBlobs.remove(event.world.provider.dimensionId);
-		growthMap.remove(event.world.provider.dimensionId);
+		if(event.getWorld().isRemote) return;
+		worldBlobs.remove(event.getWorld().provider.getDimension());
+		growthMap.remove(event.getWorld().provider.getDimension());
 	}
 
 	public void receiveWorldTick(TickEvent.WorldTickEvent tick) {
@@ -329,7 +329,7 @@ public class ChunkAtmosphereHandler {
 
 		if(tick.world.getTotalWorldTime() % 20 != 0) return;
 
-		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(tick.world.provider.dimensionId);
+		HashMap<IAtmosphereProvider, AtmosphereBlob> blobs = worldBlobs.get(tick.world.provider.getDimension());
 		for(AtmosphereBlob blob : blobs.values()) {
 			blob.checkGrowth();
 		}
@@ -396,7 +396,7 @@ public class ChunkAtmosphereHandler {
 
 	public void receiveTreeGrow(SaplingGrowTreeEvent event) {
 		ThreeInts pos = new ThreeInts(event.x, event.y, event.z);
-		List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.world, pos, MAX_BLOB_RADIUS);
+		List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.getWorld(), pos, MAX_BLOB_RADIUS);
 		for(AtmosphereBlob blob : nearbyBlobs) {
 			if(blob.contains(pos)) {
 				blob.produce(TREE_GROWTH_CONVERSION);
@@ -419,7 +419,7 @@ public class ChunkAtmosphereHandler {
 	private static HashMap<Integer, Queue<Growth>> growthMap = new HashMap<>();
 
 	private void tickTerraforming(World world) {
-		Queue<Growth> growths = growthMap.get(world.provider.dimensionId);
+		Queue<Growth> growths = growthMap.get(world.provider.getDimension());
 
 		for(int g = 0; g < 64; g++) {
 			Growth growth = growths.poll();
@@ -433,16 +433,16 @@ public class ChunkAtmosphereHandler {
 				int z = growth.z + dir.offsetZ;
 
 				for(int y = growth.y + 1; y >= growth.y - 1; y--) {
-					Block block = world.getBlock(x, y, z);
+					Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 					boolean shouldReplace = growth.from != null
 						? block == growth.from
-						: block == Blocks.dirt || block == ModBlocks.waste_earth || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily;
+						: block == Blocks.DIRT || block == ModBlocks.waste_earth || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily;
 
 					if(shouldReplace) {
 						world.setBlock(x, y, z, growth.into);
 
-						if(growth.into == Blocks.grass) world.playAuxSFX(2005, x, y + 1, z, 0);
+						if(growth.into == Blocks.GRASS) world.playAuxSFX(2005, x, y + 1, z, 0);
 
 						if(growth.time > 0) addGrowth(world, growth.from, growth.into, x, y, z, growth.time - 1);
 
@@ -462,12 +462,12 @@ public class ChunkAtmosphereHandler {
 	}
 
 	public void addGrowth(World world, Block from, Block into, int x, int y, int z, int size) {
-		Queue<Growth> growths = growthMap.get(world.provider.dimensionId);
+		Queue<Growth> growths = growthMap.get(world.provider.getDimension());
 		growths.add(new Growth(from, into, x, y, z, size));
 	}
 
 	public void addGrowth(World world, Block from, Block into, int x, int y, int z, int count, int size) {
-		Queue<Growth> growths = growthMap.get(world.provider.dimensionId);
+		Queue<Growth> growths = growthMap.get(world.provider.getDimension());
 		for(int i = 0; i < count; i++) {
 			growths.add(new Growth(from, into, x, y, z, size));
 		}

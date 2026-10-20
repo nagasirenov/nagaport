@@ -18,12 +18,12 @@ public class LaunchPadRusted extends BlockDummyable implements IBomb {
 
 	public LaunchPadRusted(Material mat) {
 		super(mat);
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.5D, 0D, -1.5D, -0.5D, 1D, -0.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(0.5D, 0D, -1.5D, 1.5D, 1D, -0.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.5D, 0D, 0.5D, -0.5D, 1D, 1.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(0.5D, 0D, 0.5D, 1.5D, 1D, 1.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-0.5D, 0.5D, -1.5D, 0.5D, 1D, 1.5D));
-		this.bounding.add(AxisAlignedBB.getBoundingBox(-1.5D, 0.5D, -0.5D, 1.5D, 1D, 0.5D));
+		this.bounding.add(new AxisAlignedBB(-1.5D, 0D, -1.5D, -0.5D, 1D, -0.5D));
+		this.bounding.add(new AxisAlignedBB(0.5D, 0D, -1.5D, 1.5D, 1D, -0.5D));
+		this.bounding.add(new AxisAlignedBB(-1.5D, 0D, 0.5D, -0.5D, 1D, 1.5D));
+		this.bounding.add(new AxisAlignedBB(0.5D, 0D, 0.5D, 1.5D, 1D, 1.5D));
+		this.bounding.add(new AxisAlignedBB(-0.5D, 0.5D, -1.5D, 0.5D, 1D, 1.5D));
+		this.bounding.add(new AxisAlignedBB(-1.5D, 0.5D, -0.5D, 1.5D, 1D, 0.5D));
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class LaunchPadRusted extends BlockDummyable implements IBomb {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 	
@@ -59,7 +59,7 @@ public class LaunchPadRusted extends BlockDummyable implements IBomb {
 			
 			int[] corePos = findCore(world, x, y, z);
 			if(corePos != null){
-				TileEntity core = world.getTileEntity(corePos[0], corePos[1], corePos[2]);
+				TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));
 				if(core instanceof TileEntityLaunchPadRusted){
 					TileEntityLaunchPadRusted entity = (TileEntityLaunchPadRusted)core;
 					return entity.launch();
@@ -77,7 +77,7 @@ public class LaunchPadRusted extends BlockDummyable implements IBomb {
 			
 			int[] corePos = findCore(world, x, y, z);
 			if(corePos != null){
-				TileEntity core = world.getTileEntity(corePos[0], corePos[1], corePos[2]);
+				TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));
 				if(core instanceof TileEntityLaunchPadRusted){
 					TileEntityLaunchPadRusted launchpad = (TileEntityLaunchPadRusted)core;
 					launchpad.updateRedstonePower(x, y, z);

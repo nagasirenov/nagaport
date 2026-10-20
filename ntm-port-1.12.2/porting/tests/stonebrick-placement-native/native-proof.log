@@ -1,0 +1,12 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS actual unsplit selected-expression Code sizes: [107, 16650]
+[02:28:45] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:28:45] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:28:45] [main/INFO]: Replaced 1036 ore ingredients
+[02:28:45] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:28:45] [main/INFO]: Processing ObjectHolder annotations
+[02:28:45] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 321 real original/native stone-brick owner/drop/state/save checks
+PASS 878 total owner/placement checks and 18288 exact ordered stone-brick events.
+Actual unsplit direct-expansion Code size: 49770 bytes. No claim of full-generator bytecode size; remaining generator source is unported.

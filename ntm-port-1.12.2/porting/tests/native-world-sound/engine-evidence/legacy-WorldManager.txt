@@ -1,0 +1,36 @@
+# Exact javap method excerpts; source legacy-WorldManager.javap
+
+  public void a(java.lang.String, double, double, double, float, float);
+    Code:
+       0: aload_0
+       1: getfield      #27                 // Field a:Lnet/minecraft/server/MinecraftServer;
+       4: invokevirtual #46                 // Method net/minecraft/server/MinecraftServer.ah:()Loi;
+       7: dload_2
+       8: dload         4
+      10: dload         6
+      12: fload         8
+      14: fconst_1
+      15: fcmpl
+      16: ifle          28
+      19: ldc           #1                  // float 16.0f
+      21: fload         8
+      23: fmul
+      24: f2d
+      25: goto          31
+      28: ldc2_w        #20                 // double 16.0d
+      31: aload_0
+      32: getfield      #28                 // Field b:Lmt;
+      35: getfield      #29                 // Field mt.t:Laqo;
+      38: getfield      #26                 // Field aqo.i:I
+      41: new           #6                  // class hc
+      44: dup
+      45: aload_1
+      46: dload_2
+      47: dload         4
+      49: dload         6
+      51: fload         8
+      53: fload         9
+      55: invokespecial #38                 // Method hc."<init>":(Ljava/lang/String;DDDFF)V
+      58: invokevirtual #48                 // Method oi.a:(DDDDILft;)V
+      61: return
+

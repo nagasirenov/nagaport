@@ -1,0 +1,102 @@
+GENERATED ORACLE SHA256 e67566516da748929e334322d514136068ffafd207516123efb48e146d8b1228
+BOUNDED COLLABORATOR com/hbm/inventory/RecipesCommon.java
+BOUNDED COLLABORATOR com/hbm/util/i18n/I18nUtil.java
+BOUNDED COLLABORATOR com/hbm/items/tool/ItemTooling.java
+BOUNDED COLLABORATOR com/hbm/items/tool/ItemConveyorWand.java
+BOUNDED COLLABORATOR com/hbm/main/MainRegistry.java
+BOUNDED COLLABORATOR com/hbm/util/InventoryUtil.java
+BOUNDED COLLABORATOR com/hbm/interfaces/ICopiable.java
+BOUNDED COLLABORATOR com/hbm/tileentity/IControlReceiverFilter.java
+BOUNDED COLLABORATOR com/hbm/tileentity/TileEntityMachineBase.java
+BOUNDED COLLABORATOR com/hbm/tileentity/network/TileEntityCraneBoxer.java
+BOUNDED COLLABORATOR com/hbm/tileentity/network/TileEntityCraneExtractor.java
+BOUNDED COLLABORATOR com/hbm/tileentity/network/TileEntityCraneGrabber.java
+BOUNDED COLLABORATOR com/hbm/tileentity/network/TileEntityCraneInserter.java
+BOUNDED COLLABORATOR com/hbm/tileentity/network/TileEntityCraneUnboxer.java
+BOUNDED COLLABORATOR com/hbm/blocks/ModBlocks.java
+BOUNDED COLLABORATOR com/hbm/items/ModItems.java
+BOUNDED COLLABORATOR com/hbm/tileentity/TileEntityLoadedBase.java
+BOUNDED COLLABORATOR com/hbm/config/StructureConfig.java
+BOUNDED COLLABORATOR com/hbm/packet/toserver/NBTControlPacket.java
+BOUNDED COLLABORATOR com/hbm/packet/PacketDispatcher.java
+BOUNDED COLLABORATOR com/hbm/main/NetworkHandler.java
+BOUNDED COLLABORATOR com/hbm/blocks/generic/LogicBlock.java
+BOUNDED COLLABORATOR com/hbm/blocks/generic/BlockLoot.java
+BOUNDED COLLABORATOR com/hbm/itempool/ItemPool.java
+BOUNDED COLLABORATOR com/hbm/util/LootGenerator.java
+BOUNDED COLLABORATOR com/hbm/world/gen/nbt/SpawnCondition.java
+BOUNDED COLLABORATOR com/hbm/world/gen/nbt/NBTStructure.java
+BOUNDED COLLABORATOR com/hbm/world/gen/util/LogicBlockActions.java
+BOUNDED COLLABORATOR com/hbm/world/gen/util/LogicBlockConditions.java
+BOUNDED COLLABORATOR com/hbm/world/gen/util/LogicBlockInteractions.java
+COMPLETE PRODUCTION com/hbm/blocks/network/BlockCraneBase.java 836177005773e3e657578a155e1f8cbf9e3d6844f2fe341cd10b282c03df2943
+COMPLETE PRODUCTION com/hbm/blocks/network/CraneBoxer.java fc58f26f7a91e6c61ae15c51bcf33270c1c9e3c7789db2f472ceeaf9e79a1e4a
+COMPLETE PRODUCTION com/hbm/blocks/network/CraneExtractor.java f9d47e961046504d75437d6af906cb3aec313790e36e7da37a64e7e55202e7f7
+COMPLETE PRODUCTION com/hbm/blocks/network/CraneGrabber.java 00945b5f4fddfa72e1b48fcda8626e9c3f5c4c08539e1fea5e57f5d4c37ad751
+COMPLETE PRODUCTION com/hbm/blocks/network/CraneInserter.java b471c05ef087813855b58b7a254eb9b346a2ea7288889f0226c4477767a1a800
+COMPLETE PRODUCTION com/hbm/blocks/network/CraneUnboxer.java ea2a626b8b3e3def33d6db75874c059a5eb018be67aca93a63be667adce7a5ff
+COMPLETE PRODUCTION com/hbm/tileentity/network/TileEntityCraneBase.java 95aeabd7638417c5a90e2ea7441dd82ca1415d5f85f0b5b38c6085604ac5cc34
+COMPLETE PRODUCTION com/hbm/blocks/IBlockSideRotation.java 59785176dea684180f3e8f48600a9e9aba13c1c0f108b47b9328becff1ac7879
+COMPLETE PRODUCTION com/hbm/blocks/SideRotationModelState.java dc4731f61ac3223a9170c0c2b22bae5d4c547ee23c9b4d8eee1566afe707d5bf
+COMPLETE PRODUCTION com/hbm/blocks/ITooltipProvider.java 8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5
+COMPLETE PRODUCTION com/hbm/lib/ForgeDirection.java 424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b
+COMPLETE PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+COMPLETE PRODUCTION api/hbm/block/IToolable.java c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62
+COMPLETE PRODUCTION api/hbm/conveyor/IConveyorItem.java c07ead5d9ea14cc0965ed186ead974855e5a80bdd5029ed892e7b2241348e53c
+COMPLETE PRODUCTION api/hbm/conveyor/IConveyorPackage.java 13edae9ee3a50964220945f959047c6fd361f18374215250b3fe9a60a25f87de
+COMPLETE PRODUCTION api/hbm/conveyor/IEnterableBlock.java 66e60569c71ba196aa26b625ae7decfcbd9b117ee35cebb29e693d3b09a834ed
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandJigsaw.java 5a586d2ba2fbd903edff8ed8fa293544a641efe705a37bee9b3b9a67c56bed6f
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandTandem.java 93a1803afd66427ff7a9cc3b4535a04365a5a33e322a4e9af16764ba92a7e4c4
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandLogic.java 83a1ddcbd11a8a329648e3611381b70092b22f480cf0ebd442984193f349ca73
+COMPLETE PRODUCTION com/hbm/blocks/generic/BlockWandLoot.java 30b2b8d35325aec818634325d904aa9644496af3a9959a002ec5cdf7933e72ed
+COMPLETE PRODUCTION com/hbm/blocks/ILookOverlay.java 6d887a13694c777446377a3f732bded7760902583a0970da56dd1cb7ec56bbf3
+COMPLETE PRODUCTION com/hbm/interfaces/IControlReceiver.java 43db6ffa8098f92cc9e116333099e47bb12926727fd344db9d2a2af216d3735d
+COMPLETE PRODUCTION com/hbm/interfaces/IBomb.java 418789fdbdc0611105f2a5efaf412fe7a7aca8013af6f7f2ad5339adf02edb06
+COMPLETE PRODUCTION com/hbm/tileentity/IGUIProvider.java 43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47
+COMPLETE PRODUCTION com/hbm/lib/WeightedRandomChestContent.java 5d4051784c05bbd069258f45c284fad480066f3cd866932852a2076315c4b94c
+COMPLETE PRODUCTION com/hbm/lib/LegacyWeightedLoot.java 5ac929f59bf7c8d93a7dd8b3385483d7e1ac50b137a4dcb6d1cf19e56f5cb336
+COMPLETE PRODUCTION com/hbm/util/BufferUtil.java ed5747a3be9db9ccdb3a09bcd097b7e90b48ae5761066f42dd27737a71be049d
+COMPLETE PRODUCTION com/hbm/handler/ThreeInts.java c5b412aa821e92e552776ec38042855a6a6d64a6f25613d4bc00addf6d1721ce
+COMPLETE PRODUCTION com/hbm/util/Tuple.java 068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41
+COMPLETE PRODUCTION com/hbm/interfaces/Spaghetti.java f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/INBTTileEntityTransformable.java 0856307458a09405a1b4d6f88836576eff845db8d4448516c3c2b72b5ba1d551
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/JigsawPiece.java 5b00d720cc37c1e1dd9daaff64c98643871320142ac71a8c841fc23f12e811f8
+COMPLETE PRODUCTION com/hbm/world/gen/nbt/JigsawPool.java 28e34006dd01f63b1cb1bba5d2a4128bf442236938dd18fcf95feddb37756f80
+COMPLETE PRODUCTION com/hbm/render/block/RenderBlockSideRotation.java 4674cdc0e604efe3ca16210fe0424689700d65ba63b8fab984853b7e42ad10c2
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/SideRotationBakedModel.java c24be9f446bd46c52af8d9c470b944f0b10dfc89791a89cfa8b82df568c715fc
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+COMPLETE PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+COMPLETE PRODUCTION com/hbm/main/SideRotationBlockModelHandler.java 22d8d1aa2d95d4ccb80e61bfc98051cc2c4a46e99858f35060a4bddd8451f06a
+/tmp/side-rotation-model-native-oz50g4_y/SideRotationModelNativeTest.java:42: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager sharedResources;
+                ^
+/tmp/side-rotation-model-native-oz50g4_y/SideRotationModelNativeTest.java:55: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();net.minecraftforge.fml.common.ModMetadata metadata=new net.minecraftforge.fml.common.ModMetadata();metadata.modId="hbm";metadata.name="Native side rotation proof";metadata.version="probe";net.minecraftforge.fml.common.DummyModContainer container=new net.minecraftforge.fml.common.DummyModContainer(metadata);net.minecraftforge.fml.common.Loader.instance().setupTestHarness(container);net.minecraftforge.fml.common.Loader.instance().setActiveModContainer(container);unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+/tmp/side-rotation-model-native-oz50g4_y/SideRotationModelNativeTest.java:55: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();net.minecraftforge.fml.common.ModMetadata metadata=new net.minecraftforge.fml.common.ModMetadata();metadata.modId="hbm";metadata.name="Native side rotation proof";metadata.version="probe";net.minecraftforge.fml.common.DummyModContainer container=new net.minecraftforge.fml.common.DummyModContainer(metadata);net.minecraftforge.fml.common.Loader.instance().setupTestHarness(container);net.minecraftforge.fml.common.Loader.instance().setActiveModContainer(container);unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS combined complete real nine owners, crane base/tile, four full editor nested tile/GUI classes, snapshot/interface, geometry, native baked model and native handler compile against unchanged Minecraft/Forge.
+[19:29:58] [main/INFO]: Processing ObjectHolder annotations
+[19:29:58] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS independent original RenderBlocks bytecode and pristine owner selectors: nine owners x16 item/world metadata; all five cranes x seven overrides plus missing tile; exact original UV field composition, original inventory +90Y positions/normals, immutable native snapshots.
+PASS all nine actual owners through native Forge SmoothAo and vanilla smooth: native FaceBakery reference corner lights/AO, non-flat asymmetric lighting, single diffuse, air/stone/glass culling; real ForgeHooksClient damage-model snapshot and six crack buckets.
+[19:29:58] [main/INFO]: Reloading ResourceManager: resources
+[19:29:58] [main/INFO]: Reloading ResourceManager: resources
+[19:29:58] [main/INFO]: Reloading ResourceManager: resources
+PASS actual native ModelRegistryEvent bus, ModelLoaderRegistry, all144 item/all144 world metadata routes, ItemModelMesher/BlockModelShapes and 87 exact-case decoded original PNGs: resources
+[19:29:59] [main/INFO]: Reloading ResourceManager: resources
+PASS actual model-cache reload and nine fresh atlas rebakes; retained snapshots/quads preserve old atlas objects: resources
+[19:29:59] [main/INFO]: Reloading ResourceManager: side-rotation-resources.jar
+[19:29:59] [main/INFO]: Reloading ResourceManager: side-rotation-resources.jar
+PASS actual native ModelRegistryEvent bus, ModelLoaderRegistry, all144 item/all144 world metadata routes, ItemModelMesher/BlockModelShapes and 87 exact-case decoded original PNGs: side-rotation-resources.jar
+[19:29:59] [main/INFO]: Reloading ResourceManager: side-rotation-resources.jar
+PASS actual model-cache reload and nine fresh atlas rebakes; retained snapshots/quads preserve old atlas objects: side-rotation-resources.jar
+PASS native side-rotation model family: 584751 assertions, 2584 complete layouts, 62016 ordered vertices. Complete combined owners/model/handler, independent pinned pristine selectors and actual original RenderBlocks bytecode, all metadata/overrides/missing tile, native smooth AO/culling/damage/routing/resources/reload.
+BOUNDARY: real unchanged Minecraft/Forge; explicit external NTM collaborators; controlled atlas rectangles and Unsafe Minecraft holder; fixture performs deferred ItemBlock registry flush/identity mapping. No live GL, automatic mod lifecycle, full tile engines, full-mod or graphical acceptance.

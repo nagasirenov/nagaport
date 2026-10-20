@@ -1,0 +1,28 @@
+package controls;
+import net.minecraft.util.math.AxisAlignedBB;
+class Positive {
+ Object nativeNew(){return new AxisAlignedBB(0,0,0,1,1,1).expand(1,2,3);}
+ Object variable(AxisAlignedBB b){return b.expand(1,0,0.5);}
+ Object callback(){return box().expand(2D,0D,2D);}
+ Object nullReceiver(){return ((AxisAlignedBB)null).expand(1,2,3);}
+ AxisAlignedBB box(){return null;}
+}
+class Negative {
+ Object negative(AxisAlignedBB b){return b.expand(-1,1,1);}
+ Object negativeZero(AxisAlignedBB b){return b.expand(-0.0,1,1);}
+ Object nan(AxisAlignedBB b){return b.expand(Double.NaN,1,1);}
+ Object infinity(AxisAlignedBB b){return b.expand(Double.POSITIVE_INFINITY,1,1);}
+ Object dynamic(AxisAlignedBB b,double x){return b.expand(x,x,x);}
+ Object alreadyGrow(AxisAlignedBB b){return b.grow(1,1,1);}
+ Object wrongArity(AxisAlignedBB b){return b.expand(1);}
+ Object nonnumeric(AxisAlignedBB b,Object x){return b.expand(x,x,x);}
+ Object domain(Domain d){return d.expand(1,1,1);}
+ Object unknown(Missing b){return b.expand(1,1,1);}
+ Object oldFactory(){return AxisAlignedBB.getBoundingBox(0,0,0,1,1,1).expand(1,1,1);}
+ Object wrongType(Object b){return b.expand(1,1,1);}
+ Object subclass(Sub b){return b.expand(1,1,1);}
+ Object sideEffects(AxisAlignedBB b,int x){return b.expand(x++,1,1);}
+ Object constantArithmetic(AxisAlignedBB b){return b.expand(1+1,1,1);}
+ static class Domain{Object expand(double x,double y,double z){return null;}}
+ static class Sub extends AxisAlignedBB{Sub(){super(0,0,0,1,1,1);}}
+}

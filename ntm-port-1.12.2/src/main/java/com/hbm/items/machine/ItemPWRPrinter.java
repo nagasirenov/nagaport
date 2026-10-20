@@ -72,7 +72,7 @@ public class ItemPWRPrinter extends Item implements IGUIProvider {
 				for(int z = z1; z <= z2; z++) {
 					Block block = Block.getBlockById(buf.readInt());
 
-					TileEntity tile = world.getTileEntity(x, y, z);
+					TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 					if(!(tile instanceof TileEntityBlockPWR)) continue;
 					((TileEntityBlockPWR) tile).block = block;
 				}
@@ -81,15 +81,15 @@ public class ItemPWRPrinter extends Item implements IGUIProvider {
 
 		// Open the printer GUI on any client players holding the printer
 		// yeah it's a shit hack yay weee wooo
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		if(player != null && player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemPWRPrinter) {
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		if(player != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemPWRPrinter) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, 0, 0, 0);
 		}
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(tile instanceof TileEntityPWRController)) return false;
 		if(world.isRemote) return true;
 
@@ -112,7 +112,7 @@ public class ItemPWRPrinter extends Item implements IGUIProvider {
 		for(int x = x1; x <= x2; x++) {
 			for(int y = y1; y <= y2; y++) {
 				for(int z = z1; z <= z2; z++) {
-					TileEntity tile = world.getTileEntity(x, y, z);
+					TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 					if(tile instanceof TileEntityBlockPWR) {
 						blockSync[i] = ((TileEntityBlockPWR) tile).block;
 					}
@@ -125,21 +125,21 @@ public class ItemPWRPrinter extends Item implements IGUIProvider {
 	}
 
 	public void findBounds(World world, TileEntityPWRController pwr) {
-		dir = ForgeDirection.getOrientation(world.getBlockMetadata(pwr.xCoord, pwr.yCoord, pwr.zCoord)).getOpposite();
+		dir = ForgeDirection.getOrientation(world.getBlockMetadata(pwr.getPos().getX(), pwr.getPos().getY(), pwr.getPos().getZ())).getOpposite();
 
 		fill.clear();
-		fill.add(new BlockPos(pwr.xCoord, pwr.yCoord, pwr.zCoord));
-		x1 = x2 = pwr.xCoord;
-		y1 = y2 = pwr.yCoord;
-		z1 = z2 = pwr.zCoord;
-		floodFill(world, pwr.xCoord + dir.offsetX, pwr.yCoord, pwr.zCoord + dir.offsetZ);
+		fill.add(new BlockPos(pwr.getPos().getX(), pwr.getPos().getY(), pwr.getPos().getZ()));
+		x1 = x2 = pwr.getPos().getX();
+		y1 = y2 = pwr.getPos().getY();
+		z1 = z2 = pwr.getPos().getZ();
+		floodFill(world, pwr.getPos().getX() + dir.offsetX, pwr.getPos().getY(), pwr.getPos().getZ() + dir.offsetZ);
 	}
 
 	public void floodFill(World world, int x, int y, int z) {
 		BlockPos pos = new BlockPos(x, y, z);
 		if(fill.contains(pos)) return;
 
-		if(world.getBlock(x, y, z) instanceof BlockPWR) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof BlockPWR) {
 			fill.add(pos);
 
 			x1 = Math.min(x1, x);

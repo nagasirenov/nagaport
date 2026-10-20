@@ -82,16 +82,16 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machinePrecAss";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 		if(maxPower <= 0) this.maxPower = 1_000_000;
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			GenericRecipe recipe = PrecAssRecipes.INSTANCE.recipeNameMap.get(assemblerModule.recipe);
 			if(recipe != null) {
@@ -103,9 +103,9 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 			upgradeManager.checkSlots(slots, 2, 3);
 			
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos);
-				if(inputTank.getTankType() != Fluids.NONE) this.trySubscribe(inputTank.getTankType(), worldObj, pos);
-				if(outputTank.getFill() > 0) this.tryProvide(outputTank, worldObj, pos);
+				this.trySubscribe(this.world, pos);
+				if(inputTank.getTankType() != Fluids.NONE) this.trySubscribe(inputTank.getTankType(), this.world, pos);
+				if(outputTank.getFill() > 0) this.tryProvide(outputTank, this.world, pos);
 			}
 
 			double speed = 1D;
@@ -126,11 +126,11 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 			
 		} else {
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
-				frame = !worldObj.getBlock(xCoord, yCoord + 3, zCoord).isAir(worldObj, xCoord, yCoord + 3, zCoord);
+			if(this.world.getTotalWorldTime() % 20 == 0) {
+				frame = !com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock().isAir(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ());
 			}
 			
-			if(this.didProcess && MainRegistry.proxy.me().getDistance(xCoord , yCoord, zCoord) < 50) {
+			if(this.didProcess && MainRegistry.proxy.me().getDistance(this.pos.getX() , this.pos.getY(), this.pos.getZ()) < 50) {
 				if(audio == null) {
 					audio = createAudioLoop();
 					audio.startSound();
@@ -157,9 +157,9 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 				if(this.strikerDir[i]) {
 					this.strikers[i] = -0.75D;
 					this.strikerDir[i] = false;
-					if(!this.muffled) MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.assemblerStrike", this.getVolume(0.5F), 1.25F);
+					if(!this.muffled) MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.assemblerStrike", this.getVolume(0.5F), 1.25F);
 				} else {
-					this.strikers[i] = MathHelper.clamp_double(this.strikers[i] + 0.5D, -0.75D, 0D);
+					this.strikers[i] = MathHelper.clamp(this.strikers[i] + 0.5D, -0.75D, 0D);
 				}
 			}
 			
@@ -173,7 +173,7 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 					this.ringTarget += sub;
 					this.ring += sub;
 					this.prevRing += sub;
-					this.ringDelay = 100 + worldObj.rand.nextInt(21);
+					this.ringDelay = 100 + this.world.rand.nextInt(21);
 				}
 			}
 			
@@ -181,9 +181,9 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 				if(this.ring == this.ringTarget) {
 					if(this.ringDelay > 0) this.ringDelay--;
 					if(this.ringDelay <= 0) {
-						this.ringTarget += 45 * (worldObj.rand.nextBoolean() ? -1 : 1);
-						this.ringSpeed = 10D + worldObj.rand.nextDouble() * 5D;
-						if(!this.muffled) MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.assemblerStart", this.getVolume(0.25F), 1.25F + worldObj.rand.nextFloat() * 0.25F);
+						this.ringTarget += 45 * (this.world.rand.nextBoolean() ? -1 : 1);
+						this.ringSpeed = 10D + this.world.rand.nextDouble() * 5D;
+						if(!this.muffled) MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.assemblerStart", this.getVolume(0.25F), 1.25F + this.world.rand.nextFloat() * 0.25F);
 					}
 				}
 				
@@ -196,7 +196,7 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 					if(this.strikerDelay <= 0) {
 						this.strikerDir[this.strikerIndex] = true;
 						this.strikerIndex = (this.strikerIndex + 1) % this.strikers.length;
-						this.strikerDelay = this.strikerIndex == 3 ? (10 + worldObj.rand.nextInt(3)) : 2;
+						this.strikerDelay = this.strikerIndex == 3 ? (10 + this.world.rand.nextInt(3)) : 2;
 					}
 				}
 				
@@ -206,7 +206,7 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 			}
 			
 			if(this.isInWorkingPosition(prevArmAngles) && !this.isInWorkingPosition(armAngles)) {
-				if(!this.muffled) MainRegistry.proxy.playSoundClient(xCoord, yCoord, zCoord, "hbm:block.assemblerStop", this.getVolume(0.25F), 1.25F + worldObj.rand.nextFloat() * 0.25F);
+				if(!this.muffled) MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.assemblerStop", this.getVolume(0.25F), 1.25F + this.world.rand.nextFloat() * 0.25F);
 			}
 		}
 	}
@@ -243,7 +243,7 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	}
 
 	@Override public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", xCoord, yCoord, zCoord, 0.5F, 15F, 0.75F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.motor", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.5F, 15F, 0.75F, 20);
 	}
 
 	@Override public void onChunkUnload() {
@@ -257,18 +257,18 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 0, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 0, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 0, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 0, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 0, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 0, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
 		};
 	}
 
@@ -305,13 +305,14 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.inputTank.writeToNBT(nbt, "i");
 		this.outputTank.writeToNBT(nbt, "o");
 		nbt.setLong("power", power);
 		nbt.setLong("maxPower", maxPower);
 		this.assemblerModule.writeToNBT(nbt);
+		return nbt;
 	}
 
 	@Override
@@ -324,12 +325,14 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= 13 || this.assemblerModule.isSlotClogged(i);
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
 	}
 
@@ -344,7 +347,7 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	@Override public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) { return new ContainerMachinePrecAss(player.inventory, this); }
 	@Override @SideOnly(Side.CLIENT) public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) { return new GUIMachinePrecAss(player.inventory, this); }
 
-	@Override public boolean hasPermission(EntityPlayer player) { return this.isUseableByPlayer(player); }
+	@Override public boolean hasPermission(EntityPlayer player) { return this.isUsableByPlayer(player); }
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
@@ -362,7 +365,7 @@ public class TileEntityMachinePrecAss extends TileEntityMachineBase implements I
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord, zCoord - 1, xCoord + 2, yCoord + 3, zCoord + 2);
+		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
 		return bb;
 	}
 	

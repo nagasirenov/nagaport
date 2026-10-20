@@ -1,0 +1,202 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "references": [
+      {
+        "line": 872,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityDeliveryDrone.class, renderManager -> new RenderDeliveryDrone(renderManager));"
+      },
+      {
+        "line": 873,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityRequestDrone.class, renderManager -> new RenderDeliveryDrone(renderManager));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "references": [
+      {
+        "line": 168,
+        "source": "addEntity(EntityDeliveryDrone.class, \"entity_delivery_drone\", 250, false);"
+      },
+      {
+        "line": 169,
+        "source": "addEntity(EntityRequestDrone.class, \"entity_request_drone\", 250, false);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemDrone.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.item.EntityDeliveryDrone;"
+      },
+      {
+        "line": 45,
+        "source": "toSpawn = new EntityDeliveryDrone(world);"
+      },
+      {
+        "line": 47,
+        "source": "((EntityDeliveryDrone) toSpawn).setChunkLoading();"
+      },
+      {
+        "line": 50,
+        "source": "((EntityDeliveryDrone) toSpawn).setLoad((byte) 1);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+    "references": [
+      {
+        "line": 27,
+        "source": "public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, IChunkLoader {"
+      },
+      {
+        "line": 29,
+        "source": "private static final DataParameter<Byte> LOAD = EntityDataManager.createKey(EntityDeliveryDrone.class, DataSerializers.BYTE);"
+      },
+      {
+        "line": 37,
+        "source": "public EntityDeliveryDrone(World world) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+    "references": [
+      {
+        "line": 26,
+        "source": "public class EntityRequestDrone extends EntityDroneBase {"
+      },
+      {
+        "line": 57,
+        "source": "public EntityRequestDrone(World world) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDroneBase.java",
+    "references": [
+      {
+        "line": 14,
+        "source": "public abstract class EntityDroneBase extends Entity {"
+      },
+      {
+        "line": 16,
+        "source": "protected static final DataParameter<Byte> APPEARANCE = EntityDataManager.createKey(EntityDroneBase.class, DataSerializers.BYTE);"
+      },
+      {
+        "line": 30,
+        "source": "public EntityDroneBase(World world) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderDeliveryDrone.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.item.EntityDroneBase;"
+      },
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.item.EntityDeliveryDrone;"
+      },
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.item.EntityRequestDrone;"
+      },
+      {
+        "line": 30,
+        "source": "if(entity instanceof EntityRequestDrone) {"
+      },
+      {
+        "line": 32,
+        "source": "} else if(((EntityDeliveryDrone) entity).getLoad() == 1)"
+      },
+      {
+        "line": 38,
+        "source": "EntityDroneBase drone = (EntityDroneBase) entity;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityDroneCrate.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.item.EntityDeliveryDrone;"
+      },
+      {
+        "line": 69,
+        "source": "List<EntityDeliveryDrone> drones = this.world.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 2, this.pos.getZ() + 1));"
+      },
+      {
+        "line": 70,
+        "source": "for(EntityDeliveryDrone drone : drones) {"
+      },
+      {
+        "line": 113,
+        "source": "protected void loadItems(EntityDeliveryDrone drone) {"
+      },
+      {
+        "line": 134,
+        "source": "protected void unloadItems(EntityDeliveryDrone drone) {"
+      },
+      {
+        "line": 159,
+        "source": "protected void loadFluid(EntityDeliveryDrone drone) {"
+      },
+      {
+        "line": 173,
+        "source": "protected void unloadFluid(EntityDeliveryDrone drone) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.item.EntityDeliveryDrone;"
+      },
+      {
+        "line": 30,
+        "source": "List<EntityDeliveryDrone> drones = this.world.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).offset(dir.offsetX * height, dir.offsetY * height, dir.offsetZ * height));"
+      },
+      {
+        "line": 31,
+        "source": "for(EntityDeliveryDrone drone : drones) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityDroneDock.java",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.item.EntityRequestDrone;"
+      },
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.item.EntityRequestDrone.DroneProgram;"
+      },
+      {
+        "line": 109,
+        "source": "EntityRequestDrone drone = new EntityRequestDrone(this.world);"
+      }
+    ],
+    "legacy_calls": []
+  }
+]

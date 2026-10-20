@@ -1,0 +1,28 @@
+package tileoracle;
+import java.lang.reflect.*;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import com.hbm.blocks.ModBlocks;
+/** Named NTM-test endpoint only. Lava faces execute unchanged original blm bytecode. */
+public final class LegacyBlocksRenderer {
+ private static final LegacyBlocksRenderer INSTANCE=new LegacyBlocksRenderer();
+ public static LegacyBlocksRenderer getInstance(){return INSTANCE;}
+ private Object actual;private Class<?> renderer,block,iconType;
+ public static Field field(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}
+ public void initialize()throws Exception{
+  renderer=Class.forName("blm",true,LegacyTess.loader);block=Class.forName("aji",true,LegacyTess.loader);iconType=Class.forName("rf",true,LegacyTess.loader);
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);actual=unsafe.allocateInstance(renderer);
+ }
+ public TextureAtlasSprite getBlockIconFromSide(Block b,int side){
+  if(side!=1)throw new AssertionError("Unexpected original preview side");
+  String name=b==ModBlocks.struct_launcher?"struct_launcher":b==ModBlocks.struct_scaffold?"struct_scaffold":b==ModBlocks.concrete_smooth?"concrete":null;
+  if(name==null)throw new AssertionError("Unknown NTM material boundary");return new TextureAtlasSprite("hbm:"+name){};
+ }
+ public void setRenderBounds(double...bounds){try{String[] names={"i","k","m","j","l","n"};for(int i=0;i<6;i++)field(renderer,names[i]).setDouble(actual,bounds[i]);}catch(Exception e){throw new RuntimeException(e);}}
+ public void renderFaceYPos(LegacyBlocks.Lava unused,double x,double y,double z,final TextureAtlasSprite sprite){try{
+  Object icon=Proxy.newProxyInstance(LegacyTess.loader,new Class[]{iconType},(p,m,a)->{
+   if(a!=null&&a.length==1)return m.getName().equals("a")?sprite.getInterpolatedU((Double)a[0]):sprite.getInterpolatedV((Double)a[0]);
+   switch(m.getName()){case "a":case "b":return 16;case "c":return sprite.getMinU();case "d":return sprite.getMaxU();case "e":return sprite.getMinV();case "f":return sprite.getMaxV();default:return sprite.getIconName();}
+  });renderer.getMethod("b",block,double.class,double.class,double.class,iconType).invoke(actual,null,x,y,z,icon);
+ }catch(Exception e){throw new RuntimeException(e);}}
+}

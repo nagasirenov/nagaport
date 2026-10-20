@@ -1,0 +1,33 @@
+PRODUCTION src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java 741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925
+/tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=field(Unsafe.class,"theUnsafe");Unsafe unsafe=(Unsafe)uf.get(null);
+                 ^
+/tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=field(Unsafe.class,"theUnsafe");Unsafe unsafe=(Unsafe)uf.get(null);
+                                           ^
+/tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=field(Unsafe.class,"theUnsafe");Unsafe unsafe=(Unsafe)uf.get(null);
+                                                          ^
+Note: /tmp/conveyor-cuboid-native-79pnbfqq/ConveyorCuboidNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+PASS actual cached 1.7.10 face runtime: 261 asymmetric/partial/degenerate boxes x 4 original rotations x item/world x uniform/mixed face rotations x six faces; exact native position/UV float bits, materials, normal and diffuse checks.
+AO vanilla smooth bounds=[0.0, 0.0, 0.0, 1.0, 0.25, 1.0] lights=20 colors=9
+AO vanilla smooth bounds=[0.25, 0.0, 0.625, 0.75, 1.0, 0.75] lights=22 colors=10
+AO vanilla smooth bounds=[0.25, 0.25, 0.25, 0.25, 0.75, 0.75] lights=14 colors=7
+AO vanilla smooth bounds=[0.25, 0.25, 0.25, 0.75, 0.75, 0.25] lights=14 colors=9
+AO Forge SmoothAo bounds=[0.0, 0.0, 0.0, 1.0, 0.25, 1.0] lights=22 colors=10
+AO Forge SmoothAo bounds=[0.25, 0.0, 0.625, 0.75, 1.0, 0.75] lights=24 colors=10
+AO Forge SmoothAo bounds=[0.25, 0.25, 0.25, 0.25, 0.75, 0.75] lights=16 colors=12
+AO Forge SmoothAo bounds=[0.25, 0.25, 0.25, 0.75, 0.75, 0.25] lights=16 colors=12
+PASS actual native Forge SmoothAo and vanilla smooth renderer: asymmetric neighbor-light response, non-flat AO, finite zero-width grate output, diffuse and cull-bucket topology. Topology model fixture deliberately does not claim production model integration or old/new lighting pixel parity.
+PASS conveyor cuboid native helper: 806774 assertions.

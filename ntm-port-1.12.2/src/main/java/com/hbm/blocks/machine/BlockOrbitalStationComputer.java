@@ -63,7 +63,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 			if(pos == null)
 				return false;
 
-			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 			if(!(te instanceof TileEntityOrbitalStationComputer))
 				return false;
@@ -73,7 +73,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 			if(computer.isTravelling())
 				return false;
 
-			ItemStack heldStack = player.getHeldItem();
+			ItemStack heldStack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 			if(heldStack != null && heldStack.getItem() instanceof ItemVOTVdrive) {
 				if(computer.slots[0] != null)
@@ -111,7 +111,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 		if(!CelestialBody.inOrbit(world)) {
 			List<String> text = new ArrayList<String>();
 			text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! " + I18nUtil.resolveKey("atmosphere.noOrbit") + " ! ! !");
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 			return;
 		}
 
@@ -119,7 +119,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 
 		if(pos == null) return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityOrbitalStationComputer)) return;
 
@@ -133,7 +133,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 			text.add(TextFormatting.RED + "No engines available");
 		} else if(station.errorsAt.size() > 0) {
 			for(ThreeInts errorAt : station.errorsAt) {
-				TileEntity error = world.getTileEntity(errorAt.x, errorAt.y, errorAt.z);
+				TileEntity error = world.getTileEntity(new net.minecraft.util.math.BlockPos(errorAt.x, errorAt.y, errorAt.z));
 				if(error == null || !(error instanceof IPropulsion)) continue;
 				((IPropulsion) error).addErrors(text);
 			}
@@ -147,7 +147,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 			}
 			text.add(TextFormatting.AQUA + I18nUtil.resolveKey("station.progress") + ": " + TextFormatting.RESET + "" + Math.round(progress * 100) + "%");
 		} else if(computer.hasDrive) {
-			if(Minecraft.getMinecraft().thePlayer.getHeldItem() != null) {
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player) != null) {
 				text.add(I18nUtil.resolveKey("station.removeDrive"));
 			} else {
 				text.add(I18nUtil.resolveKey("station.interactDrive"));
@@ -156,7 +156,7 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 			text.add(I18nUtil.resolveKey("station.insertDrive"));
 		}
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 }

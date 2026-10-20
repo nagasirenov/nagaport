@@ -1,0 +1,55 @@
+{
+  "keys": {
+    "WEAPON_EXPLOSION_SMALL_NEAR": "weapon.explosionSmallNear",
+    "WEAPON_EXPLOSION_SMALL_FAR": "weapon.explosionSmallFar"
+  },
+  "renames": [
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionSmallNear1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallnear1.ogg",
+      "sha256": "e6135f121c775afaae3afedbf578ed5296801fa960c15c400cd160fcf7179861"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionSmallNear2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallnear2.ogg",
+      "sha256": "2af3ae36b192f68588da3b066cac44c13f82b519777c0e99c484d968e5e48385"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionSmallNear3.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallnear3.ogg",
+      "sha256": "956ed783ffa1d6153099f8c36e5044256748ac1d514352dc20b5912a3f8e4ad3"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionSmallFar1.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallfar1.ogg",
+      "sha256": "d628eb92aca29ee9a27ffa93e383c07ffabc6b17b7ef2a2905be534865d6a71e"
+    },
+    {
+      "before": "src/main/resources/assets/hbm/sounds/weapon/explosionSmallFar2.ogg",
+      "after": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallfar2.ogg",
+      "sha256": "9ec9b44fbf4b0656790b9dae60020375e8d40cf1a6d7230a59a016d16f7b90a7"
+    }
+  ],
+  "samples": [
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallnear1.ogg",
+      "sha256": "e6135f121c775afaae3afedbf578ed5296801fa960c15c400cd160fcf7179861"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallnear2.ogg",
+      "sha256": "2af3ae36b192f68588da3b066cac44c13f82b519777c0e99c484d968e5e48385"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallnear3.ogg",
+      "sha256": "956ed783ffa1d6153099f8c36e5044256748ac1d514352dc20b5912a3f8e4ad3"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallfar1.ogg",
+      "sha256": "d628eb92aca29ee9a27ffa93e383c07ffabc6b17b7ef2a2905be534865d6a71e"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/sounds/weapon/explosionsmallfar2.ogg",
+      "sha256": "9ec9b44fbf4b0656790b9dae60020375e8d40cf1a6d7230a59a016d16f7b90a7"
+    }
+  ]
+}

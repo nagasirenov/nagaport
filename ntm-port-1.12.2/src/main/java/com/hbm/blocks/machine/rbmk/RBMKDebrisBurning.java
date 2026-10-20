@@ -10,7 +10,11 @@ import com.hbm.packet.toclient.AuxParticlePacketNT;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
@@ -24,7 +28,8 @@ public class RBMKDebrisBurning extends RBMKDebris {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!world.isRemote) {
 
@@ -32,17 +37,17 @@ public class RBMKDebrisBurning extends RBMKDebris {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "rbmkflame");
 				data.setInteger("maxAge", 300);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + rand.nextDouble() * 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + rand.nextDouble() * 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));
 				MainRegistry.proxy.effectNT(data);
-				world.playSoundEffect(x + 0.5F, y + 0.5, z + 0.5, "fire.fire", 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);
+				world.playSound(null, x + 0.5F, y + 0.5, z + 0.5, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);
 			}
 
 			ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
-			Block block = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
-			int meta = world.getBlockMetadata(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block block = world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)).getBlock();
+			int meta = block.getMetaFromState(world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)));
 
-			if(rand.nextInt(10) == 0 && block == Blocks.air) {
-				world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_meltdown);
+			if(rand.nextInt(10) == 0 && block == Blocks.AIR) {
+				world.setBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ), ModBlocks.gas_meltdown.getDefaultState());
 			}
 
 			//Foam helps stop the fire; Boron smothers it. 1.66% chance every 100-120 seconds for one side
@@ -50,26 +55,28 @@ public class RBMKDebrisBurning extends RBMKDebris {
 					block == ModBlocks.sand_boron_layer || (block == ModBlocks.sand_mix && meta == EnumSandType.BORON.ordinal()) ? 10 : 100;
 
 			if(rand.nextInt(chance) == 0) {
-				world.setBlock(x, y, z, ModBlocks.pribris);
+				world.setBlockState(pos, ModBlocks.pribris.getDefaultState());
 			} else {
-				world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+				world.scheduleUpdate(pos, this, this.tickRate(world));
 			}
 		}
 	}
 
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!world.isRemote) {
 			if(world.rand.nextInt(3) == 0) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "rbmkflame");
 				data.setInteger("maxAge", 300);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + world.rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + world.rand.nextDouble() * 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + world.rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + world.rand.nextDouble() * 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));
 				MainRegistry.proxy.effectNT(data);
 			}
 		}
 
-		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		world.scheduleUpdate(pos, this, this.tickRate(world));
 	}
 }

@@ -27,11 +27,11 @@ public class MachineRecipes {
 
 	public ArrayList<ItemStack> getAlloyFuels() {
 		ArrayList<ItemStack> fuels = new ArrayList<ItemStack>();
-		fuels.add(new ItemStack(Items.coal));
-		fuels.add(new ItemStack(Blocks.coal_block));
-		fuels.add(new ItemStack(Items.lava_bucket));
-		fuels.add(new ItemStack(Items.blaze_rod));
-		fuels.add(new ItemStack(Items.blaze_powder));
+		fuels.add(new ItemStack(Items.COAL));
+		fuels.add(new ItemStack(Blocks.COAL_BLOCK));
+		fuels.add(new ItemStack(Items.LAVA_BUCKET));
+		fuels.add(new ItemStack(Items.BLAZE_ROD));
+		fuels.add(new ItemStack(Items.BLAZE_POWDER));
 		fuels.add(new ItemStack(ModItems.lignite));
 		fuels.add(new ItemStack(ModItems.powder_lignite));
 		fuels.add(new ItemStack(ModItems.briquette));
@@ -81,8 +81,8 @@ public class MachineRecipes {
 			if(con != null) {
 				
 				ItemStack fluid = new ItemStack(ModItems.fluid_icon, 1, con.type.getID());
-				fluid.stackTagCompound = new NBTTagCompound();
-				fluid.stackTagCompound.setInteger("fill", con.content);
+				fluid.setTagCompound(new NBTTagCompound());
+				fluid.getTagCompound().setInteger("fill", con.content);
 				list.add(new Triplet(fluid, con.emptyContainer, con.fullContainer));
 			}
 		}

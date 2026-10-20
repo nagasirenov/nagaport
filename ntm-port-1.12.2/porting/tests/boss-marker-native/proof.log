@@ -1,0 +1,9 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/boss-marker-native/BossMarkerNativeTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static Object allocate(Class<?> cls)throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return ((sun.misc.Unsafe)f.get(null)).allocateInstance(cls);}
+                                                                         ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/boss-marker-native/BossMarkerNativeTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static Object allocate(Class<?> cls)throws Exception{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return ((sun.misc.Unsafe)f.get(null)).allocateInstance(cls);}
+                                                                                                                                                            ^
+2 warnings
+PASS 11 native display marker/value/thermal-classification checks; no HUD activation, full boss AI, portal travel or gameplay certification.
+PASS 2131 original BossStatus bytecode/native capture and isolated consumer-state assertions. No active HUD, atmosphere or disconnect event integration.

@@ -15,13 +15,13 @@ public class ExplosionEffectTiny implements IExplosionSFX {
 	public void doEffect(ExplosionVNT explosion, World world, double x, double y, double z, float size) {
 		if(world.isRemote) return;
 
-		world.playSoundEffect(x, y, z, "hbm:weapon.explosionTiny", 15.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:weapon.explosionTiny", 15.0F, 1.0F);
 		
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "vanillaExt");
 		data.setString("mode", "largeexplode");
 		data.setFloat("size", 1.5F);
 		data.setByte("count", (byte)1);
-		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 100));
+		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 100));
 	}
 }

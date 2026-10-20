@@ -47,7 +47,7 @@ public class ArmorAsbestos extends ItemArmor implements ISpecialArmor {
 	@Override
 	public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage, int slot) {
 		if(source.isFireDamage()) {
-			return new ArmorProperties(1, 1, MathHelper.floor_double(999999999));
+			return new ArmorProperties(1, 1, MathHelper.floor((double) (999999999)));
 		}
 		return new ArmorProperties(0, 0, 0);
 	}

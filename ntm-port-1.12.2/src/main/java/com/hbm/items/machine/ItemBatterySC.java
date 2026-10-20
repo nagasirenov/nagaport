@@ -1,5 +1,9 @@
 package com.hbm.items.machine;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.world.World;
 import java.util.List;
 
 import com.hbm.items.ItemEnumMulti;
@@ -8,7 +12,6 @@ import com.hbm.util.BobMathUtil;
 import com.hbm.util.EnumUtil;
 
 import api.hbm.energymk2.IBatteryItem;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
@@ -55,7 +58,8 @@ public class ItemBatterySC extends ItemEnumMulti implements IBatteryItem {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		EnumBatterySC pack = EnumUtil.grabEnumSafely(EnumBatterySC.class, stack.getItemDamage());
 		if(pack.power > 0) list.add(TextFormatting.YELLOW + "Discharge rate: " + BobMathUtil.getShortNumber(pack.power) + "HE/t");
 	}

@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.ModItems;
@@ -84,7 +87,7 @@ public class ItemRenderHeavyRevolver extends ItemRenderWeaponBase {
 		GL11.glTranslated(reloadJolt[0], 0, 0);
 		GL11.glRotated(reloadTilt[0], 1, 0, 0);
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		ResourceManager.lilmac.renderPart("Gun");
 
 		GL11.glPushMatrix();
@@ -108,7 +111,7 @@ public class ItemRenderHeavyRevolver extends ItemRenderWeaponBase {
 		GL11.glPopMatrix();
 		
 		if(isScoped) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.lilmac_scope_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.lilmac_scope_tex);
 			ResourceManager.lilmac.renderPart("Scope");
 		}
 		
@@ -154,7 +157,7 @@ public class ItemRenderHeavyRevolver extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 
 		GL11.glRotated(90, 0, 1, 0);
 		GL11.glEnable(GL11.GL_LIGHTING);
@@ -162,7 +165,7 @@ public class ItemRenderHeavyRevolver extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		ResourceManager.lilmac.renderPart("Gun");
 		ResourceManager.lilmac.renderPart("Cylinder");
 		ResourceManager.lilmac.renderPart("Bullets");
@@ -170,15 +173,15 @@ public class ItemRenderHeavyRevolver extends ItemRenderWeaponBase {
 		ResourceManager.lilmac.renderPart("Pivot");
 		ResourceManager.lilmac.renderPart("Hammer");
 		if(isScoped(stack)) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.lilmac_scope_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.lilmac_scope_tex);
 			ResourceManager.lilmac.renderPart("Scope");
 		}
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 			} else {

@@ -40,7 +40,7 @@ public class BombThermo extends Block implements IBomb {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		if(this == ModBlocks.therm_endo) {
 			return Item.getItemFromBlock(ModBlocks.therm_endo);
 		}
@@ -57,7 +57,7 @@ public class BombThermo extends Block implements IBomb {
 	@Override
 	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
 		if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {
-			p_149695_1_.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			if(this == ModBlocks.therm_endo) {
 				ExplosionThermo.freeze(p_149695_1_, x, y, z, 15);
 				ExplosionThermo.freezer(p_149695_1_, x, y, z, 20);
@@ -74,7 +74,7 @@ public class BombThermo extends Block implements IBomb {
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		world.setBlock(x, y, z, Blocks.air);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		if(this == ModBlocks.therm_endo) {
 			ExplosionThermo.freeze(world, x, y, z, 15);
 			ExplosionThermo.freezer(world, x, y, z, 20);

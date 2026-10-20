@@ -1,0 +1,342 @@
+commit 66a7b7b02b078289dea791fe1d511c2559b99ceb
+Author: Codex <codex@openai.com>
+Date:   Mon Oct 19 19:35:25 2026 +0300
+
+    Port native particle, crane editor and registry mapping roots
+
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/particle/ParticleSpentCasing.java b/ntm-port-1.12.2/src/main/java/com/hbm/particle/ParticleSpentCasing.java
+index df5742cb..2443b85f 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/particle/ParticleSpentCasing.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/particle/ParticleSpentCasing.java
+@@ -8,7 +8,9 @@ import java.util.Random;
+ import org.lwjgl.opengl.GL11;
+ import org.lwjgl.opengl.GL12;
+ 
+-import com.hbm.main.MainRegistry;
++import com.hbm.main.ModSoundEvents;
++import net.minecraft.util.ResourceLocation;
++import net.minecraft.util.SoundEvent;
+ import com.hbm.main.ResourceManager;
+ import com.hbm.util.BobMathUtil;
+ import com.hbm.util.Vec3NT;
+@@ -17,10 +19,14 @@ import com.hbm.util.Tuple.Pair;
+ import net.minecraftforge.fml.relauncher.Side;
+ import net.minecraftforge.fml.relauncher.SideOnly;
+ import net.minecraft.client.Minecraft;
+-import net.minecraft.client.particle.EntityFX;
++import net.minecraft.client.particle.Particle;
+ import net.minecraft.client.renderer.OpenGlHelper;
+ import net.minecraft.client.renderer.RenderHelper;
+ import net.minecraft.client.renderer.Tessellator;
++import net.minecraft.client.renderer.BufferBuilder;
++import net.minecraft.client.renderer.GlStateManager;
++import net.minecraft.entity.Entity;
++import net.minecraft.util.math.BlockPos;
+ import net.minecraft.client.renderer.texture.TextureManager;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.util.math.AxisAlignedBB;
+@@ -29,7 +35,15 @@ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+ 
+ @SideOnly(Side.CLIENT)
+-public class ParticleSpentCasing extends EntityFX {
++public class ParticleSpentCasing extends Particle {
++	/** Initial visual offset also resets interpolation under native particle spawn rules. */
++	public void offsetSpawn(double x, double y, double z) {
++		setPosition(posX + x, posY + y, posZ + z);
++		prevPosX = posX; prevPosY = posY; prevPosZ = posZ;
++	}
++
++	// Local mesh orientation, independent of native particle billboard angle.
++	public float rotationYaw, rotationPitch, prevRotationYaw, prevRotationPitch;
+ 	
+ 	public static final Random rand = new Random();
+ 	private static float dScale = 0.05F, smokeJitter = 0.001F;
+@@ -56,7 +70,7 @@ public class ParticleSpentCasing extends EntityFX {
+ 		
+ 		this.particleMaxAge = config.getMaxAge();
+ 		this.setSize(2 * dScale * Math.max(config.getScaleX(), config.getScaleZ()), dScale * config.getScaleY());
+-		this.yOffset = this.height / 2F;
++		// Native particle bounding boxes start at the supplied position.
+ 		
+ 		this.isSmoking = smoking;
+ 		this.maxSmokeGen = smokeLife;
+@@ -90,11 +104,11 @@ public class ParticleSpentCasing extends EntityFX {
+ 		this.prevPosZ = this.posZ;
+ 
+ 		if(this.particleAge++ >= this.particleMaxAge) {
+-			this.setDead();
++			this.setExpired();
+ 		}
+ 
+ 		this.motionY -= 0.04D * (double) this.particleGravity;
+-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
++		this.move(this.motionX, this.motionY, this.motionZ);
+ 		this.motionX *= 0.98D;
+ 		this.motionY *= 0.98D;
+ 		this.motionZ *= 0.98D;
+@@ -123,7 +137,7 @@ public class ParticleSpentCasing extends EntityFX {
+ 				pair.value = Math.max(0, pair.value - (1D / (double) nodeLife));
+ 			}
+ 
+-			if(particleAge < maxSmokeGen || inWater) {
++			if(particleAge < maxSmokeGen || world.isMaterialInBB(getBoundingBox(), net.minecraft.block.material.Material.WATER)) {
+ 				smokeNodes.add(new Pair<Vec3NT, Double>(new Vec3NT(0, 0, 0), smokeNodes.isEmpty() ? 0.0D : 1D));
+ 			}
+ 		}
+@@ -145,58 +159,22 @@ public class ParticleSpentCasing extends EntityFX {
+ 		}
+ 	}
+ 	
+-	public void moveEntity(double motionX, double motionY, double motionZ) {
+-		this.worldObj.theProfiler.startSection("move");
+-		this.ySize *= 0.4F;
+-		
+-		if(this.isInWeb) {
+-			this.isInWeb = false;
+-			motionX *= 0.25D;
+-			motionY *= 0.05D;
+-			motionZ *= 0.25D;
+-			this.motionX = 0.0D;
+-			this.motionY = 0.0D;
+-			this.motionZ = 0.0D;
+-		}
+-		
+-		//Handle block collision
+-		double initMoX = motionX;
+-		double initMoY = motionY;
+-		double initMoZ = motionZ;
+-		
+-		List list = this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox.addCoord(motionX, motionY, motionZ));
+-		
+-		for(int i = 0; i < list.size(); ++i) {
+-			motionY = ((AxisAlignedBB)list.get(i)).calculateYOffset(this.boundingBox, motionY);
+-		}
+-		
+-		this.boundingBox.offset(0.0D, motionY, 0.0D);
+-		
+-		int j;
+-		
+-		for(j = 0; j < list.size(); ++j) {
+-			motionX = ((AxisAlignedBB)list.get(j)).calculateXOffset(this.boundingBox, motionX);
+-		}
+-		
+-		this.boundingBox.offset(motionX, 0.0D, 0.0D);
+-		
+-		for(j = 0; j < list.size(); ++j) {
+-			motionZ = ((AxisAlignedBB)list.get(j)).calculateZOffset(this.boundingBox, motionZ);
+-		}
+-		
+-		this.boundingBox.offset(0.0D, 0.0D, motionZ);
+-		
+-		this.worldObj.theProfiler.endSection();
+-		this.worldObj.theProfiler.startSection("rest");
+-		this.posX = (this.boundingBox.minX + this.boundingBox.maxX) / 2.0D;
+-		this.posY = this.boundingBox.minY + (double)this.yOffset - (double)this.ySize;
+-		this.posZ = (this.boundingBox.minZ + this.boundingBox.maxZ) / 2.0D;
+-		this.isCollidedHorizontally = initMoX != motionX || initMoZ != motionZ;
+-		this.isCollidedVertically = initMoY != motionY;
+-		this.onGround = initMoY != motionY && initMoY < 0.0D;
+-		this.isCollided = this.isCollidedHorizontally || this.isCollidedVertically;
+-		this.updateFallState(motionY, this.onGround);
+-		
++	@Override
++	public void move(double motionX, double motionY, double motionZ) {
++		// Keep casing bounce response, using the genuine native immutable AABB API.
++		double initMoX = motionX, initMoY = motionY, initMoZ = motionZ;
++		AxisAlignedBB bounds = getBoundingBox();
++		List<AxisAlignedBB> collisions = world.getCollisionBoxes(null, bounds.expand(motionX, motionY, motionZ));
++		for(AxisAlignedBB collision : collisions) motionY = collision.calculateYOffset(bounds, motionY);
++		bounds = bounds.offset(0, motionY, 0);
++		for(AxisAlignedBB collision : collisions) motionX = collision.calculateXOffset(bounds, motionX);
++		bounds = bounds.offset(motionX, 0, 0);
++		for(AxisAlignedBB collision : collisions) motionZ = collision.calculateZOffset(bounds, motionZ);
++		setBoundingBox(bounds.offset(0, 0, motionZ));
++		resetPositionToBB();
++		boolean collidedVertically = initMoY != motionY;
++		this.onGround = collidedVertically && initMoY < 0;
++
+ 		//Handles bounces
+ 		if (initMoX != motionX) {
+ 			this.motionX *= -0.25D;
+@@ -230,11 +208,23 @@ public class ParticleSpentCasing extends EntityFX {
+ 				momentumYaw = (float) rand.nextGaussian() * 10F * this.config.getBounceYaw();
+ 		}
+ 		
+-		if(this.config.getSound() != null && isCollidedVertically && Math.abs(initMoY) >= 0.2) {
+-			MainRegistry.proxy.playSoundClient(posX, posY, posZ, this.config.getSound(), this.config.PLINK_LARGE.equals(this.config.getSound()) ? 1F : 0.5F, 1F + this.rand.nextFloat() * 0.2F);
++		if(this.config.getSound() != null && collidedVertically && Math.abs(initMoY) >= 0.2) {
++			SoundEvent sound = resolveBounceSound(this.config.getSound());
++			float pitch = 1F + this.rand.nextFloat() * 0.2F;
++			if(sound != null) world.playSound(posX, posY, posZ, sound, net.minecraft.util.SoundCategory.PLAYERS, this.config.PLINK_LARGE.equals(this.config.getSound()) ? 1F : 0.5F, pitch, false);
+ 		}
+ 		
+-		this.worldObj.theProfiler.endSection();
++	}
++
++	private static final java.util.Set<ResourceLocation> missingSounds = new java.util.HashSet<>();
++	private static SoundEvent resolveBounceSound(String name) {
++		if(SpentCasing.PLINK_SMALL.equals(name) || SpentCasing.PLINK_MEDIUM.equals(name)
++				|| SpentCasing.PLINK_LARGE.equals(name) || SpentCasing.PLINK_SHELL.equals(name)) return ModSoundEvents.resolve(name);
++		ResourceLocation location = new ResourceLocation(name);
++		SoundEvent sound = SoundEvent.REGISTRY.getObject(location);
++		if(sound == null && missingSounds.size() < 32 && missingSounds.add(location))
++			org.apache.logging.log4j.LogManager.getLogger("hbm").warn("Unknown casing sound: {}", location);
++		return sound;
+ 	}
+ 
+ 	/** Used for frame-perfect translation of smoke */
+@@ -244,15 +234,15 @@ public class ParticleSpentCasing extends EntityFX {
+ 	private double prevRenderZ;
+ 
+ 	@Override
+-	public void renderParticle(Tessellator tessellator, float interp, float x, float y, float z, float tx, float tz) {
++	public void renderParticle(BufferBuilder tessellator, Entity camera, float interp, float x, float y, float z, float tx, float tz) {
+ 
+ 		GL11.glPushMatrix();
+ 		RenderHelper.enableStandardItemLighting();
+-		GL11.glDisable(GL11.GL_BLEND);
+-		GL11.glEnable(GL11.GL_CULL_FACE);
+-		GL11.glShadeModel(GL11.GL_SMOOTH);
+-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+-		GL11.glDepthMask(true);
++		GlStateManager.disableBlend();
++		GlStateManager.enableCull();
++		GlStateManager.shadeModel(GL11.GL_SMOOTH);
++		GlStateManager.enableRescaleNormal();
++		GlStateManager.depthMask(true);
+ 
+ 		double pX = prevPosX + (posX - prevPosX) * interp;
+ 		double pY = prevPosY + (posY - prevPosY) * interp;
+@@ -265,14 +255,15 @@ public class ParticleSpentCasing extends EntityFX {
+ 			setupDeltas = true;
+ 		}
+ 		
+-		int brightness = worldObj.getLightBrightnessForSkyBlocks(MathHelper.floor_double(pX), MathHelper.floor_double(pY), MathHelper.floor_double(pZ), 0);
++		int brightness = world.getCombinedLight(new BlockPos(pX, pY, pZ), 0);
+ 		int lX = brightness % 65536;
+ 		int lY = brightness / 65536;
+ 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);
+ 
+ 		textureManager.bindTexture(ResourceManager.casings_tex);
+ 		
+-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
++		Entity player = camera != null ? camera : Minecraft.getMinecraft().player;
++		if(player == null) return;
+ 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)interp;
+ 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)interp;
+ 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
+@@ -290,21 +281,21 @@ public class ParticleSpentCasing extends EntityFX {
+ 		for(String name : config.getType().partNames) {
+ 			int col = this.config.getColors()[index]; //unsafe on purpose, set your colors properly or else...!
+ 			Color color = new Color(col);
+-			GL11.glColor3f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);
++			GlStateManager.color(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);
+ 			ResourceManager.casings.renderPart(name);
+ 			index++;
+ 		}
+ 		
+-		GL11.glColor3f(1F, 1F, 1F);
+-		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
++		GlStateManager.color(1F, 1F, 1F);
++		GlStateManager.disableRescaleNormal();
+ 		GL11.glPopMatrix();
+ 		
+ 		GL11.glPushMatrix();
+ 		GL11.glTranslated(pX - dX, pY - dY - this.height / 4, pZ - dZ);
+ 
+ 		if(!smokeNodes.isEmpty()) {
+-			tessellator.startDrawingQuads();
+-			tessellator.setNormal(0F, 1F, 0F);
++			tessellator.begin(7, ParticleVertexFormats.LIT_TEXTURED);
++
+ 			
+ 			float scale = config.getScaleX() * 0.5F * dScale;
+ 			Vec3d vec = new Vec3d(scale, 0, 0);
+@@ -333,38 +324,38 @@ public class ParticleSpentCasing extends EntityFX {
+ 				nodeAlpha *= timeAlpha;
+ 				pastAlpha *= timeAlpha;
+ 
+-				tessellator.setNormal(0F, 1F, 0F);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, nodeAlpha);
+-				tessellator.addVertex(nodeLoc.x, nodeLoc.y, nodeLoc.z);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, 0F);
+-				tessellator.addVertex(nodeLoc.x + vec.x, nodeLoc.y, nodeLoc.z + vec.z);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, 0F);
+-				tessellator.addVertex(pastLoc.x + vec.x, pastLoc.y, pastLoc.z + vec.z);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, pastAlpha);
+-				tessellator.addVertex(pastLoc.x, pastLoc.y, pastLoc.z);
+-
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, nodeAlpha);
+-				tessellator.addVertex(nodeLoc.x, nodeLoc.y, nodeLoc.z);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, 0F);
+-				tessellator.addVertex(nodeLoc.x - vec.x, nodeLoc.y, nodeLoc.z - vec.z);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, 0F);
+-				tessellator.addVertex(pastLoc.x - vec.x, pastLoc.y, pastLoc.z - vec.z);
+-				tessellator.setColorRGBA_F(1F, 1F, 1F, pastAlpha);
+-				tessellator.addVertex(pastLoc.x, pastLoc.y, pastLoc.z);
++
++
++				tessellator.pos(nodeLoc.x, nodeLoc.y, nodeLoc.z).tex(0, 0).color(1F, 1F, 1F, nodeAlpha).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++				tessellator.pos(nodeLoc.x + vec.x, nodeLoc.y, nodeLoc.z + vec.z).tex(0, 0).color(1F, 1F, 1F, 0F).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++				tessellator.pos(pastLoc.x + vec.x, pastLoc.y, pastLoc.z + vec.z).tex(0, 0).color(1F, 1F, 1F, 0F).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++				tessellator.pos(pastLoc.x, pastLoc.y, pastLoc.z).tex(0, 0).color(1F, 1F, 1F, pastAlpha).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++
++				tessellator.pos(nodeLoc.x, nodeLoc.y, nodeLoc.z).tex(0, 0).color(1F, 1F, 1F, nodeAlpha).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++				tessellator.pos(nodeLoc.x - vec.x, nodeLoc.y, nodeLoc.z - vec.z).tex(0, 0).color(1F, 1F, 1F, 0F).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++				tessellator.pos(pastLoc.x - vec.x, pastLoc.y, pastLoc.z - vec.z).tex(0, 0).color(1F, 1F, 1F, 0F).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
++
++				tessellator.pos(pastLoc.x, pastLoc.y, pastLoc.z).tex(0, 0).color(1F, 1F, 1F, pastAlpha).lightmap((getBrightnessForRender(0F)) >> 16 & 65535, (getBrightnessForRender(0F)) & 65535).normal(0, 1, 0).endVertex();
+ 			}
+ 
+-			GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
+-			GL11.glEnable(GL11.GL_BLEND);
+-			GL11.glDisable(GL11.GL_TEXTURE_2D);
+-			GL11.glDisable(GL11.GL_CULL_FACE);
+-			tessellator.draw();
+-			GL11.glEnable(GL11.GL_CULL_FACE);
+-			GL11.glEnable(GL11.GL_TEXTURE_2D);
+-			GL11.glDisable(GL11.GL_BLEND);
+-			GL11.glAlphaFunc(GL11.GL_GEQUAL, 0.1F);
++			GlStateManager.alphaFunc(GL11.GL_GREATER, 0F);
++			GlStateManager.enableBlend();
++			GlStateManager.disableTexture2D();
++			GlStateManager.disableCull();
++			Tessellator.getInstance().draw();
++			GlStateManager.enableCull();
++			GlStateManager.enableTexture2D();
++			GlStateManager.disableBlend();
++			GlStateManager.alphaFunc(GL11.GL_GEQUAL, 0.1F);
+ 		}
+ 
+-		GL11.glShadeModel(GL11.GL_FLAT);
++		GlStateManager.shadeModel(GL11.GL_FLAT);
+ 		GL11.glPopMatrix();
+ 		
+ 		RenderHelper.disableStandardItemLighting();
+@@ -377,13 +368,13 @@ public class ParticleSpentCasing extends EntityFX {
+ 	@Override
+ 	@SideOnly(Side.CLIENT)
+ 	public int getBrightnessForRender(float p_70070_1_) {
+-		int x = MathHelper.floor_double(this.posX);
+-		int z = MathHelper.floor_double(this.posZ);
++		int x = MathHelper.floor(this.posX);
++		int z = MathHelper.floor(this.posZ);
+ 
+-		if(this.worldObj.blockExists(x, 0, z)) {
+-			double d0 = (this.boundingBox.maxY - this.boundingBox.minY) * 0.66D;
+-			int y = MathHelper.floor_double(this.posY - (double) this.yOffset + d0);
+-			return this.worldObj.getLightBrightnessForSkyBlocks(x, y, z, 0);
++		if(this.world.isBlockLoaded(new BlockPos(x, 0, z))) {
++			double d0 = (getBoundingBox().maxY - getBoundingBox().minY) * 0.66D;
++			int y = MathHelper.floor(this.posY + d0);
++			return this.world.getCombinedLight(new BlockPos(x, y, z), 0);
+ 		} else {
+ 			return 0;
+ 		}

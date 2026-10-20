@@ -1,0 +1,18 @@
+YES	/tmp/translation-scanner/AttributionControls.java	710	728	setUnlocalizedName	setTranslationKey	net.minecraft.item.Item	net.minecraft.item.Item	constructor-exact/no-legacy-override	unresolved
+YES	/tmp/translation-scanner/AttributionControls.java	777	795	setUnlocalizedName	setTranslationKey	net.minecraft.item.ItemFood	net.minecraft.item.Item	constructor-exact/no-legacy-override	unresolved
+YES	/tmp/translation-scanner/AttributionControls.java	819	837	getUnlocalizedName	getTranslationKey	net.minecraft.item.Item	net.minecraft.item.Item	zero-argument/no-legacy-override	unresolved
+YES	/tmp/translation-scanner/AttributionControls.java	856	874	getUnlocalizedName	getTranslationKey	net.minecraft.block.Block	net.minecraft.block.Block	zero-argument/no-legacy-override	unresolved
+YES	/tmp/translation-scanner/AttributionControls.java	892	910	getUnlocalizedName	getTranslationKey	AttributionControls	net.minecraft.item.Item	zero-argument/no-legacy-override	unresolved
+YES	/tmp/translation-scanner/AttributionControls.java	923	941	getUnlocalizedName	getTranslationKey	AttributionControls	net.minecraft.item.Item	zero-argument/no-legacy-override	unresolved
+YES	/tmp/translation-scanner/AttributionControls.java	972	990	getUnlocalizedName	getTranslationKey	AttributionControls.CustomBlock	net.minecraft.block.Block	zero-argument/no-legacy-override	unresolved
+NO	/tmp/translation-scanner/AttributionControls.java	1008	1026	setUnlocalizedName	setTranslationKey	net.minecraft.item.Item	net.minecraft.item.Item	constructor-exact/no-legacy-override	unresolved
+NO	/tmp/translation-scanner/AttributionControls.java	1066	1084	setUnlocalizedName	setTranslationKey	AttributionControls.LegacySetter	net.minecraft.item.Item	constructor-exact/no-legacy-override	AttributionControls.LegacySetter
+NO	/tmp/translation-scanner/AttributionControls.java	1111	1129	setUnlocalizedName	setTranslationKey	AttributionControls.LegacySetter	net.minecraft.item.Item	constructor-exact/no-legacy-override	AttributionControls.LegacySetter
+NO	/tmp/translation-scanner/AttributionControls.java	1170	1188	setUnlocalizedName	setTranslationKey	net.minecraft.item.ItemBlock	net.minecraft.item.Item	constructor-exact/no-legacy-override	unresolved
+NO	/tmp/translation-scanner/AttributionControls.java	1232	1250	setUnlocalizedName	setTranslationKey	<anonymous net.minecraft.item.Item>	net.minecraft.item.Item	constructor-exact/no-legacy-override	unresolved
+NO	/tmp/translation-scanner/AttributionControls.java	1280	1298	getUnlocalizedName	getTranslationKey	AttributionControls.LegacyGetter	net.minecraft.item.Item	zero-argument/no-legacy-override	AttributionControls.LegacyGetter
+NO	/tmp/translation-scanner/AttributionControls.java	1317	1335	getUnlocalizedName	getTranslationKey	AttributionControls.Domain		zero-argument/no-legacy-override	AttributionControls.Domain
+NO	/tmp/translation-scanner/AttributionControls.java	1354	1372	setUnlocalizedName	setTranslationKey	AttributionControls.Domain		constructor-exact/no-legacy-override	AttributionControls.Domain
+NO	/tmp/translation-scanner/AttributionControls.java	1398	1416	getUnlocalizedName	getTranslationKey	net.minecraft.item.ItemStack		zero-argument/no-legacy-override	unresolved
+NO	/tmp/translation-scanner/AttributionControls.java	1433	1451	getUnlocalizedName	getTranslationKey	net.minecraft.item.Item	net.minecraft.item.Item	zero-argument/no-legacy-override	unresolved
+NO	/tmp/translation-scanner/AttributionControls.java	1486	1504	getUnlocalizedName	getTranslationKey	AttributionControls.CustomBlock	net.minecraft.block.Block	zero-argument/no-legacy-override	AttributionControls.CustomBlock

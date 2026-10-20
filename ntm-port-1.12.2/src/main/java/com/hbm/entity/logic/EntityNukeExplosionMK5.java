@@ -57,24 +57,24 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 			return;
 		}
 
-		if(!worldObj.isRemote) loadChunk((int) Math.floor(posX / 16D), (int) Math.floor(posZ / 16D));
+		if(!this.world.isRemote) loadChunk((int) Math.floor(posX / 16D), (int) Math.floor(posZ / 16D));
 
-		for(Object player : this.worldObj.playerEntities) {
-			((EntityPlayer)player).triggerAchievement(MainRegistry.achManhattan);
+		for(Object player : this.world.playerEntities) {
+			com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)player), MainRegistry.achManhattan);
 		}
 
-		if(!worldObj.isRemote && fallout && explosion != null && this.ticksExisted < 10 && strength >= 75) {
+		if(!this.world.isRemote && fallout && explosion != null && this.ticksExisted < 10 && strength >= 75) {
 			radiate(2_500_000F / (this.ticksExisted * 5 + 1), this.length * 2);
 		}
 
-		ExplosionNukeGeneric.dealDamage(this.worldObj, this.posX, this.posY, this.posZ, this.length * 2);
+		ExplosionNukeGeneric.dealDamage(this.world, this.posX, this.posY, this.posZ, this.length * 2);
 
 		if(explosion == null) {
 			explosionStart = System.currentTimeMillis();
 			//if(BombConfig.explosionAlgorithm == 1 || BombConfig.explosionAlgorithm == 2) {
 			//	explosion = new ExplosionNukeRayParallelized(worldObj, posX, posY, posZ, strength, speed, length);
 			//} else {
-				explosion = new ExplosionNukeRayBatched(worldObj, (int) posX, (int) posY, (int) posZ, strength, speed, length);
+				explosion = new ExplosionNukeRayBatched(this.world, (int) posX, (int) posY, (int) posZ, strength, speed, length);
 			//}
 		}
 
@@ -85,12 +85,12 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 			if(GeneralConfig.enableExtendedLogging && explosionStart != 0)
 				MainRegistry.logger.log(Level.INFO, "[NUKE] Explosion complete. Time elapsed: {}ms", (System.currentTimeMillis() - explosionStart));
 			if(fallout) {
-				EntityFalloutRain fallout = new EntityFalloutRain(this.worldObj);
+				EntityFalloutRain fallout = new EntityFalloutRain(this.world);
 				fallout.posX = this.posX;
 				fallout.posY = this.posY;
 				fallout.posZ = this.posZ;
 				fallout.setScale((int)(this.length * 2.5 + falloutAdd) * BombConfig.falloutRange / 100);
-				this.worldObj.spawnEntityInWorld(fallout);
+				this.world.spawnEntityInWorld(fallout);
 			}
 			this.clearChunkLoader();
 			this.setDead();
@@ -99,7 +99,7 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 
 	private void radiate(float rads, double range) {
 
-		List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 
@@ -115,7 +115,7 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 				int iy = (int)Math.floor(posY + vec.y * i);
 				int iz = (int)Math.floor(posZ + vec.z * i);
 
-				res += worldObj.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().getExplosionResistance(null);
 			}
 
 			if(res < 1)

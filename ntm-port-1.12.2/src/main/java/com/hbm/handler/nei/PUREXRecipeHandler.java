@@ -9,5 +9,5 @@ public class PUREXRecipeHandler extends NEIGenericRecipeHandler {
 		super(ModBlocks.machine_purex.getLocalizedName(), PUREXRecipes.INSTANCE, ModBlocks.machine_purex);
 	}
 
-	@Override public String getRecipeID() { return "ntmPUREX"; }
+	@Override public String getUid() { return "ntmPUREX"; }
 }

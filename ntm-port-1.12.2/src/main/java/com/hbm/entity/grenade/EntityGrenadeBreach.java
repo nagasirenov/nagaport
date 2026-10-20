@@ -25,11 +25,11 @@ public class EntityGrenadeBreach extends EntityGrenadeBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
         	if(rand.nextInt(10) == 0)
         		this.setDead();
-        	ExplosionLarge.explode(worldObj, posX, posY, posZ, 2.5F, false, false, false);
+        	ExplosionLarge.explode(this.world, posX, posY, posZ, 2.5F, false, false, false);
         }
     }
 }

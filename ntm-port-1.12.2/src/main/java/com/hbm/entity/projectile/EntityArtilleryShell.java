@@ -58,7 +58,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 		this.dataWatcher.addObject(10, new Integer(0));
 	}
 	
@@ -110,7 +110,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	@Override
 	public void onUpdate() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			super.onUpdate();
 			
 			if(!didWhistle && this.shouldWhistle) {
@@ -120,7 +120,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 				double dist = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
 				
 				if(speed * 18 > dist) {
-					worldObj.playSoundEffect(this.targetX, this.targetY, this.targetZ, "hbm:turret.mortarWhistle", 15.0F, 0.9F + rand.nextFloat() * 0.2F);
+					com.hbm.sound.WorldSoundEffects.play(this.world, this.targetX, this.targetY, this.targetZ, "hbm:turret.mortarWhistle", 15.0F, 0.9F + rand.nextFloat() * 0.2F);
 					this.didWhistle = true;
 				}
 			}
@@ -133,7 +133,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 				double interpX = this.posX + (this.syncPosX - this.posX) / (double) this.turnProgress;
 				double interpY = this.posY + (this.syncPosY - this.posY) / (double) this.turnProgress;
 				double interpZ = this.posZ + (this.syncPosZ - this.posZ) / (double) this.turnProgress;
-				double d = MathHelper.wrapAngleTo180_double(this.syncYaw - (double) this.rotationYaw);
+				double d = MathHelper.wrapDegrees(this.syncYaw - (double) this.rotationYaw);
 				this.rotationYaw = (float) ((double) this.rotationYaw + d / (double) this.turnProgress);
 				this.rotationPitch = (float)((double)this.rotationPitch + (this.syncPitch - (double)this.rotationPitch) / (double)this.turnProgress);
 				--this.turnProgress;
@@ -143,7 +143,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 			}
 			
 			if(new Vec3d(this.syncPosX - this.posX, this.syncPosY - this.posY, this.syncPosZ - this.posZ).length() < 0.2) {
-				worldObj.spawnParticle("smoke", posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);
+				this.world.spawnParticle("smoke", posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);
 			}
 		}
 	}
@@ -171,7 +171,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	@Override
 	protected void onImpact(RayTraceResult mop) {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(mop.typeOfHit == RayTraceResult.Type.ENTITY && mop.entityHit instanceof EntityArtilleryShell) return;
 			this.getType().onImpact(this, mop);
@@ -180,7 +180,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote && ticket != null) {
+		if(!this.world.isRemote && ticket != null) {
 			if(loaderTicket == null) {
 				loaderTicket = ticket;
 				loaderTicket.bindEntity(this);
@@ -193,7 +193,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
@@ -215,7 +215,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	}
 	
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}
@@ -283,7 +283,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.cargo != null) {
 				player.inventory.addItemStackToInventory(this.cargo.copy());
 				player.inventoryContainer.detectAndSendChanges();

@@ -52,7 +52,7 @@ public class EntityScuttlecrab extends EntityWaterMob implements IEntityEnumMult
 		switchTimer--;
 		if(switchTimer <= 0) {
 			crabDirection *= -1;
-			switchTimer = 20 + worldObj.rand.nextInt(80);
+			switchTimer = 20 + this.world.rand.nextInt(80);
 		}
 
 		super.moveEntityWithHeading(forwards * crabDirection, strafe);
@@ -60,7 +60,7 @@ public class EntityScuttlecrab extends EntityWaterMob implements IEntityEnumMult
 
 	@Override
 	protected Item getDropItem() {
-		return Items.clay_ball;
+		return Items.CLAY_BALL;
 	}
 
 }

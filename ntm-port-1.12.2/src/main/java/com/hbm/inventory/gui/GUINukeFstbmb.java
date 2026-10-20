@@ -36,7 +36,7 @@ public class GUINukeFstbmb extends GuiInfoContainer {
 		super.initGui();
 
 		Keyboard.enableRepeatEvents(true);
-		this.timer = new GuiTextField(this.fontRendererObj, guiLeft + 94, guiTop + 40, 29, 12);
+		this.timer = new GuiTextField(0, this.fontRenderer, guiLeft + 94, guiTop + 40, 29, 12);
 		this.timer.setTextColor(0xff0000);
 		this.timer.setDisabledTextColour(0x800000);
 		this.timer.setEnableBackgroundDrawing(false);
@@ -56,7 +56,7 @@ public class GUINukeFstbmb extends GuiInfoContainer {
 		if(!bomb.started) {
 			if(guiLeft + 142 <= x && guiLeft + 142 + 18 > x && guiTop + 35 < y && guiTop + 35 + 18 >= y) {
 
-				PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(bomb.xCoord, bomb.yCoord, bomb.zCoord, 0, 0));
+				PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(bomb.getPos().getX(), bomb.getPos().getY(), bomb.getPos().getZ(), 0, 0));
 			}
 		}
 	}
@@ -66,14 +66,14 @@ public class GUINukeFstbmb extends GuiInfoContainer {
 
 		String name = this.bomb.hasCustomInventoryName() ? this.bomb.getInventoryName() : I18n.format(this.bomb.getInventoryName());
 
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
 		if(bomb.hasBattery()) {
 			String timer = bomb.getMinutes() + ":" + bomb.getSeconds();
 			double scale = 0.75;
 			GL11.glScaled(scale, scale, scale);
-			this.fontRendererObj.drawString(timer, (int) ((69 - this.fontRendererObj.getStringWidth(timer) / 2) * (1 / scale)), (int) (95.5 * (1 / scale)), 0xff0000);
+			this.fontRenderer.drawString(timer, (int) ((69 - this.fontRenderer.getStringWidth(timer) / 2) * (1 / scale)), (int) (95.5 * (1 / scale)), 0xff0000);
 
 			GL11.glScaled(1 / scale, 1 / scale, 1 / scale);
 		}
@@ -106,8 +106,8 @@ public class GUINukeFstbmb extends GuiInfoContainer {
 		if(this.timer.textboxKeyTyped(p_73869_1_, p_73869_2_)) {
 
 			if(NumberUtils.isNumber(timer.getText())) {
-				int j = MathHelper.clamp_int((int) Double.parseDouble(timer.getText()), 1, 999);
-				PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(bomb.xCoord, bomb.yCoord, bomb.zCoord, j, 1));
+				int j = MathHelper.clamp((int) Double.parseDouble(timer.getText()), 1, 999);
+				PacketDispatcher.wrapper.sendToServer(new AuxButtonPacket(bomb.getPos().getX(), bomb.getPos().getY(), bomb.getPos().getZ(), j, 1));
 			}
 
 		} else {

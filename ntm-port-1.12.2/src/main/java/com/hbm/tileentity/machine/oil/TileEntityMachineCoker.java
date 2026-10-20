@@ -56,21 +56,21 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineCoker";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.tryPullHeat();
 			this.tanks[0].setType(0, slots);
 
-			if(worldObj.getTotalWorldTime() % 20 == 0) {
+			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
-					this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 
@@ -109,11 +109,11 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 					}
 				}
 
-				if(wasOn && worldObj.getTotalWorldTime() % 5 == 0) PollutionHandler.incrementPollution(worldObj, xCoord, yCoord, zCoord, PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 5);
+				if(wasOn && this.world.getTotalWorldTime() % 5 == 0) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 5);
 			}
 
 			for(DirPos pos : getConPos()) {
-				if(this.tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				if(this.tanks[1].getFill() > 0) this.sendFluid(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			this.networkPackNT(25);
@@ -121,17 +121,17 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 
 			if(this.wasOn) {
 
-				if(worldObj.getTotalWorldTime() % 2 == 0) {
+				if(this.world.getTotalWorldTime() % 2 == 0) {
 					NBTTagCompound fx = new NBTTagCompound();
 					fx.setString("type", "tower");
 					fx.setFloat("lift", 10F);
 					fx.setFloat("base", 0.75F);
 					fx.setFloat("max", 3F);
-					fx.setInteger("life", 200 + worldObj.rand.nextInt(50));
+					fx.setInteger("life", 200 + this.world.rand.nextInt(50));
 					fx.setInteger("color",0x404040);
-					fx.setDouble("posX", xCoord + 0.5);
-					fx.setDouble("posY", yCoord + 22);
-					fx.setDouble("posZ", zCoord + 0.5);
+					fx.setDouble("posX", this.pos.getX() + 0.5);
+					fx.setDouble("posY", this.pos.getY() + 22);
+					fx.setDouble("posZ", this.pos.getZ() + 0.5);
 					MainRegistry.proxy.effectNT(fx);
 				}
 			}
@@ -143,14 +143,14 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 	public DirPos[] getConPos() {
 
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord + 1, Library.POS_X),
-				new DirPos(xCoord + 2, yCoord, zCoord - 1, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord + 1, Library.NEG_X),
-				new DirPos(xCoord - 2, yCoord, zCoord - 1, Library.NEG_X),
-				new DirPos(xCoord + 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord + 1, yCoord, zCoord - 2, Library.NEG_Z),
-				new DirPos(xCoord - 1, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() - 1, Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() + 1, Library.NEG_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 1, Library.NEG_X),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX() + 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
+				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
@@ -201,7 +201,7 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 
 		if(this.heat >= this.maxHeat) return;
 
-		TileEntity con = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+		TileEntity con = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
 
 		if(con instanceof IHeatSource) {
 			IHeatSource source = (IHeatSource) con;
@@ -225,12 +225,14 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack stack, int side) {
+	public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 1 };
 	}
 
@@ -244,12 +246,13 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tanks[0].writeToNBT(nbt, "t0");
 		this.tanks[1].writeToNBT(nbt, "t1");
 		nbt.setInteger("prog", progress);
 		nbt.setInteger("heat", heat);
+		return nbt;
 	}
 
 	@Override
@@ -274,12 +277,12 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 23,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 23,
+					this.pos.getZ() + 3
 					);
 		}
 

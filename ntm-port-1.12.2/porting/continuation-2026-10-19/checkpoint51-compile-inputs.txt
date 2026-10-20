@@ -1,0 +1,28 @@
+PASS all 24 production paths match staged tree and independent snapshot; 24 edited Java sources match generated compiler inputs among 4046.
+Production tree b33bb87c8fa0c5859f1ca2263085d68a53021439
+{
+  "src/main/java/com/hbm/blocks/IBlockMultiPass.java": "0f63a002a56ec7e1a2649d6038f061e89e10113538e9651e6c6db5712dc1a5b0",
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "031fd7048149da7d6c5ac62dad49ac0e9b7dcd53c50b009827a4960d611030e6",
+  "src/main/java/com/hbm/blocks/MultipassContext.java": "98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3",
+  "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java": "b3d9c629e750482369d9dba89fd90737ca628729fdaabcae59fcdc8bf52d3097",
+  "src/main/java/com/hbm/blocks/generic/BlockFissure.java": "ea735255809091cb3cd6328e2bcb612272492b47a08b3a70d2fb9b76908c79f3",
+  "src/main/java/com/hbm/blocks/generic/BlockOre.java": "f7a68d5dbd3ec0a748190b442b561ac68fafc5af968758cf07189a6718a31666",
+  "src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java": "b280082803ef8f529a6aa08a09e310b3129c0096fb0b0e5063ee2b0a81c3eed4",
+  "src/main/java/com/hbm/blocks/network/BlockCableGauge.java": "e9fea2c944998c61b39c44b25692d0414011a2cef82dd2be9d438e371d3bf870",
+  "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": "4bdb18d325799a8f9f7da00b50cc0ff3983daed7152f605306a2e1e465b5de38",
+  "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": "78ec23445142e4d7f2d3212ec9207ce84c9e54b358e7d4a4d23b25d5f8fb2047",
+  "src/main/java/com/hbm/blocks/network/CraneRouter.java": "069c0c74cd1481e7934d78d566a0b5c61c1d79377cde57ea6f5c510f0a62d97f",
+  "src/main/java/com/hbm/blocks/network/FluidDuctGauge.java": "b99b5fd5b91a169418241289f7d79adfc9d2bd5fb2429651cffa0db39b19439d",
+  "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": "56533dc50aa2250ffcb34104efe92df5a47dc97e3f67625b72842a8088903b23",
+  "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": "402dd4e069119c6d09b62450f0f08dbfde1554be4f2921131b17b4d4b7c5e7f3",
+  "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": "7832a0822cf5a5541b1014773f590ad631e32a60f5a091e44713267dfe46aca1",
+  "src/main/java/com/hbm/inventory/gui/GUIScreenSlicePrinter.java": "47c9e99a45f6d4bfd922df92985e3d02c39713988fe617dfddad06a6d9d26864",
+  "src/main/java/com/hbm/main/ClientProxy.java": "1fee6ae38ccc5edba5571c5c26fafe70067cc7158cd61e5914f736b502c3c21f",
+  "src/main/java/com/hbm/main/MultipassModelHandler.java": "848560f450be5835f97f0621b0f99ce1f900c8d1b9ab689658e26742d7ea19c1",
+  "src/main/java/com/hbm/render/block/RenderBlockMultipass.java": "b31f8bfa884a1d5a5ebb32ddc645f688b030b70b12df3a6cfde53c5711e02271",
+  "src/main/java/com/hbm/render/block/multipass/MultipassMaterials.java": "4970e1fb8684157942a9d9043666d9033ce4b9cacd650ea5be91bd849246f6c7",
+  "src/main/java/com/hbm/render/util/NativeSceneBlockDraw.java": "7bf81fbebd1f3f30a68dac74c93f3b63f124d719f60384a9d1d5c1248347f07d",
+  "src/main/java/com/hbm/render/util/RenderOverhead.java": "00c3ddec04864b3385b93deec5dc2560840a753220835db40b7fb2bdfe929b16",
+  "src/main/java/com/hbm/wiaj/GuiWorldInAJar.java": "d95c6ae97f551becf9cdc25c0c1c20680f744390880044d1a21f831c95b2a999",
+  "src/main/java/com/hbm/wiaj/JarScript.java": "a53fa8babb06167bda4352c607116c88e022ed5f6a1a05c28138bc2cbf99d1b3"
+}

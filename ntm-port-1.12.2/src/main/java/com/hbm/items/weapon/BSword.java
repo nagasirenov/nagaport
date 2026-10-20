@@ -24,7 +24,7 @@ public class BSword extends ItemSword {
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (target instanceof EntitySquid) {
-            target.worldObj.createExplosion(attacker, target.posX, target.posY, target.posZ, 2.0F, true);
+            target.world.createExplosion(attacker, target.posX, target.posY, target.posZ, 2.0F, true);
         }
         return super.hitEntity(stack, target, attacker);
     }

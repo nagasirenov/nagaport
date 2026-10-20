@@ -1,0 +1,1910 @@
+[
+  {
+    "local_id": 0,
+    "entity_class": "EntityRocket",
+    "legacy_name": "entity_rocket",
+    "native_key": "hbm:entity_rocket",
+    "translation_name": "hbm.entity_rocket",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 1,
+    "entity_class": "EntityGrenadeGeneric",
+    "legacy_name": "entity_grenade_generic",
+    "native_key": "hbm:entity_grenade_generic",
+    "translation_name": "hbm.entity_grenade_generic",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 2,
+    "entity_class": "EntityGrenadeStrong",
+    "legacy_name": "entity_grenade_strong",
+    "native_key": "hbm:entity_grenade_strong",
+    "translation_name": "hbm.entity_grenade_strong",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 3,
+    "entity_class": "EntityGrenadeFrag",
+    "legacy_name": "entity_grenade_frag",
+    "native_key": "hbm:entity_grenade_frag",
+    "translation_name": "hbm.entity_grenade_frag",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 4,
+    "entity_class": "EntityGrenadeFire",
+    "legacy_name": "entity_grenade_fire",
+    "native_key": "hbm:entity_grenade_fire",
+    "translation_name": "hbm.entity_grenade_fire",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 5,
+    "entity_class": "EntityGrenadeCluster",
+    "legacy_name": "entity_grenade_cluster",
+    "native_key": "hbm:entity_grenade_cluster",
+    "translation_name": "hbm.entity_grenade_cluster",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 6,
+    "entity_class": "EntityBullet",
+    "legacy_name": "entity_bullet",
+    "native_key": "hbm:entity_bullet",
+    "translation_name": "hbm.entity_bullet",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 7,
+    "entity_class": "EntityGrenadeFlare",
+    "legacy_name": "entity_grenade_flare",
+    "native_key": "hbm:entity_grenade_flare",
+    "translation_name": "hbm.entity_grenade_flare",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 8,
+    "entity_class": "EntityGrenadeElectric",
+    "legacy_name": "entity_grenade_electric",
+    "native_key": "hbm:entity_grenade_electric",
+    "translation_name": "hbm.entity_grenade_electric",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 9,
+    "entity_class": "EntityGrenadePoison",
+    "legacy_name": "entity_grenade_poison",
+    "native_key": "hbm:entity_grenade_poison",
+    "translation_name": "hbm.entity_grenade_poison",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 10,
+    "entity_class": "EntityGrenadeGas",
+    "legacy_name": "entity_grenade_gas",
+    "native_key": "hbm:entity_grenade_gas",
+    "translation_name": "hbm.entity_grenade_gas",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 11,
+    "entity_class": "EntityGrenadeSchrabidium",
+    "legacy_name": "entity_grenade_schrab",
+    "native_key": "hbm:entity_grenade_schrab",
+    "translation_name": "hbm.entity_grenade_schrab",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 12,
+    "entity_class": "EntityGrenadeNuke",
+    "legacy_name": "entity_grenade_nuke",
+    "native_key": "hbm:entity_grenade_nuke",
+    "translation_name": "hbm.entity_grenade_nuke",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 13,
+    "entity_class": "EntitySchrab",
+    "legacy_name": "entity_schrabnel",
+    "native_key": "hbm:entity_schrabnel",
+    "translation_name": "hbm.entity_schrabnel",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 14,
+    "entity_class": "EntityMissileGeneric",
+    "legacy_name": "entity_missile_generic",
+    "native_key": "hbm:entity_missile_generic",
+    "translation_name": "hbm.entity_missile_generic",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 15,
+    "entity_class": "EntityMissileDecoy",
+    "legacy_name": "entity_missile_decoy",
+    "native_key": "hbm:entity_missile_decoy",
+    "translation_name": "hbm.entity_missile_decoy",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 16,
+    "entity_class": "EntityMissileStrong",
+    "legacy_name": "entity_missile_strong",
+    "native_key": "hbm:entity_missile_strong",
+    "translation_name": "hbm.entity_missile_strong",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 17,
+    "entity_class": "EntityMissileNuclear",
+    "legacy_name": "entity_missile_nuclear",
+    "native_key": "hbm:entity_missile_nuclear",
+    "translation_name": "hbm.entity_missile_nuclear",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 18,
+    "entity_class": "EntityMissileCluster",
+    "legacy_name": "entity_missile_cluster",
+    "native_key": "hbm:entity_missile_cluster",
+    "translation_name": "hbm.entity_missile_cluster",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 19,
+    "entity_class": "EntityMissileIncendiary",
+    "legacy_name": "entity_missile_incendiary",
+    "native_key": "hbm:entity_missile_incendiary",
+    "translation_name": "hbm.entity_missile_incendiary",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 20,
+    "entity_class": "EntityMissileAntiBallistic",
+    "legacy_name": "entity_missile_anti",
+    "native_key": "hbm:entity_missile_anti",
+    "translation_name": "hbm.entity_missile_anti",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 21,
+    "entity_class": "EntityMissileBunkerBuster",
+    "legacy_name": "entity_missile_buster",
+    "native_key": "hbm:entity_missile_buster",
+    "translation_name": "hbm.entity_missile_buster",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 22,
+    "entity_class": "EntityMissileIncendiaryStrong",
+    "legacy_name": "entity_missile_incendiary_strong",
+    "native_key": "hbm:entity_missile_incendiary_strong",
+    "translation_name": "hbm.entity_missile_incendiary_strong",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 23,
+    "entity_class": "EntityMissileClusterStrong",
+    "legacy_name": "entity_missile_cluster_strong",
+    "native_key": "hbm:entity_missile_cluster_strong",
+    "translation_name": "hbm.entity_missile_cluster_strong",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 24,
+    "entity_class": "EntityMissileBusterStrong",
+    "legacy_name": "entity_missile_buster_strong",
+    "native_key": "hbm:entity_missile_buster_strong",
+    "translation_name": "hbm.entity_missile_buster_strong",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 25,
+    "entity_class": "EntityMissileBurst",
+    "legacy_name": "entity_missile_burst",
+    "native_key": "hbm:entity_missile_burst",
+    "translation_name": "hbm.entity_missile_burst",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 26,
+    "entity_class": "EntityMissileInferno",
+    "legacy_name": "entity_missile_inferno",
+    "native_key": "hbm:entity_missile_inferno",
+    "translation_name": "hbm.entity_missile_inferno",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 27,
+    "entity_class": "EntityMissileRain",
+    "legacy_name": "entity_missile_rain",
+    "native_key": "hbm:entity_missile_rain",
+    "translation_name": "hbm.entity_missile_rain",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 28,
+    "entity_class": "EntityMissileDrill",
+    "legacy_name": "entity_missile_drill",
+    "native_key": "hbm:entity_missile_drill",
+    "translation_name": "hbm.entity_missile_drill",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 29,
+    "entity_class": "EntityMissileMirv",
+    "legacy_name": "entity_missile_mirv",
+    "native_key": "hbm:entity_missile_mirv",
+    "translation_name": "hbm.entity_missile_mirv",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 30,
+    "entity_class": "EntityGrenadeNuclear",
+    "legacy_name": "entity_grenade_nuclear",
+    "native_key": "hbm:entity_grenade_nuclear",
+    "translation_name": "hbm.entity_grenade_nuclear",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 31,
+    "entity_class": "EntityGrenadePlasma",
+    "legacy_name": "entity_grenade_plasma",
+    "native_key": "hbm:entity_grenade_plasma",
+    "translation_name": "hbm.entity_grenade_plasma",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 32,
+    "entity_class": "EntityGrenadeTau",
+    "legacy_name": "entity_grenade_tau",
+    "native_key": "hbm:entity_grenade_tau",
+    "translation_name": "hbm.entity_grenade_tau",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 33,
+    "entity_class": "EntityChopperMine",
+    "legacy_name": "entity_chopper_mine",
+    "native_key": "hbm:entity_chopper_mine",
+    "translation_name": "hbm.entity_chopper_mine",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 34,
+    "entity_class": "EntityGrenadeLemon",
+    "legacy_name": "entity_grenade_lemon",
+    "native_key": "hbm:entity_grenade_lemon",
+    "translation_name": "hbm.entity_grenade_lemon",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 35,
+    "entity_class": "EntityCloudFleija",
+    "legacy_name": "entity_cloud_fleija",
+    "native_key": "hbm:entity_cloud_fleija",
+    "translation_name": "hbm.entity_cloud_fleija",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 36,
+    "entity_class": "EntityGrenadeMk2",
+    "legacy_name": "entity_grenade_mk2",
+    "native_key": "hbm:entity_grenade_mk2",
+    "translation_name": "hbm.entity_grenade_mk2",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 37,
+    "entity_class": "EntityGrenadeZOMG",
+    "legacy_name": "entity_grenade_zomg",
+    "native_key": "hbm:entity_grenade_zomg",
+    "translation_name": "hbm.entity_grenade_zomg",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 38,
+    "entity_class": "EntityGrenadeASchrab",
+    "legacy_name": "entity_grenade_aschrab",
+    "native_key": "hbm:entity_grenade_aschrab",
+    "translation_name": "hbm.entity_grenade_aschrab",
+    "kind": "addEntity",
+    "options": "500"
+  },
+  {
+    "local_id": 39,
+    "entity_class": "EntityFalloutRain",
+    "legacy_name": "entity_fallout",
+    "native_key": "hbm:entity_fallout",
+    "translation_name": "hbm.entity_fallout",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 40,
+    "entity_class": "EntityEMPBlast",
+    "legacy_name": "entity_emp_blast",
+    "native_key": "hbm:entity_emp_blast",
+    "translation_name": "hbm.entity_emp_blast",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 41,
+    "entity_class": "EntityGrenadePulse",
+    "legacy_name": "entity_grenade_pulse",
+    "native_key": "hbm:entity_grenade_pulse",
+    "translation_name": "hbm.entity_grenade_pulse",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 42,
+    "entity_class": "EntityRubble",
+    "legacy_name": "entity_rubble",
+    "native_key": "hbm:entity_rubble",
+    "translation_name": "hbm.entity_rubble",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 43,
+    "entity_class": "EntityShrapnel",
+    "legacy_name": "entity_shrapnel",
+    "native_key": "hbm:entity_shrapnel",
+    "translation_name": "hbm.entity_shrapnel",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 44,
+    "entity_class": "EntityGrenadeShrapnel",
+    "legacy_name": "entity_grenade_shrapnel",
+    "native_key": "hbm:entity_grenade_shrapnel",
+    "translation_name": "hbm.entity_grenade_shrapnel",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 45,
+    "entity_class": "EntityBlackHole",
+    "legacy_name": "entity_black_hole",
+    "native_key": "hbm:entity_black_hole",
+    "translation_name": "hbm.entity_black_hole",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 46,
+    "entity_class": "EntityGrenadeBlackHole",
+    "legacy_name": "entity_grenade_black_hole",
+    "native_key": "hbm:entity_grenade_black_hole",
+    "translation_name": "hbm.entity_grenade_black_hole",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 47,
+    "entity_class": "EntityMinecartTest",
+    "legacy_name": "entity_minecart_test",
+    "native_key": "hbm:entity_minecart_test",
+    "translation_name": "hbm.entity_minecart_test",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 48,
+    "entity_class": "EntityMissileDoomsday",
+    "legacy_name": "entity_missile_doomsday",
+    "native_key": "hbm:entity_missile_doomsday",
+    "translation_name": "hbm.entity_missile_doomsday",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 49,
+    "entity_class": "EntityMissileDoomsdayRusted",
+    "legacy_name": "entity_missile_doomsday_rusted",
+    "native_key": "hbm:entity_missile_doomsday_rusted",
+    "translation_name": "hbm.entity_missile_doomsday_rusted",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 50,
+    "entity_class": "EntityNukeExplosionMK3",
+    "legacy_name": "entity_nuke_mk3",
+    "native_key": "hbm:entity_nuke_mk3",
+    "translation_name": "hbm.entity_nuke_mk3",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 51,
+    "entity_class": "EntityVortex",
+    "legacy_name": "entity_vortex",
+    "native_key": "hbm:entity_vortex",
+    "translation_name": "hbm.entity_vortex",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 52,
+    "entity_class": "EntityMeteor",
+    "legacy_name": "entity_meteor",
+    "native_key": "hbm:entity_meteor",
+    "translation_name": "hbm.entity_meteor",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 53,
+    "entity_class": "EntityBoxcar",
+    "legacy_name": "entity_boxcar",
+    "native_key": "hbm:entity_boxcar",
+    "translation_name": "hbm.entity_boxcar",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 54,
+    "entity_class": "EntityTorpedo",
+    "legacy_name": "entity_torpedo",
+    "native_key": "hbm:entity_torpedo",
+    "translation_name": "hbm.entity_torpedo",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 55,
+    "entity_class": "EntityMissileTaint",
+    "legacy_name": "entity_missile_taint",
+    "native_key": "hbm:entity_missile_taint",
+    "translation_name": "hbm.entity_missile_taint",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 56,
+    "entity_class": "EntityGrenadeGascan",
+    "legacy_name": "entity_grenade_gascan",
+    "native_key": "hbm:entity_grenade_gascan",
+    "translation_name": "hbm.entity_grenade_gascan",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 57,
+    "entity_class": "EntityNukeExplosionMK5",
+    "legacy_name": "entity_nuke_mk5",
+    "native_key": "hbm:entity_nuke_mk5",
+    "translation_name": "hbm.entity_nuke_mk5",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 58,
+    "entity_class": "EntityCloudFleijaRainbow",
+    "legacy_name": "entity_cloud_rainbow",
+    "native_key": "hbm:entity_cloud_rainbow",
+    "translation_name": "hbm.entity_cloud_rainbow",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 59,
+    "entity_class": "EntityExplosiveBeam",
+    "legacy_name": "entity_beam_bomb",
+    "native_key": "hbm:entity_beam_bomb",
+    "translation_name": "hbm.entity_beam_bomb",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 60,
+    "entity_class": "EntityMissileTest",
+    "legacy_name": "entity_missile_test_mk2",
+    "native_key": "hbm:entity_missile_test_mk2",
+    "translation_name": "hbm.entity_missile_test_mk2",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 61,
+    "entity_class": "EntityMissileMicro",
+    "legacy_name": "entity_missile_micronuclear",
+    "native_key": "hbm:entity_missile_micronuclear",
+    "translation_name": "hbm.entity_missile_micronuclear",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 62,
+    "entity_class": "EntityCloudSolinium",
+    "legacy_name": "entity_cloud_rainbow",
+    "native_key": "hbm:entity_cloud_solinium",
+    "translation_name": "hbm.entity_cloud_rainbow",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 63,
+    "entity_class": "EntityRagingVortex",
+    "legacy_name": "entity_raging_vortex",
+    "native_key": "hbm:entity_raging_vortex",
+    "translation_name": "hbm.entity_raging_vortex",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 64,
+    "entity_class": "EntityMissileBHole",
+    "legacy_name": "entity_missile_blackhole",
+    "native_key": "hbm:entity_missile_blackhole",
+    "translation_name": "hbm.entity_missile_blackhole",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 65,
+    "entity_class": "EntityMissileSchrabidium",
+    "legacy_name": "entity_missile_schrabidium",
+    "native_key": "hbm:entity_missile_schrabidium",
+    "translation_name": "hbm.entity_missile_schrabidium",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 66,
+    "entity_class": "EntityMissileEMP",
+    "legacy_name": "entity_missile_emp",
+    "native_key": "hbm:entity_missile_emp",
+    "translation_name": "hbm.entity_missile_emp",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 67,
+    "entity_class": "EntityChlorineFX",
+    "legacy_name": "entity_chlorine_fx",
+    "native_key": "hbm:entity_chlorine_fx",
+    "translation_name": "hbm.entity_chlorine_fx",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 68,
+    "entity_class": "EntityPinkCloudFX",
+    "legacy_name": "entity_pink_cloud_fx",
+    "native_key": "hbm:entity_pink_cloud_fx",
+    "translation_name": "hbm.entity_pink_cloud_fx",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 69,
+    "entity_class": "EntityCloudFX",
+    "legacy_name": "entity_cloud_fx",
+    "native_key": "hbm:entity_cloud_fx",
+    "translation_name": "hbm.entity_cloud_fx",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 70,
+    "entity_class": "EntityGrenadePC",
+    "legacy_name": "entity_grenade_pink_cloud",
+    "native_key": "hbm:entity_grenade_pink_cloud",
+    "translation_name": "hbm.entity_grenade_pink_cloud",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 71,
+    "entity_class": "EntityGrenadeCloud",
+    "legacy_name": "entity_grenade_cloud",
+    "native_key": "hbm:entity_grenade_cloud",
+    "translation_name": "hbm.entity_grenade_cloud",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 72,
+    "entity_class": "EntityBomber",
+    "legacy_name": "entity_bomber",
+    "native_key": "hbm:entity_bomber",
+    "translation_name": "hbm.entity_bomber",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 73,
+    "entity_class": "EntityC130",
+    "legacy_name": "entity_c130",
+    "native_key": "hbm:entity_c130",
+    "translation_name": "hbm.entity_c130",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 74,
+    "entity_class": "EntityBombletZeta",
+    "legacy_name": "entity_zeta",
+    "native_key": "hbm:entity_zeta",
+    "translation_name": "hbm.entity_zeta",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 75,
+    "entity_class": "EntityOrangeFX",
+    "legacy_name": "entity_agent_orange",
+    "native_key": "hbm:entity_agent_orange",
+    "translation_name": "hbm.entity_agent_orange",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 76,
+    "entity_class": "EntityDeathBlast",
+    "legacy_name": "entity_laser_blast",
+    "native_key": "hbm:entity_laser_blast",
+    "translation_name": "hbm.entity_laser_blast",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 77,
+    "entity_class": "EntityGrenadeSmart",
+    "legacy_name": "entity_grenade_smart",
+    "native_key": "hbm:entity_grenade_smart",
+    "translation_name": "hbm.entity_grenade_smart",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 78,
+    "entity_class": "EntityGrenadeMIRV",
+    "legacy_name": "entity_grenade_mirv",
+    "native_key": "hbm:entity_grenade_mirv",
+    "translation_name": "hbm.entity_grenade_mirv",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 79,
+    "entity_class": "EntityGrenadeBreach",
+    "legacy_name": "entity_grenade_breach",
+    "native_key": "hbm:entity_grenade_breach",
+    "translation_name": "hbm.entity_grenade_breach",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 80,
+    "entity_class": "EntityGrenadeBurst",
+    "legacy_name": "entity_grenade_burst",
+    "native_key": "hbm:entity_grenade_burst",
+    "translation_name": "hbm.entity_grenade_burst",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 81,
+    "entity_class": "EntityBurningFOEQ",
+    "legacy_name": "entity_burning_foeq",
+    "native_key": "hbm:entity_burning_foeq",
+    "translation_name": "hbm.entity_burning_foeq",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 82,
+    "entity_class": "EntityGrenadeIFGeneric",
+    "legacy_name": "entity_grenade_ironshod",
+    "native_key": "hbm:entity_grenade_ironshod",
+    "translation_name": "hbm.entity_grenade_ironshod",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 83,
+    "entity_class": "EntityGrenadeIFHE",
+    "legacy_name": "entity_grenade_ironshod_he",
+    "native_key": "hbm:entity_grenade_ironshod_he",
+    "translation_name": "hbm.entity_grenade_ironshod_he",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 84,
+    "entity_class": "EntityGrenadeIFBouncy",
+    "legacy_name": "entity_grenade_ironshod_bouncy",
+    "native_key": "hbm:entity_grenade_ironshod_bouncy",
+    "translation_name": "hbm.entity_grenade_ironshod_bouncy",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 85,
+    "entity_class": "EntityGrenadeIFSticky",
+    "legacy_name": "entity_grenade_ironshod_sticky",
+    "native_key": "hbm:entity_grenade_ironshod_sticky",
+    "translation_name": "hbm.entity_grenade_ironshod_sticky",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 86,
+    "entity_class": "EntityGrenadeIFImpact",
+    "legacy_name": "entity_grenade_ironshod_impact",
+    "native_key": "hbm:entity_grenade_ironshod_impact",
+    "translation_name": "hbm.entity_grenade_ironshod_impact",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 87,
+    "entity_class": "EntityGrenadeIFIncendiary",
+    "legacy_name": "entity_grenade_ironshod_fire",
+    "native_key": "hbm:entity_grenade_ironshod_fire",
+    "translation_name": "hbm.entity_grenade_ironshod_fire",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 88,
+    "entity_class": "EntityGrenadeIFToxic",
+    "legacy_name": "entity_grenade_ironshod_toxic",
+    "native_key": "hbm:entity_grenade_ironshod_toxic",
+    "translation_name": "hbm.entity_grenade_ironshod_toxic",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 89,
+    "entity_class": "EntityGrenadeIFConcussion",
+    "legacy_name": "entity_grenade_ironshod_con",
+    "native_key": "hbm:entity_grenade_ironshod_con",
+    "translation_name": "hbm.entity_grenade_ironshod_con",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 90,
+    "entity_class": "EntityGrenadeIFBrimstone",
+    "legacy_name": "entity_grenade_ironshod_brim",
+    "native_key": "hbm:entity_grenade_ironshod_brim",
+    "translation_name": "hbm.entity_grenade_ironshod_brim",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 91,
+    "entity_class": "EntityGrenadeIFMystery",
+    "legacy_name": "entity_grenade_ironshod_m",
+    "native_key": "hbm:entity_grenade_ironshod_m",
+    "translation_name": "hbm.entity_grenade_ironshod_m",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 92,
+    "entity_class": "EntityGrenadeIFSpark",
+    "legacy_name": "entity_grenade_ironshod_s",
+    "native_key": "hbm:entity_grenade_ironshod_s",
+    "translation_name": "hbm.entity_grenade_ironshod_s",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 93,
+    "entity_class": "EntityGrenadeIFHopwire",
+    "legacy_name": "entity_grenade_ironshod_hopwire",
+    "native_key": "hbm:entity_grenade_ironshod_hopwire",
+    "translation_name": "hbm.entity_grenade_ironshod_hopwire",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 94,
+    "entity_class": "EntityGrenadeIFNull",
+    "legacy_name": "entity_grenade_ironshod_null",
+    "native_key": "hbm:entity_grenade_ironshod_null",
+    "translation_name": "hbm.entity_grenade_ironshod_null",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 95,
+    "entity_class": "EntityFallingNuke",
+    "legacy_name": "entity_falling_bomb",
+    "native_key": "hbm:entity_falling_bomb",
+    "translation_name": "hbm.entity_falling_bomb",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 96,
+    "entity_class": "EntityBulletBaseNT",
+    "legacy_name": "entity_bullet_mk3",
+    "native_key": "hbm:entity_bullet_mk3",
+    "translation_name": "hbm.entity_bullet_mk3",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 97,
+    "entity_class": "EntityBulletBaseMK4",
+    "legacy_name": "entity_bullet_mk4",
+    "native_key": "hbm:entity_bullet_mk4",
+    "translation_name": "hbm.entity_bullet_mk4",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 98,
+    "entity_class": "EntityBulletBaseMK4CL",
+    "legacy_name": "entity_bullet_mk4_cl",
+    "native_key": "hbm:entity_bullet_mk4_cl",
+    "translation_name": "hbm.entity_bullet_mk4_cl",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 99,
+    "entity_class": "EntityBulletBeamBase",
+    "legacy_name": "entity_beam_mk4",
+    "native_key": "hbm:entity_beam_mk4",
+    "translation_name": "hbm.entity_beam_mk4",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 100,
+    "entity_class": "EntityMinerRocket",
+    "legacy_name": "entity_miner_lander",
+    "native_key": "hbm:entity_miner_lander",
+    "translation_name": "hbm.entity_miner_lander",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 101,
+    "entity_class": "EntityFogFX",
+    "legacy_name": "entity_nuclear_fog",
+    "native_key": "hbm:entity_nuclear_fog",
+    "translation_name": "hbm.entity_nuclear_fog",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 102,
+    "entity_class": "EntityDuchessGambit",
+    "legacy_name": "entity_duchessgambit",
+    "native_key": "hbm:entity_duchessgambit",
+    "translation_name": "hbm.entity_duchessgambit",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 103,
+    "entity_class": "EntityMissileEMPStrong",
+    "legacy_name": "entity_missile_emp_strong",
+    "native_key": "hbm:entity_missile_emp_strong",
+    "translation_name": "hbm.entity_missile_emp_strong",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 104,
+    "entity_class": "EntityEMP",
+    "legacy_name": "entity_emp_logic",
+    "native_key": "hbm:entity_emp_logic",
+    "translation_name": "hbm.entity_emp_logic",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 105,
+    "entity_class": "EntityWaterSplash",
+    "legacy_name": "entity_water_splash",
+    "native_key": "hbm:entity_water_splash",
+    "translation_name": "hbm.entity_water_splash",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 106,
+    "entity_class": "EntityBobmazon",
+    "legacy_name": "entity_bobmazon_delivery",
+    "native_key": "hbm:entity_bobmazon_delivery",
+    "translation_name": "hbm.entity_bobmazon_delivery",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 107,
+    "entity_class": "EntityMissileCustom",
+    "legacy_name": "entity_custom_missile",
+    "native_key": "hbm:entity_custom_missile",
+    "translation_name": "hbm.entity_custom_missile",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 108,
+    "entity_class": "EntityRideableRocket",
+    "legacy_name": "entity_rideable_rocket",
+    "native_key": "hbm:entity_rideable_rocket",
+    "translation_name": "hbm.entity_rideable_rocket",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 109,
+    "entity_class": "EntityRideableRocketDummy",
+    "legacy_name": "entity_rideable_rocket_dummy",
+    "native_key": "hbm:entity_rideable_rocket_dummy",
+    "translation_name": "hbm.entity_rideable_rocket_dummy",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 110,
+    "entity_class": "EntityBalefire",
+    "legacy_name": "entity_balefire",
+    "native_key": "hbm:entity_balefire",
+    "translation_name": "hbm.entity_balefire",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 111,
+    "entity_class": "EntityTom",
+    "legacy_name": "entity_tom_the_moonstone",
+    "native_key": "hbm:entity_tom_the_moonstone",
+    "translation_name": "hbm.entity_tom_the_moonstone",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 112,
+    "entity_class": "EntityTomBlast",
+    "legacy_name": "entity_tom_bust",
+    "native_key": "hbm:entity_tom_bust",
+    "translation_name": "hbm.entity_tom_bust",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 113,
+    "entity_class": "EntityBuilding",
+    "legacy_name": "entity_falling_building",
+    "native_key": "hbm:entity_falling_building",
+    "translation_name": "hbm.entity_falling_building",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 114,
+    "entity_class": "EntitySoyuz",
+    "legacy_name": "entity_soyuz",
+    "native_key": "hbm:entity_soyuz",
+    "translation_name": "hbm.entity_soyuz",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 115,
+    "entity_class": "EntitySoyuzCapsule",
+    "legacy_name": "entity_soyuz_capsule",
+    "native_key": "hbm:entity_soyuz_capsule",
+    "translation_name": "hbm.entity_soyuz_capsule",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 116,
+    "entity_class": "EntityCombatDropPod",
+    "legacy_name": "entity_combat_pod",
+    "native_key": "hbm:entity_combat_pod",
+    "translation_name": "hbm.entity_combat_pod",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 117,
+    "entity_class": "EntityParachuteCrate",
+    "legacy_name": "entity_parachute_crate",
+    "native_key": "hbm:entity_parachute_crate",
+    "translation_name": "hbm.entity_parachute_crate",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 118,
+    "entity_class": "EntityMovingItem",
+    "legacy_name": "entity_c_item",
+    "native_key": "hbm:entity_c_item",
+    "translation_name": "hbm.entity_c_item",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 119,
+    "entity_class": "EntityMovingPackage",
+    "legacy_name": "entity_c_package",
+    "native_key": "hbm:entity_c_package",
+    "translation_name": "hbm.entity_c_package",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 120,
+    "entity_class": "EntityDeliveryDrone",
+    "legacy_name": "entity_delivery_drone",
+    "native_key": "hbm:entity_delivery_drone",
+    "translation_name": "hbm.entity_delivery_drone",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 121,
+    "entity_class": "EntityRequestDrone",
+    "legacy_name": "entity_request_drone",
+    "native_key": "hbm:entity_request_drone",
+    "translation_name": "hbm.entity_request_drone",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 122,
+    "entity_class": "EntityCloudTom",
+    "legacy_name": "entity_moonstone_blast",
+    "native_key": "hbm:entity_moonstone_blast",
+    "translation_name": "hbm.entity_moonstone_blast",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 123,
+    "entity_class": "EntityBeamVortex",
+    "legacy_name": "entity_vortex_beam",
+    "native_key": "hbm:entity_vortex_beam",
+    "translation_name": "hbm.entity_vortex_beam",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 124,
+    "entity_class": "EntityFireworks",
+    "legacy_name": "entity_firework_ball",
+    "native_key": "hbm:entity_firework_ball",
+    "translation_name": "hbm.entity_firework_ball",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 125,
+    "entity_class": "EntityWastePearl",
+    "legacy_name": "entity_waste_pearl",
+    "native_key": "hbm:entity_waste_pearl",
+    "translation_name": "hbm.entity_waste_pearl",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 126,
+    "entity_class": "EntityBOTPrimeHead",
+    "legacy_name": "entity_balls_o_tron",
+    "native_key": "hbm:entity_balls_o_tron",
+    "translation_name": "hbm.entity_balls_o_tron",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 127,
+    "entity_class": "EntityBOTPrimeBody",
+    "legacy_name": "entity_balls_o_tron_seg",
+    "native_key": "hbm:entity_balls_o_tron_seg",
+    "translation_name": "hbm.entity_balls_o_tron_seg",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 128,
+    "entity_class": "EntityBlockSpider",
+    "legacy_name": "entity_taintcrawler",
+    "native_key": "hbm:entity_taintcrawler",
+    "translation_name": "hbm.entity_taintcrawler",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 129,
+    "entity_class": "EntityRBMKDebris",
+    "legacy_name": "entity_rbmk_debris",
+    "native_key": "hbm:entity_rbmk_debris",
+    "translation_name": "hbm.entity_rbmk_debris",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 130,
+    "entity_class": "EntityUFO",
+    "legacy_name": "entity_ntm_ufo",
+    "native_key": "hbm:entity_ntm_ufo",
+    "translation_name": "hbm.entity_ntm_ufo",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 131,
+    "entity_class": "EntityQuasar",
+    "legacy_name": "entity_digamma_quasar",
+    "native_key": "hbm:entity_digamma_quasar",
+    "translation_name": "hbm.entity_digamma_quasar",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 132,
+    "entity_class": "EntitySpear",
+    "legacy_name": "entity_digamma_spear",
+    "native_key": "hbm:entity_digamma_spear",
+    "translation_name": "hbm.entity_digamma_spear",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 133,
+    "entity_class": "EntityMissileVolcano",
+    "legacy_name": "entity_missile_volcano",
+    "native_key": "hbm:entity_missile_volcano",
+    "translation_name": "hbm.entity_missile_volcano",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 134,
+    "entity_class": "EntityMissileShuttle",
+    "legacy_name": "entity_missile_shuttle",
+    "native_key": "hbm:entity_missile_shuttle",
+    "translation_name": "hbm.entity_missile_shuttle",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 135,
+    "entity_class": "EntityZirnoxDebris",
+    "legacy_name": "entity_zirnox_debris",
+    "native_key": "hbm:entity_zirnox_debris",
+    "translation_name": "hbm.entity_zirnox_debris",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 136,
+    "entity_class": "EntityGhost",
+    "legacy_name": "entity_ntm_ghost",
+    "native_key": "hbm:entity_ntm_ghost",
+    "translation_name": "hbm.entity_ntm_ghost",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 137,
+    "entity_class": "EntityGrenadeDynamite",
+    "legacy_name": "entity_grenade_dynamite",
+    "native_key": "hbm:entity_grenade_dynamite",
+    "translation_name": "hbm.entity_grenade_dynamite",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 138,
+    "entity_class": "EntitySiegeLaser",
+    "legacy_name": "entity_ntm_siege_laser",
+    "native_key": "hbm:entity_ntm_siege_laser",
+    "translation_name": "hbm.entity_ntm_siege_laser",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 139,
+    "entity_class": "EntityTNTPrimedBase",
+    "legacy_name": "entity_ntm_tnt_primed",
+    "native_key": "hbm:entity_ntm_tnt_primed",
+    "translation_name": "hbm.entity_ntm_tnt_primed",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 140,
+    "entity_class": "EntityGrenadeBouncyGeneric",
+    "legacy_name": "entity_grenade_bouncy_generic",
+    "native_key": "hbm:entity_grenade_bouncy_generic",
+    "translation_name": "hbm.entity_grenade_bouncy_generic",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 141,
+    "entity_class": "EntityGrenadeImpactGeneric",
+    "legacy_name": "entity_grenade_impact_generic",
+    "native_key": "hbm:entity_grenade_impact_generic",
+    "translation_name": "hbm.entity_grenade_impact_generic",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 142,
+    "entity_class": "EntityMinecartCrate",
+    "legacy_name": "entity_ntm_cart_crate",
+    "native_key": "hbm:entity_ntm_cart_crate",
+    "translation_name": "hbm.entity_ntm_cart_crate",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 143,
+    "entity_class": "EntityMinecartDestroyer",
+    "legacy_name": "entity_ntm_cart_crate",
+    "native_key": "hbm:entity_ntm_cart_destroyer",
+    "translation_name": "hbm.entity_ntm_cart_crate",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 144,
+    "entity_class": "EntityMinecartOre",
+    "legacy_name": "entity_ntm_cart_ore",
+    "native_key": "hbm:entity_ntm_cart_ore",
+    "translation_name": "hbm.entity_ntm_cart_ore",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 145,
+    "entity_class": "EntityMinecartBogie",
+    "legacy_name": "entity_ntm_cart_bogie",
+    "native_key": "hbm:entity_ntm_cart_bogie",
+    "translation_name": "hbm.entity_ntm_cart_bogie",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 146,
+    "entity_class": "EntityMagnusCartus",
+    "legacy_name": "entity_ntm_cart_chungoid",
+    "native_key": "hbm:entity_ntm_cart_chungoid",
+    "translation_name": "hbm.entity_ntm_cart_chungoid",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 147,
+    "entity_class": "EntityMinecartPowder",
+    "legacy_name": "entity_ntm_cart_powder",
+    "native_key": "hbm:entity_ntm_cart_powder",
+    "translation_name": "hbm.entity_ntm_cart_powder",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 148,
+    "entity_class": "EntityMinecartSemtex",
+    "legacy_name": "entity_ntm_cart_semtex",
+    "native_key": "hbm:entity_ntm_cart_semtex",
+    "translation_name": "hbm.entity_ntm_cart_semtex",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 149,
+    "entity_class": "EntityNukeTorex",
+    "legacy_name": "entity_effect_torex",
+    "native_key": "hbm:entity_effect_torex",
+    "translation_name": "hbm.entity_effect_torex",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 150,
+    "entity_class": "EntityArtilleryShell",
+    "legacy_name": "entity_artillery_shell",
+    "native_key": "hbm:entity_artillery_shell",
+    "translation_name": "hbm.entity_artillery_shell",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 151,
+    "entity_class": "EntityArtilleryRocket",
+    "legacy_name": "entity_himars",
+    "native_key": "hbm:entity_himars",
+    "translation_name": "hbm.entity_himars",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 152,
+    "entity_class": "EntityCog",
+    "legacy_name": "entity_stray_cog",
+    "native_key": "hbm:entity_stray_cog",
+    "translation_name": "hbm.entity_stray_cog",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 153,
+    "entity_class": "EntitySawblade",
+    "legacy_name": "entity_stray_saw",
+    "native_key": "hbm:entity_stray_saw",
+    "translation_name": "hbm.entity_stray_saw",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 154,
+    "entity_class": "EntityChemical",
+    "legacy_name": "entity_chemthrower_splash",
+    "native_key": "hbm:entity_chemthrower_splash",
+    "translation_name": "hbm.entity_chemthrower_splash",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 155,
+    "entity_class": "EntityMist",
+    "legacy_name": "entity_mist",
+    "native_key": "hbm:entity_mist",
+    "translation_name": "hbm.entity_mist",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 156,
+    "entity_class": "EntityFireLingering",
+    "legacy_name": "entity_fire_lingering",
+    "native_key": "hbm:entity_fire_lingering",
+    "translation_name": "hbm.entity_fire_lingering",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 157,
+    "entity_class": "EntityAcidBomb",
+    "legacy_name": "entity_acid_bomb",
+    "native_key": "hbm:entity_acid_bomb",
+    "translation_name": "hbm.entity_acid_bomb",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 158,
+    "entity_class": "EntityFallingBlockNT",
+    "legacy_name": "entity_falling_block_nt",
+    "native_key": "hbm:entity_falling_block_nt",
+    "translation_name": "hbm.entity_falling_block_nt",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 159,
+    "entity_class": "EntityBoatRubber",
+    "legacy_name": "entity_rubber_boat",
+    "native_key": "hbm:entity_rubber_boat",
+    "translation_name": "hbm.entity_rubber_boat",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 160,
+    "entity_class": "EntityMissileStealth",
+    "legacy_name": "entity_missile_stealth",
+    "native_key": "hbm:entity_missile_stealth",
+    "translation_name": "hbm.entity_missile_stealth",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 161,
+    "entity_class": "EntityCoin",
+    "legacy_name": "entity_coin",
+    "native_key": "hbm:entity_coin",
+    "translation_name": "hbm.entity_coin",
+    "kind": "addEntity",
+    "options": "1000"
+  },
+  {
+    "local_id": 162,
+    "entity_class": "EntityItemWaste",
+    "legacy_name": "entity_item_waste",
+    "native_key": "hbm:entity_item_waste",
+    "translation_name": "hbm.entity_item_waste",
+    "kind": "addEntity",
+    "options": "100"
+  },
+  {
+    "local_id": 163,
+    "entity_class": "EntityItemBuoyant",
+    "legacy_name": "entity_item_buoyant",
+    "native_key": "hbm:entity_item_buoyant",
+    "translation_name": "hbm.entity_item_buoyant",
+    "kind": "addEntity",
+    "options": "100"
+  },
+  {
+    "local_id": 164,
+    "entity_class": "SeatDummyEntity",
+    "legacy_name": "entity_ntm_seat_dummy",
+    "native_key": "hbm:entity_ntm_seat_dummy",
+    "translation_name": "hbm.entity_ntm_seat_dummy",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 165,
+    "entity_class": "BoundingBoxDummyEntity",
+    "legacy_name": "entity_ntm_bounding_dummy",
+    "native_key": "hbm:entity_ntm_bounding_dummy",
+    "translation_name": "hbm.entity_ntm_bounding_dummy",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 166,
+    "entity_class": "TrainCargoTram",
+    "legacy_name": "entity_ntm_cargo_tram",
+    "native_key": "hbm:entity_ntm_cargo_tram",
+    "translation_name": "hbm.entity_ntm_cargo_tram",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 167,
+    "entity_class": "TrainCargoTramTrailer",
+    "legacy_name": "entity_ntm_cargo_tram_trailer",
+    "native_key": "hbm:entity_ntm_cargo_tram_trailer",
+    "translation_name": "hbm.entity_ntm_cargo_tram_trailer",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 168,
+    "entity_class": "EntityDisperserCanister",
+    "legacy_name": "entity_disperser",
+    "native_key": "hbm:entity_disperser",
+    "translation_name": "hbm.entity_disperser",
+    "kind": "addEntity",
+    "options": "250"
+  },
+  {
+    "local_id": 169,
+    "entity_class": "EntityWaypoint",
+    "legacy_name": "entity_waypoint",
+    "native_key": "hbm:entity_waypoint",
+    "translation_name": "hbm.entity_waypoint",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 170,
+    "entity_class": "EntityDepress",
+    "legacy_name": "entity_depress",
+    "native_key": "hbm:entity_depress",
+    "translation_name": "hbm.entity_depress",
+    "kind": "addEntity",
+    "options": "250, false"
+  },
+  {
+    "local_id": 171,
+    "entity_class": "EntitySiegeUFO",
+    "legacy_name": "entity_meme_ufo",
+    "native_key": "hbm:entity_meme_ufo",
+    "translation_name": "hbm.entity_meme_ufo",
+    "kind": "addMob",
+    "options": "0x303030, 0x800000"
+  },
+  {
+    "local_id": 172,
+    "entity_class": "EntityWarBehemoth",
+    "legacy_name": "entity_war_behemoth",
+    "native_key": "hbm:entity_war_behemoth",
+    "translation_name": "hbm.entity_war_behemoth",
+    "kind": "addMob",
+    "options": "0x204131, 0x75CE00"
+  },
+  {
+    "local_id": 173,
+    "entity_class": "EntityTankbot",
+    "legacy_name": "entity_tankbot",
+    "native_key": "hbm:entity_tankbot",
+    "translation_name": "hbm.entity_tankbot",
+    "kind": "addMob",
+    "options": "0x204131, 0x75CE00"
+  },
+  {
+    "local_id": 174,
+    "entity_class": "EntityBFAngel",
+    "legacy_name": "entity_ntm_bfa",
+    "native_key": "hbm:entity_ntm_bfa",
+    "translation_name": "hbm.entity_ntm_bfa",
+    "kind": "addMob",
+    "options": "0x204131, 0x75CE00"
+  },
+  {
+    "local_id": 175,
+    "entity_class": "EntityCreeperNuclear",
+    "legacy_name": "entity_mob_nuclear_creeper",
+    "native_key": "hbm:entity_mob_nuclear_creeper",
+    "translation_name": "hbm.entity_mob_nuclear_creeper",
+    "kind": "addMob",
+    "options": "0x204131, 0x75CE00"
+  },
+  {
+    "local_id": 176,
+    "entity_class": "EntityCreeperTainted",
+    "legacy_name": "entity_mob_tainted_creeper",
+    "native_key": "hbm:entity_mob_tainted_creeper",
+    "translation_name": "hbm.entity_mob_tainted_creeper",
+    "kind": "addMob",
+    "options": "0x813b9b, 0xd71fdd"
+  },
+  {
+    "local_id": 177,
+    "entity_class": "EntityCreeperPhosgene",
+    "legacy_name": "entity_mob_phosgene_creeper",
+    "native_key": "hbm:entity_mob_phosgene_creeper",
+    "translation_name": "hbm.entity_mob_phosgene_creeper",
+    "kind": "addMob",
+    "options": "0xE3D398, 0xB8A06B"
+  },
+  {
+    "local_id": 178,
+    "entity_class": "EntityCreeperVolatile",
+    "legacy_name": "entity_mob_volatile_creeper",
+    "native_key": "hbm:entity_mob_volatile_creeper",
+    "translation_name": "hbm.entity_mob_volatile_creeper",
+    "kind": "addMob",
+    "options": "0xC28153, 0x4D382C"
+  },
+  {
+    "local_id": 179,
+    "entity_class": "EntityCreeperGold",
+    "legacy_name": "entity_mob_gold_creeper",
+    "native_key": "hbm:entity_mob_gold_creeper",
+    "translation_name": "hbm.entity_mob_gold_creeper",
+    "kind": "addMob",
+    "options": "0xECC136, 0x9E8B3E"
+  },
+  {
+    "local_id": 180,
+    "entity_class": "EntityCreeperFlesh",
+    "legacy_name": "entity_mob_flesh_creeper",
+    "native_key": "hbm:entity_mob_flesh_creeper",
+    "translation_name": "hbm.entity_mob_flesh_creeper",
+    "kind": "addMob",
+    "options": "0xFF0000, 0xD65337"
+  },
+  {
+    "local_id": 181,
+    "entity_class": "EntityHunterChopper",
+    "legacy_name": "entity_mob_hunter_chopper",
+    "native_key": "hbm:entity_mob_hunter_chopper",
+    "translation_name": "hbm.entity_mob_hunter_chopper",
+    "kind": "addMob",
+    "options": "0x000020, 0x2D2D72"
+  },
+  {
+    "local_id": 182,
+    "entity_class": "EntityCyberCrab",
+    "legacy_name": "entity_cyber_crab",
+    "native_key": "hbm:entity_cyber_crab",
+    "translation_name": "hbm.entity_cyber_crab",
+    "kind": "addMob",
+    "options": "0xAAAAAA, 0x444444"
+  },
+  {
+    "local_id": 183,
+    "entity_class": "EntityTeslaCrab",
+    "legacy_name": "entity_tesla_crab",
+    "native_key": "hbm:entity_tesla_crab",
+    "translation_name": "hbm.entity_tesla_crab",
+    "kind": "addMob",
+    "options": "0xAAAAAA, 0x440000"
+  },
+  {
+    "local_id": 184,
+    "entity_class": "EntityTaintCrab",
+    "legacy_name": "entity_taint_crab",
+    "native_key": "hbm:entity_taint_crab",
+    "translation_name": "hbm.entity_taint_crab",
+    "kind": "addMob",
+    "options": "0xAAAAAA, 0xFF00FF"
+  },
+  {
+    "local_id": 185,
+    "entity_class": "EntityMaskMan",
+    "legacy_name": "entity_mob_mask_man",
+    "native_key": "hbm:entity_mob_mask_man",
+    "translation_name": "hbm.entity_mob_mask_man",
+    "kind": "addMob",
+    "options": "0x818572, 0xC7C1B7"
+  },
+  {
+    "local_id": 186,
+    "entity_class": "EntityDuck",
+    "legacy_name": "entity_fucc_a_ducc",
+    "native_key": "hbm:entity_fucc_a_ducc",
+    "translation_name": "hbm.entity_fucc_a_ducc",
+    "kind": "addMob",
+    "options": "0xd0d0d0, 0xFFBF00"
+  },
+  {
+    "local_id": 187,
+    "entity_class": "EntityQuackos",
+    "legacy_name": "entity_elder_one",
+    "native_key": "hbm:entity_elder_one",
+    "translation_name": "hbm.entity_elder_one",
+    "kind": "addMob",
+    "options": "0xd0d0d0, 0xFFBF00"
+  },
+  {
+    "local_id": 188,
+    "entity_class": "EntityPigeon",
+    "legacy_name": "entity_pigeon",
+    "native_key": "hbm:entity_pigeon",
+    "translation_name": "hbm.entity_pigeon",
+    "kind": "addMob",
+    "options": "0xC8C9CD, 0x858894"
+  },
+  {
+    "local_id": 189,
+    "entity_class": "EntityMoonCow",
+    "legacy_name": "entity_moon_cow",
+    "native_key": "hbm:entity_moon_cow",
+    "translation_name": "hbm.entity_moon_cow",
+    "kind": "addMob",
+    "options": "0xECD376, 0x262A44"
+  },
+  {
+    "local_id": 190,
+    "entity_class": "EntityScutterfish",
+    "legacy_name": "entity_scutterfish",
+    "native_key": "hbm:entity_scutterfish",
+    "translation_name": "hbm.entity_scutterfish",
+    "kind": "addMob",
+    "options": "0xC8C9CD, 0x858894"
+  },
+  {
+    "local_id": 191,
+    "entity_class": "EntityScuttlecrab",
+    "legacy_name": "entity_scuttlecrab",
+    "native_key": "hbm:entity_scuttlecrab",
+    "translation_name": "hbm.entity_scuttlecrab",
+    "kind": "addMob",
+    "options": "0xF17951, 0xEDDABB"
+  },
+  {
+    "local_id": 192,
+    "entity_class": "EntityDepthSquid",
+    "legacy_name": "entity_depthsquid",
+    "native_key": "hbm:entity_depthsquid",
+    "translation_name": "hbm.entity_depthsquid",
+    "kind": "addMob",
+    "options": "0x00B4Df, 0x016085"
+  },
+  {
+    "local_id": 193,
+    "entity_class": "EntityScrapFish",
+    "legacy_name": "entity_scrapfish",
+    "native_key": "hbm:entity_scrapfish",
+    "translation_name": "hbm.entity_scrapfish",
+    "kind": "addMob",
+    "options": "0xDF9835, 0x510E13"
+  },
+  {
+    "local_id": 194,
+    "entity_class": "EntitySifterEel",
+    "legacy_name": "entity_siftereel",
+    "native_key": "hbm:entity_siftereel",
+    "translation_name": "hbm.entity_siftereel",
+    "kind": "addMob",
+    "options": "0x5B963E, 0xC0B286"
+  },
+  {
+    "local_id": 195,
+    "entity_class": "EntitySiegeCraft",
+    "legacy_name": "entity_micro_ufo",
+    "native_key": "hbm:entity_micro_ufo",
+    "translation_name": "hbm.entity_micro_ufo",
+    "kind": "addMob",
+    "options": "0x5B963E, 0xC0B286"
+  },
+  {
+    "local_id": 196,
+    "entity_class": "EntityFBI",
+    "legacy_name": "entity_ntm_fbi",
+    "native_key": "hbm:entity_ntm_fbi",
+    "translation_name": "hbm.entity_ntm_fbi",
+    "kind": "addMob",
+    "options": "0x008000, 0x404040"
+  },
+  {
+    "local_id": 197,
+    "entity_class": "EntityFBIDrone",
+    "legacy_name": "entity_ntm_fbi_drone",
+    "native_key": "hbm:entity_ntm_fbi_drone",
+    "translation_name": "hbm.entity_ntm_fbi_drone",
+    "kind": "addMob",
+    "options": "0x008000, 0x404040"
+  },
+  {
+    "local_id": 198,
+    "entity_class": "EntityRADBeast",
+    "legacy_name": "entity_ntm_radiation_blaze",
+    "native_key": "hbm:entity_ntm_radiation_blaze",
+    "translation_name": "hbm.entity_ntm_radiation_blaze",
+    "kind": "addMob",
+    "options": "0x303030, 0x008000"
+  },
+  {
+    "local_id": 199,
+    "entity_class": "EntityGlyphid",
+    "legacy_name": "entity_glyphid",
+    "native_key": "hbm:entity_glyphid",
+    "translation_name": "hbm.entity_glyphid",
+    "kind": "addMob",
+    "options": "0x724A21, 0xD2BB72"
+  },
+  {
+    "local_id": 200,
+    "entity_class": "EntityGlyphidBrawler",
+    "legacy_name": "entity_glyphid_brawler",
+    "native_key": "hbm:entity_glyphid_brawler",
+    "translation_name": "hbm.entity_glyphid_brawler",
+    "kind": "addMob",
+    "options": "0x273038, 0xD2BB72"
+  },
+  {
+    "local_id": 201,
+    "entity_class": "EntityGlyphidBehemoth",
+    "legacy_name": "entity_glyphid_behemoth",
+    "native_key": "hbm:entity_glyphid_behemoth",
+    "translation_name": "hbm.entity_glyphid_behemoth",
+    "kind": "addMob",
+    "options": "0x267F00, 0xD2BB72"
+  },
+  {
+    "local_id": 202,
+    "entity_class": "EntityGlyphidBrenda",
+    "legacy_name": "entity_glyphid_brenda",
+    "native_key": "hbm:entity_glyphid_brenda",
+    "translation_name": "hbm.entity_glyphid_brenda",
+    "kind": "addMob",
+    "options": "0x4FC0C0, 0xA0A0A0"
+  },
+  {
+    "local_id": 203,
+    "entity_class": "EntityGlyphidBombardier",
+    "legacy_name": "entity_glyphid_bombardier",
+    "native_key": "hbm:entity_glyphid_bombardier",
+    "translation_name": "hbm.entity_glyphid_bombardier",
+    "kind": "addMob",
+    "options": "0xDDD919, 0xDBB79D"
+  },
+  {
+    "local_id": 204,
+    "entity_class": "EntityGlyphidBlaster",
+    "legacy_name": "entity_glyphid_blaster",
+    "native_key": "hbm:entity_glyphid_blaster",
+    "translation_name": "hbm.entity_glyphid_blaster",
+    "kind": "addMob",
+    "options": "0xD83737, 0xDBB79D"
+  },
+  {
+    "local_id": 205,
+    "entity_class": "EntityGlyphidScout",
+    "legacy_name": "entity_glyphid_scout",
+    "native_key": "hbm:entity_glyphid_scout",
+    "translation_name": "hbm.entity_glyphid_scout",
+    "kind": "addMob",
+    "options": "0x273038, 0xB9E36B"
+  },
+  {
+    "local_id": 206,
+    "entity_class": "EntityGlyphidNuclear",
+    "legacy_name": "entity_glyphid_nuclear",
+    "native_key": "hbm:entity_glyphid_nuclear",
+    "translation_name": "hbm.entity_glyphid_nuclear",
+    "kind": "addMob",
+    "options": "0x267F00, 0xA0A0A0"
+  },
+  {
+    "local_id": 207,
+    "entity_class": "EntityGlyphidDigger",
+    "legacy_name": "entity_glyphid_digger",
+    "native_key": "hbm:entity_glyphid_digger",
+    "translation_name": "hbm.entity_glyphid_digger",
+    "kind": "addMob",
+    "options": "0x273038, 0x724A21"
+  },
+  {
+    "local_id": 208,
+    "entity_class": "EntityPlasticBag",
+    "legacy_name": "entity_plastic_bag",
+    "native_key": "hbm:entity_plastic_bag",
+    "translation_name": "hbm.entity_plastic_bag",
+    "kind": "addMob",
+    "options": "0xd0d0d0, 0x808080"
+  },
+  {
+    "local_id": 209,
+    "entity_class": "EntityParasiteMaggot",
+    "legacy_name": "entity_parasite_maggot",
+    "native_key": "hbm:entity_parasite_maggot",
+    "translation_name": "hbm.entity_parasite_maggot",
+    "kind": "addMob",
+    "options": "0xd0d0d0, 0x808080"
+  },
+  {
+    "local_id": 210,
+    "entity_class": "EntityDummy",
+    "legacy_name": "entity_ntm_test_dummy",
+    "native_key": "hbm:entity_ntm_test_dummy",
+    "translation_name": "hbm.entity_ntm_test_dummy",
+    "kind": "addMob",
+    "options": "0xffffff, 0x000000"
+  },
+  {
+    "local_id": 211,
+    "entity_class": "EntityUndeadSoldier",
+    "legacy_name": "entity_ntm_undead_soldier",
+    "native_key": "hbm:entity_ntm_undead_soldier",
+    "translation_name": "hbm.entity_ntm_undead_soldier",
+    "kind": "addMob",
+    "options": "0x749F30, 0x6C5B44"
+  }
+]

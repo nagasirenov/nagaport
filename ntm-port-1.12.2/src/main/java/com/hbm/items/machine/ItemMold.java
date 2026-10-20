@@ -135,8 +135,8 @@ public class ItemMold extends Item {
 		Mold mold = getMold(stack);
 		list.add(TextFormatting.YELLOW + mold.getTitle());
 
-		if(mold.size == 0) list.add(TextFormatting.GOLD + I18nUtil.resolveKey(ModBlocks.foundry_mold.getUnlocalizedName() + ".name"));
-		if(mold.size == 1) list.add(TextFormatting.RED + I18nUtil.resolveKey(ModBlocks.foundry_basin.getUnlocalizedName() + ".name"));
+		if(mold.size == 0) list.add(TextFormatting.GOLD + I18nUtil.resolveKey(ModBlocks.foundry_mold.getTranslationKey() + ".name"));
+		if(mold.size == 1) list.add(TextFormatting.RED + I18nUtil.resolveKey(ModBlocks.foundry_basin.getTranslationKey() + ".name"));
 	}
 
 	public Mold getMold(ItemStack stack) {

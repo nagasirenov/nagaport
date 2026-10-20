@@ -1,0 +1,17 @@
+// Diagnostic only: full ChatBuilder and extracted packet codecs/message expressions.
+// Does not alter production sourceSets or compile full dependent mod classes.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortChatText', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if(javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    'porting/tests/probe-chat-text.py',
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

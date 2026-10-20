@@ -27,7 +27,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class ArmorDiesel extends ArmorFSBFueled implements IItemRendererProvider {
 
@@ -39,7 +39,7 @@ public class ArmorDiesel extends ArmorFSBFueled implements IItemRendererProvider
 	public Multimap getItemAttributeModifiers() {
 
 		Multimap multimap = HashMultimap.create();
-		multimap.put(SharedMonsterAttributes.knockbackResistance.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", 0.25D, 1));
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", 0.25D, 1));
 		return multimap;
 	}
 
@@ -68,7 +68,7 @@ public class ArmorDiesel extends ArmorFSBFueled implements IItemRendererProvider
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "bnuuy");
 			data.setInteger("player", player.getEntityId());
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.dimensionId, player.posX, player.posY, player.posZ, 100));
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, player.posX, player.posY, player.posZ), new TargetPoint(world.provider.getDimension(), player.posX, player.posY, player.posZ, 100));
 		}
 	}
 
@@ -80,7 +80,8 @@ public class ArmorDiesel extends ArmorFSBFueled implements IItemRendererProvider
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }

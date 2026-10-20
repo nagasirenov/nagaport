@@ -16,7 +16,7 @@ import java.util.List;
 public class MachineLiquefactor extends BlockDummyable implements ITooltipProvider {
 
 	public MachineLiquefactor() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

@@ -1,0 +1,509 @@
+CALL	"schrabidium_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + ":textures/armor/schrabidium_1.png").cloneStats((ArmorFSB)schrabidium_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + ":textures/armor/schrabidium_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + ":textures/armor/schrabidium_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSchrab	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSchrab
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/schrabidium_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/schrabidium_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)schrabidium_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	schrabidium_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#schrabidium_helmet
+ARG	"schrabidium_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"schrabidium_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + ":textures/armor/schrabidium_2.png").cloneStats((ArmorFSB)schrabidium_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + ":textures/armor/schrabidium_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + ":textures/armor/schrabidium_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSchrab	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSchrab
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/schrabidium_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/schrabidium_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)schrabidium_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	schrabidium_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#schrabidium_helmet
+ARG	"schrabidium_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"schrabidium_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + ":textures/armor/schrabidium_1.png").cloneStats((ArmorFSB)schrabidium_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + ":textures/armor/schrabidium_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + ":textures/armor/schrabidium_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSchrab	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSchrab
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/schrabidium_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/schrabidium_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)schrabidium_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	schrabidium_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#schrabidium_helmet
+ARG	"schrabidium_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"titanium_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + ":textures/armor/titanium_1.png").cloneStats((ArmorFSB)titanium_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + ":textures/armor/titanium_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + ":textures/armor/titanium_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatTitan	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatTitan
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/titanium_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/titanium_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)titanium_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	titanium_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#titanium_helmet
+ARG	"titanium_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"titanium_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + ":textures/armor/titanium_2.png").cloneStats((ArmorFSB)titanium_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + ":textures/armor/titanium_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + ":textures/armor/titanium_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatTitan	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatTitan
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/titanium_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/titanium_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)titanium_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	titanium_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#titanium_helmet
+ARG	"titanium_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"titanium_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + ":textures/armor/titanium_1.png").cloneStats((ArmorFSB)titanium_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + ":textures/armor/titanium_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + ":textures/armor/titanium_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatTitan	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatTitan
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/titanium_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/titanium_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)titanium_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	titanium_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#titanium_helmet
+ARG	"titanium_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"steel_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + ":textures/armor/steel_1.png").cloneStats((ArmorFSB)steel_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + ":textures/armor/steel_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + ":textures/armor/steel_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSteel	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSteel
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/steel_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/steel_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)steel_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	steel_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#steel_helmet
+ARG	"steel_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"steel_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + ":textures/armor/steel_2.png").cloneStats((ArmorFSB)steel_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + ":textures/armor/steel_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + ":textures/armor/steel_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSteel	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSteel
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/steel_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/steel_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)steel_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	steel_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#steel_helmet
+ARG	"steel_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"steel_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + ":textures/armor/steel_1.png").cloneStats((ArmorFSB)steel_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + ":textures/armor/steel_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + ":textures/armor/steel_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSteel	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSteel
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/steel_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/steel_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)steel_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	steel_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#steel_helmet
+ARG	"steel_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"alloy_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + ":textures/armor/alloy_1.png").cloneStats((ArmorFSB)alloy_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + ":textures/armor/alloy_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + ":textures/armor/alloy_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatAlloy	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatAlloy
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/alloy_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/alloy_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)alloy_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	alloy_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#alloy_helmet
+ARG	"alloy_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"alloy_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + ":textures/armor/alloy_2.png").cloneStats((ArmorFSB)alloy_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + ":textures/armor/alloy_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + ":textures/armor/alloy_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatAlloy	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatAlloy
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/alloy_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/alloy_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)alloy_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	alloy_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#alloy_helmet
+ARG	"alloy_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"alloy_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + ":textures/armor/alloy_1.png").cloneStats((ArmorFSB)alloy_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + ":textures/armor/alloy_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + ":textures/armor/alloy_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatAlloy	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatAlloy
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/alloy_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/alloy_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)alloy_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	alloy_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#alloy_helmet
+ARG	"alloy_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"cmb_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + ":textures/armor/cmb_1.png").cloneStats((ArmorFSB)cmb_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + ":textures/armor/cmb_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + ":textures/armor/cmb_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatCMB	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatCMB
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/cmb_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/cmb_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)cmb_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	cmb_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#cmb_helmet
+ARG	"cmb_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"cmb_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + ":textures/armor/cmb_2.png").cloneStats((ArmorFSB)cmb_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + ":textures/armor/cmb_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + ":textures/armor/cmb_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatCMB	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatCMB
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/cmb_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/cmb_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)cmb_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	cmb_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#cmb_helmet
+ARG	"cmb_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"cmb_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + ":textures/armor/cmb_1.png").cloneStats((ArmorFSB)cmb_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + ":textures/armor/cmb_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + ":textures/armor/cmb_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatCMB	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatCMB
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/cmb_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/cmb_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)cmb_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	cmb_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#cmb_helmet
+ARG	"cmb_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"paa_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + ":textures/armor/paa_2.png").cloneStats((ArmorFSB)paa_plate)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + ":textures/armor/paa_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + ":textures/armor/paa_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatPaa	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatPaa
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/paa_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/paa_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)paa_plate	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	paa_plate	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#paa_plate
+ARG	"paa_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"paa_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + ":textures/armor/paa_1.png").cloneStats((ArmorFSB)paa_plate)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + ":textures/armor/paa_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + ":textures/armor/paa_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatPaa	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatPaa
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/paa_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/paa_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)paa_plate	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	paa_plate	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#paa_plate
+ARG	"paa_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"security_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + ":textures/armor/security_1.png").cloneStats((ArmorFSB)security_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + ":textures/armor/security_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + ":textures/armor/security_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSecurity	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSecurity
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/security_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/security_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)security_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	security_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#security_helmet
+ARG	"security_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"security_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + ":textures/armor/security_2.png").cloneStats((ArmorFSB)security_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + ":textures/armor/security_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + ":textures/armor/security_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSecurity	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSecurity
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/security_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/security_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)security_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	security_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#security_helmet
+ARG	"security_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"security_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + ":textures/armor/security_1.png").cloneStats((ArmorFSB)security_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + ":textures/armor/security_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + ":textures/armor/security_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatSecurity	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatSecurity
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/security_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/security_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)security_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	security_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#security_helmet
+ARG	"security_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"cobalt_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + ":textures/armor/cobalt_1.png").cloneStats((ArmorFSB)cobalt_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + ":textures/armor/cobalt_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + ":textures/armor/cobalt_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatCobalt	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatCobalt
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/cobalt_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/cobalt_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)cobalt_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	cobalt_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#cobalt_helmet
+ARG	"cobalt_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"cobalt_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + ":textures/armor/cobalt_2.png").cloneStats((ArmorFSB)cobalt_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + ":textures/armor/cobalt_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + ":textures/armor/cobalt_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatCobalt	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatCobalt
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/cobalt_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/cobalt_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)cobalt_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	cobalt_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#cobalt_helmet
+ARG	"cobalt_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"cobalt_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + ":textures/armor/cobalt_1.png").cloneStats((ArmorFSB)cobalt_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + ":textures/armor/cobalt_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + ":textures/armor/cobalt_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatCobalt	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatCobalt
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/cobalt_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/cobalt_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)cobalt_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	cobalt_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#cobalt_helmet
+ARG	"cobalt_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"starmetal_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)starmetal_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatStarmetal	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatStarmetal
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)starmetal_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	starmetal_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#starmetal_helmet
+ARG	"starmetal_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"starmetal_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB)starmetal_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatStarmetal	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatStarmetal
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)starmetal_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	starmetal_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#starmetal_helmet
+ARG	"starmetal_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"starmetal_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)starmetal_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	MainRegistry.aMatStarmetal	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatStarmetal
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)starmetal_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	starmetal_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#starmetal_helmet
+ARG	"starmetal_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"robes_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + ":textures/armor/robes_1.png").cloneStats((ArmorFSB)robes_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + ":textures/armor/robes_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + ":textures/armor/robes_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ArmorMaterial.CHAIN	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:net.minecraft.item.ItemArmor.ArmorMaterial#CHAIN
+NODE	ArmorMaterial	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:net.minecraft.item.ItemArmor#net.minecraft.item.ItemArmor.ArmorMaterial
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/robes_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/robes_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)robes_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	robes_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#robes_helmet
+ARG	"robes_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"robes_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + ":textures/armor/robes_2.png").cloneStats((ArmorFSB)robes_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + ":textures/armor/robes_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + ":textures/armor/robes_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ArmorMaterial.CHAIN	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:net.minecraft.item.ItemArmor.ArmorMaterial#CHAIN
+NODE	ArmorMaterial	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:net.minecraft.item.ItemArmor#net.minecraft.item.ItemArmor.ArmorMaterial
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/robes_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/robes_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)robes_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	robes_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#robes_helmet
+ARG	"robes_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"robes_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + ":textures/armor/robes_1.png").cloneStats((ArmorFSB)robes_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + ":textures/armor/robes_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + ":textures/armor/robes_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ArmorMaterial.CHAIN	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:net.minecraft.item.ItemArmor.ArmorMaterial#CHAIN
+NODE	ArmorMaterial	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:net.minecraft.item.ItemArmor#net.minecraft.item.ItemArmor.ArmorMaterial
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/robes_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/robes_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)robes_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	robes_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#robes_helmet
+ARG	"robes_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"dnt_plate"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(aMatDNT, 1, RefStrings.MODID + ":textures/armor/dnt_1.png").cloneStats((ArmorFSB)dnt_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(aMatDNT, 1, RefStrings.MODID + ":textures/armor/dnt_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(aMatDNT, 1, RefStrings.MODID + ":textures/armor/dnt_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	aMatDNT	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDNT
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/dnt_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/dnt_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)dnt_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dnt_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dnt_helmet
+ARG	"dnt_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"dnt_legs"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(aMatDNT, 2, RefStrings.MODID + ":textures/armor/dnt_2.png").cloneStats((ArmorFSB)dnt_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(aMatDNT, 2, RefStrings.MODID + ":textures/armor/dnt_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(aMatDNT, 2, RefStrings.MODID + ":textures/armor/dnt_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	aMatDNT	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDNT
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/dnt_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/dnt_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)dnt_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dnt_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dnt_helmet
+ARG	"dnt_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"dnt_boots"	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB.setUnlocalizedName:com.hbm.items.armor.ArmorFSB#com.hbm.items.armor.ArmorFSB.setUnlocalizedName
+NODE	new ArmorFSB(aMatDNT, 3, RefStrings.MODID + ":textures/armor/dnt_1.png").cloneStats((ArmorFSB)dnt_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(aMatDNT, 3, RefStrings.MODID + ":textures/armor/dnt_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorFSB(aMatDNT, 3, RefStrings.MODID + ":textures/armor/dnt_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#ArmorFSB(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	aMatDNT	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDNT
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/dnt_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/dnt_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)dnt_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dnt_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dnt_helmet
+ARG	"dnt_boots"	STRING_LITERAL:java.lang.String:null

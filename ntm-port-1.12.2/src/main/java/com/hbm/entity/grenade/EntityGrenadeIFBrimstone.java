@@ -31,10 +31,10 @@ public class EntityGrenadeIFBrimstone extends EntityGrenadeBouncyBase {
     	
     	if(this.timer > (this.getMaxTimer() * 0.65)) {
     		
-    		if(!worldObj.isRemote) {
+    		if(!this.world.isRemote) {
 	    		EntityBullet fragment;
 	
-	    		fragment = new EntityBullet(worldObj, (EntityPlayer) this.thrower, 3.0F, 35, 45, false, "tauDay");
+	    		fragment = new EntityBullet(this.world, (EntityPlayer) this.thrower, 3.0F, 35, 45, false, "tauDay");
 	    		fragment.setDamage(rand.nextInt(301) + 100);
 	
 	    		fragment.motionX = rand.nextGaussian();
@@ -48,7 +48,7 @@ public class EntityGrenadeIFBrimstone extends EntityGrenadeBouncyBase {
 	
 	    		fragment.setIsCritical(true);
 	
-	    		worldObj.spawnEntityInWorld(fragment);
+	    		this.world.spawnEntityInWorld(fragment);
     		}
     	}
     }
@@ -56,16 +56,16 @@ public class EntityGrenadeIFBrimstone extends EntityGrenadeBouncyBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
     		
-    		worldObj.newExplosion(this, posX, posY, posZ, 5, false, false);
+    		this.world.newExplosion(this, posX, posY, posZ, 5, false, false);
     		
     		for(int i = 0; i < 100; i++) {
 	    		EntityBullet fragment;
 	
-	    		fragment = new EntityBullet(worldObj, (EntityPlayer) this.thrower, 3.0F, 35, 45, false, "tauDay");
+	    		fragment = new EntityBullet(this.world, (EntityPlayer) this.thrower, 3.0F, 35, 45, false, "tauDay");
 	    		fragment.setDamage(rand.nextInt(301) + 100);
 	
 	    		fragment.motionX = rand.nextGaussian() * 0.25;
@@ -79,7 +79,7 @@ public class EntityGrenadeIFBrimstone extends EntityGrenadeBouncyBase {
 	
 	    		fragment.setIsCritical(true);
 	
-	    		worldObj.spawnEntityInWorld(fragment);
+	    		this.world.spawnEntityInWorld(fragment);
     		}
         }
     }

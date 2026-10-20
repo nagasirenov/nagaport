@@ -1,0 +1,87 @@
+[
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp51-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "bytes": 13724935
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp51-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc",
+    "bytes": 12183010
+  },
+  {
+    "removed_reproducible_gradle_analysis": "/workspace/shared/nagaport-cp51-compile-snapshot/ntm-port-1.12.2/.gradle/4.10.3",
+    "bytes": 55176903,
+    "restore": "Gradle recreates these analysis caches; no sources, build inputs, logs or checkpoints removed."
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp52-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "bytes": 13724935
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp52-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc",
+    "bytes": 12183010
+  },
+  {
+    "removed_reproducible_gradle_analysis": "/workspace/shared/nagaport-cp52-compile-snapshot/ntm-port-1.12.2/.gradle/4.10.3",
+    "bytes": 55177969,
+    "restore": "Gradle recreates these analysis caches; no sources, build inputs, logs or checkpoints removed."
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp53-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "bytes": 13724935
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp53-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc",
+    "bytes": 12183010
+  },
+  {
+    "removed_reproducible_gradle_analysis": "/workspace/shared/nagaport-cp53-compile-snapshot/ntm-port-1.12.2/.gradle/4.10.3",
+    "bytes": 55177969,
+    "restore": "Gradle recreates these analysis caches; no sources, build inputs, logs or checkpoints removed."
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp54-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "bytes": 13724935
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp54-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc",
+    "bytes": 12183010
+  },
+  {
+    "removed_reproducible_gradle_analysis": "/workspace/shared/nagaport-cp54-compile-snapshot/ntm-port-1.12.2/.gradle/4.10.3",
+    "bytes": 55190896,
+    "restore": "Gradle recreates these analysis caches; no sources, build inputs, logs or checkpoints removed."
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp55-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "bytes": 13724935
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp55-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc",
+    "bytes": 12183010
+  },
+  {
+    "removed_reproducible_gradle_analysis": "/workspace/shared/nagaport-cp55-compile-snapshot/ntm-port-1.12.2/.gradle/4.10.3",
+    "bytes": 55142270,
+    "restore": "Gradle recreates these analysis caches; no sources, build inputs, logs or checkpoints removed."
+  }
+]

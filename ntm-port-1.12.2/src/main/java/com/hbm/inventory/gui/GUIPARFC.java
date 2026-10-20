@@ -36,12 +36,12 @@ public class GUIPARFC extends GuiInfoContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
-		this.fontRendererObj.drawString(TextFormatting.AQUA + "/123K", 91, 22, 4210752);
+		this.fontRenderer.drawString(TextFormatting.AQUA + "/123K", 91, 22, 4210752);
 		int heat = (int) Math.ceil(quadrupole.temperature);
 		String label = (heat > 123 ? TextFormatting.RED : TextFormatting.AQUA) + "" + heat + "K";
-		this.fontRendererObj.drawString(label, 121 - this.fontRendererObj.getStringWidth(label), 12, 4210752);
+		this.fontRenderer.drawString(label, 121 - this.fontRenderer.getStringWidth(label), 12, 4210752);
 	}
 
 	@Override

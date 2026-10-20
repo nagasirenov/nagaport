@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderAutosaw extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -27,7 +27,7 @@ public class RenderAutosaw extends TileEntitySpecialRenderer implements IItemRen
 		double turn = saw.prevRotationYaw + (saw.rotationYaw - saw.prevRotationYaw) * interp;
 		double angle = 80 - (saw.prevRotationPitch + (saw.rotationPitch - saw.prevRotationPitch) * interp);
 		float spin = saw.lastSpin + (saw.spin - saw.lastSpin) * interp;
-		double engine = saw.isOn ? Math.sin(saw.getWorldObj().getTotalWorldTime() * 2 % (Math.PI * 2) + interp) : 0;
+		double engine = saw.isOn ? Math.sin(saw.getWorld().getTotalWorldTime() * 2 % (Math.PI * 2) + interp) : 0;
 		renderCommon(turn, angle, spin, engine);
 		
 		GL11.glPopMatrix();
@@ -74,7 +74,7 @@ public class RenderAutosaw extends TileEntitySpecialRenderer implements IItemRen
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(0, -3.5, -3);

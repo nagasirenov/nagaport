@@ -60,7 +60,7 @@ public class EntityCreeperNuclear extends EntityCreeper {
 
 	@Override
 	protected Item getDropItem() {
-		return Item.getItemFromBlock(Blocks.tnt);
+		return Item.getItemFromBlock(Blocks.TNT);
 	}
 
 	@Override
@@ -75,10 +75,10 @@ public class EntityCreeperNuclear extends EntityCreeper {
 	public void onDeath(DamageSource p_70645_1_) {
 		super.onDeath(p_70645_1_);
 
-		List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(50, 50, 50));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(50, 50, 50));
 
 		for(EntityPlayer player : players) {
-			player.triggerAchievement(MainRegistry.bossCreeper);
+			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossCreeper);
 		}
 
 		if(p_70645_1_.getEntity() instanceof EntitySkeleton || (p_70645_1_.isProjectile() && p_70645_1_.getEntity() instanceof EntityArrow && ((EntityArrow) (p_70645_1_.getEntity())).shootingEntity == null)) {
@@ -89,7 +89,7 @@ public class EntityCreeperNuclear extends EntityCreeper {
 	@Override
 	public void onUpdate() {
 
-		List<Entity> list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(5, 5, 5));
+		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(5, 5, 5));
 
 		for(Entity e : list) {
 			if(e instanceof EntityLivingBase) {
@@ -106,30 +106,30 @@ public class EntityCreeperNuclear extends EntityCreeper {
 
 	@Override
 	public void func_146077_cc() {
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.setDead();
 
-			boolean flag = this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing");
+			boolean flag = this.world.getGameRules().getGameRuleBooleanValue("mobGriefing");
 
 			if(this.getPowered()) {
 
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "muke");
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(dimension, posX, posY, posZ, 250));
-				worldObj.playSoundEffect(posX, posY + 0.5, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+				com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY + 0.5, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 
 				if(flag) {
-					worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 50, posX, posY, posZ));
+					this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, 50, posX, posY, posZ));
 				} else {
-					ExplosionNukeGeneric.dealDamage(worldObj, posX, posY + 0.5, posZ, 100);
+					ExplosionNukeGeneric.dealDamage(this.world, posX, posY + 0.5, posZ, 100);
 				}
 			} else {
 
 				if(flag) {
-					ExplosionNukeSmall.explode(worldObj, posX, posY + 0.5, posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
+					ExplosionNukeSmall.explode(this.world, posX, posY + 0.5, posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
 				} else {
-					ExplosionNukeSmall.explode(worldObj, posX, posY + 0.5, posZ, ExplosionNukeSmall.PARAMS_SAFE);
+					ExplosionNukeSmall.explode(this.world, posX, posY + 0.5, posZ, ExplosionNukeSmall.PARAMS_SAFE);
 				}
 			}
 		}

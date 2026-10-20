@@ -1,0 +1,174 @@
+{
+  "cause": "Hand-assembled difflib unified patch failed to emit a no-newline-at-EOF marker; the next diff --git header became part of this file on application.",
+  "original_sha256": "cbb83bde15f97d82c50e9421a9a0253e14465addb96e2bef736580d7a17bbd44",
+  "original_bytes": 657,
+  "delivered_corrupt_sha256": "c7ffc38933ced1f45e8faf716062bb24acb8ca1fd7ca6ceebcd1b5244bc8bcb1",
+  "delivered_bytes": 846,
+  "exact_appended_utf8": "diff --git a/ntm-port-1.12.2/porting/tests/native-world-sound/receiver-attribution/verification.log b/ntm-port-1.12.2/porting/tests/native-world-sound/receiver-attribution/verification.log\n",
+  "original_provenance": "Frozen independent receiver audit and pre-patch staging bytes match exactly. Original JSON parses, with no final newline.",
+  "repair": "Restore exact original bytes with native Git-generated no-newline marker; no manifest pins changed.",
+  "all_delivered_pin_checks": [
+    {
+      "path": "receiver-attribution/corrected-diagnostics.tsv",
+      "expected_sha256": "c8e06781e56c90c8321c0f857dd868fa80a8b732ff2f42bddb9c64c78013819e",
+      "delivered_sha256": "c8e06781e56c90c8321c0f857dd868fa80a8b732ff2f42bddb9c64c78013819e",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/before.log",
+      "expected_sha256": "1740e33eda0c6de9f7e5bfc0fd81baf8fc72a161e517b0ac87baba4d1bc183a0",
+      "delivered_sha256": "1740e33eda0c6de9f7e5bfc0fd81baf8fc72a161e517b0ac87baba4d1bc183a0",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/before-spans.tsv",
+      "expected_sha256": "ef068e0bdadc017767159310a1a8b2e8123139cf821ad1257e60117ef6f88ff6",
+      "delivered_sha256": "ef068e0bdadc017767159310a1a8b2e8123139cf821ad1257e60117ef6f88ff6",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/current-spans.log",
+      "expected_sha256": "55a554efd91a23790afe0f49ef95de6eccc554b8c9d9e5d8172e55f1415c26ec",
+      "delivered_sha256": "55a554efd91a23790afe0f49ef95de6eccc554b8c9d9e5d8172e55f1415c26ec",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/ReceiverAuditSpans.java",
+      "expected_sha256": "b9eaa3a8e6a893937f0b8aea4b607ea4df766cd5273a9fd2f8f6cbec180f8e1d",
+      "delivered_sha256": "b9eaa3a8e6a893937f0b8aea4b607ea4df766cd5273a9fd2f8f6cbec180f8e1d",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/selected-source-sha256.json",
+      "expected_sha256": "efd9f9337487fc725401f667fe3cc9eb784c64801b12a1a789e8dbcd6b3690ee",
+      "delivered_sha256": "efd9f9337487fc725401f667fe3cc9eb784c64801b12a1a789e8dbcd6b3690ee",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/before-diagnostics.tsv",
+      "expected_sha256": "ca3af074a4c86d4e321c942d316fb69f725198bb06ed8349b7771057f1338f68",
+      "delivered_sha256": "ca3af074a4c86d4e321c942d316fb69f725198bb06ed8349b7771057f1338f68",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/verification.log",
+      "expected_sha256": "a799bd4ec8bf3e954a430aa4fdd2aaeb431a03076cfb9246da05ca38d561d6ac",
+      "delivered_sha256": "a799bd4ec8bf3e954a430aa4fdd2aaeb431a03076cfb9246da05ca38d561d6ac",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/current.log",
+      "expected_sha256": "36bd84089c69d81e1722e5439be2a69a4cac3e29361a5ca60afebda86cb64078",
+      "delivered_sha256": "36bd84089c69d81e1722e5439be2a69a4cac3e29361a5ca60afebda86cb64078",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/corrected.tsv",
+      "expected_sha256": "8b8cd6ddd856471766cc7ad2ab9f9a8535fed47570f132df1f8a33b9b4435cc7",
+      "delivered_sha256": "8b8cd6ddd856471766cc7ad2ab9f9a8535fed47570f132df1f8a33b9b4435cc7",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/corrected.log",
+      "expected_sha256": "9606f2d3ae890103bcf0ff347b4e4dcad56d341ee63ea8ef4568bf9c6a618a90",
+      "delivered_sha256": "9606f2d3ae890103bcf0ff347b4e4dcad56d341ee63ea8ef4568bf9c6a618a90",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/before.tsv",
+      "expected_sha256": "2bdafe94c91615c944de7871a6b8064308e96ad863d6d0679cf81ca3295e05f7",
+      "delivered_sha256": "2bdafe94c91615c944de7871a6b8064308e96ad863d6d0679cf81ca3295e05f7",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/current.tsv",
+      "expected_sha256": "b9576807637e1fea5b7160204597a845871dd55e4171a872d45b7a5b24b2f1f0",
+      "delivered_sha256": "b9576807637e1fea5b7160204597a845871dd55e4171a872d45b7a5b24b2f1f0",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/manifest-frozen.json",
+      "expected_sha256": "3b4eaf505fc5d487d4d7b7fc3d9bb8a7ae30ccbf6c424efcb847801fd743bada",
+      "delivered_sha256": "3b4eaf505fc5d487d4d7b7fc3d9bb8a7ae30ccbf6c424efcb847801fd743bada",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/run-audit.sh",
+      "expected_sha256": "cdd1ade4d4555488105951edf68951e88166616b7affa73a65861ee3083da080",
+      "delivered_sha256": "cdd1ade4d4555488105951edf68951e88166616b7affa73a65861ee3083da080",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/current-spans.tsv",
+      "expected_sha256": "d736e21af593b1abe61c8bd056b0b89fa70e6cf537afc552b9561e34d733eb39",
+      "delivered_sha256": "d736e21af593b1abe61c8bd056b0b89fa70e6cf537afc552b9561e34d733eb39",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/receiver-evidence.json",
+      "expected_sha256": "926fa4fc2428afd7a012a17addc3c067d61b0d21bfb4b278d75fc16975b0c8ff",
+      "delivered_sha256": "926fa4fc2428afd7a012a17addc3c067d61b0d21bfb4b278d75fc16975b0c8ff",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/corrected-spans.log",
+      "expected_sha256": "55a554efd91a23790afe0f49ef95de6eccc554b8c9d9e5d8172e55f1415c26ec",
+      "delivered_sha256": "55a554efd91a23790afe0f49ef95de6eccc554b8c9d9e5d8172e55f1415c26ec",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/sites.tsv",
+      "expected_sha256": "9c99f89dbf69eedfdec6adfeb15908667788424df7737fbc2556b6d0d7843caa",
+      "delivered_sha256": "9c99f89dbf69eedfdec6adfeb15908667788424df7737fbc2556b6d0d7843caa",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/before-spans.log",
+      "expected_sha256": "55a554efd91a23790afe0f49ef95de6eccc554b8c9d9e5d8172e55f1415c26ec",
+      "delivered_sha256": "55a554efd91a23790afe0f49ef95de6eccc554b8c9d9e5d8172e55f1415c26ec",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/audit-summary.json",
+      "expected_sha256": "a799bd4ec8bf3e954a430aa4fdd2aaeb431a03076cfb9246da05ca38d561d6ac",
+      "delivered_sha256": "a799bd4ec8bf3e954a430aa4fdd2aaeb431a03076cfb9246da05ca38d561d6ac",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/REPORT.md",
+      "expected_sha256": "e3b942c0def235b9b34b0beda586c698c8b16efb77fb23e4461d36d590d52eed",
+      "delivered_sha256": "e3b942c0def235b9b34b0beda586c698c8b16efb77fb23e4461d36d590d52eed",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/structural-report.json",
+      "expected_sha256": "cbb83bde15f97d82c50e9421a9a0253e14465addb96e2bef736580d7a17bbd44",
+      "delivered_sha256": "c7ffc38933ced1f45e8faf716062bb24acb8ca1fd7ca6ceebcd1b5244bc8bcb1",
+      "matches": false
+    },
+    {
+      "path": "receiver-attribution/verify-evidence.py",
+      "expected_sha256": "623bf1c84ad5752507e04439746b7fdee3986f0085d891dd1f23b230a77630da",
+      "delivered_sha256": "623bf1c84ad5752507e04439746b7fdee3986f0085d891dd1f23b230a77630da",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/ReceiverAudit.java",
+      "expected_sha256": "1a6c11f30e57f2858add934c8ea6639c14515fc835f8051356f603aa9bfb78c6",
+      "delivered_sha256": "1a6c11f30e57f2858add934c8ea6639c14515fc835f8051356f603aa9bfb78c6",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/current-diagnostics.tsv",
+      "expected_sha256": "00b36e7aa818a36697b4b5d68651df6780e437ae6b131bef9812041c88bb81b3",
+      "delivered_sha256": "00b36e7aa818a36697b4b5d68651df6780e437ae6b131bef9812041c88bb81b3",
+      "matches": true
+    },
+    {
+      "path": "receiver-attribution/corrected-spans.tsv",
+      "expected_sha256": "1ec666229c1688543f29188c581865fbd1c6630099876199202a6502ae2137ad",
+      "delivered_sha256": "1ec666229c1688543f29188c581865fbd1c6630099876199202a6502ae2137ad",
+      "matches": true
+    }
+  ]
+}

@@ -52,12 +52,12 @@ public class GUIPneumoTube extends GuiInfoContainer {
 			this.drawCustomInfoStat(x, y, guiLeft + 151, guiTop + 52, 18, 18, x, y, TextFormatting.YELLOW + "Provider slot order:", tube.sendOrder == PneumaticNetwork.SEND_FIRST ? "First to last" : tube.sendOrder == PneumaticNetwork.SEND_LAST ? "Last to first" : "Random");
 		}
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 15; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	
 				if(this.isMouseOverSlot(slot, x, y) && tube.pattern.modes[i] != null) {
-					this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) }), x, y - 30);
+					this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(tube.pattern.modes[i]) }), x, y - 30);
 				}
 			}
 		}
@@ -79,10 +79,10 @@ public class GUIPneumoTube extends GuiInfoContainer {
 	
 	public void click(int x, int y, int left, int top, int sizeX, int sizeY, String name) {
 		if(checkClick(x, y, left, top, sizeX, sizeY)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean(name, true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, tube.xCoord, tube.yCoord, tube.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, tube.getPos().getX(), tube.getPos().getY(), tube.getPos().getZ()));
 		}
 	}
 	
@@ -90,8 +90,8 @@ public class GUIPneumoTube extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.tube.hasCustomInventoryName() ? this.tube.getInventoryName() : I18n.format(this.tube.getInventoryName());
 		
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 5, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 5, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

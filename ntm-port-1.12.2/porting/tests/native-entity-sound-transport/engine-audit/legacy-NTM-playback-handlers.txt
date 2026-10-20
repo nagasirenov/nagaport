@@ -1,0 +1,95 @@
+Source: /workspace/shared/nagaport/ntm-original-pristine/src/main/java/com/hbm/main/ModEventHandlerClient.java
+Lines 667-759:
+	private static final ResourceLocation MUSIC_LOCATION = new ResourceLocation("hbm:music.game.space");
+	private ISound currentSong;
+
+	@SubscribeEvent
+	public void onPlayMusic(PlaySoundEvent17 event) {
+		ResourceLocation r = event.sound.getPositionedSoundLocation();
+		if(Minecraft.getMinecraft().theWorld == null) return;
+		if(!r.toString().equals("minecraft:music.game.creative") && !r.toString().equals("minecraft:music.game")) return;
+
+		// Prevent songs playing over the top of each other
+		if(Minecraft.getMinecraft().getSoundHandler().isSoundPlaying(currentSong)) {
+			event.setResult(Result.DENY);
+			event.result = null;
+			return;
+		}
+
+		// Replace the sound if we're not on Earth
+		WorldProvider provider = Minecraft.getMinecraft().theWorld.provider;
+		if((provider instanceof WorldProviderCelestial || provider instanceof WorldProviderOrbit) && provider.dimensionId != 0) {
+			event.result = currentSong = PositionedSoundRecord.func_147673_a(MUSIC_LOCATION);
+		}
+	}
+
+	@Spaghetti("please get this shit out of my face")
+	@SubscribeEvent
+	public void onPlaySound(PlaySoundEvent17 e) {
+
+		EntityPlayer player = MainRegistry.proxy.me();
+		Minecraft mc = Minecraft.getMinecraft();
+
+		if(player != null && mc.theWorld != null) {
+			int i = MathHelper.floor_double(player.posX);
+			int j = MathHelper.floor_double(player.posY);
+			int k = MathHelper.floor_double(player.posZ);
+			Block block = mc.theWorld.getBlock(i, j, k);
+
+			if(block == ModBlocks.vacuum) {
+				e.result = null;
+				return;
+			}
+
+
+		}
+
+		ResourceLocation r = e.sound.getPositionedSoundLocation();
+
+		WorldClient wc = mc.theWorld;
+
+		//Alright, alright, I give the fuck up, you've wasted my time enough with this bullshit. You win.
+		//A winner is you.
+		//Conglaturations.
+		//Fuck you.
+
+		if(r.toString().equals("hbm:misc.nullChopper") && Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)
+		{
+			EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);
+
+			if(MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundChopperLoop) == null) {
+				MovingSoundPlayerLoop.globalSoundList.add(new MovingSoundChopper(new ResourceLocation("hbm:entity.chopperFlyingLoop"), ent, EnumHbmSound.soundChopperLoop));
+				MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundChopperLoop).setVolume(10.0F);
+			}
+		}
+
+		if(r.toString().equals("hbm:misc.nullCrashing") && Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)
+		{
+			EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);
+
+			if(MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundCrashingLoop) == null) {
+				MovingSoundPlayerLoop.globalSoundList.add(new MovingSoundCrashing(new ResourceLocation("hbm:entity.chopperCrashingLoop"), ent, EnumHbmSound.soundCrashingLoop));
+				MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundCrashingLoop).setVolume(10.0F);
+			}
+		}
+
+		if(r.toString().equals("hbm:misc.nullMine") && Library.getClosestMineForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2) != null)
+		{
+			EntityChopperMine ent = Library.getClosestMineForSound(wc, e.sound.getXPosF(), e.sound.getYPosF(), e.sound.getZPosF(), 2);
+
+			if(MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundMineLoop) == null) {
+				MovingSoundPlayerLoop.globalSoundList.add(new MovingSoundChopperMine(new ResourceLocation("hbm:entity.chopperMineLoop"), ent, EnumHbmSound.soundMineLoop));
+				MovingSoundPlayerLoop.getSoundByPlayer(ent, EnumHbmSound.soundMineLoop).setVolume(10.0F);
+			}
+		}
+
+		for(MovingSoundPlayerLoop sounds : MovingSoundPlayerLoop.globalSoundList)
+		{
+			if(!sounds.init || sounds.isDonePlaying()) {
+				sounds.init = true;
+				sounds.setDone(false);
+				mc.getSoundHandler().playSound(sounds);
+			}
+		}
+	}
+

@@ -1,0 +1,22 @@
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script '/workspace/shared/nagaport/ntm-port-1.12.2/porting/tile-ticks-probe.init.gradle' line: 8
+
+* What went wrong:
+Could not compile initialization script '/workspace/shared/nagaport/ntm-port-1.12.2/porting/tile-ticks-probe.init.gradle'.
+> startup failed:
+  initialization script '/workspace/shared/nagaport/ntm-port-1.12.2/porting/tile-ticks-probe.init.gradle': 8: expecting '}', found ',' @ line 8, column 74.
+     ty('portPython') ?: 'python3'), project.
+                                   ^
+  
+  1 error
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1s

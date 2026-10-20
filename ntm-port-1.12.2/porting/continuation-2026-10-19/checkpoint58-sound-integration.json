@@ -1,0 +1,76 @@
+{
+  "cp56_baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "integration_baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+  "shared_files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+      "cp56_before_sha256": "c10ab179fd25d51dcb641221ef17974be8007a7cbd0e5a8a9d75c7236a3ef962",
+      "cp56_after_sha256": "d4bdaddeee4113a8a966c7ec81db2fab647f82a4127aba571c6548a4e589bb6a",
+      "integration_before_sha256": "846f6b1fed8c84360b87081b6ccfd01ed7d29e16cbe8fc061a070dc6289fa374",
+      "integration_after_sha256": "401b82950541b754c180dd4887b2b98c9a9ca38b99f443fe4381182787658f32"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "cp56_before_sha256": "acb60e3a950d7816a01dc3ccb4016f712c2957078c000cdaca9e1f058770c9c6",
+      "cp56_after_sha256": "34298c7450fee35a089ca4285db68c310a578ccaa55542058f8768d2077d1afb",
+      "integration_before_sha256": "2f20e8202363ad73863520ca452aff33ad5b8fd26ea1aaf2d7367ea102bf58f1",
+      "integration_after_sha256": "9ff2e2c0a00d3f6cb54b1f31b6b834e1247ec200484f22a39d573efbb2210f7e"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+      "cp56_before_sha256": "db2ab510dee6806f77e9b4bb520fa5218ce07a92931e833d0cd053f0a192709f",
+      "cp56_after_sha256": "a07a94dd2f1cf5402bebcc9cfa59b52f6da95fa44b008aa75331102df7d69d3e",
+      "integration_before_sha256": "15ce4957273cf3958367dbf9fabb8d132e4512bc590797c7340526333e514c54",
+      "integration_after_sha256": "2ac5fdd38c22c114f6c032161fb2adb7d8429da71592444206951ad5ee1ba0c1"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/effect/EntitySpear.java",
+      "cp56_before_sha256": "9c39742c001b8d4a933f0a72f0d6f96d820f011e1c8676bacc4b38fbf06ac069",
+      "cp56_after_sha256": "15e04f3c4029c4636b646feeda7d6c398f71c6662531851aa4768f43b5b83aac",
+      "integration_before_sha256": "f792eac9b42348d5a423ad5878f325c430466c56ebec722a38ba05bfad4fedeb",
+      "integration_after_sha256": "6974ca1f99509f6ce1071a42a0f19e89b0b1a251d0e1d6aa6cd5fb2ef77507a0"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+      "cp56_before_sha256": "ae5a136e7c2ccb1f611d49074af1c2b62e28e233b3996921c0ec2c794056f2aa",
+      "cp56_after_sha256": "aa461a403e1dd3250542374f66ca0e4e91804ebedd5bf7d2539e1b9d47a91b08",
+      "integration_before_sha256": "253748bf090cc42559adc739f6e477ad2a66644b964887a831f912bdefddffcb",
+      "integration_after_sha256": "3c3dbafda42aacb4bca242dcf62804abc5bd5e94ff60c929886939cc9b140185"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityCombatDropPod.java",
+      "cp56_before_sha256": "504251b67791747282f08a0383e6e8c23cc8ecef1031c5ae6d7ac8e749922488",
+      "cp56_after_sha256": "fb42cac539a1635bbeb266df00a32603db9f36f31a6047d0a09c3c8af73b45f4",
+      "integration_before_sha256": "20cb76fa027e185ef2eaaf82e6c9f2ff4f4fa472a678a677e19cab3f6192f9ad",
+      "integration_after_sha256": "9a84d0d3b78f6bff0bdd1831488d131de388314d36ff95aca3d7ab43360ea2b5"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityMeteor.java",
+      "cp56_before_sha256": "cd33699a551dd3bd9c74023b3a2c6db818cdc3af87aea7cb37773b853572be14",
+      "cp56_after_sha256": "fe43c499fde169b7f4fac3eea2cdc59a7dc31ff0c42dc603978d07932d9dc009",
+      "integration_before_sha256": "f67be5a80e7fcd98f5df861f1924b590e3c41511bbb2b9a7a2f1f4ec1c26187a",
+      "integration_after_sha256": "0fa5ed64678bc20b60403028c1581d32a3ada573431c3ca495b32a97509ec519"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+      "cp56_before_sha256": "0d978b9897a75b8b872f897724491db7d747275ba158da2bc779d44b9599156c",
+      "cp56_after_sha256": "caadfac1830388e06d33079079384bd3f14bc6f451554d1f55abad6273d32902",
+      "integration_before_sha256": "c8f6a7f535fcfef0c2132f715d1d57873f8a937154072b8014275f3065be1aca",
+      "integration_after_sha256": "d7bc8ab998f1fc7c7cb722b69951c34ac0f17cf4772dfef6a9c3e4c0e826f5de"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+      "cp56_before_sha256": "423d5f54ef6b2f54c38f2955a9a6cf5ed90e5baded1f5e84e8fa8db27542ec71",
+      "cp56_after_sha256": "6bbaa43f46f7053d2786489326fc8fa6e057ade5867c3715fe9923d96e60aa6a",
+      "integration_before_sha256": "53f3e9c02d6d5823d4bd67c3dc56edf8def7fea1b56d0ab3b779828cf077b598",
+      "integration_after_sha256": "a543f91b3f0d129bfd89aa68a8a6883020d841acf61ddd081ec55f0f8e4ec956"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "cp56_before_sha256": "5263e57e3414b9365e58327a0fc7021e9c260d28dbdb483ffe768c5eac6de15e",
+      "cp56_after_sha256": "8944391f34206e6f2e521ed390f83596aa652487345708b1258525ee00397bab",
+      "integration_before_sha256": "45a78eef92868b7602c56a191ae9c6524a8ae21095267907f5f3dbedbe28be97",
+      "integration_after_sha256": "b5d7532f05925cda2221e861bc19d8c31c4d252a21b17594caab0cf3583d3789"
+    }
+  ]
+}

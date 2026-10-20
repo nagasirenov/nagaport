@@ -1,0 +1,14 @@
+{
+  "com/hbm/blocks/network/BlockCablePaintable.java": "864bf2d302db722aa95d5a5435ab0e4846aa5724cfa1a3701d4c9683a3bbd386",
+  "com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": "065fa312d0410407c8c50d843d66baec669d4271095dff2ef7ad3d42f5d02851",
+  "com/hbm/blocks/network/FluidDuctPaintable.java": "49741d74e1f9b666f8e93dd14379a054bf1d89064fcb8e1bcc6d820b06eaffd2",
+  "com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": "b771fed5444abababc36ef1e8fe5968a91b37a59fb6604caf33466e885b55d98",
+  "com/hbm/blocks/network/PneumoTubePaintableBlock.java": "cba0f187bd9235556d2441e16f272f26d63feb48d1255ab99e501cf77985fa6e",
+  "com/hbm/blocks/network/BlockCableGauge.java": "ed8e58c8d6135e2281fb1c9e3c90bb07169022c527945698386f53ff0c481e57",
+  "com/hbm/blocks/network/FluidDuctGauge.java": "acd88b89f19f1a8628f211528b38bf4ec3e218cf815fb3db3941181f10c3203c",
+  "com/hbm/blocks/network/CraneRouter.java": "67c438af445f9da9295de8d5009000ce425ccfc1ba688b2f65f83c0b26c6e2d2",
+  "com/hbm/blocks/generic/BlockFissure.java": "fbbafef5fc4b1b8876670ea377b68e04188ae0f223066107dc8358035692dd0d",
+  "com/hbm/blocks/generic/BlockOre.java": "86e288e49c3856fa0fa3aae0c49f3ee481e8372370cfedca3586e20861188c77",
+  "com/hbm/blocks/generic/BlockBedrockOreTE.java": "54ae2215592894224fdf36fbbac676ab6ee368037dd33686aea1db62edd3451c",
+  "com/hbm/blocks/generic/BlockSellafieldOre.java": "7183ee78c849798cbf170c71a51d70746c191064c76ec13f500062605ce80158"
+}

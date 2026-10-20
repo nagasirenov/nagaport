@@ -10,7 +10,7 @@ import com.hbm.render.loader.HFRWavefrontObject;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderSiegeTunneler extends Render {
 
@@ -18,7 +18,7 @@ public class RenderSiegeTunneler extends Render {
 		this.shadowOpaque = 0.0F;
 	}
 
-	public static final IModelCustom body = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/mobs/tunneler.obj"));
+	public static final MeshModel body = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/mobs/tunneler.obj"));
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {

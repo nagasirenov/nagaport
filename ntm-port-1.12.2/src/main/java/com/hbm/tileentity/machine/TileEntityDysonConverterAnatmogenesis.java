@@ -47,13 +47,13 @@ public class TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dysonConverterAnatmogenesis";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			isConverting = gasProduced > 0;
 
 			networkPackNT(250);
@@ -65,16 +65,16 @@ public class TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
 				data.setFloat("lift", 0.5F);
 				data.setFloat("base", 0.8F);
 				data.setFloat("max", 4F);
-				data.setInteger("life", 100 + worldObj.rand.nextInt(50));
+				data.setInteger("life", 100 + this.world.rand.nextInt(50));
 
 				data.setInteger("color", fluid.getColor());
-				data.setDouble("posX", xCoord + 0.5);
-				data.setDouble("posZ", zCoord + 0.5);
-				data.setDouble("posY", yCoord + 3.25);
+				data.setDouble("posX", this.pos.getX() + 0.5);
+				data.setDouble("posZ", this.pos.getZ() + 0.5);
+				data.setDouble("posY", this.pos.getY() + 3.25);
 
-				data.setDouble("mX", (worldObj.rand.nextDouble() - 0.5));
-				data.setDouble("mY", (worldObj.rand.nextDouble()) * 2);
-				data.setDouble("mZ", (worldObj.rand.nextDouble() - 0.5));
+				data.setDouble("mX", (this.world.rand.nextDouble() - 0.5));
+				data.setDouble("mY", (this.world.rand.nextDouble()) * 2);
+				data.setDouble("mZ", (this.world.rand.nextDouble() - 0.5));
 
 				MainRegistry.proxy.effectNT(data);
 			}
@@ -84,9 +84,9 @@ public class TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
 	@Override
 	public boolean provideEnergy(int x, int y, int z, long energy) {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-		int rx = xCoord + dir.offsetX * 5;
-		int ry = yCoord + 1;
-		int rz = zCoord + dir.offsetZ * 5;
+		int rx = this.pos.getX() + dir.offsetX * 5;
+		int ry = this.pos.getY() + 1;
+		int rz = this.pos.getZ() + dir.offsetZ * 5;
 
 		if(x != rx || y != ry || z != rz) return false;
 
@@ -94,9 +94,9 @@ public class TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
 		gasProduced += volume;
 
 		if(isEmitting) {
-			FT_Gaseous.release(worldObj, fluid, volume);
+			FT_Gaseous.release(this.world, fluid, volume);
 		} else {
-			FT_Gaseous.capture(worldObj, fluid, volume);
+			FT_Gaseous.capture(this.world, fluid, volume);
 		}
 
 		return true;
@@ -133,10 +133,11 @@ public class TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("fluid", fluid.getID());
 		nbt.setBoolean("emit", isEmitting);
+		return nbt;
 	}
 
 	AxisAlignedBB bb = null;
@@ -146,12 +147,12 @@ public class TileEntityDysonConverterAnatmogenesis extends TileEntityMachineBase
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 6,
-				yCoord,
-				zCoord - 6,
-				xCoord + 7,
-				yCoord + 6,
-				zCoord + 7
+				this.pos.getX() - 6,
+				this.pos.getY(),
+				this.pos.getZ() - 6,
+				this.pos.getX() + 7,
+				this.pos.getY() + 6,
+				this.pos.getZ() + 7
 			);
 		}
 

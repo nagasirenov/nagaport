@@ -45,20 +45,20 @@ public class ItemInfiniteFluid extends Item {
 	public void onUpdate(ItemStack stack, World world, Entity player, int slot, boolean inHand) {
 		if(!requiresTable) return;
 
-		if(stack.stackTagCompound == null)
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null)
+			stack.setTagCompound(new NBTTagCompound());
 
 		if(world.provider instanceof WorldProviderOrbit) {
-			stack.stackTagCompound.setBoolean("noAtmo", true);
-			stack.stackTagCompound.setInteger("fluid", 0);
+			stack.getTagCompound().setBoolean("noAtmo", true);
+			stack.getTagCompound().setInteger("fluid", 0);
 			return;
 		}
 		
 		// Check that the current body has a water table
 		CBT_Water table = CelestialBody.getTrait(world, CBT_Water.class);
 		boolean canOperate = table != null && table.fluid == type;
-		stack.stackTagCompound.setBoolean("noAtmo", !canOperate);
-		stack.stackTagCompound.setInteger("fluid", table != null ? table.fluid.getID() : 0);
+		stack.getTagCompound().setBoolean("noAtmo", !canOperate);
+		stack.getTagCompound().setInteger("fluid", table != null ? table.fluid.getID() : 0);
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -67,7 +67,7 @@ public class ItemInfiniteFluid extends Item {
 		if(canOperate(stack))
 			return;
 
-		FluidType currentFluid = Fluids.fromID(stack.stackTagCompound.getInteger("fluid"));
+		FluidType currentFluid = Fluids.fromID(stack.getTagCompound().getInteger("fluid"));
 
 		if(currentFluid == Fluids.NONE) {
 			list.add("Current environment has insufficient vapor pressure");
@@ -88,5 +88,5 @@ public class ItemInfiniteFluid extends Item {
 	public int getAmount() { return this.amount; }
 	public int getChance() { return this.chance; }
 	public boolean allowPressure(int pressure) { return this == ModItems.fluid_barrel_infinite || pressure == 0; }
-	public boolean canOperate(ItemStack stack) { return stack.stackTagCompound == null || !stack.stackTagCompound.getBoolean("noAtmo"); }
+	public boolean canOperate(ItemStack stack) { return stack.getTagCompound() == null || !stack.getTagCompound().getBoolean("noAtmo"); }
 }

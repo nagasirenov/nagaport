@@ -57,7 +57,7 @@ public class DummyBlockMachine extends DummyOldBase {
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			TileEntity te = world.getTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(te != null && te instanceof TileEntityDummy) {
 				int a = ((TileEntityDummy) te).targetX;
 				int b = ((TileEntityDummy) te).targetY;

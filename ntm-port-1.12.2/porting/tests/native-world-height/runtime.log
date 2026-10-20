@@ -1,0 +1,30 @@
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java:16: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U;static int checks;
+                      ^
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                             ^
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                          ^
+Note: /workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/HeightNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: 17769 actual original/native client/server World/provider/Chunk height, bounds, sea level, empty/unloaded and evaluation assertions
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/OriginalHeightEvaluation.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/OriginalHeightEvaluation.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-world-query-cp59/ntm-port-1.12.2/porting/tests/native-world-height/OriginalHeightEvaluation.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 3 actual original height invocation receiver/argument/null evaluation assertions
+Attribution diagnostics, not compile success: 9
+Unrelated unfinished-port diagnostics: 0
+PASS: 3 exact original receiver/argument-preserving edits; 2 whole-file byte-exact inverses
+PASS: two positive and eight rejected receiver/type/arity/error height-attribution controls
+PASS: client true-branch scope accepted; negated and unguarded scope mutants rejected
+PASS: six bounds/sea-level/null/coordinate/height mutants rejected

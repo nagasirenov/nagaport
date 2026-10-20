@@ -1,0 +1,46 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeUniversalBlocksTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeUniversalBlocksTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeUniversalBlocksTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeUniversalBlocksTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);Sprite sprite=new Sprite();
+  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeUniversalBlocksTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);Sprite sprite=new Sprite();
+                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeUniversalBlocksTest.java:126: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);Sprite sprite=new Sprite();
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+PASS 41 complete production classes against native Forge/Minecraft; 23 explicit NTM external collaborator types, no platform substitutes
+PASS complete original geometry oracle: five owners, all16 metadata, all64 adjacency masks, item/world, both rebar configurations; 112 distinct bounds
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.sandbags`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.sandbags`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.wood_barrier`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.wood_barrier`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.wood_structure`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.wood_structure`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rebar`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rebar`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rbmk_display`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rbmk_display`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rbmk_key_pad`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rbmk_key_pad`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rbmk_gauge`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rbmk_gauge`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `other` for name `sandbags`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_sandbags`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[20:14:29] [main/INFO]: Setting user: UniversalProbe
+PASS all seven native registry/model routes, original materials, item/world rebakes, unowned blocks left untouched
+PASS actual Forge flat/smooth and vanilla flat/smooth consumers, neighbor culling, native world light, exact Forge crack geometry/material routing
+PASS original client face bytecode plus complete original RenderBlocksNT mirror overrides: UV clamps, normals, positions, item offset/rotation
+PASS 1128127 native universal owners

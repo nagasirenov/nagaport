@@ -1,0 +1,65 @@
+{
+  "base": "caf22cf027f33f9d0d0be366454c2f54fdba7915",
+  "integrates_after": "7b725ffef2da46e4fec1371278a951ff18e3b163",
+  "shared_fragment_manifest": "porting/tests/multipass-native/shared-edits.json",
+  "shared_files": [
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java",
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java"
+  ],
+  "production": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/IBlockMultiPass.java": "0f63a002a56ec7e1a2649d6038f061e89e10113538e9651e6c6db5712dc1a5b0",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java": "a10262694e9410587620b76da3a4e77a017e966117f66b2c7b24cd5084d876d2",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/MultipassContext.java": "98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java": "b3d9c629e750482369d9dba89fd90737ca628729fdaabcae59fcdc8bf52d3097",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockFissure.java": "ea735255809091cb3cd6328e2bcb612272492b47a08b3a70d2fb9b76908c79f3",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOre.java": "f7a68d5dbd3ec0a748190b442b561ac68fafc5af968758cf07189a6718a31666",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java": "b280082803ef8f529a6aa08a09e310b3129c0096fb0b0e5063ee2b0a81c3eed4",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockCableGauge.java": "e9fea2c944998c61b39c44b25692d0414011a2cef82dd2be9d438e371d3bf870",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": "4bdb18d325799a8f9f7da00b50cc0ff3983daed7152f605306a2e1e465b5de38",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": "78ec23445142e4d7f2d3212ec9207ce84c9e54b358e7d4a4d23b25d5f8fb2047",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/CraneRouter.java": "069c0c74cd1481e7934d78d566a0b5c61c1d79377cde57ea6f5c510f0a62d97f",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctGauge.java": "b99b5fd5b91a169418241289f7d79adfc9d2bd5fb2429651cffa0db39b19439d",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": "56533dc50aa2250ffcb34104efe92df5a47dc97e3f67625b72842a8088903b23",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": "402dd4e069119c6d09b62450f0f08dbfde1554be4f2921131b17b4d4b7c5e7f3",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": "7832a0822cf5a5541b1014773f590ad631e32a60f5a091e44713267dfe46aca1",
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java": "5528dfbbc1642dd246d05985000c48cf24303e7292e3539ec54b4d51b4122d65",
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/MultipassModelHandler.java": "848560f450be5835f97f0621b0f99ce1f900c8d1b9ab689658e26742d7ea19c1",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/RenderBlockMultipass.java": "b31f8bfa884a1d5a5ebb32ddc645f688b030b70b12df3a6cfde53c5711e02271",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/multipass/MultipassMaterials.java": "4970e1fb8684157942a9d9043666d9033ce4b9cacd650ea5be91bd849246f6c7"
+  },
+  "evidence": {
+    "ntm-port-1.12.2/porting/tests/multipass-native/MultipassNativeTest.java.in": "f66840a98af8fda82d555e4101644344259c4b79efc97c759ab1cb8a27e72d73",
+    "ntm-port-1.12.2/porting/tests/multipass-native/README.md": "793c2cf50fd8f3aec73b68d556907f63b45a7df3518f83f7bf600a7b10a0eb11",
+    "ntm-port-1.12.2/porting/tests/multipass-native/cp49-owner-manifest.json": "1fe4e48264744f9f4b644077147da6bd69c7c00a6afedce71c3298273e34087d",
+    "ntm-port-1.12.2/porting/tests/multipass-native/cp49-owner-sources.zip": "2fe7adad87f53cb74b74e3de679793434e8a8b71e51c3b8fe76a2020319c376d",
+    "ntm-port-1.12.2/porting/tests/multipass-native/cp49-shared-manifest.json": "e9045885488fa06c6a9838b4ef52e5e4d0dd5c19e83a3c7aa4928b2804ef680d",
+    "ntm-port-1.12.2/porting/tests/multipass-native/cp49-shared-sources.zip": "f51a2323587bc9a042fb7ed3240be062be21b9ee49f3c8370b6125df64ad5f54",
+    "ntm-port-1.12.2/porting/tests/multipass-native/native-proof.log": "d5cf0a5ff7ed84e8afdb562a832ec59783b53396d582e4af4944afef1208bba1",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-audit.md": "d88b8bf8e9767d3c723f4b7cfbf8801f5419fb0c47e851effe1029cb74415dce",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-damage-bytecode.txt": "9d1b0efd9a863301bc291f00170abb3bfa984e3fe9ccb039fef65f7a9a3909dc",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-damage-no-color.java.in": "f4a1977eeb7a7edbed2962f8887e4b1000e30fb72b4ea939b2dad51e7b8fbd5a",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-manifest.json": "c16e9858c52b0484bc893edfb2e3774ae0570f6c69e3812460e3591b1d4c2740",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-material-oracle.java.in": "c7b8cd419b844bee2288b836acfaeb3d035b089e20dcce34c9d7245d859cf969",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-material-oracle.py": "b47ef0f70b4b76ee53132019301762a656d9ce8efbc58ca92fff316949c973d6",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-native-comparison.java.in": "0a54f1c1b991c4ea87c82111712ddea8ab35456dde59c68c21055a68e497cffc",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-owners.tsv": "bc850b94a5df223a861130bc681a3485249eb9e623229211b2ab57831a8f185c",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-proof.log": "53ad6aaef24bc5bf51c8d65221c728ccc3deb229a9083e40dd0db4cf7466f974",
+    "ntm-port-1.12.2/porting/tests/multipass-native/original-renderer-bytecode.txt": "12b04ff1e9e71f8d560f0f2601dade0e3daefa3b5b2cb81aa1aec5491582d9d4",
+    "ntm-port-1.12.2/porting/tests/multipass-native/probe.py": "feef3a79fa1261f81b79e437dfb1620ff78372e2e063031a4efdc47b21b5b53f",
+    "ntm-port-1.12.2/porting/tests/multipass-native/registrations.json": "81a8d88db2be9067f6038661ae0b8a67769d7f42d1970cce2846d3b2f2beed69",
+    "ntm-port-1.12.2/porting/tests/multipass-native/shared-edits.json": "d4fa560ec1748a7d1455f4ceb08e0dde5e59cbd7c69f20186a3bf26fe0a17007",
+    "ntm-port-1.12.2/porting/tests/multipass-native/source-audit.py": "a8a4589b0dc4bedd52007568c41ccd5c8681a6ebded6244f95b2ed199061bb50",
+    "ntm-port-1.12.2/porting/tests/multipass-native/source-proof.log": "8ced18299f0806efd26fb051db7e32636984ab9e9f9676a2840dc848f33e212b"
+  },
+  "external_dependency": {
+    "path": "src/main/java/com/hbm/render/util/NativeBlockMaterial.java",
+    "sha256": "948cdeae5bb39ac0919e1f8fcf2fd415be1bf38a889a74442339f4a15b387a01",
+    "included_in_patch": false
+  },
+  "limits": [
+    "Eleven large owners and three inherited ore subclasses remain bounded render hooks, not full mechanics compile.",
+    "CP37 and full old/new corner-light solver, GPU/shader/inventory-current-color acceptance remain open.",
+    "Ambiguous foreign camouflage has no authorized material fallback.",
+    "No full build, game/server/save/network end-to-end claim."
+  ]
+}

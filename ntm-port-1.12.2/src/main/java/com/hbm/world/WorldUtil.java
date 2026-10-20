@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.util.math.ChunkPos;
@@ -56,9 +55,9 @@ public class WorldUtil {
 	public static void syncBiomeChange(World world, int x, int z) {
 		Chunk chunk = world.getChunkFromBlockCoords(x, z);
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
-			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x >> 4, z >> 4, getBiomeShortArray(chunk)), new TargetPoint(world.provider.dimensionId, x, 128, z, 1024D));
+			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x >> 4, z >> 4, getBiomeShortArray(chunk)), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
 		} else {
-			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x >> 4, z >> 4, chunk.getBiomeArray()), new TargetPoint(world.provider.dimensionId, x, 128, z, 1024D));
+			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x >> 4, z >> 4, chunk.getBiomeArray()), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
 		}
 	}
 
@@ -66,10 +65,10 @@ public class WorldUtil {
 		Chunk chunk = world.getChunkFromBlockCoords(x, z);
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 			short biome = getBiomeShortArray(chunk)[(z & 15) << 4 | (x & 15)];
-			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x, z, biome), new TargetPoint(world.provider.dimensionId, x, 128, z, 1024D));
+			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x, z, biome), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
 		} else {
 			byte biome = chunk.getBiomeArray()[(z & 15) << 4 | (x & 15)];
-			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x, z, biome), new TargetPoint(world.provider.dimensionId, x, 128, z, 1024D));
+			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x, z, biome), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
 		}
 	}
 	
@@ -79,16 +78,16 @@ public class WorldUtil {
 		WorldServer server = (WorldServer) world;
 		PlayerManager man = server.getPlayerManager();
 		Method getOrCreateChunkWatcher = ReflectionHelper.findMethod(PlayerManager.class, man, new String[] {"getOrCreateChunkWatcher"}, int.class, int.class, boolean.class);
-		int x = chunk.getChunkCoordIntPair().chunkXPos;
-		int z = chunk.getChunkCoordIntPair().chunkZPos;
+		int x = chunk.getPos().x;
+		int z = chunk.getPos().z;
 		PlayerManager.PlayerInstance playerinstance = (PlayerInstance) getOrCreateChunkWatcher.invoke(man, x, z, false);*/
 		
 		/* this sucks ass */
 		ChunkPos coord = chunk.getPos();
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
-			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(coord.x, coord.z, getBiomeShortArray(chunk)), new TargetPoint(world.provider.dimensionId, coord.getXStart() + 8, 128, coord.getZStart() + 8, 1024D));
+			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(coord.x, coord.z, getBiomeShortArray(chunk)), new TargetPoint(world.provider.getDimension(), coord.getXStart() + 8, 128, coord.getZStart() + 8, 1024D));
 		} else {
-			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(coord.x, coord.z, chunk.getBiomeArray()), new TargetPoint(world.provider.dimensionId, coord.getXStart() + 8, 128, coord.getZStart() + 8, 1024D));
+			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(coord.x, coord.z, chunk.getBiomeArray()), new TargetPoint(world.provider.getDimension(), coord.getXStart() + 8, 128, coord.getZStart() + 8, 1024D));
 		}
 	}
 
@@ -108,9 +107,9 @@ public class WorldUtil {
 	 */
 	public static void loadAndSpawnEntityInWorld(Entity entity) {
 
-		World world = entity.worldObj;
-		int chunkX = MathHelper.floor_double(entity.posX / 16.0D);
-		int chunkZ = MathHelper.floor_double(entity.posZ / 16.0D);
+		World world = entity.world;
+		int chunkX = MathHelper.floor(entity.posX / 16.0D);
+		int chunkZ = MathHelper.floor(entity.posZ / 16.0D);
 		byte loadRadius = 2;
 
 		for(int k = chunkX - loadRadius; k <= chunkX + loadRadius; ++k) {
@@ -131,7 +130,7 @@ public class WorldUtil {
 	public static Chunk provideChunk(WorldServer world, int chunkX, int chunkZ) {
 		try {
 			ChunkProviderServer provider = world.theChunkProviderServer;
-			Chunk chunk = (Chunk) provider.loadedChunkHashMap.getValueByKey(ChunkCoordIntPair.chunkXZ2Int(chunkX, chunkZ));
+			Chunk chunk = (Chunk) provider.loadedChunkHashMap.getValueByKey(ChunkPos.asLong(chunkX, chunkZ));
 			if(chunk != null) return chunk;
 			return loadChunk(world, provider, chunkX, chunkZ);
 		} catch(Throwable x) {
@@ -140,7 +139,7 @@ public class WorldUtil {
 	}
 
 	private static Chunk loadChunk(WorldServer world, ChunkProviderServer provider, int chunkX, int chunkZ) {
-		long chunkCoord = ChunkCoordIntPair.chunkXZ2Int(chunkX, chunkZ);
+		long chunkCoord = ChunkPos.asLong(chunkX, chunkZ);
 		provider.chunksToUnload.remove(Long.valueOf(chunkCoord));
 		Chunk chunk = (Chunk) provider.loadedChunkHashMap.getValueByKey(chunkCoord);
 		AnvilChunkLoader loader = null;

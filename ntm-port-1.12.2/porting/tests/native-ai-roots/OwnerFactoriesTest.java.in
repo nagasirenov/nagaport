@@ -1,0 +1,40 @@
+import com.hbm.entity.mob.ai.*;
+import net.minecraft.entity.ai.*;
+import net.minecraft.world.World;
+
+/** Only the exact two ranged factory methods and two FBI task-registration statements.
+ * The three real entity owners are NOT compiled by this fixture. */
+public class OwnerFactoriesTest {
+    static class Cyber extends NativeAiRootsTest.Creature {
+        Cyber(World w) { super(w); }
+        @CYBER_FACTORY@
+    }
+    static class Taint extends Cyber {
+        Taint(World w) { super(w); }
+        @TAINT_FACTORY@
+    }
+    static class FBI extends NativeAiRootsTest.Creature {
+        FBI(World w) {
+            super(w);
+            @FBI_REGISTRATION@
+        }
+    }
+    static void config(EntityAIRangedAttackNT task,double speed,int min,int max,float radius) throws Exception {
+        NativeAiRootsTest.same(NativeAiRootsTest.field(task,"speed").getDouble(task),speed,"owner speed");
+        NativeAiRootsTest.same(NativeAiRootsTest.number(task,"minimumInterval"),min,"owner minimum interval");
+        NativeAiRootsTest.same(NativeAiRootsTest.number(task,"maximumInterval"),max,"owner maximum interval");
+        NativeAiRootsTest.same(NativeAiRootsTest.field(task,"radius").getFloat(task),radius,"owner radius");
+    }
+    public static void main(String[] args) throws Exception {
+        net.minecraft.init.Bootstrap.register();
+        World w=NativeAiRootsTest.allocate(NativeAiRootsTest.FixtureWorld.class);
+        config(new Cyber(w).arrowAI(),.5D,60,80,15F);
+        config(new Taint(w).arrowAI(),.5D,5,5,50F);
+        FBI fbi=new FBI(w);NativeAiRootsTest.check(fbi.tasks.taskEntries.size()==2,"exact two extracted task registrations");
+        for(EntityAITasks.EntityAITaskEntry entry:fbi.tasks.taskEntries) {
+            if(entry.priority==2) { NativeAiRootsTest.check(entry.action instanceof EntityAIRangedAttackNT,"FBI ranged priority2");config((EntityAIRangedAttackNT)entry.action,1D,20,25,15F); }
+            else { NativeAiRootsTest.check(entry.priority==3&&entry.action instanceof EntityAIFBIMelee,"FBI melee priority3"); }
+        }
+        System.out.println("PASS: "+NativeAiRootsTest.checks+" native extracted-owner factory/registration assertions; full owner classes explicitly outside fixture scope.");
+    }
+}

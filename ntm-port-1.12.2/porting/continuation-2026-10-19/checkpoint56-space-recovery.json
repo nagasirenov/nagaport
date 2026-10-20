@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/workspace/shared/nagaport-multipass-native",
+    "commit": "8a04dc64b27fb664f4f2b29b06cbd09fa3af70f2",
+    "restoration": "git sparse-checkout disable",
+    "retained": "All tracked bytes retained in Git; production Java and all porting evidence retained on disk. No dirty or active worktree touched."
+  },
+  {
+    "path": "/workspace/shared/nagaport-native-ai-roots",
+    "commit": "d15f9e592b604dae1989175fa41ca9c6232d4c9d",
+    "restoration": "git sparse-checkout disable",
+    "retained": "All tracked bytes retained in Git; production Java and all porting evidence retained on disk. No dirty or active worktree touched."
+  },
+  {
+    "path": "/workspace/shared/nagaport-native-block-entities",
+    "commit": "bbe495f28b7bcc0448b0fe6e608a198c3b05cddb",
+    "restoration": "git sparse-checkout disable",
+    "retained": "All tracked bytes retained in Git; production Java and all porting evidence retained on disk. No dirty or active worktree touched."
+  },
+  {
+    "path": "/workspace/shared/nagaport-native-tile-visuals-cp49",
+    "commit": "846ee253472dc069d374be451ce77bc2ebd31d19",
+    "restoration": "git sparse-checkout disable",
+    "retained": "All tracked bytes retained in Git; production Java and all porting evidence retained on disk. No dirty or active worktree touched."
+  },
+  {
+    "path": "/workspace/shared/nagaport-rail-native",
+    "commit": "f393916ba1fa40bbe293e7eefc44932d530629f2",
+    "restoration": "git sparse-checkout disable",
+    "retained": "All tracked bytes retained in Git; production Java and all porting evidence retained on disk. No dirty or active worktree touched."
+  }
+]

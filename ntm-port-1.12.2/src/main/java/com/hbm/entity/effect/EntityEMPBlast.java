@@ -4,9 +4,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.World;
 
 public class EntityEMPBlast extends Entity {
+
+	private static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityEMPBlast.class, DataSerializers.VARINT);
 	
 	public int maxAge = 100;
 	public int age;
@@ -23,18 +28,19 @@ public class EntityEMPBlast extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(16, Integer.valueOf(0));
+		// The original default constructor left watched maxAge at zero, despite the public field being 100.
+		this.dataManager.register(MAX_AGE, Integer.valueOf(0));
 	}
 
     @Override
 	@SideOnly(Side.CLIENT)
-    public int getBrightnessForRender(float p_70070_1_)
+    public int getBrightnessForRender()
     {
         return 15728880;
     }
 
     @Override
-	public float getBrightness(float p_70013_1_)
+	public float getBrightness()
     {
         return 1.0F;
     }
@@ -73,10 +79,10 @@ public class EntityEMPBlast extends Entity {
 	}
 	
 	public void setMaxAge(int i) {
-		this.dataWatcher.updateObject(16, Integer.valueOf(i));
+		this.dataManager.set(MAX_AGE, Integer.valueOf(i));
 	}
 	
 	public int getMaxAge() {
-		return this.dataWatcher.getWatchableObjectInt(16);
+		return this.dataManager.get(MAX_AGE);
 	}
 }

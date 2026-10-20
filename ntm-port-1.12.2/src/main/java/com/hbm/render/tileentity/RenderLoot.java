@@ -1,5 +1,6 @@
 package com.hbm.render.tileentity;
 
+import com.hbm.render.util.NativeIconExtrusion;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -12,7 +13,6 @@ import com.hbm.main.ResourceManager;
 import com.hbm.util.Tuple.Quartet;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
@@ -207,7 +207,7 @@ public class RenderLoot extends TileEntitySpecialRenderer {
 			float f12 = (float) (k1 & 255) / 255.0F;
 			GL11.glColor4f(1.0F * f10, 1.0F * f11, 1.0F * f12, 1.0F);
 
-			ItemRenderer.renderItemIn2D(Tessellator.instance, f15, f4, f14, f5, icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
+			NativeIconExtrusion.draw(f15, f4, f14, f5, icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 		}
 	}
 }

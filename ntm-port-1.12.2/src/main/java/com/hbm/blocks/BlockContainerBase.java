@@ -20,7 +20,7 @@ public abstract class BlockContainerBase extends BlockBase implements ITileEntit
 
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventNo, int eventArg) {
 		super.onBlockEventReceived(world, x, y, z, eventNo, eventArg);
-		TileEntity tileentity = world.getTileEntity(x, y, z);
+		TileEntity tileentity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		return tileentity != null ? tileentity.receiveClientEvent(eventNo, eventArg) : false;
 	}
 }

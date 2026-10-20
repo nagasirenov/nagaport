@@ -9,5 +9,5 @@ public class FusionRecipeHandler extends NEIGenericRecipeHandler {
 		super(ModBlocks.fusion_torus.getLocalizedName(), FusionRecipes.INSTANCE, ModBlocks.fusion_torus);
 	}
 
-	@Override public String getRecipeID() { return "ntmFusion"; }
+	@Override public String getUid() { return "ntmFusion"; }
 }

@@ -26,7 +26,7 @@ public class GUIScreenBobble extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.bobble"), 1.0F));
+		mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.bobble"), 1.0F));
 	}
 
 	@Override
@@ -60,28 +60,28 @@ public class GUIScreenBobble extends GuiScreen {
 		int nextLevel = (int)top + 10;
 
 		String bobbleTitle = "Nuclear Tech Commemorative Bobblehead";
-		this.fontRendererObj.drawStringWithShadow(bobbleTitle, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(bobbleTitle) / 2), nextLevel, 0x00ff00);
+		this.fontRenderer.drawStringWithShadow(bobbleTitle, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(bobbleTitle) / 2), nextLevel, 0x00ff00);
 		
 		nextLevel += 10;
 		
 		String bobbleName = this.bobble.type.name;
 		if(this.bobble.type == BobbleType.MELLOW)
 			bobbleName = anagramIt(bobbleName, "GEORGEWILLIAMPATON");
-		this.fontRendererObj.drawStringWithShadow(bobbleName, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(bobbleName) / 2), nextLevel, 0x009900);
+		this.fontRenderer.drawStringWithShadow(bobbleName, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(bobbleName) / 2), nextLevel, 0x009900);
 		
 		nextLevel += 20;
 		
 		if(this.bobble.type.contribution != null) {
 
 			String title = "Has contributed";
-			this.fontRendererObj.drawStringWithShadow(title, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(title) / 2), nextLevel, 0x00ff00);
+			this.fontRenderer.drawStringWithShadow(title, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(title) / 2), nextLevel, 0x00ff00);
 			
 			nextLevel += 10;
 
 
 			String[] list = this.bobble.type.contribution.split("\\$");
 			for(String text : list) {
-				this.fontRendererObj.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(text) / 2), nextLevel, 0x009900);
+				this.fontRenderer.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(text) / 2), nextLevel, 0x009900);
 				nextLevel += 10;
 			}
 
@@ -91,13 +91,13 @@ public class GUIScreenBobble extends GuiScreen {
 		if(this.bobble.type.inscription != null) {
 
 			String title = "On the bottom is the following inscription:";
-			this.fontRendererObj.drawStringWithShadow(title, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(title) / 2), nextLevel, 0x00ff00);
+			this.fontRenderer.drawStringWithShadow(title, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(title) / 2), nextLevel, 0x00ff00);
 			
 			nextLevel += 10;
 
 			String[] list = this.bobble.type.inscription.split("\\$");
 			for(String text : list) {
-				this.fontRendererObj.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRendererObj.getStringWidth(text) / 2), nextLevel, 0x009900);
+				this.fontRenderer.drawStringWithShadow(text, (int)(left + sizeX / 2 - this.fontRenderer.getStringWidth(text) / 2), nextLevel, 0x009900);
 				nextLevel += 10;
 			}
 
@@ -110,7 +110,7 @@ public class GUIScreenBobble extends GuiScreen {
 	@Override
 	protected void keyTyped(char c, int key) {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 	

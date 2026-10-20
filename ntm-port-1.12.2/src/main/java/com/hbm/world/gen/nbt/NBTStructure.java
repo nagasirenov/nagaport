@@ -11,6 +11,7 @@ import java.util.function.Predicate;
 
 import org.apache.commons.io.IOUtils;
 
+import com.hbm.world.gen.LegacyStructureOrientation;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.generic.BlockWand;
 import com.hbm.blocks.generic.BlockWandTandem.TileEntityWandTandem;
@@ -129,7 +130,7 @@ public class NBTStructure {
 
 	public static void register() {
 		MapGenStructureIO.registerStructure(Start.class, "NBTStructures");
-		MapGenStructureIO.func_143031_a(Component.class, "NBTComponents");
+		MapGenStructureIO.registerStructureComponent(Component.class, "NBTComponents");
 	}
 
 	// Register a new structure for a given dimension
@@ -200,7 +201,7 @@ public class NBTStructure {
 		for(int x = ox; x <= Math.max(x1, x2); x++) {
 			for(int y = oy; y <= Math.max(y1, y2); y++) {
 				for(int z = oz; z <= Math.max(z1, z2); z++) {
-					Pair<Block, Integer> block = new Pair<Block, Integer>(world.getBlock(x, y, z), world.getBlockMetadata(x, y, z));
+					Pair<Block, Integer> block = new Pair<Block, Integer>(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 
 					if(exclude.contains(block)) continue;
 
@@ -235,7 +236,7 @@ public class NBTStructure {
 
 					nbtBlock.setTag("pos", nbtPos);
 
-					TileEntity te = world.getTileEntity(x, y, z);
+					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 					if(te != null) {
 						NBTTagCompound nbt = new NBTTagCompound();
 						te.writeToNBT(nbt);
@@ -344,7 +345,7 @@ public class NBTStructure {
 
 				palette[i] = new BlockDefinition(blockName, meta);
 
-				if(StructureConfig.debugStructures && palette[i].block == Blocks.air) {
+				if(StructureConfig.debugStructures && palette[i].block == Blocks.AIR) {
 					palette[i] = new BlockDefinition(ModBlocks.wand_air, meta);
 				}
 			}
@@ -527,7 +528,7 @@ public class NBTStructure {
 				for(int by = 0; by < size.y; by++) {
 					BlockState state = blockArray[bx][by][bz];
 					if(state == null) {
-						if(wipeExisting) world.setBlock(rx, by + y, rz, Blocks.air, 0, 2);
+						if(wipeExisting) { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = rx; int nativePlacementY = by + y; int nativePlacementZ = rz; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						continue;
 					}
 
@@ -638,14 +639,14 @@ public class NBTStructure {
 						world.setTileEntity(rx, ry, rz, te);
 					}
 
-					if(by == 0 && piece.platform != null && !block.getMaterial().isReplaceable()) hasBase = true;
+					if(by == 0 && piece.platform != null && !block.getDefaultState().getMaterial().isReplaceable()) hasBase = true;
 				}
 
 				if(hasBase && !piece.conformToTerrain) {
 					for(int y = oy - 1; y > 0; y--) {
-						if(!world.getBlock(rx, y, rz).isReplaceable(world, rx, y, rz)) break;
+						if(!com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock().isReplaceable(world, rx, y, rz)) break;
 						piece.platform.selectBlocks(world.rand, 0, 0, 0, false);
-						world.setBlock(rx, y, rz, piece.platform.func_151561_a(), piece.platform.getSelectedBlockMetaData(), 2);
+						world.setBlockState(new net.minecraft.util.math.BlockPos(rx, y, rz), piece.platform.getBlockState(), 2);
 					}
 				}
 			}
@@ -697,7 +698,7 @@ public class NBTStructure {
 		if(blockTable != null && blockTable.containsKey(definition.block)) {
 			final BlockSelector selector = blockTable.get(definition.block);
 			selector.selectBlocks(rand, 0, 0, 0, false); // fuck the vanilla shit idc
-			return selector.func_151561_a();
+			return selector.getBlockState().getBlock();
 		}
 
 		if(definition.block instanceof INBTBlockTransformable) return ((INBTBlockTransformable) definition.block).transformBlock(definition.block);
@@ -707,7 +708,8 @@ public class NBTStructure {
 
 	private int transformMeta(BlockDefinition definition, Map<Block, BlockSelector> blockTable, int coordBaseMode) {
 		if(blockTable != null && blockTable.containsKey(definition.block)) {
-			return blockTable.get(definition.block).getSelectedBlockMetaData();
+			net.minecraft.block.state.IBlockState selected = blockTable.get(definition.block).getBlockState();
+			return selected.getBlock().getMetaFromState(selected);
 		}
 
 		// Our shit
@@ -785,7 +787,7 @@ public class NBTStructure {
 
 		BlockDefinition(String name, int meta) {
 			Block block = Block.getBlockFromName(name);
-			if(block == null) block = Blocks.air;
+			if(block == null) block = Blocks.AIR;
 
 			this.block = block;
 			this.meta = meta;
@@ -851,12 +853,12 @@ public class NBTStructure {
 
 		public Component(SpawnCondition spawn, JigsawPiece piece, Random rand, int x, int y, int z, int coordBaseMode) {
 			super(0);
-			this.coordBaseMode = coordBaseMode;
+			this.setCoordBaseMode(LegacyStructureOrientation.fromLegacy(coordBaseMode));
 			this.piece = piece;
 			this.minHeight = spawn.minHeight;
 			this.maxHeight = spawn.maxHeight;
 
-			switch(this.coordBaseMode) {
+			switch(getCoordMode()) {
 			case 1:
 			case 3:
 				this.boundingBox = new StructureBoundingBox(x, y, z, x + piece.structure.size.z - 1, y + piece.structure.size.y - 1, z + piece.structure.size.x - 1);
@@ -865,6 +867,10 @@ public class NBTStructure {
 				this.boundingBox = new StructureBoundingBox(x, y, z, x + piece.structure.size.x - 1, y + piece.structure.size.y - 1, z + piece.structure.size.z - 1);
 				break;
 			}
+		}
+
+		private int getCoordMode() {
+			return LegacyStructureOrientation.toLegacy(getCoordBaseMode());
 		}
 
 		public Component connectedFrom(JigsawConnection connection) {
@@ -907,7 +913,7 @@ public class NBTStructure {
 				}
 			}
 
-			return piece.structure.build(world, piece, boundingBox, box, coordBaseMode, parent.name);
+			return piece.structure.build(world, piece, boundingBox, box, getCoordMode(), parent.name);
 		}
 
 		public void offsetYHeight(int y) {
@@ -921,7 +927,7 @@ public class NBTStructure {
 		// vaer being in the mines doing this the hard way for years was absolutely not for naught
 		@Override
 		protected int getXWithOffset(int x, int z) {
-			return boundingBox.minX + piece.structure.rotateX(x, z, coordBaseMode);
+			return boundingBox.minX + piece.structure.rotateX(x, z, getCoordMode());
 		}
 
 		@Override
@@ -931,12 +937,12 @@ public class NBTStructure {
 
 		@Override
 		protected int getZWithOffset(int x, int z) {
-			return boundingBox.minZ + piece.structure.rotateZ(x, z, coordBaseMode);
+			return boundingBox.minZ + piece.structure.rotateZ(x, z, getCoordMode());
 		}
 
 		private ForgeDirection rotateDir(ForgeDirection dir) {
 			if(dir == ForgeDirection.UP || dir == ForgeDirection.DOWN) return dir;
-			switch(coordBaseMode) {
+			switch(getCoordMode()) {
 				default: return dir;
 				case 1: return dir.getRotation(ForgeDirection.UP);
 				case 2: return dir.getOpposite();
@@ -964,7 +970,7 @@ public class NBTStructure {
 		private int getNextCoordBase(JigsawConnection fromConnection, JigsawConnection toConnection, Random rand) {
 			if(fromConnection.dir == ForgeDirection.DOWN || fromConnection.dir == ForgeDirection.UP) {
 				if(fromConnection.isRollable) return rand.nextInt(4);
-				return coordBaseMode;
+				return getCoordMode();
 			}
 
 			return directionOffsetToCoordBase(fromConnection.dir.getOpposite(), toConnection.dir);
@@ -972,10 +978,10 @@ public class NBTStructure {
 
 		private int directionOffsetToCoordBase(ForgeDirection from, ForgeDirection to) {
 			for(int i = 0; i < 4; i++) {
-				if(from == to) return (i + coordBaseMode) % 4;
+				if(from == to) return (i + getCoordMode()) % 4;
 				from = from.getRotation(ForgeDirection.DOWN);
 			}
-			return coordBaseMode;
+			return getCoordMode();
 		}
 
 		protected boolean hasIntersectionIgnoringSelf(LinkedList<StructureComponent> components, StructureBoundingBox box) {

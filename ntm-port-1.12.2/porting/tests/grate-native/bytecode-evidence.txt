@@ -1,0 +1,97 @@
+Original client external JAR SHA256 a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce
+Official SRG: aji.a(ahl,IIII)Z = Block.func_149646_a/shouldSideBeRendered.
+It uses owner min/max bounds for recessed-face exemption, then neighbor.isOpaqueCube. The neighbor coordinates are supplied by RenderBlocks at its shifted render origin.
+
+  public boolean a(ahl, int, int, int, int);
+    Code:
+       0: iload         5
+       2: ifne          16
+       5: aload_0
+       6: getfield      #503                // Field C:D
+       9: dconst_0
+      10: dcmpl
+      11: ifle          16
+      14: iconst_1
+      15: ireturn
+      16: iload         5
+      18: iconst_1
+      19: if_icmpne     33
+      22: aload_0
+      23: getfield      #506                // Field F:D
+      26: dconst_1
+      27: dcmpg
+      28: ifge          33
+      31: iconst_1
+      32: ireturn
+      33: iload         5
+      35: iconst_2
+      36: if_icmpne     50
+      39: aload_0
+      40: getfield      #504                // Field D:D
+      43: dconst_0
+      44: dcmpl
+      45: ifle          50
+      48: iconst_1
+      49: ireturn
+      50: iload         5
+      52: iconst_3
+      53: if_icmpne     67
+      56: aload_0
+      57: getfield      #507                // Field G:D
+      60: dconst_1
+      61: dcmpg
+      62: ifge          67
+      65: iconst_1
+      66: ireturn
+      67: iload         5
+      69: iconst_4
+      70: if_icmpne     84
+      73: aload_0
+      74: getfield      #502                // Field B:D
+      77: dconst_0
+      78: dcmpl
+      79: ifle          84
+      82: iconst_1
+      83: ireturn
+      84: iload         5
+      86: iconst_5
+      87: if_icmpne     101
+      90: aload_0
+      91: getfield      #505                // Field E:D
+      94: dconst_1
+      95: dcmpg
+      96: ifge          101
+      99: iconst_1
+     100: ireturn
+     101: aload_1
+     102: iload_2
+     103: iload_3
+     104: iload         4
+     106: invokeinterface #890,  4          // InterfaceMethod ahl.a:(III)Laji;
+     111: invokevirtual #604                // Method c:()Z
+     114: ifne          121
+     117: iconst_1
+     118: goto          122
+     121: iconst_0
+     122: ireturn
+
+
+Original renderBlockUsingTexture only sets/clears override texture; it does not set renderAllFaces:
+  public void a(aji, int, int, int, rf);
+    Code:
+       0: aload_0
+       1: aload         5
+       3: invokevirtual #514                // Method a:(Lrf;)V
+       6: aload_0
+       7: aload_1
+       8: iload_2
+       9: iload_3
+      10: iload         4
+      12: invokevirtual #520                // Method b:(Laji;III)Z
+      15: pop
+      16: aload_0
+      17: invokevirtual #473                // Method a:()V
+      20: return
+
+
+Native RenderGlobal.drawBlockDamageTexture calls BufferBuilder.noColor before BlockRendererDispatcher.renderBlockDamage. The focused native retexture test does not certify the complete live damage draw/GL/color suppression path.

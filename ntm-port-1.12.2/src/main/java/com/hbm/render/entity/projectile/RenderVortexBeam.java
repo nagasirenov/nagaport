@@ -9,6 +9,7 @@ import com.hbm.render.util.BeamPronter.EnumBeamType;
 import com.hbm.render.util.BeamPronter.EnumWaveType;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.RayTraceResult;
@@ -16,6 +17,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderVortexBeam extends Render {
+
+	public RenderVortexBeam(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
@@ -26,7 +31,7 @@ public class RenderVortexBeam extends Render {
 		
 		GL11.glPushMatrix();
 		
-		EntityPlayer player = laser.worldObj.getPlayerEntityByName(laser.getDataWatcher().getWatchableObjectString(20));
+		EntityPlayer player = laser.world.getPlayerEntityByName(laser.getDataWatcher().getWatchableObjectString(20));
 		
 		if(player != null) {
 			

@@ -73,7 +73,7 @@ public class AuxButtonPacket implements IMessage {
 			EntityPlayer p = ctx.getServerHandler().playerEntity;
 			
 			//try {
-				TileEntity te = p.worldObj.getTileEntity(m.x, m.y, m.z);
+				TileEntity te = p.world.getTileEntity(m.x, m.y, m.z);
 				
 				if(te instanceof TileEntityForceField) {
 					TileEntityForceField field = (TileEntityForceField)te;
@@ -157,7 +157,7 @@ public class AuxButtonPacket implements IMessage {
 					NBTTagCompound perDat = p.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
 					
 					if(MobConfig.enableDucks && !perDat.getBoolean("hasDucked")) {
-						EntityDuck ducc = new EntityDuck(p.worldObj);
+						EntityDuck ducc = new EntityDuck(p.world);
 						ducc.setPosition(p.posX, p.posY + p.eyeHeight, p.posZ);
 						
 						Vec3d vec = p.getLookVec();
@@ -165,8 +165,8 @@ public class AuxButtonPacket implements IMessage {
 						ducc.motionY = vec.y;
 						ducc.motionZ = vec.z;
 						
-						p.worldObj.spawnEntityInWorld(ducc);
-						p.worldObj.playSoundAtEntity(p, "hbm:entity.ducc", 1.0F, 1.0F);
+						p.world.spawnEntityInWorld(ducc);
+						p.world.playSoundAtEntity(p, "hbm:entity.ducc", 1.0F, 1.0F);
 						
 						perDat.setBoolean("hasDucked", true);
 						

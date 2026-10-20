@@ -94,7 +94,7 @@ public class Lego {
 				rec.getOnFire(stack).accept(stack, ctx);
 
 				if(rec.getFireSound(stack) != null)
-					entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack));
+					entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack));
 
 				int remaining = rec.getRoundsPerCycle(stack) - 1;
 				for(int i = 0; i < remaining; i++) if(rec.getCanFire(stack).apply(stack, ctx)) rec.getOnFire(stack).accept(stack, ctx);
@@ -127,9 +127,9 @@ public class Lego {
 			int mode = ItemGunBaseNT.getMode(stack, 0);
 			ItemGunBaseNT.setMode(stack, index, 1 - mode);
 			if(mode == 0)
-				entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:weapon.switchmode1", 1F, 1F);
+				com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "hbm:weapon.switchmode1", 1F, 1F);
 			else
-				entity.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:weapon.switchmode2", 1F, 1F);
+				com.hbm.sound.WorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "hbm:weapon.switchmode2", 1F, 1F);
 		}
 	};
 
@@ -154,9 +154,9 @@ public class Lego {
 			double waggle = 0.025D;
 
 			for(SmokeNode node : smokeNodes) {
-				node.forward += -prev.z * accel + entity.worldObj.rand.nextGaussian() * waggle;
+				node.forward += -prev.z * accel + entity.world.rand.nextGaussian() * waggle;
 				node.lift += prev.y + 1.5D;
-				node.side += prev.x * accel + entity.worldObj.rand.nextGaussian() * waggle + side;
+				node.side += prev.x * accel + entity.world.rand.nextGaussian() * waggle + side;
 				if(node.alpha > 0) node.alpha -= alphaDecay;
 				node.width *= widthGrowth;
 			}
@@ -232,17 +232,17 @@ public class Lego {
 
 			if(config.pType == ProjectileType.BULLET) {
 				EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
-				if(ItemGunBaseNT.getIsLockedOn(stack)) mk4.lockonTarget = entity.worldObj.getEntityByID(ItemGunBaseNT.getLockonTarget(stack));
-				if(i == 0 && config.blackPowder) BlackPowderCreator.composeEffect(entity.worldObj, mk4.posX, mk4.posY, mk4.posZ, mk4.motionX, mk4.motionY, mk4.motionZ, 10, 0.25F, 0.5F, 10, 0.25F);
-				entity.worldObj.spawnEntityInWorld(mk4);
+				if(ItemGunBaseNT.getIsLockedOn(stack)) mk4.lockonTarget = entity.world.getEntityByID(ItemGunBaseNT.getLockonTarget(stack));
+				if(i == 0 && config.blackPowder) BlackPowderCreator.composeEffect(entity.world, mk4.posX, mk4.posY, mk4.posZ, mk4.motionX, mk4.motionY, mk4.motionZ, 10, 0.25F, 0.5F, 10, 0.25F);
+				entity.world.spawnEntityInWorld(mk4);
 			} else if(config.pType == ProjectileType.BULLET_CHUNKLOADING) {
 				EntityBulletBaseMK4CL mk4 = new EntityBulletBaseMK4CL(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
-				if(ItemGunBaseNT.getIsLockedOn(stack)) mk4.lockonTarget = entity.worldObj.getEntityByID(ItemGunBaseNT.getLockonTarget(stack));
-				if(i == 0 && config.blackPowder) BlackPowderCreator.composeEffect(entity.worldObj, mk4.posX, mk4.posY, mk4.posZ, mk4.motionX, mk4.motionY, mk4.motionZ, 10, 0.25F, 0.5F, 10, 0.25F);
-				entity.worldObj.spawnEntityInWorld(mk4);
+				if(ItemGunBaseNT.getIsLockedOn(stack)) mk4.lockonTarget = entity.world.getEntityByID(ItemGunBaseNT.getLockonTarget(stack));
+				if(i == 0 && config.blackPowder) BlackPowderCreator.composeEffect(entity.world, mk4.posX, mk4.posY, mk4.posZ, mk4.motionX, mk4.motionY, mk4.motionZ, 10, 0.25F, 0.5F, 10, 0.25F);
+				entity.world.spawnEntityInWorld(mk4);
 			} else if(config.pType == ProjectileType.BEAM) {
 				EntityBulletBeamBase mk4 = new EntityBulletBeamBase(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
-				entity.worldObj.spawnEntityInWorld(mk4);
+				entity.world.spawnEntityInWorld(mk4);
 			}
 		}
 
@@ -284,7 +284,7 @@ public class Lego {
 
 	public static void standardExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range) { standardExplode(bullet, mop, range, 1F); }
 	public static void standardExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range, float damageMod) {
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, range, bullet.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, range, bullet.getThrower());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage * damageMod).setupPiercing(bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());
 		vnt.setSFX(new ExplosionEffectWeapon(10, 2.5F, 1F));
@@ -297,7 +297,7 @@ public class Lego {
 		double x = mop.hitVec.x + side.getFrontOffsetX() * 0.25D;
 		double y = mop.hitVec.y + side.getFrontOffsetY() * 0.25D;
 		double z = mop.hitVec.z + side.getFrontOffsetZ() * 0.25D;
-		ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, x, y, z, range, bullet.getThrower());
+		ExplosionVNT vnt = new ExplosionVNT(bullet.world, x, y, z, range, bullet.getThrower());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage * damageMod)
 				.setupPiercing(bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent).setKnockback(0.25D));
 		vnt.setPlayerProcessor(new PlayerProcessorStandard());

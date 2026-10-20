@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/bossworm",
+  "display": {
+    "icon": {
+      "item": "hbm:item.coin_ufo",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.bossUFO"
+    },
+    "description": {
+      "translate": "achievement.bossUFO.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

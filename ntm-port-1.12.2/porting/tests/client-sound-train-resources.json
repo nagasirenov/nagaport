@@ -1,0 +1,32 @@
+[
+  {
+    "retired": "src/main/resources/assets/hbm/sounds/music/spaceBeat.ogg",
+    "current": "src/main/resources/assets/hbm/sounds/music/spacebeat.ogg",
+    "sha256": "30f9cc3a43c79cf60af720a2d4dfe4679da5ee732cdf0c1836a4a7bf2ab1db69"
+  },
+  {
+    "retired": "src/main/resources/assets/hbm/sounds/music/spaceBreak.ogg",
+    "current": "src/main/resources/assets/hbm/sounds/music/spacebreak.ogg",
+    "sha256": "3256be18e599592053734b283bd2ee58ee5923161f1d5acd98377f879889bfb0"
+  },
+  {
+    "retired": "src/main/resources/assets/hbm/sounds/music/spaceCalm.ogg",
+    "current": "src/main/resources/assets/hbm/sounds/music/spacecalm.ogg",
+    "sha256": "e88961da0d0673b22ce41921305f28b951133705b7fdc4e98f76a6760bd19015"
+  },
+  {
+    "retired": "src/main/resources/assets/hbm/sounds/music/spaceKoyaanis.ogg",
+    "current": "src/main/resources/assets/hbm/sounds/music/spacekoyaanis.ogg",
+    "sha256": "cdbbd7b4b5a1e8393a7f43dd63b5f767dce93586f41aa0ad9724efc9d77fd55c"
+  },
+  {
+    "retired": "src/main/resources/assets/hbm/sounds/music/spaceTranscend.ogg",
+    "current": "src/main/resources/assets/hbm/sounds/music/spacetranscend.ogg",
+    "sha256": "42e530fe0ac699687c0a3f9aff4222daa7eb2fc6172e94fb50d815da0ad2e002"
+  },
+  {
+    "retired": "src/main/resources/assets/hbm/sounds/music/spaceTrill.ogg",
+    "current": "src/main/resources/assets/hbm/sounds/music/spacetrill.ogg",
+    "sha256": "23c17463d16b4df979241b44bbfb8009042b1fe56f9c34f68e95be51e4dc8188"
+  }
+]

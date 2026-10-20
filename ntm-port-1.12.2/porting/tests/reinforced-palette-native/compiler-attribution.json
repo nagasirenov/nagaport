@@ -1,0 +1,7 @@
+{
+  "log": "/tmp/compile-cp64.log",
+  "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+  "before_exact_diagnostics": 127,
+  "after_obsolete_selected_calls": 0,
+  "scope": "Exact diagnostic statement multiset and source inverse; no new full-mod compile in worker."
+}

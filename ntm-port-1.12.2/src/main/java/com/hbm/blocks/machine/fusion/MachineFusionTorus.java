@@ -72,7 +72,7 @@ public class MachineFusionTorus extends BlockDummyable implements ITooltipProvid
 	};
 
 	public MachineFusionTorus() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class MachineFusionTorus extends BlockDummyable implements ITooltipProvid
 					int ex = ix - layer.length / 2;
 					int ez = iz - layer.length / 2;
 					
-					if(layout[l][ix][iz] > 0 && !world.getBlock(x + ex, y + iy, z + ez).canPlaceBlockAt(world, x + ex, y + iy, z + ez)) {
+					if(layout[l][ix][iz] > 0 && !com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock().canPlaceBlockAt(world, x + ex, y + iy, z + ez)) {
 						return false;
 					}
 				}

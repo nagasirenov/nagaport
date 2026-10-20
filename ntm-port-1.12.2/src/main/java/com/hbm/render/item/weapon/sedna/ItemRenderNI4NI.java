@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -44,12 +47,12 @@ public class ItemRenderNI4NI extends ItemRenderWeaponBase {
 		int light = 0xffffff;
 		int grip = 0xffffff;
 		if(color != null) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.n_i_4_n_i_greyscale_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.n_i_4_n_i_greyscale_tex);
 			dark = color[0];
 			light = color[1];
 			grip = color[2];
 		} else {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.n_i_4_n_i_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.n_i_4_n_i_tex);
 		}
 		
 		double scale = 0.3125D;
@@ -145,7 +148,7 @@ public class ItemRenderNI4NI extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
@@ -156,12 +159,12 @@ public class ItemRenderNI4NI extends ItemRenderWeaponBase {
 		int light = 0xffffff;
 		int grip = 0xffffff;
 		if(color != null) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.n_i_4_n_i_greyscale_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.n_i_4_n_i_greyscale_tex);
 			dark = color[0];
 			light = color[1];
 			grip = color[2];
 		} else {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.n_i_4_n_i_tex);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.n_i_4_n_i_tex);
 		}
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
@@ -187,11 +190,11 @@ public class ItemRenderNI4NI extends ItemRenderWeaponBase {
 		RenderArcFurnace.fullbright(false);
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

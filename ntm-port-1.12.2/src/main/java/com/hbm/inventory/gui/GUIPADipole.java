@@ -44,7 +44,7 @@ public class GUIPADipole extends GuiInfoContainer {
 
 		Keyboard.enableRepeatEvents(true);
 
-		this.threshold = new GuiTextField(this.fontRendererObj, guiLeft + 47, guiTop + 77, 66, 8);
+		this.threshold = new GuiTextField(0, this.fontRenderer, guiLeft + 47, guiTop + 77, 66, 8);
 		this.threshold.setTextColor(0x00ff00);
 		this.threshold.setDisabledTextColour(0x00ff00);
 		this.threshold.setEnableBackgroundDrawing(false);
@@ -71,24 +71,24 @@ public class GUIPADipole extends GuiInfoContainer {
 		this.threshold.mouseClicked(x, y, i);
 
 		if(guiLeft + 62 <= x && guiLeft + 62 + 12 > x && guiTop + 29 < y && guiTop + 29 + 12 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("lower", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.xCoord, dipole.yCoord, dipole.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.getPos().getX(), dipole.getPos().getY(), dipole.getPos().getZ()));
 		}
 
 		if(guiLeft + 62 <= x && guiLeft + 62 + 12 > x && guiTop + 43 < y && guiTop + 43 + 12 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("upper", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.xCoord, dipole.yCoord, dipole.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.getPos().getX(), dipole.getPos().getY(), dipole.getPos().getZ()));
 		}
 
 		if(guiLeft + 62 <= x && guiLeft + 62 + 12 > x && guiTop + 57 < y && guiTop + 57 + 12 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("redstone", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.xCoord, dipole.yCoord, dipole.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.getPos().getX(), dipole.getPos().getY(), dipole.getPos().getZ()));
 		}
 	}
 
@@ -96,13 +96,13 @@ public class GUIPADipole extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		
 		String name = this.dipole.hasCustomInventoryName() ? this.dipole.getInventoryName() : I18n.format(this.dipole.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2 - 9, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2 - 9, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
-		this.fontRendererObj.drawString(TextFormatting.AQUA + "/123K", 136, 22, 4210752);
+		this.fontRenderer.drawString(TextFormatting.AQUA + "/123K", 136, 22, 4210752);
 		int heat = (int) Math.ceil(dipole.temperature);
 		String label = (heat > 123 ? TextFormatting.RED : TextFormatting.AQUA) + "" + heat + "K";
-		this.fontRendererObj.drawString(label, 166 - this.fontRendererObj.getStringWidth(label), 12, 4210752);
+		this.fontRenderer.drawString(label, 166 - this.fontRenderer.getStringWidth(label), 12, 4210752);
 	}
 
 	@Override
@@ -164,7 +164,7 @@ public class GUIPADipole extends GuiInfoContainer {
 				int num = NumberUtils.toInt(this.threshold.getText());
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("threshold", num);
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.xCoord, dipole.yCoord, dipole.zCoord));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, dipole.getPos().getX(), dipole.getPos().getY(), dipole.getPos().getZ()));
 			}
 			return;
 		}

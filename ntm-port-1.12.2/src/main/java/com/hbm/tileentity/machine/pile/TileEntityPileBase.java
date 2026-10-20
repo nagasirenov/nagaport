@@ -10,21 +10,21 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
 
-public abstract class TileEntityPileBase extends TileEntity {
+public abstract class TileEntityPileBase extends TileEntity implements net.minecraft.util.ITickable {
 
 	@Override
-	public abstract void updateEntity();
+	public abstract void update();
 
 	@Override
 	public void invalidate() {
 		super.invalidate();
-		NeutronNodeWorld.removeNode(worldObj, new BlockPos(this));
+		NeutronNodeWorld.removeNode(this.world, new BlockPos(this));
 	}
 
 	@Override
 	public void onChunkUnload() {
 		super.onChunkUnload();
-		NeutronNodeWorld.removeNode(worldObj, new BlockPos(this));
+		NeutronNodeWorld.removeNode(this.world, new BlockPos(this));
 	}
 
 	protected void castRay(int flux) {
@@ -33,11 +33,11 @@ public abstract class TileEntityPileBase extends TileEntity {
 
 		if(flux == 0) {
 			// simple way to remove the node from the cache when no flux is going into it!
-			NeutronNodeWorld.removeNode(worldObj, pos);
+			NeutronNodeWorld.removeNode(this.world, pos);
 			return;
 		}
 
-		StreamWorld streamWorld = NeutronNodeWorld.getOrAddWorld(worldObj);
+		StreamWorld streamWorld = NeutronNodeWorld.getOrAddWorld(this.world);
 		PileNeutronNode node = (PileNeutronNode) streamWorld.getNode(pos);
 
 		if(node == null) {
@@ -47,9 +47,9 @@ public abstract class TileEntityPileBase extends TileEntity {
 
 		com.hbm.util.Vec3NT neutronVector = new com.hbm.util.Vec3NT(1, 0, 0);
 
-		neutronVector.rotateAroundZRad((float)(Math.PI * 2D * worldObj.rand.nextDouble()));
-		neutronVector.rotateAroundYRad((float)(Math.PI * 2D * worldObj.rand.nextDouble()));
-		neutronVector.rotateAroundXRad((float)(Math.PI * 2D * worldObj.rand.nextDouble()));
+		neutronVector.rotateAroundZRad((float)(Math.PI * 2D * this.world.rand.nextDouble()));
+		neutronVector.rotateAroundYRad((float)(Math.PI * 2D * this.world.rand.nextDouble()));
+		neutronVector.rotateAroundXRad((float)(Math.PI * 2D * this.world.rand.nextDouble()));
 
 		new PileNeutronStream(node, neutronVector.toVec3d(), flux);
 	}

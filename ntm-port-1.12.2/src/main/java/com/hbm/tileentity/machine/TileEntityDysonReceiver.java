@@ -69,33 +69,33 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineDysonReceiver";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			swarmId = ISatChip.getFreqS(slots[0]);
 
-			SatelliteSavedData data = SatelliteSavedData.getData(worldObj, xCoord, zCoord);
+			SatelliteSavedData data = SatelliteSavedData.getData(this.world, this.pos.getX(), this.pos.getZ());
 			Satellite sat = data.getSatFromFreq(swarmId);
-			int sun = worldObj.getSavedLightValue(EnumSkyBlock.Sky, xCoord, yCoord, zCoord) - worldObj.skylightSubtracted - 11;
+			int sun = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ()) - this.world.skylightSubtracted - 11;
 
 			boolean occluded = false;
 			for(int x = -3; x <= 3; x++) {
 				for(int z = -3; z <= 3; z++) {
-					if(worldObj.getHeightValue(xCoord + x, zCoord + z) > yCoord + 10) {
+					if(this.world.getHeightValue(this.pos.getX() + x, this.pos.getZ() + z) > this.pos.getY() + 10) {
 						occluded = true;
 						break;
 					}
 				}
 			}
 
-			swarmCount = CBT_Dyson.count(worldObj, swarmId);
-			swarmConsumers = CBT_Dyson.consumers(worldObj, swarmId);
+			swarmCount = CBT_Dyson.count(this.world, swarmId);
+			swarmConsumers = CBT_Dyson.consumers(this.world, swarmId);
 
 			isReceiving = (sat instanceof SatelliteDysonRelay || sun > 0) && swarmId > 0 && !occluded && swarmCount > 0 && swarmConsumers > 0;
 
@@ -105,23 +105,23 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 
 				beamLength = maxLength;
 				for(int i = 9; i < maxLength; i++) {
-					int x = xCoord + dir.offsetX * i;
-					int y = yCoord + 1;
-					int z = zCoord + dir.offsetZ * i;
+					int x = this.pos.getX() + dir.offsetX * i;
+					int y = this.pos.getY() + 1;
+					int z = this.pos.getZ() + dir.offsetZ * i;
 
-					Block block = worldObj.getBlock(x, y, z);
+					Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
 					// two block gap minimum
 					boolean detonate = true;
 					TileEntity te = null;
 					if(i > 10) {
 						if(block instanceof BlockDummyable) {
-							int[] pos = ((BlockDummyable) block).findCore(worldObj, x, y, z);
+							int[] pos = ((BlockDummyable) block).findCore(this.world, x, y, z);
 							if(pos != null) {
-								te = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+								te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 							}
 						} else {
-							te = worldObj.getTileEntity(x, y, z);
+							te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 						}
 
 						if(te instanceof IDysonConverter) {
@@ -131,9 +131,9 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 
 					if(block.isOpaqueCube() || te != null) {
 						if(detonate) {
-							worldObj.setBlockToAir(x, y, z);
+							com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 
-							ExplosionVNT vnt = new ExplosionVNT(worldObj, x, y, z, 3, null);
+							ExplosionVNT vnt = new ExplosionVNT(this.world, x, y, z, 3, null);
 							vnt.setBlockAllocator(new BlockAllocatorStandard());
 							vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorFire()));
 							vnt.setEntityProcessor(new EntityProcessorStandard().allowSelfDamage());
@@ -148,18 +148,18 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 				}
 
 
-				double blx = Math.min(xCoord, xCoord + dir.offsetX * beamLength) + 0.2;
-				double bux = Math.max(xCoord, xCoord + dir.offsetX * beamLength) + 0.8;
-				double bly = Math.min(yCoord, 1 + yCoord + dir.offsetY * beamLength) + 0.2;
-				double buy = Math.max(yCoord, 1 + yCoord + dir.offsetY * beamLength) + 0.8;
-				double blz = Math.min(zCoord, zCoord + dir.offsetZ * beamLength) + 0.2;
-				double buz = Math.max(zCoord, zCoord + dir.offsetZ * beamLength) + 0.8;
+				double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * beamLength) + 0.2;
+				double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * beamLength) + 0.8;
+				double bly = Math.min(this.pos.getY(), 1 + this.pos.getY() + dir.offsetY * beamLength) + 0.2;
+				double buy = Math.max(this.pos.getY(), 1 + this.pos.getY() + dir.offsetY * beamLength) + 0.8;
+				double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beamLength) + 0.2;
+				double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beamLength) + 0.8;
 
 				@SuppressWarnings("unchecked")
-				List<EntityLivingBase> list = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
+				List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
 
 				for(EntityLivingBase entity : list) {
-					ExplosionVNT vnt = new ExplosionVNT(worldObj, entity.posX - dir.offsetX, entity.posY + 1.5, entity.posZ - dir.offsetZ, 3, null);
+					ExplosionVNT vnt = new ExplosionVNT(this.world, entity.posX - dir.offsetX, entity.posY + 1.5, entity.posZ - dir.offsetZ, 3, null);
 					vnt.setBlockAllocator(new BlockAllocatorStandard());
 					vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorFire()));
 					vnt.setEntityProcessor(new EntityProcessorStandard().withDamageMod(new CustomDamageHandlerDyson(energyOutput)));
@@ -173,15 +173,15 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 		} else {
 			if(isReceiving) {
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.dysonBeam", xCoord + dir.offsetX * 8, yCoord, zCoord + dir.offsetZ * 8, 0.75F, 20F, 1.0F, 20);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.dysonBeam", this.pos.getX() + dir.offsetX * 8, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 8, 0.75F, 20F, 1.0F, 20);
 					audio.startSound();
 				}
 
 				audio.keepAlive();
 				audio.updatePitch(0.85F);
 
-				if(worldObj.rand.nextInt(10) == 0) {
-					ParticleUtil.spawnFlare(worldObj, xCoord - 5 + worldObj.rand.nextDouble() * 10, yCoord + 11, zCoord - 5 + worldObj.rand.nextDouble() * 10, 0, 0.1 + worldObj.rand.nextFloat() * 0.1, 0, 4F + worldObj.rand.nextFloat() * 2);
+				if(this.world.rand.nextInt(10) == 0) {
+					ParticleUtil.spawnFlare(this.world, this.pos.getX() - 5 + this.world.rand.nextDouble() * 10, this.pos.getY() + 11, this.pos.getZ() - 5 + this.world.rand.nextDouble() * 10, 0, 0.1 + this.world.rand.nextFloat() * 0.1, 0, 4F + this.world.rand.nextFloat() * 2);
 				}
 			} else {
 				if(audio != null) {
@@ -239,12 +239,12 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 25,
-				yCoord,
-				zCoord - 25,
-				xCoord + 25,
-				yCoord + 19,
-				zCoord + 25
+				this.pos.getX() - 25,
+				this.pos.getY(),
+				this.pos.getZ() - 25,
+				this.pos.getX() + 25,
+				this.pos.getY() + 19,
+				this.pos.getZ() + 25
 			);
 		}
 

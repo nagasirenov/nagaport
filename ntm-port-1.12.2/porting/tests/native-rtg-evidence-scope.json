@@ -1,0 +1,28 @@
+{
+  "paths": [
+    "porting/tests/probe-native-rtg-render.py",
+    "porting/tests/RTGRenderNativeTest.java",
+    "porting/tests/native-rtg-render-notes.md",
+    "porting/tests/native-rtg-render-source-manifest.json",
+    "porting/tests/probe-rtg-energy.py",
+    "porting/tests/RTGEnergyNativeTest.java",
+    "porting/tests/check-rtg-energy-source.py",
+    "porting/tests/rtg-energy-native-notes.md",
+    "porting/continuation-2026-10-19/native-rtg-render-FINAL.log",
+    "porting/continuation-2026-10-19/rtg-energy-native-FINAL.log",
+    "porting/continuation-2026-10-19/rtg-energy-source-FINAL.log"
+  ],
+  "sha256": {
+    "porting/tests/probe-native-rtg-render.py": "c156c4a95841fb305e819ac2aa9fccd55fae3fa2c921172c2645bc366d5b7db4",
+    "porting/tests/RTGRenderNativeTest.java": "8fdd021dbdb3baa7a3a6f0c74b90061a1429ecbe02633d18f96a1cc878d5b5b8",
+    "porting/tests/native-rtg-render-notes.md": "2997fb6528b0e981043e5c48ba296c3ba53695f96f5705a2d1ed32719bc8071f",
+    "porting/tests/native-rtg-render-source-manifest.json": "a3bf74a371966805eea143dbc0b23b7f4c2d01db608d5ff9736ac330cf54866f",
+    "porting/tests/probe-rtg-energy.py": "9c636256c1f0ed2ae7f71b4bfc67e3c26055297cb0bac3d84386643ce3dac732",
+    "porting/tests/RTGEnergyNativeTest.java": "4bc22a9817ff99918c3b2587270f58edef35be0f4cfd4f2f552d1d2c10a7a33e",
+    "porting/tests/check-rtg-energy-source.py": "b0768f23369f93c9be5d654e847f77fc43c00c757dc86d98c0da10e6dff41b9d",
+    "porting/tests/rtg-energy-native-notes.md": "9b845979fd098380db145d16c2053583832a36a6ee8d26c399cc8f63f668dcf6",
+    "porting/continuation-2026-10-19/native-rtg-render-FINAL.log": "5080d70efbbf9ae5d5fb76981ce91999a336f79cef5ea086095debfd23d190c3",
+    "porting/continuation-2026-10-19/rtg-energy-native-FINAL.log": "0c8866c6e8322311c5ae18bdfc66da28f9ff821539d30e9076fe462180fddda4",
+    "porting/continuation-2026-10-19/rtg-energy-source-FINAL.log": "572fd13b1267f74b117fdd6719bc3a94e6eaf5ec968cbf1dcb8bba7080a08977"
+  }
+}

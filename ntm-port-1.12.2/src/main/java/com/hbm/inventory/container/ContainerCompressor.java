@@ -38,7 +38,7 @@ public class ContainerCompressor extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return compressor.isUseableByPlayer(player);
+		return compressor.isUsableByPlayer(player);
 	}
 
 	@Override

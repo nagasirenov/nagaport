@@ -1,0 +1,428 @@
+[
+  {
+    "name": "ore_iron",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_iron"
+  },
+  {
+    "name": "ore_gold",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_gold"
+  },
+  {
+    "name": "ore_redstone",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_redstone"
+  },
+  {
+    "name": "ore_lapis",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_lapis"
+  },
+  {
+    "name": "ore_emerald",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_emerald"
+  },
+  {
+    "name": "ore_quartz",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_quartz"
+  },
+  {
+    "name": "ore_diamond",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_diamond"
+  },
+  {
+    "name": "ore_uranium",
+    "owner": "com.hbm.blocks.generic.BlockOreOutgas",
+    "kind": "ORE",
+    "texture": "ore_uranium"
+  },
+  {
+    "name": "ore_plutonium",
+    "owner": "com.hbm.blocks.generic.BlockOreOutgas",
+    "kind": "ORE",
+    "texture": "ore_plutonium"
+  },
+  {
+    "name": "ore_titanium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_titanium"
+  },
+  {
+    "name": "ore_sulfur",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_sulfur"
+  },
+  {
+    "name": "ore_glowstone",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_glowstone"
+  },
+  {
+    "name": "ore_thorium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_thorium"
+  },
+  {
+    "name": "ore_morkite",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_morkite"
+  },
+  {
+    "name": "ore_niter",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_niter"
+  },
+  {
+    "name": "ore_copper",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_copper"
+  },
+  {
+    "name": "ore_nickel",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_nickel"
+  },
+  {
+    "name": "ore_mineral",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_mineral"
+  },
+  {
+    "name": "ore_zinc",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_zinc"
+  },
+  {
+    "name": "ore_lithium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_lithium"
+  },
+  {
+    "name": "ore_niobium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_niobium"
+  },
+  {
+    "name": "ore_palladium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_palladium"
+  },
+  {
+    "name": "ore_iodine",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_iodine"
+  },
+  {
+    "name": "ore_arsenic",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_arsenic"
+  },
+  {
+    "name": "ore_cadmium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_cadmium"
+  },
+  {
+    "name": "ore_tungsten",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_tungsten"
+  },
+  {
+    "name": "ore_aluminium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_aluminium"
+  },
+  {
+    "name": "ore_fluorite",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_fluorite"
+  },
+  {
+    "name": "ore_lead",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_lead"
+  },
+  {
+    "name": "ore_schrabidium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_schrabidium"
+  },
+  {
+    "name": "ore_beryllium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_beryllium"
+  },
+  {
+    "name": "ore_lignite",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_lignite"
+  },
+  {
+    "name": "ore_asbestos",
+    "owner": "com.hbm.blocks.generic.BlockOreOutgas",
+    "kind": "ORE",
+    "texture": "ore_asbestos"
+  },
+  {
+    "name": "ore_silicon",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_silicon"
+  },
+  {
+    "name": "ore_fire",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_fire"
+  },
+  {
+    "name": "ore_shale",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_shale"
+  },
+  {
+    "name": "cluster_iron",
+    "owner": "com.hbm.blocks.generic.BlockCluster",
+    "kind": "ORE",
+    "texture": "cluster_iron"
+  },
+  {
+    "name": "cluster_titanium",
+    "owner": "com.hbm.blocks.generic.BlockCluster",
+    "kind": "ORE",
+    "texture": "cluster_titanium"
+  },
+  {
+    "name": "cluster_aluminium",
+    "owner": "com.hbm.blocks.generic.BlockCluster",
+    "kind": "ORE",
+    "texture": "cluster_aluminium"
+  },
+  {
+    "name": "cluster_copper",
+    "owner": "com.hbm.blocks.generic.BlockCluster",
+    "kind": "ORE",
+    "texture": "cluster_copper"
+  },
+  {
+    "name": "ore_bedrock",
+    "owner": "com.hbm.blocks.generic.BlockBedrockOreTE",
+    "kind": "BEDROCK_ORE",
+    "texture": "minecraft:bedrock"
+  },
+  {
+    "name": "ore_volcano",
+    "owner": "com.hbm.blocks.generic.BlockFissure",
+    "kind": "FISSURE",
+    "texture": "minecraft:bedrock"
+  },
+  {
+    "name": "ore_australium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_australium"
+  },
+  {
+    "name": "ore_rare",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_rare"
+  },
+  {
+    "name": "ore_cobalt",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_cobalt"
+  },
+  {
+    "name": "ore_cinnebar",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_cinnebar"
+  },
+  {
+    "name": "ore_coltan",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_coltan"
+  },
+  {
+    "name": "ore_lanthanium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_lanthanium"
+  },
+  {
+    "name": "ore_oil_empty",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_oil_empty"
+  },
+  {
+    "name": "ore_oil",
+    "owner": "com.hbm.blocks.generic.BlockOreFluid",
+    "kind": "ORE",
+    "texture": "ore_oil"
+  },
+  {
+    "name": "ore_bedrock_oil",
+    "owner": "com.hbm.blocks.generic.BlockOreFluid",
+    "kind": "ORE",
+    "texture": "ore_bedrock_oil"
+  },
+  {
+    "name": "ore_gas_empty",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_oil_empty"
+  },
+  {
+    "name": "ore_gas",
+    "owner": "com.hbm.blocks.generic.BlockOreFluid",
+    "kind": "ORE",
+    "texture": "ore_gas"
+  },
+  {
+    "name": "ore_brine_empty",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_oil_empty"
+  },
+  {
+    "name": "ore_brine",
+    "owner": "com.hbm.blocks.generic.BlockOreFluid",
+    "kind": "ORE",
+    "texture": "ore_brine"
+  },
+  {
+    "name": "ore_tekto_empty",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "ore_oil_empty"
+  },
+  {
+    "name": "ore_tekto",
+    "owner": "com.hbm.blocks.generic.BlockOreFluid",
+    "kind": "ORE",
+    "texture": "ore_tekto"
+  },
+  {
+    "name": "deco_titanium",
+    "owner": "com.hbm.blocks.generic.BlockOre",
+    "kind": "ORE",
+    "texture": "deco_titanium"
+  },
+  {
+    "name": "ore_sellafield_diamond",
+    "owner": "com.hbm.blocks.generic.BlockSellafieldOre",
+    "kind": "SELLAFIELD",
+    "texture": "ore_overlay_diamond"
+  },
+  {
+    "name": "ore_sellafield_emerald",
+    "owner": "com.hbm.blocks.generic.BlockSellafieldOre",
+    "kind": "SELLAFIELD",
+    "texture": "ore_overlay_emerald"
+  },
+  {
+    "name": "ore_sellafield_uranium_scorched",
+    "owner": "com.hbm.blocks.generic.BlockSellafieldOre",
+    "kind": "SELLAFIELD",
+    "texture": "ore_overlay_uranium_scorched"
+  },
+  {
+    "name": "ore_sellafield_schrabidium",
+    "owner": "com.hbm.blocks.generic.BlockSellafieldOre",
+    "kind": "SELLAFIELD",
+    "texture": "ore_overlay_schrabidium"
+  },
+  {
+    "name": "ore_sellafield_radgem",
+    "owner": "com.hbm.blocks.generic.BlockSellafieldOre",
+    "kind": "SELLAFIELD",
+    "texture": "ore_overlay_radgem"
+  },
+  {
+    "name": "red_cable_paintable",
+    "owner": "com.hbm.blocks.network.BlockCablePaintable",
+    "kind": "CABLE",
+    "texture": "red_cable_base"
+  },
+  {
+    "name": "red_cable_gauge",
+    "owner": "com.hbm.blocks.network.BlockCableGauge",
+    "kind": "CABLE_GAUGE",
+    "texture": "deco_red_copper"
+  },
+  {
+    "name": "fluid_duct_paintable_block_exhaust",
+    "owner": "com.hbm.blocks.network.FluidDuctPaintableBlockExhaust",
+    "kind": "EXHAUST",
+    "texture": "fluid_duct_paintable_block_exhaust"
+  },
+  {
+    "name": "fluid_duct_paintable",
+    "owner": "com.hbm.blocks.network.FluidDuctPaintable",
+    "kind": "FLUID",
+    "texture": "fluid_duct_paintable"
+  },
+  {
+    "name": "fluid_duct_gauge",
+    "owner": "com.hbm.blocks.network.FluidDuctGauge",
+    "kind": "FLUID_GAUGE",
+    "texture": "deco_steel"
+  },
+  {
+    "name": "crane_router",
+    "owner": "com.hbm.blocks.network.CraneRouter",
+    "kind": "ROUTER",
+    "texture": "crane_in"
+  },
+  {
+    "name": "pneumatic_tube_paintable",
+    "owner": "com.hbm.blocks.network.PneumoTubePaintableBlock",
+    "kind": "PNEUMATIC",
+    "texture": "pneumatic_tube_paintable"
+  },
+  {
+    "name": "oc_cable_paintable",
+    "owner": "com.hbm.blocks.network.BlockOpenComputersCablePaintable",
+    "kind": "OC_CABLE",
+    "texture": "oc_cable_base"
+  }
+]

@@ -1,0 +1,4 @@
+PASS: 434 named TileEntity descendants; 297 exact native return signatures in 297 files
+PASS: portable pre-change method payload fingerprints and sole early return
+PASS STRICT SNAPSHOT: exact authorized file bytes; 37 unrelated serializers untouched; read/ticking/null semantics unchanged
+SOURCE PARITY ONLY: not production class compilation or machine gameplay acceptance

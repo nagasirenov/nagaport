@@ -80,6 +80,6 @@ public class ContainerMachinePress extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return press.isUseableByPlayer(player);
+		return press.isUsableByPlayer(player);
 	}
 }

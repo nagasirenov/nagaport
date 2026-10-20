@@ -38,10 +38,10 @@ public class LogicBlockActions {
 	public static LinkedHashMap<String, Consumer<LogicBlock.TileEntityLogicBlock>> actions = new LinkedHashMap<>();
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> PHASE_ABERRATOR = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1 || tile.phase == 2) {
 			tile.player = world.getClosestPlayer(x,y,z, 25);
 			if (tile.timer == 0) {
@@ -67,7 +67,7 @@ public class LogicBlockActions {
 			}
 		}
 		if (tile.phase > 2) {
-			TileEntity te = world.getTileEntity(x, y + 18, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y + 18, z));
 			if (te instanceof BlockSkeletonHolder.TileEntitySkeletonHolder) {
 				BlockSkeletonHolder.TileEntitySkeletonHolder skeleton = (BlockSkeletonHolder.TileEntitySkeletonHolder) te;
 				if (world.rand.nextInt(5) == 0) {
@@ -78,15 +78,15 @@ public class LogicBlockActions {
 				skeleton.markDirty();
 				world.markBlockForUpdate(x, y + 18, z);
 			}
-			world.setBlock(x, y, z, Blocks.obsidian);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.OBSIDIAN; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> COLLAPSE_ROOF_RAD_5 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		if(tile.phase == 0) return;
 
@@ -106,23 +106,23 @@ public class LogicBlockActions {
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
 
-						if (world.getBlock(X, Y, Z).getExplosionResistance(null) <= 70) {
-							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, X + 0.5, Y + 0.5, Z + 0.5, world.getBlock(X, Y, Z), world.getBlockMetadata(X, Y, Z));
+						if (com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock().getExplosionResistance(null) <= 70) {
+							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, X + 0.5, Y + 0.5, Z + 0.5, com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, X, Y, Z) ));
 							world.spawnEntityInWorld(entityfallingblock);
 						}
 					}
 				}
 			}
 		}
-		world.setBlock(x, y, z, Blocks.air);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 //		world.setBlock(x, y, z, ModBlocks.block_steel); this is useless
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> COLLAPSE_ROOF_RAD_10 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		if(tile.phase == 0) return;
 
@@ -141,22 +141,22 @@ public class LogicBlockActions {
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
 
-						if (world.getBlock(X, Y, Z).getExplosionResistance(null) <= 70) {
-							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, X + 0.5, Y + 0.5, Z + 0.5, world.getBlock(X, Y, Z), world.getBlockMetadata(X, Y, Z));
+						if (com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock().getExplosionResistance(null) <= 70) {
+							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, X + 0.5, Y + 0.5, Z + 0.5, com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock(), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, X, Y, Z) ));
 							world.spawnEntityInWorld(entityfallingblock);
 						}
 					}
 				}
 			}
 		}
-		world.setBlock(x, y, z, Blocks.air);
+		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> FODDER_WAVE = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1) {
 			Vec3NT vec = new Vec3NT(5, 0, 0);
 			for (int i = 0; i < 10; i++) {
@@ -172,10 +172,10 @@ public class LogicBlockActions {
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> SKELETON_GUN_TIER_1 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1) {
 			EntitySkeleton mob = new EntitySkeleton(world);
 			mob.setPositionAndRotation(x, y, z, 0, 0);
@@ -183,15 +183,15 @@ public class LogicBlockActions {
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolMasks, new Random());
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolRanged, new Random());
 			world.spawnEntityInWorld(mob);
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> SKELETON_GUN_TIER_2 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1) {
 			EntitySkeleton mob = new EntitySkeleton(world);
 			mob.setPositionAndRotation(x, y, z, 0, 0);
@@ -199,15 +199,15 @@ public class LogicBlockActions {
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolMasks, new Random());
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolTierArmor, new Random());
 			world.spawnEntityInWorld(mob);
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> SKELETON_GUN_TIER_3 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1) {
 			EntitySkeleton mob = new EntitySkeleton(world);
 			mob.setPositionAndRotation(x, y, z, 0, 0);
@@ -215,45 +215,45 @@ public class LogicBlockActions {
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolMasks, new Random());
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolAdvRanged, new Random());
 			world.spawnEntityInWorld(mob);
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> ZOMBIE_TIER_1 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1) {
 			EntityZombie mob = new EntityZombie(world);
 			mob.setPositionAndRotation(x, y, z, 0, 0);
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolMelee, new Random());
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolTierArmor, new Random());
 			world.spawnEntityInWorld(mob);
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> ZOMBIE_TIER_2 = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 		if (tile.phase == 1) {
 			EntityZombie mob = new EntityZombie(world);
 			mob.setPositionAndRotation(x, y, z, 0, 0);
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolTierArmor, new Random());
 			MobUtil.assignItemsToEntity(mob, MobUtil.slotPoolMelee, new Random());
 			world.spawnEntityInWorld(mob);
-			world.setBlock(x, y, z, Blocks.air);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> PUZZLE_TEST = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		if(tile.phase == 2){
 			world.setBlock(x,y,z, ModBlocks.crate_steel);
@@ -261,16 +261,16 @@ public class LogicBlockActions {
 			EntityLightningBolt blitz = new EntityLightningBolt(world, x, world.getHeightValue(x, z) + 2, z);
 			world.spawnEntityInWorld(blitz);
 
-			TileEntityCrateBase crate = (TileEntityCrateBase) world.getTileEntity(x,y,z);
+			TileEntityCrateBase crate = (TileEntityCrateBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(x,y,z));
 			((IInventory)crate).setInventorySlotContents(15, new ItemStack(ModItems.gun_bolter));
 		}
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> MISSILE_STRIKE = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		if(tile.phase != 1) return;
 
@@ -292,10 +292,10 @@ public class LogicBlockActions {
 	};
 
 	public static Consumer<LogicBlock.TileEntityLogicBlock> RAD_CONTAINMENT_SYSTEM = (tile) -> {
-		World world = tile.getWorldObj();
-		int x = tile.xCoord;
-		int y = tile.yCoord;
-		int z = tile.zCoord;
+		World world = tile.getWorld();
+		int x = tile.getPos().getX();
+		int y = tile.getPos().getY();
+		int z = tile.getPos().getZ();
 
 		ForgeDirection direction = tile.direction.getOpposite();
 		ForgeDirection rot = direction.getRotation(ForgeDirection.UP);
@@ -320,7 +320,7 @@ public class LogicBlockActions {
 				int iy = (int)Math.floor(y + 0.5 + vec.y * i);
 				int iz = (int)Math.floor(z + 0.5 + vec.z * i);
 
-				res += world.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock().getExplosionResistance(null);
 			}
 
 			if(res < 1)
@@ -343,11 +343,11 @@ public class LogicBlockActions {
 				checkX = x + direction.offsetX * i;
 				checkY = y + 1;
 				checkZ = z + direction.offsetZ * i;
-				Block block = world.getBlock(checkX, checkY,checkZ);
+				Block block = com.hbm.world.WorldBlockState.read(world, checkX, checkY,checkZ).getBlock();
 				TileEntity te = null;
 				if(block instanceof  BlockDummyable){
 					int[] coreCoords = ((BlockDummyable) block).findCore(world,checkX,checkY,checkZ);
-					te = world.getTileEntity(coreCoords[0], coreCoords[1], coreCoords[2]);
+					te = world.getTileEntity(new net.minecraft.util.math.BlockPos(coreCoords[0], coreCoords[1], coreCoords[2]));
 				}
 
 				if (te instanceof TileEntityDoorGeneric) {

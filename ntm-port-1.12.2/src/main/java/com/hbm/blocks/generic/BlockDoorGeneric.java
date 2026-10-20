@@ -55,7 +55,7 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	public BombReturnCode explode(World world, int x, int y, int z) {
 		int[] pos1 = findCore(world, x, y, z);
 		if(pos1 == null) return BombReturnCode.ERROR_INCOMPATIBLE;
-		TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(pos1[0], pos1[1], pos1[2]);
+		TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos1[0], pos1[1], pos1[2]));
 		if(door != null) {
 			DoorDecl decl = door.getDoorType();
 			if(!decl.remoteControllable()) return BombReturnCode.ERROR_INCOMPATIBLE;
@@ -72,7 +72,7 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 		if(!world.isRemote && !playerIn.isSneaking()) {
 			int[] pos1 = findCore(world, x, y, z);
 			if(pos1 == null) return false;
-			TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(pos1[0], pos1[1], pos1[2]);
+			TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos1[0], pos1[1], pos1[2]));
 
 			if(door != null) {
 				return door.tryToggle(playerIn);
@@ -87,7 +87,7 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 		
 		int[] pos1 = findCore(world, x, y, z);
 		if(pos1 == null) return false;
-		TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(pos1[0], pos1[1], pos1[2]);
+		TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos1[0], pos1[1], pos1[2]));
 		
 		if(door == null || !door.getDoorType().hasSkins()) return false;
 		if(world.isRemote) return true;
@@ -157,7 +157,7 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 
 			int[] corePos = findCore(world, x, y, z);
 			if(corePos != null){
-				TileEntity core = world.getTileEntity(corePos[0], corePos[1], corePos[2]);
+				TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));
 				if(core instanceof TileEntityDoorGeneric){
 					TileEntityDoorGeneric door = (TileEntityDoorGeneric)core;
 					door.updateRedstonePower(x, y, z);
@@ -173,14 +173,14 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	}
 
 	public AxisAlignedBB getBoundingBox(World world, int x, int y, int z, boolean forCollision) {
-		int meta = world.getBlockMetadata(x, y, z);
-		TileEntity te = world.getTileEntity(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		int[] core = this.findCore(world, x, y, z);
 		boolean open = hasExtra(meta) || (te instanceof TileEntityDoorGeneric && ((TileEntityDoorGeneric)te).state != 0);
 		if(core == null){
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
 		}
-		TileEntity te2 = world.getTileEntity(core[0], core[1], core[2]);
+		TileEntity te2 = world.getTileEntity(new net.minecraft.util.math.BlockPos(core[0], core[1], core[2]));
 		ForgeDirection dir = ForgeDirection.getOrientation(te2.getBlockMetadata() - BlockDummyable.offset);
 		BlockPos pos = new BlockPos(x - core[0], y - core[1], z - core[2]).rotate(Rotation.getBlockRotation(dir).add(Rotation.COUNTERCLOCKWISE_90));
 		AxisAlignedBB box = type.getBlockBound(pos.getX(), pos.getY(), pos.getZ(), open, forCollision);

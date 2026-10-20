@@ -1,0 +1,51 @@
+PASS exact CP51 reverse hashes for both changed production owners
+PASS 834 name receivers: 647 native mappings; 187 NTM BlockBase side-effect setters retained
+PASS constructor/string literals and complete fluent evaluation order unchanged
+PASS 651 registration calls and original ItemBlock selections unchanged; seven Fluid name setters retained
+PASS 676 explicit texture calls retained; original CRLF bytes retained
+PASS 156 BlockBase-owned call sites use audited receiver casts, without setter reordering
+PASS genuine production registry queue is unmodified
+REMAINING {"old_setStepSound": 148, "old_texture_calls_non_Base": 531}
+PASS 129 standalone assigned texture resources retain exact pristine bytes; 16 variant-stem entries remain owner callback cases, not fabricated assets
+SCOPE: twelve complete production files; seven verbatim construction and seven registry statements; six verbatim material fields.
+BOUNDARY: MainRegistry logger/random fixture only. Full ModBlocks, other owners, whole client and dedicated server are NOT compiled or validated here.
+COMPILE BlockBase.java 771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a
+COMPILE BlockGeneric.java aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106
+COMPILE GameRegistry.java fed01b4eeeec1e0b44bc754a06da858d079cfe9a39596eb59926d633364d4456
+COMPILE RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+COMPILE IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+COMPILE IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+COMPILE LegacyIconRegister.java bb4b5a574364fb705e6ecc0bdb6b411b46d43f3d2d7b303503114c892f7f5a9f
+COMPILE LegacyTextureAtlasSprite.java 2345b038dee3508bd3ddf6b87bb12d38f888cc76f033eed28a5324d48e70ad0e
+COMPILE LegacyIconRegistrationHandler.java e700b6df4e36aeea08b84f8064a2ab5f66f1e76402b767367529165275814e66
+COMPILE ModSoundType.java ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3
+COMPILE ModSoundTypes.java 822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c
+COMPILE ModSoundEvents.java 7e622eb7dcb2067a356797d3d680b560924dc22b2528d8abc0bf76dd1ef356a5
+COMPILE ModBlocksConstructionSlice.java ca6d223b9c2dfced5a92f55d99df44fbb98cc435df1676ae4bc11689578f8b72
+COMPILE MainRegistry.java 260cc73ca12d061a1e73181c925c7b5be5071d9102eb3d1f7cd8d4dc6ff50cdc
+COMPILE NativeAtlasEnvironment.java 7961b085f7af51c201cb00375cdd193667524c115aa35a882c0de2a76e4ddd9a
+COMPILE BlockRegistryNativeTest.java d7a2109ef8e9b425a5fef189376156cdc5c46db727783893d3967a43b06816b3
+COMPILE ForgeEventNativeLauncher.java e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3
+PASS complete Java 8 syntax parse for ModBlocks and BlockBase; NOT a dependency/semantic compile
+Note: /workspace/shared/nagaport-block-registry-cp51/ntm-port-1.12.2/porting/tests/block-registry-native/BlockRegistryNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[00:27:24] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[00:27:24] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[00:27:24] [main/INFO]: Replaced 1036 ore ingredients
+[00:27:24] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[00:27:24] [main/INFO]: Processing ObjectHolder annotations
+[00:27:24] [main/INFO]: Found 1167 ObjectHolder annotations
+NATIVE PLATFORM DELTA material d default map RGB: original=6837042 native=9402184; owner map-color parity remains NOT_RUN
+NATIVE PLATFORM DELTA material c default map RGB: original=12020271 native=9923917; owner map-color parity remains NOT_RUN
+NATIVE PLATFORM DELTA material n default map RGB: original=10987431 native=13092807; owner map-color parity remains NOT_RUN
+PASS original 1.7.10 bytecode oracle: nineteen materials, six map colors and ten sound constants
+PASS exact selected ModBlocks construction statements and native Block/Item registry events
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[00:27:25] [main/INFO]: Setting user: AtlasProbe
+[00:27:25] [main/INFO]: Max texture size: 16384
+[00:27:25] [main/INFO]: Created: 64x32 textures-atlas
+PASS real TextureStitchEvent + production callback, native PNG/mipmap/stitch/GL upload, reload 0
+[00:27:25] [main/INFO]: Max texture size: 16384
+[00:27:25] [main/INFO]: Created: 64x32 textures-atlas
+PASS real TextureStitchEvent + production callback, native PNG/mipmap/stitch/GL upload, reload 1
+PASS 10197 checks; isolated seven-block construction/registry/atlas slice, not whole-ModBlocks or client/server parity

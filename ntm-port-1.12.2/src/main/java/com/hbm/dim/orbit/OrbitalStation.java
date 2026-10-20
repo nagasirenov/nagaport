@@ -146,7 +146,7 @@ public class OrbitalStation {
 			if(!engine.canPerformBurn(Math.round(shipMass * massPortion), deltaV)) {
 				TileEntity te = engine.getTileEntity();
 				canTravel = false;
-				errorsAt.add(new ThreeInts(te.xCoord, te.yCoord, te.zCoord));
+				errorsAt.add(new ThreeInts(te.getPos().getX(), te.getPos().getY(), te.getPos().getZ()));
 				errorTimer = 100;
 			}
 		}
@@ -186,7 +186,7 @@ public class OrbitalStation {
 		if(mainPort == null) return -1;
 
 		int size = calculateSize();
-		double distance = SolarSystem.calculateDistanceBetweenTwoBodies(mainPort.getWorldObj(), orbiting, target);
+		double distance = SolarSystem.calculateDistanceBetweenTwoBodies(mainPort.getWorld(), orbiting, target);
 		float thrust = getTotalThrust();
 
 		return calculateTransferTime(distance, size, thrust);
@@ -227,23 +227,23 @@ public class OrbitalStation {
 
 	public static void addPropulsion(IPropulsion propulsion) {
 		TileEntity te = propulsion.getTileEntity();
-		OrbitalStation station = getStationFromPosition(te.xCoord, te.zCoord);
+		OrbitalStation station = getStationFromPosition(te.getPos().getX(), te.getPos().getZ());
 		station.engines.add(propulsion);
 	}
 
 	public static void removePropulsion(IPropulsion propulsion) {
 		TileEntity te = propulsion.getTileEntity();
-		OrbitalStation station = getStationFromPosition(te.xCoord, te.zCoord);
+		OrbitalStation station = getStationFromPosition(te.getPos().getX(), te.getPos().getZ());
 		station.engines.remove(propulsion);
 	}
 
 	public void addPort(TileEntityOrbitalStation port) {
-		ports.put(new ThreeInts(port.xCoord, port.yCoord, port.zCoord), port);
+		ports.put(new ThreeInts(port.getPos().getX(), port.getPos().getY(), port.getPos().getZ()), port);
 		if(port.getBlockType() == ModBlocks.orbital_station) mainPort = port;
 	}
 
 	public void removePort(TileEntityOrbitalStation port) {
-		ports.remove(new ThreeInts(port.xCoord, port.yCoord, port.zCoord));
+		ports.remove(new ThreeInts(port.getPos().getX(), port.getPos().getY(), port.getPos().getZ()));
 	}
 
 	public TileEntityOrbitalStation getPort() {
@@ -277,15 +277,15 @@ public class OrbitalStation {
 	// super fucking fast but like, don't call it every frame
 	public int calculateSize() {
 		if(mainPort == null) return 0;
-		World world = mainPort.getWorldObj();
+		World world = mainPort.getWorld();
 
 		int minX, maxX;
 		int minZ, maxZ;
-		minX = maxX = mainPort.xCoord;
-		minZ = maxZ = mainPort.zCoord;
+		minX = maxX = mainPort.getPos().getX();
+		minZ = maxZ = mainPort.getPos().getZ();
 
 		Stack<ThreeInts> stack = new Stack<ThreeInts>();
-		stack.push(new ThreeInts(mainPort.xCoord, mainPort.yCoord, mainPort.zCoord));
+		stack.push(new ThreeInts(mainPort.getPos().getX(), mainPort.getPos().getY(), mainPort.getPos().getZ()));
 
 		HashSet<ThreeInts> visited = new HashSet<ThreeInts>();
 
@@ -312,12 +312,12 @@ public class OrbitalStation {
 
 	private boolean isInStation(World world, ThreeInts pos) {
 		if(world.getHeightValue(pos.x, pos.z) > 1) return true;
-		return Math.abs(pos.x - mainPort.xCoord) < 5 && Math.abs(pos.z - mainPort.zCoord) < 5; // minimum station size
+		return Math.abs(pos.x - mainPort.getPos().getX()) < 5 && Math.abs(pos.z - mainPort.getPos().getZ()) < 5; // minimum station size
 	}
 
 	public double getUnscaledProgress(float partialTicks) {
 		if(state == StationState.ORBIT) return 0;
-		return MathHelper.clamp_double(((double)stateTimer + partialTicks) / (double)maxStateTimer, 0, 1);
+		return MathHelper.clamp(((double)stateTimer + partialTicks) / (double)maxStateTimer, (double) (0), (double) (1));
 	}
 
 	public double getTransferProgress(float partialTicks) {
@@ -338,7 +338,7 @@ public class OrbitalStation {
 
 		// Fallback for when a station doesn't exist (should only occur when using debug wand!)
 		if(station == null) {
-			station = data.addStation(MathHelper.floor_float((float)x / STATION_SIZE), MathHelper.floor_float((float)z / STATION_SIZE), CelestialBody.getBody(0));
+			station = data.addStation(MathHelper.floor((float)x / STATION_SIZE), MathHelper.floor((float)z / STATION_SIZE), CelestialBody.getBody(0));
 		}
 
 		return station;
@@ -392,7 +392,7 @@ public class OrbitalStation {
 
 	public static void spawn(World world, int x, int z) {
 		int y = 127;
-		if(world.getBlock(x, y, z) == ModBlocks.orbital_station) return;
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.orbital_station) return;
 
 		BlockOrbitalStation block = (BlockOrbitalStation) ModBlocks.orbital_station;
 

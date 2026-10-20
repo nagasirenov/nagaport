@@ -32,7 +32,7 @@ public class ContainerFunnel extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return funnel.isUseableByPlayer(player);
+		return funnel.isUsableByPlayer(player);
 	}
 
 	@Override

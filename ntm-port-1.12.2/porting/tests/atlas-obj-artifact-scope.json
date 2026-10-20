@@ -1,0 +1,20 @@
+{
+  "artifact_files": [
+    "porting/native-atlas-obj-acceptance.md",
+    "porting/native-atlas-obj-model-test.log",
+    "porting/native-atlas-block-test.log",
+    "porting/native-atlas-sound-test.log",
+    "porting/tests/atlas-obj-production-scope.json",
+    "porting/tests/atlas-obj-model-native-legacy-rotation-test.java.in",
+    "porting/tests/atlas-obj-model-native-notes.md",
+    "porting/tests/atlas-obj-model-native-original-manifest.json",
+    "porting/tests/atlas-obj-model-native-probe.py",
+    "porting/tests/atlas-obj-model-native-test.java.in",
+    "porting/tests/atlas-block-machines-native-probe.py",
+    "porting/tests/atlas-block-machines-native-test.java.in",
+    "porting/tests/atlas-block-native-notes.md",
+    "porting/tests/BlockSoundNativeTest.java",
+    "porting/tests/block-sound-native-probe.py",
+    "porting/tests/atlas-obj-artifact-scope.json"
+  ]
+}

@@ -60,7 +60,7 @@ public class GUIRBMKConsole extends GuiScreen {
 		
 		Keyboard.enableRepeatEvents(true);
 		
-		this.field = new GuiTextField(this.fontRendererObj, guiLeft + 9, guiTop + 84, 35, 9);
+		this.field = new GuiTextField(0, this.fontRenderer, guiLeft + 9, guiTop + 84, 35, 9);
 		this.field.setTextColor(0x00ff00);
 		this.field.setDisabledTextColour(0x008000);
 		this.field.setEnableBackgroundDrawing(false);
@@ -87,7 +87,7 @@ public class GUIRBMKConsole extends GuiScreen {
 					List<String> list = new ArrayList();
 					list.add(col.type.toString());
 					list.addAll(col.getFancyStats());
-					this.func_146283_a(list, mouseX, mouseY);
+					this.drawHoveringText(list, mouseX, mouseY);
 				}
 			}
 		}
@@ -114,7 +114,7 @@ public class GUIRBMKConsole extends GuiScreen {
 	public void drawCustomInfoStat(int mouseX, int mouseY, int x, int y, int width, int height, int tPosX, int tPosY, String[] text) {
 		
 		if(x <= mouseX && x + width > mouseX && y < mouseY && y + height >= mouseY)
-			this.func_146283_a(Arrays.asList(text), tPosX, tPosY);
+			this.drawHoveringText(Arrays.asList(text), tPosX, tPosY);
 	}
 
 	@Override
@@ -137,7 +137,7 @@ public class GUIRBMKConsole extends GuiScreen {
 			if(index >= 0 && index < selection.length && console.columns[index] != null) {
 				this.selection[index] = !this.selection[index];
 				
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.75F + (this.selection[index] ? 0.25F : 0.0F)));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.75F + (this.selection[index] ? 0.25F : 0.0F)));
 				return;
 			}
 		}
@@ -145,7 +145,7 @@ public class GUIRBMKConsole extends GuiScreen {
 		//clear selection
 		if(guiLeft + 72 <= mouseX && guiLeft + 72 + 10 > mouseX && guiTop + 70 < mouseY && guiTop + 70 + 10 >= mouseY) {
 			this.selection = new boolean[15 * 15];
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.5F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.5F));
 			return;
 		}
 		
@@ -159,7 +159,7 @@ public class GUIRBMKConsole extends GuiScreen {
 					this.selection[j] = true;
 				}
 			}
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.5F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.5F));
 			return;
 		}
 		
@@ -176,8 +176,8 @@ public class GUIRBMKConsole extends GuiScreen {
 			int[] cols = new int[ints.size()];
 			for(int i = 0; i < cols.length; i++) cols[i] = ints.get(i);
 			control.setIntArray("cols", cols);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.xCoord, console.yCoord, console.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.getPos().getX(), console.getPos().getY(), console.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1F));
 		}
 		
 		//select color groups
@@ -208,10 +208,10 @@ public class GUIRBMKConsole extends GuiScreen {
 					int[] cols = new int[ints.size()];
 					for(int i = 0; i < cols.length; i++) cols[i] = ints.get(i);
 					control.setIntArray("cols", cols);
-					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.xCoord, console.yCoord, console.zCoord));
+					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.getPos().getX(), console.getPos().getY(), console.getPos().getZ()));
 				}
 				
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.8F + k * 0.1F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.8F + k * 0.1F));
 				return;
 			}
 		}
@@ -221,9 +221,9 @@ public class GUIRBMKConsole extends GuiScreen {
 			
 			if(az5Lid) {
 				az5Lid = false;
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.rbmk_az5_cover"), 0.5F));
 			} else if(lastPress + 3000 < System.currentTimeMillis()) {
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.shutdown"), 1));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.shutdown"), 1));
 				lastPress = System.currentTimeMillis();
 				
 				NBTTagCompound control = new NBTTagCompound();
@@ -234,8 +234,8 @@ public class GUIRBMKConsole extends GuiScreen {
 						control.setInteger("sel_" + j, j);
 				}
 				
-				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.xCoord, console.yCoord, console.zCoord));
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1F));
+				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.getPos().getX(), console.getPos().getY(), console.getPos().getZ()));
+				mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1F));
 			}
 			return;
 		}
@@ -246,7 +246,7 @@ public class GUIRBMKConsole extends GuiScreen {
 			double level;
 			
 			if(NumberUtils.isNumber(field.getText())) {
-				int j = (int)MathHelper.clamp_double(Double.parseDouble(field.getText()), 0, 100);
+				int j = (int)MathHelper.clamp(Double.parseDouble(field.getText()), (double) (0), (double) (100));
 				field.setText(j + "");
 				level = j * 0.01D;
 			} else {
@@ -261,8 +261,8 @@ public class GUIRBMKConsole extends GuiScreen {
 					control.setInteger("sel_" + j, j);
 			}
 			
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.xCoord, console.yCoord, console.zCoord));
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1F));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.getPos().getX(), console.getPos().getY(), console.getPos().getZ()));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1F));
 		}
 		
 		//submit selection for status screen
@@ -275,8 +275,8 @@ public class GUIRBMKConsole extends GuiScreen {
 				if(guiLeft + 6 + 40 * k <= mouseX && guiLeft + 6 + 40 * k + 18 > mouseX && guiTop + 8 + 21 * j < mouseY && guiTop + 8 + 21 * j + 18 >= mouseY) {
 					NBTTagCompound control = new NBTTagCompound();
 					control.setByte("toggle", (byte) id);
-					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.xCoord, console.yCoord, console.zCoord));
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.5F));
+					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.getPos().getX(), console.getPos().getY(), console.getPos().getZ()));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.5F));
 					return;
 				}
 				
@@ -291,8 +291,8 @@ public class GUIRBMKConsole extends GuiScreen {
 						}
 					}
 
-					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.xCoord, console.yCoord, console.zCoord));
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 0.75F));
+					PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(control, console.getPos().getX(), console.getPos().getY(), console.getPos().getZ()));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 0.75F));
 					return;
 				}
 			}
@@ -432,10 +432,10 @@ public class GUIRBMKConsole extends GuiScreen {
 		GL11.glPushMatrix();
 		double scale = 0.5D;
 		GL11.glScaled(scale, scale, 1);
-		this.fontRendererObj.drawString(highest + "", (int) ((guiLeft + 8) / scale), (int) ((guiTop + 98) / scale), 0x00ff00);
-		this.fontRendererObj.drawString(highest + "", (int) ((guiLeft + 80 - this.fontRendererObj.getStringWidth(highest + "") * scale) / scale), (int) ((guiTop + 98) / scale), 0x00ff00);
-		this.fontRendererObj.drawString(lowest + "", (int) ((guiLeft + 8) / scale), (int) ((guiTop + 133 - this.fontRendererObj.FONT_HEIGHT * scale) / scale), 0x00ff00);
-		this.fontRendererObj.drawString(lowest + "", (int) ((guiLeft + 80 - this.fontRendererObj.getStringWidth(lowest + "") * scale) / scale), (int) ((guiTop + 133 - this.fontRendererObj.FONT_HEIGHT * scale) / scale), 0x00ff00);
+		this.fontRenderer.drawString(highest + "", (int) ((guiLeft + 8) / scale), (int) ((guiTop + 98) / scale), 0x00ff00);
+		this.fontRenderer.drawString(highest + "", (int) ((guiLeft + 80 - this.fontRenderer.getStringWidth(highest + "") * scale) / scale), (int) ((guiTop + 98) / scale), 0x00ff00);
+		this.fontRenderer.drawString(lowest + "", (int) ((guiLeft + 8) / scale), (int) ((guiTop + 133 - this.fontRenderer.FONT_HEIGHT * scale) / scale), 0x00ff00);
+		this.fontRenderer.drawString(lowest + "", (int) ((guiLeft + 80 - this.fontRenderer.getStringWidth(lowest + "") * scale) / scale), (int) ((guiTop + 133 - this.fontRenderer.FONT_HEIGHT * scale) / scale), 0x00ff00);
 		GL11.glPopMatrix();
 		
 		this.field.drawTextBox();
@@ -448,7 +448,7 @@ public class GUIRBMKConsole extends GuiScreen {
 			return;
 		
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			return;
 		}
 		

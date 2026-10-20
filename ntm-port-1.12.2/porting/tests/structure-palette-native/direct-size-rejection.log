@@ -1,0 +1,6 @@
+/tmp/structure-palette-9k05fhz6/DirectExpansion.java:1: error: code too large
+import net.minecraft.world.World; import net.minecraft.block.Block; class DirectExpansion {Block Block3,Block6; void run(World world,int x,int y,int z){
+                                                                                                                     ^
+Note: /tmp/structure-palette-9k05fhz6/DirectExpansion.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

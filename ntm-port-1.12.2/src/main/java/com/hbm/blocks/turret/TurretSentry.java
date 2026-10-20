@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class TurretSentry extends BlockContainer {
 
 	public TurretSentry() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -60,36 +60,40 @@ public class TurretSentry extends BlockContainer {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block b, int meta) {
 
-		TileEntityTurretSentry sentry = (TileEntityTurretSentry) world.getTileEntity(x, y, z);
+		TileEntityTurretSentry sentry = (TileEntityTurretSentry) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(sentry != null) {
 			for(int i = 0; i < sentry.getSizeInventory(); ++i) {
 				ItemStack itemstack = sentry.getStackInSlot(i);
 
-				if(itemstack != null) {
+				if(itemstack != null && !itemstack.isEmpty()) {
 					float oX = this.rand.nextFloat() * 0.8F + 0.1F;
 					float oY = this.rand.nextFloat() * 0.8F + 0.1F;
 					float oZ = this.rand.nextFloat() * 0.8F + 0.1F;
 
-					while(itemstack.stackSize > 0) {
+					while(itemstack.getCount() > 0) {
 						int toDrop = this.rand.nextInt(21) + 10;
 
-						if(toDrop > itemstack.stackSize) {
-							toDrop = itemstack.stackSize;
+						if(toDrop > itemstack.getCount()) {
+							toDrop = itemstack.getCount();
 						}
 
-						itemstack.stackSize -= toDrop;
-						EntityItem entityitem = new EntityItem(world, x + oX, y + oY, z + oZ, new ItemStack(itemstack.getItem(), toDrop, itemstack.getItemDamage()));
+						// Capture before depletion: native empty stacks hide their item.
+						net.minecraft.item.Item dropItem = itemstack.getItem();
+						int dropMeta = itemstack.getItemDamage();
+						NBTTagCompound dropTag = itemstack.getTagCompound();
+						itemstack.shrink(toDrop);
+						EntityItem entityitem = new EntityItem(world, x + oX, y + oY, z + oZ, new ItemStack(dropItem, toDrop, dropMeta));
 
-						if(itemstack.hasTagCompound()) {
-							entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+						if(dropTag != null) {
+							entityitem.getItem().setTagCompound(dropTag.copy());
 						}
 
 						float jump = 0.05F;
 						entityitem.motionX = (float) this.rand.nextGaussian() * jump;
 						entityitem.motionY = (float) this.rand.nextGaussian() * jump + 0.2F;
 						entityitem.motionZ = (float) this.rand.nextGaussian() * jump;
-						world.spawnEntityInWorld(entityitem);
+						world.spawnEntity(entityitem);
 					}
 				}
 			}

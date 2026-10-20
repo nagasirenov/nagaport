@@ -1,0 +1,70 @@
+[02:02:39] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:02:39] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:02:39] [main/INFO]: Replaced 1036 ore ingredients
+[02:02:39] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:02:39] [main/INFO]: Processing ObjectHolder annotations
+[02:02:39] [main/INFO]: Found 1167 ObjectHolder annotations
+[02:02:39] [main/INFO]: Reloading ResourceManager: entity-custom-sound-audit-7040171248863496299
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.metalblock`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.pipeplaced`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.morkite`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.battery`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.upgradeplug`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.cratebreak`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionlargenear`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionlargefar`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.small`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.medium`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.large`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.casing.shell`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionsmallnear`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionsmallfar`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `alarm.gambit`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `alarm.trainhorn`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.chunguslever`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.crateclose`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.crateopen`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.damage`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.hatchimpact`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.screm`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.shutdown`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.storageclose`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.storageopen`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.bombwhistle`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.oldexplosion`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.planecrash`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.planeshotdown`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.ufoblast`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.pinbreak`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.techbleep`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.unpack`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `player.cough`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `player.vomit`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `turret.jeremy_fire`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `turret.jeremy_reload`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `turret.mortarwhistle`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.boat`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.cdeploy`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.chainsaw`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.dflash`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosionmedium`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.explosiontiny`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.fire.disintegration`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.fire.taurelease`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.flamethrowershoot`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.fstbmbping`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.immolatorshoot`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.kapeng`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.laserbang`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.missiletakeoff`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.mukeexplosion`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.reload.tubefwoomp`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.robin_explosion`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.stingerlockon`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.switchmode1`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.switchmode2`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+[02:02:40] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `weapon.trainimpact`, expected `entityaudit`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native custom packet audit: 28 checks. Arbitrary raw names transported without registry; real playback event; existing allowlist demonstrably misses arbitrary replacement resource category; native ResourceLocation changes path case. No production edits, no audible-audio claim.

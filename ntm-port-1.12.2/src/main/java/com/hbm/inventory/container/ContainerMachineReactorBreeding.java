@@ -69,6 +69,6 @@ public class ContainerMachineReactorBreeding extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return reactor.isUseableByPlayer(player);
+		return reactor.isUsableByPlayer(player);
 	}
 }

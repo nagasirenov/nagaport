@@ -7285,3 +7285,19 @@ desc.gui.upgrade.effectiveness= * §aEffectiveness§r: Stacks to level 3
 desc.gui.upgrade.overdrive= * §7Overdrive§r: Stacks to level 3
 desc.gui.upgrade.power= * §1Power-Saving§r: Stacks to level 3
 desc.gui.upgrade.speed= * §4Speed§r: Stacks to level 3
+
+# Legacy vanilla achievement text retained for native NTM progression dependencies.
+achievement.openInventory=Taking Inventory
+achievement.openInventory.desc=Press '%1$s' to open your inventory.
+achievement.mineWood=Getting Wood
+achievement.mineWood.desc=Attack a tree until a block of wood pops out
+achievement.buildWorkBench=Benchmarking
+achievement.buildWorkBench.desc=Craft a workbench with four blocks of planks
+achievement.buildPickaxe=Time to Mine!
+achievement.buildPickaxe.desc=Use planks and sticks to make a pickaxe
+achievement.buildFurnace=Hot Topic
+achievement.buildFurnace.desc=Construct a furnace out of eight stone blocks
+achievement.acquireIron=Acquire Hardware
+achievement.acquireIron.desc=Smelt an iron ingot
+achievement.cookFish=Delicious Fish
+achievement.cookFish.desc=Catch and cook fish!

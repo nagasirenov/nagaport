@@ -22,6 +22,13 @@ import net.minecraft.world.World;
 
 public class BlockStepEffect extends Block {
 
+    /** Audited construction builder; native protected setter, unchanged receiver identity. */
+    public BlockStepEffect withSoundType(net.minecraft.block.SoundType sound) {
+        setSoundType(sound);
+        return this;
+    }
+
+
     // Fucking BlockOre replacement because who needs good naming
 
 	public BlockStepEffect(Material mat) {
@@ -43,7 +50,7 @@ public class BlockStepEffect extends Block {
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random rand) {
 
-		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune) && allowFortune) {
+		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune) && allowFortune) {
 			int mult = rand.nextInt(fortune + 2) - 1;
 
 			if(mult < 0) {
@@ -57,18 +64,18 @@ public class BlockStepEffect extends Block {
 	}
 
     @Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		if(this == ModBlocks.waste_trinitite || this == ModBlocks.waste_trinitite_red) {
 			return ModItems.trinitite;
 		}
 		if(this == ModBlocks.waste_planks) {
-			return Items.coal;
+			return Items.COAL;
 		}
 		if(this == ModBlocks.frozen_dirt) {
-			return Items.snowball;
+			return Items.SNOWBALL;
 		}
 		if(this == ModBlocks.frozen_planks) {
-			return Items.snowball;
+			return Items.SNOWBALL;
 		}
 		if(this == ModBlocks.ore_nether_fire) {
 			return rand.nextInt(10) == 0 ? ModItems.ingot_phosphorus : ModItems.powder_fire;
@@ -163,7 +170,7 @@ public class BlockStepEffect extends Block {
 		if(this == ModBlocks.block_meteor_molten) {
 			if(!world.isRemote)
 				world.setBlock(x, y, z, ModBlocks.block_meteor_cobble);
-			world.playSoundEffect((double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 			return;
 		}
 	}
@@ -172,7 +179,7 @@ public class BlockStepEffect extends Block {
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int i) {
 
 		if(this == ModBlocks.block_meteor_molten) {
-			if(!world.isRemote) world.setBlock(x, y, z, Blocks.lava);
+			if(!world.isRemote) { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}
 

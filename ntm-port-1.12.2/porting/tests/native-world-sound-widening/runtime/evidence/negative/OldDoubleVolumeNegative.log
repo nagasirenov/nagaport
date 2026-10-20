@@ -1,0 +1,13 @@
+/workspace/shared/world-sound-widening-replay.qcPMl4/negative/OldDoubleVolumeNegative.java:1: error: no suitable method found for a(int,int,int,String,double,float)
+class OldDoubleVolumeNegative { static void test(ahb w) { w.a(1, 2, 3, "hbm:player.vomit", 1D, 1F); } }
+                                                           ^
+    method ahb.a(double,double,double,String,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method ahb.a(int,int,int,aji,int,int) is not applicable
+      (argument mismatch; String cannot be converted to aji)
+    method ahb.a(sa,double,double,double,float,boolean) is not applicable
+      (argument mismatch; int cannot be converted to sa)
+    method ahb.a(yz,int,int,int,int,int) is not applicable
+      (argument mismatch; int cannot be converted to yz)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

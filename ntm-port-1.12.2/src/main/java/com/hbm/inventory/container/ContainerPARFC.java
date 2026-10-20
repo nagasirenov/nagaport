@@ -31,7 +31,7 @@ public class ContainerPARFC extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return rfc.isUseableByPlayer(player);
+		return rfc.isUsableByPlayer(player);
 	}
 
 	@Override

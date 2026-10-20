@@ -1,0 +1,13 @@
+{
+  "baseline": "4117777482629b159d6cfa5dcc20c1f4ec5aa311",
+  "production": {
+    "world/biome/BiomeGenNoMansLand.java": "cd2fb6eb709ac22431b13accdbe88006741d272f7e6ac78c5cbc7460145f3ed9",
+    "world/biome/BiomeDecoratorNoMansLand.java": "eda9fcd2724d20769026f01d42e012f05d267110a5df752197724eaa3eea0257",
+    "world/feature/WorldGenSurfaceSpot.java": "9b27fc7ca56ab2bc79a057704764f9739e769c57d7725256dded2f4f6987b2f6"
+  },
+  "pristine_original": {
+    "world/biome/BiomeGenNoMansLand.java": "d3c84d9f1ec0c065ca9bdbdc26704d0dc64906fadd09bf3f2684dad93fefabde",
+    "world/biome/BiomeDecoratorNoMansLand.java": "c194fbd814f11b0fd63942db3750f6252a0a3dcce5b4433e75969d2f064c446f",
+    "world/feature/WorldGenSurfaceSpot.java": "0961141aa985becda1e72e2665e046a1c25d73da27033d908fae9c95211ca21d"
+  }
+}

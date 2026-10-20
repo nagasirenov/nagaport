@@ -1,0 +1,8 @@
+{
+  "scope": "Identical resources in immutable finished compile snapshots only; all contents and paths retained. Do not edit these frozen resource files in place. No main checkout resource linked.",
+  "file_count": 17846,
+  "duplicate_bytes_recovered": 261365004,
+  "full_manifest": "checkpoint62-snapshot-resource-deduplication.json.gz",
+  "uncompressed_manifest_sha256": "8cb5d9748166ffa61b5e88096e6e585a5e56f105a37a0baf7b25245cb2b2d1e4",
+  "compressed_manifest_sha256": "3e7adcb5cc9cb1ed9a68354a55f3e487aae19f95b5fc48b0317e7e158e29b73a"
+}

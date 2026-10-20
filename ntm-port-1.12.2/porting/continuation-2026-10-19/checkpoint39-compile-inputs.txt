@@ -1,0 +1,23 @@
+PASS 19 production paths, 16 changed/new Java match 4002 generated main compiler inputs.
+Production tree 1c3efcd47814fc38801f65f38a2666c5bf1eb3c0
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "c24145b93b321f1f652754b6baf6fb9179f156677557f4ebe97dc263abc8abfb",
+  "src/main/java/com/hbm/blocks/generic/BlockSteelDecoration.java": "5bd5c41aa0da3f57f6d5d11e3ea21463728f15a1f75e6def311f6444e362aa74",
+  "src/main/java/com/hbm/blocks/machine/SolarMirror.java": "4948f85a7c1e04915950f51ef5c8ad47798e4a9b7832a87b43e26d4b3bbd3f23",
+  "src/main/java/com/hbm/blocks/machine/SolarMirrorModelState.java": "ff374db2cd3ea1227b13218bbc8f6b27934fb7945a072299fc5d101c87d1512e",
+  "src/main/java/com/hbm/main/ClientProxy.java": "7e2710ee9d7ce95c9ecdcc994ef5225d68178e431de528e94fa2bff0fddae60c",
+  "src/main/java/com/hbm/main/ModEventHandler.java": "390c001307572e5fc208024b7d055edf5147aa28c2d5fff9dbab467425480dad",
+  "src/main/java/com/hbm/main/SolarMirrorModelHandler.java": "04b82ec00f2edae6adf3aeb5609d0aa05ec71aa28503aa05d8a6cef5eda3736a",
+  "src/main/java/com/hbm/main/SteelDecorationModelHandler.java": "842eb2173884070954a9f445d72531c6d5f0bbac474053af0b9ef766b840f69a",
+  "src/main/java/com/hbm/render/block/RenderMirror.java": "d45775900e6d160d9e0cc85db3759c05e1e7c1758f51e08163e9d6b0964a8e58",
+  "src/main/java/com/hbm/render/block/RenderSteelCorner.java": "35a3e6938eab2f1293f1bd5412c1a786d287e05db323ec6ef7aa0db25d2fb6ad",
+  "src/main/java/com/hbm/render/block/RenderSteelWall.java": "964715852bbce46395747812f0da41ac5cee56bd2ab6cdaa9a4a710d9d8c8918",
+  "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorBakedModel.java": "d2ef56e9219cc185d6a4057a7e9e0a374e7b7f66590ce819b21c325d17764ae3",
+  "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorGeometry.java": "bc523b4ec40d545ebe690f4b00a74f3d75e48a2a4b07fc8fa9b74dced70ade72",
+  "src/main/java/com/hbm/render/block/nativeblock/SteelDecorationBakedModel.java": "84d6ef290b1954f50080a530d41b44c4917e3fbbb3c80ab977e7a6bb96ca75d3",
+  "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java": "4cdfae5009ab3794c5a6f5d3575a5fd59bb6bdd4444acbd550c5dae69caf02d5",
+  "src/main/java/com/hbm/util/TrackerUtil.java": "7938b1693476bbb292ee49546c8adbb513593a1c5902009148a96d9f8edb75a6",
+  "src/main/resources/assets/hbm/blockstates/tile.solar_mirror.json": "e869df48c1469822f1730c74ad9309dc6581a1b51ab1e36d3fcd59e1efe1c697",
+  "src/main/resources/assets/hbm/blockstates/tile.steel_corner.json": "4af45c0ab4328e829e1c734cfcaa5dde7ecd6eba4b7adc881eb2f6333d45c5cc",
+  "src/main/resources/assets/hbm/blockstates/tile.steel_wall.json": "bab6b0622f11a96164128ad73056f7d4a7b60b559b8c941b3ff96a0bba0d4da6"
+}

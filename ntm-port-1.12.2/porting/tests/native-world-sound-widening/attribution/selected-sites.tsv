@@ -1,0 +1,16 @@
+com/hbm/handler/EntityEffectHandler.java	360
+com/hbm/handler/EntityEffectHandler.java	375
+com/hbm/items/food/ItemPill.java	110
+com/hbm/tileentity/bomb/TileEntityAntimatter.java	50
+com/hbm/tileentity/bomb/TileEntityCharge.java	22
+com/hbm/tileentity/bomb/TileEntityCompactLauncher.java	319
+com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java	366
+com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java	117
+com/hbm/tileentity/bomb/TileEntityLaunchTable.java	315
+com/hbm/tileentity/bomb/TileEntityNukeBalefire.java	52
+com/hbm/tileentity/machine/TileEntityFurnaceCombination.java	125
+com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java	180
+com/hbm/tileentity/turret/TileEntityTurretArty.java	359
+com/hbm/tileentity/turret/TileEntityTurretFritz.java	117
+com/hbm/tileentity/turret/TileEntityTurretJeremy.java	78
+com/hbm/tileentity/turret/TileEntityTurretJeremy.java	96

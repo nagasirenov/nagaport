@@ -1,0 +1,9 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeMovingAtlasParticlesTest.java:37: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);FixtureWorld w=(FixtureWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(FixtureWorld.class);
+                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/NativeMovingAtlasParticlesTest.java:37: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);FixtureWorld w=(FixtureWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(FixtureWorld.class);
+                                                                                                                           ^
+2 warnings
+PASS 750 complete-class native moving-atlas particle checks; no GL/full-mod/game claim.
+PASS eleven complete particle classes + native vertex/sprite/mutable-vector helpers; FlameCreator metadata only, not packet/helper integration.

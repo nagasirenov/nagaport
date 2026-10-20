@@ -1,0 +1,18 @@
+PASS: 15 exact original aliases; 15 native registry mappings; 22 sample slots / 22 unique official asset hashes
+PASS: both official version -> index -> sounds chains; volume=1 pitch=1 weight=1 stream=false type=file
+  ambient.weather.thunder -> entity.lightning.thunder: 3 samples; weather -> WEATHER
+  random.explode -> entity.generic.explode: 4 samples; block -> BLOCKS
+  random.fizz -> block.fire.extinguish: 1 samples; block -> BLOCKS
+  random.click -> block.lever.click: 1 samples; block -> BLOCKS
+  fire.fire -> block.fire.ambient: 1 samples; block -> BLOCKS
+  random.break -> entity.item.break: 1 samples; player -> PLAYERS
+  mob.zombie.woodbreak -> entity.zombie.break_door_wood: 1 samples; hostile -> HOSTILE
+  mob.endermen.portal -> entity.endermen.teleport: 2 samples; hostile -> HOSTILE
+  fireworks.blast -> entity.firework.blast: 1 samples; ambient -> AMBIENT
+  fire.ignite -> item.flintandsteel.use: 1 samples; block -> BLOCKS
+  tile.piston.out -> block.piston.extend: 1 samples; block -> BLOCKS
+  tile.piston.in -> block.piston.contract: 1 samples; block -> BLOCKS
+  minecart.base -> entity.minecart.riding: 1 samples; neutral -> NEUTRAL
+  game.neutral.swim.splash -> entity.generic.splash: 2 samples; neutral -> NEUTRAL
+  random.orb -> entity.experience_orb.pickup: 1 samples; player -> PLAYERS
+Scope: no OGG payloads or audio/client execution; see --report JSON for all sample URLs and hashes.

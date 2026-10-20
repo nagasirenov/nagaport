@@ -1,0 +1,126 @@
+Original 1.7.10 sq == EntityXPOrb, mapped by supplied MCP1710 joined.srg
+  public sq(ahb, double, double, double, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #93                 // Method sa."<init>":(Lahb;)V
+       5: aload_0
+       6: iconst_5
+       7: putfield      #63                 // Field d:I
+      10: aload_0
+      11: ldc           #5                  // float 0.5f
+      13: ldc           #5                  // float 0.5f
+      15: invokevirtual #98                 // Method a:(FF)V
+      18: aload_0
+      19: aload_0
+      20: getfield      #58                 // Field N:F
+      23: fconst_2
+      24: fdiv
+      25: putfield      #57                 // Field L:F
+      28: aload_0
+      29: dload_2
+      30: dload         4
+      32: dload         6
+      34: invokevirtual #102                // Method b:(DDD)V
+      37: aload_0
+      38: invokestatic  #89                 // Method java/lang/Math.random:()D
+      41: ldc2_w        #46                 // double 360.0d
+      44: dmul
+      45: d2f
+      46: putfield      #77                 // Field y:F
+      49: aload_0
+      50: invokestatic  #89                 // Method java/lang/Math.random:()D
+      53: ldc2_w        #38                 // double 0.20000000298023224d
+      56: dmul
+      57: ldc2_w        #34                 // double 0.10000000149011612d
+      60: dsub
+      61: d2f
+      62: fconst_2
+      63: fmul
+      64: f2d
+      65: putfield      #74                 // Field v:D
+      68: aload_0
+      69: invokestatic  #89                 // Method java/lang/Math.random:()D
+      72: ldc2_w        #36                 // double 0.2d
+      75: dmul
+      76: d2f
+      77: fconst_2
+      78: fmul
+      79: f2d
+      80: putfield      #75                 // Field w:D
+      83: aload_0
+      84: invokestatic  #89                 // Method java/lang/Math.random:()D
+      87: ldc2_w        #38                 // double 0.20000000298023224d
+      90: dmul
+      91: ldc2_w        #34                 // double 0.10000000149011612d
+      94: dsub
+      95: d2f
+      96: fconst_2
+      97: fmul
+      98: f2d
+      99: putfield      #76                 // Field x:D
+     102: aload_0
+     103: iload         8
+     105: putfield      #64                 // Field e:I
+     108: return
+
+Native 2768
+  public net.minecraft.entity.item.EntityXPOrb(net.minecraft.world.World, double, double, double, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #19                 // Method net/minecraft/entity/Entity."<init>":(Lnet/minecraft/world/World;)V
+       5: aload_0
+       6: iconst_5
+       7: putfield      #21                 // Field xpOrbHealth:I
+      10: aload_0
+      11: ldc           #22                 // float 0.5f
+      13: ldc           #22                 // float 0.5f
+      15: invokevirtual #26                 // Method setSize:(FF)V
+      18: aload_0
+      19: dload_2
+      20: dload         4
+      22: dload         6
+      24: invokevirtual #30                 // Method setPosition:(DDD)V
+      27: aload_0
+      28: invokestatic  #36                 // Method java/lang/Math.random:()D
+      31: ldc2_w        #37                 // double 360.0d
+      34: dmul
+      35: d2f
+      36: putfield      #42                 // Field rotationYaw:F
+      39: aload_0
+      40: invokestatic  #36                 // Method java/lang/Math.random:()D
+      43: ldc2_w        #43                 // double 0.20000000298023224d
+      46: dmul
+      47: ldc2_w        #45                 // double 0.10000000149011612d
+      50: dsub
+      51: d2f
+      52: fconst_2
+      53: fmul
+      54: f2d
+      55: putfield      #50                 // Field motionX:D
+      58: aload_0
+      59: invokestatic  #36                 // Method java/lang/Math.random:()D
+      62: ldc2_w        #51                 // double 0.2d
+      65: dmul
+      66: d2f
+      67: fconst_2
+      68: fmul
+      69: f2d
+      70: putfield      #55                 // Field motionY:D
+      73: aload_0
+      74: invokestatic  #36                 // Method java/lang/Math.random:()D
+      77: ldc2_w        #43                 // double 0.20000000298023224d
+      80: dmul
+      81: ldc2_w        #45                 // double 0.10000000149011612d
+      84: dsub
+      85: d2f
+      86: fconst_2
+      87: fmul
+      88: f2d
+      89: putfield      #58                 // Field motionZ:D
+      92: aload_0
+      93: iload         8
+      95: putfield      #60                 // Field xpValue:I
+      98: return
+

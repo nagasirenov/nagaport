@@ -20,7 +20,7 @@ public class OilExtractionHandler extends NEICelestialHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmOilExtraction";
 	}
 
@@ -71,10 +71,10 @@ public class OilExtractionHandler extends NEICelestialHandler {
 	}
 
 	@Override
-	public void drawBackground(int recipe) {
-		super.drawBackground(recipe);
+	public void drawRecipe(com.hbm.handler.jei.MachineRecipeView view, net.minecraft.client.Minecraft minecraft, int mouseX, int mouseY) {
+		super.drawRecipe(view, minecraft, mouseX, mouseY);
 
-		CelestialBody body = recipeInputCache.get(recipe);
+		CelestialBody body = (CelestialBody) view.source;
 
 		// TODO: also not be hardcoded
 		if(body.name == "kerbin" || body.name == "tekto") {

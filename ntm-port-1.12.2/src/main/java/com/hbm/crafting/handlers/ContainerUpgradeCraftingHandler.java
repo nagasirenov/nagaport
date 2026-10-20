@@ -17,7 +17,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class ContainerUpgradeCraftingHandler extends ShapedOreRecipe {
 
 	public ContainerUpgradeCraftingHandler(ItemStack result, Object... items) {
-		super(result, items);
+		super(null, result, items);
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class ContainerUpgradeCraftingHandler extends ShapedOreRecipe {
 	private static ItemStack getFirstContainer(InventoryCrafting inventoryCrafting) {
 		for(int i = 0; i < 9; ++i) {
 			ItemStack itemstack = inventoryCrafting.getStackInRowAndColumn(i % 3, i / 3);
-			if(itemstack == null) continue;
+			if(itemstack.isEmpty()) continue;
 			Block block = Block.getBlockFromItem(itemstack.getItem());
 			if(block == null) continue;
 			if(block instanceof BlockStorageCrate || block instanceof BlockMassStorage) return itemstack;

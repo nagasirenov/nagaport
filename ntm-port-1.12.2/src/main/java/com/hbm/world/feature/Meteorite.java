@@ -34,7 +34,7 @@ public class Meteorite {
 		}
 
 		if(damagingImpact) {
-			List<Entity> list = (List<Entity>) world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(x - 7.5, y - 7.5, z - 7.5, x + 7.5, y + 7.5, z + 7.5));
+			List<Entity> list = (List<Entity>) world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(x - 7.5, y - 7.5, z - 7.5, x + 7.5, y + 7.5, z + 7.5));
 
 			for(Entity e : list) {
 				e.attackEntityFrom(ModDamageSource.meteorite, 1000);
@@ -128,7 +128,7 @@ public class Meteorite {
 				ItemStack stack = new ItemStack(ModItems.gun_b92);
 				stack.setStackDisplayName("§9Star Blaster§r");
 				EntityItem blaster = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack);
-				world.spawnEntityInWorld(blaster);
+				world.spawnEntity(blaster);
 				return;
 			}
 
@@ -695,7 +695,7 @@ public class Meteorite {
 	}
 
 	private void setBlock(World world, int x, int y, int z, Block b, int meta, int flag) {
-		Block target = world.getBlock(x, y, z);
+		Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(safeMode) {
 			if(!target.isReplaceable(world, x, y, z) && !replacables.contains(target)) return;

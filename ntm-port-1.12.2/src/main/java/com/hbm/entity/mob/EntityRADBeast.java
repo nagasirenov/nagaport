@@ -81,7 +81,7 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 
 	public void onLivingUpdate() {
 
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			if(this.isWet()) {
 				this.attackEntityFrom(DamageSource.drown, 1.0F);
@@ -114,16 +114,16 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 		if(this.getMaxHealth() <= 150) {
 
 			for(int i = 0; i < 6; i++) {
-				this.worldObj.spawnParticle("townaura", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);
+				this.world.spawnParticle("townaura", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);
 			}
 
 			if(this.rand.nextInt(6) == 0) {
 
-				this.worldObj.spawnParticle("flame", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+				this.world.spawnParticle("flame", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
 			}
 
 		} else {
-			this.worldObj.spawnParticle("lava", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+			this.world.spawnParticle("lava", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
 		}
 
 		super.onLivingUpdate();
@@ -131,7 +131,7 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 
 	protected void attackEntity(Entity target, float dist) {
 
-		if(this.attackTime <= 0 && dist < 2.0F && target.boundingBox.maxY > this.boundingBox.minY && target.boundingBox.minY < this.boundingBox.maxY) {
+		if(this.attackTime <= 0 && dist < 2.0F && target.getEntityBoundingBox().maxY > this.getEntityBoundingBox().minY && target.getEntityBoundingBox().minY < this.getEntityBoundingBox().maxY) {
 			this.attackTime = 20;
 			this.attackEntityAsMob(target);
 
@@ -142,7 +142,7 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 
 			if(this.attackTime == 0 && getEntityToAttack() != null) {
 
-				ChunkRadiationManager.proxy.incrementRad(worldObj, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), 100);
+				ChunkRadiationManager.proxy.incrementRad(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), 100);
 				target.attackEntityFrom(ModDamageSource.radiation, 16.0F);
 				this.swingItem();
 				this.playLivingSound();
@@ -157,7 +157,7 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 	public Entity getUnfortunateSoul() {
 
 		int id = this.dataWatcher.getWatchableObjectInt(16);
-		return worldObj.getEntityByID(id);
+		return this.world.getEntityByID(id);
 	}
 
 	protected void fall(float p_70069_1_) {
@@ -172,10 +172,10 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 		super.onDeath(p_70645_1_);
 
 		if(this.getMaxHealth() > 150) {
-			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(50, 50, 50));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(50, 50, 50));
 
 			for(EntityPlayer player : players) {
-				player.triggerAchievement(MainRegistry.bossMeltdown);
+				com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossMeltdown);
 			}
 		}
 	}

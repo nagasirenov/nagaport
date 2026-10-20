@@ -1,0 +1,5 @@
+PASS:85 exact existing Java inverse/forward byte round trips,13 pinned introduced files,294 drift rejections including CRLF.
+PASS:3875-file historical inverse chain retains new files;434tile owners/336updates and297NBT methods, eleven thermal source groups,166-file GUI closure.
+PASS:noGit/emptyPATH standalone guard; old manifests unchanged;90JEI freeze inputs unchanged.
+Manifest SHA256 bb4954cc96e7c1a2288f550512d78f403d49eed0e84a9b036ba705ab98f36eef
+These are source identity/regression checks, not gameplay or full compilation.

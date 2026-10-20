@@ -1,0 +1,220 @@
+Native NEI API (resolved production dependency)
+Compiled from "INEIGuiHandler.java"
+public interface codechicken.nei.api.INEIGuiHandler {
+  public codechicken.nei.VisibilityData modifyVisibility(net.minecraft.client.gui.inventory.GuiContainer, codechicken.nei.VisibilityData);
+  public java.lang.Iterable<java.lang.Integer> getItemSpawnSlots(net.minecraft.client.gui.inventory.GuiContainer, net.minecraft.item.ItemStack);
+  public java.util.List<codechicken.nei.api.TaggedInventoryArea> getInventoryAreas(net.minecraft.client.gui.inventory.GuiContainer);
+  public boolean handleDragNDrop(net.minecraft.client.gui.inventory.GuiContainer, int, int, net.minecraft.item.ItemStack, int);
+  public boolean hideItemPanelSlot(net.minecraft.client.gui.inventory.GuiContainer, int, int, int, int);
+}
+Native GUI tooltip flags/colors
+  protected void renderToolTip(net.minecraft.item.ItemStack, int, int);
+    Code:
+       0: aload_1
+       1: invokevirtual #241                // Method net/minecraft/item/ItemStack.getItem:()Lnet/minecraft/item/Item;
+       4: aload_1
+       5: invokevirtual #247                // Method net/minecraft/item/Item.getFontRenderer:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/gui/FontRenderer;
+       8: astore        4
+      10: aload_1
+      11: invokestatic  #253                // Method net/minecraftforge/fml/client/config/GuiUtils.preItemToolTip:(Lnet/minecraft/item/ItemStack;)V
+      14: aload_0
+      15: aload_0
+      16: aload_1
+      17: invokevirtual #257                // Method getItemToolTip:(Lnet/minecraft/item/ItemStack;)Ljava/util/List;
+      20: iload_2
+      21: iload_3
+      22: aload         4
+      24: ifnonnull     34
+      27: aload_0
+      28: getfield      #259                // Field fontRenderer:Lnet/minecraft/client/gui/FontRenderer;
+      31: goto          36
+      34: aload         4
+      36: invokevirtual #265                // Method drawHoveringText:(Ljava/util/List;IILnet/minecraft/client/gui/FontRenderer;)V
+      39: invokestatic  #268                // Method net/minecraftforge/fml/client/config/GuiUtils.postItemToolTip:()V
+      42: return
+
+  public java.util.List<java.lang.String> getItemToolTip(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #126                // Field mc:Lnet/minecraft/client/Minecraft;
+       5: getfield      #277                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+       8: aload_0
+       9: getfield      #126                // Field mc:Lnet/minecraft/client/Minecraft;
+      12: getfield      #281                // Field net/minecraft/client/Minecraft.gameSettings:Lnet/minecraft/client/settings/GameSettings;
+      15: getfield      #286                // Field net/minecraft/client/settings/GameSettings.advancedItemTooltips:Z
+      18: ifeq          27
+      21: getstatic     #290                // Field net/minecraft/client/util/ITooltipFlag$TooltipFlags.ADVANCED:Lnet/minecraft/client/util/ITooltipFlag$TooltipFlags;
+      24: goto          30
+      27: getstatic     #295                // Field net/minecraft/client/util/ITooltipFlag$TooltipFlags.NORMAL:Lnet/minecraft/client/util/ITooltipFlag$TooltipFlags;
+      30: invokevirtual #299                // Method net/minecraft/item/ItemStack.getTooltip:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/client/util/ITooltipFlag;)Ljava/util/List;
+      33: astore_2
+      34: iconst_0
+      35: istore_3
+      36: iload_3
+      37: aload_2
+      38: invokeinterface #118,  1          // InterfaceMethod java/util/List.size:()I
+      43: if_icmpge     137
+      46: iload_3
+      47: ifne          94
+      50: aload_2
+      51: iload_3
+      52: new           #301                // class java/lang/StringBuilder
+      55: dup
+      56: invokespecial #302                // Method java/lang/StringBuilder."<init>":()V
+      59: aload_1
+      60: invokevirtual #306                // Method net/minecraft/item/ItemStack.getRarity:()Lnet/minecraft/item/EnumRarity;
+      63: getfield      #312                // Field net/minecraft/item/EnumRarity.color:Lnet/minecraft/util/text/TextFormatting;
+      66: invokevirtual #316                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      69: aload_2
+      70: iload_3
+      71: invokeinterface #122,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      76: checkcast     #207                // class java/lang/String
+      79: invokevirtual #319                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      82: invokevirtual #322                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      85: invokeinterface #326,  3          // InterfaceMethod java/util/List.set:(ILjava/lang/Object;)Ljava/lang/Object;
+      90: pop
+      91: goto          131
+      94: aload_2
+      95: iload_3
+      96: new           #301                // class java/lang/StringBuilder
+      99: dup
+     100: invokespecial #302                // Method java/lang/StringBuilder."<init>":()V
+     103: getstatic     #331                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     106: invokevirtual #316                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     109: aload_2
+     110: iload_3
+     111: invokeinterface #122,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     116: checkcast     #207                // class java/lang/String
+     119: invokevirtual #319                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     122: invokevirtual #322                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     125: invokeinterface #326,  3          // InterfaceMethod java/util/List.set:(ILjava/lang/Object;)Ljava/lang/Object;
+     130: pop
+     131: iinc          3, 1
+     134: goto          36
+     137: aload_2
+     138: areturn
+
+  public void drawHoveringText(java.lang.String, int, int);
+Native hover gate
+  protected void renderHoveredToolTip(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #93                 // Field mc:Lnet/minecraft/client/Minecraft;
+       4: getfield      #99                 // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+       7: getfield      #240                // Field net/minecraft/client/entity/EntityPlayerSP.inventory:Lnet/minecraft/entity/player/InventoryPlayer;
+      10: invokevirtual #249                // Method net/minecraft/entity/player/InventoryPlayer.getItemStack:()Lnet/minecraft/item/ItemStack;
+      13: invokevirtual #243                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+      16: ifeq          49
+      19: aload_0
+      20: getfield      #157                // Field hoveredSlot:Lnet/minecraft/inventory/Slot;
+      23: ifnull        49
+      26: aload_0
+      27: getfield      #157                // Field hoveredSlot:Lnet/minecraft/inventory/Slot;
+      30: invokevirtual #350                // Method net/minecraft/inventory/Slot.getHasStack:()Z
+      33: ifeq          49
+      36: aload_0
+      37: aload_0
+      38: getfield      #157                // Field hoveredSlot:Lnet/minecraft/inventory/Slot;
+      41: invokevirtual #353                // Method net/minecraft/inventory/Slot.getStack:()Lnet/minecraft/item/ItemStack;
+      44: iload_1
+      45: iload_2
+      46: invokevirtual #357                // Method renderToolTip:(Lnet/minecraft/item/ItemStack;II)V
+      49: return
+
+  private void drawItemStack(net.minecraft.item.ItemStack, int, int, java.lang.String);
+Original 1.7.10 GuiContainer end-of-screen tooltip ordering, mapped class bex
+     575: aload         8
+     577: invokevirtual #160                // Method yx.o:()Ladd;
+     580: ifnonnull     617
+     583: aload_0
+     584: getfield      #85                 // Field u:Laay;
+     587: ifnull        617
+     590: aload_0
+     591: getfield      #85                 // Field u:Laay;
+     594: invokevirtual #105                // Method aay.e:()Z
+     597: ifeq          617
+     600: aload_0
+     601: getfield      #85                 // Field u:Laay;
+     604: invokevirtual #104                // Method aay.d:()Ladd;
+     607: astore        10
+     609: aload_0
+     610: aload         10
+     612: iload_1
+     613: iload_2
+     614: invokevirtual #128                // Method a:(Ladd;II)V
+     617: sipush        2896
+     620: invokestatic  #155                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     623: sipush        2929
+     626: invokestatic  #155                // Method org/lwjgl/opengl/GL11.glEnable:(I)V
+     629: invokestatic  #110                // Method bam.b:()V
+     632: return
+
+Original 1.7.10 button click sound values
+Compiled from "SourceFile"
+public class bso extends bsk {
+  public static bso a(bqx, float);
+    Code:
+       0: new           #4                  // class bso
+       3: dup
+       4: aload_0
+       5: ldc           #1                  // float 0.25f
+       7: fload_1
+       8: iconst_0
+       9: iconst_0
+      10: getstatic     #14                 // Field bsu.a:Lbsu;
+      13: fconst_0
+      14: fconst_0
+      15: fconst_0
+      16: invokespecial #17                 // Method "<init>":(Lbqx;FFZILbsu;FFF)V
+      19: areturn
+
+  public static bso a(bqx);
+    Code:
+       0: new           #4                  // class bso
+       3: dup
+       4: aload_0
+       5: fconst_1
+       6: fconst_1
+Source byte/hash evidence
+a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce  /tmp/nagaport-legacy-client.jar
+d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2  /tmp/nagaport1710-srg.zip
+Native dependencies
+4e8a857cbf5e4e1ce2199259adfc03ddeff5e3d6d610372bc813cd2ec3666731 /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/codechicken/NotEnoughItems/1.12.2-2.4.3.245/NotEnoughItems-1.12.2-2.4.3.245.jar
+8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+
+Native RenderItem exact overloads
+  public void renderItemAndEffectIntoGUI(net.minecraft.item.ItemStack, int, int);
+  public void renderItemAndEffectIntoGUI(net.minecraft.entity.EntityLivingBase, net.minecraft.item.ItemStack, int, int);
+  public void renderItemOverlayIntoGUI(net.minecraft.client.gui.FontRenderer, net.minecraft.item.ItemStack, int, int, java.lang.String);
+  private static java.lang.String lambda$renderItemAndEffectIntoGUI$0(net.minecraft.item.ItemStack) throws java.lang.Exception;
+Native EMPTY getCount
+  public int getCount();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field isEmpty:Z
+       4: ifeq          11
+       7: iconst_0
+       8: goto          15
+      11: aload_0
+      12: getfield      #94                 // Field stackSize:I
+      15: ireturn
+
+  public void setCount(int);
+Native GuiUtils final tooltip GL restoration (source evidence, not runtime GL acceptance)
+     979: dup
+     980: aload_0
+     981: aload_1
+     982: iload         12
+     984: iload         20
+     986: aload         7
+     988: iload         9
+     990: iload         14
+     992: invokespecial #324                // Method net/minecraftforge/client/event/RenderTooltipEvent$PostText."<init>":(Lnet/minecraft/item/ItemStack;Ljava/util/List;IILnet/minecraft/client/gui/FontRenderer;II)V
+     995: invokevirtual #225                // Method net/minecraftforge/fml/common/eventhandler/EventBus.post:(Lnet/minecraftforge/fml/common/eventhandler/Event;)Z
+     998: pop
+     999: invokestatic  #327                // Method net/minecraft/client/renderer/GlStateManager.enableLighting:()V
+    1002: invokestatic  #330                // Method net/minecraft/client/renderer/GlStateManager.enableDepth:()V
+    1005: invokestatic  #333                // Method net/minecraft/client/renderer/RenderHelper.enableStandardItemLighting:()V
+    1008: invokestatic  #336                // Method net/minecraft/client/renderer/GlStateManager.enableRescaleNormal:()V
+    1011: return

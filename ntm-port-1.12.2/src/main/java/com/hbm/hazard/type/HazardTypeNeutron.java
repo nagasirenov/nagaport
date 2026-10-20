@@ -84,23 +84,23 @@ public class HazardTypeNeutron extends HazardTypeBase {
 		if(stack == null) return;
 
 		if(!stack.hasTagCompound())
-			stack.stackTagCompound = new NBTTagCompound();
+			stack.setTagCompound(new NBTTagCompound());
 
-		float activation = stack.stackTagCompound.getFloat(NEUTRON_KEY);
-		stack.stackTagCompound.setFloat(NEUTRON_KEY, activation + (rad / stack.stackSize) / 10);
+		float activation = stack.getTagCompound().getFloat(NEUTRON_KEY);
+		stack.getTagCompound().setFloat(NEUTRON_KEY, activation + (rad / stack.stackSize) / 10);
 	}
 
 	public static void decay(ItemStack stack, float factor) {
 		if(stack == null) return;
 		if(!stack.hasTagCompound()) return;
 
-		float activation = stack.stackTagCompound.getFloat(NEUTRON_KEY);
-		stack.stackTagCompound.setFloat(NEUTRON_KEY, activation * factor);
+		float activation = stack.getTagCompound().getFloat(NEUTRON_KEY);
+		stack.getTagCompound().setFloat(NEUTRON_KEY, activation * factor);
 
 		if(activation < 1e-5)
-			stack.stackTagCompound.removeTag(NEUTRON_KEY);
+			stack.getTagCompound().removeTag(NEUTRON_KEY);
 
-		if(stack.stackTagCompound.hasNoTags())
+		if(stack.getTagCompound().hasNoTags())
 			stack.setTagCompound((NBTTagCompound) null);
 	}
 

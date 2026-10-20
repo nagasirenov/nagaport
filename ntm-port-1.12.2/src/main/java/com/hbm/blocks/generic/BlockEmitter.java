@@ -33,7 +33,7 @@ import com.hbm.lib.ForgeDirection;
 public class BlockEmitter extends BlockContainer implements IToolable, ITooltipProvider {
 
 	public BlockEmitter() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -59,15 +59,15 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 		if(world.isRemote)
 			return true;
 
-		TileEntityEmitter te = (TileEntityEmitter)world.getTileEntity(x, y, z);
+		TileEntityEmitter te = (TileEntityEmitter)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
-		if(player.getHeldItem() != null) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 
-			if(player.getHeldItem().getItem() instanceof ItemDye) {
-				te.color = ItemDye.field_150922_c[player.getHeldItem().getItemDamage()];
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemDye) {
+				te.color = ItemDye.field_150922_c[com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage()];
 				te.markDirty();
 				world.markBlockForUpdate(x, y, z);
-				player.getHeldItem().stackSize--;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
 				return true;
 			}
 		}
@@ -78,7 +78,7 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
 
-		TileEntityEmitter te = (TileEntityEmitter)world.getTileEntity(x, y, z);
+		TileEntityEmitter te = (TileEntityEmitter)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tool == ToolType.SCREWDRIVER) {
 			te.girth += 0.125F;
@@ -102,7 +102,7 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 		return false;
 	}
 
-	public static class TileEntityEmitter extends TileEntityLoadedBase {
+	public static class TileEntityEmitter extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 		public static final int range = 100;
 		public int color;
@@ -112,23 +112,23 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 		public static final int effectCount = 5;
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 
-				if(worldObj.getTotalWorldTime() % 20 == 0) {
+				if(this.world.getTotalWorldTime() % 20 == 0) {
 					for(int i = 1; i <= range; i++) {
 
 						beam = i;
 
-						int x = xCoord + dir.offsetX * i;
-						int y = yCoord + dir.offsetY * i;
-						int z = zCoord + dir.offsetZ * i;
+						int x = this.pos.getX() + dir.offsetX * i;
+						int y = this.pos.getY() + dir.offsetY * i;
+						int z = this.pos.getZ() + dir.offsetZ * i;
 
-						Block b = worldObj.getBlock(x, y, z);
-						if(b.isBlockSolid(worldObj, x, y, z, dir.ordinal())) {
+						Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+						if(b.isBlockSolid(this.world, x, y, z, dir.ordinal())) {
 							break;
 						}
 					}
@@ -136,14 +136,14 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 
 				if(effect == 4 && beam > 0) {
 
-					if(worldObj.getTotalWorldTime() % 5 == 0) {
-						double x = (int) (xCoord + dir.offsetX * (worldObj.getTotalWorldTime() / 5L) % beam) + 0.5;
-						double y = (int) (yCoord + dir.offsetY * (worldObj.getTotalWorldTime() / 5L) % beam) + 0.5;
-						double z = (int) (zCoord + dir.offsetZ * (worldObj.getTotalWorldTime() / 5L) % beam) + 0.5;
+					if(this.world.getTotalWorldTime() % 5 == 0) {
+						double x = (int) (this.pos.getX() + dir.offsetX * (this.world.getTotalWorldTime() / 5L) % beam) + 0.5;
+						double y = (int) (this.pos.getY() + dir.offsetY * (this.world.getTotalWorldTime() / 5L) % beam) + 0.5;
+						double z = (int) (this.pos.getZ() + dir.offsetZ * (this.world.getTotalWorldTime() / 5L) % beam) + 0.5;
 
 						int prevColor = color;
 						if(color == 0) {
-							color = Color.HSBtoRGB(worldObj.getTotalWorldTime() / 50.0F, 0.5F, 0.25F) & 16777215;
+							color = Color.HSBtoRGB(this.world.getTotalWorldTime() / 50.0F, 0.5F, 0.25F) & 16777215;
 						}
 
 						NBTTagCompound data = new NBTTagCompound();
@@ -169,7 +169,7 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 						}
 
 						PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z),
-								new TargetPoint(worldObj.provider.dimensionId, x, y, z, 100));
+								new TargetPoint(this.world.provider.getDimension(), x, y, z, 100));
 
 						color = prevColor;
 					}
@@ -201,11 +201,12 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("color", this.color);
 			nbt.setFloat("girth", this.girth);
 			nbt.setInteger("effect", this.effect);
+			return nbt;
 		}
 
 		@Override

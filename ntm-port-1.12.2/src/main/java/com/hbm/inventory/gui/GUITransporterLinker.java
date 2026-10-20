@@ -66,7 +66,7 @@ public class GUITransporterLinker extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		if(player.getHeldItem() == null || player.getHeldItem().getItem() != ModItems.transporter_linker)
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.transporter_linker)
 			player.closeScreen();
 	}
 
@@ -76,7 +76,7 @@ public class GUITransporterLinker extends GuiScreen {
 		guiTop = (height - ySize) / 2;
 		
 		Keyboard.enableRepeatEvents(true);
-		search = new GuiTextField(fontRendererObj, guiLeft + 59, guiTop + 46, 86, 12);
+		search = new GuiTextField(0, fontRenderer, guiLeft + 59, guiTop + 46, 86, 12);
 		search.setTextColor(-1);
 		search.setDisabledTextColour(-1);
 		search.setEnableBackgroundDrawing(false);
@@ -113,9 +113,9 @@ public class GUITransporterLinker extends GuiScreen {
 		func_146110_a(x, guiTop + 14, 0, 0, 16, 16, 16, 16);
 
 		String coordinates = "x: " + linkFromTransporter.x + ", z: " + linkFromTransporter.z;
-		int width = fontRendererObj.getStringWidth(coordinates);
-		fontRendererObj.drawStringWithShadow(linkFromTransporter.name, textLeftX, guiTop + 13, 0x00ff00);
-		fontRendererObj.drawStringWithShadow(coordinates, textRightX - width, guiTop + 23, 0x00ff00);
+		int width = fontRenderer.getStringWidth(coordinates);
+		fontRenderer.drawStringWithShadow(linkFromTransporter.name, textLeftX, guiTop + 13, 0x00ff00);
+		fontRenderer.drawStringWithShadow(coordinates, textRightX - width, guiTop + 23, 0x00ff00);
 		
 		// Draw linkable transporters
 		for(int i = index; i < Math.min(index + 5, visibleTransporters.size()); i++) {
@@ -127,9 +127,9 @@ public class GUITransporterLinker extends GuiScreen {
 			func_146110_a(x, y, 0, 0, 16, 16, 16, 16);
 
 			coordinates = "x: " + transporter.x + ", z: " + transporter.z;
-			width = fontRendererObj.getStringWidth(coordinates);
-			fontRendererObj.drawStringWithShadow(transporter.name, textLeftX, y - 1, 0x00ff00);
-			fontRendererObj.drawStringWithShadow(coordinates, textRightX - width, y + 9, 0x00ff00);
+			width = fontRenderer.getStringWidth(coordinates);
+			fontRenderer.drawStringWithShadow(transporter.name, textLeftX, y - 1, 0x00ff00);
+			fontRenderer.drawStringWithShadow(coordinates, textRightX - width, y + 9, 0x00ff00);
 		}
 	}
 	
@@ -164,7 +164,7 @@ public class GUITransporterLinker extends GuiScreen {
 		// Draw scrollbar
 		if(visibleTransporters.size() > 5) {
 			x = guiLeft + 202;
-			int y = guiTop + 68 + MathHelper.floor_float((float)index / (float)(visibleTransporters.size() - 5) * 114.0F);
+			int y = guiTop + 68 + MathHelper.floor((float)index / (float)(visibleTransporters.size() - 5) * 114.0F);
 			drawTexturedModalRect(x, y, xSize, 54, 14, 15);
 		}
 	}
@@ -196,8 +196,8 @@ public class GUITransporterLinker extends GuiScreen {
 		super.mouseClickMove(mouseX, mouseY, lastButtonClicked, timeSinceLastClick);
 
 		if(isInAABB(mouseX, mouseY, guiLeft + 198, guiTop + 64, 22, 137)) {
-			index = MathHelper.floor_float((mouseY - (guiTop + 68)) / 114.0F * (float)(visibleTransporters.size() - 5));
-			index = MathHelper.clamp_int(index, 0, visibleTransporters.size() - 5);
+			index = MathHelper.floor((mouseY - (guiTop + 68)) / 114.0F * (float)(visibleTransporters.size() - 5));
+			index = MathHelper.clamp(index, 0, visibleTransporters.size() - 5);
 		}
 	}
 
@@ -246,7 +246,7 @@ public class GUITransporterLinker extends GuiScreen {
 		}
 
 		if(key == 1) {
-			mc.thePlayer.closeScreen();
+			mc.player.closeScreen();
 		}
 	}
 	

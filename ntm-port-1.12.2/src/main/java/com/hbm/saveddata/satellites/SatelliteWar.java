@@ -6,7 +6,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.MeshModel;
 
 public class SatelliteWar extends Satellite {
 
@@ -46,7 +46,7 @@ public class SatelliteWar extends Satellite {
 	}
 
 	public void playsound() {
-		Minecraft.getMinecraft().thePlayer.playSound("hbm:misc.fireflash", 10F, 1F);
+		Minecraft.getMinecraft().player.playSound("hbm:misc.fireflash", 10F, 1F);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class SatelliteWar extends Satellite {
 		this.interp = buf.readFloat();
 	}
 
-	public IModelCustom getModel() {
+	public MeshModel getModel() {
 		return null;
 	}
 

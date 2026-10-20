@@ -16,7 +16,7 @@ public class FragileBrick extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random rand, int j) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
 
@@ -44,7 +44,7 @@ public class FragileBrick extends Block {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
-			Block n = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block n = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 
 			if(n == this) {
 				world.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, world.rand.nextInt(4) + 8);

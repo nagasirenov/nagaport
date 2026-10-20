@@ -20,18 +20,18 @@ public class ItemTeleLink extends Item {
 		
 		if(!player.isSneaking() && !world.isRemote) {
 			
-			TileEntity te = world.getTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(!(te instanceof TileEntityMachineTeleporter)) {
 				
-				if(stack.stackTagCompound == null) {
-					stack.stackTagCompound = new NBTTagCompound();
+				if(stack.getTagCompound() == null) {
+					stack.setTagCompound(new NBTTagCompound());
 				}
 	
-				stack.stackTagCompound.setInteger("x", x);
-				stack.stackTagCompound.setInteger("y", y);
-				stack.stackTagCompound.setInteger("z", z);
-				stack.stackTagCompound.setInteger("dim", player.dimension);
+				stack.getTagCompound().setInteger("x", x);
+				stack.getTagCompound().setInteger("y", y);
+				stack.getTagCompound().setInteger("z", z);
+				stack.getTagCompound().setInteger("dim", player.dimension);
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
 				player.sendMessage(new TextComponentString(TextFormatting.AQUA + "[TeleLink] Set teleporter exit to " + x + ", " + y + ", " + z + "."));
 				player.swingItem();
@@ -46,10 +46,10 @@ public class ItemTeleLink extends Item {
 					return false;
 				}
 				
-				int x1 = stack.stackTagCompound.getInteger("x");
-				int y1 = stack.stackTagCompound.getInteger("y");
-				int z1 = stack.stackTagCompound.getInteger("z");
-				int dim = stack.stackTagCompound.getInteger("dim");
+				int x1 = stack.getTagCompound().getInteger("x");
+				int y1 = stack.getTagCompound().getInteger("y");
+				int z1 = stack.getTagCompound().getInteger("z");
+				int dim = stack.getTagCompound().getInteger("dim");
 				
 				TileEntityMachineTeleporter tele = (TileEntityMachineTeleporter) te;
 
@@ -71,11 +71,11 @@ public class ItemTeleLink extends Item {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		if (itemstack.stackTagCompound != null) {
-			list.add("X: " + itemstack.stackTagCompound.getInteger("x"));
-			list.add("Y: " + itemstack.stackTagCompound.getInteger("y"));
-			list.add("Z: " + itemstack.stackTagCompound.getInteger("z"));
-			list.add("D: " + itemstack.stackTagCompound.getInteger("dim"));
+		if (itemstack.getTagCompound() != null) {
+			list.add("X: " + itemstack.getTagCompound().getInteger("x"));
+			list.add("Y: " + itemstack.getTagCompound().getInteger("y"));
+			list.add("Z: " + itemstack.getTagCompound().getInteger("z"));
+			list.add("D: " + itemstack.getTagCompound().getInteger("dim"));
 		} else {
 			list.add(TextFormatting.RED + "Select exit location first!");
 		}

@@ -1,0 +1,21 @@
+PASS sixteen portable lowercase audio renames retain exact pristine bytes
+PASS unchanged original battery audio 537cf379abe4571e73d85e9cb1fceb83beed06eca27076e28c8afd16576e00b0
+PASS twelve sound entries preserve original sample order and metadata, changing only required hbm: prefixes
+PRODUCTION com/hbm/blocks/ModSoundType.java ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3
+PRODUCTION com/hbm/blocks/ModSoundTypes.java 822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c
+PRODUCTION com/hbm/main/ModSoundEvents.java 8feedecf355c393c45cd203a93dcc55c49667b6917a74c75ad0cbda74eceb1b8
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/BlockSoundNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/BlockSoundNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS legacy sound bytecode oracle: 12 assertions; stone and metal use dig.stone / step.stone, pitches 1.0 / 1.5
+[19:29:25] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[19:29:25] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[19:29:26] [main/INFO]: Replaced 1036 ore ingredients
+[19:29:26] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[19:29:26] [main/INFO]: Processing ObjectHolder annotations
+[19:29:26] [main/INFO]: Found 1167 ObjectHolder annotations
+[19:29:26] [main/WARN]: File minecraft:sounds/block/pipeplaced.ogg does not exist, cannot add it to event hbm:namespace_probe
+[19:29:26] [main/WARN]: File minecraft:sounds/block/pipeplaced.ogg does not exist, cannot add it to event hbm:namespace_probe
+PASS native block sounds: 9855 assertions; real registry event, five getters, every factory, deterministic envelopes, actual SoundHandler loading, native resource parser and directory/jar lookup

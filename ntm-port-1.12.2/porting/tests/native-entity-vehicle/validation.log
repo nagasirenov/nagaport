@@ -1,0 +1,3 @@
+PASS: 35 exact operations, seven owner keys, original invocation parity, independent source ranges/receiver domains and byte-exact CP62 inverse source
+PASS: 92 native vehicle metadata/default/NBT/accessor lifecycle assertions
+PASS: exact scalar methods and documented Soyuz pre-payload NBT prefixes; no payload conversion

@@ -20,7 +20,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class TileEntityZirnoxDestroyed extends TileEntity {
+public class TileEntityZirnoxDestroyed extends TileEntity implements net.minecraft.util.ITickable {
 
 	public boolean onFire = true;
 
@@ -31,26 +31,27 @@ public class TileEntityZirnoxDestroyed extends TileEntity {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("onFire", onFire);
+		return nbt;
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
-			radiate(worldObj, this.xCoord, this.yCoord, this.zCoord);
+	public void update() {
+		if(!this.world.isRemote) {
+			radiate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
-			if(this.worldObj.rand.nextInt(5000) == 0)
+			if(this.world.rand.nextInt(5000) == 0)
 				onFire = false;
 
-			if(onFire && this.worldObj.getTotalWorldTime() % 50 == 0) {
+			if(onFire && this.world.getTotalWorldTime() % 50 == 0) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "rbmkflame");
 				data.setInteger("maxAge", 90);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, xCoord + 0.25 + worldObj.rand.nextDouble() * 0.5, yCoord + 1.75, zCoord + 0.25 + worldObj.rand.nextDouble() * 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord + 0.5, yCoord + 1.75, zCoord + 0.5, 75));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.25 + this.world.rand.nextDouble() * 0.5, this.pos.getY() + 1.75, this.pos.getZ() + 0.25 + this.world.rand.nextDouble() * 0.5), new TargetPoint(this.world.provider.getDimension(), this.pos.getX() + 0.5, this.pos.getY() + 1.75, this.pos.getZ() + 0.5, 75));
 				MainRegistry.proxy.effectNT(data);
-				worldObj.playSoundEffect(xCoord + 0.5F, yCoord + 0.5, zCoord + 0.5, "fire.fire", 1.0F + worldObj.rand.nextFloat(), worldObj.rand.nextFloat() * 0.7F + 0.3F);
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "fire.fire", 1.0F + this.world.rand.nextFloat(), this.world.rand.nextFloat() * 0.7F + 0.3F);
 			}
 		}
 	}
@@ -60,7 +61,7 @@ public class TileEntityZirnoxDestroyed extends TileEntity {
 		float rads = onFire ? 500000F : 75000F;
 		double range = 100D;
 
-		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
+		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 
@@ -76,7 +77,7 @@ public class TileEntityZirnoxDestroyed extends TileEntity {
 				int iy = (int)Math.floor(y + 0.5 + vec.y * i);
 				int iz = (int)Math.floor(z + 0.5 + vec.z * i);
 
-				res += world.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock().getExplosionResistance(null);
 			}
 
 			if(res < 1)
@@ -95,7 +96,7 @@ public class TileEntityZirnoxDestroyed extends TileEntity {
 	}
 
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 3, yCoord, zCoord - 3, xCoord + 4, yCoord + 3, zCoord + 4);
+		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 3, this.pos.getX() + 4, this.pos.getY() + 3, this.pos.getZ() + 4);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -33,10 +33,10 @@ public class BlockProcessorNoDamage implements IBlockProcessor {
 			int blockX = chunkposition.getX();
 			int blockY = chunkposition.getY();
 			int blockZ = chunkposition.getZ();
-			Block block = world.getBlock(blockX, blockY, blockZ);
+			Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 			
-			if(block.getMaterial() != Material.air) {
-				if(this.convert != null) this.convert.mutatePre(explosion, block, world.getBlockMetadata(blockX, blockY, blockZ), blockX, blockY, blockZ);
+			if(block.getDefaultState().getMaterial() != Material.AIR) {
+				if(this.convert != null) this.convert.mutatePre(explosion, block, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ) ), blockX, blockY, blockZ);
 			}
 		}
 		
@@ -49,9 +49,9 @@ public class BlockProcessorNoDamage implements IBlockProcessor {
 				int blockX = chunkposition.getX();
 				int blockY = chunkposition.getY();
 				int blockZ = chunkposition.getZ();
-				Block block = world.getBlock(blockX, blockY, blockZ);
+				Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 				
-				if(block.getMaterial() == Material.air) {
+				if(block.getDefaultState().getMaterial() == Material.AIR) {
 					this.convert.mutatePost(explosion, blockX, blockY, blockZ);
 				}
 			}

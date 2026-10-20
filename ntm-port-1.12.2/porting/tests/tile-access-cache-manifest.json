@@ -1,0 +1,8 @@
+{
+  "baseline": "15b0a104",
+  "normalization": "UTF-8, universal newlines",
+  "before_sha256": {
+    "src/main/java/api/hbm/tile/ILoadedTile.java": "2d21fb35155fb1d5ad2f7b5a6f60c7e2ce4889597f294ce1370df18a80592174",
+    "src/main/java/com/hbm/util/Compat.java": "5ddaf8bb271f3cea654f029ecb5b7f92bdad516804aff5cdaa58f0a1a5ba39d8"
+  }
+}

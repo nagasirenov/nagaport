@@ -1,0 +1,24 @@
+import net.minecraft.world.World;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;import net.minecraft.item.ItemStack;
+class Controls {
+ static class Holder {World world;Holder nested;}
+ static EntityItem escaped;
+ static void unknown(EntityItem e){}
+ void yes(World w,ItemStack s,Holder h){
+  EntityItem a=new EntityItem(w,1,2,3,s);w.spawnEntityInWorld(a);
+  EntityItem b=new EntityItem(w,1,2,3,s);b.motionX=1;b.posX+=b.motionX;w.spawnEntityInWorld(b);
+  EntityItem c=new EntityItem(w,1,2,3,s);h.nested.world.spawnEntityInWorld(c);
+  for(int i=0;i<2;i++){EntityItem d=new EntityItem(w,1,2,3,s);w.spawnEntityInWorld(d);}
+ }
+ void no(World w,ItemStack s,EntityItem other){
+  EntityItem a=new EntityItem(w,1,2,3,s);a.setDead();w.spawnEntityInWorld(a);
+  EntityItem b=new EntityItem(w,1,2,3,s);b.setUniqueId(other.getUniqueID());w.spawnEntityInWorld(b);
+  EntityItem c=new EntityItem(w,1,2,3,s);EntityItem alias=c;w.spawnEntityInWorld(c);
+  EntityItem d=new EntityItem(w,1,2,3,s);d=other;w.spawnEntityInWorld(d);
+  EntityItem e=new EntityItem(w,1,2,3,s);escaped=e;w.spawnEntityInWorld(e);
+  EntityItem f=new EntityItem(w,1,2,3,s);unknown(f);w.spawnEntityInWorld(f);
+  EntityItem g=new EntityItem(w,1,2,3,s);w.spawnEntityInWorld(g);w.spawnEntityInWorld(g);
+  EntityItem j=new EntityItem(w,1,2,3,s);for(int i=0;i<2;i++)w.spawnEntityInWorld(j);
+  EntityItem k=new EntityItem(w,1,2,3,s);Runnable r=()->{k.motionX=0;};w.spawnEntityInWorld(k);
+  EntityItem l=new EntityItem(w,1,2,3,s);l.isDead=true;w.spawnEntityInWorld(l);
+ }
+}

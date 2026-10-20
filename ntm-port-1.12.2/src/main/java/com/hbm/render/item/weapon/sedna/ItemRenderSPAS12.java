@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
@@ -39,7 +42,7 @@ public class ItemRenderSPAS12 extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.spas_12_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.spas_12_tex);
 		double scale = 0.5D;
 		GL11.glScaled(scale, scale, scale);
 		GL11.glRotated(180, 0, 1, 0);
@@ -60,7 +63,7 @@ public class ItemRenderSPAS12 extends ItemRenderWeaponBase {
 
 
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.casings_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.casings_tex);
 
 		HbmAnimations.applyRelevantTransformation("Shell");
 		SpentCasing casing = gun.getConfig(stack, 0).getReceivers(stack)[0].getMagazine(stack).getCasing(stack, MainRegistry.proxy.me().inventory);
@@ -132,21 +135,21 @@ public class ItemRenderSPAS12 extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 
 		GL11.glRotated(180, 0, 1, 0);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.spas_12_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.spas_12_tex);
 		ResourceManager.spas_12.renderPart("MainBody");
 		ResourceManager.spas_12.renderPart("PumpGrip");
 		GL11.glShadeModel(GL11.GL_FLAT);
 		
-		if(type == ItemRenderType.EQUIPPED) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform)) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

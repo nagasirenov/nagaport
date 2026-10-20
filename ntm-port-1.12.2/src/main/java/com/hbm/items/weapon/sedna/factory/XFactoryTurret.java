@@ -32,7 +32,7 @@ public class XFactoryTurret {
 			Lego.standardExplode(bullet, mop, 10F); bullet.setDead();
 		});
 		shell_explosive = new BulletConfig().setItem(ModItems.ammo_shell.stackFromEnum(Ammo240Shell.EXPLOSIVE)).setDamage(1.5F).setCasing(CASINNG240MM.clone().register("240ext")).setOnImpact((bullet, mop) -> {
-			ExplosionVNT vnt = new ExplosionVNT(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10F);
+			ExplosionVNT vnt = new ExplosionVNT(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10F);
 			vnt.setBlockAllocator(new BlockAllocatorStandard());
 			vnt.setBlockProcessor(new BlockProcessorStandard());
 			vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage));

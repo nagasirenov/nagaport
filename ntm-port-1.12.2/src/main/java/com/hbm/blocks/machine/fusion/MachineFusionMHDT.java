@@ -25,7 +25,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineFusionMHDT extends BlockDummyable implements ILookOverlay, ITooltipProvider {
 
 	public MachineFusionMHDT() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class MachineFusionMHDT extends BlockDummyable implements ILookOverlay, I
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		
 		if(!(te instanceof TileEntityFusionMHDT)) return;
 		TileEntityFusionMHDT turbine = (TileEntityFusionMHDT) te;
@@ -101,7 +101,7 @@ public class MachineFusionMHDT extends BlockDummyable implements ILookOverlay, I
 		if(turbine.plasmaEnergy > 0 && !hasPlasma) text.add("&[" + (BobMathUtil.getBlink() ? 0xff8000 : 0xffff00) + "&]! LOW POWER !");
 		if(!isCool) text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! INSUFFICIENT COOLING ! ! !");
 		
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override

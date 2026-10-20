@@ -107,7 +107,7 @@ public class CrystallizerRecipes extends SerializableRecipe {
 		registerRecipe(new OreDictStack(SRN.ingot()),					new CrystallizerRecipe(ModItems.crystal_schraranium, baseTime).prod(0.05F));
 
 		registerRecipe(new OreDictStack(KEY_SAND),				new CrystallizerRecipe(ModItems.ingot_fiberglass, utilityTime).prod(0.15F));
-		registerRecipe(new OreDictStack(SI.ingot()),			new CrystallizerRecipe(new ItemStack(Items.quartz, 2), utilityTime).prod(0.1F), new FluidStack(Fluids.OXYGEN, 250));
+		registerRecipe(new OreDictStack(SI.ingot()),			new CrystallizerRecipe(new ItemStack(Items.QUARTZ, 2), utilityTime).prod(0.1F), new FluidStack(Fluids.OXYGEN, 250));
 		registerRecipe(new OreDictStack(REDSTONE.block()),		new CrystallizerRecipe(ModItems.ingot_mercury, baseTime).prod(0.25F));
 		registerRecipe(new OreDictStack(CINNABAR.crystal()),	new CrystallizerRecipe(new ItemStack(ModItems.ingot_mercury, 3), baseTime).prod(0.25F));
 		registerRecipe(new OreDictStack(BORAX.dust()),			new CrystallizerRecipe(new ItemStack(ModItems.powder_boron_tiny, 3), baseTime).prod(0.25F), sulfur);
@@ -115,18 +115,18 @@ public class CrystallizerRecipes extends SerializableRecipe {
 
 		registerRecipe(new OreDictStack(KEY_COBBLESTONE),									new CrystallizerRecipe(ModBlocks.reinforced_stone, utilityTime));
 		registerRecipe(new ComparableStack(ModBlocks.gravel_obsidian),	new CrystallizerRecipe(ModBlocks.brick_obsidian, utilityTime));
-		registerRecipe(new ComparableStack(Items.rotten_flesh),			new CrystallizerRecipe(Items.leather, utilityTime).prod(0.25F));
+		registerRecipe(new ComparableStack(Items.ROTTEN_FLESH),			new CrystallizerRecipe(Items.LEATHER, utilityTime).prod(0.25F));
 		registerRecipe(new ComparableStack(ModItems.coal_infernal),		new CrystallizerRecipe(ModItems.solid_fuel, utilityTime));
 		registerRecipe(new ComparableStack(ModBlocks.stone_gneiss),		new CrystallizerRecipe(ModItems.powder_lithium, utilityTime).prod(0.25F));
-		registerRecipe(new ComparableStack(Items.dye, 1, 15),			new CrystallizerRecipe(new ItemStack(Items.slime_ball, 4), mixingTime), new FluidStack(Fluids.SULFURIC_ACID, 250));
-		registerRecipe(new ComparableStack(Items.bone),					new CrystallizerRecipe(new ItemStack(Items.slime_ball, 16), mixingTime), new FluidStack(Fluids.SULFURIC_ACID, 1_000));
+		registerRecipe(new ComparableStack(Items.DYE, 1, 15),			new CrystallizerRecipe(new ItemStack(Items.SLIME_BALL, 4), mixingTime), new FluidStack(Fluids.SULFURIC_ACID, 250));
+		registerRecipe(new ComparableStack(Items.BONE),					new CrystallizerRecipe(new ItemStack(Items.SLIME_BALL, 16), mixingTime), new FluidStack(Fluids.SULFURIC_ACID, 1_000));
 		registerRecipe(new ComparableStack(DictFrame.fromOne(ModItems.plant_item, EnumPlantType.MUSTARDWILLOW)), new CrystallizerRecipe(new ItemStack(ModItems.powder_cadmium), 100).setReq(10), new FluidStack(Fluids.RADIOSOLVENT, 250));
 		registerRecipe(new ComparableStack(ModItems.scrap_oil),			new CrystallizerRecipe(new ItemStack(ModItems.nugget_arsenic), 100).prod(0.3F).setReq(16), new FluidStack(Fluids.RADIOSOLVENT, 100));
 		registerRecipe(new ComparableStack(DictFrame.fromOne(ModItems.powder_ash, EnumAshType.FULLERENE)), new CrystallizerRecipe(new ItemStack(ModItems.ingot_cft), baseTime).prod(0.1F).setReq(4), new FluidStack(Fluids.XYLENE, 1_000));
 
-		registerRecipe(new OreDictStack(DIAMOND.dust()), 				new CrystallizerRecipe(Items.diamond, utilityTime));
-		registerRecipe(new OreDictStack(EMERALD.dust()), 				new CrystallizerRecipe(Items.emerald, utilityTime));
-		registerRecipe(new OreDictStack(LAPIS.dust()),					new CrystallizerRecipe(new ItemStack(Items.dye, 1, 4), utilityTime));
+		registerRecipe(new OreDictStack(DIAMOND.dust()), 				new CrystallizerRecipe(Items.DIAMOND, utilityTime));
+		registerRecipe(new OreDictStack(EMERALD.dust()), 				new CrystallizerRecipe(Items.EMERALD, utilityTime));
+		registerRecipe(new OreDictStack(LAPIS.dust()),					new CrystallizerRecipe(new ItemStack(Items.DYE, 1, 4), utilityTime));
 		registerRecipe(new ComparableStack(ModItems.powder_semtex_mix),	new CrystallizerRecipe(ModItems.ingot_semtex, baseTime));
 		registerRecipe(new ComparableStack(ModItems.powder_desh_ready),	new CrystallizerRecipe(ModItems.ingot_desh, baseTime));
 		registerRecipe(new ComparableStack(ModItems.powder_meteorite),	new CrystallizerRecipe(ModItems.fragment_meteorite, utilityTime));
@@ -247,7 +247,7 @@ public class CrystallizerRecipes extends SerializableRecipe {
 		registerRecipe(new ComparableStack(DictFrame.fromOne(ModItems.oil_tar, EnumTarType.WAX)), 		new CrystallizerRecipe(new ItemStack(ModItems.pellet_charged), 200), 				new FluidStack(Fluids.IONGEL, 500));
 		registerRecipe(new ComparableStack(DictFrame.fromOne(ModItems.oil_tar, EnumTarType.PARAFFIN)), 	new CrystallizerRecipe(new ItemStack(ModItems.pill_red), 200), 						new FluidStack(Fluids.ESTRADIOL, 250));
 
-		registerRecipe(new OreDictStack(KEY_SAND), new CrystallizerRecipe(Blocks.clay, 20), new FluidStack(Fluids.COLLOID, 1_000));
+		registerRecipe(new OreDictStack(KEY_SAND), new CrystallizerRecipe(Blocks.CLAY, 20), new FluidStack(Fluids.COLLOID, 1_000));
 		registerRecipe(new ComparableStack(ModBlocks.sand_mix, 1, EnumSandType.QUARTZ), new CrystallizerRecipe(new ItemStack(ModItems.ball_dynamite, 16), 20), new FluidStack(Fluids.NITROGLYCERIN, 1_000));
 		registerRecipe(new OreDictStack(NETHERQUARTZ.dust()), new CrystallizerRecipe(new ItemStack(ModItems.ball_dynamite, 4), 20), new FluidStack(Fluids.NITROGLYCERIN, 250));
 
@@ -255,7 +255,7 @@ public class CrystallizerRecipes extends SerializableRecipe {
 		List<ItemStack> quartz = OreDictionary.getOres("crystalCertusQuartz");
 		if(quartz != null && !quartz.isEmpty()) {
 			ItemStack qItem = quartz.get(0).copy();
-			qItem.stackSize = 12;
+			qItem.setCount(12);
 			registerRecipe(new OreDictStack("oreCertusQuartz"), new CrystallizerRecipe(qItem, baseTime));
 		}
 

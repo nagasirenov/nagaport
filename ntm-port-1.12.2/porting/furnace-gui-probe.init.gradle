@@ -1,0 +1,13 @@
+// Complete production GUI boundary and native non-GL tests with explicit NTM collaborators.
+allprojects { afterEvaluate {
+    tasks.create('checkPortFurnaceGui', Exec) {
+        commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/check-furnace-gui-source.py')
+    }
+    tasks.create('testPortFurnaceGui', Exec) {
+        dependsOn 'checkPortFurnaceGui'
+        commandLine project.findProperty('portPython') ?: 'python3',
+            project.file('porting/tests/probe-furnace-gui.py'),
+            '--java-home', System.getProperty('java.home'),
+            '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+    }
+} }

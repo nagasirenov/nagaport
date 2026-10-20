@@ -19,7 +19,7 @@ public interface IBlockSealable {
 
 		if(this instanceof BlockDummyable) {
 			BlockDummyable block = (BlockDummyable)this;
-			int meta = world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 			int[] rot = MultiblockHandlerXR.rotate(block.getDimensions(), ForgeDirection.getOrientation(meta - BlockDummyable.offset));
 

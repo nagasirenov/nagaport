@@ -1,0 +1,10 @@
+MATCH 3b94dab68516a08e177a15af2170d9f8b6d284428e2bb985115fe9ec973f8b13 src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java
+MATCH c8d800a1697af58b93cede5dbec6ae368ad2d018343f4fbd3788cc6d837d8c8e src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java
+MATCH e08107c7b7498e12e5567566b7c8db93b4e0f6a7bf62a9616e8340a56841a24a src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java
+MATCH 035ee379c0f7ab41d0a06f81855783f0c845b90113167df846d08debb468119d src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java
+MATCH 46987385fe22a677532a7a3e906b5b48cadabefabac8aa67ae760a85d8695fb5 src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java
+MATCH 083b921d3bd6e3de30adf15fbf3ada1845bd6440390984fced9e1fd638bd0de2 src/main/java/com/hbm/tileentity/machine/TileEntitySolarBoiler.java
+MATCH d1f6f76220eb4820988c0329c54a6985466361be80d248aa2fdf7f7e40e1fc7c src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java
+MATCH 34e417e2db6924de4b49771753d0f89af83e2318799453e5c09e9b9a7346b6a6 src/main/java/com/hbm/commands/CommandSatellites.java
+MATCH 27628901995f9caf7d5f5d5bcbde5d4535a4915330bd47b384ba0033655e40c5 src/main/java/com/hbm/tileentity/machine/SolarMirrorPosition.java
+PASS:8modified consumers +1new domain key match actual compiler copies;3860production sources included.

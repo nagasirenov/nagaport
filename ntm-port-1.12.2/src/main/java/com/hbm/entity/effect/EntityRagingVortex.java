@@ -15,7 +15,7 @@ public class EntityRagingVortex extends EntityBlackHole {
 
 	public EntityRagingVortex(World world, float size) {
 		super(world);
-		this.dataWatcher.updateObject(16, size);
+		this.dataManager.set(BLACK_HOLE_SIZE, size);
 	}
 	
 	@Override
@@ -32,11 +32,11 @@ public class EntityRagingVortex extends EntityBlackHole {
 		
 		if(rand.nextInt(100) == 0) {
 			dec = 0.1F;
-			worldObj.createExplosion(null, posX, posY, posZ, 10F, false);
+			this.world.createExplosion(null, posX, posY, posZ, 10F, false);
 		}
 		
-		this.dataWatcher.updateObject(16, this.dataWatcher.getWatchableObjectFloat(16) - pulse - dec);
-		if(this.dataWatcher.getWatchableObjectFloat(16) <= 0) {
+		this.dataManager.set(BLACK_HOLE_SIZE, this.dataManager.get(BLACK_HOLE_SIZE) - pulse - dec);
+		if(this.dataManager.get(BLACK_HOLE_SIZE) <= 0) {
 			this.setDead();
 			return;
 		}

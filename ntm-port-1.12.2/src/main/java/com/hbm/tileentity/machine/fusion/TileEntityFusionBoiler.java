@@ -25,7 +25,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFluidStandardTransceiverMK2, IFusionPowerReceiver, SimpleComponent, CompatHandler.OCComponent {
+public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFluidStandardTransceiverMK2, IFusionPowerReceiver, SimpleComponent, CompatHandler.OCComponent, net.minecraft.util.ITickable {
 
 	protected GenNode plasmaNode;
 
@@ -40,28 +40,28 @@ public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFlu
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.plasmaEnergySync = this.plasmaEnergy;
 			this.plasmaEnergy = 0;
 
 			for(DirPos pos : getConPos()) {
-				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), worldObj, pos);
-				if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], worldObj, pos);
+				if(tanks[0].getTankType() != Fluids.NONE) this.trySubscribe(tanks[0].getTankType(), this.world, pos);
+				if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], this.world, pos);
 			}
 
 			if(plasmaNode == null || plasmaNode.expired) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
-				plasmaNode = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * 4, yCoord + 2, zCoord + dir.offsetZ * 4, PlasmaNetworkProvider.THE_PROVIDER);
+				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * 4, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 4, PlasmaNetworkProvider.THE_PROVIDER);
 
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
-							new BlockPos(xCoord + dir.offsetX * 4, yCoord + 2, zCoord + dir.offsetZ * 4))
-							.setConnections(new DirPos(xCoord + dir.offsetX * 5, yCoord + 2, zCoord + dir.offsetZ * 5, dir));
+							new BlockPos(this.pos.getX() + dir.offsetX * 4, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 4))
+							.setConnections(new DirPos(this.pos.getX() + dir.offsetX * 5, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 5, dir));
 
-					UniNodespace.createNode(worldObj, plasmaNode);
+					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
 
@@ -77,10 +77,10 @@ public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFlu
 
 		return new DirPos[] {
 				//new DirPos(xCoord + dir.offsetX * 5, yCoord + 2, zCoord + dir.offsetZ * 5, dir),
-				new DirPos(xCoord - dir.offsetX * 1 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 1 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord - dir.offsetX * 1 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 1 - rot.offsetZ * 2, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 2, rot),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ * 2, rot.getOpposite())
+				new DirPos(this.pos.getX() - dir.offsetX * 1 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 1 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 1 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 1 - rot.offsetZ * 2, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 2, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ * 2, rot.getOpposite())
 		};
 	}
 
@@ -100,8 +100,8 @@ public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFlu
 			tanks[0].setFill(tanks[0].getFill() - steamCycles);
 			tanks[1].setFill(tanks[1].getFill() + steamCycles);
 
-			if(worldObj.rand.nextInt(200) == 0) {
-				worldObj.playSoundEffect(xCoord + 0.5, yCoord + 2, zCoord + 0.5, "hbm:block.boilerGroan", 2.5F, 1.0F);
+			if(this.world.rand.nextInt(200) == 0) {
+				com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, "hbm:block.boilerGroan", 2.5F, 1.0F);
 			}
 		}
 	}
@@ -133,19 +133,20 @@ public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFlu
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		this.tanks[0].writeToNBT(nbt, "t0");
 		this.tanks[1].writeToNBT(nbt, "t1");
+		return nbt;
 	}
 
 	@Override
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote) {
-			if(this.plasmaNode != null) UniNodespace.destroyNode(worldObj, plasmaNode);
+		if(!this.world.isRemote) {
+			if(this.plasmaNode != null) UniNodespace.destroyNode(this.world, plasmaNode);
 		}
 	}
 
@@ -160,12 +161,12 @@ public class TileEntityFusionBoiler extends TileEntityLoadedBase implements IFlu
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 4,
-					zCoord + 5
+					this.pos.getX() - 4,
+					this.pos.getY(),
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 4,
+					this.pos.getZ() + 5
 					);
 		}
 

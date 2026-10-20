@@ -57,16 +57,16 @@ public class GUIMachineExcavator extends GuiInfoContainer {
 		if(guiLeft + 102 <= x && guiLeft + 102 + 20 > x && guiTop + 42 < y && guiTop + 42 + 40 >= y) toggle = "silktouch";
 
 		if(toggle != null) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:block.leverLarge"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:block.leverLarge"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean(toggle, true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, drill.xCoord, drill.yCoord, drill.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, drill.getPos().getX(), drill.getPos().getY(), drill.getPos().getZ()));
 		}
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8 + 33, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8 + 33, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

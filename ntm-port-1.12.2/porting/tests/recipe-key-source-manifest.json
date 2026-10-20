@@ -1,0 +1,409 @@
+{
+  "baseline_commit": "2cc79304086a82ddb5af1c32e74024b2db2ba05e",
+  "scope": "Complete RecipesCommon native ItemStack/NBT/registry boundary. Native EMPTY no-match and count-independent nonpositive domain-key dictionary lookup; no platform shims or recipe balance edits.",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/inventory/RecipesCommon.java",
+      "before_sha256": "7ea7aacf6803d4f78c6fc5f2633637ddcde50661cf60595471cb98d948a9d050",
+      "after_sha256": "d10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2",
+      "edits": [
+        {
+          "before_offset": 406,
+          "after_offset": 406,
+          "old": "",
+          "new": ";\nimport net.minecraft.util.ResourceLocation"
+        },
+        {
+          "before_offset": 2460,
+          "after_offset": 2504,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 2462,
+          "after_offset": 2507,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 3982,
+          "after_offset": 4027,
+          "old": "",
+          "new": "ItemStack stack = stacksize > 0 ? toStack() : copy(1).toStack();\n\t\t\tif(stack == null || stack.isEmpty()) return new String[0];\n\t\t\t"
+        },
+        {
+          "before_offset": 4018,
+          "after_offset": 4193,
+          "old": "toS",
+          "new": "s"
+        },
+        {
+          "before_offset": 4025,
+          "after_offset": 4198,
+          "old": "()",
+          "new": ""
+        },
+        {
+          "before_offset": 4557,
+          "after_offset": 4728,
+          "old": "S",
+          "new": "ResourceLoca"
+        },
+        {
+          "before_offset": 4559,
+          "after_offset": 4741,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "before_offset": 4561,
+          "after_offset": 4742,
+          "old": "",
+          "new": "o"
+        },
+        {
+          "before_offset": 4562,
+          "after_offset": 4744,
+          "old": "g",
+          "new": ""
+        },
+        {
+          "before_offset": 4576,
+          "after_offset": 4757,
+          "old": "item",
+          "new": ""
+        },
+        {
+          "before_offset": 4581,
+          "after_offset": 4758,
+          "old": "egistry",
+          "new": "EGISTRY"
+        },
+        {
+          "before_offset": 4914,
+          "after_offset": 5091,
+          "old": "U",
+          "new": "Tra"
+        },
+        {
+          "before_offset": 4916,
+          "after_offset": 5095,
+          "old": "",
+          "new": "s"
+        },
+        {
+          "before_offset": 4917,
+          "after_offset": 5097,
+          "old": "",
+          "new": "ati"
+        },
+        {
+          "before_offset": 4918,
+          "after_offset": 5101,
+          "old": "caliz",
+          "new": "nK"
+        },
+        {
+          "before_offset": 4924,
+          "after_offset": 5104,
+          "old": "dName",
+          "new": "y"
+        },
+        {
+          "before_offset": 5094,
+          "after_offset": 5270,
+          "old": "item",
+          "new": ""
+        },
+        {
+          "before_offset": 5099,
+          "after_offset": 5271,
+          "old": "egistry",
+          "new": "EGISTRY"
+        },
+        {
+          "before_offset": 5128,
+          "after_offset": 5300,
+          "old": "",
+          "new": ").toString("
+        },
+        {
+          "before_offset": 6793,
+          "after_offset": 6976,
+          "old": "",
+          "new": " || stack.isEmpty()"
+        },
+        {
+          "before_offset": 6987,
+          "after_offset": 7189,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 6989,
+          "after_offset": 7192,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 7280,
+          "after_offset": 7483,
+          "old": "U",
+          "new": "Tra"
+        },
+        {
+          "before_offset": 7282,
+          "after_offset": 7487,
+          "old": "",
+          "new": "s"
+        },
+        {
+          "before_offset": 7283,
+          "after_offset": 7489,
+          "old": "",
+          "new": "ati"
+        },
+        {
+          "before_offset": 7284,
+          "after_offset": 7493,
+          "old": "caliz",
+          "new": "nK"
+        },
+        {
+          "before_offset": 7290,
+          "after_offset": 7496,
+          "old": "dName",
+          "new": "y"
+        },
+        {
+          "before_offset": 8082,
+          "after_offset": 8284,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 8084,
+          "after_offset": 8287,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 8136,
+          "after_offset": 8339,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 8138,
+          "after_offset": 8342,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 8152,
+          "after_offset": 8353,
+          "old": "",
+          "new": "()"
+        },
+        {
+          "before_offset": 8633,
+          "after_offset": 8836,
+          "old": "",
+          "new": "e"
+        },
+        {
+          "before_offset": 8634,
+          "after_offset": 8838,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 8648,
+          "after_offset": 8849,
+          "old": " = ",
+          "new": "("
+        },
+        {
+          "before_offset": 8677,
+          "after_offset": 8876,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 9091,
+          "after_offset": 9291,
+          "old": "",
+          "new": " || stack.isEmpty()"
+        },
+        {
+          "before_offset": 9285,
+          "after_offset": 9504,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 9287,
+          "after_offset": 9507,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 9363,
+          "after_offset": 9583,
+          "old": "ha",
+          "new": "i"
+        },
+        {
+          "before_offset": 9366,
+          "after_offset": 9585,
+          "old": "NoTags",
+          "new": "Empty"
+        },
+        {
+          "before_offset": 9384,
+          "after_offset": 9602,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 9386,
+          "after_offset": 9605,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 9400,
+          "after_offset": 9616,
+          "old": "",
+          "new": "()"
+        },
+        {
+          "before_offset": 9457,
+          "after_offset": 9675,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 9459,
+          "after_offset": 9678,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 9473,
+          "after_offset": 9689,
+          "old": "",
+          "new": "()"
+        },
+        {
+          "before_offset": 9523,
+          "after_offset": 9741,
+          "old": "func_150296_c",
+          "new": "getKeySet"
+        },
+        {
+          "before_offset": 9600,
+          "after_offset": 9814,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 9602,
+          "after_offset": 9817,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 9616,
+          "after_offset": 9828,
+          "old": "",
+          "new": "()"
+        },
+        {
+          "before_offset": 10905,
+          "after_offset": 11119,
+          "old": "U",
+          "new": "Tra"
+        },
+        {
+          "before_offset": 10907,
+          "after_offset": 11123,
+          "old": "",
+          "new": "s"
+        },
+        {
+          "before_offset": 10908,
+          "after_offset": 11125,
+          "old": "",
+          "new": "ati"
+        },
+        {
+          "before_offset": 10909,
+          "after_offset": 11129,
+          "old": "caliz",
+          "new": "nK"
+        },
+        {
+          "before_offset": 10915,
+          "after_offset": 11132,
+          "old": "dName",
+          "new": "y"
+        },
+        {
+          "before_offset": 11931,
+          "after_offset": 12144,
+          "old": "",
+          "new": " || stack.isEmpty()"
+        },
+        {
+          "before_offset": 11979,
+          "after_offset": 12211,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 11981,
+          "after_offset": 12214,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 12519,
+          "after_offset": 12752,
+          "old": "",
+          "new": "e"
+        },
+        {
+          "before_offset": 12520,
+          "after_offset": 12754,
+          "old": "ackSize = ",
+          "new": "Count("
+        },
+        {
+          "before_offset": 12544,
+          "after_offset": 12774,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "before_offset": 13767,
+          "after_offset": 13998,
+          "old": "block",
+          "new": ""
+        },
+        {
+          "before_offset": 13773,
+          "after_offset": 13999,
+          "old": "egistry",
+          "new": "EGISTRY"
+        },
+        {
+          "before_offset": 13803,
+          "after_offset": 14029,
+          "old": "",
+          "new": ").toString("
+        }
+      ]
+    }
+  ]
+}

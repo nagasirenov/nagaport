@@ -1,0 +1,12 @@
+[02:14:20] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:14:20] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:14:20] [main/INFO]: Replaced 1036 ore ingredients
+[02:14:20] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:14:20] [main/INFO]: Processing ObjectHolder annotations
+[02:14:20] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS packet: 11009 actual legacy byte-for-byte differential cases plus names, length limits, malformed/truncated data and null.
+PASS transport: exact built-in path, native Forge encoder, foreign unregistered names, float-first radius/listener dimension, custom/override/inherited callbacks and null failure timing.
+PASS actual native PlayerList recipient filtering through production transport: within-radius origin player included, boundary/wrong-dimension/nonfinite excluded.
+[02:14:21] [main/INFO]: Reloading ResourceManager: entity-transport-pack-7557278522970175130
+PASS client: real SimpleNetworkWrapper registration/FMLeEmbeddedChannel encode-decode and production handler, actual Minecraft queue/main-thread scheduling, receiver resource category and genuine playback event. Audio stopped at final event sink.
+PASS exact production downstream infrastructure: 110264 checks. Full project NetworkHandler/PacketDispatcher linkage and activated World/entity dispatch NOT tested.

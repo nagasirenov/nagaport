@@ -1,0 +1,237 @@
+[
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp42-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp42-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp29-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp29-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp43-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp43-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp50-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp32-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp32-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp37-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp37-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp27-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp47-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp47-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp39-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp39-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp44-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp44-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp40-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp40-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp35-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp35-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp38-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp38-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp30-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp30-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp36-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp36-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp48-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp48-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp41-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp41-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp28-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp28-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp49-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp49-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp34-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp34-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp31-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp31-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp45-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp45-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp46-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp33-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e"
+  },
+  {
+    "removed_duplicate_cache": "/workspace/shared/nagaport-cp33-compile-snapshot/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "retained_identical": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forge-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2)-binpatched.jar",
+    "sha256": "cc4a594824e05025bd3b4ed347446c93c3728df0fca5ca4a0c0d4cf98df2ecfc"
+  }
+]

@@ -1,0 +1,14 @@
+Compiled from "LivingEvent.java"
+public class net.minecraftforge.event.entity.living.LivingEvent extends net.minecraftforge.event.entity.EntityEvent {
+  public final sv entityLiving;
+
+  public net.minecraftforge.event.entity.living.LivingEvent(sv);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #18                 // Method net/minecraftforge/event/entity/EntityEvent."<init>":(Lsa;)V
+       5: aload_0
+       6: aload_1
+       7: putfield      #20                 // Field entityLiving:Lsv;
+      10: return
+}

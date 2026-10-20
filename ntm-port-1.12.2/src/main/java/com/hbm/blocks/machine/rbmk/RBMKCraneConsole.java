@@ -16,7 +16,7 @@ import com.hbm.lib.ForgeDirection;
 public class RBMKCraneConsole extends BlockDummyable implements IToolable {
 
 	public RBMKCraneConsole() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setHardness(3F);
 		this.setResistance(30F);
 	}
@@ -58,7 +58,7 @@ public class RBMKCraneConsole extends BlockDummyable implements IToolable {
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 
-		if(world.getBlockMetadata(x, y, z) == ForgeDirection.UP.ordinal()) {
+		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == ForgeDirection.UP.ordinal()) {
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 0.5F, z + 1);
 		} else {
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
@@ -82,7 +82,7 @@ public class RBMKCraneConsole extends BlockDummyable implements IToolable {
 			if(world.isRemote) return true;
 			
 			int[] pos = findCore(world, x, y, z);
-			TileEntityCraneConsole tile = (TileEntityCraneConsole) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityCraneConsole tile = (TileEntityCraneConsole) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			tile.cycleCraneRotation();
 			tile.markDirty();
 			return true;

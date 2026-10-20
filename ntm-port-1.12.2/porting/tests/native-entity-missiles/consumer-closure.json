@@ -1,0 +1,1702 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+    "references": [
+      {
+        "line": 44,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 45,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.RocketState;"
+      },
+      {
+        "line": 880,
+        "source": "if(player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket && player.isSneaking()) {"
+      },
+      {
+        "line": 881,
+        "source": "EntityRideableRocket rocket = (EntityRideableRocket) player.ridingEntity;"
+      },
+      {
+        "line": 1374,
+        "source": "if(player.world.provider instanceof WorldProviderOrbit && !(player.ridingEntity instanceof EntityRideableRocket)) {"
+      },
+      {
+        "line": 1595,
+        "source": "/*if(evt.entity instanceof EntityMissileBaseNT) {"
+      },
+      {
+        "line": 1596,
+        "source": "((EntityMissileBaseNT) evt.entity).loadNeighboringChunks(evt.newChunkX, evt.newChunkZ);"
+      },
+      {
+        "line": 1599,
+        "source": "if(evt.entity instanceof EntityMissileCustom) {"
+      },
+      {
+        "line": 1600,
+        "source": "((EntityMissileCustom) evt.entity).loadNeighboringChunks(evt.newChunkX, evt.newChunkZ);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "references": [
+      {
+        "line": 29,
+        "source": "import com.hbm.entity.missile.EntityMissileTier0.*;"
+      },
+      {
+        "line": 30,
+        "source": "import com.hbm.entity.missile.EntityMissileTier1.*;"
+      },
+      {
+        "line": 31,
+        "source": "import com.hbm.entity.missile.EntityMissileTier2.*;"
+      },
+      {
+        "line": 32,
+        "source": "import com.hbm.entity.missile.EntityMissileTier3.*;"
+      },
+      {
+        "line": 33,
+        "source": "import com.hbm.entity.missile.EntityMissileTier4.*;"
+      },
+      {
+        "line": 34,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.EntityRideableRocketDummy;"
+      },
+      {
+        "line": 808,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileCustom.class, renderManager -> new RenderMissileCustom(renderManager));"
+      },
+      {
+        "line": 809,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityRideableRocket.class, renderManager -> new RenderRocketCustom(renderManager));"
+      },
+      {
+        "line": 811,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileGeneric.class, renderManager -> new RenderMissileGeneric(renderManager));"
+      },
+      {
+        "line": 812,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileDecoy.class, renderManager -> new RenderMissileGeneric(renderManager));"
+      },
+      {
+        "line": 813,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileStealth.class, renderManager -> new RenderMissileGeneric(renderManager));"
+      },
+      {
+        "line": 815,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileIncendiary.class, renderManager -> new RenderMissileGeneric(renderManager));"
+      },
+      {
+        "line": 816,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileCluster.class, renderManager -> new RenderMissileGeneric(renderManager));"
+      },
+      {
+        "line": 817,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileBunkerBuster.class, renderManager -> new RenderMissileGeneric(renderManager));"
+      },
+      {
+        "line": 818,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileStrong.class, renderManager -> new RenderMissileStrong(renderManager));"
+      },
+      {
+        "line": 819,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileIncendiaryStrong.class, renderManager -> new RenderMissileStrong(renderManager));"
+      },
+      {
+        "line": 820,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileClusterStrong.class, renderManager -> new RenderMissileStrong(renderManager));"
+      },
+      {
+        "line": 821,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileBusterStrong.class, renderManager -> new RenderMissileStrong(renderManager));"
+      },
+      {
+        "line": 822,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileEMPStrong.class, renderManager -> new RenderMissileStrong(renderManager));"
+      },
+      {
+        "line": 823,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileBurst.class, renderManager -> new RenderMissileHuge(renderManager));"
+      },
+      {
+        "line": 824,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileInferno.class, renderManager -> new RenderMissileHuge(renderManager));"
+      },
+      {
+        "line": 825,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileRain.class, renderManager -> new RenderMissileHuge(renderManager));"
+      },
+      {
+        "line": 826,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileDrill.class, renderManager -> new RenderMissileHuge(renderManager));"
+      },
+      {
+        "line": 827,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileNuclear.class, renderManager -> new RenderMissileNuclear(renderManager));"
+      },
+      {
+        "line": 828,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileMirv.class, renderManager -> new RenderMissileNuclear(renderManager));"
+      },
+      {
+        "line": 829,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileVolcano.class, renderManager -> new RenderMissileNuclear(renderManager));"
+      },
+      {
+        "line": 830,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileDoomsday.class, renderManager -> new RenderMissileNuclear(renderManager));"
+      },
+      {
+        "line": 831,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileDoomsdayRusted.class, renderManager -> new RenderMissileNuclear(renderManager));"
+      },
+      {
+        "line": 837,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileTaint.class, renderManager -> new RenderMissileTaint(renderManager));"
+      },
+      {
+        "line": 838,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileMicro.class, renderManager -> new RenderMissileTaint(renderManager));"
+      },
+      {
+        "line": 839,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileBHole.class, renderManager -> new RenderMissileTaint(renderManager));"
+      },
+      {
+        "line": 840,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileSchrabidium.class, renderManager -> new RenderMissileTaint(renderManager));"
+      },
+      {
+        "line": 841,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileEMP.class, renderManager -> new RenderMissileTaint(renderManager));"
+      },
+      {
+        "line": 842,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileShuttle.class, renderManager -> new RenderMissileShuttle(renderManager));"
+      },
+      {
+        "line": 843,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMissileTest.class, renderManager -> new RenderMissileTaint(renderManager));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 59,
+        "source": "if(player != null && player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket) {"
+      },
+      {
+        "line": 73,
+        "source": "wasRiding = event.entityPlayer.ridingEntity instanceof EntityRideableRocket;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemVOTVdrive.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.RocketState;"
+      },
+      {
+        "line": 251,
+        "source": "if(isProcessed && player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket) {"
+      },
+      {
+        "line": 252,
+        "source": "EntityRideableRocket rocket = (EntityRideableRocket) player.ridingEntity;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "references": [
+      {
+        "line": 13,
+        "source": "import com.hbm.entity.missile.EntityMissileTier0.*;"
+      },
+      {
+        "line": 14,
+        "source": "import com.hbm.entity.missile.EntityMissileTier1.*;"
+      },
+      {
+        "line": 15,
+        "source": "import com.hbm.entity.missile.EntityMissileTier2.*;"
+      },
+      {
+        "line": 16,
+        "source": "import com.hbm.entity.missile.EntityMissileTier3.*;"
+      },
+      {
+        "line": 17,
+        "source": "import com.hbm.entity.missile.EntityMissileTier4.*;"
+      },
+      {
+        "line": 18,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.EntityRideableRocketDummy;"
+      },
+      {
+        "line": 62,
+        "source": "addEntity(EntityMissileGeneric.class, \"entity_missile_generic\", 1000);"
+      },
+      {
+        "line": 63,
+        "source": "addEntity(EntityMissileDecoy.class, \"entity_missile_decoy\", 1000);"
+      },
+      {
+        "line": 64,
+        "source": "addEntity(EntityMissileStrong.class, \"entity_missile_strong\", 1000);"
+      },
+      {
+        "line": 65,
+        "source": "addEntity(EntityMissileNuclear.class, \"entity_missile_nuclear\", 1000);"
+      },
+      {
+        "line": 66,
+        "source": "addEntity(EntityMissileCluster.class, \"entity_missile_cluster\", 1000);"
+      },
+      {
+        "line": 67,
+        "source": "addEntity(EntityMissileIncendiary.class, \"entity_missile_incendiary\", 1000);"
+      },
+      {
+        "line": 69,
+        "source": "addEntity(EntityMissileBunkerBuster.class, \"entity_missile_buster\", 1000);"
+      },
+      {
+        "line": 70,
+        "source": "addEntity(EntityMissileIncendiaryStrong.class, \"entity_missile_incendiary_strong\", 1000);"
+      },
+      {
+        "line": 71,
+        "source": "addEntity(EntityMissileClusterStrong.class, \"entity_missile_cluster_strong\", 1000);"
+      },
+      {
+        "line": 72,
+        "source": "addEntity(EntityMissileBusterStrong.class, \"entity_missile_buster_strong\", 1000);"
+      },
+      {
+        "line": 73,
+        "source": "addEntity(EntityMissileBurst.class, \"entity_missile_burst\", 1000);"
+      },
+      {
+        "line": 74,
+        "source": "addEntity(EntityMissileInferno.class, \"entity_missile_inferno\", 1000);"
+      },
+      {
+        "line": 75,
+        "source": "addEntity(EntityMissileRain.class, \"entity_missile_rain\", 1000);"
+      },
+      {
+        "line": 76,
+        "source": "addEntity(EntityMissileDrill.class, \"entity_missile_drill\", 1000);"
+      },
+      {
+        "line": 77,
+        "source": "addEntity(EntityMissileMirv.class, \"entity_missile_mirv\", 1000);"
+      },
+      {
+        "line": 96,
+        "source": "addEntity(EntityMissileDoomsday.class, \"entity_missile_doomsday\", 1000);"
+      },
+      {
+        "line": 97,
+        "source": "addEntity(EntityMissileDoomsdayRusted.class, \"entity_missile_doomsday_rusted\", 1000);"
+      },
+      {
+        "line": 103,
+        "source": "addEntity(EntityMissileTaint.class, \"entity_missile_taint\", 1000);"
+      },
+      {
+        "line": 108,
+        "source": "addEntity(EntityMissileTest.class, \"entity_missile_test_mk2\", 1000);"
+      },
+      {
+        "line": 109,
+        "source": "addEntity(EntityMissileMicro.class, \"entity_missile_micronuclear\", 1000);"
+      },
+      {
+        "line": 112,
+        "source": "addEntity(EntityMissileBHole.class, \"entity_missile_blackhole\", 1000);"
+      },
+      {
+        "line": 113,
+        "source": "addEntity(EntityMissileSchrabidium.class, \"entity_missile_schrabidium\", 1000);"
+      },
+      {
+        "line": 114,
+        "source": "addEntity(EntityMissileEMP.class, \"entity_missile_emp\", 1000);"
+      },
+      {
+        "line": 151,
+        "source": "addEntity(EntityMissileEMPStrong.class, \"entity_missile_emp_strong\", 1000);"
+      },
+      {
+        "line": 155,
+        "source": "addEntity(EntityMissileCustom.class, \"entity_custom_missile\", 1000);"
+      },
+      {
+        "line": 156,
+        "source": "addEntity(EntityRideableRocket.class, \"entity_rideable_rocket\", 1000);"
+      },
+      {
+        "line": 182,
+        "source": "addEntity(EntityMissileVolcano.class, \"entity_missile_volcano\", 1000);"
+      },
+      {
+        "line": 183,
+        "source": "addEntity(EntityMissileShuttle.class, \"entity_missile_shuttle\", 1000);"
+      },
+      {
+        "line": 209,
+        "source": "addEntity(EntityMissileStealth.class, \"entity_missile_stealth\", 1000);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java",
+    "references": [
+      {
+        "line": 15,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 407,
+        "source": "if(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return; // breathe easy in your ship"
+      },
+      {
+        "line": 421,
+        "source": "if(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/CelestialTeleporter.java",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 108,
+        "source": "if(newEntity instanceof EntityRideableRocket) {"
+      },
+      {
+        "line": 109,
+        "source": "((EntityRideableRocket) newEntity).setThrower(playerMP);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/CompatExternal.java",
+    "references": [
+      {
+        "line": 17,
+        "source": "import com.hbm.entity.missile.EntityMissileCustom;"
+      },
+      {
+        "line": 192,
+        "source": "public static void setWarheadImpact(WarheadType type, Consumer<EntityMissileCustom> impact) { type.impactCustom = impact; }"
+      },
+      {
+        "line": 193,
+        "source": "public static void setWarheadUpdate(WarheadType type, Consumer<EntityMissileCustom> update) { type.updateCustom = update; }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemCustomMissilePart.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.missile.EntityMissileCustom;"
+      },
+      {
+        "line": 131,
+        "source": "public Consumer<EntityMissileCustom> impactCustom = null;"
+      },
+      {
+        "line": 133,
+        "source": "public Consumer<EntityMissileCustom> updateCustom = null;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/gen/util/LogicBlockActions.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.missile.EntityMissileTier2;"
+      },
+      {
+        "line": 281,
+        "source": "EntityMissileTier2.EntityMissileStrong missile ="
+      },
+      {
+        "line": 282,
+        "source": "new EntityMissileTier2.EntityMissileStrong("
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+    "references": [
+      {
+        "line": 17,
+        "source": "public abstract class EntityMissileTier2 extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 19,
+        "source": "public EntityMissileTier2(World world) { super(world); }"
+      },
+      {
+        "line": 20,
+        "source": "public EntityMissileTier2(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 43,
+        "source": "public static class EntityMissileStrong extends EntityMissileTier2 {"
+      },
+      {
+        "line": 44,
+        "source": "public EntityMissileStrong(World world) { super(world); }"
+      },
+      {
+        "line": 45,
+        "source": "public EntityMissileStrong(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 51,
+        "source": "public static class EntityMissileIncendiaryStrong extends EntityMissileTier2 {"
+      },
+      {
+        "line": 52,
+        "source": "public EntityMissileIncendiaryStrong(World world) { super(world); }"
+      },
+      {
+        "line": 53,
+        "source": "public EntityMissileIncendiaryStrong(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 63,
+        "source": "public static class EntityMissileClusterStrong extends EntityMissileTier2 {"
+      },
+      {
+        "line": 64,
+        "source": "public EntityMissileClusterStrong(World world) { super(world); }"
+      },
+      {
+        "line": 65,
+        "source": "public EntityMissileClusterStrong(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); this.isCluster = true; }"
+      },
+      {
+        "line": 75,
+        "source": "public static class EntityMissileBusterStrong extends EntityMissileTier2 {"
+      },
+      {
+        "line": 76,
+        "source": "public EntityMissileBusterStrong(World world) { super(world); }"
+      },
+      {
+        "line": 77,
+        "source": "public EntityMissileBusterStrong(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 88,
+        "source": "public static class EntityMissileEMPStrong extends EntityMissileTier2 {"
+      },
+      {
+        "line": 89,
+        "source": "public EntityMissileEMPStrong(World world) { super(world); }"
+      },
+      {
+        "line": 90,
+        "source": "public EntityMissileEMPStrong(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileAntiBallistic.java",
+    "references": [
+      {
+        "line": 108,
+        "source": "/** Detects and caches nearby EntityMissileBaseNT */"
+      },
+      {
+        "line": 116,
+        "source": "if(!(e instanceof EntityMissileBaseNT)) continue; //can only lock onto missiles"
+      },
+      {
+        "line": 117,
+        "source": "if(e instanceof EntityMissileStealth) continue; //cannot lack onto missiles with stealth coating"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+    "references": [
+      {
+        "line": 28,
+        "source": "public abstract class EntityMissileTier0 extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 30,
+        "source": "public EntityMissileTier0(World world) { super(world); }"
+      },
+      {
+        "line": 31,
+        "source": "public EntityMissileTier0(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 48,
+        "source": "public static class EntityMissileTest extends EntityMissileTier0 {"
+      },
+      {
+        "line": 49,
+        "source": "public EntityMissileTest(World world) { super(world); }"
+      },
+      {
+        "line": 50,
+        "source": "public EntityMissileTest(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 82,
+        "source": "public static class EntityMissileMicro extends EntityMissileTier0 {"
+      },
+      {
+        "line": 83,
+        "source": "public EntityMissileMicro(World world) { super(world); }"
+      },
+      {
+        "line": 84,
+        "source": "public EntityMissileMicro(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 90,
+        "source": "public static class EntityMissileSchrabidium extends EntityMissileTier0 {"
+      },
+      {
+        "line": 91,
+        "source": "public EntityMissileSchrabidium(World world) { super(world); }"
+      },
+      {
+        "line": 92,
+        "source": "public EntityMissileSchrabidium(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 108,
+        "source": "public static class EntityMissileBHole extends EntityMissileTier0 {"
+      },
+      {
+        "line": 109,
+        "source": "public EntityMissileBHole(World world) { super(world); }"
+      },
+      {
+        "line": 110,
+        "source": "public EntityMissileBHole(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 123,
+        "source": "public static class EntityMissileTaint extends EntityMissileTier0 {"
+      },
+      {
+        "line": 124,
+        "source": "public EntityMissileTaint(World world) { super(world); }"
+      },
+      {
+        "line": 125,
+        "source": "public EntityMissileTaint(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 142,
+        "source": "public static class EntityMissileEMP extends EntityMissileTier0 {"
+      },
+      {
+        "line": 143,
+        "source": "public EntityMissileEMP(World world) { super(world); }"
+      },
+      {
+        "line": 144,
+        "source": "public EntityMissileEMP(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java",
+    "references": [
+      {
+        "line": 40,
+        "source": "public abstract class EntityMissileBaseNT extends EntityThrowableInterp implements IChunkLoader, IRadarDetectableNT {"
+      },
+      {
+        "line": 42,
+        "source": "protected static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityMissileBaseNT.class, DataSerializers.BYTE);"
+      },
+      {
+        "line": 63,
+        "source": "public EntityMissileBaseNT(World world) {"
+      },
+      {
+        "line": 72,
+        "source": "public EntityMissileBaseNT(World world, float x, float y, float z, int a, int b) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+    "references": [
+      {
+        "line": 68,
+        "source": "public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOverlay, IBufPacketReceiver {"
+      },
+      {
+        "line": 80,
+        "source": "private static final DataParameter<Integer> STATE = EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 81,
+        "source": "private static final DataParameter<ItemStack> DRIVE = EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.ITEM_STACK);"
+      },
+      {
+        "line": 82,
+        "source": "private static final DataParameter<Integer> TIMER = EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 86,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 87,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 89,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 90,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 91,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 92,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 93,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT)"
+      },
+      {
+        "line": 96,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 97,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 98,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 99,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),"
+      },
+      {
+        "line": 100,
+        "source": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT)"
+      },
+      {
+        "line": 131,
+        "source": "public EntityRideableRocket(World world) {"
+      },
+      {
+        "line": 139,
+        "source": "public EntityRideableRocket(World world, float x, float y, float z, ItemStack stack) {"
+      },
+      {
+        "line": 148,
+        "source": "public EntityRideableRocket withProgram(ItemStack stack) {"
+      },
+      {
+        "line": 153,
+        "source": "public EntityRideableRocket launchedBy(EntityLivingBase entity) {"
+      },
+      {
+        "line": 377,
+        "source": "if(!this.world.getEntitiesWithinAABBExcludingEntity(this, bb, entity -> entity instanceof EntityRideableRocket).isEmpty()) {"
+      },
+      {
+        "line": 1017,
+        "source": "public EntityRideableRocket parent;"
+      },
+      {
+        "line": 1026,
+        "source": "public EntityRideableRocketDummy(World world, EntityRideableRocket parent) {"
+      },
+      {
+        "line": 1046,
+        "source": "if(entity != null && entity instanceof EntityRideableRocket) {"
+      },
+      {
+        "line": 1047,
+        "source": "parent = (EntityRideableRocket) entity;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+    "references": [
+      {
+        "line": 16,
+        "source": "public abstract class EntityMissileTier1 extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 18,
+        "source": "public EntityMissileTier1(World world) { super(world); }"
+      },
+      {
+        "line": 19,
+        "source": "public EntityMissileTier1(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 34,
+        "source": "public static class EntityMissileGeneric extends EntityMissileTier1 {"
+      },
+      {
+        "line": 35,
+        "source": "public EntityMissileGeneric(World world) { super(world); }"
+      },
+      {
+        "line": 36,
+        "source": "public EntityMissileGeneric(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 42,
+        "source": "public static class EntityMissileDecoy extends EntityMissileTier1 {"
+      },
+      {
+        "line": 43,
+        "source": "public EntityMissileDecoy(World world) { super(world); }"
+      },
+      {
+        "line": 44,
+        "source": "public EntityMissileDecoy(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 52,
+        "source": "public static class EntityMissileIncendiary extends EntityMissileTier1 {"
+      },
+      {
+        "line": 53,
+        "source": "public EntityMissileIncendiary(World world) { super(world); }"
+      },
+      {
+        "line": 54,
+        "source": "public EntityMissileIncendiary(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 60,
+        "source": "public static class EntityMissileCluster extends EntityMissileTier1 {"
+      },
+      {
+        "line": 61,
+        "source": "public EntityMissileCluster(World world) { super(world); }"
+      },
+      {
+        "line": 62,
+        "source": "public EntityMissileCluster(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); this.isCluster = true; }"
+      },
+      {
+        "line": 72,
+        "source": "public static class EntityMissileBunkerBuster extends EntityMissileTier1 {"
+      },
+      {
+        "line": 73,
+        "source": "public EntityMissileBunkerBuster(World world) { super(world); }"
+      },
+      {
+        "line": 74,
+        "source": "public EntityMissileBunkerBuster(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+    "references": [
+      {
+        "line": 35,
+        "source": "public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLoader {"
+      },
+      {
+        "line": 37,
+        "source": "private static final DataParameter<Integer> HEALTH_SNAPSHOT = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 38,
+        "source": "private static final DataParameter<Integer> WARHEAD = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 39,
+        "source": "private static final DataParameter<Integer> FUSELAGE = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 40,
+        "source": "private static final DataParameter<Integer> FINS = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 41,
+        "source": "private static final DataParameter<Integer> THRUSTER = EntityDataManager.createKey(EntityMissileCustom.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 62,
+        "source": "public EntityMissileCustom(World world) {"
+      },
+      {
+        "line": 66,
+        "source": "public EntityMissileCustom(World world, float x, float y, float z, int a, int b, MissileStruct template) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java",
+    "references": [
+      {
+        "line": 19,
+        "source": "public abstract class EntityMissileTier3 extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 21,
+        "source": "public EntityMissileTier3(World world) { super(world); }"
+      },
+      {
+        "line": 22,
+        "source": "public EntityMissileTier3(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 59,
+        "source": "public static class EntityMissileBurst extends EntityMissileTier3 {"
+      },
+      {
+        "line": 60,
+        "source": "public EntityMissileBurst(World world) { super(world); }"
+      },
+      {
+        "line": 61,
+        "source": "public EntityMissileBurst(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 70,
+        "source": "public static class EntityMissileInferno extends EntityMissileTier3 {"
+      },
+      {
+        "line": 71,
+        "source": "public EntityMissileInferno(World world) { super(world); }"
+      },
+      {
+        "line": 72,
+        "source": "public EntityMissileInferno(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 83,
+        "source": "public static class EntityMissileRain extends EntityMissileTier3 {"
+      },
+      {
+        "line": 84,
+        "source": "public EntityMissileRain(World world) { super(world); }"
+      },
+      {
+        "line": 85,
+        "source": "public EntityMissileRain(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); this.isCluster = true; }"
+      },
+      {
+        "line": 95,
+        "source": "public static class EntityMissileDrill extends EntityMissileTier3 {"
+      },
+      {
+        "line": 96,
+        "source": "public EntityMissileDrill(World world) { super(world); }"
+      },
+      {
+        "line": 97,
+        "source": "public EntityMissileDrill(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+    "references": [
+      {
+        "line": 20,
+        "source": "public abstract class EntityMissileTier4 extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 22,
+        "source": "public EntityMissileTier4(World world) { super(world); }"
+      },
+      {
+        "line": 23,
+        "source": "public EntityMissileTier4(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 65,
+        "source": "public static class EntityMissileNuclear extends EntityMissileTier4 {"
+      },
+      {
+        "line": 66,
+        "source": "public EntityMissileNuclear(World world) { super(world); }"
+      },
+      {
+        "line": 67,
+        "source": "public EntityMissileNuclear(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 76,
+        "source": "public static class EntityMissileMirv extends EntityMissileTier4 {"
+      },
+      {
+        "line": 77,
+        "source": "public EntityMissileMirv(World world) { super(world); }"
+      },
+      {
+        "line": 78,
+        "source": "public EntityMissileMirv(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 95,
+        "source": "public static class EntityMissileVolcano extends EntityMissileTier4 {"
+      },
+      {
+        "line": 96,
+        "source": "public EntityMissileVolcano(World world) { super(world); }"
+      },
+      {
+        "line": 97,
+        "source": "public EntityMissileVolcano(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 107,
+        "source": "public static class EntityMissileDoomsday extends EntityMissileTier4 {"
+      },
+      {
+        "line": 108,
+        "source": "public EntityMissileDoomsday(World world) { super(world); }"
+      },
+      {
+        "line": 109,
+        "source": "public EntityMissileDoomsday(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      },
+      {
+        "line": 120,
+        "source": "public static class EntityMissileDoomsdayRusted extends EntityMissileDoomsday {"
+      },
+      {
+        "line": 121,
+        "source": "public EntityMissileDoomsdayRusted(World world) { super(world); }"
+      },
+      {
+        "line": 122,
+        "source": "public EntityMissileDoomsdayRusted(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileStealth.java",
+    "references": [
+      {
+        "line": 16,
+        "source": "public class EntityMissileStealth extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 18,
+        "source": "public EntityMissileStealth(World world) { super(world); }"
+      },
+      {
+        "line": 19,
+        "source": "public EntityMissileStealth(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileShuttle.java",
+    "references": [
+      {
+        "line": 21,
+        "source": "public class EntityMissileShuttle extends EntityMissileBaseNT {"
+      },
+      {
+        "line": 23,
+        "source": "public EntityMissileShuttle(World p_i1582_1_) {"
+      },
+      {
+        "line": 27,
+        "source": "public EntityMissileShuttle(World world, float x, float y, float z, int a, int b) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/orbit/OrbitalStation.java",
+    "references": [
+      {
+        "line": 15,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 16,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.RocketState;"
+      },
+      {
+        "line": 210,
+        "source": "EntityRideableRocket rocket = port.getDocked();"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/util/MissilePronter.java",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 62,
+        "source": "public static void prontRocket(RocketStruct rocket, EntityRideableRocket entity, TextureManager tex, boolean isDeployed, int decoupleTimer, int shroudTimer, float interp) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileCustom.java",
+    "references": [
+      {
+        "line": 14,
+        "source": "import com.hbm.entity.missile.EntityMissileCustom;"
+      },
+      {
+        "line": 33,
+        "source": "int w = ((EntityMissileCustom) entity).getWarheadId();"
+      },
+      {
+        "line": 34,
+        "source": "int f = ((EntityMissileCustom) entity).getFuselageId();"
+      },
+      {
+        "line": 35,
+        "source": "int s = ((EntityMissileCustom) entity).getFinsId();"
+      },
+      {
+        "line": 36,
+        "source": "int t = ((EntityMissileCustom) entity).getThrusterId();"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileStrong.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityMissileTier2.*;"
+      },
+      {
+        "line": 29,
+        "source": "if(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {"
+      },
+      {
+        "line": 36,
+        "source": "if(entity instanceof EntityMissileStrong) bindTexture(ResourceManager.missileStrong_HE_tex);"
+      },
+      {
+        "line": 37,
+        "source": "if(entity instanceof EntityMissileIncendiaryStrong) bindTexture(ResourceManager.missileStrong_IN_tex);"
+      },
+      {
+        "line": 38,
+        "source": "if(entity instanceof EntityMissileClusterStrong) bindTexture(ResourceManager.missileStrong_CL_tex);"
+      },
+      {
+        "line": 39,
+        "source": "if(entity instanceof EntityMissileBusterStrong) bindTexture(ResourceManager.missileStrong_BU_tex);"
+      },
+      {
+        "line": 40,
+        "source": "if(entity instanceof EntityMissileEMPStrong) bindTexture(ResourceManager.missileStrong_EMP_tex);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileGeneric.java",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.missile.EntityMissileStealth;"
+      },
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.missile.EntityMissileTier1.*;"
+      },
+      {
+        "line": 31,
+        "source": "if(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {"
+      },
+      {
+        "line": 43,
+        "source": "} else if(entity instanceof EntityMissileStealth) {"
+      },
+      {
+        "line": 48,
+        "source": "if(entity instanceof EntityMissileGeneric)"
+      },
+      {
+        "line": 50,
+        "source": "if(entity instanceof EntityMissileIncendiary)"
+      },
+      {
+        "line": 52,
+        "source": "if(entity instanceof EntityMissileCluster)"
+      },
+      {
+        "line": 54,
+        "source": "if(entity instanceof EntityMissileBunkerBuster)"
+      },
+      {
+        "line": 56,
+        "source": "if(entity instanceof EntityMissileDecoy)"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileHuge.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityMissileTier3.*;"
+      },
+      {
+        "line": 29,
+        "source": "if(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {"
+      },
+      {
+        "line": 36,
+        "source": "if(entity instanceof EntityMissileBurst) bindTexture(ResourceManager.missileHuge_HE_tex);"
+      },
+      {
+        "line": 37,
+        "source": "if(entity instanceof EntityMissileInferno) bindTexture(ResourceManager.missileHuge_IN_tex);"
+      },
+      {
+        "line": 38,
+        "source": "if(entity instanceof EntityMissileRain) bindTexture(ResourceManager.missileHuge_CL_tex);"
+      },
+      {
+        "line": 39,
+        "source": "if(entity instanceof EntityMissileDrill) bindTexture(ResourceManager.missileHuge_BU_tex);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileTaint.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityMissileTier0.*;"
+      },
+      {
+        "line": 29,
+        "source": "if(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {"
+      },
+      {
+        "line": 46,
+        "source": "if(p_110775_1_ instanceof EntityMissileTaint)"
+      },
+      {
+        "line": 48,
+        "source": "if(p_110775_1_ instanceof EntityMissileBHole)"
+      },
+      {
+        "line": 50,
+        "source": "if(p_110775_1_ instanceof EntityMissileSchrabidium)"
+      },
+      {
+        "line": 52,
+        "source": "if(p_110775_1_ instanceof EntityMissileEMP)"
+      },
+      {
+        "line": 54,
+        "source": "if(p_110775_1_ instanceof EntityMissileTest)"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderRocketCustom.java",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 25,
+        "source": "if(!(entity instanceof EntityRideableRocket)) return;"
+      },
+      {
+        "line": 26,
+        "source": "EntityRideableRocket rocketEntity = (EntityRideableRocket) entity;"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/RenderMissileNuclear.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityMissileTier4.*;"
+      },
+      {
+        "line": 28,
+        "source": "if(entity instanceof EntityMissileBaseNT) switch(((EntityMissileBaseNT) entity).getDirection()) {"
+      },
+      {
+        "line": 35,
+        "source": "if(entity instanceof EntityMissileNuclear) bindTexture(ResourceManager.missileNuclear_tex);"
+      },
+      {
+        "line": 36,
+        "source": "if(entity instanceof EntityMissileMirv) bindTexture(ResourceManager.missileThermo_tex);"
+      },
+      {
+        "line": 37,
+        "source": "if(entity instanceof EntityMissileDoomsday) bindTexture(ResourceManager.missileDoomsday_tex);"
+      },
+      {
+        "line": 38,
+        "source": "if(entity instanceof EntityMissileDoomsdayRusted) bindTexture(ResourceManager.missileDoomsdayRusted_tex);"
+      },
+      {
+        "line": 39,
+        "source": "if(entity instanceof EntityMissileVolcano) bindTexture(ResourceManager.missileVolcano_tex);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/part/RenderDropPod.java",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.RocketState;"
+      },
+      {
+        "line": 19,
+        "source": "public void render(TextureManager tex, EntityRideableRocket rocket, float interp) {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/rocket/part/RenderRocketPart.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 14,
+        "source": "public abstract void render(TextureManager tex, EntityRideableRocket rocket, float interp);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+    "references": [
+      {
+        "line": 18,
+        "source": "import com.hbm.entity.missile.EntityMissileTier0.*;"
+      },
+      {
+        "line": 19,
+        "source": "import com.hbm.entity.missile.EntityMissileTier1.*;"
+      },
+      {
+        "line": 20,
+        "source": "import com.hbm.entity.missile.EntityMissileTier2.*;"
+      },
+      {
+        "line": 21,
+        "source": "import com.hbm.entity.missile.EntityMissileTier3.*;"
+      },
+      {
+        "line": 22,
+        "source": "import com.hbm.entity.missile.EntityMissileTier4.*;"
+      },
+      {
+        "line": 61,
+        "source": "/** Automatic instantiation of generic missiles, i.e. everything that both extends EntityMissileBaseNT and needs a designator */"
+      },
+      {
+        "line": 62,
+        "source": "public static final HashMap<ComparableStack, Class<? extends EntityMissileBaseNT>> missiles = new HashMap();"
+      },
+      {
+        "line": 67,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_test), EntityMissileTest.class);"
+      },
+      {
+        "line": 68,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_micro), EntityMissileMicro.class);"
+      },
+      {
+        "line": 69,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_schrabidium), EntityMissileSchrabidium.class);"
+      },
+      {
+        "line": 70,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_bhole), EntityMissileBHole.class);"
+      },
+      {
+        "line": 71,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_taint), EntityMissileTaint.class);"
+      },
+      {
+        "line": 72,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_emp), EntityMissileEMP.class);"
+      },
+      {
+        "line": 74,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_generic), EntityMissileGeneric.class);"
+      },
+      {
+        "line": 75,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_decoy), EntityMissileDecoy.class);"
+      },
+      {
+        "line": 76,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_incendiary), EntityMissileIncendiary.class);"
+      },
+      {
+        "line": 77,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_cluster), EntityMissileCluster.class);"
+      },
+      {
+        "line": 78,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_buster), EntityMissileBunkerBuster.class);"
+      },
+      {
+        "line": 80,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_strong), EntityMissileStrong.class);"
+      },
+      {
+        "line": 81,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_incendiary_strong), EntityMissileIncendiaryStrong.class);"
+      },
+      {
+        "line": 82,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_cluster_strong), EntityMissileClusterStrong.class);"
+      },
+      {
+        "line": 83,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_buster_strong), EntityMissileBusterStrong.class);"
+      },
+      {
+        "line": 84,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_emp_strong), EntityMissileEMPStrong.class);"
+      },
+      {
+        "line": 86,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_burst), EntityMissileBurst.class);"
+      },
+      {
+        "line": 87,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_inferno), EntityMissileInferno.class);"
+      },
+      {
+        "line": 88,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_rain), EntityMissileRain.class);"
+      },
+      {
+        "line": 89,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_drill), EntityMissileDrill.class);"
+      },
+      {
+        "line": 90,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_shuttle), EntityMissileShuttle.class);"
+      },
+      {
+        "line": 92,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_nuclear), EntityMissileNuclear.class);"
+      },
+      {
+        "line": 93,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_nuclear_cluster), EntityMissileMirv.class);"
+      },
+      {
+        "line": 94,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_volcano), EntityMissileVolcano.class);"
+      },
+      {
+        "line": 95,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_doomsday), EntityMissileDoomsday.class);"
+      },
+      {
+        "line": 97,
+        "source": "missiles.put(new ComparableStack(ModItems.missile_stealth), EntityMissileStealth.class);"
+      },
+      {
+        "line": 341,
+        "source": "Class<? extends EntityMissileBaseNT> clazz = TileEntityLaunchPadBase.missiles.get(new ComparableStack(slots[0]).makeSingular());"
+      },
+      {
+        "line": 345,
+        "source": "EntityMissileBaseNT missile = clazz.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class).newInstance(this.world, this.pos.getX() + 0.5F, this.pos.getY() + (float) getLaunchOffset() /* Position arguments need to be floats, jackass */, this.pos.getZ() + 0.5F, targetX, targetZ);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+    "references": [
+      {
+        "line": 12,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 271,
+        "source": "EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 3.0F, this.pos.getZ() + 0.5F, slots[0]).withProgram(slots[1]).launchedBy(player);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 212,
+        "source": "List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.missile.EntityMissileTier4.EntityMissileDoomsdayRusted;"
+      },
+      {
+        "line": 63,
+        "source": "List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));"
+      },
+      {
+        "line": 114,
+        "source": "EntityMissileDoomsdayRusted missile = new EntityMissileDoomsdayRusted(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1F, this.pos.getZ() + 0.5F, targetX, targetZ);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileCustom;"
+      },
+      {
+        "line": 222,
+        "source": "List<EntityMissileCustom> entities = this.world.getEntitiesWithinAABB(EntityMissileCustom.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));"
+      },
+      {
+        "line": 331,
+        "source": "EntityMissileCustom missile = new EntityMissileCustom(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, tX + (int)target.x, tZ + (int)target.z, getStruct(slots[0]));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileCustom;"
+      },
+      {
+        "line": 217,
+        "source": "if(e instanceof EntityMissileCustom) {"
+      },
+      {
+        "line": 335,
+        "source": "EntityMissileCustom missile = new EntityMissileCustom(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, tX + (int)target.x, tZ + (int)target.z, getStruct(slots[0]));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 47,
+        "source": "List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.RocketState;"
+      },
+      {
+        "line": 45,
+        "source": "private EntityRideableRocket docked;"
+      },
+      {
+        "line": 166,
+        "source": "public void dockRocket(EntityRideableRocket rocket) {"
+      },
+      {
+        "line": 213,
+        "source": "EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, stack).withProgram(slots[0]).launchedBy(player);"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket;"
+      },
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.missile.EntityRideableRocket.RocketState;"
+      },
+      {
+        "line": 34,
+        "source": "private EntityRideableRocket docked;"
+      },
+      {
+        "line": 170,
+        "source": "public void dockRocket(EntityRideableRocket rocket) {"
+      },
+      {
+        "line": 210,
+        "source": "EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, stack);"
+      },
+      {
+        "line": 218,
+        "source": "public EntityRideableRocket getDocked() {"
+      }
+    ],
+    "legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+    "references": [
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.missile.EntityMissileBaseNT;"
+      },
+      {
+        "line": 12,
+        "source": "import com.hbm.entity.missile.EntityMissileCustom;"
+      },
+      {
+        "line": 639,
+        "source": "if(e instanceof EntityMissileBaseNT) return e.motionY < 0;"
+      },
+      {
+        "line": 640,
+        "source": "if(e instanceof EntityMissileCustom) return e.motionY < 0;"
+      }
+    ],
+    "legacy_calls": []
+  }
+]

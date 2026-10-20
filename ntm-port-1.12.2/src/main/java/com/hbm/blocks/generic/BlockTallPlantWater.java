@@ -33,7 +33,7 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 	
 	//ngl i dont know why i did this....
 	public BlockTallPlantWater() {
-		super(Material.water, EnumTallPlantWater.class, true, true);
+		super(Material.WATER, EnumTallPlantWater.class, true, true);
 		this.setTickRandomly(true);
 	}
 
@@ -87,12 +87,12 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 
 	@Override
 	public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack) {
-		return world.getBlock(x, y + 1, z) == Blocks.water && this.canBlockStay(world, x, y, z);
+		return com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.WATER && this.canBlockStay(world, x, y, z);
 	}
 	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.getBlock(x, y + 1, z).getMaterial().isLiquid();
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();
 	}
 
 	protected boolean canPlaceBlockOn(Block block) {
@@ -108,22 +108,22 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 	public static boolean detectCut = true;
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		if(!this.canBlockStay(world, x, y, z)) {
-			if(world.getBlockMetadata(x, y, z) < 8) {
-				this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) < 8) {
+				this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
 			}
-			world.setBlock(x, y, z, Blocks.water, 0, 3);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WATER; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 		
 		if(!detectCut) return;
 		
-		Block block = world.getBlock(x, y + 1, z);
-		int meta = world.getBlockMetadata(x, y + 1, z);
-		int ownMeta = world.getBlockMetadata(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y + 1, z) );
+		int ownMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		if(ownMeta < 8 && (meta != ownMeta + 8 || block != this) && ModBlocks.plant_flower.canBlockStay(world, x, y, z)) {
 
 			if(ownMeta == EnumTallPlantWater.LAYTHE.ordinal())
-				world.setBlock(x, y, z, Blocks.water);
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WATER; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			else
 				world.setBlock(x, y, z, ModBlocks.plant_flower, EnumFlowerType.CD0.ordinal(), 3);
 		}
@@ -132,18 +132,18 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
 		if(meta > 7) {
-			return world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) == meta - 8;
+			return com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == this && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) == meta - 8;
 		}
 		
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z));
+		return canPlaceBlockOn(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());
 	}
 	
 	@Override
 	public int getDamageValue(World world, int x, int y, int z) {
-		return world.getBlockMetadata(x, y, z) % 8;
+		return com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) % 8;
 	}
 	
 	@Override
@@ -151,20 +151,20 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 		// Check if the top part of the plant is being broken
 		if (meta > 7) {
 			// Set the bottom part to air
-			if (world.getBlock(x, y - 1, z) == this) {
-				world.setBlockToAir(x, y - 1, z);
+			if (com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == this) {
+				com.hbm.world.WorldAirRemoval.remove(world, x, y - 1, z);
 			}
 		} else {
 			// If the bottom part is being broken, check for the top part and set it to air
-			if (world.getBlock(x, y + 1, z) == this) {
-				world.setBlockToAir(x, y + 1, z);
+			if (com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == this) {
+				com.hbm.world.WorldAirRemoval.remove(world, x, y + 1, z);
 			}
 			
 		}
 		if(player.capabilities.isCreativeMode) {
-			world.setBlock(x, y + 1, z, Blocks.air, 0, 2);
+			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		} else {
-			this.dropBlockAsItem(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);
+			this.dropBlockAsItem(world, x, y + 1, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y + 1, z) ), 0);
 		}
 
 		super.onBlockHarvested(world, x, y, z, meta, player);
@@ -188,7 +188,7 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 	/* chance */
 	@Override
 	public boolean func_149852_a(World world, Random rand, int x, int y, int z) {
-		int meta = rectify(world.getBlockMetadata(x, y, z));
+		int meta = rectify(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 		if(meta == EnumTallFlower.CD3.ordinal()) {
 			return true;
 		}
@@ -221,7 +221,7 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 	}
 
 	@Override
-	public Item getItemDropped(int parMetadata, Random parRand, int parFortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState parMetadata, Random parRand, int parFortune) {
 	   return (ModItems.saltleaf);
 	}
 

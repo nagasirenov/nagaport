@@ -44,7 +44,7 @@ public abstract class EntityRailCarElectric extends EntityRailCarRidable {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(this.hasChargeSlot()) {
 				ItemStack stack = this.getStackInSlot(this.getChargeSlot());

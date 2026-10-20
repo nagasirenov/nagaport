@@ -44,8 +44,8 @@ public class EntityPinkCloudFX extends EntityModFX {
 			maxAge = rand.nextInt(301) + 900;
 		}
 
-		if (!worldObj.isRemote && rand.nextInt(50) == 0)
-			ExplosionChaos.pc(worldObj, (int) posX, (int) posY, (int) posZ, 2);
+		if (!this.world.isRemote && rand.nextInt(50) == 0)
+			ExplosionChaos.pc(this.world, (int) posX, (int) posY, (int) posZ, 2);
 
 		this.particleAge++;
 
@@ -62,7 +62,7 @@ public class EntityPinkCloudFX extends EntityModFX {
 			this.motionZ *= 0.699999988079071D;
 		}
 		
-		if(worldObj.isRaining() && worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))) {
+		if(this.world.isRaining() && this.world.canBlockSeeTheSky(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ))) {
 			this.motionY -= 0.01;
 		}
 		
@@ -74,13 +74,13 @@ public class EntityPinkCloudFX extends EntityModFX {
 			this.posY += this.motionY/subdivisions;
 			this.posZ += this.motionZ/subdivisions;
 			
-			if(worldObj.getBlock((int) posX, (int) posY, (int) posZ) == ModBlocks.radiorec) {
+			if(com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock() == ModBlocks.radiorec) {
 				this.setDead();
-				int meta = worldObj.getBlockMetadata((int) posX, (int) posY, (int) posZ);
-				worldObj.setBlock((int) posX, (int) posY, (int) posZ, ModBlocks.broadcaster_pc, meta, 2);
+				int meta = this.world.getBlockMetadata((int) posX, (int) posY, (int) posZ);
+				this.world.setBlock((int) posX, (int) posY, (int) posZ, ModBlocks.broadcaster_pc, meta, 2);
 			}
 			
-			if (worldObj.getBlock((int) posX, (int) posY, (int) posZ).isNormalCube()) {
+			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {
 	
 				if(rand.nextInt(5) != 0)
 					this.setDead();

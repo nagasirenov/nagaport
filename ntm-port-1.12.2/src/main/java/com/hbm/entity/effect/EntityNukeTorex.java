@@ -65,7 +65,7 @@ public class EntityNukeTorex extends Entity {
 		double cs = 1.5;
 		int maxAge = this.getMaxAge();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			if(ticksExisted == 1) this.setScale((float) s);
 
@@ -73,9 +73,9 @@ public class EntityNukeTorex extends Entity {
 				lastSpawnY = posY - 3;
 			}
 
-			if(ticksExisted < 100) this.worldObj.lastLightningBolt = 2;
+			if(ticksExisted < 100) this.world.lastLightningBolt = 2;
 
-			int spawnTarget = Math.max(worldObj.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ)) - 3, 1);
+			int spawnTarget = Math.max(com.hbm.world.WorldHeight.read(this.world, (int) Math.floor(posX), (int) Math.floor(posZ)) - 3, 1);
 			double moveSpeed = 0.5D;
 
 			if(Math.abs(spawnTarget - lastSpawnY) < moveSpeed) {
@@ -147,7 +147,7 @@ public class EntityNukeTorex extends Entity {
 					Vec3d vec = new Vec3d((ticksExisted * 1.5 + rand.nextDouble()) * 1.5, 0, 0);
 					float rot = (float) (Math.PI * 2 * rand.nextDouble());
 					vec = vec.rotateYaw(rot);
-					this.cloudlets.add(new Cloudlet(vec.x + posX, worldObj.getHeightValue((int) (vec.x + posX) + 1, (int) (vec.z + posZ)), vec.z + posZ, rot, 0, shockLife, TorexType.SHOCK)
+					this.cloudlets.add(new Cloudlet(vec.x + posX, com.hbm.world.WorldHeight.read(this.world, (int) (vec.x + posX) + 1, (int) (vec.z + posZ)), vec.z + posZ, rot, 0, shockLife, TorexType.SHOCK)
 							.setScale(7F, 2F)
 							.setMotion(ticksExisted > 15 ? 0.75 : 0));
 				}
@@ -214,13 +214,13 @@ public class EntityNukeTorex extends Entity {
 			cloudlets.removeIf(x -> x.isDead);
 		}
 
-		if(!worldObj.isRemote && this.ticksExisted > maxAge) {
+		if(!this.world.isRemote && this.ticksExisted > maxAge) {
 			this.setDead();
 		}
 	}
 
 	public EntityNukeTorex setScale(float scale) {
-		if(!worldObj.isRemote) getDataWatcher().updateObject(10, scale);
+		if(!this.world.isRemote) getDataWatcher().updateObject(10, scale);
 		this.coreHeight = this.coreHeight / 1.5D * scale;
 		this.convectionHeight = this.convectionHeight / 1.5D * scale;
 		this.torusWidth = this.torusWidth / 1.5D * scale;
@@ -350,12 +350,12 @@ public class EntityNukeTorex extends Entity {
 				Vec3d convection = getConvectionMotion(simPosX, simPosZ);
 				Vec3d lift = getLiftMotion(simPosX, simPosZ);
 
-				double factor = MathHelper.clamp_double((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, 0, 1);
+				double factor = MathHelper.clamp((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, (double) (0), (double) (1));
 				this.motionX = convection.x * factor + lift.x * (1D - factor);
 				this.motionY = convection.y * factor + lift.y * (1D - factor);
 				this.motionZ = convection.z * factor + lift.z * (1D - factor);
 			} else if(this.type == TorexType.SHOCK) {
-				double factor = MathHelper.clamp_double((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, 0, 1);
+				double factor = MathHelper.clamp((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, (double) (0), (double) (1));
 				Vec3d motion = new Vec3d(1, 0, 0);
 				motion = motion.rotateYaw(this.angle);
 				this.motionX = motion.x * factor;
@@ -372,7 +372,7 @@ public class EntityNukeTorex extends Entity {
 				this.motionY = motion.y;
 				this.motionZ = motion.z;
 			} else if(this.type == TorexType.STARFISH) {
-				double factor = MathHelper.clamp_double((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, 0, 1);
+				double factor = MathHelper.clamp((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, (double) (0), (double) (1));
 				Vec3d motion = new Vec3d(1, 0, 0);
 				motion = motion.rotateYaw(this.angle);
 				this.motionX = motion.x * factor;
@@ -475,7 +475,7 @@ public class EntityNukeTorex extends Entity {
 		}
 
 		private Vec3d getLiftMotion(double simPosX, double simPosZ) {
-			double scale = MathHelper.clamp_double(1D - (simPosX - (EntityNukeTorex.this.posX + torusWidth)), 0, 1);
+			double scale = MathHelper.clamp(1D - (simPosX - (EntityNukeTorex.this.posX + torusWidth)), (double) (0), (double) (1));
 
 			Vec3d motion = new Vec3d(EntityNukeTorex.this.posX - this.posX, (EntityNukeTorex.this.posY + convectionHeight) - this.posY, EntityNukeTorex.this.posZ - this.posZ);
 			return motion.normalize().scale(scale);
@@ -619,7 +619,7 @@ public class EntityNukeTorex extends Entity {
 	public static void statFacBale(World world, double x, double y, double z, float scale) { statFac(world, x, y, z, scale, 1); }
 
 	public static void statFac(World world, double x, double y, double z, float scale, int type) {
-		EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp_float((float) BobMathUtil.squirt(scale * 0.01) * 1.5F, 0.5F, 5F));
+		EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp((float) BobMathUtil.squirt(scale * 0.01) * 1.5F, 0.5F, 5F));
 		torex.setType(type);
 		torex.setPosition(x, y, z);
 		torex.forceSpawn = true;
@@ -627,7 +627,7 @@ public class EntityNukeTorex extends Entity {
 		TrackerUtil.setTrackingRange(world, torex, 1000);
 	}
 	public static void startFacAnti(World world, double x, double y, double z, float scale) {
-		EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp_float(scale * 0.01F, 0.5F, 5F)).setType(2);
+		EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp(scale * 0.01F, 0.5F, 5F)).setType(2);
 		torex.setPosition(x, y, z);
 		world.spawnEntityInWorld(torex);
 		TrackerUtil.setTrackingRange(world, torex, 1000);

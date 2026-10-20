@@ -11,7 +11,7 @@ import com.hbm.util.Tuple.Pair;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 import com.hbm.util.fauxpointtwelve.DirPos;
 
-import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraft.world.World;
 
 /**
@@ -58,7 +58,7 @@ public class UniNodespace {
 	private static int reapTimer = 0;
 	public static void updateNodespace() {
 
-		for(World world : MinecraftServer.getServer().worldServers) {
+		for(World world : FMLCommonHandler.instance().getMinecraftServerInstance().worlds) {
 			UniNodeWorld nodeWorld = worlds.get(world);
 
 			if(nodeWorld == null) continue;

@@ -18,6 +18,6 @@ public class MachineTab extends CreativeTabs {
 		if(ModBlocks.pwr_controller != null)
 			return Item.getItemFromBlock(ModBlocks.pwr_controller);
 		
-		return Items.iron_pickaxe;
+		return Items.IRON_PICKAXE;
 	}
 }

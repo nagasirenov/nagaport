@@ -34,7 +34,7 @@ public class PileNeutronHandler {
 	}
 
 	private static TileEntity blockPosToTE(World worldObj, BlockPos pos) {
-		return worldObj.getTileEntity(pos.getX(), pos.getY(), pos.getZ());
+		return worldObj.getTileEntity(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()));
 	}
 
 	public static class PileNeutronStream extends NeutronStream {
@@ -108,7 +108,7 @@ public class PileNeutronHandler {
 				int x = (int) (nodePos.getX() + 0.5);
 				int y = (int) (nodePos.getY() + 0.5);
 				int z = (int) (nodePos.getZ() + 0.5);
-				List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x, y, z, x, y, z));
+				List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x, y, z, x, y, z));
 
 				if(entities != null)
 					for(EntityLivingBase e : entities)

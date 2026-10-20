@@ -79,14 +79,14 @@ public class GUIBatterySocket extends GuiInfoContainer {
 		if(this.checkClick(x, y, 106, 52, 18, 18)) { this.click(); data.setBoolean("high", true); }
 		if(this.checkClick(x, y, 125, 35, 16, 16)) { this.click(); data.setBoolean("priority", true); }
 		
-		if(!data.hasNoTags()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.xCoord, battery.yCoord, battery.zCoord));
+		if(!data.hasNoTags()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.getPos().getX(), battery.getPos().getY(), battery.getPos().getZ()));
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.battery.hasCustomInventoryName() ? this.battery.getInventoryName() : I18n.format(this.battery.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

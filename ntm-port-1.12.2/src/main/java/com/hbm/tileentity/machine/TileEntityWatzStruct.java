@@ -11,13 +11,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityWatzStruct extends TileEntity {
+public class TileEntityWatzStruct extends TileEntity implements net.minecraft.util.ITickable {
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(worldObj.isRemote) return;
-		if(worldObj.getTotalWorldTime() % 20 != 0) return;
+		if(this.world.isRemote) return;
+		if(this.world.getTotalWorldTime() % 20 != 0) return;
 
 		/*
 		 * skeptics may say that his is shit. i don't necessarily disagree, but it was both easy and quick to do
@@ -62,19 +62,19 @@ public class TileEntityWatzStruct extends TileEntity {
 		
 		Watz watz = (Watz)ModBlocks.watz;
 		BlockDummyable.safeRem = true;
-		worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.watz, 12, 3);
-		watz.fillSpace(worldObj, xCoord, yCoord, zCoord, ForgeDirection.NORTH, 0);
+		this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.watz, 12, 3);
+		watz.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.NORTH, 0);
 		BlockDummyable.safeRem = false;
 	}
 	
 	/** [G]et [B]lock at [R]elative position */
 	private Block gbr(int x, int y, int z) {
-		return worldObj.getBlock(xCoord + x, yCoord + y, zCoord + z);
+		return com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z).getBlock();
 	}
 	
 	/** [G]et [M]eta at [R]elative position */
 	private int gmr(int x, int y, int z) {
-		return worldObj.getBlockMetadata(xCoord + x, yCoord + y, zCoord + z);
+		return com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z) );
 	}
 	
 	/** [C]heck [B]lock at [R]elative position */
@@ -92,12 +92,12 @@ public class TileEntityWatzStruct extends TileEntity {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 3,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 4
 					);
 		}
 		

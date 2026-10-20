@@ -4,10 +4,10 @@ import java.awt.Color;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.particle.EntitySmokeFX;
+import net.minecraft.client.particle.ParticleSmokeNormal;
 import net.minecraft.world.World;
 
-public class ParticleGasFlame extends EntitySmokeFX {
+public class ParticleGasFlame extends ParticleSmokeNormal {
 	
 	float colorMod = 1.0F;
 
@@ -16,9 +16,12 @@ public class ParticleGasFlame extends EntitySmokeFX {
 		updateColor();
 		this.particleScale = scale;
 		this.colorMod = 0.8F + rand.nextFloat() * 0.2F;
-		this.noClip = true;
+		this.canCollide = false;
 		this.particleMaxAge = 30 + rand.nextInt(13);
 	}
+
+	@Override
+	public boolean shouldDisableDepth() { return true; }
 
 	@Override
 	public void onUpdate() {

@@ -11,7 +11,7 @@ public interface IDetConnectible {
 	}
 	
 	public static boolean isConnectible(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
-		Block b = world.getBlock(x, y, z);
+		Block b = world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();
 		if(b instanceof IDetConnectible) {
 			return ((IDetConnectible)b).canConnectToDetCord(world, x, y, z, dir);
 		}

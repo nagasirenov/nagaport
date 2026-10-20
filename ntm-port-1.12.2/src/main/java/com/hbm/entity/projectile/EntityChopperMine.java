@@ -66,7 +66,7 @@ public class EntityChopperMine extends Entity implements IProjectile {
 		Vec3d vec31 = new Vec3d(this.posX, this.posY, this.posZ);
 		Vec3d vec3 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY,
 				this.posZ + this.motionZ);
-		RayTraceResult movingobjectposition = this.worldObj.rayTraceBlocks(vec31, vec3, false, true, false);
+		RayTraceResult movingobjectposition = this.world.rayTraceBlocks(vec31, vec3, false, true, false);
 		vec31 = new Vec3d(this.posX, this.posY, this.posZ);
 		vec3 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY,
 				this.posZ + this.motionZ);
@@ -77,8 +77,8 @@ public class EntityChopperMine extends Entity implements IProjectile {
 		}
 
 		Entity entity = null;
-		List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this,
-				this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+		List list = this.world.getEntitiesWithinAABBExcludingEntity(this,
+				this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
 		double d0 = 0.0D;
 		int i;
 		float f1;
@@ -88,7 +88,7 @@ public class EntityChopperMine extends Entity implements IProjectile {
 
 			if (entity1.canBeCollidedWith() && (entity1 != this.shooter)) {
 				f1 = 0.3F;
-				AxisAlignedBB axisalignedbb1 = entity1.boundingBox.expand(f1, f1, f1);
+				AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand(f1, f1, f1);
 				RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec31, vec3);
 
 				if (movingobjectposition1 != null) {
@@ -109,7 +109,7 @@ public class EntityChopperMine extends Entity implements IProjectile {
 		if (movingobjectposition != null && movingobjectposition.entityHit != null
 				&& movingobjectposition.entityHit instanceof EntityPlayer) {
 
-			worldObj.createExplosion(shooter, this.posX, this.posY, this.posZ, 5F, false);
+			this.world.createExplosion(shooter, this.posX, this.posY, this.posZ, 5F, false);
 			this.setDead();
 		}
 		
@@ -118,11 +118,11 @@ public class EntityChopperMine extends Entity implements IProjectile {
 		//if(timer % 20 == 0)
 		//	worldObj.playSoundAtEntity(this, "random.click", 10.0F, 1.5F);
 		
-		worldObj.playSoundAtEntity(this, "hbm:misc.nullMine", 10.0F, 1F);
+		this.world.playSoundAtEntity(this, "hbm:misc.nullMine", 10.0F, 1F);
 		
-		if(timer >= 100 || worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ).getMaterial() != Material.air)
+		if(timer >= 100 || com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getBlock().getMaterial() != Material.AIR)
 		{
-			worldObj.createExplosion(shooter, this.posX, this.posY, this.posZ, 5F, false);
+			this.world.createExplosion(shooter, this.posX, this.posY, this.posZ, 5F, false);
 			this.setDead();
 		}
 

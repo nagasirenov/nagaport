@@ -1,5 +1,8 @@
 package com.hbm.items.special;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.util.ITooltipFlag;
 import java.util.List;
 
 import com.hbm.blocks.rail.IRailNTM;
@@ -28,7 +31,8 @@ public class ItemTrain extends ItemEnumMulti {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 		EnumTrainType train = EnumUtil.grabEnumSafely(this.theEnum, stack.getItemDamage());
 
 		if(train.engine != null) list.add(TextFormatting.GREEN + "Engine: " + TextFormatting.RESET + train.engine);
@@ -66,7 +70,7 @@ public class ItemTrain extends ItemEnumMulti {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
 		if(b instanceof IRailNTM) {
 			

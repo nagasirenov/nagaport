@@ -127,7 +127,7 @@ public class EntityDamageUtil {
 		if(ignoreIFrame) living.lastDamage = 0F;
 		if(ForgeHooks.onLivingAttack(living, source, amount) && allowSpecialCancel) return false;
 		if(living.isEntityInvulnerable()) return false;
-		if(living.worldObj.isRemote) return false;
+		if(living.world.isRemote) return false;
 		if(living instanceof EntityPlayer && ((EntityPlayer) living).capabilities.disableDamage && !source.canHarmInCreative()) return false;
 
 		living.entityAge = 0;
@@ -172,7 +172,7 @@ public class EntityDamageUtil {
 		}
 
 		if(didAttackRegister) {
-			living.worldObj.setEntityState(living, (byte) 2);
+			living.world.setEntityState(living, (byte) 2);
 
 			if(source != DamageSource.drown) setBeenAttacked(living); //#
 
@@ -206,7 +206,7 @@ public class EntityDamageUtil {
 	}
 
 	public static void knockBack(EntityLivingBase living, Entity attacker, float damage, double motionX, double motionZ, double multiplier) {
-		if(living.getRNG().nextDouble() >= living.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).getAttributeValue()) {
+		if(living.getRNG().nextDouble() >= living.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).getAttributeValue()) {
 			living.isAirBorne = true;
 			double horizontal = Math.sqrt(motionX * motionX + motionZ * motionZ);
 			double magnitude = 0.4D * multiplier;
@@ -264,7 +264,7 @@ public class EntityDamageUtil {
 			return false;
 		if(living.isEntityInvulnerable()) {
 			return false;
-		} else if(living.worldObj.isRemote) {
+		} else if(living.world.isRemote) {
 			return false;
 		} else {
 			living.entityAge = 0;
@@ -320,7 +320,7 @@ public class EntityDamageUtil {
 				}
 
 				if(flag) {
-					living.worldObj.setEntityState(living, (byte) 2);
+					living.world.setEntityState(living, (byte) 2);
 
 					if(source != DamageSource.drown) {
 						setBeenAttacked(living); //#
@@ -454,7 +454,7 @@ public class EntityDamageUtil {
 	}
 
 	public static void setBeenAttacked(EntityLivingBase living) {
-		living.velocityChanged = living.getRNG().nextDouble() >= living.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).getAttributeValue();
+		living.velocityChanged = living.getRNG().nextDouble() >= living.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).getAttributeValue();
 	}
 
 	public static RayTraceResult getMouseOver(EntityPlayer attacker, double reach) {
@@ -463,7 +463,7 @@ public class EntityDamageUtil {
 
 	public static RayTraceResult getMouseOver(EntityPlayer attacker, double reach, double threshold) {
 
-		World world = attacker.worldObj;
+		World world = attacker.world;
 		RayTraceResult objectMouseOver = null;
 		Entity pointedEntity = null;
 
@@ -474,7 +474,7 @@ public class EntityDamageUtil {
 		Vec3d end = pos.addVector(look.x * reach, look.y * reach, look.z * reach);
 		Vec3d hitvec = null;
 		float grace = 1.0F;
-		List list = world.getEntitiesWithinAABBExcludingEntity(attacker, attacker.boundingBox.addCoord(look.x * reach, look.y * reach, look.z * reach).expand(grace, grace, grace));
+		List list = world.getEntitiesWithinAABBExcludingEntity(attacker, attacker.getEntityBoundingBox().addCoord(look.x * reach, look.y * reach, look.z * reach).expand(grace, grace, grace));
 
 		double closest = reach;
 
@@ -484,7 +484,7 @@ public class EntityDamageUtil {
 			if(entity.canBeCollidedWith() && entity.isEntityAlive()) {
 
 				double borderSize = entity.getCollisionBorderSize() + threshold;
-				AxisAlignedBB axisalignedbb = entity.boundingBox.expand(borderSize, borderSize, borderSize);
+				AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox().expand(borderSize, borderSize, borderSize);
 				RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(pos, end);
 
 				if(axisalignedbb.isVecInside(pos)) {
@@ -524,7 +524,7 @@ public class EntityDamageUtil {
 		Vec3d pos = getPosition(player);
 		Vec3d look = player.getLook(interp);
 		Vec3d end = pos.addVector(look.x * dist, look.y * dist, look.z * dist);
-		return player.worldObj.rayTraceBlocks(pos, end, false, false, true);
+		return player.world.rayTraceBlocks(pos, end, false, false, true);
 	}
 
 	public static Vec3d getPosition(EntityPlayer player) {

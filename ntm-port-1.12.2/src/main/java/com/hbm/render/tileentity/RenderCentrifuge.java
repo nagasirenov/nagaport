@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderCentrifuge extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -64,7 +64,7 @@ public class RenderCentrifuge extends TileEntitySpecialRenderer implements IItem
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		
 		return new ItemRenderBase() {
 			public void renderInventory() {

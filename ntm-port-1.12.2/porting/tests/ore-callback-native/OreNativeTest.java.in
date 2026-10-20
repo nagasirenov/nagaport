@@ -1,0 +1,82 @@
+import java.util.*;import java.io.*;import java.net.*;import java.lang.reflect.*;
+import net.minecraft.block.state.IBlockState;import net.minecraft.util.math.BlockPos;import net.minecraft.util.*;import net.minecraft.world.*;import net.minecraft.world.chunk.*;import net.minecraft.world.storage.*;import net.minecraft.nbt.*;import net.minecraft.profiler.Profiler;import net.minecraft.creativetab.CreativeTabs;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.items.ModItems;
+import com.hbm.blocks.generic.*;
+public class OreNativeTest {
+ static final Map<String,BlockOre> blocks=new LinkedHashMap<>();static final Map<String,OriginalOreOracle> oracles=new LinkedHashMap<>();static int checks;
+ static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static void add(String name,boolean cluster)throws Exception{BlockOre b=cluster?new BlockCluster(Material.ROCK):new BlockOre(Material.ROCK);if(name.equals("deco_titanium")){TitaniumConstruction.initialize();b=(BlockOre)TitaniumConstruction.deco_titanium;}b.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);b.setRegistryName("hbm",name);ForgeRegistries.BLOCKS.register(b);ForgeRegistries.ITEMS.register(new ItemBlock(b).setRegistryName(b.getRegistryName()));ModBlocks.class.getField(name).set(null,b);blocks.put(name,b);OriginalOreOracle o=new OriginalOreOracle();o.setRegistryName("hbm","oracle_"+name);ForgeRegistries.BLOCKS.register(o);ForgeRegistries.ITEMS.register(new ItemBlock(o).setRegistryName(o.getRegistryName()));OracleRegistry.class.getField(name).set(null,o);oracles.put(name,o);}
+ public static void main(String[] args)throws Exception{Bootstrap.register();FMLCommonHandler.instance().beginLoading(net.minecraftforge.fml.server.FMLServerHandler.instance());ModMetadata md=new ModMetadata();md.modId="hbm";md.name="Ore native callback probe";md.version="1";DummyModContainer c=new DummyModContainer(md);Loader.instance().setupTestHarness(c);Loader.instance().setActiveModContainer(c);
+ INITIALIZERS
+ world=new NativeWorld();dropParity();creativeAndOverrideDispatch();placementParity(new File(args[0]));nativeItemPlacement();destroyDrops();System.out.println("PASS "+checks+" native callback/domain checks; complete BlockOre and BlockCluster; "+blocks.size()+" predicate identities. Full Outgas/Fluid behaviors and full game remain outside scope.");
+ }
+ static String itemLabel(Item item,Block self){if(item==Item.getItemFromBlock(self))return "SELF";return item==null?"NULL":String.valueOf(item.getRegistryName());}
+ static NativeWorld world;
+ static void dropParity()throws Exception{
+  int[] fortunes={-2,0,1,3,10};
+  for(Map.Entry<String,BlockOre> e:blocks.entrySet()){
+   BlockOre b=e.getValue();if(b instanceof BlockCluster)continue;OriginalOreOracle o=oracles.get(e.getKey());
+   for(boolean allow:new boolean[]{false,true}){b.allowFortune=allow;o.allowFortune=allow;
+    for(int meta=0;meta<16;meta++)for(int fortune:fortunes)for(int seed=0;seed<20;seed++){
+     Block nativeDispatch=b;IBlockState state=b.getStateFromMeta(meta);Random nr=new Random(seed),or=new Random(seed);
+     check(itemLabel(nativeDispatch.getItemDropped(state,nr,fortune),b).equals(itemLabel(o.getItemDropped(meta,or,fortune),o))&&nr.nextLong()==or.nextLong(),"native item callback routes original predicate and RNG");
+     check(nativeDispatch.damageDropped(state)==o.damageDropped(meta),"native damage dispatch preserves rectify/rare/lapis");
+     nr=new Random(seed);or=new Random(seed);check(nativeDispatch.quantityDroppedWithBonus(fortune,nr)==o.quantityDroppedWithBonus(fortune,or)&&nr.nextLong()==or.nextLong(),"quantity and fortune exact original RNG");
+    }
+   }
+   for(int meta:new int[]{Integer.MIN_VALUE,-33,-17,-1,0,10,11,15,16,31,255,Integer.MAX_VALUE})check(b.damageDropped(meta)==o.damageDropped(meta),"retained scalar arbitrary-int rectify hook");
+   b.allowFortune=true;o.allowFortune=true;
+   for(int meta=0;meta<16;meta++)for(int fortune:fortunes){
+    NonNullList<ItemStack> drops=NonNullList.create();world.rand.setSeed(38912);b.getDrops(drops,world,BlockPos.ORIGIN,b.getStateFromMeta(meta),fortune);
+    Random random=new Random(38912);int count=o.quantityDroppedWithBonus(fortune,random);List<String> expected=new ArrayList<>();for(int i=0;i<count;i++){Item item=o.getItemDropped(meta,random,fortune);if(item!=null)expected.add(itemLabel(item,o)+":"+o.damageDropped(meta));}
+    List<String> actual=new ArrayList<>();for(ItemStack drop:drops)actual.add(itemLabel(drop.getItem(),b)+":"+drop.getItemDamage());check(expected.equals(actual)&&world.rand.nextLong()==random.nextLong(),"real native Block.getDrops executes owner callbacks and RNG");
+   }
+  }
+  for(String name:new String[]{"cluster_iron","cluster_titanium","cluster_aluminium","cluster_copper"}){Block b=blocks.get(name);String item="crystal_"+name.substring(8);for(int meta=0;meta<16;meta++){check(b.getItemDropped(b.getStateFromMeta(meta),new Random(2),3)==ModItems.class.getField(item).get(null),"native bridge retains actual BlockCluster scalar override");check(b.damageDropped(b.getStateFromMeta(meta))==0,"cluster drops damage0");}}
+  check(BlockOre.class.getMethod("getItemDropped",IBlockState.class,Random.class,int.class).getDeclaringClass()==BlockOre.class,"no inherited vanilla item fallback");check(BlockOre.class.getMethod("damageDropped",IBlockState.class).getDeclaringClass()==BlockOre.class,"no inherited vanilla damage fallback");
+ }
+ static class HookWitness extends BlockOre {
+  int calls,meta,fortune;Random random;HookWitness(){super(Material.ROCK);}public Item getItemDropped(int m,Random r,int f){calls++;meta=m;random=r;fortune=f;return net.minecraft.init.Items.DIAMOND;}public int damageDropped(int m){calls++;meta=m;return 7;}public void getSubBlocks(Item item,CreativeTabs tab,List list){calls++;list.add(new ItemStack(net.minecraft.init.Items.DIAMOND));}public void onBlockPlacedBy(World w,int x,int y,int z,net.minecraft.entity.EntityLivingBase e,ItemStack stack){calls++;meta=x+y+z;}
+ }
+ static void creativeAndOverrideDispatch(){
+  for(BlockOre b:blocks.values()){NonNullList<ItemStack> list=NonNullList.create();((ItemBlock)Item.getItemFromBlock(b)).getSubItems(CreativeTabs.SEARCH,list);check(list.size()==com.hbm.dim.SolarSystem.Body.values().length,"real native ItemBlock creative dispatch count");for(int i=0;i<list.size();i++)check(list.get(i).getItem()==Item.getItemFromBlock(b)&&list.get(i).getItemDamage()==i,"creative exact identity/metadata/order");}
+  HookWitness h=new HookWitness();Block b=h;Random r=new Random(7);check(b.getItemDropped(b.getStateFromMeta(12),r,3)==net.minecraft.init.Items.DIAMOND&&h.calls==1&&h.meta==12&&h.random==r&&h.fortune==3,"native bridge preserves scalar virtual dispatch");check(b.damageDropped(b.getStateFromMeta(14))==7&&h.calls==2&&h.meta==14,"virtual damage override");b.getSubBlocks(CreativeTabs.SEARCH,NonNullList.create());check(h.calls==3,"virtual creative hook");b.onBlockPlacedBy(null,new BlockPos(1,2,3),b.getDefaultState(),null,ItemStack.EMPTY);check(h.calls==4&&h.meta==6,"virtual coordinate placement hook");
+  check(blocks.get("ore_rare").getRarity(ItemStack.EMPTY)==EnumRarity.UNCOMMON&&blocks.get("ore_australium").getRarity(ItemStack.EMPTY)==EnumRarity.UNCOMMON&&blocks.get("deco_titanium").getRarity(ItemStack.EMPTY)==EnumRarity.COMMON,"original rarity values unchanged");
+ }
+ static ItemStack rawStack(Item item,int raw)throws Exception {ItemStack stack=new ItemStack(item);field(ItemStack.class,"itemDamage").setInt(stack,raw);return stack;}
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<ItemStack> spawned=new ArrayList<>();int notifications,lastFlags;
+  NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "real preloaded chunks";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}protected boolean isChunkLoaded(int x,int z,boolean empty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+  @Override public void notifyBlockUpdate(BlockPos p,IBlockState old,IBlockState next,int flags){lastFlags=flags;notifications++;super.notifyBlockUpdate(p,old,next,flags);}
+  @Override public boolean spawnEntity(Entity e){if(e instanceof EntityItem){spawned.add(((EntityItem)e).getItem().copy());return true;}return super.spawnEntity(e);}
+ }
+ static Field field(Class<?> cls,String name)throws Exception{Field f=cls.getDeclaredField(name);f.setAccessible(true);return f;}
+ static void placementParity(File jar)throws Exception{
+  // Real old Chunk/ExtendedBlockStorage methods execute directly, with no old world activity required by this non-tile metadata operation.
+  try(URLClassLoader loader=new URLClassLoader(new URL[]{jar.toURI().toURL()},OreNativeTest.class.getClassLoader())){
+   Class<?> oldWorld=Class.forName("ahb",false,loader),oldChunk=Class.forName("apx",true,loader),storage=Class.forName("apz",true,loader);
+   Object original=oldChunk.getConstructor(oldWorld,int.class,int.class).newInstance(null,0,0),section=storage.getConstructor(int.class,boolean.class).newInstance(64,true);Object[] sections=(Object[])field(oldChunk,"u").get(original);sections[4]=section;
+   Method direct=storage.getMethod("a",int.class,int.class,int.class,int.class),write=oldChunk.getMethod("a",int.class,int.class,int.class,int.class),read=oldChunk.getMethod("c",int.class,int.class,int.class);Field dirtyOld=field(oldChunk,"n"),dirtyNative=field(Chunk.class,"dirty"),ticked=field(Chunk.class,"ticked");
+   Block b=blocks.get("deco_titanium");BlockPos pos=new BlockPos(2,64,3);Chunk chunk=world.getChunk(pos);
+   for(boolean populated:new boolean[]{false,true}){chunk.setTerrainPopulated(populated);chunk.setLightPopulated(populated);ticked.setBoolean(chunk,populated);
+    for(int before=0;before<16;before++)for(int raw:new int[]{Integer.MIN_VALUE,-33,-17,-1,0,1,5,10,11,15,16,17,31,32,255,32767,Integer.MAX_VALUE}){
+     direct.invoke(section,2,0,3,before);dirtyOld.setBoolean(original,false);boolean changed=(Boolean)write.invoke(original,2,64,3,raw);int expected=(Integer)read.invoke(original,2,64,3);
+     world.setBlockState(pos,b.getStateFromMeta(before),3);chunk.setModified(false);world.notifications=0;ItemStack stack=rawStack(Item.getItemFromBlock(b),raw);b.onBlockPlacedBy(world,pos,b.getStateFromMeta(before),null,stack);
+     check(b.getMetaFromState(world.getBlockState(pos))==expected,"native placement stores exact old chunk nibble");check(dirtyNative.getBoolean(chunk)==dirtyOld.getBoolean(original),"raw-alias dirty behavior parity");check(world.notifications==(changed&&populated?1:0)&&(world.notifications==0||world.lastFlags==2),"raw-alias flags2 notification parity");
+    }
+   }
+   for(BlockPos invalid:new BlockPos[]{new BlockPos(0,-1,0),new BlockPos(0,256,0),new BlockPos(30000000,64,0),new BlockPos(-30000001,64,0)}){ItemStack stack=rawStack(Item.getItemFromBlock(b),7);world.notifications=0;b.onBlockPlacedBy(world,invalid,b.getDefaultState(),null,stack);check(world.notifications==0,"invalid placement preserves prior stack evaluation and bounds");boolean threw=false;stack=rawStack(Item.getItemFromBlock(b),7);try{b.onBlockPlacedBy(null,invalid,b.getDefaultState(),null,stack);}catch(NullPointerException ex){threw=true;}check(threw,"null world after damage read, even outside bounds");}
+  }
+ }
+ static void nativeItemPlacement(){Block b=blocks.get("deco_titanium");ItemBlock item=(ItemBlock)Item.getItemFromBlock(b);BlockPos p=new BlockPos(4,70,4);for(int meta=0;meta<32;meta++){world.setBlockToAir(p);ItemStack stack=new ItemStack(item,1,meta);check(item.placeBlockAt(stack,null,world,p,EnumFacing.UP,.5F,.5F,.5F,b.getStateFromMeta(0)),"actual ItemBlock.placeBlockAt succeeds");check(b.getMetaFromState(world.getBlockState(p))==(stack.getItemDamage()&15),"actual ItemBlock dispatch calls native ore placement override, not vanilla fallback");}}
+ static void destroyDrops(){BlockPos p=new BlockPos(5,75,5);for(String name:new String[]{"deco_titanium","ore_lapis","ore_rare"}){Block b=blocks.get(name);world.setBlockState(p,b.getStateFromMeta(10),3);world.spawned.clear();check(world.destroyBlock(p,true),"actual World.destroyBlock succeeds");check(!world.spawned.isEmpty()&&world.isAirBlock(p),"actual native world drop/entity path");for(ItemStack s:world.spawned)check(s.getItemDamage()==(name.equals("ore_lapis")?4:name.equals("ore_rare")?0:10),"actual mining drop callback damage");}}
+
+}

@@ -1,0 +1,88 @@
+import java.io.*;
+import java.util.*;
+import com.google.gson.*;
+import com.hbm.render.block.RenderRail;
+import com.hbm.render.mesh.*;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+
+/** Full real-native bake vs independent original-renderer recording comparison.
+ * No native geometry, selector, or transform logic is used to derive expectations. */
+public final class OracleRailNativeTest {
+    static long checks,vertices,states;
+    static double maxItemPositionError,maxItemNormalError;
+    static final Map<String,TextureAtlasSprite> sprites=new LinkedHashMap<>();
+    static final class Sprite extends TextureAtlasSprite {
+        Sprite(String name,int index){super(name);setIconWidth(16);setIconHeight(16);initSprite(2048,256,16*index,48,false);}
+    }
+    static void check(boolean value,String label){checks++;if(!value)throw new AssertionError(label);}
+    static TextureAtlasSprite sprite(String name){TextureAtlasSprite s=sprites.get(name);if(s==null){s=new Sprite(name,sprites.size()+1);sprites.put(name,s);}return s;}
+    static final Map<String,RenderRail.Kind> kinds=new LinkedHashMap<>();
+    static {
+        kinds.put("RailNarrowStraight",RenderRail.Kind.NARROW_STRAIGHT);kinds.put("RailNarrowCurve",RenderRail.Kind.NARROW_CURVE);
+        kinds.put("RailStandardStraight",RenderRail.Kind.STRAIGHT);kinds.put("RailStandardStraightShort",RenderRail.Kind.SHORT);
+        kinds.put("RailStandardCurveBase",RenderRail.Kind.CURVE);kinds.put("RailStandardCurveWide7",RenderRail.Kind.CURVE7);kinds.put("RailStandardCurveWide9",RenderRail.Kind.CURVE9);
+        kinds.put("RailStandardRamp",RenderRail.Kind.RAMP);kinds.put("RailStandardBuffer",RenderRail.Kind.BUFFER);
+        kinds.put("RailStandardSwitch",RenderRail.Kind.SWITCH);kinds.put("RailStandardSwitchFlipped",RenderRail.Kind.SWITCH_FLIPPED);kinds.put("MachineFunnel",RenderRail.Kind.FUNNEL);
+    }
+    static void compare(List<BakedQuad> actual,OracleRailOriginal.Result result,boolean item,String context){
+        List<OracleRailOriginal.VertexRecord> expected=result.vertices;
+        check(expected.size()%4==0,context+" original complete quads");
+        check(actual.size()*4==expected.size(),context+" vertex count: "+actual.size()*4+" != "+expected.size());
+        check(result.finalTranslation[0]==0&&result.finalTranslation[1]==0&&result.finalTranslation[2]==0,context+" original balances tessellator translation");
+        for(int q=0;q<actual.size();q++){
+            BakedQuad quad=actual.get(q);int[] data=quad.getVertexData();int stride=quad.getFormat().getIntegerSize();
+            check(stride==7,context+" real native stride");check(quad.getFormat().equals(item?DefaultVertexFormats.ITEM:DefaultVertexFormats.BLOCK),context+" native vertex format");
+            check(!quad.hasTintIndex(),context+" untinted baked color");check(quad.shouldApplyDiffuseLighting()==item,context+" diffuse lighting flag");
+            for(int v=0;v<4;v++){
+                vertices++;int at=v*stride;OracleRailOriginal.VertexRecord e=expected.get(q*4+v);
+                String label=context+" quad="+q+" vertex="+v;
+                check(quad.getSprite()==sprites.get(e.texture),label+" source material/part order");
+                float[] xyz={e.x,e.y,e.z};
+                for(int axis=0;axis<3;axis++){
+                    float got=Float.intBitsToFloat(data[at+axis]);double delta=Math.abs((double)got-xyz[axis]);
+                    if(item)maxItemPositionError=Math.max(maxItemPositionError,delta);
+                    check(data[at+axis]==Float.floatToIntBits(xyz[axis]),label+" exact original XYZ axis="+axis+": "+got+" != "+xyz[axis]);
+                }
+                check(data[at+3]==e.color,label+" exact whole/part color "+Integer.toHexString(data[at+3])+" != "+Integer.toHexString(e.color));
+                check(data[at+4]==Float.floatToIntBits(e.u)&&data[at+5]==Float.floatToIntBits(e.v),label+" exact source UV; no contraction");
+                if(item){
+                    int packed=data[at+6];float[] want={e.nx,e.ny,e.nz};
+                    for(int axis=0;axis<3;axis++){
+                        double got=(byte)(packed>>>(axis*8))/127D,delta=Math.abs(got-want[axis]);maxItemNormalError=Math.max(maxItemNormalError,delta);
+                        // One extra signed-byte encoding is required after baking the original GL rotation.
+                        check(delta<=1.00001/127D,label+" transformed original packed normal axis="+axis+": "+got+" != "+want[axis]);
+                    }
+                }else check(e.brightness==0x00A00070,label+" original dispatcher own-block packed brightness");
+            }
+        }
+    }
+    public static void main(String[] args)throws Exception {
+        File nativeResources=new File(args[0]),originalResources=new File(args[1]);JsonObject manifest;
+        try(Reader input=new FileReader(args[2])){manifest=new JsonParser().parse(input).getAsJsonObject();}
+        for(JsonElement entry:manifest.getAsJsonArray("assets")){
+            String asset=entry.getAsString();if(asset.startsWith("textures/blocks/"))sprite("hbm:blocks/"+asset.substring("textures/blocks/".length(),asset.length()-4));
+        }
+        OracleRailOriginal.load(originalResources);
+        check(manifest.getAsJsonArray("owners").size()==12,"all RenderRail consumers including MachineFunnel");
+        for(JsonElement entry:manifest.getAsJsonArray("owners")){
+            JsonObject owner=entry.getAsJsonObject();String name=owner.get("owner").getAsString(),asset=owner.get("asset").getAsString();
+            ObjMesh mesh;try(Reader in=new FileReader(new File(nativeResources,"assets/hbm/"+asset))){mesh=ObjMeshParser.parse(in,asset,false);}
+            TextureAtlasSprite[] textures;
+            if(name.equals("MachineFunnel"))textures=new TextureAtlasSprite[]{sprite("hbm:blocks/machine_funnel_top"),sprite("hbm:blocks/machine_funnel_bottom"),sprite("hbm:blocks/machine_funnel_side")};
+            else if(owner.has("sign"))textures=new TextureAtlasSprite[]{sprite(owner.get("texture").getAsString()),sprite(owner.get("sign").getAsString())};
+            else textures=new TextureAtlasSprite[]{sprite(owner.get("texture").getAsString())};
+            long before=vertices;
+            for(int metadata=0;metadata<16;metadata++)for(boolean item:new boolean[]{false,true})for(int tileKind:new int[]{-1,0,1,2}){
+                int sign=tileKind<0||tileKind==2?0:tileKind+1;
+                OracleRailOriginal.Result result=OracleRailOriginal.render(name,metadata,item,tileKind,sprites);
+                List<BakedQuad> actual=RenderRail.bake(mesh,kinds.get(name),metadata,item,sign,textures);
+                compare(actual,result,item,name+" metadata="+metadata+" inventory="+item+" tile="+tileKind);states++;
+            }
+            System.out.println("PASS original-renderer geometry "+name+": 128 states, "+(vertices-before)+" vertices");
+        }
+        System.out.println("PASS rail original-renderer/native-bake proof: "+states+" states; "+vertices+" vertices; "+checks+" checks; max item XYZ delta="+maxItemPositionError+"; max item normal delta="+maxItemNormalError);
+        System.out.println("SCOPE: world and item XYZ/UV/color are bit-exact. Item normals differ by at most one signed-byte step after the required native re-encoding. This CPU geometry proof is NOT a GPU raster, native lighting pipeline, or CP37 visual approval.");
+    }
+}

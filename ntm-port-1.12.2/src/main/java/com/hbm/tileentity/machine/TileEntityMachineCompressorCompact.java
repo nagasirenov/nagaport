@@ -11,10 +11,10 @@ public class TileEntityMachineCompressorCompact extends TileEntityMachineCompres
 	public float prevFanSpin;
 
 	@Override
-	public void updateEntity() {
-		super.updateEntity();
+	public void update() {
+		super.update();
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 
 			this.prevFanSpin = this.fanSpin;
 
@@ -36,12 +36,12 @@ public class TileEntityMachineCompressorCompact extends TileEntityMachineCompres
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		
 		return new DirPos[] {
-				new DirPos(xCoord + rot.offsetX * 4, yCoord + 1, zCoord + rot.offsetZ * 4, rot),
-				new DirPos(xCoord - rot.offsetX * 4, yCoord + 1, zCoord - rot.offsetZ * 4, rot.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX, yCoord + 1, zCoord + dir.offsetZ * 2 - rot.offsetZ, dir),
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX, yCoord + 1, zCoord + dir.offsetZ * 2 + rot.offsetZ, dir),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX, yCoord + 1, zCoord - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX, yCoord + 1, zCoord - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
+				new DirPos(this.pos.getX() + rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 4, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() - rot.offsetZ * 4, rot.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
 		};
 	}
 	
@@ -52,12 +52,12 @@ public class TileEntityMachineCompressorCompact extends TileEntityMachineCompres
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 3,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 3,
+					this.pos.getZ() + 4
 					);
 		}
 		

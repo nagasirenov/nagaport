@@ -1,0 +1,14 @@
+{
+  "baseline": "2fa015374be0e330d2541e5bfe9d4b96e380aa05",
+  "count": 917,
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/Silo.java": {
+      "before": "793fee2188ffb8c43b97554565de717c4fd23ae50632262cf9ddf9b28813aa68",
+      "after": "c6fc5cecbdd361a950cb0dff251bd3ded0c0dbcb4e6ae257a9aa705f70610323"
+    },
+    "src/main/java/com/hbm/world/generator/DungeonToolbox.java": {
+      "before": "532eaa48bd0410beaad4fb674cf3308db4e00b104c9f8ceab24e09dc2c376d90",
+      "after": "156ff2df89addf2f53376f4cc470793eb6d6e3807a2c57c105184549f59f3768"
+    }
+  }
+}

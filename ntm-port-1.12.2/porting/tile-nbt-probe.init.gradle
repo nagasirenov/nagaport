@@ -1,0 +1,30 @@
+// Diagnostic method fixtures only. Production sourceSets/compileJava are unchanged.
+allprojects {
+    afterEvaluate {
+        def javaHome = new File(System.getProperty('java.home'))
+        if (javaHome.name == 'jre') javaHome = javaHome.parentFile
+        def generated = project.file("${project.buildDir}/portTileNbtProbeSources/ExtractedTileWriters.java")
+        def generate = tasks.create('generatePortTileNbtProbe', Exec) {
+            doFirst { generated.parentFile.mkdirs() }
+            commandLine 'python3', project.file('porting/tests/generate-tile-nbt-probe.py').absolutePath, generated.absolutePath
+        }
+        def probe = tasks.create('compilePortTileNbtProbe', org.gradle.api.tasks.compile.JavaCompile) {
+            dependsOn generate, project.tasks.getByName('compileJava').classpath
+            source generated
+            source project.file('porting/tests/TileNbtMinecraftTest.java')
+            classpath = project.tasks.getByName('compileJava').classpath
+            destinationDir = project.file("${project.buildDir}/portTileNbtProbe")
+            sourceCompatibility = '1.8'
+            targetCompatibility = '1.8'
+            options.encoding = 'UTF-8'
+            options.fork = true
+            options.forkOptions.javaHome = javaHome
+        }
+        tasks.create('testPortTileNbt', JavaExec) {
+            dependsOn probe
+            classpath = files(probe.destinationDir) + probe.classpath
+            executable = new File(javaHome, 'bin/java').absolutePath
+            main = 'TileNbtMinecraftTest'
+        }
+    }
+}

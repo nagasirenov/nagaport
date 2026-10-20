@@ -1,0 +1,55 @@
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-local-spawn/OriginalXPSpawnTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static Field f(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+                ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-local-spawn/OriginalXPSpawnTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=f(sun.misc.Unsafe.class,"theUnsafe");U=(sun.misc.Unsafe)uf.get(null);
+                     ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-local-spawn/OriginalXPSpawnTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=f(sun.misc.Unsafe.class,"theUnsafe");U=(sun.misc.Unsafe)uf.get(null);
+                                                           ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/SpawnNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/SpawnNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                        ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/SpawnNativeTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                                                                     ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/OriginalSpawnTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe U;static int checks;static Field f(Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f;}static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+                ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/OriginalSpawnTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=f(sun.misc.Unsafe.class,"theUnsafe");U=(sun.misc.Unsafe)uf.get(null);
+                     ^
+/workspace/shared/nagaport-spawn/ntm-port-1.12.2/porting/tests/native-entity-spawn/OriginalSpawnTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=f(sun.misc.Unsafe.class,"theUnsafe");U=(sun.misc.Unsafe)uf.get(null);
+                                                           ^
+9 warnings
+[01:53:40] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:53:40] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:53:40] [main/INFO]: Replaced 1036 ore ingredients
+[01:53:40] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:53:40] [main/INFO]: Processing ObjectHolder annotations
+[01:53:40] [main/INFO]: Found 1167 ObjectHolder annotations
+[01:53:40] [main/WARN]: Keeping entity minecraft:item that already exists with UUID 6d238c3b-77f0-48ff-95f7-16134a3064b1
+[01:53:40] [main/WARN]: Tried to add entity minecraft:item but it was marked as removed already
+[01:53:40] [main/WARN]: Tried to add entity minecraft:item but it was marked as removed already
+PASS 127 native spawn checks: genuine server/client/chunk/callback/event paths; external constructor mutation explicitly excluded
+[01:53:42] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:53:42] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:53:42] [main/INFO]: Replaced 1036 ore ingredients
+[01:53:42] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[01:53:42] [main/INFO]: Processing ObjectHolder annotations
+[01:53:42] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 57 actual extracted local machine/motion/debris/XP producer checks; native registration/events exercised, not full consumer lifecycle
+PASS 49 genuine original vanilla spawn checks; Forge1614 event/snapshot additions independently audited, not claimed executed here
+PASS 49 genuine original vanilla XP spawn checks; Forge1614 event/snapshot additions independently audited, not claimed executed here
+Attribution diagnostics, not full compile: 15
+Attribution diagnostics, not full compile: 0
+Attribution diagnostics, not full compile: 20614
+Attribution diagnostics, not full compile: 20638
+Attribution diagnostics, not full compilation: 54
+PASS exact inverse: 24 extra call tokens -> immutable 43-site baseline -> exact CP57 bytes, no prior spawn changes lost
+PASS four typed fresh-local positives including complete nested receiver; 11 dead/UUID/alias/reassignment/escape/callback/reuse/loop/lambda/dead-field candidate invocations rejected
+PASS all 23 destination local calls resolve to native World and identical COMPLETE receiver source ranges; native XP constructor/call attributed; preexisting destination candidates retained

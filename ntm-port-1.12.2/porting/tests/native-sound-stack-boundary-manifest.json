@@ -1,0 +1,2069 @@
+{
+  "baseline": "d860257bb1f4bc6043d5cb80bd752ede1ebc53bd",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockVolcanoV2.java": {
+      "before_sha256": "4175466527e0b8462a9f205c31b10b6c24fdb7d6b2c278ad1d542fdc2d773e18",
+      "after_sha256": "1502b3d4b818bfba3497e83a933bb85dac19cf240b49ad63775aa9f34edb1cf4",
+      "edits": [
+        {
+          "before_offset": 2671,
+          "after_offset": 2671,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(x, y, z, \"ambient.weather.thunder\", 200, 0.8F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, x, y, z, \"ambient.weather.thunder\", 200, 0.8F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "f7e598f6b3faa9bc79fed5d1c89e30d30d05f749aa6f557cc369883dc4f39200",
+      "after_sha256": "da508dbe424841d127e24f851955cb69bd36fc0fb8b79f84431f5d65199c016e",
+      "edits": [
+        {
+          "before_offset": 4608,
+          "after_offset": 4608,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "0630c985e7daebb909cc6d2426c9b486238d690e8091049ff3e3e42f49821e16",
+      "after_sha256": "472ab5193d60031c6bdec85e5d11a2624b6154bc6a677e5fa563ca630b25bba7",
+      "edits": [
+        {
+          "before_offset": 5292,
+          "after_offset": 5292,
+          "old": "\t\t\tworldObj.playSoundEffect(xCoord, yCoord, zCoord, \"random.explode\", 100000.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(worldObj, xCoord, yCoord, zCoord, \"random.explode\", 100000.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "280095d40f0dfe926438c268ff55b96fce4db7a09b1c84f18882d0ef3c8afaa7",
+      "after_sha256": "e26971cf36711844978a927892eb56d47b509f5a67a5d219af0a2c295a31a862",
+      "edits": [
+        {
+          "before_offset": 4723,
+          "after_offset": 4723,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "de08ff5ab6db52889078f1ecaf48981039febf580140c74bed1d5f8eaf951161",
+      "after_sha256": "ddc15abbf9782c163761559bfea1aa6ce849c9209d363c42dec4bfd26a23f86b",
+      "edits": [
+        {
+          "before_offset": 4643,
+          "after_offset": 4643,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "aa30a17f0059319550536d7554948d4cf3a9185abd9e94c5dc3302f23d2dcd2c",
+      "after_sha256": "1192097f35a04069d3cd9cfb15b98afcd1406c240a4205dbcaf6646cce249111",
+      "edits": [
+        {
+          "before_offset": 4547,
+          "after_offset": 4547,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "53766d45fc2c84ba71f89a8f9ae82347c90f72709d08cebf57881e73dea649dc",
+      "after_sha256": "602f374411f543a195f2e4c0d99059675e6bb366a8298e65e4281edebaf55d18",
+      "edits": [
+        {
+          "before_offset": 4919,
+          "after_offset": 4919,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "dc3439cff1c4ee8823126dc20a0fe24b83f15080998ea692af5c0cf9b72f440a",
+      "after_sha256": "c5c39c71ddd6c03e2bc36e34de359d7cf87b0786dcfa027551ecc967c43eb11e",
+      "edits": [
+        {
+          "before_offset": 4482,
+          "after_offset": 4482,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "f1fbc4ddc6cfafe21e762643336bd0fdc651b870dbd3aa0bb945ce11876d5456",
+      "after_sha256": "1555dde633e006b297c3d7d90121cdbb3b9c52f445fb43fb1d319b214871654e",
+      "edits": [
+        {
+          "before_offset": 5340,
+          "after_offset": 5340,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "d02085086678e66b565daf245ae55fcb8581b6f0a054edde4f5450a05507a999",
+      "after_sha256": "a2ac3a7c18a0c658e813e18aabeba4db002238f9649e02b1bd5bd29cdd16be79",
+      "edits": [
+        {
+          "before_offset": 4694,
+          "after_offset": 4694,
+          "old": "\t\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "0aa3c1f210fc6cdcf5ee3a7fc5b3afc9c6d12e40ad03d07d1e0aa8773cacca81",
+      "after_sha256": "e5ea74a014f4d5b5b6656f57ebfaa65a7fbe80ab74b3a77372159154cd61e512",
+      "edits": [
+        {
+          "before_offset": 4857,
+          "after_offset": 4857,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": {
+      "before_sha256": "8f8b93e6b04e86c901959ac69e5e812dfc180fbd55a9a29eb0d4f57e9d33dab6",
+      "after_sha256": "0f521e43c816518cec3a98fc0fd233fe2d77ab544e74ef1dbde3943301f142c2",
+      "edits": [
+        {
+          "before_offset": 5435,
+          "after_offset": 5435,
+          "old": "\t\t\tworld.playSoundEffect((double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), \"random.fizz\", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), \"random.fizz\", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": {
+      "before_sha256": "ee2241e5e4c7f7ff5bb2f13ee526ae853021191124963b21b830f2bbcfa9934f",
+      "after_sha256": "f12e6d5b955896f479aa87652fbf276396d56b9253b83ebc99f6983524893877",
+      "edits": [
+        {
+          "before_offset": 5365,
+          "after_offset": 5365,
+          "old": "\t\tworld.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, \"random.click\", 0.3F, 0.6F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, \"random.click\", 0.3F, 0.6F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before_sha256": "7d8ddeae873533572ceb8bcd899c36eaca9558da7ca8ed06c8205b812bd77dea",
+      "after_sha256": "d8a065bd4a315ff5a65684be555b8767edff9ada7386a5551e57b577e286972c",
+      "edits": [
+        {
+          "before_offset": 7470,
+          "after_offset": 7470,
+          "old": "\t\t\t\t\tworld.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"random.click\", 0.5F, 0.5F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, \"random.click\", 0.5F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java": {
+      "before_sha256": "6e27f9a4c15a0692eac5e2f5db76a2fc0ef0f8c30b855067906d9aa42aa93832",
+      "after_sha256": "19e5ff54b982d05a39e91e794ab6c566ec5f3ea3c59e3b7c0fb611d19bd78e99",
+      "edits": [
+        {
+          "before_offset": 3016,
+          "after_offset": 3016,
+          "old": "\t\t\t\tworld.playSoundEffect(x + 0.5F, y + 0.5, z + 0.5, \"fire.fire\", 1.0F + world.rand.nextFloat(), world.rand.nextFloat() * 0.7F + 0.3F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5F, y + 0.5, z + 0.5, \"fire.fire\", 1.0F + world.rand.nextFloat(), world.rand.nextFloat() * 0.7F + 0.3F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteRod.java": {
+      "before_sha256": "15e731d755bad5caa06d359a7b72b4ad86d437335e7bbb1a9246bdcfe37be445",
+      "after_sha256": "2c0924fb749f8c792762ff2904914feabc29eb359bf4236f3e3e41bbf98e6d65",
+      "edits": [
+        {
+          "before_offset": 2047,
+          "after_offset": 2047,
+          "old": "\t\t\tworld.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, \"random.click\", 0.3F, pureMeta == (oldMeta & 11) ? 0.75F : 0.65F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, \"random.click\", 0.3F, pureMeta == (oldMeta & 11) ? 0.75F : 0.65F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/test/TestEventTester.java": {
+      "before_sha256": "0ad1c646fe38a04f2eea2a6a5c30feca7b664ad734267bf67b08ca0c1fa25fb9",
+      "after_sha256": "46d3d0a3213bd6e05903e25cd48f3ac598a9edba90463640d784213f6bb17eb1",
+      "edits": [
+        {
+          "before_offset": 16717,
+          "after_offset": 16717,
+          "old": "\t\t\tworld.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, \"random.break\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, \"random.break\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java": {
+      "before_sha256": "6f75e5a6dd79dcd28adacafc331d95f84febf79a61d2d755fc00d7cb2f9cd490",
+      "after_sha256": "542b8bd42ff304f97232a247bfd1ed7615e91e4add4fc64def90768bfbe1f47a",
+      "edits": [
+        {
+          "before_offset": 3201,
+          "after_offset": 3201,
+          "old": "\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"mob.zombie.woodbreak\", 0.5F, 0.5F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, \"mob.zombie.woodbreak\", 0.5F, 0.5F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before_sha256": "a35ef00c111172882e3c7389574e7d49b0d933cd386c84b07600c3be247abbe5",
+      "after_sha256": "ab4289cf1ccc4309338d9272ac19c32e0430d8ee79e8d88e84b557cc1cb09d23",
+      "edits": [
+        {
+          "before_offset": 11846,
+          "after_offset": 11846,
+          "old": "\t\t\te.world.playSoundEffect(targetX, targetY, targetZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeASchrab.java": {
+      "before_sha256": "b21c7b0287baa9b17bf8094b49ea484724ba6eadbe41cad44e0915ca89a14583",
+      "after_sha256": "52fe1b2e4ab6a966677b785d19f2b7965d20b8c70663b8bf6f09b9e6ab5ea10b",
+      "edits": [
+        {
+          "before_offset": 880,
+          "after_offset": 880,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"random.explode\", 100.0F, this.world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"random.explode\", 100.0F, this.world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeFire.java": {
+      "before_sha256": "345ad7a271096018eb6aaa796f6ce9d807c9f15c0592e18152ac0f0b3100326a",
+      "after_sha256": "a311cb056a37a5231ac1427bfcbbddc867f955e3517eff4e052bf5c012a5a955",
+      "edits": [
+        {
+          "before_offset": 1189,
+          "after_offset": 1189,
+          "old": "            this.world.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "new": "            com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeFrag.java": {
+      "before_sha256": "e43d87700974bf6bcd8b7d843c3614c8860badb75c843c641e30181ea89e7ec7",
+      "after_sha256": "e88e68728c58430455f162d2b81ae1f84673bb456a039af4a7f1002be3e56edc",
+      "edits": [
+        {
+          "before_offset": 1234,
+          "after_offset": 1234,
+          "old": "        \t\tthis.world.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "new": "        \t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n"
+        },
+        {
+          "before_offset": 1589,
+          "after_offset": 1618,
+          "old": "        \t\tthis.world.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "new": "        \t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadePulse.java": {
+      "before_sha256": "dd6c03cb80e480026cadfb95806f6ed7a0b27f426e1861e308693bcac658e6da",
+      "after_sha256": "9803ff6d402eaef451af9fa388e00858cdcfc067e7f81ffb27f1991dbbe5998c",
+      "edits": [
+        {
+          "before_offset": 904,
+          "after_offset": 904,
+          "old": "    \t\tthis.world.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "new": "    \t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, \"random.explode\", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeZOMG.java": {
+      "before_sha256": "540b28346aa7ccfbc9c1c25f7b0c2fa49f331df1272f6c35bb32e8230787358e",
+      "after_sha256": "aef95b7624879f354a5457431ea08bc34b1ebdebc5cd8fbf394bc864ebf9c053",
+      "edits": [
+        {
+          "before_offset": 1113,
+          "after_offset": 1113,
+          "old": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"random.explode\", 100000.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"random.explode\", 100000.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityFireworks.java": {
+      "before_sha256": "6a44f416b13010c8ace5a04262d6b882b381b2614b245e2b5c68559b8077280e",
+      "after_sha256": "1c02ae9c42bba50c5fbb1e3d366f8e28da22fd2da73bd9d965da711fc1d9a0da",
+      "edits": [
+        {
+          "before_offset": 1017,
+          "after_offset": 1017,
+          "old": "\t\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"fireworks.blast\", 20, 1F + this.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, \"fireworks.blast\", 20, 1F + this.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityBalefire.java": {
+      "before_sha256": "28b5456ac40fe079ae91328c953901759c3a0066f4aefb1e75e3865a4394ad4c",
+      "after_sha256": "a1d20d9c2d7de254e29b222f4fb57be7d3d2e95682d9aaf013469fed0f53bb00",
+      "edits": [
+        {
+          "before_offset": 2630,
+          "after_offset": 2630,
+          "old": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"random.explode\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"random.explode\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n"
+        },
+        {
+          "before_offset": 2774,
+          "after_offset": 2803,
+          "old": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"ambient.weather.thunder\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"ambient.weather.thunder\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityBomber.java": {
+      "before_sha256": "035d8c851ff2438511d544ef8b5bb5855349689bfd8b6e286def32859683ccde",
+      "after_sha256": "4a8750b55db3568bd394cbbbf613f85f2d4d5bf92a0b34afceeeb224f6085fa8",
+      "edits": [
+        {
+          "before_offset": 2111,
+          "after_offset": 2111,
+          "old": "\t\t\t\tthis.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n"
+        },
+        {
+          "before_offset": 2906,
+          "after_offset": 2935,
+          "old": "\t\t\t\tthis.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityNukeExplosionMK3.java": {
+      "before_sha256": "d51ba0df958186caa0ae3572cba24c0da7d5b069a3b9a7219e5e3c55b6d87a42",
+      "after_sha256": "03d5f4055e22172c5c81922cb62c1e7314ea01680752b5640725b9db5a8cd905",
+      "edits": [
+        {
+          "before_offset": 6070,
+          "after_offset": 6070,
+          "old": "        \tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"ambient.weather.thunder\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n",
+          "new": "        \tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"ambient.weather.thunder\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityTomBlast.java": {
+      "before_sha256": "369d8a8eec234a101f984f5b642914640df0bdd3e8e2496577db52bc9b96e3cd",
+      "after_sha256": "a5163e9b9957db9b9176cc82456a9cf814a4a2af8eac306be2792a47239c4385",
+      "edits": [
+        {
+          "before_offset": 2400,
+          "after_offset": 2400,
+          "old": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"random.explode\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"random.explode\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n"
+        },
+        {
+          "before_offset": 2544,
+          "after_offset": 2573,
+          "old": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"ambient.weather.thunder\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"ambient.weather.thunder\", 10000.0F, 0.8F + this.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "defc4b36b2cc0e3610035cee713a11b4353fcfc2b0cbf6df102d1b342f02ede6",
+      "after_sha256": "cfa7ba97d39a75e9edd67eb729f09f2238a704ab2ed33cb96af07679ac876888",
+      "edits": [
+        {
+          "before_offset": 12281,
+          "after_offset": 12281,
+          "old": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBombletZeta.java": {
+      "before_sha256": "9b6488307945b595f71a26819f40f0770993e9501621b4db26f40b9055744b6c",
+      "after_sha256": "41229fb0950b5b467ddb9d3e711c2b7650594076d5b8f511cfa51f5508e756d8",
+      "edits": [
+        {
+          "before_offset": 2871,
+          "after_offset": 2871,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect((double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, (double) (posX + 0.5F), (double) (posY + 0.5F), (double) (posZ + 0.5F), \"random.fizz\", 5.0F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "83ffdd4e903746858e2ec9bb6b2374c9acea727b35aeb0936634be189696482f",
+      "after_sha256": "4e90c3d304a577694bae800ef73eb66a0e8f0b1dfbbc7958c087330bc36b41b6",
+      "edits": [
+        {
+          "before_offset": 13688,
+          "after_offset": 13688,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(victim.posX, victim.posY, victim.posZ, \"mob.zombie.woodbreak\", 1.0F, 0.95F + rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, victim.posX, victim.posY, victim.posZ, \"mob.zombie.woodbreak\", 1.0F, 0.95F + rand.nextFloat() * 0.2F);\n"
+        },
+        {
+          "before_offset": 17620,
+          "after_offset": 17649,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"random.explode\", 100.0f, this.world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"random.explode\", 100.0f, this.world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "c7cb849b3378f472d0398140ebe66f8024741c5d39f7690b27c20630987fbedb",
+      "after_sha256": "ba22aa412d230e884fff65c3cbb5aa24d078be1108255d4b1c16ca567535987d",
+      "edits": [
+        {
+          "before_offset": 13048,
+          "after_offset": 13048,
+          "old": "\t\t\te.world.playSoundEffect(targetX, targetY, targetZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityCog.java": {
+      "before_sha256": "bd71906378959d21b98754ed41a363c3b320ff6604d6d66987f9eb495f5ca2c4",
+      "after_sha256": "e3f3e06e3d3c411ccd63b4ddfa58b364642f9c0515401db1ce05787decd4eb2d",
+      "edits": [
+        {
+          "before_offset": 2982,
+          "after_offset": 2982,
+          "old": "\t\t\t\tthis.world.playSoundEffect(e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "ec52f718d4e509e8eb7bcba163e2e05bab899e3eb19fd64bfd0d7f9872298955",
+      "after_sha256": "2e20450b36307da7f064c2bfbdc89a1c8540a60a0d0244f6cd2553ee14b13172",
+      "edits": [
+        {
+          "before_offset": 18399,
+          "after_offset": 18399,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"random.explode\", 100.0f, this.world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, \"random.explode\", 100.0f, this.world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySawblade.java": {
+      "before_sha256": "4b6550fccaac532206a0d71adc56981a6b396a949fe8c57c3bad49044a51107e",
+      "after_sha256": "ed232013c4074cd845ab38085758236dae9196821934bd904baa096d1054aa1e",
+      "edits": [
+        {
+          "before_offset": 2897,
+          "after_offset": 2897,
+          "old": "\t\t\t\tthis.world.playSoundEffect(e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java": {
+      "before_sha256": "e71ecb8d8c8cfb3d7b1480a74c548db2f5974924b4ec4893365feead8f327595",
+      "after_sha256": "64218ed3a7ced2d20d0c1016b758fe2702ff59069a467813d74ec4f8d7eb7946",
+      "edits": [
+        {
+          "before_offset": 3493,
+          "after_offset": 3493,
+          "old": "\t\t\tthis.world.playSoundEffect(posX, posY, posZ, \"random.fizz\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, \"random.fizz\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectAmat.java": {
+      "before_sha256": "4ad89cbd2de88df856961cfae252883abbd97af23ddd528d7b1c71afa8c54fa4",
+      "after_sha256": "b0f8ea374a88d65c37aec033418a2d79d7aa9201e3a84ce2a6516f214e57a049",
+      "edits": [
+        {
+          "before_offset": 602,
+          "after_offset": 602,
+          "old": "\t\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 4.0F, (1.4F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 4.0F, (1.4F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java": {
+      "before_sha256": "1681a34515c3e112268b107deae8dbbc1d46356dae4a3de9eb71d8913551cc9b",
+      "after_sha256": "8470c01779fb375672993f4bd6c121a8b466d51cdeaff8eb8c0b34350b44dc16",
+      "edits": [
+        {
+          "before_offset": 787,
+          "after_offset": 787,
+          "old": "\t\tworld.playSoundEffect(x, y, z, \"random.explode\", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);\r\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, \"random.explode\", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "355019e5c69782380f2f4d4e78bfed8c6cb6c7ff9573d518e1f166246453179a",
+      "after_sha256": "88b1848fd074556a93459a06839b1643070a4a186246749e9b2cfc251e737d1a",
+      "edits": [
+        {
+          "before_offset": 28565,
+          "after_offset": 28565,
+          "old": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 15 == 0) living.world.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n"
+        },
+        {
+          "before_offset": 29158,
+          "after_offset": 29187,
+          "old": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 15 == 0) living.world.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n"
+        },
+        {
+          "before_offset": 29747,
+          "after_offset": 29805,
+          "old": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 15 == 0) living.world.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n"
+        },
+        {
+          "before_offset": 30438,
+          "after_offset": 30525,
+          "old": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 10 == 0) living.world.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tif((living.ticksExisted + living.getEntityId()) % 10 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, \"random.fizz\", 1F, 1.5F + rand.nextFloat() * 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java": {
+      "before_sha256": "a8ebf61e0fe70c2ff5e6460b282ef7544428a1731215fd5191b90e6e0816158b",
+      "after_sha256": "913f81d39961a9aa3752a8536ceb2a2d779520085e64197377eb64c8ab86e3c6",
+      "edits": [
+        {
+          "before_offset": 11388,
+          "after_offset": 11388,
+          "old": "\t\tworld.playSoundEffect(depress.posX, depress.posY, depress.posZ, \"random.explode\", 1.0F, 1.6F);\n\t\tworld.playSoundEffect(depress.posX, depress.posY, depress.posZ, \"random.fizz\", 1.0F, 0.25F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, depress.posX, depress.posY, depress.posZ, \"random.explode\", 1.0F, 1.6F);\n\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, depress.posX, depress.posY, depress.posZ, \"random.fizz\", 1.0F, 0.25F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java": {
+      "before_sha256": "2ba9781c35a8037bb8021c6ac6a6560f1ad6c435928ab812b2cfe54c0e893bed",
+      "after_sha256": "813c81f031f3e3e5d59260339552a783ee026b1b4e7fc22fa9c2ef70934458bb",
+      "edits": [
+        {
+          "before_offset": 9612,
+          "after_offset": 9612,
+          "old": "\t\t\tbulletnt.world.playSoundEffect(bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"fireworks.blast\", 5.0F, 0.5F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(bulletnt.world, bulletnt.posX, bulletnt.posY, bulletnt.posZ, \"fireworks.blast\", 5.0F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIArmorTable.java": {
+      "before_sha256": "7f3bd48d3e30314f0a902aae6495fa91d8727c04e111127f94a4ed92764763c9",
+      "after_sha256": "3de7b371d378e68dd737b405f92371a5baa08368cb7ea764a996bab379819505",
+      "edits": [
+        {
+          "before_offset": 1679,
+          "after_offset": 1679,
+          "old": "\t\t\t\t\tthis.drawCreativeTabHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y);\n",
+          "new": "\t\t\t\t\tthis.drawHoveringText((i < ArmorModHandler.MOD_SLOTS ? TextFormatting.LIGHT_PURPLE : TextFormatting.YELLOW) + I18nUtil.resolveKey(unloc[i]), x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICombustionEngine.java": {
+      "before_sha256": "de0cae20a1db4dd48d0287a232a0f94c79dd702efa7a31fbce63274af7948660",
+      "after_sha256": "5b852c108da37d11dadc9a815247daab188a218878cf2b8a7e3d41bb906c6bd5",
+      "edits": [
+        {
+          "before_offset": 1878,
+          "after_offset": 1878,
+          "old": "\t\t\tdrawCreativeTabHoveringText(((setting * 2) / 10D) + \"mB/t\", MathHelper.clamp(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp(y, guiTop + 38, guiTop + 46));\n",
+          "new": "\t\t\tdrawHoveringText(((setting * 2) / 10D) + \"mB/t\", MathHelper.clamp(x, guiLeft + 80, guiLeft + 114), MathHelper.clamp(y, guiTop + 38, guiTop + 46));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIFusionTorus.java": {
+      "before_sha256": "331a2515b60113cf1d0770f9dfe49a59f16554bf594a5983168c48b8d9d00e3a",
+      "after_sha256": "239f0886ff7c1ba1646a9f3835f1810e55e9bfae3083c75b3c248e10f40ac225",
+      "edits": [
+        {
+          "before_offset": 3417,
+          "after_offset": 3417,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java": {
+      "before_sha256": "76623d39da26bbbec25c4061388515c0797a5c39ab532ceecd2d5ac2ba4de1d4",
+      "after_sha256": "5caf74ec7a169f8213ccb2f8f763f7dc96221f66e1c92552a81609f6ec1e38a8",
+      "edits": [
+        {
+          "before_offset": 2520,
+          "after_offset": 2520,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java": {
+      "before_sha256": "46ddc41f482d12ed64912a6f8d0e80f2c6d2784ec26f000268ad53f3bb14344b",
+      "after_sha256": "b25f4cf3fc98372f4fcb139bc7307bea7dcf39bb7dbfeb945b832a05e0ab5328",
+      "edits": [
+        {
+          "before_offset": 2118,
+          "after_offset": 2118,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java": {
+      "before_sha256": "21b583835542ecaabf63231dfd495f44bdb184c5be9e6e278b41603b0867ab73",
+      "after_sha256": "239c20d4264c3ddfd70c0956507d04b55e3fb32ef38ebdde7a6d9410c83c33a3",
+      "edits": [
+        {
+          "before_offset": 2486,
+          "after_offset": 2486,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java": {
+      "before_sha256": "3207b1a8dcf7ecf7396a32662f9814cef7c478ca0cfef943c45992147474c646",
+      "after_sha256": "12d410e32396c5c278847d12b34d055d04e3eda0467d807efdbce6ce78648e34",
+      "edits": [
+        {
+          "before_offset": 2117,
+          "after_offset": 2117,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java": {
+      "before_sha256": "50e2c18011cdc6212e04380f65c2cfd5cbb7383ec1a7a78367f161e655f79fe3",
+      "after_sha256": "cf384bc601f271f81a0366a20c249a48ea6cb59fb556a101aad3a23b9c461ecc",
+      "edits": [
+        {
+          "before_offset": 2020,
+          "after_offset": 2020,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java": {
+      "before_sha256": "5ff31cf3ecf5bf7ccc77fe4395094c30a02dbe11116ee344058100e3389dce22",
+      "after_sha256": "44eeb33ca1e36398e83d24e8618b3876e7c4aac75082af539c0ee47cbbfcdbc5",
+      "edits": [
+        {
+          "before_offset": 2036,
+          "after_offset": 2036,
+          "old": "\t\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n",
+          "new": "\t\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + I18nUtil.resolveKey(\"gui.recipe.setRecipe\"), mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenClayTablet.java": {
+      "before_sha256": "912759dc95bf4055151c392f1dc3cfa246c85aa299a3f838d452beda884f2f54",
+      "after_sha256": "552c5e755270f0686c2394cccfd3b51a983eaf62e1711e656ca622a638804af6",
+      "edits": [
+        {
+          "before_offset": 2307,
+          "after_offset": 2307,
+          "old": "\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).hasTagCompound() && com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackTagCompound.hasKey(\"tabletSeed\") && !recipeSet.isEmpty()) {\n\t\t\tRandom rand = new Random(com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackTagCompound.getLong(\"tabletSeed\"));\n",
+          "new": "\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).hasTagCompound() && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getTagCompound().hasKey(\"tabletSeed\") && !recipeSet.isEmpty()) {\n\t\t\tRandom rand = new Random(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getTagCompound().getLong(\"tabletSeed\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRecipeSelector.java": {
+      "before_sha256": "e2393906a195b29c3078999217b88fca43031ffd91eabf479d6c1f753def1570",
+      "after_sha256": "9e6b2cabf248244237bcbf8acecffdbe8e08e8d04387b068ceeee9f71a5144b6",
+      "edits": [
+        {
+          "before_offset": 5256,
+          "after_offset": 5256,
+          "old": "\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n",
+          "new": "\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + \"Close\", mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 5466,
+          "after_offset": 5455,
+          "old": "\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n",
+          "new": "\t\t\tthis.drawHoveringText(TextFormatting.YELLOW + \"Clear search\", mouseX, mouseY);\n"
+        },
+        {
+          "before_offset": 5679,
+          "after_offset": 5657,
+          "old": "\t\t\tthis.drawCreativeTabHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n",
+          "new": "\t\t\tthis.drawHoveringText(TextFormatting.ITALIC + \"Press ENTER to toggle focus\", mouseX, mouseY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/recipes/anvil/AnvilSmithingCyanideRecipe.java": {
+      "before_sha256": "fdd905df03704b74833b4a395a3af446332bc6bfabe67211dd6b3cd92398d67d",
+      "after_sha256": "1029d66aa96cd899c301516e58d5bbe17e4ae091db61cd27657d713749cb5e68",
+      "edits": [
+        {
+          "before_offset": 540,
+          "after_offset": 540,
+          "old": "\t\t\tthis.output.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tthis.output.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 599,
+          "after_offset": 596,
+          "old": "\t\tthis.output.stackTagCompound.setBoolean(\"ntmCyanide\", true);\n",
+          "new": "\t\tthis.output.getTagCompound().setBoolean(\"ntmCyanide\", true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java": {
+      "before_sha256": "1daf26c82f832f921c2ae3b52204a4bc53ab58aaea78556469a31704e3231ce4",
+      "after_sha256": "9ccd9b2d04166eb678c2997ffc7e2e154da82aa2820eee8f1613d28e40f019cb",
+      "edits": [
+        {
+          "before_offset": 15585,
+          "after_offset": 15585,
+          "old": "\t\tif(stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackTagCompound.toString());\t\t\t\t\t\t\t\t\t\t\t\t\t\t//nbt\n",
+          "new": "\t\tif(stack.getKey().hasTagCompound()) writer.value(stack.getKey().getTagCompound().toString());\t\t\t\t\t\t\t\t\t\t\t\t\t\t//nbt\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ItemVOTVdrive.java": {
+      "before_sha256": "89714bb758d1103de8df9a40a6186ae38312436f00840cfe67a21421cfd07e9b",
+      "after_sha256": "ba9c222b3765ec08591854a01e57807a49641e8b9f1beb787aae48e3b78fb1ae",
+      "edits": [
+        {
+          "before_offset": 4848,
+          "after_offset": 4848,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 4941,
+          "after_offset": 4938,
+          "old": "\t\tint x = stack.stackTagCompound.getInteger(\"x\");\n\t\tint z = stack.stackTagCompound.getInteger(\"z\");\n",
+          "new": "\t\tint x = stack.getTagCompound().getInteger(\"x\");\n\t\tint z = stack.getTagCompound().getInteger(\"z\");\n"
+        },
+        {
+          "before_offset": 5246,
+          "after_offset": 5243,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 5424,
+          "after_offset": 5418,
+          "old": "\t\t\t\tCelestialBody body = CelestialBody.getBody(stack.stackTagCompound.getInteger(\"sDim\"));\n\t\t\t\tboolean hasStation = stack.stackTagCompound.getBoolean(\"sHas\");\n",
+          "new": "\t\t\t\tCelestialBody body = CelestialBody.getBody(stack.getTagCompound().getInteger(\"sDim\"));\n\t\t\t\tboolean hasStation = stack.getTagCompound().getBoolean(\"sHas\");\n"
+        },
+        {
+          "before_offset": 5907,
+          "after_offset": 5901,
+          "old": "\t\t\tstack.stackTagCompound.setString(\"stationName\", station.name);\n\t\t\tstack.stackTagCompound.setInteger(\"sDim\", station.orbiting.dimensionId);\n\t\t\tstack.stackTagCompound.setBoolean(\"sHas\", station.hasStation);\n",
+          "new": "\t\t\tstack.getTagCompound().setString(\"stationName\", station.name);\n\t\t\tstack.getTagCompound().setInteger(\"sDim\", station.orbiting.dimensionId);\n\t\t\tstack.getTagCompound().setBoolean(\"sHas\", station.hasStation);\n"
+        },
+        {
+          "before_offset": 6362,
+          "after_offset": 6356,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 6413,
+          "after_offset": 6404,
+          "old": "\t\tstack.stackTagCompound.setInteger(\"x\", x);\n\t\tstack.stackTagCompound.setInteger(\"z\", z);\n",
+          "new": "\t\tstack.getTagCompound().setInteger(\"x\", x);\n\t\tstack.getTagCompound().setInteger(\"z\", z);\n"
+        },
+        {
+          "before_offset": 6754,
+          "after_offset": 6745,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 6805,
+          "after_offset": 6793,
+          "old": "\t\treturn stack.stackTagCompound.getBoolean(\"Processed\");\n",
+          "new": "\t\treturn stack.getTagCompound().getBoolean(\"Processed\");\n"
+        },
+        {
+          "before_offset": 6967,
+          "after_offset": 6955,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 7018,
+          "after_offset": 7003,
+          "old": "\t\tstack.stackTagCompound.setBoolean(\"Processed\", processed);\n",
+          "new": "\t\tstack.getTagCompound().setBoolean(\"Processed\", processed);\n"
+        },
+        {
+          "before_offset": 7273,
+          "after_offset": 7258,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 7366,
+          "after_offset": 7348,
+          "old": "\t\tif(!stack.stackTagCompound.hasKey(\"ax\") || !stack.stackTagCompound.hasKey(\"az\")) {\n\t\t\tstack.stackTagCompound.setInteger(\"ax\", itemRand.nextInt(SpaceConfig.maxProbeDistance * 2) - SpaceConfig.maxProbeDistance);\n\t\t\tstack.stackTagCompound.setInteger(\"az\", itemRand.nextInt(SpaceConfig.maxProbeDistance * 2) - SpaceConfig.maxProbeDistance);\n",
+          "new": "\t\tif(!stack.getTagCompound().hasKey(\"ax\") || !stack.getTagCompound().hasKey(\"az\")) {\n\t\t\tstack.getTagCompound().setInteger(\"ax\", itemRand.nextInt(SpaceConfig.maxProbeDistance * 2) - SpaceConfig.maxProbeDistance);\n\t\t\tstack.getTagCompound().setInteger(\"az\", itemRand.nextInt(SpaceConfig.maxProbeDistance * 2) - SpaceConfig.maxProbeDistance);\n"
+        },
+        {
+          "before_offset": 7709,
+          "after_offset": 7691,
+          "old": "\t\tint ax = stack.stackTagCompound.getInteger(\"ax\");\n\t\tint az = stack.stackTagCompound.getInteger(\"az\");\n",
+          "new": "\t\tint ax = stack.getTagCompound().getInteger(\"ax\");\n\t\tint az = stack.getTagCompound().getInteger(\"az\");\n"
+        },
+        {
+          "before_offset": 7937,
+          "after_offset": 7919,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 7988,
+          "after_offset": 7967,
+          "old": "\t\tstack.stackTagCompound.setBoolean(\"copied\", true);\n",
+          "new": "\t\tstack.getTagCompound().setBoolean(\"copied\", true);\n"
+        },
+        {
+          "before_offset": 8141,
+          "after_offset": 8120,
+          "old": "\t\treturn stack.stackTagCompound.getBoolean(\"copied\");\n",
+          "new": "\t\treturn stack.getTagCompound().getBoolean(\"copied\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": {
+      "before_sha256": "6007278860afb999bf607d9ff790877d6abe330974eb37ef70c1c30559f2bc20",
+      "after_sha256": "53ffa382ce52112d8424e72b06a1148518dd732c4277152e3b6751a70cdae50e",
+      "edits": [
+        {
+          "before_offset": 5319,
+          "after_offset": 5319,
+          "old": "\t\t\tif(target.stackTagCompound == null) {\n\t\t\t\ttarget.stackTagCompound = new NBTTagCompound();\n\t\t\t\ttarget.stackTagCompound.setLong(\"stacklock\", rand.nextLong());\n",
+          "new": "\t\t\tif(target.getTagCompound() == null) {\n\t\t\t\ttarget.setTagCompound(new NBTTagCompound());\n\t\t\t\ttarget.getTagCompound().setLong(\"stacklock\", rand.nextLong());\n"
+        },
+        {
+          "before_offset": 5526,
+          "after_offset": 5523,
+          "old": "\t\t\t\tthis.slots[i] = ItemStack.loadItemStackFromNBT(target.stackTagCompound.getCompoundTag(\"slot\" + i));\n",
+          "new": "\t\t\t\tthis.slots[i] = ItemStack.loadItemStackFromNBT(target.getTagCompound().getCompoundTag(\"slot\" + i));\n"
+        },
+        {
+          "before_offset": 6982,
+          "after_offset": 6979,
+          "old": "\t\t\tNBTTagCompound nbt = target.stackTagCompound != null ? target.stackTagCompound : new NBTTagCompound();\n",
+          "new": "\t\t\tNBTTagCompound nbt = target.getTagCompound() != null ? target.getTagCompound() : new NBTTagCompound();\n"
+        },
+        {
+          "before_offset": 7909,
+          "after_offset": 7906,
+          "old": "\t\t\tif(target.stackTagCompound != null) {\n\t\t\t\ttarget.stackTagCompound.removeTag(\"stacklock\");\n",
+          "new": "\t\t\tif(target.getTagCompound() != null) {\n\t\t\t\ttarget.getTagCompound().removeTag(\"stacklock\");\n"
+        },
+        {
+          "before_offset": 8007,
+          "after_offset": 8004,
+          "old": "\t\t\t\tif(target.stackTagCompound.hasNoTags()) {\n",
+          "new": "\t\t\t\tif(target.getTagCompound().hasNoTags()) {\n"
+        },
+        {
+          "before_offset": 8177,
+          "after_offset": 8174,
+          "old": "\t\t\t\t\ttarget.stackTagCompound.setLong(\"stacklock\", rand.nextLong()); // add shit that prevents crates from stacking\n",
+          "new": "\t\t\t\t\ttarget.getTagCompound().setLong(\"stacklock\", rand.nextLong()); // add shit that prevents crates from stacking\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemBatteryPack.java": {
+      "before_sha256": "7868aaac664cfd9151f06904b8acf507436d9ce1448ca4d70c08eaffc335d15c",
+      "after_sha256": "6047340c38f27e5825267503406a1acf8797c0c01aeea6fa3f9077809ca529cb",
+      "edits": [
+        {
+          "before_offset": 2909,
+          "after_offset": 2909,
+          "old": "\t\t\tstack.stackTagCompound.setLong(\"charge\", stack.stackTagCompound.getLong(\"charge\") + i);\n",
+          "new": "\t\t\tstack.getTagCompound().setLong(\"charge\", stack.getTagCompound().getLong(\"charge\") + i);\n"
+        },
+        {
+          "before_offset": 3011,
+          "after_offset": 3011,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n\t\t\tstack.stackTagCompound.setLong(\"charge\", i);\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n\t\t\tstack.getTagCompound().setLong(\"charge\", i);\n"
+        },
+        {
+          "before_offset": 3209,
+          "after_offset": 3206,
+          "old": "\t\t\tstack.stackTagCompound.setLong(\"charge\", i);\n",
+          "new": "\t\t\tstack.getTagCompound().setLong(\"charge\", i);\n"
+        },
+        {
+          "before_offset": 3268,
+          "after_offset": 3265,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n\t\t\tstack.stackTagCompound.setLong(\"charge\", i);\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n\t\t\tstack.getTagCompound().setLong(\"charge\", i);\n"
+        },
+        {
+          "before_offset": 3473,
+          "after_offset": 3467,
+          "old": "\t\t\tstack.stackTagCompound.setLong(\"charge\", stack.stackTagCompound.getLong(\"charge\") - i);\n",
+          "new": "\t\t\tstack.getTagCompound().setLong(\"charge\", stack.getTagCompound().getLong(\"charge\") - i);\n"
+        },
+        {
+          "before_offset": 3575,
+          "after_offset": 3569,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n\t\t\tstack.stackTagCompound.setLong(\"charge\", 0);\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n\t\t\tstack.getTagCompound().setLong(\"charge\", 0);\n"
+        },
+        {
+          "before_offset": 3765,
+          "after_offset": 3756,
+          "old": "\t\t\treturn stack.stackTagCompound.getLong(\"charge\");\n",
+          "new": "\t\t\treturn stack.getTagCompound().getLong(\"charge\");\n"
+        },
+        {
+          "before_offset": 3828,
+          "after_offset": 3819,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n\t\t\tstack.stackTagCompound.setLong(\"charge\", 0);\n\t\t\treturn stack.stackTagCompound.getLong(\"charge\");\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n\t\t\tstack.getTagCompound().setLong(\"charge\", 0);\n\t\t\treturn stack.getTagCompound().getLong(\"charge\");\n"
+        },
+        {
+          "before_offset": 5854,
+          "after_offset": 5842,
+          "old": "\t\tstack.stackTagCompound = new NBTTagCompound();\n\t\tstack.stackTagCompound.setLong(\"charge\", 0);\n",
+          "new": "\t\tstack.setTagCompound(new NBTTagCompound());\n\t\tstack.getTagCompound().setLong(\"charge\", 0);\n"
+        },
+        {
+          "before_offset": 6030,
+          "after_offset": 6015,
+          "old": "\t\tstack.stackTagCompound = new NBTTagCompound();\n\t\tstack.stackTagCompound.setLong(\"charge\", ((ItemBatteryPack) stack.getItem()).getMaxCharge(stack));\n",
+          "new": "\t\tstack.setTagCompound(new NBTTagCompound());\n\t\tstack.getTagCompound().setLong(\"charge\", ((ItemBatteryPack) stack.getItem()).getMaxCharge(stack));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemWatzPellet.java": {
+      "before_sha256": "78a2b2441322f8c271c87f22030fc8b1e79fef0a1dcee9d811058be368bcf805",
+      "after_sha256": "edf5fc3490bdfc1e2abb6e6d72e77edd055b390a8c49dd0755162641fc29d307",
+      "edits": [
+        {
+          "before_offset": 8639,
+          "after_offset": 8639,
+          "old": "\t\tstack.stackTagCompound.setDouble(key, yield);\n",
+          "new": "\t\tstack.getTagCompound().setDouble(key, yield);\n"
+        },
+        {
+          "before_offset": 8808,
+          "after_offset": 8808,
+          "old": "\t\treturn stack.stackTagCompound.getDouble(key);\n",
+          "new": "\t\treturn stack.getTagCompound().getDouble(key);\n"
+        },
+        {
+          "before_offset": 9005,
+          "after_offset": 9005,
+          "old": "\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemZirnoxRod.java": {
+      "before_sha256": "db23b0995e2886243c58885398aa8213986f7f8dbe3fb5efa5483060f44a74b6",
+      "after_sha256": "594ea957402a8c9a9cda6ec4dc8a3bfdeac1f22bea8e75d992cd6600a6a2f12b",
+      "edits": [
+        {
+          "before_offset": 866,
+          "after_offset": 866,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 919,
+          "after_offset": 916,
+          "old": "\t\tint time = stack.stackTagCompound.getInteger(\"life\");\n",
+          "new": "\t\tint time = stack.getTagCompound().getInteger(\"life\");\n"
+        },
+        {
+          "before_offset": 978,
+          "after_offset": 975,
+          "old": "\t\tstack.stackTagCompound.setInteger(\"life\", time + 1);\n",
+          "new": "\t\tstack.getTagCompound().setInteger(\"life\", time + 1);\n"
+        },
+        {
+          "before_offset": 1132,
+          "after_offset": 1129,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 1185,
+          "after_offset": 1179,
+          "old": "\t\tstack.stackTagCompound.setInteger(\"life\", time);\n",
+          "new": "\t\tstack.getTagCompound().setInteger(\"life\", time);\n"
+        },
+        {
+          "before_offset": 1326,
+          "after_offset": 1320,
+          "old": "\t\t\tstack.stackTagCompound = new NBTTagCompound();\n",
+          "new": "\t\t\tstack.setTagCompound(new NBTTagCompound());\n"
+        },
+        {
+          "before_offset": 1396,
+          "after_offset": 1387,
+          "old": "\t\treturn stack.stackTagCompound.getInteger(\"life\");\n",
+          "new": "\t\treturn stack.getTagCompound().getInteger(\"life\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemDrop.java": {
+      "before_sha256": "484aeeef1ed6164ea98492efaa503eef81b7e9a2ad245448e4e0d4d9ba9e146c",
+      "after_sha256": "7a89d8b0b712fbbd1a9fbb43a9f378f11a3b9a6645122968e098e892ac1189a1",
+      "edits": [
+        {
+          "before_offset": 4140,
+          "after_offset": 4140,
+          "old": "\t\t\t\t\t\t\tentityItem.world.playSoundEffect(entityItem.posX, entityItem.posY, entityItem.posZ, \"random.explode\", 100.0F, entityItem.world.rand.nextFloat() * 0.1F + 0.9F);\r\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, \"random.explode\", 100.0F, entityItem.world.rand.nextFloat() * 0.1F + 0.9F);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemAnchorRemote.java": {
+      "before_sha256": "1f28d90cce4549631625675e71952f008685ca47f6945b501b642a011fef2933",
+      "after_sha256": "9487e6137ccc75d1aa930714f5969c58603943026e9ecb5eae05f00779b1fa49",
+      "edits": [
+        {
+          "before_offset": 2670,
+          "after_offset": 2670,
+          "old": "\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBalefireMatch.java": {
+      "before_sha256": "37b5293db1bd8763f8b03c19364197600c462973ea9640eecc9d8d2c9477349f",
+      "after_sha256": "38a4c20313d2592be0813436d5fb71cec6db0061831e08c2050d678aae98e45c",
+      "edits": [
+        {
+          "before_offset": 1021,
+          "after_offset": 1021,
+          "old": "                world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, \"fire.ignite\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n",
+          "new": "                com.hbm.sound.VanillaWorldSoundEffects.play(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, \"fire.ignite\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDiscord.java": {
+      "before_sha256": "14f30627682d45991856a126156036706b48d95596924f2a5051bbf8d8023637",
+      "after_sha256": "0e8e1213324275f1e88b66eddc960944d1373a60f37e2b0ec28cc8a947a7b087",
+      "edits": [
+        {
+          "before_offset": 734,
+          "after_offset": 734,
+          "old": "\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 991,
+          "after_offset": 1020,
+          "old": "\t\t\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMatch.java": {
+      "before_sha256": "bf91af52a514054a0cc409b0d92863545071aa7b1a3b8fb99e6acd3507604d3c",
+      "after_sha256": "7192f03aec98adf3f6c45e72e61a6fb2e6ce102339b88098e16f57ca332052f9",
+      "edits": [
+        {
+          "before_offset": 1558,
+          "after_offset": 1558,
+          "old": "                    p_77648_3_.playSoundEffect(p_77648_4_ + 0.5D, p_77648_5_ + 0.5D, p_77648_6_ + 0.5D, \"fire.ignite\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n",
+          "new": "                    com.hbm.sound.VanillaWorldSoundEffects.play(p_77648_3_, p_77648_4_ + 0.5D, p_77648_5_ + 0.5D, p_77648_6_ + 0.5D, \"fire.ignite\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/RedstoneSword.java": {
+      "before_sha256": "1b59351b086b93c595da8a64d041f52673d68bb519b768e055868d1012e457b4",
+      "after_sha256": "da3e53ae3287e5e09d41658aa7b15c8ad94ada45216d268c1d7ecf2298ce6da9",
+      "edits": [
+        {
+          "before_offset": 1363,
+          "after_offset": 1363,
+          "old": "                world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, \"random.break\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n",
+          "new": "                com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, \"random.break\", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "9ff5fc5cc59065de8ef40d8191d79d48f10c467dcdf4fc28a665eb50355ad7f5",
+      "after_sha256": "a28afd13de3bb5de515097ae3b209bd64069a11b6cdcefb3004bd5b2024d37b2",
+      "edits": [
+        {
+          "before_offset": 3094,
+          "after_offset": 3094,
+          "old": "\t\t\t\t\t\t\tworld.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"random.explode\", 100.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, \"random.explode\", 100.0f, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+      "before_sha256": "aaf31b81b84f427390aa54e3e937cc8a20a21b2370ec0d1b964b35f74cf15694",
+      "after_sha256": "d1289ab203c26e55630b2df91105009b60a9d8db21252c1b9a8307754a152246",
+      "edits": [
+        {
+          "before_offset": 2927,
+          "after_offset": 2927,
+          "old": "\t\t\tattacker.world.playSoundEffect(victim.posX, victim.posY, victim.posZ, \"mob.zombie.woodbreak\", 1.0F, 0.75F + victim.getRNG().nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(attacker.world, victim.posX, victim.posY, victim.posZ, \"mob.zombie.woodbreak\", 1.0F, 0.75F + victim.getRNG().nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/WeaponizedCell.java": {
+      "before_sha256": "918580cf48d3cb6031e820ccddeacb67ee0ecf684924ac7c9731c1ade14bd32b",
+      "after_sha256": "52c67ab755f84c3d01a00e59ea8e9def7ce0dec8b0480d95880946ef64792748",
+      "edits": [
+        {
+          "before_offset": 777,
+          "after_offset": 777,
+          "old": "\t\t\t\t\t\tworld.playSoundEffect(item.posX, item.posY, item.posZ, \"random.explode\", 100.0F, world.rand.nextFloat() * 0.1F + 0.9F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, item.posX, item.posY, item.posZ, \"random.explode\", 100.0F, world.rand.nextFloat() * 0.1F + 0.9F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java": {
+      "before_sha256": "eeb194b1d92ddd1af98727bbefc2145e144dd81dbaa7f3d8a9b62c199b842fa4",
+      "after_sha256": "3db1ec305a1b1b4bfc74fa735578edcf238342e3f41e3f1ac9ba27f25a67e40b",
+      "edits": [
+        {
+          "before_offset": 3695,
+          "after_offset": 3695,
+          "old": "\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + entity.getRNG().nextFloat() * 0.2F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + entity.getRNG().nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java": {
+      "before_sha256": "50463596b5c12936de19d98b4d1e817a028e67d81e4bd7a481f35c1e92aec773",
+      "after_sha256": "70cb94556de618b85ca9627a682b9bf514c1a6188d99ed0cf05a49b99e229229",
+      "edits": [
+        {
+          "before_offset": 79054,
+          "after_offset": 79054,
+          "old": "\t\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"fireworks.blast\", 5.0F, 0.5F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(entity.world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, \"fireworks.blast\", 5.0F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory10ga.java": {
+      "before_sha256": "87eec30ec57a1cd02202916ac70f8fabb9e2961b37c68d8fdde0967c605d21a1",
+      "after_sha256": "f310fdce166bdf7c136b758fdedb0b4990478cf4a4ff35d6b4509c380d82c66e",
+      "edits": [
+        {
+          "before_offset": 4317,
+          "after_offset": 4317,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G10, 6).setUnlocalizedName(\"gun_double_barrel\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G10, 6).setTranslationKey(\"gun_double_barrel\");\n"
+        },
+        {
+          "before_offset": 5105,
+          "after_offset": 5104,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G10_DU, 6).setUnlocalizedName(\"gun_double_barrel_sacred_dragon\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G10_DU, 6).setTranslationKey(\"gun_double_barrel_sacred_dragon\");\n"
+        },
+        {
+          "before_offset": 5983,
+          "after_offset": 5981,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G10, 50).setUnlocalizedName(\"gun_autoshotgun_heretic\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G10, 50).setTranslationKey(\"gun_autoshotgun_heretic\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java": {
+      "before_sha256": "d7bc8ab998f1fc7c7cb722b69951c34ac0f17cf4772dfef6a9c3e4c0e826f5de",
+      "after_sha256": "1d2e9aaed7affe74d82c33350dd4db526b99bce545d2c65251e01770ff8e6dc6",
+      "edits": [
+        {
+          "before_offset": 17272,
+          "after_offset": 17272,
+          "old": "\t\t\t\t.setUnlocalizedName(\"gun_maresleg\");\n",
+          "new": "\t\t\t\t.setTranslationKey(\"gun_maresleg\");\n"
+        },
+        {
+          "before_offset": 18731,
+          "after_offset": 18730,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 24).setUnlocalizedName(\"gun_maresleg_akimbo\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 24).setTranslationKey(\"gun_maresleg_akimbo\");\n"
+        },
+        {
+          "before_offset": 19618,
+          "after_offset": 19616,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 24).setUnlocalizedName(\"gun_maresleg_broken\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 24).setTranslationKey(\"gun_maresleg_broken\");\n"
+        },
+        {
+          "before_offset": 20319,
+          "after_offset": 20316,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 12).setUnlocalizedName(\"gun_liberator\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 12).setTranslationKey(\"gun_liberator\");\n"
+        },
+        {
+          "before_offset": 21060,
+          "after_offset": 21056,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 16).setUnlocalizedName(\"gun_spas12\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 16).setTranslationKey(\"gun_spas12\");\n"
+        },
+        {
+          "before_offset": 21779,
+          "after_offset": 21774,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 20).setUnlocalizedName(\"gun_autoshotgun\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 20).setTranslationKey(\"gun_autoshotgun\");\n"
+        },
+        {
+          "before_offset": 22622,
+          "after_offset": 22616,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 20).setUnlocalizedName(\"gun_autoshotgun_shredder\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12, 20).setTranslationKey(\"gun_autoshotgun_shredder\");\n"
+        },
+        {
+          "before_offset": 23504,
+          "after_offset": 23497,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 50).setUnlocalizedName(\"gun_autoshotgun_sexy\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G12_MAGNUM, 50).setTranslationKey(\"gun_autoshotgun_sexy\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory22lr.java": {
+      "before_sha256": "c7bf060bd538d1dc48dea51916ff48abb04c69366e7d2346156361e353098ae2",
+      "after_sha256": "5ef2a9b6ed9c7de9f9283ffc16bfdf74cf31e86d95473f701d1f7cfc2911000f",
+      "edits": [
+        {
+          "before_offset": 3142,
+          "after_offset": 3142,
+          "old": "\t\t\t\t.setUnlocalizedName(\"gun_am180\");\n",
+          "new": "\t\t\t\t.setTranslationKey(\"gun_am180\");\n"
+        },
+        {
+          "before_offset": 3860,
+          "after_offset": 3859,
+          "old": "\t\t\t\t.setUnlocalizedName(\"gun_star_f\");\n",
+          "new": "\t\t\t\t.setTranslationKey(\"gun_star_f\");\n"
+        },
+        {
+          "before_offset": 5245,
+          "after_offset": 5243,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.P22_SP, 30).setUnlocalizedName(\"gun_star_f_akimbo\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.P22_SP, 30).setTranslationKey(\"gun_star_f_akimbo\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory357.java": {
+      "before_sha256": "7c141a6c171238a9a1b43f0f4415e79c5b93357547aa79839589b69eb515d1e7",
+      "after_sha256": "b913419962773d838270da99e9fbe11b432c0c69bfea741fb4f07f1582d35d05",
+      "edits": [
+        {
+          "before_offset": 2776,
+          "after_offset": 2776,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M357_SP, 12).setUnlocalizedName(\"gun_light_revolver\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M357_SP, 12).setTranslationKey(\"gun_light_revolver\");\n"
+        },
+        {
+          "before_offset": 3478,
+          "after_offset": 3477,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M357_JHP, 12).setUnlocalizedName(\"gun_light_revolver_atlas\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M357_JHP, 12).setTranslationKey(\"gun_light_revolver_atlas\");\n"
+        },
+        {
+          "before_offset": 4952,
+          "after_offset": 4950,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M357_EXPRESS, 24).setUnlocalizedName(\"gun_light_revolver_dani\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M357_EXPRESS, 24).setTranslationKey(\"gun_light_revolver_dani\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory40mm.java": {
+      "before_sha256": "5b9876de6207e56e1cfc7dacf2a16368c10edf493e832c5424673e30843f22dc",
+      "after_sha256": "0cba206f40007a54e6ced90315f5fce9334d3b4c2fa31a513db66da78b7d68ef",
+      "edits": [
+        {
+          "before_offset": 9989,
+          "after_offset": 9989,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G26_FLARE, 3).setUnlocalizedName(\"gun_flaregun\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G26_FLARE, 3).setTranslationKey(\"gun_flaregun\");\n"
+        },
+        {
+          "before_offset": 10717,
+          "after_offset": 10716,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G40_HE, 8).setUnlocalizedName(\"gun_congolake\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.G40_HE, 8).setTranslationKey(\"gun_congolake\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory44.java": {
+      "before_sha256": "d90c4fd7226873875c194848775c63d01292cbcc9710693bb8a9b5ed29b6caf6",
+      "after_sha256": "439073f63d3528f0900371cffdabea671bfd0d5a4c5c23f8ba6247b27c9ff7ae",
+      "edits": [
+        {
+          "before_offset": 5332,
+          "after_offset": 5332,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_SP, 14).setUnlocalizedName(\"gun_henry\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_SP, 14).setTranslationKey(\"gun_henry\");\n"
+        },
+        {
+          "before_offset": 6065,
+          "after_offset": 6064,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_JHP, 14).setUnlocalizedName(\"gun_henry_lincoln\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_JHP, 14).setTranslationKey(\"gun_henry_lincoln\");\n"
+        },
+        {
+          "before_offset": 6829,
+          "after_offset": 6827,
+          "old": "\t\t\t\t.setUnlocalizedName(\"gun_heavy_revolver\");\n",
+          "new": "\t\t\t\t.setTranslationKey(\"gun_heavy_revolver\");\n"
+        },
+        {
+          "before_offset": 7540,
+          "after_offset": 7537,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setUnlocalizedName(\"gun_heavy_revolver_lilmac\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setTranslationKey(\"gun_heavy_revolver_lilmac\");\n"
+        },
+        {
+          "before_offset": 8270,
+          "after_offset": 8266,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setUnlocalizedName(\"gun_heavy_revolver_protege\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_JHP, 12).setTranslationKey(\"gun_heavy_revolver_protege\");\n"
+        },
+        {
+          "before_offset": 9007,
+          "after_offset": 9002,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_FMJ, 16).setUnlocalizedName(\"gun_hangman\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.M44_FMJ, 16).setTranslationKey(\"gun_hangman\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory50.java": {
+      "before_sha256": "38fd80f0e8b0efc5c3a90b29231aa22cbf1bfa4e696ef24df285cba6133de88c",
+      "after_sha256": "037c457bcec7abe995855dbe72adccb1952921b989532e480a8cc1529ac9660c",
+      "edits": [
+        {
+          "before_offset": 5729,
+          "after_offset": 5729,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_SP, 7).setUnlocalizedName(\"gun_amat\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_SP, 7).setTranslationKey(\"gun_amat\");\n"
+        },
+        {
+          "before_offset": 6478,
+          "after_offset": 6477,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_JHP, 7).setUnlocalizedName(\"gun_amat_subtlety\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_JHP, 7).setTranslationKey(\"gun_amat_subtlety\");\n"
+        },
+        {
+          "before_offset": 7260,
+          "after_offset": 7258,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_JHP, 7).setUnlocalizedName(\"gun_amat_penance\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_JHP, 7).setTranslationKey(\"gun_amat_penance\");\n"
+        },
+        {
+          "before_offset": 7932,
+          "after_offset": 7929,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_FMJ, 25).setUnlocalizedName(\"gun_m2\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.BMG50_FMJ, 25).setTranslationKey(\"gun_m2\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory556mm.java": {
+      "before_sha256": "5c012aa5db702df9d3d36dba164eed2da73eba8b8889d10ef4d9a115efa63aad",
+      "after_sha256": "203140c4331c3f0c123bef085a9d2f1db95ed8691030868e5d2bf7ddeef0983a",
+      "edits": [
+        {
+          "before_offset": 4175,
+          "after_offset": 4175,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R556_SP, 30).setNameMutator(LAMBDA_NAME_G3).setUnlocalizedName(\"gun_g3\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R556_SP, 30).setNameMutator(LAMBDA_NAME_G3).setTranslationKey(\"gun_g3\");\n"
+        },
+        {
+          "before_offset": 4963,
+          "after_offset": 4962,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R556_JHP, 30).setNameMutator(LAMBDA_NAME_G3).setUnlocalizedName(\"gun_g3_zebra\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R556_JHP, 30).setNameMutator(LAMBDA_NAME_G3).setTranslationKey(\"gun_g3_zebra\");\n"
+        },
+        {
+          "before_offset": 5823,
+          "after_offset": 5821,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R556_FMJ, 30).setUnlocalizedName(\"gun_stg77\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R556_FMJ, 30).setTranslationKey(\"gun_stg77\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory75Bolt.java": {
+      "before_sha256": "3b92c03c71c47c1b3e806c473a82630314b71f05d92036017e5a0b1074142ae6",
+      "after_sha256": "902fb2602d1a6900055e38a096fca61440f7914ba4618b41b07379c09917eece",
+      "edits": [
+        {
+          "before_offset": 3237,
+          "after_offset": 3237,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.B75, 15).setUnlocalizedName(\"gun_bolter\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.B75, 15).setTranslationKey(\"gun_bolter\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory762mm.java": {
+      "before_sha256": "68402d65d8a08d48a7bef0ed65a7d6692d4056680e8211e5e2d02a507691b2a7",
+      "after_sha256": "edcdeb03695583aef628ffd2a0bca81ba37c0313ff2ccd83b0818c36a55f9696",
+      "edits": [
+        {
+          "before_offset": 5159,
+          "after_offset": 5159,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_SP, 14).setUnlocalizedName(\"gun_carbine\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_SP, 14).setTranslationKey(\"gun_carbine\");\n"
+        },
+        {
+          "before_offset": 5833,
+          "after_offset": 5832,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_FMJ, 30).setUnlocalizedName(\"gun_minigun\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_FMJ, 30).setTranslationKey(\"gun_minigun\");\n"
+        },
+        {
+          "before_offset": 6537,
+          "after_offset": 6535,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setUnlocalizedName(\"gun_minigun_lacunae\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setTranslationKey(\"gun_minigun_lacunae\");\n"
+        },
+        {
+          "before_offset": 7946,
+          "after_offset": 7943,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_SP, 50).setUnlocalizedName(\"gun_minigun_dual\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_SP, 50).setTranslationKey(\"gun_minigun_dual\");\n"
+        },
+        {
+          "before_offset": 8668,
+          "after_offset": 8664,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_AP, 14).setUnlocalizedName(\"gun_mas36\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.R762_AP, 14).setTranslationKey(\"gun_mas36\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory9mm.java": {
+      "before_sha256": "89919443ac8de0903ffdbcd4b67f0654259225fa866da7bf721d032684d4558a",
+      "after_sha256": "4c176e2917a6fc1bc688ee014a3072c1e7927df2a7e560e7312f035e40e1a0c2",
+      "edits": [
+        {
+          "before_offset": 3282,
+          "after_offset": 3282,
+          "old": "\t\t\t\t.setUnlocalizedName(\"gun_greasegun\");\n",
+          "new": "\t\t\t\t.setTranslationKey(\"gun_greasegun\");\n"
+        },
+        {
+          "before_offset": 3920,
+          "after_offset": 3919,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.P9_JHP, 17).setUnlocalizedName(\"gun_lag\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.P9_JHP, 17).setTranslationKey(\"gun_lag\");\n"
+        },
+        {
+          "before_offset": 4648,
+          "after_offset": 4646,
+          "old": "\t\t\t\t.setUnlocalizedName(\"gun_uzi\");\n",
+          "new": "\t\t\t\t.setTranslationKey(\"gun_uzi\");\n"
+        },
+        {
+          "before_offset": 6012,
+          "after_offset": 6009,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.P9_SP, 60).setUnlocalizedName(\"gun_uzi_akimbo\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.P9_SP, 60).setTranslationKey(\"gun_uzi_akimbo\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java": {
+      "before_sha256": "73b2dcdd4eb1103b2d746a356ae5e6eee096876424df0d3da765e5a719373a27",
+      "after_sha256": "9d07c48728cf471d0ee713f01153db8aefc4a2ce358a59d6ecafd5e2189eca3c",
+      "edits": [
+        {
+          "before_offset": 5325,
+          "after_offset": 5325,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.TAU_URANIUM, 15).setUnlocalizedName(\"gun_tau\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.TAU_URANIUM, 15).setTranslationKey(\"gun_tau\");\n"
+        },
+        {
+          "before_offset": 5960,
+          "after_offset": 5959,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.COIL_TUNGSTEN, 5).setUnlocalizedName(\"gun_coilgun\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.COIL_TUNGSTEN, 5).setTranslationKey(\"gun_coilgun\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryBlackPowder.java": {
+      "before_sha256": "701e302dc4fb826804fbb009030a6cf11250517d1c2743a1dc722eab6429438f",
+      "after_sha256": "764283e9cbfcda28dd88956ab4f014e6af3e9a66c4cfe943d2444920cacd7a4b",
+      "edits": [
+        {
+          "before_offset": 2316,
+          "after_offset": 2316,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.STONE, 12).setUnlocalizedName(\"gun_pepperbox\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.STONE, 12).setTranslationKey(\"gun_pepperbox\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java": {
+      "before_sha256": "2b5d87f34cefbf4a05dffd45f83af99bbb7f5d6736cfdc09dad73f9865d86871",
+      "after_sha256": "61b0ab167c59e9754cc08c4b3ec4fb07a225e90bf322e0b08814665efbb52818",
+      "edits": [
+        {
+          "before_offset": 9806,
+          "after_offset": 9806,
+          "old": "\t\t\t\t).setDefaultAmmoExpensive(EnumAmmo.NUKE_STANDARD, 1).setUnlocalizedName(\"gun_fatman\");\n",
+          "new": "\t\t\t\t).setDefaultAmmoExpensive(EnumAmmo.NUKE_STANDARD, 1).setTranslationKey(\"gun_fatman\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java": {
+      "before_sha256": "b315b0581be2e9d273d25c801921d2590fc657a272d7f055ba42445d6f78b663",
+      "after_sha256": "90ea4a9270811da209b1ace9749325539db0ffd3d6a98238417b7b295a4e39db",
+      "edits": [
+        {
+          "before_offset": 3519,
+          "after_offset": 3519,
+          "old": "\t\tbeam.world.playSoundEffect(hitVec.x, hitVec.y, hitVec.z, \"fireworks.blast\", 5.0F, 0.5F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(beam.world, hitVec.x, hitVec.y, hitVec.z, \"fireworks.blast\", 5.0F, 0.5F);\n"
+        },
+        {
+          "before_offset": 9953,
+          "after_offset": 9982,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setUnlocalizedName(\"gun_tesla_cannon\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setTranslationKey(\"gun_tesla_cannon\");\n"
+        },
+        {
+          "before_offset": 10650,
+          "after_offset": 10678,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setUnlocalizedName(\"gun_laser_pistol\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 15).setTranslationKey(\"gun_laser_pistol\");\n"
+        },
+        {
+          "before_offset": 11368,
+          "after_offset": 11395,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 10).setUnlocalizedName(\"gun_laser_pistol_pew_pew\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 10).setTranslationKey(\"gun_laser_pistol_pew_pew\");\n"
+        },
+        {
+          "before_offset": 12116,
+          "after_offset": 12142,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 20).setUnlocalizedName(\"gun_laser_pistol_morning_glory\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR_OVERCHARGE, 20).setTranslationKey(\"gun_laser_pistol_morning_glory\");\n"
+        },
+        {
+          "before_offset": 12836,
+          "after_offset": 12861,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 24).setUnlocalizedName(\"gun_lasrifle\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.CAPACITOR, 24).setTranslationKey(\"gun_lasrifle\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java": {
+      "before_sha256": "b4a887537b6258e0f1c870c501daef2107cef1aa8b06f16281aca3b2e7e7d75b",
+      "after_sha256": "60d2f238067b16e9f1db5127ec197d112af5396f039ed7b5e290eeb72c2b3c53",
+      "edits": [
+        {
+          "before_offset": 9112,
+          "after_offset": 9112,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setUnlocalizedName(\"gun_flamer\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setTranslationKey(\"gun_flamer\");\n"
+        },
+        {
+          "before_offset": 9749,
+          "after_offset": 9748,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setUnlocalizedName(\"gun_flamer_topaz\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setTranslationKey(\"gun_flamer_topaz\");\n"
+        },
+        {
+          "before_offset": 10479,
+          "after_offset": 10477,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setUnlocalizedName(\"gun_flamer_daybreaker\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.FLAME_DIESEL, 1).setTranslationKey(\"gun_flamer_daybreaker\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryRocket.java": {
+      "before_sha256": "b6f4038f967211899f98bb4c835ecf42b769ebdaf43c5e98d07ab441a8d0d721",
+      "after_sha256": "b72d36c88ad692fe61810d0b8a4610be8b8d441bfdd63c1184d8345bcb8b94cd",
+      "edits": [
+        {
+          "before_offset": 10156,
+          "after_offset": 10156,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.ROCKET_HE, 3).setUnlocalizedName(\"gun_panzerschreck\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.ROCKET_HE, 3).setTranslationKey(\"gun_panzerschreck\");\n"
+        },
+        {
+          "before_offset": 11499,
+          "after_offset": 11498,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.ROCKET_HE, 4).setUnlocalizedName(\"gun_quadro\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.ROCKET_HE, 4).setTranslationKey(\"gun_quadro\");\n"
+        },
+        {
+          "before_offset": 12217,
+          "after_offset": 12215,
+          "old": "\t\t\t\t).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 5).setUnlocalizedName(\"gun_missile_launcher\");\n",
+          "new": "\t\t\t\t).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 5).setTranslationKey(\"gun_missile_launcher\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": {
+      "before_sha256": "b2561c0e47aba9faa410d9380b9ad0f5cd52fbb9a88cee888ab2115870261480",
+      "after_sha256": "50e1bcb8f08033e10e729e1e486360b28cd371a70ef39683d4e66beda320108a",
+      "edits": [
+        {
+          "before_offset": 3533,
+          "after_offset": 3533,
+          "old": "\t\t\tif(fizz) bullet.world.playSoundEffect(bullet.posX, bullet.posY, bullet.posZ, \"random.fizz\", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tif(fizz) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, \"random.fizz\", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);\n"
+        },
+        {
+          "before_offset": 6345,
+          "after_offset": 6374,
+          "old": "\t\t\tif(fizz) bullet.world.playSoundEffect(bullet.posX, bullet.posY, bullet.posZ, \"random.fizz\", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\tif(fizz) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, \"random.fizz\", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);\n"
+        },
+        {
+          "before_offset": 8479,
+          "after_offset": 8537,
+          "old": "\t\t\t\tif(b.getDefaultState().getMaterial() == Material.FIRE) bullet.world.playSoundEffect(bullet.posX, bullet.posY, bullet.posZ, \"random.fizz\", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\t\tif(b.getDefaultState().getMaterial() == Material.FIRE) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, \"random.fizz\", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "4465681cf4e6e947ec79d15a3c547cc2027d40a42ef2b42e78786fbf16c55792",
+      "after_sha256": "1b794ab6dd62f9a1190d588cb7ffeae4bf3f6e2d4da61b6c0dd0c006a19c3569",
+      "edits": [
+        {
+          "before_offset": 19967,
+          "after_offset": 19967,
+          "old": "\t\t\tentity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + entity.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + entity.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/saveddata/satellites/SatelliteResonator.java": {
+      "before_sha256": "debd7c172291e79d004015a4d931065b1bee140d622e52c76de6be3aa6e7bdb0",
+      "after_sha256": "4dd631c43ce9afd29027f1bac7e24912082cbfe56ace598afb4a8c0f8219a461",
+      "edits": [
+        {
+          "before_offset": 482,
+          "after_offset": 482,
+          "old": "\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 743,
+          "after_offset": 772,
+          "old": "\t\tworld.playSoundEffect(player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, \"mob.endermen.portal\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/sound/EntitySoundTransport.java": {
+      "before_sha256": "f839041f2e308e0539b9038a7d1f0956782da396578357d3e9beecace8aba6f1",
+      "after_sha256": "35cab6cb3cc537829887ef3cd4c8d6f7a91feca2ffe471da1ba3bc0a5c53c0e5",
+      "edits": [
+        {
+          "before_offset": 2827,
+          "after_offset": 2827,
+          "old": "",
+          "new": "\n    /** Scoped coordinate aliases: native observers own the real event, while the\n     * exact built-in listener retains the audited original client resource name.\n     * This overload neither resolves arbitrary names nor changes registry entries.\n     */\n    public static void dispatchResource(IWorldEventListener listener, SoundEvent sound, SoundCategory category,\n            String resourceName, double x, double y, double z, float volume, float pitch,\n            Function<IMessage, Packet<?>> encoder) {\n        if(listener.getClass() != ServerWorldEventHandler.class) {\n            listener.playSoundToAllNearExcept(null, sound, category, x, y, z, volume, pitch);\n            return;\n        }\n        try {\n            MinecraftServer server = (MinecraftServer) ServerFields.SERVER.get(listener);\n            WorldServer world = (WorldServer) ServerFields.WORLD.get(listener);\n            PlayerList players = server.getPlayerList();\n            int dimension = world.provider.getDimension();\n            LegacyEntitySoundPacket message = new LegacyEntitySoundPacket(resourceName, x, y, z, volume, pitch);\n            players.sendToAllNearExcept(null, x, y, z,\n                volume > 1.0F ? (double)(16.0F * volume) : 16.0D,\n                dimension, encoder.apply(message));\n        } catch(IllegalAccessException failure) {\n            throw new IllegalStateException(\"Cannot read native server sound listener\", failure);\n        }\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/sound/SoundCategoryResolver.java": {
+      "before_sha256": "4a8a79be3012e03c9ca28e04620c886a2c9ea75df96e889d7282c727a45e3a33",
+      "after_sha256": "5865cc6e0f395d479a996a3654be4fa6df96d32978f302ed7e00ea3c18693b3d",
+      "edits": [
+        {
+          "before_offset": 128,
+          "after_offset": 128,
+          "old": "",
+          "new": "import java.util.ArrayList;\n"
+        },
+        {
+          "before_offset": 158,
+          "after_offset": 186,
+          "old": "",
+          "new": "import java.util.HashSet;\nimport java.util.List;\n"
+        },
+        {
+          "before_offset": 212,
+          "after_offset": 289,
+          "old": "",
+          "new": "import java.util.Set;\n"
+        },
+        {
+          "before_offset": 1668,
+          "after_offset": 1767,
+          "old": "",
+          "new": "\t\t// Diagnostic state is reload-local, never consulted during playback.\n\t\tMap<ResourceLocation, String> aliasSources = new LinkedHashMap<>();\n\t\tSet<ResourceLocation> warnedAliases = new HashSet<>();\n"
+        },
+        {
+          "before_offset": 2181,
+          "after_offset": 2479,
+          "old": "",
+          "new": "\t\t\t\t\t\tMap<ResourceLocation, String> nextSources = new LinkedHashMap<>(aliasSources);\n\t\t\t\t\t\tSet<ResourceLocation> nextWarned = new HashSet<>(warnedAliases);\n\t\t\t\t\t\tList<Object[]> aliasWarnings = new ArrayList<>();\n"
+        },
+        {
+          "before_offset": 2872,
+          "after_offset": 3382,
+          "old": "",
+          "new": "\t\t\t\t\t\t\tif(isVanillaCoordinateAlias(sound)) {\n\t\t\t\t\t\t\t\tString previous = nextSources.get(sound);\n\t\t\t\t\t\t\t\tif(previous == null) nextSources.put(sound, resource.getResourcePackName());\n\t\t\t\t\t\t\t\telse if(nextWarned.add(sound)) aliasWarnings.add(new Object[] {sound, previous,\n\t\t\t\t\t\t\t\t\tresource.getResourcePackName(), JsonUtils.getBoolean(definition, \"replace\", false) ? \"replace\" : \"append\"});\n\t\t\t\t\t\t\t}\n"
+        },
+        {
+          "before_offset": 3102,
+          "after_offset": 4007,
+          "old": "",
+          "new": "\t\t\t\t\t\taliasSources = nextSources;\n\t\t\t\t\t\twarnedAliases = nextWarned;\n\t\t\t\t\t\tfor(Object[] warning : aliasWarnings) LOGGER.warn(\n\t\t\t\t\t\t\t\"Duplicate vanilla coordinate sound alias {} from packs {} and {} ({}); preserving normal resource order, verify pack/mod compatibility\", warning);\n"
+        },
+        {
+          "before_offset": 3451,
+          "after_offset": 4636,
+          "old": "",
+          "new": "\n\t/** Only the fifteen absent vanilla resource aliases introduced by this port. */\n\tprivate static boolean isVanillaCoordinateAlias(ResourceLocation sound) {\n\t\tif(!\"minecraft\".equals(sound.getNamespace())) return false;\n\t\tswitch(sound.getPath()) {\n\t\t\tcase \"ambient.weather.thunder\":\n\t\t\tcase \"random.explode\":\n\t\t\tcase \"random.fizz\":\n\t\t\tcase \"random.click\":\n\t\t\tcase \"fire.fire\":\n\t\t\tcase \"random.break\":\n\t\t\tcase \"mob.zombie.woodbreak\":\n\t\t\tcase \"mob.endermen.portal\":\n\t\t\tcase \"fireworks.blast\":\n\t\t\tcase \"fire.ignite\":\n\t\t\tcase \"tile.piston.out\":\n\t\t\tcase \"tile.piston.in\":\n\t\t\tcase \"minecart.base\":\n\t\t\tcase \"game.neutral.swim.splash\":\n\t\t\tcase \"random.orb\":\n\t\t\t\treturn true;\n\t\t\tdefault: return false;\n\t\t}\n\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/TileEntityMachinePolluting.java": {
+      "before_sha256": "53df35937bd36e19f1ec93c78a7de2911c9ad23ba97dc84c8e2dd2488a8f3358",
+      "after_sha256": "cd041ba80f4ce081b3cc830824d972886c18aca151bb30737bcf86995ebd714a",
+      "edits": [
+        {
+          "before_offset": 1543,
+          "after_offset": 1543,
+          "old": "\t\t\tif(this.world.rand.nextInt(3) == 0) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.fizz\", 0.1F, 1.5F);\n",
+          "new": "\t\t\tif(this.world.rand.nextInt(3) == 0) com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.fizz\", 0.1F, 1.5F);\n"
+        },
+        {
+          "before_offset": 2698,
+          "after_offset": 2727,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.fizz\", 0.1F, 1.5F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.fizz\", 0.1F, 1.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": {
+      "before_sha256": "f53565db4cc59ffa67081195f4b29a6bcb6381375406ee3bf5cbb74b1a342b7e",
+      "after_sha256": "7d611a7d1446db1efe9762c2d35de7639ea7cd673e90bb21b20b523581b7175b",
+      "edits": [
+        {
+          "before_offset": 3277,
+          "after_offset": 3277,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, \"random.click\", 0.3F, 0.6F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, \"random.click\", 0.3F, 0.6F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java": {
+      "before_sha256": "bf25b0b83e5a5e1fb3742f1881625518a984d80438c2f1c875b59c0f1095d66d",
+      "after_sha256": "329f3ce679ca8a04ba31f17de6ad33419fe846b5def53307895dac79b5a0f2a6",
+      "edits": [
+        {
+          "before_offset": 1908,
+          "after_offset": 1908,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 0.2F, 0.5F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 0.2F, 0.5F);\n"
+        },
+        {
+          "before_offset": 2198,
+          "after_offset": 2227,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"tile.piston.out\", 0.5F, 0.5F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"tile.piston.out\", 0.5F, 0.5F);\n"
+        },
+        {
+          "before_offset": 2428,
+          "after_offset": 2486,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"tile.piston.in\", 0.5F, 0.5F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"tile.piston.in\", 0.5F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java": {
+      "before_sha256": "6e0cc363273d66ebc2bb0f76ae40feb1572f37ef73d34c7baccd284ce0842221",
+      "after_sha256": "d596a687c1d78aa73e20fbc79e8e5b07b52716487cee34726e702e91b3532727",
+      "edits": [
+        {
+          "before_offset": 3820,
+          "after_offset": 3820,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.explode\", 100000.0F, 1.0F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.explode\", 100000.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "63cfd2525a7704bbfe6efbce4bd805341c134182d4e981c08a3c601e1481a4d8",
+      "after_sha256": "f1a7f82de625268d893ea10d30013d6e58c19f6ff62869c67138b247e22a920e",
+      "edits": [
+        {
+          "before_offset": 4153,
+          "after_offset": 4153,
+          "old": "\t\t\t\t\t\t\t\tthis.world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"random.fizz\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, \"random.fizz\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+      "before_sha256": "4dd0141df190c925df2f2c364d95195af1c91ce8ef6ad5ef6b8ce916ee0b774d",
+      "after_sha256": "4b5227d454af9eadd57174f1cfd7e3a79f8faf04e7585dad9b475fcf1cfb9ac1",
+      "edits": [
+        {
+          "before_offset": 6215,
+          "after_offset": 6215,
+          "old": "\t\t\t\t\t\t\tthis.world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"random.fizz\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, \"random.fizz\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 6516,
+          "after_offset": 6545,
+          "old": "\t\t\t\t\t\t\tthis.world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, \"random.fizz\", 1.0F, 1.0F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, \"random.fizz\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java": {
+      "before_sha256": "7f62fb3ae9d001e447fa0f2480372281d5a2ac2395f234d791b11ec6e22d8286",
+      "after_sha256": "2c91fe77d0dbc4116c0140bc6a15dd5b676cd4fd858b8ebfcdfdc4f04a3c5f2c",
+      "edits": [
+        {
+          "before_offset": 3829,
+          "after_offset": 3829,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"fire.fire\", 1.0F, 0.5F + this.world.rand.nextFloat() * 0.5F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"fire.fire\", 1.0F, 0.5F + this.world.rand.nextFloat() * 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": {
+      "before_sha256": "4416b4d59a7423350e5e751bc2f2ab04238ee5c041e799541f5cdde3d74451f8",
+      "after_sha256": "4ed59eef3dc147e7127f729789bef533b6e87237de98655383a7a7c0a9cd9537",
+      "edits": [
+        {
+          "before_offset": 4684,
+          "after_offset": 4684,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": {
+      "before_sha256": "9ec2ee8b3aba74ec41db0ea249fbd31e4297b9b6b1ffdae20ad5abaf909923ab",
+      "after_sha256": "1646752b7ffad771c13ce7e9b6bf9c6dcf569cc742f2d4aef6518c863acf7241",
+      "edits": [
+        {
+          "before_offset": 6170,
+          "after_offset": 6170,
+          "old": "\t\t\tBufferUtil.writeNBT(buf, slots[2].stackTagCompound);\n",
+          "new": "\t\t\tBufferUtil.writeNBT(buf, slots[2].getTagCompound());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java": {
+      "before_sha256": "ccdfb7cd1325eba85b02c2e7953066e6a727a3404588866d209943f378c5aae6",
+      "after_sha256": "aba51c91dd46fdccd475f68df497e0c9897975d7b4b88e501a55f908481aabe2",
+      "edits": [
+        {
+          "before_offset": 5962,
+          "after_offset": 5962,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadiolysis.java": {
+      "before_sha256": "82e5b5ea5a2c34bab859bdcc787bb8ef5d83320b748226267fcf44d00822ad80",
+      "after_sha256": "01ad4be6bd6034609bbc97eebe6d43707414c1e2b28a56bd2399dd4993c3bf66",
+      "edits": [
+        {
+          "before_offset": 6785,
+          "after_offset": 6785,
+          "old": "\t\t\t\tslots[13].stackTagCompound.removeTag(\"ntmContagion\");\n\t\t\t\tif(slots[13].stackTagCompound.hasNoTags()) {\n\t\t\t\t\tslots[13].stackTagCompound = null;\n",
+          "new": "\t\t\t\tslots[13].getTagCompound().removeTag(\"ntmContagion\");\n\t\t\t\tif(slots[13].getTagCompound().hasNoTags()) {\n\t\t\t\t\tslots[13].setTagCompound(null);\n"
+        },
+        {
+          "before_offset": 7218,
+          "after_offset": 7215,
+          "old": "\t\t\t\t\tslots[13].stackTagCompound.removeTag(\"ntmContagion\");\n\t\t\t\t\tif(slots[13].stackTagCompound.hasNoTags()) {\n\t\t\t\t\t\tslots[13].stackTagCompound = null;\n",
+          "new": "\t\t\t\t\tslots[13].getTagCompound().removeTag(\"ntmContagion\");\n\t\t\t\t\tif(slots[13].getTagCompound().hasNoTags()) {\n\t\t\t\t\t\tslots[13].setTagCompound(null);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java": {
+      "before_sha256": "2486055f1b0cd9cc5b639208994cf9d42b76a8a0e15c0925c6a914de611166ac",
+      "after_sha256": "343d10a33cd48aa259d31b8087ece20903bc5e3baf147f4e65cc6d5016058557",
+      "edits": [
+        {
+          "before_offset": 7019,
+          "after_offset": 7019,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"minecart.base\", getVolume(1.0F), 0.75F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"minecart.base\", getVolume(1.0F), 0.75F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStardar.java": {
+      "before_sha256": "de29369693c2191d4f420da6385dbe29b509ac3b2f2da711a2f7713ab4e6b641",
+      "after_sha256": "6885a0821c09300ee13d9bc315b131dd45ead5cf564212c6986ada875828aa33",
+      "edits": [
+        {
+          "before_offset": 6604,
+          "after_offset": 6604,
+          "old": "\t\t\tslots[0].stackTagCompound = new NBTTagCompound();\n\t\t\tslots[0].stackTagCompound.setInteger(\"ax\", ix);\n\t\t\tslots[0].stackTagCompound.setInteger(\"az\", iz);\n\t\t\tslots[0].stackTagCompound.setBoolean(\"Processed\", true);\n",
+          "new": "\t\t\tslots[0].setTagCompound(new NBTTagCompound());\n\t\t\tslots[0].getTagCompound().setInteger(\"ax\", ix);\n\t\t\tslots[0].getTagCompound().setInteger(\"az\", iz);\n\t\t\tslots[0].getTagCompound().setBoolean(\"Processed\", true);\n"
+        },
+        {
+          "before_offset": 7296,
+          "after_offset": 7293,
+          "old": "\t\t\tslots[0].stackTagCompound = new NBTTagCompound();\n\t\t\tslots[0].stackTagCompound.setInteger(\"x\", pos.x);\n\t\t\tslots[0].stackTagCompound.setInteger(\"z\", pos.z);\n\t\t\tslots[0].stackTagCompound.setBoolean(\"Processed\", true);\n",
+          "new": "\t\t\tslots[0].setTagCompound(new NBTTagCompound());\n\t\t\tslots[0].getTagCompound().setInteger(\"x\", pos.x);\n\t\t\tslots[0].getTagCompound().setInteger(\"z\", pos.z);\n\t\t\tslots[0].getTagCompound().setBoolean(\"Processed\", true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java": {
+      "before_sha256": "784df18a1e7843e925f623805232fd9766a71b6b258e91492e6e020f64ea89e8",
+      "after_sha256": "d3789a23bfc5dcdaf2d945a63eab3f3e353c0e9b311a2022d53256075498d1d2",
+      "edits": [
+        {
+          "before_offset": 12752,
+          "after_offset": 12752,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorControl.java": {
+      "before_sha256": "af3d5e9b7ce00be2d68aeb52c7dc06fdc261e27461098249b8ed257f5a853286",
+      "after_sha256": "3ba549001dc9b55bdac806c1572391e47cd3fd0280ec8e2aa083110f8a1376c7",
+      "edits": [
+        {
+          "before_offset": 4709,
+          "after_offset": 4709,
+          "old": "\t\tif(slots[0] != null && slots[0].getItem() == ModItems.reactor_sensor && slots[0].stackTagCompound != null) {\n\t\t\tint xCoord = slots[0].stackTagCompound.getInteger(\"x\");\n    \t\tint yCoord = slots[0].stackTagCompound.getInteger(\"y\");\n    \t\tint zCoord = slots[0].stackTagCompound.getInteger(\"z\");\n",
+          "new": "\t\tif(slots[0] != null && slots[0].getItem() == ModItems.reactor_sensor && slots[0].getTagCompound() != null) {\n\t\t\tint xCoord = slots[0].getTagCompound().getInteger(\"x\");\n    \t\tint yCoord = slots[0].getTagCompound().getInteger(\"y\");\n    \t\tint zCoord = slots[0].getTagCompound().getInteger(\"z\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java": {
+      "before_sha256": "411e809612801b92cbacc862f218dc8be9b56e875ed49c9b0f139810ad265af9",
+      "after_sha256": "02e59fedda12668ba64fc5c96aec19d1cdaba4d444949cf00b2ffd1ee9ff1f30",
+      "edits": [
+        {
+          "before_offset": 2334,
+          "after_offset": 2334,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 0.2F, 0.5F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 0.2F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java": {
+      "before_sha256": "82add305d627b19a709eb6aac81c62704f44ef620dc5b587aad7714afeae6dcb",
+      "after_sha256": "12dde50f95c8a2e6d8e9f5434aec6479bb4189ababd914031aea1b4868aa0478",
+      "edits": [
+        {
+          "before_offset": 3158,
+          "after_offset": 3158,
+          "old": "\t\t\t\t\t\t\tthis.world.playSoundEffect(e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, e.posX, e.posY, e.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java": {
+      "before_sha256": "1858c9dfbf74859b98a797bf7f4b7e64762b88b0be0676db8c53a8685f1c76d8",
+      "after_sha256": "eff0206a37bffec9af148f96ff66b2bd0978b54a16b7d3326f8f0d71590bb64f",
+      "edits": [
+        {
+          "before_offset": 6976,
+          "after_offset": 6976,
+          "old": "\t\t\tsoyuz.targetX = slots[1].stackTagCompound.getInteger(\"xCoord\");\n\t\t\tsoyuz.targetZ = slots[1].stackTagCompound.getInteger(\"zCoord\");\n",
+          "new": "\t\t\tsoyuz.targetX = slots[1].getTagCompound().getInteger(\"xCoord\");\n\t\t\tsoyuz.targetZ = slots[1].getTagCompound().getInteger(\"zCoord\");\n"
+        },
+        {
+          "before_offset": 7678,
+          "after_offset": 7678,
+          "old": "\t\t\tint x = slots[1].stackTagCompound.getInteger(\"xCoord\");\n\t\t\tint z = slots[1].stackTagCompound.getInteger(\"zCoord\");\n",
+          "new": "\t\t\tint x = slots[1].getTagCompound().getInteger(\"xCoord\");\n\t\t\tint z = slots[1].getTagCompound().getInteger(\"zCoord\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityZirnoxDestroyed.java": {
+      "before_sha256": "1026d5aadfc2b0d0952283ffbbb10cfc16be77178d21aff3c0ed7a2509e54050",
+      "after_sha256": "a34bcf3a8592fcc9451cefd0c358d4d458f55ee7b537d0e309764b8bd550dd9f",
+      "edits": [
+        {
+          "before_offset": 1989,
+          "after_offset": 1989,
+          "old": "\t\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5F, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"fire.fire\", 1.0F + this.world.rand.nextFloat(), this.world.rand.nextFloat() * 0.7F + 0.3F);\n",
+          "new": "\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"fire.fire\", 1.0F + this.world.rand.nextFloat(), this.world.rand.nextFloat() * 0.7F + 0.3F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java": {
+      "before_sha256": "068cacfab346057bc99b066f7496e67b7d70ef20111a067bcb512729bd12ae4b",
+      "after_sha256": "0595cfd500ba3667c70394ff398435d672e62d3afdca88b5696af56804d11715",
+      "edits": [
+        {
+          "before_offset": 4726,
+          "after_offset": 4726,
+          "old": "\t\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), \"random.fizz\", getVolume(1.5F), 0.5F);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), \"random.fizz\", getVolume(1.5F), 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java": {
+      "before_sha256": "b691ccf3a56cea6453a7474c4c7800d292e1c2d76ff22f6d13f45dcd7fecb393",
+      "after_sha256": "d29aa8f5507dc4acf034748b284fc00698225de55de4e884afaf423920a874ea",
+      "edits": [
+        {
+          "before_offset": 2879,
+          "after_offset": 2879,
+          "old": "\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"game.neutral.swim.splash\", 2.0F, 0.5F);\n",
+          "new": "\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"game.neutral.swim.splash\", 2.0F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java": {
+      "before_sha256": "52d94d67b443318907dff2c7cb22068e94decc9fb3973152fea75401ad7272c2",
+      "after_sha256": "e732b10f06c39105159fe84ffb5e204816c10b11c5d6655bff7d81c3029d0f05",
+      "edits": [
+        {
+          "before_offset": 9576,
+          "after_offset": 9576,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 1.0F, 1.0F);\n"
+        },
+        {
+          "before_offset": 10516,
+          "after_offset": 10545,
+          "old": "\t\t\tthis.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 1.0F, 1.0F);\n",
+          "new": "\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, \"random.fizz\", 1.0F, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTelex.java": {
+      "before_sha256": "14e0ca0b8cb833096fff1107aa78e84a06d80ceed0a3332f1c18ef93e85668ae",
+      "after_sha256": "524878f9bc514d2d68855ae8e5dca47b80a48c00db19c09c608e1a62a8175351",
+      "edits": [
+        {
+          "before_offset": 3791,
+          "after_offset": 3791,
+          "old": "\t\t\t\t\t\tthis.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.orb\", 2F, 0.5F);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), \"random.orb\", 2F, 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretMaxwell.java": {
+      "before_sha256": "3080cb9e41bee24ab3ce21e1a4354260f40aeab14a67d723d46504f900125ebb",
+      "after_sha256": "4956a7860d40bf94f9040ef627a1cd8fea8756a1582cb860c74116e19ff90afd",
+      "edits": [
+        {
+          "before_offset": 7960,
+          "after_offset": 7960,
+          "old": "\t\t\t\t\tthis.world.playSoundEffect(this.target.posX, this.target.posY, this.target.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n",
+          "new": "\t\t\t\t\tcom.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.target.posX, this.target.posY, this.target.posZ, \"mob.zombie.woodbreak\", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/sound/VanillaWorldSoundEffects.java": "a15afcadc7d199a197a806a945ed624608a02747ac8687f4413d39af2135ddea",
+    "src/main/resources/assets/minecraft/sounds.json": "3223d19b68d0f41899bf0c879cb695bd4a1b4dab5e04e3938fe482cad40b6ddf"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

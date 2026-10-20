@@ -1,0 +1,19 @@
+/workspace/shared/entity-sound-engine-evidence/NativeEntitySoundEventProbe.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/entity-sound-engine-evidence/NativeEntitySoundEventProbe.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/entity-sound-engine-evidence/NativeEntitySoundEventProbe.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/entity-sound-engine-evidence/NativeEntitySoundEventProbe.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final Unsafe U;
+                 ^
+/workspace/shared/entity-sound-engine-evidence/NativeEntitySoundEventProbe.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static {try {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception x){throw new ExceptionInInitializerError(x);}}
+                         ^
+/workspace/shared/entity-sound-engine-evidence/NativeEntitySoundEventProbe.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static {try {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception x){throw new ExceptionInInitializerError(x);}}
+                                                                                             ^
+6 warnings

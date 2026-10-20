@@ -1,0 +1,145 @@
+import java.util.*;
+import com.hbm.lib.ForgeDirection;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+
+/** Actual native TileEntity fields and extracted expressions, not whole machines. */
+public final class BulkTileFieldNativeTest {
+    private static int checks;
+    private static void check(boolean value, String label) {
+        checks++; if(!value) throw new AssertionError(label);
+    }
+    private static void same(double actual, double expected, String label) {
+        check(Double.doubleToLongBits(actual) == Double.doubleToLongBits(expected), label);
+    }
+    private static void nullRead(Runnable action, String label) {
+        try { action.run(); throw new AssertionError(label); }
+        catch(NullPointerException expected) { checks++; }
+    }
+    /** Native World and WorldInfo with unused chunk-storage services controlled. */
+    private static final class FixtureWorld extends World {
+        int timeReads;
+        FixtureWorld(boolean remote) {
+            super(new SaveHandlerMP(), new WorldInfo(new WorldSettings(1L, GameType.SURVIVAL, false, false, WorldType.DEFAULT), "bulk-field-probe"), new WorldProviderSurface(), new Profiler(), remote);
+            provider.setWorld(this);
+        }
+        protected boolean isChunkLoaded(int x, int z, boolean empty) { return false; }
+        protected IChunkProvider createChunkProvider() {
+            return new IChunkProvider() {
+                public Chunk getLoadedChunk(int x,int z) { return null; }
+                public Chunk provideChunk(int x,int z) { throw new UnsupportedOperationException("No chunks used by field probe"); }
+                public boolean tick() { return false; }
+                public String makeString() { return "field-probe"; }
+                public boolean isChunkGeneratedAt(int x,int z) { return false; }
+            };
+        }
+        public long getTotalWorldTime() { timeReads++; return super.getTotalWorldTime(); }
+    }
+    public static class NativeTile extends TileEntity {
+        int worldGetterCalls, posGetterCalls;
+        World decoyWorld;
+        public World getWorld() { worldGetterCalls++; return decoyWorld; }
+        public BlockPos getPos() { posGetterCalls++; return new BlockPos(314,159,265); }
+        World directWorld() { return this.world; }
+        int x() { return this.pos.getX(); }
+        int y() { return this.pos.getY(); }
+        int z() { return this.pos.getZ(); }
+        // Exact expressions extracted from the migrated production source:
+        World airPumpWorld() { return @AIR_PUMP_WORLD@; }
+        boolean geyserServer() { return @GEYSER_SERVER@; }
+        double geyserX() { return @GEYSER_X@; }
+        double geyserY() { return @GEYSER_Y@; }
+        double geyserZ() { return @GEYSER_Z@; }
+        double geyserTop() { return @GEYSER_TOP@; }
+        double volcanoX(ForgeDirection dir) { return @VOLCANO_X@; }
+    }
+    public static class MiddleTile extends NativeTile { }
+    public static final class DescendantTile extends MiddleTile { }
+    private static final class DomainShadowTile extends NativeTile {
+        // Similar names do not change lexical binding of methods compiled in NativeTile.
+        private BlockPos pos = new BlockPos(71,72,73);
+        private World world;
+        int domainX() { return this.pos.getX(); }
+    }
+    private static final class Owner {
+        int xCoord = 1234;
+        World worldObj;
+        static final class NestedTile extends TileEntity {
+            World directWorld() { return this.world; }
+            int[] triple() { return new int[]{this.pos.getX(), this.pos.getY(), this.pos.getZ()}; }
+        }
+    }
+    private static final class NativeFurnace extends TileEntityFurnace {
+        World directWorld() { return this.world; }
+        int[] triple() { return new int[]{this.pos.getX(), this.pos.getY(), this.pos.getZ()}; }
+    }
+    private static void position(NativeTile tile, int x, int y, int z) {
+        tile.setPos(new BlockPos(x,y,z));
+        check(tile.x()==x && tile.y()==y && tile.z()==z, "full signed native coordinates");
+        same(tile.geyserX(), x + 0.5, "exact production X double promotion");
+        same(tile.geyserY(), y + 0, "exact production Y integer arithmetic");
+        same(tile.geyserZ(), z + 0.5, "exact production Z double promotion");
+        same(tile.geyserTop(), y + 60, "integer overflow remains before double conversion");
+        check(tile.posGetterCalls==0 && tile.worldGetterCalls==0, "direct reads never dispatch through overridden accessors");
+    }
+    public static void main(String[] args) throws Exception {
+        Bootstrap.register();
+        TileEntity.register("hbm_bulk_field_probe", NativeTile.class);
+        FixtureWorld server = new FixtureWorld(false), client = new FixtureWorld(true);
+        NativeTile tile = new NativeTile();
+        check(tile.x()==0 && tile.y()==0 && tile.z()==0, "native initial origin");
+        check(tile.directWorld()==null && tile.airPumpWorld()==null, "native initial null world");
+        nullRead(() -> tile.geyserServer(), "unchanged null world dereference");
+        tile.decoyWorld=client;
+        tile.setWorld(server);
+        check(tile.directWorld()==server && tile.airPumpWorld()==server && tile.geyserServer(), "server identity, no getWorld substitution");
+        check(tile.worldGetterCalls==0, "AirPump expression does not invoke override");
+        tile.setWorld(client);
+        check(tile.directWorld()==client && tile.airPumpWorld()==client && !tile.geyserServer(), "client rebinding and direction");
+        tile.setWorld(null);
+        check(tile.directWorld()==null && tile.airPumpWorld()==null, "null rebinding is not cached");
+        tile.setWorld(server);
+        int[] values={Integer.MIN_VALUE,Integer.MIN_VALUE+1,-30000001,-1,0,1,30000001,Integer.MAX_VALUE-1,Integer.MAX_VALUE};
+        for(int x:values) for(int y:values) for(int z:values) {
+            position(tile,x,y,z);
+            NBTTagCompound nbt=tile.writeToNBT(new NBTTagCompound());
+            check(nbt.getInteger("x")==x && nbt.getInteger("y")==y && nbt.getInteger("z")==z, "actual native NBT full integers");
+            NativeTile restored=new NativeTile(); restored.readFromNBT(nbt);
+            check(restored.x()==x && restored.y()==y && restored.z()==z, "actual native NBT coordinate restoration");
+        }
+        BlockPos.MutableBlockPos mutable=new BlockPos.MutableBlockPos(-4,65,8);
+        tile.setPos(mutable); mutable.setPos(90,91,92);
+        check(tile.x()==-4 && tile.y()==65 && tile.z()==8, "native setPos retains immutable snapshot, not mutable alias");
+        DescendantTile descendant=new DescendantTile(); DomainShadowTile domain=new DomainShadowTile();
+        for(NativeTile inherited:new NativeTile[]{descendant,domain}) {
+            inherited.setWorld(server); position(inherited,-17,255,Integer.MIN_VALUE);
+            check(inherited.directWorld()==server && inherited.airPumpWorld()==server, "indirect field inheritance");
+            inherited.setWorld(client); check(inherited.directWorld()==client, "indirect field rebinding");
+        }
+        check(domain.domainX()==71 && domain.x()==-17, "subclass domain field remains distinct from native field");
+        Owner owner=new Owner(); owner.worldObj=client;
+        Owner.NestedTile nested=new Owner.NestedTile(); nested.setWorld(server); nested.setPos(new BlockPos(9,-3,14));
+        check(nested.directWorld()==server && Arrays.equals(nested.triple(),new int[]{9,-3,14}), "nested named owner uses its own native storage");
+        check(owner.xCoord==1234 && owner.worldObj==client, "unrelated outer domain state untouched");
+        NativeFurnace furnace=new NativeFurnace(); furnace.setWorld(client); furnace.setPos(new BlockPos(Integer.MAX_VALUE,-1,Integer.MIN_VALUE));
+        check(furnace.directWorld()==client && Arrays.equals(furnace.triple(),new int[]{Integer.MAX_VALUE,-1,Integer.MIN_VALUE}), "real Furnace inheritance boundary");
+        long[] times={Long.MIN_VALUE,-6,-5,-1,0,1,4,5,6,Long.MAX_VALUE};
+        for(int x:values) for(long time:times) for(ForgeDirection dir:ForgeDirection.values()) {
+            tile.setPos(new BlockPos(x,0,0)); server.setTotalWorldTime(time);
+            int before=server.timeReads;
+            double expected=(int)(x+dir.offsetX*(time/5L)%1)+0.5;
+            same(tile.volcanoX(dir),expected,"verbatim volcano cast/order/long arithmetic");
+            check(server.timeReads==before+1,"exactly one World time call, even when remainder is zero");
+        }
+        check(tile.worldGetterCalls==0 && tile.posGetterCalls==0,"all sampled field reads remain nonvirtual");
+        System.out.println("PASS: "+checks+" assertions using actual TileEntity/TileEntityFurnace/BlockPos/World/NBT, exact production samples, full signed bounds, native rebind/null/NBT and nonvirtual inherited/nested fields.");
+        System.out.println("LIMIT: native field API fixtures plus seven extracted production expressions; not complete 384-class compilation, live-world lifecycle, machine gameplay or networking.");
+    }
+}

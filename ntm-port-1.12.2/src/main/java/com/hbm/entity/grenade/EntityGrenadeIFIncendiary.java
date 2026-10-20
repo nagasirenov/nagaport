@@ -29,15 +29,15 @@ public class EntityGrenadeIFIncendiary extends EntityGrenadeBouncyBase {
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
             this.setDead();
     		
-    		ExplosionLarge.jolt(worldObj, posX, posY, posZ, 5, 200, 0.25);
-    		ExplosionLarge.explode(worldObj, posX, posY, posZ, 5, true, true, true);
-    		ExplosionThermo.setEntitiesOnFire(worldObj, (int)posX, (int)posY, (int)posZ, 8);
-    		ExplosionChaos.flameDeath(worldObj, (int)posX, (int)posY, (int)posZ, 15);
-    		ExplosionChaos.burn(worldObj, (int)posX, (int)posY, (int)posZ, 10);
+    		ExplosionLarge.jolt(this.world, posX, posY, posZ, 5, 200, 0.25);
+    		ExplosionLarge.explode(this.world, posX, posY, posZ, 5, true, true, true);
+    		ExplosionThermo.setEntitiesOnFire(this.world, (int)posX, (int)posY, (int)posZ, 8);
+    		ExplosionChaos.flameDeath(this.world, (int)posX, (int)posY, (int)posZ, 15);
+    		ExplosionChaos.burn(this.world, (int)posX, (int)posY, (int)posZ, 10);
         }
     }
 

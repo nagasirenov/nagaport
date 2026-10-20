@@ -33,9 +33,9 @@ public class BlockTransporterRocket extends BlockDummyable {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if(world.isRemote)
-			return player.getHeldItem() == null || player.getHeldItem().getItem() != ModItems.transporter_linker;
+			return com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.transporter_linker;
 
-		if(player.getHeldItem() == null || player.getHeldItem().getItem() != ModItems.transporter_linker) {
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.transporter_linker) {
 			return standardOpenBehavior(world, x, y, z, player, 0);
 		}
 
@@ -59,7 +59,7 @@ public class BlockTransporterRocket extends BlockDummyable {
 		if(meta >= 12) {
 			ChunkLoaderManager.unforceChunk(world, x, y, z);
 
-			TileEntity te = world.getTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(te != null && te instanceof TileEntityTransporterBase) {
 				((TileEntityTransporterBase) te).unlinkTransporter();
 			}

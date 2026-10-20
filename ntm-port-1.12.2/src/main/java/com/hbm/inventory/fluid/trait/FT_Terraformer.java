@@ -26,7 +26,7 @@ public class FT_Terraformer extends FluidTrait {
 	public Block getTargetBlock() {
 		if(target == SolarSystem.Body.DUNA) return ModBlocks.duna_sands;
 		if(target == SolarSystem.Body.LAYTHE) return ModBlocks.laythe_silt;
-		return Blocks.stone;
+		return Blocks.STONE;
 	}
 
 	@Override

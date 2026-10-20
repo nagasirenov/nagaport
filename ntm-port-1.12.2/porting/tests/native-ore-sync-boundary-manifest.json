@@ -1,0 +1,1154 @@
+{
+  "baseline": "e72ec3d2ae8db6653ebaad529a574ee32c99260b",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "9ff2e2c0a00d3f6cb54b1f31b6b834e1247ec200484f22a39d573efbb2210f7e",
+      "after_sha256": "84c76a0727d28594ec8e66ea201005cf29c3665d5348cbddb31393e4d739377d",
+      "edits": [
+        {
+          "before_offset": 4569,
+          "after_offset": 4569,
+          "old": "\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before_sha256": "0b64993dd823e750e75c9a5b66d8c9bbbfad4f300108a5ef9c98cc1131a45e92",
+      "after_sha256": "90b8a4cbd9d0f41090ca7cbfd3822a726e2fa1f83aa08c8684425175133cd6be",
+      "edits": [
+        {
+          "before_offset": 2901,
+          "after_offset": 2901,
+          "old": "\t\t\t\t\tworld.spawnEntityInWorld(item);\r\n",
+          "new": "\t\t\t\t\tworld.spawnEntity(item);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCrate.java": {
+      "before_sha256": "f623edc621fa1c8fbe17e9eae68454d0fd5dc5fb5c101ae6ce804a6f266f03a6",
+      "after_sha256": "d3bc14dc17f8579d8417f83759eb749f486eb4952445356bf3485c0531a7e162",
+      "edits": [
+        {
+          "before_offset": 8882,
+          "after_offset": 8882,
+          "old": "\t\t\t\tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before_sha256": "40cb0a8beeb76fc0d35f7c7caf6955ff811bfa3a8f159f0279c269041bb6f70c",
+      "after_sha256": "456251ba694dcc5b5a476026bd39d0d746f42cb8fff6f4684671a81a2377409a",
+      "edits": [
+        {
+          "before_offset": 1635,
+          "after_offset": 1635,
+          "old": "\t\t\t\t\tworld.spawnEntityInWorld(item);\r\n",
+          "new": "\t\t\t\t\tworld.spawnEntity(item);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOre.java": {
+      "before_sha256": "b6fce9b5e3ac25f519b22863d27fa0996f785c10e3604933ff82d1aaada68f03",
+      "after_sha256": "30360d0191c880126c16a349d9fd9eed72d0a028e2bd73f1aca9ef67be0c5b42",
+      "edits": [
+        {
+          "before_offset": 1224,
+          "after_offset": 1224,
+          "old": "",
+          "new": "\n    @Override\n    public Item getItemDropped(net.minecraft.block.state.IBlockState state, Random rand, int fortune) {\n        return getItemDropped(getMetaFromState(state), rand, fortune);\n    }\n\n    @Override\n    public int damageDropped(net.minecraft.block.state.IBlockState state) {\n        return damageDropped(getMetaFromState(state));\n    }\n\n    @Override\n    @SideOnly(Side.CLIENT)\n    public void getSubBlocks(CreativeTabs tab, net.minecraft.util.NonNullList<ItemStack> list) {\n        getSubBlocks(Item.getItemFromBlock(this), tab, list);\n    }\n\n    @Override\n    public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos pos,\n            net.minecraft.block.state.IBlockState state, EntityLivingBase player, ItemStack stack) {\n        onBlockPlacedBy(world, pos.getX(), pos.getY(), pos.getZ(), player, stack);\n    }\n\n\n"
+        },
+        {
+          "before_offset": 3538,
+          "after_offset": 4383,
+          "old": "\t@Override\n",
+          "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+        },
+        {
+          "before_offset": 5947,
+          "after_offset": 6856,
+          "old": "\t@Override\n",
+          "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+        },
+        {
+          "before_offset": 6260,
+          "after_offset": 7233,
+          "old": "\t@Override\n",
+          "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+        },
+        {
+          "before_offset": 7392,
+          "after_offset": 8429,
+          "old": "\t\tif(this == ModBlocks.ore_australium) return EnumRarity.uncommon;\n\t\tif(this == ModBlocks.ore_rare) return EnumRarity.uncommon;\n\t\treturn EnumRarity.common;\n",
+          "new": "\t\tif(this == ModBlocks.ore_australium) return EnumRarity.UNCOMMON;\n\t\tif(this == ModBlocks.ore_rare) return EnumRarity.UNCOMMON;\n\t\treturn EnumRarity.COMMON;\n"
+        },
+        {
+          "before_offset": 7552,
+          "after_offset": 8589,
+          "old": "\t@Override\n",
+          "new": "\t// Retained NTM scalar domain hook; native callbacks dispatch through it.\n"
+        },
+        {
+          "before_offset": 7709,
+          "after_offset": 8810,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, meta, 2);\n",
+          "new": "\t\t// Keep stack evaluation before the original receiver/bounds checks.\n        if(world == null) throw new NullPointerException();\n        if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {\n            net.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);\n            net.minecraft.block.state.IBlockState current = world.getBlockState(pos);\n            net.minecraft.block.state.IBlockState changed = current.getBlock().getStateFromMeta(meta);\n            if(changed == current && current.getBlock().getMetaFromState(current) != meta) {\n                // The original chunk compared raw damage before storing its low nibble.\n                net.minecraft.world.chunk.Chunk chunk = world.getChunk(pos);\n                if(chunk.getBlockStorageArray()[y >> 4] != net.minecraft.world.chunk.Chunk.NULL_BLOCK_STORAGE) {\n                    chunk.markDirty();\n                    if(chunk.isPopulated()) world.notifyBlockUpdate(pos, current, changed, 2);\n                }\n            } else {\n                world.setBlockState(pos, changed, 2);\n            }\n        }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": {
+      "before_sha256": "f6ea7483fe0e97351eb627c76611315787d06bbcb21b446ce7ce1a35b312788b",
+      "after_sha256": "20c43266a797c49f39268abd1fcdd9dd95afd0a2bacca60760d1b1009d51e75c",
+      "edits": [
+        {
+          "before_offset": 2599,
+          "after_offset": 2599,
+          "old": "\t\t\t\t\tworld.spawnEntityInWorld(item);\r\n",
+          "new": "\t\t\t\t\tworld.spawnEntity(item);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "e4989afbf1bf3c48ec45dce22ff44c92bcc8aa18df67ca30122f23fca5129194",
+      "after_sha256": "be674f0f8d7e320a4c7789301ef44f645375b7fe2cee5a11b4a287de04af82fd",
+      "edits": [
+        {
+          "before_offset": 3047,
+          "after_offset": 3047,
+          "old": "\t\t\t\tworld.spawnEntityInWorld(item);\r\n",
+          "new": "\t\t\t\tworld.spawnEntity(item);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before_sha256": "74aa22ed2fcb714cc721bf786849f3be7d2596a0aae425c94abd960cd82506e1",
+      "after_sha256": "291803be0d93bb0c14946a81792ad09a29ff27e6580315ea7ac1b2f220febfae",
+      "edits": [
+        {
+          "before_offset": 2714,
+          "after_offset": 2714,
+          "old": "\t\t\t\t\tworld.spawnEntityInWorld(item);\r\n",
+          "new": "\t\t\t\t\tworld.spawnEntity(item);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java": {
+      "before_sha256": "45299f2d263bab611379a98850b722ad11eae97b3ed1058c18121738cd89ab55",
+      "after_sha256": "bfdbf01b0ffd4161b1e4a81cb2ce53c4b6b6404deb65734673b7331a8cb1322e",
+      "edits": [
+        {
+          "before_offset": 3662,
+          "after_offset": 3662,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java": {
+      "before_sha256": "9060b6230f786fb88b563151088890f797e77bb6556b854a85b38ee7d0a99bbc",
+      "after_sha256": "949a0c840c528339ae9a235acbffc34ba969fd5dec8346d9c353ce01b0978f8e",
+      "edits": [
+        {
+          "before_offset": 3231,
+          "after_offset": 3231,
+          "old": "\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tworld.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCrucible.java": {
+      "before_sha256": "395fd625ce6fbc521c35f4c167e49571ec7eb9fa52ba1183180b4808b6ed6798",
+      "after_sha256": "a92af0dba090ec57edfbd414039c6c3e3b6806f1cc719baf4413f840d9155f99",
+      "edits": [
+        {
+          "before_offset": 3095,
+          "after_offset": 3095,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 4228,
+          "after_offset": 4221,
+          "old": "\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\tworld.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java": {
+      "before_sha256": "82a8c63b71066115a817f1b976251cb4bcc105d541a88717b03e986ab8bb7566",
+      "after_sha256": "07c9eb1fc4d15fdcac425e721921a9eccc3e59dd13fe63403ae26b3576dddbed",
+      "edits": [
+        {
+          "before_offset": 6195,
+          "after_offset": 6195,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 6979,
+          "after_offset": 6972,
+          "old": "\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 8861,
+          "after_offset": 8847,
+          "old": "\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tworld.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "720e96f86d64fb757b7d5f12c0a6106a03ba629299ae6e997610d687403df135",
+      "after_sha256": "b58fdb67ce66d83906f6cc9534e4124183f384ff64a4fdc9be16df62916d6e55",
+      "edits": [
+        {
+          "before_offset": 3372,
+          "after_offset": 3372,
+          "old": "\t\t\t\t\tworld.spawnEntityInWorld(dust);\n",
+          "new": "\t\t\t\t\tworld.spawnEntity(dust);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+      "before_sha256": "4eeac13ea4de591ec04c30d35f00df35c2575562a791f340ea8dbc0c7058959b",
+      "after_sha256": "24db7e4dcd67e41c7954fadcbf85c458eb79fe102809db1aa1b68e5b032b4a91",
+      "edits": [
+        {
+          "before_offset": 2523,
+          "after_offset": 2523,
+          "old": "\t\tworld.spawnEntityInWorld(dust);\n",
+          "new": "\t\tworld.spawnEntity(dust);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/crafting/handlers/CargoShellCraftingHandler.java": {
+      "before_sha256": "6694f7b240c49940fd32a0e509a6049064ccfec6928a094bff22ba6921d841e8",
+      "after_sha256": "967f8a7d529dec2178d9fbf1eb8658d5334b04548be2cc2a0c1ba94688d5ae19",
+      "edits": [
+        {
+          "before_offset": 275,
+          "after_offset": 275,
+          "old": "public class CargoShellCraftingHandler implements IRecipe {\n",
+          "new": "public class CargoShellCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {\n"
+        },
+        {
+          "before_offset": 568,
+          "after_offset": 640,
+          "old": "\t\t\tif(stack != null) {\n",
+          "new": "\t\t\tif(!stack.isEmpty()) {\n"
+        },
+        {
+          "before_offset": 596,
+          "after_offset": 671,
+          "old": "\t\t\t\tif(stack.getItem().hasContainerItem(stack) || !stack.getItem().doesContainerItemLeaveCraftingGrid(stack))\n",
+          "new": "\t\t\t\t// Both original NTM leave-grid opt-outs also report a container; vanilla always left the grid.\n\t\t\t\t// The removed Forge hook adds no exclusion in that verified domain. See dynamic-crafting notes.\n\t\t\t\tif(stack.getItem().hasContainerItem(stack))\n"
+        },
+        {
+          "before_offset": 1182,
+          "after_offset": 1396,
+          "old": "\t\t\tif(stack == null)\n",
+          "new": "\t\t\tif(stack.isEmpty())\n"
+        },
+        {
+          "before_offset": 1533,
+          "after_offset": 1749,
+          "old": "\t\t\treturn null;\n",
+          "new": "\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1735,
+          "after_offset": 1962,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1788,
+          "after_offset": 2004,
+          "old": "",
+          "new": "\t}\n\n\t@Override\n\tpublic boolean canFit(int width, int height) {\n\t\treturn width * height >= 2;\n\t}\n\n\t@Override\n\tpublic boolean isDynamic() {\n\t\treturn true;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/crafting/handlers/RBMKFuelCraftingHandler.java": {
+      "before_sha256": "900e360f3a36612a452ee52e3b2080ff6df663c840be23227a5987cc0fcd70c2",
+      "after_sha256": "45911508d4d115b495e2321f8071d8dfad2a4cbd892ec6628e4e3fb8ab7fe5ea",
+      "edits": [
+        {
+          "before_offset": 288,
+          "after_offset": 288,
+          "old": "public class RBMKFuelCraftingHandler implements IRecipe {\n",
+          "new": "public class RBMKFuelCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {\n"
+        },
+        {
+          "before_offset": 855,
+          "after_offset": 927,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1030,
+          "after_offset": 1091,
+          "old": "\t\t\treturn null;\n",
+          "new": "\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1230,
+          "after_offset": 1302,
+          "old": "\t\t\t\treturn null;\n",
+          "new": "\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1299,
+          "after_offset": 1382,
+          "old": "\t\t\t\treturn null;\n",
+          "new": "\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1706,
+          "after_offset": 1800,
+          "old": "\t\treturn null;\n",
+          "new": "\t\treturn ItemStack.EMPTY;\n\t}\n\n\t@Override\n\tpublic boolean canFit(int width, int height) {\n\t\treturn width * height >= 1;\n\t}\n\n\t@Override\n\tpublic boolean isDynamic() {\n\t\treturn true;\n"
+        },
+        {
+          "before_offset": 1774,
+          "after_offset": 2032,
+          "old": "\t\treturn null;\n",
+          "new": "\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 2026,
+          "after_offset": 2295,
+          "old": "\t\t\t\tif(stack != null) {\n",
+          "new": "\t\t\t\tif(!stack.isEmpty()) {\n"
+        },
+        {
+          "before_offset": 2364,
+          "after_offset": 2636,
+          "old": "\t\t\t\tif(stack != null) {\n",
+          "new": "\t\t\t\tif(!stack.isEmpty()) {\n"
+        },
+        {
+          "before_offset": 2425,
+          "after_offset": 2700,
+          "old": "\t\treturn null;\n",
+          "new": "\t\treturn ItemStack.EMPTY;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/crafting/handlers/ScrapsCraftingHandler.java": {
+      "before_sha256": "4a0047562ab9dae6525ff671d3810729ae6d71fd735a77e9fa72653ce15e6505",
+      "after_sha256": "c93b6f2fc1b943740e20f7e27534db91f3d581468727ddebef1121195c19ac61",
+      "edits": [
+        {
+          "before_offset": 329,
+          "after_offset": 329,
+          "old": "public class ScrapsCraftingHandler implements IRecipe {\n",
+          "new": "public class ScrapsCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {\n"
+        },
+        {
+          "before_offset": 600,
+          "after_offset": 672,
+          "old": "\t\t\tif(stack == null) continue;\n",
+          "new": "\t\t\tif(stack.isEmpty()) continue;\n"
+        },
+        {
+          "before_offset": 1042,
+          "after_offset": 1116,
+          "old": "\t\t\tif(stack == null) continue;\n\t\t\tif(stack.getItem() != ModItems.scraps) return null;\n\t\t\tif(mat != null) return null;\n",
+          "new": "\t\t\tif(stack.isEmpty()) continue;\n\t\t\tif(stack.getItem() != ModItems.scraps) return ItemStack.EMPTY;\n\t\t\tif(mat != null) return ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1200,
+          "after_offset": 1298,
+          "old": "\t\t\tif(mat.amount < 2) return null;\n",
+          "new": "\t\t\tif(mat.amount < 2) return ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1242,
+          "after_offset": 1351,
+          "old": "\t\tif(mat == null) return null;\n",
+          "new": "\t\tif(mat == null) return ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1405,
+          "after_offset": 1525,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1458,
+          "after_offset": 1567,
+          "old": "",
+          "new": "\t}\n\n\t@Override\n\tpublic boolean canFit(int width, int height) {\n\t\treturn width * height >= 1;\n\t}\n\n\t@Override\n\tpublic boolean isDynamic() {\n\t\treturn true;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityCloudFleija.java": {
+      "before_sha256": "d7f416e04edf1b2860494da2fdbedd220e6f597b8668b2416512000d8478bc9f",
+      "after_sha256": "a679e2ebda663735dddc22db8c3e8cbe3ca66b89d22d7c4d3a48c3b8a4fe3b2f",
+      "edits": [
+        {
+          "before_offset": 263,
+          "after_offset": 263,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 346,
+          "after_offset": 512,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudFleija.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 651,
+          "after_offset": 951,
+          "old": "\t\tthis.dataWatcher.addObject(16, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(MAX_AGE, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 1781,
+          "after_offset": 2085,
+          "old": "\t\tthis.dataWatcher.updateObject(16, Integer.valueOf(i));\n",
+          "new": "\t\tthis.dataManager.set(MAX_AGE, Integer.valueOf(i));\n"
+        },
+        {
+          "before_offset": 1869,
+          "after_offset": 2169,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(16);\n",
+          "new": "\t\treturn this.dataManager.get(MAX_AGE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityCloudFleijaRainbow.java": {
+      "before_sha256": "ee315f1850121c814022332d330c751c58d0e4e99058ecf697f4677238ca2300",
+      "after_sha256": "fe2856766ec8cbfb693cc88260b672435041dca2ff7e444ae65ccb35b116172f",
+      "edits": [
+        {
+          "before_offset": 263,
+          "after_offset": 263,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 353,
+          "after_offset": 519,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudFleijaRainbow.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 665,
+          "after_offset": 972,
+          "old": "\t\tthis.dataWatcher.addObject(16, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(MAX_AGE, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 1802,
+          "after_offset": 2113,
+          "old": "\t\tthis.dataWatcher.updateObject(16, Integer.valueOf(i));\n",
+          "new": "\t\tthis.dataManager.set(MAX_AGE, Integer.valueOf(i));\n"
+        },
+        {
+          "before_offset": 1890,
+          "after_offset": 2197,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(16);\n",
+          "new": "\t\treturn this.dataManager.get(MAX_AGE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityCloudSolinium.java": {
+      "before_sha256": "a05a0f1c689ce0d4644afbb6bf8df0e8b7eedd000e400944b2bdaefeec468a25",
+      "after_sha256": "89b3661665246e442f6c67e0a0ee4f35200db48dff3485dfd44101cb71f38154",
+      "edits": [
+        {
+          "before_offset": 263,
+          "after_offset": 263,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 348,
+          "after_offset": 514,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudSolinium.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 655,
+          "after_offset": 957,
+          "old": "\t\tthis.dataWatcher.addObject(16, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(MAX_AGE, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 1787,
+          "after_offset": 2093,
+          "old": "\t\tthis.dataWatcher.updateObject(16, Integer.valueOf(i));\n",
+          "new": "\t\tthis.dataManager.set(MAX_AGE, Integer.valueOf(i));\n"
+        },
+        {
+          "before_offset": 1875,
+          "after_offset": 2177,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(16);\n",
+          "new": "\t\treturn this.dataManager.get(MAX_AGE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityCloudTom.java": {
+      "before_sha256": "c10e8807312af968e08d4711162b1043cdb1397b7f711ad68d357924434a15d0",
+      "after_sha256": "4f5b03734e565db29c018a591396af75f9fbb260edf9ed8944aad721742be613",
+      "edits": [
+        {
+          "before_offset": 207,
+          "after_offset": 207,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 287,
+          "after_offset": 453,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudTom.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 544,
+          "after_offset": 841,
+          "old": "\t\tthis.dataWatcher.addObject(16, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(MAX_AGE, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 1375,
+          "after_offset": 1676,
+          "old": "\t\tthis.dataWatcher.updateObject(16, Integer.valueOf(i));\n",
+          "new": "\t\tthis.dataManager.set(MAX_AGE, Integer.valueOf(i));\n"
+        },
+        {
+          "before_offset": 1462,
+          "after_offset": 1759,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(16);\n",
+          "new": "\t\treturn this.dataManager.get(MAX_AGE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMovingPackage.java": {
+      "before_sha256": "079af157430f67c7de3ce3286a03323bdcc55e34457f4efe71f3fc5b98064e76",
+      "after_sha256": "b75314c7217f4cbabb7c6ff51b94843c4b4602fe2c4929e62ce02fadd2bf6439",
+      "edits": [
+        {
+          "before_offset": 2495,
+          "after_offset": 2495,
+          "old": "\t\t\tthis.world.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tthis.world.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityBobmazon.java": {
+      "before_sha256": "3c3dbafda42aacb4bca242dcf62804abc5bd5e94ff60c929886939cc9b140185",
+      "after_sha256": "46b53b0cb9f981da11d8e4227b5437f210cb743c703278a3a31063df4215e725",
+      "edits": [
+        {
+          "before_offset": 1613,
+          "after_offset": 1613,
+          "old": "\t\t\t\t\tthis.world.spawnEntityInWorld(pack);\n",
+          "new": "\t\t\t\t\tthis.world.spawnEntity(pack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityDebrisBase.java": {
+      "before_sha256": "748965581c4bd3c86ccacfdff9b47b25cefb8059f512708653349357ba3a3b88",
+      "after_sha256": "acc72ea5259c1f8627f4040779af2144a0202760138bffd1dbdfa7050c68c6ad",
+      "edits": [
+        {
+          "before_offset": 372,
+          "after_offset": 372,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 554,
+          "after_offset": 720,
+          "old": "",
+          "new": "\n\tprotected static final DataParameter<Integer> DEBRIS_TYPE = EntityDataManager.createKey(EntityDebrisBase.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 739,
+          "after_offset": 1044,
+          "old": "\t\tthis.dataWatcher.addObject(20, 0);\n",
+          "new": "\t\tthis.dataManager.register(DEBRIS_TYPE, 0);\n"
+        },
+        {
+          "before_offset": 1074,
+          "after_offset": 1387,
+          "old": "\t\tthis.dataWatcher.updateObject(20, nbt.getInteger(\"debtype\"));\n",
+          "new": "\t\tthis.dataManager.set(DEBRIS_TYPE, nbt.getInteger(\"debtype\"));\n"
+        },
+        {
+          "before_offset": 1208,
+          "after_offset": 1521,
+          "old": "\t\tnbt.setInteger(\"debtype\", this.dataWatcher.getWatchableObjectInt(20));\n",
+          "new": "\t\tnbt.setInteger(\"debtype\", this.dataManager.get(DEBRIS_TYPE));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRBMKDebris.java": {
+      "before_sha256": "9c1bbe0a86adf543c4eaf919a4b4c70ae64de68617697b8c9cca1e4dc5a903ed",
+      "after_sha256": "5ed4efe76c84aa18b481c122bee89a7de278d781ee1d44ddf3744a679cf8a19c",
+      "edits": [
+        {
+          "before_offset": 4442,
+          "after_offset": 4442,
+          "old": "\t\tthis.dataWatcher.updateObject(20, type.ordinal());\n",
+          "new": "\t\tthis.dataManager.set(DEBRIS_TYPE, type.ordinal());\n"
+        },
+        {
+          "before_offset": 4531,
+          "after_offset": 4531,
+          "old": "\t\treturn DebrisType.values()[Math.abs(this.dataWatcher.getWatchableObjectInt(20)) % DebrisType.values().length];\n",
+          "new": "\t\treturn DebrisType.values()[Math.abs(this.dataManager.get(DEBRIS_TYPE)) % DebrisType.values().length];\n"
+        },
+        {
+          "before_offset": 4715,
+          "after_offset": 4706,
+          "old": "\t\tthis.dataWatcher.updateObject(20, nbt.getInteger(\"debtype\"));\n",
+          "new": "\t\tthis.dataManager.set(DEBRIS_TYPE, nbt.getInteger(\"debtype\"));\n"
+        },
+        {
+          "before_offset": 4849,
+          "after_offset": 4840,
+          "old": "\t\tnbt.setInteger(\"debtype\", this.dataWatcher.getWatchableObjectInt(20));\n",
+          "new": "\t\tnbt.setInteger(\"debtype\", this.dataManager.get(DEBRIS_TYPE));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityZirnoxDebris.java": {
+      "before_sha256": "4d0cebec1c39d8326796cc5ac99b496fdf0f67ff662d4e3c1742dc142620c35f",
+      "after_sha256": "034419cdd13eb15634ccf6304fbb6894c64ac812d1704fd2b6cc303806b68f51",
+      "edits": [
+        {
+          "before_offset": 4362,
+          "after_offset": 4362,
+          "old": "\t\tthis.dataWatcher.updateObject(20, type.ordinal());\n",
+          "new": "\t\tthis.dataManager.set(DEBRIS_TYPE, type.ordinal());\n"
+        },
+        {
+          "before_offset": 4450,
+          "after_offset": 4450,
+          "old": "\t\treturn DebrisType.values()[Math.abs(this.dataWatcher.getWatchableObjectInt(20)) % DebrisType.values().length];\n",
+          "new": "\t\treturn DebrisType.values()[Math.abs(this.dataManager.get(DEBRIS_TYPE)) % DebrisType.values().length];\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionLarge.java": {
+      "before_sha256": "296712788071b2ac08d9b746a2267485b4028f5c3397487c6630fa60a8c64d9a",
+      "after_sha256": "db38b2942c1e465d66648e8272dc2a911e3042b9e6f73e998653631a7eba2d2d",
+      "edits": [
+        {
+          "before_offset": 6215,
+          "after_offset": 6215,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(item);\n"
+        },
+        {
+          "before_offset": 6598,
+          "after_offset": 6591,
+          "old": "\t\t\tworld.spawnEntityInWorld(item);\n",
+          "new": "\t\t\tworld.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ability/IWeaponAbility.java": {
+      "before_sha256": "26bb39f1842a7b748e3c7a63338112764e0be141dce9d73791e863294e2b9e88",
+      "after_sha256": "d27e03305732fa369864a57c0610b96a7bb490873fa49a283fedf574e551135b",
+      "edits": [
+        {
+          "before_offset": 6789,
+          "after_offset": 6789,
+          "old": "\t\t\t\t\t\tworld.spawnEntityInWorld(new EntityXPOrb(world, living.posX, living.posY, living.posZ, 1));\n",
+          "new": "\t\t\t\t\t\tworld.spawnEntity(new EntityXPOrb(world, living.posX, living.posY, living.posZ, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMS.java": {
+      "before_sha256": "e3227ff475b5037cf01a168e5d1075bca0944ef5815379ccdc9e21a95720ecaa",
+      "after_sha256": "dc16731220d1890c23a211ad7605341fc264903344d66c013f5982aba6718c4d",
+      "edits": [
+        {
+          "before_offset": 1777,
+          "after_offset": 1777,
+          "old": "    \t            \tworld.spawnEntityInWorld(entityitem);\n",
+          "new": "    \t            \tworld.spawnEntity(entityitem);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/CraftingManager.java": {
+      "before_sha256": "3044e3eea8f3264dd12156f268b215115abd687207ef5974d7db562e410c0f50",
+      "after_sha256": "2b22d70bfa10a0c9a57fb01455ed515b8283bb42c41e8ea9eae4ab5cb57998bf",
+      "edits": [
+        {
+          "before_offset": 2904,
+          "after_offset": 2904,
+          "old": "\t\tGameRegistry.addRecipe(new RBMKFuelCraftingHandler());\n",
+          "new": "\t\tNtmCraftingRegistry.special(\"special/rbmk_fuel\", new RBMKFuelCraftingHandler());\n"
+        },
+        {
+          "before_offset": 3033,
+          "after_offset": 3059,
+          "old": "\t\tGameRegistry.addRecipe(new CargoShellCraftingHandler());\n\t\tGameRegistry.addRecipe(new ScrapsCraftingHandler());\n",
+          "new": "\t\tNtmCraftingRegistry.special(\"special/cargo_shell\", new CargoShellCraftingHandler());\n\t\tNtmCraftingRegistry.special(\"special/scraps\", new ScrapsCraftingHandler());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java": {
+      "before_sha256": "b66813cbd2d7557633b097ddc37bcf20008eede326d0775733eff9e1bba406b7",
+      "after_sha256": "3c6af2dbf09255f5624b59f36e45fca592085c24eb059caf61bc69bfa5233eeb",
+      "edits": [
+        {
+          "before_offset": 2386,
+          "after_offset": 2386,
+          "old": "\t\t\t\tthis.world.spawnEntityInWorld(item);\n",
+          "new": "\t\t\t\tthis.world.spawnEntity(item);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before_sha256": "7b181ff5a2766f68ec7d1e962e2eb70d1e8cff10812b4f9d1574388f6494cd6d",
+      "after_sha256": "65056f0391d80a4edad027483957353bfc21a2cbc7bb93a9f9422643bfe5f58b",
+      "edits": [
+        {
+          "before_offset": 585452,
+          "after_offset": 585452,
+          "old": "\t\tworld.setBlock(x + 6, y + 2, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 2, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 2, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 2, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 2, z + 20, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 2, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 2, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 2, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 2, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 2, z + 20, Block15);\n"
+        },
+        {
+          "before_offset": 585867,
+          "after_offset": 586142,
+          "old": "\t\tworld.setBlock(x + 4, y + 2, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 2, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 2, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 2, z + 21, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 2, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 2, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 2, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 2, z + 21, Block15);\n"
+        },
+        {
+          "before_offset": 586228,
+          "after_offset": 586723,
+          "old": "\t\tworld.setBlock(x + 4, y + 2, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 2, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 2, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 2, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 586478,
+          "after_offset": 587083,
+          "old": "\t\tworld.setBlock(x + 3, y + 2, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 2, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 586728,
+          "after_offset": 587443,
+          "old": "\t\tworld.setBlock(x + 3, y + 2, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 2, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 586978,
+          "after_offset": 587803,
+          "old": "\t\tworld.setBlock(x + 3, y + 2, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 2, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 587228,
+          "after_offset": 588163,
+          "old": "\t\tworld.setBlock(x + 3, y + 2, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 2, z + 26, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 26, Block15);\n"
+        },
+        {
+          "before_offset": 587478,
+          "after_offset": 588523,
+          "old": "\t\tworld.setBlock(x + 3, y + 2, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 2, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 2, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 2, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 587783,
+          "after_offset": 588938,
+          "old": "\t\tworld.setBlock(x + 4, y + 2, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 2, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 2, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 2, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 588033,
+          "after_offset": 589298,
+          "old": "\t\tworld.setBlock(x + 4, y + 2, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 2, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 2, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 2, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 2, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 2, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 2, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 2, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 588394,
+          "after_offset": 589879,
+          "old": "\t\tworld.setBlock(x + 6, y + 2, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 2, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 2, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 2, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 2, z + 30, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 2, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 2, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 2, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 2, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 2, z + 30, Block15);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before_sha256": "4a544eb4f197707f1d3afb5feb43d03291dbf6dacfd2eef65671611954f287ee",
+      "after_sha256": "2dafb4e81eedddff7b4615e9630bd64594fc9547b303b14bcc50da7ff5e17145",
+      "edits": [
+        {
+          "before_offset": 40007,
+          "after_offset": 40007,
+          "old": "\t\tworld.setBlock(x + 6, y + 3, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 3, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 3, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 3, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 3, z + 20, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 3, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 3, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 3, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 3, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 3, z + 20, Block15);\n"
+        },
+        {
+          "before_offset": 40422,
+          "after_offset": 40697,
+          "old": "\t\tworld.setBlock(x + 4, y + 3, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 3, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 3, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 3, z + 21, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 3, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 3, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 3, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 3, z + 21, Block15);\n"
+        },
+        {
+          "before_offset": 40783,
+          "after_offset": 41278,
+          "old": "\t\tworld.setBlock(x + 4, y + 3, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 3, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 3, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 3, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 41033,
+          "after_offset": 41638,
+          "old": "\t\tworld.setBlock(x + 3, y + 3, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 41283,
+          "after_offset": 41998,
+          "old": "\t\tworld.setBlock(x + 3, y + 3, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 41533,
+          "after_offset": 42358,
+          "old": "\t\tworld.setBlock(x + 3, y + 3, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 41783,
+          "after_offset": 42718,
+          "old": "\t\tworld.setBlock(x + 3, y + 3, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 26, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 26, Block15);\n"
+        },
+        {
+          "before_offset": 42033,
+          "after_offset": 43078,
+          "old": "\t\tworld.setBlock(x + 3, y + 3, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 13, y + 3, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 3, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 3, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 42283,
+          "after_offset": 43438,
+          "old": "\t\tworld.setBlock(x + 4, y + 3, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 3, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 3, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 3, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 42533,
+          "after_offset": 43798,
+          "old": "\t\tworld.setBlock(x + 4, y + 3, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 3, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 3, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 3, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 3, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 3, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 3, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 3, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 42894,
+          "after_offset": 44379,
+          "old": "\t\tworld.setBlock(x + 6, y + 3, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 3, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 3, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 3, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 3, z + 30, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 3, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 3, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 3, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 3, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 3, z + 30, Block15);\n"
+        },
+        {
+          "before_offset": 117860,
+          "after_offset": 119620,
+          "old": "\t\tworld.setBlock(x + 6, y + 4, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 4, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 4, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 4, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 4, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 4, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 4, z + 21, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 4, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 4, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 4, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 4, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 4, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 21, Block15);\n"
+        },
+        {
+          "before_offset": 118792,
+          "after_offset": 120937,
+          "old": "\t\tworld.setBlock(x + 11, y + 4, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 4, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 4, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 119178,
+          "after_offset": 121488,
+          "old": "\t\tworld.setBlock(x + 12, y + 4, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 4, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 119508,
+          "after_offset": 121928,
+          "old": "\t\tworld.setBlock(x + 13, y + 4, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 4, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 4, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 119838,
+          "after_offset": 122368,
+          "old": "\t\tworld.setBlock(x + 13, y + 4, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 4, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 4, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 120168,
+          "after_offset": 122808,
+          "old": "\t\tworld.setBlock(x + 13, y + 4, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 26, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 4, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 4, z + 26, Block15);\n"
+        },
+        {
+          "before_offset": 120498,
+          "after_offset": 123248,
+          "old": "\t\tworld.setBlock(x + 13, y + 4, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 4, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 4, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 4, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 120828,
+          "after_offset": 123688,
+          "old": "\t\tworld.setBlock(x + 13, y + 4, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 4, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 4, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 121158,
+          "after_offset": 124128,
+          "old": "\t\tworld.setBlock(x + 12, y + 4, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 4, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 4, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 121870,
+          "after_offset": 125005,
+          "old": "\t\tworld.setBlock(x + 11, y + 4, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 4, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 4, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 4, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 4, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 4, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 4, z + 30, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 4, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 4, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 4, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 4, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 4, z + 30, Block15);\n"
+        },
+        {
+          "before_offset": 175416,
+          "after_offset": 178936,
+          "old": "\t\tworld.setBlock(x + 6, y + 5, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 5, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 5, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 5, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 5, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 5, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 5, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 5, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 5, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 5, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 5, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 5, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 5, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 5, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 5, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 5, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 5, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 5, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 5, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 5, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 5, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 5, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 5, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 5, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 5, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 5, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 5, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 5, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 5, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 5, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 5, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 5, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 5, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 5, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 5, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 5, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 5, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 5, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 5, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 5, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 5, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 5, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 5, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 5, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 245798,
+          "after_offset": 250638,
+          "old": "\t\tworld.setBlock(x + 6, y + 6, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 6, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 6, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 6, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 6, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 6, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 6, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 6, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 6, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 6, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 6, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 6, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 12, y + 6, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 6, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 6, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 6, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 6, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 6, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 6, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 6, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 6, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 6, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 6, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 6, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 6, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 6, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 6, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 6, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 6, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 6, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 6, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 6, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 6, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 6, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 6, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 6, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 6, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 6, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 6, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 6, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 6, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 6, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 6, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 6, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 310012,
+          "after_offset": 316172,
+          "old": "\t\tworld.setBlock(x + 6, y + 7, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 7, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 7, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 7, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 7, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 7, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 7, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 7, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 7, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 7, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 7, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 7, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 310889,
+          "after_offset": 317379,
+          "old": "\t\tworld.setBlock(x + 11, y + 7, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 7, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 7, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 311397,
+          "after_offset": 317997,
+          "old": "\t\tworld.setBlock(x + 12, y + 7, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 7, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 7, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 311905,
+          "after_offset": 318615,
+          "old": "\t\tworld.setBlock(x + 12, y + 7, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 7, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 7, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 312482,
+          "after_offset": 319302,
+          "old": "\t\tworld.setBlock(x + 12, y + 7, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 26, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 7, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 7, z + 26, Block15);\n"
+        },
+        {
+          "before_offset": 312921,
+          "after_offset": 319851,
+          "old": "\t\tworld.setBlock(x + 12, y + 7, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 7, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 7, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 7, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 313498,
+          "after_offset": 320538,
+          "old": "\t\tworld.setBlock(x + 12, y + 7, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 7, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 7, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 7, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 314155,
+          "after_offset": 321305,
+          "old": "\t\tworld.setBlock(x + 11, y + 7, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 7, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 7, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 7, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 7, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 7, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 7, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 7, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 7, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 7, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 7, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 7, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 359648,
+          "after_offset": 367128,
+          "old": "\t\tworld.setBlock(x + 6, y + 8, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 8, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 360010,
+          "after_offset": 367600,
+          "old": "\t\tworld.setBlock(x + 9, y + 8, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 8, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 8, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 8, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 360245,
+          "after_offset": 368000,
+          "old": "\t\tworld.setBlock(x + 11, y + 8, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 8, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 8, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 360425,
+          "after_offset": 368290,
+          "old": "\t\tworld.setBlock(x + 11, y + 8, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 8, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 8, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 360605,
+          "after_offset": 368580,
+          "old": "\t\tworld.setBlock(x + 11, y + 8, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 8, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 8, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 8, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 8, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 8, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 8, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 360965,
+          "after_offset": 369160,
+          "old": "\t\tworld.setBlock(x + 11, y + 8, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 8, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 8, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 8, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 8, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 8, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 8, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 8, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 8, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 8, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 8, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 8, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 363354,
+          "after_offset": 371879,
+          "old": "\t\tworld.setBlock(x + 6, y + 9, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 9, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 9, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 363530,
+          "after_offset": 372165,
+          "old": "\t\tworld.setBlock(x + 9, y + 9, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 9, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 9, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 9, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 9, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 9, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 9, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 9, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 9, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 9, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 9, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 9, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 9, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 9, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 9, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 9, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 9, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 9, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 9, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 9, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 9, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 9, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 9, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 9, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 9, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 9, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 9, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 9, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 9, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 9, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 9, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 9, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 9, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 365358,
+          "after_offset": 374928,
+          "old": "\t\tworld.setBlock(x + 6, y + 10, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 10, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 10, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 10, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 10, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 10, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 10, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 10, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 10, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 10, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 10, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 10, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 10, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 10, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 11, y + 10, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 10, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 10, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 10, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 10, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 10, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 10, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 10, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 10, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 10, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 10, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 10, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 10, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 10, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 10, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 10, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 10, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 10, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 10, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 10, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 10, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 10, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 10, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 10, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 10, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 10, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 366707,
+          "after_offset": 377377,
+          "old": "\t\tworld.setBlock(x + 6, y + 11, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 11, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 11, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 11, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 11, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 11, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 11, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 11, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 11, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 11, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 11, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 11, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 367595,
+          "after_offset": 378595,
+          "old": "\t\tworld.setBlock(x + 11, y + 11, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 11, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 367929,
+          "after_offset": 379039,
+          "old": "\t\tworld.setBlock(x + 12, y + 11, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 11, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 368263,
+          "after_offset": 379483,
+          "old": "\t\tworld.setBlock(x + 12, y + 11, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 11, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 368597,
+          "after_offset": 379927,
+          "old": "\t\tworld.setBlock(x + 12, y + 11, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 26, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 11, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 26, Block15);\n"
+        },
+        {
+          "before_offset": 368931,
+          "after_offset": 380371,
+          "old": "\t\tworld.setBlock(x + 12, y + 11, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 11, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 11, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 11, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 369265,
+          "after_offset": 380815,
+          "old": "\t\tworld.setBlock(x + 12, y + 11, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 11, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 11, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 11, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 369929,
+          "after_offset": 381589,
+          "old": "\t\tworld.setBlock(x + 11, y + 11, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 11, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 11, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 11, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 11, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 11, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 11, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 11, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 11, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 11, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 11, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 11, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 370435,
+          "after_offset": 382425,
+          "old": "\t\tworld.setBlock(x + 6, y + 12, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 12, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 12, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 12, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 12, z + 20, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 12, z + 21, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 12, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 12, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 12, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 12, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 12, z + 20, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 12, z + 21, Block15);\n"
+        },
+        {
+          "before_offset": 371323,
+          "after_offset": 383643,
+          "old": "\t\tworld.setBlock(x + 11, y + 12, z + 21, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 12, z + 22, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 12, z + 21, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 12, z + 22, Block15);\n"
+        },
+        {
+          "before_offset": 371657,
+          "after_offset": 384087,
+          "old": "\t\tworld.setBlock(x + 12, y + 12, z + 22, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 12, z + 23, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 12, z + 22, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 12, z + 23, Block15);\n"
+        },
+        {
+          "before_offset": 371991,
+          "after_offset": 384531,
+          "old": "\t\tworld.setBlock(x + 13, y + 12, z + 23, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 12, z + 24, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 12, z + 23, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 12, z + 24, Block15);\n"
+        },
+        {
+          "before_offset": 372325,
+          "after_offset": 384975,
+          "old": "\t\tworld.setBlock(x + 13, y + 12, z + 24, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 12, z + 25, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 12, z + 24, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 12, z + 25, Block15);\n"
+        },
+        {
+          "before_offset": 372659,
+          "after_offset": 385419,
+          "old": "\t\tworld.setBlock(x + 13, y + 12, z + 25, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 12, z + 26, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 12, z + 25, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 12, z + 26, Block15);\n"
+        },
+        {
+          "before_offset": 372993,
+          "after_offset": 385863,
+          "old": "\t\tworld.setBlock(x + 13, y + 12, z + 26, Block15, 0, 3);\n\t\tworld.setBlock(x + 3, y + 12, z + 27, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 12, z + 26, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + 12, z + 27, Block15);\n"
+        },
+        {
+          "before_offset": 373327,
+          "after_offset": 386307,
+          "old": "\t\tworld.setBlock(x + 13, y + 12, z + 27, Block15, 0, 3);\n\t\tworld.setBlock(x + 4, y + 12, z + 28, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 13, y + 12, z + 27, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 12, z + 28, Block15);\n"
+        },
+        {
+          "before_offset": 373661,
+          "after_offset": 386751,
+          "old": "\t\tworld.setBlock(x + 12, y + 12, z + 28, Block15, 0, 3);\n\t\tworld.setBlock(x + 5, y + 12, z + 29, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 12, z + 28, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 12, z + 29, Block15);\n"
+        },
+        {
+          "before_offset": 374325,
+          "after_offset": 387525,
+          "old": "\t\tworld.setBlock(x + 11, y + 12, z + 29, Block15, 0, 3);\n\t\tworld.setBlock(x + 6, y + 12, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 7, y + 12, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 8, y + 12, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 9, y + 12, z + 30, Block15, 0, 3);\n\t\tworld.setBlock(x + 10, y + 12, z + 30, Block15, 0, 3);\n",
+          "new": "\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 12, z + 29, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 12, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 12, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 12, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 12, z + 30, Block15);\n\t\tcom.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 12, z + 30, Block15);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/Meteorite.java": {
+      "before_sha256": "668080c1b46a0ffcbbeef908150e4ac02f8cf13da08b229951ef2a1e2b9c1f92",
+      "after_sha256": "d88e0f50b3d56535770cf5de3fe9ba577f9f08bdebe7dcfbabdcad95d497c264",
+      "edits": [
+        {
+          "before_offset": 4704,
+          "after_offset": 4704,
+          "old": "\t\t\t\tworld.spawnEntityInWorld(blaster);\n",
+          "new": "\t\t\t\tworld.spawnEntity(blaster);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

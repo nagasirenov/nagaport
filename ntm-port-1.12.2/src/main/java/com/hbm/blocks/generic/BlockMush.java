@@ -41,7 +41,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		
 		if(y >= 0 && y < 256) {
-			Block block = world.getBlock(x, y - 1, z);
+			Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 			return block.canSustainPlant(block.getDefaultState(), world, new BlockPos(x, y - 1, z), EnumFacing.UP, this) || canMushGrowHere(world, x, y, z);
 		} else {
 			return false;
@@ -61,13 +61,13 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 			canGrowOn.add(ModBlocks.block_waste_vitrified);
 		}
 		
-		Block block = world.getBlock(x, y - 1, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return canGrowOn.contains(block);
 	}
 
 	public boolean growHuge(World world, int x, int y, int z, Random rand) {
-		world.getBlockMetadata(x, y, z);
-		world.setBlockToAir(x, y, z);
+		com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		(new HugeMush()).generate(world, rand, x, y, z);
 
 		return true;
@@ -141,8 +141,8 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		
 		if(!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-			world.setBlockToAir(x, y, z);
+			this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
+			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
 
@@ -150,7 +150,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		this.checkAndDropBlock(world, x, y, z);
 		
-		if(GeneralConfig.enableMycelium && world.getBlock(x, y - 1, z) == ModBlocks.waste_earth && rand.nextInt(5) == 0) {
+		if(GeneralConfig.enableMycelium && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.waste_earth && rand.nextInt(5) == 0) {
 			world.setBlock(x, y - 1, z, ModBlocks.waste_mycelium);
 		}
 		
@@ -164,7 +164,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 			for(ix = x - range; ix <= x + range; ++ix) {
 				for(iy = y - range; iy <= y + range; ++iy) {
 					for(iz = z - 1; iz <= z + 1; ++iz) {
-						if(world.getBlock(ix, iz, iy) == this) {
+						if(com.hbm.world.WorldBlockState.read(world, ix, iz, iy).getBlock() == this) {
 							--maxShroom;
 
 							if(maxShroom <= 0) {

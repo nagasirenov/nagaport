@@ -1,0 +1,459 @@
+{
+  "baseline": "24dab0cd",
+  "files": {
+    "src/main/java/com/hbm/world/gen/NTMWorldGenerator.java": {
+      "before_sha256": "7152640b55e81f1c96fca1b62f588b96633d15a9080e7aec60073f51a1f75f32",
+      "after_sha256": "4678c4702a34234c5bbf8046da07256c5ef78d62f17a4afea3d97144650b0922",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 4,
+          "after_offsets": [
+            514,
+            1013,
+            1178,
+            11579
+          ]
+        },
+        {
+          "old": "Biome.plains",
+          "new": "Biomes.PLAINS",
+          "count": 1,
+          "after_offsets": [
+            11579
+          ]
+        },
+        {
+          "old": "BiomeDictionary.isBiomeOfType",
+          "new": "BiomeDictionary.hasType",
+          "count": 15,
+          "after_offsets": [
+            1037,
+            1083,
+            1249,
+            2253,
+            2565,
+            2872,
+            3209,
+            3568,
+            3952,
+            3998,
+            4357,
+            7156,
+            7452,
+            7748,
+            11590
+          ]
+        },
+        {
+          "old": "biome.heightVariation",
+          "new": "biome.getHeightVariation()",
+          "count": 6,
+          "after_offsets": [
+            1190,
+            1440,
+            4671,
+            5271,
+            6592,
+            6885
+          ]
+        },
+        {
+          "old": ".canSpawnLightningBolt()",
+          "new": ".canRain()",
+          "count": 10,
+          "after_offsets": [
+            8096,
+            8428,
+            8760,
+            9092,
+            9424,
+            9756,
+            10088,
+            10420,
+            10752,
+            11084
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.init.Biomes;",
+          "count": 1,
+          "after_offsets": [
+            481
+          ]
+        },
+        {
+          "old": "biome.rootHeight",
+          "new": "biome.getBaseHeight()",
+          "count": 1,
+          "after_offsets": [
+            3658
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/MapGenNTMFeatures.java": {
+      "before_sha256": "f12899371623105c59c4ff9aaa4ed1cbb28404fc27f5f7ee180dd1ffa4942ab2",
+      "after_sha256": "2cfa589ea49fbdd22b007f1de28921c17e9bbc2cd088d164c3fc8b93372170f7",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 11,
+          "after_offsets": [
+            1073,
+            3147,
+            3306,
+            3315,
+            3328,
+            3341,
+            3360,
+            3379,
+            3485,
+            3508,
+            4306
+          ]
+        },
+        {
+          "old": "BiomeGenMesa",
+          "new": "BiomeMesa",
+          "count": 2,
+          "after_offsets": [
+            1113,
+            5712
+          ]
+        },
+        {
+          "old": "Biome.frozenOcean",
+          "new": "Biomes.FROZEN_OCEAN",
+          "count": 1,
+          "after_offsets": [
+            3338
+          ]
+        },
+        {
+          "old": "Biome.frozenRiver",
+          "new": "Biomes.FROZEN_RIVER",
+          "count": 1,
+          "after_offsets": [
+            3359
+          ]
+        },
+        {
+          "old": "Biome.deepOcean",
+          "new": "Biomes.DEEP_OCEAN",
+          "count": 1,
+          "after_offsets": [
+            3380
+          ]
+        },
+        {
+          "old": "Biome.ocean",
+          "new": "Biomes.OCEAN",
+          "count": 1,
+          "after_offsets": [
+            3312
+          ]
+        },
+        {
+          "old": "Biome.river",
+          "new": "Biomes.RIVER",
+          "count": 1,
+          "after_offsets": [
+            3326
+          ]
+        },
+        {
+          "old": "biome.temperature",
+          "new": "biome.getDefaultTemperature()",
+          "count": 1,
+          "after_offsets": [
+            5650
+          ]
+        },
+        {
+          "old": "biome.rainfall",
+          "new": "biome.getRainfall()",
+          "count": 1,
+          "after_offsets": [
+            5690
+          ]
+        },
+        {
+          "old": "biome.heightVariation",
+          "new": "biome.getHeightVariation()",
+          "count": 1,
+          "after_offsets": [
+            5405
+          ]
+        },
+        {
+          "old": "this.worldObj.getWorldChunkManager().getBiomeGenAt(k * 16 + 8, l * 16 + 8)",
+          "new": "this.world.getBiomeProvider().getBiome(new BlockPos(k * 16 + 8, 0, l * 16 + 8))",
+          "count": 1,
+          "after_offsets": [
+            3165
+          ]
+        },
+        {
+          "old": "world.getBiomeGenForCoords(i, j)",
+          "new": "world.getBiome(new BlockPos(i, 0, j))",
+          "count": 1,
+          "after_offsets": [
+            4330
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.init.Biomes;",
+          "count": 1,
+          "after_offsets": [
+            1040
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.util.math.BlockPos;",
+          "count": 1,
+          "after_offsets": [
+            1040
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/lib/HbmWorld.java": {
+      "before_sha256": "73b397c19777927fd1be85096b9e99c861b1c23ab44237d8807cfbe4257b63b2",
+      "after_sha256": "589f0818114cc9bc1af286ba9f9d320a25600558160d69199b0ce76fab8f8d03",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 2,
+          "after_offsets": [
+            732,
+            2417
+          ]
+        },
+        {
+          "old": "Biome.desert",
+          "new": "Biomes.DESERT",
+          "count": 1,
+          "after_offsets": [
+            2417
+          ]
+        },
+        {
+          "old": "biome.temperature",
+          "new": "biome.getDefaultTemperature()",
+          "count": 1,
+          "after_offsets": [
+            3204
+          ]
+        },
+        {
+          "old": ".canSpawnLightningBolt()",
+          "new": ".canRain()",
+          "count": 1,
+          "after_offsets": [
+            3176
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.init.Biomes;",
+          "count": 1,
+          "after_offsets": [
+            699
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": {
+      "before_sha256": "fb1f47eb503e9acf919a65b04fcfbbd7912d0ee55419424a4db36ddc4c97772f",
+      "after_sha256": "a8c130280224b69f0cecc27878abdb58dda6fc123a43206b363f25ab8530d433",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 4,
+          "after_offsets": [
+            341,
+            381,
+            2211,
+            3577
+          ]
+        },
+        {
+          "old": "biome.temperature",
+          "new": "biome.getDefaultTemperature()",
+          "count": 2,
+          "after_offsets": [
+            3598,
+            3693
+          ]
+        },
+        {
+          "old": "biome.rainfall",
+          "new": "biome.getRainfall()",
+          "count": 2,
+          "after_offsets": [
+            3636,
+            3738
+          ]
+        },
+        {
+          "old": "world.getBiomeGenForCoords(x, z)",
+          "new": "world.getBiome(new BlockPos(x, 0, z))",
+          "count": 1,
+          "after_offsets": [
+            2225
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.util.math.BlockPos;",
+          "count": 1,
+          "after_offsets": [
+            308
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/ArcticVault.java": {
+      "before_sha256": "793b422604919634cb3a890f96b4ef75957dfad51080a90f1d798c10ec5ea134",
+      "after_sha256": "1542d88dfa057da79b14add8f6f1ed655a55072ba866b32693401c196aa17097",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 2,
+          "after_offsets": [
+            544,
+            652
+          ]
+        },
+        {
+          "old": "world.getWorldChunkManager().getBiomeGenAt(x, z)",
+          "new": "world.getBiomeProvider().getBiome(new BlockPos(x, 0, z))",
+          "count": 1,
+          "after_offsets": [
+            666
+          ]
+        },
+        {
+          "old": "biome.getFloatTemperature(x, y, z)",
+          "new": "biome.getTemperature(new BlockPos(x, y, z))",
+          "count": 1,
+          "after_offsets": [
+            732
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.util.math.BlockPos;",
+          "count": 1,
+          "after_offsets": [
+            511
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/wiaj/WorldInAJar.java": {
+      "before_sha256": "0c7e7a6817ce9e53ea9aa8b9dabfac78637eeeb06ada068dfa23b5ed4d66314c",
+      "after_sha256": "6cb424e08249fdce49e5e5bde6199a2b7d06c9a69f122e8e3e5b11362a505f85",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 3,
+          "after_offsets": [
+            386,
+            3127,
+            3179
+          ]
+        },
+        {
+          "old": "Biome.plains",
+          "new": "Biomes.PLAINS",
+          "count": 1,
+          "after_offsets": [
+            3179
+          ]
+        },
+        {
+          "old": "public Biome getBiomeGenForCoords(int x, int z)",
+          "new": "public Biome getBiome(BlockPos pos)",
+          "count": 1,
+          "after_offsets": [
+            3120
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.init.Biomes;",
+          "count": 1,
+          "after_offsets": [
+            353
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderLandmine.java": {
+      "before_sha256": "0a3513e527434ec24b7a6c055793a6db2db264dd16d87dbc1d4eaaad277c18c1",
+      "after_sha256": "9367db39e259f40076dd2ef79a5223524372d0c65c2ee79e730ce33bfacd4e8a",
+      "edits": [
+        {
+          "old": "BiomeGenBase",
+          "new": "Biome",
+          "count": 2,
+          "after_offsets": [
+            354,
+            983
+          ]
+        },
+        {
+          "old": "biome.temperature",
+          "new": "biome.getDefaultTemperature()",
+          "count": 1,
+          "after_offsets": [
+            1331
+          ]
+        },
+        {
+          "old": "biome.rainfall",
+          "new": "biome.getRainfall()",
+          "count": 1,
+          "after_offsets": [
+            1372
+          ]
+        },
+        {
+          "old": "tileEntity.getWorldObj().getBiomeGenForCoords(tileEntity.xCoord, tileEntity.zCoord)",
+          "new": "tileEntity.getWorld().getBiome(tileEntity.getPos())",
+          "count": 1,
+          "after_offsets": [
+            997
+          ]
+        },
+        {
+          "old": "tileEntity.getWorld().getBiome(tileEntity.getPos())",
+          "new": "tileEntity.getWorld().getBiome(new BlockPos(tileEntity.getPos().getX(), 0, tileEntity.getPos().getZ()))",
+          "count": 1,
+          "after_offsets": [
+            997
+          ]
+        },
+        {
+          "old": "import net.minecraft.world.biome.Biome;",
+          "new": "import net.minecraft.world.biome.Biome;\nimport net.minecraft.util.math.BlockPos;",
+          "count": 1,
+          "after_offsets": [
+            321
+          ]
+        }
+      ]
+    }
+  }
+}

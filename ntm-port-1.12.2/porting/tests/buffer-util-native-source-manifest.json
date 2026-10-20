@@ -1,0 +1,177 @@
+{
+  "baseline": "2cc79304086a82ddb5af1c32e74024b2db2ba05e",
+  "original_commit": "dff345a2411f7d3d6bef5c0b6c3aa8ab47ac357e",
+  "original_path": "ntm-original-pristine/src/main/java/com/hbm/util/BufferUtil.java",
+  "original_sha256": "3e3cf70554e20340f35a9370549bc8ba76c25ebd9059d303e42976da5e47be2d",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/util/BufferUtil.java",
+      "before_sha256": "46862f744d097073d895b437bb8738828ea2d37c331e1b868cacf7cc431c8c8e",
+      "after_sha256": "ed5747a3be9db9ccdb3a09bcd097b7e90b48ae5761066f42dd27737a71be049d",
+      "edits": [
+        {
+          "before_offset": 308,
+          "after_offset": 308,
+          "old": "",
+          "new": "ByteArrayInputStream;\nimport java.io.ByteArrayOutputStream;\nimport java.io.BufferedInputStream;\nimport java.io.DataInputStream;\nimport java.io."
+        },
+        {
+          "before_offset": 394,
+          "after_offset": 537,
+          "old": "",
+          "new": ";\nimport java.util.zip.GZIPInputStream"
+        },
+        {
+          "before_offset": 2297,
+          "after_offset": 2478,
+          "old": "nb",
+          "new": "By"
+        },
+        {
+          "before_offset": 2300,
+          "after_offset": 2481,
+          "old": "D",
+          "new": "eArr"
+        },
+        {
+          "before_offset": 2302,
+          "after_offset": 2486,
+          "old": "",
+          "new": "yOu"
+        },
+        {
+          "before_offset": 2303,
+          "after_offset": 2490,
+          "old": "",
+          "new": "putStre"
+        },
+        {
+          "before_offset": 2304,
+          "after_offset": 2498,
+          "old": "",
+          "new": "m output"
+        },
+        {
+          "before_offset": 2307,
+          "after_offset": 2509,
+          "old": "",
+          "new": "new ByteArrayOutputStream();\n\t\t\t\t"
+        },
+        {
+          "before_offset": 2329,
+          "after_offset": 2564,
+          "old": "c",
+          "new": "writeC"
+        },
+        {
+          "before_offset": 2337,
+          "after_offset": 2577,
+          "old": "",
+          "new": "ed"
+        },
+        {
+          "before_offset": 2346,
+          "after_offset": 2588,
+          "old": "",
+          "new": ", output);\n\t\t\t\tnbtData = output.toByteArray("
+        },
+        {
+          "before_offset": 2823,
+          "after_offset": 3109,
+          "old": "",
+          "new": "// readCompressed uses an unlimited tracker in 1.12; retain the old 2 MiB limit.\n\t\t\ttry(DataInputStream input = new DataInputStream(new BufferedInputStream(new GZIPInputStream(new ByteArrayInputStream(tags))))) {\n\t\t\t\t"
+        },
+        {
+          "before_offset": 2852,
+          "after_offset": 3355,
+          "old": "f",
+          "new": "read(inp"
+        },
+        {
+          "before_offset": 2854,
+          "after_offset": 3364,
+          "old": "nc_152457_a(",
+          "new": ""
+        },
+        {
+          "before_offset": 2867,
+          "after_offset": 3365,
+          "old": "ags",
+          "new": ""
+        },
+        {
+          "before_offset": 2902,
+          "after_offset": 3397,
+          "old": "",
+          "new": "\n\t\t\t}"
+        },
+        {
+          "before_offset": 3111,
+          "after_offset": 3611,
+          "old": "",
+          "new": "// Native empty stacks have no publicly readable legacy item/count identity.\n\t\t"
+        },
+        {
+          "before_offset": 3127,
+          "after_offset": 3706,
+          "old": "",
+          "new": " || item.isEmpty()"
+        },
+        {
+          "before_offset": 3238,
+          "after_offset": 3835,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 3240,
+          "after_offset": 3838,
+          "old": "ackSize",
+          "new": "Count()"
+        },
+        {
+          "before_offset": 3429,
+          "after_offset": 4027,
+          "old": "s",
+          "new": "ge"
+        },
+        {
+          "before_offset": 3431,
+          "after_offset": 4030,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 3445,
+          "after_offset": 4041,
+          "old": "",
+          "new": "()"
+        },
+        {
+          "before_offset": 3805,
+          "after_offset": 4403,
+          "old": "",
+          "new": "e"
+        },
+        {
+          "before_offset": 3806,
+          "after_offset": 4405,
+          "old": "ack",
+          "new": ""
+        },
+        {
+          "before_offset": 3820,
+          "after_offset": 4416,
+          "old": " = ",
+          "new": "("
+        },
+        {
+          "before_offset": 3834,
+          "after_offset": 4428,
+          "old": "",
+          "new": ")"
+        }
+      ]
+    }
+  ]
+}

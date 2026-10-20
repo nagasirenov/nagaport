@@ -80,9 +80,9 @@ public class EntityProcessorCross implements IEntityProcessor {
 			
 			Entity entity = (Entity) list.get(index);
 			
-			double xDist = (entity.boundingBox.minX <= x && entity.boundingBox.maxX >= x) ? 0 : Math.min(Math.abs(entity.boundingBox.minX - x), Math.abs(entity.boundingBox.maxX - x));
-			double yDist = (entity.boundingBox.minY <= y && entity.boundingBox.maxY >= y) ? 0 : Math.min(Math.abs(entity.boundingBox.minY - y), Math.abs(entity.boundingBox.maxY - y));
-			double zDist = (entity.boundingBox.minZ <= z && entity.boundingBox.maxZ >= z) ? 0 : Math.min(Math.abs(entity.boundingBox.minZ - z), Math.abs(entity.boundingBox.maxZ - z));
+			double xDist = (entity.getEntityBoundingBox().minX <= x && entity.getEntityBoundingBox().maxX >= x) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minX - x), Math.abs(entity.getEntityBoundingBox().maxX - x));
+			double yDist = (entity.getEntityBoundingBox().minY <= y && entity.getEntityBoundingBox().maxY >= y) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minY - y), Math.abs(entity.getEntityBoundingBox().maxY - y));
+			double zDist = (entity.getEntityBoundingBox().minZ <= z && entity.getEntityBoundingBox().maxZ >= z) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minZ - z), Math.abs(entity.getEntityBoundingBox().maxZ - z));
 			double dist = Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist);
 			double distanceScaled = dist / size;
 
@@ -102,7 +102,7 @@ public class EntityProcessorCross implements IEntityProcessor {
 					double density = 0;
 					
 					for(Vec3d vec : nodes) {
-						double d = world.getBlockDensity(vec, entity.boundingBox);
+						double d = world.getBlockDensity(vec, entity.getEntityBoundingBox());
 						if(d > density) {
 							density = d;
 						}
@@ -133,9 +133,9 @@ public class EntityProcessorCross implements IEntityProcessor {
 			attackEntity(entity, explosion, entry.getValue());
 			
 			if(damage != null) {
-				double xDist = (entity.boundingBox.minX <= x && entity.boundingBox.maxX >= x) ? 0 : Math.min(Math.abs(entity.boundingBox.minX - x), Math.abs(entity.boundingBox.maxX - x));
-				double yDist = (entity.boundingBox.minY <= y && entity.boundingBox.maxY >= y) ? 0 : Math.min(Math.abs(entity.boundingBox.minY - y), Math.abs(entity.boundingBox.maxY - y));
-				double zDist = (entity.boundingBox.minZ <= z && entity.boundingBox.maxZ >= z) ? 0 : Math.min(Math.abs(entity.boundingBox.minZ - z), Math.abs(entity.boundingBox.maxZ - z));
+				double xDist = (entity.getEntityBoundingBox().minX <= x && entity.getEntityBoundingBox().maxX >= x) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minX - x), Math.abs(entity.getEntityBoundingBox().maxX - x));
+				double yDist = (entity.getEntityBoundingBox().minY <= y && entity.getEntityBoundingBox().maxY >= y) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minY - y), Math.abs(entity.getEntityBoundingBox().maxY - y));
+				double zDist = (entity.getEntityBoundingBox().minZ <= z && entity.getEntityBoundingBox().maxZ >= z) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minZ - z), Math.abs(entity.getEntityBoundingBox().maxZ - z));
 				double dist = Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist);
 				double distanceScaled = dist / size;
 				damage.handleAttack(explosion, entity, distanceScaled);

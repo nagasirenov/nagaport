@@ -38,6 +38,7 @@ public class ServerProxy {
 
 	public ITranslate getI18n() { return I18N; }
 
+	public void onLoadComplete() { }
 	public void registerPreRenderInfo() { }
 	public void registerRenderInfo() { }
 	public void registerTileEntitySpecialRenderer() { }
@@ -45,7 +46,7 @@ public class ServerProxy {
 	public void registerEntityRenderer() { }
 	public void registerBlockRenderer() { }
 	public void registerGunCfg() { }
-	public void handleNHNEICompat() { }
+
 
 	public void spawnParticle(double x, double y, double z, String type, float[] args) { }
 

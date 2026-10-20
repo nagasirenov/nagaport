@@ -55,7 +55,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if(source == ModDamageSource.nuclearBlast) return false;
 		if(this.isEntityInvulnerable()) return false;
-		if(!this.isDead && !this.worldObj.isRemote && this.health > 0) {
+		if(!this.isDead && !this.world.isRemote && this.health > 0) {
 			health -= amount;
 			if(this.health <= 0) this.killPlane();
 		}
@@ -63,19 +63,19 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	}
 
 	protected void killPlane() {
-		ExplosionSmallCreator.composeEffect(worldObj, posX, posY, posZ, 25, 3.5F, 2F);
-		worldObj.playSoundEffect(posX, posY, posZ, "hbm:entity.planeShotDown", 25.0F, 1.0F);
+		ExplosionSmallCreator.composeEffect(this.world, posX, posY, posZ, 25, 3.5F, 2F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:entity.planeShotDown", 25.0F, 1.0F);
 	}
 
 	@Override
 	protected void entityInit() {
-		init(ForgeChunkManager.requestTicket(MainRegistry.instance, worldObj, Type.ENTITY));
+		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 		this.dataWatcher.addObject(17, new Float(50F));
 	}
 
 	@Override
 	public void init(Ticket ticket) {
-		if(!worldObj.isRemote && ticket != null) {
+		if(!this.world.isRemote && ticket != null) {
 			if(loaderTicket == null) {
 				loaderTicket = ticket;
 				loaderTicket.bindEntity(this);
@@ -88,13 +88,13 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	@Override
 	public void onUpdate() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.dataWatcher.updateObject(17, health);
 		} else {
 			health = this.dataWatcher.getWatchableObjectFloat(17);
 		}
 
-		if(worldObj.isRemote) {
+		if(this.world.isRemote) {
 			
 			this.lastTickPosX = this.posX;
 			this.lastTickPosY = this.posY;
@@ -103,7 +103,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 				double interpX = this.posX + (this.syncPosX - this.posX) / (double) this.turnProgress;
 				double interpY = this.posY + (this.syncPosY - this.posY) / (double) this.turnProgress;
 				double interpZ = this.posZ + (this.syncPosZ - this.posZ) / (double) this.turnProgress;
-				double d = MathHelper.wrapAngleTo180_double(this.syncYaw - (double) this.rotationYaw);
+				double d = MathHelper.wrapDegrees(this.syncYaw - (double) this.rotationYaw);
 				this.rotationYaw = (float) ((double) this.rotationYaw + d / (double) this.turnProgress);
 				this.rotationPitch = (float)((double)this.rotationPitch + (this.syncPitch - (double)this.rotationPitch) / (double)this.turnProgress);
 				--this.turnProgress;
@@ -123,13 +123,13 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 			if(this.health <= 0) {
 				motionY -= 0.025;
 				
-				for(int i = 0; i < 10; i++) ParticleUtil.spawnGasFlame(this.worldObj, this.posX + rand.nextGaussian() * 0.5 - motionX * 2, this.posY + rand.nextGaussian() * 0.5 - motionY * 2, this.posZ + rand.nextGaussian() * 0.5 - motionZ * 2, 0.0, 0.1, 0.0);
+				for(int i = 0; i < 10; i++) ParticleUtil.spawnGasFlame(this.world, this.posX + rand.nextGaussian() * 0.5 - motionX * 2, this.posY + rand.nextGaussian() * 0.5 - motionY * 2, this.posZ + rand.nextGaussian() * 0.5 - motionZ * 2, 0.0, 0.1, 0.0);
 				
-				if((!worldObj.getBlock((int) posX, (int) posY, (int) posZ).isAir(worldObj, (int) posX, (int) posY, (int) posZ) || posY < 0)) {
+				if((!com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isAir(this.world, (int) posX, (int) posY, (int) posZ) || posY < 0)) {
 					this.setDead();
-					ExplosionCreator.composeEffectLarge(worldObj, posX, posY, posZ);
-					new ExplosionVNT(worldObj, posX, posY, posZ, 15F).makeStandard().explode();
-					worldObj.playSoundEffect(posX, posY, posZ, "hbm:entity.planeCrash", 25.0F, 1.0F);
+					ExplosionCreator.composeEffectLarge(this.world, posX, posY, posZ);
+					new ExplosionVNT(this.world, posX, posY, posZ, 15F).makeStandard().explode();
+					com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:entity.planeCrash", 25.0F, 1.0F);
 					return;
 				}
 			} else {
@@ -142,7 +142,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	}
 	
 	protected void rotation() {
-		float motionHorizontal = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+		float motionHorizontal = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 		this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 		for(this.rotationPitch = (float) (Math.atan2(this.motionY, motionHorizontal) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
 		while(this.rotationPitch - this.prevRotationPitch >= 180.0F) this.prevRotationPitch += 360.0F;
@@ -189,14 +189,14 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	}
 	
 	public void clearChunkLoader() {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
 			this.loaderTicket = null;
 		}
 	}
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
-		if(!worldObj.isRemote && loaderTicket != null) {
+		if(!this.world.isRemote && loaderTicket != null) {
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
 			}

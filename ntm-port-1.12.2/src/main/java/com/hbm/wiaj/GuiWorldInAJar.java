@@ -16,18 +16,23 @@ import com.hbm.wiaj.actors.ISpecialActor;
 import com.hbm.wiaj.actors.ActorFancyPanel.Orientation;
 import com.hbm.wiaj.cannery.*;
 
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.init.SoundEvents;
+import com.hbm.render.util.NativeSceneBlockDraw;
+import com.hbm.render.util.NativeGuiItemDraw;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.ResourceLocation;
 
@@ -36,7 +41,6 @@ public class GuiWorldInAJar extends GuiScreen {
 	
 	private static final ResourceLocation guiUtil =  new ResourceLocation(RefStrings.MODID + ":textures/gui/gui_utility.png");
 	
-	RenderBlocks renderer;
 	JarScript jarScript;
 	ItemStack icon;
 	ActorFancyPanel titlePanel;
@@ -45,19 +49,17 @@ public class GuiWorldInAJar extends GuiScreen {
 
 	public GuiWorldInAJar(JarScript script, String title, ItemStack icon, CanneryBase... seeAlso) {
 		super();
-		this.fontRendererObj = Minecraft.getMinecraft().fontRenderer;
+		this.fontRenderer = Minecraft.getMinecraft().fontRenderer;
 		
 		this.jarScript = script;
 		this.icon = icon;
 		this.seeAlso = seeAlso;
-		this.renderer = new RenderBlocks(jarScript.world);
-		this.renderer.enableAO = true;
 		
-		this.titlePanel = new ActorFancyPanel(fontRendererObj, 40, 27, new Object[][] {{I18nUtil.resolveKey(title)}}, 0).setColors(CanneryBase.colorGold).setOrientation(Orientation.LEFT);
+		this.titlePanel = new ActorFancyPanel(fontRenderer, 40, 27, new Object[][] {{I18nUtil.resolveKey(title)}}, 0).setColors(CanneryBase.colorGold).setOrientation(Orientation.LEFT);
 		this.seeAlsoTitles = new ActorFancyPanel[seeAlso.length];
 		
 		for(int i = 0; i < seeAlso.length; i++) {
-			this.seeAlsoTitles[i] = new ActorFancyPanel(fontRendererObj, 40, 27 + 36 * (i + 1), new Object[][] {{I18nUtil.resolveKey(seeAlso[i].getName())}}, 0).setColors(CanneryBase.colorGrey).setOrientation(Orientation.LEFT);
+			this.seeAlsoTitles[i] = new ActorFancyPanel(fontRenderer, 40, 27 + 36 * (i + 1), new Object[][] {{I18nUtil.resolveKey(seeAlso[i].getName())}}, 0).setColors(CanneryBase.colorGrey).setOrientation(Orientation.LEFT);
 		}
 		
 		
@@ -140,7 +142,7 @@ public class GuiWorldInAJar extends GuiScreen {
 		
 		//brickScene.add(new ActionCreateActor(1, new ActorBasicPanel(0, 0, new Object[]{ new ItemStack(ModItems.ammo_arty, 1, 5)," shit *and* piss" })));
 
-		brickScene.add(new ActionCreateActor(1, new ActorFancyPanel(this.fontRendererObj, 0, 30, new Object[][] {{"I've come to make an announcement: Shadow the Hedgehog's a"
+		brickScene.add(new ActionCreateActor(1, new ActorFancyPanel(this.fontRenderer, 0, 30, new Object[][] {{"I've come to make an announcement: Shadow the Hedgehog's a"
 				+ " bitch-ass motherfucker. He pissed on my fucking wife. That's right. He took his hedgehog fuckin' quilly dick out and he pissed on my FUCKING wife, and he"
 				+ " said his dick was THIS BIG, and I said that's disgusting. So I'm making a callout post on my Twitter.com. Shadow the Hedgehog, you got a small dick. It's"
 				+ " the size of this walnut except WAY smaller. And guess what? Here's what my dong looks like. That's right, baby. Tall points, no quills, no pillows, look "
@@ -164,13 +166,13 @@ public class GuiWorldInAJar extends GuiScreen {
 				jarScript.run();
 			}
 			this.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);
-			GL11.glDisable(GL11.GL_LIGHTING);
+			GlStateManager.disableLighting();
 			this.drawGuiContainerForegroundLayer(mouseX, mouseY);
-			GL11.glEnable(GL11.GL_LIGHTING);
+			GlStateManager.enableLighting();
 		} catch(Exception ex) {
 			
 			for(StackTraceElement line : ex.getStackTrace()) {
-				this.mc.thePlayer.addChatComponentMessage(new ChatComponentText(TextFormatting.RED + line.toString()));
+				this.mc.player.sendMessage(new TextComponentString(TextFormatting.RED + line.toString()));
 			}
 			
 			this.mc.displayGuiScreen((GuiScreen) null);
@@ -178,7 +180,7 @@ public class GuiWorldInAJar extends GuiScreen {
 		}
 		
 		/*try {
-			Tessellator.instance.draw(); //why, oh why is Tessellator.isDrawing private and without a getter?
+			Tessellator.getInstance().draw(); //why, oh why is Tessellator.isDrawing private and without a getter?
 		} catch(Exception x) {}*/
 	}
 	
@@ -186,7 +188,7 @@ public class GuiWorldInAJar extends GuiScreen {
 	protected void mouseClicked(int mouseX, int mouseY, int button) {
 
 		if(width / 2 - 12 <= mouseX && width / 2 - 12 + 24 > mouseX && height - 36 < mouseY && height - 36 + 24 >= mouseY) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 			
 			if(this.jarScript.isPaused()) {
 				this.jarScript.unpause();
@@ -199,7 +201,7 @@ public class GuiWorldInAJar extends GuiScreen {
 			
 			if(this.jarScript.sceneNumber > 0) {
 				this.jarScript.rewindOne();
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 			}
 		}
 
@@ -207,7 +209,7 @@ public class GuiWorldInAJar extends GuiScreen {
 			
 			if(this.jarScript.sceneNumber < this.jarScript.scenes.size()) {
 				this.jarScript.forwardOne();
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+				mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 			}
 		}
 		
@@ -215,9 +217,9 @@ public class GuiWorldInAJar extends GuiScreen {
 			
 			if(15 <= mouseX && 39 > mouseX && 15 + 36 * (i + 1) < mouseY && 39 + 36 * (i + 1) >= mouseY) {
 				CanneryBase cannery = seeAlso[i];
-				mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-				Minecraft.getMinecraft().thePlayer.closeScreen();
-				FMLCommonHandler.instance().showGuiScreen(new GuiWorldInAJar(cannery.createScript(), cannery.getName(), cannery.getIcon(), cannery.seeAlso()));
+				mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+				Minecraft.getMinecraft().player.closeScreen();
+				Minecraft.getMinecraft().displayGuiScreen(new GuiWorldInAJar(cannery.createScript(), cannery.getName(), cannery.getIcon(), cannery.seeAlso()));
 				return;
 			}
 		}
@@ -234,12 +236,12 @@ public class GuiWorldInAJar extends GuiScreen {
 		if(Keyboard.isKeyDown(Keyboard.KEY_LMENU)) {
 			List<Object[]> list = new ArrayList();
 			list.add(new Object[] { (mouseX - width / 2) + " / " + (mouseY - height / 2) });
-			this.drawStackText(list, mouseX - width / 2, mouseY - height / 2, this.fontRendererObj);
+			this.drawStackText(list, mouseX - width / 2, mouseY - height / 2, this.fontRenderer);
 		}
 		
 		Minecraft.getMinecraft().getTextureManager().bindTexture(guiUtil);
 		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL11.GL_DEPTH_TEST);
+		GlStateManager.disableDepth();
 		
 		int playButton = this.jarScript.isPaused() ? 64 : 40;
 		
@@ -262,11 +264,10 @@ public class GuiWorldInAJar extends GuiScreen {
 		else 
 			this.drawTexturedModalRect(width / 2 - 12 + 36, height - 36, 112, 48, 24, 24);
 		
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
+		GlStateManager.enableDepth();
 		this.drawTexturedModalRect(15, 15, 136, 48, 24, 24);
 		RenderHelper.enableGUIStandardItemLighting();
-		itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, this.icon, 19, 19);
-		itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.renderEngine, this.icon, 19, 19, null);
+		NativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.fontRenderer, this.icon, 19, 19, this.zLevel, null);
 		RenderHelper.disableStandardItemLighting();
 
 		if(15 <= mouseX && 39 > mouseX && 15 < mouseY && 39 >= mouseY) {
@@ -277,11 +278,10 @@ public class GuiWorldInAJar extends GuiScreen {
 			CanneryBase also = seeAlso[i];
 
 			Minecraft.getMinecraft().getTextureManager().bindTexture(guiUtil);
-			GL11.glDisable(GL11.GL_LIGHTING);
+			GlStateManager.disableLighting();
 			this.drawTexturedModalRect(15, 15 + 36 * (i + 1), 136, 72, 24, 24);
 			RenderHelper.enableGUIStandardItemLighting();
-			itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, also.getIcon(), 19, 19 + 36 * (i + 1));
-			itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.renderEngine, also.getIcon(), 19, 19 + 36 * (i + 1), null);
+			NativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.fontRenderer, also.getIcon(), 19, 19 + 36 * (i + 1), this.zLevel, null);
 			RenderHelper.disableStandardItemLighting();
 
 			if(15 <= mouseX && 39 > mouseX && 15 + 36 * (i + 1) < mouseY && 39 + 36 * (i + 1) >= mouseY) {
@@ -295,24 +295,26 @@ public class GuiWorldInAJar extends GuiScreen {
 		GL11.glPushMatrix();
 		setupRotation();
 		
-		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Tessellator.instance.startDrawingQuads();
+		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		GlStateManager.shadeModel(GL11.GL_SMOOTH);
+		BufferBuilder buffer = Tessellator.getInstance().getBuffer();
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
 		
 		for(int x = 0; x < jarScript.world.sizeX; x++) {
 			for(int y = 0; y < jarScript.world.sizeY; y++) {
 				for(int z = 0; z < jarScript.world.sizeZ; z++) {
-					renderer.renderBlockByRenderType(jarScript.world.getBlock(x, y, z), x, y, z);
+					BlockPos pos = new BlockPos(x, y, z);
+					NativeSceneBlockDraw.append(jarScript.world, jarScript.world.getBlockState(pos), pos, buffer);
 				}
 			}
 		}
 		
-		Tessellator.instance.draw();
-		GL11.glShadeModel(GL11.GL_FLAT);
+		Tessellator.getInstance().draw();
+		GlStateManager.shadeModel(GL11.GL_FLAT);
 		GL11.glPopMatrix();
 
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.enableRescaleNormal();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 
 		GL11.glPushMatrix();
 		setupRotation();
@@ -358,10 +360,10 @@ public class GuiWorldInAJar extends GuiScreen {
 		y += height / 2;
 		
 		if(!lines.isEmpty()) {
-			GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+			GlStateManager.disableRescaleNormal();
 			RenderHelper.disableStandardItemLighting();
-			GL11.glDisable(GL11.GL_LIGHTING);
-			GL11.glDisable(GL11.GL_DEPTH_TEST);
+			GlStateManager.disableLighting();
+			GlStateManager.disableDepth();
 
 			int height = 0;
 			int longestline = 0;
@@ -406,7 +408,6 @@ public class GuiWorldInAJar extends GuiScreen {
 			}
 
 			this.zLevel = 300.0F;
-			itemRender.zLevel = 300.0F;
 			//int j1 = -267386864;
 			int colorBg = 0xF0100010;
 			this.drawGradientRect(minX - 3, minY - 4, minX + longestline + 3, minY - 3, colorBg, colorBg);
@@ -442,16 +443,15 @@ public class GuiWorldInAJar extends GuiScreen {
 						indent += font.getStringWidth((String) o) + 2;
 					} else {
 						ItemStack stack = (ItemStack) o;
-						GL11.glColor3f(1F, 1F, 1F);
+						GlStateManager.color(1F, 1F, 1F);
 
-						if(stack.stackSize == 0) {
+						if(stack.getCount() == 0) {
 							this.drawGradientRect(minX + indent - 1, minY - 1, minX + indent + 17, minY + 17, 0xffff0000, 0xffff0000);
 							this.drawGradientRect(minX + indent, minY, minX + indent + 16, minY + 16, 0xffb0b0b0, 0xffb0b0b0);
 						}
-						itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), stack, minX + indent, minY);
-						itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), stack, minX + indent, minY, null);
+						NativeGuiItemDraw.withOverlay(mc.getRenderItem(), this.fontRenderer, stack, minX + indent, minY, this.zLevel, null);
 						RenderHelper.disableStandardItemLighting();
-						GL11.glDisable(GL11.GL_DEPTH_TEST);
+						GlStateManager.disableDepth();
 						indent += 18;
 					}
 				}
@@ -464,11 +464,10 @@ public class GuiWorldInAJar extends GuiScreen {
 			}
 
 			this.zLevel = 0.0F;
-			itemRender.zLevel = 0.0F;
-			GL11.glEnable(GL11.GL_LIGHTING);
-			GL11.glEnable(GL11.GL_DEPTH_TEST);
+			GlStateManager.enableLighting();
+			GlStateManager.enableDepth();
 			RenderHelper.enableStandardItemLighting();
-			GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+			GlStateManager.enableRescaleNormal();
 		}
 	}
 }

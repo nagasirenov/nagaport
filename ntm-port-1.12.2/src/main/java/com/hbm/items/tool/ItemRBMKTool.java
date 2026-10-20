@@ -28,7 +28,7 @@ public class ItemRBMKTool extends Item {
 	@Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 		
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		
 		if(b instanceof RBMKBase) {
 			
@@ -37,13 +37,13 @@ public class ItemRBMKTool extends Item {
 			if(pos != null && !world.isRemote) {
 				
 				if(!stack.hasTagCompound())
-					stack.stackTagCompound = new NBTTagCompound();
+					stack.setTagCompound(new NBTTagCompound());
 
-				stack.stackTagCompound.setInteger("posX", pos[0]);
-				stack.stackTagCompound.setInteger("posY", pos[1]);
-				stack.stackTagCompound.setInteger("posZ", pos[2]);
+				stack.getTagCompound().setInteger("posX", pos[0]);
+				stack.getTagCompound().setInteger("posY", pos[1]);
+				stack.getTagCompound().setInteger("posZ", pos[2]);
 				
-				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -56,12 +56,12 @@ public class ItemRBMKTool extends Item {
 				
 				int[] pos = ((BlockDummyable)b).findCore(world, x, y, z);
 				
-				TileEntityRBMKConsole console = (TileEntityRBMKConsole)world.getTileEntity(pos[0], pos[1], pos[2]);
-				int tx = stack.stackTagCompound.getInteger("posX");
-				int ty = stack.stackTagCompound.getInteger("posY");
-				int tz = stack.stackTagCompound.getInteger("posZ");
+				TileEntityRBMKConsole console = (TileEntityRBMKConsole)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
+				int tx = stack.getTagCompound().getInteger("posX");
+				int ty = stack.getTagCompound().getInteger("posY");
+				int tz = stack.getTagCompound().getInteger("posZ");
 				console.setTarget(tx, ty, tz);
-				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -73,12 +73,12 @@ public class ItemRBMKTool extends Item {
 				
 				int[] pos = ((BlockDummyable)b).findCore(world, x, y, z);
 				
-				TileEntityCraneConsole console = (TileEntityCraneConsole)world.getTileEntity(pos[0], pos[1], pos[2]);
-				int tx = stack.stackTagCompound.getInteger("posX");
-				int ty = stack.stackTagCompound.getInteger("posY");
-				int tz = stack.stackTagCompound.getInteger("posZ");
+				TileEntityCraneConsole console = (TileEntityCraneConsole)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
+				int tx = stack.getTagCompound().getInteger("posX");
+				int ty = stack.getTagCompound().getInteger("posY");
+				int tz = stack.getTagCompound().getInteger("posZ");
 				console.setTarget(tx, ty, tz);
-				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -88,12 +88,12 @@ public class ItemRBMKTool extends Item {
 			
 			if(!world.isRemote) {
 				
-				TileEntityRBMKDisplay console = (TileEntityRBMKDisplay) world.getTileEntity(x, y, z);
-				int tx = stack.stackTagCompound.getInteger("posX");
-				int ty = stack.stackTagCompound.getInteger("posY");
-				int tz = stack.stackTagCompound.getInteger("posZ");
+				TileEntityRBMKDisplay console = (TileEntityRBMKDisplay) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+				int tx = stack.getTagCompound().getInteger("posX");
+				int ty = stack.getTagCompound().getInteger("posY");
+				int tz = stack.getTagCompound().getInteger("posZ");
 				console.setTarget(tx, ty, tz);
-				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -105,7 +105,7 @@ public class ItemRBMKTool extends Item {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 		
-		for(String s : I18nUtil.resolveKeyArray(this.getUnlocalizedName() + ".desc"))
+		for(String s : I18nUtil.resolveKeyArray(this.getTranslationKey() + ".desc"))
 			list.add(TextFormatting.YELLOW + s);
 	}
 

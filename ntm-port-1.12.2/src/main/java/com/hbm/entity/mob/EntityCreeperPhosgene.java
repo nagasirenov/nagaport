@@ -34,16 +34,16 @@ public class EntityCreeperPhosgene extends EntityCreeper {
 	@Override
 	public void func_146077_cc() {
 		
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.setDead();
 			
-			worldObj.createExplosion(this, posX, posY + this.height / 2, posZ, 2F, false);
-			EntityMist mist = new EntityMist(worldObj);
+			this.world.createExplosion(this, posX, posY + this.height / 2, posZ, 2F, false);
+			EntityMist mist = new EntityMist(this.world);
 			mist.setType(Fluids.PHOSGENE);
 			mist.setPosition(posX, posY, posZ);
 			mist.setArea(10, 5);
 			mist.setDuration(150);
-			worldObj.spawnEntityInWorld(mist);
+			this.world.spawnEntityInWorld(mist);
 		}
 	}
 }

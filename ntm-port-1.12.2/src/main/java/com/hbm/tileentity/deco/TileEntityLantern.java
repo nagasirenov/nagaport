@@ -11,14 +11,14 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityLantern extends TileEntity {
+public class TileEntityLantern extends TileEntity implements net.minecraft.util.ITickable {
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote && worldObj.getTotalWorldTime() % 20 == 0) {
+		if(!this.world.isRemote && this.world.getTotalWorldTime() % 20 == 0) {
 			
-			List<EntityGlyphid> glyphids = worldObj.getEntitiesWithinAABB(EntityGlyphid.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 5.5, zCoord + 0.5, xCoord + 0.5, yCoord + 5.5, zCoord + 0.5).expand(7.5, 7.5, 7.5));
+			List<EntityGlyphid> glyphids = this.world.getEntitiesWithinAABB(EntityGlyphid.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5).expand(7.5, 7.5, 7.5));
 			
 			for(EntityGlyphid glyphid : glyphids) {
 				glyphid.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0));
@@ -33,12 +33,12 @@ public class TileEntityLantern extends TileEntity {
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord,
-					yCoord,
-					zCoord,
-					xCoord + 1,
-					yCoord + 6,
-					zCoord + 1
+					this.pos.getX(),
+					this.pos.getY(),
+					this.pos.getZ(),
+					this.pos.getX() + 1,
+					this.pos.getY() + 6,
+					this.pos.getZ() + 1
 					);
 		}
 		

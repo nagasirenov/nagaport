@@ -1,0 +1,29 @@
+{
+  "baseline": "641ba083c276c6ac75afa6a8f996cdd86f8b16d4",
+  "production": {
+    "src/main/java/com/hbm/blocks/generic/BlockDecoCRT.java": "eabfb7a9934a912475e99acb0f6eb44acc74dfe00756eecfa0703900d25a045a",
+    "src/main/java/com/hbm/render/block/RenderCRT.java": "f1f3293fe9001c66b4531ec365ce8b4ce226c3179e65919793834d5f140fba28",
+    "src/main/java/com/hbm/render/block/nativeblock/CRTBakedModel.java": "8e3717c2b29c683bc0303e3d2fb594c88e3370e74035fb21129b1a3c1f357e03",
+    "src/main/java/com/hbm/render/block/nativeblock/CRTPackedLightQuad.java": "f7c2251f476a04ca44770e0dacaca82329ef75be5e14bf6ce3427b5132ed88fe",
+    "src/main/java/com/hbm/main/CRTModelHandler.java": "937ed2bfd2f54ea30bee203e120a58020b319f30fc51e0c404734acf260d46d5",
+    "src/main/resources/assets/hbm/blockstates/tile.deco_crt.json": "301aa0fe3d26ae25561a23c997b9d929bc3b7dc51eba784f24d465095c63e22f"
+  },
+  "shared_byte_edits": [
+    {
+      "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+      "old": "new BlockDecoCRT(Material.iron).setBlockName(\"deco_crt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_steel\")",
+      "new": "new BlockDecoCRT(Material.IRON).setBlockName(\"deco_crt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)",
+      "occurrences": 1,
+      "baseline_sha256": "d8b62d1748ee02e40d903545f491dca484a3346e3c6aa60ef9cb1421ef3fa68f",
+      "isolated_result_sha256": "120bcef853cb80ae3e4483c1ab74affbb830a65c9059ad69379be71c072c6d07"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ClientProxy.java",
+      "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderCRT());\n",
+      "new": "",
+      "occurrences": 1,
+      "baseline_sha256": "51fe71271bb81bd67dfd2f39d1a452cf98244329ff84e0454804cdb4b2b3dd7a",
+      "isolated_result_sha256": "11268514dd9fae749758e574fc0220bf4f205c9741f1ec3702d3bd5083211e6f"
+    }
+  ]
+}

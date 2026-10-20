@@ -47,18 +47,18 @@ public class GUIDroneCrate extends GuiInfoContainer {
 		if(guiLeft + 151 <= x && guiLeft + 151 + 18 > x && guiTop + 52 < y && guiTop + 52 + 18 >= y) op = "mode";
 		
 		if(op != null) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean(op, true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, crate.xCoord, crate.yCoord, crate.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, crate.getPos().getX(), crate.getPos().getY(), crate.getPos().getZ()));
 		}
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.crate.hasCustomInventoryName() ? this.crate.getInventoryName() : I18n.format(this.crate.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

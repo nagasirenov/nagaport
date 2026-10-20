@@ -70,13 +70,13 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	private int outputTankMax;
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.transporter";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(worldObj.isRemote) return;
+	public void update() {
+		if(this.world.isRemote) return;
 
 		// Set tank types and split fills
 		for(int i = 0; i < inputTankMax; i++) {
@@ -155,8 +155,8 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 		for(DirPos pos : getConPos()) {
 			for(int i = 0; i < outputTankMax; i++) {
 				if(tanks[i].getTankType() != Fluids.NONE) {
-					trySubscribe(tanks[i].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-					this.sendFluid(tanks[i], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					trySubscribe(tanks[i].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(tanks[i], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 		}
@@ -165,7 +165,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 		for(DirPos pos : getTankPos()) {
 			for(int i = outputTankMax; i < tanks.length; i++) {
 				if(tanks[i].getTankType() != Fluids.NONE) {
-					trySubscribeFuel(tanks[i].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					trySubscribeFuel(tanks[i].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 		}
@@ -182,21 +182,21 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	}
 
 	private void tryLoad(int x, int y, int z, ForgeDirection dir) {
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(te instanceof IInventory)) return;
 
 		IInventory inv = (IInventory) te;
 		ISidedInventory sided = inv instanceof ISidedInventory ? (ISidedInventory) inv : null;
-		int[] access = sided != null ? sided.getAccessibleSlotsFromSide(dir.ordinal()) : null;
+		int[] access = sided != null ? sided.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()) : null;
 
 		for(int i = 0; i < (access != null ? access.length : inv.getSizeInventory()); i++) {
 			int slot = access != null ? access[i] : i;
 			ItemStack stack = inv.getStackInSlot(slot);
-			if(stack != null && (sided == null || sided.canExtractItem(slot, stack, dir.ordinal()))) {
+			if(stack != null && !stack.isEmpty() && (sided == null || sided.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()))) {
 				for(int j = 0; j < inputSlotMax; j++) {
-					if(slots[j] != null && slots[j].stackSize < slots[j].getMaxStackSize() & InventoryUtil.doesStackDataMatch(slots[j], stack)) {
+					if(slots[j] != null && slots[j].getCount() < slots[j].getMaxStackSize() & InventoryUtil.doesStackDataMatch(slots[j], stack)) {
 						inv.decrStackSize(slot, 1);
-						slots[j].stackSize++;
+						slots[j].grow(1);
 						return;
 					}
 				}
@@ -204,7 +204,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 				for(int j = 0; j < inputSlotMax; j++) {
 					if(slots[j] == null) {
 						slots[j] = stack.copy();
-						slots[j].stackSize = 1;
+						slots[j].setCount(1);
 						inv.decrStackSize(slot, 1);
 						return;
 					}
@@ -214,12 +214,12 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	}
 
 	private void tryUnload(int x, int y, int z, ForgeDirection dir) {
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(te instanceof IInventory)) return;
 
 		IInventory inv = (IInventory) te;
 		ISidedInventory sided = inv instanceof ISidedInventory ? (ISidedInventory) inv : null;
-		int[] access = sided != null ? sided.getAccessibleSlotsFromSide(dir.ordinal()) : null;
+		int[] access = sided != null ? sided.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()) : null;
 
 		for(int i = inputSlotMax; i < outputSlotMax; i++) {
 			ItemStack out = slots[i];
@@ -233,9 +233,9 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 
 					ItemStack target = inv.getStackInSlot(slot);
 
-					if(InventoryUtil.doesStackDataMatch(out, target) && target.stackSize < Math.min(target.getMaxStackSize(), inv.getInventoryStackLimit())) {
+					if(target != null && !target.isEmpty() && InventoryUtil.doesStackDataMatch(out, target) && target.getCount() < Math.min(target.getMaxStackSize(), inv.getInventoryStackLimit())) {
 						this.decrStackSize(i, 1);
-						target.stackSize++;
+						target.grow(1);
 						return;
 					}
 				}
@@ -246,9 +246,10 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 					if(!inv.isItemValidForSlot(slot, out))
 						continue;
 
-					if(inv.getStackInSlot(slot) == null && (sided != null ? sided.canInsertItem(slot, out, dir.ordinal()) : inv.isItemValidForSlot(slot, out))) {
+					ItemStack target = inv.getStackInSlot(slot);
+					if((target == null || target.isEmpty()) && (sided != null ? sided.canInsertItem(slot, out, com.hbm.lib.ForgeDirection.getOrientation(dir.ordinal()).toEnumFacing()) : inv.isItemValidForSlot(slot, out))) {
 						ItemStack copy = out.copy();
-						copy.stackSize = 1;
+						copy.setCount(1);
 						inv.setInventorySlotContents(slot, copy);
 						this.decrStackSize(i, 1);
 						return;
@@ -307,8 +308,8 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 			float iFrac = iFill / total;
 			float oFrac = oFill / total;
 
-			in.setFill(MathHelper.ceiling_float_int(iFrac * (float)fill));
-			out.setFill(MathHelper.floor_double(oFrac * (float)fill));
+			in.setFill(MathHelper.ceil(iFrac * (float)fill));
+			out.setFill(MathHelper.floor((double) (oFrac * (float)fill)));
 
 			// cap filling (this will generate 1mB of fluid in rare cases)
 			if(out.getFill() == out.getMaxFill() - 1) out.setFill(out.getMaxFill());
@@ -399,13 +400,13 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 		this.name = name;
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("name", name);
-		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, xCoord, yCoord, zCoord));
+		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 	}
 
 	private void fetchLinkedTransporter() {
 		if(linkedTransporter == null && linkedTransporterInfo != null) {
 			World transporterWorld = DimensionManager.getWorld(linkedTransporterInfo.dimensionId);
-			TileEntity te = transporterWorld.getTileEntity(linkedTransporterInfo.x, linkedTransporterInfo.y, linkedTransporterInfo.z);
+			TileEntity te = transporterWorld.getTileEntity(new net.minecraft.util.math.BlockPos(linkedTransporterInfo.x, linkedTransporterInfo.y, linkedTransporterInfo.z));
 			if(te != null && te instanceof TileEntityTransporterBase) {
 				linkedTransporter = (TileEntityTransporterBase) te;
 			}
@@ -417,7 +418,8 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return IntStream.range(0, outputSlotMax).toArray();
 	}
 
@@ -427,7 +429,8 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= inputSlotMax && i < outputSlotMax;
 	}
 
@@ -447,7 +450,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setString("name", name);
 		if(linkedTransporterInfo != null) {
@@ -455,6 +458,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 			nbt.setIntArray("linkedTo", new int[] { linkedTransporterInfo.x, linkedTransporterInfo.y, linkedTransporterInfo.z });
 		}
 		for(int i = 0; i < tanks.length; i++) tanks[i].writeToNBT(nbt, "t" + i);
+		return nbt;
 	}
 
 	public void unlinkTransporter() {
@@ -490,7 +494,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 			fetchLinkedTransporter();
 
 			if(linkedTransporter != null) {
-				linkedTransporter.linkedTransporterInfo = TransporterInfo.from(worldObj.provider.dimensionId, this);
+				linkedTransporter.linkedTransporterInfo = TransporterInfo.from(this.world.provider.getDimension(), this);
 				linkedTransporter.fetchLinkedTransporter();
 
 				hasConnected(linkedTransporter);
@@ -502,7 +506,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 }

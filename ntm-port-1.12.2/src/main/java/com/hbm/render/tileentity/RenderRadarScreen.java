@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderRadarScreen extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -45,7 +45,7 @@ public class RenderRadarScreen extends TileEntitySpecialRenderer implements IIte
 			GL11.glDepthMask(false);
 			tess.startDrawingQuads();
 			
-			double offset = ((tileEntity.getWorldObj().getTotalWorldTime() % 56) + f) / 30D;
+			double offset = ((tileEntity.getWorld().getTotalWorldTime() % 56) + f) / 30D;
 			tess.setColorRGBA_I(0x00ff00, 0);
 			tess.addVertex(0.38, 2 - offset, 1.375);
 			tess.addVertex(0.38, 2 - offset, -0.375);
@@ -82,7 +82,7 @@ public class RenderRadarScreen extends TileEntitySpecialRenderer implements IIte
 			}
 			GL11.glDepthMask(true);
 		} else {
-			int offset = 118 + tileEntity.getWorldObj().rand.nextInt(81);
+			int offset = 118 + tileEntity.getWorld().rand.nextInt(81);
 			tess.startDrawingQuads();
 			tess.setColorOpaque_I(0xffffff);
 			tess.setNormal(0F, 1F, 0F);
@@ -102,7 +102,7 @@ public class RenderRadarScreen extends TileEntitySpecialRenderer implements IIte
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(0, -3, 0);

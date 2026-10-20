@@ -1,0 +1,69 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks,serial;static Unsafe unsafe;
+                                 ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:145: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/ContextItemNativeTest.java:145: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+                                                                                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/SednaItemNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(sun.misc.Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/SednaItemNativeTest.java:128: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field u=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(sun.misc.Unsafe)u.get(null);Constructor<?> ctor=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();ctor.setAccessible(true);
+                                                                                                    ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+8 warnings
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[20:18:30] [main/INFO]: Setting user: AtlasProbe
+[20:18:31] [main/INFO]: Processing ObjectHolder annotations
+[20:18:31] [main/INFO]: Found 1167 ObjectHolder annotations
+[20:18:31] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `context0`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[20:18:31] [main/WARN]: Potentially Dangerous alternative prefix `test` for name `context1`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 171 native Sedna hand/context/animation/projection/overlay/vertex checks. Controlled draw assets and world, no whole-game acceptance.
+b8f1476a7be8b6e31eb520fe21e2e15251f0648c54cf920b991756b830886c7a src/main/java/com/hbm/render/item/nativeitem/staticfamily/SingleMeshEntityItemRenderer.java
+f3a8cc805fdf6acc44640528df48e1c34d8c3529f76d6a3691d3059a6e3b428f src/main/java/com/hbm/render/util/NativeMachineItemRenderer.java
+77a08cf17c72d3d7f88016e15944e5a73ee2bc7ec754abb4f611300bf1e9809c src/main/java/com/hbm/render/util/NativeGuiItemDraw.java
+525487a52e2d75eaf246b55faae9f3501dc25702f8c38ce090bfc947a8fdd662 src/main/java/com/hbm/render/util/NativeItemQuadRenderer.java
+a0dee5c4884261672c6e21343e3a1fe255deaa4389b4e4129f69d9e23fffb74a src/main/java/com/hbm/render/util/NativeIconExtrusion.java
+bd3f498435a2b53883aab1a5b19784ad0b5223c8976395c95cb331d4e83d4e12 src/main/java/com/hbm/render/util/NativeItemBaseModel.java
+148044f3b058601c3cdbd3a241e7f23e09567fa511b0d7d61f8922af2f76f0d2 src/main/java/com/hbm/render/item/ItemRenderBoltgun.java
+769218404762129a237cf108829e1f51c9543816ad023c8d11da0399c4aedd6c src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderWeaponBase.java
+7a83d6546fea8674007ccd293b9b94b2e775b15d4103cc7c2f32c0df5705672d src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderCoilgun.java
+6020a4ab73696f210f737d30708a6f23f42f70c81ecb9a1eb1a2de6426f3c537 src/main/java/com/hbm/render/item/weapon/sedna/nativehand/SednaHandHandler.java
+075d95ec624793f5694d278814a7edadd3800b04c2eff6e2a9e3d10bb1ec8229 src/main/java/com/hbm/render/item/nativeitem/direct/PlainItemPerspectives.java
+02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e src/main/java/com/hbm/render/item/nativeitem/ItemTransformMatrix.java
+20b32bc9dac6481f09a97bcdb7702b69da38de17fd676897905585373413fe32 src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemModel.java
+cbcd29d86a0131c3538d1dadc20bc33e825629bc0358ce40392ae470119f78ad src/main/java/com/hbm/render/item/nativeitem/StaticMeshItemRegistration.java
+c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3 src/main/java/com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java
+0d715a62af62c8305f7c89d0963e4b8155775d4ce60dbff765d6186d71ed5c4e src/main/java/com/hbm/render/item/nativeitem/staticfamily/OrdinaryMeshItemModel.java
+54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2 src/main/java/com/hbm/render/mesh/MeshModel.java
+d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736 src/main/java/com/hbm/render/mesh/ObjMesh.java
+612a4eb403cd14366c90ed71b1fbbcea2bcb5a19a41d79edddfc36e3bf5b15ff src/main/java/com/hbm/render/item/nativeitem/context/ContextItemModel.java
+1f022c7c685eb54d5359403aa585e60828cff375f652d85efece540a66a35a1a src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRegistration.java
+7dad7762aa0fd9c380bb3e2c32da9f3f6df1fd7b1b15b29072a1171a704cb6fa src/main/java/com/hbm/render/item/nativeitem/context/ContextItemRenderer.java
+64f854575c2c7b5e2a0351b2949dd509952c28bca1c8f7f740d0263633488346 src/main/java/com/hbm/render/item/nativeitem/context/ContextRenderItem.java
+4dfd13588ae934e38266aeda7968b9b9633a7e1ac1f9ffc0705ee40661b5f3aa src/main/java/com/hbm/render/item/nativeitem/context/NativeItemContext.java
+b97c64bded9c0516662d5a34554ea38a9b4ee2af58f0c4507528baf8700e9a13 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFailureScope.java
+37283fbe744fce6729dbde308c3683ac86d6c1db9758dd5293a38760a43ddec4 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFields.java
+2978ab2eb9a55cd3a903adba9444f279d5b9f7dfce3c63ca4548dd949708deb2 src/main/java/com/hbm/render/item/nativeitem/context/NativeItemRendererOwnership.java
+00cdcf10728fc15cf7a85e9a2baa97103f19ff5809616433bcb21f68a3c73a8e src/main/java/com/hbm/render/item/nativeitem/context/NativeOriginalItemRenderer.java
+1e64d8f0f97240b7bbc5c468788b87b3c832e821a6734b80d49b201d86805691 src/main/java/com/hbm/render/item/nativeitem/context/NativeProjectionScope.java
+ae52d9c6d7a4cf99ae827d367bb30abc29de3eb783bfdda96f82be4a609881e3 src/main/java/com/hbm/render/item/nativeitem/context/NativeSelectiveItemRenderer.java
+55cfbdeded13a5cde05bf3cdb3688f99c9b6aa1099fb890fcbc4470ba324c109 src/main/java/com/hbm/render/item/nativeitem/context/NativeToolItemPerspectives.java
+e8199839e7615a5c8f61f729186e9e55702dcb6f0a7dd8b734f0500bd1e5c5df src/main/java/com/hbm/render/item/nativeitem/context/NativeWeaponHandState.java
+50b9dd052c94e96f732e164c54e585589b6cb316de75c110ba4b077e2594f388 src/main/java/com/hbm/main/ModEventHandlerClient.java

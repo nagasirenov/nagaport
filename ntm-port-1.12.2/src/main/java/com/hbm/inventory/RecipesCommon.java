@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipesCommon {
@@ -95,7 +96,7 @@ public class RecipesCommon {
 			try {
 				this.item = stack.getItem();
 				if(this.item == null) this.item = ModItems.nothing; //i'm going to bash some fuckard's head in
-				this.stacksize = stack.stackSize;
+				this.stacksize = stack.getCount();
 				this.meta = stack.getItemDamage();
 			} catch(Exception ex) {
 				this.item = ModItems.nothing;
@@ -161,7 +162,9 @@ public class RecipesCommon {
 
 		public String[] getDictKeys() {
 
-			int[] ids = OreDictionary.getOreIDs(toStack());
+			ItemStack stack = stacksize > 0 ? toStack() : copy(1).toStack();
+			if(stack == null || stack.isEmpty()) return new String[0];
+			int[] ids = OreDictionary.getOreIDs(stack);
 
 			if(ids == null || ids.length == 0)
 				return new String[0];
@@ -186,11 +189,11 @@ public class RecipesCommon {
 				item = ModItems.nothing;
 			}
 
-			String name = Item.itemRegistry.getNameForObject(item);
+			ResourceLocation name = Item.REGISTRY.getNameForObject(item);
 
 			if(name == null) {
 				if(!GeneralConfig.enableSilentCompStackErrors) {
-					MainRegistry.logger.error("ComparableStack holds an item that does not seem to be registered. How does that even happen? This error can be turned off with the config <enableSilentCompStackErrors>. Item name: " + item.getUnlocalizedName());
+					MainRegistry.logger.error("ComparableStack holds an item that does not seem to be registered. How does that even happen? This error can be turned off with the config <enableSilentCompStackErrors>. Item name: " + item.getTranslationKey());
 					Thread.currentThread().dumpStack();
 				}
 				item = ModItems.nothing;
@@ -198,7 +201,7 @@ public class RecipesCommon {
 
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + Item.itemRegistry.getNameForObject(item).hashCode(); //using the int ID will cause fucky-wuckys if IDs are scrambled
+			result = prime * result + Item.REGISTRY.getNameForObject(item).toString().hashCode(); //using the int ID will cause fucky-wuckys if IDs are scrambled
 			result = prime * result + meta;
 			result = prime * result + stacksize;
 			return result;
@@ -259,10 +262,10 @@ public class RecipesCommon {
 		@Override
 		public boolean matchesRecipe(ItemStack stack, boolean ignoreSize) {
 
-			if(stack == null) return false;
+			if(stack == null || stack.isEmpty()) return false;
 			if(stack.getItem() != this.item) return false;
 			if(this.meta != OreDictionary.WILDCARD_VALUE && stack.getItemDamage() != this.meta) return false;
-			if(!ignoreSize && stack.stackSize < this.stacksize) return false;
+			if(!ignoreSize && stack.getCount() < this.stacksize) return false;
 
 			return true;
 		}
@@ -274,7 +277,7 @@ public class RecipesCommon {
 		
 		@Override
 		public String toString() {
-			return this.stacksize + "x" + (this.item != null ? this.item.getUnlocalizedName() : "null") + "@" + this.meta;
+			return this.stacksize + "x" + (this.item != null ? this.item.getTranslationKey() : "null") + "@" + this.meta;
 		}
 	}
 
@@ -290,7 +293,7 @@ public class RecipesCommon {
 		public NBTStack(Item item, int stacksize) { super(item, stacksize); }
 		public NBTStack(Item item, int stacksize, int meta) { super(item, stacksize, meta); }
 		public NBTStack(Item item, int stacksize, Enum meta) { super(item, stacksize, meta); }
-		public NBTStack(ItemStack stack) { super(stack.getItem(), stack.stackSize, stack.getItemDamage()); this.withNBT(stack.stackTagCompound); }
+		public NBTStack(ItemStack stack) { super(stack.getItem(), stack.getCount(), stack.getItemDamage()); this.withNBT(stack.getTagCompound()); }
 
 		public NBTStack withNBT(NBTTagCompound nbt) {
 			this.nbt = nbt;
@@ -310,7 +313,7 @@ public class RecipesCommon {
 		@Override
 		public ItemStack toStack() {
 			ItemStack stack = new ItemStack(item == null ? ModItems.nothing : item, stacksize, meta);
-			if(this.nbt != null) stack.stackTagCompound = (NBTTagCompound) nbt.copy();
+			if(this.nbt != null) stack.setTagCompound((NBTTagCompound) nbt.copy());
 			return stack;
 		}
 
@@ -322,16 +325,16 @@ public class RecipesCommon {
 		@Override
 		public boolean matchesRecipe(ItemStack stack, boolean ignoreSize) {
 
-			if(stack == null) return false;
+			if(stack == null || stack.isEmpty()) return false;
 			if(stack.getItem() != this.item) return false;
 			if(this.meta != OreDictionary.WILDCARD_VALUE && stack.getItemDamage() != this.meta) return false;
-			if(!ignoreSize && stack.stackSize < this.stacksize) return false;
-			if(this.nbt != null && !this.nbt.hasNoTags() && stack.stackTagCompound == null) return false;
+			if(!ignoreSize && stack.getCount() < this.stacksize) return false;
+			if(this.nbt != null && !this.nbt.isEmpty() && stack.getTagCompound() == null) return false;
 
-			if(this.nbt != null && stack.stackTagCompound != null) {
-				Set<String> neededKeys = this.nbt.func_150296_c();
+			if(this.nbt != null && stack.getTagCompound() != null) {
+				Set<String> neededKeys = this.nbt.getKeySet();
 				for(String key : neededKeys) {
-					NBTBase tag = stack.stackTagCompound.getTag(key);
+					NBTBase tag = stack.getTagCompound().getTag(key);
 					if(tag == null) return false;
 					if(!this.nbt.getTag(key).equals(tag)) return false;
 				}
@@ -382,7 +385,7 @@ public class RecipesCommon {
 		
 		@Override
 		public String toString() {
-			return this.stacksize + "x" + (this.item != null ? this.item.getUnlocalizedName() : "null") + "@" + this.meta + "?" + this.nbt;
+			return this.stacksize + "x" + (this.item != null ? this.item.getTranslationKey() : "null") + "@" + this.meta + "?" + this.nbt;
 		}
 	}
 
@@ -432,10 +435,10 @@ public class RecipesCommon {
 		@Override
 		public boolean matchesRecipe(ItemStack stack, boolean ignoreSize) {
 
-			if(stack == null)
+			if(stack == null || stack.isEmpty())
 				return false;
 
-			if(!ignoreSize && stack.stackSize < this.stacksize)
+			if(!ignoreSize && stack.getCount() < this.stacksize)
 				return false;
 
 			int[] ids = OreDictionary.getOreIDs(stack);
@@ -460,7 +463,7 @@ public class RecipesCommon {
 			for(ItemStack stack : fromDict) {
 
 				ItemStack copy = stack.copy();
-				copy.stackSize = this.stacksize;
+				copy.setCount(this.stacksize);
 
 				if(stack.getItemDamage() != OreDictionary.WILDCARD_VALUE) {
 					ores.add(copy);
@@ -521,7 +524,7 @@ public class RecipesCommon {
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + Block.blockRegistry.getNameForObject(block).hashCode();
+			result = prime * result + Block.REGISTRY.getNameForObject(block).toString().hashCode();
 			result = prime * result + meta;
 			return result;
 		}

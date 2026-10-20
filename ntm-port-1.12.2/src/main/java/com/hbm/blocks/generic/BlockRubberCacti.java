@@ -30,7 +30,7 @@ public class BlockRubberCacti extends BlockEnumMulti {
 	public static final PropertyEnum<EnumBushType> TYPE = PropertyEnum.create("type", EnumBushType.class);
 
 	public BlockRubberCacti(Material material) {
-		super(Material.plants, EnumBushType.class, false, true);
+		super(Material.PLANTS, EnumBushType.class, false, true);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumBushType.CACT));
 	}
 

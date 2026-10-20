@@ -39,29 +39,29 @@ public class TileEntityHeaterOilburner extends TileEntityMachinePolluting implem
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.heaterOilburner";
 	}
 
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-				new DirPos(xCoord + 2, yCoord, zCoord, Library.POS_X),
-				new DirPos(xCoord - 2, yCoord, zCoord, Library.NEG_X),
-				new DirPos(xCoord, yCoord, zCoord + 2, Library.POS_Z),
-				new DirPos(xCoord, yCoord, zCoord - 2, Library.NEG_Z)
+				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ(), Library.POS_X),
+				new DirPos(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ(), Library.NEG_X),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() + 2, Library.POS_Z),
+				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			tank.loadTank(0, 1, slots);
 			tank.setType(2, slots);
 
 			for(DirPos pos : this.getConPos()) {
-				this.trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				this.sendSmoke(pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
@@ -81,7 +81,7 @@ public class TileEntityHeaterOilburner extends TileEntityMachinePolluting implem
 
 						this.heatEnergy += heat * toBurn;
 
-						if(worldObj.getTotalWorldTime() % 5 == 0 && toBurn > 0) {
+						if(this.world.getTotalWorldTime() % 5 == 0 && toBurn > 0) {
 							super.pollute(tank.getTankType(), FluidReleaseType.BURN, toBurn * 5);
 						}
 
@@ -130,12 +130,13 @@ public class TileEntityHeaterOilburner extends TileEntityMachinePolluting implem
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tank.writeToNBT(nbt, "tank");
 		nbt.setBoolean("isOn", isOn);
 		nbt.setInteger("heatEnergy", heatEnergy);
 		nbt.setByte("setting", (byte) this.setting);
+		return nbt;
 	}
 
 	public void toggleSetting() {
@@ -173,7 +174,7 @@ public class TileEntityHeaterOilburner extends TileEntityMachinePolluting implem
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return player.getDistanceSq(xCoord, yCoord, zCoord) <= 256;
+		return player.getDistanceSq(this.pos.getX(), this.pos.getY(), this.pos.getZ()) <= 256;
 	}
 
 	@Override
@@ -191,12 +192,12 @@ public class TileEntityHeaterOilburner extends TileEntityMachinePolluting implem
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 1,
-					yCoord,
-					zCoord - 1,
-					xCoord + 2,
-					yCoord + 2,
-					zCoord + 2
+					this.pos.getX() - 1,
+					this.pos.getY(),
+					this.pos.getZ() - 1,
+					this.pos.getX() + 2,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 2
 					);
 		}
 

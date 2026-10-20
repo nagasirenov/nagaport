@@ -24,7 +24,7 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 	}
 	
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.orbus";
 	}
 	
@@ -47,10 +47,10 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 		for(int i = -1; i < 6; i += 6) {
 			ForgeDirection out = i == -1 ? ForgeDirection.DOWN : ForgeDirection.UP;
 			int index = i == -1 ? 0 : 4;
-			conPos[index + 0] = new DirPos(xCoord,								yCoord + i,	zCoord,								out);
-			conPos[index + 1] = new DirPos(xCoord + dir.offsetX,				yCoord + i,	zCoord + dir.offsetZ,				out);
-			conPos[index + 2] = new DirPos(xCoord + rot.offsetX,				yCoord + i,	zCoord + rot.offsetZ,				out);
-			conPos[index + 3] = new DirPos(xCoord + dir.offsetX + rot.offsetX,	yCoord + i,	zCoord + dir.offsetZ + rot.offsetZ,	out);
+			conPos[index + 0] = new DirPos(this.pos.getX(),								this.pos.getY() + i,	this.pos.getZ(),								out);
+			conPos[index + 1] = new DirPos(this.pos.getX() + dir.offsetX,				this.pos.getY() + i,	this.pos.getZ() + dir.offsetZ,				out);
+			conPos[index + 2] = new DirPos(this.pos.getX() + rot.offsetX,				this.pos.getY() + i,	this.pos.getZ() + rot.offsetZ,				out);
+			conPos[index + 3] = new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX,	this.pos.getY() + i,	this.pos.getZ() + dir.offsetZ + rot.offsetZ,	out);
 		}
 		
 		return conPos;
@@ -63,12 +63,12 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 2,
-					yCoord,
-					zCoord - 2,
-					xCoord + 3,
-					yCoord + 5,
-					zCoord + 3
+					this.pos.getX() - 2,
+					this.pos.getY(),
+					this.pos.getZ() - 2,
+					this.pos.getX() + 3,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 3
 					);
 		}
 		
@@ -87,33 +87,33 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 		//if(this.hasExploded) return;
 	    	float amat = Math.min(tank.getFill()/100,90);
 	    	float aschrab = Math.min(tank.getFill()/100,90);
-	    	if(this.hasExploded && !worldObj.isRemote) {
+	    	if(this.hasExploded && !this.world.isRemote) {
 	    		if(amat>0)
 	    		{
 	    			if(amat >= 25)
 	    			{
-	    				EntityBalefire bf = new EntityBalefire(worldObj);
+	    				EntityBalefire bf = new EntityBalefire(this.world);
 	    				bf.antimatter();
-	    	    		bf.setPosition(xCoord, yCoord, zCoord);
+	    	    		bf.setPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	    				bf.destructionRange = (int) amat;
-	    				worldObj.spawnEntityInWorld(bf);
-	    				EntityNukeTorex.startFacAnti(worldObj, xCoord, yCoord, zCoord, amat * 1.5F);
+	    				this.world.spawnEntityInWorld(bf);
+	    				EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);
 	    				return;
 	    			}
 	    			else
 	    			{
-	    				new ExplosionVNT(worldObj, xCoord, yCoord, zCoord, amat).makeAmat().explode();
+	    				new ExplosionVNT(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat).makeAmat().explode();
 	    			}
 	    		}
 	    		if(aschrab>0)
 	    		{
-	    			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, (int) aschrab);
+	    			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, (int) aschrab);
 	    			if(!ex.isDead) {
-	    				worldObj.spawnEntityInWorld(ex);
+	    				this.world.spawnEntityInWorld(ex);
 	    	
-	    				EntityCloudFleija cloud = new EntityCloudFleija(worldObj, (int) aschrab);
-	    				cloud.setPosition(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5);
-	    				worldObj.spawnEntityInWorld(cloud);
+	    				EntityCloudFleija cloud = new EntityCloudFleija(this.world, (int) aschrab);
+	    				cloud.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
+	    				this.world.spawnEntityInWorld(cloud);
 	    			}
 	    			return;			
 	    		}	

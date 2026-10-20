@@ -10,7 +10,14 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityRBMKDisplay extends TileEntityLoadedBase {
+public class TileEntityRBMKDisplay extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
+    /** Original panel metadata changed facing without replacing its stored controls. */
+    @Override
+    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+        return oldState.getBlock() != newState.getBlock();
+    }
+
 
 	private int targetX;
 	private int targetY;
@@ -21,11 +28,11 @@ public class TileEntityRBMKDisplay extends TileEntityLoadedBase {
 	public RBMKColumn[] columns = new RBMKColumn[7 * 7];
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(this.worldObj.getTotalWorldTime() % 10 == 0) {
+			if(this.world.getTotalWorldTime() % 10 == 0) {
 				rescan();
 				this.networkPackNT(50);
 			}
@@ -72,7 +79,7 @@ public class TileEntityRBMKDisplay extends TileEntityLoadedBase {
 			int rx = getXFromIndex(index);
 			int rz = getZFromIndex(index);
 
-			TileEntity te = Compat.getTileStandard(worldObj, targetX + rx, targetY, targetZ + rz);
+			TileEntity te = Compat.getTileStandard(this.world, targetX + rx, targetY, targetZ + rz);
 
 			if(te instanceof TileEntityRBMKBase) {
 
@@ -109,13 +116,14 @@ public class TileEntityRBMKDisplay extends TileEntityLoadedBase {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("tX", this.targetX);
 		nbt.setInteger("tY", this.targetY);
 		nbt.setInteger("tZ", this.targetZ);
 		nbt.setByte("rotation", this.rotation);
+		return nbt;
 	}
 
 	public void rotate() {

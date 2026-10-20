@@ -61,19 +61,19 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineFEL";
 	}
 
 	@SuppressWarnings("incomplete-switch")
 	@Override
 	@Spaghetti ("What the fuck were you thinking")
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-			this.trySubscribe(worldObj, xCoord + dir.offsetX * -5, yCoord + 1, zCoord + dir.offsetZ  * -5, dir.getOpposite());
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -5, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ  * -5, dir.getOpposite());
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			
 			if(this.isOn && !(this.slots[1] == null)) {
@@ -99,14 +99,14 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 			if(this.isOn && power >= req && this.mode != EnumWavelengths.NULL) {
 				
 				int distance = this.distance-1;
-				double blx = Math.min(xCoord, xCoord + dir.offsetX * distance) + 0.2;
-				double bux = Math.max(xCoord, xCoord + dir.offsetX * distance) + 0.8;
-				double bly = Math.min(yCoord, 1 + yCoord + dir.offsetY * distance) + 0.2;
-				double buy = Math.max(yCoord, 1 + yCoord + dir.offsetY * distance) + 0.8;
-				double blz = Math.min(zCoord, zCoord + dir.offsetZ * distance) + 0.2;
-				double buz = Math.max(zCoord, zCoord + dir.offsetZ * distance) + 0.8;
+				double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * distance) + 0.2;
+				double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * distance) + 0.8;
+				double bly = Math.min(this.pos.getY(), 1 + this.pos.getY() + dir.offsetY * distance) + 0.2;
+				double buy = Math.max(this.pos.getY(), 1 + this.pos.getY() + dir.offsetY * distance) + 0.8;
+				double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * distance) + 0.2;
+				double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * distance) + 0.8;
 				
-				List<EntityLivingBase> list = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
+				List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
 				
 				for(EntityLivingBase entity : list) {
 					switch(this.mode) {
@@ -121,13 +121,13 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 				power -= req;
 				for(int i = 3; i < range; i++) {
 				
-					int x = xCoord + dir.offsetX * i;
-					int y = yCoord + 1;
-					int z = zCoord + dir.offsetZ * i;
+					int x = this.pos.getX() + dir.offsetX * i;
+					int y = this.pos.getY() + 1;
+					int z = this.pos.getZ() + dir.offsetZ * i;
 					
-					Block b = worldObj.getBlock(x, y, z);
+					Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 					
-					if(!(b.getMaterial().isOpaque()) && b != Blocks.tnt) {
+					if(!(b.getDefaultState().getMaterial().isOpaque()) && b != Blocks.TNT) {
 						this.distance = range;
 						silexSpacing = false;
 						continue;
@@ -135,7 +135,7 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 					
 					if(b == ModBlocks.machine_silex) {
 					
-						TileEntity te = worldObj.getTileEntity(x + dir.offsetX, yCoord, z + dir.offsetZ);
+						TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX, this.pos.getY(), z + dir.offsetZ));
 					
 						if(te instanceof TileEntitySILEX) {
 							TileEntitySILEX silex = (TileEntitySILEX) te;
@@ -149,28 +149,28 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 								} 
 							} else {
 								MachineSILEX silexBlock = (MachineSILEX)silex.getBlockType();
-								silexBlock.breakBlock(worldObj, silex.xCoord, silex.yCoord, silex.zCoord, silexBlock, 0);
-								worldObj.spawnEntityInWorld(new EntityItem(worldObj, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Item.getItemFromBlock(ModBlocks.machine_silex))));
+								silexBlock.breakBlock(this.world, silex.getPos().getX(), silex.getPos().getY(), silex.getPos().getZ(), silexBlock, 0);
+								this.world.spawnEntity(new EntityItem(this.world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Item.getItemFromBlock(ModBlocks.machine_silex))));
 							} 
 						}
 						
-					} else if(b.getMaterial().isOpaque() || b == Blocks.tnt) {
+					} else if(b.getDefaultState().getMaterial().isOpaque() || b == Blocks.TNT) {
 						
 						this.distance = i;
 						
-						if(b.getMaterial().isLiquid()) {
-							worldObj.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
-							worldObj.setBlockToAir(x, y, z);
+						if(b.getDefaultState().getMaterial().isLiquid()) {
+							com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
+							com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 							break;
 						} 
 						
 						float hardness = b.getExplosionResistance(null);
-						if(hardness < 75 && worldObj.rand.nextInt(5) == 0) {
-							worldObj.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
-							Block block = (this.mode != EnumWavelengths.DRX) ? Blocks.fire : (MainRegistry.polaroidID == 11) ? ModBlocks.digamma_matter : ModBlocks.fire_digamma;
-							worldObj.setBlock(x, y, z, block);
+						if(hardness < 75 && this.world.rand.nextInt(5) == 0) {
+							com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
+							Block block = (this.mode != EnumWavelengths.DRX) ? Blocks.FIRE : (MainRegistry.polaroidID == 11) ? ModBlocks.digamma_matter : ModBlocks.fire_digamma;
+							this.world.setBlock(x, y, z, block);
 							if(this.mode == EnumWavelengths.DRX)
-								worldObj.setBlock(x, y-1, z, ModBlocks.ash_digamma);
+								this.world.setBlock(x, y-1, z, ModBlocks.ash_digamma);
 						}
 						break;
 					}
@@ -186,7 +186,7 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 				audioDuration -= 3;
 			}
 
-			audioDuration = MathHelper.clamp_int(audioDuration, 0, 60);
+			audioDuration = MathHelper.clamp(audioDuration, 0, 60);
 
 			if(audioDuration > 10) {
 
@@ -264,7 +264,7 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
@@ -272,11 +272,12 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 		nbt.setBoolean("isOn", isOn);
 		nbt.setBoolean("valid", missingValidSilex);
 		nbt.setInteger("distance", distance);
+		return nbt;
 	}
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.fel", xCoord, yCoord, zCoord, 2.0F, 10F, 2.0F);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.fel", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 2.0F, 10F, 2.0F);
 	}
 
 	@Override

@@ -43,17 +43,17 @@ public class GUIScreenSatCoord extends GuiScreen {
 		this.guiTop = (this.height - this.ySize) / 2;
 
 		Keyboard.enableRepeatEvents(true);
-		this.xField = new GuiTextField(this.fontRendererObj, guiLeft + 66, guiTop + 21, 48, 12);
+		this.xField = new GuiTextField(0, this.fontRenderer, guiLeft + 66, guiTop + 21, 48, 12);
 		this.xField.setTextColor(-1);
 		this.xField.setDisabledTextColour(-1);
 		this.xField.setEnableBackgroundDrawing(false);
 		this.xField.setMaxStringLength(7);
-		this.yField = new GuiTextField(this.fontRendererObj, guiLeft + 66, guiTop + 56, 48, 12);
+		this.yField = new GuiTextField(1, this.fontRenderer, guiLeft + 66, guiTop + 56, 48, 12);
 		this.yField.setTextColor(-1);
 		this.yField.setDisabledTextColour(-1);
 		this.yField.setEnableBackgroundDrawing(false);
 		this.yField.setMaxStringLength(7);
-		this.zField = new GuiTextField(this.fontRendererObj, guiLeft + 66, guiTop + 92, 48, 12);
+		this.zField = new GuiTextField(2, this.fontRenderer, guiLeft + 66, guiTop + 92, 48, 12);
 		this.zField.setTextColor(-1);
 		this.zField.setDisabledTextColour(-1);
 		this.zField.setEnableBackgroundDrawing(false);
@@ -79,20 +79,20 @@ public class GUIScreenSatCoord extends GuiScreen {
 
 					if(NumberUtils.isNumber(yField.getText())) {
 
-						mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:item.techBleep"), 1.0F));
+						mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:item.techBleep"), 1.0F));
 						PacketDispatcher.wrapper.sendToServer(new SatCoordPacket((int) Double.parseDouble(xField.getText()), (int) Double.parseDouble(yField.getText()),
-								(int) Double.parseDouble(zField.getText()), ISatChip.getFreqS(player.getHeldItem())));
+								(int) Double.parseDouble(zField.getText()), ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(player))));
 
-						this.mc.thePlayer.closeScreen();
+						this.mc.player.closeScreen();
 					}
 
 				} else {
 
-					mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("hbm:item.techBleep"), 1.0F));
+					mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:item.techBleep"), 1.0F));
 					PacketDispatcher.wrapper
-							.sendToServer(new SatCoordPacket((int) Double.parseDouble(xField.getText()), 0, (int) Double.parseDouble(zField.getText()), ISatChip.getFreqS(player.getHeldItem())));
+							.sendToServer(new SatCoordPacket((int) Double.parseDouble(xField.getText()), 0, (int) Double.parseDouble(zField.getText()), ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(player))));
 
-					this.mc.thePlayer.closeScreen();
+					this.mc.player.closeScreen();
 				}
 			}
 		}
@@ -160,7 +160,7 @@ public class GUIScreenSatCoord extends GuiScreen {
 		}
 
 		if(p_73869_2_ == 1 || p_73869_2_ == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 
 	}

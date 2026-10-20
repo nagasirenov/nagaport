@@ -13,7 +13,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 
-public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase {
+public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase implements net.minecraft.util.ITickable {
 
 	protected GenNode klystronNode;
 
@@ -27,9 +27,9 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase {
 	private AudioWrapper audio;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.klystronNode = TileEntityFusionKlystron.handleKNode(klystronNode, this);
 			this.isConnected = TileEntityFusionKlystron.provideKyU(klystronNode, FusionRecipes.INSTANCE.maxInput);
@@ -41,7 +41,7 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase {
 			if(this.isConnected) this.fanSpeed += FAN_ACCELERATION;
 			else this.fanSpeed -= FAN_ACCELERATION;
 
-			this.fanSpeed = MathHelper.clamp_float(this.fanSpeed, 0F, 5F);
+			this.fanSpeed = MathHelper.clamp(this.fanSpeed, 0F, 5F);
 
 			this.prevFan = this.fan;
 			this.fan += this.fanSpeed;
@@ -51,12 +51,12 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase {
 				this.prevFan -= 360F;
 			}
 
-			if(this.fanSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(xCoord + 0.5, yCoord + 2.5, zCoord + 0.5) < 30 * 30) {
+			if(this.fanSpeed > 0 && MainRegistry.proxy.me().getDistanceSq(this.pos.getX() + 0.5, this.pos.getY() + 2.5, this.pos.getZ() + 0.5) < 30 * 30) {
 
 				float speed = this.fanSpeed / 5F;
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fel", xCoord + 0.5F, yCoord + 2.5F, zCoord + 0.5F, getVolume(speed), 15F, speed, 20);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.fel", this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, getVolume(speed), 15F, speed, 20);
 					audio.startSound();
 				} else {
 					audio.updateVolume(getVolume(speed));
@@ -93,8 +93,8 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase {
 			audio = null;
 		}
 
-		if(!worldObj.isRemote) {
-			if(this.klystronNode != null) UniNodespace.destroyNode(worldObj, klystronNode);
+		if(!this.world.isRemote) {
+			if(this.klystronNode != null) UniNodespace.destroyNode(this.world, klystronNode);
 		}
 	}
 
@@ -117,12 +117,12 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase {
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 5,
-					zCoord + 5
+					this.pos.getX() - 4,
+					this.pos.getY(),
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 5,
+					this.pos.getZ() + 5
 					);
 		}
 

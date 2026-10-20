@@ -20,7 +20,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.nbt.NBTTagCompound;
 
-public abstract class TileEntityTurbineBase extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiverMK2, IInfoProviderEC, IBufPacketReceiver, IFluidCopiable {
+public abstract class TileEntityTurbineBase extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiverMK2, IInfoProviderEC, IBufPacketReceiver, IFluidCopiable, net.minecraft.util.ITickable {
 
 	protected ByteBuf buf;
 	public long powerBuffer;
@@ -39,9 +39,9 @@ public abstract class TileEntityTurbineBase extends TileEntityLoadedBase impleme
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.powerBuffer = 0;
 			this.info = new double[3];
@@ -83,12 +83,12 @@ public abstract class TileEntityTurbineBase extends TileEntityLoadedBase impleme
 			if(!valid) tanks[1].setTankType(Fluids.NONE);
 
 			for(DirPos pos : this.getPowerPos()) {
-				this.tryProvide(worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 
 			for(DirPos pos : this.getConPos()) {
-				this.tryProvide(tanks[1], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.tryProvide(tanks[1], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			}
 			networkPackNT(150);
 			
@@ -151,11 +151,12 @@ public abstract class TileEntityTurbineBase extends TileEntityLoadedBase impleme
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tanks[0].writeToNBT(nbt, "water");
 		tanks[1].writeToNBT(nbt, "steam");
 		nbt.setLong("power", powerBuffer);
+		return nbt;
 	}
 	
 	@Override public long getPower() { return powerBuffer; }

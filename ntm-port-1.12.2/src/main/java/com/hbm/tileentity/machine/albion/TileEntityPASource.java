@@ -70,17 +70,17 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		super(5);
 	}
 
-	@Override public String getName() { return "container.paSource"; }
+	@Override public String getDefaultName() { return "container.paSource"; }
 	@Override public int getInventoryStackLimit() { return 1; }
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.power = Library.chargeTEFromItems(slots, 0, power, this.getMaxPower());
 
 			int steps = 1;
-			if(this.particle != null) steps = 1 + MathHelper.clamp_int(this.particle.momentum / 1_000, 0, 9);
+			if(this.particle != null) steps = 1 + MathHelper.clamp(this.particle.momentum / 1_000, 0, 9);
 			
 			for(int i = 0; i < steps; i++) {
 				if(particle != null) {
@@ -95,18 +95,18 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 			}
 		}
 
-		super.updateEntity();
+		super.update();
 	}
 
 	public void steppy() {
-		if(!worldObj.getChunkProvider().chunkExists(particle.x >> 4, particle.z >> 4)) { this.state = PAState.PAUSE_UNLOADED; return; } //halt if we reach unloaded areas
+		if(!this.world.getChunkProvider().chunkExists(particle.x >> 4, particle.z >> 4)) { this.state = PAState.PAUSE_UNLOADED; return; } //halt if we reach unloaded areas
 		//ExplosionSmallCreator.composeEffect(worldObj, particle.x + 0.5, particle.y + 0.5, particle.z + 0.5, 10, 1, 1);
 
-		Block b = worldObj.getBlock(particle.x, particle.y, particle.z);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, particle.x, particle.y, particle.z).getBlock();
 		if(b instanceof BlockDummyable) {
-			int[] pos = ((BlockDummyable) b).findCore(worldObj, particle.x, particle.y, particle.z);
+			int[] pos = ((BlockDummyable) b).findCore(this.world, particle.x, particle.y, particle.z);
 			if(pos == null) { particle.crash(PAState.CRASH_DERAIL); return; }
-			TileEntity tile = worldObj.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(!(tile instanceof IParticleUser)) { particle.crash(PAState.CRASH_DERAIL); return; }
 			IParticleUser pa = (IParticleUser) tile;
 			if(pa.canParticleEnter(particle, particle.dir, particle.x, particle.y, particle.z)) {
@@ -130,7 +130,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		this.power -= usage;
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
-		this.particle = new Particle(this, xCoord + rot.offsetX * 5, yCoord, zCoord + rot.offsetZ * 5, rot, slots[1], slots[2]);
+		this.particle = new Particle(this, this.pos.getX() + rot.offsetX * 5, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 5, rot, slots[1], slots[2]);
 		this.slots[1] = null;
 		this.slots[2] = null;
 		this.markDirty();
@@ -157,24 +157,26 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2, dir),
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 2, dir),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ * 2, dir),
-				new DirPos(xCoord - dir.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord + rot.offsetX * 5, yCoord, zCoord + rot.offsetZ * 5, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + rot.offsetX * 5, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 5, rot),
 		};
 	}
 
 	//ISidedInventory
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return slot == 1 || slot == 2; }
-	@Override public boolean canExtractItem(int slot, ItemStack stack, int side) { return slot == 3 || slot == 4; }
-	@Override public int[] getAccessibleSlotsFromSide(int side) { return new int[] { 3, 4 }; }
+	@Override public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return slot == 3 || slot == 4; }
+	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] { 3, 4 }; }
 
 	//IConditionalInvAccess
 	@Override public boolean isItemValidForSlot(int x, int y, int z, int slot, ItemStack stack) { return isItemValidForSlot(slot, stack); }
-	@Override public boolean canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side) { return canExtractItem(slot, stack, side); }
+	@Override public boolean canExtractItem(int x, int y, int z, int slot, ItemStack stack, int side) { return canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing()); }
 
 	//reusing the same fucking instance because doing anything else would be retarded
 	public static final BlockPos cheapAss = new BlockPos(0, 0, 0);
@@ -186,17 +188,17 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		cheapAss.mutate(x, y, z);
 
-		if(cheapAss.compare(xCoord + dir.offsetX - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ - rot.offsetZ * 2) ||
-				cheapAss.compare(xCoord - dir.offsetX + rot.offsetX * 2, yCoord, zCoord - dir.offsetZ + rot.offsetZ * 2)) {
+		if(cheapAss.compare(this.pos.getX() + dir.offsetX - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ - rot.offsetZ * 2) ||
+				cheapAss.compare(this.pos.getX() - dir.offsetX + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 2)) {
 			return slotsYellow;
 		}
 
-		if(cheapAss.compare(xCoord - dir.offsetX - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ - rot.offsetZ * 2) ||
-				cheapAss.compare(xCoord + dir.offsetX + rot.offsetX * 2, yCoord, zCoord + dir.offsetZ + rot.offsetZ * 2)) {
+		if(cheapAss.compare(this.pos.getX() - dir.offsetX - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ * 2) ||
+				cheapAss.compare(this.pos.getX() + dir.offsetX + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ + rot.offsetZ * 2)) {
 			return slotsRed;
 		}
 
-		return getAccessibleSlotsFromSide(side);
+		return getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 	}
 
 	@Override
@@ -211,12 +213,12 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 4,
-					yCoord - 1,
-					zCoord - 4,
-					xCoord + 5,
-					yCoord + 2,
-					zCoord + 6
+					this.pos.getX() - 4,
+					this.pos.getY() - 1,
+					this.pos.getZ() - 4,
+					this.pos.getX() + 5,
+					this.pos.getY() + 2,
+					this.pos.getZ() + 6
 					);
 		}
 
@@ -234,7 +236,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -246,7 +248,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		if(particle != null) {
@@ -268,6 +270,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 			particleTag.setTag("input2", inputTag2);
 			nbt.setTag("particle", particleTag);
 		}
+		return nbt;
 	}
 
 	@Override

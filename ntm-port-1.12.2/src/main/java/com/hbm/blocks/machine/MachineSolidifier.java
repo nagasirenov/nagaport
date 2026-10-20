@@ -17,7 +17,7 @@ import com.hbm.lib.ForgeDirection;
 public class MachineSolidifier extends BlockDummyable implements ITooltipProvider {
 
 	public MachineSolidifier() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override

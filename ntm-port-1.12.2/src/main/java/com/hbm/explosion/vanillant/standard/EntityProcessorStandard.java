@@ -66,7 +66,7 @@ public class EntityProcessorStandard implements IEntityProcessor {
 					deltaY /= distance;
 					deltaZ /= distance;
 					
-					double density = world.getBlockDensity(vec3, entity.boundingBox);
+					double density = world.getBlockDensity(vec3, entity.getEntityBoundingBox());
 					double knockback = (1.0D - distanceScaled) * density;
 					
 					entity.attackEntityFrom(setExplosionSource(explosion.compat), calculateDamage(distanceScaled, density, knockback, size));

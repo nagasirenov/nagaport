@@ -84,7 +84,7 @@ public class ItemModGasmask extends ItemArmorMod implements IGasMask {
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
-		float yawWrapped = MathHelper.wrapAngleTo180_float(yawHead - yawOffset);
+		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 
 		if(this == ModItems.attachment_mask)

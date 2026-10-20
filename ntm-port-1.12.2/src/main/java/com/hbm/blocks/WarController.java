@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class WarController extends BlockMachineBase {
 
 	public WarController() {
-		super(Material.iron, 0);
+		super(Material.IRON, 0);
 	}
 
 	@Override

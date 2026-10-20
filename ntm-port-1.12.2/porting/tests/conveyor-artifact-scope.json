@@ -1,0 +1,56 @@
+{
+  "scope": "Conveyor native selected-class, mechanics, geometry, AO, and resource evidence only",
+  "artifact_files": [
+    "porting/native-conveyor-acceptance.md",
+    "porting/tests/conveyor-production-scope.json",
+    "porting/tests/probe-native-conveyor-owners.py",
+    "porting/tests/ConveyorOwnersNativeTest.java",
+    "porting/tests/native-conveyor-owners-notes.md",
+    "porting/tests/native-conveyor-owners-proof.log",
+    "porting/tests/conveyor-cuboid-native-probe.py",
+    "porting/tests/conveyor-cuboid-native-test.java.in",
+    "porting/tests/conveyor-cuboid-native-notes.md",
+    "porting/tests/conveyor-cuboid-native-proof.log",
+    "porting/tests/conveyor-model-native-probe.py",
+    "porting/tests/conveyor-model-native-test.java.in",
+    "porting/tests/conveyor-model-oracle.java.in",
+    "porting/tests/conveyor-model-native-source-manifest.json",
+    "porting/tests/conveyor-model-native-proof.log",
+    "porting/tests/conveyor-model-native-notes.md",
+    "porting/tests/conveyor-artifact-scope.json"
+  ],
+  "sha256_excluding_this_manifest": {
+    "porting/native-conveyor-acceptance.md": "2aa1db631690615a42d35d2153527f015cbc496025e7d2aa9896a254dfebf6c5",
+    "porting/tests/conveyor-production-scope.json": "871fb6a2a37c5fdd38a58a9713a32cc73844d916f3d4c7badc10cf0cb5d813f2",
+    "porting/tests/probe-native-conveyor-owners.py": "b8f8d638296a3da2b6af041e554015392883100a562e47ce6c3c8f3519b8889b",
+    "porting/tests/ConveyorOwnersNativeTest.java": "0db7ee0b05bfac726d59693763bb9285581af076436739d0671e1233eaf7da0a",
+    "porting/tests/native-conveyor-owners-notes.md": "7d0a91f5483083df6597df8b75ccd20c225000b51755a28580ca50cb9b258d4f",
+    "porting/tests/native-conveyor-owners-proof.log": "fcd9464c574f2137efc56de4d317f1558f3302448973879fe73a6dff06c41860",
+    "porting/tests/conveyor-cuboid-native-probe.py": "d673d1879bfa19a1cb9af3416728116ea0778643cd1062e9aa37d300bc4c4522",
+    "porting/tests/conveyor-cuboid-native-test.java.in": "d62f51f281ac9114a80bd992e986c0ce7b9425de75678c73888facb69e386d0a",
+    "porting/tests/conveyor-cuboid-native-notes.md": "151794081000428611a16276e6adc37504a59fb76447766c3fea791c2526e7cc",
+    "porting/tests/conveyor-cuboid-native-proof.log": "9c50d2b60c8070fac5cd7cbac5b1d9a11e8cc332cf2d1baf71e81a0310456d7c",
+    "porting/tests/conveyor-model-native-probe.py": "5ba680e527c5e015081cd09cd872d071f9daac26b16056db178573879e99cd6f",
+    "porting/tests/conveyor-model-native-test.java.in": "1ab38ee07365aa624a86be9050679ee641820775020b9e5d5e75e2250584f404",
+    "porting/tests/conveyor-model-oracle.java.in": "2cfce3e717a44d95c19574561bc052362847aed1f3b4469ad56e251ff21f1d0a",
+    "porting/tests/conveyor-model-native-source-manifest.json": "13a3fcc4e59a70b597948b1f8f3454ac98e8132cf3c7e764246327479356dbdb",
+    "porting/tests/conveyor-model-native-proof.log": "03db95276af060cc5eb0068080ac05ed7ebb80f44f1e35ff5e837f0f1f2939d1",
+    "porting/tests/conveyor-model-native-notes.md": "7b377f0fd3433923c95a3eaf124347cedfdf1fa02b651bb34c9d37c26a39cc7f"
+  },
+  "passing_terminal_counts": {
+    "owner_assertions": 469591,
+    "movement_vectors": 101880,
+    "cuboid_assertions": 806774,
+    "family_assertions": 5942823,
+    "family_layouts": 30320,
+    "family_faces": 813600,
+    "damage_overlay_cases": 768
+  },
+  "not_claimed": [
+    "full-mod compilation",
+    "production EntityMovingItem engine",
+    "ItemConveyorWand gameplay",
+    "separate ItemRenderBlock wand rendering",
+    "live GL or old/new lighting pixel parity"
+  ]
+}

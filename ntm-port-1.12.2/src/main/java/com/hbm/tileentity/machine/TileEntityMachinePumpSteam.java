@@ -18,19 +18,19 @@ public class TileEntityMachinePumpSteam extends TileEntityMachinePumpBase {
 		lps = new FluidTank(Fluids.SPENTSTEAM, 10);
 	}
 	
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(steam.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+				this.trySubscribe(steam.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				if(lps.getFill() > 0) {
-					this.sendFluid(lps, worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+					this.sendFluid(lps, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 
 	@Override

@@ -1,0 +1,4 @@
+PASS: 123 exact original receiver/argument-preserving edits; 62 whole-file byte-exact inverses
+Unrelated unfinished-port diagnostics: 17385
+Attribution diagnostics, not compile success: 17475
+PASS: 123 original exact-World/int attributed sites and native IBlockState.getBlock destinations; exact receiver and coordinate AST spans match

@@ -26,9 +26,9 @@ public class RenderLaserMiner extends TileEntitySpecialRenderer {
 		double tx = (laser.targetX - laser.lastTargetX) * interpolation + laser.lastTargetX;
 		double ty = (laser.targetY - laser.lastTargetY) * interpolation + laser.lastTargetY;
 		double tz = (laser.targetZ - laser.lastTargetZ) * interpolation + laser.lastTargetZ;
-		double vx = tx - laser.xCoord;
-		double vy = ty - laser.yCoord + 3;
-		double vz = tz - laser.zCoord;
+		double vx = tx - laser.getPos().getX();
+		double vy = ty - laser.getPos().getY() + 3;
+		double vz = tz - laser.getPos().getZ();
 		
 		Vec3d nVec = new Vec3d(vx, vy, vz);
 		nVec = nVec.normalize();
@@ -40,7 +40,7 @@ public class RenderLaserMiner extends TileEntitySpecialRenderer {
 
 		double length = vec.length();
 		double yaw = Math.toDegrees(Math.atan2(vec.x, vec.z));
-		double sqrt = MathHelper.sqrt_double(vec.x * vec.x + vec.z * vec.z);
+		double sqrt = MathHelper.sqrt(vec.x * vec.x + vec.z * vec.z);
 		double pitch = Math.toDegrees(Math.atan2(vec.y, sqrt));
 		//turns out using tan(vec.y, length) was inaccurate,
 		//the emitter wouldn't match the laser perfectly when pointing down
@@ -69,9 +69,9 @@ public class RenderLaserMiner extends TileEntitySpecialRenderer {
 			length = vec.length();
 			GL11.glTranslated(nVec.x, nVec.y - 1, nVec.z);
 			int range = (int)Math.ceil(length * 0.5);
-	        BeamPronter.prontBeam(vec, EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xa00000, 0xa00000, (int)te.getWorldObj().getTotalWorldTime() * -25 % 360, range * 2, 0.075F, 3, 0.025F, 0.5F);
-	        BeamPronter.prontBeam(vec, EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xa00000, 0xa00000, (int)te.getWorldObj().getTotalWorldTime() * -25 % 360 + 120, range * 2, 0.075F, 3, 0.025F, range);
-	        BeamPronter.prontBeam(vec, EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xa00000, 0xa00000, (int)te.getWorldObj().getTotalWorldTime() * -25 % 360 + 240, range * 2, 0.075F, 3, 0.025F, 0.5F);
+	        BeamPronter.prontBeam(vec, EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xa00000, 0xa00000, (int)te.getWorld().getTotalWorldTime() * -25 % 360, range * 2, 0.075F, 3, 0.025F, 0.5F);
+	        BeamPronter.prontBeam(vec, EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xa00000, 0xa00000, (int)te.getWorld().getTotalWorldTime() * -25 % 360 + 120, range * 2, 0.075F, 3, 0.025F, range);
+	        BeamPronter.prontBeam(vec, EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0xa00000, 0xa00000, (int)te.getWorld().getTotalWorldTime() * -25 % 360 + 240, range * 2, 0.075F, 3, 0.025F, 0.5F);
 		}
         
 		GL11.glPopMatrix();

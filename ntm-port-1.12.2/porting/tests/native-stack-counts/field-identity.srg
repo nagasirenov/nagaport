@@ -1,0 +1,4 @@
+FD: add/b net/minecraft/item/ItemStack/field_77994_a
+MD: add/m ()Ladd; net/minecraft/item/ItemStack/func_77946_l ()Lnet/minecraft/item/ItemStack;
+MD: add/b ()Ladb; net/minecraft/item/ItemStack/func_77973_b ()Lnet/minecraft/item/Item;
+FD: net/minecraft/item/ItemStack/stackSize net/minecraft/item/ItemStack/field_77994_a

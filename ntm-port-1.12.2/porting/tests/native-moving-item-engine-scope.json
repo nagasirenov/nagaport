@@ -1,0 +1,43 @@
+{
+  "scope": "bounded complete native conveyor moving-item engine",
+  "production_edits": [
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityMovingConveyorObject.java",
+      "sha256": "30f1575f82c8717322e12fb2cf978546838ea44ad6eeae606b4ed8c56df86bde",
+      "pristine_sha256": "c12aacd5f6baa7fb22dbb24167908b4da8916cf076fc6370cdd04e02282624b9"
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityMovingItem.java",
+      "sha256": "978c436c8d6beba7fdd3c4fbc08d71bf05272b53478621e8e338f85c07d81d68",
+      "pristine_sha256": "f459be2fa6d9a35ebd3819b6f34351ce3ddee6ad453337da12ff2f3163b85593"
+    },
+    {
+      "path": "src/main/java/com/hbm/util/fauxpointtwelve/BlockPos.java",
+      "sha256": "ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d",
+      "pristine_sha256": "f14698c25865a938fa5a8c4240c5da7a4c48930d065fede186a486f5c5214823"
+    }
+  ],
+  "artifacts": [
+    "porting/tests/probe-native-moving-item-engine.py",
+    "porting/tests/MovingItemEngineNativeTest.java",
+    "porting/tests/native-moving-item-engine-proof.log",
+    "porting/tests/native-moving-item-engine-notes.md",
+    "porting/tests/native-moving-item-engine-scope.json"
+  ],
+  "result": {
+    "assertions": 20859,
+    "direct_onUpdate_callbacks": 3854,
+    "native_world_dispatched_updates": 6
+  },
+  "excluded": [
+    "EntityMovingPackage",
+    "RenderMovingItem",
+    "EntityMappings",
+    "crane owners",
+    "shared Library",
+    "full-mod compilation",
+    "live graphical or server acceptance"
+  ],
+  "synchronized_representation": "Native ITEM_STACK plus BOOLEAN presence preserves null-only stone fallback and present-empty accounting, including live transfer-to-zero and metadata serialization.",
+  "nbt_boundary": "Native string-id Item/count/damage/custom-tag roundtrip only; arbitrary legacy numeric item-ID import and registry/data-fixer remapping excluded."
+}

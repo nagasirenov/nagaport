@@ -1,292 +1,69 @@
 package com.hbm.render.block;
 
-import org.lwjgl.opengl.GL11;
+import java.util.*;
+import com.hbm.render.block.nativeblock.BoxDuctMaterials;
+import com.hbm.render.block.nativeblock.BoxDuctMaterials.Kind;
+import com.hbm.render.block.nativeblock.PneumaticCuboidGeometry;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
 
-import com.hbm.blocks.network.FluidDuctBox;
-import com.hbm.blocks.network.PowerCableBox;
-import com.hbm.inventory.fluid.FluidType;
-import com.hbm.inventory.fluid.Fluids;
-import com.hbm.lib.Library;
-import com.hbm.render.util.RenderBlocksNT;
-import com.hbm.tileentity.network.TileEntityPipeBaseNT;
-import com.hbm.util.ColorUtil;
-
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderBoxDuct implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-		Tessellator tessellator = Tessellator.instance;
-
-		if(block instanceof FluidDuctBox) {
-			FluidDuctBox duct = (FluidDuctBox) block;
-			int type = duct.rectify(metadata);
-
-			float lower = 0.125F;
-			float upper = 0.875F;
-
-			for(int i = 2; i < 13; i += 3) {
-
-				if(metadata > i) {
-					lower += 0.0625F;
-					upper -= 0.0625F;
-				}
-			}
-
-			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
-			renderer.setRenderBounds(lower, lower, 0.0F, upper, upper, 1.0F);
-
-			renderer.uvRotateNorth = 1;
-			renderer.uvRotateSouth = 2;
-
-			tessellator.startDrawingQuads();
-			tessellator.setNormal(0F, 1F, 0F);	renderer.renderFaceYPos(block, 0, 0, 0, duct.iconStraight[type]);
-			tessellator.setNormal(0F, -1F, 0F);	renderer.renderFaceYNeg(block, 0, 0, 0, duct.iconStraight[type]);
-			tessellator.setNormal(1F, 0F, 0F);	renderer.renderFaceXPos(block, 0, 0, 0, duct.iconStraight[type]);
-			tessellator.setNormal(-1F, 0F, 0F);	renderer.renderFaceXNeg(block, 0, 0, 0, duct.iconStraight[type]);
-			tessellator.setNormal(0F, 0F, 1F);	renderer.renderFaceZPos(block, 0, 0, 0, duct.iconEnd[type]);
-			tessellator.setNormal(0F, 0F, -1F);	renderer.renderFaceZNeg(block, 0, 0, 0, duct.iconEnd[type]);
-			tessellator.draw();
-
-			renderer.uvRotateNorth = 0;
-			renderer.uvRotateSouth = 0;
-		} else if(block instanceof PowerCableBox) {
-			PowerCableBox cable = (PowerCableBox) block;
-
-			float lower = 0.125F;
-			float upper = 0.875F;
-
-			for(int i = 0; i < 5; i++) {
-
-				if(metadata > i) {
-					lower += 0.0625F;
-					upper -= 0.0625F;
-				}
-			}
-
-			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
-			renderer.setRenderBounds(lower, lower, 0.0F, upper, upper, 1.0F);
-
-			renderer.uvRotateNorth = 1;
-			renderer.uvRotateSouth = 2;
-
-			tessellator.startDrawingQuads();
-			tessellator.setNormal(0F, 1F, 0F);	renderer.renderFaceYPos(block, 0, 0, 0, cable.iconStraight);
-			tessellator.setNormal(0F, -1F, 0F);	renderer.renderFaceYNeg(block, 0, 0, 0, cable.iconStraight);
-			tessellator.setNormal(1F, 0F, 0F);	renderer.renderFaceXPos(block, 0, 0, 0, cable.iconStraight);
-			tessellator.setNormal(-1F, 0F, 0F);	renderer.renderFaceXNeg(block, 0, 0, 0, cable.iconStraight);
-			tessellator.setNormal(0F, 0F, 1F);	renderer.renderFaceZPos(block, 0, 0, 0, cable.iconEnd[metadata]);
-			tessellator.setNormal(0F, 0F, -1F);	renderer.renderFaceZNeg(block, 0, 0, 0, cable.iconEnd[metadata]);
-			tessellator.draw();
-
-			renderer.uvRotateNorth = 0;
-			renderer.uvRotateSouth = 0;
-		}
-	}
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		renderer = RenderBlocksNT.INSTANCE.setWorld(world);
-
-		TileEntity te = world.getTileEntity(x, y, z);
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		int meta = world.getBlockMetadata(x, y, z);
-
-		boolean pX = false;
-		boolean nX = false;
-		boolean pY = false;
-		boolean nY = false;
-		boolean pZ = false;
-		boolean nZ = false;
-
-		double lower = 0.125D;
-		double upper = 0.875D;
-		double jLower = lower;
-		double jUpper = upper;
-
-		if(block instanceof FluidDuctBox) {
-			FluidDuctBox.cachedColor = 0xffffff;
-			FluidDuctBox duct = (FluidDuctBox) block;
-
-			pX = duct.canConnectTo(world, x, y, z, Library.POS_X, te);
-			nX = duct.canConnectTo(world, x, y, z, Library.NEG_X, te);
-			pY = duct.canConnectTo(world, x, y, z, Library.POS_Y, te);
-			nY = duct.canConnectTo(world, x, y, z, Library.NEG_Y, te);
-			pZ = duct.canConnectTo(world, x, y, z, Library.POS_Z, te);
-			nZ = duct.canConnectTo(world, x, y, z, Library.NEG_Z, te);
-
-			if(te instanceof TileEntityPipeBaseNT) {
-				FluidType type = Fluids.NONE;
-				TileEntityPipeBaseNT pipe = (TileEntityPipeBaseNT) te;
-				type = pipe.getType();
-				if(meta % 3 == 2) {
-					FluidDuctBox.cachedColor = ColorUtil.lightenColor(type.getColor(), 0.25D); //making very dark things not vantablack
-				}
-			}
-
-			jLower = 0.0625D;
-			jUpper = 0.9375D;
-
-			for(int i = 2; i < 13; i += 3) {
-
-				if(meta > i) {
-					lower += 0.0625D;
-					upper -= 0.0625D;
-					jLower += 0.0625D;
-					jUpper -= 0.0625D;
-				}
-			}
-		} else {
-			PowerCableBox cable = (PowerCableBox) block;
-
-			pX = cable.canConnectTo(world, x, y, z, Library.POS_X, te);
-			nX = cable.canConnectTo(world, x, y, z, Library.NEG_X, te);
-			pY = cable.canConnectTo(world, x, y, z, Library.POS_Y, te);
-			nY = cable.canConnectTo(world, x, y, z, Library.NEG_Y, te);
-			pZ = cable.canConnectTo(world, x, y, z, Library.POS_Z, te);
-			nZ = cable.canConnectTo(world, x, y, z, Library.NEG_Z, te);
-
-			for(int i = 0; i < 5; i++) {
-
-				if(meta > i) {
-					lower += 0.0625F;
-					upper -= 0.0625F;
-					jLower += 0.0625F;
-					jUpper -= 0.0625F;
-				}
-			}
-		}
-
-		int mask = 0 + (pX ? 32 : 0) + (nX ? 16 : 0) + (pY ? 8 : 0) + (nY ? 4 : 0) + (pZ ? 2 : 0) + (nZ ? 1 : 0);
-		int count = 0 + (pX ? 1 : 0) + (nX ? 1 : 0) + (pY ? 1 : 0) + (nY ? 1 : 0) + (pZ ? 1 : 0) + (nZ ? 1 : 0);
-
-		//Straight along X
-		if((mask & 0b001111) == 0 && mask > 0) {
-			renderer.uvRotateTop = 1;
-			renderer.uvRotateBottom = 1;
-			renderer.uvRotateEast = 2;
-			renderer.uvRotateWest = 1;
-			renderer.setRenderBounds(0.0D, lower, lower, 1.0D, upper, upper);
-			renderer.renderStandardBlock(block, x, y, z);
-
-		//Straight along Z
-		} else if((mask & 0b111100) == 0 && mask > 0) {
-			renderer.uvRotateNorth = 1;
-			renderer.uvRotateSouth = 2;
-			renderer.setRenderBounds(lower, lower, 0.0D, upper, upper, 1.0D);
-			renderer.renderStandardBlock(block, x, y, z);
-
-		//Straight along Y
-		} else if((mask & 0b110011) == 0 && mask > 0) {
-			renderer.setRenderBounds(lower, 0.0D, lower, upper, 1.0D, upper);
-			renderer.renderStandardBlock(block, x, y, z);
-
-		//Curve
-		} else if(count == 2) {
-
-			if(nY && (pX || nX)) {
-				renderer.uvRotateTop = 1;
-				renderer.uvRotateBottom = 1;
-			}
-
-			if(pY && (pX || nX)) {
-				renderer.uvRotateTop = 1;
-				renderer.uvRotateBottom = 1;
-			}
-
-			if(!nY && !pY) {
-				renderer.uvRotateNorth = 1;
-				renderer.uvRotateSouth = 2;
-				renderer.uvRotateEast = 2;
-				renderer.uvRotateWest = 1;
-			}
-
-			renderer.setRenderBounds(lower, lower, lower, upper, upper, upper);
-			renderer.renderStandardBlock(block, x, y, z);
-
-			if(nY) {
-				renderer.setRenderBounds(lower, 0.0D, lower, upper, lower, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(pY) {
-				renderer.setRenderBounds(lower, upper, lower, upper, 1.0D, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(nX) {
-				renderer.setRenderBounds(0.0D, lower, lower, lower, upper, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(pX) {
-				renderer.setRenderBounds(upper, lower, lower, 1.0D, upper, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(nZ) {
-				renderer.setRenderBounds(lower, lower, 0.0D, upper, upper, lower);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(pZ) {
-				renderer.setRenderBounds(lower, lower, upper, upper, upper, 1.0D);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-
-		//Junction
-		} else {
-			renderer.setRenderBounds(jLower, jLower, jLower, jUpper, jUpper, jUpper);
-			renderer.renderStandardBlock(block, x, y, z);
-
-			if(nY) {
-				renderer.setRenderBounds(lower, 0.0D, lower, upper, jLower, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(pY) {
-				renderer.setRenderBounds(lower, jUpper, lower, upper, 1.0D, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(nX) {
-				renderer.setRenderBounds(0.0D, lower, lower, jLower, upper, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(pX) {
-				renderer.setRenderBounds(jUpper, lower, lower, 1.0D, upper, upper);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(nZ) {
-				renderer.setRenderBounds(lower, lower, 0.0D, upper, upper, jLower);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-			if(pZ) {
-				renderer.setRenderBounds(lower, lower, jUpper, upper, upper, 1.0D);
-				renderer.renderStandardBlock(block, x, y, z);
-			}
-		}
-
-		renderer.uvRotateTop = 0;
-		renderer.uvRotateBottom = 0;
-		renderer.uvRotateNorth = 0;
-		renderer.uvRotateSouth = 0;
-		renderer.uvRotateEast = 0;
-		renderer.uvRotateWest = 0;
-
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return true;
-	}
-
-	@Override
-	public int getRenderId() {
-		return FluidDuctBox.renderID;
-	}
-
+/** Complete native geometry successor to the original box-duct ISBRH, not a RenderBlocks facade. */
+public final class RenderBoxDuct {
+    private RenderBoxDuct() { }
+    public static List<BakedQuad> bake(BoxDuctMaterials materials, int metadata, int mask, boolean inventory, int color) {
+        if(mask<0 || mask>63) throw new IllegalArgumentException("Invalid box-duct connection mask " + mask);
+        boolean fluid = materials.kind != Kind.CABLE;
+        double lower=.125D, upper=.875D, jLower=fluid?.0625D:.125D, jUpper=fluid?.9375D:.875D;
+        if(fluid) { for(int i=2;i<13;i+=3) if(metadata>i) { lower+=.0625D;upper-=.0625D;jLower+=.0625D;jUpper-=.0625D; } }
+        else { for(int i=0;i<5;i++) if(metadata>i) { lower+=.0625D;upper-=.0625D;jLower+=.0625D;jUpper-=.0625D; } }
+        TextureAtlasSprite[] sprites = new TextureAtlasSprite[6];
+        for(int side=0;side<6;side++) sprites[side]=materials.face(metadata,mask,side,inventory);
+        int[] rotations=new int[6];
+        List<BakedQuad> quads=new ArrayList<>();
+        if(inventory) {
+            rotations[4]=1;rotations[5]=2;
+            // Original single batch was UP, DOWN, EAST, WEST, SOUTH, NORTH.
+            for(EnumFacing side:new EnumFacing[]{EnumFacing.UP,EnumFacing.DOWN,EnumFacing.EAST,EnumFacing.WEST,EnumFacing.SOUTH,EnumFacing.NORTH})
+                quads.add(PneumaticCuboidGeometry.face(sprites[side.getIndex()],true,side,rotations[side.getIndex()],lower,lower,0,upper,upper,1,0));
+            return Collections.unmodifiableList(quads);
+        }
+        if((mask&15)==0&&mask>0) {
+            rotations[0]=1;rotations[1]=1;rotations[2]=2;rotations[3]=1;
+            append(quads,sprites,rotations,0,lower,lower,1,upper,upper,color);
+        } else if((mask&60)==0&&mask>0) {
+            rotations[4]=1;rotations[5]=2;
+            append(quads,sprites,rotations,lower,lower,0,upper,upper,1,color);
+        } else if((mask&51)==0&&mask>0) {
+            append(quads,sprites,rotations,lower,0,lower,upper,1,upper,color);
+        } else {
+            boolean curve=Integer.bitCount(mask)==2;
+            if(curve) {
+                if((mask&12)!=0&&(mask&48)!=0) { rotations[0]=1;rotations[1]=1; }
+                if((mask&12)==0) { rotations[4]=1;rotations[5]=2;rotations[2]=2;rotations[3]=1; }
+                jLower=lower;jUpper=upper;
+            }
+            append(quads,sprites,rotations,jLower,jLower,jLower,jUpper,jUpper,jUpper,color);
+            if((mask&4)!=0) append(quads,sprites,rotations,lower,0,lower,upper,jLower,upper,color);
+            if((mask&8)!=0) append(quads,sprites,rotations,lower,jUpper,lower,upper,1,upper,color);
+            if((mask&16)!=0) append(quads,sprites,rotations,0,lower,lower,jLower,upper,upper,color);
+            if((mask&32)!=0) append(quads,sprites,rotations,jUpper,lower,lower,1,upper,upper,color);
+            if((mask&1)!=0) append(quads,sprites,rotations,lower,lower,0,upper,upper,jLower,color);
+            if((mask&2)!=0) append(quads,sprites,rotations,lower,lower,jUpper,upper,upper,1,color);
+        }
+        return Collections.unmodifiableList(quads);
+    }
+    private static void append(List<BakedQuad> quads, TextureAtlasSprite[] sprites, int[] rotations,
+            double x0,double y0,double z0,double x1,double y1,double z1,int color) {
+        for(EnumFacing side:EnumFacing.values()) {
+            BakedQuad face=PneumaticCuboidGeometry.face(sprites[side.getIndex()],false,side,rotations[side.getIndex()],x0,y0,z0,x1,y1,z1,0);
+            if(color!=0xffffff) {
+                int[] data=face.getVertexData().clone();int stride=face.getFormat().getIntegerSize(),at=face.getFormat().getColorOffset()/4;
+                int rgba=0xff000000|(color&255)<<16|(color&0xff00)|(color>>>16&255);
+                for(int v=0;v<4;v++) data[v*stride+at]=rgba;
+                face=new BakedQuad(data,-1,side,face.getSprite(),true,face.getFormat());
+            }
+            quads.add(face);
+        }
+    }
 }

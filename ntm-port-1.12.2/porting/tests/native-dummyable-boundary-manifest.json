@@ -1,0 +1,440 @@
+{
+  "baseline": "8ddca7d2d36b223ffdb99c884d1431301c3e957b",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockDummyable.java": {
+      "before_sha256": "eaa1925fe13d690148a0c46ec691a664c3dd853415fe4d5baf3d69c0f9051242",
+      "after_sha256": "37d31d015839532f4e26b57d46f603f8bd81d216d0cc2a509967252a6fe89163",
+      "edits": [
+        {
+          "before_offset": 610,
+          "after_offset": 610,
+          "old": "",
+          "new": "import net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\n"
+        },
+        {
+          "before_offset": 1757,
+          "after_offset": 1987,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n\t}\n\n\t/** Native engine boundary for the existing NTM-owned virtual coordinate hooks. */\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\tprivate AxisAlignedBB selectionBounds = FULL_BLOCK_AABB;\n\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\t@Override public void neighborChanged(IBlockState state, World world, BlockPos pos, Block changed, BlockPos fromPos) {\n\t\tonNeighborBlockChange(world, pos.getX(), pos.getY(), pos.getZ(), changed);\n\t}\n\t@Override public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {\n\t\tupdateTick(world, pos.getX(), pos.getY(), pos.getZ(), random);\n\t}\n\t@Override public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {\n\t\treturn getStateFromMeta(onBlockPlaced(world, pos.getX(), pos.getY(), pos.getZ(), side.getIndex(), hitX, hitY, hitZ, meta));\n\t}\n\t@Override public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {\n\t\tonBlockPlacedBy(world, pos.getX(), pos.getY(), pos.getZ(), placer, stack);\n\t}\n\t@Override public void breakBlock(World world, BlockPos pos, IBlockState state) {\n\t\tbreakBlock(world, pos.getX(), pos.getY(), pos.getZ(), state.getBlock(), state.getBlock().getMetaFromState(state));\n\t}\n\t@Override public EnumBlockRenderType getRenderType(IBlockState state) {\n\t\t// Positive NTM render IDs require their separately migrated native model binding.\n\t\treturn getRenderType() < 0 ? EnumBlockRenderType.INVISIBLE : EnumBlockRenderType.MODEL;\n\t}\n\t@Override public boolean isOpaqueCube(IBlockState state) { return isOpaqueCube(); }\n\t@Override public boolean isFullCube(IBlockState state) { return renderAsNormalBlock(); }\n\t@Override public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {\n\t\tonBlockHarvested(world, pos.getX(), pos.getY(), pos.getZ(), getMetaFromState(state), player);\n\t}\n\t@Override public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {\n\t\tharvestBlock(world, player, pos.getX(), pos.getY(), pos.getZ(), getMetaFromState(state));\n\t}\n\t@Override public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB query, List<AxisAlignedBB> boxes, Entity entity, boolean actualState) {\n\t\taddCollisionBoxesToList(world, pos.getX(), pos.getY(), pos.getZ(), query, boxes, entity);\n\t}\n\t@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n\t\tsetBlockBoundsBasedOnState(world, pos.getX(), pos.getY(), pos.getZ());\n\t\treturn selectionBounds;\n\t}\n\t/** Bounds are NTM's existing per-owner selection state, not mutable Minecraft bounds. */\n\tpublic void setBlockBounds(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {\n\t\tselectionBounds = new AxisAlignedBB(minX, minY, minZ, maxX, maxY, maxZ);\n\t}\n\tprivate static int metadata(IBlockAccess world, int x, int y, int z) {\n\t\tIBlockState state = world.getBlockState(new BlockPos(x, y, z));\n\t\treturn state.getBlock().getMetaFromState(state);\n\t}\n\tprivate static void setMetadata(World world, int x, int y, int z, int meta, int flags) {\n\t\tBlockPos pos = new BlockPos(x, y, z);\n\t\tworld.setBlockState(pos, world.getBlockState(pos).getBlock().getStateFromMeta(meta), flags);\n"
+        },
+        {
+          "before_offset": 2887,
+          "after_offset": 6873,
+          "old": "\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n",
+          "new": "\t\t// Native BlockContainer inherits the empty Block.neighborChanged implementation.\n"
+        },
+        {
+          "before_offset": 3081,
+          "after_offset": 7097,
+          "old": "\t\tsuper.updateTick(world, x, y, z, rand);\n",
+          "new": "\t\tsuper.updateTick(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), rand);\n"
+        },
+        {
+          "before_offset": 3358,
+          "after_offset": 7432,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 1);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new BlockPos(x, y, z), this, 1);\n"
+        },
+        {
+          "before_offset": 3596,
+          "after_offset": 7679,
+          "old": "\t\tint metadata = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint metadata = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 3817,
+          "after_offset": 7893,
+          "old": "\t\tBlock b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n",
+          "new": "\t\tBlock b = world.getBlockState(new BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 4300,
+          "after_offset": 8406,
+          "old": "\t\tif(b != this && world.checkChunksExist(x - 1, y - 1, z - 1, x + 1, y + 1, z + 1)) {\n",
+          "new": "\t\tif(b != this && world.isAreaLoaded(new BlockPos(x - 1, y - 1, z - 1), new BlockPos(x + 1, y + 1, z + 1))) {\n"
+        },
+        {
+          "before_offset": 4481,
+          "after_offset": 8611,
+          "old": "\t\t\t\tworld.setBlockToAir(x, y, z);\n",
+          "new": "\t\t\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 5105,
+          "after_offset": 9249,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, offset + world.getBlockMetadata(x, y, z), 3);\n",
+          "new": "\t\tsetMetadata(world, x, y, z, offset + metadata(world, x, y, z), 3);\n"
+        },
+        {
+          "before_offset": 5490,
+          "after_offset": 9613,
+          "old": "\t\tint metadata = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint metadata = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 5707,
+          "after_offset": 9823,
+          "old": "\t\tif(world.getBlock(x, y, z) == this && ForgeDirection.getOrientation(metadata) == ForgeDirection.UNKNOWN)\n",
+          "new": "\t\tif(world.getBlockState(new BlockPos(x, y, z)).getBlock() == this && ForgeDirection.getOrientation(metadata) == ForgeDirection.UNKNOWN)\n"
+        },
+        {
+          "before_offset": 5974,
+          "after_offset": 10120,
+          "old": "\t\tBlock b = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n",
+          "new": "\t\tBlock b = world.getBlockState(new BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)).getBlock();\n"
+        },
+        {
+          "before_offset": 6200,
+          "after_offset": 10376,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 6342,
+          "after_offset": 10507,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 6517,
+          "after_offset": 10671,
+          "old": "\t\tForgeDirection placedSide = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));\n",
+          "new": "\t\tForgeDirection placedSide = ForgeDirection.getOrientation(metadata(world, x, y, z));\n"
+        },
+        {
+          "before_offset": 6630,
+          "after_offset": 10777,
+          "old": "\t\tworld.setBlockToAir(x, y, z);\n",
+          "new": "\t\tworld.setBlockToAir(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 6726,
+          "after_offset": 10887,
+          "old": "\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n",
+          "new": "\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n"
+        },
+        {
+          "before_offset": 8164,
+          "after_offset": 12318,
+          "old": "\t\t\t\tItemStack stack = pl.inventory.mainInventory[pl.inventory.currentItem];\n",
+          "new": "\t\t\t\tEnumHand refundHand = itemStack == pl.getHeldItemOffhand() ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND;\n\t\t\t\tItemStack stack = pl.getHeldItem(refundHand);\n"
+        },
+        {
+          "before_offset": 8286,
+          "after_offset": 12519,
+          "old": "\t\t\t\tif(stack == null) {\n\t\t\t\t\tpl.inventory.mainInventory[pl.inventory.currentItem] = new ItemStack(this);\n",
+          "new": "\t\t\t\tif(stack == null || stack.isEmpty()) {\n\t\t\t\t\tpl.setHeldItem(refundHand, new ItemStack(this));\n"
+        },
+        {
+          "before_offset": 8404,
+          "after_offset": 12629,
+          "old": "\t\t\t\t\tif(stack.getItem() != item || stack.stackSize == stack.getMaxStackSize()) {\n",
+          "new": "\t\t\t\t\tif(stack.getItem() != item || stack.getCount() == stack.getMaxStackSize()) {\n"
+        },
+        {
+          "before_offset": 8564,
+          "after_offset": 12790,
+          "old": "\t\t\t\t\t\tpl.getHeldItem().stackSize++;\n",
+          "new": "\t\t\t\t\t\tpl.getHeldItem(refundHand).grow(1);\n"
+        },
+        {
+          "before_offset": 8832,
+          "after_offset": 13064,
+          "old": "\t\t\tworld.setBlock(ox, oy, oz, this, meta, 3);\n",
+          "new": "\t\t\tworld.setBlockState(new BlockPos(ox, oy, oz), this.getStateFromMeta(meta), 3);\n"
+        },
+        {
+          "before_offset": 9144,
+          "after_offset": 13412,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, 1);\n\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n",
+          "new": "\t\tworld.scheduleUpdate(new BlockPos(x, y, z), this, 1);\n\t\tworld.scheduleUpdate(new BlockPos(x, y, z), this, 2);\n"
+        },
+        {
+          "before_offset": 9239,
+          "after_offset": 13525,
+          "old": "\t\tsuper.onBlockPlacedBy(world, x, y, z, player, itemStack);\n",
+          "new": "\t\tsuper.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, itemStack);\n"
+        },
+        {
+          "before_offset": 9371,
+          "after_offset": 13715,
+          "old": "\t\tint x = MathHelper.floor_double(player.posX);\n\t\tint y = MathHelper.floor_double(player.posY + 0.1D);\n\t\tint z = MathHelper.floor_double(player.posZ);\n\t\treturn world.getBlock(x, y, z) == this || world.getBlock(x, y + 1, z) == this;\n",
+          "new": "\t\tint x = MathHelper.floor(player.posX);\n\t\tint y = MathHelper.floor(player.posY + 0.1D);\n\t\tint z = MathHelper.floor(player.posZ);\n\t\treturn world.getBlockState(new BlockPos(x, y, z)).getBlock() == this || world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == this;\n"
+        },
+        {
+          "before_offset": 11060,
+          "after_offset": 15443,
+          "old": "\t\tif(world.getBlock(x, y, z) != this)\n",
+          "new": "\t\tif(world.getBlockState(new BlockPos(x, y, z)).getBlock() != this)\n"
+        },
+        {
+          "before_offset": 11110,
+          "after_offset": 15523,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint meta = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 11184,
+          "after_offset": 15590,
+          "old": "\t\t// world.setBlockMetadataWithNotify(x, y, z, meta + extra, 3);\n",
+          "new": "\t\t// setMetadata(world, x, y, z, meta + extra, 3);\n"
+        },
+        {
+          "before_offset": 11267,
+          "after_offset": 15659,
+          "old": "\t\tworld.setBlock(x, y, z, this, meta + extra, 3);\n",
+          "new": "\t\tworld.setBlockState(new BlockPos(x, y, z), this.getStateFromMeta(meta + extra), 3);\n"
+        },
+        {
+          "before_offset": 11402,
+          "after_offset": 15830,
+          "old": "\t\tif(world.getBlock(x, y, z) != this)\n",
+          "new": "\t\tif(world.getBlockState(new BlockPos(x, y, z)).getBlock() != this)\n"
+        },
+        {
+          "before_offset": 11452,
+          "after_offset": 15910,
+          "old": "\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\tint meta = metadata(world, x, y, z);\n"
+        },
+        {
+          "before_offset": 11541,
+          "after_offset": 15992,
+          "old": "\t\t// world.setBlockMetadataWithNotify(x, y, z, meta + extra, 3);\n",
+          "new": "\t\t// setMetadata(world, x, y, z, meta + extra, 3);\n"
+        },
+        {
+          "before_offset": 11624,
+          "after_offset": 16061,
+          "old": "\t\tworld.setBlock(x, y, z, this, meta - extra, 3);\n",
+          "new": "\t\tworld.setBlockState(new BlockPos(x, y, z), this.getStateFromMeta(meta - extra), 3);\n"
+        },
+        {
+          "before_offset": 11829,
+          "after_offset": 16302,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 11932,
+          "after_offset": 16394,
+          "old": "\t\t\t// ForgeDirection d = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z) - offset);\n",
+          "new": "\t\t\t// ForgeDirection d = ForgeDirection.getOrientation(metadata(world, x, y, z) - offset);\n"
+        },
+        {
+          "before_offset": 12412,
+          "after_offset": 16867,
+          "old": "\t\t\tif(world.getBlock(x - d.offsetX, y - d.offsetY, z - d.offsetZ) == this)\n\t\t\t\tworld.setBlockToAir(x - d.offsetX, y - d.offsetY, z - d.offsetZ);\n",
+          "new": "\t\t\tif(world.getBlockState(new BlockPos(x - d.offsetX, y - d.offsetY, z - d.offsetZ)).getBlock() == this)\n\t\t\t\tworld.setBlockToAir(new BlockPos(x - d.offsetX, y - d.offsetY, z - d.offsetZ));\n"
+        },
+        {
+          "before_offset": 12570,
+          "after_offset": 17069,
+          "old": "\t\tTileEntity te = world.getTileEntity(x, y, z);\n",
+          "new": "\t\tTileEntity te = world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 14031,
+          "after_offset": 18544,
+          "old": "\t\t\t\tworld.func_147453_f(x, y, z, b);\n",
+          "new": "\t\t\t\tworld.updateComparatorOutputLevel(new BlockPos(x, y, z), b);\n"
+        },
+        {
+          "before_offset": 14078,
+          "after_offset": 18619,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, b, i);\n",
+          "new": "\t\tsuper.breakBlock(world, new BlockPos(x, y, z), b.getStateFromMeta(i));\n"
+        },
+        {
+          "before_offset": 14124,
+          "after_offset": 18696,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 14182,
+          "after_offset": 18743,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 14246,
+          "after_offset": 18796,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 14854,
+          "after_offset": 19393,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 15034,
+          "after_offset": 19562,
+          "old": "\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n",
+          "new": "\t\t\tthis.dropBlockAsItem(world, new BlockPos(x, y, z), getStateFromMeta(meta), 0);\n"
+        },
+        {
+          "before_offset": 15213,
+          "after_offset": 19773,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 15317,
+          "after_offset": 19866,
+          "old": "\t\tplayer.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);\n",
+          "new": "\t\tplayer.addStat(StatList.getBlockStats(this), 1);\n"
+        },
+        {
+          "before_offset": 15723,
+          "after_offset": 20251,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 15978,
+          "after_offset": 20495,
+          "old": "\t\t\tsuper.addCollisionBoxesToList(world, x, y, z, entityBounding, list, entity);\n",
+          "new": "\t\t\tAxisAlignedBB box = getCollisionBoundingBoxFromPool(world, x, y, z);\n\t\t\tif(box != null && entityBounding.intersects(box)) list.add(box);\n"
+        },
+        {
+          "before_offset": 16193,
+          "after_offset": 20770,
+          "old": "\t\tForgeDirection rot = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z) - offset).getRotation(ForgeDirection.UP);\n",
+          "new": "\t\tForgeDirection rot = ForgeDirection.getOrientation(metadata(world, x, y, z) - offset).getRotation(ForgeDirection.UP);\n"
+        },
+        {
+          "before_offset": 16447,
+          "after_offset": 21017,
+          "old": "\t\t\tif(entityBounding.intersectsWith(boxlet)) {\n",
+          "new": "\t\t\tif(entityBounding.intersects(boxlet)) {\n"
+        },
+        {
+          "before_offset": 16525,
+          "after_offset": 21091,
+          "old": "",
+          "new": "\t}\n\n\t/** Existing NTM collision hook uses world coordinates; preserve descendant virtual dispatch. */\n\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n\t\treturn selectionBounds.offset(x, y, z);\n"
+        },
+        {
+          "before_offset": 16685,
+          "after_offset": 21485,
+          "old": "\t\tif(dir == ForgeDirection.NORTH) newBox = AxisAlignedBB.getBoundingBox(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ);\n\t\tif(dir == ForgeDirection.EAST) newBox = AxisAlignedBB.getBoundingBox(-aabb.maxZ, aabb.minY, aabb.minX, -aabb.minZ, aabb.maxY, aabb.maxX);\n\t\tif(dir == ForgeDirection.SOUTH) newBox = AxisAlignedBB.getBoundingBox(-aabb.maxX, aabb.minY, -aabb.maxZ, -aabb.minX, aabb.maxY, -aabb.minZ);\n\t\tif(dir == ForgeDirection.WEST) newBox = AxisAlignedBB.getBoundingBox(aabb.minZ, aabb.minY, -aabb.maxX, aabb.maxZ, aabb.maxY, -aabb.minX);\n",
+          "new": "\t\tif(dir == ForgeDirection.NORTH) newBox = new AxisAlignedBB(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ);\n\t\tif(dir == ForgeDirection.EAST) newBox = new AxisAlignedBB(-aabb.maxZ, aabb.minY, aabb.minX, -aabb.minZ, aabb.maxY, aabb.maxX);\n\t\tif(dir == ForgeDirection.SOUTH) newBox = new AxisAlignedBB(-aabb.maxX, aabb.minY, -aabb.maxZ, -aabb.minX, aabb.maxY, -aabb.minZ);\n\t\tif(dir == ForgeDirection.WEST) newBox = new AxisAlignedBB(aabb.minZ, aabb.minY, -aabb.maxX, aabb.maxZ, aabb.maxY, -aabb.minX);\n"
+        },
+        {
+          "before_offset": 17271,
+          "after_offset": 22027,
+          "old": "\t\t\tnewBox.offset(x, y, z);\n",
+          "new": "\t\t\tnewBox = newBox.offset(x, y, z);\n"
+        },
+        {
+          "before_offset": 17321,
+          "after_offset": 22086,
+          "old": "\t\treturn AxisAlignedBB.getBoundingBox(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ).offset(x + 0.5, y + 0.5, z + 0.5);\n",
+          "new": "\t\treturn new AxisAlignedBB(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ).offset(x + 0.5, y + 0.5, z + 0.5);\n"
+        },
+        {
+          "before_offset": 17960,
+          "after_offset": 22714,
+          "old": "\t\tForgeDirection rot = ForgeDirection.getOrientation(world.getBlockMetadata(corePos[0], corePos[1], corePos[2]) - offset).getRotation(ForgeDirection.UP);\n",
+          "new": "\t\tForgeDirection rot = ForgeDirection.getOrientation(metadata(world, corePos[0], corePos[1], corePos[2]) - offset).getRotation(ForgeDirection.UP);\n"
+        },
+        {
+          "before_offset": 18472,
+          "after_offset": 23219,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 18600,
+          "after_offset": 23336,
+          "old": "\t\t\tsuper.setBlockBoundsBasedOnState(world, x, y, z);\n",
+          "new": "\t\t\t// Original Block default was a no-op, retaining the owner's previous bounds.\n"
+        },
+        {
+          "before_offset": 19222,
+          "after_offset": 23986,
+          "old": "\t\tEntityPlayer player = event.player;\n\t\tfloat interp = event.partialTicks;\n",
+          "new": "\t\tEntityPlayer player = event.getPlayer();\n\t\tfloat interp = event.getPartialTicks();\n"
+        },
+        {
+          "before_offset": 19592,
+          "after_offset": 24366,
+          "old": "\t\tForgeDirection rot = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z) - offset).getRotation(ForgeDirection.UP);\n",
+          "new": "\t\tForgeDirection rot = ForgeDirection.getOrientation(metadata(world, x, y, z) - offset).getRotation(ForgeDirection.UP);\n"
+        },
+        {
+          "before_offset": 19753,
+          "after_offset": 24520,
+          "old": "\t\tfor(AxisAlignedBB aabb : this.bounding) RenderGlobal.drawOutlinedBoundingBox(getAABBRotationOffset(aabb.expand(exp, exp, exp), 0, 0, 0, rot).getOffsetBoundingBox(x - dX + 0.5, y - dY, z - dZ + 0.5), -1);\n",
+          "new": "\t\tfor(AxisAlignedBB aabb : this.bounding) RenderGlobal.drawSelectionBoundingBox(getAABBRotationOffset(aabb.grow(exp, exp, exp), 0, 0, 0, rot).offset(x - dX + 0.5, y - dY, z - dZ + 0.5), 0F, 0F, 0F, 0.4F);\n"
+        },
+        {
+          "before_offset": 20120,
+          "after_offset": 24886,
+          "old": "\t\tTileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));\n"
+        },
+        {
+          "before_offset": 20510,
+          "after_offset": 25290,
+          "old": "\t\tTileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));\n"
+        },
+        {
+          "before_offset": 20819,
+          "after_offset": 25613,
+          "old": "\t\tTileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);\n",
+          "new": "\t\tTileEntity tile = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/MultiblockHandlerXR.java": {
+      "before_sha256": "b35f2f28f984d8f26c59b7d8a651b64f46df62eb7ef4ff1d8c886797b7b17952",
+      "after_sha256": "cf660309ec2465376605096eca9926b28dca4001c849183e23dd63a95aeb4012",
+      "edits": [
+        {
+          "before_offset": 133,
+          "after_offset": 133,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 705,
+          "after_offset": 746,
+          "old": "\t\t\t\t\tif(!world.getBlock(a, b, c).isReplaceable(world, a, b, c)) {\n",
+          "new": "\t\t\t\t\tif(!world.getBlockState(new BlockPos(a, b, c)).getBlock().isReplaceable(world, new BlockPos(a, b, c))) {\n"
+        },
+        {
+          "before_offset": 1858,
+          "after_offset": 1943,
+          "old": "\t\t\t\t\tworld.setBlock(a, b, c, block, meta, 3);\n",
+          "new": "\t\t\t\t\tworld.setBlockState(new BlockPos(a, b, c), block.getStateFromMeta(meta), 3);\n"
+        },
+        {
+          "before_offset": 2618,
+          "after_offset": 2739,
+          "old": "\t\t\t\t\tif(world.getBlock(a, b, c) == block)\n\t\t\t\t\t\tworld.setBlockToAir(a, b, c);\n",
+          "new": "\t\t\t\t\tif(world.getBlockState(new BlockPos(a, b, c)).getBlock() == block)\n\t\t\t\t\t\tworld.setBlockToAir(new BlockPos(a, b, c));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/interfaces/ICopiable.java": {
+      "before_sha256": "39934cb68f9e5d3e667c344dd79b1edc8b294133d8807a99819f037e477c638a",
+      "after_sha256": "8ff8692757fe67d708cde45100aecb67e5f9e635a81194dc5b0897ea3cbfb226",
+      "edits": [
+        {
+          "before_offset": 607,
+          "after_offset": 607,
+          "old": "\t\treturn block.getUnlocalizedName();\n",
+          "new": "\t\treturn block.getTranslationKey();\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

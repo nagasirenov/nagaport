@@ -2,11 +2,11 @@ package com.hbm.particle;
 
 import java.awt.Color;
 
-import com.hbm.main.ModEventHandlerClient;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -17,7 +17,7 @@ public class ParticleBlackPowderSmoke extends EntityFXRotating {
 
 	public ParticleBlackPowderSmoke(World world, double x, double y, double z, float scale) {
 		super(world, x, y, z);
-		particleIcon = ModEventHandlerClient.particleBase;
+		particleTexture = ParticleSprites.base;
 		this.particleMaxAge = 30 + rand.nextInt(15);
 		this.particleScale = scale * 0.9F + rand.nextFloat() * 0.2F;
 		
@@ -29,7 +29,7 @@ public class ParticleBlackPowderSmoke extends EntityFXRotating {
 		this.particleGreen = color.getGreen() / 255F;
 		this.particleBlue = color.getBlue() / 255F;
 		
-		this.noClip = true;
+		this.canCollide = false;
 	}
 
 	@Override
@@ -41,38 +41,35 @@ public class ParticleBlackPowderSmoke extends EntityFXRotating {
 		this.particleAge++;
 
 		if(this.particleAge >= this.particleMaxAge) {
-			this.setDead();
+			this.setExpired();
 		}
 		
 		this.motionY -= particleGravity;
-		this.prevRotationPitch = this.rotationPitch;
+		this.previousSpinDegrees = this.spinDegrees;
 		
 		float ageScaled = (float) this.particleAge / (float) this.particleMaxAge;
-		this.rotationPitch += (1 - ageScaled) * 2 * ((this.getEntityId() % 2) - 0.5);
+		this.spinDegrees += (1 - ageScaled) * 2 * ((this.visualSeed % 2) - 0.5);
 
 		this.motionX *= 0.65D;
 		this.motionY *= 0.65D;
 		this.motionZ *= 0.65D;
 		
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(this.motionX, this.motionY, this.motionZ);
 	}
 
 	@Override
-	public void renderParticle(Tessellator tess, float interp, float sX, float sY, float sZ, float dX, float dZ) {
+	public void renderParticle(BufferBuilder tess, Entity camera, float interp, float sX, float sY, float sZ, float dX, float dZ) {
 		
 		double ageScaled = (double) (this.particleAge + interp) / (double) this.particleMaxAge;
 		
-		Color color = Color.getHSBColor(hue / 255F, Math.max(1F - (float) ageScaled * 4F, 0), MathHelper.clamp_float(1.25F - (float) ageScaled * 2F, 0.7F, 1F));
+		Color color = Color.getHSBColor(hue / 255F, Math.max(1F - (float) ageScaled * 4F, 0), MathHelper.clamp(1.25F - (float) ageScaled * 2F, 0.7F, 1F));
 		this.particleRed = color.getRed() / 255F;
 		this.particleGreen = color.getGreen() / 255F;
 		this.particleBlue = color.getBlue() / 255F;
 
 		this.particleAlpha = (float) Math.pow(1 - Math.min(ageScaled, 1), 0.25);
 
-		tess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.25F);
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-
 		double scale = (0.25 + ageScaled + (this.particleAge + interp) * 0.025) * this.particleScale;
-		renderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale);
+		renderParticleRotated(tess, interp, sX, sY, sZ, dX, dZ, scale, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha * 0.25F, getBrightnessForRender(interp));
 	}
 }

@@ -1,0 +1,16 @@
+// Whole ILoadedTile links to an explicitly extracted Compat lookup. No production exclusions.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortTileAccessCache', Exec) {
+            dependsOn project.tasks.getByName('compileJava').classpath
+            doFirst {
+                def javaHome = new File(System.getProperty('java.home'))
+                if (javaHome.name == 'jre') javaHome = javaHome.parentFile
+                commandLine project.findProperty('portPython') ?: 'python3',
+                    project.file('porting/tests/probe-tile-access-cache.py'),
+                    '--java-home', javaHome.absolutePath,
+                    '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+            }
+        }
+    }
+}

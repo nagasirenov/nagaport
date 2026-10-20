@@ -23,16 +23,16 @@ public class TileEntityAlgaeFilm extends TileEntityMachineBase implements IFluid
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.algaeFilm";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
-			canOperate = worldObj.provider instanceof WorldProviderOrbit;
+	public void update() {
+		if(!this.world.isRemote) {
+			canOperate = this.world.provider instanceof WorldProviderOrbit;
 
-			if(canOperate && worldObj.rand.nextBoolean()) {
+			if(canOperate && this.world.rand.nextBoolean()) {
 				if(tanks[0].getFill() > 0 && tanks[1].getFill() < tanks[1].getMaxFill()) {
 					tanks[0].setFill(tanks[0].getFill() - 1);
 					tanks[1].setFill(tanks[1].getFill() + 1);
@@ -43,8 +43,8 @@ public class TileEntityAlgaeFilm extends TileEntityMachineBase implements IFluid
 			ForgeDirection[] dirs = new ForgeDirection[] { d, d.getOpposite() };
 
 			for(ForgeDirection dir : dirs) {
-				trySubscribe(tanks[0].getTankType(), worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
-				sendFluid(tanks[1], worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				trySubscribe(tanks[0].getTankType(), this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
+				sendFluid(tanks[1], this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 
 			networkPackNT(20);
@@ -66,9 +66,10 @@ public class TileEntityAlgaeFilm extends TileEntityMachineBase implements IFluid
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		for(int i = 0; i < tanks.length; i++) tanks[i].writeToNBT(nbt, "t" + i);
+		return nbt;
 	}
 
 	@Override

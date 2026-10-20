@@ -35,30 +35,30 @@ public class BlockTaint extends Block implements ITooltipProvider {
 	}
 
 	@Override public MapColor getMapColor(int meta) { return MapColor.grayColor; }
-	@Override public Item getItemDropped(int i, Random rand, int j) { return null; }
+	@Override public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) { return null; }
 
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		if(meta >= 15) return;
 		
 		for(int i = -3; i <= 3; i++) for(int j = -3; j <= 3; j++) for(int k = -3; k <= 3; k++) {
 			if(Math.abs(i) + Math.abs(j) + Math.abs(k) > 4) continue;
 			if(rand.nextFloat() > 0.25F) continue;
-			Block b = world.getBlock(x + i, y + j, z + k);
-			if(b.isAir(world, x + i, y + j, z + k) || b == Blocks.bedrock) continue;
+			Block b = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();
+			if(b.isAir(world, x + i, y + j, z + k) || b == Blocks.BEDROCK) continue;
 			int targetMeta = meta + 1;
 			boolean hasAir = false;
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				if(world.getBlock(x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ).isAir(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ)) {
+				if(com.hbm.world.WorldBlockState.read(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ).getBlock().isAir(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ)) {
 					hasAir = true;
 					break;
 				}
 			}
 			if(!hasAir) targetMeta = meta + 3;
 			if(targetMeta > 15) continue;
-			if(b == this && world.getBlockMetadata(x + i, y + j, z + k) >= targetMeta) continue;
+			if(b == this && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k) ) >= targetMeta) continue;
 			world.setBlock(x + i, y + j, z + k, this, targetMeta, 3);
 			if(rand.nextFloat() < 0.25F && BlockFalling.func_149831_e(world, x + i, y + j - 1, z + k)) {
 				EntityFallingBlock falling = new EntityFallingBlock(world, x + i + 0.5, y + j + 0.5, z + k + 0.5, this, targetMeta);
@@ -75,7 +75,7 @@ public class BlockTaint extends Block implements ITooltipProvider {
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		int level = 15 - meta;
 
 		entity.motionX *= 0.6;

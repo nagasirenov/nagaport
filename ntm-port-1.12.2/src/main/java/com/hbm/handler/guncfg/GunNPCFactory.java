@@ -53,24 +53,24 @@ public class GunNPCFactory {
 
 		bullet.bntUpdate = (bulletnt) -> {
 
-			if(bulletnt.worldObj.isRemote)
+			if(bulletnt.world.isRemote)
 				return;
 
 			if(bulletnt.ticksExisted % 10 != 5)
 				return;
 
-			List<EntityPlayer> players = bulletnt.worldObj.getEntitiesWithinAABB(EntityPlayer.class, bulletnt.boundingBox.expand(50, 50, 50));
+			List<EntityPlayer> players = bulletnt.world.getEntitiesWithinAABB(EntityPlayer.class, bulletnt.getEntityBoundingBox().grow(50, 50, 50));
 
 			for(EntityPlayer player : players) {
 
 				Vec3d motion = new Vec3d(player.posX - bulletnt.posX, (player.posY + player.getEyeHeight()) - bulletnt.posY, player.posZ - bulletnt.posZ);
 				motion = motion.normalize();
 
-				EntityBulletBaseNT bolt = new EntityBulletBaseNT(bulletnt.worldObj, BulletConfigSyncingUtil.MASKMAN_BOLT);
+				EntityBulletBaseNT bolt = new EntityBulletBaseNT(bulletnt.world, BulletConfigSyncingUtil.MASKMAN_BOLT);
 				bolt.setThrower(bulletnt.getThrower());
 				bolt.setPosition(bulletnt.posX, bulletnt.posY, bulletnt.posZ);
 				bolt.setThrowableHeading(motion.x, motion.y, motion.z, 0.5F, 0.05F);
-				bulletnt.worldObj.spawnEntityInWorld(bolt);
+				bulletnt.world.spawnEntityInWorld(bolt);
 			}
 		};
 
@@ -142,14 +142,14 @@ public class GunNPCFactory {
 
 		bullet.bntImpact = (bulletnt, x, y, z, sideHit) -> {
 
-			if(bulletnt.worldObj.isRemote)
+			if(bulletnt.world.isRemote)
 				return;
 
-			EntityBulletBaseNT meteor = new EntityBulletBaseNT(bulletnt.worldObj, BulletConfigSyncingUtil.MASKMAN_METEOR);
-			meteor.setPosition(bulletnt.posX, bulletnt.posY + 30 + meteor.worldObj.rand.nextInt(10), bulletnt.posZ);
+			EntityBulletBaseNT meteor = new EntityBulletBaseNT(bulletnt.world, BulletConfigSyncingUtil.MASKMAN_METEOR);
+			meteor.setPosition(bulletnt.posX, bulletnt.posY + 30 + meteor.world.rand.nextInt(10), bulletnt.posZ);
 			meteor.motionY = -1D;
 			meteor.setThrower(bulletnt.getThrower());
-			bulletnt.worldObj.spawnEntityInWorld(meteor);
+			bulletnt.world.spawnEntityInWorld(meteor);
 		};
 
 		return bullet;
@@ -187,10 +187,10 @@ public class GunNPCFactory {
 
 		bullet.bntUpdate = (bulletnt) -> {
 
-			if(!bulletnt.worldObj.isRemote)
+			if(!bulletnt.world.isRemote)
 				return;
 
-			Random rand = bulletnt.worldObj.rand;
+			Random rand = bulletnt.world.rand;
 
 			for(int i = 0; i < 5; i++) {
 				NBTTagCompound nbt = new NBTTagCompound();
@@ -256,14 +256,14 @@ public class GunNPCFactory {
 			@Override
 			public void behaveUpdate(EntityBulletBaseNT bullet) {
 
-				if(bullet.worldObj.isRemote)
+				if(bullet.world.isRemote)
 					return;
 
-				if(bullet.worldObj.getEntityByID(bullet.getEntityData().getInteger("homingTarget")) == null) {
+				if(bullet.world.getEntityByID(bullet.getEntityData().getInteger("homingTarget")) == null) {
 					chooseTarget(bullet);
 				}
 
-				Entity target = bullet.worldObj.getEntityByID(bullet.getEntityData().getInteger("homingTarget"));
+				Entity target = bullet.world.getEntityByID(bullet.getEntityData().getInteger("homingTarget"));
 
 				if(target != null) {
 
@@ -286,7 +286,7 @@ public class GunNPCFactory {
 
 			private void chooseTarget(EntityBulletBaseNT bullet) {
 
-				List<EntityLivingBase> entities = bullet.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bullet.boundingBox.expand(range, range, range));
+				List<EntityLivingBase> entities = bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().expand(range, range, range));
 
 				Vec3d mot = new Vec3d(bullet.motionX, bullet.motionY, bullet.motionZ);
 
@@ -300,7 +300,7 @@ public class GunNPCFactory {
 
 					Vec3d delta = new Vec3d(e.posX - bullet.posX, e.posY + e.height / 2 - bullet.posY, e.posZ - bullet.posZ);
 
-					if(bullet.worldObj.rayTraceBlocks(new Vec3d(bullet.posX, bullet.posY, bullet.posZ), new Vec3d(e.posX, e.posY + e.height / 2, e.posZ), false, true, false) != null)
+					if(bullet.world.rayTraceBlocks(new Vec3d(bullet.posX, bullet.posY, bullet.posZ), new Vec3d(e.posX, e.posY + e.height / 2, e.posZ), false, true, false) != null)
 						continue;
 
 					double dist = e.getDistanceSqToEntity(bullet);
@@ -324,9 +324,9 @@ public class GunNPCFactory {
 
 		bullet.bntImpact = (bulletnt, x, y, z, sideHit) -> {
 
-			bulletnt.worldObj.playSoundEffect(bulletnt.posX, bulletnt.posY, bulletnt.posZ, "hbm:entity.ufoBlast", 5.0F, 0.9F + bulletnt.worldObj.rand.nextFloat() * 0.2F);
-			bulletnt.worldObj.playSoundEffect(bulletnt.posX, bulletnt.posY, bulletnt.posZ, "fireworks.blast", 5.0F, 0.5F);
-			ExplosionNukeGeneric.dealDamage(bulletnt.worldObj, bulletnt.posX, bulletnt.posY, bulletnt.posZ, 10, 50);
+			com.hbm.sound.WorldSoundEffects.play(bulletnt.world, bulletnt.posX, bulletnt.posY, bulletnt.posZ, "hbm:entity.ufoBlast", 5.0F, 0.9F + bulletnt.world.rand.nextFloat() * 0.2F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(bulletnt.world, bulletnt.posX, bulletnt.posY, bulletnt.posZ, "fireworks.blast", 5.0F, 0.5F);
+			ExplosionNukeGeneric.dealDamage(bulletnt.world, bulletnt.posX, bulletnt.posY, bulletnt.posZ, 10, 50);
 
 			for(int i = 0; i < 3; i++) {
 				NBTTagCompound data = new NBTTagCompound();
@@ -335,10 +335,10 @@ public class GunNPCFactory {
 				data.setFloat("g", 0.75F);
 				data.setFloat("b", 1.0F);
 				data.setFloat("pitch", -30F + 30F * i);
-				data.setFloat("yaw", bulletnt.worldObj.rand.nextFloat() * 180F);
+				data.setFloat("yaw", bulletnt.world.rand.nextFloat() * 180F);
 				data.setFloat("scale", 5F);
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, bulletnt.posX, bulletnt.posY, bulletnt.posZ),
-						new TargetPoint(bulletnt.worldObj.provider.dimensionId, bulletnt.posX, bulletnt.posY, bulletnt.posZ, 100));
+						new TargetPoint(bulletnt.world.provider.getDimension(), bulletnt.posX, bulletnt.posY, bulletnt.posZ, 100));
 			}
 		};
 

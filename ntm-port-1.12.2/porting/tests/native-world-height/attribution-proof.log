@@ -1,0 +1,4 @@
+PASS: 3 exact original receiver/argument-preserving edits; 2 whole-file byte-exact inverses
+Unrelated unfinished-port diagnostics: 17382
+Attribution diagnostics, not compile success: 17385
+PASS: 3 original exact-World/int attributed height sites and native WorldHeight.read destinations and client lifecycle scopes; exact receiver and coordinate AST spans match

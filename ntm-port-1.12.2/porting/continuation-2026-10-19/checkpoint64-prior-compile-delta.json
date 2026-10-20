@@ -1,0 +1,17 @@
+{
+  "from": 62,
+  "to": 63,
+  "per_file_diagnostic_delta": {
+    "com/hbm/entity/effect/EntityBlackHole.java": -5,
+    "com/hbm/entity/effect/EntityQuasar.java": -1,
+    "com/hbm/entity/effect/EntityRagingVortex.java": -4,
+    "com/hbm/entity/effect/EntityVortex.java": -4,
+    "com/hbm/entity/projectile/EntityChemical.java": -1,
+    "com/hbm/render/entity/effect/RenderBlackHole.java": -1,
+    "com/hbm/render/entity/effect/RenderQuasar.java": -1,
+    "com/hbm/world/dungeon/DesertAtom002.java": -56,
+    "com/hbm/world/dungeon/DesertAtom003.java": -78,
+    "com/hbm/world/dungeon/LibraryDungeon.java": -414
+  },
+  "note": "Diagnostic counts only, not proof all unrelated behavior correct. Paths normalized after /java/."
+}

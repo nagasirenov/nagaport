@@ -19,7 +19,7 @@ public class BlockCap extends BlockEnumMulti {
 	protected IIcon[] iconsTop;
 
 	public BlockCap() {
-		super(Material.iron, EnumCapBlock.class, true, true);
+		super(Material.IRON, EnumCapBlock.class, true, true);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class BlockCap extends BlockEnumMulti {
 	}
 	
 	@Override public String getTextureMultiName(Enum num) { return this.getTextureName() + "_" + num.name().toLowerCase(Locale.US); }
-	@Override public String getUnlocalizedMultiName(Enum num) { return super.getUnlocalizedName() + "_" + num.name().toLowerCase(Locale.US); }
+	@Override public String getUnlocalizedMultiName(Enum num) { return super.getTranslationKey() + "_" + num.name().toLowerCase(Locale.US); }
 	
 	@Override
 	@SideOnly(Side.CLIENT)

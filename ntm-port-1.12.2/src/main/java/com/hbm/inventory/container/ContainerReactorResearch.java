@@ -77,6 +77,6 @@ private TileEntityReactorResearch reactor;
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return reactor.isUseableByPlayer(player);
+		return reactor.isUsableByPlayer(player);
 	}
 }

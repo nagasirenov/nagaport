@@ -53,7 +53,7 @@ public class CanneryFirebox extends CanneryBase {
 		
 		for(int x = world.sizeX - 1; x >= 0 ; x--) {
 			for(int z = 0; z < world.sizeZ; z++) {
-				scene0.add(new ActionSetBlock(x, 0, z, Blocks.brick_block));
+				scene0.add(new ActionSetBlock(x, 0, z, Blocks.BRICK_BLOCK));
 			}
 			scene0.add(new ActionWait(2));
 		}
@@ -81,7 +81,7 @@ public class CanneryFirebox extends CanneryBase {
 		
 		scene0.add(new ActionUpdateActor(0, "isOn", true));
 
-		scene0.add(new ActionCreateActor(1, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, -50, 40, new Object[][] {{new ItemStack(Items.coal)}}, 0)
+		scene0.add(new ActionCreateActor(1, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, -50, 40, new Object[][] {{new ItemStack(Items.COAL)}}, 0)
 				.setColors(colorCopper).setOrientation(Orientation.RIGHT)));
 		scene0.add(new ActionWait(10));
 		scene0.add(new ActionCreateActor(1, new ActorFancyPanel(Minecraft.getMinecraft().fontRenderer, -50, 40, new Object[][] {{new ItemStack(ModItems.coke)}}, 0)
@@ -219,7 +219,7 @@ public class CanneryFirebox extends CanneryBase {
 				doorAngle -= swingSpeed;
 			}
 			
-			doorAngle = MathHelper.clamp_float(doorAngle, 0F, 135F);
+			doorAngle = MathHelper.clamp(doorAngle, 0F, 135F);
 			data.setFloat("angle", doorAngle);
 		}
 	}

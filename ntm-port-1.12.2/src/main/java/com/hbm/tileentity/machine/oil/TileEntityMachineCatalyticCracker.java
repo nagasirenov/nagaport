@@ -19,7 +19,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardTransceiver, IFluidCopiable {
+public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase implements IBufPacketReceiver, IFluidStandardTransceiver, IFluidCopiable, net.minecraft.util.ITickable {
 
 	public FluidTank[] tanks;
 
@@ -33,30 +33,30 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			this.worldObj.theProfiler.startSection("catalyticCracker_setup_tanks");
+			this.world.theProfiler.startSection("catalyticCracker_setup_tanks");
 			setupTanks();
-			this.worldObj.theProfiler.endStartSection("catalyticCracker_update_connections");
+			this.world.theProfiler.endStartSection("catalyticCracker_update_connections");
 			updateConnections();
 
-			this.worldObj.theProfiler.endStartSection("catalyticCracker_do_recipe");
-			if(worldObj.getTotalWorldTime() % 5 == 0)
+			this.world.theProfiler.endStartSection("catalyticCracker_do_recipe");
+			if(this.world.getTotalWorldTime() % 5 == 0)
 				crack();
 
-			this.worldObj.theProfiler.endStartSection("catalyticCracker_send_fluid");
-			if(worldObj.getTotalWorldTime() % 10 == 0) {
+			this.world.theProfiler.endStartSection("catalyticCracker_send_fluid");
+			if(this.world.getTotalWorldTime() % 10 == 0) {
 
 				for(DirPos pos : getConPos()) {
 					for(int i = 2; i <= 4; i++) {
-						if(tanks[i].getFill() > 0) this.sendFluid(tanks[i], worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						if(tanks[i].getFill() > 0) this.sendFluid(tanks[i], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 					}
 				}
 
 			}
-			this.worldObj.theProfiler.endSection();
+			this.world.theProfiler.endSection();
 			networkPackNT(25);
 		}
 	}
@@ -76,8 +76,8 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 	private void updateConnections() {
 
 		for(DirPos pos : getConPos()) {
-			this.trySubscribe(tanks[0].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
-			this.trySubscribe(tanks[1].getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+			this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
 
@@ -131,11 +131,12 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		for(int i = 0; i < 5; i++)
 			tanks[i].writeToNBT(nbt, "tank" + i);
+		return nbt;
 	}
 
 	protected DirPos[] getConPos() {
@@ -144,14 +145,14 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 4 + rot.offsetX * 1, yCoord, zCoord + dir.offsetZ * 4 + rot.offsetZ * 1, dir),
-				new DirPos(xCoord + dir.offsetX * 4 - rot.offsetX * 2, yCoord, zCoord + dir.offsetZ * 4 - rot.offsetZ * 2, dir),
-				new DirPos(xCoord - dir.offsetX * 4 + rot.offsetX * 1, yCoord, zCoord - dir.offsetZ * 4 + rot.offsetZ * 1, dir.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 4 - rot.offsetX * 2, yCoord, zCoord - dir.offsetZ * 4 - rot.offsetZ * 2, dir.getOpposite()),
-				new DirPos(xCoord + dir.offsetX * 2 + rot.offsetX * 3, yCoord, zCoord + dir.offsetZ * 2 + rot.offsetZ * 3, rot),
-				new DirPos(xCoord + dir.offsetX * 2 - rot.offsetX * 4, yCoord, zCoord + dir.offsetZ * 2 - rot.offsetZ * 4, rot),
-				new DirPos(xCoord - dir.offsetX * 2 + rot.offsetX * 3, yCoord, zCoord - dir.offsetZ * 2 + rot.offsetZ * 3, rot.getOpposite()),
-				new DirPos(xCoord - dir.offsetX * 2 - rot.offsetX * 4, yCoord, zCoord - dir.offsetZ * 2 - rot.offsetZ * 4, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 4 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 4 + rot.offsetZ * 1, dir),
+				new DirPos(this.pos.getX() + dir.offsetX * 4 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 4 - rot.offsetZ * 2, dir),
+				new DirPos(this.pos.getX() - dir.offsetX * 4 + rot.offsetX * 1, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 4 + rot.offsetZ * 1, dir.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 4 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 4 - rot.offsetZ * 2, dir.getOpposite()),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX * 4, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ * 4, rot),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ * 3, rot.getOpposite()),
+				new DirPos(this.pos.getX() - dir.offsetX * 2 - rot.offsetX * 4, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 - rot.offsetZ * 4, rot.getOpposite())
 		};
 	}
 
@@ -162,12 +163,12 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 3,
-					yCoord,
-					zCoord - 3,
-					xCoord + 4,
-					yCoord + 16,
-					zCoord + 4
+					this.pos.getX() - 3,
+					this.pos.getY(),
+					this.pos.getZ() - 3,
+					this.pos.getX() + 4,
+					this.pos.getY() + 16,
+					this.pos.getZ() + 4
 					);
 		}
 

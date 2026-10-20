@@ -19,7 +19,7 @@ public class BedrockDrillHandler extends NEICelestialHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmBedrockCelestial";
 	}
 
@@ -38,7 +38,7 @@ public class BedrockDrillHandler extends NEICelestialHandler {
 			}
 
 			if(body.hasIce) {
-				outputs.add(new ItemStack(Blocks.packed_ice, 32));
+				outputs.add(new ItemStack(Blocks.PACKED_ICE, 32));
 			}
 
 			map.put(body, outputs.toArray(new ItemStack[outputs.size()]));

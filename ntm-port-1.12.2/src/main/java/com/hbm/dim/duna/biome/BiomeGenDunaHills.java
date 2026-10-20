@@ -76,7 +76,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 		for (int l1 = 255; l1 >= 0; --l1) {
 			int i2 = l1;
 
-			if ((blocks[i2] == null || blocks[i2].getMaterial() == Material.AIR) && l1 < (int) d5) {
+			if ((blocks[i2] == null || blocks[i2].getDefaultState().getMaterial() == Material.AIR) && l1 < (int) d5) {
 				blocks[i2] = ModBlocks.duna_rock;
 			}
 
@@ -85,7 +85,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 			} else {
 				Block block1 = blocks[i2];
 
-				if (block1 != null && block1.getMaterial() != Material.AIR) {
+				if (block1 != null && block1.getDefaultState().getMaterial() != Material.AIR) {
 					if (block1 == ModBlocks.duna_rock) {
 						byte b0;
 
@@ -100,7 +100,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 								block2 = this.fillerBlock;
 							}
 
-							if (l1 < 63 && (block == null || block.getMaterial() == Material.AIR)) {
+							if (l1 < 63 && (block == null || block.getDefaultState().getMaterial() == Material.AIR)) {
 								block = Blocks.WATER;
 							}
 

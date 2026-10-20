@@ -30,7 +30,7 @@ public class BlockNTMTrapdoor extends BlockTrapDoor {
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         // Make the hitbox in-line with ladders, if relevant
         if (isLadder(world, x, y, z, null)) {
-            int meta = world.getBlockMetadata(x, y, z);
+            int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
             float thickness = 0.125F;
 
             if ((meta & 3) == 0)
@@ -52,7 +52,7 @@ public class BlockNTMTrapdoor extends BlockTrapDoor {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         // The original code prevented manual operation of Material.iron trapdoors. This bypasses that behavior
-        int meta = world.getBlockMetadata(x, y, z);
+        int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
         world.setBlockMetadataWithNotify(x, y, z, meta ^ 4, 2);
         world.playAuxSFXAtEntity(player, 1003, x, y, z, 0);
         return true;

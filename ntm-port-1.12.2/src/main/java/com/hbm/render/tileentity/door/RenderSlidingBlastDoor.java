@@ -44,7 +44,7 @@ public class RenderSlidingBlastDoor implements IRenderDoors {
 		GL11.glClipPlane(GL11.GL_CLIP_PLANE1, buf);
 		
 		GL11.glPushMatrix();
-		GL11.glTranslated(0, 0, MathHelper.clamp_double(open, 0, maxOpen));
+		GL11.glTranslated(0, 0, MathHelper.clamp(open, (double) (0), maxOpen));
 		ResourceManager.pheo_blast_door.renderPart("LeftDoor");
 		GL11.glPushMatrix();
 		GL11.glTranslated(0, 1.8125, 0);
@@ -55,7 +55,7 @@ public class RenderSlidingBlastDoor implements IRenderDoors {
 		GL11.glPopMatrix();
 		
 		GL11.glPushMatrix();
-		GL11.glTranslated(0, 0, -MathHelper.clamp_double(open, 0, maxOpen));
+		GL11.glTranslated(0, 0, -MathHelper.clamp(open, (double) (0), maxOpen));
 		ResourceManager.pheo_blast_door.renderPart("RightDoor");
 		GL11.glPushMatrix();
 		GL11.glTranslated(0, 1.8125, 0);

@@ -48,7 +48,7 @@ public class ItemModBathwater extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(!event.entityLiving.worldObj.isRemote) {
+		if(!event.getEntityLiving().world.isRemote) {
 			
 			if(event.source instanceof EntityDamageSource) {
 				

@@ -55,10 +55,10 @@ public class GUIPASource extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 105 <= x && guiLeft + 105 + 10 > x && guiTop + 30 < y && guiTop + 30 + 10 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("cancel", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, source.xCoord, source.yCoord, source.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, source.getPos().getX(), source.getPos().getY(), source.getPos().getZ()));
 		}
 	}
 
@@ -66,16 +66,16 @@ public class GUIPASource extends GuiInfoContainer {
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
 		
 		String name = this.source.hasCustomInventoryName() ? this.source.getInventoryName() : I18n.format(this.source.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2 - 9, 4, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2 - 9, 4, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 
-		this.fontRendererObj.drawString(TextFormatting.AQUA + "/123K", 136, 22, 4210752);
+		this.fontRenderer.drawString(TextFormatting.AQUA + "/123K", 136, 22, 4210752);
 		int heat = (int) Math.ceil(source.temperature);
 		String label = (heat > 123 ? TextFormatting.RED : TextFormatting.AQUA) + "" + heat + "K";
-		this.fontRendererObj.drawString(label, 166 - this.fontRendererObj.getStringWidth(label), 12, 4210752);
+		this.fontRenderer.drawString(label, 166 - this.fontRenderer.getStringWidth(label), 12, 4210752);
 		
 		String state = I18n.format("pa." + this.source.state.name().toLowerCase(Locale.US));
-		this.fontRendererObj.drawString(state, 79 - this.fontRendererObj.getStringWidth(state) / 2, 76, this.source.state.color);
+		this.fontRenderer.drawString(state, 79 - this.fontRenderer.getStringWidth(state) / 2, 76, this.source.state.color);
 	}
 
 	@Override

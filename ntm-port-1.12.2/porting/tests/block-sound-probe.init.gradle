@@ -1,0 +1,10 @@
+// Focused full-production native sound probe. Does not modify source sets or compileJava.
+allprojects {
+    afterEvaluate {
+        tasks.create('testPortBlockSounds', Exec) {
+            commandLine project.findProperty('portPython') ?: 'python3', project.file('porting/tests/block-sound-native-probe.py'),
+                '--java-home', project.findProperty('portJavaHome') ?: System.getProperty('java.home'),
+                '--classpath', project.tasks.getByName('compileJava').classpath.asPath
+        }
+    }
+}

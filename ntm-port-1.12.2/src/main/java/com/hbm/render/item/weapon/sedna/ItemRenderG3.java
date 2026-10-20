@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.ModItems;
@@ -48,7 +51,7 @@ public class ItemRenderG3 extends ItemRenderWeaponBase {
 		if(isScoped && ItemGunBaseNT.prevAimingProgress == 1 && ItemGunBaseNT.aimingProgress == 1) return;
 		
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(getTexture(stack));
+		Minecraft.getMinecraft().getTextureManager().bindTexture(getTexture(stack));
 		double scale = 0.375D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -80,7 +83,7 @@ public class ItemRenderG3 extends ItemRenderWeaponBase {
 		if(!silenced) ResourceManager.g3.renderPart("Flash_Hider");
 		ResourceManager.g3.renderPart("Trigger");
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(getTexture(stack));
+		Minecraft.getMinecraft().getTextureManager().bindTexture(getTexture(stack));
 		GL11.glPushMatrix();
 		GL11.glTranslated(mag[0], mag[1], mag[2]);
 		GL11.glTranslated(0, -1.75, -0.5);
@@ -118,7 +121,7 @@ public class ItemRenderG3 extends ItemRenderWeaponBase {
 		GL11.glPopMatrix();
 		
 		if(silenced || isScoped) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.g3_attachments);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.g3_attachments);
 			if(silenced) ResourceManager.g3.renderPart("Silencer");
 			if(isScoped) ResourceManager.g3.renderPart("Scope");
 		}
@@ -181,14 +184,14 @@ public class ItemRenderG3 extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		boolean silenced = hasSilencer(stack);
 		boolean isScoped = this.isScoped(stack);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(getTexture(stack));
+		Minecraft.getMinecraft().getTextureManager().bindTexture(getTexture(stack));
 		ResourceManager.g3.renderPart("Rifle");
 		if(hasStock(stack)) ResourceManager.g3.renderPart("Stock");
 		ResourceManager.g3.renderPart("Magazine");
@@ -205,17 +208,17 @@ public class ItemRenderG3 extends ItemRenderWeaponBase {
 		GL11.glPopMatrix();
 		
 		if(silenced || isScoped) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.g3_attachments);
+			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.g3_attachments);
 			if(silenced) ResourceManager.g3.renderPart("Silencer");
 			if(isScoped) ResourceManager.g3.renderPart("Scope");
 		}
 		GL11.glShadeModel(GL11.GL_FLAT);
 		//third-person muzzle flashes
-		if(type == ItemRenderType.EQUIPPED && !silenced) {
-			EntityLivingBase ent = (EntityLivingBase) data[1];
+		if(isThirdPerson(context.transform) && !silenced) {
+			EntityLivingBase ent = context.holder;
 			long shot;
 			double shotRand = 0;
-			if(ent == Minecraft.getMinecraft().thePlayer) {
+			if(ent == Minecraft.getMinecraft().player) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
 				shot = gun.lastShot[0];
 				shotRand = gun.shotRand;

@@ -1,0 +1,1658 @@
+{
+  "baseline": "f711b25320cdaaffba8594c565cfc6c87aea3257",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "1565c11a01f6d022a9c2967fe2e63be538d4d382f2abf7f39f9674a43a71173c",
+      "after_sha256": "f81566b4bcf84013d61d5806bde8bd31549a95d3237963aadf57ea59ead8c21f",
+      "edits": [
+        {
+          "before_offset": 172837,
+          "after_offset": 172837,
+          "old": "\t\tmachine_difurnace_off = new MachineDiFurnace(false).setBlockName(\"machine_difurnace_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_difurnace_on = new MachineDiFurnace(true).setBlockName(\"machine_difurnace_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n\t\tmachine_difurnace_extension = new MachineDiFurnaceExtension().setBlockName(\"machine_difurnace_extension\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_difurnace_rtg_off = new MachineDiFurnaceRTG(false).setBlockName(\"machine_difurnace_rtg_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_difurnace_rtg_on = new MachineDiFurnaceRTG(true).setBlockName(\"machine_difurnace_rtg_on\").setHardness(5.0F).setResistance(10.0F).setLightLevel(1.0F).setCreativeTab(null);\r\n",
+          "new": "\t\tmachine_difurnace_off = new MachineDiFurnace(false).setTranslationKey(\"machine_difurnace_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_difurnace_on = new MachineDiFurnace(true).setTranslationKey(\"machine_difurnace_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n\t\tmachine_difurnace_extension = new MachineDiFurnaceExtension().setTranslationKey(\"machine_difurnace_extension\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_difurnace_rtg_off = new MachineDiFurnaceRTG(false).setTranslationKey(\"machine_difurnace_rtg_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_difurnace_rtg_on = new MachineDiFurnaceRTG(true).setTranslationKey(\"machine_difurnace_rtg_on\").setHardness(5.0F).setResistance(10.0F).setLightLevel(1.0F).setCreativeTab(null);\r\n"
+        },
+        {
+          "before_offset": 175635,
+          "after_offset": 175660,
+          "old": "\t\tmachine_furnace_brick_off = new MachineBrickFurnace(false).setBlockName(\"machine_furnace_brick_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_furnace_brick_on = new MachineBrickFurnace(true).setBlockName(\"machine_furnace_brick_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n\t\tmachine_rtg_furnace_off = new MachineRtgFurnace(false).setBlockName(\"machine_rtg_furnace_off\").setHardness(5.0F).setResistance(10.0F);\r\n\t\tmachine_rtg_furnace_on = new MachineRtgFurnace(true).setBlockName(\"machine_rtg_furnace_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n",
+          "new": "\t\tmachine_furnace_brick_off = new MachineBrickFurnace(false).setTranslationKey(\"machine_furnace_brick_off\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tmachine_furnace_brick_on = new MachineBrickFurnace(true).setTranslationKey(\"machine_furnace_brick_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n\t\tmachine_rtg_furnace_off = new MachineRtgFurnace(false).setTranslationKey(\"machine_rtg_furnace_off\").setHardness(5.0F).setResistance(10.0F);\r\n\t\tmachine_rtg_furnace_on = new MachineRtgFurnace(true).setTranslationKey(\"machine_rtg_furnace_on\").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBrickFurnace.java": {
+      "before_sha256": "f08404de9e6ee0fd9acb87a6a702bdcd7993b4e986923a5d3c4288694e62f83b",
+      "after_sha256": "3b3751a6ae895584a4078b7b545cd57ea7aed0145341e563655ebfd023917fb3",
+      "edits": [
+        {
+          "before_offset": 116,
+          "after_offset": 116,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 479,
+          "after_offset": 448,
+          "old": "import net.minecraft.block.BlockContainer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 568,
+          "after_offset": 494,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 818,
+          "after_offset": 702,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 930,
+          "after_offset": 780,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumParticleTypes;\n"
+        },
+        {
+          "before_offset": 956,
+          "after_offset": 1012,
+          "old": "public class MachineBrickFurnace extends BlockContainer implements IBlockSealable {\n",
+          "new": "public class MachineBrickFurnace extends BlockThermalFurnace implements IBlockSealable {\n"
+        },
+        {
+          "before_offset": 1084,
+          "after_offset": 1145,
+          "old": "\tprivate final boolean isActive;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1157,
+          "after_offset": 1185,
+          "old": "\t@SideOnly(Side.CLIENT) private IIcon iconTop;\n\t@SideOnly(Side.CLIENT) private IIcon iconBottom;\n\t@SideOnly(Side.CLIENT) private IIcon iconFront;\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1354,
+          "after_offset": 1235,
+          "old": "\t\tsuper(Material.iron);\n\t\tisActive = blockState;\n",
+          "new": "\t\tsuper(Material.IRON, blockState);\n"
+        },
+        {
+          "before_offset": 1407,
+          "after_offset": 1275,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":machine_furnace_brick_top\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":machine_furnace_brick_bottom\");\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":machine_furnace_brick_front_on\" : \":machine_furnace_brick_front_off\"));\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + \":machine_furnace_brick_side\");\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : (side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon)));\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 2374,
+          "after_offset": 1442,
+          "old": "\tpublic Item getItem(World world, int x, int y, int z) {\n\t\treturn Item.getItemFromBlock(ModBlocks.machine_furnace_brick_off);\n",
+          "new": "\tpublic ItemStack getItem(World world, BlockPos pos, IBlockState state) {\n\t\treturn new ItemStack(ModBlocks.machine_furnace_brick_off);\n"
+        },
+        {
+          "before_offset": 2515,
+          "after_offset": 1592,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tthis.setDefaultDirection(world, x, y, z);\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tthis.setDefaultDirection(world, pos);\n"
+        },
+        {
+          "before_offset": 2663,
+          "after_offset": 1751,
+          "old": "\tprivate void setDefaultDirection(World world, int x, int y, int z) {\n",
+          "new": "\tprivate void setDefaultDirection(World world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 2757,
+          "after_offset": 1838,
+          "old": "\t\t\tBlock nZ = world.getBlock(x, y, z - 1);\n\t\t\tBlock pZ = world.getBlock(x, y, z + 1);\n\t\t\tBlock nX = world.getBlock(x - 1, y, z);\n\t\t\tBlock pX = world.getBlock(x + 1, y, z);\n",
+          "new": "\t\t\tIBlockState nZ = world.getBlockState(pos.north());\n\t\t\tIBlockState pZ = world.getBlockState(pos.south());\n\t\t\tIBlockState nX = world.getBlockState(pos.west());\n\t\t\tIBlockState pX = world.getBlockState(pos.east());\n"
+        },
+        {
+          "before_offset": 2949,
+          "after_offset": 2072,
+          "old": "\t\t\tif(nZ.func_149730_j() && !pZ.func_149730_j()) meta = 3;\n\t\t\tif(pZ.func_149730_j() && !nZ.func_149730_j()) meta = 2;\n\t\t\tif(nX.func_149730_j() && !pX.func_149730_j()) meta = 5;\n\t\t\tif(pX.func_149730_j() && !nX.func_149730_j()) meta = 4;\n",
+          "new": "\t\t\tif(nZ.isFullBlock() && !pZ.isFullBlock()) meta = 3;\n\t\t\tif(pZ.isFullBlock() && !nZ.isFullBlock()) meta = 2;\n\t\t\tif(nX.isFullBlock() && !pX.isFullBlock()) meta = 5;\n\t\t\tif(pX.isFullBlock() && !nX.isFullBlock()) meta = 4;\n"
+        },
+        {
+          "before_offset": 3186,
+          "after_offset": 2293,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, (int) (meta)), 2);\n"
+        },
+        {
+          "before_offset": 3260,
+          "after_offset": 2407,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\tif(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\tif(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\tif(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\tif(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n\t\tif(i == 0) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 2), 2);\n\t\tif(i == 1) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 5), 2);\n\t\tif(i == 2) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 3), 2);\n\t\tif(i == 3) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 4), 2);\n"
+        },
+        {
+          "before_offset": 3702,
+          "after_offset": 2982,
+          "old": "\t\tif(itemStack.hasDisplayName()) ((TileEntityFurnaceBrick)world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());\n",
+          "new": "\t\tif(itemStack.hasDisplayName()) ((TileEntityFurnaceBrick)world.getTileEntity(pos)).setCustomName(itemStack.getDisplayName());\n"
+        },
+        {
+          "before_offset": 3848,
+          "after_offset": 3124,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n"
+        },
+        {
+          "before_offset": 4059,
+          "after_offset": 3369,
+          "old": "\t\t\tTileEntityFurnaceBrick entity = (TileEntityFurnaceBrick) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityFurnaceBrick entity = (TileEntityFurnaceBrick) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4173,
+          "after_offset": 3479,
+          "old": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);\n",
+          "new": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());\n"
+        },
+        {
+          "before_offset": 4406,
+          "after_offset": 3739,
+          "old": "\t\tint i = world.getBlockMetadata(x, y, z);\n\t\tTileEntity entity = world.getTileEntity(x, y, z);\n",
+          "new": "        BlockPos pos = new BlockPos(x, y, z);\n\t\tint i = world.getBlockState(pos).getValue(METADATA);\n\t\tTileEntity entity = world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4547,
+          "after_offset": 3934,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_furnace_brick_on);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_furnace_brick_on.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4622,
+          "after_offset": 4028,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_furnace_brick_off);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_furnace_brick_off.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4717,
+          "after_offset": 4142,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, i, 2);\n",
+          "new": "\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, i), 2);\n"
+        },
+        {
+          "before_offset": 4814,
+          "after_offset": 4271,
+          "old": "\t\t\tworld.setTileEntity(x, y, z, entity);\n",
+          "new": "\t\t\tworld.setTileEntity(pos, entity);\n"
+        },
+        {
+          "before_offset": 4874,
+          "after_offset": 4327,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block block, int meta) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        Block block = state.getBlock();\n"
+        },
+        {
+          "before_offset": 5033,
+          "after_offset": 4575,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, block, meta);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 5121,
+          "after_offset": 4653,
+          "old": "\tpublic void randomDisplayTick(World world, int x, int y, int z, Random rand) {\n",
+          "new": "\tpublic void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 5218,
+          "after_offset": 4822,
+          "old": "\t\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\t\tint meta = world.getBlockState(pos).getValue(METADATA);\n"
+        },
+        {
+          "before_offset": 5489,
+          "after_offset": 5105,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"flame\", cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, cX - off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 5667,
+          "after_offset": 5322,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"flame\", cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, cX + off, cY, cZ + var, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 5845,
+          "after_offset": 5539,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"flame\", cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, cX + var, cY, cZ - off, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 6023,
+          "after_offset": 5756,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"flame\", cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, cX + var, cY, cZ + off, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDiFurnace.java": {
+      "before_sha256": "d12772f657fedc34973a71067cdb65ff26877502ec58c5ee806135e0234c5e55",
+      "after_sha256": "8dac191b93cc4f109051ac29d72eba9f46a08d44ad66f2a574e70027ea2e3d33",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.properties.PropertyBool;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumParticleTypes;\n"
+        },
+        {
+          "before_offset": 142,
+          "after_offset": 454,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 468,
+          "after_offset": 749,
+          "old": "import net.minecraft.block.BlockContainer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 557,
+          "after_offset": 795,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 893,
+          "after_offset": 1089,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1046,
+          "after_offset": 1208,
+          "old": "public class MachineDiFurnace extends BlockContainer implements IBlockSealable {\n",
+          "new": "public class MachineDiFurnace extends BlockThermalFurnace implements IBlockSealable {\n    /** Neighbor-derived only: persisted metadata remains the original four-bit orientation. */\n    public static final PropertyBool COVERED = PropertyBool.create(\"covered\");\n    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA, COVERED); }\n    @Override public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return state.withProperty(COVERED, world.getBlockState(pos.up()).getBlock() == ModBlocks.machine_difurnace_extension);\n    }\n\n"
+        },
+        {
+          "before_offset": 1174,
+          "after_offset": 1877,
+          "old": "\tprivate final boolean isActive;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1247,
+          "after_offset": 1917,
+          "old": "\t@SideOnly(Side.CLIENT) private IIcon blockIconCovered;\n\t@SideOnly(Side.CLIENT) private IIcon iconFront;\n\t@SideOnly(Side.CLIENT) private IIcon iconFrontCovered;\n\t@SideOnly(Side.CLIENT) private IIcon iconTop;\n\t@SideOnly(Side.CLIENT) private IIcon iconBottom;\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1553,
+          "after_offset": 1964,
+          "old": "\t\tsuper(Material.rock);\n\t\tisActive = blockState;\n",
+          "new": "\t\tsuper(Material.ROCK, blockState);\n        setDefaultState(getDefaultState().withProperty(COVERED, false));\n"
+        },
+        {
+          "before_offset": 1733,
+          "after_offset": 2204,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1746,
+          "after_offset": 2218,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.blockIconCovered = iconRegister.registerIcon(RefStrings.MODID + \":difurnace_side_tall\");\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":difurnace_top_on_alt\" : \":difurnace_top_off_alt\"));\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":difurnace_front_on_alt\" : \":difurnace_front_off_alt\"));\n\t\tthis.iconFrontCovered = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":difurnace_front_on_tall\" : \":difurnace_front_off_tall\"));\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + \":difurnace_side_alt\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":brick_fire\");\n\t}\n\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\tboolean covered = world.getBlock(x, y + 1, z) == ModBlocks.machine_difurnace_extension;\n\t\t\n\t\tif(side == 0) return iconBottom;\n\t\t\n\t\tif(covered) return meta == 0 && side == 3 ? this.iconFrontCovered : (side == meta ? this.iconFrontCovered : (side == 1 ? this.iconBottom : this.blockIconCovered));\n\t\treturn meta == 0 && side == 3 ? this.iconFront : (side == meta ? this.iconFront : (side == 1 ? this.iconTop : this.blockIcon));\n\t}\n\t\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\t\treturn meta == 0 && side == 3 ? this.iconFront : (side == meta ? this.iconFront : (side == 1 ? this.iconTop : this.blockIcon));\n\t}\n\t\n\t@Override\n\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(IBlockState state, Random p_149650_2_, int p_149650_3_) {\n"
+        },
+        {
+          "before_offset": 3480,
+          "after_offset": 2385,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n"
+        },
+        {
+          "before_offset": 3676,
+          "after_offset": 2586,
+          "old": "\t\tif(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\tif(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\tif(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\tif(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\t\tif(i == 0) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 2), 2);\n\t\tif(i == 1) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 5), 2);\n\t\tif(i == 2) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 3), 2);\n\t\tif(i == 3) world.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 4), 2);\n"
+        },
+        {
+          "before_offset": 3960,
+          "after_offset": 2998,
+          "old": "\t\t\t((TileEntityDiFurnace)world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());\n",
+          "new": "\t\t\t((TileEntityDiFurnace)world.getTileEntity(pos)).setCustomName(itemStack.getDisplayName());\n"
+        },
+        {
+          "before_offset": 4074,
+          "after_offset": 3108,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n"
+        },
+        {
+          "before_offset": 4285,
+          "after_offset": 3353,
+          "old": "\t\t\tTileEntityDiFurnace entity = (TileEntityDiFurnace) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityDiFurnace entity = (TileEntityDiFurnace) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4393,
+          "after_offset": 3457,
+          "old": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);\n",
+          "new": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());\n"
+        },
+        {
+          "before_offset": 4626,
+          "after_offset": 3717,
+          "old": "\t\tint i = world.getBlockMetadata(x, y, z);\n\t\tTileEntity entity = world.getTileEntity(x, y, z);\n",
+          "new": "        BlockPos pos = new BlockPos(x, y, z);\n\t\tint i = world.getBlockState(pos).getValue(METADATA);\n\t\tTileEntity entity = world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4767,
+          "after_offset": 3912,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_difurnace_on);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_difurnace_on.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4834,
+          "after_offset": 3998,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_difurnace_off);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_difurnace_off.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4923,
+          "after_offset": 4106,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, i, 2);\n",
+          "new": "\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, i), 2);\n"
+        },
+        {
+          "before_offset": 5022,
+          "after_offset": 4237,
+          "old": "\t\t\tworld.setTileEntity(x, y, z, entity);\n",
+          "new": "\t\t\tworld.setTileEntity(pos, entity);\n"
+        },
+        {
+          "before_offset": 5083,
+          "after_offset": 4294,
+          "old": "\tpublic void breakBlock(World world, int x, int y, int z, Block block, int meta) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        Block block = state.getBlock();\n"
+        },
+        {
+          "before_offset": 5192,
+          "after_offset": 4492,
+          "old": "\t\t\tTileEntityDiFurnace tileentityfurnace = (TileEntityDiFurnace) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityDiFurnace tileentityfurnace = (TileEntityDiFurnace) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 6628,
+          "after_offset": 5924,
+          "old": "\t\t\t\tworld.func_147453_f(x, y, z, block);\n",
+          "new": "\t\t\t\tworld.updateComparatorOutputLevel(pos, block);\n"
+        },
+        {
+          "before_offset": 6679,
+          "after_offset": 5985,
+          "old": "\t\tsuper.breakBlock(world, x, y, z, block, meta);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 6768,
+          "after_offset": 6064,
+          "old": "\tpublic void randomDisplayTick(World world, int x, int y, int z, Random rand) {\n",
+          "new": "\tpublic void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 6868,
+          "after_offset": 6236,
+          "old": "\t\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\t\t\tint meta = world.getBlockState(pos).getValue(METADATA);\n"
+        },
+        {
+          "before_offset": 7211,
+          "after_offset": 6591,
+          "old": "\t\t\tif(world.getBlock(x, y + 1, z) == ModBlocks.machine_difurnace_extension) {\n",
+          "new": "\t\t\tif(world.getBlockState(pos.up()).getBlock() == ModBlocks.machine_difurnace_extension) {\n"
+        },
+        {
+          "before_offset": 7326,
+          "after_offset": 6719,
+          "old": "\t\t\t\tworld.spawnParticle(\"flame\", x0 - sideOff, y0, z0 + sideRand, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"smoke\", x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, x0 - sideOff, y0, z0 + sideRand, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 7516,
+          "after_offset": 6948,
+          "old": "\t\t\t\tworld.spawnParticle(\"flame\", x0 + sideOff, y0, z0 + sideRand, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"smoke\", x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, x0 + sideOff, y0, z0 + sideRand, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 7706,
+          "after_offset": 7177,
+          "old": "\t\t\t\tworld.spawnParticle(\"flame\", x0 + sideRand, y0, z0 - sideOff, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"smoke\", x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, x0 + sideRand, y0, z0 - sideOff, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 7896,
+          "after_offset": 7406,
+          "old": "\t\t\t\tworld.spawnParticle(\"flame\", x0 + sideRand, y0, z0 + sideOff, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"smoke\", x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, x0 + sideRand, y0, z0 + sideOff, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + xOff, y + 1, z + zOff, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceExtension.java": {
+      "before_sha256": "d748a41f4a2b71dac033939eb09c0d1e58f7338ae03103479ce6bfe04d4f52b8",
+      "after_sha256": "69727ce02de19514436706080264491604cda366b9c46b9bb0bbb4a786c92c09",
+      "edits": [
+        {
+          "before_offset": 73,
+          "after_offset": 73,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 269,
+          "after_offset": 238,
+          "old": "import net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 407,
+          "after_offset": 311,
+          "old": "import net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 594,
+          "after_offset": 400,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.block.state.BlockFaceShape;\n"
+        },
+        {
+          "before_offset": 729,
+          "after_offset": 588,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 797,
+          "after_offset": 784,
+          "old": "",
+          "new": "import net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 798,
+          "after_offset": 826,
+          "old": "",
+          "new": "/** Original extension geometry is owned by the native atlas-backed baked model. */\n"
+        },
+        {
+          "before_offset": 890,
+          "after_offset": 1002,
+          "old": "\n\t@SideOnly(Side.CLIENT) private IIcon iconTop;\n\t@SideOnly(Side.CLIENT) private IIcon iconBottom;\n\n\tpublic MachineDiFurnaceExtension() {\n\t\tsuper(Material.rock);\n\t}\n\n\t@Override\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\n\t\treturn new TileEntityProxyCombo().inventory().fluid();\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":difurnace_top_off_alt\");\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + \":difurnace_extension\");\n\t\tthis.iconBottom = iconRegister.registerIcon(RefStrings.MODID + \":brick_fire\");\n\t}\n\n\t@Override\n\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n\t\tif(!player.isSneaking()) {\n\t\t\tTileEntity te =  world.getTileEntity(x, y - 1, z);\n\t\t\tif(te instanceof TileEntityDiFurnace) {\n\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y - 1, z);\n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\t\treturn false;\n\t}\n\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int meta) {\n\t\treturn side == 0 ? this.iconBottom : side == 1 ? this.iconTop : this.blockIcon;\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic TileEntity getCore(World world, int x, int y, int z) {\n\t\tTileEntity tile = Compat.getTileStandard(world, x, y - 1, z);\n\t\treturn tile instanceof TileEntityDiFurnace ? tile : null;\n\t}\n",
+          "new": "    public MachineDiFurnaceExtension() { super(Material.ROCK); }\n    @Override public TileEntity createNewTileEntity(World world, int meta) {\n        return new TileEntityProxyCombo().inventory().fluid();\n    }\n    @Override public boolean onBlockActivated(World world, BlockPos pos, IBlockState state,\n            EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n        if(!player.isSneaking()) {\n            TileEntity tile = world.getTileEntity(pos.down());\n            if(tile instanceof TileEntityDiFurnace) {\n                FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY() - 1, pos.getZ());\n                return true;\n            }\n        }\n        return false;\n    }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) {\n        // The old non-normal block was not a solid support surface for attachments.\n        return BlockFaceShape.UNDEFINED;\n    }\n    @Override public TileEntity getCore(World world, int x, int y, int z) {\n        TileEntity tile = Compat.getTileStandard(world, x, y - 1, z);\n        return tile instanceof TileEntityDiFurnace ? tile : null;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceRTG.java": {
+      "before_sha256": "7d2dff939214eb00d5fd5af2c39e0a35ba0c0b1fc45dcc48d8747198bb521031",
+      "after_sha256": "c4d8826af1c6b5553e6e3f3ea5895d138889114d1d03fdc71d55b3095b07f5d4",
+      "edits": [
+        {
+          "before_offset": 66,
+          "after_offset": 66,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 394,
+          "after_offset": 363,
+          "old": "import net.minecraft.block.BlockContainer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 483,
+          "after_offset": 409,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 819,
+          "after_offset": 703,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 931,
+          "after_offset": 781,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumParticleTypes;\n"
+        },
+        {
+          "before_offset": 957,
+          "after_offset": 1013,
+          "old": "public class MachineDiFurnaceRTG extends BlockContainer {\n",
+          "new": "public class MachineDiFurnaceRTG extends BlockThermalFurnace {\n"
+        },
+        {
+          "before_offset": 1059,
+          "after_offset": 1120,
+          "old": "\tprivate final boolean isActive;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1132,
+          "after_offset": 1160,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tprivate IIcon iconFront;\n\t@SideOnly(Side.CLIENT)\n\tprivate IIcon iconTop;\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1281,
+          "after_offset": 1210,
+          "old": "\t\tsuper(Material.iron);\n\t\tisActive = blockState;\n",
+          "new": "\t\tsuper(Material.IRON, blockState);\n"
+        },
+        {
+          "before_offset": 1334,
+          "after_offset": 1250,
+          "old": "\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":rtg_difurnace_top_on\" : \":rtg_difurnace_top_off\"));\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":rtg_difurnace_front_on\" : \":rtg_difurnace_front_off\"));\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + \":machine_rtg_furnace_side_alt\");\n\t}\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1816,
+          "after_offset": 1262,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : (side == 1 ? this.iconTop : this.blockIcon));\n\t}\n\n\t@Override\n\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n",
+          "new": "\tpublic Item getItemDropped(IBlockState state, Random p_149650_2_, int p_149650_3_) {\n"
+        },
+        {
+          "before_offset": 2209,
+          "after_offset": 1432,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tthis.setDefaultDirection(world, x, y, z);\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tthis.setDefaultDirection(world, pos);\n"
+        },
+        {
+          "before_offset": 2357,
+          "after_offset": 1591,
+          "old": "\tprivate void setDefaultDirection(World world, int x, int y, int z) {\n",
+          "new": "\tprivate void setDefaultDirection(World world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 2451,
+          "after_offset": 1678,
+          "old": "\t\t\tBlock block1 = world.getBlock(x, y, z - 1);\n\t\t\tBlock block2 = world.getBlock(x, y, z + 1);\n\t\t\tBlock block3 = world.getBlock(x - 1, y, z);\n\t\t\tBlock block4 = world.getBlock(x + 1, y, z);\n",
+          "new": "\t\t\tIBlockState block1 = world.getBlockState(pos.north());\n\t\t\tIBlockState block2 = world.getBlockState(pos.south());\n\t\t\tIBlockState block3 = world.getBlockState(pos.west());\n\t\t\tIBlockState block4 = world.getBlockState(pos.east());\n"
+        },
+        {
+          "before_offset": 2657,
+          "after_offset": 1926,
+          "old": "\t\t\tif(block1.func_149730_j() && !block2.func_149730_j()) {\n",
+          "new": "\t\t\tif(block1.isFullBlock() && !block2.isFullBlock()) {\n"
+        },
+        {
+          "before_offset": 2733,
+          "after_offset": 1998,
+          "old": "\t\t\tif(block2.func_149730_j() && !block1.func_149730_j()) {\n",
+          "new": "\t\t\tif(block2.isFullBlock() && !block1.isFullBlock()) {\n"
+        },
+        {
+          "before_offset": 2809,
+          "after_offset": 2070,
+          "old": "\t\t\tif(block3.func_149730_j() && !block4.func_149730_j()) {\n",
+          "new": "\t\t\tif(block3.isFullBlock() && !block4.isFullBlock()) {\n"
+        },
+        {
+          "before_offset": 2885,
+          "after_offset": 2142,
+          "old": "\t\t\tif(block4.func_149730_j() && !block3.func_149730_j()) {\n",
+          "new": "\t\t\tif(block4.isFullBlock() && !block3.isFullBlock()) {\n"
+        },
+        {
+          "before_offset": 2962,
+          "after_offset": 2215,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, b0, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, (int) (b0)), 2);\n"
+        },
+        {
+          "before_offset": 3034,
+          "after_offset": 2327,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n"
+        },
+        {
+          "before_offset": 3243,
+          "after_offset": 2541,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 2), 2);\n"
+        },
+        {
+          "before_offset": 3314,
+          "after_offset": 2644,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 5), 2);\n"
+        },
+        {
+          "before_offset": 3385,
+          "after_offset": 2747,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 3), 2);\n"
+        },
+        {
+          "before_offset": 3456,
+          "after_offset": 2850,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 4), 2);\n"
+        },
+        {
+          "before_offset": 3548,
+          "after_offset": 2974,
+          "old": "\t\t\t((TileEntityDiFurnaceRTG) world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());\n",
+          "new": "\t\t\t((TileEntityDiFurnaceRTG) world.getTileEntity(pos)).setCustomName(itemStack.getDisplayName());\n"
+        },
+        {
+          "before_offset": 3669,
+          "after_offset": 3091,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n"
+        },
+        {
+          "before_offset": 3881,
+          "after_offset": 3337,
+          "old": "\t\t\tTileEntityDiFurnaceRTG entity = (TileEntityDiFurnaceRTG) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityDiFurnaceRTG entity = (TileEntityDiFurnaceRTG) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 3995,
+          "after_offset": 3447,
+          "old": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);\n",
+          "new": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());\n"
+        },
+        {
+          "before_offset": 4359,
+          "after_offset": 3838,
+          "old": "\t\tint i = world.getBlockMetadata(x, y, z);\n\t\tTileEntity entity = world.getTileEntity(x, y, z);\n",
+          "new": "        BlockPos pos = new BlockPos(x, y, z);\n\t\tint i = world.getBlockState(pos).getValue(METADATA);\n\t\tTileEntity entity = world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4500,
+          "after_offset": 4033,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_difurnace_rtg_on);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_difurnace_rtg_on.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4575,
+          "after_offset": 4127,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_difurnace_rtg_off);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_difurnace_rtg_off.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4670,
+          "after_offset": 4241,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, i, 2);\n",
+          "new": "\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, i), 2);\n"
+        },
+        {
+          "before_offset": 4767,
+          "after_offset": 4370,
+          "old": "\t\t\tworld.setTileEntity(x, y, z, entity);\n",
+          "new": "\t\t\tworld.setTileEntity(pos, entity);\n"
+        },
+        {
+          "before_offset": 4827,
+          "after_offset": 4426,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,\n\t\t\tint p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        Block block = state.getBlock();\n"
+        },
+        {
+          "before_offset": 4985,
+          "after_offset": 4621,
+          "old": "\t\t\tTileEntityDiFurnaceRTG tileentityfurnace = (TileEntityDiFurnaceRTG) p_149749_1_.getTileEntity(p_149749_2_,\n\t\t\t\t\tp_149749_3_, p_149749_4_);\n",
+          "new": "\t\t\tTileEntityDiFurnaceRTG tileentityfurnace = (TileEntityDiFurnaceRTG) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 5958,
+          "after_offset": 5549,
+          "old": "\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1,\n\t\t\t\t\t\t\t\t\tp_149749_4_ + f2,\n",
+          "new": "\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(world, x + f, y + f1,\n\t\t\t\t\t\t\t\t\tz + f2,\n"
+        },
+        {
+          "before_offset": 6473,
+          "after_offset": 6028,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tworld.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 6539,
+          "after_offset": 6088,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tworld.updateComparatorOutputLevel(pos, block);\n"
+        },
+        {
+          "before_offset": 6632,
+          "after_offset": 6149,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 6769,
+          "after_offset": 6227,
+          "old": "\tpublic void randomDisplayTick(World p_149734_1_, int x, int y, int z, Random rand) {\n",
+          "new": "\tpublic void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {\n        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 6872,
+          "after_offset": 6396,
+          "old": "\t\t\tint l = p_149734_1_.getBlockMetadata(x, y, z);\n",
+          "new": "\t\t\tint l = world.getBlockState(pos).getValue(METADATA);\n"
+        },
+        {
+          "before_offset": 7211,
+          "after_offset": 6741,
+          "old": "\t\t\t\tp_149734_1_.spawnParticle(\"flame\", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n\t\t\t\tp_149734_1_.spawnParticle(\"smoke\", x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 7403,
+          "after_offset": 6960,
+          "old": "\t\t\t\tp_149734_1_.spawnParticle(\"flame\", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n\t\t\t\tp_149734_1_.spawnParticle(\"smoke\", x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 7595,
+          "after_offset": 7179,
+          "old": "\t\t\t\tp_149734_1_.spawnParticle(\"flame\", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n\t\t\t\tp_149734_1_.spawnParticle(\"smoke\", x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 7787,
+          "after_offset": 7398,
+          "old": "\t\t\t\tp_149734_1_.spawnParticle(\"flame\", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n\t\t\t\tp_149734_1_.spawnParticle(\"smoke\", x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(EnumParticleTypes.FLAME, f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + f5, (double) y + 1, z + f6, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 8004,
+          "after_offset": 7642,
+          "old": "\tpublic Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {\n\t\treturn Item.getItemFromBlock(ModBlocks.machine_difurnace_rtg_off);\n",
+          "new": "\tpublic ItemStack getItem(World world, BlockPos pos, IBlockState state) {\n\t\treturn new ItemStack(ModBlocks.machine_difurnace_rtg_off);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRtgFurnace.java": {
+      "before_sha256": "716d782766ffc9cf60fdd99e8385f618cef1947595efb60950026d01f8323057",
+      "after_sha256": "77a2df27858f8e82d757205295062111dc56b2c16cfe620e52f3a840e8b5b5e8",
+      "edits": [
+        {
+          "before_offset": 33,
+          "after_offset": 33,
+          "old": "",
+          "new": "import net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.EnumHand;\nimport net.minecraft.util.EnumParticleTypes;\n"
+        },
+        {
+          "before_offset": 93,
+          "after_offset": 299,
+          "old": "import net.minecraft.block.BlockContainer;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 182,
+          "after_offset": 345,
+          "old": "import com.hbm.render.icon.IIconRegister;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 566,
+          "after_offset": 687,
+          "old": "import com.hbm.render.icon.IIcon;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 711,
+          "after_offset": 798,
+          "old": "import com.hbm.lib.RefStrings;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1005,
+          "after_offset": 1061,
+          "old": "public class MachineRtgFurnace extends BlockContainer {\n",
+          "new": "public class MachineRtgFurnace extends BlockThermalFurnace {\n"
+        },
+        {
+          "before_offset": 1118,
+          "after_offset": 1179,
+          "old": "\tprivate final boolean isActive;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1190,
+          "after_offset": 1218,
+          "old": "\t\n\t@SideOnly(Side.CLIENT)\n\tprivate IIcon iconTop;\n\t@SideOnly(Side.CLIENT)\n\tprivate IIcon iconFront;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1339,
+          "after_offset": 1267,
+          "old": "\t\tsuper(Material.iron);\n\t\tisActive = blockState;\n",
+          "new": "\t\tsuper(Material.IRON, blockState);\n"
+        },
+        {
+          "before_offset": 1391,
+          "after_offset": 1306,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "before_offset": 1404,
+          "after_offset": 1320,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic void registerBlockIcons(IIconRegister iconRegister) {\n\t\tthis.iconTop = iconRegister.registerIcon(RefStrings.MODID + \":machine_rtg_furnace_base_alt\");\n\t\tthis.iconFront = iconRegister.registerIcon(RefStrings.MODID + (this.isActive ? \":machine_rtg_furnace_on_alt\" : \":machine_rtg_furnace_off_alt\"));\n\t\tthis.blockIcon = iconRegister.registerIcon(RefStrings.MODID + \":machine_rtg_furnace_side_alt\");\n\t}\n\t\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic IIcon getIcon(int side, int metadata) {\n\t\treturn metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon)));\n\t}\n\t\n\t@Override\n\tpublic Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)\n",
+          "new": "\tpublic Item getItemDropped(IBlockState state, Random p_149650_2_, int p_149650_3_)\n"
+        },
+        {
+          "before_offset": 2282,
+          "after_offset": 1502,
+          "old": "\tpublic void onBlockAdded(World world, int x, int y, int z) {\n\t\tsuper.onBlockAdded(world, x, y, z);\n\t\tthis.setDefaultDirection(world, x, y, z);\n",
+          "new": "\tpublic void onBlockAdded(World world, BlockPos pos, IBlockState state) {\n\t\tsuper.onBlockAdded(world, pos, state);\n\t\tthis.setDefaultDirection(world, pos);\n"
+        },
+        {
+          "before_offset": 2431,
+          "after_offset": 1662,
+          "old": "\tprivate void setDefaultDirection(World world, int x, int y, int z) {\n",
+          "new": "\tprivate void setDefaultDirection(World world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 2527,
+          "after_offset": 1751,
+          "old": "\t\t\tBlock block1 = world.getBlock(x, y, z - 1);\n\t\t\tBlock block2 = world.getBlock(x, y, z + 1);\n\t\t\tBlock block3 = world.getBlock(x - 1, y, z);\n\t\t\tBlock block4 = world.getBlock(x + 1, y, z);\n",
+          "new": "\t\t\tIBlockState block1 = world.getBlockState(pos.north());\n\t\t\tIBlockState block2 = world.getBlockState(pos.south());\n\t\t\tIBlockState block3 = world.getBlockState(pos.west());\n\t\t\tIBlockState block4 = world.getBlockState(pos.east());\n"
+        },
+        {
+          "before_offset": 2739,
+          "after_offset": 2005,
+          "old": "\t\t\tif(block1.func_149730_j() && !block2.func_149730_j())\n",
+          "new": "\t\t\tif(block1.isFullBlock() && !block2.isFullBlock())\n"
+        },
+        {
+          "before_offset": 2818,
+          "after_offset": 2080,
+          "old": "\t\t\tif(block2.func_149730_j() && !block1.func_149730_j())\n",
+          "new": "\t\t\tif(block2.isFullBlock() && !block1.isFullBlock())\n"
+        },
+        {
+          "before_offset": 2897,
+          "after_offset": 2155,
+          "old": "\t\t\tif(block3.func_149730_j() && !block4.func_149730_j())\n",
+          "new": "\t\t\tif(block3.isFullBlock() && !block4.isFullBlock())\n"
+        },
+        {
+          "before_offset": 2976,
+          "after_offset": 2230,
+          "old": "\t\t\tif(block4.func_149730_j() && !block3.func_149730_j())\n",
+          "new": "\t\t\tif(block4.isFullBlock() && !block3.isFullBlock())\n"
+        },
+        {
+          "before_offset": 3059,
+          "after_offset": 2309,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, b0, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, (int) (b0)), 2);\n"
+        },
+        {
+          "before_offset": 3132,
+          "after_offset": 2422,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {\n\t\tint i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;\n"
+        },
+        {
+          "before_offset": 3345,
+          "after_offset": 2640,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 2), 2);\n"
+        },
+        {
+          "before_offset": 3418,
+          "after_offset": 2745,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 5), 2);\n"
+        },
+        {
+          "before_offset": 3491,
+          "after_offset": 2850,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 3), 2);\n"
+        },
+        {
+          "before_offset": 3564,
+          "after_offset": 2955,
+          "old": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n",
+          "new": "\t\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, 4), 2);\n"
+        },
+        {
+          "before_offset": 3660,
+          "after_offset": 3083,
+          "old": "\t\t\t((TileEntityRtgFurnace)world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());\n",
+          "new": "\t\t\t((TileEntityRtgFurnace)world.getTileEntity(pos)).setCustomName(itemStack.getDisplayName());\n"
+        },
+        {
+          "before_offset": 3779,
+          "after_offset": 3198,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {\n"
+        },
+        {
+          "before_offset": 3994,
+          "after_offset": 3447,
+          "old": "\t\t\tTileEntityRtgFurnace entity = (TileEntityRtgFurnace) world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntityRtgFurnace entity = (TileEntityRtgFurnace) world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4107,
+          "after_offset": 3556,
+          "old": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);\n",
+          "new": "\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());\n"
+        },
+        {
+          "before_offset": 4469,
+          "after_offset": 3945,
+          "old": "\t\tint i = world.getBlockMetadata(x, y, z);\n\t\tTileEntity entity = world.getTileEntity(x, y, z);\n",
+          "new": "        BlockPos pos = new BlockPos(x, y, z);\n\t\tint i = world.getBlockState(pos).getValue(METADATA);\n\t\tTileEntity entity = world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 4614,
+          "after_offset": 4144,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_rtg_furnace_on);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_rtg_furnace_on.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4685,
+          "after_offset": 4234,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.machine_rtg_furnace_off);\n",
+          "new": "\t\t\tworld.setBlockState(pos, ModBlocks.machine_rtg_furnace_off.getDefaultState());\n"
+        },
+        {
+          "before_offset": 4780,
+          "after_offset": 4348,
+          "old": "\t\tworld.setBlockMetadataWithNotify(x, y, z, i, 2);\n",
+          "new": "\t\tworld.setBlockState(pos, world.getBlockState(pos).withProperty(METADATA, i), 2);\n"
+        },
+        {
+          "before_offset": 4879,
+          "after_offset": 4479,
+          "old": "\t\t\tworld.setTileEntity(x, y, z, entity);\n",
+          "new": "\t\t\tworld.setTileEntity(pos, entity);\n"
+        },
+        {
+          "before_offset": 4940,
+          "after_offset": 4536,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)\n",
+          "new": "\tpublic void breakBlock(World world, BlockPos pos, IBlockState state)\n"
+        },
+        {
+          "before_offset": 5076,
+          "after_offset": 4612,
+          "old": "",
+          "new": "        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n        Block block = state.getBlock();\n"
+        },
+        {
+          "before_offset": 5114,
+          "after_offset": 4750,
+          "old": "        \tISidedInventory tileentityfurnace = (ISidedInventory)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);\n",
+          "new": "        ISidedInventory tileentityfurnace = (ISidedInventory)world.getTileEntity(pos);\n"
+        },
+        {
+          "before_offset": 6533,
+          "after_offset": 6128,
+          "old": "                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(dropItem, j1, dropMeta));\n",
+          "new": "                            EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));\n"
+        },
+        {
+          "before_offset": 7246,
+          "after_offset": 6805,
+          "old": "                            p_149749_1_.spawnEntity(entityitem);\n",
+          "new": "                            world.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 7378,
+          "after_offset": 6931,
+          "old": "                p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "                world.updateComparatorOutputLevel(pos, block);\n"
+        },
+        {
+          "before_offset": 7498,
+          "after_offset": 7019,
+          "old": "        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "        super.breakBlock(world, pos, state);\n"
+        },
+        {
+          "before_offset": 7645,
+          "after_offset": 7107,
+          "old": "    public void randomDisplayTick(World p_149734_1_, int x, int y, int z, Random rand)\n",
+          "new": "    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)\n"
+        },
+        {
+          "before_offset": 7738,
+          "after_offset": 7206,
+          "old": "",
+          "new": "        int x = pos.getX(), y = pos.getY(), z = pos.getZ();\n"
+        },
+        {
+          "before_offset": 7770,
+          "after_offset": 7298,
+          "old": "            int l = p_149734_1_.getBlockMetadata(x, y, z);\n",
+          "new": "            int l = world.getBlockState(pos).getValue(METADATA);\n"
+        },
+        {
+          "before_offset": 8146,
+          "after_offset": 7680,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                world.spawnParticle(EnumParticleTypes.FLAME, f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 8385,
+          "after_offset": 7946,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n                world.spawnParticle(EnumParticleTypes.FLAME, f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 8624,
+          "after_offset": 8212,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n                world.spawnParticle(EnumParticleTypes.FLAME, f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 8863,
+          "after_offset": 8478,
+          "old": "                p_149734_1_.spawnParticle(\"smoke\", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n                p_149734_1_.spawnParticle(\"flame\", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n",
+          "new": "                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n                world.spawnParticle(EnumParticleTypes.FLAME, f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 9114,
+          "after_offset": 8756,
+          "old": "    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)\n",
+          "new": "    public ItemStack getItem(World world, BlockPos pos, IBlockState state)\n"
+        },
+        {
+          "before_offset": 9214,
+          "after_offset": 8837,
+          "old": "        return Item.getItemFromBlock(ModBlocks.machine_rtg_furnace_off);\n",
+          "new": "        return new ItemStack(ModBlocks.machine_rtg_furnace_off);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/extprop/HbmLivingProps.java": {
+      "before_sha256": "2832fb2d2bd6b165ba4a073f735dab5ba4fd9baed5c63b5635dd0e84636e7e04",
+      "after_sha256": "8a0cc905142741ba4765a31f87ec33b814d1bb41f7e2b2de424bb5e3c9d75aef",
+      "edits": [
+        {
+          "before_offset": 692,
+          "after_offset": 692,
+          "old": "import net.minecraft.entity.Entity;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1215,
+          "after_offset": 1179,
+          "old": "import net.minecraft.world.World;\nimport net.minecraftforge.common.IExtendedEntityProperties;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1310,
+          "after_offset": 1180,
+          "old": "public class HbmLivingProps implements IExtendedEntityProperties {\n",
+          "new": "public class HbmLivingProps {\n"
+        },
+        {
+          "before_offset": 2268,
+          "after_offset": 2101,
+          "old": "",
+          "new": "\t/** Capabilities are attached by Forge during construction, never lazily or off-entity. */\n"
+        },
+        {
+          "before_offset": 2338,
+          "after_offset": 2263,
+          "old": "\n\t\tentity.registerExtendedProperties(key, new HbmLivingProps(entity));\n\t\treturn (HbmLivingProps) entity.getExtendedProperties(key);\n",
+          "new": "\t\treturn getData(entity);\n"
+        },
+        {
+          "before_offset": 2539,
+          "after_offset": 2358,
+          "old": "\n\t\tHbmLivingProps props = (HbmLivingProps) entity.getExtendedProperties(key);\n\t\treturn props != null ? props : registerData(entity);\n",
+          "new": "\t\treturn HbmEntityProps.getLiving(entity);\n"
+        },
+        {
+          "before_offset": 4914,
+          "after_offset": 4643,
+          "old": "\t\tif(entity.worldObj.isRemote)\n",
+          "new": "\t\tif(entity.world.isRemote)\n"
+        },
+        {
+          "before_offset": 5107,
+          "after_offset": 4833,
+          "old": "\t\tIAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth);\n",
+          "new": "\t\tIAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MAX_HEALTH);\n"
+        },
+        {
+          "before_offset": 5938,
+          "after_offset": 5665,
+          "old": "\t\t\tdata.setInteger(\"block\", Block.getIdFromBlock(Blocks.soul_sand));\n",
+          "new": "\t\t\tdata.setInteger(\"block\", Block.getIdFromBlock(Blocks.SOUL_SAND));\n"
+        },
+        {
+          "before_offset": 8089,
+          "after_offset": 7816,
+          "old": "\t\t\tint damageInterval = MathHelper.clamp_int(oxygen / 60 + 8, 1, 8);\n\t\t\tint damageAmount = MathHelper.clamp_int(-oxygen / 40 - 10, 1, Integer.MAX_VALUE);\n",
+          "new": "\t\t\tint damageInterval = MathHelper.clamp(oxygen / 60 + 8, 1, 8);\n\t\t\tint damageAmount = MathHelper.clamp(-oxygen / 40 - 10, 1, Integer.MAX_VALUE);\n"
+        },
+        {
+          "before_offset": 10584,
+          "after_offset": 10303,
+          "old": "\t@Override\n\tpublic void init(Entity entity, World world) { }\n\n",
+          "new": ""
+        },
+        {
+          "before_offset": 11823,
+          "after_offset": 11480,
+          "old": "\t@Deprecated\n\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 12817,
+          "after_offset": 12450,
+          "old": "\t@Deprecated\n\t@Override\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/extprop/HbmPlayerProps.java": {
+      "before_sha256": "b3d74046754c1528712c45187ba7b1b4eacf69a5af81fd5fcea731ef5361b50c",
+      "after_sha256": "de88e683c5b33b4311b40248f8f0c33b9381bcd17e07a479c44bee88b31ec211",
+      "edits": [
+        {
+          "before_offset": 383,
+          "after_offset": 383,
+          "old": "import net.minecraft.entity.Entity;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 505,
+          "after_offset": 469,
+          "old": "",
+          "new": "import net.minecraft.inventory.EntityEquipmentSlot;\nimport net.minecraft.init.SoundEvents;\nimport net.minecraft.util.ResourceLocation;\nimport net.minecraft.util.SoundEvent;\n"
+        },
+        {
+          "before_offset": 593,
+          "after_offset": 730,
+          "old": "import net.minecraft.world.World;\nimport net.minecraftforge.common.IExtendedEntityProperties;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 688,
+          "after_offset": 731,
+          "old": "public class HbmPlayerProps implements IExtendedEntityProperties {\n",
+          "new": "public class HbmPlayerProps {\n"
+        },
+        {
+          "before_offset": 1728,
+          "after_offset": 1734,
+          "old": "",
+          "new": "\t/** Capabilities are attached by Forge during construction, never lazily or off-entity. */\n"
+        },
+        {
+          "before_offset": 1794,
+          "after_offset": 1892,
+          "old": "\t\tplayer.registerExtendedProperties(key, new HbmPlayerProps(player));\n\t\treturn (HbmPlayerProps) player.getExtendedProperties(key);\n",
+          "new": "\t\treturn getData(player);\n"
+        },
+        {
+          "before_offset": 1990,
+          "after_offset": 1983,
+          "old": "\t\tHbmPlayerProps props = (HbmPlayerProps) player.getExtendedProperties(key);\n\t\treturn props != null ? props : registerData(player);\n",
+          "new": "\t\treturn HbmEntityProps.getPlayer(player);\n"
+        },
+        {
+          "before_offset": 2538,
+          "after_offset": 2442,
+          "old": "\t\t\t\tif(!player.worldObj.isRemote) {\n",
+          "new": "\t\t\t\tif(!player.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 2933,
+          "after_offset": 2834,
+          "old": "\t\t\t\tif (!player.worldObj.isRemote){\n",
+          "new": "\t\t\t\tif (!player.world.isRemote){\n"
+        },
+        {
+          "before_offset": 3317,
+          "after_offset": 3215,
+          "old": "\t\t\t\tif(!player.worldObj.isRemote) {\n",
+          "new": "\t\t\t\tif(!player.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 3675,
+          "after_offset": 3570,
+          "old": "\t\t\t\tif(!this.player.worldObj.isRemote) {\n",
+          "new": "\t\t\t\tif(!this.player.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 3717,
+          "after_offset": 3609,
+          "old": "\t\t\t\t\tif(player.ridingEntity != null && player.ridingEntity instanceof EntityRailCarBase && player.ridingEntity instanceof IGUIProvider) {\n\t\t\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, player.worldObj, player.ridingEntity.getEntityId(), 0, 0);\n",
+          "new": "\t\t\t\t\tif(player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRailCarBase && player.getRidingEntity() instanceof IGUIProvider) {\n\t\t\t\t\t\tFMLNetworkHandler.openGui(player, MainRegistry.instance, 0, player.world, player.getRidingEntity().getEntityId(), 0, 0);\n"
+        },
+        {
+          "before_offset": 4663,
+          "after_offset": 4572,
+          "old": "\t\t\tplayer.worldObj.playSoundAtEntity(player, sound, volume, pitch);\n",
+          "new": "\t\t\t// All existing callers use the renamed vanilla item-break sound.\n\t\t\tSoundEvent event = \"random.break\".equals(sound) ? SoundEvents.ENTITY_ITEM_BREAK\n\t\t\t\t\t: SoundEvent.REGISTRY.getObject(new ResourceLocation(sound));\n\t\t\tif(event != null) player.world.playSound(player.world.isRemote ? player : null,\n\t\t\t\t\tplayer.posX, player.posY, player.posZ, event, player.getSoundCategory(), volume, pitch);\n"
+        },
+        {
+          "before_offset": 4863,
+          "after_offset": 5100,
+          "old": "\t\tif(player.getCurrentArmor(2) != null) {\n\t\t\tItemStack[] mods = ArmorModHandler.pryMods(player.getCurrentArmor(2));\n",
+          "new": "\t\tif(!player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).isEmpty()) {\n\t\t\tItemStack[] mods = ArmorModHandler.pryMods(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST));\n"
+        },
+        {
+          "before_offset": 5222,
+          "after_offset": 5520,
+          "old": "\n\t@Override\n\tpublic void init(Entity entity, World world) { }\n",
+          "new": ""
+        },
+        {
+          "before_offset": 6017,
+          "after_offset": 6253,
+          "old": "\t@Deprecated\n\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 6690,
+          "after_offset": 6902,
+          "old": "\t@Deprecated\n\t@Override\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "b21ad396c20f38f361da51e9da21896fd14d66832870f0c2a6dbf48fd6fde323",
+      "after_sha256": "a59235eaf46bd40d34d75f58b1cfb639e7b62e7209db49c36def5d072ab3a8eb",
+      "edits": [
+        {
+          "before_offset": 77803,
+          "after_offset": 77803,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderDiFurnaceExtension());\n",
+          "new": ""
+        },
+        {
+          "before_offset": 89265,
+          "after_offset": 89191,
+          "old": "\t\t\t\t\tfx.motionY = 0;\n\t\t\t\t\tfx.motionX = vec.x;\n\t\t\t\t\tfx.motionZ = vec.z;\n",
+          "new": "\t\t\t\t\tfx.setMotion(vec.x, 0, vec.z);\n"
+        },
+        {
+          "before_offset": 115673,
+          "after_offset": 115564,
+          "old": "\t\t\t\tfx.motionX = data.getDouble(\"mX\");\n\t\t\t\tfx.motionY = data.getDouble(\"mY\");\n\t\t\t\tfx.motionZ = data.getDouble(\"mZ\");\n",
+          "new": "\t\t\t\tdouble motionX = data.getDouble(\"mX\");\n\t\t\t\tdouble motionY = data.getDouble(\"mY\");\n\t\t\t\tdouble motionZ = data.getDouble(\"mZ\");\n"
+        },
+        {
+          "before_offset": 115892,
+          "after_offset": 115795,
+          "old": "\t\t\t\t\tfx.motionX += (rand.nextDouble() - 0.5) * factor;\n\t\t\t\t\tfx.motionY += (rand.nextDouble() - 0.5) * factor;\n\t\t\t\t\tfx.motionZ += (rand.nextDouble() - 0.5) * factor;\n",
+          "new": "\t\t\t\t\tmotionX += (rand.nextDouble() - 0.5) * factor;\n\t\t\t\t\tmotionY += (rand.nextDouble() - 0.5) * factor;\n\t\t\t\t\tmotionZ += (rand.nextDouble() - 0.5) * factor;\n"
+        },
+        {
+          "before_offset": 116079,
+          "after_offset": 115973,
+          "old": "",
+          "new": "\t\t\t\tfx.setMotion(motionX, motionY, motionZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/MainRegistry.java": {
+      "before_sha256": "6430f18d35abc7391d88b24e23e75dc594b8dd69aabcace6033b48b3136223d4",
+      "after_sha256": "228c525cf05ca6cb7611c54a993f62217bbcb600d6923252a1e5fa686ec5d536",
+      "edits": [
+        {
+          "before_offset": 39113,
+          "after_offset": 39113,
+          "old": "",
+          "new": "\t\tcom.hbm.extprop.HbmEntityProps.register();\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "3a38f5d28064949b99c80fd11c53323a21e1685bd40ea253dd99f865cdad1b5e",
+      "after_sha256": "ed602185a61318f5ecf3b1db3273692e7ca4fbff7bdb317e180ebbd3db68f70a",
+      "edits": [
+        {
+          "before_offset": 5456,
+          "after_offset": 5456,
+          "old": "import io.netty.buffer.ByteBuf;\nimport io.netty.buffer.PooledByteBufAllocator;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 12785,
+          "after_offset": 12706,
+          "old": "\n\t\tif(event.entity instanceof EntityPlayer) {\n\n\t\t\tEntityPlayer player = (EntityPlayer) event.entity;\n\t\t\tHbmPlayerProps.getData(player); //this already calls the register method if it's null so no further action required\n\n\t\t\tif(event.entity == MainRegistry.proxy.me())\n\t\t\t\tBlockAshes.ashes = 0;\n\t\t}\n\n\t\tif(event.entity instanceof EntityLivingBase) {\n\n\t\t\tEntityLivingBase living = (EntityLivingBase) event.entity;\n\t\t\tHbmLivingProps.getData(living); //ditto\n\t\t}\n",
+          "new": "\t\t// Forge attaches capabilities after this event, not during it.\n\t\tif(event.getEntity() instanceof EntityPlayer && event.getEntity() == MainRegistry.proxy.me())\n\t\t\tBlockAshes.ashes = 0;\n"
+        },
+        {
+          "before_offset": 61173,
+          "after_offset": 60823,
+          "old": "\t@SubscribeEvent\n\tpublic void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {\n\n\t\tByteBuf buf = PooledByteBufAllocator.DEFAULT.buffer();\n\t\tHbmPlayerProps.getData(event.original).serialize(buf);\n\t\tHbmPlayerProps.getData(event.entityPlayer).deserialize(buf);\n\t\tbuf.release();\n\t}\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "4eee4bc599d1c0bb8e831fbfdcd1697c414049e5f9e3efe07caa02843f9f312a",
+      "after_sha256": "410dc49e93e9719d326b6273ee46bd2b6237cf53b3d555b281def836fe012073",
+      "edits": [
+        {
+          "before_offset": 55678,
+          "after_offset": 55678,
+          "old": "",
+          "new": "\t\tcom.hbm.particle.ParticleSprites.register(event.getMap());\n"
+        },
+        {
+          "before_offset": 55750,
+          "after_offset": 55811,
+          "old": "\t\tparticleBase = register.registerIcon(RefStrings.MODID + \":particle/particle_base\");\n\t\tparticleLeaf = register.registerIcon(RefStrings.MODID + \":particle/dead_leaf\");\n\t\tparticleSwen = register.registerIcon(RefStrings.MODID + \":particle/particlenote2\");\n\t\tparticleLen = register.registerIcon(RefStrings.MODID + \":particle/particlenote1\");\n",
+          "new": "\t\tparticleBase = register.registerIcon(RefStrings.MODID + \":blocks/particle/particle_base\");\n\t\tparticleLeaf = register.registerIcon(RefStrings.MODID + \":blocks/particle/dead_leaf\");\n\t\tparticleSwen = register.registerIcon(RefStrings.MODID + \":blocks/particle/particlenote2\");\n\t\tparticleLen = register.registerIcon(RefStrings.MODID + \":blocks/particle/particlenote1\");\n"
+        },
+        {
+          "before_offset": 56090,
+          "after_offset": 56179,
+          "old": "\t\tparticleSplash = register.registerIcon(RefStrings.MODID + \":particle/particle_splash\");\n\t\tparticleAshes = register.registerIcon(RefStrings.MODID + \":particle/particle_ashes\");\n",
+          "new": "\t\tparticleSplash = register.registerIcon(RefStrings.MODID + \":blocks/particle/particle_splash\");\n\t\tparticleAshes = register.registerIcon(RefStrings.MODID + \":blocks/particle/particle_ashes\");\n"
+        },
+        {
+          "before_offset": 56269,
+          "after_offset": 56372,
+          "old": "\t\tparticleFlare = register.registerIcon(RefStrings.MODID + \":particle/yelflare\");\n",
+          "new": "\t\tparticleFlare = register.registerIcon(RefStrings.MODID + \":blocks/particle/yelflare\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleCoolingTower.java": {
+      "before_sha256": "9122b6852992a034a5d44605439b5c924ffeb1ec1d7fdf0c4a8d88343feab146",
+      "after_sha256": "5c9df1410dabc3268c9910daa47a360ce41164bbcc90841682399493b6459a53",
+      "edits": [
+        {
+          "before_offset": 26,
+          "after_offset": 26,
+          "old": "\nimport com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 125,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 385,
+          "after_offset": 379,
+          "old": "public class ParticleCoolingTower extends EntityFX {\n",
+          "new": "public class ParticleCoolingTower extends Particle {\n"
+        },
+        {
+          "before_offset": 753,
+          "after_offset": 747,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 907,
+          "after_offset": 890,
+          "old": "\t\tthis.noClip = true;\n",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1315,
+          "after_offset": 1303,
+          "old": "",
+          "new": "\n\tpublic void setMotion(double x, double y, double z) {\n\t\tthis.motionX = x;\n\t\tthis.motionY = y;\n\t\tthis.motionZ = z;\n\t}\n"
+        },
+        {
+          "before_offset": 2091,
+          "after_offset": 2198,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 2115,
+          "after_offset": 2225,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 2241,
+          "after_offset": 2345,
+          "old": "",
+          "new": "\t@Override\n\tpublic boolean shouldDisableDepth() {\n\t\treturn true;\n\t}\n\n"
+        },
+        {
+          "before_offset": 2284,
+          "after_offset": 2457,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\n\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n\n\t\tfloat scale = this.particleScale;\n\t\tfloat pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\n\t\ttess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());\n\t\ttess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleIcon.getMinU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\tpublic void renderParticle(BufferBuilder buffer, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tfloat x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\t\tParticleQuadRenderer.append(buffer, particleTexture, x, y, z, particleScale,\n\t\t\t\tfX, fY, fZ, sX, sZ, particleRed, particleGreen, particleBlue, particleAlpha,\n\t\t\t\tgetBrightnessForRender(interp));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDigammaSmoke.java": {
+      "before_sha256": "8dfddee270296c7d3ec10368473ba10ccbfcab322067c7931185c2df95a9ace4",
+      "after_sha256": "56357a9589dae114b6747b45a356acce681d727013369fc474a1d33553ff9025",
+      "edits": [
+        {
+          "before_offset": 26,
+          "after_offset": 26,
+          "old": "\nimport com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 125,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 385,
+          "after_offset": 379,
+          "old": "public class ParticleDigammaSmoke extends EntityFX {\n",
+          "new": "public class ParticleDigammaSmoke extends Particle {\n"
+        },
+        {
+          "before_offset": 668,
+          "after_offset": 662,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 756,
+          "after_offset": 739,
+          "old": "\t\tthis.noClip = true;\n",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 925,
+          "after_offset": 913,
+          "old": "",
+          "new": "\tpublic void setMotion(double x, double y, double z) {\n\t\tthis.motionX = x;\n\t\tthis.motionY = y;\n\t\tthis.motionZ = z;\n\t}\n\n"
+        },
+        {
+          "before_offset": 1152,
+          "after_offset": 1259,
+          "old": "\t\t\tthis.setDead();\n",
+          "new": "\t\t\tthis.setExpired();\n"
+        },
+        {
+          "before_offset": 1252,
+          "after_offset": 1362,
+          "old": "\t\tthis.moveEntity(this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\tthis.move(this.motionX, this.motionY, this.motionZ);\n"
+        },
+        {
+          "before_offset": 1318,
+          "after_offset": 1422,
+          "old": "",
+          "new": "\t@Override\n\tpublic boolean shouldDisableDepth() {\n\t\treturn true;\n\t}\n\n"
+        },
+        {
+          "before_offset": 1384,
+          "after_offset": 1557,
+          "old": "\tpublic void renderParticle(Tessellator tess, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_) {\n\n\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\n\t\tfloat scale = this.particleScale;\n\t\tfloat pX = (float) ((this.prevPosX + (this.posX - this.prevPosX) * (double) p_70539_2_ - interpPosX));\n\t\tfloat pY = (float) ((this.prevPosY + (this.posY - this.prevPosY) * (double) p_70539_2_ - interpPosY));\n\t\tfloat pZ = (float) ((this.prevPosZ + (this.posZ - this.prevPosZ) * (double) p_70539_2_ - interpPosZ));\n\n\t\ttess.addVertexWithUV((double) (pX - p_70539_3_ * scale - p_70539_6_ * scale), (double) (pY - p_70539_4_ * scale), (double) (pZ - p_70539_5_ * scale - p_70539_7_ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());\n\t\ttess.addVertexWithUV((double) (pX - p_70539_3_ * scale + p_70539_6_ * scale), (double) (pY + p_70539_4_ * scale), (double) (pZ - p_70539_5_ * scale + p_70539_7_ * scale), particleIcon.getMaxU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV((double) (pX + p_70539_3_ * scale + p_70539_6_ * scale), (double) (pY + p_70539_4_ * scale), (double) (pZ + p_70539_5_ * scale + p_70539_7_ * scale), particleIcon.getMinU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV((double) (pX + p_70539_3_ * scale - p_70539_6_ * scale), (double) (pY - p_70539_4_ * scale), (double) (pZ + p_70539_5_ * scale - p_70539_7_ * scale), particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\tpublic void renderParticle(BufferBuilder buffer, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tfloat x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\t\tParticleQuadRenderer.append(buffer, particleTexture, x, y, z, particleScale,\n\t\t\t\tfX, fY, fZ, sX, sZ, particleRed, particleGreen, particleBlue, particleAlpha,\n\t\t\t\tgetBrightnessForRender(interp));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleDust.java": {
+      "before_sha256": "3f831b326ffd67d2281819b3b45e068ab4ba2d3453ce3d86bc51bcf59faf42db",
+      "after_sha256": "d03ad8113648a5d58a8530594c4cb5794db9a5e6634c37ea17ad3875c6a342b5",
+      "edits": [
+        {
+          "before_offset": 26,
+          "after_offset": 26,
+          "old": "\nimport com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 125,
+          "old": "import net.minecraft.client.particle.EntityFX;\nimport net.minecraft.client.renderer.Tessellator;\n",
+          "new": "import net.minecraft.client.particle.Particle;\nimport net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.entity.Entity;\n"
+        },
+        {
+          "before_offset": 324,
+          "after_offset": 318,
+          "old": "public class ParticleDust extends EntityFX {\n",
+          "new": "public class ParticleDust extends Particle {\n"
+        },
+        {
+          "before_offset": 519,
+          "after_offset": 513,
+          "old": "\t\tparticleIcon = ModEventHandlerClient.particleBase;\n",
+          "new": "\t\tparticleTexture = ParticleSprites.base;\n"
+        },
+        {
+          "before_offset": 855,
+          "after_offset": 838,
+          "old": "\t\tthis.noClip = true;\n",
+          "new": "\t\tthis.canCollide = false;\n\t}\n\n\t@Override\n\tpublic boolean shouldDisableDepth() {\n\t\treturn true;\n"
+        },
+        {
+          "before_offset": 946,
+          "after_offset": 1003,
+          "old": "\tpublic void renderParticle(Tessellator tess, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\t\n\t\ttess.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);\n\n\t\tfloat scale = this.particleScale;\n\t\tfloat pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\n\t\ttess.addVertexWithUV((double) (pX - fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ - fZ * scale - sZ * scale), particleIcon.getMaxU(), particleIcon.getMaxV());\n\t\ttess.addVertexWithUV((double) (pX - fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ - fZ * scale + sZ * scale), particleIcon.getMaxU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV((double) (pX + fX * scale + sX * scale), (double) (pY + fY * scale), (double) (pZ + fZ * scale + sZ * scale), particleIcon.getMinU(), particleIcon.getMinV());\n\t\ttess.addVertexWithUV((double) (pX + fX * scale - sX * scale), (double) (pY - fY * scale), (double) (pZ + fZ * scale - sZ * scale), particleIcon.getMinU(), particleIcon.getMaxV());\n",
+          "new": "\tpublic void renderParticle(BufferBuilder buffer, Entity camera, float interp, float fX, float fY, float fZ, float sX, float sZ) {\n\t\tfloat x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) interp - interpPosX);\n\t\tfloat y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) interp - interpPosY);\n\t\tfloat z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) interp - interpPosZ);\n\t\tParticleQuadRenderer.append(buffer, particleTexture, x, y, z, particleScale,\n\t\t\t\tfX, fY, fZ, sX, sZ, particleRed, particleGreen, particleBlue, particleAlpha,\n\t\t\t\tgetBrightnessForRender(interp));\n"
+        },
+        {
+          "before_offset": 2265,
+          "after_offset": 1630,
+          "old": "}",
+          "new": "}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/particle/ParticleGlow.java": {
+      "before_sha256": "e2298ff361e6ccfc07a684e08cfa85325e556cb4b2e56a7be7210cfb2f57facb",
+      "after_sha256": "1fffe55a3f1fa46c69dee49d953c307c7b6cb51fc0e2838095e008724dd22231",
+      "edits": [
+        {
+          "before_offset": 26,
+          "after_offset": 26,
+          "old": "\nimport com.hbm.main.ModEventHandlerClient;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 169,
+          "after_offset": 125,
+          "old": "import net.minecraft.client.particle.EntityFX;\n",
+          "new": "import net.minecraft.client.particle.Particle;\n"
+        },
+        {
+          "before_offset": 274,
+          "after_offset": 230,
+          "old": "public class ParticleGlow extends EntityFX {\n",
+          "new": "public class ParticleGlow extends Particle {\n"
+        },
+        {
+          "before_offset": 497,
+          "after_offset": 453,
+          "old": "\t\tthis.particleIcon = ModEventHandlerClient.particleFlare;\n",
+          "new": "\t\tthis.particleTexture = ParticleSprites.flare;\n"
+        },
+        {
+          "before_offset": 851,
+          "after_offset": 796,
+          "old": "\t\tthis.noClip = true;\n",
+          "new": "\t\tthis.canCollide = false;\n"
+        },
+        {
+          "before_offset": 1169,
+          "after_offset": 1119,
+          "old": "",
+          "new": "\tpublic boolean shouldDisableDepth() {\n\t\treturn true;\n\t}\n\n\t@Override\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java": {
+      "before_sha256": "848896a2bb6856ffca236d5a56866c15d5867b44bf3040d40953235bf2315ce6",
+      "after_sha256": "053b3eb71790dcaaaad72962c2cb63d60199a4cb42ae5fbbc1fe232b45f68919",
+      "edits": [
+        {
+          "before_offset": 1281,
+          "after_offset": 1281,
+          "old": "",
+          "new": "    @Override\n    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,\n            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {\n        // Legacy metadata-only orientation changes retained inventory and all tile state.\n        return oldState.getBlock() != newState.getBlock();\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnaceRTG.java": {
+      "before_sha256": "2490332f34cd446b6e719cf5122e0e9670328a9fc7ee7331df67733901ca4312",
+      "after_sha256": "73cd5cf9bb33742247dbd33e3dc134edfdd3b4fd48758927a35c0836e00ce4ed",
+      "edits": [
+        {
+          "before_offset": 944,
+          "after_offset": 944,
+          "old": "",
+          "new": "    @Override\n    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,\n            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {\n        // Legacy metadata-only orientation changes retained inventory and all tile state.\n        return oldState.getBlock() != newState.getBlock();\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceBrick.java": {
+      "before_sha256": "f8f18a861c29820581ea9956f8834837a1eec77f3af527c28d1eb7bb78e1a626",
+      "after_sha256": "281dd28305af612bd415e28cef0419cdce9e06b8c9cec6e2240dd09862c45858",
+      "edits": [
+        {
+          "before_offset": 1095,
+          "after_offset": 1095,
+          "old": "",
+          "new": "    @Override\n    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,\n            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {\n        // Legacy metadata-only orientation changes retained inventory and all tile state.\n        return oldState.getBlock() != newState.getBlock();\n    }\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java": {
+      "before_sha256": "c1400870020f25d2de28acb2ed61792b501dc58968009165cd6eccfa088a87e0",
+      "after_sha256": "017ec80665e854a400296c4b50511c2cafa3e280208d003c4fa2765651bf321f",
+      "edits": [
+        {
+          "before_offset": 897,
+          "after_offset": 897,
+          "old": "",
+          "new": "    @Override\n    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,\n            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {\n        // Legacy metadata-only orientation changes retained inventory and all tile state.\n        return oldState.getBlock() != newState.getBlock();\n    }\n\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/machine/BlockThermalFurnace.java": "89502296596e1c861fa4d395f8153f7f72d02abfd57c9cd146b9c2b8ab833e69",
+    "src/main/java/com/hbm/extprop/HbmEntityProps.java": "89768c8a5a0cc2545848c64020baee49e18673a49efec68c65038a4ccfc6dcf7",
+    "src/main/java/com/hbm/main/ThermalFurnaceModelHandler.java": "1ccefb5ec8ee6a98d5dfd4e2dc1bbdf414084a3f111f0beffd055e49f31c6ebd",
+    "src/main/java/com/hbm/particle/ParticleQuadRenderer.java": "f0a8f878a50f610cceffadc1462d977a0c2c6424daf1574881c71e55d1b307ba",
+    "src/main/java/com/hbm/particle/ParticleSprites.java": "50bbf9d90db5916284c2f451d154b79e920fc25a2462bb9b1416cf8c79e8af94",
+    "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f",
+    "src/main/java/com/hbm/render/block/nativeblock/DiFurnaceExtensionBakedModel.java": "6765c4ab88002a218bf7d3c5f9e76af8755bb928df4e140113b4a603b2c95578",
+    "src/main/java/com/hbm/render/block/nativeblock/ThermalFurnaceBakedModel.java": "8cf8698109117d147307f72a091f13ed3a62e04375be97fdc063808e1ed2203a",
+    "src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java": "9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc"
+  },
+  "retired_files": {
+    "src/main/java/com/hbm/render/block/RenderDiFurnaceExtension.java": {
+      "before_text": "package com.hbm.render.block;\n\nimport org.lwjgl.opengl.GL11;\n\nimport com.hbm.blocks.ModBlocks;\nimport com.hbm.blocks.machine.MachineDiFurnaceExtension;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\nimport com.hbm.render.util.ObjUtil;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderDiFurnaceExtension implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tGL11.glPushMatrix();\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\t\t\n\t\tGL11.glTranslatef(0F, -0.5F, 0F);\n\t\ttessellator.startDrawingQuads();\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.difurnace_extension, \"Top\", ModBlocks.machine_difurnace_extension.getIcon(1, 0), tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.difurnace_extension, \"Bottom\", ModBlocks.machine_difurnace_extension.getIcon(0, 0), tessellator, 0, false);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.difurnace_extension, \"Side\", ModBlocks.machine_difurnace_extension.getIcon(3, 0), tessellator, 0, false);\n\t\ttessellator.draw();\n\n\t\tGL11.glPopMatrix();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\t\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\t\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.difurnace_extension, \"Top\", ModBlocks.machine_difurnace_extension.getIcon(1, 0), tessellator, 0, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.difurnace_extension, \"Bottom\", ModBlocks.machine_difurnace_extension.getIcon(0, 0), tessellator, 0, true);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.difurnace_extension, \"Side\", ModBlocks.machine_difurnace_extension.getIcon(3, 0), tessellator, 0, true);\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn MachineDiFurnaceExtension.renderID;\n\t}\n}\n",
+      "before_sha256": "31c3b10c10088981662ccda30099bfa410514fb436512097cdb3d738fc316cc2",
+      "successors": {
+        "src/main/java/com/hbm/render/block/nativeblock/DiFurnaceExtensionBakedModel.java": "6765c4ab88002a218bf7d3c5f9e76af8755bb928df4e140113b4a603b2c95578",
+        "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f"
+      }
+    }
+  }
+}

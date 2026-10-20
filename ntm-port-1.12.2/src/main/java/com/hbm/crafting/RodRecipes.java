@@ -9,11 +9,10 @@ import com.hbm.items.machine.ItemWatzPellet.EnumWatzType;
 import com.hbm.items.machine.ItemZirnoxRod.EnumZirnoxType;
 import com.hbm.main.CraftingManager;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import com.hbm.crafting.nativeapi.NtmCraftingRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraft.stats.StatList;
 
 /**
@@ -25,7 +24,7 @@ public class RodRecipes {
 	public static void register() {
 		
 		//Zirnox Fuel
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.rod_zirnox_empty, 4), new Object[] { "Z Z", "ZBZ", "Z Z", 'Z', ZR.nugget(), 'B', BE.ingot() }));
+		NtmCraftingRegistry.shaped("rod/zirnox_empty", true, new ItemStack(ModItems.rod_zirnox_empty, 4), new Object[] { "Z Z", "ZBZ", "Z Z", 'Z', ZR.nugget(), 'B', BE.ingot() });
 		addZIRNOXRod(U, EnumZirnoxType.NATURAL_URANIUM_FUEL);
 		addZIRNOXRod(ModItems.billet_uranium_fuel, EnumZirnoxType.URANIUM_FUEL);
 		addZIRNOXRod(TH232, EnumZirnoxType.TH232);

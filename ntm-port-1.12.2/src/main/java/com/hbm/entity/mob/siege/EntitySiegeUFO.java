@@ -69,7 +69,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 		damage -= tier.dt;
 		
 		if(damage < 0) {
-			worldObj.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
+			this.world.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
 			return false;
 		}
 		
@@ -81,7 +81,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 	@Override
 	protected void updateEntityActionState() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			lifetime++;
 			if(lifetime > MAX_LIFETIME) {
 				isRetreating = true;
@@ -107,7 +107,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 			this.scanCooldown--;
 		}
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(this.attackCooldown > 0) {
 				this.attackCooldown--;
 			}
@@ -150,7 +150,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 					bullet.setRotationsFromVector(delta);
 					bullet.performHitscanExternal(250D);
 
-					this.worldObj.spawnEntityInWorld(bullet);
+					this.world.spawnEntityInWorld(bullet);
 					this.playSound("hbm:entity.bfashoot", 2.0F, 1.0F);
 				}
 			}

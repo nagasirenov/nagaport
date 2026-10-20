@@ -1,0 +1,1177 @@
+{
+  "baseline_commit": "8098f2258b5880cf948009c5e9d766f6b2f536ba",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/handler/RocketStruct.java",
+      "baseline_sha256": "fe9aae50aeb37988e67f1370cb17aad71ca077111d6dccd1b0313950d81c2a2d",
+      "edits": [
+        {
+          "offset": 606,
+          "old": "",
+          "new": "n"
+        },
+        {
+          "offset": 608,
+          "old": "",
+          "new": "twork.datasync.E"
+        },
+        {
+          "offset": 629,
+          "old": ".",
+          "new": ""
+        },
+        {
+          "offset": 633,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 635,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13065,
+          "old": "S",
+          "new": "Registers the fixed-capacity native rock"
+        },
+        {
+          "offset": 13107,
+          "old": "s",
+          "new": ""
+        },
+        {
+          "offset": 13108,
+          "old": "up ",
+          "new": "met"
+        },
+        {
+          "offset": 13112,
+          "old": " D",
+          "new": "d"
+        },
+        {
+          "offset": 13116,
+          "old": "Watch",
+          "new": " fi"
+        },
+        {
+          "offset": 13120,
+          "old": "r to accept ",
+          "new": "ld"
+        },
+        {
+          "offset": 13123,
+          "old": "erialization",
+          "new": ""
+        },
+        {
+          "offset": 13153,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 13155,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13161,
+          "old": "",
+          "new": "Entity"
+        },
+        {
+          "offset": 13171,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 13173,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13179,
+          "old": "w",
+          "new": "m"
+        },
+        {
+          "offset": 13181,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13188,
+          "old": "in",
+          "new": "Rocke"
+        },
+        {
+          "offset": 13194,
+          "old": " s",
+          "new": "Me"
+        },
+        {
+          "offset": 13198,
+          "old": "r",
+          "new": "da"
+        },
+        {
+          "offset": 13201,
+          "old": "",
+          "new": "a keys"
+        },
+        {
+          "offset": 13213,
+          "old": "wa",
+          "new": "keys.regis"
+        },
+        {
+          "offset": 13224,
+          "old": "ch",
+          "new": ""
+        },
+        {
+          "offset": 13226,
+          "old": ".",
+          "new": "(m"
+        },
+        {
+          "offset": 13229,
+          "old": "ddObj",
+          "new": "nag"
+        },
+        {
+          "offset": 13233,
+          "old": "ct(sta",
+          "new": ""
+        },
+        {
+          "offset": 13234,
+          "old": "t, 0",
+          "new": ""
+        },
+        {
+          "offset": 13236,
+          "old": "\n\t\twatcher.addObject(start + 1, 0);\n\t\tfor(int i = 0; i < MAX_STAGES; i++) {\n\t\t\twatcher.addObject(start + i * 2 + 2, 0);\n\t\t\twatcher.addObject(start + i * 2 + 3, 0);\n\t\t}",
+          "new": ""
+        },
+        {
+          "offset": 13261,
+          "old": "",
+          "new": "n"
+        },
+        {
+          "offset": 13263,
+          "old": "n",
+          "new": "tive"
+        },
+        {
+          "offset": 13275,
+          "old": "D",
+          "new": "metad"
+        },
+        {
+          "offset": 13283,
+          "old": "W",
+          "new": ", preserving the original upd"
+        },
+        {
+          "offset": 13314,
+          "old": "ch",
+          "new": "e ord"
+        },
+        {
+          "offset": 13346,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 13348,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13354,
+          "old": "",
+          "new": "Entity"
+        },
+        {
+          "offset": 13364,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 13366,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13372,
+          "old": "w",
+          "new": "m"
+        },
+        {
+          "offset": 13374,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13381,
+          "old": "in",
+          "new": "Rocke"
+        },
+        {
+          "offset": 13387,
+          "old": " s",
+          "new": "Me"
+        },
+        {
+          "offset": 13391,
+          "old": "r",
+          "new": "da"
+        },
+        {
+          "offset": 13394,
+          "old": "",
+          "new": "a keys"
+        },
+        {
+          "offset": 13406,
+          "old": "w",
+          "new": "keys.setC"
+        },
+        {
+          "offset": 13416,
+          "old": "tch",
+          "new": "psule(manag"
+        },
+        {
+          "offset": 13429,
+          "old": ".updateObject(start",
+          "new": ""
+        },
+        {
+          "offset": 13462,
+          "old": "w",
+          "new": "keys.setSt"
+        },
+        {
+          "offset": 13473,
+          "old": "",
+          "new": "geCoun"
+        },
+        {
+          "offset": 13480,
+          "old": "ch",
+          "new": "(manag"
+        },
+        {
+          "offset": 13488,
+          "old": ".updateObject(start + 1",
+          "new": ""
+        },
+        {
+          "offset": 13620,
+          "old": "w",
+          "new": "keys.setFirst(m"
+        },
+        {
+          "offset": 13636,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13641,
+          "old": ".updateObject(start +",
+          "new": ","
+        },
+        {
+          "offset": 13644,
+          "old": " * 2 + 2",
+          "new": ""
+        },
+        {
+          "offset": 13665,
+          "old": "w",
+          "new": "keys.setSecond(m"
+        },
+        {
+          "offset": 13682,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13687,
+          "old": ".updateObject(start +",
+          "new": ","
+        },
+        {
+          "offset": 13690,
+          "old": " * 2 + 3",
+          "new": ""
+        },
+        {
+          "offset": 13758,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 13760,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13766,
+          "old": "",
+          "new": "Entity"
+        },
+        {
+          "offset": 13776,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 13778,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13784,
+          "old": "w",
+          "new": "m"
+        },
+        {
+          "offset": 13786,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 13793,
+          "old": "in",
+          "new": "Rocke"
+        },
+        {
+          "offset": 13799,
+          "old": " s",
+          "new": "Me"
+        },
+        {
+          "offset": 13803,
+          "old": "r",
+          "new": "da"
+        },
+        {
+          "offset": 13806,
+          "old": "",
+          "new": "a keys"
+        },
+        {
+          "offset": 13900,
+          "old": "watch",
+          "new": "k"
+        },
+        {
+          "offset": 13902,
+          "old": "r",
+          "new": "ys"
+        },
+        {
+          "offset": 13908,
+          "old": "W",
+          "new": "C"
+        },
+        {
+          "offset": 13910,
+          "old": "tchab",
+          "new": "psu"
+        },
+        {
+          "offset": 13915,
+          "old": "Obj",
+          "new": "(manag"
+        },
+        {
+          "offset": 13922,
+          "old": "ctInt(sta",
+          "new": ""
+        },
+        {
+          "offset": 13923,
+          "old": "t",
+          "new": ""
+        },
+        {
+          "offset": 13942,
+          "old": "watch",
+          "new": "k"
+        },
+        {
+          "offset": 13944,
+          "old": "r",
+          "new": "ys"
+        },
+        {
+          "offset": 13950,
+          "old": "W",
+          "new": "St"
+        },
+        {
+          "offset": 13953,
+          "old": "tchabl",
+          "new": "g"
+        },
+        {
+          "offset": 13955,
+          "old": "ObjectI",
+          "new": "Cou"
+        },
+        {
+          "offset": 13961,
+          "old": "st",
+          "new": "m"
+        },
+        {
+          "offset": 13963,
+          "old": "",
+          "new": "nage"
+        },
+        {
+          "offset": 13968,
+          "old": "t + 1",
+          "new": ""
+        },
+        {
+          "offset": 14076,
+          "old": "watch",
+          "new": "k"
+        },
+        {
+          "offset": 14078,
+          "old": "r",
+          "new": "ys"
+        },
+        {
+          "offset": 14084,
+          "old": "WatchableObjectIn",
+          "new": "Firs"
+        },
+        {
+          "offset": 14090,
+          "old": "st",
+          "new": "m"
+        },
+        {
+          "offset": 14092,
+          "old": "",
+          "new": "nage"
+        },
+        {
+          "offset": 14097,
+          "old": "t +",
+          "new": ","
+        },
+        {
+          "offset": 14100,
+          "old": " * 2 + 2",
+          "new": ""
+        },
+        {
+          "offset": 14107,
+          "old": "watch",
+          "new": "k"
+        },
+        {
+          "offset": 14109,
+          "old": "r",
+          "new": "ys"
+        },
+        {
+          "offset": 14115,
+          "old": "WatchableObj",
+          "new": "S"
+        },
+        {
+          "offset": 14118,
+          "old": "tI",
+          "new": "o"
+        },
+        {
+          "offset": 14120,
+          "old": "t",
+          "new": "d"
+        },
+        {
+          "offset": 14122,
+          "old": "st",
+          "new": "m"
+        },
+        {
+          "offset": 14124,
+          "old": "",
+          "new": "nage"
+        },
+        {
+          "offset": 14129,
+          "old": "t +",
+          "new": ","
+        },
+        {
+          "offset": 14132,
+          "old": " * 2 + 3",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "baseline_sha256": "8780f0df80581bad1d233353bb75312c56446ef0568b5bbe1bc677fa5d27ca87",
+      "edits": [
+        {
+          "offset": 59,
+          "old": "",
+          "new": ";\nimport java.util.Arrays"
+        },
+        {
+          "offset": 504,
+          "old": "",
+          "new": ";\nimport com.hbm.handler.RocketMetadata"
+        },
+        {
+          "offset": 2049,
+          "old": "",
+          "new": "network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\nimport net.minecraft."
+        },
+        {
+          "offset": 3019,
+          "old": "i",
+          "new": "DataParameter<I"
+        },
+        {
+          "offset": 3036,
+          "old": "",
+          "new": "eger>"
+        },
+        {
+          "offset": 3042,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 3050,
+          "old": "8",
+          "new": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT)"
+        },
+        {
+          "offset": 3153,
+          "old": "in",
+          "new": "Da"
+        },
+        {
+          "offset": 3156,
+          "old": "",
+          "new": "aParameter<ItemStack>"
+        },
+        {
+          "offset": 3178,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 3186,
+          "old": "9",
+          "new": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.ITEM_STACK)"
+        },
+        {
+          "offset": 3293,
+          "old": "i",
+          "new": "DataParameter<I"
+        },
+        {
+          "offset": 3310,
+          "old": "",
+          "new": "eger>"
+        },
+        {
+          "offset": 3316,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 3324,
+          "old": "10",
+          "new": "EntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT)"
+        },
+        {
+          "offset": 3405,
+          "old": "",
+          "new": "\n\t// The declaring entity allocates every key; no legacy numeric IDs or contiguous-ID assumptions."
+        },
+        {
+          "offset": 3526,
+          "old": "in",
+          "new": "Rocke"
+        },
+        {
+          "offset": 3532,
+          "old": "",
+          "new": "Metadata"
+        },
+        {
+          "offset": 3541,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 3550,
+          "old": "11;",
+          "new": "new"
+        },
+        {
+          "offset": 3554,
+          "old": "// V",
+          "new": "RocketMet"
+        },
+        {
+          "offset": 3564,
+          "old": "",
+          "new": "data(\n\t\tEntityDataManage"
+        },
+        {
+          "offset": 3589,
+          "old": "",
+          "new": ".createKey(Ent"
+        },
+        {
+          "offset": 3604,
+          "old": "",
+          "new": "tyRide"
+        },
+        {
+          "offset": 3614,
+          "old": "",
+          "new": "Rocket.class,"
+        },
+        {
+          "offset": 3628,
+          "old": "s",
+          "new": "DataSerial"
+        },
+        {
+          "offset": 3641,
+          "old": "",
+          "new": "rs.VARINT),\n\t\tEntityDataManager.createKey(EntityRideableRocket.class"
+        },
+        {
+          "offset": 3711,
+          "old": "mus",
+          "new": "Da"
+        },
+        {
+          "offset": 3714,
+          "old": " ",
+          "new": "aSeri"
+        },
+        {
+          "offset": 3721,
+          "old": "w",
+          "new": "izers.VARINT),\n\t\tArr"
+        },
+        {
+          "offset": 3744,
+          "old": " ",
+          "new": ".asList(\n\t\t\tEntityDataManager.createKey(EntityRidea"
+        },
+        {
+          "offset": 3796,
+          "old": "",
+          "new": "l"
+        },
+        {
+          "offset": 3798,
+          "old": " ",
+          "new": "Rocket.c"
+        },
+        {
+          "offset": 3809,
+          "old": "",
+          "new": "s, Da"
+        },
+        {
+          "offset": 3815,
+          "old": "!",
+          "new": "aSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT)\n\t\t),\n\t\tArrays.asList(\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT),\n\t\t\tEntityDataManager.createKey(EntityRideableRocket.class, DataSerializers.VARINT)\n\t\t));"
+        },
+        {
+          "offset": 27282,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27284,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27294,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27296,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27303,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 27382,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27384,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27394,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27396,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27403,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 27483,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27485,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27494,
+          "old": "WatchableObjectInt",
+          "new": ""
+        },
+        {
+          "offset": 27495,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 27557,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27559,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27565,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "offset": 27567,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "offset": 27569,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 27600,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27602,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27608,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "offset": 27610,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "offset": 27612,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 27810,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 27812,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 27821,
+          "old": "WatchableObjectItemStack",
+          "new": ""
+        },
+        {
+          "offset": 27822,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 27828,
+          "old": "",
+          "new": ";\n\t\t// Existing navigation consumers distinguish absence using null.\n\t\tif(drive.isEmpty()) drive = null"
+        },
+        {
+          "offset": 28114,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28116,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28125,
+          "old": "WatchableObjectItemStack",
+          "new": ""
+        },
+        {
+          "offset": 28126,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28132,
+          "old": "",
+          "new": ";\n\t\t// Existing navigation consumers distinguish absence using null.\n\t\tif(drive.isEmpty()) drive = null"
+        },
+        {
+          "offset": 28334,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28336,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28342,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "offset": 28344,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "offset": 28346,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28352,
+          "old": "",
+          "new": " drive == null ? ItemStack.EMPTY :"
+        },
+        {
+          "offset": 28442,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28444,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28453,
+          "old": "WatchableObjectInt",
+          "new": ""
+        },
+        {
+          "offset": 28454,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28512,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28514,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28520,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "offset": 28522,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "offset": 28524,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28613,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28615,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28621,
+          "old": "addObj",
+          "new": "r"
+        },
+        {
+          "offset": 28623,
+          "old": "c",
+          "new": "gis"
+        },
+        {
+          "offset": 28627,
+          "old": "",
+          "new": "er"
+        },
+        {
+          "offset": 28630,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28676,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28678,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28684,
+          "old": "addObj",
+          "new": "r"
+        },
+        {
+          "offset": 28686,
+          "old": "c",
+          "new": "gis"
+        },
+        {
+          "offset": 28690,
+          "old": "ByDataTyp",
+          "new": ""
+        },
+        {
+          "offset": 28691,
+          "old": "",
+          "new": "r"
+        },
+        {
+          "offset": 28693,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28700,
+          "old": "5",
+          "new": "ItemStack.EMPTY"
+        },
+        {
+          "offset": 28724,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28726,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28732,
+          "old": "addObj",
+          "new": "r"
+        },
+        {
+          "offset": 28734,
+          "old": "c",
+          "new": "gis"
+        },
+        {
+          "offset": 28738,
+          "old": "",
+          "new": "er"
+        },
+        {
+          "offset": 28741,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28776,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28778,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28788,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 28790,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 28797,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 28805,
+          "old": " // again, this MUST be the highest int!",
+          "new": ""
+        },
+        {
+          "offset": 33298,
+          "old": "i",
+          "new": "DataParameter<I"
+        },
+        {
+          "offset": 33315,
+          "old": "",
+          "new": "eger>"
+        },
+        {
+          "offset": 33321,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 33333,
+          "old": "3",
+          "new": "EntityDataManager.createKey(EntityRideableRocketDummy.class, DataSerializers.VARINT)"
+        },
+        {
+          "offset": 33640,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 33642,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 33648,
+          "old": "updat",
+          "new": "s"
+        },
+        {
+          "offset": 33650,
+          "old": "Objec",
+          "new": ""
+        },
+        {
+          "offset": 33652,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 33742,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 33744,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 33750,
+          "old": "addObj",
+          "new": "r"
+        },
+        {
+          "offset": 33752,
+          "old": "c",
+          "new": "gis"
+        },
+        {
+          "offset": 33756,
+          "old": "",
+          "new": "er"
+        },
+        {
+          "offset": 33759,
+          "old": "WATCHABLE_",
+          "new": ""
+        },
+        {
+          "offset": 33995,
+          "old": "W",
+          "new": "M"
+        },
+        {
+          "offset": 33997,
+          "old": "tch",
+          "new": "nag"
+        },
+        {
+          "offset": 34006,
+          "old": "WatchableObjectInt",
+          "new": ""
+        },
+        {
+          "offset": 34007,
+          "old": "WATCHABLE_",
+          "new": ""
+        }
+      ]
+    }
+  ]
+}

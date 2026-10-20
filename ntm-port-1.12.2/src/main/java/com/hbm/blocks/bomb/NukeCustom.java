@@ -48,7 +48,7 @@ public class NukeCustom extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return Item.getItemFromBlock(ModBlocks.nuke_custom);
 	}
 
@@ -56,8 +56,8 @@ public class NukeCustom extends BlockContainer implements IBomb {
 	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
 		
 		if (!keepInventory) {
-			TileEntityNukeCustom tileentityfurnace = (TileEntityNukeCustom) p_149749_1_.getTileEntity(p_149749_2_,
-					p_149749_3_, p_149749_4_);
+			TileEntityNukeCustom tileentityfurnace = (TileEntityNukeCustom) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_,
+					p_149749_3_, p_149749_4_));
 
 			if (tileentityfurnace != null) {
 				for (int i1 = 0; i1 < tileentityfurnace.getSizeInventory(); ++i1) {
@@ -109,7 +109,7 @@ public class NukeCustom extends BlockContainer implements IBomb {
 			
 		} else if (!player.isSneaking()) {
 			
-			TileEntityNukeCustom entity = (TileEntityNukeCustom) world.getTileEntity(x, y, z);
+			TileEntityNukeCustom entity = (TileEntityNukeCustom) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			
 			if (entity != null) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
@@ -153,7 +153,7 @@ public class NukeCustom extends BlockContainer implements IBomb {
 			ex.waste = false;
 			worldObj.spawnEntityInWorld(ex);
 			
-			worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.explode", 100000.0F, 1.0F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(worldObj, xCoord, yCoord, zCoord, "random.explode", 100000.0F, 1.0F);
 			
 			EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(worldObj, 50);
 			cloud.posX = xCoord;
@@ -238,7 +238,7 @@ public class NukeCustom extends BlockContainer implements IBomb {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if (i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
@@ -258,7 +258,7 @@ public class NukeCustom extends BlockContainer implements IBomb {
 	public BombReturnCode explode(World world, int x, int y, int z) {
 		
 		if(!world.isRemote) {
-			TileEntityNukeCustom entity = (TileEntityNukeCustom) world.getTileEntity(x, y, z);
+			TileEntityNukeCustom entity = (TileEntityNukeCustom) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			
 			if(!entity.isFalling()) {
 				
@@ -270,10 +270,10 @@ public class NukeCustom extends BlockContainer implements IBomb {
 			} else {
 				
 				EntityFallingNuke bomb = new EntityFallingNuke(world, entity.tnt, entity.nuke, entity.hydro, entity.amat, entity.dirty, entity.schrab, entity.euph);
-				bomb.getDataWatcher().updateObject(20, (byte)world.getBlockMetadata(x, y, z));
+				bomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 				bomb.setPositionAndRotation(x + 0.5, y, z + 0.5, 0, 0);
 				entity.clearSlots();
-				world.setBlockToAir(x, y, z);
+				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				world.spawnEntityInWorld(bomb);
 				return BombReturnCode.TRIGGERED;
 			}

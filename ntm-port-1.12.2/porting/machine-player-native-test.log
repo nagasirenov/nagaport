@@ -1,0 +1,17 @@
+/tmp/hbm-machine-player-native-ccpdq4zm/MachinePlayerNativeTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final sun.misc.Unsafe UNSAFE;
+                         ^
+/tmp/hbm-machine-player-native-ccpdq4zm/MachinePlayerNativeTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);UNSAFE=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                ^
+/tmp/hbm-machine-player-native-ccpdq4zm/MachinePlayerNativeTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);UNSAFE=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                                  ^
+3 warnings
+[13:36:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[13:36:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[13:36:49] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS: 311 native player-policy, centered thresholds/identity, 35 permission dispatch, open/close counts, turret sound arguments, proxy and wrapper assertions
+LIMIT: extracted production callbacks; sound call capture is not client audio playback or resource loading
+PASS: 147 whole-file callback reversals/drift rejections; 183-class census; seven machine usability policies, five callback pairs, 101 typed + two independent callers, 35 self-calls and five paired containers. Not full machines/gameplay/audio.
+Scope: verbatim extracted player callbacks and 35 permission bodies, complete production inventory base/sound registry; NOT full machines, client audio, resource reload or gameplay.

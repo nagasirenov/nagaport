@@ -1,0 +1,4 @@
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 43 native extracted consumer checks
+Scope: actual extracted InventoryUtil insertion/Slot merge and PneumaticNetwork transfer, plus SatDock setter/removal and full SlotPattern; not full machines or gameplay.

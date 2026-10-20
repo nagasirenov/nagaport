@@ -1,0 +1,33 @@
+{
+  "baseline": "e146f1df78ba6ce7ebf3198217a67d132e1e7dff",
+  "production": {
+    "src/main/java/com/hbm/blocks/generic/DecoTapeRecorder.java": "e11fea412a58192aac5b963d71726531b4ca8aab401d9009b579475a1c411ad3",
+    "src/main/java/com/hbm/blocks/generic/DecoSteelPoles.java": "b42ad53576d01da80e6928f35dc8b6c84b6107a616476b37caf74e439b59c2a0",
+    "src/main/java/com/hbm/render/block/RenderTapeBlock.java": "798e37813cc63622e3bbe0d348bcc9f731cc6f79adfdf99fb4244fbe9e2669f3",
+    "src/main/java/com/hbm/main/TapeBlockModelHandler.java": "b28e95f6e6ecdd4066a90812422516a0560a21d97401ce9ea3ec6fb2f6664140",
+    "src/main/resources/assets/hbm/blockstates/tile.tape_recorder.json": "8eabd79954416b2af3283a40c7cb2feee32856023fc0fd6741f47fabb181929e",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_poles.json": "e3d9b70797fd6c39b34725d7d2f3175e838c527ee6544b3e0e0cd022df34090d"
+  },
+  "unchanged_helpers": {
+    "src/main/java/com/hbm/world/gen/nbt/INBTBlockTransformable.java": "6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjGeometry.java": "236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e",
+    "src/main/java/com/hbm/render/block/nativeblock/BlockPositionLightQuad.java": "563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f",
+    "src/main/java/com/hbm/render/block/nativeblock/AtlasObjBakedModel.java": "e5d6e88a8bebd0439bed1a57c907cbbded07dcd08eef283a2ece3d91098352fa",
+    "src/main/java/com/hbm/render/block/nativeblock/ThermalModelTransforms.java": "9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc",
+    "src/main/java/com/hbm/render/mesh/ObjMesh.java": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736",
+    "src/main/java/com/hbm/render/mesh/ObjMeshParser.java": "e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71"
+  },
+  "original": {
+    "src/main/java/com/hbm/blocks/generic/DecoTapeRecorder.java": "c91955c043fbd99a6abfdc8bdf1d3e7132df0eca7d537241f183281a5cbd6b08",
+    "src/main/java/com/hbm/blocks/generic/DecoSteelPoles.java": "151097f15ad974d30b3d75e011093f8a98e01a0ce2b1347f991df9c67a231046",
+    "src/main/java/com/hbm/render/block/RenderTapeBlock.java": "b45dd5976c064461879d132b6a0319a4ddac3bfd81785d917ca74997b236b2b5",
+    "src/main/java/com/hbm/render/util/ObjUtil.java": "570a88abd771875467643ec6d5e4f6b3f61756f80754b71cc73133b77f2b8608"
+  },
+  "unchanged_assets": {
+    "src/main/resources/assets/hbm/models/blocks/taperecorder.obj": "91146871a72e28f501ea8637e15e16fcd7e280325775af1109e67c18279696ea",
+    "src/main/resources/assets/hbm/models/blocks/pole.obj": "b4f668584442a234fa8f9bb73b1c03e522bec95388ce7d5254021a59376e3788",
+    "src/main/resources/assets/hbm/textures/blocks/deco_tape_recorder.png": "dc8ce2cfa92b2a8a5403a7381214a53c358dd2b22c482bd49d56b2f47c15ccf0",
+    "src/main/resources/assets/hbm/textures/blocks/steel_beam.png": "d7fc98d99d12bffb813fe4459530df512a1ff3bedad0e4a8ef61e83a95768615"
+  }
+}

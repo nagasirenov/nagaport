@@ -29,10 +29,10 @@ public class ItemStructureSingle extends ItemStructureTool {
 		int iy = y - pos.getY();
 		int iz = z - pos.getZ();
 		
-		Block b = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		
-		String message = "placeBlockAtCurrentPosition(world, " + b.getUnlocalizedName() + ", " + meta + ", " + ix + ", " + iy + ", " + iz + ", box);\n";
+		String message = "placeBlockAtCurrentPosition(world, " + b.getTranslationKey() + ", " + meta + ", " + ix + ", " + iy + ", " + iz + ", box);\n";
 		System.out.print(message);
 		writeToFile(message);
 	}

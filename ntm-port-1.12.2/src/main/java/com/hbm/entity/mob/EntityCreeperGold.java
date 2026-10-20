@@ -18,12 +18,12 @@ public class EntityCreeperGold extends EntityCreeper {
 	@Override
 	public void func_146077_cc() {
 		
-		if(!this.worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			this.setDead();
 			
-			ExplosionVNT vnt = new ExplosionVNT(worldObj, posX, posY, posZ, this.getPowered() ? 14 : 7, this);
+			ExplosionVNT vnt = new ExplosionVNT(this.world, posX, posY, posZ, this.getPowered() ? 14 : 7, this);
 			vnt.setBlockAllocator(new BlockAllocatorBulkie(60, this.getPowered() ? 32 : 16));
-			vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorBulkie(Blocks.gold_ore)));
+			vnt.setBlockProcessor(new BlockProcessorStandard().withBlockEffect(new BlockMutatorBulkie(Blocks.GOLD_ORE)));
 			vnt.setEntityProcessor(new EntityProcessorStandard().withRangeMod(0.5F));
 			vnt.setPlayerProcessor(new PlayerProcessorStandard());
 			vnt.setSFX(new ExplosionEffectStandard());

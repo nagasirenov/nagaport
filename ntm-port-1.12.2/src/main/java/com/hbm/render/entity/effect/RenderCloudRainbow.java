@@ -8,18 +8,18 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import com.hbm.render.mesh.ObjMeshModel;
+import com.hbm.render.mesh.MeshModel;
 
 public class RenderCloudRainbow extends Render {
 
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(/*"/assets/" + */RefStrings.MODID, "models/Sphere.obj");
-	private IModelCustom blastModel;
+	private MeshModel blastModel;
     public float scale = 0;
     public float ring = 0;
     
     public RenderCloudRainbow() {
-    	blastModel = AdvancedModelLoader.loadModel(objTesterModelRL);
+		blastModel = new ObjMeshModel(objTesterModelRL);
     	scale = 0;
     }
 
@@ -37,7 +37,7 @@ public class RenderCloudRainbow extends Render {
         
         GL11.glScalef(cloud.age, cloud.age, cloud.age);
 
-		GL11.glColor3ub((byte)cloud.worldObj.rand.nextInt(0x100), (byte)cloud.worldObj.rand.nextInt(0x100), (byte)cloud.worldObj.rand.nextInt(0x100));
+		GL11.glColor3ub((byte)cloud.world.rand.nextInt(0x100), (byte)cloud.world.rand.nextInt(0x100), (byte)cloud.world.rand.nextInt(0x100));
 
         GL11.glScalef(0.5F, 0.5F, 0.5F);
         blastModel.renderAll();
@@ -48,7 +48,7 @@ public class RenderCloudRainbow extends Render {
 		
         for(float i = 0.6F; i <= 1F; i += 0.1F) {
 
-    		GL11.glColor3ub((byte)cloud.worldObj.rand.nextInt(0x100), (byte)cloud.worldObj.rand.nextInt(0x100), (byte)cloud.worldObj.rand.nextInt(0x100));
+    		GL11.glColor3ub((byte)cloud.world.rand.nextInt(0x100), (byte)cloud.world.rand.nextInt(0x100), (byte)cloud.world.rand.nextInt(0x100));
     		
             GL11.glScalef(i, i, i);
             blastModel.renderAll();

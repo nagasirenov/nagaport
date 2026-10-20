@@ -1,0 +1,40 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS complete BlockRebar including all native block callbacks, nested tile and both render-last branches compiles, plus actual node dispatcher/shared geometry
+[20:09:51] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:09:51] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:09:51] [main/INFO]: Replaced 1036 ore ingredients
+[20:09:51] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[20:09:51] [main/INFO]: Processing ObjectHolder annotations
+[20:09:51] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[20:09:52] [main/INFO]: Setting user: AtlasProbe
+[20:09:52] [main/INFO]: Max texture size: 16384
+[20:09:52] [main/INFO]: Created: 32x32 textures-atlas
+PASS 15441 native rebar owner/state/callback/full tile/1600 pristine transfer oracle/BufferBuilder/concrete+overlay EGL checks. Explicit fluid connector, registry/config/recipe/packet/HUD external boundaries; no launched game or screenshot acceptance.
+Original oracle source SHA256 0ce00dd4a37e0aaf3fbaa39524b4b455463babd9573bfa2fa9f1e597cf81c7bc
+5fa6ef936af8d9ad82612ef97a59ea5b31edee8006a428b33250ae00171474dd com/hbm/blocks/generic/BlockRebar.java
+477b2f74a8f32c9327e197ecedc7fc759928e29d1827701f01a21c6a67d75c1b com/hbm/blocks/generic/UniversalBlockState.java
+162b2b4a144529945a888caef72959737c87ca91b085391be521494d3bf47a43 com/hbm/render/block/ISBRHUniversal.java
+511860977b1bd9ff9819923b65efab60500f5385973f0ed099ede0a16070a4de com/hbm/render/block/nativeblock/UniversalCuboidGeometry.java
+741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925 com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java
+b3853d47d40045826978c19c70ba803b71b81bb63b066bf16b07b88761491cc3 com/hbm/tileentity/TileEntityLoadedBase.java
+295d694c4c4219a01ea709acb02450d6b0d9981648a91634ae03b90d8c650e4b com/hbm/tileentity/IBufPacketReceiver.java
+c0e7626ef492b694543ff355a6b5e096361eeb8df91f12b238a03474257ab897 api/hbm/tile/ILoadedTile.java
+d645b14f65af7adb8a0c59d4fb4d7ebc7c48c204a4836950400e8eeb0db5d0c7 com/hbm/sound/AudioWrapper.java
+424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b com/hbm/lib/ForgeDirection.java
+55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 com/hbm/lib/RefStrings.java
+068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41 com/hbm/util/Tuple.java
+f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70 com/hbm/interfaces/Spaghetti.java
+54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java
+ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d com/hbm/util/fauxpointtwelve/BlockPos.java
+e69a9d63ab2e7ab9a228c31eb2900a1dc552b02bb2254d46641897b29ddd6bae com/hbm/util/fauxpointtwelve/DirPos.java
+03dd92b41e1a535480faebea6bf0ed171d909465c782cdb4e6cd534fbeb28f4f com/hbm/util/fauxpointtwelve/Rotation.java
+3ca93a5d21fba16ae5d45579d75045392286dd4a6020062bc21f13c07736ac89 com/hbm/uninos/GenNode.java
+7a994a23c03c2fc738c7eae22e46f4a5069b8ee83662ffad705a59a377b0ed3f com/hbm/uninos/NodeNet.java
+5bee42c51f478bc9a4f30269f0ab58e1e9eb67ee5a40512b78ee937d06f6204a com/hbm/uninos/INetworkProvider.java
+f3493a61f364467dd7137e00c8f717bbdf7e7b1ef23d2a50a396a5d2da90b6df com/hbm/uninos/UniNodespace.java
+deab956d5b483ff8d80fa364e789c9b59033edddee6d2bf3eabce992a42b5e5e com/hbm/uninos/networkproviders/RebarNetwork.java
+b080ea0baefd57cf67c487d4bb96fa7687f17b648f56c6fff392e8214b5b07f9 com/hbm/uninos/networkproviders/RebarNetworkProvider.java

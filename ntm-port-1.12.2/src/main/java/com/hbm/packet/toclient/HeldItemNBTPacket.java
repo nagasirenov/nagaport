@@ -30,7 +30,7 @@ public class HeldItemNBTPacket implements IMessage {
 		buf.writeByte(stack.stackSize);
 		buf.writeShort(stack.getItemDamage());
 		NBTTagCompound nbtTagCompound = null;
-		nbtTagCompound = stack.stackTagCompound;
+		nbtTagCompound = stack.getTagCompound();
 		BufferUtil.writeNBT(buf, nbtTagCompound);
 	}
 
@@ -41,7 +41,7 @@ public class HeldItemNBTPacket implements IMessage {
 			byte quantity = buf.readByte();
 			short meta = buf.readShort();
 			stack = new ItemStack(Item.getItemById(id), quantity, meta);
-			stack.stackTagCompound = BufferUtil.readNBT(buf);
+			stack.setTagCompound(BufferUtil.readNBT(buf));
 		}
 	}
 
@@ -51,15 +51,15 @@ public class HeldItemNBTPacket implements IMessage {
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(HeldItemNBTPacket m, MessageContext ctx) {
 			try {
-				EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+				EntityPlayer player = Minecraft.getMinecraft().player;
 				if(m.stack == null) return null;
 				
-				ItemStack held = player.getHeldItem();
+				ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 				if(held == null) return null;
 				if(held.getItem() != m.stack.getItem()) return null;
 				if(held.getItemDamage() != m.stack.getItemDamage()) return null;
 				
-				held.stackTagCompound = m.stack.stackTagCompound;
+				held.setTagCompound(m.stack.getTagCompound());
 
 			} catch(Exception x) { } finally { }
 			return null;

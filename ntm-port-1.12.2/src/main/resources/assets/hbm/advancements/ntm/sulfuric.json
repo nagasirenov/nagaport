@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/slimeball",
+  "display": {
+    "icon": {
+      "item": "hbm:item.achievement_icon",
+      "data": 2
+    },
+    "title": {
+      "translate": "achievement.sulfuric"
+    },
+    "description": {
+      "translate": "achievement.sulfuric.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

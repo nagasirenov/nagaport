@@ -39,11 +39,11 @@ public class GUIHeaterHeatex extends GuiInfoContainer {
 		super.initGui();
 
 		Keyboard.enableRepeatEvents(true);
-		this.fieldCycles = new GuiTextField(this.fontRendererObj, guiLeft + 73, guiTop + 31, 30, 10);
+		this.fieldCycles = new GuiTextField(0, this.fontRenderer, guiLeft + 73, guiTop + 31, 30, 10);
 		initText(this.fieldCycles);
 		this.fieldCycles.setText(String.valueOf(heater.amountToCool));
 		
-		this.fieldDelay = new GuiTextField(this.fontRendererObj, guiLeft + 73, guiTop + 49, 30, 10);
+		this.fieldDelay = new GuiTextField(1, this.fontRenderer, guiLeft + 73, guiTop + 49, 30, 10);
 		initText(this.fieldDelay);
 		this.fieldDelay.setText(String.valueOf(heater.tickDelay));
 	}
@@ -63,18 +63,18 @@ public class GUIHeaterHeatex extends GuiInfoContainer {
 		heater.tanks[1].renderTankInfo(this, x, y, guiLeft + 116, guiTop + 36, 16, 52);
 
 		if(guiLeft + 70 <= x && guiLeft + 70 + 36 > x && guiTop + 26 < y && guiTop + 26 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Amount per cycle" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Amount per cycle" }), x, y);
 		}
 		if(guiLeft + 70 <= x && guiLeft + 70 + 36 > x && guiTop + 44 < y && guiTop + 44 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Cycle tick delay" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Cycle tick delay" }), x, y);
 		}
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = I18n.format(this.heater.getInventoryName());
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -105,14 +105,14 @@ public class GUIHeaterHeatex extends GuiInfoContainer {
 			int cyc = Math.max(NumberUtils.toInt(this.fieldCycles.getText()), 1);
 			NBTTagCompound data = new NBTTagCompound();
 			data.setInteger("toCool", cyc);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, heater.xCoord, heater.yCoord, heater.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, heater.getPos().getX(), heater.getPos().getY(), heater.getPos().getZ()));
 			return;
 		}
 		if(this.fieldDelay.textboxKeyTyped(c, i)) {
 			int delay = Math.max(NumberUtils.toInt(this.fieldDelay.getText()), 1);
 			NBTTagCompound data = new NBTTagCompound();
 			data.setInteger("delay", delay);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, heater.xCoord, heater.yCoord, heater.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, heater.getPos().getX(), heater.getPos().getY(), heater.getPos().getZ()));
 			return;
 		}
 		

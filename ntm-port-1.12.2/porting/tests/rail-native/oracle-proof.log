@@ -1,0 +1,20 @@
+PASS PINNED ORIGINAL INPUTS 38; BYTE-IDENTICAL NATIVE ASSETS 20
+PRODUCTION com/hbm/render/block/RenderRail.java 3bb235256d1f4ece94cd18dec7b039e89c4ae2c7e422b2679c621ab117546d1e
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+PASS original-renderer geometry RailNarrowCurve: 128 states, 74240 vertices
+PASS original-renderer geometry RailNarrowStraight: 128 states, 40960 vertices
+PASS original-renderer geometry RailStandardBuffer: 128 states, 119040 vertices
+PASS original-renderer geometry RailStandardCurveBase: 128 states, 99840 vertices
+PASS original-renderer geometry RailStandardCurveWide7: 128 states, 140800 vertices
+PASS original-renderer geometry RailStandardCurveWide9: 128 states, 202240 vertices
+PASS original-renderer geometry RailStandardRamp: 128 states, 111360 vertices
+PASS original-renderer geometry RailStandardStraight: 128 states, 79360 vertices
+PASS original-renderer geometry RailStandardStraightShort: 128 states, 17920 vertices
+PASS original-renderer geometry RailStandardSwitch: 128 states, 403904 vertices
+PASS original-renderer geometry RailStandardSwitchFlipped: 128 states, 403904 vertices
+PASS original-renderer geometry MachineFunnel: 128 states, 10240 vertices
+PASS rail original-renderer/native-bake proof: 1536 states; 1703808 vertices; 16328193 checks; max item XYZ delta=0.0; max item normal delta=0.007874029593204879
+SCOPE: world and item XYZ/UV/color are bit-exact. Item normals differ by at most one signed-byte step after the required native re-encoding. This CPU geometry proof is NOT a GPU raster, native lighting pipeline, or CP37 visual approval.

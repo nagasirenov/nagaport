@@ -29,7 +29,7 @@ public class EntityTeslaCrab extends EntityCyberCrab {
     
     public void onLivingUpdate() {
     	
-    	targets = TileEntityTesla.zap(worldObj, posX, posY + 1, posZ, 3, this);
+    	targets = TileEntityTesla.zap(this.world, posX, posY + 1, posZ, 3, this);
     	
         super.onLivingUpdate();
     }

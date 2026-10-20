@@ -1,0 +1,111 @@
+com/hbm/handler/EntityEffectHandler.java:360
+  receiver: world [net.minecraft.world.World]
+  arguments: ['ix', 'iy', 'iz', '"hbm:player.vomit"', '1.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: world.playSoundEffect(ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F)
+
+com/hbm/handler/EntityEffectHandler.java:375
+  receiver: world [net.minecraft.world.World]
+  arguments: ['ix', 'iy', 'iz', '"hbm:player.vomit"', '1.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: world.playSoundEffect(ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F)
+
+com/hbm/items/food/ItemPill.java:110
+  receiver: world [net.minecraft.world.World]
+  arguments: ['x', 'y', 'z', '"hbm:player.vomit"', '1.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: world.playSoundEffect(x, y, z, "hbm:player.vomit", 1.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:player.vomit", 1.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityAntimatter.java:50
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:weapon.fstbmbPing"', '5.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 5.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 5.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityCharge.java:22
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:weapon.fstbmbPing"', '1.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 1.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 1.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityCompactLauncher.java:319
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:weapon.missileTakeOff"', '10.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.missileTakeOff", 10.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.missileTakeOff", 10.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java:366
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX() + 0.5', 'this.pos.getY()', 'this.pos.getZ() + 0.5', '"hbm:weapon.missileTakeOff"', '2.0F', '1.0F']
+  types: ['double', 'int', 'double', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java:117
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX() + 0.5', 'this.pos.getY()', 'this.pos.getZ() + 0.5', '"hbm:weapon.missileTakeOff"', '2.0F', '1.0F']
+  types: ['double', 'int', 'double', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityLaunchTable.java:315
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:weapon.missileTakeOff"', '10.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.missileTakeOff", 10.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.missileTakeOff", 10.0F, 1.0F)
+
+com/hbm/tileentity/bomb/TileEntityNukeBalefire.java:52
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:weapon.fstbmbPing"', '5.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 5.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 5.0F, 1.0F)
+
+com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:125
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY() + 1', 'this.pos.getZ()', '"hbm:weapon.flamethrowerShoot"', '0.25F', '0.5F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 0.25F, 0.5F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 0.25F, 0.5F)
+
+com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java:180
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY() + 11', 'this.pos.getZ()', '"hbm:weapon.flamethrowerShoot"', 'getVolume(1.5F)', '0.75F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), "hbm:weapon.flamethrowerShoot", getVolume(1.5F), 0.75F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 11, this.pos.getZ(), "hbm:weapon.flamethrowerShoot", getVolume(1.5F), 0.75F)
+
+com/hbm/tileentity/turret/TileEntityTurretArty.java:359
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:turret.jeremy_fire"', '25.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_fire", 25.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_fire", 25.0F, 1.0F)
+
+com/hbm/tileentity/turret/TileEntityTurretFritz.java:117
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:weapon.flamethrowerShoot"', '2F', '1F + this.world.rand.nextFloat() * 0.5F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 2F, 1F + this.world.rand.nextFloat() * 0.5F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 2F, 1F + this.world.rand.nextFloat() * 0.5F)
+
+com/hbm/tileentity/turret/TileEntityTurretJeremy.java:78
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:turret.jeremy_reload"', '2.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_reload", 2.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_reload", 2.0F, 1.0F)
+
+com/hbm/tileentity/turret/TileEntityTurretJeremy.java:96
+  receiver: this.world [net.minecraft.world.World]
+  arguments: ['this.pos.getX()', 'this.pos.getY()', 'this.pos.getZ()', '"hbm:turret.jeremy_fire"', '4.0F', '1.0F']
+  types: ['int', 'int', 'int', 'java.lang.String', 'float', 'float']
+  original: this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_fire", 4.0F, 1.0F)
+  destination: com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:turret.jeremy_fire", 4.0F, 1.0F)

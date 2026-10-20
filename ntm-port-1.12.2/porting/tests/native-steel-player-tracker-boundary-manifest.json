@@ -1,0 +1,349 @@
+{
+  "baseline": "492c526b5219ffbdf78626e37c11fbc682c52209",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "5a1a8916919c5322175a6a07d84471dee6b2596a5cac0df0b1ba51414a822514",
+      "after_sha256": "c24145b93b321f1f652754b6baf6fb9179f156677557f4ebe97dc263abc8abfb",
+      "edits": [
+        {
+          "before_offset": 131457,
+          "after_offset": 131457,
+          "old": "\t\tsteel_wall = new DecoBlock(Material.iron).setBlockName(\"steel_wall\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":steel_wall\");\r\n\t\tsteel_corner = new DecoBlock(Material.iron).setBlockName(\"steel_corner\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":steel_wall\");\r\n",
+          "new": "\t\tsteel_wall = new BlockSteelDecoration(Material.IRON, false).setTranslationKey(\"steel_wall\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);\r\n\t\tsteel_corner = new BlockSteelDecoration(Material.IRON, true).setTranslationKey(\"steel_corner\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(15.0F);\r\n"
+        },
+        {
+          "before_offset": 200789,
+          "after_offset": 200726,
+          "old": "\t\tsolar_mirror = new SolarMirror(Material.iron).setBlockName(\"solar_mirror\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":solar_mirror\");\r\n",
+          "new": "\t\tsolar_mirror = new SolarMirror(Material.IRON).setTranslationKey(\"solar_mirror\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SolarMirror.java": {
+      "before_sha256": "3e1b461db26668856dbc183e154dd38e309ed304aebb7dae2732fc9c803d304c",
+      "after_sha256": "4948f85a7c1e04915950f51ef5c8ad47798e4a9b7832a87b43e26d4b3bbd3f23",
+      "edits": [
+        {
+          "before_offset": 90,
+          "after_offset": 90,
+          "old": "\nimport net.minecraftforge.fml.client.registry.RenderingRegistry;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 245,
+          "after_offset": 179,
+          "old": "",
+          "new": "import net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 289,
+          "after_offset": 372,
+          "old": "",
+          "new": "import net.minecraft.util.EnumBlockRenderType;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.IBlockAccess;\n"
+        },
+        {
+          "before_offset": 324,
+          "after_offset": 574,
+          "old": "",
+          "new": "/** Original single-block mirror, with a tile-backed native model snapshot. */\n"
+        },
+        {
+          "before_offset": 374,
+          "after_offset": 703,
+          "old": "\n\tpublic SolarMirror(Material mat) {\n\t\tsuper(mat);\n\t}\n\n\t@Override\n\tpublic TileEntity createNewTileEntity(World world, int meta) {\n\t\treturn new TileEntitySolarMirror();\n\t}\n\n\tpublic static int renderID = RenderingRegistry.getNextAvailableRenderId();\n\n\t@Override\n\tpublic int getRenderType() {\n\t\treturn renderID;\n\t}\n\n\t@Override\n\tpublic boolean isOpaqueCube() {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}\n",
+          "new": "    public SolarMirror(Material material) { super(material); }\n    @Override public TileEntity createNewTileEntity(World world, int metadata) { return new TileEntitySolarMirror(); }\n    @Override protected BlockStateContainer createBlockState() { return SolarMirrorModelState.create(this); }\n    @Override public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return SolarMirrorModelState.extend(state, world, pos);\n    }\n    @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.MODEL; }\n    @Override public boolean isOpaqueCube(IBlockState state) { return false; }\n    @Override public boolean isFullCube(IBlockState state) { return false; }\n    @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {\n        return BlockFaceShape.UNDEFINED;\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "b670803ae2a5d8b45fb3244bf64377a54975fea49996b4460a1e06b15fbaf4ac",
+      "after_sha256": "7e2710ee9d7ce95c9ecdcc994ef5225d68178e431de528e94fa2bff0fddae60c",
+      "edits": [
+        {
+          "before_offset": 80173,
+          "after_offset": 80173,
+          "old": "\t\tRenderingRegistry.registerBlockHandler(new RenderSteelWall());\n\t\tRenderingRegistry.registerBlockHandler(new RenderSteelCorner());\n\t\tRenderingRegistry.registerBlockHandler(new RenderMirror());\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "2b9f2b081d7e9d3c705c24d87c463e2f8255a44f8dacfdb01c4e05d9f538ac8e",
+      "after_sha256": "390c001307572e5fc208024b7d055edf5147aa28c2d5fff9dbab467425480dad",
+      "edits": [
+        {
+          "before_offset": 8304,
+          "after_offset": 8304,
+          "old": "import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;\nimport net.minecraftforge.event.entity.player.PlayerUseItemEvent;\n",
+          "new": "import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;\nimport net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 64874,
+          "after_offset": 64847,
+          "old": "\tpublic void onClickBlock(PlayerInteractEvent event) {\n",
+          "new": "\tpublic void onClickBlock(PlayerInteractEvent.RightClickBlock event) {\n"
+        },
+        {
+          "before_offset": 64930,
+          "after_offset": 64919,
+          "old": "\t\tint x = event.x;\n\t\tint y = event.y;\n\t\tint z = event.z;\n\t\tWorld world = event.world;\n",
+          "new": "\t\tint x = event.getPos().getX();\n\t\tint y = event.getPos().getY();\n\t\tint z = event.getPos().getZ();\n\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 65019,
+          "after_offset": 65055,
+          "old": "\t\tif(GeneralConfig.enable528ExplosiveEnergistics && !world.isRemote && event.action == Action.RIGHT_CLICK_BLOCK) {\n\t\t\tBlock b = world.getBlock(x, y, z);\n\t\t\tString name = Block.blockRegistry.getNameForObject(b);\n",
+          "new": "\t\tif(GeneralConfig.enable528ExplosiveEnergistics && !world.isRemote) {\n\t\t\tBlock b = world.getBlockState(new BlockPos(x, y, z)).getBlock();\n\t\t\tString name = b.getRegistryName() == null ? null : b.getRegistryName().toString();\n"
+        },
+        {
+          "before_offset": 65294,
+          "after_offset": 65344,
+          "old": "\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\tworld.destroyBlock(new BlockPos(x, y, z), false);\n"
+        },
+        {
+          "before_offset": 65683,
+          "after_offset": 65746,
+          "old": "\t\tx = event.x;\n\t\ty = event.z;\n\t\tz = event.y;\n",
+          "new": "\t\tx = event.getPos().getX();\n\t\ty = event.getPos().getZ();\n\t\tz = event.getPos().getY();\n"
+        },
+        {
+          "before_offset": 65729,
+          "after_offset": 65834,
+          "old": "\t\tif(!world.isRemote && event.action == Action.RIGHT_CLICK_BLOCK && world.getTileEntity(x, y, z) instanceof TileEntitySign) {\n",
+          "new": "\t\tif(!world.isRemote && world.getTileEntity(new BlockPos(x, y, z)) instanceof TileEntitySign) {\n"
+        },
+        {
+          "before_offset": 65856,
+          "after_offset": 65931,
+          "old": "\t\t\tTileEntitySign sign = (TileEntitySign)world.getTileEntity(x, y, z);\n",
+          "new": "\t\t\tTileEntitySign sign = (TileEntitySign)world.getTileEntity(new BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 65928,
+          "after_offset": 66017,
+          "old": "\t\t\tString result = ShadyUtil.smoosh(sign.signText[0], sign.signText[1], sign.signText[2], sign.signText[3]);\n",
+          "new": "\t\t\tString result = ShadyUtil.smoosh(sign.signText[0].getUnformattedText(), sign.signText[1].getUnformattedText(), sign.signText[2].getUnformattedText(), sign.signText[3].getUnformattedText());\n"
+        },
+        {
+          "before_offset": 66081,
+          "after_offset": 66254,
+          "old": "\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\tworld.destroyBlock(new BlockPos(x, y, z), false);\n"
+        },
+        {
+          "before_offset": 66223,
+          "after_offset": 66409,
+          "old": "\t\t\t\tentityitem.delayBeforeCanPickup = 1;\n\t\t\t\tworld.spawnEntityInWorld(entityitem);\n\t\t\t\tMainRegistry.logger.log(Level.FATAL, \"THE HIDDENCAT HAS BEEN OBTAINED \" + \" x: \" + x + \" / \"\t+ \" y: \" + + y + \" / \"+ \"z: \" + + z + \" by \" + event.entityPlayer.getDisplayName() + \"!\");\n",
+          "new": "\t\t\t\tentityitem.setPickupDelay(1);\n\t\t\t\tworld.spawnEntity(entityitem);\n\t\t\t\tMainRegistry.logger.log(Level.FATAL, \"THE HIDDENCAT HAS BEEN OBTAINED \" + \" x: \" + x + \" / \"\t+ \" y: \" + + y + \" / \"+ \"z: \" + + z + \" by \" + event.getEntityPlayer().getDisplayNameString() + \"!\");\n"
+        },
+        {
+          "before_offset": 66637,
+          "after_offset": 66820,
+          "old": "\tpublic void onTrySleep(PlayerInteractEvent event) {\n\t\tif(event.world.isRemote) return;\n\t\tif(event.world.provider.dimensionId == 0) return;\n\t\tif(!(event.world.provider instanceof WorldProviderCelestial) && !(event.world.provider instanceof WorldProviderOrbit)) return;\n",
+          "new": "\tpublic void onTrySleep(PlayerInteractEvent.RightClickBlock event) {\n\t\tif(event.getWorld().isRemote) return;\n\t\tif(event.getWorld().provider.getDimension() == 0) return;\n\t\tif(!(event.getWorld().provider instanceof WorldProviderCelestial) && !(event.getWorld().provider instanceof WorldProviderOrbit)) return;\n"
+        },
+        {
+          "before_offset": 66907,
+          "after_offset": 67129,
+          "old": "\t\tif(event.action == Action.RIGHT_CLICK_BLOCK && event.world.getBlock(event.x, event.y, event.z) instanceof BlockBed) {\n",
+          "new": "\t\tif(event.getWorld().getBlockState(event.getPos()).getBlock() instanceof BlockBed) {\n"
+        },
+        {
+          "before_offset": 67127,
+          "after_offset": 67315,
+          "old": "\tpublic void onPull(PlayerInteractEvent event) {\n\t\tint x = event.x;\n\t\tint y = event.y;\n\t\tint z = event.z;\n\t\tWorld world = event.world;\n",
+          "new": "\tpublic void onPull(PlayerInteractEvent.RightClickBlock event) {\n\t\tint x = event.getPos().getX();\n\t\tint y = event.getPos().getY();\n\t\tint z = event.getPos().getZ();\n\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 67263,
+          "after_offset": 67514,
+          "old": "\t\tif(!world.isRemote && event.action == Action.RIGHT_CLICK_BLOCK && world.getBlock(x, y, z) == Blocks.lever && GeneralConfig.enableExtendedLogging == true) {\n\t\t\tMainRegistry.logger.log(Level.INFO, \"[DET] pulled lever at \" + x + \" / \" + y + \" / \" + z + \" by \" + event.entityPlayer.getDisplayName() + \"!\");\n",
+          "new": "\t\tif(!world.isRemote && world.getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.LEVER && GeneralConfig.enableExtendedLogging == true) {\n\t\t\tMainRegistry.logger.log(Level.INFO, \"[DET] pulled lever at \" + x + \" / \" + y + \" / \" + z + \" by \" + event.getEntityPlayer().getDisplayNameString() + \"!\");\n"
+        },
+        {
+          "before_offset": 71654,
+          "after_offset": 71902,
+          "old": "\tpublic void onFoodEaten(PlayerUseItemEvent.Finish event) {\n",
+          "new": "\tpublic void onFoodEaten(LivingEntityUseItemEvent.Finish event) {\n"
+        },
+        {
+          "before_offset": 71715,
+          "after_offset": 71969,
+          "old": "\t\tItemStack stack = event.item;\n",
+          "new": "\t\tif(!(event.getEntityLiving() instanceof EntityPlayer)) return;\n\t\tItemStack stack = event.getItem();\n"
+        },
+        {
+          "before_offset": 71748,
+          "after_offset": 72072,
+          "old": "\t\tif(stack != null && stack.getItem() instanceof ItemFood) {\n",
+          "new": "\t\tif(!stack.isEmpty() && stack.getItem() instanceof ItemFood) {\n"
+        },
+        {
+          "before_offset": 71927,
+          "after_offset": 72254,
+          "old": "\t\t\t\t\tevent.entityPlayer.attackEntityFrom(rand.nextBoolean() ? ModDamageSource.euthanizedSelf : ModDamageSource.euthanizedSelf2, 1000);\n",
+          "new": "\t\t\t\t\tevent.getEntityLiving().attackEntityFrom(rand.nextBoolean() ? ModDamageSource.euthanizedSelf : ModDamageSource.euthanizedSelf2, 1000);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderMirror.java": {
+      "before_sha256": "fa33beaaf01ba2c50b61850de842e57abda986f43ff145fe91152ae9ebc6778d",
+      "after_sha256": "d45775900e6d160d9e0cc85db3759c05e1e7c1758f51e08163e9d6b0964a8e58",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import com.hbm.blocks.machine.SolarMirror;\nimport com.hbm.main.ResourceManager;\nimport com.hbm.render.loader.HFRWavefrontObject;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.blocks.machine.SolarMirrorModelState.Snapshot;\nimport com.hbm.render.block.nativeblock.AtlasObjGeometry;\nimport com.hbm.render.block.nativeblock.SolarMirrorGeometry;\n"
+        },
+        {
+          "before_offset": 196,
+          "after_offset": 329,
+          "old": "import com.hbm.render.util.ObjUtil;\nimport com.hbm.tileentity.machine.TileEntitySolarMirror;\n",
+          "new": "import net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\n"
+        },
+        {
+          "before_offset": 290,
+          "after_offset": 455,
+          "old": "import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.tileentity.TileEntity;\nimport com.hbm.render.icon.IIcon;\nimport net.minecraft.util.math.Vec3d;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderMirror implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tIIcon iicon = block.getIcon(0, world.getBlockMetadata(x, y, z));\n\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\ttessellator.setColorOpaque_F(1, 1, 1);\n\n\t\tif(renderer.hasOverrideBlockTexture()) {\n\t\t\tiicon = renderer.overrideBlockTexture;\n\t\t}\n\n\t\tTileEntity te = world.getTileEntity(x, y, z);\n\t\t\n\t\tif(!(te instanceof TileEntitySolarMirror))\n\t\t\treturn false;\n\t\t\n\t\tTileEntitySolarMirror mirror = (TileEntitySolarMirror) te;\n\n\t\tint dx = mirror.tX - mirror.xCoord;\n\t\tint dy = mirror.tY - mirror.yCoord;\n\t\tint dz = mirror.tZ - mirror.zCoord;\n\n\t\ttessellator.addTranslation(x + 0.5F, y, z + 0.5F);\n\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.solar_mirror, \"Base\", iicon, tessellator, 0, true);\n\t\t\n\t\tif(mirror.tY <= mirror.yCoord)\n\t\t\tObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.solar_mirror, \"Mirror\", iicon, tessellator, 0, true);\n\t\telse\n\t\t\tprintMirror(iicon, dx, dy, dz);\n\t\t\n\t\ttessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);\n\n\t\treturn true;\n\t}\n\t\n\tprivate void printMirror(IIcon icon, int dx, int dy, int dz) {\n\n\t\tObjMesh.Part go = null;\n\n\t\tfor(ObjMesh.Part obj : ((HFRWavefrontObject) ResourceManager.solar_mirror).getMesh().parts) {\n\t\t\tif(obj.name.equals(\"Mirror\")) go = obj;\n\t\t}\n\n\t\tif(go == null) return;\n\t\t\n\t\tTessellator tes = Tessellator.instance;\n\n\t\tdouble dist = Math.sqrt(dx * dx + dy * dy + dz * dz);\n\t\tdouble pitch = -Math.asin(dy / dist) + Math.PI / 2D;\n\t\tdouble yaw = -Math.atan2(dz, dx) - Math.PI / 2D;\n\n\t\tfor(ObjMesh.Face f : go.faces) {\n\n\t\t\tObjMesh.Vec n = f.normal;\n\t\t\t\n\t\t\ttes.setNormal(n.x, n.y, n.z);\n\t\t\tfloat brightness = (n.y + 1) * 0.65F;\n\n\t\t\tif(brightness < 0.45F)\n\t\t\t\tbrightness = 0.45F;\n\t\t\t\n\t\t\ttes.setColorOpaque_F(brightness, brightness, brightness);\n\n\t\t\tfor(int i = 0; i < f.corners.size(); i++) {\n\n\t\t\t\tObjMesh.Vec v = f.corners.get(i).position;\n\n\t\t\t\tcom.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(v.x, v.y - 1, v.z);\n\t\t\t\tvec.rotateAroundXRad((float) pitch);\n\t\t\t\tvec.rotateAroundYRad((float) yaw);\n\n\t\t\t\tfloat x = (float) vec.x;\n\t\t\t\tfloat y = (float) vec.y + 1;\n\t\t\t\tfloat z = (float) vec.z;\n\n\t\t\t\tObjMesh.Vec t = f.corners.get(i).uv;\n\t\t\t\ttes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16));\n\t\t\t\t\n\t\t\t\tif(i % 3 == 2)\n\t\t\t\t\ttes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16));\n\t\t\t}\n\t\t}\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn false;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn SolarMirror.renderID;\n\t}\n",
+          "new": "/** Original Base/Mirror part selection, translation, and target-directed mirror stream. */\npublic final class RenderMirror {\n    private RenderMirror() { }\n    public static List<BakedQuad> bake(ObjMesh mesh, TextureAtlasSprite sprite, Snapshot target) {\n        if(!target.available) return Collections.emptyList();\n        List<BakedQuad> quads = new ArrayList<>();\n        AtlasObjGeometry.appendPart(quads, mesh, \"Base\", sprite, false, 0, 0, 1, .5, 0, .5);\n        if(target.pitched) SolarMirrorGeometry.append(quads, mesh, sprite, target.dx, target.dy, target.dz);\n        else AtlasObjGeometry.appendPart(quads, mesh, \"Mirror\", sprite, false, 0, 0, 1, .5, 0, .5);\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelCorner.java": {
+      "before_sha256": "f35cb528b475578458919d902d47918eeb9f147dcbb86a503de76b2681fb0f04",
+      "after_sha256": "35a3e6938eab2f1293f1bd5412c1a786d287e05db323ec6ef7aa0db25d2fb6ad",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.blocks.generic.BlockSteelDecoration;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport com.hbm.render.block.nativeblock.PneumaticCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.AxisAlignedBB;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 528,
+          "old": "import com.hbm.blocks.generic.DecoBlock;\nimport com.hbm.render.util.RenderBlocksNT;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderSteelCorner implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.5F);\n\t\t\n\t\ttessellator.startDrawingQuads();\n\n\t\t\n\t\trenderer.setRenderBounds(0D, 0D, 0.875D, 0.75D, 1D, 1D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\n\t\t\n\t\trenderer.setRenderBounds(0.75D, 0D, 0.75D, 1D, 1D, 1D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\t\n\t\trenderer.setRenderBounds(0.875D, 0D, 0D, 1D, 1D, 0.75D);\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\t\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\trenderer = RenderBlocksNT.INSTANCE.setWorld(world);\n\t\t\n\t\tswitch(meta) {\n\t\tcase 2:\n\t\t\trenderer.setRenderBounds(0.25D, 0D, 0.875D, 1D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.75D, 0.25D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0D, 0D, 0D, 0.125D, 1D, 0.75D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\tbreak;\n\t\tcase 3:\n\t\t\trenderer.setRenderBounds(0D, 0D, 0D, 0.75D, 1D, 0.125D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0.75D, 0D, 0D, 1D, 1D, 0.25D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0.875D, 0D, 0.25D, 1D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\tbreak;\n\t\tcase 4:\n\t\t\trenderer.setRenderBounds(0.875D, 0D, 0D, 1D, 1D, 0.75D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0.75D, 0D, 0.75D, 1D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.875D, 0.75D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\tbreak;\n\t\tcase 5:\n\t\t\trenderer.setRenderBounds(0D, 0D, 0.25D, 0.125D, 1D, 1D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0D, 0D, 0D, 0.25D, 1D, 0.25D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\trenderer.setRenderBounds(0.25D, 0D, 0D, 1D, 1D, 0.125D); renderer.renderStandardBlock(block, x, y, z);\n\t\t\tbreak;\n\t\t}\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn DecoBlock.renderIDCorner;\n\t}\n",
+          "new": "/** Three original slabs, with RenderBlocksNT world UVs and the inventory's two omitted end faces. */\npublic final class RenderSteelCorner {\n    private RenderSteelCorner() { }\n    public static List<BakedQuad> bake(int metadata, boolean inventory, TextureAtlasSprite sprite) {\n        List<AxisAlignedBB> boxes = inventory ? Arrays.asList(new AxisAlignedBB(0, 0, .875, .75, 1, 1),\n                new AxisAlignedBB(.75, 0, .75, 1, 1, 1), new AxisAlignedBB(.875, 0, 0, 1, 1, .75))\n                : BlockSteelDecoration.cornerBounds(metadata);\n        List<BakedQuad> quads = new ArrayList<>();\n        for(int index = 0; index < boxes.size(); index++) {\n            AxisAlignedBB box = boxes.get(index);\n            for(EnumFacing face : EnumFacing.values()) {\n                if(inventory && ((index == 0 && face == EnumFacing.EAST) || (index == 2 && face == EnumFacing.SOUTH))) continue;\n                quads.add(inventory ? ConveyorCuboidGeometry.face(sprite, true, face, 0,\n                        box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ, 0)\n                        : PneumaticCuboidGeometry.face(sprite, false, face, 0,\n                        box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ, 0));\n            }\n        }\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/block/RenderSteelWall.java": {
+      "before_sha256": "63211677bd7780cc49a163d0ac4404fe02b75c822b525e3666ceffbce33fa253",
+      "after_sha256": "964715852bbce46395747812f0da41ac5cee56bd2ab6cdaa9a4a710d9d8c8918",
+      "edits": [
+        {
+          "before_offset": 31,
+          "after_offset": 31,
+          "old": "import org.lwjgl.opengl.GL11;\n",
+          "new": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\nimport com.hbm.blocks.generic.BlockSteelDecoration;\nimport com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;\nimport net.minecraft.client.renderer.block.model.BakedQuad;\nimport net.minecraft.client.renderer.texture.TextureAtlasSprite;\nimport net.minecraft.util.EnumFacing;\nimport net.minecraft.util.math.AxisAlignedBB;\n"
+        },
+        {
+          "before_offset": 62,
+          "after_offset": 438,
+          "old": "import com.hbm.blocks.generic.DecoBlock;\n\nimport net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;\nimport net.minecraft.block.Block;\nimport net.minecraft.client.renderer.RenderBlocks;\nimport net.minecraft.client.renderer.Tessellator;\nimport net.minecraft.world.IBlockAccess;\n\npublic class RenderSteelWall implements ISimpleBlockRenderingHandler {\n\n\t@Override\n\tpublic void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {\n\n\t\tTessellator tessellator = Tessellator.instance;\n\t\tGL11.glTranslatef(-0.5F, -0.5F, -0.9375F);\n\t\t\n\t\trenderer.setRenderBounds(0D, 0D, 0.875D, 1D, 1D, 1D);\n\t\t\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.setNormal(0F, 1F, 0F);\trenderer.renderFaceYPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, -1F, 0F);\trenderer.renderFaceYNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(1F, 0F, 0F);\trenderer.renderFaceXPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(-1F, 0F, 0F);\trenderer.renderFaceXNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, 1F);\trenderer.renderFaceZPos(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.setNormal(0F, 0F, -1F);\trenderer.renderFaceZNeg(block, 0, 0, 0, block.getIcon(0, 0));\n\t\ttessellator.draw();\n\t}\n\n\t@Override\n\tpublic boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {\n\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\t\n\t\tswitch(meta) {\n\t\tcase 2: renderer.setRenderBounds(0D, 0D, 0.875D, 1D, 1D, 1D); break;\n\t\tcase 3: renderer.setRenderBounds(0D, 0D, 0D, 1D, 1D, 0.125D); break;\n\t\tcase 4: renderer.setRenderBounds(0.875D, 0D, 0D, 1D, 1D, 1D); break;\n\t\tcase 5: renderer.setRenderBounds(0D, 0D, 0D, 0.125D, 1D, 1D); break;\n\t\t}\n\n\t\trenderer.renderStandardBlock(block, x, y, z);\n\t\t\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic boolean shouldRender3DInInventory(int modelId) {\n\t\treturn true;\n\t}\n\n\t@Override\n\tpublic int getRenderId() {\n\t\treturn DecoBlock.renderIDWall;\n\t}\n\n",
+          "new": "/** Standard-cuboid UVs, including the original within-bounds north/east mirroring. */\npublic final class RenderSteelWall {\n    private RenderSteelWall() { }\n    public static List<BakedQuad> bake(int metadata, boolean inventory, TextureAtlasSprite sprite) {\n        AxisAlignedBB box = BlockSteelDecoration.wallBounds(inventory ? 2 : metadata);\n        return bake(box, inventory, sprite);\n    }\n    public static List<BakedQuad> bake(AxisAlignedBB box, boolean inventory, TextureAtlasSprite sprite) {\n        List<BakedQuad> quads = new ArrayList<>();\n        for(EnumFacing face : EnumFacing.values()) {\n            BakedQuad quad = ConveyorCuboidGeometry.face(sprite, inventory, face, 0,\n                    box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ, 0);\n            if(inventory) {\n                // Original item translation was (-.5,-.5,-.9375), not the corner's block center.\n                int[] data = quad.getVertexData().clone();\n                int stride = quad.getFormat().getIntegerSize();\n                for(int i = 0; i < 4; i++) data[i * stride + 2] = Float.floatToRawIntBits(Float.intBitsToFloat(data[i * stride + 2]) - .4375F);\n                quad = new BakedQuad(data, -1, face, sprite, true, quad.getFormat());\n            }\n            quads.add(quad);\n        }\n        return Collections.unmodifiableList(quads);\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java": {
+      "before_sha256": "b64507949bc18b79c73701de960728a594d2b56495a49d1104260ce492ee1841",
+      "after_sha256": "4cdfae5009ab3794c5a6f5d3575a5fd59bb6bdd4444acbd550c5dae69caf02d5",
+      "edits": [
+        {
+          "before_offset": 348,
+          "after_offset": 348,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 816,
+          "after_offset": 857,
+          "old": "\t\t\tint sun = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ()) - this.world.skylightSubtracted - 11;\n",
+          "new": "\t\t\tint sun = this.world.getLightFor(EnumSkyBlock.SKY, this.pos) - this.world.getSkylightSubtracted() - 11;\n"
+        },
+        {
+          "before_offset": 970,
+          "after_offset": 968,
+          "old": "\t\t\tif(sun <= 0 || !this.world.canBlockSeeTheSky(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())) {\n",
+          "new": "\t\t\tif(sun <= 0 || !this.world.canSeeSky(this.pos.up())) {\n"
+        },
+        {
+          "before_offset": 1135,
+          "after_offset": 1085,
+          "old": "\t\t\tTileEntity te = this.world.getTileEntity(tX, tY - 1, tZ);\n",
+          "new": "\t\t\tTileEntity te = this.world.getTileEntity(new BlockPos(tX, tY - 1, tZ));\n"
+        },
+        {
+          "before_offset": 1351,
+          "after_offset": 1315,
+          "old": "\t\t\tTileEntity te = this.world.getTileEntity(tX, tY - 1, tZ);\n",
+          "new": "\t\t\tTileEntity te = this.world.getTileEntity(new BlockPos(tX, tY - 1, tZ));\n"
+        },
+        {
+          "before_offset": 1688,
+          "after_offset": 1666,
+          "old": "\t\t\t\tthis.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\n",
+          "new": "\t\t\t\tthis.world.markBlockRangeForRenderUpdate(this.pos, this.pos);\n"
+        },
+        {
+          "before_offset": 2722,
+          "after_offset": 2680,
+          "old": "\t\t\tbb = AxisAlignedBB.getBoundingBox(\n",
+          "new": "\t\t\tbb = new AxisAlignedBB(\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/TrackerUtil.java": {
+      "before_sha256": "57cc363090d24da32bd583b5343e70c95e2507c4de6b2b1b8e8cdc7ac455b42e",
+      "after_sha256": "7938b1693476bbb292ee49546c8adbb513593a1c5902009148a96d9f8edb75a6",
+      "edits": [
+        {
+          "before_offset": 252,
+          "after_offset": 252,
+          "old": "import net.minecraft.network.play.server.S18PacketEntityTeleport;\n",
+          "new": "import net.minecraft.network.play.server.SPacketEntityTeleport;\n"
+        },
+        {
+          "before_offset": 905,
+          "after_offset": 903,
+          "old": "\t\tIntHashMap map = ReflectionHelper.getPrivateValue(EntityTracker.class, entitytracker, \"trackedEntityIDs\", \"field_72794_c\");\n\t\tEntityTrackerEntry entry = (EntityTrackerEntry) map.lookup(entityId);\n",
+          "new": "\t\tIntHashMap<EntityTrackerEntry> map = ReflectionHelper.getPrivateValue(EntityTracker.class, entitytracker, \"trackedEntityHashTable\", \"field_72794_c\");\n\t\tEntityTrackerEntry entry = map.lookup(entityId);\n"
+        },
+        {
+          "before_offset": 1463,
+          "after_offset": 1466,
+          "old": "\t\t\tint xScaled = e.myEntitySize.multiplyBy32AndRound(e.posX);\n\t\t\tint yScaled = MathHelper.floor_double(e.posY * 32.0D);\n\t\t\tint zScaled = e.myEntitySize.multiplyBy32AndRound(e.posZ);\n\t\t\tint yaw = MathHelper.floor_float(e.rotationYaw * 256.0F / 360.0F);\n\t\t\tint pitch = MathHelper.floor_float(e.rotationPitch * 256.0F / 360.0F);\n\t\t\tentry.func_151259_a(new S18PacketEntityTeleport(e.getEntityId(), xScaled, yScaled, zScaled, (byte)yaw, (byte)pitch));\n",
+          "new": "\t\t\t// Native 1.12 teleport packet carries double coordinates and on-ground state.\n\t\t\tSPacketEntityTeleport packet = new SPacketEntityTeleport(e);\n\t\t\t// Preserve the original floor quantization, including negative angles; the native\n\t\t\t// Entity constructor otherwise truncates toward zero. Never mutate the entity.\n\t\t\tReflectionHelper.setPrivateValue(SPacketEntityTeleport.class, packet, (byte)MathHelper.floor(e.rotationYaw * 256.0F / 360.0F), \"yaw\", \"field_149455_e\");\n\t\t\tReflectionHelper.setPrivateValue(SPacketEntityTeleport.class, packet, (byte)MathHelper.floor(e.rotationPitch * 256.0F / 360.0F), \"pitch\", \"field_149453_f\");\n\t\t\tentry.sendPacketToTrackedPlayers(packet);\n"
+        },
+        {
+          "before_offset": 1988,
+          "after_offset": 2220,
+          "old": "\t\t\tentry.ticks = 0;\n",
+          "new": "\t\t\tentry.updateCounter = 0;\n"
+        },
+        {
+          "before_offset": 2244,
+          "after_offset": 2484,
+          "old": "\t\t\tif(entry != null) entry.blocksDistanceThreshold = range;\n",
+          "new": "\t\t\tif(entry != null) ReflectionHelper.setPrivateValue(EntityTrackerEntry.class, entry, range, \"range\", \"field_73130_b\");\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/blocks/generic/BlockSteelDecoration.java": "5bd5c41aa0da3f57f6d5d11e3ea21463728f15a1f75e6def311f6444e362aa74",
+    "src/main/java/com/hbm/blocks/machine/SolarMirrorModelState.java": "ff374db2cd3ea1227b13218bbc8f6b27934fb7945a072299fc5d101c87d1512e",
+    "src/main/java/com/hbm/main/SolarMirrorModelHandler.java": "04b82ec00f2edae6adf3aeb5609d0aa05ec71aa28503aa05d8a6cef5eda3736a",
+    "src/main/java/com/hbm/main/SteelDecorationModelHandler.java": "842eb2173884070954a9f445d72531c6d5f0bbac474053af0b9ef766b840f69a",
+    "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorBakedModel.java": "d2ef56e9219cc185d6a4057a7e9e0a374e7b7f66590ce819b21c325d17764ae3",
+    "src/main/java/com/hbm/render/block/nativeblock/SolarMirrorGeometry.java": "bc523b4ec40d545ebe690f4b00a74f3d75e48a2a4b07fc8fa9b74dced70ade72",
+    "src/main/java/com/hbm/render/block/nativeblock/SteelDecorationBakedModel.java": "84d6ef290b1954f50080a530d41b44c4917e3fbbb3c80ab977e7a6bb96ca75d3",
+    "src/main/resources/assets/hbm/blockstates/tile.solar_mirror.json": "e869df48c1469822f1730c74ad9309dc6581a1b51ab1e36d3fcd59e1efe1c697",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_corner.json": "4af45c0ab4328e829e1c734cfcaa5dde7ecd6eba4b7adc881eb2f6333d45c5cc",
+    "src/main/resources/assets/hbm/blockstates/tile.steel_wall.json": "bab6b0622f11a96164128ad73056f7d4a7b60b559b8c941b3ff96a0bba0d4da6"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

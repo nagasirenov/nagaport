@@ -38,7 +38,7 @@ public class BlockCustomMachine extends BlockContainer {
 	private IIcon iconFront;
 
 	public BlockCustomMachine() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -67,13 +67,13 @@ public class BlockCustomMachine extends BlockContainer {
 			return true;
 		} else if(!player.isSneaking()) {
 			
-			TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(x, y, z);
+			TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			
 			if(tile != null) {
 				
 				if(tile.checkStructure()) {
 					FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
-				} else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.wand_s) {
+				} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.wand_s) {
 					tile.buildStructure();
 				}
 			}
@@ -85,14 +85,14 @@ public class BlockCustomMachine extends BlockContainer {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		
-		TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(x, y, z);
+		TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile != null) {
 			int id = stack.getItemDamage() - 100;
@@ -133,7 +133,7 @@ public class BlockCustomMachine extends BlockContainer {
 		Item item = getItemDropped(metadata, world.rand, fortune);
 		if(item != null) {
 
-			TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(x, y, z);
+			TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			
 			if(tile != null) {
 				ItemStack stack = new ItemStack(item, 1, CustomMachineConfigJSON.niceList.indexOf(tile.config) + 100);
@@ -150,7 +150,7 @@ public class BlockCustomMachine extends BlockContainer {
 		int y = pos.getY();
 		int z = pos.getZ();
 		
-		TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(x, y, z);
+		TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile != null && tile.machineType != null && !tile.machineType.isEmpty()) {
 			ItemStack stack = new ItemStack(this, 1, CustomMachineConfigJSON.niceList.indexOf(tile.config) + 100);
@@ -163,7 +163,7 @@ public class BlockCustomMachine extends BlockContainer {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 
-		ISidedInventory sided = (ISidedInventory) world.getTileEntity(x, y, z);
+		ISidedInventory sided = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		Random rand = world.rand;
 
 		if(sided != null) {
@@ -174,30 +174,34 @@ public class BlockCustomMachine extends BlockContainer {
 
 				ItemStack itemstack = sided.getStackInSlot(i1);
 
-				if(itemstack != null) {
+				if(itemstack != null && !itemstack.isEmpty()) {
 					float f = rand.nextFloat() * 0.8F + 0.1F;
 					float f1 = rand.nextFloat() * 0.8F + 0.1F;
 					float f2 = rand.nextFloat() * 0.8F + 0.1F;
 
-					while(itemstack.stackSize > 0) {
+					while(itemstack.getCount() > 0) {
 						int j1 = rand.nextInt(21) + 10;
 
-						if(j1 > itemstack.stackSize) {
-							j1 = itemstack.stackSize;
+						if(j1 > itemstack.getCount()) {
+							j1 = itemstack.getCount();
 						}
 
-						itemstack.stackSize -= j1;
-						EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+						// Capture before depletion: native empty stacks hide their item.
+						net.minecraft.item.Item dropItem = itemstack.getItem();
+						int dropMeta = itemstack.getItemDamage();
+						NBTTagCompound dropTag = itemstack.getTagCompound();
+						itemstack.shrink(j1);
+						EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-						if(itemstack.hasTagCompound()) {
-							entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+						if(dropTag != null) {
+							entityitem.getItem().setTagCompound(dropTag.copy());
 						}
 
 						float f3 = 0.05F;
 						entityitem.motionX = (float) rand.nextGaussian() * f3;
 						entityitem.motionY = (float) rand.nextGaussian() * f3 + 0.2F;
 						entityitem.motionZ = (float) rand.nextGaussian() * f3;
-						world.spawnEntityInWorld(entityitem);
+						world.spawnEntity(entityitem);
 					}
 				}
 			}

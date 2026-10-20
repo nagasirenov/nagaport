@@ -1,0 +1,161 @@
+{
+  "baseline": "149469c7403653ca6576515b730bc033a1574cfe",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "edits": [
+        {
+          "start": 1750,
+          "end": 1769,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "edits": [
+        {
+          "start": 1622,
+          "end": 1641,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModIron.java",
+      "edits": [
+        {
+          "start": 1150,
+          "end": 1169,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityMaskMan.java",
+      "edits": [
+        {
+          "start": 2298,
+          "end": 2309,
+          "old": "followRange",
+          "new": "FOLLOW_RANGE"
+        },
+        {
+          "start": 2468,
+          "end": 2487,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityFBI.java",
+      "edits": [
+        {
+          "start": 2779,
+          "end": 2798,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityWarBehemoth.java",
+      "edits": [
+        {
+          "start": 3280,
+          "end": 3291,
+          "old": "followRange",
+          "new": "FOLLOW_RANGE"
+        },
+        {
+          "start": 3449,
+          "end": 3468,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBase.java",
+      "edits": [
+        {
+          "start": 1669,
+          "end": 1688,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityFish.java",
+      "edits": [
+        {
+          "start": 1225,
+          "end": 1236,
+          "old": "followRange",
+          "new": "FOLLOW_RANGE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+      "edits": [
+        {
+          "start": 1854,
+          "end": 1865,
+          "old": "followRange",
+          "new": "FOLLOW_RANGE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+      "edits": [
+        {
+          "start": 4769,
+          "end": 4780,
+          "old": "followRange",
+          "new": "FOLLOW_RANGE"
+        },
+        {
+          "start": 4938,
+          "end": 4957,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "edits": [
+        {
+          "start": 2426,
+          "end": 2437,
+          "old": "followRange",
+          "new": "FOLLOW_RANGE"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "edits": [
+        {
+          "start": 8372,
+          "end": 8391,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        },
+        {
+          "start": 16508,
+          "end": 16527,
+          "old": "knockbackResistance",
+          "new": "KNOCKBACK_RESISTANCE"
+        }
+      ]
+    }
+  ]
+}

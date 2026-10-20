@@ -15,7 +15,7 @@ import static com.hbm.lib.HbmChestContents.*;
 import com.hbm.blocks.ModBlocks;
 
 import net.minecraft.init.Items;
-import net.minecraft.util.WeightedRandomChestContent;
+import com.hbm.lib.WeightedRandomChestContent;
 
 /**
  * Item pools for "legacy" structures, i.e. schematic2java ones
@@ -37,9 +37,9 @@ public class ItemPoolsLegacy {
 		//"generic" set, found commonly in chests in many structures
 		new ItemPool(POOL_GENERIC) {{
 			this.pool = new WeightedRandomChestContent[] {
-					weighted(Items.bread, 0, 1, 5, 8),
+					weighted(Items.BREAD, 0, 1, 5, 8),
 					weighted(ModItems.twinkie, 0, 1, 3, 6),
-					weighted(Items.iron_ingot, 0, 2, 6, 10),
+					weighted(Items.IRON_INGOT, 0, 2, 6, 10),
 					weighted(ModItems.ingot_steel, 0, 2, 5, 7),
 					weighted(ModItems.ingot_beryllium, 0, 1, 2, 4),
 					weighted(ModItems.ingot_titanium, 0, 1, 1, 3),

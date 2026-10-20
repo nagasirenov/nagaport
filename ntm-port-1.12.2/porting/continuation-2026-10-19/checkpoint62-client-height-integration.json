@@ -1,0 +1,16 @@
+{
+  "baseline": "c22f7048a82784fe0e8246d38aef102c43f1df70",
+  "exact_inverse_preserves_all_cp61_changes": true,
+  "files": {
+    "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": {
+      "baseline_sha256": "c30fabdaf56fc5c3e69c76d7eb3a9714db79f04e956842c03bf477b52fbfb445",
+      "after_sha256": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+      "calls": 2
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java": {
+      "baseline_sha256": "7b7d684cef8809b18c23867634b86825a24ae852eb5e136a61087b6bce94c770",
+      "after_sha256": "2ada745de579ba8870cb89b87361482d7741cebc5dec3890902d637acf021fd2",
+      "calls": 1
+    }
+  }
+}

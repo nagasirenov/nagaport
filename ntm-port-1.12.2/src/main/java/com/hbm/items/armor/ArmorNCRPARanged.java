@@ -35,15 +35,15 @@ public class ArmorNCRPARanged implements IPARanged {
 			if(amount > 0) {
 				mag.useUpAmmo(stack, player.inventory, 1);
 				EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(player, cfg, 25, 0, 0.25F * (player.getRNG().nextBoolean() ? - 1 : 1), 0, 0);
-				player.worldObj.spawnEntityInWorld(mk4);
+				player.world.spawnEntityInWorld(mk4);
 				ItemGunBaseNT.setState(stack, 0, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, 0, 10);
-				player.worldObj.playSoundAtEntity(player, "hbm:weapon.rpgShoot", 0.5F, 0.9F + player.getRNG().nextFloat() * 0.2F);
+				player.world.playSoundAtEntity(player, "hbm:weapon.rpgShoot", 0.5F, 0.9F + player.getRNG().nextFloat() * 0.2F);
 				player.inventoryContainer.detectAndSendChanges();
 			} else {
 				ItemGunBaseNT.setState(stack, 0, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, 0, 10);
-				player.worldObj.playSoundAtEntity(player, "hbm:weapon.reload.dryFireClick", 1F, 1F);
+				player.world.playSoundAtEntity(player, "hbm:weapon.reload.dryFireClick", 1F, 1F);
 			}
 		}
 	}

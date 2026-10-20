@@ -56,7 +56,7 @@ public abstract class EntityGrenadeBase extends EntityThrowable {
 			p_70184_1_.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), b0);
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
 
 				String s = "null";

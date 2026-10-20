@@ -14,7 +14,7 @@ public class FluidLoaderInfinite extends FluidLoadingHandler {
 	@Override
 	public boolean fillItem(ItemStack[] slots, int in, int out, FluidTank tank) {
 		
-		if(slots[in] == null || !(slots[in].getItem() instanceof ItemInfiniteFluid)) return false;
+		if(slots[in] == null || slots[in].isEmpty() || !(slots[in].getItem() instanceof ItemInfiniteFluid)) return false;
 		
 		ItemInfiniteFluid item = (ItemInfiniteFluid) slots[in].getItem();
 		
@@ -32,7 +32,7 @@ public class FluidLoaderInfinite extends FluidLoadingHandler {
 	@Override
 	public boolean emptyItem(ItemStack[] slots, int in, int out, FluidTank tank) {
 		
-		if(slots[in] == null || !(slots[in].getItem() instanceof ItemInfiniteFluid) || tank.getTankType() == Fluids.NONE) return false;
+		if(slots[in] == null || slots[in].isEmpty() || !(slots[in].getItem() instanceof ItemInfiniteFluid) || tank.getTankType() == Fluids.NONE) return false;
 		
 		ItemInfiniteFluid item = (ItemInfiniteFluid) slots[in].getItem();
 		

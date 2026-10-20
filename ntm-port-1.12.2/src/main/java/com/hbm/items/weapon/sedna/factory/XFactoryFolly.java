@@ -48,7 +48,7 @@ public class XFactoryFolly {
 	public static BulletConfig folly_nuke;
 
 	public static Consumer<Entity> LAMBDA_SM_UPDATE = (entity) -> {
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 		EntityBulletBeamBase beam = (EntityBulletBeamBase) entity;
 		Vec3NT dir = new Vec3NT(beam.headingX, beam.headingY, beam.headingZ).normalizeSelf();
 
@@ -70,7 +70,7 @@ public class XFactoryFolly {
 
 		if(beam.thrower != null) ContaminationUtil.contaminate(beam.thrower, HazardType.RADIATION, ContaminationType.CREATIVE, 150F);
 
-		List<Entity> entities = beam.worldObj.getEntitiesWithinAABBExcludingEntity(beam, beam.boundingBox.addCoord(beam.headingX, beam.headingY, beam.headingZ).expand(1.0D, 1.0D, 1.0D));
+		List<Entity> entities = beam.world.getEntitiesWithinAABBExcludingEntity(beam, beam.getEntityBoundingBox().addCoord(beam.headingX, beam.headingY, beam.headingZ).expand(1.0D, 1.0D, 1.0D));
 
 		for(int i = 1; i < beam.beamLength; i += 2) {
 			int x = (int) Math.floor(beam.posX + dir.x * i);
@@ -78,9 +78,9 @@ public class XFactoryFolly {
 			int z = (int) Math.floor(beam.posZ + dir.z * i);
 
 			for(int ix = x - 1; ix <= x + 1; ix++) for(int iy = y - 1; iy <= y + 1; iy++) for(int iz = z - 1; iz <= z + 1; iz++) {
-				if(iy > 0 && iy < 256) beam.worldObj.setBlock(ix, iy, iz, Blocks.air);
+				if(iy > 0 && iy < 256) beam.world.setBlock(ix, iy, iz, Blocks.air);
 				AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(ix - 1, iy - 1, iz - 1, ix + 2, iy + 2, iz + 2);
-				for(Entity e : entities) if(e != beam.thrower && e.boundingBox.intersectsWith(aabb)) {
+				for(Entity e : entities) if(e != beam.thrower && e.getEntityBoundingBox().intersectsWith(aabb)) {
 					if(e instanceof EntityLivingBase) EntityDamageUtil.attackEntityFromNT((EntityLivingBase) e, beam.config.getDamage(beam, beam.thrower, beam.config.dmgClass), beam.damage, true, false, 0D, 100F, 0.99F);
 					else EntityDamageUtil.attackEntityFromIgnoreIFrame(e, beam.config.getDamage(beam, beam.thrower, beam.config.dmgClass), beam.damage);
 				}
@@ -92,8 +92,8 @@ public class XFactoryFolly {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 2) return;
 		if(bullet.isDead) return;
 		bullet.setDead();
-		bullet.worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(bullet.worldObj, 100, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
-		EntityNukeTorex.statFacStandard(bullet.worldObj, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 100);
+		bullet.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(bullet.world, 100, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
+		EntityNukeTorex.statFacStandard(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 100);
 	};
 
 	public static void init() {
@@ -112,7 +112,7 @@ public class XFactoryFolly {
 						.canFire(LAMBDA_CAN_FIRE).fire(LAMBDA_FIRE).recoil(LAMBDA_RECOIL_FOLLY))
 				.setupStandardConfiguration().pt(LAMBDA_TOGGLE_AIM)
 				.anim(LAMBDA_FOLLY_ANIMS).orchestra(Orchestras.ORCHESTRA_FOLLY)
-				).setUnlocalizedName("gun_folly");
+				).setTranslationKey("gun_folly");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_TOGGLE_AIM = (stack, ctx) -> {

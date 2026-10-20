@@ -38,14 +38,14 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 	@Override public int getRenderType() { return -1; }
 	@Override public boolean isOpaqueCube() { return false; }
 	@Override public boolean renderAsNormalBlock() { return false; }
-	@Override public Item getItemDropped(int i, Random rand, int j) { return null; }
+	@Override public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) { return null; }
 
 	@Override
 	public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		TileEntityPlushie entity = (TileEntityPlushie) world.getTileEntity(x, y, z);
+		TileEntityPlushie entity = (TileEntityPlushie) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(entity != null) return new ItemStack(this, 1, entity.type.ordinal());
 		return super.getPickBlock(target, world, pos, player);
 	}
@@ -56,13 +56,13 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
 			if(!world.isRemote) {
-				TileEntityPlushie entity = (TileEntityPlushie) world.getTileEntity(x, y, z);
+				TileEntityPlushie entity = (TileEntityPlushie) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				if(entity != null) {
 					EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, new ItemStack(this, 1, entity.type.ordinal()));
 					item.motionX = 0;
 					item.motionY = 0;
 					item.motionZ = 0;
-					world.spawnEntityInWorld(item);
+					world.spawnEntity(item);
 				}
 			}
 			harvesters.set(null);
@@ -83,10 +83,10 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-		int meta = MathHelper.floor_double((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
+		int meta = MathHelper.floor((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
 		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 
-		TileEntityPlushie plushie = (TileEntityPlushie) world.getTileEntity(x, y, z);
+		TileEntityPlushie plushie = (TileEntityPlushie) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		plushie.type = PlushieType.values()[Math.abs(stack.getItemDamage()) % PlushieType.values().length];
 		plushie.markDirty();
 	}
@@ -98,7 +98,7 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		TileEntityPlushie plushie = (TileEntityPlushie) world.getTileEntity(x, y, z);
+		TileEntityPlushie plushie = (TileEntityPlushie) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(world.isRemote) {
 			plushie.squishTimer = 11;
@@ -116,7 +116,7 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 		return (meta + coordBaseMode * 4) % 16;
 	}
 
-	public static class TileEntityPlushie extends TileEntity implements INBTTileEntityTransformable {
+	public static class TileEntityPlushie extends TileEntity implements INBTTileEntityTransformable, net.minecraft.util.ITickable {
 
 		public PlushieType type = PlushieType.NONE;
 		public int squishTimer;
@@ -124,7 +124,7 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 		public float lastMiseryFactor;
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 			if(squishTimer > 0) squishTimer--;
 			lastMiseryFactor = miseryFactor;
 		}
@@ -148,9 +148,10 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setByte("type", (byte) type.ordinal());
+			return nbt;
 		}
 
 		@Override
@@ -188,7 +189,7 @@ public class BlockPlushie extends BlockContainer implements IBlockMulti, IToolti
 	@Override
 	public String getOverrideDisplayName(ItemStack stack) {
 		PlushieType type = PlushieType.values()[Math.abs(stack.getItemDamage()) % PlushieType.values().length];
-		return I18nUtil.format(this.getUnlocalizedName() + ".name", type == PlushieType.NONE ? "" : type.label).trim();
+		return I18nUtil.format(this.getTranslationKey() + ".name", type == PlushieType.NONE ? "" : type.label).trim();
 	}
 
 	@Override

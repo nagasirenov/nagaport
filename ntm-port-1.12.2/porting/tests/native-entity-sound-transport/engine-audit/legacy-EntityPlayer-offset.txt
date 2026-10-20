@@ -1,0 +1,9 @@
+  public double ad();
+    Code:
+       0: aload_0
+       1: getfield      #250                // Field L:F
+       4: ldc           #13                 // float 0.5f
+       6: fsub
+       7: f2d
+       8: dreturn
+

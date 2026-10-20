@@ -1,0 +1,39 @@
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockDummyable.java:336:		super.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockRemap.java:35:		return this.remapBlock.getItemDropped(meta, rand, fortune);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockRubberFarm.java:113:		return ModBlocks.rubber_silt.getItemDropped(0, p_149650_2_, p_149650_3_);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:4072:			Item item = block.getItemDropped(metadata, world.rand, fortune);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/CompactLauncher.java:91:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java:84:		super.onBlockPlacedBy(world, x, y, z, entity, stack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockCluster.java:11:public class BlockCluster extends BlockOre {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDecoCT.java:48:		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(getStateFromMeta(0), rand, fortune) && allowFortune) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDepthOre.java:40:		return super.getItemDropped(metadata, rand, fortune);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java:283:		return super.getItemDropped(meta, rand, j);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOre.java:177:		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune) && allowFortune) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreFluid.java:15:public class BlockOreFluid extends BlockOre {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreOutgas.java:14:public class BlockOreOutgas extends BlockOre {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOutgas.java:71:		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune)) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java:77:		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune)) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSellafieldOre.java:90:		if(this.getItemDropped(meta, rand, fortune) != Item.getItemFromBlock(this)) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStepEffect.java:46:		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, rand, fortune) && allowFortune) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java:252:			super.onBlockPlacedBy(world, x, y, z, player, stack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java:99:		super.onBlockPlacedBy(world, pos, state, player, stack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockWandLoot.java:325:				replaceBlock.onBlockPlacedBy(this.world, this.pos, this.world.getBlockState(this.pos), fakePlayer, fakeStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java:167:		super.onBlockPlacedBy(world, pos, state, player, stack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockMassStorage.java:204:		super.onBlockPlacedBy(world, x, y, z, player, stack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockTransporterRocket.java:47:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineEPress.java:46:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java:85:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineITER.java:134:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineLargeTurbine.java:71:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineSawmill.java:126:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineStirling.java:98:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java:114:		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityFallingBlockNT.java:156:						} else if(this.canDrop && !this.destroyOnLand && this.getBlock().getItemDropped(this.getFallingState(), rand, 0) != null) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityFallingBlockNT.java:157:							this.entityDropItem(new ItemStack(this.getBlock().getItemDropped(this.getFallingState(), rand, 0), 1, this.getBlock().damageDropped(this.getFallingState())), 0.0F);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityFallingBlockNT.java:161:					if(this.canDrop && this.getBlock().getItemDropped(this.getFallingState(), rand, 0) != null) {
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityFallingBlockNT.java:162:						this.entityDropItem(new ItemStack(this.getBlock().getItemDropped(this.getFallingState(), rand, 0), 1, this.getBlock().damageDropped(this.getFallingState())), 0.0F);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemGlitch.java:58:				player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(0, itemRand, 0)));
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemGlitch.java:62:					player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(0, itemRand, 0)));
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemGlitch.java:66:					player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(0, itemRand, 0)));
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemConveyorWand.java:143:				toPlace.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, stack);
+HEAD:ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java:639:			ModBlocks.furnace.onBlockPlacedBy(event.world, event.x, event.y, event.z, event.player, event.itemInHand);

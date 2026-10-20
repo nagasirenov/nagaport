@@ -1,0 +1,1620 @@
+{
+  "names": {
+    "alarm.gambit": {
+      "category": "record",
+      "sounds": [
+        {
+          "name": "hbm:alarm/gambit",
+          "stream": true
+        }
+      ]
+    },
+    "alarm.trainHorn": {
+      "category": "record",
+      "sounds": [
+        {
+          "name": "hbm:alarm/trainHorn",
+          "stream": false
+        }
+      ]
+    },
+    "block.chungusLever": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/chungusLever",
+          "stream": false
+        }
+      ]
+    },
+    "block.crateClose": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/crateClose",
+          "stream": false
+        }
+      ]
+    },
+    "block.crateOpen": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/crateOpen",
+          "stream": false
+        }
+      ]
+    },
+    "block.damage": {
+      "category": "block",
+      "sounds": [
+        "hbm:block/dam1",
+        "hbm:block/dam2",
+        "hbm:block/dam3",
+        "hbm:block/dam4"
+      ]
+    },
+    "block.hatchImpact": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:misc/bombimpact",
+          "stream": false
+        }
+      ]
+    },
+    "block.screm": {
+      "category": "block",
+      "sounds": [
+        "hbm:screm/scream1",
+        "hbm:screm/scream01",
+        "hbm:screm/scream2",
+        "hbm:screm/scream02",
+        "hbm:screm/scream3",
+        "hbm:screm/scream03",
+        "hbm:screm/scream4",
+        "hbm:screm/scream04",
+        "hbm:screm/scream5",
+        "hbm:screm/scream05",
+        "hbm:screm/scream6",
+        "hbm:screm/scream06",
+        "hbm:screm/scream7",
+        "hbm:screm/scream07",
+        "hbm:screm/scream08",
+        "hbm:screm/scream09",
+        "hbm:screm/scream10",
+        "hbm:screm/scream11",
+        "hbm:screm/scream12",
+        "hbm:screm/scream13",
+        "hbm:screm/scream14",
+        "hbm:screm/scream15",
+        "hbm:screm/scream16",
+        "hbm:screm/scream17",
+        "hbm:screm/scream18",
+        "hbm:screm/scream19",
+        "hbm:screm/scream20",
+        "hbm:screm/scream21",
+        "hbm:screm/scream22",
+        "hbm:screm/scream23",
+        "hbm:screm/scream24",
+        "hbm:screm/scream25"
+      ]
+    },
+    "block.shutdown": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/shutdown",
+          "stream": true
+        }
+      ]
+    },
+    "block.storageClose": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/storageClose",
+          "stream": false
+        }
+      ]
+    },
+    "block.storageOpen": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:block/storageOpen",
+          "stream": false
+        }
+      ]
+    },
+    "entity.bombWhistle": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:entity/bombWhistle",
+          "stream": false
+        }
+      ]
+    },
+    "entity.oldExplosion": {
+      "category": "ambient",
+      "sounds": [
+        {
+          "name": "hbm:entity/oldExplosion",
+          "stream": false
+        }
+      ]
+    },
+    "entity.planeCrash": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "hbm:entity/planeCrash",
+          "stream": false
+        }
+      ]
+    },
+    "entity.planeShotDown": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "hbm:entity/planeShotDown",
+          "stream": false
+        }
+      ]
+    },
+    "entity.ufoBlast": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "hbm:entity/ufoBlast",
+          "stream": false
+        }
+      ]
+    },
+    "item.pinBreak": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:tool/pinBreak",
+          "stream": false
+        }
+      ]
+    },
+    "item.techBleep": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:tool/techBleep",
+          "stream": false
+        }
+      ]
+    },
+    "item.unpack": {
+      "category": "player",
+      "sounds": [
+        "hbm:tool/extract1",
+        "hbm:tool/extract2"
+      ]
+    },
+    "player.cough": {
+      "category": "player",
+      "sounds": [
+        "hbm:player/cough1",
+        "hbm:player/cough2",
+        "hbm:player/cough3",
+        "hbm:player/cough4"
+      ]
+    },
+    "player.vomit": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:player/vomit",
+          "stream": false
+        }
+      ]
+    },
+    "turret.jeremy_fire": {
+      "category": "block",
+      "sounds": [
+        "hbm:turret/jeremy_fire1",
+        "hbm:turret/jeremy_fire2",
+        "hbm:turret/jeremy_fire3",
+        "hbm:turret/jeremy_fire4",
+        "hbm:turret/jeremy_fire5"
+      ]
+    },
+    "turret.jeremy_reload": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:turret/jeremy_reload",
+          "stream": false
+        }
+      ]
+    },
+    "turret.mortarWhistle": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:weapon/mortarWhistle",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.boat": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/boat",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.cDeploy": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/cDeploy",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.chainsaw": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/chainsaw",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.dFlash": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/dFlash",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.explosionMedium": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:weapon/explosion_medium",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.explosionTiny": {
+      "category": "block",
+      "sounds": [
+        "hbm:weapon/explosionTiny1",
+        "hbm:weapon/explosionTiny2"
+      ]
+    },
+    "weapon.fire.disintegration": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/fire/disintegration"
+      ]
+    },
+    "weapon.fire.tauRelease": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/fire/tauRelease1",
+        "hbm:weapon/fire/tauRelease2",
+        "hbm:weapon/fire/tauRelease3"
+      ]
+    },
+    "weapon.flamethrowerShoot": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/flamethrowerShoot",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.fstbmbPing": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/fstbmbPing",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.immolatorShoot": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/immolatorShoot",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.kapeng": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/kapeng",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.laserBang": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/laserBang1",
+        "hbm:weapon/laserBang2",
+        "hbm:weapon/laserBang3",
+        "hbm:weapon/laserBang4"
+      ]
+    },
+    "weapon.missileTakeOff": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/missileTakeOff",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.mukeExplosion": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "hbm:weapon/mukeExplosion",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.reload.tubeFwoomp": {
+      "category": "player",
+      "sounds": [
+        "hbm:weapon/reload/tubeFwoomp"
+      ]
+    },
+    "weapon.robin_explosion": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/robin_explosion",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.stingerLockOn": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/stingerLockOn",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.switchmode1": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/switchmode1",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.switchmode2": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/switchmode2",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.trainImpact": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "hbm:weapon/trainImpact",
+          "stream": false
+        }
+      ]
+    },
+    "weapon.fstbmbStart": {
+      "category": "player",
+      "original_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "weapon/fstbmbStart",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:weapon/fstbmbStart",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/weapon/fstbmbStart.ogg",
+          "native_path": "assets/hbm/sounds/weapon/fstbmbstart.ogg",
+          "sha256": "57b40fac41679e77519ff4e4ff182e134ac28d804354fd4dfc0b18bef53cf510"
+        }
+      ]
+    },
+    "item.techBoop": {
+      "category": "player",
+      "original_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "tool/techBoop",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:tool/techBoop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/tool/techBoop.ogg",
+          "native_path": "assets/hbm/sounds/tool/techboop.ogg",
+          "sha256": "f52d0a4332819578e2f61af0c5b90a9761a472e756140e05bff3b2a1cec6cd3c"
+        }
+      ]
+    },
+    "weapon.sparkShoot": {
+      "category": "player",
+      "original_definition": {
+        "category": "player",
+        "sounds": [
+          "weapon/sparkShoot1",
+          "weapon/sparkShoot2",
+          "weapon/sparkShoot3"
+        ]
+      },
+      "native_definition": {
+        "category": "player",
+        "sounds": [
+          "hbm:weapon/sparkShoot1",
+          "hbm:weapon/sparkShoot2",
+          "hbm:weapon/sparkShoot3"
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/weapon/sparkShoot1.ogg",
+          "native_path": "assets/hbm/sounds/weapon/sparkshoot1.ogg",
+          "sha256": "8b483530efe2ea650c0e0493f1956871c2bab85e2ee4ca7853a1c76a4eb1ec18"
+        },
+        {
+          "original_path": "assets/hbm/sounds/weapon/sparkShoot2.ogg",
+          "native_path": "assets/hbm/sounds/weapon/sparkshoot2.ogg",
+          "sha256": "509382e56a67fdff7ea78883e2fec0345f74a4916b47934dbbae28826b2a1498"
+        },
+        {
+          "original_path": "assets/hbm/sounds/weapon/sparkShoot3.ogg",
+          "native_path": "assets/hbm/sounds/weapon/sparkshoot3.ogg",
+          "sha256": "e6ac66139771849cf68ffe1f104ca6469c21bc8053798d4df8cdb69896a59ef0"
+        }
+      ]
+    },
+    "block.pressOperate": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/pressOperate",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/pressOperate",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/pressOperate.ogg",
+          "native_path": "assets/hbm/sounds/block/pressoperate.ogg",
+          "sha256": "566eba460bba642d1e9dbb53d80aefe3c0ae5f6ab1e49389da32fee7e38dc45a"
+        }
+      ]
+    },
+    "block.reactorStart": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/reactorStart",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/reactorStart",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/reactorStart.ogg",
+          "native_path": "assets/hbm/sounds/block/reactorstart.ogg",
+          "sha256": "8fb909aebb12e7043e7e8167435eb291faaae2f5a75f80598c828dbb09481ca5"
+        }
+      ]
+    },
+    "alarm.soyuzed": {
+      "category": "record",
+      "original_definition": {
+        "category": "record",
+        "sounds": [
+          {
+            "name": "alarm/soyuzed",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "record",
+        "sounds": [
+          {
+            "name": "hbm:alarm/soyuzed",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/alarm/soyuzed.ogg",
+          "native_path": "assets/hbm/sounds/alarm/soyuzed.ogg",
+          "sha256": "00163d9851a6cdb7af9056c38fc983ed6df8983deb58931e0be64bd208b76dfe"
+        }
+      ]
+    },
+    "alarm.chime": {
+      "category": "record",
+      "original_definition": {
+        "category": "record",
+        "sounds": [
+          {
+            "name": "alarm/chime",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "record",
+        "sounds": [
+          {
+            "name": "hbm:alarm/chime",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/alarm/chime.ogg",
+          "native_path": "assets/hbm/sounds/alarm/chime.ogg",
+          "sha256": "10a827afadb61e84da3f3bb24ed6182e6e9b34cb5b0b9dc686c9c5fba26fdf6e"
+        }
+      ]
+    },
+    "player.oil": {
+      "category": "player",
+      "original_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "player/oil",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:player/oil",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/player/oil.ogg",
+          "native_path": "assets/hbm/sounds/player/oil.ogg",
+          "sha256": "8df01b08a412778733d33b777a408a95163a009dfeedfadec7d9beac8c2075a9"
+        }
+      ]
+    },
+    "block.vaultScrapeNew": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/vaultScrapeNew",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/vaultScrapeNew",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/vaultScrapeNew.ogg",
+          "native_path": "assets/hbm/sounds/block/vaultscrapenew.ogg",
+          "sha256": "a1e01cffed5a8827c92f1ce45c7a7179a18c49cc73e095fc024000ba6985b40b"
+        }
+      ]
+    },
+    "block.vaultThudNew": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/vaultThudNew",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/vaultThudNew",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/vaultThudNew.ogg",
+          "native_path": "assets/hbm/sounds/block/vaultthudnew.ogg",
+          "sha256": "f6ead97a83b62450ed491b6bfb90be03b6c59d9aee62376f2277b5d2262deb30"
+        }
+      ]
+    },
+    "door.wgh_stop": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/door/wgh_stop",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/door/wgh_stop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/door/wgh_stop.ogg",
+          "native_path": "assets/hbm/sounds/block/door/wgh_stop.ogg",
+          "sha256": "1deb845e5b81b2980a58998b8a779c58954ccd9b59c37bb9aada80da23602ce7"
+        }
+      ]
+    },
+    "door.garage_stop": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/door/garage_stop",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/door/garage_stop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/door/garage_stop.ogg",
+          "native_path": "assets/hbm/sounds/block/door/garage_stop.ogg",
+          "sha256": "f22e0a4bae143b926894002d33cf4416be4cc3d02b7e7f0762e72f4868ac9f01"
+        }
+      ]
+    },
+    "block.hornNearSingle": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/hornNearSingle",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/hornNearSingle",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/hornNearSingle.ogg",
+          "native_path": "assets/hbm/sounds/block/hornnearsingle.ogg",
+          "sha256": "424a6451d63afe805df375c047923c5179ec34af7e655fd1f1602e59f2e24b8c"
+        }
+      ]
+    },
+    "block.hornFarSingle": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/hornFarSingle",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/hornFarSingle",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/hornFarSingle.ogg",
+          "native_path": "assets/hbm/sounds/block/hornfarsingle.ogg",
+          "sha256": "4a1c7b267c13afc1c8d955129917caec75b777a505f65945a5fbc736e4528787"
+        }
+      ]
+    },
+    "block.hornNearDual": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/hornNearDual",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/hornNearDual",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/hornNearDual.ogg",
+          "native_path": "assets/hbm/sounds/block/hornneardual.ogg",
+          "sha256": "31991e9ee7f5f6022471407ab5feb1251df8456b9c8a88c1dfc43356f835d0e6"
+        }
+      ]
+    },
+    "block.hornFarDual": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/hornFarDual",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/hornFarDual",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/hornFarDual.ogg",
+          "native_path": "assets/hbm/sounds/block/hornfardual.ogg",
+          "sha256": "c05b478031e17f6e01732e8bfdfd8d92517b2474c88ba1c86fa4edfb787a078e"
+        }
+      ]
+    },
+    "block.reactorStop": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/reactorStop",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/reactorStop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/reactorStop.ogg",
+          "native_path": "assets/hbm/sounds/block/reactorstop.ogg",
+          "sha256": "839d975e0488006038881f24f2a0a0f3b188e0439041042fe2d3fc62daa32617"
+        }
+      ]
+    },
+    "misc.spincharge": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/spincharge",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/spincharge",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/spincharge.ogg",
+          "native_path": "assets/hbm/sounds/misc/spincharge.ogg",
+          "sha256": "52ccd951f00af4d242de484fc54e243fd9fe6e9a2d9112ac7d3b7273fb7a6fac"
+        }
+      ]
+    },
+    "misc.spinshot": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          "misc/spinshot1",
+          "misc/spinshot2"
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          "hbm:misc/spinshot1",
+          "hbm:misc/spinshot2"
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/spinshot1.ogg",
+          "native_path": "assets/hbm/sounds/misc/spinshot1.ogg",
+          "sha256": "3627a94edfbcb8fed7a62486f4a479ebbd4e0eef0f4d13b69354b07a87ec704a"
+        },
+        {
+          "original_path": "assets/hbm/sounds/misc/spinshot2.ogg",
+          "native_path": "assets/hbm/sounds/misc/spinshot2.ogg",
+          "sha256": "299026e151c40a7ad7c4bd4ef242a9dbb4c5c1f363094af4f8acb85eb19934f6"
+        }
+      ]
+    },
+    "block.boilerGroan": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          "block/boilerGroan0",
+          "block/boilerGroan1",
+          "block/boilerGroan2"
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          "hbm:block/boilerGroan0",
+          "hbm:block/boilerGroan1",
+          "hbm:block/boilerGroan2"
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/boilerGroan0.ogg",
+          "native_path": "assets/hbm/sounds/block/boilergroan0.ogg",
+          "sha256": "231b77050b681d7c936c4faf71d27e609ee7171e1a846c40dc608463e98b5cd2"
+        },
+        {
+          "original_path": "assets/hbm/sounds/block/boilerGroan1.ogg",
+          "native_path": "assets/hbm/sounds/block/boilergroan1.ogg",
+          "sha256": "5957505edc4c5988ecd4f94b2fa788c1beee8f674d92f1e769c0e8341545bf18"
+        },
+        {
+          "original_path": "assets/hbm/sounds/block/boilerGroan2.ogg",
+          "native_path": "assets/hbm/sounds/block/boilergroan2.ogg",
+          "sha256": "9dadf2b3383a5ca91936f823f66e82d1fbaa0485c05231cff6546b366f2d68e3"
+        }
+      ]
+    },
+    "misc.htrstart": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/htr3start",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/htr3start",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/htr3start.ogg",
+          "native_path": "assets/hbm/sounds/misc/htr3start.ogg",
+          "sha256": "714d993811b74cd76e8955dfba83083071406d6eb88424b0d475af32414f7ce3"
+        }
+      ]
+    },
+    "misc.htrstop": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/htrstop",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/htrstop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/htrstop.ogg",
+          "native_path": "assets/hbm/sounds/misc/htrstop.ogg",
+          "sha256": "70a89e5e3bce362a370259ffd33fc2bc73778a5071f3933248d7022cf84c4fd9"
+        }
+      ]
+    },
+    "misc.lpwstart": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/lpw2start",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/lpw2start",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/lpw2start.ogg",
+          "native_path": "assets/hbm/sounds/misc/lpw2start.ogg",
+          "sha256": "41eaa0c447366d5d494db03dfd53e4f7ec92a0372b2f34206f05b3111c5d7c21"
+        }
+      ]
+    },
+    "misc.lpwstop": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/lpwstop",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/lpwstop",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/lpwstop.ogg",
+          "native_path": "assets/hbm/sounds/misc/lpwstop.ogg",
+          "sha256": "2aab765c9094daf33a49a38fca2ec54885a79bbcfaccc3eae921f32eeb1b0db4"
+        }
+      ]
+    },
+    "misc.htrfstart": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/htrstart",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/htrstart",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/htrstart.ogg",
+          "native_path": "assets/hbm/sounds/misc/htrstart.ogg",
+          "sha256": "adad72ea17a12c0ca145a62544dcf173bdeb1a5b1a4f83cf6fd2a35ac5e5d83c"
+        }
+      ]
+    },
+    "block.missileAssembly2": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/missileAssembly2",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/missileAssembly2",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/missileAssembly2.ogg",
+          "native_path": "assets/hbm/sounds/block/missileassembly2.ogg",
+          "sha256": "fafedb6b6d773788dd0544ade66a9f9242b37e315665ecc4cc3b6c5111be939b"
+        }
+      ]
+    },
+    "block.sonarPing": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/sonarPing",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/sonarPing",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/sonarPing.ogg",
+          "native_path": "assets/hbm/sounds/block/sonarping.ogg",
+          "sha256": "92665c5accd47701810c85b53337d833f15f1a36ce8a9c557a34933fd856c534"
+        }
+      ]
+    },
+    "block.turbinegasStartup": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/turbinegasStartup",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/turbinegasStartup",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/turbinegasStartup.ogg",
+          "native_path": "assets/hbm/sounds/block/turbinegasstartup.ogg",
+          "sha256": "5ecefc530e2c3075a3e6c8bfe11068e570601cff303eb07d416fe1a1b3162874"
+        }
+      ]
+    },
+    "block.turbinegasShutdown": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/turbinegasShutdown",
+            "stream": true
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/turbinegasShutdown",
+            "stream": true
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/turbinegasShutdown.ogg",
+          "native_path": "assets/hbm/sounds/block/turbinegasshutdown.ogg",
+          "sha256": "0fe9ce7902ee8953cad5c10041e22f706141be4c90058d0e14eee39378227665"
+        }
+      ]
+    },
+    "block.rbmk_explosion": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/rbmk_explosion",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/rbmk_explosion",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/rbmk_explosion.ogg",
+          "native_path": "assets/hbm/sounds/block/rbmk_explosion.ogg",
+          "sha256": "12f0eeb39d2ec791f5a5f70d23cede7a4b2a47d1a4346eb06ca1ce9ffe5dd654"
+        }
+      ]
+    },
+    "block.warnOverspeed": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/warnOverspeed",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/warnOverspeed",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/warnOverspeed.ogg",
+          "native_path": "assets/hbm/sounds/block/warnoverspeed.ogg",
+          "sha256": "41a046e73c4ac7ebac1feca7d0c8f56f2194eb7926dd4bf3e3b1904652b2cb96"
+        }
+      ]
+    },
+    "alarm.hatch": {
+      "category": "record",
+      "original_definition": {
+        "category": "record",
+        "sounds": [
+          {
+            "name": "alarm/lpfhaiwg",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "record",
+        "sounds": [
+          {
+            "name": "hbm:alarm/lpfhaiwg",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/alarm/lpfhaiwg.ogg",
+          "native_path": "assets/hbm/sounds/alarm/lpfhaiwg.ogg",
+          "sha256": "4ff1d7c41b275420f21364c2f8434b29183f2f837afb22889cd18683bfa084df"
+        }
+      ]
+    },
+    "entity.soyuzTakeoff": {
+      "category": "player",
+      "original_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "entity/soyuzTakeoff",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:entity/soyuzTakeoff",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/entity/soyuzTakeoff.ogg",
+          "native_path": "assets/hbm/sounds/entity/soyuztakeoff.ogg",
+          "sha256": "b5084e53b92f46aa2a113473b5700d3b4950647e51a71869631bfead26f7414a"
+        }
+      ]
+    },
+    "block.steamEngineOperate": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "block/steamEngineOperate",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:block/steamEngineOperate",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/block/steamEngineOperate.ogg",
+          "native_path": "assets/hbm/sounds/block/steamengineoperate.ogg",
+          "sha256": "08087f5f21bdcc71c69fd1d6c0c858023401bd6266148e2834ff73c4360d5bce"
+        }
+      ]
+    },
+    "block.hatchOpen": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "misc/bomb_open",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:misc/bomb_open",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/misc/bomb_open.ogg",
+          "native_path": "assets/hbm/sounds/misc/bomb_open.ogg",
+          "sha256": "f75037f138b686420c7baf75852daafea89b1ea72269c48f42ca7b7951452ba2"
+        }
+      ]
+    },
+    "turret.chekhov_fire": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "turret/chekhov_fire",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:turret/chekhov_fire",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/turret/chekhov_fire.ogg",
+          "native_path": "assets/hbm/sounds/turret/chekhov_fire.ogg",
+          "sha256": "cacf5be40558df52c72ceb4585bf70cf522e03481d7ad4bf0365a0c49a1fd662"
+        }
+      ]
+    },
+    "weapon.rocketFlame": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "weapon/rocketFlame",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:weapon/rocketFlame",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/weapon/rocketFlame.ogg",
+          "native_path": "assets/hbm/sounds/weapon/rocketflame.ogg",
+          "sha256": "da35bca694248a86149864a23077fd16a00e4d7b56d3beb2b0abd8ad5dcfb368"
+        }
+      ]
+    },
+    "turret.howard_reload": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "turret/howard_reload",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:turret/howard_reload",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/turret/howard_reload.ogg",
+          "native_path": "assets/hbm/sounds/turret/howard_reload.ogg",
+          "sha256": "6728df53b7c652a2e6d8439b59f733d21a2abeb12baee2e1cce41725a9920476"
+        }
+      ]
+    },
+    "turret.howard_fire": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "turret/howard_fire",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:turret/howard_fire",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/turret/howard_fire.ogg",
+          "native_path": "assets/hbm/sounds/turret/howard_fire.ogg",
+          "sha256": "d906addfc9d9bc8e7fd9ad1ae61e64269205fb73e132b897629132e5d9efda37"
+        }
+      ]
+    },
+    "turret.richard_fire": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "turret/richard_fire",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:turret/richard_fire",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/turret/richard_fire.ogg",
+          "native_path": "assets/hbm/sounds/turret/richard_fire.ogg",
+          "sha256": "da35bca694248a86149864a23077fd16a00e4d7b56d3beb2b0abd8ad5dcfb368"
+        }
+      ]
+    },
+    "turret.sentry_fire": {
+      "category": "block",
+      "original_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "turret/sentry_fire",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "block",
+        "sounds": [
+          {
+            "name": "hbm:turret/sentry_fire",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/turret/sentry_fire.ogg",
+          "native_path": "assets/hbm/sounds/turret/sentry_fire.ogg",
+          "sha256": "5bda6d00bd2659ad598671a4e3e8238489a281ad21aeeb62c61b5bc27da457a2"
+        }
+      ]
+    },
+    "weapon.tauShoot": {
+      "category": "player",
+      "original_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "weapon/tauShoot",
+            "stream": false
+          }
+        ]
+      },
+      "native_definition": {
+        "category": "player",
+        "sounds": [
+          {
+            "name": "hbm:weapon/tauShoot",
+            "stream": false
+          }
+        ]
+      },
+      "samples": [
+        {
+          "original_path": "assets/hbm/sounds/weapon/tauShoot.ogg",
+          "native_path": "assets/hbm/sounds/weapon/taushoot.ogg",
+          "sha256": "43f50ed5c99595d8a7e7c46dc48b347f920ba4edc10b5ba659dfa9a889b5f748"
+        }
+      ]
+    }
+  }
+}

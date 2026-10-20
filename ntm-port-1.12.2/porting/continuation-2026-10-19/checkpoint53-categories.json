@@ -1,0 +1,3120 @@
+{
+  "diagnostics_observed": 28083,
+  "messages": [
+    [
+      "cannot find symbol",
+      21012
+    ],
+    [
+      "method does not override or implement a method from a supertype",
+      2528
+    ],
+    [
+      "stackSize has private access in ItemStack",
+      838
+    ],
+    [
+      "method getHeldItem in class EntityLivingBase cannot be applied to given types;",
+      394
+    ],
+    [
+      "dimensionId has private access in WorldProvider",
+      230
+    ],
+    [
+      "method getMaterial in class Block cannot be applied to given types;",
+      187
+    ],
+    [
+      "boundingBox has private access in Entity",
+      184
+    ],
+    [
+      "method setBlockToAir in class World cannot be applied to given types;",
+      150
+    ],
+    [
+      "entityLiving has private access in LivingEvent",
+      142
+    ],
+    [
+      "array required, but NonNullList<ItemStack> found",
+      114
+    ],
+    [
+      "stackTagCompound has private access in ItemStack",
+      91
+    ],
+    [
+      "world has private access in WorldEvent",
+      75
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,double,double,double,double,double)",
+      68
+    ],
+    [
+      "no suitable constructor found for ShapelessOreRecipe(ItemStack,Object[])",
+      61
+    ],
+    [
+      "entity has private access in EntityEvent",
+      51
+    ],
+    [
+      "no suitable method found for breakBlock(World,int,int,int,Block,int)",
+      42
+    ],
+    [
+      "constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;",
+      41
+    ],
+    [
+      "method scheduleBlockUpdate in class World cannot be applied to given types;",
+      35
+    ],
+    [
+      "method addArmorMaterial in class EnumHelper cannot be applied to given types;",
+      31
+    ],
+    [
+      "renderDistanceWeight has private access in Entity",
+      30
+    ],
+    [
+      "no suitable method found for isNormalCube(no arguments)",
+      29
+    ],
+    [
+      "ridingEntity has private access in Entity",
+      28
+    ],
+    [
+      "incompatible types: EntityEquipmentSlot cannot be converted to int",
+      28
+    ],
+    [
+      "incompatible types: String cannot be converted to SoundEvent",
+      28
+    ],
+    [
+      "comment has private access in Property",
+      27
+    ],
+    [
+      "setSoundType(SoundType) has protected access in Block",
+      25
+    ],
+    [
+      "incompatible types: int cannot be converted to ClickType",
+      25
+    ],
+    [
+      "incompatible types: ItemStack cannot be converted to ResourceLocation",
+      24
+    ],
+    [
+      "resolution has private access in RenderGameOverlayEvent",
+      23
+    ],
+    [
+      "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      23
+    ],
+    [
+      "entityPlayer has private access in PlayerEvent",
+      23
+    ],
+    [
+      "incomparable types: EntityEquipmentSlot and int",
+      23
+    ],
+    [
+      "method isAir in class Block cannot be applied to given types;",
+      19
+    ],
+    [
+      "constructor Render in class Render<T> cannot be applied to given types;",
+      19
+    ],
+    [
+      "world has private access in BlockEvent",
+      18
+    ],
+    [
+      "incompatible types: int cannot be converted to IBlockState",
+      17
+    ],
+    [
+      "method getBlockHardness in class Block cannot be applied to given types;",
+      16
+    ],
+    [
+      "exploder has private access in Explosion",
+      16
+    ],
+    [
+      "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      16
+    ],
+    [
+      "type has private access in Decorate",
+      16
+    ],
+    [
+      "type has private access in RenderGameOverlayEvent",
+      16
+    ],
+    [
+      "method dropBlockAsItem in class Block cannot be applied to given types;",
+      15
+    ],
+    [
+      "source has private access in LivingHurtEvent",
+      15
+    ],
+    [
+      "splashText has private access in GuiMainMenu",
+      15
+    ],
+    [
+      "constructor RenderLiving in class RenderLiving<T> cannot be applied to given types;",
+      15
+    ],
+    [
+      "no suitable method found for isAirBlock(int,int,int)",
+      14
+    ],
+    [
+      "no suitable method found for spawnParticle(String,float,float,float,double,double,double)",
+      14
+    ],
+    [
+      "method removeTileEntity in class World cannot be applied to given types;",
+      14
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,double,double,int,int,int)",
+      14
+    ],
+    [
+      "partialRenderTick has private access in RenderPlayerEvent",
+      13
+    ],
+    [
+      "incompatible types: EntityPlayer cannot be converted to World",
+      12
+    ],
+    [
+      "world has private access in DecorateBiomeEvent",
+      12
+    ],
+    [
+      "method breakBlock in class Block cannot be applied to given types;",
+      12
+    ],
+    [
+      "method getAttributeModifiers in class Item cannot be applied to given types;",
+      12
+    ],
+    [
+      "method isOpaqueCube in class Block cannot be applied to given types;",
+      12
+    ],
+    [
+      "method randomDisplayTick in class Block cannot be applied to given types;",
+      11
+    ],
+    [
+      "method onBlockAdded in class Block cannot be applied to given types;",
+      11
+    ],
+    [
+      "illegal start of type",
+      11
+    ],
+    [
+      "no suitable method found for playSound(String,float,float)",
+      11
+    ],
+    [
+      "method isReplaceable in class Block cannot be applied to given types;",
+      11
+    ],
+    [
+      "method isReplaceableOreGen in class Block cannot be applied to given types;",
+      11
+    ],
+    [
+      "lastDamage has protected access in EntityLivingBase",
+      11
+    ],
+    [
+      "no suitable method found for playSound(double,double,double,String,float,float,boolean)",
+      11
+    ],
+    [
+      "incompatible types: int cannot be converted to EntityEquipmentSlot",
+      10
+    ],
+    [
+      "furnaceItemStacks has private access in TileEntityFurnace",
+      10
+    ],
+    [
+      "incompatible types: int cannot be converted to BlockPos",
+      9
+    ],
+    [
+      "constructor ScaledResolution in class ScaledResolution cannot be applied to given types;",
+      9
+    ],
+    [
+      "renderViewEntity has private access in Minecraft",
+      9
+    ],
+    [
+      "package worldObj does not exist",
+      9
+    ],
+    [
+      "furnaceBurnTime has private access in TileEntityFurnace",
+      9
+    ],
+    [
+      "no suitable method found for updateTick(World,int,int,int,Random)",
+      9
+    ],
+    [
+      "no suitable constructor found for Fluid(String)",
+      9
+    ],
+    [
+      "renderer has private access in RenderPlayerEvent",
+      8
+    ],
+    [
+      "no suitable method found for getDrops(World,int,int,int,int,int)",
+      8
+    ],
+    [
+      "method canPlayerEdit in class EntityPlayer cannot be applied to given types;",
+      8
+    ],
+    [
+      "non-static method getServer() cannot be referenced from a static context",
+      8
+    ],
+    [
+      "no suitable method found for getTileEntity(int,int,int)",
+      8
+    ],
+    [
+      "incompatible types: int cannot be converted to boolean",
+      8
+    ],
+    [
+      "incompatible types: PropertyBool cannot be converted to ForgeDirection",
+      8
+    ],
+    [
+      "no suitable method found for getUnlocalizedName(no arguments)",
+      7
+    ],
+    [
+      "incompatible types: Block cannot be converted to IBlockState",
+      7
+    ],
+    [
+      "source has private access in LivingDeathEvent",
+      7
+    ],
+    [
+      "method getTileEntity in interface IBlockAccess cannot be applied to given types;",
+      7
+    ],
+    [
+      "skylightSubtracted has private access in World",
+      7
+    ],
+    [
+      "no suitable method found for renderItemAndEffectIntoGUI(FontRenderer,TextureManager,ItemStack,int,int)",
+      7
+    ],
+    [
+      "blockMetadata has private access in TileEntity",
+      7
+    ],
+    [
+      "incompatible types: ITextComponent cannot be converted to String",
+      6
+    ],
+    [
+      "Name has private access in OreRegisterEvent",
+      6
+    ],
+    [
+      "world has private access in FillBucketEvent",
+      6
+    ],
+    [
+      "target has private access in FillBucketEvent",
+      6
+    ],
+    [
+      "source has private access in LivingAttackEvent",
+      6
+    ],
+    [
+      "partialTicks has private access in RenderWorldLastEvent",
+      6
+    ],
+    [
+      "no suitable constructor found for ShapedOreRecipe(ItemStack,Object[])",
+      6
+    ],
+    [
+      "world has private access in PopulateChunkEvent",
+      6
+    ],
+    [
+      "biome has private access in BiomeEvent",
+      6
+    ],
+    [
+      "method generate in class WorldGenerator cannot be applied to given types;",
+      6
+    ],
+    [
+      "method getPickBlock in class Block cannot be applied to given types;",
+      5
+    ],
+    [
+      "right has private access in AnvilRepairEvent",
+      5
+    ],
+    [
+      "method getSubItems in class Item cannot be applied to given types;",
+      5
+    ],
+    [
+      "entity has private access in RenderLivingEvent",
+      5
+    ],
+    [
+      "replacement has private access in GetVillageBlockID",
+      5
+    ],
+    [
+      "constructor EntityLightningBolt in class EntityLightningBolt cannot be applied to given types;",
+      5
+    ],
+    [
+      "no suitable method found for playSound(int,int,int,String,float,float,boolean)",
+      5
+    ],
+    [
+      "lightmapColors has private access in EntityRenderer",
+      5
+    ],
+    [
+      "heightVariation has private access in Biome",
+      5
+    ],
+    [
+      "method renderItemOverlayIntoGUI in class RenderItem cannot be applied to given types;",
+      5
+    ],
+    [
+      "method canDisplace in class BlockFluidBase cannot be applied to given types;",
+      5
+    ],
+    [
+      "method displaceIfPossible in class BlockFluidBase cannot be applied to given types;",
+      5
+    ],
+    [
+      "pressed has private access in KeyBinding",
+      4
+    ],
+    [
+      "pressTime has private access in KeyBinding",
+      4
+    ],
+    [
+      "method getPlayerRelativeBlockHardness in class Block cannot be applied to given types;",
+      4
+    ],
+    [
+      "method dropBlockAsItemWithChance in class Block cannot be applied to given types;",
+      4
+    ],
+    [
+      "method drawButton in class GuiButton cannot be applied to given types;",
+      4
+    ],
+    [
+      "item has private access in RenderItemInFrameEvent",
+      4
+    ],
+    [
+      "player has private access in DrawBlockHighlightEvent",
+      4
+    ],
+    [
+      "red has private access in FogColors",
+      4
+    ],
+    [
+      "green has private access in FogColors",
+      4
+    ],
+    [
+      "blue has private access in FogColors",
+      4
+    ],
+    [
+      "method getTopSolidOrLiquidBlock in class World cannot be applied to given types;",
+      4
+    ],
+    [
+      "tagList has private access in NBTTagList",
+      4
+    ],
+    [
+      "no suitable method found for onItemRightClick(ItemStack,World,EntityPlayer)",
+      4
+    ],
+    [
+      "incompatible types: NonNullList<ItemStack> cannot be converted to ItemStack[]",
+      4
+    ],
+    [
+      "method onBlockPlacedBy in class Block cannot be applied to given types;",
+      4
+    ],
+    [
+      "no suitable method found for getClosestPlayer(int,int,int,int)",
+      4
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,double,double,int,double,int)",
+      4
+    ],
+    [
+      "explosion has private access in ExplosionEvent",
+      4
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,double,double,double,int,double)",
+      4
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,int,double,double,double,double)",
+      4
+    ],
+    [
+      "recentlyHit has protected access in EntityLivingBase",
+      4
+    ],
+    [
+      "attackingPlayer has protected access in EntityLivingBase",
+      4
+    ],
+    [
+      "incompatible types: EntityLivingBase cannot be converted to String",
+      4
+    ],
+    [
+      "incompatible types: ICommandSender cannot be converted to String",
+      4
+    ],
+    [
+      "method onBlockHarvested in class Block cannot be applied to given types;",
+      3
+    ],
+    [
+      "no suitable method found for spawnParticle(String,float,double,float,double,double,double)",
+      3
+    ],
+    [
+      "world has private access in LivingSpawnEvent",
+      3
+    ],
+    [
+      "entityItem has private access in ItemEvent",
+      3
+    ],
+    [
+      "distance has private access in LivingFallEvent",
+      3
+    ],
+    [
+      "method getUnlocalizedName in interface IBlockMulti cannot be applied to given types;",
+      3
+    ],
+    [
+      "highlightingItemStack has protected access in GuiIngame",
+      3
+    ],
+    [
+      "method setTileEntity in class World cannot be applied to given types;",
+      3
+    ],
+    [
+      "method isVecInside in class StructureBoundingBox cannot be applied to given types;",
+      3
+    ],
+    [
+      "chunkX has private access in PopulateChunkEvent",
+      3
+    ],
+    [
+      "chunkZ has private access in PopulateChunkEvent",
+      3
+    ],
+    [
+      "method getBlockLightOpacity in class World cannot be applied to given types;",
+      3
+    ],
+    [
+      "rotationX has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationZ has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationYZ has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationXY has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationXZ has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rand has private access in DecorateBiomeEvent",
+      3
+    ],
+    [
+      "incompatible types: Class<CAP#1> cannot be converted to Class<? extends EntityLivingBase>",
+      3
+    ],
+    [
+      "world has private access in ExplosionEvent",
+      3
+    ],
+    [
+      "incompatible types: NonNullList<ItemStack> cannot be converted to ArrayList<ItemStack>",
+      3
+    ],
+    [
+      "EntityArrow is abstract; cannot be instantiated",
+      3
+    ],
+    [
+      "no suitable method found for getExplosionResistance(Entity,World,int,int,int,double,double,double)",
+      3
+    ],
+    [
+      "constructor RenderChicken in class RenderChicken cannot be applied to given types;",
+      3
+    ],
+    [
+      "no suitable method found for onBlockActivated(World,int,int,int,EntityPlayer,int,float,float,float)",
+      3
+    ],
+    [
+      "running is not public in Minecraft; cannot be accessed from outside package",
+      3
+    ],
+    [
+      "incompatible types: boolean cannot be converted to Material",
+      3
+    ],
+    [
+      "method isLeaves in class Block cannot be applied to given types;",
+      3
+    ],
+    [
+      "method isShearable in interface IShearable cannot be applied to given types;",
+      2
+    ],
+    [
+      "method blockStrength in class ForgeHooks cannot be applied to given types;",
+      2
+    ],
+    [
+      "method canHarvestBlock in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method removedByPlayer in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "Ore has private access in OreRegisterEvent",
+      2
+    ],
+    [
+      "no suitable constructor found for Explosion(World,Entity,double,double,double,float)",
+      2
+    ],
+    [
+      "method onBlockExploded in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "isJumping has protected access in EntityLivingBase",
+      2
+    ],
+    [
+      "x has private access in LivingSpawnEvent",
+      2
+    ],
+    [
+      "y has private access in LivingSpawnEvent",
+      2
+    ],
+    [
+      "z has private access in LivingSpawnEvent",
+      2
+    ],
+    [
+      "current has private access in FillBucketEvent",
+      2
+    ],
+    [
+      "world has private access in OreGenEvent",
+      2
+    ],
+    [
+      "inPortal has protected access in Entity",
+      2
+    ],
+    [
+      "portalCounter has protected access in Entity",
+      2
+    ],
+    [
+      "output has private access in AnvilRepairEvent",
+      2
+    ],
+    [
+      "constructor RenderMinecart in class RenderMinecart<T> cannot be applied to given types;",
+      2
+    ],
+    [
+      "reference to ParticleSplash is ambiguous",
+      2
+    ],
+    [
+      "partialTicks has private access in RenderHandEvent",
+      2
+    ],
+    [
+      "method enableLightmap in class EntityRenderer cannot be applied to given types;",
+      2
+    ],
+    [
+      "method disableLightmap in class EntityRenderer cannot be applied to given types;",
+      2
+    ],
+    [
+      "method isLadder in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "gui has private access in GuiOpenEvent",
+      2
+    ],
+    [
+      "thirdPersonDistance has private access in EntityRenderer",
+      2
+    ],
+    [
+      "partialTicks has private access in DrawBlockHighlightEvent",
+      2
+    ],
+    [
+      "entity has private access in EntityViewRenderEvent",
+      2
+    ],
+    [
+      "incompatible types: List<StructureComponent> cannot be converted to LinkedList<StructureComponent>",
+      2
+    ],
+    [
+      "original has private access in GetVillageBlockID",
+      2
+    ],
+    [
+      "constructor ArrowLooseEvent in class ArrowLooseEvent cannot be applied to given types;",
+      2
+    ],
+    [
+      "charge has private access in ArrowLooseEvent",
+      2
+    ],
+    [
+      "constructor ArrowNockEvent in class ArrowNockEvent cannot be applied to given types;",
+      2
+    ],
+    [
+      "method fall in class Entity cannot be applied to given types;",
+      2
+    ],
+    [
+      "constructor MinecartInteractEvent in class MinecartInteractEvent cannot be applied to given types;",
+      2
+    ],
+    [
+      "lastLightningBolt has private access in World",
+      2
+    ],
+    [
+      "fuseTime has private access in EntityCreeper",
+      2
+    ],
+    [
+      "no suitable method found for getExplosionResistance(<null>,World,int,int,int,int,int,int)",
+      2
+    ],
+    [
+      "resourcePackFile has protected access in AbstractResourcePack",
+      2
+    ],
+    [
+      "no suitable method found for getLightValue(no arguments)",
+      2
+    ],
+    [
+      "incompatible types: ModelBiped cannot be converted to RenderManager",
+      2
+    ],
+    [
+      "method getPlant in interface IPlantable cannot be applied to given types;",
+      2
+    ],
+    [
+      "method updateTick in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method addGameRule in class GameRules cannot be applied to given types;",
+      2
+    ],
+    [
+      "incompatible types: boolean cannot be converted to ITooltipFlag",
+      2
+    ],
+    [
+      "no suitable method found for onBlockAdded(World,int,int,int)",
+      2
+    ],
+    [
+      "no suitable method found for spawnParticle(String,float,int,float,double,double,double)",
+      2
+    ],
+    [
+      "method shouldSideBeRendered in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method isSourceBlock in class BlockFluidClassic cannot be applied to given types;",
+      2
+    ],
+    [
+      "method canPlaceBlockOnSide in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "no suitable constructor found for ItemTool(int,ToolMaterial,Set<Block>)",
+      1
+    ],
+    [
+      "no suitable method found for onBlockDestroyed(ItemStack,World,Block,int,int,int,EntityLivingBase)",
+      1
+    ],
+    [
+      "method canHarvestBlock in class ForgeHooks cannot be applied to given types;",
+      1
+    ],
+    [
+      "incompatible types: String[] cannot be converted to String",
+      1
+    ],
+    [
+      "EntityMissileCustom is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityRideableRocket is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "cannot assign a value to final variable minY",
+      1
+    ],
+    [
+      "method getEntitiesWithinAABBExcludingEntity in class World cannot be applied to given types;",
+      1
+    ],
+    [
+      "heightMap has private access in Chunk",
+      1
+    ],
+    [
+      "world has private access in EntityJoinWorldEvent",
+      1
+    ],
+    [
+      "player has private access in PlaceEvent",
+      1
+    ],
+    [
+      "drops has private access in LivingDropsEvent",
+      1
+    ],
+    [
+      "distance has private access in PlayerFlyableFallEvent",
+      1
+    ],
+    [
+      "world has private access in UseHoeEvent",
+      1
+    ],
+    [
+      "current has private access in UseHoeEvent",
+      1
+    ],
+    [
+      "command has private access in CommandEvent",
+      1
+    ],
+    [
+      "sender has private access in CommandEvent",
+      1
+    ],
+    [
+      "parameters has private access in CommandEvent",
+      1
+    ],
+    [
+      "left has private access in AnvilRepairEvent",
+      1
+    ],
+    [
+      "player has private access in ServerChatEvent",
+      1
+    ],
+    [
+      "message has private access in ServerChatEvent",
+      1
+    ],
+    [
+      "no suitable method found for getLightOpacity(World,int,int,int)",
+      1
+    ],
+    [
+      "TileEntityPistonInserter is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityFluidPump is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "EntityMissileTest is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileMicro is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileSchrabidium is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileBHole is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileTaint is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileEMP is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileGeneric is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileDecoy is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileIncendiary is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileCluster is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileBunkerBuster is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileStrong is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileIncendiaryStrong is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileClusterStrong is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileBusterStrong is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileEMPStrong is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileBurst is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileInferno is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileRain is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileDrill is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileNuclear is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileMirv is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileVolcano is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileDoomsday is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "no suitable constructor found for PositionedSoundRecord(ResourceLocation,float,float,float,float,float)",
+      1
+    ],
+    [
+      "EntityBulletBaseMK4 is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "TileEntityNukeCustom is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "itemStack has private access in ItemTooltipEvent",
+      1
+    ],
+    [
+      "toolTip has private access in ItemTooltipEvent",
+      1
+    ],
+    [
+      "incompatible types: GuiContainer cannot be converted to String",
+      1
+    ],
+    [
+      "incompatible types: Vec3NT cannot be converted to Vec3d",
+      1
+    ],
+    [
+      "x has private access in RenderLivingEvent",
+      1
+    ],
+    [
+      "y has private access in RenderLivingEvent",
+      1
+    ],
+    [
+      "z has private access in RenderLivingEvent",
+      1
+    ],
+    [
+      "renderer has private access in RenderLivingEvent",
+      1
+    ],
+    [
+      "target has private access in DrawBlockHighlightEvent",
+      1
+    ],
+    [
+      "density has private access in FogDensity",
+      1
+    ],
+    [
+      "renderPartialTicks has private access in EntityViewRenderEvent",
+      1
+    ],
+    [
+      "BlockTallPlant is not abstract and does not override abstract method getPlant(IBlockAccess,BlockPos) in IPlantable",
+      1
+    ],
+    [
+      "BlockNTMFlower is not abstract and does not override abstract method getPlant(IBlockAccess,BlockPos) in IPlantable",
+      1
+    ],
+    [
+      "incompatible types: ByteBuf cannot be converted to PacketBuffer",
+      1
+    ],
+    [
+      "type has private access in Populate",
+      1
+    ],
+    [
+      "incompatible types: BlockSand cannot be converted to IBlockState",
+      1
+    ],
+    [
+      "incompatible types: BlockGrass cannot be converted to IBlockState",
+      1
+    ],
+    [
+      "InventoryAmmoBag is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "method getArmorModel in class Item cannot be applied to given types;",
+      1
+    ],
+    [
+      "incompatible types: Integer cannot be converted to Potion",
+      1
+    ],
+    [
+      "incompatible types: ItemStack cannot be converted to World",
+      1
+    ],
+    [
+      "constructor ItemSlab in class ItemSlab cannot be applied to given types;",
+      1
+    ],
+    [
+      "InventoryCrate is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "method updateFallState in class Entity cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityRBMKControlManual is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "method registerFloppy in class Items cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityRBMKConsole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "no suitable constructor found for PotionEffect(int,int,int,boolean)",
+      1
+    ],
+    [
+      "TileEntityBlockPWR is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityPWRController is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "method getUnlocalizedName in class ItemGear cannot be applied to given types;",
+      1
+    ],
+    [
+      "InventoryCasingBag is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "incompatible types: Block cannot be converted to BlockPos",
+      1
+    ],
+    [
+      "InventoryPlasticBag is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "no suitable method found for getItemAttributeModifiers(no arguments)",
+      1
+    ],
+    [
+      "InventoryToolBox is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "InventoryLeadBox is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "InventoryRebar is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "EntityArtilleryShell is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "method getItemAttributeModifiers in class Item cannot be applied to given types;",
+      1
+    ],
+    [
+      "EntityArtilleryRocket is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "method onItemUse in class Item cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor ItemRecord in class ItemRecord cannot be applied to given types;",
+      1
+    ],
+    [
+      "MapGenNTMFeatures is not abstract and does not override abstract method getNearestStructurePos(World,BlockPos,boolean) in MapGenStructure",
+      1
+    ],
+    [
+      "NTMWorldGenerator is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "Geyser is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "GeyserLarge is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Dud is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "HugeMush is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "DesertAtom001 is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Antenna is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Silo is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Barrel is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "LibraryDungeon is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "incompatible types: ResourceLocation cannot be converted to String",
+      1
+    ],
+    [
+      "Spaceship is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Ruin001 is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "non-static method getMetaFromState(IBlockState) cannot be referenced from a static context",
+      1
+    ],
+    [
+      "incompatible types: int cannot be converted to DimensionType",
+      1
+    ],
+    [
+      "method resetEquippedProgress in class ItemRenderer cannot be applied to given types;",
+      1
+    ],
+    [
+      "method addBlockDestroyEffects in class ParticleManager cannot be applied to given types;",
+      1
+    ],
+    [
+      "FauxWorld is not abstract and does not override abstract method isChunkLoaded(int,int,boolean) in World",
+      1
+    ],
+    [
+      "incompatible types: String cannot be converted to WorldInfo",
+      1
+    ],
+    [
+      "PartsTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "BlockTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "ControlTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "NukeTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "MachineTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "ConsumableTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "MissileTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "TemplateTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "WeaponTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "EntityMissileAntiBallistic is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileStealth is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityMissileShuttle is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityDeliveryDrone is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "method getRailMaxSpeed in class BlockRailBase cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor MinecartUpdateEvent in class MinecartUpdateEvent cannot be applied to given types;",
+      1
+    ],
+    [
+      "method onMinecartPass in class BlockRailBase cannot be applied to given types;",
+      1
+    ],
+    [
+      "EntityMinecartTest is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMagnusCartus is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartBogie is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartSemtex is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "bindEntityTexture(Entity) in RenderNeoCart cannot override bindEntityTexture(T) in Render",
+      1
+    ],
+    [
+      "EntityMinecartPowder is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartOre is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartCrate is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartDestroyer is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "writeToNBT(NBTTagCompound) in EntityFireLingering cannot override writeToNBT(NBTTagCompound) in Entity",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityGlyphid cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "incompatible types: EntityFish cannot be converted to EntityCreature",
+      1
+    ],
+    [
+      "EntityFBI is not abstract and does not override abstract method setSwingingArms(boolean) in IRangedAttackMob",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityWormBaseNT cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "incompatible types: inference variable T has incompatible bounds",
+      1
+    ],
+    [
+      "getDeathSound() in EntityBOTPrimeBase cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityUFOBase cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "EntityCyberCrab is not abstract and does not override abstract method setSwingingArms(boolean) in IRangedAttackMob",
+      1
+    ],
+    [
+      "getDeathSound() in EntityCyberCrab cannot override getDeathSound() in EntityMob",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityFBIDrone cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityBurrowingBase cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityPigeon cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "bad operand types for binary operator '-'",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityBurrowingSwingingBase cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "no suitable method found for getHurtSound(no arguments)",
+      1
+    ],
+    [
+      "getDeathSound() in EntityUndeadSoldier cannot override getDeathSound() in EntityMob",
+      1
+    ],
+    [
+      "incompatible types: SoundEvent cannot be converted to String",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityHunterChopper cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityHunterChopper cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "getDeathSound() in EntityPlasticBag cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityPlasticBag cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityDuck cannot override getDeathSound() in EntityChicken",
+      1
+    ],
+    [
+      "getDeathSound() in EntityQuackos cannot override getDeathSound() in EntityChicken",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityBFAngel cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityBFAngel cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityUFO cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityUFO cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntitySiegeCraft cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntitySiegeUFO cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityRADBeast cannot override getDeathSound() in EntityMob",
+      1
+    ],
+    [
+      "no suitable method found for getExplosionResistance(EntityGlyphidDigger,World,int,int,int,double,double,double)",
+      1
+    ],
+    [
+      "EntityGrenadeIFToxic is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeZOMG is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFGeneric is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeCluster is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFHE is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeBouncyGeneric is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFBrimstone is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeShrapnel is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeGeneric is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeMIRV is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFNull is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeLemon is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFSticky is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFBouncy is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFSpark is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeBurst is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeFire is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeStrong is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeNuclear is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadePlasma is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeGas is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeElectric is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFIncendiary is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFMystery is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeTau is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeFrag is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeSchrabidium is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFHopwire is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadePulse is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeMk2 is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadePoison is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeIFConcussion is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeDynamite is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityGrenadeBlackHole is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityAcidBomb is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityBullet is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "method getBrightnessForRender in class Entity cannot be applied to given types;",
+      1
+    ],
+    [
+      "method getBrightness in class Entity cannot be applied to given types;",
+      1
+    ],
+    [
+      "EntityChemical is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntitySchrab is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityBulletBaseNT is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityCog is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntitySawblade is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "no suitable method found for playSound(double,double,double,String,int,int,boolean)",
+      1
+    ],
+    [
+      "EntityRubble is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityCoin is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityChopperMine is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityRocket is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "EntityExplosiveBeam is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$1> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$2> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$3> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$4> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$5> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$6> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$7> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$8> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$9> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$10> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$11> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$12> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$13> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$14> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$15> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$16> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$17> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$18> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$19> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$20> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$21> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$22> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$23> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$24> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$25> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$26> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$27> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$28> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$29> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$30> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$31> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$32> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$33> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$34> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$35> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$36> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$37> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$38> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$39> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$40> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$41> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$42> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$43> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$44> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$45> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "TileEntityMassStorage is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "result has private access in FillBucketEvent",
+      1
+    ],
+    [
+      "no suitable method found for getExplosionResistance(<null>,World,int,int,int,double,double,double)",
+      1
+    ],
+    [
+      "lightmapTexture has private access in EntityRenderer",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenIke cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "method getModdedNoiseGenerators in class TerrainGen cannot be applied to given types;",
+      1
+    ],
+    [
+      "WorldGeneratorIke is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGeneratorDres is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseDres cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorMoon is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGeneratorLaythe is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseLaythe cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorEve is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGenElectricVolcano is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "WorldGenEveSpike is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseEve cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseDuna cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorDuna is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGenRubberPlant is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "WorldGeneratorCelestial is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "type has private access in GenerateMinable",
+      1
+    ],
+    [
+      "no suitable constructor found for WorldGenMinable(Block,int,int,Block)",
+      1
+    ],
+    [
+      "no suitable method found for generate(World,Random,int,int,int)",
+      1
+    ],
+    [
+      "WorldGeneratorThatmo is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGeneratorMoho is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseMoho cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseMinmus cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorMinmus is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldProviderOrbit is not abstract and does not override abstract method getDimensionType() in WorldProvider",
+      1
+    ],
+    [
+      "WorldGeneratorTekto is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "TTree is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseTekto cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "method generateOres in class BiomeDecorator cannot be applied to given types;",
+      1
+    ],
+    [
+      "no suitable method found for renderSky(float)",
+      1
+    ],
+    [
+      "method getRenderType in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "method getPrecipitationHeight in class World cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor RenderCreeper in class RenderCreeper cannot be applied to given types;",
+      1
+    ],
+    [
+      "name clash: preRenderCallback(EntityLivingBase,float) in RenderQuacc and preRenderCallback(T,float) in RenderLivingBase have the same erasure, yet neither overrides the other",
+      1
+    ],
+    [
+      "constructor RenderBiped in class RenderBiped<T> cannot be applied to given types;",
+      1
+    ],
+    [
+      "name clash: getEntityTexture(Entity) in RenderDuck and getEntityTexture(T) in Render have the same erasure, yet neither overrides the other",
+      1
+    ],
+    [
+      "incompatible types: ModelFBI cannot be converted to RenderManager",
+      1
+    ],
+    [
+      "no suitable constructor found for ModelZombie(float,float,int,int)",
+      1
+    ],
+    [
+      "TileEntityProxyCombo is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "reference to canConnectNode is ambiguous",
+      1
+    ],
+    [
+      "TileEntityProxyInventory is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeN2 is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityLaunchPadRocket is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityLaunchPadLarge is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityNukeFleija is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityBombMulti is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukePrototype is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityLaunchTable is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeMan is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeSolinium is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeBoy is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeMike is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeGadget is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCompactLauncher is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityLaunchPad is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityNukeTsar is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineBattery is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateTemplate is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCrateTungsten is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityFileCabinet is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityBarrel is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateIron is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntitySafe is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityBatteryREDD is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityBatterySocket is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateDesh is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineFluidTank is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateSteel is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineStardar is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionTorus is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionBreeder is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionKlystron is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionMHDT is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionBoiler is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityRtgFurnace is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityICF is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityAirPump is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityReactorControl is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityReactorResearch is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityRBMKHeater is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKControlAuto is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKRod is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKStorage is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCraneConsole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityRBMKBoiler is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKOutgasser is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKCooler is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "method getPlantType in interface IPlantable cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityChungus is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "incompatible types: Block cannot be converted to String",
+      1
+    ],
+    [
+      "TileEntityMachineSatDock is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineMissileAssembly is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineReactorBreeding is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineRadarNT is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineSiren is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMicrowave is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityWasteDrum is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineTurbine is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCoreReceiver is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineKeyForge is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityReactorZirnox is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "no suitable method found for getClosestPlayer(double,int,double,int)",
+      1
+    ],
+    [
+      "TileEntityGeiger is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineSatLinker is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCoreStabilizer is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,int,double,int,int,int)",
+      1
+    ],
+    [
+      "TileEntityMachineCoker is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "no suitable method found for spawnParticle(String,double,int,double,int,double,int)",
+      1
+    ],
+    [
+      "TileEntityMachineLargeTurbine is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineTurbineGas is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineShredder is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineCombustionEngine is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPASource is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPAQuadrupole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPARFC is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPADetector is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPADipole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityForceField is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCoreEmitter is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCoreInjector is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "currentItemBurnTime has private access in TileEntityFurnace",
+      1
+    ],
+    [
+      "TileEntityRadioTorchBase is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityDroneDock is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRadioTelex is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFluidCounterValve is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityDroneProvider is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "incompatible types: ForgeDirection cannot be converted to EnumFacing",
+      1
+    ],
+    [
+      "TileEntityDroneRequester is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityTurretRichard is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretSentry is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretHoward is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretArty is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretBrandon is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretTauon is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretFritz is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretMaxwell is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretChekhov is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretJeremy is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretHIMARS is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCapacitor is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCableGauge is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPipeGauge is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityOpenComputersCablePaintable is not abstract and does not override abstract method controlsConnectivity() in Colored",
+      1
+    ],
+    [
+      "no suitable method found for countAStackMatches(NonNullList<ItemStack>,AStack,boolean)",
+      1
+    ],
+    [
+      "constructor Potion in class Potion cannot be applied to given types;",
+      1
+    ],
+    [
+      "TestCraftingHandler is not abstract and does not override abstract method canFit(int,int) in IRecipe",
+      1
+    ],
+    [
+      "RBMKFuelCraftingHandler is not abstract and does not override abstract method canFit(int,int) in IRecipe",
+      1
+    ],
+    [
+      "CargoShellCraftingHandler is not abstract and does not override abstract method canFit(int,int) in IRecipe",
+      1
+    ],
+    [
+      "MKUCraftingHandler is not abstract and does not override abstract method canFit(int,int) in IRecipe",
+      1
+    ],
+    [
+      "ScrapsCraftingHandler is not abstract and does not override abstract method canFit(int,int) in IRecipe",
+      1
+    ],
+    [
+      "method openInventory in interface IInventory cannot be applied to given types;",
+      1
+    ],
+    [
+      "method closeInventory in interface IInventory cannot be applied to given types;",
+      1
+    ],
+    [
+      "Row is not abstract and does not override abstract method drawEntry(int,int,int,int,int,int,int,boolean,float) in IGuiListEntry",
+      1
+    ],
+    [
+      "BlockRubberLeaves is not abstract and does not override abstract method getWoodType(int) in BlockLeaves",
+      1
+    ],
+    [
+      "no suitable method found for dropBlockAsItemWithChance(World,int,int,int,int,float,int)",
+      1
+    ],
+    [
+      "scheduledUpdatesAreImmediate has protected access in World",
+      1
+    ],
+    [
+      "no suitable method found for randomDisplayTick(World,int,int,int,Random)",
+      1
+    ],
+    [
+      "BlockMultiSlab is not abstract and does not override abstract method getTypeForItem(ItemStack) in BlockSlab",
+      1
+    ],
+    [
+      "method canCreatureSpawn in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "method canProvidePower in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "method setBlockBoundsBasedOnState in class BlockModDoor cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor BlockPane in class BlockPane cannot be applied to given types;",
+      1
+    ],
+    [
+      "method canPaneConnectTo in class BlockPane cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor BlockStairs in class BlockStairs cannot be applied to given types;",
+      1
+    ],
+    [
+      "BlockPinkSlab is not abstract and does not override abstract method getTypeForItem(ItemStack) in BlockSlab",
+      1
+    ],
+    [
+      "BlockMush is not abstract and does not override abstract method grow(World,Random,BlockPos,IBlockState) in IGrowable",
+      1
+    ],
+    [
+      "BlockTallPlantWater is not abstract and does not override abstract method getPlant(IBlockAccess,BlockPos) in IPlantable",
+      1
+    ],
+    [
+      "BlockCrop is not abstract and does not override abstract method grow(World,Random,BlockPos,IBlockState) in IGrowable",
+      1
+    ],
+    [
+      "no suitable method found for canPlaceBlockAt(World,int,int,int)",
+      1
+    ],
+    [
+      "no suitable constructor found for EntityFallingBlock(World,double,double,double,BlockTaint,int)",
+      1
+    ],
+    [
+      "RailHighspeed is not abstract and does not override abstract method getShapeProperty() in BlockRailBase",
+      1
+    ],
+    [
+      "context has private access in DrawBlockHighlightEvent",
+      1
+    ],
+    [
+      "RailGeneric is not abstract and does not override abstract method getShapeProperty() in BlockRailBase",
+      1
+    ],
+    [
+      "method setBlockBounds in class ConnectorRedWireSuper cannot be applied to given types;",
+      1
+    ],
+    [
+      "method setBlockBounds in class FluidPipeAnchor cannot be applied to given types;",
+      1
+    ],
+    [
+      "method setBlockBounds in class ConnectorRedWire cannot be applied to given types;",
+      1
+    ],
+    [
+      "CommandRadiation is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandCustomize is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandReloadClient is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandLocate is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "no suitable constructor found for PlayerNotFoundException(no arguments)",
+      1
+    ],
+    [
+      "CommandReloadRecipes is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandSatellites is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandReloadServer is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandStations is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandDebugChunkLoad is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandReapNetworks is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandTotalTime is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandPacketInfo is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "SuicideThreadDump is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ]
+  ],
+  "symbols": [
+    [
+      "method setBlock(int,int,int,Block,int,int)",
+      7526
+    ],
+    [
+      "method getBlock(int,int,int)",
+      943
+    ],
+    [
+      "variable fontRendererObj",
+      748
+    ],
+    [
+      "method setBlockTextureName(String)",
+      422
+    ],
+    [
+      "method playSoundAtEntity(EntityLivingBase,String,float,float)",
+      409
+    ],
+    [
+      "variable dataWatcher",
+      380
+    ],
+    [
+      "variable xCoord",
+      325
+    ],
+    [
+      "variable zCoord",
+      325
+    ],
+    [
+      "variable yCoord",
+      305
+    ],
+    [
+      "method getBlockMetadata(int,int,int)",
+      297
+    ],
+    [
+      "method setBlock(int,int,int,Block)",
+      272
+    ],
+    [
+      "method setBlockMetadataWithNotify(int,int,int,int,int)",
+      267
+    ],
+    [
+      "method addVertex(double,double,double)",
+      237
+    ],
+    [
+      "method setUnlocalizedName(String)",
+      217
+    ],
+    [
+      "method getUnlocalizedName()",
+      202
+    ],
+    [
+      "method playSoundEffect(double,double,double,String,float,float)",
+      195
+    ],
+    [
+      "method addRecipe(ItemStack,Object[])",
+      185
+    ],
+    [
+      "method getBoundingBox(int,int,int,int,int,int)",
+      179
+    ],
+    [
+      "method getWorldObj()",
+      165
+    ],
+    [
+      "variable thePlayer",
+      160
+    ],
+    [
+      "method func_147674_a(ResourceLocation,float)",
+      156
+    ],
+    [
+      "variable instance",
+      145
+    ],
+    [
+      "method startDrawingQuads()",
+      130
+    ],
+    [
+      "method addVertexWithUV(double,double,double,double,double)",
+      130
+    ],
+    [
+      "variable blockIcon",
+      128
+    ],
+    [
+      "variable worldObj",
+      127
+    ],
+    [
+      "method setBlockBounds(float,float,float,float,float,float)",
+      123
+    ],
+    [
+      "method getBoundingBox(double,double,double,double,double,double)",
+      123
+    ],
+    [
+      "method playSoundEffect(int,int,int,String,float,float)",
+      111
+    ],
+    [
+      "variable iron",
+      103
+    ],
+    [
+      "method getDataWatcher()",
+      101
+    ],
+    [
+      "method setStepSound(SoundType)",
+      99
+    ],
+    [
+      "method setColorOpaque_I(int)",
+      87
+    ],
+    [
+      "variable riddenByEntity",
+      86
+    ],
+    [
+      "method spawnEntityInWorld(EntityItem)",
+      84
+    ],
+    [
+      "method playSoundAtEntity(EntityPlayer,String,float,float)",
+      84
+    ],
+    [
+      "method addVertexWithUV(double,double,double,int,int)",
+      84
+    ],
+    [
+      "method setColorRGBA_F(float,float,float,float)",
+      82
+    ],
+    [
+      "method func_146283_a(List<String>,int,int)",
+      80
+    ],
+    [
+      "method loadItemStackFromNBT(NBTTagCompound)",
+      70
+    ],
+    [
+      "method isBlockIndirectlyGettingPowered(int,int,int)",
+      68
+    ],
+    [
+      "variable air",
+      66
+    ],
+    [
+      "variable id",
+      65
+    ],
+    [
+      "method func_147480_a(int,int,int,boolean)",
+      60
+    ],
+    [
+      "method getHeightValue(int,int)",
+      59
+    ],
+    [
+      "variable yOffset",
+      50
+    ],
+    [
+      "method setStepSound(ModSoundType)",
+      49
+    ],
+    [
+      "variable dispenseBehaviorRegistry",
+      49
+    ],
+    [
+      "method addVertexWithUV(float,double,float,double,double)",
+      48
+    ],
+    [
+      "variable movementSpeed",
+      46
+    ]
+  ],
+  "packages": [
+    [
+      "com/hbm/world/dungeon",
+      7351
+    ],
+    [
+      "com/hbm/inventory/gui",
+      1848
+    ],
+    [
+      "com/hbm/tileentity/machine",
+      1693
+    ],
+    [
+      "com/hbm/blocks/machine",
+      1569
+    ],
+    [
+      "com/hbm/blocks/generic",
+      1349
+    ],
+    [
+      "com/hbm/items/weapon",
+      936
+    ],
+    [
+      "com/hbm/blocks/bomb",
+      868
+    ],
+    [
+      "com/hbm/render/tileentity",
+      793
+    ],
+    [
+      "com/hbm/entity/mob",
+      786
+    ],
+    [
+      "com/hbm/items/tool",
+      719
+    ],
+    [
+      "com/hbm/blocks/ModBlocks.java",
+      594
+    ],
+    [
+      "com/hbm/entity/projectile",
+      511
+    ],
+    [
+      "com/hbm/render/entity",
+      438
+    ],
+    [
+      "com/hbm/items/armor",
+      401
+    ],
+    [
+      "com/hbm/main/ModEventHandler.java",
+      385
+    ],
+    [
+      "com/hbm/entity/item",
+      350
+    ],
+    [
+      "com/hbm/items/special",
+      332
+    ],
+    [
+      "com/hbm/blocks/network",
+      279
+    ],
+    [
+      "com/hbm/inventory/container",
+      276
+    ],
+    [
+      "com/hbm/crafting/MineralRecipes.java",
+      269
+    ],
+    [
+      "com/hbm/blocks/fluid",
+      258
+    ],
+    [
+      "com/hbm/items/machine",
+      247
+    ],
+    [
+      "com/hbm/tileentity/bomb",
+      241
+    ],
+    [
+      "com/hbm/main/ModEventHandlerClient.java",
+      216
+    ],
+    [
+      "com/hbm/world/gen",
+      214
+    ],
+    [
+      "com/hbm/dim/SkyProviderCelestial.java",
+      204
+    ],
+    [
+      "com/hbm/items/food",
+      200
+    ],
+    [
+      "com/hbm/items/ModItemsArmor.java",
+      195
+    ],
+    [
+      "com/hbm/entity/missile",
+      177
+    ],
+    [
+      "com/hbm/world/feature",
+      174
+    ]
+  ],
+  "files": [
+    [
+      "com/hbm/world/dungeon/DesertAtom002.java",
+      2005
+    ],
+    [
+      "com/hbm/world/dungeon/DesertAtom003.java",
+      1471
+    ],
+    [
+      "com/hbm/world/dungeon/Silo.java",
+      1392
+    ],
+    [
+      "com/hbm/world/dungeon/DesertAtom001.java",
+      800
+    ],
+    [
+      "com/hbm/blocks/ModBlocks.java",
+      594
+    ],
+    [
+      "com/hbm/world/dungeon/LibraryDungeon.java",
+      457
+    ],
+    [
+      "com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      429
+    ],
+    [
+      "com/hbm/main/ModEventHandler.java",
+      385
+    ],
+    [
+      "com/hbm/world/dungeon/Spaceship.java",
+      337
+    ],
+    [
+      "com/hbm/world/dungeon/Barrel.java",
+      282
+    ],
+    [
+      "com/hbm/crafting/MineralRecipes.java",
+      269
+    ],
+    [
+      "com/hbm/world/dungeon/Ruin001.java",
+      242
+    ],
+    [
+      "com/hbm/world/dungeon/Ruin002.java",
+      229
+    ],
+    [
+      "com/hbm/main/ModEventHandlerClient.java",
+      216
+    ],
+    [
+      "com/hbm/dim/SkyProviderCelestial.java",
+      204
+    ],
+    [
+      "com/hbm/items/ModItemsArmor.java",
+      195
+    ],
+    [
+      "com/hbm/tileentity/machine/TileEntityMultiblock.java",
+      139
+    ],
+    [
+      "com/hbm/items/tool/ItemToolAbility.java",
+      120
+    ],
+    [
+      "com/hbm/handler/DispenserBehaviorHandler.java",
+      114
+    ],
+    [
+      "com/hbm/entity/item/EntityMinecartModBase.java",
+      109
+    ],
+    [
+      "com/hbm/explosion/ExplosionNT.java",
+      99
+    ],
+    [
+      "com/hbm/items/special/ItemSyringe.java",
+      93
+    ],
+    [
+      "com/hbm/items/weapon/sedna/factory/LegoClient.java",
+      88
+    ],
+    [
+      "com/hbm/world/gen/util/LogicBlockActions.java",
+      83
+    ],
+    [
+      "com/hbm/render/model/ModelArmorWingsPheo.java",
+      82
+    ],
+    [
+      "com/hbm/entity/item/EntityMinecartDeobf.java",
+      80
+    ],
+    [
+      "com/hbm/explosion/ExplosionNukeGeneric.java",
+      77
+    ],
+    [
+      "com/hbm/main/ModEventHandlerImpact.java",
+      74
+    ],
+    [
+      "com/hbm/world/dungeon/Spaceship2.java",
+      74
+    ],
+    [
+      "com/hbm/main/ClientProxy.java",
+      72
+    ]
+  ],
+  "note": "Complete observed run below configured100000 cap; fullbuild fails. Counts not distinctdefects."
+}

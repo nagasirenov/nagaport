@@ -4,12 +4,18 @@ import api.hbm.block.IFuckingExplode;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityTNTPrimedBase extends Entity {
+
+	private static final DataParameter<Integer> BLOCK_ID = EntityDataManager.createKey(EntityTNTPrimedBase.class, DataSerializers.VARINT);
+
 
 	public boolean detonateOnCollision;
 	public int fuse;
@@ -42,12 +48,12 @@ public class EntityTNTPrimedBase extends Entity {
 		this.prevPosY = y;
 		this.prevPosZ = z;
 		this.tntPlacedBy = entity;
-		this.dataWatcher.updateObject(12, Block.getIdFromBlock(bomb));
+		this.dataManager.set(BLOCK_ID, Block.getIdFromBlock(bomb));
 	}
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(12, 0);
+		this.dataManager.register(BLOCK_ID, 0);
 	}
 
 	@Override
@@ -86,16 +92,16 @@ public class EntityTNTPrimedBase extends Entity {
 		if(this.fuse-- <= 0 || (this.detonateOnCollision && this.isCollided)) {
 			this.setDead();
 
-			if(!this.worldObj.isRemote) {
+			if(!this.world.isRemote) {
 				this.explode();
 			}
 		} else {
-			this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+			this.world.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
 		}
 	}
 
 	private void explode() {
-		this.getBomb().explodeEntity(worldObj, posX, posY, posZ, this);
+		this.getBomb().explodeEntity(this.world, posX, posY, posZ, this);
 	}
 
 	public IFuckingExplode getBomb() {
@@ -103,19 +109,19 @@ public class EntityTNTPrimedBase extends Entity {
 	}
 
 	public Block getBlock() {
-		return Block.getBlockById(this.dataWatcher.getWatchableObjectInt(12));
+		return Block.getBlockById(this.dataManager.get(BLOCK_ID));
 	}
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setByte("Fuse", (byte) this.fuse);
-		nbt.setInteger("Tile", this.dataWatcher.getWatchableObjectInt(12));
+		nbt.setInteger("Tile", this.dataManager.get(BLOCK_ID));
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		this.fuse = nbt.getByte("Fuse");
-		this.dataWatcher.updateObject(12, nbt.getInteger("Tile"));
+		this.dataManager.set(BLOCK_ID, nbt.getInteger("Tile"));
 	}
 
 	@Override

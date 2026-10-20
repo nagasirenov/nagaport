@@ -8,9 +8,14 @@ import net.minecraft.nbt.NBTSizeTracker;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.zip.GZIPInputStream;
 
 public class BufferUtil {
 
@@ -97,7 +102,9 @@ public class BufferUtil {
 		if(compound != null) {
 			byte[] nbtData = new byte[0];
 			try {
-				nbtData = CompressedStreamTools.compress(compound);
+				ByteArrayOutputStream output = new ByteArrayOutputStream();
+				CompressedStreamTools.writeCompressed(compound, output);
+				nbtData = output.toByteArray();
 			} catch(IOException e) {
 				e.printStackTrace();
 			}
@@ -118,7 +125,10 @@ public class BufferUtil {
 		byte[] tags = new byte[nbtLength];
 		buf.readBytes(tags);
 		try {
-			return CompressedStreamTools.func_152457_a(tags, new NBTSizeTracker(2097152L));
+			// readCompressed uses an unlimited tracker in 1.12; retain the old 2 MiB limit.
+			try(DataInputStream input = new DataInputStream(new BufferedInputStream(new GZIPInputStream(new ByteArrayInputStream(tags))))) {
+				return CompressedStreamTools.read(input, new NBTSizeTracker(2097152L));
+			}
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -129,16 +139,17 @@ public class BufferUtil {
 	 * Writes the ItemStack to the buffer.
 	 */
 	public static void writeItemStack(ByteBuf buf, ItemStack item) {
-		if (item == null)
+		// Native empty stacks have no publicly readable legacy item/count identity.
+		if (item == null || item.isEmpty())
 			buf.writeShort(-1);
 		else {
 			buf.writeShort(Item.getIdFromItem(item.getItem()));
-			buf.writeByte(item.stackSize);
+			buf.writeByte(item.getCount());
 			buf.writeShort(item.getItemDamage());
 			NBTTagCompound nbtTagCompound = null;
 
 			if (item.getItem().isDamageable() || item.getItem().getShareTag())
-				nbtTagCompound = item.stackTagCompound;
+				nbtTagCompound = item.getTagCompound();
 
 			writeNBT(buf, nbtTagCompound);
 		}
@@ -155,7 +166,7 @@ public class BufferUtil {
 			byte quantity = buf.readByte();
 			short meta = buf.readShort();
 			item = new ItemStack(Item.getItemById(id), quantity, meta);
-			item.stackTagCompound = readNBT(buf);
+			item.setTagCompound(readNBT(buf));
 		}
 		return item;
 	}

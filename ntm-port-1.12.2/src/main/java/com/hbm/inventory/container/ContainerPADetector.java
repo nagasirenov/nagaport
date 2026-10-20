@@ -40,7 +40,7 @@ public class ContainerPADetector extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return detector.isUseableByPlayer(player);
+		return detector.isUsableByPlayer(player);
 	}
 
 	@Override

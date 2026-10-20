@@ -36,15 +36,15 @@ public class ItemTurretBiometry extends Item {
 	}
 
 	public static String[] getNames(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 			return null;
 		}
 
-		String[] names = new String[stack.stackTagCompound.getInteger("playercount")];
+		String[] names = new String[stack.getTagCompound().getInteger("playercount")];
 
 		for(int i = 0; i < names.length; i++) {
-			names[i] = stack.stackTagCompound.getString("player_" + i);
+			names[i] = stack.getTagCompound().getString("player_" + i);
 		}
 
 		if(names.length == 0)
@@ -54,8 +54,8 @@ public class ItemTurretBiometry extends Item {
 	}
 
 	public static void addName(ItemStack stack, String s) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
 		String[] names = getNames(stack);
@@ -67,16 +67,16 @@ public class ItemTurretBiometry extends Item {
 		if(names != null)
 			count = names.length;
 
-		stack.stackTagCompound.setInteger("playercount", count + 1);
+		stack.getTagCompound().setInteger("playercount", count + 1);
 
-		stack.stackTagCompound.setString("player_" + count, s);
+		stack.getTagCompound().setString("player_" + count, s);
 	}
 
 	public static void clearNames(ItemStack stack) {
-		if(stack.stackTagCompound == null) {
-			stack.stackTagCompound = new NBTTagCompound();
+		if(stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.stackTagCompound.setInteger("playercount", 0);
+		stack.getTagCompound().setInteger("playercount", 0);
 	}
 }

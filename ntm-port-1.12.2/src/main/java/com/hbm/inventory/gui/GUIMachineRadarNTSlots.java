@@ -15,7 +15,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.network.play.client.C0DPacketCloseWindow;
+import net.minecraft.network.play.client.CPacketCloseWindow;
 import net.minecraft.util.ResourceLocation;
 
 public class GUIMachineRadarNTSlots extends GuiInfoContainer {
@@ -36,9 +36,9 @@ public class GUIMachineRadarNTSlots extends GuiInfoContainer {
 		super.mouseClicked(x, y, i);
 		
 		if(checkClick(x, y, 5, 5, 8, 8)) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
-			this.mc.thePlayer.sendQueue.addToSendQueue(new C0DPacketCloseWindow(this.mc.thePlayer.openContainer.windowId)); // closes the server-side GUI component without resetting the client's cursor position
-			FMLNetworkHandler.openGui(this.mc.thePlayer, MainRegistry.instance, 0, radar.getWorldObj(), radar.xCoord, radar.yCoord, radar.zCoord);
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
+			this.mc.player.connection.sendPacket(new CPacketCloseWindow(this.mc.player.openContainer.windowId)); // closes the server-side GUI component without resetting the client's cursor position
+			FMLNetworkHandler.openGui(this.mc.player, MainRegistry.instance, 0, radar.getWorld(), radar.getPos().getX(), radar.getPos().getY(), radar.getPos().getZ());
 		}
 	}
 
@@ -46,15 +46,15 @@ public class GUIMachineRadarNTSlots extends GuiInfoContainer {
 	public void drawScreen(int mouseX, int mouseY, float f) {
 		super.drawScreen(mouseX, mouseY, f);
 		
-		if(checkClick(mouseX, mouseY, 5, 5, 8, 8)) this.func_146283_a(Arrays.asList(I18nUtil.resolveKeyArray("radar.toggleGui")), mouseX, mouseY);
+		if(checkClick(mouseX, mouseY, 5, 5, 8, 8)) this.drawHoveringText(Arrays.asList(I18nUtil.resolveKeyArray("radar.toggleGui")), mouseX, mouseY);
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.radar.hasCustomInventoryName() ? this.radar.getInventoryName() : I18n.format(this.radar.getInventoryName());
 		if(MainRegistry.polaroidID == 11) name = "Reda";
-		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override

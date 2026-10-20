@@ -1,0 +1,19 @@
+{
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "5e3240f4636af793598d2b5dbce9c17139fb1b0151320c0b2992c7f70b22f498",
+  "src/main/java/com/hbm/blocks/PlainCubeTextures.java": "89f4baae91d7e920f90244c353a68ed51b42898e28c14fdb447a7ff82214be07",
+  "src/main/java/com/hbm/main/PlainCubeModelHandler.java": "7705f2ed8df2bdd249d38d8948eec046d8761561cb7ad595c4652a84030bc3a1",
+  "src/main/java/com/hbm/render/model/PlainCubeModel.java": "43920d78146b1771b6e28cedb5d216eba5d4e318e99c8555c0fc47452b0b4d35",
+  "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": "e91c3d6ceac40c90e6ca188c9dbddf84205403c260ccd9b2ac32250dc2bef984",
+  "src/main/java/com/hbm/blocks/generic/BlockSmolder.java": "7176d16f5a6ac7478a595cba87d5a4b8f422a011d0e16830ac28b2a8af20b7eb",
+  "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": "f7370b39a374a5b2dc549858efd15c88cdb1d42fb07c76cad5e230680381f08e",
+  "porting/tests/plain-cube-textures/run-native.py": "5098d9e18a9f0b90981d09a4135c28565ba73ad95b24ba8ffb91d56b02689419",
+  "porting/tests/plain-cube-textures/TextureAttribution.java": "54c568350efdb71a44d74dd76ba2edae741b35fdf26a006d2a7797088979f04f",
+  "porting/tests/plain-cube-textures/PlainCubeNativeTest.java": "29013451fff331f637a99475c59b7f600ae4630c78472025310dfbb089b35e89",
+  "porting/tests/plain-cube-textures/OriginalCubeFaces.java": "3c51807d6b2c3270c764c0240959fcc646083f5f41f7b5c9695cc6cfa749a0f3",
+  "porting/tests/plain-cube-textures/check-source.py": "4ac55e5d3e3e8084465472abff6c7598302a75a3f4f49eb5e78be98079b1783a",
+  "porting/tests/plain-cube-textures/run-attribution.py": "8d6bea154e13b1ab83f2d8c6ea6f06ebabe545eb9200441c64f14d013b6c4887",
+  "src/main/java/com/hbm/items/block/ItemBlockBase.java": "117146a96fc87357c114469f851d935f1911b87aa11d8d84e16b5a7d4e4e9203",
+  "src/main/java/com/hbm/items/block/ItemBlockLore.java": "b69f0cb06ea60e56ee99934302850678d5c020342a7d80720ddf6feb062a5394",
+  "src/main/java/com/hbm/items/special/ItemOreBlock.java": "7efecec9974f9d061bf21c309c67b793dd9179d6e2f004e24f301a4120c7e86b",
+  "src/main/java/com/hbm/blocks/IBlockMulti.java": "f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9"
+}

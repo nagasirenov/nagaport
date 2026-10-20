@@ -1,6 +1,5 @@
 package com.hbm.entity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,9 +10,11 @@ import com.hbm.lib.RefStrings;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraft.world.World;
 
 public class ModEntityList {
@@ -21,8 +22,6 @@ public class ModEntityList {
 	private static EntityData[] array = new EntityData[0];
 	private static final Map<Integer, Class<? extends Entity>> map = new HashMap<Integer, Class<? extends Entity>>();
 
-	public static List<Integer> eggIdList = new ArrayList<Integer>();
-	public static Map<Class<? extends Entity>, Integer> eggIdMap = new HashMap<Class<? extends Entity>, Integer>();
 
 	public static void registerEntity(Class<? extends Entity> entityClass, String entityName, int id, Object mod) {
 		registerEntity(entityClass, entityName, id, mod, 80, 3, true, -1, -1, false);
@@ -41,7 +40,24 @@ public class ModEntityList {
 	}
 
 	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggColor1, int eggColor2, boolean hasEgg) {
-		EntityRegistry.registerModEntity(entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
+        if(id < 0 || getData(id) != null)
+            throw new IllegalArgumentException("ID " + id + " is already being used or invalid!");
+        ResourceLocation key = registryKey(entityClass, entityName);
+        if(map.containsValue(entityClass) || ForgeRegistries.ENTITIES.containsKey(key))
+            throw new IllegalArgumentException("Entity class or registry key already registered: " + key);
+        // Native Forge stores this display/translation name verbatim; retain the
+        // original entity.hbm.<name>.name localization keys.
+        // Egg presence historically depends on color1, independently of the creation gate.
+        if(eggColor1 != -1)
+            EntityRegistry.registerModEntity(key, entityClass, RefStrings.MODID + "." + entityName, id, mod, trackingRange,
+                    updateFrequency, sendsVelocityUpdates, eggColor1, eggColor2);
+        else
+            EntityRegistry.registerModEntity(key, entityClass, RefStrings.MODID + "." + entityName, id, mod, trackingRange,
+                    updateFrequency, sendsVelocityUpdates);
+
+        if(!key.equals(EntityList.getKey(entityClass))
+                || ForgeRegistries.ENTITIES.getValue(key).getEntityClass() != entityClass)
+            throw new IllegalStateException("Native entity registration failed: " + key);
 
 		if(id >= array.length) {
 			EntityData[] newArray = new EntityData[id + 5];
@@ -49,14 +65,10 @@ public class ModEntityList {
 			array = newArray;
 		}
 
-		if(array[id] != null)
-			throw new IllegalArgumentException("ID " + id + " is already being used! Please report this error!");
 
-		array[id] = new EntityData(entityName, id, eggColor1, eggColor2, hasEgg);
+		array[id] = new EntityData(entityName, key, id, eggColor1, eggColor2, hasEgg);
 		map.put(id, entityClass);
 
-		if(eggColor1 != -1)
-			registerEntityEgg(entityClass, eggColor1, eggColor2);
 	}
 
 	public static String getName(int id) {
@@ -68,7 +80,7 @@ public class ModEntityList {
 	}
 
 	public static EntityData getData(int id) {
-		if(id >= array.length)
+		if(id < 0 || id >= array.length)
 			return null;
 
 		return array[id];
@@ -88,16 +100,7 @@ public class ModEntityList {
 		if(data == null || !data.hasEgg)
 			return null;
 
-		try {
-			Class<? extends Entity> cls = map.get(id);
-
-			if(cls != null)
-				return cls.getConstructor(World.class).newInstance(world);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
+        return EntityList.createEntityByIDFromName(data.registryName, world);
 	}
 
 	public static EntityData[] getDatasWithEggs() {
@@ -110,35 +113,40 @@ public class ModEntityList {
 		return list.toArray(new EntityData[list.size()]);
 	}
 
-	public static int eggIDCounter = 499;
+    // Two pairs historically share display names. Keep those names and local
+    // IDs, but give each class its own native persistence/network identity.
+    static ResourceLocation registryKey(Class<? extends Entity> entityClass, String name) {
+        if("com.hbm.entity.cart.EntityMinecartDestroyer".equals(entityClass.getName())
+                && "entity_ntm_cart_crate".equals(name)) name = "entity_ntm_cart_destroyer";
+        if("com.hbm.entity.effect.EntityCloudSolinium".equals(entityClass.getName())
+                && "entity_cloud_rainbow".equals(name)) name = "entity_cloud_solinium";
+        return new ResourceLocation(RefStrings.MODID, name);
+    }
 
-	@SuppressWarnings("unchecked")
-	public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) {
-		int id = getUniqueEntityEggId();
+    public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) {
+        ResourceLocation key = EntityList.getKey(entity);
+        if(key == null) throw new IllegalArgumentException("Entity must be registered before its egg: " + entity);
+        EntityRegistry.registerEgg(key, primaryColor, secondaryColor);
+    }
 
-		EntityList.IDtoClassMapping.put(id, entity);
-		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
-		eggIdMap.put(entity, id);
-	}
-
-	public static ItemStack getEggFromEntity(Entity entity) {
-		return new ItemStack(Items.spawn_egg, 1, eggIdMap.get(entity.getClass()));
-	}
-
-	public static int getUniqueEntityEggId() {
-		while(EntityList.getClassFromID(++eggIDCounter) != null) {}
-		eggIdList.add(eggIDCounter);
-		return eggIDCounter;
-	}
+    public static ItemStack getEggFromEntity(Entity entity) {
+        ResourceLocation key = entity == null ? null : EntityList.getKey(entity);
+        if(key == null || !EntityList.ENTITY_EGGS.containsKey(key)) return ItemStack.EMPTY;
+        ItemStack egg = new ItemStack(Items.SPAWN_EGG);
+        ItemMonsterPlacer.applyEntityIdToItemStack(egg, key);
+        return egg;
+    }
 
 	public static class EntityData {
 
 		public final String name;
+        public final ResourceLocation registryName;
 		public final int id, eggColor1, eggColor2;
 		public final boolean hasEgg;
 
-		EntityData(String name, int id, int eggColor1, int eggColor2, boolean hasEgg) {
+		EntityData(String name, ResourceLocation registryName, int id, int eggColor1, int eggColor2, boolean hasEgg) {
 			this.name = name;
+            this.registryName = registryName;
 			this.id = id;
 			this.eggColor1 = eggColor1;
 			this.eggColor2 = eggColor2;

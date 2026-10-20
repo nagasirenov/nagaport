@@ -1,0 +1,3 @@
+Final fresh clean compile: FAIL exit1,27s; 1196 diagnostic headers vs 1458 checkpoint20.
+All 98 changed/new production Java files byte-identical to compiler source copies; total 3875 Java inputs.
+Log SHA256 a1b4e018e285a7bba91556ce39669698bd247b88e8c25ede73eb0eb059e60014

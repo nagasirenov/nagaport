@@ -1,0 +1,170 @@
+[
+  {
+    "shape": 0,
+    "label": "migration-IIIFF",
+    "receiverKind": 0,
+    "receiver": "c.outer().member.nested().world",
+    "arguments": [
+      "c.arg(\"x\").member.ints[0]",
+      "c.arg(\"y\").member.ints[1]",
+      "c.arg(\"z\").member.ints[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[0]",
+      "c.arg(\"pitch\").member.floats[1]"
+    ]
+  },
+  {
+    "shape": 0,
+    "label": "migration-IIIFF",
+    "receiverKind": 1,
+    "receiver": "c.outer().member.nested().getWorld()",
+    "arguments": [
+      "c.arg(\"x\").member.ints[0]",
+      "c.arg(\"y\").member.ints[1]",
+      "c.arg(\"z\").member.ints[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[0]",
+      "c.arg(\"pitch\").member.floats[1]"
+    ]
+  },
+  {
+    "shape": 1,
+    "label": "migration-DIDFF",
+    "receiverKind": 0,
+    "receiver": "c.outer().member.nested().world",
+    "arguments": [
+      "c.arg(\"x\").member.doubles[0]",
+      "c.arg(\"y\").member.ints[1]",
+      "c.arg(\"z\").member.doubles[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[0]",
+      "c.arg(\"pitch\").member.floats[1]"
+    ]
+  },
+  {
+    "shape": 1,
+    "label": "migration-DIDFF",
+    "receiverKind": 1,
+    "receiver": "c.outer().member.nested().getWorld()",
+    "arguments": [
+      "c.arg(\"x\").member.doubles[0]",
+      "c.arg(\"y\").member.ints[1]",
+      "c.arg(\"z\").member.doubles[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[0]",
+      "c.arg(\"pitch\").member.floats[1]"
+    ]
+  },
+  {
+    "shape": 2,
+    "label": "robustness-LFIIL",
+    "receiverKind": 0,
+    "receiver": "c.outer().member.nested().world",
+    "arguments": [
+      "c.arg(\"x\").member.longs[0]",
+      "c.arg(\"y\").member.floats[2]",
+      "c.arg(\"z\").member.ints[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.ints[0]",
+      "c.arg(\"pitch\").member.longs[1]"
+    ]
+  },
+  {
+    "shape": 2,
+    "label": "robustness-LFIIL",
+    "receiverKind": 1,
+    "receiver": "c.outer().member.nested().getWorld()",
+    "arguments": [
+      "c.arg(\"x\").member.longs[0]",
+      "c.arg(\"y\").member.floats[2]",
+      "c.arg(\"z\").member.ints[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.ints[0]",
+      "c.arg(\"pitch\").member.longs[1]"
+    ]
+  },
+  {
+    "shape": 3,
+    "label": "robustness-FFFFF",
+    "receiverKind": 0,
+    "receiver": "c.outer().member.nested().world",
+    "arguments": [
+      "c.arg(\"x\").member.floats[0]",
+      "c.arg(\"y\").member.floats[1]",
+      "c.arg(\"z\").member.floats[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[3]",
+      "c.arg(\"pitch\").member.floats[4]"
+    ]
+  },
+  {
+    "shape": 3,
+    "label": "robustness-FFFFF",
+    "receiverKind": 1,
+    "receiver": "c.outer().member.nested().getWorld()",
+    "arguments": [
+      "c.arg(\"x\").member.floats[0]",
+      "c.arg(\"y\").member.floats[1]",
+      "c.arg(\"z\").member.floats[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[3]",
+      "c.arg(\"pitch\").member.floats[4]"
+    ]
+  },
+  {
+    "shape": 4,
+    "label": "robustness-LLLLL",
+    "receiverKind": 0,
+    "receiver": "c.outer().member.nested().world",
+    "arguments": [
+      "c.arg(\"x\").member.longs[0]",
+      "c.arg(\"y\").member.longs[1]",
+      "c.arg(\"z\").member.longs[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.longs[3]",
+      "c.arg(\"pitch\").member.longs[4]"
+    ]
+  },
+  {
+    "shape": 4,
+    "label": "robustness-LLLLL",
+    "receiverKind": 1,
+    "receiver": "c.outer().member.nested().getWorld()",
+    "arguments": [
+      "c.arg(\"x\").member.longs[0]",
+      "c.arg(\"y\").member.longs[1]",
+      "c.arg(\"z\").member.longs[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.longs[3]",
+      "c.arg(\"pitch\").member.longs[4]"
+    ]
+  },
+  {
+    "shape": 5,
+    "label": "existing-DDDFF",
+    "receiverKind": 0,
+    "receiver": "c.outer().member.nested().world",
+    "arguments": [
+      "c.arg(\"x\").member.doubles[0]",
+      "c.arg(\"y\").member.doubles[1]",
+      "c.arg(\"z\").member.doubles[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[0]",
+      "c.arg(\"pitch\").member.floats[1]"
+    ]
+  },
+  {
+    "shape": 5,
+    "label": "existing-DDDFF",
+    "receiverKind": 1,
+    "receiver": "c.outer().member.nested().getWorld()",
+    "arguments": [
+      "c.arg(\"x\").member.doubles[0]",
+      "c.arg(\"y\").member.doubles[1]",
+      "c.arg(\"z\").member.doubles[2]",
+      "c.arg(\"name\").member.name",
+      "c.arg(\"volume\").member.floats[0]",
+      "c.arg(\"pitch\").member.floats[1]"
+    ]
+  }
+]

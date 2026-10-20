@@ -90,6 +90,6 @@ private TileEntityMachineEPress nukeBoy;
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return nukeBoy.isUseableByPlayer(player);
+		return nukeBoy.isUsableByPlayer(player);
 	}
 }

@@ -1,0 +1,188 @@
+import java.util.*;
+import java.lang.reflect.*;
+import com.mojang.authlib.GameProfile;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.machine.*;
+import com.hbm.blocks.generic.*;
+import com.hbm.blocks.bomb.BlockDetonatable;
+import com.hbm.entity.item.EntityTNTPrimedBase;
+import com.hbm.explosion.ExplosionNukeGeneric;
+import com.hbm.explosion.ExplosionThermo;
+import com.hbm.handler.radiation.ChunkRadiationManager;
+import com.hbm.world.feature.OilSpot;
+import com.hbm.items.armor.*;
+import com.hbm.blocks.ModSoundTypes;
+import com.hbm.main.ModSoundEvents;
+import com.hbm.blocks.machine.MachineCapacitor.TileEntityCapacitor;
+import com.hbm.tileentity.machine.storage.TileEntityBarrel;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.inventory.fluid.FluidType;
+import com.hbm.items.machine.IItemFluidIdentifier;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.*;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.stats.StatBase;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import io.netty.buffer.*;
+
+/** Whole production blocks + capacitor tile on native world/chunk lifecycle; collaborator boundaries are explicit in runner. */
+public final class AtlasBlockMachinesNativeTest {
+ static int checks;static final BlockPos POS=new BlockPos(8,64,8);
+ static MachineCapacitor capacitor;static BlockFluidBarrel barrel;static BlockPipe pipe;static HEVBattery battery;static DecoPoleTop pole;static Item fluidId;static ArmorFSBPowered armor;static Block[] explosiveBarrels;
+ static void check(boolean b,String name){checks++;if(!b)throw new AssertionError(name);}
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<EntityItem> drops=new ArrayList<>();int comparators,removed,sounds;SoundEvent sound;SoundCategory category;double soundX,soundY,soundZ;float volume,pitch;EntityPlayer excluded;
+  NativeWorld(boolean remote){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),remote);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "atlas native fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean e){return chunks.containsKey(key(x,z));}
+  public boolean checkLight(BlockPos p){return true;}
+  final List<Entity> entities=new ArrayList<>();final List<String> scheduled=new ArrayList<>(),explosions=new ArrayList<>(),writes=new ArrayList<>(),particles=new ArrayList<>();
+  public boolean spawnEntity(Entity e){entities.add(e);if(e instanceof EntityItem)drops.add((EntityItem)e);return true;}
+  public void scheduleUpdate(BlockPos p,Block b,int delay){scheduled.add(p+":"+b.getRegistryName()+":"+delay);}
+  public Explosion newExplosion(Entity e,double x,double y,double z,float power,boolean fire,boolean smoke){explosions.add(x+","+y+","+z+":"+power+":"+fire+":"+smoke);return new Explosion(this,e,x,y,z,power,fire,smoke);}
+  public boolean setBlockState(BlockPos p,IBlockState s,int flags){if(writes!=null&&(s.getBlock()==ModBlocks.taint||s.getBlock()==ModBlocks.gas_radon_dense||s.getBlock()==ModBlocks.toxic_block))writes.add(p+":"+s.getBlock().getRegistryName()+":"+s.getBlock().getMetaFromState(s)+":"+flags);return super.setBlockState(p,s,flags);}
+  public void spawnParticle(EnumParticleTypes type,double x,double y,double z,double vx,double vy,double vz,int... args){particles.add(type+":"+x+","+y+","+z+":"+vx+","+vy+","+vz);}
+
+  public void updateComparatorOutputLevel(BlockPos p,Block b){comparators++;}
+  public void playSound(EntityPlayer p,double x,double y,double z,SoundEvent e,SoundCategory c,float v,float t){sounds++;excluded=p;sound=e;category=c;soundX=x;soundY=y;soundZ=z;volume=v;pitch=t;}
+  public void removeTileEntity(BlockPos p){removed++;super.removeTileEntity(p);}
+ }
+ static final class Player extends EntityPlayer {
+  int stats,messages;float exhaustion;boolean sneaking;
+  Player(World w){super(w,new GameProfile(new UUID(1,2),"atlas-probe"));}
+  public boolean isSpectator(){return false;}public boolean isCreative(){return capabilities.isCreativeMode;}
+  public boolean isSneaking(){return sneaking;}public void addStat(StatBase s,int n){stats+=n;}public void addExhaustion(float n){exhaustion+=n;}public void sendMessage(ITextComponent text){messages++;}
+ }
+ public static final class SpyCap extends TileEntityCapacitor {
+  final List<String> calls=new ArrayList<>();long packedSent,packedReceived;
+  SpyCap(long n){super(n);}
+  public void tryProvide(World w,int x,int y,int z,ForgeDirection d){calls.add("provide:"+new BlockPos(x,y,z)+":"+d);}
+  public void trySubscribe(World w,int x,int y,int z,ForgeDirection d){calls.add("subscribe:"+new BlockPos(x,y,z)+":"+d);}
+  public void tryUnsubscribe(World w,int x,int y,int z){calls.add("unsubscribe:"+new BlockPos(x,y,z));}
+  public void networkPackNT(int range){calls.add("packet:"+range);packedSent=powerSent;packedReceived=powerReceived;}
+ }
+ static final class FluidIdentifier extends Item implements IItemFluidIdentifier {
+  final FluidType type=new FluidType();ItemStack passed;BlockPos used;
+  public FluidType getType(World w,int x,int y,int z,ItemStack s){passed=s;used=new BlockPos(x,y,z);return type;}
+ }
+ static void register(Block b,String id){ForgeRegistries.BLOCKS.register(b.setRegistryName("atlas_probe",id).setTranslationKey(id));ForgeRegistries.ITEMS.register(new ItemBlock(b).setRegistryName(b.getRegistryName()));}
+ static NativeWorld placed(Block block,int meta,boolean remote){NativeWorld w=new NativeWorld(remote);w.setBlockState(POS,block.getStateFromMeta(meta));w.drops.clear();w.comparators=0;w.removed=0;return w;}
+ static void setup(){Bootstrap.register();explosiveBarrels=new Block[]{new RedBarrel(Material.IRON,true),new RedBarrel(Material.IRON,true),new YellowBarrel(Material.IRON),new BrownBarrel(Material.IRON),new YellowBarrel(Material.IRON),new RedBarrel(Material.IRON,false),new RedBarrel(Material.IRON,false)};String[] names={"red_barrel","pink_barrel","yellow_barrel","oil_barrel","vitrified_barrel","lox_barrel","taint_barrel"};for(int i=0;i<names.length;i++){register(explosiveBarrels[i],names[i]);try{ModBlocks.class.getField(names[i]).set(null,explosiveBarrels[i]);}catch(Exception e){throw new AssertionError(e);}}ModBlocks.toxic_block=Blocks.NETHERRACK;ModBlocks.gas_radon_dense=Blocks.GLASS;ModBlocks.taint=Blocks.WOOL;pipe=new BlockPipe(Material.IRON,"pipe_side",2);battery=new HEVBattery(Material.IRON);pole=new DecoPoleTop(Material.IRON);register(pipe,"pipe");register(battery,"battery");register(pole,"pole");armor=new ArmorFSBPowered();ForgeRegistries.ITEMS.register(armor.setRegistryName("atlas_probe","armor"));capacitor=new MachineCapacitor(Material.IRON,1000,"copper");barrel=new BlockFluidBarrel(Material.IRON,16000);register(capacitor,"capacitor");register(barrel,"barrel");MachineCapacitor bus=new MachineCapacitor(Material.IRON,0,"fixture");register(bus,"bus");ModBlocks.capacitor_bus=bus;ModBlocks.barrel_steel=barrel;ModBlocks.capacitor_complex=capacitor;fluidId=new FluidIdentifier();ForgeRegistries.ITEMS.register(fluidId.setRegistryName("atlas_probe","fluid_id"));TileEntity.register("atlas_capacitor",TileEntityCapacitor.class);TileEntity.register("atlas_barrel",TileEntityBarrel.class);}
+ static void statesAndPlacement(){
+  List<Block> all=new ArrayList<>(Arrays.asList(capacitor,barrel,pipe,battery,pole));all.addAll(Arrays.asList(explosiveBarrels));for(Block b:all)for(int meta=0;meta<16;meta++){
+   IBlockState s=b.getStateFromMeta(meta);check(b.getMetaFromState(s)==meta,"all16 metadata");check(s.getRenderType()==EnumBlockRenderType.MODEL&&b.getRenderLayer()==BlockRenderLayer.CUTOUT_MIPPED,"native model layer");check(!s.isOpaqueCube()&&!s.isFullCube(),"nonopaque nonfull");
+   AxisAlignedBB bounds=b==barrel||Arrays.asList(explosiveBarrels).contains(b)?new AxisAlignedBB(.125,0,.125,.875,1,.875):b==battery?new AxisAlignedBB(.375,0,.375,.625,.375,.625):Block.FULL_BLOCK_AABB;check(s.getBoundingBox(null,POS).equals(bounds)&&b.getCollisionBoundingBox(s,null,POS).equals(bounds),"exact collision and selection");
+   for(EnumFacing f:EnumFacing.values())check(b.getBlockFaceShape(null,s,POS,f)==BlockFaceShape.UNDEFINED&&!b.isSideSolid(s,null,POS,f),"no invented solid support");
+  }
+  check("copper".equals(capacitor.getModelMaterial()),"material accessor");
+  for(EnumFacing side:EnumFacing.values())for(EnumHand hand:EnumHand.values())check(capacitor.getMetaFromState(capacitor.getStateForPlacement(null,POS,side,.2F,.3F,.4F,15,null,hand))==side.getIndex(),"clicked-face placement");
+  for(Block b:new Block[]{capacitor,barrel}){NativeWorld w=placed(b,0,false);TileEntity tile=w.getTileEntity(POS);check(tile!=null,"real chunk creates tile");for(int meta=0;meta<16;meta++){w.setBlockState(POS,b.getStateFromMeta(meta),2);check(w.getTileEntity(POS)==tile&&!tile.isInvalid(),"metadata state update retains exact tile");}check(w.drops.isEmpty(),"metadata changes never spill");w.setBlockState(POS,Blocks.STONE.getDefaultState());check(tile.isInvalid()&&w.getTileEntity(POS)==null,"block identity replacement refreshes and removes old tile");}
+  BlockFluidBarrel corroded=new BlockFluidBarrel(Material.IRON,6000);register(corroded,"corroded");NativeWorld corrosion=placed(barrel,0,false);TileEntity before=corrosion.getTileEntity(POS);corrosion.setBlockState(POS,corroded.getDefaultState());check(before.isInvalid()&&corrosion.getTileEntity(POS)!=before&&((TileEntityBarrel)corrosion.getTileEntity(POS)).capacity==6000,"corrosion block identity still refreshes barrel");
+  check(((TileEntityCapacitor)capacitor.createNewTileEntity(null,0)).getMaxPower()==1000,"capacitor constructor capacity");check(((TileEntityBarrel)barrel.createNewTileEntity(null,0)).capacity==16000,"barrel constructor capacity");
+ }
+ static void genericFamily(){
+  check(pipe.rType==2&&"pipe_side".equals(pipe.getSideTexture()),"pipe renderer family and side material");check(pipe.getSoundType(pipe.getDefaultState(),null,POS,null)==ModSoundTypes.grate,"exact grate sound type");
+  for(int meta=0;meta<16;meta++)for(EnumFacing face:EnumFacing.values())for(EnumHand hand:EnumHand.values()){int expected=(meta&3)|(face.getAxis()==EnumFacing.Axis.Y?0:face.getAxis()==EnumFacing.Axis.Z?8:4);check(pipe.getMetaFromState(pipe.getStateForPlacement(null,POS,face,0,0,0,meta,null,hand))==expected,"pipe clicked axis and lowbits");}
+  for(int meta=0;meta<16;meta++)for(int rotate=0;rotate<4;rotate++){int expected=meta;if((rotate&1)!=0){if((meta&12)==4)expected=(meta&3)|8;if((meta&12)==8)expected=(meta&3)|4;}check(pipe.transformMeta(meta,rotate)==expected,"original pipe structure rotation");}
+  List<String> tooltip=new ArrayList<>();pipe.addInformation(ItemStack.EMPTY,null,tooltip,false);check(tooltip.equals(Collections.singletonList("Purely decorative")),"pipe tooltip contract");
+  for(boolean remote:new boolean[]{false,true})for(boolean sneak:new boolean[]{false,true})for(boolean eligible:new boolean[]{false,true}){
+   NativeWorld w=placed(battery,0,remote);Player p=new Player(w);p.sneaking=sneak;p.setPosition(9.25,65.5,7.75);ArmorFSB.eligible=eligible;long[] before={0,190000,30000,50000};
+   for(int i=0;i<4;i++){ItemStack s=new ItemStack(armor);armor.setCharge(s,before[i]);p.inventory.armorInventory.set(i,s);}
+   boolean result=battery.onBlockActivated(w,POS,w.getBlockState(POS),p,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0);boolean charged=!remote&&!sneak&&eligible;check(result==(remote||!sneak),"battery original consume/sneak return");
+   for(int i=0;i<4;i++)check(armor.getCharge(p.inventory.armorInventory.get(i))==(charged?Math.min(before[i]+150000,200000):before[i]),"150000 charge independently capped for each armor");
+   check((w.getBlockState(POS).getBlock()==Blocks.AIR)==charged&&w.sounds==(charged?1:0),"battery sound/removal only successful server use");if(charged)check(w.sound==ModSoundEvents.ITEM_BATTERY&&w.category==SoundCategory.PLAYERS&&w.excluded==null&&w.soundX==p.posX&&w.soundY==p.posY&&w.soundZ==p.posZ&&w.volume==1F&&w.pitch==1F,"battery native exact sound parameters");
+  }
+  ArmorFSB.eligible=true;NativeWorld w=placed(battery,0,false);Player p=new Player(w);check(battery.onBlockActivated(w,POS,w.getBlockState(POS),p,EnumHand.OFF_HAND,EnumFacing.UP,0,0,0)&&w.sounds==0&&w.getBlockState(POS).getBlock()==battery,"empty helmet cannot satisfy powered condition");p.inventory.armorInventory.set(3,new ItemStack(armor));p.inventory.armorInventory.set(0,ItemStack.EMPTY);p.inventory.armorInventory.set(1,new ItemStack(Items.LEATHER_BOOTS));battery.onBlockActivated(w,POS,w.getBlockState(POS),p,EnumHand.OFF_HAND,EnumFacing.UP,0,0,0);check(p.inventory.armorInventory.get(0).isEmpty()&&p.inventory.armorInventory.get(1).getItem()==Items.LEATHER_BOOTS&&armor.getCharge(p.inventory.armorInventory.get(3))==150000&&w.sounds==1,"empty/nonbattery armor untouched; powered helmet still charged");
+ }
+ static void energyAndPayloads()throws Exception {
+  TileEntityCapacitor tile=new TileEntityCapacitor(1000);check(tile.transferPower(600)==0&&tile.power==600&&tile.powerReceived==600,"receive within capacity");check(tile.transferPower(700)==300&&tile.power==1000&&tile.powerReceived==1000,"receive saturated remainder");tile.usePower(1200);check(tile.power==-200&&tile.powerSent==1000,"original unchecked debit and tracked minimum");tile.setPower(500);check(tile.getProviderSpeed()==3&&tile.getReceiverSpeed()==10&&tile.getPriority()==api.hbm.energymk2.IEnergyHandlerMK2.ConnectionPriority.LOW,"original rates and priority");
+  tile.power=123;tile.powerReceived=7;tile.powerSent=11;tile.lastPowerReceived=13;tile.lastPowerSent=17;ByteBuf buf=Unpooled.buffer();tile.serialize(buf);check(buf.readableBytes()==32&&buf.readLong()==123&&buf.readLong()==1000&&buf.readLong()==7&&buf.readLong()==11,"exact four-long wire order");buf.readerIndex(0);TileEntityCapacitor restored=new TileEntityCapacitor();restored.deserialize(buf);check(buf.readableBytes()==0&&restored.power==123&&restored.getMaxPower()==1000&&restored.powerReceived==7&&restored.powerSent==11,"wire roundtrip");buf.release();
+  NBTTagCompound persistent=new NBTTagCompound();tile.writeNBT(persistent);check(persistent.getKeySet().equals(Collections.singleton("persistent")),"persistent wrapper");NBTTagCompound data=persistent.getCompoundTag("persistent");check(data.getKeySet().equals(new HashSet<>(Arrays.asList("power","maxPower")))&&data.getLong("power")==123,"exact persistent keys");restored.readNBT(persistent);check(restored.power==123&&restored.getMaxPower()==1000,"persistent roundtrip");
+  NBTTagCompound saved=tile.writeToNBT(new NBTTagCompound());check(saved.getLong("power")==123&&saved.getLong("maxPower")==1000&&!saved.hasKey("powerReceived")&&!saved.hasKey("powerSent")&&!saved.hasKey("lastPowerSent"),"world NBT transient omissions");restored=new TileEntityCapacitor();restored.readFromNBT(saved);check(restored.power==123&&restored.getMaxPower()==1000&&restored.powerReceived==0,"world NBT roundtrip");
+  check("123".equals(tile.provideRORValue("VAL:fill"))&&"12".equals(tile.provideRORValue("VAL:fillpercent"))&&tile.provideRORValue("nope")==null,"ROR formulas");check((Long)tile.getEnergySent(null,null)[0]==13&&(Long)tile.getEnergyReceived(null,null)[0]==17,"original OC sent/received mapping");check(tile.getInfo(null,null).length==4&&tile.invoke("getInfo",null,null).length==1&&(Long)tile.invoke("getInfo",null,null)[0]==17,"original OC dispatch quirk unchanged");
+ }
+ static void busTraversal(){
+  for(EnumFacing face:EnumFacing.values())for(int length:new int[]{0,1,3}){
+   NativeWorld w=placed(capacitor,face.getIndex(),false);SpyCap cap=new SpyCap(1000);w.setTileEntity(POS,cap);EnumFacing out=face.getOpposite();for(int i=1;i<=length;i++)w.setBlockState(POS.offset(out,i),ModBlocks.capacitor_bus.getStateFromMeta(out.getIndex()));cap.powerSent=31;cap.powerReceived=47;cap.update();
+   List<String> expected=new ArrayList<>();BlockPos end=POS.offset(out,length+1);if(length>0){expected.add("unsubscribe:"+end);expected.add("provide:"+end+":"+ForgeDirection.fromEnumFacing(out));}expected.add("subscribe:"+POS.offset(face)+":"+ForgeDirection.fromEnumFacing(face));expected.add("packet:15");check(cap.calls.equals(expected),"exact bus trace "+face+":"+length);check(cap.lastPowerSent==31&&cap.lastPowerReceived==47&&cap.powerSent==0&&cap.powerReceived==0&&cap.packedSent==31&&cap.packedReceived==47,"packet precedes counter snapshots/reset");
+   for(ForgeDirection d:ForgeDirection.values())check(cap.canConnect(d)==(d==ForgeDirection.fromEnumFacing(face)),"single input connection");
+  }
+  NativeWorld w=placed(capacitor,EnumFacing.WEST.getIndex(),false);SpyCap cap=new SpyCap(1000);w.setTileEntity(POS,cap);w.setBlockState(POS.east(),ModBlocks.capacitor_bus.getStateFromMeta(EnumFacing.EAST.getIndex()));w.setBlockState(POS.east(2),ModBlocks.capacitor_bus.getStateFromMeta(EnumFacing.NORTH.getIndex()));cap.update();check(cap.calls.size()==2&&cap.calls.get(0).startsWith("subscribe:")&&cap.calls.get(1).equals("packet:15"),"bent bus aborts provision only");
+  NativeWorld client=placed(capacitor,0,true);SpyCap c=new SpyCap(1000);client.setTileEntity(POS,c);c.powerReceived=15;c.powerSent=17;c.update();check(c.calls.isEmpty()&&c.powerReceived==15&&c.powerSent==17,"client tick never mutates energy counters");
+ }
+ static ItemStack stack(int count){ItemStack s=new ItemStack(Items.STICK,count,3);NBTTagCompound n=new NBTTagCompound();n.setString("marker","unchanged");NBTTagCompound nested=new NBTTagCompound();nested.setInteger("value",17);n.setTag("nested",nested);s.setTagCompound(n);return s;}
+ static void legacySpill(NativeWorld w,ItemStack source,Random r){if(source==null||source.isEmpty())return;Item item=source.getItem();int meta=source.getItemDamage(),remaining=source.getCount();NBTTagCompound tag=source.getTagCompound();float x=r.nextFloat()*.8F+.1F,y=r.nextFloat()*.8F+.1F,z=r.nextFloat()*.8F+.1F;while(remaining>0){int count=r.nextInt(21)+10;if(count>remaining)count=remaining;remaining-=count;source.setCount(remaining);EntityItem e=new EntityItem(w,POS.getX()+x,POS.getY()+y,POS.getZ()+z,new ItemStack(item,count,meta));if(tag!=null)e.getItem().setTagCompound(tag.copy());e.motionX=(float)r.nextGaussian()*.05F;e.motionY=(float)r.nextGaussian()*.05F+.2F;e.motionZ=(float)r.nextGaussian()*.05F;w.spawnEntity(e);}}
+ static void dropsAndPersistence()throws Exception {
+  Field rng=BlockFluidBarrel.class.getDeclaredField("field_149933_a");rng.setAccessible(true);
+  for(int count:new int[]{0,1,9,10,30,64}){
+   NativeWorld actual=placed(barrel,7,false),oracle=new NativeWorld(false);TileEntityBarrel tile=(TileEntityBarrel)actual.getTileEntity(POS);ItemStack input=stack(count),copy=stack(count);NBTTagCompound tag=input.getTagCompound();tile.slots[0]=input;tile.slots[1]=ItemStack.EMPTY;((Random)rng.get(barrel)).setSeed(731L);legacySpill(oracle,copy,new Random(731L));actual.setBlockToAir(POS);check(actual.drops.size()==oracle.drops.size()&&input.getCount()==copy.getCount(),"deterministic split count "+count);int sum=0;
+   for(int i=0;i<actual.drops.size();i++){EntityItem a=actual.drops.get(i),o=oracle.drops.get(i);sum+=a.getItem().getCount();check(ItemStack.areItemStacksEqual(a.getItem(),o.getItem()),"drop item/meta/NBT");check(a.posX==o.posX&&a.posY==o.posY&&a.posZ==o.posZ&&a.motionX==o.motionX&&a.motionY==o.motionY&&a.motionZ==o.motionZ,"exact RNG position/motion order");check(a.getItem().getTagCompound()!=tag,"drop NBT is copied");}check(sum==count,"inventory conservation");check(actual.removed==1&&actual.getTileEntity(POS)==null&&actual.comparators>=1,"comparator and superclass tile removal");
+  }
+  NativeWorld w=placed(barrel,0,false);TileEntityBarrel b=(TileEntityBarrel)w.getTileEntity(POS);b.slots[0]=stack(64);BlockFluidBarrel.keepInventory=true;w.setBlockToAir(POS);BlockFluidBarrel.keepInventory=false;check(w.drops.isEmpty()&&b.slots[0].getCount()==64&&w.removed==1,"keepInventory suppresses spills but keeps superclass removal");
+  for(Block block:new Block[]{capacitor,barrel}){
+   w=placed(block,3,false);if(block==capacitor)((TileEntityCapacitor)w.getTileEntity(POS)).power=321;else ((TileEntityBarrel)w.getTileEntity(POS)).persistent=543;NonNullList<ItemStack> list=NonNullList.create();block.getDrops(list,w,POS,w.getBlockState(POS),99);check(list.size()==1&&list.get(0).getItem()==Item.getItemFromBlock(block)&&list.get(0).getItemDamage()==0,"persistent drop identity ignores orientation/fortune");ItemStack drop=list.get(0);if(block==capacitor)check(drop.getTagCompound().getCompoundTag("persistent").getLong("power")==321,"capacitor actual persistent helper");else check(drop.getTagCompound().getInteger("fixture")==543,"barrel persistent helper");
+   TileEntity old=w.getTileEntity(POS);TileEntity fresh=block==capacitor?new TileEntityCapacitor(1):new TileEntityBarrel(1);w.setTileEntity(POS,fresh);block.onBlockPlacedBy(w,POS,w.getBlockState(POS),null,drop);check(block==capacitor?((TileEntityCapacitor)fresh).power==321&&((TileEntityCapacitor)fresh).getMaxPower()==1000:((TileEntityBarrel)fresh).persistent==543,"native placement restores persistent payload");
+   Player player=new Player(w);block.onBlockHarvested(w,POS,w.getBlockState(POS),player);check(w.drops.size()==1&&w.drops.get(0).getItem().hasTagCompound(),"pre-removal survival persistent drop");int before=w.drops.size();block.harvestBlock(w,player,POS,w.getBlockState(POS),fresh,ItemStack.EMPTY);check(w.drops.size()==before&&player.stats==1&&player.exhaustion==.025F,"harvest stat/exhaustion without duplicate drop");player.capabilities.isCreativeMode=true;block.onBlockHarvested(w,POS,w.getBlockState(POS),player);check(w.drops.size()==before,"creative no persistent item drop");
+  }
+ }
+ static void activationAndComparator(){
+  NativeWorld w=placed(barrel,5,false);Player p=new Player(w);p.sneaking=true;TileEntityBarrel tile=(TileEntityBarrel)w.getTileEntity(POS);tile.comparator=11;check(barrel.hasComparatorInputOverride(barrel.getDefaultState())&&barrel.getComparatorInputOverride(barrel.getDefaultState(),w,POS)==11,"native comparator delegation");
+  for(EnumHand hand:EnumHand.values()){
+   ItemStack held=new ItemStack(fluidId);p.setHeldItem(hand,held);int dirty=tile.dirty;check(barrel.onBlockActivated(w,POS,w.getBlockState(POS),p,hand,EnumFacing.UP,.1F,.2F,.3F),"sneaking hand activation consumed");FluidIdentifier id=(FluidIdentifier)fluidId;check(tile.tank.getTankType()==id.type&&tile.dirty==dirty+1&&id.passed==held&&id.used.equals(POS),"same held identifier/coords and tank update");
+   p.setHeldItem(hand,ItemStack.EMPTY);dirty=tile.dirty;barrel.onBlockActivated(w,POS,w.getBlockState(POS),p,hand,EnumFacing.UP,0,0,0);check(tile.dirty==dirty,"empty hand no fluid mutation");
+  }
+  NativeWorld client=placed(barrel,0,true);Player cp=new Player(client);cp.sneaking=true;cp.setHeldItem(EnumHand.MAIN_HAND,new ItemStack(fluidId));barrel.onBlockActivated(client,POS,client.getBlockState(POS),cp,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0);check(((TileEntityBarrel)client.getTileEntity(POS)).dirty==0&&cp.messages==0,"client activation consumed without tank side effect");
+  w.removeTileEntity(POS);check(barrel.getComparatorInputOverride(barrel.getDefaultState(),w,POS)==0,"missing comparator tile zero");
+ }
+ static void barrelSounds(){
+  BlockFluidBarrel plastic=new BlockFluidBarrel(Material.IRON,12000),metal=new BlockFluidBarrel(Material.IRON,16000,ModSoundTypes.legacyMetal);
+  SoundType stone=plastic.getSoundType(plastic.getDefaultState(),null,POS,null),sound=metal.getSoundType(metal.getDefaultState(),null,POS,null);check(stone==SoundType.STONE,"default plastic barrel retains stone sound");check(sound==ModSoundTypes.legacyMetal&&sound.getVolume()==1F&&sound.getPitch()==1.5F,"explicit legacy metal volume and pitch");check(sound.getBreakSound()==SoundType.STONE.getBreakSound()&&sound.getPlaceSound()==SoundType.STONE.getPlaceSound()&&sound.getStepSound()==SoundType.STONE.getStepSound(),"legacy metal uses original stone samples");check(sound.getHitSound()==SoundType.STONE.getStepSound()&&sound.getFallSound()==SoundType.STONE.getStepSound(),"legacy metal hit and fall use STEP samples");
+ }
+ static void additionalBarrels()throws Exception {
+  // The original oil barrel's explosion callback compares against yellow_barrel,
+  // so ordinary oil-barrel chain explosions intentionally do nothing.
+  BrownBarrel oil=(BrownBarrel)ModBlocks.oil_barrel;
+  for(boolean remote:new boolean[]{false,true}){
+   NativeWorld w=placed(oil,0,remote);check(w.scheduled.size()==(remote?0:1)&&(remote||w.scheduled.get(0).endsWith(":20")),"native chunk schedules oil added only on server");w.scheduled.clear();OilSpot.calls.clear();oil.updateTick(w,POS,w.getBlockState(POS),new Random(1));check(OilSpot.calls.equals(Collections.singletonList("8,8:4:10:false"))&&w.scheduled.size()==1&&w.scheduled.get(0).endsWith(":20"),"original oil tick and repeat schedule on either side");oil.onBlockExploded(w,POS,null);check(w.explosions.isEmpty()&&!oil.canDropFromExplosion(null),"original oil chain-explosion identity condition and no drops");oil.explode(w,8,64,8);check(w.explosions.equals(Collections.singletonList("8.5,64.5,8.5:2.5:true:true")),"direct oil explosion exact centered params");
+  }
+  for(Block b:explosiveBarrels)if(b instanceof BlockDetonatable){
+   BlockDetonatable d=(BlockDetonatable)b;boolean flammable=b==ModBlocks.red_barrel||b==ModBlocks.pink_barrel;
+   for(EnumFacing f:EnumFacing.values())check(d.getFlammability(null,POS,f)==(flammable?15:0)&&d.getFireSpreadSpeed(null,POS,f)==(flammable?2:0),"original fire coefficients all sides");
+   check(!d.canDropFromExplosion(null),"explosive barrels never drop from explosions");
+   for(boolean remote:new boolean[]{false,true}){
+    NativeWorld w=placed(b,0,remote);w.rand.setSeed(417);d.onBlockExploded(w,POS,null);boolean expected=!remote&&b!=ModBlocks.vitrified_barrel;check(w.entities.size()==(expected?1:0)&&w.getBlockState(POS).getBlock()==Blocks.AIR,"native Block.onBlockExploded dispatch/removal/server-only fuse spawn");if(expected){EntityTNTPrimedBase e=(EntityTNTPrimedBase)w.entities.get(0);check(e.owner==d&&e.fuse==new Random(417).nextInt(100)+50&&e.detonateOnCollision&&e.igniter==null&&e.posX==8.5&&e.posY==64.5&&e.posZ==8.5,"original fuse seed and TNT parameters");}
+    w=placed(b,0,remote);d.onShot(w,8,64,8);check((w.getBlockState(POS).getBlock()==Blocks.AIR)==flammable&&w.explosions.size()==(flammable?1:0),"original shot branch lacks server guard and only flammable barrels detonate");
+   }
+  }
+  for(boolean remote:new boolean[]{false,true})for(EnumFacing f:EnumFacing.values()){
+   BlockDetonatable red=(BlockDetonatable)ModBlocks.red_barrel;NativeWorld w=placed(red,0,remote);w.setBlockState(POS.offset(f),Blocks.FIRE.getDefaultState(),2);check(red.shouldIgnite(w,8,64,8),"six-face fire detection");red.neighborChanged(red.getDefaultState(),w,POS,Blocks.FIRE,POS.offset(f));check((w.getBlockState(POS).getBlock()==Blocks.AIR)==!remote&&w.entities.size()==(remote?0:1),"native fire neighbor callback server condition");
+  }
+  for(Block b:new Block[]{ModBlocks.yellow_barrel,ModBlocks.vitrified_barrel}){
+   YellowBarrel yellow=(YellowBarrel)b;NativeWorld w=placed(yellow,0,false);check(w.scheduled.size()==1&&yellow.tickRate(w)==20,"yellow added schedule");w.scheduled.clear();ChunkRadiationManager.proxy.calls.clear();yellow.updateTick(w,POS,w.getBlockState(POS),new Random(5));check(ChunkRadiationManager.proxy.calls.equals(Collections.singletonList("8,64,8:"+(b==ModBlocks.yellow_barrel?"5.0":"0.5")))&&w.scheduled.size()==1,"yellow versus vitrified radiation and repeat schedule");Random r=new Random(53),oracle=new Random(53);yellow.randomDisplayTick(yellow.getDefaultState(),w,POS,r);double px=8+oracle.nextFloat()*.5F+.25F,py=64+1.1F,pz=8+oracle.nextFloat()*.5F+.25F;check(w.particles.equals(Collections.singletonList(EnumParticleTypes.TOWN_AURA+":"+px+","+py+","+pz+":0.0,0.0,0.0"))&&r.nextLong()==oracle.nextLong(),"yellow exact particle seed/order/coords");
+  }
+  RedBarrel lox=(RedBarrel)ModBlocks.lox_barrel;NativeWorld w=new NativeWorld(false);ExplosionThermo.calls.clear();lox.explodeEntity(w,-.3,64.8,-.7,null);check(w.explosions.equals(Collections.singletonList("-0.3,64.8,-0.7:1.0:false:false"))&&ExplosionThermo.calls.equals(Collections.singletonList("-1,64,-1:7")),"lox blast/freeze and negative coordinate floor");
+  // Exact taint random draw order, predicate, metadata 4..6, and update flags.
+  w=new NativeWorld(false);Set<BlockPos> solid=new HashSet<>();for(int x=-5;x<=3;x++)for(int y=60;y<=68;y++)for(int z=-5;z<=3;z++){BlockPos p=new BlockPos(x,y,z);int branch=Math.floorMod(x+y+z,4);if(branch!=0){w.setBlockState(p,(branch==1?Blocks.GLASS:Blocks.STONE).getDefaultState(),2);if(branch!=1)solid.add(p);}}
+  w.writes.clear();w.rand.setSeed(9801);Random r=new Random(9801);List<String> expected=new ArrayList<>();for(int n=0;n<100;n++){BlockPos p=new BlockPos(r.nextInt(9)-5,r.nextInt(9)+60,r.nextInt(9)-5);if(solid.contains(p))expected.add(p+":"+Blocks.WOOL.getRegistryName()+":"+(r.nextInt(3)+4)+":2");}((RedBarrel)ModBlocks.taint_barrel).explodeEntity(w,-.3,64.8,-.7,null);check(w.writes.equals(expected)&&w.rand.nextLong()==r.nextLong(),"taint seeded100 loop exact draws/occupancy/meta/flags");check(w.explosions.equals(Collections.singletonList("-0.3,64.8,-0.7:1.0:false:false")),"taint initial nondestructive explosion");
+  YellowBarrel yellow=(YellowBarrel)ModBlocks.yellow_barrel;Field random=YellowBarrel.class.getDeclaredField("rand");random.setAccessible(true);int toxicSeed=-1,blastSeed=-1;for(int i=0;i<100&&(toxicSeed<0||blastSeed<0);i++)if(new Random(i).nextInt(3)==0)toxicSeed=i;else blastSeed=i;
+  for(int seed:new int[]{toxicSeed,blastSeed}){
+   w=new NativeWorld(false);BlockPos center=new BlockPos(-1,64,-1),obstacle=new BlockPos(0,64,0);w.setBlockState(obstacle,Blocks.STONE.getDefaultState(),2);w.writes.clear();w.rand.setSeed(802);((Random)random.get(yellow)).setSeed(seed);ExplosionNukeGeneric.calls.clear();ChunkRadiationManager.proxy.calls.clear();boolean toxic=new Random(seed).nextInt(3)==0;r=new Random(802);expected=new ArrayList<>();if(toxic)expected.add(center+":"+Blocks.NETHERRACK.getRegistryName()+":0:3");for(int x=-5;x<=5;x++)for(int y=-5;y<=5;y++)for(int z=-5;z<=5;z++){BlockPos p=center.add(x,y,z);if(r.nextInt(5)==0&&!p.equals(obstacle)&&!(toxic&&p.equals(center)))expected.add(p+":"+Blocks.GLASS.getRegistryName()+":0:3");}yellow.explodeEntity(w,-.3,64.8,-.7,null);check(w.writes.equals(expected)&&w.rand.nextLong()==r.nextLong(),"yellow seeded1331 radon checks and block filtering");check(w.explosions.size()==(toxic?0:1)&& (toxic||w.explosions.get(0).equals("-0.3,64.8,-0.7:12.0:false:true")),"yellow toxic-versus12 blast branch");check(ExplosionNukeGeneric.calls.equals(Collections.singletonList("-1,64,-1:35"))&&ChunkRadiationManager.proxy.calls.equals(Collections.singletonList("-1,64,-1:35.0")),"yellow waste/radiation constants and flooring");
+  }
+ }
+ public static void main(String[] args)throws Exception{setup();genericFamily();energyAndPayloads();busTraversal();dropsAndPersistence();activationAndComparator();statesAndPlacement();barrelSounds();additionalBarrels();System.out.println("PASS native whole atlas block family (8 concrete classes, 3 additional native bases) and capacitor tile: "+checks+" checks. Network transport, GUI screen, barrel fluid engine, blast effects, radiation, oil generation and primed TNT are controlled collaborators, not full gameplay integration.");}
+}

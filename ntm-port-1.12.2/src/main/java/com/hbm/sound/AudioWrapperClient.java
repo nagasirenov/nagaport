@@ -56,13 +56,13 @@ public class AudioWrapperClient extends AudioWrapper {
 
 	@Override
 	public float getVolume() {
-		if(sound != null) return sound.getVolume();
+		if(sound != null) return sound.getUnscaledVolume();
 		return 1;
 	}
 
 	@Override
 	public float getPitch() {
-		if(sound != null) return sound.getPitch();
+		if(sound != null) return sound.getUnscaledPitch();
 		return 1;
 	}
 

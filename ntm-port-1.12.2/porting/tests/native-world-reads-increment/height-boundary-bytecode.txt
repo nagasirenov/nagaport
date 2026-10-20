@@ -1,0 +1,101 @@
+Actual original ahb.f(int,int):
+  public int f(int, int);
+    Code:
+       0: iload_1
+       1: ldc           #1                  // int -30000000
+       3: if_icmplt     24
+       6: iload_2
+       7: ldc           #1                  // int -30000000
+       9: if_icmplt     24
+      12: iload_1
+      13: ldc           #5                  // int 30000000
+      15: if_icmpge     24
+      18: iload_2
+      19: ldc           #5                  // int 30000000
+      21: if_icmplt     27
+      24: bipush        64
+      26: ireturn
+      27: aload_0
+      28: iload_1
+      29: iconst_4
+      30: ishr
+      31: iload_2
+      32: iconst_4
+      33: ishr
+      34: invokevirtual #344                // Method c:(II)Z
+      37: ifne          42
+      40: iconst_0
+      41: ireturn
+      42: aload_0
+      43: iload_1
+      44: iconst_4
+      45: ishr
+      46: iload_2
+      47: iconst_4
+      48: ishr
+      49: invokevirtual #355                // Method e:(II)Lapx;
+      52: astore_3
+      53: aload_3
+      54: iload_1
+      55: bipush        15
+      57: iand
+      58: iload_2
+      59: bipush        15
+      61: iand
+      62: invokevirtual #428                // Method apx.b:(II)I
+      65: ireturn
+
+
+Actual native World.getHeight(int,int):
+  public int getHeight(int, int);
+    Code:
+       0: iload_1
+       1: ldc_w         #389                // int -30000000
+       4: if_icmplt     72
+       7: iload_2
+       8: ldc_w         #389                // int -30000000
+      11: if_icmplt     72
+      14: iload_1
+      15: ldc_w         #390                // int 30000000
+      18: if_icmpge     72
+      21: iload_2
+      22: ldc_w         #390                // int 30000000
+      25: if_icmpge     72
+      28: aload_0
+      29: iload_1
+      30: iconst_4
+      31: ishr
+      32: iload_2
+      33: iconst_4
+      34: ishr
+      35: iconst_1
+      36: invokevirtual #416                // Method isChunkLoaded:(IIZ)Z
+      39: ifeq          67
+      42: aload_0
+      43: iload_1
+      44: iconst_4
+      45: ishr
+      46: iload_2
+      47: iconst_4
+      48: ishr
+      49: invokevirtual #466                // Method getChunk:(II)Lnet/minecraft/world/chunk/Chunk;
+      52: iload_1
+      53: bipush        15
+      55: iand
+      56: iload_2
+      57: bipush        15
+      59: iand
+      60: invokevirtual #810                // Method net/minecraft/world/chunk/Chunk.getHeightValue:(II)I
+      63: istore_3
+      64: goto          79
+      67: iconst_0
+      68: istore_3
+      69: goto          79
+      72: aload_0
+      73: invokevirtual #369                // Method getSeaLevel:()I
+      76: iconst_1
+      77: iadd
+      78: istore_3
+      79: iload_3
+      80: ireturn
+

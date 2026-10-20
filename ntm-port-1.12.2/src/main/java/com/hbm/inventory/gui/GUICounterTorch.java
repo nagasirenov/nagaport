@@ -48,7 +48,7 @@ public class GUICounterTorch extends GuiInfoContainer {
 		
 		for(int i = 0; i < 3; i++) {
 
-			this.frequency[i] = new GuiTextField(this.fontRendererObj, guiLeft + 29, guiTop + 21 + 44 * i, 86, 14);
+			this.frequency[i] = new GuiTextField(i, this.fontRenderer, guiLeft + 29, guiTop + 21 + 44 * i, 86, 14);
 			this.frequency[i].setTextColor(0x00ff00);
 			this.frequency[i].setDisabledTextColour(0x00ff00);
 			this.frequency[i].setEnableBackgroundDrawing(false);
@@ -62,18 +62,18 @@ public class GUICounterTorch extends GuiInfoContainer {
 		super.drawScreen(x, y, interp);
 
 		if(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 8 < y && guiTop + 8 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { counter.polling ? "Polling" : "State Change" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { counter.polling ? "Polling" : "State Change" }), x, y);
 		}
 		if(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 30 < y && guiTop + 30 + 18 >= y) {
-			func_146283_a(Arrays.asList(new String[] { "Save Settings" }), x, y);
+			drawHoveringText(Arrays.asList(new String[] { "Save Settings" }), x, y);
 		}
 
-		if(this.mc.thePlayer.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 3; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	
 				if(this.isMouseOverSlot(slot, x, y) && counter.matcher.modes[i] != null) {
-					this.func_146283_a(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);
+					this.drawHoveringText(Arrays.asList(new String[] { TextFormatting.RED + "Right click to change", ModulePatternMatcher.getLabel(counter.matcher.modes[i]) }), x, y - 30);
 				}
 			}
 		}
@@ -87,26 +87,26 @@ public class GUICounterTorch extends GuiInfoContainer {
 
 		if(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 8 < y && guiTop + 8 + 18 >= y) {
 
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("polling", true);
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, counter.xCoord, counter.yCoord, counter.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, counter.getPos().getX(), counter.getPos().getY(), counter.getPos().getZ()));
 		}
 		
 		if(guiLeft + 193 <= x && guiLeft + 193 + 18 > x && guiTop + 30 < y && guiTop + 30 + 18 >= y) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("gui.button.press"), 1.0F));
+			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			
 			for(int j = 0; j < 3; j++) data.setString("c" + j, this.frequency[j].getText());
-			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, counter.xCoord, counter.yCoord, counter.zCoord));
+			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, counter.getPos().getX(), counter.getPos().getY(), counter.getPos().getZ()));
 		}
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
 		String name = I18nUtil.resolveKey(this.counter.getInventoryName());
-		this.fontRendererObj.drawString(name, 184 / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-		this.fontRendererObj.drawString(I18n.format("container.inventory"), 16, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(name, 184 / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(I18n.format("container.inventory"), 16, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

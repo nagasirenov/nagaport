@@ -53,7 +53,7 @@ public interface IFluidReceiverMK2 extends IFluidUserMK2 {
 			data.setDouble("mX", -dir.offsetX * (red ? 0.025 : 0.1));
 			data.setDouble("mY", -dir.offsetY * (red ? 0.025 : 0.1));
 			data.setDouble("mZ", -dir.offsetZ * (red ? 0.025 : 0.1));
-			PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.dimensionId, posX, posY, posZ, 25));
+			PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 25));
 		}
 	}
 	

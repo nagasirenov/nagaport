@@ -1,0 +1,47 @@
+import java.lang.reflect.*;
+import java.util.Arrays;
+
+/** Execute unmodified official Tessellator class bytes without calling GL draw. */
+public final class OriginalDamageNoColor {
+ static int checks;
+ static void check(boolean ok,String why){checks++;if(!ok)throw new AssertionError(why);}
+ static Field field(String name)throws Exception{Field f=bmh.class.getDeclaredField(name);f.setAccessible(true);return f;}
+ static bmh create()throws Exception{Constructor<bmh> c=bmh.class.getDeclaredConstructor(int.class);c.setAccessible(true);return c.newInstance(4096);}
+ static void setColor(bmh t,int variant){
+  switch(variant){
+   case 0:t.a(12,34,56,78);break;
+   case 1:t.a(99,88,77);break;
+   case 2:t.b(.12f,.34f,.56f);break;
+   case 3:t.a(.11f,.22f,.33f,.44f);break;
+   case 4:t.c(0x123456);break;
+   case 5:t.a(0x456789,120);break;
+   case 6:t.a((byte)9,(byte)29,(byte)49);break;
+   default:throw new AssertionError(variant);
+  }
+ }
+ public static void main(String[] args)throws Exception{
+  int sentinel=0x13579bdf;
+  for(int color=0;color<7;color++){
+   bmh t=create();t.a(17,29,43,255);int previous=field("k").getInt(t);
+   t.b(); // Actual startDrawingQuads resets hasColor and colorDisabled.
+   check(!field("l").getBoolean(t),"startDrawingQuads clears hasColor");
+   check(!field("r").getBoolean(t),"startDrawingQuads clears colorDisabled");
+   int[] raw=(int[])field("f").get(t);Arrays.fill(raw,sentinel);
+   t.c(); // Actual RenderGlobal damage order: start, offset, disableColor, render.
+   check(field("r").getBoolean(t),"disableColor sets colorDisabled");
+   setColor(t,color);
+   check(!field("l").getBoolean(t),"disabled setter cannot enable hasColor, entrypoint "+color);
+   check(field("k").getInt(t)==previous,"disabled setter cannot change packed color, entrypoint "+color);
+   t.b(0x00c00040);t.a(.125d,.375d);t.a(1d,2d,3d);
+   check(field("g").getInt(t)==1,"actual vertex appended");
+   check(raw[0]==Float.floatToRawIntBits(1)&&raw[1]==Float.floatToRawIntBits(2)&&raw[2]==Float.floatToRawIntBits(3),"positions still emitted");
+   check(raw[3]==Float.floatToRawIntBits(.125f)&&raw[4]==Float.floatToRawIntBits(.375f),"UV still emitted");
+   check(raw[5]==sentinel,"disabled color slot untouched, not block-tinted vertex output");
+   check(raw[7]==0x00c00040,"packed brightness still emitted: noColor is not full lighting suppression");
+  }
+  bmh ordinary=create();ordinary.b();setColor(ordinary,0);ordinary.a(1d,2d,3d);
+  check(field("l").getBoolean(ordinary),"positive control has color enabled");
+  check(((int[])field("f").get(ordinary))[5]==field("k").getInt(ordinary),"positive control writes packed vertex color");
+  System.out.println("PASS original Tessellator noColor: "+checks+" assertions; seven color setter entrypoints suppressed after actual startDrawingQuads/disableColor, color buffer untouched, positions/UV/brightness retained, ordinary-color positive control. GL draw itself not invoked.");
+ }
+}

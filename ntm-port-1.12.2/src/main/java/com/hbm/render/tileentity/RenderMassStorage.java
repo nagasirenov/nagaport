@@ -10,18 +10,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 @SideOnly(Side.CLIENT)
-public class RenderMassStorage extends TileEntitySpecialRenderer {
+public class RenderMassStorage extends TileEntitySpecialRenderer<TileEntity> {
 
-	private RenderItem itemRenderer = new RenderDecoItem(this);
+	private final RenderDecoItem itemRenderer = new RenderDecoItem();
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int destroyStage, float alpha) {
 		if(!(tile instanceof TileEntityMassStorage)) return;
 		TileEntityMassStorage storage = (TileEntityMassStorage) tile;
 
@@ -33,8 +35,8 @@ public class RenderMassStorage extends TileEntitySpecialRenderer {
 		// fuck this shit, push pop the whole ass lighting state then for all I fucken care
 		GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_LIGHTING_BIT | GL11.GL_COLOR_BUFFER_BIT | GL11.GL_TRANSFORM_BIT);
 
-		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-		GL11.glDisable(GL11.GL_NORMALIZE);
+		GlStateManager.disableRescaleNormal();
+		GlStateManager.disableNormalize();
 
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240, 240);
 
@@ -66,9 +68,9 @@ public class RenderMassStorage extends TileEntitySpecialRenderer {
 				GL11.glScalef(8.0F / 16.0F, 8.0F / 16.0F, 1); // scale to 8 pixels across
 
 				if(mc.gameSettings.fancyGraphics) {
-					itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.renderEngine, storage.type, 0, 0);
+					itemRenderer.renderGui(storage.type, 0, 0, true, true);
 				} else {
-					itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.renderEngine, storage.type, 0, 0, true);
+					itemRenderer.renderGui(storage.type, 0, 0, false, true);
 				}
 
 			}
@@ -108,12 +110,13 @@ public class RenderMassStorage extends TileEntitySpecialRenderer {
 			double bMinY = 13.5;
 			double bMaxY = 14;
 
-			Tessellator tessellator = Tessellator.instance;
-			tessellator.startDrawingQuads();
-			tessellator.addVertex(bMinX, bMaxY, 0);
-			tessellator.addVertex(bMaxX, bMaxY, 0);
-			tessellator.addVertex(bMaxX, bMinY, 0);
-			tessellator.addVertex(bMinX, bMinY, 0);
+			Tessellator tessellator = Tessellator.getInstance();
+			BufferBuilder buffer = tessellator.getBuffer();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
+			buffer.pos(bMinX, bMaxY, 0).endVertex();
+			buffer.pos(bMaxX, bMaxY, 0).endVertex();
+			buffer.pos(bMaxX, bMinY, 0).endVertex();
+			buffer.pos(bMinX, bMinY, 0).endVertex();
 			tessellator.draw();
 
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -123,7 +126,50 @@ public class RenderMassStorage extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 
 		GL11.glPopAttrib();
+		synchronizeNativeCaches();
 	}
+
+    /** This legacy scope restores raw attribs behind native item/font caches.
+     * Reconcile the flags and scalar state those draws touch, without changing
+     * the restored GL values or assuming a new default render state. */
+    private static void synchronizeNativeCaches() {
+        sync(GL11.GL_ALPHA_TEST, GlStateManager::enableAlpha, GlStateManager::disableAlpha);
+        sync(GL11.GL_BLEND, GlStateManager::enableBlend, GlStateManager::disableBlend);
+        sync(GL11.GL_LIGHTING, GlStateManager::enableLighting, GlStateManager::disableLighting);
+        sync(GL11.GL_CULL_FACE, GlStateManager::enableCull, GlStateManager::disableCull);
+        sync(GL12.GL_RESCALE_NORMAL, GlStateManager::enableRescaleNormal, GlStateManager::disableRescaleNormal);
+        sync(GL11.GL_NORMALIZE, GlStateManager::enableNormalize, GlStateManager::disableNormalize);
+        sync(GL11.GL_DEPTH_TEST, GlStateManager::enableDepth, GlStateManager::disableDepth);
+        sync(GL11.GL_COLOR_MATERIAL, GlStateManager::enableColorMaterial, GlStateManager::disableColorMaterial);
+        sync(GL11.GL_TEXTURE_2D, GlStateManager::enableTexture2D, GlStateManager::disableTexture2D);
+        sync(GL11.GL_POLYGON_OFFSET_FILL, GlStateManager::enablePolygonOffset, GlStateManager::disablePolygonOffset);
+        for(int i = 0; i < 8; i++) {
+            final int light = i;
+            sync(GL11.GL_LIGHT0 + i, () -> GlStateManager.enableLight(light), () -> GlStateManager.disableLight(light));
+        }
+        int function = GL11.glGetInteger(GL11.GL_ALPHA_TEST_FUNC);
+        float reference = GL11.glGetFloat(GL11.GL_ALPHA_TEST_REF);
+        GlStateManager.alphaFunc(function == GL11.GL_ALWAYS ? GL11.GL_NEVER : GL11.GL_ALWAYS, 0);
+        GlStateManager.alphaFunc(function, reference);
+        int src = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_SRC_RGB), dst = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_DST_RGB);
+        int srcAlpha = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_SRC_ALPHA), dstAlpha = GL11.glGetInteger(org.lwjgl.opengl.GL14.GL_BLEND_DST_ALPHA);
+        GlStateManager.tryBlendFuncSeparate(src == GL11.GL_ONE ? GL11.GL_ZERO : GL11.GL_ONE, 0, 1, 0);
+        GlStateManager.tryBlendFuncSeparate(src, dst, srcAlpha, dstAlpha);
+        int shade = GL11.glGetInteger(GL11.GL_SHADE_MODEL);
+        GlStateManager.shadeModel(shade == GL11.GL_FLAT ? GL11.GL_SMOOTH : GL11.GL_FLAT);
+        GlStateManager.shadeModel(shade);
+        int face = GL11.glGetInteger(GL11.GL_COLOR_MATERIAL_FACE), parameter = GL11.glGetInteger(GL11.GL_COLOR_MATERIAL_PARAMETER);
+        GlStateManager.colorMaterial(face == GL11.GL_FRONT ? GL11.GL_BACK : GL11.GL_FRONT, GL11.GL_AMBIENT);
+        GlStateManager.colorMaterial(face, parameter);
+        java.nio.FloatBuffer color = org.lwjgl.BufferUtils.createFloatBuffer(16);
+        GL11.glGetFloat(GL11.GL_CURRENT_COLOR, color);
+        GlStateManager.resetColor();
+        GlStateManager.color(color.get(0), color.get(1), color.get(2), color.get(3));
+    }
+    private static void sync(int capability, Runnable enable, Runnable disable) {
+        if(GL11.glIsEnabled(capability)) { disable.run(); enable.run(); }
+        else { enable.run(); disable.run(); }
+    }
 
 	private String getTextForCount(int stackSize, boolean isUnicode) {
 		if(stackSize >= 100000000 || (stackSize >= 1000000 && isUnicode)) return String.format("%.0fM", stackSize / 1000000f);

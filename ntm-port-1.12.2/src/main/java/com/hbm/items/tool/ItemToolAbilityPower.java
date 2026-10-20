@@ -29,10 +29,10 @@ public class ItemToolAbilityPower extends ItemToolAbility implements IBatteryIte
 	public void chargeBattery(ItemStack stack, long i) {
 		if(stack.getItem() instanceof ItemToolAbilityPower) {
 			if(stack.hasTagCompound()) {
-				stack.stackTagCompound.setLong("charge", stack.stackTagCompound.getLong("charge") + i);
+				stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") + i);
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", i);
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", i);
 			}
 		}
 	}
@@ -41,10 +41,10 @@ public class ItemToolAbilityPower extends ItemToolAbility implements IBatteryIte
 	public void setCharge(ItemStack stack, long i) {
 		if(stack.getItem() instanceof ItemToolAbilityPower) {
 			if(stack.hasTagCompound()) {
-				stack.stackTagCompound.setLong("charge", i);
+				stack.getTagCompound().setLong("charge", i);
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", i);
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", i);
 			}
 		}
 	}
@@ -53,14 +53,14 @@ public class ItemToolAbilityPower extends ItemToolAbility implements IBatteryIte
 	public void dischargeBattery(ItemStack stack, long i) {
 		if(stack.getItem() instanceof ItemToolAbilityPower) {
 			if(stack.hasTagCompound()) {
-				stack.stackTagCompound.setLong("charge", stack.stackTagCompound.getLong("charge") - i);
+				stack.getTagCompound().setLong("charge", stack.getTagCompound().getLong("charge") - i);
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", this.maxPower - i);
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", this.maxPower - i);
 			}
 
-			if(stack.stackTagCompound.getLong("charge") < 0)
-				stack.stackTagCompound.setLong("charge", 0);
+			if(stack.getTagCompound().getLong("charge") < 0)
+				stack.getTagCompound().setLong("charge", 0);
 		}
 	}
 
@@ -68,11 +68,11 @@ public class ItemToolAbilityPower extends ItemToolAbility implements IBatteryIte
 	public long getCharge(ItemStack stack) {
 		if(stack.getItem() instanceof ItemToolAbilityPower) {
 			if(stack.hasTagCompound()) {
-				return stack.stackTagCompound.getLong("charge");
+				return stack.getTagCompound().getLong("charge");
 			} else {
-				stack.stackTagCompound = new NBTTagCompound();
-				stack.stackTagCompound.setLong("charge", ((ItemToolAbilityPower) stack.getItem()).maxPower);
-				return stack.stackTagCompound.getLong("charge");
+				stack.setTagCompound(new NBTTagCompound());
+				stack.getTagCompound().setLong("charge", ((ItemToolAbilityPower) stack.getItem()).maxPower);
+				return stack.getTagCompound().getLong("charge");
 			}
 		}
 

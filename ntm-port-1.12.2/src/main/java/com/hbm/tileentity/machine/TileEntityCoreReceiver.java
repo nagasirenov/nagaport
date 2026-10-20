@@ -43,28 +43,28 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements IEn
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.dfcReceiver";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!worldObj.isRemote) {
+		if (!this.world.isRemote) {
 			
 			this.subscribeToAllAround(tank.getTankType(), this);
 			
 			power = joules * 5000;
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-				this.tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			
 			if(joules > 0) {
 
 				if(tank.getFill() >= 20) {
 					tank.setFill(tank.getFill() - 20);
 				} else {
-					worldObj.setBlock(xCoord, yCoord, zCoord, Blocks.flowing_lava);
+					this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA);
 					return;
 				}
 			}
@@ -118,8 +118,8 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements IEn
 		if(dir.getOpposite().ordinal() == this.getBlockMetadata()) {
 			joules += energy;
 		} else {
-			worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
-			worldObj.createExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 2.5F, true);
+			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			this.world.createExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 2.5F, true);
 		}
 	}
 	
@@ -144,12 +144,13 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements IEn
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
 		nbt.setLong("joules", joules);
 		tank.writeToNBT(nbt, "tank");
+		return nbt;
 	}
 
 	@Override

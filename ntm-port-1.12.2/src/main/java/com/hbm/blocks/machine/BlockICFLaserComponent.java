@@ -13,7 +13,7 @@ public class BlockICFLaserComponent extends BlockEnumMulti {
 	protected IIcon[] iconsTop;
 
 	public BlockICFLaserComponent() {
-		super(Material.iron, EnumICFPart.class, true, true);
+		super(Material.IRON, EnumICFPart.class, true, true);
 	}
 
 	@Override

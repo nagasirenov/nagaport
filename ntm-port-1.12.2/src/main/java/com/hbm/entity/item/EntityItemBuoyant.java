@@ -22,7 +22,7 @@ public class EntityItemBuoyant extends EntityItem {
 		int y = (int) Math.floor(posY - 0.0625);
 		int z = (int) Math.floor(posZ);
 
-		if(worldObj.getBlock(x, y, z).getMaterial() == Material.water && worldObj.getBlockMetadata(x, y, z) < 8) {
+		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().getMaterial() == Material.WATER && this.world.getBlockMetadata(x, y, z) < 8) {
 			this.motionY += 0.045D;
 		}
 		

@@ -18,7 +18,7 @@ public class AtmosphericCompressorHandler extends NEICelestialHandler {
 	}
 
 	@Override
-	public String getKey() {
+	public String getUid() {
 		return "ntmAtmoCompressor";
 	}
 

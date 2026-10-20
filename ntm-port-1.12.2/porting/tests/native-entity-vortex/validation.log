@@ -1,0 +1,4 @@
+PASS: 16 scoped operations across six files; inherited owner, all literal float16 consumers, renderer registration domains and exact inverse baseline source verified
+PASS: 409 native inherited FLOAT/metadata/NBT/renderer-expression/prefix assertions (base-first)
+PASS: 409 native inherited FLOAT/metadata/NBT/renderer-expression/prefix assertions (descendant-first)
+PASS: exact actual synchronization/NBT/constructors, bounded pre-super update prefixes and two renderer-read expressions; no replacement custom parent

@@ -22,26 +22,26 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class TileEntityGeysir extends TileEntity {
+public class TileEntityGeysir extends TileEntity implements net.minecraft.util.ITickable {
 
 	int timer;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if (!this.worldObj.isRemote && worldObj.getBlock(xCoord, yCoord + 1, zCoord) == Blocks.air) {
+		if (!this.world.isRemote && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).getBlock() == Blocks.AIR) {
 
 			timer--;
 
-			int meta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) );
 
 			if(timer <= 0) {
 				timer = getDelay();
 
 				if(meta == 0)
-					worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 2);
+					this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1, 2);
 				else
-					worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 0, 2);
+					this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 2);
 			}
 
 			if(meta == 1) {
@@ -52,34 +52,34 @@ public class TileEntityGeysir extends TileEntity {
 
 	private void water() {
 
-		EntityWaterSplash fx = new EntityWaterSplash(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5);
+		EntityWaterSplash fx = new EntityWaterSplash(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5);
 
-		fx.motionX = worldObj.rand.nextGaussian() * 0.35;
-		fx.motionZ = worldObj.rand.nextGaussian() * 0.35;
+		fx.motionX = this.world.rand.nextGaussian() * 0.35;
+		fx.motionZ = this.world.rand.nextGaussian() * 0.35;
 		fx.motionY = 2;
 
-		worldObj.spawnEntityInWorld(fx);
+		this.world.spawnEntityInWorld(fx);
 	}
 
 	private void chlorine() {
 
 		for(int i = 0; i < 3; i++) {
-			EntityOrangeFX fx = new EntityOrangeFX(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, 0.0, 0.0, 0.0);
+			EntityOrangeFX fx = new EntityOrangeFX(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, 0.0, 0.0, 0.0);
 
-			fx.motionX = worldObj.rand.nextGaussian() * 0.45;
-			fx.motionZ = worldObj.rand.nextGaussian() * 0.45;
+			fx.motionX = this.world.rand.nextGaussian() * 0.45;
+			fx.motionZ = this.world.rand.nextGaussian() * 0.45;
 			fx.motionY = timer * 0.3;
 
-			worldObj.spawnEntityInWorld(fx);
+			this.world.spawnEntityInWorld(fx);
 		}
 
 	}
 
 	private void vapor() {
 
-		List<Entity> entities = this.worldObj.getEntitiesWithinAABB(Entity.class,
-				AxisAlignedBB.getBoundingBox(this.xCoord - 0.5, this.yCoord + 0.5, this.zCoord - 0.5, this.xCoord + 1.5,
-						this.yCoord + 2, this.zCoord + 1.5));
+		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class,
+				AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5,
+						this.pos.getY() + 2, this.pos.getZ() + 1.5));
 
 		if (!entities.isEmpty()) {
 			for (Entity e : entities) {
@@ -93,33 +93,33 @@ public class TileEntityGeysir extends TileEntity {
 	private void fire() {
 
 		int range = 32;
-		if(worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).expand(range, range, range)).isEmpty())
+		if(this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range)).isEmpty())
 			return;
 
-		if(worldObj.rand.nextInt(3) == 0) {
-			EntityShrapnel fx = new EntityShrapnel(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5);
-			fx.motionX = worldObj.rand.nextGaussian() * 0.05;
-			fx.motionZ = worldObj.rand.nextGaussian() * 0.05;
-			fx.motionY = 0.5 + worldObj.rand.nextDouble() * timer * 0.01;
+		if(this.world.rand.nextInt(3) == 0) {
+			EntityShrapnel fx = new EntityShrapnel(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5);
+			fx.motionX = this.world.rand.nextGaussian() * 0.05;
+			fx.motionZ = this.world.rand.nextGaussian() * 0.05;
+			fx.motionY = 0.5 + this.world.rand.nextDouble() * timer * 0.01;
 
-			worldObj.spawnEntityInWorld(fx);
+			this.world.spawnEntityInWorld(fx);
 		}
 
 		if(timer % 2 == 0) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "gasfire");
-			data.setDouble("mX", worldObj.rand.nextGaussian() * 0.05);
+			data.setDouble("mX", this.world.rand.nextGaussian() * 0.05);
 			data.setDouble("mY", 0.2);
-			data.setDouble("mZ", worldObj.rand.nextGaussian() * 0.05);
-			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.xCoord + 0.5F, this.yCoord + 1.1F, this.zCoord + 0.5F), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 75));
+			data.setDouble("mZ", this.world.rand.nextGaussian() * 0.05);
+			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, this.pos.getX() + 0.5F, this.pos.getY() + 1.1F, this.pos.getZ() + 0.5F), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 75));
 		}
 	}
 
 	private int getDelay() {
 
-		Block b = worldObj.getBlock(xCoord, yCoord, zCoord);
-		int meta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
-		Random rand = worldObj.rand;
+		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) );
+		Random rand = this.world.rand;
 
 		if(b == ModBlocks.geysir_water) {
 
@@ -144,7 +144,7 @@ public class TileEntityGeysir extends TileEntity {
 
 	private void perform() {
 
-		Block b = worldObj.getBlock(xCoord, yCoord, zCoord);
+		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock();
 
 		if(b == ModBlocks.geysir_water) {
 			water();

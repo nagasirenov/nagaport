@@ -315,7 +315,7 @@ public class DispenserBehaviorHandler {
 		});
 
 		// Override water dispensing behaviour to handle vacuums
-		BehaviorDefaultDispenseItem bucketDispense = (BehaviorDefaultDispenseItem)BlockDispenser.dispenseBehaviorRegistry.getObject(Items.water_bucket);
+		BehaviorDefaultDispenseItem bucketDispense = (BehaviorDefaultDispenseItem)BlockDispenser.dispenseBehaviorRegistry.getObject(Items.WATER_BUCKET);
 		BehaviorDefaultDispenseItem newBucketDispense = new BehaviorDefaultDispenseItem() {
 			@Override
 			public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
@@ -336,6 +336,6 @@ public class DispenserBehaviorHandler {
 			}
 		};
 
-		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.water_bucket, newBucketDispense);
+		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.WATER_BUCKET, newBucketDispense);
 	}
 }

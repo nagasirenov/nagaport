@@ -1,0 +1,34 @@
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :extractMcpMappings SKIPPED
+> Task :deobfCompileDeobfDepTask0 SKIPPED
+> Task :deobfCompileDeobfDepTask1 SKIPPED
+> Task :deobfCompileDeobfDepTask2 SKIPPED
+> Task :deobfCompileDeobfDepTask3 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask4
+> Task :deobfCompileRemapDepSourcesTask5
+> Task :deobfCompileRemapDepSourcesTask6
+> Task :deobfCompileDummyTask
+> Task :deobfProvidedDeobfDepTask0 SKIPPED
+> Task :deobfProvidedDummyTask
+
+> Task :writeAE2NativeClasspath
+Wrote genuine Gradle-remapped native classpath: /workspace/shared/nagaport/ntm-port-1.12.2/build/porting-tests/ae2-classpath.txt
+
+BUILD SUCCESSFUL in 5s
+6 actionable tasks: 6 executed

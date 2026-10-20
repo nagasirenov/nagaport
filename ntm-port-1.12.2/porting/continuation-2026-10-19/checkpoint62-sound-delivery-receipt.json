@@ -1,0 +1,156 @@
+{
+  "baseline": "641d2641bf196265e34e3f6968dba795f1dd061b",
+  "delivery_root": "/tmp/world-sound-widening-delivery",
+  "path_count": 84,
+  "production_count": 14,
+  "exact_path_set_and_bytes": true,
+  "paths": {
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/README.md": "2993ba3e72b1bcea93b50acd50aadca8c72ab7b3838961df61fc521a17e160ab",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/ModSoundEvents.baseline.java.txt": "2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/REPORT.md": "2706ee413f0c0d5fc650ac93c95c39231377b2a9b05480dbd39cc8b36fbd24d3",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/WorldEffectAllowlist.java": "a7e6c4abe39a2df431dc81a63ba4b34ffdc76d9d72159f979d91e4ee4ccc0d6c",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/WorldSoundWideningAttribution.java": "89e855bf314b9592a6510675c792550957919f0c5e7ee2186631ded1681cd0c4",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/after-all-diagnostics.tsv.gz": "d677e19d9ec1ab2cb428b7f3e0ef86d2f11d4f2f0e4772c3ba5def93b6518696",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/after-verification.json": "5dd9b3f9a47795ca83d17d16dee082a0361c68d09bfbbf261aeb63d8d25860d0",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/after-verification.log": "e19e42a30cac808559604fa84be1b548687b0a7dfb19621341a55a8016b7b9e2",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/after.log": "a2a4d4ea16e3f377f04e76b126d097e873b7a8cc87fc5d16b618062ff00e7eba",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/after.tsv": "60c756ce220c76b42426418d97af0b68d2af649a408028a8cac20d50f1fe2419",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/before-all-diagnostics.tsv.gz": "1a818277a320ccdf28369bdb86c5d42b58dee50a048e341f3f282057edce0820",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/before-all.tsv": "baa1d1caeb00c3b9aa9b2342aafce338d7b8f001c0bbd1e931cf3810f179a3e0",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/before-selected-manifest.json": "187efa60a08b6f5753fa56782c594981186fb171483d26fa481f49d1f616e906",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/before-verification.log": "4e2d42cf354146081349f07e00ebea997dde8b81d153c3c5eac7fca781f68999",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/before.log": "bfc66072d81d4dc2ade935ace57907f00286af7672c2821e315c9594617683a0",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/classpath-inputs.json": "a9ec5306a99049180f4d892633ae855911aa6c9d59730f3041d2f173d52fde1c",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/diagnostic-compression.json": "2325be6edaa5937200111b83a237378646a3b325e3e0d89617d97b0c9a69a66f",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/evidence.sha256": "a1903dffb506f2f0d3a30266c55f17bd519593300efe19110fbb15a3f37cf288",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/existing-registry-ast.tsv": "79a8e062391cabb54bb12e3b3e3dff5db9584e3ef3fcac110afb1a3d15f52325",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/existing-world-sound-manifest.json": "4dcbab80b4a8fd8dc68ff9362dd851e07ddb5bddf6bf9b04294b9682deb2726c",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/fresh-replay-validation.json": "ad105e461bf5f1b8473684f60b70ddeda4b757650a91aabd19773f976b0bde7d",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/fresh-replay.log": "8b79f8fe643179060746dd587e694744643d091f28e7e0ef5ce64e02b3fd42d6",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/gzip-validation.log": "5eb8ac9a530dc8cae180f490c6df7962e83989945678b2d6b16304dc1d4b16bb",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/inputs.json": "8bc510d9a89db8db51d2c8783b010971a521bdb74a20b05da0e4fdda92835c06",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/native-classpath.txt": "fc0f467afcb7b98f4c107a469bd760c624616f45cc5b518704db0dde241e23dc",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/run-attribution.sh": "7bc2ecaca8f1c2fe92814bfed904206b3b4c6f8584458266cf0cd5d2e37365da",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/select_widening.py": "bd320153140fad1e9f528ddb7ffc193a4ff1e7570e0cc583fc9e80f023f9990e",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/selected-calls.txt": "403d71c54b661ee38068263d0750217de4703de462db944e14ab1f5724a48524",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/selected-sites.tsv": "75462388efb6abe7f8a28a440d8caf4cea5ce554a885d6a80d5c8e0ab766a957",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/attribution/verify_after.py": "71f44cd36b42672d3a40cb035f29d80662b73e75302d2c3a9a6cf1c3c9559ca9",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/check-source.py": "c1c0bc3f029c9ca09f593fda7d97422d14e039ef5bc6502fe78db0633b6285cd",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/ForgeEventNativeLauncher.java": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/NumericWideningProbe.java": "6016dd132e7a3a673d35587cdb7cdcb32433329018080958cc46a0931972705c",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/REPORT.md": "a24dab20bea3e336d402e2b5390221d4ab39c501608726edd1726f51bc59375a",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/check-compile-negatives.py": "391f374cde991db28a15e7bddc74d9bf311760711c655d72f23b620347739744",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/attribution-scope.json": "911d8b53aff04697fb809e41a69ef623c08c536d23d08c2d36b9e5eee17c4d34",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/bytecode-comparison.json": "20347e88da7c5fdb4cb901a2ce7e7a9b162044e952f17a2d95b728cfbecd86f1",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/bytecode-verification.log": "e61ea98e66d099f3946052795b12c954f41edb11690e01d604657ac2d8806c26",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/callback-regression.log": "7c5e10a867041773c7cad12fe91bd6483920b89450c974b94ba3f8648b515e67",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/complete-run.log": "aa013e52d76f8cf56bd84f287ef0dfe9231211c20f225d68194f45b4077de251",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/engine-inputs.sha256": "31a6c8a40a04250e98d69cef48c652a90ac6f5a0fac48fd51b77f8c56fb79e4d",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/generated/LegacyNumericFixture.java": "8a61f3f99c22a17a8d60b1a0306ba279517eee5b1e0ef228444a7f5903b8641c",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/generated/NativeNumericFixture.java": "7c4bb175b4d97ae4a047d08813db9fc925cb3612381a8febed56a83d7ae4bdd1",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/generated/identical-expressions.json": "372a487f45e0f7c02d6ee83dce41af5173119b6ab4cdfce27ef73ad11aba5e0b",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/legacy-compile.log": "450ed55a72e6ff4eb5867186df0ed2905043fa3daf5e5d1c396cfb7468eb7bc3",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/legacy-wrapper.javap": "2719e5ba56187739d7c5978d55d4f4a3a84c8b9abc9cbf7430d8e241b291aff4",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/native-compile.log": "f57df491b2345d3ee028687cbb140030843cf90040b4aeb5fa9de01b97b89cef",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/native-wrapper.javap": "a2c9e83842dec9dede7e715bacee0e7b668bae3f880deb64b47109305925960a",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative-compile-verification.log": "7f27f481e40347ac0a4ac66401b3092e0bb5879bd27eb7b832e3e0864438efc2",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/NativeDoubleVolumeNegative.java": "3f74654037d6a93a2c93f8b6d56fecf3d5fb083db655b876ff1c9f18edf008c5",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/NativeDoubleVolumeNegative.log": "2de5e0001fce523f078bbc55ca351a6803636abb7aab6ea381bce36fc6951a2e",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/NativeObjectReceiverNegative.java": "71f2a8e38eb8ae6db98c60357ece902d23530b9f24e884cf7cb137168519518f",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/NativeObjectReceiverNegative.log": "f17be5f13619f3add87193e1d4d9619f2564603e1058f5b87a3abea123e5b376",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/OldDoubleVolumeNegative.java": "7ff296f00fbc63f600469efde5eacd36623df1a9fb154ac839df546d27fddc33",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/OldDoubleVolumeNegative.log": "cf8a3b17298ddb1c6a12d44509622cfc14b8fb711b8ba10d6ff2d9ea5b7a5f6f",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/OldObjectReceiverNegative.java": "5f7232e0dd201a1491965881d3555dcdb79c27875167fe3b48e664dec2c2e35c",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/negative/OldObjectReceiverNegative.log": "6bb90f5bf17648246fbe5cce574915cf6abc550280cba2d573d76f4fc1481afd",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/packet-regression.log": "dbefa0de4c486dd598b6d04db025cf27b558a66f164bb049e43ce7ecf65bf77e",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/probe.log": "ec2bf756bd298c9bb487b62c3750dcde08debc9e39f9833db1c16cac943a2832",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/receiver-regression.log": "ef447d20d1ac75ad2308dcac4daa0c7f4029df71094116dc54334cff0ceb5664",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/registry-category-regression.log": "c09874382c0218000163cbcd1d7ee7868948a813f53b7be143f1baa59ef06f45",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/regression-compile.log": "1bd3c7e65f139e347bf770d053ad938516c8ff6d879551eb827c91013d2c8e47",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/tested-inputs.sha256": "b2ac01251c19ad4ca38e8c97671e260696388b1de072824189842cddfe3fb0bb",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/evidence/unchanged-production.json": "697e9a1b4806e50d3dd74029f2a59fc8c3da17742363783d1299fea96b726bb0",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/final-evidence.sha256": "735284ac53bd7c3833f62c0ce752883270d68e555a5e1f3b1c0003fcd7481711",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/generate-fixtures.py": "00f27394b0189baa1b224ae51059bcd6678c2e74c44e9fb7da5a0f2ad7e03d10",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/run-probes.sh": "3ba70a59a3bf53b78154cb28971f29e4ba2a85fb513b57086571d4028bd187d1",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/runtime/verify-bytecode.py": "906c35a4400d273c45063e008ffc7920da9dc05c0396537227ce91dd981526eb",
+    "ntm-port-1.12.2/porting/tests/native-world-sound-widening/source-manifest.json": "acd289dea2b3529b0b8e018d5d892aa5f22ce2980e0093b654b662c054c5cd6d",
+    "ntm-port-1.12.2/porting/tests/native-world-sound/source-manifest.json": "4903e58e76f1ca39de01a7325904529980a0f488f4ce691bd9c3ddae249e3e06",
+    "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java": "355019e5c69782380f2f4d4e78bfed8c6cb6c7ff9573d518e1f166246453179a",
+    "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java": "61799b9573da44b1879f04cc5e273131413364d614a848ec66b33b418fc6df2e",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": "66fa64533d6d5abdf1f280fcebee59acf06355d09cb7fb042547be2b89356d54",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityCharge.java": "5f1f50b6b6b7c57000a6ca5c7ad406a9510e3fe2c410d07dbab10a0d49a39601",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java": "8f2eb498ff22c6de63ef9a2ef0a67f91a5d960cbab480320b9ed604f3d125be0",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": "d84fd6dc51e2f369f4be1d8b47799774659cd8957a964e83af0b02a2a34cdbca",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java": "f6b4afdaafbd657e93a7155a6869a00908f8d922eb08f1ffb15cf8efa7c609c9",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java": "ffa6f5d7a800f4709959efa7f551ebdfd6fb1a355a5f7e8d4c3c0ee14e385597",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": "1810d8a0ba628ff6a6732fc20692e0bdda4b0d3c9c27e02691b564e492a94d38",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java": "fc6dbdab9f67388c8ae69fef85132a9c317f1d98c83d25ee3385382a1846c47c",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineGasFlare.java": "068cacfab346057bc99b066f7496e67b7d70ef20111a067bcb512729bd12ae4b",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": "e38925e2cd5c0e215b5d6809ee73d2a625361aa590ee58282d7f099ff4e7c08f",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java": "ccf944a31cc97904b41b3633dc133553cac35846a05363a9fb453c8b0e032941",
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretJeremy.java": "3b39037b7e2f0a60c895ae10b59fd305e6e4162245da81ad0efa176920d7357a"
+  },
+  "patches": {
+    "/workspace/shared/world-sound-widening-production.patch": "d0e1de76dacb78856543ecc6968cd12601eeb83d207a4a4dcb933f13b0f6084f",
+    "/workspace/shared/world-sound-widening-evidence.patch": "e7b79b4949e0ec48b240e4ab3d80e3b4f1c2333eb854422f4933614b00307471"
+  },
+  "post_replay_path_and_byte_audit": true,
+  "attribution_replay_artifact_comparison": {
+    "before-all-diagnostics.tsv": {
+      "identical_sha256": "9f2927edd06794bfba0e18441e187c9265c3db4fbbf8541c9cc379bb96d6d83c"
+    },
+    "after-all-diagnostics.tsv": {
+      "identical_sha256": "2e0ead197fb5dd542433489de9e7029dead65c263f1d57138c91146202708d76"
+    },
+    "before-all.tsv": {
+      "identical_sha256": "baa1d1caeb00c3b9aa9b2342aafce338d7b8f001c0bbd1e931cf3810f179a3e0"
+    },
+    "after.tsv": {
+      "identical_sha256": "60c756ce220c76b42426418d97af0b68d2af649a408028a8cac20d50f1fe2419"
+    },
+    "before-selected-manifest.json": {
+      "identical_sha256": "187efa60a08b6f5753fa56782c594981186fb171483d26fa481f49d1f616e906"
+    },
+    "after-verification.json": {
+      "difference_only": "overlay absolute path",
+      "saved": "/workspace/shared/nagaport-player-sound-cp59/ntm-port-1.12.2/src/main/java",
+      "replayed": "/tmp/world-sound-widening-delivery/ntm-port-1.12.2/src/main/java",
+      "saved_sha256": "5dd9b3f9a47795ca83d17d16dee082a0361c68d09bfbbf261aeb63d8d25860d0",
+      "replayed_sha256": "bae0531e9de4ae97132b2580a3b83cc3efb108b9783d45335308ef39ecd773b9"
+    },
+    "existing-registry-ast.tsv": {
+      "identical_sha256": "79a8e062391cabb54bb12e3b3e3dff5db9584e3ef3fcac110afb1a3d15f52325"
+    },
+    "before.log": {
+      "identical_sha256": "bfc66072d81d4dc2ade935ace57907f00286af7672c2821e315c9594617683a0"
+    },
+    "after.log": {
+      "identical_sha256": "a2a4d4ea16e3f377f04e76b126d097e873b7a8cc87fc5d16b618062ff00e7eba"
+    },
+    "before-verification.log": {
+      "identical_sha256": "4e2d42cf354146081349f07e00ebea997dde8b81d153c3c5eac7fca781f68999"
+    },
+    "after-verification.log": {
+      "identical_sha256": "e19e42a30cac808559604fa84be1b548687b0a7dfb19621341a55a8016b7b9e2"
+    }
+  },
+  "replays": {
+    "attribution": {
+      "log": "/tmp/world-sound-widening-delivered-attribution.log",
+      "sha256": "e53c0c844069c519bbe97d8ab6ed40eb6a0f05cdcd89aa81d189429c9a0ce6d0",
+      "exit_code": 0
+    },
+    "runtime": {
+      "log": "/tmp/world-sound-widening-delivered-runtime-complete.log",
+      "sha256": "716611ee488b7fba695a23b29ca9b825067c623c543003adf4d28d3f112b7163",
+      "exit_code": 0
+    },
+    "first_runtime_setup_attempt": {
+      "log": "/tmp/world-sound-widening-delivered-runtime.log",
+      "sha256": "cb8a8abb657bd341f4250de2914f8eb3ebfaca78a6a446fe134280b76f4d9c7c",
+      "exit_code": 1,
+      "reason": "Sparse checkout omitted bundled sound samples. Numeric136880 and receiver55 passed; registry sample resolution failed. Materialized committed assets/hbm/sounds subtree and reran unchanged delivered patch successfully."
+    }
+  },
+  "historical_guard_applicability": "Passed isolated replay baseline only; integrated CP61 legitimate non-sound whole-file changes require coordinator combined historical guard."
+}

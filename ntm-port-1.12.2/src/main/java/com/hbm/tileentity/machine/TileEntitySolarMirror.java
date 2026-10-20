@@ -8,7 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 
 public class TileEntitySolarMirror extends TileEntityTickingBase {
@@ -24,28 +24,28 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0)
+			if(this.world.getTotalWorldTime() % 20 == 0)
 				this.networkPackNT(200);
 			
-			if(tY < yCoord) {
+			if(tY < this.pos.getY()) {
 				isOn = false;
 				return;
 			}
 			
-			int sun = worldObj.getSavedLightValue(EnumSkyBlock.Sky, xCoord, yCoord, zCoord) - worldObj.skylightSubtracted - 11;
+			int sun = this.world.getLightFor(EnumSkyBlock.SKY, this.pos) - this.world.getSkylightSubtracted() - 11;
 			
-			if(sun <= 0 || !worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord)) {
+			if(sun <= 0 || !this.world.canSeeSky(this.pos.up())) {
 				isOn = false;
 				return;
 			}
 			
 			isOn = true;
 			
-			TileEntity te = worldObj.getTileEntity(tX, tY - 1, tZ);
+			TileEntity te = this.world.getTileEntity(new BlockPos(tX, tY - 1, tZ));
 			
 			if(te instanceof TileEntitySolarBoiler) {
 				TileEntitySolarBoiler boiler = (TileEntitySolarBoiler)te;
@@ -53,15 +53,15 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 			}
 		} else {
 			
-			TileEntity te = worldObj.getTileEntity(tX, tY - 1, tZ);
+			TileEntity te = this.world.getTileEntity(new BlockPos(tX, tY - 1, tZ));
 			
 			if(isOn && te instanceof TileEntitySolarBoiler) {
 				TileEntitySolarBoiler boiler = (TileEntitySolarBoiler)te;
-				boiler.primary.add(new ChunkCoordinates(xCoord, yCoord, zCoord));
+				boiler.primary.add(new SolarMirrorPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 			}
 			
-			if(worldObj.getTotalWorldTime() % 20 == 0)
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			if(this.world.getTotalWorldTime() % 20 == 0)
+				this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
 		}
 	}
 
@@ -94,11 +94,12 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 		tZ = nbt.getInteger("targetZ");
 	}
 
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("targetX", tX);
 		nbt.setInteger("targetY", tY);
 		nbt.setInteger("targetZ", tZ);
+		return nbt;
 	}
 	
 	AxisAlignedBB bb = null;
@@ -107,13 +108,13 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 	public AxisAlignedBB getRenderBoundingBox() {
 		
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
-					xCoord - 25,
-					yCoord - 25,
-					zCoord - 25,
-					xCoord + 25,
-					yCoord + 25,
-					zCoord + 25
+			bb = new AxisAlignedBB(
+					this.pos.getX() - 25,
+					this.pos.getY() - 25,
+					this.pos.getZ() - 25,
+					this.pos.getX() + 25,
+					this.pos.getY() + 25,
+					this.pos.getZ() + 25
 					);
 		}
 		

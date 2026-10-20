@@ -50,7 +50,7 @@ public class TrappedBrick extends BlockContainer {
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
     	
-    	int meta = world.getBlockMetadata(x, y, z);
+    	int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
     	
     	if(world.isRemote || Trap.get(meta).type != TrapType.ON_STEP || !(entity instanceof EntityPlayer)) {
     		return;
@@ -60,11 +60,11 @@ public class TrappedBrick extends BlockContainer {
     		
 		switch(Trap.get(meta)) {
 		case FIRE:
-			if(world.getBlock(x, y + 1, z).isReplaceable(world, x, y + 1, z))
-				world.setBlock(x, y + 1, z, Blocks.fire);
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			break;
 		case SPIKES:
-			if(world.getBlock(x, y + 1, z).isReplaceable(world, x, y + 1, z))
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))
 				world.setBlock(x, y + 1, z, ModBlocks.spikes);
 			List<Entity> targets = world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(x, y + 1, z, x + 1, y + 2, z + 1));
 			for(Entity e : targets)
@@ -75,8 +75,8 @@ public class TrappedBrick extends BlockContainer {
 			world.createExplosion(null, x + 0.5, y + 1.5, z + 0.5, 1F, false);
 			break;
 		case WEB:
-			if(world.getBlock(x, y + 1, z).isReplaceable(world, x, y + 1, z))
-				world.setBlock(x, y + 1, z, Blocks.web);
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))
+				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WEB; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			break;
 		case RAD_CONVERSION:
 			for(int a = - 3; a <= 3; a++) {
@@ -86,7 +86,7 @@ public class TrappedBrick extends BlockContainer {
 						if(world.rand.nextBoolean())
 							continue;
 						
-						Block bl = world.getBlock(x + a, y + b, z + c);
+						Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y + b, z + c).getBlock();
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 							world.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_ooze);
 						}
@@ -102,7 +102,7 @@ public class TrappedBrick extends BlockContainer {
 						if(world.rand.nextBoolean())
 							continue;
 						
-						Block bl = world.getBlock(x + a, y + b, z + c);
+						Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y + b, z + c).getBlock();
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 							world.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_mystic);
 						}
@@ -118,7 +118,7 @@ public class TrappedBrick extends BlockContainer {
 			break;
 		}
 
-		world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, 0.6F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, 0.6F);
 		world.setBlock(x, y, z, ModBlocks.brick_jungle);
     }
 	

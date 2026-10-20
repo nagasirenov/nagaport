@@ -5,16 +5,14 @@ import org.lwjgl.opengl.GL11;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.main.ResourceManager;
-import com.hbm.render.item.ItemRenderBase;
 import com.hbm.tileentity.machine.TileEntityHydroponic;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
 
-public class RenderHydroponic extends TileEntitySpecialRenderer implements IItemRendererProvider {
+public class RenderHydroponic extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
@@ -62,23 +60,6 @@ public class RenderHydroponic extends TileEntitySpecialRenderer implements IItem
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public Item getItemForRenderer() {
-		return Item.getItemFromBlock(ModBlocks.hydrobay);
-	}
 
-	@Override
-	public IItemRenderer getRenderer() {
-		return new ItemRenderBase() {
-			public void renderInventory() {
-				GL11.glTranslated(0, -1.75, 0);
-				GL11.glScaled(3, 3, 3);
-			}
-			public void renderCommon() {
-				bindTexture(ResourceManager.hydroponic_tex);
-				ResourceManager.hydroponic.renderAll();
-			}
-		};
-	}
 
 }

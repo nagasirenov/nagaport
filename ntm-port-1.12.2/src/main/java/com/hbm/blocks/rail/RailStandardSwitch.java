@@ -1,27 +1,20 @@
 package com.hbm.blocks.rail;
 
-import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.items.ModItems;
 import com.hbm.lib.Library;
 import com.hbm.lib.RefStrings;
-import com.hbm.main.ResourceManager;
-import com.hbm.render.loader.HFRWavefrontObject;
-import com.hbm.render.util.ObjUtil;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.Tessellator;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -29,10 +22,9 @@ import com.hbm.lib.ForgeDirection;
 
 public class RailStandardSwitch extends BlockRailWaypointSystem implements IRenderBlock {
 
-	@SideOnly(Side.CLIENT) private IIcon iconSign;
 
 	public RailStandardSwitch() {
-		super(Material.iron);
+		super(Material.IRON);
 		
 		RailDef main = new RailDef("main");
 		RailDef side = new RailDef("side");
@@ -65,22 +57,12 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		side.nodes.add(new Vec3d(8.5, 0.1875, 0.5));
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
-		this.iconSign = iconRegister.registerIcon(RefStrings.MODID + ":rail_switch_sign");
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityRailSwitch();
 	}
 
-	@Override
-	public int getRenderType() {
-		return renderID;
-	}
 
 	@Override
 	public int[] getDimensions() {
@@ -99,7 +81,7 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 
 	@Override
 	public boolean canCross(World world, int x, int y, int z, Vec3d from, Vec3d to, RailDef def) {
-		TileEntityRailSwitch tile = (TileEntityRailSwitch) world.getTileEntity(x, y, z);
+		TileEntityRailSwitch tile = (TileEntityRailSwitch) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(tile == null) return true;
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata() - 10);
@@ -124,22 +106,24 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos at, net.minecraft.block.state.IBlockState state, EntityPlayer player, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing side, float hitX, float hitY, float hitZ) {
+		int x = at.getX(), y = at.getY(), z = at.getZ();
 		
 		if(world.isRemote) return true;
 		if(player.isSneaking()) return false;
-		if(player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.train) return false;
+		if(!player.getHeldItem(hand).isEmpty() && player.getHeldItem(hand).getItem() == ModItems.train) return false;
 		
 		int[] pos = this.findCore(world, x, y, z);
 		
 		if(pos != null) {
-			TileEntity tile = world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			
 			if(tile instanceof TileEntityRailSwitch) {
 				TileEntityRailSwitch sw = (TileEntityRailSwitch) tile;
 				sw.isSwitched = !sw.isSwitched;
 				sw.markDirty();
-				world.markBlockForUpdate(pos[0], pos[1], pos[2]);
+				net.minecraft.util.math.BlockPos core = new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]);
+				world.notifyBlockUpdate(core, world.getBlockState(core), world.getBlockState(core), 3);
 			}
 		}
 		
@@ -163,12 +147,12 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		int rX = rot.offsetX;
 		int rZ = rot.offsetZ;
 
-		for(int i = 0; i < 4; i++) if(!world.getBlock(x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2).isReplaceable(world, x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2)) return false;
-		for(int i = 0; i < 2; i++) if(!world.getBlock(x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3).isReplaceable(world, x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3)) return false;
-		if(!world.getBlock(x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4).isReplaceable(world, x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4)) return false;
-		for(int j = 0; j < 2; j++) for(int i = 0; i < 2; i++) if(!world.getBlock(x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i)).isReplaceable(world, x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i))) return false;
-		if(!world.getBlock(x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5).isReplaceable(world, x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5)) return false;
-		for(int j = 0; j < 7; j++) for(int i = 0; i < 2; i++) if(!world.getBlock(x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i)).isReplaceable(world, x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i))) return false;
+		for(int i = 0; i < 4; i++) if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2))) return false;
+		for(int i = 0; i < 2; i++) if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3))) return false;
+		if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4))) return false;
+		for(int j = 0; j < 2; j++) for(int i = 0; i < 2; i++) if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i))).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i)))) return false;
+		if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5)).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5))) return false;
+		for(int j = 0; j < 7; j++) for(int i = 0; i < 2; i++) if(!world.getBlockState(new net.minecraft.util.math.BlockPos(x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i))).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i)))) return false;
 		
 		return true;
 	}
@@ -187,60 +171,24 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		int rX = rot.offsetX;
 		int rZ = rot.offsetZ;
 
-		for(int i = 0; i < 4; i++) world.setBlock(x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2, this, rot.ordinal(), 3);
-		for(int i = 0; i < 2; i++) world.setBlock(x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3, this, rot.ordinal(), 3);
-		world.setBlock(x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4, this, rot.ordinal(), 3);
-		for(int j = 0; j < 2; j++) for(int i = 0; i < 2; i++) world.setBlock(x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i), this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5, this, rot.ordinal(), 3);
-		for(int j = 0; j < 7; j++) for(int i = 0; i < 2; i++) world.setBlock(x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i), this, dir.ordinal(), 3);
+		for(int i = 0; i < 4; i++) world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2), this.getStateFromMeta(rot.ordinal()), 3);
+		for(int i = 0; i < 2; i++) world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3), this.getStateFromMeta(rot.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4), this.getStateFromMeta(rot.ordinal()), 3);
+		for(int j = 0; j < 2; j++) for(int i = 0; i < 2; i++) world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i)), this.getStateFromMeta(dir.ordinal()), 3);
+		world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5), this.getStateFromMeta(rot.ordinal()), 3);
+		for(int j = 0; j < 7; j++) for(int i = 0; i < 2; i++) world.setBlockState(new net.minecraft.util.math.BlockPos(x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i)), this.getStateFromMeta(dir.ordinal()), 3);
 		
 		BlockDummyable.safeRem = false;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glTranslated(0, -0.0625, -0.1875);
-		GL11.glRotated(90, 0, 1, 0);
-		GL11.glScaled(0.1, 0.1, 0.1);
-		tessellator.startDrawingQuads();
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_switch, "Rail", this.blockIcon, tessellator, 0, false);
-		tessellator.draw();
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void renderWorld(Tessellator tessellator, Block block, int meta, IBlockAccess world, int x, int y, int z) {
-		if(meta < 12) return;
-		float rotation = 0;
-		if(meta == 15) rotation = 90F / 180F * (float) Math.PI;
-		if(meta == 12) rotation = 180F / 180F * (float) Math.PI;
-		if(meta == 14) rotation = 270F / 180F * (float) Math.PI;
-		if(meta == 12) tessellator.addTranslation(0.5F, 0F, 0F);
-		if(meta == 13) tessellator.addTranslation(-0.5F, 0F, 0F);
-		if(meta == 14) tessellator.addTranslation(0F, 0F, -0.5F);
-		if(meta == 15) tessellator.addTranslation(0F, 0F, 0.5F);
-		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_switch, "Rail", this.blockIcon, tessellator, rotation, true);
-		
-		TileEntity tile = world.getTileEntity(x, y, z);
-		
-		if(tile instanceof TileEntityRailSwitch) {
-			TileEntityRailSwitch sw = (TileEntityRailSwitch) tile;
-			ObjUtil.renderPartWithIcon((HFRWavefrontObject) ResourceManager.rail_standard_switch, sw.isSwitched ? "SignTurn" : "SignStraight", this.iconSign, tessellator, rotation, true);
-		}
-		
-		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
-		if(meta == 12) tessellator.addTranslation(-0.5F, 0F, 0F);
-		if(meta == 13) tessellator.addTranslation(0.5F, 0F, 0F);
-		if(meta == 14) tessellator.addTranslation(0F, 0F, 0.5F);
-		if(meta == 15) tessellator.addTranslation(0F, 0F, -0.5F);
-	}
 	
 	public static class TileEntityRailSwitch extends TileEntity {
 		public boolean isSwitched = false;
 		
-		@Override public boolean canUpdate() { return false; }
+
+		@Override
+		public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }
 
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
@@ -252,7 +200,7 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		@Override
 		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 			this.readFromNBT(pkt.getNbtCompound());
-			worldObj.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
+			this.world.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
 		}
 
 		@Override
@@ -262,9 +210,10 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setBoolean("isSwitched", this.isSwitched);
+			return nbt;
 		}
 	}
 }

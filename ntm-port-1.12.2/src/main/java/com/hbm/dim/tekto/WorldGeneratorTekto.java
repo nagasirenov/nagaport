@@ -31,7 +31,7 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == SpaceConfig.tektoDimension) {
+		if(world.provider.getDimension() == SpaceConfig.tektoDimension) {
 			generateTekto(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
@@ -49,7 +49,7 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 				for(int y = 32; y < 128; y++) {
 					int ox = i + x + 8;
 					int oz = j + z + 8;
-					Block b = world.getBlock(ox, y, oz);
+					Block b = com.hbm.world.WorldBlockState.read(world, ox, y, oz).getBlock();
 					if(b == ModBlocks.geysir_chloric) {
 						world.setBlock(ox, y, oz, ModBlocks.geysir_chloric);
 						world.markBlockForUpdate(ox, y, oz);

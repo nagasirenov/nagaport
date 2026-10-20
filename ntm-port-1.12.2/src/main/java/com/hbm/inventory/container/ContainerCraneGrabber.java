@@ -101,7 +101,7 @@ public class ContainerCraneGrabber extends ContainerBase {
 			
 		} else {
 			slot.putStack(held);
-			grabber.matcher.initPatternStandard(grabber.getWorldObj(), slot.getStack(), index);
+			grabber.matcher.initPatternStandard(grabber.getWorld(), slot.getStack(), index);
 			
 			return ret;
 		}

@@ -1,0 +1,31 @@
+{
+  "baseline": "86ab1487fe74afedea997ae0bda2b9d8394da20e",
+  "placements": 127,
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/Barrel.java": {
+      "before": "f5cee4ff1c4b68f6c54fea5da414dc919d610af90d4575e366acfeaf2322fbd9",
+      "after": "b1704a9d90e3a99abe7475d84e9964d91bc3b468d41d097fbe55cfab281b07f7",
+      "placements": 43
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before": "dd55ab0e5d7c8603d4b3828842f642e0f150b724bf255396dc8ab4769a50fca3",
+      "after": "139d09f508b02cd1dec7077c4305d9c05c9fff25ccd70a3a09d53357de4bf2e6",
+      "placements": 16
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before": "708c5b7283d87857647291fa7ba13bfa47456a919a7dab97abbd32bde8d84ee4",
+      "after": "e3d270b9a29156797ed7477b8f61872a1ec51aad8e70d6cf602085a8349e513c",
+      "placements": 52
+    },
+    "src/main/java/com/hbm/world/dungeon/Silo.java": {
+      "before": "816a1de163c5233f519d684f92343dadb69bb7f8ccd79e460c7fdafa0d44fcc5",
+      "after": "0083d7e4f4b39d35a7b649c4622f9df9d648bd7bb9b20d8535dd5f66b883fde8",
+      "placements": 6
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship.java": {
+      "before": "a37f48b51f3553e9b263a8b34fbad722dafc86a58a97e07e03e160f376bbaf61",
+      "after": "d41441c9015e76248d336b092cf41b75e352190702a47b770d0d86269c54fb08",
+      "placements": 10
+    }
+  }
+}

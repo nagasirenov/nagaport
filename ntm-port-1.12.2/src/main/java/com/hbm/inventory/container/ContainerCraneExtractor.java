@@ -106,7 +106,7 @@ public class ContainerCraneExtractor extends ContainerBase {
 			
 		} else {
 			slot.putStack(held);
-			extractor.matcher.initPatternStandard(extractor.getWorldObj(), slot.getStack(), index);
+			extractor.matcher.initPatternStandard(extractor.getWorld(), slot.getStack(), index);
 			
 			return ret;
 		}

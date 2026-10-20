@@ -1,0 +1,118 @@
+import java.util.*;
+import com.mojang.authlib.GameProfile;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.machine.rbmk.*;
+import com.hbm.handler.threading.PacketThreading;
+import com.hbm.items.ModItems;
+import com.hbm.main.MainRegistry;
+import com.hbm.packet.toclient.AuxParticlePacketNT;
+import com.hbm.util.ContaminationUtil;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.*;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+/** Real Forge/Minecraft blocks, states, chunks, entities, ItemStack and NBT.
+ * Only external NTM registries/effect/packet/radiation dispatch are recorders. */
+public final class RBMKDebrisNativeTest {
+ static int checks;static final BlockPos POS=new BlockPos(-2,64,-3);
+ static RBMKDebris plain;static RBMKDebrisBurning burning;static RBMKDebrisRadiating radiating;static RBMKDebrisDigamma digamma;
+ static final class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<String> events=new ArrayList<>();final List<EntityLivingBase> living=new ArrayList<>();AxisAlignedBB queried;
+  NativeWorld(boolean remote){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),remote);provider.setWorld(this);provider.setDimension(37);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){Chunk c=getLoadedChunk(x,z);if(c==null){c=new Chunk(NativeWorld.this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}return c;}public boolean tick(){return false;}public String makeString(){return "native debris fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean empty){return chunks.containsKey(key(x,z));}
+  public boolean checkLight(BlockPos p){return true;}
+  public boolean setBlockState(BlockPos p,IBlockState s,int flags){if(events!=null)events.add("write:"+p+":"+s.getBlock().getRegistryName()+":"+s.getBlock().getMetaFromState(s)+":"+flags);return super.setBlockState(p,s,flags);}
+  public void scheduleUpdate(BlockPos p,Block b,int ticks){events.add("schedule:"+p+":"+b.getRegistryName()+":"+ticks);}
+  public void playSound(EntityPlayer except,double x,double y,double z,SoundEvent sound,SoundCategory cat,float volume,float pitch){check(except==null,"sound broadcasts to all");check(sound==SoundEvents.BLOCK_FIRE_AMBIENT,"original fire.fire maps to ambient, not block fire noise");check(cat==SoundCategory.BLOCKS,"block sound category");events.add("sound:"+x+","+y+","+z+":"+volume+":"+pitch);}
+  public <T extends Entity> List<T> getEntitiesWithinAABB(Class<? extends T> type,AxisAlignedBB bounds){queried=bounds;List<T> result=new ArrayList<>();for(EntityLivingBase e:living)if(type.isInstance(e))result.add(type.cast(e));return result;}
+ }
+ static final class TraceRandom extends Random {
+  final List<String> calls=new ArrayList<>();TraceRandom(long seed){super(seed);}
+  public int nextInt(int n){int v=super.nextInt(n);calls.add("int:"+n+":"+v);return v;}
+  public double nextDouble(){double v=super.nextDouble();calls.add("double:"+v);return v;}
+  public float nextFloat(){float v=super.nextFloat();calls.add("float:"+v);return v;}
+ }
+ static final class Player extends EntityPlayer {
+  final TraceRandom random=new TraceRandom(0);final List<String> damage=new ArrayList<>();
+  Player(World world){super(world,new GameProfile(new UUID(7,13),"debris-probe"));}
+  public boolean isSpectator(){return false;}public boolean isCreative(){return capabilities.isCreativeMode;}
+  public Random getRNG(){return random;}
+  public void playSound(SoundEvent sound,float volume,float pitch){}
+  public boolean attackEntityFrom(DamageSource source,float amount){damage.add(source.getDamageType()+":"+amount);check(source==DamageSource.IN_FIRE,"legacy inFire damage identity");return true;}
+ }
+ static final class Living extends EntityArmorStand {
+  final List<String> damage=new ArrayList<>();Living(World world){super(world);}
+  public boolean attackEntityFrom(DamageSource source,float amount){damage.add(source.getDamageType()+":"+amount);return true;}
+ }
+ static final class Shield extends Block {final float resistance;Shield(float r){super(Material.ROCK);resistance=r;}public float getExplosionResistance(Entity e){check(e==null,"ray resistance retains null entity");return resistance;}}
+ static void check(boolean ok,String message){checks++;if(!ok)throw new AssertionError(message);}
+ static void register(Block b,String name){ForgeRegistries.BLOCKS.register(b.setRegistryName("debris_probe",name).setTranslationKey(name));ForgeRegistries.ITEMS.register(new ItemBlock(b).setRegistryName(b.getRegistryName()));}
+ static void reset(){PacketThreading.packets.clear();PacketThreading.targets.clear();MainRegistry.proxy.effects.clear();ContaminationUtil.entities.clear();ContaminationUtil.rads.clear();}
+ static List<String> packets(){List<String> out=new ArrayList<>();for(int i=0;i<PacketThreading.packets.size();i++){AuxParticlePacketNT p=PacketThreading.packets.get(i);TargetPoint t=PacketThreading.targets.get(i);check(p.data.getKeySet().equals(new HashSet<>(Arrays.asList("type","maxAge")))&&p.data.getString("type").equals("rbmkflame")&&p.data.getInteger("maxAge")==300,"exact flame NBT payload");out.add(p.data+":"+p.x+","+p.y+","+p.z+":"+t.dimension+":"+t.x+","+t.y+","+t.z+":"+t.range);}return out;}
+ static void setup(){Bootstrap.register();plain=new RBMKDebris();burning=new RBMKDebrisBurning();radiating=new RBMKDebrisRadiating();digamma=new RBMKDebrisDigamma();register(plain,"plain");register(burning,"burning");register(radiating,"radiating");register(digamma,"digamma");ModBlocks.pribris=plain;ModBlocks.pribris_burning=burning;ModBlocks.gas_meltdown=Blocks.GLASS;ModBlocks.foam_layer=Blocks.SNOW_LAYER;ModBlocks.block_foam=Blocks.SNOW;ModBlocks.sand_boron_layer=Blocks.CARPET;ModBlocks.sand_mix=Blocks.WOOL;ModBlocks.corium_block=Blocks.GOLD_BLOCK;ModBlocks.block_corium=Blocks.IRON_BLOCK;ModItems.marshmallow=new Item().setHasSubtypes(true).setRegistryName("debris_probe","marshmallow");ForgeRegistries.ITEMS.register(ModItems.marshmallow);}
+ static NativeWorld placed(Block block,int meta,boolean remote){NativeWorld w=new NativeWorld(remote);w.setBlockState(POS,block.getStateFromMeta(meta));w.events.clear();reset();return w;}
+ static void stateContracts()throws Exception {
+  for(Block b:new Block[]{plain,burning,radiating,digamma}){
+   check(b.getDefaultState().getValue(RBMKDebris.METADATA)==0&&b.getBlockState().getValidStates().size()==16,"exact metadata property and default");
+   check(b.getMaterial(b.getDefaultState())==Material.IRON,"original iron material");
+   for(int meta=0;meta<16;meta++){
+    IBlockState s=b.getStateFromMeta(meta);check(b.getMetaFromState(s)==meta&&s.getValue(RBMKDebris.METADATA)==meta,"metadata roundtrip");check(s.getRenderType()==EnumBlockRenderType.MODEL&&b.getRenderLayer()==BlockRenderLayer.CUTOUT_MIPPED,"model layer");check(!s.isOpaqueCube()&&!s.isFullCube(),"nonopaque/nonfull");check(s.getBoundingBox(null,POS).equals(Block.FULL_BLOCK_AABB)&&b.getCollisionBoundingBox(s,null,POS).equals(Block.FULL_BLOCK_AABB),"full original selection/collision bounds");for(EnumFacing f:EnumFacing.values())check(b.getBlockFaceShape(null,s,POS,f)==BlockFaceShape.UNDEFINED&&!b.isSideSolid(s,null,POS,f),"no invented support on any face");
+    NativeWorld w=placed(b,meta,false);check(b.getMetaFromState(w.getBlockState(POS))==meta,"real chunk preserves metadata");for(int next=0;next<16;next++){w.events.clear();w.setBlockState(POS,b.getStateFromMeta(next),2);check(b.getMetaFromState(w.getBlockState(POS))==next&&w.events.size()==1,"same block state changes do not replay added callbacks");}
+   }
+  }
+  try{RBMKDebris.class.getDeclaredField("renderID");throw new AssertionError("retired render ID remains");}catch(NoSuchFieldException expected){checks++;}
+ }
+ static void emit(NativeWorld w,Random r,boolean radioactive,boolean sound,boolean effect){double x=POS.getX(),y=POS.getY(),z=POS.getZ();NBTTagCompound n=new NBTTagCompound();n.setString("type","rbmkflame");n.setInteger("maxAge",300);double px=radioactive?x+r.nextDouble():x+.25+r.nextDouble()*.5;double pz=radioactive?z+r.nextDouble():z+.25+r.nextDouble()*.5;PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(n,px,y+1.75,pz),new TargetPoint(w.provider.getDimension(),x+.5,y+1.75,z+.5,75));if(effect)MainRegistry.proxy.effectNT(n);if(sound)w.playSound(null,x+.5,y+.5,z+.5,SoundEvents.BLOCK_FIRE_AMBIENT,SoundCategory.BLOCKS,1F+r.nextFloat(),r.nextFloat()*.7F+.3F);}
+ static void oracleUpdate(NativeWorld w,RBMKDebrisBurning b,Random random){if(w.isRemote)return;boolean rad=b==radiating;if(random.nextInt(5)==0)emit(w,random,rad,true,!rad);BlockPos neighbor=POS.offset(EnumFacing.values()[random.nextInt(6)]);IBlockState adjacent=w.getBlockState(neighbor);Block other=adjacent.getBlock();int m=other.getMetaFromState(adjacent);if(random.nextInt(10)==0&&other==Blocks.AIR)w.setBlockState(neighbor,ModBlocks.gas_meltdown.getDefaultState());boolean boron=other==ModBlocks.sand_boron_layer||(other==ModBlocks.sand_mix&&m==0);boolean foam=other==ModBlocks.foam_layer||other==ModBlocks.block_foam;int chance=rad?(boron?25:1000):(boron||foam?10:100);if(random.nextInt(chance)==0){int meta=b.getMetaFromState(w.getBlockState(POS));if(rad&&meta<15){w.setBlockState(POS,b.getStateFromMeta(meta+1),2);w.scheduleUpdate(POS,b,20+w.rand.nextInt(20));}else w.setBlockState(POS,(rad?burning:plain).getDefaultState());}else w.scheduleUpdate(POS,b,(rad?20:100)+w.rand.nextInt(20));}
+ static void addedCallbacks(){
+  for(RBMKDebrisBurning b:new RBMKDebrisBurning[]{burning,radiating})for(boolean remote:new boolean[]{false,true})for(int seed=0;seed<40;seed++){
+   NativeWorld w=new NativeWorld(remote);w.rand.setSeed(seed);Random expected=new Random(seed);reset();w.setBlockState(POS,b.getStateFromMeta(7));if(remote)b.onBlockAdded(w,POS,w.getBlockState(POS));boolean emission=!remote&&expected.nextInt(3)==0;double x=0,z=0;if(emission){x=POS.getX()+.25+expected.nextDouble()*.5;z=POS.getZ()+.25+expected.nextDouble()*.5;}int delay=(b==radiating?20:100)+expected.nextInt(20);check(w.events.size()==2&&w.events.get(1).equals("schedule:"+POS+":"+b.getRegistryName()+":"+delay),"added schedules on both sides with virtual tick rate "+remote+":"+seed+":"+w.events);check(PacketThreading.packets.size()==(emission?1:0)&&MainRegistry.proxy.effects.size()==(emission?1:0),"added packet and local proxy branch");if(emission){packets();AuxParticlePacketNT p=PacketThreading.packets.get(0);TargetPoint t=PacketThreading.targets.get(0);check(p.x==x&&p.y==65.75&&p.z==z&&MainRegistry.proxy.effects.get(0)==p.data,"added exact random coords and same NBT identity");check(t.dimension==37&&t.x==-1.5&&t.y==65.75&&t.z==-2.5&&t.range==75,"added exact target center/range/dimension");}check(w.rand.nextLong()==expected.nextLong(),"added RNG exact order and count");
+  }
+  for(boolean remote:new boolean[]{false,true}){NativeWorld w=placed(digamma,12,remote);w.events.clear();digamma.onBlockAdded(w,POS,w.getBlockState(POS));check(w.events.equals(Collections.singletonList("schedule:"+POS+":"+digamma.getRegistryName()+":2")),"digamma schedules two ticks on both sides");}
+ }
+ static void scheduledTickParity(){
+  IBlockState[] neighbors={Blocks.AIR.getDefaultState(),Blocks.STONE.getDefaultState(),ModBlocks.foam_layer.getDefaultState(),ModBlocks.block_foam.getDefaultState(),ModBlocks.sand_boron_layer.getDefaultState(),ModBlocks.sand_mix.getStateFromMeta(0),ModBlocks.sand_mix.getStateFromMeta(1)};
+  int emitted=0,gas=0,decays=0,terminal=0;
+  for(RBMKDebrisBurning block:new RBMKDebrisBurning[]{burning,radiating})for(boolean remote:new boolean[]{false,true})for(int meta:new int[]{0,7,14,15})for(IBlockState adjacent:neighbors)for(int seed=0;seed<60;seed++){
+   NativeWorld actual=placed(block,meta,remote),expected=placed(block,meta,remote);for(EnumFacing side:EnumFacing.values()){actual.setBlockState(POS.offset(side),adjacent);expected.setBlockState(POS.offset(side),adjacent);}actual.events.clear();expected.events.clear();actual.rand.setSeed(500+seed);expected.rand.setSeed(500+seed);TraceRandom ar=new TraceRandom(seed),er=new TraceRandom(seed);reset();block.updateTick(actual,POS,actual.getBlockState(POS),ar);List<String> actualPackets=packets();int actualEffects=MainRegistry.proxy.effects.size();for(NBTTagCompound n:MainRegistry.proxy.effects)check(PacketThreading.packets.stream().anyMatch(p->p.data==n),"effect uses exact transmitted NBT");reset();oracleUpdate(expected,block,er);List<String> expectedPackets=packets();check(actual.events.equals(expected.events),"exact seeded native write/sound/schedule trace "+block.getRegistryName()+":"+remote+":"+meta+":"+seed+"\n"+actual.events+"\n"+expected.events);check(actualPackets.equals(expectedPackets)&&actualEffects==MainRegistry.proxy.effects.size(),"exact packet coordinates target NBT and proxy invocation");check(ar.calls.equals(er.calls)&&actual.rand.nextLong()==expected.rand.nextLong(),"same supplied RNG call order and separate world RNG progression");check(actual.getBlockState(POS)==expected.getBlockState(POS),"exact result state");for(EnumFacing f:EnumFacing.values())check(actual.getBlockState(POS.offset(f))==expected.getBlockState(POS.offset(f)),"exact neighbor state");if(!actualPackets.isEmpty())emitted++;if(actual.getBlockState(POS).getBlock()!=block)terminal++;if(actual.getBlockState(POS).getBlock()==block&&block.getMetaFromState(actual.getBlockState(POS))!=meta)decays++;if(actual.events.stream().anyMatch(e->e.contains("minecraft:glass")))gas++;
+  }
+  check(emitted>0&&gas>0&&decays>0&&terminal>0,"all emitted/gas/decay/terminal branches observed");
+ }
+ static void digammaPropagation(){
+  for(boolean remote:new boolean[]{false,true})for(Block neighbor:new Block[]{plain,burning,radiating,digamma,ModBlocks.corium_block,ModBlocks.block_corium,Blocks.STONE,Blocks.AIR})for(EnumFacing side:EnumFacing.values()){
+   NativeWorld w=placed(digamma,13,remote);w.setBlockState(POS.offset(side),neighbor.getStateFromMeta(neighbor instanceof RBMKDebris?9:0));w.events.clear();TraceRandom r=new TraceRandom(7);digamma.updateTick(w,POS,w.getBlockState(POS),r);boolean expected=!remote&&((neighbor instanceof RBMKDebris&&neighbor!=digamma)||neighbor==ModBlocks.corium_block||neighbor==ModBlocks.block_corium);check(w.getBlockState(POS.offset(side)).getBlock()==(expected?digamma:neighbor),"six directional conversion and original identity exclusions");check(w.events.size()==(expected?2:0)&&r.calls.isEmpty(),"conversion schedules native added once; no RNG or self-reschedule");if(expected)check(digamma.getMetaFromState(w.getBlockState(POS.offset(side)))==0&&w.events.get(1).endsWith(":2"),"spread resets metadata and schedules two ticks");check(digamma.getMetaFromState(w.getBlockState(POS))==13,"source metadata untouched");
+  }
+  NativeWorld w=placed(digamma,0,false);for(EnumFacing side:EnumFacing.values())w.setBlockState(POS.offset(side),plain.getDefaultState());w.events.clear();digamma.updateTick(w,POS,w.getBlockState(POS),new Random(1));check(w.events.size()==12,"all six conversions");for(int i=0;i<6;i++)check(w.events.get(2*i).startsWith("write:"+POS.offset(EnumFacing.values()[i])+":"),"original DOWN UP NORTH SOUTH WEST EAST traversal");
+ }
+ static void placeEye(EntityLivingBase e,double x,double y,double z){e.setPosition(x,y-e.getEyeHeight(),z);}
+ static int seedForRoll(boolean hit){for(int n=0;;n++)if((new Random(n).nextInt(100)==0)==hit)return n;}
+ static void radiationAndMainHand(){
+  Shield shield=new Shield(2.75F),weak=new Shield(.1F);register(shield,"shield");register(weak,"weak");
+  for(float resistance:new float[]{0,.1F,2.75F})for(double distance:new double[]{0,1,4.999,5,9.999,10,40}){
+   NativeWorld w=placed(radiating,0,false);Living e=new Living(w);placeEye(e,POS.getX()+.5+distance,POS.getY()+.5,POS.getZ()+.5);w.living.add(e);if(resistance!=0)w.setBlockState(POS.east(),(resistance==.1F?weak:shield).getDefaultState());reset();radiating.updateTick(w,POS,w.getBlockState(POS),new Random(4));double len=new Vec3d(e.posX-(POS.getX()+.5),e.posY+e.getEyeHeight()-(POS.getY()+.5),e.posZ-(POS.getZ()+.5)).length();float res=1;for(int i=1;i<len;i++)if((int)Math.floor(POS.getX()+.5+i)==POS.getX()+1)res=Math.max(1,resistance);float expected=1000000F;expected/=res;expected/=(float)(len*len);check(ContaminationUtil.entities.size()==1&&ContaminationUtil.entities.get(0)==e&&Float.floatToIntBits(ContaminationUtil.rads.get(0))==Float.floatToIntBits(expected),"exact inverse-square/clamped summed resistance including zero distance");check(e.damage.size()==(len<5?1:0)&&(e.damage.isEmpty()||e.damage.get(0).equals("inFire:100.0")),"strict five-block fire threshold");check(w.queried.equals(new AxisAlignedBB(POS.getX()+.5-100,POS.getY()+.5-100,POS.getZ()+.5-100,POS.getX()+.5+100,POS.getY()+.5+100,POS.getZ()+.5+100)),"legacy symmetric 100-block expanded query");
+  }
+  for(boolean remote:new boolean[]{false,true})for(double distance:new double[]{4,9.999,10,15})for(int mode=0;mode<5;mode++)for(boolean hit:new boolean[]{false,true}){
+   NativeWorld w=placed(radiating,0,remote);Player p=new Player(w);placeEye(p,POS.getX()+.5-distance,POS.getY()+.5,POS.getZ()+.5);w.living.add(p);ItemStack main=mode==0?ItemStack.EMPTY:new ItemStack(mode==1?Items.STICK:ModItems.marshmallow,3,mode==3?1:mode==4?7:0);ItemStack off=new ItemStack(ModItems.marshmallow,2,0);p.setHeldItem(EnumHand.MAIN_HAND,main);p.setHeldItem(EnumHand.OFF_HAND,off);int old=main.getItemDamage();p.random.setSeed(seedForRoll(hit));p.random.calls.clear();reset();radiating.updateTick(w,POS,w.getBlockState(POS),new Random(4));boolean roll=!remote&&distance<10&&mode>=2&&mode!=3;check(p.random.calls.size()==(roll?1:0)&&(p.random.calls.isEmpty()||p.random.calls.get(0).startsWith("int:100:")),"marshmallow eligibility short circuit and exact player RNG");check(p.getHeldItemMainhand()==main&&main.getItemDamage()==(roll&&hit?1:old)&&main.getCount()==(mode==0?0:3),"main-hand mutates same stack damage only");check(p.getHeldItemOffhand()==off&&off.getItemDamage()==0&&off.getCount()==2,"offhand marshmallow never mutates");check(ContaminationUtil.entities.size()==(remote?0:1),"server radiation gate");
+  }
+  // Non-axis ray at negative coordinates: every integer step and repeated block
+  // contribution uses floor, and one-argument null-entity resistance only.
+  NativeWorld w=placed(radiating,0,false);Living e=new Living(w);placeEye(e,-8.125,67.25,-9.875);w.living.add(e);Vec3d v=new Vec3d(e.posX-(POS.getX()+.5),e.posY+e.getEyeHeight()-(POS.getY()+.5),e.posZ-(POS.getZ()+.5));double len=v.length();v=v.normalize();List<BlockPos> path=new ArrayList<>();for(int i=1;i<len;i++){BlockPos p=new BlockPos(Math.floor(POS.getX()+.5+v.x*i),Math.floor(POS.getY()+.5+v.y*i),Math.floor(POS.getZ()+.5+v.z*i));path.add(p);w.setBlockState(p,shield.getDefaultState());}reset();radiating.updateTick(w,POS,w.getBlockState(POS),new Random(4));float res=0;for(BlockPos p:path)res+=shield.resistance;float expected=1000000F;expected/=Math.max(1,res);expected/=(float)(len*len);check(Float.floatToIntBits(ContaminationUtil.rads.get(0))==Float.floatToIntBits(expected),"negative diagonal floor ray accumulates all exact step resistances");
+ }
+ public static void main(String[] args)throws Exception {setup();stateContracts();addedCallbacks();scheduledTickParity();digammaPropagation();radiationAndMainHand();System.out.println("PASS complete native RBMK debris owners: "+checks+" checks; pristine body parity, all metadata/model/collision contracts, native chunk callbacks, seeded RNG/packet/sound/write/schedule traces, six-face propagation, exact ray resistance and main-hand mutation. External NTM registry, packet transport, client proxy and contamination application are bounded recorders, not full integration.");}
+}

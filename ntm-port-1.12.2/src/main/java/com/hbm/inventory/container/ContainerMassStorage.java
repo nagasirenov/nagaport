@@ -94,7 +94,7 @@ public class ContainerMassStorage extends ContainerBase {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return storage.isUseableByPlayer(player);
+		return storage.isUsableByPlayer(player);
 	}
 	
 	@Override

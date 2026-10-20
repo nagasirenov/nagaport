@@ -87,10 +87,10 @@ public class EntityEffectHandler {
 		if(entity instanceof EntityPlayer && entity == MainRegistry.proxy.me()) {
 			EntityPlayer player = MainRegistry.proxy.me();
 			if(player != null) {
-				Biome biome = player.worldObj.getBiome(new BlockPos((int) Math.floor(player.posX), 0, (int) Math.floor(player.posZ)));
+				Biome biome = player.world.getBiome(new BlockPos((int) Math.floor(player.posX), 0, (int) Math.floor(player.posZ)));
 				if(biome == BiomeGenCraterBase.craterBiome || biome == BiomeGenCraterBase.craterInnerBiome) {
 					Random rand = player.getRNG();
-					for(int i = 0; i < 3; i++) player.worldObj.spawnParticle("townaura", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);
+					for(int i = 0; i < 3; i++) player.world.spawnParticle("townaura", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);
 				}
 			}
 		}
@@ -110,21 +110,21 @@ public class EntityEffectHandler {
 			PacketThreading.createSendToThreadedPacket(new ExtPropPacket(props, pprps), (EntityPlayerMP) entity);
 		}
 
-		if(!entity.worldObj.isRemote) {
+		if(!entity.world.isRemote) {
 			int timer = HbmLivingProps.getTimer(entity);
 			if(timer > 0) {
 				HbmLivingProps.setTimer(entity, timer - 1);
 
 				if(timer == 1) {
-					ExplosionNukeSmall.explode(entity.worldObj, entity.posX, entity.posY, entity.posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
+					ExplosionNukeSmall.explode(entity.world, entity.posX, entity.posY, entity.posZ, ExplosionNukeSmall.PARAMS_MEDIUM);
 				}
 			}
 			//only sets players on fire so mod compatibility doesnt die
-			if(GeneralConfig.enable528NetherBurn && entity instanceof EntityPlayer && !entity.isImmuneToFire() && entity.worldObj.provider instanceof WorldProviderHell) {
+			if(GeneralConfig.enable528NetherBurn && entity instanceof EntityPlayer && !entity.isImmuneToFire() && entity.world.provider instanceof WorldProviderHell) {
 				entity.setFire(5);
 			}
 
-			Biome biome = entity.worldObj.getBiome(new BlockPos((int) Math.floor(entity.posX), 0, (int) Math.floor(entity.posZ)));
+			Biome biome = entity.world.getBiome(new BlockPos((int) Math.floor(entity.posX), 0, (int) Math.floor(entity.posZ)));
 			float radiation = 0;
 			if(biome == BiomeGenCraterBase.craterOuterBiome) radiation = WorldConfig.craterBiomeOuterRad;
 			if(biome == BiomeGenCraterBase.craterBiome) radiation = WorldConfig.craterBiomeRad;
@@ -177,7 +177,7 @@ public class EntityEffectHandler {
 
 			props.isOnLadder = false;
 
-			if(!player.worldObj.isRemote) ArmorUtil.resetFlightTime(player);
+			if(!player.world.isRemote) ArmorUtil.resetFlightTime(player);
 		}
 	}
 
@@ -194,7 +194,7 @@ public class EntityEffectHandler {
 
 	private static void handleContamination(EntityLivingBase entity) {
 
-		if(entity.worldObj.isRemote)
+		if(entity.world.isRemote)
 			return;
 
 		List<ContaminationEffect> contamination = HbmLivingProps.getCont(entity);
@@ -213,10 +213,10 @@ public class EntityEffectHandler {
 	private static void handleRadiationEffect(EntityLivingBase entity) {
 
 		if(entity.isDead) return;
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 		if(entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) return;
 
-		World world = entity.worldObj;
+		World world = entity.world;
 
 		float eRad = HbmLivingProps.getRadiation(entity);
 
@@ -266,7 +266,7 @@ public class EntityEffectHandler {
 				entity.onDeath(ModDamageSource.radiation);
 			}
 
-			if(entity instanceof EntityPlayer) ((EntityPlayer) entity).triggerAchievement(MainRegistry.achRadDeath);
+			if(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadDeath);
 
 		} else if(eRad >= 800) {
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));
@@ -290,22 +290,22 @@ public class EntityEffectHandler {
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));
 			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 5 * 20, 0));
 
-			if(entity instanceof EntityPlayer) ((EntityPlayer) entity).triggerAchievement(MainRegistry.achRadPoison);
+			if(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadPoison);
 		}
 	}
 
 	/** Handles contamination from the chunk, the dimension as well as particle effects related to radiation sickness */
 	private static void handleRadiationFX(EntityLivingBase entity) {
 
-		World world = entity.worldObj;
+		World world = entity.world;
 
 		if(!world.isRemote) {
 
 			if(ContaminationUtil.isRadImmune(entity)) return;
 
-			int ix = (int)MathHelper.floor_double(entity.posX);
-			int iy = (int)MathHelper.floor_double(entity.posY);
-			int iz = (int)MathHelper.floor_double(entity.posZ);
+			int ix = (int)MathHelper.floor(entity.posX);
+			int iy = (int)MathHelper.floor(entity.posY);
+			int iz = (int)MathHelper.floor(entity.posZ);
 
 			float rad = ChunkRadiationManager.proxy.getRadiation(world, ix, iy, iz);
 
@@ -357,7 +357,7 @@ public class EntityEffectHandler {
 					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 
 					if((world.getTotalWorldTime() + r600) % 600 == 1) {
-						world.playSoundEffect(ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F);
+						com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F);
 						entity.addPotionEffect(new PotionEffect(Potion.hunger.id, 60, 19));
 					}
 				}
@@ -372,7 +372,7 @@ public class EntityEffectHandler {
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 
 				if((world.getTotalWorldTime() + r1200) % 1200 == 1) {
-					world.playSoundEffect(ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F);
+					com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F);
 					entity.addPotionEffect(new PotionEffect(Potion.hunger.id, 60, 19));
 				}
 
@@ -383,7 +383,7 @@ public class EntityEffectHandler {
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setString("type", "sweat");
 				nbt.setInteger("count", 1);
-				nbt.setInteger("block", Block.getIdFromBlock(Blocks.redstone_block));
+				nbt.setInteger("block", Block.getIdFromBlock(Blocks.REDSTONE_BLOCK));
 				nbt.setInteger("entity", entity.getEntityId());
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 
@@ -402,7 +402,7 @@ public class EntityEffectHandler {
 	}
 
 	private static void handleOxy(EntityLivingBase entity, CBT_Atmosphere atmosphere) {
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 		if(entity instanceof ISuffocationImmune) return;
 		if(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return; // breathe easy in your ship
 
@@ -415,7 +415,7 @@ public class EntityEffectHandler {
 
 	// Corrosive atmospheres melt your suit, without appropriate protection
 	private static void handleCorrosion(EntityLivingBase entity, CBT_Atmosphere atmosphere) {
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 		if(entity instanceof EntityGlyphid) return;
 		if(entity instanceof EntityCyberCrab) return;
 		if(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return;
@@ -429,7 +429,7 @@ public class EntityEffectHandler {
 
 	private static void handleDigamma(EntityLivingBase entity) {
 
-		if(!entity.worldObj.isRemote) {
+		if(!entity.world.isRemote) {
 
 			float digamma = HbmLivingProps.getDigamma(entity);
 
@@ -443,7 +443,7 @@ public class EntityEffectHandler {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "sweat");
 				data.setInteger("count", 1);
-				data.setInteger("block", Block.getIdFromBlock(Blocks.soul_sand));
+				data.setInteger("block", Block.getIdFromBlock(Blocks.SOUL_SAND));
 				data.setInteger("entity", entity.getEntityId());
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 			}
@@ -453,9 +453,9 @@ public class EntityEffectHandler {
 	private static void handleContagion(EntityLivingBase entity) {
 		if(!ServerConfig.ENABLE_MKU.get()) return;
 
-		World world = entity.worldObj;
+		World world = entity.world;
 
-		if(!entity.worldObj.isRemote) {
+		if(!entity.world.isRemote) {
 
 			Random rand = entity.getRNG();
 			int minute = 60 * 20;
@@ -479,13 +479,13 @@ public class EntityEffectHandler {
 					if(contagion > 0) {
 
 						if(!stack.hasTagCompound())
-							stack.stackTagCompound = new NBTTagCompound();
+							stack.setTagCompound(new NBTTagCompound());
 
-						stack.stackTagCompound.setBoolean("ntmContagion", true);
+						stack.getTagCompound().setBoolean("ntmContagion", true);
 
 					} else {
 
-						if(stack.hasTagCompound() && stack.stackTagCompound.getBoolean("ntmContagion")) {
+						if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("ntmContagion")) {
 							if(!ArmorUtil.checkForHaz2(player) || !ArmorRegistry.hasProtection(player, 3, HazardClass.BACTERIA)) //liable to change to hazmat 1 at bob's pleasure
 								HbmLivingProps.setContagion(player, 3 * hour);
 						}
@@ -501,7 +501,7 @@ public class EntityEffectHandler {
 
 					double range = entity.isWet() ? 16D : 2D; //avoid rain, just avoid it
 
-					List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entity, entity.boundingBox.expand(range, range, range));
+					List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entity, entity.getEntityBoundingBox().expand(range, range, range));
 
 					for(Entity ent : list) {
 
@@ -517,9 +517,9 @@ public class EntityEffectHandler {
 							ItemStack stack = ((EntityItem)ent).getEntityItem();
 
 							if(!stack.hasTagCompound())
-								stack.stackTagCompound = new NBTTagCompound();
+								stack.setTagCompound(new NBTTagCompound());
 
-							stack.stackTagCompound.setBoolean("ntmContagion", true);
+							stack.getTagCompound().setBoolean("ntmContagion", true);
 						}
 					}
 				}
@@ -554,7 +554,7 @@ public class EntityEffectHandler {
 					PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 
 					if((contagion + entity.getEntityId()) % 200 == 19)
-						world.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:player.vomit", 1.0F, 1.0F);
+						com.hbm.sound.WorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, "hbm:player.vomit", 1.0F, 1.0F);
 				}
 
 				//end of contagion, drop dead
@@ -567,7 +567,7 @@ public class EntityEffectHandler {
 
 	private static void handleLungDisease(EntityLivingBase entity) {
 
-		if(entity.worldObj.isRemote)
+		if(entity.world.isRemote)
 			return;
 
 		if(entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
@@ -587,7 +587,7 @@ public class EntityEffectHandler {
 
 		double soot = 0;
 		if(entity instanceof EntityPlayer && !ArmorRegistry.hasProtection(entity, 3, HazardClass.PARTICLE_COARSE)) {
-			soot = PollutionHandler.getPollution(entity.worldObj, (int) Math.floor(entity.posX), (int) Math.floor(entity.posY + entity.getEyeHeight()), (int) Math.floor(entity.posZ), PollutionType.SOOT);
+			soot = PollutionHandler.getPollution(entity.world, (int) Math.floor(entity.posX), (int) Math.floor(entity.posY + entity.getEyeHeight()), (int) Math.floor(entity.posZ), PollutionType.SOOT);
 		}
 
 		boolean coughs = blacklung / HbmLivingProps.maxBlacklung > 0.25D || asbestos / HbmLivingProps.maxAsbestos > 0.25D || soot > 30;
@@ -605,7 +605,7 @@ public class EntityEffectHandler {
 
 		double total = 1 - (blacklungDelta * asbestosDelta);
 
-		World world = entity.worldObj;
+		World world = entity.world;
 
 		if(total > 0.75D) {
 			entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 2));
@@ -619,7 +619,7 @@ public class EntityEffectHandler {
 		int freq = Math.max((int) (1000 - 950 * total), 20);
 
 		if(world.getTotalWorldTime() % freq == entity.getEntityId() % freq) {
-			world.playSoundEffect(entity.posX, entity.posY, entity.posZ, "hbm:player.cough", 1.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, "hbm:player.cough", 1.0F, 1.0F);
 
 			if(coughsBlood) {
 				NBTTagCompound nbt = new NBTTagCompound();
@@ -643,7 +643,7 @@ public class EntityEffectHandler {
 
 	private static void handleOil(EntityLivingBase entity) {
 
-		if(entity.worldObj.isRemote)
+		if(entity.world.isRemote)
 			return;
 
 		int oil = HbmLivingProps.getOil(entity);
@@ -652,7 +652,7 @@ public class EntityEffectHandler {
 
 			if(entity.isBurning()) {
 				HbmLivingProps.setOil(entity, 0);
-				entity.worldObj.newExplosion(null, entity.posX, entity.posY + entity.height / 2, entity.posZ, 3F, false, true);
+				entity.world.newExplosion(null, entity.posX, entity.posY + entity.height / 2, entity.posZ, 3F, false, true);
 			} else {
 				HbmLivingProps.setOil(entity, oil - 1);
 			}
@@ -661,7 +661,7 @@ public class EntityEffectHandler {
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setString("type", "sweat");
 				nbt.setInteger("count", 1);
-				nbt.setInteger("block", Block.getIdFromBlock(Blocks.coal_block));
+				nbt.setInteger("block", Block.getIdFromBlock(Blocks.COAL_BLOCK));
 				nbt.setInteger("entity", entity.getEntityId());
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0), new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 			}
@@ -674,7 +674,7 @@ public class EntityEffectHandler {
 
 		if(RadiationConfig.enablePoison && !ArmorRegistry.hasProtection(entity, 3, HazardClass.GAS_BLISTERING) && entity.ticksExisted % 60 == 0) {
 
-			float poison = PollutionHandler.getPollution(entity.worldObj, (int) Math.floor(entity.posX), (int) Math.floor(entity.posY + entity.getEyeHeight()), (int) Math.floor(entity.posZ), PollutionType.POISON);
+			float poison = PollutionHandler.getPollution(entity.world, (int) Math.floor(entity.posX), (int) Math.floor(entity.posY + entity.getEyeHeight()), (int) Math.floor(entity.posZ), PollutionType.POISON);
 
 			if(poison > 10) {
 
@@ -690,7 +690,7 @@ public class EntityEffectHandler {
 
 		if(RadiationConfig.enableLeadPoisoning && !ArmorRegistry.hasProtection(entity, 3, HazardClass.PARTICLE_FINE) && entity.ticksExisted % 60 == 0) {
 
-			float poison = PollutionHandler.getPollution(entity.worldObj, (int) Math.floor(entity.posX), (int) Math.floor(entity.posY + entity.getEyeHeight()), (int) Math.floor(entity.posZ), PollutionType.HEAVYMETAL);
+			float poison = PollutionHandler.getPollution(entity.world, (int) Math.floor(entity.posX), (int) Math.floor(entity.posY + entity.getEyeHeight()), (int) Math.floor(entity.posZ), PollutionType.HEAVYMETAL);
 
 			if(poison > 25) {
 
@@ -708,7 +708,7 @@ public class EntityEffectHandler {
 	private static void handleTemperature(Entity entity) {
 
 		if(!(entity instanceof EntityLivingBase)) return;
-		if(entity.worldObj.isRemote) return;
+		if(entity.world.isRemote) return;
 
 		EntityLivingBase living = (EntityLivingBase) entity;
 		HbmLivingProps props = HbmLivingProps.getData(living);
@@ -729,32 +729,32 @@ public class EntityEffectHandler {
 
 		if(props.fire > 0) {
 			props.fire--;
-			if((living.ticksExisted + living.getEntityId()) % 15 == 0) living.worldObj.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
+			if((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
 			if((living.ticksExisted + living.getEntityId()) % 40 == 0) living.attackEntityFrom(DamageSource.onFire, 2F);
-			FlameCreator.composeEffect(entity.worldObj, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_FIRE);
+			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_FIRE);
 		}
 
 		if(props.phosphorus > 0) {
 			props.phosphorus--;
-			if((living.ticksExisted + living.getEntityId()) % 15 == 0) living.worldObj.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
+			if((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
 			if((living.ticksExisted + living.getEntityId()) % 40 == 0) living.attackEntityFrom(DamageSource.onFire, 5F);
-			FlameCreator.composeEffect(entity.worldObj, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_FIRE);
+			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_FIRE);
 		}
 
 		if(props.balefire > 0) {
 			props.balefire--;
-			if((living.ticksExisted + living.getEntityId()) % 15 == 0) living.worldObj.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
+			if((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
 			ContaminationUtil.contaminate(living, HazardType.RADIATION, ContaminationType.CREATIVE, 5F);
 			if((living.ticksExisted + living.getEntityId()) % 20 == 0) living.attackEntityFrom(DamageSource.onFire, 5F);
-			FlameCreator.composeEffect(entity.worldObj, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_BALEFIRE);
+			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_BALEFIRE);
 		}
 
 		if(props.blackFire > 0) {
 			props.blackFire--;
-			if((living.ticksExisted + living.getEntityId()) % 10 == 0) living.worldObj.playSoundEffect(living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
+			if((living.ticksExisted + living.getEntityId()) % 10 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
 			ContaminationUtil.contaminate(living, HazardType.RADIATION, ContaminationType.CREATIVE, 5F);
 			if((living.ticksExisted + living.getEntityId()) % 10 == 0) living.attackEntityFrom(DamageSource.onFire, 10F);
-			FlameCreator.composeEffect(entity.worldObj, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_BLACK);
+			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_BLACK);
 		}
 
 		if(props.fire > 0 || props.phosphorus > 0 || props.balefire > 0 || props.blackFire > 0) if(!entity.isEntityAlive()) ConfettiUtil.decideConfetti(living, DamageSource.onFire);

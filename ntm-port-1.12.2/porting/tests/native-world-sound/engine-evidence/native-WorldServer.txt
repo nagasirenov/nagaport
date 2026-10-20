@@ -1,0 +1,8 @@
+# Exact javap method excerpts; source native-WorldServer.javap
+
+  public net.minecraft.server.MinecraftServer getMinecraftServer();
+    Code:
+       0: aload_0
+       1: getfield      #141                // Field server:Lnet/minecraft/server/MinecraftServer;
+       4: areturn
+

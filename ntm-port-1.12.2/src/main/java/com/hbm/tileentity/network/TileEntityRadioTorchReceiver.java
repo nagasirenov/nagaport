@@ -3,21 +3,22 @@ package com.hbm.tileentity.network;
 import com.hbm.tileentity.network.RTTYSystem.RTTYChannel;
 
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.block.state.IBlockState;
 
 public class TileEntityRadioTorchReceiver extends TileEntityRadioTorchBase {
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			if(!this.channel.isEmpty()) {
 				
-				RTTYChannel chan = RTTYSystem.listen(worldObj, this.channel);
+				RTTYChannel chan = RTTYSystem.listen(this.world, this.channel);
 				
 				if(chan != null && (this.polling || (chan.timeStamp > this.lastUpdate - 1 && chan.timeStamp != -1))) { // if we're either polling or a new message has come in
 					String msg = "" + chan.signal;
-					this.lastUpdate = worldObj.getTotalWorldTime();
+					this.lastUpdate = this.world.getTotalWorldTime();
 					int nextState = 0; //if no remap apply, default to 0
 					
 					if(this.customMap) {
@@ -30,7 +31,7 @@ public class TileEntityRadioTorchReceiver extends TileEntityRadioTorchBase {
 					} else {
 						int sig = 0;
 						try { sig = Integer.parseInt(msg); } catch(Exception x) { };
-						nextState = MathHelper.clamp_int(sig, 0, 15);
+						nextState = MathHelper.clamp(sig, 0, 15);
 					}
 					
 					if(chan.timeStamp < this.lastUpdate - 2 && this.polling) {
@@ -39,14 +40,15 @@ public class TileEntityRadioTorchReceiver extends TileEntityRadioTorchBase {
 					
 					if(this.lastState != nextState) {
 						this.lastState = nextState;
-						worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-						worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord, zCoord, this.getBlockType());
+						IBlockState state = this.world.getBlockState(this.pos);
+						this.world.notifyBlockUpdate(this.pos, state, state, 2);
+						this.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);
 						this.markDirty();
 					}
 				}
 			}
 		}
 		
-		super.updateEntity();
+		super.update();
 	}
 }

@@ -1,0 +1,9 @@
+PASS: 434 named TileEntity descendants; 297 exact native return signatures in 297 files
+PASS: portable pre-change payload fingerprints, exact authorized file bytes, sole early return
+PASS: 37 unrelated void serializers untouched; null/EMPTY/read/ticking unchanged
+SOURCE PARITY ONLY: not production class compilation or machine gameplay acceptance
+Generated exact LoadedBase/MachineBase/ElectricFurnace/Hatch writers and CustomMachine early branch only
+PASS: native registered identity/position/ForgeData/ForgeCaps, retained input tags and object identity
+PASS: exact extracted LoadedBase/MachineBase/ElectricFurnace/Hatch writers; CustomMachine early fragment
+PASS: real ItemStack payload; native-only read roundtrip; missing name and cooldown remain absent
+LIMIT: method fixtures, NOT full production tiles, CustomMachine normal path, inventory EMPTY migration, or gameplay

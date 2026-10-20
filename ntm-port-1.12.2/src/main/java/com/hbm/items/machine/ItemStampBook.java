@@ -37,6 +37,6 @@ public class ItemStampBook extends ItemStamp {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		StampType type = this.getStampType(stack.getItem(), stack.getItemDamage());
-		return super.getUnlocalizedName() + "." + type.name().toLowerCase(Locale.US);
+		return super.getTranslationKey() + "." + type.name().toLowerCase(Locale.US);
 	}
 }

@@ -24,10 +24,10 @@ public class BrokenItem extends Item {
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(ItemStack stack, int pass) {
 		if(pass == 1) return this.itemIcon;
-		if(stack.stackTagCompound == null) return this.itemIcon;
+		if(stack.getTagCompound() == null) return this.itemIcon;
 
-		String id = stack.stackTagCompound.getString("itemID");
-		int meta = stack.stackTagCompound.getInteger("itemMeta");
+		String id = stack.getTagCompound().getString("itemID");
+		int meta = stack.getTagCompound().getInteger("itemMeta");
 		
 		Item item = (Item) Item.itemRegistry.getObject(id);
 		if(item == null) return this.itemIcon;
@@ -37,10 +37,10 @@ public class BrokenItem extends Item {
 	
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-		if(stack.stackTagCompound == null) return super.getItemStackDisplayName(stack);
+		if(stack.getTagCompound() == null) return super.getItemStackDisplayName(stack);
 
-		String id = stack.stackTagCompound.getString("itemID");
-		int meta = stack.stackTagCompound.getInteger("itemMeta");
+		String id = stack.getTagCompound().getString("itemID");
+		int meta = stack.getTagCompound().getInteger("itemMeta");
 		
 		Item item = (Item) Item.itemRegistry.getObject(id);
 		if(item == null) return super.getItemStackDisplayName(stack);
@@ -58,7 +58,7 @@ public class BrokenItem extends Item {
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setString("itemID", Item.itemRegistry.getNameForObject(item));
 		nbt.setInteger("itemMeta", meta);
-		stack.stackTagCompound = nbt;
+		stack.setTagCompound(nbt);
 		return stack;
 	}
 }

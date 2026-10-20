@@ -15,13 +15,13 @@ public class ExplosionEffectAmat implements IExplosionSFX {
 	public void doEffect(ExplosionVNT explosion, World world, double x, double y, double z, float size) {
 
 		if(size < 15)
-			world.playSoundEffect(x, y, z, "random.explode", 4.0F, (1.4F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
+			com.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, "random.explode", 4.0F, (1.4F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
 		else
-			world.playSoundEffect(x, y, z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+			com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "amat");
 		data.setFloat("scale", size);
-		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.dimensionId, x, y, z, 200));
+		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x, y, z), new TargetPoint(world.provider.getDimension(), x, y, z, 200));
 	}
 }

@@ -50,14 +50,14 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.storageDrum";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			float rad = 0;
 
@@ -70,57 +70,57 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 
 					Item item = slots[i].getItem();
 
-					if(worldObj.getTotalWorldTime() % 20 == 0) {
+					if(this.world.getTotalWorldTime() % 20 == 0) {
 						rad += HazardSystem.getHazardLevelFromStack(slots[i], HazardRegistry.RADIATION);
 					}
 
 					int meta = slots[i].getItemDamage();
 
-					if(item == ModItems.nuclear_waste_long && worldObj.rand.nextInt(VersatileConfig.getLongDecayChance()) == 0) {
+					if(item == ModItems.nuclear_waste_long && this.world.rand.nextInt(VersatileConfig.getLongDecayChance()) == 0) {
 						ItemWasteLong.WasteClass wasteClass = ItemWasteLong.WasteClass.values()[ItemWasteLong.rectify(meta)];
 						liquid += wasteClass.liquid;
 						gas += wasteClass.gas;
 						slots[i] = new ItemStack(ModItems.nuclear_waste_long_depleted, 1, meta);
 					}
 
-					if(item == ModItems.nuclear_waste_long_tiny && worldObj.rand.nextInt(VersatileConfig.getLongDecayChance() / 10) == 0) {
+					if(item == ModItems.nuclear_waste_long_tiny && this.world.rand.nextInt(VersatileConfig.getLongDecayChance() / 10) == 0) {
 						ItemWasteLong.WasteClass wasteClass = ItemWasteLong.WasteClass.values()[ItemWasteLong.rectify(meta)];
 						liquid += wasteClass.liquid / 10;
 						gas += wasteClass.gas / 10;
 						slots[i] = new ItemStack(ModItems.nuclear_waste_long_depleted_tiny, 1, meta);
 					}
 
-					if(item == ModItems.nuclear_waste_short && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance()) == 0) {
+					if(item == ModItems.nuclear_waste_short && this.world.rand.nextInt(VersatileConfig.getShortDecayChance()) == 0) {
 						ItemWasteShort.WasteClass wasteClass = ItemWasteShort.WasteClass.values()[ItemWasteLong.rectify(meta)];
 						liquid += wasteClass.liquid;
 						gas += wasteClass.gas;
 						slots[i] = new ItemStack(ModItems.nuclear_waste_short_depleted, 1, meta);
 					}
 
-					if(item == ModItems.nuclear_waste_short_tiny && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 10) == 0) {
+					if(item == ModItems.nuclear_waste_short_tiny && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 10) == 0) {
 						ItemWasteShort.WasteClass wasteClass = ItemWasteShort.WasteClass.values()[ItemWasteLong.rectify(meta)];
 						liquid += wasteClass.liquid / 10;
 						gas += wasteClass.gas / 10;
 						slots[i] = new ItemStack(ModItems.nuclear_waste_short_depleted_tiny, 1, meta);
 					}
 
-					if(item == ModItems.ingot_au198 && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 20) == 0) {
+					if(item == ModItems.ingot_au198 && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 20) == 0) {
 						slots[i] = new ItemStack(ModItems.ingot_mercury, 1, meta);
 					}
-					if(item == ModItems.nugget_au198 && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 100) == 0) {
+					if(item == ModItems.nugget_au198 && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 100) == 0) {
 						slots[i] = new ItemStack(ModItems.nugget_mercury, 1, meta);
 					}
 
-					if(item == ModItems.ingot_pb209 && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 10) == 0) {
+					if(item == ModItems.ingot_pb209 && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 10) == 0) {
 						slots[i] = new ItemStack(ModItems.ingot_bismuth, 1, meta);
 					}
-					if(item == ModItems.nugget_pb209 && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 50) == 0) {
+					if(item == ModItems.nugget_pb209 && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 50) == 0) {
 						slots[i] = new ItemStack(ModItems.nugget_bismuth, 1, meta);
 					}
-					if(item == ModItems.powder_sr90 && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 10) == 0) {
+					if(item == ModItems.powder_sr90 && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 10) == 0) {
 						slots[i] = new ItemStack(ModItems.powder_zirconium, 1, meta);
 					}
-					if(item == ModItems.nugget_sr90 && worldObj.rand.nextInt(VersatileConfig.getShortDecayChance() / 50) == 0) {
+					if(item == ModItems.nugget_sr90 && this.world.rand.nextInt(VersatileConfig.getShortDecayChance() / 50) == 0) {
 						slots[i] = new ItemStack(ModItems.nugget_zirconium, 1, meta);
 					}
 
@@ -155,7 +155,7 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 			this.networkPackNT(25);
 
 			if(rad > 0) {
-				radiate(worldObj, xCoord, yCoord, zCoord, rad);
+				radiate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), rad);
 			}
 		}
 	}
@@ -174,7 +174,7 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 
 		double range = 32D;
 
-		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
+		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 
@@ -190,7 +190,7 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 				int iy = (int)Math.floor(y + 0.5 + vec.y * i);
 				int iz = (int)Math.floor(z + 0.5 + vec.z * i);
 
-				res += world.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock().getExplosionResistance(null);
 			}
 
 			if(res < 1)
@@ -220,12 +220,14 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 	}
 
 	@Override
-	public boolean canInsertItem(int i, ItemStack itemStack, int j) {
+	public boolean canInsertItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return this.isItemValidForSlot(i, itemStack);
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 
 		Item item = itemStack.getItem();
 
@@ -245,7 +247,8 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slots_arr;
 	}
 
@@ -257,10 +260,11 @@ public class TileEntityStorageDrum extends TileEntityMachineBase implements IFlu
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		this.tanks[0].writeToNBT(nbt, "liquid");
 		this.tanks[1].writeToNBT(nbt, "gas");
+		return nbt;
 	}
 
 	@Override

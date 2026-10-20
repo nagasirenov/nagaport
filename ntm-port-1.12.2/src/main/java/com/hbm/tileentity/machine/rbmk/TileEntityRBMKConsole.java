@@ -1,6 +1,7 @@
 package com.hbm.tileentity.machine.rbmk;
 
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.AxisAlignedBB;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -63,20 +64,20 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return null;
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
-			if(this.worldObj.getTotalWorldTime() % 10 == 0) {
+			if(this.world.getTotalWorldTime() % 10 == 0) {
 
-				this.worldObj.theProfiler.startSection("rbmkConsole_rescan");
+				this.world.theProfiler.startSection("rbmkConsole_rescan");
 				rescan();
-				this.worldObj.theProfiler.endSection();
+				this.world.theProfiler.endSection();
 				prepareScreenInfo();
 			}
 
@@ -92,7 +93,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 			int rx = getXFromIndex(index);
 			int rz = getZFromIndex(index);
 
-			TileEntity te = Compat.getTileStandard(worldObj, targetX + rx, targetY, targetZ + rz);
+			TileEntity te = Compat.getTileStandard(this.world, targetX + rx, targetY, targetZ + rz);
 
 			if(te instanceof TileEntityRBMKBase) {
 
@@ -191,7 +192,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 	public void serialize(ByteBuf buf) {
 		super.serialize(buf);
 
-		if (this.worldObj.getTotalWorldTime() % 10 == 0) {
+		if (this.world.getTotalWorldTime() % 10 == 0) {
 			buf.writeBoolean(true);
 
 			for (RBMKColumn column : this.columns) {
@@ -250,7 +251,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return new Vec3d(xCoord - player.posX, yCoord - player.posY, zCoord - player.posZ).length() < 20;
+		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
 
 	@Override
@@ -268,7 +269,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 					int x = getXFromIndex(index);
 					int z = getZFromIndex(index);
 
-					TileEntity te = Compat.getTileStandard(worldObj, targetX + x, targetY, targetZ + z);
+					TileEntity te = Compat.getTileStandard(this.world, targetX + x, targetY, targetZ + z);
 
 					if(te instanceof TileEntityRBMKControlManual) {
 						TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
@@ -309,7 +310,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 				int x = getXFromIndex(i);
 				int z = getZFromIndex(i);
 
-				TileEntity te = Compat.getTileStandard(worldObj, targetX + x, targetY, targetZ + z);
+				TileEntity te = Compat.getTileStandard(this.world, targetX + x, targetY, targetZ + z);
 
 				if(te instanceof TileEntityRBMKControlManual) {
 					TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
@@ -326,7 +327,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 				int x = getXFromIndex(i);
 				int z = getZFromIndex(i);
 
-				TileEntity te = Compat.getTileStandard(worldObj, targetX + x, targetY, targetZ + z);
+				TileEntity te = Compat.getTileStandard(this.world, targetX + x, targetY, targetZ + z);
 
 				if(te instanceof TileEntityRBMKBoiler) {
 					TileEntityRBMKBoiler rod = (TileEntityRBMKBoiler) te;
@@ -338,7 +339,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(xCoord - 2, yCoord, zCoord - 2, xCoord + 3, yCoord + 4, zCoord + 3);
+		return new AxisAlignedBB(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 4, this.pos.getZ() + 3);
 	}
 
 	@Override
@@ -370,7 +371,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		nbt.setInteger("tX", this.targetX);
@@ -382,6 +383,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 			nbt.setIntArray("s" + i, Arrays.stream(this.screens[i].columns).mapToInt(Integer::intValue).toArray());
 		}
 		nbt.setByte("rotation", rotation);
+		return nbt;
 	}
 
 	public void rotate() {
@@ -596,7 +598,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 
 		int index = (j + 7) * 15 + (i + 7);
 
-		TileEntity te = Compat.getTileStandard(worldObj, targetX + x, targetY, targetZ + y);
+		TileEntity te = Compat.getTileStandard(this.world, targetX + x, targetY, targetZ + y);
 		if (te instanceof TileEntityRBMKBase) {
 			TileEntityRBMKBase column = (TileEntityRBMKBase) te;
 
@@ -697,7 +699,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 		boolean foundRods = false;
 		for(int i = -7; i <= 7; i++) {
 			for(int j = -7; j <= 7; j++) {
-				TileEntity te = Compat.getTileStandard(worldObj, targetX + i, targetY, targetZ + j);
+				TileEntity te = Compat.getTileStandard(this.world, targetX + i, targetY, targetZ + j);
 
 				if (te instanceof TileEntityRBMKControlManual) {
 					TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
@@ -723,7 +725,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 		int y = -args.checkInteger(1) + 7;
 		double new_level = args.checkDouble(2);
 
-		TileEntity te = Compat.getTileStandard(worldObj, targetX + x, targetY, targetZ + y);
+		TileEntity te = Compat.getTileStandard(this.world, targetX + x, targetY, targetZ + y);
 
 		if (te instanceof TileEntityRBMKControlManual) {
 			TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
@@ -746,7 +748,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 		if(color >= 0 && color <=4){
 			for(int i = -7; i <= 7; i++) {
 				for(int j = -7; j <= 7; j++) {
-					TileEntity te = Compat.getTileStandard(worldObj, targetX + i, targetY, targetZ + j);
+					TileEntity te = Compat.getTileStandard(this.world, targetX + i, targetY, targetZ + j);
 
 					if (te instanceof TileEntityRBMKControlManual) {
 						TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
@@ -776,7 +778,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 		int y = -args.checkInteger(1) + 7;
 		int new_color = args.checkInteger(2);
 		if(new_color >= 0 && new_color <=4){
-			TileEntity te = Compat.getTileStandard(worldObj, targetX + x, targetY, targetZ + y);
+			TileEntity te = Compat.getTileStandard(this.world, targetX + x, targetY, targetZ + y);
 
 			if (te instanceof TileEntityRBMKControlManual) {
 				TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
@@ -792,11 +794,11 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 	@Callback(direct = true)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] pressAZ5(Context context, Arguments args) {
-		worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5,"hbm:block.shutdown",1.0F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5,"hbm:block.shutdown",1.0F, 1.0F);
 		boolean hasRods = false;
 		for(int i = -7; i <= 7; i++) {
 			for(int j = -7; j <= 7; j++) {
-				TileEntity te = Compat.getTileStandard(worldObj, targetX + i, targetY, targetZ + j);
+				TileEntity te = Compat.getTileStandard(this.world, targetX + i, targetY, targetZ + j);
 
 				if (te instanceof TileEntityRBMKControlManual) {
 					TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;

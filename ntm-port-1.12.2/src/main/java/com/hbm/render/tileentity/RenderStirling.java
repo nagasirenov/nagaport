@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderStirling extends TileEntitySpecialRenderer implements IItemRendererProvider, ITileActorRenderer {
 
@@ -94,7 +94,7 @@ public class RenderStirling extends TileEntitySpecialRenderer implements IItemRe
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
 				GL11.glTranslated(0, -1.5, 0);

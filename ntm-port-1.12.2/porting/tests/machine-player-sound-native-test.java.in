@@ -1,0 +1,81 @@
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.*;
+import com.google.gson.*;
+import com.hbm.main.ModSoundEvents;
+import net.minecraft.client.resources.FolderResourcePack;
+import net.minecraft.client.resources.FileResourcePack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+public class MachinePlayerSoundNativeTest {
+    static void check(boolean value, String message) { if (!value) throw new AssertionError(message); }
+    static byte[] bytes(InputStream stream) throws Exception {
+        try (InputStream in = stream; ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[8192]; int count;
+            while ((count = in.read(buffer)) != -1) out.write(buffer, 0, count);
+            return out.toByteArray();
+        }
+    }
+    static String hash(byte[] bytes) throws Exception {
+        StringBuilder result = new StringBuilder();
+        for (byte value : MessageDigest.getInstance("SHA-256").digest(bytes)) result.append(String.format("%02x", value & 255));
+        return result.toString();
+    }
+    public static void main(String[] args) throws Exception {
+        net.minecraft.init.Bootstrap.register();
+        IForgeRegistry<SoundEvent> registry = ForgeRegistries.SOUND_EVENTS;
+        int originalSize = registry.getValuesCollection().size();
+        ModSoundEvents.registerSounds(new RegistryEvent.Register<SoundEvent>(new ResourceLocation("minecraft", "soundevents"), registry));
+        SoundEvent[] events = {ModSoundEvents.SLICER, ModSoundEvents.BLOCK_OPENC, ModSoundEvents.BLOCK_CLOSEC};
+        String[] keys = {"entity.slicer", "block.openC", "block.closeC"};
+        for (int i = 0; i < events.length; i++) {
+            ResourceLocation id = new ResourceLocation("hbm", keys[i]);
+            check(events[i].getRegistryName().equals(id), "canonical registered ID " + keys[i]);
+            check(events[i].getSoundName().equals(id), "canonical sound name " + keys[i]);
+            check(registry.getValue(id) == events[i], "actual registered event identity " + id);
+        }
+        check(registry.getValuesCollection().size() == originalSize + 3, "exactly three registered events, preserving SLICER");
+        System.out.println("PASS actual production ModSoundEvents and RefStrings compiled; real Forge registry contains all three exact event identities");
+        FolderResourcePack folder = new FolderResourcePack(new File(args[0]));
+        JsonObject sounds;
+        try (Reader reader = new InputStreamReader(folder.getInputStream(new ResourceLocation("hbm", "sounds.json")), StandardCharsets.UTF_8)) {
+            sounds = new JsonParser().parse(reader).getAsJsonObject();
+        }
+        Set<String> selected = new HashSet<String>();
+        for (int i = 1; i < keys.length; i++) {
+            check(new ResourceLocation("hbm", keys[i]).equals(events[i].getSoundName()), "native mixed-case JSON event normalization");
+            JsonObject definition = sounds.getAsJsonObject(keys[i]);
+            check(definition.get("category").getAsString().equals("block"), "legacy category preserved");
+            check(definition.getAsJsonArray("sounds").size() == 3, "three variants per event");
+            for (JsonElement sample : definition.getAsJsonArray("sounds")) selected.add("sounds/" + sample.getAsString() + ".ogg");
+        }
+        int count = 0;
+        try (FileResourcePack oldPack = new FileResourcePack(new File(args[2]));
+             FileResourcePack newPack = new FileResourcePack(new File(args[3]))) {
+            for (String line : Files.readAllLines(Paths.get(args[1]), StandardCharsets.UTF_8)) {
+                String[] entry = line.split("\t");
+                check(selected.remove(entry[0]), "exact selected sounds.json variant " + entry[0]);
+                ResourceLocation id = new ResourceLocation("hbm", entry[0]);
+                check(id.getPath().equals(entry[1]), "native sample normalization " + id);
+                check(folder.resourceExists(id), "actual folder canonical lookup " + id);
+                check(hash(bytes(folder.getInputStream(id))).equals(entry[2]), "folder original OGG hash " + id);
+                check(!oldPack.resourceExists(id), "historical ZIP case must not resolve " + id);
+                boolean missing = false;
+                try (InputStream ignored = oldPack.getInputStream(id)) { }
+                catch (IOException expected) { missing = true; }
+                check(missing, "historical ZIP lookup must fail " + id);
+                check(newPack.resourceExists(id), "canonical ZIP lookup " + id);
+                check(hash(bytes(newPack.getInputStream(id))).equals(entry[2]), "canonical ZIP original OGG hash " + id);
+                count++;
+            }
+        }
+        check(count == 6 && selected.isEmpty(), "all and only six chosen OGG samples tested");
+        System.out.println("PASS six real FolderResourcePack and FileResourcePack canonical lookups with original byte hashes; six historical ZIP failures; unchanged JSON selections normalize to registered events");
+    }
+}

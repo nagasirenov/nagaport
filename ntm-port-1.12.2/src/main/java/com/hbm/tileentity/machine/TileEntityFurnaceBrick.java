@@ -27,6 +27,13 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.world.World;
 
 public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGUIProvider {
+    @Override
+    public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+            net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+        // Legacy metadata-only orientation changes retained inventory and all tile state.
+        return oldState.getBlock() != newState.getBlock();
+    }
+
 
 	private static final int[] slotsTop = new int[] { 0 };
 	private static final int[] slotsBottom = new int[] { 2, 1, 3 };
@@ -35,10 +42,10 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 	public static HashMap<Item, Integer> burnSpeed = new HashMap();
 
 	static {
-		burnSpeed.put(Items.clay_ball,								4);
+		burnSpeed.put(Items.CLAY_BALL,								4);
 		burnSpeed.put(ModItems.ball_fireclay,						4);
-		burnSpeed.put(Item.getItemFromBlock(Blocks.netherrack),		4);
-		burnSpeed.put(Item.getItemFromBlock(Blocks.cobblestone),	2);
+		burnSpeed.put(Item.getItemFromBlock(Blocks.NETHERRACK),		4);
+		burnSpeed.put(Item.getItemFromBlock(Blocks.COBBLESTONE),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.duna_cobble),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.dres_rock),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.ike_regolith), 2);
@@ -46,13 +53,13 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.moho_regolith), 2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.moon_rock),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.minmus_regolith), 2);
-		burnSpeed.put(Item.getItemFromBlock(Blocks.sand),			2);
+		burnSpeed.put(Item.getItemFromBlock(Blocks.SAND),			2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.duna_sands),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.laythe_silt),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.eve_silt),	2);
 		burnSpeed.put(Item.getItemFromBlock(ModBlocks.moon_turf),	2);
-		burnSpeed.put(Item.getItemFromBlock(Blocks.log),			2);
-		burnSpeed.put(Item.getItemFromBlock(Blocks.log2),			2);
+		burnSpeed.put(Item.getItemFromBlock(Blocks.LOG),			2);
+		burnSpeed.put(Item.getItemFromBlock(Blocks.LOG2),			2);
 	}
 
 	public int burnTime;
@@ -68,34 +75,37 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.furnaceBrick";
 	}
 
 	@Override
 
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!world.isRemote) {
 			boolean wasBurning = this.burnTime > 0;
-			boolean canOperate = breatheAir(wasBurning && worldObj.getTotalWorldTime() % 5 == 0 ? 1 : 0);
+			boolean canOperate = breatheAir(wasBurning && world.getTotalWorldTime() % 5 == 0 ? 1 : 0);
 			boolean markDirty = false;
 
 			if(this.burnTime > 0) {
 				this.burnTime--;
 			}
 
-			if(this.burnTime != 0 || this.slots[1] != null && this.slots[0] != null) {
+			if(this.burnTime != 0 || this.slots[1] != null && !this.slots[1].isEmpty() && this.slots[0] != null && !this.slots[0].isEmpty()) {
 				if(canOperate && this.burnTime == 0 && this.canSmelt()) {
 					this.maxBurnTime = this.burnTime = TileEntityFurnace.getItemBurnTime(this.slots[1]);
 
 					if(this.burnTime > 0) {
 						markDirty = true;
 
-						if(this.slots[1] != null) {
-							this.slots[1].stackSize--;
+						if(this.slots[1] != null && !this.slots[1].isEmpty()) {
+							// Keep the callback receiver and ash identity before native depletion hides the item.
+							Item fuelItem = slots[1].getItem();
+							ItemStack ashFuel = slots[1].copy();
+							this.slots[1].shrink(1);
 
-							EnumAshType type = TileEntityFireboxBase.getAshFromFuel(slots[1]);
+							EnumAshType type = TileEntityFireboxBase.getAshFromFuel(ashFuel);
 							if(type == EnumAshType.WOOD) ashLevelWood += burnTime;
 							if(type == EnumAshType.COAL) ashLevelCoal += burnTime;
 							if(type == EnumAshType.MISC) ashLevelMisc += burnTime;
@@ -104,8 +114,9 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 							if(processAsh(ashLevelCoal, EnumAshType.COAL, threshold)) ashLevelCoal -= threshold;
 							if(processAsh(ashLevelMisc, EnumAshType.MISC, threshold)) ashLevelMisc -= threshold;
 
-							if(this.slots[1].stackSize == 0) {
-								this.slots[1] = slots[1].getItem().getContainerItem(slots[1]);
+							if(this.slots[1].getCount() == 0) {
+								this.slots[1] = fuelItem.getContainerItem(slots[1]);
+								if(slots[1] != null && slots[1].isEmpty()) slots[1] = null;
 							}
 						}
 					}
@@ -126,7 +137,7 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 
 			if(wasBurning != this.burnTime > 0) {
 				markDirty = true;
-				MachineBrickFurnace.updateBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				MachineBrickFurnace.updateBlockState(this.burnTime > 0, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 
 			if(markDirty) {
@@ -149,7 +160,8 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return side == 0 ? slotsBottom : (side == 1 ? slotsTop : slotsSides);
 	}
 
@@ -171,11 +183,11 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 	protected boolean processAsh(int level, EnumAshType type, int threshold) {
 
 		if(level >= threshold) {
-			if(slots[3] == null) {
+			if((slots[3] == null || slots[3].isEmpty())) {
 				slots[3] = DictFrame.fromOne(ModItems.powder_ash, type);
 				return true;
-			} else if(slots[3].stackSize < slots[3].getMaxStackSize() && slots[3].getItem() == ModItems.powder_ash && slots[3].getItemDamage() == type.ordinal()) {
-				slots[3].stackSize++;
+			} else if(slots[3].getCount() < slots[3].getMaxStackSize() && slots[3].getItem() == ModItems.powder_ash && slots[3].getItemDamage() == type.ordinal()) {
+				slots[3].grow(1);
 				return true;
 			}
 		}
@@ -184,34 +196,34 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 	}
 
 	private boolean canSmelt() {
-		if(this.slots[0] == null) {
+		if((this.slots[0] == null || this.slots[0].isEmpty())) {
 			return false;
 		} else {
-			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
-			if(itemstack == null)
+			ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.slots[0]);
+			if(itemstack.isEmpty())
 				return false;
-			if(this.slots[2] == null)
+			if((this.slots[2] == null || this.slots[2].isEmpty()))
 				return true;
 			if(!this.slots[2].isItemEqual(itemstack))
 				return false;
-			int result = slots[2].stackSize + itemstack.stackSize;
+			int result = slots[2].getCount() + itemstack.getCount();
 			return result <= getInventoryStackLimit() && result <= this.slots[2].getMaxStackSize();
 		}
 	}
 
 	public void smeltItem() {
 		if(this.canSmelt()) {
-			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+			ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.slots[0]);
 
-			if(this.slots[2] == null) {
+			if((this.slots[2] == null || this.slots[2].isEmpty())) {
 				this.slots[2] = itemstack.copy();
 			} else if(this.slots[2].getItem() == itemstack.getItem()) {
-				this.slots[2].stackSize += itemstack.stackSize;
+				this.slots[2].grow(itemstack.getCount());
 			}
 
-			--this.slots[0].stackSize;
+			this.slots[0].shrink(1);
 
-			if(this.slots[0].stackSize <= 0) {
+			if(this.slots[0].getCount() <= 0) {
 				this.slots[0] = null;
 			}
 		}
@@ -226,11 +238,12 @@ public class TileEntityFurnaceBrick extends TileEntityMachineBase implements IGU
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("burnTime", this.burnTime);
 		nbt.setInteger("maxBurn", this.maxBurnTime);
 		nbt.setInteger("progress", this.progress);
+		return nbt;
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class ArmorTaurun extends ArmorFSB implements IItemRendererProvider {
 
@@ -42,7 +42,8 @@ public class ArmorTaurun extends ArmorFSB implements IItemRendererProvider {
 	@Override public Item getItemForRenderer() { return this; }
 
 	@Override
-	public IItemRenderer getRenderer() {
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() { 
 				if(armorType == 0) GL11.glTranslated(0, 1, 0);

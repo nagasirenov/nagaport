@@ -1,0 +1,21 @@
+/workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/porting/tests/native-gui-sounds/GuiSoundProbe.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/porting/tests/native-gui-sounds/GuiSoundProbe.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/porting/tests/native-gui-sounds/GuiSoundProbe.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/porting/tests/native-gui-sounds/GuiSoundProbe.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks; static final Unsafe U;
+                                 ^
+/workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/porting/tests/native-gui-sounds/GuiSoundProbe.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                     ^
+/workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/porting/tests/native-gui-sounds/GuiSoundProbe.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+                                                                                         ^
+Note: /workspace/shared/nagaport-ui-sounds/ntm-port-1.12.2/src/main/java/com/hbm/sound/SoundCategoryResolver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings

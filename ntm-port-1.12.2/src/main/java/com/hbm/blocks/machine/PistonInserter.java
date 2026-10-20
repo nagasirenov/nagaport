@@ -32,7 +32,7 @@ import com.hbm.lib.ForgeDirection;
 public class PistonInserter extends BlockContainerBase implements ITooltipProvider {
 
 	public PistonInserter() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 
 	@Override
@@ -47,13 +47,13 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 	protected void updateState(World world, int x, int y, int z) {
 		if(!world.isRemote) {
-			ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
+			ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 
-			if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).isNormalCube())
+			if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isNormalCube())
 				return; //no obstructions allowed!
 
 			boolean flag = checkRedstone(world, x, y, z);
-			TileEntityPistonInserter piston = (TileEntityPistonInserter)world.getTileEntity(x, y, z);
+			TileEntityPistonInserter piston = (TileEntityPistonInserter)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(flag && !piston.lastState && piston.extend <= 0)
 				piston.isRetracting = false;
@@ -74,11 +74,11 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 
-		if(side != world.getBlockMetadata(x, y, z)) return false;
+		if(side != com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) )) return false;
 
 		if(player.isSneaking()) {
 			if(!world.isRemote) {
-				TileEntityPistonInserter piston = (TileEntityPistonInserter)world.getTileEntity(x, y, z);
+				TileEntityPistonInserter piston = (TileEntityPistonInserter)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 				if(piston.slot != null && piston.isRetracting) {
 					ForgeDirection dir = ForgeDirection.getOrientation(piston.getBlockMetadata());
@@ -89,17 +89,18 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 					dust.motionX = dir.offsetX * 0.25;
 					dust.motionY = dir.offsetY * 0.25;
 					dust.motionZ = dir.offsetZ * 0.25;
-					world.spawnEntityInWorld(dust);
+					world.spawnEntity(dust);
 				}
 			}
 
 			return true;
-		} else if(player.getHeldItem() != null) {
+		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 			if(!world.isRemote) {
-				TileEntityPistonInserter piston = (TileEntityPistonInserter)world.getTileEntity(x, y, z);
+				TileEntityPistonInserter piston = (TileEntityPistonInserter)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 				if(piston.slot == null) {
-					piston.slot = player.inventory.decrStackSize(player.inventory.currentItem, 1);
+					ItemStack removed = player.inventory.decrStackSize(player.inventory.currentItem, 1);
+					piston.slot = removed == null || removed.isEmpty() ? null : removed;
 					player.inventoryContainer.detectAndSendChanges();
 				}
 			}
@@ -124,36 +125,40 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		IInventory tileentityfurnace = (IInventory) world.getTileEntity(x, y, z);
+		IInventory tileentityfurnace = (IInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tileentityfurnace != null) {
 
 			ItemStack itemstack = tileentityfurnace.getStackInSlot(0);
 
-			if(itemstack != null) {
+			if(itemstack != null && !itemstack.isEmpty()) {
 				float f = world.rand.nextFloat() * 0.8F + 0.1F;
 				float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
 				float f2 = world.rand.nextFloat() * 0.8F + 0.1F;
 
-				while(itemstack.stackSize > 0) {
+				while(itemstack.getCount() > 0) {
 					int j1 = world.rand.nextInt(21) + 10;
 
-					if(j1 > itemstack.stackSize) {
-						j1 = itemstack.stackSize;
+					if(j1 > itemstack.getCount()) {
+						j1 = itemstack.getCount();
 					}
 
-					itemstack.stackSize -= j1;
-					EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+					// Capture before depletion: native empty stacks hide their item.
+					net.minecraft.item.Item dropItem = itemstack.getItem();
+					int dropMeta = itemstack.getItemDamage();
+					NBTTagCompound dropTag = itemstack.getTagCompound();
+					itemstack.shrink(j1);
+					EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(dropItem, j1, dropMeta));
 
-					if(itemstack.hasTagCompound()) {
-						entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+					if(dropTag != null) {
+						entityitem.getItem().setTagCompound(dropTag.copy());
 					}
 
 					float f3 = 0.05F;
 					entityitem.motionX = (float) world.rand.nextGaussian() * f3;
 					entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.2F;
 					entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
-					world.spawnEntityInWorld(entityitem);
+					world.spawnEntity(entityitem);
 				}
 			}
 
@@ -211,7 +216,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	//		|___..---'			   _|____`-----..-----'\
 	//		|_____________________|	@	|			    )
 	// average coding session involving tile entities
-	public static class TileEntityPistonInserter extends TileEntityLoadedBase implements IInventory {
+	public static class TileEntityPistonInserter extends TileEntityLoadedBase implements IInventory, net.minecraft.util.ITickable {
 
 		public ItemStack slot;
 
@@ -232,9 +237,9 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 		public TileEntityPistonInserter() { }
 
 		@Override
-		public void updateEntity() {
+		public void update() {
 
-			if(!worldObj.isRemote) {
+			if(!this.world.isRemote) {
 
 				if(delay <= 0) {
 
@@ -244,12 +249,12 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 						this.extend++;
 
 						if(this.extend >= this.maxExtend) {
-							worldObj.playSoundEffect(xCoord, yCoord, zCoord, "hbm:block.pressOperate", 1.0F, 1.5F);
+							com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.pressOperate", 1.0F, 1.5F);
 
 							ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
-							Block b = worldObj.getBlock(xCoord + dir.offsetX * 2, yCoord + dir.offsetY * 2, zCoord + dir.offsetZ * 2);
+							Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + dir.offsetY * 2, this.pos.getZ() + dir.offsetZ * 2).getBlock();
 
-							if(b instanceof IInsertable && ((IInsertable) b).insertItem(worldObj, xCoord + dir.offsetX * 2, yCoord + dir.offsetY * 2, zCoord + dir.offsetZ * 2, dir, slot)) {
+							if(b instanceof IInsertable && ((IInsertable) b).insertItem(this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + dir.offsetY * 2, this.pos.getZ() + dir.offsetZ * 2, dir, slot)) {
 								this.decrStackSize(0, 1);
 							}
 
@@ -283,7 +288,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 			buf.writeBoolean(this.slot != null);
 			if(this.slot != null) {
-				BufferUtil.writeNBT(buf, slot.stackTagCompound);
+				BufferUtil.writeNBT(buf, slot.getTagCompound());
 			}
 		}
 
@@ -301,7 +306,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setInteger("extend", extend);
 			nbt.setBoolean("retract", isRetracting);
@@ -311,6 +316,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 				slot.writeToNBT(stack);
 				nbt.setTag("stack", stack);
 			}
+			return nbt;
 		}
 
 		@Override
@@ -337,7 +343,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 				return aabb;
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
-			aabb = AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 1, zCoord + 1).addCoord(dir.offsetX, dir.offsetY, dir.offsetZ);
+			aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).addCoord(dir.offsetX, dir.offsetY, dir.offsetZ);
 			return aabb;
 		}
 
@@ -367,13 +373,14 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 		}
 
 		@Override
-		public ItemStack getStackInSlotOnClosing(int slot) { return null; }
+		public ItemStack removeStackFromSlot(int slot) { return ItemStack.EMPTY; }
 
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {
+			if(stack != null && stack.isEmpty()) stack = null;
 			this.slot = stack;
-			if(stack != null && stack.stackSize > this.getInventoryStackLimit())
-				stack.stackSize = this.getInventoryStackLimit();
+			if(stack != null && stack.getCount() > this.getInventoryStackLimit())
+				stack.setCount(this.getInventoryStackLimit());
 		}
 
 		@Override public String getInventoryName() { return null; }

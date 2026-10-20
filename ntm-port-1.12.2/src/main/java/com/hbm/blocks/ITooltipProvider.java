@@ -18,7 +18,7 @@ public interface ITooltipProvider {
 	public default void addStandardInfo(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-			for(String s : I18nUtil.resolveKeyArray(((Block)this).getUnlocalizedName() + ".desc")) list.add(TextFormatting.YELLOW + s);
+			for(String s : I18nUtil.resolveKeyArray(((Block)this).getTranslationKey() + ".desc")) list.add(TextFormatting.YELLOW + s);
 		} else {
 			list.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC +"Hold <" +
 					TextFormatting.YELLOW + "" + TextFormatting.ITALIC + "LSHIFT" +
@@ -27,6 +27,6 @@ public interface ITooltipProvider {
 	}
 
 	public default EnumRarity getRarity(ItemStack stack) {
-		return EnumRarity.common;
+		return EnumRarity.COMMON;
 	}
 }

@@ -30,19 +30,19 @@ public class EntityGrenadeFrag extends EntityGrenadeBouncyBase
     @Override
     public void explode() {
     	
-        if (!this.worldObj.isRemote)
+        if (!this.world.isRemote)
         {
         	if(this.isBurning())
         	{
         		this.setDead();
-        		ExplosionChaos.frag(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 100, true, this.shooter);
-                ExplosionChaos.burn(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 5);
-                ExplosionChaos.flameDeath(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 15);
-        		this.worldObj.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
+        		ExplosionChaos.frag(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 100, true, this.shooter);
+                ExplosionChaos.burn(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 5);
+                ExplosionChaos.flameDeath(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 15);
+        		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
         	} else {
         		this.setDead();
-        		ExplosionChaos.frag(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, 100, false, this.shooter);
-        		this.worldObj.playSoundEffect((int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
+        		ExplosionChaos.frag(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 100, false, this.shooter);
+        		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, "random.explode", 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
         	}
         }
     }

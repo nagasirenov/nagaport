@@ -1,0 +1,12 @@
+// Test-only helper. Does not change production source sets or substitute dependencies.
+gradle.projectsEvaluated {
+    rootProject.tasks.create(name: 'writeAE2NativeClasspath') {
+        dependsOn 'deobfCompileDummyTask', 'deobfProvidedDummyTask'
+        doLast {
+            def target = rootProject.file(rootProject.findProperty('ae2ClasspathOutput') ?: 'build/porting-tests/ae2-classpath.txt')
+            target.parentFile.mkdirs()
+            target.setText(rootProject.sourceSets.main.compileClasspath.asPath, 'UTF-8')
+            println 'Wrote genuine Gradle-remapped native classpath: ' + target
+        }
+    }
+}

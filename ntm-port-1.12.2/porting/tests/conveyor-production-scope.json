@@ -1,0 +1,63 @@
+{
+  "scope": "conveyor native block owner/model closure",
+  "status": "Frozen; complete selected native owner, cuboid/AO, and model/resource family probes pass.",
+  "production_files": [
+    "src/main/java/com/hbm/blocks/network/BlockConveyorBase.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorBendable.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyor.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorDouble.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorTriple.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorExpress.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorLift.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorChute.java",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorClassic.java",
+    "src/main/java/com/hbm/blocks/network/ConveyorModelState.java",
+    "src/main/java/com/hbm/render/block/RenderConveyor.java",
+    "src/main/java/com/hbm/render/block/RenderConveyorLift.java",
+    "src/main/java/com/hbm/render/block/RenderConveyorChute.java",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorMaterials.java",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorBakedModel.java",
+    "src/main/java/com/hbm/main/ConveyorBlockModelHandler.java",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor.json",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_double.json",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_triple.json",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_express.json",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_lift.json",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_chute.json",
+    "src/main/resources/assets/hbm/models/item/conveyor_lift.json"
+  ],
+  "parent_owned_integration": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/main/ClientProxy.java"
+  ],
+  "separate_owner_pending": [
+    "src/main/java/com/hbm/render/item/block/ItemRenderBlock.java"
+  ],
+  "sha256": {
+    "src/main/java/com/hbm/blocks/network/BlockConveyorBase.java": "4b53c5f01e96dc72325062443c305e619d9c233b50e4aa7414b45db50eab04d7",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorBendable.java": "0b87b336ea0fa294b1c5e6eb9fe4ba46bd68f1130d698a75092f072c8930e88b",
+    "src/main/java/com/hbm/blocks/network/BlockConveyor.java": "af2f60bfe3c752bee1f96ea15de05e33f9bddf5c1bf45e1e18f01cf65f8689c0",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorDouble.java": "c41b2738fc2db0a60cba16bfd17b5d5814cf58e785ad0900088a145e8971ecad",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorTriple.java": "020791dd28c604654b503ef662a9959734a50acf43b5daa34ae7e057cbf1e503",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorExpress.java": "5987efdab208bd48013aeefd32521adbce7bd497e6528ecf0ba4f425262e89db",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorLift.java": "298b6b3b0d7f1484507349d7c618d0f37e6ed314efea7fdb66a20c194f8cfa6b",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorChute.java": "5ea261c6795651fd37f406184d9b9e9e1f611e97f21f382b511e16dfd4cd4860",
+    "src/main/java/com/hbm/blocks/network/BlockConveyorClassic.java": "cdc396cc20a2d0144991344dfad6e3b9c9044dcb62587f347e6ec622a611f63f",
+    "src/main/java/com/hbm/blocks/network/ConveyorModelState.java": "5a0e7c239ecc62de17631e4479b2a2221d9af8c41b3019ba4b22a01a9044eb42",
+    "src/main/java/com/hbm/render/block/RenderConveyor.java": "701866a695dafebddcf23be136ea105e74c3f2f569a500ec4a788f86777bb4ec",
+    "src/main/java/com/hbm/render/block/RenderConveyorLift.java": "3faa6ea01cd2f05fd414eea67f366873687ae489f324f400babd894206dfc247",
+    "src/main/java/com/hbm/render/block/RenderConveyorChute.java": "fb46c8e6fa0e93658104c7969185fb8aa694958e35b0e2027596afe495dc4586",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorMaterials.java": "bc90ea21a207fe1a5b55ae5b5ea777a71cca7078db7bcca0b531fe3b08234601",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorCuboidGeometry.java": "741545471bb416755e654b5e7d83d51dc7f20cf645eeb0de3fd45bead08f3925",
+    "src/main/java/com/hbm/render/block/nativeblock/ConveyorBakedModel.java": "b5fc88a459b9f7a37bfd9e683cefb11047538e31cfaf0a39b60af75470985072",
+    "src/main/java/com/hbm/main/ConveyorBlockModelHandler.java": "d065515d51272bc202f5dbddb79b35d7273baf2fc7a084f4a8037ebd9e7a70e6",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor.json": "0f76174259ac1574e93a597e3378f775ce6d231e2e4e0cb1af9b3253e7176b48",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_double.json": "2f52bff5705e9f584153b2ba79ced6a07135608ea624834deeacdba00d7a423f",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_triple.json": "51af0b7d23055608a62f99ebf0b17fa063ce6405a33217f4ae8a39fd088f421d",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_express.json": "6b718a5041a1fbc2c2b1c04c8d98eb465b2c1ee8b5594855bd0e894908ca712d",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_lift.json": "d2a6ff8a7901fa2244b23d9f05e3b7bf3ae5cab0972cd669db48550173028180",
+    "src/main/resources/assets/hbm/blockstates/tile.conveyor_chute.json": "f75d6b9e9feb501c8bd671b149928fbc8c52376ff6087ee76ba3f28f2aab81b0",
+    "src/main/resources/assets/hbm/models/item/conveyor_lift.json": "81debae1a35bb47dafc7302b88a4150d1898f3cc41833427e49fb157198ea21d"
+  }
+}

@@ -60,23 +60,23 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 
 	@Override
 	public World getWorld() {
-		return worldObj;
+		return this.world;
 	}
 
 	public void spawnParticles() {
 
-		if(worldObj.getTotalWorldTime() % 2 == 0) {
+		if(this.world.getTotalWorldTime() % 2 == 0) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "tower");
 			data.setFloat("lift", 0.1F);
 			data.setFloat("base", 0.3F);
 			data.setFloat("max", 1F);
-			data.setInteger("life", 20 + worldObj.rand.nextInt(20));
+			data.setInteger("life", 20 + this.world.rand.nextInt(20));
 			data.setInteger("color",tank.getTankType().getColor());
 
-			data.setDouble("posX", xCoord + 0.5 + worldObj.rand.nextDouble() - 0.5);
-			data.setDouble("posZ", zCoord + 0.5 + worldObj.rand.nextDouble() -0.5);
-			data.setDouble("posY", yCoord + 1);
+			data.setDouble("posX", this.pos.getX() + 0.5 + this.world.rand.nextDouble() - 0.5);
+			data.setDouble("posZ", this.pos.getZ() + 0.5 + this.world.rand.nextDouble() -0.5);
+			data.setDouble("posY", this.pos.getY() + 1);
 
 			MainRegistry.proxy.effectNT(data);
 
@@ -84,8 +84,8 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote) {
+	public void update() {
+		if(!this.world.isRemote) {
 			if(onTicks > 0) onTicks--;
 			if(registerWait > 0) registerWait--;
 
@@ -127,7 +127,7 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 
 							// Fill scrubbers with waste gas
 							if(scrubber != null && scrubber.isLoaded && !scrubber.isInvalid()) {
-								int toScrub = MathHelper.clamp_int(wasteFill, 0, 20);
+								int toScrub = MathHelper.clamp(wasteFill, 0, 20);
 								int scrubbed = scrubber.scrub(toScrub);
 								wasteFill -= scrubbed;
 							}
@@ -153,8 +153,8 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 				}
 			}
 
-			if(worldObj.getTotalWorldTime() % 5 == 0) {
-				currentAtmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, xCoord, yCoord, zCoord);
+			if(this.world.getTotalWorldTime() % 5 == 0) {
+				currentAtmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 
 			subscribeToAllAround(tank.getTankType(), this);
@@ -169,7 +169,7 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 	}
 
 	private void consumeFromTank(int amount) {
-		int bonusConsumption = MathHelper.clamp_int(amount, 0, bonusFill);
+		int bonusConsumption = MathHelper.clamp(amount, 0, bonusFill);
 		bonusFill -= bonusConsumption;
 		amount -= bonusConsumption;
 
@@ -271,12 +271,13 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tank.writeToNBT(nbt, "at");
 		nbt.setInteger("fill", airFill);
 		nbt.setInteger("waste", wasteFill);
 		nbt.setInteger("bonus", bonusFill);
+		return nbt;
 	}
 
 	@Override
@@ -289,7 +290,7 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 		return new FluidTank[] {tank};
 	}
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.atmosphereVent";
 	}
 
@@ -301,7 +302,7 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 
 	@Override
 	public ThreeInts getRootPosition() {
-		return new ThreeInts(xCoord, yCoord, zCoord);
+		return new ThreeInts(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 
 	@Override
@@ -334,7 +335,7 @@ public class TileEntityAirPump extends TileEntityMachineBase implements IFluidSt
 
 	@Override
 	public void produce(int amount) {
-		int produced = MathHelper.clamp_int(amount, 0, wasteFill);
+		int produced = MathHelper.clamp(amount, 0, wasteFill);
 		bonusFill += produced;
 		wasteFill -= produced;
 	}

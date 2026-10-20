@@ -23,7 +23,7 @@ public class BlockWeaponTable extends Block implements IGUIProvider {
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
 	public BlockWeaponTable() {
-		super(Material.iron);
+		super(Material.IRON);
 	}
 	
 	@Override

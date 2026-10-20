@@ -3,9 +3,10 @@ package com.hbm.entity.mob.ai;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.pathfinding.PathEntity;
+import net.minecraft.pathfinding.Path;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -16,7 +17,7 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 	int attackTick;
 	double speedTowardsTarget;
 	boolean longMemory;
-	PathEntity entityPathEntity;
+	Path entityPathEntity;
 	Class classTarget;
 	private int pathTimer;
 	private double lastX;
@@ -32,12 +33,13 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 
 	public EntityAIMaskmanCasualApproach(EntityCreature owner, double speed, boolean longMemory) {
 		this.attacker = owner;
-		this.worldObj = owner.worldObj;
+		this.worldObj = owner.getEntityWorld();
 		this.speedTowardsTarget = speed;
 		this.longMemory = longMemory;
 		this.setMutexBits(3);
 	}
 	
+	@Override
 	public boolean shouldExecute() {
 		EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
 
@@ -66,33 +68,37 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 	}
 
 	
-	public boolean continueExecuting() {
+	@Override
+	public boolean shouldContinueExecuting() {
 		
 		EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
 		
 		return entitylivingbase == null ? false
 				: (!entitylivingbase.isEntityAlive() ? false
 				: (!this.longMemory ? !this.attacker.getNavigator().noPath()
-				: this.attacker.isWithinHomeDistance(MathHelper.floor_double(entitylivingbase.posX), MathHelper.floor_double(entitylivingbase.posY), MathHelper.floor_double(entitylivingbase.posZ))));
+				: this.attacker.isWithinHomeDistanceFromPosition(new BlockPos(MathHelper.floor(entitylivingbase.posX), MathHelper.floor(entitylivingbase.posY), MathHelper.floor(entitylivingbase.posZ)))));
 	}
 
 	
+	@Override
 	public void startExecuting() {
 		this.attacker.getNavigator().setPath(this.entityPathEntity, this.speedTowardsTarget);
 		this.pathTimer = 0;
 	}
 
 	
+	@Override
 	public void resetTask() {
-		this.attacker.getNavigator().clearPathEntity();
+		this.attacker.getNavigator().clearPath();
 	}
 
 	
+	@Override
 	public void updateTask() {
 		
 		EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
 		this.attacker.getLookHelper().setLookPositionWithEntity(entitylivingbase, 30.0F, 30.0F);
-		double d0 = this.attacker.getDistanceSq(entitylivingbase.posX, entitylivingbase.boundingBox.minY, entitylivingbase.posZ);
+		double d0 = this.attacker.getDistanceSq(entitylivingbase.posX, entitylivingbase.getEntityBoundingBox().minY, entitylivingbase.posZ);
 		
 		this.pathTimer--;
 
@@ -102,14 +108,14 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 				|| this.attacker.getRNG().nextFloat() < 0.05F)) {
 			
 			this.lastX = entitylivingbase.posX;
-			this.lastY = entitylivingbase.boundingBox.minY;
+			this.lastY = entitylivingbase.getEntityBoundingBox().minY;
 			this.lastZ = entitylivingbase.posZ;
 			this.pathTimer = failedPathFindingPenalty + 4 + this.attacker.getRNG().nextInt(7);
 
 			if(this.attacker.getNavigator().getPath() != null) {
 				
 				PathPoint finalPathPoint = this.attacker.getNavigator().getPath().getFinalPathPoint();
-				if(finalPathPoint != null && entitylivingbase.getDistanceSq(finalPathPoint.xCoord, finalPathPoint.yCoord, finalPathPoint.zCoord) < 1) {
+				if(finalPathPoint != null && entitylivingbase.getDistanceSq(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1) {
 					failedPathFindingPenalty = 0;
 					
 				} else {

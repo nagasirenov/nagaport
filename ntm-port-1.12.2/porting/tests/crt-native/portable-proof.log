@@ -1,0 +1,103 @@
+PRODUCTION com/hbm/blocks/generic/BlockDecoCRT.java eabfb7a9934a912475e99acb0f6eb44acc74dfe00756eecfa0703900d25a045a
+PRODUCTION com/hbm/blocks/BlockMulti.java 8a9614ddfcac2172a6bfa53fad6c0d797c29bab3b02c2313eca4b98decbccc32
+PRODUCTION com/hbm/blocks/BlockBase.java c39027a1e7a2d1cc5df0dc2a5a52aacf28cf5b90b90e5654e5f58487ee52dbfe
+PRODUCTION com/hbm/blocks/IBlockMulti.java f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9
+PRODUCTION com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/render/icon/IIcon.java 5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205
+PRODUCTION com/hbm/render/icon/IIconRegister.java 071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752
+PRODUCTION com/hbm/render/block/RenderCRT.java f1f3293fe9001c66b4531ec365ce8b4ce226c3179e65919793834d5f140fba28
+PRODUCTION com/hbm/main/CRTModelHandler.java 937ed2bfd2f54ea30bee203e120a58020b319f30fc51e0c404734acf260d46d5
+PRODUCTION com/hbm/render/item/nativeitem/ItemTransformMatrix.java 02d0d79d178caff48839591d5d303c1b43db778e6e056f077fe6632a46249d0e
+PRODUCTION com/hbm/render/item/nativeitem/AngelCoreFrameCorrection.java c8c2e5951808287c67b5864794e02580e7010a7909a932dc2d5c721f35606ee3
+PRODUCTION com/hbm/render/block/nativeblock/CRTBakedModel.java 8e3717c2b29c683bc0303e3d2fb594c88e3370e74035fb21129b1a3c1f357e03
+PRODUCTION com/hbm/render/block/nativeblock/CRTPackedLightQuad.java f7c2251f476a04ca44770e0dacaca82329ef75be5e14bf6ce3427b5132ed88fe
+PRODUCTION com/hbm/render/block/nativeblock/AtlasObjGeometry.java 236666b73ad5acbc3e392b6aa0faac590528694d0ebaf9c0a962d91ab0e11e8e
+PRODUCTION com/hbm/render/block/nativeblock/BlockPositionLightQuad.java 563e1b1c2d951491130e63ea86553964199b75fa5ec1274a36acb33b6885695f
+PRODUCTION com/hbm/render/block/nativeblock/ThermalModelTransforms.java 9ac504be69ff8373d1a0e7a93d95c9102e312cdef33944b8a352e32cb31c38fc
+PRODUCTION com/hbm/render/mesh/ObjMesh.java d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736
+PRODUCTION com/hbm/render/mesh/ObjMeshParser.java e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c
+/workspace/shared/nagaport-crt-next/ntm-port-1.12.2/porting/tests/crt-native/CRTNativeTest.java:39: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;static SimpleReloadableResourceManager resources;static List<Part> original;static ObjMesh originalMesh;
+                ^
+/workspace/shared/nagaport-crt-next/ntm-port-1.12.2/porting/tests/crt-native/CRTNativeTest.java:125: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                  ^
+/workspace/shared/nagaport-crt-next/ntm-port-1.12.2/porting/tests/crt-native/CRTNativeTest.java:125: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);
+                                        ^
+/workspace/shared/nagaport-crt-next/ntm-port-1.12.2/porting/tests/crt-native/CRTNativeTest.java:209: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);Block wrong=mode.equals("subclass")?new BlockDecoCRT(Material.IRON){}:new Block(Material.IRON){};ForgeRegistries.BLOCKS.register(wrong.setRegistryName("hbm","tile.deco_crt"));CRTModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent());check(((Map<?,?>)get(null,ModelLoader.class,"customModels")).isEmpty(),"exact registry name wrong class/subclass untouched");check(get(null,CRTModelHandler.class,"ownedItem")==null,"wrong owner has no frame hook identity");System.out.println("PASS isolated exact native owner negative: "+mode);
+                                       ^
+/workspace/shared/nagaport-crt-next/ntm-port-1.12.2/porting/tests/crt-native/CRTNativeTest.java:209: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);resources=new SimpleReloadableResourceManager(new net.minecraft.client.resources.data.MetadataSerializer());net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",resources);net.minecraft.launchwrapper.Launch.blackboard=new HashMap<>();net.minecraft.launchwrapper.Launch.blackboard.put("fml.deobfuscatedEnvironment",Boolean.TRUE);Block wrong=mode.equals("subclass")?new BlockDecoCRT(Material.IRON){}:new Block(Material.IRON){};ForgeRegistries.BLOCKS.register(wrong.setRegistryName("hbm","tile.deco_crt"));CRTModelHandler.registerModels(new net.minecraftforge.client.event.ModelRegistryEvent());check(((Map<?,?>)get(null,ModelLoader.class,"customModels")).isEmpty(),"exact registry name wrong class/subclass untouched");check(get(null,CRTModelHandler.class,"ownedItem")==null,"wrong owner has no frame hook identity");System.out.println("PASS isolated exact native owner negative: "+mode);
+                                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-crt-next/ntm-port-1.12.2/porting/tests/crt-native/CRTNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+5 warnings
+PASS complete native CRT production bytecode has no removed rendering/world APIs
+PASS actual cached original 1.7.10 Vec3 Z-then-Y rotations: 7776 exact double comparisons; float MathHelper table inputs, native 1.12 helper matches original signs/precision.
+[23:04:58] [main/INFO]: Processing ObjectHolder annotations
+[23:04:58] [main/INFO]: Found 1167 ObjectHolder annotations
+ORIGINAL CRT: 2 ordered groups and 36 triangles
+PASS complete CRT owner, shared BlockMulti/BlockBase, creative/drop/pick, 16 states, 17,284 actual World/Chunk placements and pristine structure transforms
+PASS controlled CRT quadrilateral replacement stream, whole inventory tails, named world groups, duplicate last-wins and exact-case lookup
+PASS packed-light adapter direct and native consumers, source immutability, subsequent Monitor isolation, exception restoration
+[23:04:58] [main/INFO]: Reloading ResourceManager: resources
+[23:04:58] [main/INFO]: Reloading ResourceManager: resources
+PASS native CRT Flat/SmoothAo draw metadata=0; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=1; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=2; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=3; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=4; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=5; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=6; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=7; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=8; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=9; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=10; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=11; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=12; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=13; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=14; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=15; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS resources: 16 world +4 item exact vertices/materials, genuine native registry/model dispatch/draw
+[23:04:58] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[23:04:58] [main/INFO]: Reloading ResourceManager: resources
+[23:04:58] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[23:04:58] [main/INFO]: Reloading ResourceManager: resources
+[23:04:58] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.deco_crt`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native CRT changed/restored/missing resource lifecycle, retained immutability, bounded loader and owner isolation
+[23:04:58] [main/INFO]: Reloading ResourceManager: crt-resources.jar
+[23:04:58] [main/INFO]: Reloading ResourceManager: crt-resources.jar
+PASS native CRT Flat/SmoothAo draw metadata=0; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=1; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=2; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=3; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=4; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=5; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=6; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=7; OPEN GATES vanilla screen-light loss=0, native damage wrapper loss=0 vertices
+PASS native CRT Flat/SmoothAo draw metadata=8; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=9; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=10; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=11; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=12; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=13; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=14; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS native CRT Flat/SmoothAo draw metadata=15; OPEN GATES vanilla screen-light loss=8, native damage wrapper loss=8 vertices
+PASS crt-resources.jar: 16 world +4 item exact vertices/materials, genuine native registry/model dispatch/draw
+[23:04:58] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[23:04:58] [main/INFO]: Reloading ResourceManager: crt-resources.jar
+[23:04:58] [main/INFO]: Reloading ResourceManager: Controlled OBJ mutation
+[23:04:58] [main/INFO]: Reloading ResourceManager: crt-resources.jar
+[23:04:58] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.deco_crt`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native CRT changed/restored/missing resource lifecycle, retained immutability, bounded loader and owner isolation
+PASS CRT native complete-owner proof: 70472 assertions, 6852 exact complete vertices; no Minecraft/Forge or NTM owner substitutes.
+Boundaries: CPU-headless native compile/draw only. Vanilla fallback and native damage screen brightness loss are confirmed OPEN GATES. Exact FIXED matrix verified here; separate frame-run.py covers bounded native GL ordinary/machine frames. Full-game/held/GUI visual acceptance remains OPEN.
+[23:05:00] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_crt`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS isolated exact native owner negative: replacement
+[23:05:02] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.deco_crt`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS isolated exact native owner negative: subclass

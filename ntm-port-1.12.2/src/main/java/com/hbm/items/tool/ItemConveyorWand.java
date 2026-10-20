@@ -25,6 +25,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketBlockChange;
@@ -38,7 +44,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.common.ForgeHooks;
 import com.hbm.lib.ForgeDirection;
-import net.minecraftforge.event.world.BlockEvent;
 
 public class ItemConveyorWand extends Item implements ILookOverlay {
 
@@ -74,27 +79,27 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
 		for(ConveyorType type : ConveyorType.values()) {
-			list.add(new ItemStack(item, 1, type.ordinal()));
+			list.add(new ItemStack(this, 1, type.ordinal()));
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName() + "." + getType(stack).name().toLowerCase(Locale.US);
+	public String getTranslationKey(ItemStack stack) {
+		return super.getTranslationKey() + "." + getType(stack).name().toLowerCase(Locale.US);
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
 
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-			for(String s : I18nUtil.resolveKeyArray(super.getUnlocalizedName(stack) + ".desc")) {
+			for(String s : I18nUtil.resolveKeyArray(super.getTranslationKey(stack) + ".desc")) {
 				list.add(TextFormatting.YELLOW + s);
 			}
 			if(hasSnakesAndLadders(getType(stack))) {
-				list.add(TextFormatting.AQUA + I18nUtil.resolveKey(super.getUnlocalizedName(stack) + ".vertical.desc"));
+				list.add(TextFormatting.AQUA + I18nUtil.resolveKey(super.getTranslationKey(stack) + ".vertical.desc"));
 			}
 		} else {
 			list.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "Hold <" + TextFormatting.YELLOW + "" + TextFormatting.ITALIC + "LSHIFT" + TextFormatting.DARK_GRAY
@@ -103,20 +108,23 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float fx, float fy, float fz) {
+		ItemStack stack = player.getHeldItem(hand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ(), side = facing.getIndex();
 		if(player.isSneaking() && !stack.hasTagCompound()) {
 			ForgeDirection dir = ForgeDirection.getOrientation(side);
-			Block onBlock = world.getBlock(x, y, z);
-			int onMeta = world.getBlockMetadata(x, y, z);
+			IBlockState onState = world.getBlockState(new BlockPos(x, y, z));
+			Block onBlock = onState.getBlock();
+			int onMeta = onBlock.getMetaFromState(onState);
 			ConveyorType type = getType(stack);
 
 			if(hasSnakesAndLadders(type) && onBlock == ModBlocks.conveyor && onMeta < 6) {
 				if(dir == ForgeDirection.UP) {
 					onBlock = ModBlocks.conveyor_lift;
-					world.setBlock(x, y, z, onBlock, onMeta, 3);
+					world.setBlockState(new BlockPos(x, y, z), onBlock.getStateFromMeta(onMeta), 3);
 				} else if(dir == ForgeDirection.DOWN) {
 					onBlock = ModBlocks.conveyor_chute;
-					world.setBlock(x, y, z, onBlock, onMeta, 3);
+					world.setBlockState(new BlockPos(x, y, z), onBlock.getStateFromMeta(onMeta), 3);
 				}
 			}
 
@@ -130,18 +138,18 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			y += dir.offsetY;
 			z += dir.offsetZ;
 
-			if(world.getBlock(x, y, z).isReplaceable(world, x, y, z)) {
-				world.setBlock(x, y, z, toPlace);
-				toPlace.onBlockPlacedBy(world, x, y, z, player, stack);
-				stack.stackSize--;
+			if(world.getBlockState(new BlockPos(x, y, z)).getBlock().isReplaceable(world, new BlockPos(x, y, z))) {
+				world.setBlockState(new BlockPos(x, y, z), toPlace.getDefaultState());
+				toPlace.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, stack);
+				stack.shrink(1);
 			}
 
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
 
 		// If placing on top of a conveyor block, auto-snap to edge if possible
 		// this makes it easier to connect without having to click the small edge of a conveyor
-		Block onBlock = world.getBlock(x, y, z);
+		Block onBlock = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(onBlock instanceof BlockConveyorBendable) {
 			BlockConveyorBase bendable = (BlockConveyorBase) onBlock;
 			ForgeDirection moveDir = stack.hasTagCompound() ? bendable.getInputDirection(world, x, y, z) : bendable.getOutputDirection(world, x, y, z);
@@ -150,14 +158,15 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			int oy = y + moveDir.offsetY;
 			int oz = z + moveDir.offsetZ;
 
-			if(world.getBlock(ox, oy, oz).isReplaceable(world, ox, oy, oz)) {
+			if(world.getBlockState(new BlockPos(ox, oy, oz)).getBlock().isReplaceable(world, new BlockPos(ox, oy, oz))) {
 				side = moveDir.ordinal();
 			}
 		}
 
 		if(!stack.hasTagCompound()) {
 			// Starting placement
-			NBTTagCompound nbt = stack.stackTagCompound = new NBTTagCompound();
+			NBTTagCompound nbt = new NBTTagCompound();
+			stack.setTagCompound(nbt);
 
 			nbt.setInteger("x", x);
 			nbt.setInteger("y", y);
@@ -170,7 +179,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			} else {
 				for(ItemStack inventoryStack : player.inventory.mainInventory) {
 					if(inventoryStack != null && inventoryStack.getItem() == this && inventoryStack.getItemDamage() == stack.getItemDamage()) {
-						count += inventoryStack.stackSize;
+						count += inventoryStack.getCount();
 					}
 				}
 			}
@@ -178,7 +187,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			nbt.setInteger("count", count);
 		} else {
 			// Constructing conveyor
-			NBTTagCompound nbt = stack.stackTagCompound;
+			NBTTagCompound nbt = stack.getTagCompound();
 
 			int sx = nbt.getInteger("x");
 			int sy = nbt.getInteger("y");
@@ -197,8 +206,8 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 					if(!player.capabilities.isCreativeMode) {
 						for(ItemStack inventoryStack : player.inventory.mainInventory) {
 							if(inventoryStack != null && inventoryStack.getItem() == this && inventoryStack.getItemDamage() == stack.getItemDamage()) {
-								int removing = Math.min(toRemove, inventoryStack.stackSize);
-								inventoryStack.stackSize -= removing;
+								int removing = Math.min(toRemove, inventoryStack.getCount());
+								inventoryStack.shrink(removing);
 								toRemove -= removing;
 							}
 
@@ -219,10 +228,10 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 				lastMop = null;
 			}
 
-			stack.stackTagCompound = null;
+			stack.setTagCompound(null);
 		}
 
-		return true; // always eat interactions
+		return EnumActionResult.SUCCESS; // always eat interactions
 	}
 
 	private static RayTraceResult lastMop;
@@ -235,9 +244,9 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 		EntityPlayer player = (EntityPlayer) entity;
 
 		if(!inHand && stack.hasTagCompound()) {
-			ItemStack held = player.getHeldItem();
+			ItemStack held = player.getHeldItemMainhand();
 			if(held == null || held.getItem() != this || held.getItemDamage() != stack.getItemDamage()) {
-				stack.stackTagCompound = null;
+				stack.setTagCompound(null);
 				if(world.isRemote) {
 					RenderOverhead.clearActionPreview();
 					lastMop = null;
@@ -265,7 +274,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			int z = mop.getBlockPos().getZ();
 			int side = mop.sideHit.getIndex();
 
-			Block onBlock = world.getBlock(x, y, z);
+			Block onBlock = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 			if(onBlock instanceof BlockConveyorBendable) {
 				BlockConveyorBase bendable = (BlockConveyorBase) onBlock;
 				ForgeDirection moveDir = bendable.getInputDirection(world, x, y, z);
@@ -274,7 +283,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 				int oy = y + moveDir.offsetY;
 				int oz = z + moveDir.offsetZ;
 
-				if(world.getBlock(ox, oy, oz).isReplaceable(world, ox, oy, oz)) {
+				if(world.getBlockState(new BlockPos(ox, oy, oz)).getBlock().isReplaceable(world, new BlockPos(ox, oy, oz))) {
 					side = moveDir.ordinal();
 				}
 			}
@@ -284,7 +293,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			lastYaw = player.rotationYaw;
 			lastSide = side;
 
-			NBTTagCompound nbt = stack.stackTagCompound;
+			NBTTagCompound nbt = stack.getTagCompound();
 
 			int sx = nbt.getInteger("x");
 			int sy = nbt.getInteger("y");
@@ -310,11 +319,12 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 
 	// In creative, auto delete connected conveyors
 	@Override
-	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer playerEntity) {
+	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer playerEntity) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(!playerEntity.isSneaking()) return false;
 
-		World world = playerEntity.worldObj;
-		Block block = world.getBlock(x, y, z);
+		World world = playerEntity.world;
+		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 
 		if(!playerEntity.capabilities.isCreativeMode) return false;
 		if(!(playerEntity instanceof EntityPlayerMP)) return false;
@@ -336,21 +346,21 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 		depth--;
 		if(depth <= 0) return;
 
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		IBlockState state = world.getBlockState(new BlockPos(x, y, z));
+		Block block = state.getBlock();
 		if(!(block instanceof BlockConveyorBase)) return;
 
 		BlockConveyorBase conveyor = (BlockConveyorBase) block;
 		ForgeDirection input = conveyor.getInputDirection(world, x, y, z);
 		ForgeDirection output = conveyor.getOutputDirection(world, x, y, z);
 
-		BlockEvent.BreakEvent event = ForgeHooks.onBlockBreakEvent(world, player.theItemInWorldManager.getGameType(), player, x, y, z);
-		if(event.isCanceled())
+		int event = ForgeHooks.onBlockBreakEvent(world, player.interactionManager.getGameType(), player, new BlockPos(x, y, z));
+		if(event == -1)
 			return;
 
-		block.onBlockHarvested(world, x, y, z, meta, player);
-		if(block.removedByPlayer(world, player, x, y, z, false)) {
-			block.onBlockDestroyedByPlayer(world, x, y, z, meta);
+		block.onBlockHarvested(world, new BlockPos(x, y, z), state, player);
+		if(block.removedByPlayer(state, world, new BlockPos(x, y, z), player, false)) {
+			block.onPlayerDestroy(world, new BlockPos(x, y, z), state);
 		}
 
 		player.connection.sendPacket(new SPacketBlockChange(world, new BlockPos(x, y, z)));
@@ -369,11 +379,11 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 
 			y1 += dir.offsetY;
 
-			if(!routeWorld.getBlock(x1, y1, z1).isReplaceable(routeWorld, x1, y1, z1)) return -1;
+			if(!routeWorld.getBlockState(new BlockPos(x1, y1, z1)).getBlock().isReplaceable(routeWorld, new BlockPos(x1, y1, z1))) return -1;
 
 			Block block = getConveyorBlock(type);
 			if(buildWorld instanceof World) {
-				((World) buildWorld).setBlock(x1 - box, y1 - boy, z1 - boz, block, meta, 3);
+				((World) buildWorld).setBlockState(new BlockPos(x1 - box, y1 - boy, z1 - boz), block.getStateFromMeta(meta), 3);
 			} else if(buildWorld instanceof WorldInAJar) {
 				((WorldInAJar) buildWorld).setBlock(x1 - box, y1 - boy, z1 - boz, block, meta);
 			}
@@ -395,7 +405,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			dir = getTargetDirection(x, y, z, x2, y2, z2, hasVertical);
 		}
 
-		Block targetBlock = routeWorld.getBlock(x2, y2, z2);
+		Block targetBlock = routeWorld.getBlockState(new BlockPos(x2, y2, z2)).getBlock();
 		boolean isTargetHorizontal = targetDir != ForgeDirection.UP && targetDir != ForgeDirection.DOWN;
 		boolean shouldTurnToTarget = isTargetHorizontal || targetBlock instanceof BlockCraneBase || targetBlock == ModBlocks.conveyor_lift || targetBlock == ModBlocks.conveyor_chute;
 
@@ -403,13 +413,13 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 
 		// Initial dropdown to floor level, if possible
 		if(hasVertical && y > ty) {
-			if(routeWorld.getBlock(x, y - 1, z).isReplaceable(routeWorld, x, y - 1, z)) {
+			if(routeWorld.getBlockState(new BlockPos(x, y - 1, z)).getBlock().isReplaceable(routeWorld, new BlockPos(x, y - 1, z))) {
 				dir = ForgeDirection.DOWN;
 			}
 		}
 
 		for(int loopDepth = 1; loopDepth <= max; loopDepth++) {
-			if(!routeWorld.getBlock(x, y, z).isReplaceable(routeWorld, x, y, z)) return -1;
+			if(!routeWorld.getBlockState(new BlockPos(x, y, z)).getBlock().isReplaceable(routeWorld, new BlockPos(x, y, z))) return -1;
 
 			Block block = getConveyorForDirection(type, dir);
 			int meta = getConveyorMetaForDirection(block, dir, targetDir, horDir);
@@ -423,7 +433,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			int toDistance = taxiDistance(ox, oy, oz, tx, ty, tz);
 			int finalDistance = taxiDistance(ox, oy, oz, x2, y2, z2);
 			boolean notAtTarget = (shouldTurnToTarget ? finalDistance : fromDistance) > 0;
-			boolean willBeObstructed = notAtTarget && !routeWorld.getBlock(ox, oy, oz).isReplaceable(routeWorld, ox, oy, oz);
+			boolean willBeObstructed = notAtTarget && !routeWorld.getBlockState(new BlockPos(ox, oy, oz)).getBlock().isReplaceable(routeWorld, new BlockPos(ox, oy, oz));
 			boolean shouldTurn = (toDistance >= fromDistance && notAtTarget) || willBeObstructed;
 
 			if(shouldTurn) {
@@ -444,7 +454,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			}
 
 			if(buildWorld instanceof World) {
-				((World) buildWorld).setBlock(x - box, y - boy, z - boz, block, meta, 3);
+				((World) buildWorld).setBlockState(new BlockPos(x - box, y - boy, z - boz), block.getStateFromMeta(meta), 3);
 			} else if(buildWorld instanceof WorldInAJar) {
 				((WorldInAJar) buildWorld).setBlock(x - box, y - boy, z - boz, block, meta);
 			}
@@ -460,7 +470,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 	}
 
 	private static int getFacingMeta(EntityPlayer player) {
-		int meta = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+		int meta = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		switch(meta) {
 			case 0: return 2;
 			case 1: return 5;
@@ -508,11 +518,11 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 		EntityPlayer player = MainRegistry.proxy.me();
 		if(player == null || !player.isSneaking() || !player.capabilities.isCreativeMode) return;
 
-		Block block = world.getBlock(x, y, z);
+		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(block instanceof BlockConveyorBase) {
 			List<String> text = new ArrayList<>();
 			text.add("Break whole conveyor line");
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(block.getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(block.getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 		}
 	}
 

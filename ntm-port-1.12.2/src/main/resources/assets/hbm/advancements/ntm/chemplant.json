@@ -1,0 +1,29 @@
+{
+  "parent": "hbm:ntm/assembly",
+  "display": {
+    "icon": {
+      "item": "hbm:tile.machine_chemical_plant",
+      "data": 0
+    },
+    "title": {
+      "translate": "achievement.chemplant"
+    },
+    "description": {
+      "translate": "achievement.chemplant.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "earned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "earned"
+    ]
+  ]
+}

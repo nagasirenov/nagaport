@@ -79,7 +79,7 @@ public class AtmosphereBlob implements Runnable {
 		if(world instanceof WorldServer && !((WorldServer) world).getChunkProvider().chunkExists(x >> 4, z >> 4))
 			return true;
 
-		Block block = world.getBlock(x, y, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(block.isAir(world, x, y, z)) return false; // Air obviously doesn't seal
 		if(block instanceof BlockFarmland) return false;
@@ -89,9 +89,9 @@ public class AtmosphereBlob implements Runnable {
 		}
 		if(block instanceof BlockDummyable) return false; // Machines can't seal, almost all have gaps
 
-		Material material = block.getMaterial();
+		Material material = block.getDefaultState().getMaterial();
 		if(material.isLiquid() || !material.isSolid()) return false; // Liquids need to know what pressurized atmosphere they're in to determine evaporation
-		if(material == Material.leaves) return false; // Leaves never block air
+		if(material == Material.LEAVES) return false; // Leaves never block air
 
 		Boolean isFull = fullBounds.get(block);
 		if(isFull != null) return isFull;
@@ -352,7 +352,7 @@ public class AtmosphereBlob implements Runnable {
 		CBT_Atmosphere newAtmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(world, root.x, root.y, root.z, this);
 
 		for(ThreeInts pos : blocks) {
-			final Block block = world.getBlock(pos.x, pos.y, pos.z);
+			final Block block = com.hbm.world.WorldBlockState.read(world, pos.x, pos.y, pos.z).getBlock();
 			ChunkAtmosphereManager.proxy.runEffectsOnBlock(newAtmosphere, world, block, pos.x, pos.y, pos.z);
 		}
 	}
@@ -366,8 +366,8 @@ public class AtmosphereBlob implements Runnable {
 		depress.posZ = pos.z + 0.5;
 		world.spawnEntityInWorld(depress);
 
-		world.playSoundEffect(depress.posX, depress.posY, depress.posZ, "random.explode", 1.0F, 1.6F);
-		world.playSoundEffect(depress.posX, depress.posY, depress.posZ, "random.fizz", 1.0F, 0.25F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(world, depress.posX, depress.posY, depress.posZ, "random.explode", 1.0F, 1.6F);
+		com.hbm.sound.VanillaWorldSoundEffects.play(world, depress.posX, depress.posY, depress.posZ, "random.fizz", 1.0F, 0.25F);
 	}
 
 	public void checkGrowth() {
@@ -378,14 +378,14 @@ public class AtmosphereBlob implements Runnable {
 			HashMap.Entry<ThreeInts, Integer> entry = iterator.next();
 			ThreeInts pos = entry.getKey();
 			int oldMeta = entry.getValue();
-			Block block = world.getBlock(pos.x, pos.y, pos.z);
+			Block block = com.hbm.world.WorldBlockState.read(world, pos.x, pos.y, pos.z).getBlock();
 
 			if(!(block instanceof IGrowable)) {
 				iterator.remove();
 				continue;
 			}
 
-			int newMeta = world.getBlockMetadata(pos.x, pos.y, pos.z);
+			int newMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, pos.x, pos.y, pos.z) );
 
 			if(newMeta != oldMeta) {
 				entry.setValue(newMeta);
@@ -395,7 +395,7 @@ public class AtmosphereBlob implements Runnable {
 	}
 
 	public void addPlant(World world, int x, int y, int z) {
-		plants.put(new ThreeInts(x, y, z), world.getBlockMetadata(x, y, z));
+		plants.put(new ThreeInts(x, y, z), com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 	}
 
 }

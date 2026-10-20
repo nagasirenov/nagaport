@@ -30,7 +30,7 @@ public class RenderSecureDoor implements IRenderDoors {
 
 		GL11.glTranslated(0, 1, 0);
 		ResourceManager.pheo_secure_door.renderPart("Frame");
-		GL11.glTranslated(0, MathHelper.clamp_double(raise, 0, maxRaise), 0);
+		GL11.glTranslated(0, MathHelper.clamp(raise, (double) (0), maxRaise), 0);
 		ResourceManager.pheo_secure_door.renderPart("Door");
 	}
 }

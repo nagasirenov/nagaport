@@ -8,10 +8,15 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderZirnoxDebris extends Render {
+
+	public RenderZirnoxDebris(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	//for fallback only
 	private static final ResourceLocation tex_graphite = new ResourceLocation(RefStrings.MODID + ":textures/blocks/block_graphite.png");

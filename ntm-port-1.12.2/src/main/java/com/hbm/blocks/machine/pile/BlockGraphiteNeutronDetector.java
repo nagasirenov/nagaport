@@ -12,8 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
@@ -56,13 +56,13 @@ public class BlockGraphiteNeutronDetector extends BlockGraphiteDrilledTE {
 	}
 	
 	public void triggerRods(World world, int x, int y, int z) {
-		int oldMeta = world.getBlockMetadata(x, y, z);
+		int oldMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		int newMeta = oldMeta ^ 8; //toggle bit #4
 		int pureMeta = oldMeta & 3;
 		
 		world.setBlockMetadataWithNotify(x, y, z, newMeta, 3);
 		
-		world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "hbm:item.techBleep", 0.02F, 1.0F);
+		com.hbm.sound.WorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "hbm:item.techBleep", 0.02F, 1.0F);
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(pureMeta * 2);
 		
@@ -75,7 +75,7 @@ public class BlockGraphiteNeutronDetector extends BlockGraphiteDrilledTE {
 			int iy = y + dir.offsetY * i;
 			int iz = z + dir.offsetZ * i;
 			
-			while(world.getBlock(ix, iy, iz) == ModBlocks.block_graphite_rod && world.getBlockMetadata(ix, iy, iz) == oldMeta) {
+			while(com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock() == ModBlocks.block_graphite_rod && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) ) == oldMeta) {
 				
 				world.setBlockMetadataWithNotify(ix, iy, iz, newMeta, 3);
 				
@@ -93,7 +93,7 @@ public class BlockGraphiteNeutronDetector extends BlockGraphiteDrilledTE {
 			
 			if(tool == ToolType.SCREWDRIVER) {
 	
-				int meta = world.getBlockMetadata(x, y, z);
+				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 				int cfg = meta & 3;
 				
 				if(!player.isSneaking()) {
@@ -102,15 +102,15 @@ public class BlockGraphiteNeutronDetector extends BlockGraphiteDrilledTE {
 						this.ejectItem(world, x, y, z, ForgeDirection.getOrientation(side), new ItemStack(getInsertedItem()));
 					}
 				} else {
-					TileEntityPileNeutronDetector pile = (TileEntityPileNeutronDetector) world.getTileEntity(x, y, z);
+					TileEntityPileNeutronDetector pile = (TileEntityPileNeutronDetector) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 					
-					player.addChatComponentMessage(new ChatComponentText("CP1 FUEL ASSEMBLY " + x + " " + y + " " + z).setChatStyle(new ChatStyle().setColor(TextFormatting.GOLD)));
-					player.addChatComponentMessage(new ChatComponentText("FLUX: " + pile.lastNeutrons + "/" + pile.maxNeutrons).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+					player.sendMessage(new TextComponentString("CP1 FUEL ASSEMBLY " + x + " " + y + " " + z).setStyle(new Style().setColor(TextFormatting.GOLD)));
+					player.sendMessage(new TextComponentString("FLUX: " + pile.lastNeutrons + "/" + pile.maxNeutrons).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 				}
 			}
 			
 			if(tool == ToolType.DEFUSER) {
-				TileEntityPileNeutronDetector pile = (TileEntityPileNeutronDetector) world.getTileEntity(x, y, z);
+				TileEntityPileNeutronDetector pile = (TileEntityPileNeutronDetector) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				
 				if(player.isSneaking()) {
 					if(pile.maxNeutrons > 1)

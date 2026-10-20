@@ -49,7 +49,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiverMK2, SimpleComponent, IInfoProviderEC, CompatHandler.OCComponent, IConfigurableMachine, IFluidCopiable, IRepairable, INBTTileEntityTransformable, IPersistentNBT {
+public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyProviderMK2, IFluidStandardTransceiverMK2, SimpleComponent, IInfoProviderEC, CompatHandler.OCComponent, IConfigurableMachine, IFluidCopiable, IRepairable, INBTTileEntityTransformable, IPersistentNBT, net.minecraft.util.ITickable {
 
 	public long powerBuffer;
 	private int turnTimer;
@@ -103,9 +103,9 @@ public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyPr
 
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.powerBuffer = 0;
 			this.info = new double[3];
@@ -140,11 +140,11 @@ public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyPr
 			if(!valid) tanks[1].setTankType(Fluids.NONE);
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
-			this.tryProvide(worldObj, xCoord - dir.offsetX * 11, yCoord, zCoord - dir.offsetZ * 11, dir.getOpposite());
+			this.tryProvide(this.world, this.pos.getX() - dir.offsetX * 11, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 11, dir.getOpposite());
 
 			for(DirPos pos : this.getConPos()) {
-				this.tryProvide(tanks[1], worldObj, pos);
-				this.trySubscribe(tanks[0].getTankType(), worldObj, pos);
+				this.tryProvide(tanks[1], this.world, pos);
+				this.trySubscribe(tanks[0].getTankType(), this.world, pos);
 			}
 
 			turnTimer--;
@@ -166,21 +166,21 @@ public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyPr
 				// Fan accelerates with a random offset to ensure the audio doesn't perfectly align, makes for a more pleasant hum
 				this.fanAcceleration = Math.max(0F, Math.min(25F, this.fanAcceleration += 0.075F + audioDesync));
 
-				Random rand = worldObj.rand;
+				Random rand = this.world.rand;
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 				ForgeDirection side = dir.getRotation(ForgeDirection.UP);
 
 				for(int i = 0; i < 10; i++) {
-					worldObj.spawnParticle("cloud",
-							xCoord + 0.5 + dir.offsetX * (rand.nextDouble() + 1.25) + rand.nextGaussian() * side.offsetX * 0.65,
-							yCoord + 2.5 + rand.nextGaussian() * 0.65,
-							zCoord + 0.5 + dir.offsetZ * (rand.nextDouble() + 1.25) + rand.nextGaussian() * side.offsetZ * 0.65,
+					this.world.spawnParticle("cloud",
+							this.pos.getX() + 0.5 + dir.offsetX * (rand.nextDouble() + 1.25) + rand.nextGaussian() * side.offsetX * 0.65,
+							this.pos.getY() + 2.5 + rand.nextGaussian() * 0.65,
+							this.pos.getZ() + 0.5 + dir.offsetZ * (rand.nextDouble() + 1.25) + rand.nextGaussian() * side.offsetZ * 0.65,
 							-dir.offsetX * 0.2, 0, -dir.offsetZ * 0.2);
 				}
 
 
 				if(audio == null) {
-					audio = MainRegistry.proxy.getLoopedSound("hbm:block.chungusTurbineRunning", xCoord, yCoord, zCoord, 1.0F, 20F, 1.0F);
+					audio = MainRegistry.proxy.getLoopedSound("hbm:block.chungusTurbineRunning", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1.0F, 20F, 1.0F);
 					audio.startSound();
 				}
 
@@ -208,9 +208,9 @@ public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyPr
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 		return new DirPos[] {
-				new DirPos(xCoord + dir.offsetX * 5, yCoord + 2, zCoord + dir.offsetZ * 5, dir),
-				new DirPos(xCoord + rot.offsetX * 3, yCoord, zCoord + rot.offsetZ * 3, rot),
-				new DirPos(xCoord - rot.offsetX * 3, yCoord, zCoord - rot.offsetZ * 3, rot.getOpposite())
+				new DirPos(this.pos.getX() + dir.offsetX * 5, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 5, dir),
+				new DirPos(this.pos.getX() + rot.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 3, rot),
+				new DirPos(this.pos.getX() - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 3, rot.getOpposite())
 		};
 	}
 
@@ -246,12 +246,13 @@ public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyPr
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		tanks[0].writeToNBT(nbt, "water");
 		tanks[1].writeToNBT(nbt, "steam");
 		nbt.setLong("power", powerBuffer);
 		nbt.setBoolean("damaged", damaged);
+		return nbt;
 	}
 
 	@Override

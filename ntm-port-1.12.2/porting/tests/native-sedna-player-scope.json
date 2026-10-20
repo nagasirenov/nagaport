@@ -1,0 +1,27 @@
+{
+  "production": {
+    "src/main/java/com/hbm/render/item/nativeitem/context/SednaPlayerOwnership.java": "76ed97c9c1d551c5d486ff0c5187e8cdf3f32f12e0bbf400a02830212709138a",
+    "src/main/java/com/hbm/render/item/weapon/sedna/nativeplayer/SednaArmorModel.java": "bea3bc29f9139042f39fa80298d918738acb670d7d22d95f51f32fabb3393202",
+    "src/main/java/com/hbm/render/item/weapon/sedna/nativeplayer/SednaPlayerLayers.java": "77f141c2717589e1080b51745a72af124f3250563cb6ce6dc25a81c54b362545",
+    "src/main/java/com/hbm/render/item/weapon/sedna/nativeplayer/SednaPlayerModel.java": "77ebf39d4aaa1c38fa62a979e168de50190f9e562ee2328be05e27ddaa0b2097",
+    "src/main/java/com/hbm/render/item/weapon/sedna/nativeplayer/SednaPlayerPose.java": "b11bc1ace3f18d1e5bfe57dae74bc704ab3356ee522bcd7d5c904deb1ac96d6a",
+    "src/main/java/com/hbm/main/ModEventHandlerRenderer.java": "5b6dfcbbe716ff0b7cc929270178a769df49f39442e616c75758473e3fea3a4a"
+  },
+  "integration": {
+    "src/main/java/com/hbm/main/ClientProxy.java": "721f04e642f4a7fe1b4f9a7b402b1f31368995e63e363420e9d7d30f1695c379"
+  },
+  "tests": [
+    "porting/tests/SednaPlayerNativeTest.java",
+    "porting/tests/probe-native-sedna-player.py"
+  ],
+  "evidence": "porting/continuation-2026-10-19/sedna-player-native-FROZEN.log",
+  "native_checks": 145,
+  "scope": "Exact-owned native player/armor companion and extracted actual load-complete body; no launched-game acceptance.",
+  "supersedes": {
+    "manifest": "porting/tests/native-sedna-root-scope.json",
+    "path": "src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+    "root_phase_sha256": "cce424509f7de66f4a9a8afd47178a515ead46d3592f5a9e737df64e3a54a618",
+    "reason": "Companion moves only original player visibility/armor/held phases and removes their obsolete imports; root hand change retained."
+  },
+  "evidence_sha256": "a4b40f632b15f04d32324b9a6658f202e832a8b7d34ac9bef0ae5530381aa233"
+}

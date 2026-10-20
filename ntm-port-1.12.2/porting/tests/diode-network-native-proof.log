@@ -1,0 +1,30 @@
+/workspace/shared/nagaport-diode-next/porting/tests/DiodeNetworkNativeTest.java:163: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",manager);
+          ^
+/workspace/shared/nagaport-diode-next/porting/tests/DiodeNetworkNativeTest.java:163: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",manager);
+                                  ^
+/workspace/shared/nagaport-diode-next/porting/tests/DiodeNetworkNativeTest.java:163: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe=(sun.misc.Unsafe)get(null,sun.misc.Unsafe.class,"theUnsafe");net.minecraft.client.Minecraft mc=(net.minecraft.client.Minecraft)unsafe.allocateInstance(net.minecraft.client.Minecraft.class);set(null,net.minecraft.client.Minecraft.class,"instance",mc);set(mc,net.minecraft.client.Minecraft.class,"resourceManager",manager);
+                                                           ^
+/workspace/shared/nagaport-diode-next/porting/tests/DiodeNetworkNativeTest.java:180: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static void breakingDispatcher(net.minecraft.client.Minecraft mc,sun.misc.Unsafe unsafe,Block[] owners,Block[] unowned)throws Exception {
+                                                                          ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+4 warnings
+PASS original damage reachability/no-color/override bytecode; native RenderGlobal route/skip and dispatcher forwarding; production GL bracket audit (not live GL).
+PASS complete native CableDiode, CranePartitioner, embedded tiles and selected model sources compile.
+[21:25:15] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tileentity_cable_diode`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.cable_diode`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.cable_diode`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crane_partitioner`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crane_partitioner`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `tile.cable_diode`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `external_partition`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `other_diode`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[21:25:16] [main/INFO]: Reloading ResourceManager: resources
+PASS native damage dispatcher/predicates and colorless buffer parity; GPU upload/state bracket audited, not executed in a GL context.
+PASS 2069082 native assertions; 1042 pristine renderer geometry/metadata cases. Real owner placement, collision, tool, contextual state, embedded tile and model registry paths invoked. NTM transport collaborators explicitly remain test doubles.

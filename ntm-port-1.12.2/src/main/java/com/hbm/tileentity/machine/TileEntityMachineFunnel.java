@@ -34,14 +34,14 @@ public class TileEntityMachineFunnel extends TileEntityMachineBase implements IG
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.machineFunnel";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			for(int i = 0; i < 9; i++) {
 				
@@ -85,12 +85,14 @@ public class TileEntityMachineFunnel extends TileEntityMachineBase implements IG
 	public int[] bottomAccess = new int[] { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
 	
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return side == 0 ? bottomAccess : topAccess;
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack stack, int j) {
+	public boolean canExtractItem(int i, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(j == 0) return i > 8;
 		return j != 1 && i < 9;
 	}
@@ -135,7 +137,7 @@ public class TileEntityMachineFunnel extends TileEntityMachineBase implements IG
 		for(Object o : CraftingManager.getInstance().getRecipeList()) {
 			IRecipe recipe = (IRecipe) o;
 			
-			if(recipe.matches(grid, worldObj)) {
+			if(recipe.matches(grid, this.world)) {
 				return recipe.getCraftingResult(grid);
 			}
 		}
@@ -149,9 +151,10 @@ public class TileEntityMachineFunnel extends TileEntityMachineBase implements IG
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("mode", mode);
+		return nbt;
 	}
 
 	@Override
@@ -167,7 +170,7 @@ public class TileEntityMachineFunnel extends TileEntityMachineBase implements IG
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override

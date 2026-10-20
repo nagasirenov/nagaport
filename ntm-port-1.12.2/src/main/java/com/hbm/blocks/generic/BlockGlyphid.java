@@ -30,7 +30,7 @@ public class BlockGlyphid extends Block implements IBlockMulti {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return null;
 	}
 

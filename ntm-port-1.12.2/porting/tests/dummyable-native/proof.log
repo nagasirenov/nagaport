@@ -1,0 +1,18 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/dummyable-native/DummyableNativeTest.java:16: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks;static sun.misc.Unsafe u;
+                                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/dummyable-native/DummyableNativeTest.java:81: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);u=(sun.misc.Unsafe)f.get(null);
+                                                                            ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/dummyable-native/DummyableNativeTest.java:81: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);u=(sun.misc.Unsafe)f.get(null);
+                                                                                                                                                         ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[22:18:16] [main/WARN]: Potentially Dangerous alternative prefix `dummy_probe` for name `base`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[22:18:16] [main/WARN]: Potentially Dangerous alternative prefix `dummy_probe` for name `base`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 131 native whole-base assertions; captured world storage boundary, not launched game.
+Whole native base/helper, six real dependencies, two explicit external collaborators; three exact production boiler domain hooks, not the complete boiler owner.

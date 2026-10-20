@@ -1,0 +1,20 @@
+PASS exact CP49 source boundary: 8 existing paths, 2 new paths; pinned original owners and unchanged geometry/texture assets; no entity-mechanics compilation claim.
+/workspace/shared/nagaport-native-block-entities/ntm-port-1.12.2/porting/tests/native-block-entities/BlockEntityNativeTest.java:39: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static RenderManager manager;static sun.misc.Unsafe unsafe;static float[] color={1,1,1,1};
+                                             ^
+/workspace/shared/nagaport-native-block-entities/ntm-port-1.12.2/porting/tests/native-block-entities/BlockEntityNativeTest.java:97: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);
+                                                          ^
+/workspace/shared/nagaport-native-block-entities/ntm-port-1.12.2/porting/tests/native-block-entities/BlockEntityNativeTest.java:97: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(sun.misc.Unsafe)f.get(null);
+                                                                                                                                            ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-native-block-entities/ntm-port-1.12.2/porting/tests/native-block-entities/BlockEntityNativeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS complete renderer/helper/model compilation; 3 entity synchronization-only fixtures, projectile base data fixture, registry/item collaborator fixtures. NOT entity mechanics compilation.
+[00:04:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `test_block_entity`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[00:04:19] [main/WARN]: Rubble minecraft:reeds@0 has no unique native downward material. Original render-error boundary retained; no particle-texture substitution is approved.
+[00:04:19] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `test_block_entity`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 1888 recorded renderer-transform, native BufferBuilder/material and old/native metadata-wire assertions. Complete renderer bodies execute; entity mechanics and launched GPU/game/server behavior are NOT certified.

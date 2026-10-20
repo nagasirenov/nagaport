@@ -1,0 +1,239 @@
+import java.lang.reflect.*;
+import java.util.*;
+import com.mojang.authlib.GameProfile;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.machine.*;
+import com.hbm.tileentity.machine.*;
+import com.hbm.tileentity.TileEntityProxyCombo;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.*;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.*;
+import net.minecraft.world.chunk.*;
+import net.minecraft.world.storage.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+/** Complete production block classes; native World.setBlockState and Chunk tile lifecycle. */
+public final class ThermalBlockNativeTest {
+ static int checks; static final BlockPos POS=new BlockPos(8,64,8);
+ static final Block[][] blocks=new Block[4][2]; static MachineDiFurnaceExtension extension;
+ static final String[] ids={"machine_furnace_brick","machine_rtg_furnace","machine_difurnace_rtg","machine_difurnace"};
+ static void check(boolean condition,String message){checks++;if(!condition)throw new AssertionError(message);}
+    static final class Particle {
+        final EnumParticleTypes type; final double x,y,z,vx,vy,vz;
+        Particle(EnumParticleTypes t,double a,double b,double c,double d,double e,double f){type=t;x=a;y=b;z=c;vx=d;vy=e;vz=f;}
+    }
+    static class NativeWorld extends World {
+        final Map<Long,Chunk> chunks=new HashMap<>();
+        final List<EntityItem> drops=new ArrayList<>();
+        final List<Particle> particles=new ArrayList<>();
+        final List<String> events=new ArrayList<>();
+        boolean rejectDrops,failSet,removingTile; int comparatorCalls,explicitComparators;
+        NativeWorld(boolean client) {
+            super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),client);
+            provider.setWorld(this);chunkProvider=createChunkProvider();
+            // Real chunks are populated only in this bounded fixture, no generation/save/network.
+            for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++) {
+                Chunk chunk=new Chunk(this,x,z);chunk.markLoaded(true);chunks.put(key(x,z),chunk);
+            }
+        }
+        static long key(int x,int z){return ((long)x<<32) ^ (z & 0xffffffffL);}
+        @Override protected IChunkProvider createChunkProvider(){return new IChunkProvider(){
+            public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}
+            public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}
+            public boolean tick(){return false;} public String makeString(){return "native furnace fixture";}
+            public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}
+        };}
+        @Override protected boolean isChunkLoaded(int x,int z,boolean allowEmpty){return chunks.containsKey(key(x,z));}
+        @Override public boolean checkLight(BlockPos pos){return true;}
+        @Override public boolean setBlockState(BlockPos pos,IBlockState state,int flags){
+            if(failSet)throw new IllegalStateException("deliberate native-world fixture failure");
+            if(pos.equals(POS))events.add("set:"+state.getBlock().getTranslationKey()+":"+state.getBlock().getMetaFromState(state)+":"+flags);
+            return super.setBlockState(pos,state,flags);
+        }
+        @Override public boolean spawnEntity(Entity entity){drops.add((EntityItem)entity);events.add("drop");return !rejectDrops;}
+        @Override public void updateComparatorOutputLevel(BlockPos pos,Block block){
+            comparatorCalls++;if(!removingTile)explicitComparators++;events.add(removingTile?"removal-comparator":"comparator");super.updateComparatorOutputLevel(pos,block);
+        }
+        @Override public void removeTileEntity(BlockPos pos){events.add("remove");removingTile=true;super.removeTileEntity(pos);removingTile=false;}
+        @Override public void setTileEntity(BlockPos pos,TileEntity tile){events.add("tile:"+(tile==null?"null":tile.isInvalid()));super.setTileEntity(pos,tile);}
+        @Override public void spawnParticle(EnumParticleTypes t,double x,double y,double z,double vx,double vy,double vz,int... args){particles.add(new Particle(t,x,y,z,vx,vy,vz));}
+        void clearEvents(){drops.clear();particles.clear();events.clear();comparatorCalls=0;explicitComparators=0;}
+        ThermalTileFixture furnace(){return (ThermalTileFixture)getTileEntity(POS);}
+    }
+    static final class CachedOpaqueBlock extends Block {
+        private boolean changed;
+        CachedOpaqueBlock(){super(Material.ROCK);changed=true;}
+        @Override public boolean isOpaqueCube(IBlockState state){return !changed;}
+    }
+    static final class DynamicOpaqueBlock extends Block {
+        private boolean changed;
+        DynamicOpaqueBlock(){super(Material.ROCK);changed=true;}
+        @Override public boolean isOpaqueCube(IBlockState state){return changed;}
+    }
+    static final class Player extends EntityPlayer {
+        Player(World w){super(w,new GameProfile(new UUID(1,2),"furnace-probe"));}
+        public boolean isSpectator(){return false;} public boolean isCreative(){return false;}
+    }
+    static ItemStack stack(int count,boolean tag){
+        ItemStack s=new ItemStack(Items.STICK,count,3);
+        if(tag){NBTTagCompound n=new NBTTagCompound();n.setString("marker","last-count-retained");NBTTagCompound inner=new NBTTagCompound();inner.setInteger("nested",17);n.setTag("nested",inner);s.setTagCompound(n);}return s;
+    }
+    static void legacyDrop(NativeWorld w,ItemStack source,Random rand){
+        if(source==null||source.isEmpty())return;
+        Item item=source.getItem();int meta=source.getItemDamage(),left=source.getCount();NBTTagCompound tag=source.getTagCompound();
+        float x=rand.nextFloat()*.8F+.1F,y=rand.nextFloat()*.8F+.1F,z=rand.nextFloat()*.8F+.1F;
+        while(left>0){int count=rand.nextInt(21)+10;if(count>left)count=left;left-=count;source.setCount(left);
+            EntityItem e=new EntityItem(w,POS.getX()+x,POS.getY()+y,POS.getZ()+z,new ItemStack(item,count,meta));
+            if(tag!=null)e.getItem().setTagCompound(tag.copy());float motion=.05F;
+            e.motionX=(float)rand.nextGaussian()*motion;e.motionY=(float)rand.nextGaussian()*motion+.2F;e.motionZ=(float)rand.nextGaussian()*motion;w.spawnEntity(e);
+        }
+    }
+ static void register(Block block,String name){block.setTranslationKey(name);ForgeRegistries.BLOCKS.register(block.setRegistryName("hbm","tile."+name));ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));}
+ static void setup()throws Exception {
+  blocks[0]=new Block[]{new MachineBrickFurnace(false),new MachineBrickFurnace(true)};
+  blocks[1]=new Block[]{new MachineRtgFurnace(false),new MachineRtgFurnace(true)};
+  blocks[2]=new Block[]{new MachineDiFurnaceRTG(false),new MachineDiFurnaceRTG(true)};
+  blocks[3]=new Block[]{new MachineDiFurnace(false),new MachineDiFurnace(true)};
+  for(int f=0;f<4;f++)for(int active=0;active<2;active++){
+   String id=ids[f]+(active==0?"_off":"_on");Block b=blocks[f][active];register(b,id);
+   ModBlocks.class.getField(id).set(null,b);
+   // Light belongs to the preserved registry initializer, not the block constructor.
+   if(active==1)b.setLightLevel(1.0F);
+  }
+  extension=new MachineDiFurnaceExtension();register(extension,"machine_difurnace_extension");ModBlocks.machine_difurnace_extension=extension;
+ }
+ static void states(){
+  for(int f=0;f<4;f++)for(int active=0;active<2;active++)for(int meta=0;meta<16;meta++){
+   Block b=blocks[f][active];IBlockState state=b.getStateFromMeta(meta);
+   check(b.getMetaFromState(state)==meta,"all 16 raw metadata "+f+":"+meta);
+   check(state.getMaterial()==(f==3?Material.ROCK:Material.IRON),"original material "+f);
+   check(state.getRenderType()==EnumBlockRenderType.MODEL&&state.isOpaqueCube()&&state.isFullCube(),"native opaque full-cube MODEL");
+   check(state.getLightValue()==(active==1?15:0),"original on/off light registry contract");
+   Item drop=Item.getItemFromBlock(f==0?b:blocks[f][0]);
+   check(b.getItemDropped(state,new Random(0),0)==drop,"original drop identity "+f+":"+active);
+   Item pick=Item.getItemFromBlock(f==3?b:blocks[f][0]);
+   check(b.getPickBlock(state,null,null,POS,null).getItem()==pick,"original pick identity "+f+":"+active);
+  }
+  for(int meta=0;meta<16;meta++){
+   IBlockState state=extension.getStateFromMeta(meta);
+   check(state.getRenderType()==EnumBlockRenderType.MODEL&&!state.isOpaqueCube()&&!state.isFullCube(),"extension native nonopaque model");
+   check(state.getBoundingBox(null,POS).equals(Block.FULL_BLOCK_AABB),"extension original full selection bounds");
+   check(extension.getCollisionBoundingBox(state,null,POS).equals(Block.FULL_BLOCK_AABB),"extension original full collision bounds");
+   check(!extension.canPlaceTorchOnTop(state,null,POS),"extension original non-normal block does not support torches");
+   for(EnumFacing face:EnumFacing.values()){
+    check(extension.getBlockFaceShape(null,state,POS,face)==net.minecraft.block.state.BlockFaceShape.UNDEFINED,"extension no invented solid face support "+face);
+    check(!extension.isSideSolid(state,null,POS,face),"extension original non-solid side support "+face);
+   }
+   TileEntityProxyCombo tile=(TileEntityProxyCombo)extension.createNewTileEntity(null,meta);
+   check(tile.inventoryEnabled&&tile.fluidEnabled,"extension proxy retains both capabilities");
+  }
+ }
+ static void placement(){
+  for(int f=0;f<4;f++){
+   Block b=blocks[f][0];
+   for(int mask=0;mask<16;mask++){
+    NativeWorld w=new NativeWorld(false);BlockPos[] neighbors={POS.north(),POS.south(),POS.west(),POS.east()};
+    for(int n=0;n<4;n++)if((mask&(1<<n))!=0)w.setBlockState(neighbors[n],Blocks.STONE.getDefaultState());
+    w.setBlockState(POS,b.getDefaultState());int want=0;
+    if(f!=3){want=3;if((mask&2)!=0&&(mask&1)==0)want=2;if((mask&4)!=0&&(mask&8)==0)want=5;if((mask&8)!=0&&(mask&4)==0)want=4;}
+    check(b.getMetaFromState(w.getBlockState(POS))==want,"neighbor placement ordering "+f+":"+mask);
+    check(w.furnace()!=null&&w.furnace().getPos().equals(POS),"real Chunk tile creation");
+   }
+   NativeWorld w=new NativeWorld(false);w.setBlockState(POS,b.getDefaultState());Player player=new Player(w);
+   for(float yaw:new float[]{0,45,90,135,180,225,270,315,-45,-90,360,720}){
+    ThermalTileFixture before=w.furnace();player.rotationYaw=yaw;b.onBlockPlacedBy(w,POS,w.getBlockState(POS),player,stack(1,false).setStackDisplayName("thermal custom"));
+    int q=((int)Math.floor(yaw*4F/360F+.5D))&3;
+    check(b.getMetaFromState(w.getBlockState(POS))==new int[]{2,5,3,4}[q],"yaw mapping "+f+":"+yaw);
+    check(w.furnace()==before&&"thermal custom".equals(before.customName),"metadata placement retains exact named tile");
+   }
+   NativeWorld client=new NativeWorld(true);client.setBlockState(POS,b.getStateFromMeta(11));b.onBlockAdded(client,POS,client.getBlockState(POS));
+   check(b.getMetaFromState(client.getBlockState(POS))==11,"client added does not orient");
+  }
+ }
+ static void swaps()throws Exception {
+  for(int f=0;f<4;f++)for(boolean client:new boolean[]{false,true})for(int meta=0;meta<16;meta++){
+   Block off=blocks[f][0],on=blocks[f][1];NativeWorld w=new NativeWorld(client);w.setBlockState(POS,off.getDefaultState());
+   ThermalTileFixture tile=w.furnace();ItemStack s=stack(64,true);tile.slots[0]=s;tile.setCustomName("retained");
+   for(int other=0;other<16;other++){w.setBlockState(POS,off.getStateFromMeta(other),2);check(w.furnace()==tile&&!tile.isInvalid()&&tile.slots[0]==s,"metadata-only state preserves native tile");}
+   w.setBlockState(POS,off.getStateFromMeta(meta),2);
+   for(boolean active:new boolean[]{true,false,true,true,false,false}){
+    w.clearEvents();int spills=com.hbm.util.ItemStackUtil.spills;
+    off.getClass().getMethod("updateBlockState",boolean.class,World.class,int.class,int.class,int.class).invoke(null,active,w,8,64,8);
+    check(w.getBlockState(POS).getBlock()==(active?on:off),"on/off registry identity");
+    check(w.getBlockState(POS).getBlock().getMetaFromState(w.getBlockState(POS))==meta,"every metadata survives swap");
+    check(w.furnace()==tile&&!tile.isInvalid()&&tile.slots[0]==s&&s.getCount()==64&&"retained".equals(tile.customName),"swap restores exact tile aliases/name/inventory");
+    check(w.drops.isEmpty()&&spills==com.hbm.util.ItemStackUtil.spills&&w.explicitComparators==0,"swap does not spill or explicitly update comparator");
+   }
+  }
+ }
+ static Random rng(Block b)throws Exception {for(Field f:b.getClass().getDeclaredFields())if(f.getType()==Random.class){f.setAccessible(true);return (Random)f.get(b);}throw new AssertionError("missing original RNG");}
+ static void drops()throws Exception {
+  for(int f=1;f<4;f++)for(int count:new int[]{1,9,10,21,31,64,130})for(boolean tagged:new boolean[]{false,true})for(long seed:new long[]{0,42,971}){
+   Block b=blocks[f][0];NativeWorld w=new NativeWorld(false),oracle=new NativeWorld(false);w.setBlockState(POS,b.getDefaultState());ThermalTileFixture tile=w.furnace();
+   ItemStack source=stack(count,tagged);tile.slots[0]=source;tile.slots[1]=ItemStack.EMPTY;tile.slots[3]=stack(17,tagged);Random actual=rng(b),expected=new Random(seed);actual.setSeed(seed);
+   legacyDrop(oracle,stack(count,tagged),expected);legacyDrop(oracle,stack(17,tagged),expected);w.clearEvents();w.setBlockToAir(POS);
+   check(source.isEmpty()&&w.getTileEntity(POS)==null&&tile.isInvalid(),"native break depletes items and removes tile");
+   check(w.drops.size()==oracle.drops.size()&&actual.nextLong()==expected.nextLong(),"split/RNG legacy parity");
+   check(w.explicitComparators==1,"native comparator call once before superclass removal");int total=0;
+   for(int i=0;i<w.drops.size();i++){EntityItem got=w.drops.get(i),want=oracle.drops.get(i);total+=got.getItem().getCount();
+    check(ItemStack.areItemStacksEqual(got.getItem(),want.getItem()),"drop count/metadata/NBT incl final item");
+    check(got.posX==want.posX&&got.posY==want.posY&&got.posZ==want.posZ&&got.motionX==want.motionX&&got.motionY==want.motionY&&got.motionZ==want.motionZ,"drop geometry/motion parity");
+   }
+   check(total==count+17,"conserved inventory");
+  }
+  NativeWorld brick=new NativeWorld(false);brick.setBlockState(POS,blocks[0][0].getDefaultState());int old=com.hbm.util.ItemStackUtil.spills;brick.setBlockToAir(POS);
+  check(com.hbm.util.ItemStackUtil.spills==old+1&&brick.getTileEntity(POS)==null,"brick delegates original spill helper then native tile removal");
+ }
+ static void particles(){
+  for(int f=0;f<4;f++)for(int active=0;active<2;active++)for(int meta=0;meta<16;meta++)for(boolean covered:new boolean[]{false,true})for(long seed:new long[]{0,1,42}){
+   Block b=blocks[f][active];NativeWorld w=new NativeWorld(true);w.setBlockState(POS,b.getStateFromMeta(meta));if(covered)w.setBlockState(POS.up(),extension.getDefaultState());Random actual=new Random(seed),expected=new Random(seed);
+   b.randomDisplayTick(b.getStateFromMeta(meta),w,POS,actual);
+   float y=0,var=0,xoff=0,zoff=0;
+   if(active==1){y=POS.getY()+(f==0?0F:.25F)+expected.nextFloat()*(f==0?.375F:6F/16F);var=expected.nextFloat()*(f>=2?.5F:.6F)-(f>=2?.25F:.3F);xoff=expected.nextFloat()*(f==2?.75F:.375F)+(f==2?.125F:.3125F);zoff=expected.nextFloat()*(f==2?.75F:.375F)+(f==2?.125F:.3125F);}
+   int count=active==1&&meta>=2&&meta<=5?2:0;
+   check(w.particles.size()==count&&actual.nextLong()==expected.nextLong(),"original particle eligibility/RNG "+f+":"+meta);
+   if(count>0){float x=POS.getX()+.5F,z=POS.getZ()+.5F;if(meta==4){x-=.52F;z+=var;}else if(meta==5){x+=.52F;z+=var;}else if(meta==2){x+=var;z-=.52F;}else{x+=var;z+=.52F;}
+    for(int i=0;i<2;i++){Particle p=w.particles.get(i);check(p.type==(f>=2?(i==0?EnumParticleTypes.FLAME:EnumParticleTypes.SMOKE_NORMAL):(i==0?EnumParticleTypes.SMOKE_NORMAL:EnumParticleTypes.FLAME)),"original particle types/order");
+     double ex=f>=2&&i==1?POS.getX()+xoff:x,ey=f>=2&&i==1?POS.getY()+1+(f==3&&covered?1:0):y,ez=f>=2&&i==1?POS.getZ()+zoff:z;
+     check(p.x==ex&&p.y==ey&&p.z==ez&&p.vx==0&&p.vy==0&&p.vz==0,"particle exact location/zero velocity "+f+":"+meta);
+    }
+   }
+  }
+ }
+ static void coveredAndProxy(){
+  NativeWorld w=new NativeWorld(false);Block b=blocks[3][0];w.setBlockState(POS,b.getDefaultState());
+  for(int meta=0;meta<16;meta++)for(boolean covered:new boolean[]{false,true}){
+   w.setBlockState(POS,b.getStateFromMeta(meta),2);w.setBlockState(POS.up(),covered?extension.getDefaultState():Blocks.AIR.getDefaultState());
+   IBlockState actual=b.getActualState(w.getBlockState(POS),w,POS);
+   check(actual.getValue(MachineDiFurnace.COVERED)==covered&&b.getMetaFromState(actual)==meta,"derived covered preserves all persisted metadata");
+  }
+  check(extension.getCore(w,8,65,8)==w.getTileEntity(POS),"proxy resolves exact di-furnace below");
+  w.setBlockState(POS,blocks[1][0].getDefaultState());check(extension.getCore(w,8,65,8)==null,"proxy rejects other furnace tile type");
+  w.setBlockToAir(POS);check(extension.getCore(w,8,65,8)==null,"proxy missing core null");
+ }
+ static void activation(){
+  NativeWorld server=new NativeWorld(false),client=new NativeWorld(true);Player p=new Player(server);
+  for(int f=0;f<4;f++){Block b=blocks[f][0];p.setSneaking(true);check(!b.onBlockActivated(server,POS,b.getDefaultState(),p,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0),"sneaking server declines");
+   check(b.onBlockActivated(client,POS,b.getDefaultState(),p,EnumHand.OFF_HAND,EnumFacing.UP,0,0,0),"client consumes even sneaking");
+   p.setSneaking(false);check(b.onBlockActivated(server,POS,b.getDefaultState(),p,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0),"missing tile consumes without GUI");
+  }
+  p.setSneaking(true);check(!extension.onBlockActivated(server,POS,extension.getDefaultState(),p,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0),"extension sneaking declines");
+  p.setSneaking(false);check(!extension.onBlockActivated(server,POS,extension.getDefaultState(),p,EnumHand.MAIN_HAND,EnumFacing.UP,0,0,0),"extension missing core declines");
+ }
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();setup();states();placement();swaps();drops();particles();coveredAndProxy();activation();
+  System.out.println("PASS thermal native blocks: "+checks+" assertions; complete five production block classes, native World/Chunk placement, metadata, tile swaps, drops, particles, covered state, and proxy lookup.");
+  System.out.println("Boundaries: explicit NTM inventory/registry/proxy/sealability/GUI-owner collaborators; brick spill helper invocation only. No full mod startup, GUI opening/network/save/GL proof.");
+ }
+}

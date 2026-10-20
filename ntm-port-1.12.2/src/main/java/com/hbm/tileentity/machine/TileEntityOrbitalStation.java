@@ -53,19 +53,19 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.orbitalStation";
 	}
 
 	@Override
-	public void updateEntity() {
-		if(!CelestialBody.inOrbit(worldObj)) return;
+	public void update() {
+		if(!CelestialBody.inOrbit(this.world)) return;
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			// Station TEs handle syncing information about the current orbital parameters to players on the station
-			station = OrbitalStation.getStationFromPosition(xCoord, zCoord);
+			station = OrbitalStation.getStationFromPosition(this.pos.getX(), this.pos.getZ());
 
-			if(isCore()) station.update(worldObj);
+			if(isCore()) station.update(this.world);
 			station.addPort(this);
 
 			if(docked != null && docked.isReusable()) {
@@ -80,7 +80,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 				for(DirPos pos : getConPos()) {
 					for(FluidTank tank : tanks) {
 						if(tank.getTankType() == Fluids.NONE) continue;
-						trySubscribe(tank.getTankType(), worldObj, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
+						trySubscribe(tank.getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 					}
 				}
 			}
@@ -115,7 +115,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 
 			this.networkPackNT(OrbitalStation.STATION_SIZE / 2);
 		} else {
-			if(isCore() && station != null) station.update(worldObj);
+			if(isCore() && station != null) station.update(this.world);
 
 			prevRot = rot;
 			if(hasDocked) {
@@ -132,7 +132,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	public void invalidate() {
 		super.invalidate();
 
-		if(!worldObj.isRemote && station != null) {
+		if(!this.world.isRemote && station != null) {
 			if(!isCore()) station.removePort(this);
 			if(docked != null) docked.dropNDie(null);
 		}
@@ -144,21 +144,21 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 
 	public DirPos[] getConPos() {
 		return new DirPos[] {
-			new DirPos(xCoord - 1, yCoord + 1, zCoord + 3, ForgeDirection.NORTH),
-			new DirPos(xCoord + 0, yCoord + 1, zCoord + 3, ForgeDirection.NORTH),
-			new DirPos(xCoord + 1, yCoord + 1, zCoord + 3, ForgeDirection.NORTH),
+			new DirPos(this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ() + 3, ForgeDirection.NORTH),
+			new DirPos(this.pos.getX() + 0, this.pos.getY() + 1, this.pos.getZ() + 3, ForgeDirection.NORTH),
+			new DirPos(this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 3, ForgeDirection.NORTH),
 
-			new DirPos(xCoord - 1, yCoord + 1, zCoord - 3, ForgeDirection.SOUTH),
-			new DirPos(xCoord + 0, yCoord + 1, zCoord - 3, ForgeDirection.SOUTH),
-			new DirPos(xCoord + 1, yCoord + 1, zCoord - 3, ForgeDirection.SOUTH),
+			new DirPos(this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ() - 3, ForgeDirection.SOUTH),
+			new DirPos(this.pos.getX() + 0, this.pos.getY() + 1, this.pos.getZ() - 3, ForgeDirection.SOUTH),
+			new DirPos(this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() - 3, ForgeDirection.SOUTH),
 
-			new DirPos(xCoord + 3, yCoord + 1, zCoord - 1, ForgeDirection.EAST),
-			new DirPos(xCoord + 3, yCoord + 1, zCoord + 0, ForgeDirection.EAST),
-			new DirPos(xCoord + 3, yCoord + 1, zCoord + 1, ForgeDirection.EAST),
+			new DirPos(this.pos.getX() + 3, this.pos.getY() + 1, this.pos.getZ() - 1, ForgeDirection.EAST),
+			new DirPos(this.pos.getX() + 3, this.pos.getY() + 1, this.pos.getZ() + 0, ForgeDirection.EAST),
+			new DirPos(this.pos.getX() + 3, this.pos.getY() + 1, this.pos.getZ() + 1, ForgeDirection.EAST),
 
-			new DirPos(xCoord - 3, yCoord + 1, zCoord - 1, ForgeDirection.WEST),
-			new DirPos(xCoord - 3, yCoord + 1, zCoord + 0, ForgeDirection.WEST),
-			new DirPos(xCoord - 3, yCoord + 1, zCoord + 1, ForgeDirection.WEST),
+			new DirPos(this.pos.getX() - 3, this.pos.getY() + 1, this.pos.getZ() - 1, ForgeDirection.WEST),
+			new DirPos(this.pos.getX() - 3, this.pos.getY() + 1, this.pos.getZ() + 0, ForgeDirection.WEST),
+			new DirPos(this.pos.getX() - 3, this.pos.getY() + 1, this.pos.getZ() + 1, ForgeDirection.WEST),
 		};
 	}
 
@@ -207,10 +207,10 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	}
 
 	public void spawnRocket(ItemStack stack) {
-		EntityRideableRocket rocket = new EntityRideableRocket(worldObj, xCoord + 0.5F, yCoord + 1.5F, zCoord + 0.5F, stack);
+		EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, stack);
 		rocket.posY -= rocket.height;
 		rocket.setState(rocket.isReusable() ? RocketState.NEEDSFUEL : RocketState.LANDED);
-		worldObj.spawnEntityInWorld(rocket);
+		this.world.spawnEntityInWorld(rocket);
 
 		dockRocket(rocket);
 	}
@@ -262,12 +262,14 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return IntStream.range(0, slots.length).toArray();
 	}
 
@@ -317,9 +319,10 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		for(int i = 0; i < tanks.length; i++) tanks[i].writeToNBT(nbt, "t" + i);
+		return nbt;
 	}
 
 	@Override
@@ -337,12 +340,12 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-				xCoord - 2,
-				yCoord - 2,
-				zCoord - 2,
-				xCoord + 3,
-				yCoord + 2,
-				zCoord + 3
+				this.pos.getX() - 2,
+				this.pos.getY() - 2,
+				this.pos.getZ() - 2,
+				this.pos.getX() + 3,
+				this.pos.getY() + 2,
+				this.pos.getZ() + 3
 			);
 		}
 

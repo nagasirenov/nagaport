@@ -18,11 +18,11 @@ public class HazardTransformerRadiationNBT extends HazardTransformerBase {
 	@Override
 	public void transformPost(ItemStack stack, List<HazardEntry> entries) {
 		float level = 0;
-		if(stack.hasTagCompound() && stack.stackTagCompound.hasKey(RAD_KEY)) {
-			level += stack.stackTagCompound.getFloat(RAD_KEY);
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey(RAD_KEY)) {
+			level += stack.getTagCompound().getFloat(RAD_KEY);
 		}
-		if(stack.hasTagCompound() && stack.stackTagCompound.hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
-			level += stack.stackTagCompound.getFloat(HazardTypeNeutron.NEUTRON_KEY);
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
+			level += stack.getTagCompound().getFloat(HazardTypeNeutron.NEUTRON_KEY);
 		}
 		entries.add(new HazardEntry(HazardRegistry.RADIATION, level));
 	}

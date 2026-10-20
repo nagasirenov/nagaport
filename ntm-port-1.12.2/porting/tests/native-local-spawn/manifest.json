@@ -1,0 +1,462 @@
+{
+  "baseline": "c07b32281d2ea1d53d71931032e0d2ce190883dc",
+  "initial_43_baseline": "324f35ad53f98e42045ad81c7ec4b45410d663df",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before": "2f20e8202363ad73863520ca452aff33ad5b8fd26ea1aaf2d7367ea102bf58f1",
+      "after": "503b09c371d6557438eeac879c6d3d0f6173d39fcec781c5d14605364a3ae764",
+      "edits": [
+        {
+          "start": 4579,
+          "end": 4597,
+          "receiver_start": 4573,
+          "receiver_end": 4578,
+          "scope_start": 4239,
+          "call_end": 4609,
+          "variable": "entityitem",
+          "receiver": "world",
+          "scope": "EntityItem entityitem = new EntityItem(world, x + f, y + f1 + 1, z + f2, itemstack);\n\n\t\t\tfloat f3 = 0.05F;\n\t\t\tentityitem.motionX = (float) world.rand.nextGaussian() * f3;\n\t\t\tentityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.2F;\n\t\t\tentityitem.motionZ = (float) world.rand.nextGaussian() * f3;\n\n\t\t\tif(!world.isRemote)\n\t\t\t\tworld.spawnEntityInWorld(entityitem)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before": "0b64993dd823e750e75c9a5b66d8c9bbbfad4f300108a5ef9c98cc1131a45e92",
+      "after": "90b8a4cbd9d0f41090ca7cbfd3822a726e2fa1f83aa08c8684425175133cd6be",
+      "edits": [
+        {
+          "start": 2912,
+          "end": 2930,
+          "receiver_start": 2906,
+          "receiver_end": 2911,
+          "scope_start": 2719,
+          "call_end": 2936,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, new ItemStack(this, 1, entity.type.ordinal()));\r\n\t\t\t\t\titem.motionX = 0;\r\n\t\t\t\t\titem.motionY = 0;\r\n\t\t\t\t\titem.motionZ = 0;\r\n\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCrate.java": {
+      "before": "f623edc621fa1c8fbe17e9eae68454d0fd5dc5fb5c101ae6ce804a6f266f03a6",
+      "after": "d3bc14dc17f8579d8417f83759eb749f486eb4952445356bf3485c0531a7e162",
+      "edits": [
+        {
+          "start": 8892,
+          "end": 8910,
+          "receiver_start": 8886,
+          "receiver_end": 8891,
+          "scope_start": 8572,
+          "call_end": 8922,
+          "variable": "entityitem",
+          "receiver": "world",
+          "scope": "EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, stack.copy());\n\n\t\t\tfloat f3 = 0.05F;\n\t\t\tentityitem.motionX = (float) rand.nextGaussian() * f3;\n\t\t\tentityitem.motionY = (float) rand.nextGaussian() * f3 + 0.2F;\n\t\t\tentityitem.motionZ = (float) rand.nextGaussian() * f3;\n\t\t\tif(!world.isRemote)\n\t\t\t\tworld.spawnEntityInWorld(entityitem)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before": "40cb0a8beeb76fc0d35f7c7caf6955ff811bfa3a8f159f0279c269041bb6f70c",
+      "after": "456251ba694dcc5b5a476026bd39d0d746f42cb8fff6f4684671a81a2377409a",
+      "edits": [
+        {
+          "start": 1646,
+          "end": 1664,
+          "receiver_start": 1640,
+          "receiver_end": 1645,
+          "scope_start": 1556,
+          "call_end": 1670,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, quartet.getW());\r\n\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": {
+      "before": "f6ea7483fe0e97351eb627c76611315787d06bbcb21b446ce7ce1a35b312788b",
+      "after": "20c43266a797c49f39268abd1fcdd9dd95afd0a2bacca60760d1b1009d51e75c",
+      "edits": [
+        {
+          "start": 2610,
+          "end": 2628,
+          "receiver_start": 2604,
+          "receiver_end": 2609,
+          "scope_start": 2417,
+          "call_end": 2634,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, new ItemStack(this, 1, entity.type.ordinal()));\r\n\t\t\t\t\titem.motionX = 0;\r\n\t\t\t\t\titem.motionY = 0;\r\n\t\t\t\t\titem.motionZ = 0;\r\n\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before": "e4989afbf1bf3c48ec45dce22ff44c92bcc8aa18df67ca30122f23fca5129194",
+      "after": "be674f0f8d7e320a4c7789301ef44f645375b7fe2cee5a11b4a287de04af82fd",
+      "edits": [
+        {
+          "start": 3057,
+          "end": 3075,
+          "receiver_start": 3051,
+          "receiver_end": 3056,
+          "scope_start": 2964,
+          "call_end": 3081,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, entity.item.copy());\r\n\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before": "74aa22ed2fcb714cc721bf786849f3be7d2596a0aae425c94abd960cd82506e1",
+      "after": "291803be0d93bb0c14946a81792ad09a29ff27e6580315ea7ac1b2f220febfae",
+      "edits": [
+        {
+          "start": 2725,
+          "end": 2743,
+          "receiver_start": 2719,
+          "receiver_end": 2724,
+          "scope_start": 2532,
+          "call_end": 2749,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, new ItemStack(this, 1, entity.type.ordinal()));\r\n\t\t\t\t\titem.motionX = 0;\r\n\t\t\t\t\titem.motionY = 0;\r\n\t\t\t\t\titem.motionZ = 0;\r\n\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java": {
+      "before": "45299f2d263bab611379a98850b722ad11eae97b3ed1058c18121738cd89ab55",
+      "after": "bfdbf01b0ffd4161b1e4a81cb2ce53c4b6b6404deb65734673b7331a8cb1322e",
+      "edits": [
+        {
+          "start": 3674,
+          "end": 3692,
+          "receiver_start": 3668,
+          "receiver_end": 3673,
+          "scope_start": 3584,
+          "call_end": 3698,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + hitX, y + hitY, z + hitZ, scrap);\n\t\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java": {
+      "before": "9060b6230f786fb88b563151088890f797e77bb6556b854a85b38ee7d0a99bbc",
+      "after": "949a0c840c528339ae9a235acbffc34ba969fd5dec8346d9c353ce01b0978f8e",
+      "edits": [
+        {
+          "start": 3240,
+          "end": 3258,
+          "receiver_start": 3234,
+          "receiver_end": 3239,
+          "scope_start": 3134,
+          "call_end": 3264,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, press.slots[0].copy());\n\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCrucible.java": {
+      "before": "395fd625ce6fbc521c35f4c167e49571ec7eb9fa52ba1183180b4808b6ed6798",
+      "after": "a92af0dba090ec57edfbd414039c6c3e3b6806f1cc719baf4413f840d9155f99",
+      "edits": [
+        {
+          "start": 3107,
+          "end": 3125,
+          "receiver_start": 3101,
+          "receiver_end": 3106,
+          "scope_start": 3017,
+          "call_end": 3131,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + hitX, y + hitY, z + hitZ, scrap);\n\t\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        },
+        {
+          "start": 4238,
+          "end": 4256,
+          "receiver_start": 4232,
+          "receiver_end": 4237,
+          "scope_start": 4153,
+          "call_end": 4262,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, scrap);\n\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java": {
+      "before": "82a8c63b71066115a817f1b976251cb4bcc105d541a88717b03e986ab8bb7566",
+      "after": "07c9eb1fc4d15fdcac425e721921a9eccc3e59dd13fe63403ae26b3576dddbed",
+      "edits": [
+        {
+          "start": 6207,
+          "end": 6225,
+          "receiver_start": 6201,
+          "receiver_end": 6206,
+          "scope_start": 6114,
+          "call_end": 6231,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        },
+        {
+          "start": 6989,
+          "end": 7007,
+          "receiver_start": 6983,
+          "receiver_end": 6988,
+          "scope_start": 6898,
+          "call_end": 7013,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);\n\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        },
+        {
+          "start": 8870,
+          "end": 8888,
+          "receiver_start": 8864,
+          "receiver_end": 8869,
+          "scope_start": 8765,
+          "call_end": 8894,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, cast.slots[0].copy());\n\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before": "720e96f86d64fb757b7d5f12c0a6106a03ba629299ae6e997610d687403df135",
+      "after": "b58fdb67ce66d83906f6cc9534e4124183f384ff64a4fdc9be16df62916d6e55",
+      "edits": [
+        {
+          "start": 3383,
+          "end": 3401,
+          "receiver_start": 3377,
+          "receiver_end": 3382,
+          "scope_start": 3076,
+          "call_end": 3407,
+          "variable": "dust",
+          "receiver": "world",
+          "scope": "EntityItem dust = new EntityItem(world, x + 0.5D + dir.offsetX * 0.75D, y + 0.5D + dir.offsetY * 0.75D, z + 0.5D + dir.offsetZ * 0.75D, piston.slot);\n\t\t\t\t\tpiston.slot = null;\n\n\t\t\t\t\tdust.motionX = dir.offsetX * 0.25;\n\t\t\t\t\tdust.motionY = dir.offsetY * 0.25;\n\t\t\t\t\tdust.motionZ = dir.offsetZ * 0.25;\n\t\t\t\t\tworld.spawnEntityInWorld(dust)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+      "before": "4eeac13ea4de591ec04c30d35f00df35c2575562a791f340ea8dbc0c7058959b",
+      "after": "24db7e4dcd67e41c7954fadcbf85c458eb79fe102809db1aa1b68e5b032b4a91",
+      "edits": [
+        {
+          "start": 2531,
+          "end": 2549,
+          "receiver_start": 2525,
+          "receiver_end": 2530,
+          "scope_start": 2268,
+          "call_end": 2555,
+          "variable": "dust",
+          "receiver": "world",
+          "scope": "EntityItem dust = new EntityItem(world, x + 0.5D + dir.offsetX * 0.75D, y + 0.5D + dir.offsetY * 0.75D, z + 0.5D + dir.offsetZ * 0.75D, stack);\n\t\tdust.motionX = dir.offsetX * 0.25;\n\t\tdust.motionY = dir.offsetY * 0.25;\n\t\tdust.motionZ = dir.offsetZ * 0.25;\n\t\tworld.spawnEntityInWorld(dust)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMovingPackage.java": {
+      "before": "079af157430f67c7de3ce3286a03323bdcc55e34457f4efe71f3fc5b98064e76",
+      "after": "b75314c7217f4cbabb7c6ff51b94843c4b4602fe2c4929e62ce02fadd2bf6439",
+      "edits": [
+        {
+          "start": 2509,
+          "end": 2527,
+          "receiver_start": 2498,
+          "receiver_end": 2508,
+          "scope_start": 2255,
+          "call_end": 2533,
+          "variable": "item",
+          "receiver": "this.world",
+          "scope": "EntityItem item = new EntityItem(this.world, posX + motionX * 2, posY + motionY * 2, posZ + motionZ * 2, stack);\n\t\t\titem.motionX = this.motionX * 2;\n\t\t\titem.motionY = 0.1;\n\t\t\titem.motionZ = this.motionZ * 2;\n\t\t\titem.velocityChanged = true;\n\t\t\tthis.world.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityBobmazon.java": {
+      "before": "253748bf090cc42559adc739f6e477ad2a66644b964887a831f912bdefddffcb",
+      "after": "759e2dc3f166b8e4ef6ecfd7e3c7721c2bbe402ddd375f6967c90df9be29d520",
+      "edits": [
+        {
+          "start": 1607,
+          "end": 1625,
+          "receiver_start": 1596,
+          "receiver_end": 1606,
+          "scope_start": 1468,
+          "call_end": 1631,
+          "variable": "pack",
+          "receiver": "this.world",
+          "scope": "EntityItem pack = new EntityItem(this.world, posX, posY + 2, posZ, payload);\n\t\t\t\t\tpack.motionX = 0;\n\t\t\t\t\tpack.motionZ = 0;\n\t\t\t\t\tthis.world.spawnEntityInWorld(pack)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionLarge.java": {
+      "before": "296712788071b2ac08d9b746a2267485b4028f5c3397487c6630fa60a8c64d9a",
+      "after": "db38b2942c1e465d66648e8272dc2a911e3042b9e6f73e998653631a7eba2d2d",
+      "edits": [
+        {
+          "start": 6227,
+          "end": 6245,
+          "receiver_start": 6221,
+          "receiver_end": 6226,
+          "scope_start": 5779,
+          "call_end": 6251,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x, y, z, debris.get(i).copy());\n\t\t\t\t\t\titem.motionX = (motionX + rand.nextGaussian() * deviation) * 0.85;\n\t\t\t\t\t\titem.motionY = (motionY + rand.nextGaussian() * deviation) * 0.85;\n\t\t\t\t\t\titem.motionZ = (motionZ + rand.nextGaussian() * deviation) * 0.85;\n\t\t\t\t\t\titem.posX = item.posX + item.motionX * 2;\n\t\t\t\t\t\titem.posY = item.posY + item.motionY * 2;\n\t\t\t\t\t\titem.posZ = item.posZ + item.motionZ * 2;\n\n\t\t\t\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        },
+        {
+          "start": 6607,
+          "end": 6625,
+          "receiver_start": 6601,
+          "receiver_end": 6606,
+          "scope_start": 6329,
+          "call_end": 6631,
+          "variable": "item",
+          "receiver": "world",
+          "scope": "EntityItem item = new EntityItem(world, x, y, z, rareDrop.copy());\n\t\t\titem.motionX = motionX + rand.nextGaussian() * deviation * 0.1;\n\t\t\titem.motionY = motionY + rand.nextGaussian() * deviation * 0.1;\n\t\t\titem.motionZ = motionZ + rand.nextGaussian() * deviation * 0.1;\n\n\t\t\tworld.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMS.java": {
+      "before": "e3227ff475b5037cf01a168e5d1075bca0944ef5815379ccdc9e21a95720ecaa",
+      "after": "dc16731220d1890c23a211ad7605341fc264903344d66c013f5982aba6718c4d",
+      "edits": [
+        {
+          "start": 1801,
+          "end": 1819,
+          "receiver_start": 1795,
+          "receiver_end": 1800,
+          "scope_start": 1409,
+          "call_end": 1831,
+          "variable": "entityitem",
+          "receiver": "world",
+          "scope": "EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, sta);\n\n    \t            float f3 = 0.05F;\n    \t            entityitem.motionX = (float)rand.nextGaussian() * f3;\n    \t            entityitem.motionY = (float)rand.nextGaussian() * f3 + 0.2F;\n    \t            entityitem.motionZ = (float)rand.nextGaussian() * f3;\n    \t            if(!world.isRemote)\n    \t            \tworld.spawnEntityInWorld(entityitem)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java": {
+      "before": "b66813cbd2d7557633b097ddc37bcf20008eede326d0775733eff9e1bba406b7",
+      "after": "3c6af2dbf09255f5624b59f36e45fca592085c24eb059caf61bc69bfa5233eeb",
+      "edits": [
+        {
+          "start": 2401,
+          "end": 2419,
+          "receiver_start": 2390,
+          "receiver_end": 2400,
+          "scope_start": 2266,
+          "call_end": 2425,
+          "variable": "item",
+          "receiver": "this.world",
+          "scope": "EntityItem item = new EntityItem(this.world, this.pos.getX() + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5, scrap);\n\t\t\t\tthis.world.spawnEntityInWorld(item)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/Meteorite.java": {
+      "before": "668080c1b46a0ffcbbeef908150e4ac02f8cf13da08b229951ef2a1e2b9c1f92",
+      "after": "d88e0f50b3d56535770cf5de3fe9ba577f9f08bdebe7dcfbabdcad95d497c264",
+      "edits": [
+        {
+          "start": 4714,
+          "end": 4732,
+          "receiver_start": 4708,
+          "receiver_end": 4713,
+          "scope_start": 4626,
+          "call_end": 4741,
+          "variable": "blaster",
+          "receiver": "world",
+          "scope": "EntityItem blaster = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack);\n\t\t\t\tworld.spawnEntityInWorld(blaster)",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_local_item"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ability/IWeaponAbility.java": {
+      "before": "842cae0cf39787fa10a95ad614d51ec874199348abe27be237486518500e7c99",
+      "after": "927a3cc5aff92b2130d7f48bb4ad7e79680d7165ea71f0c248f2dd1e8ae91f3c",
+      "edits": [
+        {
+          "start": 6801,
+          "end": 6819,
+          "receiver_start": 6795,
+          "receiver_end": 6800,
+          "scope_start": 6795,
+          "call_end": 6885,
+          "variable": null,
+          "receiver": "world",
+          "scope": "world.spawnEntityInWorld(new EntityXPOrb(world, living.posX, living.posY, living.posZ, 1))",
+          "old": "spawnEntityInWorld",
+          "new": "spawnEntity",
+          "kind": "fresh_inline_xp"
+        }
+      ]
+    }
+  }
+}

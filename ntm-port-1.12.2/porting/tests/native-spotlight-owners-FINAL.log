@@ -1,0 +1,37 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS complete four spotlight owners, production model state, real TileEntityData and direction/transform interfaces compile
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_5`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `lamp_5`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `beam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[19:10:11] [main/WARN]: Potentially Dangerous alternative prefix `spotlight_probe` for name `beam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS metadata all16, native bounds/selection/collision/passability/attachment, drops/pick/silk, light/sound and generation transforms.
+PASS side placement, native superclass replaceability, all slab variants/halves/directions and modular identity.
+PASS six-bit combinations in actual TileEntityData, native placement/unchanged-state retention, NBT and missing tile cancellation.
+PASS recursive exact-length six-direction beams, colors, crossings/independent removal, glass cutoff and failed placement cancellation.
+PASS native World/Chunk on/off/break/neighbor dispatch, real redstone, delay4 callback recording, support drops, cutoff/repropagation and remote/broken guards.
+PASS recursive repair same-block identity, original client behavior, no item consumption and bounded celestial trait side-effect calls/order.
+PASS NativeSpotlightOwnersTest: 11600 checks with complete production owners and genuine native World/Chunk.
+d72a0e7ffa4657e600183ec1ef56426e4cb13203b479580a9356bbfd6349dc2c com/hbm/blocks/machine/Spotlight.java
+b635f1838701c1074a9dc6429351836079293772442ac7dc0363b403d994be61 com/hbm/blocks/machine/SpotlightModular.java
+2020e0413c855a248b7f05e705c66e46acc91857cae41dfaede8251c2059ac43 com/hbm/blocks/machine/SpotlightBeam.java
+f4a79c6aae1c89a54fad2d2f936fac96edc8c5db91efe71de3d6e35f71758cb9 com/hbm/blocks/machine/BlockBeamBase.java
+db071e8235b77d0ea29a2454e9b53680a04d4f23ca2f8e027d04431a1896d37e com/hbm/blocks/machine/SpotlightModelState.java
+a8b4cc7f8e2fac23d4b2a76bdb191129a70a72e6cd0dfd857ef61e157170f9cf com/hbm/blocks/BlockEnums.java
+03bb5bdc21d1ff286201a53784ace92498ef2cefb3f9ce6f0c8516110b7b487f com/hbm/blocks/ISpotlight.java
+6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b com/hbm/world/gen/nbt/INBTBlockTransformable.java
+424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b com/hbm/lib/ForgeDirection.java
+09adb1a53887c3cc7c69455f53524c1da6c0d8a3ac9a6560c8fa85f32045bf4f com/hbm/lib/FacingCompat.java
+55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71 com/hbm/lib/RefStrings.java
+c65747af5f01fa299344d8ebeb6087139c837af81e7024d9dfadd7e58a031aa7 com/hbm/tileentity/TileEntityData.java
+BOUNDARY: real World/Chunk/registry/redstone/ItemStack/NBT; controlled chunk provider, light-engine skip, entity-output sink, recorded scheduling, NTM registry/celestial trait collaborators. Shared TileEntityData external same-block metadata changes refresh its tile; spotlight-owned mutations never change existing beam color metadata. No live server scheduler, persistence, production CelestialBody, GL, full-mod acceptance.

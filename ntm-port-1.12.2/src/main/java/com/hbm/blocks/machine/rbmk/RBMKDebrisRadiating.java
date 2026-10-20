@@ -14,9 +14,13 @@ import com.hbm.util.ContaminationUtil.HazardType;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -33,7 +37,8 @@ public class RBMKDebrisRadiating extends RBMKDebrisBurning {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!world.isRemote) {
 
@@ -43,18 +48,18 @@ public class RBMKDebrisRadiating extends RBMKDebrisBurning {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "rbmkflame");
 				data.setInteger("maxAge", 300);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + rand.nextDouble(), y + 1.75, z + rand.nextDouble()), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + rand.nextDouble(), y + 1.75, z + rand.nextDouble()), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));
 				//MainRegistry.proxy.effectNT(data);
-				world.playSoundEffect(x + 0.5F, y + 0.5, z + 0.5, "fire.fire", 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);
+				world.playSound(null, x + 0.5F, y + 0.5, z + 0.5, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F);
 
 			}
 
 			ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
-			Block block = world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
-			int m = world.getBlockMetadata(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			Block block = world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)).getBlock();
+			int m = block.getMetaFromState(world.getBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ)));
 
-			if(rand.nextInt(10) == 0 && block == Blocks.air) {
-				world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_meltdown);
+			if(rand.nextInt(10) == 0 && block == Blocks.AIR) {
+				world.setBlockState(pos.add(dir.offsetX, dir.offsetY, dir.offsetZ), ModBlocks.gas_meltdown.getDefaultState());
 			}
 
 			//Boron sand helps stop the fission reaction; 0.66% chance every 20-40 ticks for one side
@@ -62,17 +67,17 @@ public class RBMKDebrisRadiating extends RBMKDebrisBurning {
 
 			if(rand.nextInt(chance) == 0) {
 
-				int meta = world.getBlockMetadata(x, y, z);
+				int meta = getMetaFromState(world.getBlockState(pos));
 
 				if(meta < 15) {
-					world.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);
-					world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+					world.setBlockState(pos, getStateFromMeta(meta + 1), 2);
+					world.scheduleUpdate(pos, this, this.tickRate(world));
 				} else {
-					world.setBlock(x, y, z, ModBlocks.pribris_burning);
+					world.setBlockState(pos, ModBlocks.pribris_burning.getDefaultState());
 				}
 
 			} else {
-				world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+				world.scheduleUpdate(pos, this, this.tickRate(world));
 			}
 		}
 	}
@@ -82,7 +87,7 @@ public class RBMKDebrisRadiating extends RBMKDebrisBurning {
 		float rads = 1000000F;
 		double range = 100D;
 
-		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
+		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 
@@ -98,7 +103,7 @@ public class RBMKDebrisRadiating extends RBMKDebrisBurning {
 				int iy = (int)Math.floor(y + 0.5 + vec.y * i);
 				int iz = (int)Math.floor(z + 0.5 + vec.z * i);
 
-				res += world.getBlock(ix, iy, iz).getExplosionResistance(null);
+				res += world.getBlockState(new BlockPos(ix, iy, iz)).getBlock().getExplosionResistance(null);
 			}
 
 			if(res < 1)
@@ -111,14 +116,14 @@ public class RBMKDebrisRadiating extends RBMKDebrisBurning {
 			ContaminationUtil.contaminate(e, HazardType.RADIATION, ContaminationType.CREATIVE, eRads);
 
 			if(len < 5) {
-				e.attackEntityFrom(DamageSource.inFire, 100);
+				e.attackEntityFrom(DamageSource.IN_FIRE, 100);
 			}
 
 			if(e instanceof EntityPlayer && len < 10) {
 				EntityPlayer p = (EntityPlayer) e;
 
-				if(p.getHeldItem() != null && p.getHeldItem().getItem() == ModItems.marshmallow && p.getHeldItem().getItemDamage() != 1 && p.getRNG().nextInt(100) == 0) {
-					p.getHeldItem().setItemDamage(1);
+				if(!p.getHeldItemMainhand().isEmpty() && p.getHeldItemMainhand().getItem() == ModItems.marshmallow && p.getHeldItemMainhand().getItemDamage() != 1 && p.getRNG().nextInt(100) == 0) {
+					p.getHeldItemMainhand().setItemDamage(1);
 				}
 			}
 		}

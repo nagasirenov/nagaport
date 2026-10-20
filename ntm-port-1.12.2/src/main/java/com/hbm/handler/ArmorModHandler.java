@@ -75,7 +75,7 @@ public class ArmorModHandler {
 	public static void applyMod(ItemStack armor, ItemStack mod) {
 
 		if(!armor.hasTagCompound())
-			armor.stackTagCompound = new NBTTagCompound();
+			armor.setTagCompound(new NBTTagCompound());
 
 		NBTTagCompound nbt = armor.getTagCompound();
 
@@ -104,7 +104,7 @@ public class ArmorModHandler {
 			return;
 
 		if(!armor.hasTagCompound())
-			armor.stackTagCompound = new NBTTagCompound();
+			armor.setTagCompound(new NBTTagCompound());
 
 		NBTTagCompound nbt = armor.getTagCompound();
 

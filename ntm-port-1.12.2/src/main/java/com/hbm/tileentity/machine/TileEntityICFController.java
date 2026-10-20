@@ -73,7 +73,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 		for(int i = 0; i < cells.size(); i++) {
 			int j = i + 1;
 			
-			if(cells.contains(pos.mutate(xCoord + dir.offsetX * j, yCoord, zCoord + dir.offsetZ * j))) {
+			if(cells.contains(pos.mutate(this.pos.getX() + dir.offsetX * j, this.pos.getY(), this.pos.getZ() + dir.offsetZ * j))) {
 				this.cellCount++;
 				validCells.add(pos.clone());
 			} else {
@@ -108,9 +108,9 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.networkPackNT(50);
 			
@@ -118,7 +118,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 				for(BlockPos pos : ports) {
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 						BlockPos portPos = pos.offset(dir);
-						if(this.getMaxPower() > 0) this.trySubscribe(worldObj, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
+						if(this.getMaxPower() > 0) this.trySubscribe(this.world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
 					}
 				}
 				
@@ -129,9 +129,9 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 					for(int i = 1; i < 50; i++) {
 						this.laserLength = i;
 						
-						Block b = worldObj.getBlock(xCoord + dir.offsetX * i, yCoord, zCoord + dir.offsetZ * i);
+						Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i).getBlock();
 						if(b == ModBlocks.icf) {
-							TileEntity tile = worldObj.getTileEntity(xCoord + dir.offsetX * (i + 8), yCoord - 3, zCoord + dir.offsetZ * (i + 8));
+							TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * (i + 8), this.pos.getY() - 3, this.pos.getZ() + dir.offsetZ * (i + 8)));
 							if(tile instanceof TileEntityICF) {
 								TileEntityICF icf = (TileEntityICF) tile;
 								icf.laser += this.getPower();
@@ -140,21 +140,21 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 							}
 						}
 						
-						if(!b.isAir(worldObj, xCoord + dir.offsetX * i, yCoord, zCoord + dir.offsetZ * i)) {
+						if(!b.isAir(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i)) {
 							float hardness = b.getExplosionResistance(null);
-							if(hardness < 6000) worldObj.func_147480_a(xCoord + dir.offsetX * i, yCoord, zCoord + dir.offsetZ * i, false);
+							if(hardness < 6000) this.world.func_147480_a(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false);
 							break;
 						}
 					}
 		
-					double blx = Math.min(xCoord, xCoord + dir.offsetX * laserLength) + 0.2;
-					double bux = Math.max(xCoord, xCoord + dir.offsetX * laserLength) + 0.8;
-					double bly = Math.min(yCoord, yCoord + dir.offsetY * laserLength) + 0.2;
-					double buy = Math.max(yCoord, yCoord + dir.offsetY * laserLength) + 0.8;
-					double blz = Math.min(zCoord, zCoord + dir.offsetZ * laserLength) + 0.2;
-					double buz = Math.max(zCoord, zCoord + dir.offsetZ * laserLength) + 0.8;
+					double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * laserLength) + 0.2;
+					double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * laserLength) + 0.8;
+					double bly = Math.min(this.pos.getY(), this.pos.getY() + dir.offsetY * laserLength) + 0.2;
+					double buy = Math.max(this.pos.getY(), this.pos.getY() + dir.offsetY * laserLength) + 0.8;
+					double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * laserLength) + 0.2;
+					double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * laserLength) + 0.8;
 					
-					List<Entity> list = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
+					List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
 					
 					for(Entity e : list) {
 						e.attackEntityFrom(DamageSource.inFire, 50);
@@ -171,13 +171,13 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 			}
 		} else {
 			
-			if(this.laserLength > 0 && worldObj.rand.nextInt(5) == 0) {
+			if(this.laserLength > 0 && this.world.rand.nextInt(5) == 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-				double offXZ = worldObj.rand.nextDouble() * 0.25 - 0.125;
-				double offY = worldObj.rand.nextDouble() * 0.25 - 0.125;
+				double offXZ = this.world.rand.nextDouble() * 0.25 - 0.125;
+				double offY = this.world.rand.nextDouble() * 0.25 - 0.125;
 				double dist = 0.55;
-				worldObj.spawnParticle("reddust", xCoord + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, yCoord + 0.5 + offY, zCoord + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);
+				this.world.spawnParticle("reddust", this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);
 			}
 		}
 	}
@@ -219,7 +219,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
@@ -235,6 +235,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 			BlockPos pos = ports.get(i);
 			nbt.setIntArray("p" + i, new int[] { pos.getX(), pos.getY(), pos.getZ() });
 		}
+		return nbt;
 	}
 
 	@Override
@@ -259,12 +260,12 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 		
 		if(bb == null) {
 			bb = AxisAlignedBB.getBoundingBox(
-					xCoord + 0.5 - 50,
-					yCoord,
-					zCoord + 0.5 - 50,
-					xCoord + 0.5 + 50,
-					yCoord + 1,
-					zCoord + 0.5 + 50
+					this.pos.getX() + 0.5 - 50,
+					this.pos.getY(),
+					this.pos.getZ() + 0.5 - 50,
+					this.pos.getX() + 0.5 + 50,
+					this.pos.getY() + 1,
+					this.pos.getZ() + 0.5 + 50
 					);
 		}
 		

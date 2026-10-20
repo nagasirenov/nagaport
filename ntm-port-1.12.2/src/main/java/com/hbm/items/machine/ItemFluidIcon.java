@@ -58,19 +58,19 @@ public class ItemFluidIcon extends Item {
 
 	public static ItemStack addQuantity(ItemStack stack, int i) {
 		if(i <= 0) return stack;
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		stack.getTagCompound().setInteger("fill", i);
 		return stack;
 	}
 
 	public static ItemStack addPressure(ItemStack stack, int i) {
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		stack.getTagCompound().setInteger("pressure", i);
 		return stack;
 	}
 
 	public static ItemStack addAtmospheres(ItemStack stack, double atm) {
-		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
+		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		stack.getTagCompound().setDouble("atm", atm);
 		return stack;
 	}

@@ -11,7 +11,7 @@ import com.hbm.tileentity.machine.albion.TileEntityPABeamline;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.client.IItemRenderer;
+
 
 public class RenderPABeamline extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
@@ -60,7 +60,7 @@ public class RenderPABeamline extends TileEntitySpecialRenderer implements IItem
 	}
 
 	@Override
-	public IItemRenderer getRenderer() {
+	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase() {
 			public void renderInventory() {
 				double scale = 4;

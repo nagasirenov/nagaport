@@ -181,9 +181,9 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 	@Override
 	public void receiveChunkUnload(ChunkEvent.Unload event) {
 		
-		if(!event.world.isRemote){
+		if(!event.getWorld().isRemote){
 			
-			WorldRadiationData data = getWorldRadData(event.world);
+			WorldRadiationData data = getWorldRadData(event.getWorld());
 			if(data.data.containsKey(event.getChunk().getPos())){
 				data.data.get(event.getChunk().getPos()).unload();
 				data.data.remove(event.getChunk().getPos());
@@ -193,9 +193,9 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 
 	@Override
 	public void receiveChunkLoad(ChunkDataEvent.Load event) {
-		if(!event.world.isRemote){
+		if(!event.getWorld().isRemote){
 			if(event.getData().hasKey("hbmRadDataNT")){
-				WorldRadiationData data = getWorldRadData(event.world);
+				WorldRadiationData data = getWorldRadData(event.getWorld());
 				ChunkRadiationStorage cData = new ChunkRadiationStorage(data, event.getChunk());
 				cData.readFromNBT(event.getData().getCompoundTag("hbmRadDataNT"));
 				data.data.put(event.getChunk().getPos(), cData);
@@ -205,8 +205,8 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 
 	@Override
 	public void receiveChunkSave(ChunkDataEvent.Save event) {
-		if(!event.world.isRemote){
-			WorldRadiationData data = getWorldRadData(event.world);
+		if(!event.getWorld().isRemote){
+			WorldRadiationData data = getWorldRadData(event.getWorld());
 			if(data.data.containsKey(event.getChunk().getPos())){
 				NBTTagCompound tag = new NBTTagCompound();
 				data.data.get(event.getChunk().getPos()).writeToNBT(tag);
@@ -217,15 +217,15 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 
 	@Override
 	public void receiveWorldLoad(WorldEvent.Load event){
-		if(!event.world.isRemote){
-			worldMap.put(event.world, new WorldRadiationData(event.world));
+		if(!event.getWorld().isRemote){
+			worldMap.put(event.getWorld(), new WorldRadiationData(event.getWorld()));
 		}
 	}
 
 	@Override
 	public void receiveWorldUnload(WorldEvent.Unload event){
-		if(!event.world.isRemote){
-			worldMap.remove(event.world);
+		if(!event.getWorld().isRemote){
+			worldMap.remove(event.getWorld());
 		}
 	}
 
@@ -452,7 +452,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 					BlockPos outPos = newPos.add(subChunkWorldPos);
 					if(outPos.getY() < 0 || outPos.getY() > 255)
 						continue;
-					block = world.getBlock(outPos.getX(),  outPos.getY(),  outPos.getZ()); // !!!
+					block = com.hbm.world.WorldBlockState.read(world, outPos.getX(),  outPos.getY(),  outPos.getZ()).getBlock(); // !!!
 					if(!(block instanceof IRadResistantBlock && ((IRadResistantBlock) block).getResistance() == 1)){
 						if(!isSubChunkLoaded(world, outPos.getX(), outPos.getY(), outPos.getZ())){
 							if(!pocket.connectionIndices[facing.ordinal()].contains(-1)){

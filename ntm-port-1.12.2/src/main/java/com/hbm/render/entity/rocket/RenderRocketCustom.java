@@ -10,10 +10,15 @@ import com.hbm.render.util.MissilePronter;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderRocketCustom extends Render {
+
+	public RenderRocketCustom(RenderManager renderManager) {
+		super(renderManager);
+	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f, float interp) {
@@ -29,7 +34,7 @@ public class RenderRocketCustom extends Render {
 			GL11.glRotatef(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * interp, 0.0F, 0.0F, 1.0F);
 			GL11.glRotatef(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * interp - 90.0F, 0.0F, -1.0F, 0.0F);
 
-			MissilePronter.prontRocket(rocket, rocketEntity, Minecraft.getMinecraft().getTextureManager(), !CelestialBody.inOrbit(entity.worldObj), rocketEntity.decoupleTimer, rocketEntity.shroudTimer, interp);
+			MissilePronter.prontRocket(rocket, rocketEntity, Minecraft.getMinecraft().getTextureManager(), !CelestialBody.inOrbit(entity.world), rocketEntity.decoupleTimer, rocketEntity.shroudTimer, interp);
 
 		}
 		GL11.glPopMatrix();

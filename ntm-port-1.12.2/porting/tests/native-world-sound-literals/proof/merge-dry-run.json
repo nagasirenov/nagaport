@@ -1,0 +1,298 @@
+{
+  "base": "27dceb0ef9e5815de3dc5f0494ca43aef9997370",
+  "files": {
+    "com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before": "d7db5af63a4a4751c07871622f29fbbf15acead190575ed8272bfc77b2a8d749",
+      "after": "3db082727414bbc75ce7621513a5e173aa8188b8e0bdf55946a6b635acadf8b9",
+      "complete_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/blocks/bomb/BombFloat.java": {
+      "before": "8dc2d6d967fe424929711c3611bfd2174e4fe7eae630dcd82a1c6f1516d4eaac",
+      "after": "bef25f59da9d19b9377ae3cc91266ccc76aa000e0fdf252917fa49cc81018e3f",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/blocks/machine/PistonInserter.java": {
+      "before": "b58fdb67ce66d83906f6cc9534e4124183f384ff64a4fdc9be16df62916d6e55",
+      "after": "76062c9b36da36bc1b0cb7e94357fab6ff9cb3e09e2b06fcb2c63dbf2a77f132",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/blocks/machine/Radiobox.java": {
+      "before": "b2cdaefcf7b560cb96f2040e11d3a8d5f7b910b4418a1caed98d6f1e9f809bdf",
+      "after": "84504670396775e5849eb7f2766539734821fff9bce8a415cb85bf130af0e227",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/blocks/network/CableDetector.java": {
+      "before": "5638817c7009ef1c22cd55a15f4a6706ed236097a5b7cd00f6ceea741c212828",
+      "after": "73731e69d60aefa0c5effa168ca37ec7e2624b5d17d2200ba90bfb9a309cba97",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/blocks/network/CableSwitch.java": {
+      "before": "4ecec95536d88f0c638ae551968730ce10c54024091bcac397cf47ad2f8640ab",
+      "after": "4abb39148805ffacb8d586820f1e6682c416ea4dc7ab7e3dbed6c82a9c7b648b",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/blocks/network/FluidSwitch.java": {
+      "before": "591128cdfeb8127dd33370163f95346ba65ffa9d871865a622dcbbc55c64f669",
+      "after": "113dc691af54d6b64e0169068e2eeabe91bac0ddd990799f08313d449d4aab12",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/blocks/network/FluidValve.java": {
+      "before": "e9771346ead540f9ae0b8cfdc1bb5c198297e1a7974225935dc19703f6edead2",
+      "after": "5eb4c67bc021a1e46b3b0c2782b0c21725268444ffa11537909eb2b3f5a3fec0",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/entity/missile/EntitySoyuz.java": {
+      "before": "6a494d4de1688b095b526631fb95053cd5d89ee109c6aae71c645b5e5b78a47e",
+      "after": "1ce2b266762c4d75fdc7dc3f567dff1319e003d244f00516e8d70621edeb2e0e",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/entity/projectile/EntityTom.java": {
+      "before": "f3fa79f170180b040941d3de9690d5bc31c50376043fd0baec43bb97d5d8c76b",
+      "after": "5f4ba1047935854e2b0e0639a6169724feee9b0db7037f6dbd589d648ba3594c",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/items/food/ItemPill.java": {
+      "before": "61799b9573da44b1879f04cc5e273131413364d614a848ec66b33b418fc6df2e",
+      "after": "5071f8f5144b47de42512c5d38a276898e7a3fc49738688ac59f7181638b5acf",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/DoorDecl.java": {
+      "before": "44f06d8cd38fbaf053b1d6ce7f8ff0d7f2f63a4adda81c6b314cc5b51cacded1",
+      "after": "cc9889ea38187b87619b61365d4ca31460c9feadf52aec6820fbf87745d5cd70",
+      "complete_inverse_equals_input": true,
+      "calls": 4
+    },
+    "com/hbm/tileentity/bomb/TileEntityAntimatter.java": {
+      "before": "66fa64533d6d5abdf1f280fcebee59acf06355d09cb7fb042547be2b89356d54",
+      "after": "793ae5b331b2bc2f3654ae8afb89eabd9101d458b54f5aa164a1da7bc045549d",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/bomb/TileEntityLandmine.java": {
+      "before": "61ecbc44418eeb2f3772a8503e1a9a6ff2316cfb08fe5f62271fc67ed2c837b9",
+      "after": "93c6af923f52b6366dc1976b3fa2aac3db01a297e26f7535ceef01d64a156b46",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java": {
+      "before": "88730b1b56d3c09844482de0da3396c6e362198a44dd0b189dd3f56a75c484ab",
+      "after": "3cfa3cd535b043f15b7da45f8560e03eb8c56fa9ca912f8e5c8639a75b3b3d13",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": {
+      "before": "1810d8a0ba628ff6a6732fc20692e0bdda4b0d3c9c27e02691b564e492a94d38",
+      "after": "53fa7ec40857aff2723555ed73d55038049e87a04ab3aea92292fdeddbf4f41e",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/deco/TileEntityLanternBehemoth.java": {
+      "before": "6c5093955df3f931f3fc1b6f8963cedffb621a604e6602fe63ed2ff9de760b3d",
+      "after": "6df631b0d279f51fc902be28a1b0b870eeee599342c52b05bd511d6fec86de0f",
+      "complete_inverse_equals_input": true,
+      "calls": 4
+    },
+    "com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "before": "7d8faf618f6d02d15787c1fb030abfce5423f306e6b908df2e354295b55b82c9",
+      "after": "5854d553fcf7be446fc2f1f30cfcce624234ac6d7bac9c09418ae22db3fc720c",
+      "complete_inverse_equals_input": true,
+      "calls": 4
+    },
+    "com/hbm/tileentity/machine/TileEntityConveyorPress.java": {
+      "before": "1b2b89d5b5255ee6fddb14a456703bd011f2fc315a84f4ac143be4b5913fb6d0",
+      "after": "00ec148e82a35cba23f2d88b9674864bd0dd5b86220f4229cd63dff6a31eb25b",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityDysonLauncher.java": {
+      "before": "12fced20f49947748468a5a4998b1a0ede881f041b3a51b20940bbf149d30901",
+      "after": "5174b847529e112d7317753660e832e8573f708462d7ce34b3474372ed157bdf",
+      "complete_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/tileentity/machine/TileEntityHeatBoiler.java": {
+      "before": "dcb4bc140b26e7412e1a051205ed55fd45971057eaac142e48ca33c066636ce5",
+      "after": "fd03fc8ede1a1238ff77d0262280320e1f839a1226ae0f4a35a9d3568715aa02",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityHeatBoilerIndustrial.java": {
+      "before": "9cf97fb6c70f7b0b5c74cab98d2a8021d4bc6a4a461623b4e91b3ec04475488c",
+      "after": "77e3d77b661c4951bbddcf75c8de56aa03ad8616d55cf9470fbe9574cff850a7",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineHTR3.java": {
+      "before": "1014a514555136b38b91abd61888e49fcde2a2cb42618091953a59e650014e60",
+      "after": "12391e43e14ba16adb628d917f8ce13f7ec835349c5e63a9a9c2233c2bf888ac",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineHTRF4.java": {
+      "before": "80867dcc3408900902a4ec10611c5792f177b39f49c6d6cf2ae87b38f415923c",
+      "after": "ed4d353cdb75513178246595a70714e02e190c9deff7db8de1cc9920aa845b60",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java": {
+      "before": "d9d1437b9ad7b72c840bd367eb0c7571fe821342a897bc82554eb7ca82c1ca03",
+      "after": "a9f1e265a601dbbbd9db010855e0e97f2037e473565301405e9f427c73c6aff5",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineLPW2.java": {
+      "before": "99737911e5e2195524e6ec5e29c1115c4fef17c57cfa819c10d47d2db4b5c2a0",
+      "after": "87f7a15e93a369909af8ccde8fed1933ea3069cadd1afc3fea9838d99fbf41d4",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java": {
+      "before": "c7c5e310aebbfa87bdc831a700593f4f8b5aa6b09e246db8e55b2d5e3375e5c0",
+      "after": "3e0450ab354b965f839f824591cb7d58408a7b23c53c0b5b94ca3407b2565865",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineRadarNT.java": {
+      "before": "c294d1c12acdcf3b19251c6ad5785f3d4ad905fdee70e5ce4a0a6764772ece5d",
+      "after": "8e814c3e1dc4ab0875ef1d428221d634abdada3bee974e7087fe941a541eaaa9",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java": {
+      "before": "e41e5e820324b3f7139ba8d5483111fa5f335a125355035fdd67ee50175555b6",
+      "after": "1d42fd5e1d0607da680a2c47a4178e5d38304f59d12ec4ce5e26d67c4878479f",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/machine/TileEntityReactorZirnox.java": {
+      "before": "c7b2b133a84a30637ccf57b32876077c9cc9bf820e50cf145680b8fcfd24eaf4",
+      "after": "3258be3c1a027eb9a0b4321c69450739e76eeb95081a4f89fb016f3ad97dfb64",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntitySawmill.java": {
+      "before": "269b27fc1d686fc61833a1b126adcb2972b92268ab0a647b09cefb16121dd036",
+      "after": "82add305d627b19a709eb6aac81c62704f44ef620dc5b587aad7714afeae6dcb",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntitySoyuzLauncher.java": {
+      "before": "a194483eae2fa4aceb2018ed2457e7629baa44074e60f19fcf3799cad8ce72cc",
+      "after": "1858c9dfbf74859b98a797bf7f4b7e64762b88b0be0676db8c53a8685f1c76d8",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/machine/TileEntitySteamEngine.java": {
+      "before": "9f099f9c2d901b1ebf8110107811c6763b3123e23cd93ad8ec79a1629e14e852",
+      "after": "b3a4e6e8e8be30f0c9a63d5a7427c58689cf8320bee046765b217eceb84fc394",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityStirling.java": {
+      "before": "677e72dea261cf80c5d8a733d8e210e507792e039503f8ad31fbcbae3d216947",
+      "after": "699becc77f318a37c3bacaec9ff4cd5d7495763f9fdc7467281df7fd54edcfda",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/TileEntityWatz.java": {
+      "before": "40a703ef3b942a4bf2debb21535b46eb2826ce145e25fbe87db66107f02abdce",
+      "after": "9a24f72aca77268a6c0a74d3eb624cf2bfbac26144172b2982cf89eadc9e656c",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java": {
+      "before": "fee9816e4dfe9632a3a4f77e086d4054986e36661508029ae283d47bb2a960ae",
+      "after": "eaae2a0cc84141f532ece8b4ae47d07aa5ff49a8418ccd576bdc16bec7de4f11",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before": "aa9dd8344fbc3162e529409316faa531d2d09b576fbb99aa976046da2a2b40cd",
+      "after": "1b526c3dac38db79e33fdd7788b0cbf503604aec2955368e28b6477023ee6a5e",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/rbmk/TileEntityRBMKBoiler.java": {
+      "before": "3609b28e2d7a20ec234eaea6abbe7dc18fffeec24bf1246a63b4cdad0079a1eb",
+      "after": "e085dc7200d52b4e8f691b7bb1b72471cdb417212fa9de1aab9ea7cdfd435a0b",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/machine/storage/TileEntityCombatDropPod.java": {
+      "before": "0f2ad275723b2e960588a5ffc8f3dadc315a7d874f038e99fa81bf2aa804400f",
+      "after": "4dee031dff52c32a036ff101e26143cdd2fce39d20b3b49b9580d5c4f9277202",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/network/TileEntityFluidCounterValve.java": {
+      "before": "8bbb609e3841813aae484866cf463d1cd5d3d8a1e040361610b3c9c951eb08cd",
+      "after": "fa32f4fe43ef563b279b91f7844bb00bbdfb623266f95fef12306e0feff726a3",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretChekhov.java": {
+      "before": "efce040ba2d4d6eaddbe7d8b84ae7f9ed377bd7c4a40734754fbbdcd6f2f76cf",
+      "after": "7556bcaa927ce17b6d72abc3b87ee0f8166d1f3591b1061d5b7d05ff4f0f8232",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretHIMARS.java": {
+      "before": "30f0d0a6f6c4d9c24f027b48c7859a0f15dfeb91b351d840ac5577ba5a150706",
+      "after": "89c554b6c3d2b7164f2b804441abd58ea0b974943de6c58aa34d1ccaa641156b",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretHoward.java": {
+      "before": "703a34770474e1280d13e7321822299223874d9833d7440733241e60d46919a6",
+      "after": "b42d1c88d387a638cdab4a950148d2f1e040858983debd9080e630a57850397b",
+      "complete_inverse_equals_input": true,
+      "calls": 3
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretHowardDamaged.java": {
+      "before": "16167a0a3b2b5c390a022e2ba4ef2ea6d360213f00054dff1b4fc93d84b5ec32",
+      "after": "73d6f3c6a4ca7d5d636198671360e4a683e3d1be80cfae2853275474c0c430c2",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretRichard.java": {
+      "before": "84167a9885d98384d9fd17aa974ca9b2b63706bd4fe1ba140afb24c6b178d434",
+      "after": "34af8c8f186f6fe3e4924b2ba39801a7bf354670eace6acbcbdf9a9277ee7b48",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretSentry.java": {
+      "before": "7e797d99b4260e70b5a1afaac9d95a6dc8b0442a4c87af7d987fcb4c929f4397",
+      "after": "c2c4c4576377db521dbb30fcf1d7107a1651753e16d86354108f174f75fd672e",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretSentryDamaged.java": {
+      "before": "1a4fe3822ba8971b8fb60e4bc8007870a4c1bdcb95180444606f63dfc967b669",
+      "after": "06c0c6b785c6a3da3c0fdc4d894f2cfae2e1bf8ee763d35e3e99c4d67e082bd1",
+      "complete_inverse_equals_input": true,
+      "calls": 2
+    },
+    "com/hbm/tileentity/turret/TileEntityTurretTauon.java": {
+      "before": "043e9a407361b240dcad3151badefa0d389fabebe4a2aa922f93d854be329385",
+      "after": "2fb1167df11cf14073eb17fa36ba93e89fd772e1ae780552521abf46b67448ed",
+      "complete_inverse_equals_input": true,
+      "calls": 1
+    },
+    "com/hbm/main/ModSoundEvents.java": {
+      "before": "2178b68942efec5f7ade430430ec47221e8401c14cb46c439a4e9e96568e0c33",
+      "after": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+      "complete_inverse_equals_input": true
+    }
+  }
+}

@@ -24,20 +24,20 @@ public class ItemReactorSensor extends Item {
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_,
 			float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if (b == ModBlocks.reactor_research || b == ModBlocks.machine_stardar) {
 
-			if(stack.stackTagCompound == null)
-				stack.stackTagCompound = new NBTTagCompound();
+			if(stack.getTagCompound() == null)
+				stack.setTagCompound(new NBTTagCompound());
 
 			if(!world.isRemote) {
 				SendMessage(player,"Position Set!");
 			}
 
-			stack.stackTagCompound.setInteger("x", x);
-			stack.stackTagCompound.setInteger("y", y);
-			stack.stackTagCompound.setInteger("z", z);
+			stack.getTagCompound().setInteger("x", x);
+			stack.getTagCompound().setInteger("y", y);
+			stack.getTagCompound().setInteger("z", z);
 
 			world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F);
 			player.swingItem();
@@ -45,7 +45,7 @@ public class ItemReactorSensor extends Item {
 		}
 		else if(b == ModBlocks.machine_dish_controller)
 		{
-			if(stack.stackTagCompound == null) return false;
+			if(stack.getTagCompound() == null) return false;
 
 			// Get Core
 			MachineDishControl controllerBlock = (MachineDishControl)b;
@@ -53,9 +53,9 @@ public class ItemReactorSensor extends Item {
 
 			// Get TileEntity
 			TileEntityDishControl entity = (TileEntityDishControl)world.getTileEntity(
-				corePos[0],
+				new net.minecraft.util.math.BlockPos(corePos[0],
 				corePos[1],
-				corePos[2]
+				corePos[2])
 			);
 
 			if(entity == null) return false;
@@ -76,17 +76,17 @@ public class ItemReactorSensor extends Item {
 	private void SendMessage(EntityPlayer player, String text)
 	{
 		player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
-			.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
+			.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 			.next("] ").color(TextFormatting.DARK_AQUA)
 			.next(text).color(TextFormatting.GREEN).flush());
 	}
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		if (itemstack.stackTagCompound != null) {
-			list.add("x: " + itemstack.stackTagCompound.getInteger("x"));
-			list.add("y: " + itemstack.stackTagCompound.getInteger("y"));
-			list.add("z: " + itemstack.stackTagCompound.getInteger("z"));
+		if (itemstack.getTagCompound() != null) {
+			list.add("x: " + itemstack.getTagCompound().getInteger("x"));
+			list.add("y: " + itemstack.getTagCompound().getInteger("y"));
+			list.add("z: " + itemstack.getTagCompound().getInteger("z"));
 		} else {
 			list.add("No reactor selected!");
 		}

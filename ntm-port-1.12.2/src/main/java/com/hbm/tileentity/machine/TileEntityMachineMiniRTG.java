@@ -9,15 +9,22 @@ import api.hbm.tile.IInfoProviderEC;
 import net.minecraft.nbt.NBTTagCompound;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineMiniRTG extends TileEntityLoadedBase implements IEnergyProviderMK2, IInfoProviderEC {
+public class TileEntityMachineMiniRTG extends TileEntityLoadedBase implements IEnergyProviderMK2, IInfoProviderEC, net.minecraft.util.ITickable {
 
 	public long power;
 	boolean tact = false;
 	
 	@Override
-	public void updateEntity() {
+	public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
+			net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
+		// Legacy metadata-only changes retained the generator and its stored state.
+		return oldState.getBlock() != newState.getBlock();
+	}
+
+	@Override
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			power += this.getOutput();
 			
@@ -25,7 +32,7 @@ public class TileEntityMachineMiniRTG extends TileEntityLoadedBase implements IE
 				power = getMaxPower();
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				this.tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				this.tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 		}
 	}

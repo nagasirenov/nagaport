@@ -1,5 +1,8 @@
 package com.hbm.render.item.weapon.sedna;
 
+import com.hbm.render.item.nativeitem.context.NativeItemContext;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.items.weapon.sedna.ItemGunBaseNT;
@@ -34,7 +37,7 @@ public class ItemRenderFlaregun extends ItemRenderWeaponBase {
 	public void renderFirstPerson(ItemStack stack) {
 
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.flaregun_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.flaregun_tex);
 		double scale = 0.125D;
 		GL11.glScaled(scale, scale, scale);
 
@@ -120,11 +123,11 @@ public class ItemRenderFlaregun extends ItemRenderWeaponBase {
 	}
 
 	@Override
-	public void renderOther(ItemStack stack, ItemRenderType type, Object... data) {
+	public void renderOther(ItemStack stack, NativeItemContext context) {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.flaregun_tex);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.flaregun_tex);
 		ResourceManager.flaregun.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
 	}

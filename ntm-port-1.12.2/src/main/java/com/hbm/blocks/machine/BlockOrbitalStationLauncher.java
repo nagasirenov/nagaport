@@ -38,7 +38,7 @@ public class BlockOrbitalStationLauncher extends BlockOrbitalStation implements 
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof TileEntityOrbitalStationLauncher) ((TileEntityOrbitalStationLauncher) te).isBreaking = true;
 		super.breakBlock(world, x, y, z, block, meta);
 	}
@@ -56,7 +56,7 @@ public class BlockOrbitalStationLauncher extends BlockOrbitalStation implements 
 		if(Math.abs(pos[0] - x) >= 2 || Math.abs(pos[2] - z) >= 2)
 			return false;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityOrbitalStationLauncher))
 			return false;
@@ -86,7 +86,7 @@ public class BlockOrbitalStationLauncher extends BlockOrbitalStation implements 
 		if(!CelestialBody.inOrbit(world)) {
 			List<String> text = new ArrayList<String>();
 			text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! " + I18nUtil.resolveKey("atmosphere.noOrbit") + " ! ! !");
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 			return;
 		}
 
@@ -95,7 +95,7 @@ public class BlockOrbitalStationLauncher extends BlockOrbitalStation implements 
 		if(pos == null)
 			return;
 
-		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 		if(!(te instanceof TileEntityOrbitalStationLauncher))
 			return;
@@ -110,7 +110,7 @@ public class BlockOrbitalStationLauncher extends BlockOrbitalStation implements 
 				text.add(TextFormatting.YELLOW + I18nUtil.resolveKey("station.occupiedRocket"));
 			}
 
-			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+			ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 			return;
 		}
 
@@ -125,12 +125,12 @@ public class BlockOrbitalStationLauncher extends BlockOrbitalStation implements 
 		}
 
 		if(pad.solidFuel.max > 0) {
-			text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + I18nUtil.resolveKey(ModItems.rocket_fuel.getUnlocalizedName() + ".name") + ": " + pad.solidFuel.level + "/" + pad.solidFuel.max + "kg");
+			text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + I18nUtil.resolveKey(ModItems.rocket_fuel.getTranslationKey() + ".name") + ": " + pad.solidFuel.level + "/" + pad.solidFuel.max + "kg");
 		}
 
 		if(text.size() <= 1) return;
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 }

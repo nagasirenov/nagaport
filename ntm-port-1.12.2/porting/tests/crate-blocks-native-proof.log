@@ -1,0 +1,39 @@
+PASS exact pristine can contents, random choice order, and count bodies
+PASS exact pristine food variant enum retained in controlled food-effect collaborator
+PRODUCTION com/hbm/blocks/generic/BlockCanCrate.java f17de046762dd5b14a1f8fd70c1fcd749fa24df1f72078e082ebd7bf967e47c6
+PRODUCTION com/hbm/blocks/generic/BlockSupplyCrate.java c0c735be817ebeda382f83ee8910fc11a2fa77052abcaff615cde8b4f4b81f6c
+PRODUCTION com/hbm/main/ModSoundEvents.java f11734453407566473aaf618b0e8ffee0a70e16e920955473b8b3b8fdf05957e
+PRODUCTION com/hbm/lib/RefStrings.java 55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71
+PRODUCTION com/hbm/blocks/generic/BlockSteelBeam.java 81bfad257126b94ac5e42d053626de8ac03e601e122df765d920e879edb36cf2
+PRODUCTION api/hbm/block/IToolable.java c75a453aff817c57577392d24cad52b3f7986445e960ffebc882c7fe77f66d62
+PRODUCTION com/hbm/world/gen/nbt/INBTBlockTransformable.java 6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `crowbar`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `canned_conserve`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_smart`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_creature`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_redbomb`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_mrsugar`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_overcharge`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_luna`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_breen`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can_bepis`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `pudding`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `can`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `supply`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `supply`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `beam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `crate_probe` for name `beam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `entity.slicer`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.openc`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.closec`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.metalblock`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.pipeplaced`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `step.morkite`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `item.battery`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[18:08:21] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `block.cratebreak`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS complete native can/supply crate owners, nested supply tile, and steel beam owner: 10573 checks. Real World/Chunk/TileEntity/ItemStack/NBT/drop APIs; NTM item registries, food effects and unused tool-recipe matching are controlled collaborators, not whole-mod integration.

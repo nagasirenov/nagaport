@@ -2,6 +2,17 @@ package com.hbm.blocks.generic;
 
 import api.hbm.block.IToolable;
 import com.hbm.blocks.IBlockSideRotation;
+import com.hbm.blocks.SideRotationModelState;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.blocks.ITooltipProvider;
 import com.hbm.blocks.ModBlocks;
@@ -17,14 +28,12 @@ import com.hbm.world.gen.nbt.INBTTileEntityTransformable;
 import com.hbm.world.gen.util.LogicBlockActions;
 import com.hbm.world.gen.util.LogicBlockConditions;
 import com.hbm.world.gen.util.LogicBlockInteractions;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -33,7 +42,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextFormatting;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -45,44 +53,66 @@ import java.util.List;
 
 public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToolable, ITooltipProvider, IBlockSideRotation, IBomb {
 
-	@SideOnly(Side.CLIENT) protected IIcon iconTop;
+	private static final ResourceLocation blockTexture = new ResourceLocation(RefStrings.MODID, "blocks/wand_logic");
+	private static final ResourceLocation iconTop = new ResourceLocation(RefStrings.MODID, "blocks/wand_logic_top");
+	private static final Collection<ResourceLocation> MODEL_TEXTURES = Collections.unmodifiableList(Arrays.asList(blockTexture, iconTop));
 
 	public BlockWandLogic() {
-		super(Material.iron);
+		super(Material.IRON);
+		setDefaultState(blockState.getBaseState().withProperty(SideRotationModelState.METADATA, 0));
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":wand_logic");
-		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":wand_logic_top");
-	}
 
 	@Override
-	public IIcon getIcon(int side, int meta) {
-		return (side <= 1) ? iconTop : blockIcon;
+	public ResourceLocation getModelTexture(int side, int meta) {
+		return (side <= 1) ? iconTop : blockTexture;
 	}
 
 	@Override
 	public int getRotationFromSide(IBlockAccess world, int x, int y, int z, int side) {
-		if(side == 0) return IBlockSideRotation.topToBottom(world.getBlockMetadata(x, y, z));
-		if(side == 1) return world.getBlockMetadata(x, y, z);
+		if(side == 0) return IBlockSideRotation.topToBottom(getMetaFromState(world.getBlockState(new BlockPos(x, y, z))));
+		if(side == 1) return getMetaFromState(world.getBlockState(new BlockPos(x, y, z)));
 		return 0;
 	}
 
 	@Override
-	public int getRenderType() {
-		return IBlockSideRotation.getRenderType();
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+	public Collection<ResourceLocation> getModelTextures() {
+		return MODEL_TEXTURES;
+	}
 
-		if (i == 0) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if (i == 1) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if (i == 2) world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-		if (i == 3) world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return SideRotationModelState.create(this);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(SideRotationModelState.METADATA, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(SideRotationModelState.METADATA);
+	}
+
+	@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return SideRotationModelState.extend(state, world, pos);
+	}
+
+	@Override
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+
+		if (i == 0) world.setBlockState(pos, getStateFromMeta(3), 2);
+		if (i == 1) world.setBlockState(pos, getStateFromMeta(2), 2);
+		if (i == 2) world.setBlockState(pos, getStateFromMeta(0), 2);
+		if (i == 3) world.setBlockState(pos, getStateFromMeta(1), 2);
 
 		ForgeDirection dir = ForgeDirection.UNKNOWN;
 		switch(i){
@@ -91,23 +121,23 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 			case 2: dir = ForgeDirection.NORTH;break;
 			case 3: dir = ForgeDirection.EAST; break;
 		}
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(pos);
 		if(te instanceof TileEntityWandLogic)
 			((TileEntityWandLogic)te).placedRotation = dir.ordinal();
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float fX, float fY, float fZ) {
 
-		ItemStack stack = player.getHeldItem();
+		ItemStack stack = player.getHeldItem(hand);
 
-		if (stack != null && stack.getItem() instanceof ItemBlock && !player.isSneaking()) {
+		if (!stack.isEmpty() && stack.getItem() instanceof ItemBlock && !player.isSneaking()) {
 			ItemBlock ib = (ItemBlock) stack.getItem();
-			Block block = ib.field_150939_a;
+			Block block = ib.getBlock();
 
-			if (block.renderAsNormalBlock() && block != this) {
+			if (block.isFullCube(block.getDefaultState()) && block != this) {
 
-				TileEntity tile = world.getTileEntity(x, y, z);
+				TileEntity tile = world.getTileEntity(pos);
 
 				if(tile instanceof TileEntityWandLogic){
 					TileEntityWandLogic logic = (TileEntityWandLogic) tile;
@@ -117,12 +147,12 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 				}
 			}
 		}
-		return super.onBlockActivated(world, x, y, z, player, side, fX, fY, fZ);
+		return super.onBlockActivated(world, pos, state, player, hand, side, fX, fY, fZ);
 	}
 
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandLogic)) return false;
 
@@ -134,7 +164,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 				int indexA = actionNames.indexOf(logic.actionID);
 
 				indexA += player.isSneaking() ? -1 : 1;
-				indexA = MathHelper.clamp_int(indexA, 0, actionNames.size() - 1);
+				indexA = MathHelper.clamp(indexA, 0, actionNames.size() - 1);
 
 				logic.actionID = actionNames.get(indexA);
 				return true;
@@ -143,7 +173,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 				int indexC = conditionNames.indexOf(logic.conditionID);
 
 				indexC += player.isSneaking() ? -1 : 1;
-				indexC = MathHelper.clamp_int(indexC, 0, conditionNames.size() - 1);
+				indexC = MathHelper.clamp(indexC, 0, conditionNames.size() - 1);
 
 				logic.conditionID = conditionNames.get(indexC);
 
@@ -153,7 +183,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 				int indexI = interactionNames.indexOf(logic.interactionID);
 
 				indexI += player.isSneaking() ? -1 : 1;
-				indexI = MathHelper.clamp_int(indexI, 0, interactionNames.size() - 1);
+				indexI = MathHelper.clamp(indexI, 0, interactionNames.size() - 1);
 
 				logic.interactionID = interactionNames.get(indexI);
 
@@ -165,7 +195,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 
 	@Override
 	public void printHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandLogic)) return;
 
@@ -178,14 +208,14 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 
 		String block;
 
-		if(logic.disguise != null && logic.disguise != Blocks.air)
-			block = I18nUtil.resolveKey(logic.disguise.getUnlocalizedName() + ".name");
+		if(logic.disguise != null && logic.disguise != Blocks.AIR)
+			block = I18nUtil.resolveKey(logic.disguise.getTranslationKey() + ".name");
 		else
 			block = "None";
 
 		text.add("Disguise Block: " + block);
 
-		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
+		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 
 	@Override
@@ -203,7 +233,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandLogic)) return null;
 
@@ -212,7 +242,13 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 		return BombReturnCode.TRIGGERED;
 	}
 
-	public static class TileEntityWandLogic extends TileEntityLoadedBase implements INBTTileEntityTransformable, ICopiable {
+	public static class TileEntityWandLogic extends TileEntityLoadedBase implements INBTTileEntityTransformable, ICopiable, net.minecraft.util.ITickable {
+
+		@Override
+		public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+			return oldState.getBlock() != newState.getBlock();
+		}
+
 		private boolean triggerReplace;
 
 		public int placedRotation;
@@ -225,8 +261,8 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 		public String interactionID;
 
 		@Override
-		public void updateEntity() {
-			if(!worldObj.isRemote) {
+		public void update() {
+			if(!this.world.isRemote) {
 				if(triggerReplace) {
 					// On the first tick of this TE, replace with intended block and fill with loot
 					replace();
@@ -237,18 +273,18 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 		}
 
 		private void replace() {
-			if (!(worldObj.getBlock(xCoord, yCoord, zCoord) instanceof BlockWandLogic)) {
-				MainRegistry.logger.warn("Somehow the block at: " + xCoord + ", " + yCoord + ", " + zCoord + " isn't a logic block but we're doing a TE update as if it is, cancelling!");
+			if (!(this.world.getBlockState(this.pos).getBlock() instanceof BlockWandLogic)) {
+				MainRegistry.logger.warn("Somehow the block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + " isn't a logic block but we're doing a TE update as if it is, cancelling!");
 				return;
 			}
-			worldObj.setBlock(xCoord,yCoord,zCoord, ModBlocks.logic_block);
+			this.world.setBlockState(this.pos, ModBlocks.logic_block.getDefaultState());
 
-			TileEntity te = worldObj.getTileEntity(xCoord, yCoord, zCoord);
+			TileEntity te = this.world.getTileEntity(this.pos);
 
 			if(te == null || te instanceof BlockWandLoot.TileEntityWandLoot) {
-				MainRegistry.logger.warn("TE for logic block set incorrectly at: " + xCoord + ", " + yCoord + ", " + zCoord + ". If you're using some sort of world generation mod, report it to the author!");
-				te = ModBlocks.wand_logic.createTileEntity(worldObj, 0);
-				worldObj.setTileEntity(xCoord, yCoord, zCoord, te);
+				MainRegistry.logger.warn("TE for logic block set incorrectly at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + ". If you're using some sort of world generation mod, report it to the author!");
+				te = ModBlocks.wand_logic.createTileEntity(this.world, ModBlocks.wand_logic.getStateFromMeta(0));
+				this.world.setTileEntity(this.pos, te);
 			}
 
 			if(te instanceof LogicBlock.TileEntityLogicBlock){
@@ -269,7 +305,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 		}
 
 		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
+		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
 			nbt.setString("actionID", actionID);
 			nbt.setString("conditionID", conditionID);
@@ -277,9 +313,10 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 				nbt.setString("interactionID", interactionID);
 			nbt.setInteger("rotation", placedRotation);
 			if(disguise != null){
-				nbt.setString("disguise", GameRegistry.findUniqueIdentifierFor(disguise).toString());
+				nbt.setString("disguise", disguise.getRegistryName().toString());
 				nbt.setInteger("disguiseMeta", disguiseMeta);
 			}
+			return nbt;
 		}
 
 		@Override
@@ -324,7 +361,7 @@ public class BlockWandLogic extends BlockContainer implements ILookOverlay, IToo
 			if(interactionID != null)
 				nbt.setString("interactionID", interactionID);
 			if(disguise != null){
-				nbt.setString("disguise", GameRegistry.findUniqueIdentifierFor(disguise).toString());
+				nbt.setString("disguise", disguise.getRegistryName().toString());
 				nbt.setInteger("disguiseMeta", disguiseMeta);
 			}
 

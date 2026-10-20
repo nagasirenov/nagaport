@@ -11,35 +11,35 @@ public class FluidLoaderStandard extends FluidLoadingHandler {
 	public boolean fillItem(ItemStack[] slots, int in, int out, FluidTank tank) {
 		
 		if(tank.pressure != 0) return false;
-		if(slots[in] == null) return true;
+		if((slots[in] == null || slots[in].isEmpty())) return true;
 		
 		FluidType type = tank.getTankType();
 		ItemStack full = FluidContainerRegistry.getFullContainer(slots[in], type);
 		
-		if(full != null && slots[in] != null && tank.getFill() - FluidContainerRegistry.getFluidContent(full, type) >= 0) {
+		if(full != null && slots[in] != null && !slots[in].isEmpty() && tank.getFill() - FluidContainerRegistry.getFluidContent(full, type) >= 0) {
 			
 			String name = slots[in].hasDisplayName() ? slots[in].getDisplayName() : null;
 			
-			if(slots[out] == null) {
+			if((slots[out] == null || slots[out].isEmpty())) {
 				
 				tank.setFill(tank.getFill() - FluidContainerRegistry.getFluidContent(full, type));
 				slots[out] = full.copy();
-				slots[in].stackSize--;
-				if(slots[in].stackSize <= 0) {
-					slots[in] = null;
+				slots[in].shrink(1);
+				if(slots[in].getCount() <= 0) {
+					slots[in] = ItemStack.EMPTY;
 				}
 				
 				if(name != null) slots[out].setStackDisplayName(name);
 				
-			} else if(slots[out] != null && slots[out].getItem() == full.getItem() && slots[out].getItemDamage() == full.getItemDamage() && slots[out].stackSize < slots[out].getMaxStackSize()) {
+			} else if(slots[out] != null && !slots[out].isEmpty() && slots[out].getItem() == full.getItem() && slots[out].getItemDamage() == full.getItemDamage() && slots[out].getCount() < slots[out].getMaxStackSize()) {
 				
 				tank.setFill(tank.getFill() - FluidContainerRegistry.getFluidContent(full, type));
-				slots[in].stackSize--;
+				slots[in].shrink(1);
 				
-				if(slots[in].stackSize <= 0) {
-					slots[in] = null;
+				if(slots[in].getCount() <= 0) {
+					slots[in] = ItemStack.EMPTY;
 				}
-				slots[out].stackSize++;
+				slots[out].grow(1);
 				
 				if(name != null) slots[out].setStackDisplayName(name);
 			}
@@ -51,7 +51,7 @@ public class FluidLoaderStandard extends FluidLoadingHandler {
 	@Override
 	public boolean emptyItem(ItemStack[] slots, int in, int out, FluidTank tank) {
 		
-		if(slots[in] == null)
+		if((slots[in] == null || slots[in].isEmpty()))
 			return true;
 		
 		FluidType type = tank.getTankType();
@@ -63,31 +63,31 @@ public class FluidLoaderStandard extends FluidLoadingHandler {
 			
 			String name = slots[in].hasDisplayName() ? slots[in].getDisplayName() : null;
 			
-			if(slots[out] == null) {
+			if((slots[out] == null || slots[out].isEmpty())) {
 				
 				tank.setFill(tank.getFill() + amount);
-				slots[out] = emptyContainer;
+				slots[out] = emptyContainer == null ? ItemStack.EMPTY : emptyContainer;
 				
 				if(emptyContainer != null) {
 					if(name != null) slots[out].setStackDisplayName(name);
 				}
 				
-				slots[in].stackSize--;
-				if(slots[in].stackSize <= 0) {
-					slots[in] = null;
+				slots[in].shrink(1);
+				if(slots[in].getCount() <= 0) {
+					slots[in] = ItemStack.EMPTY;
 				}
 				
-			} else if(slots[out] != null && (emptyContainer == null || (slots[out].getItem() == emptyContainer.getItem() && slots[out].getItemDamage() == emptyContainer.getItemDamage() && slots[out].stackSize < slots[out].getMaxStackSize()))) {
+			} else if(slots[out] != null && !slots[out].isEmpty() && (emptyContainer == null || (slots[out].getItem() == emptyContainer.getItem() && slots[out].getItemDamage() == emptyContainer.getItemDamage() && slots[out].getCount() < slots[out].getMaxStackSize()))) {
 				
 				tank.setFill(tank.getFill() + amount);
-				slots[in].stackSize--;
+				slots[in].shrink(1);
 				
-				if(slots[in].stackSize <= 0) {
-					slots[in] = null;
+				if(slots[in].getCount() <= 0) {
+					slots[in] = ItemStack.EMPTY;
 				}
 				
 				if(emptyContainer != null) {
-					slots[out].stackSize++;
+					slots[out].grow(1);
 					if(name != null) slots[out].setStackDisplayName(name);
 				}
 			}

@@ -1,0 +1,15 @@
+PASS: exact two-file parity via normalized baseline hashes; no Git objects required
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/TileAccessCacheNativeTest.java:23: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static final sun.misc.Unsafe UNSAFE;
+                         ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/TileAccessCacheNativeTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); UNSAFE=(sun.misc.Unsafe)f.get(null); } catch(Exception e) { throw new RuntimeException(e); } }
+                                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/TileAccessCacheNativeTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static { try { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); UNSAFE=(sun.misc.Unsafe)f.get(null); } catch(Exception e) { throw new RuntimeException(e); } }
+                                                                                                                       ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: 31 cache/native client/server lookup checks; constructor bootstrap controlled, full Compat not compiled
+PASS: whole ILoadedTile linked to extracted actual Compat method; NOT whole Compat/network/gameplay

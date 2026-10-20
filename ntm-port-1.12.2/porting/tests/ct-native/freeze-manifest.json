@@ -1,0 +1,33 @@
+{
+  "base": "4117777482629b159d6cfa5dcc20c1f4ec5aa311",
+  "production": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java": "49fd2915da6c90f8f09bbb99bbcca7a631887f2be5fbadde6c23631a6f3cff77",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDecoCT.java": "de101a7ca9e5256c0069375a5e7eaa5e0349ea001125a72f143d73e41f598f1c",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMGlass.java": "71e432fc6fd478ba8d2f023e7d5e8b4266bdb8613dba55e477589ea5da775f3c",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMGlassCT.java": "e46be1ef1417d4e6dfda837d5616a8b426f61bfc20f36e9615d97d90c2f20d38",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockHadronCoil.java": "ffd2f53c6e8ca1a18db7edcb4e34a559fb6e1faa54ec8983bf8c1d13837c1bd7",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockICF.java": "120e3e064edb4cb25df3d3fcce70a2dc7437763880cbaee70b449df2794df3d0",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockPWR.java": "eec6a541c44c533024c75d46353e60b346739f1fe684524cdc10ef9205b9cf6a",
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/WireCoated.java": "74d9e40793c3cfc55af20bafac67cac179e311708bd43cdaeda2f478ec032107",
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/CTModelHandler.java": "d29acfcd055abb1e05f98118fd19b08ed9d8381b45380c82b42632661129aa27",
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java": "e09b1508c97014eb2940392b7c6e9c085ef3578957cf3669c8fc365f8a69e3d5",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/RenderBlockCT.java": "7333353045dee00b9194315e0222cdfe4a0855b97568d9f628bd3f789294ee67",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/ct/CT.java": "bd6668400fd094d43ae8b6ad9f968de3cac4bad7fdb163796ac5fa7f05b7fa76",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/ct/CTContext.java": "8e8b8bc782003aad7e64a40700731d3bf8d0b23dd0dcbad680c69d64ef161a70",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/ct/CTLightQuad.java": "23d55234bbf3555cd4aab306becde225ab229c83e1ad4935acee91ff26c23531",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/ct/IBlockCT.java": "d5184ed5e825a3b9cd3d603f0e6d8b785e49a0b4c1b29a5e56a61cf8b9163b34",
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/block/ct/RenderBlocksCT.java": "d06b051704a26c9a8f2c550ca2b844ca2b3f494c0ead2cb1d593c341d8ac4ea3"
+  },
+  "native_geometry_assertions": 1986964,
+  "native_owner_assertions": 133065,
+  "all_original_textures_unchanged": 64,
+  "shared_exact_fragments": 59,
+  "full_gradle_run": false,
+  "gates": [
+    "Entire original and native full-face lighting solver equality is not established.",
+    "Optional vanilla fallback bypasses CTLightQuad interpolation.",
+    "Native destruction retexturing replaces original ignored-override material and drops CTLightQuad.",
+    "Complete item draw and inherited original GL-current-color behavior are not certified.",
+    "Complete ICF/PWR owners/tile mechanics, coated-wire tile behavior and game/server/save/GL acceptance are not certified."
+  ]
+}

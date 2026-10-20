@@ -1,0 +1,2 @@
+PASS 16 exact annotation-only complete-source reversals
+PASS 7 genuine Forge side-transform boundary checks; not a dedicated-server launch or whole armor compile

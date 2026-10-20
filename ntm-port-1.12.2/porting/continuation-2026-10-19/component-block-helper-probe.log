@@ -1,0 +1,11 @@
+/tmp/hbm-component-probe-kh44rqi5/ComponentBlockProbe.java:525: warning: Unsafe is internal proprietary API and may be removed in a future release
+  java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);
+                                    ^
+/tmp/hbm-component-probe-kh44rqi5/ComponentBlockProbe.java:526: warning: Unsafe is internal proprietary API and may be removed in a future release
+  RecordingWorld w=(RecordingWorld)((sun.misc.Unsafe)f.get(null)).allocateInstance(RecordingWorld.class);
+                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+PASS: extracted Component helpers compile against native target APIs; recording World subclass verifies coordinates, metadata, flags, clipping, order, RNG, boundary flags and foundation brake across four orientations; production NBT selectors and extracted civilian selectors, 20000 seeded rolls each. Not full Component/mod compilation or live-world integration.
+PASS: 15 selector decision bodies match pristine after field/API renames; RNG branches and metadata accumulation preserved (static only).

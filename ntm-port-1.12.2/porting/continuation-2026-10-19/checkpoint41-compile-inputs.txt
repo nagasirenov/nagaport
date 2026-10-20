@@ -1,0 +1,14 @@
+PASS 10 frozen Java sources match staged tree, independent snapshot and 4005 generated main compiler inputs.
+Production tree 87d590056f0f2c94cf84cc97b0c6c21116b3073a
+{
+  "src/main/java/api/hbm/fluid/IFluidStandardReceiver.java": "4a6a94fabb5a42b5281e2a3c1bc5cc4fcfee606b7102ee8553f4fac4db87d722",
+  "src/main/java/api/hbm/fluid/IFluidStandardSender.java": "d50548d044ee9fb2e862addf4d6c18af442785966e915f987e180ae6f44223fe",
+  "src/main/java/api/hbm/fluidmk2/IFluidPipeMK2.java": "1b80ee92ce05515ad862a2f66f7eaa63525084391c92ac9ab3b5dfbc4b42b01b",
+  "src/main/java/api/hbm/fluidmk2/IFluidReceiverMK2.java": "4a049ab96a8854fce5bf6de929e679f15e7994b0c503dd9aea5e4de06e1092ca",
+  "src/main/java/api/hbm/fluidmk2/IFluidStandardSenderMK2.java": "559e6b88bc18060228f4c4b5d47b502d6dd9874fc9e19fd828a1f75f55d4264f",
+  "src/main/java/com/hbm/inventory/FluidContainerRegistry.java": "bcb0a6953b744b298e93a5b702731f5538468a535c61d0d79a51038471dc8033",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderFillableItem.java": "73bcf060093cc601daf7636685387c4cf88d968af9d5c8ca58fba8a63aee663f",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderInfinite.java": "fd1ebc87d2ebd5b4394482dfabb2bb6028d5067c9beabb2758fb5db56e5774e8",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidLoaderStandard.java": "3ac79249c44e6972a097cf579afc048c4a674dab9397635813b05b0e4b919ffc",
+  "src/main/java/com/hbm/inventory/fluid/tank/FluidTank.java": "1a623d1e884aeae51e2468dddef784415ca8e9333d988f1962fd50e48e537259"
+}

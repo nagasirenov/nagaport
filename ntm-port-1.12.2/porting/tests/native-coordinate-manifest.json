@@ -1,0 +1,265 @@
+{
+  "baseline_commit": "8240cad6ab08a3c3feaed397e8631640fdd8f5d3",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java",
+      "baseline_sha256": "5b54576a65693de2af85b40c361586aa6fdb6252a01edcd6848e1dabfa189af3",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;",
+          "new": "import net.minecraft.util.math.BlockPos;",
+          "positions": [
+            268
+          ],
+          "count": 1
+        },
+        {
+          "old": "protected ChunkCoordinates spawnPoint = new ChunkCoordinates();",
+          "new": "protected BlockPos.MutableBlockPos spawnPoint = new BlockPos.MutableBlockPos();",
+          "positions": [
+            828
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java",
+      "baseline_sha256": "24c1ff6746d94a2f438daf8e3ace877d56cd5049c90319aa1e9c491ffd698227",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;",
+          "new": "import net.minecraft.util.math.BlockPos;",
+          "positions": [
+            442
+          ],
+          "count": 1
+        },
+        {
+          "old": "protected ChunkCoordinates spawnPoint = new ChunkCoordinates();",
+          "new": "protected BlockPos.MutableBlockPos spawnPoint = new BlockPos.MutableBlockPos();",
+          "positions": [
+            1262
+          ],
+          "count": 1
+        },
+        {
+          "old": "spawnPoint.posX",
+          "new": "spawnPoint.getX()",
+          "positions": [
+            5344,
+            6703,
+            7215
+          ],
+          "count": 3
+        },
+        {
+          "old": "spawnPoint.posY",
+          "new": "spawnPoint.getY()",
+          "positions": [
+            5422,
+            6782,
+            7271
+          ],
+          "count": 3
+        },
+        {
+          "old": "spawnPoint.posZ",
+          "new": "spawnPoint.getZ()",
+          "positions": [
+            5499,
+            6861,
+            7327
+          ],
+          "count": 3
+        },
+        {
+          "old": "spawnPoint.set(",
+          "new": "spawnPoint.setPos(",
+          "positions": [
+            7454,
+            7771
+          ],
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java",
+      "baseline_sha256": "1cdedc592e4a7a8f46710d33d413afd657e7390b122e229cd0bce8a33b73808b",
+      "edits": [
+        {
+          "old": "spawnPoint.posX",
+          "new": "spawnPoint.getX()",
+          "positions": [
+            4676,
+            6259
+          ],
+          "count": 2
+        },
+        {
+          "old": "spawnPoint.posY",
+          "new": "spawnPoint.getY()",
+          "positions": [
+            4728,
+            6339
+          ],
+          "count": 2
+        },
+        {
+          "old": "spawnPoint.posZ",
+          "new": "spawnPoint.getZ()",
+          "positions": [
+            4780,
+            6418
+          ],
+          "count": 2
+        },
+        {
+          "old": "spawnPoint.set(",
+          "new": "spawnPoint.setPos(",
+          "positions": [
+            2852,
+            4899
+          ],
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java",
+      "baseline_sha256": "a193ee6523900d3b75cb1dc5530d779f6ce901042549c2ea45d329309b30bc3d",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;",
+          "new": "import com.hbm.tileentity.machine.SolarMirrorPosition;",
+          "positions": [
+            444
+          ],
+          "count": 1
+        },
+        {
+          "old": "ChunkCoordinates",
+          "new": "SolarMirrorPosition",
+          "positions": [
+            1835
+          ],
+          "count": 1
+        },
+        {
+          "old": "co.posX",
+          "new": "co.getX()",
+          "positions": [
+            2011
+          ],
+          "count": 1
+        },
+        {
+          "old": "co.posY",
+          "new": "co.getY()",
+          "positions": [
+            2051
+          ],
+          "count": 1
+        },
+        {
+          "old": "co.posZ",
+          "new": "co.getZ()",
+          "positions": [
+            2091
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java",
+      "baseline_sha256": "cef7866fc350c07d668eea26d89e1dbdf671afb9d712600d87f101fd32b078bc",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;\n",
+          "new": "",
+          "positions": [
+            544
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySolarBoiler.java",
+      "baseline_sha256": "4b4bdd1c4fdda271bae8d729b93c61af035b7aa22e108c269ee3e9142742c961",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;\n",
+          "new": "",
+          "positions": [
+            665
+          ],
+          "count": 1
+        },
+        {
+          "old": "ChunkCoordinates",
+          "new": "SolarMirrorPosition",
+          "positions": [
+            947,
+            1011
+          ],
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntitySolarMirror.java",
+      "baseline_sha256": "8bbcac301374e17f177128fcb6a5809c82cef1ad785df377dc56af9e3f2b8fdc",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;\n",
+          "new": "",
+          "positions": [
+            348
+          ],
+          "count": 1
+        },
+        {
+          "old": "ChunkCoordinates",
+          "new": "SolarMirrorPosition",
+          "positions": [
+            1481
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/commands/CommandSatellites.java",
+      "baseline_sha256": "4423ab53c88d8d451bc6eb95c5fcdae98d3ab2e11c489cf6272923d26f80fac9",
+      "edits": [
+        {
+          "old": "import net.minecraft.util.ChunkCoordinates;",
+          "new": "import net.minecraft.util.math.BlockPos;",
+          "positions": [
+            473
+          ],
+          "count": 1
+        },
+        {
+          "old": "ChunkCoordinates coords = sender.getPlayerCoordinates();",
+          "new": "BlockPos coords = sender.getPosition();",
+          "positions": [
+            4298
+          ],
+          "count": 1
+        },
+        {
+          "old": "coords.posX, coords.posZ",
+          "new": "coords.getX(), coords.getZ()",
+          "positions": [
+            4452
+          ],
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

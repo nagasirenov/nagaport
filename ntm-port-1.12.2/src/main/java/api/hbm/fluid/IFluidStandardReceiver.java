@@ -13,7 +13,7 @@ import com.hbm.lib.ForgeDirection;
 public interface IFluidStandardReceiver extends IFluidStandardReceiverMK2 {
 
 	public default void subscribeToAllAround(FluidType type, TileEntity tile) {
-		subscribeToAllAround(type, tile.getWorldObj(), tile.xCoord, tile.yCoord, tile.zCoord);
+		subscribeToAllAround(type, tile.getWorld(), tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
 	}
 
 	public default void subscribeToAllAround(FluidType type, World world, int x, int y, int z) {
@@ -29,7 +29,7 @@ public interface IFluidStandardReceiver extends IFluidStandardReceiverMK2 {
 
 	public default void unsubscribeToAllAround(FluidType type, TileEntity tile) {
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			tryUnsubscribe(type, tile.getWorldObj(), tile.xCoord + dir.offsetX, tile.yCoord + dir.offsetY, tile.zCoord + dir.offsetZ);
+			tryUnsubscribe(type, tile.getWorld(), tile.getPos().getX() + dir.offsetX, tile.getPos().getY() + dir.offsetY, tile.getPos().getZ() + dir.offsetZ);
 		}
 	}
 }

@@ -78,6 +78,6 @@ public class ContainerLaunchPadRusted extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return launchpad.isUseableByPlayer(player);
+		return launchpad.isUsableByPlayer(player);
 	}
 }

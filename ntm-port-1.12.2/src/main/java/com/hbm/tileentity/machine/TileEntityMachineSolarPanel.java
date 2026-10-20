@@ -12,24 +12,24 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumSkyBlock;
 import com.hbm.lib.ForgeDirection;
 
-public class TileEntityMachineSolarPanel extends TileEntityLoadedBase implements IEnergyProviderMK2 {
+public class TileEntityMachineSolarPanel extends TileEntityLoadedBase implements IEnergyProviderMK2, net.minecraft.util.ITickable {
 
 	private long power;
 	private long maxpwr = 1_000;
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			// Sun power ranges from 1-4
-			int sun = worldObj.getSavedLightValue(EnumSkyBlock.Sky, xCoord, yCoord, zCoord) - worldObj.skylightSubtracted - 11;
+			int sun = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ()) - this.world.skylightSubtracted - 11;
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				tryProvide(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+				tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 			
-			if(sun <= 0 || !worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord)) {
+			if(sun <= 0 || !this.world.canBlockSeeTheSky(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())) {
 				return;
 			}
 			
@@ -42,10 +42,10 @@ public class TileEntityMachineSolarPanel extends TileEntityLoadedBase implements
 
 	// Balanced around 100he/t on Earth
 	public long getOutput(int sun) {
-		float sunPower = worldObj.provider instanceof WorldProviderOrbit
-			? ((WorldProviderOrbit)worldObj.provider).getSunPower()
-			: CelestialBody.getBody(worldObj).getSunPower();
-		return MathHelper.ceiling_float_int(sun * 25 * sunPower);
+		float sunPower = this.world.provider instanceof WorldProviderOrbit
+			? ((WorldProviderOrbit)this.world.provider).getSunPower()
+			: CelestialBody.getBody(this.world).getSunPower();
+		return MathHelper.ceil(sun * 25 * sunPower);
 	}
 
 	@Override
@@ -76,10 +76,11 @@ public class TileEntityMachineSolarPanel extends TileEntityLoadedBase implements
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		
 		nbt.setLong("power", power);
 		nbt.setLong("maxpwr", maxpwr);
+		return nbt;
 	}
 }

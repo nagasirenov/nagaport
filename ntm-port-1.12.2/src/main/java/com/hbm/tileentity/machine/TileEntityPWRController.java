@@ -159,29 +159,29 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 	}
 
 	@Override
-	public String getName() {
+	public String getDefaultName() {
 		return "container.pwrController";
 	}
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.tanks[0].setType(2, slots);
 			setupTanks();
 
 			if(unloadDelay > 0) unloadDelay--;
 
-			int chunkX = xCoord >> 4;
-			int chunkZ = zCoord >> 4;
+			int chunkX = this.pos.getX() >> 4;
+			int chunkZ = this.pos.getZ() >> 4;
 
 			//since fluid sources are often not within 1 chunk, we just do 2 chunks distance and call it a day
-			if(!worldObj.getChunkProvider().chunkExists(chunkX, chunkZ) ||
-					!worldObj.getChunkProvider().chunkExists(chunkX + 2, chunkZ + 2) ||
-					!worldObj.getChunkProvider().chunkExists(chunkX + 2, chunkZ - 2) ||
-					!worldObj.getChunkProvider().chunkExists(chunkX - 2, chunkZ + 2) ||
-					!worldObj.getChunkProvider().chunkExists(chunkX - 2, chunkZ - 2)) {
+			if(!this.world.getChunkProvider().chunkExists(chunkX, chunkZ) ||
+					!this.world.getChunkProvider().chunkExists(chunkX + 2, chunkZ + 2) ||
+					!this.world.getChunkProvider().chunkExists(chunkX + 2, chunkZ - 2) ||
+					!this.world.getChunkProvider().chunkExists(chunkX - 2, chunkZ + 2) ||
+					!this.world.getChunkProvider().chunkExists(chunkX - 2, chunkZ - 2)) {
 				this.unloadDelay = 60;
 			}
 
@@ -190,8 +190,8 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 						BlockPos portPos = pos.offset(dir);
 
-						if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], worldObj, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
-						this.trySubscribe(tanks[0].getTankType(), worldObj, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
+						if(tanks[1].getFill() > 0) this.tryProvide(tanks[1], this.world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
+						this.trySubscribe(tanks[0].getTankType(), this.world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
 					}
 				}
 
@@ -303,16 +303,16 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 
 	protected void meltDown() {
 
-		worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 
 		double x = 0;
 		double y = 0;
 		double z = 0;
 
 		for(BlockPos pos : this.rods) {
-			Block b = worldObj.getBlock(pos.getX(), pos.getY(), pos.getZ());
-			b.breakBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), b, worldObj.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));
-			worldObj.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.corium_block, 5, 3);
+			Block b = com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()).getBlock();
+			b.breakBlock(this.world, pos.getX(), pos.getY(), pos.getZ(), b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()) ));
+			this.world.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.corium_block, 5, 3);
 
 			x += pos.getX() + 0.5;
 			y += pos.getY() + 0.5;
@@ -323,12 +323,12 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 		y /= rods.size();
 		z /= rods.size();
 
-		worldObj.newExplosion(null, x, y, z, 15F, true, true);
+		this.world.newExplosion(null, x, y, z, 15F, true, true);
 	}
 
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.reactorLoop", xCoord, yCoord, zCoord, 1F, 10F, 1.0F, 20);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.reactorLoop", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1F, 10F, 1.0F, 20);
 	}
 
 	@Override
@@ -382,7 +382,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 	public void serialize(ByteBuf buf) {
 		buf.writeBoolean(isPrinting);
 		if(isPrinting) {
-			ItemPWRPrinter.serialize(worldObj, buf);
+			ItemPWRPrinter.serialize(this.world, buf);
 			isPrinting = false;
 			return;
 		}
@@ -409,7 +409,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 			// piggybacking off of this packet so that we don't have to sync EVERY PWR
 			// block continuously to the client for one tiny screenshot tool
 
-			ItemPWRPrinter.deserialize(worldObj, buf);
+			ItemPWRPrinter.deserialize(this.world, buf);
 			return;
 		}
 
@@ -463,12 +463,14 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 1};
 	}
 
 	@Override
-	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+	public boolean canExtractItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
+		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return slot == 1;
 	}
 
@@ -518,7 +520,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		tanks[0].writeToNBT(nbt, "t0");
@@ -555,18 +557,19 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 			BlockPos pos = rods.get(i);
 			nbt.setIntArray("r" + i, new int[] { pos.getX(), pos.getY(), pos.getZ() });
 		}
+		return nbt;
 	}
 
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
-		return this.isUseableByPlayer(player);
+		return this.isUsableByPlayer(player);
 	}
 
 	@Override
 	public void receiveControl(NBTTagCompound data) {
 
 		if(data.hasKey("control")) {
-			this.rodTarget = MathHelper.clamp_int(data.getInteger("control"), 0, 100);
+			this.rodTarget = MathHelper.clamp(data.getInteger("control"), 0, 100);
 			this.markChanged();
 		}
 	}
@@ -618,7 +621,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 	@Callback(direct = true, limit = 4)
 	@Optional.Method(modid = "OpenComputers")
 	public Object[] setLevel(Context context, Arguments args) {
-		rodTarget = MathHelper.clamp_double(args.checkDouble(0), 0, 100);
+		rodTarget = MathHelper.clamp(args.checkDouble(0), (double) (0), (double) (100));
 		this.markChanged();
 		return new Object[] {true};
 	}

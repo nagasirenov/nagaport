@@ -1,0 +1,3796 @@
+[
+  {
+    "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+    "before_sha256": "4fb75330ff5642e8daf31dc42cab2102c47c4302d4f35e3c06a21c9c39b6d1c9",
+    "after_sha256": "f6515e94a2b50c54829bc0a5cb84a07a19882b87233ccdabf0281e271bf5640a",
+    "edits": [
+      {
+        "start": 40876,
+        "end": 40896,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 40844,
+        "end": 40864,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 30907,
+        "end": 30939,
+        "before": "event.entityLiving.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(event.entityLiving)",
+        "receiver_type": "net.minecraft.entity.EntityLivingBase"
+      },
+      {
+        "start": 30820,
+        "end": 30852,
+        "before": "event.entityLiving.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(event.entityLiving)",
+        "receiver_type": "net.minecraft.entity.EntityLivingBase"
+      },
+      {
+        "start": 30724,
+        "end": 30756,
+        "before": "event.entityLiving.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(event.entityLiving)",
+        "receiver_type": "net.minecraft.entity.EntityLivingBase"
+      },
+      {
+        "start": 30673,
+        "end": 30705,
+        "before": "event.entityLiving.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(event.entityLiving)",
+        "receiver_type": "net.minecraft.entity.EntityLivingBase"
+      },
+      {
+        "start": 30574,
+        "end": 30606,
+        "before": "event.entityLiving.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(event.entityLiving)",
+        "receiver_type": "net.minecraft.entity.EntityLivingBase"
+      },
+      {
+        "start": 23680,
+        "end": 23700,
+        "before": "living.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(living)",
+        "receiver_type": "net.minecraft.entity.EntityLiving"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ClientProxy.java",
+    "before_sha256": "88b86a451df00831923189a7dd1015ec7d6bca1085746f298adeac1ef543fb18",
+    "after_sha256": "af9f2d4d1f23b5e18c11caea34d5b5800fc67e3a7c75397c1178260b26491dac",
+    "edits": [
+      {
+        "start": 121376,
+        "end": 121396,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 121338,
+        "end": 121358,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+    "before_sha256": "f131805c4f394152014f5557e71a677e7e8675c989fc86949ac45335a9bc29f8",
+    "after_sha256": "0bc784a9de56d03ada906bc30eca2960142c962568c568b1d7695285bb167aba",
+    "edits": [
+      {
+        "start": 54163,
+        "end": 54183,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 54121,
+        "end": 54141,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 54022,
+        "end": 54042,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 53886,
+        "end": 53906,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 53854,
+        "end": 53874,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 22860,
+        "end": 22880,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.client.entity.AbstractClientPlayer"
+      },
+      {
+        "start": 22828,
+        "end": 22848,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.client.entity.AbstractClientPlayer"
+      },
+      {
+        "start": 14777,
+        "end": 14797,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 9691,
+        "end": 9711,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 9611,
+        "end": 9631,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 9579,
+        "end": 9599,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 8803,
+        "end": 8823,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 8734,
+        "end": 8754,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 8666,
+        "end": 8686,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 8634,
+        "end": 8654,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+    "before_sha256": "2fffe4b4e8720c644009e93f7578787322473ef1daddfd80f1c6d402371ac1ce",
+    "after_sha256": "2ca1c68d4b20c2f13127f921658ad719c3d8b7d383c2af0e2a4b5c97849ef8fc",
+    "edits": [
+      {
+        "start": 3670,
+        "end": 3690,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3570,
+        "end": 3590,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3538,
+        "end": 3558,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+    "before_sha256": "2fd972589b3a4450e38d55f9eeac4e115f8657a5d51bb2104fdaeb0c64f3f937",
+    "after_sha256": "6007278860afb999bf607d9ff790877d6abe330974eb37ef70c1c30559f2bc20",
+    "edits": [
+      {
+        "start": 6240,
+        "end": 6260,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4452,
+        "end": 4472,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4334,
+        "end": 4354,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4197,
+        "end": 4217,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4060,
+        "end": 4080,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3931,
+        "end": 3951,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3800,
+        "end": 3820,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3662,
+        "end": 3682,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3433,
+        "end": 3453,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3309,
+        "end": 3329,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3166,
+        "end": 3186,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3023,
+        "end": 3043,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2888,
+        "end": 2908,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2751,
+        "end": 2771,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2607,
+        "end": 2627,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1299,
+        "end": 1319,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/machine/ItemPWRPrinter.java",
+    "before_sha256": "e57446f4f24d06ce919940c065f2acba4694978c6b96d999a7cc82b0869f7bf1",
+    "after_sha256": "0dff3705333a2f931793a27382bf56b6065e352670757059de8e16a093ce88df",
+    "edits": [
+      {
+        "start": 2650,
+        "end": 2670,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2618,
+        "end": 2638,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemCasingBag.java",
+    "before_sha256": "b56cc2e735fd94983fcde34ea3af697aef6dc65e2bea4d869d5d695c4effdd22",
+    "after_sha256": "3363e45304ce5bba628690dd4820d9457d93469b5fa6227782b00e4fd6ee989c",
+    "edits": [
+      {
+        "start": 1423,
+        "end": 1443,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1202,
+        "end": 1222,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemStructureTool.java",
+    "before_sha256": "b9c2dfb0d3083c846bcf10337497f946a71504bb78695dec2b7160988f863a77",
+    "after_sha256": "73c5174ae91cc13be3e21a950a2b50952192f5dfc40ee4b790577d28a8b2f96c",
+    "edits": [
+      {
+        "start": 3420,
+        "end": 3465,
+        "before": "Minecraft.getMinecraft().player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemPlasticBag.java",
+    "before_sha256": "1c55b996266d195db89ba88a4b9d28eaa670a21e380bd9ae3428fea633a7be4e",
+    "after_sha256": "8173fddfbc1d0155d63896b436995417d80d957973b8dc9e5ddcbc47061c1698",
+    "edits": [
+      {
+        "start": 1450,
+        "end": 1470,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1219,
+        "end": 1239,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemCMStructure.java",
+    "before_sha256": "e20300ce145e410ae00bee53ab5d49487af8d7901bac9ab8a7bcecf49d203d28",
+    "after_sha256": "309368cd6a46cfaab1bc50ac972ade2b3d4db880a2d2b14cea994379b81b3965",
+    "edits": [
+      {
+        "start": 5794,
+        "end": 5839,
+        "before": "Minecraft.getMinecraft().player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemAmmoBag.java",
+    "before_sha256": "fd86c183be698c9407c3263eef2d94db8e2488a897d252793164b367e73d1ace",
+    "after_sha256": "8af49ceafd08c0fc9c419094cd48611e0c70b684d96364bd9580ac8184e5e59d",
+    "edits": [
+      {
+        "start": 1438,
+        "end": 1458,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1221,
+        "end": 1241,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemSettingsTool.java",
+    "before_sha256": "92b29562bbe0941a28cc538c8a4d30e437cf56eb38d0992551ac22d12e9b5696",
+    "after_sha256": "5cf9a62b63e79935450a7e3d03c4bd22c09ef75f1dd6691be8afe6075e3aa367",
+    "edits": [
+      {
+        "start": 1059,
+        "end": 1096,
+        "before": "((EntityPlayer) entity).getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) entity))",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemTransporterLinker.java",
+    "before_sha256": "a39c728b3282f175317364ad8462cd4dbfe5b7b78f758bf42575eff94cae38ec",
+    "after_sha256": "9618b2706ab1d2f5f18294d293ce0d25e0e08bc3ec886bc17bcf23691a3d6e26",
+    "edits": [
+      {
+        "start": 2678,
+        "end": 2716,
+        "before": "((EntityPlayerMP)entity).getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayerMP)entity))",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+    "before_sha256": "223adac3e329b4fda3cf723f600468a0d410cde1a2d55cad22156595d2794c94",
+    "after_sha256": "1fe7d39d008f8de9855b11a7e8c2a22deef9238541cf84193ac54507bd4eb0e5",
+    "edits": [
+      {
+        "start": 9057,
+        "end": 9077,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 8832,
+        "end": 8852,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemCatalog.java",
+    "before_sha256": "df1e5a7bbc326d41faa6c78436f08b3bf4b0f292cd550e00118184fd24f8e89c",
+    "after_sha256": "f6a96a38c34143f00f9d79bd1d45e532e59f1b2bc6d865efbfe1260d9b14a3a0",
+    "edits": [
+      {
+        "start": 1486,
+        "end": 1506,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1384,
+        "end": 1404,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemTurretControl.java",
+    "before_sha256": "65613177a6ff4147f867dc77afb983bd375ef75814f6d994efa4d3b113527f9f",
+    "after_sha256": "f4b202d1453d6509584e6b44de4316babc3829524a9e96ffa3605744afc078fb",
+    "edits": [
+      {
+        "start": 1170,
+        "end": 1190,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1121,
+        "end": 1141,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemLeadBox.java",
+    "before_sha256": "c452b90d2312dc53869883636b474382b4e1059da553581a82987e12a3247877",
+    "after_sha256": "ea2382d1eb2cbc59f8fc262b8d4f2ba33e2e842019dc114474230a36cac15b8d",
+    "edits": [
+      {
+        "start": 1465,
+        "end": 1485,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1240,
+        "end": 1260,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+    "before_sha256": "372d01cb48a0423acf5491c116125f056296a42005adda58fc4ba478f3edab91",
+    "after_sha256": "03b7dbdc3abb1adeaedab026a083fa026f13348ce3578c3329d481e4b86bd0a2",
+    "edits": [
+      {
+        "start": 13108,
+        "end": 13128,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 11524,
+        "end": 11544,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+    "before_sha256": "d5ebe8201191024e9844708f281070f0031b335c3a59b7defa6440ba5a8d4599",
+    "after_sha256": "2b6a13919c31610917c3675d3c0f491b245c2d39eac97a052b4e7a1e6070cf97",
+    "edits": [
+      {
+        "start": 7024,
+        "end": 7044,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 6803,
+        "end": 6823,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/tool/ItemSatInterface.java",
+    "before_sha256": "6dad5a87a33dba9a0ac8ef90dec25d19c0545e1262d7ec089c4bc8ed7f43d17d",
+    "after_sha256": "39235a725126a34a735139f45f343a6a0aacc015b4097df7fbf56047c1a2f191",
+    "edits": [
+      {
+        "start": 1330,
+        "end": 1368,
+        "before": "((EntityPlayerMP)entity).getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayerMP)entity))",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+    "before_sha256": "506894205578178594079bf4d97e7cc75e376d6f0b2443092408e498d2874d63",
+    "after_sha256": "6ca145df49ab8435f461a16d4c9d1d0c9674c56caef831bafd7e677f4f82fea5",
+    "edits": [
+      {
+        "start": 1906,
+        "end": 1926,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1867,
+        "end": 1887,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1835,
+        "end": 1855,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java",
+    "before_sha256": "5de854a103609693bb911576067105a4d34b2a5fd1b06dbed07a8b2b32fea4ed",
+    "after_sha256": "a49b74d64ff9a58b3dda0e5ca3d15cd8aa175923849f92ddb12fe356bf1c568a",
+    "edits": [
+      {
+        "start": 25405,
+        "end": 25425,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 25307,
+        "end": 25327,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 25275,
+        "end": 25295,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+    "before_sha256": "1d1d3b4625170450a1b52fe2b734c172512121879776a122db471964cce02eb5",
+    "after_sha256": "447f8a08907332374a127431e375b77c67456205b700101e7552cf36f067e69b",
+    "edits": [
+      {
+        "start": 9659,
+        "end": 9679,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 9557,
+        "end": 9577,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 9525,
+        "end": 9545,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryRocket.java",
+    "before_sha256": "d11b232bfe221b8ab1a429d2633ced2fa9903d9f628a0505a2efd6927c1e270e",
+    "after_sha256": "b6f4038f967211899f98bb4c835ecf42b769ebdaf43c5e98d07ab441a8d0d721",
+    "edits": [
+      {
+        "start": 2954,
+        "end": 2974,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2867,
+        "end": 2887,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2833,
+        "end": 2853,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/items/special/ItemPotatos.java",
+    "before_sha256": "360fc63dbce32b57211457904e20d69059277ded4dcb27eb1a62c922e6e3b0ea",
+    "after_sha256": "c7d5a3a182fb257493c1f7ad2611d8f80109495bb2ea97900429dcf3a7c3d865",
+    "edits": [
+      {
+        "start": 792,
+        "end": 807,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/world/gen/util/LogicBlockInteractions.java",
+    "before_sha256": "7a2b48aa9cd764489d872f23c6f1c87ca9cb27fcd756fa8f0a1ce49146eefa52",
+    "after_sha256": "684e8eee691a6fe569f37cd93c75584f4ff86445e4783b9df3d81bddf547233c",
+    "edits": [
+      {
+        "start": 1463,
+        "end": 1483,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1410,
+        "end": 1430,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1378,
+        "end": 1398,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1099,
+        "end": 1119,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1065,
+        "end": 1085,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toserver/ItemDesignatorPacket.java",
+    "before_sha256": "2a351ab63358478f6d1976bb079b83ed1769101ecedd4f9c0b0a1d77b9ac742e",
+    "after_sha256": "1d51501619107637b46c802c045c97b534b07a5b33514275b330c55b7b73e163",
+    "edits": [
+      {
+        "start": 1297,
+        "end": 1312,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toserver/SatLaserPacket.java",
+    "before_sha256": "47e520274181c27eb63abc218809817221a0f99ec5a91fddf524271720148e6b",
+    "after_sha256": "8454b07f37959a90d537ebf8872f69e33e2ce1772174236078ff2e613299b028",
+    "edits": [
+      {
+        "start": 1322,
+        "end": 1337,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1231,
+        "end": 1246,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1204,
+        "end": 1219,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toserver/NBTItemControlPacket.java",
+    "before_sha256": "51a1676bcc32f38f2c836ee03f61ba6e082b0631daf9ac2a49568d1d457b9fb6",
+    "after_sha256": "9a6feee12e8c439edf1c95caff342f000b030838a2f993d81922b796159bd00a",
+    "edits": [
+      {
+        "start": 1558,
+        "end": 1573,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toserver/SatCoordPacket.java",
+    "before_sha256": "32707e1d25df33b51d36275f71c7b717b02acbe9e6f4aa028ac33427623a90ef",
+    "after_sha256": "13f064d9e9ec6336909b2f895c80a0e16da2918da640d0dea282a3ddc8951e8c",
+    "edits": [
+      {
+        "start": 1356,
+        "end": 1371,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1265,
+        "end": 1280,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1238,
+        "end": 1253,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toserver/ItemBobmazonPacket.java",
+    "before_sha256": "6ef3ecd638a904053d778915f9a2ddd8cd219314eda0eabbcba544dcc78ff612",
+    "after_sha256": "fac73b26bb23c11285294bd4c4242a119ddf2cdbf25cb55afd721058cfccc4cf",
+    "edits": [
+      {
+        "start": 2034,
+        "end": 2049,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      },
+      {
+        "start": 2007,
+        "end": 2022,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      },
+      {
+        "start": 1901,
+        "end": 1916,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      },
+      {
+        "start": 1874,
+        "end": 1889,
+        "before": "p.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(p)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      },
+      {
+        "start": 1170,
+        "end": 1190,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1138,
+        "end": 1158,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1018,
+        "end": 1038,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 986,
+        "end": 1006,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toclient/HeldItemNBTPacket.java",
+    "before_sha256": "70d5e259916384c8367184e16ca4eb2f90bb15e00d845dad80d87faab250ce66",
+    "after_sha256": "cc39e4a21224e5fc9a7572432027f658035321bff7546e2081b601c08c866862",
+    "edits": [
+      {
+        "start": 1715,
+        "end": 1735,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toclient/HbmAnimationPacket.java",
+    "before_sha256": "b5526b0589af861bca58141ab1589cffeacfea663b499b486ffad7d5d1d4a1b7",
+    "after_sha256": "48a740f6ad97cfaf71959e3376c12892c2a43d58c166358be6a7d2ce5057254e",
+    "edits": [
+      {
+        "start": 2197,
+        "end": 2217,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/packet/toclient/MuzzleFlashPacket.java",
+    "before_sha256": "29819add89ae2b1e87a72da7a71bcfa75876cc349ed1cec5d152bb2a5fee543b",
+    "after_sha256": "9829a722db80255ca0d65a9f379c6249f8e75f1a61743d0dfc7c454a1ee2e8a1",
+    "edits": [
+      {
+        "start": 1640,
+        "end": 1660,
+        "before": "entity.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(entity)",
+        "receiver_type": "net.minecraft.entity.EntityLivingBase"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+    "before_sha256": "02b492c31e5d44dc8dc8176e07cd8636ed9b4327f4729be923129fd606e4cbc0",
+    "after_sha256": "9e7e440667e7fd290f42419e6437863a06e27e22d8b88f84c85ef3499eda4f3a",
+    "edits": [
+      {
+        "start": 32586,
+        "end": 32606,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 23691,
+        "end": 23740,
+        "before": "((EntityPlayer) source.getEntity()).getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) source.getEntity()))",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/train/EntityRailCarBase.java",
+    "before_sha256": "a41f6d4474ad78d496e29ce26f6f215b4648e2482107e0bf5c7da7b5a2e0b400",
+    "after_sha256": "4d08d68bfd90f42d23f00b113cc046f121c9be85606dbfcbeb29106a247c48fc",
+    "edits": [
+      {
+        "start": 2530,
+        "end": 2550,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2498,
+        "end": 2518,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/mob/ai/EntityAIFireGun.java",
+    "before_sha256": "b3a80f48c3966b08a06200a0f8f6b6cb5469e4e8d5c31933e5b49e295366eaa6",
+    "after_sha256": "2d0e05861d56bdcb9623366c8551c0493261e13d089f34611bec54de11f7c8ed",
+    "edits": [
+      {
+        "start": 4450,
+        "end": 4468,
+        "before": "host.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(host)",
+        "receiver_type": "net.minecraft.entity.EntityLiving"
+      },
+      {
+        "start": 1531,
+        "end": 1549,
+        "before": "host.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(host)",
+        "receiver_type": "net.minecraft.entity.EntityLiving"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/entity/mob/EntityDummy.java",
+    "before_sha256": "85db8808f2cdf521b0de6d27dd890615b203cf9892f2e11747d597c426cf234b",
+    "after_sha256": "ffa6fe4e82c1e786f20b91ac2235e573ffdc3a3d2870a9f4efe45da1e5788093",
+    "edits": [
+      {
+        "start": 790,
+        "end": 810,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 707,
+        "end": 727,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 619,
+        "end": 639,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 587,
+        "end": 607,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/lib/Library.java",
+    "before_sha256": "90ade1b8f414b71fa90699157a03b94f74eea83918f5f32367b9511064a49576",
+    "after_sha256": "7a7ca5297534f7ddd346b75c77498f5e2969dd4152a6b9067d91e7256494da98",
+    "edits": [
+      {
+        "start": 1305,
+        "end": 1325,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1252,
+        "end": 1272,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/HbmKeybinds.java",
+    "before_sha256": "f67e0c59e26b9814a13e0a62bd68224c7647f30851d5db95845c330ddef1ec6f",
+    "after_sha256": "3dd7d57fb21836559dd74af952591d725802d9ab5ca75e90934020ed6566bad1",
+    "edits": [
+      {
+        "start": 9331,
+        "end": 9351,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 7726,
+        "end": 7746,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 7694,
+        "end": 7714,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/HbmKeybindsServer.java",
+    "before_sha256": "34f5f9d99210b4d76a2d8ddcbda3f4b7126abad768371f2d1a17c8e14a08c885",
+    "after_sha256": "1e0f5576e20abc3badaf98b244070313f4074274b9cefef1fc8e07612cc4e6ac",
+    "edits": [
+      {
+        "start": 606,
+        "end": 626,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/ability/IToolHarvestAbility.java",
+    "before_sha256": "a91c2063be502a3a5c16cf8c8927b6ed30b7e154675634317816df904fab348c",
+    "after_sha256": "f864d116f7a68d9ae3fc4cd8a76e66c81a60342019eed8c8c9d7e7f8cde05485",
+    "edits": [
+      {
+        "start": 4145,
+        "end": 4165,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3725,
+        "end": 3745,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2957,
+        "end": 2977,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2553,
+        "end": 2573,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1606,
+        "end": 1626,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/handler/ability/IToolAreaAbility.java",
+    "before_sha256": "f0c1ff021a7c50002dc0be662945e40f6cc19be2cefa63e2129cc92e1273da71",
+    "after_sha256": "0446728bb79ebd8d3d6af2da49b1236eddeae1697bc758a820a34b87c82e0c97",
+    "edits": [
+      {
+        "start": 5213,
+        "end": 5233,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/IRepairable.java",
+    "before_sha256": "c5c53504fea0555dfc445acca4501bfb6c8e5aa7be4f571850ecba087bd604c1",
+    "after_sha256": "7e474e2270820a2579dae4f720f242879fae0b707ebd82bfc62159cac6c81150",
+    "edits": [
+      {
+        "start": 2440,
+        "end": 2485,
+        "before": "Minecraft.getMinecraft().player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/tileentity/machine/TileEntityLockableBase.java",
+    "before_sha256": "4736d400820d017f60e7f7a83f81e83c95469a643ef26b7a9887017bd62c6c7a",
+    "after_sha256": "23936805106c457142526c5c62521d47ef619151c20a6ab72bb912ebdd676f17",
+    "edits": [
+      {
+        "start": 2460,
+        "end": 2480,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1946,
+        "end": 1966,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenToolAbility.java",
+    "before_sha256": "85fb7c0451b6c683de098be2dff728eca4209744f5b4b3d8e35c8bc9fc73bb08",
+    "after_sha256": "4363df35af229641dda8f56f63707c95039740d6cb7fb686f84eeaaf1493346b",
+    "edits": [
+      {
+        "start": 3194,
+        "end": 3222,
+        "before": "this.mc.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenSatCoord.java",
+    "before_sha256": "2c8e42858e97d73f37e9106fdcd79ce4e7f09f3c55ed3b94559365ca53028529",
+    "after_sha256": "3c08002c8d4688d1d8541d54e969f8c62f9063323775b078b1dc39d498e360aa",
+    "edits": [
+      {
+        "start": 3570,
+        "end": 3590,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3183,
+        "end": 3203,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java",
+    "before_sha256": "1e9c3633707fc3bee2f85a3bafb2f77d10d2a6d74d850cdc6a3381d2db7a6d2c",
+    "after_sha256": "ea71fcff0750a154ef42f2af4f18be96369a72ac24473ff29a42c5524f1dc85b",
+    "edits": [
+      {
+        "start": 1653,
+        "end": 1678,
+        "before": "this.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1616,
+        "end": 1641,
+        "before": "this.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenHolotape.java",
+    "before_sha256": "d7631dfc945aa6db10f7c3925c8f6cea7c4ae2f21d4b1752b0c97417d675400b",
+    "after_sha256": "a9236ae733053fab71087d1283d74d0bf318ead9e9829b25286bb930057cd60f",
+    "edits": [
+      {
+        "start": 821,
+        "end": 866,
+        "before": "Minecraft.getMinecraft().player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenGuide.java",
+    "before_sha256": "e3d44791c9dab1c8f5886feb7d319c9e6fd3e0d0b45a592cb9dfaf370dcf4e41",
+    "after_sha256": "8ecaea11af10245c221e347ddeb2f35f33a2289e96a5fcd30d39eaa4a9d0f9e5",
+    "edits": [
+      {
+        "start": 1243,
+        "end": 1263,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIPlasticBag.java",
+    "before_sha256": "72248525326602d16f03f979d2958a437ae2981de7ec9d15e902ca60906df2c9",
+    "after_sha256": "d291586cb2064fda320d3cead76351f2be313fff11bcb369a30cb4f63e7b98d8",
+    "edits": [
+      {
+        "start": 978,
+        "end": 1006,
+        "before": "this.mc.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenFluid.java",
+    "before_sha256": "1b135c1f7318ae935de4af1d790f512fcdf6ba9458152cdf2e5e2baeb9265384",
+    "after_sha256": "609a963ac78102fdaa50b7a6ffe6df2316f0951dbcaddb3dcdad70a6ba37732d",
+    "edits": [
+      {
+        "start": 2490,
+        "end": 2510,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2416,
+        "end": 2436,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2304,
+        "end": 2324,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2272,
+        "end": 2292,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1735,
+        "end": 1755,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1703,
+        "end": 1723,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenSatInterface.java",
+    "before_sha256": "0e0b390625abd2e6070ffda7290ed45ca31972697001c10e2aea8821d8410504",
+    "after_sha256": "e425ad7ff5ade10643116ada7fc1e50a9d6fddabd4719809228a52d92a81e318",
+    "edits": [
+      {
+        "start": 2118,
+        "end": 2138,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenClayTablet.java",
+    "before_sha256": "413d7154f6a0c3eb58c21b7d1bfd8fbfce725827dea16e3a7c031f5ba3e4b72d",
+    "after_sha256": "912759dc95bf4055151c392f1dc3cfa246c85aa299a3f838d452beda884f2f54",
+    "edits": [
+      {
+        "start": 2429,
+        "end": 2449,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2315,
+        "end": 2335,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2274,
+        "end": 2294,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2242,
+        "end": 2262,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1776,
+        "end": 1796,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1733,
+        "end": 1753,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenTemplateFolder.java",
+    "before_sha256": "4bc24659e9f85476c5a834fd636d9c27cbf7e5e2c977cad13f15b055d91303b8",
+    "after_sha256": "2497b53ec9eaa9687a3abcbd5a2db28ae45fe6b53dd40358641a147b2e23c667",
+    "edits": [
+      {
+        "start": 1928,
+        "end": 1948,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1870,
+        "end": 1890,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUITransporterLinker.java",
+    "before_sha256": "d5c1e8db3d02390a2a2921316d1a19a21a69dce6024f1a88a1a79b1aa5192685",
+    "after_sha256": "b3e1022bdb708dce4cf2c2418e2242a09511016a7e93954acd69ae5c78ded510",
+    "edits": [
+      {
+        "start": 2155,
+        "end": 2175,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2123,
+        "end": 2143,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIScreenDesignator.java",
+    "before_sha256": "f7b7458a42ba19aeaa3b873bb5aa1d4431fc45cf1d2a59a98f9497da2a46aaac",
+    "after_sha256": "025e568a20d47a593fac99dc2388877b9cf5883b1d71888926af8db1bea82e67",
+    "edits": [
+      {
+        "start": 5638,
+        "end": 5658,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5606,
+        "end": 5626,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1726,
+        "end": 1746,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIToolBox.java",
+    "before_sha256": "4bb012143f07235d23d714fc29ec1a0da2fa4a6b09920602e3c9a75cee094fae",
+    "after_sha256": "709abc18b4e436e31d03c1849a9e465427c67278df6a26c22dcf00a32639d9b9",
+    "edits": [
+      {
+        "start": 1219,
+        "end": 1247,
+        "before": "this.mc.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      },
+      {
+        "start": 1107,
+        "end": 1135,
+        "before": "this.mc.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUIBookLore.java",
+    "before_sha256": "c347068d91f5ee45dbd0ebf0ad7e692c2a450c4bfd7e52c9eff84dd758d6fe0d",
+    "after_sha256": "94a15613f93c13e0d9ae5c4919394e1a5f7b47562f3676f9ebf3932ca3e3f26e",
+    "edits": [
+      {
+        "start": 984,
+        "end": 1004,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/inventory/gui/GUILeadBox.java",
+    "before_sha256": "1b2f4734fed679202ec17a96381dafb8860529e1436b84fcc2f7c95238a78248",
+    "after_sha256": "0c6aa9b5e23548c9e031a678326865ab9742498409b6ae72fded4bc61e62d6a5",
+    "edits": [
+      {
+        "start": 1225,
+        "end": 1253,
+        "before": "this.mc.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      },
+      {
+        "start": 1113,
+        "end": 1141,
+        "before": "this.mc.player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(this.mc.player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBallsSpawner.java",
+    "before_sha256": "05c562bd2abcd69330b1fe9189e73cba5385762c582adb5f1d9639836074642f",
+    "after_sha256": "230684d95b0f182421856ec29cc0c6f60b64a95888f3c74692c45688eaf90fb9",
+    "edits": [
+      {
+        "start": 650,
+        "end": 670,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 592,
+        "end": 612,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 560,
+        "end": 580,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDepth.java",
+    "before_sha256": "9c898ec2545465d5d36e85142044ebe2825d014908547d5770301353c5c858a8",
+    "after_sha256": "d9f8109dacf4a409e6d07ea39acd6557f1cc60541ee506e2082a6d84cf535b0b",
+    "edits": [
+      {
+        "start": 897,
+        "end": 917,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 837,
+        "end": 857,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 750,
+        "end": 770,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 718,
+        "end": 738,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockToolConversion.java",
+    "before_sha256": "4edd4bb13a1138f7fb7339b4bdb80d2107556a4197f786a4c88fe44bd57b658d",
+    "after_sha256": "fd4e238d8cfe24aa055b0b512a31259d3ade001781adecc7188b68b673bf6a82",
+    "edits": [
+      {
+        "start": 3110,
+        "end": 3155,
+        "before": "Minecraft.getMinecraft().player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "before_sha256": "780f3e018e7baa3d0da14d4c58a2f3fdb612fc4cefe24b2b8763bcfd5e2de19d",
+    "after_sha256": "dc53c91fc0b081dd3454ce6e9802bca4380308285b439c9b92b56764bec2ab97",
+    "edits": [
+      {
+        "start": 2803,
+        "end": 2823,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2695,
+        "end": 2715,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2628,
+        "end": 2648,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2575,
+        "end": 2595,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockAmmoCrate.java",
+    "before_sha256": "2e143c1c2f1f2d95c62f0dc80107128e9097001a2b0f93a4d072eb186beae705",
+    "after_sha256": "28d7525321f702800a15cedac3d3192df0145267e57ac26111111e3e5162ea9b",
+    "edits": [
+      {
+        "start": 1528,
+        "end": 1548,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1496,
+        "end": 1516,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockWandStructure.java",
+    "before_sha256": "6a7476889f8c26bdb1ed55b4eb345b7df5c77ada547d53477c885cd3868e2ad7",
+    "after_sha256": "77b15af1e118d2756f923db1f9f4302dead632553ed90220f2215f05c366d618",
+    "edits": [
+      {
+        "start": 3379,
+        "end": 3399,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3227,
+        "end": 3247,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java",
+    "before_sha256": "24685e05db021981e7a155008e2f85e00a268d32ed56947d3e35f0450f859905",
+    "after_sha256": "aaede0efb45b18c54bc196240deb1a11cfac551674df15d80d03135a2b601536",
+    "edits": [
+      {
+        "start": 4122,
+        "end": 4142,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "before_sha256": "28382a431cf587df5932fe92711e662e84a8f32edd86b6d4788bc1df3152b768",
+    "after_sha256": "aa2759d47c98edc4fdb3ac0c0ff9cefefb62c66ce583f88116a5c329026a9971",
+    "edits": [
+      {
+        "start": 1980,
+        "end": 2000,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1872,
+        "end": 1892,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1805,
+        "end": 1825,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1752,
+        "end": 1772,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockForgottenLock.java",
+    "before_sha256": "1927118791b4a08949aa9974f94843e965c0f03d2860ad47849590bdbc7bc1e4",
+    "after_sha256": "09e3846db694849649864e4cbcbfa4a4a3aae5dbcfc04c5b4508a3c5b038ca44",
+    "edits": [
+      {
+        "start": 907,
+        "end": 927,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 799,
+        "end": 819,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 732,
+        "end": 752,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 679,
+        "end": 699,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockCrate.java",
+    "before_sha256": "e4a29749557a8a008e45ba4e626bfdbaacc58609c907ffda11f1791ffd81d6bd",
+    "after_sha256": "9b7b66d628328f394d6d7db428a29ac3a21f353652a8fb69032cf4b28c352dc8",
+    "edits": [
+      {
+        "start": 1245,
+        "end": 1265,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1213,
+        "end": 1233,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "before_sha256": "403f6af7d74a4153b42daac9fa60fb19a7c9e796dfcb7fb2d05836aa720bc04d",
+    "after_sha256": "6fb6f3194b1dcb216e174538f7fe971f982d7f99e0c6cce65b4a68fd3349b4a1",
+    "edits": [
+      {
+        "start": 2255,
+        "end": 2275,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2033,
+        "end": 2053,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1945,
+        "end": 1965,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+    "before_sha256": "235b68896f9c8a463951d38a65dd6cfb98ba7938672e69f18fc7adea0fcae5bd",
+    "after_sha256": "e92f1be4a7f53b56a16902ccde8e4c5027be41f966abeb1a9bf6af783e4d6522",
+    "edits": [
+      {
+        "start": 7352,
+        "end": 7372,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 7298,
+        "end": 7318,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 7265,
+        "end": 7285,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "before_sha256": "b6e917cf16d8b8349c29e9389c15851e311fecd7b02d046454c04a7e7a0b2136",
+    "after_sha256": "6ddbd6ea38fb5c05eba19b64876384e3475dfe8af75a4ff1d092dbb8a5ead9e4",
+    "edits": [
+      {
+        "start": 2373,
+        "end": 2393,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2290,
+        "end": 2310,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2217,
+        "end": 2237,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+    "before_sha256": "afbe5fbcb83cd4b33812a5473cbcb318aa64e9dbd8ed309316860f4499fdbd8a",
+    "after_sha256": "a745621f346ce3ad9ee44e64cd4f734a0137792f31b2c65bf75e03c015f11078",
+    "edits": [
+      {
+        "start": 2362,
+        "end": 2382,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2257,
+        "end": 2277,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2165,
+        "end": 2185,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2124,
+        "end": 2144,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockAirPump.java",
+    "before_sha256": "14b5f5d7de08b67c0453cbcb6032a1fbf02d0fd26ac88709c1ea32cc79cd0ae7",
+    "after_sha256": "63995d3595756ccbb7adcfd3ad98b4aa43c1b8681100b588324380e85e554720",
+    "edits": [
+      {
+        "start": 4241,
+        "end": 4261,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4185,
+        "end": 4205,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4075,
+        "end": 4095,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4043,
+        "end": 4063,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "before_sha256": "6e14c9d2f4c302d49095832c9f3508ea76fcf58e955792de05361682821d2860",
+    "after_sha256": "beee0719e9c2273b12ed16afb18825a82360aa6b715c9a043d755c7da213792f",
+    "edits": [
+      {
+        "start": 3811,
+        "end": 3831,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3779,
+        "end": 3799,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockFireworks.java",
+    "before_sha256": "677072cd4a9243bc410f9d8c068c0863468abe04b5d9af152635de9de7098ff7",
+    "after_sha256": "3ffe3771d7a193f55de5d717935bb625297890cc5089fe5a7f96d99355379098",
+    "edits": [
+      {
+        "start": 2874,
+        "end": 2894,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2811,
+        "end": 2831,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2742,
+        "end": 2762,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2676,
+        "end": 2696,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2613,
+        "end": 2633,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2522,
+        "end": 2542,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2454,
+        "end": 2474,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2398,
+        "end": 2418,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2327,
+        "end": 2347,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2259,
+        "end": 2279,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2199,
+        "end": 2219,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2128,
+        "end": 2148,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2086,
+        "end": 2106,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "before_sha256": "f8debb9d18144d37913b645956c404e78ddd641f57c4a63bf4d213dec3bfbbfe",
+    "after_sha256": "e4d05ceeeb58c3351bfc28ebe2a42cfb31829baa3947c499b327880985c3a1bf",
+    "edits": [
+      {
+        "start": 2030,
+        "end": 2050,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1998,
+        "end": 2018,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "before_sha256": "27250117e41a387b8dd661941cc4cdb3db70cbaedc72a6ca73f7dccb9572308f",
+    "after_sha256": "eba411832f4b02eecb18f27733267fc07dfcf840b4ec61c73883555cab8c16fc",
+    "edits": [
+      {
+        "start": 1946,
+        "end": 1966,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1865,
+        "end": 1885,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1833,
+        "end": 1853,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/HeaterHeatex.java",
+    "before_sha256": "096f6b75930aaf4ca4a53b17ccd5e29950786f91f12204c60935a137a0d7886d",
+    "after_sha256": "251dac9baa19ac7250607115a0d2aec301d5f7471e5dc44bb79165f537417beb",
+    "edits": [
+      {
+        "start": 2300,
+        "end": 2320,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2229,
+        "end": 2249,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2116,
+        "end": 2136,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2084,
+        "end": 2104,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "before_sha256": "5ef3adbfcb33edb63fe3ab3e527a1fa0e0b15bb22af035f329b0691fd100389f",
+    "after_sha256": "c94fac73d5e4bdb17344cf226c91e4feae006644e96740ea8ae6df062209c38d",
+    "edits": [
+      {
+        "start": 1845,
+        "end": 1865,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1789,
+        "end": 1809,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1458,
+        "end": 1478,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1426,
+        "end": 1446,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+    "before_sha256": "d92333bff65be174f3be9b0427e2c55881c78ef229a59d5923fd7a7d687c42f1",
+    "after_sha256": "8462a647081e5ee705eeaac1b3d622423f0e80f478e78df9b60c576b34a1bba9",
+    "edits": [
+      {
+        "start": 1525,
+        "end": 1545,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1418,
+        "end": 1438,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1334,
+        "end": 1354,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoilerIndustrial.java",
+    "before_sha256": "7af7837493feef3d7c965863c9c42e05ccbc04bb324ce0d90c5c40d90bdef732",
+    "after_sha256": "7eeb696392b9581532dc22c3ea2692b9fd3dfe015af0172f6afeca2ed53f9826",
+    "edits": [
+      {
+        "start": 2250,
+        "end": 2270,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2179,
+        "end": 2199,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1718,
+        "end": 1738,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1686,
+        "end": 1706,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAlkylation.java",
+    "before_sha256": "5cb4347b24bbbc2df887ed58d3cfaa9e4c9e1b75176c6acb7e95fe1f5a685c0f",
+    "after_sha256": "892f62a8232e8f28417cc85e5688b5ddd15aaaa6acf5e90831e702ab4dc984da",
+    "edits": [
+      {
+        "start": 4072,
+        "end": 4092,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4001,
+        "end": 4021,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3546,
+        "end": 3566,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3514,
+        "end": 3534,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDysonLauncher.java",
+    "before_sha256": "a69a951dc25a71c41fb1a3641cc1d3d5bc685fa9d842aa64cfde0107fdf111b4",
+    "after_sha256": "a99421485a9f7d00fab923e53b41f38f5d18ab0419222c118e019971ec7e04cb",
+    "edits": [
+      {
+        "start": 1850,
+        "end": 1870,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+    "before_sha256": "0c7d045c6503c64d1bfafc6d4345bab15024c3427397b2ed83997549c9964320",
+    "after_sha256": "8b8aec0b45f362e6da500bdb969d24d37de37c925b6a1d75da85aab1b68baff2",
+    "edits": [
+      {
+        "start": 3552,
+        "end": 3572,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3483,
+        "end": 3503,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3426,
+        "end": 3446,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3376,
+        "end": 3396,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2683,
+        "end": 2703,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2624,
+        "end": 2644,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2592,
+        "end": 2612,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+    "before_sha256": "b65344f2b9af4bd45d107377baa31cfc6842b0f33074513378217c6408c8ec7a",
+    "after_sha256": "c8aebadf37d19a01e756d5d730733fe8c46020e8e9f594f37cd5ca4393b7e45e",
+    "edits": [
+      {
+        "start": 3035,
+        "end": 3055,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2933,
+        "end": 2953,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2832,
+        "end": 2852,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2800,
+        "end": 2820,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2695,
+        "end": 2715,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2663,
+        "end": 2683,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+    "before_sha256": "decdfc831c4c2e7db5d984c33b87bfadbdb074661e189edb4a3bda725c9c63de",
+    "after_sha256": "1b678c65efe98e60abf51adcfec05d16b918d31be6b27b79d2bc3146b2d98d83",
+    "edits": [
+      {
+        "start": 5758,
+        "end": 5778,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5726,
+        "end": 5746,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockAtmosphereEditor.java",
+    "before_sha256": "2762b6f2c94f70809d44f0b1a5f2f5065da9fd1cd930ba9a6bd41199fe7953b0",
+    "after_sha256": "10c299557896397967a5ba55ffa1fc5e3a8527eff70b28b702089a59cf28fa01",
+    "edits": [
+      {
+        "start": 4641,
+        "end": 4661,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4585,
+        "end": 4605,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4245,
+        "end": 4265,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4213,
+        "end": 4233,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "before_sha256": "36425167c593e3b2bc317773f9da54fa32bd5259ba1274d289075fc2ce4ec5ef",
+    "after_sha256": "9b834aa560dcd26ac4cd966b910810a015e78f019b81237a43f186bf4ca20597",
+    "edits": [
+      {
+        "start": 2355,
+        "end": 2375,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2301,
+        "end": 2321,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2268,
+        "end": 2288,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDysonConverterAnatmogenesis.java",
+    "before_sha256": "d5f95afde67dfa63053c37c833f60c5c39828df4789f2e1796f83b66a4f7f2c7",
+    "after_sha256": "a45b8bd41c4bab1e7511c541ebd260cf579b72ebd429d53251c4449dc38f9678",
+    "edits": [
+      {
+        "start": 4235,
+        "end": 4255,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4179,
+        "end": 4199,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3707,
+        "end": 3727,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3675,
+        "end": 3695,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineBigAssTank9000.java",
+    "before_sha256": "bb6e7df14a4c3360d6ddb38a6233e15245914d84f4d64e407b457939b3cdbf57",
+    "after_sha256": "c6264919d7a48bf6fd746411d909dab5222d0a5948204c752a36cbdd98a2d144",
+    "edits": [
+      {
+        "start": 4346,
+        "end": 4366,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4275,
+        "end": 4295,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4163,
+        "end": 4183,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4131,
+        "end": 4151,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFractionTower.java",
+    "before_sha256": "f68113329c7c8619ac30522c58e438731724d4ce4c145e717a0293d33c83572c",
+    "after_sha256": "eebee80fe6a7dca613b25d7a7c43f5d443913e668a4e3b5f032a500069a203cd",
+    "edits": [
+      {
+        "start": 2442,
+        "end": 2462,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2371,
+        "end": 2391,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1634,
+        "end": 1654,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1602,
+        "end": 1622,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java",
+    "before_sha256": "82f01bd97b016712fe09196f0eddb88d4981b16e5252d8afd48a684e546d2bf9",
+    "after_sha256": "2be8aa1e1794745e992964e27e7f3caf5765b142e858a4fc54a5b4f357fd18de",
+    "edits": [
+      {
+        "start": 6044,
+        "end": 6064,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5316,
+        "end": 5336,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2721,
+        "end": 2741,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2513,
+        "end": 2533,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineOrbus.java",
+    "before_sha256": "17961b925dcf555843d4b4e4554f7819fbdff2afa898065914ed062867eb5e0d",
+    "after_sha256": "a9e3ec3ea7f5a5e3f2f5c92d3df90a1ffe127bfb3d73740369fa6b8a909d4e46",
+    "edits": [
+      {
+        "start": 2548,
+        "end": 2568,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2477,
+        "end": 2497,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2366,
+        "end": 2386,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2334,
+        "end": 2354,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFluidTank.java",
+    "before_sha256": "44f81574c6bf61939cf62a9ea858764173c7536d398bbcf2da92fcafeffe9735",
+    "after_sha256": "90c3bd7721e77c75cc85252135e587fddbf1b5d27b98a6a0cf25aa4f85d6a51b",
+    "edits": [
+      {
+        "start": 3322,
+        "end": 3342,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3251,
+        "end": 3271,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3140,
+        "end": 3160,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3108,
+        "end": 3128,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineStrandCaster.java",
+    "before_sha256": "3896e3be8a7a15ce1f8e6423af1d76c84615022d8759a9919cc6a376af8dd8c3",
+    "after_sha256": "9790799286b5360c944c212cd3573d8ec6dd29f82734725744c1c6890bc795bc",
+    "edits": [
+      {
+        "start": 5608,
+        "end": 5628,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5562,
+        "end": 5582,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5508,
+        "end": 5528,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5476,
+        "end": 5496,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5300,
+        "end": 5320,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5236,
+        "end": 5256,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5140,
+        "end": 5160,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 5108,
+        "end": 5128,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCatalyticCracker.java",
+    "before_sha256": "b4f07a8a46779fb149c7100cd8a081f0ba5a1fae97163e27589c01f565eb9cbc",
+    "after_sha256": "d488e85a44c2b37176ef7e8172a9539b30078d56c3882c5b81e2b2932cefd391",
+    "edits": [
+      {
+        "start": 2231,
+        "end": 2251,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2160,
+        "end": 2180,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1690,
+        "end": 1710,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1658,
+        "end": 1678,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStationComputer.java",
+    "before_sha256": "746d7c3df7a55f94d9fa810e4960aa49ccf093983a467db00466ecb341e1c313",
+    "after_sha256": "781791bddd00fc7a055b1426fb91db60f8e2eec06b49bee0e5d1ac42913dcd82",
+    "edits": [
+      {
+        "start": 5282,
+        "end": 5327,
+        "before": "Minecraft.getMinecraft().player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player)",
+        "receiver_type": "net.minecraft.client.entity.EntityPlayerSP"
+      },
+      {
+        "start": 2279,
+        "end": 2299,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePWRController.java",
+    "before_sha256": "d40fbea7ecdd60a80320d5fabff7d276d66e322a649fea282081e16a6cdfbb9b",
+    "after_sha256": "3bd4390288d921aa13d0137eed5a826f73c0f04bd8ccb280fb01cfed2326da14",
+    "edits": [
+      {
+        "start": 2970,
+        "end": 2990,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2938,
+        "end": 2958,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java",
+    "before_sha256": "5b3111f004619b0a388d8b95fa78e3546fb24fda1fbbe9524551bd70b75abb51",
+    "after_sha256": "a4a029e550fe9368268ade5374aeed65619b11f13f0f67b08927c32c54012e31",
+    "edits": [
+      {
+        "start": 2410,
+        "end": 2430,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2339,
+        "end": 2359,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1887,
+        "end": 1907,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1855,
+        "end": 1875,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockTransporterRocket.java",
+    "before_sha256": "89b7d96d7dfbc7729cfd0fc5bdf03d7e5af4e518433a6d87648fdf5ed755e4ee",
+    "after_sha256": "453b380c7bf331b38be49b2dd7a25bcda5f7c428796db1fc333372d666148409",
+    "edits": [
+      {
+        "start": 1335,
+        "end": 1355,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1303,
+        "end": 1323,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1234,
+        "end": 1254,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1202,
+        "end": 1222,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockAtmosphericCompressor.java",
+    "before_sha256": "21eb2acd7639a96635514f4facae8ad15f06c4b26e2efe87c537357693ded365",
+    "after_sha256": "cbb825535d8bc8ff437878080cd0ec28f46b9d9bed077f7319a382ab3b9faf6c",
+    "edits": [
+      {
+        "start": 4630,
+        "end": 4650,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4574,
+        "end": 4594,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4049,
+        "end": 4069,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4015,
+        "end": 4035,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDrain.java",
+    "before_sha256": "3d4731a67450863a49841cf7e4724aabcad9b8b778167c68ea4edacc5ce19af6",
+    "after_sha256": "d4f303c36fb502466cf510d426466bd73c0307e1cf104f435df23f5be51b16d6",
+    "edits": [
+      {
+        "start": 1948,
+        "end": 1968,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1877,
+        "end": 1897,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1441,
+        "end": 1461,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1409,
+        "end": 1429,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDysonReceiver.java",
+    "before_sha256": "02c5bee37e77573ee2087659cc86078df49d5d691b1fd7b6dae227ed6487b5c8",
+    "after_sha256": "f4e6a199b211e176c7347c14596fc8b9e3bb45e74b485d6b281bd6a4cf63e859",
+    "edits": [
+      {
+        "start": 1718,
+        "end": 1738,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java",
+    "before_sha256": "1a5c3eb3c96e08bcb029805fface7911da760dee0fe47c3b89ad4bb2343c8f1f",
+    "after_sha256": "9dba57bb29ad90912f62dfe487eecd47a3a7b83c369cf10af814eb4865f4705c",
+    "edits": [
+      {
+        "start": 2656,
+        "end": 2676,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2624,
+        "end": 2644,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAtmosphericEmitter.java",
+    "before_sha256": "ef7ddaf0defa6304ffa8147e9fb8c59b4327f2ee80d972a32b23fc8673adfb99",
+    "after_sha256": "dcc425389162c0b4038568b77ffe195fa98ed47f09d85cb7d7b1b43df239f45a",
+    "edits": [
+      {
+        "start": 2765,
+        "end": 2785,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2694,
+        "end": 2714,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2240,
+        "end": 2260,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2208,
+        "end": 2228,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "before_sha256": "1c933b627491a4e0675d3f27e84da17e269b7c405322fc2567d8a3489ca21bd6",
+    "after_sha256": "1205dcdbc8643ffde097a8f0992ad210a623358c4014204a472b8c7477cc6790",
+    "edits": [
+      {
+        "start": 1785,
+        "end": 1805,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1731,
+        "end": 1751,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1698,
+        "end": 1718,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+    "before_sha256": "e0d828149c99bfe67729d72005cfc52d7ddfc19c99261ee0e019b8ea1357c281",
+    "after_sha256": "79702aba1b8a2a0505c28db8aab5841e3ca9288208d0d98e1bfb798216ff7e3d",
+    "edits": [
+      {
+        "start": 2417,
+        "end": 2437,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2370,
+        "end": 2390,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2304,
+        "end": 2324,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2272,
+        "end": 2292,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+    "before_sha256": "5e2c8f062a17e7d8213045dc3c0dce0a0b0c85bf00399c1416e1bbfd957fbb25",
+    "after_sha256": "3d0d1876047088fa2d792a0395e92d7fdc63eb221df4a5450279009608164835",
+    "edits": [
+      {
+        "start": 4292,
+        "end": 4312,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4238,
+        "end": 4258,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 4205,
+        "end": 4225,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineArcFurnaceLarge.java",
+    "before_sha256": "9f7d8092e80ac139f44047a226a85170c62aa9d2fb24d76eb48f1fcf7c27fa06",
+    "after_sha256": "eb3aa5c9c30d43081b67636462fc21a030c4ee2ced76b3371bf5d88404afa04e",
+    "edits": [
+      {
+        "start": 3026,
+        "end": 3046,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2979,
+        "end": 2999,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2913,
+        "end": 2933,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2881,
+        "end": 2901,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "before_sha256": "9303fa839f67d80f058113474a91a47b67606910614a6275361113597b57c320",
+    "after_sha256": "da1b1b1eba064a243e331f96e686c43f1b792de607429334fe7993512ea7d189",
+    "edits": [
+      {
+        "start": 1921,
+        "end": 1941,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1865,
+        "end": 1885,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1614,
+        "end": 1634,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1582,
+        "end": 1602,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineStirling.java",
+    "before_sha256": "3b755360f9f01c99a992ab993c2c05e8d2aaa923796770b1c7d1d20f630ca016",
+    "after_sha256": "492990211ce2803311e59c27101bdde300ebbe86b1ff9076fca7977c1bf72104",
+    "edits": [
+      {
+        "start": 2450,
+        "end": 2470,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2398,
+        "end": 2418,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2341,
+        "end": 2361,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2309,
+        "end": 2329,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHTR3.java",
+    "before_sha256": "1971136e396bcfa44f65785976d1765565b12e9415ac11fd0c3daf7765a10d04",
+    "after_sha256": "91856e03af685d631a9e28f339d44c7b5333944c99b4ff59635c8a10c0b9d089",
+    "edits": [
+      {
+        "start": 2302,
+        "end": 2322,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2231,
+        "end": 2251,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1799,
+        "end": 1819,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1767,
+        "end": 1787,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+    "before_sha256": "c9a5d693f434468fddf86be29e99b555f332eeb2ff3086210baab823df293ec2",
+    "after_sha256": "e628bf2cbe387efa6bb2f21e24aa108491dbe900b7e62f2d87ba9705d73687bf",
+    "edits": [
+      {
+        "start": 3156,
+        "end": 3172,
+        "before": "pl.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(pl)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3084,
+        "end": 3100,
+        "before": "pl.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(pl)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineConveyorPress.java",
+    "before_sha256": "eb84cfd07f79b9b99f52184e9325ada271e1bb552dd9798f32ce10c1c1a0382e",
+    "after_sha256": "9c60b8e41757ea95375395e306c52ed166fbe09cae86d2507230359239f0a4e7",
+    "edits": [
+      {
+        "start": 2127,
+        "end": 2147,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2062,
+        "end": 2082,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1960,
+        "end": 1980,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1928,
+        "end": 1948,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineHephaestus.java",
+    "before_sha256": "172b07b6dd66453a5eab4f7cc2d81fafa7cdfdb795e66192d0a87586d0682d8f",
+    "after_sha256": "2d9da4931748e2571c5c976460ce57a8cb401ba98958ed0ba84422f22a89bef8",
+    "edits": [
+      {
+        "start": 2733,
+        "end": 2753,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2662,
+        "end": 2682,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2194,
+        "end": 2214,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2162,
+        "end": 2182,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "before_sha256": "0cbe978430fe5207836670612286a465bf9bff72f130c0622a064c6ecb313055",
+    "after_sha256": "c0b00a54a86f20cce7d6bb26dd3853d632e98322db5b3183b2eac12349a0c05f",
+    "edits": [
+      {
+        "start": 3449,
+        "end": 3469,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilled.java",
+    "before_sha256": "67111ce925b48bc3fd9b16f1442302ecaa8b43fba9be04c4b248b0839119133e",
+    "after_sha256": "e4ff9cad7b3ea2c2ac48d8f50f36d44ffb71e42cf5a7f831f86618661d622d7a",
+    "edits": [
+      {
+        "start": 2529,
+        "end": 2549,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2425,
+        "end": 2445,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2347,
+        "end": 2367,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 644,
+        "end": 664,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+    "before_sha256": "403965de598e52d35d082210a6cdcece2dc1e2f9707d209a9e5e8ac7e844d05b",
+    "after_sha256": "83c4cc1d383142fe8898b669aeccb7fd83411bf1072254e6a2a3c08384674908",
+    "edits": [
+      {
+        "start": 2987,
+        "end": 3003,
+        "before": "pl.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(pl)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2915,
+        "end": 2931,
+        "before": "pl.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(pl)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+    "before_sha256": "60555e9eb5961cdf982e3f9dec5bcb7fb02f90675ae910de4bbfc11e93b2e20b",
+    "after_sha256": "e2e14961a73f702f4d9efc5ff4dac6661624dd04e0b7ac1d870bf7c457e28d0a",
+    "edits": [
+      {
+        "start": 3911,
+        "end": 3931,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3879,
+        "end": 3899,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/CraneRouter.java",
+    "before_sha256": "41af611472c9923c41d2b3931e6c7ade52587cde0b1cbf52a73700bbb6b85279",
+    "after_sha256": "b61521ca99eaa855cb4a39018f53c4972ef9e6ddff1fa32790b92a8994a83d7b",
+    "edits": [
+      {
+        "start": 3120,
+        "end": 3140,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3088,
+        "end": 3108,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonMedium.java",
+    "before_sha256": "9138c7964b385486feab569fa7fcf6bfbfbb51b4d462e2f63b04690f33c68cff",
+    "after_sha256": "0ec960d45115102be4c4f972741e304426c37c2a612ad0b6ba8a1f9eda55d934",
+    "edits": [
+      {
+        "start": 1969,
+        "end": 1989,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java",
+    "before_sha256": "036dd97dfb1e33e559738162e7ee0358d6bec04fd779b92bca18c6a7cc40a727",
+    "after_sha256": "c74a516c6dcb13f3ebf6cfe5d481f9cd3823b6313e201e694c9347974df3e0ed",
+    "edits": [
+      {
+        "start": 3154,
+        "end": 3174,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java",
+    "before_sha256": "83cccaf8a2a1d4fdd6be50480282bd591332d603627db47c3e606c4e66eeb8c3",
+    "after_sha256": "d6ac2d76ff94cf964e6f8c9860ce163d59e790de2ca1167a4679dfdf9a25cc27",
+    "edits": [
+      {
+        "start": 4001,
+        "end": 4021,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonLarge.java",
+    "before_sha256": "c7307c3b365b19d78d27e6e553eae4e26b15a91fcdad18086bec3107bad5cae4",
+    "after_sha256": "298d2c60e6839579dc99a826f3ae7fe9cd894a1defb5eeeebaad0a9ba3586202",
+    "edits": [
+      {
+        "start": 2655,
+        "end": 2675,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneCrate.java",
+    "before_sha256": "24516e94be4dfdcced59ae3d85e77880cae1d0e5a90453d57c619d8c4c4416ae",
+    "after_sha256": "60680eed51bd884a32249cf8de1eb0c9f8ea12e8b707551c178ef169efb37979",
+    "edits": [
+      {
+        "start": 2143,
+        "end": 2163,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2111,
+        "end": 2131,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/Substation.java",
+    "before_sha256": "39c7fdec6aadb304125f021b92f67e6d60b1d2c414b975f0bed951dfaa784c47",
+    "after_sha256": "1bc7ae71d458480eca86107665b93cc2ebd6408a0aeab68ce09a86842992afc9",
+    "edits": [
+      {
+        "start": 2590,
+        "end": 2610,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java",
+    "before_sha256": "b1bd7445cd2fc3b835dd2822d1eb99794463e47702e642526f28ee0e5c3539c4",
+    "after_sha256": "2bf055c7bf669c90a7c5d044a6bcb9636f789b4b95019b6a867e0645c9359b82",
+    "edits": [
+      {
+        "start": 5240,
+        "end": 5260,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "before_sha256": "d04a344f3c03fbd8b5b20ddde9dbde0b8b30e435159ab5d09ee44c9bea8e9df2",
+    "after_sha256": "4a1b395683536ff33b6e5d3442d1993cb6034115f113ff9f7bc233590900aba3",
+    "edits": [
+      {
+        "start": 3264,
+        "end": 3284,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3184,
+        "end": 3204,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3065,
+        "end": 3085,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 3033,
+        "end": 3053,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "before_sha256": "b3376b0578676492d1a01e764c4da92e6adf0f04c98e7229592415da2eb5a851",
+    "after_sha256": "c9f574386af9da0fabab9e9395cf5308520b65cdd08f9083320921117b0f111c",
+    "edits": [
+      {
+        "start": 1405,
+        "end": 1425,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java",
+    "before_sha256": "6f5eec32ccae5f68fb9d2b636cbdb2463221c7a3613eeaaa0e1bb67b3cf4b64d",
+    "after_sha256": "b38647736f24bacfd3a843a89044998fa5ff0a35b8cdcdfb90aea4016824f181",
+    "edits": [
+      {
+        "start": 3674,
+        "end": 3694,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java",
+    "before_sha256": "18f7b714ddc948ffe142b5ec4687bc6cf0ab9d60e517c642262e3fa77f07c777",
+    "after_sha256": "39f0322200f8f041bbd53a2358cf78627c039fb5d53c7a86b8b198bb16730c26",
+    "edits": [
+      {
+        "start": 3166,
+        "end": 3186,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/commands/CommandCustomize.java",
+    "before_sha256": "099b26eba648ed7f4dec30ebc8955854deb0795b4610b4105f8d5a90485f1be4",
+    "after_sha256": "6f40bdd947ea4b17449e285658a04113e39e8f3b35dbd80de141c5cf78a8f803",
+    "edits": [
+      {
+        "start": 1482,
+        "end": 1502,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1424,
+        "end": 1444,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1143,
+        "end": 1163,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1109,
+        "end": 1129,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/commands/CommandSatellites.java",
+    "before_sha256": "722501cff7996260c2943a79dba01304694598a443a4489c685d2ad146118c7d",
+    "after_sha256": "b41f57c2037b455757e9b7d98b14229694962a2c9deae636efdbad949a680b96",
+    "edits": [
+      {
+        "start": 2196,
+        "end": 2216,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 2090,
+        "end": 2110,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1931,
+        "end": 1951,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1841,
+        "end": 1861,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      },
+      {
+        "start": 1787,
+        "end": 1807,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/commands/CommandStations.java",
+    "before_sha256": "8794470bab2e61eea572a7eaad470902c18c876e5c1bd92d048f144a02613203",
+    "after_sha256": "0f87dba8fcbd0a0a4ad774f31c373995a8485c4e5423d1bb08b2cbdcbc4641cb",
+    "edits": [
+      {
+        "start": 2687,
+        "end": 2707,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      },
+      {
+        "start": 2399,
+        "end": 2419,
+        "before": "player.getHeldItem()",
+        "after": "com.hbm.util.NativeHeldItem.getMainHandNullable(player)",
+        "receiver_type": "net.minecraft.entity.player.EntityPlayerMP"
+      }
+    ]
+  }
+]

@@ -1,0 +1,893 @@
+Compiled from "TileEntity.java"
+public abstract class net.minecraft.tileentity.TileEntity implements net.minecraftforge.common.capabilities.ICapabilitySerializable<net.minecraft.nbt.NBTTagCompound> {
+  private static final org.apache.logging.log4j.Logger LOGGER;
+
+  private static final net.minecraft.util.registry.RegistryNamespaced<net.minecraft.util.ResourceLocation, java.lang.Class<? extends net.minecraft.tileentity.TileEntity>> REGISTRY;
+
+  protected net.minecraft.world.World world;
+
+  protected net.minecraft.util.math.BlockPos pos;
+
+  protected boolean tileEntityInvalid;
+
+  private int blockMetadata;
+
+  protected net.minecraft.block.Block blockType;
+
+  private boolean isVanilla;
+
+  public static final net.minecraft.util.math.AxisAlignedBB INFINITE_EXTENT_AABB;
+
+  private net.minecraft.nbt.NBTTagCompound customTileData;
+
+  private net.minecraftforge.common.capabilities.CapabilityDispatcher capabilities;
+
+  public static void register(java.lang.String, java.lang.Class<? extends net.minecraft.tileentity.TileEntity>);
+    Code:
+       0: getstatic     #45                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: new           #47                 // class net/minecraft/util/ResourceLocation
+       6: dup
+       7: aload_0
+       8: invokespecial #51                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      11: aload_1
+      12: invokevirtual #57                 // Method net/minecraft/util/registry/RegistryNamespaced.putObject:(Ljava/lang/Object;Ljava/lang/Object;)V
+      15: return
+
+  public static net.minecraft.util.ResourceLocation getKey(java.lang.Class<? extends net.minecraft.tileentity.TileEntity>);
+    Code:
+       0: getstatic     #45                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: aload_0
+       4: invokevirtual #69                 // Method net/minecraft/util/registry/RegistryNamespaced.getNameForObject:(Ljava/lang/Object;)Ljava/lang/Object;
+       7: checkcast     #47                 // class net/minecraft/util/ResourceLocation
+      10: areturn
+
+  public net.minecraft.world.World getWorld();
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+       4: areturn
+
+  public void setWorld(net.minecraft.world.World);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #74                 // Field world:Lnet/minecraft/world/World;
+       5: return
+
+  public boolean hasWorld();
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+       4: ifnull        11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public void readFromNBT(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: new           #85                 // class net/minecraft/util/math/BlockPos
+       4: dup
+       5: aload_1
+       6: ldc           #87                 // String x
+       8: invokevirtual #93                 // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+      11: aload_1
+      12: ldc           #95                 // String y
+      14: invokevirtual #93                 // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+      17: aload_1
+      18: ldc           #97                 // String z
+      20: invokevirtual #93                 // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+      23: invokespecial #100                // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      26: putfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      29: aload_1
+      30: ldc           #104                // String ForgeData
+      32: invokevirtual #108                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;)Z
+      35: ifeq          48
+      38: aload_0
+      39: aload_1
+      40: ldc           #104                // String ForgeData
+      42: invokevirtual #112                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      45: putfield      #114                // Field customTileData:Lnet/minecraft/nbt/NBTTagCompound;
+      48: aload_0
+      49: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      52: ifnull        77
+      55: aload_1
+      56: ldc           #118                // String ForgeCaps
+      58: invokevirtual #108                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;)Z
+      61: ifeq          77
+      64: aload_0
+      65: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      68: aload_1
+      69: ldc           #118                // String ForgeCaps
+      71: invokevirtual #112                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      74: invokevirtual #123                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.deserializeNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+      77: return
+
+  public net.minecraft.nbt.NBTTagCompound writeToNBT(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #129                // Method writeInternal:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;
+       5: areturn
+
+  private net.minecraft.nbt.NBTTagCompound writeInternal(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: getstatic     #45                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: aload_0
+       4: invokevirtual #134                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       7: invokevirtual #69                 // Method net/minecraft/util/registry/RegistryNamespaced.getNameForObject:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #47                 // class net/minecraft/util/ResourceLocation
+      13: astore_2
+      14: aload_2
+      15: ifnonnull     48
+      18: new           #136                // class java/lang/RuntimeException
+      21: dup
+      22: new           #138                // class java/lang/StringBuilder
+      25: dup
+      26: invokespecial #141                // Method java/lang/StringBuilder."<init>":()V
+      29: aload_0
+      30: invokevirtual #134                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      33: invokevirtual #145                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      36: ldc           #147                // String  is missing a mapping! This is a bug!
+      38: invokevirtual #150                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      41: invokevirtual #154                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      44: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+      47: athrow
+      48: aload_1
+      49: ldc           #157                // String id
+      51: aload_2
+      52: invokevirtual #158                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+      55: invokevirtual #162                // Method net/minecraft/nbt/NBTTagCompound.setString:(Ljava/lang/String;Ljava/lang/String;)V
+      58: aload_1
+      59: ldc           #87                 // String x
+      61: aload_0
+      62: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      65: invokevirtual #166                // Method net/minecraft/util/math/BlockPos.getX:()I
+      68: invokevirtual #170                // Method net/minecraft/nbt/NBTTagCompound.setInteger:(Ljava/lang/String;I)V
+      71: aload_1
+      72: ldc           #95                 // String y
+      74: aload_0
+      75: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      78: invokevirtual #173                // Method net/minecraft/util/math/BlockPos.getY:()I
+      81: invokevirtual #170                // Method net/minecraft/nbt/NBTTagCompound.setInteger:(Ljava/lang/String;I)V
+      84: aload_1
+      85: ldc           #97                 // String z
+      87: aload_0
+      88: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      91: invokevirtual #176                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      94: invokevirtual #170                // Method net/minecraft/nbt/NBTTagCompound.setInteger:(Ljava/lang/String;I)V
+      97: aload_0
+      98: getfield      #114                // Field customTileData:Lnet/minecraft/nbt/NBTTagCompound;
+     101: ifnull        114
+     104: aload_1
+     105: ldc           #104                // String ForgeData
+     107: aload_0
+     108: getfield      #114                // Field customTileData:Lnet/minecraft/nbt/NBTTagCompound;
+     111: invokevirtual #180                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+     114: aload_0
+     115: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+     118: ifnull        134
+     121: aload_1
+     122: ldc           #118                // String ForgeCaps
+     124: aload_0
+     125: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+     128: invokevirtual #184                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+     131: invokevirtual #180                // Method net/minecraft/nbt/NBTTagCompound.setTag:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+     134: aload_1
+     135: areturn
+
+  public static net.minecraft.tileentity.TileEntity create(net.minecraft.world.World, net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aconst_null
+       1: astore_2
+       2: aload_1
+       3: ldc           #157                // String id
+       5: invokevirtual #195                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+       8: astore_3
+       9: aconst_null
+      10: astore        4
+      12: getstatic     #45                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+      15: new           #47                 // class net/minecraft/util/ResourceLocation
+      18: dup
+      19: aload_3
+      20: invokespecial #51                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      23: invokevirtual #198                // Method net/minecraft/util/registry/RegistryNamespaced.getObject:(Ljava/lang/Object;)Ljava/lang/Object;
+      26: checkcast     #200                // class java/lang/Class
+      29: astore        4
+      31: aload         4
+      33: ifnull        45
+      36: aload         4
+      38: invokevirtual #204                // Method java/lang/Class.newInstance:()Ljava/lang/Object;
+      41: checkcast     #2                  // class net/minecraft/tileentity/TileEntity
+      44: astore_2
+      45: goto          90
+      48: astore        5
+      50: getstatic     #208                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      53: ldc           #210                // String Failed to create block entity {}
+      55: aload_3
+      56: aload         5
+      58: invokeinterface #216,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      63: getstatic     #221                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+      66: ldc           #223                // String A TileEntity {}({}) has thrown an exception during loading, its state cannot be restored. Report this to the mod author
+      68: aload_3
+      69: aload         4
+      71: ifnonnull     78
+      74: aconst_null
+      75: goto          83
+      78: aload         4
+      80: invokevirtual #228                // Method java/lang/Class.getName:()Ljava/lang/String;
+      83: aload         5
+      85: invokeinterface #231,  5          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      90: aload_2
+      91: ifnull        145
+      94: aload_2
+      95: aload_0
+      96: invokevirtual #234                // Method setWorldCreate:(Lnet/minecraft/world/World;)V
+      99: aload_2
+     100: aload_1
+     101: invokevirtual #236                // Method readFromNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+     104: goto          156
+     107: astore        5
+     109: getstatic     #208                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     112: ldc           #238                // String Failed to load data for block entity {}
+     114: aload_3
+     115: aload         5
+     117: invokeinterface #216,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     122: getstatic     #221                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+     125: ldc           #223                // String A TileEntity {}({}) has thrown an exception during loading, its state cannot be restored. Report this to the mod author
+     127: aload_3
+     128: aload         4
+     130: invokevirtual #228                // Method java/lang/Class.getName:()Ljava/lang/String;
+     133: aload         5
+     135: invokeinterface #231,  5          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     140: aconst_null
+     141: astore_2
+     142: goto          156
+     145: getstatic     #208                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     148: ldc           #240                // String Skipping BlockEntity with id {}
+     150: aload_3
+     151: invokeinterface #244,  3          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Object;)V
+     156: aload_2
+     157: areturn
+    Exception table:
+       from    to  target type
+          12    45    48   Class java/lang/Throwable
+          94   104   107   Class java/lang/Throwable
+
+  protected void setWorldCreate(net.minecraft.world.World);
+    Code:
+       0: return
+
+  public int getBlockMetadata();
+    Code:
+       0: aload_0
+       1: getfield      #256                // Field blockMetadata:I
+       4: iconst_m1
+       5: if_icmpne     34
+       8: aload_0
+       9: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      12: aload_0
+      13: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      16: invokevirtual #260                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      19: astore_1
+      20: aload_0
+      21: aload_1
+      22: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      27: aload_1
+      28: invokevirtual #272                // Method net/minecraft/block/Block.getMetaFromState:(Lnet/minecraft/block/state/IBlockState;)I
+      31: putfield      #256                // Field blockMetadata:I
+      34: aload_0
+      35: getfield      #256                // Field blockMetadata:I
+      38: ireturn
+
+  public void markDirty();
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+       4: ifnull        70
+       7: aload_0
+       8: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      11: aload_0
+      12: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      15: invokevirtual #260                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      18: astore_1
+      19: aload_0
+      20: aload_1
+      21: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      26: aload_1
+      27: invokevirtual #272                // Method net/minecraft/block/Block.getMetaFromState:(Lnet/minecraft/block/state/IBlockState;)I
+      30: putfield      #256                // Field blockMetadata:I
+      33: aload_0
+      34: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      37: aload_0
+      38: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      41: aload_0
+      42: invokevirtual #279                // Method net/minecraft/world/World.markChunkDirty:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/tileentity/TileEntity;)V
+      45: aload_0
+      46: invokevirtual #282                // Method getBlockType:()Lnet/minecraft/block/Block;
+      49: getstatic     #287                // Field net/minecraft/init/Blocks.AIR:Lnet/minecraft/block/Block;
+      52: if_acmpeq     70
+      55: aload_0
+      56: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      59: aload_0
+      60: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: aload_0
+      64: invokevirtual #282                // Method getBlockType:()Lnet/minecraft/block/Block;
+      67: invokevirtual #291                // Method net/minecraft/world/World.updateComparatorOutputLevel:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;)V
+      70: return
+
+  public double getDistanceSq(double, double, double);
+    Code:
+       0: aload_0
+       1: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+       4: invokevirtual #166                // Method net/minecraft/util/math/BlockPos.getX:()I
+       7: i2d
+       8: ldc2_w        #294                // double 0.5d
+      11: dadd
+      12: dload_1
+      13: dsub
+      14: dstore        7
+      16: aload_0
+      17: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      20: invokevirtual #173                // Method net/minecraft/util/math/BlockPos.getY:()I
+      23: i2d
+      24: ldc2_w        #294                // double 0.5d
+      27: dadd
+      28: dload_3
+      29: dsub
+      30: dstore        9
+      32: aload_0
+      33: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      36: invokevirtual #176                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      39: i2d
+      40: ldc2_w        #294                // double 0.5d
+      43: dadd
+      44: dload         5
+      46: dsub
+      47: dstore        11
+      49: dload         7
+      51: dload         7
+      53: dmul
+      54: dload         9
+      56: dload         9
+      58: dmul
+      59: dadd
+      60: dload         11
+      62: dload         11
+      64: dmul
+      65: dadd
+      66: dreturn
+
+  public double getMaxRenderDistanceSquared();
+    Code:
+       0: ldc2_w        #309                // double 4096.0d
+       3: dreturn
+
+  public net.minecraft.util.math.BlockPos getPos();
+    Code:
+       0: aload_0
+       1: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+       4: areturn
+
+  public net.minecraft.block.Block getBlockType();
+    Code:
+       0: aload_0
+       1: getfield      #314                // Field blockType:Lnet/minecraft/block/Block;
+       4: ifnonnull     34
+       7: aload_0
+       8: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      11: ifnull        34
+      14: aload_0
+      15: aload_0
+      16: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      19: aload_0
+      20: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      23: invokevirtual #260                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      26: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      31: putfield      #314                // Field blockType:Lnet/minecraft/block/Block;
+      34: aload_0
+      35: getfield      #314                // Field blockType:Lnet/minecraft/block/Block;
+      38: areturn
+
+  public net.minecraft.network.play.server.SPacketUpdateTileEntity getUpdatePacket();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public net.minecraft.nbt.NBTTagCompound getUpdateTag();
+    Code:
+       0: aload_0
+       1: new           #89                 // class net/minecraft/nbt/NBTTagCompound
+       4: dup
+       5: invokespecial #318                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+       8: invokespecial #129                // Method writeInternal:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;
+      11: areturn
+
+  public boolean isInvalid();
+    Code:
+       0: aload_0
+       1: getfield      #321                // Field tileEntityInvalid:Z
+       4: ireturn
+
+  public void invalidate();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #321                // Field tileEntityInvalid:Z
+       5: return
+
+  public void validate();
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: putfield      #321                // Field tileEntityInvalid:Z
+       5: return
+
+  public boolean receiveClientEvent(int, int);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public void updateContainingBlockInfo();
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: putfield      #314                // Field blockType:Lnet/minecraft/block/Block;
+       5: aload_0
+       6: iconst_m1
+       7: putfield      #256                // Field blockMetadata:I
+      10: return
+
+  public void addInfoToCrashReport(net.minecraft.crash.CrashReportCategory);
+    Code:
+       0: aload_1
+       1: ldc_w         #332                // String Name
+       4: new           #14                 // class net/minecraft/tileentity/TileEntity$1
+       7: dup
+       8: aload_0
+       9: invokespecial #335                // Method net/minecraft/tileentity/TileEntity$1."<init>":(Lnet/minecraft/tileentity/TileEntity;)V
+      12: invokevirtual #341                // Method net/minecraft/crash/CrashReportCategory.addDetail:(Ljava/lang/String;Lnet/minecraft/crash/ICrashReportDetail;)V
+      15: aload_0
+      16: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+      19: ifnull        68
+      22: aload_1
+      23: aload_0
+      24: getfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      27: aload_0
+      28: invokevirtual #282                // Method getBlockType:()Lnet/minecraft/block/Block;
+      31: aload_0
+      32: invokevirtual #343                // Method getBlockMetadata:()I
+      35: invokestatic  #347                // Method net/minecraft/crash/CrashReportCategory.addBlockInfo:(Lnet/minecraft/crash/CrashReportCategory;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;I)V
+      38: aload_1
+      39: ldc_w         #349                // String Actual block type
+      42: new           #12                 // class net/minecraft/tileentity/TileEntity$2
+      45: dup
+      46: aload_0
+      47: invokespecial #350                // Method net/minecraft/tileentity/TileEntity$2."<init>":(Lnet/minecraft/tileentity/TileEntity;)V
+      50: invokevirtual #341                // Method net/minecraft/crash/CrashReportCategory.addDetail:(Ljava/lang/String;Lnet/minecraft/crash/ICrashReportDetail;)V
+      53: aload_1
+      54: ldc_w         #352                // String Actual block data value
+      57: new           #10                 // class net/minecraft/tileentity/TileEntity$3
+      60: dup
+      61: aload_0
+      62: invokespecial #353                // Method net/minecraft/tileentity/TileEntity$3."<init>":(Lnet/minecraft/tileentity/TileEntity;)V
+      65: invokevirtual #341                // Method net/minecraft/crash/CrashReportCategory.addDetail:(Ljava/lang/String;Lnet/minecraft/crash/ICrashReportDetail;)V
+      68: return
+
+  public void setPos(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #360                // Method net/minecraft/util/math/BlockPos.toImmutable:()Lnet/minecraft/util/math/BlockPos;
+       5: putfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+       8: return
+
+  public boolean onlyOpsCanSetNbt();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public net.minecraft.util.text.ITextComponent getDisplayName();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public void rotate(net.minecraft.util.Rotation);
+    Code:
+       0: return
+
+  public void mirror(net.minecraft.util.Mirror);
+    Code:
+       0: return
+
+  public void onDataPacket(net.minecraft.network.NetworkManager, net.minecraft.network.play.server.SPacketUpdateTileEntity);
+    Code:
+       0: return
+
+  public void handleUpdateTag(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #236                // Method readFromNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+       5: return
+
+  public void onChunkUnload();
+    Code:
+       0: return
+
+  public boolean shouldRefresh(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: getfield      #385                // Field isVanilla:Z
+       4: ifeq          31
+       7: aload_3
+       8: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      13: aload         4
+      15: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      20: if_acmpeq     27
+      23: iconst_1
+      24: goto          42
+      27: iconst_0
+      28: goto          42
+      31: aload_3
+      32: aload         4
+      34: if_acmpeq     41
+      37: iconst_1
+      38: goto          42
+      41: iconst_0
+      42: ireturn
+
+  public boolean shouldRenderInPass(int);
+    Code:
+       0: iload_1
+       1: ifne          8
+       4: iconst_1
+       5: goto          9
+       8: iconst_0
+       9: ireturn
+
+  public net.minecraft.util.math.AxisAlignedBB getRenderBoundingBox();
+    Code:
+       0: getstatic     #398                // Field INFINITE_EXTENT_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+       3: astore_1
+       4: aload_0
+       5: invokevirtual #282                // Method getBlockType:()Lnet/minecraft/block/Block;
+       8: astore_2
+       9: aload_0
+      10: invokevirtual #400                // Method getPos:()Lnet/minecraft/util/math/BlockPos;
+      13: astore_3
+      14: aload_2
+      15: getstatic     #403                // Field net/minecraft/init/Blocks.ENCHANTING_TABLE:Lnet/minecraft/block/Block;
+      18: if_acmpne     40
+      21: new           #405                // class net/minecraft/util/math/AxisAlignedBB
+      24: dup
+      25: aload_3
+      26: aload_3
+      27: iconst_1
+      28: iconst_1
+      29: iconst_1
+      30: invokevirtual #409                // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+      33: invokespecial #412                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)V
+      36: astore_1
+      37: goto          176
+      40: aload_2
+      41: getstatic     #416                // Field net/minecraft/init/Blocks.CHEST:Lnet/minecraft/block/BlockChest;
+      44: if_acmpeq     54
+      47: aload_2
+      48: getstatic     #419                // Field net/minecraft/init/Blocks.TRAPPED_CHEST:Lnet/minecraft/block/Block;
+      51: if_acmpne     79
+      54: new           #405                // class net/minecraft/util/math/AxisAlignedBB
+      57: dup
+      58: aload_3
+      59: iconst_m1
+      60: iconst_0
+      61: iconst_m1
+      62: invokevirtual #409                // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+      65: aload_3
+      66: iconst_2
+      67: iconst_2
+      68: iconst_2
+      69: invokevirtual #409                // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+      72: invokespecial #412                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)V
+      75: astore_1
+      76: goto          176
+      79: aload_2
+      80: getstatic     #422                // Field net/minecraft/init/Blocks.STRUCTURE_BLOCK:Lnet/minecraft/block/Block;
+      83: if_acmpne     93
+      86: getstatic     #398                // Field INFINITE_EXTENT_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      89: astore_1
+      90: goto          176
+      93: aload_2
+      94: ifnull        176
+      97: aload_2
+      98: getstatic     #426                // Field net/minecraft/init/Blocks.BEACON:Lnet/minecraft/block/BlockBeacon;
+     101: if_acmpeq     176
+     104: aconst_null
+     105: astore        4
+     107: aload_0
+     108: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+     111: aload_0
+     112: invokevirtual #400                // Method getPos:()Lnet/minecraft/util/math/BlockPos;
+     115: invokevirtual #260                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     118: aload_0
+     119: getfield      #74                 // Field world:Lnet/minecraft/world/World;
+     122: aload_3
+     123: invokeinterface #430,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getCollisionBoundingBox:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+     128: aload_3
+     129: invokevirtual #434                // Method net/minecraft/util/math/AxisAlignedBB.offset:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+     132: astore        4
+     134: goto          168
+     137: astore        5
+     139: new           #405                // class net/minecraft/util/math/AxisAlignedBB
+     142: dup
+     143: aload_0
+     144: invokevirtual #400                // Method getPos:()Lnet/minecraft/util/math/BlockPos;
+     147: iconst_m1
+     148: iconst_0
+     149: iconst_m1
+     150: invokevirtual #409                // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+     153: aload_0
+     154: invokevirtual #400                // Method getPos:()Lnet/minecraft/util/math/BlockPos;
+     157: iconst_1
+     158: iconst_1
+     159: iconst_1
+     160: invokevirtual #409                // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+     163: invokespecial #412                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)V
+     166: astore        4
+     168: aload         4
+     170: ifnull        176
+     173: aload         4
+     175: astore_1
+     176: aload_1
+     177: areturn
+    Exception table:
+       from    to  target type
+         107   134   137   Class java/lang/Exception
+
+  public boolean canRenderBreaking();
+    Code:
+       0: aload_0
+       1: invokevirtual #282                // Method getBlockType:()Lnet/minecraft/block/Block;
+       4: astore_1
+       5: aload_1
+       6: instanceof    #442                // class net/minecraft/block/BlockChest
+       9: ifne          33
+      12: aload_1
+      13: instanceof    #444                // class net/minecraft/block/BlockEnderChest
+      16: ifne          33
+      19: aload_1
+      20: instanceof    #446                // class net/minecraft/block/BlockSign
+      23: ifne          33
+      26: aload_1
+      27: instanceof    #448                // class net/minecraft/block/BlockSkull
+      30: ifeq          37
+      33: iconst_1
+      34: goto          38
+      37: iconst_0
+      38: ireturn
+
+  public net.minecraft.nbt.NBTTagCompound getTileData();
+    Code:
+       0: aload_0
+       1: getfield      #114                // Field customTileData:Lnet/minecraft/nbt/NBTTagCompound;
+       4: ifnonnull     18
+       7: aload_0
+       8: new           #89                 // class net/minecraft/nbt/NBTTagCompound
+      11: dup
+      12: invokespecial #318                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+      15: putfield      #114                // Field customTileData:Lnet/minecraft/nbt/NBTTagCompound;
+      18: aload_0
+      19: getfield      #114                // Field customTileData:Lnet/minecraft/nbt/NBTTagCompound;
+      22: areturn
+
+  public boolean restrictNBTCopy();
+    Code:
+       0: aload_0
+       1: instanceof    #453                // class net/minecraft/tileentity/TileEntityCommandBlock
+       4: ifne          21
+       7: aload_0
+       8: instanceof    #455                // class net/minecraft/tileentity/TileEntityMobSpawner
+      11: ifne          21
+      14: aload_0
+      15: instanceof    #457                // class net/minecraft/tileentity/TileEntitySign
+      18: ifeq          25
+      21: iconst_1
+      22: goto          26
+      25: iconst_0
+      26: ireturn
+
+  public void onLoad();
+    Code:
+       0: return
+
+  public boolean hasFastRenderer();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public net.minecraft.tileentity.TileEntity();
+    Code:
+       0: aload_0
+       1: invokespecial #460                // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: getstatic     #463                // Field net/minecraft/util/math/BlockPos.ORIGIN:Lnet/minecraft/util/math/BlockPos;
+       8: putfield      #102                // Field pos:Lnet/minecraft/util/math/BlockPos;
+      11: aload_0
+      12: iconst_m1
+      13: putfield      #256                // Field blockMetadata:I
+      16: aload_0
+      17: aload_0
+      18: invokevirtual #134                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      21: invokevirtual #228                // Method java/lang/Class.getName:()Ljava/lang/String;
+      24: ldc_w         #465                // String net.minecraft.
+      27: invokevirtual #468                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      30: putfield      #385                // Field isVanilla:Z
+      33: aload_0
+      34: aload_0
+      35: invokestatic  #474                // Method net/minecraftforge/event/ForgeEventFactory.gatherCapabilities:(Lnet/minecraft/tileentity/TileEntity;)Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      38: putfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      41: return
+
+  public boolean hasCapability(net.minecraftforge.common.capabilities.Capability<?>, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+       4: ifnonnull     11
+       7: iconst_0
+       8: goto          20
+      11: aload_0
+      12: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      15: aload_1
+      16: aload_2
+      17: invokevirtual #478                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.hasCapability:(Lnet/minecraftforge/common/capabilities/Capability;Lnet/minecraft/util/EnumFacing;)Z
+      20: ireturn
+
+  public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T>, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+       4: ifnonnull     11
+       7: aconst_null
+       8: goto          20
+      11: aload_0
+      12: getfield      #116                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      15: aload_1
+      16: aload_2
+      17: invokevirtual #487                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;Lnet/minecraft/util/EnumFacing;)Ljava/lang/Object;
+      20: areturn
+
+  public void deserializeNBT(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #236                // Method readFromNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+       5: return
+
+  public net.minecraft.nbt.NBTTagCompound serializeNBT();
+    Code:
+       0: new           #89                 // class net/minecraft/nbt/NBTTagCompound
+       3: dup
+       4: invokespecial #318                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: aload_1
+      10: invokevirtual #493                // Method writeToNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;
+      13: pop
+      14: aload_1
+      15: areturn
+
+  public void deserializeNBT(net.minecraft.nbt.NBTBase);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #89                 // class net/minecraft/nbt/NBTTagCompound
+       5: invokevirtual #496                // Method deserializeNBT:(Lnet/minecraft/nbt/NBTTagCompound;)V
+       8: return
+
+  public net.minecraft.nbt.NBTBase serializeNBT();
+    Code:
+       0: aload_0
+       1: invokevirtual #499                // Method serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+       4: areturn
+
+  static net.minecraft.util.registry.RegistryNamespaced access$000();
+    Code:
+       0: getstatic     #45                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: areturn
+
+  static {};
+    Code:
+       0: invokestatic  #508                // Method org/apache/logging/log4j/LogManager.getLogger:()Lorg/apache/logging/log4j/Logger;
+       3: putstatic     #208                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       6: new           #53                 // class net/minecraft/util/registry/RegistryNamespaced
+       9: dup
+      10: invokespecial #509                // Method net/minecraft/util/registry/RegistryNamespaced."<init>":()V
+      13: putstatic     #45                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+      16: new           #405                // class net/minecraft/util/math/AxisAlignedBB
+      19: dup
+      20: ldc2_w        #510                // double -Infinityd
+      23: ldc2_w        #510                // double -Infinityd
+      26: ldc2_w        #510                // double -Infinityd
+      29: ldc2_w        #512                // double Infinityd
+      32: ldc2_w        #512                // double Infinityd
+      35: ldc2_w        #512                // double Infinityd
+      38: invokespecial #516                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+      41: putstatic     #398                // Field INFINITE_EXTENT_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      44: ldc_w         #518                // String furnace
+      47: ldc_w         #520                // class net/minecraft/tileentity/TileEntityFurnace
+      50: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+      53: ldc_w         #524                // String chest
+      56: ldc_w         #526                // class net/minecraft/tileentity/TileEntityChest
+      59: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+      62: ldc_w         #528                // String ender_chest
+      65: ldc_w         #530                // class net/minecraft/tileentity/TileEntityEnderChest
+      68: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+      71: ldc_w         #532                // String jukebox
+      74: ldc           #16                 // class net/minecraft/block/BlockJukebox$TileEntityJukebox
+      76: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+      79: ldc_w         #534                // String dispenser
+      82: ldc_w         #536                // class net/minecraft/tileentity/TileEntityDispenser
+      85: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+      88: ldc_w         #538                // String dropper
+      91: ldc_w         #540                // class net/minecraft/tileentity/TileEntityDropper
+      94: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+      97: ldc_w         #542                // String sign
+     100: ldc_w         #457                // class net/minecraft/tileentity/TileEntitySign
+     103: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     106: ldc_w         #544                // String mob_spawner
+     109: ldc_w         #455                // class net/minecraft/tileentity/TileEntityMobSpawner
+     112: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     115: ldc_w         #546                // String noteblock
+     118: ldc_w         #548                // class net/minecraft/tileentity/TileEntityNote
+     121: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     124: ldc_w         #550                // String piston
+     127: ldc_w         #552                // class net/minecraft/tileentity/TileEntityPiston
+     130: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     133: ldc_w         #554                // String brewing_stand
+     136: ldc_w         #556                // class net/minecraft/tileentity/TileEntityBrewingStand
+     139: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     142: ldc_w         #558                // String enchanting_table
+     145: ldc_w         #560                // class net/minecraft/tileentity/TileEntityEnchantmentTable
+     148: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     151: ldc_w         #562                // String end_portal
+     154: ldc_w         #564                // class net/minecraft/tileentity/TileEntityEndPortal
+     157: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     160: ldc_w         #566                // String beacon
+     163: ldc_w         #568                // class net/minecraft/tileentity/TileEntityBeacon
+     166: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     169: ldc_w         #570                // String skull
+     172: ldc_w         #572                // class net/minecraft/tileentity/TileEntitySkull
+     175: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     178: ldc_w         #574                // String daylight_detector
+     181: ldc_w         #576                // class net/minecraft/tileentity/TileEntityDaylightDetector
+     184: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     187: ldc_w         #578                // String hopper
+     190: ldc_w         #580                // class net/minecraft/tileentity/TileEntityHopper
+     193: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     196: ldc_w         #582                // String comparator
+     199: ldc_w         #584                // class net/minecraft/tileentity/TileEntityComparator
+     202: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     205: ldc_w         #586                // String flower_pot
+     208: ldc_w         #588                // class net/minecraft/tileentity/TileEntityFlowerPot
+     211: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     214: ldc_w         #590                // String banner
+     217: ldc_w         #592                // class net/minecraft/tileentity/TileEntityBanner
+     220: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     223: ldc_w         #594                // String structure_block
+     226: ldc_w         #596                // class net/minecraft/tileentity/TileEntityStructure
+     229: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     232: ldc_w         #598                // String end_gateway
+     235: ldc_w         #600                // class net/minecraft/tileentity/TileEntityEndGateway
+     238: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     241: ldc_w         #602                // String command_block
+     244: ldc_w         #453                // class net/minecraft/tileentity/TileEntityCommandBlock
+     247: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     250: ldc_w         #604                // String shulker_box
+     253: ldc_w         #606                // class net/minecraft/tileentity/TileEntityShulkerBox
+     256: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     259: ldc_w         #608                // String bed
+     262: ldc_w         #610                // class net/minecraft/tileentity/TileEntityBed
+     265: invokestatic  #522                // Method register:(Ljava/lang/String;Ljava/lang/Class;)V
+     268: return
+}

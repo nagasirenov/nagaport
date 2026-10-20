@@ -1,0 +1,17 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[02:04:26] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:04:26] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[02:04:26] [main/INFO]: Replaced 1036 ore ingredients
+[02:04:26] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[02:04:26] [main/INFO]: Processing ObjectHolder annotations
+[02:04:26] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 176575 native callback/domain checks; complete BlockOre and BlockCluster; 22 predicate identities. Full Outgas/Fluid behaviors and full game remain outside scope.
+PASS mutant rejected: 0 Exception in thread "main" java.lang.AssertionError: native item callback routes original predicate and RNG
+PASS mutant rejected: 1 Exception in thread "main" java.lang.AssertionError: native damage dispatch preserves rectify/rare/lapis
+PASS mutant rejected: 2 Exception in thread "main" java.lang.AssertionError: real native ItemBlock creative dispatch count
+PASS mutant rejected: 3 Exception in thread "main" java.lang.AssertionError: raw-alias dirty behavior parity
+PASS mutant rejected: 4 Exception in thread "main" java.lang.AssertionError: raw-alias flags2 notification parity
+PASS mutant rejected: 5 Exception in thread "main" java.lang.AssertionError: raw-alias flags2 notification parity

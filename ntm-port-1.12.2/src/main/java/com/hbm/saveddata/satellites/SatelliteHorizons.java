@@ -22,7 +22,7 @@ public class SatelliteHorizons extends Satellite {
 	public void onOrbit(World world, double x, double y, double z) {
 
 		for(Object p : world.playerEntities)
-			((EntityPlayer)p).triggerAchievement(MainRegistry.horizonsStart);
+			com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.horizonsStart);
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {
@@ -50,7 +50,7 @@ public class SatelliteHorizons extends Satellite {
 
 		world.spawnEntityInWorld(tom);
 		for(Object p : world.playerEntities)
-			((EntityPlayer)p).triggerAchievement(MainRegistry.horizonsEnd);
+			com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.horizonsEnd);
 
 		//not necessary but JUST to make sure
 		if(!world.isRemote) {

@@ -1,48 +1,23 @@
 package com.hbm.render.block;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import com.hbm.blocks.generic.BlockGrate;
+import com.hbm.render.block.nativeblock.ConveyorCuboidGeometry;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
 
-import net.minecraftforge.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-
-public class RenderGrate implements ISimpleBlockRenderingHandler {
-
-	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) { }
-
-	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-
-		Tessellator tessellator = Tessellator.instance;
-		int meta = world.getBlockMetadata(x, y, z);
-
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tessellator.setColorOpaque_F(1, 1, 1);
-
-		float fy = ((BlockGrate)block).getY(meta);
-		if(fy < 0) {
-			fy++;
-			y--;
-		} else if(fy >= 1) {
-			fy--;
-			y++;
-		}
-
-		renderer.setRenderBounds(0.0D, fy, 0D, 1D, fy + 0.125D, 1D);
-		renderer.renderStandardBlock(block, x, y, z);
-		return true;
-	}
-
-	@Override
-	public boolean shouldRender3DInInventory(int modelId) {
-		return false;
-	}
-
-	@Override
-	public int getRenderId() {
-		return BlockGrate.renderID;
-	}
+/** Original normalized standard-block faces; collision's wide-grate epsilon never altered the rendered thickness. */
+public final class RenderGrate {
+    private RenderGrate() { }
+    public static List<BakedQuad> bake(int metadata, TextureAtlasSprite top, TextureAtlasSprite side) {
+        double y = metadata == 9 ? -.125F : metadata * .125F;
+        y -= BlockGrate.renderShift(metadata);
+        List<BakedQuad> quads = new ArrayList<>();
+        for(EnumFacing face : EnumFacing.values()) quads.add(ConveyorCuboidGeometry.face(
+                face.getAxis() == EnumFacing.Axis.Y ? top : side, false, face, 0, 0, y, 0, 1, y + .125D, 1, 0));
+        return Collections.unmodifiableList(quads);
+    }
 }

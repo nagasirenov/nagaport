@@ -48,7 +48,7 @@ public class ContainerMachineArcWelder extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return welder.isUseableByPlayer(player);
+		return welder.isUsableByPlayer(player);
 	}
 
 	@Override

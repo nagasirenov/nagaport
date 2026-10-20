@@ -1,0 +1,24 @@
+import net.minecraft.world.World;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemStack;
+class Controls {
+ World field;
+ void positive(World world,ItemStack stack) {
+  world.spawnEntityInWorld(new EntityItem(world,1,2,3,stack));
+  field.spawnEntityInWorld(new EntityItem(world,1,2,3,stack));
+ }
+ void negative(World world,ItemStack stack,Other other,SubWorld sub,EntityItem reused) {
+  other.spawnEntityInWorld(new EntityItem(world,1,2,3,stack));
+  sub.spawnEntityInWorld(new EntityItem(world,1,2,3,stack));
+  world.spawnEntityInWorld(reused);
+  world.spawnEntityInWorld(new EntityItem(world,1,2,3,stack) {});
+  world.spawnEntityInWorld(new EntityItem(world));
+ }
+ static class Other {boolean spawnEntityInWorld(Entity e){return true;}}
+ abstract static class SubWorld extends World { SubWorld(){super(null,null,null,null,false);} }
+ static class Shadow {
+  static class EntityItem {EntityItem(World w,double x,double y,double z,ItemStack s){}}
+  void no(World w,ItemStack s){w.spawnEntityInWorld(new EntityItem(w,1,2,3,s));}
+ }
+}

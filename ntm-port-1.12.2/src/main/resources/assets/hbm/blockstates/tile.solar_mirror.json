@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:native_solar_mirror/world"
+    }
+  }
+}

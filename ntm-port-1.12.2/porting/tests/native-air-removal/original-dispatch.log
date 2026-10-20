@@ -1,0 +1,6 @@
+ahb extends java/lang/Object declares [d(IIILaji;II)Z, f(III)Z]
+bjf extends ahb declares []
+mk extends mt declares []
+mm extends mt declares []
+mt extends ahb declares []
+Audited 5 World hierarchy classes among 1803 classes

@@ -1,0 +1,18 @@
+{
+  "baseline": "c22f7048a82784fe0e8246d38aef102c43f1df70",
+  "proof": "Exact inverse of complete production patch restores every complete CP61 file; earlier world-query edits retained. Isolated scalar full-file CP60 audit is historical, not rerun-success on evolved main.",
+  "files": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityFireLingering.java": {
+      "cp61_before_sha256": "f942b31a07d417937070dce01960a2f4ad05616bc4093708cc9a0bb66a4b8503",
+      "after_sha256": "edb071316640bb9310a5004fdec1b56b7fceee3c6379091efe79a70bc5f72f63"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityWaypoint.java": {
+      "cp61_before_sha256": "7ced3cefe8494eab0001d9a1d1fc34af5ed61aaabf07d9c5500ac748934e89d5",
+      "after_sha256": "70d5120117c4b3f1abd4496ff1e576e02e3a2f47ab11f6f56bd07afc125b9913"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": {
+      "cp61_before_sha256": "c52e6452b91db5b9a2977a8ed035be2d8cffe5b2d96c52ff39221a1cd4cca4d3",
+      "after_sha256": "3f86f70194ab7cf0bb9cfe0231301e220336a3f1c4b9e9cee5c43be7657f6f2f"
+    }
+  }
+}

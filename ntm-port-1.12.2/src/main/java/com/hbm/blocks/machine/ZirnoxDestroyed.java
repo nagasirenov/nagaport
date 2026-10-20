@@ -50,9 +50,9 @@ public class ZirnoxDestroyed extends BlockDummyable {
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 
-		Block block = world.getBlock(x, y + 1, z);
+		Block block = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
 
-		if(block == Blocks.air) {
+		if(block == Blocks.AIR) {
 			if(rand.nextInt(10) == 0)
 				world.setBlock(x, y + 1, z, ModBlocks.gas_meltdown);
 
@@ -61,7 +61,7 @@ public class ZirnoxDestroyed extends BlockDummyable {
 				int pos[] = this.findCore(world, x, y, z);
 
 				if(pos != null) {
-					TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 
 					if(te instanceof TileEntityZirnoxDestroyed)
 						((TileEntityZirnoxDestroyed)te).onFire = false;
@@ -69,7 +69,7 @@ public class ZirnoxDestroyed extends BlockDummyable {
 			}
 		}
 
-		if(rand.nextInt(10) == 0 && world.getBlock(x, y + 1, z) == Blocks.air)
+		if(rand.nextInt(10) == 0 && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR)
 			world.setBlock(x, y + 1, z, ModBlocks.gas_meltdown);
 
 		super.updateTick(world, x, y, z, rand);
@@ -89,9 +89,9 @@ public class ZirnoxDestroyed extends BlockDummyable {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "rbmkflame");
 				data.setInteger("maxAge", 90);
-				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + world.rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + world.rand.nextDouble() * 0.5), new TargetPoint(world.provider.dimensionId, x + 0.5, y + 1.75, z + 0.5, 75));
+				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, x + 0.25 + world.rand.nextDouble() * 0.5, y + 1.75, z + 0.25 + world.rand.nextDouble() * 0.5), new TargetPoint(world.provider.getDimension(), x + 0.5, y + 1.75, z + 0.5, 75));
 				MainRegistry.proxy.effectNT(data);
-				world.playSoundEffect(x + 0.5F, y + 0.5, z + 0.5, "fire.fire", 1.0F + world.rand.nextFloat(), world.rand.nextFloat() * 0.7F + 0.3F);
+				com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5F, y + 0.5, z + 0.5, "fire.fire", 1.0F + world.rand.nextFloat(), world.rand.nextFloat() * 0.7F + 0.3F);
 			}
 		}
 
@@ -99,7 +99,7 @@ public class ZirnoxDestroyed extends BlockDummyable {
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
+	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return null;
 	}
 
